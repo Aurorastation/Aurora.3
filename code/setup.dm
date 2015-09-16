@@ -152,9 +152,10 @@
 //How many moles of fuel are contained within one solid/liquid fuel volume unit
 #define LIQUIDFUEL_AMOUNT_TO_MOL		1  //mol/volume unit
 
-#define T0C  273.15 //    0.0 degrees celcius
-#define T20C 293.15 //   20.0 degrees celcius
-#define TCMB 2.7    // -270.3 degrees celcius
+#define T0C  273.15 	//    0.0 degrees celcius
+#define T20C 293.15 	//   20.0 degrees celcius
+#define Tm100C 173.15	// -100degC
+#define TCMB 2.7    	// -270.3 degrees celcius
 
 // XGM gas flags.
 #define XGM_GAS_FUEL        1
