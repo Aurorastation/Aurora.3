@@ -67,6 +67,13 @@
 	var/list/firemodes = list()
 	var/firemode_type = /datum/firemode //for subtypes that need custom firemode data
 
+	//wielding information
+	var/fire_delay_wielded = 0
+	var/recoil_wielded = 0
+	var/accuracy_wielded = 0
+	var/wielded = 0
+
+
 	//aiming system stuff
 	var/keep_aim = 1 	//1 for keep shooting until aim is lowered
 						//0 for one bullet after tarrget moves and aim is lowered
@@ -130,10 +137,7 @@
 			aiming = PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
 
 	if (!aiming)
-		if(user && user.a_intent == I_HELP) //regardless of what happens, refuse to shoot if help intent is on
-			user << "\red You refrain from firing your [src] as your intent is set to help."
-		else
-			Fire(A,user,params) //Otherwise, fire normally.
+		Fire(A,user,params) //Fire normally and always.
 
 /obj/item/weapon/gun/attack(atom/A, mob/living/user, def_zone)
 	if (A == user && user.zone_sel.selecting == "mouth" && !mouthshoot)
@@ -161,6 +165,8 @@
 	var/_burst = firemode.burst
 	var/_burst_delay = isnull(firemode.burst_delay)? src.burst_delay : firemode.burst_delay
 	var/_fire_delay = isnull(firemode.fire_delay)? src.fire_delay : firemode.fire_delay
+	if(can_wield() && !wielded && firemode.fire_delay)
+		_fire_delay += initial(fire_delay) / 2
 	var/_move_delay = firemode.move_delay
 
 	var/shoot_time = (_burst - 1)*_burst_delay
@@ -370,8 +376,18 @@
 /obj/item/weapon/gun/zoom()
 	..()
 	if(!zoom)
-		accuracy = initial(accuracy)
-		recoil = initial(recoil)
+		if(can_wield() && wielded)
+			if(accuracy_wielded)
+				accuracy = accuracy_wielded
+			else
+				accuracy = initial(accuracy)
+			if(recoil_wielded)
+				recoil = recoil_wielded
+			else
+				recoil = initial(recoil)
+		else
+			accuracy = initial(accuracy)
+			recoil = initial(recoil)
 
 /obj/item/weapon/gun/examine(mob/user)
 	..()
@@ -390,3 +406,116 @@
 	if(firemodes.len > 1)
 		switch_firemodes(user)
 
+//Handling of rifles and two-handed weapons.
+/obj/item/weapon/gun/proc/can_wield()
+	return 0
+
+/obj/item/weapon/gun/proc/toggle_wield(mob/user as mob)
+	if(!can_wield())
+		return
+	if(!istype(user.get_active_hand(), /obj/item/weapon/gun))
+		user << "<span class='warning'>You need to be holding the [name] in your active hand</span>"
+		return
+	if(!istype(user, /mob/living/carbon/human))
+		user << "<span class='warning'>It's too heavy for you to stabilize properly.</span>"
+		return
+
+	var/mob/living/carbon/human/M = user
+	if(istype(M.species, /datum/species/monkey))
+		user << "<span class='warning'>It's too heavy for you to stabilize properly.</span>"
+		return
+
+	if(wielded)
+		unwield()
+		user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
+
+		var/obj/item/weapon/gun/offhand/O = user.get_inactive_hand()
+		if(O && istype(O))
+			O.unwield()
+		else
+			O = user.get_active_hand()
+			if(O && istype(O))
+				O.unwield()
+
+		return
+
+	else
+		if(user.get_inactive_hand())
+			user << "<span class='warning'>You need your other hand to be empty.</span>"
+			return
+		wield()
+		user << "<span class='notice'>You stabilize the [initial(name)] with both hands.</span>"
+
+		var/obj/item/weapon/gun/offhand/O = new(user)
+		O.name = "[initial(name)] - offhand"
+		O.desc = "Your second grip on the [initial(name)]."
+		user.put_in_inactive_hand(O)
+
+	return
+
+/obj/item/weapon/gun/proc/unwield()
+	wielded = 0
+	if(fire_delay_wielded)
+		fire_delay = initial(fire_delay)
+	if(recoil_wielded)
+		recoil = initial(recoil)
+	if(accuracy_wielded)
+		accuracy = initial(accuracy)
+
+/obj/item/weapon/gun/proc/wield()
+	wielded = 1
+	if(fire_delay_wielded)
+		fire_delay = fire_delay_wielded
+	if(recoil_wielded)
+		recoil = recoil_wielded
+	if(accuracy_wielded)
+		accuracy = accuracy_wielded
+
+/obj/item/weapon/gun/mob_can_equip(M as mob, slot)
+	//Cannot equip wielded items.
+	if(can_wield())
+		if(wielded)
+			M << "<span class='warning'>Lower the [initial(name)] first!</span>"
+			return 0
+
+	return ..()
+
+/obj/item/weapon/gun/dropped(mob/living/user as mob)
+	//Unwields the item when dropped, deletes the offhand
+	if(can_wield())
+		if(user)
+			var/obj/item/weapon/gun/O = user.get_inactive_hand()
+			if(istype(O))
+				O.unwield()
+		return unwield()
+
+/obj/item/weapon/gun/pickup(mob/user)
+	if(can_wield())
+		unwield()
+
+///////////OFFHAND///////////////
+/obj/item/weapon/gun/offhand
+	w_class = 5.0
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "offhand"
+	item_state = "nothing"
+	name = "offhand"
+
+	unwield()
+		qdel(src)
+
+	wield()
+		qdel(src)
+
+	dropped(mob/living/user as mob)
+		if(user)
+			var/obj/item/weapon/gun/O = user.get_inactive_hand()
+			if(istype(O))
+				user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
+				O.unwield()
+				unwield()
+		if(src)
+			qdel(src)
+
+	mob_can_equip(M as mob, slot)
+		return 0
