@@ -848,7 +848,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "Automatic weapon crate"
 	num_contained = 2
 	contains = list(/obj/item/weapon/gun/projectile/automatic/wt550,
-					/obj/item/weapon/gun/projectile/automatic/z8)
+					/obj/item/weapon/gun/projectile/automatic/rifle/z8)
 	cost = 90
 	containertype = /obj/structure/closet/crate/secure
 	containername = "Automatic weapon crate"
