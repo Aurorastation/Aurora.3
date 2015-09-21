@@ -103,3 +103,32 @@
 	robotic = 2
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"
+
+
+/obj/item/organ/brain/robot
+	name = "cybernetic brain case"
+	desc = "You should not be seeing this."
+	robotic = TRUE
+	var/machine_brain_type=null
+
+
+/obj/item/organ/brain/robot/proc/get_owners_name()
+	if (owner)
+		return owner.real_name
+	return copytext(src.name,1,lentext(src.name)-4)
+
+
+/obj/item/organ/brain/robot/exposed_to_the_world()
+	var/obj/item/device/mmi/new_mmi
+	if (machine_brain_type=="Posibrain")
+		new_mmi = new/obj/item/device/mmi/digital/posibrain()
+		var/name_of_owner = get_owners_name()
+		new_mmi.name = "positronic brain ([name_of_owner])"
+		new_mmi.brainmob.name = name_of_owner
+		new_mmi.brainmob.real_name = name_of_owner
+	else
+		new_mmi = new/obj/item/device/mmi()
+	new_mmi.transfer_identity(brainmob)
+	new_mmi.loc = src.loc
+	qdel(src)
+	return new_mmi

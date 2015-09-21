@@ -223,6 +223,7 @@ var/global/list/damage_icon_parts = list()
 
 	if(update_icons)   update_icons()
 
+
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
 
@@ -257,17 +258,11 @@ var/global/list/damage_icon_parts = list()
 
 	for(var/organ_tag in species.has_limbs)
 		var/obj/item/organ/external/part = organs_by_name[organ_tag]
-		if(isnull(part) || part.is_stump() || (part.status & ORGAN_DESTROYED))
-			icon_key += "0"
-		else if(part.status & ORGAN_ROBOT)
-			icon_key += "2[part.model ? "-[part.model]": ""]"
-		else if(part.status & ORGAN_DEAD)
-			icon_key += "3"
+		if(isnull(part))
+			icon_key += "L"
 		else
-			icon_key += "1"
-
+			icon_key += part.get_icon_key()
 	icon_key = "[icon_key][husk ? 1 : 0][fat ? 1 : 0][hulk ? 1 : 0][skeleton ? 1 : 0]"
-
 	var/icon/base_icon
 	if(human_icon_cache[icon_key])
 		base_icon = human_icon_cache[icon_key]

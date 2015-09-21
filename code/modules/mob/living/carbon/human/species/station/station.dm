@@ -248,7 +248,7 @@
 	eyes = "blank_eyes"
 	brute_mod = 0.5
 	burn_mod = 1
-	show_ssd = "flashing a 'system offline' glyph on their monitor"
+	show_ssd = "appear to have crashed"
 
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
@@ -268,9 +268,17 @@
 	blood_color = "#1F181F"
 	flesh_color = "#575757"
 
-	has_organ = list() //TODO: Positronic brain.
+	has_organ = list(	"heart" = /obj/item/organ/heart,
+						"brain" = /obj/item/organ/brain/robot)
 
-/datum/species/machine/equip_survival_gear(var/mob/living/carbon/human/H)
+
+/datum/species/machine/create_organs(var/mob/living/carbon/human/H)
+	..()
+	var/obj/item/organ/brain/robot/brain_object = H.internal_organs_by_name["brain"] // handle weird robot brains
+	if (istype(brain_object))
+		if (isnull(brain_object.machine_brain_type))
+			brain_object.machine_brain_type="Posibrain"
+
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()

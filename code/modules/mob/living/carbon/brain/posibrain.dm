@@ -13,6 +13,7 @@
 	req_access = list(access_robotics)
 	locked = 0
 	mecha = null//This does not appear to be used outside of reference in mecha.dm.
+	machine_brain_type="Posibrain"
 
 
 /obj/item/device/mmi/digital/posibrain/attack_self(mob/user as mob)

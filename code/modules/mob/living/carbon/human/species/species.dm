@@ -279,6 +279,133 @@
 /datum/species/proc/can_understand(var/mob/other)
 	return
 
+
+/datum/species/proc/blend_preview_icon(var/icon/main_icon,var/datum/preferences/preferences,var/paint_colour)
+	if(paint_colour)
+		main_icon.Blend(paint_colour, ICON_ADD)
+		return
+	if(flags & HAS_SKIN_COLOR)
+		main_icon.Blend(rgb(preferences.r_skin, preferences.g_skin, preferences.b_skin), ICON_ADD)
+		return
+	if(flags & HAS_SKIN_TONE) // Skin tone
+		if (preferences.s_tone >= 0)
+			main_icon.Blend(rgb(preferences.s_tone, preferences.s_tone, preferences.s_tone), ICON_ADD)
+		else
+			main_icon.Blend(rgb(-preferences.s_tone, -preferences.s_tone, -preferences.s_tone), ICON_SUBTRACT)
+
+
+/datum/species/proc/get_organ_preview_icon(var/name, var/robot, var/gendered, var/gender_string, var/datum/preferences/preferences, var/datum/synthetic_limb_cover/covering, var/paint_colour)
+	var/icon_name = icobase
+	if (robot)
+		if(istype(covering))
+			icon_name = covering.main_icon
+		else
+			icon_name = 'icons/mob/human_races/robotic.dmi'
+			paint_colour = null // no paint for bare robots
+	var/state_name = name
+	if (gendered)
+		state_name+="_[gender_string]"
+	var/icon/result = new /icon(icon_name,state_name)
+	blend_preview_icon(result,preferences,paint_colour)
+	return result
+
+
+/datum/species/proc/get_is_preview_organ_robotic(var/name,var/datum/preferences/preferences)
+	if (flags & IS_SYNTHETIC)
+		return TRUE
+	if (name in preferences.organ_data)
+		var/list/organ_robotic_info=preferences.organ_data[name]
+		if (istype(organ_robotic_info))
+			return TRUE
+
+
+/datum/species/proc/get_preview_organ_covering(var/name,var/datum/preferences/preferences)
+	if (name in preferences.organ_data)
+		var/list/organ_robotic_info=preferences.organ_data[name]
+		if (istype(organ_robotic_info))
+			return organ_robotic_info
+	if (preferences.species=="Machine")
+		if (preferences.covering_type)
+			return list(preferences.covering_type,rgb(preferences.r_skin,preferences.g_skin,preferences.b_skin))
+
+
+/datum/species/proc/get_tail_preview_icon(var/list/preview_coverings,var/datum/preferences/preferences)
+	var/tail_state=null
+	if (!(isnull(preview_coverings["groin"])))
+		var/datum/synthetic_limb_cover/covering=preview_coverings["groin"]
+		if(covering.tail)
+			tail_state="[covering.tail]_s"
+	if(tail)
+		tail_state="[tail]_s"
+	if(tail_state)
+		var/icon/result = new/icon("icon" = 'icons/effects/species.dmi', "icon_state" = tail_state)
+		result.Blend(rgb(preferences.r_hair,preferences.g_hair,preferences.b_hair),ICON_ADD)
+		return result
+
+
+/datum/species/proc/get_eyes_preview_icon(var/list/preview_coverings,var/datum/preferences/preferences)
+	var/eye_state=null
+	if (!(isnull(preview_coverings["head"])))
+		var/datum/synthetic_limb_cover/covering=preview_coverings["head"]
+		eye_state=covering.eyes_state
+	else
+		eye_state=eyes
+	var/icon/result = new/icon('icons/mob/human_face.dmi',eye_state)
+	result.Blend(rgb(preferences.r_eyes,preferences.g_eyes,preferences.b_eyes),ICON_ADD)
+	return result
+
+/* This function takes a preferences object and generates a complete body and hair icon for that set of preferences. It's needlessly complicated
+and duplicates a lot of what's going on in update_icons. The two systems should be combined somehow, possibly by using a 'visual identity' object
+that could be created from either a living human or a preferences object and then passing that to a single render function, but I'll leave that
+exercise for another day.
+
+See code\modules\mob\new_player\preferences_setup.dm for where it's used.
+																							- jack_fractal*/
+/datum/species/proc/create_body_preview_icon(var/datum/preferences/preferences)
+	var/gender_string = (preferences.gender==FEMALE) ? "f" : "m"
+	var/icon/preview_icon = new/icon('icons/mob/human_face.dmi', "blank_eyes") // this is just an empty icon
+	var/list/external_organs = list("torso","groin","head","r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand")
+	var/list/coverings=list()
+	var/list/gendered_organs = list("torso","groin","head")
+	var/list/limb_coverings = get_limb_covering_references()
+	var/list/limb_coverings_names = get_limb_covering_list()
+	for (var/name in external_organs)
+		if(preferences.organ_data[name] == "amputated") // amputated organs don't show up
+			continue
+		var/robotic = get_is_preview_organ_robotic(name,preferences)
+		var/datum/synthetic_limb_cover/covering = null
+		var/paint_colour=null
+		if (robotic)
+			var/list/covering_as_list=get_preview_organ_covering(name, preferences)
+			if (istype(covering_as_list))
+				covering=limb_coverings[limb_coverings_names[covering_as_list[1]]]
+				paint_colour=covering_as_list[2]
+		coverings[name]=covering
+		var/icon/organ_icon = get_organ_preview_icon(name, robotic, (name in gendered_organs), gender_string, preferences, covering, paint_colour)
+		preview_icon.Blend(organ_icon, ICON_OVERLAY)
+		del(organ_icon)
+	var/icon/tail_icon = get_tail_preview_icon(coverings,preferences) // Tail
+	if(tail_icon)
+		preview_icon.Blend(tail_icon, ICON_OVERLAY)
+		del(tail_icon)
+	var/icon/eye_icon = get_eyes_preview_icon(coverings,preferences)
+	if(eye_icon)
+		preview_icon.Blend(eye_icon, ICON_OVERLAY)
+		del(eye_icon)
+	var/datum/sprite_accessory/hair_style = hair_styles_list[preferences.h_style]
+	if(hair_style)
+		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
+		hair_s.Blend(rgb(preferences.r_hair, preferences.g_hair, preferences.b_hair), ICON_ADD)
+		preview_icon.Blend(hair_s, ICON_OVERLAY)
+		del(hair_s)
+	var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[preferences.f_style]
+	if(facial_hair_style)
+		var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
+		facial_s.Blend(rgb(preferences.r_facial, preferences.g_facial, preferences.b_facial), ICON_ADD)
+		preview_icon.Blend(facial_s, ICON_OVERLAY)
+		del(facial_s)
+	return preview_icon
+
 // Called when using the shredding behavior.
 /datum/species/proc/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
 

@@ -51,6 +51,7 @@
 						/obj/item/robot_parts/robot_component/actuator,
 						/obj/item/robot_parts/robot_component/diagnosis_unit,
 						/obj/item/robot_parts/robot_component/camera,
+						/obj/item/robot_parts/robot_component/law_computer,
 						/obj/item/robot_parts/robot_component/armour
 					),
 	"Ripley"=list(
@@ -133,6 +134,11 @@
 
 
 
+	"Synthetic Coverings" = list(	/obj/item/weapon/synth_skin_spray,
+									/obj/item/weapon/synth_skin_cartridge/paint,
+									/obj/item/weapon/synth_skin_cartridge/skin,
+									/obj/item/weapon/synth_skin_cartridge/fur,
+									/obj/item/weapon/synth_skin_cartridge/scales),
 
 
 
