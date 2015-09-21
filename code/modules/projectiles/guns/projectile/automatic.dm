@@ -109,19 +109,19 @@
 	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
-	can_wield()
-		return 1
+/obj/item/weapon/gun/projectile/automatic/rifle/can_wield()
+	return 1
 
-	ui_action_click()
-		if(src in usr)
-			toggle_wield(usr)
-
-	verb/wield_rifle()
-		set name = "Wield rifle"
-		set category = "Object"
-		set src in usr
-
+/obj/item/weapon/gun/projectile/automatic/rifle/ui_action_click()
+	if(src in usr)
 		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "\improper STS-35 automatic rifle"
