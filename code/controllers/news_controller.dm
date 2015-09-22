@@ -37,6 +37,7 @@ var/global/datum/news_controller/news_controller
     update_query.Execute()
 
     if(update_query.ErrorMsg())
+        error("SQL database query encountered an error: [update_query.ErrorMsg()].")
         fails++
         return
 
@@ -60,6 +61,11 @@ var/global/datum/news_controller/news_controller
 
     var/DBQuery/publish_query = dbcon.NewQuery("SELECT channel, author, body FROM ss13_news WHERE id=[article_id]")
     publish_query.Execute()
+
+    if(publish_query.ErrorMsg())
+        error("SQL database query encountered an error: [publish_query.ErrorMsg()].")
+        fails++
+        return
 
     var/article_channel
     var/article_author
