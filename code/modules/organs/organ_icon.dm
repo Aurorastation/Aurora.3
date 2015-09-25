@@ -37,13 +37,15 @@ var/global/list/limb_icon_cache = list()
 	if(!owner || !owner.species)
 		return
 	var/icon/eyes_icon = owner.eye_icon()
-	mob_icon.Blend(eyes_icon, ICON_OVERLAY)
-	overlays |= eyes_icon
+	if(eyes_icon)
+		mob_icon.Blend(eyes_icon, ICON_OVERLAY)
+		overlays |= eyes_icon
 	
 	if(owner.lip_style && (owner.species && (owner.species.flags & HAS_LIPS)))
 		var/icon/lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
-		overlays |= lip_icon
-		mob_icon.Blend(lip_icon, ICON_OVERLAY)
+		if(lip_icon)
+			overlays |= lip_icon
+			mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
 	var/icon/facial_hair_icon = owner.facial_hair_icon()
 	if(facial_hair_icon)
@@ -52,9 +54,10 @@ var/global/list/limb_icon_cache = list()
 
 	if(owner.should_we_show_hair())
 		var/icon/hair_icon = owner.hair_icon()
-		mob_icon.Blend(hair_icon, ICON_OVERLAY)
-		overlays |= hair_icon
-
+		if(hair_icon)
+			mob_icon.Blend(hair_icon, ICON_OVERLAY)
+			overlays |= hair_icon
+			
 	return mob_icon
 
 /obj/item/organ/external/proc/get_icon(var/skeletal)

@@ -324,46 +324,29 @@ var/global/list/damage_icon_parts = list()
 
 	//tail
 	update_tail_showing(0)
+	
+
+/mob/living/carbon/human/proc/create_hair_icon()
+	if(!should_we_show_hair()) // if we're missing our head or we're wearing a mask, no hair
+		return 
+	validate_hair() // make sure our hair is valid
+	var/icon/face_standing	= new /icon('icons/mob/human_face.dmi',"bald_s") //base icons
+	var/icon/facial_s = facial_hair_icon()
+	if (facial_s)
+		face_standing.Blend(facial_s, ICON_OVERLAY)
+	var/icon/hair_s = hair_icon()
+	if (hair_s)
+		face_standing.Blend(hair_s, ICON_OVERLAY)
+	overlays_standing[HAIR_LAYER]= image(face_standing)
+
 
 //HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
-	//Reset our hair
-	overlays_standing[HAIR_LAYER]	= null
-
-	var/obj/item/organ/external/head/head_organ = get_organ("head")
-	if(!head_organ || head_organ.is_stump() || (head_organ.status & ORGAN_DESTROYED) )
-		if(update_icons)   update_icons()
-		return
-
-	//masks and helmets can obscure our hair.
-	if( (head && (head.flags & BLOCKHAIR)) || (wear_mask && (wear_mask.flags & BLOCKHAIR)))
-		if(update_icons)   update_icons()
-		return
-
-	//base icons
-	var/icon/face_standing	= new /icon('icons/mob/human_face.dmi',"bald_s")
-
-	if(f_style)
-		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
-		if(facial_hair_style && facial_hair_style.species_allowed && (src.species.get_bodytype() in facial_hair_style.species_allowed))
-			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
-			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
-
-			face_standing.Blend(facial_s, ICON_OVERLAY)
-
-	if(h_style && !(head && (head.flags & BLOCKHEADHAIR)))
-		var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
-		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
-			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
-			if(hair_style.do_colouration)
-				hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
-
-			face_standing.Blend(hair_s, ICON_OVERLAY)
-
-	overlays_standing[HAIR_LAYER]	= image(face_standing)
-
-	if(update_icons)   update_icons()
+	overlays_standing[HAIR_LAYER]	= null //Reset our hair
+	create_hair_icon() // do the hair blending
+	if(update_icons)
+		update_icons()
+		
 
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
 	var/fat
