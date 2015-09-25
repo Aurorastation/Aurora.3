@@ -226,6 +226,9 @@
 /proc/capitalize(var/t as text)
 	return uppertext(copytext(t, 1, 2)) + copytext(t, 2)
 
+/proc/capitalized(var/t as text)
+	return capitalize(lowertext(t))
+
 //This proc strips html properly, remove < > and all text between
 //for complete text sanitizing should be used sanitize()
 /proc/strip_html_properly(var/input)

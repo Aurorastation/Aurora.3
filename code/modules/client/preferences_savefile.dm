@@ -1,5 +1,5 @@
 #define SAVEFILE_VERSION_MIN	8
-#define SAVEFILE_VERSION_MAX	11
+#define SAVEFILE_VERSION_MAX	12
 
 //handles converting savefiles to new formats
 //MAKE SURE YOU KEEP THIS UP TO DATE!
@@ -19,7 +19,13 @@
 					fdel(delpath)
 				break
 		return 0
-
+	if(savefile_version < 12)
+		if (species=="Machine") // give IPC's posibrains and paint by default
+			machine_brain_type="Posibrain"
+			covering_type="Paint"
+		for(var/name in organ_data)
+			if (organ_data[name]=="Cyborg")
+				organ_data[name]=list("None",rgb(128,128,128)) // standard robo limbs
 	if(savefile_version == SAVEFILE_VERSION_MAX)	//update successful.
 		save_preferences()
 		save_character()
@@ -176,6 +182,10 @@
 	S["citizenship"] 		>> citizenship
 	S["faction"] 			>> faction
 	S["religion"] 			>> religion
+	
+	//Robot
+	S["machine_brain_type"] >> machine_brain_type
+	S["covering_type"]		>> covering_type
 
 	S["nanotrasen_relation"] >> nanotrasen_relation
 	//S["skin_style"]			>> skin_style
@@ -286,6 +296,10 @@
 	S["backbag"]			<< backbag
 	S["b_type"]				<< b_type
 	S["spawnpoint"]			<< spawnpoint
+	
+	//Robot
+	S["machine_brain_type"] << machine_brain_type
+	S["covering_type"]		<< covering_type
 
 	//Jobs
 	S["alternate_option"]	<< alternate_option

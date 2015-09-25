@@ -251,6 +251,9 @@ var/list/organ_cache = list()
 					take_damage(10,0)
 					return
 
+/obj/item/organ/proc/exposed_to_the_world() // this is only useful for organs that change when actually removed from the body
+	return
+					
 /obj/item/organ/proc/removed(var/mob/living/user)
 
 	if(!istype(owner))

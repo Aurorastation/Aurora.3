@@ -65,6 +65,15 @@
 		hex = text("0[]", hex)
 
 	return hex
+	
+
+/proc/colour_to_html(r,g,b)
+	return "'#[num2hex(r)][num2hex(g)][num2hex(b)]'"
+
+	
+/proc/htmlcolour_to_values(colour)
+	return list(hex2num(copytext(colour, 2, 4)),hex2num(copytext(colour, 4, 6)),hex2num(copytext(colour, 6, 8)))
+	
 
 // Concatenates a list of strings into a single string.  A seperator may optionally be provided.
 /proc/list2text(list/ls, sep)

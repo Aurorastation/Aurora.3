@@ -32,46 +32,36 @@ var/global/list/limb_icon_cache = list()
 	..()
 
 /obj/item/organ/external/head/get_icon()
-
 	..()
 	overlays.Cut()
 	if(!owner || !owner.species)
 		return
-	if(owner.species.has_organ["eyes"])
-		var/obj/item/organ/eyes/eyes = owner.internal_organs_by_name["eyes"]
-		if(owner.species.eyes)
-			var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', owner.species.eyes)
-			if(eyes)
-				eyes_icon.Blend(rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3]), ICON_ADD)
-			else
-				eyes_icon.Blend(rgb(128,0,0), ICON_ADD)
-			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
-			overlays |= eyes_icon
-
+	var/icon/eyes_icon = owner.eye_icon()
+	if(eyes_icon)
+		mob_icon.Blend(eyes_icon, ICON_OVERLAY)
+		overlays |= eyes_icon
+	
 	if(owner.lip_style && (owner.species && (owner.species.flags & HAS_LIPS)))
 		var/icon/lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
-		overlays |= lip_icon
-		mob_icon.Blend(lip_icon, ICON_OVERLAY)
+		if(lip_icon)
+			overlays |= lip_icon
+			mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
-	if(owner.f_style)
-		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[owner.f_style]
-		if(facial_hair_style && facial_hair_style.species_allowed && (owner.species.get_bodytype() in facial_hair_style.species_allowed))
-			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
-			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
-			overlays |= facial_s
+	var/icon/facial_hair_icon = owner.facial_hair_icon()
+	if(facial_hair_icon)
+		mob_icon.Blend(facial_hair_icon, ICON_OVERLAY)
+		overlays |= facial_hair_icon
 
-	if(owner.h_style && !(owner.head && (owner.head.flags & BLOCKHEADHAIR)))
-		var/datum/sprite_accessory/hair_style = hair_styles_list[owner.h_style]
-		if(hair_style && (owner.species.get_bodytype() in hair_style.species_allowed))
-			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
-			if(hair_style.do_colouration)
-				hair_s.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_ADD)
-			overlays |= hair_s
-
+	if(owner.should_we_show_hair())
+		var/icon/hair_icon = owner.hair_icon()
+		if(hair_icon)
+			mob_icon.Blend(hair_icon, ICON_OVERLAY)
+			overlays |= hair_icon
+			
 	return mob_icon
 
 /obj/item/organ/external/proc/get_icon(var/skeletal)
+
 
 	var/gender
 	if(force_icon)
@@ -89,8 +79,8 @@ var/global/list/limb_icon_cache = list()
 
 			if(skeletal)
 				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
-			else if ((status & ORGAN_ROBOT) && !(owner.species && owner.species.flags & IS_SYNTHETIC))
-				mob_icon = new /icon('icons/mob/human_races/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+			else if (status & ORGAN_ROBOT)
+				mob_icon = get_synthetic_icon()
 			else
 				if (status & ORGAN_MUTATED)
 					mob_icon = new /icon(owner.species.deform, "[icon_name][gender ? "_[gender]" : ""]")
@@ -120,5 +110,49 @@ var/global/list/limb_icon_cache = list()
 	var/n_is = damage_state_text()
 	if (n_is != damage_state)
 		damage_state = n_is
-		return 1
-	return 0
+		return TRUE
+	if (covering) // check to see if we lose the covering
+		if (covering.coverage==SYNTHETIC_COVERING_WORKING)
+			if (!can_take_covering()) // if your limbs get badly damaged you lose the covering
+				covering.coverage = SYNTHETIC_COVERING_DAMAGED
+				owner.update_body(TRUE)
+				return TRUE
+	return FALSE
+
+	
+/obj/item/organ/external/proc/valid_covering()
+	if (status & ORGAN_ROBOT)
+		if (covering) 
+			return (covering.coverage) // is our covering working?
+		return FALSE // if we have no covering at all 
+	return TRUE // squishies always have skin
+	
+
+/obj/item/organ/external/proc/get_synthetic_icon_key()
+	if (!covering) // no covering at all, this should not happen
+		return "R" // regular old robot
+	return covering.get_icon_key()
+	
+		
+/obj/item/organ/external/proc/get_synthetic_icon()
+	if (!covering) // no covering at all, this should not happen
+		return new /icon('icons/mob/human_races/robotic.dmi', "[icon_name][get_gender_string()]")
+	return covering.get_icon()
+	
+	
+/obj/item/organ/external/proc/get_gender_string()
+	if (!gendered_icon) // most organs aren't gender specific
+		return ""
+	if (owner) // if we're a gender specific organ with an owner
+		return (owner.gender == FEMALE ? "_f" : "_m")
+	return "_f"
+
+	
+/obj/item/organ/external/proc/get_icon_key()
+	if (status & ORGAN_DESTROYED)
+		return "L" // l for lost
+	if (status & ORGAN_DEAD)
+		return "D" // d for dead
+	if (status & ORGAN_ROBOT)
+		return get_synthetic_icon_key()
+	return "G" // regular old limb

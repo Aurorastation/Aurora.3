@@ -242,6 +242,11 @@
 	name = "camera"
 	icon_state = "camera"
 	icon_state_broken = "camera_broken"
+	
+/obj/item/robot_parts/robot_component/law_computer
+	name = "law computer"
+	icon_state = "radio"
+	icon_state_broken = "radio_broken"
 
 /obj/item/robot_parts/robot_component/diagnosis_unit
 	name = "diagnosis unit"

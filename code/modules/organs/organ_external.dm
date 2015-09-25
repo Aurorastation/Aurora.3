@@ -52,6 +52,7 @@
 	var/dislocated = 0    // If you target a joint, you can dislocate the limb, causing temporary damage to the organ.
 	var/can_grasp //It would be more appropriate if these two were named "affects_grasp" and "affects_stand" at this point
 	var/can_stand
+	var/datum/synthetic_limb_cover/covering = null // paint or synth skin
 
 /obj/item/organ/external/Destroy()
 	if(parent && parent.children)
@@ -112,10 +113,14 @@
 		if(2)
 			if(istype(W,/obj/item/weapon/hemostat))
 				if(contents.len)
-					var/obj/item/removing = pick(contents)
+					var/obj/item/organ/removing = pick(contents)
+					var/exposed_result
+					internal_organs -= removing
 					removing.loc = get_turf(user.loc)
+					if(istype(removing))
+						exposed_result = removing.exposed_to_the_world()
 					if(!(user.l_hand && user.r_hand))
-						user.put_in_hands(removing)
+						user.put_in_hands((isnull(exposed_result)) ? removing : exposed_result)
 					user.visible_message("<span class='danger'><b>[user]</b> extracts [removing] from [src] with [W]!")
 				else
 					user.visible_message("<span class='danger'><b>[user]</b> fishes around fruitlessly in [src] with [W].")
@@ -260,7 +265,7 @@
 				createwound(BURN, min(burn,can_inflict))
 				//How much burn damage is left to inflict
 				spillover += max(0, burn - can_inflict)
-		
+
 		//If there are still hurties to dispense
 		if (spillover)
 			owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
@@ -277,7 +282,7 @@
 			//2. If the damage amount dealt exceeds the disintegrate threshold, the organ is completely obliterated.
 			//3. If the organ has already reached or would be put over it's max damage amount (currently redundant),
 			//   and the brute damage dealt exceeds the tearoff threshold, the organ is torn off.
-			
+
 			//Check edge eligibility
 			var/edge_eligible = 0
 			if(edge)
@@ -645,14 +650,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 		status |= ORGAN_BLEEDING
 
 
-// new damage icon system
-// adjusted to set damage_state to brute/burn code only (without r_name0 as before)
-/obj/item/organ/external/update_icon()
-	var/n_is = damage_state_text()
-	if (n_is != damage_state)
-		damage_state = n_is
-		return 1
-	return 0
+/obj/item/organ/external/proc/can_take_covering() // is this organ functional enough to take a covering
+	if (status&(ORGAN_DESTROYED|ORGAN_BROKEN|ORGAN_DEAD))
+		return
+	return (burn_dam + brute_dam) <= (max_damage * 0.1) // you get hurt you're going to lose your covering
+
+
+/obj/item/organ/external/head/update_icon()
+	var/result = ..()
+	if (result)
+		owner.update_hair()
+	return result
 
 // new damage icon system
 // returns just the brute/burn damage code

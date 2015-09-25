@@ -663,6 +663,15 @@ proc/GaussRandRound(var/sigma,var/roundto)
 			return 0
 
 	return 1
+	
+// this works like do_after but needs the target to stay still as well
+/proc/do_after_to_target(var/mob/user as mob, target, delay as num, var/numticks = 5, var/needhand = 1)
+	var/target_original_turf = get_turf(target)
+	if (do_after(user,delay,numticks,needhand))
+		if (get_turf(target)==target_original_turf)
+			return TRUE
+	return FALSE
+	
 
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.

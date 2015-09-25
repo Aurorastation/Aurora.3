@@ -219,16 +219,13 @@
 	max_duration = 110
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-
 		if (!..())
 			return 0
-
 		target.op_stage.current_organ = null
-
 		var/list/attached_organs = list()
 		for(var/organ in target.internal_organs_by_name)
 			var/obj/item/organ/I = target.internal_organs_by_name[organ]
-			if(I && !I.status && I.parent_organ == target_zone)
+			if(I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 				attached_organs |= organ
 
 		var/organ_to_remove = input(user, "Which organ do you want to prepare for removal?") as null|anything in attached_organs
@@ -305,9 +302,10 @@
 
 		// Extract the organ!
 		if(target.op_stage.current_organ)
-			var/obj/item/organ/O = target.internal_organs_by_name[target.op_stage.current_organ]
-			if(O && istype(O))
-				O.removed(user)
+			var/obj/item/organ/I = target.internal_organs_by_name[target.op_stage.current_organ]
+			if(I && istype(I))
+				I.removed(user)
+				I.exposed_to_the_world() // used for replacements
 			target.op_stage.current_organ = null
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
