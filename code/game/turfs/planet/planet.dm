@@ -33,6 +33,8 @@ var/list/planet_tile_icons = list(
 	nitrogen = 1.67
 	phoron = 0.001
 
+	var/storm_overlay = ""
+
 	New()
 		//SetLuminosity(1)
 		var/randomIcon = pickweight(planet_tile_icons)
