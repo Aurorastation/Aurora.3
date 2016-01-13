@@ -28,6 +28,8 @@
 	var/list/obj/machinery/targets = list()
 	var/list/obj/item/clothing/under/color/orange/uniforms = list()
 	var/timetoset = 0		// Used to set releasetime upon starting the timer
+	var/alerted = 0
+	var/spamcheck = 0
 
 	maptext_height = 26
 	maptext_width = 32
@@ -48,7 +50,7 @@
 			if(C.id == src.id)
 				targets += C
 
-		or(var/obj/item/clothing/under/color/orange/D in world)
+		for(var/obj/item/clothing/under/color/orange/D in world)
 			if(D.id == id)
 				uniforms += D
 

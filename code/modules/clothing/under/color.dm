@@ -37,6 +37,7 @@
 	worn_state = "orange"
 	has_sensor = 2
 	sensor_mode = 3
+	var/id
 
 /obj/item/clothing/under/color/orange/cell1
 	desc = "It's standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position.\nThis one has \"Cell 1\" marked on it."
