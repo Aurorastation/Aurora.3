@@ -662,6 +662,15 @@
 	var/beaker_contents = ""
 	var/dat = ""
 
+	if(istype(user, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = user
+		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
+			if(prob(10))
+				M.apply_damage(30, BRUTE, "head")
+				M.apply_damage(45, HALLOSS)
+				M.visible_message("\red [user]'s hair catches in the [src]!", "\red Your hair gets caught in the [src]!")
+				M.say("*scream")
+
 	if(!inuse)
 		for (var/obj/item/O in holdingitems)
 			processing_chamber += "\A [O.name]<BR>"
@@ -781,3 +790,42 @@
 				break
 
 #undef REAGENTS_PER_SHEET
+
+/obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
+	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
+		return
+	if(target == user)
+		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
+			user.visible_message("\blue [user] looks like they're about to feed their own hair into the [src], but think better of it.", "\blue You grasp your hair and are about to feed it into the [src], but stop and come to your sense.")
+			return
+	src.add_fingerprint(user)
+	var/target_loc = target.loc
+	if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
+		if(target.h_style != "Cut Hair" || target.h_style != "Short Hair" || target.h_style != "Skinhead" || target.h_style != "Buzzcut" || target.h_style != "Crewcut" || target.h_style != "Bald" || target.h_style != "Balding Hair")
+			user.visible_message("\red [user] starts feeding [target]'s hair into the [src]!", "\red You start feeding [target]'s hair into the [src]!")
+		if(!do_after(usr, 50))
+			return
+		if(target_loc != target.loc)
+			return
+		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
+			user.visible_message("\red [user] feeds the [target]'s hair into the [src] and flicks it on!", "\red You turn the [src] on!")
+			target.apply_damage(30, BRUTE, "head")
+			target.apply_damage(25, HALLOSS)
+			target.say("*scream")
+
+			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
+			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
+			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		else
+			return
+		if(!do_after(usr, 35))
+			return
+		if(target_loc != target.loc)
+			return
+		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
+			user.visible_message("\red [user] starts tugging on [target]'s head as the [src] keeps running!", "\red You start tugging on [target]'s head!")
+			target.apply_damage(25, BRUTE, "head")
+			target.apply_damage(10, HALLOSS)
+			target.say("*scream")
+			spawn(10)
+			user.visible_message("\red [user] stops the [src] and leaves [target] resting as they are.", "\red You turn the [src] off and let go of [target].")
