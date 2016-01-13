@@ -11,6 +11,12 @@ var/global/floorIsLava = 0
 		if(R_ADMIN & C.holder.rights)
 			C << msg
 
+/proc/message_mods(var/msg)
+	msg = "<span class=\"admin\"><span class=\"prefix\">MOD LOG:</span> <span class=\"message\">[msg]</span></span>"
+	for(var/client/C in admins)
+		if(R_MOD & C.holder.rights && !(R_ADMIN & C.holder.rights))
+			C << msg
+
 /proc/msg_admin_attack(var/text) //Toggleable Attack Messages
 	log_attack(text)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
