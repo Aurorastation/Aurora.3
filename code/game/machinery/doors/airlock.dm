@@ -30,7 +30,7 @@
 	var/hasShocked = 0 //Prevents multiple shocks from happening
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
-
+	var/obj/item/device/magnetic_lock/bracer = null
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
 	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
 
@@ -481,7 +481,6 @@ About the new airlock wires panel:
 	else
 		return 0
 
-
 /obj/machinery/door/airlock/update_icon()
 	if(overlays) overlays.Cut()
 	if(density)
@@ -728,9 +727,9 @@ About the new airlock wires panel:
 			else if (activate && !src.lights)
 				lights = 1
 				usr << "The door bolt lights have been enabled."
-
 	update_icon()
 	return 1
+
 
 /obj/machinery/door/airlock/attackby(C as obj, mob/user as mob)
 	//world << text("airlock attackby src [] obj [] mob []", src, C, user)
@@ -740,8 +739,14 @@ About the new airlock wires panel:
 				return
 	if(istype(C, /obj/item/device/detective_scanner) || istype(C, /obj/item/taperoll))
 		return
-
 	src.add_fingerprint(user)
+	if (istype(C, /obj/item/device/magnetic_lock))
+		if (bracer)
+			user << "<span class='notice'>There is already a [bracer] on [src]!</span>"
+			return
+		var/obj/item/device/magnetic_lock/newbracer = C
+		newbracer.attachto(src, user)
+		return
 	if(!repairing && (istype(C, /obj/item/weapon/weldingtool) && !( src.operating > 0 ) && src.density))
 		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0,user))
@@ -792,16 +797,13 @@ About the new airlock wires panel:
 				da.state = 1
 				da.created_name = src.name
 				da.update_state()
-
 				if(operating == -1 || (stat & BROKEN))
 					new /obj/item/weapon/circuitboard/broken(src.loc)
 					operating = 0
 				else
 					if (!electronics) create_electronics()
-
 					electronics.loc = src.loc
 					electronics = null
-
 				qdel(src)
 				return
 		else if(arePowerSystemsOn())
@@ -819,6 +821,7 @@ About the new airlock wires panel:
 			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
 		else if( !welded && !operating )
 			if(density)
+
 				var/obj/item/weapon/material/twohanded/fireaxe/F = C
 				if(F.wielded)
 					spawn(0)	open(1)
@@ -830,7 +833,6 @@ About the new airlock wires panel:
 					spawn(0)	close(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
-
 	else
 		..()
 	return
@@ -852,12 +854,12 @@ About the new airlock wires panel:
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(5, 1, src)
 	s.start()
-
 	update_icon()
 	return
 
 /obj/machinery/door/airlock/open(var/forced=0)
 	if(!can_open(forced))
+
 		return 0
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 
@@ -875,7 +877,9 @@ About the new airlock wires panel:
 	if(!forced)
 		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR))
 			return 0
-
+	if (bracer)
+		visible_message("<span class='notice'>[src]'s actuators whirr, but the door does not open.</span>")
+		return 0
 	if(locked || welded)
 		return 0
 	return ..()
@@ -883,12 +887,10 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/can_close(var/forced=0)
 	if(locked || welded)
 		return 0
-
 	if(!forced)
 		//despite the name, this wire is for general door control.
 		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR))
 			return	0
-
 	return ..()
 
 /atom/movable/proc/blocks_airlock()
@@ -941,22 +943,20 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/close(var/forced=0)
 	if(!can_close(forced))
 		return 0
-
 	if(safe)
 		for(var/turf/turf in locs)
 			for(var/atom/movable/AM in turf)
 				if(AM.blocks_airlock())
 					if(world.time > next_beep_at)
+
 						playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
 						next_beep_at = world.time + SecondsToTicks(10)
 					close_door_at = world.time + 6
 					return
-
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
 			if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
 				take_damage(DOOR_CRUSH_DAMAGE)
-
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())
 		playsound(src.loc, open_sound_powered, 100, 1)
@@ -972,9 +972,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/lock(var/forced=0)
 	if(locked)
 		return 0
-
 	if (operating && !forced) return 0
-
 	src.locked = 1
 	for(var/mob/M in range(1,src))
 		M.show_message("You hear a click from the bottom of the door.", 2)
@@ -984,10 +982,8 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/unlock(var/forced=0)
 	if(!src.locked)
 		return
-
 	if (!forced)
 		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) return
-
 	src.locked = 0
 	for(var/mob/M in range(1,src))
 		M.show_message("You hear a click from the bottom of the door.", 2)
@@ -1081,6 +1077,8 @@ About the new airlock wires panel:
 	update_icon()
 
 /obj/machinery/door/airlock/proc/prison_open()
+	if (bracer)
+		return
 	src.unlock()
 	src.open()
 	src.lock()
