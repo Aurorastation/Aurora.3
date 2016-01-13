@@ -237,11 +237,29 @@
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && src.welding)
-		message_admins("[key_name_admin(user)] triggered a fueltank explosion with a welding tool.")
-		log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.")
-		user << "\red You begin welding on the fueltank and with a moment of lucidity you realize, this might not have been the smartest thing you've ever done."
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
-		tank.explode()
+		if(tank.armed)
+			user << "You are already heating the [O]"
+			return
+		tank.armed = 1
+		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
+		message_admins("[key_name_admin(user)] is attempting a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
+		message_mods("[key_name_admin(user)] is attempting a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
+		if(do_after(user,100))
+			if(tank.defuse)
+				user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
+				tank.defuse = 0
+				tank.armed = 0
+				return
+			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
+			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.")
+			user << "\red That was stupid of you."
+			tank.explode()
+			return
+		else
+			tank.armed = 0
+			user << "You thought better of yourself."
+			return
 		return
 	if (src.welding)
 		remove_fuel(1)
