@@ -10,6 +10,7 @@
 	name = "Lush Grass"
 	icon_state = "grass1"
 	floor_type = /obj/item/stack/tile/grass
+	footstep_sound = "grassstep"
 
 	New()
 		icon_state = "grass[pick("1","2","3","4")]"
@@ -25,6 +26,7 @@
 	icon = 'icons/turf/space.dmi'
 	name = "\proper space"
 	icon_state = "0"
+	footstep_sound = null
 
 /turf/simulated/floor/holofloor/space/New()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
@@ -33,6 +35,7 @@
 	name = "desert sand"
 	desc = "Uncomfortably gritty for a hologram."
 	icon_state = "asteroid"
+	footstep_sound = "gravelstep"
 
 /turf/simulated/floor/holofloor/desert/New()
 	..()
