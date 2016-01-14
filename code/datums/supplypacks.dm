@@ -1220,6 +1220,32 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	access = access_hydroponics
 	group = "Hydroponics"
 
+/datum/supply_packs/aliengloves
+	name = "Non-Human Glove Kit"
+	contains = list(/obj/item/clothing/gloves/yellow/specialt,
+					/obj/item/clothing/gloves/yellow/specialt,
+					/obj/item/clothing/gloves/yellow/specialt,
+					/obj/item/clothing/gloves/yellow/specialu,
+					/obj/item/clothing/gloves/yellow/specialu,
+					/obj/item/clothing/gloves/yellow/specialu)
+	cost = 25
+	containertype = /obj/structure/closet/crate
+	containername = "speciality gloves kit"
+	group = "Supply"
+
+/datum/supply_packs/alienmedicalgloves
+	name = "Non-Human Sterile Glove Kit"
+	contains = list(/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/tajara,
+					/obj/item/clothing/gloves/latex/tajara,
+					/obj/item/clothing/gloves/latex/tajara)
+	cost = 25
+	containertype = /obj/structure/closet/crate
+	containername = "speciality sterile gloves kit"
+	group = "Medical"
+
 /datum/supply_packs/cardboard_sheets
 	contains = list(/obj/item/stack/material/cardboard)
 	name = "50 cardboard sheets"

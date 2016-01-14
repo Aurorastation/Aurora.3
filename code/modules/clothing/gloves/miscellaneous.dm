@@ -51,3 +51,13 @@
 	item_state = "ggloves"
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
+
+/obj/item/clothing/gloves/latex/unathi
+	name = "unathi latex gloves"
+	desc = "Sterile latex gloves. Designed for Unathi use."
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/gloves/latex/tajara
+	name = "tajara latex gloves"
+	desc = "Sterile latex gloves. Designed for Tajara use."
+	species_restricted = list("Tajaran")
