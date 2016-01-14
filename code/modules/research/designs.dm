@@ -1375,6 +1375,14 @@ datum/design/item/weapon/phoronpistol
 	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
 
+datum/design/item/weapon/lawgiver
+	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
+	id = "lawgiver"
+	req_tech = list("combat" = 6, "plasmatech" = 4, "bluespace" = 5, "materials" = 7)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$plasma" = 1000, "$diamond" = 3000)
+	build_path = "/obj/item/weapon/gun/energy/lawgiver"
+
 /////////////////////////////////////////
 /////////////////Mining//////////////////
 /////////////////////////////////////////
