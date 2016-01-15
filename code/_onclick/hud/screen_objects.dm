@@ -503,12 +503,12 @@
 		if("Crew Monitoring")
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
-				AI.nano_crew_monitor()
+				AI.subsystem_crew_monitor()
 
 		if("Show Crew Manifest")
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
-				AI.ai_roster()
+				AI.show_station_manifest()
 
 		if("Show Alerts")
 			if(isAI(usr))
@@ -528,7 +528,7 @@
 		if("State Laws")
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
-				AI.show_laws_verb()
+				AI.subsystem_law_manager()
 
 		if("PDA - Send Message")
 			if(isAI(usr))
