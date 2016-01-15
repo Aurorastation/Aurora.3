@@ -24,6 +24,42 @@
 			H.do_attack_animation(src)
 			return 0
 
+		if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves))
+			var/obj/item/clothing/gloves/G = H.gloves
+			if(G.cell)
+				if(M.a_intent == I_HURT)//Stungloves. Any contact will stun the alien.
+					if(G.cell.charge >= 2500)
+						G.cell.use(G.cell.charge)	//So it drains the cell.
+						visible_message("\red <B>[src] has been touched with the stun gloves by [M]!</B>")
+						M.attack_log += text("\[[time_stamp()]\] <font color='red'>Stungloved [src.name] ([src.ckey])</font>")
+						src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>")
+
+						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)")
+
+						var/armorblock = run_armor_check(M.zone_sel.selecting, "energy")
+						apply_effects(5,5,0,0,5,0,0,armorblock)
+						apply_damage(rand(5,25), BURN, M.zone_sel.selecting,armorblock)
+
+						if(prob(15))
+							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
+							M.visible_message("\red The power source on [M]'s stun gloves overloads in a terrific fashion!", "\red Your jury rigged stun gloves malfunction!", "\red You hear a loud sparking.")
+
+							if(prob(50))
+								M.apply_damage(rand(1,5), BURN)
+
+							for(M in viewers(3, null))
+								var/safety = M:eyecheck()
+								if(!safety)
+									if(!M.blinded)
+										flick("flash", M.flash)
+
+						return 1
+					else
+						M << "\red Not enough charge! "
+						visible_message("\red <B>[src] has been touched with the stun gloves by [M]!</B>")
+					return
+
+
 		if(istype(H.gloves, /obj/item/clothing/gloves/boxing/hologlove))
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
@@ -104,6 +140,11 @@
 
 			H.do_attack_animation(src)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
+				G.state = GRAB_AGGRESSIVE
+				G.icon_state = "grabbed1"
+				visible_message("<span class='warning'>[M] gets a strong grip on [src]!</span>")
+				return 1
 			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
 			return 1
 
@@ -209,8 +250,11 @@
 			if(HULK in H.mutations)
 				real_damage *= 2 // Hulks do twice the damage
 				rand_damage *= 2
-			real_damage = max(1, real_damage)
 
+			real_damage = max(1, real_damage)
+			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
+				var/obj/item/clothing/gloves/force/X = H.gloves
+				real_damage *= X.amplification
 			var/armour = run_armor_check(affecting, "melee")
 			// Apply additional unarmed effects.
 			attack.apply_effects(H, src, armour, rand_damage, hit_zone)
@@ -244,16 +288,40 @@
 
 			var/randn = rand(1, 100)
 			if(!(species.flags & NO_SLIP) && randn <= 25)
-				var/armor_check = run_armor_check(affecting, "melee")
-				apply_effect(3, WEAKEN, armor_check)
-				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-				if(armor_check < 2)
-					visible_message("<span class='danger'>[M] has pushed [src]!</span>")
+				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
+					apply_effect(6, WEAKEN, run_armor_check(affecting, "melee"))
+					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					visible_message("\red <B>[M] hurls [src] to the floor!</B>")
+					step_away(src,M,15)
+					sleep(3)
+					step_away(src,M,15)
+					return
+
 				else
-					visible_message("<span class='warning'>[M] attempted to push [src]!</span>")
-				return
+					var/armor_check = run_armor_check(affecting, "melee")
+					apply_effect(3, WEAKEN, armor_check)
+					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					if(armor_check < 2)
+						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
+					else
+						visible_message("<span class='warning'>[M] attempted to push [src]!</span>")
+					return
 
 			if(randn <= 60)
+				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
+					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					visible_message("\red <B>[M] shoves, sending [src] flying!</B>")
+					step_away(src,M,15)
+					sleep(1)
+					step_away(src,M,15)
+					sleep(1)
+					step_away(src,M,15)
+					sleep(1)
+					step_away(src,M,15)
+					sleep(1)
+					apply_effect(1, WEAKEN, run_armor_check(affecting, "melee"))
+					return
+
 				//See about breaking grips or pulls
 				if(break_all_grabs(M))
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
