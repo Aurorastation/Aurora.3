@@ -3,7 +3,7 @@
 
 var/list/blacklisted_tesla_types = list(/obj/machinery/atmospherics,
 										/obj/machinery/power/emitter,
-										/obj/machinery/field/generator,
+										/obj/machinery/field_generator,
 										/mob/living/simple_animal,
 										/obj/machinery/particle_accelerator/control_box,
 										/obj/structure/particle_accelerator/fuel_chamber,
@@ -12,7 +12,7 @@ var/list/blacklisted_tesla_types = list(/obj/machinery/atmospherics,
 										/obj/structure/particle_accelerator/particle_emitter/right,
 										/obj/structure/particle_accelerator/power_box,
 										/obj/structure/particle_accelerator/end_cap,
-										/obj/machinery/field/containment,
+										/obj/machinery/containment_field,
 										/obj/structure/disposalpipe)
 
 /obj/singularity/energy_ball

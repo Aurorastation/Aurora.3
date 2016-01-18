@@ -11,7 +11,7 @@
 /obj/machinery/power/tesla_coil/New()
 	..()
 	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/tesla_coil(null)
+//	component_parts += new /obj/item/weapon/circuitboard/tesla_coil(null)
 	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
 	RefreshParts()
 
@@ -25,14 +25,17 @@
 	if(default_deconstruction_screwdriver(user, "coil", "coil", W))
 		return
 
-	if(exchange_parts(user, W))
+	if(default_part_replacement(user, W))
 		return
 
-	if(default_unfasten_wrench(user, W))
+	if(istype(W, /obj/item/weapon/wrench))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		if(!anchored)
 			disconnect_from_network()
 		else
 			connect_to_network()
+		anchored = !anchored
 		return
 
 	default_deconstruction_crowbar(W)
@@ -58,7 +61,7 @@
 /obj/machinery/power/grounding_rod/New()
 	..()
 	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/grounding_rod(null)
+//	component_parts += new /obj/item/weapon/circuitboard/grounding_rod(null)
 	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
 	RefreshParts()
 
@@ -66,10 +69,13 @@
 	if(default_deconstruction_screwdriver(user, "grounding_rod", "grounding_rod", W))
 		return
 
-	if(exchange_parts(user, W))
+	if(default_part_replacement(user, W))
 		return
 
-	if(default_unfasten_wrench(user, W))
+	if(istype(W, /obj/item/weapon/wrench))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
+		anchored = !anchored
 		return
 
 	default_deconstruction_crowbar(W)
