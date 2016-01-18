@@ -2646,6 +2646,22 @@
 				PlayerNotesPage(text2num(href_list["index"]))
 		return
 
+	else if(href_list["warnsearchckey"] || href_list["warnsearchadmin"])
+		var/adminckey = href_list["warnsearchadmin"]
+		var/playerckey = href_list["warnsearchckey"]
+
+		warning_panel(adminckey, playerckey)
+		return
+
+	else if(href_list["dbwarningedit"])
+		var/warningEdit = href_list["dbwarningedit"]
+		var/warningId = text2num(href_list["dbwarningid"])
+		if(!warningEdit || !warningId)
+			return
+
+		warningsEdit(warningId, warningEdit)
+		return
+
 mob/living/proc/can_centcom_reply()
 	return 0
 

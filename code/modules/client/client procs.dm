@@ -163,6 +163,8 @@
 			winset(src, null, "command=\".configure graphics-hwmode off\"")
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
+	warnings_alert()
+
 	log_client_to_db()
 
 	send_resources()
