@@ -1073,3 +1073,39 @@ mob/proc/yank_out_object()
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
+
+//Admin helpers
+/mob/proc/wind_mob(var/mob/admin)
+	if (!admin)
+		return
+
+	if (!check_rights((R_MOD|R_ADMIN), 1, admin))
+		return
+
+	if (alert(admin, "Wind [src]?",,"Yes","No")!="Yes")
+		return
+
+	SetWeakened(200)
+	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminmhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
+	log_admin("[key_name(admin)] winded [key_name(src)]!")
+	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
+
+	feedback_add_details("admin_verb", "WIND")
+
+	return
+
+/mob/proc/unwind_mob(var/mob/admin)
+	if (!admin)
+		return
+
+	if (!check_rights((R_MOD|R_ADMIN), 1, admin))
+		return
+
+	SetWeakened(0)
+	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[src] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
+	log_admin("[key_name(admin)] unwinded [key_name(src)]!")
+	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
+
+	feedback_add_details("admin_verb", "UNWIND")
+
+	return

@@ -2678,6 +2678,17 @@
 		show_notes_sql(playerckey, adminckey)
 		return
 
+	else if(href_list["admin_wind_player"])
+
+		var/mob/M = locate(href_list["admin_wind_player"])
+		if(!ismob(M))
+			usr << "This can only be used on instances of type /mob"
+			return
+
+		M.wind_mob(usr)
+
+		return
+
 mob/living/proc/can_centcom_reply()
 	return 0
 

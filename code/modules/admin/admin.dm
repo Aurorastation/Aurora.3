@@ -62,6 +62,7 @@ proc/admin_notice(var/message, var/rights)
 		<b>Mob type</b> = [M.type]<br><br>
 		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
 		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
+		<a href='?src=\ref[src];warnsearchckey=[M.ckey]'>Warnings</a> |
 		<A href='?src=\ref[src];newban=\ref[M]'>Ban</A> |
 		<A href='?src=\ref[src];jobban2=\ref[M]'>Jobban</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
@@ -69,6 +70,7 @@ proc/admin_notice(var/message, var/rights)
 
 	if(M.client)
 		body += "| <A HREF='?src=\ref[src];sendtoprison=\ref[M]'>Prison</A> | "
+		body += "<a href='?src=\ref[src];admin_wind_player=\ref[M]'>Wind</a>"
 		var/muted = M.client.prefs.muted
 		body += {"<br><b>Mute: </b>
 			\[<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_IC]'><font color='[(muted & MUTE_IC)?"red":"blue"]'>IC</font></a> |
@@ -1413,3 +1415,17 @@ proc/admin_notice(var/message, var/rights)
 	message_admins("[key_name(usr)] attempting to force mode latespawn.")
 	ticker.mode.next_spawn = 0
 	ticker.mode.try_latespawn()
+
+/client/proc/cmd_admin_wind(mob/M as mob in mob_list)
+	set category = null
+	set name = "Wind Player"
+
+	M.wind_mob(src.mob)
+	return
+
+/client/proc/cmd_admin_unwind(mob/M as mob in mob_list)
+	set category = null
+	set name = "Unwind Player"
+
+	M.unwind_mob(src.mob)
+	return

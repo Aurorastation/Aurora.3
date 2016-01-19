@@ -59,6 +59,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggle_hear_radio,		/*toggles whether we hear the radio*/
 	/client/proc/investigate_show,		/*various admintools for investigation. Such as a singulo grief-log*/
 	/client/proc/secrets,
+	/client/proc/cmd_admin_wind,
+	/client/proc/cmd_admin_unwind,
 	/datum/admins/proc/toggleooc,		/*toggles ooc on/off for everyone*/
 	/datum/admins/proc/togglelooc,		/*toggles looc on/off for everyone*/
 	/datum/admins/proc/toggleoocdead,	/*toggles ooc on/off for everyone who is dead*/
@@ -288,7 +290,9 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
 	/client/proc/jobbans,
-	/client/proc/cmd_admin_subtle_message 	/*send an message to somebody as a 'voice in their head'*/
+	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
+	/client/proc/cmd_admin_wind,
+	/client/proc/cmd_admin_unwind
 )
 
 var/list/admin_verbs_mentor = list(
