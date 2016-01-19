@@ -220,7 +220,12 @@ proc/admin_notice(var/message, var/rights)
 	if (!istype(src,/datum/admins))
 		usr << "Error: you are not an admin!"
 		return
-	PlayerNotesPage(1)
+	if (!check_rights(R_ADMIN|R_MOD))
+		return
+	if (config.ban_legacy_system)
+		PlayerNotesPage(1)
+	else
+		show_notes_sql()
 
 /datum/admins/proc/PlayerNotesPage(page)
 	var/dat = "<B>Player notes</B><HR>"
@@ -278,45 +283,47 @@ proc/admin_notice(var/message, var/rights)
 	if (!istype(src,/datum/admins))
 		usr << "Error: you are not an admin!"
 		return
-	var/dat = "<html><head><title>Info on [key]</title></head>"
-	dat += "<body>"
 
-	var/p_age = "unknown"
-	for(var/client/C in clients)
-		if(C.ckey == key)
-			p_age = C.player_age
-			break
-	dat +="<span style='color:#000000; font-weight: bold'>Player age: [p_age]</span><br>"
+	if (config.ban_legacy_system)
+		var/dat = "<html><head><title>Info on [key]</title></head>"
+		dat += "<body>"
 
-	var/savefile/info = new("data/player_saves/[copytext(key, 1, 2)]/[key]/info.sav")
-	var/list/infos
-	info >> infos
-	if(!infos)
-		dat += "No information found on the given key.<br>"
+		var/p_age = "unknown"
+		for(var/client/C in clients)
+			if(C.ckey == key)
+				p_age = C.player_age
+				break
+		dat +="<span style='color:#000000; font-weight: bold'>Player age: [p_age]</span><br>"
+
+		var/savefile/info = new("data/player_saves/[copytext(key, 1, 2)]/[key]/info.sav")
+		var/list/infos
+		info >> infos
+		if(!infos)
+			dat += "No information found on the given key.<br>"
+		else
+			var/update_file = 0
+			var/i = 0
+			for(var/datum/player_info/I in infos)
+				i += 1
+				if(!I.timestamp)
+					I.timestamp = "Pre-4/3/2012"
+					update_file = 1
+				if(!I.rank)
+					I.rank = "N/A"
+					update_file = 1
+				dat += "<font color=#008800>[I.content]</font> <i>by [I.author] ([I.rank])</i> on <i><font color=blue>[I.timestamp]</i></font> "
+				if(I.author == usr.key || I.author == "Adminbot" || ishost(usr))
+					dat += "<A href='?src=\ref[src];remove_player_info=[key];remove_index=[i]'>Remove</A>"
+				dat += "<br><br>"
+			if(update_file) info << infos
+
+		dat += "<br>"
+		dat += "<A href='?src=\ref[src];add_player_info=[key]'>Add Comment</A><br>"
+
+		dat += "</body></html>"
+		usr << browse(dat, "window=adminplayerinfo;size=480x480")
 	else
-		var/update_file = 0
-		var/i = 0
-		for(var/datum/player_info/I in infos)
-			i += 1
-			if(!I.timestamp)
-				I.timestamp = "Pre-4/3/2012"
-				update_file = 1
-			if(!I.rank)
-				I.rank = "N/A"
-				update_file = 1
-			dat += "<font color=#008800>[I.content]</font> <i>by [I.author] ([I.rank])</i> on <i><font color=blue>[I.timestamp]</i></font> "
-			if(I.author == usr.key || I.author == "Adminbot" || ishost(usr))
-				dat += "<A href='?src=\ref[src];remove_player_info=[key];remove_index=[i]'>Remove</A>"
-			dat += "<br><br>"
-		if(update_file) info << infos
-
-	dat += "<br>"
-	dat += "<A href='?src=\ref[src];add_player_info=[key]'>Add Comment</A><br>"
-
-	dat += "</body></html>"
-	usr << browse(dat, "window=adminplayerinfo;size=480x480")
-
-
+		show_notes_sql(key)
 
 /datum/admins/proc/access_news_network() //MARKER
 	set category = "Fun"

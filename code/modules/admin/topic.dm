@@ -2662,6 +2662,22 @@
 		warningsEdit(warningId, warningEdit)
 		return
 
+	else if(href_list["dbnoteedit"])
+		var/noteedit = href_list["dbnoteedit"]
+		var/noteid = text2num(href_list["dbnoteid"])
+		if(!noteedit || !noteid)
+			return
+
+		notes_edit_sql(noteid, noteedit)
+		return
+
+	else if(href_list["notessearchckey"] || href_list["notessearchadmin"])
+		var/adminckey = href_list["notessearchadmin"]
+		var/playerckey = href_list["notessearchckey"]
+
+		show_notes_sql(playerckey, adminckey)
+		return
+
 mob/living/proc/can_centcom_reply()
 	return 0
 
