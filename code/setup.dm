@@ -512,12 +512,15 @@
 #define ORGAN_GAUZED     2
 #define ORGAN_BLEEDING   8
 #define ORGAN_BROKEN     32
+#define ORGAN_DESTROYED  64
 #define ORGAN_ROBOT      128
 #define ORGAN_SPLINTED   256
 #define SALVED           512
 #define ORGAN_DEAD       1024
 #define ORGAN_MUTATED    2048
 #define ORGAN_ASSISTED   4096
+#define ORGAN_ADV_ROBOT  4096
+
 
 // Admin permissions. Please don't edit these values without speaking to Errorage first. ~Carn
 #define R_BUILDMODE     1
@@ -650,6 +653,7 @@ var/list/be_special_flags = list(
 #define CAN_JOIN          16384 // Species is selectable in chargen.
 #define IS_RESTRICTED     32768 // Is not a core/normally playable species. (castes, mutantraces)
 #define REGENERATES_LIMBS 65536 // Attempts to regenerate unamputated limbs.
+#define IS_BUG 4096  //Everything bug related
 
 // Language flags.
 #define WHITELISTED 1   // Language is available if the speaker is whitelisted.

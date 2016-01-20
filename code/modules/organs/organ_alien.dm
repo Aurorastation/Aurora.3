@@ -379,3 +379,31 @@
 /obj/item/organ/external/head/slime
 	cannot_break = 1
 	dislocated = -1
+
+
+//VAURCA ORGANS
+/obj/item/organ/vaurca/neuralsocket
+    name = "neural socket"
+    organ_tag = "neural socket"
+    icon = 'icons/mob/alien.dmi'
+    icon_state = "neural_socket"
+
+/obj/item/organ/vaurca/neuralsocket/removed()
+	return
+
+/obj/item/organ/vaurca/breathingapparatus
+    name = "breathing apparatus"
+    organ_tag = "breathing apparatus"
+    icon = 'icons/mob/alien.dmi'
+    icon_state = "breathing_app"
+
+/obj/item/organ/vaurca/breathingapparatus/removed()
+	return
+
+/obj/item/organ/vaurca/tracheae
+    name = "tracheae"
+    organ_tag = "tracheae"
+    icon = 'icons/mob/alien.dmi'
+    icon_state = "tracheae"
+/obj/item/organ/vaurca/tracheae/removed()
+	return

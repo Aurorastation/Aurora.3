@@ -66,6 +66,15 @@
 	flags = WHITELISTED
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
+/datum/language/vaurcese
+	name = "Vaurcese"
+	desc = "Vaurca native language made of clicks and sputters, \"It's a bugs life.\""
+	speech_verb = "clicks"
+	colour = "vaurca"
+	key = "p"
+	flags = WHITELISTED
+	syllables = list("kic","klic","\'tic","kit","lit","xic","vil","xrit","tshh","qix","qlit","zix","\'","!")
+
 /datum/language/human
 	name = "Sol Common"
 	desc = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."
