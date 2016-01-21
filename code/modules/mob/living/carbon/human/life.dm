@@ -130,6 +130,8 @@
 	for(var/obj/item/weapon/grab/G in src)
 		G.process()
 
+	if(mind && mind.vampire)
+		handle_vampire()
 // Calculate how vulnerable the human is to under- and overpressure.
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
@@ -366,14 +368,14 @@
 
 	get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
 		var/datum/gas_mixture/breath = ..()
-	
+
 		if(breath)
 			//exposure to extreme pressures can rupture lungs
 			var/check_pressure = breath.return_pressure()
 			if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
 				if(!is_lung_ruptured() && prob(5))
 					rupture_lung()
-		
+
 		return breath
 
 	handle_breath(datum/gas_mixture/breath)
@@ -1022,6 +1024,12 @@
 				if( prob(2) && health && !hal_crit )
 					spawn(0)
 						emote("snore")
+				if(mind)
+					if(mind.vampire)
+						if(istype(loc, /obj/structure/closet/coffin))
+							adjustBruteLoss(-1)
+							adjustFireLoss(-1)
+							adjustToxLoss(-1)
 			//CONSCIOUS
 			else
 				stat = CONSCIOUS
@@ -1239,6 +1247,14 @@
 			sight = species.vision_flags
 			see_in_dark = species.darksight
 			see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
+
+			if(mind && mind.vampire)
+				if((VAMP_VISION in mind.vampire.powers) && !(VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_MOBS
+				if((VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+					see_in_dark = 8
+					see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
 
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS

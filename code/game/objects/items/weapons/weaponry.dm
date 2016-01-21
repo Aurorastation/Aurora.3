@@ -53,6 +53,11 @@
 			user << "<span class='danger'>You wave [src] over [M]'s head and see their eyes become clear, their mind returning to normal.</span>"
 			cult.remove_antagonist(M.mind)
 			M.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [M]'s head.</span>")
+		else if(M.mind && M.mind.vampire)
+			if(!(VAMP_FULL in M.mind.vampire.powers))
+				user << "\red The rod burns cold in your hand, filling you with grim determination.  You feel the creature's power weaken."
+				M << "<span class='warning'>The nullrod's power interferes with your own!  They are on to you!</span>"
+				M.mind.vampire.nullified = max(8, M.mind.vampire.nullified + 8)
 		else if(prob(10))
 			user << "<span class='danger'>The rod slips in your hand.</span>"
 			..()
