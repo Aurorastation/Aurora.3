@@ -39,4 +39,4 @@
 	var/mob_size            // Used by lockers.
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks
-
+	var/footstep = 0

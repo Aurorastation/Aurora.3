@@ -132,11 +132,13 @@
 /turf/simulated/shuttle/floor
 	name = "floor"
 	icon_state = "floor"
+	footstep_sound = "concretefootsteps"
 
 /turf/simulated/shuttle/plating
 	name = "plating"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
+	footstep_sound = "concretefootsteps"
 
 /turf/simulated/shuttle/plating/vox	//Skipjack plating
 	oxygen = 0
@@ -154,19 +156,23 @@
 /turf/simulated/floor/beach
 	name = "Beach"
 	icon = 'icons/misc/beach.dmi'
+	footstep_sound = "sandstep"
 
 /turf/simulated/floor/beach/sand
 	name = "Sand"
 	icon_state = "sand"
+	footstep_sound = "sandstep"
 
 /turf/simulated/floor/beach/coastline
 	name = "Coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
+	footstep_sound = "sandstep"
 
 /turf/simulated/floor/beach/water
 	name = "Water"
 	icon_state = "water"
+	footstep_sound = "waterstep"
 
 /turf/simulated/floor/beach/water/New()
 	..()
@@ -176,6 +182,7 @@
 	name = "Grass patch"
 	icon_state = "grass1"
 	floor_type = /obj/item/stack/tile/grass
+	footstep_sound = "grassstep"
 
 	New()
 		icon_state = "grass[pick("1","2","3","4")]"
@@ -192,6 +199,7 @@
 	name = "Carpet"
 	icon_state = "carpet"
 	floor_type = /obj/item/stack/tile/carpet
+	footstep_sound = null
 
 	New()
 		if(!icon_state)
@@ -216,6 +224,7 @@
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
+	footstep_sound = "grassstep"
 
 /turf/simulated/floor/plating/snow/ex_act(severity)
 	return

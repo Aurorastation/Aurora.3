@@ -26,6 +26,8 @@
 	var/has_resources
 	var/list/resources
 
+	var/footstep_sound = null
+
 	// Flick animation
 	var/atom/movable/overlay/c_animation = null
 
@@ -138,6 +140,20 @@
 			M.lastarea = get_area(M.loc)
 		if(M.lastarea.has_gravity == 0)
 			inertial_drift(M)
+
+		var/mob/living/carbon/human/MOB = M
+		if(istype(MOB) && !MOB.lying && footstep_sound)
+			if(istype(MOB.shoes, /obj/item/clothing/shoes) && !MOB.shoes:silent)
+				if(MOB.m_intent == "run")
+					if(MOB.footstep >= 2)
+						MOB.footstep = 0
+					else
+						MOB.footstep++
+					if(MOB.footstep == 0)
+						playsound(MOB, footstep_sound, 50, 1) // this will get annoying very fast. - Tell them to mute it then -_-
+				else
+					playsound(MOB, footstep_sound, 40, 1)
+
 
 		else if(!istype(src, /turf/space))
 			M.inertia_dir = 0
@@ -396,3 +412,17 @@
 		if(A.density && !(A.flags & ON_BORDER))
 			return 1
 	return 0
+
+//expects an atom containing the reagents used to clean the turf
+/turf/proc/clean(atom/source, mob/user)
+	if(source.reagents.has_reagent("water", 1) || source.reagents.has_reagent("cleaner", 1))
+		clean_blood()
+		if(istype(src, /turf/simulated))
+			var/turf/simulated/T = src
+			T.dirt = 0
+		for(var/obj/effect/O in src)
+			if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+				qdel(O)
+	else
+		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
+	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.

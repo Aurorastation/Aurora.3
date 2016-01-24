@@ -1366,3 +1366,7 @@ var/mob/dview/dview_mob = new
 
 /atom/movable/proc/stop_orbit()
 	orbiting = null
+
+// call to generate a stack trace and print to runtime logs
+/proc/crash_with(msg)
+	CRASH(msg)

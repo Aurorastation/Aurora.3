@@ -88,6 +88,8 @@
 	icon_state = "weldtank"
 	amount_per_transfer_from_this = 10
 	var/modded = 0
+	var/defuse = 0
+	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
 	New()
 		..()
@@ -171,7 +173,9 @@
 		qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
-	if(temperature > T0C+500)
+	if (modded)
+		explode()
+	else if (temperature > T0C+500)
 		explode()
 	return ..()
 
