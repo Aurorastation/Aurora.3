@@ -16,6 +16,8 @@
 	var/damtype = "brute"
 	var/force = 0
 
+	var/being_shocked = 0
+
 /obj/Destroy()
 	processing_objects -= src
 	nanomanager.close_uis(src)
@@ -146,3 +148,10 @@
 
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
+
+/obj/proc/tesla_act(var/power)
+	being_shocked = 1
+	var/power_bounced = power / 2
+	tesla_zap(src, 5, power_bounced)
+	spawn(10)
+		being_shocked = 0
