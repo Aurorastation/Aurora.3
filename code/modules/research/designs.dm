@@ -309,6 +309,18 @@ datum/design/circuit/aifixer
 	req_tech = list("programming" = 3, "biotech" = 2)
 	build_path = /obj/item/weapon/circuitboard/aifixer
 
+datum/design/circuit/telesci_console
+	name = "telepad control console"
+	id = "telesci_console"
+	req_tech = list("programming" = 3, "bluespace" = 2)
+	build_path = /obj/item/weapon/circuitboard/telesci_console
+
+datum/design/circuit/telepad
+	name = "telepad board"
+	id = "telepad"
+	req_tech = list("programming" = 4, "bluespace" = 4, "materials" = 3, "engineering" = 3)
+	build_path = /obj/item/weapon/circuitboard/telesci_pad
+
 ///////////////////////////////////
 /////////Shield Generators/////////
 ///////////////////////////////////
@@ -1434,7 +1446,6 @@ datum/design/item/bag_holding
 	reliability_base = 80
 	build_path = /obj/item/weapon/storage/backpack/holding
 
-/*
 datum/design/bluespace_crystal
 	name = "Artificial bluespace crystal"
 	desc = "A small blue crystal with mystical properties."
@@ -1443,8 +1454,7 @@ datum/design/bluespace_crystal
 	build_type = PROTOLATHE
 	materials = list("$gold" = 1500, "$diamond" = 3000, "$phoron" = 1500)
 	reliability_base = 100
-	build_path = /obj/item/bluespace_crystal/artificial"
-*/
+	build_path = /obj/item/bluespace_crystal/artificial
 
 /////////////////////////////////////////
 /////////////////HUDs////////////////////
