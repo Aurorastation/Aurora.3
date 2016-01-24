@@ -331,6 +331,7 @@ BLIND     // can't see anything
 	var/overshoes = 0
 	species_restricted = list("exclude","Unathi","Tajara")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
+	var/silent = 0
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
 	return

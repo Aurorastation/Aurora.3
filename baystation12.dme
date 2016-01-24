@@ -878,6 +878,7 @@
 #include "code\modules\client\client defines.dm"
 #include "code\modules\client\client procs.dm"
 #include "code\modules\client\preferences.dm"
+#include "code\modules\client\preferences_ambience.dm"
 #include "code\modules\client\preferences_factions.dm"
 #include "code\modules\client\preferences_gear.dm"
 #include "code\modules\client\preferences_savefile.dm"
