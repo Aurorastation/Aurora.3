@@ -258,7 +258,7 @@
 
 	proc/handle_mutations_and_radiation()
 
-		if(species.flags & IS_SYNTHETIC) //Robots don't suffer from mutations or radloss.
+		if(species.flags & IS_SYNTHETIC || species.flags & IS_BUG) //Robots/bugs don't suffer from mutations or radloss.
 			return
 
 		if(getFireLoss())
@@ -366,14 +366,14 @@
 
 	get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
 		var/datum/gas_mixture/breath = ..()
-	
+
 		if(breath)
 			//exposure to extreme pressures can rupture lungs
 			var/check_pressure = breath.return_pressure()
 			if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
 				if(!is_lung_ruptured() && prob(5))
 					rupture_lung()
-		
+
 		return breath
 
 	handle_breath(datum/gas_mixture/breath)
@@ -404,6 +404,15 @@
 			var/obj/item/organ/lungs/L = internal_organs_by_name["lungs"]
 			if(isnull(L))
 				safe_pressure_min = INFINITY //No lungs, how are you breathing?
+			else if(L.is_broken())
+				safe_pressure_min *= 1.5
+			else if(L.is_bruised())
+				safe_pressure_min *= 1.25
+
+		if(species.has_organ["breathing apparatus"])
+			var/obj/item/organ/vaurca/breathingapparatus/L = internal_organs_by_name["breathing apparatus"]
+			if(isnull(L))
+				safe_pressure_min = INFINITY //No wannabe-lungs, how are you breathing? FOR VAURCA
 			else if(L.is_broken())
 				safe_pressure_min *= 1.5
 			else if(L.is_bruised())
