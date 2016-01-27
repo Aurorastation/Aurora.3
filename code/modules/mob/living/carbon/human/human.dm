@@ -79,6 +79,8 @@
 			stat(null, "Suit charge: [cell_status]")
 
 		if(mind)
+			if(mind.vampire)
+				stat("Blood", mind.vampire.bloodusable)
 			if(mind.changeling)
 				stat("Chemical Storage", mind.changeling.chem_charges)
 				stat("Genetic Damage Time", mind.changeling.geneticdamage)
