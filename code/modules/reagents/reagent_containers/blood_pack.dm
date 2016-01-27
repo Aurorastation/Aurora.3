@@ -38,6 +38,35 @@
 			if(10 to 50) 		icon_state = "half"
 			if(51 to INFINITY)	icon_state = "full"
 
+/obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob)
+	if (user == M && (user.mind.vampire))
+		if (reagents.get_reagent_amount("blood"))
+			user.visible_message("\red [user] raises \the [src] up to \his mouth and bites into it.", "\blue You raise \the [src] up to your mouth and bite into it, starting to drain its contents.")
+
+			while (do_after(user, 25, 5, 1))
+				var/blood_taken = 0
+				var/need_to_break = 0
+				if (reagents.get_reagent_amount("blood") > 10)
+					blood_taken = 10
+				else
+					blood_taken = reagents.get_reagent_amount("blood")
+					need_to_break = 1
+
+				reagents.remove_reagent("blood", blood_taken)
+				user.mind.vampire.bloodtotal += blood_taken
+				user.check_vampire_upgrade(user.mind)
+
+				if (blood_taken)
+					user << "\blue <b>You have accumulated [user.mind.vampire.bloodtotal] [user.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood and have [user.mind.vampire.bloodusable] left to use."
+
+				if (need_to_break)
+					break
+
+			user.visible_message("\red [user] licks \his fangs dry, lowering \the [src].", "\blue You lick your fangs clean of the tasteless blood.")
+
+	else
+		..()
+
 /obj/item/weapon/reagent_containers/blood/APlus
 	blood_type = "A+"
 
