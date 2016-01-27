@@ -24,6 +24,19 @@
 		explosion(target, -1, 0, 2)
 		return 1
 
+/obj/item/projectile/bullet/gyro/law
+	name ="high-ex round"
+	icon_state= "bolter"
+	damage = 15
+	
+	on_hit(var/atom/target, var/blocked = 0)
+		explosion(target, -1, 0, 2)
+		sleep(0)
+		var/obj/T = target
+		var/throwdir = get_dir(firer,target)
+		T.throw_at(get_edge_target_turf(target, throwdir),3,3)
+		return 1
+
 /obj/item/projectile/temp
 	name = "freeze beam"
 	icon_state = "ice_2"
@@ -137,16 +150,3 @@
 			var/mob/living/carbon/human/M = target
 			M.adjustBrainLoss(20)
 			M.hallucination += 20
-
-/obj/item/projectile/icarus/pointdefense/process()
-	Icarus_FireLaser(get_turf(original))
-	spawn
-		qdel(src)
-
-	return
-
-/obj/item/projectile/icarus/guns/process()
-	Icarus_FireCannon(get_turf(original))
-	spawn
-		qdel(src)
-	return

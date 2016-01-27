@@ -258,7 +258,7 @@
 
 	proc/handle_mutations_and_radiation()
 
-		if(species.flags & IS_SYNTHETIC) //Robots don't suffer from mutations or radloss.
+		if(species.flags & IS_SYNTHETIC || species.flags & IS_BUG) //Robots/bugs don't suffer from mutations or radloss.
 			return
 
 		if(getFireLoss())
@@ -364,12 +364,24 @@
 				internals.icon_state = "internal0"
 		return null
 
+	get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
+		var/datum/gas_mixture/breath = ..()
+
+		if(breath)
+			//exposure to extreme pressures can rupture lungs
+			var/check_pressure = breath.return_pressure()
+			if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
+				if(!is_lung_ruptured() && prob(5))
+					rupture_lung()
+
+		return breath
 
 	handle_breath(datum/gas_mixture/breath)
 
 		if(status_flags & GODMODE)
 			return
 
+		//check if we actually need to process breath
 		if(!breath || (breath.total_moles == 0) || suiciding)
 			failed_last_breath = 1
 			if(suiciding)
@@ -385,13 +397,22 @@
 
 			return 0
 
-		var/safe_pressure_min = 16 // Minimum safe partial pressure of breathable gas in kPa
+		var/safe_pressure_min = species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 
 		// Lung damage increases the minimum safe pressure.
 		if(species.has_organ["lungs"])
 			var/obj/item/organ/lungs/L = internal_organs_by_name["lungs"]
 			if(isnull(L))
 				safe_pressure_min = INFINITY //No lungs, how are you breathing?
+			else if(L.is_broken())
+				safe_pressure_min *= 1.5
+			else if(L.is_bruised())
+				safe_pressure_min *= 1.25
+
+		if(species.has_organ["breathing apparatus"])
+			var/obj/item/organ/vaurca/breathingapparatus/L = internal_organs_by_name["breathing apparatus"]
+			if(isnull(L))
+				safe_pressure_min = INFINITY //No wannabe-lungs, how are you breathing? FOR VAURCA
 			else if(L.is_broken())
 				safe_pressure_min *= 1.5
 			else if(L.is_bruised())
@@ -884,9 +905,9 @@
 				var/turf/T = loc
 				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
 				if(L)
-					light_amount = min(10,L.lum_r + L.lum_g + L.lum_b) - 5 //hardcapped so it's not abused by having a ton of flashlights
+					light_amount = min(10,L.lum_r + L.lum_g + L.lum_b) - 2 //hardcapped so it's not abused by having a ton of flashlights
 				else
-					light_amount =  5
+					light_amount =  1
 			nutrition += light_amount
 			traumatic_shock -= light_amount
 
@@ -941,7 +962,7 @@
 		if(status_flags & GODMODE)	return 0
 
 		//SSD check, if a logged player is awake put them back to sleep!
-		if(species.show_ssd && !client && !aghosted)
+		if(species.show_ssd && !client && !teleop)
 			Sleeping(2)
 
 		if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
@@ -1254,7 +1275,7 @@
 
 			if(healths)
 				if (analgesic > 100)
-					healths.icon_state = "health_health_numb"
+					healths.icon_state = "health_numb"
 				else
 					switch(hal_screwyhud)
 						if(1)	healths.icon_state = "health6"

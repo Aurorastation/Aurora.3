@@ -7,6 +7,7 @@ var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "5" = 10, "6" =
 	name = "\proper space"
 	icon_state = "0"
 	dynamic_lighting = 0
+	footstep_sound = null //Override to make sure because yeah
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT

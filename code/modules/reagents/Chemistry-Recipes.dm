@@ -946,15 +946,45 @@
 	P.loc = get_turf(holder.my_atom)
 	..()
 
-//Gold - removed
+//Gold - added back in
 /datum/chemical_reaction/slime/crit
 	name = "Slime Crit"
 	id = "m_tele"
 	result = null
-	required_reagents = list("phoron" = 1)
+	required_reagents = list("water" = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/gold
-	mix_message = "The slime core fizzles disappointingly."
+
+/datum/chemical_reaction/slime/crit/on_reaction(var/datum/reagents/holder)
+	var/blocked = list(/mob/living/simple_animal/hostile,
+	/mob/living/simple_animal/hostile/pirate,
+	/mob/living/simple_animal/hostile/pirate/ranged,
+	/mob/living/simple_animal/hostile/russian,
+	/mob/living/simple_animal/hostile/russian/ranged,
+	/mob/living/simple_animal/hostile/syndicate,
+	/mob/living/simple_animal/hostile/syndicate/melee,
+	/mob/living/simple_animal/hostile/syndicate/melee/space,
+	/mob/living/simple_animal/hostile/syndicate/ranged,
+	/mob/living/simple_animal/hostile/syndicate/ranged/space,
+	/mob/living/simple_animal/hostile/alien/queen/large,
+	/mob/living/simple_animal/hostile/faithless,
+	/mob/living/simple_animal/hostile/retaliate,
+	/mob/living/simple_animal/hostile/retaliate/clown
+	)//exclusion list for things you don't want the reaction to create.
+	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
+	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
+		if(M.eyecheck() <= 0)
+			flick("e_flash", M.flash)
+
+	for(var/i = 1, i <= 5, i++)
+		var/chosen = pick(critters)
+		var/mob/living/simple_animal/hostile/C = new chosen
+		C.faction = "slimesummon"
+		C.loc = get_turf(holder.my_atom)
+		if(prob(50))
+			for(var/j = 1, j <= rand(1, 3), j++)
+				step(C, pick(NORTH,SOUTH,EAST,WEST))
 
 //Silver
 /datum/chemical_reaction/slime/bork

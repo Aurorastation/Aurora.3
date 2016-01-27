@@ -86,3 +86,12 @@
 	New()
 		..()
 		new /obj/item/weapon/grenade/flashbang/clusterbang(src)
+
+/obj/item/weapon/storage/lockbox/lawgiver
+	name = "Weapons lockbox"
+	desc = "A high security weapons lockbox"
+	req_access = list(access_armory)
+
+	New()
+		..()
+		new /obj/item/weapon/gun/energy/lawgiver(src)

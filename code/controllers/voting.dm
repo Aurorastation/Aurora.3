@@ -39,12 +39,12 @@ datum/controller/vote
 				result()
 				for(var/client/C in voting)
 					if(C)
-						C << browse(null,"window=vote;can_close=0")
+						C << browse(null,"window=vote")
 				reset()
 			else
 				for(var/client/C in voting)
 					if(C)
-						C << browse(vote.interface(C),"window=vote;can_close=0")
+						C << browse(vote.interface(C),"window=vote")
 
 				voting.Cut()
 
@@ -258,6 +258,9 @@ datum/controller/vote
 
 			log_vote(text)
 			world << "<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>"
+			for(var/client/C in clients)
+				if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute
+					C << sound('sound/effects/vote.ogg')
 			switch(vote_type)
 				if("crew_transfer")
 					world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
@@ -392,4 +395,4 @@ datum/controller/vote
 	set name = "Vote"
 
 	if(vote)
-		src << browse(vote.interface(client),"window=vote;can_close=0")
+		src << browse(vote.interface(client),"window=vote")

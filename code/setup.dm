@@ -142,15 +142,15 @@
 
 //These control the speed at which fire burns
 #define FIRE_GAS_BURNRATE_MULT			1
-#define FIRE_LIQUID_BURNRATE_MULT		1
+#define FIRE_LIQUID_BURNRATE_MULT		0.225
 
 //If the fire is burning slower than this rate then the reaction is going too slow to be self sustaining and the fire burns itself out.
 //This ensures that fires don't grind to a near-halt while still remaining active forever.
 #define FIRE_GAS_MIN_BURNRATE			0.01
-#define FIRE_LIQUD_MIN_BURNRATE			0.01
+#define FIRE_LIQUD_MIN_BURNRATE			0.0025
 
 //How many moles of fuel are contained within one solid/liquid fuel volume unit
-#define LIQUIDFUEL_AMOUNT_TO_MOL		1  //mol/volume unit
+#define LIQUIDFUEL_AMOUNT_TO_MOL		0.45  //mol/volume unit
 
 #define T0C  273.15 //    0.0 degrees celcius
 #define T20C 293.15 //   20.0 degrees celcius
@@ -494,6 +494,7 @@
 #define BORGMESON 1
 #define BORGTHERM 2
 #define BORGXRAY  4
+#define BORGMATERIAL 8
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
@@ -509,7 +510,6 @@
 // Organ defines.
 #define ORGAN_CUT_AWAY   1
 #define ORGAN_GAUZED     2
-#define ORGAN_ATTACHABLE 4
 #define ORGAN_BLEEDING   8
 #define ORGAN_BROKEN     32
 #define ORGAN_DESTROYED  64
@@ -519,6 +519,8 @@
 #define ORGAN_DEAD       1024
 #define ORGAN_MUTATED    2048
 #define ORGAN_ASSISTED   4096
+#define ORGAN_ADV_ROBOT  4096
+
 
 // Admin permissions. Please don't edit these values without speaking to Errorage first. ~Carn
 #define R_BUILDMODE     1
@@ -559,6 +561,13 @@
 #define CHAT_NOICONS    32768
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
+
+//Sound effects toggles
+#define ASFX_AMBIENCE	1
+#define ASFX_FOOTSTEPS	2
+#define ASFX_VOTE		4
+
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE)
 
 #define BE_TRAITOR    1
 #define BE_OPERATIVE  2
@@ -651,6 +660,7 @@ var/list/be_special_flags = list(
 #define CAN_JOIN          16384 // Species is selectable in chargen.
 #define IS_RESTRICTED     32768 // Is not a core/normally playable species. (castes, mutantraces)
 #define REGENERATES_LIMBS 65536 // Attempts to regenerate unamputated limbs.
+#define IS_BUG 4096  //Everything bug related
 
 // Language flags.
 #define WHITELISTED 1   // Language is available if the speaker is whitelisted.
