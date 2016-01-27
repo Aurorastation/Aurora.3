@@ -1387,6 +1387,7 @@ datum/design/item/weapon/phoronpistol
 	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
 
+
 datum/design/item/weapon/lawgiver
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	id = "lawgiver"
@@ -1394,6 +1395,19 @@ datum/design/item/weapon/lawgiver
 	build_type = PROTOLATHE
 	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$plasma" = 1000, "$diamond" = 3000)
 	build_path = "/obj/item/weapon/gun/energy/lawgiver"
+
+/*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
+outside of RnD without paperwork with the RD's stamp on it. */
+datum/design/item/forcegloves
+ 	name = "Force Gloves"
+ 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
+ 	id = "forcegloves"
+ 	req_tech = list("combat" = 3,"bluespace" = 3, "engineering" = 3, "magnets" = 3)
+ 	build_type = PROTOLATHE
+ 	materials = list("$metal" = 4000)
+ 	build_path = "/obj/item/clothing/gloves/force/basic"
+ 	locked = 1
+ 	category = "Weapons"
 
 /////////////////////////////////////////
 /////////////////Mining//////////////////
