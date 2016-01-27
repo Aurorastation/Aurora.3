@@ -130,6 +130,8 @@
 	for(var/obj/item/weapon/grab/G in src)
 		G.process()
 
+	if(mind && mind.vampire)
+		handle_vampire()
 // Calculate how vulnerable the human is to under- and overpressure.
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
@@ -364,12 +366,24 @@
 				internals.icon_state = "internal0"
 		return null
 
+	get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
+		var/datum/gas_mixture/breath = ..()
+
+		if(breath)
+			//exposure to extreme pressures can rupture lungs
+			var/check_pressure = breath.return_pressure()
+			if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
+				if(!is_lung_ruptured() && prob(5))
+					rupture_lung()
+
+		return breath
 
 	handle_breath(datum/gas_mixture/breath)
 
 		if(status_flags & GODMODE)
 			return
 
+		//check if we actually need to process breath
 		if(!breath || (breath.total_moles == 0) || suiciding)
 			failed_last_breath = 1
 			if(suiciding)
@@ -385,7 +399,7 @@
 
 			return 0
 
-		var/safe_pressure_min = 16 // Minimum safe partial pressure of breathable gas in kPa
+		var/safe_pressure_min = species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 
 		// Lung damage increases the minimum safe pressure.
 		if(species.has_organ["lungs"])
@@ -884,9 +898,9 @@
 				var/turf/T = loc
 				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
 				if(L)
-					light_amount = min(10,L.lum_r + L.lum_g + L.lum_b) - 5 //hardcapped so it's not abused by having a ton of flashlights
+					light_amount = min(10,L.lum_r + L.lum_g + L.lum_b) - 2 //hardcapped so it's not abused by having a ton of flashlights
 				else
-					light_amount =  5
+					light_amount =  1
 			nutrition += light_amount
 			traumatic_shock -= light_amount
 
@@ -941,7 +955,7 @@
 		if(status_flags & GODMODE)	return 0
 
 		//SSD check, if a logged player is awake put them back to sleep!
-		if(species.show_ssd && !client && !aghosted)
+		if(species.show_ssd && !client && !teleop)
 			Sleeping(2)
 
 		if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
@@ -1010,6 +1024,12 @@
 				if( prob(2) && health && !hal_crit )
 					spawn(0)
 						emote("snore")
+				if(mind)
+					if(mind.vampire)
+						if(istype(loc, /obj/structure/closet/coffin))
+							adjustBruteLoss(-1)
+							adjustFireLoss(-1)
+							adjustToxLoss(-1)
 			//CONSCIOUS
 			else
 				stat = CONSCIOUS
@@ -1228,6 +1248,14 @@
 			see_in_dark = species.darksight
 			see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
 
+			if(mind && mind.vampire)
+				if((VAMP_VISION in mind.vampire.powers) && !(VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_MOBS
+				if((VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+					see_in_dark = 8
+					see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
+
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 				see_in_dark = 8
@@ -1254,7 +1282,7 @@
 
 			if(healths)
 				if (analgesic > 100)
-					healths.icon_state = "health_health_numb"
+					healths.icon_state = "health_numb"
 				else
 					switch(hal_screwyhud)
 						if(1)	healths.icon_state = "health6"

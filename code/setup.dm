@@ -142,15 +142,15 @@
 
 //These control the speed at which fire burns
 #define FIRE_GAS_BURNRATE_MULT			1
-#define FIRE_LIQUID_BURNRATE_MULT		1
+#define FIRE_LIQUID_BURNRATE_MULT		0.225
 
 //If the fire is burning slower than this rate then the reaction is going too slow to be self sustaining and the fire burns itself out.
 //This ensures that fires don't grind to a near-halt while still remaining active forever.
 #define FIRE_GAS_MIN_BURNRATE			0.01
-#define FIRE_LIQUD_MIN_BURNRATE			0.01
+#define FIRE_LIQUD_MIN_BURNRATE			0.0025
 
 //How many moles of fuel are contained within one solid/liquid fuel volume unit
-#define LIQUIDFUEL_AMOUNT_TO_MOL		1  //mol/volume unit
+#define LIQUIDFUEL_AMOUNT_TO_MOL		0.45  //mol/volume unit
 
 #define T0C  273.15 //    0.0 degrees celcius
 #define T20C 293.15 //   20.0 degrees celcius
@@ -494,6 +494,7 @@
 #define BORGMESON 1
 #define BORGTHERM 2
 #define BORGXRAY  4
+#define BORGMATERIAL 8
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
@@ -509,10 +510,8 @@
 // Organ defines.
 #define ORGAN_CUT_AWAY   1
 #define ORGAN_GAUZED     2
-#define ORGAN_ATTACHABLE 4
 #define ORGAN_BLEEDING   8
 #define ORGAN_BROKEN     32
-#define ORGAN_DESTROYED  64
 #define ORGAN_ROBOT      128
 #define ORGAN_SPLINTED   256
 #define SALVED           512
@@ -575,6 +574,7 @@
 #define BE_PLANT      4096
 #define BE_LOYALIST   8192
 #define BE_PAI        16384
+#define BE_VAMPIRE    32768
 
 var/list/be_special_flags = list(
 	"Traitor"          = BE_TRAITOR,
@@ -591,7 +591,8 @@ var/list/be_special_flags = list(
 	"Raider"           = BE_RAIDER,
 	"Diona"            = BE_PLANT,
 	"Loyalist"         = BE_LOYALIST,
-	"pAI"              = BE_PAI
+	"pAI"              = BE_PAI,
+	"vampire"          = BE_VAMPIRE
 )
 
 // Age limits on a character.
@@ -677,6 +678,21 @@ var/list/be_special_flags = list(
 #define COLOR_ORANGE "#FF9900"
 #define COLOR_WHITE  "#FFFFFF"
 #define COLOR_BLACK  "#000000"
+
+// Vampire power defines
+#define VAMP_REJUV 1
+#define VAMP_GLARE 2
+#define VAMP_HYPNO 3
+#define VAMP_SHAPE 4
+#define VAMP_VISION 5
+#define VAMP_DISEASE 6
+#define VAMP_CLOAK 7
+#define VAMP_BATS 8
+#define VAMP_SCREAM 9
+#define VAMP_JAUNT 10
+#define VAMP_SLAVE 11
+#define VAMP_BLINK 12
+#define VAMP_FULL 13
 
 /*
  *	Germs and infections.
@@ -833,6 +849,7 @@ var/list/be_special_flags = list(
 #define MODE_RAIDER "raider"
 #define MODE_WIZARD "wizard"
 #define MODE_CHANGELING "changeling"
+#define MODE_VAMPIRE "vampire"
 #define MODE_CULTIST "cultist"
 #define MODE_HIGHLANDER "highlander"
 #define MODE_MONKEY "monkey"

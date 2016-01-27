@@ -13,7 +13,7 @@
 	compatible_mobs = list(/mob/living/carbon/human) //which types of mobs are affected by the spell. NOTE: change at your own risk
 
 	// TODO: Update to new antagonist system.
-	var/list/protected_roles = list("Wizard","Changeling","Cultist") //which roles are immune to the spell
+	var/list/protected_roles = list("Wizard","Changeling","Cultist", "Vampire") //which roles are immune to the spell
 	var/msg_wait = 500 //how long in deciseconds it waits before telling that body doesn't feel right or mind swap robbed of a spell
 	amt_paralysis = 20 //how much the victim is paralysed for after the spell
 
@@ -48,13 +48,15 @@
 				victim.verbs -= V
 
 		var/mob/dead/observer/ghost = victim.ghostize(0)
-		ghost.spell_list = victim.spell_list//If they have spells, transfer them. Now we basically have a backup mob.
+		ghost.spell_list += victim.spell_list//If they have spells, transfer them. Now we basically have a backup mob.
 
 		caster.mind.transfer_to(victim)
-		victim.spell_list = list() //clear those out
+		for(var/spell/S in victim.spell_list) //get rid of spells the new way
+			victim.remove_spell(S) //This will make it so that players will not get the HUD and all that spell bugginess that caused copies of spells and stuff of that nature.
+
 		for(var/spell/S in caster.spell_list)
 			victim.add_spell(S) //Now they are inside the victim's body - this also generates the HUD
-		caster.spell_list = list() //clean that out as well
+			caster.remove_spell(S) //remove the spells from the caster
 
 		if(victim.mind.special_verbs.len)//To add all the special verbs for the original caster.
 			for(var/V in caster.mind.special_verbs)//Not too important but could come into play.
