@@ -15,6 +15,23 @@
 	handle_casings = HOLD_CASINGS
 	var/recentpump = 0 // to prevent spammage
 
+	icon_action_button = "action_blank"
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/projectile/shotgun/pump/can_wield()
+	return 1
+
+/obj/item/weapon/gun/projectile/shotgun/pump/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/shotgun/pump/verb/wield_shotgun()
+	set name = "Wield shotgun"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
 /obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
 		return chambered.BB
@@ -26,6 +43,10 @@
 		recentpump = world.time
 
 /obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M as mob)
+	if(!wielded)
+		M << "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
+		return
+
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 
 	if(chambered)//We have a shell in the chamber
@@ -64,7 +85,7 @@
 	caliber = "shotgun"
 	origin_tech = "combat=3;materials=1"
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	
+
 	burst_delay = 0
 	firemodes = list(
 		list(name="fire one barrel at a time", burst=1),
