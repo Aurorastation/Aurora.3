@@ -33,11 +33,10 @@ var/global/datum/news_controller/news_controller
         fails++
         return
 
-    var/DBQuery/update_query = dbcon.NewQuery("SELECT id, publishtime FROM ss13_news WHERE status = 2 ORDER BY publishtime ASC LIMIT [count],1")
-    update_query.Execute()
+    var/DBQuery/update_query = dbcon.NewQuery("SELECT id, publishtime FROM ss13_news WHERE status = 2 ORDER BY publishtime ASC LIMIT :count, 1")
+    update_query.Execute(list(":count" = count))
 
     if(update_query.ErrorMsg())
-        error("SQL database query encountered an error: [update_query.ErrorMsg()].")
         fails++
         return
 
@@ -59,11 +58,10 @@ var/global/datum/news_controller/news_controller
         fails++
         return
 
-    var/DBQuery/publish_query = dbcon.NewQuery("SELECT channel, author, body FROM ss13_news WHERE id=[article_id]")
-    publish_query.Execute()
+    var/DBQuery/publish_query = dbcon.NewQuery("SELECT channel, author, body FROM ss13_news WHERE id = :article_id")
+    publish_query.Execute(list(":article_id" = article_id))
 
     if(publish_query.ErrorMsg())
-        error("SQL database query encountered an error: [publish_query.ErrorMsg()].")
         fails++
         return
 

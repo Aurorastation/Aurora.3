@@ -50,7 +50,7 @@ datum/book_manager/proc/freeid()
 		if(!dbcon.IsConnected())
 			alert("Connection to Archive has been severed. Aborting.")
 		else
-			var/DBQuery/query = dbcon.NewQuery("DELETE FROM library WHERE id=[isbn]")
+			var/DBQuery/query = dbcon.NewQuery("DELETE FROM ss13_library WHERE id=[isbn]")
 			if(!query.Execute())
 				usr << query.ErrorMsg()
 			dbcon.Disconnect()
