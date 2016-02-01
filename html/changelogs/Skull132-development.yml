@@ -1,0 +1,12 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported Telescience from TGStation."
+  - rscadd: "Ported Aurora's old rifle code, with minor refractors."
+  - rscadd: "Ported Aurora's forensics code. Code refractored by Zuhayr."
+  - rscadd: "Ported SQL based whitelisting, playernotes, warnings. Refractored where necessary."
+  - tweak: "Adjusted the Bay12 paralyze player function to work as our wind function used to work. It also now gives warnings to people nearby if someone was winded."
+  - tweak: "Made tasers to actually fire projectiles again. And not lasers. Tasers are not lasers, sillys."
+  - tweak: "Handcuffing does not require you to have the person in level 2 grab, as it does in vanilla bay."

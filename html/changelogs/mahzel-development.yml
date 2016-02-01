@@ -1,0 +1,8 @@
+author: Mahzel
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported Aurora's intern positions."
+  - rscadd: "Ported Aurora's magnetic door locks."
+  - rscadd: "Ported Aurora's prisoner suits."
