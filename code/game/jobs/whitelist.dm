@@ -54,11 +54,8 @@ var/list/whitelist = list()
 			query.Execute()
 
 			while (query.NextRow())
-				testing("FOUND SPECIES: [query.item[1]]")
 				if (query.item[1] in whitelisted_species)
-					testing("FOUND AND USED VAR: [query.item[1]]")
 					whitelisted_species[query.item[1]] = text2num(query.item[2])
-					testing("READING VAR: [whitelisted_species[query.item[1]]]")
 
 			return
 
