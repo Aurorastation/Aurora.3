@@ -689,6 +689,7 @@ var/list/be_special_flags = list(
 #define COLOR_ORANGE "#FF9900"
 #define COLOR_WHITE  "#FFFFFF"
 #define COLOR_BLACK  "#000000"
+#define COLOR_LUMINOL "#66FFFF"
 
 // Vampire power defines
 #define VAMP_REJUV 1
