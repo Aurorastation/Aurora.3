@@ -2641,6 +2641,49 @@
 				PlayerNotesPage(text2num(href_list["index"]))
 		return
 
+	else if(href_list["warnsearchckey"] || href_list["warnsearchadmin"])
+		var/adminckey = href_list["warnsearchadmin"]
+		var/playerckey = href_list["warnsearchckey"]
+
+		warning_panel(adminckey, playerckey)
+		return
+
+	else if(href_list["dbwarningedit"])
+		var/warningEdit = href_list["dbwarningedit"]
+		var/warningId = text2num(href_list["dbwarningid"])
+		if(!warningEdit || !warningId)
+			return
+
+		warningsEdit(warningId, warningEdit)
+		return
+
+	else if(href_list["dbnoteedit"])
+		var/noteedit = href_list["dbnoteedit"]
+		var/noteid = text2num(href_list["dbnoteid"])
+		if(!noteedit || !noteid)
+			return
+
+		notes_edit_sql(noteid, noteedit)
+		return
+
+	else if(href_list["notessearchckey"] || href_list["notessearchadmin"])
+		var/adminckey = href_list["notessearchadmin"]
+		var/playerckey = href_list["notessearchckey"]
+
+		show_notes_sql(playerckey, adminckey)
+		return
+
+	else if(href_list["admin_wind_player"])
+
+		var/mob/M = locate(href_list["admin_wind_player"])
+		if(!ismob(M))
+			usr << "This can only be used on instances of type /mob"
+			return
+
+		paralyze_mob(M)
+
+		return
+
 mob/living/proc/can_centcom_reply()
 	return 0
 

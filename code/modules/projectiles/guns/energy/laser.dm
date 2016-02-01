@@ -88,18 +88,35 @@ obj/item/weapon/gun/energy/retro
 	slot_flags = SLOT_BACK
 	charge_cost = 400
 	max_shots = 4
-	fire_delay = 35
+	fire_delay = 45
 	force = 10
 	w_class = 4
-	accuracy = -3 //shooting at the hip
+	accuracy = -5 //shooting at the hip
 	scoped_accuracy = 0
+
+	fire_delay_wielded = 35
+	accuracy_wielded = -3
+
+	//action button for wielding
+	icon_action_button = "action_blank"
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/energy/sniperrifle/can_wield()
+	return 1
+
+/obj/item/weapon/gun/energy/sniperrifle/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/sniperrifle/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
 
-	toggle_scope(2.0)
+	if(wielded)
+		toggle_scope(2.0)
+	else
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
 ////////Laser Tag////////////////////
 
