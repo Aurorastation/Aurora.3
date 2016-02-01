@@ -54,8 +54,11 @@ var/list/whitelist = list()
 			query.Execute()
 
 			while (query.NextRow())
+				testing("FOUND SPECIES: [query.item[1]]")
 				if (query.item[1] in whitelisted_species)
+					testing("FOUND AND USED VAR: [query.item[1]]")
 					whitelisted_species[query.item[1]] = text2num(query.item[2])
+					testing("READING VAR: [whitelisted_species[query.item[1]]]")
 
 			return
 
@@ -75,7 +78,7 @@ var/list/whitelist = list()
 	if (lowertext(species) == "human")
 		return 1
 
-	if(!alien_whitelist)
+	if (!alien_whitelist && !config.sql_whitelists)
 		return 0
 
 	if (config.sql_whitelists)
