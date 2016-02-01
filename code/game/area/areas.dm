@@ -234,6 +234,10 @@ var/list/mob/living/forced_ambiance_list = new
 		L.update_floating( L.Check_Dense_Object() )
 
 	L.lastarea = newarea
+
+	// Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
+	if(!(L && L.client && (L.client.prefs.asfx_togs & ASFX_AMBIENCE)))	return
+
 	play_ambience(L)
 
 /area/proc/play_ambience(var/mob/living/L)
@@ -285,4 +289,3 @@ var/list/mob/living/forced_ambiance_list = new
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
 		mob << "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>"
-

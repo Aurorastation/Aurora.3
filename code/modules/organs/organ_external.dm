@@ -258,7 +258,7 @@
 				createwound(BURN, min(burn,can_inflict))
 				//How much burn damage is left to inflict
 				spillover += max(0, burn - can_inflict)
-		
+
 		//If there are still hurties to dispense
 		if (spillover)
 			owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
@@ -275,7 +275,7 @@
 			//2. If the damage amount dealt exceeds the disintegrate threshold, the organ is completely obliterated.
 			//3. If the organ has already reached or would be put over it's max damage amount (currently redundant),
 			//   and the brute damage dealt exceeds the tearoff threshold, the organ is torn off.
-			
+
 			//Check edge eligibility
 			var/edge_eligible = 0
 			if(edge)
@@ -557,7 +557,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 //Updating wounds. Handles wound natural I had some free spachealing, internal bleedings and infections
 /obj/item/organ/external/proc/update_wounds()
 
-	if((status & ORGAN_ROBOT)) //Robotic limbs don't heal or get worse.
+	if((status & ORGAN_ROBOT) || (status & ORGAN_ADV_ROBOT)) //Robotic limbs don't heal or get worse.
 		return
 
 	for(var/datum/wound/W in wounds)
@@ -889,6 +889,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	for (var/obj/item/organ/external/T in children)
 		if(T)
 			T.robotize()
+
+/obj/item/organ/external/proc/robotize_advanced()
+	status |= ORGAN_ADV_ROBOT
+	for (var/obj/item/organ/external/T in children)
+		if (T)
+			T.robotize_advanced()
 
 /obj/item/organ/external/proc/mutate()
 	if(src.status & ORGAN_ROBOT)

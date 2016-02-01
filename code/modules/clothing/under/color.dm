@@ -37,6 +37,23 @@
 	worn_state = "orange"
 	has_sensor = 2
 	sensor_mode = 3
+	var/id
+
+/obj/item/clothing/under/color/orange/cell1
+	desc = "It's standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position.\nThis one has \"Cell 1\" marked on it."
+	id = "Cell 1"
+
+/obj/item/clothing/under/color/orange/cell2
+	desc = "It's standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position.\nThis one has \"Cell 2\" marked on it."
+	id = "Cell 2"
+
+/obj/item/clothing/under/color/orange/cell3
+	desc = "It's standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position.\nThis one has \"Cell 3\" marked on it."
+	id = "Cell 3"
+
+/obj/item/clothing/under/color/orange/cell4
+	desc = "It's standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position.\nThis one has \"Cell 4\" marked on it."
+	id = "Cell 4"
 
 /obj/item/clothing/under/color/pink
 	name = "pink jumpsuit"

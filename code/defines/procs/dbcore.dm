@@ -48,45 +48,45 @@ DBConnection
 	var/server = ""
 	var/port = 3306
 
-DBConnection/New(dbi_handler,username,password_handler,cursor_handler)
-	src.dbi = dbi_handler
-	src.user = username
-	src.password = password_handler
-	src.default_cursor = cursor_handler
+DBConnection/New(dbi_handler, username, password_handler, cursor_handler)
+	dbi = dbi_handler
+	user = username
+	password = password_handler
+	default_cursor = cursor_handler
 	_db_con = _dm_db_new_con()
 
-DBConnection/proc/Connect(dbi_handler=src.dbi,user_handler=src.user,password_handler=src.password,cursor_handler)
-	if(!sqllogging)
+DBConnection/proc/Connect(dbi_handler = dbi, user_handler = user, password_handler = password, cursor_handler)
+	if (!sqllogging)
 		return 0
-	if(!src) return 0
-	cursor_handler = src.default_cursor
-	if(!cursor_handler) cursor_handler = Default_Cursor
-	return _dm_db_connect(_db_con,dbi_handler,user_handler,password_handler,cursor_handler,null)
+	if (!src)
+		return 0
+	cursor_handler = default_cursor
+	if (!cursor_handler)
+		cursor_handler = Default_Cursor
+	return _dm_db_connect(_db_con,dbi_handler, user_handler, password_handler, cursor_handler, null)
 
-DBConnection/proc/Disconnect() return _dm_db_close(_db_con)
+DBConnection/proc/Disconnect()
+	return _dm_db_close(_db_con)
 
 DBConnection/proc/IsConnected()
-	if(!sqllogging) return 0
+	if(!sqllogging)
+		return 0
 	var/success = _dm_db_is_connected(_db_con)
 	return success
 
-DBConnection/proc/Quote(str) return _dm_db_quote(_db_con,str)
+DBConnection/proc/Quote(str)
+	return _dm_db_quote(_db_con,str)
 
-DBConnection/proc/ErrorMsg() return _dm_db_error_msg(_db_con)
+DBConnection/proc/ErrorMsg()
+	return _dm_db_error_msg(_db_con)
+
 DBConnection/proc/SelectDB(database_name,dbi)
 	if(IsConnected()) Disconnect()
 	//return Connect("[dbi?"[dbi]":"dbi:mysql:[database_name]:[DB_SERVER]:[DB_PORT]"]",user,password)
-	return Connect("[dbi?"[dbi]":"dbi:mysql:[database_name]:[sqladdress]:[sqlport]"]",user,password)
-DBConnection/proc/NewQuery(sql_query,cursor_handler=src.default_cursor) return new/DBQuery(sql_query,src,cursor_handler)
+	return Connect("[dbi?"[dbi]":"dbi:mysql:[database_name]:[sqladdress]:[sqlport]"]", user, password)
 
-
-DBQuery/New(sql_query,DBConnection/connection_handler,cursor_handler)
-	if(sql_query) src.sql = sql_query
-	if(connection_handler) src.db_connection = connection_handler
-	if(cursor_handler) src.default_cursor = cursor_handler
-	_db_query = _dm_db_new_query()
-	return ..()
-
+DBConnection/proc/NewQuery(sql_query, cursor_handler = default_cursor)
+	return new/DBQuery(sql_query, src, cursor_handler)
 
 DBQuery
 	var/sql // The sql query being executed.
@@ -98,34 +98,53 @@ DBQuery
 	var/DBConnection/db_connection
 	var/_db_query
 
-DBQuery/proc/Connect(DBConnection/connection_handler) src.db_connection = connection_handler
+DBQuery/New(var/sql_query, var/DBConnection/connection_handler, var/cursor_handler)
+	if (sql_query)
+		sql = sql_query
+	if (connection_handler)
+		db_connection = connection_handler
+	if (cursor_handler)
+		default_cursor = cursor_handler
+	_db_query = _dm_db_new_query()
+	return ..()
 
-DBQuery/proc/Execute(sql_query=src.sql,cursor_handler=default_cursor)
+DBQuery/proc/Connect(DBConnection/connection_handler)
+	db_connection = connection_handler
+
+DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_query = sql, cursor_handler = default_cursor)
 	Close()
-	return _dm_db_execute(_db_query,sql_query,db_connection._db_con,cursor_handler,null)
 
-DBQuery/proc/NextRow() return _dm_db_next_row(_db_query,item,conversions)
+	if (argument_list)
+		sql_query = parseArguments(sql_query, argument_list, pass_not_found)
 
-DBQuery/proc/RowsAffected() return _dm_db_rows_affected(_db_query)
+	return _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
 
-DBQuery/proc/RowCount() return _dm_db_row_count(_db_query)
+DBQuery/proc/NextRow()
+	return _dm_db_next_row(_db_query,item,conversions)
 
-DBQuery/proc/ErrorMsg() return _dm_db_error_msg(_db_query)
+DBQuery/proc/RowsAffected()
+	return _dm_db_rows_affected(_db_query)
+
+DBQuery/proc/RowCount()
+	return _dm_db_row_count(_db_query)
+
+DBQuery/proc/ErrorMsg()
+	return _dm_db_error_msg(_db_query)
 
 DBQuery/proc/Columns()
-	if(!columns)
+	if (!columns)
 		columns = _dm_db_columns(_db_query,/DBColumn)
 	return columns
 
 DBQuery/proc/GetRowData()
 	var/list/columns = Columns()
 	var/list/results
-	if(columns.len)
+	if (columns.len)
 		results = list()
-		for(var/C in columns)
-			results+=C
+		for (var/C in columns)
+			results += C
 			var/DBColumn/cur_col = columns[C]
-			results[C] = src.item[(cur_col.position+1)]
+			results[C] = item[(cur_col.position+1)]
 	return results
 
 DBQuery/proc/Close()
@@ -138,10 +157,48 @@ DBQuery/proc/Quote(str)
 	return db_connection.Quote(str)
 
 DBQuery/proc/SetConversion(column,conversion)
-	if(istext(column)) column = columns.Find(column)
-	if(!conversions) conversions = new/list(column)
-	else if(conversions.len < column) conversions.len = column
+	if (istext(column))
+		column = columns.Find(column)
+	if (!conversions)
+		conversions = new/list(column)
+	else if (conversions.len < column)
+		conversions.len = column
 	conversions[column] = conversion
+
+/* Works similarly to the PDO object's Execute() method in PHP.
+* Insert a list of keys/values, it searches the SQL syntax for the keys,
+* and replaces them with sanitized versions of the values.
+* Can be called independently, or through dbcon.Execute(), where the list would be the first argument.
+* passNotFound controls whether or not is passes keys not found in the SQL query.
+* Keys are /case-sensitive/, be careful!
+* Returns the parsed SQL query upon completion.
+* - Skull132
+*/
+DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, var/pass_not_found = 0)
+	if (!query_to_parse || !argument_list || !argument_list.len)
+		return 0
+
+	for (var/placeholder in argument_list)
+		if (!findtextEx(sql, placeholder))
+			if (pass_not_found)
+				continue
+			else
+				return 0
+
+		var/argument = argument_list[placeholder]
+
+		if (isnull(argument))
+			argument = "NULL"
+		else if (istext(argument))
+			argument = dbcon.Quote(argument)
+		else if (isnum(argument))
+			argument = "'[argument]'"
+		else
+			return 0
+
+		query_to_parse = replacetextEx(sql, placeholder, argument)
+
+	return query_to_parse
 
 
 DBColumn
@@ -153,32 +210,45 @@ DBColumn
 	var/length
 	var/max_length
 
-DBColumn/New(name_handler,table_handler,position_handler,type_handler,flag_handler,length_handler,max_length_handler)
-	src.name = name_handler
-	src.table = table_handler
-	src.position = position_handler
-	src.sql_type = type_handler
-	src.flags = flag_handler
-	src.length = length_handler
-	src.max_length = max_length_handler
+DBColumn/New(name_handler, table_handler, position_handler, type_handler, flag_handler, length_handler, max_length_handler)
+	name = name_handler
+	table = table_handler
+	position = position_handler
+	sql_type = type_handler
+	flags = flag_handler
+	length = length_handler
+	max_length = max_length_handler
 	return ..()
 
 
-DBColumn/proc/SqlTypeName(type_handler=src.sql_type)
-	switch(type_handler)
-		if(TINYINT) return "TINYINT"
-		if(SMALLINT) return "SMALLINT"
-		if(MEDIUMINT) return "MEDIUMINT"
-		if(INTEGER) return "INTEGER"
-		if(BIGINT) return "BIGINT"
-		if(FLOAT) return "FLOAT"
-		if(DOUBLE) return "DOUBLE"
-		if(DATE) return "DATE"
-		if(DATETIME) return "DATETIME"
-		if(TIMESTAMP) return "TIMESTAMP"
-		if(TIME) return "TIME"
-		if(STRING) return "STRING"
-		if(BLOB) return "BLOB"
+DBColumn/proc/SqlTypeName(type_handler = sql_type)
+	switch (type_handler)
+		if (TINYINT)
+			return "TINYINT"
+		if (SMALLINT)
+			return "SMALLINT"
+		if (MEDIUMINT)
+			return "MEDIUMINT"
+		if (INTEGER)
+			return "INTEGER"
+		if (BIGINT)
+			return "BIGINT"
+		if (FLOAT)
+			return "FLOAT"
+		if (DOUBLE)
+			return "DOUBLE"
+		if (DATE)
+			return "DATE"
+		if (DATETIME)
+			return "DATETIME"
+		if (TIMESTAMP)
+			return "TIMESTAMP"
+		if (TIME)
+			return "TIME"
+		if (STRING)
+			return "STRING"
+		if (BLOB)
+			return "BLOB"
 
 
 #undef Default_Cursor

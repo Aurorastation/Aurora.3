@@ -19,7 +19,8 @@ var/global/list/special_roles = list( //keep synced with the defines BE_* in set
 	"raider" = IS_MODE_COMPILED("heist"),                // 11
 	"diona" = 1,                                         // 12
 	"loyalist" = IS_MODE_COMPILED("revolution"),         // 13
-	"pAI candidate" = 1, // -- TLE                       // 14
+	"vampire" = IS_MODE_COMPILED("vampire"),             // 14
+	"pAI candidate" = 1, // -- TLE                       // 15
 )
 
 //used for alternate_option
@@ -45,6 +46,7 @@ datum/preferences
 	var/be_special = 0					//Special role selection
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
+	var/asfx_togs = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 

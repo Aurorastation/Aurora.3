@@ -228,6 +228,14 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.robotize()
 
+	if(flags & IS_BUG)
+		for (var/obj/item/organ/external/E in H.organs)
+			if ((E.status & ORGAN_CUT_AWAY) || (E.status & ORGAN_DESTROYED))
+				continue
+			E.status |= ORGAN_ADV_ROBOT
+		for(var/obj/item/organ/I in H.internal_organs)
+			I.robotize()
+
 /datum/species/proc/hug(var/mob/living/carbon/human/H,var/mob/living/target)
 
 	var/t_him = "them"

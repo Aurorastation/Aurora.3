@@ -68,6 +68,24 @@
 		if(safety <= 0)
 			M.Weaken(10)
 			flick("e_flash", M.flash)
+				//Vaurca damage 15/01/16
+			var/mob/living/carbon/human/H = M
+			if(H.species.flags & IS_BUG)
+				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+				if(!E)
+					return
+				usr << "\red Your eyes burn with the intense light of the flash!."
+				E.damage += rand(10, 11)
+				if(E.damage > 12)
+					M.eye_blurry += rand(3,6)
+				if (E.damage >= E.min_broken_damage)
+					M.sdisabilities |= BLIND
+				else if (E.damage >= E.min_bruised_damage)
+					M.eye_blind = 5
+					M.eye_blurry = 5
+					M.disabilities |= NEARSIGHTED
+					spawn(100)
+						M.disabilities &= ~NEARSIGHTED
 
 			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)
 				if(user.mind && user.mind in revs.current_antagonists)
