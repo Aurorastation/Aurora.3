@@ -221,13 +221,14 @@
 
 	var/sql_ckey = sql_sanitize_text(src.ckey)
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = '[sql_ckey]'")
+	var/DBQuery/query = dbcon.NewQuery("SELECT id, datediff(Now(),firstseen) as age, whitelist_status FROM ss13_player WHERE ckey = '[sql_ckey]'")
 	query.Execute()
 	var/sql_id = 0
 	player_age = 0	// New players won't have an entry so knowing we have a connection we set this to zero to be updated if their is a record.
 	while(query.NextRow())
 		sql_id = query.item[1]
 		player_age = text2num(query.item[2])
+		whitelist_status = text2num(query.item[3])
 		break
 
 	var/DBQuery/query_ip = dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE ip = '[address]'")
