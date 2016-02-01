@@ -1417,16 +1417,19 @@ proc/admin_notice(var/message, var/rights)
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)
 	set category = "Admin"
-	set name = "Toggle Paralyze"
+	set name = "Toggle Wind"
 	set desc = "Paralyzes a player. Or unparalyses them."
 
 	var/msg
 
-	if(check_rights(R_ADMIN))
+	if(check_rights(R_ADMIN|R_MOD))
 		if (H.paralysis == 0)
 			H.paralysis = 8000
 			msg = "has paralyzed [key_name(H)]."
+			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminmhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
 		else
 			H.paralysis = 0
 			msg = "has unparalyzed [key_name(H)]."
+			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[src] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
 		log_and_message_admins(msg)
+		feedback_add_details("admin_verb", "WIND")

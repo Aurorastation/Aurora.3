@@ -2680,7 +2680,7 @@
 			usr << "This can only be used on instances of type /mob"
 			return
 
-		M.wind_mob(usr)
+		paralyze_mob(M)
 
 		return
 
