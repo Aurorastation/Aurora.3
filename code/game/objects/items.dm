@@ -27,6 +27,9 @@
 	//Since any item can now be a piece of clothing, this has to be put here so all items share it.
 	var/flags_inv //This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
 	var/body_parts_covered = 0 //see setup.dm for appropriate bit flags
+
+	var/item_flags = 0 //Miscellaneous flags pertaining to equippable objects.
+
 	//var/heat_transfer_coefficient = 1 //0 prevents all transfers, 1 is invisible
 	var/gas_transfer_coefficient = 1 // for leaking gas from turf to mask and vice-versa (for masks right now, but at some point, i'd like to include space helmets)
 	var/permeability_coefficient = 1 // for chemicals/diseases
@@ -494,6 +497,12 @@ var/list/global/slot_flags_enumeration = list(
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
 
+/obj/item/reveal_blood()
+	if(was_bloodied && !fluorescent)
+		fluorescent = 1
+		blood_color = COLOR_LUMINOL
+		blood_overlay.color = COLOR_LUMINOL
+		update_icon()
 
 /obj/item/add_blood(mob/living/carbon/human/M as mob)
 	if (!..())
@@ -608,7 +617,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			usr.visible_message("[zoomdevicename ? "[usr] looks up from the [src.name]" : "[usr] lowers the [src.name]"].")
 
 	return
-
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
