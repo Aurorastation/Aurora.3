@@ -224,11 +224,14 @@
 	set name = "Split"
 	set desc = "Split your humanoid form into its constituent nymphs."
 	set category = "Abilities"
+	diona_split_into_nymphs(5)	// Separate proc to void argments being supplied when used as a verb
 
+/mob/living/carbon/human/proc/diona_split_into_nymphs(var/number_of_resulting_nymphs)
 	var/turf/T = get_turf(src)
 
 	var/mob/living/carbon/alien/diona/S = new(T)
 	S.set_dir(dir)
+	transfer_languages(src, S)
 	if(mind)
 		mind.transfer_to(S)
 
@@ -239,20 +242,55 @@
 
 	for(var/mob/living/carbon/alien/diona/D in src)
 		nymphs++
-		D.loc = T
+		D.forceMove(T)
+		transfer_languages(src, D, WHITELISTED|RESTRICTED)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 
-	if(nymphs < 5)
-		for(var/i in nymphs to 4)
+	if(nymphs < number_of_resulting_nymphs)
+		for(var/i in nymphs to (number_of_resulting_nymphs - 1))
 			var/mob/M = new /mob/living/carbon/alien/diona(T)
+			transfer_languages(src, M, WHITELISTED|RESTRICTED)
 			M.set_dir(pick(NORTH, SOUTH, EAST, WEST))
-
 
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 
 	visible_message("<span class='warning'>\The [src] quivers slightly, then splits apart with a wet slithering noise.</span>")
-
 	qdel(src)
 
+/mob/living/carbon/human/proc/bugbite()
+	set category = "Abilities"
+	set name = "Bite"
+	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		src << "\red You cannot do that in your current state."
+		return
+
+	var/obj/item/weapon/grab/G = locate() in src
+	if(!G || !istype(G))
+		src << "\red You are not grabbing anyone."
+		return
+
+	if(G.state < GRAB_AGGRESSIVE)
+		src << "\red You must have an aggressive grab to gut your prey!"
+		return
+
+	last_special = world.time + 50
+
+	visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
+
+	if(istype(G.affecting,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = G.affecting
+		H.apply_damage(30,BRUTE)
+//		if(H.stat == 2) //no gibbing humans but i'll let you gib like a mouse or something that's cool
+//			H.gib()
+	else
+		var/mob/living/M = G.affecting
+		if(!istype(M)) return //wut
+		M.apply_damage(30,BRUTE)
+		if(M.stat == 2)
+			M.gib()

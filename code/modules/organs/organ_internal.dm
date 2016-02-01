@@ -165,3 +165,19 @@
 			icon_state = "appendixinflamed"
 			name = "inflamed appendix"
 	..()
+
+//VAURCA ORGANS
+/obj/item/organ/vaurca/neuralsocket
+	name = "neural socket"
+	parent_organ = "head"
+	robotic = 2
+
+
+/obj/item/organ/vaurca/breathingapparatus
+	name = "breathing apparatus"
+	parent_organ = "chest"
+	robotic = 2
+
+
+/obj/item/organ/internal/vaurca/process()
+	return

@@ -36,3 +36,6 @@
 
 /mob/living/carbon/human/stok/New(var/new_loc)
 	..(new_loc, "Stok")
+
+/mob/living/carbon/human/bug/New(var/new_loc)
+	..(new_loc, "Vaurca")

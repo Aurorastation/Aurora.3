@@ -158,14 +158,6 @@
 	name = "anchoring ligament"
 	parent_organ = "groin"
 
-/obj/item/organ/diona/node
-	name = "receptor node"
-	parent_organ = "head"
-
-/obj/item/organ/diona/nutrients
-	name = "nutrient vessel"
-	parent_organ = "chest"
-
 /obj/item/organ/diona
 	name = "diona nymph"
 	icon = 'icons/obj/objects.dmi'
@@ -183,8 +175,9 @@
 // These are different to the standard diona organs as they have a purpose in other
 // species (absorbing radiation and light respectively)
 /obj/item/organ/diona/nutrients
-	name = "nutrient vessel"
-	organ_tag = "nutrient vessel"
+	name = "nutrient channel"
+	parent_organ = "chest"
+	organ_tag = "nutrient channel"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
 
@@ -192,7 +185,8 @@
 	return
 
 /obj/item/organ/diona/node
-	name = "receptor node"
+	name = "response node"
+	parent_organ = "head"
 	organ_tag = "receptor node"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
@@ -385,3 +379,31 @@
 /obj/item/organ/external/head/slime
 	cannot_break = 1
 	dislocated = -1
+
+
+//VAURCA ORGANS
+/obj/item/organ/vaurca/neuralsocket
+    name = "neural socket"
+    organ_tag = "neural socket"
+    icon = 'icons/mob/alien.dmi'
+    icon_state = "neural_socket"
+
+/obj/item/organ/vaurca/neuralsocket/removed()
+	return
+
+/obj/item/organ/vaurca/breathingapparatus
+    name = "breathing apparatus"
+    organ_tag = "breathing apparatus"
+    icon = 'icons/mob/alien.dmi'
+    icon_state = "breathing_app"
+
+/obj/item/organ/vaurca/breathingapparatus/removed()
+	return
+
+/obj/item/organ/vaurca/tracheae
+    name = "tracheae"
+    organ_tag = "tracheae"
+    icon = 'icons/mob/alien.dmi'
+    icon_state = "tracheae"
+/obj/item/organ/vaurca/tracheae/removed()
+	return
