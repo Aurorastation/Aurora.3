@@ -88,6 +88,8 @@
 	icon_state = "weldtank"
 	amount_per_transfer_from_this = 10
 	var/modded = 0
+	var/defuse = 0
+	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
 	New()
 		..()

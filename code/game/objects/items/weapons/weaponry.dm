@@ -47,12 +47,29 @@
 		user.Paralyse(20)
 		return
 
-	if (M.stat !=2)
-		if(cult && (M.mind in cult.current_antagonists) && prob(33))
-			M << "<span class='danger'>The power of [src] clears your mind of the cult's influence!</span>"
-			user << "<span class='danger'>You wave [src] over [M]'s head and see their eyes become clear, their mind returning to normal.</span>"
-			cult.remove_antagonist(M.mind)
-			M.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [M]'s head.</span>")
+	if (M.stat !=2 && ishuman(M))
+		var/mob/living/K = M
+		if(cult && (K.mind in cult.current_antagonists) && prob(33))
+			if(do_after(user, 15))
+				K.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [K]'s head, [K] looks captivated by it.</span>", "\red [user] wave's the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>")
+				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
+				switch(choice)
+					if("Resist")
+						K.visible_message("\red The gaze in [K]'s eyes remains determined.", "\blue You turn away from the light, remaining true to your dark lord. The light burns you due to rejection!")
+						K.say("*scream")
+						K.take_overall_damage(5, 15)
+					if("Give in")
+						K.visible_message("\blue [K]'s eyes become clearer, the evil gone, but not without leaving scars.")
+						K.take_overall_damage(15, 30)
+						cult.remove_antagonist(K.mind)
+			else
+				user.visible_message("\red [user]'s concentration is broken!", "\red Your concentration is broken! You and your target need to stay uninterrupted for longer!")
+				return
+		else if(M.mind && M.mind.vampire)
+			if(!(VAMP_FULL in M.mind.vampire.powers))
+				user << "\red The rod burns cold in your hand, filling you with grim determination.  You feel the creature's power weaken."
+				M << "<span class='warning'>The nullrod's power interferes with your own!  They are on to you!</span>"
+				M.mind.vampire.nullified = max(8, M.mind.vampire.nullified + 8)
 		else if(prob(10))
 			user << "<span class='danger'>The rod slips in your hand.</span>"
 			..()

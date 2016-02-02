@@ -16,7 +16,7 @@
 
 	New()
 		//average of 0.5, somewhat better than regular gloves' 0.75
-		siemens_coefficient = pick(0,0.1,0.3,0.5,0.5,0.75,1.35) 
+		siemens_coefficient = pick(0,0.1,0.3,0.5,0.5,0.75,1.35)
 
 /obj/item/clothing/gloves/black
 	desc = "These work gloves are thick and fire-resistant."
@@ -84,3 +84,31 @@
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "brown"
 	item_state = "browngloves"
+
+/obj/item/clothing/gloves/yellow/specialt
+	desc = "These gloves will protect the wearer from electric shock. Made special for Tajaran use"
+	name = "Tajaran electrical gloves"
+	icon_state = "yellow"
+	item_state = "ygloves"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	species_restricted = list("Tajaran")
+
+/obj/item/clothing/gloves/yellow/specialu
+	desc = "These gloves will protect the wearer from electric shock. Made special for Unathi use"
+	name = "Unathi electrical gloves"
+	icon_state = "yellow"
+	item_state = "ygloves"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/gloves/black/unathi
+	name = "black gloves"
+	desc = "black gloves made for Unathi use."
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/gloves/black/tajara
+	name = "black gloves"
+	desc = "black gloves made for Tajara use."
+	species_restricted = list("Tajaran")

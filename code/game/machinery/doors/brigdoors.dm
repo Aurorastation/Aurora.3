@@ -26,7 +26,10 @@
 	var/timing = 1    		// boolean, true/1 timer is on, false/0 means it's not timing
 	var/picture_state		// icon_state of alert picture, if not displaying text/numbers
 	var/list/obj/machinery/targets = list()
+	var/list/obj/item/clothing/under/color/orange/uniforms = list()
 	var/timetoset = 0		// Used to set releasetime upon starting the timer
+	var/alerted = 0
+	var/spamcheck = 0
 
 	maptext_height = 26
 	maptext_width = 32
@@ -46,6 +49,10 @@
 		for(var/obj/structure/closet/secure_closet/brig/C in world)
 			if(C.id == src.id)
 				targets += C
+
+		for(var/obj/item/clothing/under/color/orange/D in world)
+			if(D.id == id)
+				uniforms += D
 
 		if(targets.len==0)
 			stat |= BROKEN
@@ -68,6 +75,8 @@
 		if(timeleft > 1e5)
 			src.releasetime = 0
 
+		if(timeleft < 30 && !alerted)
+			alertuniforms()
 
 		if(world.timeofday > src.releasetime)
 			src.timer_end() // open doors, reset timer, clear status screen
@@ -152,6 +161,35 @@
 /obj/machinery/door_timer/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
 
+// Alert the uniform wearers that their timer is about to end up
+/obj/machinery/door_timer/proc/alertuniforms()
+	if(stat & (NOPOWER|BROKEN))	return
+	if(!uniforms.len)
+		alerted = 1
+		return
+
+	for(var/obj/item/clothing/under/color/orange/D in uniforms)
+		if(!ishuman(D.loc))	continue
+		D.loc << "A speaker in the collar of your suit pings:\n\blue Your cell timer will expire in 30 seconds or less. Please go to your cell to speed up processing."
+
+	alerted = 1
+
+	return
+
+// Alert the uniform wearers that they are needed at their cell
+/obj/machinery/door_timer/proc/summonuniforms()
+	if(stat & (NOPOWER|BROKEN))	return
+	if(spamcheck)	return
+	if(!uniforms.len)	return
+	for(var/obj/item/clothing/under/color/orange/D in uniforms)
+		if(!ishuman(D.loc))	continue
+		D.loc << "A speaker in the collar of your suit pings:\n\red You have been summoned to your cell!"
+
+	spamcheck = 1
+	spawn(30)
+		spamcheck = 0
+
+	return
 
 //Allows humans to use door_timer
 //Opens dialog window when someone clicks on door timer
@@ -249,7 +287,8 @@
 
 		if(href_list["change"])
 			src.timer_start()
-
+		if(href_list["summon"])
+			summonuniforms()
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	src.update_icon()

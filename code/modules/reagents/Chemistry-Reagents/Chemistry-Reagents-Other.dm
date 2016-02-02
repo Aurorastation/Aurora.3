@@ -211,6 +211,15 @@
 	if(ishuman(M)) // Any location
 		if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
+		if(M.mind.vampire && (!(VAMP_FULL in M.mind.vampire.powers)))
+			if(!M) M = holder.my_atom
+			M.adjustFireLoss(6)
+			M.adjust_fire_stacks(1)
+			M.IgniteMob()
+			//M.take_organ_damage(0, 1*REM)
+			if(prob(20))
+				for (var/mob/V in viewers(src))
+					V.show_message(text("\red []'s skin sizzles and burns.", M), 1)
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
@@ -278,10 +287,7 @@
 	touch_met = 50
 
 /datum/reagent/space_cleaner/touch_obj(var/obj/O)
-	if(istype(O, /obj/effect/decal/cleanable))
-		qdel(O)
-	else
-		O.clean_blood()
+	O.clean_blood()
 
 /datum/reagent/space_cleaner/touch_turf(var/turf/T)
 	if(volume >= 1)
@@ -382,3 +388,23 @@
 	id = "glue"
 	description = "An extremely powerful bonding agent."
 	color = "#FFFFCC"
+
+/datum/reagent/woodpulp
+	name = "Wood Pulp"
+	id = "woodpulp"
+	description = "A mass of wood fibers."
+	reagent_state = LIQUID
+	color = "#B97A57"
+
+/datum/reagent/luminol
+	name = "Luminol"
+	id = "luminol"
+	description = "A compound that interacts with blood on the molecular level."
+	reagent_state = LIQUID
+	color = "#F2F3F4"
+
+/datum/reagent/luminol/touch_obj(var/obj/O)
+	O.reveal_blood()
+
+/datum/reagent/luminol/touch_mob(var/mob/living/L)
+	L.reveal_blood()

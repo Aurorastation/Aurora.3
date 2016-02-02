@@ -562,6 +562,13 @@
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
+//Sound effects toggles
+#define ASFX_AMBIENCE	1
+#define ASFX_FOOTSTEPS	2
+#define ASFX_VOTE		4
+
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE)
+
 #define BE_TRAITOR    1
 #define BE_OPERATIVE  2
 #define BE_CHANGELING 4
@@ -577,6 +584,7 @@
 #define BE_PLANT      4096
 #define BE_LOYALIST   8192
 #define BE_PAI        16384
+#define BE_VAMPIRE    32768
 
 var/list/be_special_flags = list(
 	"Traitor"          = BE_TRAITOR,
@@ -593,7 +601,8 @@ var/list/be_special_flags = list(
 	"Raider"           = BE_RAIDER,
 	"Diona"            = BE_PLANT,
 	"Loyalist"         = BE_LOYALIST,
-	"pAI"              = BE_PAI
+	"pAI"              = BE_PAI,
+	"vampire"          = BE_VAMPIRE
 )
 
 // Age limits on a character.
@@ -680,6 +689,22 @@ var/list/be_special_flags = list(
 #define COLOR_ORANGE "#FF9900"
 #define COLOR_WHITE  "#FFFFFF"
 #define COLOR_BLACK  "#000000"
+#define COLOR_LUMINOL "#66FFFF"
+
+// Vampire power defines
+#define VAMP_REJUV 1
+#define VAMP_GLARE 2
+#define VAMP_HYPNO 3
+#define VAMP_SHAPE 4
+#define VAMP_VISION 5
+#define VAMP_DISEASE 6
+#define VAMP_CLOAK 7
+#define VAMP_BATS 8
+#define VAMP_SCREAM 9
+#define VAMP_JAUNT 10
+#define VAMP_SLAVE 11
+#define VAMP_BLINK 12
+#define VAMP_FULL 13
 
 /*
  *	Germs and infections.
@@ -836,6 +861,7 @@ var/list/be_special_flags = list(
 #define MODE_RAIDER "raider"
 #define MODE_WIZARD "wizard"
 #define MODE_CHANGELING "changeling"
+#define MODE_VAMPIRE "vampire"
 #define MODE_CULTIST "cultist"
 #define MODE_HIGHLANDER "highlander"
 #define MODE_MONKEY "monkey"

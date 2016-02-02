@@ -10,10 +10,16 @@
 		while sprite_sheets should be used for "flexible" clothing items that do not need to be refitted (e.g. vox wearing jumpsuits).
 	*/
 	var/list/sprite_sheets_refit = null
+	var/gunshot_residue
 
 //Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
 	return
+
+// Aurora forensics port.
+/obj/item/clothing/clean_blood()
+	..()
+	gunshot_residue = null
 
 //BS12: Species-restricted clothing check.
 /obj/item/clothing/mob_can_equip(M as mob, slot)
@@ -331,6 +337,7 @@ BLIND     // can't see anything
 	var/overshoes = 0
 	species_restricted = list("exclude","Unathi","Tajara")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
+	var/silent = 0
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
 	return

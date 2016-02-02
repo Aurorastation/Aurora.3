@@ -8,14 +8,14 @@ var/global/floorIsLava = 0
 	msg = "<span class=\"log_message\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message\">[msg]</span></span>"
 	log_adminwarn(msg)
 	for(var/client/C in admins)
-		if(R_ADMIN & C.holder.rights)
+		if((R_ADMIN|R_MOD) & C.holder.rights)
 			C << msg
 
 /proc/msg_admin_attack(var/text) //Toggleable Attack Messages
 	log_attack(text)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
 	for(var/client/C in admins)
-		if(R_ADMIN & C.holder.rights)
+		if((R_ADMIN|R_MOD) & C.holder.rights)
 			if(C.prefs.toggles & CHAT_ATTACKLOGS)
 				var/msg = rendered
 				C << msg
@@ -62,6 +62,7 @@ proc/admin_notice(var/message, var/rights)
 		<b>Mob type</b> = [M.type]<br><br>
 		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
 		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
+		<a href='?src=\ref[src];warnsearchckey=[M.ckey]'>Warnings</a> |
 		<A href='?src=\ref[src];newban=\ref[M]'>Ban</A> |
 		<A href='?src=\ref[src];jobban2=\ref[M]'>Jobban</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
@@ -69,6 +70,7 @@ proc/admin_notice(var/message, var/rights)
 
 	if(M.client)
 		body += "| <A HREF='?src=\ref[src];sendtoprison=\ref[M]'>Prison</A> | "
+		body += "<a href='?src=\ref[src];admin_wind_player=\ref[M]'>Wind</a>"
 		var/muted = M.client.prefs.muted
 		body += {"<br><b>Mute: </b>
 			\[<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_IC]'><font color='[(muted & MUTE_IC)?"red":"blue"]'>IC</font></a> |
@@ -220,7 +222,12 @@ proc/admin_notice(var/message, var/rights)
 	if (!istype(src,/datum/admins))
 		usr << "Error: you are not an admin!"
 		return
-	PlayerNotesPage(1)
+	if (!check_rights(R_ADMIN|R_MOD))
+		return
+	if (config.ban_legacy_system)
+		PlayerNotesPage(1)
+	else
+		show_notes_sql()
 
 /datum/admins/proc/PlayerNotesPage(page)
 	var/dat = "<B>Player notes</B><HR>"
@@ -278,45 +285,47 @@ proc/admin_notice(var/message, var/rights)
 	if (!istype(src,/datum/admins))
 		usr << "Error: you are not an admin!"
 		return
-	var/dat = "<html><head><title>Info on [key]</title></head>"
-	dat += "<body>"
 
-	var/p_age = "unknown"
-	for(var/client/C in clients)
-		if(C.ckey == key)
-			p_age = C.player_age
-			break
-	dat +="<span style='color:#000000; font-weight: bold'>Player age: [p_age]</span><br>"
+	if (config.ban_legacy_system)
+		var/dat = "<html><head><title>Info on [key]</title></head>"
+		dat += "<body>"
 
-	var/savefile/info = new("data/player_saves/[copytext(key, 1, 2)]/[key]/info.sav")
-	var/list/infos
-	info >> infos
-	if(!infos)
-		dat += "No information found on the given key.<br>"
+		var/p_age = "unknown"
+		for(var/client/C in clients)
+			if(C.ckey == key)
+				p_age = C.player_age
+				break
+		dat +="<span style='color:#000000; font-weight: bold'>Player age: [p_age]</span><br>"
+
+		var/savefile/info = new("data/player_saves/[copytext(key, 1, 2)]/[key]/info.sav")
+		var/list/infos
+		info >> infos
+		if(!infos)
+			dat += "No information found on the given key.<br>"
+		else
+			var/update_file = 0
+			var/i = 0
+			for(var/datum/player_info/I in infos)
+				i += 1
+				if(!I.timestamp)
+					I.timestamp = "Pre-4/3/2012"
+					update_file = 1
+				if(!I.rank)
+					I.rank = "N/A"
+					update_file = 1
+				dat += "<font color=#008800>[I.content]</font> <i>by [I.author] ([I.rank])</i> on <i><font color=blue>[I.timestamp]</i></font> "
+				if(I.author == usr.key || I.author == "Adminbot" || ishost(usr))
+					dat += "<A href='?src=\ref[src];remove_player_info=[key];remove_index=[i]'>Remove</A>"
+				dat += "<br><br>"
+			if(update_file) info << infos
+
+		dat += "<br>"
+		dat += "<A href='?src=\ref[src];add_player_info=[key]'>Add Comment</A><br>"
+
+		dat += "</body></html>"
+		usr << browse(dat, "window=adminplayerinfo;size=480x480")
 	else
-		var/update_file = 0
-		var/i = 0
-		for(var/datum/player_info/I in infos)
-			i += 1
-			if(!I.timestamp)
-				I.timestamp = "Pre-4/3/2012"
-				update_file = 1
-			if(!I.rank)
-				I.rank = "N/A"
-				update_file = 1
-			dat += "<font color=#008800>[I.content]</font> <i>by [I.author] ([I.rank])</i> on <i><font color=blue>[I.timestamp]</i></font> "
-			if(I.author == usr.key || I.author == "Adminbot" || ishost(usr))
-				dat += "<A href='?src=\ref[src];remove_player_info=[key];remove_index=[i]'>Remove</A>"
-			dat += "<br><br>"
-		if(update_file) info << infos
-
-	dat += "<br>"
-	dat += "<A href='?src=\ref[src];add_player_info=[key]'>Add Comment</A><br>"
-
-	dat += "</body></html>"
-	usr << browse(dat, "window=adminplayerinfo;size=480x480")
-
-
+		show_notes_sql(key)
 
 /datum/admins/proc/access_news_network() //MARKER
 	set category = "Fun"
@@ -1408,16 +1417,19 @@ proc/admin_notice(var/message, var/rights)
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)
 	set category = "Admin"
-	set name = "Toggle Paralyze"
+	set name = "Toggle Wind"
 	set desc = "Paralyzes a player. Or unparalyses them."
 
 	var/msg
 
-	if(check_rights(R_ADMIN))
+	if(check_rights(R_ADMIN|R_MOD))
 		if (H.paralysis == 0)
 			H.paralysis = 8000
 			msg = "has paralyzed [key_name(H)]."
+			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminmhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
 		else
 			H.paralysis = 0
 			msg = "has unparalyzed [key_name(H)]."
+			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[src] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
 		log_and_message_admins(msg)
+		feedback_add_details("admin_verb", "WIND")

@@ -8,16 +8,37 @@
 	slot_flags = SLOT_BACK
 	origin_tech = "combat=8;materials=2;syndicate=8"
 	caliber = "14.5mm"
-	recoil = 2 //extra kickback
+	recoil = 4 //extra kickback
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/a145
 	//+2 accuracy over the LWAP because only one shot
-	accuracy = -1
+	accuracy = -3
 	scoped_accuracy = 2
 	var/bolt_open = 0
+
+	recoil_wielded = 2
+	accuracy_wielded = -1
+
+	//action button for wielding
+	icon_action_button = "action_blank"
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/projectile/heavysniper/can_wield()
+	return 1
+
+/obj/item/weapon/gun/projectile/heavysniper/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/heavysniper/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/heavysniper/update_icon()
 	if(bolt_open)
@@ -63,5 +84,7 @@
 	set name = "Use Scope"
 	set popup_menu = 1
 
-	toggle_scope(2.0)
-
+	if(wielded)
+		toggle_scope(2.0)
+	else
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"

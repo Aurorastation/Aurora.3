@@ -11,6 +11,8 @@ var/const/ENGINEER			=(1<<6)
 var/const/ATMOSTECH			=(1<<7)
 var/const/AI				=(1<<8)
 var/const/CYBORG			=(1<<9)
+var/const/INTERN_SEC		=(1<<10)
+var/const/INTERN_ENG		=(1<<11)
 
 
 var/const/MEDSCI			=(1<<1)
@@ -26,7 +28,8 @@ var/const/PSYCHIATRIST		=(1<<7)
 var/const/ROBOTICIST		=(1<<8)
 var/const/XENOBIOLOGIST		=(1<<9)
 var/const/PARAMEDIC			=(1<<10)
-
+var/const/INTERN_MED		=(1<<11)
+var/const/INTERN_SCI		=(1<<12)
 
 var/const/CIVILIAN			=(1<<2)
 
@@ -64,6 +67,7 @@ var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Station Engineer",
 	"Atmospheric Technician",
+	"Engineering Apprentice"
 )
 
 
@@ -73,7 +77,8 @@ var/list/medical_positions = list(
 	"Geneticist",
 	"Psychiatrist",
 	"Chemist",
-	"Paramedic"
+	"Paramedic",
+	"Nursing Intern"
 )
 
 
@@ -82,7 +87,8 @@ var/list/science_positions = list(
 	"Scientist",
 	"Geneticist",	//Part of both medical and science
 	"Roboticist",
-	"Xenobiologist"
+	"Xenobiologist",
+	"Lab Assistant"
 )
 
 //BS12 EDIT
@@ -106,7 +112,8 @@ var/list/security_positions = list(
 	"Head of Security",
 	"Warden",
 	"Detective",
-	"Security Officer"
+	"Security Officer",
+	"Security Cadet"
 )
 
 
@@ -118,7 +125,7 @@ var/list/nonhuman_positions = list(
 
 
 /proc/guest_jobbans(var/job)
-	return ((job in command_positions) || (job in nonhuman_positions) || (job in security_positions))
+	return ((job in command_positions))
 
 /proc/get_job_datums()
 	var/list/occupations = list()
@@ -140,3 +147,5 @@ var/list/nonhuman_positions = list(
 			titles = J.alt_titles
 
 	return titles
+
+//Mahzel : Job preview not added because code don't exist in BS12

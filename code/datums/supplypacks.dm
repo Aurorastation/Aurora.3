@@ -43,6 +43,20 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 	hidden = 1
 
+/datum/supply_packs/forensics
+	name = "Auxiliary forensic tools"
+	contains = list(/obj/item/weapon/forensics/sample_kit,
+					/obj/item/weapon/forensics/sample_kit/powder,
+					/obj/item/weapon/storage/box/swabs,
+					/obj/item/weapon/storage/box/swabs,
+					/obj/item/weapon/storage/box/swabs,
+					/obj/item/weapon/storage/box/slides,
+					/obj/item/weapon/reagent_containers/spray/luminol)
+	cost = 30
+	containertype = /obj/structure/closet/crate
+	containername = "Auxiliary forensic tools"
+	group = "Security"
+
 /datum/supply_packs/food
 	name = "Kitchen supply crate"
 	contains = list(/obj/item/weapon/reagent_containers/food/condiment/flour,
@@ -848,7 +862,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "Automatic weapon crate"
 	num_contained = 2
 	contains = list(/obj/item/weapon/gun/projectile/automatic/wt550,
-					/obj/item/weapon/gun/projectile/automatic/z8)
+					/obj/item/weapon/gun/projectile/automatic/rifle/z8)
 	cost = 90
 	containertype = /obj/structure/closet/crate/secure
 	containername = "Automatic weapon crate"
@@ -1219,6 +1233,32 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "Beekeeping crate"
 	access = access_hydroponics
 	group = "Hydroponics"
+
+/datum/supply_packs/aliengloves
+	name = "Non-Human Glove Kit"
+	contains = list(/obj/item/clothing/gloves/yellow/specialt,
+					/obj/item/clothing/gloves/yellow/specialt,
+					/obj/item/clothing/gloves/yellow/specialt,
+					/obj/item/clothing/gloves/yellow/specialu,
+					/obj/item/clothing/gloves/yellow/specialu,
+					/obj/item/clothing/gloves/yellow/specialu)
+	cost = 25
+	containertype = /obj/structure/closet/crate
+	containername = "speciality gloves kit"
+	group = "Supply"
+
+/datum/supply_packs/alienmedicalgloves
+	name = "Non-Human Sterile Glove Kit"
+	contains = list(/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/tajara,
+					/obj/item/clothing/gloves/latex/tajara,
+					/obj/item/clothing/gloves/latex/tajara)
+	cost = 25
+	containertype = /obj/structure/closet/crate
+	containername = "speciality sterile gloves kit"
+	group = "Medical"
 
 /datum/supply_packs/cardboard_sheets
 	contains = list(/obj/item/stack/material/cardboard)

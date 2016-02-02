@@ -946,15 +946,45 @@
 	P.loc = get_turf(holder.my_atom)
 	..()
 
-//Gold - removed
+//Gold - added back in
 /datum/chemical_reaction/slime/crit
 	name = "Slime Crit"
 	id = "m_tele"
 	result = null
-	required_reagents = list("phoron" = 1)
+	required_reagents = list("water" = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/gold
-	mix_message = "The slime core fizzles disappointingly."
+
+/datum/chemical_reaction/slime/crit/on_reaction(var/datum/reagents/holder)
+	var/blocked = list(/mob/living/simple_animal/hostile,
+	/mob/living/simple_animal/hostile/pirate,
+	/mob/living/simple_animal/hostile/pirate/ranged,
+	/mob/living/simple_animal/hostile/russian,
+	/mob/living/simple_animal/hostile/russian/ranged,
+	/mob/living/simple_animal/hostile/syndicate,
+	/mob/living/simple_animal/hostile/syndicate/melee,
+	/mob/living/simple_animal/hostile/syndicate/melee/space,
+	/mob/living/simple_animal/hostile/syndicate/ranged,
+	/mob/living/simple_animal/hostile/syndicate/ranged/space,
+	/mob/living/simple_animal/hostile/alien/queen/large,
+	/mob/living/simple_animal/hostile/faithless,
+	/mob/living/simple_animal/hostile/retaliate,
+	/mob/living/simple_animal/hostile/retaliate/clown
+	)//exclusion list for things you don't want the reaction to create.
+	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
+	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
+		if(M.eyecheck() <= 0)
+			flick("e_flash", M.flash)
+
+	for(var/i = 1, i <= 5, i++)
+		var/chosen = pick(critters)
+		var/mob/living/simple_animal/hostile/C = new chosen
+		C.faction = "slimesummon"
+		C.loc = get_turf(holder.my_atom)
+		if(prob(50))
+			for(var/j = 1, j <= rand(1, 3), j++)
+				step(C, pick(NORTH,SOUTH,EAST,WEST))
 
 //Silver
 /datum/chemical_reaction/slime/bork
@@ -1926,30 +1956,9 @@
 	required_reagents = list("space_up" = 2, "bluecuracao" = 1, "melonliquor" = 1)
 	result_amount = 4
 
-/* Removed xenoarcheology stuff
-datum
-	chemical_reaction
-		lithiumsodiumtungstate	//LiNa2WO4, not the easiest chem to mix
-			name = "Lithium Sodium Tungstate"
-			id = "lithiumsodiumtungstate"
-			result = "lithiumsodiumtungstate"
-			required_reagents = list("lithium" = 1, "sodium" = 2, "tungsten" = 1, "oxygen" = 4)
-			result_amount = 8
-
-		density_separated_liquid
-			name = "Density separated sample"
-			id = "density_separated_sample"
-			result = "density_separated_sample"
-			secondary_results = list("chemical_waste" = 1)
-			required_reagents = list("ground_rock" = 1, "lithiumsodiumtungstate" = 2)
-			result_amount = 2
-
-		analysis_liquid
-			name = "Analysis sample"
-			id = "analysis_sample"
-			result = "analysis_sample"
-			secondary_results = list("chemical_waste" = 1)
-			required_reagents = list("density_separated_sample" = 5)
-			result_amount = 4
-			requires_heating = 1
-*/
+/datum/chemical_reaction/luminol
+	name = "Luminol"
+	id = "luminol"
+	result = "luminol"
+	required_reagents = list("hydrogen" = 2, "carbon" = 2, "ammonia" = 2)
+	result_amount = 6

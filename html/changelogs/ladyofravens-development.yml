@@ -1,0 +1,7 @@
+author: Lady of Ravens
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported Aurora's stungloves and modified force gloves."
+  - rscadd: "Ported Aurora's mechanics of heavy machinery eating hair."
