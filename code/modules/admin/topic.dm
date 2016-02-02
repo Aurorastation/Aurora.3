@@ -2682,6 +2682,26 @@
 
 		paralyze_mob(M)
 
+	else if(href_list["admindibs"])
+		if (!check_rights(R_ADMIN|R_MOD))
+			return
+
+		var/client/C = locate(href_list["admindibs"])
+
+		if (!istype(C) || !C)
+			usr << "\red Player not found!"
+			return
+
+		if (C.adminhelped == 2)
+			log_and_message_admins("has called <font color='red'>dibs</font> on [key_name_admin(C)]'s adminhelp!")
+			usr << "<font color='blue'><b>You have taken over [key_name_admin(C)]'s adminhelp.</b></font>'"
+			usr << "[get_options_bar(C, 2, 1, 1)]"
+
+			C << "<font color='red'><b>Your adminhelp will be tended [usr.client.holder.fakekey ? "shortly" : "by [key_name(usr, 0, 0)]"]. Please allow the staff member a minute or two to write up a response.</b></font>"
+			C.adminhelped = 1
+		else
+			usr << "<font color='red'><b>The adminhelp has already been claimed!</b></font>"
+
 		return
 
 mob/living/proc/can_centcom_reply()
