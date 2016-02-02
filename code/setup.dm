@@ -539,8 +539,9 @@
 #define R_MOD           8192
 #define R_MENTOR        16384
 #define R_HOST          32768
+#define R_CCIAA			65536
 
-#define R_MAXPERMISSION 32768 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
+#define R_MAXPERMISSION 65536 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 1

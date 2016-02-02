@@ -93,6 +93,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
 	/datum/admins/proc/paralyze_mob
+//	/datum/admins/proc/send_admin_fax
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -119,6 +120,7 @@ var/list/admin_verbs_fun = list(
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
 	/client/proc/roll_dices
+//	/datum/admins/proc/send_admin_fax
 	)
 var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_fruit,
@@ -301,6 +303,17 @@ var/list/admin_verbs_mentor = list(
 	/client/proc/cmd_admin_subtle_message
 )
 
+var/list/admin_verbs_cciaa = list(
+	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
+	/client/proc/spawn_duty_officer,
+	/client/proc/cmd_admin_create_centcom_report,
+	/client/proc/cmd_cciaa_say,
+	/client/proc/returntobody,
+//	/client/proc/view_duty_log,
+//	/datum/admins/proc/send_admin_fax,
+	/client/proc/check_fax_history
+)
+
 /client/proc/add_admin_verbs()
 	if(holder)
 		verbs += admin_verbs_default
@@ -321,6 +334,7 @@ var/list/admin_verbs_mentor = list(
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
 		if(holder.rights & R_MENTOR)		verbs += admin_verbs_mentor
+		if(holder.rights & R_CCIAA)			verbs += admin_verbs_cciaa
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(
