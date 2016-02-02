@@ -61,4 +61,14 @@
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"
-	syllables = list ("gra","ba","ba","breh","bra","rah","dur","ra","ro","gro","go","ber","bar","geh","heh", "gra")
+	syllables = list ("slo","nik","ko","zels","het","zlo","nis","iv","da","ati","yib","ban","dup","sha","ansh","nou","nec","zby", "ci")
+
+// Sign language
+/datum/language/sign
+	name = "Sign Language"
+	desc = "A signed version of Standard, though its intent is primarily to help out people who are deaf and mute, "
+	speech_verb = "signs"
+	signlang_verb = list("signs", "gestures")
+	colour = "i"
+	key = "4"
+	flags = NO_STUTTER|SIGNLANG
