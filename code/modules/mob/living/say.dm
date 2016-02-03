@@ -32,18 +32,18 @@ var/list/department_radio_keys = list(
 
 	  //kinda localization -- rastaf0
 	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	"#ê" = "right ear",		".ê" = "right ear",
-	  ":ä" = "left ear",	"#ä" = "left ear",		".ä" = "left ear",
-	  ":ø" = "intercom",	"#ø" = "intercom",		".ø" = "intercom",
-	  ":ð" = "department",	"#ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		"#ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		"#ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		"#ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	"#ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	"#û" = "Security",		".û" = "Security",
-	  ":ö" = "whisper",		"#ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	"#å" = "Mercenary",		".å" = "Mercenary",
-	  ":é" = "Supply",		"#é" = "Supply",		".é" = "Supply",
+	  ":Åº" = "right ear",	"#Åº" = "right ear",		".Åº" = "right ear",
+	  ":Ã¤" = "left ear",	"#Ã¤" = "left ear",		".Ã¤" = "left ear",
+	  ":Å³" = "intercom",	"#Å³" = "intercom",		".Å³" = "intercom",
+	  ":Å¡" = "department",	"#Å¡" = "department",	".Å¡" = "department",
+	  ":Å„" = "Command",		"#Å„" = "Command",		".Å„" = "Command",
+	  ":Å†" = "Science",		"#Å†" = "Science",		".Å†" = "Science",
+	  ":Ã¼" = "Medical",		"#Ã¼" = "Medical",		".Ã¼" = "Medical",
+	  ":Ã³" = "Engineering",	"#Ã³" = "Engineering",	".Ã³" = "Engineering",
+	  ":Å«" = "Security",	"#Å«" = "Security",		".Å«" = "Security",
+	  ":Ã¶" = "whisper",		"#Ã¶" = "whisper",		".Ã¶" = "whisper",
+	  ":Ã¥" = "Mercenary",	"#Ã¥" = "Mercenary",		".Ã¥" = "Mercenary",
+	  ":Ã©" = "Supply",		"#Ã©" = "Supply",		".Ã©" = "Supply",
 )
 
 
@@ -176,6 +176,9 @@ proc/get_radio_key_from_channel(var/channel)
 			verb = say_quote(message)
 		else
 			verb = speaking.get_spoken_verb(copytext(message, length(message)))
+
+		if (speaking.flags & SIGNLANG)
+			message_mode = null
 	else
 		verb = say_quote(message)
 

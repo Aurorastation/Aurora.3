@@ -882,6 +882,8 @@
 #include "code\modules\awaymissions\pamphlet.dm"
 #include "code\modules\awaymissions\trigger.dm"
 #include "code\modules\awaymissions\zlevel.dm"
+#include "code\modules\cciaa\cciaa.dm"
+#include "code\modules\cciaa\cciaa_items.dm"
 #include "code\modules\client\client defines.dm"
 #include "code\modules\client\client procs.dm"
 #include "code\modules\client\preferences.dm"
