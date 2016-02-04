@@ -304,10 +304,16 @@ var/list/admin_verbs_mentor = list(
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
-	/datum/admins/proc/restart,
+	///datum/admins/proc/restart,
 	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
 	/datum/admins/proc/delay,
+	/client/proc/Jump,
+	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
+	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
+	/client/proc/jumptoturf,			/*allows us to jump to a specific turf*/
+	/client/proc/cmd_admin_pm_context,
 	/client/proc/cmd_admin_pm_panel,	//admin-pm list
+	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/cmd_dev_say,
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_ghost,
