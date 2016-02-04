@@ -98,6 +98,30 @@
 	qdel(G)
 	return
 
+/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+	if(!ismob(O))
+		return
+	var/mob/M = O
+	if (src.occupant)
+		user << "\blue <B>The scanner is already occupied!</B>"
+		return
+	if (M.abiotic())
+		user << "\blue <B>Subject cannot have abiotic items on.</B>"
+		return
+	if (M.client)
+		M.client.perspective = EYE_PERSPECTIVE
+		M.client.eye = src
+	M.loc = src
+	src.occupant = M
+	update_use_power(2)
+	src.icon_state = "body_scanner_1"
+	for(var/obj/Obj in src)
+		Obj.loc = src.loc
+		//Foreach goto(154)
+	src.add_fingerprint(user)
+	//G = null
+	return
+
 /obj/machinery/bodyscanner/ex_act(severity)
 	switch(severity)
 		if(1.0)
