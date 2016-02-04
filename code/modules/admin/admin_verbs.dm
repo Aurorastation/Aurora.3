@@ -303,7 +303,7 @@ var/list/admin_verbs_mentor = list(
 	/client/proc/cmd_admin_subtle_message
 )
 
-var/list/admin_verbs_dev = list(
+var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/datum/admins/proc/restart,
 	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
 	/datum/admins/proc/delay,
