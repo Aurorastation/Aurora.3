@@ -250,13 +250,13 @@
 		src.owner << "\red You do not have enough powers to do this."
 		return
 
-	var/target_department = null
-	if (!fax)
+	/*var/target_department = null 	// giving errors when compiling, commenting out for now
+	if (!fax)												// -Ryan784
 		var/list/all_fax_machines = list()
 		for (var/obj/machinery/photocopier/faxmachine/F in world)
 			all_fax_machines += F
-		target_department = input(src.owner, "Please select a department to send this fax to.", "Target Fax Department", null) as null|anything in all_fax_machines
-
+		var/target_department = input(src.owner, "Please select a department to send this fax to.", "Target Fax Department", null) as null|anything in all_fax_machines
+		*/
 	if (!fax)
 		src.owner << "\red Couldn't find the desired fax machine! Sending cancelled!"
 

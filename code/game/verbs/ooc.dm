@@ -44,7 +44,7 @@
 		ooc_style = "elevated"
 		if(holder.rights & R_MOD)
 			ooc_style = "moderator"
-		if(holder.rights & R_DEBUG)
+		if(holder.rights & (R_DEBUG|R_DEV))
 			ooc_style = "developer"
 		if(holder.rights & R_ADMIN)
 			ooc_style = "admin"
