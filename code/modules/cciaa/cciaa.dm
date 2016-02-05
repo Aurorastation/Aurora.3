@@ -1,7 +1,7 @@
 /client/proc/spawn_duty_officer()
 	set category = "Special Verbs"
 	set name = "Spawn CCIA Agent"
-	set desc = "Spawns a CCIA Agent to... IA Agent?"
+	set desc = "Spawns a CCIA Agent to agent around."
 
 	if(!check_rights(R_CCIAA))	return
 
@@ -241,32 +241,37 @@
 			job_master.FreeRole(oldjob)
 	return
 
-/datum/admins/proc/send_admin_fax(var/mob/sender = null, var/obj/machinery/photocopier/faxmachine/fax = null)
+/datum/admins/proc/create_admin_fax(var/department in alldepartments)
 	set name = "Send admin fax"
 	set desc = "Send a fax from Central Command"
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		src.owner << "\red You do not have enough powers to do this."
+		usr << "\red You do not have enough powers to do this."
 		return
 
-	var/target_department = null
-	if (!fax)
-		var/list/all_fax_machines = list()
-		for (var/obj/machinery/photocopier/faxmachine/F in world)
-			all_fax_machines += F
-		target_department = input(src.owner, "Please select a department to send this fax to.", "Target Fax Department", null) as null|anything in all_fax_machines
+	if (!department)
+		usr << "\red No target department specified!"
+		return
+
+	var/obj/machinery/photocopier/faxmachine/fax = null
+
+	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+		if (F.department == department)
+			fax = F
+			break
 
 	if (!fax)
-		src.owner << "\red Couldn't find the desired fax machine! Sending cancelled!"
+		usr << "\red Couldn't find a fax machine to send this to!"
+		return
 
 	//todo: sanitize
-	var/input = input(src.owner, "Please enter a message to reply to [sender ? key_name(sender) : "a fax"] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
+	var/input = input(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
 	if (!input)
-		src.owner << "\red Cancelled."
+		usr << "\red Cancelled."
 		return
 
-	var/customname = input(src.owner, "Pick a title for the report", "Title") as text|null
+	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
 
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
@@ -284,10 +289,10 @@
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.recievefax(P))
-		src.owner << "\blue Message reply to transmitted successfully."
-		log_and_message_admins("sent a fax message to the station.")
+		usr << "\blue Message transmitted successfully."
+		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 	else
-		src.owner << "\red Message reply failed."
+		usr << "\red Message reply failed."
 
 	spawn(100)
 		qdel(P)

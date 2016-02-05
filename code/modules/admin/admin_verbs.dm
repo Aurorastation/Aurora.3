@@ -92,8 +92,9 @@ var/list/admin_verbs_admin = list(
 	/client/proc/change_security_level,
 	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
-	/datum/admins/proc/paralyze_mob
-//	/datum/admins/proc/send_admin_fax
+	/datum/admins/proc/paralyze_mob,
+	/datum/admins/proc/create_admin_fax,
+	/client/proc/check_fax_history
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -310,7 +311,7 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_cciaa_say,
 	/client/proc/returntobody,
 //	/client/proc/view_duty_log,
-//	/datum/admins/proc/send_admin_fax,
+	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history
 )
 
