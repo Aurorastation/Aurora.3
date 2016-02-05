@@ -702,7 +702,7 @@ proc/admin_notice(var/message, var/rights)
 
 	dat += "<BR>"
 
-	if(check_rights(R_DEBUG,0))
+	if(check_rights(R_DEBUG|R_DEV,0))
 		dat += {"
 			<B>Security Level Elevated</B><BR>
 			<BR>
@@ -1351,7 +1351,7 @@ proc/admin_notice(var/message, var/rights)
 		return //Extra sanity check to make sure only observers are shoved into things
 
 	//Same as assume-direct-control perm requirements.
-	if (!check_rights(R_VAREDIT,0) || !check_rights(R_ADMIN|R_DEBUG,0))
+	if (!check_rights(R_VAREDIT,0) || !check_rights(R_ADMIN|R_DEBUG|R_DEV,0))
 		return 0
 	if (!frommob.ckey)
 		return 0

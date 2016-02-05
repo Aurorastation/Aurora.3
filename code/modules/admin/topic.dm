@@ -2331,7 +2331,7 @@
 				world << text("<B>A secret has been activated by []!</B>", usr.key)
 
 	else if(href_list["secretscoder"])
-		if(!check_rights(R_DEBUG))	return
+		if(!check_rights(R_DEBUG|R_DEV))	return
 
 		switch(href_list["secretscoder"])
 			if("spawn_objects")

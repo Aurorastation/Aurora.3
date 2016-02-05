@@ -61,7 +61,7 @@
 
 	//clean the message if it's not sent by a high-rank admin
 	//todo: sanitize for all???
-	if(!check_rights(R_SERVER|R_DEBUG,0))
+	if(!check_rights(R_SERVER|R_DEBUG|R_DEV,0))
 		msg = sanitize(msg)
 		if(!msg)	return
 
@@ -115,7 +115,7 @@
 		//check client/X is an admin and isn't the sender or recipient
 		if(X == C || X == src)
 			continue
-		if(X.key != key && X.key != C.key && (X.holder.rights & R_ADMIN|R_MOD|R_MENTOR))
+		if(X.key != key && X.key != C.key && (X.holder.rights & R_ADMIN|R_MOD|R_MENTOR|R_DEV))
 			X << "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0)]</span> to <span class='name'>[key_name(C, X, 0)]</span>: <span class='message'>[msg]</span></span></span>"
 
 /client/proc/cmd_admin_irc_pm(sender)

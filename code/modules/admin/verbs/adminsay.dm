@@ -37,6 +37,24 @@
 
 	feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/cmd_dev_say(msg as text)
+	set category = "Special Verbs"
+	set name = "Devsay"
+	set hidden = 1
+
+	if(!check_rights(R_ADMIN|R_DEV)) return
+
+	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
+	if(!msg)	return
+
+	log_admin("DEV: [key_name(src)] : [msg]")
+
+	if(check_rights(R_DEV,0))
+		msg = "<span class='devsay'><span class='prefix'>DEV:</span> <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message'>[msg]</span></span>"
+		for(var/client/C in admins)
+			if(C.holder.rights & (R_ADMIN|R_DEV))
+				C << msg
+
 /client/proc/cmd_cciaa_say(msg as text)
 	set category = "Special Verbs"
 	set name = "CCIAsay"
