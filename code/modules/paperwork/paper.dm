@@ -429,6 +429,7 @@
 
 		B.pages.Add(src)
 		B.pages.Add(P)
+		B.amount = 2
 		B.update_icon()
 
 	else if(istype(P, /obj/item/weapon/pen))
