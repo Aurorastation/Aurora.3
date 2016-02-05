@@ -372,7 +372,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if(href_list["sort"])
 		var/sortdep = sanitizeSQL(href_list["sort"])
-		SQLquery += " WHERE department LIKE '%[sortdep]%'"
+		SQLquery = " Select id, name, department FROM aurora_forms WHERE department LIKE '%[sortdep]%'"
 		screen = 11
 
 	if(href_list["print"])
