@@ -5,7 +5,7 @@
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "hisses"
-	key = "4"
+	key = "z"
 	flags = RESTRICTED
 	syllables = list("sss","sSs","SSS")
 

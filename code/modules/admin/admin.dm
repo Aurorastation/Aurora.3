@@ -702,7 +702,7 @@ proc/admin_notice(var/message, var/rights)
 
 	dat += "<BR>"
 
-	if(check_rights(R_DEBUG,0))
+	if(check_rights(R_DEBUG|R_DEV,0))
 		dat += {"
 			<B>Security Level Elevated</B><BR>
 			<BR>
@@ -1315,9 +1315,9 @@ proc/admin_notice(var/message, var/rights)
 			var/ref_mob = "\ref[M]"
 			return "<b>[key_name(C, link, name, highlight_special)](<A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A>) (<A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=[ref_mob]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=[ref_mob]'>JMP</A>) (<A HREF='?_src_=holder;check_antagonist=1'>CA</A>)</b>"
 
-		if(3)	//Devs
+		if(3)	//Undibbsed
 			var/ref_mob = "\ref[M]"
-			return "<b>[key_name(C, link, name, highlight_special)](<A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A>)(<A HREF='?_src_=holder;adminplayerobservejump=[ref_mob]'>JMP</A>)</b>"
+			return "<b>[key_name(C, link, name, highlight_special)](<A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A>) (<A HREF='?_src_=holder;admindibs=\ref[C]'>DIBS</A>) (<A HREF='?_src_=holder;adminplayeropts=\ref[M]'>PP</A>) (<A HREF='?_src_=holder;adminplayerobservejump=[ref_mob]'>JMP</A>)</b>"
 
 		if(4)	//Mentors
 			var/ref_mob = "\ref[M]"
@@ -1351,7 +1351,7 @@ proc/admin_notice(var/message, var/rights)
 		return //Extra sanity check to make sure only observers are shoved into things
 
 	//Same as assume-direct-control perm requirements.
-	if (!check_rights(R_VAREDIT,0) || !check_rights(R_ADMIN|R_DEBUG,0))
+	if (!check_rights(R_VAREDIT,0) || !check_rights(R_ADMIN|R_DEBUG|R_DEV,0))
 		return 0
 	if (!frommob.ckey)
 		return 0
@@ -1426,10 +1426,10 @@ proc/admin_notice(var/message, var/rights)
 		if (H.paralysis == 0)
 			H.paralysis = 8000
 			msg = "has paralyzed [key_name(H)]."
-			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminmhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
+			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[H] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminmhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
 		else
 			H.paralysis = 0
 			msg = "has unparalyzed [key_name(H)]."
-			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[src] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
+			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[H] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
 		log_and_message_admins(msg)
 		feedback_add_details("admin_verb", "WIND")

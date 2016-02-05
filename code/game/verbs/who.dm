@@ -63,9 +63,13 @@
 	var/msg = ""
 	var/modmsg = ""
 	var/mentmsg = ""
+	var/cciaamsg = ""
+	var/devmsg = ""
 	var/num_mods_online = 0
 	var/num_admins_online = 0
 	var/num_mentors_online = 0
+	var/num_cciaa_online = 0
+	var/num_devs_online = 0
 	if(holder)
 		for(var/client/C in admins)
 			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights && !R_MENTOR & C.holder.rights))	//Used to determine who shows up in admin rows
@@ -119,6 +123,34 @@
 				mentmsg += "\n"
 				num_mentors_online++
 
+			else if (R_CCIAA & C.holder.rights)
+				cciaamsg += "\t[C]"
+				if (isobserver(C.mob))
+					cciaamsg += " - Observing"
+				else if (istype(C.mob, /mob/new_player))
+					cciaamsg += " - Lobby"
+				else
+					cciaamsg += " - Playing"
+
+				if (C.is_afk())
+					cciaamsg += " (AFK)"
+				cciaamsg += "\n"
+				num_cciaa_online++
+
+			else if(C.holder.rights & R_DEV)
+				devmsg += "\t[C] is a [C.holder.rank]"
+				if(isobserver(C.mob))
+					devmsg += " - Observing"
+				else if(istype(C.mob,/mob/new_player))
+					devmsg += " - Lobby"
+				else
+					devmsg += " - Playing"
+
+				if(C.is_afk())
+					devmsg += " (AFK)"
+				devmsg += "\n"
+				num_devs_online++
+
 	else
 		for(var/client/C in admins)
 			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights && !R_MENTOR & C.holder.rights))
@@ -131,6 +163,12 @@
 			else if (R_MENTOR & C.holder.rights)
 				mentmsg += "\t[C] is a [C.holder.rank]\n"
 				num_mentors_online++
+			else if(C.holder.rights & R_DEV)
+				devmsg += "\t[C] is a [C.holder.rank]\n"
+				num_devs_online++
+			else if (R_CCIAA & C.holder.rights)
+				cciaamsg += "\t[C] is a [C.holder.rank]\n"
+				num_cciaa_online++
 
 	if(config.admin_irc)
 		src << "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game try anyway and an admin on IRC may see it and respond.</span>"
@@ -141,5 +179,11 @@
 
 	if(config.show_mentors)
 		msg += "\n<b> Current Mentors ([num_mentors_online]):</b>\n" + mentmsg
+
+	if (config.show_auxiliary_roles)
+		if (num_cciaa_online)
+			msg += "\n<b> Current CCIA Agents ([num_cciaa_online]):</b>\n" + cciaamsg
+		if(num_devs_online)
+			msg += "\n<b> Current Developers ([num_devs_online]):</b>\n" + devmsg
 
 	src << msg
