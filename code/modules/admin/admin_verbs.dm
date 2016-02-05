@@ -92,7 +92,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/change_security_level,
 	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
-	/datum/admins/proc/paralyze_mob
+	/datum/admins/proc/paralyze_mob,
+	/client/proc/cmd_dev_bst
 //	/datum/admins/proc/send_admin_fax
 )
 var/list/admin_verbs_ban = list(
@@ -306,7 +307,6 @@ var/list/admin_verbs_mentor = list(
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	///datum/admins/proc/restart,
 	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
-	/datum/admins/proc/delay,
 	/client/proc/Jump,
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
@@ -328,19 +328,17 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
-	/client/proc/cmd_mod_say,
 	/client/proc/getruntimelog,
 	/client/proc/giveruntimelog,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
 	/client/proc/player_panel,
-	/client/proc/reload_admins,
-	/client/proc/reload_mentors,
 	/client/proc/restart_controller,
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
-	/client/proc/ZASSettings
+	/client/proc/ZASSettings,
+	/client/proc/cmd_dev_bst
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
