@@ -68,7 +68,7 @@
 			for(var/x in all_hairs)
 				var/datum/sprite_accessory/hair/H = new x
 				hairs.Add(H.name)
-				del(H)
+				qdel(H)
 			//hair
 			var/new_hstyle = input(usr, "Select a hair style", "Grooming")  as null|anything in hair_styles_list
 			if(new_hstyle)
@@ -232,7 +232,7 @@
 			M.mind.special_role = null
 			mob.ghostize(0)
 	verbs -= /client/proc/returntobody
-	del(M)
+	qdel(M)
 
 /proc/clear_cciaa_job(var/mob/living/carbon/human/M)
 	spawn(9000)
@@ -326,3 +326,20 @@
 		data += "<center>No faxes have been sent out.</center>"
 
 	usr << browse("<HTML><HEAD><TITLE>Centcomm Fax History</TITLE></HEAD><BODY>[data]</BODY></HTML>", "window=Centcomm Fax History")
+
+/client/proc/view_duty_log()
+	set category = "Special Verbs"
+	set name = "Get Duty Log"
+	set desc = "Download a log or file from an investigation"
+
+	var/path = browse_files("data/dutylogs/")
+	if(!path)
+		return
+
+	if(file_spam_check())
+		return
+
+	message_admins("[key_name_admin(src)] accessed file: [path]")
+	usr << run( file(path) )
+	feedback_add_details("admin_verb","DOGL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	return
