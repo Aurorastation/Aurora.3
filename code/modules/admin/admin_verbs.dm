@@ -94,7 +94,10 @@ var/list/admin_verbs_admin = list(
 	/client/proc/makePAI,
 	/datum/admins/proc/paralyze_mob,
 	/datum/admins/proc/create_admin_fax,
-	/client/proc/check_fax_history
+	/client/proc/check_fax_history,
+	/client/proc/cmd_cciaa_say,
+	/client/proc/cmd_dev_say,
+	/client/proc/view_duty_log
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -120,8 +123,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/make_sound,
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
-	/client/proc/roll_dices
-//	/datum/admins/proc/send_admin_fax
+	/client/proc/roll_dices,
+	/datum/admins/proc/create_admin_fax
 	)
 var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_fruit,
@@ -318,15 +321,12 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
-	/client/proc/cmd_mod_say,
 	/client/proc/getruntimelog,
 	/client/proc/giveruntimelog,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
 	/client/proc/player_panel,
-	/client/proc/reload_admins,
-	/client/proc/reload_mentors,
 	/client/proc/restart_controller,
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
@@ -338,7 +338,7 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
 	/client/proc/returntobody,
-//	/client/proc/view_duty_log,
+	/client/proc/view_duty_log,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history
 )
