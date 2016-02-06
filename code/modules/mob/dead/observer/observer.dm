@@ -244,7 +244,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	if(!client)
 		return
-	var/aux_staff = check_rights(R_MOD|R_ADMIN, 0)
+	var/aux_staff = check_rights(list(R_MOD,R_ADMIN), 0)
 	if(!config.antag_hud_allowed && (!client.holder || aux_staff))
 		src << "\red Admins have disabled this for this round."
 		return
@@ -337,7 +337,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return 0
 
 /mob/dead/observer/check_holy(var/turf/T)
-	if(check_rights(R_ADMIN|R_FUN, 0, src))
+	if(check_rights(list(R_ADMIN,R_FUN), 0, src))
 		return 0
 
 	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in cult.current_antagonists))

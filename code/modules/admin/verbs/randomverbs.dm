@@ -82,7 +82,7 @@
 	var/msg = ""
 
 	var/highlight_special_characters = 1
-	if(!check_rights(R_MOD|R_ADMIN, 0))
+	if(!check_rights(list(R_MOD,R_ADMIN), 0))
 		highlight_special_characters = 0
 
 	for(var/client/C in clients)
@@ -567,7 +567,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "Explosion"
 
-	if(!check_rights(R_DEBUG|R_FUN))	return
+	if(!check_rights(list(R_DEBUG,R_FUN)))	return
 
 	var/devastation = input("Range of total devastation. -1 to none", text("Input"))  as num|null
 	if(devastation == null) return
@@ -595,7 +595,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "EM Pulse"
 
-	if(!check_rights(R_DEBUG|R_FUN))	return
+	if(!check_rights(list(R_DEBUG,R_FUN)))	return
 
 	var/heavy = input("Range of heavy pulse.", text("Input"))  as num|null
 	if(heavy == null) return
@@ -617,7 +617,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "Gib"
 
-	if(!check_rights(R_ADMIN|R_FUN))	return
+	if(!check_rights(list(R_ADMIN,R_FUN)))	return
 
 	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
 	if(confirm != "Yes") return
@@ -773,7 +773,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if ((!( ticker ) || !emergency_shuttle.location()))
 		return
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(list(R_ADMIN)))	return
 
 	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
 	if(confirm != "Yes") return
@@ -802,7 +802,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Admin"
 	set name = "Cancel Shuttle"
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(list(R_ADMIN)))	return
 
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes") return
 
@@ -823,7 +823,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if (!ticker)
 		return
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(list(R_ADMIN)))	return
 
 	emergency_shuttle.deny_shuttle = !emergency_shuttle.deny_shuttle
 
@@ -845,7 +845,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set name = "Make Everyone Random"
 	set desc = "Make everyone have a random appearance. You can only use this before rounds!"
 
-	if(!check_rights(R_FUN))	return
+	if(!check_rights(list(R_FUN)))	return
 
 	if (ticker && ticker.mode)
 		usr << "Nope you can't do this, the game's already started. This only works before rounds!"
@@ -879,7 +879,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set name = "Toggle random events on/off"
 
 	set desc = "Toggles random events such as meteors, black holes, blob (but not space dust) on/off"
-	if(!check_rights(R_SERVER))	return
+	if(!check_rights(list(R_SERVER)))	return
 
 	if(!config.allow_random_events)
 		config.allow_random_events = 1

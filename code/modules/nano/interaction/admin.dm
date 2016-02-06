@@ -4,4 +4,4 @@
 /var/global/datum/topic_state/admin_state/admin_state = new()
 
 /datum/topic_state/admin_state/can_use_topic(var/src_object, var/mob/user)
-	return check_rights(R_ADMIN, 0, user) ? STATUS_INTERACTIVE : STATUS_CLOSE
+	return check_rights(list(R_ADMIN), 0, user) ? STATUS_INTERACTIVE : STATUS_CLOSE

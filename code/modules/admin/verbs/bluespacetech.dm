@@ -14,7 +14,7 @@
 	set name = "Spawn Bluespace Tech"
 	set desc = "Spawns a Bluespace Tech to debug stuff"
 
-	if(!check_rights(R_DEV|R_ADMIN))	return
+	if(!check_rights(list(R_DEV,R_ADMIN)))	return
 
 	if(!holder)
 		return //how did they get here?
@@ -70,7 +70,7 @@
 		for(var/i = 1, i < 12, i++)
 			new /obj/item/weapon/reagent_containers/pill/adminordrazine(pills)
 		bst.equip_to_slot_or_del(pills, slot_in_backpack)
-    
+
   //Implant because access
   bst.implant_loyalty(bst,TRUE)
 

@@ -199,7 +199,7 @@ datum/controller/vote
 
 	proc/initiate_vote(var/vote_type, var/initiator_key, var/automatic = 0)
 		if(!mode)
-			if(started_time != null && !(check_rights(R_ADMIN) || automatic))
+			if(started_time != null && !(check_rights(list(R_ADMIN)) || automatic))
 				var/next_allowed_time = (started_time + config.vote_delay)
 				if(next_allowed_time > world.time)
 					return 0
@@ -220,7 +220,7 @@ datum/controller/vote
 						additional_text.Add("<td align = 'center'>[M.required_players]</td>")
 					gamemode_names["secret"] = "Secret"
 				if("crew_transfer")
-					if(check_rights(R_ADMIN|R_MOD, 0))
+					if(check_rights(list(R_ADMIN|R_MOD), 0))
 						question = "End the shift?"
 						choices.Add("Initiate Crew Transfer", "Continue The Round")
 					else

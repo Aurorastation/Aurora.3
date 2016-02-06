@@ -179,7 +179,7 @@ proc/getsensorlevel(A)
 
 
 /proc/is_admin(var/mob/user)
-	return check_rights(R_ADMIN, 0, user) != 0
+	return check_rights(list(R_ADMIN), 0, user) != 0
 
 
 /proc/hsl2rgb(h, s, l)
@@ -540,7 +540,7 @@ proc/is_blind(A)
 				name = realname
 
 	for(var/mob/M in player_list)
-		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && !check_rights(R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
+		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && !check_rights(list(R_MOD,R_ADMIN), 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
 			var/follow
 			var/lname
 			if(subject)

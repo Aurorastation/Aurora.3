@@ -521,26 +521,42 @@
 #define ORGAN_ASSISTED   4096
 #define ORGAN_ADV_ROBOT  4096
 
+// Admin permissions. Slowly moving away from bitflags!
+#define R_BUILDMODE     "build_mode"
+#define R_ADMIN         "admin"
+#define R_BAN           "ban"
+#define R_FUN           "fun"
+#define R_SERVER        "server"
+#define R_DEBUG         "debug"
+#define R_POSSESS       "possess"
+#define R_PERMISSIONS   "permissions"
+#define R_STEALTH       "stealth"
+#define R_REJUVINATE    "rejuvinate"
+#define R_VAREDIT       "varedit"
+#define R_SOUNDS        "sounds"
+#define R_SPAWN         "spawn"
+#define R_MOD           "moderator"
+#define R_DEV        		"developer"
+#define R_CCIAA					"duty_officer" //gotta love strings
 
-// Admin permissions. Please don't edit these values without speaking to Errorage first. ~Carn
-#define R_BUILDMODE     1
-#define R_ADMIN         2
-#define R_BAN           4
-#define R_FUN           8
-#define R_SERVER        16
-#define R_DEBUG         32
-#define R_POSSESS       64
-#define R_PERMISSIONS   128
-#define R_STEALTH       256
-#define R_REJUVINATE    512
-#define R_VAREDIT       1024
-#define R_SOUNDS        2048
-#define R_SPAWN         4096
-#define R_MOD           8192
-#define R_DEV        	16384 //needed a number in between 16k and 32k, so 16384+2048
-#define R_CCIAA			32768 //CAN'T BE ABOVE 65535 OR BORKS, stupid bitmasks -Ryan784
-
-#define R_MAXPERMISSION 32768 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
+var/list/permission_flags = list(
+	R_BUILDMODE,
+	R_ADMIN,
+	R_BAN,
+	R_FUN,
+	R_SERVER,
+	R_DEBUG,
+	R_POSSESS,
+	R_PERMISSIONS,
+	R_STEALTH,
+	R_REJUVINATE,
+	R_VAREDIT,
+	R_SOUNDS,
+	R_SPAWN,
+	R_MOD,
+	R_DEV,
+	R_CCIAA
+)
 
 // Preference toggles.
 #define SOUND_ADMINHELP 1

@@ -6,7 +6,7 @@
 	set name = "Memo"
 	set category = "Server"
 	if(!ENABLE_MEMOS)		return
-	if(!check_rights(0))	return
+	if(!check_rights(list()))	return
 	switch(task)
 		if("write")		admin_memo_write()
 		if("show")		admin_memo_show()
@@ -42,7 +42,7 @@
 	var/savefile/F = new(MEMOFILE)
 	if(F)
 		var/ckey
-		if(check_rights(R_SERVER,0))	//high ranking admins can delete other admin's memos
+		if(check_rights(list(R_SERVER),0))	//high ranking admins can delete other admin's memos
 			ckey = input(src,"Whose memo shall we remove?","Remove Memo",null) as null|anything in F.dir
 		else
 			ckey = src.ckey

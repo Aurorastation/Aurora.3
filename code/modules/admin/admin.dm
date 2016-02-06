@@ -20,9 +20,9 @@ var/global/floorIsLava = 0
 				var/msg = rendered
 				C << msg
 
-proc/admin_notice(var/message, var/rights)
+proc/admin_notice(var/message, var/rights = list())
 	for(var/mob/M in mob_list)
-		if(check_rights(rights, 0, M))
+		if(check_rights(list(rights), 0, M))
 			M << message
 
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
@@ -86,7 +86,7 @@ proc/admin_notice(var/message, var/rights)
 		<A href='?src=\ref[src];getmob=\ref[M]'>Get</A> |
 		<A href='?src=\ref[src];sendmob=\ref[M]'>Send To</A>
 		<br><br>
-		[check_rights(R_ADMIN|R_MOD,0) ? "<A href='?src=\ref[src];traitor=\ref[M]'>Traitor panel</A> | " : "" ]
+		[check_rights(list(R_ADMIN,R_MOD),0) ? "<A href='?src=\ref[src];traitor=\ref[M]'>Traitor panel</A> | " : "" ]
 		<A href='?src=\ref[src];narrateto=\ref[M]'>Narrate to</A> |
 		<A href='?src=\ref[src];subtlemessage=\ref[M]'>Subtle message</A>
 	"}
@@ -222,7 +222,7 @@ proc/admin_notice(var/message, var/rights)
 	if (!istype(src,/datum/admins))
 		usr << "Error: you are not an admin!"
 		return
-	if (!check_rights(R_ADMIN|R_MOD))
+	if (!check_rights(list(R_ADMIN,R_MOD)))
 		return
 	if (config.ban_legacy_system)
 		PlayerNotesPage(1)
@@ -574,7 +574,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/Jobbans()
-	if(!check_rights(R_BAN))	return
+	if(!check_rights(list(R_BAN)))	return
 
 	var/dat = "<B>Job Bans!</B><HR><table>"
 	for(var/t in jobban_keylist)
@@ -586,7 +586,7 @@ proc/admin_notice(var/message, var/rights)
 	usr << browse(dat, "window=ban;size=400x400")
 
 /datum/admins/proc/Game()
-	if(!check_rights(0))	return
+	if(!check_rights(list()))	return
 
 	var/dat = {"
 		<center><B>Game Panel</B></center><hr>\n
@@ -610,11 +610,11 @@ proc/admin_notice(var/message, var/rights)
 	return
 
 /datum/admins/proc/Secrets()
-	if(!check_rights(0))	return
+	if(!check_rights(list()))	return
 
 	var/dat = "<B>The first rule of adminbuse is: you don't talk about the adminbuse.</B><HR>"
 
-	if(check_rights(R_ADMIN,0))
+	if(check_rights(list(R_ADMIN),0))
 		dat += {"
 			<B>Admin Secrets</B><BR>
 			<BR>
@@ -630,7 +630,7 @@ proc/admin_notice(var/message, var/rights)
 			<BR>
 			"}
 
-	if(check_rights(R_FUN,0))
+	if(check_rights(list(R_FUN),0))
 		dat += {"
 			<B>'Random' Events</B><BR>
 			<BR>
@@ -687,10 +687,10 @@ proc/admin_notice(var/message, var/rights)
 			<A href='?src=\ref[src];secretsfun=floorlava'>The floor is lava! (DANGEROUS: extremely lame)</A><BR>
 			"}
 
-	if(check_rights(R_SERVER,0))
+	if(check_rights(list(R_SERVER),0))
 		dat += "<A href='?src=\ref[src];secretsfun=togglebombcap'>Toggle bomb cap</A><BR>"
 
-	if(check_rights(R_SERVER|R_FUN,0))
+	if(check_rights(list(R_SERVER,R_FUN),0))
 		dat += {"
 			<BR>
 			<B>Final Solutions</B><BR>
@@ -702,7 +702,7 @@ proc/admin_notice(var/message, var/rights)
 
 	dat += "<BR>"
 
-	if(check_rights(R_DEBUG|R_DEV,0))
+	if(check_rights(list(R_DEBUG,R_DEV),0))
 		dat += {"
 			<B>Security Level Elevated</B><BR>
 			<BR>
@@ -753,11 +753,11 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Special Verbs"
 	set name = "Announce"
 	set desc="Announce your desires to the world"
-	if(!check_rights(0))	return
+	if(!check_rights(list()))	return
 
 	var/message = input("Global message to send:", "Admin Announce", null, null)  as message//todo: sanitize for all?
 	if(message)
-		if(!check_rights(R_SERVER,0))
+		if(!check_rights(list(R_SERVER),0))
 			message = sanitize(message, 500, extra = 0)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 		world << "<span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>"
@@ -769,7 +769,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Globally Toggles OOC"
 	set name="Toggle OOC"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(list(R_ADMIN)))
 		return
 
 	config.ooc_allowed = !(config.ooc_allowed)
@@ -785,7 +785,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Globally Toggles LOOC"
 	set name="Toggle LOOC"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(list(R_ADMIN)))
 		return
 
 	config.looc_allowed = !(config.looc_allowed)
@@ -802,7 +802,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Globally Toggles DSAY"
 	set name="Toggle DSAY"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(list(R_ADMIN)))
 		return
 
 	config.dsay_allowed = !(config.dsay_allowed)
@@ -819,7 +819,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Toggle Dead OOC."
 	set name="Toggle Dead OOC"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(list(R_ADMIN)))
 		return
 
 	config.dooc_allowed = !( config.dooc_allowed )
@@ -917,7 +917,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Delay the game start/end"
 	set name="Delay"
 
-	if(!check_rights(R_SERVER))	return
+	if(!check_rights(list(R_SERVER)))	return
 	if (!ticker || ticker.current_state != GAME_STATE_PREGAME)
 		ticker.delay_end = !ticker.delay_end
 		log_admin("[key_name(usr)] [ticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
@@ -1016,7 +1016,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc = "Spawn the product of a seed."
 	set name = "Spawn Fruit"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(list(R_SPAWN)))	return
 
 	if(!seedtype || !plant_controller.seeds[seedtype])
 		return
@@ -1029,7 +1029,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc = "Spawn a custom item."
 	set name = "Spawn Custom Item"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(list(R_SPAWN)))	return
 
 	var/owner = input("Select a ckey.", "Spawn Custom Item") as null|anything in custom_items
 	if(!owner|| !custom_items[owner])
@@ -1048,7 +1048,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc = "Check the custom item list."
 	set name = "Check Custom Items"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(list(R_SPAWN)))	return
 
 	if(!custom_items)
 		usr << "Custom item list is null."
@@ -1069,7 +1069,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc = "Spawn a spreading plant effect."
 	set name = "Spawn Plant"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(list(R_SPAWN)))	return
 
 	if(!seedtype || !plant_controller.seeds[seedtype])
 		return
@@ -1081,7 +1081,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc = "(atom path) Spawn an atom"
 	set name = "Spawn"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(list(R_SPAWN)))	return
 
 	var/list/types = typesof(/atom)
 	var/list/matches = new()
@@ -1321,7 +1321,7 @@ proc/admin_notice(var/message, var/rights)
 		return //Extra sanity check to make sure only observers are shoved into things
 
 	//Same as assume-direct-control perm requirements.
-	if (!check_rights(R_VAREDIT,0) || !check_rights(R_ADMIN|R_DEBUG|R_DEV,0))
+	if (!check_rights(list(R_VAREDIT),0) || !check_rights(list(R_ADMIN,R_DEBUG,R_DEV),0))
 		return 0
 	if (!frommob.ckey)
 		return 0
@@ -1374,7 +1374,7 @@ proc/admin_notice(var/message, var/rights)
 
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
-	if (!istype(src,/datum/admins) || !check_rights(R_ADMIN))
+	if (!istype(src,/datum/admins) || !check_rights(list(R_ADMIN)))
 		usr << "Error: you are not an admin!"
 		return
 
@@ -1392,7 +1392,7 @@ proc/admin_notice(var/message, var/rights)
 
 	var/msg
 
-	if(check_rights(R_ADMIN|R_MOD))
+	if(check_rights(list(R_ADMIN,R_MOD)))
 		if (H.paralysis == 0)
 			H.paralysis = 8000
 			msg = "has paralyzed [key_name(H)]."

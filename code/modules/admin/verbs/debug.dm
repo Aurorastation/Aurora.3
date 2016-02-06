@@ -1,7 +1,7 @@
 /client/proc/Debug2()
 	set category = "Debug"
 	set name = "Debug-Game"
-	if(!check_rights(R_DEBUG|R_DEV))	return
+	if(!check_rights(list(R_DEBUG,R_DEV)))	return
 
 	if(Debug2)
 		Debug2 = 0
@@ -29,8 +29,8 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set category = "Debug"
 	set name = "Advanced ProcCall"
 
-	if(!check_rights(R_DEBUG)) return
-	if(config.debugparanoid && !check_rights(R_ADMIN)) return
+	if(!check_rights(list(R_DEBUG))) return
+	if(config.debugparanoid && !check_rights(list(R_ADMIN))) return
 
 	spawn(0)
 		var/target = null
@@ -426,7 +426,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set name = "Assume direct control"
 	set desc = "Direct intervention"
 
-	if(!check_rights(R_DEBUG|R_ADMIN|R_DEV|R_FUN))	return
+	if(!check_rights(list(R_DEBUG,R_ADMIN,R_DEV,R_FUN)))	return
 	if(M.ckey)
 		if(alert("This mob is being controlled by [M.ckey]. Are you sure you wish to assume control of it? [M.ckey] will be made a ghost.",,"Yes","No") != "Yes")
 			return
@@ -999,7 +999,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set name = "Setup supermatter"
 	set desc = "Sets up the supermatter engine"
 
-	if(!check_rights(R_DEBUG|R_ADMIN))      return
+	if(!check_rights(list(R_DEBUG,R_ADMIN)))      return
 
 	var/response = alert("Are you sure? This will start up the engine. Should only be used during debug!",,"Setup Completely","Setup except coolant","No")
 
