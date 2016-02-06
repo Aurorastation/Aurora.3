@@ -102,7 +102,7 @@
 	set name = "Reload Admins"
 	set category = "Debug"
 
-	if(!check_rights(R_SERVER|R_DEV))	return
+	if(!check_rights(list(R_SERVER,R_DEV)))	return
 
 	message_admins("[usr] manually reloaded admins")
 	load_admins()
@@ -112,7 +112,7 @@
 	set name = "Reload Mentors"
 	set category = "Debug"
 
-	if(!check_rights(R_SERVER)) return
+	if(!check_rights(list(R_SERVER))) return
 
 	message_admins("[usr] manually reloaded Mentors")
 	world.load_mods()

@@ -82,7 +82,7 @@
 			editquery.Execute(list(":new_conent" = new_content, ":a_ckey" = usr.client.ckey, ":note_id" = note_id))
 
 /datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null)
-	if (!check_rights(R_ADMIN|R_MOD))
+	if (!check_rights(list(R_ADMIN,R_MOD)))
 		return
 
 	if (admin_ckey == "Adminbot")

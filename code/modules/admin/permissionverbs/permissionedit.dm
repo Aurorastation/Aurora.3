@@ -2,11 +2,11 @@
 	set category = "Admin"
 	set name = "Permissions Panel"
 	set desc = "Edit admin permissions"
-	if(!check_rights(R_PERMISSIONS))	return
+	if(!check_rights(list(R_PERMISSIONS)))	return
 	usr.client.holder.edit_admin_permissions()
 
 /datum/admins/proc/edit_admin_permissions()
-	if(!check_rights(R_PERMISSIONS))	return
+	if(!check_rights(list(R_PERMISSIONS)))	return
 
 	var/output = {"<!DOCTYPE html>
 <html>

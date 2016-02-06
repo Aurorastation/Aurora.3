@@ -3,7 +3,7 @@
  */
 
 /client/proc/warn(warned_ckey)
-	if (!check_rights(R_ADMIN|R_MOD))
+	if (!check_rights(list(R_ADMIN,R_MOD)))
 		return
 
 	if (!warned_ckey || !istext(warned_ckey))
@@ -232,7 +232,7 @@
 	holder.warning_panel()
 
 /datum/admins/proc/warning_panel(var/adminckey = null, var/playerckey = null)
-	if (!check_rights(R_ADMIN|R_MOD))
+	if (!check_rights(list(R_ADMIN,R_MOD)))
 		return
 
 	var/lcolor = "#ffeeee"	//light colour, severity = 0
@@ -316,7 +316,7 @@
 				dat += "<tr><td align='center' colspan='5'><b>Warning last edited: [lastEditDate], by: [lastEditor].</b></td></tr>"
 			dat += "<tr>"
 			dat += "<td align='center' colspan='5'><b>Options:</b> "
-			if(check_rights(R_ADMIN) || a_ckey == sanitizeSQL(ckey))
+			if(check_rights(list(R_ADMIN)) || a_ckey == sanitizeSQL(ckey))
 				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=editReason;dbwarningid=[id]\">Edit Reason</a> "
 				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=editNotes;dbwarningid=[id]\">Edit Note</a> "
 				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=delete;dbwarningid=[id]\">Delete Warning</a>"

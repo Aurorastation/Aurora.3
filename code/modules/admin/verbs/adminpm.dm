@@ -61,7 +61,7 @@
 
 	//clean the message if it's not sent by a high-rank admin
 	//todo: sanitize for all???
-	if(!check_rights(R_SERVER|R_DEBUG|R_DEV,0))
+	if(!check_rights(list(R_SERVER,R_DEBUG,R_DEV),0))
 		msg = sanitize(msg)
 		if(!msg)	return
 

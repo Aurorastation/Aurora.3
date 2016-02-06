@@ -3,7 +3,7 @@
 	set name = "Spawn CCIA Agent"
 	set desc = "Spawns a CCIA Agent to agent around."
 
-	if(!check_rights(R_CCIAA))	return
+	if(!check_rights(list(R_CCIAA)))	return
 
 	if(!holder)
 		return //how did they get here?
@@ -171,7 +171,7 @@
 	set desc = "The Agent's work is done, return to your original mob"
 	set category = "Special Verbs"
 
-	if(!check_rights(0))		return
+	if(!check_rights(list()))		return
 
 	if(!mob.mind || mob.mind.special_role != "CCIA Agent")
 		verbs -= /client/proc/returntobody
@@ -246,7 +246,7 @@
 	set desc = "Send a fax from Central Command"
 	set category = "Special Verbs"
 
-	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
+	if (!check_rights(list(R_ADMIN,R_CCIAA,R_FUN)))
 		usr << "\red You do not have enough powers to do this."
 		return
 
@@ -303,7 +303,7 @@
 	set desc = "Look up the faxes sent this round."
 	set category = "Special Verbs"
 
-	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
+	if (!check_rights(list(R_ADMIN,R_CCIAA,R_FUN)))
 		usr << "\red You do not have enough powers to do this."
 		return
 

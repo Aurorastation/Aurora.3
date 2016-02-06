@@ -110,16 +110,16 @@
 	set desc = "Spawn a tank transfer valve bomb"
 	set name = "Instant TTV"
 
-	if(!check_rights(R_SPAWN)) return
-	
+	if(!check_rights(list(R_SPAWN))) return
+
 	var/obj/effect/spawner/newbomb/proto = /obj/effect/spawner/newbomb/radio/custom
-	
+
 	var/p = input("Enter phoron amount (mol):","Phoron", initial(proto.phoron_amt)) as num|null
 	if(p == null) return
-	
+
 	var/o = input("Enter oxygen amount (mol):","Oxygen", initial(proto.oxygen_amt)) as num|null
 	if(o == null) return
-	
+
 	var/c = input("Enter carbon dioxide amount (mol):","Carbon Dioxide", initial(proto.carbon_amt)) as num|null
 	if(c == null) return
 
@@ -129,9 +129,9 @@
 	name = "TTV bomb"
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "x"
-	
+
 	var/assembly_type = /obj/item/device/assembly/signaler
-	
+
 	//Note that the maximum amount of gas you can put in a 70L air tank at 1013.25 kPa and 519K is 16.44 mol.
 	var/phoron_amt = 10.96
 	var/oxygen_amt = 16.44

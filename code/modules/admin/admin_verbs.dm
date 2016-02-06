@@ -723,7 +723,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Rename Silicon"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN)) return
+	if(!check_rights(list(R_ADMIN))) return
 
 	var/mob/living/silicon/S = input("Select silicon.", "Rename Silicon.") as null|anything in silicon_mob_list
 	if(!S) return
@@ -738,7 +738,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Manage Silicon Laws"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN)) return
+	if(!check_rights(list(R_ADMIN))) return
 
 	var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in silicon_mob_list
 	if(!S) return
@@ -753,7 +753,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Allows you to change the mob appearance"
 	set category = "Admin"
 
-	if(!check_rights(R_FUN)) return
+	if(!check_rights(list(R_FUN))) return
 
 	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Admin") as null|anything in human_mob_list
 	if(!H) return
@@ -767,7 +767,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Allows the mob to change its appearance"
 	set category = "Admin"
 
-	if(!check_rights(R_FUN)) return
+	if(!check_rights(list(R_FUN))) return
 
 	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Self") as null|anything in human_mob_list
 	if(!H) return
@@ -790,7 +790,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Sets the station security level"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(list(R_ADMIN)))	return
 	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red","delta")-get_security_level())
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)
@@ -811,7 +811,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Edit Appearance"
 	set category = "Fun"
 
-	if(!check_rights(R_FUN))	return
+	if(!check_rights(list(R_FUN)))	return
 
 	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in human_mob_list
 

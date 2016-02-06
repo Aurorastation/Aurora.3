@@ -3,7 +3,7 @@
 	set category = "Fun"
 	set desc = "Shows a cinematic."	// Intended for testing but I thought it might be nice for events on the rare occasion Feel free to comment it out if it's not wanted.
 
-	if(!check_rights(R_FUN))
+	if(!check_rights(list(R_FUN)))
 		return
 
 	if(alert("Are you sure you want to run [cinematic]?","Confirmation","Yes","No")=="No") return

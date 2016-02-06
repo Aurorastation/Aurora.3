@@ -367,7 +367,7 @@
 
 
 		if(usr.client)
-			if(!check_rights(R_MOD|R_ADMIN, 0))
+			if(!check_rights(list(R_MOD,R_ADMIN), 0))
 				dat += {"<td align=center> N/A </td>"}
 			else
 				switch(is_special_character(M))

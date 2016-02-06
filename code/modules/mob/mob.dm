@@ -1076,10 +1076,10 @@ mob/proc/yank_out_object()
 
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)
-	if (!admin)
+	if(!admin)
 		return
 
-	if (!check_rights((R_MOD|R_ADMIN), 1, admin))
+	if (!check_rights(list(R_MOD,R_ADMIN), 1, admin))
 		return
 
 	if (alert(admin, "Wind [src]?",,"Yes","No")!="Yes")
@@ -1098,7 +1098,7 @@ mob/proc/yank_out_object()
 	if (!admin)
 		return
 
-	if (!check_rights((R_MOD|R_ADMIN), 1, admin))
+	if (!check_rights(list(R_MOD,R_ADMIN), 1, admin))
 		return
 
 	SetWeakened(0)

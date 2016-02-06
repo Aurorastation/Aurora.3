@@ -170,7 +170,7 @@ var/list/debug_verbs = list (
 	set category = "Debug"
 	set name = "Debug verbs"
 
-	if(!check_rights(R_DEBUG|R_DEV)) return
+	if(!check_rights(list(R_DEBUG,R_DEV))) return
 
 	verbs += debug_verbs
 
@@ -180,7 +180,7 @@ var/list/debug_verbs = list (
 	set category = "Debug"
 	set name = "Hide Debug verbs"
 
-	if(!check_rights(R_DEBUG|R_DEV)) return
+	if(!check_rights(list(R_DEBUG,R_DEV))) return
 
 	verbs -= debug_verbs
 
@@ -212,7 +212,7 @@ var/list/debug_verbs = list (
 	set category = "ZAS"
 	set name = "Check ZAS connections"
 
-	if(!check_rights(R_DEBUG|R_DEV)) return
+	if(!check_rights(list(R_DEBUG,R_DEV))) return
 	testZAScolors_remove()
 
 	var/turf/simulated/location = get_turf(usr)
