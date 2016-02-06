@@ -831,6 +831,7 @@
 #include "code\modules\admin\verbs\adminsay.dm"
 #include "code\modules\admin\verbs\antag-ooc.dm"
 #include "code\modules\admin\verbs\atmosdebug.dm"
+#include "code\modules\admin\verbs\bluespacetech.dm"
 #include "code\modules\admin\verbs\BrokenInhands.dm"
 #include "code\modules\admin\verbs\buildmode.dm"
 #include "code\modules\admin\verbs\check_customitem_activity.dm"

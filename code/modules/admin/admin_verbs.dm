@@ -98,6 +98,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_cciaa_say,
 	/client/proc/cmd_dev_say,
 	/client/proc/view_duty_log
+	/client/proc/cmd_dev_bst
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -299,7 +300,6 @@ var/list/admin_verbs_mod = list(
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	///datum/admins/proc/restart,
 	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
-	/datum/admins/proc/delay,
 	/client/proc/Jump,
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
@@ -330,7 +330,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/restart_controller,
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
-	/client/proc/ZASSettings
+	/client/proc/ZASSettings,
+	/client/proc/cmd_dev_bst
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
