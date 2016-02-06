@@ -97,7 +97,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/check_fax_history,
 	/client/proc/cmd_cciaa_say,
 	/client/proc/cmd_dev_say,
-	/client/proc/view_duty_log
+	/client/proc/view_duty_log,
 	/client/proc/cmd_dev_bst
 )
 var/list/admin_verbs_ban = list(
