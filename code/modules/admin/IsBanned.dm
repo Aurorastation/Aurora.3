@@ -52,20 +52,37 @@ world/IsBanned(key,address,computer_id)
 			failedcid = 0
 			cidquery = " OR computerid = '[computer_id]' "
 
-		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = '[ckeytext]' [ipquery] [cidquery]) AND (bantype = 'PERMABAN'  OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)")
+		var/pulled_ban_id = null
+		var/DBQuery/mirror_query = dbcon.NewQuery("SELECT ban_id FROM ss13_ban_mirrors WHERE player_ckey = '[ckeytext]' [address ? "OR ban_mirror_ip = '[address]'" : ""] [computer_id ? "OR ban_mirror_computerid = '[computer_id]'" : ""]")
+		mirror_query.Execute()
+
+		if (mirror_query.NextRow())
+			pulled_ban_id = text2num(mirror_query.item[1])
+
+		var/query_content = ""
+		if (pulled_ban_id)
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE id = '[pulled_ban_id]' AND (bantype = 'PERMABAN'  OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+		else
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = '[ckeytext]' [ipquery] [cidquery]) AND (bantype = 'PERMABAN'  OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+
+		var/DBQuery/query = dbcon.NewQuery(query_content)
 
 		query.Execute()
 
 		while(query.NextRow())
-			var/pckey = query.item[1]
-			//var/pip = query.item[2]
-			//var/pcid = query.item[3]
-			var/ackey = query.item[4]
-			var/reason = query.item[5]
-			var/expiration = query.item[6]
-			var/duration = query.item[7]
-			var/bantime = query.item[8]
-			var/bantype = query.item[9]
+			var/ban_id = text2num(query.item[1])
+			var/pckey = query.item[2]
+			var/pip = query.item[3]
+			var/pcid = query.item[4]
+			var/ackey = query.item[5]
+			var/reason = query.item[6]
+			var/expiration = query.item[7]
+			var/duration = query.item[8]
+			var/bantime = query.item[9]
+			var/bantype = query.item[10]
+
+			if (pckey != ckeytext || (address && pip != address) || (computer_id && pcid != computer_id))
+				handle_ban_mirroring(key, address, computer_id, ban_id)
 
 			var/expires = ""
 			if(text2num(duration) > 0)
@@ -82,4 +99,3 @@ world/IsBanned(key,address,computer_id)
 		return ..()	//default pager ban stuff
 #endif
 #undef OVERRIDE_BAN_SYSTEM
-
