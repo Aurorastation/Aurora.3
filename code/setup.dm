@@ -537,12 +537,10 @@
 #define R_SOUNDS        2048
 #define R_SPAWN         4096
 #define R_MOD           8192
-#define R_MENTOR        16384
-#define R_DEV        		18432 //needed a number in between 16k and 32k, so 16384+2048 
-#define R_HOST          32768 //leaving this here
-#define R_CCIAA					65535 //CAN'T BE ABOVE 65535 OR BORKS, stupid bitmasks -Ryan784
+#define R_DEV        	16384 //needed a number in between 16k and 32k, so 16384+2048
+#define R_CCIAA			32768 //CAN'T BE ABOVE 65535 OR BORKS, stupid bitmasks -Ryan784
 
-#define R_MAXPERMISSION 65535 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
+#define R_MAXPERMISSION 32768 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 1

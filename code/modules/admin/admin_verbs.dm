@@ -93,8 +93,12 @@ var/list/admin_verbs_admin = list(
 	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
 	/datum/admins/proc/paralyze_mob,
+	/datum/admins/proc/create_admin_fax,
+	/client/proc/check_fax_history,
+	/client/proc/cmd_cciaa_say,
+	/client/proc/cmd_dev_say,
+	/client/proc/view_duty_log
 	/client/proc/cmd_dev_bst
-//	/datum/admins/proc/send_admin_fax
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -120,8 +124,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/make_sound,
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
-	/client/proc/roll_dices
-//	/datum/admins/proc/send_admin_fax
+	/client/proc/roll_dices,
+	/datum/admins/proc/create_admin_fax
 	)
 var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_fruit,
@@ -293,17 +297,6 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/paralyze_mob
 )
 
-var/list/admin_verbs_mentor = list(
-	/client/proc/cmd_admin_pm_context,
-	/client/proc/cmd_admin_pm_panel,
-	/datum/admins/proc/PlayerNotes,
-	/client/proc/admin_ghost,
-	/client/proc/cmd_mod_say,
-	/datum/admins/proc/show_player_info,
-//	/client/proc/dsay,
-	/client/proc/cmd_admin_subtle_message
-)
-
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	///datum/admins/proc/restart,
 	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
@@ -346,8 +339,8 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
 	/client/proc/returntobody,
-//	/client/proc/view_duty_log,
-//	/datum/admins/proc/send_admin_fax,
+	/client/proc/view_duty_log,
+	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history
 )
 
@@ -370,7 +363,6 @@ var/list/admin_verbs_cciaa = list(
 		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
-		if(holder.rights & R_MENTOR)		verbs += admin_verbs_mentor
 		if(holder.rights & R_DEV)			verbs += admin_verbs_dev
 		if(holder.rights & R_CCIAA)			verbs += admin_verbs_cciaa
 
@@ -435,8 +427,6 @@ var/list/admin_verbs_cciaa = list(
 	if(istype(mob,/mob/dead/observer))
 		//re-enter
 		var/mob/dead/observer/ghost = mob
-		if(!is_mentor(usr.client))
-			ghost.can_reenter_corpse = 1
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
 		else
