@@ -80,7 +80,20 @@
 /area/outpost/engineering/meeting
 	name = "Engineering Outpost Meeting Room"
 
+/area/outpost/engineering/engine
+	name = "Engineering Outpost Engine Room"
 
+/area/outpost/engineering/monitoring
+	name = "Engineering Outpost Engine Monitoring"
+
+/area/outpost/engineering/engine_smes
+	name = "Engineering Outpost Engine SMES"
+
+/area/outpost/engineering/engine_airlock
+	name = "Engineering Outpost Engine Airlock"
+
+/area/outpost/engineering/waste_handling
+	name = "Engineering Outpost Waste Handling"
 
 // Research Outpost
 /area/outpost/research
