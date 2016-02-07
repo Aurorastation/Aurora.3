@@ -107,15 +107,16 @@
 
 	return
 
-/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null)
+/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
 	if(status_flags & GODMODE)	return 0	//godmode
-	shock_damage *= siemens_coeff
+	if (!tesla_shock)
+		shock_damage *= siemens_coeff
 	if (shock_damage<1)
 		return 0
 
 	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
 	playsound(loc, "sparks", 50, 1, -1)
-	if (shock_damage > 15)
+	if (shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			"\red [src] was shocked by the [source]!", \
 			"\red <B>You feel a powerful shock course through your body!</B>", \
@@ -316,9 +317,7 @@
 			H.germ_level = 0
 	update_icons()	//apply the now updated overlays to the mob
 
-
 //Throwing stuff
-
 /mob/proc/throw_item(atom/target)
 	return
 

@@ -211,6 +211,13 @@ emp_act
 	if(user.a_intent == "disarm") effective_force = round(I.force/2)
 	var/hit_area = affecting.name
 
+	// forceglove amplification
+	if(istype(user, /mob/living/carbon/human))
+		var/mob/living/carbon/human/X = user
+		if(X.gloves && istype(X.gloves,/obj/item/clothing/gloves/force))
+			var/obj/item/clothing/gloves/force/G = X.gloves
+			effective_force *= G.amplification
+
 	if((user != src) && check_shields(effective_force, "the [I.name]"))
 		return 0
 
@@ -482,4 +489,3 @@ emp_act
 		perm += perm_by_part[part]
 
 	return perm
-

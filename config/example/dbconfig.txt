@@ -17,9 +17,6 @@ LOGIN mylogin
 PASSWORD mypassword
 
 # The following information is for feedback tracking via the blackbox server
-FEEDBACK_DATABASE test
-FEEDBACK_LOGIN mylogin
-FEEDBACK_PASSWORD mypassword
 
 # Track population and death statistics
 # Comment this out to disable

@@ -1,0 +1,14 @@
+author: Ryan784
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported Aurora's null-rod conversion mechanics for cult."
+  - rscadd: "Ported Aurora's welderbomb delay and related admin/mod actions."
+  - rscadd: "Ported Aurora's horsemask removal spell."
+  - rscadd: "Ported Aurora's glove kits for aliens."
+  - rscadd: "Ported Aurora's gold slime mechanics."
+  - rscadd: "Ported Aurora's lawgiver."
+  - rscadd: "Ported the AI HUD, originally by Jack-Fractal."
+  - rscadd: "Ported Aurora's footstep sounds."
+  - experiment: "Ported the vampire code. Needs a lot of testing and may break."

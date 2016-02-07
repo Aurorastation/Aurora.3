@@ -309,6 +309,18 @@ datum/design/circuit/aifixer
 	req_tech = list("programming" = 3, "biotech" = 2)
 	build_path = /obj/item/weapon/circuitboard/aifixer
 
+datum/design/circuit/telesci_console
+	name = "telepad control console"
+	id = "telesci_console"
+	req_tech = list("programming" = 3, "bluespace" = 2)
+	build_path = /obj/item/weapon/circuitboard/telesci_console
+
+datum/design/circuit/telepad
+	name = "telepad board"
+	id = "telepad"
+	req_tech = list("programming" = 4, "bluespace" = 4, "materials" = 3, "engineering" = 3)
+	build_path = /obj/item/weapon/circuitboard/telesci_pad
+
 ///////////////////////////////////
 /////////Shield Generators/////////
 ///////////////////////////////////
@@ -1375,6 +1387,28 @@ datum/design/item/weapon/phoronpistol
 	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
 
+
+datum/design/item/weapon/lawgiver
+	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
+	id = "lawgiver"
+	req_tech = list("combat" = 6, "plasmatech" = 4, "bluespace" = 5, "materials" = 7)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$plasma" = 1000, "$diamond" = 3000)
+	build_path = "/obj/item/weapon/gun/energy/lawgiver"
+
+/*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
+outside of RnD without paperwork with the RD's stamp on it. */
+datum/design/item/forcegloves
+ 	name = "Force Gloves"
+ 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
+ 	id = "forcegloves"
+ 	req_tech = list("combat" = 3,"bluespace" = 3, "engineering" = 3, "magnets" = 3)
+ 	build_type = PROTOLATHE
+ 	materials = list("$metal" = 4000)
+ 	build_path = "/obj/item/clothing/gloves/force/basic"
+ 	locked = 1
+ 	category = "Weapons"
+
 /////////////////////////////////////////
 /////////////////Mining//////////////////
 /////////////////////////////////////////
@@ -1434,7 +1468,6 @@ datum/design/item/bag_holding
 	reliability_base = 80
 	build_path = /obj/item/weapon/storage/backpack/holding
 
-/*
 datum/design/bluespace_crystal
 	name = "Artificial bluespace crystal"
 	desc = "A small blue crystal with mystical properties."
@@ -1443,8 +1476,7 @@ datum/design/bluespace_crystal
 	build_type = PROTOLATHE
 	materials = list("$gold" = 1500, "$diamond" = 3000, "$phoron" = 1500)
 	reliability_base = 100
-	build_path = /obj/item/bluespace_crystal/artificial"
-*/
+	build_path = /obj/item/bluespace_crystal/artificial
 
 /////////////////////////////////////////
 /////////////////HUDs////////////////////

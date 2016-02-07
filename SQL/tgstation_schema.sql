@@ -10,7 +10,7 @@ USE `tgstation` ;
 -- -----------------------------------------------------
 -- Table `tgstation`.`death`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `tgstation`.`death` (
+CREATE  TABLE IF NOT EXISTS `ss13_death` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `pod` TEXT NOT NULL COMMENT 'Place of death' ,
   `coord` TEXT NOT NULL COMMENT 'X, Y, Z POD' ,
@@ -35,7 +35,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 -- Table `tgstation`.`karma`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `tgstation`.`karma` (
+CREATE  TABLE IF NOT EXISTS `ss13_karma` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `spendername` TEXT NOT NULL ,
   `spenderkey` TEXT NOT NULL ,
@@ -55,7 +55,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 -- Table `tgstation`.`karmatotals`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `tgstation`.`karmatotals` (
+CREATE  TABLE IF NOT EXISTS `ss13_karmatotals` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `byondkey` TEXT NOT NULL ,
   `karma` INT(11) NOT NULL ,
@@ -68,7 +68,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 -- Table `tgstation`.`library`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `tgstation`.`library` (
+CREATE  TABLE IF NOT EXISTS `ss13_library` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `author` TEXT NOT NULL ,
   `title` TEXT NOT NULL ,
@@ -83,7 +83,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 -- Table `tgstation`.`population`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `tgstation`.`population` (
+CREATE  TABLE IF NOT EXISTS `ss13_population` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `playercount` INT(11) NULL DEFAULT NULL ,
   `admincount` INT(11) NULL DEFAULT NULL ,

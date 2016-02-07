@@ -266,3 +266,47 @@
 		H.h_style = ""
 		spawn(100)
 			if(H) H.update_hair()
+
+/datum/species/bug
+	name = "Vaurca"
+	name_plural = "varucae"
+
+	icobase = 'icons/mob/human_races/r_vaurca.dmi'
+	deform = 'icons/mob/human_races/r_vaurca.dmi'
+	language = "Vaurcese"
+	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
+	rarity_value = 2
+	slowdown = 1
+	darksight = 5 //USELESS
+	eyes = "blank_eyes"
+	brute_mod = 0.5 //note to self: remove is_synthetic checks for brmod and burnmod
+	burn_mod = 2
+	warning_low_pressure = 50
+	hazard_low_pressure = 0
+
+	cold_level_1 = 50
+	cold_level_2 = -1
+	cold_level_3 = -1
+
+	heat_level_1 = 330 //Default 360
+	heat_level_2 = 380 //Default 400
+	heat_level_3 = 600 //Default 1000
+	flags = CAN_JOIN | IS_WHITELISTED | NO_SLIP | IS_BUG | NO_SCAN
+	blood_color = "#E6E600" // dark yellow
+	flesh_color = "#575757"
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
+		)
+
+
+	has_organ = list(
+        "neural socket" =  /obj/item/organ/vaurca/neuralsocket,
+		"breathing apparatus" =  /obj/item/organ/vaurca/breathingapparatus,
+        "heart" =    /obj/item/organ/heart,
+        "second heart" =    /obj/item/organ/heart,
+		"liver" =    /obj/item/organ/liver,
+		"kidneys" =  /obj/item/organ/kidneys,
+		"brain" =    /obj/item/organ/brain,
+		"eyes" =     /obj/item/organ/eyes,
+)
