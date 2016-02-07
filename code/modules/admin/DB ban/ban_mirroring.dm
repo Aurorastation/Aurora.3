@@ -49,7 +49,7 @@
 
 			if (bad_data)
 				var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (ban_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, ban_mirror_datetime) VALUES (:ban_id, :ckey, :address, :computerid, NOW())")
-				new_mirror.Execute(":ban_id" = ban_id, ":ckey" = ckey, ":address" = address, ":computerid" = computer_id)
+				new_mirror.Execute(list(":ban_id" = ban_id, ":ckey" = ckey, ":address" = address, ":computerid" = computer_id))
 
 				log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
 
