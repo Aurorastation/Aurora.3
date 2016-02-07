@@ -367,8 +367,7 @@
 
 
 		if(usr.client)
-			var/client/C = usr.client
-			if(is_mentor(C))
+			if(!check_rights(R_MOD|R_ADMIN, 0))
 				dat += {"<td align=center> N/A </td>"}
 			else
 				switch(is_special_character(M))

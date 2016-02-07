@@ -36,6 +36,8 @@
 	var/mob/living/original	//TODO: remove.not used in any meaningful way ~Carn. First I'll need to tweak the way silicon-mobs handle minds.
 	var/active = 0
 
+	var/mob/living/admin_mob_placeholder = null
+
 	var/memory
 
 	var/assigned_role

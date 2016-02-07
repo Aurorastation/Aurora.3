@@ -40,6 +40,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		// 8 = view messages
 		// 9 = authentication before sending
 		// 10 = send announcement
+		//11 = Form Database
 	var/silent = 0 // set to 1 for it not to beep all the time
 //	var/hackState = 0
 		// 0 = not hacked
@@ -55,6 +56,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/dpt = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
 	light_range = 0
+	//Form intregration
+	var/SQLquery
+	var/paperstock = 10
+	var/lid = 0
+	//End Form Integration
 	var/datum/announcement/announcement = new
 
 /obj/machinery/requests_console/power_change()
@@ -203,6 +209,35 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 					dat += text("<A href='?src=\ref[src];sendAnnouncement=1'>Announce</A><BR>");
 				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
 
+			if(11)	//form database
+				dat += text("<B>NanoTrasen Corporate Forms</B><br><br>")
+				establish_db_connection()
+				if(!dbcon.IsConnected())
+					dat += text("<font color=red><b>ERROR</b>: Unable to contact external database. Please contact your system administrator for assistance.</font>")
+					log_game("SQL database connection failed. Attempted to fetch form information.")
+				else
+					dat += {"<table border='1'><tr><th>NCF ID</th><th>Form Name</th><th>Dept.</th><th>Print</th><th>?</th></tr>"}
+
+					//For reference:
+					//Command forms, 	01xx series
+					//Security forms,	02xx series
+					//Medical forms,	03xx series
+					//Engineer forms,	04xx series
+					//Science forms,	05xx series
+					//Supply forms,		06xx series
+					//General forms,	10xx series
+
+					var/DBQuery/query = dbcon.NewQuery(SQLquery)
+					query.Execute()
+					while(query.NextRow())
+						var/id = query.item[1]
+						var/name = query.item[2]
+						var/department = query.item[3]
+						dat += "<tr><td>NCF-[id]</td><td>[name]</td><td><a href='?src=\ref[src];sort=[department]'>[department]</a></td><td><a href='?src=\ref[src];print=[id]'>Print</a></td><td><a href='?src=\ref[src];whatis=[id]'>?</a></td></tr>"
+					dat += "</table>"
+					dat += text("<br><A href='?src=\ref[src];setScreen=11'>Reset Search</a>")
+				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
+
 			else	//main menu
 				screen = 0
 				reset_announce()
@@ -214,13 +249,22 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 				dat += text("<A href='?src=\ref[src];setScreen=1'>Request Assistance</A><BR>")
 				dat += text("<A href='?src=\ref[src];setScreen=2'>Request Supplies</A><BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=3'>Relay Anonymous Information</A><BR><BR>")
+				dat += text("<A href='?src=\ref[src];setScreen=3'>Relay Anonymous Information</A><BR>")
+				dat += text("<A href='?src=\ref[src];setScreen=11'>NanoTrasen Corporate Form Database</A><BR><BR>")
 				if(announcementConsole)
 					dat += text("<A href='?src=\ref[src];setScreen=10'>Send station-wide announcement</A><BR><BR>")
 				if (silent)
 					dat += text("Speaker <A href='?src=\ref[src];setSilent=0'>OFF</A>")
 				else
 					dat += text("Speaker <A href='?src=\ref[src];setSilent=1'>ON</A>")
+				if(paperstock)
+					dat += text("<br>[paperstock] papers in stock.")
+				else
+					dat += text("<br><font color = red>No paper in stock.</font>")
+				if(lid)
+					dat += text("<br>Paper container lid <A href='?src=\ref[src];setLid=0'>OPEN</A>.")
+				else
+					dat += text("<br>Paper container lid <A href='?src=\ref[src];setLid=1'>CLOSE</A>.")
 
 		user << browse("[dat]", "window=request_console")
 		onclose(user, "req_console")
@@ -326,6 +370,66 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				for (var/mob/O in hearers(4, src.loc))
 					O.show_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"))
 
+	if(href_list["sort"])
+		var/sortdep = sanitizeSQL(href_list["sort"])
+		SQLquery = " Select id, name, department FROM aurora_forms WHERE department LIKE '%[sortdep]%'"
+		screen = 11
+
+	if(href_list["print"])
+		var/printid = sanitizeSQL(href_list["print"])
+		establish_db_connection()
+
+		if(!dbcon.IsConnected())
+			alert("Connection to the database lost. Aborting.")
+		if(!printid)
+			alert("Invalid query. Try again.")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM aurora_forms WHERE id=[printid]")
+		query.Execute()
+
+		while(query.NextRow())
+			var/id = query.item[1]
+			var/name = query.item[2]
+			var/data = query.item[3]
+			var/obj/item/weapon/paper/C = new(src.loc)
+
+			//Let's start the BB >> HTML conversion!
+
+			data = html_encode(data)
+			data = replacetext(data, "\n", "<BR>")
+
+			C.info += data
+			C.info = C.parsepencode(C.info)
+			C.updateinfolinks()
+			C.name = "NFC-[id] - [name]"
+			paperstock--
+
+	if(href_list["whatis"])
+		var/whatisid = sanitizeSQL(href_list["whatis"])
+		establish_db_connection()
+		if(!dbcon.IsConnected())
+			alert("Connection to the database lost. Aborting.")
+		if(!whatisid)
+			alert("Invalid query. Try again.")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM aurora_forms WHERE id=[whatisid]")
+		query.Execute()
+		var/dat = "<center><b>NanoTrasen Corporate Form</b><br>"
+		while(query.NextRow())
+			var/id = query.item[1]
+			var/name = query.item[2]
+			var/department = query.item[3]
+			var/info = query.item[4]
+
+			dat += "<b>NCF-[id]</b><br><br>"
+			dat += "<b>[name]</b><br>"
+			dat += "<b>[department] Department</b><hr>"
+			dat += "[info]"
+		dat += "</center>"
+		usr << browse(dat, "window=Information;size=560x240")
+
+	switch( href_list["setLid"] )
+		if(null)	//skip
+		if("1")	lid = 1
+		else	lid = 0
 
 	//Handle screen switching
 	switch(text2num(href_list["setScreen"]))
@@ -351,6 +455,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(10)		//send announcement
 			if(!announcementConsole)	return
 			screen = 10
+		if(11)		//form database
+			SQLquery = "SELECT id, name, department FROM aurora_forms"
+			screen = 11
 		else		//main menu
 			dpt = ""
 			msgVerified = ""
@@ -411,6 +518,76 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			var/obj/item/weapon/stamp/T = O
 			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
+	if (istype(O, /obj/item/weapon/paper_bundle))
+		if(lid)	//More of that restocking business
+			var/obj/item/weapon/paper_bundle/C = O
+			paperstock += C.amount
+			user.drop_item(C)
+			qdel(C)
+			for (var/mob/U in hearers(4, src.loc))
+				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+		else
+			user << "\blue I should open the lid to add more paper, or try faxing one paper at a time."
+	if (istype(O, /obj/item/weapon/paper))
+		if(lid)					//Stocking them papers
+			var/obj/item/weapon/paper/C = O
+			user.drop_item(C)
+			qdel(C)
+			paperstock++
+			for (var/mob/U in hearers(4, src.loc))
+				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+		else if(screen == 0)	//Faxing them papers
+			var/pass = 0
+			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
+			for (var/obj/machinery/message_server/MS in world)
+				if(!MS.active) continue
+				pass = 1
+			if(pass)
+				var/sent = 0
+				for(var/obj/machinery/requests_console/Console in world)
+					if(Console == sendto)
+						if(Console.paperstock == 0)
+							alert("Error! Receiving console out of paper! Aborting!")
+							return
+						if(!sent)
+							sent = 1
+						var/obj/item/weapon/paper/C = O
+						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(Console.loc)
+						P.info = "<font color = #101010>"
+						var/copied = html_decode(C.info)
+						copied = replacetext(copied, "<font face=\"[P.deffont]\" color=", "<font face=\"[P.deffont]\" nocolor=")	//state of the art techniques in action
+						copied = replacetext(copied, "<font face=\"[P.crayonfont]\" color=", "<font face=\"[P.crayonfont]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
+						P.info += copied
+						P.info += "</font>"
+						P.name = C.name
+						P.fields = C.fields
+						P.stamps = C.stamps
+						P.stamped = C.stamped
+						P.ico = C.ico
+						P.offset_x = C.offset_x
+						P.offset_y = C.offset_y
+						var/list/temp_overlays = C.overlays
+						var/image/img
+						for (var/j = 1, j <= temp_overlays.len, j++)
+							if (findtext(C.ico[j], "cap") || findtext(C.ico[j], "cent"))
+								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-circle")
+							else if (findtext(C.ico[j], "deny"))
+								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-x")
+							else
+								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
+							img.pixel_x = C.offset_x[j]
+							img.pixel_y = C.offset_y[j]
+							P.overlays += img
+						P.updateinfolinks()
+						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+						for (var/mob/player in hearers(4, Console.loc))
+							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
+						Console.paperstock--
+				if(sent == 1)
+					user.show_message(text("\icon[src] *The Requests Console beeps: 'Message Sent.'"))
+			else
+				user.show_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"))
+
 	return
 
 /obj/machinery/requests_console/proc/reset_announce()

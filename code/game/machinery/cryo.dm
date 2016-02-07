@@ -187,8 +187,25 @@
 				return
 		var/mob/M = G:affecting
 		if(put_mob(M))
+			visible_message("[user] puts [M.name] into the cryo cell.", 3)
 			qdel(G)
 	return
+
+/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+	if(!ismob(O))
+		return
+	var/mob/living/L = O
+	for(var/mob/living/carbon/slime/M in range(1,L))
+		if(M.Victim == L)
+			usr << "[L.name] will not fit into the cryo because they have a slime latched onto their head."
+			return
+	if(put_mob(L))
+		if(L == user)
+			visible_message("[user] climbs into the cryo cell.", 3)
+		else
+			visible_message("[user] puts [L.name] into the cryo cell.", 3)
+			if(user.pulling == L)
+				user.pulling = null
 
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon()
 	overlays.Cut()
@@ -327,6 +344,7 @@
 			return
 	if (usr.stat != 0)
 		return
+	visible_message("[usr] climbs into the cryo cell.", 3)
 	put_mob(usr)
 	return
 

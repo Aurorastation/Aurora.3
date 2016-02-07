@@ -54,6 +54,9 @@
 		return
 
 	if(user && user.buckled)
+		var/obj/structure/bed/B = user.buckled
+		if(B && B.buckled_mob)
+			B.user_unbuckle_mob(user)
 		user.buckled = null
 
 	var/attempt = null
