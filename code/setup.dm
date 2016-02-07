@@ -537,7 +537,7 @@
 #define R_SPAWN         "spawn"
 #define R_MOD           "moderator"
 #define R_DEV        		"developer"
-#define R_CCIAA					"duty_officer" //gotta love strings
+#define R_CCIAA					"cciaa" //gotta love strings
 
 var/list/permission_flags = list(
 	R_BUILDMODE,

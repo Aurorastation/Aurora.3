@@ -98,7 +98,7 @@
 	set name = "Start Recording"
 	set category = "Recorder"
 
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!usr.client.holder && !(check_rights(list(R_CCIAA),usr)))
 		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>"
 		return
 	if(usr.stat)
@@ -152,7 +152,7 @@
 
 	if(usr.stat)
 		return
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!usr.client.holder && !(check_rights(list(R_CCIAA),usr)))
 		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>"
 		return
 	if(!recording)
@@ -176,7 +176,7 @@
 
 	if(usr.stat)
 		return
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!usr.client.holder && !(check_rights(list(R_CCIAA),usr)))
 		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>"
 		return
 	if(recording)
@@ -214,7 +214,7 @@
 
 	if(usr.stat)
 		return
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!usr.client.holder && !(check_rights(list(R_CCIAA),usr)))
 		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>"
 		return
 	if(!recording)

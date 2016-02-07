@@ -347,24 +347,24 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/add_admin_verbs()
 	if(holder)
 		verbs += admin_verbs_default
-		if(holder.rights & R_BUILDMODE)		verbs += /client/proc/togglebuildmodeself
-		if(holder.rights & R_ADMIN)			verbs += admin_verbs_admin
-		if(holder.rights & R_BAN)			verbs += admin_verbs_ban
-		if(holder.rights & R_FUN)			verbs += admin_verbs_fun
-		if(holder.rights & R_SERVER)		verbs += admin_verbs_server
-		if(holder.rights & R_DEBUG)
+		if(check_rights(list(R_BUILDMODE),holder))		verbs += /client/proc/togglebuildmodeself
+		if(check_rights(list(R_ADMIN),holder))			verbs += admin_verbs_admin
+		if(check_rights(list(R_BAN),holder))			verbs += admin_verbs_ban
+		if(check_rights(list(R_FUN),holder))		verbs += admin_verbs_fun
+		if(check_rights(list(R_SERVER),holder))		verbs += admin_verbs_server
+		if(check_rights(list(R_DEBUG),holder))
 			verbs += admin_verbs_debug
-			if(config.debugparanoid && !(holder.rights & R_ADMIN))
+			if(config.debugparanoid && !(check_rights(list(R_ADMIN),holder)))
 				verbs.Remove(admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
-		if(holder.rights & R_POSSESS)		verbs += admin_verbs_possess
-		if(holder.rights & R_PERMISSIONS)	verbs += admin_verbs_permissions
-		if(holder.rights & R_STEALTH)		verbs += /client/proc/stealth
-		if(holder.rights & R_REJUVINATE)	verbs += admin_verbs_rejuv
-		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
-		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
-		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
-		if(holder.rights & R_DEV)			verbs += admin_verbs_dev
-		if(holder.rights & R_CCIAA)			verbs += admin_verbs_cciaa
+		if(check_rights(list(R_POSSESS),holder))		verbs += admin_verbs_possess
+		if(check_rights(list(R_PERMISSIONS),holder))	verbs += admin_verbs_permissions
+		if(check_rights(list(R_STEALTH),holder))		verbs += /client/proc/stealth
+		if(check_rights(list(R_REJUVINATE),holder))	verbs += admin_verbs_rejuv
+		if(check_rights(list(R_SOUNDS),holder))		verbs += admin_verbs_sounds
+		if(check_rights(list(R_SPAWN),holder))			verbs += admin_verbs_spawn
+		if(check_rights(list(R_MOD),holder))			verbs += admin_verbs_mod
+		if(check_rights(list(R_DEV),holder))			verbs += admin_verbs_dev
+		if(check_rights(list(R_CCIAA),holder))			verbs += admin_verbs_cciaa
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(

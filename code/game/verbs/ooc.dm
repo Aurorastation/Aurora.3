@@ -42,11 +42,11 @@
 	var/ooc_style = "everyone"
 	if(holder && !holder.fakekey)
 		ooc_style = "elevated"
-		if(holder.rights & R_MOD)
+		if(check_rights(list(R_MOD),holder))
 			ooc_style = "moderator"
-		if(holder.rights & (R_DEBUG|R_DEV))
+		if(check_rights(list(R_DEBUG,R_DEV),holder))
 			ooc_style = "developer"
-		if(holder.rights & R_ADMIN)
+		if(check_rights(list(R_ADMIN),holder))
 			ooc_style = "admin"
 
 	for(var/client/target in clients)
@@ -58,7 +58,7 @@
 						display_name = "[holder.fakekey]/([src.key])"
 					else
 						display_name = holder.fakekey
-			if(holder && !holder.fakekey && (holder.rights & R_ADMIN) && config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
+			if(holder && !holder.fakekey && (check_rights(list(R_ADMIN),holder)) && config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
 				target << "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
 			else
 				target << "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></span>"

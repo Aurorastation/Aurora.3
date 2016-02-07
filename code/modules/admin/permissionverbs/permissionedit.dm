@@ -50,7 +50,7 @@
 	if(!usr.client)
 		return
 
-	if(!usr.client.holder || !(usr.client.holder.rights & R_PERMISSIONS))
+	if(!usr.client.holder || !(check_rights(list(R_PERMISSIONS),usr)))
 		usr << "\red You do not have permission to do this!"
 		return
 
@@ -100,7 +100,7 @@
 	if(!usr.client)
 		return
 
-	if(!usr.client.holder || !(usr.client.holder.rights & R_PERMISSIONS))
+	if(!usr.client.holder || !(check_rights(list(R_PERMISSIONS),usr)))
 		usr << "\red You do not have permission to do this!"
 		return
 

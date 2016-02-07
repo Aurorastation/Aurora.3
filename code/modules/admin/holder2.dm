@@ -59,16 +59,31 @@ proc/admin_proc()
 
 NOTE: It checks usr by default. Supply the "user" argument if you wish to check for a specific mob.
 */
-/proc/check_rights(var/list/rights_required = list(), show_msg=1, var/mob/user = usr)
-	if(user && user.client)
+/proc/check_rights(var/list/rights_required = list(), show_msg=1, var/user = usr)
+	var/datum/admins/holder = null //set this for later use
+
+	//appropriately designate what type of user we are dealing with
+	if(istype(user, /client))
+		var/client/C = user
+		holder = C.holder
+
+	if(istype(user, /mob))
+		var/mob/M = user
+		if(M.client) //sanity check ?
+			holder = M.client.holder
+
+	if(istype(user,/datum/admins))
+		holder = user
+
+	if(holder)
 		if(rights_required.len)
-			if(user.client.holder)
-				for(var/required in rights_required)
+			for(var/required in rights_required)
+				if(required in holder.rights)
 					return 1
 				if(show_msg)
 					user << "<font color='red'>Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")].</font>"
 		else
-			if(user.client.holder)
+			if(holder)
 				return 1
 			else
 				if(show_msg)

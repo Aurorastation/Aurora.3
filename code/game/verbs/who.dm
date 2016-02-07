@@ -6,8 +6,7 @@
 	var/msg = "<b>Current Players:</b>\n"
 
 	var/list/Lines = list()
-
-	if(holder && (R_ADMIN & holder.rights || R_MOD & holder.rights))
+	if(holder && (check_rights(list(R_ADMIN),holder) || check_rights(list(R_ADMIN),holder)))
 		for(var/client/C in clients)
 			var/entry = "\t[C.key]"
 			if(C.holder && C.holder.fakekey)
@@ -70,9 +69,9 @@
 	var/num_devs_online = 0
 	if(holder)
 		for(var/client/C in admins)
-			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights))	//Used to determine who shows up in admin rows
+			if(check_rights(list(R_ADMIN),C) || (!check_rights(list(R_MOD),C)))	//Used to determine who shows up in admin rows
 
-				if(C.holder.fakekey && (!R_ADMIN & holder.rights && !R_MOD & holder.rights))		//Mentors can't see stealthmins
+				if(C.holder.fakekey && (!check_rights(list(R_ADMIN),C)) && !(check_rights(list(R_MOD),C)))		//Mentors can't see stealthmins
 					continue
 
 				msg += "\t[C] is a [C.holder.rank]"
@@ -92,7 +91,7 @@
 				msg += "\n"
 
 				num_admins_online++
-			else if(R_MOD & C.holder.rights)				//Who shows up in mod/mentor rows.
+			else if(check_rights(list(R_MOD),C))				//Who shows up in mod/mentor rows.
 				modmsg += "\t[C] is a [C.holder.rank]"
 
 				if(isobserver(C.mob))
@@ -107,7 +106,7 @@
 				modmsg += "\n"
 				num_mods_online++
 
-			else if (R_CCIAA & C.holder.rights)
+			else if (check_rights(list(R_CCIAA),C))
 				cciaamsg += "\t[C]"
 				if (isobserver(C.mob))
 					cciaamsg += " - Observing"
@@ -121,7 +120,7 @@
 				cciaamsg += "\n"
 				num_cciaa_online++
 
-			else if(C.holder.rights & R_DEV)
+			else if(check_rights(list(R_DEV),C))
 				devmsg += "\t[C] is a [C.holder.rank]"
 				if(isobserver(C.mob))
 					devmsg += " - Observing"
@@ -137,17 +136,17 @@
 
 	else
 		for(var/client/C in admins)
-			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights))
+			if(check_rights(list(R_ADMIN),C) || (!check_rights(list(R_MOD),C)))
 				if(!C.holder.fakekey)
 					msg += "\t[C] is a [C.holder.rank]\n"
 					num_admins_online++
-			else if (R_MOD & C.holder.rights)
+			else if (check_rights(list(R_MOD),C))
 				modmsg += "\t[C] is a [C.holder.rank]\n"
 				num_mods_online++
-			else if(C.holder.rights & R_DEV)
+			else if(check_rights(list(R_DEV),C))
 				devmsg += "\t[C] is a [C.holder.rank]\n"
 				num_devs_online++
-			else if (R_CCIAA & C.holder.rights)
+			else if (check_rights(list(R_CCIAA),C))
 				cciaamsg += "\t[C] is a [C.holder.rank]\n"
 				num_cciaa_online++
 

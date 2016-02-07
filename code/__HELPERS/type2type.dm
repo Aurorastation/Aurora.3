@@ -273,23 +273,23 @@ proc/tg_list2text(list/list, glue=",")
 		else                return ICON_OVERLAY
 
 // Converts a rights bitfield into a string
-/proc/rights2text(rights,seperator="")
-	if (rights & R_BUILDMODE)   . += "[seperator]+BUILDMODE"
-	if (rights & R_ADMIN)       . += "[seperator]+ADMIN"
-	if (rights & R_BAN)         . += "[seperator]+BAN"
-	if (rights & R_FUN)         . += "[seperator]+FUN"
-	if (rights & R_SERVER)      . += "[seperator]+SERVER"
-	if (rights & R_DEBUG)       . += "[seperator]+DEBUG"
-	if (rights & R_POSSESS)     . += "[seperator]+POSSESS"
-	if (rights & R_PERMISSIONS) . += "[seperator]+PERMISSIONS"
-	if (rights & R_STEALTH)     . += "[seperator]+STEALTH"
-	if (rights & R_REJUVINATE)  . += "[seperator]+REJUVINATE"
-	if (rights & R_VAREDIT)     . += "[seperator]+VAREDIT"
-	if (rights & R_SOUNDS)      . += "[seperator]+SOUND"
-	if (rights & R_SPAWN)       . += "[seperator]+SPAWN"
-	if (rights & R_MOD)         . += "[seperator]+MODERATOR"
-	if (rights & R_DEV)			. += "[seperator]+DEVELOPER"
-	if (rights & R_CCIAA)		. += "[seperator]+CCIAA"
+/proc/rights2text(rights=list(),seperator="")
+	if (R_BUILDMODE in rights)   . += "[seperator]+BUILDMODE"
+	if (R_ADMIN in rights)       . += "[seperator]+ADMIN"
+	if (R_BAN in rights)         . += "[seperator]+BAN"
+	if (R_FUN in rights)         . += "[seperator]+FUN"
+	if (R_SERVER in rights)      . += "[seperator]+SERVER"
+	if (R_DEBUG in rights)       . += "[seperator]+DEBUG"
+	if (R_POSSESS in rights)     . += "[seperator]+POSSESS"
+	if (R_PERMISSIONS in rights) . += "[seperator]+PERMISSIONS"
+	if (R_STEALTH in rights)     . += "[seperator]+STEALTH"
+	if (R_REJUVINATE in rights)  . += "[seperator]+REJUVINATE"
+	if (R_VAREDIT in rights)     . += "[seperator]+VAREDIT"
+	if (R_SOUNDS in rights)      . += "[seperator]+SOUND"
+	if (R_SPAWN in rights)       . += "[seperator]+SPAWN"
+	if (R_MOD in rights)         . += "[seperator]+MODERATOR"
+	if (R_DEV in rights)			. += "[seperator]+DEVELOPER"
+	if (R_CCIAA in rights)		. += "[seperator]+CCIAA"
 	return .
 
 /proc/ui_style2icon(ui_style)
