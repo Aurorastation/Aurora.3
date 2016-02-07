@@ -1067,6 +1067,7 @@
 #include "code\modules\hydroponics\trays\tray_soil.dm"
 #include "code\modules\hydroponics\trays\tray_tools.dm"
 #include "code\modules\hydroponics\trays\tray_update_icons.dm"
+#include "code\modules\intern\intern.dm"
 #include "code\modules\library\lib_items.dm"
 #include "code\modules\library\lib_machines.dm"
 #include "code\modules\library\lib_readme.dm"
