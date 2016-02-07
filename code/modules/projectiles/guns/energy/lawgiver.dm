@@ -33,7 +33,7 @@
 			user << "<span class='danger'>[src] blows up in your face!</span>"
 			explosion(get_turf(user), 0, 0, 1, rand(1,2))
 			user.drop_item()
-			del(src)
+			qdel(src)
 			return 0
 		..()
 

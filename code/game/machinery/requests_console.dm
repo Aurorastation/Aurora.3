@@ -523,7 +523,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			var/obj/item/weapon/paper_bundle/C = O
 			paperstock += C.amount
 			user.drop_item(C)
-			del(C)
+			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
@@ -532,7 +532,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(lid)					//Stocking them papers
 			var/obj/item/weapon/paper/C = O
 			user.drop_item(C)
-			del(C)
+			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
