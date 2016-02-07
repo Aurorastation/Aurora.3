@@ -709,7 +709,7 @@
 			usr.loc = picked
 			M.current.remove_vampire_blood(30)
 			spawn(10)
-				del(animation)
+				qdel(animation)
 //		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/vampire/proc/vampire_shadowstep
 		spawn(20)
@@ -758,7 +758,7 @@
 					for(var/image/I in t_mind.current.client.images)
 						if((I.icon_state == "vampthrall" || I.icon_state == "vampire") && I.loc == vampire_mind.current)
 							//world.log << "deleting [vampire_mind] overlay"
-							del(I)
+							qdel(I)
 		if(head)
 			//world.log << "found [head.name]"
 			if(head.current)
@@ -766,12 +766,12 @@
 					for(var/image/I in head.current.client.images)
 						if((I.icon_state == "vampthrall" || I.icon_state == "vampire") && I.loc == vampire_mind.current)
 							//world.log << "deleting [vampire_mind] overlay"
-							del(I)
+							qdel(I)
 	if(vampire_mind.current)
 		if(vampire_mind.current.client)
 			for(var/image/I in vampire_mind.current.client.images)
 				if(I.icon_state == "vampthrall" || I.icon_state == "vampire")
-					del(I)
+					qdel(I)
 
 /client/vampire/proc/remove_vampire_mind(datum/mind/vampire_mind, datum/mind/head)
 	//var/list/removal

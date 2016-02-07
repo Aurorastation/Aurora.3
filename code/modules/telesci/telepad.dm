@@ -28,7 +28,7 @@
 	efficiency = E
 
 /obj/machinery/telepad/attackby(obj/item/I, mob/user, params)
-	if(default_deconstruction_screwdriver(user, "pad-idle-o", "pad-idle", I))
+	if(default_deconstruction_screwdriver(user, I))
 		return
 
 	if(panel_open)
@@ -36,9 +36,18 @@
 			var/obj/item/device/multitool/M = I
 			M.buffer = src
 			user << "<span class='caution'>You save the data in the [I.name]'s buffer.</span>"
+	else
+		if(istype(I, /obj/item/device/multitool))
+			user << "<span class='caution'>You should open [src]'s maintenance panel first.</span>"
 
-	default_deconstruction_crowbar(I)
+	default_deconstruction_crowbar(user, I)
 
+/obj/machinery/telepad/update_icon()
+	switch (panel_open)
+		if (1)
+			icon_state = "pad-idle-o"
+		if (0)
+			icon_state = "pad-idle"
 
 //CARGO TELEPAD//
 /obj/machinery/telepad_cargo

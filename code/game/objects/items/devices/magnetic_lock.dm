@@ -313,7 +313,7 @@
 
 	s.start()
 	spawn(5)
-		del(s)
+		qdel(s)
 
 #undef STATUS_INACTIVE
 #undef STATUS_ACTIVE

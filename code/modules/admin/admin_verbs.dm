@@ -98,7 +98,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_cciaa_say,
 	/client/proc/cmd_dev_say,
 	/client/proc/view_duty_log,
-	/client/proc/cmd_dev_bst
+	/client/proc/cmd_dev_bst,
+	/client/proc/clear_toxins
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
