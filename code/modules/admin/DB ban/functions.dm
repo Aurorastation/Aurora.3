@@ -473,6 +473,19 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 					output += "<tr bgcolor='[dcolor]'>"
 					output += "<td align='center' colspan='5' bgcolor=''><b>EXPIRED at [expiration]</b></td>"
 					output += "</tr>"
+				if (bantype in list("PERMABAN", "TEMPBAN"))
+					var/mirror_count = 0
+					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT ban_mirror_id FROM ss13_ban_mirrors WHERE ban_id = :ban_id")
+					get_mirrors.Execute(list(":ban_id" = text2num(banid)))
+
+					while (get_mirrors.NextRow())
+						mirror_count++
+
+					if (mirror_count)
+						output += "<tr bgcolor='[dcolor]'>"
+						output += "<td align='center' colspan='5' bgcolor=''><b>Ban Mirrored [mirror_count] times!</b></td>"
+						output += "</tr>"
+
 				output += "<tr>"
 				output += "<td colspan='5' bgcolor='white'>&nbsp</td>"
 				output += "</tr>"

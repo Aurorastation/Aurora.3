@@ -92,7 +92,14 @@ var/list/admin_verbs_admin = list(
 	/client/proc/change_security_level,
 	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
-	/datum/admins/proc/paralyze_mob
+	/datum/admins/proc/paralyze_mob,
+	/datum/admins/proc/create_admin_fax,
+	/client/proc/check_fax_history,
+	/client/proc/cmd_cciaa_say,
+	/client/proc/cmd_dev_say,
+	/client/proc/view_duty_log,
+	/client/proc/cmd_dev_bst,
+	/client/proc/clear_toxins
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -118,7 +125,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/make_sound,
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
-	/client/proc/roll_dices
+	/client/proc/roll_dices,
+	/datum/admins/proc/create_admin_fax
 	)
 var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_fruit,
@@ -290,15 +298,51 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/paralyze_mob
 )
 
-var/list/admin_verbs_mentor = list(
+var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
+	///datum/admins/proc/restart,
+	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
+	/client/proc/Jump,
+	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
+	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
+	/client/proc/jumptoturf,			/*allows us to jump to a specific turf*/
 	/client/proc/cmd_admin_pm_context,
-	/client/proc/cmd_admin_pm_panel,
-	/datum/admins/proc/PlayerNotes,
+	/client/proc/cmd_admin_pm_panel,	//admin-pm list
+	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
+	/client/proc/cmd_dev_say,
+	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_ghost,
-	/client/proc/cmd_mod_say,
-	/datum/admins/proc/show_player_info,
-//	/client/proc/dsay,
-	/client/proc/cmd_admin_subtle_message
+	/client/proc/air_report,
+	/client/proc/enable_debug_verbs,
+	/client/proc/cmd_admin_delete,
+	/client/proc/cmd_admin_list_open_jobs,
+	/client/proc/cmd_debug_del_all,
+	/client/proc/cmd_debug_make_powernets,
+	/client/proc/cmd_debug_mob_lists,
+	/client/proc/Debug2,
+	/client/proc/debug_controller,
+	/client/proc/debug_variables,
+	/client/proc/dsay,
+	/client/proc/getruntimelog,
+	/client/proc/giveruntimelog,
+	/client/proc/hide_most_verbs,
+	/client/proc/kill_air,
+	/client/proc/kill_airgroup,
+	/client/proc/player_panel,
+	/client/proc/restart_controller,
+	/client/proc/togglebuildmodeself,
+	/client/proc/toggledebuglogs,
+	/client/proc/ZASSettings,
+	/client/proc/cmd_dev_bst
+)
+var/list/admin_verbs_cciaa = list(
+	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
+	/client/proc/spawn_duty_officer,
+	/client/proc/cmd_admin_create_centcom_report,
+	/client/proc/cmd_cciaa_say,
+	/client/proc/returntobody,
+	/client/proc/view_duty_log,
+	/datum/admins/proc/create_admin_fax,
+	/client/proc/check_fax_history
 )
 
 /client/proc/add_admin_verbs()
@@ -320,7 +364,8 @@ var/list/admin_verbs_mentor = list(
 		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
-		if(holder.rights & R_MENTOR)		verbs += admin_verbs_mentor
+		if(holder.rights & R_DEV)			verbs += admin_verbs_dev
+		if(holder.rights & R_CCIAA)			verbs += admin_verbs_cciaa
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(
@@ -383,8 +428,6 @@ var/list/admin_verbs_mentor = list(
 	if(istype(mob,/mob/dead/observer))
 		//re-enter
 		var/mob/dead/observer/ghost = mob
-		if(!is_mentor(usr.client))
-			ghost.can_reenter_corpse = 1
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
 		else

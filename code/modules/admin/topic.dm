@@ -1177,7 +1177,7 @@
 		show_player_panel(M)
 
 	else if(href_list["adminplayerobservejump"])
-		if(!check_rights(R_MENTOR|R_MOD|R_ADMIN))	return
+		if(!check_rights(R_MOD|R_ADMIN))	return
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 
@@ -1190,7 +1190,7 @@
 		check_antagonists()
 
 	else if(href_list["adminplayerobservecoodjump"])
-		if(!check_rights(R_ADMIN))	return
+		if(!check_rights(R_ADMIN|R_MOD))	return
 
 		var/x = text2num(href_list["X"])
 		var/y = text2num(href_list["Y"])
@@ -1397,39 +1397,10 @@
 		return
 
 	else if(href_list["CentcommFaxReply"])
-		var/mob/sender = locate(href_list["CentcommFaxReply"])
-		var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["originfax"])
+		var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["CentcommFaxReply"])
 
-		//todo: sanitize
-		var/input = input(src.owner, "Please enter a message to reply to [key_name(sender)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
-		if(!input)	return
+		create_admin_fax(fax.department)
 
-		var/customname = input(src.owner, "Pick a title for the report", "Title") as text|null
-
-		// Create the reply message
-		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
-		P.name = "[command_name()]- [customname]"
-		P.info = input
-		P.update_icon()
-
-		// Stamps
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-		stampoverlay.icon_state = "paper_stamp-cent"
-		if(!P.stamped)
-			P.stamped = new
-		P.stamped += /obj/item/weapon/stamp
-		P.overlays += stampoverlay
-		P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
-
-		if(fax.recievefax(P))
-			src.owner << "\blue Message reply to transmitted successfully."
-			log_admin("[key_name(src.owner)] replied to a fax message from [key_name(sender)]: [input]")
-			message_admins("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(sender)]", 1)
-		else
-			src.owner << "\red Message reply failed."
-
-		spawn(100)
-			qdel(P)
 		return
 
 	else if(href_list["SolGovFaxReply"])
@@ -2360,7 +2331,7 @@
 				world << text("<B>A secret has been activated by []!</B>", usr.key)
 
 	else if(href_list["secretscoder"])
-		if(!check_rights(R_DEBUG))	return
+		if(!check_rights(R_DEBUG|R_DEV))	return
 
 		switch(href_list["secretscoder"])
 			if("spawn_objects")
@@ -2681,6 +2652,26 @@
 			return
 
 		paralyze_mob(M)
+
+	else if(href_list["admindibs"])
+		if (!check_rights(R_ADMIN|R_MOD))
+			return
+
+		var/client/C = locate(href_list["admindibs"])
+
+		if (!istype(C) || !C)
+			usr << "\red Player not found!"
+			return
+
+		if (C.adminhelped == 2)
+			log_and_message_admins("has called <font color='red'>dibs</font> on [key_name_admin(C)]'s adminhelp!")
+			usr << "<font color='blue'><b>You have taken over [key_name_admin(C)]'s adminhelp.</b></font>'"
+			usr << "[get_options_bar(C, 2, 1, 1)]"
+
+			C << "<font color='red'><b>Your adminhelp will be tended [usr.client.holder.fakekey ? "shortly" : "by [key_name(usr, 0, 0)]"]. Please allow the staff member a minute or two to write up a response.</b></font>"
+			C.adminhelped = 1
+		else
+			usr << "<font color='red'><b>The adminhelp has already been claimed!</b></font>"
 
 		return
 

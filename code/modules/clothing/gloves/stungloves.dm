@@ -73,7 +73,7 @@
 			desc = "[desc]<br>They have had the fingertips cut off of them."
 			if("exclude" in species_restricted)
 				species_restricted -= "Unathi"
-				species_restricted -= "Tajaran"
+				species_restricted -= "Tajara"
 			return
 		else
 			user << "<span class='notice'>The [src] have already been clipped!</span>"

@@ -265,15 +265,15 @@
 		dat += "<th width='60%'>REASON</th>"
 		dat += "</tr>"
 
-		var/list/query_details = list("a_ckey", "ckey")
+		var/list/query_details = list(":a_ckey", ":ckey")
 		var/paramone = ""
 		var/paramtwo = ""
 		if(adminckey)
 			paramone = "AND a_ckey = :a_ckey "
-			query_details["a_ckey"] = adminckey
+			query_details[":a_ckey"] = adminckey
 		if(playerckey)
 			paramtwo = "AND ckey = :ckey "
-			query_details["ckey"] = playerckey
+			query_details[":ckey"] = playerckey
 
 		var/DBQuery/search_query = dbcon.NewQuery("SELECT id, time, severity, reason, notes, ckey, a_ckey, acknowledged, expired, edited, lasteditor, lasteditdate FROM ss13_warnings WHERE visible = 1 [paramone] [paramtwo] ORDER BY time DESC;")
 		search_query.Execute(query_details, 1)
