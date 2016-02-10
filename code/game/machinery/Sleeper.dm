@@ -163,6 +163,8 @@
 	var/amounts = list(5, 10)
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/filtering = 0
+	var/allow_occupant_types = list(/mob/living/carbon/human)
+	var/disallow_occupant_types = list()
 
 	use_power = 1
 	idle_power_usage = 15
@@ -251,6 +253,57 @@
 			return
 		return
 
+	MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+		if(!check_occupant_allowed(O))
+			return
+
+		if(src.occupant)
+			user << "\blue <B>The sleeper is already occupied!</B>"
+			return
+
+		for(var/mob/living/carbon/slime/M in range(1,O))
+			if(M.Victim == O)
+				usr << "[O.name] will not fit into the sleeper because they have a slime latched onto their head."
+				return
+
+		var/mob/living/L = O
+		if(L == user)
+			visible_message("[user] starts climbing into the sleeper.", 3)
+		else
+			visible_message("[user] starts putting [L.name] into the sleeper.", 3)
+		if(do_after(user, 20))
+			if(src.occupant)
+				user << "\blue <B>The sleeper is already occupied!</B>"
+				return
+			if(!L) return
+
+			if(L.client)
+				L.client.perspective = EYE_PERSPECTIVE
+				L.client.eye = src
+			L.loc = src
+			src.occupant = L
+			src.icon_state = (orient == "RIGHT") ? "sleeper_1-r" : "sleeper_1"
+			L << "\blue <b>You feel cool air surround you. You go numb as your senses turn inward.</b>"
+			src.add_fingerprint(user)
+			if(user.pulling == L)
+				user.pulling = null
+			return
+		return
+
+	proc/check_occupant_allowed(mob/M)
+		var/correct_type = 0
+		for(var/type in allow_occupant_types)
+			if(istype(M, type))
+				correct_type = 1
+				break
+
+		if(!correct_type) return 0
+
+		for(var/type in disallow_occupant_types)
+			if(istype(M, type))
+				return 0
+
+		return 1
 
 	ex_act(severity)
 		if(filtering)
@@ -318,6 +371,8 @@
 			toggle_filter()
 		if(!src.occupant)
 			return
+		for(var/obj/O in src) //once again, why wasn't this here?
+			O.loc = src.loc
 		if(src.occupant.client)
 			src.occupant.client.eye = src.occupant.client.mob
 			src.occupant.client.perspective = MOB_PERSPECTIVE

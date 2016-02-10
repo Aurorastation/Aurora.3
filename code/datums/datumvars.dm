@@ -420,7 +420,7 @@ client
 
 	//~CARN: for renaming mobs (updates their name, real_name, mind.name, their ID/PDA and datacore records).
 	else if(href_list["rename"])
-		if(!check_rights(R_VAREDIT))	return
+		if(!check_rights(R_VAREDIT|R_DEV))	return
 
 		var/mob/M = locate(href_list["rename"])
 		if(!istype(M))
@@ -435,7 +435,7 @@ client
 		href_list["datumrefresh"] = href_list["rename"]
 
 	else if(href_list["varnameedit"] && href_list["datumedit"])
-		if(!check_rights(R_VAREDIT))	return
+		if(!check_rights(R_VAREDIT|R_DEV))	return
 
 		var/D = locate(href_list["datumedit"])
 		if(!istype(D,/datum) && !istype(D,/client))
@@ -445,7 +445,7 @@ client
 		modify_variables(D, href_list["varnameedit"], 1)
 
 	else if(href_list["varnamechange"] && href_list["datumchange"])
-		if(!check_rights(R_VAREDIT))	return
+		if(!check_rights(R_VAREDIT|R_DEV))	return
 
 		var/D = locate(href_list["datumchange"])
 		if(!istype(D,/datum) && !istype(D,/client))
@@ -455,7 +455,7 @@ client
 		modify_variables(D, href_list["varnamechange"], 0)
 
 	else if(href_list["varnamemass"] && href_list["datummass"])
-		if(!check_rights(R_VAREDIT))	return
+		if(!check_rights(R_VAREDIT|R_DEV))	return
 
 		var/atom/A = locate(href_list["datummass"])
 		if(!istype(A))
@@ -530,7 +530,7 @@ client
 		src.cmd_admin_gib(M)
 
 	else if(href_list["build_mode"])
-		if(!check_rights(R_BUILDMODE))	return
+		if(!check_rights(R_BUILDMODE|R_DEV))	return
 
 		var/mob/M = locate(href_list["build_mode"])
 		if(!istype(M))
@@ -800,7 +800,7 @@ client
 			usr << "Mob doesn't know that language."
 
 	else if(href_list["addverb"])
-		if(!check_rights(R_DEBUG))      return
+		if(!check_rights(R_DEBUG|R_DEV))      return
 
 		var/mob/living/H = locate(href_list["addverb"])
 
@@ -830,7 +830,7 @@ client
 			H.verbs += verb
 
 	else if(href_list["remverb"])
-		if(!check_rights(R_DEBUG))      return
+		if(!check_rights(R_DEBUG|R_DEV))      return
 
 		var/mob/H = locate(href_list["remverb"])
 
@@ -866,7 +866,7 @@ client
 			return
 
 		new new_organ(M)
-	
+
 
 	else if(href_list["remorgan"])
 		if(!check_rights(R_SPAWN))	return
@@ -952,4 +952,3 @@ client
 		src.debug_variables(DAT)
 
 	return
-

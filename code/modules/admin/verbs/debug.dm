@@ -1,7 +1,7 @@
 /client/proc/Debug2()
 	set category = "Debug"
 	set name = "Debug-Game"
-	if(!check_rights(R_DEBUG))	return
+	if(!check_rights(R_DEBUG|R_DEV))	return
 
 	if(Debug2)
 		Debug2 = 0
@@ -64,7 +64,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 		var/procname = input("Proc path, eg: /proc/fake_blood","Path:", null) as text|null
 		if(!procname)	return
-	
+
 		if(targetselected)
 			if(!target)
 				usr << "<span class='danger'>Your target no longer exists.</span>"
@@ -426,7 +426,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set name = "Assume direct control"
 	set desc = "Direct intervention"
 
-	if(!check_rights(R_DEBUG|R_ADMIN))	return
+	if(!check_rights(R_DEBUG|R_ADMIN|R_DEV|R_FUN))	return
 	if(M.ckey)
 		if(alert("This mob is being controlled by [M.ckey]. Are you sure you wish to assume control of it? [M.ckey] will be made a ghost.",,"Yes","No") != "Yes")
 			return

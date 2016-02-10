@@ -211,13 +211,13 @@
 	src << "[time][part_a][track][part_b][formatted]</span></span>"
 
 /mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
-	if(!client)
+	if(!client || !speaker)
 		return
 
 	if(say_understands(speaker, language))
-		message = "<B>[src]</B> [verb], \"[message]\""
+		message = "<B>[speaker]</B> [verb], \"[message]\""
 	else
-		message = "<B>[src]</B> [verb]."
+		message = "<B>[speaker]</B> [verb]."
 
 	if(src.status_flags & PASSEMOTES)
 		for(var/obj/item/weapon/holder/H in src.contents)

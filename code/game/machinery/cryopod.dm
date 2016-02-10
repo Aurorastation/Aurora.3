@@ -247,7 +247,10 @@
 	find_control_computer()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
-	control_computer = locate(/obj/machinery/computer/cryopod) in src.loc.loc
+	//control_computer = locate(/obj/machinery/computer/cryopod) in src.loc.loc
+	for(var/obj/machinery/computer/cryopod/C in src.loc.loc)
+		control_computer = C
+		break
 
 	// Don't send messages unless we *need* the computer, and less than five minutes have passed since last time we messaged
 	if(!control_computer && urgent && last_no_computer_message + 5*60*10 < world.time)
@@ -323,10 +326,17 @@
 	for(var/obj/item/W in items)
 
 		var/preserve = null
-		for(var/T in preserve_items)
-			if(istype(W,T))
+		if (istype(W, /obj/item/device/mmi))
+			var/obj/item/device/mmi/brain = W
+			if (brain.brainmob && brain.brainmob.client && brain.brainmob.key)
 				preserve = 1
-				break
+			else
+				continue
+		else
+			for(var/T in preserve_items)
+				if(istype(W,T))
+					preserve = 1
+					break
 
 		if(!preserve)
 			qdel(W)
@@ -451,6 +461,72 @@
 
 			//Despawning occurs when process() is called with an occupant without a client.
 			src.add_fingerprint(M)
+
+/obj/machinery/cryopod/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+	if(!check_occupant_allowed(O))
+		return
+
+	if(occupant)
+		user << "<span class='notice'>\The [src] is in use.</span>"
+		return
+
+	var/mob/living/L = O
+
+	if(L.stat == DEAD)
+		user << "<span class='notice'>Dead people can not be put into cryo.</span>"
+		return
+
+	for(var/mob/living/carbon/slime/M in range(1,L))
+		if(M.Victim == L)
+			usr << "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."
+			return
+
+	var/willing = null //We don't want to allow people to be forced into despawning.
+
+	if(L.client)
+		if(alert(L,"Would you like to enter cryosleep?",,"Yes","No") == "Yes")
+			if(!L) return
+			willing = 1
+	else
+		willing = 1
+
+	if(willing)
+		if(L == user)
+			visible_message("[user] starts climbing into the cryo pod.", 3)
+		else
+			visible_message("[user] starts putting [L] into the cryo pod.", 3)
+
+		if(do_after(user, 20))
+			if(!L) return
+
+			L.loc = src
+
+			if(L.client)
+				L.client.perspective = EYE_PERSPECTIVE
+				L.client.eye = src
+		else
+			user << "<span class='notice'>You stop [L == user ? "climbing into the cryo pod." : "putting [L] into the cryo pod."]</span>"
+			return
+
+		if(orient_right)
+			icon_state = "[occupied_icon_state]-r"
+		else
+			icon_state = occupied_icon_state
+
+		L << "\blue You feel cool air surround you. You go numb as your senses turn inward."
+		L << "\blue <b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b>"
+		occupant = L
+		time_entered = world.time
+
+		// Book keeping!
+		var/turf/location = get_turf(src)
+		log_admin("[key_name_admin(L)] has entered a stasis pod.")
+		message_admins("\blue [key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+
+		//Despawning occurs when process() is called with an occupant without a client.
+		src.add_fingerprint(L)
+
+	return
 
 /obj/machinery/cryopod/verb/eject()
 	set name = "Eject Pod"

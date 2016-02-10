@@ -85,7 +85,11 @@
 				banreason = "[banreason] (CUSTOM CID)"
 		else
 			message_admins("Ban process: A mob matching [playermob.ckey] was found at location [playermob.x], [playermob.y], [playermob.z]. Custom ip and computer id fields replaced with the ip and computer id from the located mob")
-		notes_add(banckey,banreason,usr)
+
+		if (config.ban_legacy_system)
+			notes_add(banckey,banreason,usr)
+		else
+			notes_add_sql(banckey, banreason, usr, banip, bancid)
 
 		DB_ban_record(bantype, playermob, banduration, banreason, banjob, null, banckey, banip, bancid )
 
@@ -683,7 +687,10 @@
 							msg = job
 						else
 							msg += ", [job]"
-					notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
+					if (config.ban_legacy_system)
+						notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
+					else
+						notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
 					message_admins("\blue [key_name_admin(usr)] banned [key_name_admin(M)] from [msg] for [mins] minutes", 1)
 					M << "\red<BIG><B>You have been jobbanned by [usr.client.ckey] from: [msg].</B></BIG>"
 					M << "\red <B>The reason is: [reason]</B>"
@@ -704,7 +711,10 @@
 							jobban_fullban(M, job, "[reason]; By [usr.ckey] on [time2text(world.realtime)]")
 							if(!msg)	msg = job
 							else		msg += ", [job]"
-						notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
+						if (config.ban_legacy_system)
+							notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
+						else
+							notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
 						message_admins("\blue [key_name_admin(usr)] banned [key_name_admin(M)] from [msg]", 1)
 						M << "\red<BIG><B>You have been jobbanned by [usr.client.ckey] from: [msg].</B></BIG>"
 						M << "\red <B>The reason is: [reason]</B>"
@@ -802,7 +812,10 @@
 					return
 				AddBan(M.ckey, M.computer_id, reason, usr.ckey, 1, mins)
 				ban_unban_log_save("[usr.client.ckey] has banned [M.ckey]. - Reason: [reason] - This will be removed in [mins] minutes.")
-				notes_add(M.ckey,"[usr.client.ckey] has banned [M.ckey]. - Reason: [reason] - This will be removed in [mins] minutes.",usr)
+				if (config.ban_legacy_system)
+					notes_add(M.ckey,"[usr.client.ckey] has banned [M.ckey]. - Reason: [reason] - This will be removed in [mins] minutes.",usr)
+				else
+					notes_add_sql(M.ckey, "[usr.client.ckey] has banned [M.ckey]. - Reason: [reason] - This will be removed in [mins] minutes.", usr, M.lastKnownIP, M.computer_id)
 				M << "\red<BIG><B>You have been banned by [usr.client.ckey].\nReason: [reason].</B></BIG>"
 				M << "\red This is a temporary ban, it will be removed in [mins] minutes."
 				feedback_inc("ban_tmp",1)
@@ -835,7 +848,10 @@
 				else
 					M << "\red No ban appeals URL has been set."
 				ban_unban_log_save("[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.")
-				notes_add(M.ckey,"[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.",usr)
+				if (config.ban_legacy_system)
+					notes_add(M.ckey,"[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.",usr)
+				else
+					notes_add_sql(M.ckey, "[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.", usr, M.lastKnownIP, M.computer_id)
 				log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 				message_admins("\blue[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis is a permanent ban.")
 				feedback_inc("ban_perma",1)
@@ -1177,7 +1193,7 @@
 		show_player_panel(M)
 
 	else if(href_list["adminplayerobservejump"])
-		if(!check_rights(R_MENTOR|R_MOD|R_ADMIN))	return
+		if(!check_rights(R_MOD|R_ADMIN))	return
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 
@@ -1190,7 +1206,7 @@
 		check_antagonists()
 
 	else if(href_list["adminplayerobservecoodjump"])
-		if(!check_rights(R_ADMIN))	return
+		if(!check_rights(R_ADMIN|R_MOD))	return
 
 		var/x = text2num(href_list["X"])
 		var/y = text2num(href_list["Y"])
@@ -1397,39 +1413,16 @@
 		return
 
 	else if(href_list["CentcommFaxReply"])
-		var/mob/sender = locate(href_list["CentcommFaxReply"])
-		var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["originfax"])
 
-		//todo: sanitize
-		var/input = input(src.owner, "Please enter a message to reply to [key_name(sender)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
-		if(!input)	return
-
-		var/customname = input(src.owner, "Pick a title for the report", "Title") as text|null
-
-		// Create the reply message
-		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
-		P.name = "[command_name()]- [customname]"
-		P.info = input
-		P.update_icon()
-
-		// Stamps
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-		stampoverlay.icon_state = "paper_stamp-cent"
-		if(!P.stamped)
-			P.stamped = new
-		P.stamped += /obj/item/weapon/stamp
-		P.overlays += stampoverlay
-		P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
-
-		if(fax.recievefax(P))
-			src.owner << "\blue Message reply to transmitted successfully."
-			log_admin("[key_name(src.owner)] replied to a fax message from [key_name(sender)]: [input]")
-			message_admins("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(sender)]", 1)
+		var/department = null
+		if (href_list["faxMachine"])
+			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
+			department = fax.department
 		else
-			src.owner << "\red Message reply failed."
+			department = input("Choose the target department.", "Target Department", null) in alldepartments
 
-		spawn(100)
-			qdel(P)
+		create_admin_fax(department)
+
 		return
 
 	else if(href_list["SolGovFaxReply"])
@@ -2360,7 +2353,7 @@
 				world << text("<B>A secret has been activated by []!</B>", usr.key)
 
 	else if(href_list["secretscoder"])
-		if(!check_rights(R_DEBUG))	return
+		if(!check_rights(R_DEBUG|R_DEV))	return
 
 		switch(href_list["secretscoder"])
 			if("spawn_objects")
@@ -2617,7 +2610,10 @@
 		var/add = sanitize(input("Add Player Info") as null|text)
 		if(!add) return
 
-		notes_add(key,add,usr)
+		if (config.ban_legacy_system)
+			notes_add(key,add,usr)
+		else
+			notes_add_sql(key, add, usr)
 		show_player_info(key)
 
 	if(href_list["remove_player_info"])
@@ -2681,6 +2677,26 @@
 			return
 
 		paralyze_mob(M)
+
+	else if(href_list["admindibs"])
+		if (!check_rights(R_ADMIN|R_MOD))
+			return
+
+		var/client/C = locate(href_list["admindibs"])
+
+		if (!istype(C) || !C)
+			usr << "\red Player not found!"
+			return
+
+		if (C.adminhelped == 2)
+			log_and_message_admins("has called <font color='red'>dibs</font> on [key_name_admin(C)]'s adminhelp!")
+			usr << "<font color='blue'><b>You have taken over [key_name_admin(C)]'s adminhelp.</b></font>'"
+			usr << "[get_options_bar(C, 2, 1, 1)]"
+
+			C << "<font color='red'><b>Your adminhelp will be tended [usr.client.holder.fakekey ? "shortly" : "by [key_name(usr, 0, 0)]"]. Please allow the staff member a minute or two to write up a response.</b></font>"
+			C.adminhelped = 1
+		else
+			usr << "<font color='red'><b>The adminhelp has already been claimed!</b></font>"
 
 		return
 

@@ -144,6 +144,8 @@
 			return list(access_cent_general, access_cent_specops, access_cent_medical, access_cent_teleporter, access_cent_storage)
 		if("BlackOps Commander")
 			return list(access_cent_general, access_cent_thunder, access_cent_specops, access_cent_living, access_cent_storage, access_cent_creed)
+		if("CCIA Agent")
+			return list(access_cent_general, access_cent_captain)
 		if("Supreme Commander")
 			return get_all_centcom_access()
 
