@@ -224,7 +224,7 @@
 
 /mob/living/carbon/human/show_inv(mob/user as mob)
 	// TODO :  Change to incapacitated() on merge.
-	if(user.stat || user.lying || user.resting || user.buckled || !user.Adjacent(src))
+	if(user.stat || user.lying || user.resting || user.buckled || !user.Adjacent(src) || user.restrained())
 		return
 
 	var/obj/item/clothing/under/suit = null
@@ -392,7 +392,9 @@
 		src << browse(null, t1)
 
 	if(href_list["item"])
-		handle_strip(href_list["item"],usr)
+		if (handle_strip(href_list["item"],usr))
+			if ((machine) && (in_range(src, usr)))
+				show_inv(machine)
 
 	if (href_list["criminal"])
 		if(hasHUD(usr,"security"))

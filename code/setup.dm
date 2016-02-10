@@ -537,8 +537,8 @@
 #define R_SOUNDS        2048
 #define R_SPAWN         4096
 #define R_MOD           8192
-#define R_MENTOR        16384
-#define R_HOST          32768
+#define R_DEV        	16384 //needed a number in between 16k and 32k, so 16384+2048
+#define R_CCIAA			32768 //CAN'T BE ABOVE 65535 OR BORKS, stupid bitmasks -Ryan784
 
 #define R_MAXPERMISSION 32768 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
 
@@ -662,7 +662,7 @@ var/list/be_special_flags = list(
 #define CAN_JOIN          16384 // Species is selectable in chargen.
 #define IS_RESTRICTED     32768 // Is not a core/normally playable species. (castes, mutantraces)
 #define REGENERATES_LIMBS 65536 // Attempts to regenerate unamputated limbs.
-#define IS_BUG 4096  //Everything bug related
+#define IS_BUG            131072  //Everything bug related
 
 // Language flags.
 #define WHITELISTED 1   // Language is available if the speaker is whitelisted.

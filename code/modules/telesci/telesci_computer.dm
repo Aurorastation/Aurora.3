@@ -87,7 +87,7 @@
 	var/t
 	if(!telepad)
 		in_use = 0     //Yeah so if you deconstruct teleporter while its in the process of shooting it wont disable the console
-		t += "<div class='statusDisplay'>No telepad located. <BR>Please add telepad data.</div><BR>"
+		t += "<div class='statusDisplay'>No telepad located. <BR>Please add telepad data via use of Multitool.</div><BR>"
 	else
 		if(inserted_gps)
 			t += "<A href='?src=\ref[src];ejectGPS=1'>Eject GPS</A>"

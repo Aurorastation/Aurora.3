@@ -51,11 +51,12 @@
 
 /obj/item/clothing/glasses/science
 	name = "Science Goggles"
-	desc = "The goggles do nothing!"
+	desc = "Used to protect your eyes against harmful chemicals!"
 	icon_state = "purple"
 	item_state = "glasses"
 	toggleable = 1
 	icon_action_button = "action_science"
+	unacidable = 1
 
 /obj/item/clothing/glasses/science/New()
 	..()
@@ -108,7 +109,7 @@
 	item_state = "glasses"
 	prescription = 1
 	body_parts_covered = 0
-	
+
 /obj/item/clothing/glasses/regular/scanners
 	name = "Scanning Goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."

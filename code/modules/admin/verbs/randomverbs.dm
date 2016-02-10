@@ -82,7 +82,7 @@
 	var/msg = ""
 
 	var/highlight_special_characters = 1
-	if(is_mentor(usr.client))
+	if(!check_rights(R_MOD|R_ADMIN, 0))
 		highlight_special_characters = 0
 
 	for(var/client/C in clients)

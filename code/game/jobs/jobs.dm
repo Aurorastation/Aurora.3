@@ -125,7 +125,7 @@ var/list/nonhuman_positions = list(
 
 
 /proc/guest_jobbans(var/job)
-	return ((job in command_positions))
+	return ((job in command_positions) || job == "Internal Affairs Agent")
 
 /proc/get_job_datums()
 	var/list/occupations = list()

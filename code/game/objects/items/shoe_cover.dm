@@ -14,4 +14,4 @@
 		S.silent = 1
 		S.desc += " They appear to have some type of fabric soles"
 		user.drop_from_inventory(src)
-		del(src)
+		qdel(src)

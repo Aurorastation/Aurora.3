@@ -117,7 +117,12 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 	if (argument_list)
 		sql_query = parseArguments(sql_query, argument_list, pass_not_found)
 
-	return _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
+	var/result = _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
+
+	if (ErrorMsg())
+		log_debug("SQL Error: '[ErrorMsg()]'")
+
+	return result
 
 DBQuery/proc/NextRow()
 	return _dm_db_next_row(_db_query,item,conversions)
@@ -179,7 +184,7 @@ DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, v
 		return 0
 
 	for (var/placeholder in argument_list)
-		if (!findtextEx(sql, placeholder))
+		if (!findtextEx(query_to_parse, placeholder))
 			if (pass_not_found)
 				continue
 			else
@@ -196,7 +201,7 @@ DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, v
 		else
 			return 0
 
-		query_to_parse = replacetextEx(sql, placeholder, argument)
+		query_to_parse = replacetextEx(query_to_parse, placeholder, argument)
 
 	return query_to_parse
 
