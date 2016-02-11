@@ -118,12 +118,15 @@
 	for(var/client/target in clients)
 		if(target.prefs.toggles & CHAT_LOOC)
 			admin_stuff = ""
-			if(target in admins)
+			var/display_remote = 0
+			if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
+				display_remote = 1
+			if(display_remote)
 				prefix = "(R)"
 				admin_stuff += "/([source.key])"
 				if(target != source.client)
 					admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
 			if(target.mob in heard)
 				prefix = ""
-			if((target.mob in heard) || (target in admins))
+			if((target.mob in heard) || display_remote)
 				target << "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>"

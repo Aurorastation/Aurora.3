@@ -247,7 +247,10 @@
 	find_control_computer()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
-	control_computer = locate(/obj/machinery/computer/cryopod) in src.loc.loc
+	//control_computer = locate(/obj/machinery/computer/cryopod) in src.loc.loc
+	for(var/obj/machinery/computer/cryopod/C in src.loc.loc)
+		control_computer = C
+		break
 
 	// Don't send messages unless we *need* the computer, and less than five minutes have passed since last time we messaged
 	if(!control_computer && urgent && last_no_computer_message + 5*60*10 < world.time)
@@ -323,10 +326,17 @@
 	for(var/obj/item/W in items)
 
 		var/preserve = null
-		for(var/T in preserve_items)
-			if(istype(W,T))
+		if (istype(W, /obj/item/device/mmi))
+			var/obj/item/device/mmi/brain = W
+			if (brain.brainmob && brain.brainmob.client && brain.brainmob.key)
 				preserve = 1
-				break
+			else
+				continue
+		else
+			for(var/T in preserve_items)
+				if(istype(W,T))
+					preserve = 1
+					break
 
 		if(!preserve)
 			qdel(W)
