@@ -32,6 +32,7 @@ datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
+	var/current_slot = 1
 	var/savefile_version = 0
 
 	//non-preference stuff
@@ -141,6 +142,7 @@ datum/preferences
 			load_path(C.ckey)
 			if(load_preferences())
 				if(load_character())
+					current_slot = getCharSlot()
 					return
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
@@ -1594,6 +1596,7 @@ datum/preferences
 
 				if("save")
 					save_preferences()
+					SQLsave_character(current_slot)
 					save_character()
 
 				if("reload")
@@ -1608,7 +1611,8 @@ datum/preferences
 					close_load_dialog(user)
 
 				if("changeslot")
-					load_character(text2num(href_list["num"]))
+					current_slot = text2num(href_list["num"])
+					load_character(current_slot)
 					close_load_dialog(user)
 
 	ShowChoices(user)
@@ -1742,6 +1746,17 @@ datum/preferences
 	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
 	dat += "</center></tt>"
 	user << browse(dat, "window=saves;size=300x390")
+
+/datum/preferences/proc/getCharSlot() //get character slot from savefile
+	var/savefile/S = new /savefile(path)
+	if(S)
+		var/name
+		for(var/i=1, i<= config.character_slots, i++)
+			S.cd = "/character[i]"
+			S["real_name"] >> name
+			if(name == real_name)
+				return i
+	return 1
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")
