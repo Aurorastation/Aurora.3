@@ -4,3 +4,5 @@ delete-after: True
 
 changes:
   - bugfix: "Fixed ChemMaster pill creation spam."
+  - bugfix: "Chaplains can no longer be Vampires."
+  - bugfix: "IPCs will no longer be considered for innapropriate antag positions (Vampire and Changeling)."
