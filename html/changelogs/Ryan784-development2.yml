@@ -1,0 +1,6 @@
+author: Ryan784
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed ChemMaster pill creation spam."
