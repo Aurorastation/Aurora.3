@@ -7,3 +7,4 @@ changes:
   - bugfix: "Chaplains can no longer be Vampires."
   - bugfix: "IPCs will no longer be considered for innapropriate antag positions (Vampire and Changeling)."
   - bugfix: "Changelings will now retain proper abilities using lesser form, and the ability to transform back."
+  - bugfix: "pAI suicide now works correctly."
