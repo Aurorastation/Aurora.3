@@ -1,0 +1,7 @@
+author: Ryan784
+
+delete-after: True
+
+changes:
+  - rscadd: "Shooting a gun at blank range will no longer have a chance to miss."
+  - tweak: "Gun accuracy across the board slightly increased."
