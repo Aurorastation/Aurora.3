@@ -24,7 +24,7 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
 	/mob/living/silicon/ai/proc/toggle_camera_light,
-	/mob/living/silicon/ai/proc/ai_examine,
+	/mob/living/silicon/ai/proc/ai_examine
 	)
 
 //Not sure why this is necessary...
