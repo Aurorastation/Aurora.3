@@ -316,11 +316,11 @@
 
 /obj/machinery/shower/proc/process_heat(mob/living/M)
 	if(!on || !istype(M)) return
-	
+
 	var/temperature = temperature_settings[watertemp]
 	var/temp_adj = between(BODYTEMP_COOLING_MAX, temperature - M.bodytemperature, BODYTEMP_HEATING_MAX)
 	M.bodytemperature += temp_adj
-	
+
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(temperature >= H.species.heat_level_1)
@@ -385,10 +385,59 @@
 		user << "\red Someone's already washing here."
 		return
 
+	// Filling/emptying open reagent containers
 	var/obj/item/weapon/reagent_containers/RG = O
 	if (istype(RG) && RG.is_open_container())
-		RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
-		user.visible_message("\blue [user] fills \the [RG] using \the [src].","\blue You fill \the [RG] using \the [src].")
+		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
+
+		if(!usr.Adjacent(src)) return
+		if(RG.loc != usr || (usr.l_hand != RG && usr.r_hand != RG)) return
+		if(busy)
+			usr << "<span class='warning'>Someone's already using \the [src].</span>"
+			return
+
+		switch(atype)
+			if ("Fill")
+				if(RG.reagents.total_volume >= RG.volume)
+					usr << "<span class='warning'>\The [RG] is already full.</span>"
+					return
+
+				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+				oviewers(3, usr) << "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>"
+				usr << "<span class='notice'>You fill \the [RG] using \the [src].</span>"
+			if ("Empty")
+				if(!RG.reagents.total_volume)
+					usr << "<span class='warning'>\The [RG] is already empty.</span>"
+					return
+
+				RG.reagents.remove_any(RG.amount_per_transfer_from_this)
+				oviewers(3, usr) << "<span class='notice'>[usr] empties \the [RG] into \the [src].</span>"
+				usr << "<span class='notice'>You empty \the [RG] into \the [src].</span>"
+		return
+
+	// Filling/empying Syringes
+	else if (istype(O, /obj/item/weapon/reagent_containers/syringe))
+		var/obj/item/weapon/reagent_containers/syringe/S = O
+		switch(S.mode)
+			if(0) // draw
+				if(S.reagents.total_volume >= S.volume)
+					usr << "<span class='warning'>\The [S] is already full.</span>"
+					return
+
+				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
+				S.reagents.add_reagent("water", trans)
+				oviewers(3, usr) << "<span class='notice'>[usr] uses \the [S] to draw water from \the [src].</span>"
+				usr << "<span class='notice'>You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>"
+			if(1) // inject
+				if(!S.reagents.total_volume)
+					usr << "<span class='warning'>\The [S] is already empty.</span>"
+					return
+
+				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
+				S.reagents.remove_any(trans)
+				oviewers(3, usr) << "<span class='notice'>[usr] empties \the [S] into \the [src].</span>"
+				usr << "<span class='notice'>You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>"
+
 		return
 
 	else if (istype(O, /obj/item/weapon/melee/baton))

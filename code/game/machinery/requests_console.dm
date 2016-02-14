@@ -372,7 +372,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if(href_list["sort"])
 		var/sortdep = sanitizeSQL(href_list["sort"])
-		SQLquery = " Select id, name, department FROM aurora_forms WHERE department LIKE '%[sortdep]%'"
+		SQLquery = " Select id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%'"
 		screen = 11
 
 	if(href_list["print"])
@@ -383,7 +383,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			alert("Connection to the database lost. Aborting.")
 		if(!printid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM aurora_forms WHERE id=[printid]")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
 		query.Execute()
 
 		while(query.NextRow())
@@ -410,7 +410,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM aurora_forms WHERE id=[whatisid]")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
 		query.Execute()
 		var/dat = "<center><b>NanoTrasen Corporate Form</b><br>"
 		while(query.NextRow())
@@ -456,7 +456,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(!announcementConsole)	return
 			screen = 10
 		if(11)		//form database
-			SQLquery = "SELECT id, name, department FROM aurora_forms"
+			SQLquery = "SELECT id, name, department FROM ss13_forms"
 			screen = 11
 		else		//main menu
 			dpt = ""

@@ -20,7 +20,7 @@
 	if (!warning_reason)
 		return
 
-	var/warning_notes = input("Add additional informatoin. This is visible only to staff.") as null|text
+	var/warning_notes = input("Add additional information. This is visible only to staff.") as null|text
 
 	var/warning_severity
 	switch (alert("Set warning severity", null, "Standard", "Severe"))

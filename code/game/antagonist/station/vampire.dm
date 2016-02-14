@@ -13,8 +13,9 @@ var/datum/antagonist/vampire/vamp
 	role_text_plural = "Vampires"
 	bantype = "vampires"
 	feedback_tag = "vampire_objective"
-	restricted_jobs = list("AI", "Cyborg")
+	restricted_jobs = list("AI", "Cyborg", "Chaplain")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	restricted_species = list("Machine")
 	welcome_text = "You are a Vampire! Use harm intent and aim for the head to drink blood! Stay away from the Chaplain, and use the darkness to your advantage."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antaghud_indicator = "hudchangeling" //NEEDS TO BE CHANGED
