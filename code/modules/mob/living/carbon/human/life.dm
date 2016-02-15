@@ -260,7 +260,7 @@
 
 	proc/handle_mutations_and_radiation()
 
-		if(species.flags & IS_SYNTHETIC || species.flags & IS_BUG) //Robots/bugs don't suffer from mutations or radloss.
+		if(species.flags & IS_SYNTHETIC || species.name == "Vaurca") //Robots/bugs don't suffer from mutations or radloss.
 			return
 
 		if(getFireLoss())
