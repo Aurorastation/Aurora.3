@@ -279,6 +279,8 @@
 			else if(grabstate >= GRAB_AGGRESSIVE)
 				damage_mult = 1.5
 	P.damage *= damage_mult
+	//you can't miss at point blank..
+	P.can_miss = 1
 
 /obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
 	var/obj/item/projectile/P = projectile
@@ -288,6 +290,9 @@
 	//Accuracy modifiers
 	P.accuracy = accuracy + acc_mod
 	P.dispersion = dispersion
+
+	//Increasing accuracy across the board, ever so slightly
+	P.accuracy += 1
 
 	//accuracy bonus from aiming
 	if (aim_targets && (target in aim_targets))
