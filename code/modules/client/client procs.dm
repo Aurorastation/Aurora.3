@@ -67,6 +67,13 @@
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
 
+	if(href_list["warnacknowledge"])
+		var/queryid = text2num(href_list["warnacknowledge"])
+		warnings_acknowledge(queryid)
+
+	if(href_list["warnview"])
+		warnings_check()
+
 	..()	//redirect to hsrc.Topic()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
