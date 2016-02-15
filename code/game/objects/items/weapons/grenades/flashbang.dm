@@ -55,7 +55,7 @@
 			M.Weaken(10)
 				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
-			if(H.species.flags & IS_BUG)
+			if(H.species.name == "Vaurca")
 				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 				if(!E)
 					return
