@@ -217,3 +217,5 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	for(var/client/C in admins)
 		if((R_ADMIN|R_CCIAA) & C.holder.rights)
 			C << msg
+
+	send_to_cciaa_discord("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
