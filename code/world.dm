@@ -121,6 +121,13 @@ var/world_topic_spam_protect_time = world.timeofday
 	else if (T == "gamemode")
 		return master_mode
 
+	else if (T == "who")
+		var/list/players = list()
+		for (var/client/C in clients)
+			players += C.key
+
+		return list2params(players)
+
 	else if (copytext(T,1,7) == "status")
 		var/input[] = params2list(T)
 		var/list/s = list()
@@ -170,6 +177,9 @@ var/world_topic_spam_protect_time = world.timeofday
 		return list2params(s)
 
 	else if(T == "manifest")
+		if (!ticker)
+			return "Game not started yet!"
+
 		var/list/positions = list()
 		var/list/set_names = list(
 				"heads" = command_positions,
@@ -202,6 +212,29 @@ var/world_topic_spam_protect_time = world.timeofday
 			positions[k] = list2params(positions[k]) // converts positions["heads"] = list("Bob"="Captain", "Bill"="CMO") into positions["heads"] = "Bob=Captain&Bill=CMO"
 
 		return list2params(positions)
+
+	else if(copytext(T,1,5) == "mute")
+		var/input[] = params2list(T)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
+
+		if (bad_key)
+			return bad_key
+
+		for (var/client/C in clients)
+			if (C.ckey == ckey(input["mute"]))
+				C.mute_discord = !C.mute_discord
+
+				switch (C.mute_discord)
+					if (1)
+						C << "<b><font color='red'>You have been muted from replying to Discord PMs by [input["admin"]]!</font></b>"
+						log_and_message_admins("[C] has been muted from Discord PMs by [input["admin"]].")
+						return "[C.key] is now muted from replying to Discord PMs."
+					if (0)
+						C << "<b><font color='red'>You have been unmuted from replying to Discord PMs by [input["admin"]]!</font></b>"
+						log_and_message_admins("[C] has been unmuted from Discord PMs by [input["admin"]].")
+						return "[C.key] is now unmuted from replying to Discord PMs."
+
+		return "I couldn't find that ckey!"
 
 	else if(copytext(T,1,5) == "info")
 		var/input[] = params2list(T)
@@ -243,6 +276,9 @@ var/world_topic_spam_protect_time = world.timeofday
 			var/mob/M = match[1]
 			var/info = list()
 			info["key"] = M.key
+			if (M.client)
+				var/client/C = M.client
+				info["discordmuted"] = C.mute_discord ? "Yes" : "No"
 			info["name"] = M.name == M.real_name ? M.name : "[M.name] ([M.real_name])"
 			info["role"] = M.mind ? (M.mind.assigned_role ? M.mind.assigned_role : "No role") : "No mind"
 			var/turf/MT = get_turf(M)
@@ -268,10 +304,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			info["gender"] = M.gender
 			return list2params(info)
 		else
-			var/list/ret = list()
-			for(var/mob/M in match)
-				ret[M.key] = M.name
-			return list2params(ret)
+			return "Multiple matches found!"
 
 	else if(copytext(T,1,9) == "adminmsg")
 		/*
