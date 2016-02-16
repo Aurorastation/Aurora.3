@@ -79,7 +79,7 @@
 				usr << "Cancelled"
 				return
 			var/DBQuery/editquery = dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content, lasteditor = :a_ckey, lasteditdate = Now(), edited = 1 WHERE id = :note_id")
-			editquery.Execute(list(":new_conent" = new_content, ":a_ckey" = usr.client.ckey, ":note_id" = note_id))
+			editquery.Execute(list(":new_content" = new_content, ":a_ckey" = usr.client.ckey, ":note_id" = note_id))
 
 /datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null)
 	if (!check_rights(R_ADMIN|R_MOD))
