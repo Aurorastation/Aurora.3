@@ -416,7 +416,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			return bad_key
 
 		var/list/faxes = list()
-		switch (input["faxlist"])
+		switch (input["received"])
 			if ("received")
 				faxes = arrived_faxes
 			if ("sent")
