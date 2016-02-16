@@ -1,6 +1,0 @@
-author: Lord Lag
-
-delete-after: True
-
-changes: 
-  - bugfix: "Synthetics should now be able to understand Rootspeak and Vaurcese."
