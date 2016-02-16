@@ -16,7 +16,7 @@
 	if (config.discord_bot_host)
 		arguments += " --host=\"[config.discord_bot_host]\""
 	if (config.discord_bot_port)
-		arguments += " --port=\"[config.discord_bot_port]\""
+		arguments += " --port=[config.discord_bot_port]"
 
 	message = replacetext(message, "\"", "\\\"")
 
