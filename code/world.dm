@@ -102,6 +102,25 @@ var/world_topic_spam_protect_time = world.timeofday
 				n++
 		return n
 
+	else if (T == "admins")
+		var/n = 0
+		for (var/client/client in clients)
+			if (client.holder && client.holder.rights & (R_MOD|R_ADMIN))
+				n++
+
+		return n
+
+	else if (T == "cciaa")
+		var/n = 0
+		for (var/client/client in clients)
+			if (client.holder && (client.holder.rights & R_CCIAA) && !(client.holder.rights & R_ADMIN))
+				n++
+
+		return n
+
+	else if (T == "gamemode")
+		return master_mode
+
 	else if (copytext(T,1,7) == "status")
 		var/input[] = params2list(T)
 		var/list/s = list()
@@ -184,25 +203,12 @@ var/world_topic_spam_protect_time = world.timeofday
 
 		return list2params(positions)
 
-	else if(T == "revision")
-		if(revdata.revision)
-			return list2params(list(branch = revdata.branch, date = revdata.date, revision = revdata.revision))
-		else
-			return "unknown"
-
 	else if(copytext(T,1,5) == "info")
 		var/input[] = params2list(T)
-		if(input["key"] != config.comms_password)
-			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
 
-				spawn(50)
-					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
-
-			world_topic_spam_protect_time = world.time
-			world_topic_spam_protect_ip = addr
-
-			return "Bad Key"
+		if (bad_key)
+			return bad_key
 
 		var/list/search = params2list(input["info"])
 		var/list/ckeysearch = list()
@@ -279,17 +285,10 @@ var/world_topic_spam_protect_time = world.timeofday
 
 
 		var/input[] = params2list(T)
-		if(input["key"] != config.comms_password)
-			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
 
-				spawn(50)
-					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
-
-			world_topic_spam_protect_time = world.time
-			world_topic_spam_protect_ip = addr
-
-			return "Bad Key"
+		if (bad_key)
+			return bad_key
 
 		var/client/C
 		var/req_ckey = ckey(input["adminmsg"])
@@ -305,11 +304,11 @@ var/world_topic_spam_protect_time = world.timeofday
 		if(!rank)
 			rank = "Admin"
 
-		var/message =	"<font color='red'>IRC-[rank] PM from <b><a href='?irc_msg=[input["sender"]]'>IRC-[input["sender"]]</a></b>: [input["msg"]]</font>"
-		var/amessage =  "<font color='blue'>IRC-[rank] PM from <a href='?irc_msg=[input["sender"]]'>IRC-[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]</font>"
+		var/message =	"<font color='red'>Discord-[rank] PM from <b><a href='?discord_msg=[input["sender"]]'>Discord-[input["sender"]]</a></b>: [input["msg"]]</font>"
+		var/amessage =  "<font color='blue'>Discord-[rank] PM from <a href='?discord_msg=[input["sender"]]'>Discord-[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]</font>"
 
-		C.received_irc_pm = world.time
-		C.irc_admin = input["sender"]
+		C.received_discord_pm = world.time
+		C.discord_admin = input["sender"]
 
 		C << 'sound/effects/adminhelp.ogg'
 		C << message
@@ -322,37 +321,20 @@ var/world_topic_spam_protect_time = world.timeofday
 		return "Message Successful"
 
 	else if(copytext(T,1,6) == "notes")
-		/*
-			We got a request for notes from the IRC Bot
-			expected output:
-				1. notes = ckey of person the notes lookup is for
-				2. validationkey = the key the bot has, it should match the gameservers commspassword in it's configuration.
-		*/
 		var/input[] = params2list(T)
-		if(input["key"] != config.comms_password)
-			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
 
-				spawn(50)
-					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+		if (bad_key)
+			return bad_key
 
-			world_topic_spam_protect_time = world.time
-			world_topic_spam_protect_ip = addr
-			return "Bad Key"
-
-		return show_player_info_irc(ckey(input["notes"]))
+		return show_player_info_discord(ckey(input["notes"]))
 
 	else if(copytext(T,1,4) == "age")
 		var/input[] = params2list(T)
-		if(input["key"] != config.comms_password)
-			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
-				spawn(50)
-					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
 
-			world_topic_spam_protect_time = world.time
-			world_topic_spam_protect_ip = addr
-			return "Bad Key"
+		if (bad_key)
+			return bad_key
 
 		var/age = get_player_age(input["age"])
 		if(isnum(age))
@@ -363,6 +345,119 @@ var/world_topic_spam_protect_time = world.timeofday
 		else
 			return "Database connection failed or not set up"
 
+	else if (copytext(T, 1, 8) == "restart")
+		var/input[] = params2list(T)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
+
+		if (bad_key)
+			log_and_message_admins("Remote restart attempted and stopped. Dumping topic call data.")
+			log_and_message_admins("TOPIC: \"[T]\", from: [addr], master: [master], key: [key].")
+			return bad_key
+
+		world << "<font size=4 color='#ff2222'>Server restarting by remote command.</font>"
+		log_and_message_admins("World restart initiated remotely by [input["restart"]].")
+		feedback_set_details("end_error","remote restart")
+
+		if (blackbox)
+			blackbox.save_all_data_to_sql()
+
+		sleep(50)
+		log_game("Rebooting due to remote command.")
+		world.Reboot(2)
+
+		return "Server successfully restarted."
+
+	else if (copytext(T, 1, 9) == "announce")
+		var/input[] = params2list(T)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
+
+		if (bad_key)
+			return bad_key
+
+		var/message = replacetext(input["msg"], "\n", "<br>")
+		world << "<span class=notice><b>[input["announce"] ? input["announce"] : "Administrator"] Announces via Discord:</b><p style='text-indent: 50px'>[message]</p></span>"
+		log_and_message_admins("[input["announce"]] announced remotely: [input["msg"]].")
+
+		return "Announcement successfully sent."
+
+	else if (copytext(T, 1, 8) == "faxlist")
+		var/input[] = params2list(T)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
+
+		if (bad_key)
+			return bad_key
+
+		if (!ticker)
+			return "Round hasn't started yet! No faxes to display!"
+
+		var/list/faxes = list()
+		switch (input["faxlist"])
+			if ("received")
+				faxes = arrived_faxes
+			if ("sent")
+				faxes = sent_faxes
+
+		if (!faxes || !faxes.len)
+			return "No faxes found!"
+
+		var/list/output = list()
+		for (var/i = 1, i <= faxes.len, i++)
+			var/obj/item/a = faxes[i]
+			output += "ID [i]"
+			output["ID [i]"] = a.name ? a.name : "Untitled Fax"
+
+		return list2params(output)
+
+	else if (copytext(T, 1, 7) == "getfax")
+		var/input[] = params2list(T)
+		var/bad_key = do_topic_spam_protection(addr, input["key"])
+
+		if (bad_key)
+			return bad_key
+
+		var/list/faxes = list()
+		switch (input["faxlist"])
+			if ("received")
+				faxes = arrived_faxes
+			if ("sent")
+				faxes = sent_faxes
+
+		if (!faxes || !faxes.len)
+			return "No faxes found!"
+
+		var/fax_id = text2num(input["getfax"])
+		if (fax_id > faxes.len || fax_id < 1)
+			return "Invalid fax ID!"
+
+		var/output = list()
+		if (istype(faxes[fax_id], /obj/item/weapon/paper))
+			var/obj/item/weapon/paper/a = faxes[fax_id]
+			output["title"] = a.name ? a.name : "Untitled Fax"
+
+			var/content = replacetext(a.info, "<br>", "\n")
+			content = strip_html_properly(content, 0)
+			output["content"] = content
+
+			return list2params(output)
+		else if (istype(faxes[fax_id], /obj/item/weapon/photo))
+			return "The fax is a photo. I cannot send images, unfortunately..."
+		else if (istype(faxes[fax_id], /obj/item/weapon/paper_bundle))
+			var/obj/item/weapon/paper_bundle/b = faxes[fax_id]
+			output["title"] = b.name ? b.name : "Untitled Paper Bundle"
+
+			if (!b.pages || !b.pages.len)
+				return "The bundle was empty! How is that even possible?"
+
+			var/i = 0
+			for (var/obj/item/weapon/paper/c in b.pages)
+				i++
+				var/content = replacetext(c.info, "<br>", "\n")
+				content = strip_html_properly(content, 0)
+				output["page [i]"] = content
+
+			return list2params(output)
+
+		return "Unable to recognize the fax type. Cannot send contents!"
 
 /world/Reboot(var/reason)
 	/*spawn(0)
@@ -560,3 +655,21 @@ proc/establish_db_connection()
 		return 1
 
 #undef FAILED_DB_CONNECTION_CUTOFF
+
+/world/proc/do_topic_spam_protection(var/addr, var/key)
+	if (!config.comms_password || config.comms_password == "")
+		return "No comms password configured, aborting."
+
+	if (key == config.comms_password)
+		return 0
+	else
+		if (world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
+
+			spawn(50)
+				world_topic_spam_protect_time = world.time
+				return "Bad Key (Throttled)"
+
+		world_topic_spam_protect_time = world.time
+		world_topic_spam_protect_ip = addr
+
+		return "Bad Key"
