@@ -453,7 +453,7 @@ var/world_topic_spam_protect_time = world.timeofday
 				i++
 				var/content = replacetext(c.info, "<br>", "\n")
 				content = strip_html_properly(content, 0)
-				output["page [i]"] = content
+				output["content"] += "Page [i]:\n[content]\n\n"
 
 			return list2params(output)
 
