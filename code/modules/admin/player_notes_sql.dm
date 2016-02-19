@@ -183,6 +183,47 @@
 	dat += "</table>"
 	usr << browse(dat,"window=lookupnotes;size=900x500")
 
+/proc/show_player_info_discord(var/ckey)
+	if (!ckey)
+		return "No ckey given!"
+
+	establish_db_connection()
+
+	if (!dbcon.IsConnected())
+		return "Unable to establish database connection! Aborting!"
+
+	var/DBQuery/info_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey")
+	info_query.Execute(list(":ckey" = ckey))
+
+	var/address = null
+	var/computer_id = null
+	if (info_query.NextRow())
+		address = info_query.item[1]
+		computer_id = info_query.item[2]
+
+	var/query_content = "SELECT a_ckey, adddate, content FROM ss13_notes WHERE visible = '1' AND ckey = :ckey"
+	var/query_details = list(":ckey" = ckey, ":address" = address, ":computerid" = computer_id)
+	if (address)
+		query_content += " OR ip = :address"
+	if (computer_id)
+		query_content += " OR computerid = :computerid"
+
+	var/DBQuery/query = dbcon.NewQuery(query_content)
+	query.Execute(query_details, 1)
+
+	var/notes
+	while (query.NextRow())
+		notes += "\"[query.item[3]]\" - by [query.item[1]] on [query.item[2]]\n\n"
+
+	if (!notes)
+		return "[ckey] has no notes that could be retreived!"
+	else
+		var/content = "Displaying [ckey]'s notes:\n\n"
+		content += "```\n"
+		content += notes
+		content += "```"
+		return content
+
 /*/proc/notes_transfer()
 	msg_scopes("Locating master list.")
 	var/savefile/note_list = new("data/player_notes.sav")
