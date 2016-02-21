@@ -1363,12 +1363,16 @@ datum/preferences
 						s_tone = 35 - max(min( round(new_s_tone), 220),1)
 
 				if("skin")
-					if(species == "Unathi" || species == "Tajara" || species == "Skrell")
+					if(species == "Unathi" || species == "Tajara" || species == "Skrell" || species == "Machine")
 						var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(r_skin, g_skin, b_skin)) as color|null
 						if(new_skin)
 							r_skin = hex2num(copytext(new_skin, 2, 4))
 							g_skin = hex2num(copytext(new_skin, 4, 6))
 							b_skin = hex2num(copytext(new_skin, 6, 8))
+							if (species == "Machine")
+								r_hair = r_skin
+								g_hair = g_skin
+								b_hair = b_skin
 
 				if("ooccolor")
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference") as color|null

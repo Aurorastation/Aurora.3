@@ -97,9 +97,12 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 	else if(href_list["remove"])
 		if(copyitem)
-			copyitem.loc = usr.loc
-			usr.put_in_hands(copyitem)
-			usr << "<span class='notice'>You take \the [copyitem] out of \the [src].</span>"
+			copyitem.loc = loc
+			if (get_dist(usr, src) < 2)
+				usr.put_in_hands(copyitem)
+				usr << "<span class='notice'>You take \the [copyitem] out of \the [src].</span>"
+			else
+				usr << "<span class='notice'>You eject \the [copyitem] from \the [src].</span>"
 			copyitem = null
 			updateUsrDialog()
 

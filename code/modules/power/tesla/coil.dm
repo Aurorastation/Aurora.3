@@ -21,8 +21,8 @@
 		power_multiplier += C.rating
 	input_power_multiplier = power_multiplier
 
-/obj/machinery/power/tesla_coil/attackby(obj/item/W, mob/user, params)
-	if(default_deconstruction_screwdriver(user, "coil", "coil", W))
+/obj/machinery/power/tesla_coil/attackby(obj/item/W, mob/user)
+	if(default_deconstruction_screwdriver(user, W))
 		return
 
 	if(default_part_replacement(user, W))
@@ -38,7 +38,7 @@
 		anchored = !anchored
 		return
 
-	default_deconstruction_crowbar(W)
+	default_deconstruction_crowbar(user, W)
 
 /obj/machinery/power/tesla_coil/tesla_act(var/power)
 	being_shocked = 1
@@ -65,8 +65,8 @@
 	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
 	RefreshParts()
 
-/obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user, params)
-	if(default_deconstruction_screwdriver(user, "grounding_rod", "grounding_rod", W))
+/obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user)
+	if(default_deconstruction_screwdriver(user, W))
 		return
 
 	if(default_part_replacement(user, W))
@@ -78,7 +78,7 @@
 		anchored = !anchored
 		return
 
-	default_deconstruction_crowbar(W)
+	default_deconstruction_crowbar(user, W)
 
 /obj/machinery/power/grounding_rod/tesla_act(var/power)
 	flick("coil_shock_1", src)
