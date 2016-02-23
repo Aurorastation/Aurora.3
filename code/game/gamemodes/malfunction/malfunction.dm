@@ -20,3 +20,7 @@
 			borg.connect_to_ai(malf_ai)
 	else
 		error("Unable to locate the Malf AI during post_setp()!")
+
+
+	..()
+	return
