@@ -662,7 +662,7 @@ var/list/be_special_flags = list(
 #define CAN_JOIN          16384 // Species is selectable in chargen.
 #define IS_RESTRICTED     32768 // Is not a core/normally playable species. (castes, mutantraces)
 #define REGENERATES_LIMBS 65536 // Attempts to regenerate unamputated limbs.
-#define IS_BUG            131072  //Everything bug related
+//#define IS_BUG            131072  //Everything bug related-BROKEN, LIMIT REACHED
 
 // Language flags.
 #define WHITELISTED 1   // Language is available if the speaker is whitelisted.
@@ -986,6 +986,7 @@ var/list/be_special_flags = list(
 #define LANGUAGE_SKRELLIAN "Skrellian"
 #define LANGUAGE_ROOTSPEAK "Rootspeak"
 #define LANGUAGE_TRADEBAND "Tradeband"
+#define LANGUAGE_VAURCESE "Vaurcese"
 #define LANGUAGE_GUTTER "Gutter"
 
 #define WALL_CAN_OPEN 1

@@ -25,9 +25,9 @@
 	var/warning_severity
 	switch (alert("Set warning severity", null, "Standard", "Severe"))
 		if ("standard")
-			warning_severity = 0
+			warning_severity = "0"
 		if ("Severe")
-			warning_severity = 1
+			warning_severity = "1"
 
 	var/warned_computerid = null
 	var/warned_ip = null
@@ -375,7 +375,7 @@
 		if ("delete")
 			if(alert("Delete this warning?", "Delete?", "Yes", "No") == "Yes")
 				var/DBQuery/deleteQuery = dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id")
-				deleteQuery.Execute(query_details)
+				deleteQuery.Execute(query_details, 1)
 
 				message_admins("\blue [key_name_admin(usr)] deleted one of [ckey]'s warnings.")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.")

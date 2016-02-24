@@ -20,6 +20,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 0
 	damage_type = BURN
+	no_attack_log = 1
 	check_armour = "laser"
 	eyeblur = 2
 
@@ -138,7 +139,7 @@
 	taser_effect = 1
 	agony = 40
 	damage_type = HALLOSS
-	
+
 	muzzle_type = /obj/effect/projectile/stun/muzzle
 	tracer_type = /obj/effect/projectile/stun/tracer
 	impact_type = /obj/effect/projectile/stun/impact

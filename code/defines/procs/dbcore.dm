@@ -181,6 +181,7 @@ DBQuery/proc/SetConversion(column,conversion)
 */
 DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, var/pass_not_found = 0)
 	if (!query_to_parse || !argument_list || !argument_list.len)
+		log_debug("parseArguments() failed! Improper arguments sent!")
 		return 0
 
 	for (var/placeholder in argument_list)
@@ -188,6 +189,7 @@ DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, v
 			if (pass_not_found)
 				continue
 			else
+				log_debug("parseArguments() failed! Key not found: [placeholder].")
 				return 0
 
 		var/argument = argument_list[placeholder]
@@ -199,6 +201,7 @@ DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, v
 		else if (isnum(argument))
 			argument = "'[argument]'"
 		else
+			log_debug("parseArguments() failed! Cannot identify argument!")
 			return 0
 
 		query_to_parse = replacetextEx(query_to_parse, placeholder, argument)

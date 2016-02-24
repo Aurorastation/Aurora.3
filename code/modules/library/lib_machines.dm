@@ -94,7 +94,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			author = null
 		author = sanitizeSQL(author)
 	if(href_list["search"])
-		SQLquery = "SELECT author, title, category, id FROM library WHERE "
+		SQLquery = "SELECT author, title, category, id FROM ss13_library WHERE "
 		if(category == "Any")
 			SQLquery += "author LIKE '%[author]%' AND title LIKE '%[title]%'"
 		else

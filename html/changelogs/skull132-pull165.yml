@@ -1,0 +1,20 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+    - rscadd: "IPCs can change their body colour again."
+    - tweak: "Supermatter's radiation range is lowered by 1/3rd if you don't have a direct sightline to it."
+    - tweak: "Mods can now toggle attack logs."
+    - tweak: "Practice lasers no longer generate attack logs."
+    - tweak: "Wizard related balancing: magic missile recharge time doubled, to make stunlocking no longer possible; subjugate's effect timers halved, recharge cost lowered by 50; horsemask spells are now targeted again."
+    - tweak: "Purple colour for DO chat."
+    - tweak: "Medical Interns and Engineering Apprentices given slightly better access, so they're not completely useless with this new map."
+    - tweak: "Tesla engine components brought inline with Bay12 coding standards. This means you can set them up properly now, whereas before, wrenching or screwdrivering them failed."
+    - tweak: "A few quality of life improvements for the map: suit cycler for Heist ship, cooling units for engineering and general EVA, traffic computer in telecomms."
+    - bugfix: "Nursing Interns now spawn properly."
+    - bugfix: "Standard severity warnings work properly."
+    - bugfix: "You can no longer suicide with weapons that do no damage. Less than lethal weaponry still works."
+    - bugfix: "IPCs no longer gain toxins damage, nor are they affected by hallucinations."
+    - bugfix: "Fixed a SQL query for the library that was referencing an invalid table."
+    - bugfix: "Hydroponics trays work properly now, with how they consume liquids and reagents."
