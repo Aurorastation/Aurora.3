@@ -984,23 +984,27 @@
 				Paralyse(3)
 
 			if(hallucination)
-				if(hallucination >= 20)
-					if(prob(3))
-						fake_attack(src)
-					if(!handling_hal)
-						spawn handle_hallucinations() //The not boring kind!
-					if(client && prob(5))
-						client.dir = pick(2,4,8)
-						var/client/C = client
-						spawn(rand(20,50))
-							if(C)
-								C.dir = 1
-
-				if(hallucination<=2)
+				//Machines do not hallucinate.
+				if (species.flags & IS_SYNTHETIC)
 					hallucination = 0
-					halloss = 0
 				else
-					hallucination -= 2
+					if(hallucination >= 20)
+						if(prob(3))
+							fake_attack(src)
+						if(!handling_hal)
+							spawn handle_hallucinations() //The not boring kind!
+						if(client && prob(5))
+							client.dir = pick(2,4,8)
+							var/client/C = client
+							spawn(rand(20,50))
+								if(C)
+									C.dir = 1
+
+					if(hallucination<=2)
+						hallucination = 0
+						halloss = 0
+					else
+						hallucination -= 2
 
 			else
 				for(var/atom/a in hallucinations)
