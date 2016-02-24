@@ -227,6 +227,10 @@
 	if (!N)
 		return
 
+	if(N == /turf/space)
+		if(src.z in config.planet_levels)
+			N = /turf/planet
+
 ///// Z-Level Stuff ///// This makes sure that turfs are not changed to space when one side is part of a zone
 	if(N == /turf/space)
 		var/turf/controller = locate(1, 1, src.z)
