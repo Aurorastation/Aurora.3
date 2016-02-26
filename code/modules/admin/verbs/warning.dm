@@ -25,9 +25,9 @@
 	var/warning_severity
 	switch (alert("Set warning severity", null, "Standard", "Severe"))
 		if ("standard")
-			warning_severity = 0
+			warning_severity = "0"
 		if ("Severe")
-			warning_severity = 1
+			warning_severity = "1"
 
 	var/warned_computerid = null
 	var/warned_ip = null
