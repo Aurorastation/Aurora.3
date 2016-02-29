@@ -21,21 +21,34 @@ var/char_slot
 				return 0
 			else
 				log_debug("db connected, real name is [real_name]")
-				if(!getCharId())
+				if(!getCharId(ckey))
 					log_debug("New Character")
 					query = dbcon.NewQuery("INSERT INTO ss13_characters (ckey, slot) VALUES ('[ckey]', '[cslot]')")
 					query.Execute()
 					log_debug(dbcon.ErrorMsg())
 					getCharId()
 					InsertCharData()
+					InsertJobsData()
+					InsertFlavourData()
+					InsertRobotFlavourData()
+					InsertMiscData()
 					log_debug(dbcon.ErrorMsg())
-					query = dbcon.NewQuery("UPDATE SS13_characters SET Character_key = (SELECT id FROM characters_data WHERE char_id = [char_id]) WHERE id = [char_id] ")
+					TextQuery = "UPDATE SS13_characters SET Character_key = (SELECT id FROM characters_data WHERE char_id = [char_id]), "
+					TextQuery += "Jobs_key = (SELECT id FROM characters_jobs WHERE char_id = [char_id]), "
+					TextQuery += "Flavour_key = (SELECT id FROM characters_flavour WHERE char_id = [char_id]), "
+					TextQuery += "Misc_key = (SELECT id FROM characters_misc WHERE char_id = [char_id]), "
+					TextQuery += "Robot_key = (SELECT id FROM characters_robot_flavour WHERE char_id = [char_id]) WHERE id = [char_id] "
+					query = dbcon.NewQuery(TextQuery)
 					query.Execute()
 					log_debug(dbcon.ErrorMsg())
 				else
 					log_debug("ID = [char_id]")
 					log_debug("Update entry")
 					UpdateCharData()
+					UpdateJobsData()
+					UpdateFlavourData()
+					UpdateRobotFlavourData()
+					UpdateMiscData()
 			log_debug("Save query executed")
 			return 1
 	log_debug("No ckey in datums")
@@ -45,8 +58,29 @@ var/char_slot
 	char_slot = slot
 	if(!getCharId())
 		return 0
-	log_debug("Loading character ID [char_id] from slot [char_slot])
-	return LoadCharData()
+	log_debug("Loading character ID [char_id] from slot [char_slot]")
+	if(LoadCharData())
+		if(LoadJobsData())
+			if(LoadFlavourData())
+				if(LoadRobotFlavourData())
+					if(LoadMiscData())
+						return 1
+	return 0
+
+/datum/preferences/proc/getCharId(var/ckey)
+	TextQuery = "SELECT id FROM ss13_characters WHERE ckey='[ckey]' AND slot = '[char_slot]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey='[ckey]' AND slot = '[char_slot]'")
+	log_debug("Query ready")
+	query.Execute()
+	var/rowDebug = query.RowCount()
+	log_debug("Query executed, [rowDebug] rows")
+	if(!query.RowCount())
+		return null
+	query.NextRow()
+	char_id = query.item[1]
+	log_debug("GetCharId : [char_id]")
+	return char_id
 
 /datum/preferences/proc/InsertCharData()
 	TextQuery = "INSERT INTO characters_data (age, backbag, b_type, char_id, eyes_B, eyes_G, eyes_R, facial_B, facial_G, facial_R, facial_style, "
@@ -84,134 +118,247 @@ var/char_slot
 	age = query.item[1]
 	backbag = query.item[2]
 	b_type = query.item[3]
-	eyes_B = query.item[4]
-	eyes_G = query.item[5]
-	eyes_R = query.item[6]
-	facial_R = query.item[7]
-	facial_G = query.item[8]
-	facial_R = query.item[9]
-	facial_style = query.item[10]
+	b_eyes = query.item[4]
+	g_eyes = query.item[5]
+	r_eyes = query.item[6]
+	b_facial = query.item[7]
+	g_facial = query.item[8]
+	r_facial = query.item[9]
+	f_style = query.item[10]
 	gender = query.item[11]
-	hair_B = query.item[12]
-	hair_G = query.item[13]
-	hair_R = query.item[14]
-	hair_style = query.item[15]
-	isRandom = query.item[16]
+	b_hair = query.item[12]
+	g_hair = query.item[13]
+	r_hair = query.item[14]
+	h_style = query.item[15]
+	be_random_name = query.item[16]
 	language = query.item[17]
-	name = query.item[18]
-	OOC = query.item[19]
-	skin_B = query.item[20]
-	skin_G = query.item[21]
-	skin_R = query.item[22]
-	skin_tone = query.item[23]
+	real_name = query.item[18]
+	metadata = query.item[19]
+	b_skin = query.item[20]
+	g_skin = query.item[21]
+	r_skin = query.item[22]
+	s_tone = query.item[23]
 	spawnpoint = query.item[24]
 	species = query.item[25]
 	undershirt = query.item[26]
 	underwear = query.item[27]
 	return 1
 
-/datum/preferences/proc/getCharId()
-	TextQuery = "SELECT id FROM ss13_characters WHERE ckey='[ckey]' AND slot = '[char_slot]'"
+/datum/preferences/proc/InsertJobsData()
+	TextQuery = "INSERT INTO characters_jobs (char_id, Alternate, civ_high, civ_med, civ_low, medsci_high, medsci_med, medsci_low, engsec_high, engsec_med, engsec_low) "
+	TextQuery += " VALUES ('[alternate_option]', '[job_civilian_high]', '[job_civilian_med]', '[job_civilian_low]', '[job_medsci_high]', '[job_medsci_med]', '[job_medsci_low]', "
+	TextQuery += "'[job_engsec_high]', '[job_engsec_med]', '[job_engsec_low]')"
 	log_debug(TextQuery)
-	query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey='[ckey]' AND slot = '[char_slot]'")
-	log_debug("Query ready")
+	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	var/rowDebug = query.RowCount()
-	log_debug("Query executed, [rowDebug] rows")
+	return 1
+
+/datum/preferences/proc/UpdateJobsData()
+	TextQuery = "UPDATE characters_jobs SET Alternate='[alternate_option]', civ_high='[job_civilian_high]', civ_med='[job_civilian_med]', civ_low='[job_civilian_low]', "
+	TextQuery += "medsci_high='[job_medsci_high]', medsci_med='[job_medsci_med]', medsci_low='[job_medsci_low]', "
+	TextQuery += "engsec_high='[job_engsec_high]', engsec_med='[job_engsec_med]', engsec_low='[job_engsec_low]' WHERE char_id = [char_id] "
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
+
+/datum/preferences/proc/LoadJobsData()
+	TextQuery = "SELECT * FROM characters_jobs WHERE char_id = [char_id]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
 	if(!query.RowCount())
-		return null
+		return 0
+	log_debug("Load query executed successfully")
 	query.NextRow()
-	char_id = query.item[1]
-	log_debug("GetCharId : [char_id]")
-	return char_id
+	alternate_option = query.item[3]
+	job_civilian_high = query.item[4]
+	job_civilian_med = query.item[5]
+	job_civilian_low = query.item[6]
+	job_medsci_high = query.item[7]
+	job_medsci_med = query.item[8]
+	job_medsci_low = query.item[9]
+	job_engsec_high = query.item[10]
+	job_engsec_med = query.item[11]
+	job_engsec_low = query.item[12]
+	return 1
 
-/*	//Character
-	chardata.Add(age)
-	chardata.Add(backbag)
-	chardata.Add(metadata)
-	chardata.Add(real_name)
-	chardata.Add(be_random_name)
-	chardata.Add(gender)
-	chardata.Add(species)
-	chardata.Add(language)
-	chardata.Add(r_hair)
-	chardata.Add(g_hair)
-	chardata.Add(b_hair)
-	chardata.Add(r_facial)
-	chardata.Add(g_facial)
-	chardata.Add(b_facial)
-	chardata.Add(s_tone)
-	chardata.Add(r_skin)
-	chardata.Add(g_skin)
-	chardata.Add(b_skin)
-	chardata.Add(h_style)
-	chardata.Add(f_style)
-	chardata.Add(r_eyes)
-	chardata.Add(g_eyes)
-	chardata.Add(b_eyes)
-	chardata.Add(underwear)
-	chardata.Add(undershirt)
-	chardata.Add(b_type)
-	chardata.Add(spawnpoint)
+/datum/preferences/proc/InsertFlavourData()
+	TextQuery = "INSERT INTO characters_flavour (char_id, generals, head, face, eyes, torso, arms, hands, legs, feet) "
+	TextQuery += " VALUES ('[char_id]','[flavor_texts["general"]]', '[flavor_texts["head"]]', '[flavor_texts["face"]]', '[flavor_texts["eyes"]]', '[flavor_texts["torso"]]', "
+	TextQuery += "'[flavor_texts["arms"]]', '[flavor_texts["hands"]]', '[flavor_texts["legs"]]', '[flavor_texts["feet"]]')"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
 
-	//Jobs
-	S["alternate_option"]	<< alternate_option
-	S["job_civilian_high"]	<< job_civilian_high
-	S["job_civilian_med"]	<< job_civilian_med
-	S["job_civilian_low"]	<< job_civilian_low
-	S["job_medsci_high"]	<< job_medsci_high
-	S["job_medsci_med"]		<< job_medsci_med
-	S["job_medsci_low"]		<< job_medsci_low
-	S["job_engsec_high"]	<< job_engsec_high
-	S["job_engsec_med"]		<< job_engsec_med
-	S["job_engsec_low"]		<< job_engsec_low
+/datum/preferences/proc/UpdateFlavourData()
+	TextQuery = "UPDATE characters_flavour SET generals='[flavor_texts["general"]]', head='[flavor_texts["head"]]', face='[flavor_texts["face"]]', eyes='[flavor_texts["eyes"]]', "
+	TextQuery += "torso='[flavor_texts["torso"]]', arms='[flavor_texts["arms"]]', hands='[flavor_texts["hands"]]', legs='[flavor_texts["legs"]]', feet='[flavor_texts["feet"]]' "
+	TextQuery += "WHERE char_id = [char_id]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
 
-	//Flavour Text
-	S["flavor_texts_general"]	<< flavor_texts["general"]
-	S["flavor_texts_head"]		<< flavor_texts["head"]
-	S["flavor_texts_face"]		<< flavor_texts["face"]
-	S["flavor_texts_eyes"]		<< flavor_texts["eyes"]
-	S["flavor_texts_torso"]		<< flavor_texts["torso"]
-	S["flavor_texts_arms"]		<< flavor_texts["arms"]
-	S["flavor_texts_hands"]		<< flavor_texts["hands"]
-	S["flavor_texts_legs"]		<< flavor_texts["legs"]
-	S["flavor_texts_feet"]		<< flavor_texts["feet"]
+/datum/preferences/proc/LoadFlavourData()
+	TextQuery = "SELECT * FROM characters_flavour WHERE char_id = [char_id]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	if(!query.RowCount())
+		return 0
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	flavor_texts["general"] = query.item[3]
+	flavor_texts["head"] = query.item[4]
+	flavor_texts["face"] = query.item[5]
+	flavor_texts["eyes"] = query.item[6]
+	flavor_texts["torso"] = query.item[7]
+	flavor_texts["arms"] = query.item[8]
+	flavor_texts["hands"]= query.item[9]
+	flavor_texts["legs"] = query.item[10]
+	flavor_texts["feet"] = query.item[11]
+	return 1
 
-	//Flavour text for robots.
-	S["flavour_texts_robot_Default"] << flavour_texts_robot["Default"]
-	for(var/module in robot_module_types)
-		S["flavour_texts_robot_[module]"] << flavour_texts_robot[module]
+/datum/preferences/proc/InsertRobotFlavourData()
+	TextQuery = "INSERT INTO characters_robot_flavour (char_id, Default_Robot, Standard, Engineering, Construction, Surgeon, Crisis, Miner, Janitor, Service, Clerical, Security, Research) "
+	TextQuery += " VALUES ('[char_id]','[flavour_texts_robot["Default"]]', '[flavour_texts_robot["Standard"]]', '[flavour_texts_robot["Engineering"]]', '[flavour_texts_robot["Construction"]]', "
+	TextQuery += "'[flavour_texts_robot["Surgeon"]]', '[flavour_texts_robot["Crisis"]]', '[flavour_texts_robot["Miner"]]', '[flavour_texts_robot["Janitor"]]', '[flavour_texts_robot["Service"]]', "
+	TextQuery += "'[flavour_texts_robot["Clerical"]]', '[flavour_texts_robot["Security"]]','[flavour_texts_robot["Research"]]')"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
 
-	//Miscellaneous
-	S["med_record"]			<< med_record
-	S["sec_record"]			<< sec_record
-	S["gen_record"]			<< gen_record
-	S["player_alt_titles"]		<< player_alt_titles
-	S["be_special"]			<< be_special
-	S["disabilities"]		<< disabilities
-	S["used_skillpoints"]	<< used_skillpoints
-	S["skills"]				<< skills
-	S["skill_specialization"] << skill_specialization
-	S["organ_data"]			<< organ_data
-	S["rlimb_data"]			<< rlimb_data
-	S["gear"]				<< gear
-	S["home_system"] 		<< home_system
-	S["citizenship"] 		<< citizenship
-	S["faction"] 			<< faction
-	S["religion"] 			<< religion
+/datum/preferences/proc/UpdateRobotFlavourData()
+	TextQuery = "UPDATE characters_robot_flavour SET Default_Robot='[flavour_texts_robot["Default"]]', Standard='[flavour_texts_robot["Standard"]]', Engineering='[flavour_texts_robot["Engineering"]]', "
+	TextQuery += "Construction='[flavour_texts_robot["Construction"]]', Surgeon='[flavour_texts_robot["Surgeon"]]', Crisis='[flavour_texts_robot["Crisis"]]', Miner='[flavour_texts_robot["Miner"]]', "
+	TextQuery += "Janitor='[flavour_texts_robot["Janitor"]]', Service='[flavour_texts_robot["Service"]]', Clerical='[flavour_texts_robot["Clerical"]]', "
+	TextQuery += "Security='[flavour_texts_robot["Security"]]', Research='[flavour_texts_robot["Research"]]' WHERE char_id = [char_id]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
 
-	S["nanotrasen_relation"] << nanotrasen_relation
-	//S["skin_style"]			<< skin_style
+/datum/preferences/proc/LoadRobotFlavourData()
+	TextQuery = "SELECT * FROM characters_robot_flavour WHERE char_id = [char_id]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	if(!query.RowCount())
+		return 0
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	flavour_texts_robot["Default"] = query.item[3]
+	flavour_texts_robot["Standard"] = query.item[4]
+	flavour_texts_robot["Engineering"] = query.item[5]
+	flavour_texts_robot["Construction"] = query.item[6]
+	flavour_texts_robot["Surgeon"] = query.item[7]
+	flavour_texts_robot["Crisis"] = query.item[8]
+	flavour_texts_robot["Miner"] = query.item[9]
+	flavour_texts_robot["Janitor"] = query.item[10]
+	flavour_texts_robot["Service"] = query.item[11]
+	flavour_texts_robot["Clerical"] = query.item[12]
+	flavour_texts_robot["Security"] = query.item[13]
+	flavour_texts_robot["Research"] = query.item[14]
+	return 1
 
-	S["uplinklocation"] << uplinklocation
-	S["exploit_record"]	<< exploit_record
+/datum/preferences/proc/InsertMiscData()
+	sanitizePrefs()
+	TextQuery = "INSERT INTO characters_misc (char_id, med_rec, sec_rec, gen_rec, alt_titles, disab, used_skill, skills, skills_spec, organ_dat, limb_dat, gear,"
+	TextQuery += "home_sys, citizen, faction, religion, NT_relation, uplink_loc, exploit_rec) VALUES ("
+	TextQuery += "'[char_id]', '[med_record]', '[sec_record]', '[gen_record]', '[player_alt_titles]', '[disabilities]', '[used_skillpoints]', '[skills]', "
+	TextQuery += "'[skill_specialization]', '[organ_data]', '[rlimb_data]', '[gear]', '[home_system]', '[citizenship]', '[faction]', '[religion]', '[nanotrasen_relation]', "
+	TextQuery += "'[uplinklocation]', '[exploit_record]')"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
 
-	S["UI_style_color"]		<< UI_style_color
-	S["UI_style_alpha"]		<< UI_style_alpha*/
+/datum/preferences/proc/UpdateMiscData()
+	TextQuery = "UPDATE characters_misc SET med_rec='[med_record]', sec_rec='[sec_record]', gen_rec='[gen_record]', alt_titles='[player_alt_titles]', disab='[disabilities]', "
+	TextQuery += "used_skill='[used_skillpoints]', skills='[skills]', skills_spec='[skill_specialization]', organ_dat='[organ_data]', limb_dat='[rlimb_data]', gear='[gear]', "
+	TextQuery += "home_sys='[home_system]', citizen='[citizenship]', faction='[faction]', religion='[religion]', NT_relation='[nanotrasen_relation]', uplink_loc='[uplinklocation]', "
+	TextQuery += "exploit_rec='[exploit_record]' WHERE char_id = [char_id]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
 
+/datum/preferences/proc/LoadMiscData()
+	TextQuery = "SELECT * FROM characters_misc WHERE char_id = [char_id]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	if(!query.RowCount())
+		return 0
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	med_record = query.item[3]
+	sec_record = query.item[4]
+	gen_record = query.item[5]
+	player_alt_titles = query.item[6]
+	disabilities = query.item[7]
+	used_skillpoints = query.item[8]
+	skills = query.item[9]
+	skill_specialization = query.item[10]
+	organ_data = query.item[11]
+	rlimb_data = query.item[12]
+	gear = query.item[13]
+	home_system = query.item[14]
+	citizenship = query.item[15]
+	faction = query.item[16]
+	religion = query.item[17]
+	nanotrasen_relation = query.item[18]
+	uplinklocation = query.item[19]
+	exploit_record = query.item[20]
+	return 1
 
-/*/datum/preferences/proc/SQLSave_Preferences()
-		//Sanitize
+/datum/preferences/proc/SavePrefData(var/ckey)
+	TextQuery = "SELECT * FROM characters_misc WHERE ckey = [ckey]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	if(query.RowCount())
+		return UpdatePrefData(ckey)
+	sanitizePrefs()
+	TextQuery = "INSERT INTO player_preferences (ckey, ooccolor, lastchangelog, UI_style, default_slot, toggles, UI_style_color, UI_style_alpha, be_special) "
+	TextQuery += "VALUES ('[ckey]', '[ooccolor]','[lastchangelog]', '[UI_style]', '[default_slot]', '[toggles]', '[UI_style_color]', '[UI_style_alpha]','[be_special]')"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
+
+/datum/preferences/proc/UpdatePrefData(var/ckey)
+	sanitizePrefs()
+	TextQuery = "UPDATE player_preferences SET ooccolor='[ooccolor]', lastchangelog='[lastchangelog]', UI_style='[UI_style]', default_slot='[default_slot]', toggles='[toggles]', "
+	TextQuery += "UI_style_color='[UI_style_color]', UI_style_alpha='[UI_style_alpha]', be_special='[be_special]') WHERE ckey = [ckey]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	return 1
+
+/datum/preferences/proc/LoadPrefData(var/ckey)
+	TextQuery = "SELECT * FROM characters_misc WHERE ckey = [ckey]"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	if(!query.RowCount())
+		return SavePrefData(ckey)
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	ooccolor = query.item[3]
+	lastchangelog = query.item[4]
+	UI_style = query.item[5]
+	default_slot = query.item[6]
+	toggles = query.item[7]
+	UI_style_color = query.item[8]
+	UI_style_alpha = query.item[9]
+	be_special = query.item[10]
+	return 1
+
+/datum/preferences/proc/sanitizePrefs()
 		ooccolor		= sanitize_hexcolor(ooccolor, initial(ooccolor))
 		lastchangelog	= sanitize_text(lastchangelog, initial(lastchangelog))
 		UI_style		= sanitize_inlist(UI_style, list("White", "Midnight","Orange","old"), initial(UI_style))
@@ -220,192 +367,10 @@ var/char_slot
 		toggles			= sanitize_integer(toggles, 0, 65535, initial(toggles))
 		UI_style_color	= sanitize_hexcolor(UI_style_color, initial(UI_style_color))
 		UI_style_alpha	= sanitize_integer(UI_style_alpha, 0, 255, initial(UI_style_alpha))
-
-			query = dbcon.Query("INSERT INTO (oocolor, lastchangelog, UI_style, be_special, default_slot, toggles, UI_style_color, UI_style_alpha) VALUES ([oocolor], [lastchangelog], [UI_style], [be_special], [default_slot], [toggles], [UI_style_color], [UI_style_alpha])")
-		else
-			var/id = query.item[2]
-			query = dbcon.Query("UPDATE aurora_characters SET ooccolor=[ooccolor], lastchangelog=[lastchangelog], UI_style=[UI_style], be_special=[be_special], default_slot=[default_slot], toggles = [toggles], UI_style_color = [UI_style_color], UI_style_alpha = [UI_style_alpha] WHERE aurora_characters.id=[id]")
-		query.Execute()
-	return 1
-
-/datum/preferences/proc/savefile_update()
-	if(savefile_version < 8)	//lazily delete everything + additional files so they can be saved in the new format
-		for(var/ckey in preferences_datums)
-			var/datum/preferences/D = preferences_datums[ckey]
-			if(D == src)
-				var/delpath = "data/player_saves/[copytext(ckey,1,2)]/[ckey]/"
-				if(delpath && fexists(delpath))
-					fdel(delpath)
-				break
-		return 0
-
-	if(savefile_version == SAVEFILE_VERSION_MAX)	//update successful.
-		save_preferences()
-		save_character()
 		return 1
-	return 0
 
-/datum/preferences/proc/load_path(ckey,filename="preferences.sav")
-	if(!ckey)	return
-	path = "data/player_saves/[copytext(ckey,1,2)]/[ckey]/[filename]"
-	savefile_version = SAVEFILE_VERSION_MAX
+/datum/preferences/proc/SanitizeCharacter()
 
-/datum/preferences/proc/load_preferences()
-	if(!path)				return 0
-	if(!fexists(path))		return 0
-	var/savefile/S = new /savefile(path)
-	if(!S)					return 0
-	S.cd = "/"
-
-	S["version"] >> savefile_version
-	//Conversion
-	if(!savefile_version || !isnum(savefile_version) || savefile_version < SAVEFILE_VERSION_MIN || savefile_version > SAVEFILE_VERSION_MAX)
-		if(!savefile_update())  //handles updates
-			savefile_version = SAVEFILE_VERSION_MAX
-			save_preferences()
-			save_character()
-			return 0
-
-	//general preferences
-	S["ooccolor"]			>> ooccolor
-	S["lastchangelog"]		>> lastchangelog
-	S["UI_style"]			>> UI_style
-	S["be_special"]			>> be_special
-	S["default_slot"]		>> default_slot
-	S["toggles"]			>> toggles
-	S["UI_style_color"]		>> UI_style_color
-	S["UI_style_alpha"]		>> UI_style_alpha
-
-	//Sanitize
-	ooccolor		= sanitize_hexcolor(ooccolor, initial(ooccolor))
-	lastchangelog	= sanitize_text(lastchangelog, initial(lastchangelog))
-	UI_style		= sanitize_inlist(UI_style, list("White", "Midnight","Orange","old"), initial(UI_style))
-	be_special		= sanitize_integer(be_special, 0, 65535, initial(be_special))
-	default_slot	= sanitize_integer(default_slot, 1, config.character_slots, initial(default_slot))
-	toggles			= sanitize_integer(toggles, 0, 65535, initial(toggles))
-	UI_style_color	= sanitize_hexcolor(UI_style_color, initial(UI_style_color))
-	UI_style_alpha	= sanitize_integer(UI_style_alpha, 0, 255, initial(UI_style_alpha))
-
-	return 1
-
-/datum/preferences/proc/save_preferences()
-	if(!path)				return 0
-	var/savefile/S = new /savefile(path)
-	if(!S)					return 0
-	S.cd = "/"
-
-	S["version"] << savefile_version
-
-	//general preferences
-	S["ooccolor"]			<< ooccolor
-	S["lastchangelog"]		<< lastchangelog
-	S["UI_style"]			<< UI_style
-	S["be_special"]			<< be_special
-	S["default_slot"]		<< default_slot
-	S["toggles"]			<< toggles
-
-	return 1
-
-/datum/preferences/proc/load_character(slot)
-	if(!path)				return 0
-	if(!fexists(path))		return 0
-	var/savefile/S = new /savefile(path)
-	if(!S)					return 0
-	S.cd = "/"
-	if(!slot)	slot = default_slot
-	slot = sanitize_integer(slot, 1, config.character_slots, initial(default_slot))
-	if(slot != default_slot)
-		default_slot = slot
-		S["default_slot"] << slot
-	S.cd = "/character[slot]"
-
-	//Character
-	S["OOC_Notes"]			>> metadata
-	S["real_name"]			>> real_name
-	S["name_is_always_random"] >> be_random_name
-	S["gender"]				>> gender
-	S["age"]				>> age
-	S["species"]			>> species
-	S["language"]			>> language
-	S["spawnpoint"]			>> spawnpoint
-
-	//colors to be consolidated into hex strings (requires some work with dna code)
-	S["hair_red"]			>> r_hair
-	S["hair_green"]			>> g_hair
-	S["hair_blue"]			>> b_hair
-	S["facial_red"]			>> r_facial
-	S["facial_green"]		>> g_facial
-	S["facial_blue"]		>> b_facial
-	S["skin_tone"]			>> s_tone
-	S["skin_red"]			>> r_skin
-	S["skin_green"]			>> g_skin
-	S["skin_blue"]			>> b_skin
-	S["hair_style_name"]	>> h_style
-	S["facial_style_name"]	>> f_style
-	S["eyes_red"]			>> r_eyes
-	S["eyes_green"]			>> g_eyes
-	S["eyes_blue"]			>> b_eyes
-	S["underwear"]			>> underwear
-	S["undershirt"]			>> undershirt
-	S["backbag"]			>> backbag
-	S["b_type"]				>> b_type
-
-	//Jobs
-	S["alternate_option"]	>> alternate_option
-	S["job_civilian_high"]	>> job_civilian_high
-	S["job_civilian_med"]	>> job_civilian_med
-	S["job_civilian_low"]	>> job_civilian_low
-	S["job_medsci_high"]	>> job_medsci_high
-	S["job_medsci_med"]		>> job_medsci_med
-	S["job_medsci_low"]		>> job_medsci_low
-	S["job_engsec_high"]	>> job_engsec_high
-	S["job_engsec_med"]		>> job_engsec_med
-	S["job_engsec_low"]		>> job_engsec_low
-
-	//Flavour Text
-	S["flavor_texts_general"]	>> flavor_texts["general"]
-	S["flavor_texts_head"]		>> flavor_texts["head"]
-	S["flavor_texts_face"]		>> flavor_texts["face"]
-	S["flavor_texts_eyes"]		>> flavor_texts["eyes"]
-	S["flavor_texts_torso"]		>> flavor_texts["torso"]
-	S["flavor_texts_arms"]		>> flavor_texts["arms"]
-	S["flavor_texts_hands"]		>> flavor_texts["hands"]
-	S["flavor_texts_legs"]		>> flavor_texts["legs"]
-	S["flavor_texts_feet"]		>> flavor_texts["feet"]
-
-	//Flavour text for robots.
-	S["flavour_texts_robot_Default"] >> flavour_texts_robot["Default"]
-	for(var/module in robot_module_types)
-		S["flavour_texts_robot_[module]"] >> flavour_texts_robot[module]
-
-	//Miscellaneous
-	S["med_record"]			>> med_record
-	S["sec_record"]			>> sec_record
-	S["gen_record"]			>> gen_record
-	S["be_special"]			>> be_special
-	S["disabilities"]		>> disabilities
-	S["player_alt_titles"]	>> player_alt_titles
-	S["used_skillpoints"]	>> used_skillpoints
-	S["skills"]				>> skills
-	S["skill_specialization"] >> skill_specialization
-	S["organ_data"]			>> organ_data
-	S["rlimb_data"]			>> rlimb_data
-	S["gear"]				>> gear
-	S["home_system"] 		>> home_system
-	S["citizenship"] 		>> citizenship
-	S["faction"] 			>> faction
-	S["religion"] 			>> religion
-
-	S["nanotrasen_relation"] >> nanotrasen_relation
-	//S["skin_style"]			>> skin_style
-
-	S["uplinklocation"] >> uplinklocation
-	S["exploit_record"]	>> exploit_record
-
-	S["UI_style_color"]		<< UI_style_color
-	S["UI_style_alpha"]		<< UI_style_alpha
-
-	//Sanitize
 	metadata		= sanitize_text(metadata, initial(metadata))
 	real_name		= sanitizeName(real_name)
 
@@ -462,17 +427,9 @@ var/char_slot
 	if(!organ_data) src.organ_data = list()
 	if(!rlimb_data) src.rlimb_data = list()
 	if(!gear) src.gear = list()
-	//if(!skin_style) skin_style = "Default"
 
 	if(!home_system) home_system = "Unset"
 	if(!citizenship) citizenship = "None"
 	if(!faction)     faction =     "None"
 	if(!religion)    religion =    "None"
-
 	return 1
-
-
-
-
-#undef SAVEFILE_VERSION_MAX
-#undef SAVEFILE_VERSION_MIN*/
