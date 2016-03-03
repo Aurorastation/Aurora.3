@@ -649,37 +649,39 @@ var/failed_old_db_connections = 0
 	//Construct the database object now that configs are loaded
 	dbcon = new(sqladdress, sqlport, sqldb, sqllogin, sqlpass)
 
-	if(!setup_database_connection())
+	if (!setup_database_connection(dbcon))
 		world.log << "Your server failed to establish a connection with the feedback database."
 	else
 		world.log << "Feedback database connection established."
 	return 1
 
-proc/setup_database_connection()
-
-	if(failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
+/proc/setup_database_connection(var/DBConnection/con)
+	if (!con)
 		return 0
 
-	if(!dbcon)
-		dbcon = new()
+	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
+		return 0
 
-	dbcon.Connect()
-	. = dbcon.IsConnected()
+	con.Connect()
+	. = con.IsConnected()
 	if ( . )
-		failed_db_connections = 0	//If this connection succeeded, reset the failed connections counter.
+		con.failed_connections = 0	//If this connection succeeded, reset the failed connections counter.
 	else
-		failed_db_connections++		//If it failed, increase the failed connections counter.
-		world.log << dbcon.ErrorMsg()
+		con.failed_connections++		//If it failed, increase the failed connections counter.
+		world.log << con.ErrorMsg()
 
 	return .
 
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
-proc/establish_db_connection()
-	if(failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)
+/proc/establish_db_connection(var/DBConnection/con)
+	if (!con)
 		return 0
 
-	if(!dbcon || !dbcon.IsConnected())
-		return setup_database_connection()
+	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
+		return 0
+
+	if (!con.IsConnected())
+		return setup_database_connection(con)
 	else
 		return 1
 

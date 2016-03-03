@@ -9,7 +9,7 @@
 	if (!warned_ckey || !istext(warned_ckey))
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		usr << "<font color='red'>Error: warn(): Database Connection failed, reverting to legacy systems.</font>"
 		usr.client.warn_legacy(warned_ckey)
@@ -110,7 +110,7 @@
 	var/dcolor = "#ffaaaa"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
@@ -172,7 +172,7 @@
 	if (!warning_id)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to SQL database failed while attempting to update your warning's status!")
 		return
@@ -191,7 +191,7 @@
 	var/count = 0
 	var/count_expire = 0
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		return
 
@@ -239,7 +239,7 @@
 	var/dcolor = "#ffdddd"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
@@ -342,7 +342,7 @@
 	if(!warning_id || !warning_edit)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return

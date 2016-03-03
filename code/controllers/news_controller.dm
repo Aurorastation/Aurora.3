@@ -27,7 +27,7 @@ var/global/datum/news_controller/news_controller
 
 //Stores a new article for publishing.
 /datum/news_controller/proc/update()
-    establish_db_connection()
+    establish_db_connection(dbcon)
     if(!dbcon.IsConnected())
         error("SQL database connection failed. News_controller failed to retreive information.")
         fails++
@@ -52,7 +52,7 @@ var/global/datum/news_controller/news_controller
 
 //Publish the stored article.
 /datum/news_controller/proc/publish()
-    establish_db_connection()
+    establish_db_connection(dbcon)
     if(!dbcon.IsConnected())
         error("SQL database connection failed. News_controller failed to retreive information.")
         fails++

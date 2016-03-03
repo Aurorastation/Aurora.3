@@ -211,7 +211,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 			if(11)	//form database
 				dat += text("<B>NanoTrasen Corporate Forms</B><br><br>")
-				establish_db_connection()
+				establish_db_connection(dbcon)
 				if(!dbcon.IsConnected())
 					dat += text("<font color=red><b>ERROR</b>: Unable to contact external database. Please contact your system administrator for assistance.</font>")
 					log_game("SQL database connection failed. Attempted to fetch form information.")
@@ -377,7 +377,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if(href_list["print"])
 		var/printid = sanitizeSQL(href_list["print"])
-		establish_db_connection()
+		establish_db_connection(dbcon)
 
 		if(!dbcon.IsConnected())
 			alert("Connection to the database lost. Aborting.")
@@ -405,7 +405,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
-		establish_db_connection()
+		establish_db_connection(dbcon)
 		if(!dbcon.IsConnected())
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)

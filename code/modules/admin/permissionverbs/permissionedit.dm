@@ -54,7 +54,7 @@
 		usr << "\red You do not have permission to do this!"
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 
 	if(!dbcon.IsConnected())
 		usr << "\red Failed to establish database connection"
@@ -104,7 +104,7 @@
 		usr << "\red You do not have permission to do this!"
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		usr << "\red Failed to establish database connection"
 		return

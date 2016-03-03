@@ -41,7 +41,7 @@
 		output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
 
 		if(!IsGuestKey(src.key))
-			establish_db_connection()
+			establish_db_connection(dbcon)
 
 			if(dbcon.IsConnected())
 				var/isadmin = 0
@@ -181,7 +181,7 @@
 			return
 
 		if(href_list["privacy_poll"])
-			establish_db_connection()
+			establish_db_connection(dbcon)
 			if(!dbcon.IsConnected())
 				return
 			var/voted = 0

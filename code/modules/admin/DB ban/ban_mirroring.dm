@@ -6,7 +6,7 @@
 	if (!ckey || !address || !computer_id || !ban_id)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 
 	if (!dbcon.IsConnected())
 		error("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
