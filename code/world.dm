@@ -534,7 +534,6 @@ var/world_topic_spam_protect_time = world.timeofday
 	config = new /datum/configuration()
 	config.load("config/config.txt")
 	config.load("config/game_options.txt","game_options")
-	config.loadsql("config/dbconfig.txt")
 
 /hook/startup/proc/loadMods()
 	world.load_mods()
@@ -642,12 +641,10 @@ var/world_topic_spam_protect_time = world.timeofday
 		src.status = s
 
 #define FAILED_DB_CONNECTION_CUTOFF 5
-var/failed_db_connections = 0
-var/failed_old_db_connections = 0
 
-/hook/startup/proc/connectDB()
-	//Construct the database object now that configs are loaded
-	dbcon = new(sqladdress, sqlport, sqldb, sqllogin, sqlpass)
+/hook/startup/proc/load_databases()
+	//Construct the database object from an init file.
+	dbcon = initialize_database_object("config/dbconfig.txt")
 
 	if (!setup_database_connection(dbcon))
 		world.log << "Your server failed to establish a connection with the feedback database."
@@ -655,8 +652,48 @@ var/failed_old_db_connections = 0
 		world.log << "Feedback database connection established."
 	return 1
 
+/proc/initialize_database_object(var/filename)
+	if (!filename)
+		return 0
+
+	var/list/data = list("address", "port", "database", "login", "password")
+
+	var/list/Lines = file2list(filename)
+	for (var/t in Lines)
+		if (!t)
+			continue
+
+		t = trim(t)
+		if (length(t) == 0)
+			continue
+		else if (copytext(t, 1, 2) == "#")
+			continue
+
+		var/pos = findtext(t, " ")
+		var/name = null
+		var/value = null
+
+		name = lowertext(copytext(t, 1, pos))
+		value = copytext(t, pos + 1)
+
+		if (!name)
+			continue
+
+		if (name in data)
+			data[name] = value
+		else
+			log_misc("Unknown setting while setting up database connection. Filename: '[filename]', value: '[value]'.")
+
+	//Validate the data before proceeding.
+	for (var/d in data)
+		if (!data[d] || data[d] == null)
+			return 0
+
+	return new/DBConnection(data["address"], data["port"], data["database"], data["login"], data["password"])
+
 /proc/setup_database_connection(var/DBConnection/con)
 	if (!con)
+		error("No DBConnection object passed to setup_database_connection().")
 		return 0
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
@@ -675,6 +712,7 @@ var/failed_old_db_connections = 0
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
 /proc/establish_db_connection(var/DBConnection/con)
 	if (!con)
+		error("No DBConnection object passed to establish_db_connection() proc.")
 		return 0
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
