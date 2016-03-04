@@ -85,7 +85,7 @@
 
 		establish_db_connection(dbcon)
 		if (!dbcon.IsConnected())
-			usr << "\red Action failed! Database link could not be established!"
+			src << "\red Action failed! Database link could not be established!"
 			return
 
 
@@ -93,11 +93,11 @@
 		check_query.Execute(list(":id" = request_id))
 
 		if (!check_query.NextRow())
-			usr << "\red No request found!"
+			src << "\red No request found!"
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			usr << "\red Request authentication failed!"
+			src << "\red Request authentication failed!"
 			return
 
 		var/query_contents = ""
@@ -117,7 +117,7 @@
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
-				usr << "\red Invalid command sent."
+				src << "\red Invalid command sent."
 				return
 
 		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
@@ -125,9 +125,9 @@
 
 		if (href_list["linkingaction"] == "accept" && config.webinterface_url)
 			if(alert("To complete the process, you have to visit the website. Do you ",,"Yes","No") == "Yes")
-				usr << link("[config.webinterface_url]user/link")
+				src << link("[config.webinterface_url]user/link")
 
-		usr << feedback_message
+		src << feedback_message
 		return
 
 	if (href_list["routeAPI"])
@@ -146,7 +146,7 @@
 				linkURI += list2params(list("mode" = "viewprofile", "u" = href_list["routeAttribute"]))
 
 		if (linkURI)
-			usr << link(linkURI)
+			src << link(linkURI)
 		else
 			return
 
@@ -400,7 +400,7 @@
 		dat += "The request is [request["request_age"]] days old.<br>"
 		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
 
-	usr << browse(dat, "window=LinkingRequests")
+	src << browse(dat, "window=LinkingRequests")
 	return
 
 
