@@ -130,6 +130,26 @@
 		usr << feedback_message
 		return
 
+	if (href_list["routeAPI"])
+		var/linkURI = ""
+
+		switch (href_list["routeAPI"])
+			if ("forums/members")
+				if (!href_list["routeAttribute"])
+					return
+
+				if (!config.forumurl)
+					return
+
+				linkURI = "[config.forumurl]memberlist.php?"
+
+				linkURI += list2params(list("mode" = "viewprofile", "u" = href_list["routeAttribute"]))
+
+		if (linkURI)
+			usr << link(linkURI)
+		else
+			return
+
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
@@ -369,16 +389,16 @@
 	var/dat = "<center><b>You have active requests to check!</b></center>"
 	var/i = 0
 	for (var/list/request in requests)
+		i++
+
 		var/linked_forum_name = null
 		if (config.forumurl)
-			linked_forum_name = "<a href='[config.forumurl]/memberlist.php?mode=viewprofile&u=[request["forum_id"]]'>[request["forum_username"]]</a>"
+			linked_forum_name = "<a href='byond://?src=\ref[src];routeAPI=forums/members;routeAttribute=[request["forum_id"]]'>[request["forum_username"]]</a>"
 
 		dat += "<hr>"
 		dat += "#[i] - Request to link <b>[key]</b> to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
 		dat += "The request is [request["request_age"]] days old.<br>"
 		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
-
-		i++
 
 	usr << browse(dat, "window=LinkingRequests")
 	return
