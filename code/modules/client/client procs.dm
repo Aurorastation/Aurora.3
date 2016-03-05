@@ -101,7 +101,7 @@
 			return
 
 		var/query_contents = ""
-		var/list/query_details[]
+		var/list/query_details = list(":new_status", ":id")
 		var/feedback_message = ""
 		switch (href_list["linkingaction"])
 			if ("accept")
@@ -123,32 +123,17 @@
 		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
 		update_query.Execute(query_details)
 
-		if (href_list["linkingaction"] == "accept" && config.webinterface_url)
-			if(alert("To complete the process, you have to visit the website. Do you ",,"Yes","No") == "Yes")
-				src << link("[config.webinterface_url]user/link")
+		if (href_list["linkingaction"] == "accept" && alert("To complete the process, you have to visit the website. Do you want to do so now?",,"Yes","No") == "Yes")
+			process_webAPI_link("interface/user/link")
 
 		src << feedback_message
+		check_linking_requests()
 		return
 
 	if (href_list["routeAPI"])
-		var/linkURI = ""
+		process_webAPI_link(href_list["routeAPI"], href_list["routeAttributes"])
 
-		switch (href_list["routeAPI"])
-			if ("forums/members")
-				if (!href_list["routeAttribute"])
-					return
-
-				if (!config.forumurl)
-					return
-
-				linkURI = "[config.forumurl]memberlist.php?"
-
-				linkURI += list2params(list("mode" = "viewprofile", "u" = href_list["routeAttribute"]))
-
-		if (linkURI)
-			src << link(linkURI)
-		else
-			return
+		return
 
 	..()	//redirect to hsrc.()
 
@@ -366,44 +351,6 @@
 #undef UPLOAD_LIMIT
 #undef MIN_CLIENT_VERSION
 
-/client/proc/check_linking_requests()
-	if (!config.webinterface_enabled || !config.sql_enabled)
-		return
-
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
-		return
-
-	var/list/requests = list()
-	var/list/query_details = list(":ckey" = ckey)
-
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
-	select_query.Execute(query_details)
-
-	while (select_query.NextRow())
-		requests.Add(list(list("id" = text2num(select_query.item[1]), "forum_id" = text2num(select_query.item[2]), "forum_username" = select_query.item[3], "request_age" = select_query.item[4])))
-
-	if (!requests.len)
-		return
-
-	var/dat = "<center><b>You have active requests to check!</b></center>"
-	var/i = 0
-	for (var/list/request in requests)
-		i++
-
-		var/linked_forum_name = null
-		if (config.forumurl)
-			linked_forum_name = "<a href='byond://?src=\ref[src];routeAPI=forums/members;routeAttribute=[request["forum_id"]]'>[request["forum_username"]]</a>"
-
-		dat += "<hr>"
-		dat += "#[i] - Request to link <b>[key]</b> to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
-		dat += "The request is [request["request_age"]] days old.<br>"
-		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
-
-	src << browse(dat, "window=LinkingRequests")
-	return
-
-
 //checks if a client is afk
 //3000 frames = 5 minutes
 /client/proc/is_afk(duration=3000)
@@ -460,12 +407,81 @@
 		)
 
 
-mob/proc/MayRespawn()
+/mob/proc/MayRespawn()
 	return 0
 
-client/proc/MayRespawn()
+/client/proc/MayRespawn()
 	if(mob)
 		return mob.MayRespawn()
 
 	// Something went wrong, client is usually kicked or transfered to a new mob at this point
 	return 0
+
+/client/proc/check_linking_requests()
+	if (!config.webinterface_enabled || !config.sql_enabled)
+		return
+
+	establish_db_connection(dbcon)
+	if (!dbcon.IsConnected())
+		return
+
+	var/list/requests = list()
+	var/list/query_details = list(":ckey" = ckey)
+
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	select_query.Execute(query_details)
+
+	while (select_query.NextRow())
+		requests.Add(list(list("id" = text2num(select_query.item[1]), "forum_id" = text2num(select_query.item[2]), "forum_username" = select_query.item[3], "request_age" = select_query.item[4])))
+
+	if (!requests.len)
+		return
+
+	var/dat = "<center><b>You have active requests to check!</b></center>"
+	var/i = 0
+	for (var/list/request in requests)
+		i++
+
+		var/linked_forum_name = null
+		if (config.forumurl)
+			var/route_attributes = list2params(list("mode" = "viewprofile", "u" = request["forum_id"]))
+			linked_forum_name = "<a href='byond://?src=\ref[src];routeAPI=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
+
+		dat += "<hr>"
+		dat += "#[i] - Request to link your current key ([key]) to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
+		dat += "The request is [request["request_age"]] days old.<br>"
+		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
+
+	src << browse(dat, "window=LinkingRequests")
+	return
+
+/client/proc/process_webAPI_link(var/route, var/attributes)
+	if (!route)
+		return
+
+	var/linkURI = ""
+
+	switch (route)
+		if ("forums/members")
+			if (!attributes)
+				return
+
+			if (!config.forumurl)
+				return
+
+			linkURI = "[config.forumurl]memberlist.php?"
+
+			linkURI += attributes
+
+		if ("interface/user/link")
+			if (!config.webinterface_url)
+				return
+
+			linkURI = "[config.webinterface_url]user/link"
+
+		else
+			log_misc("Unrecognized routeAPI call used. Route sent: '[route]'.")
+			return
+
+	src << link(linkURI)
+	return
