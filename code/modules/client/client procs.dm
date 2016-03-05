@@ -417,6 +417,14 @@
 	// Something went wrong, client is usually kicked or transfered to a new mob at this point
 	return 0
 
+//I honestly can't find a good place for this atm.
+//If the webinterface interaction gets more features, I'll move it. - Skull132
+/client/verb/view_linking_requests()
+	set name = "View Linking Requests"
+	set category = "OOC"
+
+	check_linking_requests()
+
 /client/proc/check_linking_requests()
 	if (!config.webinterface_enabled || !config.sql_enabled)
 		return
