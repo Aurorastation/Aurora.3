@@ -75,7 +75,7 @@
 		warnings_check()
 
 	if(href_list["linkingrequest"])
-		if (!config.webinterface_enabled)
+		if (!config.webint_enabled)
 			return
 
 		if (!href_list["linkingaction"])
@@ -124,14 +124,14 @@
 		update_query.Execute(query_details)
 
 		if (href_list["linkingaction"] == "accept" && alert("To complete the process, you have to visit the website. Do you want to do so now?",,"Yes","No") == "Yes")
-			process_webAPI_link("interface/user/link")
+			process_webint_link("interface/user/link")
 
 		src << feedback_message
 		check_linking_requests()
 		return
 
-	if (href_list["routeAPI"])
-		process_webAPI_link(href_list["routeAPI"], href_list["routeAttributes"])
+	if (href_list["routeWebInt"])
+		process_webint_link(href_list["routeWebInt"], href_list["routeAttributes"])
 
 		return
 
@@ -418,7 +418,7 @@
 	return 0
 
 //I honestly can't find a good place for this atm.
-//If the webinterface interaction gets more features, I'll move it. - Skull132
+//If the webint interaction gets more features, I'll move it. - Skull132
 /client/verb/view_linking_requests()
 	set name = "View Linking Requests"
 	set category = "OOC"
@@ -426,7 +426,7 @@
 	check_linking_requests()
 
 /client/proc/check_linking_requests()
-	if (!config.webinterface_enabled || !config.sql_enabled)
+	if (!config.webint_enabled || !config.sql_enabled)
 		return
 
 	establish_db_connection(dbcon)
@@ -453,7 +453,7 @@
 		var/linked_forum_name = null
 		if (config.forumurl)
 			var/route_attributes = list2params(list("mode" = "viewprofile", "u" = request["forum_id"]))
-			linked_forum_name = "<a href='byond://?src=\ref[src];routeAPI=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
+			linked_forum_name = "<a href='byond://?src=\ref[src];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
 
 		dat += "<hr>"
 		dat += "#[i] - Request to link your current key ([key]) to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
@@ -463,33 +463,33 @@
 	src << browse(dat, "window=LinkingRequests")
 	return
 
-/client/proc/process_webAPI_link(var/route, var/attributes)
+/client/proc/process_webint_link(var/route, var/attributes)
 	if (!route)
 		return
 
-	var/linkURI = ""
+	var/linkURL = ""
 
 	switch (route)
 		if ("forums/members")
-			if (!attributes)
+			if (!webint_validate_attributes(list("mode", "u"), attributes_text = attributes))
 				return
 
 			if (!config.forumurl)
 				return
 
-			linkURI = "[config.forumurl]memberlist.php?"
+			linkURL = "[config.forumurl]memberlist.php?"
 
-			linkURI += attributes
+			linkURL += attributes
 
 		if ("interface/user/link")
-			if (!config.webinterface_url)
+			if (!config.webint_url)
 				return
 
-			linkURI = "[config.webinterface_url]user/link"
+			linkURL = "[config.webint_url]user/link"
 
 		else
-			log_misc("Unrecognized routeAPI call used. Route sent: '[route]'.")
+			log_misc("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
-	src << link(linkURI)
+	src << link(linkURL)
 	return
