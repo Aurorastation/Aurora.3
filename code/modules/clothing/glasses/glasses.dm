@@ -110,6 +110,24 @@
 	prescription = 1
 	body_parts_covered = 0
 
+/obj/item/clothing/glasses/regular/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/clothing/glasses/hud/health))
+		user.drop_item()
+		del(W)
+		user << "<span class='notice'>You attach a set of medical HUDs to your glasses.</span>"
+		var/turf/T = get_turf(src)
+		new /obj/item/clothing/glasses/hud/health/prescription(T)
+		user.drop_from_inventory(src)
+		del(src)
+	if(istype(W, /obj/item/clothing/glasses/hud/security))
+		user.drop_item()
+		del(W)
+		user << "<span class='notice'>You attach a set of security HUDs to your glasses.</span>"
+		var/turf/T = get_turf(src)
+		new /obj/item/clothing/glasses/hud/security/prescription(T)
+		user.drop_from_inventory(src)
+		del(src)
+
 /obj/item/clothing/glasses/regular/scanners
 	name = "Scanning Goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."

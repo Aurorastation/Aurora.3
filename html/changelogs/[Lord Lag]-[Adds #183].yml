@@ -1,0 +1,6 @@
+author: Lord Lag
+
+delete-after: True
+
+changes: 
+  - rscadd: "Glasses may once again be combined with HUDs"
