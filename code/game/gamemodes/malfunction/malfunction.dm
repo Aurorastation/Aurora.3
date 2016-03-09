@@ -13,14 +13,23 @@
 
 
 /datum/game_mode/malfunction/post_setup()
+	..()
+	sleep(15) //Adds a delay to notifying the cyborgs, which looks slightly more realistic. This should only pause the post_setup proc.
 	var/malf_ai = select_active_ai_with_fewest_borgs()
 	if (malf_ai)
-		for (var/mob/living/silicon/robot/borg in world)
-			borg.lawupdate = 1
-			borg.connect_to_ai(malf_ai)
+		for (var/mob/living/silicon/robot/borg in world) //This is similar to baystation's solution, but without a notification.
+			borg.connect_to_ai(malf_ai) //This will do nothing if the borg is synced before this line of code.
+			notify_borg(borg)
 	else
-		error("Unable to locate the Malf AI during post_setp()!")
-
-
-	..()
+		error("Unable to locate the Malf AI during post_setup()! At the time, there were no AIs active.")
 	return
+
+/datum/game_mode/malfunction/proc/notify_borg(var/mob/living/silicon/robot/borg)
+	borg << "Station AI detected. Establishing connection..." //Fluff
+	sleep(10)
+	borg << "Connection to station AI successful. Synchronizing laws..." //Fluff.
+	sleep(5)
+	borg << "<span class='danger'>You have been bound to an AI, Laws synchronized!" //to provide a noticable chat notification.
+	borg.lawupdate = 1 //Required for sync() to function.
+	borg.sync()
+	borg.show_laws(0) //This should display updated laws to the borg.
