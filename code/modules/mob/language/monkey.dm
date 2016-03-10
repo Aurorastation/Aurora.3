@@ -19,4 +19,4 @@
 /datum/language/tajaran/monkey
 	name = "Farwa"
 	desc = "Meow meow meow."
-	key = "9"
+	key = "^"
