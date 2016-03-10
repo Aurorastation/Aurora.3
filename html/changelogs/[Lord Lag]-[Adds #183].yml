@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Glasses may once again be combined with HUDs"
+  - bugfix: ":9 is the new new Vaurcese hotkey."
