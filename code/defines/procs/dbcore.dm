@@ -197,12 +197,12 @@ DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, v
 
 		var/argument = argument_list[placeholder]
 
-		if (isnull(argument))
-			argument = "NULL"
-		else if (istext(argument))
+		if (istext(argument))
 			argument = dbcon.Quote(argument)
 		else if (isnum(argument))
-			argument = "'[argument]'"
+			argument = "[argument]"
+		else if (isnull(argument))
+			argument = "NULL"
 		else
 			log_debug("parseArguments() failed! Cannot identify argument!")
 			return 0
