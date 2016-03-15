@@ -140,10 +140,15 @@ datum/preferences
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			if(load_preferences())
-				if(load_character())
+			if(LoadPrefData(C.ckey))
+				if(SQLload_character(default_slot))
 					current_slot = getCharSlot()
 					return
+			/*if(load_preferences())
+				if(load_character())
+					current_slot = getCharSlot_File()
+						return*/
+			//this ensure that if db fail the file system is used*/
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
 
@@ -1595,16 +1600,29 @@ datum/preferences
 					toggles ^= CHAT_GHOSTRADIO
 
 				if("save")
-					save_preferences()
-					SQLsave_character(current_slot)
-					save_character()
+					for(var/ckey in preferences_datums)
+						var/datum/preferences/D = preferences_datums[ckey]
+						if(D == src)
+							//switch comment to switch to file save system
+							SavePrefData(ckey)
+							SQLsave_character(current_slot)
+							//save_preferences()
+							//save_character()
 
 				if("reload")
-					load_preferences()
-					load_character()
+					for(var/ckey in preferences_datums)
+						var/datum/preferences/D = preferences_datums[ckey]
+						if(D == src)
+							//switch comment to switch to file save system
+							LoadPrefData(ckey)
+							SQLload_character(current_slot)
+							//load_preferences()
+							//load_character()
 
 				if("open_load_dialog")
 					if(!IsGuestKey(user.key))
+						//file system preferences
+						//open_load_dialog_file(user)
 						open_load_dialog(user)
 
 				if("close_load_dialog")
@@ -1612,7 +1630,10 @@ datum/preferences
 
 				if("changeslot")
 					current_slot = text2num(href_list["num"])
-					load_character(current_slot)
+					SQLload_character(current_slot)
+					//file system load
+					//load_character()
+
 					close_load_dialog(user)
 
 	ShowChoices(user)
@@ -1730,6 +1751,42 @@ datum/preferences
 	var/dat = "<body>"
 	dat += "<tt><center>"
 
+	for(var/ckey in preferences_datums)
+		var/datum/preferences/D = preferences_datums[ckey]
+		if(D == src)
+			var/TextQuery = "SELECT Character_Name FROM SS13_characters WHERE ckey = '[ckey]' ORDER BY slot"
+			var/DBQuery/query
+			establish_db_connection()
+			if(!dbcon.IsConnected())
+				open_load_dialog_file(user)
+			query = dbcon.NewQuery(TextQuery)
+			query.Execute()
+			var/rows
+			if(!query.RowCount())
+				rows = 0
+			else
+				rows = query.RowCount()
+			dat += "<b>Select a character slot to load (SQL Edition !)</b><hr>"
+			var/name
+			for(var/i=1, i<= config.character_slots, i++)
+				if(i<=rows)
+					query.NextRow()
+					name = query.item[i]
+				else name = "Character[i]"
+				if(i==default_slot)
+					name = "<b>[name]</b>"
+				dat += "<a href='?_src_=prefs;preference=changeslot;num=[i];'>[name]</a><br>"
+
+	dat += "<hr>"
+	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
+	dat += "</center></tt>"
+	user << browse(dat, "window=saves;size=300x390")
+
+
+/datum/preferences/proc/open_load_dialog_file(mob/user)
+	var/dat = "<body>"
+	dat += "<tt><center>"
+
 	var/savefile/S = new /savefile(path)
 	if(S)
 		dat += "<b>Select a character slot to load</b><hr>"
@@ -1747,7 +1804,25 @@ datum/preferences
 	dat += "</center></tt>"
 	user << browse(dat, "window=saves;size=300x390")
 
-/datum/preferences/proc/getCharSlot() //get character slot from savefile
+/datum/preferences/proc/getCharSlot()
+	for(var/ckey in preferences_datums)
+		var/datum/preferences/D = preferences_datums[ckey]
+		if(D == src)
+			var/TextQuery = "SELECT slot FROM SS13_characters WHERE ckey = '[ckey]' AND name = '[real_name]'"
+			var/DBQuery/query
+			establish_db_connection()
+			if(!dbcon.IsConnected())
+				getCharSlot_File()
+			query = dbcon.NewQuery(TextQuery)
+			query.Execute()
+			if(!query.RowCount())
+				return 1
+			query.NextRow()
+			return query.item[1]
+		return 1
+
+
+/datum/preferences/proc/getCharSlot_File() //get character slot from savefile
 	var/savefile/S = new /savefile(path)
 	if(S)
 		var/name

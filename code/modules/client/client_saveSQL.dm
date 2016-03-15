@@ -14,8 +14,8 @@ var/char_slot
 	char_slot = cslot
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
-		log_debug("Ckey is [ckey]")
 		if(D == src)
+			log_debug("Ckey is [ckey]")
 			establish_db_connection()
 			if(!dbcon.IsConnected())
 				return 0
@@ -26,18 +26,17 @@ var/char_slot
 					query = dbcon.NewQuery("INSERT INTO ss13_characters (ckey, slot) VALUES ('[ckey]', '[cslot]')")
 					query.Execute()
 					log_debug(dbcon.ErrorMsg())
-					getCharId()
+					getCharId(ckey)
 					InsertCharData()
 					InsertJobsData()
 					InsertFlavourData()
 					InsertRobotFlavourData()
 					InsertMiscData()
+					InsertSkillsData()
+					InsertGearData()
+					InsertOrgansData()
 					log_debug(dbcon.ErrorMsg())
-					TextQuery = "UPDATE SS13_characters SET Character_key = (SELECT id FROM characters_data WHERE char_id = [char_id]), "
-					TextQuery += "Jobs_key = (SELECT id FROM characters_jobs WHERE char_id = [char_id]), "
-					TextQuery += "Flavour_key = (SELECT id FROM characters_flavour WHERE char_id = [char_id]), "
-					TextQuery += "Misc_key = (SELECT id FROM characters_misc WHERE char_id = [char_id]), "
-					TextQuery += "Robot_key = (SELECT id FROM characters_robot_flavour WHERE char_id = [char_id]) WHERE id = [char_id] "
+					TextQuery = "UPDATE SS13_characters SET Character_Name = (SELECT name FROM characters_data WHERE char_id = '[char_id]')"
 					query = dbcon.NewQuery(TextQuery)
 					query.Execute()
 					log_debug(dbcon.ErrorMsg())
@@ -49,14 +48,25 @@ var/char_slot
 					UpdateFlavourData()
 					UpdateRobotFlavourData()
 					UpdateMiscData()
+					UpdateSkillsData()
+					UpdateGearData()
+					UpdateOrgansData()
 			log_debug("Save query executed")
 			return 1
 	log_debug("No ckey in datums")
 	return 0
 
 /datum/preferences/proc/SQLload_character(slot)
+	var/pckey
+	for(var/ckey in preferences_datums)
+		var/datum/preferences/D = preferences_datums[ckey]
+		if(D == src)
+			pckey = ckey
+	establish_db_connection()
+	if(!dbcon.IsConnected())
+		return 0
 	char_slot = slot
-	if(!getCharId())
+	if(!getCharId(pckey))
 		return 0
 	log_debug("Loading character ID [char_id] from slot [char_slot]")
 	if(LoadCharData())
@@ -64,25 +74,30 @@ var/char_slot
 			if(LoadFlavourData())
 				if(LoadRobotFlavourData())
 					if(LoadMiscData())
-						return 1
+						if(LoadSkillsData())
+							if(LoadGearData())
+								if(LoadOrgansData())
+									return 1
 	return 0
 
 /datum/preferences/proc/getCharId(var/ckey)
 	TextQuery = "SELECT id FROM ss13_characters WHERE ckey='[ckey]' AND slot = '[char_slot]'"
 	log_debug(TextQuery)
-	query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey='[ckey]' AND slot = '[char_slot]'")
+	query = dbcon.NewQuery(TextQuery)
 	log_debug("Query ready")
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	var/rowDebug = query.RowCount()
 	log_debug("Query executed, [rowDebug] rows")
 	if(!query.RowCount())
-		return null
+		return 0
 	query.NextRow()
 	char_id = query.item[1]
 	log_debug("GetCharId : [char_id]")
 	return char_id
 
 /datum/preferences/proc/InsertCharData()
+	log_debug("Insert Char Data")
 	TextQuery = "INSERT INTO characters_data (age, backbag, b_type, char_id, eyes_B, eyes_G, eyes_R, facial_B, facial_G, facial_R, facial_style, "
 	TextQuery += "gender, hair_B, hair_G, hair_R, hair_style, isRandom, language, name, OOC,skin_B, skin_G, skin_R, skin_tone, spawnpoint, species, undershirt, underwear) VALUES "
 	TextQuery += "('[age]', '[backbag]', '[b_type]', '[char_id]', '[b_eyes]', '[g_eyes]', '[r_eyes]', '[b_facial]', '[g_facial]', '[r_facial]', '[f_style]', "
@@ -91,9 +106,11 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateCharData()
+	log_debug("Update Char Data")
 	TextQuery = "UPDATE characters_data SET age = '[age]', backbag='[backbag]', b_type='[b_type]', eyes_B = '[b_eyes]', eyes_G='[g_eyes]', eyes_R='[r_eyes]',"
 	TextQuery += "facial_B='[b_facial]', facial_G='[g_facial]', facial_R='[r_facial]', facial_style='[f_style]', gender = '[gender]', hair_B='[b_hair]', hair_G='[g_hair]',"
 	TextQuery += "hair_R='[r_hair]', hair_style='[h_style]', isRandom='[be_random_name]', language='[language]', name='[real_name]', OOC='[metadata]',skin_B='[b_skin]', skin_G='[g_skin]',"
@@ -102,15 +119,18 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadCharData()
+	log_debug("Load char data")
 	TextQuery = "SELECT age, backbag, b_type, eyes_B, eyes_G, eyes_R, facial_B, facial_G, facial_R, facial_style, gender, "
 	TextQuery += "hair_B, hair_G, hair_R, hair_style, isRandom, language, name, OOC, skin_B, skin_G, skin_R, skin_tone, spawnpoint, species, undershirt, underwear "
 	TextQuery += "FROM character_data WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -145,28 +165,34 @@ var/char_slot
 	return 1
 
 /datum/preferences/proc/InsertJobsData()
+	log_debug("Insert jobs")
 	TextQuery = "INSERT INTO characters_jobs (char_id, Alternate, civ_high, civ_med, civ_low, medsci_high, medsci_med, medsci_low, engsec_high, engsec_med, engsec_low) "
-	TextQuery += " VALUES ('[alternate_option]', '[job_civilian_high]', '[job_civilian_med]', '[job_civilian_low]', '[job_medsci_high]', '[job_medsci_med]', '[job_medsci_low]', "
+	TextQuery += " VALUES ('[char_id]','[alternate_option]', '[job_civilian_high]', '[job_civilian_med]', '[job_civilian_low]', '[job_medsci_high]', '[job_medsci_med]', '[job_medsci_low]', "
 	TextQuery += "'[job_engsec_high]', '[job_engsec_med]', '[job_engsec_low]')"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateJobsData()
+	log_debug("update jobs")
 	TextQuery = "UPDATE characters_jobs SET Alternate='[alternate_option]', civ_high='[job_civilian_high]', civ_med='[job_civilian_med]', civ_low='[job_civilian_low]', "
 	TextQuery += "medsci_high='[job_medsci_high]', medsci_med='[job_medsci_med]', medsci_low='[job_medsci_low]', "
 	TextQuery += "engsec_high='[job_engsec_high]', engsec_med='[job_engsec_med]', engsec_low='[job_engsec_low]' WHERE char_id = [char_id] "
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadJobsData()
+	log_debug("load_jobs")
 	TextQuery = "SELECT * FROM characters_jobs WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -184,28 +210,34 @@ var/char_slot
 	return 1
 
 /datum/preferences/proc/InsertFlavourData()
+	log_debug("insert flavour")
 	TextQuery = "INSERT INTO characters_flavour (char_id, generals, head, face, eyes, torso, arms, hands, legs, feet) "
 	TextQuery += " VALUES ('[char_id]','[flavor_texts["general"]]', '[flavor_texts["head"]]', '[flavor_texts["face"]]', '[flavor_texts["eyes"]]', '[flavor_texts["torso"]]', "
 	TextQuery += "'[flavor_texts["arms"]]', '[flavor_texts["hands"]]', '[flavor_texts["legs"]]', '[flavor_texts["feet"]]')"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateFlavourData()
+	log_debug("update flavour")
 	TextQuery = "UPDATE characters_flavour SET generals='[flavor_texts["general"]]', head='[flavor_texts["head"]]', face='[flavor_texts["face"]]', eyes='[flavor_texts["eyes"]]', "
 	TextQuery += "torso='[flavor_texts["torso"]]', arms='[flavor_texts["arms"]]', hands='[flavor_texts["hands"]]', legs='[flavor_texts["legs"]]', feet='[flavor_texts["feet"]]' "
 	TextQuery += "WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadFlavourData()
+	log_debug("load flavour")
 	TextQuery = "SELECT * FROM characters_flavour WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -222,6 +254,7 @@ var/char_slot
 	return 1
 
 /datum/preferences/proc/InsertRobotFlavourData()
+	log_debug("insert robot")
 	TextQuery = "INSERT INTO characters_robot_flavour (char_id, Default_Robot, Standard, Engineering, Construction, Surgeon, Crisis, Miner, Janitor, Service, Clerical, Security, Research) "
 	TextQuery += " VALUES ('[char_id]','[flavour_texts_robot["Default"]]', '[flavour_texts_robot["Standard"]]', '[flavour_texts_robot["Engineering"]]', '[flavour_texts_robot["Construction"]]', "
 	TextQuery += "'[flavour_texts_robot["Surgeon"]]', '[flavour_texts_robot["Crisis"]]', '[flavour_texts_robot["Miner"]]', '[flavour_texts_robot["Janitor"]]', '[flavour_texts_robot["Service"]]', "
@@ -229,9 +262,11 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateRobotFlavourData()
+	log_debug("update robot")
 	TextQuery = "UPDATE characters_robot_flavour SET Default_Robot='[flavour_texts_robot["Default"]]', Standard='[flavour_texts_robot["Standard"]]', Engineering='[flavour_texts_robot["Engineering"]]', "
 	TextQuery += "Construction='[flavour_texts_robot["Construction"]]', Surgeon='[flavour_texts_robot["Surgeon"]]', Crisis='[flavour_texts_robot["Crisis"]]', Miner='[flavour_texts_robot["Miner"]]', "
 	TextQuery += "Janitor='[flavour_texts_robot["Janitor"]]', Service='[flavour_texts_robot["Service"]]', Clerical='[flavour_texts_robot["Clerical"]]', "
@@ -239,13 +274,16 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadRobotFlavourData()
+	log_debug("load robot")
 	TextQuery = "SELECT * FROM characters_robot_flavour WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -265,32 +303,38 @@ var/char_slot
 	return 1
 
 /datum/preferences/proc/InsertMiscData()
+	log_debug("insert misc")
 	sanitizePrefs()
-	TextQuery = "INSERT INTO characters_misc (char_id, med_rec, sec_rec, gen_rec, alt_titles, disab, used_skill, skills, skills_spec, organ_dat, limb_dat, gear,"
+	TextQuery = "INSERT INTO characters_misc (char_id, med_rec, sec_rec, gen_rec, disab, used_skill, skills_spec, "
 	TextQuery += "home_sys, citizen, faction, religion, NT_relation, uplink_loc, exploit_rec) VALUES ("
-	TextQuery += "'[char_id]', '[med_record]', '[sec_record]', '[gen_record]', '[player_alt_titles]', '[disabilities]', '[used_skillpoints]', '[skills]', "
-	TextQuery += "'[skill_specialization]', '[organ_data]', '[rlimb_data]', '[gear]', '[home_system]', '[citizenship]', '[faction]', '[religion]', '[nanotrasen_relation]', "
+	TextQuery += "'[char_id]', '[med_record]', '[sec_record]', '[gen_record]', '[disabilities]', '[used_skillpoints]', "
+	TextQuery += "'[skill_specialization]', '[home_system]', '[citizenship]', '[faction]', '[religion]', '[nanotrasen_relation]', "
 	TextQuery += "'[uplinklocation]', '[exploit_record]')"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateMiscData()
-	TextQuery = "UPDATE characters_misc SET med_rec='[med_record]', sec_rec='[sec_record]', gen_rec='[gen_record]', alt_titles='[player_alt_titles]', disab='[disabilities]', "
-	TextQuery += "used_skill='[used_skillpoints]', skills='[skills]', skills_spec='[skill_specialization]', organ_dat='[organ_data]', limb_dat='[rlimb_data]', gear='[gear]', "
+	log_debug("update misc")
+	TextQuery = "UPDATE characters_misc SET med_rec='[med_record]', sec_rec='[sec_record]', gen_rec='[gen_record]', disab='[disabilities]', "
+	TextQuery += "used_skill='[used_skillpoints]', skills_spec='[skill_specialization]', "
 	TextQuery += "home_sys='[home_system]', citizen='[citizenship]', faction='[faction]', religion='[religion]', NT_relation='[nanotrasen_relation]', uplink_loc='[uplinklocation]', "
 	TextQuery += "exploit_rec='[exploit_record]' WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadMiscData()
+	log_debug("load_misc")
 	TextQuery = "SELECT * FROM characters_misc WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -298,37 +342,256 @@ var/char_slot
 	med_record = query.item[3]
 	sec_record = query.item[4]
 	gen_record = query.item[5]
-	player_alt_titles = query.item[6]
-	disabilities = query.item[7]
-	used_skillpoints = query.item[8]
-	skills = query.item[9]
-	skill_specialization = query.item[10]
-	organ_data = query.item[11]
-	rlimb_data = query.item[12]
-	gear = query.item[13]
-	home_system = query.item[14]
-	citizenship = query.item[15]
-	faction = query.item[16]
-	religion = query.item[17]
-	nanotrasen_relation = query.item[18]
-	uplinklocation = query.item[19]
-	exploit_record = query.item[20]
+	disabilities = query.item[6]
+	used_skillpoints = query.item[7]
+	skill_specialization = query.item[8]
+	home_system = query.item[9]
+	citizenship = query.item[10]
+	faction = query.item[11]
+	religion = query.item[12]
+	nanotrasen_relation = query.item[13]
+	uplinklocation = query.item[14]
+	exploit_record = query.item[15]
+	return 1
+
+/datum/preferences/proc/InsertSkillsData()
+	log_debug("insert skills")
+	TextQuery = "INSERT INTO characters_skills (char_id, Command, Botany, Cooking, Close_Combat, Weapons_Expertise, Forensics, NanoTrasen_Law, EVA, "
+	TextQuery += "Construction, Electrical, Atmos, Engines, Heavy_Mach, Complex_Devices, Information_Tech, Genetics, Chemistry, Science, Medicine, Anatomy, Virology) VALUES "
+	TextQuery += "('[char_id]', '[skills["management"]]', '[skills["botany"]]', '[skills["cooking"]]', '[skills["combat"]]', '[skills["weapons"]]', '[skills["forensics"]]', '[skills["law"]]', '[skills["EVA"]]',"
+	TextQuery += " '[skills["construction"]]', '[skills["electrical"]]', '[skills["atmos"]]', '[skills["engines"]]', '[skills["pilot"]]', '[skills["devices"]]', '[skills["computer"]]', '[skills["genetics"]]',"
+	TextQuery += " '[skills["chemistry"]]', '[skills["science"]]', '[skills["medical"]]', '[skills["anatomy"]]', '[skills["virology"]]')"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	return 1
+
+/datum/preferences/proc/UpdateSkillsData()
+	log_debug("update skills")
+	TextQuery = "UPDATE characters_skills SET Command='[skills["management"]]', Botany='[skills["botany"]]', Cooking='[skills["cooking"]]', Close_Combat='[skills["combat"]]', "
+	TextQuery += "Weapons_Expertise='[skills["weapons"]]', Forensics='[skills["forensics"]]', NanoTrasen_Law='[skills["law"]]', EVA='[skills["EVA"]]', "
+	TextQuery += "Construction='[skills["construction"]]', Electrical='[skills["electrical"]]', Atmos='[skills["atmos"]]', Engines, Heavy_Mach='[skills["pilot"]]', Complex_Devices='[skills["devices"]]', "
+	TextQuery += "Information_Tech='[skills["computer"]]', Genetics='[skills["genetics"]]', Chemistry='[skills["chemistry"]]', Science='[skills["science"]]', Medicine='[skills["medical"]]', "
+	TextQuery += "Anatomy='[skills["anatomy"]]', Virology='[skills["virology"]]' WHERE char_id = '[char_id]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	return 1
+
+/datum/preferences/proc/LoadSkillsData()
+	log_debug("load skills")
+	TextQuery = "SELECT * FROM characters_skills WHERE char_id = '[char_id]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	if(!query.RowCount())
+		return 0
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	skills["management"] = query.item[3]
+	skills["botany"] = query.item[4]
+	skills["cooking"] = query.item[5]
+	skills["combat"] = query.item[6]
+	skills["weapons"] = query.item[7]
+	skills["forensics"] = query.item[8]
+	skills["law"] = query.item[9]
+	skills["EVA"] = query.item[10]
+	skills["construction"] = query.item[11]
+	skills["electrical"] = query.item[12]
+	skills["atmos"] = query.item[13]
+	skills["engines"] = query.item[14]
+	skills["pilot"] = query.item[15]
+	skills["devices"] = query.item[16]
+	skills["computer"] = query.item[17]
+	skills["genetics"] = query.item[18]
+	skills["chemistry"] = query.item[19]
+	skills["science"] = query.item[20]
+	skills["medical"] = query.item[21]
+	skills["anatomy"] = query.item[22]
+	skills["virology"] = query.item[23]
+	return 1
+
+/datum/preferences/proc/InsertGearData()
+	log_debug("insert gear")
+	var/loop_id = 0
+	for(var/gear_name in gear)
+		if(gear_name)
+			loop_id += 1
+			switch(loop_id)
+				if(1) TextQuery = "INSERT INTO characters_gear (char_id, gear1) VALUES ('[char_id]', '[gear_name]')"
+				if(2) TextQuery = "UPDATE characters_gear SET gear2='[gear_name]' WHERE char_id = '[char_id]'"
+				if(3) TextQuery = "UPDATE characters_gear SET gear3='[gear_name]' WHERE char_id = '[char_id]'"
+				if(4) TextQuery = "UPDATE characters_gear SET gear4='[gear_name]' WHERE char_id = '[char_id]'"
+				if(5) TextQuery = "UPDATE characters_gear SET gear5='[gear_name]' WHERE char_id = '[char_id]'"
+			query = dbcon.NewQuery(TextQuery)
+			query.Execute()
+			log_debug(dbcon.ErrorMsg())
+		else
+			TextQuery = "INSERT INTO characters_gear (char_id) VALUES ('[char_id]')"
+			query = dbcon.NewQuery(TextQuery)
+			query.Execute()
+			log_debug(dbcon.ErrorMsg())
+	return 1
+
+/datum/preferences/proc/UpdateGearData()
+	log_debug("update gear")
+	var/loop_id = 0
+	for(var/gear_name in gear)
+		if(gear_name)
+			loop_id += 1
+			switch(loop_id)
+				if(1) TextQuery = "UPDATE characters_gear SET gear1='[gear_name]' WHERE char_id = '[char_id]'"
+				if(2) TextQuery = "UPDATE characters_gear SET gear2='[gear_name]' WHERE char_id = '[char_id]'"
+				if(3) TextQuery = "UPDATE characters_gear SET gear3='[gear_name]' WHERE char_id = '[char_id]'"
+				if(4) TextQuery = "UPDATE characters_gear SET gear4='[gear_name]' WHERE char_id = '[char_id]'"
+				if(5) TextQuery = "UPDATE characters_gear SET gear5='[gear_name]' WHERE char_id = '[char_id]'"
+			query = dbcon.NewQuery(TextQuery)
+			query.Execute()
+			log_debug(dbcon.ErrorMsg())
+	while(loop_id<5)
+		loop_id += 1
+		switch(loop_id)
+			if(1) TextQuery = "UPDATE characters_gear SET gear1=NULL WHERE char_id = '[char_id]'"
+			if(2) TextQuery = "UPDATE characters_gear SET gear2=NULL WHERE char_id = '[char_id]'"
+			if(3) TextQuery = "UPDATE characters_gear SET gear3=NULL WHERE char_id = '[char_id]'"
+			if(4) TextQuery = "UPDATE characters_gear SET gear4=NULL WHERE char_id = '[char_id]'"
+			if(5) TextQuery = "UPDATE characters_gear SET gear5=NULL WHERE char_id = '[char_id]'"
+		query = dbcon.NewQuery(TextQuery)
+		query.Execute()
+		log_debug(dbcon.ErrorMsg())
+	return 1
+
+/datum/preferences/proc/LoadGearData()
+	log_debug("load gear")
+	TextQuery = "SELECT * FROM characters_gear WHERE char_id = '[char_id]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	if(!query.RowCount())
+		return 0
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	gear = list()
+	for(var/gear_name in query.item)
+		if(gear_name!=0)
+			gear += gear_name
+	return 1
+
+/datum/preferences/proc/InsertOrgansData()
+	log_debug("insert organs")
+	sanitizePrefs()
+	TextQuery = "INSERT INTO characters_organs (char_id, l_leg, r_leg, l_arm, r_arm, l_foot, r_foot, l_hand, r_hand, heart, eyes) VALUES ("
+	TextQuery += "'[char_id]', '[organ_data["l_leg"]]', '[organ_data["r_leg"]]', '[organ_data["l_arm"]]', '[organ_data["r_arm"]]', '[organ_data["l_foot"]]', '[organ_data["r_foot"]]', "
+	TextQuery += "'[organ_data["l_hand"]]', '[organ_data["r_hand"]]', '[organ_data["heart"]]', '[organ_data["eyes"]]')"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	InsertRorgansData()
+	return 1
+
+/datum/preferences/proc/UpdateOrgansData()
+	log_debug("update organs")
+	sanitizePrefs()
+	TextQuery = "UPDATE characters_organs SET char_id='[char_id]', l_leg='[organ_data["l_leg"]]', r_leg='[organ_data["r_leg"]]', l_arm='[organ_data["l_arm"]]', r_arm='[organ_data["r_arm"]]', "
+	TextQuery += "l_foot='[organ_data["l_foot"]]', r_foot='[organ_data["r_foot"]]', l_hand='[organ_data["l_hand"]]', r_hand='[organ_data["r_hand"]]', heart='[organ_data["heart"]]', eyes='[organ_data["eyes"]]')"
+	TextQuery += " WHERE char_id = '[char_id]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	UpdateRorgansData()
+	return 1
+
+/datum/preferences/proc/LoadOrgansData()
+	log_debug("load organs")
+	TextQuery = "SELECT * FROM characters_organs WHERE char_id = '[char_id]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	if(!query.RowCount())
+		return 0
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	organ_data["l_leg"] = query.item[3]
+	organ_data["r_leg"] = query.item[4]
+	organ_data["l_arm"] = query.item[5]
+	organ_data["r_arm"] = query.item[6]
+	organ_data["l_foot"] = query.item[7]
+	organ_data["r_foot"] = query.item[8]
+	organ_data["l_hand"] = query.item[9]
+	organ_data["r_hand"] = query.item[10]
+	organ_data["heart"] = query.item[11]
+	organ_data["eyes"] = query.item[12]
+	LoadRorgansData()
+	return 1
+
+/datum/preferences/proc/InsertRorgansData()
+	log_debug("insert robotics organs")
+	sanitizePrefs()
+	TextQuery = "INSERT INTO characters_rlimb (char_id, l_leg, r_leg, l_arm, r_arm, l_foot, r_foot, l_hand, r_hand) VALUES ("
+	TextQuery += "'[char_id]', '[rlimb_data["l_leg"]]', '[rlimb_data["r_leg"]]', '[rlimb_data["l_arm"]]', '[rlimb_data["r_arm"]]', '[rlimb_data["l_foot"]]', '[rlimb_data["r_foot"]]', "
+	TextQuery += "'[rlimb_data["l_hand"]]', '[rlimb_data["r_hand"]]')"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	return 1
+
+/datum/preferences/proc/UpdateRorgansData()
+	log_debug("update robotics organs")
+	sanitizePrefs()
+	TextQuery = "UPDATE characters_rlimb SET char_id='[char_id]', l_leg='[rlimb_data["l_leg"]]', r_leg='[rlimb_data["r_leg"]]', l_arm='[rlimb_data["l_arm"]]', r_arm='[rlimb_data["r_arm"]]', "
+	TextQuery += "l_foot='[rlimb_data["l_foot"]]', r_foot='[rlimb_data["r_foot"]]', l_hand='[rlimb_data["l_hand"]]', r_hand='[rlimb_data["r_hand"]]', heart='[rlimb_data["heart"]]', eyes='[rlimb_data["eyes"]]')"
+	TextQuery += " WHERE char_id = '[char_id]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	return 1
+
+/datum/preferences/proc/LoadRorgansData()
+	log_debug("load robotics organs")
+	TextQuery = "SELECT * FROM characters_rlimb WHERE char_id = '[char_id]'"
+	log_debug(TextQuery)
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	log_debug(dbcon.ErrorMsg())
+	if(!query.RowCount())
+		return 0
+	log_debug("Load query executed successfully")
+	query.NextRow()
+	rlimb_data["l_leg"] = query.item[3]
+	rlimb_data["r_leg"] = query.item[4]
+	rlimb_data["l_arm"] = query.item[5]
+	rlimb_data["r_arm"] = query.item[6]
+	rlimb_data["l_foot"] = query.item[7]
+	rlimb_data["r_foot"] = query.item[8]
+	rlimb_data["l_hand"] = query.item[9]
+	rlimb_data["r_hand"] = query.item[10]
 	return 1
 
 /datum/preferences/proc/SavePrefData(var/ckey)
-	TextQuery = "SELECT * FROM characters_misc WHERE ckey = [ckey]"
+	TextQuery = "SELECT * FROM player_preferences WHERE ckey = [ckey]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	if(query.RowCount())
+	if(!query.RowCount())
+		sanitizePrefs()
+		TextQuery = "INSERT INTO player_preferences (ckey, ooccolor, lastchangelog, UI_style, default_slot, toggles, UI_style_color, UI_style_alpha, be_special) "
+		TextQuery += "VALUES ('[ckey]', '[ooccolor]','[lastchangelog]', '[UI_style]', '[default_slot]', '[toggles]', '[UI_style_color]', '[UI_style_alpha]','[be_special]')"
+		log_debug(TextQuery)
+		query = dbcon.NewQuery(TextQuery)
+		query.Execute()
+		log_debug(dbcon.ErrorMsg())
+		return 1
+	else
 		return UpdatePrefData(ckey)
-	sanitizePrefs()
-	TextQuery = "INSERT INTO player_preferences (ckey, ooccolor, lastchangelog, UI_style, default_slot, toggles, UI_style_color, UI_style_alpha, be_special) "
-	TextQuery += "VALUES ('[ckey]', '[ooccolor]','[lastchangelog]', '[UI_style]', '[default_slot]', '[toggles]', '[UI_style_color]', '[UI_style_alpha]','[be_special]')"
-	log_debug(TextQuery)
-	query = dbcon.NewQuery(TextQuery)
-	query.Execute()
-	return 1
 
 /datum/preferences/proc/UpdatePrefData(var/ckey)
 	sanitizePrefs()
@@ -337,15 +600,20 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadPrefData(var/ckey)
-	TextQuery = "SELECT * FROM characters_misc WHERE ckey = [ckey]"
+	establish_db_connection()
+	if(!dbcon.IsConnected())
+		return 0
+	TextQuery = "SELECT * FROM player_preferences WHERE ckey = '[ckey]'"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
-		return SavePrefData(ckey)
+		return 0
 	log_debug("Load query executed successfully")
 	query.NextRow()
 	ooccolor = query.item[3]
