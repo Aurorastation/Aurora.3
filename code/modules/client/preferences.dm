@@ -140,15 +140,16 @@ datum/preferences
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
+			log_debug("loading data for [C.ckey]")
 			if(LoadPrefData(C.ckey))
-				if(SQLload_character(default_slot))
+				if(SQLload_character(default_slot, C.ckey))
 					current_slot = getCharSlot()
 					return
-			/*if(load_preferences())
-				if(load_character())
+			if(load_preferences())
+				if(load_character(default_slot))
 					current_slot = getCharSlot_File()
-						return*/
-			//this ensure that if db fail the file system is used*/
+					return
+			//this ensure that if db fail the file system is used
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
 
@@ -1605,7 +1606,7 @@ datum/preferences
 						if(D == src)
 							//switch comment to switch to file save system
 							SavePrefData(ckey)
-							SQLsave_character(current_slot)
+							SQLsave_character(current_slot, ckey)
 							//save_preferences()
 							//save_character()
 
@@ -1615,7 +1616,7 @@ datum/preferences
 						if(D == src)
 							//switch comment to switch to file save system
 							LoadPrefData(ckey)
-							SQLload_character(current_slot)
+							SQLload_character(current_slot, ckey)
 							//load_preferences()
 							//load_character()
 
@@ -1629,8 +1630,11 @@ datum/preferences
 					close_load_dialog(user)
 
 				if("changeslot")
-					current_slot = text2num(href_list["num"])
-					SQLload_character(current_slot)
+					for(var/ckey in preferences_datums)
+						var/datum/preferences/D = preferences_datums[ckey]
+						if(D == src)
+							current_slot = text2num(href_list["num"])
+							SQLload_character(current_slot, ckey)
 					//file system load
 					//load_character()
 
@@ -1769,9 +1773,11 @@ datum/preferences
 			dat += "<b>Select a character slot to load (SQL Edition !)</b><hr>"
 			var/name
 			for(var/i=1, i<= config.character_slots, i++)
+				log_debug("[rows] rows queried, i = [i]")
 				if(i<=rows)
 					query.NextRow()
-					name = query.item[i]
+					name = query.item[1]
+					log_debug("adding [query.item[1]] to list")
 				else name = "Character[i]"
 				if(i==default_slot)
 					name = "<b>[name]</b>"

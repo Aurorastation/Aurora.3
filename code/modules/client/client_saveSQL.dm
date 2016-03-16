@@ -36,7 +36,7 @@ var/char_slot
 					InsertGearData()
 					InsertOrgansData()
 					log_debug(dbcon.ErrorMsg())
-					TextQuery = "UPDATE SS13_characters SET Character_Name = (SELECT name FROM characters_data WHERE char_id = '[char_id]')"
+					TextQuery = "UPDATE SS13_characters SET Character_Name = (SELECT name FROM characters_data WHERE char_id = '[char_id]') WHERE id = '[char_id]'"
 					query = dbcon.NewQuery(TextQuery)
 					query.Execute()
 					log_debug(dbcon.ErrorMsg())
@@ -56,12 +56,7 @@ var/char_slot
 	log_debug("No ckey in datums")
 	return 0
 
-/datum/preferences/proc/SQLload_character(slot)
-	var/pckey
-	for(var/ckey in preferences_datums)
-		var/datum/preferences/D = preferences_datums[ckey]
-		if(D == src)
-			pckey = ckey
+/datum/preferences/proc/SQLload_character(var/slot, var/pckey)
 	establish_db_connection()
 	if(!dbcon.IsConnected())
 		return 0
@@ -77,6 +72,7 @@ var/char_slot
 						if(LoadSkillsData())
 							if(LoadGearData())
 								if(LoadOrgansData())
+									SanitizeCharacter()
 									return 1
 	return 0
 
@@ -114,8 +110,8 @@ var/char_slot
 	TextQuery = "UPDATE characters_data SET age = '[age]', backbag='[backbag]', b_type='[b_type]', eyes_B = '[b_eyes]', eyes_G='[g_eyes]', eyes_R='[r_eyes]',"
 	TextQuery += "facial_B='[b_facial]', facial_G='[g_facial]', facial_R='[r_facial]', facial_style='[f_style]', gender = '[gender]', hair_B='[b_hair]', hair_G='[g_hair]',"
 	TextQuery += "hair_R='[r_hair]', hair_style='[h_style]', isRandom='[be_random_name]', language='[language]', name='[real_name]', OOC='[metadata]',skin_B='[b_skin]', skin_G='[g_skin]',"
-	TextQuery += "skin_R='[r_skin]', skin_tone='[s_tone]', spawnpoint='[spawnpoint]', species='[species]', undershirt='[undershirt]', underwear='[underwear]' "
-	TextQuery += "WHERE char_id = [char_id]"
+	TextQuery += "skin_R='[r_skin]', skin_tone='[s_tone]', spawnpoint='[spawnpoint]', species='[species]', undershirt='[undershirt]', underwear='[underwear]'"
+	TextQuery += "WHERE char_id = '[char_id]'"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
@@ -126,7 +122,7 @@ var/char_slot
 	log_debug("Load char data")
 	TextQuery = "SELECT age, backbag, b_type, eyes_B, eyes_G, eyes_R, facial_B, facial_G, facial_R, facial_style, gender, "
 	TextQuery += "hair_B, hair_G, hair_R, hair_style, isRandom, language, name, OOC, skin_B, skin_G, skin_R, skin_tone, spawnpoint, species, undershirt, underwear "
-	TextQuery += "FROM character_data WHERE char_id = [char_id]"
+	TextQuery += "FROM characters_data WHERE char_id = [char_id]"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
@@ -135,29 +131,29 @@ var/char_slot
 		return 0
 	log_debug("Load query executed successfully")
 	query.NextRow()
-	age = query.item[1]
-	backbag = query.item[2]
-	b_type = query.item[3]
-	b_eyes = query.item[4]
-	g_eyes = query.item[5]
-	r_eyes = query.item[6]
-	b_facial = query.item[7]
-	g_facial = query.item[8]
-	r_facial = query.item[9]
+	age = text2num(query.item[1])
+	backbag = text2num(query.item[2])
+	b_type = text2num(query.item[3])
+	b_eyes = text2num(query.item[4])
+	g_eyes = text2num(query.item[5])
+	r_eyes = text2num(query.item[6])
+	b_facial = text2num(query.item[7])
+	g_facial = text2num(query.item[8])
+	r_facial = text2num(query.item[9])
 	f_style = query.item[10]
 	gender = query.item[11]
-	b_hair = query.item[12]
-	g_hair = query.item[13]
-	r_hair = query.item[14]
+	b_hair = text2num(query.item[12])
+	g_hair = text2num(query.item[13])
+	r_hair = text2num(query.item[14])
 	h_style = query.item[15]
-	be_random_name = query.item[16]
+	be_random_name = text2num(query.item[16])
 	language = query.item[17]
 	real_name = query.item[18]
 	metadata = query.item[19]
-	b_skin = query.item[20]
-	g_skin = query.item[21]
-	r_skin = query.item[22]
-	s_tone = query.item[23]
+	b_skin = text2num(query.item[20])
+	g_skin = text2num(query.item[21])
+	r_skin = text2num(query.item[22])
+	s_tone = text2num(query.item[23])
 	spawnpoint = query.item[24]
 	species = query.item[25]
 	undershirt = query.item[26]
@@ -197,16 +193,16 @@ var/char_slot
 		return 0
 	log_debug("Load query executed successfully")
 	query.NextRow()
-	alternate_option = query.item[3]
-	job_civilian_high = query.item[4]
-	job_civilian_med = query.item[5]
-	job_civilian_low = query.item[6]
-	job_medsci_high = query.item[7]
-	job_medsci_med = query.item[8]
-	job_medsci_low = query.item[9]
-	job_engsec_high = query.item[10]
-	job_engsec_med = query.item[11]
-	job_engsec_low = query.item[12]
+	alternate_option = text2num(query.item[3])
+	job_civilian_high = text2num(query.item[4])
+	job_civilian_med = text2num(query.item[5])
+	job_civilian_low = text2num(query.item[6])
+	job_medsci_high = text2num(query.item[7])
+	job_medsci_med = text2num(query.item[8])
+	job_medsci_low = text2num(query.item[9])
+	job_engsec_high = text2num(query.item[10])
+	job_engsec_med = text2num(query.item[11])
+	job_engsec_low = text2num(query.item[12])
 	return 1
 
 /datum/preferences/proc/InsertFlavourData()
@@ -342,8 +338,8 @@ var/char_slot
 	med_record = query.item[3]
 	sec_record = query.item[4]
 	gen_record = query.item[5]
-	disabilities = query.item[6]
-	used_skillpoints = query.item[7]
+	disabilities = text2num(query.item[6])
+	used_skillpoints = text2num(query.item[7])
 	skill_specialization = query.item[8]
 	home_system = query.item[9]
 	citizenship = query.item[10]
@@ -371,7 +367,7 @@ var/char_slot
 	log_debug("update skills")
 	TextQuery = "UPDATE characters_skills SET Command='[skills["management"]]', Botany='[skills["botany"]]', Cooking='[skills["cooking"]]', Close_Combat='[skills["combat"]]', "
 	TextQuery += "Weapons_Expertise='[skills["weapons"]]', Forensics='[skills["forensics"]]', NanoTrasen_Law='[skills["law"]]', EVA='[skills["EVA"]]', "
-	TextQuery += "Construction='[skills["construction"]]', Electrical='[skills["electrical"]]', Atmos='[skills["atmos"]]', Engines, Heavy_Mach='[skills["pilot"]]', Complex_Devices='[skills["devices"]]', "
+	TextQuery += "Construction='[skills["construction"]]', Electrical='[skills["electrical"]]', Atmos='[skills["atmos"]]', Engines='[skills["engines"]]', Heavy_Mach='[skills["pilot"]]', Complex_Devices='[skills["devices"]]', "
 	TextQuery += "Information_Tech='[skills["computer"]]', Genetics='[skills["genetics"]]', Chemistry='[skills["chemistry"]]', Science='[skills["science"]]', Medicine='[skills["medical"]]', "
 	TextQuery += "Anatomy='[skills["anatomy"]]', Virology='[skills["virology"]]' WHERE char_id = '[char_id]'"
 	log_debug(TextQuery)
@@ -391,27 +387,27 @@ var/char_slot
 		return 0
 	log_debug("Load query executed successfully")
 	query.NextRow()
-	skills["management"] = query.item[3]
-	skills["botany"] = query.item[4]
-	skills["cooking"] = query.item[5]
-	skills["combat"] = query.item[6]
-	skills["weapons"] = query.item[7]
-	skills["forensics"] = query.item[8]
-	skills["law"] = query.item[9]
-	skills["EVA"] = query.item[10]
-	skills["construction"] = query.item[11]
-	skills["electrical"] = query.item[12]
-	skills["atmos"] = query.item[13]
-	skills["engines"] = query.item[14]
-	skills["pilot"] = query.item[15]
-	skills["devices"] = query.item[16]
-	skills["computer"] = query.item[17]
-	skills["genetics"] = query.item[18]
-	skills["chemistry"] = query.item[19]
-	skills["science"] = query.item[20]
-	skills["medical"] = query.item[21]
-	skills["anatomy"] = query.item[22]
-	skills["virology"] = query.item[23]
+	skills["management"] = text2num(query.item[3])
+	skills["botany"] = text2num(query.item[4])
+	skills["cooking"] = text2num(query.item[5])
+	skills["combat"] = text2num(query.item[6])
+	skills["weapons"] = text2num(query.item[7])
+	skills["forensics"] = text2num(query.item[8])
+	skills["law"] = text2num(query.item[9])
+	skills["EVA"] = text2num(query.item[10])
+	skills["construction"] = text2num(query.item[11])
+	skills["electrical"] = text2num(query.item[12])
+	skills["atmos"] = text2num(query.item[13])
+	skills["engines"] = text2num(query.item[14])
+	skills["pilot"] = text2num(query.item[15])
+	skills["devices"] = text2num(query.item[16])
+	skills["computer"] = text2num(query.item[17])
+	skills["genetics"] = text2num(query.item[18])
+	skills["chemistry"] = text2num(query.item[19])
+	skills["science"] = text2num(query.item[20])
+	skills["medical"] = text2num(query.item[21])
+	skills["anatomy"] = text2num(query.item[22])
+	skills["virology"] = text2num(query.item[23])
 	return 1
 
 /datum/preferences/proc/InsertGearData()
@@ -426,11 +422,6 @@ var/char_slot
 				if(3) TextQuery = "UPDATE characters_gear SET gear3='[gear_name]' WHERE char_id = '[char_id]'"
 				if(4) TextQuery = "UPDATE characters_gear SET gear4='[gear_name]' WHERE char_id = '[char_id]'"
 				if(5) TextQuery = "UPDATE characters_gear SET gear5='[gear_name]' WHERE char_id = '[char_id]'"
-			query = dbcon.NewQuery(TextQuery)
-			query.Execute()
-			log_debug(dbcon.ErrorMsg())
-		else
-			TextQuery = "INSERT INTO characters_gear (char_id) VALUES ('[char_id]')"
 			query = dbcon.NewQuery(TextQuery)
 			query.Execute()
 			log_debug(dbcon.ErrorMsg())
@@ -454,11 +445,11 @@ var/char_slot
 	while(loop_id<5)
 		loop_id += 1
 		switch(loop_id)
-			if(1) TextQuery = "UPDATE characters_gear SET gear1=NULL WHERE char_id = '[char_id]'"
-			if(2) TextQuery = "UPDATE characters_gear SET gear2=NULL WHERE char_id = '[char_id]'"
-			if(3) TextQuery = "UPDATE characters_gear SET gear3=NULL WHERE char_id = '[char_id]'"
-			if(4) TextQuery = "UPDATE characters_gear SET gear4=NULL WHERE char_id = '[char_id]'"
-			if(5) TextQuery = "UPDATE characters_gear SET gear5=NULL WHERE char_id = '[char_id]'"
+			if(1) TextQuery = "UPDATE characters_gear SET gear1='NULL' WHERE char_id = '[char_id]'"
+			if(2) TextQuery = "UPDATE characters_gear SET gear2='NULL' WHERE char_id = '[char_id]'"
+			if(3) TextQuery = "UPDATE characters_gear SET gear3='NULL' WHERE char_id = '[char_id]'"
+			if(4) TextQuery = "UPDATE characters_gear SET gear4='NULL' WHERE char_id = '[char_id]'"
+			if(5) TextQuery = "UPDATE characters_gear SET gear5='NULL' WHERE char_id = '[char_id]'"
 		query = dbcon.NewQuery(TextQuery)
 		query.Execute()
 		log_debug(dbcon.ErrorMsg())
@@ -476,9 +467,12 @@ var/char_slot
 	log_debug("Load query executed successfully")
 	query.NextRow()
 	gear = list()
+	var/count = 1
 	for(var/gear_name in query.item)
-		if(gear_name!=0)
-			gear += gear_name
+		if(!(count>2))
+			if(gear_name!=0)
+				gear += gear_name
+		count += 1
 	return 1
 
 /datum/preferences/proc/InsertOrgansData()
@@ -498,8 +492,8 @@ var/char_slot
 	log_debug("update organs")
 	sanitizePrefs()
 	TextQuery = "UPDATE characters_organs SET char_id='[char_id]', l_leg='[organ_data["l_leg"]]', r_leg='[organ_data["r_leg"]]', l_arm='[organ_data["l_arm"]]', r_arm='[organ_data["r_arm"]]', "
-	TextQuery += "l_foot='[organ_data["l_foot"]]', r_foot='[organ_data["r_foot"]]', l_hand='[organ_data["l_hand"]]', r_hand='[organ_data["r_hand"]]', heart='[organ_data["heart"]]', eyes='[organ_data["eyes"]]')"
-	TextQuery += " WHERE char_id = '[char_id]'"
+	TextQuery += "l_foot='[organ_data["l_foot"]]', r_foot='[organ_data["r_foot"]]', l_hand='[organ_data["l_hand"]]', r_hand='[organ_data["r_hand"]]', heart='[organ_data["heart"]]', eyes='[organ_data["eyes"]]'"
+	TextQuery += " WHERE char_id='[char_id]'"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
@@ -547,7 +541,7 @@ var/char_slot
 	log_debug("update robotics organs")
 	sanitizePrefs()
 	TextQuery = "UPDATE characters_rlimb SET char_id='[char_id]', l_leg='[rlimb_data["l_leg"]]', r_leg='[rlimb_data["r_leg"]]', l_arm='[rlimb_data["l_arm"]]', r_arm='[rlimb_data["r_arm"]]', "
-	TextQuery += "l_foot='[rlimb_data["l_foot"]]', r_foot='[rlimb_data["r_foot"]]', l_hand='[rlimb_data["l_hand"]]', r_hand='[rlimb_data["r_hand"]]', heart='[rlimb_data["heart"]]', eyes='[rlimb_data["eyes"]]')"
+	TextQuery += "l_foot='[rlimb_data["l_foot"]]', r_foot='[rlimb_data["r_foot"]]', l_hand='[rlimb_data["l_hand"]]', r_hand='[rlimb_data["r_hand"]]'"
 	TextQuery += " WHERE char_id = '[char_id]'"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
@@ -577,7 +571,7 @@ var/char_slot
 	return 1
 
 /datum/preferences/proc/SavePrefData(var/ckey)
-	TextQuery = "SELECT * FROM player_preferences WHERE ckey = [ckey]"
+	TextQuery = "SELECT * FROM player_preferences WHERE ckey = '[ckey]'"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
@@ -596,7 +590,7 @@ var/char_slot
 /datum/preferences/proc/UpdatePrefData(var/ckey)
 	sanitizePrefs()
 	TextQuery = "UPDATE player_preferences SET ooccolor='[ooccolor]', lastchangelog='[lastchangelog]', UI_style='[UI_style]', default_slot='[default_slot]', toggles='[toggles]', "
-	TextQuery += "UI_style_color='[UI_style_color]', UI_style_alpha='[UI_style_alpha]', be_special='[be_special]') WHERE ckey = [ckey]"
+	TextQuery += "UI_style_color='[UI_style_color]', UI_style_alpha='[UI_style_alpha]', be_special='[be_special]' WHERE ckey = '[ckey]'"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
@@ -617,13 +611,14 @@ var/char_slot
 	log_debug("Load query executed successfully")
 	query.NextRow()
 	ooccolor = query.item[3]
-	lastchangelog = query.item[4]
+	lastchangelog = text2num(query.item[4])
 	UI_style = query.item[5]
-	default_slot = query.item[6]
-	toggles = query.item[7]
+	default_slot = text2num(query.item[6])
+	toggles = text2num(query.item[7])
 	UI_style_color = query.item[8]
-	UI_style_alpha = query.item[9]
-	be_special = query.item[10]
+	UI_style_alpha = text2num(query.item[9])
+	be_special = text2num(query.item[10])
+	sanitizePrefs()
 	return 1
 
 /datum/preferences/proc/sanitizePrefs()
