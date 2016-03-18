@@ -142,8 +142,10 @@ datum/preferences
 			load_path(C.ckey)
 			log_debug("loading data for [C.ckey]")
 			if(LoadPrefData(C.ckey))
+				log_debug("Default slot loaded : [default_slot]")
 				if(SQLload_character(default_slot, C.ckey))
-					current_slot = getCharSlot()
+					current_slot = default_slot
+					log_debug("Character [real_name] loaded, slot is [current_slot]")
 					return
 			if(load_preferences())
 				if(load_character(default_slot))
@@ -1605,6 +1607,7 @@ datum/preferences
 						var/datum/preferences/D = preferences_datums[ckey]
 						if(D == src)
 							//switch comment to switch to file save system
+							default_slot = current_slot
 							SavePrefData(ckey)
 							SQLsave_character(current_slot, ckey)
 							//save_preferences()
@@ -1634,10 +1637,14 @@ datum/preferences
 						var/datum/preferences/D = preferences_datums[ckey]
 						if(D == src)
 							current_slot = text2num(href_list["num"])
-							SQLload_character(current_slot, ckey)
+							if(!SQLload_character(current_slot, ckey))
+								gender = pick(MALE, FEMALE)
+								real_name = random_name(gender,species)
+								gear.Cut()
+								ZeroSkills(1)
+								ResetJobs()
 					//file system load
 					//load_character()
-
 					close_load_dialog(user)
 
 	ShowChoices(user)
@@ -1790,7 +1797,7 @@ datum/preferences
 
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
-	var/dat = "<body>"
+/*	var/dat = "<body>"
 	dat += "<tt><center>"
 
 	var/savefile/S = new /savefile(path)
@@ -1808,13 +1815,13 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")
+	user << browse(dat, "window=saves;size=300x390")*/
 
 /datum/preferences/proc/getCharSlot()
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
 		if(D == src)
-			var/TextQuery = "SELECT slot FROM SS13_characters WHERE ckey = '[ckey]' AND name = '[real_name]'"
+			var/TextQuery = "SELECT slot FROM SS13_characters WHERE ckey = '[ckey]' AND Character_Name = '[real_name]'"
 			var/DBQuery/query
 			establish_db_connection()
 			if(!dbcon.IsConnected())
@@ -1824,7 +1831,7 @@ datum/preferences
 			if(!query.RowCount())
 				return 1
 			query.NextRow()
-			return query.item[1]
+			return text2num(query.item[1])
 		return 1
 
 
