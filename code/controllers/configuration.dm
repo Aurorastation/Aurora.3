@@ -209,7 +209,6 @@ var/list/gamemode_cache = list()
 	var/aggressive_changelog = 0
 
 	//Web interface settings
-	var/webint_enabled = 0
 	var/webint_url = ""
 
 /datum/configuration/New()
@@ -678,11 +677,8 @@ var/list/gamemode_cache = list()
 				if("show_auxiliary_roles")
 					config.show_auxiliary_roles = 1
 
-				if("use_webint")
-					config.webint_enabled = 1
-
 				if("webint_url")
-					config.webint_url = 1
+					config.webint_url = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
