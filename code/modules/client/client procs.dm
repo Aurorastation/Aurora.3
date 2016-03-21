@@ -75,7 +75,7 @@
 		warnings_check()
 
 	if(href_list["linkingrequest"])
-		if (!config.webint_enabled)
+		if (!config.webint_url)
 			return
 
 		if (!href_list["linkingaction"])
@@ -426,7 +426,7 @@
 	check_linking_requests()
 
 /client/proc/check_linking_requests()
-	if (!config.webint_enabled || !config.sql_enabled)
+	if (!config.webint_url || !config.sql_enabled)
 		return
 
 	establish_db_connection(dbcon)
@@ -487,8 +487,20 @@
 
 			linkURL = "[config.webint_url]user/link"
 
+		if ("interface/login/sso_server")
+			//This also validates the attributes as it runs
+			var/new_attributes = webint_start_singlesignon(src, attributes)
+			if (!new_attributes)
+				return
+
+			if (!config.webint_url)
+				return
+
+			linkURL = "[config.webint_url]login/sso_server?"
+			linkURL += new_attributes
+
 		else
-			log_misc("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
+			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
 	src << link(linkURL)
