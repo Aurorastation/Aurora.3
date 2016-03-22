@@ -170,9 +170,10 @@ var/char_slot
 
 /datum/preferences/proc/InsertJobsData()
 	log_debug("Insert jobs")
-	TextQuery = "INSERT INTO characters_jobs (char_id, Alternate, civ_high, civ_med, civ_low, medsci_high, medsci_med, medsci_low, engsec_high, engsec_med, engsec_low) "
+	var/alt_titles_list = list2params(player_alt_titles)
+	TextQuery = "INSERT INTO characters_jobs (char_id, Alternate, civ_high, civ_med, civ_low, medsci_high, medsci_med, medsci_low, engsec_high, engsec_med, engsec_low, alt_titles) "
 	TextQuery += " VALUES ('[char_id]','[alternate_option]', '[job_civilian_high]', '[job_civilian_med]', '[job_civilian_low]', '[job_medsci_high]', '[job_medsci_med]', '[job_medsci_low]', "
-	TextQuery += "'[job_engsec_high]', '[job_engsec_med]', '[job_engsec_low]')"
+	TextQuery += "'[job_engsec_high]', '[job_engsec_med]', '[job_engsec_low]', '[alt_titles_list]')"
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
@@ -185,9 +186,10 @@ var/char_slot
 	query.Execute()
 	if(!query.RowCount())
 		InsertJobsData()
+	var/alt_titles_list = list2params(player_alt_titles)
 	TextQuery = "UPDATE characters_jobs SET Alternate='[alternate_option]', civ_high='[job_civilian_high]', civ_med='[job_civilian_med]', civ_low='[job_civilian_low]', "
 	TextQuery += "medsci_high='[job_medsci_high]', medsci_med='[job_medsci_med]', medsci_low='[job_medsci_low]', "
-	TextQuery += "engsec_high='[job_engsec_high]', engsec_med='[job_engsec_med]', engsec_low='[job_engsec_low]' WHERE char_id = [char_id] "
+	TextQuery += "engsec_high='[job_engsec_high]', engsec_med='[job_engsec_med]', engsec_low='[job_engsec_low]', alt_titles = '[alt_titles_list]' WHERE char_id = [char_id] "
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
@@ -215,6 +217,7 @@ var/char_slot
 	job_engsec_high = text2num(query.item[10])
 	job_engsec_med = text2num(query.item[11])
 	job_engsec_low = text2num(query.item[12])
+	player_alt_titles = params2list(query.item[13])
 	return 1
 
 /datum/preferences/proc/InsertFlavourData()
@@ -455,6 +458,18 @@ var/char_slot
 			query = dbcon.NewQuery(TextQuery)
 			query.Execute()
 			log_debug(dbcon.ErrorMsg())
+	while(loop_id<5)
+		loop_id += 1
+		switch(loop_id)
+			if(1) TextQuery = "INSERT INTO characters_gear (char_id, gear1) VALUES ('[char_id]', 'none')"
+			if(2) TextQuery = "UPDATE characters_gear SET gear2='none' WHERE char_id = '[char_id]'"
+			if(3) TextQuery = "UPDATE characters_gear SET gear3='none' WHERE char_id = '[char_id]'"
+			if(4) TextQuery = "UPDATE characters_gear SET gear4='none' WHERE char_id = '[char_id]'"
+			if(5) TextQuery = "UPDATE characters_gear SET gear5='none' WHERE char_id = '[char_id]'"
+		log_debug(TextQuery)
+		query = dbcon.NewQuery(TextQuery)
+		query.Execute()
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateGearData()

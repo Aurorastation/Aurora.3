@@ -1,30 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 4.5.3.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Mar 15, 2016 at 10:38 PM
--- Server version: 5.7.10
--- PHP Version: 5.6.17
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `aurora_test`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_data`
---
 
 CREATE TABLE `characters_data` (
   `Id` int(11) NOT NULL,
@@ -58,12 +38,6 @@ CREATE TABLE `characters_data` (
   `spawnpoint` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_flavour`
---
-
 CREATE TABLE `characters_flavour` (
   `id` int(11) NOT NULL,
   `char_id` int(11) NOT NULL,
@@ -78,27 +52,15 @@ CREATE TABLE `characters_flavour` (
   `feet` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_gear`
---
-
 CREATE TABLE `characters_gear` (
   `id` int(11) NOT NULL,
   `char_id` int(11) NOT NULL,
-  `gear1` text,
-  `gear2` text,
-  `gear3` text,
-  `gear4` text,
-  `gear5` text
+  `gear1` varchar(64) DEFAULT 'none',
+  `gear2` varchar(64) DEFAULT 'none',
+  `gear3` varchar(64) DEFAULT 'none',
+  `gear4` varchar(64) DEFAULT 'none',
+  `gear5` varchar(64) DEFAULT 'none'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_jobs`
---
 
 CREATE TABLE `characters_jobs` (
   `id` int(11) NOT NULL,
@@ -112,14 +74,9 @@ CREATE TABLE `characters_jobs` (
   `medsci_low` int(11) NOT NULL,
   `engsec_high` int(11) NOT NULL,
   `engsec_med` int(11) NOT NULL,
-  `engsec_low` int(11) NOT NULL
+  `engsec_low` int(11) NOT NULL,
+  `alt_titles` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_misc`
---
 
 CREATE TABLE `characters_misc` (
   `id` int(11) NOT NULL,
@@ -128,7 +85,7 @@ CREATE TABLE `characters_misc` (
   `sec_rec` text NOT NULL,
   `gen_rec` text NOT NULL,
   `disab` text NOT NULL,
-  `used_skill` text NOT NULL,
+  `used_skill` int(11) NOT NULL,
   `skills_spec` text NOT NULL,
   `home_sys` text NOT NULL,
   `citizen` text NOT NULL,
@@ -138,12 +95,6 @@ CREATE TABLE `characters_misc` (
   `uplink_loc` text NOT NULL,
   `exploit_rec` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_organs`
---
 
 CREATE TABLE `characters_organs` (
   `id` int(11) NOT NULL,
@@ -160,12 +111,6 @@ CREATE TABLE `characters_organs` (
   `eyes` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_rlimb`
---
-
 CREATE TABLE `characters_rlimb` (
   `id` int(11) NOT NULL,
   `char_id` int(11) NOT NULL,
@@ -178,12 +123,6 @@ CREATE TABLE `characters_rlimb` (
   `l_hand` text,
   `r_hand` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_robot_flavour`
---
 
 CREATE TABLE `characters_robot_flavour` (
   `id` int(11) NOT NULL,
@@ -202,43 +141,31 @@ CREATE TABLE `characters_robot_flavour` (
   `Research` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_skills`
---
-
 CREATE TABLE `characters_skills` (
   `id` int(11) NOT NULL,
   `char_id` int(11) NOT NULL,
-  `Command` int(11) NOT NULL,
-  `Botany` int(11) NOT NULL,
-  `Cooking` int(11) NOT NULL,
-  `Close_Combat` int(11) NOT NULL,
-  `Weapons_Expertise` int(11) NOT NULL,
-  `Forensics` int(11) NOT NULL,
-  `NanoTrasen_Law` int(11) NOT NULL,
-  `EVA` int(11) NOT NULL,
-  `Construction` int(11) NOT NULL,
-  `Electrical` int(11) NOT NULL,
-  `Atmos` int(11) NOT NULL,
-  `Engines` int(11) NOT NULL,
-  `Heavy_Mach` int(11) NOT NULL,
-  `Complex_Devices` int(11) NOT NULL,
-  `Information_Tech` int(11) NOT NULL,
-  `Genetics` int(11) NOT NULL,
-  `Chemistry` int(11) NOT NULL,
-  `Science` int(11) NOT NULL,
-  `Medicine` int(11) NOT NULL,
-  `Anatomy` int(11) NOT NULL,
-  `Virology` int(11) NOT NULL
+  `Command` int(11) DEFAULT NULL,
+  `Botany` int(11) DEFAULT NULL,
+  `Cooking` int(11) DEFAULT NULL,
+  `Close_Combat` int(11) DEFAULT NULL,
+  `Weapons_Expertise` int(11) DEFAULT NULL,
+  `Forensics` int(11) DEFAULT NULL,
+  `NanoTrasen_Law` int(11) DEFAULT NULL,
+  `EVA` int(11) DEFAULT NULL,
+  `Construction` int(11) DEFAULT NULL,
+  `Electrical` int(11) DEFAULT NULL,
+  `Atmos` int(11) DEFAULT NULL,
+  `Engines` int(11) DEFAULT NULL,
+  `Heavy_Mach` int(11) DEFAULT NULL,
+  `Complex_Devices` int(11) DEFAULT NULL,
+  `Information_Tech` int(11) DEFAULT NULL,
+  `Genetics` int(11) DEFAULT NULL,
+  `Chemistry` int(11) DEFAULT NULL,
+  `Science` int(11) DEFAULT NULL,
+  `Medicine` int(11) DEFAULT NULL,
+  `Anatomy` int(11) DEFAULT NULL,
+  `Virology` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `player_preferences`
---
 
 CREATE TABLE `player_preferences` (
   `id` int(11) NOT NULL,
@@ -253,12 +180,6 @@ CREATE TABLE `player_preferences` (
   `be_special` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `ss13_characters`
---
-
 CREATE TABLE `ss13_characters` (
   `id` int(11) NOT NULL,
   `ckey` varchar(32) DEFAULT NULL,
@@ -266,135 +187,63 @@ CREATE TABLE `ss13_characters` (
   `Character_Name` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `characters_data`
---
 ALTER TABLE `characters_data`
   ADD PRIMARY KEY (`Id`);
 
---
--- Indexes for table `characters_flavour`
---
 ALTER TABLE `characters_flavour`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `characters_gear`
---
 ALTER TABLE `characters_gear`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `characters_jobs`
---
 ALTER TABLE `characters_jobs`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `characters_misc`
---
 ALTER TABLE `characters_misc`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `characters_organs`
---
 ALTER TABLE `characters_organs`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `characters_rlimb`
---
 ALTER TABLE `characters_rlimb`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `characters_robot_flavour`
---
 ALTER TABLE `characters_robot_flavour`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `characters_skills`
---
 ALTER TABLE `characters_skills`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `player_preferences`
---
 ALTER TABLE `player_preferences`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `ss13_characters`
---
 ALTER TABLE `ss13_characters`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `characters_data`
---
 ALTER TABLE `characters_data`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `characters_flavour`
---
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_flavour`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `characters_gear`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_gear`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `characters_jobs`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `characters_misc`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_misc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `characters_organs`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_organs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `characters_rlimb`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_rlimb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `characters_robot_flavour`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_robot_flavour`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `characters_skills`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `characters_skills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `player_preferences`
---
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `player_preferences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ss13_characters`
---
 ALTER TABLE `ss13_characters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
