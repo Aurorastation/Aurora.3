@@ -213,6 +213,9 @@ datum/nano_item_lists
 	data["welcome"] = welcome
 	data["crystals"] = uses
 	data["menu"] = nanoui_menu
+	//Small hack for the contract_uplink device, to make sure the data is initialized properly.
+	if(nanoui_menu == 2)
+		update_nano_data()
 	if(!nanoui_items)
 		generate_items()
 	data["nano_items"] = nanoui_items
@@ -397,12 +400,9 @@ datum/nano_item_lists
 				contract["title"] = html_encode(select_query.item[4])
 				contract["description"] = select_query.item[5]
 
-				var/list/nano_blacklist = list("/" = " ", "_" = " ", "\n" = "<br>")
-
-				for (var/a in nano_blacklist)
-					contract["description"] = replacetext(contract["description"], a, nano_blacklist[a])
-
 				contract["description"] = html_encode(contract["description"])
+				contract["description"] = replacetext(contract["description"], "\n", "<br>")
+				contract["description"] = replacetext(contract["description"], ascii2text(13), "")
 				contract["reward_other"] = select_query.item[6]
 
 				nanoui_data["contract"] = contract
@@ -447,3 +447,25 @@ datum/nano_item_lists
 	..()
 	hidden_uplink = new(src)
 	hidden_uplink.uses = 10
+
+/*
+ * A simple device for accessing the SQL based contract database
+ */
+
+/obj/item/device/contract_uplink
+	name = "contract uplink"
+	desc = "A small device used for access restricted sites in the remote corners of the Extranet."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "radio"
+	flags = CONDUCT
+	w_class = 2
+
+/obj/item/device/contract_uplink/New()
+	..()
+	hidden_uplink = new(src)
+	hidden_uplink.uses = 0
+	hidden_uplink.nanoui_menu = 2
+
+/obj/item/device/contract_uplink/attack_self(mob/user as mob)
+	if (hidden_uplink)
+		hidden_uplink.trigger(user)
