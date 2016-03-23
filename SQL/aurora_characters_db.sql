@@ -1,4 +1,5 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -55,11 +56,7 @@ CREATE TABLE `characters_flavour` (
 CREATE TABLE `characters_gear` (
   `id` int(11) NOT NULL,
   `char_id` int(11) NOT NULL,
-  `gear1` varchar(64) DEFAULT 'none',
-  `gear2` varchar(64) DEFAULT 'none',
-  `gear3` varchar(64) DEFAULT 'none',
-  `gear4` varchar(64) DEFAULT 'none',
-  `gear5` varchar(64) DEFAULT 'none'
+  `gear` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `characters_jobs` (

@@ -2,14 +2,7 @@
 //MAKE SURE YOU KEEP THIS UP TO DATE!
 //if the db can't be updated, return 0
 //if the db was updated, return 1
-var/chardata[]
-var/jobsdata[]
-var/flavourdata[]
-var/miscdata[]
-var/DBQuery/query
-var/TextQuery
-var/char_id
-var/char_slot
+
 /datum/preferences/proc/SQLsave_character(var/cslot)
 	char_slot = cslot
 	if(!cslot)
@@ -28,7 +21,8 @@ var/char_slot
 					log_debug("New Character")
 					query = dbcon.NewQuery("INSERT INTO ss13_characters (ckey, slot) VALUES ('[ckey]', '[cslot]')")
 					query.Execute()
-					log_debug(dbcon.ErrorMsg())
+					if(dbcon.ErrorMsg())
+						log_debug(dbcon.ErrorMsg())
 					getCharId(ckey)
 					InsertCharData()
 					InsertJobsData()
@@ -38,7 +32,6 @@ var/char_slot
 					InsertSkillsData()
 					InsertGearData()
 					InsertOrgansData()
-					log_debug(dbcon.ErrorMsg())
 				else
 					log_debug("ID = [char_id]")
 					log_debug("Update entry")
@@ -53,7 +46,8 @@ var/char_slot
 			TextQuery = "UPDATE SS13_characters SET Character_Name = (SELECT name FROM characters_data WHERE char_id = '[char_id]') WHERE id = '[char_id]'"
 			query = dbcon.NewQuery(TextQuery)
 			query.Execute()
-			log_debug(dbcon.ErrorMsg())
+			if(dbcon.ErrorMsg())
+				log_debug(dbcon.ErrorMsg())
 			log_debug("Save query executed")
 			return 1
 	log_debug("No ckey in datums")
@@ -85,7 +79,8 @@ var/char_slot
 	query = dbcon.NewQuery(TextQuery)
 	log_debug("Query ready")
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	var/rowDebug = query.RowCount()
 	log_debug("Query executed, [rowDebug] rows")
 	if(!query.RowCount())
@@ -105,7 +100,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateCharData()
@@ -122,7 +118,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 
@@ -134,7 +131,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -177,7 +175,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateJobsData()
@@ -193,7 +192,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadJobsData()
@@ -202,7 +202,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -228,7 +229,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateFlavourData()
@@ -243,7 +245,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadFlavourData()
@@ -252,7 +255,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -277,7 +281,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateRobotFlavourData()
@@ -293,7 +298,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadRobotFlavourData()
@@ -302,7 +308,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -332,7 +339,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateMiscData()
@@ -348,7 +356,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadMiscData()
@@ -357,7 +366,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -387,7 +397,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateSkillsData()
@@ -404,7 +415,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 
@@ -414,7 +426,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -444,31 +457,13 @@ var/char_slot
 
 /datum/preferences/proc/InsertGearData()
 	log_debug("insert gear")
-	var/loop_id = 0
-	for(var/gear_name in gear)
-		if(gear_name)
-			loop_id += 1
-			switch(loop_id)
-				if(1) TextQuery = "INSERT INTO characters_gear (char_id, gear1) VALUES ('[char_id]', '[gear_name]')"
-				if(2) TextQuery = "UPDATE characters_gear SET gear2='[gear_name]' WHERE char_id = '[char_id]'"
-				if(3) TextQuery = "UPDATE characters_gear SET gear3='[gear_name]' WHERE char_id = '[char_id]'"
-				if(4) TextQuery = "UPDATE characters_gear SET gear4='[gear_name]' WHERE char_id = '[char_id]'"
-				if(5) TextQuery = "UPDATE characters_gear SET gear5='[gear_name]' WHERE char_id = '[char_id]'"
-			log_debug(TextQuery)
-			query = dbcon.NewQuery(TextQuery)
-			query.Execute()
-			log_debug(dbcon.ErrorMsg())
-	while(loop_id<5)
-		loop_id += 1
-		switch(loop_id)
-			if(1) TextQuery = "INSERT INTO characters_gear (char_id, gear1) VALUES ('[char_id]', 'none')"
-			if(2) TextQuery = "UPDATE characters_gear SET gear2='none' WHERE char_id = '[char_id]'"
-			if(3) TextQuery = "UPDATE characters_gear SET gear3='none' WHERE char_id = '[char_id]'"
-			if(4) TextQuery = "UPDATE characters_gear SET gear4='none' WHERE char_id = '[char_id]'"
-			if(5) TextQuery = "UPDATE characters_gear SET gear5='none' WHERE char_id = '[char_id]'"
-		log_debug(TextQuery)
-		query = dbcon.NewQuery(TextQuery)
-		query.Execute()
+	//var/loop_id = 0
+	var/gear_list = list2params(gear)
+	//test
+	TextQuery = "INSERT INTO characters_gear (char_id, gear) VALUES ('[char_id]', '[gear_list]')"
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	if(dbcon.ErrorMsg())
 		log_debug(dbcon.ErrorMsg())
 	return 1
 
@@ -478,31 +473,12 @@ var/char_slot
 	query.Execute()
 	if(!query.RowCount())
 		InsertGearData()
-	var/loop_id = 0
-	for(var/gear_name in gear)
-		if(gear_name)
-			loop_id += 1
-			switch(loop_id)
-				if(1) TextQuery = "UPDATE characters_gear SET gear1='[gear_name]' WHERE char_id = '[char_id]'"
-				if(2) TextQuery = "UPDATE characters_gear SET gear2='[gear_name]' WHERE char_id = '[char_id]'"
-				if(3) TextQuery = "UPDATE characters_gear SET gear3='[gear_name]' WHERE char_id = '[char_id]'"
-				if(4) TextQuery = "UPDATE characters_gear SET gear4='[gear_name]' WHERE char_id = '[char_id]'"
-				if(5) TextQuery = "UPDATE characters_gear SET gear5='[gear_name]' WHERE char_id = '[char_id]'"
-			log_debug(TextQuery)
-			query = dbcon.NewQuery(TextQuery)
-			query.Execute()
-			log_debug(dbcon.ErrorMsg())
-	while(loop_id<5)
-		loop_id += 1
-		switch(loop_id)
-			if(1) TextQuery = "UPDATE characters_gear SET gear1='none' WHERE char_id = '[char_id]'"
-			if(2) TextQuery = "UPDATE characters_gear SET gear2='none' WHERE char_id = '[char_id]'"
-			if(3) TextQuery = "UPDATE characters_gear SET gear3='none' WHERE char_id = '[char_id]'"
-			if(4) TextQuery = "UPDATE characters_gear SET gear4='none' WHERE char_id = '[char_id]'"
-			if(5) TextQuery = "UPDATE characters_gear SET gear5='none' WHERE char_id = '[char_id]'"
-		log_debug(TextQuery)
-		query = dbcon.NewQuery(TextQuery)
-		query.Execute()
+	//var/loop_id = 0
+	var/gear_list = list2params(gear)
+	TextQuery = "UPDATE characters_gear SET gear='[gear_list]' WHERE char_id = '[char_id]'"
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
+	if(dbcon.ErrorMsg())
 		log_debug(dbcon.ErrorMsg())
 	return 1
 
@@ -512,18 +488,13 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
 	query.NextRow()
-	gear = list()
-	var/count = 1
-	for(var/gear_name in query.item)
-		if(count>2)
-			if(gear_name!="none")
-				gear += gear_name
-		count += 1
+	gear = params2list(query.item[3])
 	return 1
 
 /datum/preferences/proc/InsertOrgansData()
@@ -534,7 +505,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	InsertRorgansData()
 	return 1
 
@@ -550,7 +522,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	UpdateRorgansData()
 	return 1
 
@@ -560,7 +533,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -586,7 +560,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/UpdateRorgansData()
@@ -597,7 +572,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadRorgansData()
@@ -606,7 +582,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")
@@ -634,7 +611,8 @@ var/char_slot
 		log_debug(TextQuery)
 		query = dbcon.NewQuery(TextQuery)
 		query.Execute()
-		log_debug(dbcon.ErrorMsg())
+		if(dbcon.ErrorMsg())
+			log_debug(dbcon.ErrorMsg())
 		return 1
 	else
 		return UpdatePrefData(ckey)
@@ -647,7 +625,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	return 1
 
 /datum/preferences/proc/LoadPrefData(var/ckey)
@@ -659,7 +638,8 @@ var/char_slot
 	log_debug(TextQuery)
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
-	log_debug(dbcon.ErrorMsg())
+	if(dbcon.ErrorMsg())
+		log_debug(dbcon.ErrorMsg())
 	if(!query.RowCount())
 		return 0
 	log_debug("Load query executed successfully")

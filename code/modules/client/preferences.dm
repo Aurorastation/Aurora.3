@@ -135,6 +135,16 @@ datum/preferences
 	var/metadata = ""
 	var/slot_name = ""
 
+	//SQL Save system vars
+	var/chardata[]
+	var/jobsdata[]
+	var/flavourdata[]
+	var/miscdata[]
+	var/DBQuery/query
+	var/TextQuery
+	var/char_id
+	var/char_slot
+
 /datum/preferences/New(client/C)
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	if(istype(C))
@@ -151,10 +161,9 @@ datum/preferences
 				if(load_character(default_slot))
 					current_slot = getCharSlot_File()
 					return
-			//this ensure that if db fail the file system is used
+			//this ensure that if db fail the file system is used to load an initial character
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
-
 	gear = list()
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
@@ -1797,7 +1806,7 @@ datum/preferences
 
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
-/*	var/dat = "<body>"
+	var/dat = "<body>"
 	dat += "<tt><center>"
 
 	var/savefile/S = new /savefile(path)
@@ -1811,11 +1820,10 @@ datum/preferences
 			if(i==default_slot)
 				name = "<b>[name]</b>"
 			dat += "<a href='?_src_=prefs;preference=changeslot;num=[i];'>[name]</a><br>"
-
 	dat += "<hr>"
 	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")*/
+	user << browse(dat, "window=saves;size=300x390")
 
 /datum/preferences/proc/getCharSlot()
 	for(var/ckey in preferences_datums)
