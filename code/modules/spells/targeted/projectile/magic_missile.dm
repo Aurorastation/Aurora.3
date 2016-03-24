@@ -3,12 +3,12 @@
 	desc = "This spell fires several, slow moving, magic projectiles at nearby targets."
 
 	school = "evocation"
-	charge_max = 150
+	charge_max = 300
 	spell_flags = NEEDSCLOTHES
 	invocation = "FORTI GY AMA"
 	invocation_type = SpI_SHOUT
 	range = 7
-	cooldown_min = 90 //15 deciseconds reduction per rank
+	cooldown_min = 150 //15 deciseconds reduction per rank
 
 	max_targets = 0
 

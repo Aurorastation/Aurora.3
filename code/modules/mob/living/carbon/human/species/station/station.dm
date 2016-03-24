@@ -251,7 +251,7 @@
 
 	synth_temp_gain = 10 //this should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	flags = CAN_JOIN | IS_WHITELISTED | NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | IS_SYNTHETIC
+	flags = CAN_JOIN | IS_WHITELISTED | NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | IS_SYNTHETIC | NO_POISON
 
 	blood_color = "#1F181F"
 	flesh_color = "#575757"
@@ -291,7 +291,7 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = CAN_JOIN | IS_WHITELISTED | NO_SLIP | IS_BUG | NO_SCAN
+	flags = CAN_JOIN | IS_WHITELISTED | NO_SLIP | NO_SCAN
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#575757"
 

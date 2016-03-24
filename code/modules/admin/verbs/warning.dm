@@ -9,7 +9,7 @@
 	if (!warned_ckey || !istext(warned_ckey))
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		usr << "<font color='red'>Error: warn(): Database Connection failed, reverting to legacy systems.</font>"
 		usr.client.warn_legacy(warned_ckey)
@@ -20,14 +20,14 @@
 	if (!warning_reason)
 		return
 
-	var/warning_notes = input("Add additional informatoin. This is visible only to staff.") as null|text
+	var/warning_notes = input("Add additional information. This is visible only to staff.") as null|text
 
 	var/warning_severity
 	switch (alert("Set warning severity", null, "Standard", "Severe"))
 		if ("standard")
-			warning_severity = 0
+			warning_severity = "0"
 		if ("Severe")
-			warning_severity = 1
+			warning_severity = "1"
 
 	var/warned_computerid = null
 	var/warned_ip = null
@@ -110,7 +110,7 @@
 	var/dcolor = "#ffaaaa"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
@@ -172,7 +172,7 @@
 	if (!warning_id)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to SQL database failed while attempting to update your warning's status!")
 		return
@@ -191,7 +191,7 @@
 	var/count = 0
 	var/count_expire = 0
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		return
 
@@ -239,7 +239,7 @@
 	var/dcolor = "#ffdddd"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
@@ -342,7 +342,7 @@
 	if(!warning_id || !warning_edit)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
@@ -375,7 +375,7 @@
 		if ("delete")
 			if(alert("Delete this warning?", "Delete?", "Yes", "No") == "Yes")
 				var/DBQuery/deleteQuery = dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id")
-				deleteQuery.Execute(query_details)
+				deleteQuery.Execute(query_details, 1)
 
 				message_admins("\blue [key_name_admin(usr)] deleted one of [ckey]'s warnings.")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.")

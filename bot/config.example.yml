@@ -1,0 +1,71 @@
+#Email and password used to log into the discord account.
+credentials:
+    email: 'bot@somemail.com'
+    password: 'apassword'
+
+#Dictionary of channels to be used.
+channels:
+    lobby: 'https://discord.gg/foo'
+    admin_channel: 'https://discord.gg/foobar'
+
+#A greeting message. Displayed whenever the bot starts up, usually sent to the lobby.
+greeting: 'Reactor: online. Sensors: online. Connection established. All systems nominal.'
+
+#Config settings for behaviour control.
+allow_everyone: True
+allow_nudging: True
+
+#Config for setting up the nudge_receiver() proc.
+nudge_config:
+    hostname: 'localhost'
+    port: 5555
+    key: 'foobar'
+
+#Server info for the game. Key must be the same as comms_password in ../config/config.txt.
+server_info:
+    hostname: 'localhost'
+    port: 4444
+    key: 'foobar'
+
+#All commands the bot is meant to recognize, along with helper text.
+#Split into different dictionaries, depending on the access required to use them.
+commands:
+    public_commands:
+        help: Sends this message to you.
+        helpadmin: Showcases all admin commands, and their syntax.
+        helpmod: Showcases all mod commands, and their syntax.
+        helpcciaa: Showcases all duty officer commands, and their syntax.
+        greet: Forces me to greet you!.
+        playercount: Checks the playercount of the server and returns it to you.
+        admincount: Checks the amount of admins on the server and returns it to you.
+        docount: Checks the amount of DOs on the server and returns it to you.
+        gamemode: Tells you the servers current gamemode.
+        mentionstatus: Tells you whether or not I am set to mention everyone.
+        nudgestatus: Tells you whether or not I am forwarding messages from within the game.
+
+    admin_commands:
+        togglenudges: Toggles my status on nudges.
+        togglementions: Toggles my usage of the everyone mention.
+        refreshconfig: Refreshes my config file, and loads new values into it.
+        restartserver: Restarts the main game server.
+        announceserver: Sends an admin anonuncement to the game server. Syntax !announceserver [message to announce].
+        adminmsg: Sends a PM to the player whose CKey is specified. Syntax !adminmsg [player ckey] [message to send].
+
+    mod_commands:
+        adminmsg: Sends a PM to the player whose CKey is specified. Syntax !adminmsg [player ckey] [message to send].
+
+    cciaa_commands:
+        faxlist: Returns a list of fax IDs and their subjects that have been sent or received this round. Replace [received] with either the word "sent" or "received". Syntax !faxlist [received].
+        getfax: Returns the content of the fax with the ID specified. Replace [received] with either the word "sent" or "received" and [fax_id] with a number. Syntax !getfax [fax_id] [received].
+
+#Authorized server-groups for specific commands. Cciaa are authorized for cciaa_commands, etcetera.
+authorization:
+    admin: [
+        'administrators'
+    ]
+    mod: [
+        'moderators'
+    ]
+    cciaa: [
+        'duty officers'
+    ]

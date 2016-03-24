@@ -5,7 +5,7 @@
 	charge_type = Sp_RECHARGE
 	charge_max = 150
 	charge_counter = 0
-	spell_flags = 0
+	spell_flags = SELECTABLE
 	invocation = "KN'A FTAGHU, PUCK 'BTHNK!"
 	invocation_type = SpI_SHOUT
 	range = 7

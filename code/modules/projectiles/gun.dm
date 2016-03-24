@@ -279,6 +279,8 @@
 			else if(grabstate >= GRAB_AGGRESSIVE)
 				damage_mult = 1.5
 	P.damage *= damage_mult
+	//you can't miss at point blank..
+	P.can_miss = 1
 
 /obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
 	var/obj/item/projectile/P = projectile
@@ -288,6 +290,9 @@
 	//Accuracy modifiers
 	P.accuracy = accuracy + acc_mod
 	P.dispersion = dispersion
+
+	//Increasing accuracy across the board, ever so slightly
+	P.accuracy += 1
 
 	//accuracy bonus from aiming
 	if (aim_targets && (target in aim_targets))
@@ -339,19 +344,20 @@
 			playsound(user, fire_sound, 10, 1)
 		else
 			playsound(user, fire_sound, 50, 1)
-		if(istype(in_chamber, /obj/item/projectile/beam/lastertag))
+
+		in_chamber.on_hit(M)
+
+		if (in_chamber.damage == 0)
 			user.show_message("<span class = 'warning'>You feel rather silly, trying to commit suicide with a toy.</span>")
 			mouthshoot = 0
 			return
-
-		in_chamber.on_hit(M)
-		if (in_chamber.damage_type != HALLOSS)
+		else if (in_chamber.damage_type == HALLOSS)
+			user << "<span class = 'notice'>Ow...</span>"
+			user.apply_effect(110,AGONY,0)
+		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
 			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, "head", used_weapon = "Point blank shot in the mouth with \a [in_chamber]", sharp=1)
 			user.death()
-		else
-			user << "<span class = 'notice'>Ow...</span>"
-			user.apply_effect(110,AGONY,0)
 		qdel(in_chamber)
 		mouthshoot = 0
 		return

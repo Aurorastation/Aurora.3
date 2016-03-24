@@ -5,7 +5,7 @@
 	charge_type = Sp_RECHARGE
 	charge_max = 150
 	charge_counter = 0
-	spell_flags = 0
+	spell_flags = SELECTABLE
 	invocation = "KN'A EUTH, PUCK 'BTHNK!"
 	invocation_type = SpI_SHOUT
 	range = 7
@@ -25,6 +25,7 @@
 /spell/targeted/equip_item/remove_horsemask/cast(list/targets, mob/user = usr)
 	..()
 	for(var/mob/living/target in targets)
-		target.visible_message(	"<span class='danger'>The horse head on [target]'s face lights up and burns away, revealing \his face.</span>", \
-								"<span class='danger'>Your face burns up once more, but you suddenly realize that you are no longer wearing a silly horsemask!</span>")
-		flick("e_flash", target.flash)
+		if (istype(target.wear_mask, /obj/item/clothing/mask/horsehead))
+			target.visible_message(	"<span class='danger'>The horse head on [target]'s face lights up and burns away, revealing \his face.</span>", \
+									"<span class='danger'>Your face burns up once more, but you suddenly realize that you are no longer wearing a silly horsemask!</span>")
+			flick("e_flash", target.flash)

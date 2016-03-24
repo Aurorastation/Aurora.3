@@ -3,7 +3,7 @@
 	desc = "This spell temporarily subjugates a target's mind and does not require wizard garb."
 
 	school = "transmutation"
-	charge_max = 300
+	charge_max = 250
 	spell_flags = 0
 	invocation = "DII ODA BAJI"
 	invocation_type = SpI_WHISPER
@@ -11,9 +11,9 @@
 
 	max_targets = 1
 
-	amt_dizziness = 300
-	amt_confused = 300
-	amt_stuttering = 300
+	amt_dizziness = 150
+	amt_confused = 150
+	amt_stuttering = 150
 
 	compatible_mobs = list(/mob/living/carbon/human)
 

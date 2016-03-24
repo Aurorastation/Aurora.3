@@ -158,7 +158,7 @@
 			W.name = "[M.real_name]'s ID Card"
 			W.icon_state = "centcom"
 			W.item_state = "id_inv"
-			W.access = get_all_accesses() + get_centcom_access("Intel Officer")
+			W.access = get_all_accesses() + get_centcom_access("CCIA Agent")
 			W.assignment = "Central Command Internal Affairs Agent"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
@@ -272,10 +272,13 @@
 		return
 
 	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
+	if (!customname)
+		usr << "\red Cancelled."
+		return
 
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
-	P.name = "[command_name()]- [customname]"
+	P.name = "[command_name()] - [customname]"
 	P.info = input
 	P.update_icon()
 
@@ -291,10 +294,10 @@
 	if(fax.recievefax(P))
 		usr << "\blue Message transmitted successfully."
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
+
+		sent_faxes += P
 	else
 		usr << "\red Message reply failed."
-
-	spawn(100)
 		qdel(P)
 	return
 

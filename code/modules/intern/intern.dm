@@ -35,8 +35,8 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#ffeef0"
-	access = list(access_medical, access_surgery)
-	minimal_access = list(access_medical, access_surgery)
+	access = list(access_medical, access_surgery, access_medical_equip)
+	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -86,8 +86,8 @@
 	spawn_positions = 2
 	supervisors = "the Chief Engineer"
 	selection_color = "#fff5cc"
-	access = list(access_maint_tunnels, access_construction, access_engine_equip)
-	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip)
+	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
+	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

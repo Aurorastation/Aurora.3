@@ -23,8 +23,9 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/sensor_mode,
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
-	/mob/living/silicon/ai/proc/toggle_camera_light
-)
+	/mob/living/silicon/ai/proc/toggle_camera_light,
+	/mob/living/silicon/ai/proc/ai_examine
+	)
 
 //Not sure why this is necessary...
 /proc/AutoUpdateAI(obj/subject)
@@ -143,6 +144,8 @@ var/list/ai_verbs_default = list(
 	add_language("Skrellian", 0)
 	add_language("Tradeband", 1)
 	add_language("Gutter", 0)
+	add_language("Vaurcese", 0)
+	add_language("Rootspeak", 0)
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -336,6 +339,18 @@ var/list/ai_verbs_default = list(
 	set category = "AI Commands"
 	set name = "Show Crew Manifest"
 	show_station_manifest()
+
+//AI Examine code
+/mob/living/silicon/ai/proc/ai_examine(atom/A as mob|obj|turf in view(src.eyeobj))
+	set category = "AI Commands"
+	set name = "Examine"
+
+	if((is_blind(src) || usr.stat) && !isobserver(src))
+		src << "<span class='notice'>Your optical sensors appear to be malfunctioning.</span>"
+		return 1
+
+	face_atom(A)
+	A.examine(src)
 
 /mob/living/silicon/ai/var/message_cooldown = 0
 /mob/living/silicon/ai/proc/ai_announcement()

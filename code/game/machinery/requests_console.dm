@@ -211,7 +211,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 			if(11)	//form database
 				dat += text("<B>NanoTrasen Corporate Forms</B><br><br>")
-				establish_db_connection()
+				establish_db_connection(dbcon)
 				if(!dbcon.IsConnected())
 					dat += text("<font color=red><b>ERROR</b>: Unable to contact external database. Please contact your system administrator for assistance.</font>")
 					log_game("SQL database connection failed. Attempted to fetch form information.")
@@ -372,18 +372,18 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if(href_list["sort"])
 		var/sortdep = sanitizeSQL(href_list["sort"])
-		SQLquery = " Select id, name, department FROM aurora_forms WHERE department LIKE '%[sortdep]%'"
+		SQLquery = " Select id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%' ORDER BY id"
 		screen = 11
 
 	if(href_list["print"])
 		var/printid = sanitizeSQL(href_list["print"])
-		establish_db_connection()
+		establish_db_connection(dbcon)
 
 		if(!dbcon.IsConnected())
 			alert("Connection to the database lost. Aborting.")
 		if(!printid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM aurora_forms WHERE id=[printid]")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
 		query.Execute()
 
 		while(query.NextRow())
@@ -405,12 +405,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
-		establish_db_connection()
+		establish_db_connection(dbcon)
 		if(!dbcon.IsConnected())
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM aurora_forms WHERE id=[whatisid]")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
 		query.Execute()
 		var/dat = "<center><b>NanoTrasen Corporate Form</b><br>"
 		while(query.NextRow())
@@ -456,7 +456,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(!announcementConsole)	return
 			screen = 10
 		if(11)		//form database
-			SQLquery = "SELECT id, name, department FROM aurora_forms"
+			SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
 			screen = 11
 		else		//main menu
 			dpt = ""

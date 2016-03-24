@@ -3,6 +3,7 @@
 	// Text shown when becoming this antagonist.
 	var/list/restricted_jobs =     list()   // Jobs that cannot be this antagonist (depending on config)
 	var/list/protected_jobs =      list()   // As above.
+	var/list/restricted_species =   list()   // species that cannot be this antag - Ryan784
 
 	// Strings.
 	var/welcome_text = "Cry havoc and let slip the dogs of war!"
@@ -198,10 +199,10 @@
 	for(var/datum/mind/player in pending_antagonists)
 		pending_antagonists -= player
 		add_antagonist(player,0,0,1)
-	
+
 	reset_antag_selection()
 
-//Resets the antag selection, clearing all pending_antagonists and their special_role 
+//Resets the antag selection, clearing all pending_antagonists and their special_role
 //(and assigned_role if ANTAG_OVERRIDE_JOB is set) as well as clearing the candidate list.
 //Existing antagonists are left untouched.
 /datum/antagonist/proc/reset_antag_selection()

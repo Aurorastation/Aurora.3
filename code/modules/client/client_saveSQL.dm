@@ -12,7 +12,7 @@
 		var/datum/preferences/D = preferences_datums[ckey]
 		if(D == src)
 			log_debug("Ckey is [ckey]")
-			establish_db_connection()
+			establish_db_connection(dbcon)
 			if(!dbcon.IsConnected())
 				return 0
 			else
@@ -54,7 +54,7 @@
 	return 0
 
 /datum/preferences/proc/SQLload_character(var/slot, var/pckey)
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return 0
 	char_slot = slot
@@ -631,7 +631,7 @@
 
 /datum/preferences/proc/LoadPrefData(var/ckey)
 	log_debug("load pref data")
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return 0
 	TextQuery = "SELECT * FROM player_preferences WHERE ckey = '[ckey]'"

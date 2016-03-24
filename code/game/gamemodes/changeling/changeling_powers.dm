@@ -83,6 +83,13 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(P.isVerb)
 			verbs -= P.verbpath
 
+//removes changeling powers but keeps those with allowduringlesserform
+/mob/proc/remove_changeling_powers_monkey()
+	if(!mind || !mind.changeling)	return
+	for(var/datum/power/changeling/P in mind.changeling.purchasedpowers)
+		if(P.isVerb && (P.allowduringlesserform == 0))
+			verbs -= P.verbpath
+
 
 //Helper proc. Does all the checks and stuff for us to avoid copypasta
 /mob/proc/changeling_power(var/required_chems=0, var/required_dna=0, var/max_genetic_damage=100, var/max_stat=0)
@@ -333,7 +340,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		return
 
 	changeling.chem_charges--
-	H.remove_changeling_powers()
+	H.remove_changeling_powers_monkey() //we weren't making us of allowduringlesserform before for some reason? -Ryan784
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
 	changeling.geneticdamage = 30
 	H << "<span class='warning'>Our genes cry out!</span>"
@@ -341,6 +348,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/obj/item/weapon/implant/W in H)
 		implants += W
 	H.monkeyize()
+	verbs += /mob/proc/changeling_lesser_transform //allow us to actually transform BACK into a human - Ryan784
 	feedback_add_details("changeling_powers","LF")
 	return 1
 

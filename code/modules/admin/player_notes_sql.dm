@@ -12,7 +12,7 @@
 	else
 		query_details[":a_ckey"] = user.ckey
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("SQL connection failed while trying to add a note!")
 		return
@@ -36,7 +36,7 @@
 	if (!note_id || !note_edit)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		error("SQL connection failed while attempting to delete a note!")
 		return
@@ -79,7 +79,7 @@
 				usr << "Cancelled"
 				return
 			var/DBQuery/editquery = dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content, lasteditor = :a_ckey, lasteditdate = Now(), edited = 1 WHERE id = :note_id")
-			editquery.Execute(list(":new_conent" = new_content, ":a_ckey" = usr.client.ckey, ":note_id" = note_id))
+			editquery.Execute(list(":new_content" = new_content, ":a_ckey" = usr.client.ckey, ":note_id" = note_id))
 
 /datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null)
 	if (!check_rights(R_ADMIN|R_MOD))
@@ -93,7 +93,7 @@
 	player_ckey = ckey(player_ckey)
 	admin_ckey = ckey(admin_ckey)
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		error("SQL connection failed while attempting to view a player's notes!")
 		return
@@ -157,7 +157,7 @@
 					var/lasteditor = query.item[7]
 					var/editdate = query.item[8]
 					dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
-				dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=\ref[src];dbnoteedit=delete;dbnote_id=[id]\">Delete</a>) (<a href=\"byond://?src=\ref[src];dbnoteedit=content;dbnote_id=[id]\">Edit</a>)</b></td></tr>"
+				dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=\ref[src];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=\ref[src];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
 				dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	else if (admin_ckey && !player_ckey)
@@ -177,11 +177,52 @@
 				var/lasteditor = admin_query.item[6]
 				var/editdate = admin_query.item[7]
 				dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
-			dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=\ref[src];dbnoteedit=delete;dbnote_id=[id]\">Delete</a>) (<a href=\"byond://?src=\ref[src];dbnoteedit=content;dbnote_id=[id]\">Edit</a>)</b></td></tr>"
+			dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=\ref[src];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=\ref[src];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
 	usr << browse(dat,"window=lookupnotes;size=900x500")
+
+/proc/show_player_info_discord(var/ckey)
+	if (!ckey)
+		return "No ckey given!"
+
+	establish_db_connection(dbcon)
+
+	if (!dbcon.IsConnected())
+		return "Unable to establish database connection! Aborting!"
+
+	var/DBQuery/info_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey")
+	info_query.Execute(list(":ckey" = ckey))
+
+	var/address = null
+	var/computer_id = null
+	if (info_query.NextRow())
+		address = info_query.item[1]
+		computer_id = info_query.item[2]
+
+	var/query_content = "SELECT a_ckey, adddate, content FROM ss13_notes WHERE visible = '1' AND ckey = :ckey"
+	var/query_details = list(":ckey" = ckey, ":address" = address, ":computerid" = computer_id)
+	if (address)
+		query_content += " OR ip = :address"
+	if (computer_id)
+		query_content += " OR computerid = :computerid"
+
+	var/DBQuery/query = dbcon.NewQuery(query_content)
+	query.Execute(query_details, 1)
+
+	var/notes
+	while (query.NextRow())
+		notes += "\"[query.item[3]]\" - by [query.item[1]] on [query.item[2]]\n\n"
+
+	if (!notes)
+		return "[ckey] has no notes that could be retreived!"
+	else
+		var/content = "Displaying [ckey]'s notes:\n\n"
+		content += "```\n"
+		content += notes
+		content += "```"
+		return content
 
 /*/proc/notes_transfer()
 	msg_scopes("Locating master list.")
@@ -190,7 +231,7 @@
 	note_list >> note_keys
 
 	msg_scopes("Establishing DB connection!")
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		msg_scopes("No DB connection!")
 		return

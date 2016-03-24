@@ -1,12 +1,12 @@
 /mob/living/carbon/human/proc/handle_strip(var/slot_to_strip,var/mob/living/user)
 
 	if(!slot_to_strip || !istype(user))
-		return
+		return 0
 
 	// TODO :  Change to incapacitated() on merge.
 	if(user.stat || user.lying || user.resting || user.buckled || !user.Adjacent(src) || user.restrained())
 		user << browse(null, text("window=mob[src.name]"))
-		return
+		return 0
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
 
@@ -16,36 +16,36 @@
 			visible_message("<span class='danger'>\The [user] is trying to empty \the [src]'s pockets!</span>")
 			if(do_after(user,HUMAN_STRIP_DELAY))
 				empty_pockets(user)
-			return
+			return 1
 		if("splints")
 			visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s splints!</span>")
 			if(do_after(user,HUMAN_STRIP_DELAY))
 				remove_splints(user)
-			return
+			return 1
 		if("sensors")
 			visible_message("<span class='danger'>\The [user] is trying to set \the [src]'s sensors!</span>")
 			if(do_after(user,HUMAN_STRIP_DELAY))
 				toggle_sensors(user)
-			return
+			return 1
 		if("internals")
 			visible_message("<span class='danger'>\The [usr] is trying to set \the [src]'s internals!</span>")
 			if(do_after(user,HUMAN_STRIP_DELAY))
 				toggle_internals(user)
-			return
+			return 1
 		if("tie")
 			var/obj/item/clothing/under/suit = w_uniform
 			if(!istype(suit) || !suit.accessories.len)
-				return
+				return 0
 			var/obj/item/clothing/accessory/A = suit.accessories[1]
 			if(!istype(A))
-				return
+				return 0
 			visible_message("<span class='danger'>\The [usr] is trying to remove \the [src]'s [A.name]!</span>")
 
 			if(!do_after(user,HUMAN_STRIP_DELAY))
-				return
+				return 0
 
 			if(!A || suit.loc != src || !(A in suit.accessories))
-				return
+				return 0
 
 			if(istype(A, /obj/item/clothing/accessory/badge) || istype(A, /obj/item/clothing/accessory/medal))
 				user.visible_message("<span class='danger'>\The [user] tears off \the [A] from [src]'s [suit.name]!</span>")
@@ -54,17 +54,17 @@
 			A.on_removed(user)
 			suit.accessories -= A
 			update_inv_w_uniform()
-			return
+			return 1
 
 	// Are we placing or stripping?
 	var/stripping
 	var/obj/item/held = user.get_active_hand()
 	if(!istype(held) || is_robot_module(held))
 		if(!istype(target_slot))  // They aren't holding anything valid and there's nothing to remove, why are we even here?
-			return
+			return 0
 		if(!target_slot.canremove)
 			user << "<span class='warning'>You cannot remove \the [src]'s [target_slot.name].</span>"
-			return
+			return 0
 		stripping = 1
 
 	if(stripping)
@@ -73,10 +73,10 @@
 		visible_message("<span class='danger'>\The [user] is trying to put \a [held] on \the [src]!</span>")
 
 	if(!do_after(user,HUMAN_STRIP_DELAY))
-		return
+		return 0
 
 	if(!stripping && user.get_active_hand() != held)
-		return
+		return 0
 
 	if(stripping)
 		admin_attack_log(user, src, "Attempted to remove \a [target_slot]", "Target of an attempt to remove \a [target_slot].", "attempted to remove \a [target_slot] from")
@@ -85,6 +85,8 @@
 		equip_to_slot_if_possible(held, text2num(slot_to_strip), 0, 1, 1)
 		if(held.loc != src)
 			user.put_in_hands(held)
+
+	return 1
 
 // Empty out everything in the target's pockets.
 /mob/living/carbon/human/proc/empty_pockets(var/mob/living/user)

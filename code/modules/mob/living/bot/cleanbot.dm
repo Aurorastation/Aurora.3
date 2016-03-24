@@ -47,7 +47,7 @@
 //		spawn(0)
 		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-			custom_emote(2, "[src] can't reach the target and is giving up.")
+//			custom_emote(2, "[src] can't reach the target and is giving up.")
 			target = null
 			path = list()
 		return
@@ -56,7 +56,7 @@
 		path -= path[1]
 		return 1
 	return
-		
+
 /mob/living/bot/cleanbot/Life()
 	..()
 
@@ -67,7 +67,7 @@
 		return
 	if(cleaning)
 		return
-	
+
 	if(!screwloose && !oddbutton && prob(5))
 		custom_emote(2, "makes an excited beeping booping sound!")
 
@@ -96,7 +96,7 @@
 			ignorelist -= gib
 
 		// Find a target
-	
+
 	if(pulledby) // Don't wiggle if someone pulls you
 		patrol_path = list()
 		return

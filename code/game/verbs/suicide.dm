@@ -149,8 +149,10 @@
 	set name = "pAI Suicide"
 	var/answer = input("REALLY kill yourself? This action can't be undone.", "Suicide", "No") in list ("Yes", "No")
 	if(answer == "Yes")
-		var/obj/item/device/paicard/card = loc
+//		var/obj/item/device/paicard/card = loc //why? This was causing runtime errors..
 		card.removePersonality()
+		if(src.loc != card)
+			close_up()
 		var/turf/T = get_turf_or_move(card.loc)
 		for (var/mob/M in viewers(T))
 			M.show_message("\blue [src] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\"", 3, "\blue [src] bleeps electronically.", 2)

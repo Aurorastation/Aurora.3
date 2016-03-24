@@ -228,7 +228,7 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.robotize()
 
-	if(flags & IS_BUG)
+	if(H.species && H.species.name == "Vaurca")
 		for (var/obj/item/organ/external/E in H.organs)
 			if ((E.status & ORGAN_CUT_AWAY) || (E.status & ORGAN_DESTROYED))
 				continue
