@@ -1780,7 +1780,7 @@ datum/preferences
 		if(D == src)
 			var/TextQuery = "SELECT Character_Name FROM SS13_characters WHERE ckey = '[ckey]' ORDER BY slot"
 			var/DBQuery/query
-			establish_db_connection()
+			establish_db_connection(dbcon)
 			if(!dbcon.IsConnected())
 				open_load_dialog_file(user)
 			query = dbcon.NewQuery(TextQuery)
@@ -1835,7 +1835,7 @@ datum/preferences
 		if(D == src)
 			var/TextQuery = "SELECT slot FROM SS13_characters WHERE ckey = '[ckey]' AND Character_Name = '[real_name]'"
 			var/DBQuery/query
-			establish_db_connection()
+			establish_db_connection(dbcon)
 			if(!dbcon.IsConnected())
 				getCharSlot_File()
 			query = dbcon.NewQuery(TextQuery)
