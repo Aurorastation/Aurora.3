@@ -108,6 +108,10 @@
 	if(istype(T) && !T.Adjacent(get_turf(src)))
 		return 0
 
+	// Stop generating infinite devices please, and thank you.
+	if(istype(target, /obj/machinery/disposal))
+		return 0
+
 	var/resolved = target.attackby(device,holder.wearer)
 	if(!resolved && device && target)
 		device.afterattack(target,holder.wearer,1)
