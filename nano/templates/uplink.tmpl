@@ -1,5 +1,5 @@
 
-<!-- 
+<!--
 Title: Syndicate Uplink, uses some javascript to change nanoUI up a bit.
 Used In File(s): \code\game\objects\items\devices\uplinks.dm
  -->
@@ -13,12 +13,13 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 	<div class="itemContent">
 		{{:helper.link('Request Items', 'gear', {'menu' : 0}, null, 'fixedLeftWider')}}
 		{{:helper.link('Exploitable Information', 'gear', {'menu' : 1}, null, 'fixedLeftWider')}}
+		{{:helper.link('Extranet Contract Database', 'gear', {'menu' : 2}, null, 'fixedLeftWider')}}
 		{{:helper.link('Return', 'arrowreturn-1-w', {'return' : 1}, null, 'fixedLeft')}}
 		{{:helper.link('Close', 'gear', {'lock' : "1"}, null, 'fixedLeft')}}
 	</div>
 </div>
 <br>
-	
+
 {{if data.menu == 0}}
     <H2><span class="white">Request items:</span></H2>
     <span class="white"><i>Each item costs a number of tele-crystals as indicated by the number following their name.</i></span>
@@ -39,7 +40,7 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
             <div class="item">
                 {{:helper.link( itemValue.Name, 'gear', {'buy_item' : itemValue.obj_path, 'cost' : itemValue.Cost}, itemValue.Cost > data.crystals ? 'disabled' : null, null)}} - <span class="white">{{:itemValue.Cost}}</span>
             </div>
-            
+
             {{if itemValue.Cost <= data.crystals}}
                 <div class="item">
                     {{:itemValue.Description}}
@@ -52,7 +53,7 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
     <div class="item">
         {{:helper.link('Buy Random (??)' , 'gear', {'buy_item' : 'random'}, data.crystals <= 0 ? 'disabled' : null, null)}}
     </div>
-	
+
 {{else data.menu == 1}}
     <H2><span class="white">Information Record List:</span></H2>
     <br>
@@ -65,7 +66,7 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
              {{:helper.link(value.Name, 'gear', {'menu' : 11, 'id' : value.id}, null, null)}}
         </div>
     {{/for}}
-	
+
 {{else data.menu == 11}}
     <H2><span class="white">Information Record:</span></H2>
     <br>
@@ -96,4 +97,73 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
             </div>
         </div>
     </div>
+
+{{else data.menu == 2}}
+	<H2><span class="white">Available Contracts:</span></H2>
+	<br>
+	{{if data.contracts_found == 1}}
+		<div class="item">
+			<center><table class="pmon"><tbody>
+				<tr><th>ID</th><th>Contractor</th><th colspan="2">Title</th>
+			{{if data.contracts_view == 1}}
+				<tr><th colspan="4" class="med">Available Contracts</th></tr>
+			{{else}}
+				<tr><th colspan="4" class="sec">Closed Contracts</th></tr>
+			{{/if}}
+			{{for data.contracts}}
+				<tr><td><span class="white">{{:value.id}}</span></td><td><span class="white">{{:value.contractee}}</span></td><td><span class="white">{{:value.title}}</span></td><td>{{:helper.link('View', null, {'menu' : 21, 'id' : value.id}, null, 'fixedLeft')}}</td></tr>
+			{{/for}}
+			</tbody></table></center>
+			<br>
+			<div class="item" style="text-align:center">
+				{{for data.contracts_pages}}
+					{{:helper.link(value, null, {'contract_page' : value}, null, null)}}
+				{{/for}}
+				<br><br>
+				{{if data.contracts_view == 1}}
+					{{:helper.link('View Expired Contracts', 'gear', {'contract_view' : 2}, null, null)}}
+				{{else}}
+					{{:helper.link('View Open Contracts', 'gear', {'contract_view' : 1}, null, null)}}
+				{{/if}}
+			</div>
+			<br>
+			<br>
+		</div>
+	{{else}}
+		<div class="item">
+			<center><span class="bad">No Contracts Available.</span></center>
+		</div>
+	{{/if}}
+
+{{else data.menu == 21}}
+	<H2><span class="white">Viewing Contract:</span></H2>
+	<br>
+	<div class="statusDisplayRecords">
+		<div class="item">
+			<div class="itemContent" style="width: 100%;">
+				{{if data.contracts_found == 1}}
+					<span class="good">ID:			</span> <span class="average">#{{:data.contract.id}}			</span><br>
+					<span class="good">Contractee:	</span> <span class="average">{{:data.contract.contractee}}		</span><br>
+					<span class="good">Status:		</span>
+					{{if data.contract.status == 1}}
+						<span class="good">Open</span><br>
+					{{else}}
+						<span class="bad">Closed</span><br>
+					{{/if}}
+					<span class="good">Title:		</span> <span class="average">{{:data.contract.title}}			</span><br>
+					<br>
+					<span class="good">Description:	</span> <span class="average">{{:data.contract.description}}	</span><br>
+					<span class="good">Reward:		</span> <span class="average">{{:data.contract.reward_other}}	</span><br>
+				{{else}}
+					<span class="bad">Failed to retreive contract information!</span>
+				{{/if}}
+			</div>
+
+		</div>
+	</div>
+	<br><br>
+	{{if data.contracts_found == 1}}
+		{{:helper.link('View Reports And Updates', 'extlink', {'contract_interact' : data.contract.id}, null, null)}}
+	{{/if}}
+
 {{/if}}

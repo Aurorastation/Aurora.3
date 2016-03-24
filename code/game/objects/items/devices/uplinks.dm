@@ -213,6 +213,9 @@ datum/nano_item_lists
 	data["welcome"] = welcome
 	data["crystals"] = uses
 	data["menu"] = nanoui_menu
+	//Small hack for the contract_uplink device, to make sure the data is initialized properly.
+	if(nanoui_menu == 2)
+		update_nano_data()
 	if(!nanoui_items)
 		generate_items()
 	data["nano_items"] = nanoui_items
@@ -257,6 +260,16 @@ datum/nano_item_lists
 		if(href_list["menu"])
 			nanoui_menu = text2num(href_list["menu"])
 			update_nano_data(href_list["id"])
+		if(href_list["contract_interact"])
+			var/list/params = list("location" = "contract_details", "contract" = href_list["contract_interact"])
+			usr.client.process_webint_link("interface/login/sso_server", list2params(params))
+		if(href_list["contract_page"])
+			nanoui_data["contracts_current_page"] = text2num(href_list["contract_page"])
+			update_nano_data()
+		if(href_list["contract_view"])
+			nanoui_data["contracts_view"] = text2num(href_list["contract_view"])
+			nanoui_data["contracts_current_page"] = 1
+			update_nano_data()
 
 	interact(usr)
 	return 1
@@ -291,6 +304,108 @@ datum/nano_item_lists
 
 				nanoui_data["exploit_exists"] = 1
 				break
+
+	if(nanoui_menu == 2)
+		nanoui_data["contracts_found"] = 0
+
+		establish_db_connection(dbcon)
+
+		if (dbcon.IsConnected())
+			nanoui_data["contracts"] = list()
+
+			if (!nanoui_data["contracts_current_page"])
+				nanoui_data["contracts_current_page"] = 1
+
+			if (!nanoui_data["contracts_view"])
+				nanoui_data["contracts_view"] = 1
+
+			var/query_details[0]
+
+			switch (nanoui_data["contracts_view"])
+				if (1)
+					query_details[":status"] = "open"
+				if (2)
+					query_details[":status"] = "closed"
+				else
+					nanoui_data["contracts_view"] = 1
+					query_details[":status"] = "open"
+
+			var/DBQuery/index_query = dbcon.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status")
+			index_query.Execute(query_details)
+
+			var/pages = 0
+
+			if (index_query.NextRow())
+				var/total_contracts = text2num(index_query.item[1])
+
+				pages = total_contracts / 10
+
+				if (total_contracts % 10)
+					pages++
+
+				pages = round(pages)
+
+				var/list/contracts_pages = list()
+
+				for (var/i = 1, i <= pages, i++)
+					contracts_pages.Add(i)
+
+				for (var/a in contracts_pages)
+
+				nanoui_data["contracts_pages"] = contracts_pages
+
+				if (nanoui_data["contracts_current_page"] > pages)
+					return
+
+				query_details[":offset"] = (nanoui_data["contracts_current_page"] - 1) * 10
+
+				var/DBQuery/list_query = dbcon.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status LIMIT 10 OFFSET :offset")
+				list_query.Execute(query_details)
+
+				var/list/contracts = list()
+				while (list_query.NextRow())
+					contracts.Add(list(list("id" = list_query.item[1],
+											"contractee" = list_query.item[2],
+											"title" = list_query.item[3])))
+
+				nanoui_data["contracts"] = contracts
+
+				nanoui_data["contracts_found"] = 1
+
+	if(nanoui_menu == 21)
+		nanoui_data["contracts_found"] = 0
+
+		establish_db_connection(dbcon)
+
+		if (dbcon.IsConnected())
+			var/query_details[0]
+			query_details[":contract_id"] = text2num(id)
+
+			var/DBQuery/select_query = dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id")
+			select_query.Execute(query_details)
+
+			if (select_query.NextRow())
+				nanoui_data["contracts_found"] = 1
+
+				var/contract[0]
+				contract["id"] = select_query.item[1]
+				contract["contractee"] = select_query.item[2]
+
+				switch (select_query.item[3])
+					if ("open")
+						contract["status"] = "1"
+					else
+						contract["status"] = "0"
+
+				contract["title"] = html_encode(select_query.item[4])
+				contract["description"] = select_query.item[5]
+
+				contract["description"] = html_encode(contract["description"])
+				contract["description"] = replacetext(contract["description"], "\n", "<br>")
+				contract["description"] = replacetext(contract["description"], ascii2text(13), "")
+				contract["reward_other"] = select_query.item[6]
+
+				nanoui_data["contract"] = contract
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
@@ -332,3 +447,25 @@ datum/nano_item_lists
 	..()
 	hidden_uplink = new(src)
 	hidden_uplink.uses = 10
+
+/*
+ * A simple device for accessing the SQL based contract database
+ */
+
+/obj/item/device/contract_uplink
+	name = "contract uplink"
+	desc = "A small device used for access restricted sites in the remote corners of the Extranet."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "radio"
+	flags = CONDUCT
+	w_class = 2
+
+/obj/item/device/contract_uplink/New()
+	..()
+	hidden_uplink = new(src)
+	hidden_uplink.uses = 0
+	hidden_uplink.nanoui_menu = 2
+
+/obj/item/device/contract_uplink/attack_self(mob/user as mob)
+	if (hidden_uplink)
+		hidden_uplink.trigger(user)

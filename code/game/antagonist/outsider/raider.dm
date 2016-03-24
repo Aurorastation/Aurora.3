@@ -220,6 +220,8 @@ var/datum/antagonist/raider/raiders
 		player.equip_to_slot_or_del(new new_suit(player),slot_wear_suit)
 		equip_weapons(player)
 
+	player.equip_to_storage(new /obj/item/device/contract_uplink)
+
 	var/obj/item/weapon/card/id/id = create_id("Visitor", player, equip = 0)
 	id.name = "[player.real_name]'s Passport"
 	id.assignment = "Visitor"
@@ -311,4 +313,3 @@ var/datum/antagonist/raider/raiders
 		player.internals.icon_state = "internal1"
 
 	return 1
-

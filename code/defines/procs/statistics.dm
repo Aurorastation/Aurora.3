@@ -1,12 +1,12 @@
 proc/sql_poll_population()
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	var/admincount = admins.len
 	var/playercount = 0
 	for(var/mob/M in player_list)
 		if(M.client)
 			playercount += 1
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during population polling. Failed to connect.")
 	else
@@ -18,15 +18,15 @@ proc/sql_poll_population()
 
 proc/sql_report_round_start()
 	// TODO
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 proc/sql_report_round_end()
 	// TODO
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 
 proc/sql_report_death(var/mob/living/carbon/human/H)
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	if(!H)
 		return
@@ -49,7 +49,7 @@ proc/sql_report_death(var/mob/living/carbon/human/H)
 	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 	var/coord = "[H.x], [H.y], [H.z]"
 	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
@@ -60,7 +60,7 @@ proc/sql_report_death(var/mob/living/carbon/human/H)
 
 
 proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	if(!H)
 		return
@@ -83,7 +83,7 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 	var/coord = "[H.x], [H.y], [H.z]"
 	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
@@ -94,7 +94,7 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 
 
 proc/statistic_cycle()
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	while(1)
 		sql_poll_population()
@@ -113,7 +113,7 @@ proc/sql_commit_feedback()
 		log_game("Round ended without any feedback being generated. No feedback was sent to the database.")
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during feedback reporting. Failed to connect.")
 	else
