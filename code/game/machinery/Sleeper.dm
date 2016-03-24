@@ -253,7 +253,9 @@
 			return
 		return
 
-	MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+	MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+		if(!istype(user))
+			return
 		if(!check_occupant_allowed(O))
 			return
 

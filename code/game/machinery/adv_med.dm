@@ -98,7 +98,9 @@
 	qdel(G)
 	return
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+	if(!istype(user))
+		return
 	if(!ismob(O))
 		return
 	var/mob/M = O
