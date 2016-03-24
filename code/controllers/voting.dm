@@ -278,12 +278,10 @@ datum/controller/vote
 
 	proc/interface(var/client/C)
 		if(!C)	return
-		var/admin = 0
-		var/trialmin = 0
+		var/is_staff = 0
 		if(C.holder)
-			if(C.holder.rights & R_ADMIN)
-				admin = 1
-				trialmin = 1 // don't know why we use both of these it's really weird, but I'm 2 lasy to refactor this all to use just admin.
+			if(C.holder.rights & (R_ADMIN|R_MOD))
+				is_staff = 1
 		voting |= C
 
 		. = "<html><head><title>Voting Panel</title></head><body>"
@@ -313,29 +311,29 @@ datum/controller/vote
 				. += "</tr>"
 
 			. += "</table><hr>"
-			if(admin)
+			if(is_staff)
 				. += "(<a href='?src=\ref[src];vote=cancel'>Cancel Vote</a>) "
 		else
 			. += "<h2>Start a vote:</h2><hr><ul><li>"
 			//restart
-			if(trialmin || config.allow_vote_restart)
+			if(is_staff || config.allow_vote_restart)
 				. += "<a href='?src=\ref[src];vote=restart'>Restart</a>"
 			else
 				. += "<font color='grey'>Restart (Disallowed)</font>"
 			. += "</li><li>"
-			if(trialmin || config.allow_vote_restart)
+			if(is_staff || config.allow_vote_restart)
 				. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer</a>"
 			else
 				. += "<font color='grey'>Crew Transfer (Disallowed)</font>"
-			if(trialmin)
+			if(is_staff)
 				. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>[config.allow_vote_restart?"Allowed":"Disallowed"]</a>)"
 			. += "</li><li>"
 			//gamemode
-			if(trialmin || config.allow_vote_mode)
+			if(is_staff || config.allow_vote_mode)
 				. += "<a href='?src=\ref[src];vote=gamemode'>GameMode</a>"
 			else
 				. += "<font color='grey'>GameMode (Disallowed)</font>"
-			if(trialmin)
+			if(is_staff)
 				. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[config.allow_vote_mode?"Allowed":"Disallowed"]</a>)"
 			. += "</li><li>"
 			//extra antagonists
@@ -345,7 +343,7 @@ datum/controller/vote
 				. += "<font color='grey'>Restart (Disallowed)</font>"
 			. += "</li>"
 			//custom
-			if(trialmin)
+			if(is_staff)
 				. += "<li><a href='?src=\ref[src];vote=custom'>Custom</a></li>"
 			. += "</ul><hr>"
 		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Close</a></body></html>"
