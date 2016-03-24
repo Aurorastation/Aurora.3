@@ -31,39 +31,40 @@
 #define BLOB		14
 // TODO: Investigate more recent type additions and see if I can handle them. - Nadrew
 
-
-// Deprecated! See global.dm for new configuration vars
-/*
-var/DB_SERVER = "" // This is the location of your MySQL server (localhost is USUALLY fine)
-var/DB_PORT = 3306 // This is the port your MySQL server is running on (3306 is the default)
-*/
-
 DBConnection
 	var/_db_con // This variable contains a reference to the actual database connection.
-	var/dbi // This variable is a string containing the DBI MySQL requires.
-	var/user // This variable contains the username data.
-	var/password // This variable contains the password data.
-	var/default_cursor // This contains the default database cursor data.
-		//
-	var/server = ""
-	var/port = 3306
+	var/con_dbi // This variable is a string containing the DBI MySQL requires.
+	var/con_user // This variable contains the username data.
+	var/con_password // This variable contains the password data.
+	var/con_cursor // This contains the default database cursor data.
+	var/con_server = ""
+	var/con_port = 3306
+	var/con_database = ""
 
-DBConnection/New(dbi_handler, username, password_handler, cursor_handler)
-	dbi = dbi_handler
-	user = username
-	password = password_handler
-	default_cursor = cursor_handler
+DBConnection/New(server, port = 3306, database, username, password_handler, cursor_handler = Default_Cursor, dbi_handler)
+	con_user = username
+	con_password = password_handler
+	con_cursor = cursor_handler
+	con_server = server
+	con_port = port
+	con_database = database
+
+	if (dbi_handler)
+		con_dbi = dbi_handler
+	else
+		con_dbi = "dbi:mysql:[database]:[server]:[port]"
+
 	_db_con = _dm_db_new_con()
 
-DBConnection/proc/Connect(dbi_handler = dbi, user_handler = user, password_handler = password, cursor_handler)
+DBConnection/proc/Connect(dbi_handler = con_dbi, user_handler = con_user, password_handler = con_password, cursor_handler)
 	if (!sqllogging)
 		return 0
 	if (!src)
 		return 0
-	cursor_handler = default_cursor
+	cursor_handler = con_cursor
 	if (!cursor_handler)
 		cursor_handler = Default_Cursor
-	return _dm_db_connect(_db_con,dbi_handler, user_handler, password_handler, cursor_handler, null)
+	return _dm_db_connect(_db_con, dbi_handler, user_handler, password_handler, cursor_handler, null)
 
 DBConnection/proc/Disconnect()
 	return _dm_db_close(_db_con)
@@ -80,12 +81,13 @@ DBConnection/proc/Quote(str)
 DBConnection/proc/ErrorMsg()
 	return _dm_db_error_msg(_db_con)
 
-DBConnection/proc/SelectDB(database_name,dbi)
-	if(IsConnected()) Disconnect()
-	//return Connect("[dbi?"[dbi]":"dbi:mysql:[database_name]:[DB_SERVER]:[DB_PORT]"]",user,password)
-	return Connect("[dbi?"[dbi]":"dbi:mysql:[database_name]:[sqladdress]:[sqlport]"]", user, password)
+DBConnection/proc/SelectDB(database_name, new_dbi)
+	if (IsConnected())
+		Disconnect()
+	con_database = database_name
+	return Connect(new_dbi ? new_dbi : "dbi:mysql:[database_name]:[con_server]:[con_port]", con_user, con_password)
 
-DBConnection/proc/NewQuery(sql_query, cursor_handler = default_cursor)
+DBConnection/proc/NewQuery(sql_query, cursor_handler = con_cursor)
 	return new/DBQuery(sql_query, src, cursor_handler)
 
 DBQuery

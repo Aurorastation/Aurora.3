@@ -202,7 +202,8 @@ var/custom_event_msg = null
 
 // Database connections. A connection is established on world creation.
 // Ideally, the connection dies when the server restarts (After feedback logging.).
-var/DBConnection/dbcon     = new() // Feedback    database (New database)
+// Feedback database. Constructor in /hook/startup/proc/connectDB()
+var/DBConnection/dbcon
 
 // Reference list for disposal sort junctions. Filled up by sorting junction's New()
 /var/list/tagger_locations = list()
