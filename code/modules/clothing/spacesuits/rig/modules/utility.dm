@@ -123,6 +123,7 @@
 	selectable = 0
 	toggleable = 0
 	disruptive = 0
+	confined_use = 1
 
 	engage_string = "Inject"
 
@@ -268,6 +269,7 @@
 	selectable = 0
 	toggleable = 0
 	disruptive = 0
+	confined_use = 1
 
 	engage_string = "Configure Synthesiser"
 

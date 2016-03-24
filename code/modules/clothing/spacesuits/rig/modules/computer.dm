@@ -34,6 +34,7 @@
 	usable = 1
 	disruptive = 0
 	activates_on_touch = 1
+	confined_use = 1
 
 	engage_string = "Eject AI"
 	activate_string = "Enable Dataspike"
@@ -324,6 +325,7 @@
 	icon_state = "ewar"
 	toggleable = 1
 	usable = 0
+	confined_use = 1
 
 	activate_string = "Enable Countermeasures"
 	deactivate_string = "Disable Countermeasures"
