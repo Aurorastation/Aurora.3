@@ -1,5 +1,5 @@
 proc/sql_poll_population()
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	var/admincount = admins.len
 	var/playercount = 0
@@ -18,15 +18,15 @@ proc/sql_poll_population()
 
 proc/sql_report_round_start()
 	// TODO
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 proc/sql_report_round_end()
 	// TODO
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 
 proc/sql_report_death(var/mob/living/carbon/human/H)
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	if(!H)
 		return
@@ -60,7 +60,7 @@ proc/sql_report_death(var/mob/living/carbon/human/H)
 
 
 proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	if(!H)
 		return
@@ -94,7 +94,7 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 
 
 proc/statistic_cycle()
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 	while(1)
 		sql_poll_population()

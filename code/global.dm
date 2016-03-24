@@ -187,22 +187,13 @@ var/datum/subsystem/alarm/alarm_manager	= new() // Alarm Manager, the manager fo
 
 var/list/awaydestinations = list() // Away missions. A list of landmarks that the warpgate can take you to.
 
-// MySQL configuration
-var/sqladdress = "localhost"
-var/sqlport    = "3306"
-var/sqldb      = "tgstation"
-var/sqllogin   = "root"
-var/sqlpass    = ""
-var/sqllogging   = 0 // Should we log deaths, population stats, etc.?
-
 // For FTP requests. (i.e. downloading runtime logs.)
 // However it'd be ok to use for accessing attack logs and such too, which are even laggier.
 var/fileaccess_timer = 0
 var/custom_event_msg = null
 
-// Database connections. A connection is established on world creation.
+// Database connections. A connection is established along with /hook/startup/proc/load_databases().
 // Ideally, the connection dies when the server restarts (After feedback logging.).
-// Feedback database. Constructor in /hook/startup/proc/connectDB()
 var/DBConnection/dbcon
 
 // Reference list for disposal sort junctions. Filled up by sorting junction's New()

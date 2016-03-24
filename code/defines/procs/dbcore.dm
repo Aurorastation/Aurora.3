@@ -58,7 +58,7 @@ DBConnection/New(server, port = 3306, database, username, password_handler, curs
 	_db_con = _dm_db_new_con()
 
 DBConnection/proc/Connect(dbi_handler = con_dbi, user_handler = con_user, password_handler = con_password, cursor_handler)
-	if (!sqllogging)
+	if (!config.sql_enabled)
 		return 0
 	if (!src)
 		return 0
@@ -71,7 +71,7 @@ DBConnection/proc/Disconnect()
 	return _dm_db_close(_db_con)
 
 DBConnection/proc/IsConnected()
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return 0
 	var/success = _dm_db_is_connected(_db_con)
 	return success
