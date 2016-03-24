@@ -220,7 +220,10 @@ var/datum/antagonist/raider/raiders
 		player.equip_to_slot_or_del(new new_suit(player),slot_wear_suit)
 		equip_weapons(player)
 
-	player.equip_to_storage(new /obj/item/device/contract_uplink)
+	//Try to equip it, del if we fail.
+	var/obj/item/device/contract_uplink/new_uplink = new()
+	if (!player.equip_to_appropriate_slot(new_uplink))
+		qdel(new_uplink)
 
 	var/obj/item/weapon/card/id/id = create_id("Visitor", player, equip = 0)
 	id.name = "[player.real_name]'s Passport"
