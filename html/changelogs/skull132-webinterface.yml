@@ -1,8 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-    - rscadd: "Integrated the web interface with the game. Players can now create linking requests from the web interface, and accept them ingame. This will be used for more feature integration between the two later."
-    - rscadd: "Integrated the syndicate contract database with the game. Players can interact with contracts from the web interface (create new ones, post comments, report completion, etcetera), and review the contracts from syndicate uplinks. This means that antags with access to an uplink can now roleplay with contracts, fulfilling missions and so forth."
-    - rscadd: "Heisters now spawn with contract uplinks, which are effectively syndicate uplinks without the telecrystals, for checking up on the contracts database."
