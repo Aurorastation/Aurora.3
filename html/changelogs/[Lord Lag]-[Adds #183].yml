@@ -1,0 +1,8 @@
+author: Lord Lag
+
+delete-after: True
+
+changes: 
+  - rscadd: "Glasses may once again be combined with HUDs"
+  - rscadd: "Borers have a full compliment of abilities once more."
+  - bugfix: ":9 is the new new Vaurcese hotkey."

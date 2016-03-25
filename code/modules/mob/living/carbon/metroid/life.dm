@@ -52,13 +52,13 @@
 
 	//Account for massive pressure differences
 
-	if(bodytemperature < (T0C + 5)) // start calculating temperature damage etc
+	if(bodytemperature < hurt_temperature) // start calculating temperature damage etc
 
-		if(bodytemperature <= (T0C - 50)) // hurt temperature
-			if(bodytemperature <= 50) // sqrting negative numbers is bad
+		if(bodytemperature <= die_temperature)
+			if(bodytemperature <= 50)
 				adjustToxLoss(200)
 			else
-				adjustToxLoss(round(sqrt(bodytemperature)) * 2)
+				adjustToxLoss(30)
 
 	updatehealth()
 
@@ -234,7 +234,7 @@
 				if(issilicon(L) && (rabid || attacked)) // They can't eat silicons, but they can glomp them in defence
 					targets += L // Possible target found!
 
-				if(istype(L, /mob/living/carbon/human) && dna) //Ignore slime(wo)men
+				if(istype(L, /mob/living/carbon/human)) //Ignore slime(wo)men
 					var/mob/living/carbon/human/H = L
 					if(H.species.name == "Slime")
 						continue

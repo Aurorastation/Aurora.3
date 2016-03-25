@@ -71,7 +71,7 @@
 	desc = "Vaurca native language made of clicks and sputters, \"It's a bugs life.\""
 	speech_verb = "clicks"
 	colour = "vaurca"
-	key = "m"
+	key = "9"
 	flags = WHITELISTED
 	syllables = list("kic","klic","\'tic","kit","lit","xic","vil","xrit","tshh","qix","qlit","zix","\'","!")
 
