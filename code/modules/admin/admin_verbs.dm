@@ -296,7 +296,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/jobbans,
 	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
 	/datum/admins/proc/paralyze_mob,
-	/client/proc/toggleattacklogs
+	/client/proc/toggleattacklogs,
+	/client/proc/cmd_admin_check_contents
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
