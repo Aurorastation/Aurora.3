@@ -24,7 +24,7 @@
 	var/teleport_cooldown = 0 // every index requires a bluespace crystal
 	var/list/power_options = list(5, 10, 20, 25, 30, 40, 50, 80, 100)
 	var/teleporting = 0
-	var/starting_crystals = 3
+	var/starting_crystals = 0	//Edit this on the map, seriously.
 	var/max_crystals = 4
 	var/list/crystals = list()
 	var/obj/item/device/gps/inserted_gps
@@ -54,8 +54,7 @@
 		if(crystals.len >= max_crystals)
 			user << "<span class='warning'>There are not enough crystal slots.</span>"
 			return
-		if(!user.drop_item())
-			return
+		user.drop_item(src)
 		crystals += W
 		W.loc = null
 		user.visible_message("[user] inserts [W] into \the [src]'s crystal slot.", "<span class='notice'>You insert [W] into \the [src]'s crystal slot.</span>")
