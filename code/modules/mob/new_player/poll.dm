@@ -1,6 +1,6 @@
 
 /mob/new_player/proc/handle_privacy_poll()
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 	var/voted = 0
@@ -47,7 +47,7 @@
 	var/optiontext
 
 /mob/new_player/proc/handle_player_polling()
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(dbcon.IsConnected())
 		var/isadmin = 0
 		if(src.client && src.client.holder)
@@ -81,7 +81,7 @@
 
 /mob/new_player/proc/poll_player(var/pollid = -1)
 	if(pollid == -1) return
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(dbcon.IsConnected())
 
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions FROM ss13_poll_question WHERE id = [pollid]")
@@ -342,7 +342,7 @@
 
 	if(!isnum(pollid) || !isnum(optionid))
 		return
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(dbcon.IsConnected())
 
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions FROM ss13_poll_question WHERE id = [pollid] AND Now() BETWEEN starttime AND endtime")
@@ -412,7 +412,7 @@
 
 	if(!isnum(pollid) || !istext(replytext))
 		return
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(dbcon.IsConnected())
 
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype FROM ss13_poll_question WHERE id = [pollid] AND Now() BETWEEN starttime AND endtime")
@@ -470,7 +470,7 @@
 
 	if(!isnum(pollid) || !isnum(optionid))
 		return
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(dbcon.IsConnected())
 
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype FROM ss13_poll_question WHERE id = [pollid] AND Now() BETWEEN starttime AND endtime")

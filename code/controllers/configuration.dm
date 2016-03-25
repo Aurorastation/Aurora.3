@@ -34,6 +34,7 @@ var/list/gamemode_cache = list()
 	var/vote_autotransfer_initial = 108000 // Length of time before the first autotransfer vote is called
 	var/vote_autotransfer_interval = 36000 // length of time before next sequential autotransfer vote
 	var/vote_autogamemode_timeleft = 100 //Length of time before round start when autogamemode vote is called (in seconds, default 100).
+	var/transfer_timeout = 72000		// timeout before a transfer vote can be called (deciseconds, 120 minute default)
 	var/vote_no_default = 0				// vote does not default to nochange/norestart (tbi)
 	var/vote_no_dead = 0				// dead people can't vote (tbi)
 //	var/enable_authentication = 0		// goon authentication
@@ -208,6 +209,9 @@ var/list/gamemode_cache = list()
 
 	var/aggressive_changelog = 0
 
+	//Web interface settings
+	var/webint_url = ""
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -277,7 +281,7 @@ var/list/gamemode_cache = list()
 					config.log_access = 1
 
 				if ("sql_enabled")
-					config.sql_enabled = text2num(value)
+					config.sql_enabled = 1
 
 				if ("log_say")
 					config.log_say = 1
@@ -362,6 +366,9 @@ var/list/gamemode_cache = list()
 
 				if ("vote_autogamemode_timeleft")
 					config.vote_autogamemode_timeleft = text2num(value)
+
+				if ("transfer_timeout")
+					config.transfer_timeout = text2num(value)
 
 				if("ert_admin_only")
 					config.ert_admin_call_only = 1
@@ -674,6 +681,9 @@ var/list/gamemode_cache = list()
 				if("show_auxiliary_roles")
 					config.show_auxiliary_roles = 1
 
+				if("webint_url")
+					config.webint_url = value
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -736,88 +746,6 @@ var/list/gamemode_cache = list()
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
-
-/datum/configuration/proc/loadsql(filename)  // -- TLE
-	var/list/Lines = file2list(filename)
-	for(var/t in Lines)
-		if(!t)	continue
-
-		t = trim(t)
-		if (length(t) == 0)
-			continue
-		else if (copytext(t, 1, 2) == "#")
-			continue
-
-		var/pos = findtext(t, " ")
-		var/name = null
-		var/value = null
-
-		if (pos)
-			name = lowertext(copytext(t, 1, pos))
-			value = copytext(t, pos + 1)
-		else
-			name = lowertext(t)
-
-		if (!name)
-			continue
-
-		switch (name)
-			if ("address")
-				sqladdress = value
-			if ("port")
-				sqlport = value
-			if ("database")
-				sqldb = value
-			if ("login")
-				sqllogin = value
-			if ("password")
-				sqlpass = value
-			if ("enable_stat_tracking")
-				sqllogging = 1
-			else
-				log_misc("Unknown setting in configuration: '[name]'")
-
-/datum/configuration/proc/loadforumsql(filename)  // -- TLE
-	var/list/Lines = file2list(filename)
-	for(var/t in Lines)
-		if(!t)	continue
-
-		t = trim(t)
-		if (length(t) == 0)
-			continue
-		else if (copytext(t, 1, 2) == "#")
-			continue
-
-		var/pos = findtext(t, " ")
-		var/name = null
-		var/value = null
-
-		if (pos)
-			name = lowertext(copytext(t, 1, pos))
-			value = copytext(t, pos + 1)
-		else
-			name = lowertext(t)
-
-		if (!name)
-			continue
-
-		switch (name)
-			if ("address")
-				forumsqladdress = value
-			if ("port")
-				forumsqlport = value
-			if ("database")
-				forumsqldb = value
-			if ("login")
-				forumsqllogin = value
-			if ("password")
-				forumsqlpass = value
-			if ("activatedgroup")
-				forum_activated_group = value
-			if ("authenticatedgroup")
-				forum_authenticated_group = value
-			else
-				log_misc("Unknown setting in configuration: '[name]'")
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up

@@ -9,7 +9,7 @@ var/list/whitelist = list()
 
 /proc/load_whitelist()
 	if (config.sql_whitelists)
-		establish_db_connection()
+		establish_db_connection(dbcon)
 
 		if (!dbcon.IsConnected())
 			//Continue with the old code if we have no database.
@@ -43,7 +43,7 @@ var/list/whitelist = list()
 
 /proc/load_alienwhitelist()
 	if (config.sql_whitelists)
-		establish_db_connection()
+		establish_db_connection(dbcon)
 
 		if (!dbcon.IsConnected())
 			//Continue with the old code if we have no database.

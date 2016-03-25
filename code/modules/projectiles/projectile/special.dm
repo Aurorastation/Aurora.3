@@ -28,7 +28,7 @@
 	name ="high-ex round"
 	icon_state= "bolter"
 	damage = 15
-	
+
 	on_hit(var/atom/target, var/blocked = 0)
 		explosion(target, -1, 0, 2)
 		sleep(0)
@@ -44,13 +44,13 @@
 	damage_type = BURN
 	nodamage = 1
 	check_armour = "energy"
-	var/temperature = 300
+	//var/temperature = 300
 
 
 	on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
 		if(istype(target, /mob/living))
 			var/mob/M = target
-			M.bodytemperature = temperature
+			M.bodytemperature = -273
 		return 1
 
 /obj/item/projectile/meteor

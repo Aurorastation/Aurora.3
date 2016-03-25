@@ -254,19 +254,19 @@ datum/controller/process/proc/getStatusText(var/s = 0)
 		s = status
 	switch(s)
 		if(PROCESS_STATUS_IDLE)
-			return "idle"
+			return "idle (-1)"
 		if(PROCESS_STATUS_QUEUED)
-			return "queued"
+			return "queued (0)"
 		if(PROCESS_STATUS_RUNNING)
-			return "running"
+			return "running (1)"
 		if(PROCESS_STATUS_MAYBE_HUNG)
-			return "maybe hung"
+			return "maybe hung (2)"
 		if(PROCESS_STATUS_PROBABLY_HUNG)
-			return "probably hung"
+			return "probably hung (3)"
 		if(PROCESS_STATUS_HUNG)
-			return "HUNG"
+			return "HUNG (4)"
 		else
-			return "UNKNOWN"
+			return "UNKNOWN (?)"
 
 datum/controller/process/proc/getPreviousStatus()
 	return previousStatus

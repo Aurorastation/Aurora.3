@@ -1,18 +1,18 @@
 /obj/item/weapon/gun/energy/temperature
-	name = "temperature gun"
+	name = "freeze ray"
 	icon_state = "freezegun"
 	fire_sound = 'sound/weapons/pulse3.ogg'
-	desc = "A gun that changes temperatures. It has a small label on the side, 'More extreme temperatures will cost more charge!'"
-	var/temperature = T20C
-	var/current_temperature = T20C
-	charge_cost = 100
+	desc = "For when somebody won't let it go."
+	//var/temperature = T20C
+	//var/current_temperature = T20C
+	charge_cost = 25 //20 shots, exact replica of old code (WAS 100)
 	origin_tech = "combat=3;materials=4;powerstorage=3;magnets=2"
 	slot_flags = SLOT_BELT|SLOT_BACK
 
 	projectile_type = /obj/item/projectile/temp
-	cell_type = /obj/item/weapon/cell/high
+	cell_type = /obj/item/weapon/cell/crap //WAS High, but brought down to match energy use
 
-
+/*
 /obj/item/weapon/gun/energy/temperature/New()
 	..()
 	processing_objects.Add(src)
@@ -38,7 +38,7 @@
 
 	user << browse(dat, "window=freezegun;size=450x300;can_resize=1;can_close=1;can_minimize=1")
 	onclose(user, "window=freezegun", src)
-
+*/
 
 /obj/item/weapon/gun/energy/temperature/Topic(href, href_list)
 	if (..())
@@ -47,7 +47,7 @@
 	src.add_fingerprint(usr)
 
 
-
+/*
 	if(href_list["temp"])
 		var/amount = text2num(href_list["temp"])
 		if(amount > 0)
@@ -77,3 +77,4 @@
 				temperature += 10
 		else
 			temperature = current_temperature
+*/

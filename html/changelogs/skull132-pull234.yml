@@ -1,0 +1,26 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+    - rscadd: "The 2/3rd majority rule for crew transfer is back. Before 3 hours, the majority is required to pass a vote."
+    - rscadd: "Transfer vote timeout added as a config option. Default is 2 hours. No transfer vote may be called before that time."
+    - tweak: "Sleeper and body scanner consoles can be walked through once more."
+    - tweak: "Most hardsuit modules can no longer be utilized inside mechs."
+    - tweak: "+MODs can now cancel votes and start ones regardless of timer."
+    - tweak: "+MODs now get check_contents, check_words (cult words), and check_ai_laws verbs."
+    - tweak: "Holders no longer get debug_variables (view variables) verb."
+    - tweak: "Processor hang alerts now have numbers to showcase severity of the issue. The higher the number, the worse the issue."
+    - tweak: "Revolution no longer auto-recalls the shuttle. Nor is the death of the antagonists a valid end condition."
+    - tweak: "Voting system tweaked. Crew transfer votes are now special, and run on their own timers. This means that cancelled votes no longer interfere with them."
+    - tweak: "A lot of JMP macros added to attack logs."
+    - bugfix: "Ghosts can no longer drag people into sleepers, cryo chambers, etcetera."
+    - bugfix: "You can no longer generate infinite plasmacutters with RIGs."
+    - bugfix: "Cuffing people now checks whether or not the target is interfered with before slapping the cuffs on."
+    - bugfix: "The pAI cable no longer spams itself spooling."
+    - bugfix: "Uploading to the library is possible again."
+    - bugfix: "Conveyor belts will no longer consume objects."
+    - bugfix: "You can no longer split stacks with a non-functional hand."
+    - bugfix: "Janitors can no longer access medical records. Medical records now require medical bay equipment access."
+    - bugfix: "Telescience consoles are no longer an infinite source of telecrystals upon reconstruction. Further, you can now insert TCs into them again."
+    - bugfix: "Cell 1 has its own locker again."
