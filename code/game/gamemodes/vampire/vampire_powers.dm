@@ -553,11 +553,10 @@
 		src << "<b>\red SOMETHING WENT WRONG, YELL AT POMF OR NEXIS</b>"
 		return 0
 	var/ref = "\ref[src.mind]"
-	if(!(src.mind.vampire.thralls[ref]))
-		src.mind.vampire.thralls += ref
-		src.mind.vampire.thralls[ref] = list()
-
-	src.mind.vampire.thralls[ref] += H.mind
+	if(!(src.mind.vampire.thralls))
+		src.mind.vampire.thralls[ref] = list(H.mind)
+	else
+		src.mind.vampire.thralls[ref] += H.mind
 	//msg_scopes("[H.name] Changed in handle_enthrall") //purely here to see live changes incase of unexpected things
 	src.mind.vampire.enthralled.Add(H.mind)
 	src.mind.vampire.enthralled[H.mind] = src.mind
