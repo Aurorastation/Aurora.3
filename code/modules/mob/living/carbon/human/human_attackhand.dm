@@ -7,13 +7,8 @@
 /mob/living/carbon/human/attack_hand(mob/living/carbon/M as mob)
 
 	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
-		if(H.hand)
-			temp = H.organs_by_name["l_hand"]
-		if(!temp || !temp.is_usable())
-			H << "\red You can't use your hand."
-			return
+	if(!M.can_use_hand())
+		return
 
 	..()
 

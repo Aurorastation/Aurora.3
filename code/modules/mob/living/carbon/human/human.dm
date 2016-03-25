@@ -1420,15 +1420,6 @@
 	if(!..() || l_hand)
 		return 0
 
-	var/obj/item/organ/external/temp = organs_by_name["l_hand"]
-	if (temp && !temp.is_usable())
-		src << "<span class='notice'>You try to move your [temp.name], but cannot!"
-		return 0
-
-	if (!temp)
-		src << "<span class='notice'>You try to use your hand, but realize it is no longer attached!"
-		return 0
-
 	W.forceMove(src)
 	l_hand = W
 	W.equipped(src,slot_l_hand)
@@ -1440,7 +1431,19 @@
 	if(!..() || r_hand)
 		return 0
 
-	var/obj/item/organ/external/temp = organs_by_name["r_hand"]
+	W.forceMove(src)
+	r_hand = W
+	W.equipped(src,slot_r_hand)
+	W.add_fingerprint(src)
+	update_inv_r_hand()
+	return 1
+
+/mob/living/carbon/human/can_use_hand(var/selected_hand = hand)
+	var/hand_to_check = "l_hand"
+	if (!selected_hand)
+		hand_to_check = "r_hand"
+
+	var/obj/item/organ/external/temp = organs_by_name[hand_to_check]
 	if (temp && !temp.is_usable())
 		src << "<span class='notice'>You try to move your [temp.name], but cannot!"
 		return 0
@@ -1449,9 +1452,4 @@
 		src << "<span class='notice'>You try to use your hand, but realize it is no longer attached!"
 		return 0
 
-	W.forceMove(src)
-	r_hand = W
-	W.equipped(src,slot_r_hand)
-	W.add_fingerprint(src)
-	update_inv_r_hand()
 	return 1

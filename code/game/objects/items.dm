@@ -147,10 +147,7 @@
 /obj/item/attack_hand(mob/user as mob)
 	if (!user) return
 
-	// Removed the hand check from here, and moved it into /mob/living/carbon/human/put_in_r_hand or put_in_l_hand respectively.
-	// put_in_active_hand must be called first, as it then checks whether or not we can actually use the hand.
-	// Then the obj/item/pickup() proc gets triggered.
-	if (!user.put_in_active_hand(src))
+	if (!user.can_use_hand())
 		return
 
 	src.pickup(user)
@@ -166,6 +163,8 @@
 		if(isliving(src.loc))
 			return
 		user.next_move = max(user.next_move+2,world.time + 2)
+
+	user.put_in_active_hand(src)
 	return
 
 /obj/item/attack_ai(mob/user as mob)

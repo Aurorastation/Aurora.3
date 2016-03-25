@@ -1110,3 +1110,7 @@ mob/proc/yank_out_object()
 	feedback_add_details("admin_verb", "UNWIND")
 
 	return
+
+//Helper proc for figuring out if the active hand (or given hand) is usable.
+/mob/proc/can_use_hand()
+	return 1
