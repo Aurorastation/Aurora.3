@@ -191,7 +191,9 @@
 			qdel(G)
 	return
 
-/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+	if(!istype(user))
+		return
 	if(!ismob(O))
 		return
 	var/mob/living/L = O

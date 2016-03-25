@@ -28,6 +28,7 @@
 	var/permanent                       // If set, the module can't be removed.
 	var/disruptive = 1                  // Can disrupt by other effects.
 	var/activates_on_touch              // If set, unarmed attacks will call engage() on the target.
+	var/confined_use = 0				// If set, can be used inside mechs and other vehicles.
 
 	var/active                          // Basic module status
 	var/disruptable                     // Will deactivate if some other powers are used.
@@ -167,6 +168,10 @@
 		return 0
 
 	if(!holder.check_power_cost(usr, use_power_cost, 0, src, (istype(usr,/mob/living/silicon ? 1 : 0) ) ) )
+		return 0
+
+	if(!confined_use && istype(usr.loc, /obj/mecha))
+		usr << "<span class='danger'>You cannot use the suit in the confined space.</span>"
 		return 0
 
 	next_use = world.time + module_cooldown

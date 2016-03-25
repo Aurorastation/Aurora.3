@@ -34,6 +34,7 @@ var/list/gamemode_cache = list()
 	var/vote_autotransfer_initial = 108000 // Length of time before the first autotransfer vote is called
 	var/vote_autotransfer_interval = 36000 // length of time before next sequential autotransfer vote
 	var/vote_autogamemode_timeleft = 100 //Length of time before round start when autogamemode vote is called (in seconds, default 100).
+	var/transfer_timeout = 72000		// timeout before a transfer vote can be called (deciseconds, 120 minute default)
 	var/vote_no_default = 0				// vote does not default to nochange/norestart (tbi)
 	var/vote_no_dead = 0				// dead people can't vote (tbi)
 //	var/enable_authentication = 0		// goon authentication
@@ -365,6 +366,9 @@ var/list/gamemode_cache = list()
 
 				if ("vote_autogamemode_timeleft")
 					config.vote_autogamemode_timeleft = text2num(value)
+
+				if ("transfer_timeout")
+					config.transfer_timeout = text2num(value)
 
 				if("ert_admin_only")
 					config.ert_admin_call_only = 1

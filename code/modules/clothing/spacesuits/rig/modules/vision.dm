@@ -50,6 +50,7 @@
 	usable = 1
 	toggleable = 1
 	disruptive = 0
+	confined_use = 1
 
 	engage_string = "Cycle Visor Mode"
 	activate_string = "Enable Visor"

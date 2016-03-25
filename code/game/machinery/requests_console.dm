@@ -372,7 +372,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if(href_list["sort"])
 		var/sortdep = sanitizeSQL(href_list["sort"])
-		SQLquery = " Select id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%'"
+		SQLquery = " Select id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%' ORDER BY id"
 		screen = 11
 
 	if(href_list["print"])
@@ -456,7 +456,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(!announcementConsole)	return
 			screen = 10
 		if(11)		//form database
-			SQLquery = "SELECT id, name, department FROM ss13_forms"
+			SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
 			screen = 11
 		else		//main menu
 			dpt = ""
