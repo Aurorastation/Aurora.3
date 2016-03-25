@@ -15,6 +15,7 @@ datum/controller/vote
 	var/list/current_votes = list()
 	var/list/additional_text = list()
 	var/auto_muted = 0
+	var/last_transfer_vote = null
 
 	New()
 		if(vote != src)
@@ -106,6 +107,12 @@ datum/controller/vote
 					world << "<font color='purple'>Crew Transfer Factor: [factor]</font>"
 					greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
+		if(mode == "crew_transfer")
+			if(round(world.time / 36000)+12 <= 14)
+				// Credit to Scopes @ oldcode.
+				world << "<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>"
+				choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] - round(total_votes / 3))
+				greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
 		//get all options with that many votes and return them in a list
 		. = list()
@@ -163,6 +170,7 @@ datum/controller/vote
 				if("crew_transfer")
 					if(. == "Initiate Crew Transfer")
 						init_shift_change(null, 1)
+					last_transfer_vote = world.time
 				if("add_antagonist")
 					if(isnull(.) || . == "None")
 						antag_add_failed = 1
@@ -199,8 +207,17 @@ datum/controller/vote
 
 	proc/initiate_vote(var/vote_type, var/initiator_key, var/automatic = 0)
 		if(!mode)
-			if(started_time != null && !(check_rights(R_ADMIN) || automatic))
-				var/next_allowed_time = (started_time + config.vote_delay)
+			if(started_time != null && !(check_rights(R_ADMIN|R_MOD) || automatic))
+				// Transfer votes are their own little special snowflake
+				var/next_allowed_time = 0
+				if (vote_type == "crew_transfer")
+					if (last_transfer_vote)
+						next_allowed_time = (last_transfer_vote + config.vote_delay)
+					else
+						next_allowed_time = config.transfer_timeout
+				else
+					next_allowed_time = (started_time + config.vote_delay)
+
 				if(next_allowed_time > world.time)
 					return 0
 
