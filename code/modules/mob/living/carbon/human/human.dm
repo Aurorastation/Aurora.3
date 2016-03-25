@@ -1419,6 +1419,16 @@
 /mob/living/carbon/human/put_in_l_hand(var/obj/item/W)
 	if(!..() || l_hand)
 		return 0
+
+	var/obj/item/organ/external/temp = organs_by_name["l_hand"]
+	if (temp && !temp.is_usable())
+		src << "<span class='notice'>You try to move your [temp.name], but cannot!"
+		return 0
+
+	if (!temp)
+		src << "<span class='notice'>You try to use your hand, but realize it is no longer attached!"
+		return 0
+
 	W.forceMove(src)
 	l_hand = W
 	W.equipped(src,slot_l_hand)
@@ -1429,6 +1439,16 @@
 /mob/living/carbon/human/put_in_r_hand(var/obj/item/W)
 	if(!..() || r_hand)
 		return 0
+
+	var/obj/item/organ/external/temp = organs_by_name["r_hand"]
+	if (temp && !temp.is_usable())
+		src << "<span class='notice'>You try to move your [temp.name], but cannot!"
+		return 0
+
+	if (!temp)
+		src << "<span class='notice'>You try to use your hand, but realize it is no longer attached!"
+		return 0
+
 	W.forceMove(src)
 	r_hand = W
 	W.equipped(src,slot_r_hand)

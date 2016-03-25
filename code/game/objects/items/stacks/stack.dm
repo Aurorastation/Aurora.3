@@ -299,7 +299,8 @@
 	if (user.get_inactive_hand() == src)
 		var/obj/item/stack/F = src.split(1)
 		if (F)
-			user.put_in_hands(F)
+			if (!user.put_in_hands(F))
+				return
 			src.add_fingerprint(user)
 			F.add_fingerprint(user)
 			spawn(0)
