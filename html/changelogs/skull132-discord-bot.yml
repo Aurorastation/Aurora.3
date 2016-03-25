@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-    - rscadd: "Adds discordbot, nicknamed BOREALIS. Basically: this enables admins to interact with the game without even being on the server. Should push come to shove, we can restart the server remotely, and answer adminhelps remotely. Also makes some other functionality possible."

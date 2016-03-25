@@ -228,6 +228,21 @@
 		..()
 		reagents.add_reagent("water",500)
 
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if (istype(W,/obj/item/weapon/wrench))
+		src.add_fingerprint(user)
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		if(do_after(user, 20))
+			if(!src) return
+			switch (anchored)
+				if (0)
+					anchored = 1
+					user.visible_message("\The [user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
+				if (1)
+					user.visible_message("\The [user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
+					anchored = 0
+		return
+
 
 /obj/structure/reagent_dispensers/beerkeg
 	name = "beer keg"
