@@ -70,7 +70,7 @@ emp_act
 				c_hand = r_hand
 
 			if(c_hand && (stun_amount || agony_amount > 10))
-				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect")
+				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 
 				drop_from_inventory(c_hand)
 				if (affected.status & ORGAN_ROBOT)
