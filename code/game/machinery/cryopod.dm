@@ -462,7 +462,10 @@
 			//Despawning occurs when process() is called with an occupant without a client.
 			src.add_fingerprint(M)
 
-/obj/machinery/cryopod/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/cryopod/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+	if(!istype(user))
+		return
+
 	if(!check_occupant_allowed(O))
 		return
 

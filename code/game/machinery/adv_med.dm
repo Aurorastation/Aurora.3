@@ -98,7 +98,9 @@
 	qdel(G)
 	return
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+	if(!istype(user))
+		return
 	if(!ismob(O))
 		return
 	var/mob/M = O
@@ -198,7 +200,7 @@
 	name = "Body Scanner Console"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "body_scannerconsole"
-	density = 1
+	density = 0
 	anchored = 1
 
 

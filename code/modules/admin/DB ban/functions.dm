@@ -4,7 +4,7 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 
 	if(!check_rights(R_MOD,0) && !check_rights(R_BAN))	return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
@@ -122,7 +122,7 @@ datum/admins/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 	if(job)
 		sql += " AND job = '[job]'"
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
@@ -217,7 +217,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	var/sql = "SELECT ckey FROM ss13_ban WHERE id = [id]"
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
@@ -269,7 +269,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	if(!check_rights(R_BAN))	return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		usr << "\red Failed to establish database connection"
 		return
