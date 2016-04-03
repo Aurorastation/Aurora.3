@@ -200,6 +200,9 @@ var/list/sacrificed = list()
 			if(cultists.len >= 9)
 				log_and_message_admins_many(cultists, "summoned Nar-sie.")
 				new /obj/singularity/narsie/large(src.loc)
+
+				// Can't summon a singular entity twice.
+				cult.allow_narsie = 0
 				return
 			else
 				return fizzle()
