@@ -1,11 +1,6 @@
-var/datum/antagonist/vampire/vamp
+var/datum/antagonist/vampire/vamp = null
 
-/proc/isvampire(var/mob/player)
-	if(!vamp || !player.mind)
-		return 0
-	if(player.mind in vamp.current_antagonists)
-		return 1
-
+// #TODO: Update vampire antagonist datum.
 /datum/antagonist/vampire
 	id = MODE_VAMPIRE
 	role_type = BE_VAMPIRE
@@ -18,7 +13,12 @@ var/datum/antagonist/vampire/vamp
 	restricted_species = list("Machine")
 	welcome_text = "You are a Vampire! Use harm intent and aim for the head to drink blood! Stay away from the Chaplain, and use the darkness to your advantage."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
-	antaghud_indicator = "hudchangeling" //NEEDS TO BE CHANGED
+	antaghud_indicator = "hudchangeling"
+
+/datum/antagonist/vampire/New()
+	..()
+
+	vamp = src
 
 /datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
 		..()

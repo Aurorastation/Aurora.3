@@ -1261,14 +1261,6 @@
 			see_in_dark = species.darksight
 			see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
 
-			if(mind && mind.vampire)
-				if((VAMP_VISION in mind.vampire.powers) && !(VAMP_FULL in mind.vampire.powers))
-					sight |= SEE_MOBS
-				if((VAMP_FULL in mind.vampire.powers))
-					sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
-					see_in_dark = 8
-					see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
-
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 				see_in_dark = 8
