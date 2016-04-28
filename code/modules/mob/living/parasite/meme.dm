@@ -55,6 +55,7 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 // ============
 
 
+
 // Memes use points for many actions
 /mob/living/parasite/meme/var/meme_points = 100
 /mob/living/parasite/meme/var/dormant = 0
@@ -233,23 +234,20 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 	set desc     = "Prevents your host from talking for a while."
 
 	if(!src.host) return
-	if(!host.speech_allowed)
+	/*if(!host.silent)
 		usr << "\red Your host already can't speak.."
-		return
+		return*/
 	if(!use_points(250)) return
 
 	spawn
 		// backup the host incase we switch hosts after using the verb
-		var/mob/host = src.host
-
+		//var/mob/host = src.host
 		host << "\red Your tongue feels numb.. You lose your ability to speak."
 		usr << "\red Your host can't speak anymore."
 
-		host.speech_allowed = 0
+		host.silent += 60
 
 		sleep(1200)
-
-		host.speech_allowed = 1
 		host << "\red Your tongue has feeling again.."
 		usr << "\red [host] can speak again."
 
@@ -260,9 +258,9 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 	set desc     = "Prevents your host from using emote for a while."
 
 	if(!src.host) return
-	if(!host.emote_allowed)
+	/*if(!host.Weaken())
 		usr << "\red Your host already can't use body language.."
-		return
+		return*/
 	if(!use_points(250)) return
 
 	spawn
@@ -272,11 +270,9 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 		host << "\red Your body feels numb.. You lose your ability to use body language."
 		usr << "\red Your host can't use body language anymore."
 
-		host.emote_allowed = 0
+		host.Weaken(60)
 
 		sleep(1200)
-
-		host.emote_allowed = 1
 		host << "\red Your body has feeling again.."
 		usr << "\red [host] can use body language again."
 
@@ -342,17 +338,25 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 		host << "\red You are feeling clear-headed again.."
 
 // Cause the target to hallucinate.
-/mob/living/parasite/meme/verb/Hallucinate()
+/mob/living/parasite/meme/verb/Hallucinate(mob/living/carbon/human/target as mob in world)
 	set category = "Meme"
 	set name	 = "Hallucinate(300)"
 	set desc     = "Makes your host hallucinate, has a short delay."
 
-	var/mob/target = select_indoctrinated("Hallucination", "Who should hallucinate?")
-
+	if(!istype(target, /mob/living/carbon/human) || !target.mind)
+		src << "<b>You can't remotely ruin this ones mind.</b>"
+		return
+	if(!(target in view(host)))
+		src << "<b>You need to make eye-contact with the target.</b>"
+		return
+	if(!(target in indoctrinated))
+		src << "<b>You need to attune the target first.</b>"
+		return
 	if(!target) return
 	if(!use_points(300)) return
 
-	target.hallucination += 100
+	spawn(rand(300,600))
+		if(target)	target.hallucination += 400
 
 	usr << "<b>You make [target] hallucinate.</b>"
 
@@ -495,12 +499,12 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 	host << "\red You feel your body strengthen and your pain subside.."
 	host.analgesic = 60
 	while(host.analgesic > 0)
-		sleep(10)
+		sleep(60)
 	host << "\red The dizziness wears off, and you can feel pain again.."
 
 
 /mob/proc/clearHUD()
-	update_clothing()
+	//update_clothing()
 	if(client) client.screen.Cut()
 
 // Take control of the mob
@@ -529,24 +533,29 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 		host_mind.transfer_to(dummy)
 		meme_mind.transfer_to(host)
 		host_mind.current.clearHUD()
-		host.update_clothing()
-
+		//host.update_clothing()
 
 		log_admin("[meme_mind.key] has taken possession of [host]([host_mind.key])")
 		message_admins("[meme_mind.key] has taken possession of [host]([host_mind.key])")
 
-		sleep(600)
+	host.verbs += /mob/living/parasite/meme/verb/release_mayay
 
-		log_admin("[meme_mind.key] has lost possession of [host]([host_mind.key])")
-		message_admins("[meme_mind.key] has lost possession of [host]([host_mind.key])")
 
-		meme_mind.transfer_to(src)
-		host_mind.transfer_to(host)
-		meme_mind.current.clearHUD()
-		host.update_clothing()
-		src << "\red You lose control.."
+/mob/living/parasite/meme/verb/release_mayay()
+	set category = "Meme"
+	set name	 = "Release Control"
+	set desc     = "Release control of the host prematurely."
+//other side of control shit
+	var/mob/dummy
+	var/datum/mind/host_mind = dummy.mind
+	var/datum/mind/meme_mind = host.mind
+	meme_mind.transfer_to(src)
+	host_mind.transfer_to(host)
+	//meme_mind.current.clearHUD()
+	//host.update_clothing()
+	src << "\red You lose control.."
 
-		del dummy
+	qdel(dummy)
 
 // Enter dormant mode, increases meme point gain
 /mob/living/parasite/meme/verb/Dormant()
@@ -582,8 +591,8 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 
 	if (client && client.statpanel == "Status")
 		stat(null, "Meme Points: [src.meme_points]")
-
-// Game mode helpers, used for theft objectives
+/*
+// Game mode helpers, used for theft objectives-NOT USED, NO OBJECTIVES
 // --------------------------------------------
 /mob/living/parasite/check_contents_for(t)
 	if(!host) return 0
@@ -594,3 +603,4 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 	if(!host) return 0
 
 	return host.check_contents_for_reagent(t)
+	*/
