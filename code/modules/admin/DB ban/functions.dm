@@ -488,7 +488,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 					if (mirror_count)
 						output += "<tr bgcolor='[dcolor]'>"
-						output += "<td align='center' colspan='5' bgcolor=''><b>Ban Mirrored [mirror_count > 1 ? "[mirror_count] times" : "once"]!</b></td>"
+						output += "<td align='center' colspan='5' bgcolor=''><b>Ban Mirrored <a href=\"byond://?src=\ref[src];dbbanmirrors=[banid]\">[mirror_count > 1 ? "[mirror_count] times" : "once"]</a>!</b></td>"
 						output += "</tr>"
 
 				output += "<tr>"

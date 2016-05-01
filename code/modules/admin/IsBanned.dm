@@ -32,42 +32,38 @@ world/IsBanned(key,address,computer_id)
 
 	else
 
-		var/ckeytext = ckey(key)
+		if (!address)
+			log_access("Failed Login: [key] null-[computer_id] - Denied access: No IP address broadcast.")
+			message_admins("[key] tried to connect without an IP address.")
+			return list("reason" = "Temporary ban", "desc" = "Your connection did not broadcast an IP address to check.")
+
+		if (!computer_id)
+			log_access("Failed Login: [key] [address]-null - Denied access: No computer ID broadcast.")
+			message_admins("[key] tried to connect without a computer ID.")
+			return list("reason" = "Temporary ban", "desc" = "Your connection did not broadcast an computer ID to check.")
+
+		var/ckey = ckey(key)
 
 		if(!establish_db_connection(dbcon))
-			error("Ban database connection failure. Key [ckeytext] not checked")
-			log_misc("Ban database connection failure. Key [ckeytext] not checked")
+			error("Ban database connection failure. Key [ckey] not checked")
+			log_misc("Ban database connection failure. Key [ckey] not checked")
 			return
 
-		var/failedcid = 1
-		var/failedip = 1
+		var/pulled_ban_id = get_active_mirror(ckey, address, computer_id)
 
-		var/ipquery = ""
-		var/cidquery = ""
-		if(address)
-			failedip = 0
-			ipquery = " OR ip = '[address]' "
-
-		if(computer_id)
-			failedcid = 0
-			cidquery = " OR computerid = '[computer_id]' "
-
-		var/pulled_ban_id = null
-		var/DBQuery/mirror_query = dbcon.NewQuery("SELECT ban_id FROM ss13_ban_mirrors WHERE player_ckey = '[ckeytext]' [address ? "OR ban_mirror_ip = '[address]'" : ""] [computer_id ? "OR ban_mirror_computerid = '[computer_id]'" : ""]")
-		mirror_query.Execute()
-
-		if (mirror_query.NextRow())
-			pulled_ban_id = text2num(mirror_query.item[1])
-
+		var/params[] = list()
 		var/query_content = ""
 		if (pulled_ban_id)
-			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE id = '[pulled_ban_id]' AND (bantype = 'PERMABAN'  OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE id = :ban_id AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			params[":ban_id"] = pulled_ban_id
 		else
-			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = '[ckeytext]' [ipquery] [cidquery]) AND (bantype = 'PERMABAN'  OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = :ckey OR computerid = :computerid OR ip = :address) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			params[":ckey"] = ckey
+			params[":computerid"] = computer_id
+			params[":address"] = address
 
 		var/DBQuery/query = dbcon.NewQuery(query_content)
-
-		query.Execute()
+		query.Execute(params)
 
 		while(query.NextRow())
 			var/ban_id = text2num(query.item[1])
@@ -81,8 +77,8 @@ world/IsBanned(key,address,computer_id)
 			var/bantime = query.item[9]
 			var/bantype = query.item[10]
 
-			if (pckey != ckeytext || (address && pip != address) || (computer_id && pcid != computer_id))
-				handle_ban_mirroring(key, address, computer_id, ban_id)
+			if (pckey != ckey || (address && pip != address) || (computer_id && pcid != computer_id))
+				handle_ban_mirroring(ckey, address, computer_id, ban_id)
 
 			var/expires = ""
 			if(text2num(duration) > 0)
@@ -92,10 +88,6 @@ world/IsBanned(key,address,computer_id)
 
 			return list("reason"="[bantype]", "desc"="[desc]")
 
-		if (failedcid)
-			message_admins("[key] has logged in with a blank computer id in the ban check.")
-		if (failedip)
-			message_admins("[key] has logged in with a blank ip in the ban check.")
 		return ..()	//default pager ban stuff
 #endif
 #undef OVERRIDE_BAN_SYSTEM
