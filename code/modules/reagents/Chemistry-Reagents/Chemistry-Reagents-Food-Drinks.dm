@@ -1,4 +1,22 @@
 /* Food */
+/datum/reagent/kois
+	name = "K'ois"
+	id = "koispaste"
+	description = "A thick goopy substance, rich in K'ois nutrients."
+	metabolism = REM * 4
+	var/nutriment_factor = 40
+	var/injectable = 0
+	color = "#dcd9cd"
+
+/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+    if(M.get_species() == "Vaurca")
+        M.heal_organ_damage(0.8 * removed, 0)
+        M.nutrition += nutriment_factor * removed // For hunger and fatness
+        M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+    else
+        M.adjustToxLoss(1.5 * removed)
+        return
+    ..()
 
 /datum/reagent/nutriment
 	name = "Nutriment"
@@ -17,10 +35,14 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0.5 * removed, 0)
-	M.nutrition += nutriment_factor * removed // For hunger and fatness
-	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
-
+	if(M.get_species() == "Vaurca")
+		M.adjustToxLoss(1.5 * removed)
+	else
+		M.heal_organ_damage(0.8 * removed, 0)
+		M.nutrition += nutriment_factor * removed // For hunger and fatness
+		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+		return
+	..()
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
 	id = "protein"
@@ -299,7 +321,7 @@
 			M.eye_blind = max(M.eye_blind, 10)
 
 	if(mouth_covered)
-		if(!message) 
+		if(!message)
 			message = "<span class='warning'>Your [face_protection] protects you from the pepperspray!</span>"
 	else if(!no_pain)
 		message = "<span class='danger'>Your face and throat burn!</span>"
