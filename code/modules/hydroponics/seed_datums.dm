@@ -322,6 +322,30 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#D9C94E")
 	set_trait(TRAIT_PLANT_ICON,"mushroom")
 
+/datum/seed/koisspore
+	name = "koisspore"
+	seed_name = "kois"
+	seed_noun = "spires"
+	display_name = "k'ois spores"
+	mutants = null
+	chems = list("koispaste" = list(25))
+	splat_type = /obj/effect/plant
+	kitchen_tag = "koisspore"
+
+/datum/seed/koisspore/New()
+	..()
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,8)
+	set_trait(TRAIT_POTENCY,60)
+	set_trait(TRAIT_BIOLUM,1)
+	set_trait(TRAIT_CARNIVOROUS,1)
+	set_trait(TRAIT_BIOLUM_COLOUR,"#94b21c")
+	set_trait(TRAIT_PRODUCT_ICON,"mushroom11")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#94b21c")
+	set_trait(TRAIT_PLANT_COLOUR,"#94b21c")
+	set_trait(TRAIT_PLANT_ICON,"mushroom6")
+
 /datum/seed/mushroom/mold
 	name = "mold"
 	seed_name = "brown mold"
