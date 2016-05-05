@@ -117,6 +117,10 @@
 		if (P.isVerb)
 			verbs -= P.verbpath
 
-// #TODO: Finish handle_vampire()
 /mob/proc/handle_vampire()
+	// Apply frenzy while in the chapel.
+	if (istype(get_area(loc), /area/chapel))
+		mind.vampire.frenzy += 2
+		vampire_check_frenzy()
+
 	return
