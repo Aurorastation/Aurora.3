@@ -597,6 +597,7 @@
 	vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 0, 1)
 
 	T.mind.vampire.master = src
+	vampire.thralls += T
 	T << "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>"
 
 	mind.vampire.blood_usable -= 150
