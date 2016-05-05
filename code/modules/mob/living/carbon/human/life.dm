@@ -439,6 +439,13 @@
 		var/failed_inhale = 0
 		var/failed_exhale = 0
 
+		if(species.has_organ["breathing apparatus"])
+			var/obj/item/organ/vaurca/breathingapparatus/L = internal_organs_by_name["breathing apparatus"]
+			if(isnull(L))
+				poison_type = null
+			else if(L.is_broken())
+				poison_type = "oxygen" //if Vaurca breathing apparatus breaks, oxygen becomes poisonous.
+
 		if(species.breath_type)
 			breath_type = species.breath_type
 		else
@@ -1635,13 +1642,13 @@
 			holder2.icon_state = "hudxeno"
 		else if(foundVirus)
 			holder.icon_state = "hudill"
-	/*	else if(has_brain_worms())
-			var/mob/living/simple_animal/borer/B = has_brain_worms() //Cotrical borer disable
+		else if(has_brain_worms())
+			var/mob/living/simple_animal/borer/B = has_brain_worms()
 			if(B.controlling)
 				holder.icon_state = "hudbrainworm"
 			else
 				holder.icon_state = "hudhealthy"
-			holder2.icon_state = "hudbrainworm" */
+			holder2.icon_state = "hudbrainworm"
 		else
 			holder.icon_state = "hudhealthy"
 			if(virus2.len)
