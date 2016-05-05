@@ -19,4 +19,20 @@
 	is_thrall = 1
 
 /datum/vampire/proc/add_power(var/datum/mind/vampire, var/datum/power/vampire/power, var/announce = 0)
-	return
+	if (!vampire || !power)
+		return
+
+	if (power in purchased_powers)
+		return
+
+	purchased_powers += power
+
+	if (power.isVerb && power.verbpath)
+		vampire.current.verbs += power.verbpath
+
+	if (announce)
+		vampire.current << "<span class='notice'><b>You have unlocked a new power:</b> [power.name].</span>"
+		vampire.current << "<span class='notice'>[power.desc]</span>"
+
+		if (power.helptext)
+			vampire.current << "<font color='green'>[power.helptext]</font>"

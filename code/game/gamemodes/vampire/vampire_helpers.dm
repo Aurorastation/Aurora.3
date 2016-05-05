@@ -7,7 +7,7 @@
 		mind.vampire = new /datum/vampire()
 
 	for (var/datum/power/vampire/P in vampirepowers)
-		if (!P.total_cost)
+		if (!P.blood_cost)
 			if (!(P in mind.vampire.purchased_powers))
 				mind.vampire.add_power(mind, P, 0)
 
@@ -26,7 +26,7 @@
 	var/datum/vampire/vampire = mind.vampire
 
 	for (var/datum/power/vampire/P in vampirepowers)
-		if (P.total_cost <= vampire.blood_total)
+		if (P.blood_cost <= vampire.blood_total)
 			if (!(P in vampire.purchased_powers))
 				vampire.add_power(mind, P, 1)
 
