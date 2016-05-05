@@ -614,3 +614,6 @@ What a mess.*/
 /obj/machinery/computer/secure_data/detective_computer
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "messyfiles"
+
+	light_range_on = 0
+	light_power_on = 0

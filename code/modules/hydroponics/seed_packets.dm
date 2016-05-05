@@ -280,3 +280,6 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/thaadra
 	seed_type = "thaadra"
+
+/obj/item/seeds/koisspore
+	seed_type = "koisspore"
