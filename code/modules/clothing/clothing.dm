@@ -205,7 +205,7 @@ BLIND     // can't see anything
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude","Unathi","Tajara")
+	species_restricted = list("exclude","Unathi","Tajara","Vaurca")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/gloves.dmi')
 
 /obj/item/clothing/gloves/update_clothing_icon()
@@ -243,6 +243,7 @@ BLIND     // can't see anything
 		if("exclude" in species_restricted)
 			species_restricted -= "Unathi"
 			species_restricted -= "Tajara"
+			species_restricted -= "Vaurca"
 		return
 
 ///////////////////////////////////////////////////////////////////////
@@ -335,7 +336,7 @@ BLIND     // can't see anything
 	slowdown = SHOES_SLOWDOWN
 	force = 2
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara")
+	species_restricted = list("exclude","Unathi","Tajara","Vaurca")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
 

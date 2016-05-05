@@ -292,5 +292,5 @@
 		var/mob/living/M = G.affecting
 		if(!istype(M)) return //wut
 		M.apply_damage(30,BRUTE)
-		if(M.stat == 2)
-			M.gib()
+	//	if(M.stat == 2)
+		//	M.gib()
