@@ -54,11 +54,6 @@ datum/skill/construction
     desc = "Your ability to construct various buildings, such as walls, floors, tables and so on. Note that constructing devices such as APCs additionally requires the Electronics skill. A low level of this skill is typical for janitors, a high level of this skill is typical for engineers."
     field = "Engineering"
 
-datum/skill/management
-    ID = "management"
-    name = "Command"
-    desc = "Your ability to manage and commandeer other crew members."
-
 datum/skill/knowledge/law
     ID = "law"
     name = "NanoTrasen Law"
