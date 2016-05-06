@@ -1625,8 +1625,8 @@ datum/preferences
 							SQLsave_character(current_slot, ckey)
 							//save_preferences()
 							//save_character()
+
 				if("reload")
-					for(var/ckey in preferences_datums)
 					for(var/ckey in preferences_datums)
 						var/datum/preferences/D = preferences_datums[ckey]
 						if(D == src)
