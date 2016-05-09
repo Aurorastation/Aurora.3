@@ -663,8 +663,11 @@
 	vampire.using_presence = 1
 
 	var/list/mob/living/carbon/human/affected = list()
-	// #TODO: Emotes list for Presence
-	var/list/emotes = list()
+	var/list/emotes = list("[src.name] looks trusthworthy.",
+							"You feel as if [src.name] is a relatively friendly individual.",
+							"You feel yourself paying more attention to what [src.name] is saying.",
+							"[src.name] has your best interests at heart, you can feel it.",
+							"A quiet voice tells you that [src.name] should be considered a friend.")
 
 	vampire.blood_usable -= 10
 
