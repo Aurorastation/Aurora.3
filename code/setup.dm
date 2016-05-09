@@ -692,6 +692,16 @@ var/list/be_special_flags = list(
 #define COLOR_LUMINOL "#66FFFF"
 
 /*
+ * New vampire status defines.
+ */
+#define VAMP_DRAINING  1
+#define VAMP_HEALING   2
+#define VAMP_PRESENCE  4
+#define VAMP_FRENZIED  8
+#define VAMP_ISTHRALL  16
+#define VAMP_FULLPOWER 32
+
+/*
  *	Germs and infections.
 */
 

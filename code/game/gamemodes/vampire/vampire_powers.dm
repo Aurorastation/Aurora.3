@@ -31,7 +31,7 @@
 		src << "<span class='warning'>[T] is not a creature you can drain useful blood from.</span>"
 		return
 
-	if (vampire.is_draining)
+	if (vampire.status & VAMP_DRAINING)
 		src << "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>"
 		return
 
@@ -43,7 +43,7 @@
 	var/blood_total = 0
 	var/blood_usable = 0
 
-	vampire.is_draining = 1
+	vampire.status |= VAMP_DRAINING
 
 	visible_message("\red <b>[src.name] bites [T.name]'s neck!<b>", "\red <b>You bite [T.name]'s neck and begin to drain their blood.", "\blue You hear a soft puncture and a wet sucking noise")
 	admin_attack_log(src, T, "drained blood from [key_name(T)]", "was drained blood from by [key_name(src)]", "is draining blood from")
@@ -88,7 +88,7 @@
 		check_vampire_upgrade()
 		T.vessel.remove_reagent("blood", 25)
 
-	mind.vampire.is_draining = 0
+	vampire.status &= ~VAMP_DRAINING
 	src << "\blue You extract your fangs from [T.name]'s neck and stop draining them of blood.'"
 
 // Small area of effect stun.
@@ -444,14 +444,14 @@
 		return
 
 	// Kick out of the already running loop.
-	if (vampire.is_healing)
-		vampire.is_healing = 0
+	if (vampire.status & VAMP_HEALING)
+		vampire.status &= ~VAMP_HEALING
 		return
 
-	vampire.is_healing = 1
+	vampire.status |= VAMP_HEALING
 
 	while (do_after(src, 20, 5, 0))
-		if (vampire.is_healing == 0)
+		if (!(vampire.status & VAMP_HEALING))
 			src << "<span class='warning'>Your concentration is broken! You are no longer regenerating!</span>"
 			break
 
@@ -504,13 +504,13 @@
 
 		if (vampire.blood_usable <= blood_used)
 			vampire.blood_usable = 0
-			vampire.is_healing = 0
+			vampire.status &= ~VAMP_HEALING
 			src << "<span class='warning'>You ran out of blood, and are unable to continue!</span>"
 			break
 
 	// We broke out of the loop naturally. Gotta catch that.
-	if (vampire.is_healing)
-		vampire.is_healing = 0
+	if (vampire.status & VAMP_HEALING)
+		vampire.status &= ~VAMP_HEALING
 		src << "<span class='warning'>Your concentration is broken! You are no longer regenerating!</span>"
 
 	return
@@ -655,12 +655,12 @@
 	if (!vampire)
 		return
 
-	if (vampire.using_presence)
-		vampire.using_presence = 0
+	if (vampire.status & VAMP_PRESENCE)
+		vampire.status &= ~VAMP_PRESENCE
 		return
 
 	src << "<span class='notice'>You begin passively influencing the weak minded.</span>"
-	vampire.using_presence = 1
+	vampire.status |= VAMP_PRESENCE
 
 	var/list/mob/living/carbon/human/affected = list()
 	var/list/emotes = list("[src.name] looks trusthworthy.",
@@ -671,7 +671,7 @@
 
 	vampire.blood_usable -= 10
 
-	while (vampire.using_presence)
+	while (vampire.status & VAMP_PRESENCE)
 		// Run every 20 seconds
 		sleep(200)
 
@@ -696,7 +696,7 @@
 		vampire.blood_usable -= 5
 
 		if (vampire.blood_usable < 5)
-			vampire.using_presence = 0
+			vampire.status &= ~VAMP_PRESENCE
 			break
 
 	src << "<span class='warning'>You are no longer influencing those weak of mind.</span>"
@@ -733,14 +733,14 @@
 		src << "<span class='warning'>[T.name]'s body is broken and damaged beyond salvation. You have no use for them.</span>"
 		return
 
-	if (vampire.is_draining)
+	if (vampire.status & VAMP_DRAINING)
 		src << "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>"
 		return
 
 	if (T.mind.vampire)
 		var/datum/vampire/draining_vamp = T.mind.vampire
 
-		if (draining_vamp.is_thrall)
+		if (draining_vamp.status & VAMP_ISTHRALL)
 			var/choice_text = ""
 			var/denial_response = ""
 			if (draining_vamp.master == src)
@@ -757,7 +757,7 @@
 			src << "<span class='warning'>You feel corruption running in [T.name]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>"
 			return
 
-	vampire.is_draining = 1
+	vampire.status |= VAMP_DRAINING
 
 	visible_message("\red <b>[src.name] bites [T.name]'s neck!<b>", "\red <b>You bite [T.name]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them.</b>", "\blue You hear a soft puncture and a wet sucking noise")
 
@@ -794,4 +794,4 @@
 	T.mind.vampire.frenzy = 250
 	T.vampire_check_frenzy()
 
-	vampire.is_draining = 0
+	vampire.status &= ~VAMP_DRAINING

@@ -55,8 +55,8 @@
 		src << "<span class='warning'>You do not have enough usable blood. [required_blood] needed.</span>"
 		return
 
-	if (vampire.is_healing && disrupt_healing)
-		vampire.is_healing = 0
+	if ((vampire.status & VAMP_HEALING) && disrupt_healing)
+		vampire.status &= ~VAMP_HEALING
 
 	return vampire
 
@@ -69,7 +69,7 @@
 	if (!mind.vampire)
 		return 0
 
-	if (mind.vampire.full_power == 1 && !(T.mind.vampire && T.mind.vampire.full_power))
+	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
 		return 1
 
 	if (T.mind && (T.mind.assigned_role == "Chaplain" || T.mind.vampire))
