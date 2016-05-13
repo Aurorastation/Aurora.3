@@ -1,6 +1,9 @@
 // BEGIN_INTERNALS
 /*
-MAP_ICON_TYPE: 0
+DIR: code code\modules code\modules\reagents code\modules\reagents\reagent_containers code\modules\research code\modules\research\xenoarchaeology code\modules\research\xenoarchaeology\machinery 
 AUTO_FILE_DIR: OFF
+MAP_ICON_TYPE: 0
+WINDOW: code\modules\research\xenoarchaeology\geosample.dm;code\modules\research\xenoarchaeology\machinery\geosample_scanner.dm
+FILE: code\modules\research\xenoarchaeology\machinery\geosample_scanner.dm
 */
 // END_INTERNALS
