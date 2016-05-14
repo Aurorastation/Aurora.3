@@ -27,6 +27,10 @@
 			if (!(P in vampire.purchased_powers))
 				vampire.add_power(mind, P, 1)
 
+	if (!(vampire.status & VAMP_FULLPOWER) && vampire.blood_total >= 650)
+		vampire.status |= VAMP_FULLPOWER
+		src << "<span class='notice'>You've gained full power. Some abilities now have bonus functionality, or work faster.</span>"
+
 // Runs the checks for whether or not we can use a power.
 /mob/proc/vampire_power(var/required_blood = 0, var/max_stat = 0, var/ignore_holder = 0, var/disrupt_healing = 1, var/required_vampire_blood = 0)
 	if (!mind)

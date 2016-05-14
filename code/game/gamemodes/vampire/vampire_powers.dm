@@ -159,6 +159,8 @@
 	if (!vampire_can_affect_target(T))
 		return
 
+	src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to render them useless.</span>"
+
 	if (do_mob(src, T, 50))
 		src << "\red You dominate [T.name]'s mind and render them temporarily powerless to resist."
 		T << "\red You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak."
@@ -208,15 +210,16 @@
 	vampire_phase_out(get_turf(loc))
 
 	forceMove(T)
-// #TODO:0 Allow only powerful vampires to teleport victims.
 
 	vampire_phase_in(T)
 
-	for(var/obj/item/weapon/grab/G in contents)
-		if(G.affecting)
+	for (var/obj/item/weapon/grab/G in contents)
+		if (G.affecting && (vampire.status & VAMP_FULLPOWER))
 			G.affecting.vampire_phase_out(get_turf(G.affecting.loc))
-			G.affecting.forceMove(locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
+			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
 			G.affecting.vampire_phase_in(get_turf(G.affecting.loc))
+		else
+			qdel(G)
 
 	vampire.blood_usable -= 20
 	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
@@ -555,15 +558,17 @@
 	if (!vampire_can_affect_target(T))
 		return
 
-	src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to gain control.</span>"
+	if (!(vampire.status & VAMP_FULLPOWER))
+		src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to gain control.</span>"
 
-	// #TODO: Make higher level vampires automatically dominate, instead of taking a check.
+		if (!do_mob(src, T, 50))
+			src << "<span class='warning'>Your concentration is broken!</span>"
+			return
 
-	if (!do_mob(src, T, 50))
-		src << "<span class='warning'>Your concentration is broken!</span>"
-		return
+		src << "<span class='notice'>You succeed in dominating [T.name]'s mind. They are yours to command.</span>"
+	else
+		src << "<span class='notice'>You instantly dominate [T.name]'s mind, forcing them to obey your command.</span>"
 
-	src << "<span class='notice'>You succeed in dominating [T.name]'s mind. They are yours to command.</span>"
 	var/command = input(src, "Command your victim.", "Your command.")
 
 	if (!command)
