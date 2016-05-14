@@ -589,19 +589,26 @@
 	if (!vampire)
 		return
 
-	var/list/victims = list()
-	for (var/mob/living/carbon/human/H in view(1))
-		if (H == src)
-			continue
-		victims += H
-
-	if (!victims.len)
-		src << "<span class='warning'>No suitable targets.</span>"
+	var/obj/item/weapon/grab/G = get_active_hand()
+	if (!istype(G))
+		src << "<span class='warning'>You must be grabbing a victim in your active hand to enthrall them.</span>"
 		return
 
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
+	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
+		src << "<span class='warning'>You must have the victim pinned to the ground to enthrall them.</span>"
+		return
 
-	if (!vampire_can_affect_target(T))
+	var/mob/living/carbon/human/T = G.affecting
+	if (!istype(T))
+		src << "<span class='warning'>[T] is not a creature you can enthrall.</span>"
+		return
+
+	if (!T.client || !T.mind)
+		src << "<span class='warning'>[T]'s mind is empty and useless. They cannot be forced into a blood bond.</span>"
+		return
+
+	if (vampire.status & VAMP_DRAINING)
+		src << "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>"
 		return
 
 	visible_message("<span class='danger'>[src.name] tears the flesh on their wrist, and holds it up to [T.name]. In a gruesome display, [T.name] starts lapping up the blood that's oozing from the fresh wound.</span>", "<span class='warning'>You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process.</span>")

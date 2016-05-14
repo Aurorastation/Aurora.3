@@ -72,13 +72,14 @@ var/list/datum/power/vampire/vampirepowers = list()
 /datum/power/vampire/veil_walk
 	name = "Veil Walking"
 	desc = "You can enter the Veil for a long duration of time, leaving behind only an incorporeal manifestation of yourself."
-	helptext = "While veil walking, you can walk through all solid objects and people. Others can see you, but they cannot interact with you. As you stay in this form, you will keep draining your blood."
+	helptext = "While veil walking, you can walk through all solid objects and people. Others can see you, but they cannot interact with you. As you stay in this form, you will keep draining your blood. To stop veil walking, activate the power again."
 	blood_cost = 250
 	verbpath = /mob/living/carbon/human/proc/vampire_veilwalk
 
 /datum/power/vampire/enthrall
 	name = "Enthrall"
 	desc = "Invoke a bloodbond between yourself and a mortal soul. They will then become your slave, required to execute your every command. They will be dependant on your blood."
+	helptext = "This works similarly to feeding: you must have a victim pinned to the ground in order for you to enthrall them."
 	blood_cost = 300
 	verbpath = /mob/living/carbon/human/proc/vampire_enthrall
 
