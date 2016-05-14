@@ -314,7 +314,7 @@
 		return
 
 	if (vampire.holder)
-		holder.deactivate()
+		vampire.holder.deactivate()
 	else
 		var/obj/effect/dummy/veil_walk/holder = new /obj/effect/dummy/veil_walk(get_turf(loc))
 		holder.activate(src)
