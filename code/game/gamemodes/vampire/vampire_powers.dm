@@ -1,6 +1,3 @@
-// Global TODO-s:
-// #TODO: LOGGING! FUCKING LOG EVERYTHING!
-
 // Contains all /mob/procs that relate to vampire.
 
 // Drains the target's blood.
@@ -115,7 +112,8 @@
 		return
 
 	visible_message("\red <b>[src.name]'s eyes emit a blinding flash!</b>")
-	for (var/mob/living/carbon/human/H in view(1))
+	var/list/victims = list()
+	for (var/mob/living/carbon/human/H in view(2))
 		if (H == src)
 			continue
 
@@ -125,6 +123,10 @@
 		H.Weaken(8)
 		H.stuttering = 20
 		H << "\red You are blinded by [src]'s glare!"
+		flick("flash", H.flash)
+		victims += H
+
+	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 
 	verbs -= /mob/living/carbon/human/proc/vampire_glare
 	spawn(800)
@@ -145,7 +147,7 @@
 		return
 
 	var/list/victims = list()
-	for (var/mob/living/carbon/human/H in view(1))
+	for (var/mob/living/carbon/human/H in view(3))
 		if (H == src)
 			continue
 		victims += H
@@ -169,6 +171,7 @@
 		T.stuttering = 20
 
 		vampire.blood_usable -= 10
+		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
 		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
 		spawn(1200)
@@ -221,6 +224,8 @@
 		else
 			qdel(G)
 
+	log_and_message_admins("activated veil step.")
+
 	vampire.blood_usable -= 20
 	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
 	spawn(300)
@@ -266,6 +271,8 @@
 		if (vampire.thralls.len)
 			bat.friends += vampire.thralls
 
+	log_and_message_admins("summoned bats.")
+
 	vampire.blood_usable -= 60
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
 	spawn (1200)
@@ -283,6 +290,8 @@
 
 	visible_message("<span class='danger'>[src.name] lets out an ear piercin shriek!</span>", "<span class='danger'>You let out an ear-shattering shriek!</span>", "<span class='danger'>You hear a painfully loud shriek!</span>")
 
+	var/list/victims = list()
+
 	for (var/mob/living/carbon/human/T in hearers(4, src))
 		if (T == src)
 			continue
@@ -299,6 +308,8 @@
 		T.stuttering = 20
 		T.Stun(5)
 
+		victims += T
+
 	for (var/obj/structure/window/W in view(7))
 		W.shatter()
 
@@ -307,6 +318,11 @@
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 	vampire.blood_usable -= 90
+
+	if (victims.len)
+		admin_attacker_log_many_victims(src, victims, "used chriopteran screech to stun", "was stunned by [key_name(src)] using chriopteran screech", "used chiropteran screech to stun")
+	else
+		log_and_message_admins("used chiropteran screech.")
 
 	verbs -= /mob/living/carbon/human/proc/vampire_screech
 	spawn(3600)
@@ -327,6 +343,8 @@
 	else
 		var/obj/effect/dummy/veil_walk/holder = new /obj/effect/dummy/veil_walk(get_turf(loc))
 		holder.activate(src)
+
+		log_and_message_admins("activated veil walk.")
 
 		vampire.blood_usable -= 80
 
@@ -468,6 +486,8 @@
 	vampire.status |= VAMP_HEALING
 	src << "<span class='notice'>You begin the process of blood healing. Do not move, and ensure that you are not interrupted.</span>"
 
+	log_and_message_admins("activated blood heal.")
+
 	while (do_after(src, 20, 5, 0))
 		if (!(vampire.status & VAMP_HEALING))
 			src << "<span class='warning'>Your concentration is broken! You are no longer regenerating!</span>"
@@ -575,6 +595,8 @@
 		src << "\red Cancelled."
 		return
 
+	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
+
 	T << "<span class='notice'>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction:<br><b>[command]</b></span>"
 	src << "<span class='notice'>You command [T.name], and they will obey.</span>"
 	emote("me", 1, "whispers.")
@@ -630,6 +652,8 @@
 	vampire.thralls += T
 	T << "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>"
 
+	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
+
 	mind.vampire.blood_usable -= 150
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
 	spawn(2800)
@@ -672,6 +696,8 @@
 
 	infect_mob(T, lethal)
 
+	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
+
 	vampire.blood_usable -= 200
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
 	spawn(1800)
@@ -703,6 +729,8 @@
 							"A quiet voice tells you that [src.name] should be considered a friend.")
 
 	vampire.blood_usable -= 10
+
+	log_and_message_admins("activated presence.")
 
 	while (vampire.status & VAMP_PRESENCE)
 		// Run every 20 seconds
@@ -819,6 +847,8 @@
 
 	T.Weaken(15)
 	vamp.add_antagonist(T.mind, 1, 1, 0, 0, 1)
+
+	admin_attack_log(src, T, "successfully embraced [key_name(T)]", "was successfully embraced by [key_name(src)]", "successfully embraced and turned into a vampire")
 
 	T << "<span class='danger'>You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power.</span>"
 	src << "<span class='warning'>You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master.</span>"
