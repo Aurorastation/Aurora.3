@@ -73,10 +73,16 @@
 	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
 		return 1
 
-	if (T.mind && (T.mind.assigned_role == "Chaplain" || T.mind.vampire))
-		return 0
+	if (T.mind)
+		if (T.mind.assigned_role == "Chaplain")
+			src << "<span class='warning'>Your connection with the Veil is not strong enough to effect a man as devout as them.</span>"
+			return 0
+		else if (T.mind.vampire)
+			src << "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>"
+			return 0
 
 	if (T.get_species() == "Machine")
+		src << "<span class='warning'>You lack the power interact with mechanical constructs.</span>"
 		return 0
 
 	return 1
