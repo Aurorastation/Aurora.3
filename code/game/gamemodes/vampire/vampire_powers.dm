@@ -858,3 +858,71 @@
 	T.vampire_check_frenzy()
 
 	vampire.status &= ~VAMP_DRAINING
+
+// Grapple a victim by leaping onto them.
+/mob/living/carbon/human/proc/grapple()
+	set category = "Vampire"
+	set name = "Grapple"
+	set desc = "Lunge towards a target like an animal, and grapple them."
+
+	if (status_flags & LEAPING)
+		return
+
+	if (stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		src << "<span class='warning'>You cannot lean in your current state.</span>"
+		return
+
+	var/list/targets = list()
+	for (var/mob/living/carbon/human/H in view(4, src))
+		targets += H
+
+	targets -= src
+
+	if (!targets.len)
+		src << "<span class='warning'>No valid targets visible or in range.</span>"
+		return
+
+	var/mob/living/carbon/human/T = pick(targets)
+
+	visible_message("<span class='danger'>[src.name] leaps at [T]!</span>")
+	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src)
+
+	status_flags |= LEAPING
+
+	sleep(5)
+
+	if (status_flags & LEAPING)
+		status_flags &= ~LEAPING
+
+	if (!src.Adjacent(T))
+		src << "<span class='warning'>You miss!</span>"
+		return
+
+	T.Weaken(3)
+
+	admin_attack_log(src, T, "lept at and grappled [key_name(T)]", "was lept at and grappled by [key_name(src)]", "lept at and grappled")
+
+	var/use_hand = "left"
+	if (l_hand)
+		if (r_hand)
+			src << "<span class='danger'>You need to have one hand free to grab someone.</span>"
+			return
+		else
+			use_hand = "right"
+
+	src.visible_message("<span class='warning'><b>\The [src]</b> seizes [T] aggressively!</span>")
+
+	var/obj/item/weapon/grab/G = new(src, T)
+	if (use_hand == "left")
+		l_hand = G
+	else
+		r_hand = G
+
+	G.state = GRAB_AGGRESSIVE
+	G.icon_state = "grabbed1"
+	G.synch()
+
+	verbs -= /mob/living/carbon/human/proc/grapple
+	spawn(800)
+		if (mind.vampire && (mind.vampire.status & VAMP_FRENZIED))
+			verbs += /mob/living/carbon/human/proc/grapple

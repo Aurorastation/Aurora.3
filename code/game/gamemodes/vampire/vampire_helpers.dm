@@ -171,6 +171,8 @@
 
 		sight |= SEE_MOBS
 
+		verbs += /mob/living/carbon/human/proc/grapple
+
 /mob/proc/vampire_stop_frenzy(var/force_stop = 0)
 	var/datum/vampire/vampire = mind.vampire
 
@@ -186,6 +188,8 @@
 		sight &= ~SEE_MOBS
 
 		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal human's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
+
+		verbs -= /mob/living/carbon/human/proc/grapple
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()
