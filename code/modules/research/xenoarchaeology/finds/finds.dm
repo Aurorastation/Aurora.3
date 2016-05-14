@@ -118,7 +118,7 @@
 			else
 				new_item = new /obj/item/weapon/reagent_containers/glass/beaker(src.loc)
 			new_item.icon = 'icons/obj/xenoarchaeology.dmi'
-			new_item.icon_state = "bowl"
+			new_item.icon_state = "bowl[rand(1,3)]"
 			apply_image_decorations = 1
 			if(prob(20))
 				additional_desc = "There appear to be [pick("dark","faintly glowing","pungent","bright")] [pick("red","purple","green","blue")] stains inside."
@@ -148,7 +148,7 @@
 			name = "statuette"
 			icon = 'icons/obj/xenoarchaeology.dmi'
 			item_type = "statuette"
-			icon_state = "statuette"
+			icon_state = "statuette[rand(1,6)]"
 			additional_desc = "It depicts a [pick("small","ferocious","wild","pleasing","hulking")] \
 			[pick("alien figure","rodent-like creature","reptilian alien","primate","unidentifiable object")] \
 			[pick("performing unspeakable acts","posing heroically","in a fetal position","cheering","sobbing","making a plaintive gesture","making a rude gesture")]."
