@@ -168,6 +168,8 @@
 		if(6)
 			item_type = "[pick("bladed knife","serrated blade","sharp cutting implement")]"
 			new_item = new /obj/item/weapon/material/knife(src.loc)
+			new_item.icon = 'icons/obj/xenoarchaeology.dmi'
+			new_item.icon_state = "knife[rand(1,9)]"
 			additional_desc = "[pick("It doesn't look safe.",\
 			"It looks wickedly jagged",\
 			"There appear to be [pick("dark red","dark purple","dark green","dark blue")] stains along the edges")]."
@@ -350,7 +352,7 @@
 			if(spawn_type)
 				var/obj/item/weapon/gun/energy/new_gun = new spawn_type(src.loc)
 				new_item = new_gun
-				new_item.icon_state = "egun[rand(1,6)]"
+				new_item.icon_state = "egun[rand(1,8)]"
 				new_gun.desc = "This is an antique energy weapon, you're not sure if it will fire or not."
 
 				//5% chance to explode when first fired
@@ -370,7 +372,7 @@
 			//revolver
 			var/obj/item/weapon/gun/projectile/new_gun = new /obj/item/weapon/gun/projectile/revolver(src.loc)
 			new_item = new_gun
-			new_item.icon_state = "gun[rand(1,4)]"
+			new_item.icon_state = "gun[rand(1,5)]"
 			new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 
 			//33% chance to be able to reload the gun with human ammunition
