@@ -6,6 +6,8 @@
 	if (!mind.vampire)
 		mind.vampire = new /datum/vampire()
 
+	mind.vampire.blood_usable += 30
+
 	for (var/datum/power/vampire/P in vampirepowers)
 		if (!P.blood_cost)
 			if (!(P in mind.vampire.purchased_powers))

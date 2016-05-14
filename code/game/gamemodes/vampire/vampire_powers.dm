@@ -791,6 +791,7 @@
 	T << "<span class='danger'>You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power.</span>"
 	src << "<span class='warning'>You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master.</span>"
 
+	T.mind.vampire.blood_usable = 0
 	T.mind.vampire.frenzy = 250
 	T.vampire_check_frenzy()
 
