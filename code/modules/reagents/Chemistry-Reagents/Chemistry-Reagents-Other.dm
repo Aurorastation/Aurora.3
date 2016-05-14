@@ -208,7 +208,10 @@
 
 /datum/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	//#TODO: holy water adds frenzy
+
+	if (M.mind && M.mind.vampire)
+		var/datum/vampire/vampire = M.mind.vampire
+		vampire.frenzy += removed * 5
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)

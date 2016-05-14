@@ -1122,7 +1122,7 @@
 	proc/handle_regular_hud_updates()
 		if(!overlays_cache)
 			overlays_cache = list()
-			overlays_cache.len = 23
+			overlays_cache.len = 24
 			overlays_cache[1] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage1")
 			overlays_cache[2] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage2")
 			overlays_cache[3] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage3")
@@ -1146,6 +1146,7 @@
 			overlays_cache[21] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay4")
 			overlays_cache[22] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay5")
 			overlays_cache[23] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay6")
+			overlays_cache[24] = image('icons/mob/screen1_full.dmi', "icon_state" = "frenzyoverlay")
 
 		if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 			handle_hud_list()
@@ -1212,6 +1213,12 @@
 					if(45 to INFINITY)
 						I = overlays_cache[17]
 				damageoverlay.overlays += I
+
+			// Vampire frenzy overlay.
+			if (mind.vampire)
+				if (mind.vampire.status & VAMP_FRENZIED)
+					var/image/I = overlays_cache[24]
+					damageoverlay.overlays += I
 
 			//Fire and Brute damage overlay (BSSR)
 			var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp

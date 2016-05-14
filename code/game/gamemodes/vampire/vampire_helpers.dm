@@ -104,9 +104,81 @@
 
 	mind.vampire = thrall
 
-// #TODO: Finish vampire_check_frenzy and implement frenzy.
-/mob/proc/vampire_check_frenzy()
-	return
+/mob/proc/vampire_check_frenzy(var/force_frenzy = 0)
+	if (!mind || !mind.vampire)
+		return
+
+	var/datum/vampire/vampire = mind.vampire
+
+	// Thralls don't frenzy.
+	if (vampire.status & VAMP_ISTHRALL)
+		return
+
+/*
+ * Misc info:
+ * 100 points ~= 3.5 minutes.
+ * Average duration should be around 4 minutes of frenzy.
+ * Trigger at 120 points or higher.
+ */
+
+	if (vampire.status & VAMP_FRENZIED)
+		if (vampire.frenzy < 10)
+			vampire_stop_frenzy()
+	else
+		switch (vampire.frenzy)
+			if (0)
+				return
+			if (1 to 40)
+				if (prob(15))
+					src << "<span class='warning'>You feel the power of the Veil bubbling in your veins.</span>"
+			if (41 to 60)
+				if (prob(35))
+					src << "<span class='warning'>The corruption within your blood is seeking to take over, you can feel it.</span>"
+			if (61 to 80)
+				if (prob(40))
+					src << "<span class='danger'>Your rage is growing ever greater. You are having to actively resist it.</span>"
+			if (81 to 120)
+				if (prob(50))
+					src << "<span class='danger'>The corruption of the Veil is about to take over. You have little time left.</span>"
+			else
+				if (!(vampire.status & VAMP_FRENZIED))
+					vampire_start_frenzy(force_frenzy)
+
+	// Remove one point per every life() tick.
+	vampire.frenzy--
+
+/mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
+	var/datum/vampire/vampire = mind.vampire
+
+	if (vampire.status & VAMP_FRENZIED)
+		return
+
+	var/probablity = force_frenzy ? 100 : vampire.frenzy * 0.5
+
+	if (prob(probablity))
+		vampire.status |= VAMP_FRENZIED
+		visible_message("<span class='danger'>A dark aura manifests itself around [src.name], their eyes turning red and their composure changing to be more beast-like.</span>", "<span class='danger'>You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal.</span>")
+
+		mutations.Add(HULK)
+		update_mutations()
+
+		sight |= SEE_MOBS
+
+/mob/proc/vampire_stop_frenzy(var/force_stop = 0)
+	var/datum/vampire/vampire = mind.vampire
+
+	if (!(vampire.status & VAMP_FRENZIED))
+		return
+
+	if (prob(force_stop ? 100 : vampire.blood_usable))
+		vampire.status &= ~VAMP_FRENZIED
+
+		mutations.Remove(HULK)
+		update_mutations()
+
+		sight &= ~SEE_MOBS
+
+		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal human's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()
@@ -117,10 +189,17 @@
 		if (P.isVerb)
 			verbs -= P.verbpath
 
+	if (mind.vampire.status & VAMP_FRENZIED)
+		vampire_stop_frenzy(1)
+
 /mob/proc/handle_vampire()
 	// Apply frenzy while in the chapel.
 	if (istype(get_area(loc), /area/chapel))
+		mind.vampire.frenzy += 3
+
+	if (mind.vampire.blood_usable < 10)
 		mind.vampire.frenzy += 2
-		vampire_check_frenzy()
+
+	vampire_check_frenzy()
 
 	return
