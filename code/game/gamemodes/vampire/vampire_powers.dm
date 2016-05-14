@@ -458,6 +458,7 @@
 		return
 
 	vampire.status |= VAMP_HEALING
+	src << "<span class='notice'>You begin the process of blood healing. Do not move, and ensure that you are not interrupted.</span>"
 
 	while (do_after(src, 20, 5, 0))
 		if (!(vampire.status & VAMP_HEALING))
@@ -549,12 +550,15 @@
 	if (!vampire_can_affect_target(T))
 		return
 
+	src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to gain control.</span>"
+
 	// #TODO: Make higher level vampires automatically dominate, instead of taking a check.
 
 	if (!do_mob(src, T, 50))
 		src << "<span class='warning'>Your concentration is broken!</span>"
 		return
 
+	src << "<span class='notice'>You succeed in dominating [T.name]'s mind. They are yours to command.</span>"
 	var/command = input(src, "Command your victim.", "Your command.")
 
 	if (!command)
@@ -595,7 +599,7 @@
 	if (!vampire_can_affect_target(T))
 		return
 
-	visible_message("<span class='danger'>[src.name] tears the flesh on their wrist, and holds it up to [T.name]. In a gruesome display, [T.name] starts lapping up the blood that's oozing from the fresh wound.</span>", "<span class='warning'>You inflict a wound upon yourself, and force them to drink your blood.</span>")
+	visible_message("<span class='danger'>[src.name] tears the flesh on their wrist, and holds it up to [T.name]. In a gruesome display, [T.name] starts lapping up the blood that's oozing from the fresh wound.</span>", "<span class='warning'>You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process.</span>")
 	T << "<span class='warning'>You feel an irresistable desire to drink the blood pooling out of [src.name]'s wound. Against your better judgement, you give in and start doing so.</span>"
 
 	if (!do_mob(src, T, 50))
@@ -639,7 +643,9 @@
 	if (!vampire_can_affect_target(T))
 		return
 
-	help_shake_act(T)
+	src << "<span class='notice'>You infect [T.name] with a deadly disease. They will soon fade away.</span>"
+
+	T.help_shake_act(src)
 
 	var/datum/disease2/disease/lethal = new
 	lethal.makerandom(3)
@@ -666,6 +672,7 @@
 
 	if (vampire.status & VAMP_PRESENCE)
 		vampire.status &= ~VAMP_PRESENCE
+		src << "<span class='warning'>You are no longer influencing those weak of mind.</span>"
 		return
 
 	src << "<span class='notice'>You begin passively influencing the weak minded.</span>"
@@ -706,9 +713,8 @@
 
 		if (vampire.blood_usable < 5)
 			vampire.status &= ~VAMP_PRESENCE
+			src << "<span class='warning'>You are no longer influencing those weak of mind.</span>"
 			break
-
-	src << "<span class='warning'>You are no longer influencing those weak of mind.</span>"
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
