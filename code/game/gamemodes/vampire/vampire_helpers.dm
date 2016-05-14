@@ -11,11 +11,6 @@
 			if (!(P in mind.vampire.purchased_powers))
 				mind.vampire.add_power(mind, P, 0)
 
-	for (var/datum/power/vampire/P in mind.vampire.purchased_powers)
-		if (P.isVerb)
-			if (!(P in verbs))
-				verbs += P.verbpath
-
 	return 1
 
 // Checks the vampire's bloodlevel and unlocks new powers based on that.

@@ -1,4 +1,5 @@
-var/list/datum/power/vampire/vampirepowers = typesof(/datum/power/vampire) - /datum/power/vampire
+var/list/vampirepower_types = typesof(/datum/power/vampire) - /datum/power/vampire
+var/list/datum/power/vampire/vampirepowers = list()
 
 /datum/power/vampire
 	var/blood_cost = 0
