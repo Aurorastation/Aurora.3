@@ -89,7 +89,7 @@
 		T.vessel.remove_reagent("blood", 25)
 
 	vampire.status &= ~VAMP_DRAINING
-	src << "\blue You extract your fangs from [T.name]'s neck and stop draining them of blood.'"
+	src << "\blue You extract your fangs from [T.name]'s neck and stop draining them of blood."
 
 // Small area of effect stun.
 /mob/living/carbon/human/proc/vampire_glare()
@@ -194,7 +194,7 @@
 	if (!light)
 		return
 
-	if (max(light.lum_r, light.lum_g, light.lum_b) < 1)
+	if (max(light.lum_r, light.lum_g, light.lum_b) > 1)
 		// Too bright, cannot jump into.
 		src << "<span class='warning'>The destination is too bright.</span>"
 		return
@@ -214,7 +214,7 @@
 
 	vampire.blood_usable -= 20
 	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
-	spawn(800)
+	spawn(300)
 		verbs += /mob/living/carbon/human/proc/vampire_veilstep
 
 // Summons bats.
@@ -237,19 +237,25 @@
 		if (AStar(src.loc, T, /turf/proc/AdjacentTurfs, /turf/proc/Distance, 1))
 			locs += T
 
-	var/count = 0
+	var/list/spawned = list()
 	if (locs.len)
 		for (var/turf/to_spawn in locs)
-			count++
-			// #TODO:10 Check bats to stop attacking owner.
-			new /mob/living/simple_animal/hostile/scarybat(to_spawn, src)
-			count++
+			spawned += new /mob/living/simple_animal/hostile/scarybat(to_spawn, src)
 
-		if (count != 2)
-			new /mob/living/simple_animal/hostile/scarybat(src.loc, src)
+		if (spawned.len != 2)
+			spawned += new /mob/living/simple_animal/hostile/scarybat(src.loc, src)
 	else
-		new /mob/living/simple_animal/hostile/scarybat(src.loc, src)
-		new /mob/living/simple_animal/hostile/scarybat(src.loc, src)
+		spawned += new /mob/living/simple_animal/hostile/scarybat(src.loc, src)
+		spawned += new /mob/living/simple_animal/hostile/scarybat(src.loc, src)
+
+	if (!spawned.len)
+		return
+
+	for (var/mob/living/simple_animal/hostile/scarybat/bat in spawned)
+		bat.friends += src
+
+		if (vampire.thralls.len)
+			bat.friends += vampire.thralls
 
 	vampire.blood_usable -= 60
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
@@ -303,14 +309,17 @@
 	set name = "Toggle Veil Walking (80)"
 	set desc = "You enter the veil, leaving only an incorporeal manifestation of you visible to the others."
 
-	var/datum/vampire/vampire = vampire_power(80, 0)
+	var/datum/vampire/vampire = vampire_power(80, 0, 1)
 	if (!vampire)
 		return
 
-	var/obj/effect/dummy/veil_walk/holder = new /obj/effect/dummy/veil_walk(get_turf(loc))
-	holder.activate(src)
+	if (vampire.holder)
+		holder.deactivate()
+	else
+		var/obj/effect/dummy/veil_walk/holder = new /obj/effect/dummy/veil_walk(get_turf(loc))
+		holder.activate(src)
 
-	vampire.blood_usable -= 80
+		vampire.blood_usable -= 80
 
 // Veilwalk's dummy holder
 // TODO: Move this to its own file.
