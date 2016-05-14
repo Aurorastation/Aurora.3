@@ -607,7 +607,7 @@
 		return
 
 	T << "<span class='danger'>Your mind blanks as you finish feeding from [src.name]'s wrist.</span>"
-	vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 0, 1)
+	vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	T.mind.vampire.master = src
 	vampire.thralls += T
@@ -800,8 +800,8 @@
 
 				T << "<span class='danger'>A dark force pushes you back into your body. You find yourself somehow still clinging to life.</span>"
 
-	T.Weaken(50)
-	vamp.add_antagonist(T.mind)
+	T.Weaken(15)
+	vamp.add_antagonist(T.mind, 1, 1, 0, 0, 1)
 
 	T << "<span class='danger'>You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power.</span>"
 	src << "<span class='warning'>You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master.</span>"
