@@ -43,7 +43,7 @@
 //todo: cult integration
 /obj/item/weapon/vampiric
 	name = "statuette"
-	icon_state = "statuette[rand(1,6)]"
+	icon_state = "statuette"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	var/charges = 0
 	var/list/nearby_mobs = list()
