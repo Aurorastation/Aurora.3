@@ -36,7 +36,7 @@
 		return
 
 	var/datum/vampire/draining_vamp = null
-	if (T.mind.vampire)
+	if (T.mind && T.mind.vampire)
 		draining_vamp = T.mind.vampire
 
 	var/blood = 0
@@ -77,7 +77,7 @@
 		// SSD/protohuman or dead.
 		else
 			blood = min(5, T.vessel.get_reagent_amount("blood"))
-			mind.vampire.blood_total += blood
+			mind.vampire.blood_usable += blood
 
 		if (blood_total != mind.vampire.blood_total)
 			var/update_msg = "\blue <b>You have accumulated [mind.vampire.blood_total] [mind.vampire.blood_total > 1 ? "units" : "unit"] of blood.</b>"
