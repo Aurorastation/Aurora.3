@@ -1,8 +1,4 @@
 // Global TODO-s:
-// #TODO:30 Review more potential powers.
-// #TODO:40 Review vampire-on-vampire mechanics
-// #TODO:60 Review vampire-vs-chaplain mechanics
-// #TODO:50 Review vampire-vs-Tanel Padar & The Sun mechanics
 // #TODO: LOGGING! FUCKING LOG EVERYTHING!
 
 // Contains all /mob/procs that relate to vampire.
@@ -48,6 +44,10 @@
 	visible_message("\red <b>[src.name] bites [T.name]'s neck!<b>", "\red <b>You bite [T.name]'s neck and begin to drain their blood.", "\blue You hear a soft puncture and a wet sucking noise")
 	admin_attack_log(src, T, "drained blood from [key_name(T)]", "was drained blood from by [key_name(src)]", "is draining blood from")
 
+	T << "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>"
+
+	T.Stun(10)
+
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
 			src << "\red Your fangs have disappeared!"
@@ -59,6 +59,9 @@
 		if (!T.vessel.get_reagent_amount("blood"))
 			src << "\red [T] has no more blood left to give."
 			break
+
+		if (!T.stunned)
+			T.Stun(10)
 
 		// Alive and not of empty mind.
 		if (T.stat < 2 && T.client)
@@ -89,7 +92,10 @@
 		T.vessel.remove_reagent("blood", 25)
 
 	vampire.status &= ~VAMP_DRAINING
-	src << "\blue You extract your fangs from [T.name]'s neck and stop draining them of blood."
+	src << "\blue You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived."
+
+	if (T.stat != 2)
+		T << "<span class='warning'>You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name].</span>"
 
 // Small area of effect stun.
 /mob/living/carbon/human/proc/vampire_glare()
@@ -223,7 +229,7 @@
 	set name = "Summon Bats (60)"
 	set desc = "You tear open the Veil for just a moment, in order to summon a pair of bats to assist you in combat."
 
-	var/datum/vampire/vampire = vampire_power(20, 0)
+	var/datum/vampire/vampire = vampire_power(60, 0)
 	if (!vampire)
 		return
 
@@ -322,7 +328,6 @@
 		vampire.blood_usable -= 80
 
 // Veilwalk's dummy holder
-// TODO: Move this to its own file.
 /obj/effect/dummy/veil_walk
 	name = "a red ghost"
 	desc = "A red, shimmering presence."
