@@ -589,9 +589,9 @@ var/world_topic_spam_protect_time = world.timeofday
 
 	s += "<b>[station_name()]</b>";
 	s += " ("
-	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"[config.forumurl]\">" //Change this to wherever you want the hub to link to.
 //	s += "[game_version]"
-	s += "Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "Forums"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
 	s += ")"
 
@@ -654,11 +654,17 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /proc/initialize_database_object(var/filename)
 	if (!filename)
-		return 0
+		// The code is written in a manner that is spasses out whenever dbcon = null, so we just make a dummy DB object.
+		return new/DBConnection()
 
 	var/list/data = list("address", "port", "database", "login", "password")
 
 	var/list/Lines = file2list(filename)
+
+	if (!Lines)
+		// Return dummy object for safety.
+		return new/DBConnection()
+
 	for (var/t in Lines)
 		if (!t)
 			continue
@@ -683,11 +689,6 @@ var/world_topic_spam_protect_time = world.timeofday
 			data[name] = value
 		else
 			log_misc("Unknown setting while setting up database connection. Filename: '[filename]', value: '[value]'.")
-
-	//Validate the data before proceeding.
-	for (var/d in data)
-		if (!data[d] || data[d] == null)
-			return 0
 
 	return new/DBConnection(data["address"], data["port"], data["database"], data["login"], data["password"])
 
