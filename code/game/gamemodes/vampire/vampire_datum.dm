@@ -6,6 +6,7 @@
 	var/blood_usable = 0						// How much usable blood do we have?
 	var/blood_vamp = 0							// How much vampire blood do we have?
 	var/frenzy = 0								// A vampire's frenzy meter.
+	var/last_frenzy_message = 0					// Keeps track of when the last frenzy alert was sent.
 	var/status = 0								// Bitfield including different statuses.
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.

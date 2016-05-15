@@ -134,24 +134,35 @@
 		if (vampire.frenzy < 10)
 			vampire_stop_frenzy()
 	else
+		var/next_alert = 0
+		var/message = ""
+
 		switch (vampire.frenzy)
 			if (0)
 				return
-			if (1 to 40)
-				if (prob(15))
-					src << "<span class='warning'>You feel the power of the Veil bubbling in your veins.</span>"
+			if (1 to 20)
+				// Pass function would be amazing here.
+				next_alert = 0
+				message = ""
+			if (21 to 40)
+				next_alert = 600
+				message = "<span class='warning'>You feel the power of the Veil bubbling in your veins.</span>"
 			if (41 to 60)
-				if (prob(35))
-					src << "<span class='warning'>The corruption within your blood is seeking to take over, you can feel it.</span>"
+				next_alert = 500
+				message = "<span class='warning'>The corruption within your blood is seeking to take over, you can feel it.</span>"
 			if (61 to 80)
-				if (prob(40))
-					src << "<span class='danger'>Your rage is growing ever greater. You are having to actively resist it.</span>"
+				next_alert = 400
+				message = "<span class='danger'>Your rage is growing ever greater. You are having to actively resist it.</span>"
 			if (81 to 120)
-				if (prob(50))
-					src << "<span class='danger'>The corruption of the Veil is about to take over. You have little time left.</span>"
+				next_alert = 300
+				message = "<span class='danger'>The corruption of the Veil is about to take over. You have little time left.</span>"
 			else
-				if (!(vampire.status & VAMP_FRENZIED))
-					vampire_start_frenzy(force_frenzy)
+				vampire_start_frenzy(force_frenzy)
+
+		if (next_alert && message)
+			if (!vampire.last_frenzy_message || vampire.last_frenzy_message + next_alert < world.time)
+				usr << message
+				vampire.last_frenzy_message = world.time
 
 	// Remove one point per every life() tick.
 	vampire.frenzy--

@@ -50,8 +50,8 @@
 			src << "\red Your fangs have disappeared!"
 			return
 
-		blood_total = mind.vampire.blood_total
-		blood_usable = mind.vampire.blood_usable
+		blood_total = vampire.blood_total
+		blood_usable = vampire.blood_usable
 
 		if (!T.vessel.get_reagent_amount("blood"))
 			src << "\red [T] has no more blood left to give."
@@ -60,29 +60,40 @@
 		if (!T.stunned)
 			T.Stun(10)
 
+		var/frenzy_lower_chance = 0
+
 		// Alive and not of empty mind.
 		if (T.stat < 2 && T.client)
 			blood = min(10, T.vessel.get_reagent_amount("blood"))
-			mind.vampire.blood_total += blood
-			mind.vampire.blood_usable += blood
+			vampire.blood_total += blood
+			vampire.blood_usable += blood
+
+			frenzy_lower_chance = 40
 
 			if (draining_vamp)
-				mind.vampire.blood_vamp += blood
+				vampire.blood_vamp += blood
 				// Each point of vampire blood will increase your chance to frenzy.
-				mind.vampire.frenzy += blood
+				vampire.frenzy += blood
 
 				// And drain the vampire as well.
 				draining_vamp.blood_usable -= min(blood, draining_vamp.blood_usable)
 				vampire_check_frenzy()
+
+				frenzy_lower_chance = 0
 		// SSD/protohuman or dead.
 		else
 			blood = min(5, T.vessel.get_reagent_amount("blood"))
-			mind.vampire.blood_usable += blood
+			vampire.blood_usable += blood
 
-		if (blood_total != mind.vampire.blood_total)
-			var/update_msg = "\blue <b>You have accumulated [mind.vampire.blood_total] [mind.vampire.blood_total > 1 ? "units" : "unit"] of blood.</b>"
-			if (blood_usable != mind.vampire.blood_usable)
-				update_msg += "<b> And have [mind.vampire.blood_usable] left to use.</b>"
+			frenzy_lower_chance = 20
+
+		if (prob(frenzy_lower_chance))
+			vampire.frenzy--
+
+		if (blood_total != vampire.blood_total)
+			var/update_msg = "\blue <b>You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood.</b>"
+			if (blood_usable != vampire.blood_usable)
+				update_msg += "<b> And have [vampire.blood_usable] left to use.</b>"
 
 			src << update_msg
 		check_vampire_upgrade()
@@ -597,7 +608,7 @@
 
 	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
 
-	T << "<span class='notice'>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction:<br><b>[command]</b></span>"
+	T << "<span class='warning'>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction:</span><br><span class='notice'><b>[command]</b></span>"
 	src << "<span class='notice'>You command [T.name], and they will obey.</span>"
 	emote("me", 1, "whispers.")
 
@@ -654,7 +665,7 @@
 
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
-	mind.vampire.blood_usable -= 150
+	vampire.blood_usable -= 150
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
 	spawn(2800)
 		verbs += /mob/living/carbon/human/proc/vampire_enthrall
