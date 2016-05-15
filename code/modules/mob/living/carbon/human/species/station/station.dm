@@ -269,20 +269,29 @@
 
 /datum/species/bug
 	name = "Vaurca"
-	name_plural = "varucae"
+	name_plural = "Vaurcae"
 
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
 	language = "Vaurcese"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	rarity_value = 2
-	slowdown = 1
-	darksight = 5 //USELESS
-	eyes = "blank_eyes"
+	slowdown = 0	//may become a bonus if vaurca gain more legs.
+	darksight = 8 //USELESS
+	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	brute_mod = 0.5 //note to self: remove is_synthetic checks for brmod and burnmod
-	burn_mod = 2
+	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
+	siemens_coefficient = 0 //attempting to mimic the old insulation feature.
+	breath_type = "oxygen"
+	poison_type = "null" //a species that breathes plasma shouldn't be poisoned by it.
+	blurb = "Vaurca are a bipedal insectoid species from the first moon of Sedantis I. \
+	 They have a complex caste system consisting of the lower slave caste called The Bound and the higher, free-thinking caste of the Unbound. \
+	 The majority of Vaurca present in human-space belong to the former caste of Bound, and almost all Vaurca working on NanoTrasen Stations are similarly Bound. \
+	 Although tolerated on Nanotrasen stations and in Tau Ceti, they are often discriminated against and are unwelcome in most human-owned \
+	 sectors in the Sol Alliance. All Vaurca present in human space are colonists at the end of a 2,000 year journey, and all contact with \
+	 their homeworld has been lost. All Vaurca legally present in Tau Ceti belong either to the Zo'ra hive, or the K'lax hive."
 
 	cold_level_1 = 50
 	cold_level_2 = -1
@@ -291,9 +300,10 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = CAN_JOIN | IS_WHITELISTED | NO_SLIP | NO_SCAN
+	flags = CAN_JOIN | NO_SLIP | NO_SCAN | HAS_SKIN_COLOR | IS_WHITELISTED
 	blood_color = "#E6E600" // dark yellow
-	flesh_color = "#575757"
+	flesh_color = "#E6E600"
+	base_color = "#575757"
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
@@ -310,3 +320,7 @@
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes,
 )
+
+/datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
+	..()
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
