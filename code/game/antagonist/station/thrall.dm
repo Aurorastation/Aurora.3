@@ -12,7 +12,7 @@ var/datum/antagonist/thrall/vampire_thrall = null
 	restricted_species = list("Machine")
 	welcome_text = "You are a vampire's thrall: a pawn to be commanded by them at will."
 	flags = 0
-	antaghud_indicator = "" // #TODO: Assign HUD indicator
+	antaghud_indicator = "hudthrall"
 
 /datum/antagonist/thrall/New()
 	..()
