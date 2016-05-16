@@ -1570,10 +1570,14 @@
 				if(temp <= PULSE_FAST && temp >= PULSE_NONE)
 					temp++
 			if(R.id in heartstopper) //To avoid using fakedeath
-				temp = PULSE_NONE
+				var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+				if(rand(0,6) == 3)
+					H.take_damage(5)
 			if(R.id in cheartstopper) //Conditional heart-stoppage
 				if(R.volume >= R.overdose)
-					temp = PULSE_NONE
+					var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+					if(rand(0,6) == 3)
+						H.take_damage(5)
 
 		return temp
 
