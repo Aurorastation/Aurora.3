@@ -1962,3 +1962,12 @@
 	result = "luminol"
 	required_reagents = list("hydrogen" = 2, "carbon" = 2, "ammonia" = 2)
 	result_amount = 6
+
+/////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
+
+/datum/chemical_reaction/white_coffee
+	name = "Café Au Lait"
+	id = "white_coffee"
+	result = "white_coffee"
+	required_reagents = list("milk" = 1, "blackcoffee" = 2)
+	result_amount = 2
