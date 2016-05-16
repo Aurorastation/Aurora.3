@@ -23,6 +23,18 @@
 		src << "\red The forum URL is not set in the server configuration."
 	return
 
+/client/verb/reportbug()
+	set name = "reportbug"
+	set desc = "Report a bug."
+	set hidden = 1
+	if( config.reporturl )
+		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
+			return
+		src << link(config.reporturl)
+	else
+		src << "\red The issue tracker URL is not set in the server configuration."
+	return
+
 #define RULES_FILE "config/rules.html"
 /client/verb/rules()
 	set name = "Rules"
