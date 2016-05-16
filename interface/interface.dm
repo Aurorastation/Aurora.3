@@ -27,10 +27,10 @@
 	set name = "reportbug"
 	set desc = "Report a bug."
 	set hidden = 1
-	if( config.reporturl )
+	if( config.githuburl )
 		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		src << link(config.reporturl)
+		src << link(config.githuburl + "/issues")
 	else
 		src << "\red The issue tracker URL is not set in the server configuration."
 	return
