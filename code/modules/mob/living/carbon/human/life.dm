@@ -719,7 +719,7 @@
 
 		return
 
-	/*
+	
 	proc/adjust_body_temperature(current, loc_temp, boost)
 		var/temperature = current
 		var/difference = abs(current-loc_temp)	//get difference
@@ -736,7 +736,7 @@
 			temperature = max(loc_temp, temperature-change)
 		temp_change = (temperature - current)
 		return temp_change
-	*/
+	
 
 	proc/stabilize_body_temperature()
 		if (species.flags & IS_SYNTHETIC)
