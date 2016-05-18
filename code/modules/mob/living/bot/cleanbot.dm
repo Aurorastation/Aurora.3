@@ -101,23 +101,30 @@
 		patrol_path = list()
 		return
 
-	var/found_spot
-	search_loop:
-		for(var/i=0, i <= maximum_search_range, i++)
-			for(var/obj/effect/decal/cleanable/D in view(i, src))
-				if(D in ignorelist)
-					continue
-				for(var/T in target_types)
-					if(istype(D, T))
-						patrol_path = list()
-						target = D
-						found_spot = handle_target()
-						if (found_spot)
-							break search_loop
+    var/found_spot
+	var/current_tile
+	var/cleanable_type = obj/effect/decal/cleanable
+	var/target_type
+	var/searching = true
+
+	while (searching)
+		for (current_tile = 0, current_tile <= maximum_search_range, i++)
+			for (cleanable_type in view(current_tile, src))
+				if (!(cleanable_type in ignorelist))
+					for (target_type in target_types)
+						if (istype(cleanable_type, target_type))
+							patrol_path = list()
+							target      = cleanable_type
+							found_spot  = handle_target()
+
+							if (found_spot)
+								searching = false;
+							else if (target = null) //handles if path can not be created
+								searching = false
+
 						else
 							target = null
-							continue // no need to check the other types
-
+							continue //Recode without the use of these shitty things.
 
 	if(!found_spot && !target) // No targets in range
 		if(!patrol_path || !patrol_path.len)
