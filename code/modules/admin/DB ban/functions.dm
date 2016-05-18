@@ -44,11 +44,16 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 		computerid = bancid
 		ip = banip
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_player WHERE ckey = '[ckey]'")
+	var/DBQuery/query = dbcon.NewQuery("SELECT id, computerid, ip FROM ss13_player WHERE ckey = '[ckey]'")
 	query.Execute()
 	var/validckey = 0
 	if(query.NextRow())
 		validckey = 1
+		// Stop relying on manual entry, use the database.
+		if (!computerid)
+			computerid = query.item[2]
+		if (!ip)
+			ip = query.item[3]
 	if(!validckey)
 		if(!banned_mob || (banned_mob && !IsGuestKey(banned_mob.key)))
 			message_admins("<font color='red'>[key_name_admin(usr)] attempted to ban [ckey], but [ckey] has not been seen yet. Please only ban actual players.</font>",1)
@@ -483,7 +488,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 					if (mirror_count)
 						output += "<tr bgcolor='[dcolor]'>"
-						output += "<td align='center' colspan='5' bgcolor=''><b>Ban Mirrored [mirror_count] times!</b></td>"
+						output += "<td align='center' colspan='5' bgcolor=''><b>Ban Mirrored <a href=\"byond://?src=\ref[src];dbbanmirrors=[banid]\">[mirror_count > 1 ? "[mirror_count] times" : "once"]</a>!</b></td>"
 						output += "</tr>"
 
 				output += "<tr>"

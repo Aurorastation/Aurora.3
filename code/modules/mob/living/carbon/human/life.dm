@@ -260,7 +260,7 @@
 
 	proc/handle_mutations_and_radiation()
 
-		if(species.flags & IS_SYNTHETIC || species.name == "Vaurca") //Robots/bugs don't suffer from mutations or radloss.
+		if(species.flags & IS_SYNTHETIC || species.name == "Vaurca") //Robots & bugs don't suffer from mutations or radloss.
 			return
 
 		if(getFireLoss())
@@ -438,6 +438,13 @@
 
 		var/failed_inhale = 0
 		var/failed_exhale = 0
+
+		if(species.has_organ["breathing apparatus"])
+			var/obj/item/organ/vaurca/breathingapparatus/L = internal_organs_by_name["breathing apparatus"]
+			if(isnull(L))
+				poison_type = null
+			else if(L.is_broken())
+				poison_type = "oxygen" //if Vaurca breathing apparatus breaks, oxygen becomes poisonous.
 
 		if(species.breath_type)
 			breath_type = species.breath_type
@@ -712,7 +719,7 @@
 
 		return
 
-	/*
+	
 	proc/adjust_body_temperature(current, loc_temp, boost)
 		var/temperature = current
 		var/difference = abs(current-loc_temp)	//get difference
@@ -729,7 +736,7 @@
 			temperature = max(loc_temp, temperature-change)
 		temp_change = (temperature - current)
 		return temp_change
-	*/
+	
 
 	proc/stabilize_body_temperature()
 		if (species.flags & IS_SYNTHETIC)
@@ -1122,7 +1129,7 @@
 	proc/handle_regular_hud_updates()
 		if(!overlays_cache)
 			overlays_cache = list()
-			overlays_cache.len = 23
+			overlays_cache.len = 24
 			overlays_cache[1] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage1")
 			overlays_cache[2] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage2")
 			overlays_cache[3] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage3")
@@ -1146,6 +1153,7 @@
 			overlays_cache[21] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay4")
 			overlays_cache[22] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay5")
 			overlays_cache[23] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay6")
+			overlays_cache[24] = image('icons/mob/screen1_full.dmi', "icon_state" = "frenzyoverlay")
 
 		if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 			handle_hud_list()
@@ -1213,6 +1221,12 @@
 						I = overlays_cache[17]
 				damageoverlay.overlays += I
 
+			// Vampire frenzy overlay.
+			if (mind.vampire)
+				if (mind.vampire.status & VAMP_FRENZIED)
+					var/image/I = overlays_cache[24]
+					damageoverlay.overlays += I
+
 			//Fire and Brute damage overlay (BSSR)
 			var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 			damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
@@ -1260,14 +1274,6 @@
 			sight = species.vision_flags
 			see_in_dark = species.darksight
 			see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
-
-			if(mind && mind.vampire)
-				if((VAMP_VISION in mind.vampire.powers) && !(VAMP_FULL in mind.vampire.powers))
-					sight |= SEE_MOBS
-				if((VAMP_FULL in mind.vampire.powers))
-					sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
-					see_in_dark = 8
-					see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
 
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
@@ -1563,10 +1569,14 @@
 				if(temp <= PULSE_FAST && temp >= PULSE_NONE)
 					temp++
 			if(R.id in heartstopper) //To avoid using fakedeath
-				temp = PULSE_NONE
+				var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+				if(rand(0,6) == 3)
+					H.take_damage(5)
 			if(R.id in cheartstopper) //Conditional heart-stoppage
 				if(R.volume >= R.overdose)
-					temp = PULSE_NONE
+					var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+					if(rand(0,6) == 3)
+						H.take_damage(5)
 
 		return temp
 
@@ -1636,7 +1646,7 @@
 		else if(foundVirus)
 			holder.icon_state = "hudill"
 	/*	else if(has_brain_worms())
-			var/mob/living/simple_animal/borer/B = has_brain_worms() //Cotrical borer disable
+			var/mob/living/simple_animal/borer/B = has_brain_worms()
 			if(B.controlling)
 				holder.icon_state = "hudbrainworm"
 			else

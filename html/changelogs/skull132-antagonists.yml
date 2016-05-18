@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Imported autotraitor fix from Baystation12."
+  - tweak: "Initial antagonist counts balanced and should now be working. No more 6 ops for 15 total players."

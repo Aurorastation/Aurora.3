@@ -2049,6 +2049,34 @@ window "rpane"
 		is-checked = false
 		group = "rpanemode"
 		button-type = pushbutton
+	elem "reportbugb"
+		type = BUTTON
+		pos = 410,0
+		size = 67x16
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Report Bug"
+		image = ""
+		command = "reportbug"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = "rpanemode"
+		button-type = pushbutton
 	elem "forumb"
 		type = BUTTON
 		pos = 215,0
@@ -2105,6 +2133,34 @@ window "rpane"
 		is-checked = false
 		group = "rpanemode"
 		button-type = pushbutton
+	elem "interfaceb"
+		type = BUTTON
+		pos = 480,0
+		size = 60x16
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "WI Link"
+		image = ""
+		command = "open_webint"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = ""
+		button-type = pushbutton
 	elem "textb"
 		type = BUTTON
 		pos = 0,0
@@ -2135,7 +2191,7 @@ window "rpane"
 		button-type = pushbox
 	elem "browseb"
 		type = BUTTON
-		pos = 464,0
+		pos = 0,560
 		size = 60x16
 		anchor1 = none
 		anchor2 = none

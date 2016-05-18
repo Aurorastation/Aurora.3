@@ -8,3 +8,15 @@
 	end_on_antag_death = 1
 	antag_scaling_coeff = 8
 	antag_tags = list(MODE_VAMPIRE)
+
+/datum/game_mode/vampire/verb/vampire_help()
+	set category = "Vampire"
+	set name = "Display Help"
+	set desc = "Opens help window with overview of available powers and other important information."
+	var/mob/living/carbon/human/user = usr
+
+	var/help = file2text('ingame_manuals/vampire.html')
+	if(!help)
+		help = "Error loading help (file /ingame_manuals/vampire.html is probably missing). Please report this to server administration staff."
+
+	user << browse(help, "window=vampire_help;size=600x500")

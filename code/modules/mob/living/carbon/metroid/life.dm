@@ -53,13 +53,12 @@
 	//Account for massive pressure differences
 
 	if(bodytemperature < hurt_temperature) // start calculating temperature damage etc
-
 		if(bodytemperature <= die_temperature)
 			if(bodytemperature <= 50)
 				adjustToxLoss(200)
 			else
 				adjustToxLoss(30)
-
+				
 	updatehealth()
 
 	return //TODO: DEFERRED
