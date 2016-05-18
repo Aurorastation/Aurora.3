@@ -31,6 +31,8 @@
 		diary << "\[[time_stamp()]]DEBUG: [text][log_end]"
 
 	for(var/client/C in admins)
+		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
+			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)
 			C << "DEBUG: [text]"
 
@@ -91,7 +93,7 @@
 	if(dir & WEST) comps += "WEST"
 	if(dir & UP) comps += "UP"
 	if(dir & DOWN) comps += "DOWN"
-	
+
 	return english_list(comps, nothing_text="0", and_text="|", comma_text="|")
 
 //more or less a logging utility

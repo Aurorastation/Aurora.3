@@ -7,6 +7,10 @@
 	w_class = 2.0
 	desc = "This is rubbish."
 
+/obj/item/trash/koisbar
+	name = "K'ois Bar Wrapper"
+	icon_state = "koisbar"
+
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
 	icon_state= "4no_raisins"

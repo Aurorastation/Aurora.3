@@ -245,6 +245,17 @@
 
 
 
+/obj/item/weapon/reagent_containers/food/snacks/koisbar
+	name = "K'ois Bar"
+	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup."
+	icon_state = "koisbar"
+	trash = /obj/item/trash/koisbar
+	filling_color = "#dcd9cd"
+
+	New()
+		..()
+		reagents.add_reagent("kois", 20)
+		bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/aesirsalad
 	name = "Aesir salad"
