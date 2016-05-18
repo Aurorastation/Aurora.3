@@ -53,11 +53,11 @@
 					need_to_break = 1
 
 				reagents.remove_reagent("blood", blood_taken)
-				user.mind.vampire.bloodtotal += blood_taken
+				user.mind.vampire.blood_total += blood_taken
 				user.check_vampire_upgrade(user.mind)
 
 				if (blood_taken)
-					user << "\blue <b>You have accumulated [user.mind.vampire.bloodtotal] [user.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood and have [user.mind.vampire.bloodusable] left to use."
+					user << "\blue <b>You have accumulated [user.mind.vampire.blood_total] [user.mind.vampire.blood_total > 1 ? "units" : "unit"] of blood and have [user.mind.vampire.blood_usable] left to use."
 
 				if (need_to_break)
 					break

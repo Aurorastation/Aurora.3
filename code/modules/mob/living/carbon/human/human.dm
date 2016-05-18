@@ -80,7 +80,8 @@
 
 		if(mind)
 			if(mind.vampire)
-				stat("Blood", mind.vampire.bloodusable)
+				stat("Usable Blood", mind.vampire.blood_usable)
+				stat("Total Blood", mind.vampire.blood_total)
 			if(mind.changeling)
 				stat("Chemical Storage", mind.changeling.chem_charges)
 				stat("Genetic Damage Time", mind.changeling.geneticdamage)
