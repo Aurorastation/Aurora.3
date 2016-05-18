@@ -86,7 +86,7 @@
 		return null
 
 	var/DBQuery/search_query = dbcon.NewQuery("SELECT id FROM ss13_ban WHERE id IN :vars AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)")
-	search_query.Execute(":vars" = ban_ids)
+	search_query.Execute(list(":vars" = ban_ids))
 
 	var/list/active_bans = list()
 
