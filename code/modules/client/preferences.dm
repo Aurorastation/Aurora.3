@@ -166,6 +166,8 @@ datum/preferences
 	real_name = random_name(gender,species)
 	gear = list()
 
+	ZeroSkills(1)
+
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
 		if(!skills.Find(S.ID) || forced)

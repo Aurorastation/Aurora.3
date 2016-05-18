@@ -573,7 +573,7 @@
 	job_engsec_med = sanitize_integer(job_engsec_med, 0, 65535, initial(job_engsec_med))
 	job_engsec_low = sanitize_integer(job_engsec_low, 0, 65535, initial(job_engsec_low))
 
-	if(!skills) skills = list()
+	if(!skills) ZeroSkills(1)
 	if(!used_skillpoints) used_skillpoints= 0
 	if(isnull(disabilities)) disabilities = 0
 	if(!player_alt_titles) player_alt_titles = new()
