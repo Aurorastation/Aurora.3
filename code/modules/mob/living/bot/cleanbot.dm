@@ -60,6 +60,12 @@
 /mob/living/bot/cleanbot/Life()
 	..()
 
+	var/found_spot
+	var/current_tile
+	var/cleanable_type = /obj/effect/decal/cleanable
+	var/target_type
+	var/searching      = 1
+
 	if(!on)
 		return
 
@@ -101,14 +107,8 @@
 		patrol_path = list()
 		return
 
-    var/found_spot
-	var/current_tile
-	var/cleanable_type = obj/effect/decal/cleanable
-	var/target_type
-	var/searching = true
-
 	while (searching)
-		for (current_tile = 0, current_tile <= maximum_search_range, i++)
+		for (current_tile = 0, current_tile <= maximum_search_range, current_tile++)
 			for (cleanable_type in view(current_tile, src))
 				if (!(cleanable_type in ignorelist))
 					for (target_type in target_types)
@@ -118,9 +118,10 @@
 							found_spot  = handle_target()
 
 							if (found_spot)
-								searching = false;
-							else if (target = null) //handles if path can not be created
-								searching = false
+								searching = 0;
+							else
+								if (target == null) //handles if path can not be created
+									searching = 0
 
 						else
 							target = null
@@ -158,9 +159,6 @@
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
-
-
-
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 	if(!..())
 		return
