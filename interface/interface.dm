@@ -164,3 +164,16 @@ Any-Mode: (hotkey doesn't need to be on)
 		src << other
 	if(holder)
 		src << admin
+
+/client/verb/open_webint()
+	set name = "open_webint"
+	set desc = "Visit the web interface."
+	set hidden = 1
+
+	if (config.webint_url)
+		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
+			return
+		src << link(config.webint_url)
+	else
+		src << "\red The web interface URL is not set in the server configuration."
+	return
