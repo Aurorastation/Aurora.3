@@ -38,13 +38,13 @@
 	if(M.get_species() == "Vaurca")
 		M.adjustToxLoss(1.5 * removed)
 	else if (alien && alien == IS_UNATHI)
-		if (istype(src, /reagent/nutriment/protein) || istype(src, /reagent/nutriment/egg))
+		if (istype(src, obj/reagent/nutriment/protein) || istype(src, obj/reagent/nutriment/egg))
 			return
 		else
-		M.heal_organ_damage(0.8 * removed, 0)
-		M.nutrition += nutriment_factor * removed // For hunger and fatness
-		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
-		return
+			M.heal_organ_damage(0.8 * removed, 0)
+			M.nutrition += nutriment_factor * removed // For hunger and fatness
+			M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+			return
 	else
 		M.heal_organ_damage(0.8 * removed, 0)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
