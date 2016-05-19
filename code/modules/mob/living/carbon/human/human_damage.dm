@@ -351,6 +351,18 @@ This function restores all organs.
 
 	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
 
+	if (damage > 0)
+		H << "<span class='danger'>You are now visible.</span>"
+ 		H.invisibility = 0
+
+ 		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
+ 		anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+ 		for(var/mob/O in oviewers(H))
+ 			O.show_message("[H.name] appears from thin air!",1)
+ 		playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
+
+
 	//Handle other types of damage
 	if((damagetype != BRUTE) && (damagetype != BURN))
 		if(damagetype == HALLOSS && !(species && (species.flags & NO_PAIN)))
