@@ -10,6 +10,9 @@ be able to influence the host through various commands.
 
 // The maximum amount of points a meme can gather.
 var/global/const/MAXIMUM_MEME_POINTS = 750
+var/global/const/MINIMUM_MEME_POINTS = 0
+var/mob/living/parasite/host_brain
+var/controlling
 
 
 // === PARASITE ===
@@ -59,6 +62,7 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 // Memes use points for many actions
 /mob/living/parasite/meme/var/meme_points = 100
 /mob/living/parasite/meme/var/dormant = 0
+/mob/living/parasite/meme/var/possessing = 0
 
 // Memes have a list of indoctrinated hosts
 /mob/living/parasite/meme/var/list/indoctrinated = list()
@@ -71,12 +75,17 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 		else		client.eye = host
 
 	if(!host) return
+	if(possessing == 1 && meme_points == 0)
+		detatch()
 
 	// recover meme points slowly
 	var/gain = 3
 	if(dormant) gain = 9 // dormant recovers points faster
+	//if(possessing) meme_points = min(meme_points - loss, MAXIMUM_MEME_POINTS)
 
 	meme_points = min(meme_points + gain, MAXIMUM_MEME_POINTS)
+	if(possessing == 1) meme_points = min(meme_points - gain, MINIMUM_MEME_POINTS)
+	if(possessing == 0) meme_points = min(meme_points + gain, MAXIMUM_MEME_POINTS)
 
 	// if there are sleep toxins in the host's body, that's bad
 	if(host.reagents.has_reagent("stoxin"))
@@ -95,6 +104,9 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 
 	if(host.blinded && host.stat != 1) src.blinded = 1
 	else 			 				   src.blinded = 0
+
+	if(possessing == 1 && meme_points == 0)
+		detatch()
 
 
 /mob/living/parasite/meme/death()
@@ -212,10 +224,10 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 
 	if(!target) return
 
-	var/speaker = input("Select the voice in which you would like to make yourself heard.", "Voice") as null|text
-	if(!speaker) return
+	var/speaker = input("Select the voice in which you would like to make yourself heard.", "Voice") as text
+	//if(!speaker) return
 
-	var/message = input("What would you like to say?", "Message") as null
+	var/message = input("What would you like to say?", "Message") as text
 	if(!message) return
 
 	// Use the points at the end rather than the beginning, because the user might cancel
@@ -513,49 +525,133 @@ var/global/const/MAXIMUM_MEME_POINTS = 750
 	set name	 = "Possession(500)"
 	set desc     = "Take direct control of the host for a while."
 
-	if(!host) return
-	if(!(host in indoctrinated))
-		usr << "\red You need to attune the host first."
-		return
 	if(!use_points(500)) return
+	if(!host)
+		src << "You have discovered a severe bug - NO HOST. CONTACT DEVELOPER."
+		return
 
-	usr << "<b>You take control of [host]!</b>"
-	host << "\red Everything goes black.."
-
-	spawn
-		var/mob/dummy = new()
-		dummy.loc = 0
-		dummy.sight = BLIND
-
-		var/datum/mind/host_mind = host.mind
-		var/datum/mind/meme_mind = src.mind
-
-		host_mind.transfer_to(dummy)
-		meme_mind.transfer_to(host)
-		host_mind.current.clearHUD()
-		//host.update_clothing()
-
-		log_admin("[meme_mind.key] has taken possession of [host]([host_mind.key])")
-		message_admins("[meme_mind.key] has taken possession of [host]([host_mind.key])")
-
-	host.verbs += /mob/living/parasite/meme/verb/release_mayay
+	if(src.stat)
+		src << "You cannot do that in your current state."
+		return
 
 
-/mob/living/parasite/meme/verb/release_mayay()
+	src << "You begin assuming direct control..."
+
+	spawn()
+
+		if(!host || !src || controlling)
+			return
+		else
+
+			src << "\red <B>You shroud your hosts brain, assuming control</B>"
+			host << "\red <B>You can feel thoughts that arent your own begin to dictate your body's actions.</B>"
+
+			// host -> brain
+			var/h2b_id = host.computer_id
+			var/h2b_ip= host.lastKnownIP
+			host.computer_id = null
+			host.lastKnownIP = null
+
+			qdel(host_brain)
+			host_brain = new(src)
+
+			host_brain.ckey = host.ckey
+
+			host_brain.name = host.name
+
+			if(!host_brain.computer_id)
+				host_brain.computer_id = h2b_id
+
+			if(!host_brain.lastKnownIP)
+				host_brain.lastKnownIP = h2b_ip
+
+			// self -> host
+			var/s2h_id = src.computer_id
+			var/s2h_ip= src.lastKnownIP
+			src.computer_id = null
+			src.lastKnownIP = null
+
+			host.ckey = src.ckey
+
+			if(!host.computer_id)
+				host.computer_id = s2h_id
+
+			if(!host.lastKnownIP)
+				host.lastKnownIP = s2h_ip
+
+			controlling = 1
+			possessing = 1
+
+			host.verbs += /mob/living/parasite/meme/proc/release_control
+
+			return
+
+/mob/living/parasite/meme/proc/release_control()
 	set category = "Meme"
-	set name	 = "Release Control"
-	set desc     = "Release control of the host prematurely."
-//other side of control shit
-	var/mob/dummy
-	var/datum/mind/host_mind = dummy.mind
-	var/datum/mind/meme_mind = host.mind
-	meme_mind.transfer_to(src)
-	host_mind.transfer_to(host)
-	//meme_mind.current.clearHUD()
-	//host.update_clothing()
-	src << "\red You lose control.."
+	set name = "Release Control"
+	set desc = "Release control of your host's body."
 
-	qdel(dummy)
+	//var/mob/living/parasite/meme/ME = has_brain_worms() god fucking dammit
+/*
+	if(ME && host_brain)
+		src << "\red <B>You retract, releasing control of [host_brain]</B>"
+*/
+	detatch()
+
+	verbs -= /mob/living/parasite/meme/proc/release_control
+		/*
+	else ALL THE FUCKING CODING SCAFFOLDING
+		src << "\red <B>ERROR NO MEME DETECTED IN THIS MOB, THIS IS A BUG !</B>"
+		*/
+/mob/living/parasite/meme/proc/detatch()
+
+	if(!host || !controlling) return
+
+	if(istype(host,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = host
+		var/obj/item/organ/external/head = H.get_organ("head")
+		head.implants -= src
+
+	controlling = 0
+	possessing = 0
+
+	host.verbs -= /mob/living/parasite/meme/proc/release_control
+
+	if(host_brain)
+
+		// these are here so bans and multikey warnings are not triggered on the wrong people when ckey is changed.
+		// computer_id and IP are not updated magically on their own in offline mobs -walter0o
+
+		// host -> self
+		var/h2s_id = host.computer_id
+		var/h2s_ip= host.lastKnownIP
+		host.computer_id = null
+		host.lastKnownIP = null
+
+		src.ckey = host.ckey
+
+		if(!src.computer_id)
+			src.computer_id = h2s_id
+
+		if(!host_brain.lastKnownIP)
+			src.lastKnownIP = h2s_ip
+
+		// brain -> host
+		var/b2h_id = host_brain.computer_id
+		var/b2h_ip= host_brain.lastKnownIP
+		host_brain.computer_id = null
+		host_brain.lastKnownIP = null
+
+		host.ckey = host_brain.ckey
+
+		if(!host.computer_id)
+			host.computer_id = b2h_id
+
+		if(!host.lastKnownIP)
+			host.lastKnownIP = b2h_ip
+
+	qdel(host_brain)
+
 
 // Enter dormant mode, increases meme point gain
 /mob/living/parasite/meme/verb/Dormant()
