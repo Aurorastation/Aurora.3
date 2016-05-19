@@ -33,14 +33,11 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
+  - wip: "Setup character menu available while a ghost/observing."
+  - tweak: "Taking damage or attacking while stealthed now deactives it."
+  - tweak: "Unathi don't gain nutriment from protein."
+  - tweak: "Slimes now take damage when under this cold threshold."
   - bugfix: "Necrotic organ repair now works as it should."
   - bugfix: "Certain chemical effects now no longer allow random movement in space."
   - bugfix: "Certain chemicals now have the correct heartstopping logic."
   - bugfix: "Cleanbots lag should hopefully be fixed. Report if that isn't the case."
-  - tweak: "Taking damage or attacking while stealthed now deactives it."
-  - tweak: "Unathi don't gain nutriment from protein."
-  - tweak: "Slimes now take damage when under this cold threshold."
-  - wip: "Setup character menu available while a ghost/observing."
-
-
-
