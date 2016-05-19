@@ -350,17 +350,17 @@ This function restores all organs.
 /mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/sharp = 0, var/edge = 0, var/obj/used_weapon = null)
 
 	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
-	if (H.invisibility == INVISIBILITY_LEVEL_TWO)
+	if (usr.invisibility == INVISIBILITY_LEVEL_TWO)
 		if (damage > 0)
-			H << "<span class='danger'>You are now visible.</span>"
- 			H.invisibility = 0
+			usr << "<span class='danger'>You are now visible.</span>"
+ 			usr.invisibility = 0
 
- 			anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
- 			anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
+ 			anim(get_turf(usr), usr,'icons/mob/mob.dmi',,"uncloak",,usr.dir)
+ 			anim(get_turf(usr), usr, 'icons/effects/effects.dmi', "electricity",null,20,null)
 
- 			for(var/mob/O in oviewers(H))
+ 			for(var/mob/O in oviewers(usr))
  				O.show_message("[H.name] appears from thin air!",1)
- 			playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
+ 			playsound(get_turf(usr), 'sound/effects/stealthoff.ogg', 75, 1)
 
 
 	//Handle other types of damage
