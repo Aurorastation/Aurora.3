@@ -355,7 +355,7 @@ This function restores all organs.
 			src << "<span class='danger'>You are now visible.</span>"
 			src.invisibility = 0
 
- 			anim(get_turf(src), src,'icons/mob/mob.dmi',,"uncloak",,src.dir)
+ 			//anim(get_turf(src), src,'icons/mob/mob.dmi',,"uncloak",,src.dir)
  			anim(get_turf(src), src, 'icons/effects/effects.dmi', "electricity",null,20,null)
 
  			for(var/mob/O in oviewers(src))
