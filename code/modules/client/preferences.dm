@@ -147,6 +147,15 @@ datum/preferences
 
 /datum/preferences/New(client/C)
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
+
+	if (C.need_saves_migrated)
+		if (!handle_saves_migration(C))
+			error("Failed migrating saves from [C.ckey] to the database!")
+			C << "<span class='warning'>An error was encountered while attempting to migrate your saves! Please contact a developer!</span>"
+		else
+			C << "<span class='notice'>Your character saves have been successfully migrated to the database!</span>"
+			update_migrate_status(C)
+
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)

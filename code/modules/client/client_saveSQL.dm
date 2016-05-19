@@ -3,48 +3,44 @@
 //if the db can't be updated, return 0
 //if the db was updated, return 1
 
-/datum/preferences/proc/SQLsave_character(var/cslot)
+/datum/preferences/proc/SQLsave_character(var/cslot, var/ckey)
 	char_slot = cslot
 	if(!cslot)
 		error("No character slot sent during SQL saving.")
 		return 0
-	for(var/ckey in preferences_datums)
-		var/datum/preferences/D = preferences_datums[ckey]
-		if(D == src)
-			establish_db_connection(dbcon)
-			if(!dbcon.IsConnected())
-				error("Error with SQL saving: no database.")
-				return 0
-			else
-				if(!getCharId(ckey))
-					query = dbcon.NewQuery("INSERT INTO ss13_characters (ckey, slot) VALUES ('[ckey]', '[cslot]')")
-					query.Execute()
 
-					getCharId(ckey)
-					InsertCharData()
-					InsertJobsData()
-					InsertFlavourData()
-					InsertRobotFlavourData()
-					InsertMiscData()
-					InsertSkillsData()
-					InsertGearData()
-					InsertOrgansData()
-				else
-					UpdateCharData()
-					UpdateJobsData()
-					UpdateFlavourData()
-					UpdateRobotFlavourData()
-					UpdateMiscData()
-					UpdateSkillsData()
-					UpdateGearData()
-					UpdateOrgansData()
-			TextQuery = "UPDATE SS13_characters SET Character_Name = (SELECT name FROM characters_data WHERE char_id = '[char_id]') WHERE id = '[char_id]'"
-			query = dbcon.NewQuery(TextQuery)
+	establish_db_connection(dbcon)
+	if(!dbcon.IsConnected())
+		error("Error with SQL saving: no database.")
+		return 0
+	else
+		if(!getCharId(ckey))
+			query = dbcon.NewQuery("INSERT INTO ss13_characters (ckey, slot) VALUES ('[ckey]', '[cslot]')")
 			query.Execute()
 
-			return 1
+			getCharId(ckey)
+			InsertCharData()
+			InsertJobsData()
+			InsertFlavourData()
+			InsertRobotFlavourData()
+			InsertMiscData()
+			InsertSkillsData()
+			InsertGearData()
+			InsertOrgansData()
+		else
+			UpdateCharData()
+			UpdateJobsData()
+			UpdateFlavourData()
+			UpdateRobotFlavourData()
+			UpdateMiscData()
+			UpdateSkillsData()
+			UpdateGearData()
+			UpdateOrgansData()
+	TextQuery = "UPDATE SS13_characters SET Character_Name = (SELECT name FROM characters_data WHERE char_id = '[char_id]') WHERE id = '[char_id]'"
+	query = dbcon.NewQuery(TextQuery)
+	query.Execute()
 
-	return 0
+	return 1
 
 /datum/preferences/proc/SQLload_character(var/slot, var/pckey)
 	establish_db_connection(dbcon)
@@ -86,6 +82,8 @@
 	TextQuery += "'[metadata]', '[b_skin]', '[g_skin]', '[r_skin]', '[s_tone]', '[spawnpoint]', '[species]', '[undershirt]', '[underwear]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateCharData()
@@ -148,6 +146,8 @@
 	TextQuery += "'[job_engsec_high]', '[job_engsec_med]', '[job_engsec_low]', '[alt_titles_list]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateJobsData()
@@ -189,6 +189,8 @@
 	TextQuery += "'[flavor_texts["arms"]]', '[flavor_texts["hands"]]', '[flavor_texts["legs"]]', '[flavor_texts["feet"]]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateFlavourData()
@@ -228,6 +230,8 @@
 	TextQuery += "'[flavour_texts_robot["Clerical"]]', '[flavour_texts_robot["Security"]]','[flavour_texts_robot["Research"]]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateRobotFlavourData()
@@ -273,6 +277,8 @@
 	TextQuery += "'[uplinklocation]', '[exploit_record]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateMiscData()
@@ -318,6 +324,8 @@
 	TextQuery += " '[skills["chemistry"]]', '[skills["science"]]', '[skills["medical"]]', '[skills["anatomy"]]', '[skills["virology"]]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateSkillsData()
@@ -370,6 +378,8 @@
 	TextQuery = "INSERT INTO characters_gear (char_id, gear) VALUES ('[char_id]', '[gear_list]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateGearData()
@@ -399,6 +409,8 @@
 	TextQuery += "'[organ_data["l_hand"]]', '[organ_data["r_hand"]]', '[organ_data["heart"]]', '[organ_data["eyes"]]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	InsertRorgansData()
 	return 1
 
@@ -441,6 +453,8 @@
 	TextQuery += "'[rlimb_data["l_hand"]]', '[rlimb_data["r_hand"]]')"
 	query = dbcon.NewQuery(TextQuery)
 	query.Execute()
+	if (query.ErrorMsg())
+		testing("Error: [query.ErrorMsg()]")
 	return 1
 
 /datum/preferences/proc/UpdateRorgansData()
@@ -478,6 +492,8 @@
 		TextQuery += "VALUES ('[ckey]', '[ooccolor]','[lastchangelog]', '[UI_style]', '[default_slot]', '[toggles]', '[UI_style_color]', '[UI_style_alpha]','[be_special]')"
 		query = dbcon.NewQuery(TextQuery)
 		query.Execute()
+		if (query.ErrorMsg())
+			testing("Error: [query.ErrorMsg()]")
 		return 1
 	else
 		return UpdatePrefData(ckey)
