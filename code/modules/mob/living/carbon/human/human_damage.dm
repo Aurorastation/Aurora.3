@@ -353,13 +353,13 @@ This function restores all organs.
 	if (usr.invisibility == INVISIBILITY_LEVEL_TWO)
 		if (damage > 0)
 			usr << "<span class='danger'>You are now visible.</span>"
- 			usr.invisibility = 0
+			usr.invisibility = 0
 
  			anim(get_turf(usr), usr,'icons/mob/mob.dmi',,"uncloak",,usr.dir)
  			anim(get_turf(usr), usr, 'icons/effects/effects.dmi', "electricity",null,20,null)
 
  			for(var/mob/O in oviewers(usr))
- 				O.show_message("[H.name] appears from thin air!",1)
+ 				O.show_message("[usr.name] appears from thin air!",1)
  			playsound(get_turf(usr), 'sound/effects/stealthoff.ogg', 75, 1)
 
 
