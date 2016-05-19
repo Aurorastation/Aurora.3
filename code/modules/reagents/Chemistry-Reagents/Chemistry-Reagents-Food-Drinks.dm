@@ -37,11 +37,20 @@
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.get_species() == "Vaurca")
 		M.adjustToxLoss(1.5 * removed)
+	else if (alien && alien == IS_UNATHI)
+		if (istype(src, /reagent/nutriment/protein) || istype(src, /reagent/nutriment/egg))
+			return
+		else
+		M.heal_organ_damage(0.8 * removed, 0)
+		M.nutrition += nutriment_factor * removed // For hunger and fatness
+		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+		return
 	else
 		M.heal_organ_damage(0.8 * removed, 0)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 		return
+
 	..()
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
@@ -51,8 +60,6 @@
 /datum/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(0.5 * removed)
-		return
-	else if(alien && alien == IS_UNATHI)
 		return
 	..()
 
