@@ -355,14 +355,6 @@ This function restores all organs.
 			src << "<span class='danger'>You are now visible.</span>"
 			src.invisibility = 0
 
- 			//anim(get_turf(src), src,'icons/mob/mob.dmi',,"uncloak",,src.dir)
- 			anim(get_turf(src), src, 'icons/effects/effects.dmi', "electricity",null,20,null)
-
- 			for(var/mob/O in oviewers(src))
- 				O.show_message("[src.name] appears from thin air!",1)
- 			playsound(get_turf(src), 'sound/effects/stealthoff.ogg', 75, 1)
-
-
 	//Handle other types of damage
 	if((damagetype != BRUTE) && (damagetype != BURN))
 		if(damagetype == HALLOSS && !(species && (species.flags & NO_PAIN)))
