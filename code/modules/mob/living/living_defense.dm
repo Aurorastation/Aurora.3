@@ -77,7 +77,7 @@
 	return absorb
 
 //Handles the effects of "stun" weapons
-/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null)
+/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null, var/on_status = 0)
 	flash_pain()
 
 	if (stun_amount)
@@ -86,7 +86,7 @@
 		apply_effect(STUTTER, stun_amount)
 		apply_effect(EYE_BLUR, stun_amount)
 
-	if (agony_amount && used_weapon.status == 1) // only if weapon is on
+	if (agony_amount && on_status == 1) // only if weapon is on
 		apply_damage(agony_amount, HALLOSS, def_zone, 0, used_weapon)
 		apply_effect(STUTTER, agony_amount/10)
 		apply_effect(EYE_BLUR, agony_amount/10)
