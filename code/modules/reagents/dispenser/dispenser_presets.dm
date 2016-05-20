@@ -113,3 +113,15 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ale,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/mead
 		)
+
+/obj/machinery/chemical_dispenser/coffee
+	name = "Coffee Machine"
+	desc = "The only thing that can get some workers though the day, the coffee maker is the stations most valuable resource."
+	icon_state = "coffee_machine"
+	ui_title = "Morning Glory Coffee Mate"
+	accept_drinking = 1
+
+/obj/machinery/chemical_dispenser/coffee/full
+	spawn_cartridges = list(
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+		)

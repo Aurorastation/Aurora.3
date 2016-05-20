@@ -691,20 +691,15 @@ var/list/be_special_flags = list(
 #define COLOR_BLACK  "#000000"
 #define COLOR_LUMINOL "#66FFFF"
 
-// Vampire power defines
-#define VAMP_REJUV 1
-#define VAMP_GLARE 2
-#define VAMP_HYPNO 3
-#define VAMP_SHAPE 4
-#define VAMP_VISION 5
-#define VAMP_DISEASE 6
-#define VAMP_CLOAK 7
-#define VAMP_BATS 8
-#define VAMP_SCREAM 9
-#define VAMP_JAUNT 10
-#define VAMP_SLAVE 11
-#define VAMP_BLINK 12
-#define VAMP_FULL 13
+/*
+ * New vampire status defines.
+ */
+#define VAMP_DRAINING  1
+#define VAMP_HEALING   2
+#define VAMP_PRESENCE  4
+#define VAMP_FRENZIED  8
+#define VAMP_ISTHRALL  16
+#define VAMP_FULLPOWER 32
 
 /*
  *	Germs and infections.
@@ -870,6 +865,7 @@ var/list/be_special_flags = list(
 #define MODE_LOYALIST "loyalist"
 #define MODE_MALFUNCTION "malf"
 #define MODE_TRAITOR "traitor"
+#define MODE_THRALL "thrall"
 
 #define MIN_SUPPLIED_LAW_NUMBER 15
 #define MAX_SUPPLIED_LAW_NUMBER 50
