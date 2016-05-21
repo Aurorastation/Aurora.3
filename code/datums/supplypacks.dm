@@ -456,7 +456,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	cost = 25
 	containertype = "/obj/structure/closet/crate/secure"
 	containername = "Virus sample crate"
-	access = access_cmo
+	access = access_virology
 	group = "Science"
 
 /datum/supply_packs/metal50
