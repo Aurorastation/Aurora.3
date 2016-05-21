@@ -247,10 +247,10 @@
 			clothes_s = new /icon('icons/mob/uniform.dmi', "medical_s")
 			clothes_s.Blend(new /icon('icons/mob/feet.dmi', "white"), ICON_UNDERLAY)
 			clothes_s.Blend(new /icon('icons/mob/suit.dmi', "labcoat_open"), ICON_OVERLAY)
-		if("Geneticist")
+/*		if("Geneticist")
 			clothes_s = new /icon('icons/mob/uniform.dmi', "geneticswhite_s")
 			clothes_s.Blend(new /icon('icons/mob/feet.dmi', "white"), ICON_UNDERLAY)
-			clothes_s.Blend(new /icon('icons/mob/suit.dmi', "labcoat_gen_open"), ICON_OVERLAY)
+			clothes_s.Blend(new /icon('icons/mob/suit.dmi', "labcoat_gen_open"), ICON_OVERLAY)*/
 		if("Virologist")
 			clothes_s = new /icon('icons/mob/uniform.dmi', "virologywhite_s")
 			clothes_s.Blend(new /icon('icons/mob/feet.dmi', "white"), ICON_UNDERLAY)
