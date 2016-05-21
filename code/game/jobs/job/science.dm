@@ -20,6 +20,7 @@
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch)
 	minimal_player_age = 14
+	alt_titles = list("Chief Science Officer")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -49,7 +50,7 @@
 	selection_color = "#ffeeff"
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
-	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
+	alt_titles = list("Xenoarchaeologist", "Anomalist", "Phoron Researcher") //who ever spelt this wrong needs to die
 
 	minimal_player_age = 14
 
