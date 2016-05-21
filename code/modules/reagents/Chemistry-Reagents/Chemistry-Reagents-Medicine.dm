@@ -165,7 +165,7 @@
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.hallucination = max(M.hallucination, 2)
+	M.hallucination = max(M.hallucination, 25)
 
 /datum/reagent/tramadol
 	name = "Tramadol"
@@ -182,7 +182,7 @@
 
 /datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.hallucination = max(M.hallucination, 2)
+	M.hallucination = max(M.hallucination, 40)
 
 /datum/reagent/oxycodone
 	name = "Oxycodone"
@@ -199,7 +199,7 @@
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 10)
-	M.hallucination = max(M.hallucination, 3)
+	M.hallucination = max(M.hallucination, 60)
 
 /* Other medicine */
 
