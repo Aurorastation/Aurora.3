@@ -436,7 +436,7 @@ var/global/datum/controller/occupations/job_master
 					return H
 				if("Captain")
 					var/sound/announce_sound = (ticker.current_state <= GAME_STATE_SETTING_UP)? null : sound('sound/misc/boatswain.ogg', volume=20)
-					captain_announcement.Announce("All hands, Captain [H.real_name] on deck!", new_sound=announce_sound)
+					captain_announcement.Announce("All hands, [alt_title ? alt_title : rank] [H.real_name] on deck!", new_sound=announce_sound)
 
 			//Deferred item spawning.
 			if(spawn_in_storage && spawn_in_storage.len)
