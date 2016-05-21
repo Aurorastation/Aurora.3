@@ -1388,12 +1388,11 @@ datum/preferences
 							r_skin = hex2num(copytext(new_skin, 2, 4))
 							g_skin = hex2num(copytext(new_skin, 4, 6))
 							b_skin = hex2num(copytext(new_skin, 6, 8))
-							/* Machine skin fix @@@
 							if (species == "Machine")
 								r_hair = r_skin
 								g_hair = g_skin
 								b_hair = b_skin
-							*/
+
 
 				if("ooccolor")
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference") as color|null
