@@ -32,7 +32,7 @@
 						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)")
 
 						var/armorblock = run_armor_check(M.zone_sel.selecting, "energy")
-						apply_effects(5,5,0,0,5,0,0,armorblock)
+						apply_effects(5,5,0,0,5,0,0,0,0,armorblock)
 						apply_damage(rand(5,25), BURN, M.zone_sel.selecting,armorblock)
 
 						if(prob(15))
