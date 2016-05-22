@@ -25,6 +25,8 @@
 	reagent_state = SOLID
 	metabolism = REM * 4
 	var/nutriment_factor = 30 // Per unit
+	var/blood_factor = 6
+	var/regen_factor = 0.8
 	var/injectable = 0
 	color = "#664330"
 
@@ -37,20 +39,42 @@
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.get_species() == "Vaurca")
 		M.adjustToxLoss(1.5 * removed)
+	if(alien && alien == IS_UNATHI)
+		return
 	else
-		M.heal_organ_damage(0.8 * removed, 0)
-		M.nutrition += nutriment_factor * removed // For hunger and fatness
-		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+		digest(M,removed)
 		return
 	..()
+
+/datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
+	M.heal_organ_damage(regen_factor * removed, 0)
+	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
+
+
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
 	id = "protein"
 	color = "#440000"
+	blood_factor = 12
 
 /datum/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(0.5 * removed)
+		return
+	if(alien && alien == IS_UNATHI)
+		digest(M,removed)
+		return
+	..()
+
+/datum/reagent/nutriment/protein/seafood // Good for Skrell!
+	name = "seafood protein"
+	id = "seafood"
+	color = "#f5f4e9"
+
+/datum/reagent/nutriment/protein/seafood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		digest(M,removed)//Skrell are allowed to eat fish, but not other proteins
 		return
 	..()
 
@@ -62,6 +86,9 @@
 /datum/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(0.5 * removed)
+		return
+	if(alien && alien == IS_UNATHI)
+		digest(M,removed)
 		return
 	..()
 
