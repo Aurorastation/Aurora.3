@@ -38,7 +38,7 @@
 	if(M.get_species() == "Vaurca")
 		M.adjustToxLoss(1.5 * removed)
 	else if (alien && alien == IS_UNATHI)
-		if (!(istype(src, /datum/reagent/nutriment/protein)) || !(istype(src, /datum/reagent/nutriment/egg)) || !(istype(src /datum/reagent/toxin/carpotoxin)))
+		if (!(istype(src, /datum/reagent/nutriment/protein)) || !(istype(src, /datum/reagent/nutriment/egg)))
 			return
 		else
 			M.heal_organ_damage(0.8 * removed, 0)
