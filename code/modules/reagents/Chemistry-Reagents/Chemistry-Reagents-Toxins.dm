@@ -43,7 +43,7 @@
 	description = "Phoron in its liquid form."
 	reagent_state = LIQUID
 	color = "#9D14DB"
-	strength = 30
+	strength = 4
 
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
