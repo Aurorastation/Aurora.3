@@ -35,7 +35,6 @@ delete-after: True
 changes: 
   - tweak: "Proteins now restore blood twice as effectively"
   - rscadd: "Unathi will no longer digest nutriment, only proteins"
-  - rscadd: "Added seafood protein, For fish"
+  - rscadd: "Added seafood protein. Space-carp fillets, and all recipes made with them, now contain seafood protein instead of animal protein"
   - rscadd: "Skrell are able to safely digest seafood protein"
-  - rscadd: "Space-carp fillets, and all recipes made with them, now contain seafood protein instead of animal protein"
   - tweak: "Unathi are now immune to Carpotoxin"
