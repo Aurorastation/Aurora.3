@@ -38,7 +38,7 @@
 	strength = 10
 
 /datum/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
+	if(alien && alien == IS_UNATHI)
 		return
 	..()
 
