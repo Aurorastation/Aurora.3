@@ -52,7 +52,7 @@
 	return
 
 /obj/item/weapon/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
-	if (A.density && proximity)
+	if ((A.density || istype(A, /mob/living)) && proximity)//isHuman check allows the visible message to proc when spraying lying-down people and
 		A.visible_message("[usr] sprays [A] with [src].")
 		reagents.splash(A, amount_per_transfer_from_this)
 	else
