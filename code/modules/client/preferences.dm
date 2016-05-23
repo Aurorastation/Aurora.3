@@ -1393,6 +1393,7 @@ datum/preferences
 								g_hair = g_skin
 								b_hair = b_skin
 
+
 				if("ooccolor")
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference") as color|null
 					if(new_ooccolor)
