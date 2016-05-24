@@ -241,6 +241,8 @@
 
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
 
+	else
+		target.attack_ai(user)
 //TODO: Matter decompiler.
 /obj/item/weapon/matter_decompiler
 
