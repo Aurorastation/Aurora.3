@@ -24,8 +24,6 @@
 		/obj/item/weapon/smes_coil
 		)
 
-	//var/list/after_items = list( //This is a list of items for which we have to trigger afterattack instead of attack, in order for them to work properly from within a gripper
-
 	var/obj/item/wrapped = null // Item currently being held.
 
 	var/force_holder = null //
@@ -149,6 +147,13 @@
 			wrapped = null
 		return 1
 	return 0
+
+/obj/item/weapon/gripper/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if (wrapped)
+		var/resolved = wrapped.attackby(O,user)
+		if(!resolved && wrapped && O)
+			O.afterattack(wrapped,user,1)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+	return
 
 /obj/item/weapon/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 
