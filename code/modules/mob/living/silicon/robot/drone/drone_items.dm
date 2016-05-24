@@ -24,6 +24,8 @@
 		/obj/item/weapon/smes_coil
 		)
 
+	//var/list/after_items = list( //This is a list of items for which we have to trigger afterattack instead of attack, in order for them to work properly from within a gripper
+
 	var/obj/item/wrapped = null // Item currently being held.
 
 	var/force_holder = null //
