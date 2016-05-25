@@ -35,6 +35,7 @@ delete-after: False
 changes: 
   - rscadd: "Added a new Chemistry Gripper for cyborgs. It holds beakers, bottles, pills, pillbottles, spraybottles, labellers, and phoron sheets"
   - bugfix: "Removed Large Beaker from crisis and research cyborgs, replaced with chemistry gripper"
+  - rscadd: "Surgical Cyborgs now also have a chemistry gripper"
   - bugfix: "Cyborgs can now interact with reagent grinders"
   - rscadd: "Cyborgs can now place objects in their gripper, on a table"
   - rscadd: "Cyborgs can now place objects from their gripper into a disposal bin"
