@@ -11,7 +11,7 @@
 		return
 
 	..()
-	if (H.invisibility == INVISIBILITY_LEVEL_TWO)
+	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && back && (istype(back, /obj/item/weapon/rig)))
 		H << "<span class='danger'>You are now visible.</span>"
 		H.invisibility = 0
 
