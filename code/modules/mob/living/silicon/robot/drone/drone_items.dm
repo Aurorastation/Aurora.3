@@ -27,6 +27,7 @@
 	var/obj/item/wrapped = null // Item currently being held.
 
 	var/force_holder = null //
+	var/justdropped = 0//When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
 
 // VEEEEERY limited version for mining borgs. Basically only for swapping cells and upgrading the drills.
 /obj/item/weapon/gripper/miner
@@ -185,7 +186,7 @@
 			wrapped = null
 			return
 
-	else if(istype(target,/obj/item)) //Check that we're not pocketing a mob.
+	else if(istype(target,/obj/item) && !justdropped) //Check that we're not pocketing a mob.
 
 		//...and that the item is not in a container.
 		if(!isturf(target.loc))
@@ -209,7 +210,7 @@
 		else
 			user << "<span class='danger'>Your gripper cannot hold \the [target].</span>"
 
-	else if(istype(target,/obj/machinery/power/apc))
+	else if(istype(target,/obj/machinery/power/apc) && !justdropped)
 		var/obj/machinery/power/apc/A = target
 		if(A.opened)
 			if(A.cell)
@@ -226,7 +227,7 @@
 
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
 
-	else if(istype(target,/mob/living/silicon/robot))
+	else if(istype(target,/mob/living/silicon/robot) && !justdropped)
 		var/mob/living/silicon/robot/A = target
 		if(A.opened)
 			if(A.cell)
@@ -241,8 +242,10 @@
 
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
 
-	else
+	else if (!justdropped)
 		target.attack_ai(user)
+
+	justdropped = 0
 //TODO: Matter decompiler.
 /obj/item/weapon/matter_decompiler
 
