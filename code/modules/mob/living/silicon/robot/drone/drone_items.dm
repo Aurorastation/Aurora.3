@@ -186,6 +186,16 @@
 			wrapped = null
 			return
 
+	else if (istype(target, /obj/item/weapon/storage/box))
+		for (var/obj/item/C in target.contents)
+			for(var/typepath in can_hold)
+				if(istype(C,typepath))
+					user << "You grab the [C] from inside the box."
+					C.loc = src
+					return
+		user << "There is nothing inside the box that your gripper can collect"
+		return
+
 	else if(istype(target,/obj/item) && !justdropped) //Check that we're not pocketing a mob.
 
 		//...and that the item is not in a container.
@@ -241,6 +251,7 @@
 				A.cell = null
 
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
+
 
 	else if (!justdropped)
 		target.attack_ai(user)
