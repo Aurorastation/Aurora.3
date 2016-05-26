@@ -6,14 +6,14 @@
 	name = "Memetic Anomaly"
 	config_tag = "meme"
 	required_players = 3
-	restricted_jobs = list("AI", "Cyborg")
-	recommended_enemies = 2 // need at least a meme and a host
+	//restricted_jobs = list("AI", "Cyborg")
+	//recommended_enemies = 2 // need at least a meme and a host
 	votable = 0 // temporarily disable this mode for voting
 	end_on_antag_death = 1
 
 	var/var/list/datum/mind/first_hosts = list()
 	var/var/list/assigned_hosts = list()
-
+/* no objectives
 	var/const/prob_int_murder_target = 50 // intercept names the assassination target half the time
 	var/const/prob_right_murder_target_l = 25 // lower bound on probability of naming right assassination target
 	var/const/prob_right_murder_target_h = 50 // upper bound on probability of naimg the right assassination target
@@ -30,9 +30,9 @@
 	var/const/prob_right_killer_h = 50 //upper bound on probability of naming the right operative
 	var/const/prob_right_objective_l = 25 //lower bound on probability of determining the objective correctly
 	var/const/prob_right_objective_h = 50 //upper bound on probability of determining the objective correctly
-
-	var/const/waittime_l = 600 //lower bound on time before intercept arrives (in tenths of seconds)
-	var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
+*/
+	//var/const/waittime_l = 600 //lower bound on time before intercept arrives (in tenths of seconds)
+	//var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
 
 /datum/game_mode/meme/announce()
 	world << "<B>The current game mode is - Meme!</B>"
@@ -44,7 +44,7 @@
 
 	// for every 10 players, get 1 meme, and for each meme, get a host
 	// also make sure that there's at least one meme and one host
-	recommended_enemies = max(src.num_players() / 20 * 2, 2)
+	//recommended_enemies = max(src.num_players() / 20 * 2, 2)
 
 	var/list/datum/mind/possible_memes = get_players_for_role(BE_MEME)
 
@@ -90,7 +90,7 @@
 			first_host = pick(first_hosts)
 			first_hosts.Remove(first_host)
 		M.enter_host(first_host.current)
-		forge_meme_objectives(meme, first_host)
+		//forge_meme_objectives(meme, first_host)
 
 		qdel(original)
 
@@ -101,7 +101,7 @@
 	..()
 	return
 
-
+/* no objectives
 /datum/game_mode/proc/forge_meme_objectives(var/datum/mind/meme, var/datum/mind/first_host)
 	if (config.objectives_disabled)
 		return
@@ -122,7 +122,7 @@
 	greet_meme(meme)
 
 	return
-
+*/
 /datum/game_mode/proc/greet_meme(var/datum/mind/meme, var/you_are=1)
 	if (you_are)
 		meme.current << "<B>\red You are a meme!</B>"

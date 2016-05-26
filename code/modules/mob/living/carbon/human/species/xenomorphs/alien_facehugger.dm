@@ -127,14 +127,14 @@ var/const/MAX_ACTIVE_TIME = 400
 
 	L.visible_message("\red \b [src] leaps at [L]'s face!")
 
-	/* Tentatively removed since huggers can't be thrown anymore
+
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(H.head && H.head.flags & HEADCOVERSMOUTH)
 			H.visible_message("\red \b [src] smashes against [H]'s [H.head]!")
 			Die()
 			return
-	*/
+
 
 	if(iscarbon(M))
 		var/mob/living/carbon/target = L
