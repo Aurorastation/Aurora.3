@@ -29,6 +29,18 @@
 	var/force_holder = null //
 	var/justdropped = 0//When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
 
+/obj/item/weapon/gripper/proc/grip_item(obj/item/I as obj, mob/user as mob)
+	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
+	if (!wrapped)
+		for(var/typepath in can_hold)
+			if(istype(I,typepath))
+				user << "You collect \the [I]."
+				I.loc = src
+				wrapped = I
+				return 1
+	return 0
+
+
 // VEEEEERY limited version for mining borgs. Basically only for swapping cells and upgrading the drills.
 /obj/item/weapon/gripper/miner
 	name = "drill maintenance gripper"
