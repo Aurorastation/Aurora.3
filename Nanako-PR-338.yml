@@ -42,3 +42,4 @@ changes:
   - rscadd: "Cyborgs can now use a gripper to take valid objects out of cardboard boxes"
   - tweak: "Cyborgs can now use their other tools, on things held in their gripper"
   - tweak: "Using an empty gripper on a machine now interacts with it"
+  - tweak: "Cyborgs can now use items held in their gripper on rechargers"
