@@ -77,6 +77,31 @@
 	external_type = /obj/item/robot_parts/robot_component/armour
 	max_damage = 60
 
+// JETPACK
+// Allows the cyborg to move in space
+// Uses no power when idle. Uses 50J for each tile the cyborg moves.
+/datum/robot_component/jetpack
+	name = "jetpack"
+	external_type = /obj/item/robot_parts/robot_component/jetpack
+	active_usage = 50
+	max_damage = 60
+	installed = 0
+
+	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/tank = null
+
+
+/datum/robot_component/jetpack/install()
+	tank = new/obj/item/weapon/tank/jetpack/carbondioxide/synthetic
+	owner.internals = tank
+	tank.loc = owner
+	owner.jetpack = 1
+	owner.jetpackRef = tank
+
+/datum/robot_component/jetpack/uninstall()
+	qdel(tank)
+	tank = null
+	owner.jetpack = 0
+	owner.jetpackRef = null
 
 // ACTUATOR
 // Enables movement.
@@ -189,6 +214,11 @@
 	components["camera"] = new/datum/robot_component/camera(src)
 	components["comms"] = new/datum/robot_component/binary_communication(src)
 	components["armour"] = new/datum/robot_component/armour(src)
+	components["jetpack"] = new/datum/robot_component/jetpack(src)
+	var/datum/robot_component/JC = components["jetpack"]
+	world << "Setting installed of Jetpack component: [JC] [JC.installed]"
+	JC.installed = 0//We start the jetpack as not installed, because its nondefault
+	world << "Setting installed of Jetpack component: [JC] [JC.installed]"
 
 // Checks if component is functioning
 /mob/living/silicon/robot/proc/is_component_functioning(module_name)
@@ -247,6 +277,13 @@
 	name = "diagnosis unit"
 	icon_state = "analyser"
 	icon_state_broken = "analyser_broken"
+
+/obj/item/robot_parts/robot_component/jetpack
+	name = "jetpack"
+	icon = 'icons/obj/tank.dmi'
+	icon_state = "jetpack-black"
+	icon_state_broken = "jetpack-black"
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"phoron"=15000,"uranium" = 20000)
 
 /obj/item/robot_parts/robot_component/radio
 	name = "radio"
