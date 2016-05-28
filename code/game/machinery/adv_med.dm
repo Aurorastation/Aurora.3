@@ -103,13 +103,18 @@
 		return
 	if(!ismob(O))
 		return
-	var/mob/M = O
+	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
 	if (src.occupant)
 		user << "\blue <B>The scanner is already occupied!</B>"
 		return
 	if (M.abiotic())
 		user << "\blue <B>Subject cannot have abiotic items on.</B>"
 		return
+
+	if (M.buckled && istype(M.buckled, /obj/structure))//We must make sure the person is unbuckled before they go in
+		var/obj/structure/LB = M.buckled
+		LB.user_unbuckle_mob(user)
+
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = src

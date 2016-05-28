@@ -104,6 +104,11 @@
 			dat += "<HR><A href='?src=\ref[src];ejectify=1'>Eject Patient</A>"
 		else
 			dat += "The sleeper is empty."
+			if(src.connected.beaker)
+				dat += "<HR><A href='?src=\ref[src];removebeaker=1'>Remove Beaker</A><BR>"
+				dat += text("Output Beaker has [] units of free space remaining<BR><HR>", src.connected.beaker.reagents.maximum_volume - src.connected.beaker.reagents.total_volume)
+			else
+				dat += "<HR>No Dialysis Output Beaker is present.<BR><HR>"
 	dat += text("<BR><BR><A href='?src=\ref[];mach_close=sleeper'>Close</A>", user)
 	user << browse(dat, "window=sleeper;size=400x500")
 	onclose(user, "sleeper")
@@ -269,6 +274,10 @@
 				return
 
 		var/mob/living/L = O
+		if (L.buckled && istype(L.buckled, /obj/structure))//We must make sure the person is unbuckled before they go in
+			var/obj/structure/LB = L.buckled
+			LB.user_unbuckle_mob(user)
+
 		if(L == user)
 			visible_message("[user] starts climbing into the sleeper.", 3)
 		else
@@ -374,7 +383,8 @@
 		if(!src.occupant)
 			return
 		for(var/obj/O in src) //once again, why wasn't this here?
-			O.loc = src.loc
+			if (O != beaker)
+				O.loc = src.loc
 		if(src.occupant.client)
 			src.occupant.client.eye = src.occupant.client.mob
 			src.occupant.client.perspective = MOB_PERSPECTIVE
