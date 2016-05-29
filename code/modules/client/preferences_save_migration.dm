@@ -9,15 +9,15 @@
 	if (!path)
 		load_path(C.ckey)
 		if (!path)
+			log_debug("Migration of [C.ckey]'s saves failed at attaining path to save file.")
 			return 0
 
 	if (!migrate_client_preferences(C))
-		testing("Returned here.")
+		log_debug("Migration of [C.ckey]'s saves failed at the uploading of client preferences.")
 		return 0
 
-	testing("Saves now.")
 	if (!migrate_client_characters(C))
-		testing("AAAH!")
+		log_debug("Migration of [C.ckey]'s saves failed at the uploading of client characters.")
 		return 0
 
 	return 1
@@ -29,7 +29,7 @@
 /datum/preferences/proc/migrate_client_preferences(var/client/C)
 	load_preferences()
 
-	return SavePrefData(C.ckey)
+	return insert_preferences_sql(C)
 
 /*
  * Handles the migration of characters.
@@ -38,8 +38,7 @@
 /datum/preferences/proc/migrate_client_characters(var/client/C)
 	var/savefile/S = new /savefile(path)
 	if (!S)
-		testing("No save file. RIP in pasta.")
-		return 0
+		return 1
 
 	S.cd = "/"
 	var/list/character_slots = list()
@@ -47,20 +46,19 @@
 	for (var/a in S.dir)
 		if (findtext(a, "character"))
 			var/slot_id = replacetext(a, "character", "")
-			character_slots += slot_id
-			testing("Found slot [slot_id]")
+			character_slots.Add(text2num(slot_id))
 
 	if (!character_slots.len)
 		return 1
 
 	for (var/slot in character_slots)
 		load_character(slot)
-		testing("Migrating slot [slot]")
 
 		if (!skills || !skills.len)
 			ZeroSkills(1)
 
-		if (!SQLsave_character(slot, C.ckey))
+		if (!insert_character_sql(C))
+			log_debug("Character insert error during migration. Client: [C.ckey], character slot: [slot].")
 			return 0
 
 	return 1
@@ -75,5 +73,14 @@
 	if (!dbcon.IsConnected())
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_player SET migration_status = '0' WHERE ckey = :ckey")
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_player SET migration_status = 0 WHERE ckey = :ckey")
 	query.Execute(list(":ckey" = C.ckey))
+
+	var/DBQuery/current_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey ORDER BY id ASC LIMIT 1")
+	current_query.Execute(list(":ckey" = C.ckey))
+
+	if (current_query.NextRow())
+		current_character = text2num(current_query.item[1])
+		load_character_sql(current_character, C)
+
+	return
