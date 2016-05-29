@@ -499,7 +499,7 @@ var/controlling
 /mob/living/parasite/meme/verb/Analgesic()
 	set category = "Meme"
 	set name	 = "Analgesic(500)"
-	set desc     = "Combat drug that the host to move normally, even under life-threatening pain."
+	set desc     = ""Combat drug that allows the host to move normally, even under life-threatening pain."
 
 	if(!host) return
 	if(!(host in indoctrinated))
