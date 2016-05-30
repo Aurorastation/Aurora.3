@@ -17,6 +17,21 @@ obj/machinery/recharger
 
 obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(istype(user,/mob/living/silicon))
+		if (istype(G, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
+			var/obj/item/weapon/gripper/Gri = G
+			if (charging)//If there's something in the charger
+				if (Gri.grip_item(charging, user))//we attempt to grab it
+					charging = null
+					update_icon()
+
+			else if (Gri.wrapped)//If we're not charging anything, and the gripper is holding something
+				var/obj/item/I = Gri.wrapped
+				for (var/allowed_type in allowed_devices)
+					if (istype(I, allowed_type))//If the thing in the gripper is valid for this charger
+						I.loc = src//we put it inside
+						Gri.wrapped = null
+						charging = I
+						update_icon()
 		return
 
 	var/allowed = 0
