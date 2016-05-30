@@ -684,9 +684,7 @@ proc/is_blind(A)
 /mob/living/proc/bucklecheck(var/mob/living/user)
 	if (buckled && istype(buckled, /obj/structure))
 		if (istype(user,/mob/living/silicon/robot))
-			var/obj/structure/LB = buckled
-			LB.user_unbuckle_mob(user)
-			return 1
+			return 2
 		else
 			user << "You must unbuckle the subject first"
 			return 0

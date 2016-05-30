@@ -112,19 +112,30 @@
 		return
 
 	var/mob/living/L = O
-	if (!L.bucklecheck(user))//We must make sure the person is unbuckled before they go in
+	var/bucklestatus = L.bucklecheck(user)
+
+	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
 		return
 
-	if (M.client)
-		M.client.perspective = EYE_PERSPECTIVE
-		M.client.eye = src
-	M.loc = src
-	src.occupant = M
-	update_use_power(2)
-	src.icon_state = "body_scanner_1"
-	for(var/obj/Obj in src)
-		Obj.loc = src.loc
-		//Foreach goto(154)
+	if(L == user)
+		visible_message("[user] starts climbing into the scanner bed.", 3)
+	else
+		visible_message("[user] starts putting [L.name] into the scanner bed.", 3)
+
+	if (do_mob(user, L, 30, needhand = 0))
+		if (bucklestatus == 2)
+			var/obj/structure/LB = L.buckled
+			LB.user_unbuckle_mob(user)
+		if (M.client)
+			M.client.perspective = EYE_PERSPECTIVE
+			M.client.eye = src
+		M.loc = src
+		src.occupant = M
+		update_use_power(2)
+		src.icon_state = "body_scanner_1"
+		for(var/obj/Obj in src)
+			Obj.loc = src.loc
+			//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
 	return

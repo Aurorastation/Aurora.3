@@ -202,16 +202,26 @@
 			usr << "[L.name] will not fit into the cryo because they have a slime latched onto their head."
 			return
 
-	if (!L.bucklecheck(user))//We must make sure the person is unbuckled before they go in
+	var/bucklestatus = L.bucklecheck(user)
+
+	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
 		return
 
-	if(put_mob(L))
-		if(L == user)
-			visible_message("[user] climbs into the cryo cell.", 3)
-		else
-			visible_message("[user] puts [L.name] into the cryo cell.", 3)
-			if(user.pulling == L)
-				user.pulling = null
+	if(L == user)
+		visible_message("[user] starts climbing into the cryopod.", 3)
+	else
+		visible_message("[user] starts putting [L.name] into the cryopod.", 3)
+	if (do_mob(user, L, 30, needhand = 0))
+		if (bucklestatus == 2)
+			var/obj/structure/LB = L.buckled
+			LB.user_unbuckle_mob(user)
+		if(put_mob(L))
+			if(L == user)
+				visible_message("[user] climbs into the cryo cell.", 3)
+			else
+				visible_message("[user] puts [L.name] into the cryo cell.", 3)
+				if(user.pulling == L)
+					user.pulling = null
 
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon()
 	overlays.Cut()

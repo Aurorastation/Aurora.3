@@ -272,16 +272,22 @@
 			if(M.Victim == O)
 				usr << "[O.name] will not fit into the sleeper because they have a slime latched onto their head."
 				return
-
 		var/mob/living/L = O
-		if (!L.bucklecheck(user))//We must make sure the person is unbuckled before they go in
+		var/bucklestatus = L.bucklecheck(user)
+
+		if (!bucklestatus)//We must make sure the person is unbuckled before they go in
 			return
+
 
 		if(L == user)
 			visible_message("[user] starts climbing into the sleeper.", 3)
 		else
 			visible_message("[user] starts putting [L.name] into the sleeper.", 3)
-		if(do_after(user, 20))
+
+		if (do_mob(user, L, 30, needhand = 0))
+			if (bucklestatus == 2)
+				var/obj/structure/LB = L.buckled
+				LB.user_unbuckle_mob(user)
 			if(src.occupant)
 				user << "\blue <B>The sleeper is already occupied!</B>"
 				return
@@ -297,8 +303,7 @@
 			src.add_fingerprint(user)
 			if(user.pulling == L)
 				user.pulling = null
-			return
-		return
+
 
 	proc/check_occupant_allowed(mob/M)
 		var/correct_type = 0
