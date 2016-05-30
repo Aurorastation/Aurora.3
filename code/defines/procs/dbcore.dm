@@ -222,7 +222,7 @@ DBQuery/proc/SetConversion(column,conversion)
 	var/count = argument.len
 	for (var/i = 1, i <= count, i++)
 		if (isnum(argument[i]))
-			text += argument[i]
+			text += "[argument[i]]"
 		else
 			text += dbcon.Quote(argument[i])
 
