@@ -235,7 +235,8 @@
 
 /datum/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.dna)
-		if(prob(removed * 0.1)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
+		if(prob(removed * 10)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
+			M << "Something feels different about you..."
 			randmuti(M)
 			if(prob(98))
 				randmutb(M)
