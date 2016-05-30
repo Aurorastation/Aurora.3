@@ -280,23 +280,6 @@
 	else
 		return -1
 
-/client/verb/test_shit()
-	set category = "OOC"
-	set name = "Test Muh Shit"
-
-	var/savefile/S = new /savefile(src.prefs.path)
-	if (!S)
-		testing("Error opening save file!")
-		return
-
-	S.cd = "/"
-
-	testing("Starting to cycle through the dirs!")
-	for (var/a in S.dir)
-		testing("Found a dir! [a]")
-
-	testing("Cycled through all the dirs!")
-
 /client/proc/log_client_to_db()
 
 	if ( IsGuestKey(src.key) )
