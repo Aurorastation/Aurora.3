@@ -37,6 +37,11 @@
 	color = "#003333"
 	strength = 10
 
+/datum/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNATHI)
+		return
+	..()
+
 /datum/reagent/toxin/phoron
 	name = "Phoron"
 	id = "phoron"
