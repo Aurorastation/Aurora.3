@@ -680,4 +680,16 @@ proc/is_blind(A)
 		threatcount += 4
 	return threatcount
 
+
+/mob/living/proc/bucklecheck(var/mob/living/user)
+	if (buckled && istype(buckled, /obj/structure))
+		if (istype(user,/mob/living/silicon/robot))
+			var/obj/structure/LB = buckled
+			LB.user_unbuckle_mob(user)
+			return 1
+		else
+			user << "You must unbuckle the subject first"
+			return 0
+	return 1
+
 #undef SAFE_PERP

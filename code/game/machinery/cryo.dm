@@ -202,9 +202,8 @@
 			usr << "[L.name] will not fit into the cryo because they have a slime latched onto their head."
 			return
 
-	if (L.buckled && istype(L.buckled, /obj/structure))//We must make sure the person is unbuckled before they go in
-		var/obj/structure/LB = L.buckled
-		LB.user_unbuckle_mob(user)
+	if (!L.bucklecheck(user))//We must make sure the person is unbuckled before they go in
+		return
 
 	if(put_mob(L))
 		if(L == user)

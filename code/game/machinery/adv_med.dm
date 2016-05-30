@@ -111,9 +111,9 @@
 		user << "\blue <B>Subject cannot have abiotic items on.</B>"
 		return
 
-	if (M.buckled && istype(M.buckled, /obj/structure))//We must make sure the person is unbuckled before they go in
-		var/obj/structure/LB = M.buckled
-		LB.user_unbuckle_mob(user)
+	var/mob/living/L = O
+	if (!L.bucklecheck(user))//We must make sure the person is unbuckled before they go in
+		return
 
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE

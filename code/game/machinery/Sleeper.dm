@@ -274,9 +274,8 @@
 				return
 
 		var/mob/living/L = O
-		if (L.buckled && istype(L.buckled, /obj/structure))//We must make sure the person is unbuckled before they go in
-			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+		if (!L.bucklecheck(user))//We must make sure the person is unbuckled before they go in
+			return
 
 		if(L == user)
 			visible_message("[user] starts climbing into the sleeper.", 3)
