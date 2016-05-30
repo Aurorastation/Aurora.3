@@ -12,7 +12,7 @@
 											UI_style_alpha,
 											be_special,
 											asfx_togs
-										FROM player_preferences
+										FROM ss13_player_preferences
 										WHERE ckey = :ckey"})
 	query.Execute(list(":ckey" = C.ckey))
 
@@ -46,13 +46,13 @@
 	if (!C)
 		return 0
 
-	var/DBQuery/initial_query = dbcon.NewQuery("SELECT COUNT(*) AS rowsFound FROM player_preferences WHERE ckey = :ckey")
+	var/DBQuery/initial_query = dbcon.NewQuery("SELECT COUNT(*) AS rowsFound FROM ss13_player_preferences WHERE ckey = :ckey")
 	initial_query.Execute(list(":ckey" = C.ckey))
 
 	if (!initial_query.NextRow())
 		return insert_preferences_sql(C)
 
-	var/DBQuery/update_query = dbcon.NewQuery({"UPDATE player_preferences SET
+	var/DBQuery/update_query = dbcon.NewQuery({"UPDATE ss13_player_preferences SET
 													ooccolor = :ooccolor,
 													lastchangelog = :lastchangelog,
 													UI_style = :ui_style,
@@ -71,7 +71,7 @@
 	if (!C)
 		return 0
 
-	var/DBQuery/query = dbcon.NewQuery({"INSERT INTO player_preferences (ckey, ooccolor, lastchangelog, UI_style, current_character, toggles, UI_style_color, UI_style_alpha, be_special, asfx_togs)
+	var/DBQuery/query = dbcon.NewQuery({"INSERT INTO ss13_player_preferences (ckey, ooccolor, lastchangelog, UI_style, current_character, toggles, UI_style_color, UI_style_alpha, be_special, asfx_togs)
 	VALUES (:ckey, :ooccolor, :lastchangelog, :ui_style, :current_character, :toggles, :ui_color, :ui_alpha, :be_special, :asfx_togs);"})
 	query.Execute(get_prefs_update_insert_params(C))
 
@@ -96,7 +96,7 @@
 	return params
 
 /datum/preferences/proc/load_character_sql(slot, var/client/C)
-	if (!C || C.prefs != src)
+	if (!C)
 		return 0
 
 	if (!slot || slot == 0)
@@ -120,8 +120,8 @@
 
 	var/DBQuery/character_query = dbcon.NewQuery({"SELECT
 												dat.name,
-												dat.OOC,
-												dat.isRandom,
+												dat.metadata,
+												dat.random_name,
 												dat.gender,
 												dat.age,
 												dat.species,
@@ -138,26 +138,18 @@
 												dat.undershirt,
 												dat.backbag,
 												dat.b_type,
-												job.Alternate,
-												job.civ_high,
-												job.civ_med,
-												job.civ_low,
-												job.medsci_high,
-												job.medsci_med,
-												job.medsci_low,
-												job.engsec_high,
-												job.engsec_med,
-												job.engsec_low,
-												job.alt_titles,
-												flv.generals,
-												flv.head,
-												flv.face,
-												flv.eyes,
-												flv.torso,
-												flv.arms,
-												flv.hands,
-												flv.legs,
-												flv.feet,
+												dat.jobs,
+												dat.alternate_option,
+												dat.alternate_titles,
+												flv.flavour_general,
+												flv.flavour_head,
+												flv.flavour_face,
+												flv.flavour_eyes,
+												flv.flavour_torso,
+												flv.flavour_arms,
+												flv.flavour_hands,
+												flv.flavour_legs,
+												flv.flavour_feet,
 												flv.robot_default,
 												flv.robot_standard,
 												flv.robot_engineering,
@@ -170,27 +162,24 @@
 												flv.robot_clerical,
 												flv.robot_security,
 												flv.robot_research,
-												msc.med_rec,
-												msc.sec_rec,
-												msc.gen_rec,
-												msc.disab,
-												msc.skills,
-												msc.used_skill,
-												msc.skills_spec,
-												msc.home_sys,
-												msc.citizen,
-												msc.faction,
-												msc.religion,
-												msc.NT_relation,
-												msc.uplink_loc,
-												msc.exploit_rec,
-												msc.organs,
-												msc.organs_robotic,
-												msc.gear
+												flv.records_employment,
+												flv.records_medical,
+												flv.records_security,
+												flv.records_exploit,
+												dat.disabilities,
+												dat.skills,
+												dat.skills_specialization,
+												dat.home_system,
+												dat.citizenship,
+												dat.faction,
+												dat.religion,
+												dat.nt_relation,
+												dat.uplink_location,
+												dat.organs_data,
+												dat.organs_robotic,
+												dat.gear
 												FROM ss13_characters dat
-												JOIN characters_jobs job ON dat.id = job.char_id
-												JOIN characters_flavour flv ON dat.id = flv.char_id
-												JOIN characters_misc msc ON dat.id = msc.char_id
+												JOIN ss13_characters_flavour flv ON dat.id = flv.char_id
 												WHERE dat.id = :char_id"})
 	if (!character_query.Execute(list(":char_id" = current_character)))
 		error("Error loading character #[current_character]. SQL error message: '[character_query.ErrorMsg()]'.")
@@ -201,6 +190,9 @@
 		error("Error loading character #[current_character]. No such character exists.")
 		new_character_sql(C)
 		return 0
+
+	var/DBQuery/char_id_update = dbcon.NewQuery("UPDATE ss13_player_preferences SET current_character = :char_id WHERE ckey = :ckey")
+	char_id_update.Execute(list(":char_id" = current_character, ":ckey" = C.ckey))
 
 	// Character
 	real_name			= character_query.item[1]
@@ -241,63 +233,68 @@
 	backbag				= text2num(character_query.item[18])
 	b_type				= character_query.item[19]
 
+	var/list/jobs_list	= params2list(character_query.item[20])
+
 	// Job preferences + alt titles and options
-	alternate_option	= text2num(character_query.item[20])
-	job_civilian_high	= text2num(character_query.item[21])
-	job_civilian_med	= text2num(character_query.item[22])
-	job_civilian_low	= text2num(character_query.item[23])
-	job_medsci_high		= text2num(character_query.item[24])
-	job_medsci_med		= text2num(character_query.item[25])
-	job_medsci_low		= text2num(character_query.item[26])
-	job_engsec_high		= text2num(character_query.item[27])
-	job_engsec_med		= text2num(character_query.item[28])
-	job_engsec_low		= text2num(character_query.item[29])
-	player_alt_titles	= params2list(character_query.item[30])
+	if (jobs_list.len == 9)
+		job_civilian_high	= text2num(jobs_list["civ_high"])
+		job_civilian_med	= text2num(jobs_list["civ_med"])
+		job_civilian_low	= text2num(jobs_list["civ_low"])
+		job_medsci_high		= text2num(jobs_list["medsci_high"])
+		job_medsci_med		= text2num(jobs_list["medsci_med"])
+		job_medsci_low		= text2num(jobs_list["medsci_low"])
+		job_engsec_high		= text2num(jobs_list["engsec_high"])
+		job_engsec_med		= text2num(jobs_list["engsec_med"])
+		job_engsec_low		= text2num(jobs_list["engsec_low"])
+
+	alternate_option	= text2num(character_query.item[21])
+	player_alt_titles	= params2list(character_query.item[22])
 
 	// Flavour texts
-	flavor_texts["general"]				= character_query.item[31]
-	flavor_texts["head"]				= character_query.item[32]
-	flavor_texts["face"]				= character_query.item[33]
-	flavor_texts["eyes"]				= character_query.item[34]
-	flavor_texts["torso"]				= character_query.item[35]
-	flavor_texts["arms"]				= character_query.item[36]
-	flavor_texts["hands"]				= character_query.item[37]
-	flavor_texts["legs"]				= character_query.item[38]
-	flavor_texts["feet"]				= character_query.item[39]
+	flavor_texts["general"]				= character_query.item[23]
+	flavor_texts["head"]				= character_query.item[24]
+	flavor_texts["face"]				= character_query.item[25]
+	flavor_texts["eyes"]				= character_query.item[26]
+	flavor_texts["torso"]				= character_query.item[27]
+	flavor_texts["arms"]				= character_query.item[28]
+	flavor_texts["hands"]				= character_query.item[29]
+	flavor_texts["legs"]				= character_query.item[30]
+	flavor_texts["feet"]				= character_query.item[31]
 
-	flavour_texts_robot["Default"]		= character_query.item[40]
-	flavour_texts_robot["Standard"]		= character_query.item[41]
-	flavour_texts_robot["Engineering"]	= character_query.item[42]
-	flavour_texts_robot["Construction"]	= character_query.item[43]
-	flavour_texts_robot["Surgeon"]		= character_query.item[44]
-	flavour_texts_robot["Crisis"]		= character_query.item[45]
-	flavour_texts_robot["Miner"]		= character_query.item[46]
-	flavour_texts_robot["Janitor"]		= character_query.item[47]
-	flavour_texts_robot["Service"]		= character_query.item[48]
-	flavour_texts_robot["Clerical"]		= character_query.item[49]
-	flavour_texts_robot["Security"]		= character_query.item[50]
-	flavour_texts_robot["Research"]		= character_query.item[51]
+	flavour_texts_robot["Default"]		= character_query.item[32]
+	flavour_texts_robot["Standard"]		= character_query.item[33]
+	flavour_texts_robot["Engineering"]	= character_query.item[34]
+	flavour_texts_robot["Construction"]	= character_query.item[35]
+	flavour_texts_robot["Surgeon"]		= character_query.item[36]
+	flavour_texts_robot["Crisis"]		= character_query.item[37]
+	flavour_texts_robot["Miner"]		= character_query.item[38]
+	flavour_texts_robot["Janitor"]		= character_query.item[39]
+	flavour_texts_robot["Service"]		= character_query.item[40]
+	flavour_texts_robot["Clerical"]		= character_query.item[41]
+	flavour_texts_robot["Security"]		= character_query.item[42]
+	flavour_texts_robot["Research"]		= character_query.item[43]
+
+	// Records
+	gen_record				= character_query.item[44]
+	med_record				= character_query.item[45]
+	sec_record				= character_query.item[46]
+	exploit_record			= character_query.item[47]
 
 	// Miscellaneous
-	med_record				= character_query.item[52]
-	sec_record				= character_query.item[53]
-	gen_record				= character_query.item[54]
-	disabilities			= text2num(character_query.item[55])
-	skills					= params2list(character_query.item[56])
-	used_skillpoints		= text2num(character_query.item[57])
-	skill_specialization	= character_query.item[58]
-	home_system				= character_query.item[59]
-	citizenship				= character_query.item[60]
-	faction					= character_query.item[61]
-	religion				= character_query.item[62]
-	nanotrasen_relation		= character_query.item[63]
+	disabilities			= text2num(character_query.item[48])
+	skills					= params2list(character_query.item[49])
+	skill_specialization	= character_query.item[50]
+	home_system				= character_query.item[51]
+	citizenship				= character_query.item[52]
+	faction					= character_query.item[53]
+	religion				= character_query.item[54]
+	nanotrasen_relation		= character_query.item[55]
 
-	uplinklocation			= character_query.item[64]
-	exploit_record			= character_query.item[65]
+	uplinklocation			= character_query.item[56]
 
-	organ_data				= params2list(character_query.item[66])
-	rlimb_data				= params2list(character_query.item[67])
-	gear					= params2list(character_query.item[68])
+	organ_data				= params2list(character_query.item[57])
+	rlimb_data				= params2list(character_query.item[58])
+	gear					= params2list(character_query.item[59])
 
 	// Sanitization
 	metadata			= sanitize_text(metadata, initial(metadata))
@@ -350,6 +347,7 @@
 	job_engsec_low = sanitize_integer(job_engsec_low, 0, 65535, initial(job_engsec_low))
 
 	if (!skills) ZeroSkills(1)
+	if (skills.len) CalculateSkillPoints()
 	if (!used_skillpoints) used_skillpoints = 0
 	if (isnull(disabilities)) disabilities = 0
 	if (!player_alt_titles) player_alt_titles = new()
@@ -365,7 +363,7 @@
 	return 1
 
 /datum/preferences/proc/save_character_sql(var/client/C)
-	if (!C || C.prefs != src)
+	if (!C)
 		return 0
 
 	if (!current_character)
@@ -384,13 +382,11 @@
 		return insert_character_sql(C)
 
 	var/DBQuery/update_query = dbcon.NewQuery({"UPDATE ss13_characters dat
-											JOIN characters_flavour flv ON dat.id = flv.char_id
-											JOIN characters_jobs job ON dat.id = job.char_id
-											JOIN characters_misc msc ON dat.id = msc.char_id
+											JOIN ss13_characters_flavour flv ON dat.id = flv.char_id
 											SET
 											dat.name = :real_name,
-											dat.OOC = :metadata,
-											dat.isRandom = :is_random,
+											dat.metadata = :metadata,
+											dat.random_name = :is_random,
 											dat.gender = :gender,
 											dat.age = :age,
 											dat.species = :species,
@@ -407,26 +403,30 @@
 											dat.undershirt = :undershirt,
 											dat.backbag = :backbag,
 											dat.b_type = :b_type,
-											job.Alternate = :alternate_option,
-											job.civ_high = :civ_high,
-											job.civ_med = :civ_med,
-											job.civ_low = :civ_low,
-											job.medsci_high = :medsci_high,
-											job.medsci_med = :medsci_med,
-											job.medsci_low = :medsci_low,
-											job.engsec_high = :engsec_high,
-											job.engsec_med = :engsec_med,
-											job.engsec_low = :engsec_low,
-											job.alt_titles = :alt_titles,
-											flv.generals = :flv_general,
-											flv.head = :flv_head,
-											flv.face = :flv_face,
-											flv.eyes = :flv_eyes,
-											flv.torso = :flv_torso,
-											flv.arms = :flv_arms,
-											flv.hands = :flv_hands,
-											flv.legs = :flv_legs,
-											flv.feet = :flv_feet,
+											dat.jobs = :jobs,
+											dat.alternate_option = :alternate_option,
+											dat.alternate_titles = :alternate_titles,
+											dat.disabilities = :disabilities,
+											dat.skills = :skills,
+											dat.skills_specialization = :specialization,
+											dat.home_system = :home_system,
+											dat.citizenship = :citizenship,
+											dat.faction = :faction,
+											dat.religion = :religion,
+											dat.nt_relation = :nt_relation,
+											dat.uplink_location = :uplink_loc,
+											dat.organs_data = :organ_data,
+											dat.organs_robotic = :organs_robotic,
+											dat.gear = :gear,
+											flv.flavour_general = :flv_general,
+											flv.flavour_head = :flv_head,
+											flv.flavour_face = :flv_face,
+											flv.flavour_eyes = :flv_eyes,
+											flv.flavour_torso = :flv_torso,
+											flv.flavour_arms = :flv_arms,
+											flv.flavour_hands = :flv_hands,
+											flv.flavour_legs = :flv_legs,
+											flv.flavour_feet = :flv_feet,
 											flv.robot_default = :robot_default,
 											flv.robot_standard = :robot_standard,
 											flv.robot_engineering = :robot_engineering,
@@ -439,23 +439,10 @@
 											flv.robot_clerical = :robot_clerical,
 											flv.robot_security = :robot_security,
 											flv.robot_research = :robot_research,
-											msc.med_rec = :med_rec,
-											msc.sec_rec = :sec_rec,
-											msc.gen_rec = :gen_rec,
-											msc.disab = :disabilities,
-											msc.skills = :skills,
-											msc.used_skill = :skillpoints,
-											msc.skills_spec = :specialization,
-											msc.home_sys = :home_system,
-											msc.citizen = :citizenship,
-											msc.faction = :faction,
-											msc.religion = :religion,
-											msc.NT_relation = :nt_relation,
-											msc.uplink_loc = :uplink_loc,
-											msc.exploit_rec = :exploit_record,
-											msc.organs = :organ_data,
-											msc.organs_robotic = :organs_robotic,
-											msc.gear = :gear
+											flv.records_medical = :med_rec,
+											flv.records_security = :sec_rec,
+											flv.records_employment = :gen_rec,
+											flv.records_exploit = :exploit_record
 											WHERE dat.id = :char_id"})
 
 	update_query.Execute(get_update_insert_params())
@@ -475,10 +462,10 @@
 		error("Error attempting to connect to MySQL server while inserting a character.")
 		return 0
 
-	var/params[] = get_update_insert_params(1, C)
+	var/params[] = get_update_insert_params(0, C)
 
-	var/DBQuery/insert_query = dbcon.NewQuery({"INSERT INTO ss13_characters (id, ckey, OOC, name, isRandom, gender, age, species, language, spawnpoint, hair_colour, facial_colour, skin_tone, skin_colour, hair_style, facial_style, eyes_colour, underwear, undershirt, backbag, b_type)
-	VALUES (NULL, :ckey, :metadata, :real_name, :is_random, :gender, :age, :species, :language, :spawnpoint, :hair_colour, :facial_colour, :skin_tone, :skin_colour, :hair_style, :facial_style, :eyes_colour, :underwear, :undershirt, :backbag, :b_type)"})
+	var/DBQuery/insert_query = dbcon.NewQuery({"INSERT INTO ss13_characters (id, ckey, name, metadata, random_name, gender, age, species, language, hair_colour, facial_colour, skin_tone, skin_colour, hair_style, facial_style, eyes_colour, underwear, undershirt, backbag, b_type, spawnpoint, jobs, alternate_option, alternate_titles, disabilities, skills, skills_specialization, home_system, citizenship, faction, religion, nt_relation, uplink_location, organs_data, organs_robotic, gear)
+	VALUES (NULL, :ckey, :real_name, :metadata, :is_random, :gender, :age, :species, :language, :hair_colour, :facial_colour, :skin_tone, :skin_colour, :hair_style, :facial_style, :eyes_colour, :underwear, :undershirt, :backbag, :b_type, :spawnpoint, :jobs, :alternate_option, :alternate_titles, :disabilities, :skills, :specialization, :home_system, :citizenship, :faction, :religion, :nt_relation, :uplink_loc, :organ_data, :organs_robotic, :gear);"})
 	insert_query.Execute(params, 1)
 
 	if (insert_query.ErrorMsg())
@@ -491,21 +478,8 @@
 		current_character = text2num(get_query.item[1])
 		params[":char_id"]  = current_character
 
-	insert_query = dbcon.NewQuery({"INSERT INTO characters_jobs (char_id, Alternate, civ_high, civ_med, civ_low, medsci_high, medsci_med, medsci_low, engsec_high, engsec_med, engsec_low, alt_titles)
-	VALUES (:char_id, :alternate_option, :civ_high, :civ_med, :civ_low, :medsci_high, :medsci_med, :medsci_low, :engsec_high, :engsec_med, :engsec_low, :alt_titles);"})
-	insert_query.Execute(params, 1)
-
-	if (insert_query.ErrorMsg())
-		return 0
-
-	insert_query = dbcon.NewQuery({"INSERT INTO characters_flavour (char_id, generals, head, face, eyes, torso, arms, hands, legs, feet, robot_default, robot_standard, robot_engineering, robot_construction, robot_surgeon, robot_crisis, robot_miner, robot_janitor, robot_service, robot_clerical, robot_security, robot_research)
-	VALUES (:char_id, :flv_general, :flv_head, :flv_face, :flv_eyes, :flv_torso, :flv_arms, :flv_hands, :flv_legs, :flv_feet, :robot_default, :robot_standard, :robot_engineering, :robot_construction, :robot_surgeon, :robot_crisis, :robot_miner, :robot_janitor, :robot_service, :robot_clerical, :robot_security, :robot_research);"})
-	insert_query.Execute(params, 1)
-
-	if (insert_query.ErrorMsg())
-		return 0
-
-	insert_query = dbcon.NewQuery({"INSERT INTO characters_misc (char_id, med_rec, sec_rec, gen_rec, disab, skills, used_skill, skills_spec, home_sys, citizen, faction, religion, NT_relation, uplink_loc, exploit_rec, organs, organs_robotic, gear) VALUES (LAST_INSERT_ID(), :med_rec, :sec_rec, :gen_rec, :disabilities, :skills, :skillpoints, :specialization, :home_system, :citizenship, :faction, :religion, :nt_relation, :uplink_loc, :exploit_record, :organ_data, :organs_robotic, :gear);"})
+	insert_query = dbcon.NewQuery({"INSERT INTO ss13_characters_flavour (char_id, records_employment, records_medical, records_security, records_exploit, flavour_general, flavour_head, flavour_face, flavour_eyes, flavour_torso, flavour_arms, flavour_hands, flavour_legs, flavour_feet, robot_default, robot_standard, robot_engineering, robot_construction, robot_surgeon, robot_crisis, robot_miner, robot_janitor, robot_service, robot_clerical, robot_security, robot_research)
+	VALUES (:char_id, :gen_rec, :med_rec, :sec_rec, :exploit_record, :flv_general, :flv_head, :flv_face, :flv_eyes, :flv_torso, :flv_arms, :flv_hands, :flv_legs, :flv_feet, :robot_default, :robot_standard, :robot_engineering, :robot_construction, :robot_surgeon, :robot_crisis, :robot_miner, :robot_janitor, :robot_service, :robot_clerical, :robot_security, :robot_research);"})
 	insert_query.Execute(params, 1)
 
 	if (insert_query.ErrorMsg())
@@ -531,6 +505,17 @@
 	else
 		language_string = language
 
+	var/jobs_list[] = list()
+	jobs_list["civ_high"] = job_civilian_high
+	jobs_list["civ_med"] = job_civilian_med
+	jobs_list["civ_low"] = job_civilian_low
+	jobs_list["medsci_high"] = job_medsci_high
+	jobs_list["medsci_med"] = job_medsci_med
+	jobs_list["medsci_low"] = job_medsci_low
+	jobs_list["engsec_high"] = job_engsec_high
+	jobs_list["engsec_med"] = job_engsec_med
+	jobs_list["engsec_low"] = job_engsec_low
+
 	var/params[] = list()
 
 	params[":real_name"] = real_name
@@ -554,16 +539,8 @@
 	params[":b_type"] = b_type
 
 	params[":alternate_option"] = alternate_option
-	params[":civ_high"] = job_civilian_high
-	params[":civ_med"] = job_civilian_med
-	params[":civ_low"] = job_civilian_low
-	params[":medsci_high"] = job_medsci_high
-	params[":medsci_med"] = job_medsci_med
-	params[":medsci_low"] = job_medsci_low
-	params[":engsec_high"] = job_engsec_high
-	params[":engsec_med"] = job_engsec_med
-	params[":engsec_low"] = job_engsec_low
-	params[":alt_titles"] = list2params(player_alt_titles)
+	params[":jobs"] = list2params(jobs_list)
+	params[":alternate_titles"] = list2params(player_alt_titles)
 
 	params[":flv_general"] = flavor_texts["general"]
 	params[":flv_head"] = flavor_texts["head"]
@@ -592,7 +569,6 @@
 	params[":gen_rec"] = gen_record
 	params[":disabilities"] = disabilities
 	params[":skills"] = list2params(skills)
-	params[":skillpoints"] = used_skillpoints
 	params[":specialization"] = skill_specialization
 	params[":home_system"] = home_system
 	params[":citizenship"] = citizenship
@@ -614,10 +590,13 @@
 	return params
 
 /datum/preferences/proc/new_character_sql(var/client/C)
-	if (!C || C.prefs != src)
+	if (!C)
 		return 0
 
 	current_character = 0
+
+	var/DBQuery/char_id_update = dbcon.NewQuery("UPDATE ss13_player_preferences SET current_character = '0' WHERE ckey = :ckey")
+	char_id_update.Execute(list(":ckey" = C.ckey))
 
 	species = "Human"
 	language = "None"
@@ -632,7 +611,7 @@
 	return 1
 
 /datum/preferences/proc/delete_character_sql(var/client/C)
-	if (!C || C.prefs != src)
+	if (!C)
 		return 0
 
 	if (!current_character)
@@ -651,6 +630,14 @@
 
 	var/DBQuery/delete_query = dbcon.NewQuery("DELETE FROM ss13_characters WHERE id = :id")
 	delete_query.Execute(list(":id" = current_character))
+
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey ORDER BY id ASC LIMIT 1")
+	select_query.Execute(list(":ckey" = C.ckey))
+
+	if (select_query.NextRow())
+		load_character_sql(text2num(select_query.item[1]), C)
+	else
+		new_character_sql(C)
 
 	C << "<span class='notice'>Your character has been deleted from the database.</span>"
 	return 1

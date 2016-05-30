@@ -136,8 +136,6 @@ datum/preferences
 	var/slot_name = ""
 
 /datum/preferences/New(client/C)
-	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
-
 	if (config.sql_saves && C.need_saves_migrated)
 		var/dat = "<center>The server attempted to automatically migrate your saves from the old file-system onto an SQL database.<br>"
 		dat += "This operation was "
@@ -159,6 +157,8 @@ datum/preferences
 			if(handle_preferences_load(C))
 				if(handle_character_load(get_default_character(), C))
 					return
+
+	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
 	gear = list()
