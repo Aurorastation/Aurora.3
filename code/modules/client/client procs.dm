@@ -200,6 +200,8 @@
 		admins += src
 		holder.owner = src
 
+	log_client_to_db()
+
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
 	if(!prefs)
@@ -233,8 +235,6 @@
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	warnings_alert()
-
-	log_client_to_db()
 
 	check_linking_requests()
 
@@ -280,6 +280,22 @@
 	else
 		return -1
 
+/client/verb/test_shit()
+	set category = "OOC"
+	set name = "Test Muh Shit"
+
+	var/savefile/S = new /savefile(src.prefs.path)
+	if (!S)
+		testing("Error opening save file!")
+		return
+
+	S.cd = "/"
+
+	testing("Starting to cycle through the dirs!")
+	for (var/a in S.dir)
+		testing("Found a dir! [a]")
+
+	testing("Cycled through all the dirs!")
 
 /client/proc/log_client_to_db()
 
@@ -292,7 +308,7 @@
 
 	var/sql_ckey = sql_sanitize_text(src.ckey)
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, datediff(Now(),firstseen) as age, whitelist_status FROM ss13_player WHERE ckey = '[sql_ckey]'")
+	var/DBQuery/query = dbcon.NewQuery("SELECT id, datediff(Now(),firstseen) as age, whitelist_status, migration_status FROM ss13_player WHERE ckey = '[sql_ckey]'")
 	query.Execute()
 	var/sql_id = 0
 	player_age = 0	// New players won't have an entry so knowing we have a connection we set this to zero to be updated if their is a record.
@@ -300,6 +316,7 @@
 		sql_id = query.item[1]
 		player_age = text2num(query.item[2])
 		whitelist_status = text2num(query.item[3])
+		need_saves_migrated = text2num(query.item[4])
 		break
 
 	var/DBQuery/query_ip = dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE ip = '[address]'")

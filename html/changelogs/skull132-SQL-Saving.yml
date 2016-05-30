@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+    - rscadd: "Characters are now saved to, and loaded from the SQL database. Along with user preferences. All file saves will be automatically transferred over and retained just in case. Hopefully everything makes it there in one piece. Important things to note for players: no more slots, instead, you have characters that you can delete. You can also make new characters."
