@@ -598,7 +598,6 @@
 	if (istype(O,/obj/item/weapon/reagent_containers/glass) || \
 		istype(O,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass) || \
 		istype(O,/obj/item/weapon/reagent_containers/food/drinks/shaker))
-
 		if (beaker)
 			return 1
 		else
@@ -642,7 +641,7 @@
 
 	if(!sheet_reagents[O.type] && (!O.reagents || !O.reagents.total_volume))
 		user << "\The [O] is not suitable for blending."
-		return 1
+		return 0
 
 	user.remove_from_mob(O)
 	O.loc = src
@@ -651,7 +650,7 @@
 	return 0
 
 /obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
-	return 0
+	interact(user)
 
 /obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
 	interact(user)

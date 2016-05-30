@@ -130,6 +130,15 @@
 	embed = 0
 	sharp = 0
 
+/obj/item/projectile/bullet/shotgun/incendiary
+	name = "incendiary"
+	check_armour = "melee"
+	damage = 5
+	agony = 0
+	embed = 0
+	sharp = 0
+	incinerate = 10
+
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
 /obj/item/projectile/bullet/pellet/shotgun

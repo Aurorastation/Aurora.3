@@ -60,6 +60,12 @@
 /mob/living/bot/cleanbot/Life()
 	..()
 
+	var/found_spot
+	var/current_tile
+	var/cleanable_type = /obj/effect/decal/cleanable
+	var/target_type
+	var/searching      = 1
+
 	if(!on)
 		return
 
@@ -101,23 +107,25 @@
 		patrol_path = list()
 		return
 
-	var/found_spot
-	search_loop:
-		for(var/i=0, i <= maximum_search_range, i++)
-			for(var/obj/effect/decal/cleanable/D in view(i, src))
-				if(D in ignorelist)
-					continue
-				for(var/T in target_types)
-					if(istype(D, T))
-						patrol_path = list()
-						target = D
-						found_spot = handle_target()
-						if (found_spot)
-							break search_loop
+	while (searching)
+		for (current_tile = 0, current_tile <= maximum_search_range, current_tile++)
+			for (cleanable_type in view(current_tile, src))
+				if (!(cleanable_type in ignorelist))
+					for (target_type in target_types)
+						if (istype(cleanable_type, target_type))
+							patrol_path = list()
+							target      = cleanable_type
+							found_spot  = handle_target()
+
+							if (found_spot)
+								searching = 0;
+							else
+								if (target == null) //handles if path can not be created
+									searching = 0
+
 						else
 							target = null
-							continue // no need to check the other types
-
+							continue //Recode without the use of these shitty things.
 
 	if(!found_spot && !target) // No targets in range
 		if(!patrol_path || !patrol_path.len)
@@ -151,9 +159,6 @@
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
-
-
-
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 	if(!..())
 		return

@@ -350,6 +350,10 @@ This function restores all organs.
 /mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/sharp = 0, var/edge = 0, var/obj/used_weapon = null)
 
 	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
+	if (src.invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/weapon/rig)))
+		if (damage > 0)
+			src << "<span class='danger'>You are now visible.</span>"
+			src.invisibility = 0
 
 	//Handle other types of damage
 	if((damagetype != BRUTE) && (damagetype != BURN))

@@ -538,7 +538,7 @@ var/list/admin_verbs_cciaa = list(
 		prefs.ooccolor = input(src, "Please select your OOC colour.", "OOC colour") as color
 	else if(response == "Reset to default")
 		prefs.ooccolor = initial(prefs.ooccolor)
-	prefs.save_preferences()
+	prefs.handle_preferences_save(src)
 
 	feedback_add_details("admin_verb","OC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
@@ -907,6 +907,7 @@ var/list/admin_verbs_cciaa = list(
 		usr << "You now will get attack log messages"
 	else
 		usr << "You now won't get attack log messages"
+	prefs.handle_preferences_save(src)
 
 
 /client/proc/toggleghostwriters()

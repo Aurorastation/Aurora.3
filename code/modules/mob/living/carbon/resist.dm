@@ -20,7 +20,7 @@
 		return
 
 	..()
-	
+
 	if(handcuffed)
 		spawn() escape_handcuffs()
 	else if(legcuffed)
@@ -100,6 +100,11 @@
 /mob/living/carbon/proc/can_break_cuffs()
 	if(HULK in mutations)
 		return 1
+
+	if (get_species() == "Unathi" && gender == "male")
+		return 1
+
+	return 0
 
 /mob/living/carbon/proc/break_handcuffs()
 	visible_message(

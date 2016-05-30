@@ -413,6 +413,7 @@
 #define STUTTER   "stutter"
 #define EYE_BLUR  "eye_blur"
 #define DROWSY    "drowsy"
+#define INCINERATE "incinerate"
 
 // I hate adding defines like this but I'd much rather deal with bitflags than lists and string searches.
 #define BRUTELOSS 1
@@ -691,20 +692,15 @@ var/list/be_special_flags = list(
 #define COLOR_BLACK  "#000000"
 #define COLOR_LUMINOL "#66FFFF"
 
-// Vampire power defines
-#define VAMP_REJUV 1
-#define VAMP_GLARE 2
-#define VAMP_HYPNO 3
-#define VAMP_SHAPE 4
-#define VAMP_VISION 5
-#define VAMP_DISEASE 6
-#define VAMP_CLOAK 7
-#define VAMP_BATS 8
-#define VAMP_SCREAM 9
-#define VAMP_JAUNT 10
-#define VAMP_SLAVE 11
-#define VAMP_BLINK 12
-#define VAMP_FULL 13
+/*
+ * New vampire status defines.
+ */
+#define VAMP_DRAINING  1
+#define VAMP_HEALING   2
+#define VAMP_PRESENCE  4
+#define VAMP_FRENZIED  8
+#define VAMP_ISTHRALL  16
+#define VAMP_FULLPOWER 32
 
 /*
  *	Germs and infections.
@@ -774,7 +770,7 @@ var/list/be_special_flags = list(
 
 // Will not bother pumping or filtering if the gas source as fewer than this amount of moles, to help with performance.
 #define MINIMUM_MOLES_TO_PUMP   0.01
-#define MINIMUM_MOLES_TO_FILTER 0.1
+#define MINIMUM_MOLES_TO_FILTER 0.04
 
 // The flow rate/effectiveness of various atmos devices is limited by their internal volume,
 // so for many atmos devices these will control maximum flow rates in L/s.
@@ -870,6 +866,7 @@ var/list/be_special_flags = list(
 #define MODE_LOYALIST "loyalist"
 #define MODE_MALFUNCTION "malf"
 #define MODE_TRAITOR "traitor"
+#define MODE_THRALL "thrall"
 
 #define MIN_SUPPLIED_LAW_NUMBER 15
 #define MAX_SUPPLIED_LAW_NUMBER 50

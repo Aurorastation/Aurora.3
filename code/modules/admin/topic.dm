@@ -93,6 +93,28 @@
 
 		DB_ban_record(bantype, playermob, banduration, banreason, banjob, null, banckey, banip, bancid )
 
+	else if(href_list["dbbanmirrors"])
+		var/ban_id = text2num(href_list["dbbanmirrors"])
+
+		var/list/mirrors = get_ban_mirrors(ban_id)
+
+		if (!mirrors)
+			usr << "<span class='warning'>Something went horribly wrong.</span>"
+			return
+
+		if (!mirrors.len)
+			usr << "<span class='warning'>No mirrors for this ban found.</span>"
+			return
+
+		var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
+		output += "<center>Each line indicates a new bypass attempt.</center><hr>"
+		for (var/mirror in mirrors)
+			var/list/details = mirrors[mirror]
+
+			output += "[details["date"]] - [details["ckey"]] - IP: [details["ip"]] - CID: [details["computerid"]]<br>"
+
+		usr << browse(output, "window=banmirrors")
+
 	else if(href_list["editrights"])
 		if(!check_rights(R_PERMISSIONS))
 			message_admins("[key_name_admin(usr)] attempted to edit the admin permissions without sufficient rights.")
@@ -285,7 +307,26 @@
 			if("constructbuilder")	M.change_mob_type( /mob/living/simple_animal/construct/builder , null, null, delmob )
 			if("constructwraith")	M.change_mob_type( /mob/living/simple_animal/construct/wraith , null, null, delmob )
 			if("shade")				M.change_mob_type( /mob/living/simple_animal/shade , null, null, delmob )
+			if("meme")
+				var/mob/living/parasite/meme/newmeme = new
+				M.mind.transfer_to(newmeme)
+				newmeme.clearHUD()
 
+				var/found = 0
+				for(var/mob/living/carbon/human/H in world) if(H.client && !H.parasites.len)
+					found = 1
+					newmeme.enter_host(H)
+
+					message_admins("[H] has become [newmeme.key]'s host")
+
+					break
+
+				// if there was no host, abort
+				if(!found)
+					newmeme.mind.transfer_to(M)
+					message_admins("Failed to find host for meme [M.key]. Aborting.")
+
+				qdel(M)
 
 	/////////////////////////////////////new ban stuff
 	else if(href_list["unbanf"])

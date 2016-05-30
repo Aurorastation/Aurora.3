@@ -208,18 +208,10 @@
 
 /datum/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(ishuman(M)) // Any location
-		if(M.mind && cult.is_antagonist(M.mind) && prob(10))
-			cult.remove_antagonist(M.mind)
-		if(M.mind.vampire && (!(VAMP_FULL in M.mind.vampire.powers)))
-			if(!M) M = holder.my_atom
-			M.adjustFireLoss(6)
-			M.adjust_fire_stacks(1)
-			M.IgniteMob()
-			//M.take_organ_damage(0, 1*REM)
-			if(prob(20))
-				for (var/mob/V in viewers(src))
-					V.show_message(text("\red []'s skin sizzles and burns.", M), 1)
+
+	if (M.mind && M.mind.vampire)
+		var/datum/vampire/vampire = M.mind.vampire
+		vampire.frenzy += removed * 5
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)

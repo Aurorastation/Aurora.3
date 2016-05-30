@@ -1,4 +1,22 @@
 /* Food */
+/datum/reagent/kois
+	name = "K'ois"
+	id = "koispaste"
+	description = "A thick goopy substance, rich in K'ois nutrients."
+	metabolism = REM * 4
+	var/nutriment_factor = 40
+	var/injectable = 0
+	color = "#dcd9cd"
+
+/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+    if(M.get_species() == "Vaurca")
+        M.heal_organ_damage(0.8 * removed, 0)
+        M.nutrition += nutriment_factor * removed // For hunger and fatness
+        M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+    else
+        M.adjustToxLoss(1.5 * removed)
+        return
+    ..()
 
 /datum/reagent/nutriment
 	name = "Nutriment"
@@ -7,6 +25,8 @@
 	reagent_state = SOLID
 	metabolism = REM * 4
 	var/nutriment_factor = 30 // Per unit
+	var/blood_factor = 6
+	var/regen_factor = 0.8
 	var/injectable = 0
 	color = "#664330"
 
@@ -17,18 +37,44 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0.5 * removed, 0)
+	if(M.get_species() == "Vaurca")
+		M.adjustToxLoss(1.5 * removed)
+	if(alien && alien == IS_UNATHI)
+		return
+	else
+		digest(M,removed)
+		return
+	..()
+
+/datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
+	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
-	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
+	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
+
 
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
 	id = "protein"
 	color = "#440000"
+	blood_factor = 12
 
 /datum/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(0.5 * removed)
+		return
+	if(alien && alien == IS_UNATHI)
+		digest(M,removed)
+		return
+	..()
+
+/datum/reagent/nutriment/protein/seafood // Good for Skrell!
+	name = "seafood protein"
+	id = "seafood"
+	color = "#f5f4e9"
+
+/datum/reagent/nutriment/protein/seafood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		digest(M,removed)//Skrell are allowed to eat fish, but not other proteins
 		return
 	..()
 
@@ -40,6 +86,9 @@
 /datum/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(0.5 * removed)
+		return
+	if(alien && alien == IS_UNATHI)
+		digest(M,removed)
 		return
 	..()
 
@@ -299,7 +348,7 @@
 			M.eye_blind = max(M.eye_blind, 10)
 
 	if(mouth_covered)
-		if(!message) 
+		if(!message)
 			message = "<span class='warning'>Your [face_protection] protects you from the pepperspray!</span>"
 	else if(!no_pain)
 		message = "<span class='danger'>Your face and throat burn!</span>"
@@ -1927,3 +1976,59 @@
 	glass_name = "glass of special blend whiskey"
 	glass_desc = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	glass_center_of_mass = list("x"=16, "y"=12)
+
+/////////////////////////////////////////////////////////////////Brightdawns super cool coffee area//////////////////////////////////////////////
+
+
+/datum/reagent/drink/black_coffee
+	name = "Black Coffee"
+	id = "black_coffee"
+	description = "A rich strong roast, you think it could be a lot better if someone added something extra."
+	color = "#482000"
+	adj_dizzy = -6
+	adj_drowsy = -4
+	adj_sleepy = -3
+	adj_temp = 30
+	overdose = 40
+
+	glass_icon_state = "blackcoffee"
+	glass_name = "A mug of rich Black Coffee"
+	glass_desc = "A mug of a rich strong roast, you think it could be a lot better if someone added something extra to it."
+
+/datum/reagent/drink/white_coffee
+	name = "Café Au Lait"
+	id = "white_coffee"
+	description = "A fancy name for something thats just coffee and milk."
+	color = "#482000"
+	adj_dizzy = -6
+	adj_drowsy = -4
+	adj_sleepy = -3
+	adj_temp = 30
+	overdose = 40
+
+	glass_icon_state = "whitecoffee"
+	glass_name = "A mug of Café Au Lait"
+	glass_desc = "A fancy name for something thats just coffee and milk."
+
+/datum/reagent/drink/white_coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.5 * removed, 0)
+
+/datum/reagent/drink/cafe_melange
+	name = "Café Mélange"
+	id = "cafe_melange"
+	description = "A delicious mug of creamy coffee."
+	color = "#482000"
+	adj_dizzy = -6
+	adj_drowsy = -4
+	adj_sleepy = -3
+	adj_temp = 30
+	overdose = 40
+
+	glass_icon_state = "whitecoffee"
+	glass_name = "A mug of Café Mélange"
+	glass_desc = "A delicious mug of creamy coffee, keeps you cool headed in the most heated of situations."
+
+/datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.reagents.add_reagent("kelotane", removed * 0.2)

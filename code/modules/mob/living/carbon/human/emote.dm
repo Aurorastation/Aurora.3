@@ -593,7 +593,7 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag"}
 	set desc = "Sets a description which will be shown when someone examines you."
 	set category = "IC"
 
-	pose =  sanitize(input(usr, "This is [src]. \He is...", "Pose", null)  as text)
+	pose =  sanitize(input(usr, "This is [src]. \He...", "Pose", null)  as text)
 
 /mob/living/carbon/human/verb/set_flavor()
 	set name = "Set Flavour Text"

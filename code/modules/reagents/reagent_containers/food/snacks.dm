@@ -245,6 +245,17 @@
 
 
 
+/obj/item/weapon/reagent_containers/food/snacks/koisbar
+	name = "K'ois Bar"
+	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup."
+	icon_state = "koisbar"
+	trash = /obj/item/trash/koisbar
+	filling_color = "#dcd9cd"
+
+	New()
+		..()
+		reagents.add_reagent("kois", 20)
+		bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/aesirsalad
 	name = "Aesir salad"
@@ -603,7 +614,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("protein", 3)
+		reagents.add_reagent("seafood", 3)
 		reagents.add_reagent("carpotoxin", 3)
 		src.bitesize = 6
 
@@ -615,7 +626,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("protein", 4)
+		reagents.add_reagent("seafood", 4)
 		reagents.add_reagent("carpotoxin", 3)
 		bitesize = 3
 
@@ -802,7 +813,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("protein", 6)
+		reagents.add_reagent("seafood", 6)
 		reagents.add_reagent("carpotoxin", 3)
 		bitesize = 3
 
@@ -1103,7 +1114,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("protein", 3)
+		reagents.add_reagent("seafood", 3)
 		reagents.add_reagent("nutriment", 3)
 		reagents.add_reagent("carpotoxin", 3)
 		reagents.add_reagent("capsaicin", 3)
@@ -1697,7 +1708,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("protein", 3)
+		reagents.add_reagent("seafood", 3)
 		reagents.add_reagent("nutriment", 3)
 		reagents.add_reagent("carpotoxin", 3)
 		bitesize = 3
