@@ -1,0 +1,44 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#################################
+
+# Your name.  
+author: Nanako
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Added a new Chemistry Gripper for cyborgs. It holds beakers, bottles, pills, pillbottles, spraybottles, labellers, and phoron sheets"
+  - bugfix: "Removed Large Beaker from crisis and research cyborgs, replaced with chemistry gripper"
+  - bugfix: "Cyborgs can now interact with reagent grinders"
+  - rscadd: "Cyborgs can now place objects in their gripper, on a table"
+  - rscadd: "Cyborgs can now place objects from their gripper into a disposal bin"
+  - rscadd: "Cyborgs can now use a gripper to take valid objects out of cardboard boxes"
+  - tweak: "Cyborgs can now use their other tools, on things held in their gripper"
+  - tweak: "Using an empty gripper on a machine now interacts with it"
+  - tweak: "Cyborgs can now use items held in their gripper on rechargers"

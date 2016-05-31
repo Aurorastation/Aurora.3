@@ -131,7 +131,7 @@ obj/machinery/computer/general_air_control/Destroy()
 					if(data["carbon_dioxide"])
 						sensor_part += "[data["carbon_dioxide"]]% CO2; "
 					if(data["phoron"])
-						sensor_part += "[data["phoron"]]% TX; "
+						sensor_part += "[data["phoron"]]% PH; "
 				sensor_part += "<HR>"
 
 			else
