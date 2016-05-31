@@ -38,5 +38,5 @@ changes:
   - rscadd: "Cyborg jetpacks can now be removed and reused"
   - rscadd: "Cyborgs now use less power when moving in space"
   - bugfix: "Fixed jetpacking cyborgs not drifting when stabilisers are disabled"
-  - tweaks: "All jetpacks now use twice as much gas when stabilisers are enabled"
+  - tweak: "All jetpacks now use twice as much gas when stabilisers are enabled"
 
