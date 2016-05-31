@@ -21,7 +21,10 @@
 	src.owner = R
 
 /datum/robot_component/proc/install()
+	installed = 1
+
 /datum/robot_component/proc/uninstall()
+	installed = 0
 
 /datum/robot_component/proc/destroy()
 	var/brokenstate = "broken" // Generic icon
@@ -91,17 +94,17 @@
 
 
 /datum/robot_component/jetpack/install()
+	..()
 	tank = new/obj/item/weapon/tank/jetpack/carbondioxide/synthetic
 	owner.internals = tank
 	tank.loc = owner
-	owner.jetpack = 1
-	owner.jetpackRef = tank
+	owner.jetpack = tank
 
 /datum/robot_component/jetpack/uninstall()
+	..()
 	qdel(tank)
 	tank = null
-	owner.jetpack = 0
-	owner.jetpackRef = null
+	owner.jetpack = null
 
 // ACTUATOR
 // Enables movement.

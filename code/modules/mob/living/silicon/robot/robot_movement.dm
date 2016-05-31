@@ -7,14 +7,14 @@
 	//If checkdrift is 0, we're checking to see if we can manually move, return true if jetpack is on
 	//if checkdrift is 1, we're checking to see if we drift. Return true if jetpack AND stabilisers are on
 	if(jetpack)
-		var/obj/item/weapon/tank/jetpack/J = internals
+		//var/obj/item/weapon/tank/jetpack/J = internals
 
 		if (check_drift)
-			if (J.stabilization_on && J.allow_thrust(0.01))
+			if (jetpack.stabilization_on && jetpack.allow_thrust(0.01))
 				inertia_dir = 0
 				return 1
 
-		else if(J.allow_thrust(0.01))
+		else if(jetpack.allow_thrust(0.01))
 			inertia_dir = 0
 			return 1
 	if(..())//The parent function checks for nearby objects to hold onto

@@ -69,8 +69,8 @@
 	var/viewalerts = 0
 	var/modtype = "Default"
 	var/lower_mod = 0
-	var/jetpack = 0
-	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/jetpackRef = null
+	//var/jetpack = 0
+	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/jetpack = null
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
 	var/datum/effect/effect/system/spark_spread/spark_system//So they can initialize sparks whenever/N
 	var/jeton = 0
@@ -455,7 +455,6 @@
 		for(var/V in components)
 			var/datum/robot_component/C = components[V]
 			if(!C.installed && istype(W, C.external_type))
-				C.installed = 1
 				C.wrapped = W
 				C.install()
 				user.drop_item()

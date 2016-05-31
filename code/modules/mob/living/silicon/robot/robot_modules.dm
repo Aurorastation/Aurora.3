@@ -209,7 +209,6 @@ var/global/list/robot_modules = list(
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
 
-
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
 	synths += medicine
 
@@ -242,7 +241,6 @@ var/global/list/robot_modules = list(
 					"Drone - Medical" = "drone-medical",
 					"Drone - Chemistry" = "drone-chemistry"
 					)
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/medical/crisis/New()
 	..()
@@ -252,7 +250,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/crisis(src)
-	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
+	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
@@ -308,7 +306,6 @@ var/global/list/robot_modules = list(
 					"Landmate - Treaded" = "engiborg+tread",
 					"Drone" = "drone-engineer"
 					)
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/engineering/construction
 	name = "construction robot module"
@@ -412,8 +409,7 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_SECURITY)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
-	supported_upgrades = list(/obj/item/borg/upgrade/tasercooler, /obj/item/robot_parts/robot_component/jetpack)
-
+	supported_upgrades = list(/obj/item/borg/upgrade/tasercooler)
 
 /obj/item/weapon/robot_module/security/general
 	sprites = list(
@@ -572,8 +568,8 @@ var/global/list/robot_modules = list(
 					"Treadhead" = "Miner",
 					"Drone" = "drone-miner"
 				)
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-	//supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+	supported_upgrades = list(/obj/item/borg/upgrade/jetpack)
+
 /obj/item/weapon/robot_module/miner/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
@@ -612,7 +608,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/circular_saw(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
-	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
+	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.emag = new /obj/item/weapon/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)
@@ -644,15 +640,22 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
 	src.modules += new /obj/item/weapon/gun/energy/pulse_rifle/destroyer(src)
 	src.modules += new /obj/item/weapon/card/emag(src)
-	var/jetpack = new/obj/item/weapon/tank/jetpack/carbondioxide(src)
-	src.modules += jetpack
-	R.internals = jetpack
+
+	//Adding a free jetpack for the syndicate module:
+
+	//JCE = Jetpack Component: External.
+	var/obj/item/robot_parts/robot_component/jetpack/JCE = new/obj/item/robot_parts/robot_component/jetpack
+
+	//JC = Jetpack Component, internal
+	var/datum/robot_component/jetpack/JC = R.get_component("jetpack")
+	JC.wrapped = JCE
+	JC.install()//This install function will setup the actual jetpack which functions
+
 	return
 
 /obj/item/weapon/robot_module/security/combat
 	name = "combat robot module"
 	sprites = list("Combat Android" = "droid-combat")
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/combat/New()
 	..()
