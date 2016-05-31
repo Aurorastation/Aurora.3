@@ -1,7 +1,0 @@
-author: Skull132
-delete-after: True
-
-changes:
-    - rscadd: "Web interface button added up top! Use it!"
-    - rscadd: "Staff can now look up the mirrors for various bans."
-    - bugfix: "Bans now work properly. Specially those of the permanent kind."
