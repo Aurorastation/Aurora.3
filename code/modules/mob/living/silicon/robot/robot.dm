@@ -53,6 +53,11 @@
 
 	// Components are basically robot organs.
 	var/list/components = list()
+	var/datum/robot_component/jetpackComponent
+	var/datum/robot_component/actuatorComponent
+
+
+
 
 	var/obj/item/device/mmi/mmi = null
 
@@ -396,9 +401,9 @@
 // this function displays jetpack pressure in the stat panel
 /mob/living/silicon/robot/proc/show_jetpack_pressure()
 	// if you have a jetpack, show the internal tank pressure
-	if (jetpackRef)
-		stat("Internal Atmosphere Info", jetpackRef.name)
-		stat("Tank Pressure", jetpackRef.air_contents.return_pressure())
+	if (jetpack)
+		stat("Internal Atmosphere Info", jetpack.name)
+		stat("Tank Pressure", jetpack.air_contents.return_pressure())
 
 
 // this function displays the cyborgs current cell charge in the stat panel

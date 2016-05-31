@@ -241,6 +241,7 @@ var/global/list/robot_modules = list(
 					"Drone - Medical" = "drone-medical",
 					"Drone - Chemistry" = "drone-chemistry"
 					)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/medical/crisis/New()
 	..()
@@ -306,6 +307,7 @@ var/global/list/robot_modules = list(
 					"Landmate - Treaded" = "engiborg+tread",
 					"Drone" = "drone-engineer"
 					)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/engineering/construction
 	name = "construction robot module"
@@ -420,6 +422,7 @@ var/global/list/robot_modules = list(
 					"Bloodhound - Treaded" = "secborg+tread",
 					"Drone" = "drone-sec"
 				)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/security/general/New()
 	..()
@@ -430,6 +433,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
 	src.modules += new /obj/item/taperoll/police(src)
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
+
 	return
 
 /obj/item/weapon/robot_module/security/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -568,7 +572,7 @@ var/global/list/robot_modules = list(
 					"Treadhead" = "Miner",
 					"Drone" = "drone-miner"
 				)
-	supported_upgrades = list(/obj/item/borg/upgrade/jetpack)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/miner/New()
 	..()
@@ -640,6 +644,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
 	src.modules += new /obj/item/weapon/gun/energy/pulse_rifle/destroyer(src)
 	src.modules += new /obj/item/weapon/card/emag(src)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 	//Adding a free jetpack for the syndicate module:
 
@@ -656,6 +661,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/security/combat
 	name = "combat robot module"
 	sprites = list("Combat Android" = "droid-combat")
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/combat/New()
 	..()
@@ -666,7 +672,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
-	return
 
 /obj/item/weapon/robot_module/drone
 	name = "drone module"

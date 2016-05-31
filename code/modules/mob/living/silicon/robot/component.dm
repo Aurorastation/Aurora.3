@@ -211,6 +211,7 @@
 // Initializes cyborg's components. Technically, adds default set of components to new borgs
 /mob/living/silicon/robot/proc/initialize_components()
 	components["actuator"] = new/datum/robot_component/actuator(src)
+	actuatorComponent = components["actuator"]
 	components["radio"] = new/datum/robot_component/radio(src)
 	components["power cell"] = new/datum/robot_component/cell(src)
 	components["diagnosis unit"] = new/datum/robot_component/diagnosis_unit(src)
@@ -218,10 +219,9 @@
 	components["comms"] = new/datum/robot_component/binary_communication(src)
 	components["armour"] = new/datum/robot_component/armour(src)
 	components["jetpack"] = new/datum/robot_component/jetpack(src)
+	jetpackComponent = components["jetpack"]
 	var/datum/robot_component/JC = components["jetpack"]
-	world << "Setting installed of Jetpack component: [JC] [JC.installed]"
 	JC.installed = 0//We start the jetpack as not installed, because its nondefault
-	world << "Setting installed of Jetpack component: [JC] [JC.installed]"
 
 // Checks if component is functioning
 /mob/living/silicon/robot/proc/is_component_functioning(module_name)

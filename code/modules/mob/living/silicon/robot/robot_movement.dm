@@ -35,13 +35,11 @@
 // NEW: Different power usage depending on whether driving or jetpacking. space movement is easier
 /mob/living/silicon/robot/SelfMove(turf/n, direct)
 	if (istype(n, /turf/space))
-		var/datum/robot_component/jetpack/J = get_component("jetpack")
-		if (cell_use_power(J.active_usage))
+		if (cell_use_power(jetpackComponent.active_usage))
 			return ..()
 
 	if (!is_component_functioning("actuator"))
 		return 0
 
-	var/datum/robot_component/actuator/A = get_component("actuator")
-	if (cell_use_power(A.active_usage))
+	if (cell_use_power(actuatorComponent.active_usage))
 		return ..()
