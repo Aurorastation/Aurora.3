@@ -522,9 +522,7 @@
 		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
 
 	if (prob(dose))
-		if (istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			H.vomit()
+		M.vomit()
 
 
 /datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
