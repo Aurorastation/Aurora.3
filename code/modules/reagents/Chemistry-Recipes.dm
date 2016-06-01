@@ -274,7 +274,7 @@
 	required_reagents = list("oxygen" = 1, "anti_toxin" = 1, "carbon" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/ethylredoxrazine
+/datum/chemical_reaction/ipecac
 	name = "Ipecac"
 	id = "ipecac"
 	result = "ipecac"
