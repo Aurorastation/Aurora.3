@@ -283,6 +283,11 @@
 	// Miscellaneous
 	disabilities			= text2num(character_query.item[48])
 	skills					= params2list(character_query.item[49])
+
+	for (var/skill in skills)
+		if (skills[skill])
+			skills[skill] = text2num(skills[skill])
+
 	skill_specialization	= character_query.item[50]
 	home_system				= character_query.item[51]
 	citizenship				= character_query.item[52]
