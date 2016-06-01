@@ -32,6 +32,7 @@ datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
+	var/current_slot = 1
 	var/savefile_version = 0
 
 	//non-preference stuff
@@ -134,17 +135,35 @@ datum/preferences
 	var/metadata = ""
 	var/slot_name = ""
 
+	//SQL Save system vars
+	var/chardata[]
+	var/jobsdata[]
+	var/flavourdata[]
+	var/miscdata[]
+	var/DBQuery/query
+	var/TextQuery
+	var/char_id
+	var/char_slot
+
 /datum/preferences/New(client/C)
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			if(load_preferences())
-				if(load_character())
+			log_debug("loading data for [C.ckey]")
+			if(LoadPrefData(C.ckey))
+				log_debug("Default slot loaded : [default_slot]")
+				if(SQLload_character(default_slot, C.ckey))
+					current_slot = default_slot
+					log_debug("Character [real_name] loaded, slot is [current_slot]")
 					return
+			if(load_preferences())
+				if(load_character(default_slot))
+					current_slot = getCharSlot_File()
+					return
+			//this ensure that if db fail the file system is used to load an initial character
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
-
 	gear = list()
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
@@ -1363,7 +1382,7 @@ datum/preferences
 						s_tone = 35 - max(min( round(new_s_tone), 220),1)
 
 				if("skin")
-					if(species == "Unathi" || species == "Tajara" || species == "Skrell" || species == "Machine")
+					if(species == "Unathi" || species == "Tajara" || species == "Skrell" || species == "Machine" || species == "Vaurca")
 						var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(r_skin, g_skin, b_skin)) as color|null
 						if(new_skin)
 							r_skin = hex2num(copytext(new_skin, 2, 4))
@@ -1597,22 +1616,48 @@ datum/preferences
 					toggles ^= CHAT_GHOSTRADIO
 
 				if("save")
-					save_preferences()
-					save_character()
+					for(var/ckey in preferences_datums)
+						var/datum/preferences/D = preferences_datums[ckey]
+						if(D == src)
+							//switch comment to switch to file save system
+							default_slot = current_slot
+							SavePrefData(ckey)
+							SQLsave_character(current_slot, ckey)
+							//save_preferences()
+							//save_character()
 
 				if("reload")
-					load_preferences()
-					load_character()
+					for(var/ckey in preferences_datums)
+						var/datum/preferences/D = preferences_datums[ckey]
+						if(D == src)
+							//switch comment to switch to file save system
+							LoadPrefData(ckey)
+							SQLload_character(current_slot, ckey)
+							//load_preferences()
+							//load_character()
 
 				if("open_load_dialog")
 					if(!IsGuestKey(user.key))
+						//file system preferences
+						//open_load_dialog_file(user)
 						open_load_dialog(user)
 
 				if("close_load_dialog")
 					close_load_dialog(user)
 
 				if("changeslot")
-					load_character(text2num(href_list["num"]))
+					for(var/ckey in preferences_datums)
+						var/datum/preferences/D = preferences_datums[ckey]
+						if(D == src)
+							current_slot = text2num(href_list["num"])
+							if(!SQLload_character(current_slot, ckey))
+								gender = pick(MALE, FEMALE)
+								real_name = random_name(gender,species)
+								gear.Cut()
+								ZeroSkills(1)
+								ResetJobs()
+					//file system load
+					//load_character()
 					close_load_dialog(user)
 
 	ShowChoices(user)
@@ -1730,6 +1775,44 @@ datum/preferences
 	var/dat = "<body>"
 	dat += "<tt><center>"
 
+	for(var/ckey in preferences_datums)
+		var/datum/preferences/D = preferences_datums[ckey]
+		if(D == src)
+			var/TextQuery = "SELECT Character_Name FROM SS13_characters WHERE ckey = '[ckey]' ORDER BY slot"
+			var/DBQuery/query
+			establish_db_connection(dbcon)
+			if(!dbcon.IsConnected())
+				open_load_dialog_file(user)
+			query = dbcon.NewQuery(TextQuery)
+			query.Execute()
+			var/rows
+			if(!query.RowCount())
+				rows = 0
+			else
+				rows = query.RowCount()
+			dat += "<b>Select a character slot to load (SQL Edition !)</b><hr>"
+			var/name
+			for(var/i=1, i<= config.character_slots, i++)
+				log_debug("[rows] rows queried, i = [i]")
+				if(i<=rows)
+					query.NextRow()
+					name = query.item[1]
+					log_debug("adding [query.item[1]] to list")
+				else name = "Character[i]"
+				if(i==default_slot)
+					name = "<b>[name]</b>"
+				dat += "<a href='?_src_=prefs;preference=changeslot;num=[i];'>[name]</a><br>"
+
+	dat += "<hr>"
+	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
+	dat += "</center></tt>"
+	user << browse(dat, "window=saves;size=300x390")
+
+
+/datum/preferences/proc/open_load_dialog_file(mob/user)
+	var/dat = "<body>"
+	dat += "<tt><center>"
+
 	var/savefile/S = new /savefile(path)
 	if(S)
 		dat += "<b>Select a character slot to load</b><hr>"
@@ -1741,11 +1824,39 @@ datum/preferences
 			if(i==default_slot)
 				name = "<b>[name]</b>"
 			dat += "<a href='?_src_=prefs;preference=changeslot;num=[i];'>[name]</a><br>"
-
 	dat += "<hr>"
 	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
 	dat += "</center></tt>"
 	user << browse(dat, "window=saves;size=300x390")
+
+/datum/preferences/proc/getCharSlot()
+	for(var/ckey in preferences_datums)
+		var/datum/preferences/D = preferences_datums[ckey]
+		if(D == src)
+			var/TextQuery = "SELECT slot FROM SS13_characters WHERE ckey = '[ckey]' AND Character_Name = '[real_name]'"
+			var/DBQuery/query
+			establish_db_connection(dbcon)
+			if(!dbcon.IsConnected())
+				getCharSlot_File()
+			query = dbcon.NewQuery(TextQuery)
+			query.Execute()
+			if(!query.RowCount())
+				return 1
+			query.NextRow()
+			return text2num(query.item[1])
+		return 1
+
+
+/datum/preferences/proc/getCharSlot_File() //get character slot from savefile
+	var/savefile/S = new /savefile(path)
+	if(S)
+		var/name
+		for(var/i=1, i<= config.character_slots, i++)
+			S.cd = "/character[i]"
+			S["real_name"] >> name
+			if(name == real_name)
+				return i
+	return 1
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")

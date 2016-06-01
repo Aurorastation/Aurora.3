@@ -17,7 +17,7 @@ var/datum/antagonist/mercenary/mercs
 	hard_cap = 4
 	hard_cap_round = 8
 	initial_spawn_req = 4
-	initial_spawn_target = 6
+	initial_spawn_target = 4
 
 /datum/antagonist/mercenary/New()
 	..()
