@@ -70,7 +70,7 @@
 		for(var/i = 1, i < 12, i++)
 			new /obj/item/weapon/reagent_containers/pill/adminordrazine(pills)
 		bst.equip_to_slot_or_del(pills, slot_in_backpack)
-    
+
   //Implant because access
   bst.implant_loyalty(bst,TRUE)
 
@@ -128,7 +128,7 @@
 	suicide()
 		if(key && species.name != "Human")
 			switch(species.name)
-				if("Tajaran")
+				if("Tajara")
 					bsc()
 				if("Machine")
 					bsb()
@@ -161,7 +161,7 @@
 		return
 
 	proc/bsc() //because we all have our unrealistic snowflakes right?
-		if(set_species("Tajaran"))
+		if(set_species("Tajara"))
 			h_style = "Tajaran Ears"
 			name = "Bluespace Cat"
 			voice_name = "Bluespace Cat"

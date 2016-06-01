@@ -11,6 +11,16 @@
 		return
 
 	..()
+	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/weapon/rig)))
+		H << "<span class='danger'>You are now visible.</span>"
+		H.invisibility = 0
+
+		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
+		anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+		for(var/mob/O in oviewers(H))
+			O.show_message("[H.name] appears from thin air!",1)
+		playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
 
 	// Should this all be in Touch()?
 	if(istype(H))
@@ -32,7 +42,7 @@
 						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)")
 
 						var/armorblock = run_armor_check(M.zone_sel.selecting, "energy")
-						apply_effects(5,5,0,0,5,0,0,armorblock)
+						apply_effects(5,5,0,0,5,0,0,0,0,armorblock)
 						apply_damage(rand(5,25), BURN, M.zone_sel.selecting,armorblock)
 
 						if(prob(15))
@@ -144,32 +154,6 @@
 			return 1
 
 		if(I_HURT)
-			//Vampire code
-			if(H.zone_sel && M.zone_sel.selecting == "head")
-				if(H.mind && H.mind.vampire && !H.mind.vampire.draining)
-					if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
-						H << "\red Remove their mask!"
-						return 0
-					if((H.head && (H.head.flags & HEADCOVERSMOUTH)) || (H.wear_mask && (H.wear_mask.flags & MASKCOVERSMOUTH)))
-						H << "\red Remove your mask!"
-						return 0
-					if(mind && mind.vampire)
-						H << "\red Your fangs fail to pierce [src.name]'s cold flesh"
-						return 0
-					if(get_species() == "Machine")
-						H << "\red They have no blood"
-						return 0
-					//we're good to suck the blood, blaah
-					//and leave an attack log
-					H.attack_log += text("\[[time_stamp()]\] <font color='red'>Bit [src.name] ([src.ckey]) in the neck and draining their blood</font>")
-					src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been bit in the neck by [H.name] ([H.ckey])</font>")
-					msg_admin_attack("[key_name_admin(H)] bit [key_name_admin(src)] in the neck - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>")
-					H.handle_bloodsucking(src)
-				//					var/datum/organ/external/affecting = get_organ(src.zone_sel.selecting)
-				//					affecting.take_damage(10,0,1,0,"dual puncture marks") //this does not work and causes runtimes.
-					return
-				//end vampire codes
-
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return

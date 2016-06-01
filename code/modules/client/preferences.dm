@@ -32,6 +32,7 @@ datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
+	var/current_character = 0			//SQL character ID.
 	var/savefile_version = 0
 
 	//non-preference stuff
@@ -135,17 +136,34 @@ datum/preferences
 	var/slot_name = ""
 
 /datum/preferences/New(client/C)
-	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
+	if (config.sql_saves && C.need_saves_migrated)
+		var/dat = "<center>The server attempted to automatically migrate your saves from the old file-system onto an SQL database.<br>"
+		dat += "This operation was "
+		if (!handle_saves_migration(C))
+			error("Failed migrating saves from [C.ckey] to the database!")
+			dat += "<font color='red'><b>unsuccessful!</b></font><br><br>"
+			dat += "There was most likely an error in one of the SQL commands used to handle this migration. Do not worry: your saves are still safe in the old system and retreivable. Please contact Skull132 <b>immediately</b> in order to have the issue resolved. Until such a time, you will have to play without your old characters.</center>"
+		else
+			dat += "<font color='green'><b>successful!</b></font><br><br>"
+			dat += "All of your character and preference data should be now neatly housed on the SQL database. Please look over it to see if anything is wrong or otherwise messed up. If you find something like that, please contact Skull132 <b>immediately.</b> Your old saves are still completely safe on the old system, should anything have gone wrong!<br><br>"
+			dat += "<b>You should now immediately load a character. Otherwise you risk overriding one of your characters!</b> Once that is done, everything shuold be fine.</center>"
+
+		C << browse(dat, "window=migrate_status")
+		update_migrate_status(C)
+
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			if(load_preferences())
-				if(load_character())
+			if(handle_preferences_load(C))
+				if(handle_character_load(get_default_character(), C))
 					return
+
+	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
-
 	gear = list()
+
+	ZeroSkills(1)
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
@@ -243,7 +261,14 @@ datum/preferences
 		user << browse_rsc(preview_icon_side, "previewicon2.png")
 	var/dat = "<html><body><center>"
 
-	if(path)
+	if (config.sql_saves)
+		dat += "<center>"
+		dat += "<a href=\"byond://?src=\ref[user];preference=open_load_dialog\">Load another character</a> - "
+		dat += "<a href=\"byond://?src=\ref[user];preference=save\">Save character</a> - "
+		dat += "<a href=\"byond://?src=\ref[user];preference=reload\">Discard changes</a> - "
+		dat += "<a href=\"byond://?src=\ref[user];preference=delete_character_sql\">Delete Character</a>"
+		dat += "</center>"
+	else if (path)
 		dat += "<center>"
 		dat += "Slot <b>[slot_name]</b> - "
 		dat += "<a href=\"byond://?src=\ref[user];preference=open_load_dialog\">Load slot</a> - "
@@ -449,10 +474,14 @@ datum/preferences
 	dat += "</td></tr></table><hr><center>"
 
 	if(!IsGuestKey(user.key))
-		dat += "<a href='?_src_=prefs;preference=load'>Undo</a> - "
-		dat += "<a href='?_src_=prefs;preference=save'>Save Setup</a> - "
-
-	dat += "<a href='?_src_=prefs;preference=reset_all'>Reset Setup</a>"
+		if (config.sql_saves)
+			dat += "<a href=\"byond://?_src_=prefs;preference=save\">Save character</a> - "
+			dat += "<a href=\"byond://?_src_=prefs;preference=reload\">Discard changes</a> - "
+			dat += "<a href=\"byond://?_src_=prefs;preference=delete_character_sql\">Delete Character</a>"
+		else
+			dat += "<a href='?_src_=prefs;preference=load'>Undo</a> - "
+			dat += "<a href='?_src_=prefs;preference=save'>Save Setup</a> - "
+			dat += "<a href='?_src_=prefs;preference=reset_all'>Reset Setup</a>"
 	dat += "</center></body></html>"
 
 	user << browse(dat, "window=preferences;size=560x736")
@@ -1363,7 +1392,7 @@ datum/preferences
 						s_tone = 35 - max(min( round(new_s_tone), 220),1)
 
 				if("skin")
-					if(species == "Unathi" || species == "Tajara" || species == "Skrell" || species == "Machine")
+					if(species == "Unathi" || species == "Tajara" || species == "Skrell" || species == "Machine" || species == "Vaurca")
 						var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(r_skin, g_skin, b_skin)) as color|null
 						if(new_skin)
 							r_skin = hex2num(copytext(new_skin, 2, 4))
@@ -1597,23 +1626,34 @@ datum/preferences
 					toggles ^= CHAT_GHOSTRADIO
 
 				if("save")
-					save_preferences()
-					save_character()
+					handle_preferences_save(user.client)
+					handle_character_save(user.client)
 
 				if("reload")
-					load_preferences()
-					load_character()
+					handle_preferences_load(user.client)
+					handle_character_load(get_default_character(), user.client)
 
 				if("open_load_dialog")
 					if(!IsGuestKey(user.key))
-						open_load_dialog(user)
+						if (config.sql_saves)
+							open_load_dialog_sql(user)
+						else
+							open_load_dialog_file(user)
 
 				if("close_load_dialog")
 					close_load_dialog(user)
 
 				if("changeslot")
-					load_character(text2num(href_list["num"]))
+					handle_character_load(text2num(href_list["num"]), user.client)
 					close_load_dialog(user)
+
+				if("new_character_sql")
+					new_character_sql(user.client)
+					close_load_dialog(user)
+
+				if("delete_character_sql")
+					delete_character_sql(user.client)
+					new_character_sql(user.client)
 
 	ShowChoices(user)
 	return 1
@@ -1726,7 +1766,46 @@ datum/preferences
 			message_admins("[character] ([character.ckey]) has spawned with their gender as plural or neuter. Please notify coders.")
 			character.gender = MALE
 
-/datum/preferences/proc/open_load_dialog(mob/user)
+/datum/preferences/proc/open_load_dialog_sql(mob/user)
+	var/dat = "<body>"
+	dat += "<tt><center>"
+
+	for(var/ckey in preferences_datums)
+		var/datum/preferences/D = preferences_datums[ckey]
+		if(D == src)
+			establish_db_connection(dbcon)
+			if(!dbcon.IsConnected())
+				return open_load_dialog_file(user)
+
+			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey ORDER BY id ASC")
+			query.Execute(list(":ckey" = user.client.ckey))
+
+			dat += "<b>Select a character slot to load</b><hr>"
+			var/name
+			var/id
+
+			while (query.NextRow())
+				id = text2num(query.item[1])
+				name = query.item[2]
+				if (id == current_character)
+					dat += "<b><a href='?_src_=prefs;preference=changeslot;num=[id];'>[name]</a></b><br>"
+				else
+					dat += "<a href='?_src_=prefs;preference=changeslot;num=[id];'>[name]</a><br>"
+
+			dat += "<hr>"
+			dat += "<b>[query.RowCount()]/[config.character_slots] slots used</b><br>"
+			if (query.RowCount() < config.character_slots)
+				dat += "<a href='byond://?_src_=prefs;preference=new_character_sql;'>New Character</a>"
+			else
+				dat += "<strike>New Character</strike>"
+
+	dat += "<hr>"
+	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
+	dat += "</center></tt>"
+	user << browse(dat, "window=saves;size=300x390")
+
+
+/datum/preferences/proc/open_load_dialog_file(mob/user)
 	var/dat = "<body>"
 	dat += "<tt><center>"
 
@@ -1741,7 +1820,6 @@ datum/preferences
 			if(i==default_slot)
 				name = "<b>[name]</b>"
 			dat += "<a href='?_src_=prefs;preference=changeslot;num=[i];'>[name]</a><br>"
-
 	dat += "<hr>"
 	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
 	dat += "</center></tt>"

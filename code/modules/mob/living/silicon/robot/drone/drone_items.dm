@@ -27,6 +27,19 @@
 	var/obj/item/wrapped = null // Item currently being held.
 
 	var/force_holder = null //
+	var/justdropped = 0//When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
+
+/obj/item/weapon/gripper/proc/grip_item(obj/item/I as obj, mob/user as mob)
+	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
+	if (!wrapped)
+		for(var/typepath in can_hold)
+			if(istype(I,typepath))
+				user << "You collect \the [I]."
+				I.loc = src
+				wrapped = I
+				return 1
+	return 0
+
 
 // VEEEEERY limited version for mining borgs. Basically only for swapping cells and upgrading the drills.
 /obj/item/weapon/gripper/miner
@@ -71,6 +84,20 @@
 		/obj/item/weapon/reagent_containers/glass,
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube
 
+		)
+
+/obj/item/weapon/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
+	name = "chemistry gripper"
+	icon_state = "gripper-sci"
+	desc = "A specialised grasping tool designed for working in chemistry and pharmaceutical labs"
+
+	can_hold = list(
+		/obj/item/weapon/reagent_containers/glass,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/reagent_containers/spray,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/weapon/hand_labeler,
+		/obj/item/stack/material/phoron
 		)
 
 /obj/item/weapon/gripper/service //Used to handle food, drinks, and seeds.
@@ -135,6 +162,13 @@
 		return 1
 	return 0
 
+/obj/item/weapon/gripper/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if (wrapped)
+		var/resolved = wrapped.attackby(O,user)
+		if(!resolved && wrapped && O)
+			O.afterattack(wrapped,user,1)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+	return
+
 /obj/item/weapon/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 
 	if(!proximity)
@@ -165,7 +199,17 @@
 			wrapped = null
 			return
 
-	else if(istype(target,/obj/item)) //Check that we're not pocketing a mob.
+	else if (istype(target, /obj/item/weapon/storage/box))
+		for (var/obj/item/C in target.contents)
+			for(var/typepath in can_hold)
+				if(istype(C,typepath))
+					user << "You grab the [C] from inside the box."
+					C.loc = src
+					return
+		user << "There is nothing inside the box that your gripper can collect"
+		return
+
+	else if(istype(target,/obj/item) && !justdropped) //Check that we're not pocketing a mob.
 
 		//...and that the item is not in a container.
 		if(!isturf(target.loc))
@@ -189,7 +233,7 @@
 		else
 			user << "<span class='danger'>Your gripper cannot hold \the [target].</span>"
 
-	else if(istype(target,/obj/machinery/power/apc))
+	else if(istype(target,/obj/machinery/power/apc) && !justdropped)
 		var/obj/machinery/power/apc/A = target
 		if(A.opened)
 			if(A.cell)
@@ -206,7 +250,7 @@
 
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
 
-	else if(istype(target,/mob/living/silicon/robot))
+	else if(istype(target,/mob/living/silicon/robot) && !justdropped)
 		var/mob/living/silicon/robot/A = target
 		if(A.opened)
 			if(A.cell)
@@ -221,6 +265,11 @@
 
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
 
+
+	else if (!justdropped)
+		target.attack_ai(user)
+
+	justdropped = 0
 //TODO: Matter decompiler.
 /obj/item/weapon/matter_decompiler
 

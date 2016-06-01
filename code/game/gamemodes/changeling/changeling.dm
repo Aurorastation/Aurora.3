@@ -6,5 +6,5 @@
 	required_players = 2
 	required_enemies = 1
 	end_on_antag_death = 1
-	antag_scaling_coeff = 10
+	antag_scaling_coeff = 8
 	antag_tags = list(MODE_CHANGELING)

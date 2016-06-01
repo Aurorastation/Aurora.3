@@ -173,7 +173,7 @@
 
 /datum/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
-		if(M.canmove && !M.restrained() && istype(M.loc, /turf/space))
+		if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 			step(M, pick(cardinal))
 		if(prob(5))
 			M.emote(pick("twitch", "drool", "moan"))
@@ -187,7 +187,7 @@
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
-		if(M.canmove && !M.restrained() && istype(M.loc, /turf/space))
+		if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 			step(M, pick(cardinal))
 		if(prob(5))
 			M.emote(pick("twitch", "drool", "moan"))
@@ -201,7 +201,7 @@
 	color = "#808080"
 
 /datum/reagent/nitrogen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
+	if(alien == IS_VOX )
 		M.adjustOxyLoss(-removed * 3)
 
 /datum/reagent/oxygen
@@ -212,7 +212,7 @@
 	color = "#808080"
 
 /datum/reagent/oxygen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
+	if(alien == IS_VOX|| M.get_species() == "Vaurca")
 		M.adjustToxLoss(removed * 3)
 
 /datum/reagent/phosphorus

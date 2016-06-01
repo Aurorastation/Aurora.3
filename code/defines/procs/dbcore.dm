@@ -123,7 +123,7 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 	var/result = _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
 
 	if (ErrorMsg())
-		log_debug("SQL Error: '[ErrorMsg()]'")
+		error("SQL Error: '[ErrorMsg()]'")
 
 	return result
 
@@ -182,7 +182,7 @@ DBQuery/proc/SetConversion(column,conversion)
 * Returns the parsed SQL query upon completion.
 * - Skull132
 */
-DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, var/pass_not_found = 0)
+/DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, var/pass_not_found = 0)
 	if (!query_to_parse || !argument_list || !argument_list.len)
 		log_debug("parseArguments() failed! Improper arguments sent!")
 		return 0
@@ -201,16 +201,35 @@ DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, v
 			argument = dbcon.Quote(argument)
 		else if (isnum(argument))
 			argument = "[argument]"
+		else if (istype(argument, /list))
+			argument = parse_db_lists(argument)
 		else if (isnull(argument))
 			argument = "NULL"
 		else
 			log_debug("parseArguments() failed! Cannot identify argument!")
+			log_debug("Placeholder: '[placeholder]'. Argument: '[argument]'")
 			return 0
 
 		query_to_parse = replacetextEx(query_to_parse, placeholder, argument)
 
 	return query_to_parse
 
+/DBQuery/proc/parse_db_lists(var/list/argument)
+	if (!argument || !istype(argument) || !argument.len)
+		return "NULL"
+
+	var/text = ""
+	var/count = argument.len
+	for (var/i = 1, i <= count, i++)
+		if (isnum(argument[i]))
+			text += "[argument[i]]"
+		else
+			text += dbcon.Quote(argument[i])
+
+		if (i != count)
+			text += ", "
+
+	return "([text])"
 
 DBColumn
 	var/name

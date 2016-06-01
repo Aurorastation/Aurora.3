@@ -165,7 +165,7 @@
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.hallucination = max(M.hallucination, 2)
+	M.hallucination = max(M.hallucination, 25)
 
 /datum/reagent/tramadol
 	name = "Tramadol"
@@ -182,7 +182,7 @@
 
 /datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.hallucination = max(M.hallucination, 2)
+	M.hallucination = max(M.hallucination, 40)
 
 /datum/reagent/oxycodone
 	name = "Oxycodone"
@@ -199,7 +199,7 @@
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 10)
-	M.hallucination = max(M.hallucination, 3)
+	M.hallucination = max(M.hallucination, 60)
 
 /* Other medicine */
 
@@ -385,6 +385,13 @@
 	for(var/obj/item/I in M.contents)
 		I.was_bloodied = null
 	M.was_bloodied = null
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		for (var/obj/item/organ/external/E in H.organs)//For each external bodypart
+			for (var/datum/wound/W in E.wounds)//We check each wound on that bodypart
+				W.germ_level -= min(removed*20, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
+				if (W.germ_level <= 0)
+					W.disinfected = 1//The wound becomes disinfected if fully cleaned
 
 /datum/reagent/sterilizine/touch_obj(var/obj/O)
 	O.germ_level -= min(volume*20, O.germ_level)

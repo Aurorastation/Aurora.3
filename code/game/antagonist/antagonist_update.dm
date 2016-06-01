@@ -90,3 +90,27 @@
 		// Minimum: initial_spawn_target
 		// Maximum: hard_cap or hard_cap_round
 		cur_max = max(initial_spawn_target,min(round(count/ticker.mode.antag_scaling_coeff),cur_max))
+
+// Updates the initial spawn target to match the player count.
+// Intended to stop 6 nuke ops in a 15 player round. RIP those rounds.
+/datum/antagonist/proc/update_initial_spawn_target()
+	// Default is a linear rise of one antag per 5 players.
+	var/modifier = 5
+
+	if (ticker.mode.antag_scaling_coeff)
+		modifier = ticker.mode.antag_scaling_coeff
+
+	var/count = 0
+
+	for (var/mob/living/M in player_list)
+		if (M.client)
+			count++
+
+	// Never pick less antags than we need to!
+	var/new_cap = max(initial_spawn_req, round(count/modifier))
+
+	// Default to the hardcap if we're about to surpass it
+	if (new_cap > hard_cap)
+		initial_spawn_target = hard_cap
+	else
+		initial_spawn_target = new_cap
