@@ -535,8 +535,23 @@
 	params[":facial_colour"] = facial_hex
 	params[":skin_tone"] = s_tone
 	params[":skin_colour"] = skin_hex
-	params[":hair_style"] = h_style
-	params[":facial_style"] = f_style
+
+	if (istext(h_style))
+		params[":hair_style"] = h_style
+	else if (istype(h_style, /datum/sprite_accessory/hair))
+		var/datum/sprite_accessory/hair/current_h = h_style
+		params[":hair_style"] = current_h.name
+	else
+		params[":hair_style"] = "Bald"
+
+	if (istext(f_style))
+		params[":facial_style"] = f_style
+	else if (istype(h_style, /datum/sprite_accessory/facial_hair))
+		var/datum/sprite_accessory/facial_hair/current_f = f_style
+		params[":facial_style"] = current_f.name
+	else
+		params[":facial_style"] = "Shaved"
+
 	params[":eyes_colour"] = eyes_hex
 	params[":underwear"] = underwear
 	params[":undershirt"] = undershirt
