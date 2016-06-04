@@ -25,26 +25,14 @@
 	h_style = "blue IPC screen"
 	..(new_loc, "Machine")
 
-/mob/living/carbon/human/monkey
-	density = 0
-
 /mob/living/carbon/human/monkey/New(var/new_loc)
 	..(new_loc, "Monkey")
-
-/mob/living/carbon/human/farwa
-	density = 0
 
 /mob/living/carbon/human/farwa/New(var/new_loc)
 	..(new_loc, "Farwa")
 
-/mob/living/carbon/human/neaera
-	density = 0
-
 /mob/living/carbon/human/neaera/New(var/new_loc)
 	..(new_loc, "Neaera")
-
-/mob/living/carbon/human/stok
-	density = 0
 
 /mob/living/carbon/human/stok/New(var/new_loc)
 	..(new_loc, "Stok")

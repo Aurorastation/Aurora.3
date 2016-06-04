@@ -3,7 +3,7 @@
 	name = "holder"
 	desc = "You shouldn't ever see this."
 	icon = 'icons/mob/held_mobs.dmi'
-	slot_flags = null
+	slot_flags = 0
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
 	var/mob/living/contained = null
 
@@ -91,7 +91,7 @@
 	desc = "It used to be a little plant critter"
 	icon_state = "nymph_dead"
 	origin_tech = "magnets=3;biotech=5"
-	slot_flags = null
+	slot_flags = 0
 	w_class = 2
 
 
@@ -116,7 +116,7 @@
 	desc = "It's a dead cat."
 	icon_state = "cat_tabby_dead"
 	origin_tech = null
-	slot_flags = null
+	slot_flags = 0
 	w_class = 3
 
 /obj/item/weapon/holder/cat/black
@@ -125,7 +125,7 @@
 
 /obj/item/weapon/holder/cat/black/dead
 	icon_state = "cat_black_dead"
-	slot_flags = null
+	slot_flags = 0
 
 /obj/item/weapon/holder/cat/kitten
 	name = "kitten"
@@ -135,7 +135,7 @@
 
 /obj/item/weapon/holder/cat/kitten/dead
 	icon_state = "cat_kitten_dead"
-	slot_flags = null
+	slot_flags = 0
 	w_class = 1
 
 /obj/item/weapon/holder/borer
@@ -214,7 +214,7 @@
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
 	icon_state = "lizard"
 	origin_tech = "null"
-	slot_flags = null
+	slot_flags = 0
 	w_class = 1
 
 /obj/item/weapon/holder/lizard/dead
@@ -226,7 +226,7 @@
 	name = "chick"
 	desc = "It's a fluffy little chick, until it grows up"
 	origin_tech = "null"
-	slot_flags = null
+	slot_flags = 0
 	icon_state = "chick"
 	w_class = 1
 
@@ -239,7 +239,7 @@
 	desc = "It's a feathery tasty-looking chicken"
 	icon_state = "chicken_brown"
 	origin_tech = "null"
-	slot_flags = null
+	slot_flags = 0
 	w_class = 2
 
 /obj/item/weapon/holder/chicken/brown
