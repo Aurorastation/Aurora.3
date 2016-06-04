@@ -17,10 +17,19 @@
 	var/datum/seed/seed
 	var/harvest_time
 	var/min_explode_time = 1200
+	density = 0
+	holder_type = /obj/item/weapon/holder/mushroom
 
 /mob/living/simple_animal/mushroom/New()
 	..()
 	harvest_time = world.time
+
+/mob/living/simple_animal/mushroom/attack_hand(mob/living/carbon/human/M as mob)
+	if (src.stat & DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
+		get_scooped(M)
+		return
+	else
+		..()
 
 /mob/living/simple_animal/mushroom/verb/spawn_spores()
 
@@ -47,6 +56,11 @@
 	if(prob(30))
 		spore_explode()
 		return
+	else
+		src.stat |= DEAD
+		name = "mushroom"
+		desc = "Shame, he was a really fun-gi"
+		holder_type = /obj/item/weapon/holder/mushroom/dead
 	..()
 
 /mob/living/simple_animal/mushroom/proc/spore_explode()
