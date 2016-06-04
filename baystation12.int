@@ -1,11 +1,6 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1465068369
-DIR: .git .git\logs .git\logs\refs .git\logs\refs\heads .git\logs\refs\remotes .git\logs\refs\remotes\origin .git\refs .git\refs\heads .git\refs\remotes .git\refs\remotes\origin code code\_onclick code\_onclick\hud code\datums code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\game code\game\antagonist code\game\antagonist\station code\game\dna code\game\dna\genes code\game\jobs\job code\game\machinery code\game\machinery\computer code\game\objects\items code\game\objects\items\devices\radio code\modules code\modules\admin code\modules\assembly code\modules\clothing\head code\modules\mob code\modules\mob\language code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\alien code\modules\mob\living\carbon\alien\diona code\modules\mob\living\carbon\human code\modules\mob\living\carbon\human\species code\modules\mob\living\carbon\human\species\station code\modules\mob\living\silicon code\modules\mob\living\silicon\pai code\modules\mob\living\silicon\robot code\modules\mob\living\silicon\robot\drone code\modules\mob\living\simple_animal code\modules\mob\living\simple_animal\friendly code\modules\organs code\modules\surgery html html\templates icons icons\mob icons\mob\human_races icons\mob\items icons\mob\species icons\mob\species\vox icons\obj icons\obj\clothing icons\obj\machines sound sound\effects tools 
-AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
-LAST_COMPILE_VERSION: 509.1319
-WINDOW: code\modules\mob\holder.dm;code\modules\admin\topic.dm;code\modules\mob\living\carbon\human\human_species.dm;code\modules\mob\mob.dm
-FILE: code\modules\mob\mob.dm
+AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
