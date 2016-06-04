@@ -111,7 +111,7 @@
 		src.ear_damage -= 0.05
 		src.ear_damage = max(src.ear_damage, 0)
 
-	src.density = !( src.lying )
+	//src.density = !( src.lying )
 
 	if ((src.sdisabilities & BLIND))
 		src.blinded = 1
