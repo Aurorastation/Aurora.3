@@ -89,6 +89,7 @@
 /obj/item/weapon/holder/diona/dead
 	name = "diona nymph"
 	desc = "It used to be a little plant critter"
+	icon_state = "nymph_dead"
 	origin_tech = "magnets=3;biotech=5"
 	slot_flags = null
 	w_class = 2
@@ -119,6 +120,7 @@
 	w_class = 3
 
 /obj/item/weapon/holder/cat/black
+	icon_state = "cat_black"
 	slot_flags = SLOT_HEAD
 
 /obj/item/weapon/holder/cat/black/dead
