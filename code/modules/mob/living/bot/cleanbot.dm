@@ -38,6 +38,10 @@
 	if(radio_controller)
 		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
+	spawn(10)
+		custom_emote(4, "[src] is being shut down remotely as a result of temporary NanoTrasen policy.")
+		gib()
+
 /mob/living/bot/cleanbot/proc/handle_target()
 	if(loc == target.loc)
 		if(!cleaning)
@@ -59,6 +63,9 @@
 
 /mob/living/bot/cleanbot/Life()
 	..()
+
+	//Denied.jpg until this shit is fixed.
+	return
 
 	var/found_spot
 	var/current_tile
