@@ -86,6 +86,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
+		/obj/item/weapon/gun/projectile/shotgun/pump/boltaction,
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/weapon/gun/projectile/pistol,
