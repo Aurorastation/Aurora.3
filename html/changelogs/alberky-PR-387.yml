@@ -35,3 +35,4 @@ delete-after: True
 changes: 
   - rscadd: "Added bolt action rifles, raiders have a chance to spawn with one."
   - rscadd: "Added 7.62mm ammo clips to the hacked autolathe."
+  - rscadd: "Added a new abandoned crate to mining."
