@@ -205,6 +205,14 @@
 /obj/item/ammo_magazine/chameleon/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/boltaction
+	name = "ammo clip (7.62mm)"
+	icon_state = "762"
+	ammo_type = /obj/item/ammo_casing/a762
+	caliber = "a762"
+	max_ammo = 5
+	multiple_sprites = 1
+
 /*
 //unused garbage
 
