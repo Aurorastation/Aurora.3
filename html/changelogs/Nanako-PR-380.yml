@@ -1,68 +1,43 @@
-Employment Record
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#################################
 
-Name: Mrrazuraghran Halmrrdynh ID: 42ee
-Sex: male
-Age: 21
-Fingerprint: f84fc37622fb7aaf58593c3332b95c42
-Physical Status: Active
-Mental Status: Stable
-Employment/Skills Summary:
-Name: Mrrazuraghran Srandaryel Halmrrdynh
-Date of Birth: Apr 08, 2437
-Species: Tajaran
-Gender: Male
-Clearance Level: Intern (Security)
-Citizenship: People's Republic of Ahdomai
-Employed As: Security Cadet
-Height: 185 cm (6'1")
-Weight: 127.01 kg (280 lb)
+# Your name.  
+author: Nanako
 
-Identifying Features:
-Dark Brown fur. Green eyes. Heavy build. 
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
 
-General Notes:
-Contact Addresses)
-* mrrazuraghranhalmrrdynh@nt.bst
-* 1992-001-22945-24553
-Residence)
-* 901 E Wiy'la St, Nal'Tor, People's Republic of Ahdomai
-Education)
-* High-School Equivalence
-
-Public Medical Notes:
-Able for Extra-Vehicular Activity
-Major Risk for Heat Stroke, Heat Exhaustion, and Hyperthermia
-Contacts)
-Eb'i Halmrrdynh: Mother, 1002-19582-11185-23563
-Mstislava Po'wr: Sister, 2285-22573-19924-00192
------
-Pre-NanoTrasen Employment History:
-22NOV2457-27NOV2457
-* Federal Parcel, People's Republic of Ahdomai
-* Supervisor: Brian Goddu
-* Position: Package Handler
-* Reason For Departure: Desire for employment in other field
-
-Formal Education History:
-Entry 22019-115: High School Education Equivalency Certification obtained 09AUG2453. 2250 or above on the five General Educational Development tests with no score below 410 needed for each subject
-* Language Arts) Writing: 460
-* Social Studies: 680
-* Science: 800
-* Language Arts) Reading: 500
-* Mathematics: 600
-
-NanoTrasen Employment History:
-12FEB2458: Application submitted
-13FEB2458: Applicant interviewed; interest expressed toward the supply field. Contacted for following information and training options
-28FEB2458: Two-Tier Background check performed. Record updated for Security (Entry 2202395-001). Education status verified (Entry 22019-115)
-02MAR2458: NDCLA Signed. Contract entered into database. Applicant assigned to NSS Exodus.
-03MAR2458: Assigned as Security Cadet, NSS Exodus
-
-Trained in the following:
-Hand-To-Hand Combat) Close Quarters Defensive Combat. Received basic training for closed/open fist defensive combat by Security Officer Sslazhir Yinzr. [Date of Training: 19MAR2458]
-Small Arms Weaponry) Operation of NanoTrasen Standard: NT Mark 58 Pistol, WT-550 Automatic Rifle, and Z8 Bulldog. Received small arms operation training by Security Officer Sslazhir Yinzr. [Date of Training: 19MAR2458]
-Less-Than-Lethal Weaponry) Operation of NanoTrasen Standard: Flashbang, Stunbaton, PepperSpray, Flash, and Taser. received LTL weaponry operation training by Security Officer Sslazhir Yinzr. [Date of Training: 21MAR2458]
-Security Operations) Brigging, Detainment, Patrol Duties, Detainee Processing: Received training on 
-Security SOP by Security Officer Centurion. [Date of Training: 22MAR2458]
-Extra-Vehicular Operations) Operations within an airless-enviroment, Planetary-Based EVA operations, Hull-Based EVA Operations. [Training began 12MAR2458 and concluded 26MAR2458]
-NanoTrasen Standard Operating Procedure) Basic Corporate SOP. [Two Hour Class Attended 04MAR2458]
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Most small animals can now be scooped up, including mice, lizards, chickens, chicks, kittens and walking mushrooms"
+  - rscadd: "All scoopable animals now have an individually appropriate size set, which determines whether they can fit in pockets/boxes/backpacks/trashbags, etc"
+  - rscadd: "Small animals now have a density of zero, allowing them to move under people, or be walked over, without blocking the tile"
+  - rscadd: "Scooped critters can now be petted or crushed while held in your hands, using help/harm intent"
+  - rscadd: "Drones and nymphs can now be petted while alive. They are picked up by dragging them onto yourself"
+  - tweak: "Dead cats can be picked up"
+  - bugfix: "Tabby cats now look correct when held in hand"
+  - bugfix: "Medical Records Laptops and Employment Records Consoles are no longer solid. Creatures that can walk on tables, can walk on them"

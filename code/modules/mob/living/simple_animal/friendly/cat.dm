@@ -88,7 +88,7 @@
 
 /mob/living/simple_animal/cat/death()
 	.=..()
-	stat |= DEAD
+	stat = DEAD
 	holder_type = /obj/item/weapon/holder/cat/dead
 
 

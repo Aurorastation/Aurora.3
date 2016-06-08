@@ -88,7 +88,7 @@
 
 /obj/item/weapon/holder/diona/dead
 	name = "diona nymph"
-	desc = "It used to be a little plant critter"
+	desc = "It used to be a little plant critter."
 	icon_state = "nymph_dead"
 	origin_tech = "magnets=3;biotech=5"
 	slot_flags = 0
@@ -176,7 +176,7 @@
 //Holders for mice
 /obj/item/weapon/holder/mouse
 	name = "mouse"
-	desc = "It's a fuzzy little critter"
+	desc = "It's a fuzzy little critter."
 	icon_state = "mouse_brown"
 	origin_tech = "biotech=2"
 	w_class = 1
@@ -193,7 +193,7 @@
 
 /obj/item/weapon/holder/deadmouse
 	name = "mouse"
-	desc = "It's filthy vermin, throw it in the trash"
+	desc = "It's filthy vermin, throw it in the trash."
 	icon_state = "mouse_gray_dead"
 	origin_tech = "null"
 	w_class = 1
@@ -224,7 +224,7 @@
 //Chicks and chickens
 /obj/item/weapon/holder/chick
 	name = "chick"
-	desc = "It's a fluffy little chick, until it grows up"
+	desc = "It's a fluffy little chick, until it grows up."
 	origin_tech = "null"
 	slot_flags = 0
 	icon_state = "chick"
@@ -236,7 +236,7 @@
 
 /obj/item/weapon/holder/chicken
 	name = "chicken"
-	desc = "It's a feathery tasty-looking chicken"
+	desc = "It's a feathery, tasty-looking chicken."
 	icon_state = "chicken_brown"
 	origin_tech = "null"
 	slot_flags = 0
@@ -275,5 +275,5 @@
 
 /obj/item/weapon/holder/mushroom/dead
 	name = "mushroom"
-	desc = "Shame, he was a really fun-guy"
+	desc = "Shame, he was a really fun-guy."
 	icon_state = "mushroom_dead"

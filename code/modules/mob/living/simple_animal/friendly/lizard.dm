@@ -20,7 +20,7 @@
 	density = 0
 
 /mob/living/simple_animal/lizard/attack_hand(mob/living/carbon/human/M as mob)
-	if (src.stat & DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
+	if (src.stat == DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
 		get_scooped(M)
 		return
 	else
@@ -29,4 +29,4 @@
 /mob/living/simple_animal/lizard/death()
 	.=..()
 	holder_type = /obj/item/weapon/holder/lizard/dead
-	desc = "It doesn't hiss anymore"
+	desc = "It doesn't hiss anymore."

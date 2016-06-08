@@ -25,7 +25,7 @@
 	harvest_time = world.time
 
 /mob/living/simple_animal/mushroom/attack_hand(mob/living/carbon/human/M as mob)
-	if (src.stat & DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
+	if (src.stat == DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
 		get_scooped(M)
 		return
 	else
@@ -57,7 +57,7 @@
 		spore_explode()
 		return
 	else
-		src.stat |= DEAD
+		src.stat = DEAD
 		name = "mushroom"
 		desc = "Shame, he was a really fun-gi"
 		holder_type = /obj/item/weapon/holder/mushroom/dead
