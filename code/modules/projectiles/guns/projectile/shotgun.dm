@@ -135,3 +135,15 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	w_class = 3
 	force = 5
+
+/obj/item/weapon/gun/projectile/shotgun/pump/boltaction
+	name = "\improper bolt action rifle"
+	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen."
+	icon_state = "moistnugget"
+	item_state = "moistnugget"
+	origin_tech = "combat=4;materials=2"
+	slot_flags = SLOT_BACK //no back sprite yet send help
+	load_method = SINGLE_CASING|SPEEDLOADER 
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	max_shells = 5
