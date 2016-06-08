@@ -210,6 +210,7 @@
 	icon_state = "762"
 	ammo_type = /obj/item/ammo_casing/a762
 	caliber = "a762"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1
 
