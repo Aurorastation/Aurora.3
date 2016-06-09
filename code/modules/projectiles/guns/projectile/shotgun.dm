@@ -142,7 +142,7 @@
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = "combat=4;materials=2"
-	slot_flags = SLOT_BACK //no back sprite yet send help
+	slot_flags = SLOT_BACK 
 	load_method = SINGLE_CASING|SPEEDLOADER 
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
