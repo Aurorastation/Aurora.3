@@ -36,3 +36,5 @@ changes:
   - rscadd: "Added bolt action rifles, raiders have a chance to spawn with one."
   - rscadd: "Added 7.62mm ammo clips to the hacked autolathe."
   - rscadd: "Added a new abandoned crate to mining."
+  - tweak: "Fixed uzis and added a magazine to them."
+  - imageadd: "A lot of old aurora sprites are back now, as well new sprites."
