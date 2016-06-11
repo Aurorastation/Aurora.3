@@ -345,13 +345,17 @@
 	set name = "Toggle Veil Walking (80)"
 	set desc = "You enter the veil, leaving only an incorporeal manifestation of you visible to the others."
 
-	var/datum/vampire/vampire = vampire_power(80, 0, 1)
+	var/datum/vampire/vampire = vampire_power(0, 0, 1)
 	if (!vampire)
 		return
 
 	if (vampire.holder)
 		vampire.holder.deactivate()
 	else
+		vampire = vampire_power(80, 0, 1)
+		if (!vampire)
+			return
+
 		var/obj/effect/dummy/veil_walk/holder = new /obj/effect/dummy/veil_walk(get_turf(loc))
 		holder.activate(src)
 
