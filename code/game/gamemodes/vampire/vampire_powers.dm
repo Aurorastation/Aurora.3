@@ -409,6 +409,18 @@
 		can_move = 1
 
 /obj/effect/dummy/veil_walk/process()
+	if (owner_mob.stat)
+		if (owner_mob.stat == 1)
+			owner_mob << "<span class='warning'>You cannot maintain this form while unconcious.</span>"
+			spawn(10)
+				if (owner_mob.stat == 1)
+					owner_mob << "<span class='danger'>You are ejected from the Veil.</span>"
+					deactivate()
+					return
+		else
+			deactivate()
+			return
+
 	if (owner_vampire.blood_usable >= 5)
 		owner_vampire.blood_usable -= 5
 
@@ -485,13 +497,16 @@
 	set name = "Blood Heal"
 	set desc = "At the cost of blood and time, heal any injuries you have sustained."
 
-	var/datum/vampire/vampire = vampire_power(15, 0)
+	var/datum/vampire/vampire = vampire_power(0, 0)
 	if (!vampire)
 		return
 
 	// Kick out of the already running loop.
 	if (vampire.status & VAMP_HEALING)
 		vampire.status &= ~VAMP_HEALING
+		return
+	else if (vampire.blood_usable < 15)
+		src << "<span class='warning'>You do not have enough usable blood. 15 needed.</span>"
 		return
 
 	vampire.status |= VAMP_HEALING
@@ -720,13 +735,16 @@
 	set name = "Presence (10)"
 	set desc = "Influences those weak of mind to look at you in a friendlier light."
 
-	var/datum/vampire/vampire = vampire_power(15, 0)
+	var/datum/vampire/vampire = vampire_power(0, 0)
 	if (!vampire)
 		return
 
 	if (vampire.status & VAMP_PRESENCE)
 		vampire.status &= ~VAMP_PRESENCE
 		src << "<span class='warning'>You are no longer influencing those weak of mind.</span>"
+		return
+	else if (vampire.blood_usable < 15)
+		src << "<span class='warning'>You do not have enough usable blood. 15 needed.</span>"
 		return
 
 	src << "<span class='notice'>You begin passively influencing the weak minded.</span>"
@@ -746,6 +764,11 @@
 	while (vampire.status & VAMP_PRESENCE)
 		// Run every 20 seconds
 		sleep(200)
+
+		if (stat)
+			src << "<span class='warning'>You cannot influence people around you while [stat == 1 ? "unconcious" : "dead"].</span>"
+			vampire.status &= ~VAMP_PRESENCE
+			break
 
 		for (var/mob/living/carbon/human/T in view(5))
 			if (T == src)
