@@ -214,6 +214,20 @@
 	max_ammo = 5
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c45uzi
+	name = "stick magazine (.45)"
+	icon_state = "uzi45"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = ".45"
+	max_ammo = 16
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45uzi/empty
+	initial_ammo = 0
+
+
 /*
 //unused garbage
 
