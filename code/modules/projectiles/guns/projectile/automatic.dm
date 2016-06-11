@@ -24,8 +24,9 @@
 	desc = "A lightweight, fast firing gun, for when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
 	w_class = 3
-	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
-	max_shells = 15
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/c45uzi
+	max_shells = 16
 	caliber = ".45"
 	origin_tech = "combat=5;materials=2;syndicate=8"
 	ammo_type = /obj/item/ammo_casing/c45
