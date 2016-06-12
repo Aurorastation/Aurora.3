@@ -265,3 +265,21 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
+	
+/obj/item/weapon/gun/projectile/automatic/tommygun
+	name = "\improper Tommygun"
+	desc = "A classic among criminals. Uses .45 rounds."
+	icon_state = "tommygun"
+	w_class = 3
+	max_shells = 50
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	slot_flags = SLOT_BELT
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/tommymag
+	allowed_magazines = list (/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
+
+
+/obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
