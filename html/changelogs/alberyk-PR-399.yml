@@ -34,3 +34,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - bugfix: "The round should end normally, when the gamemode is heist, after the emergency shuttle docks on central command."
+  - rscadd: "Force gloves are now available on the traitor uplink."
