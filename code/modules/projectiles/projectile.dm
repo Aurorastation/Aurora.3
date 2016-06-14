@@ -56,6 +56,7 @@
 	var/eyeblur = 0
 	var/drowsy = 0
 	var/agony = 0
+	var/incinerate = 0
 	var/embed = 0 // whether or not the projectile can embed itself in the mob
 
 	var/hitscan = 0		// whether the projectile should be hitscan
@@ -77,7 +78,7 @@
 	if(!isliving(target))	return 0
 	if(isanimal(target))	return 0
 	var/mob/living/L = target
-	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony, blocked) // add in AGONY!
+	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony, incinerate, blocked) // add in AGONY!
 	return 1
 
 //called when the projectile stops flying because it collided with something

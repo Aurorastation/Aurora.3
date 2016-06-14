@@ -92,7 +92,6 @@
 			else
 				user << "You need more welding fuel to complete this task."
 				return
-
 	if(istype(I, /obj/item/weapon/melee/energy/blade))
 		user << "You can't place that item inside the disposal unit."
 		return
@@ -124,8 +123,19 @@
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
 				msg_admin_attack("[usr] ([usr.ckey]) placed [GM] ([GM.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
 		return
-
 	if(isrobot(user))
+		if (istype(I, /obj/item/weapon/gripper))
+			var/obj/item/weapon/gripper/Gri = I
+			if (Gri.wrapped)
+				Gri.wrapped.loc = (src)
+				user << "You place \the [Gri.wrapped] into the [src]."
+				for(var/mob/M in viewers(src))
+					if(M == user)
+						continue
+					M.show_message("[user.name] places \the [Gri.wrapped] into the [src].", 3)
+				Gri.wrapped = null
+				Gri.justdropped = 1
+				update()
 		return
 	if(!I)
 		return
@@ -133,7 +143,6 @@
 	user.drop_item()
 	if(I)
 		I.loc = src
-
 	user << "You place \the [I] into the [src]."
 	for(var/mob/M in viewers(src))
 		if(M == user)

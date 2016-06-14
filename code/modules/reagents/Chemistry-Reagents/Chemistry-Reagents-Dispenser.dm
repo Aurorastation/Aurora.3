@@ -201,7 +201,7 @@
 	color = "#808080"
 
 /datum/reagent/nitrogen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
+	if(alien == IS_VOX )
 		M.adjustOxyLoss(-removed * 3)
 
 /datum/reagent/oxygen
@@ -212,7 +212,7 @@
 	color = "#808080"
 
 /datum/reagent/oxygen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
+	if(alien == IS_VOX|| M.get_species() == "Vaurca")
 		M.adjustToxLoss(removed * 3)
 
 /datum/reagent/phosphorus

@@ -112,6 +112,12 @@
 
 	// Handle dismantling or placing things on the table from here on.
 	if(isrobot(user))
+		if (istype(W, /obj/item/weapon/gripper))
+			var/obj/item/weapon/gripper/G = W
+			if (G.wrapped)
+				G.wrapped.loc = (src.loc)
+				G.wrapped = null
+				G.justdropped = 1
 		return
 
 	if(W.loc != user) // This should stop mounted modules ending up outside the module.

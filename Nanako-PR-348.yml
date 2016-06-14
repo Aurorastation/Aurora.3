@@ -22,7 +22,7 @@
 #################################
 
 # Your name.  
-author: LordFowl
+author: Nanako
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -33,13 +33,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added the option for Vaurca to have unique skin colours."
-  - rscadd: "Vaurca selection screen has a blurb + preview image."
-  - rscadd: "Added K'ois paste and fungi"
-  - rscadd: "Phoron no longer poisons Vaurca nor damages their eyes."
-  - rscadd: "Vaurca will recieve toxin damage if they breathe oxygen with broken lungs."
-  - rscadd: "Vaurca can no longer wear normal gloves or shoes."
-  - rscdel: "Vaurca can no longer gib lesser mobs via bite."
-  - rscdel: "Vaurca no longer have a slowness debuff."
-  - bugfix: "Vaurca are fully insulated again."
-  - bugfix: "Vaurca sprites have been fixed."
+  - bugfix: "Tajarans can now wear tajaran-specific gloves"
+  - bugfix: "Tajaran wardens, detectives and heads of security will properly spawn wearing black tajara gloves"
+
