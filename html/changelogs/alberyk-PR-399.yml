@@ -35,3 +35,4 @@ delete-after: True
 changes: 
   - bugfix: "The round should end normally, when the gamemode is heist, after the emergency shuttle docks on central command."
   - rscadd: "Force gloves are now available on the traitor uplink."
+  - tweak: "Roboticists starts now with a toolbelt, full of tools, instead of a toolbox."
