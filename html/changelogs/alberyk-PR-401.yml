@@ -1,0 +1,7 @@
+author: Alberky
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added tajaran and unathi gloves, a wallet and a new armband to the custom loadout."
+  - rscadd: "Added the Synthetic Intelligence Movement armband."
