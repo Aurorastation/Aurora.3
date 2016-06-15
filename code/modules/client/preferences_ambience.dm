@@ -18,7 +18,7 @@
 	set category = "Preferences"
 	set desc = "Toggles hearing ambient sound effects"
 	prefs.asfx_togs ^= ASFX_AMBIENCE
-	prefs.save_preferences()
+	prefs.handle_preferences_save(src)
 	if(prefs.asfx_togs & ASFX_AMBIENCE)
 		src << "You will now hear ambient sounds."
 	else
@@ -33,7 +33,7 @@
 	set desc = "Toggles hearing footstep sound effects"
 
 	prefs.asfx_togs ^= ASFX_FOOTSTEPS
-	prefs.save_preferences()
+	prefs.handle_preferences_save(src)
 	if(prefs.asfx_togs & ASFX_FOOTSTEPS)
 		src << "You will now hear footstep sounds."
 	else
@@ -45,10 +45,9 @@
 	set category = "SoundFx Prefs"
 	set desc = "Toggles hearing of the vote alarm"
 	prefs.asfx_togs ^= ASFX_VOTE
-	prefs.save_preferences()
+	prefs.handle_preferences_save(src)
 	if(prefs.asfx_togs & ASFX_VOTE)
 		src << "You will now hear the vote alarm."
 	else
 		src << "<font color='red'>You will no longer hear the vote alarm.</font>"
 	feedback_add_details("admin_verb","TSFXFV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	

@@ -1,8 +1,0 @@
-author: Lord Lag
-
-delete-after: True
-
-changes: 
-  - tweak: "Emergency Shutters no longer have alert pop-ups."
-  - bugfix: "Xenomorph facehuggers now react to protection properly."
-  - bugfix: "Vaurca Insulation fixed."

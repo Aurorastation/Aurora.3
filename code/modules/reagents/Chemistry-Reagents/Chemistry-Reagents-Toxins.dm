@@ -37,13 +37,18 @@
 	color = "#003333"
 	strength = 10
 
+/datum/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNATHI)
+		return
+	..()
+
 /datum/reagent/toxin/phoron
 	name = "Phoron"
 	id = "phoron"
 	description = "Phoron in its liquid form."
 	reagent_state = LIQUID
 	color = "#9D14DB"
-	strength = 30
+	strength = 4
 
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
@@ -230,7 +235,8 @@
 
 /datum/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.dna)
-		if(prob(removed * 0.1)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
+		if(prob(removed * 10)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
+			M << "Something feels different about you..."
 			randmuti(M)
 			if(prob(98))
 				randmutb(M)

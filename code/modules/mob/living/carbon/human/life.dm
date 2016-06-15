@@ -421,7 +421,7 @@
 				safe_pressure_min *= 1.25
 
 		var/safe_exhaled_max = 10
-		var/safe_toxins_max = 0.005
+		var/safe_toxins_max = 0.2
 		var/SA_para_min = 1
 		var/SA_sleep_min = 5
 		var/inhaled_gas_used = 0
@@ -526,7 +526,7 @@
 		if(toxins_pp > safe_toxins_max)
 			var/ratio = (poison/safe_toxins_max) * 10
 			if(reagents)
-				reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+				reagents.add_reagent(poison_type, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 				breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 			phoron_alert = max(phoron_alert, 1)
 		else
@@ -719,7 +719,6 @@
 
 		return
 
-	
 	proc/adjust_body_temperature(current, loc_temp, boost)
 		var/temperature = current
 		var/difference = abs(current-loc_temp)	//get difference
@@ -736,7 +735,6 @@
 			temperature = max(loc_temp, temperature-change)
 		temp_change = (temperature - current)
 		return temp_change
-	
 
 	proc/stabilize_body_temperature()
 		if (species.flags & IS_SYNTHETIC)

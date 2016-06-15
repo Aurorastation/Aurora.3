@@ -197,7 +197,7 @@
 	pr_give_air = new /datum/global_iterator/mecha_tank_give_air(list(src))
 	pr_internal_damage = new /datum/global_iterator/mecha_internal_damage(list(src),0)
 
-/obj/mecha/proc/do_after(delay as num)
+/obj/mecha/proc/do_after_mecha(delay as num)
 	sleep(delay)
 	if(src)
 		return 1
@@ -391,7 +391,7 @@
 			if(!src.check_for_support())
 				src.pr_inertial_movement.start(list(src,direction))
 				src.log_message("Movement control lost. Inertial movement started.")
-		if(do_after(step_in))
+		if(do_after_mecha(step_in))
 			can_move = 1
 		return 1
 	return 0
@@ -1552,12 +1552,10 @@
 		var/mob/occupant = P.occupant
 
 		user.visible_message("\red [user] begins opening the hatch on \the [P]...", "\red You begin opening the hatch on \the [P]...")
-		if (!do_after(user, 40, needhand=0))
-			return
-
-		user.visible_message("\red [user] opens the hatch on \the [P] and removes [occupant]!", "\red You open the hatch on \the [P] and remove [occupant]!")
-		P.go_out()
-		P.log_message("[occupant] was removed.")
+		if (do_after(user, 40, needhand=0))
+			user.visible_message("\red [user] opens the hatch on \the [P] and removes [occupant]!", "\red You open the hatch on \the [P] and remove [occupant]!")
+			P.go_out()
+			P.log_message("[occupant] was removed.")
 		return
 	if(href_list["add_req_access"] && add_req_access && filter.getObj("id_card"))
 		if(!in_range(src, usr))	return
@@ -1592,7 +1590,7 @@
 		src.occupant_message("Recalibrating coordination system.")
 		src.log_message("Recalibration of coordination system started.")
 		var/T = src.loc
-		if(do_after(100))
+		if(do_after_mecha(100))
 			if(T == src.loc)
 				src.clearInternalDamage(MECHA_INT_CONTROL_LOST)
 				src.occupant_message("<font color='blue'>Recalibration successful.</font>")
