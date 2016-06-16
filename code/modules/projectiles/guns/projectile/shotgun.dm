@@ -166,7 +166,7 @@
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER) 
 			name = "\improper obrez"
 			desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
-			user << "<span class='warning'>You shorten the barrel and stock of \the [src]!</span>"
+			user << "<span class='warning'>You shorten the barrel and stock of the rifle!</span>"
 	else
 		..()
 		
