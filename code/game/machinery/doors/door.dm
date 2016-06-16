@@ -452,7 +452,7 @@
 
 /obj/machinery/door/allowed(mob/M)
 	if(!requiresID())
-		return ..(null) //don't care who they are or what they have, act as if they're NOTHING
+		return 1//If IDscan is disabled, anyone can go through
 	return ..(M)
 
 /obj/machinery/door/update_nearby_tiles(need_rebuild)
