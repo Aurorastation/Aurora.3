@@ -16,6 +16,7 @@
 	var/spray_size = 3
 	var/list/spray_sizes = list(1,3)
 	volume = 250
+	var/safety = 0
 
 /obj/item/weapon/reagent_containers/spray/New()
 	..()
@@ -34,6 +35,11 @@
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
 		user << "<span class='notice'>\The [src] is empty!</span>"
+		return
+
+	if(safety)
+		playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
+		user << "<span class='notice'>\The safety is on!</span>"
 		return
 
 	Spray_at(A, user, proximity)
@@ -121,7 +127,7 @@
 	item_state = "pepperspray"
 	possible_transfer_amounts = null
 	volume = 40
-	var/safety = 1
+	safety = 1
 
 /obj/item/weapon/reagent_containers/spray/pepper/New()
 	..()
