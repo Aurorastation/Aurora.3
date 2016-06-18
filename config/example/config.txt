@@ -362,6 +362,9 @@ STARLIGHT 0
 ## Uncomment this to house whitelists on the SQL database.
 # SQL_WHITELISTS
 
+## Uncomment this to house player preferences and characters on the SQL database.
+# SQL_SAVES
+
 ## Uncomment this to use the discord bot.
 # USE_DISCORD_BOT
 

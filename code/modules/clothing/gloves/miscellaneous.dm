@@ -61,7 +61,7 @@
 /obj/item/clothing/gloves/latex/tajara
 	name = "tajara latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
-	species_restricted = list("Tajaran")
+	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/watch
 	desc = "A small wristwatch, capable of telling time."

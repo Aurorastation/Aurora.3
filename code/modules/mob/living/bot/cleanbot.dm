@@ -38,6 +38,9 @@
 	if(radio_controller)
 		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
+	spawn(10)
+		gib()
+
 /mob/living/bot/cleanbot/proc/handle_target()
 	if(loc == target.loc)
 		if(!cleaning)
@@ -59,6 +62,9 @@
 
 /mob/living/bot/cleanbot/Life()
 	..()
+
+	// Nope.jpg
+	return
 
 	var/found_spot
 	var/current_tile

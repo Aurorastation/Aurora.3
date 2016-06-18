@@ -155,7 +155,8 @@ var/list/gamemode_cache = list()
 	var/admin_legacy_system = 0	//Defines whether the server uses the legacy admin system with admins.txt or the SQL system. Config option in config.txt
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
 	var/use_age_restriction_for_jobs = 0 //Do jobs use account age restrictions? --requires database
-	var/sql_whitelists = 0	//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
+	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
+	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
 
 	var/simultaneous_pm_warning_timeout = 100
 
@@ -683,6 +684,9 @@ var/list/gamemode_cache = list()
 
 				if("webint_url")
 					config.webint_url = value
+
+				if("sql_saves")
+					config.sql_saves = 1
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

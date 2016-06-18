@@ -78,7 +78,7 @@ mob/var/obj/effect/decal/typing_indicator
 	set category = "Preferences"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
 	prefs.toggles ^= SHOW_TYPING
-	prefs.save_preferences()
+	prefs.handle_preferences_save(src)
 	src << "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator."
 
 	// Clear out any existing typing indicator.
