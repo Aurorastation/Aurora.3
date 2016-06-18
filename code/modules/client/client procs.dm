@@ -346,6 +346,11 @@
 	var/DBQuery/query_accesslog = dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`id`,`datetime`,`serverip`,`ckey`,`ip`,`computerid`) VALUES(null,Now(),'[serverip]','[sql_ckey]','[sql_ip]','[sql_computerid]');")
 	query_accesslog.Execute()
 
+/client/verb/setup_character()
+	set name = "Setup Character"
+	set category = "OOC"
+	if(prefs)
+		prefs.ShowChoices(usr)
 
 #undef TOPIC_SPAM_DELAY
 #undef UPLOAD_LIMIT
