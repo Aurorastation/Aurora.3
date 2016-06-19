@@ -61,6 +61,7 @@
 	desc = "A receiver and trigger assembly for a firearm."
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "receiver"
+	
 	var/buildstate = 0
 
 /obj/item/weapon/receivergun/update_icon()
