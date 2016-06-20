@@ -275,10 +275,9 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	slot_flags = SLOT_BELT
+	ammo_type = /obj/item/ammo_casing/c45
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/tommymag
-	allowed_magazines = list (/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
-
 
 /obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
 	..()
