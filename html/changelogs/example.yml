@@ -22,7 +22,7 @@
 #################################
 
 # Your name.  
-author: LordFowl
+author: N3X15
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -33,21 +33,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Vaurca hivemind language added."
-  - rscadd: "Vaurca appropriate name generator added."
-  - rscadd: "Tied Vaurca language to their neural socket organ."
-  - rscadd: "Added a method for non-Vaurca to intercept the Vaurca hivenet so long as they construct the correct item."
-  - rscadd: "Sprites for Vaurca organs."
-  - rscadd: "Neutered all Vaurca."
-  - rscadd: "Cutting open a Vaurca for surgery now requires heavier equipment."
-  - rscadd: "Injecting a Vaurca with a syringe now will take time."
-  - rscadd: "Adds various Vaurca cosmetic items available via loadout."
-  - rscadd: "Adds a few new burst-fire weapons exploiting the burstfire fix - obtainable via research or adminbus."
-  - rscadd: "Ports the ability to stick heads on spears from Paradise-code."
-  - rscadd: "Added an error message when trying to bite someone before the cooldown expires."
-  - rscdel: "Removed spoken Vaurca language."
-  - tweak: "Heavily nerfed K'ois' properties."
-  - tweak: "Halved the nutrition value of nutriment, returning it to old-code state."
-  - tweak: "Nerfed the damage dealt by bite, while reducing the cooldown."
-  - bugfix: "Fixed burstfire weapons spamming attack messages when fired, allowing for more automatic weapons."
-  - bugfix: "Fixed Vaurca player ability to select coloured eyes."
+  - rscadd: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
+  - rscdel: "Killed innocent kittens."
