@@ -56,6 +56,35 @@
 							"<span class='danger'>\The [user] is falling on the [src.name]! It looks like [tempgender] trying to commit suicide.</span>")
 		return (BRUTELOSS|FIRELOSS)
 
+/obj/item/weapon/melee/energy/glaive
+	name = "energy glaive"
+	desc = "An energized glaive."
+	icon_state = "eglaive0"
+	active_force = 60
+	active_throwforce = 60
+	active_w_class = 5
+	force = 20
+	throwforce = 30
+	throw_speed = 5
+	throw_range = 10
+	w_class = 5
+	flags = CONDUCT | NOSHIELD | NOBLOODY
+	origin_tech = "magnets=3;combat=4;syndicate=4"
+	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
+	sharp = 1
+	edge = 1
+	slot_flags = SLOT_BACK
+
+/obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
+	..()
+	icon_state = "eglaive1"
+	user << "\blue \The [src] is now energised."
+
+/obj/item/weapon/melee/energy/glaive/deactivate(mob/living/user)
+	..()
+	icon_state = initial(icon_state)
+	user << "\blue \The [src] is de-energised."
+
 /*
  * Energy Axe
  */

@@ -66,14 +66,23 @@
 	flags = WHITELISTED
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
-/datum/language/vaurcese
-	name = "Vaurcese"
-	desc = "Vaurca native language made of clicks and sputters, \"It's a bugs life.\""
-	speech_verb = "clicks"
+/datum/language/bug
+	name = "Hivenet"
+	desc = "Complex Vaurcesian language comprised of rapid mandible-clicking, \"It's a bugs life.\""
+	speech_verb = "broadcasts"
 	colour = "vaurca"
 	key = "9"
-	flags = WHITELISTED
-	syllables = list("kic","klic","\'tic","kit","lit","xic","vil","xrit","tshh","qix","qlit","zix","\'","!")
+	flags = WHITELISTED | HIVEMIND
+	syllables = list("vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
+	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'ayek","ka'mil","sc'","ik'yir","yol","kig","k'zit","'","'","zrk","krg","isk'yet","na'k",
+	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","iy'it","azzg","a'","i'","o'","u'","a","i","o","u","zz","kr","ak","nrk")
+
+/datum/language/bug/get_random_name()
+	var/new_name = "[pick(list("Ka'","Za'"))]"
+	new_name += "[pick(list("Akaix'","Viax'"))]"
+	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Aaaa"))]"
+	new_name += " [pick(list("Zo'ra","K'lax"))]"
+	return new_name
 
 /datum/language/human
 	name = "Sol Common"

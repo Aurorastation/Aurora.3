@@ -1378,6 +1378,8 @@ datum/preferences
 					ShowChoices(user)
 
 				if("eyes")
+					if(species == "Vaurca")
+						return
 					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference", rgb(r_eyes, g_eyes, b_eyes)) as color|null
 					if(new_eyes)
 						r_eyes = hex2num(copytext(new_eyes, 2, 4))
