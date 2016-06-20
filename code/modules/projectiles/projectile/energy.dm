@@ -28,7 +28,7 @@
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
 	src.visible_message("<span class='warning'>\The [src] explodes in a bright flash!</span>")
-	
+
 	new /obj/effect/decal/cleanable/ash(src.loc) //always use src.loc so that ash doesn't end up inside windows
 	new /obj/effect/effect/sparks(T)
 	new /obj/effect/effect/smoke/illumination(T, brightness=max(flash_range*2, brightness), lifetime=light_duration)
@@ -99,3 +99,49 @@
 	damage = 20
 	damage_type = TOX
 	irradiate = 20
+
+/obj/item/projectile/energy/sonic
+	name = "distortion"
+	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon_state = "particle"
+	check_armour = "bomb"
+	damage = 60
+	damage_type = BRUTE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	kill_count = 100
+	embed = 0
+	incinerate = 40
+	weaken = 5
+	stun = 5
+
+/obj/item/projectile/energy/sonic/on_hit(var/atom/target, var/blocked = 0)
+	var/mob/M = target
+	if(isturf(target))
+		target.ex_act(0)
+	if(ismob(target))
+		explosion(target, -1, 0, 2)
+		M.gib()
+	..()
+
+/obj/item/projectile/energy/blaster
+	name = "blaster bolt"
+	icon_state = "laser"
+	check_armour = "laser"
+	damage = 10
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	embed = 0
+	incinerate = 5
+
+/*/obj/item/projectile/energy/flamer
+	name = "promethium"
+	icon_state = "fire"
+	check_armour = "energy"
+	kill_count = 25
+	damage = 10
+	damage_type = BURN
+	pass_flags = PASSTABLE
+	step_delay = 2
+	kill_count = 75
+	embed = 0
+	incinerate = 10*/
