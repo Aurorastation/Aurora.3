@@ -13,6 +13,7 @@
 	var/menustat = "menu"
 	var/build_eff = 1
 	var/eat_eff = 1
+	var/capacity = 50
 
 
 /obj/machinery/biogenerator/New()
@@ -60,18 +61,19 @@
 		user << "<span class='notice'>\The [src] is currently processing.</span>"
 	else if(istype(O, /obj/item/weapon/storage/bag/plants))
 		var/i = 0
+		var/obj/item/weapon/storage/bag/P = O
 		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
-		if(i >= 10)
+		if(i >= capacity)
 			user << "<span class='notice'>\The [src] is already full! Activate it.</span>"
 		else
-			for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in O.contents)
-				G.loc = src
+			for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in P.contents)
+				P.remove_from_storage(G,src)
 				i++
-				if(i >= 10)
+				if(i >= capacity)
 					user << "<span class='notice'>You fill \the [src] to its capacity.</span>"
 					break
-			if(i < 10)
+			if(i < capacity)
 				user << "<span class='notice'>You empty \the [O] into \the [src].</span>"
 
 
@@ -81,7 +83,7 @@
 		var/i = 0
 		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
-		if(i >= 10)
+		if(i >= capacity)
 			user << "<span class='notice'>\The [src] is full! Activate it.</span>"
 		else
 			user.remove_from_mob(O)
