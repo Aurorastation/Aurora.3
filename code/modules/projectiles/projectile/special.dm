@@ -150,15 +150,3 @@
 			var/mob/living/carbon/human/M = target
 			M.adjustBrainLoss(20)
 			M.hallucination += 20
-
-/obj/item/projectile/bullet/trod
-	name ="tungsten rod"
-	icon_state= "gauss"
-	damage = 75
-	check_armour = "bomb"
-	sharp = 1
-	edge = 1
-
-	on_hit(var/atom/target, var/blocked = 0)
-		explosion(target, 0, 0, 4)
-		return 1

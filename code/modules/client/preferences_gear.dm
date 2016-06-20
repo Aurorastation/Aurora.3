@@ -320,12 +320,6 @@ var/global/list/gear_datums = list()
 	slot = slot_glasses
 	allowed_roles = list("Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
 
-/datum/gear/blindfold
-	display_name = "vaurca blindfold"
-	path = /obj/item/clothing/glasses/sunglasses/blinders
-	cost = 2
-	slot = slot_glasses
-
 // Mask
 
 /datum/gear/sterilemask
@@ -347,12 +341,6 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/cheongsam
 	slot = slot_w_uniform
 	cost = 1
-
-/datum/gear/gearharness
-	display_name = "gear harness"
-	path = /obj/item/clothing/under/gearharness
-	slot = slot_w_uniform
-	cost = 2
 
 /datum/gear/kilt
 	display_name = "kilt"
@@ -1142,12 +1130,6 @@ var/global/list/gear_datums = list()
 /datum/gear/comb
 	display_name = "purple comb"
 	path = /obj/item/weapon/haircomb
-	sort_category = "misc"
-	cost = 1
-
-/datum/gear/cape
-	display_name = " tunnel cloak"
-	path = /obj/item/weapon/storage/backpack/cloak
 	sort_category = "misc"
 	cost = 1
 

@@ -167,34 +167,17 @@
 	..()
 
 //VAURCA ORGANS
-
-/obj/item/organ/internal/vaurca/process()
-	return
-
 /obj/item/organ/vaurca/neuralsocket
 	name = "neural socket"
-	organ_tag = "neural socket"
-	icon = 'icons/mob/alien.dmi'
-	icon_state = "neural_socket"
 	parent_organ = "head"
 	robotic = 2
 
-obj/item/organ/vaurca/neuralsocket/process()
-	return
-
-/obj/item/organ/vaurca/neuralsocket/removed()
-	return
 
 /obj/item/organ/vaurca/breathingapparatus
 	name = "breathing apparatus"
-	organ_tag = "breathing apparatus"
 	parent_organ = "chest"
-	icon = 'icons/mob/alien.dmi'
-	icon_state = "breathing_app"
 	robotic = 2
 
-obj/item/organ/vaurca/breathingapparatus/process()
-	return
 
-/obj/item/organ/vaurca/breathingapparatus/removed()
+/obj/item/organ/internal/vaurca/process()
 	return

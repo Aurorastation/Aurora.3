@@ -264,24 +264,3 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
-
-/obj/item/weapon/gun/projectile/automatic/railgun
-	name = "Railgun"
-	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	icon_state = "railgun"
-	item_state = "arifle"
-	w_class = 3
-	force = 10
-	caliber = "trod"
-	origin_tech = "combat=5;materials=2"
-	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/effects/Explosion2.ogg'
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/trodpack
-	auto_eject = 1
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-
-	firemodes = list(
-		list(name="single coil",	burst=1, move_delay=6, accuracy = list(0)),
-		list(name="dual coil",	burst=2, move_delay=8, accuracy = list(-2,-3), dispersion = list(2.0, 3.0)),
-		)

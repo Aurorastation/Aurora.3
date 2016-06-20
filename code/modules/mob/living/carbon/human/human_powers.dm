@@ -264,7 +264,6 @@
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
 	if(last_special > world.time)
-		src << "\red Your mandibles still ache!"
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
@@ -280,18 +279,18 @@
 		src << "\red You must have an aggressive grab to gut your prey!"
 		return
 
-	last_special = world.time + 35
+	last_special = world.time + 50
 
 	visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
-		H.apply_damage(25,BRUTE)
+		H.apply_damage(30,BRUTE)
 //		if(H.stat == 2) //no gibbing humans but i'll let you gib like a mouse or something that's cool
 //			H.gib()
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M)) return //wut
-		M.apply_damage(25,BRUTE)
+		M.apply_damage(30,BRUTE)
 	//	if(M.stat == 2)
 		//	M.gib()

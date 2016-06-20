@@ -4,7 +4,7 @@
 	id = "koispaste"
 	description = "A thick goopy substance, rich in K'ois nutrients."
 	metabolism = REM * 4
-	var/nutriment_factor = 10
+	var/nutriment_factor = 40
 	var/injectable = 0
 	color = "#dcd9cd"
 
@@ -24,7 +24,7 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = 15 // Per unit
+	var/nutriment_factor = 30 // Per unit
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0

@@ -381,33 +381,6 @@
 
 	var/obj/machinery/machine
 
-/obj/item/weapon/neuralbroke
-	name = "fried neural socket"
-	desc = "A Vaurca neural socket subjected to extreme heat. It's security chip appears to be fried."
-	icon = 'icons/obj/stock_parts.dmi'
-	icon_state = "neuralbroke"
-
-/obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
-		new /obj/item/weapon/neuralchip(user.loc)
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		user << "You bypass the fried security chip and extract the encryption key."
-		user << "The fried neural socket crumbles away like dust."
-		qdel(src)
-
-/obj/item/weapon/neuralchip
-	name = "hivenet encryption chip"
-	desc = "It appears to be a Vaurca hivenet encryption chip, for localized broadcasts."
-	icon = 'icons/obj/stock_parts.dmi'
-	icon_state = "neuralchip"
-
-/obj/item/weapon/radio/vaurca
-	name = "hivenet relay"
-	desc = "A device that can intercept and broadcast hivenet data in a local area."
-	icon = 'icons/obj/radio.dmi'
-	icon_state = "walkietalkie"
-	item_state = "walkietalkie"
-
 ///////////////////////////////////////Stock Parts /////////////////////////////////
 
 /obj/item/weapon/storage/part_replacer
@@ -436,7 +409,6 @@
 	New()
 		src.pixel_x = rand(-5.0, 5)
 		src.pixel_y = rand(-5.0, 5)
-
 
 //Rank 1
 
