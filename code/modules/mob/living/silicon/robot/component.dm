@@ -220,8 +220,7 @@
 	components["armour"] = new/datum/robot_component/armour(src)
 	components["jetpack"] = new/datum/robot_component/jetpack(src)
 	jetpackComponent = components["jetpack"]
-	var/datum/robot_component/JC = components["jetpack"]
-	JC.installed = 0//We start the jetpack as not installed, because its nondefault
+	jetpackComponent.installed = 0//We start the jetpack as not installed, because its nondefault
 
 // Checks if component is functioning
 /mob/living/silicon/robot/proc/is_component_functioning(module_name)
