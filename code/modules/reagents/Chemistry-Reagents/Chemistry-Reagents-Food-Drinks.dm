@@ -165,24 +165,7 @@
 		qdel(hotspot)
 
 	if(volume >= 3)
-		if(T.wet >= 1)
-			return
-		T.wet = 1
-		if(T.wet_overlay)
-			T.overlays -= T.wet_overlay
-			T.wet_overlay = null
-		T.wet_overlay = image('icons/effects/water.dmi',T,"wet_floor")
-		T.overlays += T.wet_overlay
-
-		spawn(800) // This is terrible and needs to be changed when possible.
-			if(!T || !istype(T))
-				return
-			if(T.wet >= 2)
-				return
-			T.wet = 0
-			if(T.wet_overlay)
-				T.overlays -= T.wet_overlay
-				T.wet_overlay = null
+		T.wet_floor()
 
 /datum/reagent/nutriment/virus_food
 	name = "Virus Food"
@@ -2032,3 +2015,258 @@
 /datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.reagents.add_reagent("kelotane", removed * 0.2)
+
+//aurora old drinks
+
+/datum/reagent/ethanol/daiquiri
+	name = "Daiquiri"
+	id = "daiquiri"
+	description = "Exotically blue, fruity drink, distilled from oranges."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "daiquiri"
+	glass_name = "glass of Daiquiri"
+	glass_desc = "A splendid looking cocktail."
+
+/datum/reagent/ethanol/icepick
+	name = "Ice Pick"
+	id = "icepick"
+	description = "Big. And red. Hmm...."
+	color = "#664300"
+	strength = 50
+
+	glass_icon_state = "icepick"
+	glass_name = "glass of Ice Pick"
+	glass_desc = "Big. And red. Hmm..."
+
+/datum/reagent/ethanol/poussecafe
+	name = "Pousse-Cafe"
+	id = "poussecafe"
+	description = "Smells of French and liquore."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "pousseecafe"
+	glass_name = "glass of Pousse-Cafe"
+	glass_desc = "Smells of French and liquore."
+
+/datum/reagent/ethanol/mintjulep
+	name = "Mint Julep"
+	id = "mintjulep"
+	description = "As old as time itself, but how does it taste?"
+	color = "#664300"
+	strength = 50
+
+	glass_icon_state = "mintjulep"
+	glass_name = "glass of Mint Julep"
+	glass_desc = "As old as time itself, but how does it taste?"
+
+/datum/reagent/ethanol/johncollins
+	name = "John Collins"
+	id = "johncollins"
+	description = "Crystal clear, yellow, and smells of gin. How could this go wrong?"
+	color = "#664300"
+	strength = 15
+
+	glass_icon_state = "johnscollins"
+	glass_name = "glass of John Collins"
+	glass_desc = "Named after a man, perhaps?"
+
+/datum/reagent/ethanol/gimlet
+	name = "Gimlet"
+	id = "gimlet"
+	description = "Small, elegant, and kicks."
+	color = "#664300"
+	strength = 15
+
+	glass_icon_state = "gimlet"
+	glass_name = "glass of Gimlet"
+	glass_desc = "Small, elegant, and packs a punch."
+
+/datum/reagent/ethanol/starsandstripes
+	name = "Stars and Stripes"
+	id = "starsandstripes"
+	description = "Someone, somewhere, is saluting."
+	color = "#664300"
+	strength = 50
+
+	glass_icon_state = "starsandstripes"
+	glass_name = "glass of Stars and Stripes"
+	glass_desc = "Someone, somewhere, is saluting."
+
+/datum/reagent/ethanol/metropolitan
+	name = "Metropolitan"
+	id = "metropolitan"
+	description = "What more could you ask for?"
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "metropolitan"
+	glass_name = "glass of Metropolitan"
+	glass_desc = "What more could you ask for?"
+
+/datum/reagent/ethanol/caruso
+	name = "Caruso"
+	id = "caruso"
+	description = "Green, almost alien."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "caruso"
+	glass_name = "glass of Caruso"
+	glass_desc = "Green, almost alien."
+
+/datum/reagent/ethanol/aprilshower
+	name = "April Shower"
+	id = "aprilshower"
+	description = "Smells of brandy."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "aprilshower"
+	glass_name = "glass of April Shower"
+	glass_desc = "Smells of brandy."
+
+/datum/reagent/ethanol/carthusiansazerac
+	name = "Carthusian Sazerac"
+	id = "carthusiansazerac"
+	description = "Whiskey and... Syrup?"
+	color = "#664300"
+	strength = 15
+
+	glass_icon_state = "carthusiansazerac"
+	glass_name = "glass of Carthusian Sazerac"
+	glass_desc = "Whiskey and... Syrup?"
+
+/datum/reagent/ethanol/deweycocktail
+	name = "Dewey Cocktail"
+	id = "deweycocktail"
+	description = "Colours, look at all the colours!"
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "deweycocktail"
+	glass_name = "glass of Dewey Cocktail"
+	glass_desc = "Colours, look at all the colours!"
+
+/datum/reagent/ethanol/chartreusegreen
+	name = "Green Chartreuse"
+	id = "chartreusegreen"
+	description = "A green, strong liqueur."
+	color = "#664300"
+	strength = 10
+
+	glass_icon_state = "greenchartreuseglass"
+	glass_name = "glass of Green Chartreuse"
+	glass_desc = "A green, strong liqueur."
+
+/datum/reagent/ethanol/chartreuseyellow
+	name = "Yellow Chartreuse"
+	id = "chartreuseyellow"
+	description = "A yellow, strong liqueur."
+	color = "#664300"
+	strength = 10
+
+	glass_icon_state = "chartreuseyellowglass"
+	glass_name = "glass of Yellow Chartreuse"
+	glass_desc = "A yellow, strong liqueur."
+
+/datum/reagent/ethanol/cremewhite
+	name = "White Creme de Menthe"
+	id = "cremewhite"
+	description = "Mint-flavoured alcohol, in a bottle."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "whitecremeglass"
+	glass_name = "glass of White Creme de Menthe"
+	glass_desc = "Mint-flavoured alcohol."
+
+/datum/reagent/ethanol/cremeyvette
+	name = "Creme de Yvette"
+	id = "cremeyvette"
+	description = "Berry-flavoured alcohol, in a bottle."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "cremedeyvetteglass"
+	glass_name = "glass of Creme de Yvette"
+	glass_desc = "Berry-flavoured alcohol."
+
+/datum/reagent/ethanol/brandy
+	name = "Brandy"
+	id = "brandy"
+	description = "Cheap knock off for cognac."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "brandyglass"
+	glass_name = "glass of Brandy"
+	glass_desc = "Cheap knock off for cognac."
+
+/datum/reagent/ethanol/guinnes
+	name = "Guinness"
+	id = "guinnes"
+	description = "Special Guinnes drink."
+	color = "#2E6671"
+	strength = 15
+
+	glass_icon_state = "guinnes_glass"
+	glass_name = "glass of Guinness"
+	glass_desc = "A glass of Guinness."
+
+/datum/reagent/ethanol/drambuie
+	name = "Drambuie"
+	id = "drambuie"
+	description = "A drink that smells like whiskey but tastes different."
+	color = "#2E6671"
+	strength = 12
+
+	glass_icon_state = "drambuieglass"
+	glass_name = "glass of Drambuie"
+	glass_desc = "A drink that smells like whiskey but tastes different."
+
+/datum/reagent/ethanol/oldfashioned
+	name = "Old Fashioned"
+	id = "oldfashioned"
+	description = "That looks like from sixties."
+	color = "#2E6671"
+	strength = 15
+
+	glass_icon_state = "oldfashioned"
+	glass_name = "glass of Old Fashioned"
+	glass_desc = "That looks like from sixties."
+
+/datum/reagent/ethanol/blindrussian
+	name = "Blind Russian"
+	id = "blindrussian"
+	description = "You can't see?"
+	color = "#2E6671"
+	strength = 10
+
+	glass_icon_state = "blindrussian"
+	glass_name = "glass of Blind Russian"
+	glass_desc = "You can't see?"
+
+/datum/reagent/ethanol/rustynail
+	name = "Old Fashioned"
+	id = "rustynail"
+	description = "That looks like from sixties."
+	color = "#2E6671"
+	strength = 12
+
+	glass_icon_state = "rustynail"
+	glass_name = "glass of Old Fashioned"
+	glass_desc = "That looks like from sixties."
+
+/datum/reagent/ethanol/tallrussian
+	name = "Tall Black Russian"
+	id = "tallrussian"
+	description = "Just like black russian but taller."
+	color = "#2E6671"
+	strength = 10
+
+	glass_icon_state = "tallrussian"
+	glass_name = "glass of Tall Black Russian"
+	glass_desc = "Just like black russian but taller."
