@@ -137,10 +137,10 @@ var/list/ai_verbs_default = list(
 
 	//Languages
 	add_language("Robot Talk", 1)
-	add_language("Galactic Common", 1)
+	add_language("Ceti Basic", 1)
 	add_language("Sol Common", 0)
 	add_language("Sinta'unathi", 0)
-	add_language("Siik'tajr", 0)
+	add_language("Siik'Maas", 0)
 	add_language("Skrellian", 0)
 	add_language("Tradeband", 1)
 	add_language("Gutter", 0)
