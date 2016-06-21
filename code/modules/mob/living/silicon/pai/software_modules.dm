@@ -469,13 +469,13 @@
 		user.translator_on = !user.translator_on
 		if(user.translator_on)
 			user.add_language("Sinta'unathi")
-			user.add_language("Siik'tajr")
+			user.add_language("Siik'Maas")
 			user.add_language("Skrellian")
 			user.add_language("Vaurcese")
 			user.add_language("Rootspeak")
 		else
 			user.remove_language("Sinta'unathi")
-			user.remove_language("Siik'tajr")
+			user.remove_language("Siik'Maas")
 			user.remove_language("Skrellian")
 			user.add_language("Vaurcese")
 			user.add_language("Rootspeak")
