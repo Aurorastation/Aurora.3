@@ -188,7 +188,6 @@
 
 /mob/living/simple_animal/chick/death()
 	..()
-	holder_type = /obj/item/weapon/holder/chick/dead
 	desc = "How could you do this? You monster!"
 
 var/const/MAX_CHICKENS = 50
@@ -241,12 +240,6 @@ var/global/chicken_count = 0
 	..()
 	chicken_count -= 1
 	desc = "Now it's ready for plucking and cooking!"
-	if (body_color == "brown")
-		holder_type = /obj/item/weapon/holder/chicken/brown/dead
-	if (body_color == "black")
-		holder_type = /obj/item/weapon/holder/chicken/black/dead
-	if (body_color == "white")
-		holder_type = /obj/item/weapon/holder/chicken/white/dead
 
 /mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown)) //feedin' dem chickens

@@ -89,7 +89,6 @@
 /mob/living/simple_animal/cat/death()
 	.=..()
 	stat = DEAD
-	holder_type = /obj/item/weapon/holder/cat/dead
 
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
@@ -231,7 +230,6 @@
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
 	desc = "Oh no, Runtime is dead! What kind of monster would do this?"
-	holder_type = /obj/item/weapon/holder/cat/black/dead
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
@@ -245,7 +243,6 @@
 /mob/living/simple_animal/cat/kitten/death()
 	.=..()
 	desc = "It's a dead kitten! What kind of monster would do this?"
-	holder_type = /obj/item/weapon/holder/cat/kitten/dead
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
@@ -260,7 +257,6 @@
 /mob/living/simple_animal/cat/fluff/bones/death()
 	.=..()
 	desc = "Bones is dead"
-	holder_type = /obj/item/weapon/holder/cat/black/dead
 
 /mob/living/simple_animal/cat/kitten/New()
 	gender = pick(MALE, FEMALE)

@@ -28,5 +28,4 @@
 
 /mob/living/simple_animal/lizard/death()
 	.=..()
-	holder_type = /obj/item/weapon/holder/lizard/dead
 	desc = "It doesn't hiss anymore."

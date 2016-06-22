@@ -60,7 +60,6 @@
 		src.stat = DEAD
 		name = "mushroom"
 		desc = "Shame, he was a really fun-gi"
-		holder_type = /obj/item/weapon/holder/mushroom/dead
 	..()
 
 /mob/living/simple_animal/mushroom/proc/spore_explode()

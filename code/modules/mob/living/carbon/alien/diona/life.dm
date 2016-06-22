@@ -20,7 +20,3 @@
 		adjustFireLoss(-1)
 		adjustToxLoss(-1)
 		adjustOxyLoss(-1)
-
-/mob/living/carbon/alien/diona/death()
-	.=..()
-	holder_type = /obj/item/weapon/holder/diona/dead

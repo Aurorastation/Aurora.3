@@ -120,13 +120,6 @@
 		client.time_died_as_mouse = world.time
 	.=..()
 
-	holder_type = /obj/item/weapon/holder/deadmouse
-	if (body_color == "white")
-		holder_type = /obj/item/weapon/holder/deadmouse/white
-	else if (body_color == "brown")
-		holder_type = /obj/item/weapon/holder/deadmouse/brown
-	else if (body_color == "gray")
-		holder_type = /obj/item/weapon/holder/deadmouse/gray
 
 
 /*
