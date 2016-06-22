@@ -637,6 +637,9 @@
 	if (!current_character)
 		return 0
 
+	if (alert(C.mob, "This will permanently delete the character. Are you sure you wish to do this?", "Delete Character" ,"Yes", "No") == "No")
+		return 0
+
 	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		error("Error attempting to connect to MySQL server while deleting a character.")
