@@ -213,6 +213,8 @@ var/list/gamemode_cache = list()
 	//Web interface settings
 	var/webint_url = ""
 
+	var/list/age_restrictions = list()			// Holds all of the age restrictions for jobs and antag roles in a single associated list
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -750,6 +752,11 @@ var/list/gamemode_cache = list()
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
+
+		else if (type == "age_restrictions")
+			name = replacetext(name, "_", " ")
+			age_restrictions += name
+			age_restrictions[name] = text2num(value)
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up
