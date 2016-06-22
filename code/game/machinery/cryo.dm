@@ -179,16 +179,27 @@
 		G.loc = src
 		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
 	else if(istype(G, /obj/item/weapon/grab))
-		if(!ismob(G:affecting))
-			return
-		for(var/mob/living/carbon/slime/M in range(1,G:affecting))
-			if(M.Victim == G:affecting)
-				usr << "[G:affecting:name] will not fit into the cryo because they have a slime latched onto their head."
+
+		var/mob/living/L = G:affecting
+		visible_message("[user] starts putting [G:affecting] into the cryopod.", 3)
+
+		if (do_mob(user, G:affecting, 30, needhand = 0))
+			var/bucklestatus = L.bucklecheck(user)
+			if (!bucklestatus)//incase the patient got buckled during the delay
 				return
-		var/mob/M = G:affecting
-		if(put_mob(M))
-			visible_message("[user] puts [M.name] into the cryo cell.", 3)
-			qdel(G)
+			if (bucklestatus == 2)
+				var/obj/structure/LB = L.buckled
+				LB.user_unbuckle_mob(user)
+			if(!ismob(G:affecting))
+				return
+			for(var/mob/living/carbon/slime/M in range(1,G:affecting))
+				if(M.Victim == G:affecting)
+					usr << "[G:affecting:name] will not fit into the cryo because they have a slime latched onto their head."
+					return
+			var/mob/M = G:affecting
+			if(put_mob(M))
+				visible_message("[user] puts [M.name] into the cryo cell.", 3)
+				qdel(G)
 	return
 
 /obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
