@@ -535,6 +535,9 @@ var/world_topic_spam_protect_time = world.timeofday
 	config.load("config/config.txt")
 	config.load("config/game_options.txt","game_options")
 
+	if (config.use_age_restriction_for_jobs)
+		config.load("config/age_restrictions.txt", "age_restrictions")
+
 /hook/startup/proc/loadMods()
 	world.load_mods()
 	world.load_mentors() // no need to write another hook.
