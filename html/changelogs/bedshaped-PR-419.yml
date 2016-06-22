@@ -1,0 +1,8 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed Object->Remove cartridge not showing the correct message."
+  - bugfix: "Fixed the name of the cartridge not showing when removed."
+  - rscadd: "Added a space themed IPC screen."

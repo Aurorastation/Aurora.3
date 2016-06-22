@@ -477,6 +477,11 @@
 		icon_state = "ipc_yellow"
 		species_allowed = list("Machine")
 
+	icp_screen_space
+		name = "space IPC screen"
+		icon_state = "ipc_space"
+		species_allowed = list("Machine")
+
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
