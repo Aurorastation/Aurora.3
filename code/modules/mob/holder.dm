@@ -5,6 +5,7 @@
 	icon = 'icons/mob/held_mobs.dmi'
 	slot_flags = 0
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
+	origin_tech = null
 	var/mob/living/contained = null
 	var/icon_state_dead
 	var/desc_dead
@@ -157,7 +158,6 @@
 	desc_dead = "It's a dead cat."
 	icon_state = "cat_tabby"
 	icon_state_dead = "cat_tabby_dead"
-	origin_tech = null
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -241,7 +241,7 @@
 	desc_dead = "It doesn't hiss anymore"
 	icon_state_dead = "lizard_dead"
 	icon_state = "lizard"
-	origin_tech = "null"
+
 	slot_flags = 0
 	w_class = 1
 
@@ -251,7 +251,6 @@
 	desc = "It's a fluffy little chick, until it grows up."
 	desc_dead = "How could you do this? You monster!"
 	icon_state_dead = "chick_dead"
-	origin_tech = "null"
 	slot_flags = 0
 	icon_state = "chick"
 	w_class = 1
@@ -263,7 +262,6 @@
 	desc_dead = "Now it's ready for plucking and cooking!"
 	icon_state = "chicken_brown"
 	icon_state_dead = "chicken_brown_dead"
-	origin_tech = "null"
 	slot_flags = 0
 	w_class = 2
 
@@ -289,7 +287,6 @@
 	desc_dead = "Shame, he was a really fun-guy."
 	icon_state = "mushroom"
 	icon_state_dead = "mushroom_dead"
-	origin_tech = "null"
 	slot_flags = SLOT_HEAD
 	w_class = 2
 
