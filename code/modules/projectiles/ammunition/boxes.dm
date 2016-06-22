@@ -205,6 +205,50 @@
 /obj/item/ammo_magazine/chameleon/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/boltaction
+	name = "ammo clip (7.62mm)"
+	icon_state = "762"
+	ammo_type = /obj/item/ammo_casing/a762
+	caliber = "a762"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	max_ammo = 5
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45uzi
+	name = "stick magazine (.45)"
+	icon_state = "uzi45"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = ".45"
+	max_ammo = 16
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45uzi/empty
+	initial_ammo = 0
+	
+/obj/item/ammo_magazine/tommymag
+	name = "tommygun magazine (.45)"
+	icon_state = "tommy-mag"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
+	caliber = ".45"
+	max_ammo = 20
+
+/obj/item/ammo_magazine/tommymag/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/tommydrum
+	name = "tommygun drum magazine (.45)"
+	icon_state = "tommy-drum"
+	w_class = 3 // Bulky ammo doesn't fit in your pockets!
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 3750)
+	caliber = ".45"
+	max_ammo = 50
+
 /*
 //unused garbage
 

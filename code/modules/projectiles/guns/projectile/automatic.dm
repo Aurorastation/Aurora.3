@@ -24,8 +24,9 @@
 	desc = "A lightweight, fast firing gun, for when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
 	w_class = 3
-	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
-	max_shells = 15
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/c45uzi
+	max_shells = 16
 	caliber = ".45"
 	origin_tech = "combat=5;materials=2;syndicate=8"
 	ammo_type = /obj/item/ammo_casing/c45
@@ -264,3 +265,20 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
+	
+/obj/item/weapon/gun/projectile/automatic/tommygun
+	name = "\improper Tommygun"
+	desc = "A classic among criminals. Uses .45 rounds."
+	icon_state = "tommygun"
+	w_class = 3
+	max_shells = 50
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	slot_flags = SLOT_BELT
+	ammo_type = /obj/item/ammo_casing/c45
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/tommymag
+
+/obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
