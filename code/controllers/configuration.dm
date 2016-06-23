@@ -222,6 +222,9 @@ var/list/gamemode_cache = list()
 	var/client_warn_version = 0
 	var/client_warn_message = ""
 
+	//Mark-up enabling
+	var/allow_chat_markup = 0
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -711,6 +714,9 @@ var/list/gamemode_cache = list()
 
 				if("client_warn_message")
 					config.client_warn_message = value
+
+				if("allow_chat_markup")
+					config.allow_chat_markup = 1
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
