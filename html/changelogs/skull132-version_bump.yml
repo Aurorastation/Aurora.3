@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-    - rscadd: "Client version control added. Joining with a lower version than required is now impossible for non-staff."
