@@ -33,7 +33,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Mobs breathing a poisonous gas now get that chemical added to their bloodstream, instead of generic 'toxin'."
-  - tweak: "Air alarms now properly say phoron instead of toxin"
-  - tweak: "Engine cooling computers now identify phoron as Ph instead of Tx"
-
+  - rscadd: "Added pockets to all armours. 2 slots for vests, 4 slots for coats and fullbody suits"
+  - tweak: "Useability improvement for Tactical Armour internal holster, functions like a uniform-attached holster now"

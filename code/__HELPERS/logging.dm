@@ -25,7 +25,6 @@
 	if (config.log_admin)
 		diary << "\[[time_stamp()]]ADMIN: [text][log_end]"
 
-
 /proc/log_debug(text)
 	if (config.log_debug)
 		diary << "\[[time_stamp()]]DEBUG: [text][log_end]"
@@ -35,7 +34,6 @@
 			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)
 			C << "DEBUG: [text]"
-
 
 /proc/log_game(text)
 	if (config.log_game)
@@ -80,6 +78,11 @@
 /proc/log_pda(text)
 	if (config.log_pda)
 		diary << "\[[time_stamp()]]PDA: [text][log_end]"
+
+/proc/log_to_dd(text)
+	world.log << text //this comes before the config check because it can't possibly runtime
+	if(config.log_world_output)
+		diary << "\[[time_stamp()]]DD_OUTPUT: [text][log_end]"
 
 /proc/log_misc(text)
 	diary << "\[[time_stamp()]]MISC: [text][log_end]"

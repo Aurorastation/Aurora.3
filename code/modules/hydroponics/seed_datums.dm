@@ -325,7 +325,7 @@
 /datum/seed/koisspore
 	name = "koisspore"
 	seed_name = "kois"
-	seed_noun = "spires"
+	seed_noun = "spores"
 	display_name = "k'ois spores"
 	mutants = null
 	chems = list("koispaste" = list(5))

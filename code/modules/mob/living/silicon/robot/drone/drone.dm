@@ -12,15 +12,17 @@
 	pass_flags = PASSTABLE
 	braintype = "Robot"
 	lawupdate = 0
-	density = 1
+	density = 0
 	req_access = list(access_engine, access_robotics)
 	integrated_light_power = 3
 	local_transmit = 1
+	mob_size = 2
+	small = 1
 
-	mob_bump_flag = SIMPLE_ANIMAL
-	mob_swap_flags = SIMPLE_ANIMAL
-	mob_push_flags = SIMPLE_ANIMAL
-	mob_always_swap = 1
+	//mob_bump_flag = SIMPLE_ANIMAL
+	//mob_swap_flags = SIMPLE_ANIMAL
+	//mob_push_flags = SIMPLE_ANIMAL
+	//mob_always_swap = 1
 
 	//Used for self-mailing.
 	var/mail_destination = ""
@@ -55,6 +57,7 @@
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	updateicon()
+	density = 0
 
 /mob/living/silicon/robot/drone/init()
 	aiCamera = new/obj/item/device/camera/siliconcam/drone_camera(src)

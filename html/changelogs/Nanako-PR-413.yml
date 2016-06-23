@@ -33,8 +33,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Proteins now restore blood twice as effectively"
-  - rscadd: "Unathi will no longer digest nutriment, only proteins"
-  - rscadd: "Added seafood protein. Space-carp fillets, and all recipes made with them, now contain seafood protein instead of animal protein"
-  - rscadd: "Skrell are able to safely digest seafood protein"
-  - tweak: "Unathi are now immune to Carpotoxin"
+  - bugfix: "Medical huds will now properly update as wounds heal passively, or when bandaged"
+  - rscadd: "Added a new Medical HUD state between 70 and 100%, to better recognise very small amounts of damage"
+  - rscadd: "Medical huds will no longer show the healthbar on crewmembers who are at full health"
+  - rscadd: "Added a healthbar fadeout effect for when someone heals up to 100% while you're watching"
+  - tweak: "Medical huds now update more frequently"
+  

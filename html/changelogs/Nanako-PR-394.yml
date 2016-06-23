@@ -33,7 +33,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Sleepers will no longer eject their dialysis beaker and bug out when you eject a patient"
-  - bugfix: "Fixed a bug with medical machines where a patient could be duplicated"
-  - rscadd: "The dialysis beaker can now be checked and removed while a sleeper has no occupant"
-
+  - rscadd: "Fixed trays. Trays can now be unloaded by placing them down on a table, then either alt+clicking themn, or rightclicking and selecting Unload Tray"
+  - rscadd: "Trays can now load individual items by using it on them, or using the item on the tray, or alt+click to attempt to load everything on the tile"
+  - rscadd: "Trays will now spill their contents when dropped, thrown, or when you try to place it into a container"
+  - tweak: "Trays now only hold specific things: Food/drinks, reagent containers, utensils, and smoking supplies"
+  - tweak: "Tray capacity increased"

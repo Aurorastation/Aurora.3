@@ -22,7 +22,7 @@
 #################################
 
 # Your name.  
-author: Nanako
+author: Alberyk
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -33,5 +33,10 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Sterilizine will now clean wounds, to reduce and prevent infection"
-  - tweak: "Spraybottles now display a message when sprayed on any mob"
+  - rscadd: "Added bolt action rifles, raiders have a chance to spawn with one."
+  - rscadd: "Added 7.62mm ammo clips to the hacked autolathe."
+  - rscadd: "Added a new abandoned crate to mining."
+  - rscadd: "Added a tommygun, raiders also get it for now, and two different magazines."
+  - rscadd: "Added a derringer."
+  - tweak: "Fixed uzis and added a magazine to them."
+  - imageadd: "A lot of old aurora sprites are back now, as well new sprites for guns."

@@ -33,6 +33,10 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Tajarans can now wear tajaran-specific gloves"
-  - bugfix: "Tajaran wardens, detectives and heads of security will properly spawn wearing black tajara gloves"
+  - rscadd: "Cyborg jetpack can now be used by security, combat, engineering, construction, mining and crisis borgs"
+  - bugfix: "Fixed cyborg jetpack not being installable"
+  - rscadd: "Cyborg jetpacks can now be removed and reused"
+  - rscadd: "Cyborgs now use less power when moving in space"
+  - bugfix: "Fixed jetpacking cyborgs not drifting when stabilisers are disabled"
+  - tweak: "All jetpacks now use twice as much gas when stabilisers are enabled"
 

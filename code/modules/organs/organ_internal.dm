@@ -112,7 +112,7 @@
 			owner << "\red Your skin itches."
 	if (germ_level > INFECTION_LEVEL_TWO)
 		if(prob(1))
-			spawn owner.vomit()
+			spawn owner.delayed_vomit()
 
 	if(owner.life_tick % PROCESS_ACCURACY == 0)
 

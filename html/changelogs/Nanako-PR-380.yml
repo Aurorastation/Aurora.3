@@ -33,4 +33,11 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Passengers can now be removed from exosuit passenger compartments via the maintenance panel"
+  - rscadd: "Most small animals can now be scooped up, including mice, lizards, chickens, chicks, kittens and walking mushrooms"
+  - rscadd: "All scoopable animals now have an individually appropriate size set, which determines whether they can fit in pockets/boxes/backpacks/trashbags, etc"
+  - rscadd: "Small animals now have a density of zero, allowing them to move under people, or be walked over, without blocking the tile"
+  - rscadd: "Scooped critters can now be petted or crushed while held in your hands, using help/harm intent"
+  - rscadd: "Drones and nymphs can now be petted while alive. They are picked up by dragging them onto yourself"
+  - tweak: "Dead cats can be picked up"
+  - bugfix: "Tabby cats now look correct when held in hand"
+  - bugfix: "Medical Records Laptops and Employment Records Consoles are no longer solid. Creatures that can walk on tables, can walk on them"

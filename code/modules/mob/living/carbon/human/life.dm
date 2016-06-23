@@ -55,12 +55,13 @@
 	//TODO: seperate this out
 	// update the current life tick, can be used to e.g. only do something every 4 ticks
 	life_tick++
+
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	in_stasis = istype(loc, /obj/structure/closet/body_bag/cryobag) && loc:opened == 0
 	if(in_stasis) loc:used++
 
-	if(life_tick%30==15)
+	if(life_tick%30==5)//Makes huds update every 10 seconds instead of every 30 seconds
 		hud_updateflag = 1022
 
 	voice = GetVoice()
@@ -1380,8 +1381,8 @@
 						else
 							bodytemp.icon_state = "temp0"
 			if(blind)
-				if(blinded)		blind.layer = 18
-				else			blind.layer = 0
+				if(blinded)		blind.invisibility = 0
+				else			blind.invisibility = 101
 
 			if(disabilities & NEARSIGHTED)	//this looks meh but saves a lot of memory by not requiring to add var/prescription
 				if(glasses)					//to every /obj/item
@@ -1460,8 +1461,8 @@
 	proc/handle_random_events()
 		// Puke if toxloss is too high
 		if(!stat)
-			if (getToxLoss() >= 45 && nutrition > 20)
-				vomit()
+			if (getToxLoss() >= 45)
+				delayed_vomit()
 
 		//0.1% chance of playing a scary sound to someone who's in complete darkness
 		if(isturf(loc) && rand(1,1000) == 1)
@@ -1614,7 +1615,15 @@
 			holder.icon_state = "hudhealth-100" 	// X_X
 		else
 			var/percentage_health = RoundHealth((health-config.health_threshold_crit)/(maxHealth-config.health_threshold_crit)*100)
-			holder.icon_state = "hud[percentage_health]"
+
+			if (percentage_health == "health100" && holder.icon_state && holder.icon_state != "hudhealth100" && holder.icon_state != "hudhealth100a")
+				holder.icon_state = "hudhealth100a"
+				spawn(30)//just to prevent any issues with the animation, we'll set it to the normal state after 3 seconds
+					percentage_health = RoundHealth((health-config.health_threshold_crit)/(maxHealth-config.health_threshold_crit)*100)
+					if (percentage_health == "health100")
+						holder.icon_state = "hudhealth100"
+			else
+				holder.icon_state = "hud[percentage_health]"
 		hud_list[HEALTH_HUD] = holder
 
 	if (BITTEST(hud_updateflag, LIFE_HUD))
