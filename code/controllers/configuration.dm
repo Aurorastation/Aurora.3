@@ -216,6 +216,12 @@ var/list/gamemode_cache = list()
 
 	var/list/age_restrictions = list()			// Holds all of the age restrictions for jobs and antag roles in a single associated list
 
+	//Client version control
+	var/client_error_version = 0
+	var/client_error_message = ""
+	var/client_warn_version = 0
+	var/client_warn_message = ""
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -693,6 +699,18 @@ var/list/gamemode_cache = list()
 
 				if("sql_saves")
 					config.sql_saves = 1
+
+				if("client_error_version")
+					config.client_error_version = text2num(value)
+
+				if("client_error_message")
+					config.client_error_message = value
+
+				if("client_warn_version")
+					config.client_warn_version = text2num(value)
+
+				if("client_warn_message")
+					config.client_warn_message = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
