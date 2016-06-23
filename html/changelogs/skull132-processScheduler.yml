@@ -1,7 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-    - tweak: "Makes the code BYOND 510 compatible."
-    - tweak: "Updates the processScheduler with the usage of the world.tick_usage variable. This should effectively mean less noticeable lag, though tweaking will most likely be required in order to make it work well. Credit to the GOON dev team for this."
