@@ -388,3 +388,6 @@ STARLIGHT 0
 #CLIENT_ERROR_MESSAGE Your version of BYOND is not supported. Please upgrade.
 #CLIENT_WARN_VERSION 510
 #CLIENT_WARN_MESSAGE BYOND is really close to releasing 510 beta as a stable release, please take time to try it out. Reports are that the client preforms better then the version you are using, and also handles network lag better. Shortly after it's release we will end up using 510 client features and you will be forced to update.
+
+## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
+#ALLOW_CHAT_MARKUP
