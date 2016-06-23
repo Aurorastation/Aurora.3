@@ -445,36 +445,6 @@
 				poison_type = null
 			else if(L.is_broken())
 				poison_type = "oxygen" //if Vaurca breathing apparatus breaks, oxygen becomes poisonous.
-
-		if(species.has_organ["neural socket"])
-			var/obj/item/organ/vaurca/neuralsocket/N = internal_organs_by_name["neural socket"]
-
-			if(!isnull(N) && !N.is_broken() && !(all_languages["Hivenet"] in src.languages))
-				add_language("Hivenet")
-				src << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
-
-			else
-				if(isnull(N) && all_languages["Hivenet"] in src.languages)
-					remove_language("Hivenet")
-					src << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
-
-				if(N.is_broken() && all_languages["Hivenet"] in src.languages)
-					remove_language("Hivenet")
-					src << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
-
-		if(l_hand && istype(l_hand, /obj/item/weapon/radio/vaurca) && !(src.get_species() == "Vaurca"))
-			if(!(all_languages["Hivenet"] in src.languages))
-				add_language("Hivenet")
-				src << "\blue You begin intercepting the local hive-chatter."
-		if(r_hand && istype(r_hand, /obj/item/weapon/radio/vaurca) && !(src.get_species() == "Vaurca"))
-			if(!(all_languages["Hivenet"] in src.languages))
-				add_language("Hivenet")
-				src << "\blue You begin intercepting the local hive-chatter."
-		else
-			if((all_languages["Hivenet"] in src.languages) && !(src.get_species() == "Vaurca"))
-				remove_language("Hivenet")
-				src << "\blue You cease intercepting the local hive-chatter."
-
 		if(species.breath_type)
 			breath_type = species.breath_type
 		else

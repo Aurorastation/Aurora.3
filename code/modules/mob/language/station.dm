@@ -78,11 +78,44 @@
 	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","iy'it","azzg","a'","i'","o'","u'","a","i","o","u","zz","kr","ak","nrk")
 
 /datum/language/bug/get_random_name()
-	var/new_name = "[pick(list("Ka'","Za'"))]"
+	var/new_name = "[pick(list("Ka'","Za'","Ka'"))]"
 	new_name += "[pick(list("Akaix'","Viax'"))]"
 	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Aaaa"))]"
-	new_name += " [pick(list("Zo'ra","K'lax"))]"
+	new_name += " [pick(list("Zo'ra","Zo'ra","Zo'ra","K'lax"))]"
 	return new_name
+
+/datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
+	log_say("[key_name(speaker)] : ([name]) [message]")
+
+	if(!speaker_mask)
+		speaker_mask = speaker.name
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span> [format_message(message, get_spoken_verb(message))]</span></i>"
+
+	for(var/mob/player in player_list)
+		if(istype(player,/mob/dead) || ((src in player.languages) || check_special_condition(player)))
+			player << msg
+
+/datum/language/bug/check_special_condition(var/mob/other)
+
+	var/mob/living/carbon/human/M = other
+	if(!istype(M))
+		return 1
+	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
+		return 1
+
+	if (M.l_ear || M.r_ear)
+		var/obj/item/device/radio/headset/dongle
+		if(istype(M.l_ear,/obj/item/device/radio/headset))
+			dongle = M.l_ear
+		else
+			dongle = M.r_ear
+
+		if(!istype(dongle))
+			return 0
+		if(dongle.translate_hivenet)
+			return 1
+
+	return 0
 
 /datum/language/human
 	name = "Sol Common"
