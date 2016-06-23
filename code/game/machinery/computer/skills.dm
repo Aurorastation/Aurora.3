@@ -21,6 +21,7 @@
 	//Sorting Variables
 	var/sortBy = "name"
 	var/order = 1 // -1 = Descending - 1 = Ascending
+	density = 0
 
 
 /obj/machinery/computer/skills/attackby(obj/item/O as obj, user as mob)

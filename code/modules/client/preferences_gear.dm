@@ -587,6 +587,12 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/accessory/armband/science
 	slot = slot_tie
 	cost = 1
+	
+/datum/gear/armband_science
+	display_name = "armband, synthetic intelligence movement"
+	path = /obj/item/clothing/accessory/armband/movement
+	slot = slot_tie
+	cost = 1
 
 /datum/gear/armpit
 	display_name = "holster, armpit"
@@ -893,6 +899,102 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/white
 	cost = 2
 	slot = slot_gloves
+	
+/datum/gear/black_gloves_unathi
+	display_name = "black gloves, unathi"
+	path = /obj/item/clothing/gloves/black/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/black_gloves_tajara
+	display_name = "black gloves, tajaran"
+	path = /obj/item/clothing/gloves/black/tajara
+	cost = 2
+	slot = slot_gloves
+	
+/datum/gear/red_gloves_unathi
+	display_name = "red gloves, unathi"
+	path = /obj/item/clothing/gloves/red/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/red_gloves_tajaran
+	display_name = "red gloves, tajaran"
+	path = /obj/item/clothing/gloves/red/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/blue_gloves_unathi
+	display_name = "blue gloves, unathi"
+	path = /obj/item/clothing/gloves/blue/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/blue_gloves_tajaran
+	display_name = "blue gloves, tajaran"
+	path = /obj/item/clothing/gloves/blue/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/orange_gloves_unathi
+	display_name = "orange gloves, unathi"
+	path = /obj/item/clothing/gloves/orange/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/orange_gloves_tajaran
+	display_name = "orange gloves, tajaran"
+	path = /obj/item/clothing/gloves/orange/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/purple_gloves_unathi
+	display_name = "purple gloves, unathi"
+	path = /obj/item/clothing/gloves/purple/unathi
+	cost = 2
+	slot = slot_gloves
+	
+/datum/gear/purple_gloves_tajaran
+	display_name = "purple gloves, tajaran"
+	path = /obj/item/clothing/gloves/purple/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/brown_gloves_unathi
+	display_name = "brown gloves, unathi"
+	path = /obj/item/clothing/gloves/brown/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/brown_gloves_tajaran
+	display_name = "brown gloves, tajaran"
+	path = /obj/item/clothing/gloves/brown/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/green_gloves_unathi
+	display_name = "green gloves, unathi"
+	path = /obj/item/clothing/gloves/green/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/green_gloves_tajaran
+	display_name = "green gloves, tajaran"
+	path = /obj/item/clothing/gloves/green/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/white_gloves_unathi
+	display_name = "white gloves, unathi"
+	path = /obj/item/clothing/gloves/white/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/white_gloves_tajaran
+	display_name = "white gloves, tajaran"
+	path = /obj/item/clothing/gloves/white/tajara
+	cost = 2
+	slot = slot_gloves
 
 // Shoelocker
 
@@ -1047,6 +1149,12 @@ var/global/list/gear_datums = list()
 	path = /obj/item/device/paicard
 	sort_category = "utility"
 	cost = 2
+
+/datum/gear/wallet
+	display_name = "wallet"
+	path = 	/obj/item/weapon/storage/wallet
+	sort_category = "utility"
+	cost = 1	
 
 // The rest of the trash.
 

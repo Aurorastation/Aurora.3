@@ -1,0 +1,40 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#################################
+
+# Your name.  
+author: Nanako
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Fixed trays. Trays can now be unloaded by placing them down on a table, then either alt+clicking themn, or rightclicking and selecting Unload Tray"
+  - rscadd: "Trays can now load individual items by using it on them, or using the item on the tray, or alt+click to attempt to load everything on the tile"
+  - rscadd: "Trays will now spill their contents when dropped, thrown, or when you try to place it into a container"
+  - tweak: "Trays now only hold specific things: Food/drinks, reagent containers, utensils, and smoking supplies"
+  - tweak: "Tray capacity increased"
