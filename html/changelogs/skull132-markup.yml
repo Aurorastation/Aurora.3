@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+    - rscadd: "Adds Skype/Discord style mark-up to OOC, LOOC, and say. The tags that can be used are: *, /, and _. Bold is disabled by default over OOC channels."
