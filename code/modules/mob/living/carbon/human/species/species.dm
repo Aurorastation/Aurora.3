@@ -31,8 +31,8 @@
 	var/show_ssd = "fast asleep"
 
 	// Language/culture vars.
-	var/default_language = "Galactic Common" // Default language is used when 'say' is used without modifiers.
-	var/language = "Galactic Common"         // Default racial language, if any.
+	var/default_language = "Ceti Basic" // Default language is used when 'say' is used without modifiers.
+	var/language = "Ceti Basic"         // Default racial language, if any.
 	var/secondary_langs = list()             // The names of secondary languages that are available to this species.
 	var/list/speech_sounds                   // A list of sounds to potentially play when speaking.
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
