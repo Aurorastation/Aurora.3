@@ -175,16 +175,15 @@ proc/listclearnulls(list/list)
 	return output
 
 //Randomize: Return the list in a random order
-/proc/shuffle(var/list/shufflelist)
-	if(!shufflelist)
+/proc/shuffle(var/list/L)
+	if(!L)
 		return
-	var/list/new_list = list()
-	var/list/old_list = shufflelist.Copy()
-	while(old_list.len)
-		var/item = pick(old_list)
-		new_list += item
-		old_list -= item
-	return new_list
+
+	L = L.Copy()
+
+	for(var/i=1; i<L.len; i++)
+		L.Swap(i, rand(i,L.len))
+	return L
 
 //Return a list with no duplicate entries
 /proc/uniquelist(var/list/L)
@@ -611,10 +610,13 @@ datum/proc/dd_SortValue()
 /datum/alarm/dd_SortValue()
 	return "[sanitize_old(last_name)]"
 
+/proc/subtypesof(prototype)
+	return (typesof(prototype) - prototype)
+
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
 /proc/init_subtypes(prototype, list/L)
 	if(!istype(L))	L = list()
-	for(var/path in (typesof(prototype) - prototype))
+	for(var/path in subtypesof(prototype))
 		L += new path()
 	return L
