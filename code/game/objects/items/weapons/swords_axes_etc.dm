@@ -11,7 +11,8 @@
 /obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
 	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]<b></font>"
 	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
-
+	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
+	
 /*
  * Classic Baton
  */

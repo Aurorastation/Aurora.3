@@ -5,6 +5,13 @@
 	worn_state = "red_pyjamas"
 	item_state = "w_suit"
 
+/obj/item/clothing/under/gearharness
+	name = "gear harness"
+	desc = "Tight fitting gear harness."
+	icon_state = "harness"
+	worn_state = "harness"
+	item_state = "w_suit"
+
 /obj/item/clothing/under/pj/blue
 	name = "blue pj's"
 	desc = "Sleepwear."
@@ -513,7 +520,7 @@
 
 /obj/item/clothing/under/blazer
 	name = "blue blazer"
-	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie." 
+	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
