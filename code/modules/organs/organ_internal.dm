@@ -191,15 +191,15 @@ obj/item/organ/vaurca/neuralsocket/process()
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
-	if(all_languages["Hivenet"] in target.languages)
-		target.remove_language(all_languages["Hivenet"])
-		target << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
+	if (!(all_languages["Hivenet"] in owner.languages))
+		owner.add_language(all_languages["Hivenet"])
+		owner << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
-	if(!(all_languages["Hivenet"] in target.languages))
-		target.add_language(all_languages["Hivenet"])
-		target << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
+	if(all_languages["Hivenet"] in target.languages)
+		target.remove_language(all_languages["Hivenet"])
+		target << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
 	..()
 
 /obj/item/organ/vaurca/breathingapparatus

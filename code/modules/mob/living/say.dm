@@ -170,11 +170,7 @@ proc/get_radio_key_from_channel(var/channel)
 	if (speaking)
 		// This is broadcast to all mobs with the language,
 		// irrespective of distance or anything else.
-		if(speaking.flags & HIVEMIND && src.get_species() == "Vaurca")
-			speaking.broadcast(src,trim(message))
-			src << "\blue You consign your thoughts to the hive-net."
-			return 1
-		else if(speaking.flags & HIVEMIND)
+		if(speaking.flags & HIVEMIND)
 			speaking.broadcast(src,trim(message))
 			return 1
 		//If we've gotten this far, keep going!
