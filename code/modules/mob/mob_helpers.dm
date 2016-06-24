@@ -690,4 +690,31 @@ proc/is_blind(A)
 			return 0
 	return 1
 
+/mob/living/carbon/proc/vomit()
+	var/canVomit = 0
+	var/mob/living/carbon/human/H
+	if (istype(src, /mob/living/carbon/human))
+		H = src
+		if (H.ingested.total_volume > 0)
+			canVomit = 1
+
+	if (nutrition > 150)
+		canVomit = 1
+
+	if(canVomit)
+		Stun(4)
+		src.visible_message("<span class='warning'>[src] vomits!</span>","<span class='warning'>You vomit!</span>")
+		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
+
+		var/turf/location = loc
+		if (istype(location, /turf/simulated))
+			location.add_vomit_floor(src, 1)
+
+		nutrition -= 40
+		if (istype(src, /mob/living/carbon/human))
+			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
+	else
+		src.visible_message("<span class='warning'>[src] retches, attempting to vomit!</span>","<span class='warning'>You gag and collapse as you feel the urge to vomit, but there's nothing in your stomach!</span>")
+		Weaken(4)
+
 #undef SAFE_PERP

@@ -220,19 +220,26 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	if(!check_rights(R_BAN))	return
 
-	var/sql = "SELECT ckey FROM ss13_ban WHERE id = [id]"
+	var/sql = "SELECT ckey, bantype FROM ss13_ban WHERE id = [id]"
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
+	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appear.")
+	if (!reason)
+		usr << "<span class='warning'>Invalid reason given. Cancelled.</span>"
+		return
+
 	var/ban_number = 0 //failsafe
 
 	var/pckey
+	var/ban_type
 	var/DBQuery/query = dbcon.NewQuery(sql)
 	query.Execute()
 	while(query.NextRow())
 		pckey = query.item[1]
+		ban_type = query.item[2]
 		ban_number++;
 
 	if(ban_number == 0)
@@ -249,13 +256,15 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 	var/unban_ckey = src.owner:ckey
 	var/unban_computerid = src.owner:computer_id
 	var/unban_ip = src.owner:address
+	var/unban_reason = sanitizeSQL(reason)
 
-	var/sql_update = "UPDATE ss13_ban SET unbanned = 1, unbanned_datetime = Now(), unbanned_ckey = '[unban_ckey]', unbanned_computerid = '[unban_computerid]', unbanned_ip = '[unban_ip]' WHERE id = [id]"
+	var/sql_update = "UPDATE ss13_ban SET unbanned = 1, unbanned_datetime = Now(), unbanned_ckey = '[unban_ckey]', unbanned_computerid = '[unban_computerid]', unbanned_ip = '[unban_ip]', unbanned_reason = '[unban_reason]' WHERE id = [id]"
 	message_admins("[key_name_admin(usr)] has lifted [pckey]'s ban.",1)
 
 	var/DBQuery/query_update = dbcon.NewQuery(sql_update)
 	query_update.Execute()
 
+	notes_add_sql(ckey(pckey), "[ban_type] (#[id]) lifted. Reason for unban: [reason].", usr)
 
 /client/proc/DB_ban_panel()
 	set category = "Admin"
@@ -404,7 +413,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 					else
 						bantypesearch += "'PERMABAN' "
 
-			var/DBQuery/select_query = dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
+			var/DBQuery/select_query = dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, unbanned_reason, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
 			select_query.Execute()
 
 			var/now = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss") // MUST BE the same format as SQL gives us the dates in, and MUST be least to most specific (i.e. year, month, day not day, month, year)
@@ -422,9 +431,10 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 				var/unbanned = select_query.item[10]
 				var/unbanckey = select_query.item[11]
 				var/unbantime = select_query.item[12]
-				var/edits = select_query.item[13]
-				var/ip = select_query.item[14]
-				var/cid = select_query.item[15]
+				var/unbanreason = select_query.item[13]
+				var/edits = select_query.item[14]
+				var/ip = select_query.item[15]
+				var/cid = select_query.item[16]
 
 				// true if this ban has expired
 				var/auto = (bantype in list("TEMPBAN", "JOB_TEMPBAN")) && now > expiration // oh how I love ISO 8601 (ish) date strings
@@ -473,6 +483,10 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 				if(unbanned)
 					output += "<tr bgcolor='[dcolor]'>"
 					output += "<td align='center' colspan='5' bgcolor=''><b>UNBANNED by admin [unbanckey] on [unbantime]</b></td>"
+					if (!unbanreason)
+						unbanreason = "No unban reason given. (Ban probably lifted before update.)"
+					output += "</tr><tr bgcolor='[dcolor]'>"
+					output += "<td align='center' colspan='5' bgcolor=''><b>Reason for unban:</b> [unbanreason].</td>"
 					output += "</tr>"
 				else if(auto)
 					output += "<tr bgcolor='[dcolor]'>"
