@@ -440,13 +440,12 @@
 		var/failed_inhale = 0
 		var/failed_exhale = 0
 
-		if(species.has_organ["breathing apparatus"])
+		if(species.has_organ["breathing apparatus"] && src.get_species() == "Vaurca")
 			var/obj/item/organ/vaurca/breathingapparatus/L = internal_organs_by_name["breathing apparatus"]
 			if(isnull(L))
 				poison_type = null
 			else if(L.is_broken())
 				poison_type = "oxygen" //if Vaurca breathing apparatus breaks, oxygen becomes poisonous.
-
 		if(species.breath_type)
 			breath_type = species.breath_type
 		else
@@ -1402,6 +1401,8 @@
 					var/obj/item/clothing/glasses/welding/O = glasses
 					if(!O.up)
 						found_welder = 1
+				if(istype(glasses, /obj/item/clothing/glasses/sunglasses/blinders))
+					found_welder = 1
 				if(!found_welder && istype(head, /obj/item/clothing/head/welding))
 					var/obj/item/clothing/head/welding/O = head
 					if(!O.up)

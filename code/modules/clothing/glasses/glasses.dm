@@ -207,7 +207,12 @@
 	desc = "Covers the eyes, preventing sight."
 	icon_state = "blindfold"
 	item_state = "blindfold"
-	//vision_flags = BLIND  	// This flag is only supposed to be used if it causes permanent blindness, not temporary because of glasses
+
+/obj/item/clothing/glasses/sunglasses/blinders
+	name = "Vaurcae Blinders"
+	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."
+	icon_state = "blinders"
+	item_state = "blinders"
 
 /obj/item/clothing/glasses/sunglasses/prescription
 	name = "prescription sunglasses"

@@ -168,6 +168,19 @@
 /obj/item/ammo_magazine/a75/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/trodpack
+	name = "tungsten rod pack"
+	icon_state = "trodpack"
+	mag_type = MAGAZINE
+	caliber = "trod"
+	ammo_type = /obj/item/ammo_casing/trod
+	multiple_sprites = 1
+	max_ammo = 2
+
+/obj/item/ammo_magazine/trodpack/empty
+	initial_ammo = 0
+
+
 /obj/item/ammo_magazine/a762
 	name = "magazine box (7.62mm)"
 	icon_state = "a762"
