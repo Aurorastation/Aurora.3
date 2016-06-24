@@ -471,7 +471,7 @@
 			user.add_language("Sinta'unathi")
 			user.add_language("Siik'tajr")
 			user.add_language("Skrellian")
-			user.add_language("Vaurcese")
+//			user.add_language("Vaurcese")
 			user.add_language("Rootspeak")
 		else
 			user.remove_language("Sinta'unathi")

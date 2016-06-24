@@ -182,23 +182,23 @@
 obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages["Hivenet"] in owner.languages)
-			owner.remove_language(all_languages["Hivenet"])
+			owner.remove_language("Hivenet")
 			owner << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
 	else
 		if (!(all_languages["Hivenet"] in owner.languages))
-			owner.add_language(all_languages["Hivenet"])
+			owner.add_language("Hivenet")
 			owner << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	if (!(all_languages["Hivenet"] in owner.languages))
-		owner.add_language(all_languages["Hivenet"])
+		owner.add_language("Hivenet")
 		owner << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages["Hivenet"] in target.languages)
-		target.remove_language(all_languages["Hivenet"])
+		target.remove_language("Hivenet")
 		target << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
 	..()
 
