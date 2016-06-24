@@ -40,6 +40,7 @@ CREATE TABLE `ss13_ban` (
   `edits` text CHARACTER SET latin1,
   `unbanned` tinyint(1) DEFAULT NULL,
   `unbanned_datetime` datetime DEFAULT NULL,
+  `unbanned_reason` text CHARACTER SET latin1 DEFAULT NULL,
   `unbanned_ckey` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
   `unbanned_computerid` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
   `unbanned_ip` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
