@@ -8,6 +8,7 @@
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = "combat=3;magnets=2"
+	slot_flags = SLOT_BELT
 	modifystate = "energystun"
 
 	firemodes = list(
