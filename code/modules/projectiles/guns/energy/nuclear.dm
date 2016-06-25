@@ -106,3 +106,23 @@
 	update_charge()
 	update_reactor()
 	update_mode()
+
+/obj/item/weapon/gun/energy/epistol
+	name = "energy pistol"
+	desc = "An energy-based pistol with two settings: Stun and kill."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "epistolstun100"
+	item_state = "energystun"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	fire_delay = 2
+	max_shots = 5
+
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = "combat=3;magnets=2"
+
+	modifystate = "epistolstun"
+
+	firemodes = list(
+		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg'),
+		)
