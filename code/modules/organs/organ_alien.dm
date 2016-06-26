@@ -380,7 +380,8 @@
 	cannot_break = 1
 	dislocated = -1
 
-/*//VAURCA ORGANS
+
+//VAURCA ORGANS
 /obj/item/organ/vaurca/neuralsocket
     name = "neural socket"
     organ_tag = "neural socket"
@@ -405,4 +406,4 @@
     icon = 'icons/mob/alien.dmi'
     icon_state = "tracheae"
 /obj/item/organ/vaurca/tracheae/removed()
-	return */
+	return

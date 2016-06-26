@@ -110,7 +110,7 @@
 /obj/item/borg/upgrade/tasercooler/action(var/mob/living/silicon/robot/R)
 	if(..()) return 0
 
-	if(!R.module || !(src.type in R.module.supported_upgrades))
+	if(!R.module || !(src in R.module.supported_upgrades))
 		R << "Upgrade mounting error!  No suitable hardpoint detected!"
 		usr << "There's no mounting point for the module!"
 		return 0
@@ -133,6 +133,27 @@
 		T.recharge_time = max(2 , T.recharge_time - 4)
 
 	return 1
+
+/obj/item/borg/upgrade/jetpack
+	name = "mining robot jetpack"
+	desc = "A carbon dioxide jetpack suitable for low-gravity mining operations."
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"phoron"=15000,"uranium" = 20000)
+	icon_state = "cyborg_upgrade3"
+	require_module = 1
+
+/obj/item/borg/upgrade/jetpack/action(var/mob/living/silicon/robot/R)
+	if(..()) return 0
+
+	if(!R.module || !(src in R.module.supported_upgrades))
+		R << "Upgrade mounting error!  No suitable hardpoint detected!"
+		usr << "There's no mounting point for the module!"
+		return 0
+	else
+		R.module.modules += new/obj/item/weapon/tank/jetpack/carbondioxide
+		for(var/obj/item/weapon/tank/jetpack/carbondioxide in R.module.modules)
+			R.internals = src
+		//R.icon_state="Miner+j"
+		return 1
 
 
 /obj/item/borg/upgrade/syndicate/

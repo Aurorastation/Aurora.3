@@ -274,6 +274,7 @@
 			if(istype(C) && C.can_use())
 				set_current(C)
 				usr.reset_view(C)
+				interact()
 				return
 
 		if("keyselect" in href_list)

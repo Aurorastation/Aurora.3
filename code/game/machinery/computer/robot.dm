@@ -17,7 +17,6 @@
 	var/screen = 0 // 0 - Main Menu, 1 - Cyborg Status, 2 - Kill 'em All! -- In text
 
 
-
 /obj/machinery/computer/robotics/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
 

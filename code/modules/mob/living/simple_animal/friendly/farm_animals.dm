@@ -55,9 +55,9 @@
 
 		if(!pulledby)
 			var/obj/effect/plant/food
-			food = locate(/obj/effect/plant) in oview(5,loc)
+			food = locate(/obj/effect/plant) in oview(5,loc)	
 			if(food)
-				var/step = get_step_to(src, food, 0)
+				var/step = get_step_to(src, food, 0) 	
 				Move(step)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
@@ -168,8 +168,6 @@
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
 	small = 1
-	holder_type = /obj/item/weapon/holder/chick
-	density = 0
 
 /mob/living/simple_animal/chick/New()
 	..()
@@ -185,10 +183,6 @@
 		if(amount_grown >= 100)
 			new /mob/living/simple_animal/chicken(src.loc)
 			qdel(src)
-
-/mob/living/simple_animal/chick/death()
-	..()
-	desc = "How could you do this? You monster!"
 
 var/const/MAX_CHICKENS = 50
 var/global/chicken_count = 0
@@ -216,8 +210,6 @@ var/global/chicken_count = 0
 	var/body_color
 	pass_flags = PASSTABLE
 	small = 1
-	holder_type = /obj/item/weapon/holder/chicken
-	density = 0
 
 /mob/living/simple_animal/chicken/New()
 	..()
@@ -229,17 +221,10 @@ var/global/chicken_count = 0
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 	chicken_count += 1
-	if (body_color == "brown")
-		holder_type = /obj/item/weapon/holder/chicken/brown
-	if (body_color == "black")
-		holder_type = /obj/item/weapon/holder/chicken/black
-	if (body_color == "white")
-		holder_type = /obj/item/weapon/holder/chicken/white
 
 /mob/living/simple_animal/chicken/death()
 	..()
 	chicken_count -= 1
-	desc = "Now it's ready for plucking and cooking!"
 
 /mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown)) //feedin' dem chickens

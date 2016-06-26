@@ -24,9 +24,8 @@
 	desc = "A lightweight, fast firing gun, for when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
 	w_class = 3
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/c45uzi
-	max_shells = 16
+	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
+	max_shells = 15
 	caliber = ".45"
 	origin_tech = "combat=5;materials=2;syndicate=8"
 	ammo_type = /obj/item/ammo_casing/c45
@@ -265,41 +264,3 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
-	
-/obj/item/weapon/gun/projectile/automatic/tommygun
-	name = "\improper Tommygun"
-	desc = "A classic among criminals. Uses .45 rounds."
-	icon_state = "tommygun"
-	w_class = 3
-	max_shells = 50
-	caliber = ".45"
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	slot_flags = SLOT_BELT
-	ammo_type = /obj/item/ammo_casing/c45
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/tommymag
-
-/obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
-	..()
-	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
-
-/obj/item/weapon/gun/projectile/automatic/railgun
-	name = "Railgun"
-	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	icon_state = "railgun"
-	item_state = "arifle"
-	w_class = 3
-	force = 10
-	caliber = "trod"
-	origin_tech = "combat=5;materials=2"
-	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/effects/Explosion2.ogg'
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/trodpack
-	auto_eject = 1
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-
-	firemodes = list(
-		list(name="single coil",	burst=1, move_delay=6, accuracy = list(0)),
-		list(name="dual coil",	burst=2, move_delay=8, accuracy = list(-2,-3), dispersion = list(2.0, 3.0)),
-		)

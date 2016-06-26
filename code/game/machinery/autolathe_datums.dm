@@ -378,12 +378,6 @@
 	path = /obj/item/ammo_casing/shotgun/stunshell
 	hidden = 1
 	category = "Arms and Ammunition"
-	
-/datum/autolathe/recipe/clip_boltaction
-	name = "ammunition (7.62mm)"
-	path = /obj/item/ammo_magazine/boltaction
-	hidden = 1
-	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/rcd
 	name = "rapid construction device"

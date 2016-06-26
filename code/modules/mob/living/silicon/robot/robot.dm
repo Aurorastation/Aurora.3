@@ -53,11 +53,6 @@
 
 	// Components are basically robot organs.
 	var/list/components = list()
-	var/datum/robot_component/jetpackComponent
-	var/datum/robot_component/actuatorComponent
-
-
-
 
 	var/obj/item/device/mmi/mmi = null
 
@@ -74,8 +69,7 @@
 	var/viewalerts = 0
 	var/modtype = "Default"
 	var/lower_mod = 0
-	//var/jetpack = 0
-	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/jetpack = null
+	var/jetpack = 0
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
 	var/datum/effect/effect/system/spark_spread/spark_system//So they can initialize sparks whenever/N
 	var/jeton = 0
@@ -142,7 +136,7 @@
 	initialize_components()
 	//if(!unfinished)
 	// Create all the robot parts.
-	for(var/V in components) if(V != "power cell" && V != "jetpack")//We don't install the jetpack onstart
+	for(var/V in components) if(V != "power cell")
 		var/datum/robot_component/C = components[V]
 		C.installed = 1
 		C.wrapped = new C.external_type
@@ -401,9 +395,17 @@
 // this function displays jetpack pressure in the stat panel
 /mob/living/silicon/robot/proc/show_jetpack_pressure()
 	// if you have a jetpack, show the internal tank pressure
-	if (jetpack)
-		stat("Internal Atmosphere Info", jetpack.name)
-		stat("Tank Pressure", jetpack.air_contents.return_pressure())
+	var/obj/item/weapon/tank/jetpack/current_jetpack = installed_jetpack()
+	if (current_jetpack)
+		stat("Internal Atmosphere Info", current_jetpack.name)
+		stat("Tank Pressure", current_jetpack.air_contents.return_pressure())
+
+
+// this function returns the robots jetpack, if one is installed
+/mob/living/silicon/robot/proc/installed_jetpack()
+	if(module)
+		return (locate(/obj/item/weapon/tank/jetpack) in module.modules)
+	return 0
 
 
 // this function displays the cyborgs current cell charge in the stat panel
@@ -451,15 +453,10 @@
 		return
 
 	if(opened) // Are they trying to insert something?
-
-		if (istype(W, /obj/item/robot_parts/robot_component/jetpack))//If they're inserting a jetpack, check that this chassis allows it.
-			if(!src.module || !(W.type in src.module.supported_upgrades))
-				user << "Error: This chassis does not support a jetpack"
-				return
-
 		for(var/V in components)
 			var/datum/robot_component/C = components[V]
 			if(!C.installed && istype(W, C.external_type))
+				C.installed = 1
 				C.wrapped = W
 				C.install()
 				user.drop_item()
@@ -473,8 +470,6 @@
 				usr << "\blue You install the [W.name]."
 
 				return
-
-
 
 	if (istype(W, /obj/item/weapon/weldingtool))
 		if (src == user)

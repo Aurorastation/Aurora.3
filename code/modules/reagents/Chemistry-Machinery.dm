@@ -617,12 +617,12 @@
 
 	if(istype(O,/obj/item/weapon/storage/bag/plants))
 		var/failed = 1
-		var/obj/item/weapon/storage/bag/P = O
-		for(var/obj/item/G in P.contents)
+		for(var/obj/item/G in O.contents)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue
 			failed = 0
-			P.remove_from_storage(G,src)
+			O.contents -= G
+			G.loc = src
 			holdingitems += G
 			if(holdingitems && holdingitems.len >= limit)
 				break

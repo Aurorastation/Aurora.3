@@ -645,12 +645,15 @@
 
 		if(client.holder)
 			if(statpanel("Status"))
-				stat("Location:", "([x], [y], [z]) [loc]")
+				stat("Location:","([x], [y], [z])")
+			if(statpanel("Processes"))
 				stat("CPU:","[world.cpu]")
 				stat("Instances:","[world.contents.len]")
-			if(statpanel("Processes"))
-				if(processScheduler)
-					processScheduler.statProcesses()
+				if(processScheduler && processScheduler.getIsRunning())
+					for(var/datum/controller/process/P in processScheduler.processes)
+						stat(P.getStatName(), P.getTickTime())
+				else
+					stat("processScheduler is not running.")
 
 		if(listed_turf && client)
 			if(!TurfAdjacent(listed_turf))

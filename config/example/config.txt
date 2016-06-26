@@ -58,9 +58,6 @@ LOG_ATTACK
 ## log pda messages
 LOG_PDA
 
-## log world.log messages
-# LOG_WORLD_OUTPUT
-
 ## log all Topic() calls (for use by coders in tracking down Topic issues)
 # LOG_HREFS
 
@@ -379,15 +376,3 @@ STARLIGHT 0
 
 ## Uncomment this and fill in the web interface's URL to use the web interface.
 # WEBINT_URL http://www.address.com/
-
-## Client version control settings.
-## Sets the minimum required BYOND version to play, as well as a warning version, and a message for both.
-## These checks are non-inclusive, so 510 will trigger on 509 or lower.
-## If the error version is triggered, access is denied. Warning message will simply pester.
-#CLIENT_ERROR_VERSION 509
-#CLIENT_ERROR_MESSAGE Your version of BYOND is not supported. Please upgrade.
-#CLIENT_WARN_VERSION 510
-#CLIENT_WARN_MESSAGE BYOND is really close to releasing 510 beta as a stable release, please take time to try it out. Reports are that the client preforms better then the version you are using, and also handles network lag better. Shortly after it's release we will end up using 510 client features and you will be forced to update.
-
-## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
-#ALLOW_CHAT_MARKUP

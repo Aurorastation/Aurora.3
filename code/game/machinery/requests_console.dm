@@ -62,7 +62,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/lid = 0
 	//End Form Integration
 	var/datum/announcement/announcement = new
-	var/list/obj/item/device/pda/alert_pdas = list() //The PDAs we alert upon a request receipt.
 
 /obj/machinery/requests_console/power_change()
 	..()
@@ -267,14 +266,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				else
 					dat += text("<br>Paper container lid <A href='?src=\ref[src];setLid=1'>CLOSE</A>.")
 
-				dat += "<br><br>PDAs to notify:<br>"
-
-				if (alert_pdas && alert_pdas.len)
-					for (var/obj/item/device/pda/pda in alert_pdas)
-						dat += "[alert_pdas[pda]] - <a href='byond://?src=\ref[src];unlink=\ref[pda]'>Unlink</a><br>"
-
-				dat += "<br><a href='byond://?src=\ref[src];linkpda=1'>Add PDA to Notify</a>"
-
 		user << browse("[dat]", "window=request_console")
 		onclose(user, "req_console")
 	return
@@ -352,8 +343,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 										O.show_message(text("\icon[Console] *The Requests Console beeps: 'PRIORITY Alert in [department]'"))
 								Console.messages += "<B><FONT color='red'>High Priority message from <A href='?src=\ref[Console];write=[ckey(department)]'>[department]</A></FONT></B><BR>[sending]"
 
-								Console.do_pda_alerts("Priority alert received from [department]!")
-
 		//					if("3")		//Not implemanted, but will be 		//Removed as it doesn't look like anybody intends on implimenting it ~Carn
 		//						if(Console.newmessagepriority < 3)
 		//							Console.newmessagepriority = 3
@@ -373,8 +362,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 									for (var/mob/O in hearers(4, Console.loc))
 										O.show_message(text("\icon[Console] *The Requests Console beeps: 'Message from [department]'"))
 								Console.messages += "<B>Message from <A href='?src=\ref[Console];write=[ckey(department)]'>[department]</A></FONT></B><BR>[message]"
-
-								Console.do_pda_alerts("Message received from [department].")
 
 						screen = 6
 						Console.set_light(2)
@@ -484,26 +471,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(null)	//skip
 		if("1")	silent = 1
 		else	silent = 0
-
-	if(href_list["linkpda"])
-		var/obj/item/device/pda/pda = usr.get_active_hand()
-		if (!pda || !istype(pda))
-			usr << "<span class='warning'>You need to be holding a PDA to link it.</span>"
-		else if (pda in alert_pdas)
-			usr << "<span class='notice'>\The [pda] appears to be already linked.</span>"
-			//Update the name real quick.
-			alert_pdas[pda] = pda.name
-		else
-			alert_pdas += pda
-			alert_pdas[pda] = pda.name
-			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
-
-	if(href_list["unlink"])
-		var/obj/item/device/pda/pda = locate(href_list["unlink"])
-		if (pda && istype(pda))
-			if (pda in alert_pdas)
-				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
-				alert_pdas -= pda
 
 	updateUsrDialog()
 	return
@@ -627,17 +594,3 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announceAuth = 0
 	message = ""
 	announcement.announcer = ""
-
-/obj/machinery/requests_console/proc/do_pda_alerts(var/message)
-	if (!message)
-		message = "New message received."
-
-	if (!alert_pdas || !alert_pdas.len)
-		return
-
-	for (var/obj/item/device/pda/pda in alert_pdas)
-		if (pda.toff || pda.message_silent)
-			continue
-
-		message = "[message] View it at [src.name]."
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")

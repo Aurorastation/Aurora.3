@@ -24,8 +24,7 @@ var/global/datum/controller/occupations/job_master
 			if(!job)	continue
 			if(job.faction != faction)	continue
 			occupations += job
-			if (config && config.use_age_restriction_for_jobs)
-				job.fetch_age_restriction()
+
 
 		return 1
 

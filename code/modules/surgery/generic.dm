@@ -118,13 +118,9 @@
 	max_duration = 110
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if(target.get_species() == "Vaurca")
-			return 0
-		else
-			if(..())
-				var/obj/item/organ/external/affected = target.get_organ(target_zone)
-				return affected && affected.open == 0 && target_zone != "mouth"
-
+		if(..())
+			var/obj/item/organ/external/affected = target.get_organ(target_zone)
+			return affected && affected.open == 0 && target_zone != "mouth"
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -149,47 +145,6 @@
 		user.visible_message("\red [user]'s hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!", \
 		"\red Your hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!")
 		affected.createwound(CUT, 10)
-
-/datum/surgery_step/generic/cut_openvaurca
-	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 85, \
-	/obj/item/weapon/pickaxe/ = 15, \
-	)
-
-	min_duration = 110
-	max_duration = 130
-
-	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if(target.get_species() != "Vaurca")
-			return 0
-		else
-			if(..())
-				var/obj/item/organ/external/affected = target.get_organ(target_zone)
-				return affected && affected.open == 0 && target_zone != "mouth"
-
-	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("[user] starts drilling into [target]'s [affected.name] carapace with \the [tool].", \
-		"You start drilling into [target]'s [affected.name] carapace with \the [tool].")
-		target.custom_pain("You feel a horrible pain as if from a jackhammer in your [affected.name]!",1)
-		..()
-
-	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] has drilled into [target]'s [affected.name] carapace with \the [tool].", \
-		"\blue You have drilled into [target]'s [affected.name] carapace with \the [tool].",)
-		affected.open = 1
-
-		if(istype(target) && !(target.species.flags & NO_BLOOD))
-			affected.status |= ORGAN_BLEEDING
-
-		affected.createwound(CUT, 1)
-
-	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\red [user]'s hand slips, cracking [target]'s [affected.name] carapace in the wrong place with \the [tool]!", \
-		"\red Your hand slips, cracking [target]'s [affected.name] carapace in the wrong place with \the [tool]!")
-		affected.createwound(CUT, 15)
 
 /datum/surgery_step/generic/clamp_bleeders
 	allowed_tools = list(

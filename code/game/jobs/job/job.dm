@@ -64,7 +64,3 @@
 
 /datum/job/proc/is_position_available()
 	return (current_positions < total_positions) || (total_positions == -1)
-
-/datum/job/proc/fetch_age_restriction()
-	if (config.age_restrictions[lowertext(title)])
-		minimal_player_age = config.age_restrictions[lowertext(title)]

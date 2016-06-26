@@ -182,6 +182,13 @@
 /*
  * Text modification
  */
+
+/proc/replacetext(text, find, replacement)
+	return list2text(text2list(text, find), replacement)
+
+/proc/replacetextEx(text, find, replacement)
+	return list2text(text2listEx(text, find), replacement)
+
 /proc/replace_characters(var/t,var/list/repl_chars)
 	for(var/char in repl_chars)
 		t = replacetext(t, char, repl_chars[char])
@@ -314,28 +321,3 @@ proc/TextPreview(var/string,var/len=40)
 	if(C && (C.prefs.toggles & CHAT_NOICONS))
 		return tagdesc
 	return "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
-
-// For processing simple markup, similar to what Skype and Discord use.
-// Enabled from a config setting.
-/proc/process_chat_markup(var/message, var/list/ignore_tags = list())
-	if (!config.allow_chat_markup)
-		return message
-
-	if (!message)
-		return ""
-
-	var/list/tags = list("*" = list("<b>", "</b>"),
-						"/" = list("<i>", "</i>"),
-						"_" = list("<i>", "</i>"))
-
-	if (ignore_tags && ignore_tags.len)
-		tags -= ignore_tags
-
-	for (var/tag in tags)
-		var/marker_begin = tags[tag][1]
-		var/marker_end = tags[tag][2]
-
-		var/regex/markup = new("(\\[tag])(\[^\\[tag]\]*)(\\[tag])", "g")
-		message = markup.Replace(message, "[marker_begin]$2[marker_end]")
-
-	return message

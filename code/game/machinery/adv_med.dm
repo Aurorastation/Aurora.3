@@ -82,29 +82,16 @@
 	if (G.affecting.abiotic())
 		user << "\blue <B>Subject cannot have abiotic items on.</B>"
 		return
-
-	if(istype(G, /obj/item/weapon/grab))
-
-		var/mob/living/L = G:affecting
-		visible_message("[user] starts putting [G:affecting] into the scanner bed.", 3)
-
-		if (do_mob(user, G:affecting, 30, needhand = 0))
-			var/bucklestatus = L.bucklecheck(user)
-			if (!bucklestatus)//incase the patient got buckled during the delay
-				return
-			if (bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
-			var/mob/M = G.affecting
-			if (M.client)
-				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
-			M.loc = src
-			src.occupant = M
-			update_use_power(2)
-			src.icon_state = "body_scanner_1"
-			for(var/obj/O in src)
-				O.loc = src.loc
+	var/mob/M = G.affecting
+	if (M.client)
+		M.client.perspective = EYE_PERSPECTIVE
+		M.client.eye = src
+	M.loc = src
+	src.occupant = M
+	update_use_power(2)
+	src.icon_state = "body_scanner_1"
+	for(var/obj/O in src)
+		O.loc = src.loc
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null

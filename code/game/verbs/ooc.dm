@@ -49,8 +49,6 @@
 		if(holder.rights & R_ADMIN)
 			ooc_style = "admin"
 
-	msg = process_chat_markup(msg, list("*"))
-
 	for(var/client/target in clients)
 		if(target.prefs.toggles & CHAT_OOC)
 			var/display_name = src.key
@@ -114,8 +112,6 @@
 		display_name = holder.fakekey
 	if(source.stat != DEAD)
 		display_name = source.name
-
-	msg = process_chat_markup(msg, list("*"))
 
 	var/prefix
 	var/admin_stuff

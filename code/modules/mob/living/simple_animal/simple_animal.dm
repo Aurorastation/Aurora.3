@@ -405,15 +405,3 @@
 		else
 			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
 			gib()
-
-
-//For picking up small animals
-/mob/living/simple_animal/MouseDrop(atom/over_object)
-	if (holder_type)//we need a defined holder type in order for picking up to work
-		var/mob/living/carbon/H = over_object
-		if(!istype(H) || !Adjacent(H))
-			return ..()
-
-		get_scooped(H)
-		return
-	return ..()

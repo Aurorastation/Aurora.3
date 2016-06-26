@@ -1,4 +1,4 @@
-/mob/living/silicon/ai/Login()	//ThisIsDumb(TM) TODO: tidy this up ï¿½_ï¿½ ~Carn
+/mob/living/silicon/ai/Login()	//ThisIsDumb(TM) TODO: tidy this up ¬_¬ ~Carn
 	..()
 	for(var/obj/effect/rune/rune in rune_list)
 		client.images += rune.blood_image
@@ -12,7 +12,7 @@
 	blind.icon_state = "black"
 	blind.name = " "
 	blind.screen_loc = "1,1 to 15,15"
-	blind.invisibility = 101
+	blind.layer = 0
 	client.screen.Add( blind, flash )
 
 	if(stat != DEAD)
