@@ -165,6 +165,26 @@ datum/preferences
 
 	ZeroSkills(1)
 
+/datum/preferences/proc/getMinAge(var/AGE_MIN)
+	if(species == "Vaurca" || species == "Machine" || species == "Diona")
+		AGE_MIN = 1
+	if(species == "Human" || species == "Skrell" || species == "Tajara" || species == "Unathi")
+		AGE_MIN = 17
+	return AGE_MIN
+
+/datum/preferences/proc/getMaxAge(var/AGE_MAX)
+	if(species == "Vaurca")
+		AGE_MAX = 20
+	if(species == "Machine")
+		AGE_MAX = 30
+	if(species == "Skrell" || species == "Diona")
+		AGE_MAX = 500
+	if(species == "Human")
+		AGE_MAX = 120
+	if(species == "Tajara" || species == "Unathi")
+		AGE_MAX = 85
+	return AGE_MAX
+
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
 		if(!skills.Find(S.ID) || forced)
@@ -1195,7 +1215,7 @@ datum/preferences
 				if("name")
 					real_name = random_name(gender,species)
 				if("age")
-					age = rand(AGE_MIN, AGE_MAX)
+					age = rand(getMinAge(), getMaxAge())
 				if("hair")
 					r_hair = rand(0,255)
 					g_hair = rand(0,255)
@@ -1244,9 +1264,9 @@ datum/preferences
 							user << "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>"
 
 				if("age")
-					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
+					var/new_age = input(user, "Choose your character's age:\n([getMinAge()]-[getMaxAge()])", "Character Preference") as num|null
 					if(new_age)
-						age = max(min( round(text2num(new_age)), AGE_MAX),AGE_MIN)
+						age = max(min( round(text2num(new_age)), getMaxAge()),getMinAge())
 
 				if("species")
 					user << browse(null, "window=species")

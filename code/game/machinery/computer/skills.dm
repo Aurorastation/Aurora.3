@@ -96,6 +96,10 @@
 						Sex: <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>\n	\
 						Age: <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>\n	\
 						Rank: <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>\n	\
+						Citizenship: <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>\n	\
+						Home System: <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>\n	\
+						Faction: <A href='?src=\ref[src];choice=Edit Field;field=faction'>[active1.fields["faction"]]</A><BR>\n	\
+						Religion: <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>\n	\
 						Fingerprint: <A href='?src=\ref[src];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>\n	\
 						Physical Status: [active1.fields["p_stat"]]<BR>\n	\
 						Mental Status: [active1.fields["m_stat"]]<BR><BR>\n	\
@@ -343,6 +347,30 @@ What a mess.*/
 							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
 								return
 							active1.fields["age"] = t1
+					if("citizenship")
+						if (istype(active1, /datum/data/record))
+							var/t1 = input("Please input citizenship:", "Secure. records", active1.fields["citizenship"], null)  as text
+							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
+								return
+							active1.fields["citizenship"] = t1
+					if("home_system")
+						if (istype(active1, /datum/data/record))
+							var/t1 = input("Please home system:", "Secure. records", active1.fields["home_system"], null)  as text
+							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
+								return
+							active1.fields["home_system"] = t1
+					if("faction")
+						if (istype(active1, /datum/data/record))
+							var/t1 = input("Please input faction:", "Secure. records", active1.fields["faction"], null)  as text
+							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
+								return
+							active1.fields["faction"] = t1
+					if("religion")
+						if (istype(active1, /datum/data/record))
+							var/t1 = input("Please input religion:", "Secure. records", active1.fields["religion"], null)  as text
+							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
+								return
+							active1.fields["religion"] = t1
 					if("rank")
 						var/list/L = list( "Head of Personnel", "Captain", "AI" )
 						//This was so silly before the change. Now it actually works without beating your head against the keyboard. /N

@@ -606,10 +606,6 @@ var/list/be_special_flags = list(
 	"vampire"          = BE_VAMPIRE
 )
 
-// Age limits on a character.
-#define AGE_MIN 17
-#define AGE_MAX 85
-
 // Languages.
 #define LANGUAGE_HUMAN  1
 #define LANGUAGE_ALIEN  2
