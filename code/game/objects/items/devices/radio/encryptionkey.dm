@@ -9,6 +9,7 @@
 	slot_flags = SLOT_EARS
 	var/translate_binary = 0
 	var/translate_hive = 0
+	var/translate_hivenet = 0
 	var/syndie = 0
 	var/list/channels = list()
 
@@ -27,6 +28,13 @@
 	icon_state = "cypherkey"
 	translate_binary = 1
 	origin_tech = "syndicate=3"
+
+/obj/item/device/encryptionkey/hivenet
+	name = "hivenet encryption chip"
+	desc = "It appears to be a Vaurca hivenet encryption chip, for localized broadcasts."
+	translate_hivenet = 1
+	icon = 'icons/obj/stock_parts.dmi'
+	icon_state = "neuralchip"
 
 /obj/item/device/encryptionkey/headset_sec
 	name = "security radio encryption key"

@@ -254,7 +254,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("kois", 20)
+		reagents.add_reagent("koispaste", 20)
 		bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/aesirsalad
@@ -3033,3 +3033,113 @@
 		..()
 		reagents.add_reagent("nutriment", 10)
 		bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/friedkois
+	name = "Fried K'ois"
+	desc = "K'ois, freshly bathed in the radiation of a microwave."
+	icon_state = "friedkois"
+	filling_color = "#E6E600"
+
+	New()
+		..()
+		reagents.add_reagent("koispaste", 6)
+		bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/friedkois/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/stack/rods))
+		new /obj/item/weapon/reagent_containers/food/snacks/koiskebab1(src)
+		user << "You skewer the fried k'ois."
+		qdel(src)
+		qdel(W)
+	if(istype(W,/obj/item/weapon/material/kitchen/rollingpin))
+		new /obj/item/weapon/reagent_containers/food/snacks/koissoup(src)
+		user << "You crush the fried K'ois into a paste, and pour it into a bowl."
+		qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/koiskebab1
+	name = "K'ois on a Stick"
+	desc = "It's K'ois. On a stick. It looks like you could fit more."
+	icon_state = "koisbab1"
+	trash = /obj/item/stack/rods
+	filling_color = "#E6E600"
+
+	New()
+		..()
+		reagents.add_reagent("koispaste", 12)
+		bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/friedkois))
+		new /obj/item/weapon/reagent_containers/food/snacks/koiskebab2(src)
+		user << "You add fried K'ois to the kebab."
+		qdel(src)
+		qdel(W)
+
+
+/obj/item/weapon/reagent_containers/food/snacks/koiskebab2
+	name = "K'ois on a Stick"
+	desc = "It's K'ois. On a stick. It looks like you could fit more."
+	icon_state = "koisbab2"
+	trash = /obj/item/stack/rods
+	filling_color = "#E6E600"
+
+	New()
+		..()
+		reagents.add_reagent("koispaste", 18)
+		bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/friedkois))
+		new /obj/item/weapon/reagent_containers/food/snacks/koiskebab3(src)
+		user << "You add fried K'ois to the kebab."
+		qdel(src)
+		qdel(W)
+
+/obj/item/weapon/reagent_containers/food/snacks/koiskebab3
+	name = "K'ois on a Stick"
+	desc = "It's K'ois. On a stick. It doesn't look like you can fit anymore."
+	icon_state = "koisbab3"
+	trash = /obj/item/stack/rods
+	filling_color = "#E6E600"
+
+	New()
+		..()
+		reagents.add_reagent("koispaste", 24)
+		bitesize = 9
+
+/obj/item/weapon/reagent_containers/food/snacks/koissoup
+	name = "K'ois Paste"
+	desc = "A thick K'ois goop, piled into a bowl."
+	icon_state = "koissoup"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#4E6E600"
+
+	New()
+		..()
+		reagents.add_reagent("koispaste", 15)
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/koiswaffles
+	name = "K'ois Waffles"
+	desc = "Rock-hard 'waffles' composed entirely of microwaved K'ois goop."
+	icon_state = "koiswaffles"
+	trash = /obj/item/trash/waffles
+	filling_color = "#E6E600"
+
+	New()
+		..()
+		reagents.add_reagent("koispaste", 25)
+		bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/koisjelly
+	name = "K'ois Jelly"
+	desc = "Enriched K'ois paste, filled to the brim with the good stuff."
+	icon_state = "koisjelly"
+	filling_color = "#E6E600"
+
+	New()
+		..()
+		reagents.add_reagent("koispaste", 25)
+		reagents.add_reagent("imidazoline", 20)
+		reagents.add_reagent("hyperzine", 5)
+		bitesize = 5

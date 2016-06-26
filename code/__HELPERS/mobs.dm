@@ -90,7 +90,9 @@ proc/RoundHealth(health)
 	switch(health)
 		if(100 to INFINITY)
 			return "health100"
-		if(70 to 100)
+		if(90 to 100)
+			return "health95"
+		if(70 to 90)
 			return "health80"
 		if(50 to 70)
 			return "health60"

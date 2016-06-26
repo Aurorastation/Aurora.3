@@ -18,6 +18,12 @@
 	caliber = "38"
 	projectile_type = /obj/item/projectile/bullet/pistol
 
+/obj/item/ammo_casing/trod
+	desc = "Hyperdense tungsten rod residue."
+	icon_state = "trod"
+	caliber = "trod"
+	projectile_type = /obj/item/projectile/bullet/trod
+
 /obj/item/ammo_casing/c38r
 	desc = "A .38 rubber bullet casing."
 	caliber = "38"
@@ -68,7 +74,6 @@
 	desc = "A 12mm bullet casing."
 	caliber = "12mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
-
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"

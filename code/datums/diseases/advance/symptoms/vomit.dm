@@ -31,7 +31,7 @@ Bonus
 /datum/symptom/vomit/Activate(var/datum/disease/advance/A)
 	..()
 	if(prob(SYMPTOM_ACTIVATION_PROB / 2))
-		var/mob/living/M = A.affected_mob
+		var/mob/living/carbon/M = A.affected_mob
 		switch(A.stage)
 			if(1, 2, 3, 4)
 				M << "<span class='notice'>[pick("You feel nauseous.", "You feel like you're going to throw up!")]</span>"
@@ -40,16 +40,8 @@ Bonus
 
 	return
 
-/datum/symptom/vomit/proc/Vomit(var/mob/living/M)
-
-	M.visible_message("<B>[M]</B> vomits on the floor!")
-
-	M.nutrition -= 20
-	M.adjustToxLoss(-3)
-
-	var/turf/pos = get_turf(M)
-	pos.add_vomit_floor(M)
-	playsound(pos, 'sound/effects/splat.ogg', 50, 1)
+/datum/symptom/vomit/proc/Vomit(var/mob/living/carbon/M)
+	M.vomit()//This function is in mob_helpers
 /*
 //////////////////////////////////////
 
