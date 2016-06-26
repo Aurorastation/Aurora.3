@@ -527,8 +527,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			var/templates[] = list()
 
 			while (query.NextRow())
-				template_names += query.item[0]
-				templates[query.item[0]] = query.item[1]
+				template_names += query.item[1]
+				templates[query.item[1]] = query.item[2]
 
 			// Catch empty list
 			if (!templates.len)
@@ -562,7 +562,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce("[reportbody]\n\n- [reporter], Central Command, NMSS Odin", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("[reportbody]\n\n- [reporter], Central Command, [command_name()]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			world << "\red New NanoTrasen Update available at all communication consoles."
 			world << sound('sound/AI/commandreport.ogg')
