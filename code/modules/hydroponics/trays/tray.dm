@@ -16,11 +16,6 @@
 	var/pestlevel = 0          // Pests (max 10)
 	var/weedlevel = 0          // Weeds (max 10)
 
-	var/maxWaterLevel = 100
-	var/maxNutriLevel = 10
-	var/maxPestLevel = 10
-	var/maxWeedLevel = 10
-
 	// Tray state vars.
 	var/dead = 0               // Is it dead?
 	var/harvest = 0            // Is it ready to harvest?
@@ -411,20 +406,6 @@
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
-
-	//A special case for if the container has only water, for manual watering with buckets
-	if (istype(O,/obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/RC = O
-		if (RC.reagents.reagent_list.len == 1)
-			if (RC.reagents.has_reagent("water", 1))
-				if (waterlevel < maxWaterLevel)
-					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
-					RC.reagents.remove_reagent("water", amountToRemove, 1)
-					waterlevel += amountToRemove
-					user.visible_message("[user] transfers [amountToRemove]u of water to the tray."," You transfer [amountToRemove]u of water to the tray.")
-				else
-					user << "This tray is full of water already."
-				return 1
 
 	if (O.is_open_container())
 		return 0

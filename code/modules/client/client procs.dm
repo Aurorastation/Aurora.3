@@ -212,24 +212,6 @@
 
 	. = ..()	//calls mob.Login()
 
-	if (byond_version < config.client_error_version)
-		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"
-		src << config.client_error_message
-		src << "Your version: [byond_version]."
-		src << "Required version: [config.client_error_version] or later."
-		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
-		if (holder)
-			src << "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version."
-		else
-			del(src)
-			return 0
-	else if (byond_version < config.client_warn_version)
-		src << "<span class='danger'><b>Your version of BYOND may be out of date!</b></span>"
-		src << config.client_warn_message
-		src << "Your version: [byond_version]."
-		src << "Required version to remove this message: [config.client_warn_version] or later."
-		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
-
 	if(custom_event_msg && custom_event_msg != "")
 		src << "<h1 class='alert'>Custom Event</h1>"
 		src << "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>"

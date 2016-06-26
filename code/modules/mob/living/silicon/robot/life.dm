@@ -111,7 +111,7 @@
 		src.ear_damage -= 0.05
 		src.ear_damage = max(src.ear_damage, 0)
 
-	//src.density = !( src.lying )
+	src.density = !( src.lying )
 
 	if ((src.sdisabilities & BLIND))
 		src.blinded = 1
@@ -276,9 +276,9 @@
 
 	if ((src.blind && src.stat != 2))
 		if(src.blinded)
-			src.blind.invisibility = 0
+			src.blind.layer = 18
 		else
-			src.blind.invisibility = 101
+			src.blind.layer = 0
 			if (src.disabilities & NEARSIGHTED)
 				src.client.screen += global_hud.vimpaired
 

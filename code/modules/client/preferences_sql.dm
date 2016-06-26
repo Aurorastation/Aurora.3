@@ -283,11 +283,6 @@
 	// Miscellaneous
 	disabilities			= text2num(character_query.item[48])
 	skills					= params2list(character_query.item[49])
-
-	for (var/skill in skills)
-		if (skills[skill])
-			skills[skill] = text2num(skills[skill])
-
 	skill_specialization	= character_query.item[50]
 	home_system				= character_query.item[51]
 	citizenship				= character_query.item[52]
@@ -535,23 +530,8 @@
 	params[":facial_colour"] = facial_hex
 	params[":skin_tone"] = s_tone
 	params[":skin_colour"] = skin_hex
-
-	if (istext(h_style))
-		params[":hair_style"] = h_style
-	else if (istype(h_style, /datum/sprite_accessory/hair))
-		var/datum/sprite_accessory/hair/current_h = h_style
-		params[":hair_style"] = current_h.name
-	else
-		params[":hair_style"] = "Bald"
-
-	if (istext(f_style))
-		params[":facial_style"] = f_style
-	else if (istype(h_style, /datum/sprite_accessory/facial_hair))
-		var/datum/sprite_accessory/facial_hair/current_f = f_style
-		params[":facial_style"] = current_f.name
-	else
-		params[":facial_style"] = "Shaved"
-
+	params[":hair_style"] = h_style
+	params[":facial_style"] = f_style
 	params[":eyes_colour"] = eyes_hex
 	params[":underwear"] = underwear
 	params[":undershirt"] = undershirt
@@ -635,9 +615,6 @@
 		return 0
 
 	if (!current_character)
-		return 0
-
-	if (alert(C.mob, "This will permanently delete the character. Are you sure you wish to do this?", "Delete Character" ,"Yes", "No") == "No")
 		return 0
 
 	establish_db_connection(dbcon)

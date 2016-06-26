@@ -466,26 +466,10 @@ datum/preferences
 		var/n = 0
 		for (var/i in special_roles)
 			if(special_roles[i]) //if mode is available on the server
-				var/banned_special = 0
-				switch (i)
-					if ("positronic brain")
-						banned_special = jobban_isbanned(user, "AI") && jobban_isbanned(user, "cyborg")
-					if ("pAI candidate")
-						banned_special = jobban_isbanned(user, "pAI")
-					else
-						banned_special = jobban_isbanned(user, i)
-
-				if (banned_special)
+				if(jobban_isbanned(user, i) || (i == "positronic brain" && jobban_isbanned(user, "AI") && jobban_isbanned(user, "Cyborg")) || (i == "pAI candidate" && jobban_isbanned(user, "pAI")))
 					dat += "<b>Be [i]:<b> <font color=red><b> \[BANNED]</b></font><br>"
 				else
-					var/time = 0
-					if (!isnull(config.age_restrictions[i]))
-						time = max(0, config.age_restrictions[i] - user.client.player_age)
-
-					if (time)
-						dat += "<b>Be [i]:</b> <font color=black>\[IN [time] DAYS]</font><br>"
-					else
-						dat += "<b>Be [i]:</b> <a href='?_src_=prefs;preference=be_special;num=[n]'><b>[src.be_special&(1<<n) ? "Yes" : "No"]</b></a><br>"
+					dat += "<b>Be [i]:</b> <a href='?_src_=prefs;preference=be_special;num=[n]'><b>[src.be_special&(1<<n) ? "Yes" : "No"]</b></a><br>"
 			n++
 	dat += "</td></tr></table><hr><center>"
 
@@ -538,11 +522,8 @@ datum/preferences
 		HTML += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		var/banned = jobban_isbanned(user, rank)
-		if(banned)
-			if (banned != "Whitelisted Job")
-				banned = "\[BANNED]"
-			HTML += "<del>[rank]</del></td><td><b> [banned]</b></td></tr>"
+		if(jobban_isbanned(user, rank))
+			HTML += "<del>[rank]</del></td><td><b> \[BANNED]</b></td></tr>"
 			continue
 		if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
@@ -1397,8 +1378,6 @@ datum/preferences
 					ShowChoices(user)
 
 				if("eyes")
-					if(species == "Vaurca")
-						return
 					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference", rgb(r_eyes, g_eyes, b_eyes)) as color|null
 					if(new_eyes)
 						r_eyes = hex2num(copytext(new_eyes, 2, 4))

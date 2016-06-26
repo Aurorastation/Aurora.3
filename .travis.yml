@@ -3,8 +3,8 @@ language: c
 sudo: false
 
 env:
-  BYOND_MAJOR="510"
-  BYOND_MINOR="1346"
+  BYOND_MAJOR="509"
+  BYOND_MINOR="1318"
   
 cache:
   directories:
@@ -36,3 +36,4 @@ script:
   - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs
   - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
   - DreamMaker baystation12.dme
+

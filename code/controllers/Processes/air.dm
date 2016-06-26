@@ -1,7 +1,6 @@
 /datum/controller/process/air/setup()
 	name = "air"
 	schedule_interval = 20 // every 2 seconds
-	start_delay = 4
 
 	if(!air_master)
 		air_master = new

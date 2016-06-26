@@ -81,7 +81,7 @@ obj/item/weapon/gun/energy/retro
 	name = "\improper L.W.A.P. sniper rifle"
 	desc = "A high-power laser rifle fitted with a SMART aiming-system scope."
 	icon_state = "sniper"
-	item_state = "sniper"
+	item_state = "laser"
 	fire_sound = 'sound/weapons/marauder.ogg'
 	origin_tech = "combat=6;materials=5;powerstorage=4"
 	projectile_type = /obj/item/projectile/beam/sniper

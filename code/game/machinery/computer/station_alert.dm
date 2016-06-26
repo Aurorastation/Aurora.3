@@ -16,29 +16,15 @@
 	monitor_type = /obj/nano_module/alarm_monitor/all
 	circuit = /obj/item/weapon/circuitboard/stationalert_all
 
-/obj/machinery/computer/station_alert/initialize()
+/obj/machinery/computer/station_alert/New()
+	..()
 	alarm_monitor = new monitor_type(src)
 	alarm_monitor.register(src, /obj/machinery/computer/station_alert/update_icon)
-	..()
-	if (monitor_type)
-		register_monitor(new monitor_type(src))
 
 /obj/machinery/computer/station_alert/Destroy()
-	. = ..()
-	unregister_monitor()
-
-/obj/machinery/computer/station_alert/proc/register_monitor(var/obj/nano_module/alarm_monitor/monitor)
-	if(monitor.nano_host() != src)
-		return
-
-	alarm_monitor = monitor
-	alarm_monitor.register(src, /obj/machinery/computer/station_alert/update_icon)
-
-/obj/machinery/computer/station_alert/proc/unregister_monitor()
-	if(alarm_monitor)
-		alarm_monitor.unregister(src)
-		qdel(alarm_monitor)
-		alarm_monitor = null
+	alarm_monitor.unregister(src)
+	qdel(alarm_monitor)
+	..()
 
 /obj/machinery/computer/station_alert/attack_ai(mob/user)
 	add_fingerprint(user)

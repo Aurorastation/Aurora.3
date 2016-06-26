@@ -329,8 +329,17 @@
 	if(!istype(T))
 		return
 	if(volume >= 1)
-		T.wet_floor(2)
-		
+		if(T.wet >= 2)
+			return
+		T.wet = 2
+		spawn(800)
+			if(!T || !istype(T))
+				return
+			T.wet = 0
+			if(T.wet_overlay)
+				T.overlays -= T.wet_overlay
+				T.wet_overlay = null
+
 /datum/reagent/silicate
 	name = "Silicate"
 	id = "silicate"

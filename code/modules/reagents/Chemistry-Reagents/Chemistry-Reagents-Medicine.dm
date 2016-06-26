@@ -506,24 +506,3 @@
 	if(dose > 10)
 		M.make_dizzy(5)
 		M.make_jittery(5)
-
-/datum/reagent/ipecac
-	name = "Ipecac"
-	id = "ipecac"
-	description = "A simple emetic, Induces vomiting in the patient, emptying stomach contents"
-	reagent_state = LIQUID
-	color = "#280f0b"
-	overdose = REAGENTS_OVERDOSE
-	scannable = 1
-
-
-/datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (prob(10+dose))
-		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
-
-	if (prob(dose))
-		M.vomit()
-
-
-/datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong

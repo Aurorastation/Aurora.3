@@ -33,8 +33,13 @@
 			affected_mob.adjustToxLoss(1)
 	if(stage > 2)
 		if(prob(1))
-			var/mob/living/carbon/human/H = affected_mob
-			H.delayed_vomit()
+			if (affected_mob.nutrition > 100)
+				var/mob/living/carbon/human/H = affected_mob
+				H.vomit()
+			else
+				affected_mob << "\red You gag as you want to throw up, but there's nothing in your stomach!"
+				affected_mob.Weaken(10)
+				affected_mob.adjustToxLoss(3)
 	if(stage > 3)
 		if(prob(1) && ishuman(affected_mob))
 			var/mob/living/carbon/human/H = affected_mob

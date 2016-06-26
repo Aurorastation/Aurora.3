@@ -8,8 +8,7 @@ var/global/list/turf/processing_turfs = list()
 	for(var/turf/T in processing_turfs)
 		if(T.process() == PROCESS_KILL)
 			processing_turfs.Remove(T)
-		SCHECK
+		scheck()
 
-/datum/controller/process/turf/statProcess()
-	..()
-	stat(null, "[processing_turfs.len] turf\s")
+/datum/controller/process/turf/getStatName()
+	return ..()+"([processing_turfs.len])"

@@ -54,8 +54,8 @@
 	for (var/slot in character_slots)
 		load_character(slot)
 
-//		if (!skills || !skills.len)
-//			ZeroSkills(1)
+		if (!skills || !skills.len)
+			ZeroSkills(1)
 
 		if (!insert_character_sql(C))
 			log_debug("Character insert error during migration. Client: [C.ckey], character slot: [slot].")

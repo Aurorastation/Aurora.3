@@ -13,7 +13,6 @@
 	var/menustat = "menu"
 	var/build_eff = 1
 	var/eat_eff = 1
-	var/capacity = 50
 
 
 /obj/machinery/biogenerator/New()
@@ -61,19 +60,18 @@
 		user << "<span class='notice'>\The [src] is currently processing.</span>"
 	else if(istype(O, /obj/item/weapon/storage/bag/plants))
 		var/i = 0
-		var/obj/item/weapon/storage/bag/P = O
 		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
-		if(i >= capacity)
+		if(i >= 10)
 			user << "<span class='notice'>\The [src] is already full! Activate it.</span>"
 		else
-			for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in P.contents)
-				P.remove_from_storage(G,src)
+			for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in O.contents)
+				G.loc = src
 				i++
-				if(i >= capacity)
+				if(i >= 10)
 					user << "<span class='notice'>You fill \the [src] to its capacity.</span>"
 					break
-			if(i < capacity)
+			if(i < 10)
 				user << "<span class='notice'>You empty \the [O] into \the [src].</span>"
 
 
@@ -83,7 +81,7 @@
 		var/i = 0
 		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
-		if(i >= capacity)
+		if(i >= 10)
 			user << "<span class='notice'>\The [src] is full! Activate it.</span>"
 		else
 			user.remove_from_mob(O)
@@ -110,9 +108,9 @@
 					dat += "<A href='?src=\ref[src];action=create;item=milk;cost=20'>10 milk</A> <FONT COLOR=blue>([round(20/build_eff)])</FONT><BR>"
 					dat += "<A href='?src=\ref[src];action=create;item=meat;cost=50'>Slab of meat</A> <FONT COLOR=blue>([round(50/build_eff)])</FONT><BR>"
 					dat += "Nutrient<BR>"
-					dat += "<A href='?src=\ref[src];action=create;item=ez;cost=60'>E-Z-Nutrient</A> <FONT COLOR=blue>([round(60/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=ez5;cost=300'>x5</A><BR>"
-					dat += "<A href='?src=\ref[src];action=create;item=l4z;cost=120'>Left 4 Zed</A> <FONT COLOR=blue>([round(120/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=l4z5;cost=600'>x5</A><BR>"
-					dat += "<A href='?src=\ref[src];action=create;item=rh;cost=150'>Robust Harvest</A> <FONT COLOR=blue>([round(150/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=rh5;cost=750'>x5</A><BR>"
+					dat += "<A href='?src=\ref[src];action=create;item=ez;cost=10'>E-Z-Nutrient</A> <FONT COLOR=blue>([round(10/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=ez5;cost=50'>x5</A><BR>"
+					dat += "<A href='?src=\ref[src];action=create;item=l4z;cost=20'>Left 4 Zed</A> <FONT COLOR=blue>([round(20/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=l4z5;cost=100'>x5</A><BR>"
+					dat += "<A href='?src=\ref[src];action=create;item=rh;cost=25'>Robust Harvest</A> <FONT COLOR=blue>([round(25/build_eff)])</FONT> | <A href='?src=\ref[src];action=create;item=rh5;cost=125'>x5</A><BR>"
 					dat += "Leather<BR>"
 					dat += "<A href='?src=\ref[src];action=create;item=wallet;cost=100'>Wallet</A> <FONT COLOR=blue>([round(100/build_eff)])</FONT><BR>"
 					dat += "<A href='?src=\ref[src];action=create;item=gloves;cost=250'>Botanical gloves</A> <FONT COLOR=blue>([round(250/build_eff)])</FONT><BR>"

@@ -11,7 +11,6 @@
 	slot_flags = SLOT_EARS
 	var/translate_binary = 0
 	var/translate_hive = 0
-	var/translate_hivenet = 0
 	var/obj/item/device/encryptionkey/keyslot1 = null
 	var/obj/item/device/encryptionkey/keyslot2 = null
 	maxf = 1489
@@ -49,9 +48,6 @@
 		if (translate_hive)
 			var/datum/language/hivemind = all_languages["Hivemind"]
 			hivemind.broadcast(M, message)
-		if (translate_hivenet)
-			var/datum/language/bug = all_languages["Hivenet"]
-			bug.broadcast(M, message)
 		return null
 
 	return ..()
@@ -64,10 +60,6 @@
 		if(H.l_ear == src || H.r_ear == src)
 			return ..(freq, level)
 	return -1
-
-/obj/item/device/radio/headset/hivenet
-	translate_hivenet = 1
-	ks1type = /obj/item/device/encryptionkey/hivenet
 
 /obj/item/device/radio/headset/syndicate
 	origin_tech = "syndicate=3"
@@ -287,7 +279,6 @@
 	src.channels = list()
 	src.translate_binary = 0
 	src.translate_hive = 0
-	src.translate_hivenet = 0
 	src.syndie = 0
 
 	if(keyslot1)
@@ -302,9 +293,6 @@
 
 		if(keyslot1.translate_hive)
 			src.translate_hive = 1
-
-		if(keyslot1.translate_hivenet)
-			src.translate_hivenet = 1
 
 		if(keyslot1.syndie)
 			src.syndie = 1
@@ -321,9 +309,6 @@
 
 		if(keyslot2.translate_hive)
 			src.translate_hive = 1
-
-		if(keyslot2.translate_hivenet)
-			src.translate_hivenet = 1
 
 		if(keyslot2.syndie)
 			src.syndie = 1

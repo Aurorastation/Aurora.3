@@ -24,7 +24,6 @@
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/weapon/holder/cat
 	mob_size = 5
-	density = 0
 
 /mob/living/simple_animal/cat/Life()
 	//MICE!
@@ -86,11 +85,6 @@
 		stop_automated_movement = 1
 		walk_to(src,movement_target,0,3)
 
-/mob/living/simple_animal/cat/death()
-	.=..()
-	stat = DEAD
-
-
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
 	if (flee_target && !(flee_target.loc in view(src)))
@@ -139,6 +133,11 @@
 		return
 	else
 		return ..()
+
+/mob/living/simple_animal/cat/get_scooped(var/mob/living/carbon/grabber)
+	if (stat >= DEAD)
+		return //since the holder icon looks like a living cat
+	..()
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
@@ -225,11 +224,6 @@
 	icon_living = "cat"
 	icon_dead = "cat_dead"
 	befriend_job = "Chief Medical Officer"
-	holder_type = /obj/item/weapon/holder/cat/black
-
-/mob/living/simple_animal/cat/fluff/Runtime/death()
-	.=..()
-	desc = "Oh no, Runtime is dead! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
@@ -238,11 +232,13 @@
 	icon_living = "kitten"
 	icon_dead = "kitten_dead"
 	gender = NEUTER
-	holder_type = /obj/item/weapon/holder/cat/kitten
 
-/mob/living/simple_animal/cat/kitten/death()
-	.=..()
-	desc = "It's a dead kitten! What kind of monster would do this?"
+// Leaving this here for now.
+/obj/item/weapon/holder/cat/fluff/bones
+	name = "Bones"
+	desc = "It's Bones! Meow."
+	gender = MALE
+	icon_state = "cat3"
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
@@ -251,12 +247,8 @@
 	icon_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
+	holder_type = /obj/item/weapon/holder/cat/fluff/bones
 	var/friend_name = "Erstatz Vryroxes"
-	holder_type = /obj/item/weapon/holder/cat/black
-
-/mob/living/simple_animal/cat/fluff/bones/death()
-	.=..()
-	desc = "Bones is dead"
 
 /mob/living/simple_animal/cat/kitten/New()
 	gender = pick(MALE, FEMALE)

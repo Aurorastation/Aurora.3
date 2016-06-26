@@ -5,9 +5,6 @@
 /datum/game_mode/nuclear
 	name = "Mercenary"
 	round_description = "A mercenary strike force is approaching the station!"
-	extended_round_description = "NanoTrasen's wealth and success created several enemies over the years,\
-	and many seek to undermine them using illegal ways. Their crown jewel research stations are not safe from those\
-	malicious activities."
 	config_tag = "mercenary"
 	required_players = 15
 	required_enemies = 1
@@ -21,7 +18,6 @@
 
 /datum/game_mode/nuclear/declare_completion()
 	if(config.objectives_disabled)
-		..()
 		return
 	var/disk_rescued = 1
 	for(var/obj/item/weapon/disk/nuclear/D in world)

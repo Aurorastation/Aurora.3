@@ -53,8 +53,8 @@
 /mob/living/carbon/human/Stat()
 	..()
 	if(statpanel("Status"))
-		stat("Intent:", "[a_intent]")
-		stat("Move Mode:", "[m_intent]")
+		stat(null, "Intent: [a_intent]")
+		stat(null, "Move Mode: [m_intent]")
 		if(emergency_shuttle)
 			var/eta_status = emergency_shuttle.get_status_panel_eta()
 			if(eta_status)
@@ -751,7 +751,7 @@
 			xylophone=0
 	return
 
-/mob/living/carbon/human/proc/delayed_vomit()
+/mob/living/carbon/human/proc/vomit()
 
 	if(species.flags & IS_SYNTHETIC)
 		return //Machines don't throw up.
@@ -762,7 +762,17 @@
 		spawn(150)	//15 seconds until second warning
 			src << "<span class='warning'>You feel like you are about to throw up!</span>"
 			spawn(100)	//and you have 10 more for mad dash to the bucket
-				vomit()//Vomit function is in mob helpers
+				Stun(5)
+
+				src.visible_message("<span class='warning'>[src] throws up!</span>","<span class='warning'>You throw up!</span>")
+				playsound(loc, 'sound/effects/splat.ogg', 50, 1)
+
+				var/turf/location = loc
+				if (istype(location, /turf/simulated))
+					location.add_vomit_floor(src, 1)
+
+				nutrition -= 40
+				adjustToxLoss(-3)
 				spawn(350)	//wait 35 seconds before next volley
 					lastpuke = 0
 
@@ -1444,13 +1454,3 @@
 		return 0
 
 	return 1
-
-/mob/living/carbon/human/AltClickOn(var/atom/A)
-	var/doClickAction = 1
-	if (istype(get_active_hand(), /obj/item/weapon))
-		var/obj/item/weapon/W = get_active_hand()
-		doClickAction = W.alt_attack(A,src)
-
-	if (doClickAction)
-		..()
-

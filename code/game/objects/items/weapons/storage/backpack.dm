@@ -76,7 +76,7 @@
 			return
 			*/
 		..()
-
+	
 	//Please don't clutter the parent storage item with stupid hacks.
 	can_be_inserted(obj/item/W as obj, stop_messages = 0)
 		if(istype(W, /obj/item/weapon/storage/backpack/holding))
@@ -165,12 +165,6 @@
 	name = "chemistry backpack"
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
 	icon_state = "chempack"
-
-/obj/item/weapon/storage/backpack/cloak
-	name = "tunnel cloak"
-	desc = "It's a Vaurca cloak, with paltry storage options."
-	icon_state = "cape"
-	max_storage_space = 12
 
 /*
  * Satchel Types

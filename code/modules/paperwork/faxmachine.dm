@@ -24,8 +24,6 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 	var/destination = "Central Command" // the department we're sending to
 
-	var/list/obj/item/device/pda/alert_pdas = list() //A list of PDAs to alert upon arrival of the fax.
-
 /obj/machinery/photocopier/faxmachine/New()
 	..()
 	allfaxes += src
@@ -80,14 +78,6 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 		if(copyitem)
 			dat += "<a href ='byond://?src=\ref[src];remove=1'>Remove Item</a><br>"
-
-	dat += "<br>PDAs to notify:<br>"
-
-	if (alert_pdas && alert_pdas.len)
-		for (var/obj/item/device/pda/pda in alert_pdas)
-			dat += "[alert_pdas[pda]] - <a href='byond://?src=\ref[src];unlink=\ref[pda]'>Unlink</a><br>"
-
-	dat += "<br><a href='byond://?src=\ref[src];linkpda=1'>Add PDA to Notify</a>"
 
 	user << browse(dat, "window=copier")
 	onclose(user, "copier")
@@ -147,26 +137,6 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	if(href_list["logout"])
 		authenticated = 0
 
-	if(href_list["linkpda"])
-		var/obj/item/device/pda/pda = usr.get_active_hand()
-		if (!pda || !istype(pda))
-			usr << "<span class='warning'>You need to be holding a PDA to link it.</span>"
-		else if (pda in alert_pdas)
-			usr << "<span class='notice'>\The [pda] appears to be already linked.</span>"
-			//Update the name real quick.
-			alert_pdas[pda] = pda.name
-		else
-			alert_pdas += pda
-			alert_pdas[pda] = pda.name
-			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
-
-	if(href_list["unlink"])
-		var/obj/item/device/pda/pda = locate(href_list["unlink"])
-		if (pda && istype(pda))
-			if (pda in alert_pdas)
-				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
-				alert_pdas -= pda
-
 	updateUsrDialog()
 
 /obj/machinery/photocopier/faxmachine/proc/sendfax(var/destination)
@@ -207,8 +177,6 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		bundlecopy(incoming)
 	else
 		return 0
-
-	do_pda_alerts()
 
 	use_power(active_power_usage)
 	return 1
@@ -254,14 +222,3 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 			C << msg
 
 	send_to_cciaa_discord("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
-
-/obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
-	if (!alert_pdas || !alert_pdas.len)
-		return
-
-	for (var/obj/item/device/pda/pda in alert_pdas)
-		if (pda.toff || pda.message_silent)
-			continue
-
-		var/message = "New fax has arrived at [src.department] fax machine."
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")

@@ -6,7 +6,6 @@
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
 	small = 1
 	pass_flags = 1
-	density = 0
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null

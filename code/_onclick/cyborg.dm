@@ -124,15 +124,7 @@
 	A.BorgCtrlClick(src)
 
 /mob/living/silicon/robot/AltClickOn(var/atom/A)
-	var/doClickAction = 1
-	if (istype(module_active, /obj/item/weapon))
-		var/obj/item/weapon/W = module_active
-		doClickAction = W.alt_attack(A,src)
-
-	if (doClickAction)
-		A.BorgAltClick(src)
-
-
+	A.BorgAltClick(src)
 
 /atom/proc/BorgCtrlShiftClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
 	CtrlShiftClick(user)
