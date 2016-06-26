@@ -4,7 +4,7 @@
 	icobase = 'icons/mob/human_races/r_vox.dmi'
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
 	default_language = "Vox-pidgin"
-	language = "Galactic Common"
+	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 4
 	blurb = "The Vox are the broken remnants of a once-proud race, now reduced to little more than \
