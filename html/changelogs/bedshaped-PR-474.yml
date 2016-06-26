@@ -6,3 +6,4 @@ changes:
   - rscadd: "Added the ability to pull template command reports from the WI"
   - rscadd: "Added the ability to cancel sending a command report"
   - tweak: "Changed command reports to ask for a name separately"
+  - rscadd: "Adding a helper for the NMSS Odin in commstation_name()"
