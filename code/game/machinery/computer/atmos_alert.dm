@@ -47,11 +47,11 @@ var/global/list/minor_air_alarms = list()
 	..()
 	if(stat & (NOPOWER|BROKEN))
 		return
-	var/list/alarms = atmosphere_alarm.major_alarms()
+	var/list/alarms = atmosphere_alarm ? atmosphere_alarm.major_alarms() : list()
 	if(alarms.len)
 		icon_state = "alert:2"
 	else
-		alarms = atmosphere_alarm.minor_alarms()
+		alarms = atmosphere_alarm ? atmosphere_alarm.minor_alarms() : list()
 		if(alarms.len)
 			icon_state = "alert:1"
 		else
@@ -80,4 +80,4 @@ var/datum/topic_state/air_alarm_topic/air_alarm_topic = new()
 	extra_href["remote_connection"] = 1
 	extra_href["remote_access"] = 1
 
-	return extra_href
+return extra_href
