@@ -4,7 +4,7 @@
 	id = "koispaste"
 	description = "A thick goopy substance, rich in K'ois nutrients."
 	metabolism = REM * 4
-	var/nutriment_factor = 40
+	var/nutriment_factor = 10
 	var/injectable = 0
 	color = "#dcd9cd"
 
@@ -24,7 +24,7 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = 30 // Per unit
+	var/nutriment_factor = 15 // Per unit
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
@@ -165,24 +165,7 @@
 		qdel(hotspot)
 
 	if(volume >= 3)
-		if(T.wet >= 1)
-			return
-		T.wet = 1
-		if(T.wet_overlay)
-			T.overlays -= T.wet_overlay
-			T.wet_overlay = null
-		T.wet_overlay = image('icons/effects/water.dmi',T,"wet_floor")
-		T.overlays += T.wet_overlay
-
-		spawn(800) // This is terrible and needs to be changed when possible.
-			if(!T || !istype(T))
-				return
-			if(T.wet >= 2)
-				return
-			T.wet = 0
-			if(T.wet_overlay)
-				T.overlays -= T.wet_overlay
-				T.wet_overlay = null
+		T.wet_floor()
 
 /datum/reagent/nutriment/virus_food
 	name = "Virus Food"
@@ -1996,7 +1979,7 @@
 	glass_desc = "A mug of a rich strong roast, you think it could be a lot better if someone added something extra to it."
 
 /datum/reagent/drink/white_coffee
-	name = "Café Au Lait"
+	name = "CafÃ© Au Lait"
 	id = "white_coffee"
 	description = "A fancy name for something thats just coffee and milk."
 	color = "#482000"
@@ -2007,7 +1990,7 @@
 	overdose = 40
 
 	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Café Au Lait"
+	glass_name = "A mug of CafÃ© Au Lait"
 	glass_desc = "A fancy name for something thats just coffee and milk."
 
 /datum/reagent/drink/white_coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -2015,7 +1998,7 @@
 	M.heal_organ_damage(0.5 * removed, 0)
 
 /datum/reagent/drink/cafe_melange
-	name = "Café Mélange"
+	name = "CafÃ© MÃ©lange"
 	id = "cafe_melange"
 	description = "A delicious mug of creamy coffee."
 	color = "#482000"
@@ -2026,7 +2009,7 @@
 	overdose = 40
 
 	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Café Mélange"
+	glass_name = "A mug of CafÃ© MÃ©lange"
 	glass_desc = "A delicious mug of creamy coffee, keeps you cool headed in the most heated of situations."
 
 /datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)

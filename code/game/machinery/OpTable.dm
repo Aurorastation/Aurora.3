@@ -108,10 +108,26 @@
 /obj/machinery/optable/MouseDrop_T(mob/target, mob/user)
 
 	var/mob/living/M = user
-	if(user.stat || user.restrained() || !check_table(user) || !iscarbon(target))
+	if(user.stat || user.restrained() ||  !iscarbon(target))
 		return
 	if(istype(M))
-		take_victim(target,user)
+
+		var/mob/living/L = target
+		var/bucklestatus = L.bucklecheck(user)
+
+		if (!bucklestatus)//We must make sure the person is unbuckled before they go in
+			return
+
+
+		if(L == user)
+			visible_message("[user] starts climbing onto the operating table.", 3)
+		else
+			visible_message("[user] starts putting [L.name] onto the operating table.", 3)
+		if (do_mob(user, L, 10, needhand = 0))
+			if (bucklestatus == 2)
+				var/obj/structure/LB = L.buckled
+				LB.user_unbuckle_mob(user)
+			take_victim(target,user)
 	else
 		return ..()
 
@@ -120,7 +136,7 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(usr.stat || !ishuman(usr) || usr.restrained() || !check_table(usr))
+	if(usr.stat || !ishuman(usr) || usr.restrained() )
 		return
 
 	take_victim(usr,usr)
@@ -128,18 +144,28 @@
 /obj/machinery/optable/attackby(obj/item/weapon/W as obj, mob/living/carbon/user as mob)
 	if (istype(W, /obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = W
-		if(iscarbon(G.affecting) && check_table(G.affecting))
+		if (src.victim)
+			usr << "\blue <B>The table is already occupied!</B>"
+			return 0
+
+		var/mob/living/L = G.affecting
+		var/bucklestatus = L.bucklecheck(user)
+
+		if (!bucklestatus)//We must make sure the person is unbuckled before they go in
+			return
+
+
+		if(L == user)
+			visible_message("[user] starts climbing onto the operating table.", 3)
+		else
+			visible_message("[user] starts putting [L.name] onto the operating table.", 3)
+		if (do_mob(user, L, 10, needhand = 0))
+			if (bucklestatus == 2)
+				var/obj/structure/LB = L.buckled
+				LB.user_unbuckle_mob(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
 			return
 
-/obj/machinery/optable/proc/check_table(mob/living/carbon/patient as mob)
-	if(src.victim)
-		usr << "\blue <B>The table is already occupied!</B>"
-		return 0
-
-	if(patient.buckled)
-		usr << "\blue <B>Unbuckle first!</B>"
-		return 0
 
 	return 1
