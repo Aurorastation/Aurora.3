@@ -179,10 +179,12 @@
 		camera.status = powered
 
 /datum/robot_component/camera/install()
+	installed = 1
 	if (camera)
 		camera.status = 1
 
 /datum/robot_component/camera/uninstall()
+	installed = 0
 	if (camera)
 		camera.status = 0
 		camera.kick_viewers()
