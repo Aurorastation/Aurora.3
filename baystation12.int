@@ -1,11 +1,6 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1467006767
-DIR: .git .git\logs .git\logs\refs .git\logs\refs\heads .git\refs .git\refs\heads code code\defines code\defines\procs code\game code\game\dna\genes code\game\machinery\computer3 code\game\machinery\doors code\game\objects code\game\objects\items code\modules code\modules\assembly code\modules\clothing code\modules\clothing\suits code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human code\modules\mob\living\silicon\robot code\modules\mob\living\silicon\robot\drone code\modules\reagents\Chemistry-Reagents code\ZAS icons icons\mob icons\mob\items icons\obj icons\obj\doors icons\PSD files nano nano\templates sound sound\machines 
-AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
-LAST_COMPILE_VERSION: 510.1347
-WINDOW: code\modules\clothing\suits\armor.dm;code\modules\clothing\clothing.dm;code\modules\mob\living\silicon\robot\robot.dm;code\modules\mob\living\silicon\robot\component.dm;icons\mob\head.dmi;icons\mob\held_mobs.dmi;code\modules\mob\holder.dm;code\game\objects\items.dm;code\game\objects\objs.dm;code\game\objects\weapons.dm;icons\mob\eye.dmi;icons\mob\hands.dmi;icons\mob\items\righthand.dmi;code\modules\mob\living\carbon\human\update_icons.dm;code\game\atoms_movable.dm;code\game\atoms.dm
-FILE: code\modules\clothing\clothing.dm
+AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
