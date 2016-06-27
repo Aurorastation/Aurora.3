@@ -80,4 +80,4 @@ var/datum/topic_state/air_alarm_topic/air_alarm_topic = new()
 	extra_href["remote_connection"] = 1
 	extra_href["remote_access"] = 1
 
-return extra_href
+	return extra_href
