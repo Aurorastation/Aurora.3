@@ -1253,14 +1253,14 @@ datum/design/item/implant/AssembleDesignName()
 	..()
 	name = "Implantable biocircuit design ([item_name])"
 
-/* // Removal of loyalty implants. Can't think of a way to add this to the config option.
+ // Removal of loyalty implants. Can't think of a way to add this to the config option.
 datum/design/item/implant/loyalty
 	name = "loyalty"
 	id = "implant_loyal"
 	req_tech = list("materials" = 2, "biotech" = 3)
 	materials = list("$metal" = 7000, "$glass" = 7000)
-	build_path = /obj/item/weapon/implantcase/loyalty"
-*/
+	build_path = /obj/item/weapon/implantcase/loyalty
+
 
 datum/design/item/implant/chemical
 	name = "chemical"
@@ -1331,15 +1331,15 @@ datum/design/item/weapon/rapidsyringe
 	req_tech = list("combat" = 3, "materials" = 3, "engineering" = 3, "biotech" = 2)
 	materials = list("$metal" = 5000, "$glass" = 1000)
 	build_path = /obj/item/weapon/gun/launcher/syringe/rapid
-/*
+
 datum/design/item/weapon/largecrossbow
 	name = "Energy Crossbow"
 	desc = "A weapon favoured by syndicate infiltration teams."
 	id = "largecrossbow"
 	req_tech = list("combat" = 4, "materials" = 5, "engineering" = 3, "biotech" = 4, "syndicate" = 3)
 	materials = list("$metal" = 5000, "$glass" = 1000, "$uranium" = 1000, "$silver" = 1000)
-	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow"
-*/
+	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow
+
 datum/design/item/weapon/temp_gun
 	desc = "A gun that shoots high-powered glass-encased energy temperature bullets."
 	id = "temp_gun"
@@ -1374,6 +1374,14 @@ datum/design/item/weapon/ammo_9mm
 	materials = list("$metal" = 3750, "$silver" = 100)
 	build_path = /obj/item/ammo_magazine/c9mm
 
+datum/design/item/weapon/trod
+	id = "trod"
+	name = "tungsten rod pack"
+	desc = "moderately expensive superdense tungsten rods."
+	req_tech = list("combat" = 2, "materials" = 4)
+	materials = list("$metal" = 5000, "$gold" = 1000)
+	build_path = /obj/item/ammo_magazine/trodpack
+
 datum/design/item/weapon/stunshell
 	desc = "A stunning shell for a shotgun."
 	id = "stunshell"
@@ -1387,6 +1395,37 @@ datum/design/item/weapon/phoronpistol
 	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
 
+datum/design/item/weapon/eglaive
+	id = "eglaive"
+	name = "energy glaive"
+	desc = "A vicious hardlight glaive reverse-engineered from schematics aboard Titan Prime."
+	req_tech = list("combat" = 5, "phorontech" = 6)
+	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000, "$diamond" = 6000)
+	build_path = /obj/item/weapon/melee/energy/glaive
+
+datum/design/item/weapon/gatlinglaser
+	id = "gatlinglaser"
+	name = "gatling laser"
+	desc = "A higly sophisticated rapid-fire laser weapon."
+	req_tech = list("combat" = 6, "phorontech" = 6, "materials" = 4)
+	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000, "$diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
+
+datum/design/item/weapon/railgun
+	id = "railgun"
+	name = "railgun"
+	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
+	req_tech = list("combat" = 6, "phorontech" = 2, "materials" = 4, "magnets" = 4)
+	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
+	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
+
+datum/design/item/weapon/zorablaster
+	id = "zorablaster"
+	name = "zo'ra blaster"
+	desc = "A personal defense weapon reverse-engineered from schematics aboard Titan Prime."
+	req_tech = list("combat" = 2, "phorontech" = 2, "materials" = 2)
+	materials = list("$metal" = 2000, "$glass" = 1000, "$phoron" = 3000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
 
 datum/design/item/weapon/lawgiver
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
