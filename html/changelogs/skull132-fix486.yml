@@ -11,3 +11,4 @@ delete-after: True
 changes:
   - tweak: "Mark-up characters (~, -, _, and *) can now be escaped by a preceeding \\ character. So, '\\_stuff_' will not trigger markup anymore."
   - bugfix: "Mark-up no longer butchers URLs recognized by BYOND."
+  - bugfix: "Fixed the strikethrough tags (~ token)."
