@@ -36,6 +36,6 @@ changes:
   - tweak: "Age limits are now based upon lore-standards for each race."
   - tweak: "Home system, citizenship, and religion defaults have been tailored to the lore standards."
   - tweak: "Numbers may be used in chargen for naming, strictly for the purpose of allowing numbers in IPC names."
-  - rscadd: "Faction, citizenship, and religion can now be viewed on an ID card."
-  - rscadd: "Faction, citizenship, religion, and home system can be viewed and modified via the employment records consoles."
+  - rscadd: "Age, citizenship, and religion can now be viewed on an ID card."
+  - rscadd: "Citizenship, religion, and home system can be viewed and modified via the employment records consoles."
 

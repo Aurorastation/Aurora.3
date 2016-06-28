@@ -165,25 +165,25 @@ datum/preferences
 
 	ZeroSkills(1)
 
-/datum/preferences/proc/getMinAge(var/AGE_MIN)
+/datum/preferences/proc/getMinAge(var/age_min)
 	if(species == "Vaurca" || species == "Machine" || species == "Diona")
-		AGE_MIN = 1
+		age_min = 1
 	if(species == "Human" || species == "Skrell" || species == "Tajara" || species == "Unathi")
-		AGE_MIN = 17
-	return AGE_MIN
+		age_min = 17
+	return age_min
 
-/datum/preferences/proc/getMaxAge(var/AGE_MAX)
+/datum/preferences/proc/getMaxAge(var/age_max)
 	if(species == "Vaurca")
-		AGE_MAX = 20
+		age_max = 20
 	if(species == "Machine")
-		AGE_MAX = 30
+		age_max = 30
 	if(species == "Skrell" || species == "Diona")
-		AGE_MAX = 500
+		age_max = 500
 	if(species == "Human")
-		AGE_MAX = 120
+		age_max = 120
 	if(species == "Tajara" || species == "Unathi")
-		AGE_MAX = 85
-	return AGE_MAX
+		age_max = 85
+	return age_max
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])

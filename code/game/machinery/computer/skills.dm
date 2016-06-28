@@ -98,7 +98,6 @@
 						Rank: <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>\n	\
 						Citizenship: <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>\n	\
 						Home System: <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>\n	\
-						Faction: <A href='?src=\ref[src];choice=Edit Field;field=faction'>[active1.fields["faction"]]</A><BR>\n	\
 						Religion: <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>\n	\
 						Fingerprint: <A href='?src=\ref[src];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>\n	\
 						Physical Status: [active1.fields["p_stat"]]<BR>\n	\
@@ -359,12 +358,6 @@ What a mess.*/
 							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
 								return
 							active1.fields["home_system"] = t1
-					if("faction")
-						if (istype(active1, /datum/data/record))
-							var/t1 = input("Please input faction:", "Secure. records", active1.fields["faction"], null)  as text
-							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
-								return
-							active1.fields["faction"] = t1
 					if("religion")
 						if (istype(active1, /datum/data/record))
 							var/t1 = input("Please input religion:", "Secure. records", active1.fields["religion"], null)  as text

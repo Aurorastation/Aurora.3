@@ -136,7 +136,6 @@
 	var/dna_hash = "\[UNSET\]"
 	var/fingerprint_hash = "\[UNSET\]"
 	var/citizenship = "\[UNSET\]"
-	var/faction = "\[UNSET\]"
 	var/religion = "\[UNSET\]"
 	var/age = "\[UNSET\]"
 
@@ -154,7 +153,6 @@
 		dna_hash = H.dna.unique_enzymes
 		fingerprint_hash = md5(H.dna.uni_identity)
 		citizenship = H.citizenship
-		faction = H.faction
 		religion = H.religion
 		age = H.age
 
@@ -178,7 +176,6 @@
 
 	usr << text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment)
 	usr << "The age on the card is [age]."
-	usr << "The faction on the card is [faction]."
 	usr << "The citizenship on the card is [citizenship]."
 	usr << "The religion on the card is [religion]."
 	usr << "The blood type on the card is [blood_type]."
