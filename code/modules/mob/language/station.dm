@@ -99,7 +99,9 @@
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
-		return 1
+		return 0
+	if(istype(M, /mob/new_player))
+		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
 		return 1
 

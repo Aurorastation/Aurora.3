@@ -325,8 +325,9 @@ proc/TextPreview(var/string,var/len=40)
 		return ""
 
 	var/list/tags = list("*" = list("<b>", "</b>"),
-						"/" = list("<i>", "</i>"),
-						"_" = list("<i>", "</i>"))
+						"_" = list("<i>", "</i>"),
+						"~" = list("<stroke>", "</stroke>"),
+						"-" = list("<u>", "</u>"))
 
 	if (ignore_tags && ignore_tags.len)
 		tags -= ignore_tags
