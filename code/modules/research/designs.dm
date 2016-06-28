@@ -1379,7 +1379,7 @@ datum/design/item/weapon/trod
 	name = "tungsten rod pack"
 	desc = "moderately expensive superdense tungsten rods."
 	req_tech = list("combat" = 2, "materials" = 4)
-	materials = list("$metal" = 5000, "$gold" = 1000)
+	materials = list("$metal" = 93750, "$gold" = 7500)
 	build_path = /obj/item/ammo_magazine/trodpack
 
 datum/design/item/weapon/stunshell
@@ -1398,39 +1398,39 @@ datum/design/item/weapon/phoronpistol
 datum/design/item/weapon/eglaive
 	id = "eglaive"
 	name = "energy glaive"
-	desc = "A vicious hardlight glaive reverse-engineered from schematics aboard Titan Prime."
-	req_tech = list("combat" = 5, "phorontech" = 6)
-	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000, "$diamond" = 6000)
+	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
+	req_tech = list("combat" = 6, "phorontech" = 4, "materials" = 7, "syndicate" = 4,"powerstorage" = 4)
+	materials = list("$metal" = 10000, "$glass" = 18750, "$phoron" = 3000, "$silver" = 7500, "$diamond" = 11250)
 	build_path = /obj/item/weapon/melee/energy/glaive
 
 datum/design/item/weapon/gatlinglaser
 	id = "gatlinglaser"
 	name = "gatling laser"
 	desc = "A higly sophisticated rapid-fire laser weapon."
-	req_tech = list("combat" = 6, "phorontech" = 6, "materials" = 4)
-	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000, "$diamond" = 3000)
+	req_tech = list("combat" = 6, "phorontech" = 6, "materials" = 4, "powerstorage" = 3)
+	materials = list("$metal" = 18750, "$glass" = 7500, "$phoron" = 7500, "$silver" = 7500, "$diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
 
 datum/design/item/weapon/railgun
 	id = "railgun"
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	req_tech = list("combat" = 6, "phorontech" = 2, "materials" = 4, "magnets" = 4)
-	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
+	req_tech = list("combat" = 8, "phorontech" = 2, "materials" = 8, "magnets" = 4, "powerstorage" = 5, "syndicate" = 3)
+	materials = list("$metal" = 75000, "$glass" = 18750, "$phoron" = 11250, "$gold" = 7500, "$silver" = 7500)
 	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
 
 datum/design/item/weapon/zorablaster
 	id = "zorablaster"
 	name = "zo'ra blaster"
 	desc = "A personal defense weapon reverse-engineered from schematics aboard Titan Prime."
-	req_tech = list("combat" = 2, "phorontech" = 2, "materials" = 2)
-	materials = list("$metal" = 2000, "$glass" = 1000, "$phoron" = 3000)
+	req_tech = list("combat" = 2, "phorontech" = 4, "materials" = 2)
+	materials = list("$metal" = 8000, "$glass" = 2000, "$phoron" = 6000)
 	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
 
 datum/design/item/weapon/lawgiver
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	id = "lawgiver"
-	req_tech = list("combat" = 6, "plasmatech" = 4, "bluespace" = 5, "materials" = 7)
+	req_tech = list("combat" = 6, "phorontech" = 4, "bluespace" = 5, "materials" = 7)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$plasma" = 1000, "$diamond" = 3000)
 	build_path = "/obj/item/weapon/gun/energy/lawgiver"
