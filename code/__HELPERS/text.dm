@@ -318,25 +318,58 @@ proc/TextPreview(var/string,var/len=40)
 // For processing simple markup, similar to what Skype and Discord use.
 // Enabled from a config setting.
 /proc/process_chat_markup(var/message, var/list/ignore_tags = list())
+	// Config.
 	if (!config.allow_chat_markup)
 		return message
 
+	// Sanity.
 	if (!message)
 		return ""
 
 	var/list/tags = list("*" = list("<b>", "</b>"),
 						"_" = list("<i>", "</i>"),
-						"~" = list("<stroke>", "</stroke>"),
+						"~" = list("<strike>", "</strike>"),
 						"-" = list("<u>", "</u>"))
 
 	if (ignore_tags && ignore_tags.len)
 		tags -= ignore_tags
 
+	// If we somehow removed all possible tags.
+	if (!tags.len)
+		return message
+
+	// Lazy URL match, go!
+	var/regex/url_search = new("http(s)?:\\/\\/\[^\\s\]*", "g")
+	var/list/urls = list()
+
+	// First, find all of the URLs and escape any tags in them.
+	while (url_search.Find(message))
+		// Lazy method for securing this. But hey, it works.
+		var/replacement = "\ref[urls][urls.len + 1]"
+		message = replacetextEx(message, url_search.match, replacement)
+
+		urls.Add(url_search.match)
+
+		url_search.next = findlasttextEx(message, replacement)
+
+	// Start processing the tags.
 	for (var/tag in tags)
 		var/marker_begin = tags[tag][1]
 		var/marker_end = tags[tag][2]
 
-		var/regex/markup = new("(\\[tag])(\[^\\[tag]\]*)(\\[tag])", "g")
+		// Replace all valid, unescaped tags with the applicable HTML.
+		var/regex/markup = new("((?<!\\\\)\\[tag])((\[^\\[tag]\]|\\\\[tag])*)((?<!\\\\)\\[tag])", "g")
 		message = markup.Replace(message, "[marker_begin]$2[marker_end]")
+
+		// Once that's done, find all of the escaped tags, and remove the escapes.
+		// This leaves them proper, and without HTML.
+		var/regex/escaped_markup = new("(\\\\\\[tag])", "g")
+		message = escaped_markup.Replace(message, tag)
+
+	//Put the URLs back in plz.
+	if (urls.len)
+		for (var/i = 1, i <= urls.len, i++)
+			var/replacement = "\ref[urls][i]"
+			message = replacetextEx(message, replacement, urls[i])
 
 	return message
