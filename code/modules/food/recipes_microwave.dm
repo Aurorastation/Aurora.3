@@ -1023,19 +1023,19 @@ I said no!
 	items = list(/obj/item/organ/brain)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
 
-/datum/recipe/vaurca/friedkois
+/datum/recipe/friedkois
 	fruit = list("koisspore" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/friedkois
 
-/datum/recipe/vaurca/koiswaffles
+/datum/recipe/koiswaffles
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/koissoup)
 	result = /obj/item/weapon/reagent_containers/food/snacks/koiswaffles
 
-/datum/recipe/vaurca/koisjelly
+/datum/recipe/koisjelly
 	fruit = list("koisspore" = 2)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/koissoup)
 	result = /obj/item/weapon/reagent_containers/food/snacks/koisjelly
 
-/datum/recipe/vaurca/neuralbroke
+/datum/recipe/neuralbroke
 	items = list(/obj/item/organ/vaurca/neuralsocket)
 	result = /obj/item/weapon/neuralbroke
