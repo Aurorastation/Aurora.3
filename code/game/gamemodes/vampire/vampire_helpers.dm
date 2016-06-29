@@ -64,7 +64,7 @@
 	return vampire
 
 // Checks whether or not the target can be affected by a vampire's abilities.
-/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T)
+/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0)
 	if (!T || !istype(T))
 		return 0
 
@@ -77,15 +77,25 @@
 
 	if (T.mind)
 		if (T.mind.assigned_role == "Chaplain")
-			src << "<span class='warning'>Your connection with the Veil is not strong enough to effect a man as devout as them.</span>"
+			if (notify)
+				src << "<span class='warning'>Your connection with the Veil is not strong enough to effect a man as devout as them.</span>"
 			return 0
 		else if (T.mind.vampire)
-			src << "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>"
+			if (notify)
+				src << "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>"
 			return 0
 
 	if (T.get_species() == "Machine")
-		src << "<span class='warning'>You lack the power interact with mechanical constructs.</span>"
+		if (notify)
+			src << "<span class='warning'>You lack the power interact with mechanical constructs.</span>"
 		return 0
+
+	if (account_loyalty_implant)
+		for (var/obj/item/weapon/implant/loyalty/I in T)
+			if (I.implanted)
+				if (notify)
+					src << "<span class='warning'>You feel [T.name]'s mind unreachable due to forced loyalty.</span>"
+				return 0
 
 	return 1
 
@@ -165,7 +175,8 @@
 				vampire.last_frenzy_message = world.time
 
 	// Remove one point per every life() tick.
-	vampire.frenzy--
+	if (vampire.frenzy > 0)
+		vampire.frenzy--
 
 /mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
 	var/datum/vampire/vampire = mind.vampire
