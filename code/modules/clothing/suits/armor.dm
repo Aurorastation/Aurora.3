@@ -41,6 +41,8 @@
 	if (pockets)
 		if (pockets.handle_mousedrop(usr, over_object))
 			..(over_object)
+	else
+		..(over_object)
 
 /obj/item/clothing/suit/armor/attackby(obj/item/W as obj, mob/user as mob)
 	..()

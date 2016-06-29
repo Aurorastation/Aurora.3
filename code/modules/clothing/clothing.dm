@@ -479,7 +479,7 @@ BLIND     // can't see anything
 
 	..()
 
-/obj/item/clothing/under/MouseDrop(obj/over_object as obj)
+/obj/item/clothing/MouseDrop(obj/over_object as obj)
 	if (ishuman(usr) || issmall(usr))
 		//makes sure that the clothing is equipped so that we can't drag it into our hand from miles away.
 		if (!(src.loc == usr))
