@@ -48,6 +48,10 @@
 		/obj/item/rig_module/vision/meson
 		)
 
+/obj/item/weapon/rig/industrial/syndicate
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig
+	
 /obj/item/weapon/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
