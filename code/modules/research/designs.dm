@@ -1379,7 +1379,7 @@ datum/design/item/weapon/trod
 	name = "tungsten rod pack"
 	desc = "moderately expensive superdense tungsten rods."
 	req_tech = list("combat" = 2, "materials" = 4)
-	materials = list("$metal" = 93750, "$gold" = 7500)
+	materials = list("$metal" = 10000, "$gold" = 3750)
 	build_path = /obj/item/ammo_magazine/trodpack
 
 datum/design/item/weapon/stunshell
@@ -1400,7 +1400,7 @@ datum/design/item/weapon/eglaive
 	name = "energy glaive"
 	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
 	req_tech = list("combat" = 6, "phorontech" = 4, "materials" = 7, "syndicate" = 4,"powerstorage" = 4)
-	materials = list("$metal" = 10000, "$glass" = 18750, "$phoron" = 3000, "$silver" = 7500, "$diamond" = 11250)
+	materials = list("$metal" = 10000, "$glass" = 18750, "$phoron" = 3000, "$silver" = 7500)
 	build_path = /obj/item/weapon/melee/energy/glaive
 
 datum/design/item/weapon/gatlinglaser
