@@ -266,7 +266,6 @@
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bookbag"
 	storage_slots = 7
-	max_storage_space = 200
 	max_w_class = 3
 	w_class = 3 
 	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook) 
