@@ -181,7 +181,7 @@
 		T.Stun(20)
 		T.stuttering = 20
 
-		vampire.blood_usable -= 10
+		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
 		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
@@ -237,7 +237,7 @@
 
 	log_and_message_admins("activated veil step.")
 
-	vampire.blood_usable -= 20
+	vampire.use_blood(20)
 	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
 	spawn(300)
 		verbs += /mob/living/carbon/human/proc/vampire_veilstep
@@ -284,7 +284,7 @@
 
 	log_and_message_admins("summoned bats.")
 
-	vampire.blood_usable -= 60
+	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
 	spawn (1200)
 		verbs += /mob/living/carbon/human/proc/vampire_bats
@@ -328,7 +328,7 @@
 		L.broken()
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
-	vampire.blood_usable -= 90
+	vampire.use_blood(90)
 
 	if (victims.len)
 		admin_attacker_log_many_victims(src, victims, "used chriopteran screech to stun", "was stunned by [key_name(src)] using chriopteran screech", "used chiropteran screech to stun")
@@ -361,7 +361,7 @@
 
 		log_and_message_admins("activated veil walk.")
 
-		vampire.blood_usable -= 80
+		vampire.use_blood(80)
 
 // Veilwalk's dummy holder
 /obj/effect/dummy/veil_walk
@@ -426,7 +426,7 @@
 			return
 
 	if (owner_vampire.blood_usable >= 5)
-		owner_vampire.blood_usable -= 5
+		owner_vampire.use_blood(5)
 
 		switch (warning_level)
 			if (0)
@@ -631,7 +631,7 @@
 	src << "<span class='notice'>You command [T.name], and they will obey.</span>"
 	emote("me", 1, "whispers.")
 
-	vampire.blood_usable -= 25
+	vampire.use_blood(25)
 	verbs -= /mob/living/carbon/human/proc/vampire_dominate
 	spawn(1800)
 		verbs += /mob/living/carbon/human/proc/vampire_dominate
@@ -684,7 +684,7 @@
 
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
-	vampire.blood_usable -= 150
+	vampire.use_blood(150)
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
 	spawn(2800)
 		verbs += /mob/living/carbon/human/proc/vampire_enthrall
@@ -728,7 +728,7 @@
 
 	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
 
-	vampire.blood_usable -= 200
+	vampire.use_blood(200)
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
 	spawn(1800)
 		verbs += /mob/living/carbon/human/proc/vampire_diseasedtouch
@@ -761,7 +761,7 @@
 							"[src.name] has your best interests at heart, you can feel it.",
 							"A quiet voice tells you that [src.name] should be considered a friend.")
 
-	vampire.blood_usable -= 10
+	vampire.use_blood(10)
 
 	log_and_message_admins("activated presence.")
 
@@ -792,7 +792,7 @@
 			if (prob(probability))
 				T << "<font color='green'><i>[pick(emotes)]</i></font>"
 
-		vampire.blood_usable -= 5
+		vampire.use_blood(5)
 
 		if (vampire.blood_usable < 5)
 			vampire.status &= ~VAMP_PRESENCE
