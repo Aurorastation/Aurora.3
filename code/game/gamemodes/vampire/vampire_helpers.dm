@@ -165,7 +165,8 @@
 				vampire.last_frenzy_message = world.time
 
 	// Remove one point per every life() tick.
-	vampire.frenzy--
+	if (vampire.frenzy > 0)
+		vampire.frenzy--
 
 /mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
 	var/datum/vampire/vampire = mind.vampire

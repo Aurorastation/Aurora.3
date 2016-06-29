@@ -87,7 +87,7 @@
 
 			frenzy_lower_chance = 20
 
-		if (prob(frenzy_lower_chance))
+		if (prob(frenzy_lower_chance) && vampire.frenzy > 0)
 			vampire.frenzy--
 
 		if (blood_total != vampire.blood_total)
