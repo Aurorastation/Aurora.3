@@ -190,7 +190,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			owner << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
 	..()
 
-/obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/vaurca/neuralsocket/replaced()
 	if (!(all_languages["Hivenet"] in owner.languages))
 		owner.add_language("Hivenet")
 		owner << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
@@ -208,10 +208,27 @@ obj/item/organ/vaurca/neuralsocket/process()
 	parent_organ = "chest"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "breathing_app"
-	robotic = 2
+	robotic = 0
 
 obj/item/organ/vaurca/breathingapparatus/process()
 	return
 
 /obj/item/organ/vaurca/breathingapparatus/removed()
 	return
+
+/obj/item/organ/vaurca/filtrationbit
+	name = "filtration bit"
+	organ_tag = "filtration bit"
+	parent_organ = "head"
+	icon = 'icons/mob/alien.dmi'
+	icon_state = "filter"
+	robotic = 2
+
+/obj/item/organ/vaurca/filtrationbit/process(var/mob/living/carbon/human/owner)
+	..()
+
+/obj/item/organ/vaurca/filtrationbit/replaced(var/mob/living/carbon/human/owner)
+	..()
+
+/obj/item/organ/vaurca/filtrationbit/removed(var/mob/living/carbon/human/target)
+	..()
