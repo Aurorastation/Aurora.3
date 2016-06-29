@@ -1432,7 +1432,7 @@ datum/design/item/weapon/lawgiver
 	id = "lawgiver"
 	req_tech = list("combat" = 6, "phorontech" = 4, "bluespace" = 5, "materials" = 7)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$plasma" = 1000, "$diamond" = 3000)
+	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$phoron" = 1000, "$diamond" = 3000)
 	build_path = "/obj/item/weapon/gun/energy/lawgiver"
 
 /*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
