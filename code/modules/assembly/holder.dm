@@ -159,6 +159,15 @@
 			return
 		else if(W.IsSpecialAssembly())
 			attach_special(W, user)
+		else if(istype(W, /obj/item/weapon/cell))
+			user.drop_item(W)
+			if (loc == user)
+				if (user.hand)
+					user.drop_r_hand(src)
+				else
+					user.drop_r_hand(src)
+
+			new /obj/item/device/radiojammer/improvised(src, W, user)
 		else
 			..()
 		return
