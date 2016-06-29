@@ -72,7 +72,13 @@
 
 	var/current_pda_messaging = null
 
-/mob/living/silicon/pai/New(var/obj/item/device/paicard)
+/mob/living/silicon/pai/New(var/obj/item/device/paicard/newlocation)
+	var/obj/item/device/paicard/paicard
+	if (istype(newlocation, /obj/item/device/paicard))
+		paicard = newlocation
+	else
+		//If we get here, then we must have been created by adminspawning. so lets assist with debugging by creating our own card
+		paicard = new/obj/item/device/paicard(newlocation)
 
 	canmove = 0
 	src.loc = paicard
@@ -389,7 +395,8 @@
 
 	src.stop_pulling()
 	src.client.perspective = EYE_PERSPECTIVE
-	src.client.eye = card
+	src.client.eye = src
+//Changed the client eye to follow the mob itself instead of the card that contains it. This makes examining work, and the camera still follows wherever the card goes
 
 	//stop resting
 	resting = 0
