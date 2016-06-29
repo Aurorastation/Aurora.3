@@ -72,6 +72,7 @@
 	speech_verb = "broadcasts"
 	colour = "vaurca"
 	key = "9"
+	native = 1
 	flags = WHITELISTED | HIVEMIND
 	syllables = list("vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
 	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'ayek","ka'mil","sc'","ik'yir","yol","kig","k'zit","'","'","zrk","krg","isk'yet","na'k",
@@ -89,7 +90,10 @@
 
 	if(!speaker_mask)
 		speaker_mask = speaker.name
-	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span> [format_message(message, get_spoken_verb(message))]</span></i>"
+
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
+
+	speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rythmically")].")
 
 	for(var/mob/player in player_list)
 		if(istype(player,/mob/dead) || ((src in player.languages) || check_special_condition(player)))

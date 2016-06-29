@@ -448,7 +448,7 @@
 			else if(F.is_broken())
 				poison_type = "oxygen" //if Vaurca filter breaks, oxygen becomes poisonous.
 
-			else if(!isnull(F) && !F.is_broken())
+			else
 				poison_type = "null"
 
 		else
