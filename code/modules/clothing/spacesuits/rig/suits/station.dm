@@ -30,6 +30,8 @@
 	offline_vision_restriction = 2
 	emp_protection = -20
 
+	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
+
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
 
 	req_access = list()
@@ -37,8 +39,6 @@
 
 
 /obj/item/weapon/rig/industrial/equipped
-
-	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 
 	initial_modules = list(
 		/obj/item/rig_module/device/plasmacutter,
@@ -48,6 +48,10 @@
 		/obj/item/rig_module/vision/meson
 		)
 
+/obj/item/weapon/rig/industrial/syndicate
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig
+	
 /obj/item/weapon/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
