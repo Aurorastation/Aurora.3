@@ -172,11 +172,17 @@
 	icon_state = "cape"
 	max_storage_space = 12
 
-/obj/item/weapon/storage/backpack/cloak/pickup(var/mob/living/carbon/M, var/mob/user)
-	if(M.get_species() == "Vaurca")
-		icon_state = "vaurcacape"
+/obj/item/weapon/storage/backpack/cloak/mob_can_equip(mob/user)
+
+	if (!..())
+		return 0
+
+	if (user.get_species() == "Vaurca")
+		item_state = "vaurcacape"
 	else
-		icon_state = "cape"
+		item_state = "cape"
+
+	return 1
 
 /*
  * Satchel Types
