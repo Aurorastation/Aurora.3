@@ -92,7 +92,7 @@
 
 	if (account_loyalty_implant)
 		for (var/obj/item/weapon/implant/loyalty/I in T)
-			if (T.implanted)
+			if (I.implanted)
 				if (notify)
 					src << "<span class='warning'>You feel [T.name]'s mind unreachable due to forced loyalty.</span>"
 				return 0
