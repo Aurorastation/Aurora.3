@@ -128,7 +128,7 @@
 		if (H == src)
 			continue
 
-		if (!vampire_can_affect_target(H))
+		if (!vampire_can_affect_target(H, 0))
 			continue
 
 		H.Weaken(8)
@@ -310,7 +310,7 @@
 		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
 			continue
 
-		if (!vampire_can_affect_target(T))
+		if (!vampire_can_affect_target(T, 0))
 			continue
 
 		T << "<span class='danger'><font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font></span>"
@@ -605,7 +605,7 @@
 
 	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
 
-	if (!vampire_can_affect_target(T))
+	if (!vampire_can_affect_target(T, 1, 1))
 		return
 
 	if (!(vampire.status & VAMP_FULLPOWER))
@@ -778,7 +778,7 @@
 			if (T == src)
 				continue
 
-			if (!vampire_can_affect_target(T))
+			if (!vampire_can_affect_target(T, 0, 1))
 				continue
 
 			if (!T.client)
