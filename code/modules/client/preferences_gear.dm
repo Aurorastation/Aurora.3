@@ -600,7 +600,7 @@ var/global/list/gear_datums = list()
 	slot = slot_tie
 	cost = 1
 	
-/datum/gear/armband_science
+/datum/gear/armband_movement
 	display_name = "armband, synthetic intelligence movement"
 	path = /obj/item/clothing/accessory/armband/movement
 	slot = slot_tie
