@@ -19,13 +19,15 @@
 	load_method = SINGLE_CASING
 	
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
-	if(prob(40 - (loaded.len * 10)))
-		M << "<span class='danger'>[src] blows up in your face.</span>"
-		M.take_organ_damage(0,20)
+	if(prob(20 - (loaded.len * 10)))
+		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
+		M.take_organ_damage(0,30)
 		M.drop_item()
+		new /obj/item/weapon/material/shard/shrapnel(get_turf(src))
 		qdel(src)
 		return 0
 	return 1
+
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/pickaxe/plasmacutter))
