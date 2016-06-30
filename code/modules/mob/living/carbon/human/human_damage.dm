@@ -210,7 +210,7 @@
 	return ..()
 
 /mob/living/carbon/human/adjustToxLoss(var/amount)
-	if(species && species.burn_mod)
+	if(species && species.tox_mod)
 		amount = amount*species.tox_mod
 	if(species.flags & NO_POISON)
 		toxloss = 0
