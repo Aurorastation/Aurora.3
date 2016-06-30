@@ -18,7 +18,8 @@
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 	
-	special_check(var/mob/living/carbon/human/M)
+/obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
+
 		if(prob(40 - (loaded.len * 10)))
 			M << "<span class='danger'>[src] blows up in your face.</span>"
 			M.take_organ_damage(0,20)
