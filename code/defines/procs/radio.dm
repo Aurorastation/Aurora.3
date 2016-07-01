@@ -1,7 +1,7 @@
-#define TELECOMMS_RECEPTION_NONE 0
-#define TELECOMMS_RECEPTION_SENDER 1
-#define TELECOMMS_RECEPTION_RECEIVER 2
-#define TELECOMMS_RECEPTION_BOTH 3
+#define TELECOMMS_RECEPTION_NONE 1
+#define TELECOMMS_RECEPTION_SENDER 2
+#define TELECOMMS_RECEPTION_RECEIVER 4
+#define TELECOMMS_RECEPTION_BOTH 8
 
 /proc/register_radio(source, old_frequency, new_frequency, radio_filter)
 	if(old_frequency)

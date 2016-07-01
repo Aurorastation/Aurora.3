@@ -1,4 +1,3 @@
-// #TODO: TEST THIS SCHEISSE
 //Global list for housing active radiojammers:
 var/list/active_radio_jammers = list()
 
@@ -7,6 +6,8 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 		for (var/obj/item/device/radiojammer/Jammer in active_radio_jammers)
 			if (get_dist(test, Jammer) <= Jammer.radius)
 				return 1
+
+	return 0
 
 /obj/item/device/radiojammer
 	name = "radio jammer"
@@ -65,7 +66,8 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	desc = "An awkward bundle of wires, batteries, and radio transmitters."
 	var/obj/item/weapon/cell/cell
 	var/obj/item/device/assembly_holder/assembly_holder
-	var/power_drain_per_second = 200
+	// 10 seconds of operation on a standard cell. 200 (roughly 3 minutes) on a super cap.
+	var/power_drain_per_second = 100
 	var/last_updated = null
 	radius = 5
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
@@ -93,14 +95,33 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	var/current = world.timeofday // current tick
 	var/delta = (current - last_updated) / 10.0 // delta in seconds
 	last_updated = current
-	if (!(cell.use(delta * power_drain_per_second)))
+	if (!cell.use(delta * power_drain_per_second))
 		set_active(0)
 		cell.charge = 0 // drain the last of the battery
+
+
+/obj/item/device/radiojammer/improvised/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/weapon/screwdriver))
+		user << "<span class='notice'>You disassemble the improvised signal jammer.</span>"
+		user.put_in_hands(assembly_holder)
+		user.put_in_hands(cell)
+		qdel(src)
+
+/obj/item/device/radiojammer/improvised/set_active(var/new_value)
+	if (new_value == 1)
+		if (!cell || !cell.charge)
+			return
+
+	..()
+
+/obj/item/device/radiojammer/improvised/update()
+	if (active)
+		active_radio_jammers += src
+		icon_state = icon_state_active
+		processing_objects.Add(src)
+
+		last_updated = world.timeofday
+	else
+		active_radio_jammers -= src
+		icon_state = icon_state_inactive
 		processing_objects.Remove(src)
-
-
-/obj/item/device/radiojammer/improvised/attack_self(mob/user as mob)
-	user << "<span class='notice'>You disassemble the improvised signal jammer.</span>"
-	user.put_in_hands(assembly_holder)
-	user.put_in_hands(cell)
-	qdel(src)

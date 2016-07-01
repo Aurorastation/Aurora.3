@@ -160,14 +160,12 @@
 		else if(W.IsSpecialAssembly())
 			attach_special(W, user)
 		else if(istype(W, /obj/item/weapon/cell))
-			user.drop_item(W)
-			if (loc == user)
-				if (user.hand)
-					user.drop_r_hand(src)
-				else
-					user.drop_r_hand(src)
+			if (istype(a_left, /obj/item/device/assembly/signaler) && istype(a_right, /obj/item/device/assembly/signaler))
+				user.drop_item(W)
 
-			new /obj/item/device/radiojammer/improvised(src, W, user)
+				new /obj/item/device/radiojammer/improvised(src, W, user)
+			else
+				user << "<span class='notice'>You'd need both devices to be signallers for this to work.</span>"
 		else
 			..()
 		return
