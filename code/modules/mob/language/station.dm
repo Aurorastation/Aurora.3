@@ -91,6 +91,9 @@
 		speaker_mask = speaker.name
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span> [format_message(message, get_spoken_verb(message))]</span></i>"
 
+	if (within_jamming_range(src))
+		return
+
 	for(var/mob/player in player_list)
 		if(istype(player,/mob/dead) || ((src in player.languages) || check_special_condition(player)))
 			player << msg
@@ -101,6 +104,8 @@
 	if(!istype(M))
 		return 0
 	if(istype(M, /mob/new_player))
+		return 0
+	if(within_jamming_range(src))
 		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
 		return 1
