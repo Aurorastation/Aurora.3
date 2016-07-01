@@ -556,6 +556,32 @@ var/global/list/gear_datums = list()
 	slot = slot_w_uniform
 	allowed_roles = list("Security Officer","Head of Security","Warden")
 
+//medical scrubs
+
+/datum/gear/bluescrub
+	display_name = "medical scrubs, blue"
+	path = /obj/item/clothing/under/rank/medical/blue
+	slot = slot_w_uniform
+	cost = 1
+	
+/datum/gear/greenscrub
+	display_name = "medical scrubs, green"
+	path = /obj/item/clothing/under/rank/medical/green
+	slot = slot_w_uniform
+	cost = 1
+	
+/datum/gear/purplescrub
+	display_name = "medical scrubs, purple"
+	path = /obj/item/clothing/under/rank/medical/purple
+	slot = slot_w_uniform
+	cost = 1
+
+/datum/gear/blackscrub
+	display_name = "medical scrubs, black"
+	path = /obj/item/clothing/under/rank/medical/black
+	slot = slot_w_uniform
+	cost = 1
+
 // Attachments
 
 /datum/gear/armband_cargo
