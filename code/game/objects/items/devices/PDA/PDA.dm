@@ -1198,6 +1198,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user.drop_item()
 		C.loc = src
 		pai = C
+		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		user << "<span class='notice'>You slot \the [C] into [src].</span>"
 		nanomanager.update_uis(src) // update all UIs attached to src
 	else if(istype(C, /obj/item/weapon/pen))
