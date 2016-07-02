@@ -8,16 +8,16 @@
 	desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
 	w_class = 2
 
-	/obj/item/clothing/accessory/fluff/antique_pocket_watch/attack_self(mob/user as mob)
-		switch(icon_state)
-			if("pocket_watch_open")
-				icon_state = "pocket_watch_close"
-				usr << "You close the [src]."
-				desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
-			if("pocket_watch_close")
-				icon_state = "pocket_watch_open"
-				usr << "You open the [src]."
-				desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
+/obj/item/clothing/accessory/fluff/antique_pocket_watch/attack_self(mob/user as mob)
+	switch(icon_state)
+		if("pocket_watch_open")
+			icon_state = "pocket_watch_close"
+			usr << "You close the [src]."
+			desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
+		if("pocket_watch_close")
+			icon_state = "pocket_watch_open"
+			usr << "You open the [src]."
+			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
 /obj/item/clothing/head/soft/sec/corp/fluff/mendoza_cap //Mendoza's cap - Chance Mendoza - loow - DONE
@@ -63,21 +63,21 @@
 		chip = new /obj/item/weapon/disk/fluff/nebula_chip()
 		..()
 
-	attack_self(mob/user as mob)
-		if(chip)
-			user.put_in_hands(chip)
-			user << "\blue You eject a small, concealed data chip from a small slot in the frames of the [src]."
-			chip = null
+/obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
+	if(chip)
+		user.put_in_hands(chip)
+		user << "\blue You eject a small, concealed data chip from a small slot in the frames of the [src]."
+		chip = null
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/disk/fluff/nebula_chip) && !chip)
-			user.u_equip(W)
-			W.loc = src
-			chip = W
-			W.dropped(user)
-			W.add_fingerprint(user)
-			add_fingerprint(user)
-			user << "You slot the [W] back into its place in the frames of the [src]."
+/obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/disk/fluff/nebula_chip) && !chip)
+		user.u_equip(W)
+		W.loc = src
+		chip = W
+		W.dropped(user)
+		W.add_fingerprint(user)
+		add_fingerprint(user)
+		user << "You slot the [W] back into its place in the frames of the [src]."
 
 /obj/item/weapon/disk/fluff/nebula_chip //data chip - Roxy Wallace - nebulaflare - DONE
 	name = "data chip"
