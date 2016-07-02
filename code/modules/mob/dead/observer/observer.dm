@@ -442,16 +442,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	//find a viable mouse candidate
 	var/mob/living/simple_animal/mouse/host
-		/*
-		var/obj/machinery/atmospherics/unary/vent_pump/vent_found
-		var/list/found_vents = list()
-		for(var/obj/machinery/atmospherics/unary/vent_pump/v in machines)
-			if(!v.welded && v.z == T.z)
-				found_vents.Add(v)
-		if(found_vents.len)
-			vent_found = pick(found_vents)
-			host = new /mob/living/simple_animal/mouse(vent_found.loc)
-		*/
 	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(T.z)
 
 	if (spawnpoint)
@@ -471,8 +461,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
 	//Continues either until a valid one is found (in which case we return it), or until we hit a limit on attempts..
 	//If we hit the limit without finding a valid one, then the best one we found is selected
-
-	//TODO: Also make it check the environment and make sure the mouse spawns in a breathable area
 
 	var/list/found_vents = list()
 	for(var/obj/machinery/atmospherics/unary/vent_pump/v in machines)
