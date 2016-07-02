@@ -467,18 +467,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(!v.welded && v.z == ZLevel)
 			found_vents.Add(v)
 
+	if (found_vents.len == 0)
+		return null//Every vent on the map is welded? Sucks to be a mouse
+
 	var/attempts = 0
-	var/max_attempts = 20
+	var/max_attempts = min(20, found_vents.len)
 	var/target_connections = 30//Any vent with at least this many connections is good enough
 
 	var/obj/machinery/atmospherics/unary/vent_pump/bestvent = null
 	var/best_connections = 0
-	while (attempts <= max_attempts)
+	while (attempts < max_attempts)
 		attempts++
 		var/obj/machinery/atmospherics/unary/vent_pump/testvent = pick(found_vents)
-
-		if (testvent.welded)
-			continue
 
 		if (!testvent.network)//this prevents runtime errors
 			continue
