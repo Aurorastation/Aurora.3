@@ -57,7 +57,7 @@
 	return sanitize(replace_characters(input, list(">"=" ","<"=" ", "\""="'")), max_length, encode, trim, extra)
 
 //Filters out undesirable characters from names
-/proc/sanitizeName(var/input, var/max_length = MAX_NAME_LEN, var/allow_numbers = 0)
+/proc/sanitizeName(var/input, var/max_length = MAX_NAME_LEN, var/allow_numbers = 1)
 	if(!input || length(input) > max_length)
 		return //Rejects the input if it is null or if it is longer then the max length allowed
 
@@ -325,8 +325,9 @@ proc/TextPreview(var/string,var/len=40)
 		return ""
 
 	var/list/tags = list("*" = list("<b>", "</b>"),
-						"/" = list("<i>", "</i>"),
-						"_" = list("<i>", "</i>"))
+						"_" = list("<i>", "</i>"),
+						"~" = list("<stroke>", "</stroke>"),
+						"-" = list("<u>", "</u>"))
 
 	if (ignore_tags && ignore_tags.len)
 		tags -= ignore_tags

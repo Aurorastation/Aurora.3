@@ -135,6 +135,9 @@
 	var/blood_type = "\[UNSET\]"
 	var/dna_hash = "\[UNSET\]"
 	var/fingerprint_hash = "\[UNSET\]"
+	var/citizenship = "\[UNSET\]"
+	var/religion = "\[UNSET\]"
+	var/age = "\[UNSET\]"
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
@@ -149,6 +152,9 @@
 		blood_type = H.dna.b_type
 		dna_hash = H.dna.unique_enzymes
 		fingerprint_hash = md5(H.dna.uni_identity)
+		citizenship = H.citizenship
+		religion = H.religion
+		age = H.age
 
 /obj/item/weapon/card/id/attack_self(mob/user as mob)
 	for(var/mob/O in viewers(user, null))
@@ -169,11 +175,13 @@
 	set src in usr
 
 	usr << text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment)
+	usr << "The age on the card is [age]."
+	usr << "The citizenship on the card is [citizenship]."
+	usr << "The religion on the card is [religion]."
 	usr << "The blood type on the card is [blood_type]."
 	usr << "The DNA hash on the card is [dna_hash]."
 	usr << "The fingerprint hash on the card is [fingerprint_hash]."
 	return
-
 
 /obj/item/weapon/card/id/silver
 	name = "identification card"

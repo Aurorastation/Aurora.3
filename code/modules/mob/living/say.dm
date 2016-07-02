@@ -144,7 +144,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
-	message = process_chat_markup(message)
+	message = process_chat_markup(message, list("~", "-"))
 
 	switch(copytext(message,1,2))
 		if("*") return emote(copytext(message,2))
