@@ -57,9 +57,8 @@
 	icon_state = "nebula_glasses"
 	contained_sprite = 1
 
-	var/chip
-
-	New()
+/obj/item/clothing/glasses/fluff/nebula_glasses/var/chip
+	/obj/item/clothing/glasses/fluff/nebula_glasses/New()
 		chip = new /obj/item/weapon/disk/fluff/nebula_chip()
 		..()
 
