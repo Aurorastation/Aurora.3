@@ -141,6 +141,10 @@ area/space/atmosalert()
 //place to another. Look at escape shuttle for example.
 //All shuttles should now be under shuttle since we have smooth-wall code.
 
+/area/shuttle/lifts/placeholder //placeholder until lift code is done.
+	name = "\improper Placeholder!1!!"
+	icon_state = "unknown"
+
 /area/shuttle
 	requires_power = 0
 
@@ -634,8 +638,13 @@ area/space/atmosalert()
 
 //Maintenance
 
+
 /area/maintenance
 	flags = RAD_SHIELDED
+
+/area/maintenance/civ
+	name = "\improper Civilian Maintenance"
+	icon_state = "maintcentral"
 
 /area/maintenance/aft
 	name = "Aft Maintenance"
@@ -717,8 +726,16 @@ area/space/atmosalert()
 	name = "Engineering Maintenance"
 	icon_state = "maint_engineering"
 
+/area/maintenance/sublevel
+	name = "Sub-level Maintenance"
+	icon_state = "maint_engineering"
+
 /area/maintenance/evahallway
 	name = "\improper EVA Maintenance"
+	icon_state = "maint_eva"
+
+/area/maintenance/solarmaint
+	name = "\improper Solar Array Maintenance"
 	icon_state = "maint_eva"
 
 /area/maintenance/dormitory
@@ -863,6 +880,30 @@ area/space/atmosalert()
 	icon_state = "bridge"
 	music = "signal"
 
+/area/bridge/minibar
+    name = "\improper Command Break Room"
+    icon_state = "bridge"
+
+/area/bridge/ailobby
+    name = "\improper AI Elevator Access"
+    icon_state = "ai_foyer"
+
+/area/bridge/aibunker
+    name = "\improper AI Maintainence Bunker"
+    icon_state = "ai_foyer"
+
+/area/bridge/centcom_meetingroom
+    name = "\improper Level A Meeting Room"
+    icon_state = "bridge"
+
+/area/bridge/levela
+    name = "\improper Level A Bridge"
+    icon_state = "bridge"
+
+/area/crew_quarters/heads/cryo
+    name = "\improper Command Dormitory"
+    icon_state = "head_quarters"
+
 /area/bridge/meeting_room
 	name = "\improper Heads of Staff Meeting Room"
 	icon_state = "bridge"
@@ -933,6 +974,26 @@ area/space/atmosalert()
 
 /area/crew_quarters/sleep/cryo
 	name = "\improper Cryogenic Storage"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/main
+	name = "\improper Main Level Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/engineering
+	name = "\improper Engineering Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/security
+	name = "\improper Security Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/research
+	name = "\improper Research Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/medical
+	name = "\improper Medical Dormitories"
 	icon_state = "Sleep"
 
 /area/crew_quarters/sleep_male
@@ -1222,6 +1283,15 @@ area/space/atmosalert()
 	music = 'sound/ambience/signal.ogg'
 
 //Medbay is a large area, these additional areas help level out APC load.
+
+/area/medical/emt
+	name = "\improper Emergency Technician Storage"
+	icon_state = "medbay"
+
+/area/medical/temp_morgue
+	name = "\improper Temporary Morgue"
+	icon_state = "morgue"
+
 /area/medical/medbay2
 	name = "\improper Medbay Hallway - Starboard"
 	icon_state = "medbay2"
@@ -1322,8 +1392,16 @@ area/space/atmosalert()
 	name = "\improper Pre-Op Prep Room"
 	icon_state = "surgery"
 
+/area/medical/surgerywing
+	name = "\improper Surgery Wing"
+	icon_state = "surgery"
+
 /area/medical/cryo
 	name = "\improper Cryogenics"
+	icon_state = "cryo"
+
+/area/medical/gen_treatment
+	name = "\improper General Treatment"
 	icon_state = "cryo"
 
 /area/medical/exam_room
@@ -1341,6 +1419,11 @@ area/space/atmosalert()
 /area/medical/sleeper
 	name = "\improper Emergency Treatment Centre"
 	icon_state = "exam_room"
+
+/area/medical/icu
+	name = "\improper Intensive Care Unit"
+	icon_state = "cryo"
+
 
 //Security
 
@@ -1368,8 +1451,12 @@ area/space/atmosalert()
 	name = "\improper Security - Armory"
 	icon_state = "Warden"
 
-/area/security/detectives_office
+/area/security/forensics_office
 	name = "\improper Security - Forensic Office"
+	icon_state = "detective"
+
+/area/security/detectives_office
+	name = "\improper Security - Detective's Office"
 	icon_state = "detective"
 
 /area/security/range
@@ -1431,7 +1518,7 @@ area/space/atmosalert()
 	icon_state = "security"
 
 /area/security/vacantoffice2
-	name = "\improper Vacant Office"
+	name = "\improper Security Meeting Room"
 	icon_state = "security"
 
 /area/quartermaster
@@ -1469,6 +1556,10 @@ area/space/atmosalert()
 //rnd (Research and Development
 /area/rnd/research
 	name = "\improper Research and Development"
+	icon_state = "research"
+
+/area/rnd/telesci
+	name = "\improper Telescience Lab"
 	icon_state = "research"
 
 /area/rnd/docking
