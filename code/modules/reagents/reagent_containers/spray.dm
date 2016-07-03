@@ -22,6 +22,11 @@
 	..()
 	src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
 
+/obj/item/weapon/reagent_containers/spray/AltClick()
+	safety = !safety
+	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle, the lock is now turned [safety ? "on" : "off"].</span>"
+
+
 /obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(istype(A, /obj/item/weapon/storage) || istype(A, /obj/structure/table) || istype(A, /obj/structure/closet) || istype(A, /obj/item/weapon/reagent_containers) || istype(A, /obj/structure/sink) || istype(A, /obj/structure/janitorialcart))
 		return
@@ -129,6 +134,7 @@
 	volume = 40
 	safety = 1
 
+
 /obj/item/weapon/reagent_containers/spray/pepper/New()
 	..()
 	reagents.add_reagent("condensedcapsaicin", 40)
@@ -136,6 +142,9 @@
 /obj/item/weapon/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))
 		user << "The safety is [safety ? "on" : "off"]."
+
+/obj/item/weapon/reagent_containers/spray/pepper/AltClick()
+	return //No altclick functionality for pepper spray
 
 /obj/item/weapon/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
