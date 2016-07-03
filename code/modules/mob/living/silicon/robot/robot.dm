@@ -925,6 +925,7 @@
 				if (istype(tile, /turf/simulated))
 					var/turf/simulated/S = tile
 					S.dirt = 0
+					S.color = null
 				for(var/A in tile)
 					if(istype(A, /obj/effect))
 						if(istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay))
