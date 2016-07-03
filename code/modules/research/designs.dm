@@ -1621,3 +1621,11 @@ datum/design/item/chameleon
 	req_tech = list("syndicate" = 2)
 	materials = list("$metal" = 500)
 	build_path = /obj/item/weapon/storage/box/syndie_kit/chameleon
+
+datum/design/item/experimental_welder
+	name = "Experimental Welding Tool"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	id = "experimental_welder"
+	req_tech = list("biotech" = 4, "engineering" = 4)
+	materials = list("$metal" = 500)
+	build_path =/obj/item/weapon/weldingtool/experimental
