@@ -177,7 +177,8 @@
 												dat.uplink_location,
 												dat.organs_data,
 												dat.organs_robotic,
-												dat.gear
+												dat.gear,
+												flv.records_ccia
 												FROM ss13_characters dat
 												JOIN ss13_characters_flavour flv ON dat.id = flv.char_id
 												WHERE dat.id = :char_id"})
@@ -279,6 +280,7 @@
 	med_record				= character_query.item[45]
 	sec_record				= character_query.item[46]
 	exploit_record			= character_query.item[47]
+	ccia_record 			= character_query.item[60]
 
 	// Miscellaneous
 	disabilities			= text2num(character_query.item[48])
