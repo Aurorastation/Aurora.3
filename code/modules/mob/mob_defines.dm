@@ -71,6 +71,7 @@
 	var/med_record = ""
 	var/sec_record = ""
 	var/gen_record = ""
+	var/ccia_record = ""
 	var/exploit_record = ""
 	var/blinded = null
 	var/bhunger = 0			//Carbon
@@ -222,5 +223,3 @@
 	var/list/shouldnt_see = list()	//list of objects that this mob shouldn't see in the stat panel. this silliness is needed because of AI alt+click and cult blood runes
 
 	var/list/active_genes=list()
-
-
