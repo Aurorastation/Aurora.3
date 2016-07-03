@@ -528,16 +528,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in testvent.network.normal_members)
 			if(temp_vent.welded)
 				continue
-			if(temp_vent in testvent.loc)//Our testvent shouldn't count itself as a connection
+			if(temp_vent == testvent)//Our testvent shouldn't count itself as a connection
 				continue
-			var/turf/T2 = get_turf(temp_vent)
 
-			var/i = 1
-			var/index = "[T2.loc.name]\[[i]\]"
-			while(index in connections)
-				i++
-				index = "[T2.loc.name]\[[i]\]"
-			connections[index] = temp_vent
+			connections += temp_vent
 
 		if(connections.len > best_connections)
 			best_connections = connections.len
