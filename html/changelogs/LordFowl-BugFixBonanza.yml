@@ -36,7 +36,6 @@ changes:
   - bugfix: "Game year is set properly to 2458."
   - bugfix: "Wizard laser eyes via mutate now work properly."
   - bugfix: "Brig exit door in security now functions appropriately."
-  - bugfix: "Game year is set properly to 2458."
   - bugfix: "Arrivals maintainence disposals now functions properly."
   - bugfix: "Doctors now have the appropriate access to EVA."
   - bugfix: "Abstract items such as grabs can no longer be placed into crates."
