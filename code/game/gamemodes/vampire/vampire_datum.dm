@@ -33,3 +33,10 @@
 
 		if (power.helptext)
 			vampire.current << "<font color='green'>[power.helptext]</font>"
+
+// Proc to safely remove blood, without resulting in negative amounts of blood.
+/datum/vampire/proc/use_blood(var/blood_to_use)
+	if (!blood_to_use || blood_to_use <= 0)
+		return
+
+	blood_usable = max(0, blood_usable - blood_to_use)

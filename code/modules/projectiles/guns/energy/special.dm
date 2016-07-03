@@ -98,6 +98,85 @@
 	origin_tech = "combat=5;phorontech=4"
 	projectile_type = /obj/item/projectile/energy/phoron
 
+/* Vaurca Weapons */
+
+/obj/item/weapon/gun/energy/vaurca
+	name = "Alien Firearm"
+	desc = "Vaurcae weapons tend to be specialized and highly lethal. This one doesn't do much"
+
+/obj/item/weapon/gun/energy/vaurca/bfg
+	name = "BFG 9000"
+	desc = "'Bio-Force Gun'. Yeah, right."
+	icon_state = "bfg"
+	item_state = "bfg"
+	charge_meter = 0
+	w_class = 3
+	fire_sound = 'sound/magic/LightningShock.ogg'
+	force = 30
+	projectile_type = /obj/item/projectile/energy/sonic
+	slot_flags = SLOT_BACK
+	max_shots = 40
+
+	firemodes = list(
+		list(name="EXTERMINATE", burst=20, burst_delay = 1, move_delay = 20, fire_delay = 40, dispersion = list(3.0, 3.25, 3.5, 3.75, 4.0, 4.25, 4.5, 4.75, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.25)),
+		)
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser
+	name = "Gatling Laser"
+	desc = "A highly sophisticated rapid fire laser weapon."
+	icon_state = "gatling"
+	item_state = "gatling"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	origin_tech = "combat=5;materials=2"
+	charge_meter = 0
+	slot_flags = SLOT_BACK
+	w_class = 3
+	force = 10
+	projectile_type = /obj/item/projectile/beam/gatlinglaser
+	max_shots = 80
+
+	firemodes = list(
+		list(name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
+		list(name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = list(0.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.0, 3.25)),
+		)
+
+/obj/item/weapon/gun/energy/vaurca/blaster
+	name = "Zo'ra Blaster"
+	desc = "An elegant weapon for a more civilized time."
+	icon_state = "blaster"
+	item_state = "blaster"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	slot_flags = SLOT_BACK
+	w_class = 3
+	force = 10
+	projectile_type = /obj/item/projectile/energy/blaster
+	max_shots = 30
+
+	firemodes = list(
+		list(name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
+		list(name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5),
+		)
+
+/*/obj/item/weapon/gun/energy/vaurca/flamer
+	name = "Vaurcae Incinerator"
+	desc = "A devious flamethrower device that procedurally converts atmosphere to fuel for a virtually unlimited tank."
+	icon_state = "incinerator"
+	item_state = "incinerator"
+	fire_sound = 'sound/effects/extinguish.ogg'
+	charge_meter = 0
+	slot_flags = SLOT_BACK
+	w_class = 3
+	force = 10
+	projectile_type = /obj/item/projectile/energy/flamer
+	self_recharge = 1
+	recharge_time = 2
+
+	max_shots = 80
+
+	firemodes = list(
+		list(name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
+		)*/
+
 /* Staves */
 
 /obj/item/weapon/gun/energy/staff

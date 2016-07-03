@@ -47,11 +47,11 @@ var/global/list/minor_air_alarms = list()
 	..()
 	if(stat & (NOPOWER|BROKEN))
 		return
-	var/list/alarms = atmosphere_alarm.major_alarms()
+	var/list/alarms = atmosphere_alarm ? atmosphere_alarm.major_alarms() : list()
 	if(alarms.len)
 		icon_state = "alert:2"
 	else
-		alarms = atmosphere_alarm.minor_alarms()
+		alarms = atmosphere_alarm ? atmosphere_alarm.minor_alarms() : list()
 		if(alarms.len)
 			icon_state = "alert:1"
 		else

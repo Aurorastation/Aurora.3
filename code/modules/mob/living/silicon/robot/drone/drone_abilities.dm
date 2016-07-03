@@ -25,5 +25,13 @@
 /mob/living/silicon/robot/drone/attack_hand(mob/living/carbon/human/M as mob)
 
 	if(M.a_intent == I_HELP)
-		get_scooped(M)
+		M.visible_message("\blue[M] pets \the [src]!</span>")
 	..()
+
+/mob/living/silicon/robot/drone/MouseDrop(atom/over_object)
+
+	var/mob/living/carbon/H = over_object
+	if(!istype(H) || !Adjacent(H))
+		return ..()
+	get_scooped(H)
+	return

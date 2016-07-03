@@ -87,7 +87,7 @@
 
 			frenzy_lower_chance = 20
 
-		if (prob(frenzy_lower_chance))
+		if (prob(frenzy_lower_chance) && vampire.frenzy > 0)
 			vampire.frenzy--
 
 		if (blood_total != vampire.blood_total)
@@ -128,7 +128,7 @@
 		if (H == src)
 			continue
 
-		if (!vampire_can_affect_target(H))
+		if (!vampire_can_affect_target(H, 0))
 			continue
 
 		H.Weaken(8)
@@ -181,7 +181,7 @@
 		T.Stun(20)
 		T.stuttering = 20
 
-		vampire.blood_usable -= 10
+		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
 		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
@@ -237,7 +237,7 @@
 
 	log_and_message_admins("activated veil step.")
 
-	vampire.blood_usable -= 20
+	vampire.use_blood(20)
 	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
 	spawn(300)
 		verbs += /mob/living/carbon/human/proc/vampire_veilstep
@@ -284,7 +284,7 @@
 
 	log_and_message_admins("summoned bats.")
 
-	vampire.blood_usable -= 60
+	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
 	spawn (1200)
 		verbs += /mob/living/carbon/human/proc/vampire_bats
@@ -310,7 +310,7 @@
 		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
 			continue
 
-		if (!vampire_can_affect_target(T))
+		if (!vampire_can_affect_target(T, 0))
 			continue
 
 		T << "<span class='danger'><font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font></span>"
@@ -328,7 +328,7 @@
 		L.broken()
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
-	vampire.blood_usable -= 90
+	vampire.use_blood(90)
 
 	if (victims.len)
 		admin_attacker_log_many_victims(src, victims, "used chriopteran screech to stun", "was stunned by [key_name(src)] using chriopteran screech", "used chiropteran screech to stun")
@@ -345,19 +345,23 @@
 	set name = "Toggle Veil Walking (80)"
 	set desc = "You enter the veil, leaving only an incorporeal manifestation of you visible to the others."
 
-	var/datum/vampire/vampire = vampire_power(80, 0, 1)
+	var/datum/vampire/vampire = vampire_power(0, 0, 1)
 	if (!vampire)
 		return
 
 	if (vampire.holder)
 		vampire.holder.deactivate()
 	else
+		vampire = vampire_power(80, 0, 1)
+		if (!vampire)
+			return
+
 		var/obj/effect/dummy/veil_walk/holder = new /obj/effect/dummy/veil_walk(get_turf(loc))
 		holder.activate(src)
 
 		log_and_message_admins("activated veil walk.")
 
-		vampire.blood_usable -= 80
+		vampire.use_blood(80)
 
 // Veilwalk's dummy holder
 /obj/effect/dummy/veil_walk
@@ -409,8 +413,20 @@
 		can_move = 1
 
 /obj/effect/dummy/veil_walk/process()
+	if (owner_mob.stat)
+		if (owner_mob.stat == 1)
+			owner_mob << "<span class='warning'>You cannot maintain this form while unconcious.</span>"
+			spawn(10)
+				if (owner_mob.stat == 1)
+					owner_mob << "<span class='danger'>You are ejected from the Veil.</span>"
+					deactivate()
+					return
+		else
+			deactivate()
+			return
+
 	if (owner_vampire.blood_usable >= 5)
-		owner_vampire.blood_usable -= 5
+		owner_vampire.use_blood(5)
 
 		switch (warning_level)
 			if (0)
@@ -485,13 +501,16 @@
 	set name = "Blood Heal"
 	set desc = "At the cost of blood and time, heal any injuries you have sustained."
 
-	var/datum/vampire/vampire = vampire_power(15, 0)
+	var/datum/vampire/vampire = vampire_power(0, 0)
 	if (!vampire)
 		return
 
 	// Kick out of the already running loop.
 	if (vampire.status & VAMP_HEALING)
 		vampire.status &= ~VAMP_HEALING
+		return
+	else if (vampire.blood_usable < 15)
+		src << "<span class='warning'>You do not have enough usable blood. 15 needed.</span>"
 		return
 
 	vampire.status |= VAMP_HEALING
@@ -586,7 +605,7 @@
 
 	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
 
-	if (!vampire_can_affect_target(T))
+	if (!vampire_can_affect_target(T, 1, 1))
 		return
 
 	if (!(vampire.status & VAMP_FULLPOWER))
@@ -612,7 +631,7 @@
 	src << "<span class='notice'>You command [T.name], and they will obey.</span>"
 	emote("me", 1, "whispers.")
 
-	vampire.blood_usable -= 25
+	vampire.use_blood(25)
 	verbs -= /mob/living/carbon/human/proc/vampire_dominate
 	spawn(1800)
 		verbs += /mob/living/carbon/human/proc/vampire_dominate
@@ -665,7 +684,7 @@
 
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
-	vampire.blood_usable -= 150
+	vampire.use_blood(150)
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
 	spawn(2800)
 		verbs += /mob/living/carbon/human/proc/vampire_enthrall
@@ -709,7 +728,7 @@
 
 	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
 
-	vampire.blood_usable -= 200
+	vampire.use_blood(200)
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
 	spawn(1800)
 		verbs += /mob/living/carbon/human/proc/vampire_diseasedtouch
@@ -720,13 +739,16 @@
 	set name = "Presence (10)"
 	set desc = "Influences those weak of mind to look at you in a friendlier light."
 
-	var/datum/vampire/vampire = vampire_power(15, 0)
+	var/datum/vampire/vampire = vampire_power(0, 0)
 	if (!vampire)
 		return
 
 	if (vampire.status & VAMP_PRESENCE)
 		vampire.status &= ~VAMP_PRESENCE
 		src << "<span class='warning'>You are no longer influencing those weak of mind.</span>"
+		return
+	else if (vampire.blood_usable < 15)
+		src << "<span class='warning'>You do not have enough usable blood. 15 needed.</span>"
 		return
 
 	src << "<span class='notice'>You begin passively influencing the weak minded.</span>"
@@ -739,7 +761,7 @@
 							"[src.name] has your best interests at heart, you can feel it.",
 							"A quiet voice tells you that [src.name] should be considered a friend.")
 
-	vampire.blood_usable -= 10
+	vampire.use_blood(10)
 
 	log_and_message_admins("activated presence.")
 
@@ -747,11 +769,16 @@
 		// Run every 20 seconds
 		sleep(200)
 
+		if (stat)
+			src << "<span class='warning'>You cannot influence people around you while [stat == 1 ? "unconcious" : "dead"].</span>"
+			vampire.status &= ~VAMP_PRESENCE
+			break
+
 		for (var/mob/living/carbon/human/T in view(5))
 			if (T == src)
 				continue
 
-			if (!vampire_can_affect_target(T))
+			if (!vampire_can_affect_target(T, 0, 1))
 				continue
 
 			if (!T.client)
@@ -765,7 +792,7 @@
 			if (prob(probability))
 				T << "<font color='green'><i>[pick(emotes)]</i></font>"
 
-		vampire.blood_usable -= 5
+		vampire.use_blood(5)
 
 		if (vampire.blood_usable < 5)
 			vampire.status &= ~VAMP_PRESENCE

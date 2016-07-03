@@ -77,6 +77,7 @@
 	recipes += new/datum/stack_recipe("apc frame", /obj/item/frame/apc, 2)
 	recipes += new/datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2)
 	recipes += new/datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)
+	recipes += new/datum/stack_recipe("firearm receiver", /obj/item/weapon/receivergun, 15, time = 25, one_per_turf = 0, on_floor = 0)
 
 /material/plasteel/generate_recipes()
 	..()
@@ -104,6 +105,7 @@
 	recipes += new/datum/stack_recipe("wooden chair", /obj/structure/bed/chair/wood, 3, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("crossbow frame", /obj/item/weapon/crossbowframe, 5, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 15, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("rifle stock", /obj/item/weapon/stock, 10, time = 25, one_per_turf = 0, on_floor = 0)
 
 /material/cardboard/generate_recipes()
 	..()

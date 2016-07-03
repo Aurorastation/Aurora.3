@@ -10,7 +10,8 @@
  *		Plant Bag
  *		Sheet Snatcher
  *		Cash Bag
- *
+ *		Book Bag (New thing)
+  *
  *	-Sayu
  */
 
@@ -253,3 +254,20 @@
 	max_w_class = 3
 	w_class = 2
 	can_hold = list(/obj/item/weapon/coin,/obj/item/weapon/spacecash)
+	
+// -----------------------------
+//           Book bag
+// -----------------------------
+
+
+/obj/item/weapon/storage/bag/books
+	name = "book bag"
+	desc = "A bag for books."
+	icon = 'icons/obj/library.dmi'
+	icon_state = "bookbag"
+	storage_slots = 7
+	max_storage_space = 200
+	max_w_class = 3
+	w_class = 3 
+	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook) 
+

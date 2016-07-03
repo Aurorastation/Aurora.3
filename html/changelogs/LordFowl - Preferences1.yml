@@ -22,7 +22,7 @@
 #################################
 
 # Your name.  
-author: Nanako
+author: LordFowl
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -33,6 +33,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Tajarans can now wear tajaran-specific gloves"
-  - bugfix: "Tajaran wardens, detectives and heads of security will properly spawn wearing black tajara gloves"
+  - tweak: "Age limits are now based upon lore-standards for each race."
+  - tweak: "Home system, citizenship, and religion defaults have been tailored to the lore standards."
+  - tweak: "Numbers may be used in chargen for naming, strictly for the purpose of allowing numbers in IPC names."
+  - rscadd: "Age, citizenship, and religion can now be viewed on an ID card."
+  - rscadd: "Citizenship, religion, and home system can be viewed and modified via the employment records consoles."
 
