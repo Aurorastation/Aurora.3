@@ -45,6 +45,7 @@ changes:
   - bugfix: "Soaps, janiborgs, and mops can no longer remove cultist runes."
   - bugfix: "Soaps, janiborgs, and mops can remove paint applicated via paint-can from turfs."
   - bugfix: "All instances of Thaler have been replaced with credit chip."
+  - bugfix: "All instances of Hesphaistos have been replaced with Hesphaestus."
   - tweak: "Mechanics of the coin slightly tweaked to prevent duping exploits."
   - tweak: "Mobs can no longer be painted via paint-cans."
   - rscadd: "Quartermasters now start with the cargo account details in their memory notes."
