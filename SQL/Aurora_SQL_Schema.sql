@@ -40,6 +40,7 @@ CREATE TABLE `ss13_ban` (
   `edits` text CHARACTER SET latin1,
   `unbanned` tinyint(1) DEFAULT NULL,
   `unbanned_datetime` datetime DEFAULT NULL,
+  `unbanned_reason` text CHARACTER SET latin1 DEFAULT NULL,
   `unbanned_ckey` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
   `unbanned_computerid` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
   `unbanned_ip` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
@@ -54,6 +55,20 @@ CREATE TABLE `ss13_ban_mirrors` (
   `ban_mirror_computerid` varchar(32) NOT NULL,
   `ban_mirror_datetime` datetime NOT NULL,
   PRIMARY KEY (`ban_mirror_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ss13_player` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
+  `firstseen` datetime NOT NULL,
+  `lastseen` datetime NOT NULL,
+  `ip` varchar(18) CHARACTER SET latin1 NOT NULL,
+  `computerid` varchar(32) CHARACTER SET latin1 NOT NULL,
+  `lastadminrank` varchar(32) CHARACTER SET latin1 NOT NULL DEFAULT 'Player',
+  `whitelist_status` int(11) unsigned NOT NULL DEFAULT '0',
+  `migration_status` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ckey` (`ckey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ss13_characters` (
@@ -236,20 +251,6 @@ CREATE TABLE `ss13_notes` (
   `lasteditor` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
   `lasteditdate` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `ss13_player` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
-  `firstseen` datetime NOT NULL,
-  `lastseen` datetime NOT NULL,
-  `ip` varchar(18) CHARACTER SET latin1 NOT NULL,
-  `computerid` varchar(32) CHARACTER SET latin1 NOT NULL,
-  `lastadminrank` varchar(32) CHARACTER SET latin1 NOT NULL DEFAULT 'Player',
-  `whitelist_status` int(11) unsigned NOT NULL DEFAULT '0',
-  `migration_status` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `ckey` (`ckey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ss13_player_linking` (

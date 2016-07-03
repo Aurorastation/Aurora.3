@@ -166,6 +166,26 @@ datum/preferences
 
 	ZeroSkills(1)
 
+/datum/preferences/proc/getMinAge(var/age_min)
+	if(species == "Vaurca" || species == "Machine" || species == "Diona")
+		age_min = 1
+	if(species == "Human" || species == "Skrell" || species == "Tajara" || species == "Unathi")
+		age_min = 17
+	return age_min
+
+/datum/preferences/proc/getMaxAge(var/age_max)
+	if(species == "Vaurca")
+		age_max = 20
+	if(species == "Machine")
+		age_max = 30
+	if(species == "Skrell" || species == "Diona")
+		age_max = 500
+	if(species == "Human")
+		age_max = 120
+	if(species == "Tajara" || species == "Unathi")
+		age_max = 85
+	return age_max
+
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
 		if(!skills.Find(S.ID) || forced)
@@ -467,10 +487,26 @@ datum/preferences
 		var/n = 0
 		for (var/i in special_roles)
 			if(special_roles[i]) //if mode is available on the server
-				if(jobban_isbanned(user, i) || (i == "positronic brain" && jobban_isbanned(user, "AI") && jobban_isbanned(user, "Cyborg")) || (i == "pAI candidate" && jobban_isbanned(user, "pAI")))
+				var/banned_special = 0
+				switch (i)
+					if ("positronic brain")
+						banned_special = jobban_isbanned(user, "AI") && jobban_isbanned(user, "cyborg")
+					if ("pAI candidate")
+						banned_special = jobban_isbanned(user, "pAI")
+					else
+						banned_special = jobban_isbanned(user, i)
+
+				if (banned_special)
 					dat += "<b>Be [i]:<b> <font color=red><b> \[BANNED]</b></font><br>"
 				else
-					dat += "<b>Be [i]:</b> <a href='?_src_=prefs;preference=be_special;num=[n]'><b>[src.be_special&(1<<n) ? "Yes" : "No"]</b></a><br>"
+					var/time = 0
+					if (!isnull(config.age_restrictions[i]))
+						time = max(0, config.age_restrictions[i] - user.client.player_age)
+
+					if (time)
+						dat += "<b>Be [i]:</b> <font color=black>\[IN [time] DAYS]</font><br>"
+					else
+						dat += "<b>Be [i]:</b> <a href='?_src_=prefs;preference=be_special;num=[n]'><b>[src.be_special&(1<<n) ? "Yes" : "No"]</b></a><br>"
 			n++
 	dat += "</td></tr></table><hr><center>"
 
@@ -523,8 +559,11 @@ datum/preferences
 		HTML += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		if(jobban_isbanned(user, rank))
-			HTML += "<del>[rank]</del></td><td><b> \[BANNED]</b></td></tr>"
+		var/banned = jobban_isbanned(user, rank)
+		if(banned)
+			if (banned != "Whitelisted Job")
+				banned = "\[BANNED]"
+			HTML += "<del>[rank]</del></td><td><b> [banned]</b></td></tr>"
 			continue
 		if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
@@ -1177,7 +1216,7 @@ datum/preferences
 				if("name")
 					real_name = random_name(gender,species)
 				if("age")
-					age = rand(AGE_MIN, AGE_MAX)
+					age = rand(getMinAge(), getMaxAge())
 				if("hair")
 					r_hair = rand(0,255)
 					g_hair = rand(0,255)
@@ -1226,9 +1265,9 @@ datum/preferences
 							user << "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>"
 
 				if("age")
-					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
+					var/new_age = input(user, "Choose your character's age:\n([getMinAge()]-[getMaxAge()])", "Character Preference") as num|null
 					if(new_age)
-						age = max(min( round(text2num(new_age)), AGE_MAX),AGE_MIN)
+						age = max(min( round(text2num(new_age)), getMaxAge()),getMinAge())
 
 				if("species")
 					user << browse(null, "window=species")
@@ -1379,6 +1418,8 @@ datum/preferences
 					ShowChoices(user)
 
 				if("eyes")
+					if(species == "Vaurca")
+						return
 					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference", rgb(r_eyes, g_eyes, b_eyes)) as color|null
 					if(new_eyes)
 						r_eyes = hex2num(copytext(new_eyes, 2, 4))

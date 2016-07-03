@@ -323,7 +323,7 @@
 	if (!real_name) real_name = random_name(gender)
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
 	gender			= sanitize_gender(gender)
-	age				= sanitize_integer(age, AGE_MIN, AGE_MAX, initial(age))
+	age				= sanitize_integer(age, getMinAge(), getMaxAge(), initial(age))
 	r_hair			= sanitize_integer(r_hair, 0, 255, initial(r_hair))
 	g_hair			= sanitize_integer(g_hair, 0, 255, initial(g_hair))
 	b_hair			= sanitize_integer(b_hair, 0, 255, initial(b_hair))
@@ -537,8 +537,23 @@
 	params[":facial_colour"] = facial_hex
 	params[":skin_tone"] = s_tone
 	params[":skin_colour"] = skin_hex
-	params[":hair_style"] = h_style
-	params[":facial_style"] = f_style
+
+	if (istext(h_style))
+		params[":hair_style"] = h_style
+	else if (istype(h_style, /datum/sprite_accessory/hair))
+		var/datum/sprite_accessory/hair/current_h = h_style
+		params[":hair_style"] = current_h.name
+	else
+		params[":hair_style"] = "Bald"
+
+	if (istext(f_style))
+		params[":facial_style"] = f_style
+	else if (istype(h_style, /datum/sprite_accessory/facial_hair))
+		var/datum/sprite_accessory/facial_hair/current_f = f_style
+		params[":facial_style"] = current_f.name
+	else
+		params[":facial_style"] = "Shaved"
+
 	params[":eyes_colour"] = eyes_hex
 	params[":underwear"] = underwear
 	params[":undershirt"] = undershirt
@@ -622,6 +637,9 @@
 		return 0
 
 	if (!current_character)
+		return 0
+
+	if (alert(C.mob, "This will permanently delete the character. Are you sure you wish to do this?", "Delete Character" ,"Yes", "No") == "No")
 		return 0
 
 	establish_db_connection(dbcon)

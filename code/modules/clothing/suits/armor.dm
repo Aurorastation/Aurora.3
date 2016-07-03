@@ -9,7 +9,55 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.6
+	var/obj/item/weapon/storage/internal/pockets
+	var/pocket_slots = 2
+	var/pocket_size = 2
+	var/pocket_total = null//This will be calculated, unless specifically overidden
 
+/obj/item/clothing/suit/armor/New()
+	..()
+	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets.storage_slots = pocket_slots	//two slots
+	pockets.max_w_class = pocket_size		//fit only pocket sized items
+	if (pocket_total)
+		pockets.max_storage_space = pocket_total
+	else
+		pockets.max_storage_space = pocket_slots * pocket_size
+
+/obj/item/clothing/suit/armor/Destroy()
+	if (pockets)
+		qdel(pockets)
+		pockets = null
+	..()
+
+/obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
+	if (pockets)
+		if (pockets.handle_attack_hand(user))
+			..(user)
+	else
+		..(user)
+
+/obj/item/clothing/suit/armor/MouseDrop(obj/over_object as obj)
+	if (pockets)
+		if (pockets.handle_mousedrop(usr, over_object))
+			..(over_object)
+	else
+		..(over_object)
+
+/obj/item/clothing/suit/armor/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	if (pockets)
+		pockets.attackby(W, user)
+
+/obj/item/clothing/suit/armor/emp_act(severity)
+	if (pockets)
+		pockets.emp_act(severity)
+	..()
+
+/obj/item/clothing/suit/armor/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+	if (pockets)
+		pockets.hear_talk(M, msg, verb, speaking)
+	..()
 
 /obj/item/clothing/suit/armor/vest
 	name = "armor"
@@ -32,6 +80,7 @@
 	icon_state = "warden_jacket"
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	pocket_slots = 4//Jackets have more slots
 
 
 /obj/item/clothing/suit/armor/riot
@@ -44,6 +93,7 @@
 	armor = list(melee = 80, bullet = 10, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
 	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0.5
+	pocket_slots = 4//Fullbody suit, so more slots
 
 
 /obj/item/clothing/suit/armor/bulletproof
@@ -80,6 +130,7 @@
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.6
+	pocket_slots = 4//fullbody, more slots
 
 
 /obj/item/clothing/suit/armor/swat/officer
@@ -90,6 +141,7 @@
 	blood_overlay_type = "coat"
 	flags_inv = 0
 	body_parts_covered = UPPER_TORSO|ARMS
+	pocket_slots = 4//coat, so more slots
 
 
 /obj/item/clothing/suit/armor/det_suit
@@ -154,10 +206,18 @@
 /obj/item/clothing/suit/armor/tactical/New()
 	..()
 	holster = new(src)
+	holster.has_suit = 1//its inside a suit, we set  this so it can be drawn from
+	pockets = null//Tactical armour has internal holster instead of pockets, so we null this out
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	holster.attackby(W, user)
+
+/obj/item/clothing/suit/armor/tactical/attack_hand(mob/user as mob)
+	if (loc == user)//If we're wearing the suit and we click it with an empty hand
+		holster.attack_hand(user)//Remove the weapon in the holster
+	else
+		..(user)
 
 /obj/item/clothing/suit/armor/tactical/verb/holster()
 	set name = "Holster"
@@ -166,14 +226,22 @@
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return
 
-	if(!holster.holstered)
-		var/obj/item/W = usr.get_active_hand()
-		if(!istype(W, /obj/item))
-			usr << "<span class='warning'>You need your gun equiped to holster it.</span>"
+	if (usr.get_active_hand())
+		if(!holster.holstered)
+			var/obj/item/W = usr.get_active_hand()
+			if(!istype(W, /obj/item))
+				usr << "<span class='warning'>You need your gun equiped to holster it.</span>"
+				return
+			holster.holster(W, usr)
+		else
+			usr << "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>"
 			return
-		holster.holster(W, usr)
 	else
-		holster.unholster(usr)
+		if(holster.holstered)
+			holster.unholster(usr)
+		else
+			usr << "<span class='warning'>There's no gun in the holster to draw.</span>"
+
 
 //Non-hardsuit ERT armor.
 /obj/item/clothing/suit/armor/vest/ert
