@@ -517,7 +517,7 @@ var/global/list/damage_icon_parts = list()
 		if(w_uniform && w_uniform:displays_id)
 			overlays_standing[ID_LAYER]	= image("icon" = 'icons/mob/mob.dmi', "icon_state" = "id")
 		else if(wear_id.contained_sprite)
-			overlays_standing[ID_LAYER] = image("icon" = wear_id.icon_state, "icon_state" = "[wear_id.icon_state]_w")
+			overlays_standing[ID_LAYER] = image("icon" = wear_id.icon, "icon_state" = "[wear_id.icon_state]_w")
 		else
 			overlays_standing[ID_LAYER]	= null
 	else
