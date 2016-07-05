@@ -1,4 +1,6 @@
 /// Aurora custom items ///
+// Add custom items to this file, their sprites into their own dmi. in the icons/obj/custom_items
+// Clothing items will probably require contained sprites
 
 /obj/item/clothing/accessory/fluff/antique_pocket_watch //Antique Pocket Watch - Eric Derringer - xelnagahunter - Done
 	name = "antique pocket watch"
