@@ -381,6 +381,20 @@
 
 	var/obj/machinery/machine
 
+/obj/item/weapon/neuralbroke
+	name = "fried neural socket"
+	desc = "A Vaurca neural socket subjected to extreme heat. It's security chip appears to be fried."
+	icon = 'icons/obj/stock_parts.dmi'
+	icon_state = "neuralbroke"
+
+/obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/screwdriver))
+		new /obj/item/device/encryptionkey/hivenet(user.loc)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		user << "You bypass the fried security chip and extract the encryption key."
+		user << "The fried neural socket crumbles away like dust."
+		qdel(src)
+
 ///////////////////////////////////////Stock Parts /////////////////////////////////
 
 /obj/item/weapon/storage/part_replacer
@@ -409,6 +423,7 @@
 	New()
 		src.pixel_x = rand(-5.0, 5)
 		src.pixel_y = rand(-5.0, 5)
+
 
 //Rank 1
 

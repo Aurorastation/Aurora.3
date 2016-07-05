@@ -320,6 +320,12 @@ var/global/list/gear_datums = list()
 	slot = slot_glasses
 	allowed_roles = list("Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
 
+/datum/gear/blindfold
+	display_name = "vaurca blindfold"
+	path = /obj/item/clothing/glasses/sunglasses/blinders
+	cost = 2
+	slot = slot_glasses
+
 // Mask
 
 /datum/gear/sterilemask
@@ -341,6 +347,12 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/cheongsam
 	slot = slot_w_uniform
 	cost = 1
+
+/datum/gear/gearharness
+	display_name = "gear harness"
+	path = /obj/item/clothing/under/gearharness
+	slot = slot_w_uniform
+	cost = 2
 
 /datum/gear/kilt
 	display_name = "kilt"
@@ -585,6 +597,12 @@ var/global/list/gear_datums = list()
 /datum/gear/armband_science
 	display_name = "armband, science"
 	path = /obj/item/clothing/accessory/armband/science
+	slot = slot_tie
+	cost = 1
+	
+/datum/gear/armband_science
+	display_name = "armband, synthetic intelligence movement"
+	path = /obj/item/clothing/accessory/armband/movement
 	slot = slot_tie
 	cost = 1
 
@@ -893,6 +911,102 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/white
 	cost = 2
 	slot = slot_gloves
+	
+/datum/gear/black_gloves_unathi
+	display_name = "black gloves, unathi"
+	path = /obj/item/clothing/gloves/black/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/black_gloves_tajara
+	display_name = "black gloves, tajaran"
+	path = /obj/item/clothing/gloves/black/tajara
+	cost = 2
+	slot = slot_gloves
+	
+/datum/gear/red_gloves_unathi
+	display_name = "red gloves, unathi"
+	path = /obj/item/clothing/gloves/red/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/red_gloves_tajaran
+	display_name = "red gloves, tajaran"
+	path = /obj/item/clothing/gloves/red/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/blue_gloves_unathi
+	display_name = "blue gloves, unathi"
+	path = /obj/item/clothing/gloves/blue/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/blue_gloves_tajaran
+	display_name = "blue gloves, tajaran"
+	path = /obj/item/clothing/gloves/blue/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/orange_gloves_unathi
+	display_name = "orange gloves, unathi"
+	path = /obj/item/clothing/gloves/orange/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/orange_gloves_tajaran
+	display_name = "orange gloves, tajaran"
+	path = /obj/item/clothing/gloves/orange/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/purple_gloves_unathi
+	display_name = "purple gloves, unathi"
+	path = /obj/item/clothing/gloves/purple/unathi
+	cost = 2
+	slot = slot_gloves
+	
+/datum/gear/purple_gloves_tajaran
+	display_name = "purple gloves, tajaran"
+	path = /obj/item/clothing/gloves/purple/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/brown_gloves_unathi
+	display_name = "brown gloves, unathi"
+	path = /obj/item/clothing/gloves/brown/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/brown_gloves_tajaran
+	display_name = "brown gloves, tajaran"
+	path = /obj/item/clothing/gloves/brown/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/green_gloves_unathi
+	display_name = "green gloves, unathi"
+	path = /obj/item/clothing/gloves/green/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/green_gloves_tajaran
+	display_name = "green gloves, tajaran"
+	path = /obj/item/clothing/gloves/green/tajara
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/white_gloves_unathi
+	display_name = "white gloves, unathi"
+	path = /obj/item/clothing/gloves/white/unathi
+	cost = 2
+	slot = slot_gloves
+
+/datum/gear/white_gloves_tajaran
+	display_name = "white gloves, tajaran"
+	path = /obj/item/clothing/gloves/white/tajara
+	cost = 2
+	slot = slot_gloves
 
 // Shoelocker
 
@@ -1048,6 +1162,12 @@ var/global/list/gear_datums = list()
 	sort_category = "utility"
 	cost = 2
 
+/datum/gear/wallet
+	display_name = "wallet"
+	path = 	/obj/item/weapon/storage/wallet
+	sort_category = "utility"
+	cost = 1	
+
 // The rest of the trash.
 
 /datum/gear/ashtray
@@ -1130,6 +1250,12 @@ var/global/list/gear_datums = list()
 /datum/gear/comb
 	display_name = "purple comb"
 	path = /obj/item/weapon/haircomb
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/cape
+	display_name = " tunnel cloak"
+	path = /obj/item/weapon/storage/backpack/cloak
 	sort_category = "misc"
 	cost = 1
 

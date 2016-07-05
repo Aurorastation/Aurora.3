@@ -21,6 +21,7 @@ var/list/gamemode_cache = list()
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
+	var/log_world_output = 0			// log world.log << messages
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
@@ -213,6 +214,17 @@ var/list/gamemode_cache = list()
 	//Web interface settings
 	var/webint_url = ""
 
+	var/list/age_restrictions = list()			// Holds all of the age restrictions for jobs and antag roles in a single associated list
+
+	//Client version control
+	var/client_error_version = 0
+	var/client_error_message = ""
+	var/client_warn_version = 0
+	var/client_warn_message = ""
+
+	//Mark-up enabling
+	var/allow_chat_markup = 0
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -319,6 +331,9 @@ var/list/gamemode_cache = list()
 
 				if ("log_pda")
 					config.log_pda = 1
+
+				if ("log_world_output")
+					config.log_world_output = 1
 
 				if ("log_hrefs")
 					config.log_hrefs = 1
@@ -688,6 +703,21 @@ var/list/gamemode_cache = list()
 				if("sql_saves")
 					config.sql_saves = 1
 
+				if("client_error_version")
+					config.client_error_version = text2num(value)
+
+				if("client_error_message")
+					config.client_error_message = value
+
+				if("client_warn_version")
+					config.client_warn_version = text2num(value)
+
+				if("client_warn_message")
+					config.client_warn_message = value
+
+				if("allow_chat_markup")
+					config.allow_chat_markup = 1
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -750,6 +780,11 @@ var/list/gamemode_cache = list()
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
+
+		else if (type == "age_restrictions")
+			name = replacetext(name, "_", " ")
+			age_restrictions += name
+			age_restrictions[name] = text2num(value)
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up

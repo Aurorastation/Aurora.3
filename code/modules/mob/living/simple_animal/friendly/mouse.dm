@@ -29,6 +29,7 @@
 	universal_speak = 0
 	universal_understand = 1
 	mob_size = 1
+	holder_type = /obj/item/weapon/holder/mouse
 
 /mob/living/simple_animal/mouse/Life()
 	..()
@@ -66,6 +67,20 @@
 	icon_living = "mouse_[body_color]"
 	icon_dead = "mouse_[body_color]_dead"
 	desc = "It's a small [body_color] rodent, often seen hiding in maintenance areas and making a nuisance of itself."
+	if (body_color == "brown")
+		holder_type = /obj/item/weapon/holder/mouse/brown
+	if (body_color == "gray")
+		holder_type = /obj/item/weapon/holder/mouse/gray
+	if (body_color == "white")
+		holder_type = /obj/item/weapon/holder/mouse/white
+
+
+/mob/living/simple_animal/mouse/attack_hand(mob/living/carbon/human/M as mob)
+	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click
+		get_scooped(M)
+		return
+	else
+		..()
 
 /mob/living/simple_animal/mouse/proc/splat()
 	src.health = 0
@@ -88,11 +103,24 @@
 			M << 'sound/effects/mousesqueek.ogg'
 	..()
 
+/mob/living/simple_animal/mouse/MouseDrop(atom/over_object)
+
+	var/mob/living/carbon/H = over_object
+	if(!istype(H) || !Adjacent(H)) return ..()
+
+	if(H.a_intent == "help")
+		get_scooped(H)
+		return
+	else
+		return ..()
+
 /mob/living/simple_animal/mouse/death()
 	layer = MOB_LAYER
 	if(client)
 		client.time_died_as_mouse = world.time
-	..()
+	.=..()
+
+
 
 /*
  * Mouse types
@@ -101,14 +129,17 @@
 /mob/living/simple_animal/mouse/white
 	body_color = "white"
 	icon_state = "mouse_white"
+	holder_type = /obj/item/weapon/holder/mouse/white
 
 /mob/living/simple_animal/mouse/gray
 	body_color = "gray"
 	icon_state = "mouse_gray"
+	holder_type = /obj/item/weapon/holder/mouse/gray
 
 /mob/living/simple_animal/mouse/brown
 	body_color = "brown"
 	icon_state = "mouse_brown"
+	holder_type = /obj/item/weapon/holder/mouse/brown
 
 //TOM IS ALIVE! SQUEEEEEEEE~K :)
 /mob/living/simple_animal/mouse/brown/Tom

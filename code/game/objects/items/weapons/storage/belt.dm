@@ -164,3 +164,49 @@
 	storage_slots = 9
 	max_w_class = 3
 	max_storage_space = 28
+
+/obj/item/weapon/storage/belt/military
+	name = "military belt"
+	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
+	icon_state = "militarybelt"
+	item_state = "militarybelt"
+	storage_slots = 9 //same as a combat belt now
+	max_w_class = 3
+	max_storage_space  = 28
+	can_hold = list(
+		/obj/item/weapon/grenade,
+		/obj/item/weapon/handcuffs,
+		/obj/item/device/flash,
+		/obj/item/clothing/glasses,
+		/obj/item/ammo_casing/shotgun,
+		/obj/item/ammo_magazine,
+		/obj/item/weapon/melee/baton,
+		/obj/item/device/flashlight,
+		/obj/item/device/pda,
+		/obj/item/device/radio/headset,
+		/obj/item/weapon/melee/energy/sword,
+		/obj/item/weapon/shield/energy,
+		/obj/item/weapon/pinpointer,
+		/obj/item/weapon/plastique,
+		/obj/item/weapon/gun/projectile/pistol,
+		/obj/item/weapon/gun/energy/crossbow,
+		/obj/item/ammo_casing/a145,
+		/obj/item/device/radio/uplink
+		)
+
+/obj/item/weapon/storage/belt/janitor
+	name = "janibelt"
+	desc = "A belt used to hold most janitorial supplies."
+	icon_state = "janibelt"
+	item_state = "janibelt"
+	storage_slots = 6
+	max_w_class = 3
+	max_storage_space  = 28
+	can_hold = list(
+		/obj/item/weapon/grenade/chem_grenade/cleaner,
+		/obj/item/device/lightreplacer,
+		/obj/item/device/flashlight,
+		/obj/item/weapon/reagent_containers/spray,
+		/obj/item/weapon/soap,
+		/obj/item/weapon/storage/bag/trash
+)

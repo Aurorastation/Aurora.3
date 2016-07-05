@@ -143,6 +143,7 @@
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0.6
+	pocket_slots = 4//More slots because coat
 
 
 /obj/item/clothing/head/helmet/HoS/dermal
@@ -169,6 +170,7 @@
 	flags_inv = 0
 	siemens_coefficient = 0.6
 	body_parts_covered = UPPER_TORSO|ARMS
+	pocket_slots = 4//More slots because coat
 
 /*
  * Navy uniforms
