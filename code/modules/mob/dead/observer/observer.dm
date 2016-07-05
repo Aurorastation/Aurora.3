@@ -442,16 +442,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	//find a viable mouse candidate
 	var/mob/living/simple_animal/mouse/host
-	var/obj/machinery/atmospherics/unary/vent_pump/vent_found
-	var/list/found_vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in machines)
-		if(!v.welded && v.z == T.z)
-			found_vents.Add(v)
-	if(found_vents.len)
-		vent_found = pick(found_vents)
-		host = new /mob/living/simple_animal/mouse(vent_found.loc)
+	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(T.z)
+
+	if (spawnpoint)
+		host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
 	else
-		src << "<span class='warning'>Unable to find any unwelded vents to spawn mice at.</span>"
+		src << "<span class='warning'>Unable to find any safe, unwelded vents to spawn mice at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>"
 
 	if(host)
 		if(config.uneducated_mice)
@@ -459,6 +455,100 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		announce_ghost_joinleave(src, 0, "They are now a mouse.")
 		host.ckey = src.ckey
 		host << "<span class='info'>You are now a mouse. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent.</span>"
+
+/proc/find_mouse_spawnpoint(var/ZLevel)
+	//This function will attempt to find a good spawnpoint for mice, and prevent them from spawning in closed vent systems with no escape
+	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
+	//Continues either until a valid one is found (in which case we return it), or until we hit a limit on attempts..
+	//If we hit the limit without finding a valid one, then the best one we found is selected
+
+	var/list/found_vents = list()
+	for(var/obj/machinery/atmospherics/unary/vent_pump/v in machines)
+		if(!v.welded && v.z == ZLevel)
+			found_vents.Add(v)
+
+	if (found_vents.len == 0)
+		return null//Every vent on the map is welded? Sucks to be a mouse
+
+	var/attempts = 0
+	var/max_attempts = min(20, found_vents.len)
+	var/target_connections = 30//Any vent with at least this many connections is good enough
+
+	var/obj/machinery/atmospherics/unary/vent_pump/bestvent = null
+	var/best_connections = 0
+	while (attempts < max_attempts)
+		attempts++
+		var/obj/machinery/atmospherics/unary/vent_pump/testvent = pick(found_vents)
+
+		if (!testvent.network)//this prevents runtime errors
+			continue
+
+		var/turf/T = get_turf(testvent)
+
+
+
+		//We test the environment of the tile, to see if its habitable for a mouse
+		//-----------------------------------
+		var/atmos_suitable = 1
+
+		var/maxtemp = 390
+		var/mintemp = 210
+		var/min_oxy = 5
+		var/max_phoron = 1
+		var/max_co2 = 5
+		var/min_pressure = 80
+
+		var/datum/gas_mixture/Environment = T.return_air()
+		if(Environment)
+
+			if(Environment.temperature > maxtemp)
+				atmos_suitable = 0
+			else if (Environment.temperature < mintemp)
+				atmos_suitable = 0
+			else if(Environment.gas["oxygen"] < min_oxy)
+				atmos_suitable = 0
+			else if(Environment.gas["phoron"] > max_phoron)
+				atmos_suitable = 0
+			else if(Environment.gas["carbon_dioxide"] > max_co2)
+				atmos_suitable = 0
+			else if(Environment.return_pressure() < min_pressure)
+				atmos_suitable = 0
+		else
+			atmos_suitable = 0
+
+		if (!atmos_suitable)
+			continue
+		//----------------------
+
+
+
+
+		//Now we test the vent connections, and ensure the vent we spawn at is connected enough to give the mouse free movement
+		var/list/connections = list()
+		for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in testvent.network.normal_members)
+			if(temp_vent.welded)
+				continue
+			if(temp_vent == testvent)//Our testvent shouldn't count itself as a connection
+				continue
+
+			connections += temp_vent
+
+		if(connections.len > best_connections)
+			best_connections = connections.len
+			bestvent = testvent
+
+		if (connections.len >= target_connections)
+			return testvent
+			//If we've found one that's good enough, then we stop looking
+
+
+	//IF we get here, then we hit the limit without finding a valid one.
+	//This would probably only be likely to happen if the station is full of holes and pipes are broken everywhere
+	if (bestvent == null)
+		//If bestvent is null, then every vent we checked was either welded or unsafe to spawn at. The user will be given a message reflecting this.
+		return null
+	else
+		return bestvent
 
 /mob/dead/observer/verb/view_manfiest()
 	set name = "View Crew Manifest"
