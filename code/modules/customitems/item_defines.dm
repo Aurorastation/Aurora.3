@@ -101,3 +101,29 @@
 	icon_state = "motaki_datadrive"
 	item_state = "holobadge-cord"
 	slot_flags = SLOT_MASK
+
+
+/obj/item/clothing/ears/skrell/fluff/doompesh_cloth // Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995 - DONE
+	name = "male skrell purple head cloth"
+	desc = "A purple cloth band worn by male skrell around their head tails."
+	icon = 'icons/obj/custom_items/doompesh_cloth.dmi'
+	icon_state = "dompesh_cloth"
+	contained_sprite = 1
+	
+
+/obj/item/weapons/fluff/kiara_altar // Pocket Altar - Kiara Branwen - nursiekitty - DONE
+	name = "pocket altar"
+	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
+	icon = 'icons/obj/custom_items/kiara_altar.dmi'
+	icon_state = "kiara_altar1"
+	w_class = 2
+
+/obj/item/weapons/fluff/kiara_altar/attack_self(mob/user as mob)
+	if(src.icon_state == "kiara_altar1")
+		src.icon_state = "kiara_altar2"
+		user << "You open the pocket altar, revealing its contents."
+		desc = "A black tin box, you can see inside; a vial of herbs, a little bag of salt, some epoxy clay runes, a candle with match, a permanent marker and a tiny besom."
+	else
+		src.icon_state = "kiara_altar1"
+		user << "You close the pocket altar."
+		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
