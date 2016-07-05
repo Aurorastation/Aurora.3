@@ -29,6 +29,19 @@ reliability_mod (starts at 0, gets improved through experimentation). Example: P
 other types of metals and chemistry for reagents).
 - Add the AUTOLATHE tag to
 
+Research type IDs, for quick reference
+
+materials = Materials Research
+engineering = Engineering Research
+phorontech = Phoron Research
+powerstorage = Power Manipulation Technology
+bluespace = Blue-Space Research
+biotech = Biological Technology
+combat = Combat Systems Research
+magnets = Electromagnetic Spectrum Research
+programming = Data Theory Research
+syndicate = Illegal Technologies Research
+
 
 */
 #define	IMPRINTER	1	//For circuits. Uses glass/chemicals.
@@ -1621,3 +1634,11 @@ datum/design/item/chameleon
 	req_tech = list("syndicate" = 2)
 	materials = list("$metal" = 500)
 	build_path = /obj/item/weapon/storage/box/syndie_kit/chameleon
+
+datum/design/item/experimental_welder
+	name = "Experimental Welding Tool"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	id = "experimental_welder"
+	req_tech = list("materials" = 4, "engineering" = 4)
+	materials = list("$metal" = 500)
+	build_path =/obj/item/weapon/weldingtool/experimental
