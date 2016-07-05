@@ -30,7 +30,7 @@
 /mob/living/silicon/New()
 	silicon_mob_list |= src
 	..()
-	add_language("Galactic Common")
+	add_language("Ceti Basic")
 	init_subsystems()
 
 /mob/living/silicon/Destroy()
