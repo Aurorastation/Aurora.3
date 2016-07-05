@@ -133,7 +133,7 @@
 //			var/obj/item/c_hand							UNFUCK WHEN YOU HAVE TIME AND KNOWLEDGE
 //			var/hand
 			if(user.zone_sel.selecting == "r_leg" || user.zone_sel.selecting == "l_leg")
-				target.Weaken(10) //nerfed, because yes.
+				target.Weaken(5) //nerfed, because yes.
 /*			if(user.zone_sel.selecting == "l_hand" || user.zone_sel.selecting == "l_arm")
 				c_hand = "l_hand"
 				target.u_equip(c_hand)
