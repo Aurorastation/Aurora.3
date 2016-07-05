@@ -591,6 +591,8 @@ var/global/list/damage_icon_parts = list()
 			else if(l_ear.sprite_sheets && l_ear.sprite_sheets[species.get_bodytype()])
 				t_type = "[t_type]_l"
 				overlays_standing[EARS_LAYER] = image("icon" = l_ear.sprite_sheets[species.get_bodytype()], "icon_state" = "[t_type]")
+			else if(l_ear.contained_sprite)
+				overlays_standing[EARS_LAYER] = image("icon" = l_ear.icon, "icon_state" = "[l_ear.icon_state]_w")
 			else
 				overlays_standing[EARS_LAYER] = image("icon" = 'icons/mob/ears.dmi', "icon_state" = "[t_type]")
 
