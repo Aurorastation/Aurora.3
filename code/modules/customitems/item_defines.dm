@@ -129,3 +129,18 @@
 		src.icon_state = "kiara_altar1"
 		user << "You close the pocket altar."
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
+
+/obj/item/clothing/head/det_hat/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto/serveris6 - DONE
+	name = "tagged brown hat"
+	desc = "A worn mid 20th century brown hat. If you look closely at the back, you can see a an embedded tag from the 'Museum of Terran Culture and Technology'."
+	icon = 'icons/obj/custom_items/leo_hat.dmi'
+	icon_state = "leo_hat"
+	contained_sprite = 1
+	
+	
+/obj/item/clothing/suit/storage/det_suit/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto/serveris6 - DONE
+	name = "tagged brown coat"
+	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the 'Museum of Terran Culture and Technology'."
+	icon = 'icons/obj/custom_items/leo_coat.dmi'
+	icon_state = "leo_coat"
+	contained_sprite = 1
