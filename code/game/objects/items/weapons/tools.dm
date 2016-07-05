@@ -425,6 +425,11 @@
 	//800 = 1 unit per 1 minute and 20 seconds,
 	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
 
+/obj/item/weapon/weldingtool/Destroy()
+	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
+	..()
+
+
 //Make sure the experimental tool only stops processing when its turned off AND full
 /obj/item/weapon/weldingtool/experimental/set_processing(var/state = 0)
 	if (state == 1)

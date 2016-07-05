@@ -35,5 +35,5 @@ delete-after: True
 changes: 
   - rscadd: "Welding tools can now be used to burn paper"
   - tweak: "The upgraded and experimental welding tools will now fit in a toolbelt. Upgraded renamed to advanced"
-  - rscadd: "Fixed and implemented the Experimental Welding Tool, which has a regenerating fuel supply. Can be produced in R&D, requires 4 research in engineering and biotech"
+  - rscadd: "Fixed and implemented the Experimental Welding Tool, which has a regenerating fuel supply. Can be produced in R&D, requires 4 research in engineering and materials"
 
