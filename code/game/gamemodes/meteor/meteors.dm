@@ -73,6 +73,8 @@
 			M = new /obj/effect/meteor/small( pickedstart )
 
 	M.dest = pickedgoal
+	M.name = "[M.name][rand(0,999)]"
+	world << "[M.name] spawned"
 	spawn(0)
 		walk_towards(M, M.dest, 1)
 
@@ -84,21 +86,27 @@
 	icon_state = "flaming"
 	density = 1
 	anchored = 1.0
-	var/hits = 1
-	var/detonation_chance = 15
+	var/hits = 3
+	var/detonation_chance = 40
 	var/power = 4
 	var/power_step = 1
 	var/dest
 	pass_flags = PASSTABLE
+	var/impacted = 0
 
 /obj/effect/meteor/small
 	name = "small meteor"
 	icon_state = "smallf"
 	pass_flags = PASSTABLE | PASSGRILLE
 	power = 2
+	hits = 2
+	detonation_chance = 10
+
 
 /obj/effect/meteor/Destroy()
 	walk(src,0) //this cancels the walk_towards() proc
+	if (!impacted)
+		world << "Meteor destroyed without impacting"
 	..()
 
 /obj/effect/meteor/Bump(atom/A)
@@ -107,6 +115,7 @@
 		if (A)
 			A.meteorhit(src)
 			playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
+			world << "[name] impacted with [A] [A.type] at [x], [y], hitsleft = [hits-1]"
 		if (--src.hits <= 0)
 
 			//Prevent meteors from blowing up the singularity's containment.
@@ -114,7 +123,9 @@
 			if(!istype(A,/obj/machinery/power/emitter) && \
 				!istype(A,/obj/machinery/field_generator) && \
 				prob(detonation_chance))
+				world << "[name] exploded! at [x], [y]"
 				explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
+			impacted = 1
 			qdel(src)
 	return
 
@@ -129,6 +140,7 @@
 	name = "big meteor"
 	hits = 5
 	power = 1
+	detonation_chance = 60
 
 	ex_act(severity)
 		return
