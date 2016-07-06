@@ -384,6 +384,11 @@
 		'html/images/loading.gif',
 		'html/images/ntlogo.png',
 		'html/images/talisman.png',
+		'html/bootstrap/css/bootstrap.min.css',
+		'html/bootstrap/js/bootstrap.min.js',
+		'html/bootstrap/js/html5shiv.min.js',
+		'html/bootstrap/js/respond.min.js',
+		'html/jquery/jquery-2.2.4.min.js',
 		'icons/pda_icons/pda_atmos.png',
 		'icons/pda_icons/pda_back.png',
 		'icons/pda_icons/pda_bell.png',
@@ -423,7 +428,6 @@
 		'icons/spideros_icons/sos_13.png',
 		'icons/spideros_icons/sos_14.png'
 		)
-
 
 /mob/proc/MayRespawn()
 	return 0
