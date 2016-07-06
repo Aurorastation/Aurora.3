@@ -72,6 +72,7 @@
 	var/sec_record = ""
 	var/gen_record = ""
 	var/ccia_record = ""
+	var/list/ccia_actions = list()
 	var/exploit_record = ""
 	var/blinded = null
 	var/bhunger = 0			//Carbon

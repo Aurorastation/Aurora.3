@@ -192,6 +192,35 @@
 		new_character_sql(C)
 		return 0
 
+	var/DBQuery/ccia_action_query = dbcon.NewQuery({"SELECT
+	  act.title,
+	  act.type,
+	  act.issuedby,
+	  act.details,
+	  act.url,
+	  act.expires_at
+	FROM ss13_ccia_action_char act_chr
+	JOIN ss13_characters chr ON act_chr.char_id = chr.id
+	JOIN ss13_ccia_actions act ON act_chr.action_id = act.id
+	WHERE
+	    act_chr.char_id = ':char_id' AND
+	    (act.expires_at IS NULL OR act.expires_at >= CURRENT_DATE()) AND
+			act.deleted_at IS NULL;
+	"})
+	if (!ccia_action_query.Execute(list(":char_id" = current_character)))
+		error("Error CCIA Actions for character #[current_character]. SQL error message: '[character_query.ErrorMsg()]'.")
+
+	while(ccia_action_query.NextRow())
+		var/list/action = list(
+		  ccia_action_query.item[1],
+			ccia_action_query.item[2],
+			ccia_action_query.item[3],
+			ccia_action_query.item[4],
+			ccia_action_query.item[5],
+			ccia_action_query.item[6]
+			)
+		ccia_actions.Add(list(action))
+
 	var/DBQuery/char_id_update = dbcon.NewQuery("UPDATE ss13_player_preferences SET current_character = :char_id WHERE ckey = :ckey")
 	char_id_update.Execute(list(":char_id" = current_character, ":ckey" = C.ckey))
 

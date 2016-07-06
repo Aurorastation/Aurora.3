@@ -126,6 +126,7 @@ datum/preferences
 	var/gen_record = ""
 	var/exploit_record = ""
 	var/ccia_record = ""
+	var/list/ccia_actions = list()
 	var/disabilities = 0
 
 	var/nanotrasen_relation = "Neutral"
@@ -1731,6 +1732,7 @@ datum/preferences
 	character.sec_record = sec_record
 	character.gen_record = gen_record
 	character.ccia_record = ccia_record
+	character.ccia_actions = ccia_actions
 	character.exploit_record = exploit_record
 
 	character.gender = gender
