@@ -78,10 +78,13 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 /obj/item/device/radiojammer/improvised/New(var/obj/item/device/assembly_holder/incoming_holder, var/obj/item/weapon/cell/incoming_cell, var/mob/user)
 	..()
 	cell = incoming_cell
-	cell.forceMove(src)
-
 	assembly_holder = incoming_holder
-	assembly_holder.forceMove(src)
+
+	// Spawn() required to properly move the assembly. Why? No clue!
+	// This does not make any sense, but sure.
+	spawn(0)
+		incoming_holder.forceMove(src, 1)
+		incoming_cell.forceMove(src, 1)
 
 	user.put_in_active_hand(src)
 
@@ -92,7 +95,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 
 
 /obj/item/device/radiojammer/improvised/process()
-	var/current = world.timeofday // current tick
+	var/current = world.time // current tick
 	var/delta = (current - last_updated) / 10.0 // delta in seconds
 	last_updated = current
 	if (!cell.use(delta * power_drain_per_second))
@@ -120,7 +123,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 		icon_state = icon_state_active
 		processing_objects.Add(src)
 
-		last_updated = world.timeofday
+		last_updated = world.time
 	else
 		active_radio_jammers -= src
 		icon_state = icon_state_inactive

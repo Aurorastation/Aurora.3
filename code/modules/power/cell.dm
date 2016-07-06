@@ -103,7 +103,15 @@
 			message_admins("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.")
 
 		S.reagents.clear_reagents()
+	else if(istype(W, /obj/item/device/assembly_holder))
+		var/obj/item/device/assembly_holder/assembly = W
+		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
+			user.drop_item()
+			user.drop_from_inventory(src)
 
+			new /obj/item/device/radiojammer/improvised(assembly, src, user)
+		else
+			user << "<span class='notice'>You'd need both devices to be signallers for this to work.</span>"
 
 /obj/item/weapon/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)
