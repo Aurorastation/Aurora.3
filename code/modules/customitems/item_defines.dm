@@ -97,7 +97,7 @@
 
 
 /obj/item/clothing/accessory/fluff/karima_datadrive //Data Drive Pendant -  Kyyir'ry'avii Mo'Taki - nebulaflare - DONE
-	name = "Data drive"
+	name = "data drive"
 	desc = "A small necklace, the pendant flips open to reveal a data drive."
 	icon = 'icons/obj/custom_items/motaki_datadrive.dmi'
 	icon_state = "motaki_datadrive"
