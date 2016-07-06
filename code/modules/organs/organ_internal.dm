@@ -141,6 +141,11 @@
 		if(is_broken())
 			filter_effect -= 2
 
+		if (owner.intoxication)
+			//ALCOHOL_FILTRATION_RATE is defined in intoxication.dm
+			owner.intoxication -= ALCOHOL_FILTRATION_RATE*filter_effect*PROCESS_ACCURACY//A weakened liver filters out alcohol more slowly
+			owner.intoxication = max(owner.intoxication, 0)
+
 		// Do some reagent processing.
 		if(owner.chem_effects[CE_ALCOHOL_TOXIC])
 			if(filter_effect < 3)
