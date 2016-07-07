@@ -34,7 +34,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - bugfix: "Fixed a bug where almost half of all meteors spawned would instantly delete without hitting anything"
-  - bugfix: "Meteors that impact energy shields will no bug out and spin forever in space"
+  - bugfix: "Meteors that impact energy shields will no longer bug out and spin forever in space"
   - rscadd: "Meteor showers and storms now last a lot longer, and are far more punishing if the station isn't shielded"
   - rscadd: "Meteors are now far more likely to make an audible explosion on impact. Explosion power reduced a bit though"
   - rscadd: "Meteor events now give a three minute advance warning, allowing time to turn on station shield generators"
