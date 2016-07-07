@@ -60,7 +60,8 @@ var/global/datum/global_init/init = new ()
 
 	//Create the asteroid Z-level.
 	if(config.generate_asteroid)
-		new /datum/random_map(null,13,32,5,217,223)
+		new /datum/random_map(null,0,0,1,255,255)
+		new /datum/random_map(null,0,0,2,255,255)
 
 	// Create autolathe recipes, as above.
 	populate_lathe_recipes()

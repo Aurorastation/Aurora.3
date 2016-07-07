@@ -163,6 +163,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
+	lighting_use_dynamic = 0
 	icon_state = "shuttle2"
 
 /area/shuttle/escape/centcom
@@ -284,6 +285,7 @@ area/space/atmosalert()
 
 /area/shuttle/administration/station
 	name = "\improper Administration Shuttle"
+	lighting_use_dynamic = 0
 	icon_state = "shuttlered2"
 
 /area/shuttle/thunderdome
@@ -1677,9 +1679,21 @@ area/space/atmosalert()
 	name = "\improper Derelict Station"
 	icon_state = "storage"
 
-/area/derelict/hallway/primary
-	name = "\improper Derelict Primary Hallway"
+/area/derelict/hallway/northwest
+	name = "\improper NSS Aurora I"
 	icon_state = "hallP"
+
+/area/derelict/hallway/northeast
+	name = "\improper NSS Aurora I"
+	icon_state = "yellow"
+
+/area/derelict/hallway/southwest
+	name = "\improper NSS Aurora I"
+	icon_state = "hallS"
+
+/area/derelict/hallway/southeast
+	name = "\improper NSS Aurora I"
+	icon_state = "green"
 
 /area/derelict/hallway/secondary
 	name = "\improper Derelict Secondary Hallway"

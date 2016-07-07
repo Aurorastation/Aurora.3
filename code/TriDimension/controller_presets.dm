@@ -1,12 +1,12 @@
 /obj/effect/landmark/zcontroller/level_1_bottom
 	up = 1
-	up_target = 2
+	up_target = 1 //2
 
 /obj/effect/landmark/zcontroller/level_2_mid
 	up = 1
 	up_target = 3
 	down = 1
-	down_target = 1
+	down_target = 2 //1
 
 /obj/effect/landmark/zcontroller/level_3_mid
 	up = 1
@@ -26,7 +26,7 @@
 
 /obj/effect/landmark/zcontroller/level_3_top
 	down = 1
-	down_target = 2
+	down_target = 1 //2
 
 /obj/effect/landmark/zcontroller/level_4_top
 	down = 1
