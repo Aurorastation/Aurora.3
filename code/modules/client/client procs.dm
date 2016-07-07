@@ -224,11 +224,14 @@
 			del(src)
 			return 0
 	else if (byond_version < config.client_warn_version)
-		src << "<span class='danger'><b>Your version of BYOND may be out of date!</b></span>"
-		src << config.client_warn_message
-		src << "Your version: [byond_version]."
-		src << "Required version to remove this message: [config.client_warn_version] or later."
-		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
+		var/version_warn = ""
+		version_warn += "<b>Your version of BYOND may be out of date!</b>"
+		version_warn += config.client_warn_message
+		version_warn += "Your version: [byond_version]."
+		version_warn += "Required version to remove this message: [config.client_warn_version] or later."
+		version_warn += "Visit http://www.byond.com/download/ to get the latest version of BYOND."
+
+		prefs.new_notification("warning", version_warn)
 
 	if(custom_event_msg && custom_event_msg != "")
 		src << "<h1 class='alert'>Custom Event</h1>"
@@ -242,7 +245,6 @@
 
 	if(holder)
 		add_admin_verbs()
-		admin_memo_show()
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
@@ -251,10 +253,6 @@
 			winset(src, null, "command=\".configure graphics-hwmode off\"")
 			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
-
-	warnings_alert()
-
-	check_linking_requests()
 
 	send_resources()
 	nanomanager.send_resources(src)
@@ -265,7 +263,12 @@
 		if(config.aggressive_changelog)
 			src.changes()
 
+	prefs.gather_notifications(src)
 
+	var/outdated_info = server_greeting.find_outdated_info(src)
+
+	if (outdated_info)
+		server_greeting.display_to_client(src, outdated_info)
 
 	//////////////
 	//DISCONNECT//
@@ -484,6 +487,24 @@
 
 	src << browse(dat, "window=LinkingRequests")
 	return
+
+/client/proc/gather_linking_requests()
+	if (!config.webint_url || !config.sql_enabled)
+		return
+
+	establish_db_connection(dbcon)
+	if (!dbcon.IsConnected())
+		return
+
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	select_query.Execute(list(":ckey" = ckey))
+
+	// #TODO:20 Hyperlink all the things.
+	if (select_query.NextRow())
+		if (text2num(select_query.item[1]) > 0)
+			return "You have [select_query.item[1]] account linking requests pending review. Click here to see them!"
+
+	return null
 
 /client/proc/process_webint_link(var/route, var/attributes)
 	if (!route)

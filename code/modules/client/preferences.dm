@@ -40,6 +40,7 @@ datum/preferences
 	var/muted = 0
 	var/last_ip
 	var/last_id
+	var/list/notifications = list()		//A list of datums, for the dynamic server greeting window.
 
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
@@ -50,6 +51,10 @@ datum/preferences
 	var/asfx_togs = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
+	var/motd_hash = ""					//Hashes for the new server greeting window.
+	var/memo_hash = ""
+	// #TODO:30 Update both save systems to include hashes.
+	// #DOING:0 MERGE ARROW'S DEV FIRST, BEFORE TOUCHING SQL!
 
 	//character preferences
 	var/real_name						//our character's name
@@ -1868,3 +1873,50 @@ datum/preferences
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")
+
+/*
+ * Adds a new notification datum for later processing.
+ */
+/datum/preferences/proc/new_notification(var/type, var/text)
+	if (!text)
+		return
+
+	var/list/wrapper
+	switch (type)
+		if ("success")
+			wrapper = list("<p class=\"bg-success\">", "</p>")
+		if ("info")
+			wrapper = list("<p class=\"bg-info\">", "</p>")
+		if ("warning")
+			wrapper = list("<p class=\"bg-warning\">", "</p>")
+		if ("danger")
+			wrapper = list("<p class=\"bg-danger\">", "</p>")
+		else
+			wrapper = list("<p>", "</p>")
+
+	var/datum/client_notification/note = new(src, wrapper, text)
+	notifications += note
+
+/*
+ * Gathers all notifications relevant to the client.
+ * Requires SQL to work.
+ */
+/datum/preferences/proc/gather_notifications(var/client/user)
+	if (!user || !config.sql_enabled)
+		return
+
+	establish_db_connection(dbcon)
+
+	if (!dbcon.IsConnected())
+		error("Error connecting to database while gathering user notifications.")
+		return
+
+	var/list/warnings = user.warnings_gather()
+	if (warnings["unread"])
+		new_notification("danger", warnings["unread"])
+	if (warnings["expired"])
+		new_notification("info", warnings["expired"])
+
+	var/linking = user.gather_linking_requests()
+	if (linking)
+		new_notification("info", linking)

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Aurorastation Welcome Screen</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap -->
+	<link href="bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="html5shiv.min.js"></script>
+  </head>
+  <body>
+	<div class="container-fluid">
+		<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+			<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+            <li role="presentation"><a href="#motd" aria-controls="motd" role="tab" data-toggle="tab">MotD</a></li>
+            <li role="presentation"><a href="#memo" aria-controls="memo" role="tab" data-toggle="tab">Staff Memos</a></li>
+			<li role="presentation"><a href="#note" aria-controls="note" role="tab" data-toggle="tab">Notifications</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="home">
+                <!--#TODO: Fill this with actual DOM.-->
+            </div>
+            <div class="tabpanel" class="tab-pane" id="motd"><!--motd--></div>
+            <div class="tabpanel" class="tab-pane" id="memo"><!--memo--></div>
+			<div role="tabpanel" class="tab-pane" id="note"><!--note--></div>
+		</div>
+	</div>
+	<script src="jquery-1.12.4.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+
+	<script>
+		$('#myTab a').click(function (e) {
+			e.preventDefault();
+			$(this).tab('show');
+		})
+	</script>
+  </body>
+  <script src="respond.min.js"></script>
+</html>
