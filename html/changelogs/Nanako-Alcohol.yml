@@ -33,8 +33,13 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Fixed dizziness effects on alcohol, psilocybin, and cryptobiolin taking a long to start up and sometimes never starting for low doses"
-  - tweak: "Sip size from alcohol bottles is now the same as for glasses, which is half what it was"
+  - bugfix: "Fixed dizziness effects on alcohol, psilocybin, and cryptobiolin taking a long to start up and sometimes never starting for low doses."
+  - tweak: "Sip size from alcohol bottles is now the same as for glasses, which is half what it was."
   - tweak: "Rebalanced all alcoholic drinks with more believable alcohol values, and adjusted alcohol metabolism. Generally drinks are stronger but metabolise more slowly, pace yourself!"
-  - rscadd: "Different species now have varying susceptibility to alcohol. Tajarans get drunk slightly faster, skrell are twice as fast as humans, unathi can drink more, and vaurca get drunk very slowly, but alcohol poisons them"
-  - bugfix: "Dousing people in alcohol and setting them on fire, now only works with spirits and liqeurs stronger than 40% ABV, and the heat of the resulting fire is based on the strength"
+  - tweak: "Drinking now causes temporary clumsiness until you sober up. Please don't drink and operate heavy machinery."
+  - tweak: "Excessive drinking now has a chance to cause vomiting."
+  - rscadd: "Different species now have varying susceptibility to alcohol. Tajarans get drunk slightly faster, skrell are twice as fast as humans, unathi can drink more, and vaurca get drunk very slowly, but alcohol poisons them."
+  - bugfix: "Dousing people in alcohol and setting them on fire, now only works with spirits and liqeurs stronger than 40% ABV, and the heat of the resulting fire is based on the strength."
+  - tweak: "Ethylredoxrazine now removes alcohol from the patient's blood and stomach, and decreases their intoxication. A large enough dose will make them completely sober."
+  - tweak: "Ethylredoxrazine now metabolises and does its effects much more slowly."
+  - tweak: "Coffee now sobers up drunk people a little."

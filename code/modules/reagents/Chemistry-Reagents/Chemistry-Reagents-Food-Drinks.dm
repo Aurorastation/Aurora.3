@@ -599,6 +599,14 @@
 	if(adj_temp > 0)
 		holder.remove_reagent("frostoil", 10 * removed)
 
+	M.dizziness = max(0, M.dizziness - 5)
+	M.drowsyness = max(0, M.drowsyness - 3)
+	M.sleeping = max(0, M.sleeping - 2)
+	M.intoxication = max(0, (M.intoxication - (removed*0.25)))
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+
 /datum/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien == IS_DIONA)
 		return

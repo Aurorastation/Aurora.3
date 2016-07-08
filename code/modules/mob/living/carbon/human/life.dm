@@ -905,6 +905,9 @@
 
 			if (intoxication)
 				handle_intoxication()
+			else if (alcohol_clumsy)//This var is defined in intoxication.dm, its set true when alcohol has caused clumsiness
+				mutations.Remove(CLUMSY)
+				alcohol_clumsy = 0
 
 		if(status_flags & GODMODE)	return 0	//godmode
 

@@ -711,6 +711,9 @@ proc/is_blind(A)
 			location.add_vomit_floor(src, 1)
 
 		nutrition -= 40
+		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
+			intoxication *= 0.8
+
 		if (istype(src, /mob/living/carbon/human))
 			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
 	else

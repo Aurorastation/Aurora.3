@@ -79,10 +79,11 @@
 	return
 
 /datum/reagent/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.get_species() == "Vaurca")
+	if(M.get_species() == "Vaurca")//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
+
 	if(alien == IS_DIONA)
 		return //Diona can gain nutrients, but don't get drunk or suffer other effects
 
@@ -101,6 +102,7 @@
 
 	if(halluci)
 		M.hallucination = max(M.hallucination, halluci)
+
 
 /datum/reagent/ethanol/touch_obj(var/obj/O)
 	if(istype(O, /obj/item/weapon/paper))

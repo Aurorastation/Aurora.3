@@ -1,14 +1,20 @@
 #define		AE_DIZZY 		5
-#define 	AE_SLURRING 	10
-#define 	AE_CONFUSION 	18
-#define 	AE_BLURRING 	30
+#define		AE_CLUMSY		10
+#define 	AE_SLURRING 	15
+#define 	AE_CONFUSION 	20
+#define 	AE_BLURRING 	25
+#define		AE_VOMIT		40
 #define 	AE_DROWSY 		55
-#define 	AE_OVERDOSE 	80
-#define 	AE_BLACKOUT		90
+#define 	AE_OVERDOSE 	70
+#define 	AE_BLACKOUT		80
 
 #define		BASE_DIZZY		100
 
 #define 	ALCOHOL_FILTRATION_RATE		0.02//The base rate at which intoxication decreases per proc. this is actually multiplied by 3 most of the time if the liver is healthy
+#define		BASE_VOMIT_CHANCE			2
+#define		VOMIT_CHANCE_SCALE			0.2//An extra 1% for every 5 units over the vomiting threshold
+
+var/mob/living/carbon/human/alcohol_clumsy = 0
 
 //This proc handles the effects of being intoxicated. Removal of intoxication is done elswhere: By the liver, in organ_internal.dm
 /mob/living/carbon/human/proc/handle_intoxication()
@@ -19,8 +25,19 @@
 		return
 
 	if(intoxication > AE_DIZZY*SR) // Early warning
-		var/target_dizziness = min(1000,(BASE_DIZZY + ((intoxication - AE_DIZZY*SR)*20)/SR))
+		var/target_dizziness = min(1000,(BASE_DIZZY + ((intoxication - AE_DIZZY*SR)*10)/SR))
 		make_dizzy(target_dizziness - dizziness) // We will repeatedly set our target dizziness to a desired value based on intoxication level
+
+	//Make the drinker temporarily clumsy if intoxication is high enough
+	//We use a var to track if alcohol caused it, we won't add nor remove it if the drinker was already clumsy from some other source
+	if(intoxication > AE_CLUMSY*SR)
+		if (!alcohol_clumsy && !(CLUMSY in mutations))
+			mutations.Add(CLUMSY)
+			alcohol_clumsy = 1
+	else //Remove it if intoxication drops too low. We'll also have another check to remove it in life.dm
+		if (alcohol_clumsy)
+			mutations.Remove(CLUMSY)
+			alcohol_clumsy = 0
 
 	if(intoxication > AE_SLURRING*SR) // Slurring
 		slurring = max(slurring, 30)
@@ -29,10 +46,17 @@
 		confused = max(confused, 20)
 
 	if(intoxication > AE_BLURRING*SR) // Blurry vision
-		eye_blurry = max(eye_blurry, 10)
+		if (prob(10))//blurry vision effect is annoying, so nerfing it
+			eye_blurry = max(eye_blurry, 2)
 
 	if(intoxication > AE_DROWSY*SR) // Drowsyness - periodically falling asleep
 		drowsyness = max(drowsyness, 20)
+
+	if(intoxication > AE_VOMIT*SR)//Vomiting, the body's natural defense mechanism against poisoning.
+		if (life_tick % 4 == 1)//Only process vomit chance periodically
+			var/chance = BASE_VOMIT_CHANCE + ((intoxication - AE_VOMIT)*VOMIT_CHANCE_SCALE)
+			if (prob(chance))
+				delayed_vomit()
 
 	if(intoxication > AE_OVERDOSE*SR) // Toxic dose
 		add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
