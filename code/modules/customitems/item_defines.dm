@@ -130,17 +130,17 @@
 		user << "You close the pocket altar."
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 
-/obj/item/clothing/head/det_hat/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto/serveris6 - DONE
-	name = "tagged brown hat"
-	desc = "A worn mid 20th century brown hat. If you look closely at the back, you can see a an embedded tag from the 'Museum of Terran Culture and Technology'."
-	icon = 'icons/obj/custom_items/leo_hat.dmi'
-	icon_state = "leo_hat"
+/obj/item/clothing/head/det_hat/fluff/bell_hat //Brown Hat - Avery Bell - serveris6 - DONE
+	name = "brown hat"
+	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
+	icon = 'icons/obj/custom_items/bell_hat.dmi'
+	icon_state = "bell_hat"
 	contained_sprite = 1
-	
-	
-/obj/item/clothing/suit/storage/det_suit/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto/serveris6 - DONE
-	name = "tagged brown coat"
-	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the 'Museum of Terran Culture and Technology'."
-	icon = 'icons/obj/custom_items/leo_coat.dmi'
-	icon_state = "leo_coat"
+
+
+/obj/item/clothing/suit/storage/det_suit/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6 - DONE
+	name = "pinned brown coat"
+	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - 'Avery Bell, Silhouette Co.'."
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_state = "bell_coat"
 	contained_sprite = 1
