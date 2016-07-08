@@ -358,22 +358,21 @@
 /mob/living/silicon/Move(newloc, direct)
 	..(newloc,direct)
 	if (underdoor)
-		if (!(layer == UNDERDOOR))
-			//We must have used hide, or had our layer changed by something else. cancel this processing
-			underdoor = 0
-
 		underdoor = 0
-		for (var/obj/machinery/door/D in loc)
-			if (D.hashatch)
-				underdoor = 1
-				break
+		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
+			for (var/obj/machinery/door/D in loc)
+				if (D.hashatch)
+					underdoor = 1
+					break
 
-		if (!underdoor)
-			spawn(3)//A slight delay to let us finish walking out from under the door
-				layer = initial(layer)
+			if (!underdoor)
+				spawn(3)//A slight delay to let us finish walking out from under the door
+					layer = initial(layer)
 
 /mob/living/silicon/proc/under_door()
 	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
 	if (layer > UNDERDOOR)//Don't toggle it if we're hiding
 		layer = UNDERDOOR
 		underdoor = 1
+
+/mob/living/silicon/proc/not_under_door()
