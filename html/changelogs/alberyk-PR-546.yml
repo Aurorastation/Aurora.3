@@ -22,7 +22,7 @@
 #################################
 
 # Your name.  
-author: N3X15
+author: Alberyk
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -34,3 +34,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "You can now print some hardsuit modules in the robotics fabricator, most of them will require high tech and even rare resources."
+  - rscadd: "You can also print NanoPaste from the robotics fabricator now"
