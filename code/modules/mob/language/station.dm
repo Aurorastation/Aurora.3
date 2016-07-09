@@ -91,15 +91,24 @@
 		speaker_mask = speaker.name
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span> [format_message(message, get_spoken_verb(message))]</span></i>"
 
+	if (within_jamming_range(speaker))
+		// The user thinks that the message got through.
+		speaker << msg
+		return
+
 	for(var/mob/player in player_list)
-		if(istype(player,/mob/dead) || ((src in player.languages) || check_special_condition(player)))
+		if(istype(player,/mob/dead) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
 			player << msg
 
 /datum/language/bug/check_special_condition(var/mob/other)
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
-		return 1
+		return 0
+	if(istype(M, /mob/new_player))
+		return 0
+	if(within_jamming_range(other))
+		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
 		return 1
 

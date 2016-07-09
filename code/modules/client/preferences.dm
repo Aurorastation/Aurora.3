@@ -125,6 +125,8 @@ datum/preferences
 	var/sec_record = ""
 	var/gen_record = ""
 	var/exploit_record = ""
+	var/ccia_record = ""
+	var/list/ccia_actions = list()
 	var/disabilities = 0
 
 	var/nanotrasen_relation = "Neutral"
@@ -164,6 +166,26 @@ datum/preferences
 	gear = list()
 
 	ZeroSkills(1)
+
+/datum/preferences/proc/getMinAge(var/age_min)
+	if(species == "Vaurca" || species == "Machine" || species == "Diona")
+		age_min = 1
+	if(species == "Human" || species == "Skrell" || species == "Tajara" || species == "Unathi")
+		age_min = 17
+	return age_min
+
+/datum/preferences/proc/getMaxAge(var/age_max)
+	if(species == "Vaurca")
+		age_max = 20
+	if(species == "Machine")
+		age_max = 30
+	if(species == "Skrell" || species == "Diona")
+		age_max = 500
+	if(species == "Human")
+		age_max = 120
+	if(species == "Tajara" || species == "Unathi")
+		age_max = 85
+	return age_max
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
@@ -1195,7 +1217,7 @@ datum/preferences
 				if("name")
 					real_name = random_name(gender,species)
 				if("age")
-					age = rand(AGE_MIN, AGE_MAX)
+					age = rand(getMinAge(), getMaxAge())
 				if("hair")
 					r_hair = rand(0,255)
 					g_hair = rand(0,255)
@@ -1244,9 +1266,9 @@ datum/preferences
 							user << "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>"
 
 				if("age")
-					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
+					var/new_age = input(user, "Choose your character's age:\n([getMinAge()]-[getMaxAge()])", "Character Preference") as num|null
 					if(new_age)
-						age = max(min( round(text2num(new_age)), AGE_MAX),AGE_MIN)
+						age = max(min( round(text2num(new_age)), getMaxAge()),getMinAge())
 
 				if("species")
 					user << browse(null, "window=species")
@@ -1709,6 +1731,8 @@ datum/preferences
 	character.med_record = med_record
 	character.sec_record = sec_record
 	character.gen_record = gen_record
+	character.ccia_record = ccia_record
+	character.ccia_actions = ccia_actions
 	character.exploit_record = exploit_record
 
 	character.gender = gender

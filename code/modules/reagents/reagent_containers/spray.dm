@@ -16,10 +16,17 @@
 	var/spray_size = 3
 	var/list/spray_sizes = list(1,3)
 	volume = 250
+	var/safety = 0
 
 /obj/item/weapon/reagent_containers/spray/New()
 	..()
 	src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
+
+/obj/item/weapon/reagent_containers/spray/AltClick()
+	safety = !safety
+	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle, the spraybottle is now [safety ? "locked" : "unlocked"].</span>"
+
 
 /obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(istype(A, /obj/item/weapon/storage) || istype(A, /obj/structure/table) || istype(A, /obj/structure/closet) || istype(A, /obj/item/weapon/reagent_containers) || istype(A, /obj/structure/sink) || istype(A, /obj/structure/janitorialcart))
@@ -34,6 +41,11 @@
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
 		user << "<span class='notice'>\The [src] is empty!</span>"
+		return
+
+	if(safety)
+		playsound(src.loc, 'sound/weapons/empty.ogg', 25, 1)
+		user << "<span class='notice'>The safety is on!</span>"
 		return
 
 	Spray_at(A, user, proximity)
@@ -121,7 +133,8 @@
 	item_state = "pepperspray"
 	possible_transfer_amounts = null
 	volume = 40
-	var/safety = 1
+	safety = 1
+
 
 /obj/item/weapon/reagent_containers/spray/pepper/New()
 	..()
@@ -131,9 +144,13 @@
 	if(..(user, 1))
 		user << "The safety is [safety ? "on" : "off"]."
 
+/obj/item/weapon/reagent_containers/spray/pepper/AltClick()
+	return //No altclick functionality for pepper spray
+
 /obj/item/weapon/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
 	usr << "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>"
+	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
 /obj/item/weapon/reagent_containers/spray/pepper/Spray_at(atom/A as mob|obj)
 	if(safety)
