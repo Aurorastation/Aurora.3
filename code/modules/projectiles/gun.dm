@@ -190,7 +190,7 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex)
+			handle_post_fire(user, target, pointblank, reflex, i == _burst)
 			update_icon()
 
 		if(i < _burst)
@@ -199,25 +199,7 @@
 		if(!(target && target.loc))
 			target = targloc
 			pointblank = 0
-	var/obj/projectile = consume_next_projectile(user)
-	if(!projectile)
-		return
-	else
-		if(silenced)
-			return
-		else
-			if(reflex)
-				user.visible_message(
-					"<span class='reflex_shoot'><b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!<b></span>",
-					"<span class='reflex_shoot'>You fire \the [src] by reflex!</span>",
-					"You hear a [fire_sound_text]!"
-				)
-			else
-				user.visible_message(
-					"<span class='danger'>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!</span>",
-					"<span class='warning'>You fire \the [src]!</span>",
-					"You hear a [fire_sound_text]!"
-					)
+
 	update_held_icon()
 
 	//update timing
@@ -249,17 +231,32 @@
 	playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
-/obj/item/weapon/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
+/obj/item/weapon/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
 		playsound(user, fire_sound, 50, 1)
-	if(muzzle_flash)
-		set_light(muzzle_flash)
+
+		if (playemote)
+			if(reflex)
+				user.visible_message(
+					"<span class='reflex_shoot'><b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!<b></span>",
+					"<span class='reflex_shoot'>You fire \the [src] by reflex!</span>",
+					"You hear a [fire_sound_text]!"
+					)
+			else
+				user.visible_message(
+					"<span class='danger'>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!</span>",
+					"<span class='warning'>You fire \the [src]!</span>",
+					"You hear a [fire_sound_text]!"
+					)
+
+		if(muzzle_flash)
+			set_light(muzzle_flash)
 
 	if(recoil)
 		spawn()
-		shake_camera(user, recoil+1, recoil)
+			shake_camera(user, recoil+1, recoil)
 	update_icon()
 
 

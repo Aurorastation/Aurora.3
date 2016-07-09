@@ -62,7 +62,7 @@
 		flick("deckard-reload",src)
 	..()
 
-/obj/item/weapon/gun/projectile/derringer
+/obj/item/weapon/gun/projectile/revolver/derringer
 	name = "derringer"
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
 	icon_state = "derringer"

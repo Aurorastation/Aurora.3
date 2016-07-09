@@ -624,7 +624,7 @@
 "lZ" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 4},/obj/machinery/meter,/turf/simulated/shuttle/plating,/area/skipjack_station/start)
 "ma" = (/obj/machinery/door/airlock/hatch{frequency = 1331; icon_state = "door_closed"; id_tag = "vox_southwest_lock"; locked = 0; req_access = list(150)},/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/shuttle/plating,/area/skipjack_station/start)
 "mb" = (/turf/simulated/shuttle/floor{icon_state = "floor4"},/area/skipjack_station/start)
-"mc" = (/obj/structure/table/rack,/obj/item/weapon/rig/industrial,/turf/simulated/shuttle/floor{icon_state = "floor4"},/area/skipjack_station/start)
+"mc" = (/obj/structure/table/rack,/obj/item/weapon/rig/industrial/syndicate,/turf/simulated/shuttle/floor{icon_state = "floor4"},/area/skipjack_station/start)
 "md" = (/obj/structure/table/rack,/obj/item/weapon/rig/light/hacker,/turf/simulated/shuttle/floor{icon_state = "floor4"},/area/skipjack_station/start)
 "me" = (/obj/machinery/door/airlock/hatch{frequency = 1331; icon_state = "door_closed"; id_tag = "vox_southeast_lock"; locked = 0; req_access = list(150)},/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/shuttle/plating,/area/skipjack_station/start)
 "mf" = (/obj/structure/table/rack,/obj/item/weapon/gun/energy/ionrifle,/obj/item/weapon/material/harpoon,/obj/item/clothing/suit/space/void/merc,/obj/item/clothing/head/helmet/space/void/merc,/obj/item/clothing/head/helmet/space/void/engineering,/obj/item/clothing/suit/space/void/engineering,/obj/item/weapon/tank/oxygen,/obj/item/weapon/tank/oxygen,/obj/item/clothing/shoes/magboots,/obj/item/clothing/shoes/magboots,/obj/item/weapon/rig/light/stealth,/turf/simulated/shuttle/plating,/area/skipjack_station/start)
