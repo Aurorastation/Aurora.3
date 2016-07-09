@@ -131,7 +131,7 @@
 
 		new_notification("danger", custom_event_warn)
 
-	if (prefs.lastchangelog != changelog_hash)
+	if (lastchangelog != changelog_hash)
 		winset(user, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
 		if (config.aggressive_changelog)
 			new_notification("info", "You have unread updates in the changelog.", callback_src = user, callback_proc = "changes")

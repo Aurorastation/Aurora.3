@@ -203,6 +203,9 @@
 
 	user << browse(data, "window=welcome_screen;size=640x500")
 
+	if (save_prefs)
+		user.prefs.handle_preferences_save(user)
+
 #undef OUTDATED_NOTE
 #undef OUTDATED_MEMO
 #undef OUTDATED_MOTD
