@@ -17,14 +17,16 @@ var/datum/antagonist/renegade/renegades
 	var/list/spawn_guns = list(
 		/obj/item/weapon/gun/energy/gun,
 		/obj/item/weapon/gun/energy/laser,
-		/obj/item/weapon/gun/projectile,
+		/obj/item/weapon/gun/energy/retro,
+		/obj/item/weapon/gun/energy/xray,
 		/obj/item/weapon/gun/projectile/revolver/detective,
 		/obj/item/weapon/gun/projectile/automatic/c20r,
 		/obj/item/weapon/gun/projectile/deagle/camo,
 		/obj/item/weapon/gun/projectile/pistol,
-		/obj/item/weapon/silencer,
 		/obj/item/weapon/gun/projectile/shotgun/pump,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat,
+		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
+		/obj/item/weapon/gun/projectile/shotgun/pump/boltaction,
 		/obj/item/weapon/gun/projectile/automatic,
 		/obj/item/weapon/gun/projectile/automatic/mini_uzi,
 		/obj/item/weapon/gun/energy/crossbow

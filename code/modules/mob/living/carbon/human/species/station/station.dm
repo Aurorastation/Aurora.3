@@ -69,7 +69,7 @@
 	name_plural = "Tajaran"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
-	language = "Siik'tajr"
+	language = "Siik'maas"
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
@@ -125,7 +125,7 @@
 	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
 	the secrets of their empire to their allies."
 
-	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR
+	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | NO_SLIP | HAS_SKIN_COLOR
 
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
@@ -270,10 +270,9 @@
 /datum/species/bug
 	name = "Vaurca"
 	name_plural = "Vaurcae"
-
+	language = "Hivenet"
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
-	language = "Vaurcese"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	rarity_value = 2
 	slowdown = 0	//may become a bonus if vaurca gain more legs.
@@ -300,27 +299,31 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = CAN_JOIN | NO_SLIP | NO_SCAN | HAS_SKIN_COLOR | IS_WHITELISTED
+	flags = CAN_JOIN | NO_SCAN | HAS_SKIN_COLOR | IS_WHITELISTED | NO_SLIP
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
+		/mob/living/carbon/human/proc/bugbite, //weaker version of gut.
 		)
 
 
 	has_organ = list(
-        "neural socket" =  /obj/item/organ/vaurca/neuralsocket,
+		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
 		"breathing apparatus" =  /obj/item/organ/vaurca/breathingapparatus,
-        "heart" =    /obj/item/organ/heart,
-        "second heart" =    /obj/item/organ/heart,
+		"heart" =    /obj/item/organ/heart,
+		"second heart" =    /obj/item/organ/heart,
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes,
 )
 
-/datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
+
+/datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
+	return ..()

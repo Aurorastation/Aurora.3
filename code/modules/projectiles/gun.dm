@@ -199,7 +199,25 @@
 		if(!(target && target.loc))
 			target = targloc
 			pointblank = 0
-
+	var/obj/projectile = consume_next_projectile(user)
+	if(!projectile)
+		return
+	else
+		if(silenced)
+			return
+		else
+			if(reflex)
+				user.visible_message(
+					"<span class='reflex_shoot'><b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!<b></span>",
+					"<span class='reflex_shoot'>You fire \the [src] by reflex!</span>",
+					"You hear a [fire_sound_text]!"
+				)
+			else
+				user.visible_message(
+					"<span class='danger'>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!</span>",
+					"<span class='warning'>You fire \the [src]!</span>",
+					"You hear a [fire_sound_text]!"
+					)
 	update_held_icon()
 
 	//update timing
@@ -236,26 +254,12 @@
 		playsound(user, fire_sound, 10, 1)
 	else
 		playsound(user, fire_sound, 50, 1)
-
-		if(reflex)
-			user.visible_message(
-				"<span class='reflex_shoot'><b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!<b></span>",
-				"<span class='reflex_shoot'>You fire \the [src] by reflex!</span>",
-				"You hear a [fire_sound_text]!"
-			)
-		else
-			user.visible_message(
-				"<span class='danger'>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!</span>",
-				"<span class='warning'>You fire \the [src]!</span>",
-				"You hear a [fire_sound_text]!"
-				)
-
-		if(muzzle_flash)
-			set_light(muzzle_flash)
+	if(muzzle_flash)
+		set_light(muzzle_flash)
 
 	if(recoil)
 		spawn()
-			shake_camera(user, recoil+1, recoil)
+		shake_camera(user, recoil+1, recoil)
 	update_icon()
 
 

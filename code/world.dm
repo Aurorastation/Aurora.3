@@ -20,7 +20,7 @@ var/global/datum/global_init/init = new ()
 
 
 
-#define RECOMMENDED_VERSION 501
+#define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
@@ -30,7 +30,7 @@ var/global/datum/global_init/init = new ()
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
 	if(byond_version < RECOMMENDED_VERSION)
-		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND"
+		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
 
 	config.post_load()
 
@@ -534,6 +534,9 @@ var/world_topic_spam_protect_time = world.timeofday
 	config = new /datum/configuration()
 	config.load("config/config.txt")
 	config.load("config/game_options.txt","game_options")
+
+	if (config.use_age_restriction_for_jobs)
+		config.load("config/age_restrictions.txt", "age_restrictions")
 
 /hook/startup/proc/loadMods()
 	world.load_mods()

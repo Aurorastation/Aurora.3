@@ -7,6 +7,20 @@
 	tray_light = 0
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	//A special case for if the container has only water, for manual watering with buckets
+	if (istype(O,/obj/item/weapon/reagent_containers))
+		var/obj/item/weapon/reagent_containers/RC = O
+		if (RC.reagents.reagent_list.len == 1)
+			if (RC.reagents.has_reagent("water", 1))
+				if (waterlevel < maxWaterLevel)
+					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
+					RC.reagents.remove_reagent("water", amountToRemove, 1)
+					waterlevel += amountToRemove
+					user.visible_message("[user] pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
+				else
+					user << "The soil is saturated with water already."
+				return 1
+
 	if(istype(O,/obj/item/weapon/tank))
 		return
 	else

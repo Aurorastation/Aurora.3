@@ -1122,7 +1122,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	if (can_use(usr) && !isnull(cartridge))
+	if (can_use(usr) && isnull(cartridge))
+		usr << "<span class='notice'>There is no cartridge in the [name].</span>"
+		return
+
+	if (can_use(usr))
 		var/turf/T = get_turf(src)
 		cartridge.loc = T
 		if (ismob(loc))
@@ -1134,8 +1138,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		scanmode = 0
 		if (cartridge.radio)
 			cartridge.radio.hostpda = null
-		cartridge = null
 		usr << "<span class='notice'>You remove \the [cartridge] from the [name].</span>"
+		cartridge = null
 	else
 		usr << "<span class='notice'>You cannot do this while restrained.</span>"
 
