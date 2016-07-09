@@ -22,7 +22,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/bishop.dmi'
 
 /datum/robolimb/hesphaistos
-	company = "Hesphiastos Industries"
+	company = "Hephaestus Industries"
 	desc = "This limb has a militaristic black and green casing with gold stripes."
 	icon = 'icons/mob/human_races/cyberlimbs/hesphaistos.dmi'
 
