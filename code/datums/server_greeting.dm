@@ -171,11 +171,20 @@
 
 	var/notifications = "<p class=\"bg-info\">You do not have any notifications to show.</p>"
 
+	var/list/outdated_tabs = list()
+
 	if (outdated_info & OUTDATED_NOTE)
+		outdated_tabs += "#note-tab"
+
 		notifications = ""
 		for (var/datum/client_notification/a in user.prefs.notifications)
 			notifications += a.get_html()
-			qdel(a)
+
+	if (outdated_info & OUTDATED_MEMO)
+		outdated_tabs += "#memo-tab"
+
+	if (outdated_info & OUTDATED_MOTD)
+		outdated_tabs += "#motd-tab"
 
 	var/data = user_data
 
@@ -183,6 +192,10 @@
 		data = staff_data
 
 	data = replacetextEx(data, "<!--note-->", notifications)
+
+	if (outdated_tabs.len)
+		var/tab_string = json_encode(outdated_tabs)
+		data = replacetextEx(data, "var updated_tabs = \[\]", "var updated_tabs = [tab_string]")
 
 	user << browse(data, "window=welcome_screen;size=640x500")
 

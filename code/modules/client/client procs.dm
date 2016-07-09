@@ -135,6 +135,36 @@
 
 		return
 
+	// JSlink switch.
+	if (href_list["JSlink"])
+		switch (href_list["JSlink"])
+			if ("warnings")
+				src.warnings_check()
+
+			if ("linking")
+				src.check_linking_requests()
+
+			if ("dismiss")
+				if (href_list["notification"])
+					var/datum/client_notification/a = locate(href_list["notification"])
+					if (a && isnull(a.gcDestroyed))
+						a.dismiss()
+
+			if ("github")
+				if (!config.githuburl)
+					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
+				else if (alert("This will open the issue tracker in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					src << link(config.githuburl)
+
+			if ("forums")
+				src.forum()
+
+			if ("wiki")
+				src.wiki()
+
+			if ("webint")
+				src.open_webint()
+
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
@@ -223,21 +253,6 @@
 		else
 			del(src)
 			return 0
-	else if (byond_version < config.client_warn_version)
-		var/version_warn = ""
-		version_warn += "<b>Your version of BYOND may be out of date!</b>"
-		version_warn += config.client_warn_message
-		version_warn += "Your version: [byond_version]."
-		version_warn += "Required version to remove this message: [config.client_warn_version] or later."
-		version_warn += "Visit http://www.byond.com/download/ to get the latest version of BYOND."
-
-		prefs.new_notification("warning", version_warn)
-
-	if(custom_event_msg && custom_event_msg != "")
-		src << "<h1 class='alert'>Custom Event</h1>"
-		src << "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>"
-		src << "<span class='alert'>[custom_event_msg]</span>"
-		src << "<br>"
 
 	if( (world.address == address || !address) && !host )
 		host = key
@@ -391,7 +406,7 @@
 		'html/bootstrap/js/bootstrap.min.js',
 		'html/bootstrap/js/html5shiv.min.js',
 		'html/bootstrap/js/respond.min.js',
-		'html/jquery/jquery-2.2.4.min.js',
+		'html/jquery/jquery-2.0.0.min.js',
 		'icons/pda_icons/pda_atmos.png',
 		'icons/pda_icons/pda_back.png',
 		'icons/pda_icons/pda_bell.png',
@@ -499,10 +514,9 @@
 	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
 	select_query.Execute(list(":ckey" = ckey))
 
-	// #TODO:20 Hyperlink all the things.
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)
-			return "You have [select_query.item[1]] account linking requests pending review. Click here to see them!"
+			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='?JSlink=linking;notification=:src_ref'>here</a> to see them!"
 
 	return null
 
