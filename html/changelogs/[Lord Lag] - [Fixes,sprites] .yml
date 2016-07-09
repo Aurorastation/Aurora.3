@@ -1,0 +1,8 @@
+author: Lord Lag
+
+delete-after: True
+
+changes: 
+  - rscadd: "Custom Synthetic sprites are returning from the old code base."
+  - tweak: "Memetic anomaly possession has been adjusted."
+  - bugfix: "Memetic anomaly thought now functions."

@@ -46,6 +46,7 @@
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
 	var/brute_mod = 1                        // Physical damage multiplier.
 	var/burn_mod = 1                         // Burn damage multiplier.
+	var/tox_mod = 1                         // Toxin damage multiplier.
 	var/vision_flags = SEE_SELF              // Same flags as glasses.
 
 	// Death vars.
@@ -234,7 +235,7 @@
 				continue
 			E.status |= ORGAN_ADV_ROBOT
 		for(var/obj/item/organ/I in H.internal_organs)
-			I.robotize()
+			I.status |= ORGAN_ADV_ROBOT
 
 /datum/species/proc/hug(var/mob/living/carbon/human/H,var/mob/living/target)
 

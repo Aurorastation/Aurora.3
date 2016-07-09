@@ -186,6 +186,20 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("warned", "cautioned", "smashed")
+/obj/item/weapon/caution/attack_self(mob/user as mob)
+    if(src.icon_state == "caution")
+        src.icon_state = "caution_blinking"
+        user << "You turn the sign on."
+    else
+        src.icon_state = "caution"
+        user << "You turn the sign off."
+/obj/item/weapon/caution/AltClick()
+    if(src.icon_state == "caution")
+        src.icon_state = "caution_blinking"
+        usr << "You turn the sign on."
+    else
+        src.icon_state = "caution"
+        usr << "You turn the sign off."
 
 /obj/item/weapon/caution/cone
 	desc = "This cone is trying to warn you of something!"
