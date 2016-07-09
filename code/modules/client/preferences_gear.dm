@@ -599,7 +599,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/accessory/armband/science
 	slot = slot_tie
 	cost = 1
-	
+
 /datum/gear/armband_science
 	display_name = "armband, synthetic intelligence movement"
 	path = /obj/item/clothing/accessory/armband/movement
@@ -911,7 +911,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/white
 	cost = 2
 	slot = slot_gloves
-	
+
 /datum/gear/black_gloves_unathi
 	display_name = "black gloves, unathi"
 	path = /obj/item/clothing/gloves/black/unathi
@@ -923,7 +923,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/black/tajara
 	cost = 2
 	slot = slot_gloves
-	
+
 /datum/gear/red_gloves_unathi
 	display_name = "red gloves, unathi"
 	path = /obj/item/clothing/gloves/red/unathi
@@ -965,7 +965,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/purple/unathi
 	cost = 2
 	slot = slot_gloves
-	
+
 /datum/gear/purple_gloves_tajaran
 	display_name = "purple gloves, tajaran"
 	path = /obj/item/clothing/gloves/purple/tajara
@@ -1166,7 +1166,7 @@ var/global/list/gear_datums = list()
 	display_name = "wallet"
 	path = 	/obj/item/weapon/storage/wallet
 	sort_category = "utility"
-	cost = 1	
+	cost = 1
 
 // The rest of the trash.
 
@@ -1292,16 +1292,86 @@ var/global/list/gear_datums = list()
 	sort_category = "ears"
 	whitelisted = "Skrell"
 
-/datum/gear/skrell_cloth_male
-	display_name = "skrell headtail-wear, male, cloth"
-	path = /obj/item/clothing/ears/skrell/cloth_male
+/datum/gear/skrell_cloth_red_male
+	display_name = "skrell headtail-wear, male, red cloth"
+	path = /obj/item/clothing/ears/skrell/cloth_red_male
 	cost = 1
 	sort_category = "ears"
 	whitelisted = "Skrell"
 
-/datum/gear/skrell_cloth_female
-	display_name = "skrell headtail-wear, female, cloth"
-	path = /obj/item/clothing/ears/skrell/cloth_female
+/datum/gear/skrell_cloth_red_female
+	display_name = "skrell headtail-wear, female, red cloth"
+	path = /obj/item/clothing/ears/skrell/cloth_red_female
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_cloth_blue_male
+	display_name = "skrell headtail-wear, male, blue cloth"
+	path = /obj/item/clothing/ears/skrell/cloth_blue_male
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_cloth_blue_female
+	display_name = "skrell headtail-wear, female, blue cloth"
+	path = /obj/item/clothing/ears/skrell/cloth_blue_female
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_chain_redjewel
+	display_name = "skrell headtail-wear, female, red jewel chain"
+	path = /obj/item/clothing/ears/skrell/chain_redjewel
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_chain_bluejewel
+	display_name = "skrell headtail-wear, female, blue jewel chain"
+	path = /obj/item/clothing/ears/skrell/chain_bluejewel
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_chain_silver
+	display_name = "skrell headtail-wear, female, silver chain"
+	path = /obj/item/clothing/ears/skrell/chain_silver
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_chain_ebony
+	display_name = "skrell headtail-wear, female, ebony chain"
+	path = /obj/item/clothing/ears/skrell/chain_ebony
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_plate_redjewel
+	display_name = "skrell headtail-wear, male, red jewel bands"
+	path = /obj/item/clothing/ears/skrell/band_redjewel
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_plate_bluejewel
+	display_name = "skrell headtail-wear, male, blue jewel bands"
+	path = /obj/item/clothing/ears/skrell/band
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_plate_silver
+	display_name = "skrell headtail-wear, male, silver bands"
+	path = /obj/item/clothing/ears/skrell/band_silver
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/skrell_plate_ebony
+	display_name = "skrell headtail-wear, male, ebony bands"
+	path = /obj/item/clothing/ears/skrell/band_ebony
 	cost = 1
 	sort_category = "ears"
 	whitelisted = "Skrell"
