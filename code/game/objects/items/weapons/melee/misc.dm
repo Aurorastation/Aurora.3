@@ -19,6 +19,7 @@
 	name = "chainsword"
 	desc = "A deadly chainsaw in the shape of a sword."
 	icon_state = "chainswordoff"
+	item_state = "chainswordoff"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 15
@@ -39,12 +40,14 @@
 		force = 35
 		hitsound = 'sound/weapons/circsawhit.ogg'
 		icon_state = "chainswordon"
+		item_state = "chainswordon"
 		slot_flags = null
 	else
 		user << "\blue \The [src] slowly powers down."
 		force = initial(force)
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 		slot_flags = initial(slot_flags)
 		
 /obj/item/weapon/melee/chainsword/suicide_act(mob/user)
