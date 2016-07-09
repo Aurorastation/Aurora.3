@@ -280,6 +280,7 @@
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	brute_mod = 0.5 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
+	tox_mod = 3 //they're not used to all our weird human bacteria.
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	siemens_coefficient = 0 //attempting to mimic the old insulation feature.
@@ -311,13 +312,15 @@
 
 	has_organ = list(
 		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
-		"breathing apparatus" =  /obj/item/organ/vaurca/breathingapparatus,
+		"lungs" =    /obj/item/organ/lungs,
+		"filtration bit" =     /obj/item/organ/vaurca/filtrationbit,
 		"heart" =    /obj/item/organ/heart,
 		"second heart" =    /obj/item/organ/heart,
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes,
+
 )
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
