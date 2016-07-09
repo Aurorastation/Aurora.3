@@ -111,7 +111,7 @@
 /*
  * Gathers all notifications relevant to the client.
  */
-/datum/preferences/proc/gather_notifications(var/client/user)
+/datum/preferences/proc/gather_notifications(var/client/user, var/dynamic_only = 0)
 	if (!user)
 		return
 
@@ -131,13 +131,14 @@
 
 		new_notification("danger", custom_event_warn)
 
+	if (prefs.lastchangelog != changelog_hash)
+		winset(user, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
+		if (config.aggressive_changelog)
+			new_notification("info", "You have unread updates in the changelog.", callback_src = user, callback_proc = "changes")
+		else
+			new_notification("info", "You have unread updates in the changelog.")
+
 	if (config.sql_enabled)
-
-		establish_db_connection(dbcon)
-
-		if (!dbcon.IsConnected())
-			error("Error connecting to database while gathering user notifications.")
-			return
 
 		var/list/warnings = user.warnings_gather()
 		if (warnings["unread"])
@@ -149,9 +150,47 @@
 		if (linking)
 			new_notification("info", linking, callback_src = user, callback_proc = "check_linking_requests")
 
+		var/cciaa_actions = count_ccia_actions(user)
+		if (cciaa_actions)
+			new_notification("info", cciaa_actions)
+
 /*
- * Reconsiders notifications if any have potentially been dismissed.
+ * Helper proc for getting a count of active CCIA actions against the player's character.
  */
-/datum/preferences/proc/reconsider_notifications(var/client/user)
+/datum/preferences/proc/count_ccia_actions(var/client/user)
 	if (!user)
-		return
+		return null
+
+	if (!establish_db_connection(dbcon))
+		error("Error initiatlizing database connection while counting CCIA actions.")
+		return null
+
+	var/DBQuery/prep_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey")
+	prep_query.Execute(list(":ckey" = user.ckey))
+	var/list/chars = list()
+
+	while (prep_query.NextRow())
+		chars += text2num(prep_query.item[1])
+
+	if (!chars.len)
+		return null
+
+	testing("Chars list: [list2params(chars)]")
+
+	var/DBQuery/query = dbcon.NewQuery({"SELECT
+		COUNT(act_chr.action_id) AS action_count
+	FROM ss13_ccia_action_char act_chr
+	JOIN ss13_characters chr ON act_chr.char_id = chr.id
+	JOIN ss13_ccia_actions act ON act_chr.action_id = act.id
+	WHERE
+		act_chr.char_id IN :char_id AND
+		(act.expires_at IS NULL OR act.expires_at >= CURRENT_DATE()) AND
+		act.deleted_at IS NULL;"})
+	query.Execute(list(":char_id" = chars))
+
+	if (query.NextRow())
+		var/action_count = text2num(query.item[1])
+		var/string = "There are [action_count] active CCIA actions currently active against your character(s)."
+		return string
+
+	return null

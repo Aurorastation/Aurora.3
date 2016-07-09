@@ -53,8 +53,6 @@ datum/preferences
 	var/UI_style_alpha = 255
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
-	// #TODO:30 Update both save systems to include hashes.
-	// #DOING:0 MERGE ARROW'S DEV FIRST, BEFORE TOUCHING SQL!
 
 	//character preferences
 	var/real_name						//our character's name

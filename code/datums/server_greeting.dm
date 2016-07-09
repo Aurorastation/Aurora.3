@@ -56,7 +56,7 @@
 
 					var/data = {"
 					<p><b>[memo_obj["ckey"]]</b> wrote on [memo_obj["date"]]:<br>
-					[memo_obj["contents"]]</p><br><br>
+					[memo_obj["contents"]]</p>
 					"}
 					memo += data
 
@@ -169,9 +169,9 @@
 	if (!user)
 		return
 
-	var/notifications = "<p class=\"bg-info\">You do not have any notifications to show.</p>"
-
+	var/notifications = "<div class=\"row\"><div class=\"alert alert-info\">You do not have any notifications to show.</div></div>"
 	var/list/outdated_tabs = list()
+	var/save_prefs = 0
 
 	if (outdated_info & OUTDATED_NOTE)
 		outdated_tabs += "#note-tab"
@@ -182,9 +182,13 @@
 
 	if (outdated_info & OUTDATED_MEMO)
 		outdated_tabs += "#memo-tab"
+		user.prefs.memo_hash = memo_hash
+		save_prefs = 1
 
 	if (outdated_info & OUTDATED_MOTD)
 		outdated_tabs += "#motd-tab"
+		user.prefs.motd_hash = motd_hash
+		save_prefs = 1
 
 	var/data = user_data
 

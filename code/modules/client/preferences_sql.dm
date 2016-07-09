@@ -11,7 +11,9 @@
 											UI_style_color,
 											UI_style_alpha,
 											be_special,
-											asfx_togs
+											asfx_togs,
+											motd_hash,
+											memo_hash
 										FROM ss13_player_preferences
 										WHERE ckey = :ckey"})
 	query.Execute(list(":ckey" = C.ckey))
@@ -28,10 +30,14 @@
 	UI_style_alpha		= text2num(query.item[7])
 	be_special			= text2num(query.item[8])
 	asfx_togs			= text2num(query.item[9])
+	motd_hash			= query.item[10]
+	memo_hash			= query.item[11]
 
 	//Sanitize
 	ooccolor		= sanitize_hexcolor(ooccolor, initial(ooccolor))
 	lastchangelog	= sanitize_text(lastchangelog, initial(lastchangelog))
+	motd_hash		= sanitize_text(motd_hash, initial(motd_hash))
+	memo_hash		= sanitize_text(memo_hash, initial(memo_hash))
 	UI_style		= sanitize_inlist(UI_style, list("White", "Midnight","Orange","old"), initial(UI_style))
 	be_special		= sanitize_integer(be_special, 0, 65535, initial(be_special))
 	default_slot	= sanitize_integer(default_slot, 1, config.character_slots, initial(default_slot))
@@ -61,7 +67,9 @@
 													UI_style_color = :ui_color,
 													UI_style_alpha = :ui_alpha,
 													be_special = :be_special,
-													asfx_togs = :asfx_togs
+													asfx_togs = :asfx_togs,
+													motd_hash = :motd_hash,
+													memo_hash = :memo_hash
 												WHERE ckey = :ckey"})
 	update_query.Execute(get_prefs_update_insert_params(C))
 
@@ -71,8 +79,8 @@
 	if (!C)
 		return 0
 
-	var/DBQuery/query = dbcon.NewQuery({"INSERT INTO ss13_player_preferences (ckey, ooccolor, lastchangelog, UI_style, current_character, toggles, UI_style_color, UI_style_alpha, be_special, asfx_togs)
-	VALUES (:ckey, :ooccolor, :lastchangelog, :ui_style, :current_character, :toggles, :ui_color, :ui_alpha, :be_special, :asfx_togs);"})
+	var/DBQuery/query = dbcon.NewQuery({"INSERT INTO ss13_player_preferences (ckey, ooccolor, lastchangelog, UI_style, current_character, toggles, UI_style_color, UI_style_alpha, be_special, asfx_togs, motd_hash, memo_hash)
+	VALUES (:ckey, :ooccolor, :lastchangelog, :ui_style, :current_character, :toggles, :ui_color, :ui_alpha, :be_special, :asfx_togs, :motd_hash, :memo_hash);"})
 	query.Execute(get_prefs_update_insert_params(C))
 
 	return 1
@@ -92,6 +100,8 @@
 	params[":ui_alpha"]				= UI_style_alpha
 	params[":be_special"]			= be_special
 	params[":asfx_togs"]			= asfx_togs
+	params[":motd_hash"]			= motd_hash
+	params[":memo_hash"]			= memo_hash
 
 	return params
 
