@@ -235,9 +235,17 @@
 					usr << "[G:affecting.name] will not fit into the sleeper because they have a slime latched onto their head."
 					return
 
+
 			visible_message("[user] starts putting [G:affecting:name] into the sleeper.", 3)
 
-			if(do_after(user, 20))
+			if (do_mob(user, G:affecting, 30, needhand = 0))
+				var/bucklestatus = G:affecting.bucklecheck(user)
+				if (!bucklestatus)//incase the patient got buckled during the delay
+					return
+				if (bucklestatus == 2)
+					var/obj/structure/LB = G:affecting.buckled
+					LB.user_unbuckle_mob(user)
+
 				if(src.occupant)
 					user << "\blue <B>The sleeper is already occupied!</B>"
 					return

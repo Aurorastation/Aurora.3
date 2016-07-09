@@ -4,7 +4,7 @@
 	name = "employment records console"
 	desc = "Used to view, edit and maintain employment records."
 	icon_state = "medlaptop"
-	light_color = "#00b000"
+	light_color = "#315ab4"
 	req_one_access = list(access_heads)
 	circuit = "/obj/item/weapon/circuitboard/skills"
 	var/obj/item/weapon/card/id/scan = null
@@ -21,6 +21,7 @@
 	//Sorting Variables
 	var/sortBy = "name"
 	var/order = 1 // -1 = Descending - 1 = Ascending
+	density = 0
 
 
 /obj/machinery/computer/skills/attackby(obj/item/O as obj, user as mob)

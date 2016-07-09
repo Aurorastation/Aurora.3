@@ -33,7 +33,7 @@
 	return capitalize(new_name)
 
 /datum/language/tajaran
-	name = "Siik'tajr"
+	name = "Siik'maas"
 	desc = "The traditionally employed tongue of Ahdomai, composed of expressive yowls and chirps. Native to the Tajaran."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
@@ -66,14 +66,56 @@
 	flags = WHITELISTED
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
-/datum/language/vaurcese
-	name = "Vaurcese"
-	desc = "Vaurca native language made of clicks and sputters, \"It's a bugs life.\""
-	speech_verb = "clicks"
+/datum/language/bug
+	name = "Hivenet"
+	desc = "Complex Vaurcesian language comprised of rapid mandible-clicking, \"It's a bugs life.\""
+	speech_verb = "broadcasts"
 	colour = "vaurca"
 	key = "9"
-	flags = WHITELISTED
-	syllables = list("kic","klic","\'tic","kit","lit","xic","vil","xrit","tshh","qix","qlit","zix","\'","!")
+	flags = WHITELISTED | HIVEMIND
+	syllables = list("vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
+	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'ayek","ka'mil","sc'","ik'yir","yol","kig","k'zit","'","'","zrk","krg","isk'yet","na'k",
+	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","iy'it","azzg","a'","i'","o'","u'","a","i","o","u","zz","kr","ak","nrk")
+
+/datum/language/bug/get_random_name()
+	var/new_name = "[pick(list("Ka'","Za'","Ka'"))]"
+	new_name += "[pick(list("Akaix'","Viax'"))]"
+	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Aaaa"))]"
+	new_name += " [pick(list("Zo'ra","Zo'ra","Zo'ra","K'lax"))]"
+	return new_name
+
+/datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
+	log_say("[key_name(speaker)] : ([name]) [message]")
+
+	if(!speaker_mask)
+		speaker_mask = speaker.name
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span> [format_message(message, get_spoken_verb(message))]</span></i>"
+
+	for(var/mob/player in player_list)
+		if(istype(player,/mob/dead) || ((src in player.languages) || check_special_condition(player)))
+			player << msg
+
+/datum/language/bug/check_special_condition(var/mob/other)
+
+	var/mob/living/carbon/human/M = other
+	if(!istype(M))
+		return 1
+	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
+		return 1
+
+	if (M.l_ear || M.r_ear)
+		var/obj/item/device/radio/headset/dongle
+		if(istype(M.l_ear,/obj/item/device/radio/headset))
+			dongle = M.l_ear
+		else
+			dongle = M.r_ear
+
+		if(!istype(dongle))
+			return 0
+		if(dongle.translate_hivenet)
+			return 1
+
+	return 0
 
 /datum/language/human
 	name = "Sol Common"

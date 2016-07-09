@@ -112,7 +112,7 @@
 			owner << "\red Your skin itches."
 	if (germ_level > INFECTION_LEVEL_TWO)
 		if(prob(1))
-			spawn owner.vomit()
+			spawn owner.delayed_vomit()
 
 	if(owner.life_tick % PROCESS_ACCURACY == 0)
 
@@ -167,17 +167,51 @@
 	..()
 
 //VAURCA ORGANS
+
+/obj/item/organ/internal/vaurca/process()
+	return
+
 /obj/item/organ/vaurca/neuralsocket
 	name = "neural socket"
+	organ_tag = "neural socket"
+	icon = 'icons/mob/alien.dmi'
+	icon_state = "neural_socket"
 	parent_organ = "head"
 	robotic = 2
 
+obj/item/organ/vaurca/neuralsocket/process()
+	if (is_broken())
+		if (all_languages["Hivenet"] in owner.languages)
+			owner.remove_language("Hivenet")
+			owner << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
+	else
+		if (!(all_languages["Hivenet"] in owner.languages))
+			owner.add_language("Hivenet")
+			owner << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
+	..()
+
+/obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
+	if (!(all_languages["Hivenet"] in owner.languages))
+		owner.add_language("Hivenet")
+		owner << "\blue Your mind expands, and your thoughts join the unity of the Hivenet."
+	..()
+
+/obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
+	if(all_languages["Hivenet"] in target.languages)
+		target.remove_language("Hivenet")
+		target << "\red Your mind suddenly grows dark as the unity of the Hive is torn from you."
+	..()
 
 /obj/item/organ/vaurca/breathingapparatus
 	name = "breathing apparatus"
+	organ_tag = "breathing apparatus"
 	parent_organ = "chest"
+	icon = 'icons/mob/alien.dmi'
+	icon_state = "breathing_app"
 	robotic = 2
 
+obj/item/organ/vaurca/breathingapparatus/process()
+	return
 
-/obj/item/organ/internal/vaurca/process()
+/obj/item/organ/vaurca/breathingapparatus/removed()
 	return

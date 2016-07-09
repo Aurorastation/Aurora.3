@@ -55,9 +55,14 @@
 /obj/item/weapon/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))
 		return 0
+
+	if (stabilization_on)
+		num *= 2//gas usage is doubled when stabilising. one burst to start moving, and one to stop
+
 	if((num < 0.005 || src.air_contents.total_moles < num))
 		src.ion_trail.stop()
 		return 0
+
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)
 
@@ -105,6 +110,34 @@
 	..()
 	air_contents.adjust_gas("carbon_dioxide", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 	return
+
+/obj/item/weapon/tank/jetpack/carbondioxide/synthetic
+	name = "Synthetic Jetpack"
+	desc = "A chassis-mounted tank of compressed carbon dioxide for use as propulsion in zero-gravity areas."
+
+/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/verb/toggle_synthetic_jetpack()
+	set name = "Toggle Jetpack"
+	set category = "Robot Commands"
+
+	on = !on
+	if(on)
+		icon_state = "[icon_state]-on"
+		ion_trail.start()
+	else
+		icon_state = initial(icon_state)
+		ion_trail.stop()
+
+	if (ismob(usr))
+		var/mob/M = usr
+		M.update_inv_back()
+
+	usr << "You toggle the thrusters [on? "on":"off"]."
+
+/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/verb/toggle_stabilizer()
+	set name = "Toggle Jetpack Stabilization"
+	set category = "Robot Commands"
+	src.stabilization_on = !( src.stabilization_on )
+	usr << "You toggle the stabilization [stabilization_on? "on":"off"]."
 
 /obj/item/weapon/tank/jetpack/rig
 	name = "jetpack"
