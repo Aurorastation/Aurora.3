@@ -131,6 +131,7 @@
 						/obj/item/robot_parts/robot_component/jetpack,
 						),
 
+	"Hardsuit Modules" = list(),
 
 
 
