@@ -95,6 +95,20 @@
 	floor_type = null
 	intact = 0
 
+/turf/simulated/floor/doom
+	name = "flesh"
+	icon_state = "flesh1"
+	floor_type = null
+	intact = 0
+	footstep_sound = "waterstep"
+
+/turf/simulated/floor/doom/lava
+	name = "lava"
+	icon_state = "lava"
+	floor_type = null
+	lava = 1
+	intact = 0
+
 /turf/simulated/floor/plating/airless
 	icon_state = "plating"
 	name = "airless plating"

@@ -62,6 +62,7 @@ var/global/datum/global_init/init = new ()
 	if(config.generate_asteroid)
 		new /datum/random_map(null,0,0,1,255,255)
 		new /datum/random_map(null,0,0,2,255,255)
+		new /datum/random_map(null,0,0,6,255,255)
 
 	// Create autolathe recipes, as above.
 	populate_lathe_recipes()
