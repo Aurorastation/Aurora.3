@@ -69,6 +69,8 @@
 		G.fields["religion"]	= H.religion
 		G.fields["photo_front"]	= front
 		G.fields["photo_side"]	= side
+		G.fields["ccia_record"]	= H.ccia_record
+		G.fields["ccia_actions"] = H.ccia_actions
 		if(H.gen_record && !jobban_isbanned(H, "Records"))
 			G.fields["notes"] = H.gen_record
 		else

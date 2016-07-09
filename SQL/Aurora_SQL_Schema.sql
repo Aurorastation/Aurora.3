@@ -120,6 +120,7 @@ CREATE TABLE `ss13_characters_flavour` (
   `records_medical` text,
   `records_security` text,
   `records_exploit` text,
+  `records_ccia` text,
   `flavour_general` text,
   `flavour_head` text,
   `flavour_face` text,
