@@ -1822,7 +1822,7 @@ datum/preferences
 			if(!dbcon.IsConnected())
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey ORDER BY id ASC")
+			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC")
 			query.Execute(list(":ckey" = user.client.ckey))
 
 			dat += "<b>Select a character slot to load</b><hr>"

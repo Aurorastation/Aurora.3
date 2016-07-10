@@ -108,6 +108,7 @@ CREATE TABLE `ss13_characters` (
   `organs_data` text,
   `organs_robotic` text,
   `gear` text,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ss13_characters_ckey` (`ckey`),
   KEY `ss13_characteres_name` (`name`),

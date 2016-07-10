@@ -682,10 +682,10 @@
 	if (!query.NextRow())
 		return 0
 
-	var/DBQuery/delete_query = dbcon.NewQuery("DELETE FROM ss13_characters WHERE id = :id")
+	var/DBQuery/delete_query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :id")
 	delete_query.Execute(list(":id" = current_character))
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey ORDER BY id ASC LIMIT 1")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC LIMIT 1")
 	select_query.Execute(list(":ckey" = C.ckey))
 
 	if (select_query.NextRow())
