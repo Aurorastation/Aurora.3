@@ -134,3 +134,10 @@ Proc for attack log creation, because really why not
 		return 0
 	var/mob/living/silicon/robot/R = thing.loc
 	return (thing in R.module.modules)
+
+/proc/get_exposed_defense_zone(var/atom/movable/target)
+	var/obj/item/weapon/grab/G = locate() in target
+	if (G && G.state >= GRAB_NECK)
+		return pick("head", "l_hand", "r_hand", "l_foot", "r_foot", "l_arm", "r_arm", "l_leg", "r_leg")
+	else
+		return pick("chest", "groin")
