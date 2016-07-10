@@ -111,7 +111,7 @@
 /*
  * Gathers all notifications relevant to the client.
  */
-/datum/preferences/proc/gather_notifications(var/client/user, var/dynamic_only = 0)
+/datum/preferences/proc/gather_notifications(var/client/user)
 	if (!user)
 		return
 
@@ -188,6 +188,10 @@
 
 	if (query.NextRow())
 		var/action_count = text2num(query.item[1])
+
+		if (action_count == 0)
+			return null
+
 		var/string = "There are [action_count] active CCIA actions currently active against your character(s)."
 		return string
 

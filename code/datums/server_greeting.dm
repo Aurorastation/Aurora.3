@@ -146,10 +146,10 @@
 
 	var/outdated_info = 0
 
-	if (user.prefs.motd_hash != motd_hash)
+	if (motd_hash && user.prefs.motd_hash != motd_hash)
 		outdated_info |= OUTDATED_MOTD
 
-	if (user.holder && user.prefs.memo_hash != memo_hash)
+	if (user.holder && memo_hash && user.prefs.memo_hash != memo_hash)
 		outdated_info |= OUTDATED_MEMO
 
 	if (user.prefs.notifications.len)

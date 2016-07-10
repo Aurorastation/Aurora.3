@@ -237,6 +237,8 @@
 	if(!prefs)
 		prefs = new /datum/preferences(src)
 		preferences_datums[ckey] = prefs
+
+		prefs.gather_notifications(src)
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
@@ -271,8 +273,6 @@
 
 	send_resources()
 	nanomanager.send_resources(src)
-
-	prefs.gather_notifications(src)
 
 	var/outdated_greeting_info = server_greeting.find_outdated_info(src)
 
