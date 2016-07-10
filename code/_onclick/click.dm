@@ -318,23 +318,14 @@
 	return
 
 /mob/living/LaserEyes(atom/A)
-	next_move = world.time + 6
 	var/turf/T = get_turf(src)
-	var/turf/U = get_turf(A)
 
-	var/obj/item/projectile/beam/LE = new /obj/item/projectile/beam( loc )
-	LE.icon = 'icons/effects/genetics.dmi'
-	LE.icon_state = "eyelasers"
-	playsound(usr.loc, 'sound/weapons/taser2.ogg', 75, 1)
-
-	LE.firer = src
-	LE.def_zone = get_organ_target()
-	LE.original = A
-	LE.current = T
-	LE.yo = U.y - T.y
-	LE.xo = U.x - T.x
-	spawn( 1 )
-		LE.process()
+	var/obj/item/projectile/beam/LE = new (T)
+	LE.muzzle_type = /obj/effect/projectile/eyelaser/muzzle
+	LE.tracer_type = /obj/effect/projectile/eyelaser/tracer
+	LE.impact_type = /obj/effect/projectile/eyelaser/impact
+	playsound(usr.loc, 'sound/weapons/wave.ogg', 75, 1)
+	LE.launch(A)
 
 /mob/living/carbon/human/LaserEyes()
 	if(nutrition>0)
@@ -342,7 +333,7 @@
 		nutrition = max(nutrition - rand(1,5),0)
 		handle_regular_hud_updates()
 	else
-		src << "\red You're out of energy!  You need food!"
+		src << "<span class='warning'>You're out of energy!  You need food!</span>"
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(var/atom/A)

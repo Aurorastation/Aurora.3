@@ -1266,14 +1266,14 @@ datum/design/item/implant/AssembleDesignName()
 	..()
 	name = "Implantable biocircuit design ([item_name])"
 
-/* // Removal of loyalty implants. Can't think of a way to add this to the config option.
+ // Removal of loyalty implants. Can't think of a way to add this to the config option.
 datum/design/item/implant/loyalty
 	name = "loyalty"
 	id = "implant_loyal"
 	req_tech = list("materials" = 2, "biotech" = 3)
 	materials = list("$metal" = 7000, "$glass" = 7000)
-	build_path = /obj/item/weapon/implantcase/loyalty"
-*/
+	build_path = /obj/item/weapon/implantcase/loyalty
+
 
 datum/design/item/implant/chemical
 	name = "chemical"
@@ -1344,15 +1344,15 @@ datum/design/item/weapon/rapidsyringe
 	req_tech = list("combat" = 3, "materials" = 3, "engineering" = 3, "biotech" = 2)
 	materials = list("$metal" = 5000, "$glass" = 1000)
 	build_path = /obj/item/weapon/gun/launcher/syringe/rapid
-/*
+
 datum/design/item/weapon/largecrossbow
 	name = "Energy Crossbow"
 	desc = "A weapon favoured by syndicate infiltration teams."
 	id = "largecrossbow"
 	req_tech = list("combat" = 4, "materials" = 5, "engineering" = 3, "biotech" = 4, "syndicate" = 3)
 	materials = list("$metal" = 5000, "$glass" = 1000, "$uranium" = 1000, "$silver" = 1000)
-	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow"
-*/
+	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow
+
 datum/design/item/weapon/temp_gun
 	desc = "A gun that shoots high-powered glass-encased energy temperature bullets."
 	id = "temp_gun"
@@ -1387,6 +1387,14 @@ datum/design/item/weapon/ammo_9mm
 	materials = list("$metal" = 3750, "$silver" = 100)
 	build_path = /obj/item/ammo_magazine/c9mm
 
+datum/design/item/weapon/trod
+	id = "trod"
+	name = "tungsten rod pack"
+	desc = "moderately expensive superdense tungsten rods."
+	req_tech = list("combat" = 2, "materials" = 4)
+	materials = list("$metal" = 10000, "$gold" = 3750)
+	build_path = /obj/item/ammo_magazine/trodpack
+
 datum/design/item/weapon/stunshell
 	desc = "A stunning shell for a shotgun."
 	id = "stunshell"
@@ -1400,13 +1408,44 @@ datum/design/item/weapon/phoronpistol
 	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
 
+datum/design/item/weapon/eglaive
+	id = "eglaive"
+	name = "energy glaive"
+	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
+	req_tech = list("combat" = 6, "phorontech" = 4, "materials" = 7, "syndicate" = 4,"powerstorage" = 4)
+	materials = list("$metal" = 10000, "$glass" = 18750, "$phoron" = 3000, "$silver" = 7500)
+	build_path = /obj/item/weapon/melee/energy/glaive
+
+datum/design/item/weapon/gatlinglaser
+	id = "gatlinglaser"
+	name = "gatling laser"
+	desc = "A higly sophisticated rapid-fire laser weapon."
+	req_tech = list("combat" = 6, "phorontech" = 6, "materials" = 4, "powerstorage" = 3)
+	materials = list("$metal" = 18750, "$glass" = 7500, "$phoron" = 7500, "$silver" = 7500, "$diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
+
+datum/design/item/weapon/railgun
+	id = "railgun"
+	name = "railgun"
+	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
+	req_tech = list("combat" = 8, "phorontech" = 2, "materials" = 8, "magnets" = 4, "powerstorage" = 5, "syndicate" = 3)
+	materials = list("$metal" = 75000, "$glass" = 18750, "$phoron" = 11250, "$gold" = 7500, "$silver" = 7500)
+	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
+
+datum/design/item/weapon/zorablaster
+	id = "zorablaster"
+	name = "zo'ra blaster"
+	desc = "A personal defense weapon reverse-engineered from schematics aboard Titan Prime."
+	req_tech = list("combat" = 2, "phorontech" = 4, "materials" = 2)
+	materials = list("$metal" = 8000, "$glass" = 2000, "$phoron" = 6000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
 
 datum/design/item/weapon/lawgiver
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	id = "lawgiver"
-	req_tech = list("combat" = 6, "plasmatech" = 4, "bluespace" = 5, "materials" = 7)
+	req_tech = list("combat" = 6, "phorontech" = 4, "bluespace" = 5, "materials" = 7)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$plasma" = 1000, "$diamond" = 3000)
+	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$phoron" = 1000, "$diamond" = 3000)
 	build_path = "/obj/item/weapon/gun/energy/lawgiver"
 
 /*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband

@@ -73,6 +73,13 @@
 			return
 		if(W.loc != user) // This should stop mounted modules ending up outside the module.
 			return
+		if(W.abstract) //Prevents 'abstract' items (such as grabs) from creeping into the material realm.
+			if(istype(W, /obj/item/weapon/grab))
+				var/obj/item/weapon/grab/G = W
+				user << "<span class='notice'>[G.affecting] just doesn't fit!</span>"
+			else
+				user << "<span class='notice'>[W] does not belong there!</span>"
+			return
 		user.drop_item()
 		if(W)
 			W.forceMove(src.loc)

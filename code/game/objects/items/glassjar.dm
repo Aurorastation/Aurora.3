@@ -71,7 +71,7 @@
 		if(contains != 1)
 			return
 		var/obj/item/weapon/spacecash/S = W
-		user.visible_message("<span class='notice'>[user] puts [S.worth] [S.worth > 1 ? "thalers" : "thaler"] into \the [src].</span>")
+		user.visible_message("<span class='notice'>[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src].</span>")
 		user.drop_from_inventory(S)
 		S.loc = src
 		update_icon()

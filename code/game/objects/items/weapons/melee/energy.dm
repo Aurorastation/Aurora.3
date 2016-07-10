@@ -60,7 +60,7 @@
 	name = "energy glaive"
 	desc = "An energized glaive."
 	icon_state = "eglaive0"
-	active_force = 60
+	active_force = 40
 	active_throwforce = 60
 	active_w_class = 5
 	force = 20
