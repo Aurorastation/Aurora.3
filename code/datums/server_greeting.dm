@@ -20,7 +20,7 @@
 
 	// The stored strings of general subcomponents.
 	var/motd = ""
-	var/list/memo_list = list()
+	var/memo_list[] = list()
 	var/memo = ""
 
 	var/raw_data_user = ""
@@ -34,41 +34,21 @@
 	..()
 
 	load_from_file()
-	parse_html()
+
+	prepare_data()
 
 /*
- * Populates all variables except for var/end_data.
- * Loads the savefile info first (uses placeholders if no data exists).
- * Generates the hashes.
- * Then loads the raw HTML and stores that.
+ * Populates variables from save file, and loads the raw HTML data.
+ * Needs to be called at least once for successful initialization.
  */
 /datum/server_greeting/proc/load_from_file()
 	var/savefile/F = new(MEMOFILE)
 	if (F)
-		if (("motd" in F.dir) && F["motd"])
+		if (F["motd"])
 			F["motd"] >> motd
 
-		if (("memo" in F.dir) && F["memo"])
+		if (F["memo"])
 			F["memo"] >> memo_list
-
-			if (memo_list.len)
-				for (var/list/memo_obj in memo_list)
-
-					var/data = {"
-					<p><b>[memo_obj["ckey"]]</b> wrote on [memo_obj["date"]]:<br>
-					[memo_obj["contents"]]</p>
-					"}
-					memo += data
-
-	if (!motd)
-		motd = "<center>This is a palceholder. Pester your staff to change it!</center>"
-
-	motd_hash = md5(motd)
-
-	if (!memo)
-		memo = "<center>No memos have been posted.</center>"
-
-	memo_hash = md5(memo)
 
 	raw_data_staff = file2text('html/templates/welcome_screen.html')
 
@@ -77,9 +57,33 @@
 	raw_data_user = replacetextEx(raw_data_staff, staff_button, "")
 
 /*
- * Prepares as much of the universal data as possible.
+ * Generates hashes, placeholders, and reparses var/memo.
+ * Then updates staff_data and user_data with the new contents.
+ * To be called after load_from_file or update_value.
  */
-/datum/server_greeting/proc/parse_html()
+/datum/server_greeting/proc/prepare_data()
+	if (!motd)
+		motd = "<center>No new announcements to showcase.</center>"
+		motd_hash = ""
+	else
+		motd_hash = md5(motd)
+
+	memo = ""
+
+	if (memo_list.len)
+		for (var/ckey in memo_list)
+			var/data = {"
+			<p><b>[ckey]</b> wrote on [memo_list[ckey]["date"]]:<br>
+			[memo_list[ckey]["content"]]</p>
+			"}
+
+			memo += data
+
+		memo_hash = md5(memo)
+	else
+		memo = "<center>No memos have been posted.</center>"
+		memo_hash = ""
+
 	var/html_one = raw_data_staff
 	html_one = replacetextEx(html_one, "<!--motd-->", motd)
 	html_one = replacetextEx(html_one, "<!--memo-->", memo)
@@ -109,22 +113,14 @@
 			motd = new_value
 			motd_hash = md5(new_value)
 
-		if ("memo")
-			memo_list = new_value
-			memo = ""
+		if ("memo_write")
+			memo_list[new_value[1]] = list("date" = time2text(world.realtime, "DD-MMM-YYYY"), "content" = new_value[2])
 
-			if (memo_list.len)
-				for (var/list/memo_obj in memo_list)
-					var/data = {"
-					<p><b>[memo_obj["ckey"]]</b> wrote on [memo_obj["date"]]:<br>
-					[memo_obj["contents"]]</p><br><br>
-					"}
-
-					memo += data
+		if ("memo_delete")
+			if (memo_list[new_value])
+				memo_list -= new_value
 			else
-				memo = "<center>No memos have been posted.</center>"
-
-			memo_hash = md5(memo)
+				return 0
 
 		else
 			return 0
@@ -133,7 +129,7 @@
 	F["motd"] << motd
 	F["memo"] << memo_list
 
-	parse_html()
+	prepare_data()
 
 	return 1
 

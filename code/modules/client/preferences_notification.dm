@@ -175,8 +175,6 @@
 	if (!chars.len)
 		return null
 
-	testing("Chars list: [list2params(chars)]")
-
 	var/DBQuery/query = dbcon.NewQuery({"SELECT
 		COUNT(act_chr.action_id) AS action_count
 	FROM ss13_ccia_action_char act_chr
