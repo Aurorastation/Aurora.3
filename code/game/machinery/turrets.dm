@@ -268,12 +268,7 @@
 
 	//Turrets aim for the center of mass by default.
 	//If the target is grabbing someone then the turret smartly aims for extremities
-	var/obj/item/weapon/grab/G = locate() in target
-	var/def_zone = ""
-	if(G && G.state >= GRAB_NECK) //works because mobs are currently not allowed to upgrade to NECK if they are grabbing two people.
-		def_zone = pick("head", "l_hand", "r_hand", "l_foot", "r_foot", "l_arm", "r_arm", "l_leg", "r_leg")
-	else
-		def_zone = pick("chest", "groin")
+	var/def_zone = get_exposed_defense_zone(target)
 
 	A.launch(target, def_zone)
 
@@ -503,25 +498,16 @@
 			cur_target = null
 			return
 		src.set_dir(get_dir(src,target))
-		var/turf/targloc = get_turf(target)
-		var/target_x = targloc.x
-		var/target_y = targloc.y
-		var/target_z = targloc.z
-		targloc = null
 		spawn	for(var/i=1 to min(projectiles, projectiles_per_shot))
 			if(!src) break
 			var/turf/curloc = get_turf(src)
-			targloc = locate(target_x+GaussRandRound(deviation,1),target_y+GaussRandRound(deviation,1),target_z)
-			if (!targloc || !curloc)
-				continue
-			if (targloc == curloc)
-				continue
+
 			playsound(src, 'sound/weapons/Gunshot.ogg', 50, 1)
 			var/obj/item/projectile/A = new /obj/item/projectile(curloc)
 			src.projectiles--
-			A.current = curloc
-			A.yo = targloc.y - curloc.y
-			A.xo = targloc.x - curloc.x
-			A.process()
+
+			var/def_zone = get_exposed_defense_zone(target)
+
+			A.launch(target, def_zone)
 			sleep(2)
 		return
