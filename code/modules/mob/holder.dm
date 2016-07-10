@@ -13,7 +13,9 @@
 	var/isalive
 
 /obj/item/weapon/holder/New()
-	item_state = icon_state
+	if (!item_state)
+		item_state = icon_state
+
 	..()
 	processing_objects.Add(src)
 
@@ -29,7 +31,8 @@
 
 			var/atom/movable/mob_container
 			mob_container = M
-			mob_container.forceMove(get_turf(src))
+			mob_container.loc = src.loc//if the holder was placed into a disposal, this should place the animal in the disposal
+			//mob_container.forceMove(get_turf(src))
 			M.reset_view()
 
 		qdel(src)
@@ -158,6 +161,9 @@
 	desc_dead = "It's a dead cat."
 	icon_state = "cat_tabby"
 	icon_state_dead = "cat_tabby_dead"
+	item_state = "cat"
+//Setting item state to cat saves on some duplication for the in-hand versions, but we cant use it for head.
+//Instead, the head versions are done by duplicating the cat
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -165,6 +171,7 @@
 	icon_state = "cat_black"
 	icon_state_dead = "cat_black_dead"
 	slot_flags = SLOT_HEAD
+	item_state = "cat"
 
 /obj/item/weapon/holder/cat/kitten
 	name = "kitten"
@@ -172,6 +179,7 @@
 	icon_state_dead = "cat_kitten_dead"
 	slot_flags = SLOT_HEAD
 	w_class = 1
+	item_state = "cat"
 
 
 /obj/item/weapon/holder/borer

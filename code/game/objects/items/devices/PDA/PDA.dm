@@ -973,7 +973,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	t = reception.message
 
 	if(reception.message_server && (reception.telecomms_reception & TELECOMMS_RECEPTION_SENDER)) // only send the message if it's stable
-		if(reception.telecomms_reception & TELECOMMS_RECEPTION_RECEIVER == 0) // Does our recipient have a broadcaster on their level?
+		if(!(reception.telecomms_reception & TELECOMMS_RECEPTION_RECEIVER)) // Does our recipient have a broadcaster on their level?
 			U << "ERROR: Cannot reach recipient."
 			return
 		var/send_result = reception.message_server.send_pda_message("[P.owner]","[owner]","[t]")

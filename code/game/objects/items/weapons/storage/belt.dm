@@ -200,7 +200,8 @@
 	icon_state = "janibelt"
 	item_state = "janibelt"
 	storage_slots = 6
-	max_storage_space  = 4 // Set to this so the light replacer can fit.
+	max_w_class = 3
+	max_storage_space  = 28
 	can_hold = list(
 		/obj/item/weapon/grenade/chem_grenade/cleaner,
 		/obj/item/device/lightreplacer,
