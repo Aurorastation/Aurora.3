@@ -556,3 +556,9 @@
 
 	src << link(linkURL)
 	return
+
+/client/verb/show_greeting()
+	set name = "Open Greeting"
+	set category = "OOC"
+
+	server_greeting.display_to_client(src, server_greeting.find_outdated_info(src))
