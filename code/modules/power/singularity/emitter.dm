@@ -131,6 +131,7 @@
 		var/power_per_shot = active_power_usage * (burst_time/10) / burst_shots
 		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter( src.loc )
 		A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)
+		A.launch( get_step(src.loc, src.dir) )
 
 		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1)
 		if(prob(35))
