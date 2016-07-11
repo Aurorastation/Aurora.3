@@ -12,6 +12,8 @@
 	desc = "Hideous images dance beneath the surface."
 	icon = 'icons/turf/wall_masks.dmi'
 	icon_state = "cult"
+/turf/simulated/wall/rusty
+	icon_state = "genericrusty"
 
 /turf/simulated/wall/iron/New(var/newloc)
 	..(newloc,"iron")
