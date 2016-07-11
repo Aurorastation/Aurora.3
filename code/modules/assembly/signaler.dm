@@ -100,7 +100,11 @@
 
 
 	proc/signal()
-		if(!radio_connection) return
+		if(!radio_connection)
+			return
+
+		if(within_jamming_range(src))
+			return
 
 		var/datum/signal/signal = new
 		signal.source = src
@@ -129,9 +133,18 @@
 
 
 	receive_signal(datum/signal/signal)
-		if(!signal)	return 0
-		if(signal.encryption != code)	return 0
-		if(!(src.wires & WIRE_RADIO_RECEIVE))	return 0
+		if(!signal)
+			return 0
+
+		if(within_jamming_range(src))
+			return 0
+
+		if(signal.encryption != code)
+			return 0
+
+		if(!(src.wires & WIRE_RADIO_RECEIVE))
+			return 0
+
 		pulse(1)
 
 		if(!holder)

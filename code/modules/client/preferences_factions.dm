@@ -45,7 +45,7 @@ var/global/list/faction_choices = list(
 	"Grayson Manufactories Ltd.",
 	"Aether Atmospherics",
 	"Zeng-Hu Pharmaceuticals",
-	"Hesphaistos Industries"
+	"Hephaestus Industries"
 	)
 
 var/global/list/religion_choices = list(

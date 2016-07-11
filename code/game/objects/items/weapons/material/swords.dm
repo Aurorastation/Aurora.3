@@ -4,6 +4,7 @@
 	icon_state = "claymore"
 	item_state = "claymore"
 	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = 4
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
 	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
 	sharp = 1
@@ -28,3 +29,35 @@
 /obj/item/weapon/material/sword/katana/suicide_act(mob/user)
 	viewers(user) << "<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit seppuku.</span>"
 	return(BRUTELOSS)
+
+/obj/item/weapon/material/sword/rapier
+	name = "rapier"
+	desc = "A slender, fancy and sharply pointed sword."
+	icon_state = "rapier"
+	item_state = "claymore"
+	slot_flags = SLOT_BELT
+	attack_verb = list("attacked", "stabbed", "prodded", "poked", "lunged")
+
+/obj/item/weapon/material/sword/longsword
+	name = "longsword"
+	desc = "A double-edged large blade."
+	icon_state = "longsword"
+	item_state = "claymore"
+	slot_flags = SLOT_BELT | SLOT_BACK
+	
+/obj/item/weapon/material/sword/trench
+	name = "trench knife"
+	desc = "A military knife used to slash and stab enemies in close quarters."
+	force_divisor = 0.4
+	icon_state = "trench"
+	item_state = "knife"
+	w_class = 3
+	flags = NOSHIELD
+	slot_flags = SLOT_BELT
+	
+/obj/item/weapon/material/sword/sabre
+	name = "sabre"
+	desc = "A sharp curved backsword."
+	icon_state = "sabre"
+	item_state = "katana"
+	slot_flags = SLOT_BELT

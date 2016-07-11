@@ -31,8 +31,8 @@
 	var/show_ssd = "fast asleep"
 
 	// Language/culture vars.
-	var/default_language = "Galactic Common" // Default language is used when 'say' is used without modifiers.
-	var/language = "Galactic Common"         // Default racial language, if any.
+	var/default_language = "Ceti Basic" // Default language is used when 'say' is used without modifiers.
+	var/language = "Ceti Basic"         // Default racial language, if any.
 	var/secondary_langs = list()             // The names of secondary languages that are available to this species.
 	var/list/speech_sounds                   // A list of sounds to potentially play when speaking.
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
@@ -46,6 +46,7 @@
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
 	var/brute_mod = 1                        // Physical damage multiplier.
 	var/burn_mod = 1                         // Burn damage multiplier.
+	var/tox_mod = 1                         // Toxin damage multiplier.
 	var/vision_flags = SEE_SELF              // Same flags as glasses.
 
 	// Death vars.
@@ -234,7 +235,7 @@
 				continue
 			E.status |= ORGAN_ADV_ROBOT
 		for(var/obj/item/organ/I in H.internal_organs)
-			I.robotize()
+			I.status |= ORGAN_ADV_ROBOT
 
 /datum/species/proc/hug(var/mob/living/carbon/human/H,var/mob/living/target)
 

@@ -456,7 +456,8 @@
 #define MUTE_PRAY      4
 #define MUTE_ADMINHELP 8
 #define MUTE_DEADCHAT  16
-#define MUTE_ALL       31
+#define MUTE_AOOC      32
+#define MUTE_ALL       63
 
 // Number of identical messages required to get the spam-prevention auto-mute thing to trigger warnings and automutes.
 #define SPAM_TRIGGER_WARNING  5
