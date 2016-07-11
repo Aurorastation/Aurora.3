@@ -108,10 +108,6 @@
 	if (istype(mover, /mob/living/silicon))
 		var/mob/living/silicon/S = mover
 		S.under_door()
-	spawn(30)
-		if (world.time > hatchclosetime)
-			close_hatch()
-			//If this is not true then it means that the hatch was opened again while it was already open. The next proc will handle it
 
 
 /obj/machinery/door/proc/close_hatch()
@@ -132,6 +128,8 @@
 			close()
 		else
 			close_door_at = 0
+	if (hatchstate && world.time > hatchclosetime)
+		close_hatch()
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating || !ticker)
