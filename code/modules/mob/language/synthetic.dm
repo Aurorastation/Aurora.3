@@ -17,6 +17,8 @@
 	if (!message)
 		return
 
+	log_say("[key_name(speaker)] : ([name]) [message]")
+
 	var/message_start = "<i><span class='game say'>[name], <span class='name'>[speaker.name]</span>"
 	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i>"
 
