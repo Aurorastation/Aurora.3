@@ -277,6 +277,8 @@ CREATE TABLE `ss13_player_preferences` (
   `UI_style_alpha` int(11) NOT NULL,
   `be_special` int(11) NOT NULL,
   `asfx_togs` int(11) NOT NULL,
+  `lastmotd` text NOT NULL,
+  `lastmemo` text NOT NULL,
   PRIMARY KEY (`ckey`),
   CONSTRAINT `player_preferences_fk_ckey` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

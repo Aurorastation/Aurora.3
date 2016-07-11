@@ -183,11 +183,10 @@
 	warnings_check()
 
 /*
- * A proc to alert you if you have unacknowledged warnings.
- * Called in /client/New (client procs.dm)
+ * A proc to gather notifications regarding your warnings.
+ * Called by /datum/preferences/proc/gather_notifications() in preferences.dm
  */
-
-/client/proc/warnings_alert()
+/client/proc/warnings_gather()
 	var/count = 0
 	var/count_expire = 0
 
@@ -210,12 +209,13 @@
 	while (query.NextRow())
 		count++
 
+	var/list/data = list("unread" = "", "expired" = "")
 	if (count)
-		src << "<br>"
-		src << "<font color=red><b>You have [count] unread [count > 1 ? "warnings" : "warning"]! Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</b></font>"
+		data["unread"] = "You have <b>[count] unread [count > 1 ? "warnings" : "warning"]!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
 	if (count_expire)
-		src << "<br>"
-		src << "<font color=blue><b>[count_expire] of your warnings expired.</b></font>"
+		data["expired"] = "[count_expire] of your warnings have expired."
+
+	return data
 
 /*
  * A proc for an admin/moderator to look up a member's warnings.

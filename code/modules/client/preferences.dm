@@ -40,6 +40,7 @@ datum/preferences
 	var/muted = 0
 	var/last_ip
 	var/last_id
+	var/list/notifications = list()		//A list of datums, for the dynamic server greeting window.
 
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
@@ -50,6 +51,8 @@ datum/preferences
 	var/asfx_togs = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
+	var/motd_hash = ""					//Hashes for the new server greeting window.
+	var/memo_hash = ""
 
 	//character preferences
 	var/real_name						//our character's name

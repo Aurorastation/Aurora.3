@@ -179,7 +179,7 @@ var/datum/moduletypes/mods = new()
 var/wavesecret    = 0
 var/gravity_is_on = 1
 
-var/join_motd = null
+var/datum/server_greeting/server_greeting = null
 var/forceblob = 0
 
 var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano UIs.

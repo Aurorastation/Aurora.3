@@ -135,6 +135,36 @@
 
 		return
 
+	// JSlink switch.
+	if (href_list["JSlink"])
+		switch (href_list["JSlink"])
+			if ("warnings")
+				src.warnings_check()
+
+			if ("linking")
+				src.check_linking_requests()
+
+			if ("dismiss")
+				if (href_list["notification"])
+					var/datum/client_notification/a = locate(href_list["notification"])
+					if (a && isnull(a.gcDestroyed))
+						a.dismiss()
+
+			if ("github")
+				if (!config.githuburl)
+					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
+				else if (alert("This will open the issue tracker in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					src << link(config.githuburl)
+
+			if ("forums")
+				src.forum()
+
+			if ("wiki")
+				src.wiki()
+
+			if ("webint")
+				src.open_webint()
+
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
@@ -207,6 +237,8 @@
 	if(!prefs)
 		prefs = new /datum/preferences(src)
 		preferences_datums[ckey] = prefs
+
+		prefs.gather_notifications(src)
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
@@ -223,18 +255,6 @@
 		else
 			del(src)
 			return 0
-	else if (byond_version < config.client_warn_version)
-		src << "<span class='danger'><b>Your version of BYOND may be out of date!</b></span>"
-		src << config.client_warn_message
-		src << "Your version: [byond_version]."
-		src << "Required version to remove this message: [config.client_warn_version] or later."
-		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
-
-	if(custom_event_msg && custom_event_msg != "")
-		src << "<h1 class='alert'>Custom Event</h1>"
-		src << "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>"
-		src << "<span class='alert'>[custom_event_msg]</span>"
-		src << "<br>"
 
 	if( (world.address == address || !address) && !host )
 		host = key
@@ -242,7 +262,6 @@
 
 	if(holder)
 		add_admin_verbs()
-		admin_memo_show()
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
@@ -252,20 +271,13 @@
 			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
-	warnings_alert()
-
-	check_linking_requests()
-
 	send_resources()
 	nanomanager.send_resources(src)
 
-	if(prefs.lastchangelog != changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		src << "<span class='info'>You have unread updates in the changelog.</span>"
-		winset(src, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
-		if(config.aggressive_changelog)
-			src.changes()
+	var/outdated_greeting_info = server_greeting.find_outdated_info(src)
 
-
+	if (outdated_greeting_info)
+		server_greeting.display_to_client(src, outdated_greeting_info)
 
 	//////////////
 	//DISCONNECT//
@@ -384,6 +396,11 @@
 		'html/images/loading.gif',
 		'html/images/ntlogo.png',
 		'html/images/talisman.png',
+		'html/bootstrap/css/bootstrap.min.css',
+		'html/bootstrap/js/bootstrap.min.js',
+		'html/bootstrap/js/html5shiv.min.js',
+		'html/bootstrap/js/respond.min.js',
+		'html/jquery/jquery-2.0.0.min.js',
 		'icons/pda_icons/pda_atmos.png',
 		'icons/pda_icons/pda_back.png',
 		'icons/pda_icons/pda_bell.png',
@@ -423,7 +440,6 @@
 		'icons/spideros_icons/sos_13.png',
 		'icons/spideros_icons/sos_14.png'
 		)
-
 
 /mob/proc/MayRespawn()
 	return 0
@@ -481,6 +497,23 @@
 	src << browse(dat, "window=LinkingRequests")
 	return
 
+/client/proc/gather_linking_requests()
+	if (!config.webint_url || !config.sql_enabled)
+		return
+
+	establish_db_connection(dbcon)
+	if (!dbcon.IsConnected())
+		return
+
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	select_query.Execute(list(":ckey" = ckey))
+
+	if (select_query.NextRow())
+		if (text2num(select_query.item[1]) > 0)
+			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='?JSlink=linking;notification=:src_ref'>here</a> to see them!"
+
+	return null
+
 /client/proc/process_webint_link(var/route, var/attributes)
 	if (!route)
 		return
@@ -523,3 +556,9 @@
 
 	src << link(linkURL)
 	return
+
+/client/verb/show_greeting()
+	set name = "Open Greeting"
+	set category = "OOC"
+
+	server_greeting.display_to_client(src, server_greeting.find_outdated_info(src))
