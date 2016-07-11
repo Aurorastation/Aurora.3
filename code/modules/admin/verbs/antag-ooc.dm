@@ -7,6 +7,10 @@
 		src << "<span class='warning'>You cannot use AOOC while ghosting/observing!</span>"
 		return
 
+	if (src.prefs.muted & MUTE_AOOC)
+		src << "<span class='warning'>You are muted from speaking on AOOC!</span>"
+		return
+
 	msg = sanitize(msg)
 	if(!msg)
 		return
