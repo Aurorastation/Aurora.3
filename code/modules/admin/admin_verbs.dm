@@ -297,7 +297,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/toggleattacklogs,
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/check_words,			/*displays cult-words*/
-	/client/proc/check_ai_laws			/*shows AI and borg laws*/
+	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
+	/client/proc/aooc
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
