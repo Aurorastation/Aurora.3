@@ -36,6 +36,9 @@
 	activates_on_touch = 1
 	confined_use = 1
 
+	construction_cost = list("glass" = 7500, DEFAULT_WALL_MATERIAL = 5000)
+	construction_time = 300
+
 	engage_string = "Eject AI"
 	activate_string = "Enable Dataspike"
 	deactivate_string = "Disable Dataspike"
@@ -358,6 +361,9 @@
 	toggleable = 1
 	activates_on_touch = 1
 	disruptive = 0
+
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"gold"=2000,"silver"=3000,"glass"=2000)
+	construction_time = 500
 
 	activate_string = "Enable Power Sink"
 	deactivate_string = "Disable Power Sink"
