@@ -16,3 +16,4 @@ changes:
     - bugfix: "Alien species should no longer have oddly coloured fur/skin/scales/slime after being cloned."
     - bugfix: "Fixed the unlimited virus food exploit."
     - tweak: "Markup is no longer awful and will not break links. Proper keys have changed: / = italics, _ = underline, ~ = strikethrough, * = bold."
+    - tweak: "Trash bags can now be used to pick up bullet casings."

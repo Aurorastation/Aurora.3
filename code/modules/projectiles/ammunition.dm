@@ -45,6 +45,8 @@
 			user << "\blue You inscribe \"[label_text]\" into \the [initial(BB.name)]."
 			BB.name = "[initial(BB.name)] (\"[label_text]\")"
 
+	..()
+
 /obj/item/ammo_casing/update_icon()
 	if(spent_icon && !BB)
 		icon_state = spent_icon
@@ -163,4 +165,3 @@
 
 	magazine_icondata_keys["[M.type]"] = icon_keys
 	magazine_icondata_states["[M.type]"] = ammo_states
-
