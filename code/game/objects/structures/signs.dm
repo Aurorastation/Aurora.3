@@ -175,6 +175,31 @@
 	desc = "A warning sign which reads 'HYDROPONICS'."
 	icon_state = "hydro1"
 
+/obj/structure/sign/sac
+	name = "\improper S.A.C."
+	desc = "It's the Sol Airspace Corporation logo."
+	icon_state = "SACsmall"
+
+/obj/structure/sign/sac/big
+	name = "\improper S.A.C."
+	desc = "A rusty sign reading 'S.A.C.'."
+	icon_state = "monkey_painting"
+
+/obj/structure/sign/sac/big/left
+	name = "\improper S.A.C."
+	desc = "A rusty sign reading 'S.A.C.'."
+	icon_state = "SACs"
+
+/obj/structure/sign/sac/big/middle
+	name = "\improper S.A.C."
+	desc = "A rusty sign reading 'S.A.C.'."
+	icon_state = "SACa"
+
+/obj/structure/sign/sac/big/right
+	name = "\improper S.A.C."
+	desc = "A rusty sign reading 'S.A.C.'."
+	icon_state = "SACc"
+
 /obj/structure/sign/directions/science
 	name = "\improper Science department"
 	desc = "A direction sign, pointing out which way the Science department is."
