@@ -30,6 +30,19 @@
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/close_door_at = 0 //When to automatically close the door, if possible
 
+	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
+	var/hatchstate = 0//0: closed, 1: open
+	var/hatchstyle = "1x1"
+	var/hatch_offset_x = 0
+	var/hatch_offset_y = 0
+	var/hatch_colour = "#FFFFFF"
+	var/hatch_open_sound = 'sound/machines/hatch_open.ogg'
+	var/hatch_close_sound = 'sound/machines/hatch_close.ogg'
+
+	var/hatchclosetime //A world.time value to tell us when the hatch should close
+
+	var/image/hatch_image
+
 	//Multi-tile doors
 	dir = EAST
 	var/width = 1
@@ -67,7 +80,40 @@
 	health = maxhealth
 
 	update_nearby_tiles(need_rebuild=1)
+	if (hashatch)
+		setup_hatch()
 	return
+
+/obj/machinery/door/proc/setup_hatch()
+
+	if (overlays != null)
+		hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
+		hatch_image.color = hatch_colour
+		hatch_image.pixel_x = hatch_offset_x
+		hatch_image.pixel_y = hatch_offset_y
+
+		overlays += hatch_image
+		update_icon()
+	else
+		spawn(10)
+			setup_hatch()
+
+/obj/machinery/door/proc/open_hatch(var/atom/mover = null)
+	if (!hatchstate)
+		hatchstate = 1
+		update_icon()
+		playsound(src.loc, hatch_open_sound, 40, 1, -1)
+	hatchclosetime = world.time + 29
+
+	if (istype(mover, /mob/living/silicon))
+		var/mob/living/silicon/S = mover
+		S.under_door()
+
+
+/obj/machinery/door/proc/close_hatch()
+	hatchstate = 0//hatch stays open for 3 seconds
+	update_icon()
+	playsound(src.loc, hatch_close_sound, 30, 1, -1)
 
 /obj/machinery/door/Destroy()
 	density = 0
@@ -82,6 +128,8 @@
 			close()
 		else
 			close_door_at = 0
+	if (hatchstate && world.time > hatchclosetime)
+		close_hatch()
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating || !ticker)
@@ -138,8 +186,12 @@
 
 /obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return !block_air_zones
-	if(istype(mover) && mover.checkpass(PASSGLASS))
-		return !opacity
+	if (istype(mover))
+		if(mover.checkpass(PASSGLASS))
+			return !opacity
+		if(density && hashatch && mover.checkpass(PASSDOORHATCH))
+			open_hatch(mover)
+			return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
 	return !density
 
 
