@@ -38,7 +38,7 @@ If the spell_projectile is seeking, it will update its target every process and 
 		if(istype(projectile, /obj/item/projectile/spell_projectile))
 			var/obj/item/projectile/spell_projectile/SP = projectile
 			SP.carried = src //casting is magical
-		spawn projectile.process()
+		projectile.launch(target)
 	return
 
 /spell/targeted/projectile/proc/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
