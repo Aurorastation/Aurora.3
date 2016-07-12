@@ -6,6 +6,9 @@
 	icon_state = "tube"
 	origin_tech = "materials=4;engineering=3"
 	amount = 10
+	
+	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
+	var/construction_time = 5
 
 
 /obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob)
