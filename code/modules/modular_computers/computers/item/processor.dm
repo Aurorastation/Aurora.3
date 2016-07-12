@@ -100,10 +100,6 @@
 		var/obj/item/weapon/computer_hardware/tesla_link/L = H
 		L.holder = machinery_computer
 		machinery_computer.tesla_link = L
-		// Consoles don't usually have internal power source, so we can't disable tesla link in them.
-		if(istype(machinery_computer, /obj/machinery/modular_computer/console))
-			L.critical = 1
-			L.enabled = 1
 		found = 1
 	..(user, H, found)
 
@@ -111,7 +107,6 @@
 	if(machinery_computer.tesla_link == H)
 		machinery_computer.tesla_link = null
 		var/obj/item/weapon/computer_hardware/tesla_link/L = H
-		L.critical = 0		// That way we can install tesla link from console to laptop and it will be possible to turn it off via config.
 		L.holder = null
 		found = 1
 	..(user, H, found, critical)
@@ -127,3 +122,9 @@
 	if(!machinery_computer)
 		return 0
 	return machinery_computer.Adjacent(neighbor)
+
+/obj/item/modular_computer/processor/turn_on(var/mob/user)
+	// If we have a tesla link on our machinery counterpart, enable it automatically. Lets computer without a battery work.
+	if(machinery_computer && machinery_computer.tesla_link)
+		machinery_computer.tesla_link.enabled = 1
+	..()
