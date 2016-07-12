@@ -288,8 +288,8 @@
 	tox_mod = 3 //they're not used to all our weird human bacteria.
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
-	siemens_coefficient = 0 //attempting to mimic the old insulation feature.
 	ethanol_resistance = 2
+	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "oxygen"
 	poison_type = "null" //a species that breathes plasma shouldn't be poisoned by it.
 	blurb = "Vaurca are a bipedal insectoid species from the first moon of Sedantis I. \
