@@ -642,7 +642,8 @@ var/global/list/robot_modules = list(
 	loc = R
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
-	src.modules += new /obj/item/weapon/gun/energy/pulse_rifle/destroyer(src)
+	src.modules += new /obj/item/weapon/gun/energy/mountedsmg
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/card/emag(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
