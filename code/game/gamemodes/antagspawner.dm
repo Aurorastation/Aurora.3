@@ -19,7 +19,7 @@
 
 
 /obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user)
-	user << "<span class='notice'>The syndicate robot teleporter is atempting to locate an avaible cyborg.</span>"
+	user << "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>"
 	searching = 1
 	for(var/mob/dead/observer/O in player_list)
 		if(!O.MayRespawn())
@@ -32,7 +32,7 @@
 	spawn(600)
 		searching = 0
 		if(!used)
-			user << "<span class='warning'>Unable to connect to Syndicate Command. Perhaps you could try again later?</span>"
+			user << "<span class='warning'>Unable to connect to the Syndicate Command. Perhaps you could try again later?</span>"
 
 
 /obj/item/weapon/antag_spawner/borg_tele/proc/question(var/client/C)
@@ -55,8 +55,8 @@ obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 	var/mob/living/silicon/robot/H = new /mob/living/silicon/robot/syndicate(T)
 	C.prefs.copy_to(H)
 	H.key = C.key
-
-	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you!</b>"
+	H.mind.special_role = "Mercenary"
+	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you!.</b>"
 
 	spawn(1)
 		used = 1
