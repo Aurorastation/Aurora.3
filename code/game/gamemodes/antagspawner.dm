@@ -11,8 +11,8 @@
 	return
 
 /obj/item/weapon/antag_spawner/borg_tele
-	name = "Syndicate Robot Teleporter"
-	desc = "A single-use teleporter used to deploy a Syndicate Robot on the field."
+	name = "Syndicate Cyborg Teleporter"
+	desc = "A single-use teleporter used to deploy a Syndicate Cyborg on the field."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	var/searching = 0
@@ -32,28 +32,31 @@
 	spawn(600)
 		searching = 0
 		if(!used)
-			user << "<span class='warning'>Unable to connect to Syndicate Command.  Perhaps you could try again later?</span>"
+			user << "<span class='warning'>Unable to connect to Syndicate Command. Perhaps you could try again later?</span>"
 
 
 /obj/item/weapon/antag_spawner/borg_tele/proc/question(var/client/C)
 	spawn(0)
 		if(!C)
 			return
-		var/response = alert(C, "Someone is requesting a syndicate robot  Would you like to play as one?",
+		var/response = alert(C, "Someone is requesting a syndicate cyborg  Would you like to play as one?",
 		"Syndicate robot request","Yes", "No")
 		if(response == "Yes")
-			response = alert(C, "Are you sure you want to play as a syndicate robot?", "Syndicate robot request", "Yes", "No")
+			response = alert(C, "Are you sure you want to play as a syndicate cyborg?", "Syndicate cyborg request", "Yes", "No")
 		if(!C || used || !searching)
 			return
 		if(response == "Yes")
 			spawn_antag(C, get_turf(src))
 
-/obj/item/weapon/antag_spawner/technomancer_apprentice/spawn_antag(client/C, turf/T)
+obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
+	var/datum/effect/effect/system/spark_spread/S = new /datum/effect/effect/system/spark_spread
+	S.set_up(4, 1, src)
+	S.start()
 	var/mob/living/silicon/robot/H = new /mob/living/silicon/robot/syndicate(T)
 	C.prefs.copy_to(H)
 	H.key = C.key
 
-	H << "<b>You are a syndicate robot, bound to help and follow the orders of the mercenaries that are deploying you!.</b>"
+	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you!.</b>"
 
 	spawn(1)
 		used = 1
