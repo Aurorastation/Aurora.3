@@ -72,3 +72,10 @@
 	colour = "i"
 	key = "4"
 	flags = NO_STUTTER|SIGNLANG
+
+// Helper
+/proc/get_lang_name(var/datum/language/language)
+	if (!language || !istype(language))
+		return "Unknown"
+
+	return language.name
