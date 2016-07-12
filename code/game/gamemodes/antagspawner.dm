@@ -16,7 +16,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	var/searching = 0
-
+	var/askDelay = 10 * 60 * 1
 
 /obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user)
 	user << "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>"
@@ -24,7 +24,7 @@
 	for(var/mob/dead/observer/O in player_list)
 		if(!O.MayRespawn())
 			continue
-		if(jobban_isbanned(O, "Syndicate") && jobban_isbanned(O, "Mercenary"))
+		if(jobban_isbanned(O, "Syndicate") && jobban_isbanned(O, "Mercenary") && jobban_isbanned(O, "Cyborg"))
 			continue
 		if(O.client)
 			if(O.client.prefs.be_special & BE_OPERATIVE)
@@ -40,13 +40,15 @@
 		if(!C)
 			return
 		var/response = alert(C, "Someone is requesting a syndicate cyborg  Would you like to play as one?",
-		"Syndicate robot request","Yes", "No")
+		"Syndicate robot request","Yes", "No", "Never for this round")
 		if(response == "Yes")
 			response = alert(C, "Are you sure you want to play as a syndicate cyborg?", "Syndicate cyborg request", "Yes", "No")
 		if(!C || used || !searching)
 			return
 		if(response == "Yes")
 			spawn_antag(C, get_turf(src))
+		else if (response == "Never for this round")
+			C.prefs.be_special ^= BE_OPERATIVE
 
 obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 	var/datum/effect/effect/system/spark_spread/S = new /datum/effect/effect/system/spark_spread
@@ -55,8 +57,9 @@ obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 	var/mob/living/silicon/robot/H = new /mob/living/silicon/robot/syndicate(T)
 	C.prefs.copy_to(H)
 	H.key = C.key
+	H.name = "S.Y.N.D.I."
 	H.mind.special_role = "Mercenary"
-	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you!.</b>"
+	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans, you are also able to change your name using the name pick command.</b>"
 
 	spawn(1)
 		used = 1
