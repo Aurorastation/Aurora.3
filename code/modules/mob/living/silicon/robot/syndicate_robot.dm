@@ -3,9 +3,7 @@
 	scrambledcodes = 1
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "syndie_bloodhound"
-	modtype = "Syndicate"
 	lawchannel = "State"
-	braintype = "Robot"
 	req_access = list(access_syndicate)
 	components = list(/obj/item/robot_parts/robot_component/jetpack)
 
