@@ -329,10 +329,7 @@
 
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
-	//This conditional allows us to ignore that first one.
-	if (istype(loc, /turf))
-		return
-
+	//We only care about the second one
 	if (istype(loc, /obj/item/weapon/storage))	//The second drop reads the container its placed into as the location
 		update_location()
 

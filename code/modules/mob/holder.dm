@@ -40,6 +40,7 @@
 				M.reset_view()
 				M.verbs -= /mob/living/proc/get_holder_location
 			qdel(src)
+			return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
 
@@ -156,7 +157,7 @@
 /mob/living/proc/get_holder_location()
 	set category = "Abilities"
 	set name = "Check held location"
-	set desc = "Find out where on their person, someone is holding you.2"
+	set desc = "Find out where on their person, someone is holding you."
 
 	if (!usr.get_holding_mob())
 		src << "Nobody is holding you!"
