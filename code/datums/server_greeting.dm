@@ -4,6 +4,8 @@
  * - hashes for the message of the day and staff memos
  * - the current message of the day and staff memos
  * - the fully parsed welcome screen HTML data
+ *
+ * #TODO_LATER: Update this to be reliant on the game, and not an HTML template, whenever we update to TGui. Less hacks involved, then.
  */
 
 #define MEMOFILE "data/greeting.sav"
@@ -53,7 +55,7 @@
 	raw_data_staff = file2text('html/templates/welcome_screen.html')
 
 	// This is a lazy way, but it disables the user from being able to see the memo button.
-	var/staff_button = "<li role=\"presentation\"><a href=\"#memo\" aria-controls=\"memo\" role=\"tab\" data-toggle=\"tab\">Staff Memos</a></li>"
+	var/staff_button = "<li role=\"presentation\" id=\"memo-tab\"><a href=\"#memo\" aria-controls=\"memo\" role=\"tab\" data-toggle=\"tab\">Staff Memos</a></li>"
 	raw_data_user = replacetextEx(raw_data_staff, staff_button, "")
 
 /*
