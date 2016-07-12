@@ -1,7 +1,7 @@
 #define		AE_DIZZY 		5
-#define		AE_CLUMSY		10
 #define 	AE_SLURRING 	15
-#define 	AE_CONFUSION 	20
+#define 	AE_CONFUSION 	18
+#define		AE_CLUMSY		22
 #define 	AE_BLURRING 	25
 #define		AE_VOMIT		40
 #define 	AE_DROWSY 		55
@@ -25,25 +25,31 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		return
 
 	if(intoxication > AE_DIZZY*SR) // Early warning
+		if (dizziness == 0)
+			src << "<span class='notice'>The room starts spinning!</span>"
 		var/target_dizziness = min(1000,(BASE_DIZZY + ((intoxication - AE_DIZZY*SR)*10)/SR))
 		make_dizzy(target_dizziness - dizziness) // We will repeatedly set our target dizziness to a desired value based on intoxication level
-
-	//Make the drinker temporarily clumsy if intoxication is high enough
-	//We use a var to track if alcohol caused it, we won't add nor remove it if the drinker was already clumsy from some other source
-	if(intoxication > AE_CLUMSY*SR)
-		if (!alcohol_clumsy && !(CLUMSY in mutations))
-			mutations.Add(CLUMSY)
-			alcohol_clumsy = 1
-	else //Remove it if intoxication drops too low. We'll also have another check to remove it in life.dm
-		if (alcohol_clumsy)
-			mutations.Remove(CLUMSY)
-			alcohol_clumsy = 0
 
 	if(intoxication > AE_SLURRING*SR) // Slurring
 		slurring = max(slurring, 30)
 
 	if(intoxication > AE_CONFUSION*SR) // Confusion - walking in random directions
+		if (confused == 0)
+			src << "<span class='notice'>You feel unsteady on your feet!</span>"
 		confused = max(confused, 20)
+
+	//Make the drinker temporarily clumsy if intoxication is high enough
+	//We use a var to track if alcohol caused it, we won't add nor remove it if the drinker was already clumsy from some other source
+	if(intoxication > AE_CLUMSY*SR)
+		if (!alcohol_clumsy && !(CLUMSY in mutations))
+			src << "<span class='notice'>You feel a bit clumsy and uncoordinated.</span>"
+			mutations.Add(CLUMSY)
+			alcohol_clumsy = 1
+	else //Remove it if intoxication drops too low. We'll also have another check to remove it in life.dm
+		if (alcohol_clumsy)
+			src << "<span class='notice'>You feel more sober and steady</span>"
+			mutations.Remove(CLUMSY)
+			alcohol_clumsy = 0
 
 	if(intoxication > AE_BLURRING*SR) // Blurry vision
 		if (prob(10))//blurry vision effect is annoying, so nerfing it
