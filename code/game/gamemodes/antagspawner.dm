@@ -56,7 +56,7 @@ obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 	C.prefs.copy_to(H)
 	H.key = C.key
 
-	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you!.</b>"
+	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you!</b>"
 
 	spawn(1)
 		used = 1
