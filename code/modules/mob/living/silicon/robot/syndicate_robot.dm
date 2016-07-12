@@ -5,7 +5,6 @@
 	icon_state = "syndie_bloodhound"
 	lawchannel = "State"
 	req_access = list(access_syndicate)
-	components = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /mob/living/silicon/robot/syndicate/New()
 	if(!cell)
