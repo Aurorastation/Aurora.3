@@ -47,7 +47,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 var/const/FALLOFF_SOUNDS = 0.5
 
-/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global)
+/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, var/usepressure = 1)
 	if(!src.client || ear_deaf > 0)	return
 
 	if(soundin in footstepfx)
@@ -59,7 +59,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 	var/sound/S = sound(soundin)
 	S.wait = 0 //No queue
 	S.channel = 0 //Any channel
-	S.volume = vol
+
 	S.environment = -1
 	if (vary)
 		if(frequency)
@@ -74,30 +74,36 @@ var/const/FALLOFF_SOUNDS = 0.5
 		//sound volume falloff with distance
 		var/distance = get_dist(T, turf_source)
 
-		S.volume -= max(distance - world.view, 0) * 2 //multiplicative falloff to add on top of natural audio falloff.
+		vol -= max(distance - world.view, 0) * 2 //multiplicative falloff to add on top of natural audio falloff.
+		//Not sure if author understood what they were doing, but this is not multiplicative, its linear, and its implementation breaks longdistance sounds.
+			//This extra falloff should probably be rewritten or removed, but for now ive implemented a quick fix by only setting S.volume to vol after calculations are done
+			//This fix allows feeding in high volume values (>100) to make longrange sounds audible
+			// -Nanako
 
-		//sound volume falloff with pressure
-		var/pressure_factor = 1.0
+		if (usepressure)
+			//sound volume falloff with pressure. Pass usepressure = 0 to disable these calculations
+			var/pressure_factor = 1.0
 
-		var/datum/gas_mixture/hearer_env = T.return_air()
-		var/datum/gas_mixture/source_env = turf_source.return_air()
+			var/datum/gas_mixture/hearer_env = T.return_air()
+			var/datum/gas_mixture/source_env = turf_source.return_air()
 
-		if (hearer_env && source_env)
-			var/pressure = min(hearer_env.return_pressure(), source_env.return_pressure())
+			if (hearer_env && source_env)
+				var/pressure = min(hearer_env.return_pressure(), source_env.return_pressure())
 
-			if (pressure < ONE_ATMOSPHERE)
-				pressure_factor = max((pressure - SOUND_MINIMUM_PRESSURE)/(ONE_ATMOSPHERE - SOUND_MINIMUM_PRESSURE), 0)
-		else //in space
-			pressure_factor = 0
+				if (pressure < ONE_ATMOSPHERE)
+					pressure_factor = max((pressure - SOUND_MINIMUM_PRESSURE)/(ONE_ATMOSPHERE - SOUND_MINIMUM_PRESSURE), 0)
+			else //in space
+				pressure_factor = 0
 
-		if (distance <= 1)
-			pressure_factor = max(pressure_factor, 0.15)	//hearing through contact
+			if (distance <= 1)
+				pressure_factor = max(pressure_factor, 0.15)	//hearing through contact
 
-		S.volume *= pressure_factor
+			vol *= pressure_factor
 
-		if (S.volume <= 0)
+		if (vol <= 0)
 			return	//no volume means no sound
 
+		S.volume = vol
 		var/dx = turf_source.x - T.x // Hearing from the right/left
 		S.x = dx
 		var/dz = turf_source.y - T.y // Hearing from infront/behind
@@ -111,6 +117,8 @@ var/const/FALLOFF_SOUNDS = 0.5
 		S.environment = A.sound_env
 
 	src << S
+
+
 
 /client/proc/playtitlemusic()
 	if(!ticker || !ticker.login_music)	return

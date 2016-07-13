@@ -144,7 +144,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
-	message = process_chat_markup(message, list("~", "-"))
+	message = process_chat_markup(message, list("~", "_"))
 
 	switch(copytext(message,1,2))
 		if("*") return emote(copytext(message,2))
@@ -281,10 +281,12 @@ proc/get_radio_key_from_channel(var/channel)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
-	log_say("[name]/[key] : [message]")
+	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
 	return 1
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
+	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]")
+
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src)
 	return 1

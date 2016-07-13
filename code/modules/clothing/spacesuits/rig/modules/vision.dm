@@ -89,6 +89,9 @@
 
 	usable = 0
 
+	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL=1500)
+	construction_time = 300
+
 	interface_name = "meson scanner"
 	interface_desc = "An integrated meson scanner."
 
@@ -115,6 +118,9 @@
 
 	usable = 0
 
+	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL=1500,"uranium"=5000)
+	construction_time = 300
+
 	interface_name = "night vision interface"
 	interface_desc = "An integrated night vision system."
 
@@ -128,6 +134,9 @@
 
 	usable = 0
 
+	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL =1500)
+	construction_time = 300
+
 	interface_name = "security HUD"
 	interface_desc = "An integrated security heads up display."
 
@@ -140,6 +149,9 @@
 	icon_state = "healthhud"
 
 	usable = 0
+
+	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL=1500)
+	construction_time = 300
 
 	interface_name = "medical HUD"
 	interface_desc = "An integrated medical heads up display."

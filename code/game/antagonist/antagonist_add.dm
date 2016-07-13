@@ -30,6 +30,8 @@
 	if(faction_verb && player.current)
 		player.current.verbs |= faction_verb
 
+	player.current.client.verbs += /client/proc/aooc
+
 	// Handle only adding a mind and not bothering with gear etc.
 	if(nonstandard_role_type)
 		faction_members |= player
@@ -41,8 +43,12 @@
 	return 1
 
 /datum/antagonist/proc/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
+	if(!istype(player))
+		return 0
+
 	if(player.current && faction_verb)
 		player.current.verbs -= faction_verb
+
 	if(player in current_antagonists)
 		player.current << "<span class='danger'><font size = 3>You are no longer a [role_text]!</font></span>"
 		current_antagonists -= player
@@ -50,5 +56,10 @@
 		player.special_role = null
 		update_icons_removed(player)
 		BITSET(player.current.hud_updateflag, SPECIALROLE_HUD)
+
+		if (!is_special_character(player))
+			player.current.client.verbs -= /client/proc/aooc
+
 		return 1
+
 	return 0

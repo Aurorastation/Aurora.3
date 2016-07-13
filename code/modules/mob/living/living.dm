@@ -379,6 +379,10 @@ default behaviour is:
 
 
 /mob/living/proc/revive()
+	// Stop killing yourself. Please.
+	if(suiciding)
+		suiciding = 0
+
 	rejuvenate()
 	if(buckled)
 		buckled.unbuckle_mob()
@@ -773,4 +777,3 @@ default behaviour is:
 	if(W in internal_organs)
 		return
 	..()
-

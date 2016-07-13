@@ -20,11 +20,13 @@
 	density = 0
 	layer = DOOR_OPEN_LAYER - 0.01
 	open_layer = DOOR_OPEN_LAYER - 0.01 // Just below doors when open
-	closed_layer = DOOR_CLOSED_LAYER + 0.01 // Just above doors when closed
+	closed_layer = DOOR_CLOSED_LAYER + 0.2 // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
 	block_air_zones = 0
+	hashatch = 1
+	hatch_colour = "#f7d003"
 
 	var/blocked = 0
 	var/lockdown = 0 // When the door has detected a problem, it locks.
@@ -383,6 +385,13 @@
 				for(var/i=1;i<=ALERT_STATES.len;i++)
 					if(dir_alerts[d] & (1<<(i-1)))
 						overlays += new/icon(icon,"alert_[ALERT_STATES[i]]", dir=cdir)
+		if (hashatch)
+			hatch_image.color = hatch_colour//This line is unnecessary, but is here for configuring colours ingame. Should be removed when finished
+			if (hatchstate)
+				hatch_image.icon_state = "[hatchstyle]_open"
+			else
+				hatch_image.icon_state = hatchstyle
+			overlays += hatch_image
 	else
 		icon_state = "door_open"
 		if(blocked)

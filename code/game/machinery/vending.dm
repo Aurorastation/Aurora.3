@@ -202,7 +202,7 @@
 			return
 		else if(handled)
 			nanomanager.update_uis(src)
-			return // don't smack that machine with your 2 thalers
+			return // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/weapon/spacecash))
 		attack_hand(user)
@@ -530,12 +530,20 @@
 		if(coin.string_attached)
 			if(prob(50))
 				user << "\blue You successfully pull the coin out before \the [src] could swallow it."
+				src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			else
-				user << "\blue You weren't able to pull the coin out fast enough, the machine ate it, string and all."
+				user << "\red You weren't able to pull the coin out fast enough, the machine ate it, string and all."
+				src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 				qdel(coin)
+				coin = null
 				categories &= ~CAT_COIN
 		else
+			src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+			playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			qdel(coin)
+			coin = null
 			categories &= ~CAT_COIN
 
 	R.amount--
