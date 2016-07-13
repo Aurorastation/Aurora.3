@@ -68,6 +68,8 @@
 		..()
 
 		if(statpanel("Lobby") && ticker)
+			stat("Game ID:", game_id)
+
 			if(ticker.hide_mode)
 				stat("Game Mode:", "Secret")
 			else
