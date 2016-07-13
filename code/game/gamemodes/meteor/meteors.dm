@@ -92,7 +92,7 @@
 	var/power = 2
 	var/power_step = 0.75
 	var/dest
-	var/shieldsoundrange = 200 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
+	var/shieldsoundrange = 220 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
 	pass_flags = PASSTABLE
 	var/done = 0//This is set to 1 when the meteor is done colliding, and is used to ignore additional bumps while waiting for deletion
 
@@ -105,7 +105,7 @@
 	power_step = 0.5
 	hits = 2
 	detonation_chance = 30
-	shieldsoundrange = 100
+	shieldsoundrange = 120
 
 
 /obj/effect/meteor/Destroy()
@@ -131,6 +131,7 @@
 
 				if (T)//We have a double safety check on T to prevent runtime errors
 					meteor_shield_impact_sound(T, shieldsoundrange)
+				msg_admin_attack("Meteor impacted energy field at coords <[x],[y],[z]>")
 				spawn()//Delaying the Qdel a frame provides a little more safety
 					qdel(src)
 
@@ -142,6 +143,9 @@
 					!istype(A,/obj/machinery/field_generator) && \
 					prob(detonation_chance))
 					explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
+					msg_admin_attack("Meteor exploded at coords <[x],[y],[z]>")
+				else
+					msg_admin_attack("Meteor dissipated without exploding at coords <[x],[y],[z]>")
 				spawn()
 					qdel(src)
 
@@ -160,7 +164,7 @@
 	power = 4
 	power_step = 1
 	detonation_chance = 60
-	shieldsoundrange = 300//This can be set larger than the dimensions of the map, to allow it to remain louder at extreme distance
+	shieldsoundrange = 310//This can be set larger than the dimensions of the map, to allow it to remain louder at extreme distance
 
 	ex_act(severity)
 		return
@@ -192,6 +196,7 @@
 					if (T)
 						meteor_shield_impact_sound(T, shieldsoundrange)
 					explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
+					msg_admin_attack("Large Meteor impacted energy field and then exploded at coords <[x],[y],[z]>")
 					spawn()//Have to delay the qdel a little, or the playsound will throw a runtime
 						qdel(src)
 
@@ -208,7 +213,11 @@
 					done = 1
 					if(prob(detonation_chance) && !istype(A, /obj/structure/grille))
 						explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-					qdel(src)
+						msg_admin_attack("Large Meteor exploded at coords <[x],[y],[z]>")
+					else
+						msg_admin_attack("Large Meteor dissipated without a final explosion at coords <[x],[y],[z]>")
+					spawn()
+						qdel(src)
 
 
 /obj/effect/meteor/attackby(obj/item/weapon/W as obj, mob/user as mob)

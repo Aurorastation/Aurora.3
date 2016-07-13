@@ -209,14 +209,14 @@
 
 	if(density && istype(C, /obj/item/weapon/screwdriver))
 		hatch_open = !hatch_open
-		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance hatch.</span>",
-									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance hatch.")
+		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel.</span>",
+									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.")
 		update_icon()
 		return
 
 	if(blocked && istype(C, /obj/item/weapon/crowbar) && !repairing)
 		if(!hatch_open)
-			user << "<span class='danger'>You must open the maintenance hatch first!</span>"
+			user << "<span class='danger'>You must open the maintenance panel first!</span>"
 		else
 			user.visible_message("<span class='danger'>[user] is removing the electronics from \the [src].</span>",
 									"You start to remove the electronics from [src].")
@@ -340,13 +340,15 @@
 	return
 
 /obj/machinery/door/firedoor/close()
+	overlays.Cut()
 	latetoggle()
 	return ..()
 
 /obj/machinery/door/firedoor/open(var/forced = 0)
+	overlays.Cut()
 	if(hatch_open)
 		hatch_open = 0
-		visible_message("The maintenance hatch of \the [src] closes.")
+		visible_message("The maintenance panel of \the [src] closes.")
 		update_icon()
 
 	if(!forced)

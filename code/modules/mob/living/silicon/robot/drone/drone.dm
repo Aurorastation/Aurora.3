@@ -19,7 +19,7 @@
 	mob_size = 2
 	small = 1
 
-	//mob_bump_flag = SIMPLE_ANIMAL
+	mob_bump_flag = SIMPLE_ANIMAL
 	//mob_swap_flags = SIMPLE_ANIMAL
 	//mob_push_flags = SIMPLE_ANIMAL
 	//mob_always_swap = 1
