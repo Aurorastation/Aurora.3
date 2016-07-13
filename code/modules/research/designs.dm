@@ -1752,7 +1752,7 @@ datum/design/item/rigmodule/chem_module
 	id = "chem_module"
 	req_tech = list("biotech" = 5, "materials" = 4, "programming" = 3)
 	materials = list("$glass" = 9250, "$metal" = 10000, "$gold" = 2500, "$silver" = 4250, "$phoron" = 5500)
-	build_path = /obj/item/rig_module/chem_dispenser
+	build_path = /obj/item/rig_module/chem_dispenser/injector
 
 datum/design/item/rigmodule/plasmacutter_module
 	desc = "Allows for the construction of a hardsuit-mounted plasma cutter."
