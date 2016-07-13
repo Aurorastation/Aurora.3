@@ -361,3 +361,7 @@ proc/TextPreview(var/string,var/len=40)
 			message = replacetextEx(message, urls[url], url)
 
 	return message
+
+//Converts New Lines to html <br>
+/proc/nl2br(var/text)
+	return replacetextEx(text,"\n","<br>")
