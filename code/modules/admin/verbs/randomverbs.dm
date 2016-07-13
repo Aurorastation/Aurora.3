@@ -525,7 +525,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			query.Execute()
 
 			var/list/template_names = list()
-			var/templates[] = list()
+			var/list/templates = list()
 
 			while (query.NextRow())
 				template_names += query.item[1]
@@ -536,8 +536,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				src << "<span class='notice'>There are no templates in the database.</span>"
 				return
 
-			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in list(template_names)
-
+			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
 			reportbody = templates[reporttitle]
 
 		if("Custom")
