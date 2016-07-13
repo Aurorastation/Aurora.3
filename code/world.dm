@@ -522,12 +522,12 @@ var/world_topic_spam_protect_time = world.timeofday
 	F << the_mode
 
 
-/hook/startup/proc/loadMOTD()
-	world.load_motd()
+/hook/startup/proc/initialize_greeting()
+	world.initialize_greeting()
 	return 1
 
-/world/proc/load_motd()
-	join_motd = file2text("config/motd.txt")
+/world/proc/initialize_greeting()
+	server_greeting = new()
 
 
 /proc/load_configuration()

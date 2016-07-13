@@ -40,6 +40,7 @@ datum/preferences
 	var/muted = 0
 	var/last_ip
 	var/last_id
+	var/list/notifications = list()		//A list of datums, for the dynamic server greeting window.
 
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
@@ -50,6 +51,8 @@ datum/preferences
 	var/asfx_togs = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
+	var/motd_hash = ""					//Hashes for the new server greeting window.
+	var/memo_hash = ""
 
 	//character preferences
 	var/real_name						//our character's name
@@ -125,6 +128,8 @@ datum/preferences
 	var/sec_record = ""
 	var/gen_record = ""
 	var/exploit_record = ""
+	var/ccia_record = ""
+	var/list/ccia_actions = list()
 	var/disabilities = 0
 
 	var/nanotrasen_relation = "Neutral"
@@ -1729,6 +1734,8 @@ datum/preferences
 	character.med_record = med_record
 	character.sec_record = sec_record
 	character.gen_record = gen_record
+	character.ccia_record = ccia_record
+	character.ccia_actions = ccia_actions
 	character.exploit_record = exploit_record
 
 	character.gender = gender
@@ -1818,7 +1825,7 @@ datum/preferences
 			if(!dbcon.IsConnected())
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey ORDER BY id ASC")
+			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC")
 			query.Execute(list(":ckey" = user.client.ckey))
 
 			dat += "<b>Select a character slot to load</b><hr>"

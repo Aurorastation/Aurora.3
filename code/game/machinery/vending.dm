@@ -202,7 +202,7 @@
 			return
 		else if(handled)
 			nanomanager.update_uis(src)
-			return // don't smack that machine with your 2 thalers
+			return // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/weapon/spacecash))
 		attack_hand(user)
@@ -530,12 +530,20 @@
 		if(coin.string_attached)
 			if(prob(50))
 				user << "\blue You successfully pull the coin out before \the [src] could swallow it."
+				src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			else
-				user << "\blue You weren't able to pull the coin out fast enough, the machine ate it, string and all."
+				user << "\red You weren't able to pull the coin out fast enough, the machine ate it, string and all."
+				src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 				qdel(coin)
+				coin = null
 				categories &= ~CAT_COIN
 		else
+			src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+			playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			qdel(coin)
+			coin = null
 			categories &= ~CAT_COIN
 
 	R.amount--
@@ -694,7 +702,10 @@
 					/obj/item/weapon/reagent_containers/food/drinks/flask/barflask = 2, /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask = 2,
 					/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 30,/obj/item/weapon/reagent_containers/food/drinks/ice = 9,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/melonliquor = 2,/obj/item/weapon/reagent_containers/food/drinks/bottle/bluecuracao = 2,
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe = 2,/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine = 5)
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe = 2,/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/brandy = 4,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie = 4)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/tea = 10)
 	vend_delay = 15
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.

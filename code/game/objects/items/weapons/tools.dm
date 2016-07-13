@@ -215,7 +215,7 @@
 		if(prob(5))
 			remove_fuel(1)
 
-		if(get_fuel() == 0)
+		if(get_fuel() < 1)
 			setWelding(0)
 
 	//I'm not sure what this does. I assume it has to do with starting fires...
@@ -324,14 +324,13 @@
 			src.w_class = 4
 			welding = 1
 			update_icon()
-			processing_objects |= src
+			set_processing(1)
 		else
 			if(M)
 				M << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 			return
 	//Otherwise
 	else if(!set_welding && welding)
-		processing_objects -= src
 		if(M)
 			M << "<span class='notice'>You switch \the [src] off.</span>"
 		else if(T)
@@ -340,7 +339,17 @@
 		src.damtype = "brute"
 		src.w_class = initial(src.w_class)
 		src.welding = 0
+		set_processing(0)
 		update_icon()
+
+
+//A wrapper function for the experimental tool to override
+/obj/item/weapon/weldingtool/proc/set_processing(var/state = 0)
+	if (state == 1)
+		processing_objects.Add(src)
+	else
+		processing_objects.Remove(src)
+
 
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
 //Note: This should probably be moved to mob
@@ -396,25 +405,62 @@
 /obj/item/weapon/weldingtool/hugetank
 	name = "upgraded welding tool"
 	max_fuel = 80
-	w_class = 3.0
+	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 120)
 	origin_tech = "engineering=3"
 
+
+
+
+//The Experimental Welding Tool!
 /obj/item/weapon/weldingtool/experimental
 	name = "experimental welding tool"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
 	max_fuel = 40
-	w_class = 3.0
+	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 120)
-	origin_tech = "engineering=4;phorontech=3"
+	origin_tech = "engineering=4;biotech=4"
 	var/last_gen = 0
+	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
+	//800 = 1 unit per 1 minute and 20 seconds,
+	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
 
+/obj/item/weapon/weldingtool/Destroy()
+	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
+	..()
+
+
+//Make sure the experimental tool only stops processing when its turned off AND full
+/obj/item/weapon/weldingtool/experimental/set_processing(var/state = 0)
+	if (state == 1)
+		processing_objects.Add(src)
+		last_gen = world.time
+	else if (welding == 0 && get_fuel() >= max_fuel)
+		processing_objects.Remove(src)
+
+
+/obj/item/weapon/weldingtool/experimental/process()
+	..()
+	fuel_gen()
 
 
 /obj/item/weapon/weldingtool/experimental/proc/fuel_gen()//Proc to make the experimental welder generate fuel, optimized as fuck -Sieve
-	var/gen_amount = ((world.time-last_gen)/25)
-	reagents += (gen_amount)
-	if(reagents > max_fuel)
-		reagents = max_fuel
+
+	if (get_fuel() < max_fuel)
+		var/gen_amount = ((world.time-last_gen)/fuelgen_delay)
+		var/remainder = max_fuel - get_fuel()
+		gen_amount = min(gen_amount, remainder)
+		reagents.add_reagent("fuel", gen_amount)
+		//reagents += (gen_amount)
+
+		if(get_fuel() >= max_fuel)
+			//reagents = max_fuel
+			set_processing(0)
+	else
+		set_processing(0)
+	last_gen = world.time
+
+
 
 /*
  * Crowbar

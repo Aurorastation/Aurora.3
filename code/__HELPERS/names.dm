@@ -46,6 +46,10 @@ var/religion_name = null
 /proc/system_name()
 	return "Nyx"
 
+/proc/commstation_name()
+	if (commstation_name)
+		return commstation_name
+
 /proc/station_name()
 	if (station_name)
 		return station_name

@@ -15,6 +15,9 @@
 	icon_state = "module"
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, "plastic" = 30000, "glass" = 5000)
 
+	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000,"glass"=7000)
+	var/construction_time = 100
+
 	var/damage = 0
 	var/obj/item/weapon/rig/holder
 

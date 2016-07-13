@@ -18,6 +18,7 @@
 	//Active emote/pose
 	var/pose = null
 	var/list/chem_effects = list()
+	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/ingested = null
 	var/datum/reagents/metabolism/touching = null

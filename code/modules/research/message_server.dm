@@ -294,7 +294,11 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 //This proc is only to be called at round end.
 /obj/machinery/blackbox_recorder/proc/save_all_data_to_sql()
-	if(!feedback) return
+	if(!feedback)
+		return
+
+	if (!config.sql_enabled || !config.sql_stats)
+		return
 
 	round_end_data_gathering() //round_end time logging and some other data processing
 	establish_db_connection(dbcon)

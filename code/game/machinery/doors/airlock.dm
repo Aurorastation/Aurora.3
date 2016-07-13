@@ -3,6 +3,7 @@
 	icon = 'icons/obj/doors/Doorint.dmi'
 	icon_state = "door_closed"
 	power_channel = ENVIRON
+	hatch_colour = "#7d7d7d"
 
 	explosion_resistance = 10
 	var/aiControlDisabled = 0 //If 1, AI control is disabled until the AI hacks back in and disables the lock. If 2, the AI has bypassed the lock. If -1, the control is enabled but the AI had bypassed it earlier, so if it is disabled again the AI would have no trouble getting back in.
@@ -33,6 +34,7 @@
 	var/obj/item/device/magnetic_lock/bracer = null
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
 	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
+	hashatch = 1
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
@@ -57,31 +59,51 @@
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorcom.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
+	hatch_colour = "#446892"
 
 /obj/machinery/door/airlock/security
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
+	hatch_colour = "#c82b2b"
 
 /obj/machinery/door/airlock/engineering
 	name = "Airlock"
 	icon = 'icons/obj/doors/Dooreng.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
+	hatch_colour = "#caa638"
 
 /obj/machinery/door/airlock/medical
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doormed.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
+	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/maintenance
 	name = "Maintenance Access"
 	icon = 'icons/obj/doors/Doormaint.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_mai
+	hatch_colour = "#7d7d7d"
 
 /obj/machinery/door/airlock/external
 	name = "External Airlock"
 	icon = 'icons/obj/doors/Doorext.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
+	hashatch = 0
+
+/obj/machinery/door/airlock/science
+	name = "Airlock"
+	icon = 'icons/obj/doors/Doorsci.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_science
+	hatch_colour = "#d2d2d2"
+
+/obj/machinery/door/airlock/glass_science
+	name = "Glass Airlocks"
+	icon = 'icons/obj/doors/Doorsciglass.dmi'
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_science
+	glass = 1
+	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass
 	name = "Glass Airlock"
@@ -92,11 +114,13 @@
 	explosion_resistance = 5
 	opacity = 0
 	glass = 1
+	hatch_colour = "#eaeaea"
 
 /obj/machinery/door/airlock/centcom
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorele.dmi'
 	opacity = 0
+	hatch_colour = "#606061"
 
 /obj/machinery/door/airlock/vault
 	name = "Vault"
@@ -105,6 +129,7 @@
 	opacity = 1
 	secured_wires = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity //Until somebody makes better sprites.
+	hashatch = 0
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -115,6 +140,7 @@
 	icon = 'icons/obj/doors/Doorfreezer.dmi'
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_fre
+	hatch_colour = "#ffffff"
 
 /obj/machinery/door/airlock/hatch
 	name = "Airtight Hatch"
@@ -122,6 +148,15 @@
 	explosion_resistance = 20
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
+	hatch_colour = "#5b5b5b"
+	var/hatch_colour_bolted = "#695a5a"
+
+	update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
+		if(density && locked && lights && src.arePowerSystemsOn())
+			hatch_image.color = hatch_colour_bolted
+		else
+			hatch_image.color = hatch_colour
+		..()
 
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "Maintenance Hatch"
@@ -129,6 +164,7 @@
 	explosion_resistance = 20
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_mhatch
+	hatch_colour = "#7d7d7d"
 
 /obj/machinery/door/airlock/glass_command
 	name = "Maintenance Hatch"
@@ -139,6 +175,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
+	hatch_colour = "#345882"
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Maintenance Hatch"
@@ -149,6 +186,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 	glass = 1
+	hatch_colour = "#caa638"
 
 /obj/machinery/door/airlock/glass_security
 	name = "Maintenance Hatch"
@@ -159,6 +197,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	glass = 1
+	hatch_colour = "#b81b1b"
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Maintenance Hatch"
@@ -169,21 +208,25 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
+	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/mining
 	name = "Mining Airlock"
 	icon = 'icons/obj/doors/Doormining.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_min
+	hatch_colour = "#c29142"
 
 /obj/machinery/door/airlock/atmos
 	name = "Atmospherics Airlock"
 	icon = 'icons/obj/doors/Dooratmo.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
+	hatch_colour = "#caa638"
 
 /obj/machinery/door/airlock/research
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorresearch.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_research
+	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_research
 	name = "Maintenance Hatch"
@@ -195,6 +238,7 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_research
 	glass = 1
 	heat_proof = 1
+	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_mining
 	name = "Maintenance Hatch"
@@ -205,6 +249,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_min
 	glass = 1
+	hatch_colour = "#c29142"
 
 /obj/machinery/door/airlock/glass_atmos
 	name = "Maintenance Hatch"
@@ -215,41 +260,45 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	glass = 1
+	hatch_colour = "#caa638"
+
+
 
 /obj/machinery/door/airlock/gold
 	name = "Gold Airlock"
 	icon = 'icons/obj/doors/Doorgold.dmi'
 	mineral = "gold"
+	hatch_colour = "#dbbb2b"
 
 /obj/machinery/door/airlock/silver
 	name = "Silver Airlock"
 	icon = 'icons/obj/doors/Doorsilver.dmi'
 	mineral = "silver"
+	hatch_colour = "#ffffff"
 
 /obj/machinery/door/airlock/diamond
 	name = "Diamond Airlock"
 	icon = 'icons/obj/doors/Doordiamond.dmi'
 	mineral = "diamond"
+	hatch_colour = "#66eeee"
 
-/obj/machinery/door/airlock/uranium
-	name = "Uranium Airlock"
-	desc = "And they said I was crazy."
-	icon = 'icons/obj/doors/Dooruranium.dmi'
-	mineral = "uranium"
-	var/last_event = 0
 
-/obj/machinery/door/airlock/process()
-	// Deliberate no call to parent.
-	if(main_power_lost_until > 0 && world.time >= main_power_lost_until)
-		regainMainPower()
 
-	if(backup_power_lost_until > 0 && world.time >= backup_power_lost_until)
-		regainBackupPower()
+/obj/machinery/door/airlock/sandstone
+	name = "Sandstone Airlock"
+	icon = 'icons/obj/doors/Doorsand.dmi'
+	mineral = "sandstone"
+	hatch_colour = "#efc8a8"
 
-	else if(electrified_until > 0 && world.time >= electrified_until)
-		electrify(0)
+/obj/machinery/door/airlock/highsecurity
+	name = "Secure Airlock"
+	icon = 'icons/obj/doors/hightechsecurity.dmi'
+	explosion_resistance = 20
+	secured_wires = 1
+	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
+	hatch_colour = "#5a5a66"
 
-	..()
+
 
 /obj/machinery/door/airlock/uranium/process()
 	if(world.time > last_event+20)
@@ -258,16 +307,28 @@
 		last_event = world.time
 	..()
 
+//---Uranium doors
+/obj/machinery/door/airlock/uranium
+	name = "Uranium Airlock"
+	desc = "And they said I was crazy."
+	icon = 'icons/obj/doors/Dooruranium.dmi'
+	mineral = "uranium"
+	var/last_event = 0
+	hatch_colour = "#004400"
+
 /obj/machinery/door/airlock/uranium/proc/radiate()
 	for(var/mob/living/L in range (3,src))
 		L.apply_effect(15,IRRADIATE,0)
 	return
 
+
+//---Phoron door
 /obj/machinery/door/airlock/phoron
 	name = "Phoron Airlock"
 	desc = "No way this can end badly."
 	icon = 'icons/obj/doors/Doorphoron.dmi'
 	mineral = "phoron"
+	hatch_colour = "#891199"
 
 /obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
@@ -288,29 +349,22 @@
 	new/obj/structure/door_assembly( src.loc )
 	qdel(src)
 
-/obj/machinery/door/airlock/sandstone
-	name = "Sandstone Airlock"
-	icon = 'icons/obj/doors/Doorsand.dmi'
-	mineral = "sandstone"
+//-------------------------
 
-/obj/machinery/door/airlock/science
-	name = "Airlock"
-	icon = 'icons/obj/doors/Doorsci.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_science
+/obj/machinery/door/airlock/process()
+	// Deliberate no call to parent.
+	if(main_power_lost_until > 0 && world.time >= main_power_lost_until)
+		regainMainPower()
 
-/obj/machinery/door/airlock/glass_science
-	name = "Glass Airlocks"
-	icon = 'icons/obj/doors/Doorsciglass.dmi'
-	opacity = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_science
-	glass = 1
+	if(backup_power_lost_until > 0 && world.time >= backup_power_lost_until)
+		regainBackupPower()
 
-/obj/machinery/door/airlock/highsecurity
-	name = "Secure Airlock"
-	icon = 'icons/obj/doors/hightechsecurity.dmi'
-	explosion_resistance = 20
-	secured_wires = 1
-	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
+	else if(electrified_until > 0 && world.time >= electrified_until)
+		electrify(0)
+
+	..()
+
+
 
 /*
 About the new airlock wires panel:
@@ -501,6 +555,13 @@ About the new airlock wires panel:
 				overlays += image(icon, "welded")
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
 			overlays += image(icon, "sparks_damaged")
+
+		if (hashatch)
+			if (hatchstate)
+				hatch_image.icon_state = "[hatchstyle]_open"
+			else
+				hatch_image.icon_state = hatchstyle
+			overlays += hatch_image
 	else
 		icon_state = "door_open"
 		if((stat & BROKEN) && !(stat & NOPOWER))

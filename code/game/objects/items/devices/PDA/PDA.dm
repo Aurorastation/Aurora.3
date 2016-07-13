@@ -973,7 +973,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	t = reception.message
 
 	if(reception.message_server && (reception.telecomms_reception & TELECOMMS_RECEPTION_SENDER)) // only send the message if it's stable
-		if(reception.telecomms_reception & TELECOMMS_RECEPTION_RECEIVER == 0) // Does our recipient have a broadcaster on their level?
+		if(!(reception.telecomms_reception & TELECOMMS_RECEPTION_RECEIVER)) // Does our recipient have a broadcaster on their level?
 			U << "ERROR: Cannot reach recipient."
 			return
 		var/send_result = reception.message_server.send_pda_message("[P.owner]","[owner]","[t]")
@@ -1198,6 +1198,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user.drop_item()
 		C.loc = src
 		pai = C
+		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		user << "<span class='notice'>You slot \the [C] into [src].</span>"
 		nanomanager.update_uis(src) // update all UIs attached to src
 	else if(istype(C, /obj/item/weapon/pen))
