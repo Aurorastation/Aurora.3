@@ -1603,7 +1603,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	access = access_atmospherics
 	group = "Atmospherics"
 	
-/datum/supply_packs/hardsuitcrate_minin
+/datum/supply_packs/voidsuitcrate_minin
 	name = "Mining Voidsuit Crate"
 	contains = list(/obj/item/clothing/head/helmet/space/void/mining,
 					/obj/item/clothing/suit/space/void/mining)
