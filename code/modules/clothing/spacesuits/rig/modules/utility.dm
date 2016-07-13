@@ -270,6 +270,8 @@
 	usable = 0
 	selectable = 1
 	disruptive = 1
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_time = 400
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
