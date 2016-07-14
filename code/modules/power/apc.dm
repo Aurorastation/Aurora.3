@@ -218,7 +218,6 @@
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))
-		user << "A control terminal for the area electrical systems."
 		if(stat & BROKEN)
 			user << "Looks broken."
 			return
@@ -226,11 +225,11 @@
 			if(has_electronics && terminal)
 				user << "The cover is [opened==2?"removed":"open"] and the power cell is [ cell ? "installed" : "missing"]."
 			else if (!has_electronics && terminal)
-				user << "There are some wires but no any electronics."
+				user << "There are some wires but not any electronics."
 			else if (has_electronics && !terminal)
-				user << "Electronics installed but not wired."
+				user << "Electronics are installed but not wired."
 			else /* if (!has_electronics && !terminal) */
-				user << "There is no electronics nor connected wires."
+				user << "There are no electronics nor connected wires."
 
 		else
 			if (stat & MAINT)
