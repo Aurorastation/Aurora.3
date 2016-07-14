@@ -1623,6 +1623,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure
 	containername = "engineering magnetic locks"
+	access = access_engine_equip
 	group = "Engineering"
 
 /datum/supply_packs/maglocks_security
