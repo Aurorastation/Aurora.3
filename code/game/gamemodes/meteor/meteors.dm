@@ -131,7 +131,7 @@
 
 				if (T)//We have a double safety check on T to prevent runtime errors
 					meteor_shield_impact_sound(T, shieldsoundrange)
-				msg_admin_attack("Meteor impacted energy field at coords <[x],[y],[z]>")
+				msg_admin_attack("Meteor impacted energy field at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'><[x],[y],[z]>JUMPTO</a>)")
 				spawn()//Delaying the Qdel a frame provides a little more safety
 					qdel(src)
 
@@ -143,9 +143,9 @@
 					!istype(A,/obj/machinery/field_generator) && \
 					prob(detonation_chance))
 					explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-					msg_admin_attack("Meteor exploded at coords <[x],[y],[z]>")
+					msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'><[x],[y],[z]>JUMPTO</a>)")
 				else
-					msg_admin_attack("Meteor dissipated without exploding at coords <[x],[y],[z]>")
+					msg_admin_attack("Meteor dissipated without exploding at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'><[x],[y],[z]>JUMPTO</a>)")
 				spawn()
 					qdel(src)
 
@@ -196,7 +196,7 @@
 					if (T)
 						meteor_shield_impact_sound(T, shieldsoundrange)
 					explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-					msg_admin_attack("Large Meteor impacted energy field and then exploded at coords <[x],[y],[z]>")
+					msg_admin_attack("Large Meteor impacted energy field and then exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'><[x],[y],[z]>JUMPTO</a>)")
 					spawn()//Have to delay the qdel a little, or the playsound will throw a runtime
 						qdel(src)
 
@@ -213,9 +213,9 @@
 					done = 1
 					if(prob(detonation_chance) && !istype(A, /obj/structure/grille))
 						explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-						msg_admin_attack("Large Meteor exploded at coords <[x],[y],[z]>")
+						msg_admin_attack("Large Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'><[x],[y],[z]>JUMPTO</a>)")
 					else
-						msg_admin_attack("Large Meteor dissipated without a final explosion at coords <[x],[y],[z]>")
+						msg_admin_attack("Large Meteor dissipated without a final explosion at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'><[x],[y],[z]>JUMPTO</a>)")
 					spawn()
 						qdel(src)
 
