@@ -146,7 +146,7 @@
 
 				if(ismob(target) && target != user)
 
-					var/injtime = time //Injecting through a hardsuit takes longer due to needing to find a port.
+					var/injtime = time //Injecting through a voidsuit takes longer due to needing to find a port.
 
 					if(istype(target, /mob/living/carbon/human))
 
