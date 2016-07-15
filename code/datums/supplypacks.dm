@@ -1609,7 +1609,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/suit/space/void/mining)
 	cost = 40
 	containertype = /obj/structure/closet/crate/secure
-	containername = "Mining voidsuit kit"
+	containername = "mining voidsuit kit"
 	access = access_mining
 	group = "Supply"
 	
