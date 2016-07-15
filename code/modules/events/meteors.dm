@@ -80,7 +80,7 @@
 		else
 			endWhen = next_wave + wave_delay
 
-/datum/event/meteor_wave/start()
+/datum/event/meteor_shower/start()
 	command_announcement.Announce("Meteors have reached the station. Please stay away from outer areas until the shower has passed.", "Meteor Alert")
 
 
