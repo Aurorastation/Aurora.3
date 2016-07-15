@@ -110,6 +110,8 @@
 		wearer.bodytemperature += (suit_temp - wearer.bodytemperature)*0.6//Bodytemperature damps towards the suit temp
 		if (wearer.bodytemperature >= wearer.species.heat_discomfort_level)
 			wearer.species.get_environment_discomfort(wearer,"heat")
+			//This is added here because normal discomfort messages proc off of breath rather than bodytemperature.
+			//Since the surrounding environment isnt heated, they don't happen without it being specifically called here
 
 
 /obj/item/clothing/suit/bomb_suit/destroy()
