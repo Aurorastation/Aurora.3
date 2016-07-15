@@ -114,7 +114,7 @@
 			//Since the surrounding environment isnt heated, they don't happen without it being specifically called here
 
 
-/obj/item/clothing/suit/bomb_suit/destroy()
+/obj/item/clothing/suit/bomb_suit/Destroy()
 	processing_objects.Remove(src)
 	..()
 
