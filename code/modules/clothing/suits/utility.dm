@@ -112,6 +112,9 @@
 			wearer.species.get_environment_discomfort(wearer,"heat")
 
 
+/obj/item/clothing/suit/bomb_suit/destroy()
+	processing_objects.Remove(src)
+	..()
 
 
 /obj/item/clothing/head/bomb_hood/security
@@ -150,3 +153,8 @@
 	slowdown = 1.5
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
+
+
+#undef	 	BOMBSUIT_THERMAL
+#undef		BOMBHOOD_THERMAL
+#undef		BOMBSUIT_MAX_TEMPERATURE
