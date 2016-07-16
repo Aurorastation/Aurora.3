@@ -102,6 +102,21 @@
 	intact = 0
 	footstep_sound = "waterstep"
 
+/turf/simulated/floor/doom/transition
+	name = "flesh"
+	icon_state = "flesh2"
+	floor_type = null
+	intact = 0
+	footstep_sound = "waterstep"
+
+/turf/simulated/floor/doom/corner
+	name = "flesh"
+	icon_state = "flesh3"
+	floor_type = null
+	intact = 0
+	footstep_sound = "waterstep"
+
+
 /turf/simulated/floor/doom/lava
 	name = "lava"
 	icon_state = "lava"
