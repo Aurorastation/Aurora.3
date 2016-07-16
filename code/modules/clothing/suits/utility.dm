@@ -120,7 +120,7 @@
 		suit_temp = min(suit_temp+amount, BOMBSUIT_MAX_TEMPERATURE)
 
 		if (wearer.bodytemperature < suit_temp)
-			wearer.bodytemperature += (suit_temp - wearer.bodytemperature)*0.6//Bodytemperature damps towards the suit temp
+			wearer.bodytemperature += (suit_temp - wearer.bodytemperature)*0.5//Bodytemperature damps towards the suit temp
 			if (wearer.bodytemperature >= wearer.species.heat_discomfort_level)
 				wearer.species.get_environment_discomfort(wearer,"heat")
 				//This is added here because normal discomfort messages proc off of breath rather than bodytemperature.
