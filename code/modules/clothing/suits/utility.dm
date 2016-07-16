@@ -69,8 +69,8 @@
 	w_class = 7//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	slowdown = 7
-	armor = list(melee = 50, bullet = 50, laser = 50,energy = 40, bomb = 100, bio = 60, rad = 60)
+	slowdown = 8
+	armor = list(melee = 55, bullet = 55, laser = 55,energy = 60, bomb = 100, bio = 60, rad = 60)
 	flags = STOPPRESSUREDAMAGE|THICKMATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
