@@ -70,21 +70,34 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	slowdown = 7
-	armor = list(melee = 50, bullet = 50, laser = 40,energy = 30, bomb = 100, bio = 60, rad = 60)
+	armor = list(melee = 50, bullet = 50, laser = 50,energy = 40, bomb = 100, bio = 60, rad = 60)
 	flags = STOPPRESSUREDAMAGE|THICKMATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
 	var/mob/living/carbon/human/wearer = null
 	var/suit_temp = T20C
 
 /obj/item/clothing/suit/bomb_suit/equipped(var/mob/user, var/slot)
-	if (slot == slot_wear_suit && !(src in processing_objects))
+	if (slot == slot_wear_suit)
+		var/mob/living/carbon/human/H = user
+		H.visible_message("<font color='blue'>[H] starts putting on \the [src]...</font>", "<font color='blue'>You start putting on \the [src]...</font>")
+		if(!do_after(H,50))
+			if(H && H.wear_suit == src)
+				H.wear_suit = null
+				H.drop_from_inventory(src)
+			src.forceMove(get_turf(H))
+			return
+
 		wearer = user
 		wearer << "<span class='Notice'>You struggle into the [src]. It feels hot, heavy and uncomfortable</span>"
-		processing_objects.Add(src)
+		if(!(src in processing_objects))
+			processing_objects.Add(src)
+	else
+		wearer = null
 
 
 	..(user, slot)
@@ -93,25 +106,41 @@
 #define		BOMBHOOD_THERMAL	0.12
 #define		BOMBSUIT_MAX_TEMPERATURE	420	//heat 2 for humans, heat 1 for unathi
 /obj/item/clothing/suit/bomb_suit/process()
-	if (!wearer || !istype(loc, /mob))//If nobody's wearing the suit, then it cools down
+	if (!checkworn())//If nobody's wearing the suit, then it cools down
 		suit_temp -= 0.5
 		if (suit_temp < T20C)
 			suit_temp = T20C
 			processing_objects.Remove(src)
 		return
+	else
+		var/amount = BOMBSUIT_THERMAL
+		if (istype(wearer.head, /obj/item/clothing/head/bomb_hood))//wearing both parts heats up faster
+			amount += BOMBHOOD_THERMAL
 
-	var/amount = BOMBSUIT_THERMAL
-	if (istype(wearer.head, /obj/item/clothing/head/bomb_hood))//wearing both parts heats up faster
-		amount += BOMBHOOD_THERMAL
+		suit_temp = min(suit_temp+amount, BOMBSUIT_MAX_TEMPERATURE)
 
-	suit_temp = min(suit_temp+amount, BOMBSUIT_MAX_TEMPERATURE)
+		if (wearer.bodytemperature < suit_temp)
+			wearer.bodytemperature += (suit_temp - wearer.bodytemperature)*0.6//Bodytemperature damps towards the suit temp
+			if (wearer.bodytemperature >= wearer.species.heat_discomfort_level)
+				wearer.species.get_environment_discomfort(wearer,"heat")
+				//This is added here because normal discomfort messages proc off of breath rather than bodytemperature.
+				//Since the surrounding environment isnt heated, they don't happen without it being specifically called here
 
-	if (wearer.bodytemperature < suit_temp)
-		wearer.bodytemperature += (suit_temp - wearer.bodytemperature)*0.6//Bodytemperature damps towards the suit temp
-		if (wearer.bodytemperature >= wearer.species.heat_discomfort_level)
-			wearer.species.get_environment_discomfort(wearer,"heat")
-			//This is added here because normal discomfort messages proc off of breath rather than bodytemperature.
-			//Since the surrounding environment isnt heated, they don't happen without it being specifically called here
+/obj/item/clothing/suit/bomb_suit/proc/checkworn()
+	if (wearer)
+		if (wearer.wear_suit == src)
+			return 1
+
+	if (istype(loc, /mob/living/carbon/human))
+		wearer = loc
+		if (wearer.wear_suit == src)
+			return 1
+		else
+			return 0
+
+	else
+		wearer = null
+		return 0
 
 
 /obj/item/clothing/suit/bomb_suit/Destroy()
