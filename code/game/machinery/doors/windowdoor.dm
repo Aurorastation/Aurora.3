@@ -72,7 +72,6 @@
 					sleep(50)
 					close()
 		return
-	var/mob/M = AM // we've returned by here if M is not a mob
 	if (!( ticker ))
 		return
 	if (src.operating)
