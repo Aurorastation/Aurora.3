@@ -3,11 +3,23 @@
 /mob/living/silicon/robot/syndicate
 	lawupdate = 0
 	scrambledcodes = 1
+	modtype = "Syndicate"
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "syndie_bloodhound"
 	lawchannel = "State"
 	req_access = list(access_syndicate)
 
+/mob/living/silicon/robot/syndicate/init()
+	aiCamera = new/obj/item/device/camera/siliconcam/robot_camera(src)
+
+	laws = new /datum/ai_laws/syndicate_override
+	new /obj/item/weapon/robot_module/syndicate(src)
+
+	radio.keyslot = new /obj/item/device/encryptionkey/syndicate(radio)
+	radio.recalculateChannels()
+
+	playsound(loc, 'sound/mecha/nominalsyndi.ogg', 75, 0)	
+	
 /mob/living/silicon/robot/syndicate/New()
 	if(!cell)
 		cell = new /obj/item/weapon/cell(src)
@@ -17,7 +29,7 @@
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	
 	..()
-	
+
 //syndicate borg gear
 
 /obj/item/weapon/gun/energy/mountedsmg
@@ -42,6 +54,6 @@
 /obj/item/weapon/gun/energy/crossbow/cyborg
 	name = "mounted energy-crossbow"
 	desc = "A weapon favored by mercenary infiltration teams, this one is suited to be used by cyborgs."
-	max_shots = 3
+	max_shots = 4
 	charge_cost = 200
 	use_external_power = 1
