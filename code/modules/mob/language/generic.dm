@@ -20,7 +20,7 @@
 
 // 'basic' language; spoken by default.
 /datum/language/common
-	name = "Galactic Common"
+	name = "Ceti Basic"
 	desc = "The common galactic tongue."
 	speech_verb = "says"
 	whisper_verb = "whispers"
@@ -72,3 +72,10 @@
 	colour = "i"
 	key = "4"
 	flags = NO_STUTTER|SIGNLANG
+
+// Helper
+/proc/get_lang_name(var/datum/language/language)
+	if (!language || !istype(language))
+		return "Unknown"
+
+	return language.name

@@ -72,12 +72,11 @@
 					sleep(50)
 					close()
 		return
-	var/mob/M = AM // we've returned by here if M is not a mob
 	if (!( ticker ))
 		return
 	if (src.operating)
 		return
-	if (src.density && !M.small && src.allowed(AM))
+	if (src.density && src.allowed(AM))
 		open()
 		if(src.check_access(null))
 			sleep(50)

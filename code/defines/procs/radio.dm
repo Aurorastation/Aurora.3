@@ -1,7 +1,7 @@
-#define TELECOMMS_RECEPTION_NONE 0
-#define TELECOMMS_RECEPTION_SENDER 1
-#define TELECOMMS_RECEPTION_RECEIVER 2
-#define TELECOMMS_RECEPTION_BOTH 3
+#define TELECOMMS_RECEPTION_NONE 1
+#define TELECOMMS_RECEPTION_SENDER 2
+#define TELECOMMS_RECEPTION_RECEIVER 4
+#define TELECOMMS_RECEPTION_BOTH 8
 
 /proc/register_radio(source, old_frequency, new_frequency, radio_filter)
 	if(old_frequency)
@@ -44,7 +44,7 @@
 /proc/get_message_server()
 	if(message_servers)
 		for (var/obj/machinery/message_server/MS in message_servers)
-			if(MS.active)
+			if(MS.active && !within_jamming_range(MS))
 				return MS
 	return null
 
@@ -52,10 +52,12 @@
 	return signal && signal.data["done"]
 
 /proc/get_sender_reception(var/atom/sender, var/datum/signal/signal)
-	return check_signal(signal) ? TELECOMMS_RECEPTION_SENDER : TELECOMMS_RECEPTION_NONE
+	if (check_signal(signal) && !within_jamming_range(sender))
+		return TELECOMMS_RECEPTION_SENDER
+	return TELECOMMS_RECEPTION_NONE
 
 /proc/get_receiver_reception(var/receiver, var/datum/signal/signal)
-	if(receiver && check_signal(signal))
+	if(receiver && check_signal(signal) && !within_jamming_range(receiver))
 		var/turf/pos = get_turf(receiver)
 		if(pos && (pos.z in signal.data["level"]))
 			return TELECOMMS_RECEPTION_RECEIVER

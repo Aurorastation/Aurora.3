@@ -23,6 +23,7 @@
 
 	var/next_alarm_notice
 	var/list/datum/alarm/queued_alarms = new()
+	var/underdoor
 
 	#define SEC_HUD 1 //Security HUD mode
 	#define MED_HUD 2 //Medical HUD mode
@@ -30,7 +31,7 @@
 /mob/living/silicon/New()
 	silicon_mob_list |= src
 	..()
-	add_language("Galactic Common")
+	add_language("Ceti Basic")
 	init_subsystems()
 
 /mob/living/silicon/Destroy()
@@ -353,3 +354,25 @@
 	..()
 	if(cameraFollow)
 		cameraFollow = null
+
+/mob/living/silicon/Move(newloc, direct)
+	..(newloc,direct)
+	if (underdoor)
+		underdoor = 0
+		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
+			for (var/obj/machinery/door/D in loc)
+				if (D.hashatch)
+					underdoor = 1
+					break
+
+			if (!underdoor)
+				spawn(3)//A slight delay to let us finish walking out from under the door
+					layer = initial(layer)
+
+/mob/living/silicon/proc/under_door()
+	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
+	if (layer > UNDERDOOR)//Don't toggle it if we're hiding
+		layer = UNDERDOOR
+		underdoor = 1
+
+/mob/living/silicon/proc/not_under_door()

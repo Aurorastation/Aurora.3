@@ -221,10 +221,11 @@
 #define BLOCKHAIR              8192 // Temporarily removes the user's hair, facial and otherwise.
 
 // Flags for pass_flags.
-#define PASSTABLE  1
-#define PASSGLASS  2
-#define PASSGRILLE 4
-#define PASSBLOB   8
+#define PASSTABLE  		1//Things that can walk on tables-  most small creatures
+#define PASSGLASS  		2//Things that pass through glass, generally lasers
+#define PASSGRILLE 		4//Not sure what passes grilles. gases?
+#define PASSBLOB   		8//Used for parts of blob monster, probably shouldn't be a flag for this
+#define PASSDOORHATCH	16//Ability to pass through door flaps. Drones and similar small things
 
 // Turf-only flags.
 #define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
@@ -456,7 +457,8 @@
 #define MUTE_PRAY      4
 #define MUTE_ADMINHELP 8
 #define MUTE_DEADCHAT  16
-#define MUTE_ALL       31
+#define MUTE_AOOC      32
+#define MUTE_ALL       63
 
 // Number of identical messages required to get the spam-prevention auto-mute thing to trigger warnings and automutes.
 #define SPAM_TRIGGER_WARNING  5
@@ -605,10 +607,6 @@ var/list/be_special_flags = list(
 	"pAI"              = BE_PAI,
 	"vampire"          = BE_VAMPIRE
 )
-
-// Age limits on a character.
-#define AGE_MIN 17
-#define AGE_MAX 85
 
 // Languages.
 #define LANGUAGE_HUMAN  1
@@ -905,6 +903,7 @@ var/list/be_special_flags = list(
 #define LIGHTING_LAYER 11
 #define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
 #define SCREEN_LAYER 22			//Mob HUD/effects layer
+#define UNDERDOOR 3.09			//Just under a closed door
 
 
 /////////////////

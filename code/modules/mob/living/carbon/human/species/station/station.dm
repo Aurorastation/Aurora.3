@@ -24,6 +24,7 @@
 	primitive_form = "Stok"
 	darksight = 3
 	gluttonous = 1
+	ethanol_resistance = 1.5
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
 	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
@@ -76,6 +77,7 @@
 	darksight = 8
 	slowdown = -1
 	brute_mod = 1.2
+	ethanol_resistance = 0.8//Gets drunk a little faster
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
@@ -132,6 +134,7 @@
 	base_color = "#006666"
 
 	reagent_tag = IS_SKRELL
+	ethanol_resistance = 0.5//gets drunk faster
 
 /datum/species/diona
 	name = "Diona"
@@ -147,6 +150,7 @@
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
+	ethanol_resistance = -1//Can't get drunk
 
 
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
@@ -232,6 +236,7 @@
 	language = "Tradeband"
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
+	ethanol_resistance = -1//Can't get drunk
 
 	eyes = "blank_eyes"
 	brute_mod = 0.5
@@ -280,8 +285,10 @@
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	brute_mod = 0.5 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
+	tox_mod = 3 //they're not used to all our weird human bacteria.
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
+	ethanol_resistance = 2
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "oxygen"
 	poison_type = "null" //a species that breathes plasma shouldn't be poisoned by it.
@@ -311,13 +318,15 @@
 
 	has_organ = list(
 		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
-		"breathing apparatus" =  /obj/item/organ/vaurca/breathingapparatus,
+		"lungs" =    /obj/item/organ/lungs,
+		"filtration bit" =     /obj/item/organ/vaurca/filtrationbit,
 		"heart" =    /obj/item/organ/heart,
 		"second heart" =    /obj/item/organ/heart,
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes,
+
 )
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)

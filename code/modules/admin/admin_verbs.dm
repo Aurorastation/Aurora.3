@@ -50,7 +50,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/rename_silicon,		/*properly renames silicons*/
 	/client/proc/manage_silicon_laws,	/* Allows viewing and editing silicon laws. */
 	/client/proc/check_antagonists,
-	/client/proc/admin_memo,			/*admin memo system. show/delete/write. +SERVER needed to delete admin memos of others*/
+	/client/proc/admin_memo_control,			/*admin memo system. show/delete/write. +SERVER needed to delete admin memos of others*/
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
 //	/client/proc/toggle_hear_deadcast,	/*toggles whether we hear deadchat*/
@@ -155,7 +155,8 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
 	/client/proc/check_customitem_activity,
-	/client/proc/nanomapgen_DumpImage
+	/client/proc/nanomapgen_DumpImage,
+	/client/proc/admin_edit_motd
 	)
 var/list/admin_verbs_debug = list(
         /client/proc/getruntimelog,                     /*allows us to access runtime logs to somebody*/
@@ -296,7 +297,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/toggleattacklogs,
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/check_words,			/*displays cult-words*/
-	/client/proc/check_ai_laws			/*shows AI and borg laws*/
+	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
+	/client/proc/aooc
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784

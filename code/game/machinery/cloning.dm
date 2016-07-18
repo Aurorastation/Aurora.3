@@ -137,6 +137,7 @@
 		H.dna.UpdateUI()
 
 	H.set_cloned_appearance()
+	H.regenerate_icons()
 	update_icon()
 
 	for(var/datum/language/L in R.languages)
