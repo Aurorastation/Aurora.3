@@ -133,7 +133,7 @@
 			var/food_taken = min(food_needed, beaker.reagents.get_reagent_amount("virusfood"))
 
 			beaker.reagents.remove_reagent("virusfood", food_taken)
-			foodsupply = min(100, food_taken * 2)
+			foodsupply = min(100, foodsupply + (food_taken * 2))
 
 			nanomanager.update_uis(src)
 
