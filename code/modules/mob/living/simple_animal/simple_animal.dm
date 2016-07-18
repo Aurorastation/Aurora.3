@@ -150,6 +150,7 @@
 						visible_emote("[pick(emote_see)].")
 					else
 						audible_emote("[pick(emote_hear)].")
+			speak_audio()
 
 
 	//Atmos
@@ -216,6 +217,10 @@
 /mob/living/simple_animal/emote(var/act, var/type, var/desc)
 	if(act)
 		..(act, type, desc)
+
+//This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
+/mob/living/simple_animal/proc/speak_audio()
+	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc)
 	custom_emote(1, act_desc)
