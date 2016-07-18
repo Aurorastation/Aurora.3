@@ -105,13 +105,13 @@
 <td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4>
 <img src=side.png height=80 width=80 border=4></td></tr></table>
 <h3>Employment/skills summary:</h3> [decode(active1.fields["notes"])]<br><br>
-<h3>CCIA Notes:</h3>[decode(active1.fields["ccia_record"])]<br><br>"})
+<h3>CCIA Notes:</h3>[nl2br(decode(active1.fields["ccia_record"]))]<br><br>"})
 
 						//Add the CCIA Actions
 						dat+= text({"<h3>CCIA Actions:</h3><table border=1 width="100%"><tr><th>Title</th><th>Type</th><th>CCIA Thread</th></tr>"})
 						for (var/list/action in active1.fields["ccia_actions"])
 							dat+= text("<tr><td>[action[1]]</td><td>[action[2]]</td><td><a href='?src=\ref[src];choice=openActionUrl;url=[action[5]]'>Open</a></td></tr>")
-							dat+= text("<tr><td colspan=3>[action[4]]</td></tr>")
+							dat+= text("<tr><td colspan=3>[nl2br(action[4])]</td></tr>")
 						dat+= text("</table><br><br>")
 
 
@@ -290,7 +290,7 @@ What a mess.*/
 					var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( loc )
 					P.info = "<CENTER><B>Employment Record</B></CENTER><BR>"
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
-						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>\nEmployment/Skills Summary:<BR>\n[]<BR>", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"], decode(active1.fields["notes"]))
+						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>\nEmployment/Skills Summary:<BR>\n[]<BR><br>CCIA Actions / Records: <br>This terminal is not authorized to print CCIA records and/or notes", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"], decode(active1.fields["notes"]))
 					else
 						P.info += "<B>General Record Lost!</B><BR>"
 					P.info += "</TT>"

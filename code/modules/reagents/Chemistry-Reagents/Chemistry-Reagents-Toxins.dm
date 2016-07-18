@@ -371,7 +371,9 @@
 /datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
+	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
 	M.make_dizzy(4)
+
 	M.confused = max(M.confused, 20)
 
 /datum/reagent/impedrezene
@@ -421,12 +423,14 @@
 	M.druggy = max(M.druggy, 30)
 	if(dose < 1)
 		M.stuttering = max(M.stuttering, 3)
+		M.dizziness = max(150, M.dizziness)
 		M.make_dizzy(5)
 		if(prob(5))
 			M.emote(pick("twitch", "giggle"))
 	else if(dose < 2)
 		M.stuttering = max(M.stuttering, 3)
 		M.make_jittery(5)
+		M.dizziness = max(150, M.dizziness)
 		M.make_dizzy(5)
 		M.druggy = max(M.druggy, 35)
 		if(prob(10))
@@ -434,6 +438,7 @@
 	else
 		M.stuttering = max(M.stuttering, 3)
 		M.make_jittery(10)
+		M.dizziness = max(150, M.dizziness)
 		M.make_dizzy(10)
 		M.druggy = max(M.druggy, 40)
 		if(prob(15))

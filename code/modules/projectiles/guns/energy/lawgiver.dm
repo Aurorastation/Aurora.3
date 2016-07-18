@@ -173,7 +173,7 @@
 			usr << "\red [src.name] is already broadcasting a message."
 			return
 		usr << "\red [src.name]´s crowdcontrol activation sequence started"
-		message = "Citizens stay calm. Stand back from the crimescense. Interference with the crimescene carries an automatice brig sentence."
+		message = "Citizens stay calm. Stand back from the crime scene. Interference with the crime scene carries an automatic brig sentence."
 		message_enabled = 1
 		message_disable = 0
 		play_message()
