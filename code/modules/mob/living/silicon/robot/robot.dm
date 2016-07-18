@@ -169,17 +169,6 @@
 
 	playsound(loc, 'sound/voice/liveagain.ogg', 75, 1)
 
-/mob/living/silicon/robot/syndicate/init()
-	aiCamera = new/obj/item/device/camera/siliconcam/robot_camera(src)
-
-	laws = new /datum/ai_laws/syndicate_override
-	new /obj/item/weapon/robot_module/syndicate(src)
-
-	radio.keyslot = new /obj/item/device/encryptionkey/syndicate(radio)
-	radio.recalculateChannels()
-
-	playsound(loc, 'sound/mecha/nominalsyndi.ogg', 75, 0)
-
 /mob/living/silicon/robot/SetName(pickedName as text)
 	custom_name = pickedName
 	updatename()
