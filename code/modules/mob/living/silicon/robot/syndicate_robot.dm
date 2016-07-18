@@ -1,3 +1,5 @@
+//syndicate cyborgs, they aren't fully linked to the station, also are more combat oriented, for now only the regular assault module - alberyk
+
 /mob/living/silicon/robot/syndicate
 	lawupdate = 0
 	scrambledcodes = 1
@@ -35,3 +37,9 @@
 	list(name="short bursts", 	burst=5, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 	)
 
+/obj/item/weapon/gun/energy/crossbow/cyborg
+	name = "mounted energy-crossbow"
+	desc = "A weapon favored by mercenary infiltration teams, this one is suited to be used by cyborgs."
+	max_shots = 3
+	charge_cost = 200
+	use_external_power = 1
