@@ -13,9 +13,11 @@
 		cell = new /obj/item/weapon/cell(src)
 		cell.maxcharge = 25000
 		cell.charge = 25000
-
+	if(!jetpack)
+		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
+	
 	..()
-
+	
 //syndicate borg gear
 
 /obj/item/weapon/gun/energy/mountedsmg
