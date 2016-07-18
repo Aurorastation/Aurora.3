@@ -90,6 +90,7 @@
 /datum/job/qm
 	title = "Quartermaster"
 	flag = QUARTERMASTER
+	head_position = 1
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"

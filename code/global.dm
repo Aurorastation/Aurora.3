@@ -97,7 +97,7 @@ var/station_name   = "NSS Exodus"
 var/commstation_name = "NMSS Odin"
 var/game_version   = "Baystation12"
 var/changelog_hash = ""
-var/game_year      = (text2num(time2text(world.realtime, "YYYY")) + 544)
+var/game_year      = (text2num(time2text(world.realtime, "YYYY")) + 442)
 
 var/going             = 1.0
 var/master_mode       = "extended" // "extended"
@@ -179,7 +179,7 @@ var/datum/moduletypes/mods = new()
 var/wavesecret    = 0
 var/gravity_is_on = 1
 
-var/join_motd = null
+var/datum/server_greeting/server_greeting = null
 var/forceblob = 0
 
 var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano UIs.

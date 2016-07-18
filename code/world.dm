@@ -1,15 +1,41 @@
+
+/*
+	The initialization of the game happens roughly like this:
+
+	1. All global variables are initialized (including the global_init instance).
+	2. The map is initialized, and map objects are created.
+	3. world/New() runs, creating the process scheduler (and the old master controller) and spawning their setup.
+	4. processScheduler/setup() runs, creating all the processes. game_controller/setup() runs, calling initialize() on all movable atoms in the world.
+	5. The gameticker is created.
+
+*/
 var/global/datum/global_init/init = new ()
 
 /*
 	Pre-map initialization stuff should go here.
 */
 /datum/global_init/New()
+	generate_gameid()
 
 	makeDatumRefLists()
 	load_configuration()
 
 	qdel(src)
 
+
+/var/game_id = null
+/proc/generate_gameid()
+	if(game_id != null)
+		return
+	game_id = ""
+	
+	var/list/c = list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
+	var/l = c.len
+
+	var/t = world.realtime
+	while(t != 0)
+		game_id += c[(t % l) + 1]
+		t = round(t / l)
 
 /world
 	mob = /mob/new_player
@@ -18,15 +44,14 @@ var/global/datum/global_init/init = new ()
 	view = "15x15"
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
 
-
-
+	
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
 	diary = file("data/logs/[date_string].log")
-	diary << "[log_end]\n[log_end]\nStarting up. [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
+	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
 	if(byond_version < RECOMMENDED_VERSION)
@@ -522,12 +547,12 @@ var/world_topic_spam_protect_time = world.timeofday
 	F << the_mode
 
 
-/hook/startup/proc/loadMOTD()
-	world.load_motd()
+/hook/startup/proc/initialize_greeting()
+	world.initialize_greeting()
 	return 1
 
-/world/proc/load_motd()
-	join_motd = file2text("config/motd.txt")
+/world/proc/initialize_greeting()
+	server_greeting = new()
 
 
 /proc/load_configuration()

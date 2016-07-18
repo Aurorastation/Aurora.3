@@ -181,6 +181,7 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 		if(MUTE_PRAY)		mute_string = "pray"
 		if(MUTE_ADMINHELP)	mute_string = "adminhelp, admin PM and ASAY"
 		if(MUTE_DEADCHAT)	mute_string = "deadchat and DSAY"
+		if(MUTE_AOOC)		mute_string = "AOOC"
 		if(MUTE_ALL)		mute_string = "everything"
 		else				return
 
@@ -524,7 +525,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			query.Execute()
 
 			var/list/template_names = list()
-			var/templates[] = list()
+			var/list/templates = list()
 
 			while (query.NextRow())
 				template_names += query.item[1]
@@ -535,8 +536,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				src << "<span class='notice'>There are no templates in the database.</span>"
 				return
 
-			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in list(template_names)
-
+			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
 			reportbody = templates[reporttitle]
 
 		if("Custom")

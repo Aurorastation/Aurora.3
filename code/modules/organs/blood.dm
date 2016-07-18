@@ -126,10 +126,16 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		for(var/obj/item/organ/external/temp in organs)
 			if(!(temp.status & ORGAN_BLEEDING) || temp.status & ORGAN_ROBOT)
 				continue
-			for(var/datum/wound/W in temp.wounds) if(W.bleeding())
-				blood_max += W.damage / 40
-			if (temp.open)
-				blood_max += 2  //Yer stomach is cut open
+			if(src.get_species() == "Vaurca")
+				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
+					blood_max += W.damage / 20
+				if (temp.open)
+					blood_max += 4  //Yer stomach is cut open
+			else
+				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
+					blood_max += W.damage / 40
+				if (temp.open)
+					blood_max += 2  //Yer stomach is cut open
 		drip(blood_max)
 
 //Makes a blood drop, leaking amt units of blood from the mob

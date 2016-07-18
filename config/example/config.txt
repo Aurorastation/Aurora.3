@@ -362,6 +362,9 @@ STARLIGHT 0
 ## Uncomment to override default brain health.
 #DEFAULT_BRAIN_HEALTH 400
 
+## Uncomment this to upload round statistics to the SQL database.
+# SQL_STATS
+
 ## Uncomment this to house whitelists on the SQL database.
 # SQL_WHITELISTS
 

@@ -9,7 +9,7 @@
 	universal_speak = 0
 	universal_understand = 1
 	gender = NEUTER
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSDOORHATCH
 	braintype = "Robot"
 	lawupdate = 0
 	density = 0
@@ -19,7 +19,7 @@
 	mob_size = 2
 	small = 1
 
-	//mob_bump_flag = SIMPLE_ANIMAL
+	mob_bump_flag = SIMPLE_ANIMAL
 	//mob_swap_flags = SIMPLE_ANIMAL
 	//mob_push_flags = SIMPLE_ANIMAL
 	//mob_always_swap = 1

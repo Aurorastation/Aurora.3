@@ -618,7 +618,6 @@ var/list/turret_icons
 	else
 		A = new projectile(loc)
 		playsound(loc, shot_sound, 75, 1)
-	A.original = target
 
 	// Lethal/emagged turrets use twice the power due to higher energy beams
 	// Emagged turrets again use twice as much power due to higher firing rates
@@ -626,19 +625,9 @@ var/list/turret_icons
 
 	//Turrets aim for the center of mass by default.
 	//If the target is grabbing someone then the turret smartly aims for extremities
-	var/obj/item/weapon/grab/G = locate() in target
-	if(G && G.state >= GRAB_NECK) //works because mobs are currently not allowed to upgrade to NECK if they are grabbing two people.
-		A.def_zone = pick("head", "l_hand", "r_hand", "l_foot", "r_foot", "l_arm", "r_arm", "l_leg", "r_leg")
-	else
-		A.def_zone = pick("chest", "groin")
+	var/def_zone = get_exposed_defense_zone(target)
 
-	//Shooting Code:
-	A.current = T
-	A.starting = T
-	A.yo = U.y - T.y
-	A.xo = U.x - T.x
-	spawn(1)
-		A.process()
+	A.launch(target, def_zone)
 
 /datum/turret_checks
 	var/enabled

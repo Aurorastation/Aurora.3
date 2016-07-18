@@ -1,5 +1,5 @@
 proc/sql_poll_population()
-	if(!config.sql_enabled)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	var/admincount = admins.len
 	var/playercount = 0
@@ -26,7 +26,7 @@ proc/sql_report_round_end()
 		return
 
 proc/sql_report_death(var/mob/living/carbon/human/H)
-	if(!config.sql_enabled)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	if(!H)
 		return
@@ -60,7 +60,7 @@ proc/sql_report_death(var/mob/living/carbon/human/H)
 
 
 proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
-	if(!config.sql_enabled)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	if(!H)
 		return
@@ -94,7 +94,7 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 
 
 proc/statistic_cycle()
-	if(!config.sql_enabled)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	while(1)
 		sql_poll_population()
@@ -102,6 +102,9 @@ proc/statistic_cycle()
 
 //This proc is used for feedback. It is executed at round end.
 proc/sql_commit_feedback()
+	if(!config.sql_enabled || !config.sql_stats)
+		return
+
 	if(!blackbox)
 		log_game("Round ended without a blackbox recorder. No feedback was sent to the database.")
 		return

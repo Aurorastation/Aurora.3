@@ -58,7 +58,7 @@
 		usr << "<span class='danger'>You have deadchat muted.</span>"
 		return
 
-	message = process_chat_markup(message, list("~", "-"))
+	message = process_chat_markup(message, list("~", "_"))
 
 	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message'>\"[message]\"</span>", src)
 

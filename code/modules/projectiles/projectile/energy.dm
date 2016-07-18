@@ -110,7 +110,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	kill_count = 100
 	embed = 0
-	incinerate = 40
+//	incinerate = 40
 	weaken = 5
 	stun = 5
 

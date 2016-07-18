@@ -313,25 +313,61 @@
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 
+
+
+#define ETHYL_INTOX_COST	3 //The cost of power to remove one unit of intoxication from the patient
+#define ETHYL_REAGENT_POWER	20 //The amount of power in one unit of ethyl
+
+//Ethylredoxrazine will remove a number of units of alcoholic substances from the patient's blood and stomach, equal to its pow
+//Once all alcohol in the body is neutralised, it will then cure intoxication and sober the patient up
 /datum/reagent/ethylredoxrazine
 	name = "Ethylredoxrazine"
 	id = "ethylredoxrazine"
 	description = "A powerful oxidizer that reacts with ethanol."
 	reagent_state = SOLID
 	color = "#605048"
+	metabolism = REM * 0.3
 	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+
 
 /datum/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-	M.dizziness = 0
-	M.drowsyness = 0
-	M.stuttering = 0
-	M.confused = 0
+
+	var/P = removed * ETHYL_REAGENT_POWER
+	var/DP = dose * ETHYL_REAGENT_POWER//tiny optimisation
+
+	//These status effects will now take a little while for the dose to build up and remove them
+	M.dizziness = max(0, M.dizziness - DP)
+	M.drowsyness = max(0, M.drowsyness - DP)
+	M.stuttering = max(0, M.stuttering - DP)
+	M.confused = max(0, M.confused - DP)
+
 	if(M.ingested)
 		for(var/datum/reagent/R in M.ingested.reagent_list)
 			if(istype(R, /datum/reagent/ethanol))
-				R.dose = max(R.dose - removed * 5, 0)
+				var/amount = min(P, R.volume)
+				M.ingested.remove_reagent(R.id, amount)
+				P -= amount
+				if (P <= 0)
+					return
+
+	//Even though alcohol is not supposed to be injected, ethyl removes it from the blood too,
+	//as a treatment option if someone was dumb enough to do this
+	if(M.bloodstr)
+		for(var/datum/reagent/R in M.bloodstr.reagent_list)
+			if(istype(R, /datum/reagent/ethanol))
+				var/amount = min(P, R.volume)
+				M.bloodstr.remove_reagent(R.id, amount)
+				P -= amount
+				if (P <= 0)
+					return
+
+	if (M.intoxication && P > 0)
+		var/amount = min(M.intoxication * ETHYL_INTOX_COST, P)
+		M.intoxication = max(0, (M.intoxication - (amount / ETHYL_INTOX_COST)))
+		P -= amount
 
 /datum/reagent/hyronalin
 	name = "Hyronalin"

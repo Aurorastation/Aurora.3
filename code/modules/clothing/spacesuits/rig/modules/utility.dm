@@ -34,6 +34,8 @@
 	suit_overlay_active = "plasmacutter"
 	suit_overlay_inactive = "plasmacutter"
 	use_power_cost = 0.5
+	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
+	construction_time = 300
 
 	device_type = /obj/item/weapon/pickaxe/plasmacutter
 
@@ -43,6 +45,8 @@
 	icon_state = "scanner"
 	interface_name = "health scanner"
 	interface_desc = "Shows an informative health readout when used on a subject."
+	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
+	construction_time = 300
 
 	device_type = /obj/item/device/healthanalyzer
 
@@ -55,6 +59,8 @@
 	suit_overlay_active = "mounted-drill"
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
+	construction_cost = list("glass"=2250,DEFAULT_WALL_MATERIAL=55000,"silver"=5250,"diamond"=3750)
+	construction_time = 350
 
 	device_type = /obj/item/weapon/pickaxe/diamonddrill
 
@@ -88,6 +94,8 @@
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	usable = 1
 	engage_string = "Configure RCD"
+	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500,"silver"=10000,"gold"=10000)
+	construction_time = 1000
 
 	device_type = /obj/item/weapon/rcd/mounted
 
@@ -128,6 +136,8 @@
 	toggleable = 0
 	disruptive = 0
 	confined_use = 1
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_time = 400
 
 	engage_string = "Inject"
 
@@ -260,6 +270,8 @@
 	usable = 0
 	selectable = 1
 	disruptive = 1
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_time = 400
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
@@ -327,6 +339,8 @@
 	toggleable = 1
 	selectable = 0
 	disruptive = 0
+	construction_cost = list("glass"= 4250,DEFAULT_WALL_MATERIAL=15000,"silver"=4250,"uranium"=5250)
+	construction_time = 300
 
 	suit_overlay_active = "maneuvering_active"
 	suit_overlay_inactive = null //"maneuvering_inactive"
