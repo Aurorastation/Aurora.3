@@ -55,7 +55,7 @@
 
 	if(is_train_head() && !on)
 		return 0
-	
+
 	//space check ~no flying space trains sorry
 	if(on && istype(destination, /turf/space))
 		return 0
@@ -79,12 +79,13 @@
 		return
 	..()
 
-//cargo trains are open topped, so there is a chance the projectile will hit the mob ridding the train instead
+// Cargo trains are open topped, so you can shoot at the driver.
+// Or you can shoot at the tug itself, if you're good.
 /obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
-	if(buckled_mob && prob(70))
+	if (buckled_mob && Proj.original == buckled_mob)
 		buckled_mob.bullet_act(Proj)
-		return
-	..()
+	else
+		..()
 
 /obj/vehicle/train/cargo/update_icon()
 	if(open)
