@@ -117,6 +117,10 @@
 	if (Proj.damage_type == BRUTE || Proj.damage_type == BURN)
 		health -= Proj.damage
 	..()
+
+	if (prob(20))
+		PoolOrNew(/obj/effect/effect/sparks, loc)
+
 	healthcheck()
 
 /obj/vehicle/meteorhit()

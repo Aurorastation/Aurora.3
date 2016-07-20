@@ -34,7 +34,7 @@
 	handle_hud_list()
 
 	//Handle species-specific deaths.
-	species.handle_death(src)
+	species.handle_death(src, gibbed)
 	animate_tail_stop()
 
 	//Handle brain slugs.
