@@ -39,14 +39,6 @@
 		update_icon()
 	else
 		..()
-	/*
-	else if (istype (O, /mob) && O == user)
-		user.visible_message("[user] starts climbing over the [src]", "You start climbing over the [src]")
-		var/turf/prevloc = loc
-		if (do_after(user, 20, needhand = 0) && loc == prevloc)
-			user.forceMove(get_turf(src))
-			user.visible_message("[user] climbs over the [src]", "You climb over the [src]")
-	*/
 
 //New Altclick functionality!
 //Altclick the cart with a mop to stow the mop away
