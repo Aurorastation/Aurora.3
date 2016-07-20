@@ -7,7 +7,7 @@ var/global/list/robot_modules = list(
 	"Crisis" 		= /obj/item/weapon/robot_module/medical/crisis,
 	"Surgeon" 		= /obj/item/weapon/robot_module/medical/surgeon,
 	"Security" 		= /obj/item/weapon/robot_module/security/general,
-	"Combat" 		= /obj/item/weapon/robot_module/security/combat,
+	"Combat" 		= /obj/item/weapon/robot_module/combat,
 	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
 	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
 	"Janitor" 		= /obj/item/weapon/robot_module/janitor
@@ -658,7 +658,7 @@ var/global/list/robot_modules = list(
 
 	return
 
-/obj/item/weapon/robot_module/security/combat
+/obj/item/weapon/robot_module/combat
 	name = "combat robot module"
 	sprites = list("Combat Android" = "droid-combat")
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
