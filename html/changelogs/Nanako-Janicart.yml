@@ -34,7 +34,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd "Increased number of janitor slots to two."
-  - rscadd "Janitorial carts can now be constructed with metal sheets, and deconstructed with a wrench (cart must be empty to deconstruct)."
+  - rscadd "Janitorial carts can now be constructed with metal sheets, and deconstructed with a wrench, welder or plasmacutter if empty."
   - tweak "Janicarts now come without a bucket. Click and drag a mop bucket onto a cart to mount it, and you can unmount it from the janicart interface."
   - tweak "Placing a mop into a janicart, and pouring containers into the bucket, is now done with alt-click. A leftclick will now always wet the mop, and throw objects into the trashbag, respectively."
   - rscadd "Janicarts can now be climbed over like tables - Click and drag your sprite onto it."
