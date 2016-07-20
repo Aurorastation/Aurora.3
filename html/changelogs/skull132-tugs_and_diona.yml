@@ -9,5 +9,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Age restrictions for all jobs and antags are now implemented again with config options."
-  - tweak: "You are now prompted to confirm whether or not you want to delete a character."
+  - tweak: "You can now shoot at cargo trains, or their passangers specifically. If you click on the train, you will hit it, and thus can destroy it while the passanger is still onboard."
+  - tweak: "Gibbing or husking a Diona will no longer have them split off into nymphs. A gibbed or husked Diona is now permadead."
