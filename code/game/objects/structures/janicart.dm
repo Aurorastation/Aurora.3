@@ -128,7 +128,7 @@
 /obj/structure/janitorialcart/proc/dismantle(var/mob/user = null)
 	if (!dismantled)
 		if (has_items)
-		spill()
+			spill()
 
 		if (user)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
