@@ -3143,3 +3143,43 @@
 		reagents.add_reagent("imidazoline", 20)
 		reagents.add_reagent("hyperzine", 5)
 		bitesize = 5
+		
+//unathi snacks - sprites by Araskael
+
+/obj/item/weapon/reagent_containers/food/snacks/meatsnack
+	name = "mo'gunz meat pie"
+	icon_state = "meatsnack"
+	desc = "Made from cowpigturducken meat, packed into a crispy crust."
+	trash = /obj/item/trash/meatsnack
+	filling_color = "#631212"
+
+	New()
+		..()
+		reagents.add_reagent("protein", 12)
+		bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/maps
+	name = "map salty ham"
+	icon_state = "maps"
+	desc = "Cured ham with 200% the amount of recommended daily sodium per can."
+	trash = /obj/item/trash/maps
+	filling_color = "#631212"
+
+	New()
+		..()
+		reagents.add_reagent("protein", 6)
+		reagents.add_reagent("sodiumchloride", 3)
+		bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/nathisnack
+	name = "nathi-snack corned beef"
+	icon_state = "cbeef"
+	desc = "Delicious corned beef and preservatives. The stuff that unathi crave!"
+	trash = /obj/item/trash/nathisnack
+	filling_color = "#631212"
+
+	New()
+		..()
+		reagents.add_reagent("protein", 10)
+		reagents.add_reagent("iron", 3)
+		bitesize = 4
