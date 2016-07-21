@@ -371,6 +371,37 @@ var/global/list/damage_icon_parts = list()
 
 	if(update_icons)   update_icons()
 
+//IPC EMOTE OVERLAY
+/mob/living/carbon/human/proc/update_emote(var/update_icons=1)
+
+	overlays_standing[HAIR_LAYER]	= null
+
+	var/obj/item/organ/external/head/head_organ = get_organ("head")
+	if(!head_organ || head_organ.is_stump() )
+		if(update_icons)   update_icons()
+		return
+
+	//masks and helmets can obscure our hair.
+	if( (head && (head.flags & BLOCKHAIR)) || (wear_mask && (wear_mask.flags & BLOCKHAIR)))
+		if(update_icons)   update_icons()
+		return
+
+	//base icons
+	var/icon/face_standing	= new /icon('icons/mob/IPC_emote.dmi',"smile")
+
+	if(h_style && !(head && (head.flags & BLOCKHEADHAIR)))
+		var/datum/sprite_accessory/ipc_emote = ipc_emote_list[h_style]
+		if(ipc_emote && (src.species.get_bodytype() in ipc_emote.species_allowed))
+			var/icon/hair_s = new/icon("icon" = ipc_emote.icon, "icon_state" = "[ipc_emote.icon_state]")
+			if(ipc_emote.do_colouration)
+				hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
+
+			face_standing.Blend(hair_s, ICON_OVERLAY)
+
+	overlays_standing[HAIR_LAYER]	= image(face_standing)
+
+	if(update_icons)   update_icons()
+
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
 	var/fat
 	if(FAT in mutations)
