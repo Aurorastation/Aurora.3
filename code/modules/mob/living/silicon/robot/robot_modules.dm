@@ -672,7 +672,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
-
+	return
+	
 /obj/item/weapon/robot_module/drone
 	name = "drone module"
 	no_slip = 1
