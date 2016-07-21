@@ -671,7 +671,7 @@
 		name = "Tajara Curly"
 		icon_state = "hair_curly"
 		species_allowed = list("Tajara")
-		
+
 	taj_ears_wife
 		name = "Tajara Housewife"
 		icon_state = "hair_wife"
@@ -681,17 +681,17 @@
 		name = "Tajara Victory Curls"
 		icon_state = "hair_victory"
 		species_allowed = list("Tajara")
-				
+
 	taj_ears_bob
 		name = "Tajara Bob"
 		icon_state = "hair_tbob"
 		species_allowed = list("Tajara")
-		
+
 	taj_ears_fingercurl
 		name = "Tajara Finger Curls"
 		icon_state = "hair_fingerwave"
 		species_allowed = list("Tajara")
-		
+
 	vox_quills_short
 		name = "Short Vox Quills"
 		icon_state = "vox_shortquills"
@@ -762,3 +762,32 @@
 		icon_state = "default"
 		icon = 'icons/mob/human_races/r_skrell.dmi'
 		species_allowed = list("Skrell")
+
+/datum/sprite_accessory/ipc_emote
+
+	icon = 'icons/mob/IPC_emote.dmi'
+
+	icp_emote_smile
+		name = "Smile emote"
+		icon_state = "smile"
+		species_allowed = list("Machine")
+
+	icp_emote_grin
+		name = "Grin emote"
+		icon_state = "grin"
+		species_allowed = list("Machine")
+
+	icp_emote_cry
+		name = "Cry emote"
+		icon_state = "cry"
+		species_allowed = list("Machine")
+
+	icp_emote_alert
+		name = "Alert emote"
+		icon_state = "alert"
+		species_allowed = list("Machine")
+
+	icp_emote_heart
+		name = "Heart emote"
+		icon_state = "heart"
+		species_allowed = list("Machine")
