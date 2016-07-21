@@ -3,7 +3,7 @@
 //Bottles now weaken and break when smashed on people's heads. - Giacom
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 120
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	var/const/duration = 13 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
@@ -318,3 +318,61 @@
 	New()
 		..()
 		reagents.add_reagent("limejuice", 100)
+
+//aurora's drinks
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen
+	name = "Green Chartreuse"
+	desc = "A green, strong liqueur."
+	icon_state = "chartreusegreenbottle"
+	New()
+		..()
+		reagents.add_reagent("chartreusegreen", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow
+	name = "Yellow Chartreuse"
+	desc = "A yellow, strong liqueur."
+	icon_state = "chartreuseyellowbottle"
+	New()
+		..()
+		reagents.add_reagent("chartreuseyellow", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite
+	name = "White Creme de Menthe"
+	desc = "Mint-flavoured alcohol, in a bottle."
+	icon_state = "whitecremebottle"
+	New()
+		..()
+		reagents.add_reagent("cremewhite", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette
+	name = "Creme de Yvette"
+	desc = "Berry-flavoured alcohol, in a bottle."
+	icon_state = "cremedeyvettebottle"
+	New()
+		..()
+		reagents.add_reagent("cremeyvette", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy
+	name = "Brandy"
+	desc = "Cheap knock off for cognac."
+	icon_state = "brandybottle"
+	New()
+		..()
+		reagents.add_reagent("brandy", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes
+	name = "Guinness"
+	desc = "A bottle of good old Guinness."
+	icon_state = "guinnes_bottle"
+	New()
+		..()
+		reagents.add_reagent("guinnes", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie
+	name = "Drambuie"
+	desc = "A bottle of Drambuie."
+	icon_state = "drambuie_bottle"
+	New()
+		..()
+		reagents.add_reagent("drambuie", 100)

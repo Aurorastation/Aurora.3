@@ -13,19 +13,25 @@ var/global/list/seen_religions = list()
 	return
 
 var/global/list/citizenship_choices = list(
-	"Earth",
-	"Mars",
-	"Moghes",
-	"Ahdomai",
-	"Qerrbalak"
+	"Sol Alliance",
+	"Republic of Biesel",
+	"Republic of Elyra",
+	"Eridani Federation",
+	"Jargon Federation",
+	"People's Republic of Adhomai",
+	"Izweski Hegemony",
+	"Zo'ra Hive",
+	"K'lax Hive",
 	)
 
 var/global/list/home_system_choices = list(
 	"Sol",
-	"Nyx",
 	"Tau Ceti",
-	"Epsilon Ursae Minoris",
-	"S'randarr"
+	"New Ankara",
+	"Epsilon Eridani",
+	"Jargon",
+	"S'rand'marr ",
+	"Uueoa-Esa"
 	)
 
 var/global/list/faction_choices = list(
@@ -39,7 +45,7 @@ var/global/list/faction_choices = list(
 	"Grayson Manufactories Ltd.",
 	"Aether Atmospherics",
 	"Zeng-Hu Pharmaceuticals",
-	"Hesphaistos Industries"
+	"Hephaestus Industries"
 	)
 
 var/global/list/religion_choices = list(
@@ -49,5 +55,11 @@ var/global/list/religion_choices = list(
 	"Islamic",
 	"Christian",
 	"Agnostic",
-	"Deist"
+	"Deist",
+	"Qeblak",
+	"Weishii",
+	"S'rendarr & Messa",
+	"Ma'ta'ke",
+	"Th'akh",
+	"Sk'akh"
 	)

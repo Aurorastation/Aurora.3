@@ -420,9 +420,12 @@
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src
 			T.dirt = 0
+			T.color = null
 		for(var/obj/effect/O in src)
-			if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
 				qdel(O)
+			if(istype(O,/obj/effect/rune))
+				user << "<span class='warning'>\red No matter how well you wash, the bloody symbols remain!</span>"
 	else
 		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.

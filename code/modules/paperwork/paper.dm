@@ -281,18 +281,33 @@
 
 	return t
 
-/obj/item/weapon/paper/proc/burnpaper(obj/item/weapon/flame/P, mob/user)
+/obj/item/weapon/paper/proc/burnpaper(obj/item/weapon/P, mob/user)
 	var/class = "<span class='warning'>"
 
-	if(P.lit && !user.restrained())
+	if (!user.restrained())
+		if (istype(P, /obj/item/weapon/flame))
+			var/obj/item/weapon/flame/F = P
+			if (!F.lit)
+				return
+		else if (istype(P, /obj/item/weapon/weldingtool))
+			var/obj/item/weapon/weldingtool/F = P
+			if (!F.welding)//welding tools are 0 when off
+				return
+			if (!F.remove_fuel(1, user))//This function removes the fuel and does the usual eyedamage checks, if it returns 0 then the welder is out of fuel and cant burn paper
+				return
+		else
+			//If we got here somehow, the item is incompatible and can't burn things
+			return
+
 		if(istype(P, /obj/item/weapon/flame/lighter/zippo))
 			class = "<span class='rose'>"
 
 		user.visible_message("[class][user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!", \
 		"[class]You hold \the [P] up to \the [src], burning it slowly.")
 
+		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
 		spawn(20)
-			if(get_dist(src, user) < 2 && user.get_active_hand() == P && P.lit)
+			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
 				user.visible_message("[class][user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.", \
 				"[class]You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.")
 
@@ -477,6 +492,8 @@
 		user << "<span class='notice'>You stamp the paper with your rubber stamp.</span>"
 
 	else if(istype(P, /obj/item/weapon/flame))
+		burnpaper(P, user)
+	else if(istype(P, /obj/item/weapon/weldingtool))
 		burnpaper(P, user)
 
 	add_fingerprint(user)

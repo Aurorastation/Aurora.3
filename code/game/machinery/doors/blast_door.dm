@@ -19,7 +19,7 @@
 	var/icon_state_closed = null
 	var/icon_state_closing = null
 
-	closed_layer = 3.3 // Above airlocks when closed
+	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
 	dir = 1
 	explosion_resistance = 25
@@ -144,7 +144,7 @@
 	if(stat & BROKEN)
 		stat &= ~BROKEN
 
-		
+
 /obj/machinery/door/blast/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return 1
 	return ..()

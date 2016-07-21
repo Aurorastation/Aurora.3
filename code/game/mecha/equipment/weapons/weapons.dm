@@ -48,14 +48,11 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire(atom/A, atom/target, turf/aimloc)
 	var/obj/item/projectile/P = A
-	P.shot_from = src
-	P.original = target
-	P.starting = P.loc
-	P.current = P.loc
-	P.firer = chassis.occupant
-	P.yo = aimloc.y - P.loc.y
-	P.xo = aimloc.x - P.loc.x
-	P.process()
+	var/def_zone
+	if (chassis && istype(chassis.occupant, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = chassis.occupant
+		def_zone = H.zone_sel.selecting
+	P.launch(target, def_zone)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy
 	name = "general energy weapon"

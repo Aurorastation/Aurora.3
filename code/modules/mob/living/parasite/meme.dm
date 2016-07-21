@@ -10,7 +10,6 @@ be able to influence the host through various commands.
 
 // The maximum amount of points a meme can gather.
 var/global/const/MAXIMUM_MEME_POINTS = 750
-var/global/const/MINIMUM_MEME_POINTS = 0
 var/mob/living/parasite/host_brain
 var/controlling
 
@@ -62,7 +61,6 @@ var/controlling
 // Memes use points for many actions
 /mob/living/parasite/meme/var/meme_points = 100
 /mob/living/parasite/meme/var/dormant = 0
-/mob/living/parasite/meme/var/possessing = 0
 
 // Memes have a list of indoctrinated hosts
 /mob/living/parasite/meme/var/list/indoctrinated = list()
@@ -75,17 +73,12 @@ var/controlling
 		else		client.eye = host
 
 	if(!host) return
-	if(possessing == 1 && meme_points == 0)
-		detatch()
 
 	// recover meme points slowly
 	var/gain = 3
 	if(dormant) gain = 9 // dormant recovers points faster
-	//if(possessing) meme_points = min(meme_points - loss, MAXIMUM_MEME_POINTS)
 
 	meme_points = min(meme_points + gain, MAXIMUM_MEME_POINTS)
-	if(possessing == 1) meme_points = min(meme_points - gain, MINIMUM_MEME_POINTS)
-	if(possessing == 0) meme_points = min(meme_points + gain, MAXIMUM_MEME_POINTS)
 
 	// if there are sleep toxins in the host's body, that's bad
 	if(host.reagents.has_reagent("stoxin"))
@@ -104,10 +97,6 @@ var/controlling
 
 	if(host.blinded && host.stat != 1) src.blinded = 1
 	else 			 				   src.blinded = 0
-
-	if(possessing == 1 && meme_points == 0)
-		detatch()
-
 
 /mob/living/parasite/meme/death()
 	// make sure the mob is on the actual map before gibbing
@@ -206,16 +195,20 @@ var/controlling
 
 
 // A meme can make people hear things with the thought ability
-/mob/living/parasite/meme/verb/Thought()
+/mob/living/parasite/meme/verb/Thought(mob/M as mob in oview())
 	set category = "Meme"
 	set name	 = "Thought(150)"
 	set desc     = "Implants a thought into the target, making them think they heard someone talk."
 
-	if(meme_points < 150)
-		// just call use_points() to give the standard failure message
-		use_points(150)
-		return
+	if(!use_points(150)) return
 
+	var/message = sanitize(input("Message:", "Thought") as text|null)
+	if(message)
+		log_say("MemeThought: [key_name(src)]->[M.key] : [message]")
+		M << "[message]"
+		src << "You said: \"[message]\" to [M]"
+	return
+/*
 	var/list/candidates = indoctrinated.Copy()
 	if(!(src.host in candidates))
 		candidates.Add(src.host)
@@ -238,7 +231,7 @@ var/controlling
 	target.show_message(rendered)
 
 	usr << "<i>You make [target] hear:</i> [rendered]"
-
+*/
 // Mutes the host
 /mob/living/parasite/meme/verb/Mute()
 	set category = "Meme"
@@ -350,7 +343,7 @@ var/controlling
 		host << "\red You are feeling clear-headed again.."
 
 // Cause the target to hallucinate.
-/mob/living/parasite/meme/verb/Hallucinate(mob/living/carbon/human/target as mob in world)
+/mob/living/parasite/meme/verb/Hallucinate(mob/living/carbon/human/target as mob in oview())
 	set category = "Meme"
 	set name	 = "Hallucinate(300)"
 	set desc     = "Makes your host hallucinate, has a short delay."
@@ -373,7 +366,7 @@ var/controlling
 	usr << "<b>You make [target] hallucinate.</b>"
 
 // Jump to a closeby target through a whisper
-/mob/living/parasite/meme/verb/SubtleJump(mob/living/carbon/human/target as mob in world)
+/mob/living/parasite/meme/verb/SubtleJump(mob/living/carbon/human/target as mob in oview())
 	set category = "Meme"
 	set name	 = "Subtle Jump(350)"
 	set desc     = "Move to a closeby human through a whisper."
@@ -535,7 +528,7 @@ var/controlling
 		return
 
 
-	src << "You begin assuming direct control..."
+	src << "You assume direct control..."
 
 	spawn()
 
@@ -580,29 +573,12 @@ var/controlling
 				host.lastKnownIP = s2h_ip
 
 			controlling = 1
-			possessing = 1
 
-			host.verbs += /mob/living/parasite/meme/proc/release_control
+			spawn(300)
+				detatch()
 
 			return
 
-/mob/living/parasite/meme/proc/release_control()
-	set category = "Meme"
-	set name = "Release Control"
-	set desc = "Release control of your host's body."
-
-	//var/mob/living/parasite/meme/ME = has_brain_worms() god fucking dammit
-/*
-	if(ME && host_brain)
-		src << "\red <B>You retract, releasing control of [host_brain]</B>"
-*/
-	detatch()
-
-	verbs -= /mob/living/parasite/meme/proc/release_control
-		/*
-	else ALL THE FUCKING CODING SCAFFOLDING
-		src << "\red <B>ERROR NO MEME DETECTED IN THIS MOB, THIS IS A BUG !</B>"
-		*/
 /mob/living/parasite/meme/proc/detatch()
 
 	if(!host || !controlling) return
@@ -613,9 +589,6 @@ var/controlling
 		head.implants -= src
 
 	controlling = 0
-	possessing = 0
-
-	host.verbs -= /mob/living/parasite/meme/proc/release_control
 
 	if(host_brain)
 
@@ -687,16 +660,3 @@ var/controlling
 
 	if (client && client.statpanel == "Status")
 		stat(null, "Meme Points: [src.meme_points]")
-/*
-// Game mode helpers, used for theft objectives-NOT USED, NO OBJECTIVES
-// --------------------------------------------
-/mob/living/parasite/check_contents_for(t)
-	if(!host) return 0
-
-	return host.check_contents_for(t)
-
-/mob/living/parasite/check_contents_for_reagent(t)
-	if(!host) return 0
-
-	return host.check_contents_for_reagent(t)
-	*/

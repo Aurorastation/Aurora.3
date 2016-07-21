@@ -57,7 +57,7 @@
 	return sanitize(replace_characters(input, list(">"=" ","<"=" ", "\""="'")), max_length, encode, trim, extra)
 
 //Filters out undesirable characters from names
-/proc/sanitizeName(var/input, var/max_length = MAX_NAME_LEN, var/allow_numbers = 0)
+/proc/sanitizeName(var/input, var/max_length = MAX_NAME_LEN, var/allow_numbers = 1)
 	if(!input || length(input) > max_length)
 		return //Rejects the input if it is null or if it is longer then the max length allowed
 
@@ -324,10 +324,26 @@ proc/TextPreview(var/string,var/len=40)
 	if (!message)
 		return ""
 
+	// ---Begin URL caching.
+	var/list/urls = list()
+	var/regex/url_find = new("(https?:\\/\\/\[^\\s\]*)", "g")
+	while (url_find.Find(message))
+		urls += url_find.match
+
+
+	if (urls.len)
+		var/i = 1
+		for (var/url in urls)
+			var/ref = "\ref[urls]-[i]"
+			urls[url] = ref
+			message = replacetextEx(message, url, ref)
+			i++
+	// ---End URL caching
+
 	var/list/tags = list("*" = list("<b>", "</b>"),
-						"_" = list("<i>", "</i>"),
-						"~" = list("<stroke>", "</stroke>"),
-						"-" = list("<u>", "</u>"))
+						"/" = list("<i>", "</i>"),
+						"~" = list("<strike>", "</strike>"),
+						"_" = list("<u>", "</u>"))
 
 	if (ignore_tags && ignore_tags.len)
 		tags -= ignore_tags
@@ -339,4 +355,13 @@ proc/TextPreview(var/string,var/len=40)
 		var/regex/markup = new("(\\[tag])(\[^\\[tag]\]*)(\\[tag])", "g")
 		message = markup.Replace(message, "[marker_begin]$2[marker_end]")
 
+	// ---Unload URL cache
+	if (urls.len)
+		for (var/url in urls)
+			message = replacetextEx(message, urls[url], url)
+
 	return message
+
+//Converts New Lines to html <br>
+/proc/nl2br(var/text)
+	return replacetextEx(text,"\n","<br>")

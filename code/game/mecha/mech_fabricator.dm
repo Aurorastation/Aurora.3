@@ -132,6 +132,7 @@
 						),
 
 
+	"Hardsuit Modules" = list(),
 
 
 

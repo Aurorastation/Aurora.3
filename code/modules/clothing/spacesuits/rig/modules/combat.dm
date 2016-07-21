@@ -118,6 +118,8 @@
 	name = "mounted energy gun"
 	desc = "A forearm-mounted energy projector."
 	icon_state = "egun"
+	construction_cost= list(DEFAULT_WALL_MATERIAL=7000,"glass"=2250,"uranium"=3250,"gold"=2500)
+	construction_time = 300
 
 	interface_name = "mounted energy gun"
 	interface_desc = "A forearm-mounted suit-powered energy gun."
@@ -129,6 +131,8 @@
 	name = "mounted taser"
 	desc = "A palm-mounted nonlethal energy projector."
 	icon_state = "taser"
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 5250)
+	construction_time = 300
 
 	usable = 0
 

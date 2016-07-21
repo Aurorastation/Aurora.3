@@ -11,7 +11,9 @@
 											UI_style_color,
 											UI_style_alpha,
 											be_special,
-											asfx_togs
+											asfx_togs,
+											motd_hash,
+											memo_hash
 										FROM ss13_player_preferences
 										WHERE ckey = :ckey"})
 	query.Execute(list(":ckey" = C.ckey))
@@ -28,10 +30,14 @@
 	UI_style_alpha		= text2num(query.item[7])
 	be_special			= text2num(query.item[8])
 	asfx_togs			= text2num(query.item[9])
+	motd_hash			= query.item[10]
+	memo_hash			= query.item[11]
 
 	//Sanitize
 	ooccolor		= sanitize_hexcolor(ooccolor, initial(ooccolor))
 	lastchangelog	= sanitize_text(lastchangelog, initial(lastchangelog))
+	motd_hash		= sanitize_text(motd_hash, initial(motd_hash))
+	memo_hash		= sanitize_text(memo_hash, initial(memo_hash))
 	UI_style		= sanitize_inlist(UI_style, list("White", "Midnight","Orange","old"), initial(UI_style))
 	be_special		= sanitize_integer(be_special, 0, 65535, initial(be_special))
 	default_slot	= sanitize_integer(default_slot, 1, config.character_slots, initial(default_slot))
@@ -61,7 +67,9 @@
 													UI_style_color = :ui_color,
 													UI_style_alpha = :ui_alpha,
 													be_special = :be_special,
-													asfx_togs = :asfx_togs
+													asfx_togs = :asfx_togs,
+													motd_hash = :motd_hash,
+													memo_hash = :memo_hash
 												WHERE ckey = :ckey"})
 	update_query.Execute(get_prefs_update_insert_params(C))
 
@@ -71,8 +79,8 @@
 	if (!C)
 		return 0
 
-	var/DBQuery/query = dbcon.NewQuery({"INSERT INTO ss13_player_preferences (ckey, ooccolor, lastchangelog, UI_style, current_character, toggles, UI_style_color, UI_style_alpha, be_special, asfx_togs)
-	VALUES (:ckey, :ooccolor, :lastchangelog, :ui_style, :current_character, :toggles, :ui_color, :ui_alpha, :be_special, :asfx_togs);"})
+	var/DBQuery/query = dbcon.NewQuery({"INSERT INTO ss13_player_preferences (ckey, ooccolor, lastchangelog, UI_style, current_character, toggles, UI_style_color, UI_style_alpha, be_special, asfx_togs, motd_hash, memo_hash)
+	VALUES (:ckey, :ooccolor, :lastchangelog, :ui_style, :current_character, :toggles, :ui_color, :ui_alpha, :be_special, :asfx_togs, :motd_hash, :memo_hash);"})
 	query.Execute(get_prefs_update_insert_params(C))
 
 	return 1
@@ -92,6 +100,8 @@
 	params[":ui_alpha"]				= UI_style_alpha
 	params[":be_special"]			= be_special
 	params[":asfx_togs"]			= asfx_togs
+	params[":motd_hash"]			= motd_hash
+	params[":memo_hash"]			= memo_hash
 
 	return params
 
@@ -177,7 +187,8 @@
 												dat.uplink_location,
 												dat.organs_data,
 												dat.organs_robotic,
-												dat.gear
+												dat.gear,
+												flv.records_ccia
 												FROM ss13_characters dat
 												JOIN ss13_characters_flavour flv ON dat.id = flv.char_id
 												WHERE dat.id = :char_id"})
@@ -190,6 +201,35 @@
 		error("Error loading character #[current_character]. No such character exists.")
 		new_character_sql(C)
 		return 0
+
+	var/DBQuery/ccia_action_query = dbcon.NewQuery({"SELECT
+	  act.title,
+	  act.type,
+	  act.issuedby,
+	  act.details,
+	  act.url,
+	  act.expires_at
+	FROM ss13_ccia_action_char act_chr
+	JOIN ss13_characters chr ON act_chr.char_id = chr.id
+	JOIN ss13_ccia_actions act ON act_chr.action_id = act.id
+	WHERE
+	    act_chr.char_id = ':char_id' AND
+	    (act.expires_at IS NULL OR act.expires_at >= CURRENT_DATE()) AND
+			act.deleted_at IS NULL;
+	"})
+	if (!ccia_action_query.Execute(list(":char_id" = current_character)))
+		error("Error CCIA Actions for character #[current_character]. SQL error message: '[character_query.ErrorMsg()]'.")
+
+	while(ccia_action_query.NextRow())
+		var/list/action = list(
+		  ccia_action_query.item[1],
+			ccia_action_query.item[2],
+			ccia_action_query.item[3],
+			ccia_action_query.item[4],
+			ccia_action_query.item[5],
+			ccia_action_query.item[6]
+			)
+		ccia_actions.Add(list(action))
 
 	var/DBQuery/char_id_update = dbcon.NewQuery("UPDATE ss13_player_preferences SET current_character = :char_id WHERE ckey = :ckey")
 	char_id_update.Execute(list(":char_id" = current_character, ":ckey" = C.ckey))
@@ -279,6 +319,7 @@
 	med_record				= character_query.item[45]
 	sec_record				= character_query.item[46]
 	exploit_record			= character_query.item[47]
+	ccia_record 			= character_query.item[60]
 
 	// Miscellaneous
 	disabilities			= text2num(character_query.item[48])
@@ -321,7 +362,7 @@
 	if (!real_name) real_name = random_name(gender)
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
 	gender			= sanitize_gender(gender)
-	age				= sanitize_integer(age, AGE_MIN, AGE_MAX, initial(age))
+	age				= sanitize_integer(age, getMinAge(), getMaxAge(), initial(age))
 	r_hair			= sanitize_integer(r_hair, 0, 255, initial(r_hair))
 	g_hair			= sanitize_integer(g_hair, 0, 255, initial(g_hair))
 	b_hair			= sanitize_integer(b_hair, 0, 255, initial(b_hair))
@@ -651,10 +692,10 @@
 	if (!query.NextRow())
 		return 0
 
-	var/DBQuery/delete_query = dbcon.NewQuery("DELETE FROM ss13_characters WHERE id = :id")
+	var/DBQuery/delete_query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :id")
 	delete_query.Execute(list(":id" = current_character))
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey ORDER BY id ASC LIMIT 1")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC LIMIT 1")
 	select_query.Execute(list(":ckey" = C.ckey))
 
 	if (select_query.NextRow())

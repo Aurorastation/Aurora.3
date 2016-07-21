@@ -94,6 +94,29 @@
 		else
 			M.show_message(message, 1, blind_message, 2)
 
+
+// Designed for mobs contained inside things, where a normal visible message wont actually be visible
+// Useful for visible actions by pAIs, and held mobs
+// Broadcaster is the place the action will be seen/heard from, mobs in sight of THAT will see the message. This is generally the object or mob that src is contained in
+// message is the message output to anyone who can see e.g. "[src] does something!"
+// self_message (optional) is what the src mob sees  e.g. "You do something!"
+// blind_message (optional) is what blind people will hear e.g. "You hear something!"
+/mob/proc/contained_visible_message(var/atom/broadcaster, var/message, var/self_message, var/blind_message)
+	var/self_served = 0
+	for(var/mob/M in viewers(broadcaster))
+		if(self_message && M==src)
+			M.show_message(self_message, 1, blind_message, 2)
+			self_served = 1
+		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
+			if(blind_message)
+				M.show_message(blind_message, 2)
+		else
+			M.show_message(message, 1, blind_message, 2)
+
+	if (!self_served)
+		src.show_message(self_message, 1, blind_message, 2)
+
+
 // Show a message to all mobs in sight of this atom
 // Use for objects performing visible actions
 // message is output to anyone who can see, e.g. "The [src] does something!"
@@ -639,6 +662,7 @@
 
 	if(.)
 		if(statpanel("Status") && ticker && ticker.current_state != GAME_STATE_PREGAME)
+			stat("Game ID", game_id)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", round_duration())
 			stat("Last Transfer Vote", vote.last_transfer_vote ? time2text(vote.last_transfer_vote, "hh:mm") : "Never")
@@ -873,7 +897,7 @@ mob/proc/yank_out_object()
 	usr.next_move = world.time + 20
 
 	if(usr.stat == 1)
-		usr << "You are unconcious and cannot do that!"
+		usr << "You are unconscious and cannot do that!"
 		return
 
 	if(usr.restrained())

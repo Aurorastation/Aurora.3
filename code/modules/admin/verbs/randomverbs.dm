@@ -181,6 +181,7 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 		if(MUTE_PRAY)		mute_string = "pray"
 		if(MUTE_ADMINHELP)	mute_string = "adminhelp, admin PM and ASAY"
 		if(MUTE_DEADCHAT)	mute_string = "deadchat and DSAY"
+		if(MUTE_AOOC)		mute_string = "AOOC"
 		if(MUTE_ALL)		mute_string = "everything"
 		else				return
 
@@ -510,30 +511,63 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!holder)
 		src << "Only administrators may use this command."
 		return
-	var/input = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "What?", "") as message|null, extra = 0)
-	var/customname = sanitizeSafe(input(usr, "Pick a title for the report.", "Title") as text|null)
-	if(!input)
-		return
-	if(!customname)
-		customname = "NanoTrasen Update"
+	var/reporttitle
+	var/reportbody
+	var/reporter
+	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
+	switch(reporttype)
+		if("Template")
+			establish_db_connection(dbcon)
+			if (!dbcon.IsConnected())
+				src << "<span class='notice'>Unable to connect to the database.</span>"
+				return
+			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
+			query.Execute()
+
+			var/list/template_names = list()
+			var/list/templates = list()
+
+			while (query.NextRow())
+				template_names += query.item[1]
+				templates[query.item[1]] = query.item[2]
+
+			// Catch empty list
+			if (!templates.len)
+				src << "<span class='notice'>There are no templates in the database.</span>"
+				return
+
+			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
+			reportbody = templates[reporttitle]
+
+		if("Custom")
+			reporttitle = sanitizeSafe(input(usr, "Pick a title for the report.", "Title") as text|null)
+			if(!reporttitle)
+				reporttitle = "NanoTrasen Update"
+			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
+			if(!reportbody)
+				return
+		else
+			return
 	for (var/obj/machinery/computer/communications/C in machines)
 		if(! (C.stat & (BROKEN|NOPOWER) ) )
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
-			P.name = "'[command_name()] Update.'"
-			P.info = replacetext(input, "\n", "<br/>")
+			P.name = "[command_name()] Update"
+			P.info = replacetext(reportbody, "\n", "<br/>")
 			P.update_space(P.info)
 			P.update_icon()
 			C.messagetitle.Add("[command_name()] Update")
 			C.messagetext.Add(P.info)
 
+	reporter = sanitizeSafe(input(usr, "Please enter your name.", "Name") as text|null)
+
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce(input, customname, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("[reportbody]\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			world << "\red New NanoTrasen Update available at all communication consoles."
 			world << sound('sound/AI/commandreport.ogg')
 
-	log_admin("[key_name(src)] has created a command report: [input]")
+	log_admin("[key_name(src)] has created a command report: [reportbody]")
 	message_admins("[key_name_admin(src)] has created a command report", 1)
 	feedback_add_details("admin_verb","CCR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

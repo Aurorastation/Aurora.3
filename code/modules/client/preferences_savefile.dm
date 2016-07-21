@@ -57,10 +57,14 @@
 	S["UI_style_color"]		>> UI_style_color
 	S["UI_style_alpha"]		>> UI_style_alpha
 	S["asfx_togs"]			>> asfx_togs
+	S["motd_hash"]			>> motd_hash
+	S["memo_hash"]			>> memo_hash
 
 	//Sanitize
 	ooccolor		= sanitize_hexcolor(ooccolor, initial(ooccolor))
 	lastchangelog	= sanitize_text(lastchangelog, initial(lastchangelog))
+	motd_hash		= sanitize_text(motd_hash, initial(motd_hash))
+	memo_hash		= sanitize_text(memo_hash, initial(memo_hash))
 	UI_style		= sanitize_inlist(UI_style, list("White", "Midnight","Orange","old"), initial(UI_style))
 	be_special		= sanitize_integer(be_special, 0, 65535, initial(be_special))
 	default_slot	= sanitize_integer(default_slot, 1, config.character_slots, initial(default_slot))
@@ -87,6 +91,8 @@
 	S["default_slot"]		<< default_slot
 	S["toggles"]			<< toggles
 	S["asfx_togs"]			<< asfx_togs
+	S["motd_hash"]			<< motd_hash
+	S["memo_hash"]			<< memo_hash
 
 	return 1
 
@@ -209,7 +215,7 @@
 	if(!real_name) real_name = random_name(gender)
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
 	gender			= sanitize_gender(gender)
-	age				= sanitize_integer(age, AGE_MIN, AGE_MAX, initial(age))
+	age				= sanitize_integer(age, getMinAge(), getMaxAge(), initial(age))
 	r_hair			= sanitize_integer(r_hair, 0, 255, initial(r_hair))
 	g_hair			= sanitize_integer(g_hair, 0, 255, initial(g_hair))
 	b_hair			= sanitize_integer(b_hair, 0, 255, initial(b_hair))

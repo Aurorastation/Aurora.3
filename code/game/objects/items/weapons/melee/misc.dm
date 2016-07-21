@@ -14,3 +14,40 @@
 	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is strangling \himself with the [src.name]! It looks like \he's trying to commit suicide.</b>"
 		return (OXYLOSS)
+
+/obj/item/weapon/melee/chainsword
+	name = "chainsword"
+	desc = "A deadly chainsaw in the shape of a sword."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "chainswordoff"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	force = 15
+	throwforce = 7
+	w_class = 4
+	sharp = 1
+	edge = 1
+	origin_tech = "combat=5"
+	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	var/active = 0
+
+/obj/item/weapon/melee/chainsword/attack_self(mob/user)
+	active= !active
+	if(active)
+		playsound(user, 'sound/weapons/circsawhit.ogg', 50, 1)
+		user << "\blue \The [src] rumbles to life."
+		force = 35
+		hitsound = 'sound/weapons/circsawhit.ogg'
+		icon_state = "chainswordon"
+		slot_flags = null
+	else
+		user << "\blue \The [src] slowly powers down."
+		force = initial(force)
+		hitsound = initial(hitsound)
+		icon_state = initial(icon_state)
+		slot_flags = initial(slot_flags)
+		
+/obj/item/weapon/melee/chainsword/suicide_act(mob/user)
+	viewers(user) << "\red <b>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</b>"
+	return (BRUTELOSS|OXYLOSS)

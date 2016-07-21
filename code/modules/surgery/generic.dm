@@ -55,6 +55,7 @@
 
 		if(istype(target) && !(target.species.flags & NO_BLOOD))
 			affected.status |= ORGAN_BLEEDING
+		playsound(target.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 
 		affected.createwound(CUT, 1)
 		affected.clamp()
