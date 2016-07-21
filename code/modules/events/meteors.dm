@@ -4,10 +4,10 @@
 	endWhen			= 9999//safety value, will be set during ticks
 
 
-	var/min_waves 	= 16
-	var/max_waves 	= 24
-	var/min_meteors = 1
-	var/max_meteors = 2
+	var/min_waves 	= 8
+	var/max_waves 	= 16
+	var/min_meteors = 2
+	var/max_meteors = 3
 	var/duration = 420//Total duration in seconds that the storm will last after it starts
 
 
@@ -50,10 +50,10 @@
 	endWhen 		= 9999
 
 
-	var/min_waves 	= 10
-	var/max_waves 	= 15
-	var/min_meteors = 0
-	var/max_meteors = 1
+	var/min_waves 	= 5
+	var/max_waves 	= 6
+	var/min_meteors = 2
+	var/max_meteors = 3
 	var/duration = 180//Total duration in seconds that the storm will last after it starts
 
 	//These values are calculated, authortime value is irrelevant
