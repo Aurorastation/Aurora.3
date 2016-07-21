@@ -3,15 +3,17 @@
 	startWhen		= 86
 	endWhen			= 9999//safety value, will be set during ticks
 
-	var/wave_delay  = 13//Note, wave delay is in procs. actual time is equal to wave_delay * 2.1
-	var/min_waves 	= 11
-	var/max_waves 	= 16
+
+	var/min_waves 	= 16
+	var/max_waves 	= 24
 	var/min_meteors = 1
 	var/max_meteors = 2
 	var/duration = 420//Total duration in seconds that the storm will last after it starts
 
 
+	//These values are calculated, authortime value is irrelevant
 	var/waves		= 8
+	var/wave_delay  = 13
 	var/next_wave 	= 86
 
 /datum/event/meteor_wave/setup()
@@ -47,14 +49,16 @@
 	startWhen		= 86
 	endWhen 		= 9999
 
-	var/wave_delay  = 6
-	var/min_waves 	= 7
-	var/max_waves 	= 9
+
+	var/min_waves 	= 10
+	var/max_waves 	= 15
 	var/min_meteors = 0
 	var/max_meteors = 1
 	var/duration = 180//Total duration in seconds that the storm will last after it starts
 
-	var/waves		= 4//this is randomised
+	//These values are calculated, authortime value is irrelevant
+	var/waves		= 4
+	var/wave_delay  = 6
 	var/next_wave 	= 86
 
 /datum/event/meteor_shower/setup()
