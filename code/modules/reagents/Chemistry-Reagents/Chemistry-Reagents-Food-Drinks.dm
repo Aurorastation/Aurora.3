@@ -2274,6 +2274,6 @@
 	color = "#2E6671"
 	strength = 25
 
-	glass_icon_state = "tallrussian"
+	glass_icon_state = "tallblackrussian"
 	glass_name = "glass of Tall Black Russian"
 	glass_desc = "Just like black russian but taller."
