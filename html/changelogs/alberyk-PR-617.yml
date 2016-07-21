@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - rscadd: "Cyborgs can now select the combat module when the security level is red or more."
+  - rscadd: "Cyborgs can now select the combat module when the security level is red or higher."
