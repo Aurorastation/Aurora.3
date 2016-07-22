@@ -18,7 +18,6 @@
 	icon_state = "genericrusty"
 	desc = "Rust stains this ancient wall."
 /turf/simulated/wall/iron/New()
-	..()
 	icon_state = "genericrusty"
 
 /turf/simulated/wall/iron/New(var/newloc)
