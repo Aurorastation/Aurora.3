@@ -224,8 +224,9 @@
 	H.gender = NEUTER
 	return ..()
 
-/datum/species/diona/handle_death(var/mob/living/carbon/human/H)
-	H.diona_split_into_nymphs(0)
+/datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
+	if (!gibbed)
+		H.diona_split_into_nymphs(0)
 
 /datum/species/machine
 	name = "Machine"

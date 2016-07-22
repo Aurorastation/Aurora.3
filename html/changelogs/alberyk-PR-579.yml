@@ -33,5 +33,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "You can now print some hardsuit modules in the robotics fabricator, most of them will require high tech and even rare resources."
-  - rscadd: "You can also print nanopaste from the robotics fabricator now."
+  - rscadd: "Added departamental related voidsuits crates to the supply console."
+  - rscadd: "Added security and engineering maglock crates to the supply console."
+  - tweak: "Costumes crates do not require theater access anymore."

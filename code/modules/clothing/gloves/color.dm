@@ -123,7 +123,7 @@
 /obj/item/clothing/gloves/red/tajara
 	name = "red gloves"
 	desc = "Red gloves made for Tajaran use."
-	species_restricted = list("Tajaran")
+	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/blue/unathi
  	name = "blue gloves"
