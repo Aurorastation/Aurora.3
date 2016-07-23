@@ -324,3 +324,23 @@
 		var/rendered = "<span class='message'>[text]</span>"
 		pai.show_message(rendered, 2)
 	..()
+
+/obj/item/device/paicard/dropped(mob/user)
+
+	///When an object is put into a container, drop fires twice.
+	//once with it on the floor, and then once in the container
+	//We only care about the second one
+	if (istype(loc, /obj/item/weapon/storage))	//The second drop reads the container its placed into as the location
+		update_location()
+
+
+/obj/item/device/paicard/equipped(var/mob/user, var/slot)
+	..()
+	update_location(slot)
+
+/obj/item/device/paicard/proc/update_location(var/slotnumber = null)
+	if (!slotnumber)
+		if (istype(loc, /mob))
+			slotnumber = get_equip_slot()
+
+	report_onmob_location(1, slotnumber, pai)

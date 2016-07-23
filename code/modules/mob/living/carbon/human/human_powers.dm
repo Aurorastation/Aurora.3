@@ -286,12 +286,12 @@
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
-		H.apply_damage(25,BRUTE)
-//		if(H.stat == 2) //no gibbing humans but i'll let you gib like a mouse or something that's cool
-//			H.gib()
+		H.apply_damage(25,BRUTE, sharp=1, edge=1)
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	else
 		var/mob/living/M = G.affecting
-		if(!istype(M)) return //wut
-		M.apply_damage(25,BRUTE)
-	//	if(M.stat == 2)
-		//	M.gib()
+		if(!istype(M))
+			return
+		M.apply_damage(25,BRUTE, sharp=1, edge=1)
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)

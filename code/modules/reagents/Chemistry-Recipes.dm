@@ -1973,8 +1973,122 @@
 /////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
 
 /datum/chemical_reaction/white_coffee
-	name = "Café Au Lait"
+	name = "CafÃ© Au Lait"
 	id = "white_coffee"
 	result = "white_coffee"
 	required_reagents = list("milk" = 1, "blackcoffee" = 2)
+	result_amount = 2
+	
+//aurora's drinks
+
+/datum/chemical_reaction/daiquiri
+	name = "Daiquiri"
+	id = "daiquiri"
+	result = "daiquiri"
+	required_reagents = list("limejuice" = 1, "rum" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/icepick
+	name = "Ice Pick"
+	id = "icepick"
+	result = "icepick"
+	required_reagents = list("icetea" = 1, "vodka" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/poussecafe
+	name = "Pousse-Cafe"
+	id = "poussecafe"
+	result = "poussecafe"
+	required_reagents = list("brandy" = 1, "chartreusegreen" = 1, "chartreuseyellow" = 1, "cremewhite" = 1, "grenadine" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/mintjulep
+	name = "Mint Julep"
+	id = "mintjulep"
+	result = "mintjulep"
+	required_reagents = list("water" = 1, "whiskey" = 1, "ice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/johncollins
+	name = "John Collins"
+	id = "johncollins"
+	result = "johncollins"
+	required_reagents = list("whiskeysoda" = 2, "lemonjuice" = 1, "grenadine" = 1, "ice" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/gimlet
+	name = "Gimlet"
+	id = "gimlet"
+	result = "gimlet"
+	required_reagents = list("limejuice" = 1, "gin" = 1, "sodawater" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/starsandstripes
+	name = "Stars and Stripes"
+	id = "starsandstripes"
+	result = "starsandstripes"
+	required_reagents = list("cream" = 1, "cremeyvette" = 1, "grenadine" = 1)
+	result_amount = 3
+
+/* /datum/chemical_reaction/metropolitan //NO SPRITES
+	name = "Metropolitan"
+	id = "metropolitan"
+	result = "metropolitan"
+	required_reagents = list("brandy" = 1, "vermouth" = 1, "grenadine" = 1)
+	result_amount = 3 */
+
+/datum/chemical_reaction/caruso
+	name = "Caruso"
+	id = "caruso"
+	result = "caruso"
+	required_reagents = list("martini" = 2, "cremewhite" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/aprilshower
+	name = "April Shower"
+	id = "aprilshower"
+	result = "aprilshower"
+	required_reagents = list("brandy" = 1, "chartreuseyellow" = 1, "orangejuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/carthusiansazerac
+	name = "Carthusian Sazerac"
+	id = "carthusiansazerac"
+	result = "carthusiansazerac"
+	required_reagents = list("whiskey" = 1, "chartreusegreen" = 1, "grenadine" = 1, "absinthe" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/deweycocktail
+	name = "Dewey Cocktail"
+	id = "deweycocktail"
+	result = "deweycocktail"
+	required_reagents = list("cremeyvette" = 1, "gin" = 1, "grenadine" = 1)
+	result_amount = 3
+	
+/datum/chemical_reaction/rustynail
+	name = "Rusty Nail"
+	id = "rustynail"
+	result = "rustynail"
+	required_reagents = list("whiskey" = 1, "drambuie" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/oldfashioned
+	name = "Old Fashioned"
+	id = "oldfashioned"
+	result = "oldfashioned"
+	required_reagents = list("bluecuracao" = 1, "gin" = 1, "ice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/blindrussian
+	name = "Blind Russian"
+	id = "blindrussian"
+	result = "blindrussian"
+	required_reagents = list("kahlua" = 1, "irishcream" = 1, "cream" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/tallrussian
+	name = "Tall Black Russian"
+	id = "tallrussian"
+	result = "tallrussian"
+	required_reagents = list("blackrussian" = 1, "cola" = 1)
 	result_amount = 2

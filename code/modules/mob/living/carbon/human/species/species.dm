@@ -31,8 +31,8 @@
 	var/show_ssd = "fast asleep"
 
 	// Language/culture vars.
-	var/default_language = "Galactic Common" // Default language is used when 'say' is used without modifiers.
-	var/language = "Galactic Common"         // Default racial language, if any.
+	var/default_language = "Ceti Basic" // Default language is used when 'say' is used without modifiers.
+	var/language = "Ceti Basic"         // Default racial language, if any.
 	var/secondary_langs = list()             // The names of secondary languages that are available to this species.
 	var/list/speech_sounds                   // A list of sounds to potentially play when speaking.
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
@@ -46,6 +46,7 @@
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
 	var/brute_mod = 1                        // Physical damage multiplier.
 	var/burn_mod = 1                         // Burn damage multiplier.
+	var/tox_mod = 1                         // Toxin damage multiplier.
 	var/vision_flags = SEE_SELF              // Same flags as glasses.
 
 	// Death vars.
@@ -108,6 +109,8 @@
 	var/holder_type
 	var/gluttonous                // Can eat some mobs. 1 for mice, 2 for monkeys, 3 for people.
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
+	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
+
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
 		"heart" =    /obj/item/organ/heart,
@@ -234,7 +237,7 @@
 				continue
 			E.status |= ORGAN_ADV_ROBOT
 		for(var/obj/item/organ/I in H.internal_organs)
-			I.robotize()
+			I.status |= ORGAN_ADV_ROBOT
 
 /datum/species/proc/hug(var/mob/living/carbon/human/H,var/mob/living/target)
 
@@ -266,7 +269,7 @@
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 
-/datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
 
 // Only used for alien plasma weeds atm, but could be used for Dionaea later.

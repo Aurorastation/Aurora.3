@@ -113,8 +113,6 @@
 	var/DBQuery/query = dbcon.NewQuery("SELECT ban_mirror_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, date(ban_mirror_datetime) as datetime FROM ss13_ban_mirrors WHERE ban_id = :ban_id")
 	query.Execute(list(":ban_id" = ban_id))
 
-	testing("Ban ID: [ban_id]")
-
 	var/mirrors[] = list()
 	while (query.NextRow())
 		var/items[] = list()

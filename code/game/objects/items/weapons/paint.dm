@@ -18,13 +18,19 @@ var/global/list/cached_icons = list()
 	flags = OPENCONTAINER
 	var/paint_type = "red"
 
+	attack(mob/M as mob, mob/user as mob, def_zone)
+		if(istype(M, /mob/living/))
+			user.visible_message("<span class='warning'>\The [M] has been splashed with something by [user] to no effect!</span>")
+			reagents.trans_to_turf(M.loc, 5)
+			return
+
 	afterattack(turf/simulated/target, mob/user, proximity)
-		if(!proximity) return
+		if(!proximity)
+			return
 		if(istype(target) && reagents.total_volume > 5)
 			user.visible_message("<span class='warning'>\The [target] has been splashed with something by [user]!</span>")
 			reagents.trans_to_turf(target, 5)
-		else
-			return ..()
+		return
 
 	New()
 		if(paint_type && lentext(paint_type) > 0)

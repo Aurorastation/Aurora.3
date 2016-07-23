@@ -44,8 +44,8 @@
 
 /mob/living/simple_animal/spiderbot/New()
 	..()
-	add_language("Galactic Common")
-	default_language = all_languages["Galactic Common"]
+	add_language("Ceti Basic")
+	default_language = all_languages["Ceti Basic"]
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide
 

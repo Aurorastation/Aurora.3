@@ -45,7 +45,7 @@
 
 /*
  * /proc/webint_start_singlesignon()
- * Used to insert a token into the web_sso database and to enable a user to navigate to a page on the website and be automatically logged in. Hashes the user's save file for a unique token. Additional security managed on the website's end.
+ * Used to insert a token into the web_sso database and to enable a user to navigate to a page on the website and be automatically logged in. Generates a hash algorithmically. Additional security managed on the website's end.
  *
  * Arguments:
  * - var/user				- Must be a mob or a client. The player object that's going to be using the request.

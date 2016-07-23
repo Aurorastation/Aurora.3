@@ -57,9 +57,9 @@
 	description = "A well-known alcohol with a variety of applications."
 	reagent_state = LIQUID
 	color = "#404030"
-	var/nutriment_factor = 0
-	var/strength = 10 // This is, essentially, units between stages - the lower, the stronger. Less fine tuning, more clarity.
-	var/toxicity = 1
+	ingest_met = 0.5
+	var/nutriment_factor = 0.5
+	var/strength = 100 // This is the Alcohol By Volume of the drink, value is in the range 0-100 unless you wanted to create some bizarre bluespace alcohol with <100
 
 	var/druggy = 0
 	var/adj_temp = 0
@@ -71,39 +71,26 @@
 	glass_desc = "A well-known alcohol with a variety of applications."
 
 /datum/reagent/ethanol/touch_mob(var/mob/living/L, var/amount)
-	if(istype(L))
-		L.adjust_fire_stacks(amount / 15)
+	if(istype(L) && strength > 40)
+		L.adjust_fire_stacks((amount / 10) * (strength / 100))
 
 /datum/reagent/ethanol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed * 2 * toxicity)
+	M.adjustToxLoss(removed * 2)
 	return
 
 /datum/reagent/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	M.nutrition += nutriment_factor * removed
+	if(M.get_species() == "Vaurca")//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+		M.adjustToxLoss(1.5 * removed * (strength / 100))
+	else
+		M.nutrition += nutriment_factor * removed
 
-	var/strength_mod = 1
-	if(alien == IS_SKRELL)
-		strength_mod *= 5
 	if(alien == IS_DIONA)
-		strength_mod = 0
+		return //Diona can gain nutrients, but don't get drunk or suffer other effects
 
-	M.add_chemical_effect(CE_ALCOHOL, 1)
 
-	if(dose * strength_mod >= strength) // Early warning
-		M.make_dizzy(6) // It is decreased at the speed of 3 per tick
-	if(dose * strength_mod >= strength * 2) // Slurring
-		M.slurring = max(M.slurring, 30)
-	if(dose * strength_mod >= strength * 3) // Confusion - walking in random directions
-		M.confused = max(M.confused, 20)
-	if(dose * strength_mod >= strength * 4) // Blurry vision
-		M.eye_blurry = max(M.eye_blurry, 10)
-	if(dose * strength_mod >= strength * 5) // Drowsyness - periodically falling asleep
-		M.drowsyness = max(M.drowsyness, 20)
-	if(dose * strength_mod >= strength * 6) // Toxic dose
-		M.add_chemical_effect(CE_ALCOHOL_TOXIC, toxicity)
-	if(dose * strength_mod >= strength * 7) // Pass out
-		M.paralysis = max(M.paralysis, 20)
-		M.sleeping  = max(M.sleeping, 30)
+	var/quantity = (strength / 100) * removed
+	M.intoxication += quantity
+
 
 	if(druggy != 0)
 		M.druggy = max(M.druggy, druggy)
@@ -115,6 +102,7 @@
 
 	if(halluci)
 		M.hallucination = max(M.hallucination, halluci)
+
 
 /datum/reagent/ethanol/touch_obj(var/obj/O)
 	if(istype(O, /obj/item/weapon/paper))

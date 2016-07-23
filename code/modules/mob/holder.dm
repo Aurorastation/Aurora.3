@@ -12,6 +12,10 @@
 	var/name_dead
 	var/isalive
 
+	var/last_loc_general//This stores a general location of the object. Ie, a container or a mob
+	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
+	var/checkverb
+
 /obj/item/weapon/holder/New()
 	if (!item_state)
 		item_state = icon_state
@@ -25,17 +29,18 @@
 
 /obj/item/weapon/holder/process()
 
-	if(!get_holding_mob())
+	if (!(istype(loc,/obj/item/weapon/storage)))//Mobs bug out if placed directly into a container
+		if(!get_holding_mob())
 
-		for(var/mob/M in contents)
+			for(var/mob/M in contents)
 
-			var/atom/movable/mob_container
-			mob_container = M
-			mob_container.loc = src.loc//if the holder was placed into a disposal, this should place the animal in the disposal
-			//mob_container.forceMove(get_turf(src))
-			M.reset_view()
-
-		qdel(src)
+				var/atom/movable/mob_container
+				mob_container = M
+				mob_container.loc = src.loc//if the holder was placed into a disposal, this should place the animal in the disposal
+				M.reset_view()
+				M.verbs -= /mob/living/proc/get_holder_location
+			qdel(src)
+			return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
 
@@ -43,22 +48,31 @@
 	for(var/mob/M in src.contents)
 		M.attackby(W,user)
 
-/obj/item/weapon/holder/proc/get_holding_mob()
-	//This function will return the mob which is holding this holder, or null if it's not held
-	//It recurses up the hierarchy out of containers until it reaches a mob, or aturf, or hits the limit
-	var/x = 0//As a safety, we'll crawl up a maximum of five layers
-	var/atom/a = src
-	while (x < 5)
-		x++
-		a = a.loc
-		if (istype(a, /turf))
-			return null//We must be on a table or a floor, or maybe in a wall. Either way we're not held.
+/obj/item/weapon/holder/dropped(mob/user)
 
-		if (istype(a, /mob))
-			return a
-		//If none of the above are true, we must be inside a box or backpack or something. Keep recursing up.
+	///When an object is put into a container, drop fires twice.
+	//once with it on the floor, and then once in the container
+	//This conditional allows us to ignore that first one. Handling of mobs dropped on the floor is done in process
+	if (istype(loc, /turf))
+		return
 
-	return null//If we get here, the holder must be buried many layers deep in nested containers. Shouldn't happen
+	if (istype(loc, /obj/item/weapon/storage))	//The second drop reads the container its placed into as the location
+		update_location()
+
+
+/obj/item/weapon/holder/equipped(var/mob/user, var/slot)
+	..()
+	update_location(slot)
+
+/obj/item/weapon/holder/proc/update_location(var/slotnumber = null)
+	if (!slotnumber)
+		if (istype(loc, /mob))
+			slotnumber = get_equip_slot()
+
+	report_onmob_location(1, slotnumber, contained)
+
+
+
 
 
 /obj/item/weapon/holder/attack_self(mob/M as mob)
@@ -115,22 +129,43 @@
 		grabber << "Your hand is full!"
 		return
 
+	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
 
-	var/obj/item/weapon/holder/H = new holder_type(loc)
-	src.loc = H
-	H.name = loc.name
-	H.attack_hand(grabber)
-	H.contained = src
 
-	if (src.stat == DEAD)
-		H.held_death()//We've scooped up an animal that's already dead. use the proper dead icons
-	else
-		H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
+	spawn(2)
+		var/obj/item/weapon/holder/H = new holder_type(loc)
+		src.loc = H
+		H.name = loc.name
 
-	grabber << "You scoop up [src]."
-	src << "[grabber] scoops you up."
-	grabber.status_flags |= PASSEMOTES
-	return
+		H.contained = src
+
+
+
+		if (src.stat == DEAD)
+			H.held_death()//We've scooped up an animal that's already dead. use the proper dead icons
+		else
+			H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
+
+		grabber << "You scoop up [src]."
+		src << "[grabber] scoops you up."
+		grabber.status_flags |= PASSEMOTES
+
+		H.attack_hand(grabber)//We put this last to prevent some race conditions
+		return
+
+
+/mob/living/proc/get_holder_location()
+	set category = "Abilities"
+	set name = "Check held location"
+	set desc = "Find out where on their person, someone is holding you."
+
+	if (!usr.get_holding_mob())
+		src << "Nobody is holding you!"
+		return
+
+	if (istype(usr.loc, /obj/item/weapon/holder))
+		var/obj/item/weapon/holder/H = usr.loc
+		H.report_onmob_location(0, H.get_equip_slot(), src)
 
 //Mob specific holders.
 //w_class mainly determines whether they can fit in trashbags. <=2 can, >=3 cannot
@@ -226,7 +261,6 @@
 	icon_state_dead = "mouse_brown_dead"
 	origin_tech = "biotech=2"
 	w_class = 1
-
 
 /obj/item/weapon/holder/mouse/white
 	icon_state = "mouse_white"

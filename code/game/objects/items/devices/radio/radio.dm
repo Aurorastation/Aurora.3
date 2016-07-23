@@ -292,6 +292,9 @@
   /* ###### Radio headsets can only broadcast through subspace ###### */
 
 	if(subspace_transmission)
+		// Check for jamming.
+		if (within_jamming_range(src))
+			return
 		// First, we want to generate a new radio signal
 		var/datum/signal/signal = new
 		signal.transmission_method = 2 // 2 would be a subspace transmission.
@@ -433,6 +436,8 @@
 	if (wires.IsIndexCut(WIRE_RECEIVE))
 		return -1
 	if(!listening)
+		return -1
+	if (within_jamming_range(src))
 		return -1
 	if(!(0 in level))
 		var/turf/position = get_turf(src)
