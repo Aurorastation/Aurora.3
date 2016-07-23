@@ -319,6 +319,7 @@
 		name = "farmbot assembly"
 		user.remove_from_mob(W)
 		qdel(W)
+		return 1
 
 	else if((istype(W, /obj/item/weapon/reagent_containers/glass/bucket)) && (build_step == 1))
 		build_step++
@@ -326,6 +327,7 @@
 		name = "farmbot assembly with bucket"
 		user.remove_from_mob(W)
 		qdel(W)
+		return 1//Prevents the object's afterattack from executing and causing runtime errors
 
 	else if((istype(W, /obj/item/weapon/material/minihoe)) && (build_step == 2))
 		build_step++
@@ -333,6 +335,7 @@
 		name = "farmbot assembly with bucket and minihoe"
 		user.remove_from_mob(W)
 		qdel(W)
+		return 1
 
 	else if((isprox(W)) && (build_step == 3))
 		build_step++
@@ -345,6 +348,7 @@
 		user.remove_from_mob(W)
 		qdel(W)
 		qdel(src)
+		return 1
 
 	else if(istype(W, /obj/item/weapon/pen))
 		var/t = input(user, "Enter new robot name", name, created_name) as text
