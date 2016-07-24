@@ -1,7 +1,0 @@
-author: Bedshaped
-
-delete-after: True
-
-changes: 
-  - tweak: "Command reports now only ask for a name if you used a template"
-  - bugfix: "MalfAI's fake command report plays the regular report sound so the Malf can't be metaguessed"
