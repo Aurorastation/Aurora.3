@@ -513,7 +513,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 	var/reporttitle
 	var/reportbody
-	var/reporter
+	var/reporter = null
 	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
 	switch(reporttype)
 		if("Template")
@@ -558,11 +558,14 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			C.messagetitle.Add("[command_name()] Update")
 			C.messagetext.Add(P.info)
 
-	reporter = sanitizeSafe(input(usr, "Please enter your name.", "Name") as text|null)
+	if (reporttype == "Template")
+		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for no sender)", "Name") as text|null)
+		if (reporter)
+			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce("[reportbody]\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			world << "\red New NanoTrasen Update available at all communication consoles."
 			world << sound('sound/AI/commandreport.ogg')

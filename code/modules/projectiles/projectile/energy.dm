@@ -127,11 +127,11 @@
 	name = "blaster bolt"
 	icon_state = "laser"
 	check_armour = "laser"
-	damage = 10
+	damage = 15
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	embed = 0
-	incinerate = 5
+	incinerate = 2
 
 /*/obj/item/projectile/energy/flamer
 	name = "promethium"
