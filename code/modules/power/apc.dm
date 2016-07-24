@@ -629,7 +629,26 @@
 				opened = 1
 			update_icon()
 	else
-		if (((stat & BROKEN) || hacker) \
+		if ((stat & BROKEN) \
+				&& !opened \
+				&& istype(W, /obj/item/weapon/weldingtool) )
+			var/obj/item/weapon/weldingtool/WT = W
+			if (WT.get_fuel() <1)
+				user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
+				return
+			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+			if(do_after(user, 10))
+				if(!src || !WT.remove_fuel(1, user)) return
+				if ((stat & BROKEN))
+					new /obj/item/stack/material/steel(loc)
+					user.visible_message(\
+						"<span class='warning'>[user.name] cuts the cover off of the broken APC.</span>",\
+						"<span class='notice'>You cut the cover off the broken APC </span>",\
+						"You hear welding.")
+					opened = 2
+					update_icon()
+
+		else if (((stat & BROKEN) || hacker) \
 				&& !opened \
 				&& W.force >= 5 \
 				&& W.w_class >= 3.0 \
