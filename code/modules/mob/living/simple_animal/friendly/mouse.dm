@@ -30,6 +30,7 @@
 	universal_understand = 1
 	mob_size = 1
 	holder_type = /obj/item/weapon/holder/mouse
+	digest_factor = 0.05
 
 /mob/living/simple_animal/mouse/Life()
 	..()
@@ -73,6 +74,8 @@
 		holder_type = /obj/item/weapon/holder/mouse/gray
 	if (body_color == "white")
 		holder_type = /obj/item/weapon/holder/mouse/white
+
+
 
 
 /mob/living/simple_animal/mouse/attack_hand(mob/living/carbon/human/M as mob)
