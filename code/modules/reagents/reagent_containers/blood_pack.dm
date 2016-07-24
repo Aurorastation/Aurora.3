@@ -80,6 +80,45 @@
 		name = "BloodPack [blood_name]"
 		desc = "Contains blood used for transfusion."
 		usr << "<span class='notice'>You label the blood pack as [blood_name].</span>"
+		return
+
+	if (istype(P, /obj/item/weapon/) && P.sharp == 1)
+		user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
+		var/atkmsg_filled = " "
+		var/atkmsg = text("<span class='warning'>The [] rips apart[]!</span>", src, atkmsg_filled)
+		if (reagents.get_reagent_amount("blood"))
+			atkmsg_filled = " and the contents spray everywhere"
+			var/strength
+			var/percent = round((reagents.get_reagent_amount("blood") / volume) * 100) //the amount of blood changes the strength of spray
+			switch(percent)
+				if(1 to 9)	strength = 2
+				if(10 to 50)	strength = 3
+				if(51 to INFINITY)	strength = 4
+			for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
+				var/direction = pick(alldirs)
+				usr << "<span class='notice'>DEBUG: Direction is [direction].</span>"
+				for (var/i = 0, i < strength, i++) //The distance the splatters will travel from random direction
+					switch (direction)
+						if (NORTH)
+							target = locate(src.x, src.y+i, src.z)
+						if (SOUTH)
+							target = locate(src.x, src.y-i, src.z)
+						if (EAST)
+							target = locate(src.x+i, src.y, src.z)
+						if (WEST)
+							target = locate(src.x-i, src.y, src.z)
+						if (NORTHEAST)
+							target = locate(src.x+i, src.y+i, src.z)
+						if (NORTHWEST)
+							target = locate(src.x-i, src.y+i, src.z)
+						if (SOUTHEAST)
+							target = locate(src.x+i, src.y-i, src.z)
+						if (SOUTHWEST)
+							target = locate(src.x-i, src.y-i, src.z)
+					blood_splatter(target, null, 1)
+			playsound(src.loc, 'sound/effects/splat.ogg', 50, 1, -6)
+		user.visible_message(atkmsg)
+		return
 	return
 
 /obj/item/weapon/reagent_containers/blood/APlus
