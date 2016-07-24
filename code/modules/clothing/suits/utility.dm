@@ -12,8 +12,8 @@
 /obj/item/clothing/suit/fire
 	name = "firesuit"
 	desc = "A suit that protects against fire and heat."
-	icon_state = "fire"
-	item_state = "fire_suit"
+	icon_state = "firesuit"
+	item_state = "firesuit"
 	w_class = 4//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
@@ -29,7 +29,7 @@
 
 /obj/item/clothing/suit/fire/firefighter
 	icon_state = "firesuit"
-	item_state = "firefighter"
+	item_state = "firesuit"
 
 
 /obj/item/clothing/suit/fire/heavy
@@ -39,6 +39,12 @@
 	item_state = "ro_suit"
 	w_class = 4//bulky item
 	slowdown = 1.5
+
+/obj/item/clothing/suit/fire/atmos
+	name = "atmospheric technician firesuit"
+	desc = "A suit that protects against fire and heat, this one is designed for atmospheric technicians."
+	icon_state = "atmos_firesuit"
+	item_state = "atmos_firesuit"
 
 /*
  * Bomb protection
