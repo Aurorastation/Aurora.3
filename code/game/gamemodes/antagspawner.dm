@@ -1,3 +1,11 @@
+// Helper proc to make sure no more than one active syndieborg exists at a time.
+/proc/can_buy_syndieborg()
+	for (var/mob/living/silicon/robot/R in silicon_mob_list)
+		if (istype(R, /mob/living/silicon/robot/syndicate))
+			return 0
+
+	return 1
+
 /obj/item/weapon/antag_spawner
 	throw_speed = 1
 	throw_range = 5
