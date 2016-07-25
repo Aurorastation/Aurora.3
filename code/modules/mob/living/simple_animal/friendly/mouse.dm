@@ -17,7 +17,7 @@
 
 	pass_flags = PASSTABLE
 	small = 1
-	speak_chance = 2
+	speak_chance = 4
 	turns_per_move = 5
 	see_in_dark = 6
 	maxHealth = 5
@@ -39,8 +39,9 @@
 
 /mob/living/simple_animal/mouse/Life()
 	..()
-	//Playermice don't do random speech, so this is here
-	if(client && prob(speak_chance))
+	//Player-animals don't do random speech normally, so this is here
+		//Player-controlled mice will still squeak, but less often than NPC mice
+	if(client && stat == CONSCIOUS && prob(speak_chance*0.4))
 		squeak_soft()
 
 	if(!ckey && stat == CONSCIOUS && prob(0.5))
@@ -126,12 +127,11 @@
 	set name = "Soft Squeaking"
 	set category = "Abilities"
 
-	var/sound = pick(soft_squeaks)
-	while (sound == last_softsqueak)
-		sound = pick(soft_squeaks)
+	var/list/new_squeaks = last_softsqueak ? soft_squeaks - last_softsqueak : soft_squeaks
+	var/sound = pick(new_squeaks)
 
 	last_softsqueak = sound
-	playsound(src, sound, 20, 1)
+	playsound(src, sound, 15, 1)
 
 
 
