@@ -86,7 +86,7 @@ var/list/event_last_fired = list()
 	possibleEvents[/datum/event/spider_infestation] = 50 + 25 * active_with_role["Security"]
 	possibleEvents[/datum/event/carp_migration] = 50 + 25 * active_with_role["Security"]
 
-	possibleEvents[/datum/event/communications_blackout] = 40//Comms blackout is too common and annoying
+	possibleEvents[/datum/event/communications_blackout] = 60//Comms blackout is too common and annoying
 
 	//Ion laws are fun!
 	possibleEvents[/datum/event/ionstorm] = active_with_role["AI"] * 35 + active_with_role["Cyborg"] * 20 + active_with_role["Engineer"] * 5 + active_with_role["Scientist"] * 5
