@@ -40,3 +40,6 @@ changes:
   - rscadd: "Janicarts can now be climbed over like tables - Click and drag your sprite onto it."
   - tweak: "Custodial closet's Spraycleaner, cleaning grenades, and spare lights, are now inside the janitorial locker instead of on table/floor."
   - tweak: "Added an extra janitorial locker in the custodial closet."
+  - bugfix: "Fixed the Captain's deluxe soap being unuseable for cleaning"
+  - tweak: "Soap can now clean more tiles when wetted"
+  - tweak: "Soap and rags can now be wetted in buckets, mopbuckets, watertanks and janicarts"

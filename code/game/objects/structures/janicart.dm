@@ -49,7 +49,7 @@
 		if(!mymop)
 			usr.drop_item()
 			mymop = I
-			I.loc = src
+			I.forceMove(src)
 			update_icon()
 			updateUsrDialog()
 			usr << "<span class='notice'>You put [I] into [src].</span>"
@@ -61,9 +61,9 @@
 		C.afterattack(mybucket, usr, 1)
 
 /obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop))
+	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/reagent_containers/glass/rag) || istype(I, /obj/item/weapon/soap))
 		if (mybucket)
-			if(I.reagents.total_volume < I.reagents.maximum_volume)	//if it's not completely soaked we assume they want to wet it, otherwise store it
+			if(I.reagents.total_volume < I.reagents.maximum_volume)
 				if(mybucket.reagents.total_volume < 1)
 					user << "<span class='notice'>[mybucket] is empty!</span>"
 				else
@@ -74,46 +74,46 @@
 				user << "<span class='notice'>[I] can't absorb anymore liquid!</span>"
 		else
 			user << "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>"
-		return
+		return 1
 
 	else if(istype(I, /obj/item/weapon/reagent_containers/spray) && !myspray)
 		user.drop_item()
 		myspray = I
-		I.loc = src
+		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
 		user << "<span class='notice'>You put [I] into [src].</span>"
-		return
+		return 1
 
 	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
 		user.drop_item()
 		myreplacer = I
-		I.loc = src
+		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
 		user << "<span class='notice'>You put [I] into [src].</span>"
-		return
+		return 1
 
 	else if(istype(I, /obj/item/weapon/storage/bag/trash) && !mybag)
 		user.drop_item()
 		mybag = I
-		I.loc = src
+		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
 		user << "<span class='notice'>You put [I] into [src].</span>"
-		return
+		return 1
 
 	else if(istype(I, /obj/item/weapon/caution))
 		if(signs < 4)
 			user.drop_item()
-			I.loc = src
+			I.forceMove(src)
 			signs++
 			update_icon()
 			updateUsrDialog()
 			user << "<span class='notice'>You put [I] into [src].</span>"
 		else
 			user << "<span class='notice'>[src] can't hold any more signs.</span>"
-		return
+		return 1
 
 	else if(mybag)
 		return mybag.attackby(I, user)
@@ -249,7 +249,7 @@
 						signs = 0
 			if("bucket")
 				if(mybucket)
-					mybucket.loc = get_turf(user)
+					mybucket.forceMove(get_turf(user))
 					user << "<span class='notice'>You unmount [mybucket] from [src].</span>"
 					mybucket = null
 
