@@ -1,3 +1,6 @@
+/mob/living/carbon/human/skeleton/New(var/new_loc)
+	..(new_loc, "Skeleton")
+
 /datum/species/skeleton //SPOOKY
 	name = "Skeleton"
 	name_plural = "skeletons"
