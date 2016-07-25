@@ -12,13 +12,17 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/path = null
 	var/reference = ""
 	var/description = ""
+	var/canBuyCheck = null
+	var/list/canBuyParams = list()
 
-datum/uplink_item/New(var/itemPath, var/itemCost, var/itemName, var/itemReference, var/itemDescription)
+datum/uplink_item/New(var/itemPath, var/itemCost, var/itemName, var/itemReference, var/itemDescription, var/newBuyCheck = null, var/list/newBuyParams = list())
 	cost = itemCost
 	path = itemPath
 	name = itemName
 	reference = itemReference
 	description = itemDescription
+	canBuyCheck = newBuyCheck
+	canBuyParams = newBuyParams
 
 datum/uplink_item/proc/description()
 	if(!description)
@@ -35,6 +39,12 @@ datum/uplink_item/proc/description()
 		for(var/item_path in path)
 			L += new item_path(newloc)
 	return L
+
+/datum/uplink_item/proc/can_buy()
+	if (!canBuyCheck)
+		return 1
+
+	return call(canBuyCheck)(canBuyParams)
 
 datum/nano_item_lists
 	var/list/items_nano
@@ -125,7 +135,7 @@ datum/nano_item_lists
 	var/list/random_items = new
 	for(var/IR in ItemsReference)
 		var/datum/uplink_item/UI = ItemsReference[IR]
-		if(UI.cost <= uses)
+		if(UI.cost <= uses && UI.can_buy())
 			random_items += UI
 	return pick(random_items)
 
@@ -144,6 +154,10 @@ datum/nano_item_lists
 
 /obj/item/device/uplink/proc/buy(var/datum/uplink_item/UI, var/reference)
 	if(UI && UI.cost <= uses)
+		if (!UI.can_buy())
+			usr << "<span class='warning'>This item is restricted for the time being! See about buying something else.</span>"
+			return 0
+
 		uses -= UI.cost
 		used_TC += UI.cost
 		feedback_add_details("traitor_uplink_items_bought", reference)
