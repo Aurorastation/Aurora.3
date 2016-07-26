@@ -1421,7 +1421,7 @@ datum/design/item/weapon/gatlinglaser
 	id = "gatlinglaser"
 	name = "gatling laser"
 	desc = "A higly sophisticated rapid-fire laser weapon."
-	req_tech = list("combat" = 6, "phorontech" = 6, "materials" = 4, "powerstorage" = 3)
+	req_tech = list("combat" = 6, "phorontech" = 5, "materials" = 6, "powerstorage" = 3)
 	materials = list("$metal" = 18750, "$glass" = 7500, "$phoron" = 7500, "$silver" = 7500, "$diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
 
@@ -1429,7 +1429,7 @@ datum/design/item/weapon/railgun
 	id = "railgun"
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	req_tech = list("combat" = 8, "phorontech" = 2, "materials" = 8, "magnets" = 4, "powerstorage" = 5, "syndicate" = 3)
+	req_tech = list("combat" = 8, "phorontech" = 2, "materials" = 7, "magnets" = 4, "powerstorage" = 5, "syndicate" = 3)
 	materials = list("$metal" = 75000, "$glass" = 18750, "$phoron" = 11250, "$gold" = 7500, "$silver" = 7500)
 	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
 
@@ -1442,12 +1442,13 @@ datum/design/item/weapon/zorablaster
 	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
 
 datum/design/item/weapon/lawgiver
+	name = "Lawgiver"
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	id = "lawgiver"
 	req_tech = list("combat" = 6, "phorontech" = 4, "bluespace" = 5, "materials" = 7)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$phoron" = 1000, "$diamond" = 3000)
-	build_path = "/obj/item/weapon/gun/energy/lawgiver"
+	build_path = /obj/item/weapon/gun/energy/lawgiver
 
 /*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
 outside of RnD without paperwork with the RD's stamp on it. */

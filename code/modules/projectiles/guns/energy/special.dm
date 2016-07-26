@@ -150,7 +150,7 @@
 	w_class = 3
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 30
+	max_shots = 15
 
 	firemodes = list(
 		list(name="single shot", burst=1, burst_delay = 1, fire_delay = 0),

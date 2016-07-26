@@ -1105,9 +1105,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/under/kilt)
 	name = "Costumes crate"
 	cost = 10
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate
 	containername = "Actor Costumes"
-	access = access_theatre
+//	access = access_theatre
 	group = "Miscellaneous"
 
 /datum/supply_packs/formal_wear
@@ -1456,7 +1456,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/head/helmet/gladiator,
 					/obj/item/clothing/head/ushanka)
 	group = "Miscellaneous"
-	access = access_theatre
+//	access = access_theatre
 
 /datum/supply_packs/randomised/webbing
 	name = "Webbing crate"
@@ -1560,3 +1560,79 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/largecrate
 	containername = "jukebox Crate"
 	group = "Hospitality"
+	
+//voidsuit crates 
+
+/datum/supply_packs/voidsuitcrate_eng
+	name = "Engineering Voidsuit Crate"
+	contains = list(/obj/item/clothing/head/helmet/space/void/engineering,
+					/obj/item/clothing/suit/space/void/engineering)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure
+	containername = "engineer voidsuit kit"
+	access = access_engine_equip
+	group = "Engineering"
+
+/datum/supply_packs/voidsuitcrate_sec
+	name = "Security Voidsuit Crate"
+	contains = list(/obj/item/clothing/head/helmet/space/void/security,
+					/obj/item/clothing/suit/space/void/security)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure
+	containername = "security voidsuit kit"
+	access = access_security
+	group = "Security"
+
+/datum/supply_packs/voidsuitcrate_med
+	name = "Medical Voidsuit Crate"
+	contains = list(/obj/item/clothing/head/helmet/space/void/medical,
+					/obj/item/clothing/suit/space/void/medical)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure
+	containername = "medical voidsuit kit"
+	access = access_medical
+	group = "Medical"
+
+/datum/supply_packs/voidsuitcrate_atmos
+	name = "Atmospherics Voidsuit Crate"
+	contains = list(/obj/item/clothing/head/helmet/space/void/atmos,
+					/obj/item/clothing/suit/space/void/atmos)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure
+	containername = "atmospherics voidsuit kit"
+	access = access_atmospherics
+	group = "Atmospherics"
+	
+/datum/supply_packs/voidsuitcrate_minin
+	name = "Mining Voidsuit Crate"
+	contains = list(/obj/item/clothing/head/helmet/space/void/mining,
+					/obj/item/clothing/suit/space/void/mining)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure
+	containername = "mining voidsuit kit"
+	access = access_mining
+	group = "Supply"
+	
+//maglocks crates
+
+/datum/supply_packs/maglocks_engineering
+	name = "Engineering Magnetic Lock Crate"
+	contains = list(/obj/item/device/magnetic_lock/engineering,
+					/obj/item/device/magnetic_lock/engineering,
+					/obj/item/device/magnetic_lock/engineering)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure
+	containername = "engineering magnetic locks"
+	access = access_engine_equip
+	group = "Engineering"
+
+/datum/supply_packs/maglocks_security
+	name = "Security Magnetic Lock Crate"
+	contains = list(/obj/item/device/magnetic_lock/security,
+					/obj/item/device/magnetic_lock/security,
+					/obj/item/device/magnetic_lock/security)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure
+	containername = "security magnetic locks"
+	access = access_security
+	group = "Security"
