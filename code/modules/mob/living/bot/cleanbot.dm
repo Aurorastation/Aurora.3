@@ -317,6 +317,7 @@
 		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
 		user.drop_from_inventory(src)
 		qdel(src)
+		return 1
 
 	else if(istype(O, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)

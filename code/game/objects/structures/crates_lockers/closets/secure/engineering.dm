@@ -141,7 +141,8 @@
 			new /obj/item/clothing/accessory/storage/brown_vest(src)
 		else
 			new /obj/item/clothing/accessory/storage/webbing(src)
-		new /obj/item/clothing/suit/fire/firefighter(src)
+		new /obj/item/clothing/suit/fire/atmos(src)
+		new /obj/item/clothing/head/hardhat/red/atmos(src)
 		new /obj/item/device/flashlight(src)
 		new /obj/item/weapon/extinguisher(src)
 		new /obj/item/device/radio/headset/headset_eng(src)
