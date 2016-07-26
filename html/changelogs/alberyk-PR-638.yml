@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Added an improved wish granter."
+  - rscadd: "Added skeletons."
