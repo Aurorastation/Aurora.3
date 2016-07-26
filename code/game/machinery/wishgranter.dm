@@ -125,20 +125,23 @@
 					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
 					user << "\blue The walls suddenly disappear."
 					user.set_species("Shadow")
+					user.mind.special_role = "Avatar of the Wish Granter"
 			if("I want to be rich")
 				user << "<B>Your wish is granted, but at a terrible cost...</B>"
 				user << "The Wish Granter punishes you for your greediness, claiming your soul and warping your body to match the darkness in your heart."
 				new /obj/structure/closet/syndicate/resources/everything(loc)
 				user.set_species("Shadow")
+				user.mind.special_role = "Avatar of the Wish Granter"
 			if("I want immortality")
 				user << "<B>Your wish is granted, but at a terrible cost...</B>"
 				user << "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart."
 				user.verbs += /mob/living/carbon/proc/immortality
 				user.set_species("Skeleton")
+				user.mind.special_role = "Avatar of the Wish Granter"
 			if("The station is corrupt, it must be destroyed")
 				user << "<B>Your wish is granted, but at a terrible cost...</B>"
 				user << "The Wish Granter punishes you for your wickedness, claiming your soul and warping your body to match the darkness in your heart."
-				user.mind.special_role = "traitor"
+				user.mind.special_role = "Avatar of the Wish Granter"
 				var/datum/objective/hijack/hijack = new
 				hijack.owner = user.mind
 				user.mind.objectives += hijack
