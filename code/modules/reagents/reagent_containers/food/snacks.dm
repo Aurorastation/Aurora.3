@@ -108,7 +108,7 @@
 				On_Consume(M)
 			return 1
 
-	if (istype(M, /mob/living/simple_animal))
+	else if (isanimal(M))
 		var/mob/living/simple_animal/SA = M
 		var/m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		var/amount_eaten = m_bitesize
@@ -236,7 +236,7 @@
 	var/amount_eaten = bitesize
 	var/m_bitesize = bitesize
 
-	if (istype(user, /mob/living/simple_animal))
+	if (isanimal(user))
 		var/mob/living/simple_animal/SA = user
 		m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		amount_eaten = m_bitesize

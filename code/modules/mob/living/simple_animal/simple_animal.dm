@@ -104,7 +104,7 @@
 		user << "<span class='danger'>It looks starving!</span>"
 	else if (nutrition < max_nutrition *0.5)
 		user << "<span class='notice'>It looks hungry.</span>"
-	else if (reagents.total_volume > 0)
+	else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
 		user << "It looks full and contented."
 
 /mob/living/simple_animal/Life()
