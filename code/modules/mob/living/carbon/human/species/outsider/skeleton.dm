@@ -27,6 +27,8 @@
 	cold_level_2 = 50
 	cold_level_3 = 0
 
+	body_temperature = T0C
+	
 	blood_color = "#CCCCCC"
 	flesh_color = "#AAAAAA"
 
