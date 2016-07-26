@@ -38,3 +38,17 @@
 	poison_type = null
 
 	flags = IS_RESTRICTED | NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/skeleton),
+		"groin" =  list("path" = /obj/item/organ/external/groin/skeleton),
+		"head" =   list("path" = /obj/item/organ/external/head/skeleton),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/skeleton),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/skeleton),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/skeleton),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/skeleton),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/skeleton),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/skeleton),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/skeleton),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/skeleton)
+		)
