@@ -12,23 +12,24 @@
 	language = "Cult"
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
 	darksight = 8
-	has_organ = list()
+	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
 	siemens_coefficient = 0
+	ethanol_resistance = -1 //no drunk skeletons
 
 	rarity_value = 2
 	blurb = "Skeletons are undead brought back to life through dark wizardry, \
 	they are empty shells fueled by sheer obscure power and blood-magic. \
 	However, some men are cursed to carry such burden due to vile curses."
 
-	warning_low_pressure = 50
+	warning_low_pressure = 50 //immune to pressure, so they can into space/survive breaches without worries
 	hazard_low_pressure = 0
 
 	cold_level_1 = 80
 	cold_level_2 = 50
 	cold_level_3 = 0
 
-	body_temperature = T0C
-	
+	body_temperature = T0C //skeletons are cold
+
 	blood_color = "#CCCCCC"
 	flesh_color = "#AAAAAA"
 
