@@ -126,7 +126,7 @@
 			thermitemelt(user)
 			return
 
-		else if( istype(W, /obj/item/weapon/melee/energy/blade) )
+		else if( istype(W, /obj/item/weapon/melee/energy) )
 			var/obj/item/weapon/melee/energy/blade/EB = W
 
 			EB.spark_system.start()
@@ -174,8 +174,12 @@
 			dismantle_verb = "cutting"
 			dismantle_sound = 'sound/items/Welder.ogg'
 			cut_delay *= 0.7
-		else if(istype(W,/obj/item/weapon/melee/energy/blade))
+		else if(istype(W,/obj/item/weapon/melee/energy))
 			dismantle_sound = "sparks"
+			dismantle_verb = "slicing"
+			cut_delay *= 0.5
+		else if(istype(W,/obj/item/weapon/melee/chainsword))
+			dismantle_sound = "sound/weapons/chainsawhit.ogg"
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
 		else if(istype(W,/obj/item/weapon/pickaxe))
