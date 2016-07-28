@@ -192,7 +192,7 @@
 			if(WT.active)
 				dismantle_sound = "sound/weapons/chainsawhit.ogg"
 				dismantle_verb = "slicing"
-				cut_delay *= 0.5
+				cut_delay *= 0.8
 			else
 				user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 				return
