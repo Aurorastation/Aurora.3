@@ -117,6 +117,11 @@
 		return 1
 	return 0
 
+/proc/isdrone(A)
+	if(istype(A, /mob/living/silicon/robot/drone))
+		return 1
+	return 0
+
 /proc/iscarbon(A)
 	if(istype(A, /mob/living/carbon))
 		return 1
@@ -933,5 +938,28 @@ proc/is_blind(A)
 
 	return null//If we get here, the holder must be buried many layers deep in nested containers. Shouldn't happen
 
+
+//This proc retrieves the relevant time of death from
+/mob/proc/get_death_time(var/which)
+	var/datum/preferences/P
+	if (client)
+		P = client.prefs
+	else if (ckey)
+		P = preferences_datums[ckey]
+	else return null
+
+	return P.time_of_death[which]
+
+/mob/proc/set_death_time(var/which, var/value)
+	var/datum/preferences/P
+	if (client)
+		P = client.prefs
+	else if (ckey)
+		P = preferences_datums[ckey]
+	else
+		return 0
+
+	P.time_of_death[which] = value
+	return 1
 
 #undef SAFE_PERP
