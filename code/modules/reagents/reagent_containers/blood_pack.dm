@@ -83,40 +83,50 @@
 		return
 
 	if (istype(P, /obj/item/weapon/) && P.sharp == 1)
-		user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
-		var/atkmsg_filled = " "
-		var/atkmsg = text("<span class='warning'>The [] rips apart[]!</span>", src, atkmsg_filled)
+		if(P.attack_verb.len)
+			user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
+		var/atkmsg_filled = null
 		if (reagents.get_reagent_amount("blood"))
 			atkmsg_filled = " and the contents spray everywhere"
-			var/strength
-			var/percent = round((reagents.get_reagent_amount("blood") / volume) * 100) //the amount of blood changes the strength of spray
-			switch(percent)
-				if(1 to 9)	strength = 2
-				if(10 to 50)	strength = 3
-				if(51 to INFINITY)	strength = 4
-			for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
-				var/direction = pick(alldirs)
-				usr << "<span class='notice'>DEBUG: Direction is [direction].</span>"
-				for (var/i = 0, i < strength, i++) //The distance the splatters will travel from random direction
-					switch (direction)
-						if (NORTH)
-							target = locate(src.x, src.y+i, src.z)
-						if (SOUTH)
-							target = locate(src.x, src.y-i, src.z)
-						if (EAST)
-							target = locate(src.x+i, src.y, src.z)
-						if (WEST)
-							target = locate(src.x-i, src.y, src.z)
-						if (NORTHEAST)
-							target = locate(src.x+i, src.y+i, src.z)
-						if (NORTHWEST)
-							target = locate(src.x-i, src.y+i, src.z)
-						if (SOUTHEAST)
-							target = locate(src.x+i, src.y-i, src.z)
-						if (SOUTHWEST)
-							target = locate(src.x-i, src.y-i, src.z)
-					blood_splatter(target, null, 1)
+			if (src.loc != usr)
+				var/strength
+				var/percent = round((reagents.get_reagent_amount("blood") / volume) * 100) //the amount of blood changes the strength of spray
+				switch(percent)
+					if(1 to 9)	strength = 2
+					if(10 to 50)	strength = 3
+					if(51 to INFINITY)	strength = 4
+				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
+					spray_loop:
+						var/direction = pick(alldirs)
+						usr << "<span class='notice'>DEBUG: Direction is [direction].</span>"
+						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
+							switch (direction)
+								if (NORTH)
+									target = locate(src.x, src.y+i, src.z)
+								if (SOUTH)
+									target = locate(src.x, src.y-i, src.z)
+								if (EAST)
+									target = locate(src.x+i, src.y, src.z)
+								if (WEST)
+									target = locate(src.x-i, src.y, src.z)
+								if (NORTHEAST)
+									target = locate(src.x+i, src.y+i, src.z)
+								if (NORTHWEST)
+									target = locate(src.x-i, src.y+i, src.z)
+								if (SOUTHEAST)
+									target = locate(src.x+i, src.y-i, src.z)
+								if (SOUTHWEST)
+									target = locate(src.x-i, src.y-i, src.z)
+							var/turf/base = get_turf(target)
+							for (var/atom/A in base)
+								if ((!istype(A, /obj/) && A.density) || istype(A, /obj/structure/window/) || istype(A, /obj/machinery/door/airlock/))
+									add_blood(A)
+									break spray_loop
+							blood_splatter(target, null, 1)
+			add_blood(src); add_blood(P in usr.contents);
+			blood_splatter(src.loc, null, 1)
 			playsound(src.loc, 'sound/effects/splat.ogg', 50, 1, -6)
+		var/atkmsg = "<span class='warning'>\The [src] rips apart[atkmsg_filled]!</span>"
 		user.visible_message(atkmsg)
 		return
 	return
