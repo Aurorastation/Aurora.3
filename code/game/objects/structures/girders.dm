@@ -75,6 +75,20 @@
 			if(!src) return
 			user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
+			
+	else if(istype(W, /obj/item/weapon/melee/energy))
+		user << "<span class='notice'>Now slicing apart the girder...</span>"
+		if(do_after(user,30))
+			if(!src) return
+			user << "<span class='notice'>You slice apart the girder!</span>"
+			dismantle()
+			
+	else if(istype(W, /obj/item/weapon/melee/chainsword))
+		user << "<span class='notice'>Now slicing apart the girder...</span>"
+		if(do_after(user,30))
+			if(!src) return
+			user << "<span class='notice'>You slice apart the girder!</span>"
+			dismantle()
 
 	else if(istype(W, /obj/item/weapon/pickaxe/diamonddrill))
 		user << "<span class='notice'>You drill through the girder!</span>"
@@ -252,3 +266,17 @@
 		user << "<span class='notice'>You drill through the girder!</span>"
 		new /obj/effect/decal/remains/human(get_turf(src))
 		dismantle()
+
+	else if(istype(W, /obj/item/weapon/melee/energy))
+		user << "<span class='notice'>Now slicing apart the girder...</span>"
+		if(do_after(user,30))
+			user << "<span class='notice'>You slice apart the girder!</span>"
+		dismantle()
+
+			
+	else if(istype(W, /obj/item/weapon/melee/chainsword))
+		user << "<span class='notice'>Now slicing apart the girder...</span>"
+		if(do_after(user,30))
+			user << "<span class='notice'>You slice apart the girder!</span>"
+		dismantle()
+
