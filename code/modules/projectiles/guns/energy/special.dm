@@ -257,7 +257,7 @@ obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/user)
 			var/obj/item/organ/external/RA = H.get_organ("r_hand")
 			var/active_hand = H.hand
 			playsound(user, 'sound/effects/blobattack.ogg', 40, 1)
-			user.show_message("\red With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!")
+			user.visible_message("\red With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!")
 			user.show_message("<b>[user]</b> screams!",2)
 			user.drop_item()
 			if(active_hand)

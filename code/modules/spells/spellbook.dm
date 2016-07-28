@@ -23,7 +23,7 @@
 			var/active_hand = H.hand
 			user << "\red You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!"
 			user.show_message("<b>[user]</b> screams in horror!",2)
-			H.adjust_fire_stacks(5)
+			H.adjust_fire_stacks(2)
 			H.IgniteMob()
 			H.updatehealth()
 			H.ChangeToHusk()
