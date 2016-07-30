@@ -110,7 +110,7 @@
 	icon_state = "bfg"
 	item_state = "bfg"
 	charge_meter = 0
-	w_class = 3
+	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
 	projectile_type = /obj/item/projectile/energy/sonic
@@ -130,7 +130,7 @@
 	origin_tech = "combat=5;materials=2"
 	charge_meter = 0
 	slot_flags = SLOT_BACK
-	w_class = 3
+	w_class = 4
 	force = 10
 	projectile_type = /obj/item/projectile/beam/gatlinglaser
 	max_shots = 80
@@ -146,7 +146,7 @@
 	icon_state = "blaster"
 	item_state = "blaster"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	slot_flags = SLOT_BACK
+	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster

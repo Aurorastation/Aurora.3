@@ -265,7 +265,7 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
-	
+
 /obj/item/weapon/gun/projectile/automatic/tommygun
 	name = "\improper Tommygun"
 	desc = "A classic among criminals. Uses .45 rounds."
@@ -288,7 +288,7 @@
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
 	item_state = "arifle"
-	w_class = 3
+	w_class = 4
 	force = 10
 	caliber = "trod"
 	origin_tech = "combat=5;materials=2"
