@@ -144,3 +144,147 @@
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_coat"
 	contained_sprite = 1
+
+
+/obj/item/device/kit/paint/ripley/fluff/zairjah_kit // Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk - DONE
+	name = "Hephaestus Industrial Exosuit MK III customization kit"
+	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
+	new_name = "Hephaestus Industrial Exosuit MK III"
+	new_desc = "An ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
+	new_icon = "ripley_zairjah" //a lot of thanks to cakeisossim for the sprites
+	allowed_types = list("ripley","firefighter")
+
+
+/obj/item/weapon/cane/fluff/uski_cane // Inscribed Silver-handled Cane - Usiki Guwan - fireandglory - DONE
+	name = "inscribed silver-handled cane"
+	desc = "This silver-handled cane has letters carved into the sides."
+	icon = 'icons/obj/custom_items/usiki_cane.dmi'
+	icon_state = "usiki_cane"
+	item_state = "usiki_cane"
+	contained_sprite = 1
+
+/obj/item/weapon/cane/fluff/uski_cane/attack_self(mob/user as mob)
+	if(user.get_species() == "Unathi")
+		user << "This cane has the words 'A new and better life' carved into one side in basic, and on the other side in Sinta'Unathi."
+	else
+		user << "This cane has the words 'A new and better life' carved into the side, the other side has some unreadable carvings."
+
+
+/obj/item/clothing/gloves/black/fluff/kathleen_glove // Black Left Glove - Kathleen Bullard - valky_walky2 - DONE
+	name = "black left glove"
+	desc = "A pretty normal looking glove to be worn on the left hand."
+	icon = 'icons/obj/custom_items/kathleen_glove.dmi'
+	icon_state = "kathleen_glove"
+	contained_sprite = 1
+
+
+/obj/structure/bed/chair/wheelchair/fluff/nomak_scooter // Mobility Scooter - Dubaku Nomak - demonofthefall - DONE
+	name = "mobility scooter"
+	desc = "A battery powered scooters designed to carry fatties."
+	icon = 'icons/obj/custom_items/nomak_scooter.dmi'
+	icon_state = "nomak_scooter"
+
+/obj/structure/bed/chair/wheelchair/fluff/nomak_scooter/update_icon()
+	return
+
+/obj/structure/bed/chair/wheelchair/fluff/nomak_scooter/set_dir()
+	..()
+	overlays = null
+	if(buckled_mob)
+		buckled_mob.set_dir(dir)
+
+
+/obj/item/weapon/coin/fluff/yoiko_coin // Sobriety Chip - Yoiko Ali - raineko - DONE
+	name = "sobriety chip"
+	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: 'TO THINE OWN SELF BE TRUE'."
+	icon = 'icons/obj/custom_items/yoiko_coin.dmi'
+	icon_state = "yoiko_coin" //thanks fireandglory for the sprites
+
+
+/obj/item/weapon/fluff/derringer_implanter //Loyalty Implant Activator - Eric Derringer - xelnagahunter - DONE
+	name = "loyalty implanter activator"
+	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Eric Derringer.'"
+	icon = 'icons/obj/syndieweapons.dmi'
+	icon_state = "OLDc-4detonator_1"
+	w_class = 1.0
+	var/obj/item/weapon/implant/imp = null
+
+/obj/item/weapon/fluff/derringer_implanter/attack_self(mob/user as mob)
+	if (user.ckey != "xelnagahunter")
+		user << "\blue You click \the [src] but nothing happens."
+	else
+		user << "\blue You click \the [src], activating the implant."
+		var/mob/living/carbon/human/H = user
+		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
+		L.imp_in = H
+		L.implanted = 1
+		var/obj/item/organ/external/affected = H.get_organ("head")
+		affected.implants += L
+		L.part = affected
+		L.implanted(src)
+		BITSET(H.hud_updateflag, IMPLOYAL_HUD)
+		qdel(src)
+
+
+/obj/item/weapon/fluff/clement_implanter //Loyalty Implant Activator - Clement Beach - icuris - DONE
+	name = "loyalty implanter activator"
+	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Clement Beach.'"
+	icon = 'icons/obj/syndieweapons.dmi'
+	icon_state = "OLDc-4detonator_1"
+	w_class = 1.0
+	var/obj/item/weapon/implant/imp = null
+
+/obj/item/weapon/fluff/derringer_implanter/attack_self(mob/user as mob)
+	if (user.ckey != "icuris")
+		user << "\blue You click \the [src] but nothing happens."
+	else
+		user << "\blue You click \the [src], activating the implant."
+		var/mob/living/carbon/human/H = user
+		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
+		L.imp_in = H
+		L.implanted = 1
+		var/obj/item/organ/external/affected = H.get_organ("head")
+		affected.implants += L
+		L.part = affected
+		L.implanted(src)
+		BITSET(H.hud_updateflag, IMPLOYAL_HUD)
+		qdel(src)
+
+
+/obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35 - DONE
+	name = "unathi wrappings"
+	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi.."
+	icon = 'icons/obj/custom_items/karnaikai_wrappings.dmi'
+	icon_state = "karnaikai_wrappings" //special thanks to Araskael
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	species_restricted = list("Unathi")
+	contained_sprite = 1
+
+
+/obj/item/clothing/mask/gas/fluff/karnaikai_mask //Unathi head wrappings - Azeazekal Karnaikai - canon35 - DONE
+	name = "unathi head wrappings"
+	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
+	icon = 'icons/obj/custom_items/karnaikai_mask.dmi'
+	icon_state = "karnaikai_mask" //special thanks to Araskael
+	species_restricted = list("Unathi")
+	contained_sprite = 1
+	
+	
+/obj/item/weapon/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron - DONE
+	name = "ATLAS poster"
+
+/obj/item/weapon/contraband/poster/fluff/conservan_poster/New()
+	serial_number = 59
+
+/datum/poster/bay_59
+	name = "ATLAS poster"
+	desc = "ATLAS: For all of Humanity."
+	icon_state = "bposter59"
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/locke_zippo // Fire Extinguisher Zippo - Jacob Locke - completegarbage - DONE
+	name = "fire extinguisher lighter"
+	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
+	icon = 'icons/obj/custom_items/locke_zippo.dmi'
+	icon_state = "locke_zippo"
