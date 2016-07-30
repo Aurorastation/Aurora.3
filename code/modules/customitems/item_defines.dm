@@ -146,6 +146,22 @@
 	contained_sprite = 1
 
 
+/obj/item/clothing/under/syndicate/tacticool/fluff/jaylor_turtleneck // Borderworlds Turtleneck - Jaylor Rameau - evilbrage - DONE
+	name = "borderworlds turtleneck"
+	desc = "A loose-fitting turtleneck, common among borderworld pilots and criminals. One criminal in particular is missing his, apparently."
+
+
+/obj/item/weapon/melee/fluff/tina_knife // Consecrated Athame - Tina Kaekel - tainavaa - DONE
+	name = "consecrated athame"
+	desc = "An athame used in occult rituals. The double-edged dagger is dull. The handle is black with a pink/white occult design strewn about it, and 'Tina' is inscribed into it in decorated letters."
+	icon = 'icons/obj/custom_items/tina_knife.dmi'
+	icon_state = "tina_knife"
+	item_state = "knife"
+	slot_flags = SLOT_BELT
+	w_class = 1
+	force = 2
+
+
 /obj/item/device/kit/paint/ripley/fluff/zairjah_kit // Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk - DONE
 	name = "Hephaestus Industrial Exosuit MK III customization kit"
 	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
