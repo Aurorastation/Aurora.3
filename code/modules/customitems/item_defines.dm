@@ -347,3 +347,12 @@
 	slot_flags = SLOT_BELT
 	w_class = 1
 	force = 2
+
+
+/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - jackboot - DONE
+	name = "shaman hoodie"
+	desc = "A slightly faded robe. It's worn by some Unathi shamans."
+	icon = 'icons/obj/custom_items/nioathi_hoodie.dmi'
+	icon_state = "nioathi_hoodie"
+	item_state = "nioathi_hoodie"
+	contained_sprite = 1
