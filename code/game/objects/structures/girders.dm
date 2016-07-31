@@ -99,7 +99,7 @@
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
-			if(do_after(user,30))
+			if(do_after(user,60))
 				if(!src) return
 				user << "<span class='notice'>You slice apart the girder!</span>"
 				dismantle()
@@ -305,7 +305,7 @@
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
-			if(do_after(user,30))
+			if(do_after(user,60))
 				user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
 		else
