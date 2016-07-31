@@ -219,7 +219,7 @@
 
 /obj/item/weapon/fluff/derringer_implanter //Loyalty Implant Activator - Eric Derringer - xelnagahunter - DONE
 	name = "loyalty implanter activator"
-	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Eric Derringer.'"
+	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Eric Derringer'."
 	icon = 'icons/obj/syndieweapons.dmi'
 	icon_state = "OLDc-4detonator_1"
 	w_class = 1.0
@@ -244,7 +244,7 @@
 
 /obj/item/weapon/fluff/clement_implanter //Loyalty Implant Activator - Clement Beach - icuris - DONE
 	name = "loyalty implanter activator"
-	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Clement Beach.'"
+	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Clement Beach'."
 	icon = 'icons/obj/syndieweapons.dmi'
 	icon_state = "OLDc-4detonator_1"
 	w_class = 1.0
@@ -269,7 +269,7 @@
 
 /obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35 - DONE
 	name = "unathi wrappings"
-	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi.."
+	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
 	icon = 'icons/obj/custom_items/karnaikai_wrappings.dmi'
 	icon_state = "karnaikai_wrappings" //special thanks to Araskael
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
