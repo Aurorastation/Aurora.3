@@ -304,3 +304,46 @@
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
 	icon = 'icons/obj/custom_items/locke_zippo.dmi'
 	icon_state = "locke_zippo"
+
+
+/obj/item/weapon/clipboard/fluff/zakiya_sketchpad // Sketchpad - Zakiya Ahmad - sierrakomodo - DONE
+	name = "sketchpad"
+	desc = "A simple sketchpad, about the size of a regular sheet of paper."
+	icon = 'icons/obj/custom_items/zakiya_sketchpad.dmi' //thanks superballs for the sprites
+	icon_state = "zakiya_sketchpad"
+
+/obj/item/weapon/clipboard/fluff/zakiya_sketchpad/New()
+		..()
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		
+/obj/item/weapon/clipboard/fluff/zakiya_sketchpad/update_icon()
+	if(toppaper)
+		icon_state = "zakiya_sketchpad1"
+	else
+		icon_state = "zakiya_sketchpad"
+	return
+
+/obj/item/weapon/pen/fluff/zakiya_pen // Sketching pencil - Zakiya Ahmad - sierrakomodo - DONE
+	name = "sketching pencil"
+	desc = "A graphite sketching pencil."
+	icon = 'icons/obj/custom_items/zakiya_pen.dmi'
+	icon_state = "zakiya_pen"
+
+
+/obj/item/weapon/melee/fluff/zah_mandible // Broken Vaurca Mandible - Ka'Akaix'Zah Void - sleepywolf - DONE
+	name = "broken vaurca mandible"
+	desc = "A black, four inch long piece of a Vaurca mandible. It seems dulled, and looks like it was shot off."
+	icon = 'icons/obj/custom_items/zah_mandible.dmi'
+	icon_state = "zah_mandible"
+	slot_flags = SLOT_BELT
+	w_class = 1
+	force = 2
