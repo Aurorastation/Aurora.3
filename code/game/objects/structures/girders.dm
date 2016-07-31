@@ -84,9 +84,9 @@
 				if(!src) return
 				user << "<span class='notice'>You slice apart the girder!</span>"
 				dismantle()
-			else
-				user << "<span class='notice'>You need to activate the weapon to do that!</span>"
-				return
+		else
+			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
+			return
 			
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
