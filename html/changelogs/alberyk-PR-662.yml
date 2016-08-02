@@ -5,3 +5,4 @@ delete-after: True
 changes: 
   - rscadd: "Added more skrellian head garments, available in the custom loadout."
   - rscadd: "Added some neckerchief bandanna, available in the custom loadout."
+  - rscadd: "Added a cigar case cigarettes to the custom loadout."
