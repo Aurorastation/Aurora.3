@@ -108,6 +108,32 @@
 				On_Consume(M)
 			return 1
 
+	else if (isanimal(M))
+		var/mob/living/simple_animal/SA = M
+		var/m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
+		var/amount_eaten = m_bitesize
+
+		if(reagents && SA.reagents)
+			m_bitesize = min(m_bitesize, reagents.total_volume)
+			//If the creature can't even stomach half a bite, then it eats nothing
+			if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
+				amount_eaten = 0
+			else
+				amount_eaten = reagents.trans_to_mob(SA, m_bitesize, CHEM_INGEST)
+		else
+			return 0//The target creature can't eat
+
+		if (amount_eaten)
+			bitecount++
+			if (amount_eaten >= m_bitesize)
+				user.visible_message("<span class='notice'>[user] feeds [M] [src].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] feeds [M] a tiny bit of [src]. <b>It looks full.</b></span>")
+			On_Consume(M)
+			return 1
+		else
+			user << "<span class='danger'>[M.name] can't stomach anymore food!</span>"
+
 	return 0
 
 /obj/item/weapon/reagent_containers/food/snacks/examine(mob/user)
@@ -206,10 +232,34 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack_generic(var/mob/living/user)
 	if(!isanimal(user) && !isalien(user))
 		return
-	user.visible_message("<b>[user]</b> nibbles away at \the [src].","You nibble away at \the [src].")
-	bitecount++
+
+	var/amount_eaten = bitesize
+	var/m_bitesize = bitesize
+
+	if (isanimal(user))
+		var/mob/living/simple_animal/SA = user
+		m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
+		amount_eaten = m_bitesize
+		if (!SA.can_eat())
+			user << "<span class='danger'>You're too full to eat anymore!</span>"
+			return
+
 	if(reagents && user.reagents)
-		reagents.trans_to_mob(user, bitesize, CHEM_INGEST)
+		m_bitesize = min(m_bitesize, reagents.total_volume)
+		//If the creature can't even stomach half a bite, then it eats nothing
+		if (((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
+			amount_eaten = 0
+		else
+			amount_eaten = reagents.trans_to_mob(user, m_bitesize, CHEM_INGEST)
+	if (amount_eaten)
+		bitecount++
+		if (amount_eaten < m_bitesize)
+			user.visible_message("<span class='notice'><b>[user]</b> reluctantly nibbles a tiny part of \the [src].</span>","<span class='notice'>You reluctantly nibble a tiny part of \the [src]. <b>You can't stomach much more!</b>.</span>")
+		else
+			user.visible_message("<span class='notice'><b>[user]</b> nibbles away at \the [src].</span>","<span class='notice'>You nibble away at \the [src].</span>")
+	else
+		user << "<span class='danger'>You're too full to eat anymore!</span>"
+
 	spawn(5)
 		if(!src && !user.client)
 			user.custom_emote(1,"[pick("burps", "cries for more", "burps twice", "looks at the area where the food was")]")
