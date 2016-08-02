@@ -33,6 +33,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Respawn timers are now tracked individually for playing as animals (mice), small synthetics (drones and pAIs) and crew (everything else). This means you can now play as a mouse or drone while waiting to respawn as a full crewmember.".
+  - rscadd: "Respawn timers are now tracked individually for playing as animals (mice), small synthetics (drones and pAIs) and crew (everything else). This means you can now play as a mouse or drone while waiting to respawn as a full crewmember."
   - tweak: "You can now spawn as a drone immediately upon joining as an observer, without having to wait ten minutes. There is still a cooldown between respawning as a drone if you just died as one."
   - tweak: "Slightly improved the error messages if you try to respawn when you've not waited long enough."
