@@ -559,9 +559,11 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			C.messagetext.Add(P.info)
 
 	if (reporttype == "Template")
-		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for no sender)", "Name") as text|null)
+		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)
 		if (reporter)
 			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
+		else
+			reportbody += "\n\n- CCIAAMS, [commstation_name()]"
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
