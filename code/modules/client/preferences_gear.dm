@@ -1267,6 +1267,16 @@ var/global/list/gear_datums = list()
 	sort_category = "misc"
 	cost = 1
 
+/datum/gear/cigar_case
+	display_name = "cigar case"
+	path = /obj/item/weapon/storage/fancy/cigar
+	cost = 2
+
+/datum/gear/cigarettes
+	display_name = "pack of DromedaryCo cigarettes"
+	path = /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
+	cost = 2
+
 /datum/gear/matchbook
 	display_name = "matchbook"
 	path = /obj/item/weapon/storage/box/matches
