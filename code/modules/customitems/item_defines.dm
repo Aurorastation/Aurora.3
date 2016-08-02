@@ -217,56 +217,6 @@
 	icon_state = "yoiko_coin" //thanks fireandglory for the sprites
 
 
-/obj/item/weapon/fluff/derringer_implanter //Loyalty Implant Activator - Eric Derringer - xelnagahunter - DONE
-	name = "loyalty implanter activator"
-	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Eric Derringer'."
-	icon = 'icons/obj/syndieweapons.dmi'
-	icon_state = "OLDc-4detonator_1"
-	w_class = 1.0
-	var/obj/item/weapon/implant/imp = null
-
-/obj/item/weapon/fluff/derringer_implanter/attack_self(mob/user as mob)
-	if (user.ckey != "xelnagahunter")
-		user << "\blue You click \the [src] but nothing happens."
-	else
-		user << "\blue You click \the [src], activating the implant."
-		var/mob/living/carbon/human/H = user
-		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
-		L.imp_in = H
-		L.implanted = 1
-		var/obj/item/organ/external/affected = H.get_organ("head")
-		affected.implants += L
-		L.part = affected
-		L.implanted(src)
-		BITSET(H.hud_updateflag, IMPLOYAL_HUD)
-		qdel(src)
-
-
-/obj/item/weapon/fluff/clement_implanter //Loyalty Implant Activator - Clement Beach - icuris - DONE
-	name = "loyalty implanter activator"
-	desc = "A small device used to activate a loyalty implant of a certain owner. This one has a tag: 'Clement Beach'."
-	icon = 'icons/obj/syndieweapons.dmi'
-	icon_state = "OLDc-4detonator_1"
-	w_class = 1.0
-	var/obj/item/weapon/implant/imp = null
-
-/obj/item/weapon/fluff/derringer_implanter/attack_self(mob/user as mob)
-	if (user.ckey != "icuris")
-		user << "\blue You click \the [src] but nothing happens."
-	else
-		user << "\blue You click \the [src], activating the implant."
-		var/mob/living/carbon/human/H = user
-		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
-		L.imp_in = H
-		L.implanted = 1
-		var/obj/item/organ/external/affected = H.get_organ("head")
-		affected.implants += L
-		L.part = affected
-		L.implanted(src)
-		BITSET(H.hud_updateflag, IMPLOYAL_HUD)
-		qdel(src)
-
-
 /obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35 - DONE
 	name = "unathi wrappings"
 	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
@@ -356,3 +306,22 @@
 	icon_state = "nioathi_hoodie"
 	item_state = "nioathi_hoodie"
 	contained_sprite = 1
+
+
+/obj/item/weapon/implanter/fluff //snowflake implanters for snowflakes
+	var/allowed_ckey = ""
+	var/implant_type = null
+
+/obj/item/weapon/implanter/fluff/proc/create_implant()
+	if (!implant_type)
+		return
+	imp = new implant_type(src)
+	update()
+
+	return
+
+/obj/item/weapon/implanter/fluff/attack(mob/M as mob, mob/user as mob)
+	if (!M.ckey || M.ckey != allowed_ckey)
+		return
+
+	..()
