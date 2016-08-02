@@ -1,3 +1,8 @@
+// WARNING
+//-- Added 2016-08-02 by Nanako
+//This file is deprecated. The lists in event_container.dm handle event probabilities
+//Do not use this file
+
 
 /*
 /proc/start_events()
@@ -45,128 +50,45 @@ var/list/event_last_fired = list()
 	// Code/WorkInProgress/Cael_Aislinn/Economy/Economy_Events.dm
 	// Code/WorkInProgress/Cael_Aislinn/Economy/Economy_Events_Mundane.dm
 
-
-	//Rework by Nanako
-	//Based upon the standard listed above - aim for 100 weight for average.
-	//Assuming a crew containing four people in the primary roles of each department (sec, engineering, science, medical)
-	//Weights with that crew compliment are adapted to be more or less common, by being either side of 100,
-		//based on my idea of which ones are fun
-		//More people in those departments will increase the likelihood of those events. Especially combat oriented ones with lots of sec
-
-
-	//Mundane Events
-	//=====================================
 	possibleEvents[/datum/event/economic_event] = 300
 	possibleEvents[/datum/event/trivial_news] = 400
 	possibleEvents[/datum/event/mundane_news] = 300
+
 	possibleEvents[/datum/event/pda_spam] = max(min(25, player_list.len) * 4, 200)
-	possibleEvents[/datum/event/money_lotto] = 10
-	possibleEvents[/datum/event/brand_intelligence] = 10 + 10 * active_with_role["Janitor"] +  5 * active_with_role["Engineer"]
+	possibleEvents[/datum/event/money_lotto] = max(min(5, player_list.len), 50)
 	if(account_hack_attempted)
-		//Made account hack far rarer, reasoning provided in a forum thread on 2016-06-28
-		//In short, its meaningless, annoying, and it trains people to ignore request consoles
-		//Consider restoring it to commonality when economy is fleshed out and currency becomes meaningful
-		possibleEvents[/datum/event/money_hacker] = 10
-
-	possibleEvents[/datum/event/infestation] = 50 + 50 * active_with_role["Janitor"]
-
-	//Wallrot made much less engineer-dependant, but more gardener-dependant.
-	possibleEvents[/datum/event/wallrot] = 75 + 5 * active_with_role["Engineer"] + 20 * active_with_role["Gardener"]
+		possibleEvents[/datum/event/money_hacker] = max(min(25, player_list.len) * 4, 200)
 
 
+	possibleEvents[/datum/event/carp_migration] = 20 + 10 * active_with_role["Engineer"]
+	possibleEvents[/datum/event/brand_intelligence] = 20 + 25 * active_with_role["Janitor"]
 
+	possibleEvents[/datum/event/rogue_drone] = 5 + 25 * active_with_role["Engineer"] + 25 * active_with_role["Security"]
+	possibleEvents[/datum/event/infestation] = 100 + 100 * active_with_role["Janitor"]
 
-
-
-	//Moderate Events
-	//================================================
-
-		//Combat oriented events, more heavily weighted to number of sec officers
-	possibleEvents[/datum/event/rogue_drone] = 50 + 25 * active_with_role["Security"]
-	possibleEvents[/datum/event/spider_infestation] = 50 + 25 * active_with_role["Security"]
-	possibleEvents[/datum/event/carp_migration] = 50 + 25 * active_with_role["Security"]
-
-	possibleEvents[/datum/event/communications_blackout] = 60//Comms blackout is too common and annoying
-
-	//Ion laws are fun!
-	possibleEvents[/datum/event/ionstorm] = active_with_role["AI"] * 35 + active_with_role["Cyborg"] * 20 + active_with_role["Engineer"] * 5 + active_with_role["Scientist"] * 5
-
-	possibleEvents[/datum/event/grid_check] = 100
-
-	//Janitor has a big weight because they usually fix the lights
-	possibleEvents[/datum/event/electrical_storm] = 60 + 20 * active_with_role["Janitor"] + 5 * active_with_role["Engineer"]
-
-	//Rad storms no longer medical-dependant. If there's no medical you can drink tea and vodka
-	possibleEvents[/datum/event/radiation_storm] = 100
-
-
-	possibleEvents[/datum/event/meteor_shower] = 50 + 25 * active_with_role["Engineer"]//Quite dependant on engineers
-
-	if(active_with_role["Medical"] > 0)
-		//These two are just pointless without medical, so no base chance
-		possibleEvents[/datum/event/spontaneous_appendicitis] = active_with_role["Medical"] * 25
-		possibleEvents[/datum/event/viral_infection] = active_with_role["Medical"] * 10
-
-	if (minutes_passed > 60)
-		//No point in a prison break when no antags have been arrested yet
-		possibleEvents[/datum/event/prison_break] = active_with_role["Security"] * 15 + active_with_role["Cyborg"] * 20
-
-		//Give the previous antag a chance to tell their story before spawning another
-		//This is generally less common but scales with playercount
-		possibleEvents[/datum/event/random_antag] = min(30, player_list.len) + active_with_role["Security"]*8
-
-
-
-
-
-
-
-
-
-
-
-
-	//Severe Events
-	//=================================================
-	//Note, carp migration and viral infection have different behaviour depending whether they're called as moderate or severe
-	//So they exist in both categories
-	possibleEvents[/datum/event/carp_migration] = 60 + 10 * active_with_role["Security"]
-	possibleEvents[/datum/event/viral_infection] = active_with_role["Medical"] * 25
-
-	//More heavily weighted towards engineering, meteor storms are punishing without shields
-	possibleEvents[/datum/event/meteor_wave] = 50 + 15 * active_with_role["Engineer"]
-	possibleEvents[/datum/event/blob] = 40 + 5 * active_with_role["Engineer"] + 5 * active_with_role["Security"]
-
+	possibleEvents[/datum/event/communications_blackout] = 50 + 25 * active_with_role["AI"] + active_with_role["Scientist"] * 25
+	possibleEvents[/datum/event/ionstorm] = active_with_role["AI"] * 25 + active_with_role["Cyborg"] * 25 + active_with_role["Engineer"] * 10 + active_with_role["Scientist"] * 5
+	possibleEvents[/datum/event/grid_check] = 25 + 10 * active_with_role["Engineer"]
+	possibleEvents[/datum/event/electrical_storm] = 15 * active_with_role["Janitor"] + 5 * active_with_role["Engineer"]
+	possibleEvents[/datum/event/wallrot] = 30 * active_with_role["Engineer"] + 50 * active_with_role["Gardener"]
 
 	if(!spacevines_spawned)
-		possibleEvents[/datum/event/spacevine] = 50 + 10 * active_with_role["Engineer"] + 20 * active_with_role["Gardener"]
+		possibleEvents[/datum/event/spacevine] = 10 + 5 * active_with_role["Engineer"]
+	if(minutes_passed >= 30) // Give engineers time to set up engine
+		possibleEvents[/datum/event/meteor_wave] = 10 * active_with_role["Engineer"]
+		possibleEvents[/datum/event/meteor_shower] = 20 * active_with_role["Engineer"]
+		possibleEvents[/datum/event/blob] = 10 * active_with_role["Engineer"]
 
+	if(active_with_role["Medical"] > 0)
+		possibleEvents[/datum/event/radiation_storm] = active_with_role["Medical"] * 10
+		possibleEvents[/datum/event/spontaneous_appendicitis] = active_with_role["Medical"] * 10
+		possibleEvents[/datum/event/viral_infection] = active_with_role["Medical"] * 10
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	possibleEvents[/datum/event/prison_break] = active_with_role["Security"] * 50
+	if(active_with_role["Security"] > 0)
+		if(!sent_spiders_to_station)
+			possibleEvents[/datum/event/spider_infestation] = max(active_with_role["Security"], 5) + 5
+		possibleEvents[/datum/event/random_antag] = max(active_with_role["Security"], 5) + 2.5
 
 	for(var/event_type in event_last_fired) if(possibleEvents[event_type])
 		var/time_passed = world.time - event_last_fired[event_type]
