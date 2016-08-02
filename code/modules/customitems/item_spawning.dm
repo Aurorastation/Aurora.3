@@ -82,7 +82,7 @@
 			kit.new_mob_icon_file = CUSTOM_ITEM_MOB
 			
 	// for snowflake implants
-	if(istype(item, /obj/item/weapon/implanter/fluff))
+	else if(istype(item, /obj/item/weapon/implanter/fluff))
 		var/obj/item/weapon/implanter/fluff/L = item
 		L.allowed_ckey = assoc_key
 		L.implant_type = text2path(additional_data)
