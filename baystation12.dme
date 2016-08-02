@@ -905,6 +905,7 @@
 #include "code\modules\client\preferences_system_control.dm"
 #include "code\modules\client\preferences_toggles.dm"
 #include "code\modules\clothing\clothing.dm"
+#include "code\modules\clothing\ears\bandanna.dm"
 #include "code\modules\clothing\ears\skrell.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
 #include "code\modules\clothing\glasses\hud.dm"
