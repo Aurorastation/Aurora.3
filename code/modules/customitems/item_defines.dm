@@ -144,3 +144,184 @@
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_coat"
 	contained_sprite = 1
+
+
+/obj/item/clothing/under/syndicate/tacticool/fluff/jaylor_turtleneck // Borderworlds Turtleneck - Jaylor Rameau - evilbrage - DONE
+	name = "borderworlds turtleneck"
+	desc = "A loose-fitting turtleneck, common among borderworld pilots and criminals. One criminal in particular is missing his, apparently."
+
+
+/obj/item/weapon/melee/fluff/tina_knife // Consecrated Athame - Tina Kaekel - tainavaa - DONE
+	name = "consecrated athame"
+	desc = "An athame used in occult rituals. The double-edged dagger is dull. The handle is black with a pink/white occult design strewn about it, and 'Tina' is inscribed into it in decorated letters."
+	icon = 'icons/obj/custom_items/tina_knife.dmi'
+	icon_state = "tina_knife"
+	item_state = "knife"
+	slot_flags = SLOT_BELT
+	w_class = 1
+	force = 2
+
+
+/obj/item/device/kit/paint/ripley/fluff/zairjah_kit // Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk - DONE
+	name = "Hephaestus Industrial Exosuit MK III customization kit"
+	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
+	new_name = "Hephaestus Industrial Exosuit MK III"
+	new_desc = "An ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
+	new_icon = "ripley_zairjah" //a lot of thanks to cakeisossim for the sprites
+	allowed_types = list("ripley","firefighter")
+
+
+/obj/item/weapon/cane/fluff/uski_cane // Inscribed Silver-handled Cane - Usiki Guwan - fireandglory - DONE
+	name = "inscribed silver-handled cane"
+	desc = "This silver-handled cane has letters carved into the sides."
+	icon = 'icons/obj/custom_items/usiki_cane.dmi'
+	icon_state = "usiki_cane"
+	item_state = "usiki_cane"
+	contained_sprite = 1
+
+/obj/item/weapon/cane/fluff/uski_cane/attack_self(mob/user as mob)
+	if(user.get_species() == "Unathi")
+		user << "This cane has the words 'A new and better life' carved into one side in basic, and on the other side in Sinta'Unathi."
+	else
+		user << "This cane has the words 'A new and better life' carved into the side, the other side has some unreadable carvings."
+
+
+/obj/item/clothing/gloves/black/fluff/kathleen_glove // Black Left Glove - Kathleen Bullard - valky_walky2 - DONE
+	name = "black left glove"
+	desc = "A pretty normal looking glove to be worn on the left hand."
+	icon = 'icons/obj/custom_items/kathleen_glove.dmi'
+	icon_state = "kathleen_glove"
+	contained_sprite = 1
+
+
+/obj/structure/bed/chair/wheelchair/fluff/nomak_scooter // Mobility Scooter - Dubaku Nomak - demonofthefall - DONE
+	name = "mobility scooter"
+	desc = "A battery powered scooters designed to carry fatties."
+	icon = 'icons/obj/custom_items/nomak_scooter.dmi'
+	icon_state = "nomak_scooter"
+
+/obj/structure/bed/chair/wheelchair/fluff/nomak_scooter/update_icon()
+	return
+
+/obj/structure/bed/chair/wheelchair/fluff/nomak_scooter/set_dir()
+	..()
+	overlays = null
+	if(buckled_mob)
+		buckled_mob.set_dir(dir)
+
+
+/obj/item/weapon/coin/fluff/yoiko_coin // Sobriety Chip - Yoiko Ali - raineko - DONE
+	name = "sobriety chip"
+	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: 'TO THINE OWN SELF BE TRUE'."
+	icon = 'icons/obj/custom_items/yoiko_coin.dmi'
+	icon_state = "yoiko_coin" //thanks fireandglory for the sprites
+
+
+/obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35 - DONE
+	name = "unathi wrappings"
+	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
+	icon = 'icons/obj/custom_items/karnaikai_wrappings.dmi'
+	icon_state = "karnaikai_wrappings" //special thanks to Araskael
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	species_restricted = list("Unathi")
+	contained_sprite = 1
+
+
+/obj/item/clothing/mask/gas/fluff/karnaikai_mask //Unathi head wrappings - Azeazekal Karnaikai - canon35 - DONE
+	name = "unathi head wrappings"
+	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
+	icon = 'icons/obj/custom_items/karnaikai_mask.dmi'
+	icon_state = "karnaikai_mask" //special thanks to Araskael
+	species_restricted = list("Unathi")
+	contained_sprite = 1
+	
+	
+/obj/item/weapon/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron - DONE
+	name = "ATLAS poster"
+
+/obj/item/weapon/contraband/poster/fluff/conservan_poster/New()
+	serial_number = 59
+
+/datum/poster/bay_59
+	name = "ATLAS poster"
+	desc = "ATLAS: For all of Humanity."
+	icon_state = "bposter59"
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/locke_zippo // Fire Extinguisher Zippo - Jacob Locke - completegarbage - DONE
+	name = "fire extinguisher lighter"
+	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
+	icon = 'icons/obj/custom_items/locke_zippo.dmi'
+	icon_state = "locke_zippo"
+
+
+/obj/item/weapon/clipboard/fluff/zakiya_sketchpad // Sketchpad - Zakiya Ahmad - sierrakomodo - DONE
+	name = "sketchpad"
+	desc = "A simple sketchpad, about the size of a regular sheet of paper."
+	icon = 'icons/obj/custom_items/zakiya_sketchpad.dmi' //thanks superballs for the sprites
+	icon_state = "zakiya_sketchpad"
+
+/obj/item/weapon/clipboard/fluff/zakiya_sketchpad/New()
+		..()
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		new /obj/item/weapon/paper(src)
+		
+/obj/item/weapon/clipboard/fluff/zakiya_sketchpad/update_icon()
+	if(toppaper)
+		icon_state = "zakiya_sketchpad1"
+	else
+		icon_state = "zakiya_sketchpad"
+	return
+
+/obj/item/weapon/pen/fluff/zakiya_pen // Sketching pencil - Zakiya Ahmad - sierrakomodo - DONE
+	name = "sketching pencil"
+	desc = "A graphite sketching pencil."
+	icon = 'icons/obj/custom_items/zakiya_pen.dmi'
+	icon_state = "zakiya_pen"
+
+
+/obj/item/weapon/melee/fluff/zah_mandible // Broken Vaurca Mandible - Ka'Akaix'Zah Void - sleepywolf - DONE
+	name = "broken vaurca mandible"
+	desc = "A black, four inch long piece of a Vaurca mandible. It seems dulled, and looks like it was shot off."
+	icon = 'icons/obj/custom_items/zah_mandible.dmi'
+	icon_state = "zah_mandible"
+	slot_flags = SLOT_BELT
+	w_class = 1
+	force = 2
+
+
+/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - jackboot - DONE
+	name = "shaman hoodie"
+	desc = "A slightly faded robe. It's worn by some Unathi shamans."
+	icon = 'icons/obj/custom_items/nioathi_hoodie.dmi'
+	icon_state = "nioathi_hoodie"
+	item_state = "nioathi_hoodie"
+	contained_sprite = 1
+
+
+/obj/item/weapon/implanter/fluff //snowflake implanters for snowflakes
+	var/allowed_ckey = ""
+	var/implant_type = null
+
+/obj/item/weapon/implanter/fluff/proc/create_implant()
+	if (!implant_type)
+		return
+	imp = new implant_type(src)
+	update()
+
+	return
+
+/obj/item/weapon/implanter/fluff/attack(mob/M as mob, mob/user as mob)
+	if (!M.ckey || M.ckey != allowed_ckey)
+		return
+
+	..()
