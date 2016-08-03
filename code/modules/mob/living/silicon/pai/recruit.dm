@@ -29,6 +29,9 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 	if(href_list["download"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
 		var/obj/item/device/paicard/card = locate(href_list["device"])
+		if (!candidate in pai_candidates)
+			return
+
 		if(card.pai)
 			return
 		if(istype(card,/obj/item/device/paicard) && istype(candidate,/datum/paiCandidate))
