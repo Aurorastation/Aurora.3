@@ -29,6 +29,9 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 	if(href_list["download"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
 		var/obj/item/device/paicard/card = locate(href_list["device"])
+		if (!candidate in pai_candidates)
+			return
+
 		if(card.pai)
 			return
 		if(istype(card,/obj/item/device/paicard) && istype(candidate,/datum/paiCandidate))
@@ -107,6 +110,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		candidate.key = M.key
 		pai_candidates.Add(candidate)
 
+	candidate.savefile_load(M)//Load the pAI config before displaying the window
 	var/dat = ""
 	dat += {"
 			<style type="text/css">
