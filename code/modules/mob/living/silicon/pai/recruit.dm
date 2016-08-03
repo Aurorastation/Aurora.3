@@ -107,6 +107,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		candidate.key = M.key
 		pai_candidates.Add(candidate)
 
+	candidate.savefile_load(M)//Load the pAI config before displaying the window
 	var/dat = ""
 	dat += {"
 			<style type="text/css">

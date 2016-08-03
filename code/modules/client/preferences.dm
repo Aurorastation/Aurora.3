@@ -3,6 +3,7 @@
 var/list/preferences_datums = list()
 
 var/global/list/special_roles = list( //keep synced with the defines BE_* in setup.dm --rastaf
+//REALLY keep synced. The ordering of this list is critical, it must match the order of the BE_* defines --Nanako
 //some autodetection here.
 // TODO: Update to new antagonist system.
 	"traitor" = IS_MODE_COMPILED("traitor"),             // 0
@@ -19,8 +20,8 @@ var/global/list/special_roles = list( //keep synced with the defines BE_* in set
 	"raider" = IS_MODE_COMPILED("heist"),                // 11
 	"diona" = 1,                                         // 12
 	"loyalist" = IS_MODE_COMPILED("revolution"),         // 13
-	"vampire" = IS_MODE_COMPILED("vampire"),             // 14
-	"pAI candidate" = 1, // -- TLE                       // 15
+	"personal AI" = 1, // -- TLE                       // 14
+	"vampire" = IS_MODE_COMPILED("vampire"),             // 15
 )
 
 //used for alternate_option

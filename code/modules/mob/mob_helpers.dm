@@ -794,6 +794,9 @@ proc/is_blind(A)
 	var/preposition= ""
 	var/action = ""
 	var/action3 = ""
+	if (!reportto)
+		return 0
+
 	if (istype(loc, /mob/living/carbon/human))//This function is for finding where we are on a human. not valid otherwise
 		H = loc
 
