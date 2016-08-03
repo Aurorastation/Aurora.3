@@ -42,6 +42,7 @@ datum/preferences
 	var/last_ip
 	var/last_id
 	var/list/notifications = list()		//A list of datums, for the dynamic server greeting window.
+	var/list/time_of_death = list()//This is a list of last times of death for various things with different respawn timers
 
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change

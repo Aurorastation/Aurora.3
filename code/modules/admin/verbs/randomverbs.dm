@@ -275,6 +275,19 @@ Ccomp's first proc.
 									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
 									   there won't be an autopsy.
 									*/
+	var/datum/preferences/P
+
+	if (G.client)
+		P = G.client.prefs
+	else if (G.ckey)
+		P = preferences_datums[G.ckey]
+	else
+		src << "Something went wrong, couldn't find the target's preferences datum"
+		return 0
+
+	for (var/entry in P.time_of_death)//Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
+		P.time_of_death[entry] = -99999
+
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
