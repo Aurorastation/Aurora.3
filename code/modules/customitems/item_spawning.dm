@@ -66,7 +66,8 @@
 			U.worn_state = U.icon_state
 			U.update_rolldown_status()
 
-/*	// Kits are dumb so this is going to have to be hardcoded/snowflake.
+/*
+// Kits are dumb so this is going to have to be hardcoded/snowflake.
 	if(istype(item, /obj/item/device/kit))
 		var/obj/item/device/kit/K = item
 		K.new_name = kit_name
