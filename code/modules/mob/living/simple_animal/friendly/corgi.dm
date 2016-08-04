@@ -26,9 +26,9 @@
 	var/obj/item/inventory_back
 	var/facehugger
 	var/foodtarget = 0//If the corgi's current target is food, set this to 1
-	var/scanInterval = 2//Used to control how often ian does things.
+	var/scanInterval = 1//Used to control how often ian scans for nearby food
 	//It gradually increases up to 10 when hes left alone, to save performance
-	//It will drop back to 2 if he spies any food.
+	//It will drop back to 1 if he spies any food.
 		//This short time makes him more responsive to interactions and more fun to play with
 
 /mob/living/simple_animal/corgi/New()
@@ -87,7 +87,7 @@
 								break
 
 			if(movement_target)
-				scanInterval = 2
+				scanInterval = 1
 				stop_automated_movement = 1
 				step_to(src,movement_target,1)
 				sleep(3)
