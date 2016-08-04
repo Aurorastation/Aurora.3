@@ -79,7 +79,7 @@
 		else if(istype(item, /obj/item/device/kit/suit))
 			var/obj/item/device/kit/suit/kit = item
 			kit.new_light_overlay = additional_data
-			kit.new_mob_icon_file = CUSTOM_ITEM_MOB 
+			kit.new_mob_icon_file = CUSTOM_ITEM_MOB
 
 	// for snowflake implants
 	else if(istype(item, /obj/item/weapon/implanter/fluff))
@@ -186,7 +186,7 @@
 			if("kit_desc")
 				current_data.kit_desc = field_data
 			if("kit_icon")
-				current_data.kit_icon = field_data 
+				current_data.kit_icon = field_data
 			if("additional_data")
 				current_data.additional_data = field_data
 	return 1
