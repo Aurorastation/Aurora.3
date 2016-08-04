@@ -2257,15 +2257,15 @@
 	glass_desc = "You can't see?"
 
 /datum/reagent/ethanol/rustynail
-	name = "Old Fashioned"
+	name = "Rusty Nail"
 	id = "rustynail"
-	description = "That looks like from sixties."
+	description = "Smells like lemon."
 	color = "#2E6671"
 	strength = 25
 
 	glass_icon_state = "rustynail"
-	glass_name = "glass of Old Fashioned"
-	glass_desc = "That looks like from sixties."
+	glass_name = "glass of Rusty Nail"
+	glass_desc = "Smells like lemon."
 
 /datum/reagent/ethanol/tallrussian
 	name = "Tall Black Russian"
@@ -2274,6 +2274,6 @@
 	color = "#2E6671"
 	strength = 25
 
-	glass_icon_state = "tallrussian"
+	glass_icon_state = "tallblackrussian"
 	glass_name = "glass of Tall Black Russian"
 	glass_desc = "Just like black russian but taller."

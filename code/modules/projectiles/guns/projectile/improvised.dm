@@ -19,7 +19,7 @@
 	load_method = SINGLE_CASING
 	
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
-	if(prob(20 - (loaded.len * 10)))
+	if(prob(60 - (loaded.len * 10)))
 		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
 		M.take_organ_damage(0,30)
 		M.drop_item()
