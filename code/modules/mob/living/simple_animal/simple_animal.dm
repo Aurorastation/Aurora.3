@@ -264,13 +264,14 @@
 		if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
 			var/datum/reagent/nutriment/N = current
 			nutrition += removed*N.nutriment_factor
+			health = min(health+(removed*N.regen_factor), maxHealth)
 		current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
 
 /mob/living/simple_animal/proc/can_eat()
 	if (nutrition > max_nutrition * 0.9)
 		return 0//full
 
-	else if (nutrition > max_nutrition * 0.8)
+	else if ((nutrition > max_nutrition * 0.8) || health < maxHealth)
 		return 1//content
 
 	else return 2//hungry

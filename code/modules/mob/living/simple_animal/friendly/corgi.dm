@@ -60,12 +60,12 @@
 				movement_target = null
 				foodtarget = 0
 				stop_automated_movement = 0
-			if( !movement_target || !(movement_target.loc in oview(src, 6)) )
+			if( !movement_target || !(movement_target.loc in oview(src, 7)) )
 				movement_target = null
 				foodtarget = 0
 				stop_automated_movement = 0
 				if (can_eat())
-					for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,6))
+					for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,7))
 						if(isturf(S.loc) || ishuman(S.loc))
 							movement_target = S
 							foodtarget = 1
@@ -74,7 +74,7 @@
 					//Ian looks for food in people's hand
 					if (!movement_target)
 						var/obj/item/weapon/reagent_containers/food/snacks/F = null
-						for(var/mob/living/carbon/human/H in oview(src,6))
+						for(var/mob/living/carbon/human/H in oview(src,7))
 							if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
 								F = H.l_hand
 
