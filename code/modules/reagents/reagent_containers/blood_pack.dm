@@ -123,9 +123,11 @@
 									add_blood(A)
 									break spray_loop
 							blood_splatter(target, null, 1)
-			add_blood(src); add_blood(P in usr.contents);
+			add_blood(src); add_blood(usr);
 			blood_splatter(src.loc, null, 1)
 			playsound(src.loc, 'sound/effects/splat.ogg', 50, 1, -6)
+		reagents.remove_reagent("blood", reagents.total_volume)
+		icon_state = "ripped"; update_icon();
 		var/atkmsg = "<span class='warning'>\The [src] rips apart[atkmsg_filled]!</span>"
 		user.visible_message(atkmsg)
 		return
