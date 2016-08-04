@@ -70,6 +70,7 @@
 	var/nutrition_step = 0.2 //nutrition lost per tick and per step, calculated from mob_size, 0.4 is a fallback
 	var/bite_factor = 0.4
 	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
+	var/stomach_size_mult = 5
 
 /mob/living/simple_animal/New()
 	..()
@@ -78,7 +79,7 @@
 		nutrition_step = mob_size * 0.05
 		bite_factor = mob_size * 0.3
 		max_nutrition *= 1 + (nutrition_step*3)//Max nutrition scales faster than costs, so bigger creatures eat less often
-		reagents = new/datum/reagents(5*mob_size, src)
+		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
 	else
 		reagents = new/datum/reagents(20, src)
 	nutrition = max_nutrition
