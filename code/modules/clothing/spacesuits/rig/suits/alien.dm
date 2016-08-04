@@ -10,6 +10,12 @@
 	vision_restriction = 1
 	offline_vision_restriction = 2
 
+	chest_type = /obj/item/clothing/suit/space/rig/unathi
+	helm_type = /obj/item/clothing/head/helmet/space/rig/unathi
+	boot_type = /obj/item/clothing/shoes/magboots/rig/unathi
+
+	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
+
 /obj/item/weapon/rig/unathi/fancy
 	name = "breacher chassis control module"
 	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank."
@@ -18,3 +24,12 @@
 	armor = list(melee = 90, bullet = 90, laser = 90, energy = 90, bomb = 90, bio = 100, rad = 80)
 	vision_restriction = 0
 	slowdown = 4
+
+/obj/item/clothing/head/helmet/space/rig/unathi
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/suit/space/rig/unathi
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/shoes/magboots/rig/unathi
+	species_restricted = list("Unathi")

@@ -24,7 +24,7 @@
 	primitive_form = "Stok"
 	darksight = 3
 	gluttonous = 1
-	ethanol_resistance = 1.5
+	ethanol_resistance = 0.4
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
 	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \

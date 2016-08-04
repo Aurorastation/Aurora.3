@@ -217,7 +217,7 @@
 					</tr>
 				</table>
 				<br>
-				<p>Each time this button is pressed, a request will be sent out to any available personalities. Check back often give plenty of time for personalities to respond. This process could take anywhere from 15 seconds to several minutes, depending on the available personalities' timeliness.</p>
+				<p>Each time this button is pressed, a request will be sent out to any available personalities. Check back often give plenty of time for personalities to respond. This process could take anywhere from 15 seconds to several minutes, depending on the available personalities' timelines.</p>
 			"}
 	user << browse(dat, "window=paicard")
 	onclose(user, "paicard")
@@ -247,8 +247,11 @@
 		if(confirm == "Yes")
 			for(var/mob/M in src)
 				M << "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>"
+				sleep(30)
 				M << "<font color = #ff4d4d><h3>Byte by byte you lose your sense of self.</h3></font>"
+				sleep(20)
 				M << "<font color = #ff8787><h4>Your mental faculties leave you.</h4></font>"
+				sleep(30)
 				M << "<font color = #ffc4c4><h5>oblivion... </h5></font>"
 				M.death(0)
 			removePersonality()
@@ -339,6 +342,9 @@
 	update_location(slot)
 
 /obj/item/device/paicard/proc/update_location(var/slotnumber = null)
+	if (!pai)
+		return
+
 	if (!slotnumber)
 		if (istype(loc, /mob))
 			slotnumber = get_equip_slot()

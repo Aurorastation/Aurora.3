@@ -70,6 +70,7 @@
 
 	var/translator_on = 0 // keeps track of the translator module
 
+	var/greeted = 0
 	var/current_pda_messaging = null
 
 /mob/living/silicon/pai/New(var/obj/item/device/paicard/newlocation)
@@ -109,8 +110,17 @@
 	..()
 
 /mob/living/silicon/pai/Login()
+	greet()
 	..()
 
+
+/mob/living/silicon/pai/proc/greet()
+
+	if (!greeted)
+		// Basic intro text.
+		src << "<span class='danger'><font size=3>You are a Personal AI!</font></span>"
+		src << "<span class='notice'>You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world.</span>"
+		greeted = 1
 
 // this function shows the information about being silenced as a pAI in the Status panel
 /mob/living/silicon/pai/proc/show_silenced()

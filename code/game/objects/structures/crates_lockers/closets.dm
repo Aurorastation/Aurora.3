@@ -343,28 +343,33 @@
 	return 1
 
 /obj/structure/closet/proc/req_breakout()
-	if(breakout)
-		return 0 //Already breaking out.
+
 	if(opened)
 		return 0 //Door's open... wait, why are you in it's contents then?
-	if(!welded)
-		return 0 //closed but not welded...
-	return 1
+	if(welded)
+		return 1 //closed but not welded...
+	if(breakout)
+		return -1 //Already breaking out.
+	return 0
 
 /obj/structure/closet/proc/mob_breakout(var/mob/living/escapee)
-	var/breakout_time = 2 //2 minutes by default
 
-	if(!req_breakout())
+	//Improved by nanako
+	//Now it actually works, also locker breakout time stacks with locking and welding
+	//This means secure lockers are more useful for imprisoning people
+	var/breakout_time = 1.5 * req_breakout()//1.5 minutes if locked or welded, 3 minutes if both
+	if(breakout_time <= 0)
 		return
+
+
 
 	//okay, so the closet is either welded or locked... resist!!!
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>"
-
 	visible_message("<span class='danger'>The [src] begins to shake violently!</span>")
 
-	breakout = 1 //can't think of a better way to do this right now.
+	breakout = 1
 	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
 		playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
 		animate_shake()

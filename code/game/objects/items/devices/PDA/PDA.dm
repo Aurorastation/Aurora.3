@@ -697,7 +697,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				mode=2
 
 		if("Ringtone")
-			var/t = input(U, "Please enter new ringtone", name, ttone) as text
+			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
 			if (in_range(src, U) && loc == U)
 				if (t)
 					if(src.hidden_uplink && hidden_uplink.check_trigger(U, lowertext(t), lowertext(lock_code)))
@@ -710,7 +710,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				ui.close()
 				return 0
 		if("Newstone")
-			var/t = input(U, "Please enter new news tone", name, newstone) as text
+			var/t = input(U, "Please enter new news tone", name, newstone) as text|null
 			if (in_range(src, U) && loc == U)
 				if (t)
 					t = sanitize(t, 20)
@@ -950,7 +950,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(tap)
 		U.visible_message("<span class='notice'>[U] taps on \his PDA's screen.</span>")
 	U.last_target_click = world.time
-	var/t = input(U, "Please enter message", P.name, null) as text
+	var/t = input(U, "Please enter message", P.name, null) as text|null
 	t = sanitize(t)
 	//t = readd_quotes(t)
 	t = replace_characters(t, list("&#34;" = "\""))
