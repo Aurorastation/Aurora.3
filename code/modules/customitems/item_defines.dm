@@ -325,3 +325,30 @@
 		return
 
 	..()
+
+
+/obj/item/weapons/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
+	name = "tiger claw"
+	desc = "A small energy dagger given to Golden Tigers."
+	icon = 'icons/obj/custom_items/moon_baton.dmi'
+	icon_state = "tigerclaw"
+	slot_flags = SLOT_BELT
+	force = 2
+	w_class = 2
+	contained_sprite = 1
+	var/active = 0
+
+/obj/item/weapons/fluff/moon_baton/attack_self(mob/user)
+	active= !active
+	if(active)
+		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+		user << "\blue \The [src] is now energised."
+		icon_state = "tigerclaw_active"
+		slot_flags = null
+		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	else
+		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+		user << "\blue \The [src] is de-energised."
+		icon_state = initial(icon_state)
+		slot_flags = initial(slot_flags)
+		attack_verb = list()
