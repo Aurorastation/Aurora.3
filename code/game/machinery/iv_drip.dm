@@ -7,6 +7,7 @@
 
 /obj/machinery/iv_drip/var/mob/living/carbon/human/attached = null
 /obj/machinery/iv_drip/var/mode = 1 // 1 is injecting, 0 is taking blood.
+/obj/machinery/iv_drip/var/transfer_amount = REM
 /obj/machinery/iv_drip/var/obj/item/weapon/reagent_containers/beaker = null
 
 /obj/machinery/iv_drip/update_icon()
@@ -82,10 +83,6 @@
 		// Give blood
 		if(mode)
 			if(src.beaker.volume > 0)
-				var/transfer_amount = REM
-				if(istype(src.beaker, /obj/item/weapon/reagent_containers/blood))
-					// speed up transfer on blood packs
-					transfer_amount = 4
 				src.beaker.reagents.trans_to_mob(src.attached, transfer_amount, CHEM_BLOOD)
 				update_icon()
 
@@ -161,6 +158,29 @@
 		usr << "<span class='notice'>No chemicals are attached.</span>"
 
 	usr << "<span class='notice'>[attached ? attached : "No one"] is attached.</span>"
+
+/obj/machinery/iv_drip/verb/transfer_rate()
+	set category = "Object"
+	set name = "Set Transfer Rate"
+	set src in view(1)
+
+	if(!config.ghost_interaction)
+		if(istype(usr,/mob/living/simple_animal/mouse))
+			return
+		if(!usr || !isturf(usr.loc))
+			return
+		if(usr.stat || usr.restrained())
+			return
+		set_rate:
+			transfer_amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
+			if ((0.001 > transfer_amount || transfer_amount > 4) && transfer_amount != 0)
+				transfer_amount = REM
+				usr << "<span class='warning'>Entered value must be between 0.001 and 4.</span>"
+				goto set_rate
+			if (transfer_amount == 0)
+				transfer_amount = REM
+				return
+			usr << "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>"
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, mice, drones, and the like through.
