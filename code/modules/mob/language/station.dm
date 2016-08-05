@@ -69,7 +69,7 @@
 /datum/language/bug
 	name = "Hivenet"
 	desc = "Complex Vaurcesian language comprised of rapid mandible-clicking, \"It's a bugs life.\""
-	speech_verb = "broadcasts"
+	speech_verb = " broadcasts"
 	colour = "vaurca"
 	key = "9"
 	native = 1
