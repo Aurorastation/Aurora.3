@@ -1328,7 +1328,7 @@ datum/design/item/weapon/lasercannon
 datum/design/item/weapon/decloner
 	id = "decloner"
 	req_tech = list("combat" = 8, "materials" = 7, "biotech" = 5, "powerstorage" = 6)
-	materials = list("$gold" = 5000,"$uranium" = 10000, "mutagen" = 40)
+	materials = list("$gold" = 5000,"$uranium" = 10000)
 	build_path = /obj/item/weapon/gun/energy/decloner
 	locked = 1
 

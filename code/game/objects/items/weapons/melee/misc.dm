@@ -35,10 +35,10 @@
 /obj/item/weapon/melee/chainsword/attack_self(mob/user)
 	active= !active
 	if(active)
-		playsound(user, 'sound/weapons/circsawhit.ogg', 50, 1)
+		playsound(user, 'sound/weapons/chainsawhit.ogg', 50, 1)
 		user << "\blue \The [src] rumbles to life."
 		force = 35
-		hitsound = 'sound/weapons/circsawhit.ogg'
+		hitsound = 'sound/weapons/chainsawhit.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else

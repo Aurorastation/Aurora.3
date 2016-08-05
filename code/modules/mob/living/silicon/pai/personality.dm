@@ -27,7 +27,7 @@
 	return 1
 
 // loads the savefile corresponding to the mob's ckey
-// if silent=true, report incompatible savefiles
+// if silent=false, report incompatible savefiles
 // returns 1 if loaded (or file was incompatible)
 // returns 0 if savefile did not exist
 

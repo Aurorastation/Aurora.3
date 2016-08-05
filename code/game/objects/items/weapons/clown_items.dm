@@ -17,11 +17,12 @@
  */
 /obj/item/weapon/soap/New()
 	..()
-	create_reagents(5)
+	create_reagents(10)
 	wet()
- 
+
 /obj/item/weapon/soap/proc/wet()
-	reagents.add_reagent("cleaner", 5)
+	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+	reagents.add_reagent("cleaner", 10)
 
 /obj/item/weapon/soap/Crossed(AM as mob|obj)
 	if (istype(AM, /mob/living))
@@ -38,12 +39,20 @@
 		user << "<span class='notice'>You scrub \the [target.name] out.</span>"
 		qdel(target)
 	else if(istype(target,/turf))
-		user << "<span class='notice'>You scrub \the [target.name] clean.</span>"
-		var/turf/T = target
-		T.clean(src, user)
-	else if(istype(target,/obj/structure/sink))
+		user << "You start scrubbing the [target.name]"
+		if (do_after(user, 30, needhand = 0))
+			user << "<span class='notice'>You scrub \the [target.name] clean.</span>"
+			var/turf/T = target
+			T.clean(src, user)
+	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
 		user << "<span class='notice'>You wet \the [src] in the sink.</span>"
 		wet()
+	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/weapon/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
+		if (target.reagents && target.reagents.total_volume)
+			user << "<span class='notice'>You wet \the [src] in the [target].</span>"
+			wet()
+		else
+			user << "\The [target] is empty!"
 	else
 		user << "<span class='notice'>You clean \the [target.name].</span>"
 		target.clean_blood()

@@ -1032,3 +1032,18 @@ var/list/be_special_flags = list(
 	dview_mob.see_invisible = invis_flags; \
 	for(type in view(range, dview_mob))
 #define END_FOR_DVIEW dview_mob.loc = null
+
+
+//Time of Death constants
+//Used with a list in preference datums to track times of death
+#define	CREW 	"crew"//Used for crewmembers, AI, cyborgs, nymphs, antags
+#define ANIMAL	"animal"//Used for mice and any other simple animals
+#define MINISYNTH	"minisynth"//Used for drones and pAIs
+
+
+//Respawn Times
+//How long you must wait after death before being allowed to respawn
+//These times are in deciseconds. One minute = 600 deciseconds
+#define RESPAWN_CREW	18000
+#define RESPAWN_ANIMAL	3000
+#define RESPAWN_MINISYNTH	6000
