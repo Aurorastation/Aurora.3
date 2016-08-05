@@ -35,6 +35,10 @@
 			//mob_container.forceMove(get_turf(src))
 			M.reset_view()
 
+		var/mob/L = get_holding_mob()
+		if (L)
+			L.drop_from_inventory(src)
+
 		qdel(src)
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
@@ -42,24 +46,6 @@
 /obj/item/weapon/holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	for(var/mob/M in src.contents)
 		M.attackby(W,user)
-
-/obj/item/weapon/holder/proc/get_holding_mob()
-	//This function will return the mob which is holding this holder, or null if it's not held
-	//It recurses up the hierarchy out of containers until it reaches a mob, or aturf, or hits the limit
-	var/x = 0//As a safety, we'll crawl up a maximum of five layers
-	var/atom/a = src
-	while (x < 5)
-		x++
-		a = a.loc
-		if (istype(a, /turf))
-			return null//We must be on a table or a floor, or maybe in a wall. Either way we're not held.
-
-		if (istype(a, /mob))
-			return a
-		//If none of the above are true, we must be inside a box or backpack or something. Keep recursing up.
-
-	return null//If we get here, the holder must be buried many layers deep in nested containers. Shouldn't happen
-
 
 /obj/item/weapon/holder/attack_self(mob/M as mob)
 
@@ -107,7 +93,7 @@
 	//update_icon()
 
 
-/mob/living/proc/get_scooped(var/mob/living/carbon/grabber)
+/mob/living/proc/get_scooped(var/mob/living/carbon/grabber, var/mob/user = null)
 	if(!holder_type || buckled || pinned.len || !Adjacent(grabber))
 		return
 
@@ -127,8 +113,12 @@
 	else
 		H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
 
-	grabber << "You scoop up [src]."
-	src << "[grabber] scoops you up."
+	if (user == src)
+		grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
+		src << "<span class='notice'>You climb up onto [grabber].</span>"
+	else
+		grabber << "<span class='notice'>You scoop up [src].</span>"
+		src << "<span class='notice'>[grabber] scoops you up.</span>"
 	grabber.status_flags |= PASSEMOTES
 	return
 

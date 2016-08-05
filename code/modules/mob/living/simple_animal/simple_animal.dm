@@ -490,6 +490,6 @@
 		if(!istype(H) || !Adjacent(H))
 			return ..()
 
-		get_scooped(H)
+		get_scooped(H, usr)
 		return
 	return ..()
