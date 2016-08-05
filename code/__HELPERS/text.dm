@@ -326,17 +326,13 @@ proc/TextPreview(var/string,var/len=40)
 
 	// ---Begin URL caching.
 	var/list/urls = list()
+	var/i = 1
 	while (url_find_lazy.Find(message))
-		urls += url_find_lazy.match
+		urls["\ref[urls]-[i]"] = url_find_lazy.match
+		i++
 
-
-	if (urls.len)
-		var/i = 1
-		for (var/url in urls)
-			var/ref = "\ref[urls]-[i]"
-			urls[url] = ref
-			message = replacetextEx(message, url, ref)
-			i++
+	for (var/ref in urls)
+		message = replacetextEx(message, urls[ref], ref)
 	// ---End URL caching
 
 	var/regex/tag_markup
@@ -345,9 +341,8 @@ proc/TextPreview(var/string,var/len=40)
 		message = tag_markup.Replace(message, "[markup_tags[tag][1]]$2[markup_tags[tag][1]]")
 
 	// ---Unload URL cache
-	if (urls.len)
-		for (var/url in urls)
-			message = replacetextEx(message, urls[url], url)
+	for (var/ref in urls)
+		message = replacetextEx(message, ref, urls[ref])
 
 	return message
 

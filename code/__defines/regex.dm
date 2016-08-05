@@ -11,10 +11,8 @@ var/global/regex/markup_strike
 var/global/regex/markup_underline
 
 // Global list for mark-up REGEX datums.
-var/global/list/markup_regex = list("/" = markup_italics,
-									"*" = markup_bold,
-									"~" = markup_strike,
-									"_" = markup_underline)
+// Initialized in the hook, to avoid passing by null value.
+var/global/list/markup_regex = list()
 
 // Global list for mark-up REGEX tag collection.
 var/global/list/markup_tags = list("/" = list("<i>", "</i>"),
@@ -29,3 +27,11 @@ var/global/list/markup_tags = list("/" = list("<i>", "</i>"),
 	markup_italics = 	new("(\\/)(\[^\\/\]*)(\\/)", "g")
 	markup_strike = 	new("(\\~)(\[^\\~\]*)(\\~)", "g")
 	markup_underline = 	new("(\\_)(\[^\\_\]*)(\\_)", "g")
+
+	// List needs to be initialized here, due to DM mixing and matching pass-by-value and -reference as it chooses.
+	markup_regex = list("/" = markup_italics,
+						"*" = markup_bold,
+						"~" = markup_strike,
+						"_" = markup_underline)
+
+	return 1
