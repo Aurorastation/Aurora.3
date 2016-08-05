@@ -18,6 +18,7 @@
 #include "code\world.dm"
 #include "code\__defines\btime.dm"
 #include "code\__defines\process_scheduler.dm"
+#include "code\__defines\regex.dm"
 #include "code\__HELPERS\datum_pool.dm"
 #include "code\__HELPERS\files.dm"
 #include "code\__HELPERS\game.dm"
