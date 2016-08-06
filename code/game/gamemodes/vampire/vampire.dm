@@ -7,7 +7,6 @@
 	required_enemies = 1
 	end_on_antag_death = 1
 	antag_scaling_coeff = 7
-	initial_spawn_target = 2
 	antag_tags = list(MODE_VAMPIRE)
 
 /datum/game_mode/vampire/verb/vampire_help()
