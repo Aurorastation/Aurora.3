@@ -165,6 +165,10 @@
 	damage = 40
 	penetrating = 1
 
+/obj/item/projectile/bullet/rifle/a556/ap
+	damage = 35
+	penetrating = 3
+
 /* Miscellaneous */
 
 /obj/item/projectile/bullet/suffocationbullet//How does this even work?

@@ -94,12 +94,26 @@
 	worn_state = "centcom"
 	displays_id = 0
 
+/obj/item/clothing/under/rank/centcom_commander
+	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
+	name = "\improper ERT Commander's Dress Uniform"
+	icon_state = "centcom"
+	item_state = "lawyer_black"
+	worn_state = "centcom"
+
 /obj/item/clothing/under/ert
 	name = "ERT tactical uniform"
 	desc = "A short-sleeved black uniform, paired with grey digital-camo cargo pants. It looks very tactical."
 	icon_state = "ert_uniform"
 	item_state = "bl_suit"
 	worn_state = "ert_uniform"
+
+/obj/item/clothing/under/ccpolice
+	name = "ERT civil protection uniform"
+	desc = "A sturdy navy uniform, carefully ironed and folded. Worn by specialist troopers on civil protection duties."
+	icon_state = "officerdnavyclothes"
+	item_state = "scratch"
+	worn_state = "officerdnavyclothes"
 
 /obj/item/clothing/under/space
 	name = "\improper NASA jumpsuit"

@@ -243,7 +243,7 @@
 			usr << "<span class='warning'>There's no gun in the holster to draw.</span>"
 
 
-//Non-hardsuit ERT armor.
+/* Obselete shit; refer to below for the actual ERT plate carriers
 /obj/item/clothing/suit/armor/vest/ert
 	name = "emergency response team armor"
 	desc = "A set of armor worn by members of the NanoTrasen Emergency Response Team."
@@ -274,7 +274,7 @@
 	name = "emergency response team medical armor"
 	desc = "A set of armor worn by medical members of the NanoTrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "ertarmor_med"
-
+*/
 //New Vests
 /obj/item/clothing/suit/storage/vest
 	name = "armor vest"
@@ -373,6 +373,53 @@
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	slowdown = 0
 
+/obj/item/clothing/suit/storage/vest/heavy/ert
+	name = "ERT trooper's plate carrier"
+	desc = "A plate carrier worn by troopers of the emergency response team. Has crimson highlights."
+	icon_state = "ert_soldier"
+	item_state = "ert_soldier"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 20, bio = 0, rad = 0)
+	slowdown = 0
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/commander
+	name = "ERT commander's plate carrier"
+	desc = "A plate carrier worn by the elite emergency response team commander. Has gold highlights. This one has a Medal of Valor pinned to the breastplate."
+	icon_state = "ert_commander"
+	item_state = "ert_commander"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/lead
+	name = "Leading trooper's plate carrier"
+	desc = "A plate carrier worn by veteran troopers of the emergency response team qualified to lead small squads. Has blue highlights."
+	icon_state = "ert_lead"
+	item_state = "ert_lead"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/medic
+	name = "ERT medic's plate carrier"
+	desc = "A plate carrier worn by combat medics of the emergency response team. Has white highlights. This one has a medic patch sewn to the breastplate."
+	icon_state = "ert_medic"
+	item_state = "ert_medic"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/sapper
+	name = "ERT sapper's plate carrier"
+	desc = "A plate carrier worn by sappers of the emergency response team. Has green highlights."
+	icon_state = "ert_sapper"
+	item_state = "ert_sapper"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
+	name = "ERT civil protection plate carrier"
+	desc = "A plate carrier worn by troopers serving civil protection details. Commonly seen on high-profile escorts and Nanotrasen administration centers."
+	icon_state = "ert_peacekeeper"
+	item_state = "ert_peacekeeper"
+
+/obj/item/clothing/head/helmet/swat/peacekeeper
+	name = "\improper ERT civil protection helmet"
+	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
+	icon_state = "erthelmet_peacekeeper"
+	flags = HEADCOVERSEYES
+	item_state = "erthelmet_peacekeeper"
+	armor = list(melee = 80, bullet = 60, laser = 50,energy = 50, bomb = 50, bio = 10, rad = 0)
+	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 //All of the armor below is mostly unused
 
 

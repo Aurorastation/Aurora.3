@@ -28,7 +28,7 @@ var/datum/antagonist/ert/ert
 /datum/antagonist/ert/greet(var/datum/mind/player)
 	if(!..())
 		return
-	player.current << "The Emergency Response Team works for Asset Protection; your job is to protect NanoTrasen's ass-ets. There is a code red alert on [station_name()], you are tasked to go and fix the problem."
+	player.current << "The Emergency Response Team works for Asset Protection; your job is to protect NanoTrasen's assets. There is a code red alert on [station_name()], you are tasked to go and fix the problem."
 	player.current << "You should first gear up and discuss a plan with your team. More members may be joining, don't move out before you're ready."
 
 /datum/antagonist/ert/equip(var/mob/living/carbon/human/player)
@@ -40,7 +40,7 @@ var/datum/antagonist/ert/ert
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(src), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(src), slot_glasses)
 
-	var/obj/item/weapon/card/id/centcom/ERT/W = new(src)
+	var/obj/item/weapon/card/id/ERT/W = new(src)
 	W.registered_name = player.real_name
 	W.name = "[player.real_name]'s ID Card ([W.assignment])"
 	player.equip_to_slot_or_del(W, slot_wear_id)

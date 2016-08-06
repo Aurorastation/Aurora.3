@@ -985,3 +985,23 @@
 					/obj/item/weapon/screwdriver = 5,/obj/item/weapon/crowbar = 5)
 	//everything after the power cell had no amounts, I improvised.  -Sayu
 
+/obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
+	name = "Tactical Express"
+	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
+	icon_state = "tact"
+	icon_deny = "tact-deny"
+	req_access = list(access_security)
+	products = list(/obj/item/weapon/storage/box/shotgunammo = 2,/obj/item/weapon/storage/box/shotgunshells = 2,/obj/item/ammo_magazine/c45m = 6,/obj/item/weapon/grenade/chem_grenade/gas = 6,
+					/obj/item/ammo_magazine/mc9mmt = 2, /obj/item/clothing/mask/gas/tactical = 4,/obj/item/weapon/shield/riot/tact = 3, /obj/item/weapon/handcuffs/ziptie = 3)
+	contraband = list(/obj/item/weapon/gun/projectile/automatic/x9  = 2, /obj/item/ammo_magazine/c45x = 4, /obj/item/ammo_magazine/a556 = 4, /obj/item/weapon/gun/projectile/automatic/rifle/z8 = 2)
+
+/obj/machinery/vending/tacticool/ert //Slightly more !FUN!
+	name = "Nanosecurity Plus"
+	desc = "For when shit really goes down; the private contractor's personal armory."
+	icon_state = "tact"
+	icon_deny = "tact-deny"
+	req_access = list(access_security)
+	products = list(/obj/item/weapon/storage/box/shotgunammo = 2,/obj/item/weapon/storage/box/shotgunshells = 2, /obj/item/weapon/grenade/chem_grenade/gas = 6,
+					/obj/item/clothing/mask/gas/tactical = 8,/obj/item/weapon/shield/riot/tact = 4, /obj/item/weapon/handcuffs/ziptie = 6, /obj/item/ammo_magazine/mc9mmt = 6,
+					/obj/item/ammo_magazine/mc9mmt/rubber = 4, /obj/item/weapon/gun/projectile/automatic/x9  = 2, /obj/item/ammo_magazine/c45x = 6, /obj/item/ammo_magazine/a556 = 12,
+					/obj/item/ammo_magazine/a556/ap = 4, /obj/item/weapon/material/hatchet/tacknife = 4)

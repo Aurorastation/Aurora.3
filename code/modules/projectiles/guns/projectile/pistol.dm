@@ -49,6 +49,9 @@
 	name = "\improper Custom NT Mk58"
 	icon_state = "secgundark"
 
+/obj/item/weapon/gun/projectile/sec/lethal
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
@@ -173,9 +176,11 @@
 	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
 	load_method = SINGLE_CASING
 	max_shells = 1 //literally just a barrel
-	
+
 	var/global/list/ammo_types = list(
 		/obj/item/ammo_casing/a357              = ".357",
+		/obj/item/ammo_casing/c9mmf             = "9mm",
+		/obj/item/ammo_casing/c45f              = ".45",
 		/obj/item/ammo_casing/a12mm             = "12mm",
 		/obj/item/ammo_casing/shotgun           = "12 gauge",
 		/obj/item/ammo_casing/shotgun           = "12 gauge",
@@ -183,6 +188,8 @@
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/beanbag   = "12 gauge",
+		/obj/item/ammo_casing/shotgun/stunshell = "12 gauge",
+		/obj/item/ammo_casing/shotgun/flash     = "12 gauge",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
@@ -190,7 +197,28 @@
 /obj/item/weapon/gun/projectile/pirate/New()
 	ammo_type = pick(ammo_types)
 	desc += " Uses [ammo_types[ammo_type]] rounds."
-	
+
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
 	..()
+
+/obj/item/weapon/gun/projectile/automatic/x9
+	name = "x9 tactical pistol"
+	desc = "A lightweight, fast firing handgun, excels at firing the medium caliber .45 in controlled shooting."
+	icon_state = "x9tactical"
+	w_class = 3
+	load_method = MAGAZINE
+	max_shells = 16
+	caliber = ".45"
+	origin_tech = "combat=4;materials=2"
+	slot_flags = SLOT_BELT
+	ammo_type = /obj/item/ammo_casing/c45
+	magazine_type = /obj/item/ammo_magazine/c45x
+	multi_aim = 1
+	auto_eject = 1
+
+	firemodes = list(
+		list(name="semiauto", burst=1, fire_delay=0),
+		list(name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0)),
+		list(name="short bursts", 	burst=5, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		)
