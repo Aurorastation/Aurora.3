@@ -71,7 +71,7 @@
 			ui.add_template("mapContent", "sec_camera_map_content.tmpl")
 			// adding a template with the key "mapHeader" replaces the map header content
 			ui.add_template("mapHeader", "sec_camera_map_header.tmpl")
-			
+
 			ui.set_initial_data(data)
 			ui.open()
 			ui.set_auto_update(1)
@@ -102,6 +102,7 @@
 
 		if(!isAI(user))
 			user.set_machine(src)
+			usr.reset_view(current)
 		ui_interact(user)
 
 	proc/can_access_camera(var/obj/machinery/camera/C)

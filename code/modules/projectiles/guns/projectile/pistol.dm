@@ -2,6 +2,7 @@
 	name = "\improper Colt M1911"
 	desc = "A cheap Martian knock-off of a Colt M1911."
 	magazine_type = /obj/item/ammo_magazine/c45m
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon_state = "colt"
 	caliber = ".45"
 	origin_tech = "combat=2;materials=2"
@@ -35,6 +36,7 @@
 	name = "\improper NT Mk58"
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	origin_tech = "combat=2;materials=2"
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
@@ -62,6 +64,7 @@
 	origin_tech = "combat=2;materials=2;syndicate=8"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 
 /obj/item/weapon/gun/projectile/deagle
 	name = "desert eagle"
@@ -72,6 +75,7 @@
 	caliber = ".50"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a50
+	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
 
 /obj/item/weapon/gun/projectile/deagle/gold
@@ -85,8 +89,6 @@
 	item_state = "deagleg"
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-
-
 /obj/item/weapon/gun/projectile/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds"
@@ -98,6 +100,7 @@
 	ammo_type = "/obj/item/ammo_casing/a75"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a75
+	allowed_magazines = list(/obj/item/ammo_magazine/a75)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
@@ -120,6 +123,7 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 
 /obj/item/weapon/gun/projectile/pistol/flash
 	name = "\improper Stechtkin signal pistol"

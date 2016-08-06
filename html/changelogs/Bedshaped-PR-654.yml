@@ -1,0 +1,11 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - tweak: "Changing the commstation_name to NTCC Odin as per Jackboot"
+  - tweak: "Allowing command reports to have the CCIAAMS signature"
+  - bugfix: "Writing [date] on paper will now show the correct lore date"
+  - bugfix: "Cyborgs can now repair airlocks with their steel synthesizer"
+  - bugfix: "Ghosts and other creatures can no longer rotate shield capacitors"
+  - rscadd: "Kois has been added to the Xenobiology seed vendor"
