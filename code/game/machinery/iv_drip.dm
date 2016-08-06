@@ -74,7 +74,8 @@
 
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
 			var/obj/item/organ/external/affecting = src.attached:get_organ(pick("r_arm", "l_arm"))
-			visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>")
+			src.attached << "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>"
+			oview(src.attached) << "<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>"
 			affecting.take_damage(brute = 5, sharp = 1)
 			src.attached = null
 			src.update_icon()
@@ -109,7 +110,7 @@
 
 			// If the human is losing too much blood, beep.
 			if(T.vessel.get_reagent_amount("blood") < BLOOD_VOLUME_SAFE) if(prob(5))
-				visible_message("\The [src] beeps loudly.")
+				visible_message("<span class='warning'>\The [src] beeps loudly.</span>")
 
 			var/datum/reagent/B = T.take_blood(beaker,amount)
 
@@ -160,6 +161,8 @@
 
 	usr << "<span class='notice'>[attached ? attached : "No one"] is attached.</span>"
 
+// Let's doctors set the rate of transfer. Useful if you want to set the rate at the rate of metabolisation.
+// No longer have to take someone to dialysis because they have leftover sleeptox after surgery.
 /obj/machinery/iv_drip/verb/transfer_rate()
 	set category = "Object"
 	set name = "Set Transfer Rate"
