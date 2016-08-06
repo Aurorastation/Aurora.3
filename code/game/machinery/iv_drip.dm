@@ -73,8 +73,9 @@
 	if(src.attached)
 
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
-			visible_message("The needle is ripped out of [src.attached], doesn't that hurt?")
-			src.attached:apply_damage(3, BRUTE, pick("r_arm", "l_arm"))
+			var/obj/item/organ/external/affecting = src.attached:get_organ(pick("r_arm", "l_arm"))
+			visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>")
+			affecting.take_damage(brute = 5, sharp = 1)
 			src.attached = null
 			src.update_icon()
 			return
@@ -164,23 +165,20 @@
 	set name = "Set Transfer Rate"
 	set src in view(1)
 
-	if(!config.ghost_interaction)
-		if(istype(usr,/mob/living/simple_animal/mouse))
+	if (!ishuman(usr) && !issilicon(usr))
+		return
+	if (usr.stat || usr.restrained() || !Adjacent(usr))
+		return
+	set_rate:
+		var/amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
+		if ((0.001 > transfer_amount || transfer_amount > 4) && transfer_amount != 0)
+			usr << "<span class='warning'>Entered value must be between 0.001 and 4.</span>"
+			goto set_rate
+		if (transfer_amount == 0)
+			transfer_amount = REM
 			return
-		if(!usr || !isturf(usr.loc))
-			return
-		if(usr.stat || usr.restrained())
-			return
-		set_rate:
-			transfer_amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
-			if ((0.001 > transfer_amount || transfer_amount > 4) && transfer_amount != 0)
-				transfer_amount = REM
-				usr << "<span class='warning'>Entered value must be between 0.001 and 4.</span>"
-				goto set_rate
-			if (transfer_amount == 0)
-				transfer_amount = REM
-				return
-			usr << "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>"
+		transfer_amount = amount
+		usr << "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>"
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, mice, drones, and the like through.
