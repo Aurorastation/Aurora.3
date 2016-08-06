@@ -129,16 +129,6 @@
 	. = ..()
 	set_flee_target(AM.thrower? AM.thrower : src.loc)
 
-/mob/living/simple_animal/cat/MouseDrop(atom/over_object)
-
-	var/mob/living/carbon/H = over_object
-	if(!istype(H) || !Adjacent(H)) return ..()
-
-	if(H.a_intent == "help")
-		get_scooped(H)
-		return
-	else
-		return ..()
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff

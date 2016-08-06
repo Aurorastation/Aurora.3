@@ -156,17 +156,6 @@
 				squeak_loud()//You trod on its tail
 	..()
 
-/mob/living/simple_animal/mouse/MouseDrop(atom/over_object)
-
-	var/mob/living/carbon/H = over_object
-	if(!istype(H) || !Adjacent(H)) return ..()
-
-	if(H.a_intent == "help")
-		get_scooped(H)
-		return
-	else
-		return ..()
-
 /mob/living/simple_animal/mouse/death()
 	layer = MOB_LAYER
 	if (ckey || prob(50))
