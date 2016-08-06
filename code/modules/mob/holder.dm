@@ -26,13 +26,15 @@
 /obj/item/weapon/holder/process()
 
 	if(!get_holding_mob() || contained.loc != src)
+		if (is_unsafe_container(loc) && contained.loc == src)
+			return
+
 
 		for(var/mob/M in contents)
 
 			var/atom/movable/mob_container
 			mob_container = M
-			mob_container.loc = src.loc//if the holder was placed into a disposal, this should place the animal in the disposal
-			//mob_container.forceMove(get_turf(src))
+			mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
 			M.reset_view()
 
 		var/mob/L = get_holding_mob()
@@ -42,6 +44,18 @@
 		qdel(src)
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
+
+
+//This function checks if the current location is safe to release inside
+//it returns 1 if the creature will bug out when released
+/obj/item/weapon/holder/proc/is_unsafe_container(var/obj/place)
+	if (istype(place, /obj/item/weapon/storage))
+		return 1
+	else if (istype(place, /obj/structure/closet/crate))
+		return 1
+	else
+		return 0
+
 
 /obj/item/weapon/holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	for(var/mob/M in src.contents)
@@ -103,7 +117,7 @@
 
 
 	var/obj/item/weapon/holder/H = new holder_type(loc)
-	src.loc = H
+	src.forceMove(H)
 	H.name = loc.name
 	H.attack_hand(grabber)
 	H.contained = src

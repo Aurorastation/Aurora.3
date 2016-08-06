@@ -35,5 +35,6 @@ delete-after: True
 changes: 
   - bugfix: "Animals climbing onto people will now show a different, correct message, instead of the scooped one"
   - bugfix: "Fixed an issue where a held animal could be duplicated"
+  - bugfix: "Fixed animals bugging out when placed in crates or unworn containers"
 
   
