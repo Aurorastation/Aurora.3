@@ -175,11 +175,11 @@
 	src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to render them useless.</span>"
 
 	if (do_mob(src, T, 50))
-		src << "\red You dominate [T.name]'s mind and render them temporarily powerless to resist."
-		T << "\red You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak."
-		T.Weaken(20)
-		T.Stun(20)
-		T.stuttering = 20
+		src << "<span class='danger'> You dominate [T.name]'s mind and render them temporarily powerless to resist.</span>"
+		T << "<span class='danger'> You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak.</span>"
+		T.Weaken(25)
+		T.Stun(25)
+		T.silent += 30
 
 		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
@@ -188,7 +188,7 @@
 		spawn(1200)
 			verbs += /mob/living/carbon/human/proc/vampire_hypnotise
 	else
-		src << "\red You broke your gaze."
+		src << "<span class='warning'>You broke your gaze.</span>"
 
 // Targeted teleportation, must be to a low-light tile.
 /mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in world)
