@@ -278,7 +278,7 @@
 	item_state = "gold_id"
 	registered_name = "Captain"
 	assignment = "Captain"
-	New()
+	/obj/item/weapon/card/id/captains_spare/New()
 		access = get_all_accesses()
 		..()
 
@@ -288,7 +288,7 @@
 	icon_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"
-	New()
+	/obj/item/weapon/card/id/centcom/New()
 		access = get_all_centcom_access()
 		..()
 
@@ -296,7 +296,7 @@
 	name = "\improper Emergency Response Team ID"
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
-	New()
+	/obj/item/weapon/card/id/ERT/New()
 		access = get_all_accesses() + get_centcom_access("Emergency Response Team")
 		..()
 

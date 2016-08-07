@@ -25,24 +25,6 @@
 		list(name="2-round bursts", burst=2, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.5, 0.6)),
 		)
 
-	//action button for wielding
-	icon_action_button = "action_blank"
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/projectile/automatic/w556/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/automatic/w556/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/automatic/w556/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
 /obj/item/weapon/gun/projectile/automatic/w556/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
