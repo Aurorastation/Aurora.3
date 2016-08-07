@@ -244,7 +244,7 @@
 	path = 1
 	stage = 2
 
-	New()
+	/obj/item/weapon/grenade/chem_grenade/gas/New()
 		..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
