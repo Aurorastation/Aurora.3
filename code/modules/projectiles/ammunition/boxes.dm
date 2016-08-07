@@ -48,6 +48,17 @@
 	name = "magazine (.45 flash)"
 	ammo_type = "/obj/item/ammo_casing/c45f"
 
+/obj/item/ammo_magazine/c45x
+	name = "magazine (.45)"
+	icon_state = "45x"
+	origin_tech = "combat=3"
+	mag_type = MAGAZINE
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 16
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
 	icon_state = "9x19p"
@@ -133,6 +144,17 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 10
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a556/ap
+	name = "magazine (5.56mm AP)"
+	icon_state = "5.56AP"
+	origin_tech = "combat=3;materials=4"
+	mag_type = MAGAZINE
+	caliber = "a556"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/a556/ap
+	max_ammo = 20
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a556/empty
@@ -239,7 +261,7 @@
 
 /obj/item/ammo_magazine/c45uzi/empty
 	initial_ammo = 0
-	
+
 /obj/item/ammo_magazine/tommymag
 	name = "tommygun magazine (.45)"
 	icon_state = "tommy-mag"
