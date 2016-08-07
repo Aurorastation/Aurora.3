@@ -187,12 +187,3 @@
 	for(var/obj/item/organ/external/O in organs)
 		O.sync_colour_to_human(src)
 	update_body(2)//Forces new icon generation
-
-
-//Leaving this debug proc in because it might actually be helpful
-/mob/living/carbon/human/verb/limbupdate()
-	set category = "Debug"
-	set name = "Force Update Current Mob"
-	set desc = "Calls Force Update Limbs on your current mob."
-
-	src.force_update_limbs()
