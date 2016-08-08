@@ -16,7 +16,7 @@
 /turf/simulated/wall/rusty
 	icon_state = "arust"
 	desc = "Rust stains this ancient wall."
-/turf/simulated/wall/iron/New(var/newloc)
+/turf/simulated/wall/rusty/New(var/newloc)
 	..(newloc,"rust","rust")
 /turf/simulated/wall/iron/New(var/newloc)
 	..(newloc,"iron")
