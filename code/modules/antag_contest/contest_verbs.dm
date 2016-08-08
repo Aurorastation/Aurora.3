@@ -43,7 +43,7 @@
 	var/list/char_ids = list()
 
 	while (character_query.NextRow())
-		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "side_str" = null, "side_int" = INDEP)
+		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = null, "side_int" = INDEP)
 
 	if (!char_ids.len)
 		src << "<span class='warning'>Something went horribly wrong! Apparently you don't have any saved characters?</span>"
@@ -54,6 +54,7 @@
 
 	while (participation_query.NextRow())
 		char_ids[participation_query.item[1]]["side_str"] = participation_query.item[2]
+		char_ids[participation_query.item[1]]["assigned"] = 1
 		// Lazy and convoluted, but I give 0 shits right now.
 		switch (participation_query.item[2])
 			if ("pro_synth")
@@ -65,7 +66,7 @@
 	data += "<br><center>Here is the list of your characters, and their allegience</center><hr>"
 
 	for (var/char_id in char_ids)
-		data += "[char_ids[char_id]]["name"]\t[char_ids[char_id]["side"] == null ? "Independant" : char_ids[char_id]["side"]]\t<a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]]'>Modify</a><br>"
+		data += "[char_ids[char_id]]["name"]\t[char_ids[char_id]["side"] == null ? "Independant" : char_ids[char_id]["side"]]\t<a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]];previously_assigned=[char_ids[char_id]["assigned"]]'>Modify</a><br>"
 
 	src << browse(data, "window=antag_contest_chars;size=300x200")
 
@@ -203,7 +204,7 @@
 
 			var/query_content = "UPDATE ss13_contest_participants SET contest_side = :new_side WHERE player_ckey = :ckey AND character_id = :char_id"
 
-			if (href["current_side"] == INDEP)
+			if (href["previously_assigned"] == 0)
 				query_content = "INSERT INTO ss13_contest_participants (player_ckey, character_id, contest_side) VALUES (:ckey, :char_id, :new_side)"
 
 			var/DBQuery/query = dbcon.NewQuery(query_content)
