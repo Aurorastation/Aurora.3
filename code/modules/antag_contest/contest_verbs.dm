@@ -64,7 +64,7 @@
 	var/data = "<center><b>Welcome to the character setup screen!</b></center>"
 	data += "<br><center>Here is the list of your characters, and their allegience</center><hr>"
 
-	for (char_id in char_ids)
+	for (var/char_id in char_ids)
 		data += "[char_ids[char_id]]["name"]\t[char_ids[char_id]["side"] == null ? "Independant" : char_ids[char_id]["side"]]\t<a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]]'>Modify</a><br>"
 
 	src << browse(data, "window=antag_contest_chars;size=300x200")
@@ -104,7 +104,7 @@
 			src << "<span class='warning'>No objectives were found for you! This is odd!</span>"
 			return
 
-		choice = input("Select objective type:", "Select Objective") as null|anything in available_objs
+		var/choice = input("Select objective type:", "Select Objective") as null|anything in available_objs
 
 		if (!choice)
 			src << "<span class='warning'>Cancelled.</span>"
@@ -129,7 +129,7 @@
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Unslave Borgs")
-				new_objective = new /datum/object/competition/pro_synth/unslave_borgs
+				new_objective = new /datum/objective/competition/pro_synth/unslave_borgs
 				if (silicon_mob_list && silicon_mob_list.len)
 					var/found = 0
 					for (var/mob/living/silicon/robot/R in silicon_mob_list)
