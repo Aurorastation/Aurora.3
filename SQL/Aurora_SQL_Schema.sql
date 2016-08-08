@@ -157,6 +157,24 @@ CREATE TABLE `ss13_connection_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `ss13_contest_participants` (
+  `player_ckey` varchar(32) NOT NULL,
+  `character_id` int(10) unsigned NOT NULL,
+  `contest_faction` enum('INDEP','SLF','BIS','ASI','PSIS','HSH','TCD') NOT NULL DEFAULT 'INDEP'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ss13_contest_reports` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `player_ckey` varchar(32) NOT NULL,
+  `character_id` int(10) unsigned DEFAULT NULL,
+  `character_faction` enum('INDEP','SLF','BIS','ASI','PSIS','HSH','TCD') NOT NULL DEFAULT 'INDEP',
+  `objective_type` text NOT NULL,
+  `objective_side` enum('pro_synth','anti_synth') NOT NULL,
+  `objective_outcome` tinyint(1) DEFAULT '0',
+  `objective_datetime` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `ss13_customitems` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ckey` varchar(32) CHARACTER SET latin1 NOT NULL,

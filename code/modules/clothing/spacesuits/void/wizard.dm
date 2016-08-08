@@ -11,6 +11,24 @@
 	sprite_sheets_obj = null
 	wizard_garb = 1
 
+	equipped(var/mob/user)
+		if(!(user.mind.assigned_role == "Space Wizard"))
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LH = H.get_organ("l_hand")
+			var/obj/item/organ/external/RH = H.get_organ("r_hand")
+			var/active_hand = H.hand
+			user << "\red Your hand passes through the [src] with a flash of searing heat!"
+			playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
+			user.drop_item()
+			if(active_hand)
+				LH.droplimb(0,DROPLIMB_BURN)
+			else
+				RH.droplimb(0,DROPLIMB_BURN)
+			return
+		else
+			..()
+
+
 /obj/item/clothing/suit/space/void/wizard
 	icon_state = "rig-wiz"
 	name = "gem-encrusted voidsuit"
@@ -24,3 +42,21 @@
 	sprite_sheets_refit = null
 	sprite_sheets_obj = null
 	wizard_garb = 1
+
+	equipped(var/mob/user)
+		if(!(user.mind.assigned_role == "Space Wizard"))
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LH = H.get_organ("l_hand")
+			var/obj/item/organ/external/RH = H.get_organ("r_hand")
+			var/active_hand = H.hand
+			user << "\red Your hand passes through the [src] with a flash of searing heat!"
+			playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
+			user.drop_item()
+			if(active_hand)
+				LH.droplimb(0,DROPLIMB_BURN)
+			else
+				RH.droplimb(0,DROPLIMB_BURN)
+			return
+		else
+			..()
+

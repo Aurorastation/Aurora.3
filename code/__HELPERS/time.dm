@@ -11,7 +11,7 @@ proc/worldtime2text(time = world.time)
 	return "[(round(time / 36000)+roundstart_hour) % 24]:[(time / 600 % 60) < 10 ? add_zero(time / 600 % 60, 1) : time / 600 % 60]"
 
 proc/worlddate2text()
-	return num2text((text2num(time2text(world.timeofday, "YYYY"))+544)) + "-" + time2text(world.timeofday, "MM-DD")
+	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
 
 proc/time_stamp()
 	return time2text(world.timeofday, "hh:mm:ss")
