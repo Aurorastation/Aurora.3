@@ -13,9 +13,8 @@
 /datum/objective/competition/check_completion()
 	completed = .
 
-	// Only log successful objectives for the time being.
-	if (completed)
-		log_result()
+	// Log all the things!
+	log_result()
 
 	return completed
 
@@ -53,8 +52,8 @@
 		error("Unable to establish database connection while logging objective results!")
 		return
 
-	var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_contest_reports (id, player_ckey, character_id, objective_type, objective_side, objective_outcome, objective_datetime) VALUES (NULL, :ckey, :char_id, :obj_type, :obj_outcome, NOW())")
-	log_query.Execute(list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character, ":obj_type" = type, ":obj_outcome" = side))
+	var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_contest_reports (id, player_ckey, character_id, objective_type, objective_side, objective_outcome, objective_datetime) VALUES (NULL, :ckey, :char_id, :obj_type, :obj_side, :obj_outcome, NOW())")
+	log_query.Execute(list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character, ":obj_type" = type, ":obj_side" = side, ":obj_outcome" = completed))
 
 /*
  * Pro-synth objectives
@@ -109,7 +108,7 @@
 		for (var/obj/machinery/mecha_part_fabricator/A in machines)
 			if (!istype(get_area(A), /area/assembly/robotics))
 				continue
-			if (A.stat & (BROKEN|NO_POWER))
+			if (A.stat & (BROKEN|NOPOWER))
 				continue
 			count++
 			if (count >= 2)
@@ -118,7 +117,7 @@
 		for (var/obj/machinery/r_n_d/circuit_imprinter/B in machines)
 			if (!istype(get_area(B), /area/assembly/robotics))
 				continue
-			if (B.stat & (BROKEN|NO_POWER))
+			if (B.stat & (BROKEN|NOPOWER))
 				continue
 			count++
 			if (count >= 3)
@@ -190,7 +189,7 @@
 		for (var/mob/living/silicon/robot/R in silicon_mob_list)
 			if (!istype(R))
 				continue
-			if (isdrone(R))
+			if (istype(R, /mob/living/silicon/robot/drone))
 				continue
 			if (R.connected_ai)
 				. = 0
@@ -216,7 +215,7 @@
 		for (var/obj/machinery/mecha_part_fabricator/A in machines)
 			if (!istype(get_area(A), /area/assembly/robotics))
 				continue
-			if (A.stat & (BROKEN|NO_POWER))
+			if (A.stat & (BROKEN|NOPOWER))
 				continue
 			count++
 			if (count >= 2)
@@ -225,7 +224,7 @@
 		for (var/obj/machinery/r_n_d/circuit_imprinter/B in machines)
 			if (!istype(get_area(B), /area/assembly/robotics))
 				continue
-			if (B.stat & (BROKEN|NO_POWER))
+			if (B.stat & (BROKEN|NOPOWER))
 				continue
 			count++
 			if (count >= 3)
