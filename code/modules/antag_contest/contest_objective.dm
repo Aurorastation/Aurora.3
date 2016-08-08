@@ -26,6 +26,8 @@
 				if (possible_target.current.get_species() == "Machine")
 					possible_targets += possible_target
 			else
+				if (possible_target.current.get_species() == "Machine")
+					continue
 				possible_targets += possible_target
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
@@ -34,6 +36,8 @@
 	for(var/datum/mind/possible_target in ticker.minds)
 		if((possible_target != owner) && ishuman(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role))
 			if (require_synth && possible_target.current.get_species() != "Machine")
+				continue
+			if (!require_synth && possible_target.current.get_species() == "Machine")
 				continue
 			target = possible_target
 			break
@@ -285,16 +289,13 @@
 		explanation_text = "Have an IPC framed for a moderate or high level charge. Or frame the station's synthetics as malfunctioning."
 	return target
 
-/datum/objective/competition/anti_synth/brig/check_completion()
-	. = already_completed
+/datum/objective/competition/anti_synth/brig/process()
+	if (completed)
+		return
 
-	if (!.)
-		if (target && target.current)
-			if (target.current.stat != DEAD && target.is_brigged(10 * 60 * 10))
-				already_completed = 1
-				. = 1
-
-	..()
+	if (target && target.current)
+		if (target.current.stat != DEAD && target.is_brigged(10 * 60 * 10))
+			completed = 1
 
 /datum/objective/competition/anti_synth/harm
 	var/already_completed = 0
@@ -315,33 +316,35 @@
 		explanation_text = "Free Objective"
 	return target
 
-/datum/objective/competition/anti_synth/harm/check_completion()
-	if(already_completed)
-		return 1
+/datum/objective/competition/anti_synth/harm/process()
+	if (completed)
+		return
 
-	if(target && target.current && istype(target.current, /mob/living/carbon/human))
-		if(target.current.stat == DEAD)
-			return 0
+	if (target && target.current && istype(target.current, /mob/living/carbon/human))
+		if (target.current.stat == DEAD)
+			return
 
 		var/mob/living/carbon/human/H = target.current
-		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_BROKEN)
-				return 1
-		for(var/limb_tag in H.species.has_limbs) //todo check prefs for robotic limbs and amputations.
+		for (var/obj/item/organ/external/E in H.organs)
+			if (E.status & ORGAN_BROKEN)
+				completed = 1
+				return
+		for (var/limb_tag in H.species.has_limbs) //todo check prefs for robotic limbs and amputations.
 			var/list/organ_data = H.species.has_limbs[limb_tag]
 			var/limb_type = organ_data["path"]
 			var/found
-			for(var/obj/item/organ/external/E in H.organs)
+			for (var/obj/item/organ/external/E in H.organs)
 				if(limb_type == E.type)
 					found = 1
 					break
-			if(!found)
-				return 1
+			if (!found)
+				completed = 1
+				return
 
 		var/obj/item/organ/external/head/head = H.get_organ("head")
-		if(head.disfigured)
-			return 1
-	return 0
+		if (head.disfigured)
+			completed = 1
+			return
 
 #undef PRO_SYNTH
 #undef ANTI_SYNTH
