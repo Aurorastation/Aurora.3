@@ -56,8 +56,30 @@
 		error("Unable to establish database connection while logging objective results!")
 		return
 
-	var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_contest_reports (id, player_ckey, character_id, objective_type, objective_side, objective_outcome, objective_datetime) VALUES (NULL, :ckey, :char_id, :obj_type, :obj_side, :obj_outcome, NOW())")
-	log_query.Execute(list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character, ":obj_type" = type, ":obj_side" = side, ":obj_outcome" = completed))
+	var/DBQuery/get_query = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE player_ckey = :ckey AND character_id = :char_id")
+	get_query.Execute(list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character))
+
+	var/params[] = list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character, ":char_faction" = INDEP, ":obj_type" = type, ":obj_side" = side, ":obj_outcome" = completed)
+
+	if (get_query.NextRow())
+		switch (get_query.item[1])
+			if ("SLF")
+				params[":char_faction"] = SLF
+			if ("BIS")
+				params[":char_faction"] = BIS
+			if ("ASI")
+				params[":char_faction"] = ASI
+			if ("PSIS")
+				params[":char_faction"] = PSIS
+			if ("HSH")
+				params[":char_faction"] = HSH
+			if ("TCD")
+				params[":char_faction"] = TCD
+			else
+				params[":char_faction"] = INDEP
+
+	var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_contest_reports (id, player_ckey, character_id, character_faction, objective_type, objective_side, objective_outcome, objective_datetime) VALUES (NULL, :ckey, :char_id, :char_faction, :obj_type, :obj_side, :obj_outcome, NOW())")
+	log_query.Execute(params)
 
 /*
  * Pro-synth objectives

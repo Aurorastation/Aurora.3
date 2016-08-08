@@ -3,10 +3,6 @@
  * AUG2016
  */
 
- #define INDEP		0
- #define PRO_SYNTH	1
- #define ANTI_SYNTH	2
-
 // Displays a simple little guide.
 /client/verb/contest_help()
 	set name = "Contest Help"
@@ -39,7 +35,7 @@
 		return
 
 	var/DBQuery/character_query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL")
-	character_query.Execute(":ckey" = src.ckey)
+	character_query.Execute(list(":ckey" = src.ckey))
 	var/list/char_ids = list()
 
 	while (character_query.NextRow())
@@ -49,24 +45,40 @@
 		src << "<span class='warning'>Something went horribly wrong! Apparently you don't have any saved characters?</span>"
 		return
 
-	var/DBQuery/participation_query = dbcon.NewQuery("SELECT character_id, contest_side FROM ss13_contest_participants WHERE character_id IN :char_ids")
-	participation_query.Execute(":char_ids" = char_ids)
+	var/DBQuery/participation_query = dbcon.NewQuery("SELECT character_id, contest_faction FROM ss13_contest_participants WHERE character_id IN :char_ids")
+	participation_query.Execute(list(":char_ids" = char_ids))
 
 	while (participation_query.NextRow())
-		char_ids[participation_query.item[1]]["side_str"] = participation_query.item[2]
 		char_ids[participation_query.item[1]]["assigned"] = 1
 		// Lazy and convoluted, but I give 0 shits right now.
 		switch (participation_query.item[2])
-			if ("pro_synth")
-				char_ids[participation_query.item[1]]["side_int"] = PRO_SYNTH
-			if ("anti_synth")
-				char_ids[participation_query.item[1]]["side_int"] = ANTI_SYNTH
+			if ("SLF")
+				char_ids[participation_query.item[1]]["side_int"] = SLF
+				char_ids[participation_query.item[1]]["side_str"] = "Synthetic Liberation Front"
+			if ("BIS")
+				char_ids[participation_query.item[1]]["side_int"] = BIS
+				char_ids[participation_query.item[1]]["side_str"] = "Biesel Intelligence Service"
+			if ("ASI")
+				char_ids[participation_query.item[1]]["side_int"] = ASI
+				char_ids[participation_query.item[1]]["side_str"] = "Alliance Strategic Intelligence"
+			if ("PSIS")
+				char_ids[participation_query.item[1]]["side_int"] = PSIS
+				char_ids[participation_query.item[1]]["side_str"] = "People's Strategic Information Service"
+			if ("HSH")
+				char_ids[participation_query.item[1]]["side_int"] = HSH
+				char_ids[participation_query.item[1]]["side_str"] = "Hegemon Shadow Service"
+			if ("TCD")
+				char_ids[participation_query.item[1]]["side_int"] = TCD
+				char_ids[participation_query.item[1]]["side_str"] = "Tup Commandos Division"
+			else
+				char_ids[participation_query.item[1]]["side_int"] = INDEP
+				char_ids[participation_query.item[1]]["side_str"] = "Independant"
 
 	var/data = "<center><b>Welcome to the character setup screen!</b></center>"
 	data += "<br><center>Here is the list of your characters, and their allegience</center><hr>"
 
 	for (var/char_id in char_ids)
-		data += "[char_ids[char_id]]["name"]\t[char_ids[char_id]["side"] == null ? "Independant" : char_ids[char_id]["side"]]\t<a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]];previously_assigned=[char_ids[char_id]["assigned"]]'>Modify</a><br>"
+		data += "[char_ids[char_id]["name"]] -- [char_ids[char_id]["side_str"]] -- <a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]];previously_assigned=[char_ids[char_id]["assigned"]]'>Modify</a><br>"
 
 	src << browse(data, "window=antag_contest_chars;size=300x200")
 
@@ -91,12 +103,17 @@
 		src << "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>"
 		return
 
-	var/DBQuery/part_check = dbcon.NewQuery("SELECT contest_side FROM ss13_contest_participants WHERE character_id = :char_id AND player_ckey = :ckey")
-	part_check.Execute(":char_id" = src.prefs.current_character, ":ckey" = src.ckey)
+	var/DBQuery/part_check = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE character_id = :char_id AND player_ckey = :ckey")
+	part_check.Execute(list(":char_id" = src.prefs.current_character, ":ckey" = src.ckey))
 
 	if (part_check.NextRow())
 		var/list/available_objs
-		if (part_check.item[1] == "pro_synth")
+		var/side = input("Are you pro-synth or anti-synth?", "Choose wisely") as null|anything in list("Pro-synth", "Anti-synth")
+		if (!side)
+			src << "<span class='notice'>Cancelled.</span>"
+			return
+
+		if (side == "Pro-synth")
 			available_objs = list("Promote a Synth", "Protect Robotics", "Borgify", "Protect a Synth", "Unslave Borgs")
 		else
 			available_objs = list("Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
@@ -144,17 +161,17 @@
 				else
 					failed_target = 1
 			if ("Sabotage Robotics")
-				new_objective = /datum/objective/competition/anti_synth/sabotage
+				new_objective = new /datum/objective/competition/anti_synth/sabotage
 			if ("Fire a Synth")
-				new_objective = /datum/objective/competition/anti_synth/demote
+				new_objective = new /datum/objective/competition/anti_synth/demote
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Brig a Synth")
-				new_objective = /datum/objective/competition/anti_synth/brig
+				new_objective = new /datum/objective/competition/anti_synth/brig
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Harm a Synth")
-				new_objective = /datum/objective/competition/anti_synth/harm
+				new_objective = new /datum/objective/competition/anti_synth/harm
 				if (!new_objective.find_target())
 					failed_target = 1
 			else
@@ -168,6 +185,7 @@
 			return
 
 		new_objective.owner = src.mob.mind
+		src.mob.mind.objectives += new_objective
 		src << "<span class='notice'>New objective assigned! Have fun, and roleplay well!</span>"
 		log_admin("CONTEST: [key_name(src)] has assigned themselves an objective: [new_objective.type].")
 		return
@@ -192,20 +210,18 @@
 				src << "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>"
 				return
 
-			var/list/valid_choices = list("Independant" = INDEP, "Pro Synth" = PRO_SYNTH, "Anti Synth" = ANTI_SYNTH)
+			var/choice = input("Choose your side:", "Contest Side") as null|anything in contest_factions
 
-			var/choice = input("Choose your side:", "Contest Side") as null|anything in valid_choices
-
-			if (!choice || valid_choices[choice] == href["current_side"])
+			if (!choice || contest_factions[choice] == href["current_side"])
 				src << "<span class='notice'>Cancelled</span>"
 				return
 
-			var/list/sql_args = list(":ckey" = src.ckey, ":char_id" = href["char_id"], ":new_side" = valid_choices[choice])
+			var/list/sql_args = list(":ckey" = src.ckey, ":char_id" = href["char_id"], ":new_side" = contest_factions[choice])
 
-			var/query_content = "UPDATE ss13_contest_participants SET contest_side = :new_side WHERE player_ckey = :ckey AND character_id = :char_id"
+			var/query_content = "UPDATE ss13_contest_participants SET contest_faction = :new_side WHERE player_ckey = :ckey AND character_id = :char_id"
 
-			if (href["previously_assigned"] == 0)
-				query_content = "INSERT INTO ss13_contest_participants (player_ckey, character_id, contest_side) VALUES (:ckey, :char_id, :new_side)"
+			if (text2num(href["previously_assigned"]) == 0)
+				query_content = "INSERT INTO ss13_contest_participants (player_ckey, character_id, contest_faction) VALUES (:ckey, :char_id, :new_side)"
 
 			var/DBQuery/query = dbcon.NewQuery(query_content)
 			query.Execute(sql_args)
@@ -219,7 +235,3 @@
 				src << "<span class='notice'>Successfully updated your character's alliegence!</span>"
 				src.contest_my_characters()
 				return
-
-#undef INDEP
-#undef PRO_SYNTH
-#undef ANTI_SYNTH
