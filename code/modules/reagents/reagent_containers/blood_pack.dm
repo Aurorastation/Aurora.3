@@ -20,6 +20,7 @@
 	volume = 200
 
 	var/blood_type = null
+	var/vampire_marks = null
 
 	New()
 		..()
@@ -41,31 +42,33 @@
 /obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob)
 	if (user == M && (user.mind.vampire))
 		if (reagents.get_reagent_amount("blood"))
-			user.visible_message("\red [user] raises \the [src] up to \his mouth and bites into it.", "\blue You raise \the [src] up to your mouth and bite into it, starting to drain its contents.")
+			user.visible_message("\red [user] raises \the [src] up to \his mouth and bites into it.", "\blue You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+			vampire_marks = TRUE
+			src.other_DNA = M.dna.unique_enzymes.Copy()
+			src.other_DNA_type = "saliva"
 
 			while (do_after(user, 25, 5, 1))
 				var/blood_taken = 0
-				var/need_to_break = 0
-				if (reagents.get_reagent_amount("blood") > 10)
-					blood_taken = 10
-				else
-					blood_taken = reagents.get_reagent_amount("blood")
-					need_to_break = 1
+				blood_taken = min(5, reagents.get_reagent_amount("blood")/4)
 
-				reagents.remove_reagent("blood", blood_taken)
-				user.mind.vampire.blood_total += blood_taken
-				user.check_vampire_upgrade(user.mind)
+				reagents.remove_reagent("blood", blood_taken*4)
+				user.mind.vampire.blood_usable += blood_taken
 
 				if (blood_taken)
-					user << "\blue <b>You have accumulated [user.mind.vampire.blood_total] [user.mind.vampire.blood_total > 1 ? "units" : "unit"] of blood and have [user.mind.vampire.blood_usable] left to use."
+					user << "\blue <b>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale."
 
-				if (need_to_break)
+				if (reagents.get_reagent_amount("blood") < 1)
 					break
-
 			user.visible_message("\red [user] licks \his fangs dry, lowering \the [src].", "\blue You lick your fangs clean of the tasteless blood.")
 
 	else
 		..()
+
+/obj/item/weapon/reagent_containers/blood/examine(mob/user, vampire_marks)
+	..()
+	if (vampire_marks == TRUE)
+		user << "There are teeth marks on one of the sides."
+	return
 
 /obj/item/weapon/reagent_containers/blood/attackby(obj/item/weapon/P as obj, mob/user as mob)
 	..()
