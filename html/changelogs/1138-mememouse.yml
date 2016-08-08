@@ -1,0 +1,8 @@
+
+author: OneOneThreeEight
+
+delete-after: True
+
+changes: 
+  - tweak: "Modified mouse health by 10000%."
+  - tweak: "Tweaked Satanic mouse spawn rate to 100% likelihood."

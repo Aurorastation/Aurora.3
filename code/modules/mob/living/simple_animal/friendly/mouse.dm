@@ -1,7 +1,7 @@
 /mob/living/simple_animal/mouse
 	name = "mouse"
 	real_name = "mouse"
-	desc = "It's a small rodent."
+	desc = "It's a small, robust rodent."
 	icon_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
@@ -14,8 +14,8 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	maxHealth = 5
-	health = 5
+	maxHealth = 500
+	health = 500
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -58,7 +58,7 @@
 	verbs += /mob/living/proc/hide
 
 	if(name == initial(name))
-		name = "[name] ([rand(1, 1000)])"
+		name = "[name] ([rand(666, 666)])"
 	real_name = name
 
 	if(!body_color)
