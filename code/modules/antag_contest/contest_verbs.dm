@@ -39,7 +39,7 @@
 	var/list/char_ids = list()
 
 	while (character_query.NextRow())
-		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = null, "side_int" = INDEP)
+		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = "Independant", "side_int" = INDEP)
 
 	if (!char_ids.len)
 		src << "<span class='warning'>Something went horribly wrong! Apparently you don't have any saved characters?</span>"
