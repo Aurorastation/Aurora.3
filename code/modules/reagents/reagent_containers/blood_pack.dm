@@ -83,6 +83,7 @@
 		return
 
 	if (istype(P, /obj/item/weapon/) && P.sharp == 1)
+		var/mob/living/carbon/human/H = usr
 		if(P.attack_verb.len)
 			user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
 		var/atkmsg_filled = null
@@ -98,7 +99,6 @@
 				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
 					spray_loop:
 						var/direction = pick(alldirs)
-						usr << "<span class='notice'>DEBUG: Direction is [direction].</span>"
 						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
 							switch (direction)
 								if (NORTH)
@@ -117,19 +117,30 @@
 									target = locate(src.x+i, src.y-i, src.z)
 								if (SOUTHWEST)
 									target = locate(src.x-i, src.y-i, src.z)
+							if (istype(get_turf(target), /turf/simulated/wall))
+								blood_splatter(target, null, 1)
+								break spray_loop
 							var/turf/base = get_turf(target)
-							for (var/atom/A in base)
+							for (var/atom/A in base) // Stops your blood spray if it meets a person, wall, door or window
+								if (istype(A, /mob/living/carbon/human/))
+									var/mob/living/carbon/human/K = A
+									K.bloody_body()
+									break spray_loop
 								if ((!istype(A, /obj/) && A.density) || istype(A, /obj/structure/window/) || istype(A, /obj/machinery/door/airlock/))
-									add_blood(A)
 									break spray_loop
 							blood_splatter(target, null, 1)
-			add_blood(src); add_blood(usr);
 			blood_splatter(src.loc, null, 1)
 			playsound(src.loc, 'sound/effects/splat.ogg', 50, 1, -6)
-		reagents.remove_reagent("blood", reagents.total_volume)
-		icon_state = "ripped"; update_icon();
+			H.bloody_hands()
+			if (src.loc == usr)
+				H.bloody_body()
+		// Line below will do a check where the target bloodbag is located and create a new one accordingly
+		var/obj/item/weapon/reagent_containers/I = src.loc != usr ? new/obj/item/weapon/reagent_containers/blood/ripped(src.loc) : new/obj/item/weapon/reagent_containers/blood/ripped(usr.loc)
+		if (reagents.get_reagent_amount("blood"))
+			I.add_blood()
 		var/atkmsg = "<span class='warning'>\The [src] rips apart[atkmsg_filled]!</span>"
 		user.visible_message(atkmsg)
+		qdel(src)
 		return
 	return
 
@@ -155,3 +166,14 @@
 	name = "Empty BloodPack"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
 	icon_state = "empty"
+
+/obj/item/weapon/reagent_containers/blood/ripped
+	name = "Ripped BloodPack"
+	desc = "It's torn up and useless."
+	icon = 'icons/obj/bloodpack.dmi'
+	icon_state = "ripped"
+	volume = 0
+
+/obj/item/weapon/reagent_containers/blood/ripped/attackby(obj/item/weapon/P as obj, mob/user as mob)
+	user << "<span class='warning'>You can't do anything further with this.</span>"
+	return
