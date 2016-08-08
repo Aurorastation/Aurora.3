@@ -6,7 +6,7 @@
 	var/list/fingerprintshidden
 	var/fingerprintslast = null
 	var/list/blood_DNA
-	var/list/other_DNA
+	var/list/other_DNA = list()
 	var/other_DNA_type = null
 	var/was_bloodied
 	var/blood_color

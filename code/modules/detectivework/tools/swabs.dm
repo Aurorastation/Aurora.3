@@ -113,7 +113,7 @@
 			sample_type = "residue"
 
 		if ("Saliva")
-			if (!A.other_DNA || !A.other_DNA.len) return
+			if (!A.other_DNA || !length(A.other_DNA)) return
 			dna = A.other_DNA.Copy()
 			sample_type = "saliva"
 

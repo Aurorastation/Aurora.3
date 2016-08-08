@@ -44,8 +44,9 @@
 		if (reagents.get_reagent_amount("blood"))
 			user.visible_message("\red [user] raises \the [src] up to \his mouth and bites into it.", "\blue You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
 			vampire_marks = TRUE
-			src.other_DNA = M.dna.unique_enzymes.Copy()
-			src.other_DNA_type = "saliva"
+			if (!src.other_DNA.len)
+				src.other_DNA += M.dna.unique_enzymes
+				src.other_DNA_type = "saliva"
 
 			while (do_after(user, 25, 5, 1))
 				var/blood_taken = 0
@@ -64,10 +65,10 @@
 	else
 		..()
 
-/obj/item/weapon/reagent_containers/blood/examine(mob/user, vampire_marks)
+/obj/item/weapon/reagent_containers/blood/examine(mob/user, distance = 2)
 	..()
-	if (vampire_marks == TRUE)
-		user << "There are teeth marks on one of the sides."
+	if (vampire_marks)
+		user << "<span='notice'>There are teeth marks on it.</span>"
 	return
 
 /obj/item/weapon/reagent_containers/blood/attackby(obj/item/weapon/P as obj, mob/user as mob)
