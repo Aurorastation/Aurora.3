@@ -401,3 +401,19 @@
 	icon_state = "vittorio_fez"
 	contained_sprite = 1
 	
+
+/obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim - DONE 
+	name = "paludamentum"
+	desc = "A cloak-like piece of silky, red fabric. Fashioned at one point where the shoulder would be with a golden pin."
+	icon = 'icons/obj/custom_items/centurion_cloak.dmi'
+	icon_state = "centurion_cloak"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = 1
+
+
+/obj/item/clothing/ears/bandanna/fluff/kir_bandanna// Kir's Bandanna - Kir Iziki - araskael - DONE
+	name = "purple bandanna"
+	desc = "A worn and faded purple bandanna with a knotted, dragon-like design on it."
+	icon = 'icons/obj/custom_items/kir_bandanna.dmi'
+	icon_state = "kir_bandanna"
+	contained_sprite = 1
