@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Combat cyborgs should have access to security channel, and be able to be tracked via cameras consoles."
