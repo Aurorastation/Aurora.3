@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - bugfix: "Chat mark-up will work now. The closing tags in HTML are utilized properly once more."
