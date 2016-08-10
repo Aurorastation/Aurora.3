@@ -3222,7 +3222,7 @@
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack
-	name = "razi-snack corned Beef"
+	name = "razi-snack corned beef"
 	icon_state = "cbeef"
 	desc = "Delicious corned beef and preservatives. Imported from Earth, canned on Ourea."
 	trash = /obj/item/trash/nathisnack
