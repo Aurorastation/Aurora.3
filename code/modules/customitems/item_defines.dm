@@ -352,3 +352,68 @@
 		icon_state = initial(icon_state)
 		slot_flags = initial(slot_flags)
 		attack_verb = list()
+		
+		
+/obj/item/clothing/suit/armor/vest/fabian_coat //NT APF Armor - Fabian Goellstein - mirkoloio - DONE
+	name = "NT APF armor"
+	desc = "This is a NT Asset Protection Force Armor, it is fashioned as a jacket in NT Security Colors. The nameplate carries the Name 'Goellstein'."
+	icon = 'icons/obj/custom_items/fabian_coat.dmi'
+	icon_state = "fabian_coat_open"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/armor/vest/fabian_coat/verb/toggle()
+	set name = "Toggle Coat Zipper"
+	set category = "Object"
+	set src in usr
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return 0
+
+	switch(icon_state)
+		if("fabian_coat_open")
+			icon_state = "fabian_coat_closed"
+			usr << "You zip up \the [src]."
+		if("fabian_coat_closed")
+			icon_state = "fabian_coat_open"
+			usr << "You unzip \the [src]."
+		else
+			usr << "You attempt to button-up the velcro on your [src], before promptly realising how silly you are."
+			return
+
+	usr.update_inv_wear_suit()
+
+/obj/item/clothing/head/beret/centcom/officer/fluff/fabian_beret //Worn Security Beret - Fabian Goellstein - mirkoloio - DONE
+	name = "worn security beret"
+	desc = "A NT Asset Protection Force Beret. It has the NT APF insignia on it as well as the Name 'Goellstein' inside."
+
+
+/obj/item/clothing/accessory/armband/fluff/vittorio_armband //ATLAS Armband - Vittorio Giurifiglio - tytostyris - DONE
+	name = "Atlas armband"
+	desc = "This is an atlas armband showing anyone who sees this person, as a member of the Political party Atlas."
+	icon = 'icons/obj/custom_items/vittorio_armband.dmi'
+	icon_state = "vittorio_armband"
+	contained_sprite = 1
+
+/obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris - DONE
+	name = "black fez"
+	desc = "It is a black fez, it bears an Emblem of the Astronomical symbol of Earth, It also has some nice tassels."
+	icon = 'icons/obj/custom_items/vittorio_fez.dmi'
+	icon_state = "vittorio_fez"
+	contained_sprite = 1
+	
+
+/obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim - DONE 
+	name = "paludamentum"
+	desc = "A cloak-like piece of silky, red fabric. Fashioned at one point where the shoulder would be with a golden pin."
+	icon = 'icons/obj/custom_items/centurion_cloak.dmi'
+	icon_state = "centurion_cloak"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = 1
+
+
+/obj/item/clothing/ears/bandanna/fluff/kir_bandanna// Kir's Bandanna - Kir Iziki - araskael - DONE
+	name = "purple bandanna"
+	desc = "A worn and faded purple bandanna with a knotted, dragon-like design on it."
+	icon = 'icons/obj/custom_items/kir_bandanna.dmi'
+	icon_state = "kir_bandanna"
+	contained_sprite = 1
