@@ -3209,7 +3209,7 @@
 		bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/maps
-	name = "map salty ham"
+	name = "maps salty ham"
 	icon_state = "maps"
 	desc = "Various processed meat from Moghes with 200% the amount of recommended daily sodium per can."
 	trash = /obj/item/trash/maps
@@ -3222,7 +3222,7 @@
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack
-	name = "nathi-snack corned beef"
+	name = "razi-snack corned Beef"
 	icon_state = "cbeef"
 	desc = "Delicious corned beef and preservatives. Imported from Earth, canned on Ourea."
 	trash = /obj/item/trash/nathisnack
