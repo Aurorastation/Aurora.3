@@ -6,6 +6,7 @@
 	sharp = 0
 	edge = 0
 	flags = NOBLOODY
+	can_embed = 0//No embedding pls
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
