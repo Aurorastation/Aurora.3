@@ -225,8 +225,10 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)   update_icons()
 
 //BASE MOB SPRITE
-/mob/living/carbon/human/proc/update_body(var/update_icons=1)
+//Extension by Nanako
+//Passing in a value of 2 for update_icons will ignore any cached icon, and force a new one to be generated
 
+/mob/living/carbon/human/proc/update_body(var/update_icons=1)
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
@@ -234,7 +236,6 @@ var/global/list/damage_icon_parts = list()
 	var/fat = (FAT in src.mutations)
 	var/hulk = (HULK in src.mutations)
 	var/skeleton = (SKELETON in src.mutations)
-
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	//CACHING: Generate an index key from visible bodyparts.
@@ -268,9 +269,8 @@ var/global/list/damage_icon_parts = list()
 			icon_key += "1"
 
 	icon_key = "[icon_key][husk ? 1 : 0][fat ? 1 : 0][hulk ? 1 : 0][skeleton ? 1 : 0]"
-
 	var/icon/base_icon
-	if(human_icon_cache[icon_key])
+	if(update_icons != 2 && human_icon_cache[icon_key])//If update_icons is 2, then we forcibly generate a new icon
 		base_icon = human_icon_cache[icon_key]
 	else
 		//BEGIN CACHED ICON GENERATION.
@@ -278,7 +278,7 @@ var/global/list/damage_icon_parts = list()
 		base_icon = chest.get_icon()
 
 		for(var/obj/item/organ/external/part in organs)
-			var/icon/temp = part.get_icon(skeleton)
+			var/icon/temp = part.get_icon(skeleton)//The color comes from this function
 			//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
 			if(part.icon_position&(LEFT|RIGHT))

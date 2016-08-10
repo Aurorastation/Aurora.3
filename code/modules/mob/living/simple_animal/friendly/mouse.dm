@@ -17,7 +17,7 @@
 
 	pass_flags = PASSTABLE
 	small = 1
-	speak_chance = 4
+	speak_chance = 5
 	turns_per_move = 5
 	see_in_dark = 6
 	maxHealth = 5
@@ -119,7 +119,7 @@
 /mob/living/simple_animal/mouse/proc/squeak()
 	set name = "Squeak"
 	set category = "Abilities"
-	playsound(src, 'sound/effects/mousesqueek.ogg', 90, 1)
+	playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 
 
 
@@ -134,7 +134,7 @@
 	var/sound = pick(new_squeaks)
 
 	last_softsqueak = sound
-	playsound(src, sound, 15, 1)
+	playsound(src, sound, 6, 1)
 
 
 
@@ -143,7 +143,7 @@
 /mob/living/simple_animal/mouse/proc/squeak_loud()
 	set name = "Squeal!"
 	set category = "Abilities"
-	playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 100, 1)
+	playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 
 /mob/living/simple_animal/mouse/Crossed(AM as mob|obj)
 	if( ishuman(AM) )
@@ -156,20 +156,10 @@
 				squeak_loud()//You trod on its tail
 	..()
 
-/mob/living/simple_animal/mouse/MouseDrop(atom/over_object)
-
-	var/mob/living/carbon/H = over_object
-	if(!istype(H) || !Adjacent(H)) return ..()
-
-	if(H.a_intent == "help")
-		get_scooped(H)
-		return
-	else
-		return ..()
-
 /mob/living/simple_animal/mouse/death()
 	layer = MOB_LAYER
-	squeak_loud()//deathgasp
+	if (ckey || prob(50))
+		squeak_loud()//deathgasp
 
 	if(client)
 		client.time_died_as_mouse = world.time

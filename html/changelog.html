@@ -1,11 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Aurorastation Changelog</title>
+  <title>Baystation 12 Changelog</title>
   <link rel="stylesheet" type="text/css" href="changelog.css">
   <base target="_blank" />
   <script type='text/javascript'>
-
+  
 	function changeText(tagID, newText, linkTagID){
 		var tag = document.getElementById(tagID);
 		tag.innerHTML = newText;
@@ -13,8 +13,8 @@
 		linkTag.removeAttribute("href");
 		linkTag.removeAttribute("onclick");
 	}
-
-  </script>
+	
+  </script>  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
@@ -24,38 +24,148 @@
 	<tr>
 		<td valign='top'>
 			<div align='center'><font size='3'><b>Space Station 13</b></font></div>
-
-			<p><div align='center'><font size='3'><a href="https://aurorastation.org/wiki/">Wiki</a> | <a href="https://github.com/Aurorastation/Aurora.3">Source code</a></font></div></p>
+			
+			<p><div align='center'><font size='3'><a href="http://wiki.baystation12.net/">Wiki</a> | <a href="https://github.com/Baystation12/Baystation12/">Source code</a></font></div></p>
             <font size='2'>Code licensed under <a href="http://www.gnu.org/licenses/agpl.html">AGPLv3</a>. Content licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.<br><br>
-			<!-- <font size='2'><b>Visit our IRC channel:</b> #bs12 on irc.sorcery.net</font> -->
+			<font size='2'><b>Visit our IRC channel:</b> #bs12 on irc.sorcery.net</font>
 			</td>
 	</tr>
 </table>
 
-<br><b>Aurorastation Credit List</b>
+<br><b>Baystation 12 Credit List</b>
 <table align='center' class="top">
 	<tr>
 		<td valign='top'>
-			<font size='2'><b>Current development team :</b> <a href='http://forums.aurorastation.org/memberlist.php?mode=group&g=9'>-Click Here-</a><br></font>
-			<font size='2'><b>Code:</b> Soundscopes, Skull132, LadyofRavens, Ryan, LordLag, LordFowl, Arrow768, Alberyk, Nanako<br></font>
-      <font size='2'><b>Map:</b> LordFowl, Keknar, PumpkinSlice, Wittme91, Juani2400<br></font>
-			<font size='2'><b>Sprites:</b> Killerhurtz, CakeIsOssim, FireandGlory, FFrances, Rechkalov<br></font>
-			<font size='2'><b>Sounds:</b> Killerhurtz<br></font>
-      <font size='2'><b>Main Testers:</b> Anyone who has submitted a bug to the issue tracker<br></font>
-			<font size='2'><b>Thanks to:</b> BayStation, /tg/ station, /vg/station, GoonStation devs, the original SpaceStation developers and Invisty for the title image.<br> Also a thanks to anybody who has contributed who is not listed here :( Ask to be added here on the forums</font>
-			<font size='2' color='red'><b><br>Have a bug to report?</b> Visit our <a href="https://github.com/Aurorastation/Aurora.3/issues">Issue Tracker</a>.<br></font>
+            <font size='2'><b>Current Project Maintainers:</b> <a href='https://github.com/Baystation12?tab=members'>-Click Here-</a><br></font>
+			<font size='2'><b>Currently Active GitHub contributor list:</b> <a href='https://github.com/Baystation12/Baystation12/graphs/contributors'>-Click Here-</a><br></font>
+			<font size='2'><b>Code:</b> Abi79, Aryn, Cael_Aislinn, Ccomp5950, Chinsky, cib, CompactNinja, DopeGhoti, Erthilo, Hawk_v3, Head, Ispil, JoeyJo0, Lexusjjss, Melonstorm, Miniature, Mloc, NerdyBoy1104, PsiOmegaDelta, SkyMarshal, Snapshot, Spectre, Strumpetplaya, Sunfall, Tastyfish, Uristqwerty<br></font>
+			<font size='2'><b>Sprites:</b> Apple_Master, Arcalane, Chinsky, CompactNinja, Deus Dactyl, Erthilo, Flashkirby, JoeyJo0, Miniature, Searif, Xenone, faux<br></font>
+			<font size='2'><b>Sounds:</b> Aryn<br></font>
+            <font size='2'><b>Main Testers:</b> Anyone who has submitted a bug to the issue tracker<br></font>
+			<font size='2'><b>Thanks to:</b> /tg/ station, /vg/station, GoonStation devs, the original SpaceStation developers and Invisty for the title image.<br> Also a thanks to anybody who has contributed who is not listed here :( Ask to be added here on irc.</font>
+			<font size='2' color='red'><b><br>Have a bug to report?</b> Visit our <a href="https://github.com/Baystation12/Baystation12/issues?labels=Bug&state=open">Issue Tracker</a>.<br></font>
 		</td>
 	</tr>
 </table>
 
 		<!--
-
-		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE.
-
+		
+		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE. 
+		
 		*** DO NOT MODIFY THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
-
+		
 		-->
 		<div class="commit sansserif">
+			<h2 class="date">08 August 2016</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Only unathi are able to wear and deploy the breacher suit, both the NanoTrasen and the original version.</li>
+				<li class="tweak">You can now carry some security related items in the breacher storage slot.</li>
+				<li class="rscadd">Replaced the detective colt with a .38 revolver.</li>
+				<li class="rscadd">Added a syndicate cyborg teleporting device, available to traitors and mercenaries in their uplinks.</li>
+				<li class="rscadd">Added departamental related voidsuits crates to the supply console.</li>
+				<li class="rscadd">Added security and engineering maglock crates to the supply console.</li>
+				<li class="tweak">Costumes crates do not require theater access anymore.</li>
+				<li class="rscadd">Added a firefighting suit and helmet for atmos techs.</li>
+				<li class="imageadd">New, and better, firesuits sprites.</li>
+				<li class="rscadd">Cyborgs can now select the combat module when the security level is red or higher.</li>
+				<li class="rscadd">Added some meat-based unathi snacks in the vending machines around the station.</li>
+				<li class="rscadd">Added an improved wish granter.</li>
+				<li class="rscadd">Added skeletons.</li>
+				<li class="rscadd">Melee energy weapons, such as sword, glaives and axes, can now slice apart regular walls and their girders.</li>
+				<li class="rscadd">Added more skrellian head garments, available in the custom loadout.</li>
+				<li class="rscadd">Added some neckerchief bandanna, available in the custom loadout.</li>
+				<li class="rscadd">Added a cigar case cigarettes to the custom loadout.</li>
+				<li class="tweak">Lowered the unathi resistance to alcohol and getting drunk as whole.</li>
+				<li class="rscadd">Added the first Moghes related animal.</li>
+				<li class="imageadd">Ported engineering and atmospheric jumpsuits from oldcode.</li>
+			</ul>
+			<h3 class="author">Bedshaped updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changing the commstation_name to NTCC Odin as per Jackboot</li>
+				<li class="tweak">Allowing command reports to have the CCIAAMS signature</li>
+				<li class="bugfix">Writing [date] on paper will now show the correct lore date</li>
+				<li class="bugfix">Cyborgs can now repair airlocks with their steel synthesizer</li>
+				<li class="bugfix">Ghosts and other creatures can no longer rotate shield capacitors</li>
+				<li class="rscadd">Kois has been added to the Xenobiology seed vendor</li>
+			</ul>
+			<h3 class="author">LordFowl updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Non-wizards using wizard items may experience fun stuff.</li>
+				<li class="tweak">Mental focus damage level's have returned to old-code, to better compete with Mutate.</li>
+				<li class="bugfix">Mental focus staff has had its area of effect mode returned.</li>
+			</ul>
+			<h3 class="author">Nanako updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed AI being unable to set network on telecomms traffic control console.</li>
+				<li class="rscadd">Added hunger and feeding system for simple animals, this includes cats, dogs, mice, lizards, chickens, cows, etc</li>
+				<li class="rscadd">Animals can now actually consume food instead of nibbling them eternally.</li>
+				<li class="rscadd">Animals can now be hand-fed by using food on them.</li>
+				<li class="rscadd">Animals will move more slowly when starving. Examining an animal will show if its hungry.</li>
+				<li class="bugfix">Fixed a bug where examining an APC at close range would show its description twice</li>
+				<li class="rscadd">Roboticists now have master-access to all bots</li>
+				<li class="bugfix">Fixed an exploit where security cam consoles could give xray vision</li>
+				<li class="tweak">Added cancel buttons to several input dialogs, including say, me, and PDA messaging</li>
+				<li class="imageadd">Forensics/crimescene kit now has a held sprite</li>
+				<li class="bugfix">Fixed a bug with forensics kit not holding as much as it should</li>
+				<li class="tweak">All event probabilities reworked for a more varied and interesting event system.</li>
+				<li class="bugfix">Fixed many small instances where voidsuits were erroneously referred to as hardsuits. Mainly in EVA airlocks</li>
+				<li class="bugfix">Animals climbing onto people will now show a different, correct message, instead of the scooped one</li>
+				<li class="bugfix">Fixed an issue where a held animal could be duplicated</li>
+				<li class="bugfix">Fixed animals bugging out when placed in crates or unworn containers</li>
+				<li class="rscadd">Corgis, including Ian, will now automatically eat nearby food when they're hungry, and beg for any food held by crewmembers</li>
+				<li class="tweak">Ian is now an insatiable eating machine.</li>
+				<li class="tweak">Ian now gets more energetic when food is around, but slows down if left alone for a while to save performance</li>
+				<li class="rscadd">Animals can now heal slowly by eating food.</li>
+				<li class="rscadd">Increased number of janitor slots to two.</li>
+				<li class="rscadd">Janitorial carts can now be constructed with metal sheets, and deconstructed with a wrench, welder or plasmacutter if empty.</li>
+				<li class="tweak">Janicarts now come without a bucket. Click and drag a mop bucket onto a cart to mount it, and you can unmount it from the janicart interface.</li>
+				<li class="tweak">Placing a mop into a janicart, and pouring containers into the bucket, is now done with alt-click. A leftclick will now always wet the mop, and throw objects into the trashbag, respectively.</li>
+				<li class="rscadd">Janicarts can now be climbed over like tables - Click and drag your sprite onto it.</li>
+				<li class="tweak">Custodial closet's Spraycleaner, cleaning grenades, and spare lights, are now inside the janitorial locker instead of on table/floor.</li>
+				<li class="tweak">Added an extra janitorial locker in the custodial closet.</li>
+				<li class="bugfix">Fixed the Captain's deluxe soap being unuseable for cleaning</li>
+				<li class="tweak">Soap can now clean more tiles when wetted</li>
+				<li class="tweak">Soap and rags can now be wetted in buckets, mopbuckets, watertanks and janicarts</li>
+				<li class="rscadd">Lighters can now fit into cigarette packets.</li>
+				<li class="bugfix">Lighters will now go out when placed into a container</li>
+				<li class="bugfix">Resisting out of lockers now works properly</li>
+				<li class="tweak">Breaking out of a locker which is welded AND locked takes longer than if it's only one of those two.</li>
+				<li class="bugfix">Fixed pAI and vampire candidacy settings not working properly.</li>
+				<li class="bugfix">Fixed pAI Personality window not populating automatically</li>
+				<li class="rscadd">Added a greeting blurb for pAIs</li>
+				<li class="rscadd">Respawn timers are now tracked individually for playing as animals (mice), small synthetics (drones and pAIs) and crew (everything else). This means you can now play as a mouse or drone while waiting to respawn as a full crewmember.</li>
+				<li class="tweak">You can now spawn as a drone immediately upon joining as an observer, without having to wait ten minutes. There is still a cooldown between respawning as a drone if you just died as one.</li>
+				<li class="tweak">Slightly improved the error messages if you try to respawn when you've not waited long enough.</li>
+				<li class="bugfix">Fixed a major issue where alien species with cybernetic limbs on spawn would always be the species default colour.</li>
+				<li class="bugfix">Fixed preview images of nonhumans with cybernetic limbs being tinted the body colour.</li>
+				<li class="bugfix">Spraying water will now wet all mobs in the tile, dividing reagents amongst them. This fixes some issues where slimes would be unsprayable.</li>
+				<li class="rscadd">Bomb suit and hood are now far more robust, and resistant to all types of damage</li>
+				<li class="rscadd">Bomb suits now protect all bodyparts except the hands</li>
+				<li class="tweak">Bomb suit slowdown significantly increased</li>
+				<li class="rscadd">Bomb suits now cause the wearer to gradually overheat and will eventually cause heatstroke, their materials are very bad for dissipating bodyheat</li>
+				<li class="rscadd">Bomb hoods now restrict peripheral vision like welding goggles, but do not protect your eyes from light</li>
+				<li class="tweak">Bomb suits and bomb hoods are now too large to fit in a backpack</li>
+				<li class="rscadd">Bulletproof, ablative and riot suits are no longer cripplingly overspecialised, their resistance to the non-primary damage types has been increased</li>
+				<li class="rscadd">Mice now have a sprite for resting</li>
+				<li class="soundadd">Added a few squeak verbs for mice with new audio, based on samples recorded from real mice!</li>
+				<li class="tweak">Mice will now occasionally squeak, and squeak chance increased. Player-controlled mice will also automatically squeak but less often</li>
+				<li class="tweak">Mice will now squeal in pain when killed, and sometimes when stepped on</li>
+				<li class="bugfix">Fixed a bug where mice would permanantly stop squeaking after sleeping once</li>
+				<li class="rscadd">The cover of broken APCs can now be opened with a welding tool</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Implemented the antag contest base code. This is due for changes as the contest progresses, but should be workable for the time being.</li>
+				<li class="bugfix">Objectives like brig should now work properly.</li>
+				<li class="tweak">HTML parsing is re-enabled in direct and global narrate, for admins.</li>
+				<li class="bugfix">Spam prevention is no longer activated by automated emotes.</li>
+			</ul>
+			<h3 class="author">alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a buildable improvised handgun.</li>
+			</ul>
+
 			<h2 class="date">03 August 2016</h2>
 			<h3 class="author">LordFowl updated:</h3>
 			<ul class="changes bgimages16">
@@ -2340,7 +2450,7 @@
 			<h2 class="date">09 March 2013</h2>
 			<h3 class="author">Cael Aislinn updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay.
+				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay. 
 		Hives produce honey and honeycomb, but be wary if the bees start swarming.</li>
 			</ul>
 
