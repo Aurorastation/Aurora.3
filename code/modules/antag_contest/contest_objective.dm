@@ -6,12 +6,12 @@
 #define ANTI_SYNTH  2
 
 /datum/objective/competition
-	var/side = 0   //Whose side are we on.
+	var/side = 0					//Whose side are we on.
+	var/type_name = "Unset type!"	// For logging purposes!
 
 // check_completion() is ran at the end of each round.
 // So this will also manage logging.
 /datum/objective/competition/check_completion()
-	completed = .
 
 	// Log all the things!
 	log_result()
@@ -59,7 +59,7 @@
 	var/DBQuery/get_query = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE player_ckey = :ckey AND character_id = :char_id")
 	get_query.Execute(list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character))
 
-	var/params[] = list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character, ":char_faction" = INDEP, ":obj_type" = type, ":obj_side" = side, ":obj_outcome" = completed)
+	var/params[] = list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character, ":char_faction" = INDEP, ":obj_type" = type_name, ":obj_side" = side, ":obj_outcome" = completed)
 
 	if (get_query.NextRow())
 		switch (get_query.item[1])
@@ -88,6 +88,7 @@
 	side = PRO_SYNTH
 
 /datum/objective/competition/pro_synth/promote
+	type_name = "pro_synth/promote"
 	var/obj_assignment = null
 
 /datum/objective/competition/pro_synth/promote/find_target()
@@ -109,8 +110,6 @@
 	return target
 
 /datum/objective/competition/pro_synth/promote/check_completion()
-	. = 0
-
 	if (target && target.current && ishuman(target))
 		var/datum/data/record/found_record
 		for (var/datum/data/record/t in data_core.general)
@@ -119,16 +118,15 @@
 				break
 
 		if (found_record && found_record.fields["rank"] == obj_assignment)
-			. = 1
+			completed = 1
 
 	..()
 
 /datum/objective/competition/pro_synth/protect_robotics
+	type_name = "pro_synth/protect_robotics"
 	explanation_text = "Ensure that the equipment in the Robotics laboratory (fabricators and circuit imprinter) remains operational until the end of the shift."
 
 /datum/objective/competition/pro_synth/protect_robotics/check_completion()
-	. = 0
-
 	if (machines && machines.len)
 		var/count = 0
 		for (var/obj/machinery/mecha_part_fabricator/A in machines)
@@ -150,9 +148,12 @@
 				break
 
 		if (count >= 3)
-			. = 1
+			completed = 1
 
 	..()
+
+/datum/objective/competition/pro_synth/borgify
+	type_name = "pro_synth/borgify"
 
 /datum/objective/competition/pro_synth/borgify/find_target()
 	..()
@@ -171,10 +172,8 @@
 	return target
 
 /datum/objective/competition/pro_synth/borgify/check_completion()
-	. = 0
-
 	if (target && target.current && issilicon(target.current))
-		. = 1
+		completed = 1
 
 	..()
 
@@ -195,21 +194,21 @@
 	return target
 
 /datum/objective/competition/pro_synth/protect/check_completion()
-	. = 0
 	if (!target)
-		. = 1
+		completed = 1
 
 	if (target.current)
 		if (target.current.stat != DEAD && !issilicon(target.current) && !isbrain(target.current))
-			. = 1
+			completed = 1
 
 	..()
 
 /datum/objective/competition/pro_synth/unslave_borgs
+	type_name = "pro_synth/unslave_borgs"
 	explanation_text = "Ensure that all of the station's synthetics are unslaved from the AI by the end of the shift."
 
 /datum/objective/competition/pro_synth/unslave_borgs/check_completion()
-	. = 1
+	completed = 1
 
 	if (silicon_mob_list && silicon_mob_list.len)
 		for (var/mob/living/silicon/robot/R in silicon_mob_list)
@@ -218,7 +217,7 @@
 			if (istype(R, /mob/living/silicon/robot/drone))
 				continue
 			if (R.connected_ai)
-				. = 0
+				completed = 0
 				break
 
 	..()
@@ -230,11 +229,12 @@
 	side = ANTI_SYNTH
 
 /datum/objective/competition/anti_synth/sabotage
+	type_name = "anti_synth/sabotage"
 	explanation_text = "Cripple the Roboticist laboratory of the station: destroy its fabricators and circuit printer."
 
 /datum/objective/competition/anti_synth/sabotage/check_completion()
 	// Just uh. do the same as you do in the protect robotics one. But flip the boolean. *nodnod*
-	. = 1
+	completed = 1
 
 	if (machines && machines.len)
 		var/count = 0
@@ -257,7 +257,7 @@
 				break
 
 		if (count >= 3)
-			. = 0
+			completed = 0
 
 	..()
 
@@ -278,8 +278,6 @@
 	return target
 
 /datum/objective/competition/anti_synth/demote/check_completion()
-	. = 0
-
 	if (target && target.current && ishuman(target))
 		var/datum/data/record/found_record
 		for (var/datum/data/record/t in data_core.general)
@@ -288,12 +286,12 @@
 				break
 
 		if (found_record && (found_record.fields["rank"] == "Assistant" || found_record.fields["rank"] == "Terminated"))
-			. = 1
+			completed = 1
 
 	..()
 
 /datum/objective/competition/anti_synth/brig
-	var/already_completed = 0
+	type_name = "anti_synth/brig"
 
 /datum/objective/competition/anti_synth/brig/find_target()
 	..(1)
@@ -320,7 +318,7 @@
 			completed = 1
 
 /datum/objective/competition/anti_synth/harm
-	var/already_completed = 0
+	type_name = "anti_synth/harm"
 
 /datum/objective/competition/anti_synth/harm/find_target()
 	..(1)
