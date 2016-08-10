@@ -131,7 +131,7 @@
 	max_shells = 7
 	recoil = 2
 	accuracy = -2
-	fire_delay = 8
+	fire_delay = 9
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "ipistol"
 	item_state = "gun"
