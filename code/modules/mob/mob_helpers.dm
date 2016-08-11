@@ -931,6 +931,9 @@ proc/is_blind(A)
 	var/atom/a = src
 	while (x < 5)
 		x++
+		if (isnull(a))
+			return null
+
 		a = a.loc
 		if (istype(a, /turf))
 			return null//We must be on a table or a floor, or maybe in a wall. Either way we're not held.
