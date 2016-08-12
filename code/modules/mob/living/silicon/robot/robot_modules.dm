@@ -641,6 +641,7 @@ var/global/list/robot_modules = list(
 	..()
 	loc = R
 	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
 	src.modules += new /obj/item/weapon/gun/energy/mountedsmg(src)
 	src.modules += new /obj/item/weapon/gun/energy/crossbow/cyborg(src)
@@ -662,13 +663,17 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/combat
 	name = "combat robot module"
+	channels = list("Security" = 1)
+	networks = list(NETWORK_SECURITY)
+	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	sprites = list("Combat Android" = "droid-combat")
+	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/combat/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/thermal(src)
+	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)
 	src.modules += new /obj/item/weapon/pickaxe/plasmacutter(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
