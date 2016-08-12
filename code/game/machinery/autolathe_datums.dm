@@ -395,12 +395,6 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/clip_boltaction
-	name = "ammunition (7.62mm)"
-	path = /obj/item/ammo_magazine/boltaction
-	hidden = 1
-	category = "Arms and Ammunition"
-
 /datum/autolathe/recipe/detective_revolver_lethal
 	name = "ammunition (.38)"
 	path = /obj/item/ammo_magazine/c38
