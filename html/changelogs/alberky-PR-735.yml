@@ -1,0 +1,10 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added the tommygun to the traitor uplink, as well with their magazine options."
+  - rscadd: "Added more magazines, with different callibers, to the autolathe."
+  - rscadd: "You can now print a portable suit cooling unit at the autolathe."
+  - bugfix: "Fixed a secret crate at mining spawning a broken hardsuit module."
+  - imageadd: "The telebaton has now a sprite in hand when extended."
