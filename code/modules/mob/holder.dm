@@ -14,7 +14,6 @@
 
 	var/last_loc_general//This stores a general location of the object. Ie, a container or a mob
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
-	var/checkverb
 
 /obj/item/weapon/holder/New()
 	if (!item_state)
@@ -151,8 +150,9 @@
 
 	spawn(2)
 		var/obj/item/weapon/holder/H = new holder_type(loc)
-		src.loc = H
 		H.name = loc.name
+		src.forceMove(H)
+
 
 		H.contained = src
 
