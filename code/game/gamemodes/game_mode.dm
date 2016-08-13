@@ -44,8 +44,8 @@ var/global/list/additional_antag_types = list()
 			new/datum/uplink_item(/obj/item/ammo_magazine/mc9mm, 2, "9mm", "R9"),
 			new/datum/uplink_item(/obj/item/ammo_magazine/chemdart, 2, "Darts", "AD"),
 			new/datum/uplink_item(/obj/item/weapon/storage/box/sniperammo, 2, "14.5mm", "SA"),
-			new/datum/uplink_item(/obj/item/ammo_magazine/tommymag, 2, "tommygun magazine (.45)", "TMM"),
-			new/datum/uplink_item(/obj/item/ammo_magazine/tommydrum, 3, "tommygun drum magazine (.45)", "TMD")
+			new/datum/uplink_item(/obj/item/ammo_magazine/tommymag, 2, "Tommygun Magazine (.45)", "TMM"),
+			new/datum/uplink_item(/obj/item/ammo_magazine/tommydrum, 3, "Tommygun Drum Magazine (.45)", "TMD")
 			),
 		"Highly Visible and Dangerous Weapons" = list(
 			 new/datum/uplink_item(/obj/item/weapon/storage/box/emps, 3, "5 EMP Grenades", "EM"),
