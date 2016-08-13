@@ -54,7 +54,6 @@
 		if (squeals < maxSqueals)
 			var/diff = world.time - last_squealgain
 			if (diff > 600)
-				world << "+1 squeak"
 				squeals++
 				last_squealgain = world.time
 
@@ -150,7 +149,6 @@
 
 	if (manual)
 		log_say("[key_name(src)] squeaks softly! ")
-
 
 
 //Plays a loud sound
