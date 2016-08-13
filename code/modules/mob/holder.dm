@@ -33,18 +33,18 @@
 			return
 
 
-			for(var/mob/M in contents)
-				var/atom/movable/mob_container
-				mob_container = M
-				mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
-				M.reset_view()
+		for(var/mob/M in contents)
+			var/atom/movable/mob_container
+			mob_container = M
+			mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
+			M.reset_view()
 
 		var/mob/L = get_holding_mob()
 		if (L)
 			L.drop_from_inventory(src)
 
-			qdel(src)
-			return
+		qdel(src)
+		return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
 
@@ -150,7 +150,7 @@
 
 	spawn(2)
 		var/obj/item/weapon/holder/H = new holder_type(loc)
-		H.name = loc.name
+		H.name = src.name
 		src.forceMove(H)
 
 
