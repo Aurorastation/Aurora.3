@@ -45,6 +45,8 @@ var/global/list/facial_hair_styles_list = list()	//stores /datum/sprite_accessor
 var/global/list/facial_hair_styles_male_list = list()
 var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
+	//IPC emotes
+var/global/list/ipc_emote_list = list()			//stores /datum/sprite_accessory/ipc_emote
 	//Underwear
 var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3", "Blue" = "m4", "Black" = "m5", "Mankini" = "m6", "None") //Curse whoever made male/female underwear diffrent colours
 var/global/list/underwear_f = list("Red" = "f1", "White" = "f2", "Yellow" = "f3", "Blue" = "f4", "Black" = "f5", "Thong" = "f6", "Black Sports" = "f7","White Sports" = "f8","None")
@@ -94,6 +96,11 @@ var/global/list/endgame_safespawns = list()
 			else
 				facial_hair_styles_male_list += H.name
 				facial_hair_styles_female_list += H.name
+
+	paths = typesof(/datum/sprite_accessory/ipc_emote) - /datum/sprite_accessory/ipc_emote
+	for(var/path in paths)
+		var/datum/sprite_accessory/ipc_emote/H = new path()
+		ipc_emote_list[H.name] = H
 
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
 	paths = typesof(/datum/surgery_step)-/datum/surgery_step

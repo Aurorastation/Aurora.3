@@ -1,5 +1,6 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
+	var/ipc_act = null
 
 	if (findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
@@ -268,20 +269,28 @@
 			m_type = 1
 
 		if ("grin")
-			message = "<B>[src]</B> grins."
-			m_type = 1
+			if (src.get_species() == "Machine")
+				message = "<B>[src]</B> flashes a <FONT COLOR=green>grinning</FONT> emote."
+				m_type = 1
+				ipc_act = "Grin emote"
+			else
+				message = "<B>[src]</B> grins."
+				m_type = 1
 
 		if ("cry")
-			if(miming)
+			if (src.get_species() == "Machine")
+				message = "<B>[src]</B> flashes a <FONT COLOR=blue>crying</FONT> emote."
+				m_type = 1
+				ipc_act = "Cry emote"
+			else if(miming)
 				message = "<B>[src]</B> cries."
 				m_type = 1
+			else if (!muzzled)
+				message = "<B>[src]</B> cries."
+				m_type = 2
 			else
-				if (!muzzled)
-					message = "<B>[src]</B> cries."
-					m_type = 2
-				else
-					message = "<B>[src]</B> makes a weak noise. \He frowns."
-					m_type = 2
+				message = "<B>[src]</B> makes a weak noise. \He frowns."
+				m_type = 2
 
 		if ("sigh")
 			if(miming)
@@ -401,8 +410,13 @@
 			m_type = 1
 
 		if ("smile")
-			message = "<B>[src]</B> smiles."
-			m_type = 1
+			if (src.get_species() == "Machine")
+				message = "<B>[src]</B> flashes a <FONT COLOR=green>smile</FONT> emote."
+				m_type = 1
+				ipc_act = "Smile emote"
+			else
+				message = "<B>[src]</B> smiles."
+				m_type = 1
 
 		if ("shiver")
 			message = "<B>[src]</B> shivers."
@@ -539,6 +553,22 @@
 					message = "<B>[src]</B> makes a very loud noise."
 					m_type = 2
 
+		if ("alert")
+			if (src.get_species() == "Machine")
+				message = "<B>[src]</B> flashes an <FONT COLOR=red><B>alert</B></FONT> emote."
+				m_type = 1
+				ipc_act = "Alert emote"
+			else
+				src << "\blue Unusable emote '[act]'. Say *help for a list."
+
+		if ("heart")
+			if (src.get_species() == "Machine")
+				message = "<B>[src]</B> flashes a <FONT COLOR=fuchsia>heart</FONT> emote."
+				m_type = 1
+				ipc_act = "Heart emote"
+			else
+				src << "\blue Unusable emote '[act]'. Say *help for a list."
+
 		if("swish")
 			src.animate_tail_once()
 
@@ -584,6 +614,22 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag"}
 		else if (m_type & 2)
 			for (var/mob/O in (hearers(src.loc, null) | get_mobs_in_view(world.view,src)))
 				O.show_message(message, m_type)
+
+	if (ipc_act)
+		var/old_screen
+
+		if(!(ipc_act in ipc_emote_list))	return //checks the emote is a valid one
+
+		if(src.h_style in ipc_emote_list)	return //checks that current screen isn't an emote
+
+		old_screen = h_style
+		h_style = ipc_act
+		update_emote()
+
+		sleep(30) //time the emote displays for
+
+		h_style = old_screen
+		update_hair()
 
 
 /mob/living/carbon/human/verb/pose()
