@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - imageadd: "Added unathi, tajaran and skrell sprites for the gem-encrusted voidsuit."
