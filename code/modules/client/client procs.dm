@@ -284,6 +284,9 @@
 	if (outdated_greeting_info)
 		server_greeting.display_to_client(src, outdated_greeting_info)
 
+	// Check code/modules/admin/verbs/antag-ooc.dm for definition
+	add_aooc_if_necessary()
+
 	//////////////
 	//DISCONNECT//
 	//////////////
