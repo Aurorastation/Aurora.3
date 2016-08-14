@@ -1,0 +1,14 @@
+# Your name.
+author: Skull132
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - tweak: "Tweaked contest mechanics to give a little bit more feedback to the player as to what he's about to do."
+  - bugfix: "Objectives will now report their success properly on the feedback screen. If an objective was completed/failed but the report showcases another result, then please report it on Github."
