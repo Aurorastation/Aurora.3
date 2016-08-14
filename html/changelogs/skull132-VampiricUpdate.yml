@@ -14,3 +14,4 @@ changes:
   - tweak: "Vampire scaling boosted, we should now see the game spawn more than one vampire."
   - tweak: "Vampires now lose frenzy faster while feeding. One victim, completely drained, should be enough to get out of a mid-level frenzy."
   - bugfix: "Vampire thralls are no longer given vampiric abilities/powers."
+  - wip: "Added debug logs relating to antag spawning. Will keep these active for a bit to see what's going where."
