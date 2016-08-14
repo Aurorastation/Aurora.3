@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added new hair options, some from old code and other ported from Polaris."
