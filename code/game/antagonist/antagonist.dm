@@ -155,6 +155,8 @@
 	if(spawn_target == null)
 		spawn_target = initial_spawn_target
 
+	log_debug("ANTAG SPAWN: Attempting antag spawn. Antag: [id], spawn target: [spawn_target], ")
+
 	// Update our boundaries.
 	if(!candidates.len)
 		return 0

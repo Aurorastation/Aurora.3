@@ -1,0 +1,17 @@
+# Your name.
+author: Skull132
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - tweak: "Vampire's Hypnotise ability now renders the victim unable to speak while stunned, much like the changeling's silence sting."
+  - tweak: "Vampire scaling boosted, we should now see the game spawn more than one vampire."
+  - tweak: "Vampires now lose frenzy faster while feeding. One victim, completely drained, should be enough to get out of a mid-level frenzy."
+  - bugfix: "Vampire thralls are no longer given vampiric abilities/powers."
+  - wip: "Added debug logs relating to antag spawning. Will keep these active for a bit to see what's going where."
