@@ -7,6 +7,17 @@
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
 
+	var/show_above_suit = 0
+
+/obj/item/weapon/storage/belt/verb/toggle_layer()
+	set name = "Switch Belt Layer"
+	set category = "Object"
+
+	if(show_above_suit == -1)
+		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		return
+	show_above_suit = !show_above_suit
+	update_icon()
 
 /obj/item/weapon/storage/update_icon()
 	if (ismob(src.loc))

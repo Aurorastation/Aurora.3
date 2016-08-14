@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Ported the switch belt layer function from bay, now you can set if you want your belt to appear under or above your suit."
