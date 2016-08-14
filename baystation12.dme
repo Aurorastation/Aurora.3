@@ -872,6 +872,7 @@
 #include "code\modules\alarm\motion_alarm.dm"
 #include "code\modules\alarm\power_alarm.dm"
 #include "code\modules\antag_contest\contest_defines.dm"
+#include "code\modules\antag_contest\contest_helpers.dm"
 #include "code\modules\antag_contest\contest_objective.dm"
 #include "code\modules\antag_contest\contest_verbs.dm"
 #include "code\modules\assembly\assembly.dm"
