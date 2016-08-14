@@ -105,7 +105,7 @@
 		if (found_record && found_record.fields["rank"] == obj_assignment)
 			. = 1
 
-	..()
+	return ..()
 
 /datum/objective/competition/pro_synth/protect_robotics
 	explanation_text = "Ensure that the equipment in the Robotics laboratory (fabricators and circuit imprinter) remains operational until the end of the shift."
@@ -136,7 +136,7 @@
 		if (count >= 3)
 			. = 1
 
-	..()
+	return ..()
 
 /datum/objective/competition/pro_synth/borgify/find_target()
 	..()
@@ -160,7 +160,7 @@
 	if (target && target.current && issilicon(target.current))
 		. = 1
 
-	..()
+	return ..()
 
 /datum/objective/competition/pro_synth/protect/find_target()
 	..(1)
@@ -187,7 +187,7 @@
 		if (target.current.stat != DEAD && !issilicon(target.current) && !isbrain(target.current))
 			. = 1
 
-	..()
+	return ..()
 
 /datum/objective/competition/pro_synth/unslave_borgs
 	explanation_text = "Ensure that all of the station's synthetics are unslaved from the AI by the end of the shift."
@@ -205,7 +205,7 @@
 				. = 0
 				break
 
-	..()
+	return ..()
 
 /*
  * Anti-synth objectives
@@ -243,7 +243,7 @@
 		if (count >= 3)
 			. = 0
 
-	..()
+	return ..()
 
 /datum/objective/competition/anti_synth/demote/find_target()
 	..(1)
@@ -274,7 +274,7 @@
 		if (found_record && (found_record.fields["rank"] == "Assistant" || found_record.fields["rank"] == "Terminated"))
 			. = 1
 
-	..()
+	return ..()
 
 /datum/objective/competition/anti_synth/brig
 	var/already_completed = 0
