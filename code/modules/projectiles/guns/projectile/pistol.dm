@@ -51,6 +51,9 @@
 	name = "\improper Custom NT Mk58"
 	icon_state = "secgundark"
 
+/obj/item/weapon/gun/projectile/sec/lethal
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
@@ -198,3 +201,24 @@
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
 	..()
+
+/obj/item/weapon/gun/projectile/automatic/x9
+	name = "x9 tactical pistol"
+	desc = "A lightweight, fast firing handgun, excels at firing the medium caliber .45 in controlled shooting."
+	icon_state = "x9tactical"
+	w_class = 3
+	load_method = MAGAZINE
+	max_shells = 16
+	caliber = ".45"
+	origin_tech = "combat=4;materials=2"
+	slot_flags = SLOT_BELT
+	ammo_type = /obj/item/ammo_casing/c45
+	magazine_type = /obj/item/ammo_magazine/c45x
+	multi_aim = 1
+	auto_eject = 1
+
+	firemodes = list(
+		list(name="semiauto", burst=1, fire_delay=0),
+		list(name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0)),
+		list(name="short bursts", 	burst=5, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		)

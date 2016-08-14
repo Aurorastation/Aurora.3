@@ -564,6 +564,10 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		"red wizard",
 		"marisa wizard",
 		"emergency response team",
+		"protection detail",
+		"odin security",
+		"leading trooper",
+		"ert commander",
 		"nanotrasen representative",
 		"nanotrasen officer",
 		"nanotrasen captain"
@@ -860,6 +864,103 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			W.assignment = "Emergency Response Team"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("protection detail")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/ccpolice(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/gun/nuclear(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/swat/peacekeeper(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/holster/hip(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/gun(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer(M), slot_head)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "ERT Protection Detail"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("leading trooper")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/ert(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/lead(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/gun/nuclear(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/holster/hip(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/gun(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer(M), slot_head)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "Leading Trooper"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("ert commander")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_commander(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/commander(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigar(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/medal/gold/heroism(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/commander(M), slot_head)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "ERT Commander"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+
+		if("odin security")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/ccpolice(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/tactical(M), slot_glasses)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/tactical(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/swat/peacekeeper(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/x9(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45x(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45x(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/holster/hip(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/gun(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/handcuffs/ziptie(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/chem_grenade/gas(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/tact(M), slot_l_hand)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "NTCC Odin Security Specialist"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
 
 		if("special ops officer")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/syndicate/combat(M), slot_w_uniform)

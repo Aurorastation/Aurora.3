@@ -114,3 +114,44 @@
 	if(ismob(loc))
 		loc:update_icons()
 	..()
+
+/obj/item/weapon/shield/riot/tact
+	name = "tactical shield"
+	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "tactshield0"
+	slot_flags = null
+	force = 3
+	throwforce = 3
+	throw_speed = 3
+	throw_range = 4
+	w_class = 2
+	var/active = 0
+
+/obj/item/weapon/shield/riot/tact/attack_self(mob/living/user)
+	active = !active
+	icon_state = "tactshield[active]"
+	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+
+	if(active)
+		force = 15
+		throwforce = 5
+		throw_speed = 2
+		w_class = 4
+		slot_flags = SLOT_BACK
+		user << "<span class='notice'>You extend \the [src] downward with a sharp snap of your wrist.</span>"
+	else
+		force = 3
+		throwforce = 3
+		throw_speed = 3
+		w_class = 2
+		slot_flags = null
+		user << "<span class='notice'>The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	add_fingerprint(user)
+	return
