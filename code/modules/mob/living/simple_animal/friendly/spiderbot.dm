@@ -26,6 +26,7 @@
 
 	health = 10
 	maxHealth = 10
+	hunger_enabled = 0
 
 	attacktext = "shocked"
 	melee_damage_lower = 1
