@@ -88,7 +88,7 @@
 	return 1
 
 // Get the raw list of potential players.
-/datum/antagonist/proc/build_candidate_list(var/ghosts_only)
+/datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0)
 	candidates = list() // Clear.
 
 	// Prune restricted status. Broke it up for readability.
@@ -96,6 +96,8 @@
 	for(var/datum/mind/player in ticker.mode.get_players_for_role(role_type, id))
 		if(ghosts_only && !istype(player.current, /mob/dead))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
+		else if(!allow_animals && isanimal(player.current))
+			log_debug("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
 		else if(player.special_role)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
 		else if (player in pending_antagonists)
