@@ -142,6 +142,8 @@
 		log_debug("Could not auto-spawn a [role_text], failed to add antagonist.")
 		return 0
 
+	pending_antagonists -= player
+
 	reset_antag_selection()
 
 	return 1
