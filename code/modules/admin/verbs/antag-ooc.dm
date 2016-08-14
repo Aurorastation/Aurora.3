@@ -28,3 +28,12 @@
 			M << "<font color='#960018'><span class='ooc'>" + create_text_tag("aooc", "Antag-OOC:", M.client) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
 
 	log_ooc("(ANTAG) [key] : [msg]")
+
+// Checks if a newly joined player is an antag, and adds the AOOC verb if they are.
+// Because they're tied to client objects, this gets removed every time you disconnect.
+/client/proc/add_aooc_if_necessary()
+	if (!src.mob || !src.mob.mind)
+		return
+
+	if (player_is_antag(src.mob.mind))
+		src.verbs += /client/proc/aooc
