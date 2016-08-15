@@ -185,6 +185,15 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 
+/obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
+	if (slot == slot_wear_suit)
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			H.drop_r_hand()
+			H.drop_l_hand()
+			H.drop_from_inventory(H.handcuffed)
+	..()
+
 /obj/item/clothing/suit/ianshirt
 	name = "worn shirt"
 	desc = "A worn out, curiously comfortable t-shirt with a picture of Ian. You wouldn't go so far as to say it feels like being hugged when you wear it but it's pretty close. Good for sleeping in."

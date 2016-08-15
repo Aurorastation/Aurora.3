@@ -9,6 +9,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
 	item_state = "paper"
+	contained_sprite = 1
 	throwforce = 0
 	w_class = 1
 	throw_range = 1

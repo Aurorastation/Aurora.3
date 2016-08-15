@@ -16,6 +16,9 @@
 	var/damtype = "brute"
 	var/force = 0
 
+	var/item_state // Base name of the image used for when the item is worn. Suffixes are added to this.
+	var/species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
+
 	var/being_shocked = 0
 
 /obj/Destroy()
