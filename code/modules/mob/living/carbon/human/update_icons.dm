@@ -134,6 +134,27 @@ Please contact me on #coderbus IRC. ~Carn x
 #define TOTAL_LAYERS			25
 //////////////////////////////////
 
+
+//itemstate suffixes. Used for containedsprite worn items
+#define WORN_LHAND	"_lh"
+#define WORN_RHAND	"_rh"
+#define WORN_LSTORE	"_ls"
+#define WORN_RSTORE "_rs"
+#define WORN_SSTORE "_ss"
+#define WORN_LEAR 	"_le"
+#define WORN_REAR 	"_re"
+#define WORN_HEAD 	"_he"
+#define WORN_UNDER 	"_un"
+#define WORN_SUIT 	"_su"
+#define WORN_GLOVES	"_gl"
+#define WORN_SHOES	"_sh"
+#define WORN_EYES	"_ey"
+#define WORN_BELT	"_be"
+#define WORN_BACK	"_ba"
+#define WORN_ID		"_id"
+#define WORN_MASK	"_ma"
+
+
 /mob/living/carbon/human
 	var/list/overlays_standing[TOTAL_LAYERS]
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
@@ -1253,3 +1274,21 @@ var/global/list/damage_icon_parts = list()
 #undef TARGETED_LAYER
 #undef FIRE_LAYER
 #undef TOTAL_LAYERS
+
+#undef WORN_LHAND
+#undef WORN_RHAND
+#undef WORN_LSTORE
+#undef WORN_RSTORE
+#undef WORN_SSTORE
+#undef WORN_LEAR
+#undef WORN_REAR
+#undef WORN_HEAD
+#undef WORN_UNDER
+#undef WORN_SUIT
+#undef WORN_GLOVES
+#undef WORN_SHOES
+#undef WORN_EYES
+#undef WORN_BELT
+#undef WORN_BACK
+#undef WORN_ID
+#undef WORN_MASK

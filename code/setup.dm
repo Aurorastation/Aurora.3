@@ -190,7 +190,10 @@
 #define SLOT_TWOEARS    8192
 #define SLOT_TIE        16384
 #define SLOT_HOLSTER	32768 //16th bit
-#define SLOT_ANY		53247 //Shortcut for allowing an item to fit in any slot. doesnt include denypocket and twoears
+
+//Shortcut for allowing an item to fit in any slot. doesnt include denypocket and twoears
+//This is a helper value, just a sum of several lower ones. it doesn't use a 17th bit
+#define SLOT_ANY		53247
 
 
 
