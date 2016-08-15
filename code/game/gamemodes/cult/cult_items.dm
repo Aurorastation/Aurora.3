@@ -9,6 +9,7 @@
 	edge = 1
 	sharp = 1
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	can_embed = 0 //can't get stuck anymore, because blood magic
 
 /obj/item/weapon/melee/cultblade/cultify()
 	return
