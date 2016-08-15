@@ -666,9 +666,9 @@
 		icon_state = "unathi_ramhorn"
 		species_allowed = list("Unathi")
 
-	una_ramhorns
-		name = "Unathi Ram Horns"
-		icon_state = "unathi_ramhorn"
+	una_sidefrills
+		name = "Unathi Side Frills"
+		icon_state = "unathi_sidefrills"
 		species_allowed = list("Unathi")
 
 //skrell tentacles
