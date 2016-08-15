@@ -204,7 +204,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/bonesetter(src)
 	src.modules += new /obj/item/weapon/circular_saw(src)
 	src.modules += new /obj/item/weapon/surgicaldrill(src)
-	src.modules += new /obj/item/weapon/extinguisher/mini(src)
+	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -251,7 +251,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/crisis(src)
-	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
@@ -680,7 +679,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
 	return
-	
+
 /obj/item/weapon/robot_module/drone
 	name = "drone module"
 	no_slip = 1

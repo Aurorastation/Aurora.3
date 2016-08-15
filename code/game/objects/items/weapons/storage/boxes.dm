@@ -546,6 +546,21 @@
 		new /obj/item/weapon/storage/pill_bottle( src )
 
 
+/obj/item/weapon/storage/box/spraybottles
+	name = "box of spray bottles"
+	desc = "It has pictures of spray bottles on its front."
+	New()
+		..()
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+
+
+
 /obj/item/weapon/storage/box/snappops
 	name = "snap pop box"
 	desc = "Eight wrappers of fun! Ages 8 and up. Not suitable for children."
@@ -599,7 +614,7 @@
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
 	item_state = "syringe_kit"
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
-	
+
 /obj/item/weapon/storage/box/lights/New()
 	..()
 	make_exact_fit()
