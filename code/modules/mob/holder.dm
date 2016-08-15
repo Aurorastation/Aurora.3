@@ -14,7 +14,6 @@
 
 	var/last_loc_general//This stores a general location of the object. Ie, a container or a mob
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
-	var/checkverb
 
 /obj/item/weapon/holder/New()
 	if (!item_state)
@@ -29,20 +28,37 @@
 
 /obj/item/weapon/holder/process()
 
-	if (!(istype(loc,/obj/item/weapon/storage)))//Mobs bug out if placed directly into a container
-		if(!get_holding_mob())
-
-			for(var/mob/M in contents)
-
-				var/atom/movable/mob_container
-				mob_container = M
-				mob_container.loc = src.loc//if the holder was placed into a disposal, this should place the animal in the disposal
-				M.reset_view()
-				M.verbs -= /mob/living/proc/get_holder_location
-			qdel(src)
+	if(!get_holding_mob() || contained.loc != src)
+		if (is_unsafe_container(loc) && contained.loc == src)
 			return
+
+
+		for(var/mob/M in contents)
+			var/atom/movable/mob_container
+			mob_container = M
+			mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
+			M.reset_view()
+
+		var/mob/L = get_holding_mob()
+		if (L)
+			L.drop_from_inventory(src)
+
+		qdel(src)
+		return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
+
+
+//This function checks if the current location is safe to release inside
+//it returns 1 if the creature will bug out when released
+/obj/item/weapon/holder/proc/is_unsafe_container(var/obj/place)
+	if (istype(place, /obj/item/weapon/storage))
+		return 1
+	else if (istype(place, /obj/structure/closet/crate))
+		return 1
+	else
+		return 0
+
 
 /obj/item/weapon/holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	for(var/mob/M in src.contents)
@@ -121,8 +137,8 @@
 	//update_icon()
 
 
-/mob/living/proc/get_scooped(var/mob/living/carbon/grabber)
-	if(!holder_type || buckled || pinned.len)
+/mob/living/proc/get_scooped(var/mob/living/carbon/grabber, var/mob/user = null)
+	if(!holder_type || buckled || pinned.len || !Adjacent(grabber))
 		return
 
 	if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
@@ -134,8 +150,9 @@
 
 	spawn(2)
 		var/obj/item/weapon/holder/H = new holder_type(loc)
-		src.loc = H
-		H.name = loc.name
+		H.name = src.name
+		src.forceMove(H)
+
 
 		H.contained = src
 
@@ -146,10 +163,13 @@
 		else
 			H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
 
-		grabber << "You scoop up [src]."
-		src << "[grabber] scoops you up."
+		if (user == src)
+			grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
+			src << "<span class='notice'>You climb up onto [grabber].</span>"
+		else
+			grabber << "<span class='notice'>You scoop up [src].</span>"
+			src << "<span class='notice'>[grabber] scoops you up.</span>"
 		grabber.status_flags |= PASSEMOTES
-
 		H.attack_hand(grabber)//We put this last to prevent some race conditions
 		return
 

@@ -26,6 +26,10 @@
 	*/
 
 	set_typing_indicator(0)
+
+	if (src.client.handle_spam_prevention(message, MUTE_IC))
+		return
+
 	usr.say(message)
 
 /mob/verb/me_verb(message as text)
@@ -39,6 +43,10 @@
 	message = sanitize(message)
 
 	set_typing_indicator(0)
+
+	if (src.client.handle_spam_prevention(message, MUTE_IC))
+		return
+
 	if(use_me)
 		usr.emote("me",usr.emote_type,message)
 	else

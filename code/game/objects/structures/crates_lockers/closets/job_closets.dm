@@ -78,7 +78,12 @@
 	new /obj/item/weapon/storage/bag/trash(src)
 	new /obj/item/clothing/shoes/galoshes(src)
 	new /obj/item/weapon/storage/belt/janitor(src)
-	
+	new /obj/item/weapon/storage/box/lights/mixed(src)
+	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+	new /obj/item/weapon/reagent_containers/spray/cleaner(src)
+
 /*
  * Lawyer
  */

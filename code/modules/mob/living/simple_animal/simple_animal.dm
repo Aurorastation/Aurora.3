@@ -66,9 +66,33 @@
 	var/supernatural = 0
 	var/purge = 0
 
+
+	//Hunger/feeding vars
+	var/hunger_enabled = 1//If set to 0, a creature ignores hunger
+	var/max_nutrition = 75
+	var/nutrition_step = 0.2 //nutrition lost per tick and per step, calculated from mob_size, 0.4 is a fallback
+	var/bite_factor = 0.4
+	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
+	var/stomach_size_mult = 5
+
 /mob/living/simple_animal/New()
 	..()
 	verbs -= /mob/verb/observe
+	if (mob_size)
+		nutrition_step = mob_size * 0.05
+		bite_factor = mob_size * 0.3
+		max_nutrition *= 1 + (nutrition_step*3)//Max nutrition scales faster than costs, so bigger creatures eat less often
+		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
+	else
+		reagents = new/datum/reagents(20, src)
+	nutrition = max_nutrition
+
+/mob/living/simple_animal/Move(NewLoc, direct)
+	. = ..()
+	if(.)
+		if(src.nutrition && src.stat != DEAD && hunger_enabled)
+			src.nutrition -= nutrition_step
+
 
 /mob/living/simple_animal/Login()
 	if(src && src.client)
@@ -77,6 +101,17 @@
 
 /mob/living/simple_animal/updatehealth()
 	return
+
+/mob/living/simple_animal/examine(mob/user)
+	..()
+
+	if (hunger_enabled)
+		if (!nutrition)
+			user << "<span class='danger'>It looks starving!</span>"
+		else if (nutrition < max_nutrition *0.5)
+			user << "<span class='notice'>It looks hungry.</span>"
+		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
+			user << "It looks full and contented."
 
 /mob/living/simple_animal/Life()
 	..()
@@ -104,7 +139,7 @@
 	handle_paralysed()
 	update_canmove()
 	handle_supernatural()
-
+	process_food()
 	//Movement
 	if(!client && !stop_automated_movement && wander && !anchored)
 		if(isturf(src.loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
@@ -150,6 +185,7 @@
 						visible_emote("[pick(emote_see)].")
 					else
 						audible_emote("[pick(emote_hear)].")
+			speak_audio()
 
 
 	//Atmos
@@ -210,12 +246,51 @@
 	if(purge)
 		purge -= 1
 
+
+
+//Simple reagent processing for simple animals
+//This allows animals to digest food, and only food
+//Most drugs, poisons etc, are designed to work on carbons and affect many values a simple animal doesnt have
+/mob/living/simple_animal/proc/process_food()
+	if (hunger_enabled)
+		if (nutrition)
+			nutrition -= nutrition_step//Bigger animals get hungry faster
+			nutrition = max(0,min(nutrition, max_nutrition))//clamp the value
+		else
+			if (prob(3))
+				src << "You feel hungry..."
+
+
+		if (!reagents || !reagents.total_volume)
+			return
+
+		for(var/datum/reagent/current in reagents.reagent_list)
+			var/removed = min(current.metabolism*digest_factor, current.volume)
+			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
+				var/datum/reagent/nutriment/N = current
+				nutrition += removed*N.nutriment_factor
+				health = min(health+(removed*N.regen_factor), maxHealth)
+			current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
+
+/mob/living/simple_animal/proc/can_eat()
+	if (!hunger_enabled || nutrition > max_nutrition * 0.9)
+		return 0//full
+
+	else if ((nutrition > max_nutrition * 0.8) || health < maxHealth)
+		return 1//content
+
+	else return 2//hungry
+
 /mob/living/simple_animal/gib()
 	..(icon_gib,1)
 
 /mob/living/simple_animal/emote(var/act, var/type, var/desc)
 	if(act)
 		..(act, type, desc)
+
+//This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
+/mob/living/simple_animal/proc/speak_audio()
+	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc)
 	custom_emote(1, act_desc)
@@ -284,7 +359,10 @@
 							M.show_message("<span class='notice'>[user] applies the [MED] on [src].</span>")
 		else
 			user << "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>"
-	if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
+	else if(istype(O, /obj/item/weapon/reagent_containers))
+		..()
+
+	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
 		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/knife/butch))
 			harvest(user)
 	else
@@ -319,6 +397,9 @@
 		if(tally <= 0)
 			tally = 1
 		tally *= purge
+
+	if (!nutrition)
+		tally += 4
 
 	return tally+config.animal_delay
 
@@ -414,6 +495,6 @@
 		if(!istype(H) || !Adjacent(H))
 			return ..()
 
-		get_scooped(H)
+		get_scooped(H, usr)
 		return
 	return ..()

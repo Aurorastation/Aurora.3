@@ -35,7 +35,7 @@ mob/var/obj/effect/decal/typing_indicator
 
 	set_typing_indicator(1)
 	hud_typing = 1
-	var/message = input("","say (text)") as text
+	var/message = input("","say (text)") as text|null
 	hud_typing = 0
 	set_typing_indicator(0)
 	if(message)
@@ -47,7 +47,7 @@ mob/var/obj/effect/decal/typing_indicator
 
 	set_typing_indicator(1)
 	hud_typing = 1
-	var/message = input("","me (text)") as text
+	var/message = input("","me (text)") as text|null
 	hud_typing = 0
 	set_typing_indicator(0)
 	if(message)
