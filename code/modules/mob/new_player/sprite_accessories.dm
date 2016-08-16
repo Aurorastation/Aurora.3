@@ -165,11 +165,11 @@
 		icon_state = "hair_tressshoulder"
 		gender = FEMALE
 
-	wisp
+/*	wisp  ///disable until the coloring and sprite overall is not so awful
 		name = "Wisp"
 		icon_state = "hair_wisp"
 		gender = FEMALE
-
+*/
 	parted
 		name = "Parted"
 		icon_state = "hair_parted"
@@ -306,7 +306,7 @@
 
 	veryshortovereyealternate
 		name = "Overeye Very Short, Alternate"
-		icon_state = "hair_veryshortovereyealternate"
+		icon_state = "hair_veryshortovereye"
 
 	longovereye
 		name = "Overeye Long"
