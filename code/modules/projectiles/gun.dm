@@ -33,7 +33,7 @@
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
 	icon = 'icons/obj/gun.dmi'
-	item_icons = list(
+	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi',
 		)
