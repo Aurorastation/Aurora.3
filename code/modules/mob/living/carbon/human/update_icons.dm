@@ -113,25 +113,26 @@ Please contact me on #coderbus IRC. ~Carn x
 #define ID_LAYER				5
 #define SHOES_LAYER				6
 #define GLOVES_LAYER			7
-#define SUIT_LAYER				8
-#define TAIL_LAYER				9		//bs12 specific. this hack is probably gonna come back to haunt me
-#define GLASSES_LAYER			10
-#define BELT_LAYER				11
-#define SUIT_STORE_LAYER		12
-#define BACK_LAYER				13
-#define HAIR_LAYER				14		//TODO: make part of head layer?
-#define L_EAR_LAYER				15
-#define R_EAR_LAYER				16
-#define FACEMASK_LAYER			17
-#define HEAD_LAYER				18
-#define COLLAR_LAYER			19
-#define HANDCUFF_LAYER			20
-#define LEGCUFF_LAYER			21
-#define L_HAND_LAYER			22
-#define R_HAND_LAYER			23
-#define FIRE_LAYER				24		//If you're on fire
-#define TARGETED_LAYER			25		//BS12: Layer for the target overlay from weapon targeting system
-#define TOTAL_LAYERS			25
+#define BELT_LAYER				8
+#define SUIT_LAYER				9
+#define TAIL_LAYER				10		//bs12 specific. this hack is probably gonna come back to haunt me
+#define GLASSES_LAYER			11
+#define BELT_LAYER_ALT			12
+#define SUIT_STORE_LAYER		13
+#define BACK_LAYER				14
+#define HAIR_LAYER				15		//TODO: make part of head layer?
+#define L_EAR_LAYER				16
+#define R_EAR_LAYER				17
+#define FACEMASK_LAYER			18
+#define HEAD_LAYER				19
+#define COLLAR_LAYER			20
+#define HANDCUFF_LAYER			21
+#define LEGCUFF_LAYER			22
+#define L_HAND_LAYER			23
+#define R_HAND_LAYER			24
+#define FIRE_LAYER				25		//If you're on fire
+#define TARGETED_LAYER			26		//BS12: Layer for the target overlay from weapon targeting system
+#define TOTAL_LAYERS			26
 //////////////////////////////////
 
 
@@ -790,33 +791,59 @@ var/global/list/damage_icon_parts = list()
 	if(belt)
 		belt.screen_loc = ui_belt	//TODO
 		var/t_state = belt.item_state
+		var/t_icon = belt.icon
 		if(!t_state)	t_state = belt.icon_state
 		var/image/standing	= image("icon_state" = "[t_state]")
 
 		if(belt.contained_sprite)
-			var/state = ""
+			t_state = ""
 			if (belt.species_tag)
-				state += "[belt.species_tag]_"
-			state += "[belt.item_state][WORN_BELT]"
+				t_state += "[belt.species_tag]_"
+			t_state += "[belt.item_state][WORN_BELT]"
 
 			if(belt.icon_override)
-				standing = image("icon" = belt.icon_override, "icon_state" = state)
-			else
-				standing = image("icon" = belt.icon, "icon_state" = state)
+				t_icon = belt.icon_override
+
 		else if(belt.icon_override)
-			standing.icon = belt.icon_override
+			t_icon = belt.icon_override
 		else if(belt.sprite_sheets && belt.sprite_sheets[species.get_bodytype()])
-			standing.icon = belt.sprite_sheets[species.get_bodytype()]
+			t_icon = belt.sprite_sheets[species.get_bodytype()]
 		else
-			standing.icon = 'icons/mob/belt.dmi'
+			t_icon = 'icons/mob/belt.dmi'
+
+		standing = image("icon" = t_icon, "icon_state" = t_state)
 
 		if(belt.contents.len && istype(belt, /obj/item/weapon/storage/belt))
 			for(var/obj/item/i in belt.contents)
-				var/i_state = i.item_state
-				if(!i_state) i_state = i.icon_state
-				standing.overlays	+= image("icon" = 'icons/mob/belt.dmi', "icon_state" = "[i_state]")
+				var/c_state
+				var/c_icon
+				if(i.contained_sprite)
+					c_state = ""
+					if (belt.species_tag)
+						c_state += "[belt.species_tag]_"
+					c_state += "[belt.item_state][WORN_BELT]"
 
-		overlays_standing[BELT_LAYER] = standing
+					c_icon = belt.icon
+					if(belt.icon_override)
+						c_icon = belt.icon_override
+
+				else
+					c_icon = 'icons/mob/belt.dmi'
+					c_state = i.item_state
+					if(!c_state) c_state = i.icon_state
+				standing.overlays	+= image("icon" = c_icon, "icon_state" = c_state)
+
+
+		var/beltlayer = BELT_LAYER
+		var/otherlayer = BELT_LAYER_ALT
+		if(istype(belt, /obj/item/weapon/storage/belt))
+			var/obj/item/weapon/storage/belt/ubelt = belt
+			if(ubelt.show_above_suit)
+				beltlayer = BELT_LAYER_ALT
+				otherlayer = BELT_LAYER
+
+		overlays_standing[beltlayer] = standing
+		overlays_standing[otherlayer] = null
 	if(update_icons)   update_icons()
 
 
