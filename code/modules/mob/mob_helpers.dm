@@ -4,6 +4,41 @@
 		return 1
 	return 0
 
+/proc/ishuman_species(A)
+	if(istype(A, /mob/living/carbon/human) && (get_species() == "Human"))
+		return 1
+	return 0
+
+/proc/isunathi_species(A)
+	if(istype(A, /mob/living/carbon/human) && (get_species() == "Unathi"))
+		return 1
+	return 0
+
+/proc/istajara_species(A)
+	if(istype(A, /mob/living/carbon/human) && (get_species() == "Tajara"))
+		return 1
+	return 0
+
+/proc/isskrell_species(A)
+	if(istype(A, /mob/living/carbon/human) && (get_species() == "Skrell"))
+		return 1
+	return 0
+
+/proc/isvaurca_species(A)
+	if(istype(A, /mob/living/carbon/human) && (get_species() == "Vaurca"))
+		return 1
+	return 0
+
+/proc/isipc_species(A)
+	if(istype(A, /mob/living/carbon/human) && (get_species() == "Machine"))
+		return 1
+	return 0
+
+/proc/isvox_species(A)
+	if(istype(A, /mob/living/carbon/human) && (get_species() == "Vox"))
+		return 1
+	return 0
+
 /proc/isalien(A)
 	if(istype(A, /mob/living/carbon/alien))
 		return 1
