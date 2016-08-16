@@ -140,7 +140,7 @@
 	origin_tech = "combat=2;materials=2"
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
-	jam_chance = 35
+	jam_chance = 55
 
 /obj/item/weapon/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
