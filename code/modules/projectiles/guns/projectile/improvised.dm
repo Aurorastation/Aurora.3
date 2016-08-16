@@ -130,7 +130,8 @@
 	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .45 Rounds."
 	max_shells = 7
 	recoil = 2
-	accuracy = -1
+	accuracy = -2
+	fire_delay = 9
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "ipistol"
 	item_state = "gun"

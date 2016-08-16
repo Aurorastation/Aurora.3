@@ -39,7 +39,7 @@
 	var/list/char_ids = list()
 
 	while (character_query.NextRow())
-		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = "Independant", "side_int" = INDEP)
+		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = "Independent", "side_int" = INDEP)
 
 	if (!char_ids.len)
 		src << "<span class='warning'>Something went horribly wrong! Apparently you don't have any saved characters?</span>"
@@ -51,34 +51,23 @@
 	while (participation_query.NextRow())
 		char_ids[participation_query.item[1]]["assigned"] = 1
 		// Lazy and convoluted, but I give 0 shits right now.
-		switch (participation_query.item[2])
-			if ("SLF")
-				char_ids[participation_query.item[1]]["side_int"] = SLF
-				char_ids[participation_query.item[1]]["side_str"] = "Synthetic Liberation Front"
-			if ("BIS")
-				char_ids[participation_query.item[1]]["side_int"] = BIS
-				char_ids[participation_query.item[1]]["side_str"] = "Biesel Intelligence Service"
-			if ("ASI")
-				char_ids[participation_query.item[1]]["side_int"] = ASI
-				char_ids[participation_query.item[1]]["side_str"] = "Alliance Strategic Intelligence"
-			if ("PSIS")
-				char_ids[participation_query.item[1]]["side_int"] = PSIS
-				char_ids[participation_query.item[1]]["side_str"] = "People's Strategic Information Service"
-			if ("HSH")
-				char_ids[participation_query.item[1]]["side_int"] = HSH
-				char_ids[participation_query.item[1]]["side_str"] = "Hegemon Shadow Service"
-			if ("TCD")
-				char_ids[participation_query.item[1]]["side_int"] = TCD
-				char_ids[participation_query.item[1]]["side_str"] = "Tup Commandos Division"
-			else
-				char_ids[participation_query.item[1]]["side_int"] = INDEP
-				char_ids[participation_query.item[1]]["side_str"] = "Independant"
+		var/list/faction_data = contest_faction_data(participation_query.item[2])
+		char_ids[participation_query.item[1]]["side_int"] = faction_data[1]
+		char_ids[participation_query.item[1]]["side_str"] = faction_data[2]
 
 	var/data = "<center><b>Welcome to the character setup screen!</b></center>"
 	data += "<br><center>Here is the list of your characters, and their allegience</center><hr>"
 
+	var/colour = "#000000"
 	for (var/char_id in char_ids)
-		data += "[char_ids[char_id]["name"]] -- [char_ids[char_id]["side_str"]] -- <a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]];previously_assigned=[char_ids[char_id]["assigned"]]'>Modify</a><br>"
+		if (char_ids[char_id]["side_int"] in contest_factions_prosynth)
+			colour = "#0040FF"
+		else if (char_ids[char_id]["side_int"] in contest_factions_antisynth)
+			colour = "#FF0000"
+		else
+			colour = "#00BF00"
+
+		data += "[char_ids[char_id]["name"]] -- <font color=[colour]>[char_ids[char_id]["side_str"]]</font> -- <a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]];previously_assigned=[char_ids[char_id]["assigned"]]'>Modify</a><br>"
 
 	src << browse(data, "window=antag_contest_chars;size=300x200")
 
@@ -113,9 +102,17 @@
 			src << "<span class='notice'>Cancelled.</span>"
 			return
 
+		var/list/faction_data = contest_faction_data(part_check.item[1])
+
 		if (side == "Pro-synth")
+			if (faction_data[1] in contest_factions_antisynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Yes", "No") == "No")
+				return
+
 			available_objs = list("Promote a Synth", "Protect Robotics", "Borgify", "Protect a Synth", "Unslave Borgs")
 		else
+			if (faction_data[1] in contest_factions_prosynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Yes", "No") == "No")
+				return
+
 			available_objs = list("Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
 
 		if (!available_objs)
@@ -226,8 +223,6 @@
 			var/DBQuery/query = dbcon.NewQuery(query_content)
 			query.Execute(sql_args)
 
-			log_debug("CONTEST: [key_name(src)] attempted to change the side of [href["char_id"]] FROM [href["current_side"]] TO [sql_args[":new_side"]]")
-
 			if (query.ErrorMsg())
 				src << "<span class='danger'>SQL query ran into an error and was cancelled! Please contact a developer to troubleshoot the logs!</span>"
 				return
@@ -235,3 +230,14 @@
 				src << "<span class='notice'>Successfully updated your character's alliegence!</span>"
 				src.contest_my_characters()
 				return
+
+#undef INDEP
+#undef SLF
+#undef BIS
+#undef ASI
+#undef PSIS
+#undef HSH
+#undef TCD
+
+#undef PRO_SYNTH
+#undef ANTI_SYNTH

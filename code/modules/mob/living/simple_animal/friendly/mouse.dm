@@ -2,6 +2,7 @@
 	name = "mouse"
 	real_name = "mouse"
 	desc = "It's a small rodent."
+	icon = 'icons/mob/mouse.dmi'
 	icon_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
@@ -14,6 +15,9 @@
 	'sound/effects/creatures/mouse_squeaks_3.ogg',
 	'sound/effects/creatures/mouse_squeaks_4.ogg')
 	var/last_softsqueak = null//Used to prevent the same soft squeak twice in a row
+	var/squeals = 5//Spam control. You people are why we cant have nice things >:(
+	var/maxSqueals = 5//SPAM PROTECTION
+	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
 
 	pass_flags = PASSTABLE
 	small = 1
@@ -40,10 +44,18 @@
 
 /mob/living/simple_animal/mouse/Life()
 	..()
-	//Player-animals don't do random speech normally, so this is here
+
+	if(client)
+		//Player-animals don't do random speech normally, so this is here
 		//Player-controlled mice will still squeak, but less often than NPC mice
-	if(client && stat == CONSCIOUS && prob(speak_chance*0.4))
-		squeak_soft()
+		if (stat == CONSCIOUS && prob(speak_chance*0.1))
+			squeak_soft(0)
+
+		if (squeals < maxSqueals)
+			var/diff = world.time - last_squealgain
+			if (diff > 600)
+				squeals++
+				last_squealgain = world.time
 
 	if(!ckey && stat == CONSCIOUS && prob(0.5))
 		stat = UNCONSCIOUS
@@ -60,9 +72,12 @@
 		else if(prob(5))
 			audible_emote("snuffles.")
 
+
+
 /mob/living/simple_animal/mouse/New()
 	..()
 
+	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 
@@ -83,12 +98,12 @@
 	if (body_color == "white")
 		holder_type = /obj/item/weapon/holder/mouse/white
 
-	verbs += /mob/living/simple_animal/mouse/proc/squeak
-	verbs += /mob/living/simple_animal/mouse/proc/squeak_soft
-	verbs += /mob/living/simple_animal/mouse/proc/squeak_loud
+	//verbs += /mob/living/simple_animal/mouse/proc/squeak
+	//verbs += /mob/living/simple_animal/mouse/proc/squeak_soft
+	//verbs += /mob/living/simple_animal/mouse/proc/squeak_loud(1)
 
 /mob/living/simple_animal/mouse/speak_audio()
-	squeak_soft()
+	squeak_soft(0)
 
 
 
@@ -116,34 +131,53 @@
 
 //Plays a sound.
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
-/mob/living/simple_animal/mouse/proc/squeak()
-	set name = "Squeak"
-	set category = "Abilities"
+/mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
 	playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
-
+	if (manual)
+		log_say("[key_name(src)] squeaks! ")
 
 
 
 //Plays a random selection of four sounds, at a low volume
 //This is triggered randomly periodically by any mouse, or manually
-/mob/living/simple_animal/mouse/proc/squeak_soft()
-	set name = "Soft Squeaking"
-	set category = "Abilities"
-
+/mob/living/simple_animal/mouse/proc/squeak_soft(var/manual = 1)
 	var/list/new_squeaks = last_softsqueak ? soft_squeaks - last_softsqueak : soft_squeaks
 	var/sound = pick(new_squeaks)
 
 	last_softsqueak = sound
 	playsound(src, sound, 6, 1)
 
+	if (manual)
+		log_say("[key_name(src)] squeaks softly! ")
 
 
 //Plays a loud sound
 //Triggered manually, when a mouse dies, or rarely when its stepped on
-/mob/living/simple_animal/mouse/proc/squeak_loud()
+/mob/living/simple_animal/mouse/proc/squeak_loud(var/manual = 0)
+	if (squeals > 0 || !manual)
+		playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
+		squeals --
+		log_say("[key_name(src)] squeals! ")
+	else
+		src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
+
+
+//Wrapper verbs for the squeak functions
+/mob/living/simple_animal/mouse/verb/squeak_loud_verb()
 	set name = "Squeal!"
 	set category = "Abilities"
-	playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
+	squeak_loud(1)
+
+/mob/living/simple_animal/mouse/verb/squeak_soft_verb()
+	set name = "Soft Squeaking"
+	set category = "Abilities"
+	squeak_soft(1)
+
+/mob/living/simple_animal/mouse/verb/squeak_verb()
+	set name = "Squeak"
+	set category = "Abilities"
+	squeak(1)
+
 
 /mob/living/simple_animal/mouse/Crossed(AM as mob|obj)
 	if( ishuman(AM) )
@@ -151,15 +185,15 @@
 			var/mob/M = AM
 			M << "\blue \icon[src] Squeek!"
 			if (prob(95))
-				squeak()
+				squeak(0)
 			else
-				squeak_loud()//You trod on its tail
+				squeak_loud(0)//You trod on its tail
 	..()
 
 /mob/living/simple_animal/mouse/death()
 	layer = MOB_LAYER
 	if (ckey || prob(50))
-		squeak_loud()//deathgasp
+		squeak_loud(0)//deathgasp
 
 	if(client)
 		client.time_died_as_mouse = world.time

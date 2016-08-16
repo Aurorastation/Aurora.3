@@ -65,7 +65,7 @@
 		if(57 to 58)
 			new/obj/item/toy/syndicateballoon(src)
 		if(59 to 60)
-			new/obj/item/weapon/rig(src)
+			new/obj/item/weapon/rig/eva(src)
 		if(61 to 62)
 			for(var/i = 0, i < 12, ++i)
 				new/obj/item/clothing/head/kitty(src)

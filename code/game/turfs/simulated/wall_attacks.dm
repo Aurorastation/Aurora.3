@@ -214,6 +214,11 @@
 			if(!do_after(user,cut_delay))
 				return
 
+
+			//This prevents runtime errors if someone clicks the same wall more than once
+			if (!istype(src, /turf/simulated/wall))
+				return
+
 			user << "<span class='notice'>You remove the outer plating.</span>"
 			dismantle_wall()
 			user.visible_message("<span class='warning'>The wall was torn open by [user]!</span>")
