@@ -6,14 +6,14 @@
 	icon_state = "otherthing"
 	icon_living = "otherthing"
 	icon_dead = "otherthing-dead"
-	health = 80
-	maxHealth = 80
+	health = 200
+	maxHealth = 200
 	melee_damage_lower = 25
 	melee_damage_upper = 50
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "creature"
-	speed = 4
+	speed = -2
 
 /mob/living/simple_animal/hostile/creature/cult
 	faction = "cult"
