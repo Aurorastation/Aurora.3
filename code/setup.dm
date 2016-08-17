@@ -290,7 +290,24 @@
 #define icon_head		"slot_head"
 
 
-
+//itemstate suffixes. Used for containedsprite worn items
+#define WORN_LHAND	"_lh"
+#define WORN_RHAND	"_rh"
+#define WORN_LSTORE	"_ls"
+#define WORN_RSTORE "_rs"
+#define WORN_SSTORE "_ss"
+#define WORN_LEAR 	"_le"
+#define WORN_REAR 	"_re"
+#define WORN_HEAD 	"_he"
+#define WORN_UNDER 	"_un"
+#define WORN_SUIT 	"_su"
+#define WORN_GLOVES	"_gl"
+#define WORN_SHOES	"_sh"
+#define WORN_EYES	"_ey"
+#define WORN_BELT	"_be"
+#define WORN_BACK	"_ba"
+#define WORN_ID		"_id"
+#define WORN_MASK	"_ma"
 
 
 // Bitflags for clothing parts.

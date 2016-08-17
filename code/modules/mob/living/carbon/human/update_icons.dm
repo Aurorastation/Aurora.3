@@ -136,24 +136,7 @@ Please contact me on #coderbus IRC. ~Carn x
 //////////////////////////////////
 
 
-//itemstate suffixes. Used for containedsprite worn items
-#define WORN_LHAND	"_lh"
-#define WORN_RHAND	"_rh"
-#define WORN_LSTORE	"_ls"
-#define WORN_RSTORE "_rs"
-#define WORN_SSTORE "_ss"
-#define WORN_LEAR 	"_le"
-#define WORN_REAR 	"_re"
-#define WORN_HEAD 	"_he"
-#define WORN_UNDER 	"_un"
-#define WORN_SUIT 	"_su"
-#define WORN_GLOVES	"_gl"
-#define WORN_SHOES	"_sh"
-#define WORN_EYES	"_ey"
-#define WORN_BELT	"_be"
-#define WORN_BACK	"_ba"
-#define WORN_ID		"_id"
-#define WORN_MASK	"_ma"
+
 
 
 /mob/living/carbon/human
@@ -641,7 +624,6 @@ var/global/list/damage_icon_parts = list()
 
 	else
 		if(l_ear)
-			world << "CS on [l_ear]"
 			var/t_type = l_ear.icon_state
 
 			if(l_ear.contained_sprite)
@@ -649,7 +631,6 @@ var/global/list/damage_icon_parts = list()
 				if (l_ear.species_tag)
 					t_type += "[l_ear.species_tag]_"
 				t_type += "[l_ear.item_state][WORN_LEAR]"
-				world << "[l_ear] state is [t_type]"
 				if(l_ear.icon_override)
 					overlays_standing[L_EAR_LAYER] = image("icon" = l_ear.icon_override, "icon_state" = t_type)
 				else
@@ -664,14 +645,12 @@ var/global/list/damage_icon_parts = list()
 				overlays_standing[L_EAR_LAYER] = image("icon" = 'icons/mob/ears.dmi', "icon_state" = "[t_type]")
 
 		if(r_ear)
-			world << "CS on [r_ear]"
 			var/t_type = r_ear.icon_state
 			if(r_ear.contained_sprite)
 				t_type = ""
 				if (r_ear.species_tag)
 					t_type += "[r_ear.species_tag]_"
 				t_type += "[r_ear.item_state][WORN_REAR]"
-				world << "[r_ear] state is [t_type]"
 				if(r_ear.icon_override)
 					overlays_standing[R_EAR_LAYER] = image("icon" = r_ear.icon_override, "icon_state" = t_type)
 				else
@@ -742,19 +721,15 @@ var/global/list/damage_icon_parts = list()
 		//Determine the icon to use
 		var/t_icon = INV_HEAD_DEF_ICON
 		if(head.contained_sprite)
-			world << "Doing CS Head: [head]"
 			var/state = ""
 			if (head.species_tag)
 				state += "[head.species_tag]_"
 			state += "[head.item_state][WORN_HEAD]"
 
-			world << "Itemstate for [head] is [state]"
 
 			if(head.icon_override)
-				world << "Iconfile for [head] is [head.icon_override]"
 				standing = image("icon" = head.icon_override, "icon_state" = state)
 			else
-				world << "Iconfile for [head] is [head.icon]"
 				standing = image("icon" = head.icon, "icon_state" = state)
 		else if(head.icon_override)
 			t_icon = head.icon_override
@@ -1302,20 +1277,3 @@ var/global/list/damage_icon_parts = list()
 #undef FIRE_LAYER
 #undef TOTAL_LAYERS
 
-#undef WORN_LHAND
-#undef WORN_RHAND
-#undef WORN_LSTORE
-#undef WORN_RSTORE
-#undef WORN_SSTORE
-#undef WORN_LEAR
-#undef WORN_REAR
-#undef WORN_HEAD
-#undef WORN_UNDER
-#undef WORN_SUIT
-#undef WORN_GLOVES
-#undef WORN_SHOES
-#undef WORN_EYES
-#undef WORN_BELT
-#undef WORN_BACK
-#undef WORN_ID
-#undef WORN_MASK

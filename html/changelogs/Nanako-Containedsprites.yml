@@ -36,4 +36,5 @@ changes:
   - bugfix: "Fixed many hideflags not working, causing headsets, masks, uniforms, etc to be hidden or show when they shouldn't."
   - tweak: "Fixed giving items while sitting, added some feedback messages if giving fails."
   - tweak: "People who are restrained can't give or be given items."
+  - imageadd: "Implemented new sprites for industrial, advanced and experimental welding tools, credit goes to Araskael"
   

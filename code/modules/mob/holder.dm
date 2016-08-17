@@ -284,7 +284,7 @@
 	icon_state = "mouse_brown_sleep"
 	item_state = "mouse_brown"
 	icon_state_dead = "mouse_brown_dead"
-	slot_flags = SLOT_EARS
+	//slot_flags = SLOT_EARS //Re-enable this once superballs finishes the sprites
 	contained_sprite = 1
 	origin_tech = "biotech=2"
 	w_class = 1

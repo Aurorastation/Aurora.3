@@ -438,11 +438,3 @@
 	icon_state = "kir_bandanna"
 	item_state = "kir_bandanna"
 	contained_sprite = 1
-
-/obj/item/contained_sprite_debug
-	name = "Debug Item"
-	icon = 'icons/debug.dmi'
-	icon_state = "debug"
-	item_state = "debug"
-	slot_flags = SLOT_ANY
-	contained_sprite = 1
