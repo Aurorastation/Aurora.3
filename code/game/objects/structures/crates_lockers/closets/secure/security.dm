@@ -32,6 +32,31 @@
 		new /obj/item/clothing/under/captainformal(src)
 		return
 
+/obj/structure/closet/secure_closet/captains2
+	name = "captain's attire"
+	req_access = list(access_captain)
+	icon_state = "capsecure1"
+	icon_closed = "capsecure"
+	icon_locked = "capsecure1"
+	icon_opened = "capsecureopen"
+	icon_broken = "capsecurebroken"
+	icon_off = "capsecureoff"
+
+	New()
+		..()
+		new /obj/item/weapon/storage/backpack/captain(src)
+		new /obj/item/weapon/storage/backpack/satchel_cap(src)
+		new /obj/item/clothing/suit/captunic(src)
+		new /obj/item/clothing/suit/captunic/capjacket(src)
+		new /obj/item/clothing/head/helmet/cap(src)
+		new /obj/item/clothing/under/rank/captain(src)
+		new /obj/item/clothing/suit/storage/vest(src)
+		new /obj/item/clothing/shoes/brown(src)
+		new /obj/item/clothing/gloves/captain(src)
+		new /obj/item/clothing/under/dress/dress_cap(src)
+		new /obj/item/clothing/head/helmet/formalcaptain(src)
+		new /obj/item/clothing/under/captainformal(src)
+		return
 
 
 /obj/structure/closet/secure_closet/hop
@@ -83,6 +108,7 @@
 		new /obj/item/clothing/shoes/white(src)
 		new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 		new /obj/item/clothing/head/helmet/hop(src)
+		new /obj/item/device/radio/headset/heads/hop(src)
 		return
 
 
@@ -99,10 +125,8 @@
 
 	New()
 		..()
-		if(prob(50))
-			new /obj/item/weapon/storage/backpack/security(src)
-		else
-			new /obj/item/weapon/storage/backpack/satchel_sec(src)
+		new /obj/item/weapon/storage/backpack/security(src)
+		new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
@@ -122,6 +146,31 @@
 		new /obj/item/weapon/gun/energy/gun(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/weapon/melee/telebaton(src)
+		new /obj/item/clothing/head/beret/sec/hos(src)
+		return
+
+/obj/structure/closet/secure_closet/hos2
+	name = "head of security's attire"
+	req_access = list(access_hos)
+	icon_state = "hossecure1"
+	icon_closed = "hossecure"
+	icon_locked = "hossecure1"
+	icon_opened = "hossecureopen"
+	icon_broken = "hossecurebroken"
+	icon_off = "hossecureoff"
+
+	New()
+		..()
+		new /obj/item/weapon/storage/backpack/security(src)
+		new /obj/item/weapon/storage/backpack/satchel_sec(src)
+		new /obj/item/clothing/head/helmet/HoS(src)
+		new /obj/item/clothing/suit/storage/vest/hos(src)
+		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
+		new /obj/item/clothing/under/rank/head_of_security/corp(src)
+		new /obj/item/device/radio/headset/heads/hos(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/weapon/storage/belt/security(src)
+		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		return
 

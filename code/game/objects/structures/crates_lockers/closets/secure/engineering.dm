@@ -35,6 +35,27 @@
 		new /obj/item/taperoll/engineering(src)
 		return
 
+/obj/structure/closet/secure_closet/engineering_chief2
+	name = "chief engineer's attire"
+	req_access = list(access_ce)
+	icon_state = "securece1"
+	icon_closed = "securece"
+	icon_locked = "securece1"
+	icon_opened = "secureceopen"
+	icon_broken = "securecebroken"
+	icon_off = "secureceoff"
+
+
+	New()
+		..()
+		new /obj/item/weapon/storage/backpack/industrial(src)
+		new /obj/item/weapon/storage/backpack/satchel_eng(src)
+		new /obj/item/clothing/accessory/storage/brown_vest(src)
+		new /obj/item/clothing/accessory/storage/webbing(src)
+		new /obj/item/clothing/under/rank/chief_engineer(src)
+		new /obj/item/clothing/shoes/brown(src)
+		new /obj/item/device/radio/headset/heads/ce(src)
+		return
 
 
 /obj/structure/closet/secure_closet/engineering_electrical
