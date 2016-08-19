@@ -302,13 +302,15 @@ emp_act
 		if (armor)
 			damage /= armor+1
 
-		//blunt objects should really not be embedding in things unless a huge amount of force is involved
-		var/embed_chance = weapon_sharp? damage/I.w_class : damage/(I.w_class*3)
-		var/embed_threshold = weapon_sharp? 5*I.w_class : 15*I.w_class
 
-		//Sharp objects will always embed if they do enough damage.
-		if((weapon_sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
-			affecting.embed(I)
+		if (I.can_embed)//If this weapon is allowed to embed in people
+			//blunt objects should really not be embedding in things unless a huge amount of force is involved
+			var/embed_chance = weapon_sharp? damage/I.w_class : damage/(I.w_class*3)
+			var/embed_threshold = weapon_sharp? 5*I.w_class : 15*I.w_class
+
+			//Sharp objects will always embed if they do enough damage.
+			if((weapon_sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
+				affecting.embed(I)
 	return 1
 
 //this proc handles being hit by a thrown atom

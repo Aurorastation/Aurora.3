@@ -80,7 +80,7 @@
 			var/obj/item/device/kit/suit/kit = item
 			kit.new_light_overlay = additional_data
 			kit.new_mob_icon_file = CUSTOM_ITEM_MOB
-			
+	
 	// for snowflake implants
 	else if(istype(item, /obj/item/weapon/implanter/fluff))
 		var/obj/item/weapon/implanter/fluff/L = item

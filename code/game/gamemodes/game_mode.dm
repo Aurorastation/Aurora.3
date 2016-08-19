@@ -43,7 +43,9 @@ var/global/list/additional_antag_types = list()
 			new/datum/uplink_item(/obj/item/ammo_magazine/a357, 2, ".357", "RA"),
 			new/datum/uplink_item(/obj/item/ammo_magazine/mc9mm, 2, "9mm", "R9"),
 			new/datum/uplink_item(/obj/item/ammo_magazine/chemdart, 2, "Darts", "AD"),
-			new/datum/uplink_item(/obj/item/weapon/storage/box/sniperammo, 2, "14.5mm", "SA")
+			new/datum/uplink_item(/obj/item/weapon/storage/box/sniperammo, 2, "14.5mm", "SA"),
+			new/datum/uplink_item(/obj/item/ammo_magazine/tommymag, 2, "Tommygun Magazine (.45)", "TMM"),
+			new/datum/uplink_item(/obj/item/ammo_magazine/tommydrum, 3, "Tommygun Drum Magazine (.45)", "TMD")
 			),
 		"Highly Visible and Dangerous Weapons" = list(
 			 new/datum/uplink_item(/obj/item/weapon/storage/box/emps, 3, "5 EMP Grenades", "EM"),
@@ -55,7 +57,8 @@ var/global/list/additional_antag_types = list()
 			 new/datum/uplink_item(/obj/item/weapon/gun/projectile/revolver, 6, "Revolver", "RE"),
 			 new/datum/uplink_item(/obj/item/weapon/storage/box/syndicate, 10, "Mercenary Bundle", "BU"),
 			 new/datum/uplink_item(/obj/item/weapon/gun/projectile/heavysniper, 12, "Anti-materiel Rifle", "AMR"),
-			 new/datum/uplink_item(/obj/item/clothing/gloves/force/syndicate, 4, "Force Gloves", "FG")
+			 new/datum/uplink_item(/obj/item/clothing/gloves/force/syndicate, 4, "Force Gloves", "FG"),
+			 new/datum/uplink_item(/obj/item/weapon/gun/projectile/automatic/tommygun, 7, "Tommy Gun", "TMG")
 			),
 		"Stealthy and Inconspicuous Weapons" = list(
 			new/datum/uplink_item(/obj/item/weapon/soap/syndie, 1, "Subversive Soap", "SP"),
@@ -100,7 +103,8 @@ var/global/list/additional_antag_types = list()
 		"Medical" = list(
 			new/datum/uplink_item(/obj/item/weapon/storage/box/sinpockets, 1, "Box of Sin-Pockets", "DP"),
 			new/datum/uplink_item(/obj/item/weapon/storage/firstaid/surgery, 5, "Surgery kit", "SK"),
-			new/datum/uplink_item(/obj/item/weapon/storage/firstaid/combat, 5, "Combat medical kit", "CM")
+			new/datum/uplink_item(/obj/item/weapon/storage/firstaid/combat, 5, "Combat medical kit", "CM"),
+			new/datum/uplink_item(/obj/item/weapon/reagent_containers/hypospray/combat, 4, "Combat Hypospray", "CH")
 		),
 		"Hardsuit Modules" = list(
 			new/datum/uplink_item(/obj/item/rig_module/vision/thermal, 2, "Thermal Scanner", "RTS"),

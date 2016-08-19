@@ -226,6 +226,10 @@ var/list/gamemode_cache = list()
 	//Mark-up enabling
 	var/allow_chat_markup = 0
 
+	//Snowflake antag contest boolean
+	//AUG2016
+	var/antag_contest_enabled = 0
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -721,6 +725,9 @@ var/list/gamemode_cache = list()
 
 				if("sql_stats")
 					config.sql_stats = 1
+
+				if("antag_contest_enabled")
+					config.antag_contest_enabled = 1
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

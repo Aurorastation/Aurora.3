@@ -9,6 +9,11 @@
 	if(round_autoantag && world.time >= next_spawn && !emergency_shuttle.departed)
 		process_autoantag()
 
+	// Process loop for objectives like the brig one.
+	if (process_objectives.len)
+		for (var/datum/objective/A in process_objectives)
+			A.process()
+
 //This can be overriden in case a game mode needs to do stuff when a player latejoins
 /datum/game_mode/proc/handle_latejoin(var/mob/living/carbon/human/character)
 	return 0

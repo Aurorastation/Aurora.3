@@ -13,6 +13,7 @@
 	throw_speed = 1
 	throw_range = 4
 
+	matter = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 3500)
 	origin_tech = "magnets=2;materials=2"
 
 	var/on = 0				//is it turned on?

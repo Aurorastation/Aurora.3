@@ -83,7 +83,7 @@
 		"\red You extend the baton.",\
 		"You hear an ominous click.")
 		icon_state = "telebaton_1"
-		item_state = "telebaton_1"
+		item_state = "nullrod"
 		w_class = 3
 		force = 15//quite robust
 		attack_verb = list("smacked", "struck", "slapped")

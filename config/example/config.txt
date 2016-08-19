@@ -394,3 +394,6 @@ STARLIGHT 0
 
 ## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
 #ALLOW_CHAT_MARKUP
+
+## Uncomment to enable the antag contest!
+#ANTAG_CONTEST_ENABLED

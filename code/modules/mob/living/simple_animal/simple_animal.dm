@@ -66,6 +66,9 @@
 	var/supernatural = 0
 	var/purge = 0
 
+
+	//Hunger/feeding vars
+	var/hunger_enabled = 1//If set to 0, a creature ignores hunger
 	var/max_nutrition = 75
 	var/nutrition_step = 0.2 //nutrition lost per tick and per step, calculated from mob_size, 0.4 is a fallback
 	var/bite_factor = 0.4
@@ -87,7 +90,7 @@
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
 	if(.)
-		if(src.nutrition && src.stat != DEAD)
+		if(src.nutrition && src.stat != DEAD && hunger_enabled)
 			src.nutrition -= nutrition_step
 
 
@@ -101,12 +104,14 @@
 
 /mob/living/simple_animal/examine(mob/user)
 	..()
-	if (!nutrition)
-		user << "<span class='danger'>It looks starving!</span>"
-	else if (nutrition < max_nutrition *0.5)
-		user << "<span class='notice'>It looks hungry.</span>"
-	else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
-		user << "It looks full and contented."
+
+	if (hunger_enabled)
+		if (!nutrition)
+			user << "<span class='danger'>It looks starving!</span>"
+		else if (nutrition < max_nutrition *0.5)
+			user << "<span class='notice'>It looks hungry.</span>"
+		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
+			user << "It looks full and contented."
 
 /mob/living/simple_animal/Life()
 	..()
@@ -247,28 +252,28 @@
 //This allows animals to digest food, and only food
 //Most drugs, poisons etc, are designed to work on carbons and affect many values a simple animal doesnt have
 /mob/living/simple_animal/proc/process_food()
+	if (hunger_enabled)
+		if (nutrition)
+			nutrition -= nutrition_step//Bigger animals get hungry faster
+			nutrition = max(0,min(nutrition, max_nutrition))//clamp the value
+		else
+			if (prob(3))
+				src << "You feel hungry..."
 
-	if (nutrition)
-		nutrition -= nutrition_step//Bigger animals get hungry faster
-		nutrition = max(0,min(nutrition, max_nutrition))//clamp the value
-	else
-		if (prob(3))
-			src << "You feel hungry..."
 
+		if (!reagents || !reagents.total_volume)
+			return
 
-	if (!reagents || !reagents.total_volume)
-		return
-
-	for(var/datum/reagent/current in reagents.reagent_list)
-		var/removed = min(current.metabolism*digest_factor, current.volume)
-		if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
-			var/datum/reagent/nutriment/N = current
-			nutrition += removed*N.nutriment_factor
-			health = min(health+(removed*N.regen_factor), maxHealth)
-		current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
+		for(var/datum/reagent/current in reagents.reagent_list)
+			var/removed = min(current.metabolism*digest_factor, current.volume)
+			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
+				var/datum/reagent/nutriment/N = current
+				nutrition += removed*N.nutriment_factor
+				health = min(health+(removed*N.regen_factor), maxHealth)
+			current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
 
 /mob/living/simple_animal/proc/can_eat()
-	if (nutrition > max_nutrition * 0.9)
+	if (!hunger_enabled || nutrition > max_nutrition * 0.9)
 		return 0//full
 
 	else if ((nutrition > max_nutrition * 0.8) || health < maxHealth)
