@@ -249,10 +249,45 @@ log transactions
 					authenticated_account.security_level = new_sec_level
 			if("attempt_auth")
 
-				// check if they have low security enabled
-				scan_user(usr)
+				//scan_user(usr) //ATMs shouldn't be able to scan people for a card - Bedshaped
 
-				if(!ticks_left_locked_down && held_card)
+				if (ticks_left_locked_down) return
+				var/tried_account_num = text2num(href_list["account_num"])
+				if (!tried_account_num && held_card)
+					tried_account_num = held_card.associated_account_number
+				else return
+				var/tried_pin = text2num(href_list["account_pin"])
+				var/datum/money_account/potential_account = get_account(tried_account_num)
+				if (!potential_account)
+					usr << "<span class='warning'>Account number not found.</span>"
+					number_incorrect_tries++
+					handle_lockdown()
+					return
+				switch (potential_account.security_level+1) //checks the security level of an account number to see what checks to do
+					if (1) // Security level zero
+						authenticated_account = attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+						// It should be impossible to fail at this point
+					if (2) // Security level one
+						authenticated_account = attempt_account_access(text2num(href_list["account_num"]), tried_pin, potential_account.security_level)
+					if (3) // Security level two
+						if (text2num(href_list["account_num"]) != held_card.associated_account_number)
+							if (!held_card)
+								usr << "<span class='warning'>Account card not found.</span>"
+						else authenticated_account = attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+				if (!authenticated_account)
+					number_incorrect_tries++
+					usr << "<span class='warning'> \icon[src] Incorrect pin/account combination entered, [max_pin_attempts - number_incorrect_tries] attempts remaining.</span>"
+					handle_lockdown(tried_account_num, previous_account_number)
+				else
+					bank_log_access(authenticated_account)
+					ticks_left_locked_down = 0
+					playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
+					ticks_left_timeout = 120
+					view_screen = NO_SCREEN
+					usr << "<span class='notice'> \icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'</span>"
+				previous_account_number = tried_account_num
+
+				/*if(!ticks_left_locked_down)
 					var/tried_account_num = text2num(href_list["account_num"])
 					if(!tried_account_num)
 						tried_account_num = held_card.associated_account_number
@@ -300,7 +335,7 @@ log transactions
 
 						usr << "\blue \icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'"
 
-					previous_account_number = tried_account_num
+					previous_account_number = tried_account_num*/
 			if("e_withdrawal")
 				var/amount = max(text2num(href_list["funds_amount"]),0)
 				amount = round(amount, 0.01)
@@ -463,6 +498,19 @@ log transactions
 					authenticated_account.transaction_log.Add(T)
 
 					view_screen = NO_SCREEN
+
+// checks if the ATM needs to be locked down and locks it down if it does
+/obj/machinery/atm/proc/handle_lockdown(var/tried_account_num = null, var/previous_account_number = null)
+	if(previous_account_number == tried_account_num)
+		if(number_incorrect_tries > max_pin_attempts)
+			//lock down the atm
+			var/area/t = get_area()
+			ticks_left_locked_down = TICKS_IN_SECOND*60
+			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
+			global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id, SEC_FREQ)
+			if (tried_account_num)
+				bank_log_unauthorized(get_account(tried_account_num))
+		else playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 
 // put the currently held id on the ground or in the hand of the user
 /obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
