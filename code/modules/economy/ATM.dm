@@ -258,7 +258,7 @@ log transactions
 				var/tried_pin = text2num(href_list["account_pin"])
 				var/datum/money_account/potential_account = get_account(tried_account_num)
 				if (!potential_account)
-					usr << "<span class='warning'>Account number not found.</span>"
+					usr << "<span class='warning'> \icon[src] Account number not found.</span>"
 					number_incorrect_tries++
 					handle_lockdown(src)
 					return
