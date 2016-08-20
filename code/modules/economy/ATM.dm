@@ -249,19 +249,18 @@ log transactions
 					authenticated_account.security_level = new_sec_level
 			if("attempt_auth")
 
-				//scan_user(usr) //ATMs shouldn't be able to scan people for a card - Bedshaped
+				//scan_user(usr) // ATMs shouldn't be able to scan people for a card - Bedshaped
 
 				if (ticks_left_locked_down) return
 				var/tried_account_num = text2num(href_list["account_num"])
 				if (!tried_account_num && held_card)
 					tried_account_num = held_card.associated_account_number
-				else return
 				var/tried_pin = text2num(href_list["account_pin"])
 				var/datum/money_account/potential_account = get_account(tried_account_num)
 				if (!potential_account)
 					usr << "<span class='warning'>Account number not found.</span>"
 					number_incorrect_tries++
-					handle_lockdown()
+					handle_lockdown(src)
 					return
 				switch (potential_account.security_level+1) //checks the security level of an account number to see what checks to do
 					if (1) // Security level zero
@@ -270,72 +269,23 @@ log transactions
 					if (2) // Security level one
 						authenticated_account = attempt_account_access(text2num(href_list["account_num"]), tried_pin, potential_account.security_level)
 					if (3) // Security level two
-						if (text2num(href_list["account_num"]) != held_card.associated_account_number)
-							if (!held_card)
-								usr << "<span class='warning'>Account card not found.</span>"
-						else authenticated_account = attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+						if (held_card)
+							if (text2num(href_list["account_num"]) != held_card.associated_account_number)
+							else authenticated_account = attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+						else usr << "<span class='warning'>Account card not found.</span>"
 				if (!authenticated_account)
 					number_incorrect_tries++
-					usr << "<span class='warning'> \icon[src] Incorrect pin/account combination entered, [max_pin_attempts - number_incorrect_tries] attempts remaining.</span>"
-					handle_lockdown(tried_account_num, previous_account_number)
+					usr << "<span class='warning'> \icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining.</span>"
+					handle_lockdown(src, tried_account_num, previous_account_number)
 				else
-					bank_log_access(authenticated_account)
-					ticks_left_locked_down = 0
+					bank_log_access(authenticated_account, machine_id)
+					number_incorrect_tries = 0
 					playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
 					ticks_left_timeout = 120
 					view_screen = NO_SCREEN
 					usr << "<span class='notice'> \icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'</span>"
 				previous_account_number = tried_account_num
 
-				/*if(!ticks_left_locked_down)
-					var/tried_account_num = text2num(href_list["account_num"])
-					if(!tried_account_num)
-						tried_account_num = held_card.associated_account_number
-					var/tried_pin = text2num(href_list["account_pin"])
-
-					authenticated_account = attempt_account_access(tried_account_num, tried_pin, held_card && held_card.associated_account_number == tried_account_num ? 2 : 1)
-					if(!authenticated_account)
-						number_incorrect_tries++
-						if(previous_account_number == tried_account_num)
-							if(number_incorrect_tries > max_pin_attempts)
-								//lock down the atm
-								ticks_left_locked_down = 30
-								playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-
-								//create an entry in the account transaction log
-								var/datum/money_account/failed_account = get_account(tried_account_num)
-								if(failed_account)
-									var/datum/transaction/T = new()
-									T.target_name = failed_account.owner_name
-									T.purpose = "Unauthorised login attempt"
-									T.source_terminal = machine_id
-									T.date = current_date_string
-									T.time = worldtime2text()
-									failed_account.transaction_log.Add(T)
-							else
-								usr << "\red \icon[src] Incorrect pin/account combination entered, [max_pin_attempts - number_incorrect_tries] attempts remaining."
-								previous_account_number = tried_account_num
-								playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
-						else
-							usr << "\red \icon[src] incorrect pin/account combination entered."
-							number_incorrect_tries = 0
-					else
-						playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
-						ticks_left_timeout = 120
-						view_screen = NO_SCREEN
-
-						//create a transaction log entry
-						var/datum/transaction/T = new()
-						T.target_name = authenticated_account.owner_name
-						T.purpose = "Remote terminal access"
-						T.source_terminal = machine_id
-						T.date = current_date_string
-						T.time = worldtime2text()
-						authenticated_account.transaction_log.Add(T)
-
-						usr << "\blue \icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'"
-
-					previous_account_number = tried_account_num*/
 			if("e_withdrawal")
 				var/amount = max(text2num(href_list["funds_amount"]),0)
 				amount = round(amount, 0.01)
@@ -500,16 +450,17 @@ log transactions
 					view_screen = NO_SCREEN
 
 // checks if the ATM needs to be locked down and locks it down if it does
-/obj/machinery/atm/proc/handle_lockdown(var/tried_account_num = null, var/previous_account_number = null)
+/obj/machinery/atm/proc/handle_lockdown(var/obj/machinery/atm/O, var/tried_account_num = null, var/previous_account_number = null)
 	if(previous_account_number == tried_account_num)
 		if(number_incorrect_tries > max_pin_attempts)
 			//lock down the atm
-			var/area/t = get_area()
-			ticks_left_locked_down = TICKS_IN_SECOND*60
+			var/area/t = get_area(O)
+			ticks_left_locked_down = 60
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-			global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id, SEC_FREQ)
+			global_announcer.autosay("An ATM has gone into lockdown in [t.name].", O.machine_id)
 			if (tried_account_num)
-				bank_log_unauthorized(get_account(tried_account_num))
+				bank_log_unauthorized(get_account(tried_account_num), O.machine_id)
+			view_screen = NO_SCREEN
 		else playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 
 // put the currently held id on the ground or in the hand of the user
