@@ -110,7 +110,7 @@
 	for(var/datum/money_account/D in all_money_accounts)
 		if(D.account_number == account_number)
 			return D
-		return 0
+	return 0
 
 /proc/bank_log_unauthorized(var/datum/money_account/bank_account, var/machine_id = "Unknown machine ID")
 	var/datum/transaction/T = new()
