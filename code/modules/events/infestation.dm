@@ -43,7 +43,7 @@
 	var/list/turf/simulated/floor/turfs
 
 /datum/event/infestation/start()
-	locstrings = list()
+	locstrings = new/list(2)
 	choose_location()
 	spawn_creatures()
 	if (severity == EVENT_LEVEL_MODERATE)
@@ -55,6 +55,7 @@
 
 
 /datum/event/infestation/proc/choose_location()
+
 	location = rand(0,17)
 	turfs = list()
 	numlocs++
@@ -115,7 +116,6 @@
 			locstrings[numlocs] = "xenobiology"
 
 
-
 	for(var/areapath in typesof(spawn_area_type))
 		var/area/A = locate(areapath)
 		for(var/turf/simulated/floor/F in A.contents)
@@ -158,24 +158,25 @@
 			vermstring = "strange creatures"
 
 
-		spawn(0)
-			var/num = rand(2,max_number)
-			if (severity == EVENT_LEVEL_MODERATE)
-				num *= 2
-			while(turfs.len > 0 && num > 0)
-				var/turf/simulated/floor/T = pick(turfs)
-				turfs.Remove(T)
-				num--
+	if (severity == EVENT_LEVEL_MODERATE)
+		max_number *= 2
+	var/num = rand(2,max_number)
 
-				if(vermin == VERM_SPIDERS)
-					var/obj/effect/spider/spiderling/S = new(T)
-					S.amount_grown = 1
-					S.growth_rate = (rand(50,300)/1000)//At most, they grow at 30% the usual rate. As low as 1/20th
-					if (severity == EVENT_LEVEL_MODERATE)
-						S.growth_rate *= 2//They grow faster on the higher severity event
-				else
-					var/spawn_type = pick(spawn_types)
-					new spawn_type(T)
+	while(turfs.len > 0 && num > 0)
+		var/turf/simulated/floor/T = pick(turfs)
+
+		turfs.Remove(T)
+		num--
+
+		if(vermin == VERM_SPIDERS)
+			var/obj/effect/spider/spiderling/S = new(T)
+			S.amount_grown = 1
+			S.growth_rate = (rand(50,300)/1000)//At most, they grow at 30% the usual rate. As low as 1/20th
+			if (severity == EVENT_LEVEL_MODERATE)
+				S.growth_rate *= 2//They grow faster on the higher severity event
+		else
+			var/spawn_type = pick(spawn_types)
+			new spawn_type(T)
 
 /datum/event/infestation/announce()
 	if (severity == EVENT_LEVEL_MODERATE)

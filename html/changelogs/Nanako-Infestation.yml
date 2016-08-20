@@ -35,8 +35,9 @@ delete-after: True
 changes: 
   - tweak: "Adjusted event many weights. Made meteors and vendor breakdowns less common, ion storms more common."
   - tweak: "Slightly reduced overall frequency of random events."
-  - rscadd: "Adjusted the infestation event, can now spawn in a wider variety of locations, and spawn a wider variety of creatures."
+  - rscadd: "Reworked the infestation event!! Can now spawn in a wider variety of locations, and spawn a wider variety of creatures."
   - rscadd: "Spiders spawned by the infestation event will now grow up, but much slower."
+  - rscadd: "Reduced length of meteor storm a little. Total meteors not changed."
   
   
   
