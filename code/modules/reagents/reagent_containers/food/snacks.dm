@@ -110,6 +110,8 @@
 
 	else if (isanimal(M))
 		var/mob/living/simple_animal/SA = M
+		SA.scan_interval = SA.min_scan_interval//Feeding an animal will make it suddenly care about food
+
 		var/m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		var/amount_eaten = m_bitesize
 
@@ -127,8 +129,12 @@
 			bitecount++
 			if (amount_eaten >= m_bitesize)
 				user.visible_message("<span class='notice'>[user] feeds [M] [src].</span>")
+				if (!istype(M.loc, /turf))//held mobs don't see visible messages
+					M << "<span class='notice'>[user] feeds you [src].</span>"
 			else
 				user.visible_message("<span class='notice'>[user] feeds [M] a tiny bit of [src]. <b>It looks full.</b></span>")
+				if (!istype(M.loc, /turf))
+					M << "<span class='notice'>[user] feeds you a tiny bit of [src]. <b>You feel pretty full!</b></span>"
 			On_Consume(M)
 			return 1
 		else

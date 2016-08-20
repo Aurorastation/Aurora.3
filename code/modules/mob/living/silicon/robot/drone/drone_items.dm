@@ -300,17 +300,7 @@
 	var/grabbed_something = 0
 
 	for(var/mob/M in T)
-		if(istype(M,/mob/living/simple_animal/lizard) || istype(M,/mob/living/simple_animal/mouse))
-			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
-			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-			qdel(M)
-			if(wood)
-				wood.add_charge(2000)
-			if(plastic)
-				plastic.add_charge(2000)
-			return
-
-		else if(istype(M,/mob/living/silicon/robot/drone) && !M.client)
+		if(istype(M,/mob/living/silicon/robot/drone) && !M.client)
 
 			var/mob/living/silicon/robot/D = src.loc
 
@@ -337,6 +327,18 @@
 				wood.add_charge(2000)
 			if(plastic)
 				plastic.add_charge(1000)
+
+		else if (!is_valid_target(M))
+			continue
+
+		else if(istype(M,/mob/living/simple_animal/lizard) || istype(M,/mob/living/simple_animal/mouse))
+			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
+			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			qdel(M)
+			if(wood)
+				wood.add_charge(2000)
+			if(plastic)
+				plastic.add_charge(2000)
 			return
 		else
 			continue
@@ -402,6 +404,33 @@
 	else
 		user << "<span class='danger'>Nothing on \the [T] is useful to you.</span>"
 	return
+
+/obj/item/weapon/matter_decompiler/proc/is_valid_target(var/atom/A)
+	var/mob/owner = loc
+
+	if (!istype(owner, /mob/living/silicon/robot/drone))
+		return 1
+
+	if (!istype(A, /mob))
+		return 1
+
+	var/mob/living/silicon/robot/drone/D = owner
+	var/mob/target = A
+
+	if (target.stat == DEAD || (istype(target, /mob/living/silicon/robot/drone) && !target.client))
+		return 1
+
+	if (D.laws.zeroth_law)
+		return 1
+	else
+		src << "<span class='danger'>---------------------------------------</span>"
+		src << "<span class='danger'>ERROR: Attempted Law violation!.</span>"
+		src << "<span class='danger'>Your hardcoded laws prevent you from interacting with or harming \the [A].</span>"
+		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
+		owner.stunned = 2
+		return 0
+
+
 
 //PRETTIER TOOL LIST.
 /mob/living/silicon/robot/drone/installed_modules()

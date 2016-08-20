@@ -32,18 +32,9 @@
 		if (is_unsafe_container(loc) && contained.loc == src)
 			return
 
+		release_mob()
 
-		for(var/mob/M in contents)
-			var/atom/movable/mob_container
-			mob_container = M
-			mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
-			M.reset_view()
 
-		var/mob/L = get_holding_mob()
-		if (L)
-			L.drop_from_inventory(src)
-
-		qdel(src)
 		return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
@@ -60,6 +51,23 @@
 		return 0
 
 
+//Releases all mobs inside the holder, then deletes it.
+//is_unsafe_container should be checked before calling this
+/obj/item/weapon/holder/proc/release_mob()
+	for(var/mob/M in contents)
+		var/atom/movable/mob_container
+		mob_container = M
+		mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
+		M.reset_view()
+		M.Released()
+
+	var/mob/L = get_holding_mob()
+	if (L)
+		L.drop_from_inventory(src)
+
+	qdel(src)
+
+
 /obj/item/weapon/holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	for(var/mob/M in src.contents)
 		M.attackby(W,user)
@@ -70,6 +78,13 @@
 	//once with it on the floor, and then once in the container
 	//This conditional allows us to ignore that first one. Handling of mobs dropped on the floor is done in process
 	if (istype(loc, /turf))
+		spawn(3)
+			//Repeat this check
+			//If we're still on the turf a few frames later, then we have actually been dropped or thrown
+			//Release the mob accordingly
+			if (istype(loc, /turf))
+				release_mob()
+
 		return
 
 	if (istype(loc, /obj/item/weapon/storage))	//The second drop reads the container its placed into as the location
@@ -141,8 +156,12 @@
 	if(!holder_type || buckled || pinned.len || !Adjacent(grabber))
 		return
 
-	if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
-		grabber << "Your hand is full!"
+	if (user == src)
+		if (grabber.r_hand && grabber.l_hand)
+			user << "\red They have no free hands!"
+			return
+	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
+		grabber << "\red Your hand is full!"
 		return
 
 	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder

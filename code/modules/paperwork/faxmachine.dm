@@ -11,7 +11,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	icon_state = "fax"
 	insert_anim = "faxsend"
 	req_one_access = list(access_lawyer, access_heads, access_armory) //Warden needs to be able to Fax solgov too.
-
+	density = 0//It's a small machine that sits on a table, this allows small things to walk under that table
 	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 200
