@@ -153,7 +153,7 @@
 		var/sound = pick(new_squeaks)
 
 		last_softsqueak = sound
-		playsound(src, sound, 6, 1)
+		playsound(src, sound, 5, 1, -4.6)
 
 		if (manual)
 			log_say("[key_name(src)] squeaks softly! ")
