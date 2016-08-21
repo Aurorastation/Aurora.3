@@ -49,6 +49,11 @@
 	var/endedAt			= 0 //When this event ended.
 	var/datum/event_meta/event_meta = null
 
+	var/no_fake 		= 0
+	//If set to 1, this event will not be picked for false announcements
+	//This should really only be used for events that have no announcement
+
+
 /datum/event/nothing
 
 //Called first before processing.
@@ -114,9 +119,9 @@
 	activeFor++
 
 //Called when start(), announce() and end() has all been called.
-/datum/event/proc/kill()
+/datum/event/proc/kill(var/do_end = 1)
 	// If this event was forcefully killed run end() for individual cleanup
-	if(isRunning)
+	if(do_end && isRunning)
 		isRunning = 0
 		end()
 
