@@ -57,7 +57,8 @@ var/datum/antagonist/deathsquad/deathsquad
 		id.icon_state = "centcom"
 	create_radio(DTH_FREQ, player)
 
-/*/datum/antagonist/deathsquad/update_antag_mob(var/datum/mind/player) //disabling this for now until name and ranks are not dumb
+/* //disabling this until the names are fixed to don't be dumb, NanoTrasen has no military
+/datum/antagonist/deathsquad/update_antag_mob(var/datum/mind/player)
 
 	..()
 
@@ -68,6 +69,9 @@ var/datum/antagonist/deathsquad/deathsquad
 		syndicate_commando_rank = pick("Lieutenant", "Captain", "Major")
 
 	var/syndicate_commando_name = pick(last_names)
+
+	var/datum/preferences/A = new() //Randomize appearance for the commando.
+	A.randomize_appearance_for(player.current)
 
 	player.name = "[syndicate_commando_rank] [syndicate_commando_name]"
 	player.current.name = player.name
@@ -80,7 +84,6 @@ var/datum/antagonist/deathsquad/deathsquad
 		H.dna.ready_dna(H)
 
 	return
-
 */
 /datum/antagonist/deathsquad/create_antagonist()
 	if(..() && !deployed)
