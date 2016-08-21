@@ -22,10 +22,14 @@
 
 	//Don't pick events that are excluded from faking.
 	EM = pick(EC.available_events)
-	while (EM.no_fake)
+	var/datum/event/E = null
+	var/fake_allowed = 0
+	while (!fake_allowed)
+		if (E)
+			E.kill(0)
 		EM = pick(EC.available_events)
-
-	var/datum/event/E = new EM.event_type(EM)
+		E = new EM.event_type(EM)
+		fake_allowed = !E.no_fake
 
 	message_admins("False Alarm: [E]")
 	E.kill(0)
