@@ -141,7 +141,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Trivial News",		/datum/event/trivial_news, 		400),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",/datum/event/infestation, 		50,		list(ASSIGNMENT_JANITOR = 50)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",		/datum/event/vent_clog, 		100)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",		/datum/event/vent_clog, 		100),
 	)
 
 /datum/event_container/moderate
