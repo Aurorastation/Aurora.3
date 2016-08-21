@@ -109,23 +109,6 @@
 	return
 
 
-//Enforcing drone noninteraction laws.
-/mob/living/silicon/robot/drone/ClickOn(var/atom/A, var/params)
-	if (stunned)
-		return
-
-	if (istype(A, /mob))
-		var/mob/M = A
-		if (!istype(M, /mob/living/silicon/robot/drone) && M.stat != DEAD)
-			if (!laws.zeroth_law)
-				src << "<span class='danger'>---------------------------------------</span>"
-				src << "<span class='danger'>ERROR: Attempted Law violation!.</span>"
-				src << "<span class='danger'>Your hardcoded laws prevent you from interacting with or harming \the [A].</span>"
-				playsound(src.loc, 'sound/machines/buzz-two.ogg', 10, 0)
-				stunned += 2//This prevents spamming and also punishes the drone
-				return 0
-	..()
-
 //Middle click cycles through selected modules.
 /mob/living/silicon/robot/MiddleClickOn(var/atom/A)
 	cycle_modules()

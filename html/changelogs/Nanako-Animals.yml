@@ -45,7 +45,7 @@ changes:
   - bugfix: "Made Runtime more responsive when thrown at mice."
   - imageadd: "Mice can now be worn on your shoulder (ear slot). Special thanks to superballs for making sprites"
   - bugfix: "Vent names when ventcrawling will no longer constantly shuffle around."
-  - rscdel: "Non interaction and no-harm laws are now mechanically enforced for non-traitor drones. Using items on any non-drone mob is forbidden."
+  - rscdel: "Maintenance drone lawset has been altered based on administrative feedback."
   - rscadd: "Drink dispensers and fax machines on tables, can now be walked under by small animals."
   
   
