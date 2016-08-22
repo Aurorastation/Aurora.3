@@ -20,7 +20,7 @@
 	flags_inv = 0
 	body_parts_covered = 0
 
-/obj/item/clothing/head/helmet/warden
+/obj/item/clothing/head/helmet/warden/commissar
 	name = "commissar's cap"
 	desc = "A security commissar's cap."
 	icon_state = "commissarcap"
