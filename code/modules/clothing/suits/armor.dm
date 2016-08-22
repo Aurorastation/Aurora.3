@@ -82,6 +82,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	pocket_slots = 4//Jackets have more slots
 
+/obj/item/clothing/suit/armor/vest/warden/commissar
+	name = "Commissar's jacket"
+	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
+	icon_state = "commissar_warden"
+	item_state = "commissar_warden"
 
 /obj/item/clothing/suit/armor/riot
 	name = "Riot Suit"
