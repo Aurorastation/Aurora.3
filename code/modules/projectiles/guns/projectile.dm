@@ -192,7 +192,7 @@
 
 /obj/item/weapon/gun/projectile/attack_self(mob/user as mob)
 	if(is_jammed)
-		user.visible_message << "<span class='notice'>\The [user] unjams \the [src]!</span>"
+		user << "<span class='notice'>\The [user] unjams \the [src]!</span>"
 		if(do_after(user, 5))
 			playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 			is_jammed = 0
