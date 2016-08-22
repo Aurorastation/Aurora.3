@@ -161,6 +161,9 @@
 
 	return ..()
 
+/datum/objective/competition/pro_synth/protect
+	type_name = "pro_synth/protect"
+
 /datum/objective/competition/pro_synth/protect/find_target()
 	..(1)
 	if (target && target.current)
@@ -244,6 +247,9 @@
 			completed = 0
 
 	return ..()
+
+/datum/objective/competition/anti_synth/demote
+	type_name = "anti_synth/demote"
 
 /datum/objective/competition/anti_synth/demote/find_target()
 	..(1)
