@@ -360,6 +360,7 @@
 	item_state = "hoswebvest_nobadge"
 	icon_badge = "hoswebvest_badge"
 	icon_nobadge = "hoswebvest_nobadge"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/vest/heavy/pcrc
 	name = "PCRC heavy armor vest"
