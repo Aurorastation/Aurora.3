@@ -563,13 +563,13 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/rank/medical/blue
 	slot = slot_w_uniform
 	cost = 1
-	
+
 /datum/gear/greenscrub
 	display_name = "medical scrubs, green"
 	path = /obj/item/clothing/under/rank/medical/green
 	slot = slot_w_uniform
 	cost = 1
-	
+
 /datum/gear/purplescrub
 	display_name = "medical scrubs, purple"
 	path = /obj/item/clothing/under/rank/medical/purple
@@ -625,7 +625,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/accessory/armband/science
 	slot = slot_tie
 	cost = 1
-	
+
 /datum/gear/armband_movement
 	display_name = "armband, synthetic intelligence movement"
 	path = /obj/item/clothing/accessory/armband/movement
@@ -937,7 +937,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/white
 	cost = 2
 	slot = slot_gloves
-	
+
 /datum/gear/black_gloves_unathi
 	display_name = "black gloves, unathi"
 	path = /obj/item/clothing/gloves/black/unathi
@@ -949,7 +949,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/black/tajara
 	cost = 2
 	slot = slot_gloves
-	
+
 /datum/gear/red_gloves_unathi
 	display_name = "red gloves, unathi"
 	path = /obj/item/clothing/gloves/red/unathi
@@ -991,7 +991,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/purple/unathi
 	cost = 2
 	slot = slot_gloves
-	
+
 /datum/gear/purple_gloves_tajaran
 	display_name = "purple gloves, tajaran"
 	path = /obj/item/clothing/gloves/purple/tajara
@@ -1192,7 +1192,7 @@ var/global/list/gear_datums = list()
 	display_name = "wallet"
 	path = 	/obj/item/weapon/storage/wallet
 	sort_category = "utility"
-	cost = 1	
+	cost = 1
 
 // The rest of the trash.
 
@@ -1267,6 +1267,18 @@ var/global/list/gear_datums = list()
 	sort_category = "misc"
 	cost = 1
 
+/datum/gear/cigar_case
+	display_name = "cigar case"
+	path = /obj/item/weapon/storage/fancy/cigar
+	sort_category = "misc"
+	cost = 2
+
+/datum/gear/cigarettes
+	display_name = "pack of DromedaryCo cigarettes"
+	path = /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
+	sort_category = "misc"
+	cost = 2
+
 /datum/gear/matchbook
 	display_name = "matchbook"
 	path = /obj/item/weapon/storage/box/matches
@@ -1280,7 +1292,7 @@ var/global/list/gear_datums = list()
 	cost = 1
 
 /datum/gear/cape
-	display_name = " tunnel cloak"
+	display_name = "tunnel cloak"
 	path = /obj/item/weapon/storage/backpack/cloak
 	sort_category = "misc"
 	cost = 1
@@ -1331,3 +1343,91 @@ var/global/list/gear_datums = list()
 	cost = 1
 	sort_category = "ears"
 	whitelisted = "Skrell"
+
+/datum/gear/red_jeweled
+	display_name = "skrell headtail-wear, female, red-jeweled chain"
+	path = /obj/item/clothing/ears/skrell/redjewel_chain
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/ebony_chain
+	display_name = "skrell headtail-wear, female, ebony chain"
+	path = /obj/item/clothing/ears/skrell/ebony_chain
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/redjeweled_band
+	display_name = "skrell headtail-wear, male, red-jeweled bands"
+	path = /obj/item/clothing/ears/skrell/redjeweled_band
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/ebony_band
+	display_name = "skrell headtail-wear, male, ebony bands"
+	path = /obj/item/clothing/ears/skrell/ebony_band
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/bluejeweled_chain
+	display_name = "skrell headtail-wear, female, blue-jeweled chain"
+	path = /obj/item/clothing/ears/skrell/bluejeweled_chain
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/bluejeweled_band
+	display_name = "skrell headtail-wear, male, blue-jeweled bands"
+	path = /obj/item/clothing/ears/skrell/bluejeweled_band
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/silver_chain
+	display_name = "skrell headtail-wear, female, silver chain"
+	path = /obj/item/clothing/ears/skrell/silver_chain
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/silver_band
+	display_name = "skrell headtail-wear, male, silver bands"
+	path = /obj/item/clothing/ears/skrell/silver_band
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/blue_skrell_cloth_band_male
+	display_name = "skrell headtail-wear, male, blue cloth"
+	path = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/blue_skrell_cloth_band_female
+	display_name = "skrell headtail-wear, female, blue cloth"
+	path = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_female
+	cost = 1
+	sort_category = "ears"
+	whitelisted = "Skrell"
+
+/datum/gear/bandanna_r
+	display_name = "neck bandanna, red"
+	path = /obj/item/clothing/ears/bandanna
+	cost = 1
+	sort_category = "ears"
+
+/datum/gear/bandanna_bl
+	display_name = "neck bandanna, blue"
+	path = /obj/item/clothing/ears/bandanna/blue
+	cost = 1
+	sort_category = "ears"
+
+/datum/gear/bandanna_bk
+	display_name = "neck bandanna, black"
+	path = /obj/item/clothing/ears/bandanna/black
+	cost = 1
+	sort_category = "ears"

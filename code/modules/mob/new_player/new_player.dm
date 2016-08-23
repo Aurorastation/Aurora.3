@@ -68,6 +68,8 @@
 		..()
 
 		if(statpanel("Lobby") && ticker)
+			stat("Game ID:", game_id)
+
 			if(ticker.hide_mode)
 				stat("Game Mode:", "Secret")
 			else
@@ -105,8 +107,7 @@
 
 			if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 				if(!client)	return 1
-				var/mob/dead/observer/observer = new()
-
+				var/mob/dead/observer/observer = new /mob/dead/observer(src)
 				spawning = 1
 				src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo
 
@@ -132,7 +133,8 @@
 				observer.name = observer.real_name
 				if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
 					observer.verbs -= /mob/dead/observer/verb/toggle_antagHUD        // Poor guys, don't know what they are missing!
-				observer.key = key
+				observer.ckey = ckey
+				observer.initialise_postkey()
 				qdel(src)
 
 				return 1
@@ -402,8 +404,9 @@
 			if(job && IsJobAvailable(job.title))
 				var/active = 0
 				// Only players with the job assigned and AFK for less than 10 minutes count as active
-				for(var/mob/M in player_list) if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
-					active++
+				for(var/mob/M in player_list) //Added isliving check here, so it won't check ghosts and qualify them as active
+					if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
+						active++
 				dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
 
 		dat += "</center>"

@@ -7,7 +7,7 @@ var/global/list/robot_modules = list(
 	"Crisis" 		= /obj/item/weapon/robot_module/medical/crisis,
 	"Surgeon" 		= /obj/item/weapon/robot_module/medical/surgeon,
 	"Security" 		= /obj/item/weapon/robot_module/security/general,
-	"Combat" 		= /obj/item/weapon/robot_module/security/combat,
+	"Combat" 		= /obj/item/weapon/robot_module/combat,
 	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
 	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
 	"Janitor" 		= /obj/item/weapon/robot_module/janitor
@@ -204,7 +204,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/bonesetter(src)
 	src.modules += new /obj/item/weapon/circular_saw(src)
 	src.modules += new /obj/item/weapon/surgicaldrill(src)
-	src.modules += new /obj/item/weapon/extinguisher/mini(src)
+	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -251,7 +251,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/crisis(src)
-	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
@@ -641,8 +640,11 @@ var/global/list/robot_modules = list(
 	..()
 	loc = R
 	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
-	src.modules += new /obj/item/weapon/gun/energy/pulse_rifle/destroyer(src)
+	src.modules += new /obj/item/weapon/gun/energy/mountedsmg(src)
+	src.modules += new /obj/item/weapon/gun/energy/crossbow/cyborg(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/card/emag(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -658,20 +660,25 @@ var/global/list/robot_modules = list(
 
 	return
 
-/obj/item/weapon/robot_module/security/combat
+/obj/item/weapon/robot_module/combat
 	name = "combat robot module"
+	channels = list("Security" = 1)
+	networks = list(NETWORK_SECURITY)
+	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	sprites = list("Combat Android" = "droid-combat")
+	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/combat/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/thermal(src)
+	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)
 	src.modules += new /obj/item/weapon/pickaxe/plasmacutter(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
+	return
 
 /obj/item/weapon/robot_module/drone
 	name = "drone module"

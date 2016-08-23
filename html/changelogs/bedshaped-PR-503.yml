@@ -1,6 +1,0 @@
-author: Bedshaped
-
-delete-after: True
-
-changes: 
-  - tweak: "Changed the order of no/yes to yes/no in the give prompt"

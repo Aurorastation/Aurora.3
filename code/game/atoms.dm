@@ -6,6 +6,8 @@
 	var/list/fingerprintshidden
 	var/fingerprintslast = null
 	var/list/blood_DNA
+	var/list/other_DNA = list()
+	var/other_DNA_type = null
 	var/was_bloodied
 	var/blood_color
 	var/last_bumped = 0
@@ -40,7 +42,7 @@
 	else
 		return null
 
-//return flags that should be added to the viewer's sight var. 
+//return flags that should be added to the viewer's sight var.
 //Otherwise return a negative number to indicate that the view should be cancelled.
 /atom/proc/check_eye(user as mob)
 	if (istype(user, /mob/living/silicon/ai)) // WHYYYY

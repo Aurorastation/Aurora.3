@@ -2,6 +2,7 @@
 	name = "\improper Colt M1911"
 	desc = "A cheap Martian knock-off of a Colt M1911."
 	magazine_type = /obj/item/ammo_magazine/c45m
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon_state = "colt"
 	caliber = ".45"
 	origin_tech = "combat=2;materials=2"
@@ -35,6 +36,7 @@
 	name = "\improper NT Mk58"
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	origin_tech = "combat=2;materials=2"
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
@@ -59,6 +61,7 @@
 	origin_tech = "combat=2;materials=2;syndicate=8"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 
 /obj/item/weapon/gun/projectile/deagle
 	name = "desert eagle"
@@ -69,6 +72,7 @@
 	caliber = ".50"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a50
+	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
 
 /obj/item/weapon/gun/projectile/deagle/gold
@@ -82,8 +86,6 @@
 	item_state = "deagleg"
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-
-
 /obj/item/weapon/gun/projectile/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds"
@@ -95,6 +97,7 @@
 	ammo_type = "/obj/item/ammo_casing/a75"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a75
+	allowed_magazines = list(/obj/item/ammo_magazine/a75)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
@@ -117,6 +120,7 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 
 /obj/item/weapon/gun/projectile/pistol/flash
 	name = "\improper Stechtkin signal pistol"
@@ -173,11 +177,9 @@
 	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
 	load_method = SINGLE_CASING
 	max_shells = 1 //literally just a barrel
-	
+
 	var/global/list/ammo_types = list(
 		/obj/item/ammo_casing/a357              = ".357",
-		/obj/item/ammo_casing/c9mmf             = "9mm",
-		/obj/item/ammo_casing/c45f              = ".45",
 		/obj/item/ammo_casing/a12mm             = "12mm",
 		/obj/item/ammo_casing/shotgun           = "12 gauge",
 		/obj/item/ammo_casing/shotgun           = "12 gauge",
@@ -185,8 +187,6 @@
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/beanbag   = "12 gauge",
-		/obj/item/ammo_casing/shotgun/stunshell = "12 gauge",
-		/obj/item/ammo_casing/shotgun/flash     = "12 gauge",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
@@ -194,7 +194,7 @@
 /obj/item/weapon/gun/projectile/pirate/New()
 	ammo_type = pick(ammo_types)
 	desc += " Uses [ammo_types[ammo_type]] rounds."
-	
+
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
 	..()

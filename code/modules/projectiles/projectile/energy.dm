@@ -114,24 +114,26 @@
 	weaken = 5
 	stun = 5
 
-/obj/item/projectile/energy/sonic/on_hit(var/atom/target, var/blocked = 0)
-	var/mob/M = target
-	if(isturf(target))
+/obj/item/projectile/energy/sonic/on_impact(var/atom/A)
+	if(isturf(A))
 		target.ex_act(0)
-	if(ismob(target))
+	if(ismob(A))
+		var/mob/M = A
 		explosion(target, -1, 0, 2)
 		M.gib()
+	if(!(isturf(A)) & !(ismob(A)))
+		explosion(A, -1, 0, 2)
 	..()
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
 	icon_state = "laser"
 	check_armour = "laser"
-	damage = 10
+	damage = 15
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	embed = 0
-	incinerate = 5
+	incinerate = 2
 
 /*/obj/item/projectile/energy/flamer
 	name = "promethium"

@@ -18,8 +18,8 @@
 		user.drop_item()
 		qdel(src)
 
-// Root hardsuit kit defines.
-// Icons for modified hardsuits need to be in the proper .dmis because suit cyclers may cock them up.
+// Root voidsuit kit defines.
+// Icons for modified voidsuits need to be in the proper .dmis because suit cyclers may cock them up.
 /obj/item/device/kit/suit
 	name = "voidsuit modification kit"
 	desc = "A kit for modifying a voidsuit."
@@ -68,8 +68,8 @@
 	return ..()
 
 /obj/item/device/kit/paint
-	name = "mecha customisation kit"
-	desc = "A kit containing all the needed tools and parts to repaint a mech."
+	name = "exosuit customisation kit"
+	desc = "A kit containing all the needed tools and parts to repaint an exosuit."
 	var/removable = null
 	var/list/allowed_types = list()
 
@@ -83,7 +83,7 @@
 /obj/mecha/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(istype(W, /obj/item/device/kit/paint))
 		if(occupant)
-			user << "You can't customize a mech while someone is piloting it - that would be unsafe!"
+			user << "You can't customize an exosuit while someone is piloting it - that would be unsafe!"
 			return
 
 		var/obj/item/device/kit/paint/P = W

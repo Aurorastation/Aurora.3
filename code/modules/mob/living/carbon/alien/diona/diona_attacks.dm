@@ -12,5 +12,5 @@
 	var/mob/living/carbon/H = over_object
 	if(!istype(H) || !Adjacent(H))
 		return ..()
-	get_scooped(H)
+	get_scooped(H, usr)
 	return

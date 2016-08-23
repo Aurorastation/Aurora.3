@@ -165,6 +165,11 @@
 			if ("webint")
 				src.open_webint()
 
+	// Antag contest shit
+	if (href_list["contest_action"] && config.antag_contest_enabled)
+		src.process_contest_topic(href_list)
+		return
+
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
@@ -278,6 +283,9 @@
 
 	if (outdated_greeting_info)
 		server_greeting.display_to_client(src, outdated_greeting_info)
+
+	// Check code/modules/admin/verbs/antag-ooc.dm for definition
+	add_aooc_if_necessary()
 
 	//////////////
 	//DISCONNECT//

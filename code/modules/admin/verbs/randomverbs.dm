@@ -109,7 +109,7 @@
 		src << "Only administrators may use this command."
 		return
 
-	var/msg = sanitize(input("Message:", text("Enter the text you wish to appear to everyone:")) as text)
+	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to everyone:")) as text))
 
 	if (!msg)
 		return
@@ -132,7 +132,7 @@
 	if(!M)
 		return
 
-	var/msg = sanitize(input("Message:", text("Enter the text you wish to appear to your target:")) as text)
+	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to your target:")) as text))
 
 	if( !msg )
 		return
@@ -275,6 +275,19 @@ Ccomp's first proc.
 									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
 									   there won't be an autopsy.
 									*/
+	var/datum/preferences/P
+
+	if (G.client)
+		P = G.client.prefs
+	else if (G.ckey)
+		P = preferences_datums[G.ckey]
+	else
+		src << "Something went wrong, couldn't find the target's preferences datum"
+		return 0
+
+	for (var/entry in P.time_of_death)//Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
+		P.time_of_death[entry] = -99999
+
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
@@ -513,7 +526,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 	var/reporttitle
 	var/reportbody
-	var/reporter
+	var/reporter = null
 	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
 	switch(reporttype)
 		if("Template")
@@ -525,7 +538,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			query.Execute()
 
 			var/list/template_names = list()
-			var/templates[] = list()
+			var/list/templates = list()
 
 			while (query.NextRow())
 				template_names += query.item[1]
@@ -536,8 +549,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				src << "<span class='notice'>There are no templates in the database.</span>"
 				return
 
-			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in list(template_names)
-
+			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
 			reportbody = templates[reporttitle]
 
 		if("Custom")
@@ -559,11 +571,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			C.messagetitle.Add("[command_name()] Update")
 			C.messagetext.Add(P.info)
 
-	reporter = sanitizeSafe(input(usr, "Please enter your name.", "Name") as text|null)
+	if (reporttype == "Template")
+		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)
+		if (reporter)
+			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
+		else
+			reportbody += "\n\n- CCIAAMS, [commstation_name()]"
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce("[reportbody]\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			world << "\red New NanoTrasen Update available at all communication consoles."
 			world << sound('sound/AI/commandreport.ogg')

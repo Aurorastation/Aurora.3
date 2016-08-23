@@ -99,7 +99,7 @@
 		src << "<span class='danger'>That verb is not currently permitted.</span>"
 		return
 
-	if (!src.stat)
+	if (!src.stat || !client)
 		return
 
 	if (usr != src)
@@ -108,30 +108,22 @@
 	if(jobban_isbanned(src,"Cyborg"))
 		usr << "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>"
 		return
-		
+
 	if(!MayRespawn(1))
 		return
 
-	var/deathtime = world.time - src.timeofdeath
+	var/deathtime = world.time - get_death_time(MINISYNTH)//get/set death_time functions are in mob_helpers.dm
 	if(istype(src,/mob/dead/observer))
 		var/mob/dead/observer/G = src
 		if(G.has_enabled_antagHUD == 1 && config.antag_hud_restricted)
 			usr << "<span class='notice'>Upon using the antagHUD you forfeighted the ability to join the round.</span>"
 			return
 
-	var/deathtimeminutes = round(deathtime / 600)
-	var/pluralcheck = "minute"
-	if(deathtimeminutes == 0)
-		pluralcheck = ""
-	else if(deathtimeminutes == 1)
-		pluralcheck = " [deathtimeminutes] minute and"
-	else if(deathtimeminutes > 1)
-		pluralcheck = " [deathtimeminutes] minutes and"
-	var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
 
-	if (deathtime < 6000)
-		usr << "You have been dead for[pluralcheck] [deathtimeseconds] seconds."
-		usr << "You must wait 10 minutes to respawn as a drone!"
+	if (deathtime < RESPAWN_MINISYNTH)
+		var/timedifference_text = time2text(RESPAWN_MINISYNTH - deathtime,"mm:ss")
+		var/basetime = time2text(RESPAWN_MINISYNTH,"mm:ss")
+		usr << "<span class='warning'>You may only spawn again as a drone more than [basetime] minutes after your death. You have [timedifference_text] left.</span>"
 		return
 
 	var/list/all_fabricators = list()

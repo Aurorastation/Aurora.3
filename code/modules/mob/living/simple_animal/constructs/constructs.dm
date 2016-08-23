@@ -32,7 +32,7 @@
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
-
+	hunger_enabled = 0
 	var/list/construct_spells = list()
 
 /mob/living/simple_animal/construct/cultify()

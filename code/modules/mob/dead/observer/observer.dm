@@ -32,6 +32,9 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	incorporeal_move = 1
 
 /mob/dead/observer/New(mob/body)
+	if (istype(body, /mob/dead/observer))
+		return//A ghost can't become a ghost.
+
 	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	see_in_dark = 100
@@ -44,7 +47,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	updateallghostimages()
 
 	var/turf/T
-	if(ismob(body))
+	if (ismob(body))
 		T = get_turf(body)				//Where is the body located?
 		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
 
@@ -95,7 +98,17 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if(target)
 			ManualFollow(target)
 
+/mob/dead/observer/proc/initialise_postkey()
+	//This function should be run after a ghost has been created and had a ckey assigned
 
+	//Death times are initialised if they were unset
+	//get/set death_time functions are in mob_helpers.dm
+	if (!get_death_time(ANIMAL))
+		set_death_time(ANIMAL, world.time - RESPAWN_ANIMAL)//allow instant mouse spawning
+	if (!get_death_time(MINISYNTH))
+		set_death_time(MINISYNTH, world.time - RESPAWN_MINISYNTH) //allow instant drone spawning
+	if (!get_death_time(CREW))
+		set_death_time(CREW, world.time)
 
 /mob/dead/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/weapon/book/tome))
@@ -146,15 +159,30 @@ Works together with spawning an observer, noted above.
 	return 1
 
 /mob/proc/ghostize(var/can_reenter_corpse = 1)
-	if(key)
+	if(ckey)
 		var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
-		ghost.key = key
+
+
+		//This is duplicated for robustness in cases where death might not be called.
+		//It is also set in the mob/death proc
+		if (isanimal(src))
+			set_death_time(ANIMAL, world.time)
+		else if (ispAI(src) || isdrone(src))
+			set_death_time(MINISYNTH, world.time)
+		else
+			set_death_time(CREW, world.time)//Crew is the fallback
+
+
+		ghost.ckey = ckey
+		ghost.client = client
+		ghost.initialise_postkey()
 		if(ghost.client)
-			ghost.client.time_died_as_mouse = ghost.timeofdeath
-		if(ghost.client && !ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
-			ghost.verbs -= /mob/dead/observer/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
+
+
+			if(!ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
+				ghost.verbs -= /mob/dead/observer/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
 		return ghost
 
 /*
@@ -429,11 +457,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		src << "<span class='warning'>You may not spawn as a mouse on this Z-level.</span>"
 		return
 
-	var/timedifference = world.time - client.time_died_as_mouse
-	if(client.time_died_as_mouse && timedifference <= mouse_respawn_time * 600)
-		var/timedifference_text
-		timedifference_text = time2text(mouse_respawn_time * 600 - timedifference,"mm:ss")
-		src << "<span class='warning'>You may only spawn again as a mouse more than [mouse_respawn_time] minutes after your death. You have [timedifference_text] left.</span>"
+	var/timedifference = world.time - get_death_time(ANIMAL)//get/set death_time functions are in mob_helpers.dm
+	if(timedifference <= RESPAWN_ANIMAL)
+		var/timedifference_text = time2text(RESPAWN_ANIMAL - timedifference,"mm:ss")
+		var/basetime = time2text(RESPAWN_ANIMAL,"mm:ss")
+		src << "<span class='warning'>You may only spawn again as a mouse more than [basetime] minutes after your death. You have [timedifference_text] left.</span>"
 		return
 
 	var/response = alert(src, "Are you -sure- you want to become a mouse?","Are you sure you want to squeek?","Squeek!","Nope!")

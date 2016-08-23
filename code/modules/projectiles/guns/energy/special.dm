@@ -110,7 +110,7 @@
 	icon_state = "bfg"
 	item_state = "bfg"
 	charge_meter = 0
-	w_class = 3
+	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
 	projectile_type = /obj/item/projectile/energy/sonic
@@ -130,7 +130,7 @@
 	origin_tech = "combat=5;materials=2"
 	charge_meter = 0
 	slot_flags = SLOT_BACK
-	w_class = 3
+	w_class = 4
 	force = 10
 	projectile_type = /obj/item/projectile/beam/gatlinglaser
 	max_shots = 80
@@ -146,11 +146,11 @@
 	icon_state = "blaster"
 	item_state = "blaster"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	slot_flags = SLOT_BACK
+	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 30
+	max_shots = 15
 
 	firemodes = list(
 		list(name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
@@ -196,6 +196,42 @@
 	self_recharge = 1
 	charge_meter = 0
 
+obj/item/weapon/gun/energy/staff/special_check(var/mob/user)
+	if(HULK in user.mutations)
+		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		return 0
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/new_mob
+			var/mob/living/carbon/human/H = user
+			for(var/obj/item/W in H)
+				if(istype(W, /obj/item/weapon/implant))
+					qdel(W)
+					continue
+				H.drop_from_inventory(W)
+			playsound(user, 'sound/weapons/emitter.ogg', 40, 1)
+			var/obj/item/organ/external/LA = H.get_organ("l_arm")
+			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/obj/item/organ/external/LL = H.get_organ("l_leg")
+			var/obj/item/organ/external/RL = H.get_organ("r_leg")
+			LA.droplimb(0,DROPLIMB_BLUNT)
+			RA.droplimb(0,DROPLIMB_BLUNT)
+			LL.droplimb(0,DROPLIMB_BLUNT)
+			RL.droplimb(0,DROPLIMB_BLUNT)
+			playsound(user, 'sound/effects/splat.ogg', 50, 1)
+			user.show_message("\red With a sickening series of crunches, [user]'s body shrinks, and they begin to sprout feathers!")
+			user.show_message("<b>[user]</b> screams!",2)
+			new_mob = new /mob/living/simple_animal/parrot(H.loc)
+			new_mob.universal_speak = 1
+			new_mob.key = H.key
+			new_mob.a_intent = "harm"
+			qdel(H)
+			sleep(20)
+			new_mob.show_message("<b>[new_mob]</b> squawks, 'Poly wanna cracker!'",2)
+		return 0
+	return 1
+
 /obj/item/weapon/gun/energy/staff/handle_click_empty(mob/user = null)
 	if (user)
 		user.visible_message("*fizzle*", "<span class='danger'>*fizzle*</span>")
@@ -209,6 +245,33 @@
 	projectile_type = /obj/item/projectile/animate
 	max_shots = 10
 
+obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/user)
+	if(HULK in user.mutations)
+		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		return 0
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LA = H.get_organ("l_hand")
+			var/obj/item/organ/external/RA = H.get_organ("r_hand")
+			var/active_hand = H.hand
+			playsound(user, 'sound/effects/blobattack.ogg', 40, 1)
+			user.visible_message("\red With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!")
+			user.show_message("<b>[user]</b> screams!",2)
+			user.drop_item()
+			if(active_hand)
+				LA.droplimb(0,DROPLIMB_EDGE)
+				new /mob/living/simple_animal/hostile/mimic/copy(LA.loc, LA)
+				qdel(LA)
+			else
+				RA.droplimb(0,DROPLIMB_EDGE)
+				new /mob/living/simple_animal/hostile/mimic/copy(RA.loc, RA)
+				qdel(RA)
+		return 0
+	return 1
+
+
 obj/item/weapon/gun/energy/staff/focus
 	name = "mental focus"
 	desc = "An artefact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out."
@@ -217,14 +280,37 @@ obj/item/weapon/gun/energy/staff/focus
 	item_state = "focus"
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/forcebolt
-	/*
-	attack_self(mob/living/user as mob)
-		if(projectile_type == "/obj/item/projectile/forcebolt")
-			charge_cost = 400
-			user << "<span class='warning'>The [src.name] will now strike a small area.</span>"
-			projectile_type = "/obj/item/projectile/forcebolt/strong"
-		else
-			charge_cost = 200
-			user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
-			projectile_type = "/obj/item/projectile/forcebolt"
-	*/
+
+obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/user)
+	if(HULK in user.mutations)
+		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		return 0
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LA = H.get_organ("l_arm")
+			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/active_hand = H.hand
+			playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
+			user << "\red Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!"
+			user.show_message("<b>[user]</b> screams!",2)
+			user.drop_item()
+			if(active_hand)
+				LA.droplimb(0,DROPLIMB_BURN)
+			else
+				RA.droplimb(0,DROPLIMB_BURN)
+		return 0
+	return 1
+
+
+obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
+	if(projectile_type == /obj/item/projectile/forcebolt)
+		charge_cost = 400
+		user << "<span class='warning'>The [src.name] will now strike a small area.</span>"
+		projectile_type = /obj/item/projectile/forcebolt/strong
+	else
+		charge_cost = 200
+		user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
+		projectile_type = /obj/item/projectile/forcebolt
+
