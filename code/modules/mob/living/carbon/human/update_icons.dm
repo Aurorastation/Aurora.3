@@ -991,7 +991,7 @@ var/global/list/damage_icon_parts = list()
 		//determine icon state to use
 		var/t_state
 		if(r_hand.contained_sprite)
-			if (r_hand.species_tag)
+			if (r_hand.species_tag && r_hand.species_in_hand)
 				t_state += "[r_hand.species_tag]_"
 			t_state += "[r_hand.item_state][WORN_RHAND]"
 
@@ -1033,7 +1033,7 @@ var/global/list/damage_icon_parts = list()
 		//determine icon state to use
 		var/t_state
 		if(l_hand.contained_sprite)
-			if (l_hand.species_tag)
+			if (l_hand.species_tag && l_hand.species_in_hand)
 				t_state += "[l_hand.species_tag]_"
 			t_state += "[l_hand.item_state][WORN_LHAND]"
 
