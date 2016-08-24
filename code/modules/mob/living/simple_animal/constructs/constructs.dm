@@ -12,7 +12,7 @@
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH
-	universal_speak = 0
+	universal_speak = 1
 	universal_understand = 1
 	attack_sound = 'sound/weapons/spiderlunge.ogg'
 	min_oxy = 0
