@@ -190,8 +190,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if(!has_organ_for_slot(slot)) return
 	if(!species || !species.hud || !(slot in species.hud.equip_slots)) return
 	W.loc = src
-	if (W.auto_adapt)
-		W.auto_adapt_species(src)
+
 	switch(slot)
 		if(slot_back)
 			src.back = W
