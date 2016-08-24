@@ -20,6 +20,8 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 30
 	melee_damage_upper = 30
+	mob_size = 30
+	environment_smash = 2
 	attacktext = "chomped"
 	attack_sound = 'sound/misc/monstergrowl.ogg'
 
