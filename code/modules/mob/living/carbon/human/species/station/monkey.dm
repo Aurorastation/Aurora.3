@@ -1,6 +1,6 @@
 /datum/species/monkey
 	name = "Monkey"
-	short = "mon"
+	short_name = "mon"
 	name_plural = "Monkeys"
 	blurb = "Ook."
 
@@ -53,7 +53,7 @@
 
 /datum/species/monkey/tajaran
 	name = "Farwa"
-	short = "far"
+	short_name = "far"
 	name_plural = "Farwa"
 
 	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
@@ -68,7 +68,7 @@
 
 /datum/species/monkey/skrell
 	name = "Neaera"
-	short = "nea"
+	short_name = "nea"
 	name_plural = "Neaera"
 
 	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
@@ -84,7 +84,7 @@
 
 /datum/species/monkey/unathi
 	name = "Stok"
-	short = "sto"
+	short_name = "sto"
 	name_plural = "Stok"
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'

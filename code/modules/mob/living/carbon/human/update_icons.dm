@@ -468,6 +468,7 @@ var/global/list/damage_icon_parts = list()
 //vvvvvv UPDATE_INV PROCS vvvvvv
 
 /mob/living/carbon/human/update_inv_w_uniform(var/update_icons=1)
+	overlays_standing[UNIFORM_LAYER]	= null
 	if(check_draw_underclothing())
 		w_uniform.screen_loc = ui_iclothing
 
@@ -520,18 +521,17 @@ var/global/list/damage_icon_parts = list()
 					standing.overlays |= A.get_mob_overlay()
 
 		overlays_standing[UNIFORM_LAYER]	= standing
-	else
-		overlays_standing[UNIFORM_LAYER]	= null
 
 	if(update_icons)
 		update_icons()
 
 /mob/living/carbon/human/update_inv_wear_id(var/update_icons=1)
+	overlays_standing[ID_LAYER]	= null
 	if(wear_id)
 		wear_id.screen_loc = ui_id	//TODO
 		if(w_uniform && w_uniform:displays_id)
 			if(wear_id.contained_sprite)
-				var/IDIcon
+				var/icon/IDIcon
 				if(wear_id.icon_override)
 					IDIcon = wear_id.icon_override
 				else
@@ -540,10 +540,6 @@ var/global/list/damage_icon_parts = list()
 				overlays_standing[ID_LAYER] = image("icon" = IDIcon, "icon_state" = "[wear_id.item_state][WORN_ID]")
 			else
 				overlays_standing[ID_LAYER]	= image("icon" = 'icons/mob/mob.dmi', "icon_state" = "id")
-		else
-			overlays_standing[ID_LAYER]	= null
-	else
-		overlays_standing[ID_LAYER]	= null
 
 	BITSET(hud_updateflag, ID_HUD)
 	BITSET(hud_updateflag, WANTED_HUD)
@@ -585,8 +581,6 @@ var/global/list/damage_icon_parts = list()
 			var/image/bloodsies	= image("icon" = species.blood_mask, "icon_state" = "bloodyhands")
 			bloodsies.color = hand_blood_color
 			overlays_standing[GLOVES_LAYER]	= bloodsies
-		else
-			overlays_standing[GLOVES_LAYER]	= null
 	if(update_icons)   update_icons()
 
 
@@ -715,6 +709,7 @@ var/global/list/damage_icon_parts = list()
 
 
 /mob/living/carbon/human/update_inv_head(var/update_icons=1)
+	overlays_standing[HEAD_LAYER]	= null
 	if(head)
 		head.screen_loc = ui_head		//TODO
 		var/image/standing = null
@@ -757,8 +752,6 @@ var/global/list/damage_icon_parts = list()
 
 		overlays_standing[HEAD_LAYER] = standing
 
-	else
-		overlays_standing[HEAD_LAYER]	= null
 	if(update_icons)   update_icons()
 
 /mob/living/carbon/human/update_inv_belt(var/update_icons=1)
@@ -985,6 +978,7 @@ var/global/list/damage_icon_parts = list()
 
 
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
+	overlays_standing[R_HAND_LAYER] = null
 	if(r_hand)
 		r_hand.screen_loc = ui_rhand	//TODO
 
@@ -1020,13 +1014,12 @@ var/global/list/damage_icon_parts = list()
 
 			overlays_standing[R_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
 
-	else
-		overlays_standing[R_HAND_LAYER] = null
 
 	if(update_icons) update_icons()
 
 
 /mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
+	overlays_standing[L_HAND_LAYER] = null
 	if(l_hand)
 		l_hand.screen_loc = ui_lhand	//TODO
 
@@ -1062,8 +1055,6 @@ var/global/list/damage_icon_parts = list()
 
 			overlays_standing[L_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
 
-	else
-		overlays_standing[L_HAND_LAYER] = null
 
 	if(update_icons) update_icons()
 

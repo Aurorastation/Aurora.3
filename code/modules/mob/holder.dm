@@ -14,7 +14,7 @@
 
 	var/last_loc_general//This stores a general location of the object. Ie, a container or a mob
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
-	flags
+
 
 /obj/item/weapon/holder/New()
 	if (!item_state)

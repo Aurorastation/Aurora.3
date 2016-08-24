@@ -179,7 +179,7 @@
 /obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
 	species_tag = ""
 	if (loc == wearer && supported_species_tags.len)
-		if (wearer.species.short in supported_species_tags)
-			species_tag = wearer.species.short
+		if (wearer.species.short_name in supported_species_tags)
+			species_tag = wearer.species.short_name
 			return 1
 	return 0

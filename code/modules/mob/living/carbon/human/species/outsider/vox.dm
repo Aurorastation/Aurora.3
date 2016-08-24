@@ -1,6 +1,6 @@
 /datum/species/vox
 	name = "Vox"
-	short = "vox"
+	short_name = "vox"
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_vox.dmi'
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
