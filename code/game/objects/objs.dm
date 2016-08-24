@@ -19,11 +19,11 @@
 	var/being_shocked = 0
 
 	var/item_state // Base name of the image used for when the item is worn. Suffixes are added to this.
-	var/species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
-	var/auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
-	//requires that the wearer's species is listed in supported_species_tags
-	var/list/supported_species_tags //Used with auto_adapt, a list of species which have differing appearances for this item
-	var/species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
+	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
+	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
+	//requires that the wearer's species is listed in icon_supported_species_tags
+	var/list/icon_supported_species_tags //Used with icon_auto_adapt, a list of species which have differing appearances for this item
+	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
 
 /obj/Destroy()
 	processing_objects -= src
@@ -177,10 +177,10 @@
 
 
 /obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
-	if(auto_adapt)
-		species_tag = ""
-		if (loc == wearer && supported_species_tags.len)
-			if (wearer.species.short_name in supported_species_tags)
-				species_tag = wearer.species.short_name
+	if(icon_auto_adapt)
+		icon_species_tag = ""
+		if (loc == wearer && icon_supported_species_tags.len)
+			if (wearer.species.short_name in icon_supported_species_tags)
+				icon_species_tag = wearer.species.short_name
 				return 1
 	return 0

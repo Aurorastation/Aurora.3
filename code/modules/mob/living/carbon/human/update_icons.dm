@@ -470,7 +470,6 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_w_uniform(var/update_icons=1)
 	overlays_standing[UNIFORM_LAYER]	= null
 	if(check_draw_underclothing())
-		w_uniform.auto_adapt_species(src)
 		w_uniform.screen_loc = ui_iclothing
 
 		//determine the icon to use
@@ -478,13 +477,14 @@ var/global/list/damage_icon_parts = list()
 		var/under_state = ""
 
 		if(w_uniform.contained_sprite)//Do all the containedsprite stuff in one place
+			w_uniform.auto_adapt_species(src)
 			if(w_uniform.icon_override)
 				under_icon = w_uniform.icon_override
 			else
 				under_icon = w_uniform.icon
 
-			if (w_uniform.species_tag)
-				under_state += "[w_uniform.species_tag]_"
+			if (w_uniform.icon_species_tag)
+				under_state += "[w_uniform.icon_species_tag]_"
 			under_state += w_uniform.item_state + WORN_UNDER
 
 		else if(w_uniform.icon_override)
@@ -529,10 +529,11 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_wear_id(var/update_icons=1)
 	overlays_standing[ID_LAYER]	= null
 	if(wear_id)
-		wear_id.auto_adapt_species(src)
+
 		wear_id.screen_loc = ui_id	//TODO
 		if(w_uniform && w_uniform:displays_id)
 			if(wear_id.contained_sprite)
+				wear_id.auto_adapt_species(src)
 				var/icon/IDIcon
 				if(wear_id.icon_override)
 					IDIcon = wear_id.icon_override
@@ -551,15 +552,16 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_gloves(var/update_icons=1)
 	overlays_standing[GLOVES_LAYER]	= null
 	if(check_draw_gloves())
-		gloves.auto_adapt_species(src)
+
 		var/t_state = gloves.item_state
 		if(!t_state)	t_state = gloves.icon_state
 
 		var/image/standing
 		if(gloves.contained_sprite)
+			gloves.auto_adapt_species(src)
 			var/state = ""
-			if (gloves.species_tag)
-				state += "[gloves.species_tag]_"
+			if (gloves.icon_species_tag)
+				state += "[gloves.icon_species_tag]_"
 			state += "[gloves.item_state][WORN_GLOVES]"
 
 			if(gloves.icon_override)
@@ -590,11 +592,11 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_glasses(var/update_icons=1)
 	overlays_standing[GLASSES_LAYER] = null
 	if(check_draw_glasses())
-		glasses.auto_adapt_species(src)
 		if(glasses.contained_sprite)
+			glasses.auto_adapt_species(src)
 			var/state = ""
-			if (glasses.species_tag)
-				state += "[glasses.species_tag]_"
+			if (glasses.icon_species_tag)
+				state += "[glasses.icon_species_tag]_"
 			state += "[glasses.item_state][WORN_EYES]"
 
 			if(glasses.icon_override)
@@ -622,13 +624,14 @@ var/global/list/damage_icon_parts = list()
 
 	else
 		if(l_ear)
-			l_ear.auto_adapt_species(src)
+
 			var/t_type = l_ear.icon_state
 
 			if(l_ear.contained_sprite)
+				l_ear.auto_adapt_species(src)
 				t_type = ""
-				if (l_ear.species_tag)
-					t_type += "[l_ear.species_tag]_"
+				if (l_ear.icon_species_tag)
+					t_type += "[l_ear.icon_species_tag]_"
 				t_type += "[l_ear.item_state][WORN_LEAR]"
 				if(l_ear.icon_override)
 					overlays_standing[L_EAR_LAYER] = image("icon" = l_ear.icon_override, "icon_state" = t_type)
@@ -644,12 +647,12 @@ var/global/list/damage_icon_parts = list()
 				overlays_standing[L_EAR_LAYER] = image("icon" = 'icons/mob/ears.dmi', "icon_state" = "[t_type]")
 
 		if(r_ear)
-			r_ear.auto_adapt_species(src)
 			var/t_type = r_ear.icon_state
 			if(r_ear.contained_sprite)
+				r_ear.auto_adapt_species(src)
 				t_type = ""
-				if (r_ear.species_tag)
-					t_type += "[r_ear.species_tag]_"
+				if (r_ear.icon_species_tag)
+					t_type += "[r_ear.icon_species_tag]_"
 				t_type += "[r_ear.item_state][WORN_REAR]"
 				if(r_ear.icon_override)
 					overlays_standing[R_EAR_LAYER] = image("icon" = r_ear.icon_override, "icon_state" = t_type)
@@ -670,13 +673,12 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_shoes(var/update_icons=1)
 	overlays_standing[SHOES_LAYER] = null
 	if(check_draw_shoes())
-		shoes.auto_adapt_species(src)
 		var/image/standing
-
 		if(shoes.contained_sprite)
+			shoes.auto_adapt_species(src)
 			var/state = ""
-			if (shoes.species_tag)
-				state += "[shoes.species_tag]_"
+			if (shoes.icon_species_tag)
+				state += "[shoes.icon_species_tag]_"
 			state += "[shoes.item_state][WORN_SHOES]"
 
 			if(shoes.icon_override)
@@ -706,7 +708,7 @@ var/global/list/damage_icon_parts = list()
 
 /mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
 	if(s_store)
-		s_store.auto_adapt_species(src)
+		//s_store.auto_adapt_species(src)
 		var/t_state = s_store.item_state
 		if(!t_state)	t_state = s_store.icon_state
 		overlays_standing[SUIT_STORE_LAYER]	= image("icon" = 'icons/mob/belt_mirror.dmi', "icon_state" = "[t_state]")
@@ -719,15 +721,15 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_head(var/update_icons=1)
 	overlays_standing[HEAD_LAYER]	= null
 	if(head)
-		head.auto_adapt_species(src)
 		head.screen_loc = ui_head		//TODO
 		var/image/standing = null
 		//Determine the icon to use
 		var/t_icon = INV_HEAD_DEF_ICON
 		if(head.contained_sprite)
+			head.auto_adapt_species(src)
 			var/state = ""
-			if (head.species_tag)
-				state += "[head.species_tag]_"
+			if (head.icon_species_tag)
+				state += "[head.icon_species_tag]_"
 			state += "[head.item_state][WORN_HEAD]"
 
 
@@ -766,7 +768,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_belt(var/update_icons=1)
 	overlays_standing[BELT_LAYER] = null
 	if(belt)
-		belt.auto_adapt_species(src)
+
 		belt.screen_loc = ui_belt	//TODO
 		var/t_state = belt.item_state
 		var/t_icon = belt.icon
@@ -774,9 +776,10 @@ var/global/list/damage_icon_parts = list()
 		var/image/standing	= image("icon_state" = "[t_state]")
 
 		if(belt.contained_sprite)
+			belt.auto_adapt_species(src)
 			t_state = ""
-			if (belt.species_tag)
-				t_state += "[belt.species_tag]_"
+			if (belt.icon_species_tag)
+				t_state += "[belt.icon_species_tag]_"
 			t_state += "[belt.item_state][WORN_BELT]"
 
 			if(belt.icon_override)
@@ -797,9 +800,9 @@ var/global/list/damage_icon_parts = list()
 				var/c_icon
 				if(i.contained_sprite)
 					c_state = ""
-					if (belt.species_tag)
-						c_state += "[belt.species_tag]_"
-					c_state += "[belt.item_state][WORN_BELT]"
+					if (i.icon_species_tag)
+						c_state += "[i.icon_species_tag]_"
+					c_state += "[i.item_state][WORN_BELT]"
 
 					c_icon = belt.icon
 					if(belt.icon_override)
@@ -828,15 +831,16 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
 
 	if( wear_suit && istype(wear_suit, /obj/item/) )
-		wear_suit.auto_adapt_species(src)
+
 		wear_suit.screen_loc = ui_oclothing
 
 		var/image/standing
 
 		if(wear_suit.contained_sprite)
+			wear_suit.auto_adapt_species(src)
 			var/state = ""
-			if (wear_suit.species_tag)
-				state += "[wear_suit.species_tag]_"
+			if (wear_suit.icon_species_tag)
+				state += "[wear_suit.icon_species_tag]_"
 			state += "[wear_suit.item_state][WORN_SUIT]"
 
 			if(wear_suit.icon_override)
@@ -878,15 +882,14 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
 	overlays_standing[FACEMASK_LAYER] = null
 	if(check_draw_mask())
-		wear_mask.auto_adapt_species(src)
 		wear_mask.screen_loc = ui_mask	//TODO
-
 		var/image/standing
 
 		if(wear_mask.contained_sprite)
+			wear_mask.auto_adapt_species(src)
 			var/state = ""
-			if (wear_mask.species_tag)
-				state += "[wear_mask.species_tag]_"
+			if (wear_mask.icon_species_tag)
+				state += "[wear_mask.icon_species_tag]_"
 			state += "[wear_mask.item_state][WORN_MASK]"
 
 			if(wear_mask.icon_override)
@@ -912,7 +915,7 @@ var/global/list/damage_icon_parts = list()
 
 	overlays_standing[BACK_LAYER] = null
 	if(back)
-		back.auto_adapt_species(src)
+
 		back.screen_loc = ui_back	//TODO
 
 		//determine the icon to use
@@ -920,8 +923,9 @@ var/global/list/damage_icon_parts = list()
 		var/overlay_state = ""
 
 		if(back.contained_sprite)
-			if (back.species_tag)
-				overlay_state += "[back.species_tag]_"
+			back.auto_adapt_species(src)
+			if (back.icon_species_tag)
+				overlay_state += "[back.icon_species_tag]_"
 			overlay_state += "[back.item_state][WORN_BACK]"
 
 			if(back.icon_override)
@@ -998,8 +1002,9 @@ var/global/list/damage_icon_parts = list()
 		//determine icon state to use
 		var/t_state
 		if(r_hand.contained_sprite)
-			if (r_hand.species_tag && r_hand.species_in_hand)
-				t_state += "[r_hand.species_tag]_"
+			r_hand.auto_adapt_species(src)
+			if (r_hand.icon_species_tag && r_hand.icon_species_in_hand)
+				t_state += "[r_hand.icon_species_tag]_"
 			t_state += "[r_hand.item_state][WORN_RHAND]"
 
 			if(r_hand.icon_override)
@@ -1039,8 +1044,9 @@ var/global/list/damage_icon_parts = list()
 		//determine icon state to use
 		var/t_state
 		if(l_hand.contained_sprite)
-			if (l_hand.species_tag && l_hand.species_in_hand)
-				t_state += "[l_hand.species_tag]_"
+			l_hand.auto_adapt_species(src)
+			if (l_hand.icon_species_tag && l_hand.icon_species_in_hand)
+				t_state += "[l_hand.icon_species_tag]_"
 			t_state += "[l_hand.item_state][WORN_LHAND]"
 
 			if(l_hand.icon_override)
