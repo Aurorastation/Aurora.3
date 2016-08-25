@@ -153,6 +153,7 @@
 	if (!(user in view(2)) && user!=src.loc) return
 
 	user << "The IV drip is [mode ? "injecting" : "taking blood"]."
+	user << "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>"
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.reagent_list.len)
