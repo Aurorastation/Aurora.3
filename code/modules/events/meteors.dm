@@ -8,7 +8,7 @@
 	var/max_waves 	= 16
 	var/min_meteors = 1
 	var/max_meteors = 2
-	var/duration = 420//Total duration in seconds that the storm will last after it starts
+	var/duration = 340//Total duration in seconds that the storm will last after it starts
 
 
 	var/waves		= 8
