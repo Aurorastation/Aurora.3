@@ -83,9 +83,17 @@
 	if(ticker.mode.antag_scaling_coeff)
 
 		var/count = 0
-		for(var/mob/living/M in player_list)
-			if(M.client)
-				count++
+
+		if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+			// If we're in the pre-game state, we count readied new players as players.
+			// Yes, not all get spawned, but it's a close enough guestimation.
+			for (var/mob/new_player/L in player_list)
+				if (L.client && L.ready)
+					count++
+		else
+			for (var/mob/living/M in player_list)
+				if (M.client)
+					count++
 
 		// Minimum: initial_spawn_target
 		// Maximum: hard_cap or hard_cap_round
@@ -103,9 +111,16 @@
 
 	var/count = 0
 
-	for (var/mob/living/M in player_list)
-		if (M.client)
-			count++
+	if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+		// If we're in the pre-game state, we count readied new players as players.
+		// Yes, not all get spawned, but it's a close enough guestimation.
+		for (var/mob/new_player/L in player_list)
+			if (L.client && L.ready)
+				count++
+	else
+		for (var/mob/living/M in player_list)
+			if (M.client)
+				count++
 
 	// Never pick less antags than we need to!
 	var/new_cap = max(initial_spawn_req, round(count/modifier))
