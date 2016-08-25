@@ -15,9 +15,12 @@
 	var/last_loc_general//This stores a general location of the object. Ie, a container or a mob
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
 
+
 /obj/item/weapon/holder/New()
 	if (!item_state)
 		item_state = icon_state
+
+	flags_inv |= ALWAYSDRAW
 
 	..()
 	processing_objects.Add(src)
@@ -277,21 +280,28 @@
 	name = "mouse"
 	desc = "It's a fuzzy little critter."
 	desc_dead = "It's filthy vermin, throw it in the trash."
-	icon_state = "mouse_brown"
+	icon = 'icons/mob/mouse.dmi'
+	icon_state = "mouse_brown_sleep"
+	item_state = "mouse_brown"
 	icon_state_dead = "mouse_brown_dead"
+	//slot_flags = SLOT_EARS //Re-enable this once superballs finishes the sprites
+	contained_sprite = 1
 	origin_tech = "biotech=2"
 	w_class = 1
 
 /obj/item/weapon/holder/mouse/white
-	icon_state = "mouse_white"
+	icon_state = "mouse_white_sleep"
+	item_state = "mouse_white"
 	icon_state_dead = "mouse_white_dead"
 
 /obj/item/weapon/holder/mouse/gray
-	icon_state = "mouse_gray"
+	icon_state = "mouse_gray_sleep"
+	item_state = "mouse_gray"
 	icon_state_dead = "mouse_gray_dead"
 
 /obj/item/weapon/holder/mouse/brown
-	icon_state = "mouse_brown"
+	icon_state = "mouse_brown_sleep"
+	item_state = "mouse_brown"
 	icon_state_dead = "mouse_brown_dead"
 
 
