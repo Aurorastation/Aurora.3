@@ -130,7 +130,7 @@
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(/mob/living/simple_animal/mouse/gray, /mob/living/simple_animal/mouse/brown, /mob/living/simple_animal/mouse/white)
-			max_number = 8
+			max_number = 7
 			vermstring = "mice"
 		if(VERM_LIZARDS)
 			spawn_types = list(/mob/living/simple_animal/lizard)
@@ -142,19 +142,19 @@
 			vermstring = "spiders"
 		if (VERM_DIYAAB)
 			spawn_types = list(/mob/living/simple_animal/hostile/diyaab)
-			max_number = 3
+			max_number = 2
 			vermstring = "strange creatures"
 		if (VERM_BATS)
 			spawn_types = list(/mob/living/simple_animal/hostile/scarybat)
-			max_number = 3
+			max_number = 2
 			vermstring = "space bats"
 		if (VERM_YITHIAN)
 			spawn_types = list(/mob/living/simple_animal/yithian)
-			max_number = 8
+			max_number = 4
 			vermstring = "strange creatures"
 		if (VERM_TINDALOS)
 			spawn_types = list(/mob/living/simple_animal/tindalos)
-			max_number = 8
+			max_number = 4
 			vermstring = "strange creatures"
 
 
