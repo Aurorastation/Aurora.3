@@ -323,7 +323,7 @@
 
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
-	desc = "A simple kevlar plate carrier in a vintage brown, it has a badge clipped to the chest that reads, 'Private investigator'."
+	desc = "A simple kevlar plate carrier in a vintage brown, it has a detective's badge clipped to the chest."
 	icon_state = "detectivevest_nobadge"
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
