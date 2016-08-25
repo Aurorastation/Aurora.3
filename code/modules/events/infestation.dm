@@ -184,6 +184,7 @@
 	else
 		command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstrings[1]]. Clear them out, before this starts to affect productivity.", "Vermin infestation")
 
+
 #undef LOC_KITCHEN
 #undef LOC_ATMOS
 #undef LOC_INCIN
@@ -191,9 +192,22 @@
 #undef LOC_LIBRARY
 #undef LOC_HYDRO
 #undef LOC_VAULT
+#undef LOC_CONSTR
 #undef LOC_TECH
-#undef LOC_TACTICAL
+#undef LOC_ARMORY
+#undef LOC_DORMS
+#undef LOC_FITNESS
+#undef LOC_HOLODECK
+#undef LOC_DISPOSAL
+#undef LOC_CARGO
+#undef LOC_MEETING
+#undef LOC_LOCKER
+#undef LOC_XENO
 
 #undef VERM_MICE
 #undef VERM_LIZARDS
 #undef VERM_SPIDERS
+#undef VERM_DIYAAB
+#undef VERM_BATS
+#undef VERM_YITHIAN
+#undef VERM_TINDALOS
