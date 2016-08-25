@@ -1,0 +1,11 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - bugfix: "IV Drips not letting you set allowable rates."
+  - tweak: "Min chemical volume lowered to avoid weird behaviour at low rates."
+  - rscadd: "Examining an IV Drip will tell you the transfer rate."
+  - bugfix: "Spiderbots are no longer invulnerable."
+  - tweak: "Destroyed spiderbots will leave behind a brain."
+  - tweak: "Spiderbot health increased from 10 to 25."
