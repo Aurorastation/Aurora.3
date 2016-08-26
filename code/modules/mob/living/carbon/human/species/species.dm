@@ -7,6 +7,7 @@
 	// Descriptors and strings.
 	var/name                                             // Species name.
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
+	var/short_name											 // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 
 	// Icon/appearance vars.
