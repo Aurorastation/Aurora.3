@@ -103,7 +103,7 @@
 #define CHEM_TOUCH 1
 #define CHEM_INGEST 2
 #define CHEM_BLOOD 3
-#define MINIMUM_CHEMICAL_VOLUME 0.01
+#define MINIMUM_CHEMICAL_VOLUME 0.001
 #define SOLID 1
 #define LIQUID 2
 #define GAS 3
