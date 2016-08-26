@@ -16,7 +16,7 @@
 	set category = "Object"
 
 	chamber_offset = 0
-	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
+	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
 	"<span class='notice'>You hear something metallic spin and click.</span>")
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	loaded = shuffle(loaded)
