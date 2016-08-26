@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Stripping mobs now requires both mobs to stay still."
+  - tweak: "Drones can no longer push objects they can't pull."
