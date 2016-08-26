@@ -113,8 +113,15 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/Topic(T, addr, master, key)
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]"
-	var/queryparams[] = params2list(T)
+
+	var/list/response[] = list()
+	var/list/queryparams[] = params2list(T)
 	var/query = queryparams["query"]
+
+	if (isnull(query))
+		response["statuscode"] = 400
+		response["response"] = "Bad Request"
+		return list2params(response)
 
 	// var/unauthed = do_auth_check(query,addr,queryparams["key"])
 	// if (unauthed)
@@ -123,9 +130,15 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/datum/topic_command/command = topic_commands[query]
 
 	if (isnull(command))
-		return "Something went wrong."
+		response["statuscode"] = 501
+		response["response"] = "Not Implemented"
+		return list2params(response)
 
-	return command.run_command(queryparams)
+	command.run_command(queryparams)
+	response["statuscode"] = command.statuscode
+	response["response"] = command.response
+	return list2params(response)
+
 
 /world/Reboot(var/reason)
 	/*spawn(0)
