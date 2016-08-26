@@ -1,0 +1,6 @@
+author: SoundScopes
+
+delete-after: True
+
+changes:
+  - bugfix: "Stripping mobs now requires both mobs to stay still."

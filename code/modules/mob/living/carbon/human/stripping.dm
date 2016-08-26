@@ -72,7 +72,7 @@
 	else
 		visible_message("<span class='danger'>\The [user] is trying to put \a [held] on \the [src]!</span>")
 
-	if(!do_after(user,HUMAN_STRIP_DELAY))
+	if(!do_mob(user,src,HUMAN_STRIP_DELAY))
 		return 0
 
 	if(!stripping && user.get_active_hand() != held)
