@@ -238,10 +238,11 @@ its easier to just keep the beam vertical.
 		AM.throwing = 0
 	return
 
-/atom/proc/add_hiddenprint(mob/living/M as mob)
+/atom/proc/add_hiddenprint(mob/living/M)
 	if(isnull(M)) return
+	if(!istype(M, /mob)) return
 	if(isnull(M.key)) return
-	if (ishuman(M))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if (!istype(H.dna, /datum/dna))
 			return 0
@@ -261,8 +262,9 @@ its easier to just keep the beam vertical.
 			src.fingerprintslast = M.key
 	return
 
-/atom/proc/add_fingerprint(mob/living/M as mob, ignoregloves = 0)
+/atom/proc/add_fingerprint(mob/living/M, ignoregloves = 0)
 	if(isnull(M)) return
+	if(!istype(M, /mob)) return
 	if(isAI(M)) return
 	if(isnull(M.key)) return
 	if (ishuman(M))
@@ -387,7 +389,7 @@ its easier to just keep the beam vertical.
 
 
 //returns 1 if made bloody, returns 0 otherwise
-/atom/proc/add_blood(mob/living/carbon/human/M as mob)
+/atom/proc/add_blood(mob/living/carbon/human/M)
 
 	if(flags & NOBLOODY)
 		return 0
@@ -407,7 +409,7 @@ its easier to just keep the beam vertical.
 	. = 1
 	return 1
 
-/atom/proc/add_vomit_floor(mob/living/carbon/M as mob, var/toxvomit = 0)
+/atom/proc/add_vomit_floor(mob/living/carbon/M, var/toxvomit = 0)
 	if( istype(src, /turf/simulated) )
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 
