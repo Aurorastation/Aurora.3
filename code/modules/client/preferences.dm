@@ -1254,7 +1254,7 @@ datum/preferences
 					g_skin = rand(0,255)
 					b_skin = rand(0,255)
 				if("bag")
-					backbag = rand(1,4)
+					backbag = rand(1,5)
 				/*if("skin_style")
 					h_style = random_skin_style(gender)*/
 				if("all")
@@ -1806,7 +1806,7 @@ datum/preferences
 
 	character.undershirt = undershirt
 
-	if(backbag > 4 || backbag < 1)
+	if(backbag > 5 || backbag < 1)
 		backbag = 1 //Same as above
 	character.backbag = backbag
 
