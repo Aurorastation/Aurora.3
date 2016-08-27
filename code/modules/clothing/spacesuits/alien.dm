@@ -5,6 +5,7 @@
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
+	siemens_coefficient = 0.4
 
 /obj/item/clothing/head/helmet/space/skrell/white
 	icon_state = "skrell_helmet_white"
@@ -22,6 +23,7 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
+	siemens_coefficient = 0.4
 
 /obj/item/clothing/suit/space/skrell/white
 	icon_state = "skrell_suit_white"
@@ -38,7 +40,7 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank)
 	slowdown = 2
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.3
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Vox")
@@ -46,7 +48,7 @@
 
 /obj/item/clothing/head/helmet/space/vox
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.3
 	flags = HEADCOVERSEYES|STOPPRESSUREDAMAGE
 	species_restricted = list("Vox")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
