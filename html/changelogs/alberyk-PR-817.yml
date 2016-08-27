@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added duffel bags from the old aurora code."
+  - rscadd: "Added mercenary and wizard unique backpack options from old code."
