@@ -6,7 +6,7 @@
 	item_state = "wiz_helm"
 	unacidable = 1 //No longer shall our kind be foiled by lone chemists with spray bottles!
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.3
 	wizard_garb = 1
 
 	equipped(var/mob/user)
@@ -36,7 +36,7 @@
 	w_class = 3
 	unacidable = 1
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.3
 	wizard_garb = 1
 
 	equipped(var/mob/user)
