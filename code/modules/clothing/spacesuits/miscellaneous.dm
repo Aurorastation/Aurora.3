@@ -7,6 +7,7 @@
 	flags_inv = HIDEFACE
 	permeability_coefficient = 0.01
 	armor = list(melee = 65, bullet = 50, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 50)
+	siemens_coefficient = 0.4
 
 //Captain's space suit This is not the proper path but I don't currently know enough about how this all works to mess with it.
 /obj/item/clothing/suit/armor/captain
@@ -25,7 +26,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.4
 
 //Deathsquad suit
 /obj/item/clothing/head/helmet/space/deathsquad
@@ -35,7 +36,7 @@
 	item_state = "deathsquad"
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 100, rad = 60)
 	flags = HEADCOVERSEYES | BLOCKHAIR | HEADCOVERSMOUTH | STOPPRESSUREDAMAGE | THICKMATERIAL
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.4
 
 /obj/item/clothing/head/helmet/space/deathsquad/beret
 	name = "officer's beret"
@@ -43,7 +44,7 @@
 	icon_state = "beret_badge"
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
 	flags = HEADCOVERSEYES | BLOCKHAIR | STOPPRESSUREDAMAGE
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.4
 
 //Space santa outfit suit
 /obj/item/clothing/head/helmet/space/santahat
@@ -71,7 +72,7 @@
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	flags = HEADCOVERSEYES | BLOCKHAIR | STOPPRESSUREDAMAGE
 	body_parts_covered = 0
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.4
 
 /obj/item/clothing/suit/space/pirate
 	name = "pirate coat"
@@ -82,7 +83,7 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen)
 	slowdown = 0
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.4
 	body_parts_covered = UPPER_TORSO|ARMS
 
 //Orange emergency space suit
