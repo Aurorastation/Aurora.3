@@ -295,3 +295,64 @@
     statuscode = "449"
     response = "Multiple Matches found"
     return 1
+
+
+//Get a Staff List
+/datum/topic_command/commandreport
+  name = "commandreport"
+/datum/topic_command/commandreport/run_command(queryparams)
+  var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
+  var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
+  var/reportbody = sanitize(queryparams["body"]) //Body of the report
+  var/reporttype = queryparams["type"] //Type of the report: freeform / ccia / admin
+  var/reportsender = sanitize(queryparams["sendername"]) //Name of the sender
+  var/reportannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
+
+  if(!reportbody)
+    statuscode = "400"
+    response = "Parameter senderkey not set"
+    return 1
+  if(!reportbody)
+    statuscode = "400"
+    response = "Parameter reportbody not set"
+    return 1
+  if(!reporttitle)
+    reporttitle = "NanoTrasen Update"
+  if(!reporttype)
+    reporttype = "freeform"
+  if(!reportannounce)
+    reportannounce = "Yes"
+
+  //Send the message to the communications consoles
+  for (var/obj/machinery/computer/communications/C in machines)
+    if(! (C.stat & (BROKEN|NOPOWER) ) )
+      var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
+      P.name = "[command_name()] Update"
+      P.info = replacetext(reportbody, "\n", "<br/>")
+      P.update_space(P.info)
+      P.update_icon()
+      C.messagetitle.Add("[command_name()] Update")
+      C.messagetext.Add(P.info)
+
+  //Set the report footer for CCIA Announcements
+  if (reporttype == "ccia")
+    if (reportsender)
+      reportbody += "\n\n- [reportsender], Central Command Internal Affairs Agent, [commstation_name()]"
+    else
+      reportbody += "\n\n- CCIAAMS, [commstation_name()]"
+
+  switch(reportannounce)
+    if("Yes")
+      command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+    if("No")
+      world << "\red New NanoTrasen Update available at all communication consoles."
+      world << sound('sound/AI/commandreport.ogg')
+
+
+  log_admin("[senderkey] has created a command report via the api: [reportbody]")
+  message_admins("[senderkey] has created a command report via the api", 1)
+  feedback_add_details("admin_verb","CCR")
+
+  statuscode = "200"
+  response = "Message sent"
+  return 1
