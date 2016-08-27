@@ -15,7 +15,7 @@
 	item_state = "r_suit"
 	worn_state = "warden"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/security
 	name = "security officer's jumpsuit"
@@ -24,7 +24,7 @@
 	item_state = "r_suit"
 	worn_state = "secred"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/dispatch
 	name = "dispatcher's uniform"
@@ -34,7 +34,7 @@
 	worn_state = "dispatch"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/security2
 	name = "security officer's uniform"
@@ -43,7 +43,7 @@
 	item_state = "r_suit"
 	worn_state = "redshirt2"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/security/corp
 	icon_state = "sec_corporate"
@@ -62,7 +62,7 @@
 	//item_state = "swatunder"
 	worn_state = "swatunder"
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.7
 
 /*
  * Detective
@@ -74,7 +74,7 @@
 	item_state = "det"
 	worn_state = "detective"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/det/black
 	icon_state = "detective2"
@@ -117,7 +117,7 @@
 	item_state = "r_suit"
 	worn_state = "hosred"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.8
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/head_of_security/corp
 	icon_state = "hos_corporate"
