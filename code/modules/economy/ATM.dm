@@ -276,7 +276,7 @@ log transactions
 				if (!authenticated_account)
 					number_incorrect_tries++
 					usr << "<span class='warning'> \icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining.</span>"
-					handle_lockdown(tried_account_num, previous_account_number)
+					handle_lockdown(tried_account_num)
 				else
 					bank_log_access(authenticated_account, machine_id)
 					number_incorrect_tries = 0
