@@ -115,17 +115,17 @@ var/world_topic_spam_protect_time = world.timeofday
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]"
 
 	var/list/response[] = list()
-	var/list/queryparams[] = params2list(T)
+	var/list/queryparams[] = json_decode(T)
 	var/query = queryparams["query"]
 
 	if (isnull(query))
 		response["statuscode"] = 400
-		response["response"] = "Bad Request"
+		response["response"] = "Bad Request - No query specified"
 		return list2params(response)
 
-	// var/unauthed = do_auth_check(query,addr,queryparams["key"])
-	// if (unauthed)
-	// 		return unauthed
+	var/unauthed = do_auth_check(query,addr,queryparams["key"])
+	if (unauthed)
+			return unauthed
 
 	var/datum/topic_command/command = topic_commands[query]
 
@@ -137,6 +137,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	command.run_command(queryparams)
 	response["statuscode"] = command.statuscode
 	response["response"] = command.response
+	response["data"] = json_encode(command.data)
 	return list2params(response)
 
 
@@ -377,15 +378,27 @@ var/world_topic_spam_protect_time = world.timeofday
 
 #undef FAILED_DB_CONNECTION_CUTOFF
 
-/world/proc/do_topic_spam_protection(var/addr, var/key)
-	if (!config.comms_password || config.comms_password == "")
-		return "No comms password configured, aborting."
+/world/proc/do_auth_check(var/addr, var/key, var/function)
+	addr = sanitizeSQL(addr)
+	key = sanitizeSQL(key)
+	function = sanitizeSQL(function)
+	var/DBQuery/query = dbcon.NewQuery(
+	'SELECT *
+FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
+WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+AND (
+(token = "abc" AND ip="1.2.3.4" AND function="ping")
+OR
+(token = "abc" AND ip IS NULL AND function="ping")
+)')
+	query.Execute()
 
-	if (key == config.comms_password)
+
+
+	if (query.RowCount())
 		return 0
 	else
 		if (world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
-
 			spawn(50)
 				world_topic_spam_protect_time = world.time
 				return "Bad Key (Throttled)"

@@ -193,24 +193,23 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	if(department == "Unknown")
 		return 0	//You can't send faxes to "Unknown"
 
+	if (!istype(incoming, /obj/item/weapon/paper) && !istype(incoming, /obj/item/weapon/photo) && !istype(incoming, /obj/item/weapon/paper_bundle))
+		return 0
+
 	flick("faxreceive", src)
 	playsound(loc, "sound/items/polaroid1.ogg", 50, 1)
 
 	// give the sprite some time to flick
-	sleep(20)
+	spawn(20)
+		if (istype(incoming, /obj/item/weapon/paper))
+			copy(incoming)
+		else if (istype(incoming, /obj/item/weapon/photo))
+			photocopy(incoming)
+		else if (istype(incoming, /obj/item/weapon/paper_bundle))
+			bundlecopy(incoming)
+		do_pda_alerts()
+		use_power(active_power_usage)
 
-	if (istype(incoming, /obj/item/weapon/paper))
-		copy(incoming)
-	else if (istype(incoming, /obj/item/weapon/photo))
-		photocopy(incoming)
-	else if (istype(incoming, /obj/item/weapon/paper_bundle))
-		bundlecopy(incoming)
-	else
-		return 0
-
-	do_pda_alerts()
-
-	use_power(active_power_usage)
 	return 1
 
 /obj/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)

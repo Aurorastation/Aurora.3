@@ -12,9 +12,10 @@
 
 //API Boilerplate
 /datum/topic_command
-  var/name = ""
+  var/name = null
   var/statuscode = null
-  var/response = ""
+  var/response = null
+  var/data = null
 /datum/topic_command/proc/run_command(queryparams)
   return 1
 
@@ -26,7 +27,8 @@
   for (var/client/C)
     x++
   statuscode = "200"
-  response = x
+  response = "Pong"
+  data = x
   return 1
 
 //Player Count
@@ -39,7 +41,8 @@
       n++
 
   statuscode = "200"
-  response = n
+  response = "Player count fetched"
+  data = n
   return 1
 
 //Admin Count
@@ -52,7 +55,8 @@
       n++
 
   statuscode = "200"
-  response = n
+  response = "Admin count fetched"
+  data = n
   return 1
 
 //Mod Count
@@ -65,7 +69,8 @@
       n++
 
   statuscode = "200"
-  response = n
+  response = "Mod count fetched"
+  data = n
   return 1
 
 //CCIA Count
@@ -78,7 +83,8 @@
       n++
 
   statuscode = "200"
-  response = n
+  response = "CCIA count fetched"
+  data = n
   return 1
 
 //Player Ckeys
@@ -90,10 +96,11 @@
     players += C.key
 
   statuscode = "200"
-  response = list2params(players)
+  response = "Player list fetched"
+  data = players
   return 1
 
-//Char Names //Doesnt work properly --> Look into playerpanel how its done
+//Char Names
 /datum/topic_command/char_list
   name = "char_list"
 /datum/topic_command/char_list/run_command(queryparams)
@@ -102,13 +109,16 @@
     response = "Game not started yet!"
     return 1
 
-  var/list/mobs = list()
+  var/list/chars = list()
+
+  var/list/mobs = sortmobs()
   for(var/mob/M in mobs)
     if(!M.ckey) continue
-    mobs[M.name] += M.key ? (M.client ? M.key : "[M.key] (DC)") : "No key"
+    chars[M.name] += M.key ? (M.client ? M.key : "[M.key] (DC)") : "No key"
 
   statuscode = "200"
-  response = list2params(mobs)
+  response = "Char list fetched"
+  data = chars
   return 1
 
 // Crew Manifest
@@ -148,11 +158,12 @@
         positions["misc"] = list()
       positions["misc"][name] = rank
 
-  for(var/k in positions)
-    positions[k] = list2params(positions[k]) // converts positions["heads"] = list("Bob"="Captain", "Bill"="CMO") into positions["heads"] = "Bob=Captain&Bill=CMO"
+  // for(var/k in positions)
+  //   positions[k] = list2params(positions[k]) // converts positions["heads"] = list("Bob"="Captain", "Bill"="CMO") into positions["heads"] = "Bob=Captain&Bill=CMO"
 
   statuscode = "200"
-  response = list2params(positions)
+  response = "Manifest fetched"
+  data = positions
   return 1
 
 //Get a Staff List
@@ -164,7 +175,8 @@
     staff[C] = C.holder.rank
 
   statuscode = "200"
-  response = list2params(staff)
+  response = "Staff list fetched"
+  data = staff
   return 1
 
 //Get Server Status
@@ -214,7 +226,8 @@
     s["admins"] = admins
 
   statuscode = "200"
-  response = list2params(s)
+  response = "Server Status fetched"
+  data = s
   return 1
 
 //Get info about a specific player
@@ -289,7 +302,8 @@
       info["damage"] = "non-living"
     info["gender"] = M.gender
     statuscode = "200"
-    response = list2params(info)
+    response = "Client data fetched"
+    data = info
     return 1
   else
     statuscode = "449"
@@ -297,10 +311,10 @@
     return 1
 
 
-//Get a Staff List
-/datum/topic_command/commandreport
-  name = "commandreport"
-/datum/topic_command/commandreport/run_command(queryparams)
+//Send a Command Report
+/datum/topic_command/sendcommandreport
+  name = "sendcommandreport"
+/datum/topic_command/sendcommandreport/run_command(queryparams)
   var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
   var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
   var/reportbody = sanitize(queryparams["body"]) //Body of the report
@@ -308,7 +322,7 @@
   var/reportsender = sanitize(queryparams["sendername"]) //Name of the sender
   var/reportannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
 
-  if(!reportbody)
+  if(!senderkey)
     statuscode = "400"
     response = "Parameter senderkey not set"
     return 1
@@ -321,7 +335,7 @@
   if(!reporttype)
     reporttype = "freeform"
   if(!reportannounce)
-    reportannounce = "Yes"
+    reportannounce = 1
 
   //Send the message to the communications consoles
   for (var/obj/machinery/computer/communications/C in machines)
@@ -337,16 +351,15 @@
   //Set the report footer for CCIA Announcements
   if (reporttype == "ccia")
     if (reportsender)
-      reportbody += "\n\n- [reportsender], Central Command Internal Affairs Agent, [commstation_name()]"
+      reportbody += "<br/><br/>- [reportsender], Central Command Internal Affairs Agent, [commstation_name()]"
     else
-      reportbody += "\n\n- CCIAAMS, [commstation_name()]"
+      reportbody += "<br/><br/>- CCIAAMS, [commstation_name()]"
 
-  switch(reportannounce)
-    if("Yes")
-      command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
-    if("No")
-      world << "\red New NanoTrasen Update available at all communication consoles."
-      world << sound('sound/AI/commandreport.ogg')
+  if(reportannounce == 1)
+    command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+  if(reportannounce == 0)
+    world << "\red New NanoTrasen Update available at all communication consoles."
+    world << sound('sound/AI/commandreport.ogg')
 
 
   log_admin("[senderkey] has created a command report via the api: [reportbody]")
@@ -354,5 +367,208 @@
   feedback_add_details("admin_verb","CCR")
 
   statuscode = "200"
-  response = "Message sent"
+  response = "Command Report sent"
+  return 1
+
+
+//Get available Fax Machines
+/datum/topic_command/getfaxmachines
+  name = "getfaxmachines"
+/datum/topic_command/getfaxmachines/run_command(queryparams)
+  var/list/faxlocations = list()
+
+  for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+    faxlocations.Add(F.department)
+
+  statuscode = "200"
+  response = "Fax machines fetched"
+  data = faxlocations
+  return 1
+
+//Send Fax
+/datum/topic_command/sendfax
+  name = "sendfax"
+/datum/topic_command/sendfax/run_command(queryparams)
+  var/list/responselist = list()
+  var/list/sendsuccess = list()
+  var/list/targetlist = queryparams["target"] //Target locations where the fax should be sent to
+  var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
+  var/faxtitle = sanitizeSafe(queryparams["title"]) //Title of the report
+  var/faxbody = sanitize(queryparams["body"]) //Body of the report
+  var/faxsender = sanitize(queryparams["sendername"]) //Name of the sender
+  var/faxannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
+
+  if(!targetlist || targetlist.len < 1)
+    statuscode = "400"
+    response = "Parameter target not set"
+    return 1
+  if(!senderkey)
+    statuscode = "400"
+    response = "Parameter senderkey not set"
+    return 1
+  if(!faxtitle)
+    statuscode = "400"
+    response = "Parameter title not set"
+    return 1
+  if(!faxbody)
+    statuscode = "400"
+    response = "Parameter body not set"
+    return 1
+  if(!faxannounce)
+    faxannounce = 1
+
+  var/sendresult = 0
+
+  //Send the fax
+  for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+    if (F.department in targetlist)
+      sendresult = send_fax(F, faxtitle, faxbody, senderkey)
+      if (sendresult == 1)
+        sendsuccess.Add(F.department)
+        responselist[F.department] = "success"
+      else
+        responselist[F.department] = "failed"
+
+  //Announce that the fax has been sent
+  if(faxannounce == 1)
+    if(sendsuccess.len < 1)
+      command_announcement.Announce("A fax message from Central Command could not be delivered because all of the following fax machines are inoperational: <br>"+list2text(targetlist, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+    else
+      command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+list2text(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+
+  statuscode = "200"
+  response = "Fax sent"
+  data = responselist
+  return 1
+
+/datum/topic_command/sendfax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey)
+  log_debug("fax sent to [F.department] with Title: [title] and Body: [body]")
+  // Create the reply message
+  var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
+  P.name = "[command_name()] - [title]"
+  P.info = body
+  P.update_icon()
+
+  // Stamps
+  var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+  stampoverlay.icon_state = "paper_stamp-cent"
+  if(!P.stamped)
+    P.stamped = new
+  P.stamped += /obj/item/weapon/stamp
+  P.overlays += stampoverlay
+  P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
+
+  if(F.recievefax(P))
+    log_and_message_admins("[senderkey] sent a fax message to the [F.department] fax machine via the api. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[F.x];Y=[F.y];Z=[F.z]'>JMP</a>)")
+    sent_faxes += P
+    return 1
+  else
+    usr << "\red Message reply failed."
+    qdel(P)
+    return 2
+
+
+//Restartserver
+/datum/topic_command/restart
+  name = "restart"
+/datum/topic_command/restart/run_command(queryparams)
+  var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
+
+  if(!senderkey)
+    statuscode = "400"
+    response = "Parameter senderkey not set"
+    return 1
+
+  world << "<font size=4 color='#ff2222'>Server restarting by remote command.</font>"
+  log_and_message_admins("World restart initiated remotely by [senderkey].")
+  feedback_set_details("end_error","remote restart")
+
+  if (blackbox)
+    blackbox.save_all_data_to_sql()
+
+  spawn(50)
+    log_game("Rebooting due to remote command.")
+    world.Reboot(10)
+
+  statuscode = "200"
+  response = "Restart Command accepted"
+  return 1
+
+
+//Get Ghosts
+/datum/topic_command/getghosts
+  name = "getghosts"
+/datum/topic_command/getghosts/run_command(queryparams)
+  var/list/ghosts[] = list()
+  ghosts = get_ghosts(1,1)
+
+  for (var/ghost in ghosts)
+    log_debug(ghost)
+
+  statuscode = "200"
+  response = "Fetched Ghost list"
+  data = ghosts
+  return 1
+
+//Get Ghosts
+/datum/topic_command/grantrespawn
+  name = "grantrespawn"
+/datum/topic_command/grantrespawn/run_command(queryparams)
+  var/list/ghosts = get_ghosts(1,1)
+  var/target = queryparams["target"]
+  log_debug("target: [target]")
+  var/allow_antaghud = queryparams["allow_antaghud"]
+  log_debug("allow_antaghud: [allow_antaghud]")
+  var/senderkey = queryparams["senderkey"] //Identifier of the sender (Ckey / Userid / ...)
+  log_debug("senderkey: [senderkey]")
+
+  if(!senderkey)
+    statuscode = "400"
+    response = "Parameter senderkey not set"
+    return 1
+
+  if(!target)
+    statuscode = "400"
+    response = "Parameter target not set"
+    return 1
+
+  var/mob/dead/observer/G = ghosts[target]
+
+  if(!G in ghosts)
+    statuscode = "404"
+    response = "Target not in ghosts list"
+    return 1
+    
+  if(G.has_enabled_antagHUD && config.antag_hud_restricted && allow_antaghud == 0)
+    statuscode = "409"
+    response = "Ghost has used Antag Hud - Respawn Aborted"
+    return 1
+  G.timeofdeath=-19999  /* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+                     timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
+                     there won't be an autopsy.
+                  */
+  var/datum/preferences/P
+
+  if (G.client)
+    P = G.client.prefs
+  else if (G.ckey)
+    P = preferences_datums[G.ckey]
+  else
+    statuscode = "500"
+    response = "Something went wrong, couldn't find the target's preferences datum"
+    return 1
+
+  for (var/entry in P.time_of_death)//Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
+    P.time_of_death[entry] = -99999
+
+  G.has_enabled_antagHUD = 2
+  G.can_reenter_corpse = 1
+
+  G:show_message(text("\blue <B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
+  log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API")
+  message_admins("Admin [senderkey] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit via the API", 1)
+
+
+  statuscode = "200"
+  response = "Respawn Granted"
   return 1
