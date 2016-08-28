@@ -260,7 +260,7 @@ log transactions
 				if (!potential_account)
 					usr << "<span class='warning'> \icon[src] Account number not found.</span>"
 					number_incorrect_tries++
-					handle_lockdown(src)
+					handle_lockdown()
 					return
 				switch (potential_account.security_level+1) //checks the security level of an account number to see what checks to do
 					if (1) // Security level zero
@@ -276,7 +276,7 @@ log transactions
 				if (!authenticated_account)
 					number_incorrect_tries++
 					usr << "<span class='warning'> \icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining.</span>"
-					handle_lockdown(src, tried_account_num, previous_account_number)
+					handle_lockdown(tried_account_num, previous_account_number)
 				else
 					bank_log_access(authenticated_account, machine_id)
 					number_incorrect_tries = 0
@@ -450,16 +450,16 @@ log transactions
 					view_screen = NO_SCREEN
 
 // checks if the ATM needs to be locked down and locks it down if it does
-/obj/machinery/atm/proc/handle_lockdown(var/obj/machinery/atm/O, var/tried_account_num = null, var/previous_account_number = null)
+/obj/machinery/atm/proc/handle_lockdown(var/tried_account_num = null)
 	if(previous_account_number == tried_account_num)
 		if(number_incorrect_tries > max_pin_attempts)
 			//lock down the atm
-			var/area/t = get_area(O)
+			var/area/t = get_area(src)
 			ticks_left_locked_down = 60
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-			global_announcer.autosay("An ATM has gone into lockdown in [t.name].", O.machine_id)
+			global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
 			if (tried_account_num)
-				bank_log_unauthorized(get_account(tried_account_num), O.machine_id)
+				bank_log_unauthorized(get_account(tried_account_num), machine_id)
 			view_screen = NO_SCREEN
 		else playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 
