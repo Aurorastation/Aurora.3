@@ -229,6 +229,7 @@
 	icon_dead = "kitten_dead"
 	gender = NEUTER
 	holder_type = /obj/item/weapon/holder/cat/kitten
+	small = 1
 
 /mob/living/simple_animal/cat/kitten/death()
 	.=..()
