@@ -252,6 +252,7 @@ log transactions
 				//scan_user(usr) // ATMs shouldn't be able to scan people for a card - Bedshaped
 
 				if (ticks_left_locked_down) return
+				if (!held_card && !href_list["account_num"]) return
 				var/tried_account_num = text2num(href_list["account_num"])
 				if (!tried_account_num && held_card)
 					tried_account_num = held_card.associated_account_number
@@ -451,17 +452,16 @@ log transactions
 
 // checks if the ATM needs to be locked down and locks it down if it does
 /obj/machinery/atm/proc/handle_lockdown(var/tried_account_num = null)
-	if(previous_account_number == tried_account_num)
-		if(number_incorrect_tries > max_pin_attempts)
-			//lock down the atm
-			var/area/t = get_area(src)
-			ticks_left_locked_down = 60
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-			global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
-			if (tried_account_num)
-				bank_log_unauthorized(get_account(tried_account_num), machine_id)
-			view_screen = NO_SCREEN
-		else playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
+	if (number_incorrect_tries > max_pin_attempts)
+		//lock down the atm
+		var/area/t = get_area(src)
+		ticks_left_locked_down = 60
+		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
+		global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
+		if (tried_account_num)
+			bank_log_unauthorized(get_account(tried_account_num), machine_id)
+		view_screen = NO_SCREEN
+	else playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 
 // put the currently held id on the ground or in the hand of the user
 /obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
