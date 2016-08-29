@@ -35,6 +35,6 @@ delete-after: True
 changes: 
   - rscadd: "Added a new mundane event involving smoke!"
   - tweak: "Smoke created by chemical smoke grenades will now persist much longer"
-
+  - rscadd: "Added a very alarming new event."
   
   

@@ -1024,6 +1024,7 @@
 #include "code\modules\events\event_container.dm"
 #include "code\modules\events\event_dynamic.dm"
 #include "code\modules\events\event_manager.dm"
+#include "code\modules\events\false_alarm.dm"
 #include "code\modules\events\gravity.dm"
 #include "code\modules\events\grid_check.dm"
 #include "code\modules\events\infestation.dm"
