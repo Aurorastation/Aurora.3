@@ -579,7 +579,7 @@
 	var/location = get_turf(holder.my_atom)
 	var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem
 	S.attach(location)
-	S.set_up(holder, created_volume, 0, location)
+	S.set_up(holder, created_volume, 0, location, 80)
 	playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
 	spawn(0)
 		S.start()
@@ -1978,7 +1978,7 @@
 	result = "white_coffee"
 	required_reagents = list("milk" = 1, "blackcoffee" = 2)
 	result_amount = 2
-	
+
 //aurora's drinks
 
 /datum/chemical_reaction/daiquiri
@@ -2064,7 +2064,7 @@
 	result = "deweycocktail"
 	required_reagents = list("cremeyvette" = 1, "gin" = 1, "grenadine" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/rustynail
 	name = "Rusty Nail"
 	id = "rustynail"
