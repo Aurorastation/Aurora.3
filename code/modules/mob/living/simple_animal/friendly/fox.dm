@@ -17,7 +17,7 @@
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
-	mob_size = 8
+	mob_size = 4
 //Captain fox
 /mob/living/simple_animal/corgi/fox/Chauncey
 	name = "Chauncey"

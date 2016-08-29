@@ -1003,4 +1003,49 @@ proc/is_blind(A)
 	P.time_of_death[which] = value
 	return 1
 
+#define POSESSIVE_PRONOUN	0
+#define POSESSIVE_ADJECTIVE	1
+#define REFLEXIVE			2
+#define SUBJECTIVE_PERSONAL	3
+#define OBJECTIVE_PERSONAL	4
+/mob/proc/get_pronoun(var/type)
+	if (type == POSESSIVE_PRONOUN)
+		if (gender == MALE)
+			return "his"
+		else if (gender == FEMALE)
+			return "hers"
+		else
+			return "theirs"
+	else if (type == POSESSIVE_ADJECTIVE)
+		if (gender == MALE)
+			return "his"
+		else if (gender == FEMALE)
+			return "her"
+		else
+			return "their"
+	else if (type == REFLEXIVE)
+		if (gender == MALE)
+			return "himself"
+		else if (gender == FEMALE)
+			return "herself"
+		else
+			return "themselves"
+	else if (type == SUBJECTIVE_PERSONAL)
+		if (gender == MALE)
+			return "he"
+		else if (gender == FEMALE)
+			return "she"
+		else
+			return "they"
+	else if (type == OBJECTIVE_PERSONAL)
+		if (gender == MALE)
+			return "him"
+		else if (gender == FEMALE)
+			return "her"
+		else
+			return "them"
+
+	else
+		return "its"//Something went wrong
+
 #undef SAFE_PERP

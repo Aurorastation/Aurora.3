@@ -29,6 +29,9 @@
 	udder.my_atom = src
 	..()
 
+/mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
+	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].")
+
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()
 	if(.)
@@ -98,12 +101,14 @@
 	turns_per_move = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-	meat_amount = 6
+	meat_amount = 20
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicked"
-	health = 50
+	health = 200
+	autoseek_food = 0
+	beg_for_food = 0
 	var/datum/reagents/udder = null
 
 /mob/living/simple_animal/cow/New()
@@ -169,6 +174,8 @@
 	pass_flags = PASSTABLE | PASSGRILLE
 	small = 1
 	holder_type = /obj/item/weapon/holder/chick
+	autoseek_food = 0
+	beg_for_food = 0
 	density = 0
 
 /mob/living/simple_animal/chick/New()
@@ -206,7 +213,7 @@ var/global/chicken_count = 0
 	speak_chance = 2
 	turns_per_move = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-	meat_amount = 2
+	meat_amount = 4
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -216,6 +223,8 @@ var/global/chicken_count = 0
 	var/body_color
 	pass_flags = PASSTABLE
 	small = 1
+	autoseek_food = 0
+	beg_for_food = 0
 	holder_type = /obj/item/weapon/holder/chicken
 	density = 0
 
