@@ -47,5 +47,6 @@ changes:
   - bugfix: "Vent names when ventcrawling will no longer constantly shuffle around."
   - rscdel: "Maintenance drone lawset has been altered based on administrative feedback."
   - rscadd: "Drink dispensers and fax machines on tables, can now be walked under by small animals."
+  - rscadd: "Examining a held animal now works properly."
   
   

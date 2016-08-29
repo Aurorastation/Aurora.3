@@ -15,7 +15,6 @@
 	var/last_loc_general//This stores a general location of the object. Ie, a container or a mob
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
 
-
 /obj/item/weapon/holder/New()
 	if (!item_state)
 		item_state = icon_state
@@ -28,6 +27,12 @@
 /obj/item/weapon/holder/Destroy()
 	processing_objects.Remove(src)
 	..()
+
+/obj/item/weapon/holder/examine(mob/user)
+	if (contained)
+		contained.examine(user)
+	else
+		..()
 
 /obj/item/weapon/holder/process()
 
