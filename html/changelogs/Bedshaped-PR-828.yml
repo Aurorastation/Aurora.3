@@ -1,0 +1,11 @@
+author: Bedshaped
+
+delete-after: True
+
+
+changes: 
+  - bugfix: "Air alarm frames now have their correct sprite."
+  - bugfix: "Rotating the shield capacitor now turns the correct direction."
+  - bugfix: "Secure safes will no longer appear to viewers on the other side of a wall."
+  - bugfix: "Fixed cyborgs not being able to unwrench rechargers."
+  - tweak: "Using magnetic grippers with rechargers gives more feedback to the player."
