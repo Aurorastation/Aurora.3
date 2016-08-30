@@ -9,3 +9,5 @@ changes:
   - tweak: "Simple Animals can no longer take items of people."
   - bugfix: "resisting on cargo trains actually unbuckles you properly, no more bluespace teleport"
   - bugfix: "breaking a crate on a cargo tug no longer leaves a hidden crate on the trolly"
+  - tweak: "Holding items up to cameras no longer forces a window in the AI players face."
+  - bugfix: "Having ' in your name no longer breaks when holding items up to cameras"

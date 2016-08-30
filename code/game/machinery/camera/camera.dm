@@ -162,27 +162,25 @@
 		var/obj/item/device/pda/P = null
 
 		var/itemname = ""
-		var/info = ""
 		if(istype(W, /obj/item/weapon/paper))
 			X = W
 			itemname = X.name
-			info = X.info
 		else
 			P = W
 			itemname = P.name
-			info = P.notehtml
 		U << "You hold \a [itemname] up to the camera ..."
 		for(var/mob/living/silicon/ai/O in living_mob_list)
 			if(!O.client) continue
-			if(U.name == "Unknown") O << "<b>[U]</b> holds \a [itemname] up to one of your cameras ..."
-			else O << "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[U.name]'>[U]</a></b> holds \a [itemname] up to one of your cameras ..."
-			O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname))
+			if(U.name == "Unknown")
+				O << "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[src];readcapturedpaper=\ref[W]'>view message</a>"
+			else
+				O << "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[src];readcapturedpaper=\ref[W]'>view message</a>"
+
 		for(var/mob/O in player_list)
 			if (istype(O.machine, /obj/machinery/computer/security))
 				var/obj/machinery/computer/security/S = O.machine
 				if (S.current == src)
-					O << "[U] holds \a [itemname] up to one of the cameras ..."
-					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname))
+					O << "[U] holds \a [itemname] up to one of the cameras ...<a href='?src=\ref[src];readcapturedpaper=\ref[W]'>view message</a>"
 
 	else if (istype(W, /obj/item/weapon/camera_bug))
 		if (!src.can_use())
@@ -463,3 +461,18 @@
 	wires.MendAll()
 	update_icon()
 	update_coverage()
+
+/obj/machinery/camera/Topic(href, href_list)
+	..()
+	if (href_list["readcapturedpaper"]) //Yep stolen from admin faxes
+		var/obj/item/fax = locate(href_list["readcapturedpaper"])
+		if(!fax)
+			usr << ""
+		if (istype(fax, /obj/item/weapon/paper))
+			var/obj/item/weapon/paper/P = fax
+			P.show_content(usr,1)
+		else if (istype(fax, /obj/item/weapon/photo))
+			var/obj/item/weapon/photo/H = fax
+			H.show(usr)
+		return
+	return
