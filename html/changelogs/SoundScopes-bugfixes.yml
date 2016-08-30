@@ -7,3 +7,4 @@ changes:
   - tweak: "Drones can no longer push objects they can't pull."
   - bugfix: "Vairous runtimes, given a healthy home."
   - tweak: "Simple Animals can no longer take items of people."
+  - bugfix: "resisting on cargo trains actually unbuckles you properly, no more bluespace teleport"
