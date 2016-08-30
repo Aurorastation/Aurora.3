@@ -12,3 +12,4 @@ changes:
   - tweak: "Holding items up to cameras no longer forces a window in the AI players face."
   - bugfix: "Having ' in your name no longer breaks when holding items up to cameras"
   - bugfix: "Ian now needs to stand next to something to eat. No more eating through doors(single side windows are an issue)"
+  - bugfix: "Welding goggles toggle verb when first used not displays the correct icon"
