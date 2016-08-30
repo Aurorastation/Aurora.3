@@ -8,3 +8,4 @@ changes:
   - bugfix: "Vairous runtimes, given a healthy home."
   - tweak: "Simple Animals can no longer take items of people."
   - bugfix: "resisting on cargo trains actually unbuckles you properly, no more bluespace teleport"
+  - bugfix: "breaking a crate on a cargo tug no longer leaves a hidden crate on the trolly"

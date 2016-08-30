@@ -18,6 +18,9 @@
 		user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
 							 "<span class='notice'>You pry open \the [src].</span>", \
 							 "<span class='notice'>You hear splitting wood.</span>")
+		for(var/obj/vehicle/V in T.contents)
+			if(V)
+				V.unload(user)
 		qdel(src)
 	else
 		return attack_hand(user)
