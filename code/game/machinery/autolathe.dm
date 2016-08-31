@@ -263,6 +263,7 @@
 
 		//Create the desired item.
 		var/obj/item/I = new making.path(get_step(loc, get_dir(src,usr)))
+		I.Created()
 		if(multiplier > 1 && istype(I, /obj/item/stack))
 			var/obj/item/stack/S = I
 			S.amount = multiplier
