@@ -120,6 +120,8 @@
 			if(prob(50))
 				shatter(0)
 				return
+			else
+				take_damage(rand(10,30))
 
 
 /obj/structure/window/blob_act()
@@ -297,7 +299,7 @@
 	// TODO :  Change to incapacitated() on merge.
 	if(usr.stat || usr.lying || usr.resting || usr.buckled)
 		return 0
-	
+
 	if(anchored)
 		usr << "It is fastened to the floor therefore you can't rotate it!"
 		return 0

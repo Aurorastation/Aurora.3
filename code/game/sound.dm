@@ -21,7 +21,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 //var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
 
-/proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global)
+/proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/usepressure = 1)
 
 	soundin = get_sfx(soundin) // same sound for everyone
 
@@ -43,7 +43,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			var/turf/T = get_turf(M)
 
 			if(T && T.z == turf_source.z)
-				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global)
+				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global,usepressure)
 
 var/const/FALLOFF_SOUNDS = 0.5
 

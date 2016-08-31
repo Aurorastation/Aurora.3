@@ -87,14 +87,14 @@
 		else
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
-			
+
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			if(!src) return
 			user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
-			
+
 	else if(istype(W, /obj/item/weapon/melee/chainsword))
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)
@@ -247,12 +247,20 @@
 		if(2.0)
 			if (prob(30))
 				dismantle()
-			return
+				return
+			else
+				health -= rand(60,180)
+
 		if(3.0)
 			if (prob(5))
 				dismantle()
-			return
+				return
+			else
+				health -= rand(40,80)
 		else
+
+	if(health <= 0)
+		dismantle()
 	return
 
 /obj/structure/girder/cult
@@ -286,7 +294,7 @@
 
 	else if(istype(W, /obj/item/weapon/melee/energy))
 		var/obj/item/weapon/melee/energy/WT = W
-		if(WT.active)	
+		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
 			if(do_after(user,30))
 				user << "<span class='notice'>You slice apart the girder!</span>"
@@ -294,13 +302,13 @@
 		else
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
-		
+
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			user << "<span class='notice'>You slice apart the girder!</span>"
 		dismantle()
-			
+
 	else if(istype(W, /obj/item/weapon/melee/chainsword))
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)

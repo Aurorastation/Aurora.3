@@ -408,14 +408,16 @@
 			if(prob(25))
 				qdel(src)
 			else
-				take_damage(300)
+				take_damage(rand(150,300))
 		if(3.0)
 			if(prob(80))
 				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 				s.set_up(2, 1, src)
 				s.start()
-			else
-				take_damage(150)
+			take_damage(rand(100,150))
+
+	if (health <= 0)
+		qdel(src)
 	return
 
 
