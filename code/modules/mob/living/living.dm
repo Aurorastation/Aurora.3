@@ -705,10 +705,10 @@ default behaviour is:
 			continue
 
 		var/i = 1
-		var/index = "[T.loc.name]\[[i]\]"
+		var/index = "[T.loc.name]\[[T.x],[T.y]\]"
 		while(index in vents)
-			i++
-			index = "[T.loc.name]\[[i]\]"
+			i++//This will only be used in the dumb circumstance of multiple vents on one tile
+			index += "\[[i]\]"
 		vents[index] = temp_vent
 	if(!vents.len)
 		src << "\red There are no available vents to travel to, they could be welded."
@@ -738,6 +738,16 @@ default behaviour is:
 	if(!target_vent)
 		return
 
+	for(var/obj/S in vent_found.loc)
+		if (prob(25))//Crawling into a vent with a trap on it may trigger it
+			if (istype(S, /obj/item/device/assembly/mousetrap))
+				src.visible_message("<span class='danger'>[src] gets caught in the mousetrap while trying to crawl into the vent!</span>", "<span class='danger'>You get caught in the mousetrap while trying to crawl into the vent!</span>")
+			S.Crossed(src)//Triggers mousetraps and similar things
+
+	if(stat)//Repeat this check incase the mob died to a trap attempting to enter
+		src << "You must be conscious to do this!"
+		return
+
 	for(var/mob/O in viewers(src, null))
 		O.show_message(text("<B>[src] scrambles into the ventillation ducts!</B>"), 1)
 	loc = target_vent
@@ -760,6 +770,10 @@ default behaviour is:
 		var/area/new_area = get_area(loc)
 		if(new_area)
 			new_area.Entered(src)
+
+		for(var/obj/S in loc)
+			if (prob(75))
+				S.Crossed(src)//Triggers mousetraps and similar things if they're on the exit vent
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
