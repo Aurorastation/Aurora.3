@@ -213,6 +213,7 @@ log transactions
 
 /obj/machinery/atm/Topic(var/href, var/href_list)
 	if(href_list["choice"])
+		if (!usr.Adjacent(src)) return
 		switch(href_list["choice"])
 			if("transfer")
 				if(authenticated_account)
@@ -358,6 +359,8 @@ log transactions
 					R.overlays += stampoverlay
 					R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 
+					release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
+
 				if(prob(50))
 					playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
 				else
@@ -404,6 +407,7 @@ log transactions
 					playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
 				else
 					playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+				release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 
 			if("insert_card")
 				if(!held_card)
