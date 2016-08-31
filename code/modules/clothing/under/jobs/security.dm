@@ -125,7 +125,7 @@
 	worn_state = "hos_corporate"
 
 /obj/item/clothing/head/helmet/HoS
-	name = "Head of Security Hat"
+	name = "head of security hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "hoscap"
 	flags = HEADCOVERSEYES
@@ -135,7 +135,7 @@
 	siemens_coefficient = 0.5
 
 /obj/item/clothing/suit/armor/hos
-	name = "Head of Security's jacket"
+	name = "head of security's jacket"
 	desc = "An armoured jacket with golden rank pips and livery."
 	icon_state = "hos"
 	item_state = "hos"
@@ -147,7 +147,7 @@
 
 
 /obj/item/clothing/head/helmet/HoS/dermal
-	name = "Dermal Armour Patch"
+	name = "dermal armour patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
 	item_state = "dermal"
