@@ -1,0 +1,45 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#################################
+
+# Your name.  
+author: Nanako
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Added a Crash ability to exosuits. Uses the suit's mass to attempt to break through obstacles, sustaining some damage in the process."
+  - tweak: "Buffed Ripley exosuit armor values significantly, and durand armour slightly. Firefighter ripley also buffed, but is slower than base ripley."
+  - tweak: "Greatly increased the health values of some high-security airlocks."
+  - bugfix: "Airlocks, tables, girders and windows now behave a bit more consistently when exploded. All airlocks are a bit more resistant to explosions when bolted."
+  - rscadd: "Added some more narrator voices to exosuits."
+  - rscadd: "Added some warning sounds for exosuits when low on power, or badly damaged."
+  - tweak: "The power drain of EMPs used on exosuits no longer scales with the cell. A better power cell can now survive more EMP hits. Drain level is a little lower for the starting cell."
+  - tweak: "EMP damage against exosuits reduced by 20%"
+
+  
