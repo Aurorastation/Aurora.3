@@ -14,3 +14,4 @@ changes:
   - bugfix: "Ian now needs to stand next to something to eat. No more eating through doors(single side windows are an issue)"
   - bugfix: "Welding mask toggle verb when first used now displays the correct icon"
   - bugfix: "Voting on code red or above notifys when it isn't allowed"
+  - tweak: "Using a screwdriver on heater/cooler circuitboards now changes the direction."
