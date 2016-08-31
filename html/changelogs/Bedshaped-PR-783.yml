@@ -1,0 +1,8 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - rscadd: "ATMs will now announce their ID and location when put in lockdown."
+  - tweak: "ATMs can no longer scan a person for an ID, must be inserted."
+  - wip: "Various bits of code reorganizing."
