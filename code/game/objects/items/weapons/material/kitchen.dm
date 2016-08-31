@@ -36,7 +36,7 @@
 
 	if (reagents.total_volume > 0)
 		if(M == user)
-			if(M.species.name == "Machine")
+			if(M.get_species() == "Machine")
 				M.visible_message("<span class='notice'>\The [user] smudges some [loaded] from \the [src] on their screen.</span>","<span class='notice'>You smudge some [loaded] from \the [src] on your screen.</span>")
 			else
 				M.visible_message("<span class='notice'>\The [user] eats some [loaded] from \the [src].</span>","<span class='notice'>You eat some [loaded] from \the [src].</span>")
@@ -44,7 +44,7 @@
 				playsound(M.loc,'sound/items/eatfood.ogg', rand(10,40), 1)
 				overlays.Cut()
 		else
-			if(M.species.name == "Machine")
+			if(M.get_species() == "Machine")
 				M.visible_message("<span class='notice'>\The [user] smudges some [loaded] onto [M].</span>","<span class='notice'>You smudge some [loaded] from \the [src] onto [M].</span>")
 			else
 				M.visible_message("<span class='notice'>\The [user] feeds some [loaded] to \the [M] with \the [src].</span>","<span class='notice'>You feed \the [M] some [loaded] with \the [src].</span>")
