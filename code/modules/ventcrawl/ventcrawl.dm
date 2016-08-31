@@ -158,7 +158,7 @@ var/list/ventcrawl_machinery = list(
 							if(HAZARD_HIGH_PRESSURE to INFINITY)
 								usr << "<span class='danger'>You feel a roaring wind pushing you away from the vent!</span>"
 
-					if(!do_after(src, 45, vent_found, 1, 1))
+					if(!do_mob(src, vent_found, 45, 1, 1))
 						return
 
 					if(!client)
