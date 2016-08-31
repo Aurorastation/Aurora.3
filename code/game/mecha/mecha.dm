@@ -1074,7 +1074,7 @@
 
 	sleep(1)
 	if (A && !(A.gcDestroyed) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
-		src.visible_message("<span class='danger'>[src.name] crashes into the [aname]</span>")
+		src.visible_message("<span class='danger'>[src.name] crashes into the [aname]!</span>")
 		take_damage(damage)
 		return 0//If it survived the impact then we stop breaking things for this proc
 	else
