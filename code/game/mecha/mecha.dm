@@ -977,6 +977,8 @@
 
 	//1. We check if we can move into the tile. If so, then we just lunge forward clumsily
 	var/turf/target = get_step(src, dir)
+
+
 	if (target.Enter(src, null))
 		mechstep(dir)
 		sleep(2)
@@ -993,7 +995,7 @@
 	for(var/obj/obstacle in get_turf(src))
 		if((obstacle.flags & ON_BORDER) && (src != obstacle))
 			if(!obstacle.CheckExit(src, target))
-				brokesomething = 1
+				brokesomething++
 				if (!crash_into(obstacle))
 					done = 1//If it survived the impact then we stop breaking things for this proc
 
@@ -1006,7 +1008,7 @@
 	//3. Now we hit the turf itself, if it's a wall
 	if (!done && !target.CanPass(src, target))
 		crash_into(target)
-		brokesomething = 1
+		brokesomething++
 		if (!target.CanPass(src, target))
 			done = 1
 
@@ -1017,13 +1019,17 @@
 	if (!done)
 		for (var/atom/A in target)
 			if (A.density && A != src && A != occupant && A.loc != src)
-				brokesomething = 1
+				brokesomething++
 				if (!crash_into(A))
 					done = 1//If it survived the impact then we stop breaking things for this proc
 
 
-	if (brokesomething)//If we hit any >0 number of things, whether they broke or not, we play the impact sound exactly once
+
+	//If we hit any >0 number of things, whether they broke or not, we play the impact sound exactly once, and we send admin logs
+	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
+		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> driving [name] crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
+		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 
 	//5. If we get here, then we've broken through everything that could stop us
@@ -1056,7 +1062,16 @@
 
 	var/damage = crash_damage(A)
 
+
+
+	if (istype(A, /mob/living))
+		var/mob/living/M = A
+		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]with exosuit [name] </font>"
+		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed with the exosuit [name] driven by [key_name(occupant)]</font>"
+		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
+
 	A.ex_act(3)
+
 	sleep(1)
 	if (A && !(A.gcDestroyed) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
 		src.visible_message("<span class='danger'>[src.name] crashes into the [aname]</span>")
@@ -2181,3 +2196,10 @@
 	//src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
 	return
 */
+
+#undef NOMINAL
+#undef FIRSTRUN
+#undef POWER
+#undef DAMAGE
+#undef IMAGE
+#undef WEAPONDOWN
