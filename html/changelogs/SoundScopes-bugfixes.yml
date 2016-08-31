@@ -16,3 +16,4 @@ changes:
   - bugfix: "Voting on code red or above notifys when it isn't allowed"
   - tweak: "Using a screwdriver on heater/cooler circuitboards now changes the direction."
   - bugfix: "Viruses only affect the correct species."
+  - bugfix: "IPC's can't eat from forks."
