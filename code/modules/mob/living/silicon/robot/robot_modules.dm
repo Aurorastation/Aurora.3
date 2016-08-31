@@ -626,7 +626,7 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/syndicate
-	name = "illegal robot module"
+	name = "syndicate robot module"
 	languages = list(
 					LANGUAGE_SOL_COMMON = 1,
 					LANGUAGE_TRADEBAND = 1,
