@@ -160,7 +160,7 @@
 	icon_state = "jensen"
 	item_state = "jensen"
 	worn_state = "jensen"
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/armor/hos/jensen
 	name = "armored trenchcoat"
