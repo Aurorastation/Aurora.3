@@ -1,7 +1,0 @@
-author: Bedshaped
-
-delete-after: True
-
-changes: 
-  - bugfix: "HOTFIX: Printing paper from an ATM should no longer be able to be spammed."
-  - bugfix: "You can no longer use an ATM if not adjacent to it."
