@@ -1,8 +1,14 @@
+// Updated by Nadrew, bits and pieces taken from Baycode, but fairly heavily modified to function here.
+
+// The main issue in the old code was the Life() loop and the fact that it could go infinite really easily.
+// The fix involved labeling the various loops involved so they could be continued and broken properly.
+// It also decreases the amount of calls to AStar() and handle_target()
+
 /mob/living/bot/cleanbot
 	name = "Cleanbot"
 	desc = "A little cleaning robot, he looks so excited!"
 	icon_state = "cleanbot0"
-	req_access = list(access_janitor)
+	req_one_access = list(access_janitor, access_robotics)
 	botcard_access = list(access_janitor, access_maint_tunnels)
 
 	locked = 0 // Start unlocked so roboticist can set them to patrol.
@@ -38,8 +44,12 @@
 	if(radio_controller)
 		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	spawn(10)
-		gib()
+/mob/living/bot/cleanbot/Destroy()
+	. = ..()
+	path = null
+	patrol_path = null
+	target = null
+	ignorelist = null
 
 /mob/living/bot/cleanbot/proc/handle_target()
 	if(loc == target.loc)
@@ -47,10 +57,11 @@
 			UnarmedAttack(target)
 			return 1
 	if(!path.len)
-//		spawn(0)
 		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-//			custom_emote(2, "[src] can't reach the target and is giving up.")
+			custom_emote(2, "can't reach \the [target.name] and is giving up for now.")
+			log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
+			ignorelist |= target
 			target = null
 			path = list()
 		return
@@ -63,17 +74,12 @@
 /mob/living/bot/cleanbot/Life()
 	..()
 
-	// Nope.jpg
-	return
-
-	var/found_spot
-	var/current_tile
-	var/cleanable_type = /obj/effect/decal/cleanable
-	var/target_type
-	var/searching      = 1
-
 	if(!on)
+		ignorelist = list()
 		return
+
+	if(ignorelist.len && prob(2))
+		ignorelist -= pick(ignorelist)
 
 	if(client)
 		return
@@ -101,25 +107,23 @@
 		patrol_path = list()
 		return
 
-	while (searching)
-		for (current_tile = 0, current_tile <= maximum_search_range, current_tile++)
-			for (cleanable_type in view(current_tile, src))
-				if (!(cleanable_type in ignorelist))
-					for (target_type in target_types)
-						if (istype(cleanable_type, target_type))
+	var/found_spot
+	search_for:
+		for(var/i=0, i <= maximum_search_range, i++)
+			clean_for:
+				for(var/obj/effect/decal/cleanable/D in view(i, src))
+					if((D in ignorelist)) continue clean_for
+					for(var/T in target_types)
+						if(istype(D, T))
 							patrol_path = list()
-							target      = cleanable_type
-							found_spot  = handle_target()
-
+							target = D
+							found_spot = handle_target()
 							if (found_spot)
-								searching = 0;
+								break search_for
 							else
-								if (target == null) //handles if path can not be created
-									searching = 0
+								target = null
+								continue // no need to check the other types
 
-						else
-							target = null
-							continue //Recode without the use of these shitty things.
 
 	if(!found_spot && !target) // No targets in range
 		if(!patrol_path || !patrol_path.len)
@@ -135,7 +139,7 @@
 				var/datum/signal/signal = new()
 				signal.source = src
 				signal.transmission_method = 1
-				signal.data = list("findbeakon" = "patrol")
+				signal.data = list("findbeacon" = "patrol")
 				frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 				signal_sent = world.time
 			else
@@ -153,6 +157,9 @@
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
+
+
+
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 	if(!..())
 		return
@@ -288,7 +295,7 @@
 	var/dist = get_dist(cleanbot, signal.source.loc)
 	memorized[recv] = signal.source.loc
 
-	if(dist < cleanbot.closest_dist) // We check all signals, choosing the closest beakon; then we move to the NEXT one after the closest one
+	if(dist < cleanbot.closest_dist) // We check all signals, choosing the closest beacon; then we move to the NEXT one after the closest one
 		cleanbot.closest_dist = dist
 		cleanbot.next_dest = signal.data["next_patrol"]
 
@@ -317,7 +324,6 @@
 		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
 		user.drop_from_inventory(src)
 		qdel(src)
-		return 1
 
 	else if(istype(O, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
