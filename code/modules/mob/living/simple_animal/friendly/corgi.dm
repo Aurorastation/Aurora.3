@@ -107,9 +107,11 @@
 					else
 						set_dir(SOUTH)
 
-					if(isturf(movement_target.loc) )
-
-						UnarmedAttack(movement_target)
+					if(isturf(movement_target.loc))
+						for(var/direction in alldirs)
+							var/turf/T = get_step(src, direction)
+							if(T == movement_target.loc)
+								UnarmedAttack(movement_target)
 					else if(ishuman(movement_target.loc) && prob(20))
 						visible_emote("stares at the [movement_target] that [movement_target.loc] has with sad puppy eyes.")
 			else
