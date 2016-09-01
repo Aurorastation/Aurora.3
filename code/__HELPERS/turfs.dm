@@ -12,9 +12,16 @@
 /proc/isfloor(turf/T)
 	return (istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor) || istype(T, /turf/simulated/shuttle/floor))
 
+
+//Edit by Nanako
+//This proc is used in only two places, ive changed it to make more sense
+//The old behaviour returned zero if there were any simulated atoms at all, even pipes and wires
+//Now it just finds if the tile is blocked by anything solid.
 /proc/turf_clear(turf/T)
+	if (T.density)
+		return 0
 	for(var/atom/A in T)
-		if(A.simulated)
+		if(A.density)
 			return 0
 	return 1
 

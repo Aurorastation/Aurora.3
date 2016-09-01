@@ -1,5 +1,6 @@
 /datum/species/human
 	name = "Human"
+	short_name = "hum"
 	name_plural = "Humans"
 	language = "Sol Common"
 	primitive_form = "Monkey"
@@ -14,6 +15,7 @@
 
 /datum/species/unathi
 	name = "Unathi"
+	short_name = "una"
 	name_plural = "Unathi"
 	icobase = 'icons/mob/human_races/r_lizard.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
@@ -67,6 +69,7 @@
 
 /datum/species/tajaran
 	name = "Tajara"
+	short_name = "taj"
 	name_plural = "Tajaran"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
@@ -114,6 +117,7 @@
 
 /datum/species/skrell
 	name = "Skrell"
+	short_name = "skr"
 	name_plural = "Skrell"
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
@@ -138,6 +142,7 @@
 
 /datum/species/diona
 	name = "Diona"
+	short_name = "dio"
 	name_plural = "Dionaea"
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
@@ -230,6 +235,7 @@
 
 /datum/species/machine
 	name = "Machine"
+	short_name = "ipc"
 	name_plural = "machines"
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
@@ -275,6 +281,7 @@
 
 /datum/species/bug
 	name = "Vaurca"
+	short_name = "vau"
 	name_plural = "Vaurcae"
 	language = "Hivenet"
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'

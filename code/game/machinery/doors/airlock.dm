@@ -65,7 +65,7 @@
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
-	hatch_colour = "#c82b2b"
+	hatch_colour = "#4F637D"
 
 /obj/machinery/door/airlock/engineering
 	name = "Airlock"
@@ -197,7 +197,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	glass = 1
-	hatch_colour = "#b81b1b"
+	hatch_colour = "#4F637D"
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Maintenance Hatch"

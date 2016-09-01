@@ -132,11 +132,11 @@
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 10, bomb = 25, bio = 10, rad = 0)
 	flags_inv = HIDEEARS
 	body_parts_covered = 0
-	siemens_coefficient = 0.8
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/armor/hos
-	name = "armored coat"
-	desc = "A greatcoat enhanced with a special alloy for some protection and style."
+	name = "Head of Security's jacket"
+	desc = "An armoured jacket with golden rank pips and livery."
 	icon_state = "hos"
 	item_state = "hos"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS

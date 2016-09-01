@@ -1,0 +1,19 @@
+author: SoundScopes
+
+delete-after: True
+
+changes:
+  - bugfix: "Stripping mobs now requires both mobs to stay still."
+  - tweak: "Drones can no longer push objects they can't pull."
+  - bugfix: "Vairous runtimes, given a healthy home."
+  - tweak: "Simple Animals can no longer take items of people."
+  - bugfix: "resisting on cargo trains actually unbuckles you properly, no more bluespace teleport"
+  - bugfix: "breaking a crate on a cargo tug no longer leaves a hidden crate on the trolly"
+  - tweak: "Holding items up to cameras no longer forces a window in the AI players face."
+  - bugfix: "Having ' in your name no longer breaks when holding items up to cameras"
+  - bugfix: "Ian now needs to stand next to something to eat. No more eating through doors(single side windows are an issue)"
+  - bugfix: "Welding mask toggle verb when first used now displays the correct icon"
+  - bugfix: "Voting on code red or above notifys when it isn't allowed"
+  - tweak: "Using a screwdriver on heater/cooler circuitboards now changes the direction."
+  - bugfix: "Viruses only affect the correct species."
+  - bugfix: "IPC's can't eat from forks."

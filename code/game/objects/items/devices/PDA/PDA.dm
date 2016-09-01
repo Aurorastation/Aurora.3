@@ -897,7 +897,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(i>=25 && i<=40) //Smoke
 		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem
 		S.attach(P.loc)
-		S.set_up(P, 10, 0, P.loc)
+		S.set_up(P, 10, 0, P.loc, 60)
 		playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 		S.start()
 		message += "Large clouds of smoke billow forth from your [P]!"

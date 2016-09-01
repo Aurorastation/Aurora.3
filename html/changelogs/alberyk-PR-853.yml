@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Syndicate borgs can now select their own name when deployed."
+  - bugfix: "Fixed the syndicate borg having the wrong eye lights." 
