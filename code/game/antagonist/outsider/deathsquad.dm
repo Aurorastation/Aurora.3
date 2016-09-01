@@ -7,7 +7,7 @@ var/datum/antagonist/deathsquad/deathsquad
 	role_text_plural = "Death Commandos"
 	welcome_text = "You work in the service of Central Command Asset Protection, answering directly to the Board of Directors."
 	landmark_id = "Commando"
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_OVERRIDE_MOB | ANTAG_HAS_NUKE | ANTAG_HAS_LEADER | ANTAG_RANDOM_EXCEPTED
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_OVERRIDE_MOB | ANTAG_HAS_NUKE | ANTAG_HAS_LEADER | ANTAG_RANDOM_EXCEPTED | ANTAG_CHOOSE_NAME | ANTAG_SET_APPEARANCE
 	default_access = list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
 	antaghud_indicator = "huddeathsquad"
 
@@ -34,7 +34,7 @@ var/datum/antagonist/deathsquad/deathsquad
 	if (player.mind == leader)
 		player.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(player), slot_w_uniform)
 	else
-		player.equip_to_slot_or_del(new /obj/item/clothing/under/color/green(player), slot_w_uniform)
+		player.equip_to_slot_or_del(new /obj/item/clothing/under/ert(player), slot_w_uniform)
 
 	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(player), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(player), slot_gloves)
@@ -45,10 +45,10 @@ var/datum/antagonist/deathsquad/deathsquad
 		player.equip_to_slot_or_del(new /obj/item/weapon/disk/nuclear(player), slot_r_store)
 	else
 		player.equip_to_slot_or_del(new /obj/item/weapon/plastique(player), slot_l_store)
+		player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/mateba(player), slot_belt)
 	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle(player), slot_r_hand)
 	player.equip_to_slot_or_del(new /obj/item/weapon/rig/ert/assetprotection(player), slot_back)
-	player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_s_store)
 	player.implant_loyalty(player)
 
 	var/obj/item/weapon/card/id/id = create_id("Asset Protection", player)
@@ -57,6 +57,7 @@ var/datum/antagonist/deathsquad/deathsquad
 		id.icon_state = "centcom"
 	create_radio(DTH_FREQ, player)
 
+/* //disabling this until the names are fixed to don't be dumb, NanoTrasen has no military
 /datum/antagonist/deathsquad/update_antag_mob(var/datum/mind/player)
 
 	..()
@@ -83,7 +84,7 @@ var/datum/antagonist/deathsquad/deathsquad
 		H.dna.ready_dna(H)
 
 	return
-
+*/
 /datum/antagonist/deathsquad/create_antagonist()
 	if(..() && !deployed)
 		deployed = 1

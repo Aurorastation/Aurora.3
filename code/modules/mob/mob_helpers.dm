@@ -4,6 +4,41 @@
 		return 1
 	return 0
 
+/proc/ishuman_species(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
+		return 1
+	return 0
+
+/proc/isunathi(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
+		return 1
+	return 0
+
+/proc/istajara(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Tajara"))
+		return 1
+	return 0
+
+/proc/isskrell(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skrell"))
+		return 1
+	return 0
+
+/proc/isvaurca(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca"))
+		return 1
+	return 0
+
+/proc/isipc(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Machine"))
+		return 1
+	return 0
+
+/proc/isvox(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vox"))
+		return 1
+	return 0
+
 /proc/isalien(A)
 	if(istype(A, /mob/living/carbon/alien))
 		return 1
@@ -545,7 +580,7 @@ proc/is_blind(A)
 				name = realname
 
 	for(var/mob/M in player_list)
-		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
+		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
 			var/follow
 			var/lname
 			if(subject)

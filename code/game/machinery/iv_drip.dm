@@ -153,6 +153,7 @@
 	if (!(user in view(2)) && user!=src.loc) return
 
 	user << "The IV drip is [mode ? "injecting" : "taking blood"]."
+	user << "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>"
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.reagent_list.len)
@@ -177,7 +178,7 @@
 		return
 	set_rate:
 		var/amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
-		if ((0.001 > transfer_amount || transfer_amount > 4) && transfer_amount != 0)
+		if ((0.001 > amount || amount > 4) && amount != 0)
 			usr << "<span class='warning'>Entered value must be between 0.001 and 4.</span>"
 			goto set_rate
 		if (transfer_amount == 0)

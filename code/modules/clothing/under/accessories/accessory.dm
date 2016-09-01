@@ -35,7 +35,7 @@
 				tmp_icon_state = "[tmp_icon_state]_mob"
 			mob_overlay = image("icon" = icon_override, "icon_state" = "[tmp_icon_state]")
 		else if(contained_sprite)
-			tmp_icon_state = "[tmp_icon_state]_w"
+			tmp_icon_state = "[src.item_state][WORN_UNDER]"
 			mob_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]")
 		else
 			mob_overlay = image("icon" = INV_ACCESSORIES_DEF_ICON, "icon_state" = "[tmp_icon_state]")

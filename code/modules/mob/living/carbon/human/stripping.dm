@@ -1,6 +1,6 @@
 /mob/living/carbon/human/proc/handle_strip(var/slot_to_strip,var/mob/living/user)
 
-	if(!slot_to_strip || !istype(user))
+	if(!slot_to_strip || !istype(user) || isanimal(user) || !istype(user, /mob/living/simple_animal/hostile))
 		return 0
 
 	// TODO :  Change to incapacitated() on merge.
@@ -72,7 +72,7 @@
 	else
 		visible_message("<span class='danger'>\The [user] is trying to put \a [held] on \the [src]!</span>")
 
-	if(!do_after(user,HUMAN_STRIP_DELAY))
+	if(!do_mob(user,src,HUMAN_STRIP_DELAY))
 		return 0
 
 	if(!stripping && user.get_active_hand() != held)
