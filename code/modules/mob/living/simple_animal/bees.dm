@@ -1,10 +1,12 @@
-
+//Bees are spawned from an apiary, and will slowly die if it is destroyed.
 /mob/living/simple_animal/bee
 	name = "bees"
 	icon = 'icons/obj/apiary_bees_etc.dmi'
 	icon_state = "bees1"
 	icon_dead = "bees1"
 	mob_size = 1
+	unsuitable_atoms_damage = 2.5
+	maxHealth = 20
 	var/strength = 1
 	var/feral = 0
 	var/mut = 0
@@ -25,6 +27,24 @@
 		parent.owned_bee_swarms.Remove(src)
 	..()
 
+
+//Special death behaviour. When bees accumulate enough damage to 'die', they don't outright die.  Thus no call to parent
+//Instead the swarm strength (ie, size, or quantity of bees) drops and their health is refilled
+//Repeat until strength hits zero. only THEN do they die, and they qdel and leave no corpse in doing so
+//Because we don't have sprites for a carpet made of bee corpses.
+/mob/living/simple_animal/bee/death()
+	strength -= 1
+	if (strength <= 0)
+		if (prob(35))//probability to reduce spam
+			src.visible_message("\red The bee swarm completely dissipates.")
+		qdel(src)
+	else
+		health = maxHealth
+		if (prob(35))//probability to reduce spam
+			src.visible_message("\red The bee swarm starts to thin out a little.")
+
+	update_icons()
+
 /mob/living/simple_animal/bee/Life()
 	..()
 
@@ -32,16 +52,23 @@
 		//if we're strong enough, sting some people
 		var/mob/living/carbon/human/M = target_mob
 		var/sting_prob = 40 // Bees will always try to sting.
+		var/prob_mult = 1
 		if(M in view(src,1)) // Can I see my target?
 			if(prob(max(feral * 10, 0)))	// Am I mad enough to want to sting? And yes, when I initially appear, I AM mad enough
 				var/obj/item/clothing/worn_suit = M.wear_suit
 				var/obj/item/clothing/worn_helmet = M.head
 				if(worn_suit) // Are you wearing clothes?
-					sting_prob -= min(worn_suit.armor["bio"],70) // Is it sealed? I can't get to 70% of your body.
+					if ((worn_suit.flags & THICKMATERIAL))
+						prob_mult -= 0.7
+					else
+						prob_mult -= 0.01 * (min(worn_suit.armor["bio"],70)) // Is it sealed? I can't get to 70% of your body.
 				if(worn_helmet)
-					sting_prob -= min(worn_helmet.armor["bio"],30) // Is your helmet sealed? I can't get to 30% of your body.
-				if( prob(sting_prob) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25))) ) // Try to sting! If you're not moving, think about stinging.
-					M.apply_damage(min(strength,2)+mut, BRUTE, sharp=1) // Stinging. The more mutated I am, the harder I sting.
+					if ((worn_suit.flags & THICKMATERIAL))
+						prob_mult -= 0.3
+					else
+						prob_mult -= 0.01 *(min(worn_helmet.armor["bio"],30))// Is your helmet sealed? I can't get to 30% of your body.
+				if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
+					M.apply_damage(min(strength,2)+mut, BURN, sharp=1) // Stinging. The more mutated I am, the harder I sting.
 					M.apply_damage((round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic, TOX) // Bee venom based on how angry I am and how many there are of me!
 					M << "\red You have been stung!"
 					M.flash_pain()
@@ -67,9 +94,8 @@
 				var/mob/living/simple_animal/bee/B = new(get_turf(pick(orange(src,1))))
 				B.strength = rand(1,5)
 				src.strength -= B.strength
-				if(src.strength <= 5)
-					src.icon_state = "bees[src.strength]"
-				B.icon_state = "bees[B.strength]"
+				update_icons()
+				B.update_icons()
 				if(src.parent)
 					B.parent = src.parent
 					src.parent.owned_bee_swarms.Add(B)
@@ -80,7 +106,7 @@
 
 		//smoke, water and steam calms us down
 		var/calming = 0
-		var/list/calmers = list(/obj/effect/effect/smoke/chem, \
+		var/list/calmers = list(/obj/effect/effect/smoke, \
 		/obj/effect/effect/water, \
 		/obj/effect/effect/foam, \
 		/obj/effect/effect/steam, \
@@ -108,9 +134,7 @@
 			if(feral > 0)
 				src.strength += B.strength
 				qdel(B)
-				src.icon_state = "bees[src.strength]"
-				if(strength > 5)
-					icon_state = "bees_swarm"
+				update_icons()
 			else if(prob(10))
 				//make the other swarm of bees stronger, then move away
 				var/total_bees = B.strength + src.strength
@@ -118,11 +142,11 @@
 					B.strength = min(5, total_bees)
 					src.strength = total_bees - B.strength
 
-					B.icon_state = "bees[B.strength]"
+					update_icons()
+					B.update_icons()
 					if(src.strength <= 0)
 						qdel(src)
 						return
-					src.icon_state = "bees[B.strength]"
 					var/turf/simulated/floor/T = get_turf(get_step(src, pick(1,2,4,8)))
 					density = 1
 					if(T.Enter(src, get_turf(src)))
@@ -169,11 +193,34 @@
 	if(!parent && prob(10))
 		strength -= 1
 		if(strength <= 0)
-			qdel(src)
-		else if(strength <= 5)
-			icon_state = "bees[strength]"
+			death()
+		else
+			update_icons()
 
-	//debugging
-	/*icon_state = "[strength]"
-	if(strength > 5)
-		icon_state = "unknown"*/
+
+/mob/living/simple_animal/bee/update_icons()
+	if(strength <= 5)
+		icon_state = "bees[strength]"
+	else
+		icon_state = "bees_swarm"
+
+//Kill it with fire!
+/mob/living/simple_animal/bee/adjustFireLoss(damage)
+	damage *= 2
+	..()
+
+
+//No more grabbing bee swarms
+/mob/living/simple_animal/bee/attempt_grab(var/mob/living/grabber)
+	world  << "Calling bee attemptgrab!"
+	if (prob(strength*5))//if the swarm is big you might grab a few bees, you won't make a serious dent
+		grabber << "<span class = 'warning'>You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees.</span>"
+		adjustBruteLoss(strength*0.5)
+	else
+		grabber << "<span class = 'warning'>For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands.</span>"
+		grabber.apply_damage(strength*0.5, BURN)
+
+	return 0
+
+/mob/living/simple_animal/bee/attempt_pull(var/mob/living/grabber)
+	return attempt_grab(grabber)

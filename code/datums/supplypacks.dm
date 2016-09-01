@@ -1228,7 +1228,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/apiary,
 					/obj/item/queen_bee)
 	cost = 40
-	contraband = 1
+	//contraband = 1
 	containertype = /obj/structure/closet/crate/hydroponics
 	containername = "Beekeeping crate"
 	access = access_hydroponics
@@ -1560,8 +1560,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/largecrate
 	containername = "jukebox Crate"
 	group = "Hospitality"
-	
-//voidsuit crates 
+
+//voidsuit crates
 
 /datum/supply_packs/voidsuitcrate_eng
 	name = "Engineering Voidsuit Crate"
@@ -1602,7 +1602,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "atmospherics voidsuit kit"
 	access = access_atmospherics
 	group = "Atmospherics"
-	
+
 /datum/supply_packs/voidsuitcrate_minin
 	name = "Mining Voidsuit Crate"
 	contains = list(/obj/item/clothing/head/helmet/space/void/mining,
@@ -1612,7 +1612,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "mining voidsuit kit"
 	access = access_mining
 	group = "Supply"
-	
+
 //maglocks crates
 
 /datum/supply_packs/maglocks_engineering
