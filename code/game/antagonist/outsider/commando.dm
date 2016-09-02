@@ -25,10 +25,10 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(player), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(player), slot_glasses)
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/syndicate(player), slot_wear_mask)
-	player.equip_to_slot_or_del(new /obj/item/weapon/storage/box(player), slot_in_backpack)
-	player.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45(player), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45(player), slot_l_store)
+	player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/rig/merc(player), slot_back)
-	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle(player), slot_r_hand)
+	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/rifle/pulse(player), slot_r_hand)
 
 	var/obj/item/weapon/card/id/id = create_id("Commando", player)
 	id.access |= get_all_accesses()
