@@ -1,8 +1,12 @@
-// Updated by Nadrew, bits and pieces taken from Baycode, but fairly heavily modified to function here.
+// Updated by Nadrew, bits and pieces taken from Baycode, but fairly heavily modified to function here (and because a few bits of the baycode was ehh)
 
 // The main issue in the old code was the Life() loop and the fact that it could go infinite really easily.
 // The fix involved labeling the various loops involved so they could be continued and broken properly.
 // It also decreases the amount of calls to AStar() and handle_target()
+
+var/list/cleanbot_types // Going to use this to generate a list of types once then cull it out locally, see comments below for more info
+
+
 
 /mob/living/bot/cleanbot
 	name = "Cleanbot"
@@ -86,7 +90,7 @@
 	if(cleaning)
 		return
 
-	if(!screwloose && !oddbutton && prob(5))
+	if(!screwloose && !oddbutton && prob(2))
 		custom_emote(2, "makes an excited beeping booping sound!")
 
 	if(screwloose && prob(5)) // Make a mess
@@ -101,28 +105,35 @@
 		spawn(600)
 			ignorelist -= gib
 
-		// Find a target
 
 	if(pulledby) // Don't wiggle if someone pulls you
 		patrol_path = list()
 		return
 
 	var/found_spot
-	search_for:
+	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
+	search_for: // We use the label so we can break out of this loop from within the next loop.
+		// Not breaking out of these loops properly is where the infinite loop was coming from before.
 		for(var/i=0, i <= maximum_search_range, i++)
-			clean_for:
+			clean_for: // This one isn't really needed in this context, but it's good to have in case we expand later.
 				for(var/obj/effect/decal/cleanable/D in view(i, src))
-					if((D in ignorelist)) continue clean_for
-					for(var/T in target_types)
-						if(istype(D, T))
-							patrol_path = list()
-							target = D
-							found_spot = handle_target()
-							if (found_spot)
-								break search_for
-							else
-								target = null
-								continue // no need to check the other types
+					var/mob/living/bot/cleanbot/other_bot = locate() in D.loc
+					if(other_bot && other_bot.cleaning && other_bot != src)
+						continue clean_for
+					if((D in ignorelist))
+						// If the object has been slated to be ignored we continue the loop.
+						continue clean_for
+					if((D.type in target_types))
+						// A matching /cleanable was found, now we want to A* it and see if we can reach it.
+						patrol_path = list()
+						target = D
+						found_spot = handle_target()
+						if (found_spot)
+							break search_for // If the target location is found and pathed properly, break the search loop.
+
+						else
+							target = null // Otherwise we want to try the next cleanable in view, if any.
+
 
 
 	if(!found_spot && !target) // No targets in range
@@ -268,7 +279,20 @@
 	screwloose = 1
 
 /mob/living/bot/cleanbot/proc/get_targets()
-	target_types = list()
+	// To avoid excessive loops, instead of storing a list of top-level types, we're going to store a list of all cleanables.
+	// It eats a little more memory, but uses quite a bit less CPU when attempting to do the type check in the cleaning routine.
+	// We're always going to have more memory to work with than CPU when it comes to BYOND and the extra usage is not much.
+	// And to avoid calling typesof() a bunch, we're going to generate the list once globally then Copy() to the bot's list and remove blood if needed.
+	// In my tests with around 50 cleanbots actively cleaning up messes it reduced the CPU usage on average around 10%
+	if(!cleanbot_types)
+		// This just generates the global list if it hasn't been done already, quick process.
+		cleanbot_types = typesof(/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/vomit,\
+						/obj/effect/decal/cleanable/crayon,/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/mucus,/obj/effect/decal/cleanable/dirt)
+						 // I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
+	target_types = cleanbot_types.Copy()
+	if(!blood)
+		target_types -= typesof(/obj/effect/decal/cleanable/blood)-typesof(/obj/effect/decal/cleanable/blood/oil)
+/*	target_types = list()
 
 	target_types += /obj/effect/decal/cleanable/blood/oil
 	target_types += /obj/effect/decal/cleanable/vomit
@@ -278,7 +302,7 @@
 	target_types += /obj/effect/decal/cleanable/dirt
 
 	if(blood)
-		target_types += /obj/effect/decal/cleanable/blood
+		target_types += /obj/effect/decal/cleanable/blood*/
 
 /* Radio object that listens to signals */
 
