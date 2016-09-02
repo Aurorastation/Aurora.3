@@ -239,7 +239,7 @@
 
 /obj/item/ammo_magazine/c45uzi/empty
 	initial_ammo = 0
-	
+
 /obj/item/ammo_magazine/tommymag
 	name = "tommygun magazine (.45)"
 	icon_state = "tommy-mag"
@@ -262,20 +262,40 @@
 	caliber = ".45"
 	max_ammo = 50
 
-/*
-//unused garbage
+//shotguns boxes things from old code
 
-/obj/item/ammo_magazine/a418
-	name = "ammo box (.418)"
-	icon_state = "418"
-	ammo_type = "/obj/item/ammo_casing/a418"
-	max_ammo = 7
-	multiple_sprites = 1
+/obj/item/ammo_magazine/shotgun
+	name = "ammunition box (slug)"
+	icon_state = "lethalshellshot_box"
+	origin_tech = "combat=2"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 8
+	caliber = "shotgun"
+	matter = list("metal" = 2880)
 
-/obj/item/ammo_magazine/a666
-	name = "ammo box (.666)"
-	icon_state = "666"
-	ammo_type = "/obj/item/ammo_casing/a666"
-	max_ammo = 4
-	multiple_sprites = 1
-*/
+/obj/item/ammo_magazine/shotgun/shell
+	name = "ammunition box (shell)"
+	icon_state = "llethalslug_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	max_ammo = 8
+
+/obj/item/ammo_magazine/shotgun/stun
+	name = "ammunition box (stun shells)"
+	icon_state = "stunshot_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
+	max_ammo = 8
+	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
+
+/obj/item/ammo_magazine/shotgun/beanbag
+	name = "ammunition box (beanbag shells)"
+	icon_state = "beanshot_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	max_ammo = 8
+	matter = list(DEFAULT_WALL_MATERIAL = 1440)
+
+/obj/item/ammo_magazine/shotgun/incendiary
+	name = "ammunition box (incendiary shells)"
+	icon_state = "incendiaryshot_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
+	max_ammo = 8
+	matter = list(DEFAULT_WALL_MATERIAL = 3600)
