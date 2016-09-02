@@ -47,7 +47,7 @@ var/datum/antagonist/deathsquad/deathsquad
 		player.equip_to_slot_or_del(new /obj/item/weapon/plastique(player), slot_l_store)
 		player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/mateba(player), slot_belt)
-	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle(player), slot_r_hand)
+	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/rifle/pulse(player), slot_r_hand)
 	player.equip_to_slot_or_del(new /obj/item/weapon/rig/ert/assetprotection(player), slot_back)
 	player.implant_loyalty(player)
 
