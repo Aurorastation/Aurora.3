@@ -8,3 +8,4 @@ changes:
   - rscadd: "Added the energy pistol, it should replace the old energy gun in the heads of staff and warden lockers."
   - imageadd: "Returned some gun related sprites from old code."
   - rscadd: "Added shotgun shell boxes, that work like speed-loaders, at the cargo supply console."
+  - rscadd: "Added incendiary shotgun shells."
