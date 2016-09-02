@@ -110,3 +110,24 @@
 	for(var/datum/money_account/D in all_money_accounts)
 		if(D.account_number == account_number)
 			return D
+	return 0
+
+/proc/bank_log_unauthorized(var/datum/money_account/bank_account, var/machine_id = "Unknown machine ID")
+	var/datum/transaction/T = new()
+	T.target_name = bank_account.owner_name
+	T.purpose = "Unauthorised login attempt"
+	T.source_terminal = machine_id
+	T.date = worlddate2text()
+	T.time = worldtime2text()
+	bank_account.transaction_log.Add(T)
+	return
+
+/proc/bank_log_access(var/datum/money_account/bank_account, var/machine_id = "Unknown machine ID")
+	var/datum/transaction/T = new()
+	T.target_name = bank_account.owner_name
+	T.purpose = "Remote terminal access"
+	T.source_terminal = machine_id
+	T.date = worlddate2text()
+	T.time = worldtime2text()
+	bank_account.transaction_log.Add(T)
+	return

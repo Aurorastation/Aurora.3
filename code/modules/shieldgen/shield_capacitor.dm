@@ -150,7 +150,7 @@
 		usr << "It is fastened to the floor!"
 		return
 	if(config.ghost_interaction)
-		src.set_dir(turn(src.dir, 90))
+		src.set_dir(turn(src.dir, -90))
 		return
 	else
 		if(istype(usr,/mob/living/simple_animal/mouse))
@@ -160,6 +160,6 @@
 		if(usr.stat || usr.restrained())
 			return
 
-		src.set_dir(turn(src.dir, 90))
+		src.set_dir(turn(src.dir, -90))
 		return
 	return
