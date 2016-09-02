@@ -10,3 +10,4 @@ changes:
   - rscadd: "Added shotgun shell boxes, that work like speed-loaders, at the cargo supply console."
   - rscadd: "Added incendiary shotgun shells."
   - imageadd: "Shotgun shells should have a different sprites when spent."
+  - rscadd: "Stun batons emit light now."
