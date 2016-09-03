@@ -6,7 +6,6 @@ changes:
   - tweak: "Laser guns, laser cannons and pulse rifles can be wielded now, increasing their accuracy and fire rate."
   - tweak: "Changed the energy gun to be an energy carbine."
   - rscadd: "Added the energy pistol, it should replace the old energy gun in the heads of staff and warden lockers."
-  - imageadd: "Returned some gun related sprites from old code."
   - rscadd: "Added shotgun shell boxes, that work like speed-loaders, at the cargo supply console."
   - rscadd: "Added incendiary shotgun shells."
   - imageadd: "Shotgun shells should have a different sprites when spent."
