@@ -4,13 +4,13 @@ var/global/list/robot_modules = list(
 	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
 	"Miner" 		= /obj/item/weapon/robot_module/miner,
-	"Crisis" 		= /obj/item/weapon/robot_module/medical/crisis,
-	"Surgeon" 		= /obj/item/weapon/robot_module/medical/surgeon,
+	"Rescue" 		= /obj/item/weapon/robot_module/medical/rescue,
+	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
 	"Security" 		= /obj/item/weapon/robot_module/security/general,
 	"Combat" 		= /obj/item/weapon/robot_module/combat,
 	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
 	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
-	"Janitor" 		= /obj/item/weapon/robot_module/janitor
+	"Custodial" 	= /obj/item/weapon/robot_module/janitor
 	)
 
 /obj/item/weapon/robot_module
@@ -173,14 +173,14 @@ var/global/list/robot_modules = list(
 	src.emag = new /obj/item/weapon/melee/energy/sword(src)
 	return
 
-/obj/item/weapon/robot_module/medical
+/obj/item/weapon/robot_module/general
 	name = "medical robot module"
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
 
-/obj/item/weapon/robot_module/medical/surgeon
+/obj/item/weapon/robot_module/medical/general
 	name = "medical robot module"
 	sprites = list(
 					"Basic" = "Medbot",
@@ -190,11 +190,11 @@ var/global/list/robot_modules = list(
 					"Drone" = "drone-surgery"
 					)
 
-/obj/item/weapon/robot_module/medical/surgeon/New()
+/obj/item/weapon/robot_module/medical/general/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/weapon/reagent_containers/borghypo/surgeon(src)
+	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
 	src.modules += new /obj/item/weapon/scalpel(src)
 	src.modules += new /obj/item/weapon/hemostat(src)
 	src.modules += new /obj/item/weapon/retractor(src)
@@ -228,13 +228,13 @@ var/global/list/robot_modules = list(
 
 	return
 
-/obj/item/weapon/robot_module/medical/surgeon/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+/obj/item/weapon/robot_module/medical/general/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	if(src.emag)
 		var/obj/item/weapon/reagent_containers/spray/PS = src.emag
 		PS.reagents.add_reagent("pacid", 2 * amount)
 	..()
 
-/obj/item/weapon/robot_module/medical/crisis
+/obj/item/weapon/robot_module/medical/rescue
 	name = "rescue robot module"
 	sprites = list(
 					"Basic" = "Medbot",
@@ -246,7 +246,7 @@ var/global/list/robot_modules = list(
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/weapon/robot_module/medical/crisis/New()
+/obj/item/weapon/robot_module/medical/rescue/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
@@ -254,7 +254,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/roller_holder(src)
-	src.modules += new /obj/item/weapon/reagent_containers/borghypo/crisis(src)
+	src.modules += new /obj/item/weapon/reagent_containers/borghypo/rescue(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
@@ -284,7 +284,7 @@ var/global/list/robot_modules = list(
 
 	return
 
-/obj/item/weapon/robot_module/medical/crisis/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+/obj/item/weapon/robot_module/medical/rescue/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/weapon/reagent_containers/syringe/S = locate() in src.modules
 	if(S.mode == 2)
 		S.reagents.clear_reagents()
