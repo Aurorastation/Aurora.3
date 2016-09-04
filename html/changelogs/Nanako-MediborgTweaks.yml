@@ -33,12 +33,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Surgeon and Crisis cyborg modules renamed to Medical and Rescue."
-  - tweak: "Janitor cyborg module renamed to Custodial."
-  - tweak: "Rescue module now has a crowbar and meson vision."
-  - tweak: "Rescue module hypospray now has Hyperzine."
-  - tweak: "Medical module hypospray now has spaceacillin and dylovene."
-  - tweak: "Medical module now has a reagent scanner, syringe and dropper."
-  - tweak: "Research cyborg module now has a fire extinguisher."
+  - tweak: "Surgeon and Crisis cyborg modules renamed to Medical and Rescue, Janitor cyborg module renamed to Custodial."
+  - tweak: "Tweaked equipment of cyborg modules."
   - rscadd: "Grippers can now grab valid items inside any unsecure container"
   
