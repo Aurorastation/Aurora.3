@@ -46,7 +46,7 @@
   var/x = 1
   for (var/client/C)
     x++
-  statuscode = "200"
+  statuscode = 200
   response = "Pong"
   data = x
   return 1
@@ -60,7 +60,7 @@
     if(M.client)
       n++
 
-  statuscode = "200"
+  statuscode = 200
   response = "Player count fetched"
   data = n
   return 1
@@ -74,7 +74,7 @@
     if (client.holder && client.holder.rights & (R_ADMIN))
       n++
 
-  statuscode = "200"
+  statuscode = 200
   response = "Admin count fetched"
   data = n
   return 1
@@ -88,7 +88,7 @@
     if (client.holder && (client.holder.rights & R_MOD) && !(client.holder.rights & R_ADMIN))
       n++
 
-  statuscode = "200"
+  statuscode = 200
   response = "Mod count fetched"
   data = n
   return 1
@@ -102,7 +102,7 @@
     if (client.holder && (client.holder.rights & R_CCIAA) && !(client.holder.rights & R_ADMIN))
       n++
 
-  statuscode = "200"
+  statuscode = 200
   response = "CCIA count fetched"
   data = n
   return 1
@@ -115,7 +115,7 @@
   for (var/client/C in clients)
     players += C.key
 
-  statuscode = "200"
+  statuscode = 200
   response = "Player list fetched"
   data = players
   return 1
@@ -125,7 +125,7 @@
   name = "char_list"
 /datum/topic_command/char_list/run_command(queryparams)
   if (!ticker)
-    statuscode = "500"
+    statuscode = 500
     response = "Game not started yet!"
     return 1
 
@@ -136,7 +136,7 @@
     if(!M.ckey) continue
     chars[M.name] += M.key ? (M.client ? M.key : "[M.key] (DC)") : "No key"
 
-  statuscode = "200"
+  statuscode = 200
   response = "Char list fetched"
   data = chars
   return 1
@@ -146,7 +146,7 @@
   name = "manifest"
 /datum/topic_command/manifest/run_command(queryparams)
   if (!ticker)
-    statuscode = "500"
+    statuscode = 500
     response = "Game not started yet!"
     return 1
 
@@ -181,7 +181,7 @@
   // for(var/k in positions)
   //   positions[k] = list2params(positions[k]) // converts positions["heads"] = list("Bob"="Captain", "Bill"="CMO") into positions["heads"] = "Bob=Captain&Bill=CMO"
 
-  statuscode = "200"
+  statuscode = 200
   response = "Manifest fetched"
   data = positions
   return 1
@@ -194,7 +194,7 @@
   for (var/client/C in admins)
     staff[C] = C.holder.rank
 
-  statuscode = "200"
+  statuscode = 200
   response = "Staff list fetched"
   data = staff
   return 1
@@ -245,7 +245,7 @@
     s["players"] = n
     s["admins"] = admins
 
-  statuscode = "200"
+  statuscode = 200
   response = "Server Status fetched"
   data = s
   return 1
@@ -284,7 +284,7 @@
       match -= M
 
   if(!match.len)
-    statuscode = "449"
+    statuscode = 449
     response = "No match found"
     return 1
   else if(match.len == 1)
@@ -317,12 +317,12 @@
     else
       info["damage"] = "non-living"
     info["gender"] = M.gender
-    statuscode = "200"
+    statuscode = 200
     response = "Client data fetched"
     data = info
     return 1
   else
-    statuscode = "449"
+    statuscode = 449
     response = "Multiple Matches found"
     return 1
 
@@ -373,9 +373,8 @@
 
   log_admin("[senderkey] has created a command report via the api: [reportbody]")
   message_admins("[senderkey] has created a command report via the api", 1)
-  feedback_add_details("admin_verb","CCR")
 
-  statuscode = "200"
+  statuscode = 200
   response = "Command Report sent"
   return 1
 
@@ -389,7 +388,7 @@
   for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
     faxlocations.Add(F.department)
 
-  statuscode = "200"
+  statuscode = 200
   response = "Fax machines fetched"
   data = faxlocations
   return 1
@@ -409,7 +408,7 @@
   var/faxannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
 
   if(!targetlist || targetlist.len < 1)
-    statuscode = "400"
+    statuscode = 400
     response = "Parameter target not set"
     return 1
   if(!faxannounce)
@@ -434,7 +433,10 @@
     else
       command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+list2text(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 
-  statuscode = "200"
+  log_admin("[faxsender] sent a fax via the API: : [faxbody]")
+  message_admins("[faxsender] sent a fax via the API", 1)
+
+  statuscode = 200
   response = "Fax sent"
   data = responselist
   return 1
@@ -461,7 +463,6 @@
     sent_faxes += P
     return 1
   else
-    usr << "\red Message reply failed."
     qdel(P)
     return 2
 
@@ -484,7 +485,7 @@
     log_game("Rebooting due to remote command.")
     world.Reboot(10)
 
-  statuscode = "200"
+  statuscode = 200
   response = "Restart Command accepted"
   return 1
 
@@ -499,7 +500,7 @@
   for (var/ghost in ghosts)
     log_debug(ghost)
 
-  statuscode = "200"
+  statuscode = 200
   response = "Fetched Ghost list"
   data = ghosts
   return 1
@@ -517,12 +518,12 @@
   var/mob/dead/observer/G = ghosts[target]
 
   if(!G in ghosts)
-    statuscode = "404"
+    statuscode = 404
     response = "Target not in ghosts list"
     return 1
 
   if(G.has_enabled_antagHUD && config.antag_hud_restricted && allow_antaghud == 0)
-    statuscode = "409"
+    statuscode = 409
     response = "Ghost has used Antag Hud - Respawn Aborted"
     return 1
   G.timeofdeath=-19999  /* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
@@ -536,7 +537,7 @@
   else if (G.ckey)
     P = preferences_datums[G.ckey]
   else
-    statuscode = "500"
+    statuscode = 500
     response = "Something went wrong, couldn't find the target's preferences datum"
     return 1
 
@@ -551,7 +552,7 @@
   message_admins("Admin [senderkey] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit via the API", 1)
 
 
-  statuscode = "200"
+  statuscode = 200
   response = "Respawn Granted"
   return 1
 
@@ -578,7 +579,7 @@
       C = K
       break
   if(!C)
-    statuscode = "404"
+    statuscode = 404
     response = "No client with that name on server"
     return 1
 
@@ -600,6 +601,102 @@
       A << amessage
 
 
-  statuscode = "200"
+  statuscode = 200
   response = "Admin Message sent"
+  return 1
+
+//Get Fax List
+/datum/topic_command/getfaxlist
+  name = "getfaxlist"
+  required_params = list("faxtype") //Type of the faxes to be retrieved (sent / received)
+/datum/topic_command/getfaxlist/run_command(queryparams)
+  if (!ticker)
+    return "Round hasn't started yet! No faxes to display!"
+
+  var/list/faxes = list()
+  switch (queryparams["faxtype"])
+    if ("received")
+      faxes = arrived_faxes
+    if ("sent")
+      faxes = sent_faxes
+
+  if (!faxes || !faxes.len)
+    statuscode = 404
+    response = "No faxes found"
+    return 1
+
+  var/list/output = list()
+  for (var/i = 1, i <= faxes.len, i++)
+    var/obj/item/a = faxes[i]
+    output += "[i]"
+    output[i] = a.name ? a.name : "Untitled Fax"
+
+  statuscode = 200
+  response = "Fetched Fax List"
+  data = output
+  return 1
+
+//Get Specific Fax
+/datum/topic_command/getfax
+  name = "getfax"
+  required_params = list("faxtype","faxid")
+/datum/topic_command/getfax/run_command(queryparams)
+  var/list/faxes = list()
+  switch (queryparams["faxtype"])
+    if ("received")
+      faxes = arrived_faxes
+    if ("sent")
+      faxes = sent_faxes
+
+  if (!faxes || !faxes.len)
+    statuscode = 500
+    response = "No faxes found!"
+    return 1
+
+  var/fax_id = text2num(queryparams["faxid"])
+  if (fax_id > faxes.len || fax_id < 1)
+    statuscode = 404
+    response = "Invalid Fax ID"
+    return 1
+
+  var/output = list()
+  if (istype(faxes[fax_id], /obj/item/weapon/paper))
+    var/obj/item/weapon/paper/a = faxes[fax_id]
+    output["title"] = a.name ? a.name : "Untitled Fax"
+
+    var/content = replacetext(a.info, "<br>", "\n")
+    content = strip_html_properly(content, 0)
+    output["content"] = content
+
+    statuscode = 200
+    response = "Fax (Paper) with id [fax_id] retrieved"
+    data = output
+    return 1
+  else if (istype(faxes[fax_id], /obj/item/weapon/photo))
+    statuscode = 501
+    response = "Fax is a Photo - Unable to send"
+    return 1
+  else if (istype(faxes[fax_id], /obj/item/weapon/paper_bundle))
+    var/obj/item/weapon/paper_bundle/b = faxes[fax_id]
+    output["title"] = b.name ? b.name : "Untitled Paper Bundle"
+
+    if (!b.pages || !b.pages.len)
+      statuscode = 500
+      response = "Fax Paper Bundle is empty - This should not happen"
+      return 1
+
+    var/i = 0
+    for (var/obj/item/weapon/paper/c in b.pages)
+      i++
+      var/content = replacetext(c.info, "<br>", "\n")
+      content = strip_html_properly(content, 0)
+      output["content"] += "Page [i]:\n[content]\n\n"
+
+      statuscode = 200
+      response = "Fax (PaperBundle) retrieved"
+      data = output
+      return 1
+
+  statuscode = 500
+  response = "Unable to recognize the fax type. Cannot send contents!"
   return 1

@@ -402,8 +402,8 @@ var/list/world_api_rate_limit = list()
 
 /world/proc/do_auth_check(var/addr, var/auth, var/function)
 	//Check if rate limited
-	if(world_api_rate_limit[addr] != null) //Check if the ip is in the rate limiting list
-		if(abs(world_api_rate_limit[addr] - world.time) < 50) //Check the last request time of the ip
+	if(world_api_rate_limit[addr] != null && config.api_rate_limit_whitelist[addr] == null) //Check if the ip is in the rate limiting list and not in the whitelist
+		if(abs(world_api_rate_limit[addr] - world.time) < config.api_rate_limit) //Check the last request time of the ip
 			world_api_rate_limit[addr] = world.time // Set the time of the last request
 			log_debug("API - Rate Limit - Rate Limit Exceeded")
 			return 2 //Throttled
