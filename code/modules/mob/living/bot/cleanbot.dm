@@ -210,10 +210,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 				f.dirt = 0
 			if(!D)
 				return
-			qdel(D)
+			D.clean_marked = null
 			if(D == target)
 				target.being_cleaned = 0
 				target = null
+			qdel(D)
 		cleaning = 0
 		update_icons()
 
