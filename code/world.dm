@@ -411,7 +411,6 @@ var/list/world_api_rate_limit = list()
 	world_api_rate_limit[addr] = world.time // Set the time of the last request
 
 	//Then query for auth
-	//log_debug("API - Auth Check - Addr: [addr] - Key: [auth] - Function: [function]")
 	var/DBQuery/authquery = dbcon.NewQuery({"SELECT *
 	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id

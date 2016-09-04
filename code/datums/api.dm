@@ -241,9 +241,6 @@
   var/list/ghosts[] = list()
   ghosts = get_ghosts(1,1)
 
-  for (var/ghost in ghosts)
-    log_debug(ghost)
-
   statuscode = 200
   response = "Fetched Ghost list"
   data = ghosts
