@@ -397,3 +397,11 @@ STARLIGHT 0
 
 ## Uncomment to enable the antag contest!
 #ANTAG_CONTEST_ENABLED
+
+## API Rate Limit in ds
+API_RATE_LIMIT 50
+
+## API Rate Limit IP Whitelist
+## IPs that should not be throttled by the API RATE Limiter
+## IPs are separated by ;
+API_RATE_LIMIT_WHITELIST 127.0.0.1
