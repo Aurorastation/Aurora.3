@@ -6,8 +6,9 @@
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 5
-	active_power_usage = 40000	//40 kW. (this the power drawn when charging)
+	active_power_usage = 90000	//90 kW. (this the power drawn when charging)
 	power_channel = EQUIP
+	var/charging_efficiency = 0.92
 	var/obj/item/weapon/cell/charging = null
 	var/chargelevel = -1
 
@@ -105,7 +106,7 @@
 		return
 
 	if (charging && !charging.fully_charged())
-		charging.give(active_power_usage*CELLRATE)
+		charging.give(active_power_usage*CELLRATE*charging_efficiency)
 		update_use_power(2)
 
 		update_icon()

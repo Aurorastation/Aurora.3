@@ -11,10 +11,10 @@
 	var/obj/item/weapon/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
 	var/charging = 0
-
-	var/charging_power			// W. Power rating used for charging the cyborg. 120 kW if un-upgraded
-	var/restore_power_active	// W. Power drawn from APC when an occupant is charging. 40 kW if un-upgraded
-	var/restore_power_passive	// W. Power drawn from APC when idle. 7 kW if un-upgraded
+	var/charging_efficiency = 0.85//Multiplier applied to all operations of giving power to cells, represents entropy. Efficiency increases with upgrades
+	var/charging_power			// W. Power rating drawn from internal cell to recharge occupant's cell 60 kW unupgraded
+	var/restore_power_active	// W. Power drawn from APC to recharge internal cell when an occupant is charging. 40 kW if un-upgraded
+	var/restore_power_passive	// W. Power drawn from APC to recharge internal cell when idle. 7 kW if un-upgraded
 	var/weld_rate = 0			// How much brute damage is repaired per tick
 	var/wire_rate = 0			// How much burn damage is repaired per tick
 
@@ -62,7 +62,7 @@
 		// Calculating amount of power to draw
 		recharge_amount = (occupant ? restore_power_active : restore_power_passive) * CELLRATE
 
-		recharge_amount = cell.give(recharge_amount)
+		recharge_amount = cell.give(recharge_amount*charging_efficiency)
 		use_power(recharge_amount / CELLRATE)
 
 	if(icon_update_tick >= 10)
@@ -96,7 +96,7 @@
 		if(R.cell && !R.cell.fully_charged())
 			var/diff = min(R.cell.maxcharge - R.cell.charge, charging_power * CELLRATE) // Capped by charging_power / tick
 			var/charge_used = cell.use(diff)
-			R.cell.give(charge_used)
+			R.cell.give(charge_used*charging_efficiency)
 
 		//Lastly, attempt to repair the cyborg if enabled
 		if(weld_rate && R.getBruteLoss() && cell.checked_use(weld_power_use * weld_rate * CELLRATE))
@@ -150,8 +150,9 @@
 			man_rating += P.rating
 	cell = locate(/obj/item/weapon/cell) in component_parts
 
-	charging_power = 40000 + 40000 * cap_rating
-	restore_power_active = 10000 + 15000 * cap_rating
+	charging_efficiency = 0.85 + 0.015 * cap_rating
+	charging_power = 30000 + 12000 * cap_rating
+	restore_power_active = 10000 + 10000 * cap_rating
 	restore_power_passive = 5000 + 1000 * cap_rating
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
