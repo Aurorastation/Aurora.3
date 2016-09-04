@@ -8,6 +8,13 @@
 #define RANGED 2
 
 
+#define NOMINAL		0
+#define FIRSTRUN	1
+#define POWER		2
+#define DAMAGE		3
+#define IMAGE		4
+#define WEAPONDOWN	5
+
 /obj/mecha
 	name = "Mecha"
 	desc = "Exosuit"
@@ -60,7 +67,7 @@
 	var/datum/global_iterator/pr_inertial_movement //controls intertial movement in spesss
 	var/datum/global_iterator/pr_give_air //moves air from tank to cabin
 	var/datum/global_iterator/pr_internal_damage //processes internal damage
-
+	var/datum/global_iterator/mecha_manage_warnings/pr_manage_warnings //Handles warning sounds for low power/health
 
 	var/wreckage
 
@@ -68,6 +75,11 @@
 	var/obj/item/mecha_parts/mecha_equipment/selected
 	var/max_equip = 3
 	var/datum/events/events
+	var/lastcrash
+	var/crash_cooldown = 30
+
+	var/power_alert_status = 0
+	var/damage_alert_status = 0
 
 /obj/mecha/drain_power(var/drain_check)
 
@@ -97,6 +109,7 @@
 	log_message("[src.name] created.")
 	loc.Entered(src)
 	mechas_list += src //global mech list
+	narrator_message(FIRSTRUN)
 	return
 
 /obj/mecha/Destroy()
@@ -196,6 +209,7 @@
 	pr_inertial_movement = new /datum/global_iterator/mecha_intertial_movement(null,0)
 	pr_give_air = new /datum/global_iterator/mecha_tank_give_air(list(src))
 	pr_internal_damage = new /datum/global_iterator/mecha_internal_damage(list(src),0)
+	pr_manage_warnings = new /datum/global_iterator/mecha_manage_warnings(list(src))
 
 /obj/mecha/proc/do_after_mecha(delay as num)
 	sleep(delay)
@@ -661,8 +675,8 @@
 
 /obj/mecha/emp_act(severity)
 	if(get_charge())
-		use_power((cell.charge/2)/severity)
-		take_damage(50 / severity,"energy")
+		use_power((6500)/severity)
+		take_damage(40 / severity,"energy")
 	src.log_message("EMP detected",1)
 	check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),1)
 	return
@@ -924,6 +938,169 @@
 ////////  Verbs  ////////
 /////////////////////////
 
+/obj/mecha/verb/crash()
+	set name = "Crash"
+	set desc = "Throw your exosuit's mass against whatever's infront of you, and try to clear a path through."
+	set category = "Exosuit Interface"
+	set src = usr.loc
+
+	var/brokesomething = 0//true if we break anything
+	var/done = 0//Set true if we fail to break something. We won't try to break anything for the rest of the proc
+	if(!src.occupant) return
+	if(usr!=src.occupant)
+		return
+
+
+	if ((world.time - lastcrash) < crash_cooldown)//prevent spamming it and breaking things too quickly
+		return
+
+	if (!use_power(step_energy_drain*20))//Forcefully crashing into something costs 20x the power of taking a normal step
+		occupant  << "\red [src] lacks the remaining power to do that!"
+		return 0
+
+
+	//TODO: Add in a check for exosuit thrusters here after reworking them.
+	//Exosuits with thrusters should be able to use crash in space, and without the 0.5sec windup time
+	if (!check_for_support())
+		occupant  << "\red The [src] has no traction! There is nothing solid in reach to launch off."
+		return 0
+
+	lastcrash = world.time
+
+	occupant << "\red You take a step back, and then..."
+	sleep(5)
+
+
+	//Crashing is done in five stages
+
+
+
+	//1. We check if we can move into the tile. If so, then we just lunge forward clumsily
+	var/turf/target = get_step(src, dir)
+
+
+	if (target.Enter(src, null))
+		mechstep(dir)
+		sleep(2)
+		mechstep(dir)
+		src.visible_message("<span class='danger'>[src.name] lunges forward clumsily!</span>")
+		done = 1
+		return
+
+
+
+	//2. We check for anything blocking us from leaving the tile. IE windoors or window panes,
+	//and if they're present try to smash them
+	//Failing to break any object we crash into will return and end execution
+	for(var/obj/obstacle in get_turf(src))
+		if((obstacle.flags & ON_BORDER) && (src != obstacle))
+			if(!obstacle.CheckExit(src, target))
+				brokesomething++
+				if (!crash_into(obstacle))
+					done = 1//If it survived the impact then we stop breaking things for this proc
+
+
+
+
+
+
+
+	//3. Now we hit the turf itself, if it's a wall
+	if (!done && !target.CanPass(src, target))
+		crash_into(target)
+		brokesomething++
+		if (!target.CanPass(src, target))
+			done = 1
+
+
+
+	//4. Now we search the target tile for any dense objects that also block us.
+	//This could be girders left behind from the wall we just destroyed
+	if (!done)
+		for (var/atom/A in target)
+			if (A.density && A != src && A != occupant && A.loc != src)
+				brokesomething++
+				if (!crash_into(A))
+					done = 1//If it survived the impact then we stop breaking things for this proc
+
+
+
+	//If we hit any >0 number of things, whether they broke or not, we play the impact sound exactly once, and we send admin logs
+	if (brokesomething)
+		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
+		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> driving [name] crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
+		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
+
+
+	//5. If we get here, then we've broken through everything that could stop us
+	//Step forward into the tile and display a victory message!
+	//Its also possible to get here if we crashed against something that offered no resistance
+		//like an airlock that opened when bumped
+		//Or a mob/locker that got pushed away
+		//No damage will be taken in this case
+	if (!done && target.Enter(src, null))
+		if (health <= 0)
+			return 0//This prevents bugginess if the exosuit breaks while crashing into stuff
+
+		mechstep(dir)
+		if (brokesomething)
+			src.visible_message("<span class='danger'>[src.name] breaks through!</span>")
+		return
+	else
+		//if we fail to step forward, then we do the attack animation instead
+		target = get_step(src, dir)//re-fetch target just incase
+		do_attack_animation(target)
+
+
+
+/obj/mecha/proc/crash_into(var/atom/A)
+	var/aname = A.name//Cache this mainly because turfs change name when broken
+	var/oldtype = A.type
+	if (health <= 0)
+		return 0//This prevents bugginess if the exosuit explodes/dies while crashing into stuff
+
+
+	var/damage = crash_damage(A)
+
+
+
+	if (istype(A, /mob/living))
+		var/mob/living/M = A
+		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]with exosuit [name] </font>"
+		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed with the exosuit [name] driven by [key_name(occupant)]</font>"
+		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
+
+	A.ex_act(3)
+
+	sleep(1)
+	if (A && !(A.gcDestroyed) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
+		src.visible_message("<span class='danger'>[src.name] crashes into the [aname]!</span>")
+		take_damage(damage)
+		return 0//If it survived the impact then we stop breaking things for this proc
+	else
+		take_damage(damage*0.5)//An object that breaks hurts less than one that resists the impact
+
+	return 1
+
+
+/obj/mecha/proc/crash_damage(var/A)
+	if (istype(A, /mob/living))
+		var/mob/living/M = A
+		return min((M.mob_size / 3),2)//Crashing into a cow or cyborg hurts more than crashing into a dog
+		//2 is a fallback for mobs with undefined size
+
+	else if (istype(A, /obj/structure/window))
+		return 1.5//windows are fragile
+	else if (istype(A, /obj/structure/grille))
+		return 3//Grilles are flexible and flimsy structures
+	else if (istype(A, /obj/machinery))
+		return 3
+	else if (istype(A, /obj/structure))
+		return 6
+	else if (istype(A, /turf))//walls are tough
+		return 8
+	else
+		return 3
 
 /obj/mecha/verb/connect_to_port()
 	set name = "Connect to port"
@@ -1058,9 +1235,10 @@
 		src.log_append_to_last("[H] moved in as pilot.")
 		src.icon_state = src.reset_icon()
 		set_dir(dir_in)
+		pr_manage_warnings.resume_sounds(src)
 		playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
-		if(!hasInternalDamage())
-			src.occupant << sound('sound/mecha/nominal.ogg',volume=50)
+		if(!hasInternalDamage() && cell.charge >= cell.maxcharge && health >= initial(health))
+			narrator_message(NOMINAL)
 		return 1
 	else
 		return 0
@@ -1099,6 +1277,8 @@
 
 /obj/mecha/proc/go_out()
 	if(!src.occupant) return
+	pr_manage_warnings.stop_sound(1, src)//We stop any looping warning sounds
+	pr_manage_warnings.stop_sound(2, src)
 	var/atom/movable/mob_container
 	if(ishuman(occupant))
 		mob_container = src.occupant
@@ -1420,6 +1600,23 @@
 	return
 
 
+/obj/mecha/proc/narrator_message(var/state)
+	var/file
+	switch(state)
+		if(NOMINAL)
+			file = 'sound/mecha/nominalnano.ogg'
+		if(FIRSTRUN)
+			file = 'sound/mecha/LongNanoActivation.ogg'
+		if(POWER)
+			file = 'sound/mecha/lowpowernano.ogg'
+		if(DAMAGE)
+			file = 'sound/mecha/critdestrnano.ogg'
+		if(WEAPONDOWN)
+			file = 'sound/mecha/weapdestrnano.ogg'
+		else
+
+	playsound(src.loc, file, 100, 0, -6.6, environment=1)//using padded room environment to reduce echo
+
 /////////////////
 ///// Topic /////
 /////////////////
@@ -1720,6 +1917,156 @@
 //////////////////////////////////////////
 ////////  Mecha global iterators  ////////
 //////////////////////////////////////////
+/datum/global_iterator/mecha_manage_warnings
+	//power/damage alerts have 3 different statuses
+	//0 = fine, no alert
+	//1 = Alert just started. Plays a looping sound for a few minutes
+	//2 = Alert status has lasted a while. Stops the looping sound and just plays an occasional warning.
+
+	delay = 80
+	var/sound/powerloop //Looping alert sounds played at alert 1
+	var/sound/damageloop
+
+	var/looptime = 1800//time we stay in stage 1
+
+	var/damage_warning_delay = 200//Basic delay between warnings in alert status 2
+	var/power_warning_delay = 200//Starts at 20 seconds but the delay will increase with each warning
+
+
+	var/last_power_warning = 0
+	var/last_damage_warning = 0
+
+
+	process(var/obj/mecha/mecha)
+		if (!mecha.power_alert_status && mecha.cell)//If we're in the fine status
+			if (mecha.cell.charge < (mecha.cell.maxcharge*0.3))//but power is below 30%
+				mecha.power_alert_status = 1//Switch to the alert status
+				mecha.narrator_message(POWER)//And send a vocal warning
+				mecha.log_append_to_last("Entered critical power alert.")
+
+		//No 'else' here, we want this to run in the same proc if the alert status was just enabled
+
+		if (mecha.power_alert_status)//IF we're in either warning status
+			if (mecha.cell.charge >= (mecha.cell.maxcharge*0.3))//But power has risen back above danger levels
+				mecha.power_alert_status = 0//cancel the alert status
+				power_warning_delay = initial(power_warning_delay)//Reset the delay
+				stop_sound(1, mecha)
+				mecha.occupant << "<span class='notice'>[mecha] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>"
+				mecha.log_append_to_last("Power alert cleared")
+				return
+
+			if (mecha.power_alert_status == 1)//If we're in alert 1, constant loop
+				if (!powerloop)//If the powerloop sound var is still null, it means we havent started playing it yet
+					mecha.occupant << "<span class='danger'>WARNING: [mecha] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>"
+					create_sound(1)//We create it
+					mecha.occupant << powerloop//and start playing it to the occupant
+					last_power_warning = world.time//We set this var when we enter alert 1, to track how long we've been in it
+
+				if ((world.time - last_power_warning) >= looptime) //If we've been in looping mode for long enough
+					mecha.occupant << "<span class='danger'>Alert: [mecha] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>"
+					stop_sound(1, mecha)//We stop the soundloop
+					mecha.power_alert_status = 2//And switch to alert 2
+					last_power_warning = world.time
+
+			else if (mecha.power_alert_status == 2)//If we're in alert 2 - infrequent vocal warnings
+				if ((world.time - last_power_warning) >= power_warning_delay)//IF its been long enough since the last warning
+					mecha.narrator_message(POWER)//We send a warning message to remind them
+					power_warning_delay *= 1.05//We increase the delay between warnings by 5% multiplicatively each time
+					last_power_warning = world.time
+					//This causes the warnings to become less frequent and not be a constant annoyance
+
+
+		//The following block is basically a carbon copy of the above with minor alterations for damage
+		//--------------------------------------
+		if (!mecha.damage_alert_status)
+			if (mecha.health < (initial(mecha.health)*0.3))
+				mecha.damage_alert_status = 1
+				mecha.narrator_message(DAMAGE)
+				mecha.log_append_to_last("Entered critical hull integrity alert.")
+
+
+		if (mecha.damage_alert_status)
+			if (mecha.health >= (initial(mecha.health)*0.3))
+				mecha.damage_alert_status = 0
+				damage_warning_delay = initial(damage_warning_delay)//Reset the delay
+				stop_sound(2, mecha)
+				mecha.occupant << "<span class='notice'>[mecha] hull integrity is now within safe operating parameters. Integrity alert status cancelled.</span>"
+				mecha.log_append_to_last("Hull integrity alert cleared.")
+				return
+
+			if (mecha.damage_alert_status == 1)
+				if (!damageloop)
+					mecha.occupant << "<span class='danger'>WARNING: [mecha] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>"
+					create_sound(2)
+					mecha.occupant << damageloop
+					last_damage_warning = world.time
+
+				if ((world.time - last_damage_warning) >= (looptime * 0.3)) //Looptime is shorter for the damage sound because its so horribly grating.
+					mecha.occupant << "<span class='danger'>Alert: [mecha] hull integrity has remained in critical state for a significant period of time. Now switching to low-frequency alert mode. Please seek repair as soon as possible.</span>"
+					stop_sound(2, mecha)//We stop the soundloop
+					mecha.damage_alert_status = 2//And switch to alert 2
+					last_damage_warning = world.time
+
+			else if (mecha.damage_alert_status == 2)
+				if ((world.time - last_damage_warning) >= damage_warning_delay)
+					mecha.narrator_message(DAMAGE)
+					damage_warning_delay *= 1.05
+					last_damage_warning = world.time
+
+
+	//This creates the sound loop datums as necessary
+	//They are destroyed when the sound stops, and re-created when it starts looping.
+	proc/create_sound(var/type)
+		if (type == 1)
+			if (!powerloop)
+				powerloop = new /sound()
+				powerloop.file = 'sound/mecha/lowpower.ogg'
+				powerloop.repeat = 1
+				powerloop.volume = 15
+				var/done = 0
+				while (!done)//This channel loop prevents both the looping sounds from sharing a channel
+					powerloop.channel = rand(1,100)
+					if (damageloop && damageloop.channel == powerloop.channel)
+						continue
+
+					if (powerloop.channel)
+						done = 1
+
+		else if (type == 2)
+			if (!damageloop)
+				damageloop = new /sound()
+				damageloop.file = 'sound/mecha/internaldmgalarm.ogg'
+				damageloop.repeat = 1
+				damageloop.volume = 5//lower volume because the sound file is louder
+				var/done = 0
+				while (!done)
+					damageloop.channel = rand(1,100)
+					if (powerloop && powerloop.channel == damageloop.channel)
+						continue
+
+					if (damageloop.channel)
+						done = 1
+
+
+	proc/stop_sound(var/type, var/obj/mecha/mecha)
+		if (type == 1 && powerloop)
+			mecha.occupant << sound(null,channel=powerloop.channel)//this stops the sound
+			powerloop = null
+
+		else if (type == 2 && damageloop)
+			mecha.occupant << sound(null,channel=damageloop.channel)//this stops the sound
+			damageloop = null
+
+
+	//This function exists for if someone enters the exosuit while its at alert stage 1
+	//It starts playing the alert loops for the new occupant
+	proc/resume_sounds(var/obj/mecha/mecha)
+		if (mecha.power_alert_status == 1)
+			create_sound(1)
+			mecha.occupant << powerloop
+		if (mecha.damage_alert_status == 1)
+			create_sound(2)
+			mecha.occupant << damageloop
 
 
 /datum/global_iterator/mecha_preserve_temp  //normalizing cabin air temperature to 20 degrees celsium
@@ -1811,6 +2158,8 @@
 		return
 
 
+
+
 /////////////
 
 //debug
@@ -1847,3 +2196,10 @@
 	//src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
 	return
 */
+
+#undef NOMINAL
+#undef FIRSTRUN
+#undef POWER
+#undef DAMAGE
+#undef IMAGE
+#undef WEAPONDOWN
