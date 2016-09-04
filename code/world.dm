@@ -115,7 +115,7 @@ var/list/world_api_rate_limit = list()
 	var/list/queryparams[] = json_decode(T)
 	var/query = queryparams["query"]
 	var/auth = queryparams["auth"]
-	log_debug("API - Request Received")
+	log_debug("API - Request Received - from:[addr], master:[master], key:[key]")
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[auth] [log_end]"
 
 	if (isnull(query))
@@ -139,7 +139,7 @@ var/list/world_api_rate_limit = list()
 
 
 
-	log_debug("API - Auth valid")
+	log_debug("API - Auth valid - Function Called: [query]")
 	var/datum/topic_command/command = topic_commands[query]
 
 	if (isnull(command))
