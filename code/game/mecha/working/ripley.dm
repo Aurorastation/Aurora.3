@@ -8,6 +8,8 @@
 	health = 200
 	wreckage = /obj/effect/decal/mecha_wreckage/ripley
 	cargo_capacity = 10
+	damage_absorption = list("brute"=0.6,"fire"=1,"bullet"=0.8,"laser"=0.8,"energy"=0.85,"bomb"=1)
+
 
 /obj/mecha/working/ripley/Destroy()
 	for(var/atom/movable/A in src.cargo)
@@ -27,7 +29,8 @@
 	max_temperature = 65000
 	health = 250
 	lights_power = 8
-	damage_absorption = list("fire"=0.5,"bullet"=0.8,"bomb"=0.5)
+	step_in = 7
+	damage_absorption = list("brute"=0.6,"fire"=0.5,"bullet"=0.8,"laser"=0.7,"energy"=0.85,"bomb"=0.5)
 	wreckage = /obj/effect/decal/mecha_wreckage/ripley/firefighter
 
 /obj/mecha/working/ripley/deathripley
