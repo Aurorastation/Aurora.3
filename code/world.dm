@@ -112,29 +112,43 @@ var/world_topic_spam_protect_ip = "0.0.0.0"
 var/world_topic_spam_protect_time = world.timeofday
 
 /world/Topic(T, addr, master, key)
-	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]"
-
 	var/list/response[] = list()
 	var/list/queryparams[] = json_decode(T)
 	var/query = queryparams["query"]
+	var/auth = queryparams["auth"]
+	log_debug("API - Request Received")
+	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[auth] [log_end]"
 
 	if (isnull(query))
+		log_debug("API - Bad Request - No query specified")
 		response["statuscode"] = 400
 		response["response"] = "Bad Request - No query specified"
 		return list2params(response)
 
-	var/unauthed = do_auth_check(query,addr,queryparams["key"])
+	var/unauthed = do_auth_check(addr,auth,query)
 	if (unauthed)
-			return unauthed
+		if (unauthed == 2)
+			log_debug("API - Request denied - Throttled")
+			response["statuscode"] = 429
+			response["response"] = "Throttled"
+			return list2params(response)
+		else
+			log_debug("API - Request denied - Bad Auth")
+			response["statuscode"] = 401
+			response["response"] = "Bad Auth"
+			return list2params(response)
 
+	log_debug("API - Auth valid")
 	var/datum/topic_command/command = topic_commands[query]
 
 	if (isnull(command))
+		log_debug("API - Unknown command called: [query]")
 		response["statuscode"] = 501
 		response["response"] = "Not Implemented"
 		return list2params(response)
 
 	command.run_command(queryparams)
+	log_debug("API - Command executed - Status: [command.statuscode] - Response: [command.response]")
 	response["statuscode"] = command.statuscode
 	response["response"] = command.response
 	response["data"] = json_encode(command.data)
@@ -378,32 +392,37 @@ var/world_topic_spam_protect_time = world.timeofday
 
 #undef FAILED_DB_CONNECTION_CUTOFF
 
-/world/proc/do_auth_check(var/addr, var/key, var/function)
-	addr = sanitizeSQL(addr)
-	key = sanitizeSQL(key)
-	function = sanitizeSQL(function)
-	var/DBQuery/query = dbcon.NewQuery(
-	'SELECT *
-FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
-WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
-AND (
-(token = "abc" AND ip="1.2.3.4" AND function="ping")
-OR
-(token = "abc" AND ip IS NULL AND function="ping")
-)')
-	query.Execute()
+/world/proc/do_auth_check(var/addr, var/auth, var/function)
+	//log_debug("API - Auth Check - Addr: [addr] - Key: [auth] - Function: [function]")
+	var/DBQuery/authquery = dbcon.NewQuery({"SELECT *
+	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
+	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+	AND (
+	(token = :token AND ip = :ip AND function = :function)
+	OR
+	(token = :token AND ip IS NULL AND function = :function)
+	OR
+	(token = :token AND ip = :ip AND function IS NULL)
+	OR
+	(token IS NULL AND ip = :ip AND function IS NULL)
+	)"})
+	//Get the tokens and the associated functions
+	//Check if the token, the ip and the function matches OR
+	// the token + function matches and the ip is NULL (Functions that can be used by any ip, but require a token)
+	// the token + ip matches and the function is NULL (Allow a specific ip with a specific token to use all functions)
+	// the token + ip is NULL and the function matches (Allow a specific function to be used without auth)
 
+	authquery.Execute(list(":token" = auth, ":ip" = addr, ":function" = function))
+	log_debug("API - Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
 
-
-	if (query.RowCount())
-		return 0
-	else
+	if (authquery.RowCount())
 		if (world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
 			spawn(50)
 				world_topic_spam_protect_time = world.time
-				return "Bad Key (Throttled)"
+				return 2 //Throttled
 
 		world_topic_spam_protect_time = world.time
 		world_topic_spam_protect_ip = addr
-
-		return "Bad Key"
+		return 0 // Authed
+	else
+		return 1 // Bad Key
