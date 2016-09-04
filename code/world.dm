@@ -139,7 +139,7 @@ var/list/world_api_rate_limit = list()
 
 
 
-	log_debug("API - Auth valid - Function Called: [query]")
+	log_debug("API - Auth valid")
 	var/datum/topic_command/command = topic_commands[query]
 
 	if (isnull(command))
@@ -156,7 +156,7 @@ var/list/world_api_rate_limit = list()
 		return list2params(response)
 	else
 		command.run_command(queryparams)
-		log_debug("API - Command executed - Status: [command.statuscode] - Response: [command.response]")
+		log_debug("API - Function called: [query] - Status: [command.statuscode] - Response: [command.response]")
 		response["statuscode"] = command.statuscode
 		response["response"] = command.response
 		response["data"] = json_encode(command.data)

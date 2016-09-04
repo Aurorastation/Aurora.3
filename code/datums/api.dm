@@ -688,7 +688,6 @@
   return 1
 
 /datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey)
-  log_debug("fax sent to [F.department] with Title: [title] and Body: [body]")
   // Create the reply message
   var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
   P.name = "[command_name()] - [title]"

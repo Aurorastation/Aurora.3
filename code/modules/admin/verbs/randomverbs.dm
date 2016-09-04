@@ -229,7 +229,7 @@ Allow admins to set players to be able to respawn/bypass 30 min wait, without th
 Ccomp's first proc.
 */
 
-proc/get_ghosts(var/notify = 0,var/what = 2)
+proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	// what = 1, return ghosts ass list.
 	// what = 2, return mob list
 
@@ -241,8 +241,8 @@ proc/get_ghosts(var/notify = 0,var/what = 2)
 		mobs.Add(M)                                             //filter it where it's only ghosts
 		any = 1                                                 //if no ghosts show up, any will just be 0
 	if(!any)
-		if(notify)
-			src << "There doesn't appear to be any ghosts for you to select."
+		if(notify && C)
+			C << "There doesn't appear to be any ghosts for you to select."
 		return
 
 	for(var/mob/M in mobs)
@@ -260,7 +260,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2)
 	set desc = "Let's the player bypass the 30 minute wait to respawn or allow them to re-enter their corpse."
 	if(!holder)
 		src << "Only administrators may use this command."
-	var/list/ghosts = get_ghosts(1,1)
+	var/list/ghosts = get_ghosts(1,1,src)
 
 	var/target = input("Please, select a ghost!", "COME BACK TO LIFE!", null, null) as null|anything in ghosts
 	if(!target)
