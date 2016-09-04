@@ -5,3 +5,4 @@ delete-after: True
 changes: 
   - rscdel: "Removed yelling over the radio when breaking cuffs."
   - tweak: "The cult of Nar'sie should be more secretive now." 
+  - rscadd: "Ninjas have access to a contract uplink now."
