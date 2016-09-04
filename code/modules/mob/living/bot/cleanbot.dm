@@ -6,7 +6,9 @@
 
 var/list/cleanbot_types // Going to use this to generate a list of types once then cull it out locally, see comments below for more info
 
-
+/obj/effect/decal/cleanable/var
+	being_cleaned = 0
+	tmp/mob/living/bot/cleanbot/clean_marked = 0 // If a cleaning bot has marked the cleanable to be cleaned, to prevent multiples from going to the same one.
 
 /mob/living/bot/cleanbot
 	name = "Cleanbot"
@@ -38,6 +40,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	var/maximum_search_range = 7
 
+/mob/living/bot/cleanbot/Cross(atom/movable/crossed)
+	if(crossed)
+		if(istype(crossed,/mob/living/bot/cleanbot)) return 0
+		return ..()
+
 /mob/living/bot/cleanbot/New()
 	..()
 	get_targets()
@@ -56,6 +63,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	ignorelist = null
 
 /mob/living/bot/cleanbot/proc/handle_target()
+	if(target.clean_marked && target.clean_marked != src)
+		target = null
+		path = list()
+		ignorelist |= target
+		return
 	if(loc == target.loc)
 		if(!cleaning)
 			UnarmedAttack(target)
@@ -66,6 +78,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			custom_emote(2, "can't reach \the [target.name] and is giving up for now.")
 			log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
 			ignorelist |= target
+			target.clean_marked = null
 			target = null
 			path = list()
 		return
@@ -111,12 +124,14 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	var/found_spot
+	if(!should_patrol) return
 	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
 	search_for: // We use the label so we can break out of this loop from within the next loop.
 		// Not breaking out of these loops properly is where the infinite loop was coming from before.
 		for(var/i=0, i <= maximum_search_range, i++)
 			clean_for: // This one isn't really needed in this context, but it's good to have in case we expand later.
 				for(var/obj/effect/decal/cleanable/D in view(i, src))
+					if(D.clean_marked && D.clean_marked != src) continue clean_for
 					var/mob/living/bot/cleanbot/other_bot = locate() in D.loc
 					if(other_bot && other_bot.cleaning && other_bot != src)
 						continue clean_for
@@ -127,12 +142,14 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 						// A matching /cleanable was found, now we want to A* it and see if we can reach it.
 						patrol_path = list()
 						target = D
+						D.clean_marked = src
 						found_spot = handle_target()
 						if (found_spot)
 							break search_for // If the target location is found and pathed properly, break the search loop.
 
 						else
 							target = null // Otherwise we want to try the next cleanable in view, if any.
+							D.clean_marked = null
 
 
 
@@ -183,19 +200,22 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	cleaning = 1
 	custom_emote(2, "begins to clean up \the [D]")
+	target.being_cleaned = 1
 	update_icons()
 	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	if(do_after(src, cleantime))
-		if(istype(loc, /turf/simulated))
-			var/turf/simulated/f = loc
-			f.dirt = 0
-		if(!D)
-			return
-		qdel(D)
-		if(D == target)
-			target = null
-	cleaning = 0
-	update_icons()
+	spawn(1)
+		if(do_after(src, cleantime))
+			if(istype(loc, /turf/simulated))
+				var/turf/simulated/f = loc
+				f.dirt = 0
+			if(!D)
+				return
+			qdel(D)
+			if(D == target)
+				target.being_cleaned = 0
+				target = null
+		cleaning = 0
+		update_icons()
 
 /mob/living/bot/cleanbot/explode()
 	on = 0
