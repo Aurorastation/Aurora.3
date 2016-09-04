@@ -108,8 +108,7 @@ var/global/datum/global_init/init = new ()
 
 	return
 
-var/world_topic_spam_protect_ip = "0.0.0.0"
-var/world_topic_spam_protect_time = world.timeofday
+var/list/world_api_rate_limit = list()
 
 /world/Topic(T, addr, master, key)
 	var/list/response[] = list()
@@ -138,6 +137,8 @@ var/world_topic_spam_protect_time = world.timeofday
 			response["response"] = "Bad Auth"
 			return list2params(response)
 
+
+
 	log_debug("API - Auth valid")
 	var/datum/topic_command/command = topic_commands[query]
 
@@ -147,12 +148,19 @@ var/world_topic_spam_protect_time = world.timeofday
 		response["response"] = "Not Implemented"
 		return list2params(response)
 
-	command.run_command(queryparams)
-	log_debug("API - Command executed - Status: [command.statuscode] - Response: [command.response]")
-	response["statuscode"] = command.statuscode
-	response["response"] = command.response
-	response["data"] = json_encode(command.data)
-	return list2params(response)
+	if(command.check_params_missing(queryparams))
+		log_debug("API - Mising Params - Status: [command.statuscode] - Response: [command.response]")
+		response["statuscode"] = command.statuscode
+		response["response"] = command.response
+		response["data"] = json_encode(command.data)
+		return list2params(response)
+	else
+		command.run_command(queryparams)
+		log_debug("API - Command executed - Status: [command.statuscode] - Response: [command.response]")
+		response["statuscode"] = command.statuscode
+		response["response"] = command.response
+		response["data"] = json_encode(command.data)
+		return list2params(response)
 
 
 /world/Reboot(var/reason)
@@ -393,6 +401,16 @@ var/world_topic_spam_protect_time = world.timeofday
 #undef FAILED_DB_CONNECTION_CUTOFF
 
 /world/proc/do_auth_check(var/addr, var/auth, var/function)
+	//Check if rate limited
+	if(world_api_rate_limit[addr] != null) //Check if the ip is in the rate limiting list
+		if(abs(world_api_rate_limit[addr] - world.time) < 50) //Check the last request time of the ip
+			world_api_rate_limit[addr] = world.time // Set the time of the last request
+			log_debug("API - Rate Limit - Rate Limit Exceeded")
+			return 2 //Throttled
+
+	world_api_rate_limit[addr] = world.time // Set the time of the last request
+
+	//Then query for auth
 	//log_debug("API - Auth Check - Addr: [addr] - Key: [auth] - Function: [function]")
 	var/DBQuery/authquery = dbcon.NewQuery({"SELECT *
 	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
@@ -416,13 +434,6 @@ var/world_topic_spam_protect_time = world.timeofday
 	log_debug("API - Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
 
 	if (authquery.RowCount())
-		if (world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
-			spawn(50)
-				world_topic_spam_protect_time = world.time
-				return 2 //Throttled
-
-		world_topic_spam_protect_time = world.time
-		world_topic_spam_protect_ip = addr
 		return 0 // Authed
 	else
 		return 1 // Bad Key

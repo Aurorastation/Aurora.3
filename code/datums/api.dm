@@ -13,11 +13,31 @@
 //API Boilerplate
 /datum/topic_command
   var/name = null
+  var/list/required_params = list() //Required Parameters for the command
   var/statuscode = null
   var/response = null
   var/data = null
 /datum/topic_command/proc/run_command(queryparams)
+  // Always returns 1 --> Details status in statuscode, response and data
   return 1
+/datum/topic_command/proc/check_params_missing(queryparams)
+//Check if some of the required params are missing
+// 0 -> if all params are supplied
+// >=1 -> if a param is missing
+  var/list/missing_params = list()
+  var/errorcount = 0
+
+  for(var/param in required_params)
+    if(queryparams[param] == null)
+      errorcount ++
+      missing_params += param
+
+  if(errorcount)
+    statuscode = 400
+    response = "Required params missing"
+    data = missing_params
+    return errorcount
+
 
 //Ping Test
 /datum/topic_command/ping
@@ -230,16 +250,12 @@
   data = s
   return 1
 
-//Get info about a specific player
+//Get info about a specific player TODO: Test if this works properly
 /datum/topic_command/playerinfo
   name = "playerinfo"
+  required_params = list("search")
 /datum/topic_command/playerinfo/run_command(queryparams)
-
-  var/list/search = params2list(queryparams["search"])
-  if(isnull(search))
-    statuscode = "400"
-    response = "search parameter not supplied"
-    return 1
+  var/list/search = queryparams["search"]
 
   var/list/ckeysearch = list()
   for(var/text in search)
@@ -314,6 +330,7 @@
 //Send a Command Report
 /datum/topic_command/sendcommandreport
   name = "sendcommandreport"
+  required_params = list("senderkey","body")
 /datum/topic_command/sendcommandreport/run_command(queryparams)
   var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
   var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
@@ -322,14 +339,6 @@
   var/reportsender = sanitize(queryparams["sendername"]) //Name of the sender
   var/reportannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
 
-  if(!senderkey)
-    statuscode = "400"
-    response = "Parameter senderkey not set"
-    return 1
-  if(!reportbody)
-    statuscode = "400"
-    response = "Parameter reportbody not set"
-    return 1
   if(!reporttitle)
     reporttitle = "NanoTrasen Update"
   if(!reporttype)
@@ -388,6 +397,7 @@
 //Send Fax
 /datum/topic_command/sendfax
   name = "sendfax"
+  required_params = list("target","senderkey","title","body")
 /datum/topic_command/sendfax/run_command(queryparams)
   var/list/responselist = list()
   var/list/sendsuccess = list()
@@ -401,18 +411,6 @@
   if(!targetlist || targetlist.len < 1)
     statuscode = "400"
     response = "Parameter target not set"
-    return 1
-  if(!senderkey)
-    statuscode = "400"
-    response = "Parameter senderkey not set"
-    return 1
-  if(!faxtitle)
-    statuscode = "400"
-    response = "Parameter title not set"
-    return 1
-  if(!faxbody)
-    statuscode = "400"
-    response = "Parameter body not set"
     return 1
   if(!faxannounce)
     faxannounce = 1
@@ -471,13 +469,9 @@
 //Restartserver
 /datum/topic_command/restart
   name = "restart"
+  required_params = list("senderkey")
 /datum/topic_command/restart/run_command(queryparams)
   var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
-
-  if(!senderkey)
-    statuscode = "400"
-    response = "Parameter senderkey not set"
-    return 1
 
   world << "<font size=4 color='#ff2222'>Server restarting by remote command.</font>"
   log_and_message_admins("World restart initiated remotely by [senderkey].")
@@ -510,27 +504,15 @@
   data = ghosts
   return 1
 
-//Get Ghosts
+//Grant Respawn
 /datum/topic_command/grantrespawn
   name = "grantrespawn"
+  required_params = list("senderkey","target")
 /datum/topic_command/grantrespawn/run_command(queryparams)
   var/list/ghosts = get_ghosts(1,1)
   var/target = queryparams["target"]
-  log_debug("target: [target]")
   var/allow_antaghud = queryparams["allow_antaghud"]
-  log_debug("allow_antaghud: [allow_antaghud]")
   var/senderkey = queryparams["senderkey"] //Identifier of the sender (Ckey / Userid / ...)
-  log_debug("senderkey: [senderkey]")
-
-  if(!senderkey)
-    statuscode = "400"
-    response = "Parameter senderkey not set"
-    return 1
-
-  if(!target)
-    statuscode = "400"
-    response = "Parameter target not set"
-    return 1
 
   var/mob/dead/observer/G = ghosts[target]
 
@@ -538,7 +520,7 @@
     statuscode = "404"
     response = "Target not in ghosts list"
     return 1
-    
+
   if(G.has_enabled_antagHUD && config.antag_hud_restricted && allow_antaghud == 0)
     statuscode = "409"
     response = "Ghost has used Antag Hud - Respawn Aborted"
@@ -571,4 +553,53 @@
 
   statuscode = "200"
   response = "Respawn Granted"
+  return 1
+
+//Get available Fax Machines
+/datum/topic_command/sendadminmsg
+  name = "sendadminmsg"
+  required_params = list("ckey","msg","senderkey")
+
+/datum/topic_command/sendadminmsg/run_command(queryparams)
+  /*
+    We got an adminmsg from IRC bot lets split the API
+    expected output:
+      1. ckey = ckey of person the message is to
+      2. msg = contents of message, parems2list requires
+      3. rank = Rank that should be displayed
+      4. senderkey = the ircnick that send the message.
+  */
+
+  var/client/C
+  var/req_ckey = ckey(queryparams["ckey"])
+
+  for(var/client/K in clients)
+    if(K.ckey == req_ckey)
+      C = K
+      break
+  if(!C)
+    statuscode = "404"
+    response = "No client with that name on server"
+    return 1
+
+  var/rank = queryparams["rank"]
+  if(!rank)
+    rank = "Admin"
+
+  var/message =	"<font color='red'>[rank] PM from <b><a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a></b>: [queryparams["msg"]]</font>"
+  var/amessage =  "<font color='blue'>[rank] PM from <a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a> to <b>[key_name(C)]</b> : [queryparams["msg"]]</font>"
+
+  C.received_discord_pm = world.time
+  C.discord_admin = queryparams["senderkey"]
+
+  C << 'sound/effects/adminhelp.ogg'
+  C << message
+
+  for(var/client/A in admins)
+    if(A != C)
+      A << amessage
+
+
+  statuscode = "200"
+  response = "Admin Message sent"
   return 1
