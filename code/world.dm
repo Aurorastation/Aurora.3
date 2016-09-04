@@ -115,52 +115,57 @@ var/list/world_api_rate_limit = list()
 	var/list/queryparams[] = json_decode(T)
 	var/query = queryparams["query"]
 	var/auth = queryparams["auth"]
-	log_debug("API - Request Received - from:[addr], master:[master], key:[key]")
+	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[auth] [log_end]"
 
 	if (isnull(query))
 		log_debug("API - Bad Request - No query specified")
 		response["statuscode"] = 400
 		response["response"] = "Bad Request - No query specified"
-		return list2params(response)
+		return json_encode(response)
 
 	var/unauthed = do_auth_check(addr,auth,query)
 	if (unauthed)
-		if (unauthed == 2)
-			log_debug("API - Request denied - Throttled")
+		if (unauthed == 3)
+			log_debug("API: Request denied - Auth Service Unavailable")
+			response["statuscode"] = 503
+			response["response"] = "Auth Service Unavailable"
+			return json_encode(response)
+		else if (unauthed == 2)
+			log_debug("API: Request denied - Throttled")
 			response["statuscode"] = 429
 			response["response"] = "Throttled"
-			return list2params(response)
+			return json_encode(response)
 		else
-			log_debug("API - Request denied - Bad Auth")
+			log_debug("API: Request denied - Bad Auth")
 			response["statuscode"] = 401
 			response["response"] = "Bad Auth"
-			return list2params(response)
+			return json_encode(response)
 
 
 
-	log_debug("API - Auth valid")
+	log_debug("API: Auth valid")
 	var/datum/topic_command/command = topic_commands[query]
 
 	if (isnull(command))
-		log_debug("API - Unknown command called: [query]")
+		log_debug("API: Unknown command called: [query]")
 		response["statuscode"] = 501
 		response["response"] = "Not Implemented"
-		return list2params(response)
+		return json_encode(response)
 
 	if(command.check_params_missing(queryparams))
-		log_debug("API - Mising Params - Status: [command.statuscode] - Response: [command.response]")
+		log_debug("API: Mising Params - Status: [command.statuscode] - Response: [command.response]")
 		response["statuscode"] = command.statuscode
 		response["response"] = command.response
-		response["data"] = json_encode(command.data)
-		return list2params(response)
+		response["data"] = command.data
+		return json_encode(response)
 	else
 		command.run_command(queryparams)
-		log_debug("API - Function called: [query] - Status: [command.statuscode] - Response: [command.response]")
+		log_debug("API: Function called: [query] - Status: [command.statuscode] - Response: [command.response]")
 		response["statuscode"] = command.statuscode
 		response["response"] = command.response
-		response["data"] = json_encode(command.data)
-		return list2params(response)
+		response["data"] = command.data
+		return json_encode(response)
 
 
 /world/Reboot(var/reason)
@@ -405,12 +410,14 @@ var/list/world_api_rate_limit = list()
 	if(world_api_rate_limit[addr] != null && config.api_rate_limit_whitelist[addr] == null) //Check if the ip is in the rate limiting list and not in the whitelist
 		if(abs(world_api_rate_limit[addr] - world.time) < config.api_rate_limit) //Check the last request time of the ip
 			world_api_rate_limit[addr] = world.time // Set the time of the last request
-			log_debug("API - Rate Limit - Rate Limit Exceeded")
 			return 2 //Throttled
 
 	world_api_rate_limit[addr] = world.time // Set the time of the last request
 
 	//Then query for auth
+	if (!establish_db_connection(dbcon))
+		return 3 //DB Unavailable
+
 	var/DBQuery/authquery = dbcon.NewQuery({"SELECT *
 	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
@@ -430,7 +437,7 @@ var/list/world_api_rate_limit = list()
 	// the token + ip is NULL and the function matches (Allow a specific function to be used without auth)
 
 	authquery.Execute(list(":token" = auth, ":ip" = addr, ":function" = function))
-	log_debug("API - Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
+	log_debug("API: Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
 
 	if (authquery.RowCount())
 		return 0 // Authed

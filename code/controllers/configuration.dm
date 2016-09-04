@@ -734,7 +734,7 @@ var/list/gamemode_cache = list()
 					config.antag_contest_enabled = 1
 
 				if("api_rate_limit")
-					config.api_rate_limit = value
+					config.api_rate_limit = text2num(value)
 
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
