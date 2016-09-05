@@ -48,47 +48,8 @@
 				var/obj/O = I
 				seeing_obj |= O
 
-		// Type 1 (Visual) emotes are sent to anyone in view of the item
-		if (m_type & 1)
-			//for (var/mob/O in viewers(src, null))
-			for (var/mob/O in viewers(get_turf(src), null)) //This may break people with x-ray being able to see emotes across walls,
-															//but this saves many headaches down the road, involving mechs and pAIs.
-															//x-ray is so rare these days anyways.
+		send_emote(message, m_type)
 
-				if(O.status_flags & PASSEMOTES)
-
-					for(var/obj/item/weapon/holder/H in O.contents)
-						H.show_message(message, m_type)
-
-					for(var/mob/living/M in O.contents)
-						M.show_message(message, m_type)
-
-				O.show_message(message, m_type)
-
-			for(var/obj/O in seeing_obj)
-				spawn(0)
-					if(O) //It's possible that it could be deleted in the meantime.
-						O.see_emote(src, message, 1)
-
-		// Type 2 (Audible) emotes are sent to anyone in hear range
-		// of the *LOCATION* -- this is important for AIs/pAIs to be heard
-		else if (m_type & 2)
-			for (var/mob/O in hearers(get_turf(src), null))
-
-				if(O.status_flags & PASSEMOTES)
-
-					for(var/obj/item/weapon/holder/H in O.contents)
-						H.show_message(message, m_type)
-
-					for(var/mob/living/M in O.contents)
-						M.show_message(message, m_type)
-
-				O.show_message(message, m_type)
-
-			for(var/obj/O in seeing_obj)
-				spawn(0)
-					if(O) //It's possible that it could be deleted in the meantime.
-						O.see_emote(src, message, 2)
 
 /mob/proc/emote_dead(var/message)
 
@@ -115,3 +76,35 @@
 	if(input)
 		log_emote("Ghost/[src.key] : [input]")
 		say_dead_direct(input, src)
+
+
+//This is a central proc that all emotes are run through. This handles sending the messages to living mobs
+/mob/proc/send_emote(var/message, var/type)
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messagemobs_neardead = list()//List of nearby ghosts who can hear it. Those that qualify ONLY go in this list
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/mob/living/M in player_list)
+		if (!M.client)
+			continue
+		if(get_turf(M) in messageturfs)
+			if (istype(M, /mob/dead/observer))
+				messagemobs_neardead += M
+				continue
+			else if (istype(M, /mob/living) && !(type == 2 && (sdisabilities & DEAF || ear_deaf)))
+				messagemobs += M
+		else if(M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTEARS))
+			messagemobs += M
+			continue
+
+	for (var/mob/N in messagemobs)
+		N.show_message(message, type)
+
+	message = "<B>[message]</B>"
+
+	for (var/mob/O in messagemobs_neardead)
+		O.show_message(message, type)
+
+
