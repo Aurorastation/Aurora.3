@@ -35,7 +35,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	player.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45m(player), slot_l_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/rig/merc(player), slot_back)
-	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/rifle/sts35(player), slot_r_hand)
+	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/rifle/sts35(player), slot_l_hand)
 	
 	var/obj/item/weapon/storage/belt/military/syndie_belt = new(player)
 	syndie_belt.contents += new /obj/item/ammo_magazine/c762
