@@ -113,6 +113,7 @@ var/list/world_api_rate_limit = list()
 /world/Topic(T, addr, master, key)
 	var/list/response[] = list()
 	var/list/queryparams[] = json_decode(T)
+	queryparams["addr"] = addr //Add the IP to the queryparams that are passed to the api functions
 	var/query = queryparams["query"]
 	var/auth = queryparams["auth"]
 	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
@@ -418,7 +419,7 @@ var/list/world_api_rate_limit = list()
 	if (!establish_db_connection(dbcon))
 		return 3 //DB Unavailable
 
-	var/DBQuery/authquery = dbcon.NewQuery({"SELECT *
+	var/DBQuery/authquery = dbcon.NewQuery({"SELECT api_f.function
 	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
 	AND (
