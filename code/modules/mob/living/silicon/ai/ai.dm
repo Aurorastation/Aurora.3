@@ -80,7 +80,7 @@ var/list/ai_verbs_default = list(
 	var/bombing_station = 0						// Set to 1 if station nuke auto-destruct is activated
 	var/override_CPUStorage = 0					// Bonus/Penalty CPU Storage. For use by admins/testers.
 	var/override_CPURate = 0					// Bonus/Penalty CPU generation rate. For use by admins/testers.
-
+	var/list/cameraRecords = list()		//For storing what is shown to the cameras
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	src.verbs |= ai_verbs_default
@@ -479,6 +479,15 @@ var/list/ai_verbs_default = list(
 		else
 			src << "\red System error. Cannot locate [html_decode(href_list["trackname"])]."
 		return
+	if (href_list["readcapturedpaper"]) //Yep stolen from admin faxes
+		var/entry = text2num(href_list["readcapturedpaper"])
+		if(!entry || !cameraRecords.len) return
+		if(!cameraRecords[entry])
+			src << "<span class='notice'>Unable to locate visual entry.</span>"
+			return
+		var/info = cameraRecords[entry]
+		src<< browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", html_encode(info[1]), html_encode(info[2])), text("window=[]", html_encode(info[1])))
+		return
 
 	return
 
@@ -875,6 +884,22 @@ var/list/ai_verbs_default = list(
 	if(psupply)
 		qdel(psupply)
 	psupply = new/obj/machinery/ai_powersupply(src)
+
+/mob/living/silicon/ai/proc/addCameraRecord(var/itemName,var/info)
+	if(!itemName || !info)
+		return -1
+
+	if(!cameraRecords)
+		cameraRecords = list()
+
+	//Didn't really want to loop here
+	for(var/i = 1, i <= cameraRecords.len, i++)
+		if(cameraRecords[i][1] == itemName && cameraRecords[i][2] == info)
+			return i
+
+	var/s = list(itemName,info)
+	cameraRecords += list(s)
+	return cameraRecords.len
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO

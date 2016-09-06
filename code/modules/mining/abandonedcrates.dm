@@ -104,7 +104,7 @@
 		if(87)
 			new/obj/item/xenos_claw(src)
 		if(88)
-			new/obj/item/weapon/gun/projectile/shotgun/pump/boltaction(src)
+			new/obj/item/weapon/gun/projectile/boltaction(src)
 			new/obj/item/ammo_magazine/boltaction(src)
 			new/obj/item/clothing/under/soviet(src)
 			new/obj/item/clothing/head/ushanka(src)

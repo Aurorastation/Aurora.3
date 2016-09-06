@@ -38,6 +38,9 @@
 	set name = "Adjust welding mask"
 	set src in usr
 
+	if(!base_state)
+		base_state = icon_state
+
 	if(usr.canmove && !usr.stat && !usr.restrained())
 		if(src.up)
 			src.up = !src.up
@@ -150,7 +153,7 @@
 
 		var/icon/earbit = new/icon("icon" = 'icons/mob/head.dmi', "icon_state" = "kittyinner")
 		ears.Blend(earbit, ICON_OVERLAY)
-		
+
 		item_icons[icon_head] = ears
 
 /obj/item/clothing/head/richard

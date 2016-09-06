@@ -383,6 +383,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 							linked_lathe.busy = 0
 							screen = 3.1
 							errored = 0
+							new_item.Created()
 						updateUsrDialog()
 
 	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.

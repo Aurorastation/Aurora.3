@@ -1,6 +1,0 @@
-author: Bedshaped
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added species check helpers to the code."
