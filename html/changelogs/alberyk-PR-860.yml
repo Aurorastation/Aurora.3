@@ -10,3 +10,4 @@ changes:
   - rscadd: "Added incendiary shotgun shells."
   - imageadd: "Shotgun shells should have a different sprites when spent."
   - rscadd: "Stun batons emit light now."
+  - rscadd: "New heavy asset protection and syndicate commando equipment loadout."
