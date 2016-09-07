@@ -262,7 +262,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 		for(var/mob/M in player_list)
-			if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
+			if(src.client && M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
 				listening |= M
 				continue
 			if(M.loc && M.locs[1] in hearturfs)

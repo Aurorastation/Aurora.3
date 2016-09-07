@@ -63,7 +63,6 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		world << "Testing [M] 2"
 		if (!M.client)
 			continue
 		if(get_turf(M) in messageturfs)
