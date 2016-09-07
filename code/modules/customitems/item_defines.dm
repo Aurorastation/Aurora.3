@@ -490,7 +490,7 @@
 	contained_sprite = 1
 	
 	
-/obj/item/clothing/under/dress/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk - DONE
+/obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk - DONE
 	name = "traditional jumper dress"
 	desc = "A light summer-time dress, decorated neatly with black and silver colors, it seems to be rather old."
 	icon = 'icons/obj/custom_items/sayyidah_dress.dmi' //special thanks to Coalf for the sprites
