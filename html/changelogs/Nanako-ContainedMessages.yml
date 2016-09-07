@@ -34,5 +34,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - bugfix: "LOOC, visible messages and visible emotes now work properly for contained mobs, including PAIs in card form, and any kind of held anima/nymph/drone"
+  - bugfix: "MAJOR USABILITY FIX: Distant ghosts no longer see emotes from NPC mobs, like squeaking mice and clacking crabs. Ghost sight will now only show emotes from distant players, turning it on is now useful."
   - tweak: "LOOC Colour changed to an older one."
   

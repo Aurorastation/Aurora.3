@@ -24,30 +24,6 @@
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
-		var/list/seeing_obj = list() //For objs that need to see emotes.  You can use see_emote(), which is based off of hear_talk()
-
- //Hearing gasp and such every five seconds is not good emotes were not global for a reason.
- // Maybe some people are okay with that.
-
-		for(var/mob/M in player_list)
-			if (!M.client)
-				continue //skip monkeys and leavers
-			if (istype(M, /mob/new_player))
-				continue
-			if(findtext(message," snores.")) //Because we have so many sleeping people.
-				break
-			if(M.stat == 2 && (M.client.prefs.toggles & CHAT_GHOSTSIGHT) && !(M in viewers(src,null)))
-				M.show_message(message)
-
-		for(var/I in view(world.view, get_turf(usr))) //get_turf is needed to stop weirdness with x-ray.
-			if(istype(I, /mob/))
-				var/mob/M = I
-				for(var/obj/O in M.contents)
-					seeing_obj |= O
-			else if(istype(I, /obj/))
-				var/obj/O = I
-				seeing_obj |= O
-
 		send_emote(message, m_type)
 
 
@@ -86,7 +62,8 @@
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
 
-	for(var/mob/living/M in player_list)
+	for(var/mob/M in player_list)
+		world << "Testing [M] 2"
 		if (!M.client)
 			continue
 		if(get_turf(M) in messageturfs)
@@ -95,9 +72,10 @@
 				continue
 			else if (istype(M, /mob/living) && !(type == 2 && (sdisabilities & DEAF || ear_deaf)))
 				messagemobs += M
-		else if(M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTEARS))
-			messagemobs += M
-			continue
+		else if(src.client)
+			if  (M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT))
+				messagemobs += M
+				continue
 
 	for (var/mob/N in messagemobs)
 		N.show_message(message, type)
