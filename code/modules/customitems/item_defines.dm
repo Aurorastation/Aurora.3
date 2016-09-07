@@ -118,14 +118,14 @@
 	contained_sprite = 1
 
 
-/obj/item/weapons/fluff/kiara_altar // Pocket Altar - Kiara Branwen - nursiekitty - DONE
+/obj/item/weapon/fluff/kiara_altar // Pocket Altar - Kiara Branwen - nursiekitty - DONE
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 	icon = 'icons/obj/custom_items/kiara_altar.dmi'
 	icon_state = "kiara_altar1"
 	w_class = 2
 
-/obj/item/weapons/fluff/kiara_altar/attack_self(mob/user as mob)
+/obj/item/weapon/fluff/kiara_altar/attack_self(mob/user as mob)
 	if(src.icon_state == "kiara_altar1")
 		src.icon_state = "kiara_altar2"
 		user << "You open the pocket altar, revealing its contents."
@@ -337,7 +337,7 @@
 	..()
 
 
-/obj/item/weapons/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
+/obj/item/weapon/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
 	name = "tiger claw"
 	desc = "A small energy dagger given to Golden Tigers."
 	icon = 'icons/obj/custom_items/moon_baton.dmi'
@@ -349,7 +349,7 @@
 	contained_sprite = 1
 	var/active = 0
 
-/obj/item/weapons/fluff/moon_baton/attack_self(mob/user)
+/obj/item/weapon/fluff/moon_baton/attack_self(mob/user)
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
