@@ -135,7 +135,7 @@ var/list/ventcrawl_machinery = list(
 			if(vent_found)
 				if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
 
-					usr << "<span class='notice'>You begin climbing into the ventilation system...</span>"
+					visible_message("<span class='warning'>[src] begins to climb into the ventilation system!","<span class='notice'>You begin climbing into the ventilation system...</span>")
 					if(vent_found.air_contents && !issilicon(src))
 
 						switch(vent_found.air_contents.temperature)
