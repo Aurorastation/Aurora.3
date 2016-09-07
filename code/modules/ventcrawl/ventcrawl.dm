@@ -132,6 +132,10 @@ var/list/ventcrawl_machinery = list(
 					if(vent_found)
 						break
 
+			if(vent_found && vent_found:is_welded()) // welded check
+				usr << "<span class='warning'>You can't crawl into a welded vent!</span>"
+				return
+
 			if(vent_found)
 				if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
 
