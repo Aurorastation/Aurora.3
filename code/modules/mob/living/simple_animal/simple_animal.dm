@@ -236,9 +236,7 @@
 		fire_alert = 0
 
 	if(!atmos_suitable)
-
 		adjustBruteLoss(unsuitable_atoms_damage)
-		if (istype(src, /mob/living/simple_animal/bee))
 	return 1
 
 /mob/living/simple_animal/proc/handle_supernatural()
