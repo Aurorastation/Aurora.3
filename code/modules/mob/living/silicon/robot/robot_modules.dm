@@ -173,7 +173,7 @@ var/global/list/robot_modules = list(
 	src.emag = new /obj/item/weapon/melee/energy/sword(src)
 	return
 
-/obj/item/weapon/robot_module/general
+/obj/item/weapon/robot_module/medical
 	name = "medical robot module"
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)

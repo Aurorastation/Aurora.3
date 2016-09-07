@@ -61,7 +61,6 @@
 			user << "<span class='notice'>Airtight lid seals it completely.</span>"
 
 	attack_self()
-		world << "Calling bottle attackself"
 		..()
 		if(is_open_container())
 			usr << "<span class = 'notice'>You put the lid on \the [src].</span>"
