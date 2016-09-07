@@ -1,9 +1,10 @@
 /obj/item/weapon/gun/energy/gun
-	name = "energy gun"
-	desc = "An energy-based gun with two settings: Stun and kill."
+	name = "energy carbine"
+	desc = "An energy-based carbine with two settings: Stun and kill."
 	icon_state = "energystun100"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT
 	max_shots = 10
 
 	projectile_type = /obj/item/projectile/beam/stun
@@ -29,12 +30,12 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
-	
+
 	firemodes = list(
 		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
 		list(name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),
 		)
-	
+
 	var/lightfail = 0
 
 //override for failcheck behaviour
@@ -106,3 +107,22 @@
 	update_charge()
 	update_reactor()
 	update_mode()
+
+/obj/item/weapon/gun/energy/pistol
+	name = "energy pistol"
+	desc = "A basic energy-based pistol gun with two settings: Stun and kill."
+	icon_state = "epistolstun100"
+	item_state = null	//so the human update icon uses the icon_state instead.
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 5
+	fire_delay = 2
+
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = "combat=3;magnets=2"
+	modifystate = "epistolstun"
+
+	firemodes = list(
+		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg'),
+		)
