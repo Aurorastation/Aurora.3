@@ -239,7 +239,6 @@
 
 		adjustBruteLoss(unsuitable_atoms_damage)
 		if (istype(src, /mob/living/simple_animal/bee))
-			world << "Bee taking depressurisation damage. Health is now [health]"
 	return 1
 
 /mob/living/simple_animal/proc/handle_supernatural()

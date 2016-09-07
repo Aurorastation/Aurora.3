@@ -39,6 +39,7 @@
 		if (prob(35))//probability to reduce spam
 			src.visible_message("\red The bee swarm completely dissipates.")
 		qdel(src)
+		return
 	else
 		health = maxHealth
 		if (prob(35))//probability to reduce spam
@@ -54,7 +55,7 @@
 		var/mob/living/carbon/human/M = target_mob
 		var/sting_prob = 40 // Bees will always try to sting.
 		var/prob_mult = 1
-		if(M in view(src,1)) // Can I see my target?
+		if(M && M in view(src,1)) // Can I see my target?
 			var/obj/item/clothing/worn_suit = M.wear_suit
 			var/obj/item/clothing/worn_helmet = M.head
 			if(worn_suit) // Are you wearing clothes?
@@ -220,7 +221,6 @@
 
 //No more grabbing bee swarms
 /mob/living/simple_animal/bee/attempt_grab(var/mob/living/grabber)
-	world  << "Calling bee attemptgrab!"
 	if (prob(strength*5))//if the swarm is big you might grab a few bees, you won't make a serious dent
 		grabber << "<span class = 'warning'>You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees.</span>"
 		adjustBruteLoss(strength*0.5)
