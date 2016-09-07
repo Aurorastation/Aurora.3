@@ -32,6 +32,8 @@
 	if (count > GLOBAL_MUSHROOM_LIMIT)
 		qdel(src)
 
+
+
 /mob/living/simple_animal/mushroom/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
 		get_scooped(M)
@@ -81,3 +83,5 @@
 	seed.thrown_at(src,get_turf(src),1)
 	if(src)
 		gib()
+
+#undef GLOBAL_MUSHROOM_LIMIT
