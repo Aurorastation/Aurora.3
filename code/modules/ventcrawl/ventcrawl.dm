@@ -171,6 +171,7 @@ var/list/ventcrawl_machinery = list(
 
 					forceMove(vent_found)
 					add_ventcrawl(vent_found)
+					sight = (SEE_TURFS|BLIND)
 
 				else
 					usr << "<span class='notice'>This vent is not connected to anything."

@@ -1282,9 +1282,10 @@
 					*/
 
 		else
-			sight = species.vision_flags
-			see_in_dark = species.darksight
-			see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
+			if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
+				sight = species.vision_flags
+				see_in_dark = species.darksight
+				see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
 
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
