@@ -31,9 +31,13 @@
 /obj/machinery/atmospherics/proc/ventcrawl_to(var/mob/living/user, var/obj/machinery/atmospherics/target_move, var/direction)
 	if(target_move)
 		if(is_type_in_list(target_move, ventcrawl_machinery) && target_move.can_crawl_through())
-			user.remove_ventcrawl()
-			user.forceMove(target_move.loc) //handles entering and so on
-			user.visible_message("You hear something squeezing through the ducts.", "You climb out the ventilation system.")
+			if(istype(target_move, /obj/machinery/atmospherics/unary/vent_pump/) && target_move:is_welded())
+				user.visible_message("<span class='warning'You hear something banging on \the [target_move.name]!</span>", "<span class='notice'>You can't escape from a welded vent.</span>")
+			else
+				user.remove_ventcrawl()
+				user.forceMove(target_move.loc) //handles entering and so on
+				user.sight &= ~BLIND
+				user.visible_message("You hear something squeezing through the ducts.", "You climb out the ventilation system.")
 		else if(target_move.can_crawl_through())
 			if(target_move.return_network(target_move) != return_network(src))
 				user.remove_ventcrawl()
