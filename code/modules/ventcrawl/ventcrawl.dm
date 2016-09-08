@@ -197,11 +197,16 @@ var/list/ventcrawl_machinery = list(
 	if(!network)
 		return
 	for(var/datum/pipeline/pipeline in network.line_members)
-		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges))
+		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
 				A.pipe_image = image(A, A.loc, layer = 20, dir = A.dir)
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
+	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
+		if (!V.pipe_image)
+			V.pipe_image = image(V, V.loc, layer = 20, dir = V.dir)
+		pipes_shown += V.pipe_image
+		client.images += V.pipe_image
 
 /mob/living/proc/remove_ventcrawl()
 	is_ventcrawling = 0
