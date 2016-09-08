@@ -36,7 +36,7 @@
 			else
 				user.remove_ventcrawl()
 				user.forceMove(target_move.loc) //handles entering and so on
-				user.sight &= ~BLIND
+				user.sight &= ~(SEE_TURFS|BLIND)
 				user.visible_message("You hear something squeezing through the ducts.", "You climb out the ventilation system.")
 		else if(target_move.can_crawl_through())
 			if(target_move.return_network(target_move) != return_network(src))

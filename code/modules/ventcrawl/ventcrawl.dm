@@ -107,6 +107,10 @@ var/list/ventcrawl_machinery = list(
 /mob/living/carbon/alien/ventcrawl_carry()
 	return 1
 
+/mob/living/proc/size_to_crawldelay(var/size)
+	var/delayticks = size * 3
+	return delayticks >= 3 ? delayticks : 3
+
 /mob/living/var/ventcrawl_layer = 3
 
 /mob/living/proc/handle_ventcrawl(var/atom/clicked_on)
@@ -162,7 +166,7 @@ var/list/ventcrawl_machinery = list(
 							if(HAZARD_HIGH_PRESSURE to INFINITY)
 								usr << "<span class='danger'>You feel a roaring wind pushing you away from the vent!</span>"
 
-					if(!do_mob(src, vent_found, 45, 1, 1))
+					if(!do_mob(src, vent_found, mob_size ? size_to_crawldelay(mob_size) : size_to_crawldelay(15), 1, 1))
 						return
 
 					if(!client)
