@@ -469,7 +469,7 @@
 	icon_state = "rico_stripes"
 	item_state = "rico_stripes"
 	contained_sprite = 1
-	canremove = 1
+	canremove = 0
 	abstract = 1
 	species_restricted = list("Machine")
 
