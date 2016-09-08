@@ -17,6 +17,7 @@
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/weapon/cell/bcell = null
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
+	var/baton_color = "#FF6A00"
 
 /obj/item/weapon/melee/baton/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is putting the live [name] in \his mouth! It looks like \he's trying to commit suicide.</span>")
@@ -50,6 +51,11 @@
 		icon_state = "[initial(name)]_nocell"
 	else
 		icon_state = "[initial(name)]"
+
+	if(icon_state == "[initial(name)]_active")
+		set_light(1.3, 1, "[baton_color]")
+	else
+		set_light(0)
 
 /obj/item/weapon/melee/baton/examine(mob/user)
 	if(!..(user, 1))
@@ -194,3 +200,5 @@
 	hitcost = 2500
 	attack_verb = list("poked")
 	slot_flags = null
+	baton_color = "#FFDF00"
+	

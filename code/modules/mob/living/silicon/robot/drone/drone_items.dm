@@ -199,11 +199,11 @@
 			wrapped = null
 			return
 
-	else if (istype(target, /obj/item/weapon/storage/box))
+	else if (istype(target, /obj/item/weapon/storage) && !istype(target, /obj/item/weapon/storage/secure))
 		for (var/obj/item/C in target.contents)
 			for(var/typepath in can_hold)
 				if(istype(C,typepath))
-					user << "You grab the [C] from inside the box."
+					user << "You grab the [C] from inside the [target.name]."
 					C.loc = src
 					return
 		user << "There is nothing inside the box that your gripper can collect"

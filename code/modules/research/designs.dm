@@ -1322,7 +1322,7 @@ datum/design/item/weapon/lasercannon
 	id = "lasercannon"
 	req_tech = list("combat" = 4, "materials" = 3, "powerstorage" = 3)
 	materials = list("$metal" = 10000, "$glass" = 1000, "$diamond" = 2000)
-	build_path = /obj/item/weapon/gun/energy/lasercannon
+	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
 	locked = 1
 
 datum/design/item/weapon/decloner
