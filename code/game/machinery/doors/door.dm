@@ -401,21 +401,39 @@
 
 
 /obj/machinery/door/ex_act(severity)
+	var/bolted = 0
+	if (istype(src, /obj/machinery/door/airlock))
+		var/obj/machinery/door/airlock/A = src
+		bolted = A.locked
 	switch(severity)
 		if(1.0)
-			qdel(src)
-		if(2.0)
-			if(prob(25))
+			if((!bolted) || prob(80))
 				qdel(src)
 			else
-				take_damage(300)
+				var/damage = rand(300,600)
+				if (bolted)
+					damage *= 0.8 //Bolted doors are a bit tougher
+				take_damage(damage)
+		if(2.0)
+			if((!bolted && prob(25)) || prob(20))
+				qdel(src)
+			else
+				var/damage = rand(150,300)
+				if (bolted)
+					damage *= 0.8 //Bolted doors are a bit tougher
+				take_damage(damage)
 		if(3.0)
 			if(prob(80))
 				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 				s.set_up(2, 1, src)
 				s.start()
-			else
-				take_damage(150)
+			var/damage = rand(100,150)
+			if (bolted)
+				damage *= 0.8
+			take_damage(damage)
+
+	if (health <= 0)
+		qdel(src)
 	return
 
 
