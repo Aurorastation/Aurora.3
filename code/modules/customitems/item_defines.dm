@@ -118,14 +118,14 @@
 	contained_sprite = 1
 
 
-/obj/item/weapons/fluff/kiara_altar // Pocket Altar - Kiara Branwen - nursiekitty - DONE
+/obj/item/weapon/fluff/kiara_altar // Pocket Altar - Kiara Branwen - nursiekitty - DONE
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 	icon = 'icons/obj/custom_items/kiara_altar.dmi'
 	icon_state = "kiara_altar1"
 	w_class = 2
 
-/obj/item/weapons/fluff/kiara_altar/attack_self(mob/user as mob)
+/obj/item/weapon/fluff/kiara_altar/attack_self(mob/user as mob)
 	if(src.icon_state == "kiara_altar1")
 		src.icon_state = "kiara_altar2"
 		user << "You open the pocket altar, revealing its contents."
@@ -337,7 +337,7 @@
 	..()
 
 
-/obj/item/weapons/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
+/obj/item/weapon/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
 	name = "tiger claw"
 	desc = "A small energy dagger given to Golden Tigers."
 	icon = 'icons/obj/custom_items/moon_baton.dmi'
@@ -349,7 +349,7 @@
 	contained_sprite = 1
 	var/active = 0
 
-/obj/item/weapons/fluff/moon_baton/attack_self(mob/user)
+/obj/item/weapon/fluff/moon_baton/attack_self(mob/user)
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
@@ -437,4 +437,63 @@
 	icon = 'icons/obj/custom_items/kir_bandanna.dmi'
 	icon_state = "kir_bandanna"
 	item_state = "kir_bandanna"
+	contained_sprite = 1
+	
+
+/obj/item/clothing/suit/storage/toggle/bomber/fluff/ash_jacket //Hand-me-down Bomber Jacket - superballs - Ash LaCroix - DONE
+	name = "hand-me-down bomber jacket"
+	desc = "A custom tailored bomber jacket that seems to have been through some action. A silver badge is pinned to it, along with a black and blue strip covering it halfway. The badge reads, 'Christopher LaCroix, Special Agent, Mendell City, E.O.W. 10-7-38, 284'"
+	icon = 'icons/obj/custom_items/ash_jacket.dmi'
+	icon_state = "ash_jacket"
+	item_state = "ash_jacket"
+	icon_open = "ash_jacket_open"
+	icon_closed = "ash_jacket"
+	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/badge/holo/cord/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip - DONE
+	name = "dog tags"
+	desc = "Some black dog tags, engraved on them is the following: Wright, Dylan L, O POS, Pacific Union Special Forces."
+	icon = 'icons/obj/custom_items/dylan_tags.dmi'
+	icon_state = "dylan_tags"
+	item_state = "dylan_tags"
+	stored_name = "Wright, Dylan L"
+	badge_string = "Pacific Union Special Forces"
+	contained_sprite = 1
+
+
+/obj/item/clothing/ears/fluff/rico_stripes //Racing Stripes - Ricochet - nebulaflare - DONE
+	name = "racing stripes"
+	desc = "A pair of fancy racing stripes."
+	icon = 'icons/obj/custom_items/rico_stripes.dmi'
+	icon_state = "rico_stripes"
+	item_state = "rico_stripes"
+	contained_sprite = 1
+	canremove = 0
+	abstract = 1
+	species_restricted = list("Machine")
+
+
+/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100 - DONE
+	name = "first shot"
+	desc = "A flask. Smells of absinthe, maybe vodka. The bottom right corner has a silver bar. The bottom is engraved, it reads 'The First Shot'."
+	icon = 'icons/obj/custom_items/barcia_flask.dmi'
+	icon_state = "barcia_flask"
+
+
+/obj/item/clothing/gloves/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso - DONE
+	name = "thunder dome pendant ring"
+	desc = "It appears to be a Collectors edition Thunder dome Pendant ring from the IGTDL's show rumble in the red planet in 2444. It has a decorative diamond center with a image of the Intergalactic belt in the center."
+	icon = 'icons/obj/custom_items/stone_ring.dmi'
+	icon_state = "stone_ring"
+	item_state = "stone_ring"
+	contained_sprite = 1
+	
+	
+/obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk - DONE
+	name = "traditional jumper dress"
+	desc = "A light summer-time dress, decorated neatly with black and silver colors, it seems to be rather old."
+	icon = 'icons/obj/custom_items/sayyidah_dress.dmi' //special thanks to Coalf for the sprites
+	icon_state = "sayyidah_dress"
+	item_state = "sayyidah_dress"
 	contained_sprite = 1
