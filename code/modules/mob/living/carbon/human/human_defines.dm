@@ -76,6 +76,9 @@
 	var/last_dam = -1	//Used for determining if we need to process all organs or just some or even none.
 	var/list/bad_external_organs = list()// organs we check until they are good.
 
+	var/list/bad_internal_organs = list()//A list of internal organs which are damaged.
+	//This isnt used for regular processing, since all internal organs are regularly processed anyway, but it can be used as a shortlist for calls that only care about damaged organs
+
 	var/xylophone = 0 //For the spoooooooky xylophone cooldown
 
 	var/mob/remoteview_target = null

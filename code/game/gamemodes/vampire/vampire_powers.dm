@@ -20,7 +20,10 @@
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
-	if (!istype(T))
+	if (!istype(T) || T.species.flags & NO_BLOOD)
+		//Added this to prevent vampires draining diona and IPCs
+		//Diona have 'blood' but its really green sap and shouldn't help vampires
+		//IPCs leak oil
 		src << "<span class='warning'>[T] is not a creature you can drain useful blood from.</span>"
 		return
 

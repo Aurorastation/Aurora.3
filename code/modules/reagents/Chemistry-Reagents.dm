@@ -49,7 +49,8 @@
 	removed = min(removed, volume)
 	max_dose = max(volume, max_dose)
 	dose = min(dose + removed, max_dose)
-	if(removed >= (metabolism * 0.1) || removed >= 0.1) // If there's too little chemical, don't affect the mob, just remove it
+	//Relaxed this small amount restriction a bit. it gets in the way of gradually digesting creatures
+	if(removed >= (metabolism * 0.01) || removed >= 0.01) // If there's too little chemical, don't affect the mob, just remove it
 		switch(location)
 			if(CHEM_BLOOD)
 				affect_blood(M, alien, removed)

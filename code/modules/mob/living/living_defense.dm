@@ -10,6 +10,9 @@
 	1 - halfblock
 	2 - fullblock
 */
+#define	MOB_FIRE_LIGHT_RANGE	3	//These control the intensity and range of light given off by a mob which is on fire
+#define MOB_FIRE_LIGHT_POWER	2
+
 /mob/living/proc/run_armor_check(var/def_zone = null, var/attack_flag = "melee", var/absorb_text = null, var/soften_text = null)
 	var/armor = getarmor(def_zone, attack_flag)
 	var/absorb = 0
@@ -201,14 +204,14 @@
 /mob/living/proc/IgniteMob()
 	if(fire_stacks > 0 && !on_fire)
 		on_fire = 1
-		set_light(light_range + 3)
+		set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
 		update_fire()
 
 /mob/living/proc/ExtinguishMob()
 	if(on_fire)
 		on_fire = 0
 		fire_stacks = 0
-		set_light(max(0, light_range - 3))
+		set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
 		update_fire()
 
 /mob/living/proc/update_fire()
@@ -256,3 +259,6 @@
 
 /mob/living/proc/reagent_permeability()
 	return 1
+
+#undef	MOB_FIRE_LIGHT_RANGE	//These control the intensity and range of light given off by a mob which is on fire
+#undef 	MOB_FIRE_LIGHT_POWER

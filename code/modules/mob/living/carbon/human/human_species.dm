@@ -25,14 +25,26 @@
 	h_style = "blue IPC screen"
 	..(new_loc, "Machine")
 
+/mob/living/carbon/human/monkey/
+	mob_size = 2.6//Based on howler monkey, rough real world equivilant to on-mob sprite size
+
 /mob/living/carbon/human/monkey/New(var/new_loc)
 	..(new_loc, "Monkey")
+
+/mob/living/carbon/human/farwa
+	mob_size = 2.6//Roughly the same size as monkey
 
 /mob/living/carbon/human/farwa/New(var/new_loc)
 	..(new_loc, "Farwa")
 
+/mob/living/carbon/human/neaera
+	mob_size = 2.6//Roughly the same size as monkey
+
 /mob/living/carbon/human/neaera/New(var/new_loc)
 	..(new_loc, "Neaera")
+
+/mob/living/carbon/human/stok
+	mob_size = 2.6//Roughly the same size as monkey
 
 /mob/living/carbon/human/stok/New(var/new_loc)
 	..(new_loc, "Stok")

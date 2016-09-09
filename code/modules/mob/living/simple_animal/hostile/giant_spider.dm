@@ -34,6 +34,7 @@
 	pass_flags = PASSTABLE
 	move_to_delay = 6
 	speed = 3
+	mob_size = 6
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse

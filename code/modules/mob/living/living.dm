@@ -153,7 +153,9 @@ default behaviour is:
 		health = 100
 		stat = CONSCIOUS
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - halloss
+		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+		//Removed Halloss from here. Halloss isn't supposed to count towards death
+
 
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
@@ -270,6 +272,15 @@ default behaviour is:
 
 /mob/living/proc/adjustHalLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
+
+	halloss = min(max(halloss + amount, 0),(maxHealth*2))
+
+/mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
+	if(status_flags & GODMODE)	return 0	//godmode
+	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
+		if (species && species.flags & NO_PAIN)//Species with this flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
+			return 0
+
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 /mob/living/proc/setHalLoss(var/amount)
