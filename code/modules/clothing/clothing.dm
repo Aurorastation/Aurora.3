@@ -254,11 +254,13 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
+	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+	offset_light = 1
 
 /obj/item/clothing/head/New()
 	..()

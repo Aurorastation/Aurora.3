@@ -117,6 +117,7 @@
 	if(!is_adult)
 		if(amount_grown >= 10)
 			is_adult = 1
+			mob_size = 6//Adult slimes are bigger
 			maxHealth = 200
 			amount_grown = 0
 			regenerate_icons()

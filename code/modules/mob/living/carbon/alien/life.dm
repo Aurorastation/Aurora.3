@@ -131,7 +131,7 @@
 
 	if (healths)
 		if (stat != 2)
-			switch(health)
+			switch(health - halloss)//Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)

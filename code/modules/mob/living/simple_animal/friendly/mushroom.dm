@@ -19,7 +19,8 @@
 	var/min_explode_time = 1200
 	density = 0
 	holder_type = /obj/item/weapon/holder/mushroom
-
+	mob_size = 2
+	
 /mob/living/simple_animal/mushroom/New()
 	..()
 	harvest_time = world.time
