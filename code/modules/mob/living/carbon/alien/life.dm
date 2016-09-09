@@ -116,6 +116,9 @@
 
 /mob/living/carbon/alien/proc/handle_regular_hud_updates()
 
+	if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
+		sight = species.vision_flags
+
 	if (stat == 2 || (XRAY in src.mutations))
 		sight |= SEE_TURFS
 		sight |= SEE_MOBS
