@@ -7,10 +7,6 @@
 	flags_inv = HIDEFACE
 	body_parts_covered = FACE|HEAD
 	w_class = 2
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
-		"Unathi" = 'icons/mob/species/unathi/mask.dmi',
-		)
 
 /obj/item/clothing/mask/balaclava/tactical
 	name = "green balaclava"
@@ -20,10 +16,6 @@
 	flags = BLOCKHAIR
 	flags_inv = HIDEFACE
 	w_class = 2
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
-		"Unathi" = 'icons/mob/species/unathi/mask.dmi',
-		)
 
 /obj/item/clothing/mask/luchador
 	name = "Luchador Mask"
