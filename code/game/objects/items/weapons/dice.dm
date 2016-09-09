@@ -16,17 +16,13 @@
 	icon_state = "d2020"
 	sides = 20
 
-/mob/living/carbon/human/throw_item(atom/target)
-	var/atom/movable/item = src.get_active_hand()
-	if (istype(item, /obj/item/weapon/dice/))
-		var/obj/item/weapon/dice/I = item
-		var/result = rand(1, I.sides)
-		var/comment = ""
-		if(I.sides == 20 && result == 20)
-			comment = "Nat 20!"
-		else if(I.sides == 20 && result == 1)
-			comment = "Ouch, bad luck."
-		I.icon_state = "[I.name][result]"
-		..()
-		usr.visible_message("<span class='notice'>\The [I.name] lands on [result]. [comment]</span>")
-	else ..()
+/obj/item/weapon/dice/throw_impact(atom/hit_atom)
+	..()
+	var/result = rand(1, sides)
+	var/comment = ""
+	if(sides == 20 && result == 20)
+		comment = "Nat 20!"
+	else if(sides == 20 && result == 1)
+		comment = "Ouch, bad luck."
+	icon_state = "[name][result]"
+	usr.visible_message("<span class='notice'>\The [name] lands on [result]. [comment]</span>")
