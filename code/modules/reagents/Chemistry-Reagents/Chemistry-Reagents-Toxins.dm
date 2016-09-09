@@ -167,6 +167,7 @@
 	reagent_state = LIQUID
 	color = "#49002E"
 	strength = 4
+	metabolism = REM * 0.35
 
 /datum/reagent/toxin/plantbgone/touch_turf(var/turf/T)
 	if(istype(T, /turf/simulated/wall))

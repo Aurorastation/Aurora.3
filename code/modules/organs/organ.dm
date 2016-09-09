@@ -82,6 +82,11 @@ var/list/organ_cache = list()
 	if(istype(loc,/obj/item/device/mmi) || istype(loc,/obj/item/bodybag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer))
 		return
 
+	//Set/remove bad organ status, only every 10 ticks to reduce processing
+	//Unfortunately internal organs aren't a special subclass so this runs on every organ
+	if (owner && owner.life_tick % 10 == 0)
+		internal_set_bad()
+
 	//Process infections
 	if (robotic >= 2 || (owner && owner.species && (owner.species.flags & IS_PLANT)))
 		germ_level = 0
@@ -99,11 +104,20 @@ var/list/organ_cache = list()
 		if(damage >= max_damage)
 			die()
 
+
 	else if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Handle antibiotics and curing infections
 		handle_antibiotics()
 		handle_rejection()
 		handle_germ_effects()
+
+/obj/item/organ/proc/internal_set_bad()
+	if(!istype(src, /obj/item/organ/external))//if the organ is an internal one
+		if (damage)
+			if (!(src in owner.bad_internal_organs))
+				owner.bad_internal_organs.Add(src)
+		else
+			owner.bad_internal_organs.Remove(src)
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
