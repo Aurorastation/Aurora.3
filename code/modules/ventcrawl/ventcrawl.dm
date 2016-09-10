@@ -44,11 +44,6 @@ var/list/ventcrawl_machinery = list(
 		return 1
 	return ..()
 
-/mob/living/carbon/human/is_allowed_vent_crawl_item(var/obj/item/carried_item)
-	if(carried_item in organs)
-		return 1
-	return ..()
-
 /mob/living/simple_animal/spiderbot/is_allowed_vent_crawl_item(var/obj/item/carried_item)
 	if(carried_item == held_item)
 		return 1
@@ -61,9 +56,9 @@ var/list/ventcrawl_machinery = list(
 			return 0
 	return 1
 
-/mob/living/AltClickOn(var/atom/A)
-	if(is_type_in_list(A,ventcrawl_machinery) && src.can_ventcrawl())
-		src.handle_ventcrawl(A)
+/obj/machinery/atmospherics/AltClick(mob/living/user)
+	if(is_type_in_list(src,ventcrawl_machinery) && user.can_ventcrawl())
+		user.handle_ventcrawl()
 		return 1
 	return ..()
 
@@ -77,7 +72,7 @@ var/list/ventcrawl_machinery = list(
 		if(is_type_in_list(U,ventcrawl_machinery) && Adjacent(U))
 			pipes |= U
 	if(!pipes || !pipes.len)
-		usr << "<span class='notice'>There are no pipes that you can ventcrawl into within range!"
+		usr << "<span class='notice'>There are no pipes that you can ventcrawl into within range!</span>"
 		return
 	if(pipes.len == 1)
 		pipe = pipes[1]
@@ -137,7 +132,7 @@ var/list/ventcrawl_machinery = list(
 						break
 
 			if(istype(vent_found, /obj/machinery/atmospherics/unary/vent_pump/) && vent_found:is_welded()) // welded check
-				usr << "<span class='warning'>You can't crawl into a welded vent!</span>"
+				src << "<span class='warning'>You can't crawl into a welded vent!</span>"
 				return
 
 			if(vent_found)
@@ -148,23 +143,23 @@ var/list/ventcrawl_machinery = list(
 
 						switch(vent_found.air_contents.temperature)
 							if(0 to BODYTEMP_COLD_DAMAGE_LIMIT)
-								usr << "<span class='danger'>You feel a painful freeze coming from the vent!</span>"
+								src << "<span class='danger'>You feel a painful freeze coming from the vent!</span>"
 							if(BODYTEMP_COLD_DAMAGE_LIMIT to T0C)
-								usr << "<span class='warning'>You feel an icy chill coming from the vent.</span>"
+								src << "<span class='warning'>You feel an icy chill coming from the vent.</span>"
 							if(T0C + 40 to BODYTEMP_HEAT_DAMAGE_LIMIT)
-								usr << "<span class='warning'>You feel a hot wash coming from the vent.</span>"
+								src << "<span class='warning'>You feel a hot wash coming from the vent.</span>"
 							if(BODYTEMP_HEAT_DAMAGE_LIMIT to INFINITY)
-								usr << "<span class='danger'>You feel a searing heat coming from the vent!</span>"
+								src << "<span class='danger'>You feel a searing heat coming from the vent!</span>"
 
 						switch(vent_found.air_contents.return_pressure())
 							if(0 to HAZARD_LOW_PRESSURE)
-								usr << "<span class='danger'>You feel a rushing draw pulling you into the vent!</span>"
+								src << "<span class='danger'>You feel a rushing draw pulling you into the vent!</span>"
 							if(HAZARD_LOW_PRESSURE to WARNING_LOW_PRESSURE)
-								usr << "<span class='warning'>You feel a strong drag pulling you into the vent.</span>"
+								src << "<span class='warning'>You feel a strong drag pulling you into the vent.</span>"
 							if(WARNING_HIGH_PRESSURE to HAZARD_HIGH_PRESSURE)
-								usr << "<span class='warning'>You feel a strong current pushing you away from the vent.</span>"
+								src << "<span class='warning'>You feel a strong current pushing you away from the vent.</span>"
 							if(HAZARD_HIGH_PRESSURE to INFINITY)
-								usr << "<span class='danger'>You feel a roaring wind pushing you away from the vent!</span>"
+								src << "<span class='danger'>You feel a roaring wind pushing you away from the vent!</span>"
 
 					if(!do_mob(src, vent_found, mob_size ? size_to_crawldelay(mob_size) : size_to_crawldelay(15), 1, 1))
 						return
@@ -182,16 +177,16 @@ var/list/ventcrawl_machinery = list(
 					sight = (SEE_TURFS|BLIND)
 
 				else
-					usr << "<span class='notice'>This vent is not connected to anything."
+					src << "<span class='notice'>This vent is not connected to anything."
 
 			else
-				usr << "<span class='notice'>You must be standing on or beside an air vent to enter it."
+				src << "<span class='notice'>You must be standing on or beside an air vent to enter it."
 
 		else
-			usr << "<span class='notice'>You can't vent crawl while you're stunned!"
+			src << "<span class='notice'>You can't vent crawl while you're stunned!"
 
 	else
-		usr << "<span class='notice'>You must be conscious to do this!"
+		src << "<span class='notice'>You must be conscious to do this!"
 	return
 
 /mob/living/proc/add_ventcrawl(obj/machinery/atmospherics/starting_machine)
