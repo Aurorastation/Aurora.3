@@ -43,7 +43,8 @@
 		/obj/machinery/smartfridge/,
 		/obj/machinery/biogenerator,
 		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer
+		/obj/machinery/radiocarbon_spectrometer,
+		/obj/item/weapon/storage/part_replacer
 		)
 
 	New()
@@ -92,6 +93,9 @@
 			return
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W,/obj/item/weapon/storage/part_replacer))
+			if(!reagents || !reagents.total_volume)
+				return ..()
 		if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 			var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 			if(length(tmp_label) > 10)
