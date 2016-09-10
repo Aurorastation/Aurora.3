@@ -51,6 +51,29 @@
 
 	return ..()
 
+
+//This proc is called manually on a light if you want it to be more responsive.
+//It forces an update right now instead of waiting for the controller to get around to it, which can be up to 2.1 seconds
+//Update is forced on this light source, and all tiles it effects.
+//This can be very expensive and inefficient, use sparingly
+/datum/light_source/proc/instant_update()
+	remove_lum()
+	if(!destroyed)
+		apply_lum()
+
+	else if(vis_update)	//We smartly update only tiles that became (in) visible to use.
+		smart_vis_update()
+
+	vis_update = 0
+	force_update = 0
+	needs_update = 0
+
+	for (var/turf/T in effect_turf)
+		if (T.lighting_overlay)
+			T.lighting_overlay.update_overlay()
+			T.lighting_overlay.needs_update = 0
+
+
 /datum/light_source/proc/destroy()
 	destroyed = 1
 	force_update()
@@ -148,6 +171,13 @@
 /datum/light_source/proc/apply_lum()
 	applied = 1
 
+	if (istype(source_atom.loc, /mob))//If the light is carried by a mob
+		var/mob/M = source_atom.loc
+		if (source_atom.offset_light)//And its an offset light
+			apply_lum_offset(M)//Then we call the special offset variant and terminate there.
+			return//This is split off to minimise overhead added to the majority of non-offset lights
+
+
 	//Keep track of the last applied lum values so that the lighting can be reversed
 	applied_lum_r = lum_r
 	applied_lum_g = lum_g
@@ -183,6 +213,64 @@
 			effect_turf += T
 		END_FOR_DVIEW
 
+
+//Duplicated code for speed. This is a variant of apply_lum for directional/offset lights carried by a mob
+/datum/light_source/proc/apply_lum_offset(var/mob/M)//M is passed in for speed since we already fetched it
+	var/turf/lightfrom = get_step(M, M.dir)//Light source is offset infront of the user, simulates a directional light
+	var/list/dview = list()
+
+	//We run a special DVIEW call to fetch the list of tiles viewable from the MOB's position
+	//This is cross referenced with the below DVIEW loop which runs through tiles viewable from the lightfrom position
+	//This is used to prevent offset lights shining through walls
+	DVIEW(dview, light_range, source_turf, INVISIBILITY_LIGHTING)
+
+
+	applied = 1
+
+	//Keep track of the last applied lum values so that the lighting can be reversed
+	applied_lum_r = lum_r
+	applied_lum_g = lum_g
+	applied_lum_b = lum_b
+
+	if(istype(lightfrom))
+		FOR_DVIEW(var/turf/T, light_range, lightfrom, INVISIBILITY_LIGHTING)//List of turfs visible from the light centre
+			if(T.lighting_overlay)
+
+				if (!(T in dview))//If the turf is not also visible from the mob, then it's obscured and invalid
+					continue//Don't light this tile. This prevents offset lights from shining through walls
+
+				var/strength
+				LUM_FALLOFF(strength, T, lightfrom)
+
+				if (M && T == get_turf(M))//The light applied to the tile the holder is on is reduced, simulates directional light
+					strength *= light_power * (source_atom.owner_light_mult)
+				else
+					strength *= light_power
+
+				if(!strength) //Don't add turfs that aren't affected to the affected turfs.
+					continue
+
+				strength = round(strength, LIGHTING_ROUND_VALUE)	//Screw sinking points.
+
+				effect_str += strength
+
+				T.lighting_overlay.update_lumcount(
+					applied_lum_r * strength,
+					applied_lum_g * strength,
+					applied_lum_b * strength
+				)
+
+			else
+				effect_str += 0
+
+			if(!T.affecting_lights)
+				T.affecting_lights = list()
+
+			T.affecting_lights += src
+			effect_turf += T
+		END_FOR_DVIEW
+
+
 /datum/light_source/proc/remove_lum()
 	applied = 0
 	var/i = 1
@@ -193,8 +281,8 @@
 		if(T.lighting_overlay)
 			var/str = effect_str[i]
 			T.lighting_overlay.update_lumcount(
-				-str * applied_lum_r, 
-				-str * applied_lum_g, 
+				-str * applied_lum_r,
+				-str * applied_lum_g,
 				-str * applied_lum_b
 			)
 
@@ -255,7 +343,7 @@
 		effect_str.Cut(idx, idx + 1)
 
 //Whoop yet not another copy pasta because speed ~~~~BYOND.
-//Calculates and applies lighting for a single turf. This is intended for when a turf switches to 
+//Calculates and applies lighting for a single turf. This is intended for when a turf switches to
 //using dynamic lighting when it was not doing so previously (when constructing a floor on space, for example).
 //Assumes the turf is visible and such.
 //For the love of god don't call this proc when it's not needed! Lighting artifacts WILL happen!
@@ -294,6 +382,65 @@
 			applied_lum_g * .,
 			applied_lum_b * .
 		)
+
+
+
+//This function returns the illumination it would/did apply to the specified turf.
+//It is useful for gathering information on a particular source's contribution to a turf's light
+/datum/light_source/proc/get_lum(var/turf/T)
+	var/turf/lightfrom = source_turf
+	var/mob/M = null
+	var/list/dview = list()
+	var/list/castview = list()
+
+
+	if (istype(source_atom.loc, /mob))
+		M = source_atom.loc
+		if (source_atom.offset_light)
+			DVIEW(dview, light_range, source_turf, INVISIBILITY_LIGHTING)
+			lightfrom = get_step(M, M.dir)//Light source is offset infront of the user, simulates a directional light
+
+	applied = 1
+
+	//Keep track of the last applied lum values so that the lighting can be reversed
+	applied_lum_r = lum_r
+	applied_lum_g = lum_g
+	applied_lum_b = lum_b
+
+	if(istype(lightfrom))
+
+		//Castview is a list of tiles seen from the light centre.
+		//If the desired turf isn't in it, then we couldn't contribute anything to that tile, return a zero list
+		DVIEW(castview, light_range, lightfrom, INVISIBILITY_LIGHTING)
+		if (!(T in castview))
+			return list(0,0,0)
+
+		if(T.lighting_overlay)
+			//Check for offset lights shining through walls
+			if (source_atom.offset_light)
+				if (!(T in dview))
+					return list(0,0,0)
+
+			var/strength
+			LUM_FALLOFF(strength, T, lightfrom)
+
+			if (M && T == get_turf(M))//The light applied to the tile the holder is on is reduced, simulates directional light
+				strength *= light_power * (source_atom.owner_light_mult)
+			else
+				strength *= light_power
+
+			if(!strength) //If no strength, then we contributed nothing.
+				return list(0,0,0)
+
+			strength = round(strength, LIGHTING_ROUND_VALUE)
+
+			//If we're here, then we've confirmed this light does affect the passed tile, and how much.
+			//Return the values we've applied to it.
+			return list(
+				applied_lum_r * strength,
+				applied_lum_g * strength,
+				applied_lum_b * strength)
+
 
 #undef LUM_FALLOFF
 #undef LUM_DISTANCE

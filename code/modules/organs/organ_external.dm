@@ -167,6 +167,9 @@
 	spawn(1)
 		get_icon()
 
+	if ((status & ORGAN_PLANT))
+		cannot_break = 1
+
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	owner = target
 	if(istype(owner))
@@ -413,7 +416,7 @@ This function completely restores a damaged organ to perfect condition.
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
-	if(status && status != ORGAN_ROBOT) // If it's robotic, that's fine it will have a status.
+	if(status && status != ORGAN_ROBOT && status != ORGAN_PLANT) // If it's robotic, that's fine it will have a status.
 		return 1
 	if(brute_dam || burn_dam)
 		return 1
@@ -446,7 +449,7 @@ This function completely restores a damaged organ to perfect condition.
 					trace_chemicals.Remove(chemID)
 
 		//Bone fractures
-		if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && !(status & ORGAN_ROBOT))
+		if(config.bones_can_break && !(status & ORGAN_ROBOT) && !(status & ORGAN_PLANT) && brute_dam > min_broken_damage * config.organ_health_multiplier)
 			src.fracture()
 
 		if(!(status & ORGAN_BROKEN))
@@ -557,7 +560,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 //Updating wounds. Handles wound natural I had some free spachealing, internal bleedings and infections
 /obj/item/organ/external/proc/update_wounds()
 
-	if((status & ORGAN_ROBOT) || (status & ORGAN_ADV_ROBOT)) //Robotic limbs don't heal or get worse.
+	if((status & ORGAN_ROBOT) || (status & ORGAN_ADV_ROBOT) || (status & ORGAN_PLANT)) //Robotic limbs don't heal or get worse. Diona limbs heal using their own mechanic
 		return
 	var/updatehud
 	for(var/datum/wound/W in wounds)

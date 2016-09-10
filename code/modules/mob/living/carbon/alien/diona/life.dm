@@ -1,22 +1,41 @@
 //Dionaea regenerate health and nutrition in light.
+
 /mob/living/carbon/alien/diona/handle_environment(datum/gas_mixture/environment)
+	if (stat != DEAD)
+		diona_handle_light(DS)
 
-	var/light_amount = 0 //how much light there is in the place, affects receiving nutrition and healing
-	if(isturf(loc)) //else, there's considered to be no light
-		var/turf/T = loc
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-		if(L)
-			light_amount = min(10,L.lum_r + L.lum_g + L.lum_b) - 5 //hardcapped so it's not abused by having a ton of flashlights
-		else
-			light_amount =  5
+/mob/living/carbon/alien/diona/handle_chemicals_in_body()
+	chem_effects.Cut()
+	analgesic = 0
+
+	if(touching) touching.metabolize()
+	if(ingested) ingested.metabolize()
+	if(bloodstr) bloodstr.metabolize()
+
+	// nutrition decrease
+	if (nutrition > 0 && stat != 2)
+		nutrition = max (0, nutrition - HUNGER_FACTOR)
+
+	if (nutrition > max_nutrition)
+		nutrition = max_nutrition
+
+	//handle_trace_chems() implement this later maybe
+	handle_stomach()
+	updatehealth()
+
+	return
+
+/mob/living/carbon/alien/diona/handle_mutations_and_radiation()
+	diona_handle_radiation(DS)
 
 
-	nutrition += light_amount
+/mob/living/carbon/alien/diona/Life()
+	if (gestalt && (gestalt.life_tick % 5 == 0))//Minimal processing while in stasis
+		updatehealth()
+		check_status_as_organ()
 
-	if(nutrition > 500)
-		nutrition = 500
-	if(light_amount > 2) //if there's enough light, heal
-		adjustBruteLoss(-1)
-		adjustFireLoss(-1)
-		adjustToxLoss(-1)
-		adjustOxyLoss(-1)
+	if (!gestalt)
+		..()
+
+
+

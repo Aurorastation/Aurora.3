@@ -78,6 +78,7 @@
 /mob/living/simple_animal/New()
 	..()
 	verbs -= /mob/verb/observe
+	health = maxHealth
 	if (mob_size)
 		nutrition_step = mob_size * 0.05
 		bite_factor = mob_size * 0.3
@@ -117,14 +118,6 @@
 	..()
 
 	//Health
-	if(stat == DEAD)
-		if(health > 0)
-			icon_state = icon_living
-			dead_mob_list -= src
-			living_mob_list += src
-			stat = CONSCIOUS
-			density = 1
-		return 0
 
 
 	if(health <= 0)

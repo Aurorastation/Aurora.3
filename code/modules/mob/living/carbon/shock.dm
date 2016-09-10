@@ -4,8 +4,8 @@
 // proc to find out in how much pain the mob is at the moment
 /mob/living/carbon/proc/updateshock()
 	if (species && (species.flags & NO_PAIN))
-		src.traumatic_shock = 0
-		return 0
+		src.traumatic_shock = src.halloss //Nopain species only recieve halloss from specific mechanics
+		return src.traumatic_shock
 
 	src.traumatic_shock = 			\
 	1	* src.getOxyLoss() + 		\
