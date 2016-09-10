@@ -25,4 +25,4 @@
 	else if(sides == 20 && result == 1)
 		comment = "Ouch, bad luck."
 	icon_state = "[name][result]"
-	usr.visible_message("<span class='notice'>\The [name] lands on [result]. [comment]</span>")
+	src.visible_message("<span class='notice'>\The [name] lands on [result]. [comment]</span>")
