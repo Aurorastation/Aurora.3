@@ -100,9 +100,6 @@
 		src.client.screen = null
 	..()
 
-/mob/living/simple_animal/updatehealth()
-	return
-
 /mob/living/simple_animal/examine(mob/user)
 	..()
 
@@ -318,6 +315,9 @@
 			if (!(status_flags & CANPUSH))
 				return
 
+			if (!attempt_grab(M))
+				return
+
 			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
 
 			M.put_in_active_hand(G)
@@ -375,7 +375,9 @@
 		if(supernatural && istype(O,/obj/item/weapon/nullrod))
 			damage *= 2
 			purge = 3
-		adjustBruteLoss(damage)
+
+		apply_damage(damage, O.damtype)
+		//adjustBruteLoss(damage)
 	else
 		usr << "<span class='danger>This weapon is ineffective, it does no damage.</span>"
 
@@ -401,6 +403,11 @@
 
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
+
+/mob/living/updatehealth()
+	..()
+	if (health <= 0)
+		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	icon_state = icon_dead

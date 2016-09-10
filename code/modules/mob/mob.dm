@@ -605,8 +605,12 @@
 		usr << "<span class='notice'>It won't budge!</span>"
 		return
 
-	var/mob/M = AM
-	if(ismob(AM))
+	var/mob/living/M
+	if(istype(AM, /mob/living))
+		M = AM
+		if (!M.attempt_pull(src))
+			return
+
 		if(!iscarbon(src))
 			M.LAssailant = null
 		else
@@ -631,7 +635,7 @@
 			src << "\red <B>Pulling \the [H] in their current condition would probably be a bad idea.</B>"
 
 	//Attempted fix for people flying away through space when cuffed and dragged.
-	if(ismob(AM))
+	if(M)
 		var/mob/pulled = AM
 		pulled.inertia_dir = 0
 
