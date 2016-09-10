@@ -1684,6 +1684,14 @@ datum/design/item/experimental_welder
 	materials = list("$metal" = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
 
+datum/design/item/advanced_light_replacer
+	name = "Advanced Light Replacer"
+	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
+	id = "advanced_light_replacer"
+	req_tech = list("materials" = 3, "powerstorage" = 3)
+	materials = list("$metal" = 500)
+	build_path =/obj/item/device/lightreplacer/advanced
+
 //////exosuit modules - allow robotics to print some modules, maybe a generic rig, but more things for them to do --Alberyk
 
 datum/design/item/rigmodule
