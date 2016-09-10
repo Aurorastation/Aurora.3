@@ -16,7 +16,7 @@
 	req_access = list(access_engine, access_robotics)
 	integrated_light_power = 3
 	local_transmit = 1
-	mob_size = 2
+	mob_size = 4
 	small = 1
 
 	mob_bump_flag = SIMPLE_ANIMAL

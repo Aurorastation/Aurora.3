@@ -557,7 +557,7 @@
 #define ORGAN_MUTATED    2048
 #define ORGAN_ASSISTED   4096
 #define ORGAN_ADV_ROBOT  4096
-
+#define ORGAN_PLANT  	 8192
 
 // Admin permissions. Please don't edit these values without speaking to Errorage first. ~Carn
 #define R_BUILDMODE     1
@@ -923,6 +923,10 @@ var/list/be_special_flags = list(
 #define SIMPLE_ANIMAL 32
 #define HEAVY 64
 
+//Types of diona, returned by is_diona
+#define DIONA_NYMPH		1
+#define DIONA_WORKER	2
+
 #define ALLMOBS (HUMAN|MONKEY|ALIEN|ROBOT|SLIME|SIMPLE_ANIMAL|HEAVY)
 
 #define NEXT_MOVE_DELAY 8
@@ -1067,6 +1071,11 @@ var/list/be_special_flags = list(
 	for(type in view(range, dview_mob))
 #define END_FOR_DVIEW dview_mob.loc = null
 
+#define DVIEW(output, range, center, invis_flags) \
+	dview_mob.loc = center; \
+	dview_mob.see_invisible = invis_flags; \
+	output = view(range, dview_mob); \
+	dview_mob.loc = null ;
 
 //Time of Death constants
 //Used with a list in preference datums to track times of death

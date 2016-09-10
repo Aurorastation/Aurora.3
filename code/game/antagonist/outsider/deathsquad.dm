@@ -31,58 +31,67 @@ var/datum/antagonist/deathsquad/deathsquad
 	if(!..())
 		return
 
-	if (player.mind == leader)
-		player.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(player), slot_w_uniform)
-	else
-		player.equip_to_slot_or_del(new /obj/item/clothing/under/ert(player), slot_w_uniform)
+	var/obj/item/clothing/accessory/holster/armpit/hold = new(player)
+	var/obj/item/weapon/gun/projectile/revolver/mateba/weapon = new(player)
+	hold.contents += weapon
+	hold.holstered = weapon
 
+	var/obj/item/clothing/under/ert/under = new(player)
+	under.attackby(hold, player)
+
+	player.equip_to_slot_or_del(under, slot_w_uniform)
 	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(player), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(player), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(player), slot_glasses)
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat(player), slot_wear_mask)
+	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(player), slot_l_ear)
 	if (player.mind == leader)
 		player.equip_to_slot_or_del(new /obj/item/weapon/pinpointer(player), slot_l_store)
-		player.equip_to_slot_or_del(new /obj/item/weapon/disk/nuclear(player), slot_r_store)
+		player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	else
 		player.equip_to_slot_or_del(new /obj/item/weapon/plastique(player), slot_l_store)
 		player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
-	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/mateba(player), slot_belt)
-	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle(player), slot_r_hand)
+	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/rifle/pulse(player), slot_l_hand)
 	player.equip_to_slot_or_del(new /obj/item/weapon/rig/ert/assetprotection(player), slot_back)
+	
+	var/obj/item/weapon/storage/belt/security/tactical/commando_belt = new(player)
+	commando_belt.contents += new /obj/item/ammo_magazine/a357
+	commando_belt.contents += new /obj/item/ammo_magazine/a357
+	commando_belt.contents += new /obj/item/weapon/melee/baton/loaded
+	commando_belt.contents += new /obj/item/weapon/shield/energy
+	commando_belt.contents += new /obj/item/weapon/grenade/flashbang
+	commando_belt.contents += new /obj/item/weapon/grenade/flashbang
+	commando_belt.contents += new /obj/item/weapon/handcuffs
+	commando_belt.contents += new /obj/item/weapon/handcuffs
+	commando_belt.contents += new /obj/item/weapon/plastique
+	player.equip_to_slot_or_del(commando_belt, slot_belt)
+	
 	player.implant_loyalty(player)
 
 	var/obj/item/weapon/card/id/id = create_id("Asset Protection", player)
 	if(id)
 		id.access |= get_all_accesses()
 		id.icon_state = "centcom"
-	create_radio(DTH_FREQ, player)
 
 /* //disabling this until the names are fixed to don't be dumb, NanoTrasen has no military
 /datum/antagonist/deathsquad/update_antag_mob(var/datum/mind/player)
-
 	..()
-
 	var/syndicate_commando_rank
 	if(leader && player == leader)
 		syndicate_commando_rank = pick("Corporal", "Sergeant", "Staff Sergeant", "Sergeant 1st Class", "Master Sergeant", "Sergeant Major")
 	else
 		syndicate_commando_rank = pick("Lieutenant", "Captain", "Major")
-
 	var/syndicate_commando_name = pick(last_names)
-
 	var/datum/preferences/A = new() //Randomize appearance for the commando.
 	A.randomize_appearance_for(player.current)
-
 	player.name = "[syndicate_commando_rank] [syndicate_commando_name]"
 	player.current.name = player.name
 	player.current.real_name = player.current.name
-
 	var/mob/living/carbon/human/H = player.current
 	if(istype(H))
 		H.gender = pick(MALE, FEMALE)
 		H.age = rand(25,45)
 		H.dna.ready_dna(H)
-
 	return
 */
 /datum/antagonist/deathsquad/create_antagonist()

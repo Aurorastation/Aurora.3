@@ -275,10 +275,10 @@ proc/blood_splatter(var/target,var/datum/reagent/blood/source,var/large)
 	var/obj/effect/decal/cleanable/blood/B
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
 	var/turf/T = get_turf(target)
-
 	if(istype(source,/mob/living/carbon/human))
 		var/mob/living/carbon/human/M = source
 		source = M.get_blood(M.vessel)
+
 
 	// Are we dripping or splattering?
 	var/list/drips = list()

@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - imageadd: "Masks when worn by unathi and tajaran have different sprites that don't conflict with their anatomy."

@@ -105,6 +105,21 @@
 		update()
 		return
 
+	else if (istype (I, /obj/item/device/lightreplacer))
+		var/count = 0
+		var/obj/item/device/lightreplacer/R = I
+		if (R.store_broken)
+			for(var/obj/item/weapon/light/L in R.contents)
+				count++
+				L.forceMove(src)
+
+			if (count)
+				user << "\blue You empty [count] broken bulbs into the disposal."
+			else
+				user << "\blue There are no broken bulbs to empty out."
+			update()
+			return
+
 	var/obj/item/weapon/grab/G = I
 	if(istype(G))	// handle grabbed mob
 		if(ismob(G.affecting))

@@ -184,3 +184,13 @@
 				icon_species_tag = wearer.species.short_name
 				return 1
 	return 0
+
+
+//This function should be called on an item when it is:
+//Built, autolathed, protolathed, crafted or constructed. At runtime, by players or machines
+
+//It should NOT be called on things that:
+//spawn at roundstart, are adminspawned, arrive on shuttles, spawned from vendors, removed from fridges and containers, etc
+//This is useful for setting special behaviour for built items that shouldn't apply to those spawned at roundstart
+/obj/proc/Created()
+	return

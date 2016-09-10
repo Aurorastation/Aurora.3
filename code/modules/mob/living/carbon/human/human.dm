@@ -7,8 +7,11 @@
 
 	var/list/hud_list[10]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
+	mob_size = 9//Based on average weight of a human
+
 
 /mob/living/carbon/human/New(var/new_loc, var/new_species = null)
+	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
 
 	if(!dna)
 		dna = new /datum/dna(null)
@@ -48,6 +51,8 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
+	if (DS)
+		qdel(DS)//prevents the dionastats holding onto references and blocking GC
 	return ..()
 
 /mob/living/carbon/human/Stat()
@@ -93,6 +98,10 @@
 	var/shielded = 0
 	var/b_loss = null
 	var/f_loss = null
+
+	if (is_diona() == DIONA_WORKER)//Thi
+		diona_contained_explosion_damage(severity)
+
 	switch (severity)
 		if (1.0)
 			b_loss += 500
@@ -1160,6 +1169,9 @@
 		if(hud_used)
 			qdel(hud_used)
 		hud_used = new /datum/hud(src)
+
+	if (src.is_diona())
+		setup_gestalt(1)
 
 	if(species)
 		return 1

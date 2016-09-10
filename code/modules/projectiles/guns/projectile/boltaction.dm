@@ -7,6 +7,7 @@
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
+	handle_casings = HOLD_CASINGS
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_shells = 5
