@@ -207,7 +207,7 @@ var/list/ventcrawl_machinery = list(
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
-		if (!V.pipe_image || (istype(V, /obj/machinery/atmospherics/unary/vent_pump/) && V:is_welded()))
+		if (!V.pipe_image || istype(V, /obj/machinery/atmospherics/unary/vent_pump/))
 			V.pipe_image = image(V, V.loc, layer = 20, dir = V.dir)
 		pipes_shown += V.pipe_image
 		client.images += V.pipe_image
