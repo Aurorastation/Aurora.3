@@ -45,8 +45,8 @@
 /obj/item/weapon/gun/energy/rifle/laser
 	name = "laser rifle"
 	desc = "A common laser weapon, designed to kill with concentrated energy blasts."
-	icon_state = "laser_rifle"
-	item_state = "laser_rifle"
+	icon_state = "laser"
+	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = "combat=3;magnets=2"
