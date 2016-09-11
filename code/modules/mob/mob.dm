@@ -1039,6 +1039,11 @@ mob/proc/yank_out_object()
 
 	return 0
 
+/mob/proc/Released()
+	//This is called when the mob is let out of a holder
+	//Override for mob-specific functionality
+	return
+
 /mob/proc/updateicon()
 	return
 
