@@ -1,5 +1,6 @@
 /* Runtime Condenser by Nodrak
  * Cleaned up and refactored by MrStonedOne
+ * Modified for Aurora by Skull132
  * This will sum up identical runtimes into one, giving a total of how many times it occured. The first occurance
  * of the runtime will log the source, usr and src, the rest will just add to the total. Infinite loops will
  * also be caught and displayed (if any) above the list of runtimes.
@@ -66,6 +67,8 @@ unsigned int totalRuntimes = 0;
 unsigned int totalInfiniteLoops = 0;
 unsigned int totalHardDels = 0;
 
+//Global config option
+bool runQuiet = false;
 
 bool endofbuffer = false;
 //like substr, but returns an empty string if the string is smaller then start, rather then an exception.
@@ -153,7 +156,7 @@ bool readFromFile() {
 		//Update our lines
 		forward_progress(inputFile);
 		//progress bar
-		if (clock() >= nextupdate) {
+		if (!runQuiet && clock() >= nextupdate) {
 			int dProgress = (int)(((long double)ftell(inputFile) / (long double)fileLength) * 100.0L);
 			printprogressbar(dProgress);
 			nextupdate = clock() + (CLOCKS_PER_SEC/PROGRESS_FPS);
@@ -232,27 +235,26 @@ bool readFromFile() {
 					forward_progress(inputFile);
 			}
 
-		} else if (safe_substr(currentLine, 0, 7) == "Path : ") {
-			string deltype = safe_substr(currentLine, 7);
+		} else if (safe_substr(currentLine, 0, 12) == "hard delete:") {
+			string deltype = safe_substr(nextLine, 0);
 			if (deltype.substr(deltype.size()-1,1) == " ") //some times they have a single trailing space.
 				deltype = deltype.substr(0, deltype.size()-1);
 
-			unsigned int failures = strtoul(safe_substr(nextLine, 11).c_str(), NULL, 10);
-			if (failures <= 0)
-				continue;
-
-			totalHardDels += failures;
+			totalHardDels += 1;
 			harddel* D = &storedHardDel[deltype];
 			if (D->type != deltype) {
 				D->type = deltype;
-				D->count = failures;
+				D->count = 1;
 			} else {
-				D->count += failures;
+				D->count += 1;
 			}
 		}
 	} while (!feof(inputFile) || !endofbuffer); //Until end of file
-	printprogressbar(100);
-	cout << endl;
+
+	if(!runQuiet) {
+		printprogressbar(100);
+		cout << endl;
+	}
 	return true;
 }
 bool runtimeComp(const runtime &a, const runtime &b) {
@@ -357,32 +359,59 @@ bool writeToFile() {
 	return true;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
 	ios_base::sync_with_stdio(false);
 	ios::sync_with_stdio(false);
 	char exit; //Used to stop the program from immediately exiting
-	cout << "Reading input.\n";
+
+	//Parse commandline args.
+	if(argc > 1) {
+		for(int i = 1; i < argc; ++i) {
+			//Quiet toggled, no output will be provided.
+			//Program will also exit automatically.
+			if (strcmp(argv[i], "-q") == 0 || strcmp(argv[i], "-quiet") == 0) {
+				runQuiet = true;
+			}
+		}
+	}
+
+	if(!runQuiet) {
+		cout << "Reading input.\n";
+	}
 	if(readFromFile()) {
-		cout << "Input read successfully!\n";
+		if(!runQuiet) {
+			cout << "Input read successfully!\n";
+		}
 	} else {
-		cout << "Input failed to open, shutting down.\n";
-		cout << "\nEnter any letter to quit.\n";
-		exit = cin.get();
+		if(!runQuiet) {
+			cout << "Input failed to open, shutting down.\n";
+			cout << "\nEnter any letter to quit.\n";
+			exit = cin.get();
+		}
+
 		return 1;
 	}
 
 
-	cout << "Writing output.\n";
+	if(!runQuiet) {
+		cout << "Writing output.\n";
+	}
 	if(writeToFile()) {
-		cout << "Output was successful!\n";
-		cout << "\nEnter any letter to quit.\n";
-		exit = cin.get();
+		if(!runQuiet) {
+			cout << "Output was successful!\n";
+			cout << "\nEnter any letter to quit.\n";
+			exit = cin.get();
+		}
+
 		return 0;
 	} else {
-		cout << "The output file could not be opened, shutting down.\n";
-		cout << "\nEnter any letter to quit.\n";
-		exit = cin.get();
-		return 0;
+		if(!runQuiet) {
+			cout << "The output file could not be opened, shutting down.\n";
+			cout << "\nEnter any letter to quit.\n";
+			exit = cin.get();
+		}
+
+		return 1;
 	}
 
 	return 0;
