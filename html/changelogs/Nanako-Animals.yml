@@ -35,12 +35,10 @@ delete-after: True
 changes: 
   - rscadd: "Added automatic feeding to most animals which can eat. They will eat food nearby, and beg for food held by others. Animals may take a while to notice food near them. Also tweaked a few animal sizes, metabolisms and meat amounts. Animals are a little less needy for food. Except dogs."
   - tweak: "Disciplining a dog with a rolled up newspaper will make it stop stealing food for a little while."
-  - bugfix: "Fixed Mousetraps not triggering when placed on vents."
   - bugfix: "Dead mice don't squeak."
   - tweak: "Adjusted feedback messages for animals climbing onto people, and animals being fed by people."
   - bugfix: "Improved animal AI, and fixed issues of runtime moving around while dead."
   - imageadd: "Mice can now be worn on your shoulder (ear slot). Special thanks to superballs for making sprites"
-  - bugfix: "Vent names when ventcrawling will no longer constantly shuffle around."
   - tweak: "Maintenance drone lawset has been altered based on administrative feedback."
   - rscadd: "Drink dispensers and fax machines on tables, can now be walked under by small animals. Including cats."
   - rscadd: "Examining a held animal now works properly."
