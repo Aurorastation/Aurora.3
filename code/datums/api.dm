@@ -1,6 +1,9 @@
 //
 // This file contains the API functions for the serverside API
 //
+// IMPORTANT:
+//  When changing api functions always update the version number of the API
+//  The version number is defined in /datum/topic_command/api_get_version
 
 //Init the API at startup
 /hook/startup/proc/setup_api()
@@ -12,8 +15,20 @@
 
 //API Boilerplate
 /datum/topic_command
-  var/name = null
-  var/list/required_params = list() //Required Parameters for the command
+  var/name = null //Name for the command
+  var/description = null //Description for the command
+  var/list/params = list() //Required Parameters for the command
+  //Explanation of the parameter options:
+  //Required - name -> Name of the parameter - should be the same as the index in the list
+  //Required - desc -> Description of the parameter
+  //Required - req -> Is this a required parameter: 1 -> Yes, 0 -> No
+  //Required - type -> What type is this:
+  //            str->String,
+  //            int->Integer,
+  //            lst->List/array,
+  //            senderkey->unique identifier of the person sending the request
+  //            slct -> Select one of multiple specified options
+  //Required* - options -> The possible options that can be selected (slct)
   var/statuscode = null
   var/response = null
   var/data = null
@@ -27,20 +42,150 @@
   var/list/missing_params = list()
   var/errorcount = 0
 
-  for(var/param in required_params)
-    if(queryparams[param] == null)
-      errorcount ++
-      missing_params += param
-
+  for(var/key in params)
+    var/list/param = params[key]
+    if(queryparams[key] == null)
+      if(param["req"] == 0)
+        log_debug("API: The following parameter is OPTIONAL and missing: [param["name"]] - [param["desc"]]")
+      else
+        log_debug("API: The following parameter is REQUIRED but missing: [param["name"]] - [param["desc"]]")
+        errorcount ++
+        missing_params += param["name"]
   if(errorcount)
+    log_debug("API: Request aborted. Required parameters missing")
     statuscode = 400
     response = "Required params missing"
     data = missing_params
     return errorcount
+  return 0
+
+//
+// API for the API
+//
+/datum/topic_command/api_get_version
+  name = "api_get_version"
+  description = "Gets the version of the API"
+/datum/topic_command/api_get_version/run_command(queryparams)
+  var/list/version = list()
+  var/versionstring = null
+  //The Version Number follows SemVer http://semver.org/
+  version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
+  version["minor"] = 0 //Minor Version Number --> Increment when adding features
+  version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
+
+  versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
+
+  statuscode = 200
+  response = versionstring
+  data = version
+  return 1
+
+
+//Get all the functions a specific token / ip combo is authorized to use
+/datum/topic_command/api_get_authed_functions
+  name = "api_get_authed_functions"
+  description = "Returns the functions that can be accessed by the requesting ip and token"
+/datum/topic_command/api_get_authed_functions/run_command(queryparams)
+  var/list/functions = list()
+
+
+  //Check if DB Connection is established
+  if (!establish_db_connection(dbcon))
+    statuscode = 500
+    response = "DB Connection Unavailable"
+    return 1
+
+  var/DBQuery/functionsquery = dbcon.NewQuery({"SELECT api_f.function
+  FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
+  WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+  AND (
+  (token = :token AND ip = :ip)
+  OR
+  (token = :token AND ip IS NULL)
+  OR
+  (token IS NULL AND ip = :ip)
+  )"})
+
+
+  functionsquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"]))
+  while (functionsquery.NextRow())
+    functions[functionsquery.item[1]] = functionsquery.item[1]
+
+  statuscode = 200
+  response = "Authorized functions retrieved"
+  data = functions
+  return 1
+
+
+//Get details for a specific api function
+/datum/topic_command/api_explain_function
+  name = "api_explain_function"
+  description = "Explains a specific API function"
+  params = list(
+    "function" = list("name"="function","desc"="The name of the API function that should be explained","req"=1,"type"="str")
+    )
+/datum/topic_command/api_explain_function/run_command(queryparams)
+  var/datum/topic_command/apifunction = topic_commands[queryparams["function"]]
+  var/list/functiondata = list()
+
+  if (isnull(apifunction))
+    statuscode = 501
+    response = "Not Implemented - The requested function does not exist"
+    return 1
+
+  //Then query for auth
+  if (!establish_db_connection(dbcon))
+    statuscode = 500
+    response = "DB Connection Unavailable"
+    return 1
+
+  var/DBQuery/permquery = dbcon.NewQuery({"SELECT api_f.function
+	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
+	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+	AND	api_t.deleted_at IS NULL
+	AND (
+	(token = :token AND ip = :ip AND function = :function)
+	OR
+	(token = :token AND ip IS NULL AND function = :function)
+	OR
+	(token = :token AND ip = :ip AND function = \"ANY\")
+	OR
+	(token = :token AND ip IS NULL AND function = \"ANY\")
+	OR
+	(token IS NULL AND ip IS NULL AND function = :function)
+	)"})
+  //Get the tokens and the associated functions
+  //Check if the token, the ip and the function matches OR
+  // the token + function matches and the ip is NULL (Functions that can be used by any ip, but require a token)
+  // the token + ip matches and the function is NULL (Allow a specific ip with a specific token to use all functions)
+  // the token + ip is NULL and the function matches (Allow a specific function to be used without auth)
+
+  permquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"], ":function" = queryparams["function"]))
+
+  if (!permquery.RowCount())
+    statuscode = 401
+    response = "Unauthorized - To access this function"
+    return 1
+
+  functiondata["name"] = apifunction.name
+  functiondata["description"] = apifunction.description
+  functiondata["params"] = apifunction.params
+
+  statuscode = 200
+  response = "Function data retrieved"
+  data = functiondata
+  return 1
+
+
+
+//
+// API for the other stuff
+//
 
 //Char Names
 /datum/topic_command/get_char_list
   name = "get_char_list"
+  description = "Provides a list of all characters ingame"
 /datum/topic_command/get_char_list/run_command(queryparams)
   if (!ticker)
     statuscode = 500
@@ -62,6 +207,7 @@
 //Admin Count
 /datum/topic_command/get_count_admin
   name = "get_count_admin"
+  description = "Gets the number of admins connected"
 /datum/topic_command/get_count_admin/run_command(queryparams)
   var/n = 0
   for (var/client/client in clients)
@@ -74,8 +220,9 @@
   return 1
 
 //CCIA Count
-/datum/topic_command/get_count_ccia
-  name = "get_count_ccia"
+/datum/topic_command/get_count_cciaa
+  name = "get_count_cciaa"
+  description = "Gets the number of ccia connected"
 /datum/topic_command/get_count_ccia/run_command(queryparams)
   var/n = 0
   for (var/client/client in clients)
@@ -90,6 +237,7 @@
 //Mod Count
 /datum/topic_command/get_count_mod
   name = "get_count_mod"
+  description = "Gets the number of mods connected"
 /datum/topic_command/get_count_mod/run_command(queryparams)
   var/n = 0
   for (var/client/client in clients)
@@ -104,6 +252,7 @@
 //Player Count
 /datum/topic_command/get_count_player
   name = "get_count_player"
+  description = "Gets the number of players connected"
 /datum/topic_command/get_count_player/run_command(queryparams)
   var/n = 0
   for(var/mob/M in player_list)
@@ -118,6 +267,7 @@
 //Get available Fax Machines
 /datum/topic_command/get_faxmachines
   name = "get_faxmachines"
+  description = "Gets all available fax machines"
 /datum/topic_command/get_faxmachines/run_command(queryparams)
   var/list/faxlocations = list()
 
@@ -132,7 +282,10 @@
 //Get Fax List
 /datum/topic_command/get_faxlist
   name = "get_faxlist"
-  required_params = list("faxtype") //Type of the faxes to be retrieved (sent / received)
+  description = "Gets the list of faxes sent / received"
+  params = list(
+    "faxtype" = list("name"="faxtype","desc"="Type of the faxes that should be retrieved","req"=1,"type"="slct","options"=list("sent","received"))
+    )
 /datum/topic_command/get_faxlist/run_command(queryparams)
   if (!ticker)
     statuscode = 500
@@ -167,7 +320,11 @@
 //Get Specific Fax
 /datum/topic_command/get_fax
   name = "get_fax"
-  required_params = list("faxtype","faxid")
+  description = "Gets a specific fax that has been sent or received"
+  params = list(
+    "faxtype" = list("name"="faxtype","desc"="Type of the faxes that should be retrieved","req"=1,"type"="slct","options"=list("sent","received")),
+    "faxid" = list("name"="faxid","desc"="ID of the fax that should be retrieved","req"=1,"type"="int")
+    )
 /datum/topic_command/get_fax/run_command(queryparams)
   var/list/faxes = list()
   switch (queryparams["faxtype"])
@@ -237,6 +394,7 @@
 //Get Ghosts
 /datum/topic_command/get_ghosts
   name = "get_ghosts"
+  description = "Gets the ghosts"
 /datum/topic_command/get_ghosts/run_command(queryparams)
   var/list/ghosts[] = list()
   ghosts = get_ghosts(1,1)
@@ -249,6 +407,7 @@
 // Crew Manifest
 /datum/topic_command/get_manifest
   name = "get_manifest"
+  description = "Gets the crew manifest"
 /datum/topic_command/get_manifest/run_command(queryparams)
   if (!ticker)
     statuscode = 500
@@ -294,6 +453,7 @@
 //Player Ckeys
 /datum/topic_command/get_player_list
   name = "get_player_list"
+  description = "Gets a list of connected players"
 /datum/topic_command/get_player_list/run_command(queryparams)
   var/list/players = list()
   for (var/client/C in clients)
@@ -307,7 +467,10 @@
 //Get info about a specific player
 /datum/topic_command/get_player_info
   name = "get_player_info"
-  required_params = list("search") //search --> list with data to search for
+  description = "Gets information about a specific player"
+  params = list(
+    "search" = list("name"="search","desc"="List with strings that should be searched for","req"=1,"type"="lst")
+    )
 /datum/topic_command/get_player_info/run_command(queryparams)
   var/list/search = queryparams["search"]
 
@@ -385,6 +548,7 @@
 //Get Server Status
 /datum/topic_command/get_serverstatus
   name = "get_serverstatus"
+  description = "Gets the serverstatus"
 /datum/topic_command/get_serverstatus/run_command(queryparams)
   var/list/s[] = list()
   s["version"] = game_version
@@ -436,6 +600,7 @@
 //Get a Staff List
 /datum/topic_command/get_stafflist
   name = "get_stafflist"
+  description = "Gets a list of connected staffmembers"
 /datum/topic_command/get_stafflist/run_command(queryparams)
   var/list/staff = list()
   for (var/client/C in admins)
@@ -449,7 +614,11 @@
 //Grant Respawn
 /datum/topic_command/grant_respawn
   name = "grant_respawn"
-  required_params = list("senderkey","target")
+  description = "Grants a respawn to a specific target"
+  params = list(
+    "senderkey" = list("name"="senderkey","desc"="Unique id of the person that authorized the respawn","req"=1,"type"="senderkey"),
+    "target" = list("name"="target","desc"="Ckey of the target that should be granted a respawn","req"=1,"type"="str")
+    )
 /datum/topic_command/grant_respawn/run_command(queryparams)
   var/list/ghosts = get_ghosts(1,1)
   var/target = queryparams["target"]
@@ -504,6 +673,7 @@
 //Ping Test
 /datum/topic_command/ping
   name = "ping"
+  description = "API test command"
 /datum/topic_command/ping/run_command(queryparams)
   var/x = 1
   for (var/client/C)
@@ -516,7 +686,10 @@
 //Restart Round
 /datum/topic_command/restart_round
   name = "restart_round"
-  required_params = list("senderkey")
+  description = "Restarts the round"
+  params = list(
+    "senderkey" = list("name"="senderkey","desc"="Unique id of the person that authorized the restart","req"=1,"type"="senderkey")
+    )
 /datum/topic_command/restart_round/run_command(queryparams)
   var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 
@@ -539,7 +712,13 @@
 //Get available Fax Machines
 /datum/topic_command/send_adminmsg
   name = "send_adminmsg"
-  required_params = list("ckey","msg","senderkey")
+  description = "Sends a adminmessage to a player"
+  params = list(
+    "ckey" = list("name"="ckey","desc"="The target of the adminmessage","req"=1,"type"="str"),
+    "msg" = list("name"="msg","desc"="The message that should be sent","req"=1,"type"="str"),
+    "senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the adminmessage","req"=1,"type"="senderkey"),
+    "rank" = list("name"="rank","desc"="The rank that should be displayed - Defaults to admin if none specified","req"=0,"type"="str"),
+    )
 /datum/topic_command/send_adminmsg/run_command(queryparams)
   /*
     We got an adminmsg from IRC bot lets split the API
@@ -589,7 +768,15 @@
 //Send a Command Report
 /datum/topic_command/send_commandreport
   name = "send_commandreport"
-  required_params = list("senderkey","body")
+  description = "Sends a command report"
+  params = list(
+    "senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the commandreport","req"=1,"type"="senderkey"),
+    "title" = list("name"="title","desc"="The message title that should be sent, Defaults to NanoTrasen Update if not specified","req"=0,"type"="str"),
+    "body" = list("name"="body","desc"="The message body that should be sent","req"=1,"type"="str"),
+    "type" = list("name"="type","desc"="The type of the message that should be sent, Defaults to freeform","req"=0,"type"="slct","options"=list("freeform","ccia")),
+    "sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="string"),
+    "announce" = list("name"="announce","desc"="If the report should be announce 1 -> Yes, 0 -> No, Defaults to 1","req"=0,"type"="int")
+    )
 /datum/topic_command/send_commandreport/run_command(queryparams)
   var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
   var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
@@ -641,7 +828,13 @@
 //Send Fax
 /datum/topic_command/send_fax
   name = "send_fax"
-  required_params = list("target","senderkey","title","body")
+  description = "Sends a fax"
+  params = list(
+    "senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the fax","req"=1,"type"="senderkey"),
+    "title" = list("name"="title","desc"="The message title that should be sent","req"=1,"type"="str"),
+    "body" = list("name"="body","desc"="The message body that should be sent","req"=1,"type"="str"),
+    "target" = list("name"="target","desc"="The target faxmachines the fax should be sent to","req"=1,"type"="lst")
+    )
 /datum/topic_command/send_fax/run_command(queryparams)
   var/list/responselist = list()
   var/list/sendsuccess = list()
@@ -649,7 +842,6 @@
   var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
   var/faxtitle = sanitizeSafe(queryparams["title"]) //Title of the report
   var/faxbody = sanitize(queryparams["body"]) //Body of the report
-  var/faxsender = sanitize(queryparams["sendername"]) //Name of the sender
   var/faxannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
 
   if(!targetlist || targetlist.len < 1)
@@ -679,8 +871,8 @@
     else
       command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+list2text(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 
-  log_admin("[faxsender] sent a fax via the API: : [faxbody]")
-  message_admins("[faxsender] sent a fax via the API", 1)
+  log_admin("[senderkey] sent a fax via the API: : [faxbody]")
+  message_admins("[senderkey] sent a fax via the API", 1)
 
   statuscode = 200
   response = "Fax sent"

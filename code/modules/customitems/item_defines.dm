@@ -186,7 +186,7 @@
 	item_state = "usiki_cane"
 	contained_sprite = 1
 
-/obj/item/weapon/cane/fluff/uski_cane/attack_self(mob/user as mob)
+/obj/item/weapon/cane/fluff/usiki_cane/attack_self(mob/user as mob)
 	if(user.get_species() == "Unathi")
 		user << "This cane has the words 'A new and better life' carved into one side in basic, and on the other side in Sinta'Unathi."
 	else

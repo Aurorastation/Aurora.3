@@ -63,7 +63,6 @@ obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 	S.set_up(4, 1, src)
 	S.start()
 	var/mob/living/silicon/robot/H = new /mob/living/silicon/robot/syndicate(T)
-	C.prefs.copy_to(H)
 	H.key = C.key
 	var/newname = sanitizeSafe(input(H,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 	if (newname != "")

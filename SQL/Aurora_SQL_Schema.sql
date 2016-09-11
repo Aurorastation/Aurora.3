@@ -21,7 +21,7 @@ CREATE TABLE `ss13_admin_log` (
 
 CREATE TABLE `ss13_api_functions` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`function` VARCHAR(50) NULL DEFAULT '' COLLATE 'utf8_bin',
+	`function` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
 	`description` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_bin',
 	PRIMARY KEY (`id`)
 )
