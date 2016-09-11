@@ -422,20 +422,25 @@ var/list/world_api_rate_limit = list()
 	var/DBQuery/authquery = dbcon.NewQuery({"SELECT api_f.function
 	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+	AND	api_t.deleted_at IS NULL
 	AND (
 	(token = :token AND ip = :ip AND function = :function)
 	OR
 	(token = :token AND ip IS NULL AND function = :function)
 	OR
-	(token = :token AND ip = :ip AND function IS NULL)
+	(token = :token AND ip = :ip AND function = \"ANY\")
 	OR
-	(token IS NULL AND ip = :ip AND function IS NULL)
+	(token = :token AND ip IS NULL AND function = \"ANY\")
+	OR
+	(token IS NULL AND ip IS NULL AND function = :function)
 	)"})
-	//Get the tokens and the associated functions
-	//Check if the token, the ip and the function matches OR
-	// the token + function matches and the ip is NULL (Functions that can be used by any ip, but require a token)
-	// the token + ip matches and the function is NULL (Allow a specific ip with a specific token to use all functions)
-	// the token + ip is NULL and the function matches (Allow a specific function to be used without auth)
+	//Check if the token is not deleted
+	//Check if one of the following is true:
+	// Full Match - Token IP and Function Matches
+	// Any IP - Token and Function Matches, IP is set to NULL (not required)
+	// Any Function - Token and IP Matches, Function is set to ANY
+	// Any Function, Any IP - Token Matches, IP is set to NULL (not required), Function is set to ANY
+	// Public - Token is set to NULL, IP is set to NULL and function matches
 
 	authquery.Execute(list(":token" = auth, ":ip" = addr, ":function" = function))
 	log_debug("API: Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")

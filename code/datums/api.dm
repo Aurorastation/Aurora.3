@@ -18,9 +18,6 @@
   var/name = null //Name for the command
   var/description = null //Description for the command
   var/list/params = list() //Required Parameters for the command
-  var/statuscode = null
-  var/response = null
-  var/data = null
   //Explanation of the parameter options:
   //Required - name -> Name of the parameter - should be the same as the index in the list
   //Required - desc -> Description of the parameter
@@ -32,6 +29,9 @@
   //            senderkey->unique identifier of the person sending the request
   //            slct -> Select one of multiple specified options
   //Required* - options -> The possible options that can be selected (slct)
+  var/statuscode = null
+  var/response = null
+  var/data = null
 /datum/topic_command/proc/run_command(queryparams)
   // Always returns 1 --> Details status in statuscode, response and data
   return 1
@@ -42,21 +42,22 @@
   var/list/missing_params = list()
   var/errorcount = 0
 
-  for(var/list/param in params)
-    if(queryparams[param] == null)
-      if(param["req"] == 1)
+  for(var/key in params)
+    var/list/param = params[key]
+    if(queryparams[key] == null)
+      if(param["req"] == 0)
+        log_debug("API: The following parameter is OPTIONAL and missing: [param["name"]] - [param["desc"]]")
+      else
         log_debug("API: The following parameter is REQUIRED but missing: [param["name"]] - [param["desc"]]")
         errorcount ++
         missing_params += param["name"]
-      else
-        log_debug("API: The following parameter is OPTIONAL and missing: [param["name"]] - [param["desc"]]")
-
   if(errorcount)
+    log_debug("API: Request aborted. Required parameters missing")
     statuscode = 400
     response = "Required params missing"
     data = missing_params
     return errorcount
-
+  return 0
 
 //
 // API for the API
@@ -72,7 +73,7 @@
   version["minor"] = 0 //Minor Version Number --> Increment when adding features
   version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
-  versionstring = version["major"]+"."+version["minor"]+"."+version["patch"]
+  versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
 
   statuscode = 200
   response = versionstring
@@ -98,7 +99,7 @@
   FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
   WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
   AND (
-  (token = :token AND ip = :ip AND)
+  (token = :token AND ip = :ip)
   OR
   (token = :token AND ip IS NULL)
   OR
@@ -121,7 +122,7 @@
   name = "api_explain_function"
   description = "Explains a specific API function"
   params = list(
-    "function" = list("name"="function","desc"="The name of the API function that should be explained","req"="1","type"="str")
+    "function" = list("name"="function","desc"="The name of the API function that should be explained","req"=1,"type"="str")
     )
 /datum/topic_command/api_explain_function/run_command(queryparams)
   var/datum/topic_command/apifunction = topic_commands[queryparams["function"]]
@@ -139,17 +140,20 @@
     return 1
 
   var/DBQuery/permquery = dbcon.NewQuery({"SELECT api_f.function
-  FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
-  WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
-  AND (
-  (token = :token AND ip = :ip AND function = :function)
-  OR
-  (token = :token AND ip IS NULL AND function = :function)
-  OR
-  (token = :token AND ip = :ip AND function IS NULL)
-  OR
-  (token IS NULL AND ip = :ip AND function IS NULL)
-  )"})
+	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
+	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+	AND	api_t.deleted_at IS NULL
+	AND (
+	(token = :token AND ip = :ip AND function = :function)
+	OR
+	(token = :token AND ip IS NULL AND function = :function)
+	OR
+	(token = :token AND ip = :ip AND function = \"ANY\")
+	OR
+	(token = :token AND ip IS NULL AND function = \"ANY\")
+	OR
+	(token IS NULL AND ip IS NULL AND function = :function)
+	)"})
   //Get the tokens and the associated functions
   //Check if the token, the ip and the function matches OR
   // the token + function matches and the ip is NULL (Functions that can be used by any ip, but require a token)
@@ -159,7 +163,7 @@
   permquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"], ":function" = queryparams["function"]))
 
   if (!permquery.RowCount())
-    statuscode = 404
+    statuscode = 401
     response = "Unauthorized - To access this function"
     return 1
 
@@ -280,7 +284,7 @@
   name = "get_faxlist"
   description = "Gets the list of faxes sent / received"
   params = list(
-    "faxtype" = list("name"="faxtype","desc"="Type of the faxes that should be retrieved","req"="1","type"="slct","options"=list("sent","received"))
+    "faxtype" = list("name"="faxtype","desc"="Type of the faxes that should be retrieved","req"=1,"type"="slct","options"=list("sent","received"))
     )
 /datum/topic_command/get_faxlist/run_command(queryparams)
   if (!ticker)
