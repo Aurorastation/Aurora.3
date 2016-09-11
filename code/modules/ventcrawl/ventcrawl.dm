@@ -62,8 +62,8 @@ var/list/ventcrawl_machinery = list(
 	return 1
 
 /obj/machinery/atmospherics/AltClick(mob/living/user)
-	if(is_type_in_list(src,ventcrawl_machinery) && user.can_ventcrawl())
-		user.handle_ventcrawl()
+	if(is_type_in_list(src, ventcrawl_machinery) && user.can_ventcrawl())
+		user.handle_ventcrawl(src)
 		return 1
 	return ..()
 
@@ -120,12 +120,16 @@ var/list/ventcrawl_machinery = list(
 
 			var/obj/machinery/atmospherics/unary/vent_found
 
-			if(clicked_on && Adjacent(clicked_on))
-				vent_found = clicked_on
-				if(!istype(vent_found) || !vent_found.can_crawl_through())
-					vent_found = null
+			if(clicked_on)
+				if (Adjacent(clicked_on))
+					vent_found = clicked_on
+					if(!is_type_in_list(vent_found, ventcrawl_machinery) || !vent_found.can_crawl_through())
+						vent_found = null
+				else
+					src << "<span class='warning'>Stand next to the selected vent!</span>"
+					return
 
-			if(!vent_found)
+			if(!vent_found && isnull(clicked_on))
 				for(var/obj/machinery/atmospherics/machine in range(1,src))
 					if(is_type_in_list(machine, ventcrawl_machinery))
 						vent_found = machine
