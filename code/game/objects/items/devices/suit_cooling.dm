@@ -184,3 +184,11 @@
 		user << "The charge meter reads [round(cell.percent())]%."
 	else
 		user << "It doesn't have a power cell installed."
+
+/obj/item/device/suit_cooling_unit/improved //those should come with a better powercell
+
+/obj/item/device/suit_cooling_unit/improved/New()
+	processing_objects |= src
+
+	cell = new/obj/item/weapon/cell/high()
+	cell.loc = src
