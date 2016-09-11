@@ -1127,50 +1127,56 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 
 	else return null
 
-	
+
 #define POSESSIVE_PRONOUN	0
 #define POSESSIVE_ADJECTIVE	1
 #define REFLEXIVE			2
 #define SUBJECTIVE_PERSONAL	3
 #define OBJECTIVE_PERSONAL	4
 /mob/proc/get_pronoun(var/type)
-	if (type == POSESSIVE_PRONOUN)
-		if (gender == MALE)
-			return "his"
-		else if (gender == FEMALE)
-			return "hers"
-		else
-			return "theirs"
-	else if (type == POSESSIVE_ADJECTIVE)
-		if (gender == MALE)
-			return "his"
-		else if (gender == FEMALE)
-			return "her"
-		else
-			return "their"
-	else if (type == REFLEXIVE)
-		if (gender == MALE)
-			return "himself"
-		else if (gender == FEMALE)
-			return "herself"
-		else
-			return "themselves"
-	else if (type == SUBJECTIVE_PERSONAL)
-		if (gender == MALE)
-			return "he"
-		else if (gender == FEMALE)
-			return "she"
-		else
-			return "they"
-	else if (type == OBJECTIVE_PERSONAL)
-		if (gender == MALE)
-			return "him"
-		else if (gender == FEMALE)
-			return "her"
-		else
-			return "them"
+	switch (type)
+		if (POSESSIVE_PRONOUN)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "hers"
+				else
+					return "theirs"
+		if (POSESSIVE_ADJECTIVE)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "her"
+				else
+					return "their"
+		if (REFLEXIVE)
+			switch(gender)
+				if (MALE)
+					return "himself"
+				if (FEMALE)
+					return "herself"
+				else
+					return "themselves"
+		if (SUBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "he"
+				if (FEMALE)
+					return "she"
+				else
+					return "they"
+		if (OBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "him"
+				if (FEMALE)
+					return "her"
+				else
+					return "them"
 
-	else
-		return "its"//Something went wrong
-	
+		else
+			return "its"//Something went wrong
+
 #undef SAFE_PERP
