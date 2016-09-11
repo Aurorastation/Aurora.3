@@ -642,7 +642,7 @@ var/list/sacrificed = list()
 					if(lamb.species.rarity_value > 3)
 						worth = 1
 
-				if (ticker.mode.name == "cult")
+				if (ticker.mode.name == "Cult")
 					if(H.mind == cult.sacrifice_target)
 						if(cultsinrange.len >= 3)
 							sacrificed += H.mind
