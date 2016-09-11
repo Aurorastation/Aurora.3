@@ -90,6 +90,17 @@
 /proc/log_misc(text)
 	game_log("MISC", text)
 
+// Procs for logging into diary_runtime
+/proc/log_hard_delete(atom/A)
+	if (config.log_runtime)
+		diary_runtime << "hard delete:[log_end]"
+		diary_runtime << "[A.type][log_end]"
+
+/proc/log_exception(exception/e)
+	if (config.log_runtime)
+		diary_runtime << "runtime error:[e.name][log_end]"
+		diary_runtime << "[e.desc]"
+
 //pretty print a direction bitflag, can be useful for debugging.
 /proc/print_dir(var/dir)
 	var/list/comps = list()

@@ -92,6 +92,7 @@ var/hadevent    = 0
 var/blobevent   = 0
 
 var/diary          = null
+var/diary_runtime  = null
 var/href_logfile   = null
 var/station_name   = "NSS Exodus"
 var/commstation_name = "NTCC Odin"

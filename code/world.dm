@@ -54,6 +54,9 @@ var/global/datum/global_init/init = new ()
 	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
+	if(config.log_runtime)
+		diary_runtime = file("data/logs/_runtime/[date_string]-runtime.log")
+
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
 
@@ -62,9 +65,6 @@ var/global/datum/global_init/init = new ()
 	if(config && config.server_name != null && config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
-
-	if(config && config.log_runtime)
-		log = file("data/logs/runtime/[time2text(world.realtime,"YYYY-MM-DD-(hh-mm-ss)")]-runtime.log")
 
 	callHook("startup")
 	//Emergency Fix
@@ -180,6 +180,29 @@ var/list/world_api_rate_limit = list()
 			C << link("byond://[config.server]")
 
 	..(reason)
+
+var/inerror = 0
+/world/Error(var/exception/e)
+	//runtime while processing runtimes
+	if (inerror)
+		inerror = 0
+		return ..(e)
+
+	//newline at start is because of the "runtime error" byond prints that can't be timestamped.
+	e.name = "\n\[[time2text(world.timeofday,"hh:mm:ss")]\][e.name]"
+
+	//this is done this way rather then replace text to pave the way for processing the runtime reports more thoroughly
+	//	(and because runtimes end with a newline, and we don't want to basically print an empty time stamp)
+	var/list/split = splittext(e.desc, "\n")
+	for (var/i in 1 to split.len)
+		if (split[i] != "")
+			split[i] = "\[[time2text(world.timeofday,"hh:mm:ss")]\][split[i]]"
+	e.desc = jointext(split, "\n")
+
+	log_exception(e)
+
+	inerror = 0
+	return ..(e)
 
 /hook/startup/proc/loadMode()
 	world.load_mode()
@@ -443,3 +466,14 @@ var/list/world_api_rate_limit = list()
 		return 0 // Authed
 	else
 		return 1 // Bad Key
+
+/client/verb/invoke_runtime()
+	set name = "Invoke Runtime"
+	set category = "Testing"
+	set desc = "Runtime's a great cat, no?"
+
+	usr << "Invoking runtime!"
+	var/mob/living/carbon/human/M = null
+	usr << M.get_species()
+	// Null pointer error, here we come!
+	usr << "Runtime invoked. Enjoy your dead mouse."
