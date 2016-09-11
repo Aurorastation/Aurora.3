@@ -48,14 +48,14 @@ var/global/datum/global_init/init = new ()
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
-	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
-	href_logfile = file("data/logs/[date_string] hrefs.htm")
-	diary = file("data/logs/[date_string].log")
+	diary_date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
+	href_logfile = file("data/logs/[diary_date_string] hrefs.htm")
+	diary = file("data/logs/[diary_date_string].log")
 	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
 	if(config.log_runtime)
-		diary_runtime = file("data/logs/_runtime/[date_string]-runtime.log")
+		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
@@ -178,6 +178,15 @@ var/list/world_api_rate_limit = list()
 	for(var/client/C in clients)
 		if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[config.server]")
+
+	// Handle runtime condensing here
+	if (config.log_runtime)
+		var/command = "scripts/condense_runtimes.bat [diary_date_string]"
+
+		if (src.system_type == MS_WINDOWS)
+			command = replacetext(command, "/", "\\")
+
+		shell(command)
 
 	..(reason)
 
