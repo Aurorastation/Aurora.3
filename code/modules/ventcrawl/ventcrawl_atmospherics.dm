@@ -54,6 +54,7 @@
 			else
 				user.remove_ventcrawl()
 				user.forceMove(src.loc)
+				user.sight &= ~(SEE_TURFS|BLIND)
 				user.visible_message("<span class='warning'>You hear something squeezing through the pipes.</span>", "You climb out the ventilation system.")
 	user.canmove = 0
 	spawn(1)
