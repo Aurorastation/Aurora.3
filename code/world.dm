@@ -48,11 +48,14 @@ var/global/datum/global_init/init = new ()
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
-	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
-	href_logfile = file("data/logs/[date_string] hrefs.htm")
-	diary = file("data/logs/[date_string].log")
+	diary_date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
+	href_logfile = file("data/logs/[diary_date_string] hrefs.htm")
+	diary = file("data/logs/[diary_date_string].log")
 	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+
+	if(config.log_runtime)
+		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
@@ -62,9 +65,6 @@ var/global/datum/global_init/init = new ()
 	if(config && config.server_name != null && config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
-
-	if(config && config.log_runtime)
-		log = file("data/logs/runtime/[time2text(world.realtime,"YYYY-MM-DD-(hh-mm-ss)")]-runtime.log")
 
 	callHook("startup")
 	//Emergency Fix
@@ -180,7 +180,44 @@ var/list/world_api_rate_limit = list()
 		if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[config.server]")
 
+	// Handle runtime condensing here
+	if (config.log_runtime)
+		var/input_file = "data/logs/_runtime/[diary_date_string]-runtime.log"
+		var/output_file = "data/logs/_runtime/[diary_date_string]-runtime-condensed.log"
+
+		var/command = "tools/Runtime Condenser/RuntimeCondenser.exe -q -s [input_file] -d [output_file]"
+
+		if (src.system_type == MS_WINDOWS)
+			command = replacetext(command, "/", "\\")
+
+		var/exit_code = shell(command)
+		if (exit_code)
+			log_debug("RuntimeCondenser.exe exited with error code [exit_code].")
+
 	..(reason)
+
+var/inerror = 0
+/world/Error(var/exception/e)
+	//runtime while processing runtimes
+	if (inerror)
+		inerror = 0
+		return ..(e)
+
+	//newline at start is because of the "runtime error" byond prints that can't be timestamped.
+	e.name = "\n\[[time2text(world.timeofday,"hh:mm:ss")]\][e.name]"
+
+	//this is done this way rather then replace text to pave the way for processing the runtime reports more thoroughly
+	//	(and because runtimes end with a newline, and we don't want to basically print an empty time stamp)
+	var/list/split = splittext(e.desc, "\n")
+	for (var/i in 1 to split.len)
+		if (split[i] != "")
+			split[i] = "\[[time2text(world.timeofday,"hh:mm:ss")]\][split[i]]"
+	e.desc = jointext(split, "\n")
+
+	log_exception(e)
+
+	inerror = 0
+	return ..(e)
 
 /hook/startup/proc/loadMode()
 	world.load_mode()
