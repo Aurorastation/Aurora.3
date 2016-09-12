@@ -140,6 +140,14 @@ inline void printprogressbar(unsigned short progress /*as percent*/) {
 }
 
 bool readFromFile() {
+	std::ifstream ifile("Input.txt");
+	if(!(bool)ifile) {
+		if(!runQuiet) {
+			cout << "Error: Missing file 'Input.txt'\n";
+			cout << "Check the name if your file system is Case Sensitive\n";
+		}
+		return false;
+	}
 	//Open file to read
 	FILE * inputFile = fopen("Input.txt", "r");
 
