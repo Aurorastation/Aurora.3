@@ -480,14 +480,3 @@ var/inerror = 0
 		return 0 // Authed
 	else
 		return 1 // Bad Key
-
-/client/verb/invoke_runtime()
-	set name = "Invoke Runtime"
-	set category = "Testing"
-	set desc = "Runtime's a great cat, no?"
-
-	usr << "Invoking runtime!"
-	var/mob/living/carbon/human/M = null
-	usr << M.get_species()
-	// Null pointer error, here we come!
-	usr << "Runtime invoked. Enjoy your dead mouse."
