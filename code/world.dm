@@ -181,12 +181,17 @@ var/list/world_api_rate_limit = list()
 
 	// Handle runtime condensing here
 	if (config.log_runtime)
-		var/command = "scripts/condense_runtimes.bat [diary_date_string]"
+		var/input_file = "data/logs/_runtime/[diary_date_string]-runtime.log"
+		var/output_file = "data/logs/_runtime/[diary_date_string]-runtime-condensed.log"
+
+		var/command = "tools/Runtime Condenser/RuntimeCondenser.exe -q -s [input_file] -d [output_file]"
 
 		if (src.system_type == MS_WINDOWS)
 			command = replacetext(command, "/", "\\")
 
-		shell(command)
+		var/exit_code = shell(command)
+		if (exit_code)
+			log_debug("RuntimeCondenser.exe exited with error code [exit_code].")
 
 	..(reason)
 

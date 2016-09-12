@@ -10,6 +10,11 @@
  * 2) Run RuntimeCondenser.exe
  * 3) Open output.txt for a condensed report of the runtimes
  *
+ * Commandline arguments:
+ * -q or -quiet: No output is given, and the program closes without user input.
+ * -s or --source: Needs to be followed by a path to a valid file. This file is now used for input.
+ * -d or --destination: Needs to be followed by a path to a valid file. This file is now used for output.
+ *
  * How to compile:
  * Requires visual c++ compiler 2012 or any linux compiler with c++11 support.
  * Windows:
@@ -69,6 +74,8 @@ unsigned int totalHardDels = 0;
 
 //Global config option
 bool runQuiet = false;
+char* inputFilePath = "Input.txt";
+char* outputFilePath = "Output.txt";
 
 bool endofbuffer = false;
 //like substr, but returns an empty string if the string is smaller then start, rather then an exception.
@@ -140,16 +147,16 @@ inline void printprogressbar(unsigned short progress /*as percent*/) {
 }
 
 bool readFromFile() {
-	std::ifstream ifile("Input.txt");
+	std::ifstream ifile(inputFilePath);
 	if(!(bool)ifile) {
 		if(!runQuiet) {
-			cout << "Error: Missing file 'Input.txt'\n";
+			cout << "Error: Missing file '" << inputFilePath << "'\n";
 			cout << "Check the name if your file system is Case Sensitive\n";
 		}
 		return false;
 	}
 	//Open file to read
-	FILE * inputFile = fopen("Input.txt", "r");
+	FILE * inputFile = fopen(inputFilePath, "r");
 
 	if (ferror(inputFile))
 		return false;
@@ -274,7 +281,7 @@ bool hardDelComp(const harddel &a, const harddel &b) {
 }
 bool writeToFile() {
 	//Open and clear the file
-	ofstream outputFile("Output.txt", ios::trunc);
+	ofstream outputFile(outputFilePath, ios::trunc);
 
 	if(outputFile.is_open()) {
 		outputFile << "Note: The source file, src and usr are all from the FIRST of the identical runtimes. Everything else is cropped.\n\n";
@@ -367,32 +374,98 @@ bool writeToFile() {
 	return true;
 }
 
+bool processCommandlineArgs(int argc, char* argv[]) {
+	// No args to parse, so we're done.
+	if (argc <= 1) {
+		return true;
+	}
+
+	for (int i = 1; i < argc; ++i) {
+		// -q or -quiet
+		// Toggles feedback messages and pause at the end of the program.
+		if (strcmp(argv[i], "-q") == 0 || strcmp(argv[i], "-quiet") == 0) {
+			runQuiet = true;
+		}
+
+		// -d or --destination
+		// Overrides the regular output file path.
+		else if (strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--destination") == 0) {
+			if (i + 1 < argc) {
+				outputFilePath = argv[i + 1];
+
+				// We skip parsing the next argv[] index.
+				i += 1;
+			}
+			else {
+				// No destination given.
+				if (!runQuiet) {
+					cout << argv[i] << " option requires one argument.\n";
+				}
+
+				return false;
+			}
+		}
+
+		// -s or --source
+		// Overrides the regular input file path.
+		else if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--source") == 0) {
+			if (i + 1 < argc) {
+				inputFilePath = argv[i + 1];
+
+				// We skip parsing the next argv[] index.
+				i += 1;
+			}
+			else {
+				// No source given.
+				if (!runQuiet) {
+					cout << argv[i] << " option requires one argument.\n";
+				}
+
+				return false;
+			}
+		}
+
+		// Unknown argument.
+		else {
+			if (!runQuiet) {
+				cout << "Unknown argument provided: " << argv[i] << "\n";
+			}
+		}
+
+	}
+
+	return true;
+}
+
 int main(int argc, char* argv[]) {
 	ios_base::sync_with_stdio(false);
 	ios::sync_with_stdio(false);
-	char exit; //Used to stop the program from immediately exiting
+	char exit; // Used to stop the program from immediately exiting
 
-	//Parse commandline args.
-	if(argc > 1) {
-		for(int i = 1; i < argc; ++i) {
-			//Quiet toggled, no output will be provided.
-			//Program will also exit automatically.
-			if (strcmp(argv[i], "-q") == 0 || strcmp(argv[i], "-quiet") == 0) {
-				runQuiet = true;
-			}
+	// Parse commandline args.
+	if (!processCommandlineArgs(argc, argv)) {
+		if (!runQuiet) {
+			cout << "Error processing commandline arguments.\n";
+			cout << "\nEnter any letter to quit.\n";
+			exit = cin.get();
 		}
+
+		return 1;
 	}
 
-	if(!runQuiet) {
+	if (!runQuiet) {
 		cout << "Reading input.\n";
 	}
-	if(readFromFile()) {
-		if(!runQuiet) {
+
+	// Process the input file.
+	if (readFromFile()) {
+		if (!runQuiet) {
 			cout << "Input read successfully!\n";
 		}
 	} else {
-		if(!runQuiet) {
-			cout << "Input failed to open, shutting down.\n";
+		if (!runQuiet) {
+			cout << "Input file failed to open, shutting down.\n";
+			cout << "Attempted input file: " << inputFilePath << "\n";
 			cout << "\nEnter any letter to quit.\n";
 			exit = cin.get();
 		}
@@ -401,10 +474,12 @@ int main(int argc, char* argv[]) {
 	}
 
 
-	if(!runQuiet) {
+	if (!runQuiet) {
 		cout << "Writing output.\n";
 	}
-	if(writeToFile()) {
+
+	// Write the output file.
+	if (writeToFile()) {
 		if(!runQuiet) {
 			cout << "Output was successful!\n";
 			cout << "\nEnter any letter to quit.\n";
@@ -415,6 +490,7 @@ int main(int argc, char* argv[]) {
 	} else {
 		if(!runQuiet) {
 			cout << "The output file could not be opened, shutting down.\n";
+			cout << "Attempted output file: " << outputFilePath << "\n";
 			cout << "\nEnter any letter to quit.\n";
 			exit = cin.get();
 		}
