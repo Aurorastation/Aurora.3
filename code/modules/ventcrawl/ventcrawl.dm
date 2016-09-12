@@ -118,6 +118,7 @@ var/list/ventcrawl_machinery = list(
 				if (prob(25))
 					visible_message("<span class='danger'>[src] gets caught in the mousetrap while trying to crawl into the vent!</span>", "<span class='danger'>You get caught in the mousetrap while trying to crawl into the vent!</span>")
 					S.Crossed(src) // Triggers mousetrap
+					forceMove(location.loc)
 		if ("arriving")
 			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
 				if (prob(75))
@@ -198,7 +199,7 @@ var/list/ventcrawl_machinery = list(
 					visible_message("<B>[src] scrambles into the ventilation ducts!</B>", "You climb into the ventilation system.")
 
 					forceMove(vent_found)
-					add_ventcrawl(vent_found)
+					add_ventcrawl(vent_found.node)
 					sight = (SEE_TURFS|BLIND)
 
 				else
