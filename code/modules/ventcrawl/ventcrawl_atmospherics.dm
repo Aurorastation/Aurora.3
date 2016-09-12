@@ -48,23 +48,17 @@
 				user.next_play_vent = world.time+30
 				playsound(src, 'sound/machines/ventcrawl.ogg', 50, 1, -3)
 	else
-		if((direction & initialize_directions) || is_type_in_list(src, ventcrawl_machinery)) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
-			if (!src.can_crawl_through())
-				user.visible_message("<span class='warning'>You hear something scratching against \the [src.name]!</span>", "<span class='notice'>You are unable to continue through this type of component.</span>")
-			else
-				user.remove_ventcrawl()
-				user.forceMove(src.loc)
-				user.sight &= ~(SEE_TURFS|BLIND)
-				user.visible_message("<span class='warning'>You hear something squeezing through the pipes.</span>", "You climb out the ventilation system.")
+		if((direction & initialize_directions) || is_type_in_list(src, ventcrawl_machinery) && src.can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
+			user.remove_ventcrawl()
+			user.forceMove(src.loc)
+			user.sight &= ~(SEE_TURFS|BLIND)
+			user.visible_message("<span class='warning'>You hear something squeezing through the pipes.</span>", "You climb out the ventilation system.")
 	user.canmove = 0
 	spawn(1)
 		user.canmove = 1
 
 /obj/machinery/atmospherics/proc/can_crawl_through()
 	return 1
-
-/obj/machinery/atmospherics/omni/can_crawl_through()
-	return 0
 
 /obj/machinery/atmospherics/proc/findConnecting(var/direction)
 	for(var/obj/machinery/atmospherics/target in get_step(src,direction))
@@ -74,6 +68,11 @@
 
 /obj/machinery/atmospherics/proc/isConnectable(var/obj/machinery/atmospherics/target)
 	return (target == node1 || target == node2)
+
+/obj/machinery/atmospherics/omni/isConnectable(var/obj/machinery/atmospherics/target)
+	for (var/datum/omni_port/P in ports)
+		if (P.node == target)
+			return P.node
 
 /obj/machinery/atmospherics/pipe/manifold/isConnectable(var/obj/machinery/atmospherics/target)
 	return (target == node3 || ..())
