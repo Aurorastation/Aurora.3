@@ -16,45 +16,50 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	var/turns_since_scan = 0
-	var/mob/living/simple_animal/mouse/movement_target
+	//var/mob/living/simple_animal/mouse/movement_target
 	var/mob/flee_target
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/weapon/holder/cat
 	mob_size = 2.5
+	scan_range = 3//less aggressive about stealing food
+	metabolic_factor = 0.75
 	density = 0
+	var/mob/living/simple_animal/mouse/mousetarget = null
+	seek_speed = 5
+	pass_flags = PASSTABLE
 
 /mob/living/simple_animal/cat/Life()
 	//MICE!
-	if((src.loc) && isturf(src.loc))
-		if(!stat && !resting && !buckled)
-			for(var/mob/living/simple_animal/mouse/M in loc)
-				if(!M.stat)
-					M.splat()
-					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"))
-					movement_target = null
-					stop_automated_movement = 0
-					break
+
 
 	..()
 
-	for(var/mob/living/simple_animal/mouse/snack in oview(src,5))
-		if(snack.stat < DEAD && prob(15))
-			audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
-		break
+	for(var/mob/living/simple_animal/mouse/snack in oview(src,7))
+		if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
+			mousetarget = snack
+			movement_target = snack
+			foodtarget = 0//chasing mice takes precedence over eating food
+			if(prob(15))
+				audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
+			break
 
 	if(!stat && !resting && !buckled)
-		turns_since_scan++
-		if (turns_since_scan > 5)
+		if (turns_since_move > 5 || (flee_target || mousetarget))
 			walk_to(src,0)
-			turns_since_scan = 0
+			turns_since_move = 0
 
 			if (flee_target) //fleeing takes precendence
 				handle_flee_target()
 			else
 				handle_movement_target()
+
+	if (!movement_target)
+		walk_to(src,0)
+
+	spawn(2)
+		attack_mice()
 
 	if(prob(2)) //spooky
 		var/mob/dead/observer/spook = locate() in range(src,5)
@@ -77,14 +82,32 @@
 	if( !movement_target || !(movement_target.loc in oview(src, 4)) )
 		movement_target = null
 		stop_automated_movement = 0
-		for(var/mob/living/simple_animal/mouse/snack in oview(src)) //search for a new target
-			if(isturf(snack.loc) && !snack.stat)
-				movement_target = snack
-				break
 
 	if(movement_target)
 		stop_automated_movement = 1
-		walk_to(src,movement_target,0,3)
+		walk_to(src,movement_target,0,seek_move_delay)
+
+/mob/living/simple_animal/cat/proc/attack_mice()
+	if((src.loc) && isturf(src.loc))
+		if(!stat && !resting && !buckled)
+			for(var/mob/living/simple_animal/mouse/M in oview(src,1))
+				if(M.stat != DEAD)
+					M.splat()
+					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"))
+					movement_target = null
+					stop_automated_movement = 0
+					if (prob(75))
+						break//usually only kill one mouse per proc
+
+/mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
+	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]")
+
+/mob/living/simple_animal/cat/Released()
+	//A thrown cat will immediately attack mice near where it lands
+	handle_movement_target()
+	spawn(3)
+		attack_mice()
+	..()
 
 /mob/living/simple_animal/cat/death()
 	.=..()
@@ -105,7 +128,7 @@
 /mob/living/simple_animal/cat/proc/set_flee_target(atom/A)
 	if(A)
 		flee_target = A
-		turns_since_scan = 5
+		turns_since_move = 5
 
 /mob/living/simple_animal/cat/attackby(var/obj/item/O, var/mob/user)
 	. = ..()
@@ -154,7 +177,7 @@
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, 4)
+				walk_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)
