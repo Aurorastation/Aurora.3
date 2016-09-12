@@ -111,6 +111,20 @@ var/list/ventcrawl_machinery = list(
 	var/delayticks = size * 3
 	return delayticks >= 3 ? delayticks : 3
 
+/mob/living/proc/vent_trap_check(var/status, var/atom/location)
+	switch (status)
+		if ("departing")
+			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+				if (prob(25))
+					visible_message("<span class='danger'>[src] gets caught in the mousetrap while trying to crawl into the vent!</span>", "<span class='danger'>You get caught in the mousetrap while trying to crawl into the vent!</span>")
+					S.Crossed(src) // Triggers mousetrap
+		if ("arriving")
+			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+				if (prob(75))
+					S.Crossed(src) // Triggers mousetrap
+		else
+			return
+
 /mob/living/var/ventcrawl_layer = 3
 
 /mob/living/proc/handle_ventcrawl(var/atom/clicked_on)
@@ -143,6 +157,8 @@ var/list/ventcrawl_machinery = list(
 			if(istype(vent_found, /obj/machinery/atmospherics/unary/vent_pump/) && vent_found:is_welded()) // welded check
 				src << "<span class='warning'>You can't crawl into a welded vent!</span>"
 				return
+
+			vent_trap_check("departing", vent_found)
 
 			if(vent_found)
 				if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))

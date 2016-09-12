@@ -38,6 +38,7 @@
 				user.forceMove(target_move.loc) //handles entering and so on
 				user.sight &= ~(SEE_TURFS|BLIND)
 				user.visible_message("<span class='warning'>You hear something squeezing through the ducts.</span>", "You climb out the ventilation system.")
+				user.vent_trap_check("arriving", target_move)
 		else if(target_move.can_crawl_through())
 			if(target_move.return_network(target_move) != return_network(src))
 				user.remove_ventcrawl()
@@ -53,6 +54,7 @@
 			user.forceMove(src.loc)
 			user.sight &= ~(SEE_TURFS|BLIND)
 			user.visible_message("<span class='warning'>You hear something squeezing through the pipes.</span>", "You climb out the ventilation system.")
+			user.vent_trap_check("arriving", target_move)
 	user.canmove = 0
 	spawn(1)
 		user.canmove = 1
