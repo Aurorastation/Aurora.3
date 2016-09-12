@@ -105,8 +105,8 @@
 		playsound(src.loc, hatch_open_sound, 40, 1, -1)
 	hatchclosetime = world.time + 29
 
-	if (istype(mover, /mob/living/silicon))
-		var/mob/living/silicon/S = mover
+	if (istype(mover, /mob/living))
+		var/mob/living/S = mover
 		S.under_door()
 
 
@@ -190,8 +190,14 @@
 		if(mover.checkpass(PASSGLASS))
 			return !opacity
 		if(density && hashatch && mover.checkpass(PASSDOORHATCH))
-			open_hatch(mover)
-			return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
+			if (istype(mover, /mob/living/silicon/pai))
+				var/mob/living/silicon/pai/P = mover
+				if (allowed(P))
+					open_hatch(mover)
+					return 1
+			else
+				open_hatch(mover)
+				return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
 	return !density
 
 
