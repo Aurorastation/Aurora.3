@@ -64,8 +64,11 @@ LOG_PDA
 ## log all Topic() calls (for use by coders in tracking down Topic issues)
 # LOG_HREFS
 
-## log world.log and runtime errors to a file
-# LOG_RUNTIME
+## log runtime errors and hard-deletes to a file
+## 0 - no such logging will be done. (Same effect if simply commented out.)
+## 1 - all runtimes and hard-deletes will be logged to a file.
+## 2 - all runtimes will also be broadcast to log_debug() to make them easier to spot ingame.
+# LOG_RUNTIME 0
 
 ## log admin warning messages
 ##LOG_ADMINWARN  ## Also duplicates a bunch of other messages.

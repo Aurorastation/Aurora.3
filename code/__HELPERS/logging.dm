@@ -98,6 +98,9 @@
 
 /proc/log_exception(exception/e)
 	if (config.log_runtime)
+		if (config.log_runtime == 2)
+			log_debug("RUNTIME ERROR:\n[e.name]")
+
 		diary_runtime << "runtime error:[e.name][log_end]"
 		diary_runtime << "[e.desc]"
 
