@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - tweak: "Random antag event will no longer be ran during extended. It also has a narrower selection of antags: namely, all antags with a long start-up time have been excluded (such as cult)."
