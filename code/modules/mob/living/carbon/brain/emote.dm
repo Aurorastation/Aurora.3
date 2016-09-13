@@ -28,15 +28,12 @@
 		if ("custom")
 			return custom_emote(m_type, message)
 		if ("alarm")
-			src << "You sound an alarm."
 			message = "<B>[src]</B> sounds an alarm."
 			m_type = 2
 		if ("alert")
-			src << "You let out a distressed noise."
 			message = "<B>[src]</B> lets out a distressed noise."
 			m_type = 2
 		if ("notice")
-			src << "You play a loud tone."
 			message = "<B>[src]</B> plays a loud tone."
 			m_type = 2
 		if ("flash")
@@ -46,7 +43,6 @@
 			message = "<B>[src]</B> blinks."
 			m_type = 1
 		if ("whistle")
-			src << "You whistle."
 			message = "<B>[src]</B> whistles."
 			m_type = 2
 		if("beep")
@@ -62,7 +58,6 @@
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 			m_type = 2
 		if ("boop")
-			src << "You boop."
 			message = "<B>[src]</B> boops."
 			m_type = 2
 		if ("help")
