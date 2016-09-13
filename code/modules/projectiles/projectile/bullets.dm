@@ -11,8 +11,8 @@
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
-/obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0)
-	if (..(target, blocked))
+/obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+	if (..(target, blocked, def_zone))
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 
@@ -111,7 +111,7 @@
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
 	check_armour = "melee"
-	damage = 10
+	damage = 5
 	agony = 40
 	embed = 0
 	sharp = 0
@@ -125,7 +125,7 @@
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
 	check_armour = "melee"
-	damage = 20
+	damage = 10
 	agony = 60
 	embed = 0
 	sharp = 0

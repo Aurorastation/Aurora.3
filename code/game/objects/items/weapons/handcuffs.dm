@@ -76,7 +76,8 @@
 	feedback_add_details("handcuffs","H")
 
 	user.visible_message("<span class='danger'>\The [user] has put [cuff_type] on \the [H]!</span>")
-
+	target.drop_r_hand()
+	target.drop_l_hand()
 	// Apply cuffs.
 	var/obj/item/weapon/handcuffs/cuffs = src
 	if(dispenser)

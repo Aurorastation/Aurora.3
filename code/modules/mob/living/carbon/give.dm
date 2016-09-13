@@ -3,9 +3,13 @@
 	set name = "Give"
 
 	// TODO :  Change to incapacitated() on merge.
-	if(usr.stat || usr.lying || usr.resting || usr.buckled)
+	//Edit by Nanako: Removed buckled check so people can give while sitting,
+	//added restrained check so people cant give/recieve while cuffed or straitjacketed
+	if(usr.stat || usr.lying || usr.resting || usr.restrained())
+		usr << "\red You're in no condition to handle items!"
 		return
-	if(!istype(target) || target.stat || target.lying || target.resting || target.buckled || target.client == null)
+	if(!istype(target) || target.stat || target.lying || target.resting || target.restrained() || target.client == null)
+		usr << "\red [target.name] is in no condition to handle items!"
 		return
 
 	var/obj/item/I = usr.get_active_hand()

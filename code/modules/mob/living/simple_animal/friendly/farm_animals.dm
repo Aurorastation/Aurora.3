@@ -13,13 +13,14 @@
 	turns_per_move = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-	meat_amount = 4
+	meat_amount = 6
+	mob_size = 4.5//weight based on Chanthangi goats
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	faction = "goat"
 	attacktext = "kicked"
-	health = 40
+	maxHealth = 40
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	var/datum/reagents/udder = null
@@ -28,6 +29,9 @@
 	udder = new(50)
 	udder.my_atom = src
 	..()
+
+/mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
+	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].")
 
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()
@@ -98,13 +102,16 @@
 	turns_per_move = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-	meat_amount = 6
+	meat_amount = 30//Cows are huge, should be worth a lot of meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicked"
-	health = 50
+	health = 250
+	autoseek_food = 0
+	beg_for_food = 0
 	var/datum/reagents/udder = null
+	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
 
 /mob/living/simple_animal/cow/New()
 	udder = new(50)
@@ -164,12 +171,15 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicked"
-	health = 1
+	maxHealth = 1
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
 	small = 1
 	holder_type = /obj/item/weapon/holder/chick
+	autoseek_food = 0
+	beg_for_food = 0
 	density = 0
+	mob_size = 0.75//just a rough estimate, the real value should be way lower
 
 /mob/living/simple_animal/chick/New()
 	..()
@@ -206,18 +216,19 @@ var/global/chicken_count = 0
 	speak_chance = 2
 	turns_per_move = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-	meat_amount = 2
+	meat_amount = 4
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicked"
-	health = 10
+	maxHealth = 10
 	var/eggsleft = 0
 	var/body_color
 	pass_flags = PASSTABLE
 	small = 1
 	holder_type = /obj/item/weapon/holder/chicken
 	density = 0
+	mob_size = 2
 
 /mob/living/simple_animal/chicken/New()
 	..()

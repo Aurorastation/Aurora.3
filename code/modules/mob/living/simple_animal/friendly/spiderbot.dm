@@ -24,8 +24,8 @@
 
 	wander = 0
 
-	health = 10
-	maxHealth = 10
+	health = 25
+	maxHealth = 25
 	hunger_enabled = 0
 
 	attacktext = "shocked"
@@ -212,10 +212,12 @@
 	if(camera)
 		camera.status = 0
 
-	held_item.loc = src.loc
-	held_item = null
+	if (held_item)
+		held_item.loc = src.loc
+		held_item = null
 
-	gibs(loc, viruses, null, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
+	eject_brain()
+	gibs(loc, viruses, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
 	qdel(src)
 	return
 

@@ -103,7 +103,7 @@
 #define CHEM_TOUCH 1
 #define CHEM_INGEST 2
 #define CHEM_BLOOD 3
-#define MINIMUM_CHEMICAL_VOLUME 0.01
+#define MINIMUM_CHEMICAL_VOLUME 0.001
 #define SOLID 1
 #define LIQUID 2
 #define GAS 3
@@ -191,6 +191,12 @@
 #define SLOT_TIE        16384
 #define SLOT_HOLSTER	32768 //16th bit
 
+//Shortcut for allowing an item to fit in any slot. doesnt include denypocket and twoears
+//This is a helper value, just a sum of several lower ones. it doesn't use a 17th bit
+#define SLOT_ANY		53247
+
+
+
 // Flags bitmasks.
 #define STOPPRESSUREDAMAGE 1 // This flag is used on the flags variable for SUIT and HEAD items which stop pressure damage. Note that the flag 1 was previous used as ONBACK, so it is possible for some code to use (flags & 1) when checking if something can be put on your back. Replace this code with (inv_flags & SLOT_BACK) if you see it anywhere
                              // To successfully stop you taking all pressure damage you must have both a suit and head item with this flag.
@@ -230,6 +236,7 @@
 // Turf-only flags.
 #define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
 
+
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 // WARNING: The following flags apply only to the external suit!
 #define HIDEGLOVES      1
@@ -243,6 +250,12 @@
 #define HIDEEARS 2 // Headsets and such.
 #define HIDEEYES 4 // Glasses.
 #define HIDEFACE 8 // Dictates whether we appear as "Unknown".
+
+//This flag applies to gloves, uniforms, shoes, masks, ear items, glasses
+#define ALWAYSDRAW	32//If set, this item is always rendered even if its slot is hidden by other clothing
+//Note that the item may still not be visible if its sprite is actually covered up.
+
+
 
 // Slots.
 #define slot_back        1
@@ -275,6 +288,27 @@
 #define slot_r_hand_str		"slot_r_hand"
 #define slot_w_uniform_str	"w_uniform"
 #define icon_head		"slot_head"
+
+
+//itemstate suffixes. Used for containedsprite worn items
+#define WORN_LHAND	"_lh"
+#define WORN_RHAND	"_rh"
+#define WORN_LSTORE	"_ls"
+#define WORN_RSTORE "_rs"
+#define WORN_SSTORE "_ss"
+#define WORN_LEAR 	"_le"
+#define WORN_REAR 	"_re"
+#define WORN_HEAD 	"_he"
+#define WORN_UNDER 	"_un"
+#define WORN_SUIT 	"_su"
+#define WORN_GLOVES	"_gl"
+#define WORN_SHOES	"_sh"
+#define WORN_EYES	"_ey"
+#define WORN_BELT	"_be"
+#define WORN_BACK	"_ba"
+#define WORN_ID		"_id"
+#define WORN_MASK	"_ma"
+
 
 // Bitflags for clothing parts.
 #define HEAD        1
@@ -523,7 +557,7 @@
 #define ORGAN_MUTATED    2048
 #define ORGAN_ASSISTED   4096
 #define ORGAN_ADV_ROBOT  4096
-
+#define ORGAN_PLANT  	 8192
 
 // Admin permissions. Please don't edit these values without speaking to Errorage first. ~Carn
 #define R_BUILDMODE     1
@@ -889,6 +923,10 @@ var/list/be_special_flags = list(
 #define SIMPLE_ANIMAL 32
 #define HEAVY 64
 
+//Types of diona, returned by is_diona
+#define DIONA_NYMPH		1
+#define DIONA_WORKER	2
+
 #define ALLMOBS (HUMAN|MONKEY|ALIEN|ROBOT|SLIME|SIMPLE_ANIMAL|HEAVY)
 
 #define NEXT_MOVE_DELAY 8
@@ -1033,6 +1071,11 @@ var/list/be_special_flags = list(
 	for(type in view(range, dview_mob))
 #define END_FOR_DVIEW dview_mob.loc = null
 
+#define DVIEW(output, range, center, invis_flags) \
+	dview_mob.loc = center; \
+	dview_mob.see_invisible = invis_flags; \
+	output = view(range, dview_mob); \
+	dview_mob.loc = null ;
 
 //Time of Death constants
 //Used with a list in preference datums to track times of death

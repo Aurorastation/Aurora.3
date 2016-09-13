@@ -8,6 +8,8 @@
 	icon_state = "syndie_bloodhound"
 	lawchannel = "State"
 	req_access = list(access_syndicate)
+	modtype = "syndicate"
+	braintype = "Cyborg"
 
 /mob/living/silicon/robot/syndicate/init()
 	aiCamera = new/obj/item/device/camera/siliconcam/robot_camera(src)
@@ -29,6 +31,31 @@
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	
 	..()
+	
+/mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works
+	overlays.Cut()
+	if(stat == 0)
+		overlays += "eyes-[icon_state]"
+
+	if(opened)
+		var/panelprefix = custom_sprite ? src.ckey : "ov"
+		if(wiresexposed)
+			overlays += "[panelprefix]-openpanel +w"
+		else if(cell)
+			overlays += "[panelprefix]-openpanel +c"
+		else
+			overlays += "[panelprefix]-openpanel -c"
+
+	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
+		overlays += "[icon_state]-shield"
+
+	if(modtype == "Combat")
+		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
+			icon_state = "[icon_state]-roll"
+		else
+			icon_state = module_sprites[icontype]
+		return
+
 
 //syndicate borg gear
 

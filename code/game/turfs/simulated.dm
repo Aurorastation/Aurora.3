@@ -28,7 +28,7 @@
  		if(wet_overlay)
  			overlays -= wet_overlay
  			wet_overlay = null
- 
+
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
 		B.clean_blood()

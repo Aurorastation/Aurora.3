@@ -33,7 +33,7 @@
 	var/key
 	var/name				//replaces mob/var/original_name
 	var/mob/living/current
-	var/mob/living/original	//TODO: remove.not used in any meaningful way ~Carn. First I'll need to tweak the way silicon-mobs handle minds.
+	var/mob/living/original	//This is being used now, don't remove it
 	var/active = 0
 
 	var/mob/living/admin_mob_placeholder = null

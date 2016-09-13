@@ -18,6 +18,13 @@
 
 	var/being_shocked = 0
 
+	var/item_state // Base name of the image used for when the item is worn. Suffixes are added to this.
+	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
+	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
+	//requires that the wearer's species is listed in icon_supported_species_tags
+	var/list/icon_supported_species_tags //Used with icon_auto_adapt, a list of species which have differing appearances for this item
+	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
+
 /obj/Destroy()
 	processing_objects -= src
 	nanomanager.close_uis(src)
@@ -167,3 +174,23 @@
 				if(src)
 					step(src, pick(NORTH,SOUTH,EAST,WEST))
 					sleep(rand(2,4))
+
+
+/obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
+	if(icon_auto_adapt)
+		icon_species_tag = ""
+		if (loc == wearer && icon_supported_species_tags.len)
+			if (wearer.species.short_name in icon_supported_species_tags)
+				icon_species_tag = wearer.species.short_name
+				return 1
+	return 0
+
+
+//This function should be called on an item when it is:
+//Built, autolathed, protolathed, crafted or constructed. At runtime, by players or machines
+
+//It should NOT be called on things that:
+//spawn at roundstart, are adminspawned, arrive on shuttles, spawned from vendors, removed from fridges and containers, etc
+//This is useful for setting special behaviour for built items that shouldn't apply to those spawned at roundstart
+/obj/proc/Created()
+	return

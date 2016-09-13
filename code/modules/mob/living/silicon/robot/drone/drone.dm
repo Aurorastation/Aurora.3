@@ -16,7 +16,7 @@
 	req_access = list(access_engine, access_robotics)
 	integrated_light_power = 3
 	local_transmit = 1
-	mob_size = 2
+	mob_size = 4
 	small = 1
 
 	mob_bump_flag = SIMPLE_ANIMAL
@@ -279,6 +279,21 @@
 				src << "<span class='warning'>You are too small to pull that.</span>"
 				return
 	..()
+
+/mob/living/silicon/robot/drone/Bump(var/atom/movable/AM, yes)
+
+	if(istype(AM,/obj/machinery/door)) // check for doors first as that will be most common
+		return ..(AM,yes)
+
+	if(!(istype(AM,/obj/item/pipe) || istype(AM,/obj/structure/disposalconstruct)))
+		if(istype(AM,/obj/item)) //Would this even be possible? Someone try to activate that message
+			var/obj/item/O = AM
+			if(O.w_class > can_pull_size)
+				src << "<span class='warning'>You are too small to push that.</span>"
+				return 0
+		else if(istype(AM,/obj))
+			return 0
+	..(AM,yes)
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	src.verbs |= silicon_subsystems

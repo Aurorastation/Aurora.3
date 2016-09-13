@@ -25,6 +25,44 @@
 	icon_state = "box"
 	item_state = "syringe_kit"
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/maxHealth = 20//health is already defined
+
+/obj/item/weapon/storage/box/New()
+	..()
+	health = maxHealth
+
+/obj/item/weapon/storage/box/proc/damage(var/severity)
+	health -= severity
+	check_health()
+
+/obj/item/weapon/storage/box/proc/check_health()
+	if (health <= 0)
+		qdel(src)
+
+
+/obj/item/weapon/storage/box/attack_generic(var/mob/user)
+
+	if (istype(user, /mob/living))
+		var/mob/living/L = user
+
+		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
+			var/damage
+			if (!L.mob_size)
+				damage = 3//A safety incase i forgot to set a mob_size on something
+			else
+				damage = L.mob_size//he bigger you are, the faster it tears
+
+			if ((health-damage) >= (maxHealth * 0.5))//I doubt it's worth the performance cost to make a variable to cache (health-damage), not that it matters
+				L.visible_message("[L] gnaws at the [src]", "You gnaw at the [src], tearing off a piece of cardboard.")
+			else if ((health-damage) < (maxHealth * 0.5) && (health-damage) > 0)
+				L.visible_message("<span class='warning'>[L] has almost gnawed through the [src]</span>", "<span class='warning'>You tear off more cardboard from the [src]. It's almost open!</span>")
+			else if ((health-damage) <= 0)
+				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+				spill()
+			damage(damage)
+	..()
+
+
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)

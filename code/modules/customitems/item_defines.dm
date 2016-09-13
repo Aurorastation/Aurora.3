@@ -32,6 +32,7 @@
 	desc = "An old orange-ish-yellow bandana. It has a few stains from engine grease, and the color has been dulled."
 	icon = 'icons/obj/custom_items/motaki_bandana.dmi'
 	icon_state = "motaki_bandana"
+	item_state = "motaki_bandana"
 	contained_sprite = 1
 
 
@@ -40,6 +41,7 @@
 	desc = "A well tailored unathi styled armored jacket, fitted for one too."
 	icon = 'icons/obj/custom_items/zubari_jacket.dmi'
 	icon_state = "zubari_jacket"
+	item_state = "zubari_jacket"
 	contained_sprite = 1
 
 
@@ -48,6 +50,7 @@
 	desc = "A withered mantle sewn from threshbeast's hides, the pauldrons that holds it on the shoulders seems to be the remains of some kind of old armor."
 	icon = 'icons/obj/custom_items/yinzr_mantle.dmi'
 	icon_state = "yinzr_mantle" //special thanks to Araskael
+	item_state = "yinzr_mantle"
 	species_restricted = list("Unathi") //forged for lizardmen
 	contained_sprite = 1
 
@@ -57,6 +60,7 @@
 	desc = "A stylish pair of glasses. They look custom made."
 	icon = 'icons/obj/custom_items/nebula_glasses.dmi'
 	icon_state = "nebula_glasses"
+	item_state = "nebula_glasses"
 	contained_sprite = 1
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/var/chip
@@ -72,10 +76,10 @@
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/disk/fluff/nebula_chip) && !chip)
-		user.u_equip(W)
-		W.loc = src
+		//user.u_equip(W)
+		user.drop_from_inventory(W)
+		W.forceMove(src)
 		chip = W
-		W.dropped(user)
 		W.add_fingerprint(user)
 		add_fingerprint(user)
 		user << "You slot the [W] back into its place in the frames of the [src]."
@@ -105,22 +109,23 @@
 	slot_flags = SLOT_MASK
 
 
-/obj/item/clothing/ears/skrell/fluff/doompesh_cloth // Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995 - DONE
+/obj/item/clothing/ears/skrell/fluff/dompesh_cloth // Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995 - DONE
 	name = "male skrell purple head cloth"
 	desc = "A purple cloth band worn by male skrell around their head tails."
-	icon = 'icons/obj/custom_items/doompesh_cloth.dmi'
+	icon = 'icons/obj/custom_items/dompesh_cloth.dmi'
 	icon_state = "dompesh_cloth"
+	item_state = "dompesh_cloth"
 	contained_sprite = 1
-	
 
-/obj/item/weapons/fluff/kiara_altar // Pocket Altar - Kiara Branwen - nursiekitty - DONE
+
+/obj/item/weapon/fluff/kiara_altar // Pocket Altar - Kiara Branwen - nursiekitty - DONE
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 	icon = 'icons/obj/custom_items/kiara_altar.dmi'
 	icon_state = "kiara_altar1"
 	w_class = 2
 
-/obj/item/weapons/fluff/kiara_altar/attack_self(mob/user as mob)
+/obj/item/weapon/fluff/kiara_altar/attack_self(mob/user as mob)
 	if(src.icon_state == "kiara_altar1")
 		src.icon_state = "kiara_altar2"
 		user << "You open the pocket altar, revealing its contents."
@@ -135,6 +140,7 @@
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
 	icon = 'icons/obj/custom_items/bell_hat.dmi'
 	icon_state = "bell_hat"
+	item_state = "bell_hat"
 	contained_sprite = 1
 
 
@@ -143,6 +149,7 @@
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - 'Avery Bell, Silhouette Co.'."
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_coat"
+	item_state = "bell_coat"
 	contained_sprite = 1
 
 
@@ -171,7 +178,7 @@
 	allowed_types = list("ripley","firefighter")
 
 
-/obj/item/weapon/cane/fluff/uski_cane // Inscribed Silver-handled Cane - Usiki Guwan - fireandglory - DONE
+/obj/item/weapon/cane/fluff/usiki_cane // Inscribed Silver-handled Cane - Usiki Guwan - fireandglory - DONE
 	name = "inscribed silver-handled cane"
 	desc = "This silver-handled cane has letters carved into the sides."
 	icon = 'icons/obj/custom_items/usiki_cane.dmi'
@@ -179,7 +186,7 @@
 	item_state = "usiki_cane"
 	contained_sprite = 1
 
-/obj/item/weapon/cane/fluff/uski_cane/attack_self(mob/user as mob)
+/obj/item/weapon/cane/fluff/usiki_cane/attack_self(mob/user as mob)
 	if(user.get_species() == "Unathi")
 		user << "This cane has the words 'A new and better life' carved into one side in basic, and on the other side in Sinta'Unathi."
 	else
@@ -191,6 +198,7 @@
 	desc = "A pretty normal looking glove to be worn on the left hand."
 	icon = 'icons/obj/custom_items/kathleen_glove.dmi'
 	icon_state = "kathleen_glove"
+	item_state = "kathleen_glove"
 	contained_sprite = 1
 
 
@@ -222,6 +230,7 @@
 	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
 	icon = 'icons/obj/custom_items/karnaikai_wrappings.dmi'
 	icon_state = "karnaikai_wrappings" //special thanks to Araskael
+	item_state = "karnaikai_wrappings"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list("Unathi")
@@ -233,10 +242,11 @@
 	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
 	icon = 'icons/obj/custom_items/karnaikai_mask.dmi'
 	icon_state = "karnaikai_mask" //special thanks to Araskael
+	item_state = "karnaikai_mask"
 	species_restricted = list("Unathi")
 	contained_sprite = 1
-	
-	
+
+
 /obj/item/weapon/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron - DONE
 	name = "ATLAS poster"
 
@@ -274,7 +284,7 @@
 		new /obj/item/weapon/paper(src)
 		new /obj/item/weapon/paper(src)
 		new /obj/item/weapon/paper(src)
-		
+
 /obj/item/weapon/clipboard/fluff/zakiya_sketchpad/update_icon()
 	if(toppaper)
 		icon_state = "zakiya_sketchpad1"
@@ -327,38 +337,43 @@
 	..()
 
 
-/obj/item/weapons/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
+/obj/item/weapon/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
 	name = "tiger claw"
 	desc = "A small energy dagger given to Golden Tigers."
 	icon = 'icons/obj/custom_items/moon_baton.dmi'
 	icon_state = "tigerclaw"
+	item_state = "tigerclaw"
 	slot_flags = SLOT_BELT
 	force = 2
 	w_class = 2
 	contained_sprite = 1
 	var/active = 0
 
-/obj/item/weapons/fluff/moon_baton/attack_self(mob/user)
+/obj/item/weapon/fluff/moon_baton/attack_self(mob/user)
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		user << "\blue \The [src] is now energised."
 		icon_state = "tigerclaw_active"
+		item_state = icon_state
 		slot_flags = null
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		user << "\blue \The [src] is de-energised."
 		icon_state = initial(icon_state)
+		item_state = icon_state
 		slot_flags = initial(slot_flags)
 		attack_verb = list()
-		
-		
+	user.regenerate_icons()
+
+
 /obj/item/clothing/suit/armor/vest/fabian_coat //NT APF Armor - Fabian Goellstein - mirkoloio - DONE
 	name = "NT APF armor"
 	desc = "This is a NT Asset Protection Force Armor, it is fashioned as a jacket in NT Security Colors. The nameplate carries the Name 'Goellstein'."
 	icon = 'icons/obj/custom_items/fabian_coat.dmi'
 	icon_state = "fabian_coat_open"
+	item_state = "fabian_coat_open"
 	contained_sprite = 1
 
 /obj/item/clothing/suit/armor/vest/fabian_coat/verb/toggle()
@@ -372,9 +387,11 @@
 	switch(icon_state)
 		if("fabian_coat_open")
 			icon_state = "fabian_coat_closed"
+			item_state = icon_state
 			usr << "You zip up \the [src]."
 		if("fabian_coat_closed")
 			icon_state = "fabian_coat_open"
+			item_state = icon_state
 			usr << "You unzip \the [src]."
 		else
 			usr << "You attempt to button-up the velcro on your [src], before promptly realising how silly you are."
@@ -392,6 +409,7 @@
 	desc = "This is an atlas armband showing anyone who sees this person, as a member of the Political party Atlas."
 	icon = 'icons/obj/custom_items/vittorio_armband.dmi'
 	icon_state = "vittorio_armband"
+	item_state = "vittorio_armband"
 	contained_sprite = 1
 
 /obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris - DONE
@@ -399,14 +417,16 @@
 	desc = "It is a black fez, it bears an Emblem of the Astronomical symbol of Earth, It also has some nice tassels."
 	icon = 'icons/obj/custom_items/vittorio_fez.dmi'
 	icon_state = "vittorio_fez"
+	item_state = "vittorio_fez"
 	contained_sprite = 1
-	
 
-/obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim - DONE 
+
+/obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim - DONE
 	name = "paludamentum"
 	desc = "A cloak-like piece of silky, red fabric. Fashioned at one point where the shoulder would be with a golden pin."
 	icon = 'icons/obj/custom_items/centurion_cloak.dmi'
 	icon_state = "centurion_cloak"
+	item_state = "centurion_cloak"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	contained_sprite = 1
 
@@ -416,4 +436,64 @@
 	desc = "A worn and faded purple bandanna with a knotted, dragon-like design on it."
 	icon = 'icons/obj/custom_items/kir_bandanna.dmi'
 	icon_state = "kir_bandanna"
+	item_state = "kir_bandanna"
+	contained_sprite = 1
+	
+
+/obj/item/clothing/suit/storage/toggle/bomber/fluff/ash_jacket //Hand-me-down Bomber Jacket - superballs - Ash LaCroix - DONE
+	name = "hand-me-down bomber jacket"
+	desc = "A custom tailored bomber jacket that seems to have been through some action. A silver badge is pinned to it, along with a black and blue strip covering it halfway. The badge reads, 'Christopher LaCroix, Special Agent, Mendell City, E.O.W. 10-7-38, 284'"
+	icon = 'icons/obj/custom_items/ash_jacket.dmi'
+	icon_state = "ash_jacket"
+	item_state = "ash_jacket"
+	icon_open = "ash_jacket_open"
+	icon_closed = "ash_jacket"
+	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/badge/holo/cord/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip - DONE
+	name = "dog tags"
+	desc = "Some black dog tags, engraved on them is the following: Wright, Dylan L, O POS, Pacific Union Special Forces."
+	icon = 'icons/obj/custom_items/dylan_tags.dmi'
+	icon_state = "dylan_tags"
+	item_state = "dylan_tags"
+	stored_name = "Wright, Dylan L"
+	badge_string = "Pacific Union Special Forces"
+	contained_sprite = 1
+
+
+/obj/item/clothing/ears/fluff/rico_stripes //Racing Stripes - Ricochet - nebulaflare - DONE
+	name = "racing stripes"
+	desc = "A pair of fancy racing stripes."
+	icon = 'icons/obj/custom_items/rico_stripes.dmi'
+	icon_state = "rico_stripes"
+	item_state = "rico_stripes"
+	contained_sprite = 1
+	canremove = 0
+	abstract = 1
+	species_restricted = list("Machine")
+
+
+/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100 - DONE
+	name = "first shot"
+	desc = "A flask. Smells of absinthe, maybe vodka. The bottom right corner has a silver bar. The bottom is engraved, it reads 'The First Shot'."
+	icon = 'icons/obj/custom_items/barcia_flask.dmi'
+	icon_state = "barcia_flask"
+
+
+/obj/item/clothing/gloves/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso - DONE
+	name = "thunder dome pendant ring"
+	desc = "It appears to be a Collectors edition Thunder dome Pendant ring from the IGTDL's show rumble in the red planet in 2444. It has a decorative diamond center with a image of the Intergalactic belt in the center."
+	icon = 'icons/obj/custom_items/stone_ring.dmi'
+	icon_state = "stone_ring"
+	item_state = "stone_ring"
+	contained_sprite = 1
+	
+	
+/obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk - DONE
+	name = "traditional jumper dress"
+	desc = "A light summer-time dress, decorated neatly with black and silver colors, it seems to be rather old."
+	icon = 'icons/obj/custom_items/sayyidah_dress.dmi' //special thanks to Coalf for the sprites
+	icon_state = "sayyidah_dress"
+	item_state = "sayyidah_dress"
 	contained_sprite = 1

@@ -7,7 +7,9 @@ obj/machinery/recharger
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 4
-	active_power_usage = 15000	//15 kW
+	active_power_usage = 30000	//15 kW
+	var/charging_efficiency = 0.85
+	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging = null
 	var/list/allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton, /obj/item/device/laptop, /obj/item/weapon/cell)
 	var/icon_state_charged = "recharger2"
@@ -16,6 +18,15 @@ obj/machinery/recharger
 	var/portable = 1
 
 obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
+	if(portable && istype(G, /obj/item/weapon/wrench))
+		if(charging)
+			user << "\red Remove [charging] first!"
+			return
+		anchored = !anchored
+		user << "You [anchored ? "attached" : "detached"] the recharger."
+		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+		return
+
 	if(istype(user,/mob/living/silicon))
 		if (istype(G, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 			var/obj/item/weapon/gripper/Gri = G
@@ -23,6 +34,8 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 				if (Gri.grip_item(charging, user))//we attempt to grab it
 					charging = null
 					update_icon()
+				else
+					user << "<span class='danger'>Your gripper cannot hold \the [charging].</span>"
 
 			else if (Gri.wrapped)//If we're not charging anything, and the gripper is holding something
 				var/obj/item/I = Gri.wrapped
@@ -32,6 +45,9 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 						Gri.wrapped = null
 						charging = I
 						update_icon()
+					else
+						user << "<span class='danger'>\The [name] will not accept \the [Gri.wrapped].</span>"
+						break
 		return
 
 	var/allowed = 0
@@ -60,13 +76,6 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 		G.loc = src
 		charging = G
 		update_icon()
-	else if(portable && istype(G, /obj/item/weapon/wrench))
-		if(charging)
-			user << "\red Remove [charging] first!"
-			return
-		anchored = !anchored
-		user << "You [anchored ? "attached" : "detached"] the recharger."
-		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 
 obj/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
@@ -94,7 +103,7 @@ obj/machinery/recharger/process()
 			var/obj/item/weapon/gun/energy/E = charging
 			if(!E.power_supply.fully_charged())
 				icon_state = icon_state_charging
-				E.power_supply.give(active_power_usage*CELLRATE)
+				E.power_supply.give(active_power_usage*CELLRATE*charging_efficiency)
 				update_use_power(2)
 			else
 				icon_state = icon_state_charged
@@ -106,7 +115,7 @@ obj/machinery/recharger/process()
 			if(B.bcell)
 				if(!B.bcell.fully_charged())
 					icon_state = icon_state_charging
-					B.bcell.give(active_power_usage*CELLRATE)
+					B.bcell.give(active_power_usage*CELLRATE*charging_efficiency)
 					update_use_power(2)
 				else
 					icon_state = icon_state_charged
@@ -120,7 +129,7 @@ obj/machinery/recharger/process()
 			var/obj/item/device/laptop/L = charging
 			if(!L.stored_computer.battery.fully_charged())
 				icon_state = icon_state_charging
-				L.stored_computer.battery.give(active_power_usage*CELLRATE)
+				L.stored_computer.battery.give(active_power_usage*CELLRATE*charging_efficiency)
 				update_use_power(2)
 			else
 				icon_state = icon_state_charged
@@ -131,7 +140,7 @@ obj/machinery/recharger/process()
 			var/obj/item/weapon/cell/C = charging
 			if(!C.fully_charged())
 				icon_state = icon_state_charging
-				C.give(active_power_usage*CELLRATE)
+				C.give(active_power_usage*CELLRATE*charging_efficiency)
 				update_use_power(2)
 			else
 				icon_state = icon_state_charged
@@ -165,9 +174,10 @@ obj/machinery/recharger/wallcharger
 	name = "wall recharger"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger0"
-	active_power_usage = 25000	//25 kW , It's more specialized than the standalone recharger (guns and batons only) so make it more powerful
+	active_power_usage = 45000	//40 kW , It's more specialized than the standalone recharger (guns and batons only) so make it more powerful
 	allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton)
 	icon_state_charged = "wrecharger2"
 	icon_state_charging = "wrecharger1"
 	icon_state_idle = "wrecharger0"
 	portable = 0
+	charging_efficiency = 0.8

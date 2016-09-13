@@ -31,6 +31,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "stamps on"
 	density = 0
+	meat_amount = 1
 	var/body_color //brown, gray and white, leave blank for random
 	layer = MOB_LAYER
 	min_oxy = 16 //Require atleast 16kPA oxygen
@@ -41,6 +42,9 @@
 	mob_size = 1
 	holder_type = /obj/item/weapon/holder/mouse
 	digest_factor = 0.05
+	min_scan_interval = 2
+	max_scan_interval = 20
+	seek_speed = 1
 
 /mob/living/simple_animal/mouse/Life()
 	..()
@@ -105,7 +109,9 @@
 /mob/living/simple_animal/mouse/speak_audio()
 	squeak_soft(0)
 
-
+/mob/living/simple_animal/mouse/beg(var/atom/thing, var/atom/holder)
+	squeak_soft(0)
+	visible_emote("squeaks timidly, sniffs the air and gazes longingly up at \the [thing.name].")
 
 /mob/living/simple_animal/mouse/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click
@@ -132,34 +138,37 @@
 //Plays a sound.
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
-	playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
-	if (manual)
-		log_say("[key_name(src)] squeaks! ")
+	if (stat == CONSCIOUS)
+		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
+		if (manual)
+			log_say("[key_name(src)] squeaks! ")
 
 
 
 //Plays a random selection of four sounds, at a low volume
 //This is triggered randomly periodically by any mouse, or manually
 /mob/living/simple_animal/mouse/proc/squeak_soft(var/manual = 1)
-	var/list/new_squeaks = last_softsqueak ? soft_squeaks - last_softsqueak : soft_squeaks
-	var/sound = pick(new_squeaks)
+	if (stat == CONSCIOUS)
+		var/list/new_squeaks = last_softsqueak ? soft_squeaks - last_softsqueak : soft_squeaks
+		var/sound = pick(new_squeaks)
 
-	last_softsqueak = sound
-	playsound(src, sound, 6, 1)
+		last_softsqueak = sound
+		playsound(src, sound, 5, 1, -4.6)
 
-	if (manual)
-		log_say("[key_name(src)] squeaks softly! ")
+		if (manual)
+			log_say("[key_name(src)] squeaks softly! ")
 
 
 //Plays a loud sound
 //Triggered manually, when a mouse dies, or rarely when its stepped on
 /mob/living/simple_animal/mouse/proc/squeak_loud(var/manual = 0)
-	if (squeals > 0 || !manual)
-		playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
-		squeals --
-		log_say("[key_name(src)] squeals! ")
-	else
-		src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
+	if (stat == CONSCIOUS)
+		if (squeals > 0 || !manual)
+			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
+			squeals --
+			log_say("[key_name(src)] squeals! ")
+		else
+			src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
 
 
 //Wrapper verbs for the squeak functions

@@ -51,6 +51,18 @@
 		visible_message("<span class='warning'>\The [src] breaks down!</span>")
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
+
+/obj/structure/table/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			qdel(src)
+			return
+		if(2.0)
+			take_damage(rand(100,400))
+		if(3.0)
+			take_damage(rand(50,150))
+
+
 /obj/structure/table/New()
 	..()
 	// One table per turf.
