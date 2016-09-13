@@ -92,9 +92,14 @@
 	//check if it doesn't require any access at all
 	if(src.check_access(null))
 		return 1
+
 	if(istype(M, /mob/living/silicon))
-		//AI can do whatever he wants
-		return 1
+		if(ispAI(M))
+			var/mob/living/silicon/pai/P = M
+			if(P.ID && src.check_access(P.ID))
+				return 1
+		else//AI can do whatever he wants
+			return 1
 	else if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		//if they are holding or wearing a card that has access, that works

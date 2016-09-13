@@ -676,6 +676,12 @@ default behaviour is:
 /mob/living/proc/slip(var/slipped_on,stun_duration=8)
 	return 0
 
+/mob/living/proc/under_door()
+	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
+	if (layer > UNDERDOOR)//Don't toggle it if we're hiding
+		layer = UNDERDOOR
+		underdoor = 1
+
 /mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
 	if(W in internal_organs)
 		return
