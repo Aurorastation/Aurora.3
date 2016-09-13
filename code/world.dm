@@ -203,21 +203,33 @@ var/inerror = 0
 		inerror = 0
 		return ..(e)
 
-	//newline at start is because of the "runtime error" byond prints that can't be timestamped.
-	e.name = "\n\[[time2text(world.timeofday,"hh:mm:ss")]\][e.name]"
+	inerror = 1
 
-	//this is done this way rather then replace text to pave the way for processing the runtime reports more thoroughly
-	//	(and because runtimes end with a newline, and we don't want to basically print an empty time stamp)
-	var/list/split = splittext(e.desc, "\n")
-	for (var/i in 1 to split.len)
-		if (split[i] != "")
-			split[i] = "\[[time2text(world.timeofday,"hh:mm:ss")]\][split[i]]"
-	e.desc = jointext(split, "\n")
-
+	e.time_stamp()
 	log_exception(e)
 
 	inerror = 0
 	return ..(e)
+
+// We need this elsewhere!
+/exception/var/time_stamped = 0
+
+/exception/proc/time_stamp()
+	if (time_stamped)
+		return
+
+	//newline at start is because of the "runtime error" byond prints that can't be timestamped.
+	name = "\n\[[time2text(world.timeofday,"hh:mm:ss")]\][name]"
+
+	//this is done this way rather then replace text to pave the way for processing the runtime reports more thoroughly
+	//	(and because runtimes end with a newline, and we don't want to basically print an empty time stamp)
+	var/list/split = splittext(desc, "\n")
+	for (var/i in 1 to split.len)
+		if (split[i] != "")
+			split[i] = "\[[time2text(world.timeofday,"hh:mm:ss")]\][split[i]]"
+	desc = jointext(split, "\n")
+
+	time_stamped = 1
 
 /hook/startup/proc/loadMode()
 	world.load_mode()
