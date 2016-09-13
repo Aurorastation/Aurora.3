@@ -98,7 +98,6 @@
 		// Minimum: initial_spawn_target
 		// Maximum: hard_cap or hard_cap_round
 		cur_max = max(initial_spawn_target,min(round(count/ticker.mode.antag_scaling_coeff),cur_max))
-		log_debug("ANTAG SPAWN: Updated current max. Antag: [id], players: [count], new current max: [cur_max].")
 
 // Updates the initial spawn target to match the player count.
 // Intended to stop 6 nuke ops in a 15 player round. RIP those rounds.
@@ -127,4 +126,3 @@
 
 	// Default to the hardcap if we're about to surpass it
 	initial_spawn_target = min(hard_cap, new_cap)
-	log_debug("ANTAG SPAWN: Updated initial spawn target. Antag: [id], players: [count], new spawn target: [initial_spawn_target].")
