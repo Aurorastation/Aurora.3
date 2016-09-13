@@ -124,7 +124,7 @@
 					H.visible_message("\blue [H] pets [contained]")
 
 				if(I_HURT)
-					contained.adjustBruteLoss(5)
+					contained.adjustBruteLoss(3)
 					H.visible_message("\red [H] crushes [contained]")
 	else
 		M << "[contained] is dead."
