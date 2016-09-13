@@ -201,7 +201,7 @@
 
 /mob/living/simple_animal/mouse/death()
 	layer = MOB_LAYER
-	if (ckey || prob(50))
+	if (stat != DEAD && (ckey || prob(50)))
 		squeak_loud(0)//deathgasp
 
 	if(client)

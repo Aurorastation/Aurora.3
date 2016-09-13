@@ -223,7 +223,7 @@
 /mob/living/simple_animal/bee/attempt_grab(var/mob/living/grabber)
 	if (prob(strength*5))//if the swarm is big you might grab a few bees, you won't make a serious dent
 		grabber << "<span class = 'warning'>You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees.</span>"
-		adjustBruteLoss(strength*0.5)
+		apply_damage(strength*0.5, BRUTE, used_weapon = "Crushing by [grabber.name]")
 	else
 		grabber << "<span class = 'warning'>For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands.</span>"
 		grabber.apply_damage(strength*0.5, BURN)
