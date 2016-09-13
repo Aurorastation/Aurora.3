@@ -10,12 +10,18 @@
   for (var/path in typesof(/datum/topic_command) - /datum/topic_command)
     var/datum/topic_command/A = new path()
     topic_commands[A.name] = A
+    if(A.no_auth == 1)
+      topic_commands_noauth[A.name] = A
+    if(A.no_throttle == 1)
+      topic_commands_nothrottle[A.name] = A
 
   return 1
 
 //API Boilerplate
 /datum/topic_command
   var/name = null //Name for the command
+  var/no_auth = 0 //If the user does NOT need to be authed to use the command
+  var/no_throttle = 0 //If this command should NOT be limited by the throtteling
   var/description = null //Description for the command
   var/list/params = list() //Required Parameters for the command
   //Explanation of the parameter options:
@@ -65,6 +71,8 @@
 /datum/topic_command/api_get_version
   name = "api_get_version"
   description = "Gets the version of the API"
+  no_auth = 1
+  no_throttle = 1
 /datum/topic_command/api_get_version/run_command(queryparams)
   var/list/version = list()
   var/versionstring = null
@@ -110,6 +118,10 @@
   functionsquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"]))
   while (functionsquery.NextRow())
     functions[functionsquery.item[1]] = functionsquery.item[1]
+
+  //Check if "ANY" is in the functions --> Then replace it with the global functions list
+  if("ANY" in functions)
+    functions = topic_commands
 
   statuscode = 200
   response = "Authorized functions retrieved"
@@ -187,11 +199,6 @@
   name = "get_char_list"
   description = "Provides a list of all characters ingame"
 /datum/topic_command/get_char_list/run_command(queryparams)
-  if (!ticker)
-    statuscode = 500
-    response = "Game not started yet!"
-    return 1
-
   var/list/chars = list()
 
   var/list/mobs = sortmobs()
@@ -287,12 +294,6 @@
     "faxtype" = list("name"="faxtype","desc"="Type of the faxes that should be retrieved","req"=1,"type"="slct","options"=list("sent","received"))
     )
 /datum/topic_command/get_faxlist/run_command(queryparams)
-  if (!ticker)
-    statuscode = 500
-    response = "Round hasn't started yet! No faxes to display!"
-    data = null
-    return 1
-
   var/list/faxes = list()
   switch (queryparams["faxtype"])
     if ("received")
@@ -409,11 +410,6 @@
   name = "get_manifest"
   description = "Gets the crew manifest"
 /datum/topic_command/get_manifest/run_command(queryparams)
-  if (!ticker)
-    statuscode = 500
-    response = "Game not started yet!"
-    return 1
-
   var/list/positions = list()
   var/list/set_names = list(
       "heads" = command_positions,
@@ -719,6 +715,7 @@
     "senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the adminmessage","req"=1,"type"="senderkey"),
     "rank" = list("name"="rank","desc"="The rank that should be displayed - Defaults to admin if none specified","req"=0,"type"="str"),
     )
+
 /datum/topic_command/send_adminmsg/run_command(queryparams)
   /*
     We got an adminmsg from IRC bot lets split the API
