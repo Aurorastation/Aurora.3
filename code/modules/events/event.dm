@@ -7,9 +7,10 @@
 	var/severity 	= 0 // The current severity of this event
 	var/one_shot	= 0	//If true, then the event will not be re-added to the list of available events
 	var/list/role_weights = list()
+	var/list/excluded_gamemodes = list()	// A list of gamemodes during which this event won't fire.
 	var/datum/event/event_type
 
-/datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0)
+/datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes)
 	name = event_name
 	severity = event_severity
 	event_type = type
@@ -19,9 +20,16 @@
 	max_weight = max_event_weight
 	if(job_weights)
 		role_weights = job_weights
+	if(excluded_roundtypes)
+		excluded_roundtypes = excluded_gamemodes
 
 /datum/event_meta/proc/get_weight(var/list/active_with_role)
 	if(!enabled)
+		return 0
+
+	if(excluded_gamemodes.len && (ticker.mode in excluded_gamemodes))
+		// There's no way it'll be run this round anyways.
+		enabled = 0
 		return 0
 
 	var/job_weight = 0
@@ -143,4 +151,3 @@
 
 	setup()
 	..()
-
