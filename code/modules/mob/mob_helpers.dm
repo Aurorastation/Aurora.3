@@ -1028,6 +1028,10 @@ proc/is_blind(A)
 
 
 //Blacklists of mobs that can be excluded from eating by flags in the bitfield
+
+//All of these specific human subtypes are here for a reason.
+//Using /mob/living/carbon/human as a generic type would include monkey/stok/farwa/neara.
+//We do not want those to count as humanoids, only player species
 var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
 	/mob/living/carbon/human/bst,
 	/mob/living/carbon/human/skrell,
@@ -1037,7 +1041,6 @@ var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
 	/mob/living/carbon/human/vox,
 	/mob/living/carbon/human/machine,
 	/mob/living/carbon/human/bug
-
 	)
 
 var/list/humanoid_mobs_inclusive = list(
@@ -1079,8 +1082,6 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		mobtypes |= TYPE_SYNTHETIC
 	else if (mob_listed(src, synthetic_mobs_inclusive,0))
 		mobtypes |= TYPE_SYNTHETIC
-	else if (ishuman(src))
-		mobtypes |= TYPE_SYNTHETIC
 
 	if (mob_listed(src, wierd_mobs_specific,1))
 		mobtypes |= TYPE_WIERD
@@ -1112,6 +1113,7 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		var/mob/living/carbon/alien/diona/D = src
 		return D.vessel
 	else if (create)
+
 		//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
 		//We create an MD5 hash of the mob's reference to use as its DNA string.
 		//This creates unique DNA for each creature in a consistently repeatable process
@@ -1123,9 +1125,23 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 								"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
 
 				B.color = B.data["blood_colour"]
+
 		return vessel
 
 	else return null
+
+//This function checks against a list to see if the mob is in it.
+//Any specified types are checked against exactly, using ==, not istype
+//Any types ending in * will be tested with isType
+/proc/mob_listed(var/mob/living/test, var/list/toCheck, var/specific = 0)
+	for (var/i in toCheck)
+		if (specific)
+			if (test.type == i)
+				return 1
+		else
+			if (istype(test, i))
+				return 1
+	return 0
 
 
 #define POSESSIVE_PRONOUN	0
