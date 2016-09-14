@@ -23,7 +23,6 @@
 	adult_form = /mob/living/carbon/human
 	speak_emote = list("chirrups")
 	icon_state = "nymph"
-	language = "Rootsong"
 	death_msg = "expires with a pitiful chirrup..."
 	universal_understand = 0
 	universal_speak = 0
