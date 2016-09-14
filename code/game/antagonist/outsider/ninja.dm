@@ -8,6 +8,7 @@ var/datum/antagonist/ninja/ninjas
 	bantype = "ninja"
 	landmark_id = "ninjastart"
 	welcome_text = "You are an elite mercenary assassin of the Spider Clan. You have a variety of abilities at your disposal, thanks to your nano-enhanced cyber armor.</span>"
+	restricted_species = list("Diona")
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudninja"
 
