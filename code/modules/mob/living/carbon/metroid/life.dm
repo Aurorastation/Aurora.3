@@ -11,6 +11,9 @@
 		handle_chemicals_in_body()
 		handle_nutrition()
 
+		if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
+			sight = SEE_SELF
+
 		if (!client)
 			handle_targets()
 			if (!AIproc)
@@ -58,7 +61,7 @@
 				adjustToxLoss(200)
 			else
 				adjustToxLoss(30)
-				
+
 	updatehealth()
 
 	return //TODO: DEFERRED

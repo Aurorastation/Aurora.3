@@ -92,7 +92,7 @@
 		handle_random_events()
 
 		//stuff in the stomach
-		handle_stomach()
+		handle_stomach()//This function is in devour.dm
 
 		handle_shock()
 
@@ -101,6 +101,9 @@
 		handle_medical_side_effects()
 
 		handle_heartbeat()
+
+		if (is_diona())
+			diona_handle_light(DS)
 
 		if(!client)
 			species.handle_npc(src)
@@ -280,55 +283,47 @@
 		radiation = Clamp(radiation,0,100)
 
 		if (radiation)
-			var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
-			if(rad_organ && !rad_organ.is_broken())
-				var/rads = radiation/25
-				radiation -= rads
-				nutrition += rads
-				adjustBruteLoss(-(rads))
-				adjustFireLoss(-(rads))
-				adjustOxyLoss(-(rads))
-				adjustToxLoss(-(rads))
-				updatehealth()
-				return
-
-			var/damage = 0
-			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-			if(prob(25))
-				damage = 1
-
-			if (radiation > 50)
-				damage = 1
+			//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
+			if(src.is_diona())
+				diona_handle_regeneration(get_dionastats())
+			else
+				var/damage = 0
 				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
-					radiation -= 5 * RADIATION_SPEED_COEFFICIENT
-					src << "<span class='warning'>You feel weak.</span>"
-					Weaken(3)
-					if(!lying)
-						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
-					if((h_style != "Bald" || f_style != "Shaved" ))
-						src << "<span class='warning'>Your hair falls out.</span>"
-						h_style = "Bald"
-						f_style = "Shaved"
-						update_hair()
+				if(prob(25))
+					damage = 1
 
-			if (radiation > 75)
-				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-				damage = 3
-				if(prob(5))
-					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-				if(prob(1))
-					src << "<span class='warning'>You feel strange!</span>"
-					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
-					emote("gasp")
+				if (radiation > 50)
+					damage = 1
+					radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+					if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
+						radiation -= 5 * RADIATION_SPEED_COEFFICIENT
+						src << "<span class='warning'>You feel weak.</span>"
+						Weaken(3)
+						if(!lying)
+							emote("collapse")
+					if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
+						if((h_style != "Bald" || f_style != "Shaved" ))
+							src << "<span class='warning'>Your hair falls out.</span>"
+							h_style = "Bald"
+							f_style = "Shaved"
+							update_hair()
 
-			if(damage)
-				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
-				updatehealth()
-				if(organs.len)
-					var/obj/item/organ/external/O = pick(organs)
-					if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
+				if (radiation > 75)
+					radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+					damage = 3
+					if(prob(5))
+						take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					if(prob(1))
+						src << "<span class='warning'>You feel strange!</span>"
+						adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
+						emote("gasp")
+
+				if(damage)
+					adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
+					updatehealth()
+					if(organs.len)
+						var/obj/item/organ/external/O = pick(organs)
+						if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
 
 	/** breathing **/
 
@@ -635,6 +630,9 @@
 		var/pressure = environment.return_pressure()
 		var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
+		if (is_diona())
+			diona_handle_air(get_dionastats(), pressure)
+
 		//Check for contaminants before anything else because we don't want to skip it.
 		for(var/g in environment.gas)
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && environment.gas[g] > gas_data.overlay_limit[g] + 1)
@@ -690,16 +688,21 @@
 			fire_alert = max(fire_alert, 1)
 			if(status_flags & GODMODE)	return 1	//godmode
 
-			if(!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
+			if (is_diona() == DIONA_WORKER)
+				diona_contained_cold_damage()
+
+			if(!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell) || is_diona())
 				if(bodytemperature > species.cold_level_2)
-					take_overall_damage(burn=COLD_DAMAGE_LEVEL_1, used_weapon = "High Body Temperature")
+					take_overall_damage(burn=COLD_DAMAGE_LEVEL_1, used_weapon = "Low Body Temperature")
 					fire_alert = max(fire_alert, 1)
 				else if(bodytemperature > species.cold_level_3)
-					take_overall_damage(burn=COLD_DAMAGE_LEVEL_2, used_weapon = "High Body Temperature")
+					take_overall_damage(burn=COLD_DAMAGE_LEVEL_2, used_weapon = "Low Body Temperature")
 					fire_alert = max(fire_alert, 1)
 				else
-					take_overall_damage(burn=COLD_DAMAGE_LEVEL_3, used_weapon = "High Body Temperature")
+					take_overall_damage(burn=COLD_DAMAGE_LEVEL_3, used_weapon = "Low Body Temperature")
 					fire_alert = max(fire_alert, 1)
+
+
 
 		// Account for massive pressure differences.  Done by Polymorph
 		// Made it possible to actually have something that can protect against high pressure... Done by Errorage. Polymorph now has an axe sticking from his head for his previous hardcoded nonsense!
@@ -723,6 +726,9 @@
 				pressure_alert = -2
 			else
 				pressure_alert = -1
+
+		if (is_diona())
+			diona_handle_temperature(DS)
 
 		return
 
@@ -918,43 +924,6 @@
 
 		if(status_flags & GODMODE)	return 0	//godmode
 
-		var/obj/item/organ/diona/node/light_organ = locate() in internal_organs
-		if(light_organ && !light_organ.is_broken())
-			var/light_amount = 0 //how much light there is in the place, affects receiving nutrition and healing
-			if(isturf(loc)) //else, there's considered to be no light
-				var/turf/T = loc
-				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-				if(L)
-					light_amount = min(10,L.lum_r + L.lum_g + L.lum_b) - 2 //hardcapped so it's not abused by having a ton of flashlights
-				else
-					light_amount =  1
-			nutrition += light_amount
-			traumatic_shock -= light_amount
-
-			if(species.flags & IS_PLANT)
-				if(nutrition > 450)
-					nutrition = 450
-				if(light_amount >= 3) //if there's enough light, heal
-					adjustBruteLoss(-(round(light_amount/2)))
-					adjustFireLoss(-(round(light_amount/2)))
-					adjustToxLoss(-(light_amount))
-					adjustOxyLoss(-(light_amount))
-					//TODO: heal wounds, heal broken limbs.
-
-		if(species.light_dam)
-			var/light_amount = 0
-			if(isturf(loc))
-				var/turf/T = loc
-				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-				if(L)
-					light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-				else
-					light_amount =  10
-			if(light_amount > species.light_dam) //if there's enough light, start dying
-				take_overall_damage(1,1)
-			else //heal in the dark
-				heal_overall_damage(1,1)
-
 		// nutrition decrease
 		if (nutrition > 0 && stat != 2)
 			nutrition = max (0, nutrition - HUNGER_FACTOR)
@@ -966,10 +935,7 @@
 			if(overeatduration > 1)
 				overeatduration -= 2 //doubled the unfat rate
 
-		if(species.flags & IS_PLANT && (!light_organ || light_organ.is_broken()))
-			if(nutrition < 200)
-				take_overall_damage(2,0)
-				traumatic_shock++
+
 
 		if(!(species.flags & IS_SYNTHETIC)) handle_trace_chems()
 
@@ -1282,9 +1248,10 @@
 					*/
 
 		else
-			sight = species.vision_flags
-			see_in_dark = species.darksight
-			see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
+			if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
+				sight = species.vision_flags
+				see_in_dark = species.darksight
+				see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
 
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
@@ -1319,7 +1286,7 @@
 						if(2)	healths.icon_state = "health7"
 						else
 							//switch(health - halloss)
-							switch(100 - ((species && species.flags & NO_PAIN & !IS_SYNTHETIC) ? 0 : traumatic_shock))
+							switch(health - traumatic_shock)
 								if(100 to INFINITY)		healths.icon_state = "health0"
 								if(80 to 100)			healths.icon_state = "health1"
 								if(60 to 80)			healths.icon_state = "health2"
@@ -1484,22 +1451,7 @@
 			if(L && L.lum_r + L.lum_g + L.lum_b == 0)
 				playsound_local(src,pick(scarySounds),50, 1, -1)
 
-	proc/handle_stomach()
-		spawn(0)
-			for(var/mob/living/M in stomach_contents)
-				if(M.loc != src)
-					stomach_contents.Remove(M)
-					continue
-				if(istype(M, /mob/living/carbon) && stat != 2)
-					if(M.stat == 2)
-						M.death(1)
-						stomach_contents.Remove(M)
-						qdel(M)
-						continue
-					if(air_master.current_cycle%3==1)
-						if(!(M.status_flags & GODMODE))
-							M.adjustBruteLoss(5)
-						nutrition += 10
+
 
 	proc/handle_changeling()
 		if(mind && mind.changeling)

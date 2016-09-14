@@ -116,6 +116,9 @@
 
 /mob/living/carbon/alien/proc/handle_regular_hud_updates()
 
+	if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
+		sight = species.vision_flags
+
 	if (stat == 2 || (XRAY in src.mutations))
 		sight |= SEE_TURFS
 		sight |= SEE_MOBS
@@ -131,7 +134,7 @@
 
 	if (healths)
 		if (stat != 2)
-			switch(health)
+			switch(health - halloss)//Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)

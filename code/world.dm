@@ -28,7 +28,7 @@ var/global/datum/global_init/init = new ()
 	if(game_id != null)
 		return
 	game_id = ""
-	
+
 	var/list/c = list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	var/l = c.len
 
@@ -44,15 +44,18 @@ var/global/datum/global_init/init = new ()
 	view = "15x15"
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
 
-	
+
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
-	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
-	href_logfile = file("data/logs/[date_string] hrefs.htm")
-	diary = file("data/logs/[date_string].log")
+	diary_date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
+	href_logfile = file("data/logs/[diary_date_string] hrefs.htm")
+	diary = file("data/logs/[diary_date_string].log")
 	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+
+	if(config.log_runtime)
+		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
@@ -62,9 +65,6 @@ var/global/datum/global_init/init = new ()
 	if(config && config.server_name != null && config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
-
-	if(config && config.log_runtime)
-		log = file("data/logs/runtime/[time2text(world.realtime,"YYYY-MM-DD-(hh-mm-ss)")]-runtime.log")
 
 	callHook("startup")
 	//Emergency Fix
@@ -108,414 +108,66 @@ var/global/datum/global_init/init = new ()
 
 	return
 
-var/world_topic_spam_protect_ip = "0.0.0.0"
-var/world_topic_spam_protect_time = world.timeofday
+var/list/world_api_rate_limit = list()
 
 /world/Topic(T, addr, master, key)
-	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]"
+	var/list/response[] = list()
+	var/list/queryparams[] = json_decode(T)
+	queryparams["addr"] = addr //Add the IP to the queryparams that are passed to the api functions
+	var/query = queryparams["query"]
+	var/auth = queryparams["auth"]
+	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
+	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[auth] [log_end]"
 
-	if (T == "ping")
-		var/x = 1
-		for (var/client/C)
-			x++
-		return x
+	if (isnull(query))
+		log_debug("API - Bad Request - No query specified")
+		response["statuscode"] = 400
+		response["response"] = "Bad Request - No query specified"
+		return json_encode(response)
 
-	else if(T == "players")
-		var/n = 0
-		for(var/mob/M in player_list)
-			if(M.client)
-				n++
-		return n
-
-	else if (T == "admins")
-		var/n = 0
-		for (var/client/client in clients)
-			if (client.holder && client.holder.rights & (R_MOD|R_ADMIN))
-				n++
-
-		return n
-
-	else if (T == "cciaa")
-		var/n = 0
-		for (var/client/client in clients)
-			if (client.holder && (client.holder.rights & R_CCIAA) && !(client.holder.rights & R_ADMIN))
-				n++
-
-		return n
-
-	else if (T == "gamemode")
-		return master_mode
-
-	else if (T == "who")
-		var/list/players = list()
-		for (var/client/C in clients)
-			players += C.key
-
-		return list2params(players)
-
-	else if (copytext(T,1,7) == "status")
-		var/input[] = params2list(T)
-		var/list/s = list()
-		s["version"] = game_version
-		s["mode"] = master_mode
-		s["respawn"] = config.abandon_allowed
-		s["enter"] = config.enter_allowed
-		s["vote"] = config.allow_vote_mode
-		s["ai"] = config.allow_ai
-		s["host"] = host ? host : null
-
-		// This is dumb, but spacestation13.com's banners break if player count isn't the 8th field of the reply, so... this has to go here.
-		s["players"] = 0
-		s["stationtime"] = worldtime2text()
-		s["roundduration"] = round_duration()
-
-		if(input["status"] == "2")
-			var/list/players = list()
-			var/list/admins = list()
-
-			for(var/client/C in clients)
-				if(C.holder)
-					if(C.holder.fakekey)
-						continue
-					admins[C.key] = C.holder.rank
-				players += C.key
-
-			s["players"] = players.len
-			s["playerlist"] = list2params(players)
-			s["admins"] = admins.len
-			s["adminlist"] = list2params(admins)
+	var/unauthed = do_auth_check(addr,auth,query)
+	if (unauthed)
+		if (unauthed == 3)
+			log_debug("API: Request denied - Auth Service Unavailable")
+			response["statuscode"] = 503
+			response["response"] = "Auth Service Unavailable"
+			return json_encode(response)
+		else if (unauthed == 2)
+			log_debug("API: Request denied - Throttled")
+			response["statuscode"] = 429
+			response["response"] = "Throttled"
+			return json_encode(response)
 		else
-			var/n = 0
-			var/admins = 0
+			log_debug("API: Request denied - Bad Auth")
+			response["statuscode"] = 401
+			response["response"] = "Bad Auth"
+			return json_encode(response)
+
+
+
+	log_debug("API: Auth valid")
+	var/datum/topic_command/command = topic_commands[query]
+
+	if (isnull(command))
+		log_debug("API: Unknown command called: [query]")
+		response["statuscode"] = 501
+		response["response"] = "Not Implemented"
+		return json_encode(response)
+
+	if(command.check_params_missing(queryparams))
+		log_debug("API: Mising Params - Status: [command.statuscode] - Response: [command.response]")
+		response["statuscode"] = command.statuscode
+		response["response"] = command.response
+		response["data"] = command.data
+		return json_encode(response)
+	else
+		command.run_command(queryparams)
+		log_debug("API: Function called: [query] - Status: [command.statuscode] - Response: [command.response]")
+		response["statuscode"] = command.statuscode
+		response["response"] = command.response
+		response["data"] = command.data
+		return json_encode(response)
 
-			for(var/client/C in clients)
-				if(C.holder)
-					if(C.holder.fakekey)
-						continue	//so stealthmins aren't revealed by the hub
-					admins++
-				s["player[n]"] = C.key
-				n++
-
-			s["players"] = n
-			s["admins"] = admins
-
-		return list2params(s)
-
-	else if(T == "manifest")
-		if (!ticker)
-			return "Game not started yet!"
-
-		var/list/positions = list()
-		var/list/set_names = list(
-				"heads" = command_positions,
-				"sec" = security_positions,
-				"eng" = engineering_positions,
-				"med" = medical_positions,
-				"sci" = science_positions,
-				"civ" = civilian_positions,
-				"bot" = nonhuman_positions
-			)
-
-		for(var/datum/data/record/t in data_core.general)
-			var/name = t.fields["name"]
-			var/rank = t.fields["rank"]
-			var/real_rank = make_list_rank(t.fields["real_rank"])
-
-			var/department = 0
-			for(var/k in set_names)
-				if(real_rank in set_names[k])
-					if(!positions[k])
-						positions[k] = list()
-					positions[k][name] = rank
-					department = 1
-			if(!department)
-				if(!positions["misc"])
-					positions["misc"] = list()
-				positions["misc"][name] = rank
-
-		for(var/k in positions)
-			positions[k] = list2params(positions[k]) // converts positions["heads"] = list("Bob"="Captain", "Bill"="CMO") into positions["heads"] = "Bob=Captain&Bill=CMO"
-
-		return list2params(positions)
-
-	else if(copytext(T,1,5) == "mute")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		for (var/client/C in clients)
-			if (C.ckey == ckey(input["mute"]))
-				C.mute_discord = !C.mute_discord
-
-				switch (C.mute_discord)
-					if (1)
-						C << "<b><font color='red'>You have been muted from replying to Discord PMs by [input["admin"]]!</font></b>"
-						log_and_message_admins("[C] has been muted from Discord PMs by [input["admin"]].")
-						return "[C.key] is now muted from replying to Discord PMs."
-					if (0)
-						C << "<b><font color='red'>You have been unmuted from replying to Discord PMs by [input["admin"]]!</font></b>"
-						log_and_message_admins("[C] has been unmuted from Discord PMs by [input["admin"]].")
-						return "[C.key] is now unmuted from replying to Discord PMs."
-
-		return "I couldn't find that ckey!"
-
-	else if(copytext(T,1,5) == "info")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		var/list/search = params2list(input["info"])
-		var/list/ckeysearch = list()
-		for(var/text in search)
-			ckeysearch += ckey(text)
-
-		var/list/match = list()
-
-		for(var/mob/M in mob_list)
-			var/strings = list(M.name, M.ckey)
-			if(M.mind)
-				strings += M.mind.assigned_role
-				strings += M.mind.special_role
-			for(var/text in strings)
-				if(ckey(text) in ckeysearch)
-					match[M] += 10 // an exact match is far better than a partial one
-				else
-					for(var/searchstr in search)
-						if(findtext(text, searchstr))
-							match[M] += 1
-
-		var/maxstrength = 0
-		for(var/mob/M in match)
-			maxstrength = max(match[M], maxstrength)
-		for(var/mob/M in match)
-			if(match[M] < maxstrength)
-				match -= M
-
-		if(!match.len)
-			return "No matches"
-		else if(match.len == 1)
-			var/mob/M = match[1]
-			var/info = list()
-			info["key"] = M.key
-			if (M.client)
-				var/client/C = M.client
-				info["discordmuted"] = C.mute_discord ? "Yes" : "No"
-			info["name"] = M.name == M.real_name ? M.name : "[M.name] ([M.real_name])"
-			info["role"] = M.mind ? (M.mind.assigned_role ? M.mind.assigned_role : "No role") : "No mind"
-			var/turf/MT = get_turf(M)
-			info["loc"] = M.loc ? "[M.loc]" : "null"
-			info["turf"] = MT ? "[MT] @ [MT.x], [MT.y], [MT.z]" : "null"
-			info["area"] = MT ? "[MT.loc]" : "null"
-			info["antag"] = M.mind ? (M.mind.special_role ? M.mind.special_role : "Not antag") : "No mind"
-			info["hasbeenrev"] = M.mind ? M.mind.has_been_rev : "No mind"
-			info["stat"] = M.stat
-			info["type"] = M.type
-			if(isliving(M))
-				var/mob/living/L = M
-				info["damage"] = list2params(list(
-							oxy = L.getOxyLoss(),
-							tox = L.getToxLoss(),
-							fire = L.getFireLoss(),
-							brute = L.getBruteLoss(),
-							clone = L.getCloneLoss(),
-							brain = L.getBrainLoss()
-						))
-			else
-				info["damage"] = "non-living"
-			info["gender"] = M.gender
-			return list2params(info)
-		else
-			return "Multiple matches found!"
-
-	else if(copytext(T,1,9) == "adminmsg")
-		/*
-			We got an adminmsg from IRC bot lets split the input then validate the input.
-			expected output:
-				1. adminmsg = ckey of person the message is to
-				2. msg = contents of message, parems2list requires
-				3. validatationkey = the key the bot has, it should match the gameservers commspassword in it's configuration.
-				4. sender = the ircnick that send the message.
-		*/
-
-
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		var/client/C
-		var/req_ckey = ckey(input["adminmsg"])
-
-		for(var/client/K in clients)
-			if(K.ckey == req_ckey)
-				C = K
-				break
-		if(!C)
-			return "No client with that name on server"
-
-		var/rank = input["rank"]
-		if(!rank)
-			rank = "Admin"
-
-		var/message =	"<font color='red'>Discord-[rank] PM from <b><a href='?discord_msg=[input["sender"]]'>Discord-[input["sender"]]</a></b>: [input["msg"]]</font>"
-		var/amessage =  "<font color='blue'>Discord-[rank] PM from <a href='?discord_msg=[input["sender"]]'>Discord-[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]</font>"
-
-		C.received_discord_pm = world.time
-		C.discord_admin = input["sender"]
-
-		C << 'sound/effects/adminhelp.ogg'
-		C << message
-
-
-		for(var/client/A in admins)
-			if(A != C)
-				A << amessage
-
-		return "Message Successful"
-
-	else if(copytext(T,1,6) == "notes")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		return show_player_info_discord(ckey(input["notes"]))
-
-	else if(copytext(T,1,4) == "age")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		var/age = get_player_age(input["age"])
-		if(isnum(age))
-			if(age >= 0)
-				return "[age]"
-			else
-				return "Ckey not found"
-		else
-			return "Database connection failed or not set up"
-
-	else if (copytext(T, 1, 8) == "restart")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			log_and_message_admins("Remote restart attempted and stopped. Dumping topic call data.")
-			log_and_message_admins("TOPIC: \"[T]\", from: [addr], master: [master], key: [key].")
-			return bad_key
-
-		world << "<font size=4 color='#ff2222'>Server restarting by remote command.</font>"
-		log_and_message_admins("World restart initiated remotely by [input["restart"]].")
-		feedback_set_details("end_error","remote restart")
-
-		if (blackbox)
-			blackbox.save_all_data_to_sql()
-
-		sleep(50)
-		log_game("Rebooting due to remote command.")
-		world.Reboot(2)
-
-		return "Server successfully restarted."
-
-	else if (copytext(T, 1, 9) == "announce")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		var/message = replacetext(input["msg"], "\n", "<br>")
-		world << "<span class=notice><b>[input["announce"] ? input["announce"] : "Administrator"] Announces via Discord:</b><p style='text-indent: 50px'>[message]</p></span>"
-		log_and_message_admins("[input["announce"]] announced remotely: [input["msg"]].")
-
-		return "Announcement successfully sent."
-
-	else if (copytext(T, 1, 8) == "faxlist")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		if (!ticker)
-			return "Round hasn't started yet! No faxes to display!"
-
-		var/list/faxes = list()
-		switch (input["faxlist"])
-			if ("received")
-				faxes = arrived_faxes
-			if ("sent")
-				faxes = sent_faxes
-
-		if (!faxes || !faxes.len)
-			return "No faxes found!"
-
-		var/list/output = list()
-		for (var/i = 1, i <= faxes.len, i++)
-			var/obj/item/a = faxes[i]
-			output += "ID [i]"
-			output["ID [i]"] = a.name ? a.name : "Untitled Fax"
-
-		return list2params(output)
-
-	else if (copytext(T, 1, 7) == "getfax")
-		var/input[] = params2list(T)
-		var/bad_key = do_topic_spam_protection(addr, input["key"])
-
-		if (bad_key)
-			return bad_key
-
-		var/list/faxes = list()
-		switch (input["received"])
-			if ("received")
-				faxes = arrived_faxes
-			if ("sent")
-				faxes = sent_faxes
-
-		if (!faxes || !faxes.len)
-			return "No faxes found!"
-
-		var/fax_id = text2num(input["getfax"])
-		if (fax_id > faxes.len || fax_id < 1)
-			return "Invalid fax ID!"
-
-		var/output = list()
-		if (istype(faxes[fax_id], /obj/item/weapon/paper))
-			var/obj/item/weapon/paper/a = faxes[fax_id]
-			output["title"] = a.name ? a.name : "Untitled Fax"
-
-			var/content = replacetext(a.info, "<br>", "\n")
-			content = strip_html_properly(content, 0)
-			output["content"] = content
-
-			return list2params(output)
-		else if (istype(faxes[fax_id], /obj/item/weapon/photo))
-			return "The fax is a photo. I cannot send images, unfortunately..."
-		else if (istype(faxes[fax_id], /obj/item/weapon/paper_bundle))
-			var/obj/item/weapon/paper_bundle/b = faxes[fax_id]
-			output["title"] = b.name ? b.name : "Untitled Paper Bundle"
-
-			if (!b.pages || !b.pages.len)
-				return "The bundle was empty! How is that even possible?"
-
-			var/i = 0
-			for (var/obj/item/weapon/paper/c in b.pages)
-				i++
-				var/content = replacetext(c.info, "<br>", "\n")
-				content = strip_html_properly(content, 0)
-				output["content"] += "Page [i]:\n[content]\n\n"
-
-			return list2params(output)
-
-		return "Unable to recognize the fax type. Cannot send contents!"
 
 /world/Reboot(var/reason)
 	/*spawn(0)
@@ -528,7 +180,44 @@ var/world_topic_spam_protect_time = world.timeofday
 		if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[config.server]")
 
+	// Handle runtime condensing here
+	if (config.log_runtime)
+		var/input_file = "data/logs/_runtime/[diary_date_string]-runtime.log"
+		var/output_file = "data/logs/_runtime/[diary_date_string]-runtime-condensed.log"
+
+		var/command = "tools/Runtime Condenser/RuntimeCondenser.exe -q -s [input_file] -d [output_file]"
+
+		if (src.system_type == MS_WINDOWS)
+			command = replacetext(command, "/", "\\")
+
+		var/exit_code = shell(command)
+		if (exit_code)
+			log_debug("RuntimeCondenser.exe exited with error code [exit_code].")
+
 	..(reason)
+
+var/inerror = 0
+/world/Error(var/exception/e)
+	//runtime while processing runtimes
+	if (inerror)
+		inerror = 0
+		return ..(e)
+
+	//newline at start is because of the "runtime error" byond prints that can't be timestamped.
+	e.name = "\n\[[time2text(world.timeofday,"hh:mm:ss")]\][e.name]"
+
+	//this is done this way rather then replace text to pave the way for processing the runtime reports more thoroughly
+	//	(and because runtimes end with a newline, and we don't want to basically print an empty time stamp)
+	var/list/split = splittext(e.desc, "\n")
+	for (var/i in 1 to split.len)
+		if (split[i] != "")
+			split[i] = "\[[time2text(world.timeofday,"hh:mm:ss")]\][split[i]]"
+	e.desc = jointext(split, "\n")
+
+	log_exception(e)
+
+	inerror = 0
+	return ..(e)
 
 /hook/startup/proc/loadMode()
 	world.load_mode()
@@ -754,20 +443,46 @@ var/world_topic_spam_protect_time = world.timeofday
 
 #undef FAILED_DB_CONNECTION_CUTOFF
 
-/world/proc/do_topic_spam_protection(var/addr, var/key)
-	if (!config.comms_password || config.comms_password == "")
-		return "No comms password configured, aborting."
+/world/proc/do_auth_check(var/addr, var/auth, var/function)
+	//Check if rate limited
+	if(world_api_rate_limit[addr] != null && config.api_rate_limit_whitelist[addr] == null) //Check if the ip is in the rate limiting list and not in the whitelist
+		if(abs(world_api_rate_limit[addr] - world.time) < config.api_rate_limit) //Check the last request time of the ip
+			world_api_rate_limit[addr] = world.time // Set the time of the last request
+			return 2 //Throttled
 
-	if (key == config.comms_password)
-		return 0
+	world_api_rate_limit[addr] = world.time // Set the time of the last request
+
+	//Then query for auth
+	if (!establish_db_connection(dbcon))
+		return 3 //DB Unavailable
+
+	var/DBQuery/authquery = dbcon.NewQuery({"SELECT api_f.function
+	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
+	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+	AND	api_t.deleted_at IS NULL
+	AND (
+	(token = :token AND ip = :ip AND function = :function)
+	OR
+	(token = :token AND ip IS NULL AND function = :function)
+	OR
+	(token = :token AND ip = :ip AND function = \"ANY\")
+	OR
+	(token = :token AND ip IS NULL AND function = \"ANY\")
+	OR
+	(token IS NULL AND ip IS NULL AND function = :function)
+	)"})
+	//Check if the token is not deleted
+	//Check if one of the following is true:
+	// Full Match - Token IP and Function Matches
+	// Any IP - Token and Function Matches, IP is set to NULL (not required)
+	// Any Function - Token and IP Matches, Function is set to ANY
+	// Any Function, Any IP - Token Matches, IP is set to NULL (not required), Function is set to ANY
+	// Public - Token is set to NULL, IP is set to NULL and function matches
+
+	authquery.Execute(list(":token" = auth, ":ip" = addr, ":function" = function))
+	log_debug("API: Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
+
+	if (authquery.RowCount())
+		return 0 // Authed
 	else
-		if (world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
-
-			spawn(50)
-				world_topic_spam_protect_time = world.time
-				return "Bad Key (Throttled)"
-
-		world_topic_spam_protect_time = world.time
-		world_topic_spam_protect_ip = addr
-
-		return "Bad Key"
+		return 1 // Bad Key

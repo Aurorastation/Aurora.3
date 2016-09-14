@@ -22,6 +22,7 @@
 	health = 60
 	melee_damage_lower = 20
 	melee_damage_upper = 30
+	mob_size = 17
 
 	//Space bears aren't affected by atmos.
 	min_oxy = 0

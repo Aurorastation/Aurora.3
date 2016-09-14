@@ -1,0 +1,6 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - tweak: "Dice now have to be physically thrown to work."

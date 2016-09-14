@@ -230,6 +230,10 @@ var/list/gamemode_cache = list()
 	//AUG2016
 	var/antag_contest_enabled = 0
 
+	//API Rate limiting
+	var/api_rate_limit = 50
+	var/list/api_rate_limit_whitelist = list()
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -344,7 +348,7 @@ var/list/gamemode_cache = list()
 					config.log_hrefs = 1
 
 				if ("log_runtime")
-					config.log_runtime = 1
+					config.log_runtime = text2num(value)
 
 				if ("generate_asteroid")
 					config.generate_asteroid = 1
@@ -728,6 +732,12 @@ var/list/gamemode_cache = list()
 
 				if("antag_contest_enabled")
 					config.antag_contest_enabled = 1
+
+				if("api_rate_limit")
+					config.api_rate_limit = text2num(value)
+
+				if("api_rate_limit_whitelist")
+					config.api_rate_limit_whitelist = text2list(value, ";")
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

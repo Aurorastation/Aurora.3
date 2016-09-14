@@ -1,0 +1,62 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#################################
+
+# Your name.  
+author: Nanako
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - bugfix: "Fixed and overhauled diona light mechanics. Diona will survive comfortably in darkness for two minutes, suffer and lose health for a farther two minutes, and then spend a minute lying helplessly until death. Nymphs  last 20% longer."
+  - tweak: "Diona nymphs can no longer just evolve into a gestalt after waiting a short amount of time. They must now eat things and accumulate a stockpile of biomass in order to evolve."
+  - rscadd: "Added a devouring system to allow mobs to eat other mobs and gain nutrition from it, either by swallowing them whole (if small enough), or eating them piece by piece if larger."
+  - rscadd: "Diona Nymphs and Unathi can use devouring to eat organic (non-humanoid, non-synthetic, non-supernatural) mobs."
+  - rscadd: "Cows are now worth much more meat."
+  - rscadd: "Diona nymphs can now process chemicals properly, and can consume normal food items (meals, fruit, meat, etc)."
+  - rscadd: "Diona nymphs can now harvest fully grown plants from botany, and can eat dead plants and weeds. Requires tray lids to be open."
+  - rscadd: "Nymphs and other small creatures can now gnaw open cardboard boxes to get to their contents."
+  - rscadd: "Many carryable/wearable light sources are now directional. and will project more light infront of you than other directions."
+  - tweak: "Diona are now only affected by one worn light at a time (the strongest one is chosen). A flashlight and a PDA, or multiple flashlights, will not stack up to keep them alive in the dark."
+  - rscdel: "Diona heat resistance completely removed."
+  - tweak: "Diona cold levels adjusted - Diona are now more sensitive to cold temperatures than any other species. This does not affect space."
+  - tweak: "Diona regeneration now scales with their body temperature, dropping down towards zero as they get cold, and accelerating as they get hot. This works out to make them still very resistant to fire, but no longer completely immune."
+  - tweak: "Dionaea are now weak to cold. Cold temperatures will slow or disable their regeneration, reduce their movespeed, and damage them."
+  - tweak: "Fire in tiles, and burning mobs, now emit more light."
+  - tweak: "Cryotubes are now harmful to diona. Very harmful, do not put them in one unless you want to kill it."
+  - tweak: "Diona internal organs now regenerate too."
+  - tweak: "Added more choices for the diona random name generator."
+  - soundadd: "Added audio for diona splitting and nymphs growing into gestalts."
+  - bugfix: "Completely overhauled diona merging/absorbing/splitting/evolving mechanics, fixed many bugs and inconsistencies with them."
+  - tweak: "Diona evolution is now more accurately named Exponential Growth. "
+  - tweak: "Diona gestalts now have six live nymphs inside them. These nymphs can be damaged by explosions, cold, and darkness. If they are too damaged they will be born dead when the gestalt splits."
+  - rscadd: "Diona nymphs can now drain blood from people to sample their DNA and learn any languages they know.  Three samples of a language (from different lifeforms) are required to learn it."
+  - rscadd: "Diona nymphs who have learned new languages will pass them onto a gestalt if they merge or grow into one. Nymphs splitting from a gestalt have a chance to inherit each language, otherwise they will forget it. Forgetting how to speak or understand basic is possible."
+  - tweak: "Diona nymphs grown from replicant pods will only know rootsong when born, they must learn basic. In addition, all diona have rootsong as their default language on roundstart."
+  - rscadd: "Diona gestalts can now regenerate all lost limbs, organs and nymphs. This requires energy and biomass, eating some food may be necessary"
+  - tweak: "Diona are now vulnerable to being stunned by flashes, although a flash will also restore some of their light energy."
