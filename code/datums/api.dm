@@ -1,21 +1,84 @@
 //
-// This file contains the API functions for the serverside API
+// This file contains the API commands for the serverside API
 //
 // IMPORTANT:
-//  When changing api functions always update the version number of the API
+//  When changing api commands always update the version number of the API
 //  The version number is defined in /datum/topic_command/api_get_version
 
 //Init the API at startup
 /hook/startup/proc/setup_api()
   for (var/path in typesof(/datum/topic_command) - /datum/topic_command)
     var/datum/topic_command/A = new path()
-    topic_commands[A.name] = A
-    if(A.no_auth == 1)
-      topic_commands_noauth[A.name] = A
-    if(A.no_throttle == 1)
-      topic_commands_nothrottle[A.name] = A
-
+    if(A != null)
+      topic_commands[A.name] = A
+      topic_commands_names[A.name] = A.name
+    listclearnulls(topic_commands)
+    listclearnulls(topic_commands_names)
   return 1
+
+/world/proc/api_do_auth_check(var/addr, var/auth, var/datum/topic_command/command)
+	//Check if command is on nothrottle list
+	if(command.no_throttle == 1)
+		log_debug("API: Throttling bypassed - Command [command.name] set to no_throttle")
+	else
+		if(world_api_rate_limit[addr] != null && config.api_rate_limit_whitelist[addr] == null) //Check if the ip is in the rate limiting list and not in the whitelist
+			if(abs(world_api_rate_limit[addr] - world.time) < config.api_rate_limit) //Check the last request time of the ip
+				world_api_rate_limit[addr] = world.time // Set the time of the last request
+				return 2 //Throttled
+		world_api_rate_limit[addr] = world.time // Set the time of the last request
+
+
+	//Check if the command is on the auth whitelist
+	if(command.no_auth == 1)
+		log_debug("API: Auth bypassed - Command [command.name] set to no_auth")
+		return 0 // Authed (bypassed)
+
+	var/DBQuery/authquery = dbcon.NewQuery({"SELECT api_f.command
+	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
+	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
+	AND	api_t.deleted_at IS NULL
+	AND (
+	(token = :token AND ip = :ip AND command = :command)
+	OR
+	(token = :token AND ip IS NULL AND command = :command)
+	OR
+	(token = :token AND ip = :ip AND command = \"ANY\")
+	OR
+	(token = :token AND ip IS NULL AND command = \"ANY\")
+	OR
+	(token IS NULL AND ip IS NULL AND command = :command)
+	)"})
+	//Check if the token is not deleted
+	//Check if one of the following is true:
+	// Full Match - Token IP and Command Matches
+	// Any IP - Token and Command Matches, IP is set to NULL (not required)
+	// Any Command - Token and IP Matches, Command is set to ANY
+	// Any Command, Any IP - Token Matches, IP is set to NULL (not required), Command is set to ANY
+	// Public - Token is set to NULL, IP is set to NULL and command matches
+
+	authquery.Execute(list(":token" = auth, ":ip" = addr, ":command" = command.name))
+	log_debug("API: Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
+
+	if (authquery.RowCount())
+		return 0 // Authed
+	return 1 // Bad Key
+
+
+proc/api_update_command_database()
+  log_debug("API: DB Command Update Called")
+  //Check if DB Connection is established
+  if (!establish_db_connection(dbcon))
+    return 0 //Error
+
+  var/DBQuery/commandinsertquery = dbcon.NewQuery({"INSERT INTO ss13_api_commands (command,description)
+  VALUES (:command_name,:command_description)
+  ON DUPLICATE KEY UPDATE description = :command_description;"})
+
+  for(var/com in topic_commands)
+    var/datum/topic_command/command = topic_commands[com]
+    commandinsertquery.Execute(list(":command_name" = command.name, ":command_description" = command.description))
+  log_debug("API: DB Command Update Executed")
+  return 1 //OK
 
 //API Boilerplate
 /datum/topic_command
@@ -89,12 +152,12 @@
   return 1
 
 
-//Get all the functions a specific token / ip combo is authorized to use
-/datum/topic_command/api_get_authed_functions
-  name = "api_get_authed_functions"
-  description = "Returns the functions that can be accessed by the requesting ip and token"
-/datum/topic_command/api_get_authed_functions/run_command(queryparams)
-  var/list/functions = list()
+//Get all the commands a specific token / ip combo is authorized to use
+/datum/topic_command/api_get_authed_commands
+  name = "api_get_authed_commands"
+  description = "Returns the commands that can be accessed by the requesting ip and token"
+/datum/topic_command/api_get_authed_commands/run_command(queryparams)
+  var/list/commands = list()
 
 
   //Check if DB Connection is established
@@ -103,9 +166,9 @@
     response = "DB Connection Unavailable"
     return 1
 
-  var/DBQuery/functionsquery = dbcon.NewQuery({"SELECT api_f.function
-  FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
-  WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+  var/DBQuery/commandsquery = dbcon.NewQuery({"SELECT api_f.command
+  FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
+  WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
   AND (
   (token = :token AND ip = :ip)
   OR
@@ -115,34 +178,38 @@
   )"})
 
 
-  functionsquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"]))
-  while (functionsquery.NextRow())
-    functions[functionsquery.item[1]] = functionsquery.item[1]
+  commandsquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"]))
+  while (commandsquery.NextRow())
+    commands[commandsquery.item[1]] = commandsquery.item[1]
 
-  //Check if "ANY" is in the functions --> Then replace it with the global functions list
-  if("ANY" in functions)
-    functions = topic_commands
+  //Check if "ANY" is not in the commands list
+  if(isnull(commands["ANY"]))
+    statuscode = 200
+    response = "Authorized commands retrieved"
+    data = commands
+    return 1
+  else //The result contains ANY --> Return all available commands
+    statuscode = 200
+    response = "Authorized commands retrieved - ALL"
+    data = topic_commands_names
+    return 1
 
-  statuscode = 200
-  response = "Authorized functions retrieved"
-  data = functions
-  return 1
 
-
-//Get details for a specific api function
-/datum/topic_command/api_explain_function
-  name = "api_explain_function"
-  description = "Explains a specific API function"
+//Get details for a specific api command
+/datum/topic_command/api_explain_command
+  name = "api_explain_command"
+  description = "Explains a specific API command"
+  no_throttle = 1
   params = list(
-    "function" = list("name"="function","desc"="The name of the API function that should be explained","req"=1,"type"="str")
+    "command" = list("name"="command","desc"="The name of the API command that should be explained","req"=1,"type"="str")
     )
-/datum/topic_command/api_explain_function/run_command(queryparams)
-  var/datum/topic_command/apifunction = topic_commands[queryparams["function"]]
-  var/list/functiondata = list()
+/datum/topic_command/api_explain_command/run_command(queryparams)
+  var/datum/topic_command/apicommand = topic_commands[queryparams["command"]]
+  var/list/commanddata = list()
 
-  if (isnull(apifunction))
+  if (isnull(apicommand))
     statuscode = 501
-    response = "Not Implemented - The requested function does not exist"
+    response = "Not Implemented - The requested command does not exist"
     return 1
 
   //Then query for auth
@@ -151,44 +218,53 @@
     response = "DB Connection Unavailable"
     return 1
 
-  var/DBQuery/permquery = dbcon.NewQuery({"SELECT api_f.function
-	FROM ss13_api_token_function as api_t_f, ss13_api_tokens as api_t, ss13_api_functions as api_f
-	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.function_id
+  var/DBQuery/permquery = dbcon.NewQuery({"SELECT api_f.command
+	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
+	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND	api_t.deleted_at IS NULL
 	AND (
-	(token = :token AND ip = :ip AND function = :function)
+	(token = :token AND ip = :ip AND command = :command)
 	OR
-	(token = :token AND ip IS NULL AND function = :function)
+	(token = :token AND ip IS NULL AND command = :command)
 	OR
-	(token = :token AND ip = :ip AND function = \"ANY\")
+	(token = :token AND ip = :ip AND command = \"ANY\")
 	OR
-	(token = :token AND ip IS NULL AND function = \"ANY\")
+	(token = :token AND ip IS NULL AND command = \"ANY\")
 	OR
-	(token IS NULL AND ip IS NULL AND function = :function)
+	(token IS NULL AND ip IS NULL AND command = :command)
 	)"})
-  //Get the tokens and the associated functions
-  //Check if the token, the ip and the function matches OR
-  // the token + function matches and the ip is NULL (Functions that can be used by any ip, but require a token)
-  // the token + ip matches and the function is NULL (Allow a specific ip with a specific token to use all functions)
-  // the token + ip is NULL and the function matches (Allow a specific function to be used without auth)
+  //Get the tokens and the associated commands
+  //Check if the token, the ip and the command matches OR
+  // the token + command matches and the ip is NULL (commands that can be used by any ip, but require a token)
+  // the token + ip matches and the command is NULL (Allow a specific ip with a specific token to use all commands)
+  // the token + ip is NULL and the command matches (Allow a specific command to be used without auth)
 
-  permquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"], ":function" = queryparams["function"]))
+  permquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"], ":command" = queryparams["command"]))
 
   if (!permquery.RowCount())
     statuscode = 401
-    response = "Unauthorized - To access this function"
+    response = "Unauthorized - To access this command"
     return 1
 
-  functiondata["name"] = apifunction.name
-  functiondata["description"] = apifunction.description
-  functiondata["params"] = apifunction.params
+  commanddata["name"] = apicommand.name
+  commanddata["description"] = apicommand.description
+  commanddata["params"] = apicommand.params
 
   statuscode = 200
-  response = "Function data retrieved"
-  data = functiondata
+  response = "Command data retrieved"
+  data = commanddata
   return 1
 
 
+/datum/topic_command/update_command_database
+  name = "update_command_database"
+  description = "Updates the available topic commands in the database"
+/datum/topic_command/update_command_database/run_command(queryparams)
+  api_update_command_database()
+
+  statuscode = 200
+  response = "Database Updated"
+  return 1
 
 //
 // API for the other stuff
@@ -777,9 +853,9 @@
 /datum/topic_command/send_commandreport/run_command(queryparams)
   var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
   var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
-  var/reportbody = sanitize(queryparams["body"]) //Body of the report
+  var/reportbody = sanitizeSafe(queryparams["body"]) //Body of the report
   var/reporttype = queryparams["type"] //Type of the report: freeform / ccia / admin
-  var/reportsender = sanitize(queryparams["sendername"]) //Name of the sender
+  var/reportsender = sanitizeSafe(queryparams["sendername"]) //Name of the sender
   var/reportannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
 
   if(!reporttitle)
@@ -808,7 +884,7 @@
       reportbody += "<br/><br/>- CCIAAMS, [commstation_name()]"
 
   if(reportannounce == 1)
-    command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+    command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
   if(reportannounce == 0)
     world << "\red New NanoTrasen Update available at all communication consoles."
     world << sound('sound/AI/commandreport.ogg')
