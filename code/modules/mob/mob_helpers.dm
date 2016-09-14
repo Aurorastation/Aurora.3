@@ -151,7 +151,7 @@
 	//returns which type of diona we are, or zero
 	if (istype(src, /mob/living/carbon/human))
 		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona))
+		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
 			return DIONA_WORKER
 
 	if (istype(src, /mob/living/carbon/alien/diona))
