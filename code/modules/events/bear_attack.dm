@@ -13,7 +13,7 @@
 			if(turf_clear(F))
 				possible_turfs |= F
 
-	if (severity <= EVENT_LEVEL_MODERATE)
+	if (severity <= EVENT_LEVEL_MODERATE)//Moderate spacebear event disabled by head developer veto
 		spawn_type = /mob/living/simple_animal/hostile/bear
 		spawn_number = rand(8,16)
 	else

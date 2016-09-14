@@ -120,10 +120,6 @@
 			if(target_mob && (target_mob in ListTargets(10)) && !(SA_attackable(target_mob)))
 				found_mob = 1
 			else
-				if (target_mob in ListTargets(10))
-
-				if (!(SA_attackable(target_mob)))
-
 				LoseTarget()
 
 			if(target_mob)
@@ -387,7 +383,7 @@
 //This is triggered randomly periodically by the bear
 /mob/living/simple_animal/hostile/bear/proc/growl_soft()
 	var/sound = pick(quiet_sounds)
-	playsound(src, sound, 50, 1,3)
+	playsound(src, sound, 50, 1,3, usepressure = 0)
 
 
 
@@ -395,7 +391,7 @@
 //Played when bear is attacking or dies
 /mob/living/simple_animal/hostile/bear/proc/growl_loud()
 	var/sound = pick(loud_sounds)
-	playsound(src, sound, 85, 1, 5)
+	playsound(src, sound, 85, 1, 5, usepressure = 0)
 
 
 
