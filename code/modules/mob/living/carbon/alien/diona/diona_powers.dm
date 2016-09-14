@@ -203,7 +203,7 @@
 	if (!donor || donor == "Cancel")//they cancelled
 		return
 
-	face_atom(victim)
+	face_atom(donor)
 	var/types = donor.find_type()
 
 	if (types & TYPE_SYNTHETIC)
