@@ -21,7 +21,7 @@
 	if(job_weights)
 		role_weights = job_weights
 	if(excluded_roundtypes)
-		excluded_roundtypes = excluded_gamemodes
+		excluded_gamemodes = excluded_roundtypes
 
 /datum/event_meta/proc/get_weight(var/list/active_with_role)
 	if(!enabled)
