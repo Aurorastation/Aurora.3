@@ -1018,7 +1018,7 @@ var/list/be_special_flags = list(
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
 #define LANGUAGE_SKRELLIAN "Skrellian"
-#define LANGUAGE_ROOTSPEAK "Rootspeak"
+#define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_VAURCESE "Hivenet"
 #define LANGUAGE_GUTTER "Gutter"
