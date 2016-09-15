@@ -113,7 +113,8 @@
 		holder_type = null
 
 	species = all_species[new_species]
-	add_language(species.default_language)
+	if(species.default_language)
+		add_language(species.default_language)
 
 	if(species.holder_type)
 		holder_type = species.holder_type
