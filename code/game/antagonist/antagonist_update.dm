@@ -83,14 +83,21 @@
 	if(ticker.mode.antag_scaling_coeff)
 
 		var/count = 0
-		for(var/mob/living/M in player_list)
-			if(M.client)
-				count++
+
+		if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+			// If we're in the pre-game state, we count readied new players as players.
+			// Yes, not all get spawned, but it's a close enough guestimation.
+			for (var/mob/new_player/L in player_list)
+				if (L.client && L.ready)
+					count++
+		else
+			for (var/mob/living/M in player_list)
+				if (M.client)
+					count++
 
 		// Minimum: initial_spawn_target
 		// Maximum: hard_cap or hard_cap_round
 		cur_max = max(initial_spawn_target,min(round(count/ticker.mode.antag_scaling_coeff),cur_max))
-		log_debug("ANTAG SPAWN: Updated current max. Antag: [id], players: [count], new current max: [cur_max].")
 
 // Updates the initial spawn target to match the player count.
 // Intended to stop 6 nuke ops in a 15 player round. RIP those rounds.
@@ -103,13 +110,19 @@
 
 	var/count = 0
 
-	for (var/mob/living/M in player_list)
-		if (M.client)
-			count++
+	if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+		// If we're in the pre-game state, we count readied new players as players.
+		// Yes, not all get spawned, but it's a close enough guestimation.
+		for (var/mob/new_player/L in player_list)
+			if (L.client && L.ready)
+				count++
+	else
+		for (var/mob/living/M in player_list)
+			if (M.client)
+				count++
 
 	// Never pick less antags than we need to!
 	var/new_cap = max(initial_spawn_req, round(count/modifier))
 
 	// Default to the hardcap if we're about to surpass it
 	initial_spawn_target = min(hard_cap, new_cap)
-	log_debug("ANTAG SPAWN: Updated initial spawn target. Antag: [id], players: [count], new spawn target: [initial_spawn_target].")
