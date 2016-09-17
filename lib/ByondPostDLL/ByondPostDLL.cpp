@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2016 Oisin Carr
+	Copyright (C) 2016 Oisin Carr & Skull132
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
