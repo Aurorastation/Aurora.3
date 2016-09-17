@@ -103,6 +103,7 @@
 	..()
 	seek_move_delay = (1 / seek_speed) / (world.tick_lag / 10)//number of ticks between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
+	health = maxHealth
 	verbs -= /mob/verb/observe
 	health = maxHealth
 	if (mob_size)
@@ -144,15 +145,12 @@
 
 /mob/living/simple_animal/Life()
 	..()
-
+	life_tick++
 	//Health
+	updatehealth()
+
 	if(stat == DEAD)
 		return 0
-
-
-	if(health <= 0)
-		death()
-		return
 
 	if(health > maxHealth)
 		health = maxHealth
@@ -257,15 +255,15 @@
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
 		fire_alert = 2
-		adjustBruteLoss(cold_damage_per_tick)
+		apply_damage(cold_damage_per_tick, BURN, used_weapon = "Cold Temperature")
 	else if(bodytemperature > maxbodytemp)
 		fire_alert = 1
-		adjustBruteLoss(heat_damage_per_tick)
+		apply_damage(heat_damage_per_tick, BURN, used_weapon = "High Temperature")
 	else
 		fire_alert = 0
 
 	if(!atmos_suitable)
-		adjustBruteLoss(unsuitable_atoms_damage)
+		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
 	return 1
 
 /mob/living/simple_animal/proc/handle_supernatural()
@@ -324,12 +322,14 @@
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
 	custom_emote(2, act_desc)
 
-/mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
+/*
+mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(!Proj || Proj.nodamage)
 		return
 
 	adjustBruteLoss(Proj.damage)
 	return 0
+*/
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
@@ -366,7 +366,7 @@
 			M.do_attack_animation(src)
 
 		if(I_HURT)
-			adjustBruteLoss(harm_intent_damage)
+			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
 			M.visible_message("\red [M] [response_harm] \the [src]")
 			M.do_attack_animation(src)
 
@@ -412,8 +412,7 @@
 			damage *= 2
 			purge = 3
 
-		apply_damage(damage, O.damtype)
-		//adjustBruteLoss(damage)
+		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 	else
 		usr << "<span class='danger>This weapon is ineffective, it does no damage.</span>"
 
@@ -457,19 +456,16 @@
 		flick("flash", flash)
 	switch (severity)
 		if (1.0)
-			adjustBruteLoss(500)
+			apply_damage(500, BRUTE)
 			gib()
 			return
 
 		if (2.0)
-			adjustBruteLoss(60)
+			apply_damage(60, BRUTE)
 
 
 		if(3.0)
-			adjustBruteLoss(30)
-
-/mob/living/simple_animal/adjustBruteLoss(damage)
-	health = Clamp(health - damage, 0, maxHealth)
+			apply_damage(30, BRUTE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))

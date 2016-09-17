@@ -289,3 +289,41 @@ var/list/mob/living/forced_ambiance_list = new
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
 		mob << "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>"
+
+
+//A useful proc for events.
+//This returns a random area of the station which is meaningful. Ie, a room somewhere
+
+/proc/random_station_area()
+	var/list/possible = list()
+	for(var/Y in the_station_areas)
+		for(var/areapath in typesof(Y))
+			var/area/A = locate(areapath)
+			if(!A)
+				continue
+			if(!(A.z in config.station_levels))
+				continue
+			if (istype(A, /area/shuttle))
+				continue
+			if (istype(A, /area/solar) || findtext(A.name, "solar"))
+				continue
+			if (istype(A, /area/constructionsite))
+				continue
+
+			//Although hostile mobs instadying to turrets is fun
+			//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
+			if (istype(A, /area/turret_protected))
+				continue
+
+			possible.Add(A)
+
+	return pick(possible)
+
+
+/area/proc/random_space()
+	var/list/turfs = list()
+	for(var/turf/simulated/floor/F in src.contents)
+		if(turf_clear(F))
+			turfs += F
+
+	return pick(turfs)
