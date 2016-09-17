@@ -58,10 +58,9 @@
 	var/result = call("ByondPOST.dll", "send_post_request")(arglist(args))
 
 	if (!result)
-		testing("Lib didn't return shit.")
+		log_debug("ByondPOST: No result returned from external library.")
 		return -1
 
-	testing("Result: [result]")
 	var/list/A = params2list(result)
 
 	if (!isnull(A["proc"]))
