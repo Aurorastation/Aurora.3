@@ -250,7 +250,7 @@
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
-/mob/verb/pointed(atom/A as mob|obj|turf in range(world.view))
+/mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"
 
