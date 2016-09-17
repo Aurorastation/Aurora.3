@@ -11,7 +11,7 @@
 		var/datum/topic_command/A = new path()
 		if(A != null)
 			topic_commands[A.name] = A
-			topic_commands_names[A.name] = A.name
+			topic_commands_names.Add(A.name)
 		listclearnulls(topic_commands)
 		listclearnulls(topic_commands_names)
 	return 1
@@ -42,9 +42,9 @@
 	OR
 	(token = :token AND ip IS NULL AND command = :command)
 	OR
-	(token = :token AND ip = :ip AND command = \"ANY\")
+	(token = :token AND ip = :ip AND command = \"_ANY\")
 	OR
-	(token = :token AND ip IS NULL AND command = \"ANY\")
+	(token = :token AND ip IS NULL AND command = \"_ANY\")
 	OR
 	(token IS NULL AND ip IS NULL AND command = :command)
 	)"})
@@ -52,8 +52,8 @@
 	//Check if one of the following is true:
 	// Full Match - Token IP and Command Matches
 	// Any IP - Token and Command Matches, IP is set to NULL (not required)
-	// Any Command - Token and IP Matches, Command is set to ANY
-	// Any Command, Any IP - Token Matches, IP is set to NULL (not required), Command is set to ANY
+	// Any Command - Token and IP Matches, Command is set to _ANY
+	// Any Command, Any IP - Token Matches, IP is set to NULL (not required), Command is set to _ANY
 	// Public - Token is set to NULL, IP is set to NULL and command matches
 
 	authquery.Execute(list(":token" = auth, ":ip" = addr, ":command" = command.name))
@@ -170,30 +170,29 @@ proc/api_update_command_database()
 	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND (
-	(token = :token AND ip = :ip)
-	OR
-	(token = :token AND ip IS NULL)
-	OR
-	(token IS NULL AND ip = :ip)
-	)"})
+		(token = :token AND ip = :ip)
+		OR
+		(token = :token AND ip IS NULL)
+		OR
+		(token IS NULL AND ip = :ip)
+	)
+	ORDER BY command DESC"})
 
 
 	commandsquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"]))
 	while (commandsquery.NextRow())
 		commands[commandsquery.item[1]] = commandsquery.item[1]
+		if(commandsquery.item[1] == "_ANY")
+			statuscode = 200
+			response = "Authorized commands retrieved - ALL"
+			data = topic_commands_names
+			return 1
 
-	//Check if "ANY" is not in the commands list
-	if(isnull(commands["ANY"]))
-		statuscode = 200
-		response = "Authorized commands retrieved"
-		data = commands
-		return 1
-	else //The result contains ANY --> Return all available commands
-		statuscode = 200
-		response = "Authorized commands retrieved - ALL"
-		data = topic_commands_names
-		return 1
 
+	statuscode = 200
+	response = "Authorized commands retrieved"
+	data = commands
+	return 1
 
 //Get details for a specific api command
 /datum/topic_command/api_explain_command
@@ -227,9 +226,9 @@ proc/api_update_command_database()
 	OR
 	(token = :token AND ip IS NULL AND command = :command)
 	OR
-	(token = :token AND ip = :ip AND command = \"ANY\")
+	(token = :token AND ip = :ip AND command = \"_ANY\")
 	OR
-	(token = :token AND ip IS NULL AND command = \"ANY\")
+	(token = :token AND ip IS NULL AND command = \"_ANY\")
 	OR
 	(token IS NULL AND ip IS NULL AND command = :command)
 	)"})
