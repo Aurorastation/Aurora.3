@@ -2,6 +2,21 @@
 #define CHAN_CCIAA		"channel_cciaa"
 #define CHAN_ANNOUNCE	"channel_announce"
 
+var/datum/discord_bot/discord_bot = null
+
+/hook/startup/proc/initialize_discord_bot()
+	if (discord_bot)
+		// This shouldn't be possible, but sure!
+		return 0
+
+	discord_bot = New()
+
+	config.load("config/discord.txt", "discord")
+
+	discord_bot.update_channels()
+
+	return 1
+
 /datum/discord_bot
 	var/list/channels = list()
 

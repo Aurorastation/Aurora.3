@@ -808,6 +808,11 @@ var/list/gamemode_cache = list()
 			age_restrictions[name] = text2num(value)
 
 		else if (type == "discord")
+			// Ideally, this would never happen. But just in case.
+			if (!discord_bot)
+				log_debug("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
+				return
+
 			switch (name)
 				if ("token")
 					discord_bot.auth_token = value
