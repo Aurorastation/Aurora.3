@@ -120,19 +120,20 @@
 /obj/item/proc/suicide_act(mob/user)
 	return
 
-/obj/item/verb/move_to_top()
+
+/mob/living/verb/move_to_top(obj/item/I in range(1))
 	set name = "Move To Top"
 	set category = "Object"
-	set src in oview(1)
 
-	if(!istype(src.loc, /turf) || usr.stat || usr.restrained() )
+	if (!I in view(1, src))
 		return
+	if(!istype(I.loc, /turf) || usr.stat || usr.restrained() )
+		return
+	var/turf/T = I.loc
 
-	var/turf/T = src.loc
+	I.loc = null
 
-	src.loc = null
-
-	src.loc = T
+	I.loc = T
 
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size
@@ -371,6 +372,7 @@ var/list/global/slot_flags_enumeration = list(
 		return 0
 	return 1
 
+/*
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
 	set category = "Object"
@@ -400,6 +402,41 @@ var/list/global/slot_flags_enumeration = list(
 		return
 	//All checks are done, time to pick it up!
 	usr.UnarmedAttack(src)
+	return
+*/
+
+/mob/living/carbon/verb/verb_pickup(obj/item/I in range(1))
+	set category = "Object"
+	set name = "Pick up"
+
+	if(!(usr)) //BS12 EDIT
+		return
+	if (!I in view(1, src))
+		return
+	if (istype(I, /obj/item/weapon/storage/internal))
+		return
+	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
+		return
+	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
+		usr << "\red You can't pick things up!"
+		return
+	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
+		usr << "\red You can't pick things up!"
+		return
+	if(I.anchored) //Object isn't anchored
+		usr << "\red You can't pick that up!"
+		return
+	if(!usr.hand && usr.r_hand) //Right hand is not full
+		usr << "\red Your right hand is full."
+		return
+	if(usr.hand && usr.l_hand) //Left hand is not full
+		usr << "\red Your left hand is full."
+		return
+	if(!istype(I.loc, /turf)) //Object is on a turf
+		usr << "\red You can't pick that up!"
+		return
+	//All checks are done, time to pick it up!
+	usr.UnarmedAttack(I)
 	return
 
 

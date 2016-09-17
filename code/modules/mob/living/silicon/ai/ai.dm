@@ -219,7 +219,7 @@ var/list/ai_verbs_default = list(
 
 	return ..()
 
-/mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
+/mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in range(world.view))
 	set popup_menu = 0
 	set src = usr.contents
 	return 0

@@ -248,27 +248,31 @@
 	face_atom(A)
 	A.examine(src)
 
-/mob/verb/pointed(atom/A as mob|obj|turf in view())
+/mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
+
+/mob/verb/pointed(atom/A as mob|obj|turf in range(world.view))
 	set name = "Point To"
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in view(src.loc)))
+	if(!src || !isturf(src.loc) || !(A in range(world.view, get_turf(src))))
 		return 0
-	if(istype(A, /obj/effect/decal/point))
+	if(istype(A, /obj/effect/decal/point) || pointing_effect)
 		return 0
 
 	var/tile = get_turf(A)
 	if (!tile)
 		return 0
 
-	var/obj/P = new /obj/effect/decal/point(tile)
-	P.invisibility = invisibility
+	pointing_effect = new /obj/effect/decal/point(tile)
+	pointing_effect.invisibility = invisibility
 	spawn (20)
-		if(P)
-			qdel(P)	// qdel
+		if(pointing_effect)
+			qdel(pointing_effect)	// qdel
+			pointing_effect = null
 
 	face_atom(A)
 	return 1
+
 
 
 /mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)

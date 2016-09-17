@@ -9,7 +9,7 @@
 	return
 
 //mob verbs are faster than object verbs. See above.
-/mob/living/pointed(atom/A as mob|obj|turf in view())
+/mob/living/pointed(atom/A as mob|obj|turf in range(world.view))
 	if(src.stat || !src.canmove || src.restrained())
 		return 0
 	if(src.status_flags & FAKEDEATH)
