@@ -252,7 +252,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		if((R_ADMIN|R_CCIAA) & C.holder.rights)
 			C << msg
 
-	send_to_cciaa_discord("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
+	discord_bot.send_to_cciaa("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
 	if (!alert_pdas || !alert_pdas.len)

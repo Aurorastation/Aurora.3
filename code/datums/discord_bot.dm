@@ -9,7 +9,7 @@ var/datum/discord_bot/discord_bot = null
 		// This shouldn't be possible, but sure!
 		return 0
 
-	discord_bot = New()
+	discord_bot = new()
 
 	config.load("config/discord.txt", "discord")
 
@@ -59,7 +59,7 @@ var/datum/discord_bot/discord_bot = null
 	if (!message)
 		return
 
-	if (message > 2000)
+	if (length(message) > 2000)
 		message = copytext(message, 1, 2001)
 
 	// Let's run it through the proper JSON encoder, just in case of special characters.
@@ -67,7 +67,7 @@ var/datum/discord_bot/discord_bot = null
 
 	var/list/A = channels[channel_group]
 	for (var/channel in A)
-		send_post_request("https://discordapp.com/api/channels/[channel]/messages", message, list("Authorization: Bot [auth_token]", "Content-Type: application/json"))
+		send_post_request("https://discordapp.com/api/channels/[channel]/messages", message, "Authorization: Bot [auth_token]", "Content-Type: application/json")
 
 	if (robust_debug)
 		log_debug("BOEALIS: Message sent to [channel_group]. JSON body: '[message]'")

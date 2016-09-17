@@ -129,7 +129,7 @@
 
 	sanitize(msg)
 
-	send_to_admin_discord("PlayerPM to [sender] from [key_name(src)]: [html_decode(msg)]")
+	discord_bot.send_to_admins("PlayerPM to [sender] from [key_name(src)]: [html_decode(msg)]")
 
 	src << "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>"
 

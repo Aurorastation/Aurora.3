@@ -39,17 +39,19 @@
 
 /*
  * A generic proc for sending a post request with the aforementioned .DLL files.
- * @param text url - the URL you wish to send the post request to.
- * @param text content - the raw data you wish to send as the body of your post request.
- * @param list headers - a list of text headers to be added to the request.
- * @return int - 1 if success, 0 if failure.
+ * Expected arg structure:
+ * 1st arg			- the url
+ * 2nd arg			- the request body
+ * 3rd - nth arg	- individual headers and their values in format: "headername: value"
+ *
+ * @return int		- 1 if success, 0 if failure.
  *
  * TODO: Modify ByondPOST.dll to return proper success/failure codes.
  *
  */
-/proc/send_post_request(var/url, var/content = "", var/list/headers = list())
-	if (!url)
+/proc/send_post_request()
+	if (args.len < 1)
 		return 0
 
-	call("ByondPOST.dll", "send_post_request")(url, content, arglist(headers))
+	call("ByondPOST.dll", "send_post_request")(arglist(args))
 	return 1
