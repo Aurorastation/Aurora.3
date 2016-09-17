@@ -130,13 +130,9 @@ var/datum/discord_bot/discord_bot = null
 	// A[2] - list of channels to send to.
 	var/message
 	var/list/destinations
-	while (queue.len)
-		if (isnull(queue[0]))
-			log_debug("BOREALIS: Error parsing queue. Index 0 is inaccessible.")
-			return
-
-		message = queue[0][1]
-		destinations = queue[0][2]
+	for (var/list/A in queue)
+		message = A[1]
+		destinations = A[2]
 
 		for (var/channel in destinations)
 			if (send_post_request("https://discordapp.com/api/channels/[channel]/messages", message, "Authorization: Bot [auth_token]", "Content-Type: application/json") == 429)
@@ -150,7 +146,7 @@ var/datum/discord_bot/discord_bot = null
 			else
 				destinations.Remove(channel)
 
-		queue.Remove(queue[0])
+		queue.Remove(A)
 
 	queue_being_pushed = 0
 
