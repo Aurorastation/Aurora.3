@@ -27,11 +27,11 @@ var/datum/discord_bot/discord_bot = null
 
 /datum/discord_bot/proc/update_channels()
 	if (!active)
-		return
+		return 1
 
 	if (!establish_db_connection(dbcon))
 		log_debug("BOREALIS: Failed to update channels due to missing database.")
-		return
+		return 2
 
 	channels = list()
 
@@ -47,7 +47,7 @@ var/datum/discord_bot/discord_bot = null
 		A += channel_query.item[2]
 
 	log_debug("BOREALIS: Channels updated successfully.")
-	return
+	return 0
 
 /datum/discord_bot/proc/send_message(var/channel_group, var/message)
 	if (!active || !auth_token)
