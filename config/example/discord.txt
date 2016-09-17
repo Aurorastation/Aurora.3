@@ -1,0 +1,9 @@
+## Uncomment this to activate the DM controlled Discord bot.
+# ACTIVE
+
+## Paste the bot's OAuth2 token as a value to this setting. Mind the caps!
+# TOKEN
+
+## Uncomment this to enable robust debugging.
+## This results in more messages being sent via log_debug() during bot operations.
+# ROBUST_DEBUG
