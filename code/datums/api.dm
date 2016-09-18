@@ -632,6 +632,7 @@ proc/api_update_command_database()
 	s["players"] = 0
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = round_duration()
+	s["gameid"] = game_id
 
 	if(queryparams["status"] == "2")
 		var/list/players = list()
@@ -645,9 +646,9 @@ proc/api_update_command_database()
 			players += C.key
 
 		s["players"] = players.len
-		s["playerlist"] = list2params(players)
+		s["playerlist"] = players
 		s["admins"] = admins.len
-		s["adminlist"] = list2params(admins)
+		s["adminlist"] = admins
 	else
 		var/n = 0
 		var/admins = 0
@@ -974,3 +975,29 @@ proc/api_update_command_database()
 	else
 		qdel(P)
 		return 2
+
+// Update discord_bot's channels.
+/datum/topic_command/update_bot_channels
+	name = "update_bot_channels"
+	description = "Tells the ingame instance of the Discord bot to update its cached channels list."
+
+/datum/topic_command/update_bot_channels/run_command()
+	data = null
+
+	if (!discord_bot)
+		statuscode = 404
+		response = "Ingame Discord bot not initialized."
+		return 1
+
+	switch (discord_bot.update_channels())
+		if (1)
+			statuscode = 404
+			response = "Ingame Discord bot is not active."
+		if (2)
+			statuscode = 500
+			response = "Ingame Discord bot encountered error attempting to access database."
+		else
+			statuscode = 200
+			response = "Ingame Discord bot's channels were successfully updated."
+
+	return 1
