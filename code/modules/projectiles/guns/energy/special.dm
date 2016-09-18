@@ -96,7 +96,65 @@
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	w_class = 3.0
 	origin_tech = "combat=5;phorontech=4"
+	slot_flags = SLOT_HOLSTER | SLOT_BELT
 	projectile_type = /obj/item/projectile/energy/phoron
+
+/obj/item/weapon/gun/energy/beegun
+	name = "\improper NanoTrasen Portable Apiary"
+	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
+	icon_state = "beegun"
+	item_state = "arifle"
+	charge_meter = 0
+	w_class = 4
+	fire_sound = 'sound/effects/Buzz2.ogg'
+	force = 5
+	projectile_type = /obj/item/projectile/energy/bee
+	slot_flags = SLOT_BACK
+	max_shots = 9
+
+	firemodes = list(
+		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 0, dispersion = list(0.0, 0.2, -0.2)),
+		)
+
+/obj/item/weapon/gun/energy/mousegun
+	name = "\improper NT \"Arodentia\" Exterminator ray"
+	desc = "A highly sophisticated and certainly experimental raygun designed for rapid pest-control."
+	icon_state = "mousegun"
+	item_state = "floramut"
+	charge_meter = 0
+	w_class = 3
+	fire_sound = 'sound/weapons/taser2.ogg'
+	force = 5
+	projectile_type = /obj/item/projectile/beam/mousegun
+	slot_flags = SLOT_HOLSTER | SLOT_BELT
+	max_shots = 6
+
+	firemodes = list(
+		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 3, dispersion = list(0.0, 6,0, -6.0)),
+		)
+
+	var/lightfail = 0
+
+/obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+	var/T = get_turf(user)
+	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	s.set_up(3, 1, T)
+	s.start()
+	failcheck()
+	..()
+
+/obj/item/weapon/gun/energy/mousegun/proc/failcheck()
+	lightfail = 0
+	if (prob(25))
+		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
+			if (src in M.contents)
+				M << "<span class='danger'>[src]'s reactor overloads!</span>"
+			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
+			M.apply_effect(300, IRRADIATE)
+		crit_fail = 1 //break the gun so it stops recharging
+		processing_objects.Remove(src)
+		update_icon()
+	return 0
 
 /* Vaurca Weapons */
 
@@ -122,12 +180,12 @@
 		)
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser
-	name = "Gatling Laser"
+	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
 	icon_state = "gatling"
 	item_state = "gatling"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	origin_tech = "combat=5;materials=2"
+	origin_tech = "combat=6;phorontech=5;materials=6"
 	charge_meter = 0
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -140,17 +198,45 @@
 		list(name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = list(0.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.0, 3.25)),
 		)
 
+	icon_action_button = "action_blank"
+	action_button_name = "Wield gatling laser"
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/can_wield()
+	return 1
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/verb/wield_rifle()
+	set name = "Wield gatling laser"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
+	..()
+	if(!wielded)
+		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
+		return 0
+	playsound(src, 'sound/weapons/chainsawhit.ogg', 90, 1)
+	user.visible_message("<span class='danger'>[user] begins spinning [src]'s barrels!</span>")
+	sleep(30)
+	return 1
+
 /obj/item/weapon/gun/energy/vaurca/blaster
 	name = "Zo'ra Blaster"
 	desc = "An elegant weapon for a more civilized time."
 	icon_state = "blaster"
 	item_state = "blaster"
+	origin_tech = "combat=2;phorontech=4,"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 15
+	max_shots = 6
 
 	firemodes = list(
 		list(name="single shot", burst=1, burst_delay = 1, fire_delay = 0),

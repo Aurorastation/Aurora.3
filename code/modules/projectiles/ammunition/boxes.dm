@@ -48,6 +48,23 @@
 	name = "magazine (.45 flash)"
 	ammo_type = "/obj/item/ammo_casing/c45f"
 
+/obj/item/ammo_magazine/t40
+	name = "magazine (10mm)"
+	icon_state = "5.56"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/t40
+	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	caliber = "10mm"
+	max_ammo = 12
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/t40/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/t40/rubber
+	name = "magazine (10mm rubber)"
+	ammo_type = /obj/item/ammo_casing/t40r
+
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
 	icon_state = "9x19p"

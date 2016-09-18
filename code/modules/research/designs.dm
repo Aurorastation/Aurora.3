@@ -1310,6 +1310,14 @@ datum/design/item/weapon/nuclear_gun
 	build_path = /obj/item/weapon/gun/energy/gun/nuclear
 	locked = 1
 
+datum/design/item/weapon/lasshotgun
+	id = "laser_shotgun"
+	req_tech = list("combat" = 3, "materials" = 5, "powerstorage" = 4)
+	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
+	reliability_base = 76
+	build_path = /obj/item/weapon/gun/energy/laser/shotgun
+	locked = 1
+
 datum/design/item/weapon/stunrevolver
 	id = "stunrevolver"
 	req_tech = list("combat" = 3, "materials" = 3, "powerstorage" = 2)

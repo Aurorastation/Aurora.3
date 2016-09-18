@@ -67,6 +67,9 @@
 	if(bolt_open)
 		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return 0
+	if(!wielded)
+		usr << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
+		return 0
 	return ..()
 
 /obj/item/weapon/gun/projectile/heavysniper/load_ammo(var/obj/item/A, mob/user)
