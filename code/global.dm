@@ -92,6 +92,8 @@ var/hadevent    = 0
 var/blobevent   = 0
 
 var/diary          = null
+var/diary_runtime  = null
+var/diary_date_string = null
 var/href_logfile   = null
 var/station_name   = "NSS Exodus"
 var/commstation_name = "NTCC Odin"
@@ -210,8 +212,8 @@ var/list/cheartstopper = list("potassium_chloride")                       // Thi
 
 // Used by robots and robot preferences.
 var/list/robot_module_types = list(
-	"Standard", "Engineering", "Construction", "Surgeon",  "Crisis",
-	"Miner",    "Janitor",     "Service",      "Clerical", "Security",
+	"Standard", "Engineering", "Construction", "Medical",  "Rescue",
+	"Miner",    "Custodial",     "Service",      "Clerical", "Security",
 	"Research"
 )
 

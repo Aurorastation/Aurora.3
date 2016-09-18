@@ -40,3 +40,11 @@
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks
 	var/footstep = 0
+	var/list/stomach_contents = list()//This is moved here from carbon defines
+	var/composition_reagent
+	var/composition_reagent_quantity
+	var/mouth_size = 2//how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
+	var/eat_types = 0//This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
+	var/datum/reagents/metabolism/ingested = null
+	var/underdoor //Used for mobs that can walk through maintenance hatches - drones, pais, and spiderbots
+	var/life_tick = 0      // The amount of life ticks that have processed on this mob.

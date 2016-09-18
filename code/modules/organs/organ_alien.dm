@@ -22,6 +22,7 @@
 	amputation_point = "branch"
 	joint = "structural ligament"
 	dislocated = -1
+	status = ORGAN_PLANT
 
 /obj/item/organ/external/diona/chest
 	name = "core trunk"
@@ -136,27 +137,39 @@
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
 		H.death()
-	if(prob(50) && spawn_diona_nymph_from_organ(src))
-		qdel(src)
 
 /obj/item/organ/diona/process()
-	return
+
+	if(loc != owner)
+		owner = null
+
+	//Set/remove bad organ status, only every 10 ticks to reduce processing
+	//Unfortunately internal organs aren't a special subclass so this runs on every organ
+	if (owner && owner.life_tick % 10 == 0)
+		internal_set_bad()
+
+	germ_level = 0//Diona don't get infections or organ decay
+
 
 /obj/item/organ/diona/strata
 	name = "neural strata"
 	parent_organ = "chest"
+	organ_tag = "neural strata"
 
 /obj/item/organ/diona/bladder
 	name = "gas bladder"
 	parent_organ = "head"
+	organ_tag = "gas bladder"
 
 /obj/item/organ/diona/polyp
 	name = "polyp segment"
 	parent_organ = "groin"
+	organ_tag = "polyp segment"
 
 /obj/item/organ/diona/ligament
 	name = "anchoring ligament"
 	parent_organ = "groin"
+	organ_tag = "anchoring ligament"
 
 /obj/item/organ/diona
 	name = "diona nymph"
@@ -169,8 +182,6 @@
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
 		H.death()
-	if(prob(50) && spawn_diona_nymph_from_organ(src))
-		qdel(src)
 
 // These are different to the standard diona organs as they have a purpose in other
 // species (absorbing radiation and light respectively)
@@ -181,18 +192,13 @@
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
 
-/obj/item/organ/diona/nutrients/removed()
-	return
-
 /obj/item/organ/diona/node
 	name = "response node"
 	parent_organ = "head"
-	organ_tag = "receptor node"
+	organ_tag = "response node"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
 
-/obj/item/organ/diona/node/removed()
-	return
 
 //CORTICAL BORER ORGANS.
 /obj/item/organ/borer

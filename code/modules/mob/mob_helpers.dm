@@ -147,6 +147,17 @@
 /mob/living/carbon/human/isMonkey()
 	return istype(species, /datum/species/monkey)
 
+/mob/proc/is_diona()
+	//returns which type of diona we are, or zero
+	if (istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/T = src
+		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
+			return DIONA_WORKER
+
+	if (istype(src, /mob/living/carbon/alien/diona))
+		return DIONA_NYMPH
+	return 0
+
 /proc/ispAI(A)
 	if(istype(A, /mob/living/silicon/pai))
 		return 1
@@ -1002,5 +1013,186 @@ proc/is_blind(A)
 
 	P.time_of_death[which] = value
 	return 1
+
+
+//Below here is stuff related to devouring, but which is generally helpful and thus placed here
+//See Devour.dm for more info in how these are used
+
+
+//Flags for the eat_types variable, a bitfield of what can or can't be eaten
+//Note that any given mob can be more than one type
+#define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
+#define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
+#define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+
+
+//Blacklists of mobs that can be excluded from eating by flags in the bitfield
+
+//All of these specific human subtypes are here for a reason.
+//Using /mob/living/carbon/human as a generic type would include monkey/stok/farwa/neara.
+//We do not want those to count as humanoids, only player species
+var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
+	/mob/living/carbon/human/bst,
+	/mob/living/carbon/human/skrell,
+	/mob/living/carbon/human/unathi,
+	/mob/living/carbon/human/diona,
+	/mob/living/carbon/human/tajaran,
+	/mob/living/carbon/human/vox,
+	/mob/living/carbon/human/machine,
+	/mob/living/carbon/human/bug
+	)
+
+var/list/humanoid_mobs_inclusive = list(
+	/mob/living/simple_animal/hostile/pirate,
+	/mob/living/simple_animal/hostile/russian,
+	/mob/living/simple_animal/hostile/syndicate
+	)
+
+var/list/synthetic_mobs_specific = list(
+	/mob/living/carbon/human/machine,
+	/mob/living/simple_animal/hostile/retaliate/malf_drone,
+	/mob/living/simple_animal/hostile/viscerator,
+	/mob/living/simple_animal/spiderbot
+	)
+
+
+var/list/synthetic_mobs_inclusive = list( /mob/living/silicon,
+	/mob/living/simple_animal/hostile/hivebot,
+	/mob/living/bot
+	)
+
+var/list/wierd_mobs_specific = list(/mob/living/simple_animal/adultslime)
+
+var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
+	/mob/living/simple_animal/shade,
+	/mob/living/simple_animal/slime,
+	/mob/living/simple_animal/hostile/faithless,
+	/mob/living/carbon/slime
+	)
+
+
+/mob/living/proc/find_type()
+	//This function returns a bitfield indicating what type(s) the passed mob is.
+	//Synthetic and wierd are exclusive from organic. We assume it's organic if it's not either of those
+	//var/mob/living/test = src
+	var/mobtypes = 0
+
+	if (mob_listed(src, synthetic_mobs_specific,1))
+		mobtypes |= TYPE_SYNTHETIC
+	else if (mob_listed(src, synthetic_mobs_inclusive,0))
+		mobtypes |= TYPE_SYNTHETIC
+
+	if (mob_listed(src, wierd_mobs_specific,1))
+		mobtypes |= TYPE_WIERD
+	else if (mob_listed(src, wierd_mobs_inclusive,0))
+		mobtypes |= TYPE_WIERD
+
+	if (!(mobtypes & TYPE_WIERD) && !(mobtypes & TYPE_SYNTHETIC))
+		mobtypes |= TYPE_ORGANIC
+
+
+	if (mob_listed(src, humanoid_mobs_specific,1))
+		mobtypes |= TYPE_HUMANOID
+	else if (mob_listed(src, humanoid_mobs_inclusive,0))
+		mobtypes |= TYPE_HUMANOID
+
+	return mobtypes
+
+
+//This function attempts to find the mob's blood vessel, if it has one.
+//If it doesn't, and the create var is true, then it will create a new temporary one filled with blood that has fake DNA, and return that
+//If no vessel and no create var, then null is returned, getting blood isnt possible.
+//The fake DNA is generally useful for animals, it contains enough information to tell what kind of creature it came from
+/mob/living/proc/get_vessel(var/create = 0)
+	//Add any other creatures which have blood, here
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = src
+		return H.vessel
+	else if (istype(src, /mob/living/carbon/alien/diona))
+		var/mob/living/carbon/alien/diona/D = src
+		return D.vessel
+	else if (create)
+
+		//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
+		//We create an MD5 hash of the mob's reference to use as its DNA string.
+		//This creates unique DNA for each creature in a consistently repeatable process
+		var/datum/reagents/vessel = new/datum/reagents(600)
+		vessel.add_reagent("blood",560)
+		for(var/datum/reagent/blood/B in vessel.reagent_list)
+			if(B.id == "blood")
+				B.data = list(	"donor"=src,"viruses"=null,"species"=src.name,"blood_DNA"=md5("\ref[src]"),"blood_colour"= "#a10808","blood_type"=null,	\
+								"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
+
+				B.color = B.data["blood_colour"]
+
+		return vessel
+
+	else return null
+
+//This function checks against a list to see if the mob is in it.
+//Any specified types are checked against exactly, using ==, not istype
+//Any types ending in * will be tested with isType
+/proc/mob_listed(var/mob/living/test, var/list/toCheck, var/specific = 0)
+	for (var/i in toCheck)
+		if (specific)
+			if (test.type == i)
+				return 1
+		else
+			if (istype(test, i))
+				return 1
+	return 0
+
+
+#define POSESSIVE_PRONOUN	0
+#define POSESSIVE_ADJECTIVE	1
+#define REFLEXIVE			2
+#define SUBJECTIVE_PERSONAL	3
+#define OBJECTIVE_PERSONAL	4
+/mob/proc/get_pronoun(var/type)
+	switch (type)
+		if (POSESSIVE_PRONOUN)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "hers"
+				else
+					return "theirs"
+		if (POSESSIVE_ADJECTIVE)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "her"
+				else
+					return "their"
+		if (REFLEXIVE)
+			switch(gender)
+				if (MALE)
+					return "himself"
+				if (FEMALE)
+					return "herself"
+				else
+					return "themselves"
+		if (SUBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "he"
+				if (FEMALE)
+					return "she"
+				else
+					return "they"
+		if (OBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "him"
+				if (FEMALE)
+					return "her"
+				else
+					return "them"
+
+		else
+			return "its"//Something went wrong
 
 #undef SAFE_PERP

@@ -1322,7 +1322,7 @@ datum/design/item/weapon/lasercannon
 	id = "lasercannon"
 	req_tech = list("combat" = 4, "materials" = 3, "powerstorage" = 3)
 	materials = list("$metal" = 10000, "$glass" = 1000, "$diamond" = 2000)
-	build_path = /obj/item/weapon/gun/energy/lasercannon
+	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
 	locked = 1
 
 datum/design/item/weapon/decloner
@@ -1683,6 +1683,14 @@ datum/design/item/experimental_welder
 	req_tech = list("materials" = 4, "engineering" = 4)
 	materials = list("$metal" = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
+
+datum/design/item/advanced_light_replacer
+	name = "Advanced Light Replacer"
+	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
+	id = "advanced_light_replacer"
+	req_tech = list("materials" = 3, "powerstorage" = 3)
+	materials = list("$metal" = 500)
+	build_path =/obj/item/device/lightreplacer/advanced
 
 //////exosuit modules - allow robotics to print some modules, maybe a generic rig, but more things for them to do --Alberyk
 

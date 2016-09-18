@@ -18,16 +18,17 @@
 	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
 	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
 
-
 ///obj/structure/janitorialcart/New()
 
 
 /obj/structure/janitorialcart/examine(mob/user)
 	if(..(user, 1))
 		if (mybucket)
-			user << "[src] \icon The bucket contains [mybucket.reagents.total_volume] unit\s of liquid!"
+			var/contains = mybucket.reagents.total_volume
+			world << "Contains is [contains]"
+			user << "\icon[src] The bucket contains [contains] unit\s of liquid!"
 		else
-			user << "[src] \icon There is no bucket mounted on it!"
+			user << "\icon[src] There is no bucket mounted on it!"
 	//everything else is visible, so doesn't need to be mentioned
 
 
@@ -59,6 +60,11 @@
 	else if(istype(I, /obj/item/weapon/reagent_containers) && mybucket)
 		var/obj/item/weapon/reagent_containers/C = I
 		C.afterattack(mybucket, usr, 1)
+	else if(istype (I, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LR = I
+		if (LR.store_broken)
+			return mybag.attackby(I, usr)
+
 
 /obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/reagent_containers/glass/rag) || istype(I, /obj/item/weapon/soap))
@@ -273,7 +279,10 @@
 		overlays += "cart_spray"
 		has_items = 1
 	if(myreplacer)
-		overlays += "cart_replacer"
+		if (istype(myreplacer, /obj/item/device/lightreplacer/advanced))
+			overlays += "cart_adv_lightreplacer"
+		else
+			overlays += "cart_replacer"
 		has_items = 1
 	if(signs)
 		overlays += "cart_sign[signs]"
