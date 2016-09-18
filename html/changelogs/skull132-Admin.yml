@@ -1,0 +1,8 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - rscadd: "Ghosts with +ADMIN or +MOD can now alt-left-click on canisters and digital valves in order to toggle them open and shut."
+  - rscadd: "Opening of digital valves provides adminlogs once more."
+  - tweak: "Unwinding now requires that a prompt be confirmed. This should stop wind-unwind-wind shenanigans from happening."
