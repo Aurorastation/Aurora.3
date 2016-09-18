@@ -26,6 +26,7 @@
 	melee_damage_upper = 24
 	break_stuff_probability = 80
 	mob_size = 17
+	var/safety //used to prevent infinite loops
 	var/turns_since_hit = 0//If the bear chases someone too long without hitting them, it will try to change to another nearby target instead
 
 	attacktext = null//This allows custom attacking emotes
@@ -87,6 +88,7 @@
 
 /mob/living/simple_animal/hostile/bear/Life()
 	. =..()
+	safety = 0
 	if (stat != CONSCIOUS)
 		return
 
@@ -195,7 +197,7 @@
 				continue
 			else
 
-				if(!L.stat == CONSCIOUS)
+				if(L.stat == CONSCIOUS)
 					if (dist < nearest_dist)
 						nearest_target = L
 						nearest_dist = dist
@@ -219,17 +221,32 @@
 					nearest_target = B
 					nearest_dist = dist
 
-	if (nearest_target)
+	if (nearest_target && safety < 2)
 		target_mob = nearest_target
 		FoundTarget()
 		return nearest_target
-	else if (nearest_downed_target)
+	else if (nearest_downed_target && safety < 2)
 		target_mob = nearest_downed_target
 		FoundTarget()
 		return nearest_downed_target
 
 	return target_mob
 	//If neither of the above is true, dont change the target
+
+/mob/living/simple_animal/hostile/bear/SA_attackable(target_mob)
+	if (isliving(target_mob))
+		var/mob/living/L = target_mob
+		if((L.stat != DEAD))
+			return (0)
+	if (istype(target_mob,/obj/mecha))
+		var/obj/mecha/M = target_mob
+		if (M.occupant)
+			return (0)
+	if (istype(target_mob,/obj/machinery/bot))
+		var/obj/machinery/bot/B = target_mob
+		if(B.health > 0)
+			return (0)
+	return 1
 
 
 /mob/living/simple_animal/hostile/bear/proc/tire_out()
@@ -249,10 +266,9 @@
 	..()
 	spawn(1)
 		if (health < healthbefore)//Hurting the bear makes it mad
-			if(stance != HOSTILE_STANCE_ATTACK && stance != HOSTILE_STANCE_ATTACKING)
-				target_mob = user
+			target_mob = user
 			anger++
-			instant_aggro()
+			instant_aggro(1)
 
 
 /mob/living/simple_animal/hostile/bear/attack_hand(mob/living/carbon/human/M as mob)
@@ -260,10 +276,9 @@
 	..()
 	spawn(1)
 		if (health < healthbefore)//Hurting the bear makes it mad
-			if(stance != HOSTILE_STANCE_ATTACK && stance != HOSTILE_STANCE_ATTACKING)
-				target_mob = M
+			target_mob = M
 			anger++
-			instant_aggro()
+			instant_aggro(1)
 
 
 /mob/living/simple_animal/hostile/bear/bullet_act(obj/item/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
@@ -296,8 +311,10 @@
 		//But don't drop down to alert if we're already in combat
 		if (stance == HOSTILE_STANCE_IDLE)
 			set_stance(HOSTILE_STANCE_ALERT)
-		else if (stance == HOSTILE_STANCE_ATTACKING)
+		else if (stance == HOSTILE_STANCE_ATTACKING && !safety)
 			MoveToTarget()
+
+		safety++
 
 /mob/living/simple_animal/hostile/bear/LoseTarget()
 	//If we're still angry, try to find someone else to attack
@@ -417,7 +434,7 @@
 
 //Called when we want to bypass ticks and attack immediately. For example in response to being shot
 //This calls several procs and some duplicated code from the parent class to immediately put us in an assault state and lash out
-/mob/living/simple_animal/hostile/bear/proc/instant_aggro()
+/mob/living/simple_animal/hostile/bear/proc/instant_aggro(var/forcechange = 0)//Set force to 1, if a specific target was designated just before calling this
 	if (stance < HOSTILE_STANCE_ATTACK)
 		growl_loud()
 		if(!target_mob)
@@ -431,6 +448,8 @@
 			AttackTarget()//When first aggroed, this causes the bear to instantly lash out and counter any melee attacker nearby
 		else
 			set_stance(HOSTILE_STANCE_ALERT)
+	else if (forcechange)
+		MoveToTarget()
 
 
 
@@ -511,10 +530,11 @@
 		var/area/A =  get_area(target_mob)
 		if (A)
 			var/turf/target = A.random_space()
-			sparks()
-			forceMove(target)
-			sparks()
-			return 1
+			if (target)
+				sparks()
+				forceMove(target)
+				sparks()
+				return 1
 	return 0
 
 
