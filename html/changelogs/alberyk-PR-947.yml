@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Vaurca can now use the ninja hardsuit."
+  - tweak: "Vaurca can't wear voidsuits anymore, with some exceptions, but are able to use softsuits now."
