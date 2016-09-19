@@ -63,7 +63,7 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client)
+		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			if (istype(M, /mob/dead/observer))
