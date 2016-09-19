@@ -892,6 +892,12 @@
 	icon_state = "beepskyplushie"
 	phrase = "Ping!"
 
+/obj/structure/plushie/ivancarp
+	name = "plush Ivan the carp"
+	desc = "A plushie in the spitting image of a russian raised carp."
+	icon_state = "carpplushie_russian"
+	phrase = "Blyat!"
+
 //Small plushies.
 /obj/item/toy/plushie
 	name = "generic small plush"
