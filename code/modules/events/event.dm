@@ -7,9 +7,10 @@
 	var/severity 	= 0 // The current severity of this event
 	var/one_shot	= 0	//If true, then the event will not be re-added to the list of available events
 	var/list/role_weights = list()
+	var/list/excluded_gamemodes = list()	// A list of gamemodes during which this event won't fire.
 	var/datum/event/event_type
 
-/datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0)
+/datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes)
 	name = event_name
 	severity = event_severity
 	event_type = type
@@ -19,9 +20,16 @@
 	max_weight = max_event_weight
 	if(job_weights)
 		role_weights = job_weights
+	if(excluded_roundtypes)
+		excluded_gamemodes = excluded_roundtypes
 
 /datum/event_meta/proc/get_weight(var/list/active_with_role)
 	if(!enabled)
+		return 0
+
+	if(excluded_gamemodes.len && (ticker.mode in excluded_gamemodes))
+		// There's no way it'll be run this round anyways.
+		enabled = 0
 		return 0
 
 	var/job_weight = 0
@@ -48,6 +56,11 @@
 	var/startedAt		= 0 //When this event started.
 	var/endedAt			= 0 //When this event ended.
 	var/datum/event_meta/event_meta = null
+
+	var/no_fake 		= 0
+	//If set to 1, this event will not be picked for false announcements
+	//This should really only be used for events that have no announcement
+
 
 /datum/event/nothing
 
@@ -114,12 +127,13 @@
 	activeFor++
 
 //Called when start(), announce() and end() has all been called.
-/datum/event/proc/kill()
+/datum/event/proc/kill(var/do_end = 1)
 	// If this event was forcefully killed run end() for individual cleanup
-	if(isRunning)
-		isRunning = 0
+
+	if(do_end && isRunning)
 		end()
 
+	isRunning = 0
 	endedAt = world.time
 	event_manager.active_events -= src
 	event_manager.event_complete(src)

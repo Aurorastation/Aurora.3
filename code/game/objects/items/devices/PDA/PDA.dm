@@ -11,6 +11,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	item_state = "electronic"
 	w_class = 2.0
 	slot_flags = SLOT_ID | SLOT_BELT
+	offset_light = 1
+	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	//Main variables
 	var/owner = null
@@ -338,6 +340,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/GetID()
 	return id
+
+/obj/item/device/pda/AltClick(var/mob/user)
+	verb_remove_id()
 
 /obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
 	var/mob/M = usr
@@ -897,7 +902,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(i>=25 && i<=40) //Smoke
 		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem
 		S.attach(P.loc)
-		S.set_up(P, 10, 0, P.loc)
+		S.set_up(P, 10, 0, P.loc, 60)
 		playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 		S.start()
 		message += "Large clouds of smoke billow forth from your [P]!"

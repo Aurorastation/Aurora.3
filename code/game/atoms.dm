@@ -27,6 +27,10 @@
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
 
+
+
+
+
 /atom/proc/reveal_blood()
 	return
 
@@ -220,6 +224,15 @@ its easier to just keep the beam vertical.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
+	for(var/datum/light_source/L in light_sources)
+		if (L.source_atom.offset_light)
+			L.force_update = 1
+			if (world.tick_usage < 80)
+				L.instant_update()//Instant update skips the normal controller process and updates the light now.
+				//This makes things more responsive, but probably has a performance cost for people spinning rapidly
+				//Ergo, it checks tick usage first
+			else
+				L.source_atom.update_light()
 
 /atom/proc/ex_act()
 	return
@@ -238,10 +251,11 @@ its easier to just keep the beam vertical.
 		AM.throwing = 0
 	return
 
-/atom/proc/add_hiddenprint(mob/living/M as mob)
+/atom/proc/add_hiddenprint(mob/living/M)
 	if(isnull(M)) return
+	if(!istype(M, /mob)) return
 	if(isnull(M.key)) return
-	if (ishuman(M))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if (!istype(H.dna, /datum/dna))
 			return 0
@@ -261,8 +275,9 @@ its easier to just keep the beam vertical.
 			src.fingerprintslast = M.key
 	return
 
-/atom/proc/add_fingerprint(mob/living/M as mob, ignoregloves = 0)
+/atom/proc/add_fingerprint(mob/living/M, ignoregloves = 0)
 	if(isnull(M)) return
+	if(!istype(M, /mob)) return
 	if(isAI(M)) return
 	if(isnull(M.key)) return
 	if (ishuman(M))
@@ -387,7 +402,7 @@ its easier to just keep the beam vertical.
 
 
 //returns 1 if made bloody, returns 0 otherwise
-/atom/proc/add_blood(mob/living/carbon/human/M as mob)
+/atom/proc/add_blood(mob/living/carbon/human/M)
 
 	if(flags & NOBLOODY)
 		return 0
@@ -407,7 +422,7 @@ its easier to just keep the beam vertical.
 	. = 1
 	return 1
 
-/atom/proc/add_vomit_floor(mob/living/carbon/M as mob, var/toxvomit = 0)
+/atom/proc/add_vomit_floor(mob/living/carbon/M, var/toxvomit = 0)
 	if( istype(src, /turf/simulated) )
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 

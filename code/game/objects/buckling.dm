@@ -61,9 +61,12 @@
 	if(istype(M, /mob/living/carbon/slime))
 		user << "<span class='warning'>The [M] is too squishy to buckle in.</span>"
 		return
+	if (buckled_mob)
+		user << "<span class='warning'>[buckled_mob.name] is already there, unbuckle them first!.</span>"
+		return
 
 	add_fingerprint(user)
-	unbuckle_mob()
+	unbuckle_mob()//this is now just for safety, buckling someone into an occupied chair will fail, instead of removing the occupant
 
 	if(buckle_mob(M))
 		if(M == user)

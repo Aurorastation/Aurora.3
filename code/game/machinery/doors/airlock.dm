@@ -65,7 +65,7 @@
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
-	hatch_colour = "#c82b2b"
+	hatch_colour = "#677c97"
 
 /obj/machinery/door/airlock/engineering
 	name = "Airlock"
@@ -130,6 +130,7 @@
 	secured_wires = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity //Until somebody makes better sprites.
 	hashatch = 0
+	maxhealth = 800
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -175,7 +176,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
-	hatch_colour = "#345882"
+	hatch_colour = "#3e638c"
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Maintenance Hatch"
@@ -197,7 +198,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	glass = 1
-	hatch_colour = "#b81b1b"
+	hatch_colour = "#677c97"
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Maintenance Hatch"
@@ -281,7 +282,7 @@
 	icon = 'icons/obj/doors/Doordiamond.dmi'
 	mineral = "diamond"
 	hatch_colour = "#66eeee"
-
+	maxhealth = 2000
 
 
 /obj/machinery/door/airlock/sandstone
@@ -297,6 +298,7 @@
 	secured_wires = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
 	hatch_colour = "#5a5a66"
+	maxhealth = 600
 
 
 

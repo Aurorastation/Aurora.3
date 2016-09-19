@@ -32,6 +32,27 @@
 		user << "You insert [O]."
 	..()
 
+/obj/machinery/computer/skills/AltClick(var/mob/user)
+	eject_id()
+
+
+/obj/machinery/computer/skills/verb/eject_id()
+	set category = "Object"
+	set name = "Eject ID Card"
+	set src in oview(1)
+
+	if(!usr || usr.stat || usr.lying)	return
+
+	if(scan)
+		usr << "You remove \the [scan] from \the [src]."
+		scan.loc = get_turf(src)
+		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
+			usr.put_in_hands(scan)
+		scan = null
+	else
+		usr << "There is no ID card to remove from the console."
+	return
+
 /obj/machinery/computer/skills/attack_ai(mob/user as mob)
 	return attack_hand(user)
 
@@ -158,6 +179,9 @@
 	onclose(user, "secure_rec")
 	return
 
+
+
+
 /*Revised /N
 I can't be bothered to look more of the actual code outside of switch but that probably needs revising too.
 What a mess.*/
@@ -194,11 +218,7 @@ What a mess.*/
 
 			if("Confirm Identity")
 				if (scan)
-					if(istype(usr,/mob/living/carbon/human) && !usr.get_active_hand())
-						usr.put_in_hands(scan)
-					else
-						scan.loc = get_turf(src)
-					scan = null
+					eject_id()
 				else
 					var/obj/item/I = usr.get_active_hand()
 					if (istype(I, /obj/item/weapon/card/id))

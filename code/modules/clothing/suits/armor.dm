@@ -1,4 +1,3 @@
-
 /obj/item/clothing/suit/armor
 	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
@@ -8,7 +7,7 @@
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.5
 	var/obj/item/weapon/storage/internal/pockets
 	var/pocket_slots = 2
 	var/pocket_size = 2
@@ -82,6 +81,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	pocket_slots = 4//Jackets have more slots
 
+/obj/item/clothing/suit/armor/vest/warden/commissar
+	name = "Commissar's jacket"
+	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
+	icon_state = "commissar_warden"
+	item_state = "commissar_warden"
 
 /obj/item/clothing/suit/armor/riot
 	name = "Riot Suit"
@@ -91,7 +95,6 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	slowdown = 1
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0.5
 	pocket_slots = 4//Fullbody suit, so more slots
 
@@ -103,7 +106,7 @@
 	item_state = "armor"
 	blood_overlay_type = "armor"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/armor/laserproof
 	name = "Ablative Armor Vest"
@@ -129,7 +132,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.5
 	pocket_slots = 4//fullbody, more slots
 
 
@@ -200,7 +203,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	slowdown = 1
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 20, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.5
 	var/obj/item/clothing/accessory/holster/holster
 
 /obj/item/clothing/suit/armor/tactical/New()
@@ -283,6 +286,7 @@
 	item_state = "kvest"
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs)
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/suit/storage/vest/officer
 	name = "officer armor vest"
@@ -307,6 +311,7 @@
 	item_state = "hosvest_nobadge"
 	icon_badge = "hosvest_badge"
 	icon_nobadge = "hosvest_nobadge"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/vest/pcrc
 	name = "PCRC armor vest"
@@ -318,7 +323,7 @@
 
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
-	desc = "A simple kevlar plate carrier in a vintage brown, it has a badge clipped to the chest that reads, 'Private investigator'."
+	desc = "A simple kevlar plate carrier in a vintage brown, it has a detective's badge clipped to the chest."
 	icon_state = "detectivevest_nobadge"
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
@@ -355,6 +360,7 @@
 	item_state = "hoswebvest_nobadge"
 	icon_badge = "hoswebvest_badge"
 	icon_nobadge = "hoswebvest_nobadge"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/vest/heavy/pcrc
 	name = "PCRC heavy armor vest"

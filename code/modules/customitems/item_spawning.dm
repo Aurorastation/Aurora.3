@@ -15,6 +15,8 @@
 // Kits must also have hardsuit icons in CUSTOM_ITEM_MOB as [kit_icon]_suit
 // and [kit_icon]_helmet, and in CUSTOM_ITEM_OBJ as [kit_icon].
 
+
+//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 /var/list/custom_items = list()
 
 /datum/custom_item
@@ -80,7 +82,7 @@
 			var/obj/item/device/kit/suit/kit = item
 			kit.new_light_overlay = additional_data
 			kit.new_mob_icon_file = CUSTOM_ITEM_MOB
-	
+
 	// for snowflake implants
 	else if(istype(item, /obj/item/weapon/implanter/fluff))
 		var/obj/item/weapon/implanter/fluff/L = item

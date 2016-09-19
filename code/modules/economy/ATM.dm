@@ -467,15 +467,22 @@ log transactions
 		view_screen = NO_SCREEN
 	else playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 
+
+/obj/machinery/atm/AltClick(var/mob/user)
+	release_held_id(user)
+
 // put the currently held id on the ground or in the hand of the user
 /obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
+	if (!ishuman(human_user))
+		return
+
 	if(!held_card)
 		return
 
 	held_card.loc = src.loc
 	authenticated_account = null
 
-	if(ishuman(human_user) && !human_user.get_active_hand())
+	if(!human_user.get_active_hand())
 		human_user.put_in_hands(held_card)
 	held_card = null
 

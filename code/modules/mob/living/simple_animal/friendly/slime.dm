@@ -13,6 +13,8 @@
 	response_harm   = "stomps on"
 	emote_see = list("jiggles", "bounces in place")
 	var/colour = "grey"
+	mob_size = 3
+	composition_reagent = "slimejelly"
 
 /mob/living/simple_animal/adultslime
 	name = "pet slime"
@@ -28,6 +30,8 @@
 	response_harm   = "stomps on"
 	emote_see = list("jiggles", "bounces in place")
 	var/colour = "grey"
+	mob_size = 6
+	composition_reagent = "slimejelly"
 
 /mob/living/simple_animal/adultslime/New()
 	..()

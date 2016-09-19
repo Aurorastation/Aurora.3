@@ -14,6 +14,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "creature"
 	speed = 4
+	mob_size = 14
 
 /mob/living/simple_animal/hostile/creature/cult
 	faction = "cult"

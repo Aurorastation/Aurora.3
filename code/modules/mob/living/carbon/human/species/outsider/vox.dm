@@ -1,5 +1,6 @@
 /datum/species/vox
 	name = "Vox"
+	short_name = "vox"
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_vox.dmi'
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
@@ -30,7 +31,7 @@
 	poison_type = "oxygen"
 	siemens_coefficient = 0.2
 
-	flags = CAN_JOIN | IS_WHITELISTED | NO_SCAN | HAS_EYE_COLOR
+	flags = IS_RESTRICTED | NO_SCAN | HAS_EYE_COLOR
 
 	blood_color = "#2299FC"
 	flesh_color = "#808D11"
@@ -66,7 +67,7 @@
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H.back), slot_in_backpack)
 		H.internal = H.r_hand
 	H.internals.icon_state = "internal1"
-		
+
 
 /datum/species/vox/get_station_variant()
 	return "Vox Pariah"

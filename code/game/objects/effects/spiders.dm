@@ -96,6 +96,7 @@
 	layer = 2.7
 	health = 3
 	var/amount_grown = -1
+	var/growth_rate = 1
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = 0
 	New()
@@ -184,7 +185,7 @@
 	if(prob(1))
 		src.visible_message("\blue \the [src] chitters.")
 	if(isturf(loc) && amount_grown > 0)
-		amount_grown += rand(0,2)
+		amount_grown += (rand(0,2)*growth_rate)
 		if(amount_grown >= 100)
 			var/spawn_type = pick(typesof(/mob/living/simple_animal/hostile/giant_spider))
 			new spawn_type(src.loc)

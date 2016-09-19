@@ -23,7 +23,7 @@
 	icon_dead = "spiderbot-smashed"
 
 	wander = 0
-
+	density = 0
 	health = 25
 	maxHealth = 25
 	hunger_enabled = 0
@@ -39,7 +39,7 @@
 	var/emagged = 0
 	var/obj/item/held_item = null //Storage for single item they can hold.
 	speed = -1                    //Spiderbots gotta go fast.
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSDOORHATCH
 	small = 1
 	speak_emote = list("beeps","clicks","chirps")
 
@@ -298,3 +298,17 @@
 
 /mob/living/simple_animal/spiderbot/binarycheck()
 	return positronic
+
+/mob/living/simple_animal/spiderbot/Move(newloc, direct)
+	..(newloc,direct)
+	if (underdoor)
+		underdoor = 0
+		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
+			for (var/obj/machinery/door/D in loc)
+				if (D.hashatch)
+					underdoor = 1
+					break
+
+			if (!underdoor)
+				spawn(3)//A slight delay to let us finish walking out from under the door
+					layer = initial(layer)

@@ -12,18 +12,18 @@
 
 /obj/effect/effect/smoke/chem/New(var/newloc, smoke_duration, turf/dest_turf = null, icon/cached_icon = null)
 	time_to_live = smoke_duration
-	
+
 	..()
-	
+
 	create_reagents(500)
-	
+
 	if(cached_icon)
 		icon = cached_icon
-	
+
 	set_dir(pick(cardinal))
 	pixel_x = -32 + rand(-8, 8)
 	pixel_y = -32 + rand(-8, 8)
-	
+
 	//switching opacity on after the smoke has spawned, and then turning it off before it is deleted results in cleaner
 	//lighting and view range updates (Is this still true with the new lighting system?)
 	opacity = 1
@@ -64,7 +64,7 @@
 // Fades out the smoke smoothly using it's alpha variable.
 /obj/effect/effect/smoke/chem/proc/fadeOut(var/frames = 16)
 	if(!alpha) return //already transparent
-	
+
 	frames = max(frames, 1) //We will just assume that by 0 frames, the coder meant "during one frame".
 	var/alpha_step = round(alpha / frames)
 	while(alpha > 0)
@@ -82,6 +82,7 @@
 	var/list/wallList
 	var/density
 	var/show_log = 1
+	var/duration = 20//time smoke lasts, in deciseconds
 
 /datum/effect/effect/system/smoke_spread/chem/spores
 	show_log = 0
@@ -103,9 +104,10 @@
 // Calculates the max range smoke can travel, then gets all turfs in that view range.
 // Culls the selected turfs to a (roughly) circle shape, then calls smokeFlow() to make
 // sure the smoke can actually path to the turfs. This culls any turfs it can't reach.
-/datum/effect/effect/system/smoke_spread/chem/set_up(var/datum/reagents/carry = null, n = 10, c = 0, loca, direct)
+/datum/effect/effect/system/smoke_spread/chem/set_up(var/datum/reagents/carry = null, n = 10, c = 0, loca, var/new_duration = 20 )
 	range = n * 0.3
 	cardinals = c
+	duration = new_duration
 	carry.trans_to_obj(chemholder, carry.total_volume, copy = 1)
 
 	if(istype(loca, /turf/))
@@ -178,12 +180,11 @@
 		I = icon('icons/effects/96x96.dmi', "smoke")
 
 	//Calculate smoke duration
-	var/smoke_duration = 150
 
 	var/pressure = 0
 	var/datum/gas_mixture/environment = location.return_air()
 	if(environment) pressure = environment.return_pressure()
-	smoke_duration = between(5, smoke_duration*pressure/(ONE_ATMOSPHERE/3), smoke_duration)
+	duration = between(5, (duration*pressure)/(ONE_ATMOSPHERE), duration*2)
 
 	var/const/arcLength = 2.3559 //distance between each smoke cloud
 
@@ -191,7 +192,7 @@
 		var/radius = i * 1.5
 		if(!radius)
 			spawn(0)
-				spawnSmoke(location, I, 1, 1)
+				spawnSmoke(location, I, duration, 1)
 			continue
 
 		var/offset = 0
@@ -210,7 +211,7 @@
 				continue
 			if(T in targetTurfs)
 				spawn(0)
-					spawnSmoke(T, I, range)
+					spawnSmoke(T, I, duration)
 
 //------------------------------------------
 // Randomizes and spawns the smoke effect.
@@ -222,7 +223,7 @@
 	if(passed_smoke)
 		smoke = passed_smoke
 	else
-		smoke = PoolOrNew(/obj/effect/effect/smoke/chem, list(location, smoke_duration + rand(0, 20), T, I))
+		smoke = PoolOrNew(/obj/effect/effect/smoke/chem, list(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I))
 
 	if(chemholder.reagents.reagent_list.len)
 		chemholder.reagents.trans_to_obj(smoke, chemholder.reagents.total_volume / dist, copy = 1) //copy reagents to the smoke so mob/breathe() can handle inhaling the reagents

@@ -11,6 +11,8 @@ var/global/list/human_mob_list = list()				//List of all human mobs and sub-type
 var/global/list/silicon_mob_list = list()			//List of all silicon mobs, including clientless
 var/global/list/living_mob_list = list()			//List of all alive mobs, including clientless. Excludes /mob/new_player
 var/global/list/dead_mob_list = list()				//List of all dead mobs, including clientless. Excludes /mob/new_player
+var/global/list/topic_commands = list()				//List of all API commands available
+var/global/list/topic_commands_names = list()				//List of all API commands available
 
 var/global/list/cable_list = list()					//Index for all cables, so that powernets don't have to look through the entire world all the time
 var/global/list/chemical_reactions_list				//list of all /datum/chemical_reaction datums. Used during chemical reactions
@@ -51,7 +53,7 @@ var/global/list/underwear_f = list("Red" = "f1", "White" = "f2", "Yellow" = "f3"
 	//undershirt
 var/global/list/undershirt_t = list("White Tank top" = "u1", "Black Tank top" = "u2", "Black shirt" = "u3", "White shirt" = "u4", "None")
 	//Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt")
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 // Visual nets

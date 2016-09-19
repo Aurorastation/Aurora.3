@@ -1,5 +1,6 @@
 /datum/species/human
 	name = "Human"
+	short_name = "hum"
 	name_plural = "Humans"
 	language = "Sol Common"
 	primitive_form = "Monkey"
@@ -14,6 +15,7 @@
 
 /datum/species/unathi
 	name = "Unathi"
+	short_name = "una"
 	name_plural = "Unathi"
 	icobase = 'icons/mob/human_races/r_lizard.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
@@ -39,6 +41,11 @@
 	heat_level_1 = 420 //Default 360 - Higher is better
 	heat_level_2 = 480 //Default 400
 	heat_level_3 = 1100 //Default 1000
+
+	inherent_verbs = list(
+	/mob/living/proc/devour
+	)
+
 
 	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
@@ -67,6 +74,7 @@
 
 /datum/species/tajaran
 	name = "Tajara"
+	short_name = "taj"
 	name_plural = "Tajaran"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
@@ -114,6 +122,7 @@
 
 /datum/species/skrell
 	name = "Skrell"
+	short_name = "skr"
 	name_plural = "Skrell"
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
@@ -138,10 +147,12 @@
 
 /datum/species/diona
 	name = "Diona"
+	short_name = "dio"
 	name_plural = "Dionaea"
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
-	language = "Rootspeak"
+	language = "Ceti Basic"
+	default_language = "Rootsong"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/diona)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -184,26 +195,24 @@
 		"r_foot" = list("path" = /obj/item/organ/external/diona/foot/right)
 		)
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/diona_split_nymph
-		)
+	//inherent_verbs = list()
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
 
-	cold_level_1 = 50
-	cold_level_2 = -1
-	cold_level_3 = -1
+	cold_level_1 = 273
+	cold_level_2 = 223
+	cold_level_3 = 173
 
-	heat_level_1 = 2000
-	heat_level_2 = 3000
-	heat_level_3 = 4000
+	heat_level_1 = 420 //Default 360 - Higher is better
+	heat_level_2 = 480 //Default 400
+	heat_level_3 = 1100 //Default 1000
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	flags = CAN_JOIN | IS_WHITELISTED | NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | REGENERATES_LIMBS
+	flags = CAN_JOIN | IS_WHITELISTED | NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP
 
-	blood_color = "#004400"
+	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
@@ -213,6 +222,10 @@
 	if(istype(D))
 		return 1
 	return 0
+
+/datum/species/diona/get_random_name(var/gender)
+	var/datum/language/species_language = all_languages[default_language]
+	return species_language.get_random_name()
 
 /datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
 	if(H.backbag == 1)
@@ -230,6 +243,7 @@
 
 /datum/species/machine
 	name = "Machine"
+	short_name = "ipc"
 	name_plural = "machines"
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
@@ -275,6 +289,7 @@
 
 /datum/species/bug
 	name = "Vaurca"
+	short_name = "vau"
 	name_plural = "Vaurcae"
 	language = "Hivenet"
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'

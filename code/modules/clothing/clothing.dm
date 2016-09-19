@@ -254,11 +254,13 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
+	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+	offset_light = 1
 
 /obj/item/clothing/head/New()
 	..()
@@ -311,7 +313,9 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/masks.dmi')
+	sprite_sheets = list("Vox" = 'icons/mob/species/vox/masks.dmi',
+						"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
+						"Unathi" = 'icons/mob/species/unathi/mask.dmi')
 
 /obj/item/clothing/mask/update_clothing_icon()
 	if (ismob(src.loc))

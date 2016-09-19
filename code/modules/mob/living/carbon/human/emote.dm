@@ -571,19 +571,7 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag"}
  //Hearing gasp and such every five seconds is not good emotes were not global for a reason.
  // Maybe some people are okay with that.
 
-		for(var/mob/M in dead_mob_list)
-			if(!M.client || istype(M, /mob/new_player))
-				continue //skip monkeys, leavers and new players
-			if(M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT) && !(M in viewers(src,null)))
-				M.show_message(message)
-
-
-		if (m_type & 1)
-			for (var/mob/O in get_mobs_in_view(world.view,src))
-				O.show_message(message, m_type)
-		else if (m_type & 2)
-			for (var/mob/O in (hearers(src.loc, null) | get_mobs_in_view(world.view,src)))
-				O.show_message(message, m_type)
+		send_emote(message, m_type)
 
 
 /mob/living/carbon/human/verb/pose()

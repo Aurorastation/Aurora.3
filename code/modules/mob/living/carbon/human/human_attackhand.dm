@@ -131,6 +131,11 @@
 				if(G.assailant == M)
 					M << "<span class='notice'>You already grabbed [src].</span>"
 					return
+
+			if (!attempt_grab(M))
+				return
+
+
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 

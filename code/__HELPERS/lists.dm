@@ -620,3 +620,10 @@ datum/proc/dd_SortValue()
 	for(var/path in subtypesof(prototype))
 		L += new path()
 	return L
+
+/proc/Sum(var/list/input)
+	var/total = 0
+	for (var/i=1,i<=input.len,i++)
+		total += input[i]
+
+	return total

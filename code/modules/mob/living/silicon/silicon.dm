@@ -1,6 +1,7 @@
 /mob/living/silicon
 	gender = NEUTER
 	voice_name = "synthesized voice"
+	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 	var/syndicate = 0
 	var/const/MAIN_CHANNEL = "Main Frequency"
 	var/lawchannel = MAIN_CHANNEL // Default channel on which to state laws
@@ -23,7 +24,7 @@
 
 	var/next_alarm_notice
 	var/list/datum/alarm/queued_alarms = new()
-	var/underdoor
+
 
 	#define SEC_HUD 1 //Security HUD mode
 	#define MED_HUD 2 //Medical HUD mode
@@ -369,10 +370,4 @@
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
 
-/mob/living/silicon/proc/under_door()
-	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
-	if (layer > UNDERDOOR)//Don't toggle it if we're hiding
-		layer = UNDERDOOR
-		underdoor = 1
 
-/mob/living/silicon/proc/not_under_door()

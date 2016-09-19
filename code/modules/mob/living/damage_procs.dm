@@ -50,7 +50,7 @@
 		if(PARALYZE)
 			Paralyse(effect/(blocked+1))
 		if(AGONY)
-			halloss += effect // Useful for objects that cause "subdual" damage. PAIN!
+			adjustHalLoss(effect) //Changed this to use the wrapper function, it shouldn't directly alter the value
 		if(IRRADIATE)
 			var/rad_protection = getarmor(null, "rad")/100
 			radiation += max((1-rad_protection)*effect/(blocked+1),0)//Rads auto check armor

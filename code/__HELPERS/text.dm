@@ -349,3 +349,8 @@ proc/TextPreview(var/string,var/len=40)
 //Converts New Lines to html <br>
 /proc/nl2br(var/text)
 	return replacetextEx(text,"\n","<br>")
+
+
+//A shortcut for assigning a span class to a string of text
+/proc/span(var/class, var/text)
+	return "<span class='[class]'>[text]</span>"

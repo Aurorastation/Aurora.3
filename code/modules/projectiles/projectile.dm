@@ -78,6 +78,11 @@
 	if(!isliving(target))	return 0
 	if(isanimal(target))	return 0
 	var/mob/living/L = target
+	if (agony && ishuman(target))
+		var/mob/living/carbon/human/H = target
+		var/obj/item/organ/external/organ = H.get_organ(def_zone)
+		var/armor = H.getarmor_organ(organ, check_armour)
+		agony = max(0, agony - armor)
 	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony, incinerate, blocked) // add in AGONY!
 	return 1
 
