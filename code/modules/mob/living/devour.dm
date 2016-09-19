@@ -29,6 +29,8 @@
 
 
 /mob/living/proc/attempt_devour(var/mob/living/victim, var/eat_types, var/mouth_size = null)
+	face_atom(victim)
+
 	//This function will attempt to eat the victim,
 	//either by swallowing them if they're small enough, or starting to devour them otherwise
 		//If a mouth_size is passed in, it will be used instead of this mob's size, for determining whether the victim is small enough to swallow
@@ -67,18 +69,7 @@
 
 
 
-//This function checks against a list to see if the mob is in it.
-//Any specified types are checked against exactly, using ==, not istype
-//Any types ending in * will be tested with isType
-/proc/mob_listed(var/mob/living/test, var/list/toCheck, var/specific = 0)
-	for (var/i in toCheck)
-		if (specific)
-			if (test.type == i)
-				return 1
-		else
-			if (istype(test, i))
-				return 1
-	return 0
+
 
 
 
@@ -217,7 +208,8 @@
 		//Bloodying the attacker, if possible
 		//Bloodying the attacker's tile
 	//After that, we will allocate the remaining blood placements to random tiles around the victim and attacker, until either all are used or victim is dead
-	var/datum/reagent/blood/B = vessel.reagent_list[/datum/reagent/blood]
+	var/datum/reagent/blood/B = vessel.get_master_reagent()
+
 	if (!turf_hasblood(get_turf(victim)))
 		devour_add_blood(victim, get_turf(victim), vessel)
 		return 1

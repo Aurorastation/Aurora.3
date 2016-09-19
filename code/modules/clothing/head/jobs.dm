@@ -23,10 +23,6 @@
 	icon_state = "capcap"
 	flags_inv = 0
 	body_parts_covered = 0
-	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.9
-	body_parts_covered = 0
 
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
@@ -80,11 +76,11 @@
 	icon_state = "purpleberet"
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
-	desc = "A black beret adorned with the shield—a silver kite shield with an engraved sword—of the NanoTrasen security forces."
+	desc = "A black beret adorned with the shieldâ€”a silver kite shield with an engraved swordâ€”of the NanoTrasen security forces."
 	icon_state = "centcomofficerberet"
 /obj/item/clothing/head/beret/centcom/captain
 	name = "captains beret"
-	desc = "A white beret adorned with the shield—a silver kite shield with an engraved sword—of the NanoTrasen security forces."
+	desc = "A white beret adorned with the shieldâ€”a silver kite shield with an engraved swordâ€”of the NanoTrasen security forces."
 	icon_state = "centcomcaptain"
 
 //Medical

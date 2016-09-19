@@ -5,7 +5,7 @@ var/datum/antagonist/renegade/renegades
 	role_text_plural = "Renegades"
 	welcome_text = "Your own safety matters above all else, trust no one and kill anyone who gets in your way. However, armed as you are, now would be the perfect time to settle that score or grab that pair of yellow gloves you've been eyeing..."
 	id = MODE_RENEGADE
-	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE
 	hard_cap = 5
 	hard_cap_round = 7
 
