@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - rscadd: "Gave the developers proper mechanics to access and review runtime logs with."

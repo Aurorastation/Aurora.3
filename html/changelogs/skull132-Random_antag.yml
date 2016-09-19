@@ -1,7 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - tweak: "Diona can no longer be ninjas, due to the restrictions on what they can wear."
-  - tweak: "Random antag event will no longer be ran during extended. It also has a narrower selection of antags: namely, all antags with a long start-up time have been excluded (such as cult)."

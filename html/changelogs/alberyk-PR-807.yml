@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Cult constructs can now properly speak basic once more."
-  - rscadd: "Simple animals, and cult constructs, can force unpowered or broken firedoors now."
