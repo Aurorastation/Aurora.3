@@ -476,7 +476,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100 - DONE
 	name = "first shot"
-	desc = "A flask. Smells of absinthe, maybe vodka. The bottom right corner has a silver bar. The bottom is engraved, it reads 'The First Shot'."
+	desc = "A flask. Smells of absinthe, maybe vodka. The bottom left corner has a silver bar. The bottom is engraved, it reads 'The First Shot'."
 	icon = 'icons/obj/custom_items/barcia_flask.dmi'
 	icon_state = "barcia_flask"
 
