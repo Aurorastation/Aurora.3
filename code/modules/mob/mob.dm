@@ -914,7 +914,7 @@
 	resting = max(resting + amount,0)
 	return
 
-/mob/proc/get_species()
+/mob/proc/get_species(var/reference = 0)
 	return ""
 
 /mob/proc/flash_weak_pain()

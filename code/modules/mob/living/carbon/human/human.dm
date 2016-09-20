@@ -745,10 +745,13 @@
 	dna.check_integrity(src)
 	return
 
-/mob/living/carbon/human/get_species()
+/mob/living/carbon/human/get_species(var/reference = 0)
 	if(!species)
 		set_species()
-	return species.name
+	if (reference)
+		return species
+	else
+		return species.name
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)

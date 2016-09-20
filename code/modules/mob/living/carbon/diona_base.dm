@@ -525,6 +525,9 @@ if (flashlight_active)
 	for (var/datum/language/L in host.languages)
 		var/chance = 40
 
+		if (istype(L, /datum/language/diona))
+			continue
+
 		if (istype(L, /datum/language/common))//more likely to keep common
 			chance = 85
 
@@ -533,6 +536,10 @@ if (flashlight_active)
 			add_language(L.name)
 		else
 			src << "<span class=;danger;>You have forgotten the [L.name] language!</span>"
+
+
+
+
 
 
 
