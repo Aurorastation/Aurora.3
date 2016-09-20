@@ -38,7 +38,7 @@
 	update_icon()
 
 /obj/machinery/recharge_station/proc/has_cell_power()
-	return cell && cell.percent() > 0
+	return cell && cell.percent() > 3
 
 /obj/machinery/recharge_station/process()
 	if(stat & (BROKEN))
@@ -53,7 +53,7 @@
 		return
 
 	//First, draw from the internal power cell to recharge/repair/etc the occupant
-	if(occupant)
+	if(occupant && has_cell_power())
 		process_occupant()
 
 	//Then, if external power is available, recharge the internal cell
@@ -104,6 +104,9 @@
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
 
+		if (!has_cell_power())
+			visible_message(span("danger", "The recharger bleeps and announces a vocal warning: \" ERROR: Recharger internal capacitor depleted. Charging efficiency will be negatively affected. \""))
+
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
 	user << "The charge meter reads: [round(chargepercentage())]%"
@@ -151,9 +154,9 @@
 	cell = locate(/obj/item/weapon/cell) in component_parts
 
 	charging_efficiency = 0.85 + 0.015 * cap_rating
-	charging_power = 30000 + 12000 * cap_rating
-	restore_power_active = 10000 + 10000 * cap_rating
-	restore_power_passive = 5000 + 1000 * cap_rating
+	charging_power = 30000 + 16000 * cap_rating
+	restore_power_active = 10000 + 12000 * cap_rating
+	restore_power_passive = 5000 + 6000 * cap_rating
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
 
