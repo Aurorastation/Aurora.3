@@ -1072,22 +1072,5 @@
 		notify_ai(ROBOT_NOTIFICATION_NEW_UNIT)
 		sync()
 
-//For picking up small animals
-/mob/living/silicon/robot/MouseDrop(atom/over_object)
-	if (istype(over_object, /obj/machinery/recharge_station))
-		if (!usr.Adjacent(over_object) || !Adjacent(usr))
-			usr << span("danger", "You need to get closer if you want to put [src] into that charger!")
-			return
 
-		var/obj/machinery/recharge_station/station = over_object
-		usr.visible_message(span("danger","[usr] starts hauling [src] into the recharging unit!"), span("danger","You start hauling and pushing [src] into the recharger. This might take a while..."), "You hear heaving and straining")
-		if (do_mob(usr, src, mob_size*10, needhand = 1))
-			if (station.go_in(src))
-				usr.visible_message(span("notice","After a great effort, [usr] manages to get [src] into the recharging unit!"))
-				return 1
-			else
-				usr << span("danger","Failed loading [src] into the charger. Please ensure that [src] has a power cell and is not buckled down, and that the charger is functioning.")
-		else
-			usr << span("danger","Cancelled loading [src] into the charger. You and [src] must stay still!")
-		return
-	return ..()
+
