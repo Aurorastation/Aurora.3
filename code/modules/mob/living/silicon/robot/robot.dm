@@ -1085,5 +1085,9 @@
 			if (station.go_in(src))
 				usr.visible_message(span("notice","After a great effort, [usr] manages to get [src] into the recharging unit!"))
 				return 1
+			else
+				usr << span("danger","Failed loading [src] into the charger. Please ensure that [src] has a power cell and is not buckled down, and that the charger is functioning.")
+		else
+			usr << span("danger","Cancelled loading [src] into the charger. You and [src] must stay still!")
 		return
 	return ..()

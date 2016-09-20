@@ -17,7 +17,7 @@
 	var/restore_power_passive	// W. Power drawn from APC to recharge internal cell when idle. 7 kW if un-upgraded
 	var/weld_rate = 0			// How much brute damage is repaired per tick
 	var/wire_rate = 0			// How much burn damage is repaired per tick
-
+	var/cell_warning_state = 0	// Whether or not the charger is in low power mode
 	var/weld_power_use = 2300	// power used per point of brute damage repaired. 2.3 kW ~ about the same power usage of a handheld arc welder
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
@@ -38,7 +38,7 @@
 	update_icon()
 
 /obj/machinery/recharge_station/proc/has_cell_power()
-	return cell && cell.percent() > 3
+	return cell && cell.percent() > 0
 
 /obj/machinery/recharge_station/process()
 	if(stat & (BROKEN))
@@ -64,6 +64,9 @@
 
 		recharge_amount = cell.give(recharge_amount*charging_efficiency)
 		use_power(recharge_amount / CELLRATE)
+
+		if (cell_warning_state && cell && cell.percent() > 10)
+			cell_warning_state = 0
 
 	if(icon_update_tick >= 10)
 		icon_update_tick = 0
@@ -104,8 +107,10 @@
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
 
-		if (!has_cell_power())
-			visible_message(span("danger", "The recharger bleeps and announces a vocal warning: \" ERROR: Recharger internal capacitor depleted. Charging efficiency will be negatively affected. \""))
+		if (!cell_warning_state && cell && cell.percent() < 3)
+			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 100, 0)
+			visible_message(span("danger", "The recharger buzzes and announces a vocal warning: \" ERROR: Recharger internal power cell depleted. Charging efficiency will be negatively affected. Please consider upgrading internal power cell. \""))
+			cell_warning_state = 1
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
@@ -210,7 +215,7 @@
 		return
 
 	// TODO :  Change to incapacitated() on merge.
-	if(R.stat || R.lying || R.resting || R.buckled)
+	if(R.buckled)
 		return
 	if(!R.cell)
 		return
