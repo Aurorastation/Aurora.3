@@ -1,6 +1,0 @@
-author: Bedshaped
-
-delete-after: True
-
-changes: 
-  - bugfix: "Thanks Zuhayr: Fixed behaviour where interacting with some atmos machinery caused you to pseudo ventcrawl."

@@ -1,6 +1,0 @@
-author: Bedshaped
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed Diona Nymphs not having vision while ventcrawling."
