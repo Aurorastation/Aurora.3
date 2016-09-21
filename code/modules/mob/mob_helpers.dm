@@ -1072,7 +1072,13 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 	)
 
 
-/mob/living/proc/find_type()
+/mob/proc/find_type()
+	if (istype(src, /mob/living))
+		var/mob/living/L = src
+		return L.find_type()
+	return 0
+
+/mob/living/find_type()
 	//This function returns a bitfield indicating what type(s) the passed mob is.
 	//Synthetic and wierd are exclusive from organic. We assume it's organic if it's not either of those
 	//var/mob/living/test = src
