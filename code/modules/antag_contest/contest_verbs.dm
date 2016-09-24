@@ -88,6 +88,16 @@
 		src << "<span class='warning'>You do not have a valid role! You must be a traitor, mercenary, or a raider for these to be usable! Contact an admin if you need assignment.</span>"
 		return
 
+	if (src.mob.mind.objectives.len >= 3)
+		var/uncompleted_objectives = 0
+		for (var/datum/objective/O in src.mob.mind.objectives)
+			if (!O.completed)
+				uncompleted_objectives++
+
+		if (uncompleted_objectives >= 3)
+			src << span("warning", "You have [uncompleted_objectives] uncompleted objectives underway right now. Please finish them before requesting new ones.")
+			return
+
 	if (!establish_db_connection(dbcon))
 		src << "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>"
 		return
