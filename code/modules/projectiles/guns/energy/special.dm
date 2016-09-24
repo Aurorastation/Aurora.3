@@ -145,7 +145,7 @@
 
 /obj/item/weapon/gun/energy/mousegun/proc/failcheck()
 	lightfail = 0
-	if (prob(25))
+	if (prob(5))
 		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
 			if (src in M.contents)
 				M << "<span class='danger'>[src]'s reactor overloads!</span>"
