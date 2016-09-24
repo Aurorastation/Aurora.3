@@ -131,16 +131,19 @@
 		switch (choice)
 			if ("Promote a Synth")
 				new_objective = new /datum/objective/competition/pro_synth/promote
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Protect Robotics")
 				new_objective = new /datum/objective/competition/pro_synth/protect_robotics
 			if ("Borgify")
 				new_objective = new /datum/objective/competition/pro_synth/borgify
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Protect a Synth")
 				new_objective = new /datum/objective/competition/pro_synth/protect
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Unslave Borgs")
@@ -161,14 +164,17 @@
 				new_objective = new /datum/objective/competition/anti_synth/sabotage
 			if ("Fire a Synth")
 				new_objective = new /datum/objective/competition/anti_synth/demote
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Brig a Synth")
 				new_objective = new /datum/objective/competition/anti_synth/brig
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Harm a Synth")
 				new_objective = new /datum/objective/competition/anti_synth/harm
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			else
@@ -181,7 +187,8 @@
 			qdel(new_objective)
 			return
 
-		new_objective.owner = src.mob.mind
+		if (!new_objective.owner)
+			new_objective.owner = src.mob.mind
 		src.mob.mind.objectives += new_objective
 		src << "<span class='notice'>New objective assigned! Have fun, and roleplay well!</span>"
 		log_admin("CONTEST: [key_name(src)] has assigned themselves an objective: [new_objective.type].")
