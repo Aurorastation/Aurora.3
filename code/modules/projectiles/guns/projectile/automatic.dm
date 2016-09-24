@@ -221,7 +221,7 @@
 	caliber = "a762"
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = "/obj/item/ammo_magazine/a762"
 	allowed_magazines = list(/obj/item/ammo_casing/a762)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
