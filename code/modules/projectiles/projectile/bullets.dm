@@ -161,6 +161,49 @@
 	penetrating = 5
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 
+/obj/item/projectile/bullet/rifle/tranq
+	name = "dart"
+	icon_state = "dart"
+	damage = 10
+	stun = 0
+	weaken = 0
+	drowsy = 0
+	eyeblur = 0
+	damage_type = TOX
+	step_delay = 0.25
+
+/obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+	var/mob/living/L = target
+	if(!(isanimal(target)))
+		if(!(isipc(target)))
+			if(!isrobot(target))
+				L.apply_effect(10, DROWSY, 0)
+				if(def_zone == "torso")
+					if(blocked < 2 && !(blocked < 1))
+						target.visible_message("<b>[target]</b> yawns.")
+					if(blocked < 1)
+						spawn(60)
+							L.apply_effect(15, PARALYZE, 0)
+							target.visible_message("<b>[target]</b> moans.")
+				if(def_zone == "head" && blocked < 2)
+					spawn(15)
+						L.apply_effect(35, PARALYZE, 0)
+				if(def_zone != "torso" && def_zone != "head")
+					if(blocked < 2 && !(blocked < 1))
+						target.visible_message("<b>[target]</b> yawns.")
+					if(blocked < 1)
+						spawn(30)
+							L.apply_effect(25, PARALYZE, 0)
+							target.visible_message("<b>[target]</b> moans.")
+	if(isanimal(target))
+		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
+		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
+	/*	var/mob/living/simple_animal/M = target
+		spawn(60)
+			target.visible_message("<b>[target]</b> collapses.")
+			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
+	..()
+
 /obj/item/projectile/bullet/rifle/a556
 	damage = 40
 	penetrating = 1
@@ -183,10 +226,9 @@
 	embed = 0
 	edge = 1
 
-/obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
-	if(isturf(target))
-		explosion(target, -1, 0, 2)
-	..()
+/obj/item/projectile/bullet/burstbullet/on_impact(var/atom/A)
+		explosion(A, -1, 0, 2)
+		..()
 
 /obj/item/projectile/bullet/blank
 	invisibility = 101

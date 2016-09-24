@@ -441,7 +441,7 @@
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"
-#define PARALYZE  "paralize"
+#define PARALYZE  "paralyze"
 #define IRRADIATE "irradiate"
 #define AGONY     "agony"     // Added in PAIN!
 #define SLUR      "slur"

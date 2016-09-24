@@ -155,6 +155,14 @@
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
 
+/obj/item/ammo_casing/tranq
+	name = "PPS shell"
+	desc = "A .50 cal PPS bullet casing."
+	icon_state = "ishell"
+	spent_icon = "ishell-spent"
+	caliber = "PPS"
+	projectile_type = /obj/item/projectile/bullet/rifle/tranq
+
 /obj/item/ammo_casing/a762
 	desc = "A 7.62mm bullet casing."
 	caliber = "a762"

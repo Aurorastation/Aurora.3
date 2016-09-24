@@ -102,7 +102,7 @@
 /obj/item/weapon/gun/energy/beegun
 	name = "\improper NanoTrasen Portable Apiary"
 	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
-	icon_state = "beegun"
+	icon_state = "gyrorifle"
 	item_state = "arifle"
 	charge_meter = 0
 	w_class = 4
@@ -119,7 +119,7 @@
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Exterminator ray"
 	desc = "A highly sophisticated and certainly experimental raygun designed for rapid pest-control."
-	icon_state = "mousegun"
+	icon_state = "floramut100"
 	item_state = "floramut"
 	charge_meter = 0
 	w_class = 3

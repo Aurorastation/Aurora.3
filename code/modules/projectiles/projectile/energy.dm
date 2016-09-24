@@ -130,18 +130,18 @@
 	icon = 'icons/obj/apiary_bees_etc.dmi'
 	icon_state = "beegun"
 	check_armour = "bio"
-	damage = 10
+	damage = 0
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGRILLE
 	embed = 0
-	weaken = 5
+	weaken = 0
 
 /obj/item/projectile/energy/bee/on_impact(var/atom/A)
 	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
 	for(var/i=1, i<=8, i++)
 		var/mob/living/simple_animal/bee/x = new /mob/living/simple_animal/bee
 		x.loc = A
-		x.feral = 50
+		x.feral = 25
 		if(ismob(A))
 			x.target_mob = A
 		if(prob(50))
