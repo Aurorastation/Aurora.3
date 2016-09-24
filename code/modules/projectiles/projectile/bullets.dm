@@ -164,7 +164,7 @@
 /obj/item/projectile/bullet/rifle/tranq
 	name = "dart"
 	icon_state = "dart"
-	damage = 10
+	damage = 5
 	stun = 0
 	weaken = 0
 	drowsy = 0
@@ -177,23 +177,23 @@
 	if(!(isanimal(target)))
 		if(!(isipc(target)))
 			if(!isrobot(target))
-				L.apply_effect(10, DROWSY, 0)
+				L.apply_effect(5, DROWSY, 0)
 				if(def_zone == "torso")
 					if(blocked < 2 && !(blocked < 1))
 						target.visible_message("<b>[target]</b> yawns.")
 					if(blocked < 1)
-						spawn(60)
-							L.apply_effect(15, PARALYZE, 0)
+						spawn(120)
+							L.apply_effect(10, PARALYZE, 0)
 							target.visible_message("<b>[target]</b> moans.")
 				if(def_zone == "head" && blocked < 2)
-					spawn(15)
-						L.apply_effect(35, PARALYZE, 0)
+					spawn(35)
+						L.apply_effect(20, PARALYZE, 0)
 				if(def_zone != "torso" && def_zone != "head")
 					if(blocked < 2 && !(blocked < 1))
 						target.visible_message("<b>[target]</b> yawns.")
 					if(blocked < 1)
-						spawn(30)
-							L.apply_effect(25, PARALYZE, 0)
+						spawn(45)
+							L.apply_effect(15, PARALYZE, 0)
 							target.visible_message("<b>[target]</b> moans.")
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
