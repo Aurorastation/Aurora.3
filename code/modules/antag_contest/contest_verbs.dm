@@ -105,12 +105,12 @@
 		var/list/faction_data = contest_faction_data(part_check.item[1])
 
 		if (side == "Pro-synth")
-			if (faction_data[1] in contest_factions_antisynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Yes", "No") == "No")
+			if (faction_data[1] in contest_factions_antisynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Decisions", "Yes", "No") == "No")
 				return
 
 			available_objs = list("Promote a Synth", "Protect Robotics", "Borgify", "Protect a Synth", "Unslave Borgs")
 		else
-			if (faction_data[1] in contest_factions_prosynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Yes", "No") == "No")
+			if (faction_data[1] in contest_factions_prosynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Decisions", "Yes", "No") == "No")
 				return
 
 			available_objs = list("Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
