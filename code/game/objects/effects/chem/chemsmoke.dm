@@ -82,6 +82,7 @@
 	var/list/wallList
 	var/density
 	var/show_log = 1
+	var/show_touch_log = 0
 	var/duration = 20//time smoke lasts, in deciseconds
 
 /datum/effect/effect/system/smoke_spread/chem/spores
@@ -160,6 +161,9 @@
 	if(!location)
 		return
 
+	var/touch_log_trigger = 0 // will show an admin log if the smoke cloud touches someone
+	var/list/touched_mobs = list()
+
 	if(chemholder.reagents.reagent_list.len) //reagent application - only run if there are extra reagents in the smoke
 		for(var/turf/T in wallList)
 			chemholder.reagents.touch_turf(T)
@@ -167,9 +171,26 @@
 			chemholder.reagents.touch_turf(T)
 			for(var/atom/A in T.contents)
 				if(istype(A, /obj/effect/effect/smoke/chem) || istype(A, /mob))
+					if (istype(A, /mob/living/carbon/human) && A.client)
+						var/mob/living/carbon/human/M = get_mob_by_key(A.ckey)
+						touched_mobs += M
+						touch_log_trigger = 1
 					continue
 				else if(isobj(A) && !A.simulated)
 					chemholder.reagents.touch_obj(A)
+
+	if (show_touch_log && touch_log_trigger)
+		var/mobnames = ""
+		if (touched_mobs.len > 1)
+			mobnames += "Affected players: "
+			var/i = 1
+			do
+				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=\ref[touched_mobs[i]]'>?</a>"
+			while (touched_mobs[i])
+				mobnames += ", "
+			mobnames += "."
+		else mobnames += "Affected player: [touched_mobs[1]]."
+		// SHOW ADMIN LOGS AND SAVE goes here
 
 	var/color = chemholder.reagents.get_color() //build smoke icon
 	var/icon/I
