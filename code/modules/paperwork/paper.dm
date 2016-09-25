@@ -252,6 +252,7 @@
 		t = replacetext(t, "\[row\]", "</td><tr>")
 		t = replacetext(t, "\[cell\]", "<td>")
 		t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
+		t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 
 		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 	else // If it is a crayon, and he still tries to use these, make them empty!
@@ -551,3 +552,15 @@
 
 /obj/item/weapon/paper/crumpled/bloody
 	icon_state = "scrap_bloodied"
+
+/obj/item/weapon/paper/incident
+	var/datum/crime_incident/incident
+	var/sentence = 1 // Is this form contain a sentence of guilty?
+
+/obj/item/weapon/paper/incident/New()
+	info = {"\[center\]\[logo\]\[/center\]
+\[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
+\[barcode\]\[/center\]"}
+
+	..()

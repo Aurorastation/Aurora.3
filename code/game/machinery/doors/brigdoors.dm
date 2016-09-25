@@ -26,13 +26,16 @@
 	var/timing = 1    		// boolean, true/1 timer is on, false/0 means it's not timing
 	var/picture_state		// icon_state of alert picture, if not displaying text/numbers
 	var/list/obj/machinery/targets = list()
-	var/list/obj/item/clothing/under/color/orange/uniforms = list()
 	var/timetoset = 0		// Used to set releasetime upon starting the timer
-	var/alerted = 0
-	var/spamcheck = 0
+
+	var/datum/crime_incident/incident
+
+	var/menu_mode = "menu_timer"
 
 	maptext_height = 26
 	maptext_width = 32
+
+	var/datum/browser/menu = new( null, "brig_timer", "Brig Timer", 400, 300 )
 
 /obj/machinery/door_timer/New()
 	..()
@@ -50,10 +53,6 @@
 			if(C.id == src.id)
 				targets += C
 
-		for(var/obj/item/clothing/under/color/orange/D in world)
-			if(D.id == id)
-				uniforms += D
-
 		if(targets.len==0)
 			stat |= BROKEN
 		update_icon()
@@ -65,38 +64,48 @@
 // if it's less than 0, open door, reset timer
 // update the door_timer window and the icon
 /obj/machinery/door_timer/process()
-
 	if(stat & (NOPOWER|BROKEN))	return
-	if(src.timing)
 
+	if(src.timing)
 		// poorly done midnight rollover
 		// (no seriously there's gotta be a better way to do this)
 		var/timeleft = timeleft()
 		if(timeleft > 1e5)
 			src.releasetime = 0
 
-		if(timeleft < 30 && !alerted)
-			alertuniforms()
-
 		if(world.timeofday > src.releasetime)
-			src.timer_end() // open doors, reset timer, clear status screen
-			src.timing = 0
+			if( src.timer_end() )// open doors, reset timer, clear status screen
+				var/message = "Criminal sentence complete. The criminal is free to go."
 
-		src.updateUsrDialog()
-		src.update_icon()
+				if( prob( 10 )) // brig timers have a little fun when sec isnt watching
+					var/sec_nearby = 0
 
-	else
-		timer_end()
+					var/datum/department/D = job_master.GetDepartmentByName( "Security Department" )
+
+					for( var/mob/living/carbon/human/H in hearers( 10 ))
+						if( H.mind )
+							if( H.mind.assigned_role in D.getAllPositionNames() )
+								sec_nearby = 1
+
+					if( !sec_nearby )
+						message = pick( "Your sentence is over, criminal scum. If it were up to me you'd stay here forever.",
+										"Hey, criminal scum, get up. Its time for you to go before I change my mind.",
+										"You're free to go, for now...",
+										"Remember, you may be free now, but I'm always watching.",
+										"You can go. If it were up to me, however, you'd be taken out back and shot." )
+
+				ping( "\The [src] pings, \"[message]\"" )
+
+		updateUsrDialog()
+		update_icon()
 
 	return
-
 
 // has the door power situation changed, if so update icon.
 /obj/machinery/door_timer/power_change()
 	..()
 	update_icon()
 	return
-
 
 // open/closedoor checks if door_timer has power, if so it checks if the
 // linked door is open/closed (by density) then opens it/closes it.
@@ -118,6 +127,9 @@
 		if(C.opened && !C.close())	continue
 		C.locked = 1
 		C.icon_state = C.icon_locked
+
+	timing = 1
+
 	return 1
 
 
@@ -125,8 +137,11 @@
 /obj/machinery/door_timer/proc/timer_end()
 	if(stat & (NOPOWER|BROKEN))	return 0
 
+	timing = 0
+
 	// Reset releasetime
 	releasetime = 0
+	timeset( 0 )
 
 	for(var/obj/machinery/door/window/brigdoor/door in targets)
 		if(!door.density)	continue
@@ -139,12 +154,20 @@
 		C.locked = 0
 		C.icon_state = C.icon_closed
 
+	qdel( incident )
+	incident = null
+
 	return 1
 
 
 // Check for releasetime timeleft
 /obj/machinery/door_timer/proc/timeleft()
-	. = (releasetime - world.timeofday)/10
+	var/timeleft = timetoset
+
+	if( src.timing )
+		timeleft = releasetime - world.timeofday
+
+	. = round( timeleft/10 )
 	if(. < 0)
 		. = 0
 
@@ -161,93 +184,142 @@
 /obj/machinery/door_timer/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
 
-// Alert the uniform wearers that their timer is about to end up
-/obj/machinery/door_timer/proc/alertuniforms()
-	if(stat & (NOPOWER|BROKEN))	return
-	if(!uniforms.len)
-		alerted = 1
-		return
-
-	for(var/obj/item/clothing/under/color/orange/D in uniforms)
-		if(!ishuman(D.loc))	continue
-		D.loc << "A speaker in the collar of your suit pings:\n\blue Your cell timer will expire in 30 seconds or less. Please go to your cell to speed up processing."
-
-	alerted = 1
-
-	return
-
-// Alert the uniform wearers that they are needed at their cell
-/obj/machinery/door_timer/proc/summonuniforms()
-	if(stat & (NOPOWER|BROKEN))	return
-	if(spamcheck)	return
-	if(!uniforms.len)	return
-	for(var/obj/item/clothing/under/color/orange/D in uniforms)
-		if(!ishuman(D.loc))	continue
-		D.loc << "A speaker in the collar of your suit pings:\n\red You have been summoned to your cell!"
-
-	spamcheck = 1
-	spawn(30)
-		spamcheck = 0
-
-	return
-
-//Allows humans to use door_timer
-//Opens dialog window when someone clicks on door timer
-// Allows altering timer and the timing boolean.
+// Allows humans to use door_timer
+// Opens dialog window when someone clicks on door timer
 // Flasher activation limited to 150 seconds
 /obj/machinery/door_timer/attack_hand(var/mob/user as mob)
 	if(..())
 		return
 
+	user.set_machine( src )
+
+	. = ""
+
+	switch( menu_mode )
+		if( "menu_charges" )
+			. = menu_charges()
+		else
+			. = menu_timer( user )
+
+	menu.set_user( user )
+	menu.set_content( . )
+	menu.open()
+
+	onclose(user, "brig_timer")
+
+	return
+
+/obj/machinery/door_timer/proc/menu_timer( var/mob/user as mob )
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
 
-	// Used for 'set timer'
-	var/setsecond = round((timetoset / 10) % 60)
-	var/setminute = round(((timetoset / 10) - setsecond) / 60)
+	. = "<h2>Timer System:</h2>"
+	. += "<b>Controls [src.id]</b><hr>"
 
-	user.set_machine(src)
-
-	// dat
-	var/dat = "<HTML><BODY><TT>"
-
-	dat += "<HR>Timer System:</hr>"
-	dat += " <b>Door [src.id] controls</b><br/>"
-
-	// Start/Stop timer
-	if (src.timing)
-		dat += "<a href='?src=\ref[src];timing=0'>Stop Timer and open door</a><br/>"
+	if( !incident )
+		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
 	else
-		dat += "<a href='?src=\ref[src];timing=1'>Activate Timer and close door</a><br/>"
+		// Time Left display (uses releasetime)
+		. += "<b>Criminal</b>: [incident.criminal]\t"
+		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
+		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
+		// Start/Stop timer
+		if( !src.timing )
+			. += "<a href='?src=\ref[src];button=activate'>Activate</a><br>"
+		. += "<br>"
 
-	// Time Left display (uses releasetime)
-	dat += "Time Left: [(minute ? text("[minute]:") : null)][second] <br/>"
-	dat += "<br/>"
-
-	// Set Timer display (uses timetoset)
-	if(src.timing)
-		dat += "Set Timer: [(setminute ? text("[setminute]:") : null)][setsecond]  <a href='?src=\ref[src];change=1'>Set</a><br/>"
-	else
-		dat += "Set Timer: [(setminute ? text("[setminute]:") : null)][setsecond]<br/>"
-
-	// Controls
-	dat += "<a href='?src=\ref[src];tp=-60'>-</a> <a href='?src=\ref[src];tp=-1'>-</a> <a href='?src=\ref[src];tp=1'>+</a> <A href='?src=\ref[src];tp=60'>+</a><br/>"
 
 	// Mounted flash controls
 	for(var/obj/machinery/flasher/F in targets)
+		. += "<br><b>Flash</b>: "
 		if(F.last_flash && (F.last_flash + 150) > world.time)
-			dat += "<br/><A href='?src=\ref[src];fc=1'>Flash Charging</A>"
+			. += "Charging"
 		else
-			dat += "<br/><A href='?src=\ref[src];fc=1'>Activate Flash</A>"
+			. += "<A href='?src=\ref[src];button=flash'>Activate</A>"
 
-	dat += "<br/><br/><a href='?src=\ref[user];mach_close=computer'>Close</a>"
-	dat += "</TT></BODY></HTML>"
+	. += "<br><hr>"
+	. += "<center><a href='?src=\ref[user];mach_close=brig_timer'>Close</a></center>"
 
-	user << browse(dat, "window=computer;size=400x500")
-	onclose(user, "computer")
-	return
+	return .
 
+/obj/machinery/door_timer/proc/menu_charges()
+	. = ""
+
+	if( !incident )
+		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
+	else
+		// Charges list
+		. += "<table class='border'>"
+		. += "<tr>"
+		. += "<th colspan='3'>Charges</th>"
+		. += "</tr>"
+		for( var/datum/law/L in incident.charges )
+			. += "<tr>"
+			. += "<td><b>[L.name]</b></td>"
+			. += "<td><i>[L.desc]</i></td>"
+			. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
+			. += "</tr>"
+		. += "</table>"
+
+	. += "<br><hr>"
+	. += "<center><A href='?src=\ref[src];button=menu_mode;menu_choice=menu_timer'>Return</a></center>"
+
+	return .
+
+/obj/machinery/door_timer/attackby(obj/item/O as obj, user as mob)
+	if( istype( O, /obj/item/weapon/paper/form/incident ))
+		if( !incident )
+			if( import( O, user ))
+				usr.drop_item()
+				O.loc = src
+
+				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
+				qdel( O )
+				src.updateUsrDialog()
+		else
+			buzz( "\The [src] buzzes, \"There's already an active sentence!\"" )
+	else if( istype( O, /obj/item/weapon/paper ))
+		buzz( "\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"" )
+
+	..()
+
+/obj/machinery/door_timer/proc/import( var/obj/item/weapon/paper/form/incident/I, var/user )
+	if( !istype( I ))
+		buzz( "\The [src] buzzes, \"Could not import the incident report.\"" )
+		return 0
+
+	if( !istype( I.incident ))
+		buzz( "\The [src] buzzes, \"Report has no incident encoded!\"" )
+		return 0
+
+	if( !I.sentence )
+		buzz( "\The [src] buzzes, \"Report does not contain a guilty sentence!\"" )
+		return 0
+
+	var/datum/crime_incident/crime = I.incident
+
+	if( !istype( crime.criminal ))
+		buzz( "\The [src] buzzes, \"Report has no criminal encoded!\"" )
+		return 0
+
+	if( !crime.brig_sentence )
+		buzz( "\The [src] buzzes, \"Report had no brig sentence.\"" )
+		return 0
+
+	if( crime.brig_sentence >= PERMABRIG_SENTENCE )
+		buzz( "\The [src] buzzes, \"The criminal has a permabrig sentence and needs to be frozen.\"" )
+		return 0
+
+	var/addtime = timetoset
+	addtime += crime.brig_sentence MINUTES
+	addtime = min(max(round(addtime), 0), PERMABRIG_SENTENCE MINUTES)
+	addtime = addtime/10
+
+	timeset(addtime)
+	incident = crime
+
+	return timetoset
 
 //Function for using door_timer dialog input, checks if user has permission
 // href_list to
@@ -264,40 +336,20 @@
 
 	usr.set_machine(src)
 
-	if(href_list["timing"])
-		src.timing = text2num(href_list["timing"])
+	switch(href_list["button"])
+		if( "menu_mode" )
+			menu_mode = href_list["menu_choice"]
 
-		if(src.timing)
+		if( "activate" )
 			src.timer_start()
-		else
-			src.timer_end()
 
-	else
-		if(href_list["tp"])  //adjust timer, close door if not already closed
-			var/tp = text2num(href_list["tp"])
-			var/addtime = (timetoset / 10)
-			addtime += tp
-			addtime = min(max(round(addtime), 0), 3600)
-
-			timeset(addtime)
-
-		if(href_list["fc"])
+		if( "flash" )
 			for(var/obj/machinery/flasher/F in targets)
 				F.flash()
 
-		if(href_list["change"])
-			src.timer_start()
-		if(href_list["summon"])
-			summonuniforms()
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	src.update_icon()
-
-	/* if(src.timing)
-		src.timer_start()
-
-	else
-		src.timer_end() */
 
 	return
 
