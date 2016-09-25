@@ -1160,3 +1160,6 @@ About the new airlock wires panel:
 	src.open()
 	src.lock()
 	return
+
+#undef AIRLOCK_CRUSH_DIVISOR
+#undef CYBORG_AIRLOCKCRUSH_RESISTANCE
