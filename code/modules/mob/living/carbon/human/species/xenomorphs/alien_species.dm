@@ -7,7 +7,7 @@
 	language = "Hivemind"
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	hud_type = /datum/hud_data/alien
-	rarity_value = 3
+	rarity_value = 10
 
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
