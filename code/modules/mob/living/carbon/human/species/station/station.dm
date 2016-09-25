@@ -27,6 +27,7 @@
 	darksight = 3
 	gluttonous = 1
 	ethanol_resistance = 0.4
+	rarity_value = 3
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
 	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
@@ -87,6 +88,7 @@
 	slowdown = -1
 	brute_mod = 1.2
 	ethanol_resistance = 0.8//Gets drunk a little faster
+	rarity_value = 2
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
@@ -136,6 +138,8 @@
 	of the Qerr'Katish, a caste within their society which keeps the empire of the Skrell running smoothly. Skrell are \
 	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
 	the secrets of their empire to their allies."
+	
+	rarity_value = 3
 
 	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | NO_SLIP | HAS_SKIN_COLOR
 
@@ -157,7 +161,7 @@
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/diona)
 	//primitive_form = "Nymph"
 	slowdown = 7
-	rarity_value = 3
+	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
@@ -296,7 +300,7 @@
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
-	rarity_value = 2
+	rarity_value = 4
 	slowdown = 0	//may become a bonus if vaurca gain more legs.
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
