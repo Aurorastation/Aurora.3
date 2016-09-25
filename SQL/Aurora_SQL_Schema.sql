@@ -19,14 +19,16 @@ CREATE TABLE `ss13_admin_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ss13_api_functions` (
+CREATE TABLE `ss13_api_commands` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`function` VARCHAR(50) NULL DEFAULT '' COLLATE 'utf8_bin',
+	`command` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
 	`description` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_bin',
-	PRIMARY KEY (`id`)
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `UNIQUE command` (`command`)
 )
 COLLATE='utf8_bin'
 ENGINE=InnoDB;
+
 
 CREATE TABLE `ss13_api_tokens` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -42,16 +44,17 @@ CREATE TABLE `ss13_api_tokens` (
 COLLATE='utf8_bin'
 ENGINE=InnoDB;
 
-CREATE TABLE `ss13_api_token_function` (
-	`function_id` INT(11) NOT NULL,
+CREATE TABLE `ss13_api_token_command` (
+	`command_id` INT(11) NOT NULL,
 	`token_id` INT(11) NOT NULL,
-	PRIMARY KEY (`function_id`, `token_id`),
+	PRIMARY KEY (`command_id`, `token_id`),
 	INDEX `token_id` (`token_id`),
-	CONSTRAINT `function_id` FOREIGN KEY (`function_id`) REFERENCES `ss13_api_functions` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `function_id` FOREIGN KEY (`command_id`) REFERENCES `ss13_api_commands` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
 	CONSTRAINT `token_id` FOREIGN KEY (`token_id`) REFERENCES `ss13_api_tokens` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
 COLLATE='utf8_bin'
 ENGINE=InnoDB;
+
 
 
 CREATE TABLE `ss13_ban` (

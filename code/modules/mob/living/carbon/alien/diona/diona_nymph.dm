@@ -23,7 +23,6 @@
 	adult_form = /mob/living/carbon/human
 	speak_emote = list("chirrups")
 	icon_state = "nymph"
-	language = "Rootsong"
 	death_msg = "expires with a pitiful chirrup..."
 	universal_understand = 0
 	universal_speak = 0
@@ -54,7 +53,18 @@
 	set category = "Abilities"
 	set name = "Check light level"
 
-	usr << "The light level here is [get_lightlevel_diona(DS)]"
+	var/light = get_lightlevel_diona(DS)
+
+	if (light <= -0.75)
+		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
+	else if (light <= 0)
+		usr << span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
+	else if (light > 0 && light < 1.5)
+		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant.")
+	else if (light <= 3)
+		usr << span("notice", "This light is comfortable and warm, Quite adequate for our needs.")
+	else
+		usr << span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..")
 
 /mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
 	//TODO: Collapse these checks into one proc (see pai and drone)
@@ -103,7 +113,7 @@
 		holder_type = null
 
 	species = all_species[new_species]
-	if(species.language)
+	if(species.default_language)
 		add_language(species.default_language)
 
 	if(species.holder_type)

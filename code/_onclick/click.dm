@@ -15,6 +15,9 @@
 
 	Note that this proc can be overridden, and is in the case of screen objects.
 */
+
+
+
 /atom/Click(location,control,params)
 	if(src)
 		usr.ClickOn(src, params)
@@ -55,7 +58,10 @@
 		ShiftClickOn(A)
 		return
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
-		AltClickOn(A)
+		if (modifiers["right"])
+			AltRightClickOn(A)
+		else
+			AltClickOn(A)
 		return
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
@@ -294,6 +300,9 @@
 			user.client.statpanel = "Turf"
 	return
 
+
+
+
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
 
@@ -307,6 +316,31 @@
 
 /atom/proc/CtrlShiftClick(var/mob/user)
 	return
+
+/*
+	Special Rightclick procs!
+	set_context_menu_enabled is called by a macro defined in skin.dmf.
+	It disables the menu when alt is pressed, and re-enables it when alt is released
+	This allows us to do alt+rightclick to achieve something without opening the menu.
+	These could also be duplicated/expanded as desired to suppress the menu with shift/ctrl as well
+
+*/
+client/verb/set_context_menu_enabled(Enable as num)
+	set hidden = TRUE, instant = TRUE
+	if(Enable) show_popup_menus = TRUE
+	else show_popup_menus = FALSE
+
+/mob/proc/AltRightClickOn(var/atom/A)
+	A.AltRightClick(src)
+	return
+
+/atom/proc/AltRightClick(var/mob/user)
+	user.pointed(src)
+
+
+
+
+
 
 /*
 	Misc helpers

@@ -6,4 +6,4 @@
 		return
 	var/pipe = start_ventcrawl()
 	if(pipe)
-		handle_ventcrawl()
+		handle_ventcrawl(pipe)

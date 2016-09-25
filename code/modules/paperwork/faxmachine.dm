@@ -11,7 +11,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	icon_state = "fax"
 	insert_anim = "faxsend"
 	req_one_access = list(access_lawyer, access_heads, access_armory) //Warden needs to be able to Fax solgov too.
-
+	density = 0//It's a small machine that sits on a table, this allows small things to walk under that table
 	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 200
@@ -252,7 +252,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		if((R_ADMIN|R_CCIAA) & C.holder.rights)
 			C << msg
 
-	send_to_cciaa_discord("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
+	discord_bot.send_to_cciaa("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
 	if (!alert_pdas || !alert_pdas.len)

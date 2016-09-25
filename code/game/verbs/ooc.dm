@@ -107,7 +107,17 @@
 	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
 
 	var/mob/source = src.mob
-	var/list/heard = get_mobs_in_view(7, get_turf(source))
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it
+
+	for (var/turf in range(world.view, get_turf(source)))
+		messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
 
 	var/display_name = source.key
 	if(holder && holder.fakekey)
@@ -130,7 +140,7 @@
 				admin_stuff += "/([source.key])"
 				if(target != source.client)
 					admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
-			if(target.mob in heard)
+			if(target.mob in messagemobs)
 				prefix = ""
-			if((target.mob in heard) || display_remote)
+			if((target.mob in messagemobs) || display_remote)
 				target << "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>"

@@ -199,7 +199,7 @@
 		return
 	..()
 
-/obj/machinery/portable_atmospherics/proc/log_open()
+/obj/machinery/portable_atmospherics/proc/log_open(var/mob/user)
 	if(air_contents.gas.len == 0)
 		return
 
@@ -209,5 +209,9 @@
 			gases += ", [gas]"
 		else
 			gases = gas
-	log_admin("[usr] ([usr.ckey]) opened '[src.name]' containing [gases].")
-	message_admins("[usr] ([usr.ckey]) opened '[src.name]' containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+
+	if (!user && usr)
+		user = usr
+
+	log_admin("[user] ([user.ckey]) opened '[src.name]' containing [gases].")
+	message_admins("[user] ([user.ckey]) opened '[src.name]' containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")

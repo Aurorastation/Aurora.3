@@ -28,15 +28,12 @@
 		if ("custom")
 			return custom_emote(m_type, message)
 		if ("alarm")
-			src << "You sound an alarm."
 			message = "<B>[src]</B> sounds an alarm."
 			m_type = 2
 		if ("alert")
-			src << "You let out a distressed noise."
 			message = "<B>[src]</B> lets out a distressed noise."
 			m_type = 2
 		if ("notice")
-			src << "You play a loud tone."
 			message = "<B>[src]</B> plays a loud tone."
 			m_type = 2
 		if ("flash")
@@ -46,15 +43,21 @@
 			message = "<B>[src]</B> blinks."
 			m_type = 1
 		if ("whistle")
-			src << "You whistle."
 			message = "<B>[src]</B> whistles."
 			m_type = 2
-		if ("beep")
-			src << "You beep."
+		if("beep")
 			message = "<B>[src]</B> beeps."
+			playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
+			m_type = 2
+		if("ping")
+			message = "<B>[src]</B> pings."
+			playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+			m_type = 2
+		if("buzz")
+			message = "<B>[src]</B> buzzes."
+			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 			m_type = 2
 		if ("boop")
-			src << "You boop."
 			message = "<B>[src]</B> boops."
 			m_type = 2
 		if ("help")
@@ -65,16 +68,4 @@
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
-		for(var/mob/M in dead_mob_list)
-			if (!M.client || istype(M, /mob/new_player))
-				continue //skip monkeys, leavers, and new_players
-			if(M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT) && !(M in viewers(src,null)))
-				M.show_message(message)
-
-
-		if (m_type & 1)
-			for (var/mob/O in viewers(src, null))
-				O.show_message(message, m_type)
-		else if (m_type & 2)
-			for (var/mob/O in hearers(src.loc, null))
-				O.show_message(message, m_type)
+		send_emote(message, m_type)

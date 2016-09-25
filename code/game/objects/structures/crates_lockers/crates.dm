@@ -110,23 +110,21 @@
 
 /obj/structure/closet/crate/ex_act(severity)
 	switch(severity)
-		if(1.0)
-			for(var/obj/O in src.contents)
-				qdel(O)
-			qdel(src)
-			return
-		if(2.0)
-			for(var/obj/O in src.contents)
-				if(prob(50))
-					qdel(O)
-			qdel(src)
-			return
-		if(3.0)
-			if (prob(50))
-				qdel(src)
-			return
-		else
-	return
+		if(1)
+			health -= rand(120, 240)
+		if(2)
+			health -= rand(60, 120)
+		if(3)
+			health -= rand(30, 60)
+
+	if (health <= 0)
+		for (var/atom/movable/A as mob|obj in src)
+			A.forceMove(src.loc)
+			if (prob(50) && severity > 1)//Higher chance of breaking contents
+				A.ex_act(severity-1)
+			else
+				A.ex_act(severity)
+		qdel(src)
 
 /obj/structure/closet/crate/secure
 	desc = "A secure crate."
@@ -140,6 +138,7 @@
 	var/emag = "securecrateemag"
 	var/broken = 0
 	var/locked = 1
+	health = 200
 
 /obj/structure/closet/crate/secure/New()
 	..()
@@ -430,6 +429,7 @@
 	icon_state = "largemetal"
 	icon_opened = "largemetalopen"
 	icon_closed = "largemetal"
+	health = 200
 
 /obj/structure/closet/crate/large/close()
 	. = ..()
@@ -458,6 +458,7 @@
 	icon_closed = "largemetal"
 	redlight = "largemetalr"
 	greenlight = "largemetalg"
+	health = 400
 
 /obj/structure/closet/crate/secure/large/close()
 	. = ..()

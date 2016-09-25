@@ -84,3 +84,28 @@
 			text += "<br>[purchases]"
 
 	return text
+
+/datum/antagonist/proc/print_player_summary_discord()
+	if (current_antagonists.len)
+		return ""
+
+	var/text = "[current_antagonists.len > 1 ? "The [lowertext(role_text_plural)] were:\n" : "The [lowertext(role_text)] was:\n"]"
+	for (var/datum/mind/ply in current_antagonists)
+		var/role = ply.assigned_role ? "\improper[ply.assigned_role]" : "\improper[ply.special_role]: "
+		text += "**[ply.name]** (**[ply.key]**) as \a **[role]** ("
+		if(ply.current)
+			if(ply.current.stat == DEAD)
+				text += "died"
+			else if(isNotStationLevel(ply.current.z))
+				text += "fled the station"
+			else
+				text += "survived"
+			if(ply.current.real_name != ply.name)
+				text += " as **[ply.current.real_name]**"
+		else
+			text += "body destroyed"
+		text += ")\n"
+
+	text += "\n"
+
+	return text

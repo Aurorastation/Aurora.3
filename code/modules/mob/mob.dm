@@ -97,7 +97,18 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message)
-	for(var/mob/M in viewers(src))
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	for(var/mob/M in messagemobs)
 		if(self_message && M==src)
 			M.show_message(self_message, 1, blind_message, 2)
 		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
@@ -113,6 +124,7 @@
 // message is the message output to anyone who can see e.g. "[src] does something!"
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
+//This is obsolete now
 /mob/proc/contained_visible_message(var/atom/broadcaster, var/message, var/self_message, var/blind_message)
 	var/self_served = 0
 	for(var/mob/M in viewers(broadcaster))
@@ -129,13 +141,27 @@
 		src.show_message(self_message, 1, blind_message, 2)
 
 
+
+
 // Show a message to all mobs in sight of this atom
 // Use for objects performing visible actions
 // message is output to anyone who can see, e.g. "The [src] does something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 /atom/proc/visible_message(var/message, var/blind_message)
-	for(var/mob/M in viewers(src))
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	for(var/mob/M in messagemobs)
 		M.show_message( message, 1, blind_message, 2)
+
 
 // Returns an amount of power drawn from the object (-1 if it's not viable).
 // If drain_check is set it will not actually drain power, just return a value.
@@ -222,27 +248,31 @@
 	face_atom(A)
 	A.examine(src)
 
+/mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
+
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in view(src.loc)))
+	if(!src || !isturf(src.loc) || !(A in range(world.view, get_turf(src))))
 		return 0
-	if(istype(A, /obj/effect/decal/point))
+	if(istype(A, /obj/effect/decal/point) || pointing_effect)
 		return 0
 
 	var/tile = get_turf(A)
 	if (!tile)
 		return 0
 
-	var/obj/P = new /obj/effect/decal/point(tile)
-	P.invisibility = invisibility
+	pointing_effect = new /obj/effect/decal/point(tile)
+	pointing_effect.invisibility = invisibility
 	spawn (20)
-		if(P)
-			qdel(P)	// qdel
+		if(pointing_effect)
+			qdel(pointing_effect)	// qdel
+			pointing_effect = null
 
 	face_atom(A)
 	return 1
+
 
 
 /mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
@@ -1038,6 +1068,11 @@ mob/proc/yank_out_object()
 			return I
 
 	return 0
+
+/mob/proc/Released()
+	//This is called when the mob is let out of a holder
+	//Override for mob-specific functionality
+	return
 
 /mob/proc/updateicon()
 	return

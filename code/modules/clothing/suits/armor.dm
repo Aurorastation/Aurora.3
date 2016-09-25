@@ -95,7 +95,6 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	slowdown = 1
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0.5
 	pocket_slots = 4//Fullbody suit, so more slots
 

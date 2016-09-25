@@ -151,7 +151,7 @@
 	//returns which type of diona we are, or zero
 	if (istype(src, /mob/living/carbon/human))
 		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona))
+		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
 			return DIONA_WORKER
 
 	if (istype(src, /mob/living/carbon/alien/diona))
@@ -1028,6 +1028,10 @@ proc/is_blind(A)
 
 
 //Blacklists of mobs that can be excluded from eating by flags in the bitfield
+
+//All of these specific human subtypes are here for a reason.
+//Using /mob/living/carbon/human as a generic type would include monkey/stok/farwa/neara.
+//We do not want those to count as humanoids, only player species
 var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
 	/mob/living/carbon/human/bst,
 	/mob/living/carbon/human/skrell,
@@ -1037,7 +1041,6 @@ var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
 	/mob/living/carbon/human/vox,
 	/mob/living/carbon/human/machine,
 	/mob/living/carbon/human/bug
-
 	)
 
 var/list/humanoid_mobs_inclusive = list(
@@ -1079,8 +1082,6 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		mobtypes |= TYPE_SYNTHETIC
 	else if (mob_listed(src, synthetic_mobs_inclusive,0))
 		mobtypes |= TYPE_SYNTHETIC
-	else if (ishuman(src))
-		mobtypes |= TYPE_SYNTHETIC
 
 	if (mob_listed(src, wierd_mobs_specific,1))
 		mobtypes |= TYPE_WIERD
@@ -1112,6 +1113,7 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		var/mob/living/carbon/alien/diona/D = src
 		return D.vessel
 	else if (create)
+
 		//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
 		//We create an MD5 hash of the mob's reference to use as its DNA string.
 		//This creates unique DNA for each creature in a consistently repeatable process
@@ -1123,8 +1125,74 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 								"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
 
 				B.color = B.data["blood_colour"]
+
 		return vessel
 
 	else return null
+
+//This function checks against a list to see if the mob is in it.
+//Any specified types are checked against exactly, using ==, not istype
+//Any types ending in * will be tested with isType
+/proc/mob_listed(var/mob/living/test, var/list/toCheck, var/specific = 0)
+	for (var/i in toCheck)
+		if (specific)
+			if (test.type == i)
+				return 1
+		else
+			if (istype(test, i))
+				return 1
+	return 0
+
+
+#define POSESSIVE_PRONOUN	0
+#define POSESSIVE_ADJECTIVE	1
+#define REFLEXIVE			2
+#define SUBJECTIVE_PERSONAL	3
+#define OBJECTIVE_PERSONAL	4
+/mob/proc/get_pronoun(var/type)
+	switch (type)
+		if (POSESSIVE_PRONOUN)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "hers"
+				else
+					return "theirs"
+		if (POSESSIVE_ADJECTIVE)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "her"
+				else
+					return "their"
+		if (REFLEXIVE)
+			switch(gender)
+				if (MALE)
+					return "himself"
+				if (FEMALE)
+					return "herself"
+				else
+					return "themselves"
+		if (SUBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "he"
+				if (FEMALE)
+					return "she"
+				else
+					return "they"
+		if (OBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "him"
+				if (FEMALE)
+					return "her"
+				else
+					return "them"
+
+		else
+			return "its"//Something went wrong
 
 #undef SAFE_PERP

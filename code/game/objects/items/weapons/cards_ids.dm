@@ -128,7 +128,7 @@
 	desc = "A card used to provide ID and determine access across the station."
 	icon_state = "id"
 	item_state = "card-id"
-	var/access = list()
+	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
 	slot_flags = SLOT_ID
 
@@ -147,16 +147,29 @@
 /obj/item/weapon/card/id/New()
 	..()
 	spawn(30)
-	if(istype(loc, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = loc
-		blood_type = H.dna.b_type
-		dna_hash = H.dna.unique_enzymes
-		fingerprint_hash = md5(H.dna.uni_identity)
-		citizenship = H.citizenship
-		religion = H.religion
-		age = H.age
+		if(istype(loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = loc
+			blood_type = H.dna.b_type
+			dna_hash = H.dna.unique_enzymes
+			fingerprint_hash = md5(H.dna.uni_identity)
+			citizenship = H.citizenship
+			religion = H.religion
+			age = H.age
 
 /obj/item/weapon/card/id/attack_self(mob/user as mob)
+	if (dna_hash == "\[UNSET\]" && ishuman(user))
+		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
+		if (response == "Yes")
+			var/mob/living/carbon/human/H = user
+			blood_type = H.dna.b_type
+			dna_hash = H.dna.unique_enzymes
+			fingerprint_hash = md5(H.dna.uni_identity)
+			citizenship = H.citizenship
+			religion = H.religion
+			age = H.age
+			user << "<span class='notice'>Biometric Imprinting Successful!.</span>"
+			return
+
 	for(var/mob/O in viewers(user, null))
 		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
 

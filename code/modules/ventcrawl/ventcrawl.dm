@@ -62,8 +62,8 @@ var/list/ventcrawl_machinery = list(
 	return 1
 
 /obj/machinery/atmospherics/AltClick(mob/living/user)
-	if(is_type_in_list(src,ventcrawl_machinery) && user.can_ventcrawl())
-		user.handle_ventcrawl()
+	if(is_type_in_list(src, ventcrawl_machinery) && user.can_ventcrawl())
+		user.handle_ventcrawl(src)
 		return 1
 	return ..()
 
@@ -111,6 +111,21 @@ var/list/ventcrawl_machinery = list(
 	var/delayticks = size * 3
 	return delayticks >= 3 ? delayticks : 3
 
+/mob/living/proc/vent_trap_check(var/status, var/atom/location)
+	switch (status)
+		if ("departing")
+			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+				if (prob(25))
+					visible_message("<span class='danger'>[src] gets caught in the mousetrap while trying to crawl into the vent!</span>", "<span class='danger'>You get caught in the mousetrap while trying to crawl into the vent!</span>")
+					S.Crossed(src) // Triggers mousetrap
+					forceMove(location.loc)
+		if ("arriving")
+			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+				if (prob(75))
+					S.Crossed(src) // Triggers mousetrap
+		else
+			return
+
 /mob/living/var/ventcrawl_layer = 3
 
 /mob/living/proc/handle_ventcrawl(var/atom/clicked_on)
@@ -120,12 +135,16 @@ var/list/ventcrawl_machinery = list(
 
 			var/obj/machinery/atmospherics/unary/vent_found
 
-			if(clicked_on && Adjacent(clicked_on))
-				vent_found = clicked_on
-				if(!istype(vent_found) || !vent_found.can_crawl_through())
-					vent_found = null
+			if(clicked_on)
+				if (Adjacent(clicked_on))
+					vent_found = clicked_on
+					if(!is_type_in_list(vent_found, ventcrawl_machinery) || !vent_found.can_crawl_through())
+						vent_found = null
+				else
+					src << "<span class='warning'>Stand next to the selected vent!</span>"
+					return
 
-			if(!vent_found)
+			if(!vent_found && isnull(clicked_on))
 				for(var/obj/machinery/atmospherics/machine in range(1,src))
 					if(is_type_in_list(machine, ventcrawl_machinery))
 						vent_found = machine
@@ -139,6 +158,8 @@ var/list/ventcrawl_machinery = list(
 			if(istype(vent_found, /obj/machinery/atmospherics/unary/vent_pump/) && vent_found:is_welded()) // welded check
 				src << "<span class='warning'>You can't crawl into a welded vent!</span>"
 				return
+
+			vent_trap_check("departing", vent_found)
 
 			if(vent_found)
 				if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
@@ -178,7 +199,7 @@ var/list/ventcrawl_machinery = list(
 					visible_message("<B>[src] scrambles into the ventilation ducts!</B>", "You climb into the ventilation system.")
 
 					forceMove(vent_found)
-					add_ventcrawl(vent_found)
+					add_ventcrawl(vent_found.node)
 					sight = (SEE_TURFS|BLIND)
 
 				else
