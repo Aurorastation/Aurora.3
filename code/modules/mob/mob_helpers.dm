@@ -1090,7 +1090,7 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		mobtypes |= TYPE_SYNTHETIC
 	else
 		var/datum/species/S = src.get_species(1)
-		if (S.flags & IS_SYNTHETIC)
+		if (S && (S.flags & IS_SYNTHETIC))
 			mobtypes |= TYPE_SYNTHETIC
 
 	if (mob_listed(src, wierd_mobs_specific,1))
