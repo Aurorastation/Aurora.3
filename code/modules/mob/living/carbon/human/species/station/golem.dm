@@ -7,8 +7,16 @@
 
 	language = "Sol Common" //todo?
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
-	flags = IS_RESTRICTED | NO_BREATHE | NO_PAIN | NO_BLOOD | NO_SCAN | NO_POISON
+	flags = IS_RESTRICTED | NO_BREATHE | NO_PAIN | NO_BLOOD | NO_SCAN | NO_POISON | NO_SLIP
 	siemens_coefficient = 0
+	rarity_value = 5
+
+	warning_low_pressure = 50 //golems can into space now
+	hazard_low_pressure = 0
+
+	cold_level_1 = 80
+	cold_level_2 = 50
+	cold_level_3 = 0
 
 	breath_type = null
 	poison_type = null
