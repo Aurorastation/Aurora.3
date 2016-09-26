@@ -41,8 +41,13 @@
 	// Add the event back to the list of available events
 	var/datum/event_container/EC = event_containers[E.severity]
 	var/datum/event_meta/EM = E.event_meta
-	EC.available_events += EM
 
+
+	if (!EM.event_type)//This happens if an event is started with the Trigger Event debug command
+		log_debug("Event of '[E.type]' with missing meta-data has completed.")
+		return
+
+	EC.available_events += EM
 	log_debug("Event '[EM.name]' has completed at [worldtime2text()].")
 
 /datum/event_manager/proc/delay_events(var/severity, var/delay)

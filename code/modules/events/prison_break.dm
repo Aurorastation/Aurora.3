@@ -3,8 +3,8 @@
 
 	var/releaseWhen = 25
 	var/list/area/prisonAreas = list()
-
-
+	ic_name = "an imprisonment system virus"
+	no_fake = 1//Complicated to announce because of prison areas thing
 /datum/event/prison_break/setup()
 	announceWhen = rand(50, 60)
 	releaseWhen = rand(20, 30)
