@@ -176,8 +176,8 @@
 		var/containing = ""
 		if (contained)
 			containing += ", containing [contained]"
-		message_admins("Chemical smoke [containing]has been released ([whereLink]). [mobnames]", 0, 1)
-		log_game("Chemical smoke [containing]has been released ([where]). Affected character(s): [english_list(touched_mobs.name)] CKEYS: [english_list(touched_mobs.ckey)]")
+		message_admins("Chemical smoke[containing] has been released ([whereLink]). [mobnames]", 0, 1)
+		log_game("Chemical smoke[containing] has been released ([where]). [english_list(touched_mobs, "Nobody affected.")]")
 
 //Runs the chem smoke effect
 // Spawns damage over time loop for each reagent held in the cloud.
