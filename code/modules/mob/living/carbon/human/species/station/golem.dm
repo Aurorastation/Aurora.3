@@ -5,11 +5,14 @@
 	icobase = 'icons/mob/human_races/r_golem.dmi'
 	deform = 'icons/mob/human_races/r_golem.dmi'
 
-	language = "Sol Common" //todo?
+	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
 	flags = IS_RESTRICTED | NO_BREATHE | NO_PAIN | NO_BLOOD | NO_SCAN | NO_POISON | NO_SLIP
 	siemens_coefficient = 0
 	rarity_value = 5
+	
+	brute_mod = 0.5
+	slowdown = 1
 
 	warning_low_pressure = 50 //golems can into space now
 	hazard_low_pressure = 0
