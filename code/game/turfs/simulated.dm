@@ -23,7 +23,8 @@
  		overlays += wet_overlay
  		sleep(800)
  		if(wet >= 2)
- 			return
+ 			sleep(1600)
+ 			wet = 0
  		wet = 0
  		if(wet_overlay)
  			overlays -= wet_overlay
