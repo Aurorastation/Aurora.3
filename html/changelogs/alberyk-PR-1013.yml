@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - tweak: "Fixed space lube never drying."
+  - bugfix: "Fixed space lube never drying."
