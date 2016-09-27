@@ -504,7 +504,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/fluff/vittorio_jacket //Atlas Overcoat - Vittorio Giurifiglio - tytostyris - DONE
 	name = "atlas overcoat"
-	desc = "A classy black militaristic uniform, which is adorned with a sash and a eagle."
+	desc = "A classy black militaristic uniform, which is adorned with a sash and an eagle."
 	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
 	icon_state = "vittorio_jacket"
 	item_state = "vittorio_jacket"
