@@ -1,6 +1,9 @@
 /// Aurora custom items ///
-// Add custom items to this file, their sprites into their own dmi. in the icons/obj/custom_items
-// Clothing items will probably require contained sprites
+/*basic guidelines:
+Custom items must be accepted at some point in the forums by the staff handling them.
+Add custom items to this file, their sprites into their own dmi. in the icons/obj/custom_items.
+All custom items with worn sprites must follow the contained sprite system: http://forums.aurorastation.org/viewtopic.php?f=23&t=6798
+*/
 
 /obj/item/clothing/accessory/fluff/antique_pocket_watch //Antique Pocket Watch - Eric Derringer - xelnagahunter - Done
 	name = "antique pocket watch"
@@ -23,7 +26,7 @@
 
 
 /obj/item/clothing/head/soft/sec/corp/fluff/mendoza_cap //Mendoza's cap - Chance Mendoza - loow - DONE
-	name = "Mendoza's corporate security cap"
+	name = "well-worn corporate security cap"
 	desc = "A baseball hat in corporate colors.'C. Mendoza' is embroidered in fine print on the bill. On the underside of the cap, in dark ink, the phrase 'Gamble till you're Lucky!' is written in loopy cursive handwriting."
 
 
@@ -438,7 +441,7 @@
 	icon_state = "kir_bandanna"
 	item_state = "kir_bandanna"
 	contained_sprite = 1
-	
+
 
 /obj/item/clothing/suit/storage/toggle/bomber/fluff/ash_jacket //Hand-me-down Bomber Jacket - superballs - Ash LaCroix - DONE
 	name = "hand-me-down bomber jacket"
@@ -476,7 +479,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100 - DONE
 	name = "first shot"
-	desc = "A flask. Smells of absinthe, maybe vodka. The bottom left corner has a silver bar. The bottom is engraved, it reads 'The First Shot'."
+	desc = "A flask. Smells of absinthe, maybe vodka. The bottom right corner has a silver bar. The bottom is engraved, it reads 'The First Shot'."
 	icon = 'icons/obj/custom_items/barcia_flask.dmi'
 	icon_state = "barcia_flask"
 
@@ -488,8 +491,8 @@
 	icon_state = "stone_ring"
 	item_state = "stone_ring"
 	contained_sprite = 1
-	
-	
+
+
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk - DONE
 	name = "traditional jumper dress"
 	desc = "A light summer-time dress, decorated neatly with black and silver colors, it seems to be rather old."
@@ -497,3 +500,58 @@
 	icon_state = "sayyidah_dress"
 	item_state = "sayyidah_dress"
 	contained_sprite = 1
+
+
+/obj/item/clothing/suit/storage/fluff/vittorio_jacket //Atlas Overcoat - Vittorio Giurifiglio - tytostyris - DONE
+	name = "atlas overcoat"
+	desc = "A classy black militaristic uniform, which is adorned with a sash and a eagle."
+	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
+	icon_state = "vittorio_jacket"
+	item_state = "vittorio_jacket"
+	contained_sprite = 1
+
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
+	name = "CERN labcoat"
+	desc = "A Labcoat with a blue pocket and blue collar. On the pocket, you can read 'C.E.R.N.'"
+	icon = 'icons/obj/custom_items/helmut_labcoat.dmi'
+	icon_state = "helmut_labcoat"
+	item_state = "helmut_labcoat"
+	icon_open = "helmut_labcoat_open"
+	icon_closed = "helmut_labcoat"
+	contained_sprite = 1
+
+
+/obj/item/clothing/shoes/jackboots/unathi/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
+	name = "marching sandals"
+	desc = "A pair of sturdy marching sandals made of layers of leather and with a reinforced sole, they are also rather big."
+	icon = 'icons/obj/custom_items/yinzr_sandals.dmi'
+	item_state = "yinzr_sandals"
+	icon_state = "yinzr_sandals"
+	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/fluff/laikov_broach //Jeweled Broach - Aji'Rah Laikov - nebulaflare
+	name = "jeweled broach"
+	desc = "A jeweled broach, inlaid with semi-precious gems. The clasp appears to have been replaced."
+	icon = 'icons/obj/custom_items/laikov_broach.dmi'
+	item_state = "laikov_broach"
+	icon_state = "laikov_broach"
+	contained_sprite = 1
+
+/obj/item/clothing/accessory/fluff/laikov_broach/attack_self(mob/user as mob)
+
+	if(isliving(user))
+		user.visible_message("<span class='notice'>[user] displays their [src.name]. It glitters in many colors.</span>")
+
+/obj/item/clothing/accessory/fluff/laikov_broach/attack(mob/living/carbon/human/M, mob/living/user)
+	if(isliving(user))
+		user.visible_message("<span class='danger'>[user] thrust the [src.name] into [M]'s face.</span>")
+
+
+/obj/item/weapon/fluff/akela_photo // Akela's Family Photo - Akela Ha'kim - moltenkore - DONE
+	name = "family photo"
+	desc = "You see on the photo; a Tajara couple holding a small tajaran kit in their arms, while looking very happy. On the back is written; 'Nasir, Akela and Ishka' with a little gold mark that reads: 'Two months'."
+	icon = 'icons/obj/custom_items/akela_photo.dmi'
+	icon_state = "akela_photo"
+	w_class = 2
