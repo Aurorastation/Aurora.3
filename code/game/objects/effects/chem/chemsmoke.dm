@@ -120,7 +120,6 @@
 
 	targetTurfs = new()
 
-	var/touch_log_trigger = 0 // will show an admin log if the smoke cloud touches someone
 	var/list/mob/touched_mobs = list()
 
 	//build affected area list
@@ -133,7 +132,6 @@
 			for (var/mob/living/carbon/human/MT in T.contents)
 				if (MT.client)
 					touched_mobs += get_mob_by_key(MT.ckey)
-					touch_log_trigger = 1
 
 	wallList = new()
 
@@ -160,7 +158,7 @@
 		else
 			message_admins("A chemical smoke reaction has taken place in ([whereLink]). No associated key.", 0, 1)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")
-	else if (show_touch_log && touch_log_trigger)
+	else if (show_touch_log && touched_mobs.len)
 		var/mobnames = ""
 		if (touched_mobs.len > 1)
 			mobnames += "Affected players: "
@@ -169,6 +167,7 @@
 				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=\ref[touched_mobs[i]]'>?</a>"
 				if (touched_mobs[i+1])
 					mobnames += ", "
+				i++
 			while (touched_mobs[i])
 			mobnames += "."
 		else mobnames += "Affected player: [touched_mobs[1]]."
