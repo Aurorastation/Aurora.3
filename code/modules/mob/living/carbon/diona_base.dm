@@ -440,7 +440,7 @@ if (flashlight_active)
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_amount = 1.5 //how much light there is in the place, affects receiving nutrition and healing
+	var/light_amount = DIONA_MAX_LIGHT //how much light there is in the place, affects receiving nutrition and healing
 	var/light_factor = 1//used for  if a gestalt's response node is damaged. it will feed more slowly
 
 	if (DS.light_organ)
