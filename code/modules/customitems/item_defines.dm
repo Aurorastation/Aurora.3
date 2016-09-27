@@ -551,7 +551,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/fluff/akela_photo // Akela's Family Photo - Akela Ha'kim - moltenkore - DONE
 	name = "family photo"
-	desc = "You see on the photo; a Tajara couple holding a small tajaran kit in their arms, while looking very happy. On the back is written; 'Nasir, Akela and Ishka' with a little gold mark that reads: 'Two months'."
+	desc = "You see on the photo a tajaran couple holding a small tajaran kit in their arms, while looking very happy. On the back it is written; 'Nasir, Akela and Ishka' with a little gold mark that reads: 'Two months'."
 	icon = 'icons/obj/custom_items/akela_photo.dmi'
 	icon_state = "akela_photo"
 	w_class = 2
