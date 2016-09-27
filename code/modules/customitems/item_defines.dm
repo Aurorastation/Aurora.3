@@ -540,7 +540,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 /obj/item/clothing/accessory/fluff/laikov_broach/attack_self(mob/user as mob)
-
 	if(isliving(user))
 		user.visible_message("<span class='notice'>[user] displays their [src.name]. It glitters in many colors.</span>")
 
@@ -551,7 +550,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/fluff/akela_photo // Akela's Family Photo - Akela Ha'kim - moltenkore - DONE
 	name = "family photo"
-	desc = "You see on the photo a tajaran couple holding a small tajaran kit in their arms, while looking very happy. On the back it is written; 'Nasir, Akela and Ishka' with a little gold mark that reads: 'Two months'."
+	desc = "You see on the photo a tajaran couple holding a small kit in their arms, while looking very happy. On the back it is written; 'Nasir, Akela and Ishka' with a little gold mark that reads: 'Two months'."
 	icon = 'icons/obj/custom_items/akela_photo.dmi'
 	icon_state = "akela_photo"
 	w_class = 2
