@@ -511,7 +511,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor - DONE
 	name = "CERN labcoat"
 	desc = "A Labcoat with a blue pocket and blue collar. On the pocket, you can read 'C.E.R.N.'"
 	icon = 'icons/obj/custom_items/helmut_labcoat.dmi'
@@ -522,7 +522,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
+/obj/item/clothing/shoes/jackboots/unathi/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk - DONE
 	name = "marching sandals"
 	desc = "A pair of sturdy marching sandals made of layers of leather and with a reinforced sole, they are also rather big."
 	icon = 'icons/obj/custom_items/yinzr_sandals.dmi'
@@ -531,7 +531,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/accessory/fluff/laikov_broach //Jeweled Broach - Aji'Rah Laikov - nebulaflare
+/obj/item/clothing/accessory/fluff/laikov_broach //Jeweled Broach - Aji'Rah Laikov - nebulaflare - DONE
 	name = "jeweled broach"
 	desc = "A jeweled broach, inlaid with semi-precious gems. The clasp appears to have been replaced."
 	icon = 'icons/obj/custom_items/laikov_broach.dmi'
