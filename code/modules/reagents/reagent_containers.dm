@@ -66,6 +66,8 @@
 		user << "<span class='notice'>[target] is full.</span>"
 		return 1
 
+
+
 	var/contained = reagentlist()
 	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained]</font>")
@@ -73,6 +75,11 @@
 
 	user.visible_message("<span class='danger'>[target] has been splashed with something by [user]!", "<span class = 'notice'>You splash the solution onto [target].</span>")
 	reagents.splash(target, reagents.total_volume)
+
+	if (istype(target, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = target
+		R.spark_system.start()
+
 	return 1
 
 /obj/item/weapon/reagent_containers/proc/self_feed_message(var/mob/user)
@@ -95,9 +102,13 @@
 		user << "<span class='notice'>\The [src] is empty.</span>"
 		return 1
 
+	var/types = target.find_type()
+	var/mob/living/carbon/human/H
+	if(istype(target, /mob/living/carbon/human))
+		H = target
+
 	if(target == user)
-		if(istype(user, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
+		if (H)
 			if(H.species.flags & IS_SYNTHETIC)
 				H << "<span class='notice'>You have a monitor for a head, where do you think you're going to put that?</span>"
 				return 1
@@ -111,13 +122,15 @@
 		reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_INGEST)
 		feed_sound(user)
 		return 1
-	else
-		if(istype(target, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = target
-			if(H.species.flags & IS_SYNTHETIC)
-				H << "<span class='notice'>They have a monitor for a head, where do you think you're going to put that?</span>"
-				return
+	else if (types & TYPE_SYNTHETIC)
+		if(H && (H.species.flags & IS_SYNTHETIC))
+			H << "<span class='notice'>They have a monitor for a head, where do you think you're going to put that?</span>"
+			return 1
 
+		standard_splash_mob(user, target)
+		return 0
+	else
+		if (H)
 			var/obj/item/blocked = H.check_mouth_coverage()
 			if(blocked)
 				user << "<span class='warning'>\The [blocked] is in the way!</span>"

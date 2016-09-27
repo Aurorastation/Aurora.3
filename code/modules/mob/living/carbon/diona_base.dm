@@ -118,6 +118,9 @@ var/list/diona_banned_languages = list(
 	if ((DS.stored_energy < 1 && !radiation))//we need energy or radiation to heal
 		return
 
+	radiation = max(radiation, 0)
+
+
 	var/value //A little variable we'll reuse to optimise
 	var/CL//Cached loss, to save on repeatedly recalculating it
 	var/HF = DS.healing_factor//I don't know if fetching a variable from an object repeatedly is slow, but this seems safe
@@ -128,7 +131,7 @@ var/list/diona_banned_languages = list(
 	if (getHalLoss() > 0)
 		CL = getHalLoss()
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				adjustHalLoss(value*-3,1)//Halloss heals more quickly
 				radiation -= value
@@ -145,20 +148,19 @@ var/list/diona_banned_languages = list(
 		CL = getBruteLoss()
 
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				adjustBruteLoss(value*-1)
 				radiation -= value
 				CL = getBruteLoss()//After adjusting it, recalculate for the lighthealing
 
 			value = min(CL, DS.stored_energy, 1*HF)
-
 			adjustBruteLoss(value*-1)
 			DS.stored_energy -= value
 
 		CL = getFireLoss()
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				adjustFireLoss(value*-1)
 				radiation -= value
@@ -170,7 +172,7 @@ var/list/diona_banned_languages = list(
 
 		CL = stunned
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				stunned -= value
 				radiation -= value
@@ -183,7 +185,7 @@ var/list/diona_banned_languages = list(
 
 		CL = weakened
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				weakened -= value
 				radiation -= value
@@ -198,7 +200,7 @@ var/list/diona_banned_languages = list(
 		if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 			CL = getToxLoss()
 			if (CL > 0)
-				if (radiation)
+				if (radiation > 0)
 					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					adjustToxLoss(value*-1)
 					radiation -= value
@@ -213,7 +215,7 @@ var/list/diona_banned_languages = list(
 
 			CL = getCloneLoss()
 			if (CL > 0)
-				if (radiation)
+				if (radiation > 0)
 					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					adjustCloneLoss(value/-2.5)//Genetic damage, should diona ever suffer it, heals much more slowly.
 					radiation -= value//Most likely the only time they'll cloneloss is escaping from being partially devoured
@@ -243,7 +245,7 @@ var/list/diona_banned_languages = list(
 		if (H.bad_internal_organs.len)
 			for (var/obj/item/organ/O in H.bad_internal_organs)
 				CL = O.damage
-				if (radiation)
+				if (radiation > 0)
 					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					O.damage += value/-1.5
 					radiation -= value
