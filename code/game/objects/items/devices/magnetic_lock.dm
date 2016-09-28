@@ -119,7 +119,7 @@
 					return
 				user << "<span class='notice'>You remove \the [powercell] from \the [src].</span>"
 				if (loc == user)
-					powercell.loc = user.loc
+					powercell.forceMove(user.loc)
 				else
 					powercell.loc = loc
 				powercell = null
