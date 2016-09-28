@@ -342,7 +342,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac - DONE
 	name = "tiger claw"
-	desc = "A small energy dagger given to Golden Tigers."
+	desc = "A small cerimonial energy dagger given to Golden Tigers."
 	icon = 'icons/obj/custom_items/moon_baton.dmi'
 	icon_state = "tigerclaw"
 	item_state = "tigerclaw"
