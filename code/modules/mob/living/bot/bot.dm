@@ -124,7 +124,7 @@
 	switch(severity)
 		if(1)
 			death()
-		if(2)
+		else
 			turn_off()
 	..()
 
