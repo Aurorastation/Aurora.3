@@ -23,11 +23,9 @@
 /obj/item/device/flashlight/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		item_state = "[initial(item_state)]-on"
 		set_light(brightness_on)
 	else
 		icon_state = "[initial(icon_state)]"
-		item_state = "[initial(item_state)]"
 		set_light(0)
 
 /obj/item/device/flashlight/attack_self(mob/user)
@@ -114,6 +112,7 @@
 	name = "maglight"
 	desc = "A very heavy duty flashlight."
 	icon_state = "maglight"
+	item_state = "maglight"
 	force = 10
 	brightness_on = 5
 	w_class = 3
@@ -260,28 +259,28 @@
 		user.visible_message("<span class='notice'>[user] cracks and shakes the glowstick.</span>", "<span class='notice'>You crack and shake the glowstick, turning it on!</span>")
 		processing_objects += src
 
-/obj/item/device/flashlight/flare/glowstick/glowstick/red
+/obj/item/device/flashlight/flare/glowstick/red
 	name = "red glowstick"
 	desc = "A red military-grade glowstick."
 	light_color = "#FC0F29"
 	icon_state = "glowstick_red"
 	item_state = "glowstick_red"
 
-/obj/item/device/flashlight/flare/glowstick/glowstick/blue
+/obj/item/device/flashlight/flare/glowstick/blue
 	name = "blue glowstick"
 	desc = "A blue military-grade glowstick."
 	light_color = "#599DFF"
 	icon_state = "glowstick_blue"
 	item_state = "glowstick_blue"
 
-/obj/item/device/flashlight/flare/glowstick/glowstick/orange
+/obj/item/device/flashlight/flare/glowstick/orange
 	name = "orange glowstick"
 	desc = "A orange military-grade glowstick."
 	light_color = "#FA7C0B"
 	icon_state = "glowstick_orange"
 	item_state = "glowstick_orange"
 
-/obj/item/device/flashlight/flare/glowstick/glowstick/yellow
+/obj/item/device/flashlight/flare/glowstick/yellow
 	name = "yellow glowstick"
 	desc = "A yellow military-grade glowstick."
 	light_color = "#FEF923"
