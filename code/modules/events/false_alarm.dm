@@ -5,7 +5,7 @@
 
 /datum/event/false_alarm
 	announceWhen	= 0
-	endWhen	=	2//90
+	endWhen	=	90
 	var/datum/event_meta/EM
 	var/eventname
 
@@ -16,7 +16,7 @@
 
 /datum/event/false_alarm/announce()
 	var/datum/event_container/EC
-	if (prob(40))
+	if (prob(60))
 		EC = event_manager.event_containers[EVENT_LEVEL_MODERATE]
 	else
 		EC = event_manager.event_containers[EVENT_LEVEL_MAJOR]
