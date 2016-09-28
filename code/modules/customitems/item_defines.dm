@@ -367,7 +367,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = initial(icon_state)
 		item_state = icon_state
 		slot_flags = initial(slot_flags)
-		attack_verb = list()
+		attack_verb = list("prodded")
 	user.regenerate_icons()
 
 
