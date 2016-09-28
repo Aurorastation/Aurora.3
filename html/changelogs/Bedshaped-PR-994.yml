@@ -1,6 +1,0 @@
-author: Bedshaped
-
-delete-after: True
-
-changes: 
-  - rscadd: "Adding an adminlog to vent clog events."
