@@ -106,16 +106,20 @@
 	brightness_on = 7
 	w_class = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
-	
+	contained_sprite = 1
+
 /obj/item/device/flashlight/maglight
 	name = "maglight"
 	desc = "A very heavy duty flashlight."
 	icon_state = "maglight"
 	force = 10
 	brightness_on = 5
+	w_class = 3
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
 	hitsound = 'sound/weapons/smash.ogg'
+	contained_sprite = 1
+
 
 // the desk lamps are a bit special
 /obj/item/device/flashlight/lamp
@@ -230,13 +234,16 @@
 /obj/item/device/flashlight/flare/glowstick
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
+	w_class = 2
 	brightness_on = 4
 	light_power = 2
 	light_color = "#49F37C"
+	icon = 'icons/obj/glowsticks.dmi'
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	on_damage = 0
 	produce_heat = 0
+	contained_sprite = 1
 
 /obj/item/device/flashlight/flare/glowstick/attack_self(mob/user)
 
