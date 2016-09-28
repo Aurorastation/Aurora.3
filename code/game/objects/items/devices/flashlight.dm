@@ -114,7 +114,7 @@
 	force = 10
 	brightness_on = 5
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
+	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 50)
 	hitsound = 'sound/weapons/smash.ogg'
 
 // the desk lamps are a bit special
