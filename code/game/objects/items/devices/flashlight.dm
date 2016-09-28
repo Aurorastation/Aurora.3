@@ -206,3 +206,13 @@
 
 /obj/item/device/flashlight/slime/attack_self(mob/user)
 	return //Bio-luminescence does not toggle.
+
+/obj/item/device/flashlight/heavy
+	name = "heavy duty flashlight"
+	desc = "A high-luminosity flashlight for specialist duties."
+	icon_state = "heavyflashlight"
+	item_state = "heavyflashlight"
+	brightness_on = 7
+	w_class = 3
+	
+	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
