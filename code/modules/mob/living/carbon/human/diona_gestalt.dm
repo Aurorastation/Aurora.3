@@ -119,6 +119,9 @@
 	set category = "Abilities"
 	set name = "Check light level"
 
+	if (!DS.light_organ || DS.light_organ.is_broken() || DS.light_organ.is_bruised())
+		usr << span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!")
+		return
 	var/light = get_lightlevel_diona(DS)
 
 	if (light <= -0.75)
@@ -142,6 +145,8 @@
 	var/dark_consciousness = 120//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
 	var/dark_survival = 180//How long this diona can survive in darkness after energy is gone, before it dies
 
+
+
 	var/MLS = (1.5 / 2.1)//Maximum (energy) lost per second, in total darkness
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
@@ -157,6 +162,17 @@
 		if (istype(organ, /obj/item/organ/diona/nutrients))
 			DS.nutrient_organ = organ
 
+//This proc can be called if some dionastats information needs to be refreshed or re-found
+//Currently only used for refreshing organs
+/mob/living/carbon/human/proc/update_dionastats()
+	DS.light_organ = null
+	DS.nutrient_organ = null
+
+	for (var/organ in internal_organs)
+		if (istype(organ, /obj/item/organ/diona/node))
+			DS.light_organ = organ
+		if (istype(organ, /obj/item/organ/diona/nutrients))
+			DS.nutrient_organ = organ
 
 //Splitting functions
 //====================
