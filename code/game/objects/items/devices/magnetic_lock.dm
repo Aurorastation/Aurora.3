@@ -121,7 +121,7 @@
 				if (loc == user)
 					powercell.forceMove(user.loc)
 				else
-					powercell.loc = loc
+					powercell.forceMove(loc)
 				powercell = null
 				return
 			if (istype(I, /obj/item/weapon/weldingtool))
