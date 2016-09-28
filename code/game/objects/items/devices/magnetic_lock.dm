@@ -11,7 +11,7 @@
 	icon = 'icons/obj/magnetic_locks/centcom.dmi'
 	icon_state = "inactive"
 	w_class = 3
-	req_access = list(103)
+	req_access = list(access_cent_specops)
 	health = 90
 
 	var/department = "CENTCOM"
@@ -24,13 +24,13 @@
 /obj/item/device/magnetic_lock/security
 	icon = 'icons/obj/magnetic_locks/security.dmi'
 	department = "Security"
-	req_access = list(1)
+	req_access = list(access_security)
 
 /obj/item/device/magnetic_lock/engineering
 	icon = 'icons/obj/magnetic_locks/engineering.dmi'
 	department = "Engineering"
 	req_access = null
-	req_one_access = list(11, 24)
+	req_one_access = list(access_engine_equip, access_atmospherics)
 
 /obj/item/device/magnetic_lock/New()
 	..()
