@@ -123,8 +123,11 @@
 	if(user.a_intent == I_HURT)
 		if (!..())	//item/attack() does it's own messaging and logs
 			return 0	// item/attack() will return 1 if they hit, 0 if they missed.
-		agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
 		stun *= 0.5
+		if(status)		//Checks to see if the stunbaton is on.
+			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
+		else
+			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
 	else
 		//copied from human_defense.dm - human defence code should really be refactored some time.
@@ -155,15 +158,16 @@
 				L.visible_message("<span class='danger'>[L] has been prodded with [src] by [user]!</span>")
 
 	//stun effects
-	if (status)
-		L.stun_effect_act(stun, agony, target_zone, src)
-	else
-		..()
+	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-
-	deductcharge(hitcost)
+	
+	if(status)
+		deductcharge(hitcost)
+		
+	else
+		return
 
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
