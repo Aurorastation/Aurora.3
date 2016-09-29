@@ -82,6 +82,7 @@
 	var/list/wallList
 	var/density
 	var/show_log = 1
+	var/show_touch_log = 0 // will show an admin log if the smoke cloud touches someone
 	var/duration = 20//time smoke lasts, in deciseconds
 
 /datum/effect/effect/system/smoke_spread/chem/spores
@@ -119,11 +120,18 @@
 
 	targetTurfs = new()
 
+	var/list/mob/touched_mobs = list()
+
 	//build affected area list
 	for(var/turf/T in view(range, location))
 		//cull turfs to circle
 		if(sqrt((T.x - location.x)**2 + (T.y - location.y)**2) <= range)
 			targetTurfs += T
+		// populates a list of mobs in the smoke for logs
+		if (show_touch_log)
+			for (var/mob/living/carbon/human/MT in T.contents)
+				if (MT.client)
+					touched_mobs += get_mob_by_key(MT.ckey)
 
 	wallList = new()
 
@@ -150,6 +158,25 @@
 		else
 			message_admins("A chemical smoke reaction has taken place in ([whereLink]). No associated key.", 0, 1)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")
+	else if (show_touch_log && touched_mobs.len)
+		var/mobnames = ""
+		if (touched_mobs.len > 1)
+			mobnames += "Affected players: "
+			var/i = 1
+			do
+				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=\ref[touched_mobs[i]]'>?</a>"
+				if (touched_mobs[i+1])
+					mobnames += ", "
+				i++
+			while (touched_mobs[i])
+			mobnames += "."
+		else mobnames += "Affected player: [touched_mobs[1]]."
+		//world << "DEBUG: [mobnames]"
+		var/containing = ""
+		if (contained)
+			containing += ", containing [contained]"
+		message_admins("Chemical smoke[containing] has been released ([whereLink]). [mobnames]", 0, 1)
+		log_game("Chemical smoke[containing] has been released ([where]). Affected: [english_list(touched_mobs, "Nobody affected.")]")
 
 //Runs the chem smoke effect
 // Spawns damage over time loop for each reagent held in the cloud.
