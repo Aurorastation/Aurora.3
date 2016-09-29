@@ -1,6 +1,6 @@
 #define STATUS_INACTIVE 0
 #define STATUS_ACTIVE 1
-#define STATUS_BROKEN 2
+#define STATUS_BROKEN -1
 
 #define LAYER_ATTACHED 3.2
 #define LAYER_NORMAL 3
@@ -16,6 +16,7 @@
 
 	var/department = "CENTCOM"
 	var/status = 0
+	var/locked = 0
 	var/constructionstate = 0
 	var/drainamount = 20
 	var/obj/machinery/door/airlock/target = null
@@ -62,6 +63,18 @@
 /obj/item/device/magnetic_lock/attackby(var/obj/item/I, var/mob/user)
 	if (status == STATUS_BROKEN)
 		user << "<span class='danger'>[src] is broken beyond repair!</span>"
+		return
+
+	if (istype(I, /obj/item/weapon/card/id) && status == STATUS_ACTIVE)
+		if (check_access(I) && !constructionstate)
+			locked = !locked
+			adjustsprite()
+			var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
+			var/pos_adj = "[user.name] swipes \his "
+			var/fp_adj = "You swipe your "
+			user.visible_message(span("warning", pos_adj += msg), span("notice", fp_adj += msg))
+		else if (constructionstate)
+			user << "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>"
 		return
 
 	if (istype(I, /obj/item/weapon) && user.a_intent == "hurt")
@@ -258,36 +271,25 @@
 
 	anchored = 1
 
-/obj/item/device/magnetic_lock/proc/adjustsprite(var/obj/target as obj)
-	if (target)
-		switch (get_dir(src, target))
+/obj/item/device/magnetic_lock/proc/update_icons()
+	if (status > 0 && anchored)
+		switch (dir)
 			if (NORTH)
 				pixel_x = 0
-				pixel_y = 32
-			if (NORTHEAST)
-				pixel_x = 32
 				pixel_y = 32
 			if (EAST)
 				pixel_x = 32
 				pixel_y = 0
-			if (SOUTHEAST)
-				pixel_x = 32
-				pixel_y = -32
 			if (SOUTH)
 				pixel_x = 0
-				pixel_y = -32
-			if (SOUTHWEST)
-				pixel_x = -32
 				pixel_y = -32
 			if (WEST)
 				pixel_x = -32
 				pixel_y = 0
-			if (NORTHWEST)
-				pixel_x = -32
-				pixel_y = 32
 	else
 		pixel_x = 0
 		pixel_y = 0
+	update_overlays()
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	health -= damage
