@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added heavy duty flashlights and maglights."
+  - rscadd: "Ported glowsticks from polaris."
+  - imageadd: "New recorder, camera and lantern sprites."
