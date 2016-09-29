@@ -501,7 +501,7 @@
 		if(!S) return 1
 		return is_alien_whitelisted(src, S.name) || !config.usealienwhitelist || !(S.flags & IS_WHITELISTED)
 
-/mob/new_player/get_species()
+/mob/new_player/get_species(var/reference = 0)
 	var/datum/species/chosen_species
 	if(client.prefs.species)
 		chosen_species = all_species[client.prefs.species]
@@ -510,7 +510,10 @@
 		return "Human"
 
 	if(is_species_whitelisted(chosen_species) || has_admin_rights())
-		return chosen_species.name
+		if (reference)
+			return chosen_species
+		else
+			return chosen_species.name
 
 	return "Human"
 

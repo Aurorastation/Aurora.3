@@ -120,6 +120,14 @@
 	log_and_message_admins("emagged [src]")
 	return
 
+/mob/living/bot/emp_act(severity)
+	switch(severity)
+		if(1)
+			death()
+		else
+			turn_off()
+	..()
+
 /mob/living/bot/proc/turn_on()
 	if(stat)
 		return 0

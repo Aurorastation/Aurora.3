@@ -104,8 +104,9 @@ var/last_chew = 0
 	var/obj/item/organ/external/O = H.organs_by_name[H.hand?"l_hand":"r_hand"]
 	if (!O) return
 
-	var/s = "\red [H.name] chews on \his [O.name]!"
+	var/s = "\red [H.name] chews on [H.get_pronoun(1)] [O.name]!"
 	H.visible_message(s, "\red You chew on your [O.name]!")
+	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun(1)] restrained hand - (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
 	log_attack("[s] ([H.ckey])")
 
