@@ -165,9 +165,6 @@
 	
 	if(status)
 		deductcharge(hitcost)
-		
-	else
-		return
 
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
