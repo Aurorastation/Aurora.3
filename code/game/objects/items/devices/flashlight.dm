@@ -232,8 +232,6 @@
 
 //Glowsticks
 
-//Glowsticks
-
 /obj/item/device/flashlight/glowstick
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
@@ -250,7 +248,7 @@
 	var/fuel = 0
 
 /obj/item/device/flashlight/glowstick/New()
-	fuel = rand(1600, 2000)
+	fuel = rand(1200, 1700)
 	..()
 
 /obj/item/device/flashlight/glowstick/process()
