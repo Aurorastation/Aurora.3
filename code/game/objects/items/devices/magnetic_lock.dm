@@ -66,14 +66,20 @@
 		return
 
 	if (istype(I, /obj/item/weapon/card/id) && status == STATUS_ACTIVE)
-		if (check_access(I) && !constructionstate)
-			locked = !locked
-			adjustsprite()
-			var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
-			var/pos_adj = "[user.name] swipes \his "
-			var/fp_adj = "You swipe your "
-			user.visible_message(span("warning", pos_adj += msg), span("notice", fp_adj += msg))
-		else if (constructionstate)
+		if (!constructionstate)
+			if (check_access(I)
+				locked = !locked
+				update_icons()
+				playsound(src, 'sound/machines/ping.ogg', 20, 1)
+				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
+				var/pos_adj = "[user.name] swipes \his "
+				var/fp_adj = "You swipe your "
+				user.visible_message(span("warning", pos_adj += msg), span("notice", fp_adj += msg))
+			else
+				playsound(src, 'sound/machines/buzz-sigh.ogg', 20, 1)
+				user << span("warning", "\The [src] buzzes as you swipe your [I].")
+				return
+		else
 			user << "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>"
 		return
 
@@ -96,21 +102,9 @@
 				setstatus(STATUS_BROKEN)
 				return
 
-			if (status == STATUS_ACTIVE && istype(I, /obj/item/weapon/card/id))
-				if (check_access(I) && !constructionstate)
-					user << "<span class='notice'>You swipe your [I] through [src], making it drop onto the floor with a thud.</span>"
-					setstatus(STATUS_INACTIVE)
-					return
-				else if (constructionstate)
-					user << "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>"
-					return
-				else
-					user << "<span class='danger'>A red light flashes on [src] as you swipe your [I] through it.</span>"
-					flick("deny",src)
-					return
-
-			if (istype(I, /obj/item/weapon/screwdriver))
-				user << "<span class='notice'>You unfasten and remove the plastic cover from [src], revealing a thick metal shell.</span>"
+			if (istype(I, /obj/item/weapon/crowbar))
+				if (isnull(locked))
+				user << span("notice", "You unfasten and remove the plastic cover from [src], revealing a thick metal shell.</span>"
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				setconstructionstate(1)
 				return
