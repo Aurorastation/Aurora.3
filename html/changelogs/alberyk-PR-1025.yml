@@ -5,4 +5,5 @@ delete-after: True
 changes: 
   - rscadd: "Added heavy duty flashlights and maglights."
   - rscadd: "Ported glowsticks from polaris."
+  - rscadd: "You can now carry flashlights in your armor."
   - imageadd: "New recorder, camera and lantern sprites."
