@@ -290,7 +290,7 @@
 		return 0
 
 	if( crime.brig_sentence >= PERMABRIG_SENTENCE )
-		user <<  "<span class='alert'>\The [src] buzzes, \"The criminal has a permabrig sentence and needs to be frozen.\"</span>"
+		user <<  "<span class='alert'>\The [src] buzzes, \"The criminal has a permabrig sentence and needs to be permanently detained.\"</span>"
 		return 0
 
 	var/addtime = timetoset

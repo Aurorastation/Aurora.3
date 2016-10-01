@@ -58,7 +58,7 @@
 
 /datum/law/low_severity/suspicious_conduct
 	name = "i106 - Suspicious Conduct"
-	desc = " 	To possess a suspiciously wide skill set not indicated in employee record, wielding dangerous weapons near other staff, extensive inquiring about critical areas, or stalking other employees. "
+	desc = " To possess a suspiciously wide skill set not indicated in employee record, wielding dangerous weapons near other staff, extensive inquiring about critical areas, or stalking other employees. "
 	id = "i106"
 
 	min_brig_time = 2

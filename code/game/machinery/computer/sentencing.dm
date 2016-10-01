@@ -337,7 +337,7 @@
 	. += "<th>Name</th>"
 	. += "<th>Description</th>"
 	. += "<th>Brig Sentence</th>"
-//	. += "<th>Fine</th>"
+	. += "<th>Fine</th>"
 	. += "<th>Button</th>"
 	. += "</tr>"
 
@@ -346,7 +346,7 @@
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
 		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-//		. += "<td>$[L.min_fine] - $[L.max_fine]</td>"
+		. += "<td>[L.min_fine]-[L.max_fine]cR</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -367,8 +367,7 @@
 	. += "<th>Name</th>"
 	. += "<th>Description</th>"
 	. += "<th>Brig Sentence</th>"
-	. += "<th>Prison Sentence</th>"
-//	. += "<th>Fine</th>"
+	. += "<th>Fine</th>"
 	. += "<th>Button</th>"
 	. += "</tr>"
 
@@ -377,6 +376,7 @@
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
 		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
+		. += "<td>[L.min_fine]-[L.max_fine]cR</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -397,7 +397,6 @@
 	. += "<th>Name</th>"
 	. += "<th>Description</th>"
 	. += "<th>Brig Sentence</th>"
-	. += "<th>Prison Sentence</th>"
 	. += "<th>Button</th>"
 	. += "</tr>"
 
@@ -406,7 +405,6 @@
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
 		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-//		. += "<td>[L.min_prison_time] - [L.max_prison_time] days</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
