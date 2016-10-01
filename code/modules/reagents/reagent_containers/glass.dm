@@ -71,6 +71,9 @@
 			flags |= OPENCONTAINER
 		update_icon()
 
+	AltClick(var/mob/user)
+		set_APTFT()
+
 	afterattack(var/obj/target, var/mob/user, var/flag)
 
 		if(!is_open_container() || !flag)

@@ -25,12 +25,18 @@
 	if(stat != CONSCIOUS)
 		return
 
+
+
 	if(nutrition < evolve_nutrition)
 		src << "\red You do not have enough biomass to grow yet. Currently [nutrition]/[evolve_nutrition]."
 		return
 
 	if(gestalt)
 		src << "\red You are already part of a collective, if you wish to form your own, you must split off first"
+		return
+
+	if (!istype(loc, /turf))
+		src << "\red There's not enough space to grow here. Stand on the floor!."
 		return
 
 	// confirm_evolution() handles choices and other specific requirements.

@@ -29,12 +29,17 @@
 
 
 /mob/living/proc/attempt_devour(var/mob/living/victim, var/eat_types, var/mouth_size = null)
-	face_atom(victim)
+
 
 	//This function will attempt to eat the victim,
 	//either by swallowing them if they're small enough, or starting to devour them otherwise
 		//If a mouth_size is passed in, it will be used instead of this mob's size, for determining whether the victim is small enough to swallow
 	//This function is the main gateway to devouring, and will have all the safety checks
+	if (!victim)
+		return 0
+
+	face_atom(victim)
+
 	if (victim == src)
 		src << "\red You can't eat yourself!"
 		return 0
