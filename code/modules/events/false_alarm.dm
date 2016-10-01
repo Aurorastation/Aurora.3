@@ -12,9 +12,6 @@
 
 /datum/event/false_alarm/end()
 	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm")
-	if (E)
-		qdel(E)
-		E = null
 	if (EM)
 		qdel(EM)
 		EM = null
