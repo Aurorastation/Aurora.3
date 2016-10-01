@@ -18,6 +18,7 @@ $PRISONER_NAME was found guilty of $CRIME on $DATE. Their sentence was $SENTENCE
 /datum/law
 	var/name = "Law"
 	var/desc = "Pay the court a fine or serve your sentence."
+	var/id = "i000"
 
 	var/min_fine = 0 // Minimum fine (in thalers)
 	var/max_fine = 0 // Maximum fine (in thalers)

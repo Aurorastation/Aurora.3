@@ -10,7 +10,7 @@
 	var/obj/item/weapon/card/id/scan = null
 	var/obj/item/weapon/card/id/modify = null
 	var/mode = 0.0
-	var/printing = null
+	//var/printing = null
 
 /obj/machinery/computer/card/proc/is_centcom()
 	return 0

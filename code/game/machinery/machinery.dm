@@ -110,6 +110,7 @@ Class Procs:
 	var/panel_open = 0
 	var/global/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
+	var/printing = 0 // Is this machine currently printing anything?
 
 /obj/machinery/New(l, d=0)
 	..(l)
@@ -361,4 +362,19 @@ Class Procs:
 			I.crit_fail = 1
 		I.loc = loc
 	qdel(src)
+	return 1
+
+/obj/machinery/proc/print( var/obj/paper )
+	if( printing )
+		return 0
+
+	printing = 1
+
+	playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
+	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+
+	spawn(40)
+		paper.loc = src.loc
+		printing = 0
+
 	return 1

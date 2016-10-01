@@ -554,6 +554,7 @@
 	icon_state = "scrap_bloodied"
 
 /obj/item/weapon/paper/incident
+	name = "incident form receipt"
 	var/datum/crime_incident/incident
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
@@ -564,3 +565,25 @@
 \[barcode\]\[/center\]"}
 
 	..()
+
+/obj/item/weapon/paper/sentencing
+	name = "Criminal Sentencing and You"
+	icon_state = "pamphlet"
+
+/obj/item/weapon/paper/sentencing/New()
+	info = {"\[center\]\[logo\]\[/center\]
+\[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
+\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\]NSS Exodus\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
+\[br\]
+While preparing a convicted individual, remove their ID and have the terminal scan it.\[br\]
+Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
+After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
+Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
+\[hr\]
+Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+
+	..()
+
+/obj/item/weapon/paper/sentencing/update_icon()
+	return

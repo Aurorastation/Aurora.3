@@ -186,6 +186,11 @@ datum/design/circuit/emp_data
 	id = "emp_data"
 	build_path = /obj/item/weapon/circuitboard/skills
 
+datum/design/circuit/sentencing
+	name = "criminal sentencing console"
+	id = "sentencing"
+	build_path = /obj/machinery/computer/sentencing
+
 datum/design/circuit/med_data
 	name = "medical records console"
 	id = "med_data"

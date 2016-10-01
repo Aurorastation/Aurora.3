@@ -76,24 +76,6 @@
 		if(world.timeofday > src.releasetime)
 			if( src.timer_end() )// open doors, reset timer, clear status screen
 				var/message = "Criminal sentence complete. The criminal is free to go."
-
-				if( prob( 10 )) // brig timers have a little fun when sec isnt watching
-					var/sec_nearby = 0
-
-					var/datum/department/D = job_master.GetDepartmentByName( "Security Department" )
-
-					for( var/mob/living/carbon/human/H in hearers( 10 ))
-						if( H.mind )
-							if( H.mind.assigned_role in D.getAllPositionNames() )
-								sec_nearby = 1
-
-					if( !sec_nearby )
-						message = pick( "Your sentence is over, criminal scum. If it were up to me you'd stay here forever.",
-										"Hey, criminal scum, get up. Its time for you to go before I change my mind.",
-										"You're free to go, for now...",
-										"Remember, you may be free now, but I'm always watching.",
-										"You can go. If it were up to me, however, you'd be taken out back and shot." )
-
 				ping( "\The [src] pings, \"[message]\"" )
 
 		updateUsrDialog()
@@ -268,7 +250,7 @@
 	return .
 
 /obj/machinery/door_timer/attackby(obj/item/O as obj, user as mob)
-	if( istype( O, /obj/item/weapon/paper/form/incident ))
+	if( istype( O, /obj/item/weapon/paper/incident ))
 		if( !incident )
 			if( import( O, user ))
 				usr.drop_item()
@@ -278,37 +260,37 @@
 				qdel( O )
 				src.updateUsrDialog()
 		else
-			buzz( "\The [src] buzzes, \"There's already an active sentence!\"" )
+			user <<  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>"
 	else if( istype( O, /obj/item/weapon/paper ))
-		buzz( "\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"" )
+		user <<  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>"
 
 	..()
 
-/obj/machinery/door_timer/proc/import( var/obj/item/weapon/paper/form/incident/I, var/user )
+/obj/machinery/door_timer/proc/import( var/obj/item/weapon/paper/incident/I, var/user )
 	if( !istype( I ))
-		buzz( "\The [src] buzzes, \"Could not import the incident report.\"" )
+		user <<  "<span class='alert'>\The [src] buzzes, \"Could not import the incident report.\"</span>"
 		return 0
 
 	if( !istype( I.incident ))
-		buzz( "\The [src] buzzes, \"Report has no incident encoded!\"" )
+		user <<  "<span class='alert'>\The [src] buzzes, \"Report has no incident encoded!\"</span>"
 		return 0
 
 	if( !I.sentence )
-		buzz( "\The [src] buzzes, \"Report does not contain a guilty sentence!\"" )
+		user <<  "<span class='alert'>\The [src] buzzes, \"Report does not contain a guilty sentence!\"</span>"
 		return 0
 
 	var/datum/crime_incident/crime = I.incident
 
 	if( !istype( crime.criminal ))
-		buzz( "\The [src] buzzes, \"Report has no criminal encoded!\"" )
+		user <<  "<span class='alert'>\The [src] buzzes, \"Report has no criminal encoded!\"</span>"
 		return 0
 
 	if( !crime.brig_sentence )
-		buzz( "\The [src] buzzes, \"Report had no brig sentence.\"" )
+		user <<  "<span class='alert'>\The [src] buzzes, \"Report had no brig sentence.\"</span>"
 		return 0
 
 	if( crime.brig_sentence >= PERMABRIG_SENTENCE )
-		buzz( "\The [src] buzzes, \"The criminal has a permabrig sentence and needs to be frozen.\"" )
+		user <<  "<span class='alert'>\The [src] buzzes, \"The criminal has a permabrig sentence and needs to be frozen.\"</span>"
 		return 0
 
 	var/addtime = timetoset

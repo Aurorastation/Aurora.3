@@ -1,7 +1,7 @@
 /obj/machinery/computer/sentencing
 	name = "criminal sentencing console"
 	desc = "Used to generate a criminal sentence."
-	icon_state = "sentence"
+	icon_state = "request"
 	req_one_access = list( access_brig, access_heads )
 	circuit = "/obj/item/weapon/circuitboard/sentencing"
 
@@ -25,7 +25,7 @@
 	ui_interact(user)
 
 /obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
-	if( istype( O, /obj/item/weapon/paper/form/incident ) && menu_screen == "import_incident" )
+	if( istype( O, /obj/item/weapon/paper/incident ) && menu_screen == "import_incident" )
 		usr.drop_item()
 		O.loc = src
 
@@ -41,7 +41,7 @@
 
 	..()
 
-/obj/machinery/computer/sentencing/proc/import( var/obj/item/weapon/paper/form/incident/I )
+/obj/machinery/computer/sentencing/proc/import( var/obj/item/weapon/paper/incident/I )
 	incident = null
 
 	if( istype( I ) && I.incident )
@@ -57,8 +57,8 @@
 			. += import_incident()
 		if( "incident_report" )
 			. += incident_report()
-		if( "process_judiciary_report" )
-			. += process_judiciary_report()
+		/*if( "process_judiciary_report" )
+			. += process_judiciary_report()*/
 		if( "low_severity" )
 			. += add_charges()
 		if( "med_severity" )
@@ -101,7 +101,7 @@
 	// Criminal and sentence
 	. += "<table class='border'>"
 	. += "<tr>"
-	. += "<th>Defendant:</th>"
+	. += "<th>Convict:</th>"
 	. += "<td><a href='?src=\ref[src];button=change_criminal;'>"
 	if( incident.criminal )
 		. += "[incident.criminal]"
@@ -122,15 +122,6 @@
 
 			. += "</tr><tr>"
 
-			. += "<th>Prison Sentence:</th>"
-			. += "<td><a href='?src=\ref[src];button=change_prison;'>"
-			if( incident.prison_sentence )
-				if( incident.prison_sentence < PERMAPRISON_SENTENCE )
-					. += "[incident.prison_sentence] DAYS"
-				else
-					. += "LIFE SENTENCE"
-			else
-				. += "None"
 	else
 		. += "None"
 	. += "</a></td>"
@@ -139,6 +130,10 @@
 	. += "</table>"
 
 	. += "<br>"
+
+	. += list_witnesses()
+
+	. += list_evidence()
 
 	. += list_notes()
 
@@ -149,49 +144,7 @@
 
 	. += "<br><hr>"
 	. += "<center>"
-	if( incident.getMaxSeverity() <= 1.0 )
-		. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty</a>"
-	else
-		. += "<a href='?src=\ref[src];button=begin_process'>Begin [incident.getCourtType()]</a>"
-
-	. += " <a href='?src=\ref[src];button=print_encoded_form'>Export Incident</a> "
-	. += "<a href='?src=\ref[src];button=change_menu;choice=main_menu'>Cancel</a></center>"
-
-	return .
-
-/obj/machinery/computer/sentencing/proc/process_judiciary_report()
-	. = ""
-
-	. += "<table><tr><td valign='top'>"
-
-	. += list_sentence()
-
-	. += "</td><td valign='top'>"
-
-	. += list_judges()
-
-	. += "</td></tr><tr><td valign='top' colspan='2'>"
-
-	. += list_charges()
-
-	. += "</td></tr><tr><td valign='top' colspan='2'>"
-
-	. += list_notes()
-
-	. += "</td></tr><tr><td valign='top' colspan='2'>"
-
-	. += list_witnesses()
-
-	. += "</td></tr><tr><td valign='top' colspan='2'>"
-
-	. += list_evidence()
-
-	. += "</td></tr></table>"
-
-	. += "<br><hr>"
-	. += "<center>"
-	. += "<a href='?src=\ref[src];button=verdict'>Render Verdict</a>"
-	. += "<a href='?src=\ref[src];button=change_menu;choice=incident_report'>Cancel Court</a></center>"
+	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty</a>"
 
 	return .
 
@@ -212,62 +165,12 @@
 		. += "</tr>"
 	. += "</table>"
 
-/obj/machinery/computer/sentencing/proc/list_judges()
-	. = ""
-
-	var/severity = incident.getMaxSeverity()
-
-	. += "<table class='border'>"
-	. += "<tr><th colspan='2'>Judges</th></tr>"
-	. += "<tr>"
-
-	. += "<td><b>Chief Justice:</b></td>"
-	. += "<td><a href='?src=\ref[src];button=add_arbiter;title=Chief Justice'>"
-
-	if( incident.arbiters["Chief Justice"] )
-		. += "[incident.arbiters["Chief Justice"]]"
-	else
-		. += "None"
-
-	. += "</a></td></tr>"
-
-	if( severity == 3.0 )
-		. += "<tr>"
-
-		. += "<td><b>Justice #1:</b></td>"
-		. += "<td><a href='?src=\ref[src];button=add_arbiter;title=Justice #1'>"
-
-		if( incident.arbiters["Justice #1"] )
-			. += "[incident.arbiters["Justice #1"]]"
-		else
-			. += "None"
-
-		. += "</a></td>"
-
-		. += "</tr><tr>"
-
-		. += "<td><b>Justice #2:</b></td>"
-		. += "<td><a href='?src=\ref[src];button=add_arbiter;title=Justice #2'>"
-
-		if( incident.arbiters["Justice #2"] )
-			. += "[incident.arbiters["Justice #2"]]"
-		else
-			. += "None"
-
-		. += "</a></td>"
-
-		. += "</tr>"
-
-	. += "</table>"
-
-	return .
-
 /obj/machinery/computer/sentencing/proc/list_sentence()
 	. = ""
 
 	. += "<table class='border'>"
 
-	. += "<tr><th colspan='2'>Defendant</th></tr>"
+	. += "<tr><th colspan='2'>Convict</th></tr>"
 	. += "<tr><td colspan='2'><center>"
 	if( incident.criminal )
 		. += "[incident.criminal]"
@@ -290,18 +193,6 @@
 	. += "</td>"
 
 	. += "</tr><tr>"
-
-	. += "<td>Prison</td>"
-	. += "<td>"
-	if( incident.prison_sentence )
-		if( incident.prison_sentence < PERMAPRISON_SENTENCE )
-			. += "[incident.prison_sentence] DAYS"
-		else
-			. += "LIFE SENTENCE"
-	else
-		. += "None"
-	. += "</td>"
-	. += "</tr>"
 
 	. += "</table>"
 
@@ -342,7 +233,9 @@
 	var/list/evidence = incident.evidence
 
 	. += "<table class='border'>"
-	. += "<th colspan='3'>Evidence <a href='?src=\ref[src];button=add_evidence'>Add</a></th>"
+	. += "<tr>"
+	. += "<th>Evidence<a href='?src=\ref[src];button=add_evidence'>Add</a></th>"
+	. += "</tr>"
 
 	for( var/item in evidence )
 		. += "<tr>"
@@ -484,8 +377,6 @@
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
 		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-		. += "<td>[L.min_prison_time] - [L.max_prison_time] days</td>"
-//		. += "<td>$[L.min_fine] - $[L.max_fine]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -515,35 +406,13 @@
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
 		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-		. += "<td>[L.min_prison_time] - [L.max_prison_time] days</td>"
+//		. += "<td>[L.min_prison_time] - [L.max_prison_time] days</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
 	. += "</table>"
 
 	return .
-
-/obj/machinery/computer/sentencing/proc/render_verdict( var/mob/living/user )
-	if( menu_screen != "process_judiciary_report" )
-		user << "<span class='alert'>The trial is not in session!</span>"
-		return
-
-	if( !istype( user ) || incident.arbiters["Chief Justice"] != user )
-		user << "<span class='alert'>You are not the Chief Justice!</span>"
-		return
-
-	if( incident.getMaxSeverity() >= 3.0 && ( !incident.arbiters["Justice #1"] || !incident.arbiters["Justice #2"] ))
-		user << "<span class='alert'>Theres not enough judges to reach a verdict!</span>"
-		return
-
-	var/verdict = alert( user, "What was decided as the verdict?",,"Guilty","Innocent", "Cancel" )
-	switch( verdict )
-		if( "Cancel" )
-			return
-		if( "Guilty" )
-			render_guilty( usr )
-		if( "Innocent" )
-			render_innocent( usr )
 
 /obj/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
 	ping( "\The [src] pings, \"[incident.criminal] has been found innocent of the accused crimes!\"" )
@@ -558,10 +427,6 @@
 		return
 
 	if( !istype( user ))
-		return
-
-	if( incident.getMaxSeverity() >= 2.0 && incident.arbiters["Chief Justice"] != user )
-		user << "<span class='alert'>You are not the Chief Justice!</span>"
 		return
 
 	var/error = print_incident_report()
@@ -586,7 +451,7 @@
 	if( printing )
 		return "The machine is already printing something!"
 
-	var/obj/item/weapon/paper/form/incident/I = new /obj/item/weapon/paper/form/incident
+	var/obj/item/weapon/paper/incident/I = new /obj/item/weapon/paper/incident
 	I.incident = incident
 	I.sentence = sentence
 	I.name = "Encoded Incident Report"
@@ -617,9 +482,9 @@
 			if( istype( C ))
 				if( incident && C.mob )
 					incident.criminal = C.mob
-					ping( "\The [src] pings, \"Defendant [C.mob] verified.\"" )
+					ping( "\The [src] pings, \"Convict [C.mob] verified.\"" )
 			else if( incident.criminal )
-				ping( "\The [src] pings, \"Defendant cleared.\"" )
+				ping( "\The [src] pings, \"Convict cleared.\"" )
 				incident.criminal = null
 		if( "change_brig" )
 			if( !incident )
@@ -633,17 +498,6 @@
 			else
 				incident.brig_sentence = number
 
-		if( "change_prison" )
-			if( !incident )
-				return
-
-			var/number = input( usr, "Enter a number between [incident.getMinPrisonSentence()] and [incident.getMaxPrisonSentence()] days", "Prison Sentence", 0) as num
-			if( number < incident.getMinPrisonSentence() )
-				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
-			else if( number > incident.getMaxPrisonSentence() )
-				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
-			else
-				incident.prison_sentence = number
 		if( "print_encoded_form" )
 			var/error = print_incident_report( 0 )
 
@@ -652,22 +506,7 @@
 			else
 				incident = null
 				menu_screen = "main_menu"
-		if( "begin_process" )
-			var/severity = incident.getMaxSeverity()
-			var/error
 
-			if( severity == 2.0 )
-				error = incident.missingCourtReq()
-			else if( severity == 3.0 )
-				error = incident.missingTribunalReq()
-			else
-				error = "Selected crimes do not require a tribunal!"
-
-			if( !error )
-				menu_screen = "process_judiciary_report"
-				ping( "\The [src] pings, \"Beginning [incident.getCourtType()] proceedings!\"" )
-			else
-				usr << "<span class='alert'>[error]</span>"
 		if( "add_arbiter" )
 			var/title = href_list["title"]
 			var/obj/item/weapon/card/id/C = usr.get_active_hand()
@@ -677,10 +516,11 @@
 					if( !error )
 						ping( "\The [src] pings, \"[title] [C.mob] verified.\"" )
 					else
-						usr << "<span class='alert'>[error]</span>"
-			else if( incident.arbiters[title] )
+						usr << "<span class='alert'>\The [src] buzzes, \"[error]\"</span>"
+			else
 				ping( "\The [src] pings, \"[title] cleared.\"" )
 				incident.arbiters[title] = null
+
 		if( "add_evidence" )
 			var/obj/O = usr.get_active_hand()
 
@@ -733,19 +573,13 @@
 					return
 
 			render_guilty( usr )
-		if( "verdict" )
-			if( !incident.notes )
-				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
-					return
-
-			render_verdict( usr )
 
 	add_fingerprint(usr)
 	updateUsrDialog()
 
 /obj/machinery/computer/sentencing/wall
 	name = "criminal sentencing wall console"
-	icon_state = "sentencew"
+	icon_state = "securityw"
 	density = 0
 
 /obj/machinery/computer/sentencing/wall/courtroom
