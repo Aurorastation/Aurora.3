@@ -15,7 +15,7 @@
 	var/datum/data/record/active2 = null
 	var/a_id = null
 	var/temp = null
-	var/printing = null
+	//var/printing = null
 	var/can_change_id = 0
 	var/list/Perp
 	var/tempname = null

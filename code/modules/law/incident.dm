@@ -128,7 +128,7 @@
 		return
 
 	generateReport()
-	for (var/datum/data/record/E in data_core.general)
+/*	for (var/datum/data/record/E in data_core.general)
 		if(E.fields["name"] == criminal.name)
 			for (var/datum/data/record/R in data_core.security)
 				if(R.fields["id"] == E.fields["id"])
@@ -136,7 +136,7 @@
 						if(L.severity == 3)
 							R.fields["ma_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
 						else
-							R.fields["mi_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
+							R.fields["mi_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"*/
 
 /datum/crime_incident/proc/generateReport()
 	. = "<center>Security Incident Report</center><hr>"

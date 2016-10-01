@@ -15,7 +15,7 @@
 	var/datum/data/record/active2 = null
 	var/a_id = null
 	var/temp = null
-	var/printing = null
+	//var/printing = null
 
 /obj/machinery/computer/med_data/AltClick(var/mob/user)
 	eject_id()
