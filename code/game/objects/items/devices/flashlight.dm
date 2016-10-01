@@ -110,7 +110,7 @@
 
 /obj/item/device/flashlight/maglight
 	name = "maglight"
-	desc = "A very heavy duty flashlight."
+	desc = "A heavy flashlight designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
 	force = 10
