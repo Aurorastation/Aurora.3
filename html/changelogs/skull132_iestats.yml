@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - rscadd: "Started gathering statistics about the IE version players have installed. Intent is to figure out how wide spread HTML5/CSS3 capability is."
