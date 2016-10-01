@@ -853,7 +853,7 @@ proc/api_update_command_database()
 /datum/topic_command/send_commandreport/run_command(queryparams)
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 	var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
-	var/reportbody = sanitizeSafe(queryparams["body"]) //Body of the report
+	var/reportbody = nl2br(sanitize(queryparams["body"],encode=0,extra=0)) //Body of the report
 	var/reporttype = queryparams["type"] //Type of the report: freeform / ccia / admin
 	var/reportsender = sanitizeSafe(queryparams["sendername"]) //Name of the sender
 	var/reportannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
@@ -870,7 +870,7 @@ proc/api_update_command_database()
 		if(! (C.stat & (BROKEN|NOPOWER) ) )
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
 			P.name = "[command_name()] Update"
-			P.info = replacetext(reportbody, "\n", "<br/>")
+			P.info = reportbody
 			P.update_space(P.info)
 			P.update_icon()
 			C.messagetitle.Add("[command_name()] Update")
