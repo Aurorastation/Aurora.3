@@ -297,10 +297,11 @@
 	send_resources()
 	nanomanager.send_resources(src)
 
-	var/outdated_greeting_info = server_greeting.find_outdated_info(src)
+	// Server greeting shenanigans.
+	var/outdated_greeting_info = server_greeting.find_outdated_info(src, 1)
 
 	if (outdated_greeting_info)
-		server_greeting.display_to_client(src, outdated_greeting_info)
+		server_greeting.display_to_client(src)
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	add_aooc_if_necessary()
@@ -589,4 +590,7 @@
 	set name = "Open Greeting"
 	set category = "OOC"
 
-	server_greeting.display_to_client(src, server_greeting.find_outdated_info(src))
+	// Update the information just in case.
+	server_greeting.find_outdated_info(src, 1)
+
+	server_greeting.display_to_client(src)

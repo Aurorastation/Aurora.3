@@ -22,8 +22,12 @@
 
 	// The stored strings of general subcomponents.
 	var/motd = "<center>No new announcements to showcase.</center>"
+
 	var/memo_list[] = list()
 	var/memo = "<center>No memos have been posted.</center>"
+
+	// Cached outdated information.
+	var/list/client_cache = list()
 
 /datum/server_greeting/New()
 	..()
@@ -114,9 +118,12 @@
  * Returns:
  * - int
  */
-/datum/server_greeting/proc/find_outdated_info(var/client/user)
+/datum/server_greeting/proc/find_outdated_info(var/client/user, var/force_eval = 0)
 	if (!user || !user.prefs)
 		return 0
+
+	if (!force_eval && !isnull(client_cache[user]))
+		return client_cache[user]
 
 	var/outdated_info = 0
 
@@ -128,6 +135,8 @@
 
 	if (user.prefs.notifications.len)
 		outdated_info |= OUTDATED_NOTE
+
+	client_cache[user] = outdated_info
 
 	return outdated_info
 
@@ -156,20 +165,24 @@
 		testing("BOOO!")
 		return
 
+	// This is fine now, because it uses cached information.
 	var/outdated_info = server_greeting.find_outdated_info(user)
+
 	var/save_prefs = 0
 	var/list/data = list("div" = "", "content" = "", "update" = 1)
 
 	if (outdated_info & OUTDATED_NOTE)
-		user << output("note-placeholder", "greeting:RemoveElement")
+		user << output("#note-placeholder", "greeting.browser:RemoveElement")
+
 		data["div"] = "#note"
 		data["update"] = 1
+
 		for (var/datum/client_notification/a in user.prefs.notifications)
 			data["content"] = a.get_html()
 			user << output(json_encode(data), "greeting.browser:AddContent")
 
 	if (!user.holder)
-		user << output("#memo-tab", "greeting:RemoveElement")
+		user << output("#memo-tab", "greeting.browser:RemoveElement")
 	else
 		if (outdated_info & OUTDATED_MEMO)
 			data["update"] = 1
