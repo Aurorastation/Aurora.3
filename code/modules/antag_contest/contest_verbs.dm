@@ -118,12 +118,12 @@
 			if (faction_data[1] in contest_factions_antisynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Decisions", "Yes", "No") == "No")
 				return
 
-			available_objs = list("Promote a Synth", "Protect Robotics", "Borgify", "Protect a Synth", "Unslave Borgs")
+			available_objs = list("Assassinate Anti-Synth Supporter", "Promote a Synth", "Borgify", "Unslave Borgs")
 		else
 			if (faction_data[1] in contest_factions_prosynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Decisions", "Yes", "No") == "No")
 				return
 
-			available_objs = list("Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
+			available_objs = list("Assassinate Pro-Synth Supporter", "Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
 
 		if (!available_objs)
 			src << "<span class='warning'>No objectives were found for you! This is odd!</span>"
@@ -135,10 +135,24 @@
 			src << "<span class='warning'>Cancelled.</span>"
 			return
 
-		var/datum/objective/new_objective
+		var/datum/objective/competition/new_objective
 		var/failed_target = 0
 
 		switch (choice)
+			if ("Assassinate Pro-Synth Supporter")
+				new_objective = new /datum/objective/competition/assassinate_supporter
+				new_objective.side = ANTI_SYNTH
+				new_objective.type_name = "anti_synth/assassin"
+				new_objective.owner = src.mob.mind
+				if (!new_objective.find_target())
+					failed_target = 1
+			if ("Assassinate Anti-Synth Supporter")
+				new_objective = new /datum/objective/competition/assassinate_supporter
+				new_objective.side = PRO_SYNTH
+				new_objective.type_name = "pro_synth/assassin"
+				new_objective.owner = src.mob.mind
+				if (!new_objective.find_target())
+					failed_target = 1
 			if ("Promote a Synth")
 				new_objective = new /datum/objective/competition/pro_synth/promote
 				new_objective.owner = src.mob.mind
