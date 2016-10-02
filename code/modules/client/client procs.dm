@@ -55,8 +55,6 @@
 		cmd_admin_discord_pm(href_list["discord_msg"])
 		return
 
-
-
 	//Logs all hrefs
 	if(config && config.log_hrefs && href_logfile)
 		href_logfile << "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>"
@@ -178,6 +176,10 @@
 
 					var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_stats_ie (ckey, IsIE, IsEdge, EdgeHtmlVersion, TrueVersion, ActingVersion, CompatibilityMode, DateUpdated) VALUES (_ckey, _IsIE, _IsEdge, _EdgeHtmlVersion, _TrueVersion, _ActingVersion, _CompatibilityMode, NOW()) ON DUPLICATE KEY UPDATE IsIE = VALUES(IsIe), IsEdge = VALUES(IsEdge), EdgeHtmlVersion = VALUES(EdgeHtmlVersion), TrueVersion = VALUES(TrueVersion), ActingVersion = VALUES(ActingVersion), CompatibilityMode = VALUES(CompatibilityMode), DateUpdated = NOW()")
 					query.Execute(data)
+
+			if ("greeting")
+				if (server_greeting)
+					server_greeting.handle_call(href_list, src)
 
 		return
 

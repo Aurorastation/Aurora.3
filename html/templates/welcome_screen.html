@@ -27,6 +27,7 @@
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="home">
 						<!-- Don't forget to update the JSlink switch in client/Topic if you edit this! -->
+						<div id="DEBUG"></div>
 						<center>
 							<h1>Welcome to Aurorastation!</h1>
 						</center>
@@ -46,9 +47,9 @@
 							</ul>
 						</p>
 					</div>
-					<div role="tabpanel" class="tab-pane" id="motd"><!--motd--></div>
+					<div role="tabpanel" class="tab-pane" id="motd"><div class="row"></div></div>
 					<div role="tabpanel" class="tab-pane" id="memo"><!--memo--></div>
-					<div role="tabpanel" class="tab-pane" id="note"><!--note--></div>
+					<div role="tabpanel" class="tab-pane" id="note"><div class="alert alert-info" id="note-placeholder">You do not have any notifications to show.</div></div>
 				</div>
 			</div>
 		</div>
@@ -60,24 +61,45 @@
 	<script src="respond.min.js"></script>
 	<script src="json2.min.js"></script>
 	<script src="ie-truth.min.js"></script>
-	<script>
+	<script type="text/javascript">
+		// IE statistics function.
 		function analyzeIe() {
 			var ieStats = IeVersion();
 			window.location = "?JSlink=logie&ie_data=" + JSON.stringify(ieStats);
 		}
 
-		$(document).ready(function () {
-			// Deal with updating the tabs if any need an updated marker.
-			var updated_tabs = [];
-
-			if (updated_tabs.length > 0) {
-				var changes_needed = updated_tabs.length;
-
-				for (var i = 0; i < changes_needed; i++) {
-					$(updated_tabs[i]).addClass('updated');
-				}
+		// Dynamic content entry controller.
+		function AddContent(data) {
+			//		alert("Got data: " + data);
+			var obj = "";
+			$("#DEBUG").append($("<p></p>").text(data));
+			try {
+				obj = JSON.parse(data);
+			}
+			catch(err) {
+				$("#DEBUG").append($("<p></p>").text(err.message));
+				return;
 			}
 
+			if (obj.length < 2) {
+				$("#DEBUG").append($("<p></p>").text("Returned here because not enough vars."));
+				return;
+			}
+
+			$(obj.div).append($(obj.content));
+
+			if (obj.update == 1 && !$(obj.div + '-tab').hasClass('updated')) {
+				$(obj.div + '-tab').addClass('updated');
+			}
+		}
+
+		// Function to remove a tab. Specifically, the admin one.
+		function RemoveElement(el) {
+			$(el).remove();
+		}
+
+		// DOM ready function.
+		$(document).ready(function () {
 			// Handle tabs (mostly bootstrap).
 			$('#myTab a').click(function (e) {
 				e.preventDefault();
@@ -101,8 +123,11 @@
 				window.location = command;
 			});
 
+			// Tell the server that we're ready, and awaiting data.
+			setTimeout(function () { window.location = '?JSlink=greeting;command=request_data' }, 500);
+
 			// Get the browser stats.
-			analyzeIe();
+			setTimeout(analyzeIe, 5000);
 		});
 	</script>
 

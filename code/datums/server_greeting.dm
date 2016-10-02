@@ -21,23 +21,14 @@
 	var/memo_hash = ""
 
 	// The stored strings of general subcomponents.
-	var/motd = ""
+	var/motd = "<center>No new announcements to showcase.</center>"
 	var/memo_list[] = list()
-	var/memo = ""
-
-	var/raw_data_user = ""
-	var/raw_data_staff = ""
-	// The near-final string to be displayed.
-	// Only one placeholder remains: <!--notifications-->.
-	var/user_data = ""
-	var/staff_data = ""
+	var/memo = "<center>No memos have been posted.</center>"
 
 /datum/server_greeting/New()
 	..()
 
 	load_from_file()
-
-	prepare_data()
 
 /*
  * Populates variables from save file, and loads the raw HTML data.
@@ -52,50 +43,32 @@
 		if (F["memo"])
 			F["memo"] >> memo_list
 
-	raw_data_staff = file2text('html/templates/welcome_screen.html')
-
-	// This is a lazy way, but it disables the user from being able to see the memo button.
-	var/staff_button = "<li role=\"presentation\" id=\"memo-tab\"><a href=\"#memo\" aria-controls=\"memo\" role=\"tab\" data-toggle=\"tab\">Staff Memos</a></li>"
-	raw_data_user = replacetextEx(raw_data_staff, staff_button, "")
+	update_data()
 
 /*
- * Generates hashes, placeholders, and reparses var/memo.
- * Then updates staff_data and user_data with the new contents.
- * To be called after load_from_file or update_value.
+ * A helper to regenerate the hashes for all data fields.
+ * As well as to reparse the staff memo list.
+ * Separated for the sake of avoiding the duplication of code.
  */
-/datum/server_greeting/proc/prepare_data()
-	if (!motd)
-		motd = "<center>No new announcements to showcase.</center>"
-		motd_hash = ""
-	else
+/datum/server_greeting/proc/update_data()
+	if (motd)
 		motd_hash = md5(motd)
-
-	memo = ""
+	else
+		motd = initial(motd)
+		motd_hash = ""
 
 	if (memo_list.len)
+		memo = ""
 		for (var/ckey in memo_list)
-			var/data = {"
-			<p><b>[ckey]</b> wrote on [memo_list[ckey]["date"]]:<br>
-			[memo_list[ckey]["content"]]</p>
-			"}
+			var/data = {"<p><b>[ckey]</b> wrote on [memo_list[ckey]["date"]]:<br>
+			[memo_list[ckey]["content"]]</p>"}
 
 			memo += data
 
 		memo_hash = md5(memo)
 	else
-		memo = "<center>No memos have been posted.</center>"
+		memo = initial(memo)
 		memo_hash = ""
-
-	var/html_one = raw_data_staff
-	html_one = replacetextEx(html_one, "<!--motd-->", motd)
-	html_one = replacetextEx(html_one, "<!--memo-->", memo)
-	staff_data = html_one
-
-	var/html_two = raw_data_user
-	html_two = replacetextEx(html_two, "<!--motd-->", motd)
-	user_data = html_two
-
-	return
 
 /*
  * Helper to update the MoTD or memo contents.
@@ -113,7 +86,6 @@
 	switch (change)
 		if ("motd")
 			motd = new_value
-			motd_hash = md5(new_value)
 
 		if ("memo_write")
 			memo_list[new_value[1]] = list("date" = time2text(world.realtime, "DD-MMM-YYYY"), "content" = new_value[2])
@@ -131,7 +103,7 @@
 	F["motd"] << motd
 	F["memo"] << memo_list
 
-	prepare_data()
+	update_data()
 
 	return 1
 
@@ -160,49 +132,87 @@
 	return outdated_info
 
 /*
- * Composes the final message and displays it to the user.
- * Also clears the user's notifications, should he have any.
+ * A proc used to open the server greeting window for a user.
+ * Args:
+ * - var/user client
+ * - var/outdated_info int
  */
-/datum/server_greeting/proc/display_to_client(var/client/user, var/outdated_info = 0)
+/datum/server_greeting/proc/display_to_client(var/client/user)
 	if (!user)
 		return
 
-	var/notifications = "<div class=\"row\"><div class=\"alert alert-info\">You do not have any notifications to show.</div></div>"
-	var/list/outdated_tabs = list()
+	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
+
+/*
+ * Sends data to the JS controllers used in the server greeting.
+ * Also updates the user's preferences, if any of the hashes were out of date.
+ * Args:
+ * - var/user client
+ * - var/outdated_info int
+ */
+/datum/server_greeting/proc/send_to_javascript(var/client/user)
+	testing("Sending to JS.")
+	if (!user)
+		testing("BOOO!")
+		return
+
+	var/outdated_info = server_greeting.find_outdated_info(user)
 	var/save_prefs = 0
+	var/list/data = list("div" = "", "content" = "", "update" = 1)
 
 	if (outdated_info & OUTDATED_NOTE)
-		outdated_tabs += "#note-tab"
-
-		notifications = ""
+		user << output("note-placeholder", "greeting:RemoveElement")
+		data["div"] = "#note"
+		data["update"] = 1
 		for (var/datum/client_notification/a in user.prefs.notifications)
-			notifications += a.get_html()
+			data["content"] = a.get_html()
+			user << output(json_encode(data), "greeting.browser:AddContent")
 
-	if (outdated_info & OUTDATED_MEMO)
-		outdated_tabs += "#memo-tab"
-		user.prefs.memo_hash = memo_hash
-		save_prefs = 1
+	if (!user.holder)
+		user << output("#memo-tab", "greeting:RemoveElement")
+	else
+		if (outdated_info & OUTDATED_MEMO)
+			data["update"] = 1
+			user.prefs.memo_hash = memo_hash
+			save_prefs = 1
+		else
+			data["update"] = 0
+
+		data["div"] = "#memo"
+		data["content"] = memo
+		user << output(json_encode(data), "greeting.browser:AddContent")
 
 	if (outdated_info & OUTDATED_MOTD)
-		outdated_tabs += "#motd-tab"
+		data["update"] = 1
 		user.prefs.motd_hash = motd_hash
 		save_prefs = 1
+	else
+		data["update"] = 0
 
-	var/data = user_data
-
-	if (user.holder)
-		data = staff_data
-
-	data = replacetextEx(data, "<!--note-->", notifications)
-
-	if (outdated_tabs.len)
-		var/tab_string = json_encode(outdated_tabs)
-		data = replacetextEx(data, "var updated_tabs = \[\]", "var updated_tabs = [tab_string]")
-
-	user << browse(data, "window=welcome_screen;size=640x500")
+	data["div"] = "#motd"
+	data["content"] = motd
+	user << output(json_encode(data), "greeting.browser:AddContent")
 
 	if (save_prefs)
 		user.prefs.handle_preferences_save(user)
+
+/*
+ * Basically the Topic proc for the greeting datum.
+ */
+/datum/server_greeting/proc/handle_call(var/href_list, var/client/C)
+	if (!href_list || !href_list["command"] || !C)
+		return
+
+	/*
+	var/list/params = list()
+	if (href_list["params"])
+		testing("Params that were given: [href_list["params"]]")
+		params = json_decode(href_list["params"])
+	*/
+
+	switch (href_list["command"])
+		if ("request_data")
+			send_to_javascript(C)
 
 #undef OUTDATED_NOTE
 #undef OUTDATED_MEMO
