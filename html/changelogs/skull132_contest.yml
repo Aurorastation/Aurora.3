@@ -1,7 +1,0 @@
-author: Skull132
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes:
-  - tweak: "Contest v2.5 is a thing now. Passive pro-synth objectives are gone, all major known exploits are gone, and a more aggressive pro-synth objective has been added."
