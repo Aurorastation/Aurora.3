@@ -17,10 +17,12 @@
 	var/department = "CENTCOM"
 	var/status = 0
 	var/locked = 0
+	var/hacked = 0
 	var/constructionstate = 0
 	var/drainamount = 20
 	var/obj/machinery/door/airlock/target = null
 	var/obj/item/weapon/cell/powercell
+	var/obj/item/weapon/cell/internal_cell
 
 /obj/item/device/magnetic_lock/security
 	icon = 'icons/obj/magnetic_locks/security.dmi'
@@ -37,21 +39,23 @@
 	..()
 
 	powercell = new /obj/item/weapon/cell/high()
+	internal_cell = new /obj/item/weapon/cell/apc()
 
-/obj/item/device/magnetic_lock/examine()
-	..()
+/obj/item/device/magnetic_lock/examine(mob/user)
+	..(mob/user)
 
 	if (status == STATUS_BROKEN)
-		usr << "<span class='danger'>It looks broken!</span>"
+		user << "<span class='danger'>It looks broken!</span>"
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			usr << "\blue The powercell is at [power]% charge."
+			user << "\blue The powercell is at [power]% charge."
 		else
-			usr << "\red It has no powercell to power it!"
+			var/int_power = round(internal_cell.charge / internal_cell.maxcharge * 100)
+			user << "\red It has no powercell to power it! Internal cell is at [int_power]% charge."
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
-	if (status == STATUS_ACTIVE)
+	if (constructionstate == 1)
 		ui_interact(user)
 	else
 		..()
@@ -67,16 +71,16 @@
 
 	if (istype(I, /obj/item/weapon/card/id) && status == STATUS_ACTIVE)
 		if (!constructionstate)
-			if (check_access(I)
+			if (check_access(I))
 				locked = !locked
 				update_icons()
-				playsound(src, 'sound/machines/ping.ogg', 20, 1)
+				playsound(src, 'sound/machines/ping.ogg', 30, 1)
 				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes \his "
 				var/fp_adj = "You swipe your "
-				user.visible_message(span("warning", pos_adj += msg), span("notice", fp_adj += msg))
+				user.visible_message(span("warning", pos_adj += msg), span('notice', fp_adj += msg))
 			else
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 20, 1)
+				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
 				user << span("warning", "\The [src] buzzes as you swipe your [I].")
 				return
 		else
@@ -102,49 +106,74 @@
 				setstatus(STATUS_BROKEN)
 				return
 
-			if (istype(I, /obj/item/weapon/crowbar))
-				if (isnull(locked))
-				user << span("notice", "You unfasten and remove the plastic cover from [src], revealing a thick metal shell.</span>"
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-				setconstructionstate(1)
+			if (iswelder(I))
+				var/obj/item/weapon/weldingtool/WT = I
+				if (WT.remove_fuel(2, user))
+					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
+					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+					overlays += "overlay_welding"
+					if (do_after(user, 25, 1))
+						user << span('notice', "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src].")
+						hacked ? locked = 1 : locked = 0
+						hacked = !hacked
+						overlays -= "overlay_welding"
+					else
+						overlays -= "overlay_welding"
+					update_icons()
+					return
+
+			if (iscrowbar(I))
+				if (!locked)
+					user << span('notice', "You pry the cover off [src].")
+					setconstructionstate(1)
+				else
+					user << span('notice', "You try to pry the cover off [src] but it doesn't budge.</span>")
 				return
 
 		if (1)
-			if (istype(I, /obj/item/weapon/screwdriver))
-				user << "<span class='notice'>You put the metal cover of back onto [src], and screw it tight.</span>"
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			if (istype(I, /obj/item/weapon/cell))
+				if (powercell)
+					user << span('notice',"There's already a powercell in \the [src].")
+				return
+
+			if (iscrowbar(I))
+				user << span('notice', "You wedge the cover back in place.")
 				setconstructionstate(0)
 				return
-			if (istype(I, /obj/item/weapon/cell))
-				user.drop_item()
-				I.loc = src
-				powercell = I
-				return
-			if (istype(I, /obj/item/weapon/crowbar))
-				user << "<span class='notice'>You remove \the [powercell] from \the [src].</span>"
-				powercell.loc = loc
-				powercell = null
-				return
-			if (istype(I, /obj/item/weapon/weldingtool))
-				var/obj/item/weapon/weldingtool/WT = I
-				if (WT.remove_fuel(1, user))
-					user.visible_message("<span class='notice'>[user] starts welding through the metal shell of [src].</span>", "<span class='notice'>You start welding through the metal covering of [src]</span>")
-					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
-					if (do_after(user, 25))
-						user << "<span class='notice'>You are able to weld through the metal shell of [src].</span>"
-						setconstructionstate(2)
-						return
+
 		if (2)
-			if (istype(I, /obj/item/weapon/crowbar))
-				user << "<span class='notice'>You pry off the metal covering from [src].</span>"
+			if (isscrewdriver(I))
+				user << span('notice', "You unscrew and remove the wiring cover from \the [src].")
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				setconstructionstate(3)
 				return
+
+			if (istype(I, /obj/item/weapon/cell))
+				if (!powercell)
+					user << span('notice',"You place the [I] inside \the [src].")
+					user.drop_item()
+					I.loc = src
+					powercell = I
+					setconstructionstate(1)
+				return
+
 		if (3)
-			if (istype(I, /obj/item/weapon/wirecutters))
-				user << "<span class='notice'>You cut the wires connecting the [src]'s magnets to their powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]</span>"
+			if (iswirecutter(I))
+				user << span('notice', "You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]")
 				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
+				return
+
+			if (isscrewdriver(I))
+				user << span('notice', "You replace and screw tight the wiring cover from \the [src].")
+				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				setconstructionstate(2)
+				return
+
+		if (4)
+			if (iswirecutter(I))
+				user << span('notice', "You repair the wires connecting the [src]'s magnets to their internal powersupply")
+				setconstructionstate(3)
 				return
 
 /obj/item/device/magnetic_lock/process()
@@ -153,76 +182,42 @@
 	else
 		if (powercell)
 			powercell.charge = 0
-		visible_message("<span class='danger'>[src] beeps loudly and falls off \the [target]; its powercell having run out of power.</span>")
+		visible_message(span('danger', "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
 		setstatus(STATUS_INACTIVE)
 
-/obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+/obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
-		user << "<span class='danger'>[src] is damaged beyond repair! It cannot be used!</span>"
-		return
+		user << span('danger', "[src] is damaged beyond repair! It cannot be used!")
+		return 0
+
+	if (hacked)
+		user << span('danger', "[src] buzzes; it can't be used until you repair it!")
+		return 0
 
 	if (!newtarget.density || newtarget.operating)
-		user << "<span class='danger'>[newtarget] must be closed before you can attach [src] to it!</span>"
-		return
+		user << span('danger', "[newtarget] must be closed before you can attach [src] to it!")
+		return 0
 
 	if (newtarget.p_open)
-		user << "<span class='danger'>You must close [newtarget]'s maintenance panel before attaching [src] to it!</span>"
-		return
+		user << span('danger', "You must close [newtarget]'s maintenance panel before attaching [src] to it!")
+		return 0
+
+	return 1
+
+/obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+	if (!check_target(newtarget, user)) return
 
 	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
+
 	if (do_after(user, 35, 1))
-		if (status == STATUS_BROKEN)
-			user << "<span class='danger'>[src] is damaged beyond repair! It cannot be used!</span>"
-			return
 
-		if (!newtarget.density)
-			user << "<span class='danger'>[newtarget] must be closed before you can attach [src] to it!</span>"
-			return
-
-		if (newtarget.p_open)
-			user << "<span class='danger'>You must close [newtarget]'s maintenance panel before attaching [src] to it!</span>"
-			return
+		if (!check_target(newtarget, user)) return
 
 		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
 		user.drop_item()
 
 		setstatus(STATUS_ACTIVE, newtarget)
 		return
-
-/obj/item/device/magnetic_lock/proc/setstatus(var/newstatus, var/obj/machinery/door/airlock/newtarget as obj)
-	switch (newstatus)
-		if (STATUS_INACTIVE)
-			if (status != STATUS_ACTIVE)
-				return
-			if (!target)
-				return
-
-			detach()
-			icon_state = "inactive"
-			status = newstatus
-
-		if (STATUS_ACTIVE)
-			if (status != STATUS_INACTIVE)
-				return
-			if (!newtarget)
-				return
-
-			attach(newtarget)
-			icon_state = "active"
-			status = newstatus
-
-		if (STATUS_BROKEN)
-			spark()
-
-			if (target)
-				var/playflick = 1
-				if (constructionstate)
-					playflick = 0
-
-				detach(playflick)
-
-			icon_state = "broken"
-			status = newstatus
 
 /obj/item/device/magnetic_lock/proc/setconstructionstate(var/newstate)
 	constructionstate = newstate
@@ -254,9 +249,7 @@
 		anchored = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
-	adjustsprite(newtarget)
 	layer = LAYER_ATTACHED
-	flick("deploy", src)
 
 	newtarget.bracer = src
 	target = newtarget
@@ -264,6 +257,10 @@
 	processing_objects.Add(src)
 
 	anchored = 1
+
+	update_icons()
+	spawn(-15)
+		flick("deploy", src)
 
 /obj/item/device/magnetic_lock/proc/update_icons()
 	if (status > 0 && anchored)
@@ -284,6 +281,20 @@
 		pixel_x = 0
 		pixel_y = 0
 	update_overlays()
+
+/obj/item/device/magnetic_lock/proc/update_overlays()
+	switch (status)
+		if (STATUS_BROKEN)
+			for (var/image in overlays)
+				overlays -= image
+			icon = "broken"
+			return
+
+		if (STATUS_HACKED)
+
+STATUS_INACTIVE 0
+#define STATUS_ACTIVE 1
+#define STATUS_HACKED -1
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	health -= damage
