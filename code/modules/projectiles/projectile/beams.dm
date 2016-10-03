@@ -178,8 +178,8 @@
 		if(distance < 0)
 			distance = 0
 		if(distance <= range)
-			var/mob/M = T
-			if(istype(M, /mob/living/simple_animal/mouse) || istype(M, /mob/living/simple_animal/lizard) || istype(M, /mob/living/simple_animal/mushroom || istype(M, /mob/living/simple_animal/chick) || istype(M, /mob/living/simple_animal/corgi/puppy) || istype(M, /mob/living/simple_animal/cat/kitten)))
+			var/mob/living/M = T
+			if (M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
 				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
 				M.gib()
 				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
