@@ -244,6 +244,7 @@
 	icon_opened = "cabinetdetective_open"
 	icon_broken = "cabinetdetective_broken"
 	icon_off = "cabinetdetective_broken"
+	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 	New()
 		..()
@@ -251,12 +252,12 @@
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/slob(src)
 		new /obj/item/clothing/suit/storage/det_suit(src)
-		new /obj/item/clothing/suit/storage/det_suit/black(src)
+		new /obj/item/clothing/suit/storage/det_suit/technicolor(src)
 		new /obj/item/clothing/suit/storage/forensics/blue(src)
 		new /obj/item/clothing/suit/storage/forensics/red(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/head/det_hat(src)
-		new /obj/item/clothing/head/det_hat/black(src)
+		new /obj/item/clothing/head/det_hat/technicolor(src)
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/weapon/storage/box/evidence(src)
 		new /obj/item/device/radio/headset/headset_sec(src)

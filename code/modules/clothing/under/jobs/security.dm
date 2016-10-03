@@ -106,6 +106,50 @@
 /obj/item/clothing/head/det_hat/black
 	icon_state = "detective2"
 
+/obj/item/clothing/head/det_hat/technicolor
+	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
+	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
+	icon_state = "hat_detective_black"
+	item_state = "hat_detective_black"
+	var/hat_color
+	contained_sprite = 1
+
+/obj/item/clothing/head/det_hat/technicolor/New()
+	if(prob(5))
+		var/probably = rand(1, 8)
+		switch(probably)
+			if(1 to 2)
+				icon_state = "hat_detective_yellow"
+				item_state = "hat_detective_yellow"
+			if(3)
+				icon_state = "hat_detective_red"
+				item_state = "hat_detective_red"
+			if(4)
+				icon_state = "hat_detective_purple"
+				item_state = "hat_detective_purple"
+			if(5)
+				icon_state = "hat_detective_green"
+				item_state = "hat_detective_green"
+			if(6)
+				icon_state = "hat_detective_blue"
+				item_state = "hat_detective_blue"
+			if(7)
+				icon_state = "hat_detective_white"
+				item_state = "hat_detective_white"
+			if(8)
+				icon_state = "hat_detective_orange"
+				item_state = "hat_detective_orange"
+	..()
+
+obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
+		var/obj/item/weapon/reagent_containers/glass/paint/P = O
+		hat_color = P.paint_type
+		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		icon_state = "hat_detective_[hat_color]"
+		item_state = "hat_detective_[hat_color]"
+	..()
+
 
 /*
  * Head of Security
