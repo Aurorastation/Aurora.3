@@ -6,4 +6,6 @@ changes:
   - rscadd: "Added new flavors of flashlights."
   - rscadd: "Ported glowsticks from polaris."
   - rscadd: "You can now carry flashlights in your armor."
+  - rscadd: "Wizard robes and voidsuits can now carry magic related items."
+  - rscadd: "The chaplain hoodie, and nun robes, can now store religious objects in their suit storage."
   - imageadd: "New recorder, camera and lantern sprites."
