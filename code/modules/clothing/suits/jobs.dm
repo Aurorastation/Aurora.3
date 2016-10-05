@@ -37,6 +37,7 @@
 	icon_state = "chaplain_hoodie"
 	item_state = "chaplain_hoodie"
 	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 //Chaplain
@@ -47,6 +48,7 @@
 	item_state = "nun"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 //Chef
