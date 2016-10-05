@@ -486,3 +486,15 @@ CREATE TABLE `ss13_whitelist_statuses` (
   `status_name` varchar(32) NOT NULL,
   PRIMARY KEY (`status_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `ss13_stats_ie` (
+  `ckey` varchar(32) NOT NULL,
+  `IsIE` tinyint(4) NOT NULL,
+  `IsEdge` tinyint(4) NOT NULL,
+  `EdgeHtmlVersion` int(11) NOT NULL,
+  `TrueVersion` tinyint(4) NOT NULL,
+  `ActingVersion` tinyint(4) NOT NULL,
+  `CompatibilityMode` tinyint(4) NOT NULL,
+  `DateUpdated` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ckey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

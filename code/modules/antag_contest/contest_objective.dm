@@ -70,6 +70,18 @@
 		log_debug("CONTEST: Error uploading results. Datadump: [list2params(params)]")
 
 /*
+ * One flippy objective.
+ */
+/datum/objective/competition/assassinate_supporter/find_target()
+	var/list/possible_targets = list()
+	for(var/datum/mind/possible_target in ticker.minds)
+		if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2))
+			if (possible_target.current.client && possible_target.current.client.prefs && possible_target.current.client.prefs.antag_contest_side != side)
+				possible_targets += possible_target
+	if(possible_targets.len > 0)
+		target = pick(possible_targets)
+
+/*
  * Pro-synth objectives
  */
 /datum/objective/competition/pro_synth

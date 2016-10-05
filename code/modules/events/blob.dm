@@ -3,7 +3,7 @@
 	endWhen			= 120
 
 	var/obj/effect/blob/core/Blob
-
+	ic_name = "a biohazard"
 
 /datum/event/blob/announce()
 	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
