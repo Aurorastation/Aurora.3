@@ -125,7 +125,7 @@
 	binarycheck()
 		return 1
 
-	suicide()
+/*	suicide()
 		if(key && species.name != "Human")
 			switch(species.name)
 				if("Tajara")
@@ -158,7 +158,7 @@
 					ghost.real_name = "[ghost.key] BSTech"
 					ghost.voice_name = "[ghost.key] BSTech"
 			qdel(src)
-		return
+		return*/
 
 	proc/bsc() //because we all have our unrealistic snowflakes right?
 		if(set_species("Tajara"))
@@ -178,7 +178,7 @@
 		else
 			ghostize(0)
 			key = null
-			suicide()
+			//suicide()
 
 	proc/bsb()
 		if(set_species("Machine"))
@@ -197,7 +197,7 @@
 		else
 			ghostize(0)
 			key = null
-			suicide()
+			//suicide()
 
 	proc/bsd()
 		if(set_species("Diona"))
@@ -215,7 +215,7 @@
 		else
 			ghostize(0)
 			key = null
-			suicide()
+			//suicide()
 
 	proc/bsu()
 		if(set_species("Unathi"))
@@ -234,7 +234,7 @@
 		else
 			ghostize(0)
 			key = null
-			suicide()
+			//suicide()
 
 	proc/bss()
 		if(set_species("Skrell"))
@@ -254,7 +254,7 @@
 		else
 			ghostize(0)
 			key = null
-			suicide()
+		//	suicide()
 
 	say(var/message)
 		var/verb = "says in a subdued tone"
@@ -298,12 +298,12 @@
 		var/client/C = src.client
 		if(C.holder && C.holder.original_mob)
 			if(C.holder.original_mob.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
-				suicide()
+				//suicide()
 				return
 
 			C.holder.original_mob.key = key
 			C.holder.original_mob = null
-		suicide()
+	//	suicide()
 
 //Equipment. All should have canremove set to 0
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.

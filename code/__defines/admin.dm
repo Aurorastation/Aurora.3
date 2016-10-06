@@ -6,6 +6,7 @@
 #define MUTE_PRAY      0x4
 #define MUTE_ADMINHELP 0x8
 #define MUTE_DEADCHAT  0x10
+#define MUTE_AOOC      0x20
 #define MUTE_ALL       0xFFFF
 
 // Number of identical messages required to get the spam-prevention auto-mute thing to trigger warnings and automutes.
@@ -36,7 +37,7 @@
 #define R_SOUNDS        0x800
 #define R_SPAWN         0x1000
 #define R_MOD           0x2000
-#define R_MENTOR        0x4000
-#define R_HOST          0x8000 //higher than this will overflow
+#define R_DEV           0x4000
+#define R_CCIAA         0x8000 //higher than this will overflow
 
 #define R_MAXPERMISSION 0x8000 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.

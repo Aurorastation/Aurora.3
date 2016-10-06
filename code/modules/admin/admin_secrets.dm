@@ -42,7 +42,7 @@ var/datum/admin_secrets/admin_secrets = new()
 	var/category = null
 	var/log = 1
 	var/feedback = 1
-	var/permissions = R_HOST
+	var/permissions = R_ADMIN
 	var/warn_before_use = 0
 
 /datum/admin_secret_item/dd_SortValue()
