@@ -1,4 +1,3 @@
-//meteor storms are much heavier
 /datum/event/meteor_wave
 	startWhen		= 86
 	endWhen			= 9999//safety value, will be set during ticks
@@ -93,4 +92,3 @@
 /proc/event_meteor_wave(var/number = meteors_in_wave)
 	for(var/i = 0 to number)
 		spawn(rand(10,80))
-			spawn_meteor()

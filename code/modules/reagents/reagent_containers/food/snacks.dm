@@ -11,7 +11,7 @@
 	var/slices_num
 	var/dried_type = null
 	var/dry = 0
-	center_of_mass = list("x"=15, "y"=15)
+	center_of_mass = list("x"=16, "y"=16)
 	w_class = 2
 
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
@@ -41,19 +41,21 @@
 		return 0
 
 	if(istype(M, /mob/living/carbon))
+		//TODO: replace with standard_feed_mob() call.
+
 		var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
 		if(M == user)								//If you're eating it yourself
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
-				if(H.species.flags & IS_SYNTHETIC)
-					H << "<span class='danger'>You have a monitor for a head, where do you think you're going to put that?</span>"
+				if(!H.check_has_mouth())
+					user << "Where do you intend to put \the [src]? You don't have a mouth!"
 					return
-
 				var/obj/item/blocked = H.check_mouth_coverage()
 				if(blocked)
 					user << "<span class='warning'>\The [blocked] is in the way!</span>"
 					return
 
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 			if (fullness <= 50)
 				M << "<span class='danger'>You hungrily chew out a piece of [src] and gobble it!</span>"
 			if (fullness > 50 && fullness <= 150)
@@ -66,36 +68,23 @@
 				M << "<span class='danger'>You cannot force any more of [src] to go down your throat.</span>"
 				return 0
 		else
-			if(istype(M,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(H.species.flags & IS_SYNTHETIC)
-					user << "<span class='danger'>They have a monitor for a head, where do you think you're going to put that?</span>"
-					return
-
-				var/obj/item/blocked = H.check_mouth_coverage()
-				if(blocked)
-					user << "<span class='warning'>\The [blocked] is in the way!</span>"
-					return
-
-			if(!istype(M, /mob/living/carbon/slime))		//If you're feeding it to someone else.
-
-				if (fullness <= (550 * (1 + M.overeatduration / 1000)))
-					user.visible_message("<span class='danger'>[user] attempts to feed [M] [src].</span>")
-				else
-					user.visible_message("<span class='danger'>[user] cannot force anymore of [src] down [M]'s throat.</span>")
-					return 0
-
-				if(!do_mob(user, M)) return
-
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: [reagentlist(src)]</font>")
-				user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [src.name] by [M.name] ([M.ckey]) Reagents: [reagentlist(src)]</font>")
-				msg_admin_attack("[key_name(user)] fed [key_name(M)] with [src.name] Reagents: [reagentlist(src)] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-
-				user.visible_message("<span class='danger'>[user] feeds [M] [src].</span>")
-
-			else
-				user << "This creature does not seem to have a mouth!"
+			if(!M.can_force_feed(user, src))
 				return
+
+			if (fullness <= (550 * (1 + M.overeatduration / 1000)))
+				user.visible_message("<span class='danger'>[user] attempts to feed [M] [src].</span>")
+			else
+				user.visible_message("<span class='danger'>[user] cannot force anymore of [src] down [M]'s throat.</span>")
+				return 0
+
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			if(!do_mob(user, M)) return
+
+			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: [reagentlist(src)]</font>")
+			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [src.name] by [M.name] ([M.ckey]) Reagents: [reagentlist(src)]</font>")
+			msg_admin_attack("[key_name(user)] fed [key_name(M)] with [src.name] Reagents: [reagentlist(src)] (INTENT: [uppertext(user.a_intent)])")
+
+			user.visible_message("<span class='danger'>[user] feeds [M] [src].</span>")
 
 		if(reagents)								//Handle ingestion of the reagent.
 			playsound(M.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
@@ -116,11 +105,11 @@
 	if (bitecount==0)
 		return
 	else if (bitecount==1)
-		user << "\blue \The [src] was bitten by someone!"
+		user << "<span class='notice'>\The [src] was bitten by someone!</span>"
 	else if (bitecount<=3)
-		user << "\blue \The [src] was bitten [bitecount] times!"
+		user << "<span class='notice'>\The [src] was bitten [bitecount] time\s!</span>"
 	else
-		user << "\blue \The [src] was bitten multiple times!"
+		user << "<span class='notice'>\The [src] was bitten multiple times!</span>"
 
 /obj/item/weapon/reagent_containers/food/snacks/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/storage))
@@ -130,31 +119,31 @@
 	// Eating with forks
 	if(istype(W,/obj/item/weapon/material/kitchen/utensil))
 		var/obj/item/weapon/material/kitchen/utensil/U = W
+		if(U.scoop_food)
+			if(!U.reagents)
+				U.create_reagents(5)
 
-		if(!U.reagents)
-			U.create_reagents(5)
+			if (U.reagents.total_volume > 0)
+				user << "<span class='warning'>You already have something on your [U].</span>"
+				return
 
-		if (U.reagents.total_volume > 0)
-			user << "\red You already have something on your [U]."
+			user.visible_message( \
+				"\The [user] scoops up some [src] with \the [U]!", \
+				"<span class='notice'>You scoop up some [src] with \the [U]!</span>" \
+			)
+
+			src.bitecount++
+			U.overlays.Cut()
+			U.loaded = "[src]"
+			var/image/I = new(U.icon, "loadedfood")
+			I.color = src.filling_color
+			U.overlays += I
+
+			reagents.trans_to_obj(U, min(reagents.total_volume,5))
+
+			if (reagents.total_volume <= 0)
+				qdel(src)
 			return
-
-		user.visible_message( \
-			"[user] scoops up some [src] with \the [U]!", \
-			"\blue You scoop up some [src] with \the [U]!" \
-		)
-
-		src.bitecount++
-		U.overlays.Cut()
-		U.loaded = "[src]"
-		var/image/I = new(U.icon, "loadedfood")
-		I.color = src.filling_color
-		U.overlays += I
-
-		reagents.trans_to_obj(U, min(reagents.total_volume,5))
-
-		if (reagents.total_volume <= 0)
-			qdel(src)
-		return
 
 	if (is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
@@ -165,7 +154,7 @@
 			if (W.w_class >= src.w_class || is_robot_module(W))
 				return
 
-			user << "\red You slip [W] inside [src]."
+			user << "<span class='warning'>You slip \the [W] inside \the [src].</span>"
 			user.remove_from_mob(W)
 			W.dropped(user)
 			add_fingerprint(user)
@@ -174,15 +163,15 @@
 
 		if (has_edge(W))
 			if (!can_slice_here)
-				user << "\red You cannot slice [src] here! You need a table or at least a tray to do it."
+				user << "<span class='warning'>You cannot slice \the [src] here! You need a table or at least a tray to do it.</span>"
 				return
 
 			var/slices_lost = 0
 			if (W.w_class > 3)
-				user.visible_message("\blue [user] crudely slices \the [src] with [W]!", "\blue You crudely slice \the [src] with your [W]!")
+				user.visible_message("<span class='notice'>\The [user] crudely slices \the [src] with [W]!</span>", "<span class='notice'>You crudely slice \the [src] with your [W]!</span>")
 				slices_lost = rand(1,min(1,round(slices_num/2)))
 			else
-				user.visible_message("\blue [user] slices \the [src]!", "\blue You slice \the [src]!")
+				user.visible_message("<span class='notice'>\The [user] slices \the [src]!</span>", "<span class='notice'>You slice \the [src]!</span>")
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
@@ -263,6 +252,7 @@
 	icon_state = "aesirsalad"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#468C00"
+	center_of_mass = list("x"=17, "y"=11)
 
 	New()
 		..()
@@ -277,6 +267,7 @@
 	icon_state = "candy"
 	trash = /obj/item/trash/candy
 	filling_color = "#7D5F46"
+	center_of_mass = list("x"=15, "y"=15)
 
 	New()
 		..()
@@ -288,6 +279,7 @@
 	name = "Donor Candy"
 	desc = "A little treat for blood donors."
 	trash = /obj/item/trash/candy
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 10)
@@ -299,6 +291,7 @@
 	desc = "It's a handful of candy corn. Cannot be stored in a detective's hat, alas."
 	icon_state = "candy_corn"
 	filling_color = "#FFFCB0"
+	center_of_mass = list("x"=14, "y"=10)
 
 	New()
 		..()
@@ -312,6 +305,7 @@
 	icon_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
+	center_of_mass = list("x"=15, "y"=15)
 
 	New()
 		..()
@@ -323,6 +317,7 @@
 	desc = "COOKIE!!!"
 	icon_state = "COOKIE!!!"
 	filling_color = "#DBC94F"
+	center_of_mass = list("x"=17, "y"=18)
 
 	New()
 		..()
@@ -334,6 +329,7 @@
 	desc = "Such sweet, fattening food."
 	icon_state = "chocolatebar"
 	filling_color = "#7D5F46"
+	center_of_mass = list("x"=15, "y"=15)
 
 	New()
 		..()
@@ -347,6 +343,7 @@
 	desc = "Such sweet, fattening food."
 	icon_state = "chocolateegg"
 	filling_color = "#7D5F46"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -361,6 +358,7 @@
 	icon_state = "donut1"
 	filling_color = "#D9C386"
 	var/overlay_state = "box-donut1"
+	center_of_mass = list("x"=13, "y"=16)
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/normal
 	name = "donut"
@@ -376,6 +374,7 @@
 			src.overlay_state = "box-donut2"
 			src.name = "frosted donut"
 			reagents.add_reagent("sprinkles", 2)
+			center_of_mass = list("x"=19, "y"=16)
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/chaos
 	name = "Chaos Donut"
@@ -422,6 +421,7 @@
 	desc = "You jelly?"
 	icon_state = "jdonut1"
 	filling_color = "#ED1169"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -440,6 +440,7 @@
 	desc = "You jelly?"
 	icon_state = "jdonut1"
 	filling_color = "#ED1169"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -458,6 +459,7 @@
 	desc = "You jelly?"
 	icon_state = "jdonut1"
 	filling_color = "#ED1169"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -476,6 +478,8 @@
 	desc = "An egg!"
 	icon_state = "egg"
 	filling_color = "#FDFFD1"
+	volume = 10
+	center_of_mass = list("x"=16, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/snacks/egg/New()
 	..()
@@ -495,7 +499,7 @@
 	..()
 	new/obj/effect/decal/cleanable/egg_smudge(src.loc)
 	src.reagents.splash(hit_atom, reagents.total_volume)
-	src.visible_message("\red [src.name] has been squashed.","\red You hear a smack.")
+	src.visible_message("<span class='warning'>\The [src] has been squashed!</span>","<span class='warning'>You hear a smack.</span>")
 	qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/egg/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -504,10 +508,10 @@
 		var/clr = C.colourName
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
-			usr << "\blue The egg refuses to take on this color!"
+			usr << "<span class='notice'>The egg refuses to take on this color!</span>"
 			return
 
-		usr << "\blue You color \the [src] [clr]"
+		usr << "<span class='notice'>You color \the [src] [clr]</span>"
 		icon_state = "egg-[clr]"
 	else
 		..()
@@ -541,6 +545,7 @@
 	desc = "A fried egg, with a touch of salt and pepper."
 	icon_state = "friedegg"
 	filling_color = "#FFDF78"
+	center_of_mass = list("x"=16, "y"=14)
 
 	New()
 		..()
@@ -565,6 +570,7 @@
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "appendix"
 	filling_color = "#E00D34"
+	center_of_mass = list("x"=16, "y"=16)
 
 	New()
 		..()
@@ -577,6 +583,7 @@
 	icon_state = "tofu"
 	desc = "We all love tofu."
 	filling_color = "#FFFEE0"
+	center_of_mass = list("x"=17, "y"=10)
 
 	New()
 		..()
@@ -588,6 +595,7 @@
 	desc = "A fake turkey made from tofu."
 	icon_state = "tofurkey"
 	filling_color = "#FFFEE0"
+	center_of_mass = list("x"=16, "y"=8)
 
 	New()
 		..()
@@ -600,6 +608,7 @@
 	desc = "Moist, peppery breadcrumbs for filling the body cavities of dead birds. Dig in!"
 	icon_state = "stuffing"
 	filling_color = "#C9AC83"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -611,6 +620,7 @@
 	desc = "A fillet of spess carp meat"
 	icon_state = "fishfillet"
 	filling_color = "#FFDEFE"
+	center_of_mass = list("x"=17, "y"=13)
 
 	New()
 		..()
@@ -623,6 +633,7 @@
 	desc = "A finger of fish."
 	icon_state = "fishfingers"
 	filling_color = "#FFDEFE"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -635,6 +646,7 @@
 	desc = "A slice from a huge mushroom."
 	icon_state = "hugemushroomslice"
 	filling_color = "#E0D7C5"
+	center_of_mass = list("x"=17, "y"=16)
 
 	New()
 		..()
@@ -647,6 +659,7 @@
 	desc = "A slice from a huge tomato"
 	icon_state = "tomatomeat"
 	filling_color = "#DB0000"
+	center_of_mass = list("x"=17, "y"=16)
 
 	New()
 		..()
@@ -658,6 +671,7 @@
 	desc = "A very manly slab of meat."
 	icon_state = "bearmeat"
 	filling_color = "#DB0000"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -670,6 +684,7 @@
 	desc = "A slab of green meat. Smells like acid."
 	icon_state = "xenomeat"
 	filling_color = "#43DE18"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -682,6 +697,7 @@
 	desc = "A great meal all round."
 	icon_state = "meatball"
 	filling_color = "#DB0000"
+	center_of_mass = list("x"=16, "y"=16)
 
 	New()
 		..()
@@ -693,6 +709,7 @@
 	desc = "A piece of mixed, long meat."
 	icon_state = "sausage"
 	filling_color = "#DB0000"
+	center_of_mass = list("x"=16, "y"=16)
 
 	New()
 		..()
@@ -721,6 +738,7 @@
 	desc = "The food of choice for the seasoned traitor."
 	icon_state = "donkpocket"
 	filling_color = "#DEDEAB"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -751,6 +769,7 @@
 	desc = "A strange looking burger. It looks almost sentient."
 	icon_state = "brainburger"
 	filling_color = "#F2B6EA"
+	center_of_mass = list("x"=15, "y"=11)
 
 	New()
 		..()
@@ -763,6 +782,7 @@
 	desc = "Spooky! It doesn't look very filling."
 	icon_state = "ghostburger"
 	filling_color = "#FFF2FF"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -779,6 +799,7 @@
 	name = "-burger"
 	desc = "A bloody burger."
 	icon_state = "hburger"
+	center_of_mass = list("x"=16, "y"=11)
 	New()
 		..()
 		reagents.add_reagent("protein", 6)
@@ -788,6 +809,8 @@
 	name = "cheeseburger"
 	desc = "The cheese adds a good flavor."
 	icon_state = "cheeseburger"
+	center_of_mass = list("x"=16, "y"=11)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 2)
@@ -798,6 +821,7 @@
 	desc = "The cornerstone of every nutritious breakfast."
 	icon_state = "hburger"
 	filling_color = "#D63C3C"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -810,6 +834,7 @@
 	desc = "Almost like a carp is yelling somewhere... Give me back that fillet -o- carp, give me that carp."
 	icon_state = "fishburger"
 	filling_color = "#FFDEFE"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -822,6 +847,7 @@
 	desc = "What.. is that meat?"
 	icon_state = "tofuburger"
 	filling_color = "#FFFEE0"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -833,6 +859,7 @@
 	desc = "The lettuce is the only organic component. Beep."
 	icon_state = "roburger"
 	filling_color = "#CCCCCC"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -847,6 +874,7 @@
 	icon_state = "roburger"
 	filling_color = "#CCCCCC"
 	volume = 100
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -858,6 +886,7 @@
 	desc = "Smells caustic. Tastes like heresy."
 	icon_state = "xburger"
 	filling_color = "#43DE18"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -869,6 +898,7 @@
 	desc = "This tastes funny..."
 	icon_state = "clownburger"
 	filling_color = "#FF00FF"
+	center_of_mass = list("x"=17, "y"=12)
 
 	New()
 		..()
@@ -880,6 +910,7 @@
 	desc = "Its taste defies language."
 	icon_state = "mimeburger"
 	filling_color = "#FFFFFF"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -892,6 +923,7 @@
 	icon_state = "omelette"
 	trash = /obj/item/trash/plate
 	filling_color = "#FFF9A8"
+	center_of_mass = list("x"=16, "y"=13)
 
 	//var/herp = 0
 	New()
@@ -904,6 +936,7 @@
 	desc = "A delicious and spongy little cake"
 	icon_state = "muffin"
 	filling_color = "#E0CF9B"
+	center_of_mass = list("x"=17, "y"=4)
 
 	New()
 		..()
@@ -916,6 +949,7 @@
 	icon_state = "pie"
 	trash = /obj/item/trash/plate
 	filling_color = "#FBFFB8"
+	center_of_mass = list("x"=16, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/snacks/pie/New()
 	..()
@@ -926,7 +960,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/pie/throw_impact(atom/hit_atom)
 	..()
 	new/obj/effect/decal/cleanable/pie_smudge(src.loc)
-	src.visible_message("\red [src.name] splats.","\red You hear a splat.")
+	src.visible_message("<span class='danger'>\The [src.name] splats.</span>","<span class='danger'>You hear a splat.</span>")
 	qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/berryclafoutis
@@ -934,6 +968,8 @@
 	desc = "No black birds, this is a good sign."
 	icon_state = "berryclafoutis"
 	trash = /obj/item/trash/plate
+	center_of_mass = list("x"=16, "y"=13)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 4)
@@ -946,6 +982,7 @@
 	icon_state = "waffles"
 	trash = /obj/item/trash/waffles
 	filling_color = "#E6DEB5"
+	center_of_mass = list("x"=15, "y"=11)
 
 	New()
 		..()
@@ -958,6 +995,7 @@
 	icon_state = "eggplantparm"
 	trash = /obj/item/trash/plate
 	filling_color = "#4D2F5E"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -970,6 +1008,7 @@
 	icon_state = "soylent_green"
 	trash = /obj/item/trash/waffles
 	filling_color = "#B8E6B5"
+	center_of_mass = list("x"=15, "y"=11)
 
 	New()
 		..()
@@ -982,6 +1021,7 @@
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
 	filling_color = "#E6FA61"
+	center_of_mass = list("x"=15, "y"=11)
 
 	New()
 		..()
@@ -995,6 +1035,7 @@
 	desc = "An old barber recipe, very delicious!"
 	trash = /obj/item/trash/plate
 	filling_color = "#948051"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -1007,6 +1048,7 @@
 	desc = "A delicious tofu pie."
 	trash = /obj/item/trash/plate
 	filling_color = "#FFFEE0"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -1018,6 +1060,7 @@
 	desc = "Sweet and tasty poison pie."
 	icon_state = "amanita_pie"
 	filling_color = "#FFCCCC"
+	center_of_mass = list("x"=17, "y"=9)
 
 	New()
 		..()
@@ -1031,6 +1074,7 @@
 	desc = "I bet you love stuff made out of plump helmets!"
 	icon_state = "plump_pie"
 	filling_color = "#B8279B"
+	center_of_mass = list("x"=17, "y"=9)
 
 	New()
 		..()
@@ -1050,6 +1094,7 @@
 	desc = "A delicious meatpie. Probably heretical."
 	trash = /obj/item/trash/plate
 	filling_color = "#43DE18"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -1062,6 +1107,7 @@
 	icon_state = "wingfangchu"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#43DE18"
+	center_of_mass = list("x"=17, "y"=9)
 
 	New()
 		..()
@@ -1075,6 +1121,7 @@
 	desc = "A human meat, on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#A85340"
+	center_of_mass = list("x"=17, "y"=15)
 
 	New()
 		..()
@@ -1087,6 +1134,7 @@
 	desc = "Delicious meat, on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#A85340"
+	center_of_mass = list("x"=17, "y"=15)
 
 	New()
 		..()
@@ -1099,6 +1147,7 @@
 	desc = "Vegan meat, on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#FFFEE0"
+	center_of_mass = list("x"=17, "y"=15)
 
 	New()
 		..()
@@ -1111,6 +1160,7 @@
 	icon_state = "cubancarp"
 	trash = /obj/item/trash/plate
 	filling_color = "#E9ADFF"
+	center_of_mass = list("x"=12, "y"=5)
 
 	New()
 		..()
@@ -1127,6 +1177,7 @@
 	trash = /obj/item/trash/popcorn
 	var/unpopped = 0
 	filling_color = "#FFFAD4"
+	center_of_mass = list("x"=16, "y"=8)
 
 	New()
 		..()
@@ -1135,7 +1186,7 @@
 		bitesize = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
 	On_Consume()
 		if(prob(unpopped))	//lol ...what's the point?
-			usr << "\red You bite down on an un-popped kernel!"
+			usr << "<span class='warning'>You bite down on an un-popped kernel!</span>"
 			unpopped = max(0, unpopped-1)
 		..()
 
@@ -1146,6 +1197,7 @@
 	desc = "Beef jerky made from the finest space cows."
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
+	center_of_mass = list("x"=15, "y"=9)
 
 	New()
 		..()
@@ -1158,6 +1210,7 @@
 	desc = "Best raisins in the universe. Not sure why."
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
+	center_of_mass = list("x"=15, "y"=4)
 
 	New()
 		..()
@@ -1168,6 +1221,7 @@
 	icon_state = "space_twinkie"
 	desc = "Guaranteed to survive longer then you will."
 	filling_color = "#FFE591"
+	center_of_mass = list("x"=15, "y"=11)
 
 	New()
 		..()
@@ -1180,6 +1234,7 @@
 	desc = "Bite sized cheesie snacks that will honk all over your mouth"
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
+	center_of_mass = list("x"=15, "y"=9)
 
 	New()
 		..()
@@ -1191,6 +1246,7 @@
 	icon_state = "syndi_cakes"
 	desc = "An extremely moist snack cake that tastes just as good after being nuked."
 	filling_color = "#FF5D05"
+	center_of_mass = list("x"=16, "y"=10)
 
 	trash = /obj/item/trash/syndi_cakes
 	New()
@@ -1204,6 +1260,7 @@
 	desc = "Totally baked."
 	icon_state = "loadedbakedpotato"
 	filling_color = "#9C7A68"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -1217,6 +1274,7 @@
 	icon_state = "fries"
 	trash = /obj/item/trash/plate
 	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -1229,6 +1287,7 @@
 	icon_state = "soydope"
 	trash = /obj/item/trash/plate
 	filling_color = "#C4BF76"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -1240,6 +1299,7 @@
 	desc = "A bundle of raw spaghetti."
 	icon_state = "spagetti"
 	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=16)
 
 	New()
 		..()
@@ -1252,6 +1312,7 @@
 	icon_state = "cheesyfries"
 	trash = /obj/item/trash/plate
 	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -1264,6 +1325,7 @@
 	desc = "A true prophecy in each cookie!"
 	icon_state = "fortune_cookie"
 	filling_color = "#E8E79E"
+	center_of_mass = list("x"=15, "y"=14)
 
 	New()
 		..()
@@ -1275,6 +1337,7 @@
 	desc = "Someone should be demoted from chef for this."
 	icon_state = "badrecipe"
 	filling_color = "#211F02"
+	center_of_mass = list("x"=16, "y"=12)
 
 	New()
 		..()
@@ -1288,6 +1351,7 @@
 	icon_state = "meatstake"
 	trash = /obj/item/trash/plate
 	filling_color = "#7A3D11"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -1302,6 +1366,7 @@
 	icon_state = "spacylibertyduff"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#42B873"
+	center_of_mass = list("x"=16, "y"=8)
 
 	New()
 		..()
@@ -1315,6 +1380,7 @@
 	icon_state = "amanitajelly"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#ED0758"
+	center_of_mass = list("x"=16, "y"=5)
 
 	New()
 		..()
@@ -1329,6 +1395,7 @@
 	icon_state = "poppypretzel"
 	bitesize = 2
 	filling_color = "#916E36"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -1342,6 +1409,7 @@
 	icon_state = "meatballsoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#785210"
+	center_of_mass = list("x"=16, "y"=8)
 
 	New()
 		..()
@@ -1352,7 +1420,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/slimesoup
 	name = "slime soup"
 	desc = "If no water is available, you may substitute tears."
-	icon_state = "slimesoup"
+	icon_state = "slimesoup" //nonexistant?
 	filling_color = "#C4DBA0"
 
 	New()
@@ -1366,6 +1434,7 @@
 	desc = "Smells like copper."
 	icon_state = "tomatosoup"
 	filling_color = "#FF0000"
+	center_of_mass = list("x"=16, "y"=7)
 
 	New()
 		..()
@@ -1379,6 +1448,7 @@
 	desc = "Not very funny."
 	icon_state = "clownstears"
 	filling_color = "#C4FBFF"
+	center_of_mass = list("x"=16, "y"=7)
 
 	New()
 		..()
@@ -1393,6 +1463,7 @@
 	icon_state = "vegetablesoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
+	center_of_mass = list("x"=16, "y"=8)
 
 	New()
 		..()
@@ -1406,6 +1477,7 @@
 	icon_state = "nettlesoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
+	center_of_mass = list("x"=16, "y"=7)
 
 	New()
 		..()
@@ -1420,6 +1492,7 @@
 	icon_state = "mysterysoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#F082FF"
+	center_of_mass = list("x"=16, "y"=6)
 
 	New()
 		..()
@@ -1467,6 +1540,7 @@
 	icon_state = "wishsoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#D1F4FF"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -1482,6 +1556,7 @@
 	icon_state = "hotchili"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FF3C00"
+	center_of_mass = list("x"=15, "y"=9)
 
 	New()
 		..()
@@ -1497,6 +1572,7 @@
 	desc = "This slush is barely a liquid!"
 	icon_state = "coldchili"
 	filling_color = "#2B00FF"
+	center_of_mass = list("x"=15, "y"=9)
 
 	trash = /obj/item/trash/snack_bowl
 	New()
@@ -1514,10 +1590,13 @@
 	icon_state = "bacon"
 	var/obj/item/device/radio/beacon/bacon/baconbeacon
 	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 4)
 		baconbeacon = new /obj/item/device/radio/beacon/bacon(src)
+
 	On_Consume()
 		if(!reagents.total_volume)
 			baconbeacon.loc = usr
@@ -1527,9 +1606,11 @@
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube
 	name = "monkey cube"
 	desc = "Just add water!"
+	flags = 0
 	icon_state = "monkeycube"
 	bitesize = 12
 	filling_color = "#ADAC7F"
+	center_of_mass = list("x"=16, "y"=14)
 
 	var/wrapped = 0
 	var/monkey_type = "Monkey"
@@ -1651,6 +1732,7 @@
 	desc = "Forget the Big Mac. THIS is the future!"
 	icon_state = "bigbiteburger"
 	filling_color = "#E3D681"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -1664,6 +1746,7 @@
 	icon_state = "enchiladas"
 	trash = /obj/item/trash/tray
 	filling_color = "#A36A1F"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -1678,6 +1761,7 @@
 	icon_state = "monkeysdelight"
 	trash = /obj/item/trash/tray
 	filling_color = "#5C3C11"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -1692,6 +1776,7 @@
 	desc = "Bon appetit!"
 	icon_state = "baguette"
 	filling_color = "#E3D796"
+	center_of_mass = list("x"=18, "y"=12)
 
 	New()
 		..()
@@ -1705,6 +1790,7 @@
 	desc = "I do say so myself chap."
 	icon_state = "fishandchips"
 	filling_color = "#E3D796"
+	center_of_mass = list("x"=16, "y"=16)
 
 	New()
 		..()
@@ -1719,6 +1805,7 @@
 	icon_state = "sandwich"
 	trash = /obj/item/trash/plate
 	filling_color = "#D9BE29"
+	center_of_mass = list("x"=16, "y"=4)
 
 	New()
 		..()
@@ -1732,6 +1819,7 @@
 	icon_state = "toastedsandwich"
 	trash = /obj/item/trash/plate
 	filling_color = "#D9BE29"
+	center_of_mass = list("x"=16, "y"=4)
 
 	New()
 		..()
@@ -1759,6 +1847,7 @@
 	icon_state = "tomatosoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#D92929"
+	center_of_mass = list("x"=16, "y"=7)
 
 	New()
 		..()
@@ -1772,6 +1861,7 @@
 	icon_state = "rofflewaffles"
 	trash = /obj/item/trash/waffles
 	filling_color = "#FF00F7"
+	center_of_mass = list("x"=15, "y"=11)
 
 	New()
 		..()
@@ -1784,6 +1874,7 @@
 	desc = "A nice and warm stew. Healthy and strong."
 	icon_state = "stew"
 	filling_color = "#9E673A"
+	center_of_mass = list("x"=16, "y"=5)
 
 	New()
 		..()
@@ -1800,6 +1891,7 @@
 	icon_state = "jellytoast"
 	trash = /obj/item/trash/plate
 	filling_color = "#B572AB"
+	center_of_mass = list("x"=16, "y"=8)
 
 	New()
 		..()
@@ -1821,6 +1913,7 @@
 	desc = "Culinary delight..?"
 	icon_state = "jellyburger"
 	filling_color = "#B572AB"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -1842,6 +1935,8 @@
 	desc = "The universes best soup! Yum!!!"
 	icon_state = "milosoup"
 	trash = /obj/item/trash/snack_bowl
+	center_of_mass = list("x"=16, "y"=7)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 8)
@@ -1853,6 +1948,8 @@
 	desc = "Even non-vegetarians will LOVE this!"
 	icon_state = "stewedsoymeat"
 	trash = /obj/item/trash/plate
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 8)
@@ -1864,6 +1961,7 @@
 	icon_state = "spagettiboiled"
 	trash = /obj/item/trash/plate
 	filling_color = "#FCEE81"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -1876,6 +1974,7 @@
 	icon_state = "boiledrice"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
+	center_of_mass = list("x"=17, "y"=11)
 
 	New()
 		..()
@@ -1888,6 +1987,7 @@
 	icon_state = "rpudding"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
+	center_of_mass = list("x"=17, "y"=11)
 
 	New()
 		..()
@@ -1900,6 +2000,7 @@
 	icon_state = "pastatomato"
 	trash = /obj/item/trash/plate
 	filling_color = "#DE4545"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -1913,6 +2014,7 @@
 	icon_state = "meatballspagetti"
 	trash = /obj/item/trash/plate
 	filling_color = "#DE4545"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -1925,22 +2027,12 @@
 	desc = "A lawyers favourite"
 	icon_state = "spesslaw"
 	filling_color = "#DE4545"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
 		reagents.add_reagent("protein", 4)
 		reagents.add_reagent("nutriment", 4)
-		bitesize = 2
-
-/obj/item/weapon/reagent_containers/food/snacks/poppypretzel
-	name = "Poppy Pretzel"
-	desc = "A large soft pretzel full of POP!"
-	icon_state = "poppypretzel"
-	filling_color = "#AB7D2E"
-
-	New()
-		..()
-		reagents.add_reagent("nutriment", 5)
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/carrotfries
@@ -1949,6 +2041,7 @@
 	icon_state = "carrotfries"
 	trash = /obj/item/trash/plate
 	filling_color = "#FAA005"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -1961,6 +2054,7 @@
 	desc = "This is a mountain of a burger. FOOD!"
 	icon_state = "superbiteburger"
 	filling_color = "#CCA26A"
+	center_of_mass = list("x"=16, "y"=3)
 
 	New()
 		..()
@@ -1973,6 +2067,7 @@
 	desc = "An apple coated in sugary sweetness."
 	icon_state = "candiedapple"
 	filling_color = "#F21873"
+	center_of_mass = list("x"=15, "y"=13)
 
 	New()
 		..()
@@ -1984,6 +2079,7 @@
 	desc = "A pie containing sweet sweet love... or apple."
 	icon_state = "applepie"
 	filling_color = "#E0EDC5"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -1996,6 +2092,7 @@
 	desc = "Taste so good, make a grown man cry."
 	icon_state = "cherrypie"
 	filling_color = "#FF525A"
+	center_of_mass = list("x"=16, "y"=11)
 
 	New()
 		..()
@@ -2007,6 +2104,7 @@
 	desc = "It is very bitter and winy."
 	icon_state = "twobread"
 	filling_color = "#DBCC9A"
+	center_of_mass = list("x"=15, "y"=12)
 
 	New()
 		..()
@@ -2019,6 +2117,7 @@
 	icon_state = "jellysandwich"
 	trash = /obj/item/trash/plate
 	filling_color = "#9E3A78"
+	center_of_mass = list("x"=16, "y"=8)
 
 	New()
 		..()
@@ -2038,7 +2137,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/boiledslimecore
 	name = "Boiled slime Core"
 	desc = "A boiled red thing."
-	icon_state = "boiledslimecore"
+	icon_state = "boiledslimecore" //nonexistant?
 	New()
 		..()
 		reagents.add_reagent("slimejelly", 5)
@@ -2049,6 +2148,7 @@
 	desc = "it is only wafer thin."
 	icon_state = "mint"
 	filling_color = "#F2F2F2"
+	center_of_mass = list("x"=16, "y"=14)
 
 	New()
 		..()
@@ -2061,6 +2161,7 @@
 	icon_state = "mushroomsoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#E386BF"
+	center_of_mass = list("x"=17, "y"=10)
 
 	New()
 		..()
@@ -2072,6 +2173,7 @@
 	desc = "This is a finely-prepared plump helmet biscuit. The ingredients are exceptionally minced plump helmet, and well-minced dwarven wheat flour."
 	icon_state = "phelmbiscuit"
 	filling_color = "#CFB4C4"
+	center_of_mass = list("x"=16, "y"=13)
 
 	New()
 		..()
@@ -2091,6 +2193,7 @@
 	icon_state = "chawanmushi"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#F0F2E4"
+	center_of_mass = list("x"=17, "y"=10)
 
 	New()
 		..()
@@ -2103,6 +2206,7 @@
 	icon_state = "beetsoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FAC9FF"
+	center_of_mass = list("x"=15, "y"=8)
 
 	New()
 		..()
@@ -2116,7 +2220,7 @@
 	icon_state = "herbsalad"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#76B87F"
-
+	center_of_mass = list("x"=17, "y"=11)
 	New()
 		..()
 		reagents.add_reagent("nutriment", 8)
@@ -2128,6 +2232,7 @@
 	icon_state = "validsalad"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#76B87F"
+	center_of_mass = list("x"=17, "y"=11)
 
 	New()
 		..()
@@ -2141,6 +2246,7 @@
 	icon_state = "gappletart"
 	trash = /obj/item/trash/plate
 	filling_color = "#FFFF00"
+	center_of_mass = list("x"=16, "y"=18)
 
 	New()
 		..()
@@ -2163,6 +2269,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/meatbreadslice
 	slices_num = 5
 	filling_color = "#FF7575"
+	center_of_mass = list("x"=16, "y"=9)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 20)
@@ -2176,6 +2284,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FF7575"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/xenomeatbread
 	name = "xenomeatbread loaf"
@@ -2184,6 +2293,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice
 	slices_num = 5
 	filling_color = "#8AFF75"
+	center_of_mass = list("x"=16, "y"=9)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 20)
@@ -2197,6 +2308,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#8AFF75"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/bananabread
 	name = "Banana-nut bread"
@@ -2205,6 +2317,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/bananabreadslice
 	slices_num = 5
 	filling_color = "#EDE5AD"
+	center_of_mass = list("x"=16, "y"=9)
+
 	New()
 		..()
 		reagents.add_reagent("banana", 20)
@@ -2218,6 +2332,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#EDE5AD"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/tofubread
 	name = "Tofubread"
@@ -2226,6 +2341,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/tofubreadslice
 	slices_num = 5
 	filling_color = "#F7FFE0"
+	center_of_mass = list("x"=16, "y"=9)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 30)
@@ -2238,6 +2355,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#F7FFE0"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=13)
 
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/carrotcake
@@ -2247,6 +2365,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice
 	slices_num = 5
 	filling_color = "#FFD675"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 25)
@@ -2260,6 +2380,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FFD675"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
 	name = "Brain Cake"
@@ -2268,6 +2389,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/braincakeslice
 	slices_num = 5
 	filling_color = "#E6AEDB"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 25)
@@ -2282,6 +2405,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#E6AEDB"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesecake
 	name = "Cheese Cake"
@@ -2290,6 +2414,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cheesecakeslice
 	slices_num = 5
 	filling_color = "#FAF7AF"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 15)
@@ -2303,6 +2429,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FAF7AF"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/plaincake
 	name = "Vanilla Cake"
@@ -2311,6 +2438,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/plaincakeslice
 	slices_num = 5
 	filling_color = "#F7EDD5"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 20)
@@ -2322,6 +2451,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#F7EDD5"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/orangecake
 	name = "Orange Cake"
@@ -2330,6 +2460,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/orangecakeslice
 	slices_num = 5
 	filling_color = "#FADA8E"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 20)
@@ -2341,6 +2473,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FADA8E"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/limecake
 	name = "Lime Cake"
@@ -2349,6 +2482,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/limecakeslice
 	slices_num = 5
 	filling_color = "#CBFA8E"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 20)
@@ -2360,6 +2495,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#CBFA8E"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/lemoncake
 	name = "Lemon Cake"
@@ -2368,6 +2504,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/lemoncakeslice
 	slices_num = 5
 	filling_color = "#FAFA8E"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 20)
@@ -2379,6 +2517,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FAFA8E"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/chocolatecake
 	name = "Chocolate Cake"
@@ -2387,6 +2526,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/chocolatecakeslice
 	slices_num = 5
 	filling_color = "#805930"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 20)
@@ -2398,6 +2539,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#805930"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel
 	name = "Cheese wheel"
@@ -2406,6 +2548,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	slices_num = 5
 	filling_color = "#FFF700"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 20)
@@ -2417,6 +2561,7 @@
 	icon_state = "cheesewedge"
 	filling_color = "#FFF700"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=10)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/birthdaycake
 	name = "Birthday Cake"
@@ -2425,6 +2570,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice
 	slices_num = 5
 	filling_color = "#FFD6D6"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 20)
@@ -2438,6 +2585,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FFD6D6"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/bread
 	name = "Bread"
@@ -2446,6 +2594,7 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/breadslice
 	slices_num = 5
 	filling_color = "#FFE396"
+	center_of_mass = list("x"=16, "y"=9)
 
 	New()
 		..()
@@ -2459,6 +2608,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#D27332"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=4)
 
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/creamcheesebread
@@ -2468,6 +2618,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/creamcheesebreadslice
 	slices_num = 5
 	filling_color = "#FFF896"
+	center_of_mass = list("x"=16, "y"=9)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 15)
@@ -2481,6 +2633,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FFF896"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=13)
 
 
 /obj/item/weapon/reagent_containers/food/snacks/watermelonslice
@@ -2489,6 +2642,7 @@
 	icon_state = "watermelonslice"
 	filling_color = "#FF3867"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=10)
 
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/applecake
@@ -2498,6 +2652,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/applecakeslice
 	slices_num = 5
 	filling_color = "#EBF5B8"
+	center_of_mass = list("x"=16, "y"=10)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 15)
@@ -2509,6 +2665,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#EBF5B8"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
 	name = "Pumpkin Pie"
@@ -2517,6 +2674,7 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice
 	slices_num = 5
 	filling_color = "#F5B951"
+	center_of_mass = list("x"=16, "y"=10)
 
 	New()
 		..()
@@ -2529,12 +2687,14 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#F5B951"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/weapon/reagent_containers/food/snacks/cracker
 	name = "Cracker"
 	desc = "It's a salted cracker."
 	icon_state = "cracker"
 	filling_color = "#F5DEB8"
+	center_of_mass = list("x"=17, "y"=6)
 
 	New()
 		..()
@@ -2554,6 +2714,8 @@
 	icon_state = "pizzamargherita"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/margheritaslice
 	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 35)
@@ -2567,6 +2729,7 @@
 	icon_state = "pizzamargheritaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/meatpizza
 	name = "Meatpizza"
@@ -2574,6 +2737,8 @@
 	icon_state = "meatpizza"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice
 	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 44)
@@ -2586,6 +2751,7 @@
 	icon_state = "meatpizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
 	name = "Mushroompizza"
@@ -2593,6 +2759,8 @@
 	icon_state = "mushroompizza"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/mushroompizzaslice
 	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 35)
@@ -2605,6 +2773,7 @@
 	icon_state = "mushroompizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
 	name = "Vegetable pizza"
@@ -2612,6 +2781,8 @@
 	icon_state = "vegetablepizza"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/vegetablepizzaslice
 	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 25)
@@ -2626,6 +2797,7 @@
 	icon_state = "vegetablepizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
 
 /obj/item/pizzabox
 	name = "pizza box"
@@ -2695,7 +2867,7 @@
 	if( open && pizza )
 		user.put_in_hands( pizza )
 
-		user << "\red You take the [src.pizza] out of the [src]."
+		user << "<span class='warning'>You take \the [src.pizza] out of \the [src].</span>"
 		src.pizza = null
 		update_icon()
 		return
@@ -2709,7 +2881,7 @@
 		boxes -= box
 
 		user.put_in_hands( box )
-		user << "\red You remove the topmost [src] from your hand."
+		user << "<span class='warning'>You remove the topmost [src] from your hand.</span>"
 		box.update_icon()
 		update_icon()
 		return
@@ -2748,11 +2920,11 @@
 				box.update_icon()
 				update_icon()
 
-				user << "\red You put the [box] ontop of the [src]!"
+				user << "<span class='warning'>You put \the [box] ontop of \the [src]!</span>"
 			else
-				user << "\red The stack is too high!"
+				user << "<span class='warning'>The stack is too high!</span>"
 		else
-			user << "\red Close the [box] first!"
+			user << "<span class='warning'>Close \the [box] first!</span>"
 
 		return
 
@@ -2765,9 +2937,9 @@
 
 			update_icon()
 
-			user << "\red You put the [I] in the [src]!"
+			user << "<span class='warning'>You put \the [I] in \the [src]!</span>"
 		else
-			user << "\red You try to push the [I] through the lid but it doesn't work!"
+			user << "<span class='warning'>You try to push \the [I] through the lid but it doesn't work!</span>"
 		return
 
 	if( istype(I, /obj/item/weapon/pen/) )
@@ -2809,6 +2981,7 @@
 	icon_state = "dionaroast"
 	trash = /obj/item/trash/plate
 	filling_color = "#75754B"
+	center_of_mass = list("x"=16, "y"=7)
 
 	New()
 		..()
@@ -2828,6 +3001,8 @@
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "dough"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=13)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 1)
@@ -2848,6 +3023,8 @@
 	icon_state = "flat dough"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/doughslice
 	slices_num = 3
+	center_of_mass = list("x"=16, "y"=16)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 1)
@@ -2861,6 +3038,8 @@
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/spagetti
 	slices_num = 1
 	bitesize = 2
+	center_of_mass = list("x"=17, "y"=19)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 1)
@@ -2871,6 +3050,8 @@
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "bun"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=12)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 4)
@@ -2924,6 +3105,8 @@
 	desc = "Take a bite!"
 	icon_state = "taco"
 	bitesize = 3
+	center_of_mass = list("x"=21, "y"=12)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 3)
@@ -2935,6 +3118,8 @@
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "rawcutlet"
 	bitesize = 1
+	center_of_mass = list("x"=17, "y"=20)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 1)
@@ -2945,6 +3130,8 @@
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "cutlet"
 	bitesize = 2
+	center_of_mass = list("x"=17, "y"=20)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 2)
@@ -2955,6 +3142,8 @@
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "rawmeatball"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=15)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 2)
@@ -2964,6 +3153,8 @@
 	desc = "Unrelated to dogs, maybe."
 	icon_state = "hotdog"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=17)
+
 	New()
 		..()
 		reagents.add_reagent("protein", 6)
@@ -2974,6 +3165,8 @@
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "flatbread"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 3)
@@ -2993,6 +3186,8 @@
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "rawsticks"
 	bitesize = 2
+	center_of_mass = list("x"=16, "y"=12)
+
 	New()
 		..()
 		reagents.add_reagent("nutriment", 3)
@@ -3003,6 +3198,7 @@
 	icon_state = "liquidfood"
 	trash = /obj/item/trash/liquidfood
 	filling_color = "#A8A8A8"
+	center_of_mass = list("x"=16, "y"=15)
 
 	New()
 		..()
@@ -3017,6 +3213,7 @@
 	icon_state = "tastybread"
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
+	center_of_mass = list("x"=17, "y"=16)
 
 	New()
 		..()
@@ -3028,6 +3225,7 @@
 	desc = "Cured fungus shipped all the way from Jargon 4, almost like jerky! Almost."
 	icon_state = "skrellsnacks"
 	filling_color = "#A66829"
+	center_of_mass = list("x"=15, "y"=12)
 
 	New()
 		..()

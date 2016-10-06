@@ -40,7 +40,7 @@
 	else
 		return null
 
-//return flags that should be added to the viewer's sight var. 
+//return flags that should be added to the viewer's sight var.
 //Otherwise return a negative number to indicate that the view should be cancelled.
 /atom/proc/check_eye(user as mob)
 	if (istype(user, /mob/living/silicon/ai)) // WHYYYY
@@ -68,12 +68,11 @@
 		return flags & INSERT_CONTAINER
 */
 
-/atom/proc/meteorhit(obj/meteor as obj)
-	return
-
 /atom/proc/CheckExit()
 	return 1
 
+// If you want to use this, the atom must have the PROXMOVE flag, and the moving
+// atom must also have the PROXMOVE flag currently to help with lag. ~ ComicIronic
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
@@ -222,8 +221,8 @@ its easier to just keep the beam vertical.
 /atom/proc/ex_act()
 	return
 
-/atom/proc/blob_act()
-	return
+/atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+	return NO_EMAG_ACT
 
 /atom/proc/fire_act()
 	return
@@ -422,7 +421,6 @@ its easier to just keep the beam vertical.
 		blood_DNA = null
 		return 1
 
-
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return
 	var/cur_x = null
@@ -447,3 +445,46 @@ its easier to just keep the beam vertical.
 		return 1
 	else
 		return 0
+
+// Show a message to all mobs and objects in sight of this atom
+// Use for objects performing visible actions
+// message is output to anyone who can see, e.g. "The [src] does something!"
+// blind_message (optional) is what blind people will hear e.g. "You hear something!"
+/atom/proc/visible_message(var/message, var/blind_message)
+
+	var/list/see = get_mobs_or_objects_in_view(world.view,src) | viewers(get_turf(src), null)
+
+	for(var/I in see)
+		if(isobj(I))
+			spawn(0)
+				if(I) //It's possible that it could be deleted in the meantime.
+					var/obj/O = I
+					O.show_message( message, 1, blind_message, 2)
+		else if(ismob(I))
+			var/mob/M = I
+			if(M.see_invisible >= invisibility) // Cannot view the invisible
+				M.show_message( message, 1, blind_message, 2)
+			else if (blind_message)
+				M.show_message(blind_message, 2)
+
+// Show a message to all mobs and objects in earshot of this atom
+// Use for objects performing audible actions
+// message is the message output to anyone who can hear.
+// deaf_message (optional) is what deaf people will see.
+// hearing_distance (optional) is the range, how many tiles away the message can be heard.
+/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance)
+
+	var/range = world.view
+	if(hearing_distance)
+		range = hearing_distance
+	var/list/hear = get_mobs_or_objects_in_view(range,src)
+
+	for(var/I in hear)
+		if(isobj(I))
+			spawn(0)
+				if(I) //It's possible that it could be deleted in the meantime.
+					var/obj/O = I
+					O.show_message( message, 2, deaf_message, 1)
+		else if(ismob(I))
+			var/mob/M = I
+			M.show_message( message, 2, deaf_message, 1)

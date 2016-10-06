@@ -40,7 +40,6 @@ var/list/whitelist = list()
 	if (config.usealienwhitelist)
 		load_alienwhitelist()
 	return 1
-
 /proc/load_alienwhitelist()
 	if (config.sql_whitelists)
 		establish_db_connection(dbcon)
@@ -62,8 +61,25 @@ var/list/whitelist = list()
 	var/text = file2text("config/alienwhitelist.txt")
 	if (!text)
 		log_misc("Failed to load config/alienwhitelist.txt")
+		return 0
 	else
 		alien_whitelist = text2list(text, "\n")
+		return 1
+/proc/load_alienwhitelistSQL()
+	var/DBQuery/query = dbcon_old.NewQuery("SELECT * FROM whitelist")
+	if(!query.Execute())
+		world.log << dbcon_old.ErrorMsg()
+		return 0
+	else
+		while(query.NextRow())
+			var/list/row = query.GetRowData()
+			if(alien_whitelist[row["ckey"]])
+				var/list/A = alien_whitelist[row["ckey"]]
+				A.Add(row["race"])
+			else
+				alien_whitelist[row["ckey"]] = list(row["race"])
+	return 1
+
 
 /proc/is_alien_whitelisted(mob/M, var/species)
 	if (!config.usealienwhitelist)

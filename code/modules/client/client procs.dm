@@ -165,7 +165,7 @@
 			if ("webint")
 				src.open_webint()
 
-	..()	//redirect to hsrc.()
+	..()	//redirect to hsrc.Topic()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
 	if(config.automute_on && !holder && src.last_message == message)
@@ -256,9 +256,6 @@
 			del(src)
 			return 0
 
-	if( (world.address == address || !address) && !host )
-		host = key
-		world.update_status()
 
 	if(holder)
 		add_admin_verbs()
@@ -450,6 +447,12 @@
 
 	// Something went wrong, client is usually kicked or transfered to a new mob at this point
 	return 0
+
+/client/verb/character_setup()
+	set name = "Character Setup"
+	set category = "Preferences"
+	if(prefs)
+		prefs.ShowChoices(usr)
 
 //I honestly can't find a good place for this atm.
 //If the webint interaction gets more features, I'll move it. - Skull132

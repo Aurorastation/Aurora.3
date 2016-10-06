@@ -39,8 +39,9 @@
 
 	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
 	if((CLUMSY in user.mutations) && prob(50))              //What if he's a clown?
-		M << "\red You accidentally slam yourself with the [src]!"
-		if(!istype(M,/mob/living/silicon))M.Weaken(1)
+		M << "<span class='warning'>You accidentally slam yourself with the [src]!</span>"
+		if (!issilicon(M))
+			M.Weaken(1)
 		user.take_organ_damage(2)
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
@@ -53,7 +54,7 @@
 
 
 	if(!(user.zone_sel.selecting == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
-		if(prob(33) && !istype(M,/mob/living/silicon))//robots dont bleed
+		if(prob(33) && !issilicon(M))//robots dont bleed
 			src.add_blood(H)
 			var/turf/location = H.loc
 			if (istype(location, /turf/simulated))
@@ -64,25 +65,32 @@
 		msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to attack [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 		if(prob(15))
-			if(!istype(M,/mob/living/silicon)) M.Weaken(3)
+			if(!issilicon(M)) M.Weaken(3)
 			M.take_organ_damage(3)
 		else
 			M.take_organ_damage(5)
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 			return
 		else
 			playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //we applied the damage, we played the sound, we showed the appropriate messages. Time to return and stop the proc
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 			return
 
 
-	if(istype(M, /mob/living/carbon/human) && ((H.head && H.head.flags & HEADCOVERSEYES) || (H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || (H.glasses && H.glasses.flags & GLASSESCOVERSEYES)))
-		M << "\red You get slammed in the face with the tray, against your mask!"
-		if(prob(33) && !istype(M,/mob/living/silicon))
+	var/protected = 0
+	for(var/slot in list(slot_head, slot_wear_mask, slot_glasses))
+		var/obj/item/protection = M.get_equipped_item(slot)
+		if(istype(protection) && (protection.body_parts_covered & FACE))
+			protected = 1
+			break
+	
+	if(protected)
+		M << "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>"
+		if(prob(33) && !issilicon(M))
 			src.add_blood(H)
 			if (H.wear_mask)
 				H.wear_mask.add_blood(H)
@@ -97,11 +105,11 @@
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 		else
 			playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin'
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 		if(prob(10))
 			if(!istype(M,/mob/living/silicon))M.Stun(rand(1,3))
 			M.take_organ_damage(3)
@@ -110,7 +118,7 @@
 			M.take_organ_damage(5)
 			return
 
-	else if (!istype(M,/mob/living/silicon))//No eye or head protection, tough luck!
+	else if (!issilicon(M))//No eye or head protection, tough luck!
 		M << "\red You get slammed in the face with the tray!"
 		if(prob(33))
 			src.add_blood(M)
@@ -121,11 +129,11 @@
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] in the face with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] in the face with the tray!</span>", user, M), 1)
 		else
 			playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] in the face with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] in the face with the tray!</span>", user, M), 1)
 		if(prob(30))
 			M.Stun(rand(2,4))
 			M.take_organ_damage(4)
@@ -140,7 +148,7 @@
 /obj/item/weapon/tray/var/cooldown = 0	//shield bash cooldown. based on world.time
 
 /obj/item/weapon/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(user,/mob/living/silicon/robot))//safety to stop robots losing their items
+	if (issilicon(M))//safety to stop robots losing their items
 		return
 
 	if (istype(W, /obj/item/weapon/tray))//safety to prevent tray stacking

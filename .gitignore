@@ -8,5 +8,6 @@ Thumbs.db
 *.backup
 data/
 cfg/
+build_log.txt
 
 /.atom-build.json

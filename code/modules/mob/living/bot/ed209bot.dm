@@ -56,7 +56,6 @@
 		return
 
 	last_shot = world.time
-
 	var/projectile = /obj/item/projectile/beam/stun
 	if(emagged)
 		projectile = /obj/item/projectile/beam
@@ -65,9 +64,6 @@
 	var/obj/item/projectile/P = new projectile(loc)
 	var/def_zone = get_exposed_defense_zone(A)
 	P.launch(A, def_zone)
-
-	return
-
 // Assembly
 
 /obj/item/weapon/secbot_assembly/ed209_assembly

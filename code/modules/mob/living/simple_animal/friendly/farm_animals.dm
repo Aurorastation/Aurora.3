@@ -167,9 +167,9 @@
 	health = 1
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
-	small = 1
 	holder_type = /obj/item/weapon/holder/chick
 	density = 0
+	mob_size = MOB_MINISCULE
 
 /mob/living/simple_animal/chick/New()
 	..()
@@ -215,9 +215,9 @@ var/global/chicken_count = 0
 	var/eggsleft = 0
 	var/body_color
 	pass_flags = PASSTABLE
-	small = 1
 	holder_type = /obj/item/weapon/holder/chicken
 	density = 0
+	mob_size = MOB_SMALL
 
 /mob/living/simple_animal/chicken/New()
 	..()
@@ -229,12 +229,13 @@ var/global/chicken_count = 0
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 	chicken_count += 1
-	if (body_color == "brown")
-		holder_type = /obj/item/weapon/holder/chicken/brown
-	if (body_color == "black")
-		holder_type = /obj/item/weapon/holder/chicken/black
-	if (body_color == "white")
-		holder_type = /obj/item/weapon/holder/chicken/white
+	switch (body_color)
+		if ("brown")
+			holder_type = /obj/item/weapon/holder/chicken/brown
+		if ("black")
+			holder_type = /obj/item/weapon/holder/chicken/black
+		if ("white")
+			holder_type = /obj/item/weapon/holder/chicken/white
 
 /mob/living/simple_animal/chicken/death()
 	..()
