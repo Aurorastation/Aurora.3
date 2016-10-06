@@ -70,7 +70,7 @@
 		return
 
 	if (istype(I, /obj/item/weapon/card/id) && status == STATUS_ACTIVE)
-		if (!constructionstate)
+		if (!constructionstate && !hacked)
 			if (check_access(I))
 				locked = !locked
 				update_icons()
@@ -290,11 +290,20 @@
 			icon = "broken"
 			return
 
-		if (STATUS_HACKED)
-
-STATUS_INACTIVE 0
-#define STATUS_ACTIVE 1
-#define STATUS_HACKED -1
+		if (STATUS_INACTIVE to STATUS_ACTIVE)
+			overlays = list()
+			if (hacked)
+				overlays += "overlay_hacked"
+			else if (locked)
+				overlays += "overlay_locked"
+				else
+					overlays += "overlay_unlocked"
+			switch (constructionstate)
+				if (0)
+					return
+				if (1 to 4)
+					overlays += "overlay_deconstruct_[constructionstate]"
+					return
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	health -= damage
