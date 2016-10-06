@@ -157,22 +157,6 @@ var/world_topic_spam_protect_time = world.timeofday
 				n++
 		return n
 
-	else if (T == "admins")
-		var/n = 0
-		for (var/client/client in clients)
-			if (client.holder && client.holder.rights & (R_MOD|R_ADMIN))
-				n++
-
-		return n
-
-	else if (T == "cciaa")
-		var/n = 0
-		for (var/client/client in clients)
-			if (client.holder && (client.holder.rights & R_CCIAA) && !(client.holder.rights & R_ADMIN))
-				n++
-
-		return n
-
 	else if (T == "gamemode")
 		return master_mode
 

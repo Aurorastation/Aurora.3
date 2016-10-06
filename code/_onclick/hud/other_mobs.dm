@@ -22,9 +22,6 @@
 /mob/living/silicon/ai/instantiate_hud(var/datum/hud/HUD)
 	HUD.ai_hud()
 
-/datum/hud/proc/ai_hud()
-	return
-
 /datum/hud/proc/blob_hud(ui_style = 'icons/mob/screen1_Midnight.dmi')
 
 	blobpwrdisplay = new /obj/screen()

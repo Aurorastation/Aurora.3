@@ -5,31 +5,31 @@
  */
 
 /datum/preferences/proc/handle_preferences_load(var/client/C)
-	if (config.sql_saves)
-		return load_preferences_sql(C)
-	else
-		return load_preferences()
+//	if (config.sql_saves)
+//		return load_preferences_sql(C)
+//	else
+	return load_preferences()
 
 /datum/preferences/proc/handle_preferences_save(var/client/C)
-	if (config.sql_saves)
-		return save_preferences_sql(C)
-	else
-		return save_preferences()
+//	if (config.sql_saves)
+//		return save_preferences_sql(C)
+//	else
+	return save_preferences()
 
 /datum/preferences/proc/handle_character_load(var/slot = 0, var/client/C)
-	if (config.sql_saves)
-		return load_character_sql(slot, C)
-	else
-		return load_character(slot)
+//	if (config.sql_saves)
+//		return load_character_sql(slot, C)
+//	else
+	return load_character(slot)
 
 /datum/preferences/proc/handle_character_save(var/client/C)
-	if (config.sql_saves)
-		return save_character_sql(C)
-	else
-		return save_character()
+//	if (config.sql_saves)
+//		return save_character_sql(C)
+//	else
+	return save_character()
 
 /datum/preferences/proc/get_default_character()
-	if (config.sql_saves)
-		return current_character
-	else
-		return default_slot
+//	if (config.sql_saves)
+//		return current_character
+//	else
+	return default_slot

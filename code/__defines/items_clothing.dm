@@ -41,9 +41,10 @@
 #define FLEXIBLEMATERIAL       0x20 // At the moment, masks with this flag will not prevent eating even if they are covering your face.
 
 // Flags for pass_flags.
-#define PASSTABLE  0x1
-#define PASSGLASS  0x2
-#define PASSGRILLE 0x4
+#define PASSTABLE     0x1
+#define PASSGLASS     0x2
+#define PASSGRILLE    0x4
+#define PASSDOORHATCH 0x8
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 // WARNING: The following flags apply only to the external suit!

@@ -396,8 +396,8 @@ default behaviour is:
 
 /mob/living/proc/revive()
 	// Stop killing yourself. Please.
-	if(suiciding)
-		suiciding = 0
+//	if(suiciding)
+//		suiciding = 0
 
 	rejuvenate()
 	if(buckled)

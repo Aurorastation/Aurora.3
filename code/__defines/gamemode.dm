@@ -48,6 +48,9 @@
 #define MODE_LOYALIST "loyalist"
 #define MODE_MALFUNCTION "malf"
 #define MODE_TRAITOR "traitor"
+#define MODE_VAMPIRE "vampire"
+#define MODE_THRALL "thrall"
+
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 
@@ -88,3 +91,14 @@
 #define Sp_RECHARGE	"recharge"
 #define Sp_CHARGES	"charges"
 #define Sp_HOLDVAR	"holdervar"
+
+/////////////////
+//// Vampire ////
+/////////////////
+
+#define VAMP_DRAINING   0x1
+#define VAMP_HEALING    0x2
+#define VAMP_PRESENCE   0x4
+#define VAMP_FRENZIED   0x8
+#define VAMP_ISTHRALL   0x10
+#define VAMP_FULLPOWER  0x20

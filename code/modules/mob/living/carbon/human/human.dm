@@ -372,7 +372,7 @@
 	if(href_list["item"])
 		if (handle_strip(href_list["item"],usr))
 
-	if (href_list["criminal"])
+	if(href_list["criminal"])
 		if(hasHUD(usr,"security"))
 
 			var/modified = 0
