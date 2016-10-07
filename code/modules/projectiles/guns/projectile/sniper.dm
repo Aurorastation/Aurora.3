@@ -28,9 +28,7 @@
 /obj/item/weapon/gun/projectile/heavysniper/can_wield()
 	return 1
 
-/obj/item/weapon/gun/projectile/heavysniper/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
+
 
 /obj/item/weapon/gun/projectile/heavysniper/verb/wield_rifle()
 	set name = "Wield rifle"
@@ -67,7 +65,7 @@
 		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return 0
 	if(!wielded)
-		usr << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
+		user << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
 		return 0
 	return ..()
 
