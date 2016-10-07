@@ -236,7 +236,7 @@
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
 	w_class = 2
-	brightness_on = 4
+	brightness_on = 3
 	light_power = 2
 	light_color = "#49F37C"
 	icon = 'icons/obj/glowsticks.dmi'
@@ -248,7 +248,7 @@
 	var/fuel = 0
 
 /obj/item/device/flashlight/glowstick/New()
-	fuel = rand(1200, 1700)
+	fuel = rand(900, 1200)
 	..()
 
 /obj/item/device/flashlight/glowstick/process()
