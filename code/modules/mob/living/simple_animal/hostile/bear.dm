@@ -202,6 +202,9 @@
 				continue
 			else
 
+				if(!L.client)
+					continue
+					
 				if(L.stat == CONSCIOUS)
 					if (dist < nearest_dist)
 						nearest_target = L
