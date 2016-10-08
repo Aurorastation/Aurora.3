@@ -627,3 +627,28 @@ datum/proc/dd_SortValue()
 		total += input[i]
 
 	return total
+
+
+
+ /**
+  * Specific for /datum/data/records. Get from list by record's ID
+  *
+  * @param recordsList /list/datum/data/record List of records to be searched
+  * @param ID int record ID
+  *
+  * @return /datum/data/record from list
+  */
+/proc/getRecordByID(var/list/datum/data/record/recordsList, var/ID)
+	if (isnull(recordsList))
+		// abort early
+		log_debug("Null-reference passed as recordsList argument to getRecordByID.")
+		return null
+
+	// loop through list, until item.fields["id"] matches ID
+	for (var/datum/data/record/currentRecord in recordsList)
+		if (!(isnull(currentRecord)) && (currentRecord.fields["id"] == ID))
+			// matching record found.
+			return currentRecord
+
+	// no matching record found
+	return null
