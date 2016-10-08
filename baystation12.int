@@ -1,11 +1,6 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1475939659
-DIR: code code\__defines code\__HELPERS code\_defines code\controllers code\controllers\Processes code\game code\game\jobs\job code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\items code\game\objects\items\devices code\game\objects\items\devices\PDA code\modules code\modules\nano 
-AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
-LAST_COMPILE_VERSION: 511.1359
-WINDOW: code\modules\nano\nanoui.dm;code\__HELPERS\lists.dm;code\__HELPERS\logging.dm;code\game\machinery\computer\medical.dm;code\controllers\Processes\garbage.dm;code\game\objects\items\devices\PDA\PDA.dm;code\global.dm;code\game\machinery\Sleeper.dm;code\modules\nano\nanoexternal.dm
-FILE: code\game\machinery\Sleeper.dm
+AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
