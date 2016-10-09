@@ -297,9 +297,7 @@
 	nanomanager.send_resources(src)
 
 	// Server greeting shenanigans.
-	var/outdated_greeting_info = server_greeting.find_outdated_info(src, 1)
-
-	if (outdated_greeting_info)
+	if (server_greeting.find_outdated_info(src, 1))
 		server_greeting.display_to_client(src)
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
