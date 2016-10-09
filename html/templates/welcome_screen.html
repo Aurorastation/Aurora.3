@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Aurorastation Welcome Screen</title>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-UA-Compatible" content="IE=11">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap -->
 		<link href="bootstrap.min.css" rel="stylesheet" media="screen">
@@ -48,7 +48,7 @@
 						</p>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="motd"><div class="row"></div></div>
-					<div role="tabpanel" class="tab-pane" id="memo"><!--memo--></div>
+					<div role="tabpanel" class="tab-pane" id="memo"></div>
 					<div role="tabpanel" class="tab-pane" id="note"><div class="alert alert-info" id="note-placeholder">You do not have any notifications to show.</div></div>
 				</div>
 			</div>
@@ -57,21 +57,21 @@
 
 	<script src="jquery-2.0.0.min.js"></script>
 	<script src="bootstrap.min.js"></script>
-	<script src="html5shiv.min.js"></script>
-	<script src="respond.min.js"></script>
-	<script src="json2.min.js"></script>
 	<script src="ie-truth.min.js"></script>
 	<script type="text/javascript">
 		// IE statistics function.
 		function analyzeIe() {
 			var ieStats = IeVersion();
-			window.location = "?JSlink=logie&ie_data=" + JSON.stringify(ieStats);
+			if (ieStats._TrueVersion < 9) {
+				alert("It appears that you have an IE version lower than 9! Some of our menus no longer support this! Please look into updating.");
+			} else if (ieStats._TrueVersion < 11) {
+				alert("It appears that you have an IE version lower than 11! While this shouldn't pose any immediate issues, it may be worth looking to update.");
+			}
 		}
 
 		// Dynamic content entry controller.
 		function AddContent(data) {
-			//		alert("Got data: " + data);
-			var obj = "";
+			var obj;
 			$("#DEBUG").append($("<p></p>").text(data));
 			try {
 				obj = JSON.parse(data);
@@ -123,11 +123,11 @@
 				window.location = command;
 			});
 
+			// Call the IE analyzer and warn the user if they're horribly out of date.
+			analyzeIe();
+
 			// Tell the server that we're ready, and awaiting data.
 			setTimeout(function () { window.location = '?JSlink=greeting;command=request_data' }, 500);
-
-			// Get the browser stats.
-			setTimeout(analyzeIe, 5000);
 		});
 	</script>
 
