@@ -14,6 +14,8 @@
 #define OUTDATED_MEMO 2
 #define OUTDATED_NOTE 4
 
+#define JS_SANITIZE(msg) list2params(list(json_encode(msg)))
+
 /datum/server_greeting
 	// Hashes to figure out if we need to display the greeting message.
 	// These correspond to motd_hash and memo_hash on /datum/preferences for each client.
@@ -179,7 +181,7 @@
 
 		for (var/datum/client_notification/a in user.prefs.notifications)
 			data["content"] = a.get_html()
-			user << output(json_encode(data), "greeting.browser:AddContent")
+			user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	if (!user.holder)
 		user << output("#memo-tab", "greeting.browser:RemoveElement")
@@ -193,7 +195,7 @@
 
 		data["div"] = "#memo"
 		data["content"] = memo
-		user << output(json_encode(data), "greeting.browser:AddContent")
+		user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	if (outdated_info & OUTDATED_MOTD)
 		data["update"] = 1
@@ -204,7 +206,7 @@
 
 	data["div"] = "#motd"
 	data["content"] = motd
-	user << output(json_encode(data), "greeting.browser:AddContent")
+	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	if (save_prefs)
 		user.prefs.handle_preferences_save(user)

@@ -64,7 +64,7 @@
 	var/html = "<div class=\"row\">[note_wrapper[1]]"
 
 	if (!persistent)
-		html += "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">x</a>"
+		html += "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>"
 
 	html += note_text
 	html += "[note_wrapper[2]]</div>"
