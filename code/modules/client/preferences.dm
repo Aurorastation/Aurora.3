@@ -128,6 +128,7 @@ datum/preferences
 
 	var/med_record = ""
 	var/sec_record = ""
+	var/list/incidents = list()
 	var/gen_record = ""
 	var/exploit_record = ""
 	var/ccia_record = ""
@@ -1735,6 +1736,7 @@ datum/preferences
 
 	character.med_record = med_record
 	character.sec_record = sec_record
+	character.incidents = incidents
 	character.gen_record = gen_record
 	character.ccia_record = ccia_record
 	character.ccia_actions = ccia_actions

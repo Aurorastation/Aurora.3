@@ -204,14 +204,16 @@
 	var/list/witnesses = incident.arbiters["Witness"]
 
 	. += "<table class='border'>"
-	. += "<th colspan='3'>Witnesses <a href='?src=\ref[src];button=add_arbiter;title=Witness'>Add</a></th>"
+	. += "<tr>"
+	. += "<th>Witnesses <a href='?src=\ref[src];button=add_arbiter;title=Witness'>Add</a></th>"
+	. += "</tr>"
 
 	for( var/witness in witnesses )
 		. += "<tr>"
 
 		if( witnesses[witness] )
 			. += "<td>"
-			. += "</b>[witness]</b>"
+			. += "<b>[witness]</b>"
 			. += "</td><td>"
 			. += "<i>[witnesses[witness]]</i>"
 		else
@@ -529,9 +531,11 @@
 		if( "add_charge" )
 			incident.charges += locate( href_list["law"] )
 			incident.refreshSentences()
+			ping( "\The [src] pings, \"Successfully added charge\"" )
 		if( "remove_charge" )
 			incident.charges -= locate( href_list["law"] )
 			incident.refreshSentences()
+			ping( "\The [src] pings, \"Successfully removed charge\"" )
 		if( "remove_witness" )
 			var/list/L = incident.arbiters["Witness"]
 			L -= locate( href_list["choice"] )

@@ -143,7 +143,34 @@
 					else
 						dat += "<B>General Record Lost!</B><BR>"
 					if ((istype(active2, /datum/data/record) && data_core.security.Find(active2)))
-						dat += text("<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: <A href='?src=\ref[];choice=Edit Field;field=criminal'>[]</A><BR>\n<BR>\nMinor Crimes: <A href='?src=\ref[];choice=Edit Field;field=mi_crim'>[]</A><BR>\nDetails: <A href='?src=\ref[];choice=Edit Field;field=mi_crim_d'>[]</A><BR>\n<BR>\nMajor Crimes: <A href='?src=\ref[];choice=Edit Field;field=ma_crim'>[]</A><BR>\nDetails: <A href='?src=\ref[];choice=Edit Field;field=ma_crim_d'>[]</A><BR>\n<BR>\nImportant Notes:<BR>\n\t<A href='?src=\ref[];choice=Edit Field;field=notes'>[]</A><BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>", src, active2.fields["criminal"], src, active2.fields["mi_crim"], src, active2.fields["mi_crim_d"], src, active2.fields["ma_crim"], src, active2.fields["ma_crim_d"], src, decode(active2.fields["notes"]))
+						dat += text("<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: <A href='?src=\ref[];choice=Edit Field;field=criminal'>[]</A><BR>\n<BR>\nImportant Notes:<BR>\n\t<A href='?src=\ref[];choice=Edit Field;field=notes'>[]</A>", src, active2.fields["criminal"], src, decode(active2.fields["notes"]))
+						dat += "<BR>\n<BR>\n<CENTER><B>Incidents</B></CENTER><BR><hr>"
+						for(var/datum/crime_incident/I in active2.fields["incidents"])
+							dat += "UID: [I.UID] <br>"
+							dat += "Charges: "
+							for (var/datum/law/L in I.charges)
+								dat += "[L.id], "
+							dat += "<br>"
+							// dat += "Brig Sentence: [I.getBrigSentence()] <br>"
+							dat += "Notes: <br>"
+							if (I.notes != "")
+								dat+= nl2br(I.notes)
+							else
+								dat+= "-No Summary Entered-"
+							dat+= "<hr>"
+						// dat += "<table border=1 width='100%'>"
+						// dat += "<tr><td>Date/Time</td><td>Charges</td><td>Brig-Sentence</td></tr>"
+						// for(var/datum/crime_incident/I in active2.fields["incidents"])
+						// 	dat+= "<tr><td>[I.datetime]</td><td>"
+						// 	for (var/datum/law/L in I.charges)
+						// 		dat+= "[L.id] "
+						// 	dat+= "</td><td>[I.brig_sentence]</td></tr>"
+						// 	if (I.notes != "")
+						// 		dat+= "<tr><td colspan='3'>[I.notes]</td></tr>"
+						// 	else
+						// 		dat+= "<tr><td colspan='3'>No Summary Entered</td></tr>"
+						// dat += "</table>"
+						dat += "<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
 						var/counter = 1
 						while(active2.fields[text("com_[]", counter)])
 							dat += text("[]<BR><A href='?src=\ref[];choice=Delete Entry;del_c=[]'>Delete Entry</A><BR><BR>", active2.fields[text("com_[]", counter)], src, counter)

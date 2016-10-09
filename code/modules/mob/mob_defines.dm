@@ -70,6 +70,7 @@
 	var/flavor_text = ""
 	var/med_record = ""
 	var/sec_record = ""
+	var/list/incidents = list()
 	var/gen_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()

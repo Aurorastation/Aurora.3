@@ -1,3 +1,17 @@
+/obj/item/device/incidentdebugger
+	name = "incidentdebugger"
+	desc = "Used for debugging incidents"
+	icon_state = "multitool"
+	flags = CONDUCT
+	desc = "You can use this to debug incidents"
+	var/list/incidents[] = list()
+
+/obj/item/device/incidentdebugger/New()
+	testing("Spawned incidentdeubber")
+	for(var/datum/crime_incident/I in world)
+		incidents += I
+		testing("added incident")
+
 /datum/crime_incident
 	var/UID // The unique identifier for this incident
 
@@ -9,6 +23,8 @@
 	var/list/arbiters = list( "Witness" = list() ) // The person or list of people who were involved in the conviction of the criminal
 	var/mob/living/carbon/human/criminal // The person who committed the crimes
 
+	var/datetime = ""
+
 	var/brig_sentence = 0 // How long do they stay in the brig on the station, PERMABRIG_SENTENCE minutes = permabrig
 	var/prison_sentence = 0 // How long do they stay in prison, PERMAPRISON_SENTENCE days = life sentence
 
@@ -17,6 +33,7 @@
 
 /datum/crime_incident/New()
 	UID = md5( "[world.realtime][rand(0, 1000000)]" )
+	datetime = "[worlddate2text()]-[worldtime2text()]"
 
 	..()
 
@@ -27,10 +44,10 @@
 	if( !C.mob )
 		return "ID card not tied to a NanoTrasen Employee!"
 
-	if( criminal == C.mob )
-		return "The criminal cannot hold official court positions in his own trial!"
+	// if( criminal == C.mob ) //Uncommented because you should be able to give a statement in your case
+	// 	return "The criminal cannot hold official court positions in his own trial!"
 
-	var/list/same_access // The card requires one of these access codes to become this titl
+	var/list/same_access // The card requires one of these access codes to become this title
 	var/minSeverity = 1
 
 	switch( title )
@@ -38,7 +55,6 @@
 			var/list/L = arbiters[title]
 			L += list( C.mob ) // some reason adding a mob counts as adding a list, so it would add the mob contents
 			arbiters[title] = L
-
 			return 0
 
 	if( minSeverity > getMaxSeverity() )
@@ -115,6 +131,12 @@
 
 	return max
 
+/datum/crime_incident/proc/getBrigSentence()
+	if(brig_sentence < PERMABRIG_SENTENCE)
+		return "[brig_sentence] min"
+	else
+		return "Holding until Transfer"
+
 /datum/crime_incident/proc/getMaxSeverity()
 	var/max = 0
 	for( var/datum/law/L in charges )
@@ -128,20 +150,21 @@
 		return
 
 	generateReport()
-/*	for (var/datum/data/record/E in data_core.general)
+	for (var/datum/data/record/E in data_core.general)
 		if(E.fields["name"] == criminal.name)
 			for (var/datum/data/record/R in data_core.security)
 				if(R.fields["id"] == E.fields["id"])
-					for(var/datum/law/L in charges)
-						if(L.severity == 3)
-							R.fields["ma_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
-						else
-							R.fields["mi_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"*/
+					// for(var/datum/law/L in charges)
+					// 	if(L.severity == 3)
+					// 		R.fields["ma_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
+					// 	else
+					// 		R.fields["mi_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
+					R.fields["incidents"] += src
 
 /datum/crime_incident/proc/generateReport()
 	. = "<center>Security Incident Report</center><hr>"
 
-	. += "</i><br>"
+	. += "<br>"
 	. += "<b>CRIMINAL</b>: <i>[criminal]</i><br><br>"
 
 	. += "[criminal] was found guilty of the following crimes on [time2text(world.realtime, "DD/MMM")]/[game_year]. "
@@ -152,7 +175,7 @@
 		. += "As decided by the arbiter(s), they will serve the following sentence:<br>"
 		if( brig_sentence )
 			if( brig_sentence >= PERMABRIG_SENTENCE )
-				. += "\t<b>BRIG</b>: <i>Imprisonment until transfer</i><br>"
+				. += "\t<b>BRIG</b>: <i>Holding until transfer</i><br>"
 			else
 				. += "\t<b>BRIG</b>: <i>[brig_sentence] minutes</i><br>"
 
