@@ -162,9 +162,7 @@
  * - var/outdated_info int
  */
 /datum/server_greeting/proc/send_to_javascript(var/client/user)
-	testing("Sending to JS.")
 	if (!user)
-		testing("BOOO!")
 		return
 
 	// This is fine now, because it uses cached information.
@@ -217,13 +215,6 @@
 /datum/server_greeting/proc/handle_call(var/href_list, var/client/C)
 	if (!href_list || !href_list["command"] || !C)
 		return
-
-	/*
-	var/list/params = list()
-	if (href_list["params"])
-		testing("Params that were given: [href_list["params"]]")
-		params = json_decode(href_list["params"])
-	*/
 
 	switch (href_list["command"])
 		if ("request_data")

@@ -165,7 +165,6 @@
 
 			if ("logie")
 				if (config.sql_stats && href_list["ie_data"])
-					testing("Data recovered: [href_list["ie_data"]]")
 					var/list/data = json_decode(href_list["ie_data"])
 					data["_ckey"] = src.ckey
 					if (data.len != 7)
