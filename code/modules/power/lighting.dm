@@ -590,23 +590,17 @@
 	if (range && isnum(range))
 		brightness_range = range
 	else if (range < 0)
-		var/obj/machinery/light/R = new()
-		brightness_range = R.brightness_range
-		qdel(R)
+		brightness_range = initial(brightness_range)
 
 	if (power && isnum(power))
 		brightness_power = power
 	else if (power < 0)
-		var/obj/machinery/light/R = new()
-		brightness_power = R.brightness_power
-		qdel(R)
+		brightness_power = initial(brightness_power)
 
 	if (color && !isnull(sanitize_hexcolor(color, null)))
 		brightness_color = color
 	else if (color < 0)
-		var/obj/machinery/light/R = new()
-		brightness_color = R.brightness_color
-		qdel(R)
+		brightness_color = initial(brightness_color)
 
 // the light item
 // can be tube or bulb subtypes
