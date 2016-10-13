@@ -586,6 +586,28 @@
 		sleep(1)
 		qdel(src)
 
+/obj/machinery/light/proc/set_light_source(var/range, var/power, var/color = null)
+	if (range && isnum(range))
+		brightness_range = range
+	else if (range < 0)
+		var/obj/machinery/light/R = new()
+		brightness_range = R.brightness_range
+		qdel(R)
+
+	if (power && isnum(power))
+		brightness_power = power
+	else if (power < 0)
+		var/obj/machinery/light/R = new()
+		brightness_power = R.brightness_power
+		qdel(R)
+
+	if (color && !isnull(sanitize_hexcolor(color, null)))
+		brightness_color = color
+	else if (color < 0)
+		var/obj/machinery/light/R = new()
+		brightness_color = R.brightness_color
+		qdel(R)
+
 // the light item
 // can be tube or bulb subtypes
 // will fit into empty /obj/machinery/light of the corresponding type

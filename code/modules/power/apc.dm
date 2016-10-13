@@ -67,6 +67,7 @@
 	var/cell_type = /obj/item/weapon/cell/apc
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
 	var/shorted = 0
+	var/night_mode = 0 // Determines if the light level is set to dimmed or not
 	var/lighting = 3
 	var/equipment = 3
 	var/environ = 3
@@ -937,6 +938,10 @@
 		if(istype(usr, /mob/living/silicon))
 			src.overload_lighting()
 
+	else if (href_list["nightlight"])
+		src.toggle_nightlight()
+		update_icon()
+
 	else if (href_list["toggleaccess"])
 		if(istype(usr, /mob/living/silicon))
 			if(emagged || (stat & (BROKEN|MAINT)))
@@ -1237,6 +1242,20 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				L.on = 1
 				L.broken()
 				sleep(1)
+
+/obj/machinery/power/apc/proc/toggle_nightlight()
+	for (var/obj/machinery/light/L in area)
+		if (istype(L, /obj/machinery/light))
+			if (!night_mode)
+				L.set_light_source(6, 1)
+			else
+				L.set_light_source(-1, -1)
+			return
+		if (istype(L, /obj/machinery/light/small))
+			if (!night_mode)
+				L.set_light_source(4, 1)
+			else
+				L.set_light_source(-1, -1)
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)
