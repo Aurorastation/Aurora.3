@@ -586,6 +586,8 @@
 		sleep(1)
 		qdel(src)
 
+// Sets the light being output by a light tube or other static source
+// Negative inputs will make the vars revert to default
 /obj/machinery/light/proc/set_light_source(var/range, var/power, var/color = null)
 	if (range && isnum(range))
 		brightness_range = range
