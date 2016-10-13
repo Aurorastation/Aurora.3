@@ -44,7 +44,7 @@
 
 /obj/structure/tranqcabinet/attack_tk(mob/user)
 	if(has_tranq)
-		has_tranq.loc = loc
+		has_tranq.forceMove(loc)
 		user << "<span class='notice'>You telekinetically remove [has_tranq] from [src].</span>"
 		has_tranq = null
 		opened = 1
