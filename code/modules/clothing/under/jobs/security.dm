@@ -116,29 +116,10 @@
 
 /obj/item/clothing/head/det_hat/technicolor/New()
 	if(prob(5))
-		var/probably = rand(1, 8)
-		switch(probably)
-			if(1 to 2)
-				icon_state = "hat_detective_yellow"
-				item_state = "hat_detective_yellow"
-			if(3)
-				icon_state = "hat_detective_red"
-				item_state = "hat_detective_red"
-			if(4)
-				icon_state = "hat_detective_purple"
-				item_state = "hat_detective_purple"
-			if(5)
-				icon_state = "hat_detective_green"
-				item_state = "hat_detective_green"
-			if(6)
-				icon_state = "hat_detective_blue"
-				item_state = "hat_detective_blue"
-			if(7)
-				icon_state = "hat_detective_white"
-				item_state = "hat_detective_white"
-			if(8)
-				icon_state = "hat_detective_orange"
-				item_state = "hat_detective_orange"
+		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
+		var/color = pickweight(colors)
+		icon_state = "hat_detective_[color]"
+		item_state = "hat_detective_[color]"
 	..()
 
 obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
