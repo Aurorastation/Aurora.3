@@ -15,7 +15,7 @@
 	var/dirt = 0
 
 // possible fix for the perma wet floor bug
-/turf/simulated/proc/wet_floor(var/wet_val = 1, var/duration)
+/turf/simulated/wet_floor(var/wet_val = 1, var/duration)
 	if (wet_val > wet)
 		switch(wet_val)
 			if (1)

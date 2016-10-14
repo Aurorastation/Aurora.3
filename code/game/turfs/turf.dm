@@ -441,5 +441,8 @@
 		if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
 			qdel(O)
 
+/turf/proc/wet_floor(var/wet_val = 1, var/duration)
+	return 0//Unsimulated tiles cant become wet
+
 /turf/proc/update_blood_overlays()
 	return
