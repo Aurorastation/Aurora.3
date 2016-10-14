@@ -61,4 +61,4 @@
 	if(wielded)
 		toggle_scope(2.0)
 	else
-		user << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
