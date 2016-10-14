@@ -278,6 +278,18 @@
 					/obj/item/toy/plushie/kitten,\
 					/obj/item/toy/plushie/lizard)
 
+/obj/random/glowstick
+	name = "random glowstick"
+	desc = "This is a random glowstick."
+	icon = 'icons/obj/glowsticks.dmi'
+	icon_state = "glowstick"
+	item_to_spawn()
+		return pick(/obj/item/device/flashlight/glowstick,\
+					/obj/item/device/flashlight/glowstick/red,\
+					/obj/item/device/flashlight/glowstick/blue,\
+					/obj/item/device/flashlight/glowstick/orange,\
+					/obj/item/device/flashlight/glowstick/yellow)
+
 /obj/random/booze
 	name = "random alcoholic drink"
 	desc = "This is a random alcoholic drink."
@@ -321,6 +333,19 @@
 					/obj/item/weapon/material/sword/trench,\
 					/obj/item/weapon/material/sword/rapier)
 
+/obj/random/coin
+	name = "Random Coin"
+	desc = "This is a random coin."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "coin"
+	item_to_spawn()
+		return pick(prob(5);/obj/item/weapon/coin/iron,\
+					prob(3);/obj/item/weapon/coin/silver,\
+					prob(2);/obj/item/weapon/coin/gold,\
+					prob(2);/obj/item/weapon/coin/phoron,\
+					prob(2);/obj/item/weapon/coin/uranium,\
+					prob(1);/obj/item/weapon/coin/platinum,\
+					prob(1);/obj/item/weapon/coin/diamond)
 /obj/random/energy_antag
 	name = "Random Energy Weapon"
 	desc = "This is a random weapon."
@@ -358,6 +383,7 @@
 					prob(1);/obj/item/clothing/under/overalls,\
 					prob(1);/obj/item/clothing/under/redcoat,\
 					prob(1);/obj/item/clothing/under/psyche,\
+					prob(1);/obj/item/clothing/under/track,\
 					prob(1);/obj/item/clothing/under/rank/dispatch,\
 					prob(1);/obj/item/clothing/under/syndicate/tacticool,\
 					prob(1);/obj/item/clothing/head/collectable/petehat,\
@@ -379,6 +405,7 @@
 					prob(2);/obj/item/clothing/suit/storage/hazardvest,\
 					prob(1);/obj/item/clothing/suit/storage/toggle/labcoat/mad,\
 					prob(1);/obj/item/clothing/suit/storage/leather_jacket/nanotrasen,\
+					prob(1);/obj/item/clothing/suit/storage/toggle/tracksuit,\
 					prob(1);/obj/item/clothing/suit/ianshirt,\
 					prob(1);/obj/item/clothing/suit/syndicatefake,\
 					prob(3);/obj/item/clothing/gloves/black,\
@@ -387,10 +414,6 @@
 					prob(1);/obj/item/clothing/gloves/watch,\
 					prob(1);/obj/item/clothing/gloves/boxing,\
 					prob(1);/obj/item/clothing/gloves/boxing/green,\
-					prob(2);/obj/item/weapon/coin/iron,\
-					prob(1);/obj/item/weapon/coin/silver,\
-					prob(1);/obj/item/weapon/coin/gold,\
-					prob(1);/obj/item/weapon/coin/uranium,\
 					prob(1);/obj/item/toy/bosunwhistle,\
 					prob(1);/obj/item/toy/balloon,\
 					prob(2);/obj/item/weapon/haircomb,\
@@ -427,10 +450,12 @@
 					prob(1);/obj/item/device/megaphone,\
 					prob(1);/obj/item/device/floor_painter,\
 					prob(2);/obj/random/toolbox,\
+					prob(2);/obj/random/coin,\
 					prob(2);/obj/random/tech_supply,\
 					prob(1);/obj/random/plushie,\
 					prob(2);/obj/random/booze,\
 					prob(1);/obj/random/contraband,\
+					prob(1);/obj/random/glowstick,\
 					prob(1);/obj/item/weapon/caution/cone,\
 					prob(1);/obj/item/weapon/staff/broom,\
 					prob(1);/obj/item/weapon/soap,\
