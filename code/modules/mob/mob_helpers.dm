@@ -1208,7 +1208,6 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 
 //This function provides a simple, standardised, centralised means to spray all of a mob's worn items at once. Add new spraytypes as needed
 /mob/living/proc/spray_all(var/spraytype)
-	world << "Starting sprayall with type [spraytype]"
 	var/barefoot = 0
 	if(r_hand)
 		spray_thing(spraytype,r_hand)
@@ -1225,7 +1224,6 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		if(H.wear_suit)
 			spray_thing(spraytype,H.wear_suit)
 		else if(H.w_uniform)
-			world << "About to spray uniform with type [spraytype]"
 			spray_thing(spraytype,H.w_uniform)
 		if(H.shoes)
 			spray_thing(spraytype,H.shoes)
@@ -1240,7 +1238,6 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		reveal_blood(barefoot)
 
 /proc/spray_thing(var/spraytype, var/obj/item/thing)
-	world << "Spraying [thing] with type [spraytype]"
 	if (spraytype == "clean")
 		thing.clean_blood()
 	else if (spraytype == "deepclean")

@@ -415,7 +415,6 @@
 
 //Cleans a tile, but will not clean all traces of blood
 /turf/proc/clean()
-	world << "Doing normalclean"
 	clean_blood()//This function is in simulated.dm, it hides bloodstains without truly cleaning them
 	if(istype(src, /turf/simulated))
 		var/turf/simulated/T = src
@@ -431,7 +430,6 @@
 
 //Thoroughly cleans a tile, removes all traces of blood
 /turf/deep_clean()
-	world << "Doing deepclean"
 	if(istype(src, /turf/simulated))
 		var/turf/simulated/T = src
 		T.dirt = 0

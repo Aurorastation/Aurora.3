@@ -641,7 +641,6 @@ var/list/global/slot_flags_enumeration = list(
 		blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 	is_bloodied = 1
 	was_bloodied = 1
-	world << "Adding blood to [src] due to [M]"
 	update_icon()
 	return 1 //we applied blood to the item
 
@@ -652,7 +651,6 @@ var/list/global/slot_flags_enumeration = list(
 	for (var/V in overlays)//Make sure that the overlay is already visible
 		var/image/I = V
 		if (I.name == "blood")
-			world << "Found and removing old overlay"
 			overlays.Remove(I)//We remove it
 			overlays += blood_overlay//Then we re-add a new copy which will have the correct colour set
 

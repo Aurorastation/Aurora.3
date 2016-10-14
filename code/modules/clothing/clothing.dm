@@ -14,7 +14,6 @@
 
 //Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
-	world << "Calling update_clothing_icon"
 	return
 
 // Aurora forensics port.
@@ -435,7 +434,6 @@ BLIND     // can't see anything
 	if(H) update_clothing_icon()
 
 /obj/item/clothing/under/update_clothing_icon()
-	world << "Calling update_clothing_icon for uniform"
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
