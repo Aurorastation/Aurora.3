@@ -426,6 +426,8 @@
 					prob(1);/obj/item/weapon/extinguisher/mini,\
 					prob(1);/obj/item/device/radiojammer/improvised,\
 					prob(3);/obj/item/device/flashlight,\
+					prob(1);/obj/item/device/flashlight/heavy,\
+					prob(1);/obj/item/device/flashlight/maglight,\
 					prob(1);/obj/item/device/flashlight/flare,\
 					prob(1);/obj/item/device/flashlight/lantern,\
 					prob(1);/obj/item/weapon/reagent_containers/food/drinks/teapot,\
