@@ -131,12 +131,14 @@
 	reagent_state = LIQUID
 	color = "#0064C877"
 	metabolism = REM * 10
+	cleaning_power = 1
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of water"
 	glass_desc = "The father of all refreshments."
+	drying_time_factor = 4
 
-/datum/reagent/water/touch_turf(var/turf/simulated/T)
+/datum/reagent/water/touch_turf(var/turf/simulated/T, var/amount)
 	if(!istype(T))
 		return
 
@@ -152,13 +154,13 @@
 		qdel(hotspot)
 
 	if (environment && environment.temperature > min_temperature) // Abstracted as steam or something
-		var/removed_heat = between(0, volume * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
+		var/removed_heat = between(0, amount * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
-	else if(volume >= 10)
-		T.wet_floor(1)
+	else
+		T.wet_floor(1, amount*drying_time_factor)
 
 /datum/reagent/water/touch_obj(var/obj/O)
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))

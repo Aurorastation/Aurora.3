@@ -200,7 +200,7 @@
 			target = targloc
 			pointblank = 0
 
-	update_held_icon()
+	update_worn_icon()
 
 	//update timing
 	user.next_move = world.time + 4

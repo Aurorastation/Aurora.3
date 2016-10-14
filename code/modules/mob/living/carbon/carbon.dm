@@ -443,7 +443,9 @@
 	return
 
 /mob/living/carbon/slip(var/slipped_on,stun_duration=8)
-	if(buckled)
+	world << "Carbonslip buckled: [buckled]"
+	if(buckled || weakened)
+		world << "Cancelling slip because buckled"
 		return 0
 	stop_pulling()
 	src << "<span class='warning'>You slipped on [slipped_on]!</span>"

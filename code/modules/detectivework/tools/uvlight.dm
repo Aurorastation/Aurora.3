@@ -19,7 +19,7 @@
 /obj/item/device/uv_light/attack_self(var/mob/user)
 	on = !on
 	if(on)
-		set_light(range, 2, "#007fff")
+		set_light(range, 2, "#7700dd")
 		processing_objects |= src
 		icon_state = "uv_on"
 	else
@@ -64,6 +64,40 @@
 						A.alpha = use_alpha
 					if(istype(A, /obj/item))
 						var/obj/item/O = A
-						if(O.was_bloodied && !(O.blood_overlay in O.overlays))
-							O.overlays |= O.blood_overlay
-							reset_objects |= O
+						if(O.was_bloodied && !(O.is_bloodied))//If blood isnt currently visible
+							//O.overlays |= O.blood_overlay
+							//reset_objects |= O
+							O.is_bloodied = 1//We quickly set it bloodied
+							O.update_icon() //Update the icon
+							O.is_bloodied = 0//And then unset it again.
+					if(istype(A, /mob))
+						var/mob/M = A
+						if(M.was_bloodied && !(M.is_bloodied))//If blood isnt currently visible
+							//O.overlays |= O.blood_overlay
+							//reset_objects |= O
+							M.is_bloodied = 1//We quickly set it bloodied
+							M.update_inv_gloves() //Update the icon
+							M.is_bloodied = 0//And then unset it again.
+						if(M.feet_was_bloodied && !(M.feet_is_bloodied))//If blood isnt currently visible
+							//O.overlays |= O.blood_overlay
+							//reset_objects |= O
+							M.feet_is_bloodied = 1//We quickly set it bloodied
+							M.update_inv_shoes() //Update the icon
+							M.feet_is_bloodied = 0//And then unset it again.
+						for(var/atom/B in M.contents)
+							if(B.fluorescent == 1)
+								B.fluorescent = 2 //To prevent light crosstalk.
+								if(B.invisibility)
+									scanned[B] = B.invisibility
+									B.invisibility = 0
+									stored_alpha[B] = A.alpha
+									B.alpha = use_alpha
+								if(istype(B, /obj/item))
+									var/obj/item/O = B
+									if(O.was_bloodied && !(O.is_bloodied))//If blood isnt currently visible
+										//O.overlays |= O.blood_overlay
+										//reset_objects |= O
+										O.is_bloodied = 1//We quickly set it bloodied
+										O.update_icon() //Update the icon
+										O.update_worn_icon()
+										O.is_bloodied = 0//And then unset it again.

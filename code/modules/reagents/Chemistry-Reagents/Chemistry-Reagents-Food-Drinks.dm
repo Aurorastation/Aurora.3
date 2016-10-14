@@ -150,8 +150,9 @@
 	reagent_state = LIQUID
 	nutriment_factor = 20
 	color = "#302000"
+	drying_time_factor = 10
 
-/datum/reagent/nutriment/cornoil/touch_turf(var/turf/simulated/T)
+/datum/reagent/nutriment/cornoil/touch_turf(var/turf/simulated/T, var/amount)
 	if(!istype(T))
 		return
 
@@ -163,8 +164,7 @@
 		T.assume_air(lowertemp)
 		qdel(hotspot)
 
-	if(volume >= 3)
-		T.wet_floor()
+	T.wet_floor(2, amount*drying_time_factor)
 
 /datum/reagent/nutriment/virus_food
 	name = "Virus Food"

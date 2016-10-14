@@ -415,12 +415,10 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	touch_met = 5
+	cleaning_power = 2
 
 /datum/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	M.germ_level -= min(removed*20, M.germ_level)
-	for(var/obj/item/I in M.contents)
-		I.was_bloodied = null
-	M.was_bloodied = null
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		for (var/obj/item/organ/external/E in H.organs)//For each external bodypart
@@ -428,6 +426,10 @@
 				W.germ_level -= min(removed*20, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
 				if (W.germ_level <= 0)
 					W.disinfected = 1//The wound becomes disinfected if fully cleaned
+
+/datum/reagent/sterilizine/touch_mob(var/mob/living/L, var/amount)
+	L.spray_all("deepclean")//this function is in mob_helpers
+	//We only want the blood cleaning to work once per spray, so its here instead of in affect_touch
 
 /datum/reagent/sterilizine/touch_obj(var/obj/O)
 	O.germ_level -= min(volume*20, O.germ_level)
@@ -437,8 +439,7 @@
 	T.germ_level -= min(volume*20, T.germ_level)
 	for(var/obj/item/I in T.contents)
 		I.was_bloodied = null
-	for(var/obj/effect/decal/cleanable/blood/B in T)
-		qdel(B)
+	T.deep_clean(src)
 
 /datum/reagent/leporazine
 	name = "Leporazine"

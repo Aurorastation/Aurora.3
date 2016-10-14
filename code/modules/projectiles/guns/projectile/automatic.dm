@@ -135,7 +135,7 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
-	update_held_icon()
+	update_worn_icon()
 
 /datum/firemode/z8
 	var/use_launcher = 0

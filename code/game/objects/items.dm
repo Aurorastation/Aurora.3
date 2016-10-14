@@ -70,6 +70,8 @@
 	*/
 	var/list/sprite_sheets_obj = null
 
+	var/equip_slot = 0
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -82,14 +84,53 @@
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 
-//Checks if the item is being held by a mob, and if so, updates the held icons
-/obj/item/proc/update_held_icon()
-	if(ismob(src.loc))
-		var/mob/M = src.loc
-		if(M.l_hand == src)
+
+/obj/item/update_icon()
+	update_worn_icon()//This will simplify a lot of item updating issues
+
+//a proc that any worn thing can call to update its itemstate
+//Should be cheaper than calling regenerate icons on the mob
+/obj/item/proc/update_worn_icon()
+	if (!equip_slot || !istype(loc, /mob))
+		return
+
+	var/mob/M = loc
+	switch (equip_slot)
+		if (slot_back)
+			M.update_inv_back()
+		if (slot_wear_mask)
+			M.update_inv_wear_mask()
+		if (slot_l_hand)
 			M.update_inv_l_hand()
-		if(M.r_hand == src)
+		if (slot_r_hand)
 			M.update_inv_r_hand()
+		if (slot_belt)
+			M.update_inv_belt()
+		if (slot_wear_id)
+			M.update_inv_wear_id()
+		if (slot_l_ear)
+			M.update_inv_ears()
+		if (slot_r_ear)
+			M.update_inv_ears()
+		if (slot_glasses)
+			M.update_inv_glasses()
+		if (slot_gloves)
+			M.update_inv_gloves()
+		if (slot_head)
+			M.update_inv_head()
+		if (slot_shoes)
+			M.update_inv_shoes()
+		if (slot_wear_suit)
+			M.update_inv_wear_suit()
+		if (slot_w_uniform)
+			M.update_inv_w_uniform()
+		if (slot_l_store)
+			M.update_inv_pockets()
+		if (slot_r_store)
+			M.update_inv_pockets()
+		if (slot_s_store)
+			M.update_inv_s_store()
+
 
 /obj/item/ex_act(severity)
 	switch(severity)
@@ -246,9 +287,10 @@
 // user is mob that equipped it
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
-// note this isn't called during the initial dressing of a player
+// This IS called during initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	layer = 20
+	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
 	return
@@ -525,19 +567,46 @@ var/list/global/slot_flags_enumeration = list(
 	M.eye_blurry += rand(3,4)
 	return
 
+//As long as was_bloodied is not cleared, the object will still have residual blood traces
 /obj/item/clean_blood()
 	. = ..()
 	if(blood_overlay)
-		overlays.Remove(blood_overlay)
+		for (var/V in overlays)
+			var/image/I = V
+			if (I.name == "blood")
+				overlays.Remove(I)
+
+	if(istype(src, /obj/item/clothing/gloves))
+		var/obj/item/clothing/gloves/G = src
+		G.transfer_blood = 0
+	is_bloodied = null
+	update_icon()
+
+//Deep clean removes all residual blood/DNA traces. Only called by sterilizine
+/obj/item/deep_clean()
+	if(blood_overlay)
+		for (var/V in overlays)
+			var/image/I = V
+			if (I.name == "blood")
+				overlays.Remove(I)//We remove it
+
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
 
+	fluorescent = 0
+	src.germ_level = 0
+	blood_DNA = null
+	is_bloodied = null
+	was_bloodied = null
+	update_icon()
+
 /obj/item/reveal_blood()
-	if(was_bloodied && !fluorescent)
+	if(was_bloodied)
 		fluorescent = 1
 		blood_color = COLOR_LUMINOL
 		blood_overlay.color = COLOR_LUMINOL
+		update_blood()
 		update_icon()
 
 /obj/item/add_blood(mob/living/carbon/human/M as mob)
@@ -552,7 +621,16 @@ var/list/global/slot_flags_enumeration = list(
 		generate_blood_overlay()
 
 	//apply the blood-splatter overlay if it isn't already in there
-	if(!blood_DNA.len)
+	var addOverlay
+	if(!overlays.len)
+		addOverlay = 1
+	else
+		for (var/V in overlays)
+			var/image/I = V
+			if (I.name == "blood")
+				addOverlay = 1
+
+	if (addOverlay)
 		blood_overlay.color = blood_color
 		overlays += blood_overlay
 
@@ -561,7 +639,22 @@ var/list/global/slot_flags_enumeration = list(
 		if(blood_DNA[M.dna.unique_enzymes])
 			return 0 //already bloodied with this blood. Cannot add more.
 		blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
+	is_bloodied = 1
+	was_bloodied = 1
+	world << "Adding blood to [src] due to [M]"
+	update_icon()
 	return 1 //we applied blood to the item
+
+/obj/item/proc/update_blood()//For when luminol is sprayed on an object with still-visible blood, this will fix the colour
+	if( !blood_overlay )
+		generate_blood_overlay()//make sure the blood overlay is initialised
+
+	for (var/V in overlays)//Make sure that the overlay is already visible
+		var/image/I = V
+		if (I.name == "blood")
+			world << "Found and removing old overlay"
+			overlays.Remove(I)//We remove it
+			overlays += blood_overlay//Then we re-add a new copy which will have the correct colour set
 
 /obj/item/proc/generate_blood_overlay()
 	if(blood_overlay)
@@ -571,10 +664,12 @@ var/list/global/slot_flags_enumeration = list(
 	I.Blend(new /icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD) //fills the icon_state with white (except where it's transparent)
 	I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
 
+
 	//not sure if this is worth it. It attaches the blood_overlay to every item of the same type if they don't have one already made.
 	for(var/obj/item/A in world)
 		if(A.type == type && !A.blood_overlay)
 			A.blood_overlay = image(I)
+			A.blood_overlay.name = "blood"//Setting a name helps us identify this kind of overlay later
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))

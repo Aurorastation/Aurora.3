@@ -29,7 +29,6 @@ var/global/list/image/splatter_cache=list()
 		update_icon()
 
 /obj/effect/decal/cleanable/blood/clean_blood()
-	fluorescent = 0
 	if(invisibility != 100)
 		invisibility = 100
 		amount = 0
@@ -83,8 +82,9 @@ var/global/list/image/splatter_cache=list()
 			S.track_blood = max(amount,S.track_blood)
 			if(!S.blood_overlay)
 				S.generate_blood_overlay()
-			if(!S.blood_DNA)
-				S.blood_DNA = list()
+			if(!S.is_bloodied)
+				if (!S.blood_DNA)
+					S.blood_DNA = list()
 				S.blood_overlay.color = basecolor
 				S.overlays += S.blood_overlay
 			if(S.blood_overlay && S.blood_overlay.color != basecolor)
@@ -92,6 +92,8 @@ var/global/list/image/splatter_cache=list()
 				S.overlays.Cut()
 				S.overlays += S.blood_overlay
 			S.blood_DNA |= blood_DNA.Copy()
+			S.is_bloodied = 1
+			S.was_bloodied = 1
 
 	else if (hasfeet)//Or feet
 		perp.feet_blood_color = basecolor
@@ -99,6 +101,8 @@ var/global/list/image/splatter_cache=list()
 		if(!perp.feet_blood_DNA)
 			perp.feet_blood_DNA = list()
 		perp.feet_blood_DNA |= blood_DNA.Copy()
+		perp.feet_is_bloodied = 1
+		perp.feet_was_bloodied = 1
 	else if (perp.buckled && istype(perp.buckled, /obj/structure/bed/chair/wheelchair))
 		var/obj/structure/bed/chair/wheelchair/W = perp.buckled
 		W.bloodiness = 4
@@ -124,6 +128,8 @@ var/global/list/image/splatter_cache=list()
 		user << "<span class='notice'>You get some of \the [src] on your hands.</span>"
 		if (!user.blood_DNA)
 			user.blood_DNA = list()
+		user.is_bloodied = 1
+		user.was_bloodied = 1
 		user.blood_DNA |= blood_DNA.Copy()
 		user.bloody_hands += taken
 		user.hand_blood_color = basecolor
