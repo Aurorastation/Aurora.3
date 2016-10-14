@@ -278,3 +278,162 @@
 					/obj/item/toy/plushie/kitten,\
 					/obj/item/toy/plushie/lizard)
 
+/obj/random/booze
+	name = "random alcoholic drink"
+	desc = "This is a random alcoholic drink."
+	icon = 'icons/obj/drinks.dmi'
+	icon_state = "broken_bottle"
+	item_to_spawn()
+		return pick(/obj/item/weapon/reagent_containers/food/drinks/bottle/gin,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/wine,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/melonliquor,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/pwine,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes,\
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie,\
+					/obj/item/weapon/reagent_containers/food/drinks/cans/beer,\
+					/obj/item/weapon/reagent_containers/food/drinks/cans/ale)
+
+/obj/random/melee
+	name = "random melee weapon"
+	desc = "This is a random melee weapon."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "baton"
+	item_to_spawn()
+		return pick(/obj/item/weapon/melee/telebaton,\
+					/obj/item/weapon/melee/energy/sword,\
+					/obj/item/weapon/melee/energy/sword/pirate,\
+					/obj/item/weapon/melee/energy/glaive,\
+					/obj/item/weapon/melee/chainsword,\
+					/obj/item/weapon/melee/baton/stunrod,\
+					/obj/item/weapon/material/harpoon,\
+					/obj/item/weapon/material/scythe,\
+					/obj/item/weapon/material/twohanded/spear/plasteel,\
+					/obj/item/weapon/material/sword/trench,\
+					/obj/item/weapon/material/sword/rapier)
+
+/obj/random/energy_antag
+	name = "Random Energy Weapon"
+	desc = "This is a random weapon."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "retro100"
+	item_to_spawn()
+		return pick(obj/item/weapon/gun/energy/retro,\
+					/obj/item/weapon/gun/energy/xray,\
+					/obj/item/weapon/gun/energy/gun,\
+					/obj/item/weapon/gun/energy/pistol,\
+					/obj/item/weapon/gun/energy/rifle,\
+					/obj/item/weapon/gun/energy/mindflayer,\
+					/obj/item/weapon/gun/energy/toxgun,\
+					/obj/item/weapon/gun/energy/vaurca/gatlinglaser,\
+					/obj/item/weapon/gun/energy/vaurca/blaster,\
+					/obj/item/weapon/gun/energy/crossbow/largecrossbow)
+
+/obj/random/loot
+	name = "Random Maintenance Loot Items"
+	desc = "Stuff for the maint-dwellers."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	item_to_spawn()
+		return pick(prob(2);/obj/item/clothing/glasses/meson,\
+					prob(1);/obj/item/clothing/glasses/meson/prescription,\
+					prob(1);/obj/item/clothing/glasses/monocle,\
+					prob(2);/obj/item/clothing/glasses/material,\
+					prob(2);/obj/item/clothing/glasses/sunglasses,\
+					prob(2);/obj/item/clothing/glasses/welding,\
+					prob(1);/obj/item/clothing/under/captain_fly,\
+					prob(1);/obj/item/clothing/under/rank/mailman,\
+					prob(1);/obj/item/clothing/under/rank/vice,\
+					prob(1);/obj/item/clothing/under/assistantformal,\
+					prob(2);/obj/item/clothing/under/rainbow,\
+					prob(1);/obj/item/clothing/under/overalls,\
+					prob(1);/obj/item/clothing/under/redcoat,\
+					prob(1);/obj/item/clothing/under/psyche,\
+					prob(1);/obj/item/clothing/under/rank/dispatch,\
+					prob(1);/obj/item/clothing/under/syndicate/tacticool,\
+					prob(1);/obj/item/clothing/head/collectable/petehat,\
+					prob(2);/obj/item/clothing/head/hardhat,\
+					prob(1);/obj/item/clothing/head/redcoat,\
+					prob(1);/obj/item/clothing/head/syndicatefake,\
+					prob(1);/obj/item/clothing/head/richard,\
+					prob(2);/obj/item/clothing/head/soft/rainbow,\
+					prob(1);/obj/item/clothing/mask/balaclava,\
+					prob(3);/obj/item/clothing/mask/gas,\
+					prob(1);/obj/item/clothing/mask/gas/cyborg,\
+					prob(1);/obj/item/clothing/mask/gas/owl_mask,\
+					prob(1);/obj/item/clothing/mask/fakemoustache,\
+					prob(1);/obj/item/clothing/mask/horsehead,\
+					prob(2);/obj/item/clothing/shoes/rainbow,\
+					prob(1);/obj/item/clothing/shoes/jackboots,\
+					prob(1);/obj/item/clothing/shoes/workboots,\
+					prob(1);/obj/item/clothing/shoes/cyborg,\
+					prob(2);/obj/item/clothing/suit/storage/hazardvest,\
+					prob(1);/obj/item/clothing/suit/storage/toggle/labcoat/mad,\
+					prob(1);/obj/item/clothing/suit/storage/leather_jacket/nanotrasen,\
+					prob(1);/obj/item/clothing/suit/ianshirt,\
+					prob(1);/obj/item/clothing/suit/syndicatefake,\
+					prob(3);/obj/item/clothing/gloves/black,\
+					prob(2);/obj/item/clothing/gloves/fyellow,\
+					prob(1);/obj/item/clothing/gloves/yellow,\
+					prob(1);/obj/item/clothing/gloves/watch,\
+					prob(1);/obj/item/clothing/gloves/boxing,\
+					prob(1);/obj/item/clothing/gloves/boxing/green,\
+					prob(2);/obj/item/weapon/coin/iron,\
+					prob(1);/obj/item/weapon/coin/silver,\
+					prob(1);/obj/item/weapon/coin/gold,\
+					prob(1);/obj/item/weapon/coin/uranium,\
+					prob(1);/obj/item/toy/bosunwhistle,\
+					prob(1);/obj/item/toy/balloon,\
+					prob(2);/obj/item/weapon/haircomb,\
+					prob(2);/obj/item/weapon/lipstick,\
+					prob(1);/obj/item/weapon/material/knife/hook,\
+					prob(1);/obj/item/weapon/material/hatchet/tacknife,\
+					prob(2);/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,\
+					prob(2);/obj/item/weapon/storage/bag/plasticbag,\
+					prob(3);/obj/item/weapon/extinguisher,\
+					prob(1);/obj/item/weapon/extinguisher/mini,\
+					prob(1);/obj/item/device/radiojammer/improvised,\
+					prob(3);/obj/item/device/flashlight,\
+					prob(1);/obj/item/device/flashlight/flare,\
+					prob(1);/obj/item/device/flashlight/lantern,\
+					prob(1);/obj/item/weapon/reagent_containers/food/drinks/teapot,\
+					prob(1);/obj/item/weapon/reagent_containers/food/drinks/flask/shiny,\
+					prob(1);/obj/item/weapon/reagent_containers/food/drinks/flask/lithium,\
+					prob(1);/obj/item/bodybag,\
+					prob(3);/obj/item/stack/material/steel{amount = 25},\
+					prob(2);/obj/item/stack/material/wood{amount = 25},\
+					prob(2);/obj/item/stack/material/glass{amount = 25},\
+					prob(1);/obj/item/stack/material/plasteel{amount = 10},\
+					prob(1);/obj/item/weapon/reagent_containers/spray/cleaner,\
+					prob(2);/obj/item/weapon/tank/emergency_oxygen,\
+					prob(1);/obj/item/weapon/tank/emergency_oxygen/double,\
+					prob(1);/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba,\
+					prob(1);/obj/item/clothing/mask/smokable/cigarette/cigar/havana,\
+					prob(1);/obj/item/clothing/mask/smokable/pipe/cobpipe,\
+					prob(2);/obj/item/weapon/flame/lighter,\
+					prob(1);/obj/item/weapon/flame/lighter/zippo,\
+					prob(1);/obj/item/weapon/reagent_containers/glass/bottle/capsaicin,\
+					prob(1);/obj/item/weapon/reagent_containers/glass/bottle/frostoil,\
+					prob(1);/obj/item/device/gps/engineering,\
+					prob(1);/obj/item/device/megaphone,\
+					prob(1);/obj/item/device/floor_painter,\
+					prob(2);/obj/random/toolbox,\
+					prob(2);/obj/random/tech_supply,\
+					prob(1);/obj/random/plushie,\
+					prob(2);/obj/random/booze,\
+					prob(1);/obj/random/contraband,\
+					prob(1);/obj/item/weapon/caution/cone,\
+					prob(1);/obj/item/weapon/staff/broom,\
+					prob(1);/obj/item/weapon/soap,\
+					prob(1);/obj/item/weapon/material/wirerod,\
+					prob(2);/obj/item/weapon/storage/box/donkpockets,\
+					prob(3);/obj/item/weapon/contraband/poster)
