@@ -147,7 +147,7 @@
 /obj/item/projectile/beam/gatlinglaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
-	damage = 5
+	damage = 10
 
 	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
 	tracer_type = /obj/effect/projectile/laser_omni/tracer
