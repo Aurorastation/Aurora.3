@@ -348,11 +348,11 @@
 					prob(1);/obj/item/weapon/coin/diamond)
 /obj/random/energy_antag
 	name = "Random Energy Weapon"
-	desc = "This is a random weapon."
+	desc = "This is a random energy weapon."
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "retro100"
 	item_to_spawn()
-		return pick(obj/item/weapon/gun/energy/retro,\
+		return pick(/obj/item/weapon/gun/energy/retro,\
 					/obj/item/weapon/gun/energy/xray,\
 					/obj/item/weapon/gun/energy/gun,\
 					/obj/item/weapon/gun/energy/pistol,\
