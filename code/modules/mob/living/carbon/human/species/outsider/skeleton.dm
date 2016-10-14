@@ -16,7 +16,7 @@
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
 
-	rarity_value = 2
+	rarity_value = 10
 	blurb = "Skeletons are undead brought back to life through dark wizardry, \
 	they are empty shells fueled by sheer obscure power and blood-magic. \
 	However, some men are cursed to carry such burden due to vile curses."
