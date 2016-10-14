@@ -34,8 +34,10 @@
 /obj/item/weapon/material/sword/rapier
 	name = "rapier"
 	desc = "A slender, fancy and sharply pointed sword."
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "rapier"
-	item_state = "claymore"
+	item_state = "rapier"
+	contained_sprite = 1
 	slot_flags = SLOT_BELT
 	attack_verb = list("attacked", "stabbed", "prodded", "poked", "lunged")
 
