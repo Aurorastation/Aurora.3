@@ -798,6 +798,7 @@
 					"on"   = list("lgt" = 2),
 					"off"  = list("lgt" = 1)
 				)
+				"lightingMode" = nightmode
 			),
 			list(
 				"title" = "Environment",
@@ -938,7 +939,7 @@
 		if(istype(usr, /mob/living/silicon))
 			src.overload_lighting()
 
-	else if (href_list["nightlight"])
+	else if (href_list["lightingMode"])
 		src.toggle_nightlight()
 		update_icon()
 
@@ -1250,12 +1251,14 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				L.set_light_source(6, 1)
 			else
 				L.set_light_source(-1, -1)
-			return
+			continue
 		if (istype(L, /obj/machinery/light/small))
 			if (!night_mode)
 				L.set_light_source(4, 1)
 			else
 				L.set_light_source(-1, -1)
+			continue
+	night_mode = !night_mode
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)
