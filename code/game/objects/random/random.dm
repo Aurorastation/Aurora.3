@@ -372,7 +372,7 @@
 		return pick(prob(2);/obj/item/clothing/glasses/meson,\
 					prob(1);/obj/item/clothing/glasses/meson/prescription,\
 					prob(1);/obj/item/clothing/glasses/monocle,\
-					prob(2);/obj/item/clothing/glasses/material,\
+					prob(1);/obj/item/clothing/glasses/material,\
 					prob(2);/obj/item/clothing/glasses/sunglasses,\
 					prob(2);/obj/item/clothing/glasses/welding,\
 					prob(1);/obj/item/clothing/under/captain_fly,\
@@ -391,7 +391,7 @@
 					prob(1);/obj/item/clothing/head/redcoat,\
 					prob(1);/obj/item/clothing/head/syndicatefake,\
 					prob(1);/obj/item/clothing/head/richard,\
-					prob(2);/obj/item/clothing/head/soft/rainbow,\
+					prob(1);/obj/item/clothing/head/soft/rainbow,\
 					prob(1);/obj/item/clothing/mask/balaclava,\
 					prob(3);/obj/item/clothing/mask/gas,\
 					prob(1);/obj/item/clothing/mask/gas/cyborg,\
