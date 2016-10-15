@@ -798,8 +798,8 @@
 					"on"   = list("lgt" = 2),
 					"off"  = list("lgt" = 1)
 				)
-				"lightingMode" = nightmode
-			),
+				"lightingMode" = night_mode,
+				)
 			list(
 				"title" = "Environment",
 				"powerLoad" = round(lastused_environ),
