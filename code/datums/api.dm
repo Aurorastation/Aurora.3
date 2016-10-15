@@ -525,10 +525,21 @@ proc/api_update_command_database()
 /datum/topic_command/get_player_list
 	name = "get_player_list"
 	description = "Gets a list of connected players"
+	params = list(
+		"showadmins" = list("name"="show admins","desc"="A boolean to toggle whether or not hidden admins should be shown with proper or improper ckeys.","req"=0,"type"="int")
+		)
 /datum/topic_command/get_player_list/run_command(queryparams)
+	var/show_hidden_admins = 0
+
+	if (!isnull(queryparams["showadmins"]))
+		show_hidden_admins = text2num(queryparams["showadmins"])
+
 	var/list/players = list()
 	for (var/client/C in clients)
-		players += C.key
+		if (show_hidden_admins && C.holder && C.holder.fakekey)
+			players += ckey(C.holder.fakekey)
+		else
+			players += C.ckey
 
 	statuscode = 200
 	response = "Player list fetched"
