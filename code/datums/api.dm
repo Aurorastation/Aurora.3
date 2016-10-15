@@ -853,7 +853,7 @@ proc/api_update_command_database()
 /datum/topic_command/send_commandreport/run_command(queryparams)
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 	var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
-	var/reportbody = nl2br(sanitize(queryparams["body"],encode=0,extra=0)) //Body of the report
+	var/reportbody = nl2br(sanitize(queryparams["body"],encode=0,extra=0,max_length=0)) //Body of the report
 	var/reporttype = queryparams["type"] //Type of the report: freeform / ccia / admin
 	var/reportsender = sanitizeSafe(queryparams["sendername"]) //Name of the sender
 	var/reportannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 1 / 0
@@ -914,7 +914,7 @@ proc/api_update_command_database()
 	var/list/targetlist = queryparams["target"] //Target locations where the fax should be sent to
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 	var/faxtitle = sanitizeSafe(queryparams["title"]) //Title of the report
-	var/faxbody = sanitize(queryparams["body"],0) //Body of the report
+	var/faxbody = sanitize(queryparams["body"],max_length=0) //Body of the report
 	var/faxannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 1 / 0
 
 	if(!targetlist || targetlist.len < 1)
@@ -922,8 +922,6 @@ proc/api_update_command_database()
 		response = "Parameter target not set"
 		data = null
 		return 1
-	if(!faxannounce)
-		faxannounce = 1
 
 	var/sendresult = 0
 
