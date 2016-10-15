@@ -446,15 +446,13 @@
 					prob(1);/obj/item/clothing/mask/smokable/pipe/cobpipe,\
 					prob(2);/obj/item/weapon/flame/lighter,\
 					prob(1);/obj/item/weapon/flame/lighter/zippo,\
-					prob(1);/obj/item/weapon/reagent_containers/glass/bottle/capsaicin,\
-					prob(1);/obj/item/weapon/reagent_containers/glass/bottle/frostoil,\
 					prob(1);/obj/item/device/gps/engineering,\
 					prob(1);/obj/item/device/megaphone,\
 					prob(1);/obj/item/device/floor_painter,\
 					prob(2);/obj/random/toolbox,\
 					prob(2);/obj/random/coin,\
 					prob(2);/obj/random/tech_supply,\
-					prob(1);/obj/random/plushie,\
+					prob(1);/obj/random/powercell,\
 					prob(2);/obj/random/booze,\
 					prob(1);/obj/random/contraband,\
 					prob(1);/obj/random/glowstick,\
