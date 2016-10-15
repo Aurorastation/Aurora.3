@@ -33,8 +33,7 @@
 
 	if(panel_open)
 		if(istype(I, /obj/item/device/multitool))
-			var/obj/item/device/multitool/M = I
-			M.buffer = src
+			I.buffer = src
 			user << "<span class='caution'>You save the data in the [I.name]'s buffer.</span>"
 	else
 		if(istype(I, /obj/item/device/multitool))
