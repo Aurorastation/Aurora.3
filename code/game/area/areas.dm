@@ -325,5 +325,6 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/turf/simulated/floor/F in src.contents)
 		if(turf_clear(F))
 			turfs += F
-
-	return pick(turfs)
+	if (turfs.len)
+		return pick(turfs)
+	else return null

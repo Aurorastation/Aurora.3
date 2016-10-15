@@ -103,7 +103,7 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client)
+		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
@@ -154,7 +154,7 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client)
+		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
@@ -914,7 +914,7 @@
 	resting = max(resting + amount,0)
 	return
 
-/mob/proc/get_species()
+/mob/proc/get_species(var/reference = 0)
 	return ""
 
 /mob/proc/flash_weak_pain()

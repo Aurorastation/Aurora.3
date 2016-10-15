@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "The improvised handgun now has a chance to jam when being fired."
-  - rscadd: "You can now spin revolver cylinders."
-  - soundadd: "The bolt action rifle has unique sounds now."

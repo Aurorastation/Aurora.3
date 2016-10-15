@@ -807,6 +807,22 @@ var/list/gamemode_cache = list()
 			age_restrictions += name
 			age_restrictions[name] = text2num(value)
 
+		else if (type == "discord")
+			// Ideally, this would never happen. But just in case.
+			if (!discord_bot)
+				log_debug("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
+				return
+
+			switch (name)
+				if ("token")
+					discord_bot.auth_token = value
+				if ("active")
+					discord_bot.active = 1
+				if ("robust_debug")
+					discord_bot.robust_debug = 1
+				else
+					log_misc("Unknown setting in discord configuration: '[name]'")
+
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up
 	// their information, but it is the only way (at least that I know of).

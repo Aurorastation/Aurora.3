@@ -14,6 +14,8 @@
 /datum/event/vent_clog/setup()
 	endWhen = rand(25, 100)
 	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in machines)
+		if(!temp_vent)
+			continue
 		if(temp_vent.z in config.station_levels)//STATION ZLEVEL
 			if(temp_vent.network.normal_members.len > 20)
 				vents += temp_vent
@@ -32,7 +34,8 @@
 			R.add_reagent(chem, 50)
 
 			var/datum/effect/effect/system/smoke_spread/chem/smoke = new
-			smoke.show_log = 0//This spams admin logs if not disabled.
+			smoke.show_log = 0 // This displays a log on creation
+			smoke.show_touch_log = 1 // This displays a log when a player is chemically affected
 			smoke.set_up(R, 10, 0, vent, 120)
 			playsound(vent.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 			smoke.start()

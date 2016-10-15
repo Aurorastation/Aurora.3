@@ -439,7 +439,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
 
-/mob/living/updatehealth()
+/mob/living/simple_animal/updatehealth()
 	..()
 	if (health <= 0)
 		death()

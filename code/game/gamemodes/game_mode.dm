@@ -370,13 +370,21 @@ var/global/list/additional_antag_types = list()
 /datum/game_mode/proc/declare_completion()
 
 	var/is_antag_mode = (antag_templates && antag_templates.len)
+	var/discord_text = "A round of **[name]** has ended! \[Game ID: [game_id]\]\n\n"
 	check_victory()
 	if(is_antag_mode)
 		sleep(10)
-		for(var/datum/antagonist/antag in antag_templates)
+		for (var/datum/antagonist/antag in antag_templates)
 			sleep(10)
 			antag.check_victory()
 			antag.print_player_summary()
+
+			// Avoid the longest loop if we aren't actively using the bot.
+			if (discord_bot.active)
+				discord_text += antag.print_player_summary_discord()
+
+	discord_bot.send_to_announce(discord_text)
+	discord_text = ""
 
 	var/clients = 0
 	var/surviving_humans = 0
@@ -424,9 +432,16 @@ var/global/list/additional_antag_types = list()
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]</b>"
 		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.</b><br>"
+
+		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
+		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>).</b>"
+
+		discord_text += "There were **no survivors** ([ghosts] ghosts)."
 	world << text
+
+	discord_bot.send_to_announce(discord_text)
 
 	if(clients > 0)
 		feedback_set("round_end_clients",clients)

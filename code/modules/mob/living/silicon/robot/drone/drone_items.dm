@@ -21,7 +21,8 @@
 		/obj/item/weapon/camera_assembly,
 		/obj/item/weapon/tank,
 		/obj/item/weapon/circuitboard,
-		/obj/item/weapon/smes_coil
+		/obj/item/weapon/smes_coil,
+		/obj/item/device/assembly//Primarily for making improved cameras, but opens many possibilities
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.
@@ -82,8 +83,12 @@
 		/obj/item/weapon/circuitboard,
 		/obj/item/slime_extract,
 		/obj/item/weapon/reagent_containers/glass,
-		/obj/item/weapon/reagent_containers/food/snacks/monkeycube
-
+		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
+		/obj/item/device/assembly,//For building bots and similar complex R&D devices
+		/obj/item/device/healthanalyzer,//For building medibots
+		/obj/item/weapon/disk,
+		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
+		/obj/item/weapon/material/minihoe//Farmbots and xenoflora
 		)
 
 /obj/item/weapon/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
@@ -129,6 +134,11 @@
 /obj/item/weapon/gripper/attack_self(mob/user as mob)
 	if(wrapped)
 		return wrapped.attack_self(user)
+	return ..()
+
+/obj/item/weapon/gripper/AltClick(mob/user as mob)
+	if(wrapped)
+		return wrapped.AltClick(user)
 	return ..()
 
 /obj/item/weapon/gripper/verb/drop_item()

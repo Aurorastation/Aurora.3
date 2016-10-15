@@ -56,6 +56,9 @@
 	flags = NOSHIELD
 	slot_flags = SLOT_BELT
 	
+/obj/item/weapon/material/sword/trench/IsShield()
+	return 0
+	
 /obj/item/weapon/material/sword/sabre
 	name = "sabre"
 	desc = "A sharp curved backsword."

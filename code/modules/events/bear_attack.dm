@@ -5,6 +5,7 @@
 	var/list/possible_turfs = list()
 	var/spawn_type
 	var/spawn_number
+	ic_name = "a dangerous bioweapon"
 
 /datum/event/bear_attack/setup()
 	for(var/areapath in typesof(/area/maintenance))

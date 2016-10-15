@@ -13,6 +13,7 @@
 
 	var/waves		= 8
 	var/next_wave 	= 86
+	ic_name = "a meteor storm"
 
 /datum/event/meteor_wave/setup()
 	startWhen += rand(-15,15)//slightly randomised start time
@@ -56,6 +57,7 @@
 
 	var/waves		= 4//this is randomised
 	var/next_wave 	= 86
+	ic_name = "a meteor shower"
 
 /datum/event/meteor_shower/setup()
 	startWhen += rand(-15,15)//slightly randomised start time

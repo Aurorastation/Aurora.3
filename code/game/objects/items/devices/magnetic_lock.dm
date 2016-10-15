@@ -114,8 +114,14 @@
 				powercell = I
 				return
 			if (istype(I, /obj/item/weapon/crowbar))
+				if (isnull(powercell))
+					user << "<span class='notice'>There is no powercell in \the [src].</span>"
+					return
 				user << "<span class='notice'>You remove \the [powercell] from \the [src].</span>"
-				powercell.loc = loc
+				if (loc == user)
+					powercell.forceMove(user.loc)
+				else
+					powercell.forceMove(loc)
 				powercell = null
 				return
 			if (istype(I, /obj/item/weapon/weldingtool))

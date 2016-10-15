@@ -85,10 +85,15 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if(!W)	return 0
 
 	if (W == wear_suit)
+		var/update_uniform = 0
+		if (wear_suit.flags_inv & HIDEJUMPSUIT)
+			update_uniform = 1
 		if(s_store)
 			drop_from_inventory(s_store)
 		wear_suit = null
 		update_inv_wear_suit()
+		if (update_uniform)
+			update_inv_w_uniform(0)
 	else if (W == w_uniform)
 		if (r_store)
 			drop_from_inventory(r_store)

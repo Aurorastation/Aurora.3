@@ -242,6 +242,20 @@
 		return
 	..()
 
+	log_and_message_admins("has [open ? "<font color='red'>OPENED</font>" : "closed"] [name]. (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)", user)
+
+/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/dead/observer/admin)
+	if (istype(admin))
+		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
+			if (open)
+				close()
+			else
+				if (alert(admin, "The valve is currently closed. Do you want to open it?", "Open the valve?", "Yes", "No") == "No")
+					return
+				open()
+
+			log_and_message_admins("has [open ? "opened" : "closed"] [name]. (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)", admin)
+
 /obj/machinery/atmospherics/valve/digital/open
 	open = 1
 	icon_state = "map_valve1"

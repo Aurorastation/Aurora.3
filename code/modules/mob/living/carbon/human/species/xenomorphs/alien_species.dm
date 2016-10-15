@@ -7,7 +7,7 @@
 	language = "Hivemind"
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	hud_type = /datum/hud_data/alien
-	rarity_value = 3
+	rarity_value = 10
 
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
@@ -170,6 +170,7 @@
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/plant,
 		/mob/living/carbon/human/proc/transfer_plasma,
@@ -211,6 +212,7 @@
 		/mob/living/carbon/human/proc/gut,
 		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/psychic_whisper,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate
 		)
 
@@ -237,6 +239,7 @@
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/tackle,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
@@ -271,6 +274,7 @@
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/psychic_whisper,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/lay_egg,
 		/mob/living/carbon/human/proc/plant,

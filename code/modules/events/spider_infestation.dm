@@ -3,7 +3,7 @@
 /datum/event/spider_infestation
 	announceWhen	= 90
 	var/spawncount = 1
-
+	ic_name = "unidentified lifesigns"
 
 /datum/event/spider_infestation/setup()
 	announceWhen = rand(announceWhen, announceWhen + 60)

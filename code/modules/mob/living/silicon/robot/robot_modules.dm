@@ -516,6 +516,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/analyzer/plant_analyzer(src)
 	src.modules += new /obj/item/weapon/storage/bag/plants(src)
 	src.modules += new /obj/item/weapon/robot_harvester(src)
+	src.modules += new /obj/item/weapon/material/kitchen/rollingpin(src)
+	src.modules += new /obj/item/weapon/material/knife(src)
 
 	var/obj/item/weapon/rsf/M = new /obj/item/weapon/rsf(src)
 	M.stored_matter = 30
@@ -617,7 +619,11 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
+	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
+	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
+	src.modules += new /obj/item/weapon/storage/bag/plants(src)
+	src.modules += new /obj/item/weapon/pen/robopen(src)
 	src.emag = new /obj/item/weapon/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)

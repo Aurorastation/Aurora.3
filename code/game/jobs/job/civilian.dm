@@ -45,6 +45,11 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		switch(H.backbag)
+			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
+			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
+			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
+			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)	
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chef(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/chef(H), slot_wear_suit)
@@ -106,6 +111,11 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		switch(H.backbag)
+			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
+			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
+			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
+			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_cargo(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/cargo(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
@@ -133,6 +143,11 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		switch(H.backbag)
+			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
+			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
+			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
+			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_cargo(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/cargotech(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
@@ -197,6 +212,11 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		switch(H.backbag)
+			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
+			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
+			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
+			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/janitor(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
@@ -223,6 +243,11 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		switch(H.backbag)
+			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
+			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
+			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
+			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)

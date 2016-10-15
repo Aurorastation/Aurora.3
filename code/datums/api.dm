@@ -632,6 +632,7 @@ proc/api_update_command_database()
 	s["players"] = 0
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = round_duration()
+	s["gameid"] = game_id
 
 	if(queryparams["status"] == "2")
 		var/list/players = list()
@@ -645,9 +646,9 @@ proc/api_update_command_database()
 			players += C.key
 
 		s["players"] = players.len
-		s["playerlist"] = list2params(players)
+		s["playerlist"] = players
 		s["admins"] = admins.len
-		s["adminlist"] = list2params(admins)
+		s["adminlist"] = admins
 	else
 		var/n = 0
 		var/admins = 0
@@ -852,7 +853,7 @@ proc/api_update_command_database()
 /datum/topic_command/send_commandreport/run_command(queryparams)
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 	var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
-	var/reportbody = sanitizeSafe(queryparams["body"]) //Body of the report
+	var/reportbody = nl2br(sanitize(queryparams["body"],encode=0,extra=0)) //Body of the report
 	var/reporttype = queryparams["type"] //Type of the report: freeform / ccia / admin
 	var/reportsender = sanitizeSafe(queryparams["sendername"]) //Name of the sender
 	var/reportannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
@@ -869,7 +870,7 @@ proc/api_update_command_database()
 		if(! (C.stat & (BROKEN|NOPOWER) ) )
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
 			P.name = "[command_name()] Update"
-			P.info = replacetext(reportbody, "\n", "<br/>")
+			P.info = reportbody
 			P.update_space(P.info)
 			P.update_icon()
 			C.messagetitle.Add("[command_name()] Update")
@@ -878,9 +879,9 @@ proc/api_update_command_database()
 	//Set the report footer for CCIA Announcements
 	if (reporttype == "ccia")
 		if (reportsender)
-			reportbody += "<br/><br/>- [reportsender], Central Command Internal Affairs Agent, [commstation_name()]"
+			reportbody += "<br><br>- [reportsender], Central Command Internal Affairs Agent, [commstation_name()]"
 		else
-			reportbody += "<br/><br/>- CCIAAMS, [commstation_name()]"
+			reportbody += "<br><br>- CCIAAMS, [commstation_name()]"
 
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
@@ -974,3 +975,29 @@ proc/api_update_command_database()
 	else
 		qdel(P)
 		return 2
+
+// Update discord_bot's channels.
+/datum/topic_command/update_bot_channels
+	name = "update_bot_channels"
+	description = "Tells the ingame instance of the Discord bot to update its cached channels list."
+
+/datum/topic_command/update_bot_channels/run_command()
+	data = null
+
+	if (!discord_bot)
+		statuscode = 404
+		response = "Ingame Discord bot not initialized."
+		return 1
+
+	switch (discord_bot.update_channels())
+		if (1)
+			statuscode = 404
+			response = "Ingame Discord bot is not active."
+		if (2)
+			statuscode = 500
+			response = "Ingame Discord bot encountered error attempting to access database."
+		else
+			statuscode = 200
+			response = "Ingame Discord bot's channels were successfully updated."
+
+	return 1

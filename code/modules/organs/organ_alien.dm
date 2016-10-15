@@ -24,6 +24,8 @@
 	dislocated = -1
 	status = ORGAN_PLANT
 
+
+
 /obj/item/organ/external/diona/chest
 	name = "core trunk"
 	limb_name = "chest"
@@ -136,7 +138,11 @@
 	var/mob/living/carbon/human/H = owner
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
-		H.death()
+		H.death()//if you somehow remove all of a gestalt's organs, it will dissolve into nymphs
+
+	if (H.is_diona())
+		spawn(1)
+			H.update_dionastats()//This ensures that the dionastats registers the removal of an organ
 
 /obj/item/organ/diona/process()
 
@@ -182,6 +188,17 @@
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
 		H.death()
+
+/obj/item/organ/diona/removed()
+	var/mob/living/carbon/human/H = owner
+	..()
+	if(!istype(H) || !H.organs || !H.organs.len)
+		H.death()//if you somehow remove all of a gestalt's organs, it will dissolve into nymphs
+
+	if (H.is_diona())
+		spawn(1)
+			H.update_dionastats()//This ensures that the dionastats registers the removal of an organ
+
 
 // These are different to the standard diona organs as they have a purpose in other
 // species (absorbing radiation and light respectively)
@@ -412,7 +429,7 @@
     icon_state = "tracheae"
 /obj/item/organ/vaurca/tracheae/removed()
 	return */
-	
+
 // Skeleton limbs.
 /obj/item/organ/external/chest/skeleton
 	name = "rib cage"
@@ -420,7 +437,7 @@
 /obj/item/organ/external/groin/skeleton
 	name = "pelvis"
 	vital = 0
-	
+
 /obj/item/organ/external/arm/skeleton
 	dislocated = -1
 

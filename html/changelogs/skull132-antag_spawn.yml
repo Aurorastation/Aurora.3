@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - bugfix: "Antags will now be spawned with their proper count at round start again."

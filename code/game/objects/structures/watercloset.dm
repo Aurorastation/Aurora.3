@@ -404,7 +404,7 @@
 					usr << "<span class='warning'>\The [RG] is already empty.</span>"
 					return
 
-				RG.reagents.remove_any(RG.amount_per_transfer_from_this)
+				RG.reagents.clear_reagents()
 				oviewers(3, usr) << "<span class='notice'>[usr] empties \the [RG] into \the [src].</span>"
 				usr << "<span class='notice'>You empty \the [RG] into \the [src].</span>"
 		return

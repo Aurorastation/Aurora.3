@@ -54,3 +54,18 @@
 		if(prob(15))
 			L.Weaken(3)
 			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+
+
+/mob/living/simple_animal/hostile/carp/russian
+	name = "Ivan the carp"
+	desc = "A feared space carp, nicknamed as Ivan by the old spacemen of Tau Ceti."
+	icon_state = "carp_russian"
+	icon_living = "carp_russian"
+	icon_dead = "carp_russian_dead"
+	maxHealth = 50 //stronk
+	health = 50
+
+/mob/living/simple_animal/hostile/carp/russian/FindTarget()
+    . = ..()
+    if(.)
+        custom_emote(1,"spots a filthy capitalist!")

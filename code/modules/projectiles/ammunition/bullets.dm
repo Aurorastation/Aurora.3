@@ -114,6 +114,7 @@
 	name = "shotgun shell"
 	desc = "A practice shell."
 	icon_state = "pshell"
+	spent_icon = "pshell"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	matter = list("metal" = 90)
 
@@ -144,6 +145,7 @@
 	name = "flash shell"
 	desc = "A chemical shell used to signal distress or provide illumination."
 	icon_state = "fshell"
+	spent_icon = "fshell"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(DEFAULT_WALL_MATERIAL = 90, "glass" = 90)
 

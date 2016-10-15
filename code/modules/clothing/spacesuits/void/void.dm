@@ -11,7 +11,7 @@
 	siemens_coefficient = 0.4
 
 	//Species-specific stuff.
-	species_restricted = list("exclude","Unathi","Tajara","Skrell","Diona","Vox", "Xenomorph")
+	species_restricted = list("exclude","Unathi","Tajara","Skrell","Diona","Vox","Xenomorph","Vaurca","Golem")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
@@ -37,7 +37,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.4
 
-	species_restricted = list("exclude","Unathi","Tajara","Diona","Vox", "Xenomorph")
+	species_restricted = list("exclude","Unathi","Tajara","Diona","Vox","Xenomorph","Vaurca","Golem")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
