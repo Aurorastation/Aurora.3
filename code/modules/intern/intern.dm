@@ -67,7 +67,7 @@
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_tox(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 		return 1
-		
+
 /datum/job/intern_eng
 	title = "Engineering Apprentice"
 	flag = INTERN_ENG
@@ -88,6 +88,6 @@
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/engineer(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/orange(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/beret/eng(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/beret/engineering(H), slot_head)
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_eng(H), slot_l_ear)
 		return 1

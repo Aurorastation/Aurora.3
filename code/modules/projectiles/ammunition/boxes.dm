@@ -205,19 +205,6 @@
 	max_ammo = 20
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/chameleon
-	name = "magazine (.45)"
-	icon_state = "45"
-	mag_type = MAGAZINE
-	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/chameleon
-	max_ammo = 7
-	multiple_sprites = 1
-	matter = list()
-
-/obj/item/ammo_magazine/chameleon/empty
-	initial_ammo = 0
-
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
 	icon_state = "762"

@@ -285,7 +285,6 @@
 	icon = 'icons/obj/tank.dmi'
 	icon_state = "jetpack-black"
 	icon_state_broken = "jetpack-black"
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"phoron"=15000,"uranium" = 20000)
 
 /obj/item/robot_parts/robot_component/radio
 	name = "radio"

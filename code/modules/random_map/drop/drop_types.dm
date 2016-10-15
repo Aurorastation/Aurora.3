@@ -49,7 +49,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat,
 		/obj/item/weapon/gun/projectile/automatic/wt550,
-		/obj/item/weapon/gun/projectile/automatic/z8)
+		/obj/item/weapon/gun/projectile/automatic/rifle/z8)
 
 /datum/supply_drop_loot/ballistics
 	name = "Ballistics"
@@ -61,7 +61,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat,
 		/obj/item/weapon/gun/projectile/automatic/wt550,
-		/obj/item/weapon/gun/projectile/automatic/z8)
+		/obj/item/weapon/gun/projectile/automatic/rifle/z8)
 
 /datum/supply_drop_loot/seeds
 	name = "Seeds"

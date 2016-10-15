@@ -366,13 +366,13 @@
 	desc = "A carbon dioxide jetpack suitable for low-gravity mining operations."
 	id = "borg_jetpack_module"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "phoron" = 15000, "uranium" = 20000)
-	build_path = /obj/item/borg/upgrade/jetpack
+	build_path = /obj/item/robot_parts/robot_component/jetpack
 
 /datum/design/item/robot_upgrade/rcd
 	name = "RCD module"
 	desc = "A rapid construction device module for use during construction operations."
 	id = "borg_rcd_module"
-	materials = list(DEFAULT_WALL_MATERIAL = 25000, "phoron" = 10000, "gold" = 1000, "silver" = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "phoron" = 15000, "uranium" = 20000)
 	build_path = /obj/item/borg/upgrade/rcd
 
 /datum/design/item/robot_upgrade/syndicate

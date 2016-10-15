@@ -13,7 +13,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/weapon/material/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	
+
 	if(default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
@@ -41,7 +41,7 @@
 	icon_state = "longsword"
 	item_state = "claymore"
 	slot_flags = SLOT_BELT | SLOT_BACK
-	
+
 /obj/item/weapon/material/sword/trench
 	name = "trench knife"
 	desc = "A military knife used to slash and stab enemies in close quarters."
@@ -49,9 +49,8 @@
 	icon_state = "trench"
 	item_state = "knife"
 	w_class = 3
-	flags = NOSHIELD
 	slot_flags = SLOT_BELT
-	
+
 /obj/item/weapon/material/sword/sabre
 	name = "sabre"
 	desc = "A sharp curved backsword."
