@@ -797,9 +797,9 @@
 					"auto" = list("lgt" = 3),
 					"on"   = list("lgt" = 2),
 					"off"  = list("lgt" = 1)
-				)
-				"lightingMode" = night_mode,
-				)
+				),
+				"lightingMode" = night_mode
+			),
 			list(
 				"title" = "Environment",
 				"powerLoad" = round(lastused_environ),

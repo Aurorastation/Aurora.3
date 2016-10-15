@@ -104,9 +104,10 @@
 			<div class="itemLabel">
 				{{:value.title}}:
 			</div>
-			{{if value.title == "Lighting"}}
-				<div class="itemContent"; style="text-align: left">
-					{{:helper.link('Toggle Lighting Mode', 'power', {'lightingMode' : 1}}}
+			{{if data.title == "Lighting"}}
+				<div class="itemContent"; style="width: 105px"; "text-align: left">
+					&nbsp;&nbsp;
+					{{:helper.link('Toggle Lighting Mode', 'power', {'lightingMode' : 1})}}
 				</div>
 			{{/if}}
 			<div class="itemContent" style="width: 70px; text-align: right">
