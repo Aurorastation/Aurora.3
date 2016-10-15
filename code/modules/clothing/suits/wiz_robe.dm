@@ -53,7 +53,7 @@
 	gas_transfer_coefficient = 0.01 // IT'S MAGICAL OKAY JEEZ +1 TO NOT DIE
 	permeability_coefficient = 0.01
 	armor = list(melee = 30, bullet = 20, laser = 20,energy = 20, bomb = 20, bio = 20, rad = 20)
-	allowed = list(/obj/item/weapon/teleportation_scroll)
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
 	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0.7
 	wizard_garb = 1

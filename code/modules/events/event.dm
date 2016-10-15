@@ -61,8 +61,14 @@
 	//If set to 1, this event will not be picked for false announcements
 	//This should really only be used for events that have no announcement
 
+	var/ic_name			= null
+	//A lore-suitable name that maintains the mystery, used for faking events
+
+	var/dummy 			=	0
+	//If 1, this event is a dummy instance used for retrieving values, it should not run or add/remove itself from any lists
 
 /datum/event/nothing
+	no_fake = 1
 
 //Called first before processing.
 //Allows you to setup your event, such as randomly
@@ -127,26 +133,32 @@
 	activeFor++
 
 //Called when start(), announce() and end() has all been called.
-/datum/event/proc/kill(var/do_end = 1)
+/datum/event/proc/kill()
 	// If this event was forcefully killed run end() for individual cleanup
 
-	if(do_end && isRunning)
+	if(!dummy && isRunning)
 		end()
 
 	isRunning = 0
 	endedAt = world.time
-	event_manager.active_events -= src
-	event_manager.event_complete(src)
 
-/datum/event/New(var/datum/event_meta/EM)
-	// event needs to be responsible for this, as stuff like APLUs currently make their own events for curious reasons
-	event_manager.active_events += src
+	if(!dummy)
+		event_manager.active_events -= src
+		event_manager.event_complete(src)
 
+
+
+/datum/event/New(var/datum/event_meta/EM = null, var/is_dummy = 0)
+	dummy = is_dummy
 	event_meta = EM
 	severity = event_meta.severity
 	if(severity < EVENT_LEVEL_MUNDANE) severity = EVENT_LEVEL_MUNDANE
 	if(severity > EVENT_LEVEL_MAJOR) severity = EVENT_LEVEL_MAJOR
 
+	if (dummy)
+		return
+	// event needs to be responsible for this, as stuff like APLUs currently make their own events for curious reasons
+	event_manager.active_events += src
 	startedAt = world.time
 
 	setup()

@@ -1,3 +1,6 @@
+/datum/event/communications_blackout
+	no_fake = 1
+
 /datum/event/communications_blackout/announce()
 	var/alert = pick(	"Ionospheric anomalies detected. Temporary telecommunication failure imminent. Please contact you*%fj00)`5vc-BZZT", \
 						"Ionospheric anomalies detected. Temporary telecommunication failu*3mga;b4;'1v¬-BZZZT", \
@@ -13,6 +16,8 @@
 
 	if(prob(30))	//most of the time, we don't want an announcement, so as to allow AIs to fake blackouts.
 		command_announcement.Announce(alert, new_sound = sound('sound/misc/interference.ogg', volume=25))
+		return
+	return 1
 
 
 /datum/event/communications_blackout/start()

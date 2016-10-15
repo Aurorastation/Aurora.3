@@ -36,7 +36,7 @@ REAGENT SCANNER
 
 	for(var/turf/T in range(1, src.loc) )
 
-		if(!T.intact)
+		if(!T || !T.intact)
 			continue
 
 		for(var/obj/O in T.contents)

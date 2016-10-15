@@ -2,6 +2,7 @@
 
 /datum/event/spacevine
 	announceWhen	= 10
+	ic_name = "a biohazard"
 
 /datum/event/spacevine/start()
 	spacevine_infestation()
