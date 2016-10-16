@@ -117,7 +117,7 @@
 		spawn(0)
 
 			if (A)
-				A.meteorhit(src)
+				A.ex_act(2)
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
 			if (istype(A, /obj/effect/energy_field))//If a normal/small meteor impacts an energy field, then it makes a widely audible impact sound and qdels

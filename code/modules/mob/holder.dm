@@ -128,7 +128,7 @@ var/list/holder_mob_icon_cache = list()
 		M << "[contained] is dead."
 
 
-/obj/item/weapon/holder/proc/show_message(var/message, var/m_type)
+/obj/item/weapon/holder/show_message(var/message, var/m_type)
 	for(var/mob/living/M in contents)
 		M.show_message(message,m_type)
 

@@ -408,6 +408,7 @@ BLIND     // can't see anything
 	slowdown = SHOES_SLOWDOWN
 	force = 2
 	var/overshoes = 0
+	var/silent = 0
 	species_restricted = list("exclude","Unathi","Tajara","Vox", "Vaurca")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/shoes.dmi',

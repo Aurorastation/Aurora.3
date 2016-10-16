@@ -137,7 +137,7 @@
 	using.icon_state = "ai_sensor"
 	using.screen_loc = ui_ai_sensor
 	using.layer = 21
-	adding += using */
+	adding += using
 
 	mymob.client.screen += adding + other
 	return

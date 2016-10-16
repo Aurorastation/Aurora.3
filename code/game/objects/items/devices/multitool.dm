@@ -20,6 +20,8 @@
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
+	var/obj/machinery/buffer // simple machine buffer for device linkage
+	var/obj/machinery/clonepod/connecting //same for cryopod linkage
 	var/buffer_name
 	var/atom/buffer_object
 
