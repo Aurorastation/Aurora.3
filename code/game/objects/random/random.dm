@@ -155,10 +155,8 @@
 	desc = "Hot Stuff."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "purplecomb"
-	spawn_nothing_percentage = 50
 	item_to_spawn()
 		return pick(prob(3);/obj/item/weapon/storage/pill_bottle/tramadol,\
-					prob(4);/obj/item/weapon/haircomb,\
 					prob(2);/obj/item/weapon/storage/pill_bottle/happy,\
 					prob(2);/obj/item/weapon/storage/pill_bottle/zoom,\
 					prob(5);/obj/item/weapon/contraband/poster,\
@@ -429,6 +427,7 @@
 					prob(3);/obj/item/clothing/mask/gas,\
 					prob(1);/obj/item/clothing/mask/gas/cyborg,\
 					prob(1);/obj/item/clothing/mask/gas/owl_mask,\
+					prob(1);/obj/item/clothing/mask/gas/syndicate,\
 					prob(1);/obj/item/clothing/mask/fakemoustache,\
 					prob(1);/obj/item/clothing/mask/horsehead,\
 					prob(2);/obj/item/clothing/shoes/rainbow,\
