@@ -152,24 +152,13 @@
 								dat += "[L], "
 							dat += "<br>"
 							// dat += "Brig Sentence: [I.getBrigSentence()] <br>"
+							// dat += "Fine: [I.fine] Credits <br>"
 							dat += "Notes: <br>"
 							if (I.notes != "")
 								dat+= nl2br(I.notes)
 							else
 								dat+= "-No Summary Entered-"
 							dat+= "<hr>"
-						// dat += "<table border=1 width='100%'>"
-						// dat += "<tr><td>Date/Time</td><td>Charges</td><td>Brig-Sentence</td></tr>"
-						// for(var/datum/crime_incident/I in active2.fields["incidents"])
-						// 	dat+= "<tr><td>[I.datetime]</td><td>"
-						// 	for (var/datum/law/L in I.charges)
-						// 		dat+= "[L.id] "
-						// 	dat+= "</td><td>[I.brig_sentence]</td></tr>"
-						// 	if (I.notes != "")
-						// 		dat+= "<tr><td colspan='3'>[I.notes]</td></tr>"
-						// 	else
-						// 		dat+= "<tr><td colspan='3'>No Summary Entered</td></tr>"
-						// dat += "</table>"
 						dat += "<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
 						var/counter = 1
 						while(active2.fields[text("com_[]", counter)])

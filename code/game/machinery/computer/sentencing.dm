@@ -158,8 +158,8 @@
 
 	. += "<br><hr>"
 	. += "<center>"
-	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty - Brig</a>"
-	// . += "<a href='?src=\ref[src];button=render_guilty_fine'>Render Guilty - Fine</a>"
+	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty</a>"
+	//  . += "<a href='?src=\ref[src];button=render_guilty_fine'>Render Guilty - Fine</a>"
 
 	return .
 
@@ -457,7 +457,7 @@
 	incident = null
 	menu_screen = "main_menu"
 
-// /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user )
+// /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user, var/obj/item/weapon/card/id/C )
 // 	if( !incident )
 // 		user << "<span class='alert'>There is no active case!</span>"
 // 		return
@@ -475,7 +475,7 @@
 //
 // 	incident.renderGuilty( user )
 //
-// 	ping( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes!\"" )
+// 	ping( "\The [src] pings, \"[incident.criminal] has been fined for their crimes!\"" )
 //
 // 	incident = null
 // 	menu_screen = "main_menu"
@@ -527,7 +527,6 @@
 		if( "change_brig" )
 			if( !incident )
 				return
-
 			var/number = input( usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes", "Brig Sentence", 0) as num
 			if( number < incident.getMinBrigSentence() )
 				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
@@ -622,8 +621,21 @@
 			if( !incident.notes )
 				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
 					return
-
 			render_guilty( usr )
+		// if( "render_guilty_fine")
+		// 	//Check for the notes
+		// 	if( !incident.notes )
+		// 		if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
+		// 			return
+		// 	//Get the ID Card
+		// 	var/obj/item/weapon/card/id/C = usr.get_active_hand()
+		// 	if( istype( C ))
+		// 		if( incident && C.mob )
+		// 			render_guilty_fine( usr, C)
+		// 		else
+		// 			usr << "<span class='alert'>\The [src] buzzes, \"ID card not tied to a NanoTrasen Employee!\"</span>"
+		// 	else
+		// 		usr << "<span class='alert'>\The [src] buzzes, \"The suspects ID is required to fine them\"</span>"
 
 	add_fingerprint(usr)
 	updateUsrDialog()

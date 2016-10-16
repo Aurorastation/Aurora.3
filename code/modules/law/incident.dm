@@ -174,7 +174,6 @@
 	return .
 
 /datum/crime_incident/proc/saveCharInfraction()
-	log_debug("Incident: Generate char_infraction")
 	var/datum/char_infraction/cinf = new()
 	cinf.char_id = criminal.character_id
 	cinf.UID = UID
@@ -188,22 +187,17 @@
 	cinf.fine = fine
 	cinf.felony = felony
 	cinf.created_by = created_by
-	log_debug("Incident: vars moved to infraction")
-	//TODO: Check if player is a antag
-	cinf.saveToDB()
+	// Check if player is a antag
+	if(isnull(criminal.mind.special_role))
+		cinf.saveToDB()
 	for (var/datum/data/record/E in data_core.general)
 		if(E.fields["name"] == criminal.name)
 			for (var/datum/data/record/R in data_core.security)
 				if(R.fields["id"] == E.fields["id"])
-					// for(var/datum/law/L in charges)
-					// 	if(L.severity == 3)
-					// 		R.fields["ma_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
-					// 	else
-					// 		R.fields["mi_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
 					R.fields["incidents"] += cinf
 
-
 /datum/char_infraction
+	var/db_id = 0
 	var/char_id
 	var/UID // The unique identifier for this incident
 	var/notes = "" // The written explanation of the crime
@@ -216,6 +210,12 @@
 	var/fine = 0// how much space dosh do they need to cough up if they want to go free
 	var/felony // will the criminal become a felon as a result of being found guilty of his crimes?
 	var/created_by //The ckey and name of the person that created that charge
+
+/datum/char_infraction/proc/getBrigSentence()
+	if(brig_sentence < PERMABRIG_SENTENCE)
+		return "[brig_sentence] min"
+	else
+		return "Holding until Transfer"
 
 /datum/char_infraction/proc/saveToDB()
 	establish_db_connection(dbcon)
@@ -247,6 +247,47 @@
 		":felony" = felony,
 		":created_by" = created_by
 	)
-	log_debug(json_encode(sql_args))
-	var/DBQuery/infraction_insert_query = dbcon.NewQuery("INSERT INTO ss13_character_infractions (char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by) VALUES(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by)")
+	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
+	var/DBQuery/infraction_insert_query = dbcon.NewQuery({"INSERT INTO ss13_character_infractions
+		(char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by)
+	VALUES
+		(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by)
+	ON DUPLICATE KEY UPDATE
+		notes = :notes,
+		charges = :charges,
+		evidence = :evidence,
+		arbiters = :arbiters,
+		brig_sentence = :brig_sentence,
+		fine = :fine,
+		felony = :felony,
+		created_by = :created_by
+	"})
 	infraction_insert_query.Execute(sql_args)
+
+/datum/char_infraction/proc/deleteFromDB(var/deleted_by)
+	establish_db_connection(dbcon)
+	if(!dbcon.IsConnected())
+		error("SQL database connection failed. Infractions Datum failed to save information")
+		return
+
+	//Dont save the infraction to the db if the char id is 0
+	if(char_id == 0)
+		log_debug("Infraction: Not deleted from the db - char_id = 0")
+		return
+
+	//Dont delete if the db_id is 0 (Then the incident has not been loaded from the db)
+	if(db_id == 0)
+		log_debug("Infraction: Not deleted from the db - db_id 0")
+
+	var/list/sql_args[] = list(
+		":id" = db_id,
+		":deleted_by" = deleted_by
+	)
+	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
+	var/DBQuery/infraction_delete_query = dbcon.NewQuery({"UPDATE ss13_character_infractions
+	SET
+		deleted_by=:deleted_by,
+		deleted_at=NOW()
+	WHERE
+		id = :id"})
+	infraction_delete_query.Execute(sql_args)

@@ -171,6 +171,14 @@ datum/preferences
 	real_name = random_name(gender,species)
 	gear = list()
 
+	//Reset the records when making a new char
+	med_record = ""
+	sec_record = ""
+	incidents = list()
+	gen_record = ""
+	exploit_record = ""
+	ccia_record = ""
+
 	ZeroSkills(1)
 
 /datum/preferences/proc/getMinAge(var/age_min)
@@ -666,12 +674,44 @@ datum/preferences
 
 	HTML += TextPreview(sec_record,40)
 
+	HTML += "<br><br><a href=\"byond://?src=\ref[user];preference=records;record=2;task=sec_incidents\">Security Incidents</a><br>"
+
 	HTML += "<br>"
-	HTML += "<a href=\"byond://?src=\ref[user];preference=records;records=-1\">\[Done\]</a>"
+	HTML += "<a href=\"byond://?src=\ref[user];preference=records;record=-1\">\[Done\]</a>"
 	HTML += "</center></tt>"
 
 	user << browse(null, "window=preferences")
+	user << browse(null, "window=incidents")
 	user << browse(HTML, "window=records;size=350x300")
+	return
+
+/datum/preferences/proc/SetIncidents(mob/user)
+	var/HTML = "<body>"
+	HTML += "<center>"
+	HTML += "<b>Character Incidents</b><br>"
+	HTML += "<a href=\"byond://?src=\ref[user];preference=records;record=1\">\[Return\]</a>"
+	HTML += "</center><hr>"
+
+	for(var/datum/char_infraction/I in incidents)
+		HTML += "UID: [I.UID] <br>"
+		HTML += "Date / Time: [I.datetime] <br>"
+		HTML += "Charges: "
+		for (var/L in I.charges)
+			HTML += "[L], "
+		HTML += "<br>"
+		HTML += "Brig Sentence: [I.getBrigSentence()] <br>"
+		HTML += "Fine: [I.fine] Credits <br>"
+		HTML += "Notes: <br>"
+		if (I.notes != "")
+			HTML+= nl2br(I.notes)
+		else
+			HTML+= "-No Summary Entered-"
+		HTML += "<br><a href=\"byond://?src=\ref[user];preference=records;record=2;task=delete_incident;incident=[I.db_id]\">\[Delete Incident\]</a>"
+		HTML += "<hr>"
+
+	user << browse(null, "window=preferences")
+	user << browse(null, "window=records")
+	user << browse(HTML, "window=incidents;size=350x300")
 	return
 
 /datum/preferences/proc/SetSpecies(mob/user)
@@ -1114,11 +1154,15 @@ datum/preferences
 		return 1
 
 	else if(href_list["preference"] == "records")
-		if(text2num(href_list["record"]) >= 1)
+		//Show the Records window. Hide the incidents window
+		if(text2num(href_list["record"]) == 1)
+			user << browse(null, "window=incidents")
 			SetRecords(user)
 			return
-		else
+		//Hide the records window (return to preferences)
+		else if(text2num(href_list["record"]) < 1)
 			user << browse(null, "window=records")
+
 		if(href_list["task"] == "med_record")
 			var/medmsg = sanitize(input(usr,"Set your medical notes here.","Medical Records",html_decode(med_record)) as message, MAX_PAPER_MESSAGE_LEN, extra = 0)
 			if(medmsg != null)
@@ -1141,6 +1185,19 @@ datum/preferences
 			if(exploitmsg != null)
 				exploit_record = exploitmsg
 				SetAntagoptions(user)
+
+		if(href_list["task"] == "sec_incidents")
+			SetIncidents(user)
+			return
+
+		if(href_list["task"] == "delete_incident")
+			var/search_incident = text2num(href_list["incident"])
+			for(var/datum/char_infraction/I in incidents)
+				if(I.db_id == search_incident && I.char_id == current_character)
+					I.deleteFromDB("user")
+					qdel(I)
+			SetIncidents(user)
+			return
 
 	else if (href_list["preference"] == "antagoptions")
 		if(text2num(href_list["active"]) == 0)
