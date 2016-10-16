@@ -36,3 +36,4 @@ changes:
   - tweak: "Tweaked the weapons avaible to the heister in their skipjack."
   - rscadd: "Added a canesword, replacing the switchblade in the concealed cane."
   - tweak: "Tweaked the chances of ghetto handguns malfunctioning."
+  - rscadd: "Randomized most of the items you can find into the maintenance tunnels."
