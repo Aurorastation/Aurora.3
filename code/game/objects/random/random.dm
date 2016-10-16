@@ -347,7 +347,7 @@
 					prob(1);/obj/item/weapon/coin/platinum,\
 					prob(1);/obj/item/weapon/coin/diamond)
 /obj/random/energy_antag
-	name = "Random Energy Weapon"
+	name = "random energy weapon"
 	desc = "This is a random energy weapon."
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "retro100"
@@ -363,8 +363,36 @@
 					/obj/item/weapon/gun/energy/vaurca/blaster,\
 					/obj/item/weapon/gun/energy/crossbow/largecrossbow)
 
+/obj/random/colored_jumpsuit
+	name = "random colored jumpsuit"
+	desc = "This is a random colowerd jumpsuit."
+	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon_state = "black"
+	item_to_spawn()
+		return pick(/obj/item/clothing/under/color/black,\
+					/obj/item/clothing/under/color/blackf,\
+					/obj/item/clothing/under/color/blue,\
+					/obj/item/clothing/under/color/green,\
+					/obj/item/clothing/under/color/grey,\
+					/obj/item/clothing/under/color/orange,\
+					/obj/item/clothing/under/color/pink,\
+					/obj/item/clothing/under/color/red,\
+					/obj/item/clothing/under/color/white,\
+					/obj/item/clothing/under/color/yellow,\
+					/obj/item/clothing/under/lightblue,\
+					/obj/item/clothing/under/aqua,\
+					/obj/item/clothing/under/purple,\
+					/obj/item/clothing/under/lightpurple,\
+					/obj/item/clothing/under/lightgreen,\
+					/obj/item/clothing/under/lightbrown,\
+					/obj/item/clothing/under/brown,\
+					/obj/item/clothing/under/yellowgreen,\
+					/obj/item/clothing/under/darkblue,\
+					/obj/item/clothing/under/lightred,\
+					/obj/item/clothing/under/darkred)
+
 /obj/random/loot
-	name = "Random Maintenance Loot Items"
+	name = "random maintenance loot items"
 	desc = "Stuff for the maint-dwellers."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
@@ -382,10 +410,15 @@
 					prob(2);/obj/item/clothing/under/rainbow,\
 					prob(1);/obj/item/clothing/under/overalls,\
 					prob(1);/obj/item/clothing/under/redcoat,\
+					prob(1);/obj/item/clothing/under/serviceoveralls,\
 					prob(1);/obj/item/clothing/under/psyche,\
 					prob(1);/obj/item/clothing/under/track,\
 					prob(1);/obj/item/clothing/under/rank/dispatch,\
 					prob(1);/obj/item/clothing/under/syndicate/tacticool,\
+					prob(1);/obj/item/clothing/accessory/badge,\
+					prob(1);/obj/item/clothing/accessory/badge/old,\
+					prob(2);/obj/item/clothing/accessory/storage/webbing,\
+					prob(1);/obj/item/clothing/accessory/storage/knifeharness,\
 					prob(1);/obj/item/clothing/head/collectable/petehat,\
 					prob(2);/obj/item/clothing/head/hardhat,\
 					prob(1);/obj/item/clothing/head/redcoat,\
@@ -453,6 +486,7 @@
 					prob(2);/obj/random/coin,\
 					prob(2);/obj/random/tech_supply,\
 					prob(1);/obj/random/powercell,\
+					prob(1);/obj/random/colored_jumpsuit,\
 					prob(2);/obj/random/booze,\
 					prob(1);/obj/random/contraband,\
 					prob(1);/obj/random/glowstick,\
