@@ -459,11 +459,11 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 /proc/shake_camera(mob/M, duration, strength=1)
 	if(!M || !M.client || M.shakecamera)
 		return
+
 	M.shakecamera = 1
-	spawn(1)
+	spawn(2)
 		if(!M.client)
 			return
-
 		var/atom/oldeye=M.client.eye
 		var/aiEyeFlag = 0
 		if(istype(oldeye, /mob/eye/aiEye))

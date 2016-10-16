@@ -53,9 +53,11 @@
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
 		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
+		playsound(src.loc, hitsound, 60, 1)
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+		playsound(src.loc, 'sound/effects/Glasshit.ogg', 7, 1, -1)
 	user.do_attack_animation(src)
 
 /obj/machinery/door/New()
@@ -250,9 +252,14 @@
 		tforce = 15 * (speed/5)
 	else
 		tforce = AM:throwforce * (speed/5)
-	playsound(src.loc, hitsound, 100, 1)
-	take_damage(tforce)
-	return
+
+	if (tforce > 0)
+		var/volume = 100
+		if (tforce < 20)//No more stupidly loud banging sound from throwing a piece of paper at a door
+			volume *= (tforce / 20)
+		playsound(src.loc, hitsound, volume, 1)
+		take_damage(tforce)
+		return
 
 /obj/machinery/door/attack_ai(mob/user as mob)
 	return src.attack_hand(user)

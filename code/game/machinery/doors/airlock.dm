@@ -928,9 +928,9 @@ About the new airlock wires panel:
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(arePowerSystemsOn())
-		playsound(src.loc, open_sound_powered, 100, 1)
+		playsound(src.loc, open_sound_powered, 60, 1)
 	else
-		playsound(src.loc, open_sound_unpowered, 100, 1)
+		playsound(src.loc, open_sound_unpowered, 60, 1)
 
 	if(src.closeOther != null && istype(src.closeOther, /obj/machinery/door/airlock/) && !src.closeOther.density)
 		src.closeOther.close()
@@ -992,7 +992,7 @@ About the new airlock wires panel:
 		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
 	SetStunned(5)
 	SetWeakened(5)
-	
+
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
@@ -1004,7 +1004,7 @@ About the new airlock wires panel:
 	while(valid_turfs.len)
 		T = pick(valid_turfs)
 		valid_turfs -= T
-		
+
 		if(src.forceMove(T))
 			return
 
