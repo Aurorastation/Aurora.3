@@ -118,9 +118,23 @@
 			. += "[incident.brig_sentence] MINUTES"
 		else
 			. += "HOLDING UNTIL TRANSFER"
-			. += "</a></td>"
+			// . += "</a></td>"
+			//
+			// . += "</tr><tr>"
 
-			. += "</tr><tr>"
+	else
+		. += "None"
+	. += "</a></td>"
+
+	. += "</tr>"
+	. += "<tr>"
+	. += "<th>Fine:</th>"
+	. += "<td><a href='?src=\ref[src];button=change_fine;'>"
+	if( incident.fine )
+		. += "[incident.fine] Credits"
+		// . += "</a></td>"
+		//
+		// . += "</tr><tr>"
 
 	else
 		. += "None"
@@ -145,6 +159,7 @@
 	. += "<br><hr>"
 	. += "<center>"
 	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty</a>"
+	//  . += "<a href='?src=\ref[src];button=render_guilty_fine'>Render Guilty - Fine</a>"
 
 	return .
 
@@ -204,19 +219,21 @@
 	var/list/witnesses = incident.arbiters["Witness"]
 
 	. += "<table class='border'>"
-	. += "<th colspan='3'>Witnesses <a href='?src=\ref[src];button=add_arbiter;title=Witness'>Add</a></th>"
+	. += "<tr>"
+	. += "<th>Witnesses <a href='?src=\ref[src];button=add_arbiter;title=Witness'>Add</a></th>"
+	. += "</tr>"
 
 	for( var/witness in witnesses )
 		. += "<tr>"
 
 		if( witnesses[witness] )
 			. += "<td>"
-			. += "</b>[witness]</b>"
+			. += "[witness]: "
 			. += "</td><td>"
 			. += "<i>[witnesses[witness]]</i>"
 		else
 			. += "<td colspan='2'>"
-			. += "<b>[witness]</b>"
+			. += "[witness]"
 
 		. += "</td><td>"
 		. += "<a href='?src=\ref[src];button=add_witness_notes;choice=\ref[witness]'>Notes</a><br>"
@@ -242,12 +259,12 @@
 
 		if( evidence[item] )
 			. += "<td>"
-			. += "<b>[item]</b>"
+			. += "[item]: "
 			. += "</td><td>"
 			. += "<i>[evidence[item]]</i>"
 		else
 			. += "<td colspan='2'>"
-			. += "<b>[item]</b>"
+			. += "[item]"
 
 		. += "</td><td>"
 		. += "<a href='?src=\ref[src];button=add_evidence_notes;choice=\ref[item]'>Notes</a><br>"
@@ -320,6 +337,7 @@
 	else
 		. += "<a href='?src=\ref[src];button=change_menu;choice=high_severity'>High Severity</a>"
 
+	. += " - <a href='?src=\ref[src];button=change_menu;choice=incident_report'>Return</a>"
 	. += "</center>"
 
 	return .
@@ -440,6 +458,29 @@
 	incident = null
 	menu_screen = "main_menu"
 
+// /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user, var/obj/item/weapon/card/id/C )
+// 	if( !incident )
+// 		user << "<span class='alert'>There is no active case!</span>"
+// 		return
+//
+// 	if( !istype( user ))
+// 		return
+//
+// 	var/error = print_incident_report()
+//
+// 	if( error )
+// 		user << "<span class='alert'>[error]</span>"
+// 		return
+//
+// 	//TODO: Try to charge the criminal if not return and print error message
+//
+// 	incident.renderGuilty( user )
+//
+// 	ping( "\The [src] pings, \"[incident.criminal] has been fined for their crimes!\"" )
+//
+// 	incident = null
+// 	menu_screen = "main_menu"
+
 /obj/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
 	var/error = incident.missingSentenceReq()
 
@@ -487,7 +528,6 @@
 		if( "change_brig" )
 			if( !incident )
 				return
-
 			var/number = input( usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes", "Brig Sentence", 0) as num
 			if( number < incident.getMinBrigSentence() )
 				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
@@ -495,6 +535,17 @@
 				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
 			else
 				incident.brig_sentence = number
+
+		if( "change_fine" )
+			if( !incident )
+				return
+			var/number = input( usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits", "Fine", 0) as num
+			if( number < incident.getMinFine() )
+				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
+			else if( number > incident.getMaxFine() )
+				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
+			else
+				incident.fine = number
 
 		if( "print_encoded_form" )
 			var/error = print_incident_report( 0 )
@@ -529,9 +580,11 @@
 		if( "add_charge" )
 			incident.charges += locate( href_list["law"] )
 			incident.refreshSentences()
+			ping( "\The [src] pings, \"Successfully added charge\"" )
 		if( "remove_charge" )
 			incident.charges -= locate( href_list["law"] )
 			incident.refreshSentences()
+			ping( "\The [src] pings, \"Successfully removed charge\"" )
 		if( "remove_witness" )
 			var/list/L = incident.arbiters["Witness"]
 			L -= locate( href_list["choice"] )
@@ -569,8 +622,21 @@
 			if( !incident.notes )
 				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
 					return
-
 			render_guilty( usr )
+		// if( "render_guilty_fine")
+		// 	//Check for the notes
+		// 	if( !incident.notes )
+		// 		if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
+		// 			return
+		// 	//Get the ID Card
+		// 	var/obj/item/weapon/card/id/C = usr.get_active_hand()
+		// 	if( istype( C ))
+		// 		if( incident && C.mob )
+		// 			render_guilty_fine( usr, C)
+		// 		else
+		// 			usr << "<span class='alert'>\The [src] buzzes, \"ID card not tied to a NanoTrasen Employee!\"</span>"
+		// 	else
+		// 		usr << "<span class='alert'>\The [src] buzzes, \"The suspects ID is required to fine them\"</span>"
 
 	add_fingerprint(usr)
 	updateUsrDialog()
