@@ -14,7 +14,7 @@
 	var/brig_sentence = 0 // How long do they stay in the brig on the station, PERMABRIG_SENTENCE minutes = permabrig
 	var/prison_sentence = 0 // How long do they stay in prison, PERMAPRISON_SENTENCE days = life sentence
 
-	var/fine // how much space dosh do they need to cough up if they want to go free
+	var/fine = 0// how much space dosh do they need to cough up if they want to go free
 	var/felony // will the criminal become a felon as a result of being found guilty of his crimes?
 
 	var/created_by //The ckey and name of the person that created that charge
@@ -208,7 +208,7 @@
 	var/brig_sentence = 0 // How long do they stay in the brig on the station, PERMABRIG_SENTENCE minutes = permabrig
 	var/prison_sentence = 0 // How long do they stay in prison, PERMAPRISON_SENTENCE days = life sentence
 	var/fine = 0// how much space dosh do they need to cough up if they want to go free
-	var/felony // will the criminal become a felon as a result of being found guilty of his crimes?
+	var/felony = 0// will the criminal become a felon as a result of being found guilty of his crimes?
 	var/created_by //The ckey and name of the person that created that charge
 
 /datum/char_infraction/proc/getBrigSentence()

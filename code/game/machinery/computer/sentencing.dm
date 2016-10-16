@@ -337,6 +337,7 @@
 	else
 		. += "<a href='?src=\ref[src];button=change_menu;choice=high_severity'>High Severity</a>"
 
+	. += " - <a href='?src=\ref[src];button=change_menu;choice=incident_report'>Return</a>"
 	. += "</center>"
 
 	return .

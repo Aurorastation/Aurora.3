@@ -116,7 +116,7 @@
 
 
 // Opens and unlocks doors, power check
-/obj/machinery/door_timer/proc/timer_end()
+/obj/machinery/door_timer/proc/timer_end(var/early=0)
 	if(stat & (NOPOWER|BROKEN))	return 0
 
 	timing = 0
@@ -136,8 +136,20 @@
 		C.locked = 0
 		C.icon_state = C.icon_closed
 
+	if( istype(incident))
+		for (var/datum/data/record/E in data_core.general)
+			if(E.fields["name"] == incident.criminal.name)
+				for (var/datum/data/record/R in data_core.security)
+					if(R.fields["id"] == E.fields["id"])
+						if(early == 1)
+							R.fields["criminal"] = "Parolled"
+						else
+							R.fields["criminal"] = "Released"
+
 	qdel( incident )
 	incident = null
+	
+	src.updateUsrDialog()
 
 	return 1
 
@@ -209,6 +221,8 @@
 		// Start/Stop timer
 		if( !src.timing )
 			. += "<a href='?src=\ref[src];button=activate'>Activate</a><br>"
+		else
+			. += "<a href='?src=\ref[src];button=early_release'>Early Release</a><br>"
 		. += "<br>"
 
 
@@ -261,8 +275,10 @@
 				src.updateUsrDialog()
 		else
 			user <<  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>"
+		return
 	else if( istype( O, /obj/item/weapon/paper ))
 		user <<  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>"
+		return
 
 	..()
 
@@ -290,7 +306,7 @@
 		return 0
 
 	if( crime.brig_sentence >= PERMABRIG_SENTENCE )
-		user <<  "<span class='alert'>\The [src] buzzes, \"The criminal has a permabrig sentence and needs to be permanently detained.\"</span>"
+		user <<  "<span class='alert'>\The [src] buzzes, \"The criminal has a HUT sentence and needs to be detained until transfer.\"</span>"
 		return 0
 
 	var/addtime = timetoset
@@ -324,6 +340,16 @@
 
 		if( "activate" )
 			src.timer_start()
+			log_debug("Updating record")
+			for (var/datum/data/record/E in data_core.general)
+				log_debug("Searching for criminal with name: [incident.criminal.name]")
+				if(E.fields["name"] == incident.criminal.name)
+					for (var/datum/data/record/R in data_core.security)
+						if(R.fields["id"] == E.fields["id"])
+							R.fields["criminal"] = "Incarcerated"
+
+		if ("early_release")
+			src.timer_end(1)
 
 		if( "flash" )
 			for(var/obj/machinery/flasher/F in targets)
