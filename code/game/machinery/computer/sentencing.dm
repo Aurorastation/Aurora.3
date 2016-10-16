@@ -118,9 +118,23 @@
 			. += "[incident.brig_sentence] MINUTES"
 		else
 			. += "HOLDING UNTIL TRANSFER"
-			. += "</a></td>"
+			// . += "</a></td>"
+			//
+			// . += "</tr><tr>"
 
-			. += "</tr><tr>"
+	else
+		. += "None"
+	. += "</a></td>"
+
+	. += "</tr>"
+	. += "<tr>"
+	. += "<th>Fine:</th>"
+	. += "<td><a href='?src=\ref[src];button=change_fine;'>"
+	if( incident.fine )
+		. += "[incident.fine] Credits"
+		// . += "</a></td>"
+		//
+		// . += "</tr><tr>"
 
 	else
 		. += "None"
@@ -144,7 +158,8 @@
 
 	. += "<br><hr>"
 	. += "<center>"
-	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty</a>"
+	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty - Brig</a>"
+	// . += "<a href='?src=\ref[src];button=render_guilty_fine'>Render Guilty - Fine</a>"
 
 	return .
 
@@ -213,12 +228,12 @@
 
 		if( witnesses[witness] )
 			. += "<td>"
-			. += "<b>[witness]</b>"
+			. += "[witness]: "
 			. += "</td><td>"
 			. += "<i>[witnesses[witness]]</i>"
 		else
 			. += "<td colspan='2'>"
-			. += "<b>[witness]</b>"
+			. += "[witness]"
 
 		. += "</td><td>"
 		. += "<a href='?src=\ref[src];button=add_witness_notes;choice=\ref[witness]'>Notes</a><br>"
@@ -244,12 +259,12 @@
 
 		if( evidence[item] )
 			. += "<td>"
-			. += "<b>[item]</b>"
+			. += "[item]: "
 			. += "</td><td>"
 			. += "<i>[evidence[item]]</i>"
 		else
 			. += "<td colspan='2'>"
-			. += "<b>[item]</b>"
+			. += "[item]"
 
 		. += "</td><td>"
 		. += "<a href='?src=\ref[src];button=add_evidence_notes;choice=\ref[item]'>Notes</a><br>"
@@ -442,6 +457,29 @@
 	incident = null
 	menu_screen = "main_menu"
 
+// /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user )
+// 	if( !incident )
+// 		user << "<span class='alert'>There is no active case!</span>"
+// 		return
+//
+// 	if( !istype( user ))
+// 		return
+//
+// 	var/error = print_incident_report()
+//
+// 	if( error )
+// 		user << "<span class='alert'>[error]</span>"
+// 		return
+//
+// 	//TODO: Try to charge the criminal if not return and print error message
+//
+// 	incident.renderGuilty( user )
+//
+// 	ping( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes!\"" )
+//
+// 	incident = null
+// 	menu_screen = "main_menu"
+
 /obj/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
 	var/error = incident.missingSentenceReq()
 
@@ -497,6 +535,17 @@
 				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
 			else
 				incident.brig_sentence = number
+
+		if( "change_fine" )
+			if( !incident )
+				return
+			var/number = input( usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits", "Fine", 0) as num
+			if( number < incident.getMinFine() )
+				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
+			else if( number > incident.getMaxFine() )
+				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
+			else
+				incident.fine = number
 
 		if( "print_encoded_form" )
 			var/error = print_incident_report( 0 )

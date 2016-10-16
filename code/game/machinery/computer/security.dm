@@ -145,11 +145,11 @@
 					if ((istype(active2, /datum/data/record) && data_core.security.Find(active2)))
 						dat += text("<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: <A href='?src=\ref[];choice=Edit Field;field=criminal'>[]</A><BR>\n<BR>\nImportant Notes:<BR>\n\t<A href='?src=\ref[];choice=Edit Field;field=notes'>[]</A>", src, active2.fields["criminal"], src, decode(active2.fields["notes"]))
 						dat += "<BR>\n<BR>\n<CENTER><B>Incidents</B></CENTER><BR><hr>"
-						for(var/datum/crime_incident/I in active2.fields["incidents"])
+						for(var/datum/char_infraction/I in active2.fields["incidents"])
 							dat += "UID: [I.UID] <br>"
 							dat += "Charges: "
-							for (var/datum/law/L in I.charges)
-								dat += "[L.id], "
+							for (var/L in I.charges)
+								dat += "[L], "
 							dat += "<br>"
 							// dat += "Brig Sentence: [I.getBrigSentence()] <br>"
 							dat += "Notes: <br>"

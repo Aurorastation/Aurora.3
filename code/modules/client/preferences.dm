@@ -1733,6 +1733,7 @@ datum/preferences
 	character.flavor_texts["hands"] = flavor_texts["hands"]
 	character.flavor_texts["legs"] = flavor_texts["legs"]
 	character.flavor_texts["feet"] = flavor_texts["feet"]
+	character.character_id = current_character
 
 	character.med_record = med_record
 	character.sec_record = sec_record

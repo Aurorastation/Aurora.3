@@ -231,6 +231,30 @@
 			)
 		ccia_actions.Add(list(action))
 
+	//Get Incidents from the DB
+	var/DBQuery/char_infraction_query = dbcon.NewQuery({"SELECT
+	  char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony
+	FROM ss13_character_infractions
+	WHERE
+	    char_id = ':char_id'
+	"})
+	char_infraction_query.Execute(list(":char_id" = current_character))
+
+	while(char_infraction_query.NextRow())
+		var/datum/char_infraction/infraction = new()
+		infraction.char_id = char_infraction_query.item[1]
+		infraction.UID = char_infraction_query.item[2]
+		infraction.datetime = char_infraction_query.item[3]
+		infraction.notes = char_infraction_query.item[4]
+		infraction.charges = json_decode(char_infraction_query.item[5])
+		infraction.evidence = json_decode(char_infraction_query.item[6])
+		infraction.arbiters = json_decode(char_infraction_query.item[7])
+		infraction.brig_sentence = char_infraction_query.item[8]
+		infraction.fine = char_infraction_query.item[9]
+		infraction.felony = char_infraction_query.item[10]
+		incidents.Add(infraction)
+		log_debug("Added infrction with [infraction.UID]")
+
 	var/DBQuery/char_id_update = dbcon.NewQuery("UPDATE ss13_player_preferences SET current_character = :char_id WHERE ckey = :ckey")
 	char_id_update.Execute(list(":char_id" = current_character, ":ckey" = C.ckey))
 

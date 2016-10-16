@@ -1,17 +1,3 @@
-/obj/item/device/incidentdebugger
-	name = "incidentdebugger"
-	desc = "Used for debugging incidents"
-	icon_state = "multitool"
-	flags = CONDUCT
-	desc = "You can use this to debug incidents"
-	var/list/incidents[] = list()
-
-/obj/item/device/incidentdebugger/New()
-	testing("Spawned incidentdeubber")
-	for(var/datum/crime_incident/I in world)
-		incidents += I
-		testing("added incident")
-
 /datum/crime_incident
 	var/UID // The unique identifier for this incident
 
@@ -23,13 +9,15 @@
 	var/list/arbiters = list( "Witness" = list() ) // The person or list of people who were involved in the conviction of the criminal
 	var/mob/living/carbon/human/criminal // The person who committed the crimes
 
-	var/datetime = ""
+	var/datetime = "" //When the crime has been commited
 
 	var/brig_sentence = 0 // How long do they stay in the brig on the station, PERMABRIG_SENTENCE minutes = permabrig
 	var/prison_sentence = 0 // How long do they stay in prison, PERMAPRISON_SENTENCE days = life sentence
 
 	var/fine // how much space dosh do they need to cough up if they want to go free
 	var/felony // will the criminal become a felon as a result of being found guilty of his crimes?
+
+	var/created_by //The ckey and name of the person that created that charge
 
 /datum/crime_incident/New()
 	UID = md5( "[world.realtime][rand(0, 1000000)]" )
@@ -145,21 +133,14 @@
 
 	return max
 
-/datum/crime_incident/proc/renderGuilty( var/user )
+/datum/crime_incident/proc/renderGuilty( var/mob/living/user )
 	if( !criminal )
 		return
 
+	created_by = "[user.ckey] - [user.real_name]"
+
+	saveCharInfraction()
 	generateReport()
-	for (var/datum/data/record/E in data_core.general)
-		if(E.fields["name"] == criminal.name)
-			for (var/datum/data/record/R in data_core.security)
-				if(R.fields["id"] == E.fields["id"])
-					// for(var/datum/law/L in charges)
-					// 	if(L.severity == 3)
-					// 		R.fields["ma_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
-					// 	else
-					// 		R.fields["mi_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
-					R.fields["incidents"] += src
 
 /datum/crime_incident/proc/generateReport()
 	. = "<center>Security Incident Report</center><hr>"
@@ -191,3 +172,81 @@
 	. += "</table>"
 
 	return .
+
+/datum/crime_incident/proc/saveCharInfraction()
+	log_debug("Incident: Generate char_infraction")
+	var/datum/char_infraction/cinf = new()
+	cinf.char_id = criminal.character_id
+	cinf.UID = UID
+	cinf.notes = notes
+	cinf.charges = json_decode(json_encode(charges)) //Thats there to strip all the non-needed values from the data before saving it to the db
+	cinf.evidence = json_decode(json_encode(evidence))
+	cinf.arbiters = json_decode(json_encode(evidence))
+	cinf.datetime = datetime
+	cinf.brig_sentence = brig_sentence
+	cinf.prison_sentence = prison_sentence
+	cinf.fine = fine
+	cinf.felony = felony
+	cinf.created_by = created_by
+	log_debug("Incident: vars moved to infraction")
+	//TODO: Check if player is a antag
+	cinf.saveToDB()
+	for (var/datum/data/record/E in data_core.general)
+		if(E.fields["name"] == criminal.name)
+			for (var/datum/data/record/R in data_core.security)
+				if(R.fields["id"] == E.fields["id"])
+					// for(var/datum/law/L in charges)
+					// 	if(L.severity == 3)
+					// 		R.fields["ma_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
+					// 	else
+					// 		R.fields["mi_crim"] += " |[L.id]-([time2text(world.realtime, "DD/MMM")]/[game_year])|"
+					R.fields["incidents"] += cinf
+
+
+/datum/char_infraction
+	var/char_id
+	var/UID // The unique identifier for this incident
+	var/notes = "" // The written explanation of the crime
+	var/list/charges = list() // What laws were broken in this incident
+	var/list/evidence = list() // If its a prison sentence, it'll require evidence
+	var/list/arbiters = list( "Witness" = list() ) // The person or list of people who were involved in the conviction of the criminal
+	var/datetime = "" //When the crime has been commited
+	var/brig_sentence = 0 // How long do they stay in the brig on the station, PERMABRIG_SENTENCE minutes = permabrig
+	var/prison_sentence = 0 // How long do they stay in prison, PERMAPRISON_SENTENCE days = life sentence
+	var/fine = 0// how much space dosh do they need to cough up if they want to go free
+	var/felony // will the criminal become a felon as a result of being found guilty of his crimes?
+	var/created_by //The ckey and name of the person that created that charge
+
+/datum/char_infraction/proc/saveToDB()
+	establish_db_connection(dbcon)
+	if(!dbcon.IsConnected())
+		error("SQL database connection failed. Infractions Datum failed to save information")
+		return
+
+	//Dont save the infraction to the db if the char id is 0
+	if(char_id == 0)
+		log_debug("Infraction: Not saved to the db - Char ID = 0")
+		return
+
+	//Check for Level 3 infractions and dont run the query if there are some
+	for( var/datum/law/L in charges )
+		if (L.severity == 3)
+			log_debug("Infraction: Not saved to the db - Red Level Infraction")
+			return
+
+	var/list/sql_args[] = list(
+		":char_id" = char_id,
+		":uid" = UID,
+		":datetime" = datetime,
+		":notes" = notes,
+		":charges" = json_encode(charges),
+		":evidence" = json_encode(evidence),
+		":arbiters" = json_encode(arbiters),
+		":brig_sentence" = brig_sentence,
+		":fine" = fine,
+		":felony" = felony,
+		":created_by" = created_by
+	)
+	log_debug(json_encode(sql_args))
+	var/DBQuery/infraction_insert_query = dbcon.NewQuery("INSERT INTO ss13_character_infractions (char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by) VALUES(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by)")
+	infraction_insert_query.Execute(sql_args)
