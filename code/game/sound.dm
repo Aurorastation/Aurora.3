@@ -123,7 +123,6 @@ var/const/FALLOFF_SOUNDS = 0.5
 
 		if (usepressure)
 			//sound volume falloff with pressure. Pass usepressure = 0 to disable these calculations
-			var/pressure_factor = 1.0
 
 			var/datum/gas_mixture/hearer_env = T.return_air()
 			var/datum/gas_mixture/source_env = turf_source.return_air()

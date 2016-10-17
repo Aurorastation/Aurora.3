@@ -97,7 +97,6 @@ obj/item/weapon/gun/energy/retro
 	accuracy_wielded = -3
 
 	//action button for wielding
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/energy/sniperrifle/can_wield()

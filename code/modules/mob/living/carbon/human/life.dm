@@ -965,7 +965,7 @@
 			traumatic_shock++
 
 	// TODO: stomach and bloodstream organ.
-	if(!(species.flags & IS_SYNTHETIC))
+	if(!isSynthetic())
 		handle_trace_chems()
 
 	updatehealth()

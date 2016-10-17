@@ -257,7 +257,7 @@
 			O.organ_tag = organ_tag
 		H.internal_organs_by_name[organ_tag] = O
 
-	if(flags & IS_SYNTHETIC)
+	if(H.isSynthetic())
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_CUT_AWAY || E.is_stump()) continue
 			E.robotize()

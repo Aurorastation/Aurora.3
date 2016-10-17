@@ -92,7 +92,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Siik'maas")
 	name_language = "Siik'maas"
-	thanol_resistance = 0.8//Gets drunk a little faster
+	ethanol_resistance = 0.8//Gets drunk a little faster
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \

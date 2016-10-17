@@ -24,7 +24,6 @@
         )
 
     //action button for wielding
-    icon_action_button = "action_blank"
     action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/energy/rifle/can_wield()

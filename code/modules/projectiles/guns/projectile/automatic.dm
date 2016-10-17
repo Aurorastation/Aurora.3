@@ -11,7 +11,7 @@
 	ammo_type = /obj/item/ammo_casing/c9mm
 	multi_aim = 1
 	burst_delay = 2
-	
+
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
@@ -108,7 +108,6 @@
 	accuracy_wielded = 0
 
 	//action button for wielding
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/automatic/rifle/can_wield()
@@ -160,7 +159,7 @@
 		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=6,    use_launcher=null, burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 0.6)),
 		list(mode_name="fire grenades",  burst=null, fire_delay=null, move_delay=null, use_launcher=1,    burst_accuracy=null, dispersion=null)
 		)
-	
+
 	var/use_launcher = 0
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
 
@@ -264,7 +263,7 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
-	
+
 /obj/item/weapon/gun/projectile/automatic/tommygun
 	name = "\improper Tommygun"
 	desc = "A classic among criminals. Uses .45 rounds."

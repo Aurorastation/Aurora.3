@@ -15,7 +15,6 @@
 	handle_casings = HOLD_CASINGS
 	var/recentpump = 0 // to prevent spammage
 
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/shotgun/pump/can_wield()
@@ -143,13 +142,13 @@
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = "combat=4;materials=2"
-	slot_flags = SLOT_BACK 
-	load_method = SINGLE_CASING|SPEEDLOADER 
+	slot_flags = SLOT_BACK
+	load_method = SINGLE_CASING|SPEEDLOADER
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_shells = 5
 
-/obj/item/weapon/gun/projectile/shotgun/pump/boltaction/attackby(var/obj/item/A as obj, mob/user as mob) 
+/obj/item/weapon/gun/projectile/shotgun/pump/boltaction/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/pickaxe/plasmacutter) && w_class != 3)
 		user << "<span class='notice'>You begin to shorten the barrel and stock of \the [src].</span>"
 		if(loaded.len)
@@ -160,23 +159,23 @@
 		if(do_after(user, 30))
 			icon_state = "obrez"
 			w_class = 3
-			recoil = 2 
+			recoil = 2
 			accuracy = -2
 			item_state = "gun"
-			slot_flags &= ~SLOT_BACK	
-			slot_flags |= (SLOT_BELT|SLOT_HOLSTER) 
+			slot_flags &= ~SLOT_BACK
+			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 			name = "\improper obrez"
 			desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
 			user << "<span class='warning'>You shorten the barrel and stock of the rifle!</span>"
 	else
 		..()
-		
+
 /obj/item/weapon/gun/projectile/shotgun/pump/boltaction/obrez
 	name = "obrez"
 	desc = "A shortened bolt action rifle, not really accurate. Uses 7.62mm rounds."
 	icon_state = "obrez"
 	item_state = "gun"
 	w_class = 3
-	recoil = 2 
+	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER

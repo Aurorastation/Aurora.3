@@ -23,7 +23,6 @@
 	accuracy_wielded = -1
 
 	//action button for wielding
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/heavysniper/can_wield()
