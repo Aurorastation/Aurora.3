@@ -7,7 +7,7 @@
 
 /obj/item/device/magnetic_lock
 	name = "magnetic door lock"
-	desc = "A large, ID locked device used for completely locking down airlocks."
+	desc = "A large, ID locked device used for completely locking down airlocks. It is painted with [department] colors."
 	icon = 'icons/obj/magnetic_locks/centcom.dmi'
 	icon_state = "inactive"
 	w_class = 3
@@ -42,7 +42,7 @@
 	internal_cell = new /obj/item/weapon/cell/apc()
 
 /obj/item/device/magnetic_lock/examine(mob/user)
-	..(mob/user)
+	..(user)
 
 	if (status == STATUS_BROKEN)
 		user << "<span class='danger'>It looks broken!</span>"
@@ -73,12 +73,12 @@
 		if (!constructionstate && !hacked)
 			if (check_access(I))
 				locked = !locked
-				update_icons()
+				update_icon()
 				playsound(src, 'sound/machines/ping.ogg', 30, 1)
 				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes \his "
 				var/fp_adj = "You swipe your "
-				user.visible_message(span("warning", pos_adj += msg), span('notice', fp_adj += msg))
+				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
 				user << span("warning", "\The [src] buzzes as you swipe your [I].")
@@ -113,44 +113,45 @@
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 					overlays += "overlay_welding"
 					if (do_after(user, 25, 1))
-						user << span('notice', "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src].")
-						hacked ? locked = 1 : locked = 0
+						user << span("notice", "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src].")
+						if (hacked) locked = 1
+						else locked = 0
 						hacked = !hacked
 						overlays -= "overlay_welding"
 					else
 						overlays -= "overlay_welding"
-					update_icons()
+					update_icon()
 					return
 
 			if (iscrowbar(I))
 				if (!locked)
-					user << span('notice', "You pry the cover off [src].")
+					user << span("notice", "You pry the cover off [src].")
 					setconstructionstate(1)
 				else
-					user << span('notice', "You try to pry the cover off [src] but it doesn't budge.</span>")
+					user << span("notice", "You try to pry the cover off [src] but it doesn't budge.</span>")
 				return
 
 		if (1)
 			if (istype(I, /obj/item/weapon/cell))
 				if (powercell)
-					user << span('notice',"There's already a powercell in \the [src].")
+					user << span("notice","There's already a powercell in \the [src].")
 				return
 
 			if (iscrowbar(I))
-				user << span('notice', "You wedge the cover back in place.")
+				user << span("notice", "You wedge the cover back in place.")
 				setconstructionstate(0)
 				return
 
 		if (2)
 			if (isscrewdriver(I))
-				user << span('notice', "You unscrew and remove the wiring cover from \the [src].")
+				user << span("notice", "You unscrew and remove the wiring cover from \the [src].")
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				setconstructionstate(3)
 				return
 
 			if (istype(I, /obj/item/weapon/cell))
 				if (!powercell)
-					user << span('notice',"You place the [I] inside \the [src].")
+					user << span("notice","You place the [I] inside \the [src].")
 					user.drop_item()
 					I.loc = src
 					powercell = I
@@ -159,20 +160,20 @@
 
 		if (3)
 			if (iswirecutter(I))
-				user << span('notice', "You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]")
+				user << span("notice", "You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]")
 				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
 				return
 
 			if (isscrewdriver(I))
-				user << span('notice', "You replace and screw tight the wiring cover from \the [src].")
+				user << span("notice", "You replace and screw tight the wiring cover from \the [src].")
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				setconstructionstate(2)
 				return
 
 		if (4)
 			if (iswirecutter(I))
-				user << span('notice', "You repair the wires connecting the [src]'s magnets to their internal powersupply")
+				user << span("notice", "You repair the wires connecting the [src]'s magnets to their internal powersupply")
 				setconstructionstate(3)
 				return
 
@@ -182,24 +183,24 @@
 	else
 		if (powercell)
 			powercell.charge = 0
-		visible_message(span('danger', "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
+		visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
 		setstatus(STATUS_INACTIVE)
 
 /obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
-		user << span('danger', "[src] is damaged beyond repair! It cannot be used!")
+		user << span("danger", "[src] is damaged beyond repair! It cannot be used!")
 		return 0
 
 	if (hacked)
-		user << span('danger', "[src] buzzes; it can't be used until you repair it!")
+		user << span("danger", "[src] buzzes; it can't be used until you repair it!")
 		return 0
 
 	if (!newtarget.density || newtarget.operating)
-		user << span('danger', "[newtarget] must be closed before you can attach [src] to it!")
+		user << span("danger", "[newtarget] must be closed before you can attach [src] to it!")
 		return 0
 
 	if (newtarget.p_open)
-		user << span('danger', "You must close [newtarget]'s maintenance panel before attaching [src] to it!")
+		user << span("danger", "You must close [newtarget]'s maintenance panel before attaching [src] to it!")
 		return 0
 
 	return 1
@@ -239,7 +240,7 @@
 		if (playflick)
 			spawn(-15) flick("release", src)
 
-		adjustsprite(null)
+		update_icon()
 		layer = LAYER_NORMAL
 
 		target.bracer = null
@@ -258,11 +259,11 @@
 
 	anchored = 1
 
-	update_icons()
+	update_icon()
 	spawn(-15)
 		flick("deploy", src)
 
-/obj/item/device/magnetic_lock/proc/update_icons()
+/obj/item/device/magnetic_lock/update_icon()
 	if (status > 0 && anchored)
 		switch (dir)
 			if (NORTH)
@@ -283,21 +284,19 @@
 	update_overlays()
 
 /obj/item/device/magnetic_lock/proc/update_overlays()
+	overlays.Cut()
 	switch (status)
 		if (STATUS_BROKEN)
-			for (var/image in overlays)
-				overlays -= image
 			icon = "broken"
 			return
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
-			overlays = list()
 			if (hacked)
 				overlays += "overlay_hacked"
 			else if (locked)
 				overlays += "overlay_locked"
-				else
-					overlays += "overlay_unlocked"
+			else
+				overlays += "overlay_unlocked"
 			switch (constructionstate)
 				if (0)
 					return
