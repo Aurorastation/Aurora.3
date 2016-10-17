@@ -389,109 +389,121 @@
 					/obj/item/clothing/under/lightred,\
 					/obj/item/clothing/under/darkred)
 
-/obj/random/loot
-	name = "random maintenance loot items"
+/obj/random/loot/item_to_spawn()
+	name = "Random Maintenance Loot Items"
 	desc = "Stuff for the maint-dwellers."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
-	item_to_spawn()
-		return pick(prob(2);/obj/item/clothing/glasses/meson,\
-					prob(1);/obj/item/clothing/glasses/meson/prescription,\
-					prob(1);/obj/item/clothing/glasses/monocle,\
-					prob(1);/obj/item/clothing/glasses/material,\
-					prob(2);/obj/item/clothing/glasses/sunglasses,\
-					prob(2);/obj/item/clothing/glasses/welding,\
-					prob(1);/obj/item/clothing/under/captain_fly,\
-					prob(1);/obj/item/clothing/under/rank/mailman,\
-					prob(1);/obj/item/clothing/under/rank/vice,\
-					prob(1);/obj/item/clothing/under/assistantformal,\
-					prob(2);/obj/item/clothing/under/rainbow,\
-					prob(1);/obj/item/clothing/under/overalls,\
-					prob(1);/obj/item/clothing/under/redcoat,\
-					prob(1);/obj/item/clothing/under/serviceoveralls,\
-					prob(1);/obj/item/clothing/under/psyche,\
-					prob(1);/obj/item/clothing/under/track,\
-					prob(1);/obj/item/clothing/under/rank/dispatch,\
-					prob(1);/obj/item/clothing/under/syndicate/tacticool,\
-					prob(1);/obj/item/clothing/accessory/badge,\
-					prob(1);/obj/item/clothing/accessory/badge/old,\
-					prob(2);/obj/item/clothing/accessory/storage/webbing,\
-					prob(1);/obj/item/clothing/accessory/storage/knifeharness,\
-					prob(1);/obj/item/clothing/head/collectable/petehat,\
-					prob(2);/obj/item/clothing/head/hardhat,\
-					prob(1);/obj/item/clothing/head/redcoat,\
-					prob(1);/obj/item/clothing/head/syndicatefake,\
-					prob(1);/obj/item/clothing/head/richard,\
-					prob(1);/obj/item/clothing/head/soft/rainbow,\
-					prob(1);/obj/item/clothing/mask/balaclava,\
-					prob(3);/obj/item/clothing/mask/gas,\
-					prob(1);/obj/item/clothing/mask/gas/cyborg,\
-					prob(1);/obj/item/clothing/mask/gas/owl_mask,\
-					prob(1);/obj/item/clothing/mask/gas/syndicate,\
-					prob(1);/obj/item/clothing/mask/fakemoustache,\
-					prob(1);/obj/item/clothing/mask/horsehead,\
-					prob(2);/obj/item/clothing/shoes/rainbow,\
-					prob(1);/obj/item/clothing/shoes/jackboots,\
-					prob(1);/obj/item/clothing/shoes/workboots,\
-					prob(1);/obj/item/clothing/shoes/cyborg,\
-					prob(2);/obj/item/clothing/suit/storage/hazardvest,\
-					prob(1);/obj/item/clothing/suit/storage/toggle/labcoat/mad,\
-					prob(1);/obj/item/clothing/suit/storage/leather_jacket/nanotrasen,\
-					prob(1);/obj/item/clothing/suit/storage/toggle/tracksuit,\
-					prob(1);/obj/item/clothing/suit/ianshirt,\
-					prob(1);/obj/item/clothing/suit/syndicatefake,\
-					prob(3);/obj/item/clothing/gloves/black,\
-					prob(2);/obj/item/clothing/gloves/fyellow,\
-					prob(1);/obj/item/clothing/gloves/yellow,\
-					prob(1);/obj/item/clothing/gloves/watch,\
-					prob(1);/obj/item/clothing/gloves/boxing,\
-					prob(1);/obj/item/clothing/gloves/boxing/green,\
-					prob(1);/obj/item/toy/bosunwhistle,\
-					prob(1);/obj/item/toy/balloon,\
-					prob(2);/obj/item/weapon/haircomb,\
-					prob(2);/obj/item/weapon/lipstick,\
-					prob(1);/obj/item/weapon/material/knife/hook,\
-					prob(1);/obj/item/weapon/material/hatchet/tacknife,\
-					prob(2);/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,\
-					prob(2);/obj/item/weapon/storage/bag/plasticbag,\
-					prob(3);/obj/item/weapon/extinguisher,\
-					prob(1);/obj/item/weapon/extinguisher/mini,\
-					prob(1);/obj/item/device/radiojammer/improvised,\
-					prob(3);/obj/item/device/flashlight,\
-					prob(1);/obj/item/device/flashlight/heavy,\
-					prob(1);/obj/item/device/flashlight/maglight,\
-					prob(1);/obj/item/device/flashlight/flare,\
-					prob(1);/obj/item/device/flashlight/lantern,\
-					prob(1);/obj/item/weapon/reagent_containers/food/drinks/teapot,\
-					prob(1);/obj/item/weapon/reagent_containers/food/drinks/flask/shiny,\
-					prob(1);/obj/item/weapon/reagent_containers/food/drinks/flask/lithium,\
-					prob(1);/obj/item/bodybag,\
-					prob(3);/obj/item/stack/material/steel{amount = 25},\
-					prob(2);/obj/item/stack/material/wood{amount = 25},\
-					prob(2);/obj/item/stack/material/glass{amount = 25},\
-					prob(1);/obj/item/stack/material/plasteel{amount = 10},\
-					prob(1);/obj/item/weapon/reagent_containers/spray/cleaner,\
-					prob(2);/obj/item/weapon/tank/emergency_oxygen,\
-					prob(1);/obj/item/weapon/tank/emergency_oxygen/double,\
-					prob(1);/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba,\
-					prob(1);/obj/item/clothing/mask/smokable/cigarette/cigar/havana,\
-					prob(1);/obj/item/clothing/mask/smokable/pipe/cobpipe,\
-					prob(2);/obj/item/weapon/flame/lighter,\
-					prob(1);/obj/item/weapon/flame/lighter/zippo,\
-					prob(1);/obj/item/device/gps/engineering,\
-					prob(1);/obj/item/device/megaphone,\
-					prob(1);/obj/item/device/floor_painter,\
-					prob(2);/obj/random/toolbox,\
-					prob(2);/obj/random/coin,\
-					prob(2);/obj/random/tech_supply,\
-					prob(1);/obj/random/powercell,\
-					prob(1);/obj/random/colored_jumpsuit,\
-					prob(2);/obj/random/booze,\
-					prob(1);/obj/random/contraband,\
-					prob(1);/obj/random/glowstick,\
-					prob(1);/obj/item/weapon/caution/cone,\
-					prob(1);/obj/item/weapon/staff/broom,\
-					prob(1);/obj/item/weapon/soap,\
-					prob(1);/obj/item/weapon/material/wirerod,\
-					prob(2);/obj/item/weapon/storage/box/donkpockets,\
-					prob(3);/obj/item/weapon/contraband/poster)
+	var/list/maint = list("/obj/item/clothing/glasses/meson" = 1,
+	"/obj/item/clothing/glasses/meson/prescription" = 0.7,
+	"/obj/item/clothing/glasses/material" = 0.8,
+	"/obj/item/clothing/glasses/sunglasses" = 1.5,
+	"/obj/item/clothing/glasses/welding" = 1.2,
+	"/obj/item/clothing/under/captain_fly" = 0.7,
+	"/obj/item/clothing/under/rank/mailman" = 0.6,
+	"/obj/item/clothing/under/rank/vice" = 0.8,
+	"/obj/item/clothing/under/assistantformal" = 1,
+	"/obj/item/clothing/under/rainbow" = 0.9,
+	"/obj/item/clothing/under/overalls" = 1,
+	"/obj/item/clothing/under/redcoat" = 0.5,
+	"/obj/item/clothing/under/serviceoveralls" = 1,
+	"/obj/item/clothing/under/psyche" = 0.5,
+	"/obj/item/clothing/under/track" = 0.9,
+	"/obj/item/clothing/under/rank/dispatch" = 1,
+	"/obj/item/clothing/under/syndicate/tacticool" = 1,
+	"/obj/item/clothing/under/syndicate/tracksuit" = 0.2,
+	"/obj/item/clothing/accessory/badge" = 0.2,
+	"/obj/item/clothing/accessory/badge/old" = 0.2,
+	"/obj/item/clothing/accessory/storage/webbing" = 1,
+	"/obj/item/clothing/accessory/storage/knifeharness" = 0.3,
+	"/obj/item/clothing/head/collectable/petehat" = 0.3,
+	"/obj/item/clothing/head/hardhat" = 1.5,
+	"/obj/item/clothing/head/redcoat" = 0.4,
+	"/obj/item/clothing/head/syndicatefake" = 0.5,
+	"/obj/item/clothing/head/richard," = 0.3,
+	"/obj/item/clothing/head/soft/rainbow" = 0.7,
+	"/obj/item/clothing/head/plaguedoctorhat" = 0.5,
+	"/obj/item/clothing/head/cueball" = 0.5,
+	"/obj/item/clothing/head/pirate" = 0.4,
+	"/obj/item/clothing/head/bearpelt" = 0.4,
+	"/obj/item/clothing/head/witchwig" = 0.5,
+	"/obj/item/clothing/head/pumpkinhead" = 0.6,
+	"/obj/item/clothing/head/kitty" = 0.2,
+	"/obj/item/clothing/head/ushanka" = 0.6,
+	"/obj/item/clothing/head/helmet/augment" = 0.1,
+	"/obj/item/clothing/mask/balaclava" = 1,
+	"/obj/item/clothing/mask/gas" = 1.5,
+	"/obj/item/clothing/mask/gas/cyborg" = 0.7,
+	"/obj/item/clothing/mask/gas/owl_mask" = 0.8,
+	"/obj/item/clothing/mask/gas/syndicate" = 0.4,
+	"/obj/item/clothing/mask/fakemoustache" = 1,
+	"/obj/item/clothing/mask/horsehead" = 0.9,
+	"/obj/item/clothing/shoes/rainbow" = 1,
+	"/obj/item/clothing/shoes/jackboots" = 1,
+	"/obj/item/clothing/shoes/workboots" = 1,
+	"/obj/item/clothing/shoes/cyborg" = 0.4,
+	"/obj/item/clothing/shoes/galoshes" = 0.6,
+	"/obj/item/clothing/shoes/slippers_worn" = 0.7,
+	"/obj/item/clothing/shoes/combat" = 0.2,
+	"/obj/item/clothing/shoes/clown_shoes" = 0.1,
+	"/obj/item/clothing/suit/storage/hazardvest" = 1,
+	"/obj/item/clothing/suit/storage/leather_jacket/nanotrasen" = 0.7,
+	"/obj/item/clothing/suit/storage/toggle/tracksuit" = 0.7,
+	"/obj/item/clothing/suit/ianshirt" = 0.5,
+	"/obj/item/clothing/suit/syndicatefake" = 0.6,
+	"/obj/item/clothing/suit/imperium_monk" = 0.4,
+	"/obj/item/clothing/suit/storage/vest" = 0.2,
+	"/obj/item/clothing/gloves/black" = 1,
+	"/obj/item/clothing/gloves/fyellow" = 1.2,
+	"/obj/item/clothing/gloves/yellow" = 0.9,
+	"/obj/item/clothing/gloves/watch" = 0.8,
+	"/obj/item/clothing/gloves/boxing" = 0.8,
+	"/obj/item/clothing/gloves/boxing/green" = 0.8,
+	"/obj/item/clothing/gloves/botanic_leather" = 0.7,
+	"/obj/item/clothing/gloves/combat" = 0.2,
+	"/obj/item/toy/bosunwhistle" = 0.5,
+	"/obj/item/toy/balloon" = 0.4,
+	"/obj/item/weapon/haircomb" = 0.5,
+	"/obj/item/weapon/lipstick" = 0.6,
+	"/obj/item/weapon/material/knife/hook," = 0.3,
+	"/obj/item/weapon/material/hatchet/tacknife" = 0.4,
+	"/obj/item/weapon/storage/fancy/cigarettes/dromedaryco" = 1.2,
+	"/obj/item/weapon/storage/bag/plasticbag" = 1,
+	"/obj/item/weapon/extinguisher" = 1.3,
+	"/obj/item/weapon/extinguisher/mini" = 0.9,
+	"/obj/item/device/radiojammer/improvised" = 0.3,
+	"/obj/item/device/flashlight" = 1,
+	"/obj/item/device/flashlight/heavy" = 0.5,
+	"/obj/item/device/flashlight/maglight" = 0.4,
+	"/obj/item/device/flashlight/flare" = 0.5,
+	"/obj/item/device/flashlight/lantern" = 0.4,
+	"/obj/item/weapon/reagent_containers/food/drinks/teapot" = 0.4,
+	"/obj/item/weapon/reagent_containers/food/drinks/flask/shiny" = 0.3,
+	"/obj/item/weapon/reagent_containers/food/drinks/flask/lithium" = 0.3,
+	"/obj/item/bodybag" = 0.7,
+	"/obj/item/weapon/reagent_containers/spray/cleaner" = 0.6,
+	"/obj/item/weapon/tank/emergency_oxygen" = 0.7,
+	"/obj/item/weapon/tank/emergency_oxygen/double" = 0.4,
+	"/obj/item/clothing/mask/smokable/pipe/cobpipe" = 0.5,
+	"/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba" = 0.7,
+	"/obj/item/weapon/flame/lighter" = 0.9,
+	"/obj/item/weapon/flame/lighter/zippo" = 0.7,
+	"/obj/item/device/gps/engineering" = 0.6,
+	"/obj/item/device/megaphone" = 0.5,
+	"/obj/item/device/floor_painter" = 0.6,
+	"/obj/random/toolbox" = 1,
+	"/obj/random/coin" = 1.2,
+	"/obj/random/tech_supply," = 1.2,
+	"/obj/random/powercell" = 0.8,
+	"/obj/random/colored_jumpsuit" = 0.7,
+	"/obj/random/booze" = 1.1,
+	"/obj/random/contraband" = 0.9,
+	"/obj/random/glowstick" = 0.7,
+	"/obj/item/weapon/caution/cone" = 0.7,
+	"/obj/item/weapon/staff/broom" = 0.5,
+	"/obj/item/weapon/soap" = 0.4,
+	"/obj/item/weapon/material/wirerod" = 0.4,
+	"/obj/item/weapon/storage/box/donkpockets" = 0.6,
+	"/obj/item/weapon/contraband/poster" = 1.3,
+	)
+	return pickweight(maint)
