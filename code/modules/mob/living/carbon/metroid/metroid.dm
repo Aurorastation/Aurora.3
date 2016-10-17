@@ -51,9 +51,6 @@
 	var/hurt_temperature = T0C-50 // slime keeps taking damage when its bodytemperature is below this
 	var/die_temperature = 50 // slime dies instantly when its bodytemperature is below this
 
-	var/hurt_temperature = T0C-50 // slime keeps taking damage when its bodytemperature is below this
-	var/die_temperature = 50 // slime dies instantly when its bodytemperature is below this
-
 	///////////TIME FOR SUBSPECIES
 
 	var/colour = "grey"

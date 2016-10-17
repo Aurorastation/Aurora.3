@@ -17,6 +17,7 @@
 	var/moving			= null
 	var/adminobs		= null
 	var/area			= null
+	var/time_died_as_mouse = 0
 
 	var/adminhelped = 0
 
