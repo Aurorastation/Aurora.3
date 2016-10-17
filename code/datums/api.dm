@@ -14,6 +14,12 @@
 			topic_commands_names.Add(A.name)
 		listclearnulls(topic_commands)
 		listclearnulls(topic_commands_names)
+
+	if (config.api_rate_limit_whitelist.len)
+		// To make the api_rate_limit_whitelist[addr] grabs actually work.
+		for (var/addr in config.api_rate_limit_whitelist)
+			config.api_rate_limit_whitelist[addr] = 1
+
 	return 1
 
 /world/proc/api_do_auth_check(var/addr, var/auth, var/datum/topic_command/command)
