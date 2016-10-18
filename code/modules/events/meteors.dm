@@ -92,3 +92,4 @@
 /proc/event_meteor_wave(var/number = meteors_in_wave)
 	for(var/i = 0 to number)
 		spawn(rand(10,80))
+			spawn_meteor()
