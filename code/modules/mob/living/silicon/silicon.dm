@@ -33,6 +33,8 @@
 	silicon_mob_list |= src
 	..()
 	add_language("Ceti Basic")
+	var/datum/language/L = locate(/datum/language/common) in languages
+	default_language = L
 	init_subsystems()
 
 /mob/living/silicon/Destroy()

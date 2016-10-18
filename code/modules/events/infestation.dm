@@ -36,11 +36,12 @@
 	endWhen = 11
 	var/location
 	var/numlocs = 0
-	var/list/locstrings
+	var/list/locstrings = list()
 	var/vermin
 	var/vermstring
 	var/spawn_area_type
 	var/list/turf/simulated/floor/turfs
+	no_fake = 1
 
 /datum/event/infestation/start()
 	locstrings = new/list(2)

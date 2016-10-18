@@ -628,7 +628,6 @@ default behaviour is:
 			if(istype(A,/mob/living/simple_animal/borer) || istype(A,/obj/item/weapon/holder))
 				return
 
-	M.status_flags &= ~PASSEMOTES
 
 /mob/living/proc/escape_buckle()
 	if(buckled)

@@ -80,6 +80,11 @@
 	..()
 	update_bearmode()
 
+/mob/living/simple_animal/hostile/bear/harvest()
+	new /obj/item/clothing/head/bearpelt(get_turf(src))
+	..()
+
+
 /mob/living/simple_animal/hostile/bear/proc/set_stance(var/input)
 	var/previous = stance
 	stance = input
@@ -197,6 +202,9 @@
 				continue
 			else
 
+				if(!L.client)
+					continue
+					
 				if(L.stat == CONSCIOUS)
 					if (dist < nearest_dist)
 						nearest_target = L

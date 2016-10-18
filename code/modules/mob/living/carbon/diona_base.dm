@@ -32,6 +32,7 @@ var/list/diona_banned_languages = list(
 	if (life_tick % 2 == 0)//Only fetch the lightlevel every other proc to save performance
 		if (DS.last_location != loc || life_tick % 4 == 0)//Fetch it even less often if we haven't moved since last check
 			light_amount = get_lightlevel_diona(DS)
+			DS.last_lightlevel = light_amount
 
 
 	DS.stored_energy += light_amount
@@ -118,6 +119,9 @@ var/list/diona_banned_languages = list(
 	if ((DS.stored_energy < 1 && !radiation))//we need energy or radiation to heal
 		return
 
+	radiation = max(radiation, 0)
+
+
 	var/value //A little variable we'll reuse to optimise
 	var/CL//Cached loss, to save on repeatedly recalculating it
 	var/HF = DS.healing_factor//I don't know if fetching a variable from an object repeatedly is slow, but this seems safe
@@ -128,7 +132,7 @@ var/list/diona_banned_languages = list(
 	if (getHalLoss() > 0)
 		CL = getHalLoss()
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				adjustHalLoss(value*-3,1)//Halloss heals more quickly
 				radiation -= value
@@ -145,20 +149,19 @@ var/list/diona_banned_languages = list(
 		CL = getBruteLoss()
 
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				adjustBruteLoss(value*-1)
 				radiation -= value
 				CL = getBruteLoss()//After adjusting it, recalculate for the lighthealing
 
 			value = min(CL, DS.stored_energy, 1*HF)
-
 			adjustBruteLoss(value*-1)
 			DS.stored_energy -= value
 
 		CL = getFireLoss()
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				adjustFireLoss(value*-1)
 				radiation -= value
@@ -170,7 +173,7 @@ var/list/diona_banned_languages = list(
 
 		CL = stunned
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				stunned -= value
 				radiation -= value
@@ -183,7 +186,7 @@ var/list/diona_banned_languages = list(
 
 		CL = weakened
 		if (CL > 0)
-			if (radiation)
+			if (radiation > 0)
 				value = min(CL, radiation, 2*HF)
 				weakened -= value
 				radiation -= value
@@ -198,7 +201,7 @@ var/list/diona_banned_languages = list(
 		if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 			CL = getToxLoss()
 			if (CL > 0)
-				if (radiation)
+				if (radiation > 0)
 					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					adjustToxLoss(value*-1)
 					radiation -= value
@@ -213,7 +216,7 @@ var/list/diona_banned_languages = list(
 
 			CL = getCloneLoss()
 			if (CL > 0)
-				if (radiation)
+				if (radiation > 0)
 					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					adjustCloneLoss(value/-2.5)//Genetic damage, should diona ever suffer it, heals much more slowly.
 					radiation -= value//Most likely the only time they'll cloneloss is escaping from being partially devoured
@@ -243,7 +246,7 @@ var/list/diona_banned_languages = list(
 		if (H.bad_internal_organs.len)
 			for (var/obj/item/organ/O in H.bad_internal_organs)
 				CL = O.damage
-				if (radiation)
+				if (radiation > 0)
 					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					O.damage += value/-1.5
 					radiation -= value
@@ -304,6 +307,7 @@ var/list/diona_banned_languages = list(
 			B.touch_turf(get_turf(src))
 			H.regenerate_icons()
 			DS.LMS = min(2, DS.LMS)//Prevents a message about darkness in light areas
+			H.update_dionastats()//Re-find the organs in case they were lost or regained
 			updatehealth()
 			return
 
@@ -326,9 +330,11 @@ var/list/diona_banned_languages = list(
 		if (path)
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
 				src << "<span class='danger'>You try to regrow a lost organ, but you lack the energy. Find more light!</span>"
+				return
 
 			if (H.nutrition < REGROW_FOOD_REQ)
 				src << "<span class='danger'>You try to regrow a lost organ, but you lack the biomass. Find some food!</span>"
+				return
 
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			H.nutrition -= REGROW_FOOD_REQ
@@ -338,6 +344,7 @@ var/list/diona_banned_languages = list(
 			src << "<span class='danger'>You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name]</span>"
 			H.regenerate_icons()
 			DS.LMS = max(2, DS.LMS)//Prevents a message about darkness in light areas
+			H.update_dionastats()//Re-find the organs in case they were lost or regained
 			updatehealth()
 			return
 
@@ -384,7 +391,7 @@ var/list/diona_banned_languages = list(
 	DS.EP = DS.stored_energy / DS.max_energy
 
 	if (DS.LMS == 1)//If we're full
-		if (DS.EP <= 0.8)//But at <=80% energy
+		if (DS.EP <= 0.8 && DS.last_lightlevel <= 0)//But at <=80% energy
 			DS.LMS = 2
 			src << "<span class='warning'>The darkness makes you uncomfortable</span>"
 
@@ -392,7 +399,7 @@ var/list/diona_banned_languages = list(
 		if (DS.EP >= 0.99)
 			DS.LMS = 1
 			src << "You bask in the light"
-		else if (DS.EP <= 0.4)
+		else if (DS.EP <= 0.4 && DS.last_lightlevel <= 0)
 			DS.LMS = 3
 			src << "<span class='warning'>You feel lethargic as your energy drains away. Find some light soon!</span>"
 
@@ -400,7 +407,7 @@ var/list/diona_banned_languages = list(
 		if (DS.EP >= 0.5)
 			DS.LMS = 2
 			src << "You feel a little more energised as you return to the light. Stay awhile"
-		else if (DS.EP <= 0.0)
+		else if (DS.EP <= 0.0 && DS.last_lightlevel <= 0)
 			DS.LMS = 4
 			src << "<span class='danger'> You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light</span>"
 	//From here down, we immediately return to state 3 if we get any light
@@ -408,7 +415,7 @@ var/list/diona_banned_languages = list(
 		if (DS.EP > 0.0)//If there's any light at all, we can be saved
 			src << "At long last, light! Treasure it, savour it, hold onto it"
 			DS.LMS = 3
-		else
+		else if(DS.last_lightlevel <= 0)
 			var/HP = diona_get_health(DS) / DS.max_health//HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
@@ -438,7 +445,7 @@ if (flashlight_active)
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_amount = 1.5 //how much light there is in the place, affects receiving nutrition and healing
+	var/light_amount = DIONA_MAX_LIGHT //how much light there is in the place, affects receiving nutrition and healing
 	var/light_factor = 1//used for  if a gestalt's response node is damaged. it will feed more slowly
 
 	if (DS.light_organ)
@@ -446,6 +453,8 @@ if (flashlight_active)
 			light_factor = 0.55
 		else if (DS.light_organ.is_bruised())
 			light_factor = 0.8
+	else if (DS.dionatype == 2)
+		light_factor = 0.55
 
 	var/turf/T = get_turf(src)
 	var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
@@ -525,6 +534,9 @@ if (flashlight_active)
 	for (var/datum/language/L in host.languages)
 		var/chance = 40
 
+		if (istype(L, /datum/language/diona))
+			continue
+
 		if (istype(L, /datum/language/common))//more likely to keep common
 			chance = 85
 
@@ -533,6 +545,10 @@ if (flashlight_active)
 			add_language(L.name)
 		else
 			src << "<span class=;danger;>You have forgotten the [L.name] language!</span>"
+
+
+
+
 
 
 

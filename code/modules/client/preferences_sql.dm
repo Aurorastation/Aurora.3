@@ -406,6 +406,8 @@
 	if (!faction) faction = "None"
 	if (!religion) religion = "None"
 
+	load_character_contest(slot)
+
 	return 1
 
 /datum/preferences/proc/save_character_sql(var/client/C)
