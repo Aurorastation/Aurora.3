@@ -7,7 +7,7 @@
 
 /obj/item/device/magnetic_lock
 	name = "magnetic door lock"
-	desc = "A large, ID locked device used for completely locking down airlocks. It is painted with [department] colors."
+	desc = "A large, ID locked device used for completely locking down airlocks."
 	icon = 'icons/obj/magnetic_locks/centcom.dmi'
 	icon_state = "inactive"
 	w_class = 3
@@ -40,6 +40,9 @@
 
 	powercell = new /obj/item/weapon/cell/high()
 	internal_cell = new /obj/item/weapon/cell/apc()
+
+	if (istext(department))
+		desc += " It is painted with [department] colors."
 
 /obj/item/device/magnetic_lock/examine(mob/user)
 	..(user)
@@ -178,13 +181,18 @@
 				return
 
 /obj/item/device/magnetic_lock/process()
-	if (powercell && powercell.charge > drainamount)
-		powercell.charge -= drainamount
-	else
-		if (powercell)
+	/*if (powercell)
+		if (powercell.charge > drainamount)
+			powercell.charge -= drainamount
+			if (int_powercell.powercell.charge > drainamount)
+		else
+			var/diff = drainamount + powercell.charge
 			powercell.charge = 0
+			if (int_powercell > diff)
+				int_powercell.charge -= diff
+	else if (
 		visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
-		setstatus(STATUS_INACTIVE)
+		setstatus(STATUS_INACTIVE)*/
 
 /obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
