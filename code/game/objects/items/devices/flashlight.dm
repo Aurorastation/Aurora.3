@@ -263,7 +263,7 @@
 	on = 0
 	update_icon()
 		
-/obj/item/device/flashlight/glowstick/attack_self(mob/user)
+/obj/item/device/flashlight/glowstick/attack_self(var/mob/living/user)
 
 	if(((CLUMSY in user.mutations)) && prob(50))
 		user << "<span class='notice'>You break \the [src] apart, spilling its contents everywhere!</span>"
