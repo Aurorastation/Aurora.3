@@ -186,8 +186,8 @@
 	if (C)
 		if (C.charge > drainamount)
 			C.charge -= drainamount
-			if (C.charge > drainamount && BU.charge != BU.maxcharge)
-				var/int_diff = BU.maxcharge - BU.charge
+			var/int_diff = min(drainamount, BU.maxcharge - BU.charge)
+			if (C.charge > int_diff && BU.charge != BU.maxcharge)
 				if (int_diff < drainamount)
 					BU.charge = BU.maxcharge
 					C.charge -= int_diff
@@ -239,6 +239,12 @@
 
 		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
 		user.drop_item()
+
+		var/direction = get_dir(user, newtarget)
+		if ((direction in alldirs) && !(direction in cardinal))
+			if (newtarget.check_neighbor_density(turn(direction, 45)))
+				if (newtarget.check_neighbor_density(turn(direction, -45)))
+
 
 		setstatus(STATUS_ACTIVE, newtarget)
 		return

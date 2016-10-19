@@ -25,7 +25,8 @@
 			return 0
 	return 1
 
-// This proc
+// This proc will check if a neighboring tile in the stated direction "dir" is dense or not
+// Will return 1 if it is dense and zero if not
 /proc/check_neighbor_density(var/dir)
 	if (!src.loc)
 		return
