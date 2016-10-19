@@ -181,18 +181,33 @@
 				return
 
 /obj/item/device/magnetic_lock/process()
-	/*if (powercell)
-		if (powercell.charge > drainamount)
-			powercell.charge -= drainamount
-			if (int_powercell.powercell.charge > drainamount)
+	var/obj/item/weapon/cell/C = powercell // both of these are for viewing ease
+	var/obj/item/weapon/cell/BU = int_powercell
+	if (C)
+		if (C.charge > drainamount)
+			C.charge -= drainamount
+			if (C.charge > drainamount && BU.charge != BU.maxcharge)
+				var/int_diff = BU.maxcharge - BU.charge
+				if (int_diff < drainamount)
+					BU.charge = BU.maxcharge
+					C.charge -= int_diff
+				else
+					BU.charge += drainamount
+					C.charge -= drainamount
+		else if (BU.charge > (drainamount - C.charge))
+			var/diff = drainamount - C.charge
+			C.charge = 0
+			BU.charge -= diff
 		else
-			var/diff = drainamount + powercell.charge
-			powercell.charge = 0
-			if (int_powercell > diff)
-				int_powercell.charge -= diff
-	else if (
+			BU.charge = 0
+			visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
+			//DETACH
+	else if (BU.charge > drainamount)
+		BU.charge -= drainamount
+	else
+		BU.charge = 0
 		visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
-		setstatus(STATUS_INACTIVE)*/
+		//DETACH
 
 /obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
