@@ -107,6 +107,7 @@
 		S.fields["ma_crim"]		= "None"
 		S.fields["ma_crim_d"]	= "No major crime convictions."
 		S.fields["notes"]		= "No notes."
+		S.fields["incidents"]	= H.incidents
 		if(H.sec_record && !jobban_isbanned(H, "Records"))
 			S.fields["notes"] = H.sec_record
 		else
