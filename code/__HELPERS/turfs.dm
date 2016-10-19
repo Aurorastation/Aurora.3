@@ -25,6 +25,29 @@
 			return 0
 	return 1
 
+// This proc
+/proc/check_neighbor_density(var/dir)
+	if (!src.loc)
+		return
+	switch (dir)
+		if (NORTH)
+			return !turf_clear(getturf(locate(x, y+1, z))
+		if (NORTHEAST)
+			return !turf_clear(getturf(locate(x+1, y+1, z))
+		if (EAST)
+			return !turf_clear(getturf(locate(x+1, y, z))
+		if (SOUTHEAST)
+			return !turf_clear(getturf(locate(x+1, y-1, z))
+		if (SOUTH)
+			return !turf_clear(getturf(locate(x, y-1, z))
+		if (SOUTHWEST)
+			return !turf_clear(getturf(locate(x-1, y-1, z))
+		if (WEST)
+			return !turf_clear(getturf(locate(x-1, y, z))
+		if (NORTHWEST)
+			return !turf_clear(getturf(locate(x-1, y+1, z))
+		else return
+
 // Picks a turf without a mob from the given list of turfs, if one exists.
 // If no such turf exists, picks any random turf from the given list of turfs.
 /proc/pick_mobless_turf_if_exists(var/list/start_turfs)

@@ -1220,47 +1220,6 @@ proc/is_hot(obj/item/W as obj)
 			return SOUTHEAST
 
 /*
-Checks whether a tile next to src is dense or not
-Returns 1 for a dense tile
-*/
-/proc/check_neighbor_density(var/dir)
-	if (!src.loc)
-		return
-	switch (dir)
-		if (NORTH)
-			for (var/atom/A in locate(x, y+1, z))
-				if (A.density)
-					return 1
-		if (NORTHEAST)
-			for (var/atom/A in locate(x+1, y+1, z))
-				if (A.density)
-					return 1
-		if (EAST)
-			for (var/atom/A in locate(x+1, y, z))
-				if (A.density)
-					return 1
-		if (SOUTHEAST)
-			for (var/atom/A in locate(x+1, y-1, z))
-				if (A.density)
-					return 1
-		if (SOUTH)
-			for (var/atom/A in locate(x, y-1, z))
-				if (A.density)
-					return 1
-		if (SOUTHWEST)
-			for (var/atom/A in locate(x-1, y-1, z))
-				if (A.density)
-					return 1
-		if (WEST)
-			for (var/atom/A in locate(x-1, y, z))
-				if (A.density)
-					return 1
-		if (NORTHWEST)
-			for (var/atom/A in locate(x-1, y+1, z))
-				if (A.density)
-					return 1
-		else return
-/*
 Checks if that loc and dir has a item on the wall
 */
 var/list/WALLITEMS = list(
