@@ -38,6 +38,8 @@
 /obj/item/device/magnetic_lock/New()
 	..()
 
+	icon = "inactive-[department]"
+
 	powercell = new /obj/item/weapon/cell/high()
 	internal_cell = new /obj/item/weapon/cell/apc()
 
@@ -58,8 +60,14 @@
 			user << "\red It has no powercell to power it! Internal cell is at [int_power]% charge."
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
+	add_fingerprint(user)
 	if (constructionstate == 1)
-		ui_interact(user)
+		cell.update_icon()
+		cell.add_fingerprint(user)
+		user.put_in_active_hand(cell)
+		user << "You remove \the [cell]."
+		cell = null
+		setconstructionstate(2)
 	else
 		..()
 
@@ -201,13 +209,13 @@
 		else
 			BU.charge = 0
 			visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
-			//DETACH
+			detach(0)
 	else if (BU.charge > drainamount)
 		BU.charge -= drainamount
 	else
 		BU.charge = 0
 		visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
-		//DETACH
+		detach(0)
 
 /obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
@@ -237,31 +245,31 @@
 
 		if (!check_target(newtarget, user)) return
 
-		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
-		user.drop_item()
+		if(!powercell.charge && !int_powercell.charge)
+			user << "<span class='warning'>\The [src] looks dead and out of power.</span>"
+			return
 
 		var/direction = get_dir(user, newtarget)
 		if ((direction in alldirs) && !(direction in cardinal))
-			if (newtarget.check_neighbor_density(turn(direction, 45)))
-				if (newtarget.check_neighbor_density(turn(direction, -45)))
+			turn(direction, 45)
+			if (newtarget.check_neighbor_density(direction))
+				turn(direction, -90)
+				if (newtarget.check_neighbor_density(direction))
+					user << "<span class='warning'>There is something in the way of \the [newtarget]!</span>"
+					return
 
+		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
+		user.drop_item()
 
-		setstatus(STATUS_ACTIVE, newtarget)
+		setdir(direction)
+		step(src, direction)
+		status = STATUS_ACTIVE
+		attach(newtarget)
 		return
 
 /obj/item/device/magnetic_lock/proc/setconstructionstate(var/newstate)
 	constructionstate = newstate
-	if (newstate == 0)
-		if (status == STATUS_ACTIVE)
-			icon_state = "active"
-		else
-			icon_state = "inactive"
-	else if (newstate == 2)
-		flick("deconstruct_2_anim", src)
-	else if (newstate == 4)
-		setstatus(STATUS_BROKEN)
-	else
-		icon_state = "deconstruct_[constructionstate]"
+	update_icon()
 
 /obj/item/device/magnetic_lock/proc/detach(var/playflick = 1)
 	if (target)
@@ -276,8 +284,6 @@
 
 		processing_objects.Remove(src)
 
-		anchored = 0
-
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
 	layer = LAYER_ATTACHED
 
@@ -286,14 +292,12 @@
 
 	processing_objects.Add(src)
 
-	anchored = 1
-
 	update_icon()
 	spawn(-15)
 		flick("deploy", src)
 
 /obj/item/device/magnetic_lock/update_icon()
-	if (status > 0 && anchored)
+	if (status > 0 && target)
 		switch (dir)
 			if (NORTH)
 				pixel_x = 0
@@ -341,7 +345,8 @@
 
 	if (health <= 0)
 		visible_message("<span class='danger'>[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!</span>")
-		setstatus(STATUS_BROKEN)
+		status = STATUS_BROKEN
+		update_icon()
 		return
 
 	if (prob(50))
