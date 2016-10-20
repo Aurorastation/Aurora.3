@@ -1219,6 +1219,12 @@ proc/is_hot(obj/item/W as obj)
 		if(NORTHWEST)
 			return SOUTHEAST
 
+// This proc will take any of the directions in "alldirs" and move them around the compass
+// by an amount specified in the angle argument
+/proc/turn_dir(var/dir, var/angle = 45)
+	inv(angle)
+	return angle2dir((dir2angle(dir) + angle)) // angle sanitization occurs in angle2dir() so I don't need to worry
+
 /*
 Checks if that loc and dir has a item on the wall
 */

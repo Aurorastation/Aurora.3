@@ -38,7 +38,7 @@
 /obj/item/device/magnetic_lock/New()
 	..()
 
-	icon = "inactive-[department]"
+	//icon = "inactive-[department]"
 
 	powercell = new /obj/item/weapon/cell/high()
 	internal_cell = new /obj/item/weapon/cell/apc()
@@ -59,14 +59,16 @@
 			var/int_power = round(internal_cell.charge / internal_cell.maxcharge * 100)
 			user << "\red It has no powercell to power it! Internal cell is at [int_power]% charge."
 
+	update_icon()
+
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
 	if (constructionstate == 1)
-		cell.update_icon()
-		cell.add_fingerprint(user)
-		user.put_in_active_hand(cell)
-		user << "You remove \the [cell]."
-		cell = null
+		powercell.update_icon()
+		powercell.add_fingerprint(user)
+		user.put_in_active_hand(powercell)
+		user << "You remove \the [powercell]."
+		powercell = null
 		setconstructionstate(2)
 	else
 		..()
@@ -80,7 +82,7 @@
 		user << "<span class='danger'>[src] is broken beyond repair!</span>"
 		return
 
-	if (istype(I, /obj/item/weapon/card/id) && status == STATUS_ACTIVE)
+	if (istype(I, /obj/item/weapon/card/id))
 		if (!constructionstate && !hacked)
 			if (check_access(I))
 				locked = !locked
@@ -114,7 +116,10 @@
 				emagcard.uses--
 				visible_message("<span class='danger'>[src] sparks and falls off the door!</span>", "<span class='danger'>You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!</span>")
 
-				setstatus(STATUS_BROKEN)
+				status = STATUS_BROKEN
+				if (target)
+					detach()
+					update_icon()
 				return
 
 			if (iswelder(I))
@@ -190,7 +195,7 @@
 
 /obj/item/device/magnetic_lock/process()
 	var/obj/item/weapon/cell/C = powercell // both of these are for viewing ease
-	var/obj/item/weapon/cell/BU = int_powercell
+	var/obj/item/weapon/cell/BU = internal_cell
 	if (C)
 		if (C.charge > drainamount)
 			C.charge -= drainamount
@@ -245,23 +250,23 @@
 
 		if (!check_target(newtarget, user)) return
 
-		if(!powercell.charge && !int_powercell.charge)
+		if(!powercell.charge && !internal_cell.charge)
 			user << "<span class='warning'>\The [src] looks dead and out of power.</span>"
 			return
 
 		var/direction = get_dir(user, newtarget)
 		if ((direction in alldirs) && !(direction in cardinal))
-			turn(direction, 45)
-			if (newtarget.check_neighbor_density(direction))
-				turn(direction, -90)
-				if (newtarget.check_neighbor_density(direction))
+			turn_dir(direction, 45)
+			if (check_neighbor_density(get_turf(newtarget.loc), direction))
+				turn_dir(direction, -90)
+				if (check_neighbor_density(get_turf(newtarget.loc), direction))
 					user << "<span class='warning'>There is something in the way of \the [newtarget]!</span>"
 					return
 
 		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
 		user.drop_item()
 
-		setdir(direction)
+		set_dir(direction)
 		step(src, direction)
 		status = STATUS_ACTIVE
 		attach(newtarget)
@@ -281,6 +286,7 @@
 		layer = LAYER_NORMAL
 
 		target.bracer = null
+		target = null
 
 		processing_objects.Remove(src)
 
@@ -298,6 +304,8 @@
 
 /obj/item/device/magnetic_lock/update_icon()
 	if (status > 0 && target)
+		icon = "active"
+		//icon = "active-[department]"
 		switch (dir)
 			if (NORTH)
 				pixel_x = 0
@@ -311,7 +319,12 @@
 			if (WEST)
 				pixel_x = -32
 				pixel_y = 0
+	else if (status <= 0)
+		icon = "inactive"
+		pixel_x = 0
+		pixel_y = 0
 	else
+		icon = "broken"
 		pixel_x = 0
 		pixel_y = 0
 	update_overlays()
@@ -320,7 +333,7 @@
 	overlays.Cut()
 	switch (status)
 		if (STATUS_BROKEN)
-			icon = "broken"
+			//icon = "broken"
 			return
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
