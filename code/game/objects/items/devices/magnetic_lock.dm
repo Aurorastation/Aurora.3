@@ -41,7 +41,7 @@
 	//icon = "inactive-[department]"
 
 	powercell = new /obj/item/weapon/cell/high()
-	internal_cell = new /obj/item/weapon/cell/apc()
+	internal_cell = new /obj/item/weapon/cell/device()
 
 	if (istext(department))
 		desc += " It is painted with [department] colors."
@@ -86,12 +86,12 @@
 		if (!constructionstate && !hacked)
 			if (check_access(I))
 				locked = !locked
-				update_icon()
 				playsound(src, 'sound/machines/ping.ogg', 30, 1)
-				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
+				var/msg = "[I] through \the [src] and it [locked ? "unlocks" : "locks"] with a beep."
 				var/pos_adj = "[user.name] swipes \his "
 				var/fp_adj = "You swipe your "
 				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				update_icon()
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
 				user << span("warning", "\The [src] buzzes as you swipe your [I].")
@@ -304,6 +304,7 @@
 
 /obj/item/device/magnetic_lock/update_icon()
 	if (status > 0 && target)
+		world << "DEBUG: icon = \"active\""
 		icon = "active"
 		//icon = "active-[department]"
 		switch (dir)
@@ -319,11 +320,13 @@
 			if (WEST)
 				pixel_x = -32
 				pixel_y = 0
-	else if (status <= 0)
+	else if (status <= STATUS_INACTIVE)
+		world << "DEBUG: icon = \"inactive\""
 		icon = "inactive"
 		pixel_x = 0
 		pixel_y = 0
 	else
+		world << "DEBUG: icon = \"broken\""
 		icon = "broken"
 		pixel_x = 0
 		pixel_y = 0
@@ -338,17 +341,20 @@
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
 			if (hacked)
+				world << "DEBUG: overlays += \"overlay_hacked\""
 				overlays += "overlay_hacked"
 			else if (locked)
-				overlays += "overlay_locked"
-			else
+				world << "DEBUG: overlays += \"overlay_unlocked\""
 				overlays += "overlay_unlocked"
+			else
+				world << "DEBUG: overlays += \"overlay_locked\""
+				overlays += "overlay_locked"
 			switch (constructionstate)
 				if (0)
 					return
 				if (1 to 4)
+					world << "DEBUG: overlays += \"overlay_deconstruct_[constructionstate]\""
 					overlays += "overlay_deconstruct_[constructionstate]"
-					return
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	health -= damage
