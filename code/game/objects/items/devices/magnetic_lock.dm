@@ -38,7 +38,7 @@
 /obj/item/device/magnetic_lock/New()
 	..()
 
-	//icon = "inactive-[department]"
+	//icon_state = "inactive-[department]"
 
 	powercell = new /obj/item/weapon/cell/high()
 	internal_cell = new /obj/item/weapon/cell/device()
@@ -303,9 +303,9 @@
 		flick("deploy", src)
 
 /obj/item/device/magnetic_lock/update_icon()
-	if (status > 0 && target)
-		world << "DEBUG: icon = \"active\""
-		icon = "active"
+	if (status == STATUS_ACTIVE && target)
+		world << "DEBUG: icon_state = \"active\""
+		icon_state = "active"
 		//icon = "active-[department]"
 		switch (dir)
 			if (NORTH)
@@ -320,14 +320,14 @@
 			if (WEST)
 				pixel_x = -32
 				pixel_y = 0
-	else if (status <= STATUS_INACTIVE)
-		world << "DEBUG: icon = \"inactive\""
-		icon = "inactive"
+	else if (status >= STATUS_INACTIVE)
+		world << "DEBUG: icon_state = \"inactive\""
+		icon_state = "inactive"
 		pixel_x = 0
 		pixel_y = 0
 	else
-		world << "DEBUG: icon = \"broken\""
-		icon = "broken"
+		world << "DEBUG: icon_state = \"broken\""
+		icon_state = "broken"
 		pixel_x = 0
 		pixel_y = 0
 	update_overlays()
@@ -336,7 +336,7 @@
 	overlays.Cut()
 	switch (status)
 		if (STATUS_BROKEN)
-			//icon = "broken"
+			//icon_state = "broken"
 			return
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
