@@ -74,6 +74,7 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "axe"
 	item_state = "axe"
+	contained_sprite = 1
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
