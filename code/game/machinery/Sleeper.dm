@@ -122,6 +122,11 @@
 			data["occupant"]["health"]["toxin"] = occupant.getToxLoss()
 			data["occupant"]["health"]["burn"] = occupant.getFireLoss()
 
+			// Paralysis
+			data["occupant"]["health"]["paralysis"] = list()
+			data["occupant"]["health"]["paralysis"]["amount"] = occupant.paralysis
+			data["occupant"]["health"]["paralysis"]["countdown"] = round(occupant.paralysis / 4)
+
 			// Reagents in occupant
 			data["occupant"]["reagents"] = list()
 			for (var/chemical in src.connected.available_chemicals)
