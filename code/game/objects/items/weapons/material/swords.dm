@@ -67,3 +67,14 @@
 	icon_state = "sabre"
 	item_state = "katana"
 	slot_flags = SLOT_BELT
+	
+/obj/item/weapon/material/sword/axe
+	name = "battle axe"
+	desc = "A one handed battle axe, still a deadly weapon."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "axe"
+	item_state = "axe"
+	slot_flags = SLOT_BACK
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	applies_material_colour = 0
+
