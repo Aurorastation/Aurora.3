@@ -1315,6 +1315,14 @@ datum/design/item/weapon/nuclear_gun
 	build_path = /obj/item/weapon/gun/energy/gun/nuclear
 	locked = 1
 
+datum/design/item/weapon/lasshotgun
+	id = "laser_shotgun"
+	req_tech = list("combat" = 3, "materials" = 5, "powerstorage" = 4)
+	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
+	reliability_base = 76
+	build_path = /obj/item/weapon/gun/energy/laser/shotgun
+	locked = 1
+
 datum/design/item/weapon/stunrevolver
 	id = "stunrevolver"
 	req_tech = list("combat" = 3, "materials" = 3, "powerstorage" = 2)
@@ -1372,6 +1380,18 @@ datum/design/item/weapon/flora_gun
 	req_tech = list("materials" = 2, "biotech" = 3, "powerstorage" = 3)
 	materials = list("$metal" = 2000, "$glass" = 500, "$uranium" = 500)
 	build_path = /obj/item/weapon/gun/energy/floragun
+
+datum/design/item/weapon/mousegun
+	id = "mousegun"
+	req_tech = list("materials" = 1, "biotech" = 4, "powerstorage" = 3)
+	materials = list("$metal" = 2000, "$glass" = 1000, "$uranium" = 500)
+	build_path = /obj/item/weapon/gun/energy/mousegun
+
+datum/design/item/weapon/beegun
+	id = "beegun"
+	req_tech = list("materials" = 6, "biotech" = 4, "powerstorage" = 4, "combat" = 6, "magnets" = 4)
+	materials = list("$metal" = 2000, "$glass" = 2000, "$silver" = 500, "$diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/beegun
 
 datum/design/item/weapon/large_grenade
 	id = "large_Grenade"

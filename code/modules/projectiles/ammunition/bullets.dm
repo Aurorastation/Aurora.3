@@ -70,6 +70,16 @@
 	caliber = ".45"
 	projectile_type = /obj/item/projectile/energy/flash
 
+/obj/item/ammo_casing/t40
+	desc = "A 10mm bullet casing."
+	caliber = "10mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
+
+/obj/item/ammo_casing/t40r
+	desc = "A 10mm rubber bullet casing."
+	caliber = "10mm"
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber
+
 /obj/item/ammo_casing/a12mm
 	desc = "A 12mm bullet casing."
 	caliber = "12mm"
@@ -104,6 +114,7 @@
 	name = "shotgun shell"
 	desc = "A practice shell."
 	icon_state = "pshell"
+	spent_icon = "pshell"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	matter = list("metal" = 90)
 
@@ -134,6 +145,7 @@
 	name = "flash shell"
 	desc = "A chemical shell used to signal distress or provide illumination."
 	icon_state = "fshell"
+	spent_icon = "fshell"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(DEFAULT_WALL_MATERIAL = 90, "glass" = 90)
 
@@ -144,6 +156,14 @@
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
+
+/obj/item/ammo_casing/tranq
+	name = "PPS shell"
+	desc = "A .50 cal PPS bullet casing."
+	icon_state = "ishell"
+	spent_icon = "ishell-spent"
+	caliber = "PPS"
+	projectile_type = /obj/item/projectile/bullet/rifle/tranq
 
 /obj/item/ammo_casing/a762
 	desc = "A 7.62mm bullet casing."

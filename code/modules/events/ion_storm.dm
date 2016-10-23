@@ -3,7 +3,7 @@
 /datum/event/ionstorm
 	var/botEmagChance = 0.5
 	var/list/players = list()
-
+	no_fake = 1
 /datum/event/ionstorm/announce()
 	endWhen = rand(500, 1500)
 //		command_alert("The station has entered an ion storm.  Monitor all electronic equipment for malfunctions", "Anomaly Alert")

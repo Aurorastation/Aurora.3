@@ -9,9 +9,9 @@
 	icon_living = "bear"
 	icon_dead = "bear_dead"
 	icon_gib = "bear_gib"
-	speak = list("RAWR!","Rawr!","GRR!","Growl!")
+	//speak = list("RAWR!","Rawr!","GRR!","Growl!") Bears don't talk.
 	speak_emote = list("growls", "roars")
-	emote_hear = list("rawrs","grumbles","grawls")
+	emote_hear = list("grumbles","grawls")
 	emote_see = list("stares ferociously", "stomps")
 	speak_chance = 10
 	turns_per_move = 7
@@ -79,6 +79,11 @@
 /mob/living/simple_animal/hostile/bear/New()
 	..()
 	update_bearmode()
+
+/mob/living/simple_animal/hostile/bear/harvest()
+	new /obj/item/clothing/head/bearpelt(get_turf(src))
+	..()
+
 
 /mob/living/simple_animal/hostile/bear/proc/set_stance(var/input)
 	var/previous = stance
@@ -197,6 +202,9 @@
 				continue
 			else
 
+				if(!L.client)
+					continue
+					
 				if(L.stat == CONSCIOUS)
 					if (dist < nearest_dist)
 						nearest_target = L

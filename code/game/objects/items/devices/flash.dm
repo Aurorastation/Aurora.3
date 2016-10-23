@@ -96,7 +96,7 @@
 					spawn(100)
 						M.disabilities &= ~NEARSIGHTED
 
-			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)
+/*			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)	//why is this even a thing
 				if(user.mind && user.mind in revs.current_antagonists)
 					var/revsafe = 0
 					for(var/obj/item/weapon/implant/loyalty/L in M)
@@ -112,7 +112,7 @@
 					else if(revsafe == 1)
 						user << "<span class='warning'>Something seems to be blocking the flash!</span>"
 					else
-						user << "<span class='warning'>This mind seems resistant to the flash!</span>"
+						user << "<span class='warning'>This mind seems resistant to the flash!</span>"	*/
 		else
 			flashfail = 1
 

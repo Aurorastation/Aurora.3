@@ -36,7 +36,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/rig/merc(player), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/rifle/sts35(player), slot_l_hand)
-	
+
 	var/obj/item/weapon/storage/belt/military/syndie_belt = new(player)
 	syndie_belt.contents += new /obj/item/ammo_magazine/c762
 	syndie_belt.contents += new /obj/item/ammo_magazine/c762
@@ -53,3 +53,4 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	id.access |= get_all_accesses()
 	id.icon_state = "centcom"
 	create_radio(SYND_FREQ, player)
+	player.faction = "syndicate"

@@ -25,7 +25,6 @@
 	if(..(user, 1))
 		if (mybucket)
 			var/contains = mybucket.reagents.total_volume
-			world << "Contains is [contains]"
 			user << "\icon[src] The bucket contains [contains] unit\s of liquid!"
 		else
 			user << "\icon[src] There is no bucket mounted on it!"

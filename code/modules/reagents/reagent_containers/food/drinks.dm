@@ -17,10 +17,10 @@
 		return
 
 	attack(mob/M as mob, mob/user as mob, def_zone)
-		if(standard_feed_mob(user, M))
-			return
+		if (user.a_intent == I_HURT)
+			return standard_splash_mob(user, M)
+		return standard_feed_mob(user, M)
 
-		return 0
 
 	afterattack(obj/target, mob/user, proximity)
 		if(!proximity) return

@@ -1332,6 +1332,10 @@ datum/preferences
 					var/new_age = input(user, "Choose your character's age:\n([getMinAge()]-[getMaxAge()])", "Character Preference") as num|null
 					if(new_age)
 						age = max(min( round(text2num(new_age)), getMaxAge()),getMinAge())
+						if(age > getMaxAge())
+							age = getMaxAge()
+						if(age < getMinAge())
+							age = getMinAge()
 
 				if("species")
 					user << browse(null, "window=species")
@@ -1381,6 +1385,11 @@ datum/preferences
 						b_hair = 0//hex2num(copytext(new_hair, 6, 8))
 
 						s_tone = 0
+
+						if(age > getMaxAge())
+							age = getMaxAge()
+						if(age < getMinAge())
+							age = getMinAge()
 
 				if("language")
 					var/languages_available

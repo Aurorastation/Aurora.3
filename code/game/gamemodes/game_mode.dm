@@ -58,7 +58,8 @@ var/global/list/additional_antag_types = list()
 			 new/datum/uplink_item(/obj/item/weapon/storage/box/syndicate, 10, "Mercenary Bundle", "BU"),
 			 new/datum/uplink_item(/obj/item/weapon/gun/projectile/heavysniper, 12, "Anti-materiel Rifle", "AMR"),
 			 new/datum/uplink_item(/obj/item/clothing/gloves/force/syndicate, 4, "Force Gloves", "FG"),
-			 new/datum/uplink_item(/obj/item/weapon/gun/projectile/automatic/tommygun, 7, "Tommy Gun", "TMG")
+			 new/datum/uplink_item(/obj/item/weapon/gun/projectile/automatic/tommygun, 7, "Tommy Gun", "TMG"),
+			 new/datum/uplink_item(/obj/item/weapon/grenade/spawnergrenade/manhacks, 2, "Manhack Delivery Grenade", "MH"),
 			),
 		"Stealthy and Inconspicuous Weapons" = list(
 			new/datum/uplink_item(/obj/item/weapon/soap/syndie, 1, "Subversive Soap", "SP"),
