@@ -15,7 +15,7 @@
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
-	desc = "A faded badge, backed with leather. It bears the emblem of the Forensic division."
+	desc = "A faded security badge, backed with leather."
 	icon_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)

@@ -31,7 +31,8 @@ var/datum/antagonist/renegade/renegades
 		/obj/item/weapon/gun/projectile/automatic/c20r,
 		/obj/item/weapon/gun/projectile/automatic/tommygun,
 		/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-		/obj/item/weapon/gun/energy/crossbow
+		/obj/item/weapon/gun/energy/crossbow,
+		/obj/item/weapon/gun/projectile/tanto
 		)
 
 /datum/antagonist/renegade/New()

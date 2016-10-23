@@ -48,6 +48,23 @@
 	name = "magazine (.45 flash)"
 	ammo_type = "/obj/item/ammo_casing/c45f"
 
+/obj/item/ammo_magazine/t40
+	name = "magazine (10mm)"
+	icon_state = "5.56"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/t40
+	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	caliber = "10mm"
+	max_ammo = 12
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/t40/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/t40/rubber
+	name = "magazine (10mm rubber)"
+	ammo_type = /obj/item/ammo_casing/t40r
+
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
 	icon_state = "9x19p"
@@ -180,6 +197,18 @@
 /obj/item/ammo_magazine/trodpack/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/tranq
+	name = "tranquilizer darts (.50 cal PPS)"
+	icon_state = "incendiaryshot_box"
+	origin_tech = "combat=2"
+	mag_type = SINGLE_CASING
+	caliber = "PPS"
+	matter = list(DEFAULT_WALL_MATERIAL = 4500)
+	ammo_type = /obj/item/ammo_casing/tranq
+	max_ammo = 4
+
+/obj/item/ammo_magazine/tranq/empty
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/a762
 	name = "magazine box (7.62mm)"
