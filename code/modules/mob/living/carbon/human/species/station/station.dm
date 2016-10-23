@@ -138,7 +138,7 @@
 	of the Qerr'Katish, a caste within their society which keeps the empire of the Skrell running smoothly. Skrell are \
 	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
 	the secrets of their empire to their allies."
-	
+
 	rarity_value = 3
 
 	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | NO_SLIP | HAS_SKIN_COLOR
@@ -301,18 +301,18 @@
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	rarity_value = 4
-	slowdown = 0	//may become a bonus if vaurca gain more legs.
+	slowdown = 0
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	brute_mod = 0.5 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
-	tox_mod = 3 //they're not used to all our weird human bacteria.
+	tox_mod = 2 //they're not used to all our weird human bacteria.
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
-	breath_type = "oxygen"
-	poison_type = "null" //a species that breathes plasma shouldn't be poisoned by it.
+	breath_type = "phoron"
+	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
 	blurb = "Vaurca are a bipedal insectoid species from the first moon of Sedantis I. \
 	 They have a complex caste system consisting of the lower slave caste called The Bound and the higher, free-thinking caste of the Unbound. \
 	 The majority of Vaurca present in human-space belong to the former caste of Bound, and almost all Vaurca working on NanoTrasen Stations are similarly Bound. \
@@ -331,6 +331,7 @@
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
+	reagent_tag = IS_VAURCA
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite, //weaker version of gut.
@@ -339,20 +340,22 @@
 
 	has_organ = list(
 		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
+		"filtration bit" = /obj/item/organ/vaurca/filtrationbit,
 		"lungs" =    /obj/item/organ/lungs,
-		"filtration bit" =     /obj/item/organ/vaurca/filtrationbit,
+		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
 		"heart" =    /obj/item/organ/heart,
-		"second heart" =    /obj/item/organ/heart,
+		"heart" =    /obj/item/organ/heart,
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes,
-
 )
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
+	H.gender = NEUTER
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

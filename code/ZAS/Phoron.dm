@@ -117,7 +117,7 @@ obj/var/contaminated = 0
 
 /mob/living/carbon/human/proc/burn_eyes()
     //The proc that handles eye burning.
-    if(!species.has_organ["eyes"] || get_species() == "Vaurca")
+    if(!species.has_organ["eyes"] || isvaurca(src))
         return
 
     var/obj/item/organ/eyes/E = internal_organs_by_name["eyes"]

@@ -334,17 +334,20 @@
 
 /datum/seed/koisspore/New()
 	..()
-	set_trait(TRAIT_SPREAD,1) //remove!
+	set_trait(TRAIT_SPREAD,1)
 	set_trait(TRAIT_MATURATION,5)
 	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,8)
+	set_trait(TRAIT_YIELD,3)
 	set_trait(TRAIT_POTENCY,60)
 	set_trait(TRAIT_BIOLUM,1)
+	set_trait(TRAIT_IDEAL_LIGHT,1)
+	set_trait(TRAIT_LIGHT_TOLERANCE,2)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#E6E600")
 	set_trait(TRAIT_PRODUCT_ICON,"alien3")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#E6E600")
 	set_trait(TRAIT_PLANT_COLOUR,"#E6E600")
 	set_trait(TRAIT_PLANT_ICON,"mushroom6")
+
 
 /datum/seed/mushroom/mold
 	name = "mold"

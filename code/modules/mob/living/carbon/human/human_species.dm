@@ -18,6 +18,10 @@
 	h_style = "Short Vox Quills"
 	..(new_loc, "Vox")
 
+/mob/living/carbon/human/voxarmalis/New(var/new_loc)
+	h_style = "Bald"
+	..(new_loc, "Vox Armalis")
+
 /mob/living/carbon/human/diona/New(var/new_loc)
 	..(new_loc, "Diona")
 
@@ -51,3 +55,9 @@
 
 /mob/living/carbon/human/bug/New(var/new_loc)
 	..(new_loc, "Vaurca")
+
+/mob/living/carbon/human/breeder/New(var/new_loc)
+	..(new_loc, "Vaurca Breeder")
+
+/mob/living/carbon/human/breeder
+	mob_size = 30 //same size as moghes lizard

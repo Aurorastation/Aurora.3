@@ -113,7 +113,7 @@
 	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
-	projectile_type = /obj/item/projectile/energy/sonic
+	projectile_type = /obj/item/projectile/energy/bfg
 	slot_flags = SLOT_BACK
 	max_shots = 40
 

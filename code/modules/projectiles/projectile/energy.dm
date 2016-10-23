@@ -100,7 +100,7 @@
 	damage_type = TOX
 	irradiate = 20
 
-/obj/item/projectile/energy/sonic
+/obj/item/projectile/energy/bfg
 	name = "distortion"
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
 	icon_state = "particle"

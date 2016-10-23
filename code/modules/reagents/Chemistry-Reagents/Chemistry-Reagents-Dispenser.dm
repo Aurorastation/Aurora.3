@@ -79,7 +79,7 @@
 	return
 
 /datum/reagent/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.get_species() == "Vaurca")//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+	if(isvaurca(M))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
@@ -200,7 +200,7 @@
 	color = "#808080"
 
 /datum/reagent/oxygen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX|| M.get_species() == "Vaurca")
+	if(alien == IS_VOX)
 		M.adjustToxLoss(removed * 3)
 
 /datum/reagent/phosphorus

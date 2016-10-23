@@ -43,15 +43,22 @@
 	siemens_coefficient = 0.3
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	species_restricted = list("Vox")
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
+	species_restricted = list("Vox", "Vox Armalis")
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/suit.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/suit.dmi',
+		)
 
 /obj/item/clothing/head/helmet/space/vox
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0.3
 	flags = HEADCOVERSEYES|STOPPRESSUREDAMAGE
 	species_restricted = list("Vox")
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
+	species_restricted = list("Vox","Vox Armalis")
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/head.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/head.dmi',
+		)
 
 /obj/item/clothing/head/helmet/space/vox/pressure
 	name = "alien helmet"
@@ -125,15 +132,24 @@
 	item_state = "gloves-vox"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
-	species_restricted = list("Vox")
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/gloves.dmi')
+	species_restricted = list("Vox","Vox Armalis")
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/gloves.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/gloves.dmi',
+		)
+
 /obj/item/clothing/shoes/magboots/vox
 
 	desc = "A pair of heavy, jagged armoured foot pieces, seemingly suitable for a velociraptor."
 	name = "vox magclaws"
 	item_state = "boots-vox"
 	icon_state = "boots-vox"
-	species_restricted = list("Vox")
+
+	species_restricted = list("Vox","Vox Armalis")
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/shoes.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/feet.dmi',
+		)
 
 	action_button_name = "Toggle the magclaws"
 

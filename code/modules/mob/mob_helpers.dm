@@ -27,6 +27,8 @@
 /proc/isvaurca(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca"))
 		return 1
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca Breeder"))
+		return 1
 	return 0
 
 /proc/isipc(A)

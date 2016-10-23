@@ -156,7 +156,7 @@
 								injtime = injtime * 2
 							else if(!H.can_inject(user, 1))
 								return
-						if(H.get_species() == "Vaurca")
+						if(isvaurca(H))
 							injtime = injtime * 2
 
 					else if(isliving(target))
@@ -169,7 +169,7 @@
 						user.visible_message("<span class='warning'>[user] is trying to inject [target] with [visible_name]!</span>")
 					else
 						var/mob/living/carbon/human/H = target
-						if(H.get_species() == "Vaurca")
+						if(isvaurca(H))
 							user.visible_message("<span class='warning'>[user] begins hunting for an injection port on [target]'s carapace!</span>")
 						else
 							user.visible_message("<span class='warning'>[user] begins hunting for an injection port on [target]'s suit!</span>")

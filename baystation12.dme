@@ -1257,6 +1257,7 @@
 #include "code\modules\mob\living\carbon\human\species\species_hud.dm"
 #include "code\modules\mob\living\carbon\human\species\outsider\shadow.dm"
 #include "code\modules\mob\living\carbon\human\species\outsider\skeleton.dm"
+#include "code\modules\mob\living\carbon\human\species\outsider\type_c.dm"
 #include "code\modules\mob\living\carbon\human\species\outsider\vox.dm"
 #include "code\modules\mob\living\carbon\human\species\station\golem.dm"
 #include "code\modules\mob\living\carbon\human\species\station\monkey.dm"

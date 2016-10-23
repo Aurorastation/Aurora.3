@@ -126,11 +126,11 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		for(var/obj/item/organ/external/temp in organs)
 			if(!(temp.status & ORGAN_BLEEDING) || temp.status & ORGAN_ROBOT)
 				continue
-			if(src.get_species() == "Vaurca")
+			if(isvaurca(src))
 				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
-					blood_max += W.damage / 20
+					blood_max += W.damage / 30
 				if (temp.open)
-					blood_max += 4  //Yer stomach is cut open
+					blood_max += 3  //Yer stomach is cut open
 			else
 				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
 					blood_max += W.damage / 40

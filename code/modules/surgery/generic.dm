@@ -120,7 +120,7 @@
 	max_duration = 110
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if(target.get_species() == "Vaurca")
+		if(isvaurca(target))
 			return 0
 		else
 			if(..())

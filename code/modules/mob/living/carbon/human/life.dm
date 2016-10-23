@@ -264,7 +264,7 @@
 
 	proc/handle_mutations_and_radiation()
 
-		if(species.flags & IS_SYNTHETIC || species.name == "Vaurca") //Robots & bugs don't suffer from mutations or radloss.
+		if(species.flags & IS_SYNTHETIC || isvaurca(src)) //Robots & bugs don't suffer from mutations or radloss.
 			return
 
 		if(getFireLoss())
@@ -407,15 +407,6 @@
 			else if(L.is_bruised())
 				safe_pressure_min *= 1.25
 
-		if(species.has_organ["breathing apparatus"])
-			var/obj/item/organ/vaurca/breathingapparatus/L = internal_organs_by_name["breathing apparatus"]
-			if(isnull(L))
-				safe_pressure_min = INFINITY //No wannabe-lungs, how are you breathing? FOR VAURCA
-			else if(L.is_broken())
-				safe_pressure_min *= 1.5
-			else if(L.is_bruised())
-				safe_pressure_min *= 1.25
-
 		var/safe_exhaled_max = 10
 		var/safe_toxins_max = 0.2
 		var/SA_para_min = 1
@@ -435,23 +426,10 @@
 		var/failed_inhale = 0
 		var/failed_exhale = 0
 
-		if(species.has_organ["filtration bit"] && src.get_species() == "Vaurca")
-			var/obj/item/organ/vaurca/filtrationbit/F = internal_organs_by_name["filtration bit"]
-			if(isnull(F))
-				poison_type = "oxygen" //if Vaurca does not have filter, oxygen becomes poisonous
-
-			else if(F.is_broken())
-				poison_type = "oxygen" //if Vaurca filter breaks, oxygen becomes poisonous.
-
-			else
-				poison_type = "null"
-
+		if(species.poison_type)
+			poison_type = species.poison_type
 		else
-			if(species.poison_type)
-				poison_type = species.poison_type
-			else
-				poison_type = "phoron"
-
+			poison_type = "phoron"
 		poison = breath.gas[poison_type]
 
 		if(species.breath_type)

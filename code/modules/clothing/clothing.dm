@@ -56,7 +56,7 @@
 	//Set species_restricted list
 	switch(target_species)
 		if("Human", "Skrell")	//humanoid bodytypes
-			species_restricted = list("exclude","Unathi","Tajara","Diona","Vox", "Xenomorph")
+			species_restricted = list("exclude","Unathi","Tajara","Diona","Vox","Vaurca Breeder", "Xenomorph")
 		else
 			species_restricted = list(target_species)
 
@@ -78,9 +78,9 @@
 	//Set species_restricted list
 	switch(target_species)
 		if("Skrell")
-			species_restricted = list("exclude","Unathi","Tajara","Diona","Vox", "Xenomorph")
+			species_restricted = list("exclude","Unathi","Tajara","Diona","Vox","Vaurca Breeder", "Xenomorph")
 		if("Human")
-			species_restricted = list("exclude","Skrell","Unathi","Tajara","Diona","Vox", "Xenomorph")
+			species_restricted = list("exclude","Skrell","Unathi","Tajara","Diona","Vox","Vaurca Breeder", "Xenomorph")
 
 		else
 			species_restricted = list(target_species)
