@@ -70,7 +70,7 @@
 	
 /obj/item/weapon/material/sword/axe
 	name = "battle axe"
-	desc = "An one handed battle axe, still a deadly weapon."
+	desc = "A one handed battle axe, still a deadly weapon."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "axe"
 	item_state = "axe"
