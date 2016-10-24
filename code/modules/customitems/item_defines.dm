@@ -138,6 +138,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user << "You close the pocket altar."
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 
+
 /obj/item/clothing/head/det_hat/fluff/bell_hat //Brown Hat - Avery Bell - serveris6 - DONE
 	name = "brown hat"
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
@@ -145,7 +146,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "bell_hat"
 	item_state = "bell_hat"
 	contained_sprite = 1
-
 
 /obj/item/clothing/suit/storage/det_suit/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6 - DONE
 	name = "pinned brown coat"
@@ -618,7 +618,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/weapon/contraband/poster/fluff/alexis_poster //Xenonuerology Doctorate - Alexis Shaw - Tenenza - DONE
+/obj/item/weapon/contraband/poster/fluff/alexis_poster //Xenonuerology Doctorate - Alexis Shaw - tenenza - DONE
 	name = "doctorate degree certification in xenoneurology"
 
 /obj/item/weapon/contraband/poster/fluff/alexis_poster/New()
