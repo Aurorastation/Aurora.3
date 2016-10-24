@@ -89,7 +89,7 @@
 	..(newloc)
 
 	if(!serial)
-		serial_number = rand(1, poster_designs.len)
+		serial = rand(1, poster_designs.len) //use a random serial if none is given
 	
 	serial_number = serial
 	var/datum/poster/design = poster_designs[serial_number]
