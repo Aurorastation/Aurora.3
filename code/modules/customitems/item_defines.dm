@@ -621,3 +621,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "poslan_jacket"
 	contained_sprite = 1
 
+/obj/item/sign/fluff/alexis_degree //Xenonuerology Doctorate - Alexis Shaw - Tenenza - DONE
+	name = "xenonuerology degree"
+	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
+	icon_state = "alexis_degree"
+	sign_state = "alexis_degree"
+	w_class = 2	
