@@ -625,6 +625,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	serial_number = 60
 
 /datum/poster/bay_60
-	name = "doctorate degree certification in xenoneurology"
-	desc = "An Honorary Doctorate Degree Certification in Xenoneurology, owned by Alexis Shaw. Appears to be from a St.Grahelm University, Biesel, and was awarded for contributions to, and excellence in the field of Xenoneurology. The watermarking indicates this is the authentic copy."
+	name = "xenonuerology degree"
+	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Beisel, authenticated by watermarking."
 	icon_state = "bposter60"
