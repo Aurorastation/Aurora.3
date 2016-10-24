@@ -436,7 +436,7 @@
 	"/obj/item/clothing/mask/gas/cyborg" = 0.7,
 	"/obj/item/clothing/mask/gas/owl_mask" = 0.8,
 	"/obj/item/clothing/mask/gas/syndicate" = 0.4,
-	"/obj/item/clothing/mask/fakemoustache" = 1,
+	"/obj/item/clothing/mask/fakemoustache" = 0.4,
 	"/obj/item/clothing/mask/horsehead" = 0.9,
 	"/obj/item/clothing/shoes/rainbow" = 1,
 	"/obj/item/clothing/shoes/jackboots" = 1,
