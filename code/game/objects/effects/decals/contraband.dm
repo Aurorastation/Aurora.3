@@ -17,7 +17,7 @@
 
 /obj/item/weapon/contraband/poster/New(turf/loc, var/given_serial = 0)
 	if(given_serial == 0)
-		serial_number = rand(1, poster_designs.len)
+		serial_number = rand(1,58)
 	else
 		serial_number = given_serial
 	name += " - No. [serial_number]"
@@ -89,7 +89,7 @@
 	..(newloc)
 
 	if(!serial)
-		serial = rand(1, poster_designs.len) //use a random serial if none is given
+		serial = rand(1,58)
 	
 	serial_number = serial
 	var/datum/poster/design = poster_designs[serial_number]
