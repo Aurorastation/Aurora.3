@@ -331,13 +331,12 @@
 					/obj/item/weapon/material/sword/trench,\
 					/obj/item/weapon/material/sword/rapier)
 
-/obj/random/coin
+/obj/random/coin/item_to_spawn()
 	name = "Random Coin"
 	desc = "This is a random coin."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "coin"
-	
-/obj/random/coin/item_to_spawn()
+
 	var/list/maint = list("/obj/item/weapon/coin/iron" = 5,
 	"/obj/item/weapon/coin/silver" = 3,
 	"/obj/item/weapon/coin/gold" = 1,
@@ -394,13 +393,12 @@
 					/obj/item/clothing/under/lightred,\
 					/obj/item/clothing/under/darkred)
 
-/obj/random/loot
+/obj/random/loot/obj/random/loot/item_to_spawn()
 	name = "Random Maintenance Loot Items"
 	desc = "Stuff for the maint-dwellers."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	
-/obj/random/loot/item_to_spawn()
 	var/list/maint = list("/obj/item/clothing/glasses/meson" = 1,
 	"/obj/item/clothing/glasses/meson/prescription" = 0.7,
 	"/obj/item/clothing/glasses/material" = 0.8,
