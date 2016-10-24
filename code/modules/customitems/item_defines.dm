@@ -578,6 +578,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	last_special = world.time + 500
 
 	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
+	
+	if(isnull(F))
+		return
+		
 	F.damage += 5
 	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
 	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
@@ -617,14 +621,3 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "poslan_jacket"
 	contained_sprite = 1
 
-
-/obj/item/weapon/contraband/poster/fluff/alexis_poster //Xenonuerology Doctorate - Alexis Shaw - tenenza - DONE
-	name = "doctorate degree certification in xenoneurology"
-
-/obj/item/weapon/contraband/poster/fluff/alexis_poster/New()
-	serial_number = 60
-
-/datum/poster/bay_60
-	name = "xenonuerology degree"
-	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
-	icon_state = "bposter60"
