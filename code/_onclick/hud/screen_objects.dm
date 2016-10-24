@@ -618,5 +618,4 @@
 						overlays += holder
 
 				if("walk")
-					overlays.Cut()
 					icon_state = "walking"
