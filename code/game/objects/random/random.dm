@@ -336,14 +336,19 @@
 	desc = "This is a random coin."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "coin"
-	item_to_spawn()
-		return pick(prob(5);/obj/item/weapon/coin/iron,\
-					prob(3);/obj/item/weapon/coin/silver,\
-					prob(2);/obj/item/weapon/coin/gold,\
-					prob(2);/obj/item/weapon/coin/phoron,\
-					prob(2);/obj/item/weapon/coin/uranium,\
-					prob(1);/obj/item/weapon/coin/platinum,\
-					prob(1);/obj/item/weapon/coin/diamond)
+	
+/obj/random/coin/item_to_spawn()
+	var/list/maint = list("/obj/item/weapon/coin/iron" = 5,
+	"/obj/item/weapon/coin/silver" = 3,
+	"/obj/item/weapon/coin/gold" = 1,
+	"/obj/item/weapon/coin/silver" = 0.7,
+	"/obj/item/weapon/coin/phoron" = 0.5,
+	"obj/item/weapon/coin/uranium" = 0.5,
+	"/obj/item/weapon/coin/platinum" = 0.2,
+	"/obj/item/weapon/coin/diamond" = 0.1,
+	)
+	return pickweight(coin)	
+
 /obj/random/energy_antag
 	name = "random energy weapon"
 	desc = "This is a random energy weapon."
@@ -389,11 +394,13 @@
 					/obj/item/clothing/under/lightred,\
 					/obj/item/clothing/under/darkred)
 
-/obj/random/loot/item_to_spawn()
+/obj/random/loot
 	name = "Random Maintenance Loot Items"
 	desc = "Stuff for the maint-dwellers."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
+	
+/obj/random/loot/item_to_spawn()
 	var/list/maint = list("/obj/item/clothing/glasses/meson" = 1,
 	"/obj/item/clothing/glasses/meson/prescription" = 0.7,
 	"/obj/item/clothing/glasses/material" = 0.8,
