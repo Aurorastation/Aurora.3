@@ -1443,8 +1443,12 @@ area/space/atmosalert()
 	icon_state = "quartoffice"
 
 /area/quartermaster/storage
-	name = "\improper Cargo Bay"
+	name = "\improper Cargo Warehouse"
 	icon_state = "quartstorage"
+
+/area/quartermaster/loading
+	name = "\improper Cargo Bay"
+	icon_state = "quartloading"
 
 /area/quartermaster/qm
 	name = "\improper Cargo - Quartermaster's Office"
