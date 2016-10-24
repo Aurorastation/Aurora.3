@@ -626,5 +626,5 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /datum/poster/bay_60
 	name = "xenonuerology degree"
-	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Beisel, authenticated by watermarking."
+	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
 	icon_state = "bposter60"
