@@ -76,7 +76,3 @@
 	sharp = 0
 	edge = 0
 	hitsound = 'sound/weapons/genhit3.ogg'
-
-/obj/item/weapon/melee/misc/hammer/suicide_act(mob/user)
-	viewers(user) << "\red <b>[user] is hitting \himself in the head with the [src.name]! It looks like \he's trying to commit suicide.</b>"
-	return (BRUTELOSS|OXYLOSS)
