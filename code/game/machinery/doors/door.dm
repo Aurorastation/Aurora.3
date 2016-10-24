@@ -26,6 +26,7 @@
 	var/destroy_hits = 10 //How many strong hits it takes to destroy the door
 	var/min_force = 10 //minimum amount of force needed to damage the door with a melee weapon
 	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
+	var/hitsound_light = 'sound/effects/Glasshit.ogg'//Sound door makes when hit very gently
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/close_door_at = 0 //When to automatically close the door, if possible
@@ -57,7 +58,7 @@
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 7, 1, -1)
+		playsound(src.loc, hitsound_light, 8, 1, -1)
 	user.do_attack_animation(src)
 
 /obj/machinery/door/New()
@@ -228,7 +229,7 @@
 	if (Proj.damage > 90)
 		destroy_hits--
 		if (destroy_hits <= 0)
-			visible_message("\red <B>\The [src.name] disintegrates!</B>")
+			visible_message(span("danger","\The [src.name] disintegrates!"))
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
@@ -246,7 +247,7 @@
 /obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
 
 	..()
-	visible_message("\red <B>[src.name] was hit by [AM].</B>")
+	visible_message(span("danger","[src.name] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 15 * (speed/5)
@@ -337,9 +338,9 @@
 		if(W.damtype == BRUTE || W.damtype == BURN)
 			user.do_attack_animation(src)
 			if(W.force < min_force)
-				user.visible_message("\red <B>\The [user] hits \the [src] with \the [W] with no visible effect.</B>" )
+				user.visible_message(span("danger","\The [user] hits \the [src] with \the [W] with no visible effect.</B>" ))
 			else
-				user.visible_message("\red <B>\The [user] forcefully strikes \the [src] with \the [W]!</B>" )
+				user.visible_message(span("danger","\The [user] forcefully strikes \the [src] with \the [W]!</B>" ))
 				playsound(src.loc, hitsound, 100, 1)
 				take_damage(W.force)
 		return
