@@ -55,11 +55,10 @@
 	return (BRUTELOSS|OXYLOSS)
 
 
-//This is essientially a crowbar and a baseball bat in one.
-/obj/item/weapon/melee/misc/hammer
-	color
+//This is essentially a crowbar and a baseball bat in one.
+/obj/item/weapon/melee/hammer
 	name = "kneebreaker hammer"
-	desc = "An intimidating hammer made of plasteel, this would hurt."
+	desc = "A heavy hammer made of plasteel, the other end could be used to pry open doors."
 	icon = 'icons/obj/kneehammer.dmi'
 	icon_state = "kneehammer"
 	item_state = "kneehammer"
