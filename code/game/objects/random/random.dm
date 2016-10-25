@@ -296,24 +296,24 @@
 	icon_state = "broken_bottle"
 	
 /obj/random/booze/item_to_spawn()
-		return pick(/obj/item/weapon/reagent_containers/food/drinks/bottle/gin,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/wine,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/melonliquor,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/pwine,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes,\
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie,\
-					/obj/item/weapon/reagent_containers/food/drinks/cans/beer,\
-					/obj/item/weapon/reagent_containers/food/drinks/cans/ale)
+	return pick(/obj/item/weapon/reagent_containers/food/drinks/bottle/gin,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/wine,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/melonliquor,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/pwine,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie,\
+				/obj/item/weapon/reagent_containers/food/drinks/cans/beer,\
+				/obj/item/weapon/reagent_containers/food/drinks/cans/ale)
 
 /obj/random/melee
 	name = "random melee weapon"
@@ -322,20 +322,20 @@
 	icon_state = "baton"
 	
 /obj/random/melee/item_to_spawn()
-		return pick(/obj/item/weapon/melee/telebaton,\
-					/obj/item/weapon/melee/energy/sword,\
-					/obj/item/weapon/melee/energy/sword/pirate,\
-					/obj/item/weapon/melee/energy/glaive,\
-					/obj/item/weapon/melee/chainsword,\
-					/obj/item/weapon/melee/baton/stunrod,\
-					/obj/item/weapon/material/harpoon,\
-					/obj/item/weapon/material/scythe,\
-					/obj/item/weapon/material/twohanded/spear/plasteel,\
-					/obj/item/weapon/material/sword/trench,\
-					/obj/item/weapon/material/sword/rapier)
+	return pick(/obj/item/weapon/melee/telebaton,\
+				/obj/item/weapon/melee/energy/sword,\
+				/obj/item/weapon/melee/energy/sword/pirate,\
+				/obj/item/weapon/melee/energy/glaive,\
+				/obj/item/weapon/melee/chainsword,\
+				/obj/item/weapon/melee/baton/stunrod,\
+				/obj/item/weapon/material/harpoon,\
+				/obj/item/weapon/material/scythe,\
+				/obj/item/weapon/material/twohanded/spear/plasteel,\
+				/obj/item/weapon/material/sword/trench,\
+				/obj/item/weapon/material/sword/rapier)
 
 /obj/random/coin
-	name = "Random Coin"
+	name = "random coin"
 	desc = "This is a random coin."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "coin"
@@ -360,16 +360,16 @@
 	
 /obj/random/energy_antag/item_to_spawn()
 
-		return pick(/obj/item/weapon/gun/energy/retro,\
-					/obj/item/weapon/gun/energy/xray,\
-					/obj/item/weapon/gun/energy/gun,\
-					/obj/item/weapon/gun/energy/pistol,\
-					/obj/item/weapon/gun/energy/rifle,\
-					/obj/item/weapon/gun/energy/mindflayer,\
-					/obj/item/weapon/gun/energy/toxgun,\
-					/obj/item/weapon/gun/energy/vaurca/gatlinglaser,\
-					/obj/item/weapon/gun/energy/vaurca/blaster,\
-					/obj/item/weapon/gun/energy/crossbow/largecrossbow)
+	return pick(/obj/item/weapon/gun/energy/retro,\
+				/obj/item/weapon/gun/energy/xray,\
+				/obj/item/weapon/gun/energy/gun,\
+				/obj/item/weapon/gun/energy/pistol,\
+				/obj/item/weapon/gun/energy/rifle,\
+				/obj/item/weapon/gun/energy/mindflayer,\
+				/obj/item/weapon/gun/energy/toxgun,\
+				/obj/item/weapon/gun/energy/vaurca/gatlinglaser,\
+				/obj/item/weapon/gun/energy/vaurca/blaster,\
+				/obj/item/weapon/gun/energy/crossbow/largecrossbow)
 
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
@@ -379,30 +379,30 @@
 	
 /obj/random/colored_jumpsuit/item_to_spawn()
 
-		return pick(/obj/item/clothing/under/color/black,\
-					/obj/item/clothing/under/color/blackf,\
-					/obj/item/clothing/under/color/blue,\
-					/obj/item/clothing/under/color/green,\
-					/obj/item/clothing/under/color/grey,\
-					/obj/item/clothing/under/color/orange,\
-					/obj/item/clothing/under/color/pink,\
-					/obj/item/clothing/under/color/red,\
-					/obj/item/clothing/under/color/white,\
-					/obj/item/clothing/under/color/yellow,\
-					/obj/item/clothing/under/lightblue,\
-					/obj/item/clothing/under/aqua,\
-					/obj/item/clothing/under/purple,\
-					/obj/item/clothing/under/lightpurple,\
-					/obj/item/clothing/under/lightgreen,\
-					/obj/item/clothing/under/lightbrown,\
-					/obj/item/clothing/under/brown,\
-					/obj/item/clothing/under/yellowgreen,\
-					/obj/item/clothing/under/darkblue,\
-					/obj/item/clothing/under/lightred,\
-					/obj/item/clothing/under/darkred)
+	return pick(/obj/item/clothing/under/color/black,\
+				/obj/item/clothing/under/color/blackf,\
+				/obj/item/clothing/under/color/blue,\
+				/obj/item/clothing/under/color/green,\
+				/obj/item/clothing/under/color/grey,\
+				/obj/item/clothing/under/color/orange,\
+				/obj/item/clothing/under/color/pink,\
+				/obj/item/clothing/under/color/red,\
+				/obj/item/clothing/under/color/white,\
+				/obj/item/clothing/under/color/yellow,\
+				/obj/item/clothing/under/lightblue,\
+				/obj/item/clothing/under/aqua,\
+				/obj/item/clothing/under/purple,\
+				/obj/item/clothing/under/lightpurple,\
+				/obj/item/clothing/under/lightgreen,\
+				/obj/item/clothing/under/lightbrown,\
+				/obj/item/clothing/under/brown,\
+				/obj/item/clothing/under/yellowgreen,\
+				/obj/item/clothing/under/darkblue,\
+				/obj/item/clothing/under/lightred,\
+				/obj/item/clothing/under/darkred)
 
 /obj/random/loot
-	name = "Random Maintenance Loot Items"
+	name = "random maintenance loot items"
 	desc = "Stuff for the maint-dwellers."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
