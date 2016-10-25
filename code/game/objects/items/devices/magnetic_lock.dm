@@ -8,29 +8,30 @@
 /obj/item/device/magnetic_lock
 	name = "magnetic door lock"
 	desc = "A large, ID locked device used for completely locking down airlocks."
-	icon = 'icons/obj/magnetic_locks/centcom.dmi'
-	icon_state = "inactive"
+	icon = 'icons/obj/magnetic_locks.dmi'
+	//icon_state = "inactive"
 	w_class = 3
 	req_access = list(access_cent_specops)
 	health = 90
 
 	var/department = "CENTCOM"
 	var/status = 0
-	var/locked = 0
+	var/locked = 1
 	var/hacked = 0
 	var/constructionstate = 0
-	var/drainamount = 20
+	var/drain_per_second = 3
+	var/last_process_time = 0
+	var/obj/machinery/door/airlock/target_node1 = null
+	var/obj/machinery/door/airlock/target_node2 = null
 	var/obj/machinery/door/airlock/target = null
 	var/obj/item/weapon/cell/powercell
 	var/obj/item/weapon/cell/internal_cell
 
 /obj/item/device/magnetic_lock/security
-	icon = 'icons/obj/magnetic_locks/security.dmi'
 	department = "Security"
 	req_access = list(access_security)
 
 /obj/item/device/magnetic_lock/engineering
-	icon = 'icons/obj/magnetic_locks/engineering.dmi'
 	department = "Engineering"
 	req_access = null
 	req_one_access = list(access_engine_equip, access_atmospherics)
@@ -38,13 +39,13 @@
 /obj/item/device/magnetic_lock/New()
 	..()
 
-	//icon_state = "inactive-[department]"
-
 	powercell = new /obj/item/weapon/cell/high()
 	internal_cell = new /obj/item/weapon/cell/device()
 
 	if (istext(department))
 		desc += " It is painted with [department] colors."
+
+	update_icon()
 
 /obj/item/device/magnetic_lock/examine(mob/user)
 	..(user)
@@ -54,22 +55,25 @@
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			user << "\blue The powercell is at [power]% charge."
+			user << "<span class='notice'>The powercell is at [power]% charge.</span>"
 		else
 			var/int_power = round(internal_cell.charge / internal_cell.maxcharge * 100)
-			user << "\red It has no powercell to power it! Internal cell is at [int_power]% charge."
-
-	update_icon()
+			user << "<span class='warning'>It has no powercell to power it! Internal cell is at [int_power]% charge.</span>"
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
-	if (constructionstate == 1)
+	if (constructionstate == 1 && powercell)
 		powercell.update_icon()
 		powercell.add_fingerprint(user)
 		user.put_in_active_hand(powercell)
 		user << "You remove \the [powercell]."
 		powercell = null
 		setconstructionstate(2)
+	else if (anchored)
+		if (!locked)
+			detach()
+		else
+			user << "<span class='warning'>\The [src] is locked in place!</span>"
 	else
 		..()
 
@@ -87,7 +91,7 @@
 			if (check_access(I))
 				locked = !locked
 				playsound(src, 'sound/machines/ping.ogg', 30, 1)
-				var/msg = "[I] through \the [src] and it [locked ? "unlocks" : "locks"] with a beep."
+				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes \his "
 				var/fp_adj = "You swipe your "
 				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
@@ -161,8 +165,13 @@
 		if (2)
 			if (isscrewdriver(I))
 				user << span("notice", "You unscrew and remove the wiring cover from \the [src].")
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				setconstructionstate(3)
+				return
+
+			if (iscrowbar(I))
+				user << span("notice", "You wedge the cover back in place.")
+				setconstructionstate(0)
 				return
 
 			if (istype(I, /obj/item/weapon/cell))
@@ -183,7 +192,7 @@
 
 			if (isscrewdriver(I))
 				user << span("notice", "You replace and screw tight the wiring cover from \the [src].")
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				setconstructionstate(2)
 				return
 
@@ -196,31 +205,39 @@
 /obj/item/device/magnetic_lock/process()
 	var/obj/item/weapon/cell/C = powercell // both of these are for viewing ease
 	var/obj/item/weapon/cell/BU = internal_cell
+	var/delta_sec = (world.time - last_process_time) / 10
+	var/drainamount = drain_per_second * delta_sec
 	if (C)
 		if (C.charge > drainamount)
 			C.charge -= drainamount
+			world << "DEBUG: main cell drained by [drainamount]"
 			var/int_diff = min(drainamount, BU.maxcharge - BU.charge)
 			if (C.charge > int_diff && BU.charge != BU.maxcharge)
 				if (int_diff < drainamount)
 					BU.charge = BU.maxcharge
 					C.charge -= int_diff
+					world << "DEBUG: backup cell charged by [int_diff]"
 				else
 					BU.charge += drainamount
 					C.charge -= drainamount
+					world << "DEBUG: backup cell charged by [drainamount]"
 		else if (BU.charge > (drainamount - C.charge))
 			var/diff = drainamount - C.charge
 			C.charge = 0
 			BU.charge -= diff
+			world << "DEBUG: backup cell drained by [diff]"
 		else
 			BU.charge = 0
 			visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
 			detach(0)
 	else if (BU.charge > drainamount)
 		BU.charge -= drainamount
+		world << "DEBUG: backup cell drained by [drainamount]"
 	else
 		BU.charge = 0
 		visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
 		detach(0)
+	last_process_time = world.time
 
 /obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
@@ -237,6 +254,10 @@
 
 	if (newtarget.p_open)
 		user << span("danger", "You must close [newtarget]'s maintenance panel before attaching [src] to it!")
+		return 0
+
+	if (!user.Adjacent(newtarget))
+		user << span("danger", "You must stand next to [newtarget] while attaching it!")
 		return 0
 
 	return 1
@@ -256,39 +277,54 @@
 
 		var/direction = get_dir(user, newtarget)
 		if ((direction in alldirs) && !(direction in cardinal))
-			turn_dir(direction, 45)
+			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
-				turn_dir(direction, -90)
+				direction = turn(direction, 90)
 				if (check_neighbor_density(get_turf(newtarget.loc), direction))
 					user << "<span class='warning'>There is something in the way of \the [newtarget]!</span>"
 					return
 
+		/*if (alert("Brace adjacent airlocks?",,"Yes", "No") == "Yes")
+			if (!check_target(newtarget, user)) return
+			if (direction <= 2)
+				for (var/obj/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -45)))
+					*/
+
 		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
 		user.drop_item()
 
-		set_dir(direction)
-		step(src, direction)
+		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
+		set_dir(reverse_direction(direction))
 		status = STATUS_ACTIVE
 		attach(newtarget)
 		return
 
 /obj/item/device/magnetic_lock/proc/setconstructionstate(var/newstate)
-	constructionstate = newstate
-	update_icon()
+	if (!powercell && newstate == 1)
+		setconstructionstate(2)
+	else if (newstate == 4)
+		detach(playflick = 0)
+	else
+		constructionstate = newstate
+		update_icon()
 
 /obj/item/device/magnetic_lock/proc/detach(var/playflick = 1)
 	if (target)
 
 		if (playflick)
-			spawn(-15) flick("release", src)
+			spawn(-15) flick("release_[department]", src)
 
+		status = STATUS_INACTIVE
+		set_dir(SOUTH)
 		update_icon()
 		layer = LAYER_NORMAL
 
 		target.bracer = null
 		target = null
+		anchored = 0
 
 		processing_objects.Remove(src)
+		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
 	layer = LAYER_ATTACHED
@@ -296,38 +332,36 @@
 	newtarget.bracer = src
 	target = newtarget
 
+	last_process_time = world.time
 	processing_objects.Add(src)
+	anchored = 1
 
-	update_icon()
 	spawn(-15)
-		flick("deploy", src)
+		flick("deploy_[department]", src)
+	update_icon()
 
 /obj/item/device/magnetic_lock/update_icon()
 	if (status == STATUS_ACTIVE && target)
-		world << "DEBUG: icon_state = \"active\""
-		icon_state = "active"
-		//icon = "active-[department]"
+		icon_state = "active_[department]"
 		switch (dir)
 			if (NORTH)
 				pixel_x = 0
-				pixel_y = 32
+				pixel_y = -32
 			if (EAST)
-				pixel_x = 32
+				pixel_x = -32
 				pixel_y = 0
 			if (SOUTH)
 				pixel_x = 0
-				pixel_y = -32
+				pixel_y = 32
 			if (WEST)
-				pixel_x = -32
+				pixel_x = 32
 				pixel_y = 0
 	else if (status >= STATUS_INACTIVE)
-		world << "DEBUG: icon_state = \"inactive\""
-		icon_state = "inactive"
+		icon_state = "inactive_[department]"
 		pixel_x = 0
 		pixel_y = 0
 	else
-		world << "DEBUG: icon_state = \"broken\""
-		icon_state = "broken"
+		icon_state = "broken_[department]"
 		pixel_x = 0
 		pixel_y = 0
 	update_overlays()
@@ -336,24 +370,20 @@
 	overlays.Cut()
 	switch (status)
 		if (STATUS_BROKEN)
-			//icon_state = "broken"
+			icon_state = "broken"
 			return
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
 			if (hacked)
-				world << "DEBUG: overlays += \"overlay_hacked\""
 				overlays += "overlay_hacked"
 			else if (locked)
-				world << "DEBUG: overlays += \"overlay_unlocked\""
-				overlays += "overlay_unlocked"
-			else
-				world << "DEBUG: overlays += \"overlay_locked\""
 				overlays += "overlay_locked"
+			else
+				overlays += "overlay_unlocked"
 			switch (constructionstate)
 				if (0)
 					return
 				if (1 to 4)
-					world << "DEBUG: overlays += \"overlay_deconstruct_[constructionstate]\""
 					overlays += "overlay_deconstruct_[constructionstate]"
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
