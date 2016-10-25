@@ -281,19 +281,21 @@
 	desc = "This is a random glowstick."
 	icon = 'icons/obj/glowsticks.dmi'
 	icon_state = "glowstick"
-	item_to_spawn()
-		return pick(/obj/item/device/flashlight/glowstick,\
-					/obj/item/device/flashlight/glowstick/red,\
-					/obj/item/device/flashlight/glowstick/blue,\
-					/obj/item/device/flashlight/glowstick/orange,\
-					/obj/item/device/flashlight/glowstick/yellow)
+	
+/obj/random/glowstick/item_to_spawn()
+	return pick(/obj/item/device/flashlight/glowstick,\
+				/obj/item/device/flashlight/glowstick/red,\
+				/obj/item/device/flashlight/glowstick/blue,\
+				/obj/item/device/flashlight/glowstick/orange,\
+				/obj/item/device/flashlight/glowstick/yellow)
 
 /obj/random/booze
 	name = "random alcoholic drink"
 	desc = "This is a random alcoholic drink."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "broken_bottle"
-	item_to_spawn()
+	
+/obj/random/booze/item_to_spawn()
 		return pick(/obj/item/weapon/reagent_containers/food/drinks/bottle/gin,\
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,\
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,\
@@ -318,7 +320,8 @@
 	desc = "This is a random melee weapon."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "baton"
-	item_to_spawn()
+	
+/obj/random/melee/item_to_spawn()
 		return pick(/obj/item/weapon/melee/telebaton,\
 					/obj/item/weapon/melee/energy/sword,\
 					/obj/item/weapon/melee/energy/sword/pirate,\
@@ -331,12 +334,13 @@
 					/obj/item/weapon/material/sword/trench,\
 					/obj/item/weapon/material/sword/rapier)
 
-/obj/random/coin/item_to_spawn()
+/obj/random/coin
 	name = "Random Coin"
 	desc = "This is a random coin."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "coin"
 
+/obj/random/coin/item_to_spawn()
 	var/list/coin = list("/obj/item/weapon/coin/iron" = 5,
 	"/obj/item/weapon/coin/silver" = 3,
 	"/obj/item/weapon/coin/gold" = 1,
@@ -353,7 +357,9 @@
 	desc = "This is a random energy weapon."
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "retro100"
-	item_to_spawn()
+	
+/obj/random/energy_antag/item_to_spawn()
+
 		return pick(/obj/item/weapon/gun/energy/retro,\
 					/obj/item/weapon/gun/energy/xray,\
 					/obj/item/weapon/gun/energy/gun,\
@@ -370,7 +376,9 @@
 	desc = "This is a random colowerd jumpsuit."
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	icon_state = "black"
-	item_to_spawn()
+	
+/obj/random/colored_jumpsuit/item_to_spawn()
+
 		return pick(/obj/item/clothing/under/color/black,\
 					/obj/item/clothing/under/color/blackf,\
 					/obj/item/clothing/under/color/blue,\
@@ -393,11 +401,14 @@
 					/obj/item/clothing/under/lightred,\
 					/obj/item/clothing/under/darkred)
 
-/obj/random/loot/item_to_spawn()
+/obj/random/loot
 	name = "Random Maintenance Loot Items"
 	desc = "Stuff for the maint-dwellers."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
+	
+/obj/random/loot/item_to_spawn()
+
 	var/list/maint = list("/obj/item/clothing/glasses/meson" = 1,
 	"/obj/item/clothing/glasses/meson/prescription" = 0.7,
 	"/obj/item/clothing/glasses/material" = 0.8,
