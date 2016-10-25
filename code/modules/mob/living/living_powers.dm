@@ -46,8 +46,9 @@
 
 
 	var/response = input(src, "Your current walking speed is [speed] tiles per second. This menu allows you to limit it to a lower value, by applying a multiplier to that. Please choose a value, select custom to enter your own, or No limit to set your walk speed to the maximum. This menu will not make you move any faster than usual, it is only for allowing you to move at a slower pace than normal, for roleplay purposes. Values set here will not affect your sprinting speed", "Limit Walking speed") as null|anything in options
+
 	if (isnull(response))
-    	return
+		return
 	else if (response == "No limit")
 		src << "Movement speed has now been set to normal, limits removed."
 		src.min_walk_delay = 0
