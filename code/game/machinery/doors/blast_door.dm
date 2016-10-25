@@ -90,7 +90,7 @@
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
 /obj/machinery/door/blast/attackby(obj/item/weapon/C as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if(istype(C, /obj/item/weapon/crowbar) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/misc/hammer)))
+	if(istype(C, /obj/item/weapon/crowbar) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else

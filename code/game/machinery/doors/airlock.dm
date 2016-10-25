@@ -897,7 +897,7 @@ About the new airlock wires panel:
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
 
-	else if(istype(C, /obj/item/weapon/melee/misc/hammer) && !arePowerSystemsOn())
+	else if(istype(C, /obj/item/weapon/melee/hammer) && !arePowerSystemsOn())
 		if(locked)
 			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
 		else if( !welded && !operating )
