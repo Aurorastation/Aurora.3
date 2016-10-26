@@ -896,9 +896,20 @@ About the new airlock wires panel:
 					spawn(0)	close(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
+
+	else if(istype(C, /obj/item/weapon/melee/hammer) && !arePowerSystemsOn())
+		if(locked)
+			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
+		else if( !welded && !operating )
+
+			if(density)
+				spawn(0)	open(1)
+			else
+				spawn(0)	close(1)
 	else
 		..()
 	return
+
 
 /obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
 	if(C)
