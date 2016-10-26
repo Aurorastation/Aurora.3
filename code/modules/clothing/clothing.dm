@@ -185,6 +185,7 @@ BLIND     // can't see anything
 	var/darkness_view = 0//Base human is 2
 	var/see_invisible = -1
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/eyes.dmi')
+	species_restricted = list("exclude","Vaurca Breeder")
 
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))
@@ -205,7 +206,7 @@ BLIND     // can't see anything
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem")
+	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/gloves.dmi')
 
 /obj/item/clothing/gloves/update_clothing_icon()
@@ -255,6 +256,7 @@ BLIND     // can't see anything
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
 	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	species_restricted = list("exclude","Vaurca Breeder")
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
@@ -316,6 +318,7 @@ BLIND     // can't see anything
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/masks.dmi',
 						"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
 						"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+	species_restricted = list("exclude","Vaurca Breeder")
 
 /obj/item/clothing/mask/update_clothing_icon()
 	if (ismob(src.loc))
@@ -340,7 +343,7 @@ BLIND     // can't see anything
 	slowdown = SHOES_SLOWDOWN
 	force = 2
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca")
+	species_restricted = list("exclude","Unathi","Tajara","Vaurca","Vaurca Breeder")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
 
@@ -365,6 +368,7 @@ BLIND     // can't see anything
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = 3
+	species_restricted = list("exclude","Vaurca Breeder")
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
@@ -397,6 +401,7 @@ BLIND     // can't see anything
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/uniform.dmi',
 			"Golem" = 'icons/mob/uniform_fat.dmi')
+	species_restricted = list("exclude","Vaurca Breeder")
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.

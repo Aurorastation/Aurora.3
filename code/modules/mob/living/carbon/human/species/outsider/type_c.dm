@@ -6,9 +6,11 @@
 	icon_template = 'icons/mob/human_races/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/r_vaurcac.dmi'
+	icon_x_offset = -8
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
-	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
+	slowdown = 2
+	eyes = "blank_eyes" //makes it so that eye colour is not changed when skin colour is.
 	brute_mod = 0.2 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	tox_mod = 1 //they're not used to all our weird human bacteria.
@@ -22,12 +24,14 @@
 	death_sound = 'sound/voice/hiss6.ogg'
 	death_message = "seizes up and falls limp, their eyes dead and lifeless..."
 
-	vision_flags = SEE_INVISIBLE_OBSERVER_NOLIGHTING | SEE_SELF
+	//vision_flags = SEE_INVISIBLE_OBSERVER_NOLIGHTING
 
-	flags = IS_RESTRICTED | NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
+	flags = CAN_JOIN | NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite, //weaker version of gut.
+		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/devour_head,
+		/mob/living/carbon/human/proc/hivenet
 		)
 
 
@@ -45,7 +49,14 @@
 )
 
 /datum/species/bug/type_c/equip_survival_gear(var/mob/living/carbon/human/H)
-	H.gender = FEMALE
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/typec(H),slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/force/typec(H), slot_gloves)
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/typec(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/space/typec(H), slot_wear_suit)
+	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
+	return
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = FEMALE
