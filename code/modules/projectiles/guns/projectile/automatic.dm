@@ -291,14 +291,14 @@
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
 
 /obj/item/weapon/gun/projectile/automatic/railgun
-	name = "Railgun"
+	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
 	item_state = "arifle"
 	w_class = 4
 	force = 10
 	caliber = "trod"
-	origin_tech = "combat=5;materials=2"
+	origin_tech = "combat=8;materials=7"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/effects/Explosion2.ogg'
 	load_method = MAGAZINE

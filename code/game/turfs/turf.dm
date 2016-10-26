@@ -145,14 +145,15 @@
 		if(istype(MOB) && !MOB.lying && footstep_sound)
 			if(istype(MOB.shoes, /obj/item/clothing/shoes) && !MOB.shoes:silent)
 				if(MOB.m_intent == "run")
+					playsound(MOB, footstep_sound, 70, 1)
+				else //Run and walk footsteps switched, because walk is the normal movement mode now
 					if(MOB.footstep >= 2)
 						MOB.footstep = 0
 					else
 						MOB.footstep++
 					if(MOB.footstep == 0)
-						playsound(MOB, footstep_sound, 50, 1) // this will get annoying very fast. - Tell them to mute it then -_-
-				else
-					playsound(MOB, footstep_sound, 40, 1)
+						playsound(MOB, footstep_sound, 40, 1)
+
 
 
 		else if(!istype(src, /turf/space))

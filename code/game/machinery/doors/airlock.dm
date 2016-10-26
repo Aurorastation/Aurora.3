@@ -896,9 +896,20 @@ About the new airlock wires panel:
 					spawn(0)	close(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
+
+	else if(istype(C, /obj/item/weapon/melee/hammer) && !arePowerSystemsOn())
+		if(locked)
+			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
+		else if( !welded && !operating )
+
+			if(density)
+				spawn(0)	open(1)
+			else
+				spawn(0)	close(1)
 	else
 		..()
 	return
+
 
 /obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
 	if(C)
@@ -928,9 +939,9 @@ About the new airlock wires panel:
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(arePowerSystemsOn())
-		playsound(src.loc, open_sound_powered, 100, 1)
+		playsound(src.loc, open_sound_powered, 60, 1)
 	else
-		playsound(src.loc, open_sound_unpowered, 100, 1)
+		playsound(src.loc, open_sound_unpowered, 60, 1)
 
 	if(src.closeOther != null && istype(src.closeOther, /obj/machinery/door/airlock/) && !src.closeOther.density)
 		src.closeOther.close()
@@ -992,7 +1003,7 @@ About the new airlock wires panel:
 		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
 	SetStunned(5)
 	SetWeakened(5)
-	
+
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
@@ -1004,7 +1015,7 @@ About the new airlock wires panel:
 	while(valid_turfs.len)
 		T = pick(valid_turfs)
 		valid_turfs -= T
-		
+
 		if(src.forceMove(T))
 			return
 

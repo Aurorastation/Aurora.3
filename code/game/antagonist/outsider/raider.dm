@@ -93,8 +93,10 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/pistol,
 		/obj/item/weapon/gun/projectile/revolver,
 		/obj/item/weapon/gun/projectile/revolver/deckard,
-		/obj/item/weapon/gun/projectile/pirate
+		/obj/item/weapon/gun/projectile/pirate,
+		/obj/item/weapon/gun/projectile/tanto
 		)
+
 
 	var/list/raider_holster = list(
 		/obj/item/clothing/accessory/holster/armpit,

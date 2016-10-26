@@ -8,6 +8,7 @@
 	icon_state = "syndie_bloodhound"
 	lawchannel = "State"
 	req_access = list(access_syndicate)
+	faction = "syndicate"
 	modtype = "syndicate"
 	braintype = "Cyborg"
 
@@ -20,8 +21,8 @@
 	radio.keyslot = new /obj/item/device/encryptionkey/syndicate(radio)
 	radio.recalculateChannels()
 
-	playsound(loc, 'sound/mecha/nominalsyndi.ogg', 75, 0)	
-	
+	playsound(loc, 'sound/mecha/nominalsyndi.ogg', 75, 0)
+
 /mob/living/silicon/robot/syndicate/New()
 	if(!cell)
 		cell = new /obj/item/weapon/cell(src)
@@ -29,9 +30,9 @@
 		cell.charge = 25000
 	if(!jetpack)
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
-	
+
 	..()
-	
+
 /mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works
 	overlays.Cut()
 	if(stat == 0)

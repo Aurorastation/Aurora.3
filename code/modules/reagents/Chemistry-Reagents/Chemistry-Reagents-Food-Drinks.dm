@@ -354,12 +354,17 @@
 	var/adj_drowsy = 0
 	var/adj_sleepy = 0
 	var/adj_temp = 0
+	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
+	var/datum/modifier/modifier = null
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
 	return
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if (caffeine && !modifier)
+		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
 	M.nutrition += nutrition * removed
 	M.dizziness = max(0, M.dizziness + adj_dizzy)
 	M.drowsyness = max(0, M.drowsyness + adj_drowsy)
@@ -586,6 +591,7 @@
 	adj_sleepy = -2
 	adj_temp = 25
 	overdose = 45
+	caffeine = 0.3
 
 	glass_icon_state = "hot_coffee"
 	glass_name = "cup of coffee"
@@ -604,6 +610,7 @@
 	M.intoxication = max(0, (M.intoxication - (removed*0.25)))
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+
 
 
 /datum/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
@@ -757,6 +764,7 @@
 	id = "rewriter"
 	color = "#485000"
 	adj_temp = -5
+	caffeine = 0.4
 
 	glass_icon_state = "rewriter"
 	glass_name = "glass of Rewriter"
@@ -767,6 +775,7 @@
 	..()
 	M.make_jittery(5)
 
+
 /datum/reagent/drink/nuka_cola
 	name = "Nuka Cola"
 	id = "nuka_cola"
@@ -774,6 +783,7 @@
 	color = "#100800"
 	adj_temp = -5
 	adj_sleepy = -2
+	caffeine = 1
 
 	glass_icon_state = "nuka_colaglass"
 	glass_name = "glass of Nuka-Cola"
@@ -1043,6 +1053,7 @@
 	description = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936!"
 	color = "#664300"
 	strength = 20
+	caffeine = 0.25
 
 	glass_icon_state = "kahluaglass"
 	glass_name = "glass of RR coffee liquor"
@@ -1115,6 +1126,7 @@
 	color = "#102000"
 	strength = 10
 	nutriment_factor = 1
+	caffeine = 0.5
 
 	glass_icon_state = "thirteen_loko_glass"
 	glass_name = "glass of Thirteen Loko"
@@ -1390,6 +1402,7 @@
 	description = "It's just as effective as Dutch-Courage!"
 	color = "#664300"
 	strength = 30
+	caffeine = 0.2
 
 	glass_icon_state = "bravebullglass"
 	glass_name = "glass of Brave Bull"
@@ -1598,6 +1611,7 @@
 	description = "Coffee, and alcohol. More fun than a Mimosa to drink in the morning."
 	color = "#664300"
 	strength = 15
+	caffeine = 0.3
 
 	glass_icon_state = "irishcoffeeglass"
 	glass_name = "glass of Irish coffee"
@@ -1979,6 +1993,7 @@
 	adj_sleepy = -3
 	adj_temp = 30
 	overdose = 40
+	caffeine = 0.4
 
 	glass_icon_state = "blackcoffee"
 	glass_name = "A mug of rich Black Coffee"
@@ -1994,6 +2009,7 @@
 	adj_sleepy = -3
 	adj_temp = 30
 	overdose = 40
+	caffeine = 0.3
 
 	glass_icon_state = "whitecoffee"
 	glass_name = "A mug of Café Au Lait"
@@ -2013,6 +2029,7 @@
 	adj_sleepy = -3
 	adj_temp = 30
 	overdose = 40
+	caffeine = 0.3
 
 	glass_icon_state = "whitecoffee"
 	glass_name = "A mug of Café Mélange"
