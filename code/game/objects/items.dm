@@ -249,6 +249,7 @@
 // note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	layer = 20
+	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
 	return
@@ -656,3 +657,47 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
+
+
+//a proc that any worn thing can call to update its itemstate
+//Should be cheaper than calling regenerate icons on the mob
+/obj/item/proc/update_worn_icon()
+	if (!equip_slot || !istype(loc, /mob))
+		return
+
+	var/mob/M = loc
+	switch (equip_slot)
+		if (slot_back)
+			M.update_inv_back()
+		if (slot_wear_mask)
+			M.update_inv_wear_mask()
+		if (slot_l_hand)
+			M.update_inv_l_hand()
+		if (slot_r_hand)
+			M.update_inv_r_hand()
+		if (slot_belt)
+			M.update_inv_belt()
+		if (slot_wear_id)
+			M.update_inv_wear_id()
+		if (slot_l_ear)
+			M.update_inv_ears()
+		if (slot_r_ear)
+			M.update_inv_ears()
+		if (slot_glasses)
+			M.update_inv_glasses()
+		if (slot_gloves)
+			M.update_inv_gloves()
+		if (slot_head)
+			M.update_inv_head()
+		if (slot_shoes)
+			M.update_inv_shoes()
+		if (slot_wear_suit)
+			M.update_inv_wear_suit()
+		if (slot_w_uniform)
+			M.update_inv_w_uniform()
+		if (slot_l_store)
+			M.update_inv_pockets()
+		if (slot_r_store)
+			M.update_inv_pockets()
+		if (slot_s_store)
+			M.update_inv_s_store()

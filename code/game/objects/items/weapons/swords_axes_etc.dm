@@ -129,7 +129,18 @@
 				user.take_organ_damage(2*force)
 			return
 		if(..())
-			//playsound(src.loc, "swing_hit", 50, 1, -1)
+			playsound(src.loc, "swing_hit", 50, 1, -1)
+//			var/obj/item/c_hand							UNFUCK WHEN YOU HAVE TIME AND KNOWLEDGE
+//			var/hand
+			if(user.zone_sel.selecting == "r_leg" || user.zone_sel.selecting == "l_leg")
+				target.Weaken(5) //nerfed, because yes.
+/*			if(user.zone_sel.selecting == "l_hand" || user.zone_sel.selecting == "l_arm")
+				c_hand = "l_hand"
+				target.u_equip(c_hand)
+				hand = "left hand"
+				user.visible_message("\red [target] screams out in pain and drops what they were holding in their [hand]!")*/
+			else
+				..()
 			return
 	else
 		return ..()

@@ -78,6 +78,15 @@
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
 
+//Added random icon selection for potted plants.
+//It was silly they always used the same sprite when we have 26 sprites of them in the icon file
+/obj/structure/flora/pottedplant/random/New()
+	..()
+	var/number = rand(1,26)
+	if (number < 10)
+		number = "0[number]"
+	icon_state = "plant-[number]"
+
 //newbushes
 
 /obj/structure/flora/ausbushes

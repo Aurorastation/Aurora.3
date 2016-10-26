@@ -278,3 +278,165 @@
 					/obj/item/toy/plushie/kitten,\
 					/obj/item/toy/plushie/lizard)
 
+/obj/random/smalltank/item_to_spawn()
+	if (prob(40))
+		return /obj/item/weapon/tank/emergency_oxygen
+	else if (prob(60))
+		return /obj/item/weapon/tank/emergency_oxygen/engi
+	else
+		return /obj/item/weapon/tank/emergency_oxygen/double
+
+/obj/random/belt/item_to_spawn()
+	var/list/belts = list("/obj/item/weapon/storage/belt/utility" = 1,
+	"/obj/item/weapon/storage/belt/medical" = 0.4,
+	"/obj/item/weapon/storage/belt/medical/emt" = 0.4,
+	"/obj/item/weapon/storage/belt/security/tactical" = 0.1,
+	"/obj/item/weapon/storage/belt/military" = 0.1,
+	"/obj/item/weapon/storage/belt/janitor" = 0.4
+	)
+	return pickweight(belts)
+
+
+//Spawns a random backpack
+//Novelty and rare backpacks have lower weights
+/obj/random/backpack/item_to_spawn()
+	var/list/packs = list(
+	"/obj/item/weapon/storage/backpack" = 3,
+	"/obj/item/weapon/storage/backpack/holding" = 0.5,
+	"/obj/item/weapon/storage/backpack/santabag" = 2,
+	"/obj/item/weapon/storage/backpack/cultpack" = 2,
+	"/obj/item/weapon/storage/backpack/clown" = 2,
+	"/obj/item/weapon/storage/backpack/medic" = 3,
+	"/obj/item/weapon/storage/backpack/security" = 3,
+	"/obj/item/weapon/storage/backpack/captain" = 2,
+	"/obj/item/weapon/storage/backpack/industrial" = 3,
+	"/obj/item/weapon/storage/backpack/toxins" = 3,
+	"/obj/item/weapon/storage/backpack/hydroponics" = 3,
+	"/obj/item/weapon/storage/backpack/genetics" = 3,
+	"/obj/item/weapon/storage/backpack/virology" = 3,
+	"/obj/item/weapon/storage/backpack/chemistry" = 3,
+	"/obj/item/weapon/storage/backpack/cloak" = 2,
+	"/obj/item/weapon/storage/backpack/syndie" = 2,
+	"/obj/item/weapon/storage/backpack/wizard" = 2,
+	"/obj/item/weapon/storage/backpack/satchel" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_norm" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_eng" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_med" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_vir" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_chem" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_gen" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_tox" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_sec" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_hyd" = 3,
+	"/obj/item/weapon/storage/backpack/satchel_cap" = 2,
+	"/obj/item/weapon/storage/backpack/satchel_syndie" = 2,
+	"/obj/item/weapon/storage/backpack/satchel_wizard" = 2,
+	"/obj/item/weapon/storage/backpack/ert" = 2,
+	"/obj/item/weapon/storage/backpack/ert/security" = 2,
+	"/obj/item/weapon/storage/backpack/ert/engineer" = 2,
+	"/obj/item/weapon/storage/backpack/ert/medical" = 2,
+	"/obj/item/weapon/storage/backpack/duffel" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/cap" = 2,
+	"/obj/item/weapon/storage/backpack/duffel/hyd" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/vir" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/med" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/eng" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/tox" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/sec" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/gen" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/chem" = 3,
+	"/obj/item/weapon/storage/backpack/duffel/syndie" = 2,
+	"/obj/item/weapon/storage/backpack/duffel/wizard" = 2
+	)
+	return pickweight(packs)
+
+
+/obj/random/voidsuit
+	var/damaged = 0
+
+/obj/random/voidsuit/New(var/_damaged = 0)
+	damaged = _damaged
+	..()
+
+/obj/random/voidsuit/spawn_item()
+	var/list/suit_types = list(
+	"/space/void" = 2,
+	"/space/void/engineering" = 2,
+	"/space/void/mining" = 2,
+	"/space/void/medical" = 2.3,
+	"/space/void/security" = 1,
+	"/space/void/atmos" = 1.5,
+	"/space/void/merc" = 0.5,
+	"/space/void/captain" = 0.3
+	)
+	var/atom/L = src.loc
+	var/suffix = pickweight(suit_types)
+
+	var/stype = "/obj/item/clothing/suit[suffix]"
+	var/htype = "/obj/item/clothing/head/helmet[suffix]"
+	var/obj/item/clothing/suit/space/newsuit = new stype(L)
+	new htype(L)
+	new /obj/item/clothing/shoes/magboots(L)
+	if (damaged && prob(60))//put some damage on it
+		var/damtype = pick(BRUTE,BURN)
+		var/amount = rand(1,5)
+		newsuit.create_breaches(damtype, amount)
+
+/obj/random/vendor
+	var/depleted  = 0
+
+/obj/random/vendor/New(var/_depleted = 0)
+	depleted = _depleted
+	..()
+
+/obj/random/vendor/spawn_item()
+	var/list/options = list(
+	"/obj/machinery/vending/boozeomat" = 1,
+	"/obj/machinery/vending/coffee" = 1,
+	"/obj/machinery/vending/snack" = 1,
+	"/obj/machinery/vending/cola" = 1,
+	"/obj/machinery/vending/cart" = 1.5,
+	"/obj/machinery/vending/cigarette" = 1,
+	"/obj/machinery/vending/medical" = 1.2,
+	"/obj/machinery/vending/phoronresearch" = 0.7,
+	"/obj/machinery/vending/security" = 0.3,
+	"/obj/machinery/vending/hydronutrients" = 1,
+	"/obj/machinery/vending/hydroseeds" = 1,
+	"/obj/machinery/vending/magivend" = 0.5,//The things it dispenses are just costumes to non-wizards
+	"/obj/machinery/vending/dinnerware" = 1,
+	"/obj/machinery/vending/sovietsoda" = 2,
+	"/obj/machinery/vending/tool" = 1,
+	"/obj/machinery/vending/engivend" = 0.6,
+	"/obj/machinery/vending/engineering" = 1,
+	"/obj/machinery/vending/robotics" = 1
+	)
+	var/turf/L = get_turf(src)
+	var/type = pickweight(options)
+	var/obj/machinery/vending/V = new type(L)
+
+	if (!depleted)
+		return
+
+	//Greatly reduce the contents. it will have 0-20% of what it usually has
+	for (var/content in V.products)
+		if (prob(40))
+			V.products[content] = 0//40% chance to completely lose an item
+		else
+			var/multiplier = rand(0,20)//Else, we reduce it to a very low percentage
+			if (multiplier)
+				multiplier /= 100
+
+			V.products[content] *= multiplier
+			if (V.products[content] < 1 && V.products[content] > 0)//But we'll usually have at least 1 left
+				V.products[content] = 0
+
+
+/obj/random/pda_cart/item_to_spawn()
+	var/list/options = typesof(/obj/item/weapon/cartridge)
+	var/type = pick(options)
+
+	//reroll syndicate cartridge once to make it less common
+	if (type == /obj/item/weapon/cartridge/syndicate)
+		type = pick(options)
+
+	return type

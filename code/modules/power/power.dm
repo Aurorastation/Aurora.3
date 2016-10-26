@@ -313,6 +313,7 @@
 //No animations will be performed by this proc.
 /proc/electrocute_mob(mob/living/carbon/M as mob, var/power_source, var/obj/source, var/siemens_coeff = 1.0)
 	if(istype(M.loc,/obj/mecha))	return 0	//feckin mechs are dumb
+	if (!M) return 0
 	var/mob/living/carbon/human/H = null
 	if (ishuman(M))
 		H = M //20/1/16 Insulation (vaurca)
