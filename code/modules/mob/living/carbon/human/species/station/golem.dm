@@ -33,6 +33,11 @@
 
 	death_message = "becomes completely motionless..."
 
+	stamina	=	500			  //Tireless automatons
+	stamina_recovery = 1
+	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
+
 /datum/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(H.mind)
 		H.mind.assigned_role = "Golem"
