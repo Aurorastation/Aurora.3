@@ -53,7 +53,12 @@
 		else
 			user << "It is full."
 
-
+/obj/structure/closet/proc/stored_weight()
+	var/content_size = 0
+	for(var/obj/item/I in src.contents)
+		if(!I.anchored)
+			content_size += Ceiling(I.w_class/2)
+	return content_size
 
 /obj/structure/closet/alter_health()
 	return get_turf(src)

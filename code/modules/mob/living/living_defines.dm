@@ -48,3 +48,15 @@
 	var/datum/reagents/metabolism/ingested = null
 	var/underdoor //Used for mobs that can walk through maintenance hatches - drones, pais, and spiderbots
 	var/life_tick = 0      // The amount of life ticks that have processed on this mob.
+
+
+	//These values are duplicated from the species datum so we can handle things on a per-mob basis, allows for chemicals to affect them
+	var/stamina = 0
+	var/max_stamina = 100//Maximum stamina. We start taking oxyloss when this runs out while sprinting
+	var/sprint_speed_factor = 0.4
+	var/sprint_cost_factor = 1
+	var/stamina_recovery = 1
+	var/min_walk_delay = 0//When move intent is walk, movedelay is clamped to this value as a lower bound
+	var/exhaust_threshold = 50
+
+	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter

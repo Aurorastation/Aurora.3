@@ -1,0 +1,154 @@
+{{if data.inop}}
+	<div class="notice">This console is not connected to a sleeper, or the sleeper is non-functional.</div>
+{{else}}
+	<h2>Sleeper Console</h2>
+	<div class="item">
+		<div class="itemLabel">
+			<b>Scanner Module</b>:
+		</div>
+		<div class="itemContent">
+			{{if data.occupant}}
+				<div class="good">active</div>
+			{{else}}
+				<div class="bad">unoccupied</div>
+			{{/if}}
+		</div>
+	</div>
+	<div class="item">
+		<div class="itemLabel">
+			<b>Controls</b>:
+		</div>
+		<div class="itemContent">
+			{{:helper.link('Eject occupant', 'eject', {'ejectify' : 1}, (data.occupant) ? null : 'disabled')}}
+			{{:helper.link('Print report', 'print', {'print' : 1}, (data.occupant) ? null : 'disabled')}}
+		</div>
+	</div>
+	{{if data.occupant}}
+		<br>
+		<h3>Scanner Data</h3>
+		<div class="item">
+			<div class="itemLabelWide">
+				<b>Mental activity</b>:
+			</div>
+			<div class="itemContentMedium">
+				{{if data.occupant.stat.string == 'Dead'}}
+					<span class="bad">
+				{{else data.occupant.stat.string == 'Unconscious'}}
+					<span class="average">
+				{{else}}
+					<span>
+				{{/if}}
+				{{:data.occupant.stat.string}}
+				</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="itemLabelWide">
+				<b>Health rating</b>:
+			</div>
+			<div class="itemContentMedium">
+				{{:helper.displayBar(data.occupant.health.combined, 0, 100, (data.occupant.health.combined < 50) ? 'bad' : (data.occupant.health.combined < 90) ? 'average' : 'good', Math.round(data.occupant.health.combined)+'%')}}
+			</div>
+			<br>
+			<div class="itemLabelWide">
+				Brute damage:
+			</div>
+			<div class="itemContentMedium">
+				{{:helper.displayBar(data.occupant.health.brute, 0, 100, (data.occupant.health.brute > 20) ? 'bad' : 'average', Math.round(data.occupant.health.brute)+'%')}}
+			</div>
+			<br>
+			<div class="itemLabelWide">
+				Respiratory damage:
+			</div>
+			<div class="itemContentMedium">
+				{{:helper.displayBar(data.occupant.health.oxy, 0, 100, (data.occupant.health.oxy > 10) ? 'bad' : 'average', Math.round(data.occupant.health.oxy)+'%')}}
+			</div>
+			<br>
+			<div class="itemLabelWide">
+				Toxin content:
+			</div>
+			<div class="itemContentMedium">
+				{{:helper.displayBar(data.occupant.health.toxin, 0, 100, (data.occupant.health.toxin > 5) ? 'bad' : 'average', Math.round(data.occupant.health.toxin)+'%')}}
+			</div>
+			<br>
+			<div class="itemLabelWide">
+				Burn severity:
+			</div>
+			<div class="itemContentMedium">
+				{{:helper.displayBar(data.occupant.health.burn, 0, 100, (data.occupant.health.burn > 10) ? 'bad' : 'average', Math.round(data.occupant.health.burn)+'%')}}
+			</div>
+		</div>
+		{{if data.occupant.health.pulse}}
+		<div class="item">
+			<div class="itemLabelWide">
+				<b>Pulse</b>:
+			</div>
+			<div class="itemContentMedium">
+				<b>{{:data.occupant.health.pulse.value}}</b>bpm ({{:data.occupant.health.pulse.state}})
+			</div>
+		</div>
+		{{/if}}
+		{{if data.occupant.health.paralysis}}
+			<div class="item">
+				<div class="itemLabelWide">
+					<b>Paralysis summary</b>:
+				</div>
+				<div class="itemContentMedium">
+					{{:helper.displayBar(data.occupant.health.paralysis.amount, 0, 100, 'bad', Math.round(data.occupant.health.paralysis.amount)+'%')}}<br>
+					{{if data.occupant.health.paralysis.duration}}
+						{{:data.occupant.health.paralysis.duration}} Seconds left.
+					{{/if}}
+				</div>
+			</div>
+		{{/if}}
+		{{if data.occupant.reagents}}
+			<br>
+			<h3>Reagent Dispenser</h3>
+			<div class="statusDisplay" style="overflow: auto;">
+				<div class="item">
+					<div class="itemContent" style="width: 100%;">
+						<table>
+							{{for data.occupant.reagents}}
+								<tr>
+									<td style="padding-right: 1em">{{:value.name}}:</td>
+									<td style="width: 100px;">{{:value.amount.toFixed(1)}} Units</td>
+									<td>
+										{{:helper.link('+5U', null, {'chemical' : value.id, 'amount' : 5}, (((value.id == 'inaprovaline') || ((value.id != 'inaprovaline') && (data.occupant.health.combined > 0))) && (data.occupant.stat.string != 'Dead')) ? null : 'disabled')}}
+										{{:helper.link('+10U', null, {'chemical' : value.id, 'amount' : 10}, (((value.id == 'inaprovaline') || ((value.id != 'inaprovaline') && (data.occupant.health.combined > 0))) && (data.occupant.stat.string != 'Dead')) ? null : 'disabled')}}
+									</td>
+								</tr>
+							{{/for}}
+						</table>
+					</div>	
+				</div>
+			</div>
+		{{/if}}
+	{{/if}}
+	<br>
+	<h2>Dialysis Machine</h2>
+	{{if data.beaker}}
+		<div class="item">
+			<div class="itemLabel">
+				<b>Controls</b>:
+			</div>
+			<div class="itemContent">
+				{{:helper.link('Eject dialysis beaker', 'eject', {'removebeaker' : 1})}}
+				{{if data.beaker.dialysis}}
+					{{:helper.link('Stop dialysis', 'stop', {'togglefilter' : 1}, (data.occupant) ? null : 'disabled')}}
+				{{else}}
+					{{:helper.link('Start dialysis', 'play', {'togglefilter' : 1}, (data.occupant) ? null : 'disabled')}}
+				{{/if}}
+			</div>
+		</div>
+		<div class="item">
+			<div class="itemLabelWide">
+				<b>Beaker status</b>:
+			</div>
+			<div class="itemContentMedium">
+				{{:helper.displayBar(data.beaker.reagents_volume, 0, data.beaker.max_volume, null, Math.round(data.beaker.reagents_volume)+'U / '+Math.round(data.beaker.max_volume)+'U')}}<br>
+			</div>
+		</div>
+	{{else}}
+		<div class="notice">No dialysis beaker present.</div>
+	{{/if}}
+{{/if}}

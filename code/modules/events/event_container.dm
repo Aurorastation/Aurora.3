@@ -143,6 +143,8 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",		/datum/event/vent_clog, 		100),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",		/datum/event/false_alarm, 		100),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",		/datum/event/supply_drop, 		80),
+
 	)
 
 /datum/event_container/moderate
