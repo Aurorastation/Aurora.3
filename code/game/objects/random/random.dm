@@ -277,3 +277,4 @@
 					/obj/item/toy/plushie/mouse,\
 					/obj/item/toy/plushie/kitten,\
 					/obj/item/toy/plushie/lizard)
+
