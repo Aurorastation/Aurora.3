@@ -109,7 +109,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	if(screwloose && prob(5)) // Make a mess
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/T = loc
-			T.wet_floor()
+			T.wet_floor(1,40)
 
 	if(oddbutton && prob(5)) // Make a big mess
 		visible_message("Something flies out of [src]. He seems to be acting oddly.")

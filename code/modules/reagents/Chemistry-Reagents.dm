@@ -20,6 +20,8 @@
 	var/glass_center_of_mass = null
 	var/color = "#000000"
 	var/color_weight = 1
+	var/cleaning_power = 0//If >0, this reagent can be used to clean things
+	var/drying_time_factor = 1//liquids will wet floors for a number of procs equal to their volume*this value
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	holder.remove_reagent(id, amount)
@@ -32,6 +34,9 @@
 	return
 
 /datum/reagent/proc/touch_turf(var/turf/T, var/amount) // Cleaner cleaning, lube lubbing, etc, all go here
+	if (reagent_state == LIQUID && istype(T, /turf/simulated))//All liquids will make a tile slippery
+		var/turf/simulated/TS = T
+		TS.wet_floor(1, amount*2*drying_time_factor)
 	return
 
 /datum/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.

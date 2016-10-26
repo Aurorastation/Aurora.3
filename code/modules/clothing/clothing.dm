@@ -288,7 +288,7 @@ BLIND     // can't see anything
 	update_icon(user)
 
 /obj/item/clothing/head/update_icon(var/mob/user)
-
+	..()
 	overlays.Cut()
 	if(on)
 		if(!light_overlay_cache["[light_overlay]_icon"])

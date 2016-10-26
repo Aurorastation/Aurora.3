@@ -75,7 +75,6 @@
 		set_APTFT()
 
 	afterattack(var/obj/target, var/mob/user, var/flag)
-
 		if(!is_open_container() || !flag)
 			return
 

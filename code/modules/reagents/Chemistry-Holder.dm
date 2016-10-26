@@ -295,14 +295,21 @@
 //If for some reason touch effects are bypassed (e.g. injecting stuff directly into a reagent container or person),
 //call the appropriate trans_to_*() proc.
 /datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-	touch(target) //First, handle mere touch effects
+
+	//Edit by nanako:
+	//touch(target) produces undesired effects on turfs.
+	//It leads to the same destination as trans_to_turf, so it duplicates the effect
+	//Changed to make that call not be used on turfs
 
 	if(ismob(target))
+		touch(target)
 		return splash_mob(target, amount, copy)
 	if(isturf(target))
 		return trans_to_turf(target, amount, multiplier, copy)
 	if(isobj(target) && target.is_open_container())
+		touch(target)
 		return trans_to_obj(target, amount, multiplier, copy)
+	touch(target)
 	return 0
 
 //Using this in case we want to differentiate splashing an atom from transferring reagents to it later down the road.

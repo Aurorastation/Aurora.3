@@ -1,6 +1,10 @@
 /turf/simulated
 	name = "station"
 	var/wet = 0
+	var/wetness_duration
+	var/wet_descriptor = null
+	var/slip_dist_power = 0
+	var/slip_stun = 0
 	var/image/wet_overlay = null
 
 	var/thermite = 0
@@ -11,23 +15,53 @@
 	var/dirt = 0
 
 // possible fix for the perma wet floor bug
- /turf/simulated/proc/wet_floor(var/wet_val = 1)
- 	spawn(0)
- 		if(wet_val <= wet)
- 			return
- 		wet = wet_val
- 		if(wet_overlay)
- 			overlays -= wet_overlay
- 			wet_overlay = null
- 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
- 		overlays += wet_overlay
- 		sleep(800)
- 		if(wet >= 2)
- 			sleep(1600)
- 		wet = 0
- 		if(wet_overlay)
- 			overlays -= wet_overlay
- 			wet_overlay = null
+/turf/simulated/wet_floor(var/wet_val = 1, var/duration)
+	if (wet_val > wet)
+		switch(wet_val)
+			if (1)
+				slip_dist_power = 75
+				slip_stun = 4
+				wet_descriptor = "wet"
+			if (2)
+				slip_dist_power = 92
+				slip_stun = 8
+				wet_descriptor = "slippery"
+			if (3)
+				slip_dist_power = 85
+				slip_stun = 6
+				wet_descriptor = "icy"
+			else
+				return //some invalid value was passed
+		wet = wet_val
+
+	wetness_duration += duration
+
+	if (wet_overlay)
+		overlays -= wet_overlay
+		wet_overlay = null
+	processing_objects |= src
+	wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
+	overlays += wet_overlay
+
+
+
+/turf/simulated/proc/dry_floor(var/drying = 0)
+	//If drying value is passed, it reduces the duration by this amount. Otherwise, it instantly dries the floor
+	if (drying)
+		wetness_duration -= drying
+
+	if (wetness_duration <= 0 || !drying)
+		overlays -= wet_overlay
+		wet_overlay = null
+		processing_objects -= src
+		wet = 0
+		slip_dist_power = 0
+		slip_stun = 0
+		wet_descriptor = null
+
+/turf/simulated/process()
+	dry_floor(1)
+
 
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
@@ -80,7 +114,7 @@
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
 					S.handle_movement(src,(H.m_intent == "run" ? 1 : 0))
-					if(S.track_blood && S.blood_DNA)
+					if(S.track_blood && S.is_bloodied)
 						bloodDNA = S.blood_DNA
 						bloodcolor=S.blood_color
 						S.track_blood--
@@ -99,27 +133,36 @@
 				bloodDNA = null
 
 		if(src.wet)
-
 			if(M.buckled || (src.wet == 1 && M.m_intent == "walk"))
 				return
 
-			var/slip_dist = 1
-			var/slip_stun = 6
-			var/floor_type = "wet"
-
-			switch(src.wet)
-				if(2) // Lube
-					floor_type = "slippery"
-					slip_dist = 4
-					slip_stun = 10
-				if(3) // Ice
-					floor_type = "icy"
-					slip_stun = 4
-
-			if(M.slip("the [floor_type] floor",slip_stun))
-				for(var/i = 0;i<slip_dist;i++)
+			if(M.slip("the [wet_descriptor] floor",slip_stun))
+				if (prob(slip_dist_power))
+					sleep(2)
 					step(M, M.dir)
-					sleep(1)
+					sleep(2)
+					var/sliding = 1
+					var/counts = 0
+					while(sliding)
+
+						var/turf/simulated/TS = get_turf(M)
+						if (!istype(TS))
+							sliding = 0
+							break
+
+						if (!TS.wet)
+							sliding = 0
+							break
+
+						if (prob(TS.slip_dist_power))
+							step(M, M.dir)
+							sleep(2+(0.3*counts))//go slower as you lose inertia over time
+							if (get_turf(M) == TS)//If we're still on the same tile after sliding, then we've hit something solid.
+								sliding = 0
+								break
+						else
+							sliding = 0
+						counts++
 			else
 				M.inertia_dir = 0
 		else

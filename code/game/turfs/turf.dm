@@ -414,22 +414,34 @@
 			return 1
 	return 0
 
-//expects an atom containing the reagents used to clean the turf
-/turf/proc/clean(atom/source, mob/user)
-	if(source.reagents.has_reagent("water", 1) || source.reagents.has_reagent("cleaner", 1))
-		clean_blood()
-		if(istype(src, /turf/simulated))
-			var/turf/simulated/T = src
-			T.dirt = 0
-			T.color = null
-		for(var/obj/effect/O in src)
-			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
-				qdel(O)
+//Cleans a tile, but will not clean all traces of blood
+/turf/proc/clean()
+	clean_blood()//This function is in simulated.dm, it hides bloodstains without truly cleaning them
+	if(istype(src, /turf/simulated))
+		var/turf/simulated/T = src
+		T.dirt = 0
+		T.wet = max(T.wet, 1)
+		T.wetness_duration = max(T.wetness_duration, 40)
+	for(var/obj/effect/O in src)//This function cleans runes, however the same rune object is used for crayon and cult runes. They need to be split before removing it
+		if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
 			if(istype(O,/obj/effect/rune))
 				user << "<span class='warning'>\red No matter how well you wash, the bloody symbols remain!</span>"
-	else
-		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
-	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
+			else if(!istype(O,/obj/effect/decal/cleanable/blood))//make sure we don't delete blood decals
+				qdel(O)
+
+//Thoroughly cleans a tile, removes all traces of blood
+/turf/deep_clean()
+	if(istype(src, /turf/simulated))
+		var/turf/simulated/T = src
+		T.dirt = 0
+		T.wet = max(T.wet, 1)
+		T.wetness_duration = max(T.wetness_duration, 40)
+	for(var/obj/effect/O in src)
+		if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+			qdel(O)
+
+/turf/proc/wet_floor(var/wet_val = 1, var/duration)
+	return 0//Unsimulated tiles cant become wet
 
 /turf/proc/update_blood_overlays()
 	return

@@ -3,8 +3,11 @@
 	var/mob/living/carbon/human/bloody_hands_mob
 	var/track_blood = 0
 	var/list/feet_blood_DNA
+	var/feet_is_bloodied
+	var/feet_was_bloodied
 	var/track_blood_type
 	var/feet_blood_color
+	var/feet_fluorescent
 
 /obj/item/clothing/gloves
 	var/transfer_blood = 0

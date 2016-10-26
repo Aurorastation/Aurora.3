@@ -5,10 +5,11 @@
 	var/list/fingerprints
 	var/list/fingerprintshidden
 	var/fingerprintslast = null
-	var/list/blood_DNA
+	var/list/blood_DNA//DNA of blood samples on it, only a deep clean will clear this
 	var/list/other_DNA = list()
 	var/other_DNA_type = null
-	var/was_bloodied
+	var/was_bloodied//This variable tells us if the object HAD visible blood in the past, whether or not it was cleaned
+	var/is_bloodied//This variable tells us if the thing has visible blood on it. Nulled out when blood is cleaned off
 	var/blood_color
 	var/last_bumped = 0
 	var/pass_flags = 0
@@ -200,7 +201,7 @@ its easier to just keep the beam vertical.
 /atom/proc/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
 	//This reformat names to get a/an properly working on item descriptions when they are bloody
 	var/f_name = "\a [src][infix]."
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
+	if(is_bloodied && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
 			f_name = "some "
 		else
@@ -411,6 +412,7 @@ its easier to just keep the beam vertical.
 		blood_DNA = list()
 
 	was_bloodied = 1
+	is_bloodied = 1
 	blood_color = "#A10808"
 	if(istype(M))
 		if (!istype(M.dna, /datum/dna))
@@ -433,12 +435,19 @@ its easier to just keep the beam vertical.
 /atom/proc/clean_blood()
 	if(!simulated)
 		return
+	src.germ_level = 0
+	is_bloodied = null
+
+/atom/proc/deep_clean()
+	if(!simulated)
+		return
 	fluorescent = 0
+	is_bloodied = null
+	was_bloodied = null
 	src.germ_level = 0
 	if(istype(blood_DNA, /list))
 		blood_DNA = null
 		return 1
-
 
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return

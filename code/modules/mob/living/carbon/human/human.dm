@@ -1016,6 +1016,8 @@
 		if(!blood_DNA[M.dna.unique_enzymes])
 			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 	hand_blood_color = blood_color
+	is_bloodied = 1
+	was_bloodied = 1
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
 	return 1 //we applied blood to the item
@@ -1028,11 +1030,36 @@
 /mob/living/carbon/human/clean_blood(var/clean_feet)
 	.=..()
 	gunshot_residue = null
-	if(clean_feet && !shoes && istype(feet_blood_DNA, /list) && feet_blood_DNA.len)
-		feet_blood_color = null
-		qdel(feet_blood_DNA)
+	update_inv_gloves(1)//make sure the hands are cleaned when a person is washed
+	if(clean_feet && !shoes && feet_is_bloodied)
+		feet_is_bloodied = null
 		update_inv_shoes(1)
 		return 1
+
+/mob/living/carbon/human/deep_clean(var/clean_feet)
+	.=..()
+	gunshot_residue = null
+	fluorescent = 0
+	if(clean_feet && !shoes && feet_was_bloodied && feet_blood_DNA.len)
+		feet_blood_color = null
+		qdel(feet_blood_DNA)
+		feet_is_bloodied = null
+		feet_was_bloodied = null
+		update_inv_shoes(1)
+		return 1
+
+/mob/living/carbon/human/reveal_blood(var/reveal_feet)
+	..()
+	if(was_bloodied)
+		fluorescent = 1
+		hand_blood_color = COLOR_LUMINOL
+		update_inv_gloves()
+		//update_blood()
+		//update_icon()
+	if(reveal_feet && feet_was_bloodied)
+		fluorescent = 1
+		feet_blood_color = COLOR_LUMINOL
+		update_inv_shoes()
 
 /mob/living/carbon/human/get_visible_implants(var/class = 0)
 
@@ -1329,7 +1356,7 @@
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
 	if((species.flags & NO_SLIP) || (shoes && (shoes.flags & NOSLIP)))
 		return 0
-	..(slipped_on,stun_duration)
+	return ..(slipped_on,stun_duration)
 
 /mob/living/carbon/human/proc/undislocate()
 	set category = "Object"

@@ -214,6 +214,7 @@
 		vampire.frenzy += removed * 5
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
+	..()
 	if(volume >= 5)
 		T.holy = 1
 	return
@@ -277,46 +278,20 @@
 	reagent_state = LIQUID
 	color = "#A5F0EE"
 	touch_met = 50
+	cleaning_power = 1.5
 
 /datum/reagent/space_cleaner/touch_obj(var/obj/O)
 	O.clean_blood()
 
 /datum/reagent/space_cleaner/touch_turf(var/turf/T)
 	if(volume >= 1)
-		if(istype(T, /turf/simulated))
-			var/turf/simulated/S = T
-			S.dirt = 0
-		T.clean_blood()
+		T.clean(src)
 
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(rand(5, 10))
 
-/datum/reagent/space_cleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.r_hand)
-		M.r_hand.clean_blood()
-	if(M.l_hand)
-		M.l_hand.clean_blood()
-	if(M.wear_mask)
-		if(M.wear_mask.clean_blood())
-			M.update_inv_wear_mask(0)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.head)
-			if(H.head.clean_blood())
-				H.update_inv_head(0)
-		if(H.wear_suit)
-			if(H.wear_suit.clean_blood())
-				H.update_inv_wear_suit(0)
-		else if(H.w_uniform)
-			if(H.w_uniform.clean_blood())
-				H.update_inv_w_uniform(0)
-		if(H.shoes)
-			if(H.shoes.clean_blood())
-				H.update_inv_shoes(0)
-		else
-			H.clean_blood(1)
-			return
-	M.clean_blood()
+/datum/reagent/space_cleaner/touch_mob(var/mob/living/L, var/amount)
+	L.spray_all("clean")//this function is in mob_helpers
 
 /datum/reagent/lube // TODO: spraying on borgs speeds them up
 	name = "Space Lube"
@@ -324,13 +299,15 @@
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
 	reagent_state = LIQUID
 	color = "#009CA8"
+	drying_time_factor = 20
 
-/datum/reagent/lube/touch_turf(var/turf/simulated/T)
+/datum/reagent/lube/touch_turf(var/turf/simulated/T, var/amount)
 	if(!istype(T))
 		return
 	if(volume >= 1)
-		T.wet_floor(2)
-		
+		T.wet_floor(2, amount*drying_time_factor)//Space lube lasts for a -very- long time.
+		//But it can be cleaned off easily
+
 /datum/reagent/silicate
 	name = "Silicate"
 	id = "silicate"
@@ -389,5 +366,5 @@
 /datum/reagent/luminol/touch_obj(var/obj/O)
 	O.reveal_blood()
 
-/datum/reagent/luminol/touch_mob(var/mob/living/L)
-	L.reveal_blood()
+/datum/reagent/luminol/touch_mob(var/mob/living/L, var/amount)
+	L.spray_all("reveal")//this function is in mob_helpers
