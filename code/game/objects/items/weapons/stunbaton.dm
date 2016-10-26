@@ -203,3 +203,32 @@
 	slot_flags = null
 	baton_color = "#FFDF00"
 	
+/obj/item/weapon/melee/baton/stunrod
+	name = "stunrod"
+	desc = "A more-than-lethal weapon used to deal with high threat situations."
+	icon = 'icons/obj/stunrod.dmi'
+	icon_state = "stunrod"
+	item_state = "stunrod"
+	force = 20
+	baton_color = "#75ACFF"
+	origin_tech = "combat=4,illegal=2"
+	contained_sprite = 1
+
+/obj/item/weapon/melee/baton/stunrod/New()
+	..()
+	bcell = new/obj/item/weapon/cell/high(src)
+	update_icon()
+	return
+
+/obj/item/weapon/melee/baton/stunrod/update_icon() //this is needed due to how contained sprites work
+	if(status)
+		icon_state = "[initial(name)]_active"
+		item_state = "[initial(name)]_active"
+	else if(!bcell)
+		icon_state = "[initial(name)]_nocell"
+		item_state = "[initial(name)]"
+	else
+		icon_state = "[initial(name)]"
+		item_state = "[initial(name)]"
+
+	..()

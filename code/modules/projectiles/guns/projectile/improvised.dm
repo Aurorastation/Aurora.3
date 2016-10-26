@@ -19,7 +19,7 @@
 	load_method = SINGLE_CASING
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
-	if(prob(60 - (loaded.len * 10)))
+	if(prob(35))
 		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
 		M.take_organ_damage(0,30)
 		M.drop_item()
@@ -140,7 +140,7 @@
 	origin_tech = "combat=2;materials=2"
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
-	jam_chance = 55
+	jam_chance = 30
 
 /obj/item/weapon/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
