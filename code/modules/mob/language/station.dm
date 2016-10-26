@@ -62,7 +62,7 @@
 	return new_name
 
 /datum/language/skrell
-	name = "Skrellian"
+	name = "Nral’Malic"
 	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
 	speech_verb = "warbles"
 	ask_verb = "warbles"
@@ -74,7 +74,7 @@
 
 /datum/language/bug
 	name = "Hivenet"
-	desc = "Complex Vaurcesian language comprised of rapid mandible-clicking, \"It's a bugs life.\""
+	desc = "A localised expression of the Vaurcae hivemind, allowing Vaurcae to communicate from across great distances. \"It's a bugs life.\""
 	speech_verb = " broadcasts"
 	colour = "vaurca"
 	key = "9"
