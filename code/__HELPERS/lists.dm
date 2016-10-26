@@ -71,6 +71,32 @@ proc/isemptylist(list/list)
 			return 1
 	return 0
 
+/proc/is_type_in_oview(var/type, var/dist = 0, var/center = src)
+	if (!ispath(type))
+		CRASH("Not a valid type in 'is_type_in_oview()'")
+	if (!isnum(dist))
+		CRASH("Not a valid dist in 'is_type_in_oview()'")
+	if (!isloc(center))
+		CRASH("Not a valid center in 'is_type_in_oview()'")
+	var/list/atoms = oview(dist, center)
+	for (var/atom/A in atoms)
+		if (istype(A, type))
+			return 1
+	return 0
+
+/proc/is_type_in_view(var/type, var/dist = 0, var/center = src)
+	if (!ispath(type))
+		CRASH("Not a valid type in 'is_type_in_view()'")
+	if (!isnum(dist))
+		CRASH("Not a valid dist in 'is_type_in_view()'")
+	if (!isloc(center))
+		CRASH("Not a valid center in 'is_type_in_view()'")
+	var/list/atoms = view(dist, center)
+	for (var/atom/A in atoms)
+		if (istype(A, type))
+			return 1
+	return 0
+
 /proc/instances_of_type_in_list(var/atom/A, var/list/L)
 	var/instances = 0
 	for(var/type in L)

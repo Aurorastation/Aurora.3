@@ -210,29 +210,24 @@
 	if (C)
 		if (C.charge > drainamount)
 			C.charge -= drainamount
-			world << "DEBUG: main cell drained by [drainamount]"
 			var/int_diff = min(drainamount, BU.maxcharge - BU.charge)
 			if (C.charge > int_diff && BU.charge != BU.maxcharge)
 				if (int_diff < drainamount)
 					BU.charge = BU.maxcharge
 					C.charge -= int_diff
-					world << "DEBUG: backup cell charged by [int_diff]"
 				else
 					BU.charge += drainamount
 					C.charge -= drainamount
-					world << "DEBUG: backup cell charged by [drainamount]"
 		else if (BU.charge > (drainamount - C.charge))
 			var/diff = drainamount - C.charge
 			C.charge = 0
 			BU.charge -= diff
-			world << "DEBUG: backup cell drained by [diff]"
 		else
 			BU.charge = 0
 			visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
 			detach(0)
 	else if (BU.charge > drainamount)
 		BU.charge -= drainamount
-		world << "DEBUG: backup cell drained by [drainamount]"
 	else
 		BU.charge = 0
 		visible_message(span("danger", "[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
@@ -271,7 +266,7 @@
 
 		if (!check_target(newtarget, user)) return
 
-		if(!powercell.charge && !internal_cell.charge)
+		if(!internal_cell.charge)
 			user << "<span class='warning'>\The [src] looks dead and out of power.</span>"
 			return
 
@@ -284,11 +279,21 @@
 					user << "<span class='warning'>There is something in the way of \the [newtarget]!</span>"
 					return
 
-		/*if (alert("Brace adjacent airlocks?",,"Yes", "No") == "Yes")
-			if (!check_target(newtarget, user)) return
-			if (direction <= 2)
-				for (var/obj/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -45)))
-					*/
+		if (is_type_in_oview(/obj/machinery/door/airlock, 1, newtarget))
+			if (alert("Brace adjacent airlocks?",,"Yes", "No") == "Yes")
+				if (!check_target(newtarget, user)) return
+				for (var/obj/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -90)))
+					if (istype(A, newtarget.type))
+						if (!check_target(A, user)) return
+						target_node1 = A
+						target_node1.bracer = src
+						break
+				for (var/obj/machinery/door/airlock/B in get_step(newtarget.loc, turn(direction, 90)))
+					if (istype(B, newtarget.type))
+						if (!check_target(B, user)) return
+						target_node2 = B
+						target_node2.bracer = src
+						break
 
 		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
 		user.drop_item()
@@ -302,11 +307,12 @@
 /obj/item/device/magnetic_lock/proc/setconstructionstate(var/newstate)
 	if (!powercell && newstate == 1)
 		setconstructionstate(2)
+		return
 	else if (newstate == 4)
 		detach(playflick = 0)
-	else
-		constructionstate = newstate
 		update_icon()
+	constructionstate = newstate
+	update_icon()
 
 /obj/item/device/magnetic_lock/proc/detach(var/playflick = 1)
 	if (target)
@@ -321,6 +327,12 @@
 
 		target.bracer = null
 		target = null
+		if (target_node1)
+			target_node1.bracer = null
+			target_node1 = null
+		if (target_node2)
+			target_node2.bracer = null
+			target_node2 = null
 		anchored = 0
 
 		processing_objects.Remove(src)
