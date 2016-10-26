@@ -338,9 +338,9 @@
 		if(W.damtype == BRUTE || W.damtype == BURN)
 			user.do_attack_animation(src)
 			if(W.force < min_force)
-				user.visible_message(span("danger","\The [user] hits \the [src] with \the [W] with no visible effect.</B>" ))
+				user.visible_message(span("danger","\The [user] hits \the [src] with \the [W] with no visible effect." ))
 			else
-				user.visible_message(span("danger","\The [user] forcefully strikes \the [src] with \the [W]!</B>" ))
+				user.visible_message(span("danger","\The [user] forcefully strikes \the [src] with \the [W]!" ))
 				playsound(src.loc, hitsound, 100, 1)
 				take_damage(W.force)
 		return
