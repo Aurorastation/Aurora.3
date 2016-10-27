@@ -9,6 +9,7 @@
 	name = "magnetic door lock"
 	desc = "A large, ID locked device used for completely locking down airlocks."
 	icon = 'icons/obj/magnetic_locks.dmi'
+	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
 	w_class = 3
 	req_access = list(access_cent_specops)
@@ -29,10 +30,12 @@
 
 /obj/item/device/magnetic_lock/security
 	department = "Security"
+	icon_state = "inactive_Security"
 	req_access = list(access_security)
 
 /obj/item/device/magnetic_lock/engineering
 	department = "Engineering"
+	icon_state = "inactive_Engineering"
 	req_access = null
 	req_one_access = list(access_engine_equip, access_atmospherics)
 
