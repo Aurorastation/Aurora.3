@@ -57,11 +57,14 @@
 
 /mob/living/simple_animal/construct/attack_generic(var/mob/user)
 	if(istype(user, /mob/living/simple_animal/construct/builder))
-		if(health < maxHealth)
+		if(getBruteLoss() > 0)
 			adjustBruteLoss(-5)
 			user.visible_message("<span class='notice'>\The [user]</b> mends some of \the [src]'s wounds.</span>")
 		else
-			user << "<span class='notice'>\The [src] is undamaged.</span>"
+			if (health < maxHealth)
+				user << "<span class='notice'>Healing \the [src] any further is beyond your abilities.</span>"
+			else
+				user << "<span class='notice'>\The [src] is undamaged.</span>"
 		return
 	return ..()
 
