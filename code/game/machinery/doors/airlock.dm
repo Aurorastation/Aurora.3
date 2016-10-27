@@ -601,6 +601,10 @@ About the new airlock wires panel:
 				flick("door_deny", src)
 				if(secured_wires)
 					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
+		if ("braced")
+			if (src.arePowerSystemsOn())
+				flick("door_deny", src)
+				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
 	return
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
@@ -941,7 +945,8 @@ About the new airlock wires panel:
 		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR))
 			return 0
 	if (bracer)
-		visible_message("<span class='notice'>[src]'s actuators whirr, but the door does not open.</span>")
+		do_animate("braced")
+		visible_message("<span class='warning'>[src]'s actuators whirr, but the door does not open.</span>")
 		return 0
 	if(locked || welded)
 		return 0
@@ -992,7 +997,7 @@ About the new airlock wires panel:
 		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
 	SetStunned(5)
 	SetWeakened(5)
-	
+
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
@@ -1004,7 +1009,7 @@ About the new airlock wires panel:
 	while(valid_turfs.len)
 		T = pick(valid_turfs)
 		valid_turfs -= T
-		
+
 		if(src.forceMove(T))
 			return
 
