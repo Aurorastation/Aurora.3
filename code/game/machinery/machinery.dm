@@ -362,30 +362,3 @@ Class Procs:
 		I.loc = loc
 	qdel(src)
 	return 1
-
-/obj/machinery/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	if (istype(user, /mob/living/simple_animal/construct/armoured))
-		// Juggernaut: smash machines up
-		if(damage == 0 || !wallbreaker)
-			return 0
-		visible_message("<span class='danger'>[user] [attack_verb] the [src] apart!</span>")
-		user.do_attack_animation(src)
-
-		// Add sparks
-		var/obj/effect/overlay/sparks = PoolOrNew(/obj/effect/overlay, src.loc)
-		sparks.icon = 'icons/effects/effects.dmi'
-		sparks.icon_state = "empdisable"
-		sparks.name = "emp sparks"
-		sparks.anchored = 1
-		sparks.set_dir(pick(cardinal))
-
-		spawn(1)
-			// leave some melted remains
-			new/obj/effect/decal/cleanable/molten_item(src.loc)
-			// delete the machine obj
-			qdel(src)
-		spawn(10) qdel(sparks)
-
-		return 1
-	else
-		..()
