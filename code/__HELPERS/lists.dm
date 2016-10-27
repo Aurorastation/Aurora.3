@@ -79,7 +79,7 @@ proc/isemptylist(list/list)
 	if (!isloc(center))
 		CRASH("Not a valid center in 'is_type_in_oview()'")
 	var/list/atoms = oview(dist, center)
-	for (var/atom/A in atoms)
+	for (var/A in atoms)
 		if (istype(A, type))
 			return 1
 	return 0
@@ -92,7 +92,7 @@ proc/isemptylist(list/list)
 	if (!isloc(center))
 		CRASH("Not a valid center in 'is_type_in_view()'")
 	var/list/atoms = view(dist, center)
-	for (var/atom/A in atoms)
+	for (var/A in atoms)
 		if (istype(A, type))
 			return 1
 	return 0
