@@ -15,11 +15,8 @@
 	idle_power_usage = 40
 	interact_offline = 1
 
-/obj/machinery/sleep_console/process()
-	if(stat & (NOPOWER|BROKEN))
-		return
-	src.updateUsrDialog()
-	return
+	var/ui_data = list()		// NanoUI Dataset (for live debugging)
+	var/printjob_queued = 0		// printer status
 
 /obj/machinery/sleep_console/ex_act(severity)
 	switch(severity)
@@ -55,92 +52,174 @@
 		return
 	if(stat & (NOPOWER|BROKEN))
 		return
-	var/dat = ""
+
+	// Handle NanoUI
+	ui_interact(user)
+	return
+
+// Interaction with NanoUI
+/obj/machinery/sleep_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+	// Generate dataset
+	ui_data = generate_ui_data()
+
+	// Update UI with data / create new UI
+	ui = nanomanager.try_update_ui(user, src, ui_key, ui, ui_data, force_open)
+	if (!ui)
+		// UI does not exist, yet. Create new one
+		ui = new(user, src, ui_key, "sleeper.tmpl", "Sleeper Console", 455,675)
+		ui.set_initial_data(ui_data)
+		ui.open()
+
+	// Update window every master controller tick
+	ui.set_auto_update(1)
+	return
+
+// Generate dataset
+/obj/machinery/sleep_console/proc/generate_ui_data()
+	var/data = list()
+
 	if (!src.connected || (connected.stat & (NOPOWER|BROKEN)))
-		dat += "This console is not connected to a sleeper or the sleeper is non-functional."
+		// Unit inoperable
+		data["inop"] = 1
 	else
 		var/mob/living/occupant = src.connected.occupant
-		dat += "<font color='blue'><B>Occupant Statistics:</B></FONT><BR>"
+
+		// Add occupant data
 		if (occupant)
-			var/t1
-			switch(occupant.stat)
-				if(0)
-					t1 = "Conscious"
-				if(1)
-					t1 = "<font color='blue'>Unconscious</font>"
-				if(2)
-					t1 = "<font color='red'>*dead*</font>"
+			data["occupant"] = list()
+
+			// General status
+			data["occupant"]["stat"] = list()
+			data["occupant"]["stat"]["value"] = occupant.stat
+			switch (occupant.stat)
+				if(DEAD)
+					data["occupant"]["stat"]["string"] = "Dead"
+				if(UNCONSCIOUS)
+					data["occupant"]["stat"]["string"] = "Unconscious"
+				if(CONSCIOUS)
+					data["occupant"]["stat"]["string"] = "Conscious"
 				else
-			dat += text("[]\tHealth %: [] ([])</FONT><BR>", (occupant.health > 50 ? "<font color='blue'>" : "<font color='red'>"), occupant.health, t1)
-			if(iscarbon(occupant))
-				var/mob/living/carbon/C = occupant
-				dat += text("[]\t-Pulse, bpm: []</FONT><BR>", (C.pulse == PULSE_NONE || C.pulse == PULSE_THREADY ? "<font color='red'>" : "<font color='blue'>"), C.get_pulse(GETPULSE_TOOL))
-			dat += text("[]\t-Brute Damage %: []</FONT><BR>", (occupant.getBruteLoss() < 60 ? "<font color='blue'>" : "<font color='red'>"), occupant.getBruteLoss())
-			dat += text("[]\t-Respiratory Damage %: []</FONT><BR>", (occupant.getOxyLoss() < 60 ? "<font color='blue'>" : "<font color='red'>"), occupant.getOxyLoss())
-			dat += text("[]\t-Toxin Content %: []</FONT><BR>", (occupant.getToxLoss() < 60 ? "<font color='blue'>" : "<font color='red'>"), occupant.getToxLoss())
-			dat += text("[]\t-Burn Severity %: []</FONT><BR>", (occupant.getFireLoss() < 60 ? "<font color='blue'>" : "<font color='red'>"), occupant.getFireLoss())
-			dat += text("<HR>Paralysis Summary %: [] ([] seconds left!)<BR>", occupant.paralysis, round(occupant.paralysis / 4))
-			if(occupant.reagents)
-				for(var/chemical in connected.available_chemicals)
-					dat += "[connected.available_chemicals[chemical]]: [occupant.reagents.get_reagent_amount(chemical)] units<br>"
-			dat += "<A href='?src=\ref[src];refresh=1'>Refresh Meter Readings</A><BR>"
-			if(src.connected.beaker)
-				dat += "<HR><A href='?src=\ref[src];removebeaker=1'>Remove Beaker</A><BR>"
-				if(src.connected.filtering)
-					dat += "<A href='?src=\ref[src];togglefilter=1'>Stop Dialysis</A><BR>"
-					dat += text("Output Beaker has [] units of free space remaining<BR><HR>", src.connected.beaker.reagents.maximum_volume - src.connected.beaker.reagents.total_volume)
-				else
-					dat += "<HR><A href='?src=\ref[src];togglefilter=1'>Start Dialysis</A><BR>"
-					dat += text("Output Beaker has [] units of free space remaining<BR><HR>", src.connected.beaker.reagents.maximum_volume - src.connected.beaker.reagents.total_volume)
-			else
-				dat += "<HR>No Dialysis Output Beaker is present.<BR><HR>"
+					data["occupant"]["stat"]["string"] = "Unknown"
 
-			for(var/chemical in connected.available_chemicals)
-				dat += "Inject [connected.available_chemicals[chemical]]: "
-				for(var/amount in connected.amounts)
-					dat += "<a href ='?src=\ref[src];chemical=[chemical];amount=[amount]'>[amount] units</a><br> "
+			// Health information
+			data["occupant"]["health"] = list()
+			// Carbon mobs: pulse
+			if (iscarbon(occupant))
+				var/mob/living/carbon/occupant_c = occupant
+				data["occupant"]["health"]["pulse"] = list()
+				data["occupant"]["health"]["pulse"]["value"] = occupant_c.get_pulse(GETPULSE_TOOL)
+				switch(occupant_c.pulse)
+					if(PULSE_NONE)
+						data["occupant"]["health"]["pulse"]["state"] = "NONE"
+					if(PULSE_THREADY)
+						data["occupant"]["health"]["pulse"]["state"] = "THREADY"
+					else
+						data["occupant"]["health"]["pulse"]["state"] = "OK"
+			// Damage
+			data["occupant"]["health"]["combined"] = occupant.health
+			data["occupant"]["health"]["brute"] = occupant.getBruteLoss()
+			data["occupant"]["health"]["oxy"] = occupant.getOxyLoss()
+			data["occupant"]["health"]["toxin"] = occupant.getToxLoss()
+			data["occupant"]["health"]["burn"] = occupant.getFireLoss()
 
+			// Paralysis
+			data["occupant"]["health"]["paralysis"] = list()
+			data["occupant"]["health"]["paralysis"]["amount"] = occupant.paralysis
+			data["occupant"]["health"]["paralysis"]["countdown"] = round(occupant.paralysis / 4)
 
-			dat += "<HR><A href='?src=\ref[src];ejectify=1'>Eject Patient</A>"
-		else
-			dat += "The sleeper is empty."
-			if(src.connected.beaker)
-				dat += "<HR><A href='?src=\ref[src];removebeaker=1'>Remove Beaker</A><BR>"
-				dat += text("Output Beaker has [] units of free space remaining<BR><HR>", src.connected.beaker.reagents.maximum_volume - src.connected.beaker.reagents.total_volume)
-			else
-				dat += "<HR>No Dialysis Output Beaker is present.<BR><HR>"
-	dat += text("<BR><BR><A href='?src=\ref[];mach_close=sleeper'>Close</A>", user)
-	user << browse(dat, "window=sleeper;size=400x500")
-	onclose(user, "sleeper")
-	return
+			// Reagents in occupant
+			data["occupant"]["reagents"] = list()
+			for (var/chemical in src.connected.available_chemicals)
+				var/chems[0]
+				chems["amount"] = occupant.reagents.get_reagent_amount(chemical)
+				chems["name"] = src.connected.available_chemicals[chemical]
+				chems["id"] = chemical
+				data["occupant"]["reagents"] += list(chems)
+
+		// Dispensable chemicals
+		data["dispenser"] = list()
+		data["dispenser"]["amounts"] = src.connected.amounts
+		data["dispenser"]["chemicals"] = list()
+		for (var/chemical in src.connected.available_chemicals)
+			data["dispenser"]["chemicals"][chemical] = src.connected.available_chemicals[chemical]
+
+		// Dialysis beaker data
+		if (src.connected.beaker)
+			data["beaker"] = list()
+			data["beaker"]["max_volume"] = src.connected.beaker.reagents.maximum_volume
+			data["beaker"]["reagents_volume"] = src.connected.beaker.reagents.total_volume
+			data["beaker"]["free_volume"] = src.connected.beaker.reagents.maximum_volume - src.connected.beaker.reagents.total_volume
+			data["beaker"]["dialysis"] = src.connected.filtering
+
+	return data
 
 /obj/machinery/sleep_console/Topic(href, href_list)
 	if(..())
 		return
+
+	if (!(src.connected))
+		return
+
+	if (usr == src.connected.occupant)
+		usr << "<span class='warning'>You can't reach the controls from the inside.</span>"
+		return
+
 	if ((usr.contents.Find(src) || ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon/ai)))
 		usr.set_machine(src)
+		src.add_fingerprint(usr)
+
+		// Inject reagent
 		if (href_list["chemical"])
-			if (src.connected)
-				if (src.connected.occupant)
-					if (src.connected.occupant.stat == DEAD)
-						usr << "\red \b This person has no life for to preserve anymore. Take them to a department capable of reanimating them."
-					else if(src.connected.occupant.health > 0 || href_list["chemical"] == "inaprovaline")
-						src.connected.inject_chemical(usr,href_list["chemical"],text2num(href_list["amount"]))
-					else
-						usr << "\red \b This person is not in good enough condition for sleepers to be effective! Use another means of treatment, such as cryogenics!"
-					src.updateUsrDialog()
-		if (href_list["refresh"])
-			src.updateUsrDialog()
+			if (src.connected && src.connected.occupant && src.connected.occupant.stat != DEAD)
+				// Prevent href shenanigans
+				if (href_list["chemical"] in src.connected.available_chemicals)
+					src.connected.inject_chemical(usr,href_list["chemical"],text2num(href_list["amount"]))
+
+		// Eject dialysis beaker
 		if (href_list["removebeaker"])
 			src.connected.remove_beaker()
-			src.updateUsrDialog()
+
+		// Toggle filtering on/off
 		if (href_list["togglefilter"])
 			src.connected.toggle_filter()
-			src.updateUsrDialog()
+
+		// Eject occupant
 		if (href_list["ejectify"])
 			src.connected.eject()
-			src.updateUsrDialog()
-		src.add_fingerprint(usr)
+
+		// Sensor printout
+		if (href_list["print"])
+			// Limit rate
+			if (!printjob_queued)
+				printjob_queued = 1
+				var/printer_data = generate_ui_data()
+				sleep(50)
+				var/obj/item/weapon/paper/printout = new /obj/item/weapon/paper(src.loc)
+				printout.name = "Sleeper Scanner Printout"
+				printout.desc = "This is a printout from one of the sleeper consoles."
+				printout.info = "<pre><tt>"
+				printout.info +="---------------------------------------\n"
+				printout.info +="-  SLEEPER SCANNER REPORT    NT#1290a -\n"
+				printout.info +="---------------------------------------\n"
+				printout.info +="\n"
+				printout.info +=text("M. ACTIVITY  :  []\n", printer_data["occupant"]["stat"]["string"])
+				printout.info +=text("HEALTH RATING:  []%\n",printer_data["occupant"]["health"]["combined"])
+				printout.info +=text("         BRT :  []%\n",printer_data["occupant"]["health"]["brute"])
+				printout.info +=text("         OXY :  []%\n",printer_data["occupant"]["health"]["oxy"])
+				printout.info +=text("         TOX :  []%\n",printer_data["occupant"]["health"]["toxin"])
+				printout.info +=text("         BRN :  []%\n",printer_data["occupant"]["health"]["burn"])
+				printout.info +="\n"
+				/*printout.info +=text("PARALYSIS REP:  []%\n",printer_data["occupant"]["health"]["paralysis"]["amount"])
+				printout.info +=text("         REM :  []s\n",printer_data["occupant"]["health"]["paralysis"]["countdown"])
+				printout.info +="\n"*/
+				if (printer_data["occupant"]["health"]["pulse"])
+					printout.info += text("PULSE        :  [] bpm ([])\n",printer_data["occupant"]["health"]["pulse"]["value"],printer_data["occupant"]["health"]["pulse"]["state"])
+				printout.info += "REAGENTS     :  \n"
+				for (var/chem in printer_data["occupant"]["reagents"])
+					printout.info += text("     [][]\t []U\n",chem["name"],(length(chem["name"]) > 9) ? "" : "\t", chem["amount"])
+				printout.info +="\n\n------------- tear here ---------------</tt></pre>"
+				// Ready for next printjob
+				printjob_queued = 0
 	return
 
 

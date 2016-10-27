@@ -148,22 +148,28 @@ proc/listclearnulls(list/list)
 		result = first ^ second
 	return result
 
-//Pretends to pick an element based on its weight but really just seems to pick a random element.
+
+//Picks a random element by weight from a list. The list must be correctly constructed in this format:
+//mylist[myelement1] = myweight1
+//mylist[myelement2] = myweight2
+//The proc will return the element index, and not the weight.
 /proc/pickweight(list/L)
 	var/total = 0
 	var/item
 	for (item in L)
-		if (!L[item])
+		if (isnull(L[item]))
+		//Change by nanako, a default weight will no longer overwrite an explicitly set weight of 0
+		//It will only use a default if no weight is defined
 			L[item] = 1
 		total += L[item]
-
-	total = rand(1, total)
+	total = rand() * total//Fix by nanako, allows it to handle noninteger weights
 	for (item in L)
-		total -=L [item]
+		total -= L[item]
 		if (total <= 0)
 			return item
 
 	return null
+
 
 //Pick a random element from the list and remove it from the list.
 /proc/pick_n_take(list/listfrom)

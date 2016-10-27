@@ -1,7 +1,9 @@
 #define		AE_DIZZY 		5
+#define		AE_BUZZED_MIN	6
 #define 	AE_SLURRING 	15
 #define 	AE_CONFUSION 	18
 #define		AE_CLUMSY		22
+#define 	AE_BUZZED_MAX	24
 #define 	AE_BLURRING 	25
 #define		AE_VOMIT		40
 #define 	AE_DROWSY 		55
@@ -70,3 +72,48 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 	if(intoxication > AE_BLACKOUT*SR) // Pass out
 		paralysis = max(paralysis, 20)
 		sleeping  = max(sleeping, 30)
+
+	if( intoxication >= AE_BUZZED_MIN && intoxication <= AE_BUZZED_MAX && !(locate(/datum/modifier/buzzed) in modifiers))
+		add_modifier(/datum/modifier/buzzed, MODIFIER_CUSTOM)
+
+
+//Pleasant feeling from being slightly drunk
+//Makes you faster and reduces sprint cost
+//Wears off if you get too drunk or too sober, a balance must be maintained
+/datum/modifier/buzzed
+
+/datum/modifier/buzzed/activate()
+	..()
+	if (ishuman(target))
+		var/mob/living/carbon/human/H = target
+		H.move_delay_mod += -0.75
+
+		H.sprint_cost_factor += -0.1
+
+/datum/modifier/buzzed/deactivate()
+	..()
+	if (ishuman(target))
+		var/mob/living/carbon/human/H = target
+		H.move_delay_mod -= -0.75
+
+		H.sprint_cost_factor -= -0.1
+
+/datum/modifier/buzzed/custom_validity()
+	if (ishuman(target))
+		var/mob/living/carbon/human/H = target
+		if (H.intoxication >= AE_BUZZED_MIN && H.intoxication <= AE_BUZZED_MAX)
+
+			return 1
+	return 0
+
+#undef		AE_DIZZY
+#undef		AE_BUZZED_MIN
+#undef 		AE_SLURRING
+#undef 		AE_CONFUSION
+#undef		AE_CLUMSY
+#undef 		AE_BUZZED_MAX
+#undef 		AE_BLURRING
+#undef		AE_VOMIT
+#undef 		AE_DROWSY
+#undef 		AE_OVERDOSE
+#undef 		AE_BLACKOUT

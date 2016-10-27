@@ -853,3 +853,16 @@ proc/sort_atoms_by_layer(var/list/atoms)
 				result.Swap(i, gap + i)
 				swapped = 1
 	return result
+
+proc/percentage_to_colour(var/P)
+	//Takes a value between 0-1
+	//Returns a colour - pure green if 1, pure red if 0
+	//Inbetween values will gradiant through green, yellow, orange, red
+
+
+	var/green = min(1, P*2)*255
+	var/red = 255 - (min(1, (P-0.5)*2)*255)
+	//var/green = (max(0, P-0.5)*2)*255
+	//var/red = 255 - (min(1, P*2)*255)
+
+	return rgb(red,green,0)
