@@ -86,7 +86,7 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 
 						//Deaf people will feel vibrations though
 						if (volume > 0)//Only shake camera if someone was close enough to hear it
-							shake_camera(M, min(60,max(2,(power*28) / dist)), min(3.5,((power*6) / dist)),0.05)
+							shake_camera(M, min(60,max(2,(power*18) / dist)), min(3.5,((power*3) / dist)),0.05)
 							//Maximum duration is 6 seconds, and max strength is 3.5
 							//Becuse values higher than those just get really silly
 
