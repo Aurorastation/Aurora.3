@@ -772,6 +772,7 @@
 		"externalPower" = main_status,
 		"powerCellStatus" = cell ? cell.percent() : null,
 		"chargeMode" = chargemode,
+		"lightingMode" = night_mode,
 		"chargingStatus" = charging,
 		"totalLoad" = round(lastused_total),
 		"totalCharging" = round(lastused_charging),
@@ -797,8 +798,7 @@
 					"auto" = list("lgt" = 3),
 					"on"   = list("lgt" = 2),
 					"off"  = list("lgt" = 1)
-				),
-				"lightingMode" = night_mode
+				)
 			),
 			list(
 				"title" = "Environment",
@@ -900,6 +900,11 @@
 	if(!can_use(usr, 1))
 		return 1
 
+	if (href_list["lmode"])
+		world << "DEBUG: lighting mode toggled"
+		src.toggle_nightlight()
+		update_icon()
+
 	if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
 		// Shouldn't happen, this is here to prevent href exploits
 		usr << "You must unlock the panel to use this!"
@@ -938,10 +943,6 @@
 	else if (href_list["overload"])
 		if(istype(usr, /mob/living/silicon))
 			src.overload_lighting()
-
-	else if (href_list["lightingMode"])
-		src.toggle_nightlight()
-		update_icon()
 
 	else if (href_list["toggleaccess"])
 		if(istype(usr, /mob/living/silicon))
@@ -1244,21 +1245,23 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				L.broken()
 				sleep(1)
 
-/obj/machinery/power/apc/proc/toggle_nightlight()
-	for (var/obj/machinery/light/L in area)
+/obj/machinery/power/apc/proc/toggle_nightlight(var/force = 0)
+	for (var/obj/machinery/light/L in area.contents)
 		if (istype(L, /obj/machinery/light))
-			if (!night_mode)
+			if (force || !night_mode)
 				L.set_light_source(6, 1)
 			else
-				L.set_light_source(-1, -1)
-			continue
+				L.set_light_source()
 		if (istype(L, /obj/machinery/light/small))
-			if (!night_mode)
+			if (force || !night_mode)
 				L.set_light_source(4, 1)
 			else
-				L.set_light_source(-1, -1)
-			continue
-	night_mode = !night_mode
+				L.set_light_source()
+		L.update()
+	if (force)
+		night_mode = 1
+	else
+		night_mode = !night_mode
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)

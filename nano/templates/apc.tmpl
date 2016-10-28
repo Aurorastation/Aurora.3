@@ -95,7 +95,14 @@
 			</div>
 		</div>
 	{{/if}}
-
+	<div class="item">
+		<div class="itemLabel">
+			Night lighting:
+		</div>
+		<div class="itemContent"; style="width: 105px">
+			{{:helper.link('On', 'night', {'lmode' : 1}, data.lightingMode ? 'selected' : null)}}{{:helper.link('Off', 'close', {'lmode' : 1}, data.lightingMode ? null : 'selected')}}
+		</div>
+	</div>
 
 	<h3>Power Channels</h3>
 
@@ -104,12 +111,6 @@
 			<div class="itemLabel">
 				{{:value.title}}:
 			</div>
-			{{if data.title == "Lighting"}}
-				<div class="itemContent"; style="width: 105px"; "text-align: left">
-					&nbsp;&nbsp;
-					{{:helper.link('Toggle Lighting Mode', 'power', {'lightingMode' : 1})}}
-				</div>
-			{{/if}}
 			<div class="itemContent" style="width: 70px; text-align: right">
 				{{:value.powerLoad}}&nbsp;W
 			</div>

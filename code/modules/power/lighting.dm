@@ -587,21 +587,21 @@
 		qdel(src)
 
 // Sets the light being output by a light tube or other static source
-// Negative inputs will make the vars revert to default
-/obj/machinery/light/proc/set_light_source(var/range, var/power, var/color = null)
-	if (range && isnum(range))
-		brightness_range = range
-	else if (range < 0)
+// Non or negative inputs will reset to default
+/obj/machinery/light/proc/set_light_source(var/range = 0, var/power = 0, var/color = "")
+	if (range > 0 && isnum(range))
+		brightness_range = round(range)
+	else
 		brightness_range = initial(brightness_range)
 
-	if (power && isnum(power))
-		brightness_power = power
-	else if (power < 0)
+	if (power > 0 && isnum(power))
+		brightness_power = round(power)
+	else
 		brightness_power = initial(brightness_power)
 
 	if (color && !isnull(sanitize_hexcolor(color, null)))
 		brightness_color = color
-	else if (color < 0)
+	else
 		brightness_color = initial(brightness_color)
 
 // the light item
