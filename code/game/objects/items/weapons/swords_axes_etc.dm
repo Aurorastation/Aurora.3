@@ -12,7 +12,7 @@
 	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]<b></font>"
 	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
-	
+
 /*
  * Classic Baton
  */
@@ -106,14 +106,14 @@
 	add_fingerprint(user)
 
 	if(blood_overlay && blood_DNA && (blood_DNA.len >= 1)) //updates blood overlay, if any
-		overlays.Cut()//this might delete other item overlays as well but eeeeeeeh
-
+		overlays.Remove(blood_overlay)
 		var/icon/I = new /icon(src.icon, src.icon_state)
 		I.Blend(new /icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD)
 		I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY)
-		blood_overlay = I
-
+		blood_overlay = image(I)
+		blood_overlay.color = blood_color
 		overlays += blood_overlay
+		update_icon()
 
 	return
 
@@ -128,19 +128,10 @@
 			else
 				user.take_organ_damage(2*force)
 			return
-		if(..())
+		if(..() == 1)
 			playsound(src.loc, "swing_hit", 50, 1, -1)
-//			var/obj/item/c_hand							UNFUCK WHEN YOU HAVE TIME AND KNOWLEDGE
-//			var/hand
 			if(user.zone_sel.selecting == "r_leg" || user.zone_sel.selecting == "l_leg")
 				target.Weaken(5) //nerfed, because yes.
-/*			if(user.zone_sel.selecting == "l_hand" || user.zone_sel.selecting == "l_arm")
-				c_hand = "l_hand"
-				target.u_equip(c_hand)
-				hand = "left hand"
-				user.visible_message("\red [target] screams out in pain and drops what they were holding in their [hand]!")*/
-			else
-				..()
 			return
 	else
 		return ..()
