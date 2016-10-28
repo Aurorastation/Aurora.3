@@ -207,9 +207,6 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			</tr>
 		</table>
 		<br>
-		/*
-
-		*/
 	"}
 	if(allowSubmit)
 		dat += {"
