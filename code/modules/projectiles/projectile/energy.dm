@@ -144,7 +144,7 @@
 			var/atom/movable/x = new /mob/living/simple_animal/bee/beegun //hackmaster pro, butt fuck it
 			x.forceMove(T)
 	else
-		src.visible_message("<span class='danger'>[src] splats sickly against [T]!</span>")
+		src.visible_message("<span class='danger'>[src] splat sickly against [T]!</span>")
 	..()
 
 /obj/item/projectile/energy/blaster
