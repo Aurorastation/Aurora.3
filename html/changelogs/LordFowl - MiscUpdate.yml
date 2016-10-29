@@ -39,4 +39,7 @@ changes:
   - rscadd: "Syndicate manhack delivery grenades are now available via the traitor uplink."
   - rscadd: "Manhacks will no longer attack anyone belonging to the 'syndicate' faction, including Heist pirates."
   - tweak: "Tweaked loadout customisation whitelists, generally making them more restrictive by role."
+  - tweak: "Dismembered limbs no longer suffer from pixelation due to unnecessary rotation of the sprite."
+  - bugfix: "Severed heads retain the facial features of their owner."
+  - bugfix: "Heads impaled on spears now look like the head of their owner."
   - bugfix: "It is no longer possible to be older or younger than your species ought to be."
