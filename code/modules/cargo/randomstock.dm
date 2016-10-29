@@ -286,7 +286,7 @@ var/list/global/random_stock_large = list(
 	for (var/obj/effect/large_stock_marker/LSM in world)
 		if (prob(STOCK_LARGE_PROB))
 			spawn_stock(pickweight(random_stock_large), get_turf(LSM))
-			qdel(LSM)
+		qdel(LSM)
 
 
 	//Now we spawn the smaller items
@@ -417,7 +417,8 @@ var/list/global/random_stock_large = list(
 /obj/effect/large_stock_marker
 	name = "Large Stock Marker"
 	desc = "This marks a place where a large object could spawn in cargo"
-
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "x3"
 
 //This function actually handles the spawning.
 //If location is a turf, it will look for crates, lockers or similar containers on that turf

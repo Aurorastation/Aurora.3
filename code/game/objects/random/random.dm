@@ -651,7 +651,6 @@
 	"/obj/item/weapon/storage/bag/plasticbag" = 1,
 	"/obj/item/weapon/extinguisher" = 1.3,
 	"/obj/item/weapon/extinguisher/mini" = 0.9,
-	"/obj/item/device/radiojammer/improvised" = 0.3,
 	"/obj/item/device/flashlight" = 1,
 	"/obj/item/device/flashlight/heavy" = 0.5,
 	"/obj/item/device/flashlight/maglight" = 0.4,
