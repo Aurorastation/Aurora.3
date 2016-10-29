@@ -254,6 +254,12 @@
 	qdel(src)
 	return
 
+/mob/living/bot/medbot/turn_off()
+	patient = null
+	frustration = 0
+	currently_healing = 0
+	..()
+
 /mob/living/bot/medbot/proc/valid_healing_target(var/mob/living/carbon/human/H)
 	if(H.stat == DEAD) // He's dead, Jim
 		return null
