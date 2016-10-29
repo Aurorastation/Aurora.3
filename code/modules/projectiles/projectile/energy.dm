@@ -130,7 +130,7 @@
 	icon = 'icons/obj/apiary_bees_etc.dmi'
 	icon_state = "beegun"
 	check_armour = "bio"
-	damage = 0
+	damage = 5
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGRILLE
 	embed = 0
@@ -138,16 +138,14 @@
 
 /obj/item/projectile/energy/bee/on_impact(var/atom/A)
 	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
+	var/turf/T = get_turf(A)
 	for(var/i=1, i<=8, i++)
-		var/mob/living/simple_animal/bee/x = new /mob/living/simple_animal/bee
-		x.loc = A
-		x.feral = 25
-		if(ismob(A))
-			x.target_mob = A
-		if(prob(50))
-			for(var/j = 1, j <= rand(1, 3), j++)
-				step(x, pick(NORTH,SOUTH,EAST,WEST))
-
+		var/atom/movable/x = new /mob/living/simple_animal/bee/beegun //hackmaster pro, butt fuck it
+		x.loc = T
+		if(istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle/wall))
+			qdel(x)
+		if(istype(A, /obj/structure/window) || istype(A, /obj/machinery/door))
+			qdel(x)
 	..()
 
 /obj/item/projectile/energy/blaster
