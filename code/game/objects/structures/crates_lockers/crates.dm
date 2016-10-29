@@ -551,10 +551,15 @@
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen")
 
-/obj/structure/closet/crate/loot/New(var/location, var/rarity = 1, var/quantity = 10)
+
+/obj/structure/closet/crate/loot/New(var/location, var/_rarity = 1, var/_quantity = 10)
+
+	rarity = _rarity
+	quantity = _quantity
 	..(location)
-	rarity = rarity
-	quantity = quantity
+
+
+/obj/structure/closet/crate/loot/initialize()
 	spawntypes = list("1" = STOCK_RARE_PROB*rarity, "2" = STOCK_UNCOMMON_PROB*rarity, "3" = (100 - ((STOCK_RARE_PROB*rarity) + (STOCK_UNCOMMON_PROB*rarity))))
 
 	icon_closed = pick(iconchoices)

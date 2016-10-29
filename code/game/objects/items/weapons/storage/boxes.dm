@@ -715,6 +715,7 @@
 	for (var/i = 0,i<6,i++)
 		var/type = pick(utensils)
 		new type(src)
+	..()
 
 
 
@@ -749,3 +750,4 @@
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
 		new type(src)
+	..()
