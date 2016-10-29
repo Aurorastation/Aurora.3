@@ -179,7 +179,7 @@
 			distance = 0
 		if(distance <= range)
 			var/mob/living/M = T
-			if ((ismob(M)) && M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
+			if ((istype(M)) && M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
 				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
 				M.gib()
 				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
