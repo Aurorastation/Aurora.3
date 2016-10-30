@@ -261,6 +261,7 @@
 		var/image/IM = image(I.icon,I.icon_state)
 		IM.overlays = I.overlays.Copy()
 		HS.overlays += IM
+		HS.name = "[I.name] on a spear"
 		qdel(src)
 		return
 	return ..()

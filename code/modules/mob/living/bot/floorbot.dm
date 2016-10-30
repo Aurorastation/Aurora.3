@@ -25,9 +25,13 @@
 		icon_state = "floorbot[on]e"
 
 /mob/living/bot/floorbot/attack_hand(var/mob/user)
+	if (!has_ui_access(user))
+		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		return
+
 	user.set_machine(src)
 	var/dat
-	dat += "<TT><B>Automatic Station Floor Repairer v1.0</B></TT><BR><BR>"
+	dat += "<TT><B>Automatic Station Floor Repairer v1.1</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[src.on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]<BR>"
 	//dat += "Tiles left: [amount]<BR>"
@@ -43,7 +47,7 @@
 			bmode = "Disabled"
 		dat += "<BR><BR>Bridge Mode : <A href='?src=\ref[src];operation=bridgemode'>[bmode]</A><BR>"
 
-	user << browse("<HEAD><TITLE>Repairbot v1.0 controls</TITLE></HEAD>[dat]", "window=autorepair")
+	user << browse("<HEAD><TITLE>Repairbot v1.1 controls</TITLE></HEAD>[dat]", "window=autorepair")
 	onclose(user, "autorepair")
 	return
 
@@ -58,6 +62,11 @@
 		return
 	usr.set_machine(src)
 	add_fingerprint(usr)
+
+	if (!has_ui_access(usr))
+		usr << "<span class='warning'>Insufficient permissions.</span>"
+		return
+
 	switch(href_list["operation"])
 		if("start")
 			if (on)

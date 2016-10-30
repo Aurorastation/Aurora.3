@@ -1,0 +1,8 @@
+author: Nanako
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed being unable to save pAI information. It now autosaves whenever anything is entered. Save and load buttons are obsolete and removed."
+  - tweak: "Altered some event probabilities. And the announcement for space vines is now delayed significantly longer"
