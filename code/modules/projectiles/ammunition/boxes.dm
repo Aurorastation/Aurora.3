@@ -48,6 +48,23 @@
 	name = "magazine (.45 flash)"
 	ammo_type = "/obj/item/ammo_casing/c45f"
 
+/obj/item/ammo_magazine/t40
+	name = "magazine (10mm)"
+	icon_state = "5.56"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/t40
+	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	caliber = "10mm"
+	max_ammo = 12
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/t40/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/t40/rubber
+	name = "magazine (10mm rubber)"
+	ammo_type = /obj/item/ammo_casing/t40r
+
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
 	icon_state = "9x19p"
@@ -180,6 +197,18 @@
 /obj/item/ammo_magazine/trodpack/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/tranq
+	name = "tranquilizer darts (.50 cal PPS)"
+	icon_state = "incendiaryshot_box"
+	origin_tech = "combat=2"
+	mag_type = SINGLE_CASING
+	caliber = "PPS"
+	matter = list(DEFAULT_WALL_MATERIAL = 4500)
+	ammo_type = /obj/item/ammo_casing/tranq
+	max_ammo = 4
+
+/obj/item/ammo_magazine/tranq/empty
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/a762
 	name = "magazine box (7.62mm)"
@@ -249,6 +278,44 @@
 	caliber = ".45"
 	max_ammo = 50
 
+//shotguns boxes things from old code
+
+/obj/item/ammo_magazine/shotgun
+	name = "ammunition box (slug)"
+	icon_state = "lethalshellshot_box"
+	origin_tech = "combat=2"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 8
+	caliber = "shotgun"
+	matter = list("metal" = 2880)
+
+/obj/item/ammo_magazine/shotgun/shell
+	name = "ammunition box (shell)"
+	icon_state = "llethalslug_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	max_ammo = 8
+
+/obj/item/ammo_magazine/shotgun/stun
+	name = "ammunition box (stun shells)"
+	icon_state = "stunshot_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
+	max_ammo = 8
+	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
+
+/obj/item/ammo_magazine/shotgun/beanbag
+	name = "ammunition box (beanbag shells)"
+	icon_state = "beanshot_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	max_ammo = 8
+	matter = list(DEFAULT_WALL_MATERIAL = 1440)
+
+/obj/item/ammo_magazine/shotgun/incendiary
+	name = "ammunition box (incendiary shells)"
+	icon_state = "incendiaryshot_box"
+	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
+	max_ammo = 8
+	matter = list(DEFAULT_WALL_MATERIAL = 3600)
+
 /obj/item/ammo_magazine/caps
 	name = "speed loader (caps)"
 	icon_state = "T38"
@@ -258,4 +325,3 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
-

@@ -17,9 +17,9 @@
 	origin_tech = "combat=2;materials=2"
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
-	
+
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
-	if(prob(20 - (loaded.len * 10)))
+	if(prob(60 - (loaded.len * 10)))
 		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
 		M.take_organ_damage(0,30)
 		M.drop_item()
@@ -66,6 +66,7 @@
 	desc = "A classic rifle stock that doubles as a grip, roughly carved out of wood."
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "riflestock"
+	var/buildstate = 0
 
 /obj/item/weapon/receivergun
 	name = "receiver"
@@ -120,4 +121,67 @@
 				user << "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!.</span>"
 			return
 
+		..()
+
+//ghetto handgun, sprites by datberry
+
+/obj/item/weapon/gun/projectile/improvised_handgun
+	name = "\improper improvised handgun"
+	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .45 Rounds."
+	max_shells = 7
+	recoil = 2
+	accuracy = -2
+	fire_delay = 9
+	icon = 'icons/obj/improvised.dmi'
+	icon_state = "ipistol"
+	item_state = "gun"
+	caliber = ".45"
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	origin_tech = "combat=2;materials=2"
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	load_method = MAGAZINE
+	jam_chance = 55
+
+/obj/item/weapon/stock/update_icon()
+	icon_state = "ipistol[buildstate]"
+
+/obj/item/weapon/stock/examine(mob/user)
+	..(user)
+	switch(buildstate)
+		if(1) user << "It is carved in the shape of a pistol handle."
+		if(2) user << "It has a receiver installed."
+		if(3) user << "It has a pipe installed."
+
+/obj/item/weapon/stock/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/material/hatchet))
+		if(buildstate == 0)
+			user << "<span class='notice'>You carve the rifle stock.</span>"
+			buildstate++
+			update_icon()
+			return
+	else if(istype(W,/obj/item/weapon/receivergun))
+		if(buildstate == 1)
+			user.drop_from_inventory(W)
+			qdel(W)
+			user << "<span class='notice'>You add the receiver to the assembly.</span>"
+			buildstate++
+			update_icon()
+			return
+	else if(istype(W,/obj/item/pipe))
+		if(buildstate == 2)
+			user.drop_from_inventory(W)
+			qdel(W)
+			user << "<span class='notice'>You strap the pipe to the assembly.</span>"
+			buildstate++
+			update_icon()
+			return
+	else if(istype(W,/obj/item/weapon/weldingtool))
+		if(buildstate == 3)
+			var/obj/item/weapon/weldingtool/T = W
+			if(T.remove_fuel(0,user))
+				if(!src || !T.isOn()) return
+				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				user << "<span class='notice'>You shorten the barrel with the welding tool.</span>"
+				new /obj/item/weapon/gun/projectile/improvised_handgun(get_turf(src))
+				qdel(src)
 		..()

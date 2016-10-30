@@ -36,7 +36,6 @@
 			return ..()
 
 	if (reagents.total_volume > 0)
-		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return

@@ -136,7 +136,10 @@
 
 	var/datum/language/new_language = all_languages[language]
 
-	if(!istype(new_language) || (new_language in languages))
+	if (!istype(new_language) || !new_language)
+		CRASH("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
+
+	if(new_language in languages)
 		return 0
 
 	languages.Add(new_language)

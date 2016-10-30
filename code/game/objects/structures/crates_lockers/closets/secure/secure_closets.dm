@@ -126,6 +126,8 @@
 	if(ishuman(usr))
 		src.add_fingerprint(usr)
 		src.togglelock(usr)
+	else if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr))
+		src.togglelock(usr)
 	else
 		usr << "<span class='warning'>This mob type can't use this verb.</span>"
 
@@ -143,8 +145,13 @@
 
 
 /obj/structure/closet/secure_closet/req_breakout()
-	if(!opened && locked) return 1
-	return ..() //It's a secure closet, but isn't locked.
+	if(!opened && locked)
+		if (welded)
+			return 2
+		else
+			return 1
+	else
+		return ..() //It's a secure closet, but isn't locked.
 
 /obj/structure/closet/secure_closet/break_open()
 	desc += " It appears to be broken."
@@ -155,6 +162,7 @@
 		flick(icon_broken, src)
 		sleep(10)
 	broken = 1
+	welded = 0
 	locked = 0
 	update_icon()
 	//Do this to prevent contents from being opened into nullspace (read: bluespace)

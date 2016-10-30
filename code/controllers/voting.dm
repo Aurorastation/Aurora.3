@@ -339,7 +339,10 @@ datum/controller/vote
 				. += "<font color='grey'>Restart (Disallowed)</font>"
 			. += "</li><li>"
 			if(is_staff || config.allow_vote_restart)
-				. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer</a>"
+				if (get_security_level() == "red" || get_security_level() == "delta")
+					. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer (Disallowed, Code Red or above)</a>"
+				else
+					. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer</a>"
 			else
 				. += "<font color='grey'>Crew Transfer (Disallowed)</font>"
 			if(is_staff)

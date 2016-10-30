@@ -5,6 +5,7 @@
 	icon_state = "cart"
 	anchored = 0
 	density = 1
+	climbable = 1
 	flags = OPENCONTAINER
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
@@ -12,74 +13,184 @@
 	var/obj/item/weapon/mop/mymop = null
 	var/obj/item/weapon/reagent_containers/spray/myspray = null
 	var/obj/item/device/lightreplacer/myreplacer = null
+	var/obj/structure/mopbucket/mybucket = null
 	var/signs = 0	//maximum capacity hardcoded below
+	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
+	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
 
-
-/obj/structure/janitorialcart/New()
-	create_reagents(100)
+///obj/structure/janitorialcart/New()
 
 
 /obj/structure/janitorialcart/examine(mob/user)
 	if(..(user, 1))
-		user << "[src] \icon[src] contains [reagents.total_volume] unit\s of liquid!"
+		if (mybucket)
+			var/contains = mybucket.reagents.total_volume
+			user << "\icon[src] The bucket contains [contains] unit\s of liquid!"
+		else
+			user << "\icon[src] There is no bucket mounted on it!"
 	//everything else is visible, so doesn't need to be mentioned
 
 
-/obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/storage/bag/trash) && !mybag)
-		user.drop_item()
-		mybag = I
-		I.loc = src
+/obj/structure/janitorialcart/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+	if (istype(O, /obj/structure/mopbucket) && !mybucket)
+		O.loc = src
+		mybucket = O
+		user << "You mount the [O] on the janicart."
 		update_icon()
-		updateUsrDialog()
-		user << "<span class='notice'>You put [I] into [src].</span>"
+	else
+		..()
 
-	else if(istype(I, /obj/item/weapon/mop))
-		if(I.reagents.total_volume < I.reagents.maximum_volume)	//if it's not completely soaked we assume they want to wet it, otherwise store it
-			if(reagents.total_volume < 1)
-				user << "<span class='warning'>[src] is out of water!</span>"
-			else
-				reagents.trans_to_obj(I, 5)	//
-				user << "<span class='notice'>You wet [I] in [src].</span>"
-				playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-				return
+//New Altclick functionality!
+//Altclick the cart with a mop to stow the mop away
+//Altclick the cart with a reagent container to pour things into the bucket without putting the bottle in trash
+/obj/structure/janitorialcart/AltClick()
+	var/obj/I = usr.get_active_hand()
+	if(istype(I, /obj/item/weapon/mop))
 		if(!mymop)
-			user.drop_item()
+			usr.drop_item()
 			mymop = I
-			I.loc = src
+			I.forceMove(src)
 			update_icon()
 			updateUsrDialog()
-			user << "<span class='notice'>You put [I] into [src].</span>"
+			usr << "<span class='notice'>You put [I] into [src].</span>"
+		else
+			usr << "<span class='notice'>The cart already has a mop attached</span>"
+		return
+	else if(istype(I, /obj/item/weapon/reagent_containers) && mybucket)
+		var/obj/item/weapon/reagent_containers/C = I
+		C.afterattack(mybucket, usr, 1)
+	else if(istype (I, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LR = I
+		if (LR.store_broken)
+			return mybag.attackby(I, usr)
+
+
+/obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/reagent_containers/glass/rag) || istype(I, /obj/item/weapon/soap))
+		if (mybucket)
+			if(I.reagents.total_volume < I.reagents.maximum_volume)
+				if(mybucket.reagents.total_volume < 1)
+					user << "<span class='notice'>[mybucket] is empty!</span>"
+				else
+					mybucket.reagents.trans_to_obj(I, 5)	//
+					user << "<span class='notice'>You wet [I] in [mybucket].</span>"
+					playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+			else
+				user << "<span class='notice'>[I] can't absorb anymore liquid!</span>"
+		else
+			user << "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>"
+		return 1
 
 	else if(istype(I, /obj/item/weapon/reagent_containers/spray) && !myspray)
 		user.drop_item()
 		myspray = I
-		I.loc = src
+		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
 		user << "<span class='notice'>You put [I] into [src].</span>"
+		return 1
 
 	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
 		user.drop_item()
 		myreplacer = I
-		I.loc = src
+		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
 		user << "<span class='notice'>You put [I] into [src].</span>"
+		return 1
+
+	else if(istype(I, /obj/item/weapon/storage/bag/trash) && !mybag)
+		user.drop_item()
+		mybag = I
+		I.forceMove(src)
+		update_icon()
+		updateUsrDialog()
+		user << "<span class='notice'>You put [I] into [src].</span>"
+		return 1
 
 	else if(istype(I, /obj/item/weapon/caution))
 		if(signs < 4)
 			user.drop_item()
-			I.loc = src
+			I.forceMove(src)
 			signs++
 			update_icon()
 			updateUsrDialog()
 			user << "<span class='notice'>You put [I] into [src].</span>"
 		else
 			user << "<span class='notice'>[src] can't hold any more signs.</span>"
+		return 1
 
 	else if(mybag)
-		mybag.attackby(I, user)
+		return mybag.attackby(I, user)
+		//This return will prevent afterattack from executing if the object goes into the trashbag,
+		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
+
+	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/pickaxe/plasmacutter)))
+		dismantle(user)
+		return
+	..()
+
+/obj/structure/janitorialcart/proc/dismantle(var/mob/user = null)
+	if (!dismantled)
+		if (has_items)
+			spill()
+
+		if (user)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			user.visible_message("[user] starts taking apart the [src]", "You start disasembling the [src]")
+			if (!do_after(user, 30, needhand = 0))
+				return
+
+		new /obj/item/stack/material/steel(src.loc, 15)
+		dismantled = 1
+		qdel(src)
+
+/obj/structure/janitorialcart/ex_act(severity)
+	spill(100 / severity)
+	..()
+
+//This is called if the cart is caught in an explosion, or destroyed by weapon fire
+/obj/structure/janitorialcart/proc/spill(var/chance = 100)
+	var/turf/dropspot = get_turf(src)
+	if (mymop && prob(chance))
+		mymop.forceMove(dropspot)
+		mymop.tumble(2)
+		mymop = null
+
+	if (myspray && prob(chance))
+		myspray.forceMove(dropspot)
+		myspray.tumble(3)
+		myspray = null
+
+	if (myreplacer && prob(chance))
+		myreplacer.forceMove(dropspot)
+		myreplacer.tumble(3)
+		myreplacer = null
+
+	if (mybucket && prob(chance*0.5))//bucket is heavier, harder to knock off
+		mybucket.forceMove(dropspot)
+		mybucket.tumble(1)
+		mybucket = null
+
+	if (signs)
+		for (var/obj/item/weapon/caution/Sign in src)
+			if (prob(min((chance*2),100)))
+				signs--
+				Sign.forceMove(dropspot)
+				Sign.tumble(3)
+				if (signs < 0)//safety for something that shouldn't happen
+					signs = 0
+					update_icon()
+					return
+
+	if (mybag && prob(min((chance*2),100)))//Bag is flimsy
+		mybag.forceMove(dropspot)
+		mybag.tumble(1)
+		mybag.spill()//trashbag spills its contents too
+		mybag = null
+
+	update_icon()
+
 
 
 /obj/structure/janitorialcart/attack_hand(mob/user)
@@ -90,6 +201,7 @@
 	var/data[0]
 	data["name"] = capitalize(name)
 	data["bag"] = mybag ? capitalize(mybag.name) : null
+	data["bucket"] = mybucket ? capitalize(mybucket.name) : null
 	data["mop"] = mymop ? capitalize(mymop.name) : null
 	data["spray"] = myspray ? capitalize(myspray.name) : null
 	data["replacer"] = myreplacer ? capitalize(myreplacer.name) : null
@@ -140,6 +252,11 @@
 					else
 						warning("[src] signs ([signs]) didn't match contents")
 						signs = 0
+			if("bucket")
+				if(mybucket)
+					mybucket.forceMove(get_turf(user))
+					user << "<span class='notice'>You unmount [mybucket] from [src].</span>"
+					mybucket = null
 
 	update_icon()
 	updateUsrDialog()
@@ -147,16 +264,28 @@
 
 /obj/structure/janitorialcart/update_icon()
 	overlays = null
+	has_items = 0
+	if(mybucket)
+		overlays += "cart_bucket"
+		has_items = 1
 	if(mybag)
 		overlays += "cart_garbage"
+		has_items = 1
 	if(mymop)
 		overlays += "cart_mop"
+		has_items = 1
 	if(myspray)
 		overlays += "cart_spray"
+		has_items = 1
 	if(myreplacer)
-		overlays += "cart_replacer"
+		if (istype(myreplacer, /obj/item/device/lightreplacer/advanced))
+			overlays += "cart_adv_lightreplacer"
+		else
+			overlays += "cart_replacer"
+		has_items = 1
 	if(signs)
 		overlays += "cart_sign[signs]"
+		has_items = 1
 
 
 //old style retardo-cart

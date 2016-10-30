@@ -21,7 +21,8 @@
 		/obj/item/weapon/camera_assembly,
 		/obj/item/weapon/tank,
 		/obj/item/weapon/circuitboard,
-		/obj/item/weapon/smes_coil
+		/obj/item/weapon/smes_coil,
+		/obj/item/device/assembly//Primarily for making improved cameras, but opens many possibilities
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.
@@ -82,8 +83,12 @@
 		/obj/item/weapon/circuitboard,
 		/obj/item/slime_extract,
 		/obj/item/weapon/reagent_containers/glass,
-		/obj/item/weapon/reagent_containers/food/snacks/monkeycube
-
+		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
+		/obj/item/device/assembly,//For building bots and similar complex R&D devices
+		/obj/item/device/healthanalyzer,//For building medibots
+		/obj/item/weapon/disk,
+		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
+		/obj/item/weapon/material/minihoe//Farmbots and xenoflora
 		)
 
 /obj/item/weapon/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
@@ -129,6 +134,11 @@
 /obj/item/weapon/gripper/attack_self(mob/user as mob)
 	if(wrapped)
 		return wrapped.attack_self(user)
+	return ..()
+
+/obj/item/weapon/gripper/AltClick(mob/user as mob)
+	if(wrapped)
+		return wrapped.AltClick(user)
 	return ..()
 
 /obj/item/weapon/gripper/verb/drop_item()
@@ -199,11 +209,11 @@
 			wrapped = null
 			return
 
-	else if (istype(target, /obj/item/weapon/storage/box))
+	else if (istype(target, /obj/item/weapon/storage) && !istype(target, /obj/item/weapon/storage/secure))
 		for (var/obj/item/C in target.contents)
 			for(var/typepath in can_hold)
 				if(istype(C,typepath))
-					user << "You grab the [C] from inside the box."
+					user << "You grab the [C] from inside the [target.name]."
 					C.loc = src
 					return
 		user << "There is nothing inside the box that your gripper can collect"
@@ -300,17 +310,7 @@
 	var/grabbed_something = 0
 
 	for(var/mob/M in T)
-		if(istype(M,/mob/living/simple_animal/lizard) || istype(M,/mob/living/simple_animal/mouse))
-			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
-			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-			qdel(M)
-			if(wood)
-				wood.add_charge(2000)
-			if(plastic)
-				plastic.add_charge(2000)
-			return
-
-		else if(istype(M,/mob/living/silicon/robot/drone) && !M.client)
+		if(istype(M,/mob/living/silicon/robot/drone) && !M.client)
 
 			var/mob/living/silicon/robot/D = src.loc
 
@@ -337,6 +337,16 @@
 				wood.add_charge(2000)
 			if(plastic)
 				plastic.add_charge(1000)
+
+
+		else if(istype(M,/mob/living/simple_animal/lizard) || istype(M,/mob/living/simple_animal/mouse))
+			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
+			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			qdel(M)
+			if(wood)
+				wood.add_charge(2000)
+			if(plastic)
+				plastic.add_charge(2000)
 			return
 		else
 			continue
@@ -402,6 +412,9 @@
 	else
 		user << "<span class='danger'>Nothing on \the [T] is useful to you.</span>"
 	return
+
+
+
 
 //PRETTIER TOOL LIST.
 /mob/living/silicon/robot/drone/installed_modules()

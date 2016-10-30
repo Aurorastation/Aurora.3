@@ -16,8 +16,7 @@
 	set category = "Object"
 
 	chamber_offset = 0
-	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
-	"<span class='notice'>You hear something metallic spin and click.</span>")
+	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", "<span class='warning'>You spin the cylinder of \the [src]!</span>", "<span class='notice'>You hear something metallic spin and click.</span>")
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	loaded = shuffle(loaded)
 	if(rand(1,max_shells) > loaded.len)
@@ -70,8 +69,10 @@
 /obj/item/weapon/gun/projectile/revolver/deckard
 	name = "Deckard .44"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
+	max_shells = 6
 	icon_state = "deckard-empty"
-	ammo_type = /obj/item/ammo_magazine/c38/rubber
+	caliber = "38"
+	ammo_type = /obj/item/ammo_casing/c38
 
 /obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
 	..()

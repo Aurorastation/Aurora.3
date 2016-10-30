@@ -94,7 +94,7 @@
 
 	var/datum/effect/effect/system/smoke_spread/chem/spores/S = new(name)
 	S.attach(T)
-	S.set_up(R, round(get_trait(TRAIT_POTENCY)/4), 0, T)
+	S.set_up(R, round(get_trait(TRAIT_POTENCY)/4), 0, T, 40)
 	S.start()
 
 // Does brute damage to a target.

@@ -100,6 +100,7 @@
 	icon_state = "ert_uniform"
 	item_state = "bl_suit"
 	worn_state = "ert_uniform"
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/space
 	name = "\improper NASA jumpsuit"

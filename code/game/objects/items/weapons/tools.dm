@@ -123,15 +123,24 @@
 	else
 		..()
 
+
+
+
+
+
 /*
  * Welding Tool
  */
 /obj/item/weapon/weldingtool
 	name = "welding tool"
-	icon = 'icons/obj/items.dmi'
+	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
+	icon = 'icons/obj/tools/welding.dmi'
 	icon_state = "welder"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
+	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
+	var/base_itemstate = "welder"
+	contained_sprite = 1
 
 	//Amount of OUCH when it's thrown
 	force = 3.0
@@ -151,13 +160,68 @@
 	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 
+
+/obj/item/weapon/weldingtool/largetank
+	name = "industrial welding tool"
+	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
+	max_fuel = 40
+	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
+	origin_tech = "engineering=2"
+	base_iconstate = "ind_welder"
+
+
+/obj/item/weapon/weldingtool/hugetank
+	name = "advanced welding tool"
+	desc = "A rare and powerful welding tool with a super-extended fuel tank."
+	max_fuel = 80
+	w_class = 2.0
+	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
+	origin_tech = "engineering=3"
+	base_iconstate = "adv_welder"
+
+
+//The Experimental Welding Tool!
+/obj/item/weapon/weldingtool/experimental
+	name = "experimental welding tool"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	max_fuel = 40
+	w_class = 2.0
+	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
+	origin_tech = "engineering=4;biotech=4"
+	base_iconstate = "exp_welder"
+	base_itemstate = "exp_welder"
+
+	var/last_gen = 0
+	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
+	//800 = 1 unit per 1 minute and 20 seconds,
+	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
+
+
+
+
+
+
+
+
+//Welding tool functionality here
 /obj/item/weapon/weldingtool/New()
 //	var/random_fuel = min(rand(10,20),max_fuel)
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
 	R.add_reagent("fuel", max_fuel)
+	update_icon()
 	..()
+
+/obj/item/weapon/weldingtool/update_icon()
+	..()
+	var/add = welding ? "_on" : "_off"
+	icon_state = base_iconstate + add //These are given an _on/_off suffix before being used
+	item_state = base_itemstate + add
+	var/mob/M = loc
+	if(istype(M))
+		M.update_inv_l_hand()
+		M.update_inv_r_hand()
 
 /obj/item/weapon/weldingtool/Destroy()
 	if(welding)
@@ -224,6 +288,33 @@
 			location = get_turf(M)
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
+
+/obj/item/weapon/weldingtool/attack(mob/M as mob, mob/user as mob)
+
+	if(hasorgans(M))
+
+		var/obj/item/organ/external/S = M:organs_by_name[user.zone_sel.selecting]
+
+		if (!S) return
+		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
+			return ..()
+
+		if(istype(M,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(H.species.flags & IS_SYNTHETIC)
+				if(M == user)
+					user << "\red You can't repair damage to your own body - it's against OH&S."
+					return
+
+		if(S.brute_dam)
+			S.heal_damage(15,0,0,1)
+			user.visible_message("\red \The [user] patches some dents on \the [M]'s [S.name] with \the [src].")
+			return
+		else
+			user << "Nothing to fix!"
+
+	else
+		return ..()
 
 
 /obj/item/weapon/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
@@ -295,13 +386,7 @@
 /obj/item/weapon/weldingtool/proc/isOn()
 	return src.welding
 
-/obj/item/weapon/weldingtool/update_icon()
-	..()
-	icon_state = welding ? "welder1" : "welder"
-	var/mob/M = loc
-	if(istype(M))
-		M.update_inv_l_hand()
-		M.update_inv_r_hand()
+
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
@@ -388,34 +473,10 @@
 				spawn(100)
 					user.disabilities &= ~NEARSIGHTED
 
-/obj/item/weapon/weldingtool/largetank
-	name = "industrial welding tool"
-	max_fuel = 40
-	origin_tech = list(TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 60)
-
-/obj/item/weapon/weldingtool/hugetank
-	name = "upgraded welding tool"
-	max_fuel = 80
-	w_class = 2.0
-	origin_tech = list(TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 120)
+	return
 
 
 
-
-//The Experimental Welding Tool!
-/obj/item/weapon/weldingtool/experimental
-	name = "experimental welding tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
-	max_fuel = 40
-	w_class = 2.0
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_PHORON = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 120)
-	var/last_gen = 0
-	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
-	//800 = 1 unit per 1 minute and 20 seconds,
-	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
 
 /obj/item/weapon/weldingtool/Destroy()
 	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
@@ -478,29 +539,7 @@
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
 
-/obj/item/weapon/weldingtool/afterattack(var/mob/M, var/mob/user)
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/S = H.organs_by_name[user.zone_sel.selecting]
-
-		if (!S) return
-		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
-			return ..()
-
-		if(S.brute_dam)
-			if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP)
-				S.heal_damage(15,0,0,1)
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message("<span class='notice'>\The [user] patches some dents on \the [M]'s [S.name] with \the [src].</span>")
-			else if(S.open != 2)
-				user << "<span class='danger'>The damage is far too severe to patch over externally.</span>"
-			return 1
-		else if(S.open != 2)
-			user << "<span class='notice'>Nothing to fix!</span>"
-
-	else
-		return ..()
 
 /*/obj/item/weapon/combitool
 	name = "combi-tool"

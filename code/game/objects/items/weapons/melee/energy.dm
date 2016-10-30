@@ -7,6 +7,7 @@
 	edge = 0
 	armor_penetration = 50
 	flags = NOBLOODY
+	can_embed = 0//No embedding pls
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
@@ -62,8 +63,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = 5
-	flags = CONDUCT | NOBLOODY
-	origin_tech = "magnets=3;combat=4;syndicate=4"
+	flags = CONDUCT | NOSHIELD | NOBLOODY
+	origin_tech = "combat=6;phorontech=4;materials=7;syndicate=4"
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = 1

@@ -1,5 +1,6 @@
 /datum/species/human
 	name = "Human"
+	short_name = "hum"
 	name_plural = "Humans"
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
@@ -20,6 +21,7 @@
 
 /datum/species/unathi
 	name = "Unathi"
+	short_name = "una"
 	name_plural = "Unathi"
 	icobase = 'icons/mob/human_races/r_lizard.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
@@ -28,13 +30,14 @@
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	primitive_form = "Stok"
 	darksight = 3
-	gluttonous = GLUT_TINY
+	gluttonous = 1
 	slowdown = 0.5
 	brute_mod = 0.8
-	ethanol_resistance = 1.5
+	ethanol_resistance = 0.4
 	num_alternate_languages = 2
 	secondary_langs = list("Sinta'unathi")
 	name_language = "Sinta'unathi"
+	rarity_value = 3
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
 	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
@@ -49,6 +52,12 @@
 	heat_level_1 = 420 //Default 360 - Higher is better
 	heat_level_2 = 480 //Default 400
 	heat_level_3 = 1100 //Default 1000
+
+	inherent_verbs = list(
+	/mob/living/proc/devour,
+	/mob/living/carbon/human/proc/regurgitate
+	)
+
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
@@ -78,6 +87,7 @@
 
 /datum/species/tajaran
 	name = "Tajara"
+	short_name = "taj"
 	name_plural = "Tajaran"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
@@ -93,6 +103,7 @@
 	secondary_langs = list("Siik'maas")
 	name_language = "Siik'maas"
 	ethanol_resistance = 0.8//Gets drunk a little faster
+	rarity_value = 2
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
@@ -130,6 +141,7 @@
 
 /datum/species/skrell
 	name = "Skrell"
+	short_name = "skr"
 	name_plural = "Skrell"
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
@@ -145,6 +157,8 @@
 	secondary_langs = list("Skrellian")
 	name_language = null
 
+	rarity_value = 3
+
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR
 
@@ -157,14 +171,16 @@
 
 /datum/species/diona
 	name = "Diona"
+	short_name = "dio"
 	name_plural = "Dionaea"
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
-	language = "Rootspeak"
+	language = "Ceti Basic"
+	default_language = "Rootsong"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/diona)
 	//primitive_form = "Nymph"
 	slowdown = 7
-	rarity_value = 3
+	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
@@ -204,20 +220,18 @@
 		"r_foot" = list("path" = /obj/item/organ/external/diona/foot/right)
 		)
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/diona_split_nymph
-		)
+	//inherent_verbs = list()
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
 
-	cold_level_1 = 50
-	cold_level_2 = -1
-	cold_level_3 = -1
+	cold_level_1 = 273
+	cold_level_2 = 223
+	cold_level_3 = 173
 
-	heat_level_1 = 2000
-	heat_level_2 = 3000
-	heat_level_3 = 4000
+	heat_level_1 = 420 //Default 360 - Higher is better
+	heat_level_2 = 480 //Default 400
+	heat_level_3 = 1100 //Default 1000
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
@@ -225,7 +239,7 @@
 	appearance_flags = 0
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
-	blood_color = "#004400"
+	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
@@ -235,6 +249,10 @@
 	if(istype(D))
 		return 1
 	return 0
+
+/datum/species/diona/get_random_name(var/gender)
+	var/datum/language/species_language = all_languages[default_language]
+	return species_language.get_random_name()
 
 /datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
 	if(H.backbag == 1)
@@ -252,6 +270,7 @@
 
 /datum/species/machine
 	name = "Machine"
+	short_name = "ipc"
 	name_plural = "machines"
 
 	blurb = "Positronic intelligence really took off in the 26th century, and it is not uncommon to see independant, free-willed \
@@ -342,12 +361,13 @@
 
 /datum/species/bug
 	name = "Vaurca"
+	short_name = "vau"
 	name_plural = "Vaurcae"
 	language = "Hivenet"
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
-	rarity_value = 2
+	rarity_value = 4
 	slowdown = 0	//may become a bonus if vaurca gain more legs.
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.

@@ -43,6 +43,7 @@
 	icon_state = "soapdeluxe"
 
 /obj/item/weapon/soap/deluxe/New()
+	..()
 	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
 	..()
 
@@ -407,7 +408,7 @@
 	icon_state = "RPED"
 	item_state = "RPED"
 	w_class = 5
-	can_hold = list(/obj/item/weapon/stock_parts)
+	can_hold = list(/obj/item/weapon/stock_parts,/obj/item/weapon/reagent_containers/glass/beaker)
 	storage_slots = 50
 	use_to_pickup = 1
 	allow_quick_gather = 1

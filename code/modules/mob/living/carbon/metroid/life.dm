@@ -10,6 +10,9 @@
 	if(stat != DEAD)
 		handle_nutrition()
 
+		if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
+			sight = SEE_SELF
+
 		if (!client)
 			handle_targets()
 			if (!AIproc)

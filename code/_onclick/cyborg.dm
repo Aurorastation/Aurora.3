@@ -73,6 +73,7 @@
 		return
 
 	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)
+
 	if(A == loc || (A in loc) || (A in contents))
 		// No adjacency checks
 
@@ -96,6 +97,7 @@
 			W.afterattack(A, src, 0, params)
 			return
 	return
+
 
 //Middle click cycles through selected modules.
 /mob/living/silicon/robot/MiddleClickOn(var/atom/A)

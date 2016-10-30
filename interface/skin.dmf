@@ -461,6 +461,14 @@ macro "macro"
 		name = "F12"
 		command = "F12"
 		is-disabled = false
+	elem 
+		name = "ALT"
+		command = "set-context-menu-enabled 0"
+		is-disabled = false
+	elem 
+		name = "ALT+UP"
+		command = "set-context-menu-enabled 1"
+		is-disabled = false
 
 macro "hotkeymode"
 	elem 

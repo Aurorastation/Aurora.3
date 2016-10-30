@@ -366,6 +366,9 @@
 		spawn(6000)
 			exceptions[eid] = 0
 
+	e.time_stamp()
+	log_exception(e)
+
 /datum/controller/process/proc/catchBadType(var/datum/caught)
 	if(isnull(caught) || !istype(caught) || !isnull(caught.gcDestroyed))
 		return // Only bother with types we can identify and that don't belong

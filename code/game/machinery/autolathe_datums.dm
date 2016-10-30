@@ -255,6 +255,11 @@
 	name = "ammunition (9mm rubber top mounted)"
 	path = /obj/item/ammo_magazine/mc9mmt/rubber
 	category = "Arms and Ammunition"
+	
+/datum/autolathe/recipe/detective_revolver_rubber
+	name = "ammunition (.38, rubber)"
+	path = /obj/item/ammo_magazine/c38/rubber
+	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/consolescreen
 	name = "console screen"
@@ -304,6 +309,11 @@
 /datum/autolathe/recipe/camera_assembly
 	name = "camera assembly"
 	path = /obj/item/weapon/camera_assembly
+	category = "Engineering"
+
+/datum/autolathe/recipe/suit_cooling
+	name = "portable suit cooling unit"
+	path = /obj/item/device/suit_cooling_unit
 	category = "Engineering"
 
 /datum/autolathe/recipe/flamethrower
@@ -387,6 +397,24 @@
 /datum/autolathe/recipe/clip_boltaction
 	name = "ammunition (7.62mm)"
 	path = /obj/item/ammo_magazine/boltaction
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/detective_revolver_lethal
+	name = "ammunition (.38)"
+	path = /obj/item/ammo_magazine/c38
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/tommy_mag
+	name = "tommygun magazine (.45)"
+	path = /obj/item/ammo_magazine/tommymag
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/uzi_mag
+	name = "stick magazine (.45)"
+	path = /obj/item/ammo_magazine/c45uzi
 	hidden = 1
 	category = "Arms and Ammunition"
 

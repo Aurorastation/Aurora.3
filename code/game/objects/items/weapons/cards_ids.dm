@@ -182,8 +182,21 @@ var/const/NO_EMAG_ACT = -50
 	return dat
 
 /obj/item/weapon/card/id/attack_self(mob/user as mob)
-	user.visible_message("\The [user] shows you: \icon[src] [src.name]. The assignment on the card: [src.assignment]",\
-		"You flash your ID card: \icon[src] [src.name]. The assignment on the card: [src.assignment]")
+	if (dna_hash == "\[UNSET\]" && ishuman(user))
+		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
+		if (response == "Yes")
+			var/mob/living/carbon/human/H = user
+			blood_type = H.dna.b_type
+			dna_hash = H.dna.unique_enzymes
+			fingerprint_hash = md5(H.dna.uni_identity)
+			citizenship = H.citizenship
+			religion = H.religion
+			age = H.age
+			user << "<span class='notice'>Biometric Imprinting Successful!.</span>"
+			return
+
+	for(var/mob/O in viewers(user, null))
+		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
 
 	src.add_fingerprint(user)
 	return

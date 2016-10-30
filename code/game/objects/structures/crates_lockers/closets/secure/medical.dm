@@ -159,8 +159,8 @@
 
 
 /obj/structure/closet/secure_closet/chemical
-	name = "chemical closet"
-	desc = "Store dangerous chemicals in here."
+	name = "chemistry equipment closet"
+	desc = "Contains equipment useful to chemists."
 	icon_state = "medical1"
 	icon_closed = "medical"
 	icon_locked = "medical1"
@@ -174,6 +174,8 @@
 		..()
 		new /obj/item/weapon/storage/box/pillbottles(src)
 		new /obj/item/weapon/storage/box/pillbottles(src)
+		new /obj/item/weapon/storage/box/spraybottles(src)
+		new /obj/item/weapon/storage/box/spraybottles(src)
 		return
 
 /obj/structure/closet/secure_closet/medical_wall

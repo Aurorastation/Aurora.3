@@ -134,6 +134,87 @@
 	icon_state = "singularity_s1"
 
 /*
+ * Toy gun: Why isnt this an /obj/item/weapon/gun?
+ */
+/obj/item/toy/gun
+	name = "cap gun"
+	desc = "There are 0 caps left. Looks almost like the real thing! Ages 8 and up. Please recycle in an autolathe when you're out of caps!"
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "revolver"
+	item_state = "revolver"
+	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
+		icon_l_hand = 'icons/mob/items/lefthand_guns.dmi',
+		icon_r_hand = 'icons/mob/items/righthand_guns.dmi',
+		)
+	flags =  CONDUCT
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	w_class = 3.0
+
+	matter = list("glass" = 10,DEFAULT_WALL_MATERIAL = 10)
+
+	attack_verb = list("struck", "pistol whipped", "hit", "bashed")
+	var/bullets = 7.0
+
+	examine(mob/user)
+		if(..(user, 0))
+			src.desc = text("There are [] caps\s left. Looks almost like the real thing! Ages 8 and up.", src.bullets)
+		return
+
+	attackby(obj/item/toy/ammo/gun/A as obj, mob/user as mob)
+
+		if (istype(A, /obj/item/toy/ammo/gun))
+			if (src.bullets >= 7)
+				user << "\blue It's already fully loaded!"
+				return 1
+			if (A.amount_left <= 0)
+				user << "\red There is no more caps!"
+				return 1
+			if (A.amount_left < (7 - src.bullets))
+				src.bullets += A.amount_left
+				user << text("\red You reload [] caps\s!", A.amount_left)
+				A.amount_left = 0
+			else
+				user << text("\red You reload [] caps\s!", 7 - src.bullets)
+				A.amount_left -= 7 - src.bullets
+				src.bullets = 7
+			A.update_icon()
+			return 1
+		return
+
+	afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+		if (flag)
+			return
+		if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+			usr << "\red You don't have the dexterity to do this!"
+			return
+		src.add_fingerprint(user)
+		if (src.bullets < 1)
+			user.show_message("\red *click* *click*", 2)
+			playsound(user, 'sound/weapons/empty.ogg', 100, 1)
+			return
+		playsound(user, 'sound/weapons/Gunshot.ogg', 100, 1)
+		src.bullets--
+		for(var/mob/O in viewers(user, null))
+			O.show_message(text("\red <B>[] fires a cap gun at []!</B>", user, target), 1, "\red You hear a gunshot", 2)
+
+/obj/item/toy/ammo/gun
+	name = "ammo-caps"
+	desc = "There are 7 caps left! Make sure to recyle the box in an autolathe when it gets empty."
+	icon = 'icons/obj/ammo.dmi'
+	icon_state = "357-7"
+	flags = CONDUCT
+	w_class = 1.0
+
+	matter = list(DEFAULT_WALL_MATERIAL = 10,"glass" = 10)
+
+	var/amount_left = 7.0
+
+	update_icon()
+		src.icon_state = text("357-[]", src.amount_left)
+		src.desc = text("There are [] caps\s left! Make sure to recycle the box in an autolathe when it gets empty.", src.amount_left)
+		return
+
+/*
  * Toy crossbow
  */
 
@@ -143,7 +224,7 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
-	item_icons = list(
+	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		icon_l_hand = 'icons/mob/items/lefthand_guns.dmi',
 		icon_r_hand = 'icons/mob/items/righthand_guns.dmi',
 		)
@@ -800,7 +881,7 @@
 
 /obj/structure/plushie/carp
 	name = "plush carp"
-	desc = "A plushie of an elated carp! Straight from the wilds of the Nyx frontier, now right here in your hands."
+	desc = "A plushie of an elated carp! Straight from the wilds of the Tau Ceti frontier, now right here in your hands."
 	icon_state = "carpplushie"
 	phrase = "Glorf!"
 
@@ -809,6 +890,12 @@
 	desc = "A plushie of a popular industrious cleaning robot! If it could feel emotions, it would love you."
 	icon_state = "beepskyplushie"
 	phrase = "Ping!"
+
+/obj/structure/plushie/ivancarp
+	name = "plush Ivan the carp"
+	desc = "A plushie in the spitting image of a russian raised carp."
+	icon_state = "carpplushie_russian"
+	phrase = "Blyat!"
 
 //Small plushies.
 /obj/item/toy/plushie

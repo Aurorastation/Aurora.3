@@ -1,3 +1,6 @@
+#define AIRLOCK_CRUSH_DIVISOR 8 // Damage caused by airlock crushing a mob is split into multiple smaller hits. Prevents things like cut off limbs, etc, while still having quite dangerous injury.
+#define CYBORG_AIRLOCKCRUSH_RESISTANCE 4 // Damage caused to silicon mobs (usually cyborgs) from being crushed by airlocks is divided by this number. Unlike organics cyborgs don't have passive regeneration, so even one hit can be devastating for them.
+
 /obj/machinery/door/airlock
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorint.dmi'
@@ -68,7 +71,7 @@
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
-	hatch_colour = "#c82b2b"
+	hatch_colour = "#677c97"
 
 /obj/machinery/door/airlock/engineering
 	name = "Airlock"
@@ -133,6 +136,7 @@
 	secured_wires = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity //Until somebody makes better sprites.
 	hashatch = 0
+	maxhealth = 800
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -178,7 +182,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
-	hatch_colour = "#345882"
+	hatch_colour = "#3e638c"
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Maintenance Hatch"
@@ -200,7 +204,7 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	glass = 1
-	hatch_colour = "#b81b1b"
+	hatch_colour = "#677c97"
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Maintenance Hatch"
@@ -284,7 +288,7 @@
 	icon = 'icons/obj/doors/Doordiamond.dmi'
 	mineral = "diamond"
 	hatch_colour = "#66eeee"
-
+	maxhealth = 2000
 
 
 /obj/machinery/door/airlock/sandstone
@@ -300,6 +304,7 @@
 	secured_wires = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
 	hatch_colour = "#5a5a66"
+	maxhealth = 600
 
 
 
@@ -695,23 +700,20 @@ About the new airlock wires panel:
 			if(src.shock(user, 100))
 				return
 
-	// No. -- cib
-	/**
 	if(ishuman(user) && prob(40) && src.density)
 		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 60)
+		if(H.getBrainLoss() >= 50)
 			playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 			if(!istype(H.head, /obj/item/clothing/head/helmet))
-				visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
+				user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
 				var/obj/item/organ/external/affecting = H.get_organ("head")
 				H.Stun(8)
 				H.Weaken(5)
 				if(affecting.take_damage(10, 0))
 					H.UpdateDamageIcon()
 			else
-				visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
+				user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
 			return
-	**/
 
 	if(src.p_open)
 		user.set_machine(src)
@@ -994,11 +996,26 @@ About the new airlock wires panel:
 
 /mob/living/airlock_crush(var/crush_damage)
 	. = ..()
-	adjustBruteLoss(crush_damage)
+	for(var/i = 1, i <= AIRLOCK_CRUSH_DIVISOR, i++)
+		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
 	SetStunned(5)
 	SetWeakened(5)
+	
 	var/turf/T = get_turf(src)
-	T.add_blood(src)
+
+	var/list/valid_turfs = list()
+	for(var/dir_to_test in cardinal)
+		var/turf/new_turf = get_step(T, dir_to_test)
+		if(!new_turf.contains_dense_objects())
+			valid_turfs |= new_turf
+
+	while(valid_turfs.len)
+		T = pick(valid_turfs)
+		valid_turfs -= T
+		
+		if(src.forceMove(T))
+			return
+
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
@@ -1006,8 +1023,7 @@ About the new airlock wires panel:
 		emote("scream")
 
 /mob/living/silicon/robot/airlock_crush(var/crush_damage)
-	adjustBruteLoss(crush_damage)
-	return 0
+	return ..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE))
 
 /obj/machinery/door/airlock/close(var/forced=0)
 	if(!can_close(forced))
@@ -1155,3 +1171,6 @@ About the new airlock wires panel:
 		src.open()
 		src.lock()
 	return
+
+#undef AIRLOCK_CRUSH_DIVISOR
+#undef CYBORG_AIRLOCKCRUSH_RESISTANCE

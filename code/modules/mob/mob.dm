@@ -15,7 +15,19 @@
 		spellremove(src)
 	for(var/infection in viruses)
 		qdel(infection)
-	ghostize()
+
+
+
+	//Added this to prevent nonliving mobs from ghostising
+	//The only non 'living' mobs are:
+		//observers (ie ghosts),
+		//new_player, an abstraction used to handle people who are sitting in the lobby
+		//Freelook, an abstraction used to handle the AI looking through cameras, and possibly remote viewing mutation
+
+	//None of these mobs can 'die' in any sense, and none of them should be able to become ghosts.
+	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
+	if (istype(src, /mob/living))
+		ghostize()
 	..()
 
 /mob/proc/remove_screen_obj_references()
@@ -84,21 +96,22 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message)
-	var/list/see = get_mobs_or_objects_in_view(world.view,src) | viewers(world.view,src)
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
 
-	for(var/I in see)
-		if(isobj(I))
-			spawn(0)
-				if(I) //It's possible that it could be deleted in the meantime.
-					var/obj/O = I
-					O.show_message( message, 1, blind_message, 2)
-		else if(ismob(I))
-			var/mob/M = I
-			if(self_message && M==src)
-				M.show_message( self_message, 1, blind_message, 2)
-			else if(M.see_invisible >= invisibility) // Cannot view the invisible
-				M.show_message( message, 1, blind_message, 2)
-			else if (blind_message)
+	for(var/mob/M in player_list)
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	for(var/mob/M in messagemobs)
+		if(self_message && M==src)
+			M.show_message(self_message, 1, blind_message, 2)
+		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
+			if(blind_message)
 				M.show_message(blind_message, 2)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
@@ -107,6 +120,7 @@
 // message is the message output to anyone who can see e.g. "[src] does something!"
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
+//This is obsolete now
 /mob/proc/contained_visible_message(var/atom/broadcaster, var/message, var/self_message, var/blind_message)
 	var/self_served = 0
 	for(var/mob/M in viewers(broadcaster))
@@ -127,10 +141,22 @@
 // Use for objects performing visible actions
 // message is output to anyone who can see, e.g. "The [src] does something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
-///atom/proc/visible_message(var/message, var/blind_message)
-//	for(var/mob/M in viewers(src))
-//		M.show_message( message, 1, blind_message, 2)
-//
+/atom/proc/visible_message(var/message, var/blind_message)
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	for(var/mob/M in messagemobs)
+		M.show_message( message, 1, blind_message, 2)
+
+
 // Returns an amount of power drawn from the object (-1 if it's not viable).
 // If drain_check is set it will not actually drain power, just return a value.
 // If surge is set, it will destroy/damage the recipient and not return any power.
@@ -261,27 +287,31 @@
 	face_atom(A)
 	A.examine(src)
 
+/mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
+
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in view(src.loc)))
+	if(!src || !isturf(src.loc) || !(A in range(world.view, get_turf(src))))
 		return 0
-	if(istype(A, /obj/effect/decal/point))
+	if(istype(A, /obj/effect/decal/point) || pointing_effect)
 		return 0
 
 	var/tile = get_turf(A)
 	if (!tile)
 		return 0
 
-	var/obj/P = new /obj/effect/decal/point(tile)
-	P.invisibility = invisibility
+	pointing_effect = new /obj/effect/decal/point(tile)
+	pointing_effect.invisibility = invisibility
 	spawn (20)
-		if(P)
-			qdel(P)	// qdel
+		if(pointing_effect)
+			qdel(pointing_effect)	// qdel
+			pointing_effect = null
 
 	face_atom(A)
 	return 1
+
 
 
 /mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
@@ -413,6 +443,9 @@
 /mob/verb/abandon_mob()
 	set name = "Respawn"
 	set category = "OOC"
+
+	if (!client)
+		return//This shouldnt happen
 
 	if (!( config.abandon_allowed ))
 		usr << "<span class='notice'>Respawn is disabled.</span>"
@@ -676,7 +709,7 @@
 			src << "\red <B>Pulling \the [H] in their current condition would probably be a bad idea.</B>"
 
 	//Attempted fix for people flying away through space when cuffed and dragged.
-	if(ismob(AM))
+	if(M)
 		var/mob/pulled = AM
 		pulled.inertia_dir = 0
 
@@ -826,12 +859,13 @@
 
 
 /mob/proc/facedir(var/ndir)
-	if(!canface() || client.moving || world.time < client.move_delay)
+	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
 	set_dir(ndir)
 	if(buckled && buckled.buckle_movable)
 		buckled.set_dir(ndir)
-	client.move_delay += movement_delay()
+	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
+		client.move_delay += movement_delay()
 	return 1
 
 
@@ -936,7 +970,7 @@
 	resting = max(resting + amount,0)
 	return
 
-/mob/proc/get_species()
+/mob/proc/get_species(var/reference = 0)
 	return ""
 
 /mob/proc/flash_weak_pain()
@@ -1096,6 +1130,11 @@ mob/proc/yank_out_object()
 			return I
 
 	return 0
+
+/mob/proc/Released()
+	//This is called when the mob is let out of a holder
+	//Override for mob-specific functionality
+	return
 
 /mob/proc/updateicon()
 	return

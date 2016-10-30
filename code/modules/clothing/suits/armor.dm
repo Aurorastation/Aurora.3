@@ -1,6 +1,5 @@
-
 /obj/item/clothing/suit/armor
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	item_flags = THICKMATERIAL
 
@@ -8,7 +7,7 @@
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.5
 	var/obj/item/weapon/storage/internal/pockets
 	var/pocket_slots = 2
 	var/pocket_size = 2
@@ -81,6 +80,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	pocket_slots = 4//Jackets have more slots
 
+/obj/item/clothing/suit/armor/vest/warden/commissar
+	name = "Commissar's jacket"
+	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
+	icon_state = "commissar_warden"
+	item_state = "commissar_warden"
 
 /obj/item/clothing/suit/armor/riot
 	name = "Riot Suit"
@@ -89,8 +93,7 @@
 	item_state = "swat_suit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	slowdown = 1
-	armor = list(melee = 80, bullet = 10, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
-	flags_inv = HIDEJUMPSUIT
+	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
 	pocket_slots = 4//Fullbody suit, so more slots
 
@@ -101,8 +104,8 @@
 	icon_state = "bulletproof"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	armor = list(melee = 10, bullet = 80, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/armor/laserproof
 	name = "Ablative Armor Vest"
@@ -110,7 +113,7 @@
 	icon_state = "armor_reflec"
 	item_state = "armor_reflec"
 	blood_overlay_type = "armor"
-	armor = list(melee = 10, bullet = 10, laser = 80, energy = 50, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -148,7 +151,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.5
 	pocket_slots = 4//fullbody, more slots
 
 
@@ -236,7 +239,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	slowdown = 1
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 20, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.5
 	var/obj/item/clothing/accessory/holster/holster
 
 /obj/item/clothing/suit/armor/tactical/New()
@@ -318,23 +321,8 @@
 	icon_state = "kvest"
 	item_state = "armor"
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-
-/obj/item/clothing/suit/armor/vest/security
-	name = "security vest"
-	desc = "A synthetic armor vest. This one is marked with the crest of NanoTrasen."
-	icon_state = "secvest"
-
-/obj/item/clothing/suit/armor/vest/detective
-	name = "detective armor vest"
-	desc = "An synthetic armor vest colored in a vintage brown."
-	icon_state = "detvest"
-
-/obj/item/clothing/suit/storage/vest
-	name = "webbed armor vest"
-	desc = "A synthetic armor vest. This one has added webbing and ballistic plates."
-	icon_state = "webvest"
-	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/suit/storage/vest/officer
 	name = "security armor vest"
@@ -348,13 +336,69 @@
 
 /obj/item/clothing/suit/storage/vest/hos
 	name = "commander armor vest"
-	desc = "A synthetic armor vest with COMMANDER printed in gold lettering on the chest. This one has added webbing and ballistic plates."
-	icon_state = "hosvest"
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a gold badge clipped to the chest."
+	icon_state = "hosvest_nobadge"
+	item_state = "hosvest_nobadge"
+	icon_badge = "hosvest_badge"
+	icon_nobadge = "hosvest_nobadge"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/vest/pcrc
 	name = "PCRC armor vest"
-	desc = "A synthetic armor vest with SECURITY printed in cyan lettering on the chest. This one has added webbing and ballistic plates."
-	icon_state = "pcrcvest"
+	desc = "A simple kevlar plate carrier belonging to Proxima Centauri Risk Control. This one has a PCRC crest clipped to the chest."
+	icon_state = "pcrcvest_nobadge"
+	item_state = "pcrcvest_nobadge"
+	icon_badge = "pcrcvest_badge"
+	icon_nobadge = "pcrcvest_nobadge"
+
+/obj/item/clothing/suit/storage/vest/detective
+	name = "detective armor vest"
+	desc = "A simple kevlar plate carrier in a vintage brown, it has a detective's badge clipped to the chest."
+	icon_state = "detectivevest_nobadge"
+	item_state = "detectivevest_nobadge"
+	icon_badge = "detectivevest_badge"
+	icon_nobadge = "detectivevest_nobadge"
+
+/obj/item/clothing/suit/storage/vest/heavy
+	name = "heavy armor vest"
+	desc = "A heavy kevlar plate carrier with webbing attached."
+	icon_state = "webvest"
+	item_state = "webvest"
+	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
+	slowdown = 1
+
+/obj/item/clothing/suit/storage/vest/heavy/officer
+	name = "officer heavy armor vest"
+	desc = "A heavy kevlar plate carrier belonging to Nanotrasen with webbing attached. This one has a security holobadge clipped to the chest."
+	icon_state = "officerwebvest_nobadge"
+	item_state = "officerwebvest_nobadge"
+	icon_badge = "officerwebvest_badge"
+	icon_nobadge = "officerwebvest_nobadge"
+
+/obj/item/clothing/suit/storage/vest/heavy/warden
+	name = "warden heavy armor vest"
+	desc = "A heavy kevlar plate carrier belonging to Nanotrasen with webbing attached. This one has a silver badge clipped to the chest."
+	icon_state = "wardenwebvest_nobadge"
+	item_state = "wardenwebvest_nobadge"
+	icon_badge = "wardenwebvest_badge"
+	icon_nobadge = "wardenwebvest_nobadge"
+
+/obj/item/clothing/suit/storage/vest/heavy/hos
+	name = "commander heavy armor vest"
+	desc = "A heavy kevlar plate carrier belonging to Nanotrasen with webbing attached. This one has a gold badge clipped to the chest."
+	icon_state = "hoswebvest_nobadge"
+	item_state = "hoswebvest_nobadge"
+	icon_badge = "hoswebvest_badge"
+	icon_nobadge = "hoswebvest_nobadge"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/vest/heavy/pcrc
+	name = "PCRC heavy armor vest"
+	desc = "A heavy kevlar plate carrier belonging to Proxima Centauri Risk Control with webbing attached. This one has a PCRC crest clipped to the chest."
+	icon_state = "pcrcwebvest_nobadge"
+	item_state = "pcrcwebvest_nobadge"
+	icon_badge = "pcrcwebvest_badge"
+	icon_nobadge = "pcrcwebvest_nobadge"
 
 //Provides the protection of a merc voidsuit, but only covers the chest/groin, and also takes up a suit slot. In exchange it has no slowdown and provides storage.
 /obj/item/clothing/suit/storage/vest/merc

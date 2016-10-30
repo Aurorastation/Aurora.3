@@ -27,6 +27,45 @@
 		pai.death(0)
 	..()
 
+/obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
+	if(istype(C, /obj/item/weapon/card/id))
+		scan_ID(C, user)
+
+
+//This proc is called when the user scans their ID on the pAI card.
+//It registers their ID and copies their access to the pai, allowing it to use airlocks the owner can
+//Scanning an ID replaces any previously stored access with the new set.
+//Only cards that match the imprinted DNA can be used, it's not a free Agent ID card.
+//Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
+/obj/item/device/paicard/proc/scan_ID(var/obj/item/weapon/card/id/card, var/mob/user)
+	if (!pai)
+		user << "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>"
+		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
+		return 0
+
+	if (!pai.master_dna)
+		user << "<span class='warning'>Error: ID Registration failed. User not registered as owner. Please complete imprinting process first.</span>"
+		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
+		return 0
+
+	if (pai.master_dna != card.dna_hash)
+		user << "<span class='warning'>Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner.</span>"
+		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
+		return 0
+
+	pai.ID.access.Cut()
+	pai.ID.access = card.access.Copy()
+	pai.ID.registered_name = card.registered_name
+	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+	user << "<span class='notice'>ID Registration for [pai.ID.registered_name] is a success. PAI access updated!</span>"
+	return 1
+
+/obj/item/device/paicard/proc/ID_readout()
+	if (pai.ID.registered_name)
+		return "<span class='notice'>Identity of owner: [pai.ID.registered_name] registered.</span>"
+	else
+		return "<span class='warning'>No ID card registered! Please scan your ID to share access.</span>"
+
 /obj/item/device/paicard/attack_self(mob/user)
 	if (!in_range(src, user))
 		return
@@ -143,6 +182,10 @@
 					<td class="request">Additional directives:</td>
 					<td>[pai.pai_laws]</td>
 				</tr>
+				<tr>
+					<td class="request">ID:</td>
+					<td>[ID_readout()]</td>
+				</tr>
 			</table>
 			<br>
 		"}
@@ -217,7 +260,7 @@
 					</tr>
 				</table>
 				<br>
-				<p>Each time this button is pressed, a request will be sent out to any available personalities. Check back often give plenty of time for personalities to respond. This process could take anywhere from 15 seconds to several minutes, depending on the available personalities' timeliness.</p>
+				<p>Each time this button is pressed, a request will be sent out to any available personalities. Check back often give plenty of time for personalities to respond. This process could take anywhere from 15 seconds to several minutes, depending on the available personalities' timelines.</p>
 			"}
 	user << browse(dat, "window=paicard")
 	onclose(user, "paicard")
@@ -247,8 +290,11 @@
 		if(confirm == "Yes")
 			for(var/mob/M in src)
 				M << "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>"
+				sleep(30)
 				M << "<font color = #ff4d4d><h3>Byte by byte you lose your sense of self.</h3></font>"
+				sleep(20)
 				M << "<font color = #ff8787><h4>Your mental faculties leave you.</h4></font>"
+				sleep(30)
 				M << "<font color = #ffc4c4><h5>oblivion... </h5></font>"
 				M.death(0)
 			removePersonality()
@@ -339,6 +385,9 @@
 	update_location(slot)
 
 /obj/item/device/paicard/proc/update_location(var/slotnumber = null)
+	if (!pai)
+		return
+
 	if (!slotnumber)
 		if (istype(loc, /mob))
 			slotnumber = get_equip_slot()

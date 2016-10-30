@@ -82,6 +82,8 @@
 		choices |= "Blood"
 	if(istype(A, /obj/item/clothing))
 		choices |= "Gunshot Residue"
+	if(A.other_DNA && A.other_DNA_type == "saliva")
+		choices |= "Saliva"
 
 	var/choice
 	if(!choices.len)
@@ -96,18 +98,24 @@
 		return
 
 	var/sample_type
-	if(choice == "Blood")
-		if(!A.blood_DNA || !A.blood_DNA.len) return
-		dna = A.blood_DNA.Copy()
-		sample_type = "blood"
+	switch (choice)
+		if ("Blood")
+			if(!A.blood_DNA || !A.blood_DNA.len) return
+			dna = A.blood_DNA.Copy()
+			sample_type = "blood"
 
-	else if(choice == "Gunshot Residue")
-		var/obj/item/clothing/B = A
-		if(!istype(B) || !B.gunshot_residue)
-			user << "<span class='warning'>There is no residue on \the [A].</span>"
-			return
-		gsr = B.gunshot_residue
-		sample_type = "residue"
+		if ("Gunshot Residue")
+			var/obj/item/clothing/B = A
+			if(!istype(B) || !B.gunshot_residue)
+				user << "<span class='warning'>There is no residue on \the [A].</span>"
+				return
+			gsr = B.gunshot_residue
+			sample_type = "residue"
+
+		if ("Saliva")
+			if (!A.other_DNA || !length(A.other_DNA)) return
+			dna = A.other_DNA.Copy()
+			sample_type = "saliva"
 
 	if(sample_type)
 		user.visible_message("\The [user] swabs \the [A] for a sample.", "You swab \the [A] for a sample.")

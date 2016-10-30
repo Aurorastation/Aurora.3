@@ -1,5 +1,6 @@
 /datum/species/vox
 	name = "Vox"
+	short_name = "vox"
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_vox.dmi'
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
@@ -33,7 +34,7 @@
 	siemens_coefficient = 0.2
 
 	flags = NO_SCAN | NO_MINOR_CUT
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_EYE_COLOR
 
 	blood_color = "#2299FC"

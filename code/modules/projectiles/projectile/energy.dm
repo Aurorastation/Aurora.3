@@ -115,24 +115,51 @@
 	weaken = 5
 	stun = 5
 
-/obj/item/projectile/energy/sonic/on_hit(var/atom/target, var/blocked = 0)
-	var/mob/M = target
-	if(isturf(target))
-		target.ex_act(0)
-	if(ismob(target))
-		explosion(target, -1, 0, 2)
+/obj/item/projectile/energy/sonic/on_impact(var/atom/A)
+	if(isturf(A))
+		A.ex_act(0)
+	if(ismob(A))
+		var/mob/M = A
+		explosion(M, -1, 0, 2)
 		M.gib()
+	if(!(isturf(A)) & !(ismob(A)))
+		explosion(A, -1, 0, 2)
+	..()
+
+/obj/item/projectile/energy/bee
+	name = "bees"
+	icon = 'icons/obj/apiary_bees_etc.dmi'
+	icon_state = "beegun"
+	check_armour = "bio"
+	damage = 0
+	damage_type = BRUTE
+	pass_flags = PASSTABLE | PASSGRILLE
+	embed = 0
+	weaken = 0
+
+/obj/item/projectile/energy/bee/on_impact(var/atom/A)
+	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
+	for(var/i=1, i<=8, i++)
+		var/mob/living/simple_animal/bee/x = new /mob/living/simple_animal/bee
+		x.loc = A
+		x.feral = 25
+		if(ismob(A))
+			x.target_mob = A
+		if(prob(50))
+			for(var/j = 1, j <= rand(1, 3), j++)
+				step(x, pick(NORTH,SOUTH,EAST,WEST))
+
 	..()
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
 	icon_state = "laser"
 	check_armour = "laser"
-	damage = 10
+	damage = 15
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	embed = 0
-	incinerate = 5
+	incinerate = 2
 
 /*/obj/item/projectile/energy/flamer
 	name = "promethium"

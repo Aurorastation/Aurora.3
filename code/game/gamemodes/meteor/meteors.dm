@@ -79,7 +79,7 @@
 	var/power = 2
 	var/power_step = 0.75
 	var/dest
-	var/shieldsoundrange = 220 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
+	var/shieldsoundrange = 260 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
 	pass_flags = PASSTABLE
 	var/done = 0//This is set to 1 when the meteor is done colliding, and is used to ignore additional bumps while waiting for deletion
 
@@ -92,7 +92,7 @@
 	power_step = 0.5
 	hits = 2
 	detonation_chance = 30
-	shieldsoundrange = 120
+	shieldsoundrange = 160
 
 
 /obj/effect/meteor/Destroy()
@@ -223,7 +223,8 @@
 
 
 	for(var/mob/M in world)
-		if(M.client && M.z == T.z)
+		var/turf/mobloc = get_turf(M)
+		if(M.client && mobloc.z == T.z)
 			if(M.ear_deaf <= 0 || !M.ear_deaf)
 				M.playsound_local(T, 'sound/effects/meteorimpact.ogg', range, 1, usepressure = 0)
 

@@ -172,6 +172,9 @@
 	spawn(1)
 		get_icon()
 
+	if ((status & ORGAN_PLANT))
+		cannot_break = 1
+
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	owner = target
 	forceMove(owner)
@@ -456,6 +459,10 @@ This function completely restores a damaged organ to perfect condition.
 				if(trace_chemicals[chemID] <= 0)
 					trace_chemicals.Remove(chemID)
 
+		//Bone fractures
+		if(config.bones_can_break && !(status & ORGAN_ROBOT) && !(status & ORGAN_PLANT) && brute_dam > min_broken_damage * config.organ_health_multiplier)
+			src.fracture()
+
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
 
@@ -564,7 +571,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 //Updating wounds. Handles wound natural I had some free spachealing, internal bleedings and infections
 /obj/item/organ/external/proc/update_wounds()
 
-	if((status & ORGAN_ROBOT) || (status & ORGAN_ADV_ROBOT)) //Robotic limbs don't heal or get worse.
+	if((status & ORGAN_ROBOT) || (status & ORGAN_ADV_ROBOT) || (status & ORGAN_PLANT)) //Robotic limbs don't heal or get worse. Diona limbs heal using their own mechanic
 		return
 	var/updatehud
 	for(var/datum/wound/W in wounds)

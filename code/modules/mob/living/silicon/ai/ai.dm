@@ -144,14 +144,15 @@ var/list/ai_verbs_default = list(
 	//Languages
 	add_language("Robot Talk", 1)
 	add_language("Ceti Basic", 1)
+	add_language("Sol Common", 0)
+	add_language("Sinta'unathi", 0)
+	add_language("Siik'maas", 0)
+	add_language("Skrellian", 0)
+	add_language("Tradeband", 1)
+	add_language("Gutter", 0)
+	add_language("Hivenet", 0)
+	add_language("Rootsong", 0)
 	add_language(LANGUAGE_EAL, 1)
-	add_language(LANGUAGE_SOL_COMMON, 0)
-	add_language(LANGUAGE_UNATHI, 0)
-	add_language(LANGUAGE_SIIK_TAJR, 0)
-	add_language(LANGUAGE_SKRELLIAN, 0)
-	add_language(LANGUAGE_RESOMI, 0)
-	add_language(LANGUAGE_TRADEBAND, 1)
-	add_language(LANGUAGE_GUTTER, 0)
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -467,7 +468,27 @@ var/list/ai_verbs_default = list(
 		else
 			src << "\red System error. Cannot locate [html_decode(href_list["trackname"])]."
 		return
+	if (href_list["readcapturedpaper"]) //Yep stolen from admin faxes
+		var/entry = text2num(href_list["readcapturedpaper"])
+		if(!entry || !cameraRecords.len) return
+		if(!cameraRecords[entry])
+			src << "<span class='notice'>Unable to locate visual entry.</span>"
+			return
+		var/info = cameraRecords[entry]
+		src<< browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", html_encode(info[1]), html_encode(info[2])), text("window=[]", html_encode(info[1])))
+		return
 
+	return
+
+/mob/living/silicon/ai/meteorhit(obj/O as obj)
+	for(var/mob/M in viewers(src, null))
+		M.show_message(text("\red [] has been hit by []", src, O), 1)
+		//Foreach goto(19)
+	if (health > 0)
+		adjustBruteLoss(30)
+		if ((O.icon_state == "flaming"))
+			adjustFireLoss(40)
+		updatehealth()
 	return
 
 /mob/living/silicon/ai/reset_view(atom/A)
@@ -749,6 +770,22 @@ var/list/ai_verbs_default = list(
 	var/obj/item/weapon/rig/rig = src.get_rig()
 	if(rig)
 		rig.force_rest(src)
+
+/mob/living/silicon/ai/proc/addCameraRecord(var/itemName,var/info)
+	if(!itemName || !info)
+		return -1
+
+	if(!cameraRecords)
+		cameraRecords = list()
+
+	//Didn't really want to loop here
+	for(var/i = 1, i <= cameraRecords.len, i++)
+		if(cameraRecords[i][1] == itemName && cameraRecords[i][2] == info)
+			return i
+
+	var/s = list(itemName,info)
+	cameraRecords += list(s)
+	return cameraRecords.len
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO

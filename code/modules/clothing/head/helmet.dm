@@ -14,8 +14,34 @@
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HEAD
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.5
 	w_class = 3
+
+/obj/item/clothing/head/helmet/warden
+	name = "warden's hat"
+	desc = "It's a special helmet issued to the Warden of a securiy force. Protects the head from impacts."
+	icon_state = "policehelm"
+	flags_inv = 0
+	body_parts_covered = 0
+
+/obj/item/clothing/head/helmet/warden/commissar
+	name = "commissar's cap"
+	desc = "A security commissar's cap."
+	icon_state = "commissarcap"
+
+/obj/item/clothing/head/helmet/hop
+	name = "crew resource's hat"
+	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
+	icon_state = "hopcap"
+	flags_inv = 0
+	body_parts_covered = 0
+
+/obj/item/clothing/head/helmet/formalcaptain
+	name = "parade hat"
+	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
+	icon_state = "officercap"
+	flags_inv = 0
+	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
@@ -24,7 +50,7 @@
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	armor = list(melee = 82, bullet = 15, laser = 5,energy = 5, bomb = 5, bio = 2, rad = 0)
 	flags_inv = HIDEEARS
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
@@ -64,7 +90,7 @@
 
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
 	flags_inv = HIDEEARS
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/head/helmet/augment
 	name = "Augment Array"
@@ -108,5 +134,5 @@
 //Medical
 /obj/item/clothing/head/helmet/ert/medical
 	name = "emergency response team medical helmet"
-	desc = "A set of armor worn by medical members of the Emergency Response Team. Has red and white highlights."
+	desc = "A set of armor worn by medical members of the NanoTrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "erthelmet_med"

@@ -11,7 +11,7 @@ proc/worldtime2text(time = world.time, timeshift = 1)
 	return timeshift ? time2text(time+(36000*roundstart_hour), "hh:mm") : time2text(time, "hh:mm")
 
 proc/worlddate2text()
-	return num2text((text2num(time2text(world.timeofday, "YYYY"))+544)) + "-" + time2text(world.timeofday, "MM-DD")
+	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
 
 proc/time_stamp()
 	return time2text(world.timeofday, "hh:mm:ss")

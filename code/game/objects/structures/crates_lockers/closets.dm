@@ -21,6 +21,8 @@
 	var/store_items = 1
 	var/store_mobs = 1
 
+	var/const/default_mob_size = 15
+
 /obj/structure/closet/initialize()
 	..()
 	if(!opened)		// if closed, any item at the crate's loc is put in the contents
@@ -52,6 +54,11 @@
 			user << "There is still some free space."
 		else
 			user << "It is full."
+
+
+
+/obj/structure/closet/alter_health()
+	return get_turf(src)
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
@@ -164,21 +171,17 @@
 /obj/structure/closet/ex_act(severity)
 	switch(severity)
 		if(1)
-			for(var/atom/movable/A as mob|obj in src)//pulls everything out of the locker and hits it with an explosion
-				A.forceMove(src.loc)
-				A.ex_act(severity + 1)
-			qdel(src)
+			health -= rand(120, 240)
 		if(2)
-			if(prob(50))
-				for (var/atom/movable/A as mob|obj in src)
-					A.forceMove(src.loc)
-					A.ex_act(severity + 1)
-				qdel(src)
+			health -= rand(60, 120)
 		if(3)
-			if(prob(5))
-				for(var/atom/movable/A as mob|obj in src)
-					A.forceMove(src.loc)
-				qdel(src)
+			health -= rand(30, 60)
+
+	if (health <= 0)
+		for (var/atom/movable/A as mob|obj in src)
+			A.forceMove(src.loc)
+			A.ex_act(severity + 1)
+		qdel(src)
 
 /obj/structure/closet/proc/damage(var/damage)
 	health -= damage
@@ -317,6 +320,12 @@
 	else
 		icon_state = icon_opened
 
+/obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
+	for (var/atom/A in src)
+		if(istype(A,/obj/))
+			var/obj/O = A
+			O.hear_talk(M, text, verb, speaking)
+
 /obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "destroys", var/wallbreaker)
 	if(!damage || !wallbreaker)
 		return
@@ -327,28 +336,33 @@
 	return 1
 
 /obj/structure/closet/proc/req_breakout()
-	if(breakout)
-		return 0 //Already breaking out.
+
 	if(opened)
 		return 0 //Door's open... wait, why are you in it's contents then?
-	if(!welded)
-		return 0 //closed but not welded...
-	return 1
+	if(welded)
+		return 1 //closed but not welded...
+	if(breakout)
+		return -1 //Already breaking out.
+	return 0
 
 /obj/structure/closet/proc/mob_breakout(var/mob/living/escapee)
-	var/breakout_time = 2 //2 minutes by default
 
-	if(!req_breakout())
+	//Improved by nanako
+	//Now it actually works, also locker breakout time stacks with locking and welding
+	//This means secure lockers are more useful for imprisoning people
+	var/breakout_time = 1.5 * req_breakout()//1.5 minutes if locked or welded, 3 minutes if both
+	if(breakout_time <= 0)
 		return
 
-	escapee.setClickCooldown(100)
+
 
 	//okay, so the closet is either welded or locked... resist!!!
+	escapee.next_move = world.time + 100
+	escapee.last_special = world.time + 100
 	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>"
-
 	visible_message("<span class='danger'>The [src] begins to shake violently!</span>")
 
-	breakout = 1 //can't think of a better way to do this right now.
+	breakout = 1
 	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
 		playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
 		animate_shake()

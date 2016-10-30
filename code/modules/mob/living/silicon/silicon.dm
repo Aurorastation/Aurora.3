@@ -1,6 +1,7 @@
 /mob/living/silicon
 	gender = NEUTER
 	voice_name = "synthesized voice"
+	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 	var/syndicate = 0
 	var/const/MAIN_CHANNEL = "Main Frequency"
 	var/lawchannel = MAIN_CHANNEL // Default channel on which to state laws
@@ -22,7 +23,7 @@
 
 	var/next_alarm_notice
 	var/list/datum/alarm/queued_alarms = new()
-	var/underdoor
+
 
 	var/list/access_rights
 	var/obj/item/weapon/card/id/idcard
@@ -37,6 +38,10 @@
 	// #TODO-MERGE: Search for all isntances of Galactic Common and REPLACE THE FUCK OUT OF THEM!
 	add_language("Ceti Basic")
 	init_id()
+
+	var/datum/language/L = locate(/datum/language/common) in languages
+	default_language = L
+
 	init_subsystems()
 
 /mob/living/silicon/Destroy()
@@ -378,10 +383,4 @@
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
 
-/mob/living/silicon/proc/under_door()
-	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
-	if (layer > UNDERDOOR)//Don't toggle it if we're hiding
-		layer = UNDERDOOR
-		underdoor = 1
 
-/mob/living/silicon/proc/not_under_door()

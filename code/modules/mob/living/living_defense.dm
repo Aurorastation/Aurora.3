@@ -233,14 +233,14 @@
 // End BS12 momentum-transfer code.
 
 /mob/living/attack_generic(var/mob/user, var/damage, var/attack_message)
-
 	if(!damage)
 		return
 
 	adjustBruteLoss(damage)
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
-	src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
+	if (attack_message)
+		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
 	spawn(1) updatehealth()
 	return 1
@@ -248,14 +248,14 @@
 /mob/living/proc/IgniteMob()
 	if(fire_stacks > 0 && !on_fire)
 		on_fire = 1
-		set_light(light_range + 3)
+		set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
 		update_fire()
 
 /mob/living/proc/ExtinguishMob()
 	if(on_fire)
 		on_fire = 0
 		fire_stacks = 0
-		set_light(max(0, light_range - 3))
+		set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
 		update_fire()
 
 /mob/living/proc/update_fire()
@@ -302,7 +302,6 @@
 	return max(2.25*round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/FIRE_MAX_FIRESUIT_STACKS)**2), 700)
 
 /mob/living/proc/reagent_permeability()
-	return 1
 	return round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/FIRE_MAX_FIRESUIT_STACKS)**2)
 
 /mob/living/proc/handle_actions()

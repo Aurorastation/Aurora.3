@@ -9,7 +9,6 @@
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	caliber = "14.5mm"
 	recoil = 4 //extra kickback
-	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 1
@@ -28,9 +27,7 @@
 /obj/item/weapon/gun/projectile/heavysniper/can_wield()
 	return 1
 
-/obj/item/weapon/gun/projectile/heavysniper/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
+
 
 /obj/item/weapon/gun/projectile/heavysniper/verb/wield_rifle()
 	set name = "Wield rifle"
@@ -66,6 +63,9 @@
 	if(bolt_open)
 		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return 0
+	if(!wielded)
+		user << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
+		return 0
 	return ..()
 
 /obj/item/weapon/gun/projectile/heavysniper/load_ammo(var/obj/item/A, mob/user)
@@ -87,3 +87,36 @@
 		toggle_scope(2.0)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+
+/obj/item/weapon/gun/projectile/heavysniper/tranq
+	name = "\improper PTR-7 tranquilizer rifle"
+	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of large animals. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."
+	icon_state = "tranqsniper"
+	item_state = "heavysniper"
+	w_class = 4
+	force = 10
+	slot_flags = SLOT_BACK
+	origin_tech = "combat=6;materials=2"
+	caliber = "PPS"
+	recoil = 1
+	silenced = 1
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	handle_casings = HOLD_CASINGS
+	load_method = SINGLE_CASING
+	magazine_type = null
+	allowed_magazines = list(/obj/item/ammo_magazine/tranq)
+	max_shells = 4
+	ammo_type = null
+	accuracy = -3
+	scoped_accuracy = 3
+	bolt_open = 0
+	muzzle_flash = 1
+
+	recoil_wielded = 1
+	accuracy_wielded = 2
+
+/obj/item/weapon/gun/projectile/heavysniper/tranq/update_icon()
+	if(bolt_open)
+		icon_state = "tranqsniper-open"
+	else
+		icon_state = "tranqsniper"

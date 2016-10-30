@@ -232,10 +232,19 @@ var/list/gamemode_cache = list()
 	//Mark-up enabling
 	var/allow_chat_markup = 0
 
+
 	var/list/language_prefixes = list(",","#","-")//Default language prefixes
 
 	var/ghosts_can_possess_animals = 0
 	var/delist_when_no_admins = 0
+
+	//Snowflake antag contest boolean
+	//AUG2016
+	var/antag_contest_enabled = 0
+
+	//API Rate limiting
+	var/api_rate_limit = 50
+	var/list/api_rate_limit_whitelist = list()
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -354,7 +363,7 @@ var/list/gamemode_cache = list()
 					config.log_hrefs = 1
 
 				if ("log_runtime")
-					config.log_runtime = 1
+					config.log_runtime = text2num(value)
 
 				if ("generate_asteroid")
 					config.generate_asteroid = 1
@@ -754,6 +763,15 @@ var/list/gamemode_cache = list()
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = 1
 
+				if("antag_contest_enabled")
+					config.antag_contest_enabled = 1
+
+				if("api_rate_limit")
+					config.api_rate_limit = text2num(value)
+
+				if("api_rate_limit_whitelist")
+					config.api_rate_limit_whitelist = text2list(value, ";")
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -821,6 +839,22 @@ var/list/gamemode_cache = list()
 			name = replacetext(name, "_", " ")
 			age_restrictions += name
 			age_restrictions[name] = text2num(value)
+
+		else if (type == "discord")
+			// Ideally, this would never happen. But just in case.
+			if (!discord_bot)
+				log_debug("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
+				return
+
+			switch (name)
+				if ("token")
+					discord_bot.auth_token = value
+				if ("active")
+					discord_bot.active = 1
+				if ("robust_debug")
+					discord_bot.robust_debug = 1
+				else
+					log_misc("Unknown setting in discord configuration: '[name]'")
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up

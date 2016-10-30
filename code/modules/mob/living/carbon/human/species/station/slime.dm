@@ -12,6 +12,7 @@
 	spawn_flags = IS_RESTRICTED
 	siemens_coefficient = 3 //conductive
 	darksight = 3
+	rarity_value = 5
 
 	blood_color = "#05FF9B"
 	flesh_color = "#05FFFB"

@@ -99,8 +99,8 @@
 	if(src.panelopen) //The maintenance panel is open. Time for some shady stuff
 		dat+= "<HEAD><TITLE>Suit storage unit: Maintenance panel</TITLE></HEAD>"
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
-		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.</font><BR><BR>"
-		dat+= text("<font color ='black'>A small dial with a small lambda symbol on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A></font><BR>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
+		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.<BR><BR>"
+		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
 		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : "<font color='red'><B>RED</B></font>"),src)
 		dat+= text("<HR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close panel</A>", user)
 		//user << browse(dat, "window=ssu_m_panel;size=400x500")
@@ -330,9 +330,8 @@
 	for(i=0,i<4,i++)
 		sleep(50)
 		if(src.OCCUPANT)
-			OCCUPANT.apply_effect(50, IRRADIATE)
-			var/obj/item/organ/diona/nutrients/rad_organ = locate() in OCCUPANT.internal_organs
-			if (!rad_organ)
+			OCCUPANT.radiation += 50
+			if (!OCCUPANT.is_diona())
 				if(src.issuperUV)
 					var/burndamage = rand(28,35)
 					OCCUPANT.take_organ_damage(0,burndamage)
@@ -652,6 +651,14 @@
 	model_text = "Nonstandard"
 	req_access = list(access_syndicate)
 	departments = list("Mercenary")
+	species = list("Human","Tajara","Skrell","Unathi")
+	can_repair = 1
+
+/obj/machinery/suit_cycler/wizard
+	name = "Magic suit cycler"
+	model_text = "Wizardry"
+	req_access = null
+	departments = list("Wizardry")
 	species = list("Human","Tajara","Skrell","Unathi")
 	can_repair = 1
 

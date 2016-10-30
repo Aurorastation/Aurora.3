@@ -73,11 +73,11 @@
 
 	//armour
 	var/blocked = L.run_armor_check(target_zone, "melee")
-
 	if(blocked >= 2)
 		return
 
-	if(!L.apply_damage(30, BRUTE, target_zone, blocked, used_weapon=src))
+	var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
+	if(!success)
 		return 0
 
 	//trap the victim in place
@@ -88,6 +88,12 @@
 		L << "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>"
 		deployed = 0
 		can_buckle = initial(can_buckle)
+		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound
+
+		if (istype(L, /mob/living/simple_animal/hostile/bear))
+			var/mob/living/simple_animal/hostile/bear/bear = L
+			bear.anger += 15//Beartraps make bears really angry
+			bear.instant_aggro()
 
 /obj/item/weapon/beartrap/Crossed(AM as mob|obj)
 	if(deployed && isliving(AM))

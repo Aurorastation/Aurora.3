@@ -65,7 +65,7 @@
 		if(57 to 58)
 			new/obj/item/toy/syndicateballoon(src)
 		if(59 to 60)
-			new/obj/item/weapon/rig(src)
+			new/obj/item/weapon/rig/eva(src)
 		if(61 to 62)
 			for(var/i = 0, i < 12, ++i)
 				new/obj/item/clothing/head/kitty(src)
@@ -104,7 +104,7 @@
 		if(87)
 			new/obj/item/xenos_claw(src)
 		if(88)
-			new/obj/item/weapon/gun/projectile/shotgun/pump/boltaction(src)
+			new/obj/item/weapon/gun/projectile/boltaction(src)
 			new/obj/item/ammo_magazine/boltaction(src)
 			new/obj/item/clothing/under/soviet(src)
 			new/obj/item/clothing/head/ushanka(src)
@@ -148,7 +148,13 @@
 			new/obj/item/weapon/storage/belt/champion(src)
 			new/obj/item/clothing/mask/luchador(src)
 		if(100)
-			new/obj/item/clothing/head/bearpelt(src)
+			new/obj/item/weapon/gun/projectile/tanto(src)
+			new/obj/item/ammo_magazine/t40(src)
+			new/obj/item/ammo_magazine/t40(src)
+			new/obj/item/ammo_magazine/t40/rubber(src)
+			new/obj/item/clothing/under/rank/dispatch(src)
+			new/obj/item/clothing/accessory/badge/old(src)
+			new/obj/item/clothing/head/helmet/formalcaptain(src)
 
 /obj/structure/closet/crate/secure/loot/togglelock(mob/user as mob)
 	if(!locked)
@@ -182,7 +188,7 @@
 /obj/structure/closet/crate/secure/loot/proc/check_input(var/input)
 	if(length(input) != codelen)
 		return 0
-	
+
 	. = 1
 	lastattempt.Cut()
 	for(var/i in 1 to codelen)
@@ -202,7 +208,7 @@
 			if(lastattempt.len)
 				var/bulls = 0
 				var/cows = 0
-				
+
 				var/list/code_contents = code.Copy()
 				for(var/i in 1 to codelen)
 					if(lastattempt[i] == code[i])

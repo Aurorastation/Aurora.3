@@ -494,4 +494,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/turf/location = get_turf(src)
 	if(location)
 		location.hotspot_expose(700, 5)
+
+	if (istype(loc, /obj/item/weapon/storage))//A lighter shouldn't stay lit inside a closed container
+		lit = 0
+		icon_state = "[base_state]"
+		item_state = "[base_state]"
+		set_light(0)
+		processing_objects.Remove(src)
 	return

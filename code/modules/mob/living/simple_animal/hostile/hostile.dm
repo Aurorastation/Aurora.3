@@ -14,7 +14,7 @@
 	stop_automated_movement_when_pulled = 0
 	var/destroy_surroundings = 1
 	a_intent = I_HURT
-
+	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
 	var/shuttletarget = null
 	var/enroute = 0
 
@@ -57,8 +57,16 @@
 				stance = HOSTILE_STANCE_ATTACK
 				T = B
 				break
+
+	if (T != target_mob)
+		target_mob = T
+		FoundTarget()
 	return T
 
+
+//This proc is called after a target is acquired
+/mob/living/simple_animal/hostile/proc/FoundTarget()
+	return
 
 /mob/living/simple_animal/hostile/proc/Found(var/atom/A)
 	return
@@ -66,7 +74,7 @@
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
 	if(!target_mob || SA_attackable(target_mob))
-		stance = HOSTILE_STANCE_IDLE
+		LoseTarget()
 	if(target_mob in ListTargets(10))
 		if(ranged)
 			if(get_dist(src, target_mob) <= 6)
@@ -84,7 +92,7 @@
 		LoseTarget()
 		return 0
 	if(!(target_mob in ListTargets(10)))
-		LostTarget()
+		LoseTarget()
 		return 0
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
@@ -104,15 +112,16 @@
 	if(istype(target_mob,/obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return B
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
 	walk(src, 0)
+	LostTarget()
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
-	stance = HOSTILE_STANCE_IDLE
-	walk(src, 0)
+	return
 
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
@@ -148,9 +157,9 @@
 				MoveToTarget()
 
 			if(HOSTILE_STANCE_ATTACKING)
-				if(destroy_surroundings)
+				if(!AttackTarget() && destroy_surroundings)//hit a window OR a mob, not both at once
 					DestroySurroundings()
-				AttackTarget()
+
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	var/target = target_mob
@@ -195,10 +204,12 @@
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
 				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
 					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-					return
+					return 1
 			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
 			if(istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
 				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+				return 1
+	return 0
 
 
 /mob/living/simple_animal/hostile/proc/check_horde()
@@ -232,7 +243,7 @@
 		else if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
 			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
 	Move(T)
-	FindTarget()
+	target_mob = FindTarget()
 	if(!target_mob || enroute)
 		spawn(10)
 			if(!src.stat)

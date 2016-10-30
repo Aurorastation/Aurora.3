@@ -165,7 +165,27 @@
 			if ("webint")
 				src.open_webint()
 
-	..()	//redirect to hsrc.Topic()
+			if ("logie")
+				if (config.sql_stats && href_list["ie_data"])
+					var/list/data = json_decode(href_list["ie_data"])
+					data["_ckey"] = src.ckey
+					if (data.len != 7)
+						return
+
+					if (!establish_db_connection(dbcon))
+						return
+
+					var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_stats_ie (ckey, IsIE, IsEdge, EdgeHtmlVersion, TrueVersion, ActingVersion, CompatibilityMode, DateUpdated) VALUES (_ckey, _IsIE, _IsEdge, _EdgeHtmlVersion, _TrueVersion, _ActingVersion, _CompatibilityMode, NOW()) ON DUPLICATE KEY UPDATE IsIE = VALUES(IsIe), IsEdge = VALUES(IsEdge), EdgeHtmlVersion = VALUES(EdgeHtmlVersion), TrueVersion = VALUES(TrueVersion), ActingVersion = VALUES(ActingVersion), CompatibilityMode = VALUES(CompatibilityMode), DateUpdated = NOW()")
+					query.Execute(data)
+
+		return
+
+	// Antag contest shit
+	if (href_list["contest_action"] && config.antag_contest_enabled)
+		src.process_contest_topic(href_list)
+		return
+
+	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
 	if(config.automute_on && !holder && src.last_message == message)
@@ -275,6 +295,9 @@
 
 	if (outdated_greeting_info)
 		server_greeting.display_to_client(src, outdated_greeting_info)
+
+	// Check code/modules/admin/verbs/antag-ooc.dm for definition
+	add_aooc_if_necessary()
 
 	//////////////
 	//DISCONNECT//
@@ -398,6 +421,8 @@
 		'html/bootstrap/js/html5shiv.min.js',
 		'html/bootstrap/js/respond.min.js',
 		'html/jquery/jquery-2.0.0.min.js',
+		'html/iestats/json2.min.js',
+		'html/iestats/ie-truth.min.js',
 		'icons/pda_icons/pda_atmos.png',
 		'icons/pda_icons/pda_back.png',
 		'icons/pda_icons/pda_bell.png',

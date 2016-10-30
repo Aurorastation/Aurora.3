@@ -18,11 +18,19 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 	see_in_dark = 5
-	mob_size = 8
+	mob_size = 5
+	max_nutrition = 250//Dogs are insatiable eating monsters. This scales with their mob size too
+	stomach_size_mult = 30
+	seek_speed = 6
 	possession_candidate = 1
 
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
+
+/mob/living/simple_animal/corgi/New()
+	..()
+	nutrition = max_nutrition * 0.3//Ian doesn't start with a full belly so will be hungry at roundstart
+	nutrition_step = mob_size * 0.12
 
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Ian
@@ -30,8 +38,7 @@
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
 	desc = "It's a corgi."
-	var/turns_since_scan = 0
-	var/obj/movement_target
+	//var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
@@ -39,52 +46,20 @@
 /mob/living/simple_animal/corgi/Ian/Life()
 	..()
 
-	//Feeding, chasing food, FOOOOODDDD
 	if(!stat && !resting && !buckled)
-		turns_since_scan++
-		if(turns_since_scan > 5)
-			turns_since_scan = 0
-			if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
-				movement_target = null
-				stop_automated_movement = 0
-			if( !movement_target || !(movement_target.loc in oview(src, 3)) )
-				movement_target = null
-				stop_automated_movement = 0
-				for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,3))
-					if(isturf(S.loc) || ishuman(S.loc))
-						movement_target = S
-						break
-			if(movement_target)
-				stop_automated_movement = 1
-				step_to(src,movement_target,1)
-				sleep(3)
-				step_to(src,movement_target,1)
-				sleep(3)
-				step_to(src,movement_target,1)
-
-				if(movement_target)		//Not redundant due to sleeps, Item can be gone in 6 decisecomds
-					if (movement_target.loc.x < src.x)
-						set_dir(WEST)
-					else if (movement_target.loc.x > src.x)
-						set_dir(EAST)
-					else if (movement_target.loc.y < src.y)
-						set_dir(SOUTH)
-					else if (movement_target.loc.y > src.y)
-						set_dir(NORTH)
-					else
-						set_dir(SOUTH)
-
-					if(isturf(movement_target.loc) )
-						UnarmedAttack(movement_target)
-					else if(ishuman(movement_target.loc) && prob(20))
-						visible_emote("stares at the [movement_target] that [movement_target.loc] has with sad puppy eyes.")
-
 		if(prob(1))
 			visible_emote(pick("dances around","chases their tail"))
 			spawn(0)
 				for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 					set_dir(i)
 					sleep(1)
+
+
+
+/mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
+	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.")
+
+
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
@@ -96,6 +71,11 @@
 			for(var/mob/M in viewers(user, null))
 				if ((M.client && !( M.blinded )))
 					M.show_message("\blue [user] baps [name] on the nose with the rolled up [O]")
+					scan_interval = max_scan_interval//discipline your dog to make it stop stealing food for a while
+					movement_target = null
+					foodtarget = 0
+					stop_automated_movement = 0
+					turns_since_scan = 0
 			spawn(0)
 				for(var/i in list(1,2,4,8,4,2,1,2))
 					set_dir(i)
@@ -154,7 +134,6 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
-	var/turns_since_scan = 0
 	var/puppies = 0
 
 //Lisa already has a cute bow!

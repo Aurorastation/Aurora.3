@@ -18,6 +18,12 @@
 	possession_candidate = 1
 	holder_type = /obj/item/weapon/holder/lizard
 	density = 0
+	seek_speed = 0.75
+
+/mob/living/simple_animal/lizard/New()
+	..()
+
+	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 
 /mob/living/simple_animal/lizard/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click

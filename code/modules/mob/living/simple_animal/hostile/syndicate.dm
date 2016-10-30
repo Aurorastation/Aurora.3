@@ -145,6 +145,7 @@
 	maxHealth = 15
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	density = 0
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = "syndicate"
@@ -160,4 +161,9 @@
 
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	s.set_up(3, 1, T)
+	s.start()
 	qdel(src)

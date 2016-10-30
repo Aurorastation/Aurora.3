@@ -2,6 +2,7 @@
 	name = "vintage .45 pistol"
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
 	magazine_type = /obj/item/ammo_magazine/c45m
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon_state = "colt"
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -33,7 +34,8 @@
 	name = ".45 pistol"
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Found pretty much everywhere humans are. Uses .45 rounds."
 	icon_state = "secguncomp"
-	magazine_type = /obj/item/ammo_magazine/c45m/flash
+	magazine_type = /obj/item/ammo_magazine/c45m/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
@@ -47,6 +49,29 @@
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
 
+/obj/item/weapon/gun/projectile/tanto
+	desc = "A Necropolis Industries designed sidearm, designed to compete with the NT Mk58. Uses 10mm rounds."
+	name = "\improper Tanto .40"
+	icon_state = "c05r"
+	magazine_type = /obj/item/ammo_magazine/t40
+	allowed_magazines = list(/obj/item/ammo_magazine/t40)
+	caliber = "10mm"
+	origin_tech = "combat=3;materials=2"
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	load_method = MAGAZINE
+
+	firemodes = list(
+		list(name="semiauto", burst=1, fire_delay=0),
+		list(name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0)),
+		)
+
+/obj/item/weapon/gun/projectile/tanto/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "c05r"
+	else
+		icon_state = "c05r-e"
+
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
@@ -57,6 +82,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 
 /obj/item/weapon/gun/projectile/deagle
 	name = "desert eagle"
@@ -67,6 +93,7 @@
 	caliber = ".50"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a50
+	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
 
 /obj/item/weapon/gun/projectile/deagle/gold
@@ -80,8 +107,6 @@
 	item_state = "deagleg"
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-
-
 /obj/item/weapon/gun/projectile/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds"
@@ -93,6 +118,7 @@
 	ammo_type = "/obj/item/ammo_casing/a75"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a75
+	allowed_magazines = list(/obj/item/ammo_magazine/a75)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
@@ -115,6 +141,7 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 
 /obj/item/weapon/gun/projectile/pistol/flash
 	name = "holdout signal pistol"

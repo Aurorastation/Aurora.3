@@ -301,6 +301,9 @@
 
 	return 1
 
+/obj/vehicle/user_unbuckle_mob(var/mob/user)
+	unload(user)
+	return
 
 /obj/vehicle/proc/unload(var/mob/user, var/direction)
 	if(!load)

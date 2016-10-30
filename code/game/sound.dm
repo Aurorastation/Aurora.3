@@ -59,7 +59,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 //var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
 
-/proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global)
+/proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/usepressure = 1, var/environment = -1)
 
 	soundin = get_sfx(soundin) // same sound for everyone
 
@@ -81,11 +81,11 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			var/turf/T = get_turf(M)
 
 			if(T && T.z == turf_source.z)
-				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global)
+				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global,usepressure, environment)
 
 var/const/FALLOFF_SOUNDS = 0.5
 
-/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, var/usepressure = 1)
+/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, var/usepressure = 1, var/environment = -1)
 	if(!src.client || ear_deaf > 0)	return
 
 	if(soundin in footstepfx)
@@ -98,7 +98,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 	S.wait = 0 //No queue
 	S.channel = 0 //Any channel
 
-	S.environment = -1
+	S.environment = environment
 	if (vary)
 		if(frequency)
 			S.frequency = frequency
@@ -152,7 +152,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 		S.y = 1
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
-	if(!is_global)
+	if(!is_global && environment != 0)
 
 		if(istype(src,/mob/living/))
 			var/mob/living/M = src

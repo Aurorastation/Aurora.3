@@ -20,9 +20,9 @@
 	sharp = 1
 	edge = 1
 
-	on_hit(var/atom/target, var/blocked = 0)
-		explosion(target, -1, 0, 2)
-		return 1
+	on_impact(var/atom/A)
+		explosion(A, -1, 0, 2)
+		..()
 
 /obj/item/projectile/bullet/gyro/law
 	name ="high-ex round"
@@ -159,9 +159,9 @@
 	sharp = 1
 	edge = 1
 
-	on_hit(var/atom/target, var/blocked = 0)
-		explosion(target, 0, 0, 4)
-		return 1
+	on_impact(var/atom/A)
+		explosion(A, 0, 0, 4)
+		..()
 
 /obj/item/projectile/chameleon
 	name = "bullet"

@@ -2,6 +2,7 @@
 	announceWhen	= 12
 
 	var/obj/effect/blob/core/Blob
+	ic_name = "a biohazard"
 
 /datum/event/blob/announce()
 	level_seven_announcement()

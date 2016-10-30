@@ -7,7 +7,7 @@
 	language = "Hivemind"
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	hud_type = /datum/hud_data/alien
-	rarity_value = 3
+	rarity_value = 10
 
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
@@ -50,7 +50,7 @@
 		"brain" =           /obj/item/organ/brain/xeno,
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel,
 		"hive node" =       /obj/item/organ/xenos/hivenode,
-		"nutrient vessel" = /obj/item/organ/diona/nutrients
+		"nutrient channel" = /obj/item/organ/diona/nutrients
 		)
 
 	bump_flag = ALIEN
@@ -158,11 +158,12 @@
 		"acid gland" =      /obj/item/organ/xenos/acidgland,
 		"hive node" =       /obj/item/organ/xenos/hivenode,
 		"resin spinner" =   /obj/item/organ/xenos/resinspinner,
-		"nutrient vessel" = /obj/item/organ/diona/nutrients
+		"nutrient channel" = /obj/item/organ/diona/nutrients
 		)
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/plant,
 		/mob/living/carbon/human/proc/transfer_plasma,
@@ -195,7 +196,7 @@
 		"brain" =           /obj/item/organ/brain/xeno,
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel/hunter,
 		"hive node" =       /obj/item/organ/xenos/hivenode,
-		"nutrient vessel" = /obj/item/organ/diona/nutrients
+		"nutrient channel" = /obj/item/organ/diona/nutrients
 		)
 
 	inherent_verbs = list(
@@ -204,6 +205,7 @@
 		/mob/living/carbon/human/proc/gut,
 		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/psychic_whisper,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate
 		)
 
@@ -224,12 +226,13 @@
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel/sentinel,
 		"acid gland" =      /obj/item/organ/xenos/acidgland,
 		"hive node" =       /obj/item/organ/xenos/hivenode,
-		"nutrient vessel" = /obj/item/organ/diona/nutrients
+		"nutrient channel" = /obj/item/organ/diona/nutrients
 		)
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/tackle,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
@@ -258,12 +261,13 @@
 		"acid gland" =      /obj/item/organ/xenos/acidgland,
 		"hive node" =       /obj/item/organ/xenos/hivenode,
 		"resin spinner" =   /obj/item/organ/xenos/resinspinner,
-		"nutrient vessel" = /obj/item/organ/diona/nutrients
+		"nutrient channel" = /obj/item/organ/diona/nutrients
 		)
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/psychic_whisper,
+		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/lay_egg,
 		/mob/living/carbon/human/proc/plant,

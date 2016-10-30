@@ -26,6 +26,9 @@
 			if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
 		inv_overlay = image(icon = mob_overlay.icon, icon_state = tmp_icon_state, dir = SOUTH)
+		if(contained_sprite)
+			tmp_icon_state = "[tmp_icon_state]"
+			inv_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]_w", dir = SOUTH)
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay()
@@ -35,6 +38,9 @@
 			if("[tmp_icon_state]_mob" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 			mob_overlay = image("icon" = icon_override, "icon_state" = "[tmp_icon_state]")
+		else if(contained_sprite)
+			tmp_icon_state = "[src.item_state][WORN_UNDER]"
+			mob_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]")
 		else
 			mob_overlay = image("icon" = INV_ACCESSORIES_DEF_ICON, "icon_state" = "[tmp_icon_state]")
 	return mob_overlay

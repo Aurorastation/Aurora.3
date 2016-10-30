@@ -67,37 +67,57 @@
 	var/flashfail = 0
 
 	if(iscarbon(M))
-		if(M.stat!=DEAD)
+		if (M.is_diona())
 			var/mob/living/carbon/C = M
-			var/safety = C.eyecheck()
-			if(safety < FLASH_PROTECTION_MODERATE)
-				var/flash_strength = 10
-				if(ishuman(M))
-					var/mob/living/carbon/human/H = M
-					flash_strength *= H.species.flash_mod
-				if(flash_strength > 0)
-					M.Weaken(flash_strength)
-					flick("e_flash", M.flash)
-					if (ishuman(M))
-						var/mob/living/carbon/human/H = M
-						if(H.species.name == "Vaurca")
-							var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
-							if(!E)
-								return
-							usr << "\red Your eyes burn with the intense light of the flash!."
-							E.damage += rand(10, 11)
-							if(E.damage > 12)
-								M.eye_blurry += rand(3,6)
-							if (E.damage >= E.min_broken_damage)
-								M.sdisabilities |= BLIND
-							else if (E.damage >= E.min_bruised_damage)
-								M.eye_blind = 5
-								M.eye_blurry = 5
-								M.disabilities |= NEARSIGHTED
-								spawn(100)
-									M.disabilities &= ~NEARSIGHTED
-			else
-				flashfail = 1
+			var/datum/dionastats/DS = C.get_dionastats()
+			DS.stored_energy += 10
+			flick("e_flash", M.flash)
+			M.Weaken(5)
+			M.eye_blind = 5
+			return
+
+		var/safety = M:eyecheck()
+		if(safety <= 0)
+			M.Weaken(10)
+			flick("e_flash", M.flash)
+				//Vaurca damage 15/01/16
+			var/mob/living/carbon/human/H = M
+			if(H.species.name == "Vaurca")
+				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+				if(!E)
+					return
+				usr << "\red Your eyes burn with the intense light of the flash!."
+				E.damage += rand(10, 11)
+				if(E.damage > 12)
+					M.eye_blurry += rand(3,6)
+				if (E.damage >= E.min_broken_damage)
+					M.sdisabilities |= BLIND
+				else if (E.damage >= E.min_bruised_damage)
+					M.eye_blind = 5
+					M.eye_blurry = 5
+					M.disabilities |= NEARSIGHTED
+					spawn(100)
+						M.disabilities &= ~NEARSIGHTED
+
+/*			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)	//why is this even a thing
+				if(user.mind && user.mind in revs.current_antagonists)
+					var/revsafe = 0
+					for(var/obj/item/weapon/implant/loyalty/L in M)
+						if(L && L.implanted)
+							revsafe = 1
+							break
+					M.mind_initialize()		//give them a mind datum if they don't have one.
+					if(M.mind.has_been_rev)
+						revsafe = 2
+					if(!revsafe)
+						M.mind.has_been_rev = 1
+						revs.add_antagonist(M.mind)
+					else if(revsafe == 1)
+						user << "<span class='warning'>Something seems to be blocking the flash!</span>"
+					else
+						user << "<span class='warning'>This mind seems resistant to the flash!</span>"	*/
+		else
+			flashfail = 1
 
 	else if(issilicon(M))
 		M.Weaken(rand(5,10))

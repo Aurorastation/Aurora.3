@@ -310,6 +310,23 @@ Class Procs:
 	if(panel_open)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P
+		for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+			for(var/D in CB.req_components)
+				var/T = text2path(D)
+				if(ispath(G.type, T))
+					P = T
+					break
+			for(var/obj/item/weapon/reagent_containers/glass/B in R.contents)
+				if(B.reagents && B.reagents.total_volume > 0) continue
+				if(istype(B, P) && istype(G, P))
+					if(B.volume > G.volume)
+						R.remove_from_storage(B, src)
+						R.handle_item_insertion(G, 1)
+						component_parts -= G
+						component_parts += B
+						B.loc = src
+						user << "<span class='notice'>[G.name] replaced with [B.name].</span>"
+						break
 		for(var/obj/item/weapon/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
 				var/T = text2path(D)
@@ -323,11 +340,11 @@ Class Procs:
 						R.handle_item_insertion(A, 1)
 						component_parts -= A
 						component_parts += B
-						B.loc = null
+						B.loc = src
 						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
 						break
-			update_icon()
-			RefreshParts()
+		update_icon()
+		RefreshParts()
 	else
 		user << "<span class='notice'>Following parts detected in the machine:</span>"
 		for(var/var/obj/item/C in component_parts)

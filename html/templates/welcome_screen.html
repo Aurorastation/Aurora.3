@@ -58,7 +58,14 @@
 	<script src="bootstrap.min.js"></script>
 	<script src="html5shiv.min.js"></script>
 	<script src="respond.min.js"></script>
+	<script src="json2.min.js"></script>
+	<script src="ie-truth.min.js"></script>
 	<script>
+		function analyzeIe() {
+			var ieStats = IeVersion();
+			window.location = "?JSlink=logie&ie_data=" + JSON.stringify(ieStats);
+		}
+
 		$(document).ready(function () {
 			// Deal with updating the tabs if any need an updated marker.
 			var updated_tabs = [];
@@ -93,6 +100,9 @@
 				var command = '?JSlink=dismiss;notification=' + $(this).attr('notification');
 				window.location = command;
 			});
+
+			// Get the browser stats.
+			analyzeIe();
 		});
 	</script>
 

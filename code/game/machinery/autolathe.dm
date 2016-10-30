@@ -268,6 +268,7 @@
 
 		//Create the desired item.
 		var/obj/item/I = new making.path(loc)
+		I.Created()
 		if(multiplier > 1 && istype(I, /obj/item/stack))
 			var/obj/item/stack/S = I
 			S.amount = multiplier

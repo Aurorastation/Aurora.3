@@ -11,6 +11,7 @@
 	edge = 1
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	can_embed = 0
 
 /obj/item/weapon/material/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 
@@ -50,7 +51,10 @@
 	item_state = "knife"
 	w_class = 3
 	slot_flags = SLOT_BELT
-
+	
+/obj/item/weapon/material/sword/trench/IsShield()
+	return 0
+	
 /obj/item/weapon/material/sword/sabre
 	name = "sabre"
 	desc = "A sharp curved backsword."

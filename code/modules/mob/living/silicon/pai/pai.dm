@@ -4,13 +4,13 @@
 	icon_state = "repairbot"
 
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
-	pass_flags = 1
+	small = 1
+	pass_flags = PASSTABLE | PASSDOORHATCH
 	density = 0
-	mob_size = MOB_SMALL
+	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
-
 	var/ram = 100	// Used as currency to purchase different abilities
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
@@ -30,10 +30,12 @@
 		"Natural" = list("says","yells","asks"),
 		"Beep" = list("beeps","beeps loudly","boops"),
 		"Chirp" = list("chirps","chirrups","cheeps"),
-		"Feline" = list("purrs","yowls","meows")
+		"Feline" = list("purrs","yowls","meows"),
+		"Rodent" = list("squeaks","squeals","squeeks")
 		)
 
 	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
+	var/obj/item/weapon/card/id/ID = null	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -70,6 +72,7 @@
 
 	var/translator_on = 0 // keeps track of the translator module
 
+	var/greeted = 0
 	var/current_pda_messaging = null
 
 /mob/living/silicon/pai/New(var/obj/item/device/paicard/newlocation)
@@ -101,6 +104,8 @@
 
 	//PDA
 	pda = new(src)
+	ID = new(src)
+	ID.registered_name = ""
 	spawn(5)
 		pda.ownjob = "Personal Assistant"
 		pda.owner = text("[]", src)
@@ -109,8 +114,17 @@
 	..()
 
 /mob/living/silicon/pai/Login()
+	greet()
 	..()
 
+
+/mob/living/silicon/pai/proc/greet()
+
+	if (!greeted)
+		// Basic intro text.
+		src << "<span class='danger'><font size=3>You are a Personal AI!</font></span>"
+		src << "<span class='notice'>You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world.</span>"
+		greeted = 1
 
 // this function shows the information about being silenced as a pAI in the Status panel
 /mob/living/silicon/pai/proc/show_silenced()

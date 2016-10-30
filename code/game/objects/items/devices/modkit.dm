@@ -3,8 +3,8 @@
 #define MODKIT_FULL 3
 
 /obj/item/device/modkit
-	name = "hardsuit modification kit"
-	desc = "A kit containing all the needed tools and parts to modify a hardsuit for another user."
+	name = "voidsuit modification kit"
+	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
 	icon_state = "modkit"
 	var/parts = MODKIT_FULL
 	var/target_species = "Human"
@@ -68,5 +68,5 @@
 
 /obj/item/device/modkit/tajaran
 	name = "tajaran hardsuit modification kit"
-	desc = "A kit containing all the needed tools and parts to modify a hardsuit for another user. This one looks like it's meant for Tajaran."
+	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for Tajarans."
 	target_species = "Tajara"

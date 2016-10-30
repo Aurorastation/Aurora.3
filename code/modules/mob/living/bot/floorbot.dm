@@ -329,6 +329,7 @@
 		user << "<span class='notice'>You add the sensor to the toolbox and tiles!</span>"
 		user.drop_from_inventory(src)
 		qdel(src)
+		return 1
 	else if (istype(W, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
@@ -359,6 +360,7 @@
 		user << "<span class='notice'>You add the robot arm to the odd looking toolbox assembly! Boop beep!</span>"
 		user.drop_from_inventory(src)
 		qdel(src)
+		return 1
 	else if(istype(W, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)

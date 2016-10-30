@@ -122,6 +122,8 @@
 			if(prob(50))
 				shatter(0)
 				return
+			else
+				take_damage(rand(10,30))
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point

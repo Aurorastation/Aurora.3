@@ -493,6 +493,7 @@
 		user << "You add the signaler to the helmet."
 		user.drop_from_inventory(src)
 		qdel(src)
+		return 1
 	else
 		return
 
@@ -513,6 +514,7 @@
 			build_step = 1
 			overlays += image('icons/obj/aibots.dmi', "hs_hole")
 			user << "You weld a hole in \the [src]."
+			return 1
 
 	else if(isprox(O) && (build_step == 1))
 		user.drop_item()
@@ -521,6 +523,7 @@
 		overlays += image('icons/obj/aibots.dmi', "hs_eye")
 		name = "helmet/signaler/prox sensor assembly"
 		qdel(O)
+		return 1
 
 	else if((istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm)) && build_step == 2)
 		user.drop_item()
@@ -529,6 +532,7 @@
 		name = "helmet/signaler/prox sensor/robot arm assembly"
 		overlays += image('icons/obj/aibots.dmi', "hs_arm")
 		qdel(O)
+		return 1
 
 	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
 		user.drop_item()
@@ -537,6 +541,7 @@
 		S.name = created_name
 		qdel(O)
 		qdel(src)
+		return 1
 
 	else if(istype(O, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)

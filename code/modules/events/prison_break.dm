@@ -4,6 +4,8 @@
 
 	var/releaseWhen = 60
 	var/list/area/areas = list()		//List of areas to affect. Filled by start()
+	ic_name = "an imprisonment system virus"
+	no_fake = 1
 	
 	var/eventDept = "Security"			//Department name in announcement
 	var/list/areaName = list("Brig")	//Names of areas mentioned in AI and Engineering announcements

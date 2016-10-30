@@ -27,6 +27,7 @@
 	w_class = 3
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45uzi
+	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)
 	max_shells = 16
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -44,7 +45,8 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a10mm
+	magazine_type = /obj/item/ammo_magazine/a12mm
+	allowed_magazines = list(/obj/item/ammo_magazine/a12mm)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
@@ -69,6 +71,7 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
 
 /obj/item/weapon/gun/projectile/automatic/wt550/update_icon()
 	..()
@@ -92,6 +95,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c762
+	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
 	firemodes = list(
 		list(name="semiauto", burst=1, fire_delay=0),
@@ -150,6 +154,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556
+	allowed_magazines = list(/obj/item/ammo_magazine/a556)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
@@ -215,6 +220,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
+	allowed_magazines = list(/obj/item/ammo_magazine/a762)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
@@ -276,24 +282,26 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/tommymag
+	allowed_magazines = list(/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
 
 /obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
 
 /obj/item/weapon/gun/projectile/automatic/railgun
-	name = "Railgun"
+	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
 	item_state = "arifle"
-	w_class = 3
+	w_class = 4
 	force = 10
 	caliber = "trod"
-	origin_tech = "combat=5;materials=2"
+	origin_tech = "combat=8;materials=7"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/effects/Explosion2.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/trodpack
+	allowed_magazines = list(/obj/item/ammo_magazine/trodpack)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 

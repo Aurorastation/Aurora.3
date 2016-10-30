@@ -28,10 +28,13 @@
 				user << "You activate the analyzer's microlaser, analyzing \the [loaded_item] and breaking it down."
 				flick("portable_analyzer_scan", src)
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				var/list/temp_tech = ConvertReqString2List(loaded_item.origin_tech)
-				for(var/T in temp_tech)
-					files.UpdateTech(T, temp_tech[T])
-					user << "\The [loaded_item] had level [temp_tech[T]] in [T]."
+				if(loaded_item.reliability >= min_reliability)
+					var/list/temp_tech = ConvertReqString2List(loaded_item.origin_tech)
+					for(var/T in temp_tech)
+						files.UpdateTech(T, temp_tech[T])
+						user << "\The [loaded_item] had level [temp_tech[T]] in [T]."
+				else
+					user << "\The [loaded_item] was not reliable enough to advance research."
 				loaded_item = null
 				for(var/obj/I in contents)
 					for(var/mob/M in I.contents)
@@ -238,8 +241,8 @@
 /obj/item/borg/combat/shield
 	name = "personal shielding"
 	desc = "A powerful experimental module that turns aside or absorbs incoming attacks at the cost of charge."
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "shock"
+	icon = 'icons/obj/device.dmi'
+	icon_state = "shield1" //placeholder for now
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
 
 /obj/item/borg/combat/shield/verb/set_shield_level()

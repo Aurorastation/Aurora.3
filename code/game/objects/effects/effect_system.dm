@@ -508,22 +508,9 @@ steam.start() -- spawns the effect
 				M << "<span class='warning'>The solution violently explodes.</span>"
 
 			explosion(
-				location, 
-				round(min(devst, BOMBCAP_DVSTN_RADIUS)), 
-				round(min(heavy, BOMBCAP_HEAVY_RADIUS)), 
-				round(min(light, BOMBCAP_LIGHT_RADIUS)), 
+				location,
+				round(min(devst, BOMBCAP_DVSTN_RADIUS)),
+				round(min(heavy, BOMBCAP_HEAVY_RADIUS)),
+				round(min(light, BOMBCAP_LIGHT_RADIUS)),
 				round(min(flash, BOMBCAP_FLASH_RADIUS))
 				)
-
-	proc/holder_damage(var/atom/holder)
-		if(holder)
-			var/dmglevel = 4
-
-			if (round(amount/8) > 0)
-				dmglevel = 1
-			else if (round(amount/4) > 0)
-				dmglevel = 2
-			else if (round(amount/2) > 0)
-				dmglevel = 3
-
-			if(dmglevel<4) holder.ex_act(dmglevel)

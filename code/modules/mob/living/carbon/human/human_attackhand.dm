@@ -140,6 +140,11 @@
 				if(G.assailant == M)
 					M << "<span class='notice'>You already grabbed [src].</span>"
 					return
+
+			if (!attempt_grab(M))
+				return
+
+
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 
@@ -394,6 +399,7 @@
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
 	if(do_after(user, 100))
 		organ.dislocate(1)
+		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		return 1
 	return 0

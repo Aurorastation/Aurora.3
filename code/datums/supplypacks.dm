@@ -110,9 +110,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/beanbagammo
 	name = "Beanbag shells"
-	contains = list(/obj/item/weapon/storage/box/beanbags,
-					/obj/item/weapon/storage/box/beanbags,
-					/obj/item/weapon/storage/box/beanbags)
+	contains = list(/obj/item/ammo_magazine/shotgun/beanbag,
+					/obj/item/ammo_magazine/shotgun/beanbag,
+					/obj/item/ammo_magazine/shotgun/beanbag)
 	cost = 30
 	containertype = /obj/structure/closet/crate
 	containername = "Beanbag shells"
@@ -719,17 +719,28 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/weapons
 	name = "Weapons crate"
+	contains = list(/obj/item/weapon/gun/energy/rifle,
+					/obj/item/weapon/gun/energy/rifle,
+					/obj/item/weapon/gun/projectile/sec,
+					/obj/item/weapon/gun/projectile/sec,
+					/obj/item/ammo_magazine/c45m,
+					/obj/item/ammo_magazine/c45m)
+	cost = 80
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "Weapons crate"
+	access = access_security
+	group = "Security"
+
+/datum/supply_packs/nonlethals
+	name = "Nonlethal Weapons crate"
 	contains = list(/obj/item/weapon/melee/baton,
 					/obj/item/weapon/melee/baton,
-					/obj/item/weapon/gun/energy/gun,
-					/obj/item/weapon/gun/energy/gun,
 					/obj/item/weapon/gun/energy/taser,
 					/obj/item/weapon/gun/energy/taser,
-					/obj/item/weapon/gun/projectile/sec,
-					/obj/item/weapon/gun/projectile/sec,
 					/obj/item/weapon/storage/box/flashbangs,
-					/obj/item/weapon/storage/box/teargas)
-	cost = 40
+					/obj/item/weapon/storage/box/flashbangs,
+					/obj/item/ammo_magazine/tranq)
+	cost = 60
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "Weapons crate"
 	access = access_security
@@ -809,9 +820,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/energyweapons
 	name = "Energy weapons crate"
-	contains = list(/obj/item/weapon/gun/energy/laser,
-					/obj/item/weapon/gun/energy/laser,
-					/obj/item/weapon/gun/energy/laser)
+	contains = list(/obj/item/weapon/gun/energy/rifle/laser,
+					/obj/item/weapon/gun/energy/rifle/laser,
+					/obj/item/weapon/gun/energy/rifle/laser)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure
 	containername = "energy weapons crate"
@@ -822,8 +833,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "Shotgun crate"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof,
 					/obj/item/clothing/suit/armor/bulletproof,
-					/obj/item/weapon/storage/box/shotgunammo,
-					/obj/item/weapon/storage/box/shotgunshells,
+					/obj/item/ammo_magazine/shotgun,
+					/obj/item/ammo_magazine/shotgun/shell,
 					/obj/item/weapon/gun/projectile/shotgun/pump/combat,
 					/obj/item/weapon/gun/projectile/shotgun/pump/combat)
 	cost = 65
@@ -846,10 +857,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/shotgunammo
 	name = "Ballistic ammunition crate"
-	contains = list(/obj/item/weapon/storage/box/shotgunammo,
-					/obj/item/weapon/storage/box/shotgunammo,
-					/obj/item/weapon/storage/box/shotgunshells,
-					/obj/item/weapon/storage/box/shotgunshells)
+	contains = list(/obj/item/ammo_magazine/shotgun,
+					/obj/item/ammo_magazine/shotgun,
+					/obj/item/ammo_magazine/shotgun/shell,
+					/obj/item/ammo_magazine/shotgun/shell,
+					/obj/item/ammo_magazine/shotgun/incendiary)
 	cost = 60
 	containertype = /obj/structure/closet/crate/secure
 	containername = "ballistic ammunition crate"
@@ -1338,6 +1350,14 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/glasses/sunglasses/sechud/tactical,
 					/obj/item/weapon/storage/belt/security/tactical,
 					/obj/item/clothing/shoes/jackboots,
+					/obj/item/clothing/gloves/black,
+					/obj/item/clothing/under/tactical,
+					/obj/item/clothing/suit/armor/tactical,
+					/obj/item/clothing/head/helmet/tactical,
+					/obj/item/clothing/mask/balaclava/tactical,
+					/obj/item/clothing/glasses/sunglasses/sechud/tactical,
+					/obj/item/weapon/storage/belt/security/tactical,
+					/obj/item/clothing/shoes/jackboots,
 					/obj/item/clothing/gloves/black)
 
 /datum/supply_packs/carpet
@@ -1573,8 +1593,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/largecrate
 	containername = "jukebox Crate"
 	group = "Hospitality"
-	
-//voidsuit crates 
+
+//voidsuit crates
 
 /datum/supply_packs/voidsuitcrate_eng
 	name = "Engineering Voidsuit Crate"
@@ -1615,7 +1635,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "atmospherics voidsuit kit"
 	access = access_atmospherics
 	group = "Atmospherics"
-	
+
 /datum/supply_packs/voidsuitcrate_minin
 	name = "Mining Voidsuit Crate"
 	contains = list(/obj/item/clothing/head/helmet/space/void/mining,
@@ -1625,7 +1645,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "mining voidsuit kit"
 	access = access_mining
 	group = "Supply"
-	
+
 //maglocks crates
 
 /datum/supply_packs/maglocks_engineering

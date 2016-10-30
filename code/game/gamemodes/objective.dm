@@ -1,5 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 var/global/list/all_objectives = list()
+var/global/list/process_objectives = list()
 
 datum/objective
 	var/datum/mind/owner = null			//Who owns the objective.
@@ -7,6 +8,7 @@ datum/objective
 	var/datum/mind/target = null		//If they are focused on a particular person.
 	var/target_amount = 0				//If they are focused on a particular number. Steal objectives have their own counter.
 	var/completed = 0					//currently only used for custom objectives.
+	var/process = 0						//Does the objective need regular checking?
 
 	New(var/text)
 		all_objectives |= src
@@ -14,8 +16,14 @@ datum/objective
 			explanation_text = text
 		..()
 
+		if (process)
+			process_objectives |= src
+
 	Destroy()
 		all_objectives -= src
+
+		if (process)
+			process_objectives -= src
 		..()
 
 	proc/check_completion()
@@ -36,6 +44,8 @@ datum/objective
 				target = possible_target
 				break
 
+	proc/process()
+		return
 
 
 datum/objective/assassinate
@@ -905,4 +915,3 @@ datum/objective/heist/salvage
 			rval = 2
 		return 0
 	return rval
-

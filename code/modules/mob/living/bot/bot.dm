@@ -17,6 +17,7 @@
 	var/obj/access_scanner = null
 	var/list/req_access = list()
 	var/list/req_one_access = list()
+	var/master_access = access_robotics
 
 /mob/living/bot/New()
 	..()
@@ -52,12 +53,19 @@
 /mob/living/bot/death()
 	explode()
 
+/mob/living/bot/proc/has_master_access(var/obj/item/I)
+	var/list/L = I.GetAccess()
+	if (master_access in L)
+		return 1
+	else
+		return 0
+
+
 /mob/living/bot/attackby(var/obj/item/O, var/mob/user)
 	if(O.GetID())
-		if(access_scanner.allowed(user) && !open && !emagged)
+		if((has_master_access(O) || access_scanner.allowed(user)) && !open && !emagged)
 			locked = !locked
 			user << "<span class='notice'>Controls are now [locked ? "locked." : "unlocked."]</span>"
-			attack_hand(user)
 		else
 			if(emagged)
 				user << "<span class='warning'>ERROR</span>"
@@ -106,6 +114,14 @@
 
 /mob/living/bot/emag_act(var/remaining_charges, var/mob/user)
 	return 0
+
+/mob/living/bot/emp_act(severity)
+	switch(severity)
+		if(1)
+			death()
+		else
+			turn_off()
+	..()
 
 /mob/living/bot/proc/turn_on()
 	if(stat)

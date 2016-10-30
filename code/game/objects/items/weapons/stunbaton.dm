@@ -17,6 +17,7 @@
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/weapon/cell/bcell = null
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
+	var/baton_color = "#FF6A00"
 
 /obj/item/weapon/melee/baton/New()
 	..()
@@ -48,7 +49,7 @@
 		icon_state = "[initial(name)]"
 
 	if(icon_state == "[initial(name)]_active")
-		set_light(1.5, 1, "#FF6A00")
+		set_light(1.3, 1, "[baton_color]")
 	else
 		set_light(0)
 
@@ -122,6 +123,10 @@
 		//whacking someone causes a much poorer electrical contact than deliberately prodding them.
 		agony *= 0.5
 		stun *= 0.5
+		if(status)		//Checks to see if the stunbaton is on.
+			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
+		else
+			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
 	else if(!status)
 		if(affecting)
@@ -136,10 +141,12 @@
 		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 	//stun effects
-	if(status)
-		target.stun_effect_act(stun, agony, hit_zone, src)
-		msg_admin_attack("[key_name(user)] stunned [key_name(target)] with the [src].")
+	L.stun_effect_act(stun, agony, target_zone, src)
 
+	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
+	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+	
+	if(status)
 		deductcharge(hitcost)
 
 		if(ishuman(target))
@@ -175,3 +182,5 @@
 	hitcost = 2500
 	attack_verb = list("poked")
 	slot_flags = null
+	baton_color = "#FFDF00"
+	

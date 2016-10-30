@@ -5,7 +5,8 @@
 	pass_flags = PASSTABLE
 	var/is_adult = 0
 	speak_emote = list("chirps")
-
+	mob_size = 4
+	composition_reagent = "slimejelly"
 	layer = 5
 	maxHealth = 150
 	health = 150
@@ -66,6 +67,7 @@
 	src.colour = colour
 	number = rand(1, 1000)
 	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
+	if (is_adult)mob_size = 6
 	real_name = name
 	slime_mutation = mutation_table(colour)
 	mutation_chance = rand(25, 35)
@@ -380,8 +382,3 @@
 			powerlevel = 10
 			adjustToxLoss(-10)
 	nutrition = max(nutrition, get_max_nutrition())
-
-/mob/living/carbon/slime/cannot_use_vents()
-	if(Victim)
-		return "You cannot ventcrawl while feeding."
-	..()

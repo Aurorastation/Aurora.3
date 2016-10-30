@@ -41,6 +41,7 @@
 	name = "robot reclassification board"
 	desc = "Used to rename a cyborg."
 	icon_state = "cyborg_upgrade1"
+	construction_cost = list(DEFAULT_WALL_MATERIAL=1000)
 	var/heldname = "default name"
 
 /obj/item/borg/upgrade/rename/attack_self(mob/user as mob)

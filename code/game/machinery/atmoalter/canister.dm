@@ -239,6 +239,30 @@ update_flag
 		healthcheck()
 	..()
 
+/obj/machinery/portable_atmospherics/canister/meteorhit(var/obj/O as obj)
+	src.health = 0
+	healthcheck()
+	return
+
+/obj/machinery/portable_atmospherics/canister/AltClick(var/mob/dead/observer/admin)
+	if (istype(admin))
+		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
+			if (valve_open)
+				if (holding)
+					release_log += "Valve was <b>closed</b> by [key_name(admin)] (aghost), stopping the transfer into the [holding]<br>"
+				else
+					release_log += "Valve was <b>closed</b> by [key_name(admin)] (aghost), stopping the transfer into the <font color='red'><b>air</b></font><br>"
+			else
+				if (alert(admin, "The release valve is currently closed. Do you want to open it?", "Open the valve?", "Yes", "No") == "No")
+					return
+
+				if (holding)
+					release_log += "Valve was <b>opened</b> by [key_name(admin)] (aghost), starting the transfer into the [holding]<br>"
+				else
+					release_log += "Valve was <b>opened</b> by [key_name(admin)] (aghost), starting the transfer into the <font color='red'><b>air</b></font><br>"
+					log_open(admin)
+			valve_open = !valve_open
+
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(!istype(W, /obj/item/weapon/wrench) && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/device/pda))
 		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")

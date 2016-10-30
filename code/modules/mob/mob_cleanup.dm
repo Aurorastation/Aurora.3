@@ -38,10 +38,10 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 	if(force_species_check)
 		var/fail = 1
 		for(var/name in virus.affected_species)
-			var/mob_type = text2path("/mob/living/carbon/[lowertext(name)]")
-			if(mob_type && istype(src, mob_type))
-				fail = 0
-				break
+			if(istype(src, /mob/living/carbon))
+				if(src:species && src:species.name == name)
+					fail = 0
+					break
 		if(fail) return
 
 	if(skip_this == 1)

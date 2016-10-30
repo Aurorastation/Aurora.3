@@ -115,6 +115,7 @@
 	health = 3
 	var/last_itch = 0
 	var/amount_grown = -1
+	var/growth_rate = 1
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = 0
 
@@ -192,22 +193,25 @@
 				entry_vent = null
 	//=================
 
-	if(isturf(loc))
-		if(prob(25))
-			var/list/nearby = trange(5, src) - loc
-			if(nearby.len)
-				var/target_atom = pick(nearby)
-				walk_to(src, target_atom, 5)
-				if(prob(25))
-					src.visible_message("<span class='notice'>\The [src] skitters[pick(" away"," around","")].</span>")
-		else if(prob(5))
-			//vent crawl!
-			for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
-				if(!v.welded)
-					entry_vent = v
-					walk_to(src, entry_vent, 5)
-					break
+	else if(prob(25))
+		var/list/nearby = oview(5, src)
+		if(nearby.len)
+			var/target_atom = pick(nearby)
+			walk_to(src, target_atom, 5)
+			if(prob(25))
+				src.visible_message("\blue \the [src] skitters[pick(" away"," around","")].")
+	else if(prob(5))
+		//vent crawl!
+		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
+			if(!v.welded)
+				entry_vent = v
+				walk_to(src, entry_vent, 5)
+				break
 
+	if(prob(1))
+		src.visible_message("\blue \the [src] chitters.")
+	if(isturf(loc) && amount_grown > 0)
+		amount_grown += (rand(0,2)*growth_rate)
 		if(amount_grown >= 100)
 			var/spawn_type = pick(typesof(/mob/living/simple_animal/hostile/giant_spider))
 			new spawn_type(src.loc, src)

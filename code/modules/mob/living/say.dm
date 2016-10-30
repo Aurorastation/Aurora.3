@@ -130,13 +130,14 @@ proc/get_radio_key_from_channel(var/channel)
 	return verb
 
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
+
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
 			src << "\red You cannot speak in IC (Muted)."
 			return
 
 	if(stat)
-		if(stat == 2)
+		if(stat == DEAD)
 			return say_dead(message)
 		return
 
@@ -255,7 +256,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 		for(var/mob/M in player_list)
-			if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
+			if(src.client && M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
 				listening |= M
 				continue
 			if(M.loc && M.locs[1] in hearturfs)

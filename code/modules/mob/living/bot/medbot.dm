@@ -169,7 +169,7 @@
 		O.loc = src
 		reagent_glass = O
 		user << "<span class='notice'>You insert [O].</span>"
-		return
+		return 1
 	else
 		..()
 
@@ -348,6 +348,7 @@
 					user << "<span class='notice'>You add the health sensor to [src].</span>"
 					name = "First aid/robot arm/health analyzer assembly"
 					overlays += image('icons/obj/aibots.dmi', "na_scanner")
+					return 1
 
 			if(1)
 				if(isprox(W))
@@ -360,3 +361,4 @@
 					S.name = created_name
 					user.drop_from_inventory(src)
 					qdel(src)
+					return 1

@@ -100,16 +100,17 @@
 		sight |= SEE_OBJS
 		see_in_dark = 8
 		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-	else if (stat != 2)
-		sight &= ~SEE_TURFS
-		sight &= ~SEE_MOBS
-		sight &= ~SEE_OBJS
+	else if (stat != 2 && is_ventcrawling == 0)
+		if (species.vision_flags)
+			sight = species.vision_flags
+		else
+			sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		see_in_dark = 2
 		see_invisible = SEE_INVISIBLE_LIVING
 
 	if (healths)
 		if (stat != 2)
-			switch(health)
+			switch(health - halloss)//Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)

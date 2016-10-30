@@ -6,6 +6,22 @@
 	var/datum/light_source/light
 	var/list/light_sources
 
+	//If this var is set, and this object casts light, and the object is worn/held on a mob
+	//Then the light source will be offset this many tiles in the mob's facing direction
+	//To make this work, must make sure this object is set as the source atom of any lightsource it creates
+	//For now, this will only offset one tile, regardless of the value set, but this can be expanded in future
+	var/offset_light = 0
+
+	//If this object emits light and is worn/held on a mob
+	//The light applied to the owner's tile is multiplied by this value
+	//This is a means to simulate directional light and is only used with offset_light
+	var/owner_light_mult = 0.5
+
+	//If 1, this light has reduced effect on diona
+	//It won't stack with other restricted light sources
+	var/diona_restricted_light = 0
+
+
 /atom/proc/set_light(l_range, l_power, l_color)
 	. = 0 //make it less costly if nothing's changed
 

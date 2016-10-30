@@ -11,20 +11,36 @@
 	origin_tech = list(TECH_BLUESPACE = 4)
 
 /obj/item/weapon/teleportation_scroll/attack_self(mob/user as mob)
-	if((user.mind && !wizards.is_antagonist(user.mind)))
-		usr << "<span class='warning'>You stare at the scroll but cannot make sense of the markings!</span>"
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/O = H.internal_organs_by_name[pick("eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
+			if(O == null)
+				user << "\blue You can't make any sense of the arcane glyphs. . . maybe you should try again."
+			else
+				user << "\red As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!"
+				user.visible_message("<span class='danger'>A flash of smoke pours out of [user]'s orifices!</span>")
+				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
+				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+				smoke.set_up(5, 0, user.loc)
+				smoke.attach(user)
+				smoke.start()
+				user.show_message("<b>[user]</b> screams!",2)
+				user.drop_item()
+				if(O && istype(O))
+					O.removed(user)
+			return
+	else
+		user.set_machine(src)
+		var/dat = "<B>Teleportation Scroll:</B><BR>"
+		dat += "Number of uses: [src.uses]<BR>"
+		dat += "<HR>"
+		dat += "<B>Four uses use them wisely:</B><BR>"
+		dat += "<A href='byond://?src=\ref[src];spell_teleport=1'>Teleport</A><BR>"
+		dat += "Kind regards,<br>Wizards Federation<br><br>P.S. Don't forget to bring your gear, you'll need it to cast most spells.<HR>"
+		user << browse(dat, "window=scroll")
+		onclose(user, "scroll")
 		return
-
-	user.set_machine(src)
-	var/dat = "<B>Teleportation Scroll:</B><BR>"
-	dat += "Number of uses: [src.uses]<BR>"
-	dat += "<HR>"
-	dat += "<B>Four uses use them wisely:</B><BR>"
-	dat += "<A href='byond://?src=\ref[src];spell_teleport=1'>Teleport</A><BR>"
-	dat += "Kind regards,<br>Wizards Federation<br><br>P.S. Don't forget to bring your gear, you'll need it to cast most spells.<HR>"
-	user << browse(dat, "window=scroll")
-	onclose(user, "scroll")
-	return
 
 /obj/item/weapon/teleportation_scroll/Topic(href, href_list)
 	..()

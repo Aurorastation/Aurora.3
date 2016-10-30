@@ -7,6 +7,7 @@
 	icon_state = "robot"
 	maxHealth = 200
 	health = 200
+	mob_size = 16//robots are heavy
 
 	mob_bump_flag = ROBOT
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
@@ -254,7 +255,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
-	if((crisis && security_level == SEC_LEVEL_RED) || crisis_override) //Leaving this in until it's balanced appropriately.
+	if(security_level == (SEC_LEVEL_RED || SEC_LEVEL_DELTA)) //There are no brakes in the combat module train.
 		src << "\red Crisis mode active. Combat module available."
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) as null|anything in modules
@@ -641,7 +642,7 @@
 
 
 	else
-		if( !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
+		if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
 			spark_system.start()
 		return ..()
 

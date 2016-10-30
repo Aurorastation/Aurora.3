@@ -116,6 +116,24 @@ obj/item/weapon/gun/energy/retro
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
+/obj/item/weapon/gun/energy/laser/shotgun
+	name = "quad-beam laser"
+	desc = "A modified laser weapon, designed to split a single beam four times."
+	icon_state = "oldenergykill"
+	item_state = "energykill"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = 3
+	force = 10
+	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	origin_tech = "combat=4;magnets=2"
+	projectile_type = /obj/item/projectile/beam/shotgun
+	max_shots = 12
+
+	firemodes = list(
+		list(name="diffuse", burst=4, burst_delay = 0, move_delay = 0, fire_delay = 2, dispersion = list(1.0, -1.0, 2.0, -2.0)),
+		)
+
 ////////Laser Tag////////////////////
 
 /obj/item/weapon/gun/energy/lasertag

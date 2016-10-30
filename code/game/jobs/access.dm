@@ -9,6 +9,7 @@
 	if(src.check_access(null))
 		return 1
 
+	// #TODO-MERGE: Check pAI's definition for GetIdCard()
 	var/id = M.GetIdCard()
 	if(id)
 		return check_access(id)

@@ -47,6 +47,26 @@
 		icon_state = "trashbag2"
 	else icon_state = "trashbag3"
 
+/obj/item/weapon/storage/bag/trash/attackby(var/obj/item/I, var/mob/user)
+	if (istype (I, /obj/item/device/lightreplacer))
+		var/count = 0
+		var/obj/item/device/lightreplacer/R = I
+		var/bagfull = 0
+		if (R.store_broken)
+			for(var/obj/item/weapon/light/L in R.contents)
+				if(!can_be_inserted(L))//This displays its own error message if the bag is full
+					bagfull = 1
+					break
+				count++
+				handle_item_insertion(L, 1)//value of 1 suppresses confirmation messages from this one
+
+			if (count)
+				user << "\blue You empty [count] broken bulbs into the trashbag."
+			else if (!bagfull)
+				user << "\blue There are no broken bulbs to empty out."
+			return 1
+	..()
+
 
 // -----------------------------
 //        Plastic Bag
@@ -250,7 +270,7 @@
 	max_w_class = 3
 	w_class = 2
 	can_hold = list(/obj/item/weapon/coin,/obj/item/weapon/spacecash)
-	
+
 // -----------------------------
 //           Book bag
 // -----------------------------
@@ -264,6 +284,6 @@
 	storage_slots = 7
 	max_storage_space = 200
 	max_w_class = 3
-	w_class = 3 
-	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook) 
+	w_class = 3
+	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook)
 

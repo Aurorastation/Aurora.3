@@ -22,7 +22,7 @@
 #################################
 
 # Your name.  
-author: Alberyk
+author: LordFowl
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -33,6 +33,10 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added departamental related voidsuits crates to the supply console."
-  - rscadd: "Added security and engineering maglock crates to the supply console."
-  - tweak: "Costumes crates do not require theater access anymore."
+  - rscadd: "Added three new energy-based weapons, one designed purely for pest-control."
+  - rscadd: "Added a new rare handpistol, based off of a proposed competitor to the NT Mk58."
+  - rscadd: "Added a new pet for the Head of Security - the PTR-7 Tranquilizer Rifle."
+  - rscadd: "Syndicate manhack delivery grenades are now available via the traitor uplink."
+  - rscadd: "Manhacks will no longer attack anyone belonging to the 'syndicate' faction, including Heist pirates."
+  - tweak: "Tweaked loadout customisation whitelists, generally making them more restrictive by role."
+  - bugfix: "It is no longer possible to be older or younger than your species ought to be."

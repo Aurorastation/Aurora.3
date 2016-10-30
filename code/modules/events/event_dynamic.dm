@@ -1,3 +1,8 @@
+// WARNING
+//-- Added 2016-08-02 by Nanako
+//This file is deprecated. The lists in event_container.dm handle event probabilities
+//Do not use this file
+
 
 /*
 /proc/start_events()

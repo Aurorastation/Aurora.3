@@ -160,12 +160,12 @@
 
 	// OTHER
 	else if (can_use() && (istype(W, /obj/item/weapon/paper) || istype(W, /obj/item/device/pda)) && isliving(user))
+		var/info = null
 		var/mob/living/U = user
 		var/obj/item/weapon/paper/X = null
 		var/obj/item/device/pda/P = null
 
 		var/itemname = ""
-		var/info = ""
 		if(istype(W, /obj/item/weapon/paper))
 			X = W
 			itemname = X.name
@@ -176,16 +176,19 @@
 			info = P.notehtml
 		U << "You hold \a [itemname] up to the camera ..."
 		for(var/mob/living/silicon/ai/O in living_mob_list)
+			var/entry = O.addCameraRecord(itemname,info)
 			if(!O.client) continue
-			if(U.name == "Unknown") O << "<b>[U]</b> holds \a [itemname] up to one of your cameras ..."
-			else O << "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[U.name]'>[U]</a></b> holds \a [itemname] up to one of your cameras ..."
-			O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname))
+			if(U.name == "Unknown")
+				O << "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=\ref[entry]'>view message</a>"
+			else
+				O << "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=[entry]'>view message</a>"
+
 		for(var/mob/O in player_list)
 			if (istype(O.machine, /obj/machinery/computer/security))
 				var/obj/machinery/computer/security/S = O.machine
 				if (S.current_camera == src)
 					O << "[U] holds \a [itemname] up to one of the cameras ..."
-					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname))
+					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again
 
 	else if (istype(W, /obj/item/weapon/camera_bug))
 		if (!src.can_use())
@@ -469,3 +472,4 @@
 	wires.MendAll()
 	update_icon()
 	update_coverage()
+

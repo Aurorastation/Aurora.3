@@ -96,6 +96,7 @@
 
 		if(!isAI(user))
 			user.set_machine(src)
+			usr.reset_view(current)
 		ui_interact(user)
 
 	proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)

@@ -18,6 +18,8 @@ other types of metals and chemistry for reagents).
 */
 //Note: More then one of these can be added to a design.
 
+// #TODO-MERGE: Go over this file and make sure everything's fine. We might have missing vars.
+
 /datum/design						//Datum for object designs, used in construction
 	var/name = null					//Name of the created object. If null it will be 'guessed' from build_path if possible.
 	var/desc = null					//Description of the created object. If null it will use group_desc and name where applicable.
@@ -1462,6 +1464,37 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/telecomms/broadcaster
 	sort_string = "PAAAF"
 
+datum/design/item/weapon/lasshotgun
+	id = "laser_shotgun"
+	req_tech = list("combat" = 3, "materials" = 5, "powerstorage" = 4)
+	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
+	reliability_base = 76
+	build_path = /obj/item/weapon/gun/energy/laser/shotgun
+	locked = 1
+
+datum/design/item/weapon/stunrevolver
+	id = "stunrevolver"
+	req_tech = list("combat" = 3, "materials" = 3, "powerstorage" = 2)
+	materials = list("$metal" = 4000)
+	build_path = /obj/item/weapon/gun/energy/stunrevolver
+	locked = 1
+
+datum/design/item/weapon/lasercannon
+	desc = "The lasing medium of this prototype is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core."
+	id = "lasercannon"
+	req_tech = list("combat" = 4, "materials" = 3, "powerstorage" = 3)
+	materials = list("$metal" = 10000, "$glass" = 1000, "$diamond" = 2000)
+	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
+	locked = 1
+
+datum/design/item/weapon/decloner
+	id = "decloner"
+	req_tech = list("combat" = 8, "materials" = 7, "biotech" = 5, "powerstorage" = 6)
+	materials = list("$gold" = 5000,"$uranium" = 10000)
+	build_path = /obj/item/weapon/gun/energy/decloner
+	locked = 1
+
+
 /datum/design/circuit/tcom/receiver
 	name = "subspace receiver"
 	id = "tcom-receiver"
@@ -1514,6 +1547,25 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/aicore
 	sort_string = "XAAAA"
 
+datum/design/item/weapon/mousegun
+	id = "mousegun"
+	req_tech = list("materials" = 1, "biotech" = 4, "powerstorage" = 3)
+	materials = list("$metal" = 2000, "$glass" = 1000, "$uranium" = 500)
+	build_path = /obj/item/weapon/gun/energy/mousegun
+
+datum/design/item/weapon/beegun
+	id = "beegun"
+	req_tech = list("materials" = 6, "biotech" = 4, "powerstorage" = 4, "combat" = 6, "magnets" = 4)
+	materials = list("$metal" = 2000, "$glass" = 2000, "$silver" = 500, "$diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/beegun
+
+datum/design/item/weapon/large_grenade
+	id = "large_Grenade"
+	req_tech = list("combat" = 3, "materials" = 2)
+	materials = list("$metal" = 3000)
+	reliability_base = 79
+	build_path = /obj/item/weapon/grenade/chem_grenade/large
+
 /datum/design/aimodule
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "gold" = 100)
@@ -1544,6 +1596,68 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_MATERIAL = 6)
 	build_path = /obj/item/weapon/aiModule/protectStation
 	sort_string = "XABAC"
+
+datum/design/item/weapon/eglaive
+	id = "eglaive"
+	name = "energy glaive"
+	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
+	req_tech = list("combat" = 6, "phorontech" = 4, "materials" = 7, "syndicate" = 4,"powerstorage" = 4)
+	materials = list("$metal" = 10000, "$glass" = 18750, "$phoron" = 3000, "$silver" = 7500)
+	build_path = /obj/item/weapon/melee/energy/glaive
+
+datum/design/item/weapon/gatlinglaser
+	id = "gatlinglaser"
+	name = "gatling laser"
+	desc = "A higly sophisticated rapid-fire laser weapon."
+	req_tech = list("combat" = 6, "phorontech" = 5, "materials" = 6, "powerstorage" = 3)
+	materials = list("$metal" = 18750, "$glass" = 7500, "$phoron" = 7500, "$silver" = 7500, "$diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
+
+datum/design/item/weapon/railgun
+	id = "railgun"
+	name = "railgun"
+	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
+	req_tech = list("combat" = 8, "phorontech" = 2, "materials" = 7, "magnets" = 4, "powerstorage" = 5, "syndicate" = 3)
+	materials = list("$metal" = 75000, "$glass" = 18750, "$phoron" = 11250, "$gold" = 7500, "$silver" = 7500)
+	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
+
+datum/design/item/weapon/zorablaster
+	id = "zorablaster"
+	name = "zo'ra blaster"
+	desc = "A personal defense weapon reverse-engineered from schematics aboard Titan Prime."
+	req_tech = list("combat" = 2, "phorontech" = 4, "materials" = 2)
+	materials = list("$metal" = 8000, "$glass" = 2000, "$phoron" = 6000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
+
+datum/design/item/weapon/lawgiver
+	name = "Lawgiver"
+	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
+	id = "lawgiver"
+	req_tech = list("combat" = 6, "phorontech" = 4, "bluespace" = 5, "materials" = 7)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$phoron" = 1000, "$diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/lawgiver
+
+/*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
+outside of RnD without paperwork with the RD's stamp on it. */
+datum/design/item/forcegloves
+ 	name = "Force Gloves"
+ 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
+ 	id = "forcegloves"
+ 	req_tech = list("combat" = 3,"bluespace" = 3, "engineering" = 3, "magnets" = 3)
+ 	build_type = PROTOLATHE
+ 	materials = list("$metal" = 4000)
+ 	build_path = "/obj/item/clothing/gloves/force/basic"
+ 	locked = 1
+ 	category = "Weapons"
+
+/////////////////////////////////////////
+/////////////////Mining//////////////////
+/////////////////////////////////////////
+//Subtype of item/weapon/, because we get the nice desc update
+datum/design/item/weapon/mining/AssembleDesignName()
+	..()
+	name = "Mining equipment design ([item_name])"
 
 /datum/design/aimodule/notele
 	name = "TeleporterOffline"
@@ -1737,6 +1851,13 @@ CIRCUITS BELOW
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "sacid" = 20)
 	build_path = "/obj/item/weapon/circuitboard/rust_core_control"
+datum/design/item/advanced_light_replacer
+	name = "Advanced Light Replacer"
+	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
+	id = "advanced_light_replacer"
+	req_tech = list("materials" = 3, "powerstorage" = 3)
+	materials = list("$metal" = 500)
+	build_path =/obj/item/device/lightreplacer/advanced
 
 datum/design/rust_fuel_control
 	name = "Circuit Design (RUST fuel controller)"

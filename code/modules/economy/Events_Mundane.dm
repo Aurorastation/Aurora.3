@@ -11,7 +11,7 @@
 	if(!event_type)
 		return
 
-	var/author = "Nyx Daily"
+	var/author = "Tau Ceti Daily"
 	var/channel = author
 
 	//see if our location has custom event info for this event
@@ -116,11 +116,11 @@
 				else
 					body += "is recovering from plastic surgery in a clinic on [affected_dest.name] for the [pick("second","third","fourth")] time, reportedly having made the decision in response to "
 					body += "[pick("unkind comments by an ex","rumours started by jealous friends",\
-					"the decision to be dropped by a major sponsor","a disasterous interview on Nyx Tonight")]."
+					"the decision to be dropped by a major sponsor","a disasterous interview on Tau Ceti Tonight")]."
 			if(TOURISM)
 				body += "Tourists are flocking to [affected_dest.name] after the surprise announcement of [pick("major shopping bargains by a wily retailer",\
 				"a huge new ARG by a popular entertainment company","a secret tour by popular artiste [random_name(pick(MALE,FEMALE))]")]. \
-				Nyx Daily is offering discount tickets for two to see [random_name(pick(MALE,FEMALE))] live in return for eyewitness reports and up to the minute coverage."
+				Tau Ceti Daily is offering discount tickets for two to see [random_name(pick(MALE,FEMALE))] live in return for eyewitness reports and up to the minute coverage."
 
 	news_network.SubmitArticle(body, author, channel, null, 1)
 
@@ -152,7 +152,7 @@
 	"'Here kitty kitty' no longer preferred tajaran retrieval technique.",\
 	"Man travels 7000 light years to retrieve lost hankie, 'It was my favourite'.",\
 	"New bowling lane that shoots mini-meteors at bowlers very popular.",\
-	"[pick("Unathi","Spacer")] gets tattoo of Nyx on chest '[pick("[boss_short]","star","starship","asteroid")] tickles most'.",\
+	"[pick("Unathi","Spacer")] gets tattoo of Tau Ceti on chest '[pick("CentComm","star","starship","asteroid")] tickles most'.",\
 	"Skrell marries computer; wedding attended by 100 modems.",\
 	"Chef reports successfully using harmonica as cheese grater.",\
 	"[company_name] invents handkerchief that says 'Bless you' after sneeze.",\
@@ -162,7 +162,7 @@
 	"This space for rent.",\
 	"[affected_dest.name] Baker Wins Pickled Crumpet Toss Three Years Running",\
 	"Skrell Scientist Discovers Abacus Can Be Used To Dry Towels",\
-	"Survey: 'Cheese Louise' Voted Best Pizza Restaurant In Nyx",\
+	"Survey: 'Cheese Louise' Voted Best Pizza Restaurant In Tau Ceti",\
 	"I Was Framed, jokes [affected_dest.name] artist",\
 	"Mysterious Loud Rumbling Noises In [affected_dest.name] Found To Be Mysterious Loud Rumblings",\
 	"Alien ambassador becomes lost on [affected_dest.name], refuses to ask for directions",\

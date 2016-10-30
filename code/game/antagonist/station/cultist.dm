@@ -20,7 +20,7 @@ var/datum/antagonist/cultist/cult
 	loss_text = "The staff managed to stop the cult!"
 	victory_feedback_tag = "win - cult win"
 	loss_feedback_tag = "loss - staff stopped the cult"
-	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	hard_cap = 5
 	hard_cap_round = 6
 	initial_spawn_req = 4

@@ -13,7 +13,7 @@
 	/*
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
 		For best results, if this is set then sprite_sheets should be null and vice versa, but that is by no means necessary.
-		Ideally, sprite_sheets_refit should be used for "hard" clothing items that can't change shape very well to fit the wearer (e.g. helmets, hardsuits),
+		Ideally, sprite_sheets_refit should be used for "hard" clothing items that can't change shape very well to fit the wearer (e.g. helmets, voidsuits),
 		while sprite_sheets should be used for "flexible" clothing items that do not need to be refitted (e.g. vox wearing jumpsuits).
 	*/
 	var/list/sprite_sheets_refit = null
@@ -213,7 +213,7 @@ BLIND     // can't see anything
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude","Unathi","Tajara", "Vox")
+	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/gloves.dmi',
 		"Resomi" = 'icons/mob/species/resomi/gloves.dmi',
@@ -267,11 +267,13 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
+	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+	offset_light = 1
 
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi',
@@ -375,7 +377,8 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
 		"Resomi" = 'icons/mob/species/resomi/masks.dmi',
-		)
+						"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
+						"Unathi" = 'icons/mob/species/unathi/mask.dmi')
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -519,8 +522,8 @@ BLIND     // can't see anything
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/uniform.dmi',
-		"Resomi" = 'icons/mob/species/resomi/uniform.dmi'
-		)
+		"Golem" = 'icons/mob/uniform_fat.dmi',
+		"Resomi" = 'icons/mob/species/resomi/uniform.dmi')
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.

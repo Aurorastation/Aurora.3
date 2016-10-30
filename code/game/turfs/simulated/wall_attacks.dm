@@ -177,10 +177,28 @@
 			dismantle_verb = "cutting"
 			dismantle_sound = 'sound/items/Welder.ogg'
 			cut_delay *= 0.7
+		else if(istype(W,/obj/item/weapon/melee/energy))
+			var/obj/item/weapon/melee/energy/WT = W
+			if(WT.active)
+				dismantle_sound = "sparks"
+				dismantle_verb = "slicing"
+				cut_delay *= 0.5
+			else
+				user << "<span class='notice'>You need to activate the weapon to do that!</span>"
+				return
 		else if(istype(W,/obj/item/weapon/melee/energy/blade))
 			dismantle_sound = "sparks"
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
+		else if(istype(W,/obj/item/weapon/melee/chainsword))
+			var/obj/item/weapon/melee/chainsword/WT = W
+			if(WT.active)
+				dismantle_sound = "sound/weapons/chainsawhit.ogg"
+				dismantle_verb = "slicing"
+				cut_delay *= 0.8
+			else
+				user << "<span class='notice'>You need to activate the weapon to do that!</span>"
+				return
 		else if(istype(W,/obj/item/weapon/pickaxe))
 			var/obj/item/weapon/pickaxe/P = W
 			dismantle_verb = P.drill_verb
@@ -197,6 +215,11 @@
 				cut_delay = 0
 
 			if(!do_after(user,cut_delay))
+				return
+
+
+			//This prevents runtime errors if someone clicks the same wall more than once
+			if (!istype(src, /turf/simulated/wall))
 				return
 
 			user << "<span class='notice'>You remove the outer plating.</span>"

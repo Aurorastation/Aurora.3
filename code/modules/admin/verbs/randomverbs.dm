@@ -109,7 +109,7 @@
 		src << "Only administrators may use this command."
 		return
 
-	var/msg = sanitize(input("Message:", text("Enter the text you wish to appear to everyone:")) as text)
+	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to everyone:")) as text))
 
 	if (!msg)
 		return
@@ -132,7 +132,7 @@
 	if(!M)
 		return
 
-	var/msg = sanitize(input("Message:", text("Enter the text you wish to appear to your target:")) as text)
+	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to your target:")) as text))
 
 	if( !msg )
 		return
@@ -229,7 +229,7 @@ Allow admins to set players to be able to respawn/bypass 30 min wait, without th
 Ccomp's first proc.
 */
 
-/client/proc/get_ghosts(var/notify = 0,var/what = 2)
+proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	// what = 1, return ghosts ass list.
 	// what = 2, return mob list
 
@@ -241,8 +241,8 @@ Ccomp's first proc.
 		mobs.Add(M)                                             //filter it where it's only ghosts
 		any = 1                                                 //if no ghosts show up, any will just be 0
 	if(!any)
-		if(notify)
-			src << "There doesn't appear to be any ghosts for you to select."
+		if(notify && C)
+			C << "There doesn't appear to be any ghosts for you to select."
 		return
 
 	for(var/mob/M in mobs)
@@ -260,7 +260,7 @@ Ccomp's first proc.
 	set desc = "Let's the player bypass the 30 minute wait to respawn or allow them to re-enter their corpse."
 	if(!holder)
 		src << "Only administrators may use this command."
-	var/list/ghosts= get_ghosts(1,1)
+	var/list/ghosts = get_ghosts(1,1,src)
 
 	var/target = input("Please, select a ghost!", "COME BACK TO LIFE!", null, null) as null|anything in ghosts
 	if(!target)
@@ -275,6 +275,19 @@ Ccomp's first proc.
 									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
 									   there won't be an autopsy.
 									*/
+	var/datum/preferences/P
+
+	if (G.client)
+		P = G.client.prefs
+	else if (G.ckey)
+		P = preferences_datums[G.ckey]
+	else
+		src << "Something went wrong, couldn't find the target's preferences datum"
+		return 0
+
+	for (var/entry in P.time_of_death)//Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
+		P.time_of_death[entry] = -99999
+
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
@@ -513,7 +526,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 	var/reporttitle
 	var/reportbody
-	var/reporter
+	var/reporter = null
 	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
 	switch(reporttype)
 		if("Template")
@@ -558,11 +571,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			C.messagetitle.Add("[command_name()] Update")
 			C.messagetext.Add(P.info)
 
-	reporter = sanitizeSafe(input(usr, "Please enter your name.", "Name") as text|null)
+	if (reporttype == "Template")
+		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)
+		if (reporter)
+			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
+		else
+			reportbody += "\n\n- CCIAAMS, [commstation_name()]"
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce("[reportbody]\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			world << "\red New [company_name] Update available at all communication consoles."
 			world << sound('sound/AI/commandreport.ogg')
@@ -580,6 +598,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	if (alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No") == "Yes")
+		if (istype(O, /mob/dead/observer))
+			var/mob/dead/observer/M = O
+			if (M.client && alert(src, "They are still connected. Are you sure, they will loose connection.", "Confirmation", "Yes", "No") != "Yes")
+				return
 		log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])")
 		message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
 		feedback_add_details("admin_verb","DEL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

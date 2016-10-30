@@ -98,6 +98,63 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
 
+/obj/item/weapon/gun/energy/beegun
+	name = "\improper NanoTrasen Portable Apiary"
+	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
+	icon_state = "gyrorifle"
+	item_state = "arifle"
+	charge_meter = 0
+	w_class = 4
+	fire_sound = 'sound/effects/Buzz2.ogg'
+	force = 5
+	projectile_type = /obj/item/projectile/energy/bee
+	slot_flags = SLOT_BACK
+	max_shots = 9
+
+	firemodes = list(
+		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 0, dispersion = list(0.0, 0.2, -0.2)),
+		)
+
+/obj/item/weapon/gun/energy/mousegun
+	name = "\improper NT \"Arodentia\" Exterminator ray"
+	desc = "A highly sophisticated and certainly experimental raygun designed for rapid pest-control."
+	icon_state = "floramut100"
+	item_state = "floramut"
+	charge_meter = 0
+	w_class = 3
+	fire_sound = 'sound/weapons/taser2.ogg'
+	force = 5
+	projectile_type = /obj/item/projectile/beam/mousegun
+	slot_flags = SLOT_HOLSTER | SLOT_BELT
+	max_shots = 6
+
+	firemodes = list(
+		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 3, dispersion = list(0.0, 6,0, -6.0)),
+		)
+
+	var/lightfail = 0
+
+/obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+	var/T = get_turf(user)
+	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	s.set_up(3, 1, T)
+	s.start()
+	failcheck()
+	..()
+
+/obj/item/weapon/gun/energy/mousegun/proc/failcheck()
+	lightfail = 0
+	if (prob(5))
+		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
+			if (src in M.contents)
+				M << "<span class='danger'>[src]'s reactor overloads!</span>"
+			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
+			M.apply_effect(300, IRRADIATE)
+		crit_fail = 1 //break the gun so it stops recharging
+		processing_objects.Remove(src)
+		update_icon()
+	return 0
+
 /* Vaurca Weapons */
 
 /obj/item/weapon/gun/energy/vaurca
@@ -110,7 +167,7 @@
 	icon_state = "bfg"
 	item_state = "bfg"
 	charge_meter = 0
-	w_class = 3
+	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
 	projectile_type = /obj/item/projectile/energy/sonic
@@ -122,15 +179,15 @@
 		)
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser
-	name = "Gatling Laser"
+	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
 	icon_state = "gatling"
 	item_state = "gatling"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	origin_tech = "combat=5;materials=2"
+	origin_tech = "combat=6;phorontech=5;materials=6"
 	charge_meter = 0
 	slot_flags = SLOT_BACK
-	w_class = 3
+	w_class = 4
 	force = 10
 	projectile_type = /obj/item/projectile/beam/gatlinglaser
 	max_shots = 80
@@ -140,17 +197,45 @@
 		list(name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = list(0.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.0, 3.25)),
 		)
 
+	icon_action_button = "action_blank"
+	action_button_name = "Wield gatling laser"
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/can_wield()
+	return 1
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/verb/wield_rifle()
+	set name = "Wield gatling laser"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
+	..()
+	if(!wielded)
+		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
+		return 0
+	playsound(src, 'sound/weapons/chainsawhit.ogg', 90, 1)
+	user.visible_message("<span class='danger'>[user] begins spinning [src]'s barrels!</span>")
+	sleep(30)
+	return 1
+
 /obj/item/weapon/gun/energy/vaurca/blaster
 	name = "Zo'ra Blaster"
 	desc = "An elegant weapon for a more civilized time."
 	icon_state = "blaster"
 	item_state = "blaster"
+	origin_tech = "combat=2;phorontech=4,"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	slot_flags = SLOT_BACK
+	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 30
+	max_shots = 6
 
 	firemodes = list(
 		list(name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
@@ -196,12 +281,41 @@
 	self_recharge = 1
 	charge_meter = 0
 
-/obj/item/weapon/gun/energy/staff/special_check(var/mob/user)
-	if((user.mind && !wizards.is_antagonist(user.mind)))
-		usr << "<span class='warning'>You focus your mind on \the [src], but nothing happens!</span>"
+obj/item/weapon/gun/energy/staff/special_check(var/mob/user)
+	if(HULK in user.mutations)
+		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
-
-	return ..()
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/new_mob
+			var/mob/living/carbon/human/H = user
+			for(var/obj/item/W in H)
+				if(istype(W, /obj/item/weapon/implant))
+					qdel(W)
+					continue
+				H.drop_from_inventory(W)
+			playsound(user, 'sound/weapons/emitter.ogg', 40, 1)
+			var/obj/item/organ/external/LA = H.get_organ("l_arm")
+			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/obj/item/organ/external/LL = H.get_organ("l_leg")
+			var/obj/item/organ/external/RL = H.get_organ("r_leg")
+			LA.droplimb(0,DROPLIMB_BLUNT)
+			RA.droplimb(0,DROPLIMB_BLUNT)
+			LL.droplimb(0,DROPLIMB_BLUNT)
+			RL.droplimb(0,DROPLIMB_BLUNT)
+			playsound(user, 'sound/effects/splat.ogg', 50, 1)
+			user.show_message("\red With a sickening series of crunches, [user]'s body shrinks, and they begin to sprout feathers!")
+			user.show_message("<b>[user]</b> screams!",2)
+			new_mob = new /mob/living/simple_animal/parrot(H.loc)
+			new_mob.universal_speak = 1
+			new_mob.key = H.key
+			new_mob.a_intent = "harm"
+			qdel(H)
+			sleep(20)
+			new_mob.show_message("<b>[new_mob]</b> squawks, 'Poly wanna cracker!'",2)
+		return 0
+	return 1
 
 /obj/item/weapon/gun/energy/staff/handle_click_empty(mob/user = null)
 	if (user)
@@ -216,6 +330,33 @@
 	projectile_type = /obj/item/projectile/animate
 	max_shots = 10
 
+obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/user)
+	if(HULK in user.mutations)
+		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		return 0
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LA = H.get_organ("l_hand")
+			var/obj/item/organ/external/RA = H.get_organ("r_hand")
+			var/active_hand = H.hand
+			playsound(user, 'sound/effects/blobattack.ogg', 40, 1)
+			user.visible_message("\red With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!")
+			user.show_message("<b>[user]</b> screams!",2)
+			user.drop_item()
+			if(active_hand)
+				LA.droplimb(0,DROPLIMB_EDGE)
+				new /mob/living/simple_animal/hostile/mimic/copy(LA.loc, LA)
+				qdel(LA)
+			else
+				RA.droplimb(0,DROPLIMB_EDGE)
+				new /mob/living/simple_animal/hostile/mimic/copy(RA.loc, RA)
+				qdel(RA)
+		return 0
+	return 1
+
+
 obj/item/weapon/gun/energy/staff/focus
 	name = "mental focus"
 	desc = "An artefact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out."
@@ -224,14 +365,37 @@ obj/item/weapon/gun/energy/staff/focus
 	item_state = "focus"
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/forcebolt
-	/*
-	attack_self(mob/living/user as mob)
-		if(projectile_type == "/obj/item/projectile/forcebolt")
-			charge_cost = 400
-			user << "<span class='warning'>The [src.name] will now strike a small area.</span>"
-			projectile_type = "/obj/item/projectile/forcebolt/strong"
-		else
-			charge_cost = 200
-			user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
-			projectile_type = "/obj/item/projectile/forcebolt"
-	*/
+
+obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/user)
+	if(HULK in user.mutations)
+		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		return 0
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LA = H.get_organ("l_arm")
+			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/active_hand = H.hand
+			playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
+			user << "\red Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!"
+			user.show_message("<b>[user]</b> screams!",2)
+			user.drop_item()
+			if(active_hand)
+				LA.droplimb(0,DROPLIMB_BURN)
+			else
+				RA.droplimb(0,DROPLIMB_BURN)
+		return 0
+	return 1
+
+
+obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
+	if(projectile_type == /obj/item/projectile/forcebolt)
+		charge_cost = 400
+		user << "<span class='warning'>The [src.name] will now strike a small area.</span>"
+		projectile_type = /obj/item/projectile/forcebolt/strong
+	else
+		charge_cost = 200
+		user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
+		projectile_type = /obj/item/projectile/forcebolt
+

@@ -221,42 +221,6 @@
 			"}
 
 
-/obj/item/weapon/book/manual/hydroponics_pod_people
-	name = "The Diona Harvest - From Seed to Market"
-	icon_state ="bookHydroponicsPodPeople"
-	author = "Farmer John"
-	title = "The Diona Harvest - From Seed to Market"
-
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 18px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-				<h3>Growing a Diona</h3>
-
-				Growing a Diona is easy!
-				<p>
-				<ol>
-					<li>Take a syringe of blood from the body you wish to turn into a Diona.</li>
-					<li>Inject 5 units of blood into the pack of dionaea-replicant seeds.</li>
-					<li>Plant the seeds.</li>
-					<li>Tend to the plants water and nutrition levels until it is time to harvest the Diona.</li>
-				</ol>
-				<p>
-				Note that for a successful harvest, the body from which the blood was taken from must be dead BEFORE harvesting the pod, however the pod can be growing while they are still alive. Otherwise, the soul would not be able to migrate to the new Diona body.<br><br>
-
-				It really is that easy! Good luck!
-
-				</body>
-				</html>
-				"}
 
 
 /obj/item/weapon/book/manual/medical_cloning
@@ -1137,7 +1101,7 @@
 				<ol>
 					<li><a href="#Foreword">A foreword on using EVA gear</a></li>
 					<li><a href="#Civilian">Donning a Civilian Suit</a></li>
-					<li><a href="#Hardsuit">Putting on a Hardsuit</a></li>
+					<li><a href="#Voidsuit">Putting on a Voidsuit</a></li>
 					<li><a href="#Equipment">Cyclers and Other Modification Equipment</a></li>
 					<li><a href="#Final">Final Checks</a></li>
 				</ol>
@@ -1145,12 +1109,12 @@
 
 				EVA gear. Wonderful to use. It's useful for mining, engineering, and occasionally just surviving, if things are that bad. Most people have EVA training,
 				but apparently there are some on a space station who don't. This guide should give you a basic idea of how to use this gear, safely. It's split into two sections:
-				 Civilian suits and hardsuits.<BR><BR>
+				 Civilian suits and voidsuits.<BR><BR>
 
 				<h2><a name="Civilian">Civilian Suits</a></h2>
 				<I>The bulkiest things this side of Alpha Centauri</I><BR>
 				These suits are the grey ones that are stored in EVA. They're the more simple to get on, but are also a lot bulkier, and provide less protection from environmental hazards such as radiation or physical impact.
-				As Medical, Engineering, Security, and Mining all have hardsuits of their own, these don't see much use, but knowing how to put them on is quite useful anyways.<BR><BR>
+				As Medical, Engineering, Security, and Mining all have voidsuits of their own, these don't see much use, but knowing how to put them on is quite useful anyways.<BR><BR>
 
 				First, take the suit. It should be in three pieces: A top, a bottom, and a helmet. Put the bottom on first, shoes and the like will fit in it. If you have magnetic boots, however,
 				put them on on top of the suit's feet. Next, get the top on, as you would a shirt. It can be somewhat awkward putting these pieces on, due to the makeup of the suit,
@@ -1162,24 +1126,24 @@
 
 				These suits tend to be wearable by most species. They're large and flexible. They might be pretty uncomfortable for some, though, so keep that in mind.<BR><BR>
 
-				<h2><a name="Hardsuit">Hardsuits</a></h2>
+				<h2><a name="Voidsuit">Voidsuits</a></h2>
 				<I>Heavy, uncomfortable, still the best option.</I><BR>
-				These suits come in Engineering, Mining, and the Armory. There's also a couple Medical Hardsuits in EVA. These provide a lot more protection than the standard suits.<BR><BR>
+				These suits come in Engineering, Mining, and EVA. There's also a couple Medical Voidsuits in EVA. These provide a lot more protection than the standard suits.<BR><BR>
 
 				Similarly to the other suits, these are split into three parts. Fastening the pant and top are mostly the same as the other spacesuits, with the exception that these are a bit heavier,
 				though not as bulky. The helmet goes on differently, with the air tube feeding into the suit and out a hole near the left shoulder, while the helmet goes on turned ninety degrees counter-clockwise,
 				and then is screwed in for one and a quarter full rotations clockwise, leaving the faceplate directly in front of you. There is a small button on the right side of the helmet that activates the helmet light.
 				The tanks that fasten onto the side slot are emergency tanks, as well as full-sized oxygen tanks, leaving your back free for a backpack or satchel.<BR><BR>
 
-				These suits generally only fit one species. NanoTrasen's are usually human-fitting by default, but there's equipment that can make modifications to the hardsuits to fit them to other species.<BR><BR>
+				These suits generally only fit one species. Nanotrasen's are usually human-fitting by default, but there's equipment that can make modifications to the voidsuits to fit them to other species.<BR><BR>
 
 				<h2><a name="Equipment">Modification Equipment</a></h2>
-				<I>How to actually make hardsuits fit you.</I><BR>
-				There's a variety of equipment that can modify hardsuits to fit species that can't fit into them, making life quite a bit easier.<BR><BR>
+				<I>How to actually make voidsuits fit you.</I><BR>
+				There's a variety of equipment that can modify voidsuits to fit species that can't fit into them, making life quite a bit easier.<BR><BR>
 
 				The first piece of equipment is a suit cycler. This is a large machine resembling the storage pods that are in place in some places. These are machines that will automatically tailor a suit to certain specifications.
 				The largest uses of them are for their cleaning functions and their ability to tailor suits for a species. Do not enter them physically. You will die from any of the functions being activated, and it will be painful.
-				These machines can both tailor a suit between species, and between types. This means you can convert engineering hardsuits to atmospherics, or the other way. This is useful. Use it if you can.<BR><BR>
+				These machines can both tailor a suit between species, and between types. This means you can convert engineering voidsuits to atmospherics, or the other way. This is useful. Use it if you can.<BR><BR>
 
 				There's also modification kits that let you modify suits yourself. These are extremely difficult to use unless you understand the actual construction of the suit. I do not reccomend using them unless no other option is available.
 

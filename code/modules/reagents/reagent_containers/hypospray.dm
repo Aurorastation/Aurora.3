@@ -83,3 +83,19 @@
 		user << "<span class='notice'>It is currently loaded.</span>"
 	else
 		user << "<span class='notice'>It is spent.</span>"
+
+/obj/item/weapon/reagent_containers/hypospray/combat
+	name = "combat hypospray"
+	desc = "A hypospray loaded with combat stimulants."
+	item_state = "combat_hypo"
+	icon_state = "combat_hypo"
+	volume = 20
+	
+/obj/item/weapon/reagent_containers/hypospray/combat/New() 
+	..()
+	reagents.add_reagent("oxycodone", 5)
+	reagents.add_reagent("synaptizine", 5)
+	reagents.add_reagent("hyperzine", 5)
+	reagents.add_reagent("arithrazine", 5)
+	
+	return

@@ -29,7 +29,7 @@
 	//log_admin("HELP: [key_name(src)]: [msg]")
 
 /proc/Centcomm_announce(var/msg, var/mob/Sender, var/iamessage)
-	send_to_cciaa_discord("!!! @everyone - Emergency message from the station: `[msg]`, sent by [Sender] !!!")
+	discord_bot.send_to_cciaa("@here - Emergency message from the station: `[msg]`, sent by [Sender]!")
 
 	var/msg_cciaa = "\blue <b><font color=orange>[uppertext(boss_short)][iamessage ? " IA" : ""]:</font>[key_name(Sender, 1)] (<A HREF='?_src_=holder;CentcommReply=\ref[Sender]'>RPLY</A>):</b> [msg]"
 

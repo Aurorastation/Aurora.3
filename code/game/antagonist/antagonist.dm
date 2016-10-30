@@ -92,7 +92,7 @@
 	return 1
 
 // Get the raw list of potential players.
-/datum/antagonist/proc/build_candidate_list(var/ghosts_only)
+/datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0)
 	candidates = list() // Clear.
 
 	// Prune restricted status. Broke it up for readability.
@@ -102,6 +102,8 @@
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
 		else if(config.use_age_restriction_for_antags && player.current.client.player_age < minimum_player_age)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Is only [player.current.client.player_age] day\s old, has to be [minimum_player_age] day\s!")
+		else if(!allow_animals && isanimal(player.current))
+			log_debug("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
 		else if(player.special_role)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
 		else if (player in pending_antagonists)
@@ -147,6 +149,8 @@
 	if(!add_antagonist(player,0,0,0,1,1))
 		log_debug("Could not auto-spawn a [role_text], failed to add antagonist.")
 		return 0
+
+	pending_antagonists -= player
 
 	reset_antag_selection()
 

@@ -24,8 +24,13 @@
 	//For MAGAZINE guns
 	var/magazine_type = null	//the type of magazine that the gun comes preloaded with
 	var/obj/item/ammo_magazine/ammo_magazine = null //stored magazine
+	var/list/allowed_magazines		//determines list of which magazines will fit in the gun
 	var/auto_eject = 0			//if the magazine should automatically eject itself when empty.
 	var/auto_eject_sound = null
+
+	var/is_jammed = 0           //Whether this gun is jammed
+	var/jam_chance = 0          //Chance it jams on fire
+
 	//TODO generalize ammo icon states for guns
 	//var/magazine_states = 0
 	//var/list/icon_keys = list()		//keys
@@ -41,6 +46,8 @@
 	update_icon()
 
 /obj/item/weapon/gun/projectile/consume_next_projectile()
+	if(is_jammed)
+		return 0
 	//get the next casing
 	if(loaded.len)
 		chambered = loaded[1] //load next casing.
@@ -64,6 +71,15 @@
 /obj/item/weapon/gun/projectile/handle_click_empty()
 	..()
 	process_chambered()
+
+/obj/item/weapon/gun/projectile/special_check(var/mob/user)
+	if(!..())
+		return 0
+	if(!is_jammed && jam_chance)
+		if(prob(jam_chance))
+			user << "<span class='danger'>\The [src] jams!</span>"
+			is_jammed = 1
+	return 1
 
 /obj/item/weapon/gun/projectile/proc/process_chambered()
 	if (!chambered) return
@@ -96,9 +112,9 @@
 /obj/item/weapon/gun/projectile/proc/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
-		if(!(load_method & AM.mag_type) || caliber != AM.caliber)
-			return //incompatible
-
+		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
+			user << "<span class='warning'>[AM] won't load into [src]!</span>"
+			return
 		switch(AM.mag_type)
 			if(MAGAZINE)
 				if(ammo_magazine)
@@ -175,7 +191,12 @@
 	load_ammo(A, user)
 
 /obj/item/weapon/gun/projectile/attack_self(mob/user as mob)
-	if(firemodes.len > 1)
+	if(is_jammed)
+		user << "<span class='notice'>\The [user] unjams \the [src]!</span>"
+		if(do_after(user, 5))
+			playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
+			is_jammed = 0
+	else if(firemodes.len > 1)
 		..()
 	else
 		unload_ammo(user)
@@ -185,6 +206,7 @@
 		unload_ammo(user, allow_dump=0)
 	else
 		return ..()
+
 
 /obj/item/weapon/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
@@ -202,6 +224,8 @@
 
 /obj/item/weapon/gun/projectile/examine(mob/user)
 	..(user)
+	if(is_jammed)
+		user << "<span class='warning'>It looks jammed.</span>"
 	if(ammo_magazine)
 		user << "It has \a [ammo_magazine] loaded."
 	user << "Has [getAmmo()] round\s remaining."

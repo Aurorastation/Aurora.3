@@ -27,6 +27,8 @@ var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
 
 var/diary               = null
+var/diary_runtime  = null
+var/diary_date_string = null
 var/href_logfile        = null
 var/station_name        = "NSS Exodus"
 var/station_short       = "Exodus"
@@ -122,10 +124,16 @@ var/DBConnection/dbcon
 // Added for Xenoarchaeology, might be useful for other stuff.
 var/global/list/alphabet_uppercase = list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 
+// Chemistry lists.
+var/list/tachycardics  = list("coffee", "inaprovaline", "hyperzine", "nitroglycerin", "thirteenloko", "nicotine") // Increase heart rate.
+var/list/bradycardics  = list("neurotoxin", "cryoxadone", "clonexadone", "space_drugs", "stoxin")                 // Decrease heart rate.
+var/list/heartstopper  = list("potassium_chlorophoride", "zombie_powder") // This stops the heart.
+var/list/cheartstopper = list("potassium_chloride")                       // This stops the heart when overdose is met. -- c = conditional
+
 // Used by robots and robot preferences.
 var/list/robot_module_types = list(
-	"Standard", "Engineering", "Surgeon",  "Crisis",
-	"Miner",    "Janitor",     "Service",      "Clerical", "Security",
+	"Standard", "Engineering", "Construction", "Medical",  "Rescue",
+	"Miner",    "Custodial",     "Service",      "Clerical", "Security",
 	"Research"
 )
 

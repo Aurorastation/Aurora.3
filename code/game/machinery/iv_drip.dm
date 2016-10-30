@@ -7,6 +7,7 @@
 
 /obj/machinery/iv_drip/var/mob/living/carbon/human/attached = null
 /obj/machinery/iv_drip/var/mode = 1 // 1 is injecting, 0 is taking blood.
+/obj/machinery/iv_drip/var/transfer_amount = REM
 /obj/machinery/iv_drip/var/obj/item/weapon/reagent_containers/beaker = null
 
 /obj/machinery/iv_drip/update_icon()
@@ -51,6 +52,10 @@
 
 
 /obj/machinery/iv_drip/attackby(obj/item/weapon/W as obj, mob/user as mob)
+
+	if (istype(W, /obj/item/weapon/reagent_containers/blood/ripped))
+		user << "You can't use a ripped bloodpack."
+		return
 	if (istype(W, /obj/item/weapon/reagent_containers))
 		if(!isnull(src.beaker))
 			user << "There is already a reagent container loaded!"
@@ -72,8 +77,9 @@
 	if(src.attached)
 
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
-			visible_message("The needle is ripped out of [src.attached], doesn't that hurt?")
-			src.attached:apply_damage(3, BRUTE, pick("r_arm", "l_arm"))
+			var/obj/item/organ/external/affecting = src.attached:get_organ(pick("r_arm", "l_arm"))
+			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>")
+			affecting.take_damage(brute = 5, sharp = 1)
 			src.attached = null
 			src.update_icon()
 			return
@@ -82,10 +88,6 @@
 		// Give blood
 		if(mode)
 			if(src.beaker.volume > 0)
-				var/transfer_amount = REM
-				if(istype(src.beaker, /obj/item/weapon/reagent_containers/blood))
-					// speed up transfer on blood packs
-					transfer_amount = 4
 				src.beaker.reagents.trans_to_mob(src.attached, transfer_amount, CHEM_BLOOD)
 				update_icon()
 
@@ -111,7 +113,7 @@
 
 			// If the human is losing too much blood, beep.
 			if(T.vessel.get_reagent_amount("blood") < BLOOD_VOLUME_SAFE) if(prob(5))
-				visible_message("\The [src] beeps loudly.")
+				visible_message("<span class='warning'>\The [src] beeps loudly.</span>")
 
 			var/datum/reagent/B = T.take_blood(beaker,amount)
 
@@ -151,6 +153,7 @@
 	if (!(user in view(2)) && user!=src.loc) return
 
 	user << "The IV drip is [mode ? "injecting" : "taking blood"]."
+	user << "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>"
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.reagent_list.len)
@@ -161,6 +164,28 @@
 		usr << "<span class='notice'>No chemicals are attached.</span>"
 
 	usr << "<span class='notice'>[attached ? attached : "No one"] is attached.</span>"
+
+// Let's doctors set the rate of transfer. Useful if you want to set the rate at the rate of metabolisation.
+// No longer have to take someone to dialysis because they have leftover sleeptox after surgery.
+/obj/machinery/iv_drip/verb/transfer_rate()
+	set category = "Object"
+	set name = "Set Transfer Rate"
+	set src in view(1)
+
+	if (!ishuman(usr) && !issilicon(usr))
+		return
+	if (usr.stat || usr.restrained() || !Adjacent(usr))
+		return
+	set_rate:
+		var/amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
+		if ((0.001 > amount || amount > 4) && amount != 0)
+			usr << "<span class='warning'>Entered value must be between 0.001 and 4.</span>"
+			goto set_rate
+		if (transfer_amount == 0)
+			transfer_amount = REM
+			return
+		transfer_amount = amount
+		usr << "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>"
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, mice, drones, and the like through.

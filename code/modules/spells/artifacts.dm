@@ -13,13 +13,28 @@
 	hitsound = 'sound/items/welder2.ogg'
 
 /obj/item/weapon/scrying/attack_self(mob/user as mob)
-	if((user.mind && !wizards.is_antagonist(user.mind)))
-		user << "<span class='warning'>You stare into the orb and see nothing but your own reflection.</span>"
-		return
+	if(!(user.mind.assigned_role == "Space Wizard"))
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/E = H.internal_organs_by_name["eyes"]
+			user << "\red You stare deep into the abyss. . . and the abyss stares back."
+			sleep(10)
+			user << "\red Your eyes fill with painful light, and you feel a sharp burning sensation in your head!"
+			user.show_message("<b>[user]</b> screams in horror!",2)
+			playsound(user, 'sound/hallucinations/far_noise.ogg', 40, 1)
+			user.drop_item()
+			user.visible_message("<span class='danger'>Ashes pour out of [user]'s eye sockets!</span>")
+			new /obj/effect/decal/cleanable/ash(get_turf(user))
+			E.removed(user)
+			qdel(E)
+			H.adjustBrainLoss(60)
+			H.hallucination += 20
+			return
+	else
+		user << "<span class='info'>You can see... everything!</span>"
+		visible_message("<span class='danger'>[user] stares into [src], their eyes glazing over.</span>")
 
-	user << "<span class='info'>You can see... everything!</span>"
-	visible_message("<span class='danger'>[user] stares into [src], their eyes glazing over.</span>")
-	
-	user.teleop = user.ghostize(1)
-	announce_ghost_joinleave(user.teleop, 1, "You feel that they used a powerful artifact to [pick("invade","disturb","disrupt","infest","taint","spoil","blight")] this place with their presence.")
-	return
+		user.teleop = user.ghostize(1)
+		announce_ghost_joinleave(user.teleop, 1, "You feel that they used a powerful artifact to [pick("invade","disturb","disrupt","infest","taint","spoil","blight")] this place with their presence.")
+		return

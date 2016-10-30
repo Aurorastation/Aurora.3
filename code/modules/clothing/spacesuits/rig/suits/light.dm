@@ -107,6 +107,7 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/space/rig/light/ninja
+	species_restricted = list("exclude","Diona","Xenomorph")
 	breach_threshold = 38 //comparable to regular hardsuits
 
 /obj/item/weapon/rig/light/stealth

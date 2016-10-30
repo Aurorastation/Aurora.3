@@ -6,6 +6,8 @@
 	icon_state = "case"
 	item_state = "case"
 	storage_slots = 14
+	max_storage_space = 35
+	contained_sprite = 1
 
 /obj/item/weapon/storage/briefcase/crimekit/New()
 	..()

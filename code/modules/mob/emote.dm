@@ -23,42 +23,8 @@
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
- //Hearing gasp and such every five seconds is not good emotes were not global for a reason.
- // Maybe some people are okay with that.
+		send_emote(message, m_type)
 
-		for(var/mob/M in player_list)
-			if (!M.client)
-				continue //skip monkeys and leavers
-			if (istype(M, /mob/new_player))
-				continue
-			if(findtext(message," snores.")) //Because we have so many sleeping people.
-				break
-			if(M.stat == 2 && (M.client.prefs.toggles & CHAT_GHOSTSIGHT) && !(M in viewers(src,null)))
-				M.show_message(message, m_type)
-
-		if (m_type & 1)
-			var/list/see = get_mobs_or_objects_in_view(world.view,src) | viewers(get_turf(src), null)
-			for(var/I in see)
-				if(isobj(I))
-					spawn(0)
-						if(I) //It's possible that it could be deleted in the meantime.
-							var/obj/O = I
-							O.see_emote(src, message, 1)
-				else if(ismob(I))
-					var/mob/M = I
-					M.show_message(message, 1)
-
-		else if (m_type & 2)
-			var/list/hear = get_mobs_or_objects_in_view(world.view,src)
-			for(var/I in hear)
-				if(isobj(I))
-					spawn(0)
-						if(I) //It's possible that it could be deleted in the meantime.
-							var/obj/O = I
-							O.see_emote(src, message, 2)
-				else if(ismob(I))
-					var/mob/M = I
-					M.show_message(message, 2)
 
 /mob/proc/emote_dead(var/message)
 
@@ -85,3 +51,36 @@
 	if(input)
 		log_emote("Ghost/[src.key] : [input]")
 		say_dead_direct(input, src)
+
+
+//This is a central proc that all emotes are run through. This handles sending the messages to living mobs
+/mob/proc/send_emote(var/message, var/type)
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messagemobs_neardead = list()//List of nearby ghosts who can hear it. Those that qualify ONLY go in this list
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			if (istype(M, /mob/dead/observer))
+				messagemobs_neardead += M
+				continue
+			else if (istype(M, /mob/living) && !(type == 2 && (sdisabilities & DEAF || ear_deaf)))
+				messagemobs += M
+		else if(src.client)
+			if  (M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT))
+				messagemobs += M
+				continue
+
+	for (var/mob/N in messagemobs)
+		N.show_message(message, type)
+
+	message = "<B>[message]</B>"
+
+	for (var/mob/O in messagemobs_neardead)
+		O.show_message(message, type)
+
+

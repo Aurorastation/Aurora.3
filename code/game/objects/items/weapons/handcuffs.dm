@@ -66,7 +66,8 @@
 	user.do_attack_animation(H)
 	
 	user.visible_message("<span class='danger'>\The [user] has put [cuff_type] on \the [H]!</span>")
-
+	target.drop_r_hand()
+	target.drop_l_hand()
 	// Apply cuffs.
 	var/obj/item/weapon/handcuffs/cuffs = src
 	if(dispenser)
@@ -95,6 +96,7 @@ var/last_chew = 0
 
 	var/s = "<span class='warning'>[H.name] chews on \his [O.name]!</span>"
 	H.visible_message(s, "<span class='warning'>You chew on your [O.name]!</span>")
+	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun(1)] restrained hand - (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
 	log_attack("[s] ([H.ckey])")
 

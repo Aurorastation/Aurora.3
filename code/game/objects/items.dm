@@ -39,6 +39,7 @@
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
+	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
 	var/list/armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
@@ -46,12 +47,12 @@
 	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
 	var/contained_sprite = 0 //1 if item_state, lefthand, righthand, and worn sprite are all in one dmi
 
-	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
+	//Item_state definition moved to /obj
+	//var/item_state = null // Used to specify the item state for the on-mob overlays.
+	var/item_state_slots = null //overrides the default item_state for particular slots.
 
-	//** These specify item/icon overrides for _slots_
 
-	var/list/item_state_slots = list() //overrides the default item_state for particular slots.
-
+	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
 	// If icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
 	// Only slot_l_hand/slot_r_hand are implemented at the moment. Others to be implemented as needed.
@@ -112,16 +113,16 @@
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"
 	set category = "Object"
-	set src in oview(1)
 
-	if(!istype(src.loc, /turf) || usr.stat || usr.restrained() )
+	if (!I in view(1, src))
 		return
+	if(!istype(I.loc, /turf) || usr.stat || usr.restrained() )
+		return
+	var/turf/T = I.loc
 
-	var/turf/T = src.loc
+	I.loc = null
 
-	src.loc = null
-
-	src.loc = T
+	I.loc = T
 
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size
@@ -365,6 +366,7 @@ var/list/global/slot_flags_enumeration = list(
 		return 0
 	return 1
 
+/*
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
 	set category = "Object"
@@ -394,6 +396,41 @@ var/list/global/slot_flags_enumeration = list(
 		return
 	//All checks are done, time to pick it up!
 	usr.UnarmedAttack(src)
+	return
+*/
+
+/mob/living/carbon/verb/verb_pickup(obj/item/I in range(1))
+	set category = "Object"
+	set name = "Pick up"
+
+	if(!(usr)) //BS12 EDIT
+		return
+	if (!I in view(1, src))
+		return
+	if (istype(I, /obj/item/weapon/storage/internal))
+		return
+	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
+		return
+	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
+		usr << "\red You can't pick things up!"
+		return
+	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
+		usr << "\red You can't pick things up!"
+		return
+	if(I.anchored) //Object isn't anchored
+		usr << "\red You can't pick that up!"
+		return
+	if(!usr.hand && usr.r_hand) //Right hand is not full
+		usr << "\red Your right hand is full."
+		return
+	if(usr.hand && usr.l_hand) //Left hand is not full
+		usr << "\red Your left hand is full."
+		return
+	if(!istype(I.loc, /turf)) //Object is on a turf
+		usr << "\red You can't pick that up!"
+		return
+	//All checks are done, time to pick it up!
+	usr.UnarmedAttack(I)
 	return
 
 

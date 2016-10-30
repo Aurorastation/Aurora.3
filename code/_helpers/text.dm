@@ -327,39 +327,23 @@ proc/TextPreview(var/string,var/len=40)
 
 	// ---Begin URL caching.
 	var/list/urls = list()
-	var/regex/url_find = new("(https?:\\/\\/\[^\\s\]*)", "g")
-	while (url_find.Find(message))
-		urls += url_find.match
+	var/i = 1
+	while (url_find_lazy.Find(message))
+		urls["\ref[urls]-[i]"] = url_find_lazy.match
+		i++
 
-
-	if (urls.len)
-		var/i = 1
-		for (var/url in urls)
-			var/ref = "\ref[urls]-[i]"
-			urls[url] = ref
-			message = replacetextEx(message, url, ref)
-			i++
+	for (var/ref in urls)
+		message = replacetextEx(message, urls[ref], ref)
 	// ---End URL caching
 
-	var/list/tags = list("*" = list("<b>", "</b>"),
-						"/" = list("<i>", "</i>"),
-						"~" = list("<strike>", "</strike>"),
-						"_" = list("<u>", "</u>"))
-
-	if (ignore_tags && ignore_tags.len)
-		tags -= ignore_tags
-
-	for (var/tag in tags)
-		var/marker_begin = tags[tag][1]
-		var/marker_end = tags[tag][2]
-
-		var/regex/markup = new("(\\[tag])(\[^\\[tag]\]*)(\\[tag])", "g")
-		message = markup.Replace(message, "[marker_begin]$2[marker_end]")
+	var/regex/tag_markup
+	for (var/tag in (markup_tags - ignore_tags))
+		tag_markup = markup_regex[tag]
+		message = tag_markup.Replace(message, "[markup_tags[tag][1]]$2[markup_tags[tag][2]]")
 
 	// ---Unload URL cache
-	if (urls.len)
-		for (var/url in urls)
-			message = replacetextEx(message, urls[url], url)
+	for (var/ref in urls)
+		message = replacetextEx(message, ref, urls[ref])
 
 	return message
 
@@ -382,3 +366,7 @@ proc/TextPreview(var/string,var/len=40)
 			if(48 to 57)			//Numbers
 				return 1
 	return 0
+
+//A shortcut for assigning a span class to a string of text
+/proc/span(var/class, var/text)
+	return "<span class='[class]'>[text]</span>"

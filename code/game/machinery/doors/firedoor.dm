@@ -74,6 +74,20 @@
 		A.all_doors.Remove(src)
 	. = ..()
 
+/obj/machinery/door/firedoor/attack_generic(var/mob/user, var/damage)
+	if(stat & (BROKEN|NOPOWER))
+		if(damage >= 10)
+			if(src.density)
+				visible_message("<span class='danger'>\The [user] forces \the [src] open!</span>")
+				open(1)
+			else
+				visible_message("<span class='danger'>\The [user] forces \the [src] closed!</span>")
+				close(1)
+		else
+			visible_message("<span class='notice'>\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"].</span>")
+		return
+	..()
+
 /obj/machinery/door/firedoor/get_material()
 	return get_material_by_name(DEFAULT_WALL_MATERIAL)
 

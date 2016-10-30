@@ -27,3 +27,10 @@
 
 /obj/item/clothing/head/hardhat/dblue
 	icon_state = "hardhat0_dblue"
+	item_state = "hardhat0_dblue"
+
+/obj/item/clothing/head/hardhat/red/atmos
+	name = "atmospheric firefighter helmet"
+	desc = "An atmospheric firefighter's helmet, able to keep the user protected from heat and fire."
+	icon_state = "atmos_fire"
+	item_state = "atmos_fire"

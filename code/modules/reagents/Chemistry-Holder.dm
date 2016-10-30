@@ -384,9 +384,13 @@
 			var/datum/reagents/R = C.touching
 			return trans_to_holder(R, amount, multiplier, copy)
 	else
-		var/datum/reagents/R = new /datum/reagents(amount)
-		. = trans_to_holder(R, amount, multiplier, copy)
-		R.touch_mob(target)
+		//If the target has a reagent holder, we'll try to put it there instead. This allows feeding simple animals
+		if(target.reagents && type == CHEM_BLOOD || type == CHEM_INGEST)
+			return trans_to_holder(target.reagents, amount, multiplier, copy)
+		else
+			var/datum/reagents/R = new /datum/reagents(amount)
+			. = trans_to_holder(R, amount, multiplier, copy)
+			R.touch_mob(target)
 
 /datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Turfs don't have any reagents (at least, for now). Just touch it.
 	if(!target || !target.simulated)

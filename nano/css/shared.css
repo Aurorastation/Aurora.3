@@ -584,11 +584,11 @@ th.misc {
 }
 
 .toxin {
-    color: green;
+    color: #8ac44c;
 }
 
 .oxyloss {
-    color: blue;
+    color: #00baee;
 }
 
 /* 75px width used in power monitoring console buttons */

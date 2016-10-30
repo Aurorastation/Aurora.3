@@ -242,14 +242,12 @@
 
 //creates a new stack with the specified amount
 /obj/item/stack/proc/split(var/tamount)
-	if (!amount)
-		return null
-	if(uses_charge)
+	if (!get_amount())
 		return null
 
 	var/transfer = max(min(tamount, src.amount, initial(max_amount)), 0)
 
-	var/orig_amount = src.amount
+	var/orig_amount = src.get_amount()
 	if (transfer && src.use(transfer))
 		var/obj/item/stack/newstack = new src.type(loc, transfer)
 		newstack.color = color

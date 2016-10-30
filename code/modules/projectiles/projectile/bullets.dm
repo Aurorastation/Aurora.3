@@ -11,8 +11,8 @@
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
-/obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0)
-	if (..(target, blocked))
+/obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+	if (..(target, blocked, def_zone))
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 
@@ -138,7 +138,7 @@
 	name = "rubber bullet"
 	check_armour = "melee"
 	damage = 5
-	agony = 25
+	agony = 40
 	embed = 0
 	sharp = 0
 
@@ -152,7 +152,7 @@
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
 	check_armour = "melee"
-	damage = 20
+	damage = 10
 	agony = 60
 	embed = 0
 	sharp = 0
@@ -195,6 +195,49 @@
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 
+/obj/item/projectile/bullet/rifle/tranq
+	name = "dart"
+	icon_state = "dart"
+	damage = 5
+	stun = 0
+	weaken = 0
+	drowsy = 0
+	eyeblur = 0
+	damage_type = TOX
+	step_delay = 0.25
+
+/obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+	var/mob/living/L = target
+	if(!(isanimal(target)))
+		if(!(isipc(target)))
+			if(!isrobot(target))
+				L.apply_effect(5, DROWSY, 0)
+				if(def_zone == "torso")
+					if(blocked < 2 && !(blocked < 1))
+						target.visible_message("<b>[target]</b> yawns.")
+					if(blocked < 1)
+						spawn(120)
+							L.apply_effect(10, PARALYZE, 0)
+							target.visible_message("<b>[target]</b> moans.")
+				if(def_zone == "head" && blocked < 2)
+					spawn(35)
+						L.apply_effect(20, PARALYZE, 0)
+				if(def_zone != "torso" && def_zone != "head")
+					if(blocked < 2 && !(blocked < 1))
+						target.visible_message("<b>[target]</b> yawns.")
+					if(blocked < 1)
+						spawn(45)
+							L.apply_effect(15, PARALYZE, 0)
+							target.visible_message("<b>[target]</b> moans.")
+	if(isanimal(target))
+		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
+		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
+	/*	var/mob/living/simple_animal/M = target
+		spawn(60)
+			target.visible_message("<b>[target]</b> collapses.")
+			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
+	..()
+
 /* Miscellaneous */
 
 /obj/item/projectile/bullet/suffocationbullet//How does this even work?
@@ -213,15 +256,18 @@
 	embed = 0
 	edge = 1
 
-/obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
-	if(isturf(target))
-		explosion(target, -1, 0, 2)
-	..()
+/obj/item/projectile/bullet/burstbullet/on_impact(var/atom/A)
+		explosion(A, -1, 0, 2)
+		..()
 
 /obj/item/projectile/bullet/blank
 	invisibility = 101
 	damage = 1
 	embed = 0
+
+/obj/item/projectile/bullet/chameleon
+	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!
+	embed = 0 // nope
 
 /* Practice */
 

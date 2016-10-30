@@ -9,10 +9,26 @@
 		)
 	unacidable = 1 //No longer shall our kind be foiled by lone chemists with spray bottles!
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.7
-	sprite_sheets_refit = null
-	sprite_sheets_obj = null
+	siemens_coefficient = 0.3
 	wizard_garb = 1
+
+	equipped(var/mob/user)
+		if(!(user.mind.assigned_role == "Space Wizard"))
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LH = H.get_organ("l_hand")
+			var/obj/item/organ/external/RH = H.get_organ("r_hand")
+			var/active_hand = H.hand
+			user << "\red Your hand passes through the [src] with a flash of searing heat!"
+			playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
+			user.drop_item()
+			if(active_hand)
+				LH.droplimb(0,DROPLIMB_BURN)
+			else
+				RH.droplimb(0,DROPLIMB_BURN)
+			return
+		else
+			..()
+
 
 /obj/item/clothing/suit/space/void/wizard
 	icon_state = "rig-wiz"
@@ -23,7 +39,24 @@
 	w_class = 3
 	unacidable = 1
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.7
-	sprite_sheets_refit = null
-	sprite_sheets_obj = null
+	siemens_coefficient = 0.3
 	wizard_garb = 1
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
+
+	equipped(var/mob/user)
+		if(!(user.mind.assigned_role == "Space Wizard"))
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LH = H.get_organ("l_hand")
+			var/obj/item/organ/external/RH = H.get_organ("r_hand")
+			var/active_hand = H.hand
+			user << "\red Your hand passes through the [src] with a flash of searing heat!"
+			playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
+			user.drop_item()
+			if(active_hand)
+				LH.droplimb(0,DROPLIMB_BURN)
+			else
+				RH.droplimb(0,DROPLIMB_BURN)
+			return
+		else
+			..()
+

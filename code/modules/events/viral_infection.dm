@@ -2,6 +2,8 @@
 
 datum/event/viral_infection
 	var/list/viruses = list()
+	ic_name = "a biohazard"
+	no_fake = 1//Probability in announce complicates it
 
 datum/event/viral_infection/setup()
 	announceWhen = rand(0, 3000)

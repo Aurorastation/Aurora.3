@@ -10,8 +10,8 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(access_lawyer, access_heads, access_armory, access_qm)
-
+	req_one_access = list(access_lawyer, access_heads, access_armory) //Warden needs to be able to Fax solgov too.
+	density = 0//It's a small machine that sits on a table, this allows small things to walk under that table
 	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 200
@@ -190,24 +190,23 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	if(department == "Unknown")
 		return 0	//You can't send faxes to "Unknown"
 
+	if (!istype(incoming, /obj/item/weapon/paper) && !istype(incoming, /obj/item/weapon/photo) && !istype(incoming, /obj/item/weapon/paper_bundle))
+		return 0
+
 	flick("faxreceive", src)
 	playsound(loc, "sound/items/polaroid1.ogg", 50, 1)
 
 	// give the sprite some time to flick
-	sleep(20)
+	spawn(20)
+		if (istype(incoming, /obj/item/weapon/paper))
+			copy(incoming)
+		else if (istype(incoming, /obj/item/weapon/photo))
+			photocopy(incoming)
+		else if (istype(incoming, /obj/item/weapon/paper_bundle))
+			bundlecopy(incoming)
+		do_pda_alerts()
+		use_power(active_power_usage)
 
-	if (istype(incoming, /obj/item/weapon/paper))
-		copy(incoming)
-	else if (istype(incoming, /obj/item/weapon/photo))
-		photocopy(incoming)
-	else if (istype(incoming, /obj/item/weapon/paper_bundle))
-		bundlecopy(incoming)
-	else
-		return 0
-
-	do_pda_alerts()
-
-	use_power(active_power_usage)
 	return 1
 
 /obj/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)
@@ -250,7 +249,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		if((R_ADMIN|R_CCIAA) & C.holder.rights)
 			C << msg
 
-	send_to_cciaa_discord("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
+	discord_bot.send_to_cciaa("New fax arrived! [faxname]: \"[sent.name]\" by [sender].")
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
 	if (!alert_pdas || !alert_pdas.len)

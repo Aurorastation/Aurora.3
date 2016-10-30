@@ -27,14 +27,15 @@
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/active = 0
+	can_embed = 0//A chainsword can slice through flesh and bone, and the direction can be reversed if it ever did get stuck
 
 /obj/item/weapon/melee/chainsword/attack_self(mob/user)
 	active= !active
 	if(active)
-		playsound(user, 'sound/weapons/circsawhit.ogg', 50, 1)
+		playsound(user, 'sound/weapons/chainsawhit.ogg', 50, 1)
 		user << "\blue \The [src] rumbles to life."
 		force = 35
-		hitsound = 'sound/weapons/circsawhit.ogg'
+		hitsound = 'sound/weapons/chainsawhit.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
@@ -43,6 +44,8 @@
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
 		slot_flags = initial(slot_flags)
+	user.regenerate_icons()
+
 /*
 /obj/item/weapon/melee/chainsword/suicide_act(mob/user)
 	viewers(user) << "\red <b>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</b>"

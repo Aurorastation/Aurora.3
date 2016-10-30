@@ -12,6 +12,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	w_class = 2.0
 	slot_flags = SLOT_ID | SLOT_BELT
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/id.dmi')
+	offset_light = 1
+	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	//Main variables
 	var/owner = null
@@ -339,6 +341,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/GetID()
 	return id
+
+/obj/item/device/pda/AltClick(var/mob/user)
+	verb_remove_id()
 
 /obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
 	var/mob/M = usr
@@ -698,7 +703,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				mode=2
 
 		if("Ringtone")
-			var/t = input(U, "Please enter new ringtone", name, ttone) as text
+			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
 			if (in_range(src, U) && loc == U)
 				if (t)
 					if(src.hidden_uplink && hidden_uplink.check_trigger(U, lowertext(t), lowertext(lock_code)))
@@ -711,7 +716,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				ui.close()
 				return 0
 		if("Newstone")
-			var/t = input(U, "Please enter new news tone", name, newstone) as text
+			var/t = input(U, "Please enter new news tone", name, newstone) as text|null
 			if (in_range(src, U) && loc == U)
 				if (t)
 					t = sanitize(t, 20)
@@ -898,7 +903,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(i>=25 && i<=40) //Smoke
 		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem
 		S.attach(P.loc)
-		S.set_up(P, 10, 0, P.loc)
+		S.set_up(P, 10, 0, P.loc, 60)
 		playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 		S.start()
 		message += "Large clouds of smoke billow forth from your [P]!"
@@ -950,7 +955,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
 		U.visible_message("<span class='notice'>\The [U] taps on \his PDA's screen.</span>")
-	var/t = input(U, "Please enter message", P.name, null) as text
+	U.last_target_click = world.time
+	var/t = input(U, "Please enter message", P.name, null) as text|null
 	t = sanitize(t)
 	//t = readd_quotes(t)
 	t = replace_characters(t, list("&#34;" = "\""))

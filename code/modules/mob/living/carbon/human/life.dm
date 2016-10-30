@@ -70,6 +70,12 @@
 		handle_organs()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
+		//Random events (vomiting etc)
+		handle_random_events()
+
+		//stuff in the stomach
+		handle_stomach()//This function is in devour.dm
+
 		handle_shock()
 
 		handle_pain()
@@ -77,6 +83,9 @@
 		handle_medical_side_effects()
 
 		handle_heartbeat()
+
+		if (is_diona())
+			diona_handle_light(DS)
 
 		if(!client)
 			species.handle_npc(src)
@@ -290,39 +299,48 @@
 		if(prob(25))
 			damage = 1
 
-		if (radiation > 50)
-			damage = 1
-			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-			if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
-				radiation -= 5 * RADIATION_SPEED_COEFFICIENT
-				src << "<span class='warning'>You feel weak.</span>"
-				Weaken(3)
-				if(!lying)
-					emote("collapse")
-			if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.get_bodytype() == "Human") //apes go bald
-				if((h_style != "Bald" || f_style != "Shaved" ))
-					src << "<span class='warning'>Your hair falls out.</span>"
-					h_style = "Bald"
-					f_style = "Shaved"
-					update_hair()
+		if (radiation)
+			//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
+			if(src.is_diona())
+				diona_handle_regeneration(get_dionastats())
+			else
+				var/damage = 0
+				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+				if(prob(25))
+					damage = 1
 
-		if (radiation > 75)
-			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-			damage = 3
-			if(prob(5))
-				take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-			if(prob(1))
-				src << "<span class='warning'>You feel strange!</span>"
-				adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
-				emote("gasp")
+				if (radiation > 50)
+					damage = 1
+					radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+					if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
+						radiation -= 5 * RADIATION_SPEED_COEFFICIENT
+						src << "<span class='warning'>You feel weak.</span>"
+						Weaken(3)
+						if(!lying)
+							emote("collapse")
+					if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
+						if((h_style != "Bald" || f_style != "Shaved" ))
+							src << "<span class='warning'>Your hair falls out.</span>"
+							h_style = "Bald"
+							f_style = "Shaved"
+							update_hair()
 
-		if(damage)
-			damage *= species.radiation_mod
-			adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
-			updatehealth()
-			if(organs.len)
-				var/obj/item/organ/external/O = pick(organs)
-				if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
+				if (radiation > 75)
+					radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+					damage = 3
+					if(prob(5))
+						take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					if(prob(1))
+						src << "<span class='warning'>You feel strange!</span>"
+						adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
+						emote("gasp")
+
+				if(damage)
+					adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
+					updatehealth()
+					if(organs.len)
+						var/obj/item/organ/external/O = pick(organs)
+						if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
 
 	/** breathing **/
 
@@ -623,6 +641,9 @@
 	var/pressure = environment.return_pressure()
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
+	if (is_diona())
+		diona_handle_air(get_dionastats(), pressure)
+
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
 		if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && environment.gas[g] > gas_data.overlay_limit[g] + 1)
@@ -685,6 +706,11 @@
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)	return 1	//godmode
 
+		if (is_diona() == DIONA_WORKER)
+			diona_contained_cold_damage()
+
+		if(status_flags & GODMODE)	return 1	//godmode
+
 		if(!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
 			if(bodytemperature > species.cold_level_2)
 				take_overall_damage(burn=COLD_DAMAGE_LEVEL_1, used_weapon = "High Body Temperature")
@@ -718,6 +744,9 @@
 			pressure_alert = -2
 		else
 			pressure_alert = -1
+
+	if (is_diona())
+		diona_handle_temperature(DS)
 
 	return
 
@@ -1091,7 +1120,7 @@
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(!overlays_cache)
 		overlays_cache = list()
-		overlays_cache.len = 23
+		overlays_cache.len = 24
 		overlays_cache[1] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage1")
 		overlays_cache[2] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage2")
 		overlays_cache[3] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage3")

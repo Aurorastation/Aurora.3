@@ -20,7 +20,10 @@
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
-	if (!istype(T))
+	if (!istype(T) || T.species.flags & NO_BLOOD)
+		//Added this to prevent vampires draining diona and IPCs
+		//Diona have 'blood' but its really green sap and shouldn't help vampires
+		//IPCs leak oil
 		src << "<span class='warning'>[T] is not a creature you can drain useful blood from.</span>"
 		return
 
@@ -38,7 +41,7 @@
 
 	vampire.status |= VAMP_DRAINING
 
-	visible_message("\red <b>[src.name] bites [T.name]'s neck!<b>", "\red <b>You bite [T.name]'s neck and begin to drain their blood.", "\blue You hear a soft puncture and a wet sucking noise")
+	visible_message("<span class='danger'>[src.name] bites [T.name]'s neck!</span>", "<span class='danger'>You bite [T.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
 	admin_attack_log(src, T, "drained blood from [key_name(T)]", "was drained blood from by [key_name(src)]", "is draining blood from")
 
 	T << "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>"
@@ -47,14 +50,14 @@
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
-			src << "\red Your fangs have disappeared!"
+			src << "<span class='danger'>Your fangs have disappeared!</span>"
 			return
 
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
 		if (!T.vessel.get_reagent_amount("blood"))
-			src << "\red [T] has no more blood left to give."
+			src << "<span class='danger'>[T] has no more blood left to give.</span>"
 			break
 
 		if (!T.stunned)
@@ -85,22 +88,22 @@
 			blood = min(5, T.vessel.get_reagent_amount("blood"))
 			vampire.blood_usable += blood
 
-			frenzy_lower_chance = 20
+			frenzy_lower_chance = 40
 
 		if (prob(frenzy_lower_chance) && vampire.frenzy > 0)
 			vampire.frenzy--
 
 		if (blood_total != vampire.blood_total)
-			var/update_msg = "\blue <b>You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood.</b>"
+			var/update_msg = "<span class='notice'>You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood.</span>"
 			if (blood_usable != vampire.blood_usable)
-				update_msg += "<b> And have [vampire.blood_usable] left to use.</b>"
+				update_msg += "<span class='notice'> And have [vampire.blood_usable] left to use.</span>"
 
 			src << update_msg
 		check_vampire_upgrade()
 		T.vessel.remove_reagent("blood", 25)
 
 	vampire.status &= ~VAMP_DRAINING
-	src << "\blue You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived."
+	src << "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>"
 
 	if (T.stat != 2)
 		T << "<span class='warning'>You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name].</span>"
@@ -122,7 +125,7 @@
 		src << "<span class='warning'>You're blindfolded!</span>"
 		return
 
-	visible_message("\red <b>[src.name]'s eyes emit a blinding flash!</b>")
+	visible_message("<span class='danger'>[src.name]'s eyes emit a blinding flash!</span>")
 	var/list/victims = list()
 	for (var/mob/living/carbon/human/H in view(2))
 		if (H == src)
@@ -133,7 +136,7 @@
 
 		H.Weaken(8)
 		H.stuttering = 20
-		H << "\red You are blinded by [src]'s glare!"
+		H << "<span class='danger'>You are blinded by [src]'s glare!</span>"
 		flick("flash", H.flash)
 		victims += H
 
@@ -175,11 +178,11 @@
 	src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to render them useless.</span>"
 
 	if (do_mob(src, T, 50))
-		src << "\red You dominate [T.name]'s mind and render them temporarily powerless to resist."
-		T << "\red You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak."
-		T.Weaken(20)
-		T.Stun(20)
-		T.stuttering = 20
+		src << "<span class='danger'> You dominate [T.name]'s mind and render them temporarily powerless to resist.</span>"
+		T << "<span class='danger'> You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak.</span>"
+		T.Weaken(25)
+		T.Stun(25)
+		T.silent += 30
 
 		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
@@ -188,7 +191,7 @@
 		spawn(1200)
 			verbs += /mob/living/carbon/human/proc/vampire_hypnotise
 	else
-		src << "\red You broke your gaze."
+		src << "<span class='warning'>You broke your gaze.</span>"
 
 // Targeted teleportation, must be to a low-light tile.
 /mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in world)

@@ -24,6 +24,10 @@
 	var/sortBy = "name"
 	var/order = 1 // -1 = Descending - 1 = Ascending
 
+
+/obj/machinery/computer/secure_data/AltClick(var/mob/user)
+	eject_id()
+
 /obj/machinery/computer/secure_data/verb/eject_id()
 	set category = "Object"
 	set name = "Eject ID Card"
@@ -38,7 +42,7 @@
 			usr.put_in_hands(scan)
 		scan = null
 	else
-		usr << "There is nothing to remove from the console."
+		usr << "There is no ID card to remove from the console."
 	return
 
 /obj/machinery/computer/secure_data/attackby(obj/item/O as obj, user as mob)

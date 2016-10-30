@@ -19,6 +19,44 @@ CREATE TABLE `ss13_admin_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `ss13_api_commands` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`command` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`description` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `UNIQUE command` (`command`)
+)
+COLLATE='utf8_bin'
+ENGINE=InnoDB;
+
+
+CREATE TABLE `ss13_api_tokens` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`token` VARCHAR(100) NOT NULL COLLATE 'utf8_bin',
+	`ip` VARCHAR(16) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`creator` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`description` VARCHAR(100) NOT NULL COLLATE 'utf8_bin',
+	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`deleted_at` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_bin'
+ENGINE=InnoDB;
+
+CREATE TABLE `ss13_api_token_command` (
+	`command_id` INT(11) NOT NULL,
+	`token_id` INT(11) NOT NULL,
+	PRIMARY KEY (`command_id`, `token_id`),
+	INDEX `token_id` (`token_id`),
+	CONSTRAINT `function_id` FOREIGN KEY (`command_id`) REFERENCES `ss13_api_commands` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `token_id` FOREIGN KEY (`token_id`) REFERENCES `ss13_api_tokens` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+COLLATE='utf8_bin'
+ENGINE=InnoDB;
+
+
+
 CREATE TABLE `ss13_ban` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bantime` datetime NOT NULL,
@@ -154,6 +192,24 @@ CREATE TABLE `ss13_connection_log` (
   `serverip` varchar(32) NOT NULL,
   `ip` varchar(18) NOT NULL,
   `computerid` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ss13_contest_participants` (
+  `player_ckey` varchar(32) NOT NULL,
+  `character_id` int(10) unsigned NOT NULL,
+  `contest_faction` enum('INDEP','SLF','BIS','ASI','PSIS','HSH','TCD') NOT NULL DEFAULT 'INDEP'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ss13_contest_reports` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `player_ckey` varchar(32) NOT NULL,
+  `character_id` int(10) unsigned DEFAULT NULL,
+  `character_faction` enum('INDEP','SLF','BIS','ASI','PSIS','HSH','TCD') NOT NULL DEFAULT 'INDEP',
+  `objective_type` text NOT NULL,
+  `objective_side` enum('pro_synth','anti_synth') NOT NULL,
+  `objective_outcome` tinyint(1) DEFAULT '0',
+  `objective_datetime` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -430,3 +486,15 @@ CREATE TABLE `ss13_whitelist_statuses` (
   `status_name` varchar(32) NOT NULL,
   PRIMARY KEY (`status_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `ss13_stats_ie` (
+  `ckey` varchar(32) NOT NULL,
+  `IsIE` tinyint(4) NOT NULL,
+  `IsEdge` tinyint(4) NOT NULL,
+  `EdgeHtmlVersion` int(11) NOT NULL,
+  `TrueVersion` tinyint(4) NOT NULL,
+  `ActingVersion` tinyint(4) NOT NULL,
+  `CompatibilityMode` tinyint(4) NOT NULL,
+  `DateUpdated` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ckey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

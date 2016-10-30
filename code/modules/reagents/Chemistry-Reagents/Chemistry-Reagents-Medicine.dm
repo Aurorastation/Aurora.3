@@ -126,7 +126,7 @@
 	scannable = 1
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && alien != IS_DIONA)
 		M.adjustCloneLoss(-10 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
@@ -142,7 +142,7 @@
 	scannable = 1
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && alien != IS_DIONA)
 		M.adjustCloneLoss(-30 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
