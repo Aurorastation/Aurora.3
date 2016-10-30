@@ -138,6 +138,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user << "You close the pocket altar."
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 
+
 /obj/item/clothing/head/det_hat/fluff/bell_hat //Brown Hat - Avery Bell - serveris6 - DONE
 	name = "brown hat"
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
@@ -145,7 +146,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "bell_hat"
 	item_state = "bell_hat"
 	contained_sprite = 1
-
 
 /obj/item/clothing/suit/storage/det_suit/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6 - DONE
 	name = "pinned brown coat"
@@ -554,3 +554,76 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/akela_photo.dmi'
 	icon_state = "akela_photo"
 	w_class = 2
+
+
+/obj/item/weapon/implant/fluff/ziva_implant //Heart Condition - Ziva Ta'Kim - sierrakomodo - DONE
+	name = "heart monitor"
+	desc = "A small machine to watch upon broken hearts."
+
+/obj/item/weapon/implant/fluff/ziva_implant/implanted(mob/living/carbon/human/M as mob)
+	if (M.ckey == "sierrakomodo") //just to be sure
+		M.verbs += /mob/living/carbon/human/proc/heart_attack
+	else
+		return
+
+/mob/living/carbon/human/proc/heart_attack()
+	set category = "IC"
+	set name = "Suffer Heart Condition"
+	set desc = "HNNNNG."
+
+	if(last_special > world.time)
+		src << "<span class='warning'>Your chest still hurts badly!</span>"
+		return
+
+	last_special = world.time + 500
+
+	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
+	
+	if(isnull(F))
+		return
+		
+	F.damage += 5
+	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
+	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
+
+
+/obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron - DONE
+	name = "worn badge"
+	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, Caleb Greene, is still clearly legible."
+	icon_state = "badge"
+	icon = 'icons/obj/custom_items/caleb_badge.dmi'
+	item_state = "caleb_badge"
+	icon_state = "caleb_badge"
+	stored_name = "Caleb Greene"
+	badge_string = "NOS Apollo Head of Security"
+	contained_sprite = 1
+
+
+/obj/item/fluff/messa_pressing //Pressing of Messa's Tears - Poslan Kur'yer-Isra - jboy2000000 - DONE
+	name = "pressing of Messa's tears"
+	desc = "As Messa looked at the pain and death wrought on the world she had given life, she cried, and from her tears sprouted these leaves."
+	icon = 'icons/obj/custom_items/cat_religion.dmi'
+	icon_state = "messa"
+	w_class = 2
+
+/obj/item/fluff/srendarr_pressing //Pressing of S'Rendarr's Hand - Poslan Kur'yer-Isra - jboy2000000 - DONE
+	name = "pressing of S'Rendarr's hand"
+	desc = "As S'Rendarr watched her sister cry, she felt rage never known to her before. Her fists clashed with those who upset her sister, and from their blood came these."
+	icon = 'icons/obj/custom_items/cat_religion.dmi'
+	icon_state = "srendarr"
+	w_class = 2
+
+/obj/item/clothing/suit/chaplain_hoodie/fluff/poslan_jacket //Twin Suns Throw-over - Poslan Kur'yer-Isra - jboy2000000 - DONE
+	name = "twin suns throw-over"
+	desc = "A light black jacket, on one side of its breast is the design of a yellow sun, and on the other side there is a smaller blue sun."
+	icon = 'icons/obj/custom_items/cat_religion.dmi'
+	icon_state = "poslan_jacket"
+	item_state = "poslan_jacket"
+	contained_sprite = 1
+
+/obj/item/sign/fluff/alexis_degree //Xenonuerology Doctorate - Alexis Shaw - Tenenza - DONE
+	name = "xenonuerology degree"
+	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
+	icon_state = "alexis_degree"
+	sign_state = "alexis_degree"
+	w_class = 2	
