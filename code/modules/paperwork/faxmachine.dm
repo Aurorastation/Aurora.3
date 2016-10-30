@@ -1,6 +1,7 @@
 var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
 var/list/admin_departments = list("Central Command", "Sol Government")
 var/list/alldepartments = list()
+var/broadcast_departments = "Stationwide broadcast (WARNING)"
 
 var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
 var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
@@ -15,6 +16,10 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 200
+
+	var/const/adminfax_cooldown = 1800		// in 1/10 seconds
+	var/const/normalfax_cooldown = 300
+	var/const/broadcastfax_cooldown = 3000
 
 	var/obj/item/weapon/card/id/scan = null // identification
 	var/authenticated = 0
@@ -60,7 +65,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
 
 			if(sendcooldown)
-				dat += "<b>Transmitter arrays realigning. Please stand by.</b><br>"
+				dat += "<b>Transmitter arrays realigning. Please stand by. [round(sendcooldown/10)] seconds remaining.</b><br>"
 
 			else
 
@@ -71,7 +76,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		else
 			if(sendcooldown)
 				dat += "Please insert paper to send via secure connection.<br><br>"
-				dat += "<b>Transmitter arrays realigning. Please stand by.</b><br>"
+				dat += "<b>Transmitter arrays realigning. Please stand by. [round(sendcooldown/10)] seconds remaining.</b><br>"
 			else
 				dat += "Please insert paper to send via secure connection.<br><br>"
 
@@ -95,15 +100,22 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 /obj/machinery/photocopier/faxmachine/Topic(href, href_list)
 	if(href_list["send"])
+		if (sendcooldown > 0)
+			// Rate-limit sending faxes
+			usr << "<span class='warning'>The fax machine isn't ready, yet!</span>"
+			updateUsrDialog()
+			return
+
 		if(copyitem)
 			if (destination in admin_departments)
 				send_admin_fax(usr, destination)
+			else if (destination == broadcast_departments)
+				send_broadcast_fax()
 			else
 				sendfax(destination)
+			updateUsrDialog()
 
-			if (sendcooldown)
-				spawn(sendcooldown) // cooldown time
-					sendcooldown = 0
+			spawn() process_cooldown()
 
 	else if(href_list["remove"])
 		if(copyitem)
@@ -136,7 +148,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 	if(href_list["dept"])
 		var/lastdestination = destination
-		destination = input(usr, "Which department?", "Choose a department", "") as null|anything in (alldepartments + admin_departments)
+		destination = input(usr, "Which department?", "Choose a department", "") as null|anything in (alldepartments + admin_departments + broadcast_departments)
 		if(!destination) destination = lastdestination
 
 	if(href_list["auth"])
@@ -169,9 +181,19 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 	updateUsrDialog()
 
-/obj/machinery/photocopier/faxmachine/proc/sendfax(var/destination)
+// Only run this in a spawn()!
+/obj/machinery/photocopier/faxmachine/proc/process_cooldown()
+	while (sendcooldown > 0)
+		delay(100)
+		sendcooldown -= 100
+		// update UI every 10 seconds
+		updateUsrDialog()
+	// clean up, in case some odd sendcooldown was set
+	sendcooldown = 0
+
+/obj/machinery/photocopier/faxmachine/proc/sendfax(var/destination, var/display_message = 1)
 	if(stat & (BROKEN|NOPOWER))
-		return
+		return 0
 
 	use_power(200)
 
@@ -180,11 +202,14 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		if( F.department == destination )
 			success = F.recievefax(copyitem)
 
-	if (success)
-		visible_message("[src] beeps, \"Message transmitted successfully.\"")
-		//sendcooldown = 600
-	else
-		visible_message("[src] beeps, \"Error transmitting message.\"")
+	if (display_message)
+		// Normal fax
+		if (success)
+			visible_message("[src] beeps, \"Message transmitted successfully.\"")
+			sendcooldown = normalfax_cooldown
+		else
+			visible_message("[src] beeps, \"Error transmitting message.\"")
+	return success
 
 /obj/machinery/photocopier/faxmachine/proc/recievefax(var/obj/item/incoming)
 	if(stat & (BROKEN|NOPOWER))
@@ -211,6 +236,22 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		use_power(active_power_usage)
 
 	return 1
+
+/obj/machinery/photocopier/faxmachine/proc/send_broadcast_fax()
+	var success = 1
+	for (var/dest in (alldepartments - department))
+		// Send to everyone except this department
+		delay(1)
+		success &= sendfax(dest, 0)	// 0: don't display success/error messages
+
+		if(!success)// Stop on first error
+			break
+	if (success)
+		visible_message("[src] beeps, \"Messages transmitted successfully.\"")
+		sendcooldown = broadcastfax_cooldown
+	else
+		visible_message("[src] beeps, \"Error transmitting messages.\"")
+		sendcooldown = normalfax_cooldown
 
 /obj/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)
 	if(stat & (BROKEN|NOPOWER))
@@ -240,9 +281,9 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 			message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 			//message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "SolGovFaxReply", "#1F66A0")
 
-	sendcooldown = 1800
-	sleep(50)
-	visible_message("[src] beeps, \"Message transmitted successfully.\"")
+	sendcooldown = adminfax_cooldown
+	spawn(50)
+		visible_message("[src] beeps, \"Message transmitted successfully.\"")
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
