@@ -125,6 +125,8 @@
 				update_icon()
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
+	if (isAI(user))
+		return
 	if(src.beaker)
 		src.beaker.loc = get_turf(src)
 		src.beaker = null

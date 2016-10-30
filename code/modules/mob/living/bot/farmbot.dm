@@ -38,8 +38,13 @@
 	. = ..()
 	if(.)
 		return
+
+	if (!has_ui_access(user))
+		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		return
+
 	var/dat = ""
-	dat += "<TT><B>Automatic Hyrdoponic Assisting Unit v1.0</B></TT><BR><BR>"
+	dat += "<TT><B>Automatic Hyrdoponic Assisting Unit v1.1</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Water Tank: "
 	if (tank)
@@ -47,7 +52,7 @@
 	else
 		dat += "Error: Watertank not found"
 	dat += "<br>Behaviour controls are [locked ? "locked" : "unlocked"]<hr>"
-	if(!locked)
+	if(!locked || issilicon(usr))
 		dat += "<TT>Watering controls:<br>"
 		dat += "Water plants : <A href='?src=\ref[src];water=1'>[waters_trays ? "Yes" : "No"]</A><BR>"
 		dat += "Refill watertank : <A href='?src=\ref[src];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
@@ -60,7 +65,7 @@
 		dat += "Remove dead plants: <A href='?src=\ref[src];removedead=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
 		dat += "</TT>"
 
-	user << browse("<HEAD><TITLE>Farmbot v1.0 controls</TITLE></HEAD>[dat]", "window=autofarm")
+	user << browse("<HEAD><TITLE>Farmbot v1.1 controls</TITLE></HEAD>[dat]", "window=autofarm")
 	onclose(user, "autofarm")
 	return
 
@@ -77,13 +82,18 @@
 		return
 	usr.machine = src
 	add_fingerprint(usr)
-	if((href_list["power"]) && (access_scanner.allowed(usr)))
+
+	if (!has_ui_access(usr))
+		usr << "<span class='warning'>Insufficient permissions.</span>"
+		return
+
+	if(href_list["power"])
 		if(on)
 			turn_off()
 		else
 			turn_on()
 
-	if(locked)
+	if(locked && !issilicon(usr))
 		return
 
 	if(href_list["water"])
