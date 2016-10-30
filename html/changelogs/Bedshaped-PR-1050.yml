@@ -1,0 +1,7 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - rscadd: "New implementation of magnetic door locks, can be found in armory and eng secure storage."
+  - soundadd: "Added hydraulic servo sounds."
