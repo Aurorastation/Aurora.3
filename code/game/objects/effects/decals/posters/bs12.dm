@@ -1,4 +1,4 @@
-// baystation12 posters
+// aurora station posters
 /datum/poster/bay_1
 	icon_state="bsposter1"
 	name = "Unlucky Space Explorer"
@@ -286,5 +286,45 @@
 
 /datum/poster/bay_58
 	icon_state="bsposter58"
-	name = "space carp information poster"
-	desc = "This poster showcases an old spacer saying on the dangers of migrant space carp."
+	name = "space bear information poster"
+	desc = "This poster displays a picture of a legendary space bear."
+	
+/datum/poster/bay_59
+	icon_state = "bsposter59"
+	name = "ATLAS poster"
+	desc = "ATLAS: For all of Humanity."
+	
+/datum/poster/bay_60
+	icon_state = "bsposter60"
+	name = "N.S.S. Aurora"
+	desc = "This poster is a picture of the old, now defunct, N.S.S. Aurora. Commissioned in 2454 and decommissioned in the early days of 2458."
+	
+/datum/poster/bay_61
+	icon_state = "bsposter61"
+	name = "Xenobiology Safety Protocols"
+	desc = "This posters warms the crew about the dangers of xenobiology outbreaks."
+	
+/datum/poster/bay_62
+	icon_state = "bsposter62"
+	name = "Xenobiology Division"
+	desc = "This one depicts a green skrell research director doing autopsy on an alien lifeform."
+	
+/datum/poster/bay_63
+	icon_state = "bsposter63"
+	name = "Suit Sensors"
+	desc = "This particular one depicts a female doctor tending to an injured crewmember. It says; \"Remember to enable your suit sensors!\"."
+	
+/datum/poster/bay_64
+	icon_state = "bsposter64"
+	name = "Maintenance Drones
+	desc = "This particular one depicts a maintenance drone. It reminders the crew to don't disturb them when they are doing repairs."
+	
+/datum/poster/bay_65
+	icon_state = "bsposter65"
+	name = "Importance of Plasma"
+	desc = "A corporate morale poster showing three forms of plasma. Teaching the very basics of this really important substance."
+	
+/datum/poster/bay_66
+	icon_state = "bsposter66"
+	name = "BFG 9000"
+	desc = "A picture of a big freakin' gun."
