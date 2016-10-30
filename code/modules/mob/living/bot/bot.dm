@@ -61,6 +61,14 @@
 	else
 		return 0
 
+/mob/living/bot/proc/has_ui_access(mob/user)
+	if (access_scanner.allowed(user))
+		return 1
+	if (!locked)
+		return 1
+	if (isAI(user))
+		return 1
+	return 0
 
 /mob/living/bot/attackby(var/obj/item/O, var/mob/user)
 	if(O.GetID())
