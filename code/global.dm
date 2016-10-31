@@ -241,6 +241,9 @@ var/static/list/scarySounds = list(
 // Bomb cap!
 var/max_explosion_range = 14
 
+// Added for night lighting. May have other uses.
+var/global/list/obj/machinery/power/apc/station_apcs = list()
+
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
 var/global/obj/item/device/radio/intercom/global_announcer = new(null)
 
