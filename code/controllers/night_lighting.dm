@@ -26,14 +26,22 @@ var/global/datum/lighting_controller/night/night_lighting
 		                           "/area/engineering/foyer",
 		                           "/area/security/lobby",
 		                           "/area/storage/tools",
-		                           "/area/storage/primary",
+		                           "/area/storage/primary"
 		                           )
 
 /datum/lighting_controller/night/proc/process()
-	var/time = world.timeofday
+	switch (world.timeofday)
+		if (0 < MORNING_LIGHT_RESET)
+			if (isactive)
+				//announce
+				deactivate()
 
-	if (time < MORNING_LIGHT_RESET && isactive)
-		//turn off
+		if (NIGHT_LIGHT_ACTIVE to TICKS_IN_DAY)
+			if (!isactive)
+				//announce
+				activate()
 
-	if (time > NIGHT_LIGHT_ACTIVE && !isactive)
-		//turn on
+/datum/lighting_controller/night/proc/activate()
+
+
+/datum/lighting_controller/night/proc/deactivate()
