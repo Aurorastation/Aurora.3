@@ -96,7 +96,7 @@
 	req_access = list()
 	req_one_access = list()
 
-	glove_type = /obj/item/clothing/gloves/ce
+	glove_type = /obj/item/clothing/gloves/rig/ce
 
 /obj/item/weapon/rig/ce/equipped
 
@@ -110,7 +110,7 @@
 		/obj/item/rig_module/vision/meson
 		)
 
-/obj/item/clothing/gloves/ce
+/obj/item/clothing/gloves/rig/ce
 	siemens_coefficient = 0
 
 /obj/item/weapon/rig/hazmat
