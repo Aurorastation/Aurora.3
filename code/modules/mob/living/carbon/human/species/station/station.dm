@@ -153,7 +153,7 @@
 	of the Qerr'Katish, a caste within their society which keeps the empire of the Skrell running smoothly. Skrell are \
 	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
 	the secrets of their empire to their allies."
-	
+
 	rarity_value = 3
 
 	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | NO_SLIP | HAS_SKIN_COLOR
@@ -338,13 +338,13 @@
 	has_organ = list() //TODO: Positronic brain.
 
 	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
-	sprint_speed_factor = 0.8	  // About as capable of speed as a human
+	sprint_speed_factor = 0.85	  // About as capable of speed as a human
 
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
-		H.bodytemperature += cost*1.5
-		H.nutrition -= cost
+		H.bodytemperature += cost*1.35
+		H.nutrition -= cost*0.9
 		if (H.nutrition > 0)
 			return 1
 		else
