@@ -28,7 +28,7 @@ var/global/datum/lighting_controller/night/night_lighting
 
 /datum/lighting_controller/night/proc/process()
 	switch (world.timeofday)
-		if (0 < MORNING_LIGHT_RESET)
+		if (0 to MORNING_LIGHT_RESET)
 			if (isactive)
 				command_announcement.Announce("Good morning. The time is [time2text(world.timeofday, "hh:mm")]. The automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 				deactivate()
@@ -43,6 +43,21 @@ var/global/datum/lighting_controller/night/night_lighting
 				deactivate()
 
 /datum/lighting_controller/night/proc/activate()
-
+	var/time = world.time
+	for (var/obj/machinery/power/apc/apc in station_apcs)
+		for (var/area/A in lighting_areas)
+			if (!ispath(A)) CRASH("An index in lighting_areas is not a valid path!")
+			if (apc.area == A)
+				apc.toggle_nightlight("on")
+	var/delta_sec = round((world.time - time) / 10, 1.00)
+	world << "DEBUG: Lighting activation took [delta_sec] seconds."
 
 /datum/lighting_controller/night/proc/deactivate()
+	var/time = world.time
+	for (var/obj/machinery/power/apc/apc in station_apcs)
+		for (var/area/A in lighting_areas)
+			if (!ispath(A)) CRASH("An index in lighting_areas is not a valid path!")
+			if (apc.area == A)
+				apc.toggle_nightlight("off")
+	var/delta_sec = round((world.time - time) / 10, 1.00)
+	world << "DEBUG: Lighting deactivation took [delta_sec] seconds.

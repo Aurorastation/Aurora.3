@@ -11,8 +11,6 @@
 			night_lighting.deactivate()
 		if (NIGHT_LIGHT_ACTIVE to TICKS_IN_DAY)
 			night_lighting.activate()
-		else
-			// ???
 
 /datum/controller/process/night_lighting/doWork()
 	night_lighting.process()

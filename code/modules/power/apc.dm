@@ -162,6 +162,8 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		src.update_icon()
+		if (src.z == 1)
+			station_apcs.Add(src)
 
 /obj/machinery/power/apc/Destroy()
 	src.update()
@@ -1245,23 +1247,28 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				L.broken()
 				sleep(1)
 
-/obj/machinery/power/apc/proc/toggle_nightlight(var/force = 0)
+/obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
+	var/list/main_light_args = list(6, 1)
+	var/list/small_light_args = list(4, 1)
 	for (var/obj/machinery/light/L in area.contents)
 		if (istype(L, /obj/machinery/light))
-			if (force || !night_mode)
-				L.set_light_source(6, 1)
-			else
+			if (force == "on" || !night_mode)
+				L.set_light_source(arglst(main_light_args))
+			else if (force == "off" || night_mode)
 				L.set_light_source()
 		if (istype(L, /obj/machinery/light/small))
-			if (force || !night_mode)
-				L.set_light_source(4, 1)
-			else
+			if (force == "on" || !night_mode)
+				L.set_light_source(arglist(small_light_args))
+			else if (force == "off" || night_mode)
 				L.set_light_source()
 		L.update()
-	if (force)
-		night_mode = 1
-	else
-		night_mode = !night_mode
+	switch (force)
+		if ("on")
+			night_mode = 1
+		if ("off")
+			night_mode = 0
+		else
+			night_mode = !night_mode
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)
