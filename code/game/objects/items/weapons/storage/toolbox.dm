@@ -89,7 +89,7 @@
 /obj/item/weapon/storage/toolbox/proc/update_force()
 	force = initial(force)
 	for (var/obj/item/I in contents)
-		force += I.w_class*1.4
+		force += I.w_class*1.3
 
 /obj/item/weapon/storage/toolbox/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
 	if (..(W, prevent_warning))
@@ -98,7 +98,7 @@
 
 /obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob)
 	stunhit = 0
-	if (force > 12)
+	if (force > 14)
 		stunhit = 1
 	..(M, user)
 	if (contents.len)
@@ -110,7 +110,7 @@
 
 /obj/item/weapon/storage/toolbox/afterattack(atom/target, mob/user as mob, proximity)
 	..(target, user, proximity)
-	if (stunhit && iscarbon(target))
+	if (stunhit && iscarbon(target) && prob(65))
 		var/mob/living/carbon/C = target
 		C.Weaken(rand(3,6))
 	stunhit = 0
