@@ -16,7 +16,7 @@
 	stamina	=	130			  // Humans can sprint for longer than any other species
 	stamina_recovery = 5
 	sprint_speed_factor = 0.8
-	sprint_cost_factor = 0.8
+	sprint_cost_factor = 0.7
 
 /datum/species/unathi
 	name = "Unathi"
@@ -35,7 +35,7 @@
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
 	sprint_speed_factor = 3
 	stamina_recovery = 5
-	sprint_cost_factor = 2
+	sprint_cost_factor = 1.8
 	rarity_value = 3
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
@@ -102,7 +102,7 @@
 	stamina	=	90			  // Tajarans evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
 	sprint_speed_factor = 0.55
-	sprint_cost_factor = 1.1
+	sprint_cost_factor = 1
 
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
@@ -166,7 +166,7 @@
 	ethanol_resistance = 0.5//gets drunk faster
 
 	stamina	=	90
-	sprint_speed_factor = 1.2 //Evolved for rapid escapes from predators
+	sprint_speed_factor = 1.1 //Evolved for rapid escapes from predators
 
 
 /datum/species/diona
@@ -408,7 +408,7 @@
 
 	stamina	=	100			  // Long period of sprinting, but relatively low speed gain
 	sprint_speed_factor = 0.5
-	sprint_cost_factor = 0.3
+	sprint_cost_factor = 0.27
 	stamina_recovery = 1//slow recovery
 
 
