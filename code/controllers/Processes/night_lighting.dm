@@ -1,15 +1,11 @@
-/datum/controller/process/night_lighting/setup()
-	name = "night lighting controller"
-	schedule_interval = 100 // every 5 seconds
-
-	if (!config.night_lighting)
-		del src
+/datum/controller/process/night_lighting/
 
 	var/isactive = 0
 
 	var/list/lighting_areas = list(
 		                           /area/hallway/primary/fore,
 		                           /area/hallway/primary/starboard,
+		                           /area/hallway/primary/aft,
 		                           /area/hallway/primary/port,
 		                           /area/hallway/primary/central_one,
 		                           /area/hallway/primary/central_two,
@@ -30,15 +26,21 @@
 		                           )
 
 /datum/controller/process/night_lighting/setup()
+	name = "night lighting controller"
+	schedule_interval = 100 // every 5 seconds
+
+	if (!config.night_lighting)
+		del(src)
 
 	switch (world.timeofday)
 		if (0 to MORNING_LIGHT_RESET)
-			night_lighting.deactivate()
+			deactivate()
 		if (NIGHT_LIGHT_ACTIVE to TICKS_IN_DAY)
-			night_lighting.activate()
+			activate()
 
 /datum/controller/process/night_lighting/doWork()
 
+	world << "DEBUG: night_lighting/doWork()"
 	switch (world.timeofday)
 		if (0 to MORNING_LIGHT_RESET)
 			if (isactive)
@@ -56,22 +58,24 @@
 
 /datum/controller/process/night_lighting/proc/activate()
 	var/time = world.time
-	for (var/obj/machinery/power/apc/apc in station_apcs)
-		for (var/area/A in lighting_areas)
+	for (var/obj/machinery/power/apc/APC in world)
+		for (var/A in lighting_areas)
 			if (!ispath(A)) CRASH("An index in lighting_areas is not a valid path!")
-			if (apc.area == A)
-				apc.toggle_nightlight("on")
-	isactive = 1
+			if (APC.area == A)
+				world << "Switched on APC: [APC.name]"
+				APC.toggle_nightlight("on")
+				isactive = 1
 	var/delta_sec = round((world.time - time) / 10, 1.00)
-	world << "DEBUG: Lighting activation took [delta_sec] seconds."
+	world << "DEBUG: Lighting activation took [delta_sec] at seconds at ."
 
 /datum/controller/process/night_lighting/proc/deactivate()
 	var/time = world.time
-	for (var/obj/machinery/power/apc/apc in station_apcs)
-		for (var/area/A in lighting_areas)
+	for (var/obj/machinery/power/apc/APC in world)
+		for (var/A in lighting_areas)
 			if (!ispath(A)) CRASH("An index in lighting_areas is not a valid path!")
-			if (apc.area == A)
-				apc.toggle_nightlight("off")
-	isactive = 0
+			if (APC.area == A)
+				world << "Switched off APC: [APC.name]"
+				APC.toggle_nightlight("off")
+				isactive = 0
 	var/delta_sec = round((world.time - time) / 10, 1.00)
 	world << "DEBUG: Lighting deactivation took [delta_sec] seconds."

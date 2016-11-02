@@ -98,7 +98,6 @@
 #include "code\controllers\hooks-defs.dm"
 #include "code\controllers\hooks.dm"
 #include "code\controllers\master_controller.dm"
-#include "code\controllers\night_lighting.dm"
 #include "code\controllers\shuttle_controller.dm"
 #include "code\controllers\subsystems.dm"
 #include "code\controllers\verbs.dm"
