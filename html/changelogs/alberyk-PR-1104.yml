@@ -1,0 +1,7 @@
+
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Combat cyborgs are now only possible via an upgrade board printed in robotics, or during code delta"
