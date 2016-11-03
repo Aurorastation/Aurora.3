@@ -17,7 +17,8 @@
 	var/stunhit = 0
 
 /obj/item/weapon/storage/toolbox/initialize()
-	update_force()
+	spawn(3)
+		update_force()
 
 /obj/item/weapon/storage/toolbox/emergency
 	name = "emergency toolbox"
@@ -98,8 +99,19 @@
 
 /obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob)
 	stunhit = 0
-	if (force > 14)
-		stunhit = 1
+	update_force()
+	world << "Force is [force] and shield is [M.isHoldingShield()]"
+	if (force > 14 && !M.isHoldingShield())
+		var/odds = 80
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/external/organ = H.get_organ(user.zone_sel.selecting)
+			var/armor = H.getarmor_organ(organ, "melee")
+			odds = max(0, odds-armor)
+			world << "Toolbox detected [armor] armor on [H]'s [organ]. Odds are now [odds]"
+		if (prob(odds))
+			world << "Stunhit set"
+			stunhit = 1
 	..(M, user)
 	if (contents.len)
 		spill(3, get_turf(M))
@@ -110,7 +122,7 @@
 
 /obj/item/weapon/storage/toolbox/afterattack(atom/target, mob/user as mob, proximity)
 	..(target, user, proximity)
-	if (stunhit && iscarbon(target) && prob(65))
+	if (stunhit && iscarbon(target))
 		var/mob/living/carbon/C = target
-		C.Weaken(rand(3,6))
+		C.Weaken(rand(1,3))
 	stunhit = 0
