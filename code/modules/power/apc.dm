@@ -903,11 +903,10 @@
 		return 1
 
 	if (href_list["lmode"])
-		world << "DEBUG: lighting mode toggled"
 		src.toggle_nightlight()
 		update_icon()
 
-	if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
+	else if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
 		// Shouldn't happen, this is here to prevent href exploits
 		usr << "You must unlock the panel to use this!"
 		return 1

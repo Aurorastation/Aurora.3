@@ -13,7 +13,7 @@ proc/worldtime2text(time = world.time)
 proc/worldtime2ticks(time = world.time)
 	if(!roundstart_hour)
 		worldtime2text()
-		.()
+		worldtime2ticks()
 	return ((roundstart_hour * 60 MINUTES) + time) % TICKS_IN_DAY
 
 proc/worlddate2text()
