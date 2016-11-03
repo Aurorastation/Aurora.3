@@ -168,6 +168,8 @@ var/list/gamemode_cache = list()
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
 	var/ghost_interaction = 0
 
+	var/night_lighting = 0
+
 	var/comms_password = ""
 
 	var/enter_allowed = 1
@@ -593,6 +595,9 @@ var/list/gamemode_cache = list()
 
 				if("ghost_interaction")
 					config.ghost_interaction = 1
+
+				if("night_lighting")
+					config.night_lighting = 1
 
 				if("disable_player_mice")
 					config.disable_player_mice = 1

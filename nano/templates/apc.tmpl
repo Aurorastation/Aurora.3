@@ -95,7 +95,14 @@
 			</div>
 		</div>
 	{{/if}}
-
+	<div class="item">
+		<div class="itemLabel">
+			Night Lighting:
+		</div>
+		<div class="itemContent"; style="width: 105px">
+			{{:helper.link('On', 'night', {'lmode' : 1}, data.lightingMode ? 'selected' : null)}}{{:helper.link('Off', 'close', {'lmode' : 1}, data.lightingMode ? null : 'selected')}}
+		</div>
+	</div>
 
 	<h3>Power Channels</h3>
 
