@@ -1,0 +1,6 @@
+author: OneOneThreeEight
+
+delete-after: True
+changes:
+  - tweak: "Adds back previous oldcode functionality of telescopic batons."
+  - tweak: "Slightly nerfed weaken() potency from telescopic baton to prevent overt stunlocking."

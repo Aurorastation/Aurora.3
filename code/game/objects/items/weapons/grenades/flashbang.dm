@@ -128,6 +128,7 @@
 /obj/item/weapon/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
 	var/again = 0
+	var/atom/A = loc
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			again++
@@ -135,15 +136,15 @@
 
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
-			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)//Launches flashbangs
+			new /obj/item/weapon/grenade/flashbang/cluster(A)//Launches flashbangs
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
 
 	for(,again > 0, again--)
 		spawn(0)
-			new /obj/item/weapon/grenade/flashbang/clusterbang/segment(src.loc)//Creates a 'segment' that launches a few more flashbangs
+			new /obj/item/weapon/grenade/flashbang/clusterbang/segment(A)//Creates a 'segment' that launches a few more flashbangs
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
-	qdel(src)
-	return
+	spawn(1)
+		qdel(src)
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment
 	desc = "A smaller segment of a clusterbang. Better run."
@@ -152,6 +153,7 @@
 	icon_state = "clusterbang_segment"
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment/New()//Segments should never exist except part of the clusterbang, since these immediately 'do their thing' and asplode
+
 	icon_state = "clusterbang_segment_active"
 	active = 1
 	banglet = 1
@@ -168,13 +170,14 @@
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			numspawned --
-
+	var/atom/A = src.loc
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
-			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)
+			new /obj/item/weapon/grenade/flashbang/cluster(A)
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
-	qdel(src)
-	return
+
+	spawn(1)
+		qdel(src)
 
 /obj/item/weapon/grenade/flashbang/cluster/New()//Same concept as the segments, so that all of the parts don't become reliant on the clusterbang
 	spawn(0)
@@ -186,5 +189,5 @@
 		walk_away(src,temploc,stepdist)
 		var/dettime = rand(15,60)
 		spawn(dettime)
-		prime()
-	..()
+			prime()
+		..()

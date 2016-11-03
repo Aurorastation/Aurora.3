@@ -81,6 +81,8 @@
 	var/power_alert_status = 0
 	var/damage_alert_status = 0
 
+	var/noexplode = 0//Used for cases where an exosuit is spawned and turned into wreckage
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)
@@ -120,7 +122,7 @@
 	if(loc)
 		loc.Exited(src)
 
-	if(prob(30))
+	if(!noexplode && prob(30))
 		explosion(get_turf(loc), 0, 0, 1, 3)
 
 	if(wreckage)
@@ -157,6 +159,7 @@
 	qdel(pr_inertial_movement)
 	qdel(pr_give_air)
 	qdel(pr_internal_damage)
+	qdel(pr_manage_warnings)
 	qdel(spark_system)
 	pr_int_temp_processor = null
 	pr_give_air = null
@@ -1914,6 +1917,50 @@
 	return 1
 
 
+//Used by randomstock.dm in generating damaged exosuits.
+//This does an individual check for each piece of equipment on the exosuit, and removes it if
+//this probability passes a check
+/obj/mecha/proc/lose_equipment(var/probability)
+	for(var/obj/item/mecha_parts/mecha_equipment/E in equipment)
+		if (prob(probability))
+			E.detach(loc)
+			qdel(E)
+
+
+//Used by randomstock.dm in generating damaged exosuits.
+//Does a random check for each possible type of internal damage, and adds it if it passes
+//The probability should be somewhat low unless you just want to saturate it with damage
+//Fire is excepted. We're not going to set the exosuit on fire while its in longterm storage
+/obj/mecha/proc/random_internal_damage(var/probability)
+	if (prob(probability))
+		setInternalDamage(MECHA_INT_TEMP_CONTROL)
+	if (prob(probability))
+		setInternalDamage(MECHA_INT_SHORT_CIRCUIT)
+	if (prob(probability))
+		setInternalDamage(MECHA_INT_TANK_BREACH)
+	if (prob(probability))
+		setInternalDamage(MECHA_INT_CONTROL_LOST)
+
+
+//Does a number of checks at probability, and alters some configuration values if succeeded
+/obj/mecha/proc/misconfigure_systems(var/probability)
+	if (prob(probability))
+		internal_tank_valve = rand(0,10000)//Screw up the cabin air pressure.
+		//This will probably kill the pilot if they dont check it before climbing in
+	if (prob(probability))
+		state = 1//Enable maintenance mode. It won't move.
+	if (prob(probability))
+		use_internal_tank = !use_internal_tank//Flip internal tank mode on or off
+	if (prob(probability))
+		toggle_lights()//toggle the lights
+	if (prob(probability))//Some settings to screw up the radio
+		radio.broadcasting = !radio.broadcasting
+	if (prob(probability))
+		radio.listening = !radio.listening
+	if (prob(probability))
+		radio.set_frequency(rand(1200,1600))
+	if (prob(probability))
+		maint_access = 0//Disallow maintenance mode
 //////////////////////////////////////////
 ////////  Mecha global iterators  ////////
 //////////////////////////////////////////
@@ -1938,6 +1985,9 @@
 
 
 	process(var/obj/mecha/mecha)
+		if (!mecha)
+			return
+
 		if (!mecha.power_alert_status && mecha.cell)//If we're in the fine status
 			if (mecha.cell.charge < (mecha.cell.maxcharge*0.3))//but power is below 30%
 				mecha.power_alert_status = 1//Switch to the alert status

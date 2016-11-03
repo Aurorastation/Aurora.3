@@ -233,7 +233,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
-	if(security_level == (SEC_LEVEL_RED || SEC_LEVEL_DELTA)) //There are no brakes in the combat module train.
+	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA) //no fun allowed anymore.
 		src << "\red Crisis mode active. Combat module available."
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) in modules
@@ -456,16 +456,20 @@
 			user << "<span class='warning'>You lack the reach to be able to repair yourself.</span>"
 			return
 
-		if (!getBruteLoss())
+		if (getBruteLoss() == 0)
 			user << "Nothing to fix here!"
 			return
 		var/obj/item/weapon/weldingtool/WT = W
+		if (!WT.welding)
+			// Welding tool is switched off
+			user << "<span class='warning'>You need to light the welding tool, first!</span>"
+			return
 		if (WT.remove_fuel(0))
 			adjustBruteLoss(-30)
 			updatehealth()
 			add_fingerprint(user)
 			for(var/mob/O in viewers(user, null))
-				O.show_message(text("\red [user] has fixed some of the dents on [src]!"), 1)
+				O.show_message(text("<span class='warning'>[user] has fixed some of the dents on [src]!</span>"), 1)
 		else
 			user << "Need more welding fuel!"
 			return

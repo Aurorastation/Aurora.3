@@ -708,17 +708,28 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/weapons
 	name = "Weapons crate"
+	contains = list(/obj/item/weapon/gun/energy/rifle,
+					/obj/item/weapon/gun/energy/rifle,
+					/obj/item/weapon/gun/projectile/sec,
+					/obj/item/weapon/gun/projectile/sec,
+					/obj/item/ammo_magazine/c45m,
+					/obj/item/ammo_magazine/c45m)
+	cost = 80
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "Weapons crate"
+	access = access_security
+	group = "Security"
+
+/datum/supply_packs/nonlethals
+	name = "Nonlethal Weapons crate"
 	contains = list(/obj/item/weapon/melee/baton,
 					/obj/item/weapon/melee/baton,
-					/obj/item/weapon/gun/energy/gun,
-					/obj/item/weapon/gun/energy/gun,
 					/obj/item/weapon/gun/energy/taser,
 					/obj/item/weapon/gun/energy/taser,
-					/obj/item/weapon/gun/projectile/sec,
-					/obj/item/weapon/gun/projectile/sec,
 					/obj/item/weapon/storage/box/flashbangs,
-					/obj/item/weapon/storage/box/flashbangs)
-	cost = 40
+					/obj/item/weapon/storage/box/flashbangs,
+					/obj/item/ammo_magazine/tranq)
+	cost = 60
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "Weapons crate"
 	access = access_security

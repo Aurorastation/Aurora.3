@@ -233,8 +233,17 @@
 				L.resist()
 
 		if("mov_intent")
+
+			var/list/modifiers = params2list(params)
+			//This is here instead of outside the switch to save adding overhead. its not used for any other UI icons right now
+			//If its needed in future for other UI icons, then move it up to above the switch
+
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
+				if (modifiers["alt"])
+					C.set_walk_speed()
+					return
+
 				if(C.legcuffed)
 					C << "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>"
 					C.m_intent = "walk"	//Just incase
@@ -243,10 +252,9 @@
 				switch(usr.m_intent)
 					if("run")
 						usr.m_intent = "walk"
-						usr.hud_used.move_intent.icon_state = "walking"
 					if("walk")
 						usr.m_intent = "run"
-						usr.hud_used.move_intent.icon_state = "running"
+			update_move_icon(usr)
 		if("m_intent")
 			if(!usr.m_int)
 				switch(usr.m_intent)
@@ -589,3 +597,25 @@
 				usr.update_inv_r_hand(0)
 				usr.next_move = world.time+6
 	return 1
+
+
+
+
+
+//This updates the run/walk button on the hud
+/obj/screen/proc/update_move_icon(var/mob/living/user)
+	switch(name)
+		if("mov_intent")
+			overlays.Cut()
+			switch(user.m_intent)
+				if("run")//When in run mode, the button will have a flashing coloured overlay which gives a visual indicator of stamina
+					icon_state = "running"
+					if (user.max_stamina != -1)//If max stamina is -1, this species doesnt use stamina. no overlay for them
+						var/image/holder = image('icons/mob/screen1.dmi', src, "run_overlay")
+						var/staminaportion = user.stamina / user.max_stamina
+						holder.color = percentage_to_colour(staminaportion)
+						holder.blend_mode = BLEND_MULTIPLY
+						overlays += holder
+
+				if("walk")
+					icon_state = "walking"
