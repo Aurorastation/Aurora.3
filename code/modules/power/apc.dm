@@ -162,8 +162,6 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		src.update_icon()
-		if (src.z == 1)
-			station_apcs.Add(src)
 
 /obj/machinery/power/apc/Destroy()
 	src.update()
