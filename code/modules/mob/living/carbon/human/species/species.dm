@@ -340,10 +340,9 @@
 	H.update_oxy_overlay()
 
 	if (H.oxyloss >= exhaust_threshold)
-		H.Weaken(6)
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		H << span("danger", "You're too exhausted to run anymore! You collapse in a heap on the floor.")
+		H << span("danger", "You're too exhausted to run anymore!")
 		return 0
 	H.hud_used.move_intent.update_move_icon(H)
 	return 1

@@ -90,7 +90,7 @@
 /obj/item/weapon/storage/toolbox/proc/update_force()
 	force = initial(force)
 	for (var/obj/item/I in contents)
-		force += I.w_class*1.3
+		force += I.w_class*1.5
 
 /obj/item/weapon/storage/toolbox/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
 	if (..(W, prevent_warning))
@@ -98,20 +98,7 @@
 
 
 /obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob)
-	stunhit = 0
 	update_force()
-	world << "Force is [force] and shield is [M.isHoldingShield()]"
-	if (force > 14 && !M.isHoldingShield())
-		var/odds = 80
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/external/organ = H.get_organ(user.zone_sel.selecting)
-			var/armor = H.getarmor_organ(organ, "melee")
-			odds = max(0, odds-armor)
-			world << "Toolbox detected [armor] armor on [H]'s [organ]. Odds are now [odds]"
-		if (prob(odds))
-			world << "Stunhit set"
-			stunhit = 1
 	..(M, user)
 	if (contents.len)
 		spill(3, get_turf(M))
@@ -119,10 +106,3 @@
 		update_force()
 		user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
-
-/obj/item/weapon/storage/toolbox/afterattack(atom/target, mob/user as mob, proximity)
-	..(target, user, proximity)
-	if (stunhit && iscarbon(target))
-		var/mob/living/carbon/C = target
-		C.Weaken(rand(1,3))
-	stunhit = 0
