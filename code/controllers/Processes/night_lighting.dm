@@ -2,7 +2,7 @@
 
 	var/isactive = 0
 
-	var/list/lighting_areas = list(
+	var/list/area/lighting_areas = list(
 		                           /area/hallway/primary/fore,
 		                           /area/hallway/primary/starboard,
 		                           /area/hallway/primary/aft,
@@ -32,24 +32,26 @@
 	if (!config.night_lighting)
 		del(src)
 
-	switch (world.timeofday)
-		if (0 to MORNING_LIGHT_RESET)
+/datum/controller/process/night_lighting/onStart()
+
+	switch (worldtime2ticks())
+		if (0 to 1)
 			deactivate()
-		if (NIGHT_LIGHT_ACTIVE to TICKS_IN_DAY)
+		if (1 to TICKS_IN_DAY)
 			activate()
 
 /datum/controller/process/night_lighting/doWork()
 
-	world << "DEBUG: night_lighting/doWork()"
-	switch (world.timeofday)
-		if (0 to MORNING_LIGHT_RESET)
+	world << "DEBUG: night_lighting/doWork(). Ticks are [worldtime2ticks()]"
+	switch (worldtime2ticks())
+		if (0 to 1)
 			if (isactive)
-				command_announcement.Announce("Good morning. The time is [time2text(world.timeofday, "hh:mm")]. The automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+				command_announcement.Announce("Good morning. The time is [worldtime2text()]. The automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 				deactivate()
 
-		if (NIGHT_LIGHT_ACTIVE to TICKS_IN_DAY)
+		if (1 to TICKS_IN_DAY)
 			if (!isactive)
-				command_announcement.Announce("Good evening. The time is [time2text(world.timeofday, "hh:mm")]. The automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+				command_announcement.Announce("Good evening. The time is [worldtime2text()]. The automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 				activate()
 
 		else
@@ -57,25 +59,20 @@
 				deactivate()
 
 /datum/controller/process/night_lighting/proc/activate()
-	var/time = world.time
-	for (var/obj/machinery/power/apc/APC in world)
-		for (var/A in lighting_areas)
-			if (!ispath(A)) CRASH("An index in lighting_areas is not a valid path!")
-			if (APC.area == A)
-				world << "Switched on APC: [APC.name]"
-				APC.toggle_nightlight("on")
-				isactive = 1
-	var/delta_sec = round((world.time - time) / 10, 1.00)
-	world << "DEBUG: Lighting activation took [delta_sec] at seconds at ."
+	for (var/obj/machinery/power/apc/APC in get_apc_list())
+		world << "Switched on APC: [APC.name]"
+		APC.toggle_nightlight("on")
+		isactive = 1
 
 /datum/controller/process/night_lighting/proc/deactivate()
-	var/time = world.time
-	for (var/obj/machinery/power/apc/APC in world)
-		for (var/A in lighting_areas)
-			if (!ispath(A)) CRASH("An index in lighting_areas is not a valid path!")
-			if (APC.area == A)
-				world << "Switched off APC: [APC.name]"
-				APC.toggle_nightlight("off")
-				isactive = 0
-	var/delta_sec = round((world.time - time) / 10, 1.00)
-	world << "DEBUG: Lighting deactivation took [delta_sec] seconds."
+	for (var/obj/machinery/power/apc/APC in get_apc_list())
+		world << "Switched off APC: [APC.name]"
+		APC.toggle_nightlight("off")
+		isactive = 0
+
+/datum/controller/process/night_lighting/proc/get_apc_list()
+	var/list/obj/machinery/power/apc/lighting_apcs = list()
+	for (var/area/A in lighting_areas)
+		for (var/obj/machinery/power/apc/B in A)
+			B += lighting_apcs
+	return lighting_apcs
