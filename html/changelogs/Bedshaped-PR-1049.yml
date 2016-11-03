@@ -1,0 +1,7 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a button on APCs to set the area lights to a 'night-mode' which is dimmer and saves energy."
+  - rscadd: "Added an automated system to turn 'night-mode' on in hallways between 6pm and 7am in station time."
