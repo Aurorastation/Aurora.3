@@ -241,6 +241,7 @@
 			var/remove_amount = (total_blood - 280) * 0.3
 			if (remove_amount > 0)
 				vessel.remove_reagent("blood", remove_amount, 1)//85 units of blood is enough to affect a human and make them woozy
+				nutrition += remove_amount*0.5
 			var/list/data = vessel.get_data("blood")
 			newDNA = data["blood_DNA"]
 
@@ -250,7 +251,7 @@
 			donor.adjustBruteLoss(4)
 			src.visible_message("<span class='notice'>[src] sucks some blood from [donor.name]</span>", "<span class='notice'>You extract a delicious mouthful of blood from [donor.name]!</span>")
 
-			nutrition += remove_amount*0.5
+
 
 
 			if (newDNA in sampled_DNA)
