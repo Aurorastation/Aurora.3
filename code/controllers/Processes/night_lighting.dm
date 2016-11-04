@@ -61,12 +61,12 @@
 
 /datum/controller/process/night_lighting/proc/activate()
 	for (var/obj/machinery/power/apc/APC in get_apc_list())
-		APC.toggle_nightlight("on")
+		APC.toggle_nightlight(force = "on")
 		isactive = 1
 
 /datum/controller/process/night_lighting/proc/deactivate()
 	for (var/obj/machinery/power/apc/APC in get_apc_list())
-		APC.toggle_nightlight("off")
+		APC.toggle_nightlight(force = "off")
 		isactive = 0
 
 /datum/controller/process/night_lighting/proc/get_apc_list()
@@ -74,6 +74,5 @@
 	for (var/area/A in all_areas)
 		if (!(A.type in lighting_areas))
 			continue
-		for (var/obj/machinery/power/apc/B in A)
-			lighting_apcs += B
+		lighting_apcs += A.apc
 	return lighting_apcs
