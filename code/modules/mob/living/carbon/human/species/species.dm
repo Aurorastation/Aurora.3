@@ -334,12 +334,12 @@
 	else
 		remainder = cost
 
-	H.adjustOxyLoss(remainder*0.3)
+	H.adjustOxyLoss(remainder*0.25)
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
 	H.update_oxy_overlay()
 
-	if (H.oxyloss >= exhaust_threshold)
+	if (H.oxyloss >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		H << span("danger", "You're too exhausted to run anymore!")
