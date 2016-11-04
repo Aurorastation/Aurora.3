@@ -107,6 +107,8 @@
 	last_task = 0
 	last_object = null
 
+/datum/controller/process/proc/preStart()
+
 /datum/controller/process/proc/started()
 	var/timeofhour = TimeOfHour
 	// Initialize last_slept so we can record timing information

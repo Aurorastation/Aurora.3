@@ -257,8 +257,39 @@
 			src << "\blue You're pinned to a wall by [mob.pinned[1]]!"
 			return 0
 
+
+
 		move_delay = world.time//set move delay
 		mob.last_move_intent = world.time + 10
+
+
+		if (mob.buckled || mob.pulledby)
+			if(istype(mob.buckled, /obj/vehicle))
+				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
+				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
+				move_delay = world.time
+				//drunk driving
+				if(mob.confused && prob(20))
+					direct = pick(cardinal)
+				return mob.buckled.relaymove(mob,direct)
+
+			if(istype(mob.loc, /turf/space)) // Wheelchair driving!
+				return // No wheelchair driving in space
+			if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
+				return mob.pulledby.relaymove(mob, direct)
+			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
+				if(ishuman(mob.buckled))
+					var/mob/living/carbon/human/driver = mob.buckled
+					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
+					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
+					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
+						return // No hands to drive your chair? Tough luck!
+				//drunk wheelchair driving
+				if(mob.confused && prob(20))
+					direct = pick(cardinal)
+				move_delay += 2
+				return mob.buckled.relaymove(mob,direct)
+
 		if (ishuman(mob))
 
 			var/mob/living/carbon/human/H = mob
@@ -282,36 +313,12 @@
 			move_delay = move_delay + tickcomp
 
 
-		if(istype(mob.buckled, /obj/vehicle))
-			//manually set move_delay for vehicles so we don't inherit any mob movement penalties
-			//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-			move_delay = world.time
-			//drunk driving
-			if(mob.confused && prob(20))
-				direct = pick(cardinal)
-			return mob.buckled.relaymove(mob,direct)
+
 
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))
 				return
 
-		if(mob.pulledby || mob.buckled) // Wheelchair driving!
-			if(istype(mob.loc, /turf/space))
-				return // No wheelchair driving in space
-			if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
-				return mob.pulledby.relaymove(mob, direct)
-			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
-				if(ishuman(mob.buckled))
-					var/mob/living/carbon/human/driver = mob.buckled
-					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
-					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
-					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
-						return // No hands to drive your chair? Tough luck!
-				//drunk wheelchair driving
-				if(mob.confused && prob(20))
-					direct = pick(cardinal)
-				move_delay += 2
-				return mob.buckled.relaymove(mob,direct)
 
 		//We are now going to move
 		moving = 1
