@@ -250,7 +250,7 @@
 			donor.adjustBruteLoss(4)
 			src.visible_message("<span class='notice'>[src] sucks some blood from [donor.name]</span>", "<span class='notice'>You extract a delicious mouthful of blood from [donor.name]!</span>")
 
-			nutrition += 40
+			nutrition += remove_amount*0.5
 
 
 			if (newDNA in sampled_DNA)
