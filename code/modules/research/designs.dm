@@ -1416,6 +1416,26 @@ datum/design/item/weapon/phoronpistol
 	build_path = /obj/item/weapon/gun/energy/toxgun
 	locked = 1
 
+datum/design/item/weapon/lasshotgun
+	id = "laser_shotgun"
+	req_tech = list("combat" = 3, "materials" = 5, "powerstorage" = 4)
+	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
+	reliability_base = 76
+	build_path = /obj/item/weapon/gun/energy/laser/shotgun
+	locked = 1
+
+datum/design/item/weapon/mousegun
+	id = "mousegun"
+	req_tech = list("materials" = 1, "biotech" = 4, "powerstorage" = 3)
+	materials = list("$metal" = 2000, "$glass" = 1000, "$uranium" = 500)
+	build_path = /obj/item/weapon/gun/energy/mousegun
+
+datum/design/item/weapon/beegun
+	id = "beegun"
+	req_tech = list("materials" = 6, "biotech" = 4, "powerstorage" = 4, "combat" = 6, "magnets" = 4)
+	materials = list("$metal" = 2000, "$glass" = 2000, "$silver" = 500, "$diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/beegun
+
 datum/design/item/weapon/eglaive
 	id = "eglaive"
 	name = "energy glaive"
