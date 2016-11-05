@@ -1073,9 +1073,16 @@ datum/design/item/light_replacer
 	desc = "A device to automatically replace lights. Refill with working lightbulbs."
 	id = "light_replacer"
 	req_tech = list("magnets" = 3, "materials" = 4)
-	materials = list("$metal" = 1500, "$silver" = 150, "$glass" = 3000)
+	materials = list("$metal" = 500)
 	build_path = /obj/item/device/lightreplacer
 
+datum/design/item/advanced_light_replacer
+	name = "Advanced Light Replacer"
+	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
+	id = "advanced_light_replacer"
+	req_tech = list("materials" = 3, "powerstorage" = 3)
+	materials = list("$metal" = 1500, "$silver" = 150, "$glass" = 3000)
+	build_path =/obj/item/device/lightreplacer/advanced
 // *** Power cells
 datum/design/item/powercell
 	build_type = PROTOLATHE | MECHFAB
@@ -1310,20 +1317,11 @@ datum/design/item/weapon/nuclear_gun
 	build_path = /obj/item/weapon/gun/energy/gun/nuclear
 	locked = 1
 
-datum/design/item/weapon/lasshotgun
-	id = "laser_shotgun"
-	req_tech = list("combat" = 3, "materials" = 5, "powerstorage" = 4)
-	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
-	reliability_base = 76
-	build_path = /obj/item/weapon/gun/energy/laser/shotgun
-	locked = 1
-
 datum/design/item/weapon/stunrevolver
 	id = "stunrevolver"
 	req_tech = list("combat" = 3, "materials" = 3, "powerstorage" = 2)
 	materials = list("$metal" = 4000)
 	build_path = /obj/item/weapon/gun/energy/stunrevolver
-	locked = 1
 
 datum/design/item/weapon/lasercannon
 	desc = "The lasing medium of this prototype is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core."
@@ -1376,18 +1374,6 @@ datum/design/item/weapon/flora_gun
 	materials = list("$metal" = 2000, "$glass" = 500, "$uranium" = 500)
 	build_path = /obj/item/weapon/gun/energy/floragun
 
-datum/design/item/weapon/mousegun
-	id = "mousegun"
-	req_tech = list("materials" = 1, "biotech" = 4, "powerstorage" = 3)
-	materials = list("$metal" = 2000, "$glass" = 1000, "$uranium" = 500)
-	build_path = /obj/item/weapon/gun/energy/mousegun
-
-datum/design/item/weapon/beegun
-	id = "beegun"
-	req_tech = list("materials" = 6, "biotech" = 4, "powerstorage" = 4, "combat" = 6, "magnets" = 4)
-	materials = list("$metal" = 2000, "$glass" = 2000, "$silver" = 500, "$diamond" = 3000)
-	build_path = /obj/item/weapon/gun/energy/beegun
-
 datum/design/item/weapon/large_grenade
 	id = "large_Grenade"
 	req_tech = list("combat" = 3, "materials" = 2)
@@ -1412,7 +1398,7 @@ datum/design/item/weapon/trod
 	id = "trod"
 	name = "tungsten rod pack"
 	desc = "moderately expensive superdense tungsten rods."
-	req_tech = list("combat" = 2, "materials" = 4)
+	req_tech = list("combat" = 2, "materials" = 4, "syndicate" = 1)
 	materials = list("$metal" = 10000, "$gold" = 3750)
 	build_path = /obj/item/ammo_magazine/trodpack
 
@@ -1428,6 +1414,7 @@ datum/design/item/weapon/phoronpistol
 	req_tech = list("combat" = 5, "phorontech" = 4)
 	materials = list("$metal" = 5000, "$glass" = 1000, "$phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
+	locked = 1
 
 datum/design/item/weapon/eglaive
 	id = "eglaive"
@@ -1444,6 +1431,7 @@ datum/design/item/weapon/gatlinglaser
 	req_tech = list("combat" = 6, "phorontech" = 5, "materials" = 6, "powerstorage" = 3)
 	materials = list("$metal" = 18750, "$glass" = 7500, "$phoron" = 7500, "$silver" = 7500, "$diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
+	locked = 1
 
 datum/design/item/weapon/railgun
 	id = "railgun"
@@ -1460,6 +1448,7 @@ datum/design/item/weapon/zorablaster
 	req_tech = list("combat" = 2, "phorontech" = 4, "materials" = 2)
 	materials = list("$metal" = 8000, "$glass" = 2000, "$phoron" = 6000)
 	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
+	locked = 1
 
 datum/design/item/weapon/lawgiver
 	name = "Lawgiver"
@@ -1469,6 +1458,7 @@ datum/design/item/weapon/lawgiver
 	build_type = PROTOLATHE
 	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$phoron" = 1000, "$diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/lawgiver
+	locked = 1
 
 /*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
 outside of RnD without paperwork with the RD's stamp on it. */
@@ -1480,7 +1470,6 @@ datum/design/item/forcegloves
  	build_type = PROTOLATHE
  	materials = list("$metal" = 4000)
  	build_path = "/obj/item/clothing/gloves/force/basic"
- 	locked = 1
  	category = "Weapons"
 
 /////////////////////////////////////////
@@ -1576,7 +1565,6 @@ datum/design/item/hud/security
 	id = "security_hud"
 	req_tech = list("magnets" = 3, "combat" = 2)
 	build_path = /obj/item/clothing/glasses/hud/security
-	locked = 1
 
 /////////////////////////////////////////
 ////////////////PDA Stuff////////////////
@@ -1616,7 +1604,6 @@ datum/design/item/pda_cartridge/chemistry
 datum/design/item/pda_cartridge/security
 	id = "cart_security"
 	build_path = /obj/item/weapon/cartridge/security
-	locked = 1
 datum/design/item/pda_cartridge/janitor
 	id = "cart_janitor"
 	build_path = /obj/item/weapon/cartridge/janitor
@@ -1634,27 +1621,21 @@ datum/design/item/pda_cartridge/science
 datum/design/item/pda_cartridge/quartermaster
 	id = "cart_quartermaster"
 	build_path = /obj/item/weapon/cartridge/quartermaster
-	locked = 1
 datum/design/item/pda_cartridge/hop
 	id = "cart_hop"
 	build_path = /obj/item/weapon/cartridge/hop
-	locked = 1
 datum/design/item/pda_cartridge/hos
 	id = "cart_hos"
 	build_path = /obj/item/weapon/cartridge/hos
-	locked = 1
 datum/design/item/pda_cartridge/ce
 	id = "cart_ce"
 	build_path = /obj/item/weapon/cartridge/ce
-	locked = 1
 datum/design/item/pda_cartridge/cmo
 	id = "cart_cmo"
 	build_path = /obj/item/weapon/cartridge/cmo
-	locked = 1
 datum/design/item/pda_cartridge/rd
 	id = "cart_rd"
 	build_path = /obj/item/weapon/cartridge/rd
-	locked = 1
 datum/design/item/pda_cartridge/captain
 	id = "cart_captain"
 	build_path = /obj/item/weapon/cartridge/captain
@@ -1703,14 +1684,6 @@ datum/design/item/experimental_welder
 	req_tech = list("materials" = 4, "engineering" = 4)
 	materials = list("$metal" = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
-
-datum/design/item/advanced_light_replacer
-	name = "Advanced Light Replacer"
-	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
-	id = "advanced_light_replacer"
-	req_tech = list("materials" = 3, "powerstorage" = 3)
-	materials = list("$metal" = 500)
-	build_path =/obj/item/device/lightreplacer/advanced
 
 //////exosuit modules - allow robotics to print some modules, maybe a generic rig, but more things for them to do --Alberyk
 
@@ -1824,3 +1797,4 @@ datum/design/item/rigmodule/egun_module
 	req_tech = list("materials" = 3, "powerstorage" = 4, "combat" = 4)
 	materials = list("$glass" = 2250, "$metal" = 7000, "$uranium" = 3250, "$gold" = 2500)
 	build_path = /obj/item/rig_module/mounted/egun
+	locked = 1
