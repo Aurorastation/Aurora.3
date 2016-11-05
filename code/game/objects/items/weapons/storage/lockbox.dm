@@ -9,7 +9,7 @@
 	max_w_class = 3
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 4
-	req_access = list(access_armory)
+	req_access = list(access_security)
 	var/locked = 1
 	var/broken = 0
 	var/icon_locked = "lockbox+l"
@@ -34,7 +34,7 @@
 					return
 			else
 				user << "\red Access Denied"
-		else if((istype(W, /obj/item/weapon/card/emag)||istype(W, /obj/item/weapon/melee/energy/blade)) && !src.broken)
+		else if((istype(W, /obj/item/weapon/card/emag)||istype(W, /obj/item/weapon/melee/energy/blade) ||istype(W,/obj/item/weapon/weldingtool)) && !src.broken)
 			broken = 1
 			locked = 0
 			desc = "It appears to be broken."
@@ -46,11 +46,13 @@
 				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 				for(var/mob/O in viewers(user, 3))
-					O.show_message(text("\blue The locker has been sliced open by [] with an energy blade!", user), 1, text("\red You hear metal being sliced and sparks flying."), 2)
+					O.show_message(text("\blue The lockbox has been sliced open by [] with an energy blade!", user), 1, text("\red You hear metal being sliced and sparks flying."), 2)
+			else if(istype(W, /obj/item/weapon/card/emag))
+				for(var/mob/O in viewers(user, 3))
+					O.show_message(text("\blue The lockbox has been broken by [] with an electromagnetic card!", user), 1, text("You hear a faint electrical spark."), 2)
 			else
 				for(var/mob/O in viewers(user, 3))
-					O.show_message(text("\blue The locker has been broken by [] with an electromagnetic card!", user), 1, text("You hear a faint electrical spark."), 2)
-
+					O.show_message(text("\blue The lockbox has been sliced open by [] with a welder!", user), 1, text("\red You hear metal being sliced and sparks flying."), 2)
 		if(!locked)
 			..()
 		else
@@ -64,7 +66,9 @@
 		else
 			..()
 		return
-
+/obj/item/weapon/storage/lockbox/science
+	name = "A secure lockbox"
+	req_one_access = list(access_rd,access_security)
 
 /obj/item/weapon/storage/lockbox/loyalty
 	name = "lockbox of loyalty implants"
