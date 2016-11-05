@@ -1,10 +1,7 @@
 var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
-var/list/admin_departments = list("Central Command", "Sol Government")
-var/list/alldepartments = list()
-var/broadcast_departments = "Stationwide broadcast (WARNING)"
-
 var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
 var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
+var/list/alldepartments = list()
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
@@ -17,13 +14,17 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 	idle_power_usage = 30
 	active_power_usage = 200
 
-	var/const/adminfax_cooldown = 1800		// in 1/10 seconds
-	var/const/normalfax_cooldown = 300
-	var/const/broadcastfax_cooldown = 3000
+	var/static/const/adminfax_cooldown = 1800		// in 1/10 seconds
+	var/static/const/normalfax_cooldown = 300
+	var/static/const/broadcastfax_cooldown = 3000
+
+	var/static/const/broadcast_departments = "Stationwide broadcast (WARNING)"
+	var/static/list/admin_departments = list("Central Command", "Sol Government")
 
 	var/obj/item/weapon/card/id/scan = null // identification
 	var/authenticated = 0
-	var/sendcooldown = 0 // to avoid spamming fax messages
+	var/sendtime = 0		// Time when fax was sent
+	var/sendcooldown = 0	// Delay, before another fax can be sent (in 1/10 second). Used by set_cooldown() and get_remaining_cooldown()
 
 	var/department = "Unknown" // our department
 
@@ -65,7 +66,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
 
 			if(sendcooldown)
-				dat += "<b>Transmitter arrays realigning. Please stand by. [round(sendcooldown/10)] seconds remaining.</b><br>"
+				dat += "<b>Transmitter arrays realigning. Please stand by. [round(get_remaining_cooldown() / 10)] seconds remaining.</b><br>"
 
 			else
 
@@ -76,7 +77,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 		else
 			if(sendcooldown)
 				dat += "Please insert paper to send via secure connection.<br><br>"
-				dat += "<b>Transmitter arrays realigning. Please stand by. [round(sendcooldown/10)] seconds remaining.</b><br>"
+				dat += "<b>Transmitter arrays realigning. Please stand by. [round(get_remaining_cooldown() / 10)] seconds remaining.</b><br>"
 			else
 				dat += "Please insert paper to send via secure connection.<br><br>"
 
@@ -96,6 +97,12 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 	user << browse(dat, "window=copier")
 	onclose(user, "copier")
+
+	if (sendcooldown != 0)
+		spawn(50)
+			// Auto-refresh every 5 seconds, if cooldown is active
+			updateUsrDialog()
+
 	return
 
 /obj/machinery/photocopier/faxmachine/Topic(href, href_list)
@@ -114,8 +121,6 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 			else
 				sendfax(destination)
 			updateUsrDialog()
-
-			spawn() process_cooldown()
 
 	else if(href_list["remove"])
 		if(copyitem)
@@ -181,16 +186,41 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 
 	updateUsrDialog()
 
-// Only run this in a spawn()!
-/obj/machinery/photocopier/faxmachine/proc/process_cooldown()
-	while (sendcooldown > 0)
-		delay(100)
-		sendcooldown -= 100
-		// update UI every 10 seconds
-		updateUsrDialog()
-	// clean up, in case some odd sendcooldown was set
-	sendcooldown = 0
+/obj/machinery/photocopier/faxmachine/process()
+	.=..()
+	/var/static/ui_update_delay = 0
 
+	var/current_time = world.time
+	if (current_time > sendtime + sendcooldown)
+		sendcooldown = 0
+
+/*
+ * Set the send cooldown
+ * 		cooldown: duration in ~1/10s
+ */
+/obj/machinery/photocopier/faxmachine/proc/set_cooldown(var/cooldown)
+	// Reset send time
+	sendtime = world.time
+
+	// Set cooldown length
+	sendcooldown = cooldown
+
+/*
+ * Get remaining cooldown duration in ~1/10s
+ */
+/obj/machinery/photocopier/faxmachine/proc/get_remaining_cooldown()
+	var/remaining_time = (sendtime + sendcooldown) - world.time
+	if ((remaining_time < 0) || (sendcooldown == 0))
+		// Time is up, but Process() hasn't caught up, yet
+		// or no cooldown has been set
+		remaining_time = 0
+	return remaining_time
+
+/*
+ * Send normal fax message to on-station fax machine
+ * 		destination: 		(string) from /allfaxes
+ * 		display_message: 	(bool) 1=display info text, 0="silent mode"
+ */
 /obj/machinery/photocopier/faxmachine/proc/sendfax(var/destination, var/display_message = 1)
 	if(stat & (BROKEN|NOPOWER))
 		return 0
@@ -248,10 +278,10 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 			break
 	if (success)
 		visible_message("[src] beeps, \"Messages transmitted successfully.\"")
-		sendcooldown = broadcastfax_cooldown
+		set_cooldown(broadcastfax_cooldown)
 	else
 		visible_message("[src] beeps, \"Error transmitting messages.\"")
-		sendcooldown = normalfax_cooldown
+		set_cooldown(normalfax_cooldown)
 
 /obj/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)
 	if(stat & (BROKEN|NOPOWER))
@@ -281,7 +311,7 @@ var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 			message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 			//message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "SolGovFaxReply", "#1F66A0")
 
-	sendcooldown = adminfax_cooldown
+	set_cooldown(adminfax_cooldown)
 	spawn(50)
 		visible_message("[src] beeps, \"Message transmitted successfully.\"")
 
