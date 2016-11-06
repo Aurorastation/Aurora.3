@@ -82,6 +82,8 @@
 				return;
 			}
 
+			gotReply = true;
+
 			$(obj.div).append($(obj.content));
 
 			if (obj.update == 1 && !$(obj.div + '-tab').hasClass('updated')) {
@@ -92,6 +94,30 @@
 		// Function to remove a tab. Specifically, the admin one.
 		function RemoveElement(el) {
 			$(el).remove();
+		}
+
+		var loopIter = 0;
+		var gotReply = false;
+
+		// This loop repeats itself 10 times as it attempts to fetch Topic information.
+		// It's here to prevent a full null-route by spam protection. It'll just query until it finds something.
+		function RequestLoop() {
+			setTimeout(function () {
+				loopIter++;
+
+				if (!gotReply) {
+					window.location = '?JSlink=greeting;command=request_data';
+				} else {
+					return;
+				}
+
+
+				if (loopIter < 10 && !gotReply) {
+					RequestLoop();
+				} else {
+					alert("The Greeting Window timed out. If this happens regularly, please submit a Github issue.");
+				}
+			}, 500)
 		}
 
 		// DOM ready function.
@@ -123,7 +149,7 @@
 			analyzeIe();
 
 			// Tell the server that we're ready, and awaiting data.
-			setTimeout(function () { window.location = '?JSlink=greeting;command=request_data' }, 500);
+			RequestLoop();
 		});
 	</script>
 
