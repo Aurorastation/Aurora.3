@@ -28,7 +28,7 @@
 
 /datum/controller/process/night_lighting/setup()
 	name = "night lighting controller"
-	schedule_interval = 3500	// Every 5 minutes.
+	schedule_interval = 3600	// Every 5 minutes.
 
 	if (!config.night_lighting)
 		// Stop trying to delete processes. Not how it goes.
