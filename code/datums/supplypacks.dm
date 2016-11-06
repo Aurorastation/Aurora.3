@@ -1663,7 +1663,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Operations"
 	
 /datum/supply_packs/randomised/illegalguns
-	name = "illegal weapon crate"
+	name = "Illegal weapons crate"
 	num_contained = 2
 	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
 					/obj/item/weapon/gun/projectile/boltaction,
