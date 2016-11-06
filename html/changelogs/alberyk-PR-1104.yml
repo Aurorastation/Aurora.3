@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Selecting the combat module as cyborgs now requires an event to be activated via the keycard authentication device, an upgrade from roboticis or code delta also triggers also allows it."

@@ -1,8 +1,0 @@
-author: Nanako
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes: 
-  - rscadd: "Toolboxes that are full of stuff now hit much harder, but spill their contents."
-  - bugfix: "Fixed unathi being able to eat while wearing face-covering helmets, and being able to rapidly spam devour."
