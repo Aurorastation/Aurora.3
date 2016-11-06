@@ -278,16 +278,18 @@
 			if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
 				return mob.pulledby.relaymove(mob, direct)
 			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
+				var/min_move_delay = 0
 				if(ishuman(mob.buckled))
 					var/mob/living/carbon/human/driver = mob.buckled
 					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
 					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
 						return // No hands to drive your chair? Tough luck!
+					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
 				if(mob.confused && prob(20))
 					direct = pick(cardinal)
-				move_delay += 2
+				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + config.walk_speed
