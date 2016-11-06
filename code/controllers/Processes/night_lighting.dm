@@ -28,10 +28,11 @@
 
 /datum/controller/process/night_lighting/setup()
 	name = "night lighting controller"
-	schedule_interval = 100 // every 5 seconds
+	schedule_interval = 3500	// Every 5 minutes.
 
 	if (!config.night_lighting)
-		del(src)
+		// Stop trying to delete processes. Not how it goes.
+		disabled = 1
 
 /datum/controller/process/night_lighting/preStart()
 
@@ -64,16 +65,25 @@
 		APC.toggle_nightlight("on")
 		isactive = 1
 
+		SCHECK
+
 /datum/controller/process/night_lighting/proc/deactivate()
 	for (var/obj/machinery/power/apc/APC in get_apc_list())
 		APC.toggle_nightlight("off")
 		isactive = 0
 
+		SCHECK
+
 /datum/controller/process/night_lighting/proc/get_apc_list()
 	var/list/obj/machinery/power/apc/lighting_apcs = list()
-	for (var/area/A in all_areas)
-		if (!(A.type in lighting_areas))
+
+	for (var/A in all_areas)
+		var/area/B = A
+		if (!(B.type in lighting_areas))
 			continue
-		for (var/obj/machinery/power/apc/B in A)
-			lighting_apcs += B
+		if (B.apc)
+			lighting_apcs += B.apc
+
+		SCHECK
+
 	return lighting_apcs
