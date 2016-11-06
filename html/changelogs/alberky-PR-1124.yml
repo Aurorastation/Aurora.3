@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a glowstick crate and another contraband crate to cargo."
+  - tweak: "Removed job restriction from jackboots on the custom loadout."
