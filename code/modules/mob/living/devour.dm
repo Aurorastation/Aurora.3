@@ -27,6 +27,8 @@
 //This is set true if there are any mobs in this mob's contents. they will be slowly digested.
 //just used as a boolean to minimise extra processing
 
+/mob/living/var/mob/living/devouring = null
+//If we are currently devouring a mob, a reference to it goes here.
 
 /mob/living/proc/attempt_devour(var/mob/living/victim, var/eat_types, var/mouth_size = null)
 
@@ -44,6 +46,16 @@
 		src << "\red You can't eat yourself!"
 		return 0
 
+	if (devouring == victim)
+		src << span("danger","You're already eating that!.")
+		return
+
+	if (ishuman(src))
+		var/mob/living/carbon/human/H = src
+		var/obj/item/blocked = H.check_mouth_coverage()
+		if(blocked)
+			user << "<span class='warning'>\The [blocked] is in the way!</span>"
+			return
 
 	//This check is exploit prevention.
 	//Nymphs have seperate mechanics for gaining biomass from other diona
@@ -106,6 +118,7 @@
 	//This function will start consuming the victim by taking bites out of them.
 	//Victim or attacker moving will interrupt it
 	//A bite will be taken every 4 seconds
+	devouring = victim
 	var/bite_delay = 4
 	var/bite_size = mouth_size * 0.5
 	var/num_bites_needed = (victim.mob_size*victim.mob_size)/bite_size//total bites needed to eat it from full health
@@ -141,7 +154,7 @@
 
 	var/i = 0
 	for (i=0;i < num_bites_needed;i++)
-		if(do_mob(src, victim, bite_delay*10))
+		if(do_mob(src, victim, bite_delay*10) && devouring == victim)
 			face_atom(victim)
 			victim.adjustCloneLoss(victim_maxhealth*PEPB)
 			victim.adjustHalLoss(victim_maxhealth*PEPB*5)//Being eaten hurts!
@@ -153,14 +166,17 @@
 				src.visible_message("[src] finishes devouring [victim]","You finish devouring [victim]")
 				handle_devour_mess(src, victim, vessel, 1)
 				qdel(victim)
+				devouring = null
 				break
 		else
+			devouring = null
 			if (victimloc != victim.loc)
 				src << "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>"
 			else if (ourloc != src.loc)
 				src << "<span class='danger'>You moved! Devouring cancelled</span>"
 			else
 				src << "Devouring Cancelled"//reason unknown, maybe the eater got stunned?
+				//This can also happen if you start devouring something else
 			break
 
 

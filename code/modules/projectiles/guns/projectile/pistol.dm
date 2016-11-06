@@ -51,6 +51,29 @@
 	name = "\improper Custom NT Mk58"
 	icon_state = "secgundark"
 
+/obj/item/weapon/gun/projectile/tanto
+	desc = "A Necropolis Industries designed sidearm, designed to compete with the NT Mk58. Uses 10mm rounds."
+	name = "\improper Tanto .40"
+	icon_state = "c05r"
+	magazine_type = /obj/item/ammo_magazine/t40
+	allowed_magazines = list(/obj/item/ammo_magazine/t40)
+	caliber = "10mm"
+	origin_tech = "combat=3;materials=2"
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	load_method = MAGAZINE
+
+	firemodes = list(
+		list(name="semiauto", burst=1, fire_delay=0),
+		list(name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0)),
+		)
+
+/obj/item/weapon/gun/projectile/tanto/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "c05r"
+	else
+		icon_state = "c05r-e"
+
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."

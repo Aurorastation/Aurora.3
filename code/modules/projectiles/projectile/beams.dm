@@ -147,9 +147,68 @@
 /obj/item/projectile/beam/gatlinglaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
-	damage = 5
+	damage = 10
 
 	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
 	tracer_type = /obj/effect/projectile/laser_omni/tracer
 	impact_type = /obj/effect/projectile/laser_omni/impact
 
+/obj/item/projectile/beam/mousegun
+	name = "diffuse electrical arc"
+	icon_state = "stun"
+	nodamage = 1
+	damage_type = HALLOSS
+
+	muzzle_type = /obj/effect/projectile/stun/muzzle
+	tracer_type = /obj/effect/projectile/stun/tracer
+	impact_type = /obj/effect/projectile/stun/impact
+
+/obj/item/projectile/beam/mousegun/on_impact(var/atom/A)
+	mousepulse(A, 1)
+	..()
+
+/obj/item/projectile/beam/mousegun/proc/mousepulse(turf/epicenter, range, log=0)
+	if (!epicenter)
+		return
+
+	if (!istype(epicenter, /turf))
+		epicenter = get_turf(epicenter.loc)
+
+	for (var/mob/living/M in range(range, epicenter))
+		var/distance = get_dist(epicenter, M)
+		if (distance < 0)
+			distance = 0
+		if (distance <= range)
+			if (M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
+				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
+				M.gib()
+				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+				s.set_up(3, 1, M)
+				s.start()
+			else if (iscarbon(M) && M.contents.len)
+				for (var/obj/item/weapon/holder/H in M.contents)
+					if (!H.contained)
+						continue
+
+					var/mob/living/A = H.contained
+					if (!istype(A))
+						continue
+
+					if (A.mob_size <= 2 && (A.find_type() & TYPE_ORGANIC))
+						H.release_mob()
+						A.visible_message("<span class='danger'>[A] bursts like a balloon!</span>")
+						A.gib()
+
+			M << 'sound/effects/basscannon.ogg'
+	return 1
+
+/obj/item/projectile/beam/shotgun
+	name = "diffuse laser"
+	icon_state = "laser"
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage = 15
+	eyeblur = 4
+
+	muzzle_type = /obj/effect/projectile/laser/muzzle
+	tracer_type = /obj/effect/projectile/laser/tracer
+	impact_type = /obj/effect/projectile/laser/impact

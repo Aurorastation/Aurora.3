@@ -100,8 +100,9 @@
 					src.parent.owned_bee_swarms.Add(B)
 
 		//make some noise
-		if(prob(5))
+		if(prob(10))
 			src.visible_message("\blue [pick("Buzzzz.","Hmmmmm.","Bzzz.")]")
+			playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
 
 		//smoke, water and steam calms us down
 		var/calming = 0
@@ -232,3 +233,8 @@
 
 /mob/living/simple_animal/bee/attempt_pull(var/mob/living/grabber)
 	return attempt_grab(grabber)
+
+/mob/living/simple_animal/bee/beegun
+	maxHealth = 30
+	strength = 5
+	feral = 30

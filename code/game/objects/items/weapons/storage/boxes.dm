@@ -15,7 +15,8 @@
  *		Handcuff, mousetrap, and pillbottle boxes,
  *		Snap-pops and matchboxes,
  *		Replacement light boxes.
- *
+ *		Kitchen utensil box
+ * 		Random preserved snack box
  *		For syndicate call-ins see uplink_kits.dm
  */
 
@@ -322,6 +323,21 @@
 		new /obj/item/weapon/grenade/flashbang(src)
 		new /obj/item/weapon/grenade/flashbang(src)
 		new /obj/item/weapon/grenade/flashbang(src)
+
+/obj/item/weapon/storage/box/smokebombs
+	name = "box of smoke grenades"
+	desc = "A box full of smoke grenades, used by special law enforcement teams and military organisations. Provides cover, confusion, and distraction."
+	icon_state = "flashbang"
+
+	New()
+		..()
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
 
 /obj/item/weapon/storage/box/emps
 	name = "box of emp grenades"
@@ -680,4 +696,58 @@
 		new /obj/item/weapon/light/tube(src)
 	for(var/i = 0; i < 7; i++)
 		new /obj/item/weapon/light/bulb(src)
+	..()
+
+/obj/item/weapon/storage/box/kitchen
+	name = "kitchen supplies"
+	desc = "Contains an assortment of utensils and containers useful in the preparation of food and drinks."
+
+/obj/item/weapon/storage/box/kitchen/New()
+	new /obj/item/weapon/material/knife(src)//Should always have a knife
+
+	var/list/utensils = list(/obj/item/weapon/material/kitchen/rollingpin,
+/obj/item/weapon/reagent_containers/glass/beaker,
+/obj/item/weapon/material/kitchen/utensil/fork,
+/obj/item/weapon/reagent_containers/food/condiment/enzyme,
+/obj/item/weapon/material/kitchen/utensil/spoon,
+/obj/item/weapon/material/kitchen/utensil/knife,
+/obj/item/weapon/reagent_containers/food/drinks/shaker)
+	for (var/i = 0,i<6,i++)
+		var/type = pick(utensils)
+		new type(src)
+	..()
+
+
+
+/obj/item/weapon/storage/box/snack
+	name = "rations box"
+	desc = "Contains a random assortment of preserved foods. Guaranteed to remain edible* in room-temperature longterm storage for centuries!"
+
+/obj/item/weapon/storage/box/snack/New()
+	var/list/snacks = list(
+			/obj/item/weapon/reagent_containers/food/snacks/koisbar,
+			/obj/item/weapon/reagent_containers/food/snacks/candy,
+			/obj/item/weapon/reagent_containers/food/snacks/candy_corn,
+			/obj/item/weapon/reagent_containers/food/snacks/chips,
+			/obj/item/weapon/reagent_containers/food/snacks/chocolatebar,
+			/obj/item/weapon/reagent_containers/food/snacks/chocolateegg,
+			/obj/item/weapon/reagent_containers/food/snacks/popcorn,
+			/obj/item/weapon/reagent_containers/food/snacks/sosjerky,
+			/obj/item/weapon/reagent_containers/food/snacks/no_raisin,
+			/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie,
+			/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,
+			/obj/item/weapon/reagent_containers/food/snacks/syndicake,
+			/obj/item/weapon/reagent_containers/food/snacks/fortunecookie,
+			/obj/item/weapon/reagent_containers/food/snacks/poppypretzel,
+			/obj/item/weapon/reagent_containers/food/snacks/cracker,
+			/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
+			/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks,
+			/obj/item/weapon/reagent_containers/food/snacks/tastybread,
+			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
+			/obj/item/weapon/reagent_containers/food/snacks/maps,
+			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
+	)
+	for (var/i = 0,i<7,i++)
+		var/type = pick(snacks)
+		new type(src)
 	..()

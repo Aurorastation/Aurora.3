@@ -81,6 +81,7 @@ var/datum/antagonist/traitor/traitors
 	if(!..())
 		return 0
 
+	traitor_mob.faction = "syndicate"
 	spawn_uplink(traitor_mob)
 	// Tell them about people they might want to contact.
 	var/mob/living/carbon/human/M = get_nt_opposed()
