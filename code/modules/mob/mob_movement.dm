@@ -299,7 +299,7 @@
 			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
-				tally = max(tally, H.min_walk_delay) * config.walk_delay_multiplier //clamp walking speed if its limited
+				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
 		else
 			tally *= config.walk_delay_multiplier
 
