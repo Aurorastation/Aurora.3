@@ -1048,6 +1048,12 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/white/tajara
 	cost = 2
 	slot = slot_gloves
+	
+/datum/gear/watch
+	display_name = "watch"
+	path = 	/obj/item/clothing/gloves/watch
+	cost = 2
+	slot = slot_gloves
 
 // Shoelocker
 
