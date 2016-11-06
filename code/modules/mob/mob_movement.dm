@@ -290,10 +290,12 @@
 				move_delay += 2
 				return mob.buckled.relaymove(mob,direct)
 
+		var/mob/living/carbon/human/H
+
 		if (ishuman(mob))
 
-			var/mob/living/carbon/human/H = mob
-			var/tally = mob.movement_delay()+config.walk_speed
+			H = mob
+			var/tally = mob.movement_delay() + config.walk_speed
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
 			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally))//This will return false if we collapse from exhaustion
 				tally = tally/(1+H.sprint_speed_factor)
@@ -312,8 +314,10 @@
 			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 			move_delay = move_delay + tickcomp
 
-
-
+		if (H && H.m_intent == "run")
+			move_delay *= config.run_multiplier
+		else
+			move_delay *= config.walk_multiplier
 
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))

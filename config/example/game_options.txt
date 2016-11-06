@@ -44,18 +44,22 @@ REVIVAL_BRAIN_LIFE -1
 ## These values get directly added to values and totals in-game. To speed things up make the number negative, to slow things down, make the number positive.
 
 
-## These modify the run/walk speed of all mobs before the mob-specific modifiers are applied. 
-RUN_SPEED 2
-WALK_SPEED 5
+## These modify the run/walk speed of all mobs before the mob-specific modifiers are applied.
+## Take note that they do not modify this proportionally. Instead, they do it in a weird fashion.
+WALK_SPEED 4
 
+## The following two will globally affect all movement speed, while retaining the proportional relationships between the different mob's movement speeds.
+## Ideally, you want to modify these. Any value between 0 and 1 is lower than normal, anything above 1 will speed everyone up.
+WALK_MULTIPLIER 1
+RUN_MULTIPLIER 1
 
 ## The variables below affect the movement of specific mob types.
-HUMAN_DELAY 0
-ROBOT_DELAY 0
-MONKEY_DELAY 0
-ALIEN_DELAY 0
-METROID_DELAY 0
-ANIMAL_DELAY 0
+HUMAN_DELAY 1
+ROBOT_DELAY 1
+MONKEY_DELAY 1
+ALIEN_DELAY 1
+METROID_DELAY 1
+ANIMAL_DELAY 1
 
 
 ### Miscellaneous ###
