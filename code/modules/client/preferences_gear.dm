@@ -1056,21 +1056,21 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/shoes/jackboots
 	cost = 1
 	slot = slot_shoes
-	allowed_roles = list("Security Cadet","Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
+//	allowed_roles = list("Security Cadet","Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
 
 /datum/gear/toeless_jackboots
 	display_name = "toe-less jackboots"
 	path = /obj/item/clothing/shoes/jackboots/unathi
 	cost = 1
 	slot = slot_shoes
-	allowed_roles = list("Security Cadet","Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
+//	allowed_roles = list("Security Cadet","Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
 
 /datum/gear/workboots
 	display_name = "workboots"
 	path = /obj/item/clothing/shoes/workboots
 	cost = 1
 	slot = slot_shoes
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+//	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/sandal
 	display_name = "sandals"
