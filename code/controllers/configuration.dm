@@ -143,8 +143,8 @@ var/list/gamemode_cache = list()
 	//Used for modifying movement speed for mobs.
 	//Unversal modifiers
 	var/walk_speed = 0
-	var/walk_multiplier = 1
-	var/run_multiplier = 1
+	var/walk_delay_multiplier = 1
+	var/run_delay_multiplier = 1
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -787,10 +787,10 @@ var/list/gamemode_cache = list()
 					config.walk_speed = value
 
 				// These should never go to 0 or below. So, we clamp them.
-				if("walk_multiplier")
-					config.walk_multiplier = max(0.1, text2num(value))
-				if("run_multiplier")
-					config.run_multiplier = max(0.1, text2num(value))
+				if("walk_delay_multiplier")
+					config.walk_delay_multiplier = max(0.1, text2num(value))
+				if("run_delay_multiplier")
+					config.run_delay_multiplier = max(0.1, text2num(value))
 
 				if("human_delay")
 					config.human_delay = value

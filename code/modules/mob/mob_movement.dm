@@ -315,9 +315,9 @@
 			move_delay = move_delay + tickcomp
 
 		if (H && H.m_intent == "run")
-			move_delay *= config.run_multiplier
+			move_delay *= config.run_delay_multiplier
 		else
-			move_delay *= config.walk_multiplier
+			move_delay *= config.walk_delay_multiplier
 
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))
