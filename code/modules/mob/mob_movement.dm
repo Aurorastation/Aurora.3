@@ -287,7 +287,7 @@
 				//drunk wheelchair driving
 				if(mob.confused && prob(20))
 					direct = pick(cardinal)
-				move_delay += 2 + config.vehicle_delay
+				move_delay += 2 * config.vehicle_delay_multiplier
 				return mob.buckled.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + config.walk_speed

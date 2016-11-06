@@ -52,6 +52,7 @@ WALK_SPEED 4
 ## Ideally, you want to modify these. Any value between 0 and 1 will increase speed by decreasing the movement delay, anything above 1 will slow everyone down by increasing the delay.
 WALK_DELAY_MULTIPLIER 1
 RUN_DELAY_MULTIPLIER 1
+VEHICLE_DELAY_MULTIPLIER 1
 
 ## The variables below affect the movement of specific mob types.
 HUMAN_DELAY 1
@@ -60,7 +61,6 @@ MONKEY_DELAY 1
 ALIEN_DELAY 1
 METROID_DELAY 1
 ANIMAL_DELAY 1
-VEHICLE_DELAY 0
 
 
 ### Miscellaneous ###
