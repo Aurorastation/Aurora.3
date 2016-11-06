@@ -91,7 +91,8 @@ var/global/datum/controller/processScheduler/processScheduler
 
 /datum/controller/processScheduler/proc/callPreStart()
 	for (var/datum/controller/process/P in processes)
-		P.preStart()
+		if (!P.disabled)
+			P.preStart()
 
 /datum/controller/processScheduler/proc/process()
 	while(isRunning)

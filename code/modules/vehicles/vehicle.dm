@@ -56,7 +56,7 @@
 		move_delay = 999999999
 		return 0
 
-	move_delay = (1 / move_speed) * 10
+	move_delay = (1 / move_speed) * 10 * config.vehicle_delay_multiplier
 	return 1
 
 
