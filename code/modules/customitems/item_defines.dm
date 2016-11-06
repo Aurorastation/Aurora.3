@@ -256,11 +256,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/weapon/contraband/poster/fluff/conservan_poster/New()
 	serial_number = 59
 
-/datum/poster/bay_59
-	name = "ATLAS poster"
-	desc = "ATLAS: For all of Humanity."
-	icon_state = "bposter59"
-
 
 /obj/item/weapon/flame/lighter/zippo/fluff/locke_zippo // Fire Extinguisher Zippo - Jacob Locke - completegarbage - DONE
 	name = "fire extinguisher lighter"

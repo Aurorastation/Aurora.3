@@ -28,6 +28,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/under/captain_fly,
 		/obj/item/clothing/under/det,
 		/obj/item/clothing/under/brown,
+		/obj/item/clothing/under/syndicate/tracksuit
 		)
 
 	var/list/raider_shoes = list(
@@ -93,8 +94,11 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/pistol,
 		/obj/item/weapon/gun/projectile/revolver,
 		/obj/item/weapon/gun/projectile/revolver/deckard,
-		/obj/item/weapon/gun/projectile/pirate
+		/obj/item/weapon/gun/projectile/revolver/derringer,
+		/obj/item/weapon/gun/projectile/pirate,
+		/obj/item/weapon/gun/projectile/tanto
 		)
+
 
 	var/list/raider_holster = list(
 		/obj/item/clothing/accessory/holster/armpit,

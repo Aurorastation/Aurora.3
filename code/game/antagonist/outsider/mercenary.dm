@@ -56,6 +56,7 @@ var/datum/antagonist/mercenary/mercs
 		player.put_in_hands(U)
 
 	player.update_icons()
+	player.faction = "syndicate"
 
 	create_id("Mercenary", player)
 	create_radio(SYND_FREQ, player)

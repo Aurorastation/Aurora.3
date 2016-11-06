@@ -71,6 +71,32 @@ proc/isemptylist(list/list)
 			return 1
 	return 0
 
+/proc/is_type_in_oview(var/type, var/dist = 0, var/center = src)
+	if (!ispath(type))
+		CRASH("Not a valid type in 'is_type_in_oview()'")
+	if (!isnum(dist))
+		CRASH("Not a valid dist in 'is_type_in_oview()'")
+	if (!isloc(center))
+		CRASH("Not a valid center in 'is_type_in_oview()'")
+	var/list/atoms = oview(dist, center)
+	for (var/A in atoms)
+		if (istype(A, type))
+			return 1
+	return 0
+
+/proc/is_type_in_view(var/type, var/dist = 0, var/center = src)
+	if (!ispath(type))
+		CRASH("Not a valid type in 'is_type_in_view()'")
+	if (!isnum(dist))
+		CRASH("Not a valid dist in 'is_type_in_view()'")
+	if (!isloc(center))
+		CRASH("Not a valid center in 'is_type_in_view()'")
+	var/list/atoms = view(dist, center)
+	for (var/A in atoms)
+		if (istype(A, type))
+			return 1
+	return 0
+
 /proc/instances_of_type_in_list(var/atom/A, var/list/L)
 	var/instances = 0
 	for(var/type in L)
@@ -122,22 +148,28 @@ proc/listclearnulls(list/list)
 		result = first ^ second
 	return result
 
-//Pretends to pick an element based on its weight but really just seems to pick a random element.
+
+//Picks a random element by weight from a list. The list must be correctly constructed in this format:
+//mylist[myelement1] = myweight1
+//mylist[myelement2] = myweight2
+//The proc will return the element index, and not the weight.
 /proc/pickweight(list/L)
 	var/total = 0
 	var/item
 	for (item in L)
-		if (!L[item])
+		if (isnull(L[item]))
+		//Change by nanako, a default weight will no longer overwrite an explicitly set weight of 0
+		//It will only use a default if no weight is defined
 			L[item] = 1
 		total += L[item]
-
-	total = rand(1, total)
+	total = rand() * total//Fix by nanako, allows it to handle noninteger weights
 	for (item in L)
-		total -=L [item]
+		total -= L[item]
 		if (total <= 0)
 			return item
 
 	return null
+
 
 //Pick a random element from the list and remove it from the list.
 /proc/pick_n_take(list/listfrom)

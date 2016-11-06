@@ -104,7 +104,7 @@
 			spawn_area_type = /area/quartermaster/office
 			locstrings[numlocs] = "the cargo disposals office"
 		if(LOC_CARGO)
-			spawn_area_type = /area/quartermaster/storage
+			spawn_area_type = /area/quartermaster/loading
 			locstrings[numlocs] = "the cargo bay"
 		if(LOC_MEETING)
 			spawn_area_type = /area/bridge/meeting_room

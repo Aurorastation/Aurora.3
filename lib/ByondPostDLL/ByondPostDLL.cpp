@@ -33,7 +33,7 @@ extern "C" __declspec(dllexport) char *send_post_request(int argc, char *argv[])
 	}
 
 	// Initialize variables.
-	static char return_value[32];
+	static char return_value[33] = {0};
 	long http_code = 0;
 	CURLcode res;
 	struct curl_slist *chunk = NULL;
@@ -44,6 +44,7 @@ extern "C" __declspec(dllexport) char *send_post_request(int argc, char *argv[])
 	}
 
 	// Set curl options.
+	curl_easy_setopt(curl, CURLOPT_TIMEOUT, 2L);
 	curl_easy_setopt(curl, CURLOPT_URL, argv[0]);
 
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, chunk);

@@ -164,10 +164,10 @@
 												flv.robot_standard,
 												flv.robot_engineering,
 												flv.robot_construction,
-												flv.robot_surgeon,
-												flv.robot_crisis,
+												flv.robot_medical,
+												flv.robot_rescue,
 												flv.robot_miner,
-												flv.robot_janitor,
+												flv.robot_custodial,
 												flv.robot_service,
 												flv.robot_clerical,
 												flv.robot_security,
@@ -305,10 +305,10 @@
 	flavour_texts_robot["Standard"]		= character_query.item[33]
 	flavour_texts_robot["Engineering"]	= character_query.item[34]
 	flavour_texts_robot["Construction"]	= character_query.item[35]
-	flavour_texts_robot["Surgeon"]		= character_query.item[36]
-	flavour_texts_robot["Crisis"]		= character_query.item[37]
+	flavour_texts_robot["Medical"]		= character_query.item[36]
+	flavour_texts_robot["Rescue"]		= character_query.item[37]
 	flavour_texts_robot["Miner"]		= character_query.item[38]
-	flavour_texts_robot["Janitor"]		= character_query.item[39]
+	flavour_texts_robot["Custodial"]	= character_query.item[39]
 	flavour_texts_robot["Service"]		= character_query.item[40]
 	flavour_texts_robot["Clerical"]		= character_query.item[41]
 	flavour_texts_robot["Security"]		= character_query.item[42]
@@ -479,10 +479,10 @@
 											flv.robot_standard = :robot_standard,
 											flv.robot_engineering = :robot_engineering,
 											flv.robot_construction = :robot_construction,
-											flv.robot_surgeon = :robot_surgeon,
-											flv.robot_crisis = :robot_crisis,
+											flv.robot_medical = :robot_medical,
+											flv.robot_rescue = :robot_rescue,
 											flv.robot_miner = :robot_miner,
-											flv.robot_janitor = :robot_janitor,
+											flv.robot_custodial = :robot_custodial,
 											flv.robot_service = :robot_service,
 											flv.robot_clerical = :robot_clerical,
 											flv.robot_security = :robot_security,
@@ -526,8 +526,8 @@
 		current_character = text2num(get_query.item[1])
 		params[":char_id"]  = current_character
 
-	insert_query = dbcon.NewQuery({"INSERT INTO ss13_characters_flavour (char_id, records_employment, records_medical, records_security, records_exploit, flavour_general, flavour_head, flavour_face, flavour_eyes, flavour_torso, flavour_arms, flavour_hands, flavour_legs, flavour_feet, robot_default, robot_standard, robot_engineering, robot_construction, robot_surgeon, robot_crisis, robot_miner, robot_janitor, robot_service, robot_clerical, robot_security, robot_research)
-	VALUES (:char_id, :gen_rec, :med_rec, :sec_rec, :exploit_record, :flv_general, :flv_head, :flv_face, :flv_eyes, :flv_torso, :flv_arms, :flv_hands, :flv_legs, :flv_feet, :robot_default, :robot_standard, :robot_engineering, :robot_construction, :robot_surgeon, :robot_crisis, :robot_miner, :robot_janitor, :robot_service, :robot_clerical, :robot_security, :robot_research);"})
+	insert_query = dbcon.NewQuery({"INSERT INTO ss13_characters_flavour (char_id, records_employment, records_medical, records_security, records_exploit, flavour_general, flavour_head, flavour_face, flavour_eyes, flavour_torso, flavour_arms, flavour_hands, flavour_legs, flavour_feet, robot_default, robot_standard, robot_engineering, robot_construction, robot_medical, robot_rescue, robot_miner, robot_custodial, robot_service, robot_clerical, robot_security, robot_research)
+	VALUES (:char_id, :gen_rec, :med_rec, :sec_rec, :exploit_record, :flv_general, :flv_head, :flv_face, :flv_eyes, :flv_torso, :flv_arms, :flv_hands, :flv_legs, :flv_feet, :robot_default, :robot_standard, :robot_engineering, :robot_construction, :robot_medical, :robot_rescue, :robot_miner, :robot_custodial, :robot_service, :robot_clerical, :robot_security, :robot_research);"})
 	insert_query.Execute(params, 1)
 
 	if (insert_query.ErrorMsg())
@@ -618,10 +618,10 @@
 	params[":robot_standard"] = flavour_texts_robot["Standard"]
 	params[":robot_engineering"] = flavour_texts_robot["Engineering"]
 	params[":robot_construction"] = flavour_texts_robot["Construction"]
-	params[":robot_surgeon"] = flavour_texts_robot["Surgeon"]
-	params[":robot_crisis"] = flavour_texts_robot["Crisis"]
+	params[":robot_medical"] = flavour_texts_robot["Medical"]
+	params[":robot_rescue"] = flavour_texts_robot["Rescue"]
 	params[":robot_miner"] = flavour_texts_robot["Miner"]
-	params[":robot_janitor"] = flavour_texts_robot["Janitor"]
+	params[":robot_custodial"] = flavour_texts_robot["Custodial"]
 	params[":robot_service"] = flavour_texts_robot["Service"]
 	params[":robot_clerical"] = flavour_texts_robot["Clerical"]
 	params[":robot_security"] = flavour_texts_robot["Security"]

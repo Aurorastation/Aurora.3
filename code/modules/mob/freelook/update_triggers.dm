@@ -28,9 +28,6 @@
 	updateVisibility(src)
 	..()
 
-/obj/structure/New()
-	updateVisibility(src)
-
 // EFFECTS
 
 /obj/effect/Destroy()

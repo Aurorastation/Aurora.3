@@ -99,18 +99,24 @@
 	var/hud_type
 
 	// Body/form vars.
-	var/list/inherent_verbs 	  // Species-specific verbs.
-	var/has_fine_manipulation = 1 // Can use small items.
-	var/siemens_coefficient = 1   // The lower, the thicker the skin and better the insulation.
-	var/darksight = 2             // Native darksight distance.
-	var/flags = 0                 // Various specific features.
-	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
-	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
-	var/greater_form              // Greater form, if any, ie. human for monkeys.
+	var/list/inherent_verbs 	  	// Species-specific verbs.
+	var/has_fine_manipulation = 1 	// Can use small items.
+	var/siemens_coefficient = 1   	// The lower, the thicker the skin and better the insulation.
+	var/darksight = 2             	// Native darksight distance.
+	var/flags = 0                 	// Various specific features.
+	var/slowdown = 0              	// Passive movement speed malus (or boost, if negative)
+	var/primitive_form            	// Lesser form, if any (ie. monkey for humans)
+	var/greater_form              	// Greater form, if any, ie. human for monkeys.
 	var/holder_type
-	var/gluttonous                // Can eat some mobs. 1 for mice, 2 for monkeys, 3 for people.
-	var/rarity_value = 1          // Relative rarity/collector value for this species.
-	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
+	var/gluttonous                	// Can eat some mobs. 1 for mice, 2 for monkeys, 3 for people.
+	var/rarity_value = 1          	// Relative rarity/collector value for this species.
+	var/ethanol_resistance = 1	  	// How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
+
+	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
+	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
+	var/sprint_speed_factor = 0.65	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
+	var/sprint_cost_factor = 1.0  	// Multiplier on stamina cost for sprinting
+	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
@@ -310,3 +316,34 @@
 // Called in life() when the mob has no client.
 /datum/species/proc/handle_npc(var/mob/living/carbon/human/H)
 	return
+
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	cost *= H.sprint_cost_factor
+	if (H.stamina == -1)
+		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
+		return 0
+
+	var/remainder = 0
+	if (H.stamina > cost)
+		H.stamina -= cost
+		H.hud_used.move_intent.update_move_icon(H)
+		return 1
+	else if (H.stamina > 0)
+		remainder = cost - H.stamina
+		H.stamina = 0
+	else
+		remainder = cost
+
+	H.adjustOxyLoss(remainder*0.25)
+	H.adjustHalLoss(remainder*0.25)
+	H.updatehealth()
+	H.update_oxy_overlay()
+
+	if (H.oxyloss >= (exhaust_threshold * 0.8))
+		H.m_intent = "walk"
+		H.hud_used.move_intent.update_move_icon(H)
+		H << span("danger", "You're too exhausted to run anymore!")
+		return 0
+	H.hud_used.move_intent.update_move_icon(H)
+	return 1
+

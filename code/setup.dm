@@ -96,7 +96,7 @@
 #define         LOW_PRESSURE_DAMAGE 2 // The amount of damage someone takes when in a low pressure area. (The pressure threshold is so low that it doesn't make sense to do any calculations, so it just applies this flat value).
 
 // Doors!
-#define DOOR_CRUSH_DAMAGE 10
+#define DOOR_CRUSH_DAMAGE 40
 
 #define HUNGER_FACTOR              0.05 // Factor of how fast mob nutrition decreases
 #define REM 0.2 // Means 'Reagent Effect Multiplier'. This is how many units of reagent are consumed per tick
@@ -441,7 +441,7 @@
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"
-#define PARALYZE  "paralize"
+#define PARALYZE  "paralyze"
 #define IRRADIATE "irradiate"
 #define AGONY     "agony"     // Added in PAIN!
 #define SLUR      "slur"
@@ -1090,3 +1090,28 @@ var/list/be_special_flags = list(
 #define RESPAWN_CREW	18000
 #define RESPAWN_ANIMAL	3000
 #define RESPAWN_MINISYNTH	6000
+
+// Night lighting controller times
+// The time (in ticks based on worldtime2ticks()) that various actions trigger
+#define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning
+#define NIGHT_LIGHT_ACTIVE 648000        // 6pm or 18:00 - night lighting mode activates
+
+//Cargo random stock vars
+//These are used in randomstock.dm
+//And also for generating random loot crates in crates.dm
+#define TOTAL_STOCK 	80//The total number of items we'll spawn in cargo stock
+
+
+#define STOCK_UNCOMMON_PROB	23
+//The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
+
+#define STOCK_RARE_PROB	2.8
+//The probability, as a percentage for each item, that we'll choose from the rare spawns list
+
+//If an item is not rare or uncommon, it will be chosen from the common spawns list.
+//So the probability of a common item is 100 - (uncommon + rare)
+
+
+#define STOCK_LARGE_PROB	75
+//Large items are spawned on predetermined locations.
+//For each large spawn marker, this is the chance that we will spawn there

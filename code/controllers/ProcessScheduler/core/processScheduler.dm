@@ -84,9 +84,15 @@ var/global/datum/controller/processScheduler/processScheduler
 	isRunning = 1
 	// tick_lag will have been set by now, so re-initialize these
 	scheduler_sleep_interval = world.tick_lag
+	callPreStart()
 	updateStartDelays()
 	spawn(0)
 		process()
+
+/datum/controller/processScheduler/proc/callPreStart()
+	for (var/datum/controller/process/P in processes)
+		if (!P.disabled)
+			P.preStart()
 
 /datum/controller/processScheduler/proc/process()
 	while(isRunning)

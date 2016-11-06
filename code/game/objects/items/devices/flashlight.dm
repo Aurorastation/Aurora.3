@@ -98,6 +98,29 @@
 	brightness_on = 2
 	w_class = 1
 
+/obj/item/device/flashlight/heavy
+	name = "heavy duty flashlight"
+	desc = "A high-luminosity flashlight for specialist duties."
+	icon_state = "heavyflashlight"
+	item_state = "heavyflashlight"
+	brightness_on = 7
+	w_class = 3
+	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
+	contained_sprite = 1
+
+/obj/item/device/flashlight/maglight
+	name = "maglight"
+	desc = "A heavy flashlight designed for security personnel."
+	icon_state = "maglight"
+	item_state = "maglight"
+	force = 10
+	brightness_on = 5
+	w_class = 3
+	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
+	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
+	hitsound = 'sound/weapons/smash.ogg'
+	contained_sprite = 1
+
 
 // the desk lamps are a bit special
 /obj/item/device/flashlight/lamp
@@ -206,3 +229,87 @@
 
 /obj/item/device/flashlight/slime/attack_self(mob/user)
 	return //Bio-luminescence does not toggle.
+
+//Glowsticks
+
+/obj/item/device/flashlight/glowstick
+	name = "green glowstick"
+	desc = "A green military-grade glowstick."
+	w_class = 2
+	brightness_on = 3
+	light_power = 2
+	light_color = "#49F37C"
+	icon = 'icons/obj/glowsticks.dmi'
+	icon_state = "glowstick"
+	item_state = "glowstick"
+	contained_sprite = 1
+	offset_light = 0
+	diona_restricted_light = 0
+	var/fuel = 0
+
+/obj/item/device/flashlight/glowstick/New()
+	fuel = rand(900, 1200)
+	..()
+
+/obj/item/device/flashlight/glowstick/process()
+	fuel = max(fuel - 1, 0)
+	if(!fuel || !on)
+		turn_off()
+		if(!fuel)
+			src.icon_state = "[initial(icon_state)]-empty"
+		processing_objects -= src
+
+/obj/item/device/flashlight/glowstick/proc/turn_off()
+	on = 0
+	update_icon()
+		
+/obj/item/device/flashlight/glowstick/attack_self(var/mob/living/user)
+
+	if(((CLUMSY in user.mutations)) && prob(50))
+		user << "<span class='notice'>You break \the [src] apart, spilling its contents everywhere!</span>"
+		fuel = 0
+		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
+		user.apply_effect((rand(15,30)),IRRADIATE,blocked = user.getarmor(null, "rad"))
+		qdel(src)
+		return
+
+	if(!fuel)
+		user << "<span class='notice'>\The [src] has already been used.</span>"
+		return
+	if(on)
+		user << "<span class='notice'>\The [src] has already been turned on.</span>"
+		return
+
+	. = ..()
+
+	if(.)
+		user.visible_message("<span class='notice'>[user] cracks and shakes \the [src].</span>", "<span class='notice'>You crack and shake \the [src], turning it on!</span>")
+		processing_objects += src
+
+/obj/item/device/flashlight/glowstick/red
+	name = "red glowstick"
+	desc = "A red military-grade glowstick."
+	light_color = "#FC0F29"
+	icon_state = "glowstick_red"
+	item_state = "glowstick_red"
+
+/obj/item/device/flashlight/glowstick/blue
+	name = "blue glowstick"
+	desc = "A blue military-grade glowstick."
+	light_color = "#599DFF"
+	icon_state = "glowstick_blue"
+	item_state = "glowstick_blue"
+
+/obj/item/device/flashlight/glowstick/orange
+	name = "orange glowstick"
+	desc = "A orange military-grade glowstick."
+	light_color = "#FA7C0B"
+	icon_state = "glowstick_orange"
+	item_state = "glowstick_orange"
+
+/obj/item/device/flashlight/glowstick/yellow
+	name = "yellow glowstick"
+	desc = "A yellow military-grade glowstick."
+	light_color = "#FEF923"
+	icon_state = "glowstick_yellow"
+	item_state = "glowstick_yellow"

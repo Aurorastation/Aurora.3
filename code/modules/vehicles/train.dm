@@ -2,7 +2,6 @@
 	name = "train"
 	dir = 4
 
-	move_delay = 1
 
 	health = 100
 	maxhealth = 100
@@ -29,12 +28,18 @@
 	var/old_loc = get_turf(src)
 	if(..())
 		if(tow)
-			tow.Move(old_loc)
+			tow.forceMove(old_loc)
 		return 1
 	else
 		if(lead)
 			unattach()
 		return 0
+
+obj/vehicle/train/forceMove()
+	var/old_loc = get_turf(src)
+	..()
+	if(tow)
+		tow.forceMove(old_loc)
 
 /obj/vehicle/train/Bump(atom/Obstacle)
 	if(!istype(Obstacle, /atom/movable))
@@ -51,7 +56,7 @@
 			var/mob/living/M = A
 			visible_message("\red [src] knocks over [M]!")
 			M.apply_effects(5, 5)				//knock people down if you hit them
-			M.apply_damages(22 / move_delay)	// and do damage according to how fast the train is going
+			M.apply_damages(10 * move_speed)	// and do damage according to how fast the train is going
 			if(istype(load, /mob/living/carbon/human))
 				var/mob/living/D = load
 				D << "\red You hit [M]!"

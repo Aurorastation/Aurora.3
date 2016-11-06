@@ -456,14 +456,14 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	return sanitize(t)
 
 
-/proc/shake_camera(mob/M, duration, strength=1)
+/proc/shake_camera(mob/M, duration, strength=1, var/taper = 0)
 	if(!M || !M.client || M.shakecamera)
 		return
+
 	M.shakecamera = 1
-	spawn(1)
+	spawn(2)
 		if(!M.client)
 			return
-
 		var/atom/oldeye=M.client.eye
 		var/aiEyeFlag = 0
 		if(istype(oldeye, /mob/eye/aiEye))
@@ -476,6 +476,20 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 			else
 				M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
 			sleep(1)
+
+		//Taper code added by nanako.
+		//Will make the strength falloff after the duration.
+		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
+		//Recommended taper values are 0.05-0.1
+		if (taper > 0)
+			while (strength > 0)
+				strength -= taper
+				if(aiEyeFlag)
+					M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
+				else
+					M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
+				sleep(1)
+
 		M.client.eye=oldeye
 		M.shakecamera = 0
 
@@ -1205,4 +1219,13 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		else
 			return "its"//Something went wrong
 
+
+/mob/proc/isHoldingShield()
+	var/obj/item/test = l_hand
+	if (istype(test, /obj/item) && test.IsShield())
+		return 1
+	test = r_hand
+	if (istype(test, /obj/item) && test.IsShield())
+		return 1
+	return 0
 #undef SAFE_PERP
