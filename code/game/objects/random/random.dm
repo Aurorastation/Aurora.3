@@ -659,6 +659,7 @@
 	"/obj/item/device/flashlight/maglight" = 0.4,
 	"/obj/item/device/flashlight/flare" = 0.5,
 	"/obj/item/device/flashlight/lantern" = 0.4,
+	"/obj/item/device/taperecorder" = 0.6,
 	"/obj/item/weapon/reagent_containers/food/drinks/teapot" = 0.4,
 	"/obj/item/weapon/reagent_containers/food/drinks/flask/shiny" = 0.3,
 	"/obj/item/weapon/reagent_containers/food/drinks/flask/lithium" = 0.3,
