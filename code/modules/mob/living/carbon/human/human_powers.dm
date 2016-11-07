@@ -356,5 +356,10 @@
 		M << "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src], your ruler:</span>"
 		M << "<span class='danger'>[src]:</span><span class='notice'>[text]</span>"
 	else
-		M << "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with foreign thought:</span>"
-		M << "<span class='notice'>[text]</span>"
+		M << "<span class='danger'> Like lead slabs crashing into the ocean, alien thoughts drop into your mind:</span><span class='notice'>[text]</span>"
+		if(istype(M,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(H.species.name == src.species.name)
+				return
+			H << "<span class='danger'> Your nose begins to bleed...</span>"
+			H.drip(1)

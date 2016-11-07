@@ -19,10 +19,13 @@
 	ethanol_resistance = 2
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 20
+	speech_chance = 100
 
 	death_sound = 'sound/voice/hiss6.ogg'
 	death_message = "seizes up and falls limp, their eyes dead and lifeless..."
+	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
+	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
 
 	//vision_flags = SEE_INVISIBLE_OBSERVER_NOLIGHTING
 
@@ -50,9 +53,6 @@
 
 /datum/species/bug/type_c/equip_survival_gear(var/mob/living/carbon/human/H)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/typec(H),slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/force/typec(H), slot_gloves)
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/typec(H), slot_head)
-	H.equip_to_slot_or_del(new /obj/item/clothing/suit/space/typec(H), slot_wear_suit)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)

@@ -59,16 +59,8 @@
 	src.gender = NEUTER
 
 /mob/living/carbon/human/breeder/New(var/new_loc)
-	var/mob/living/carbon/human/H = src
 	..(new_loc, "Vaurca Breeder")
-	H.gender = FEMALE
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/typec(H),slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/force/typec(H), slot_gloves)
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/typec(H), slot_head)
-	H.equip_to_slot_or_del(new /obj/item/clothing/suit/space/typec(H), slot_wear_suit)
-	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
-	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
+	src.gender = FEMALE
 
 /mob/living/carbon/human/breeder
 	mob_size = 30 //same size as moghes lizard

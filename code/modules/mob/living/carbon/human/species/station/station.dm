@@ -329,8 +329,8 @@
 	heat_level_3 = 600 //Default 1000
 	flags = CAN_JOIN | NO_SCAN | HAS_SKIN_COLOR | IS_WHITELISTED | NO_SLIP
 	blood_color = "#E6E600" // dark yellow
-	flesh_color = "#E6E600"
-	base_color = "#575757"
+	flesh_color = "#330000"
+	base_color = "#330000"
 	reagent_tag = IS_VAURCA
 
 	inherent_verbs = list(

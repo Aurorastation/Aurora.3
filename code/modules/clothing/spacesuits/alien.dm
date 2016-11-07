@@ -195,7 +195,7 @@
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
 	name = "carapace plating"
 	desc = "Form fitting and tight...but definitely not for a human form!"
-	w_class = 5
+	w_class = 5.0
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank)
 	slowdown = 2
 	armor = list(melee = 90, bullet = 80, laser = 75,energy = 60, bomb = 60, bio = 60, rad = 60)
@@ -212,7 +212,7 @@
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
 	name = "cranial carapace plating"
 	desc = "An intimidating alien helmet that fits over the head."
-	w_class = 5
+	w_class = 5.0
 	armor = list(melee = 80, bullet = 80, laser = 60, energy = 60, bomb = 60, bio = 60, rad = 60)
 	siemens_coefficient = 0
 	item_state = "carapace_head"
@@ -228,7 +228,8 @@
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
 	desc = "A set of several heavy magboots, fitted for long, thick legs."
 	name = "carapace magclaws"
-	w_class = 5
+	w_class = 5.0
+	armor = list(melee = 60, bullet = 60, laser = 30, energy = 30, bomb = 30, bio = 30, rad = 30)
 	item_state = "magboots"
 	icon_state = "magboots"
 
@@ -281,12 +282,13 @@
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
 	desc = "A set of form-fitting carapace gauntlets. They appear to be fitted with some robust hydralics."
 	name = "carapace gauntlets"
-	w_class = 5
+	w_class = 5.0
 	icon_state = "forceglove"
 	item_state = "forceglove"
-	amplification = 3.5
+	amplification = 1.5
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
+	armor = list(melee = 60, bullet = 60, laser = 30, energy = 30, bomb = 30, bio = 30, rad = 30)
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/gloves.dmi',
@@ -318,7 +320,7 @@ obj/item/weapon/storage/backpack/typec
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings"
 	item_state = "wings"
-	w_class = 5
+	w_class = 5.0
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 12
