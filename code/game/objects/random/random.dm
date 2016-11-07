@@ -508,10 +508,9 @@
 /obj/random/coin/item_to_spawn()
 	var/list/coin = list("/obj/item/weapon/coin/iron" = 5,
 	"/obj/item/weapon/coin/silver" = 3,
-	"/obj/item/weapon/coin/gold" = 1,
-	"/obj/item/weapon/coin/silver" = 0.7,
+	"/obj/item/weapon/coin/gold" = 0.7,
 	"/obj/item/weapon/coin/phoron" = 0.5,
-	"obj/item/weapon/coin/uranium" = 0.5,
+	"/obj/item/weapon/coin/uranium" = 0.5,
 	"/obj/item/weapon/coin/platinum" = 0.2,
 	"/obj/item/weapon/coin/diamond" = 0.1,
 	)
