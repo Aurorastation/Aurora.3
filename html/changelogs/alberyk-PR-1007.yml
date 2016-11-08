@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Golems should be space-proof now."
-  - tweak: "Golems are a bit slower, but are more resistant to trauma."
-  - imageadd: "New sprites for golems."

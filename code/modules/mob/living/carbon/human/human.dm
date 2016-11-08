@@ -1179,6 +1179,12 @@
 	if (src.is_diona())
 		setup_gestalt(1)
 
+	max_stamina = species.stamina
+	stamina = max_stamina
+	sprint_speed_factor = species.sprint_speed_factor
+	sprint_cost_factor = species.sprint_cost_factor
+	stamina_recovery = species.stamina_recovery
+	exhaust_threshold = species.exhaust_threshold
 	if(species)
 		return 1
 	else

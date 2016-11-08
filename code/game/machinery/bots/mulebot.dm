@@ -138,11 +138,9 @@
 	unload(0)
 	switch(severity)
 		if(2)
-			BITRESET(wires, rand(0,9))
-			BITRESET(wires, rand(0,9))
-			BITRESET(wires, rand(0,9))
+			wires.RandomCutAll(40)//Fix by nanako because the old code was throwing runtimes
 		if(3)
-			BITRESET(wires, rand(0,9))
+			wires.RandomCutAll(20)
 	..()
 	return
 

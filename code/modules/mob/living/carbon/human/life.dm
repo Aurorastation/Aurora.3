@@ -102,6 +102,9 @@
 
 		handle_heartbeat()
 
+		//Handles regenerating stamina if we have sufficient air and no oxyloss
+		handle_stamina()
+
 		if (is_diona())
 			diona_handle_light(DS)
 
@@ -537,7 +540,9 @@
 			failed_last_breath = 1
 		else
 			failed_last_breath = 0
-			adjustOxyLoss(-5)
+			adjustOxyLoss(-3)
+
+
 
 
 		// Hot air hurts :(
@@ -942,7 +947,7 @@
 				return 1
 
 			//UNCONSCIOUS. NO-ONE IS HOME
-			if((getOxyLoss() > 50) || (health <= config.health_threshold_crit))
+			if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
 				Paralyse(3)
 
 			if(hallucination)
@@ -1157,24 +1162,7 @@
 				damageoverlay.overlays += I
 		else
 			//Oxygen damage overlay
-			if(oxyloss)
-				var/image/I
-				switch(oxyloss)
-					if(10 to 20)
-						I = overlays_cache[11]
-					if(20 to 25)
-						I = overlays_cache[12]
-					if(25 to 30)
-						I = overlays_cache[13]
-					if(30 to 35)
-						I = overlays_cache[14]
-					if(35 to 40)
-						I = overlays_cache[15]
-					if(40 to 45)
-						I = overlays_cache[16]
-					if(45 to INFINITY)
-						I = overlays_cache[17]
-				damageoverlay.overlays += I
+			update_oxy_overlay()
 
 			// Vampire frenzy overlay.
 			if (mind.vampire)
@@ -1255,23 +1243,9 @@
 			if(equipped_glasses)
 				process_glasses(equipped_glasses)
 
-			if(healths)
-				if (analgesic > 100)
-					healths.icon_state = "health_numb"
-				else
-					switch(hal_screwyhud)
-						if(1)	healths.icon_state = "health6"
-						if(2)	healths.icon_state = "health7"
-						else
-							//switch(health - halloss)
-							switch(health - traumatic_shock)
-								if(100 to INFINITY)		healths.icon_state = "health0"
-								if(80 to 100)			healths.icon_state = "health1"
-								if(60 to 80)			healths.icon_state = "health2"
-								if(40 to 60)			healths.icon_state = "health3"
-								if(20 to 40)			healths.icon_state = "health4"
-								if(0 to 20)				healths.icon_state = "health5"
-								else					healths.icon_state = "health6"
+
+			update_health_display()
+
 
 			if(nutrition_icon)
 				switch(nutrition)
@@ -1725,6 +1699,63 @@
 /mob/living/carbon/human/rejuvenate()
 	restore_blood()
 	..()
+
+/mob/living/carbon/human/proc/handle_stamina()
+	if (species.stamina == -1)//If species stamina is -1, it has special mechanics which will be handled elsewhere
+		return//so quit this function
+
+	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
+		return
+
+	if (stamina != max_stamina)
+		//Any suffocation damage slows stamina regen.
+		//This includes oxyloss from low blood levels
+		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
+		if (regen > 0)
+			stamina = min(max_stamina, stamina+regen)
+			nutrition -= stamina_recovery*0.4
+			hud_used.move_intent.update_move_icon(src)
+
+/mob/living/carbon/human/proc/update_health_display()
+	if(!healths)
+		return
+
+	if (analgesic > 100)
+		healths.icon_state = "health_numb"
+	else
+		switch(hal_screwyhud)
+			if(1)	healths.icon_state = "health6"
+			if(2)	healths.icon_state = "health7"
+			else
+				//switch(health - halloss)
+				switch(health - traumatic_shock)
+					if(100 to INFINITY)		healths.icon_state = "health0"
+					if(80 to 100)			healths.icon_state = "health1"
+					if(60 to 80)			healths.icon_state = "health2"
+					if(40 to 60)			healths.icon_state = "health3"
+					if(20 to 40)			healths.icon_state = "health4"
+					if(0 to 20)				healths.icon_state = "health5"
+					else					healths.icon_state = "health6"
+
+/mob/living/carbon/human/proc/update_oxy_overlay()
+	if(oxyloss)
+		var/image/I
+		switch(oxyloss)
+			if(10 to 20)
+				I = overlays_cache[11]
+			if(20 to 25)
+				I = overlays_cache[12]
+			if(25 to 30)
+				I = overlays_cache[13]
+			if(30 to 35)
+				I = overlays_cache[14]
+			if(35 to 40)
+				I = overlays_cache[15]
+			if(40 to 45)
+				I = overlays_cache[16]
+			if(45 to INFINITY)
+				I = overlays_cache[17]
+		damageoverlay.overlays += I
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

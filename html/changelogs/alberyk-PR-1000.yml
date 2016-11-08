@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Ported new door crushing mechanics from baystation, now door crushing someone will push them away from the door, instead of just stunning them."
-  - rscadd: "Opening airlocks with brain damage may be more difficult now."
