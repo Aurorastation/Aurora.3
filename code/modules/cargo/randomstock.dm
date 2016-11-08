@@ -1305,8 +1305,8 @@ var/list/global/random_stock_large = list(
 		//with some of the more overpowered ones excluded
 		if ("exoquip")
 			var/list/equips = list(
-			"/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp," = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/drill," = 1,
+			"/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/tool/drill" = 1,
 			"/obj/item/mecha_parts/mecha_equipment/tool/extinguisher" = 1,
 			"/obj/item/mecha_parts/mecha_equipment/gravcatapult" = 0.8,
 			"/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster" = 1,
@@ -1484,9 +1484,9 @@ var/list/global/random_stock_large = list(
 		//Several random non-weapon exosuit attachments
 		if ("exogear")
 			var/list/equips = list(
-			"/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp," = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/drill," = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill," = 0.7,
+			"/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/tool/drill" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill" = 0.7,
 			"/obj/item/mecha_parts/mecha_equipment/tool/extinguisher" = 1,
 			"/obj/item/mecha_parts/mecha_equipment/tool/rcd" = 0.08,
 			"/obj/item/mecha_parts/mecha_equipment/teleporter" = 0.3,

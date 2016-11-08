@@ -34,7 +34,7 @@
 		set category = "Object"
 		set src in view(1)
 
-		if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living))
+		if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living) || !ishuman(usr))
 			usr << "\red You can't do that."
 			return
 
@@ -63,8 +63,7 @@
 
 
 	AltClick()
-		if(Adjacent(usr))
-			open_computer()
+		open_computer()
 
 //Quickfix until Snapshot works out how he wants to redo power. ~Z
 /obj/item/device/laptop/verb/eject_id()
@@ -123,7 +122,7 @@
 		set category = "Object"
 		set src in view(1)
 
-		if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living))
+		if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living) || !ishuman(usr))
 			usr << "\red You can't do that."
 			return
 
@@ -187,5 +186,4 @@
 
 
 	AltClick()
-		if(Adjacent(usr))
-			close_computer()
+		close_computer()

@@ -1332,7 +1332,7 @@
 "zF" = (/obj/effect/landmark{name = "Response Team"},/obj/effect/landmark{name = "Commando"},/turf/unsimulated/floor{icon_state = "vault"; dir = 1},/area/centcom/specops)
 "zG" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/specops)
 "zH" = (/obj/structure/table/standard,/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/turf/unsimulated/floor{icon_state = "cafeteria"; dir = 2},/area/centcom/evac)
-"zI" = (/obj/structure/closet/crate,/turf/unsimulated/floor{icon_state = "vault"; dir = 1},/area/centcom/specops)
+"zI" = (/obj/structure/closet/crate{name = "mag lock crate"},/obj/item/device/magnetic_lock,/obj/item/device/magnetic_lock,/turf/unsimulated/floor{icon_state = "vault"; dir = 1},/area/centcom/specops)
 "zJ" = (/obj/structure/bed/chair{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/specops)
 "zK" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 5; health = 1e+007},/turf/unsimulated/floor,/area/centcom/control)
 "zL" = (/obj/structure/bed/chair{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/control)

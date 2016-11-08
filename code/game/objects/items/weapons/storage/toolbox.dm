@@ -14,6 +14,11 @@
 	max_storage_space = 14 //can hold 7 w_class-2 items or up to 3 w_class-3 items (with 1 w_class-2 item as change).
 	origin_tech = "combat=1"
 	attack_verb = list("robusted")
+	var/stunhit = 0
+
+/obj/item/weapon/storage/toolbox/initialize()
+	spawn(3)
+		update_force()
 
 /obj/item/weapon/storage/toolbox/emergency
 	name = "emergency toolbox"
@@ -80,3 +85,24 @@
 		new /obj/item/stack/cable_coil(src,30,color)
 		new /obj/item/weapon/wirecutters(src)
 		new /obj/item/device/multitool(src)
+
+
+/obj/item/weapon/storage/toolbox/proc/update_force()
+	force = initial(force)
+	for (var/obj/item/I in contents)
+		force += I.w_class*1.5
+
+/obj/item/weapon/storage/toolbox/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+	if (..(W, prevent_warning))
+		update_force()
+
+
+/obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob)
+	update_force()
+	..(M, user)
+	if (contents.len)
+		spill(3, get_turf(M))
+		playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
+		update_force()
+		user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+

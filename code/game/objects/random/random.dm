@@ -100,7 +100,7 @@
 	desc = "This is a random piece of technology supplies."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "cell"
-	spawn_nothing_percentage = 50
+//	spawn_nothing_percentage = 50
 	item_to_spawn()
 		return pick(prob(3);/obj/random/powercell,\
 					prob(2);/obj/random/technology_scanner,\
@@ -155,7 +155,7 @@
 	desc = "Hot Stuff."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "purplecomb"
-	spawn_nothing_percentage = 50
+//	spawn_nothing_percentage = 50
 	item_to_spawn()
 		return pick(prob(3);/obj/item/weapon/storage/pill_bottle/tramadol,\
 					prob(4);/obj/item/weapon/haircomb,\
@@ -597,10 +597,10 @@
 	"/obj/item/clothing/accessory/storage/webbing" = 0.6,
 	"/obj/item/clothing/accessory/storage/knifeharness" = 0.3,
 	"/obj/item/clothing/head/collectable/petehat" = 0.3,
-	"/obj/item/clothing/head/hardhat" = 1.5,
+	"/obj/item/clothing/head/hardhat" = 1.2,
 	"/obj/item/clothing/head/redcoat" = 0.4,
 	"/obj/item/clothing/head/syndicatefake" = 0.5,
-	"/obj/item/clothing/head/richard," = 0.3,
+	"/obj/item/clothing/head/richard" = 0.3,
 	"/obj/item/clothing/head/soft/rainbow" = 0.7,
 	"/obj/item/clothing/head/plaguedoctorhat" = 0.5,
 	"/obj/item/clothing/head/cueball" = 0.5,
@@ -623,7 +623,7 @@
 	"/obj/item/clothing/shoes/workboots" = 1,
 	"/obj/item/clothing/shoes/cyborg" = 0.4,
 	"/obj/item/clothing/shoes/galoshes" = 0.6,
-	"/obj/item/clothing/shoes/slippers_worn" = 0.7,
+	"/obj/item/clothing/shoes/slippers_worn" = 0.5,
 	"/obj/item/clothing/shoes/combat" = 0.2,
 	"/obj/item/clothing/shoes/clown_shoes" = 0.1,
 	"/obj/item/clothing/suit/storage/hazardvest" = 1,
@@ -636,8 +636,8 @@
 	"/obj/item/clothing/gloves/black" = 1,
 	"/obj/item/clothing/gloves/fyellow" = 1.2,
 	"/obj/item/clothing/gloves/yellow" = 0.9,
-	"/obj/item/clothing/gloves/watch" = 0.8,
-	"/obj/item/clothing/gloves/boxing" = 0.8,
+	"/obj/item/clothing/gloves/watch" = 0.3,
+	"/obj/item/clothing/gloves/boxing" = 0.3,
 	"/obj/item/clothing/gloves/boxing/green" = 0.8,
 	"/obj/item/clothing/gloves/botanic_leather" = 0.7,
 	"/obj/item/clothing/gloves/combat" = 0.2,
@@ -645,7 +645,7 @@
 	"/obj/item/toy/balloon" = 0.4,
 	"/obj/item/weapon/haircomb" = 0.5,
 	"/obj/item/weapon/lipstick" = 0.6,
-	"/obj/item/weapon/material/knife/hook," = 0.3,
+	"/obj/item/weapon/material/knife/hook" = 0.3,
 	"/obj/item/weapon/material/hatchet/tacknife" = 0.4,
 	"/obj/item/weapon/storage/fancy/cigarettes/dromedaryco" = 1.2,
 	"/obj/item/weapon/storage/bag/plasticbag" = 1,
@@ -672,7 +672,7 @@
 	"/obj/item/device/floor_painter" = 0.6,
 	"/obj/random/toolbox" = 1,
 	"/obj/random/coin" = 1.2,
-	"/obj/random/tech_supply," = 1.2,
+	"/obj/random/tech_supply" = 1.2,
 	"/obj/random/powercell" = 0.8,
 	"/obj/random/colored_jumpsuit" = 0.7,
 	"/obj/random/booze" = 1.1,
@@ -685,5 +685,7 @@
 	"/obj/item/weapon/material/wirerod" = 0.4,
 	"/obj/item/weapon/storage/box/donkpockets" = 0.6,
 	"/obj/item/weapon/contraband/poster" = 1.3,
+	"/obj/item/device/magnetic_lock/security" = 0.3,
+	"/obj/item/device/magnetic_lock/engineering" = 0.3
 	)
 	return pickweight(maint)

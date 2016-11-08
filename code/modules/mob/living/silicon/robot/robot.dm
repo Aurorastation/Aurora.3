@@ -233,7 +233,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
-	if(security_level == (SEC_LEVEL_RED || SEC_LEVEL_DELTA)) //There are no brakes in the combat module train.
+	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA) //no fun allowed anymore.
 		src << "\red Crisis mode active. Combat module available."
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) in modules
