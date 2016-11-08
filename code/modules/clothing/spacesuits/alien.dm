@@ -307,7 +307,7 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.3
 	gas_filter_strength = 5			//For gas mask filters
-	list/filtered_gases = list("nitrogen", "sleeping_agent")
+	filtered_gases = list("nitrogen", "sleeping_agent")
 	armor = list(melee = 25, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 75, rad = 50)
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
