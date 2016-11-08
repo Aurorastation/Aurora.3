@@ -216,7 +216,7 @@ var/list/global/random_stock_rare = list(
 	"cloak" = 0.75,
 	"sword" = 0.75,
 	"ims" = 1.5,
-	"exogear" = 1.5,//!!!!!
+	"exogear" = 1.5,
 	"teleporter" = 1,
 	"voice" = 1.5,
 	"nothing" = 0)
@@ -661,7 +661,8 @@ var/list/global/random_stock_large = list(
 		if ("gloves")
 			var/list/allgloves = typesof(/obj/item/clothing/gloves)
 
-			var/list/exclusion = list(/obj/item/clothing/gloves/fluff,\
+			var/list/exclusion = list(/obj/item/clothing/gloves,
+			/obj/item/clothing/gloves/fluff,
 			/obj/item/clothing/gloves/swat/bst)
 			exclusion += typesof(/obj/item/clothing/gloves/rig)
 			exclusion += typesof(/obj/item/clothing/gloves/lightrig)
