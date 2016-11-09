@@ -1729,13 +1729,18 @@
 	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
 		return
 
+	if (nutrition <= 0)
+		if (prob(1.5))
+			src << span("warning", "You feel hungry and exhausted, eat something to regain your energy!")
+		return
+
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
 		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			nutrition -= stamina_recovery*0.4
+			nutrition = max(0, nutrition - stamina_recovery*0.32)
 			hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_health_display()

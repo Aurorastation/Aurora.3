@@ -181,7 +181,19 @@
 
 	if(moving) return 0
 
-	if(world.time < move_delay)	return
+	if(world.time < move_delay)
+		return
+
+
+//This compensates for the inaccuracy of move ticks
+//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
+//The overshoot value is subtracted from our next delay, farther down where move delay is set.
+//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
+//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
+	var/leftover = world.time - move_delay
+	if (leftover > 1)
+		leftover = 0
+
 
 	if(locate(/obj/effect/stop/, mob.loc))
 		for(var/obj/effect/stop/S in mob.loc)
@@ -259,7 +271,7 @@
 
 
 
-		move_delay = world.time//set move delay
+		move_delay = world.time - leftover//set move delay
 		mob.last_move_intent = world.time + 10
 
 
