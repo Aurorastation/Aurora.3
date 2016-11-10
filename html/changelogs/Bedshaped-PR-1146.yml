@@ -1,0 +1,12 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed Spider-bots unable to vent-crawl."
+  - bugfix: "Fixed a runtime error when exiting through a pipe after vent-crawling."
+  - bugfix: "Fixed incorrect message when putting robots in storage."
+  - bugfix: "Fixed floor painters being able to be used on non-valid tiles."
+  - bugfix: "Fixed magnetic locks unable to be damaged and increased their health."
+  - bugfix: "Fixed APCs not showing the correct night-lighting setting on roundstart."
+  - tweak: "Quietened Bosun's whistle."
