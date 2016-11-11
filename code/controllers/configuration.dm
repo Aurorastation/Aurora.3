@@ -171,6 +171,8 @@ var/list/gamemode_cache = list()
 	var/ghost_interaction = 0
 
 	var/night_lighting = 0
+	var/nl_start_hour = 19
+	var/nl_finish_hour = 8
 
 	var/comms_password = ""
 
@@ -600,6 +602,12 @@ var/list/gamemode_cache = list()
 
 				if("night_lighting")
 					config.night_lighting = 1
+
+				if("nl_start_hour")
+					config.nl_start_hour = text2num(value)
+
+				if("nl_finish_hour")
+					config.nl_finish_hour = text2num(value)
 
 				if("disable_player_mice")
 					config.disable_player_mice = 1
