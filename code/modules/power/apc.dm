@@ -1257,14 +1257,13 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 		else if (force == "off" || night_mode)
 			L.set_light_source()
 		L.update()
-	spawn(5)
-		switch (force)
-			if ("on")
-				night_mode = 1
-			if ("off")
-				night_mode = 0
-			else
-				night_mode = !night_mode
+	switch (force)
+		if ("on")
+			night_mode = 1
+		if ("off")
+			night_mode = 0
+		else
+			night_mode = !night_mode
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)

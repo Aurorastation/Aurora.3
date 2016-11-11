@@ -8,5 +8,4 @@ changes:
   - bugfix: "Fixed incorrect message when putting robots in storage."
   - bugfix: "Fixed floor painters being able to be used on non-valid tiles."
   - bugfix: "Fixed magnetic locks unable to be damaged and increased their health."
-  - bugfix: "Fixed APCs not showing the correct night-lighting setting on roundstart."
   - tweak: "Quietened Bosun's whistle."
