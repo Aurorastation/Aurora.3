@@ -120,6 +120,31 @@
 	icon_state = "detective2"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
+/obj/item/clothing/head/det_hat/technicolor
+	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
+	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
+	icon_state = "hat_detective_black"
+	item_state = "hat_detective_black"
+	var/hat_color
+	contained_sprite = 1
+
+/obj/item/clothing/head/det_hat/technicolor/New()
+	if(prob(5))
+		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
+		var/color = pickweight(colors)
+		icon_state = "hat_detective_[color]"
+		item_state = "hat_detective_[color]"
+	..()
+
+obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
+		var/obj/item/weapon/reagent_containers/glass/paint/P = O
+		hat_color = P.paint_type
+		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		icon_state = "hat_detective_[hat_color]"
+		item_state = "hat_detective_[hat_color]"
+	..()
+
 
 /*
  * Head of Security

@@ -10,6 +10,11 @@ proc/worldtime2text(time = world.time, timeshift = 1)
 	if(!roundstart_hour) roundstart_hour = pick(2,7,12,17)
 	return timeshift ? time2text(time+(36000*roundstart_hour), "hh:mm") : time2text(time, "hh:mm")
 
+proc/worldtime2ticks(time = world.time)
+	if(!roundstart_hour)
+		worldtime2text()
+	return ((roundstart_hour * 60 MINUTES) + time) % TICKS_IN_DAY
+
 proc/worlddate2text()
 	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
 

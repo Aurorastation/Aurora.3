@@ -229,14 +229,19 @@
 
 		src.visible_message("<span class='danger'>[src] is trying to bite [donor.name]</span>", "\red You start biting [donor.name], you and them must stay still!")
 		face_atom(get_turf(donor))
-		if (do_mob(src, donor, 30, needhand = 0))
+		if (do_mob(src, donor, 40, needhand = 0))
 
 			//Attempt to find the blood vessel, but don't create a fake one if its not there.
 			//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
 			//We'll still allow it
 			var/datum/reagents/vessel = donor.get_vessel(1)
 			var/newDNA
-			vessel.remove_reagent("blood", 85, 1)//85 units of blood is enough to affect a human and make them woozy
+			var/datum/reagent/blood/B = vessel.get_master_reagent()
+			var/total_blood = B.volume
+			var/remove_amount = (total_blood - 280) * 0.3
+			if (remove_amount > 0)
+				vessel.remove_reagent("blood", remove_amount, 1)//85 units of blood is enough to affect a human and make them woozy
+				nutrition += remove_amount*0.5
 			var/list/data = vessel.get_data("blood")
 			newDNA = data["blood_DNA"]
 
@@ -246,7 +251,7 @@
 			donor.adjustBruteLoss(4)
 			src.visible_message("<span class='notice'>[src] sucks some blood from [donor.name]</span>", "<span class='notice'>You extract a delicious mouthful of blood from [donor.name]!</span>")
 
-			nutrition += 40
+
 
 
 			if (newDNA in sampled_DNA)

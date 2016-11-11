@@ -25,6 +25,30 @@
 			return 0
 	return 1
 
+// This proc will check if a neighboring tile in the stated direction "dir" is dense or not
+// Will return 1 if it is dense and zero if not
+/proc/check_neighbor_density(turf/T, var/dir)
+	if (!T.loc)
+		CRASH("The Turf has no location!")
+	switch (dir)
+		if (NORTH)
+			return !turf_clear(get_turf(locate(T.x, T.y+1, T.z)))
+		if (NORTHEAST)
+			return !turf_clear(get_turf(locate(T.x+1, T.y+1, T.z)))
+		if (EAST)
+			return !turf_clear(get_turf(locate(T.x+1, T.y, T.z)))
+		if (SOUTHEAST)
+			return !turf_clear(get_turf(locate(T.x+1, T.y-1, T.z)))
+		if (SOUTH)
+			return !turf_clear(get_turf(locate(T.x, T.y-1, T.z)))
+		if (SOUTHWEST)
+			return !turf_clear(get_turf(locate(T.x-1, T.y-1, T.z)))
+		if (WEST)
+			return !turf_clear(get_turf(locate(T.x-1, T.y, T.z)))
+		if (NORTHWEST)
+			return !turf_clear(get_turf(locate(T.x-1, T.y+1, T.z)))
+		else return
+
 // Picks a turf without a mob from the given list of turfs, if one exists.
 // If no such turf exists, picks any random turf from the given list of turfs.
 /proc/pick_mobless_turf_if_exists(var/list/start_turfs)

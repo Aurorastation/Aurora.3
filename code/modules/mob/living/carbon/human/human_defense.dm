@@ -159,9 +159,13 @@ emp_act
 
 	var/hit_zone = get_zone_with_miss_chance(target_zone, src)
 
-	if(!hit_zone)
-		visible_message("<span class='danger'>\The [user] misses [src] with \the [I]!</span>")
-		return null
+	if(user == src) // Attacking yourself can't miss
+		target_zone = user.zone_sel.selecting
+	if(!target_zone)
+		visible_message("\red <B>[user] misses [src] with \the [I]!")
+		return 0
+
+	var/obj/item/organ/external/affecting = get_organ(target_zone)
 
 	if(check_shields(I.force, I, user, target_zone, "the [I.name]"))
 		return null

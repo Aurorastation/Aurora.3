@@ -325,3 +325,19 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+//dragunov magazine
+
+/obj/item/ammo_magazine/d762
+	name = "magazine (7.62mm)"
+	icon = 'icons/obj/dragunov.dmi'
+	icon_state = "SVD"
+	mag_type = MAGAZINE
+	caliber = "a762"
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 10
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/d762/empty
+	initial_ammo = 0

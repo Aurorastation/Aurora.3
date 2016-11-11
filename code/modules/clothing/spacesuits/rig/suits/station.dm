@@ -114,7 +114,6 @@
 		/obj/item/rig_module/vision/meson
 		)
 
-//Chief Engineer's rig. This is sort of a halfway point between the old hardsuits (voidsuits) and the rig class.
 /obj/item/weapon/rig/ce
 
 	name = "advanced voidsuit control module"
@@ -130,12 +129,10 @@
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
 
-
 	req_access = list()
 	req_one_access = list()
 
-	boot_type =  null
-	glove_type = null
+	glove_type = /obj/item/clothing/gloves/rig/ce
 
 /obj/item/weapon/rig/ce/equipped
 
@@ -149,13 +146,8 @@
 		/obj/item/rig_module/vision/meson
 		)
 
-	chest_type = /obj/item/clothing/suit/space/rig/ce
-	boot_type =  null
-	glove_type = null
-
-/obj/item/clothing/suit/space/rig/ce
-	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+/obj/item/clothing/gloves/rig/ce
+	siemens_coefficient = 0
 
 /obj/item/weapon/rig/hazmat
 
@@ -168,8 +160,6 @@
 	offline_vision_restriction = 1
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
-
-	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/weapon/storage/box/excavation,/obj/item/weapon/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/weapon/pickaxe/hand,/obj/item/weapon/storage/bag/fossils)
 

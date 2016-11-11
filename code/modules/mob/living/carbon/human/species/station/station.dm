@@ -19,6 +19,11 @@
 /datum/species/human/get_bodytype()
 	return "Human"
 
+	stamina	=	130			  // Humans can sprint for longer than any other species
+	stamina_recovery = 5
+	sprint_speed_factor = 0.8
+	sprint_cost_factor = 0.7
+
 /datum/species/unathi
 	name = "Unathi"
 	short_name = "una"
@@ -37,6 +42,10 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Sinta'unathi")
 	name_language = "Sinta'unathi"
+	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
+	sprint_speed_factor = 3
+	stamina_recovery = 5
+	sprint_cost_factor = 1.8
 	rarity_value = 3
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
@@ -105,6 +114,12 @@
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
 
+	stamina	=	90			  // Tajarans evolved to maintain a steady pace in the snow, sprinting wastes energy
+	stamina_recovery = 4
+	sprint_speed_factor = 0.55
+	sprint_cost_factor = 1
+
+
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
 	influenced heavily by their long history of Slavemaster rule. They have a structured, clan-influenced way \
@@ -156,7 +171,6 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Skrellian")
 	name_language = null
-
 	rarity_value = 3
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
@@ -168,6 +182,10 @@
 
 	reagent_tag = IS_SKRELL
 	ethanol_resistance = 0.5//gets drunk faster
+
+	stamina	=	90
+	sprint_speed_factor = 1.1 //Evolved for rapid escapes from predators
+
 
 /datum/species/diona
 	name = "Diona"
@@ -243,6 +261,41 @@
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
+
+	stamina	=	-1			  // Diona sprinting uses energy instead of stamina
+	sprint_speed_factor = 0.4		  //Speed gained is minor
+
+
+/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	var/datum/dionastats/DS = H.get_dionastats()
+
+	if (!DS)
+		return 0 //Something is very wrong
+
+	var/remainder = cost
+
+	if (H.radiation)
+		if (H.radiation > (cost*0.5))//Radiation counts as double energy
+			H.radiation -= cost*0.5
+			return 1
+		else
+			remainder = cost - (H.radiation*2)
+			H.radiation = 0
+
+	if (DS.stored_energy > remainder)
+		DS.stored_energy -= remainder
+		return 1
+	else
+		remainder -= DS.stored_energy
+		DS.stored_energy = 0
+		H.adjustHalLoss(remainder*5, 1)
+		H.updatehealth()
+		H.m_intent = "walk"
+		H.hud_used.move_intent.update_move_icon(H)
+		H << span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!")
+		return 0
+
+
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -348,6 +401,23 @@
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)
+	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
+	sprint_speed_factor = 0.85	  // About as capable of speed as a human
+
+
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	if (H.stat == CONSCIOUS)
+		H.bodytemperature += cost*1.35
+		H.nutrition -= cost*0.9
+		if (H.nutrition > 0)
+			return 1
+		else
+			H.Weaken(30)
+			H.m_intent = "walk"
+			H.hud_used.move_intent.update_move_icon(H)
+			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in 60 seconds, initiate charging as primary directive.")
+			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
+	return 0
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
@@ -398,6 +468,12 @@
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
+
+	stamina	=	100			  // Long period of sprinting, but relatively low speed gain
+	sprint_speed_factor = 0.5
+	sprint_cost_factor = 0.27
+	stamina_recovery = 1//slow recovery
+
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite, //weaker version of gut.

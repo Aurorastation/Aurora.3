@@ -26,6 +26,7 @@
 	var/destroy_hits = 10 //How many strong hits it takes to destroy the door
 	var/min_force = 10 //minimum amount of force needed to damage the door with a melee weapon
 	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
+	var/hitsound_light = 'sound/effects/Glasshit.ogg'//Sound door makes when hit very gently
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/close_door_at = 0 //When to automatically close the door, if possible
@@ -53,9 +54,11 @@
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
 		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
+		playsound(src.loc, hitsound, 60, 1)
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+		playsound(src.loc, hitsound_light, 8, 1, -1)
 	user.do_attack_animation(src)
 
 /obj/machinery/door/New()
@@ -244,9 +247,14 @@
 		tforce = 15 * (speed/5)
 	else
 		tforce = AM:throwforce * (speed/5)
-	playsound(src.loc, hitsound, 100, 1)
-	take_damage(tforce)
-	return
+
+	if (tforce > 0)
+		var/volume = 100
+		if (tforce < 20)//No more stupidly loud banging sound from throwing a piece of paper at a door
+			volume *= (tforce / 20)
+		playsound(src.loc, hitsound, volume, 1)
+		take_damage(tforce)
+		return
 
 /obj/machinery/door/attack_ai(mob/user as mob)
 	return src.attack_hand(user)

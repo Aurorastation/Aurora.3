@@ -36,11 +36,20 @@
 	playsound(src.loc, 'sound/machines/click.ogg', 15, 1, -3)
 	for(var/obj/O in src)
 		O.forceMove(get_turf(src))
-	icon_state = icon_opened
-	src.opened = 1
 
 	if(climbable)
 		structure_shaken()
+
+	for (var/mob/M in src)
+		M.forceMove(get_turf(src))
+		if (M.stat == CONSCIOUS)
+			M.visible_message(span("danger","\The [M.name] bursts out of the [src]!"), span("danger","You burst out of the [src]!"))
+		else
+			M.visible_message(span("danger","\The [M.name] tumbles out of the [src]!"))
+
+	icon_state = icon_opened
+	src.opened = 1
+
 	return 1
 
 /obj/structure/closet/crate/close()
@@ -66,6 +75,14 @@
 	icon_state = icon_closed
 	src.opened = 0
 	return 1
+
+
+/obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover,/obj/item/projectile) && prob(50))
+		return 1
+	if(istype(mover) && mover.checkpass(PASSTABLE))
+		return 1
+	return 0
 
 /obj/structure/closet/crate/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(opened)
@@ -496,3 +513,60 @@
 //		new /obj/item/weapon/pestspray(src)
 //		new /obj/item/weapon/pestspray(src)
 //		new /obj/item/weapon/pestspray(src)
+
+
+
+//A crate that populates itself with randomly selected loot from randomstock.dm
+//Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance
+//Quantity of spawns is number of discrete selections from the loot lists, default 10
+
+/obj/structure/closet/crate/loot
+	name = "unusual container"
+	desc = "A mysterious container of unknown origins. What mysteries lie within?"
+	var/rarity = 1
+	var/quantity = 10
+	var/list/spawntypes
+
+//The crate chooses its icon randomly from a number of noticeable options.
+//None of these are the standard grey crate sprite, and a few are currently unused ingame
+//This ensures that people stumbling across a lootbox will notice it's different and investigate
+	var/list/iconchoices = list(
+		"radiation" = "radiationopen",
+		"o2crate" = "o2crateopen",
+		"freezer" = "freezeropen",
+		"weaponcrate" = "weaponcrateopen",
+		"largebins" = "largebinsopen",
+		"phoroncrate" = "phoroncrateopen",
+		"trashcart" = "trashcartopen",
+		"critter" = "critteropen",
+		"largemetal" = "largemetalopen",
+		"medicalcrate" = "medicalcrateopen")
+
+
+/obj/structure/closet/crate/loot/New(var/location, var/_rarity = 1, var/_quantity = 10)
+
+	rarity = _rarity
+	quantity = _quantity
+	..(location)
+
+
+/obj/structure/closet/crate/loot/initialize()
+	spawntypes = list("1" = STOCK_RARE_PROB*rarity, "2" = STOCK_UNCOMMON_PROB*rarity, "3" = (100 - ((STOCK_RARE_PROB*rarity) + (STOCK_UNCOMMON_PROB*rarity))))
+
+	icon_closed = pick(iconchoices)
+	icon_opened = iconchoices[icon_closed]
+	update_icon()
+	while (quantity > 0)
+		quantity --
+		var/newtype = get_spawntype()
+		spawn_stock(newtype,src)
+
+/obj/structure/closet/crate/loot/proc/get_spawntype()
+	var/stocktype = pickweight(spawntypes)
+	switch (stocktype)
+		if ("1")
+			return pickweight(random_stock_rare)
+		if ("2")
+			return pickweight(random_stock_uncommon)
+		if ("3")
+			return pickweight(random_stock_common)

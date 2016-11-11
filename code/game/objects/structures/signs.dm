@@ -23,21 +23,24 @@
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
 	if(istype(tool, /obj/item/weapon/screwdriver) && !istype(src, /obj/structure/sign/double))
 		user << "You unfasten the sign with your [tool]."
-		var/obj/item/sign/S = new(src.loc)
-		S.name = name
-		S.desc = desc
-		S.icon_state = icon_state
-		//var/icon/I = icon('icons/obj/decals.dmi', icon_state)
-		//S.icon = I.Scale(24, 24)
-		S.sign_state = icon_state
-		qdel(src)
+		unfasten()
 	else ..()
+
+/obj/structure/sign/proc/unfasten()
+	var/obj/item/sign/S = new(src.loc)
+	S.name = name
+	S.desc = desc
+	S.icon_state = icon_state
+	//var/icon/I = icon('icons/obj/decals.dmi', icon_state)
+	//S.icon = I.Scale(24, 24)
+	S.sign_state = icon_state
+	qdel(src)
 
 /obj/item/sign
 	name = "sign"
 	desc = ""
 	icon = 'icons/obj/decals.dmi'
-	w_class = 3		//big
+	w_class = 5		//big
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction

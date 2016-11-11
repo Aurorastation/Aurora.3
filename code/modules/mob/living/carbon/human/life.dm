@@ -84,6 +84,9 @@
 
 		handle_heartbeat()
 
+		//Handles regenerating stamina if we have sufficient air and no oxyloss
+		handle_stamina()
+
 		if (is_diona())
 			diona_handle_light(DS)
 
@@ -612,7 +615,51 @@
 		if (temp_adj < 0)
 			temp_adj /= (BODYTEMP_COLD_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
 		else
-			temp_adj /= (BODYTEMP_HEAT_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
+			failed_last_breath = 0
+			adjustOxyLoss(-3)
+
+
+
+
+		// Hot air hurts :(
+		if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in mutations))
+
+			if(breath.temperature <= species.cold_level_1)
+				if(prob(20))
+					src << "<span class='danger'>You feel your face freezing and icicles forming in your lungs!</span>"
+			else if(breath.temperature >= species.heat_level_1)
+				if(prob(20))
+					src << "<span class='danger'>You feel your face burning and a searing heat in your lungs!</span>"
+
+			if(breath.temperature >= species.heat_level_1)
+				if(breath.temperature < species.heat_level_2)
+					apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, BURN, "head", used_weapon = "Excessive Heat")
+					fire_alert = max(fire_alert, 2)
+				else if(breath.temperature < species.heat_level_3)
+					apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, BURN, "head", used_weapon = "Excessive Heat")
+					fire_alert = max(fire_alert, 2)
+				else
+					apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, BURN, "head", used_weapon = "Excessive Heat")
+					fire_alert = max(fire_alert, 2)
+
+			else if(breath.temperature <= species.cold_level_1)
+				if(breath.temperature > species.cold_level_2)
+					apply_damage(COLD_GAS_DAMAGE_LEVEL_1, BURN, "head", used_weapon = "Excessive Cold")
+					fire_alert = max(fire_alert, 1)
+				else if(breath.temperature > species.cold_level_3)
+					apply_damage(COLD_GAS_DAMAGE_LEVEL_2, BURN, "head", used_weapon = "Excessive Cold")
+					fire_alert = max(fire_alert, 1)
+				else
+					apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, "head", used_weapon = "Excessive Cold")
+					fire_alert = max(fire_alert, 1)
+
+
+			//breathing in hot/cold air also heats/cools you a bit
+			var/temp_adj = breath.temperature - bodytemperature
+			if (temp_adj < 0)
+				temp_adj /= (BODYTEMP_COLD_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
+			else
+				temp_adj /= (BODYTEMP_HEAT_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
 
 		var/relative_density = breath.total_moles / (MOLES_CELLSTANDARD * BREATH_PERCENTAGE)
 		temp_adj *= relative_density
@@ -1020,27 +1067,45 @@
 			death()
 			blinded = 1
 			silent = 0
-			return 1
+		else				//ALIVE. LIGHTS ARE ON
+			updatehealth()	//TODO
 
-		//UNCONSCIOUS. NO-ONE IS HOME
-		if((getOxyLoss() > 50) || (health <= config.health_threshold_crit))
-			Paralyse(3)
+			if(health <= config.health_threshold_dead || (species.has_organ["brain"] && !has_brain()))
+				death()
+				blinded = 1
+				silent = 0
+				return 1
 
-		if(hallucination)
-			if(hallucination >= 20)
-				if(prob(3))
-					fake_attack(src)
-				if(!handling_hal)
-					spawn handle_hallucinations() //The not boring kind!
-				if(client && prob(5))
-					client.dir = pick(2,4,8)
-					spawn(rand(20,50))
-						client.dir = 1
+			//UNCONSCIOUS. NO-ONE IS HOME
+			if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
+				Paralyse(3)
 
-			hallucination = max(0, hallucination - 2)
-		else
-			for(var/atom/a in hallucinations)
-				qdel(a)
+			if(hallucination)
+				//Machines do not hallucinate.
+				if (species.flags & IS_SYNTHETIC)
+					hallucination = 0
+				else
+					if(hallucination >= 20)
+						if(prob(3))
+							fake_attack(src)
+						if(!handling_hal)
+							spawn handle_hallucinations() //The not boring kind!
+						if(client && prob(5))
+							client.dir = pick(2,4,8)
+							var/client/C = client
+							spawn(rand(20,50))
+								if(C)
+									C.dir = 1
+
+					if(hallucination<=2)
+						hallucination = 0
+						halloss = 0
+					else
+						hallucination -= 2
+
+			else
+				for(var/atom/a in hallucinations)
+					qdel(a)
 
 			if(halloss > 100)
 				src << "<span class='warning'>[species.halloss_message_self]</span>"
@@ -1230,34 +1295,74 @@
 					I = overlays_cache[23]
 			damageoverlay.overlays += I
 
+		if( stat == DEAD )
+			sight = SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_SELF
+			see_in_dark = 8
+			if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
+			if(healths)		healths.icon_state = "health7"	//DEAD healthmeter
+		// #TODO-MERGE: Check the indentation of this file! It's awful!
 		if(healths)
-			if (analgesic > 100)
-				healths.icon_state = "health_numb"
-			else
-				switch(hal_screwyhud)
-					if(1)	healths.icon_state = "health6"
-					if(2)	healths.icon_state = "health7"
-					else
-						//switch(health - halloss)
-						switch(100 - ((species.flags & NO_PAIN) ? 0 : traumatic_shock))
-							if(100 to INFINITY)		healths.icon_state = "health0"
-							if(80 to 100)			healths.icon_state = "health1"
-							if(60 to 80)			healths.icon_state = "health2"
-							if(40 to 60)			healths.icon_state = "health3"
-							if(20 to 40)			healths.icon_state = "health4"
-							if(0 to 20)				healths.icon_state = "health5"
-							else					healths.icon_state = "health6"
+				if(client.view != world.view) // If mob dies while zoomed in with device, unzoom them.
+					for(var/obj/item/item in contents)
+						if(item.zoom)
+							item.zoom()
+							break
 
-		if(nutrition_icon)
-			switch(nutrition)
-				if(450 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
-				if(350 to 450)					nutrition_icon.icon_state = "nutrition1"
-				if(250 to 350)					nutrition_icon.icon_state = "nutrition2"
-				if(150 to 250)					nutrition_icon.icon_state = "nutrition3"
-				else							nutrition_icon.icon_state = "nutrition4"
+					/*
+					if(locate(/obj/item/weapon/gun/energy/sniperrifle, contents))
+						var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in src
+						if(s.zoom)
+							s.zoom()
+					if(locate(/obj/item/device/binoculars, contents))
+						var/obj/item/device/binoculars/b = locate() in src
+						if(b.zoom)
+							b.zoom()
+					*/
 
-		if(pressure)
-			pressure.icon_state = "pressure[pressure_alert]"
+		else
+			if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
+				sight = species.vision_flags
+				see_in_dark = species.darksight
+				see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
+
+			if(XRAY in mutations)
+				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+				see_in_dark = 8
+				if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
+
+			if(seer)
+				var/obj/effect/rune/R = locate() in loc
+				if(R && R.word1 == cultwords["see"] && R.word2 == cultwords["hell"] && R.word3 == cultwords["join"])
+					see_invisible = SEE_INVISIBLE_CULT
+				else
+					seer = 0
+
+			if(!seer)
+				see_invisible = SEE_INVISIBLE_LIVING
+
+			var/equipped_glasses = glasses
+			var/obj/item/weapon/rig/rig = back
+			if(istype(rig) && rig.visor)
+				if(!rig.helmet || (head && rig.helmet == head))
+					if(rig.visor && rig.visor.vision && rig.visor.active && rig.visor.vision.glasses)
+						equipped_glasses = rig.visor.vision.glasses
+			if(equipped_glasses)
+				process_glasses(equipped_glasses)
+
+
+			update_health_display()
+
+
+			if(nutrition_icon)
+				switch(nutrition)
+					if(450 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
+					if(350 to 450)					nutrition_icon.icon_state = "nutrition1"
+					if(250 to 350)					nutrition_icon.icon_state = "nutrition2"
+					if(150 to 250)					nutrition_icon.icon_state = "nutrition3"
+					else							nutrition_icon.icon_state = "nutrition4"
+
+			if(pressure)
+				pressure.icon_state = "pressure[pressure_alert]"
 
 //			if(rest)	//Not used with new UI
 //				if(resting || lying || sleeping)		rest.icon_state = "rest1"
@@ -1683,6 +1788,63 @@
 		return
 	if(XRAY in mutations)
 		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+
+/mob/living/carbon/human/proc/handle_stamina()
+	if (species.stamina == -1)//If species stamina is -1, it has special mechanics which will be handled elsewhere
+		return//so quit this function
+
+	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
+		return
+
+	if (stamina != max_stamina)
+		//Any suffocation damage slows stamina regen.
+		//This includes oxyloss from low blood levels
+		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
+		if (regen > 0)
+			stamina = min(max_stamina, stamina+regen)
+			nutrition -= stamina_recovery*0.4
+			hud_used.move_intent.update_move_icon(src)
+
+/mob/living/carbon/human/proc/update_health_display()
+	if(!healths)
+		return
+
+	if (analgesic > 100)
+		healths.icon_state = "health_numb"
+	else
+		switch(hal_screwyhud)
+			if(1)	healths.icon_state = "health6"
+			if(2)	healths.icon_state = "health7"
+			else
+				//switch(health - halloss)
+				switch(health - traumatic_shock)
+					if(100 to INFINITY)		healths.icon_state = "health0"
+					if(80 to 100)			healths.icon_state = "health1"
+					if(60 to 80)			healths.icon_state = "health2"
+					if(40 to 60)			healths.icon_state = "health3"
+					if(20 to 40)			healths.icon_state = "health4"
+					if(0 to 20)				healths.icon_state = "health5"
+					else					healths.icon_state = "health6"
+
+/mob/living/carbon/human/proc/update_oxy_overlay()
+	if(oxyloss)
+		var/image/I
+		switch(oxyloss)
+			if(10 to 20)
+				I = overlays_cache[11]
+			if(20 to 25)
+				I = overlays_cache[12]
+			if(25 to 30)
+				I = overlays_cache[13]
+			if(30 to 35)
+				I = overlays_cache[14]
+			if(35 to 40)
+				I = overlays_cache[15]
+			if(40 to 45)
+				I = overlays_cache[16]
+			if(45 to INFINITY)
+				I = overlays_cache[17]
+		damageoverlay.overlays += I
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

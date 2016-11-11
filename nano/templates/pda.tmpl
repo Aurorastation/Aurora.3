@@ -518,35 +518,84 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
             </div>
         </div>
 
-    {{else data.mode == 43}}
-        <H2>Sensor Selection</H2>
+    {{else data.mode == 43}}    <!-- Power monitor powernet selection menu -->
+        <H2>Power Monitor</H2>
         <div class="item">
-            Available Sensors:
-        </div>
-        {{for data.records.power_sensors}}
-            <div class="item">
-                {{:helper.link(value.name_tag, 'plus', {'cartmenu' : "1", 'choice' : "Power Select",'target' : value.name_tag})}}<br>
+            <div class="itemLabel">
+                <b>Available Sensors</b>:
             </div>
-        {{/for}}
+            <div class="itemContent">
+                {{for data.records.power_sensors}}
+                        {{:helper.link(value.name_tag, 'plus', {'cartmenu' : "1", 'choice' : "Power Select",'target' : value.name_tag}, null, 'fixedLeftWider')}}
+                {{/for}}
+            </div>
+        </div>
 
-
-    {{else data.mode == 433}}
-        <H2>Sensor Reading(Simplified View)</H2>
-		{{if data.records.sensor_reading}}
-			<table><tr><th>Area<th>Cell %<th>Load
-			{{for data.records.sensor_reading.apc_data}}
-				<tr><td>{{:value.name}}
-				<td>{{:value.cell_charge}}%
-				<td>{{:value.total_load}}
-			{{empty}}
-				<tr><td>No APCs found!
-			{{/for}}
-			</table>
-			<br><b>Available: {{:data.records.sensor_reading.total_avail}}</b>
-			<br><b>Load: {{:data.records.sensor_reading.total_used_all}}</b>
+    {{else data.mode == 433}}   <!-- Power monitor sensor display -->
+        <H2>Power Monitor</H2>
+        {{if data.records.sensor_reading}}    
+            <h3>Network Information</h3>  
+            <div class="item">
+                <div class="itemLabel">
+                    <b>Powernet Sensor</b>:
+                </div>
+                <div class="itemContent">
+                    <b>{{:data.records.sensor_reading.name}}</b>
+                </div>
+            </div>
+            <div class="item">
+                <div class="itemLabel">
+                    Load:
+                </div>
+                <div class="itemContent">
+                    <!-- see power_monitor.tmpl -->
+                    {{:helper.displayBar(data.records.sensor_reading.load_percentage, 0, 100, (data.records.sensor_reading.load_percentage <= 75) ? 'good' : (data.records.sensor_reading.load_percentage <= 90) ? 'average' : 'bad')}}{{:data.records.sensor_reading.load_percentage}}%
+                </div>
+                <div class="itemLabel">
+                    Available Power:
+                </div>
+                <div class="itemContent">
+                    {{:data.records.sensor_reading.total_avail}}
+                </div>
+                <div class="itemLabel">
+                    Total Usage:
+                </div>
+                <div class="itemContent">
+                    {{:data.records.sensor_reading.total_used_all}}
+                </div>
+            </div>
+            <h3>APC Sensor Readings</h3>
+            {{if data.records.sensor_reading.apc_data.length > 0}}  
+            	<table>
+                    <tr>
+                        <th>APC Name</th><th>Cell Status</th><th>Power Usage</th>
+                    </tr>
+                    {{for data.records.sensor_reading.apc_data}}
+                        <tr>
+                            <td style="width: 220px;">{{:value.name}}</td>
+                            {{if value.cell_status == "N"}}
+                                <td>{{:helper.link(value.cell_charge + '%', 'batt_disc', null,'disabled', 'width75btn')}}</td>
+                            {{else value.cell_status == "C"}}
+                                <td>{{:helper.link(value.cell_charge + '%', 'batt_chrg', null,'disabled', 'width75btn')}}</td>
+                            {{else}}
+                                <td>{{:helper.link(value.cell_charge + '%', 'batt_full', null,'disabled', 'width75btn')}}</td>
+                            {{/if}}
+                            <td>{{:value.total_load}}</td>
+                        </tr>
+                    {{/for}}
+                </table>
+            {{else}}
+                <div class="notice">
+                    No APCs found in selected powernet.
+                </div>
+            {{/if}}
 		{{else}}
-			Unable to contact sensor controller! Please retry and contact tech support if problem persists.
+            <!-- values["sensor_reading"] not set in /obj/item/weapon/cartridge/proc/create_NanoUI_values proc -->
+			<div class="notice">
+                 Unable to contact sensor controller! Please retry and contact tech support if this problem persists.
+            </div>
 		{{/if}}
+
 
 	{{else data.mode == 44}}
 	    <H2>Medical Record List</H2>

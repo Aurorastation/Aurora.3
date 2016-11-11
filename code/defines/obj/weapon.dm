@@ -89,11 +89,12 @@
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
 /obj/item/weapon/cane/concealed
+	w_class = 4
 	var/concealed_blade
 
 /obj/item/weapon/cane/concealed/New()
 	..()
-	var/obj/item/weapon/material/butterfly/switchblade/temp_blade = new(src)
+	var/obj/item/weapon/canesword/temp_blade = new(src)
 	concealed_blade = temp_blade
 	temp_blade.attack_self()
 
@@ -111,7 +112,7 @@
 	else
 		..()
 
-/obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/material/butterfly/W, var/mob/user)
+/obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
 		user.drop_from_inventory(W)

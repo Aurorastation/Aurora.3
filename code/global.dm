@@ -9,6 +9,7 @@ var/global/datum/datacore/data_core = null
 var/global/list/all_areas                = list()
 var/global/list/machines                 = list()
 var/global/list/processing_objects       = list()
+var/global/list/processing_modifiers     = list()
 var/global/list/processing_power_items   = list()
 var/global/list/active_diseases          = list()
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.

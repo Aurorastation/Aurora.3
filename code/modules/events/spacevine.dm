@@ -1,7 +1,7 @@
 /var/global/spacevines_spawned = 0
 
 /datum/event/spacevine
-	announceWhen	= 10
+	announceWhen	= 30
 	ic_name = "a biohazard"
 
 /datum/event/spacevine/start()

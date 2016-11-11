@@ -55,8 +55,6 @@
 		cmd_admin_discord_pm(href_list["discord_msg"])
 		return
 
-
-
 	//Logs all hrefs
 	if(config && config.log_hrefs && href_logfile)
 		href_logfile << "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>"
@@ -178,6 +176,10 @@
 					var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_stats_ie (ckey, IsIE, IsEdge, EdgeHtmlVersion, TrueVersion, ActingVersion, CompatibilityMode, DateUpdated) VALUES (_ckey, _IsIE, _IsEdge, _EdgeHtmlVersion, _TrueVersion, _ActingVersion, _CompatibilityMode, NOW()) ON DUPLICATE KEY UPDATE IsIE = VALUES(IsIe), IsEdge = VALUES(IsEdge), EdgeHtmlVersion = VALUES(EdgeHtmlVersion), TrueVersion = VALUES(TrueVersion), ActingVersion = VALUES(ActingVersion), CompatibilityMode = VALUES(CompatibilityMode), DateUpdated = NOW()")
 					query.Execute(data)
 
+			if ("greeting")
+				if (server_greeting)
+					server_greeting.handle_call(href_list, src)
+
 		return
 
 	// Antag contest shit
@@ -291,10 +293,9 @@
 	send_resources()
 	nanomanager.send_resources(src)
 
-	var/outdated_greeting_info = server_greeting.find_outdated_info(src)
-
-	if (outdated_greeting_info)
-		server_greeting.display_to_client(src, outdated_greeting_info)
+	// Server greeting shenanigans.
+	if (server_greeting.find_outdated_info(src, 1))
+		server_greeting.display_to_client(src)
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	add_aooc_if_necessary()
@@ -418,10 +419,7 @@
 		'html/images/talisman.png',
 		'html/bootstrap/css/bootstrap.min.css',
 		'html/bootstrap/js/bootstrap.min.js',
-		'html/bootstrap/js/html5shiv.min.js',
-		'html/bootstrap/js/respond.min.js',
 		'html/jquery/jquery-2.0.0.min.js',
-		'html/iestats/json2.min.js',
 		'html/iestats/ie-truth.min.js',
 		'icons/pda_icons/pda_atmos.png',
 		'icons/pda_icons/pda_back.png',
@@ -589,4 +587,7 @@
 	set name = "Open Greeting"
 	set category = "OOC"
 
-	server_greeting.display_to_client(src, server_greeting.find_outdated_info(src))
+	// Update the information just in case.
+	server_greeting.find_outdated_info(src, 1)
+
+	server_greeting.display_to_client(src)

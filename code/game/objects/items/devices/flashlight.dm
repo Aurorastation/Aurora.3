@@ -271,7 +271,15 @@
 	on = 0
 	update_icon()
 		
-/obj/item/device/flashlight/glowstick/attack_self(mob/user)
+/obj/item/device/flashlight/glowstick/attack_self(var/mob/living/user)
+
+	if(((CLUMSY in user.mutations)) && prob(50))
+		user << "<span class='notice'>You break \the [src] apart, spilling its contents everywhere!</span>"
+		fuel = 0
+		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
+		user.apply_effect((rand(15,30)),IRRADIATE,blocked = user.getarmor(null, "rad"))
+		qdel(src)
+		return
 
 	if(!fuel)
 		user << "<span class='notice'>\The [src] has already been used.</span>"

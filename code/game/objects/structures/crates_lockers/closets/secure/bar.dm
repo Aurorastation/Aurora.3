@@ -7,6 +7,7 @@
 	icon_opened = "cabinetdetective_open"
 	icon_broken = "cabinetdetective_broken"
 	icon_off = "cabinetdetective_broken"
+	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 
 	New()

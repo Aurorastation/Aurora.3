@@ -190,7 +190,7 @@
 		Process_Incorpmove(direct)
 		return
 
-	if(moving)	return 0
+	if(moving) return 0
 
 	if(world.time < move_delay)	return
 
@@ -220,6 +220,8 @@
 					if(item.zoom)
 						item.zoom()
 						break
+
+				//TODO: REMOVE This stupid zooming stuff
 				/*
 				if(locate(/obj/item/weapon/gun/energy/sniperrifle, mob.contents))		// If mob moves while zoomed in with sniper rifle, unzoom them.
 					var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in mob
@@ -264,44 +266,29 @@
 			src << "\blue You're pinned to a wall by [mob.pinned[1]]!"
 			return 0
 
+
+
 		move_delay = world.time//set move delay
+		mob.last_move_intent = world.time + 10
 
-		switch(mob.m_intent)
-			if("run")
-				if(mob.drowsyness > 0)
-					move_delay += 6
-				move_delay += 1+config.run_speed
-			if("walk")
-				move_delay += 7+config.walk_speed
-		move_delay += mob.movement_delay()
 
-		var/tickcomp = 0 //moved this out here so we can use it for vehicles
-		if(config.Tickcomp)
-			// move_delay -= 1.3 //~added to the tickcomp calculation below
-			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
-			move_delay = move_delay + tickcomp
+		if (mob.buckled || mob.pulledby)
+			if(istype(mob.buckled, /obj/vehicle))
+				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
+				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
+				move_delay = world.time
+				//drunk driving
+				if(mob.confused && prob(20))
+					direct = pick(cardinal)
+				return mob.buckled.relaymove(mob,direct)
 
-		if(istype(mob.buckled, /obj/vehicle))
-			//manually set move_delay for vehicles so we don't inherit any mob movement penalties
-			//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-			move_delay = world.time + tickcomp
-			//drunk driving
-			if(mob.confused && prob(20))
-				direct = pick(cardinal)
-			return mob.buckled.relaymove(mob,direct)
-
-		if(istype(mob.machine, /obj/machinery))
-			if(mob.machine.relaymove(mob,direct))
-				return
-
-		if(mob.pulledby || mob.buckled) // Wheelchair driving!
-			if(istype(mob.loc, /turf/space))
+			if(istype(mob.loc, /turf/space)) // Wheelchair driving!
 				return // No wheelchair driving in space
 			if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
 				return mob.pulledby.relaymove(mob, direct)
 			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
-				if(ishuman(mob))
-					var/mob/living/carbon/human/driver = mob
+				if(ishuman(mob.buckled))
+					var/mob/living/carbon/human/driver = mob.buckled
 					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
 					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
@@ -311,6 +298,33 @@
 					direct = pick(cardinal)
 				move_delay += 2
 				return mob.buckled.relaymove(mob,direct)
+
+		var/tally = mob.movement_delay() + config.walk_speed
+
+		// Apply huuman specific modifiers.
+		if (ishuman(mob))
+			var/mob/living/carbon/human/H = mob
+			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
+			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
+				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+			else
+				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
+		else
+			tally *= config.walk_delay_multiplier
+
+		move_delay += tally
+
+
+		var/tickcomp = 0 //moved this out here so we can use it for vehicles
+		if(config.Tickcomp)
+			// move_delay -= 1.3 //~added to the tickcomp calculation below
+			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
+			move_delay = move_delay + tickcomp
+
+		if(istype(mob.machine, /obj/machinery))
+			if(mob.machine.relaymove(mob,direct))
+				return
+
 
 		//We are now going to move
 		moving = 1
@@ -360,7 +374,6 @@
 			G.adjust_position()
 
 		moving = 0
-
 		return .
 
 	return

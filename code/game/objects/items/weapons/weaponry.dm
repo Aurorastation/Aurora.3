@@ -214,3 +214,18 @@
 	health -= W.force
 	healthcheck()
 	..()
+
+/obj/item/weapon/canesword
+	name = "thin sword"
+	desc = "A thin, sharp blade with an elegant handle."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "canesword"
+	item_state = "canesword"
+	force = 20
+	throwforce = 5
+	w_class = 4
+	sharp = 1
+	edge = 1
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	contained_sprite = 1

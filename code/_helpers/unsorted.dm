@@ -1394,3 +1394,23 @@ var/mob/dview/dview_mob = new
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
 	CRASH(msg)
+
+/atom/proc/find_up_hierarchy(var/atom/target)
+	//This function will recurse up the hierarchy containing src, in search of the target
+	//It will stop when it reaches an area, as areas have no loc
+	var/x = 0//As a safety, we'll crawl up a maximum of ten layers
+	var/atom/a = src
+	while (x < 10)
+		x++
+		if (isnull(a))
+			return 0
+
+		if (a == target)//we found it!
+			return 1
+
+		if (istype(a, /area))
+			return 0//Can't recurse any higher than this.
+
+		a = a.loc
+
+	return 0//If we get here, we must be buried many layers deep in nested containers. Shouldn't happen

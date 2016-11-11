@@ -145,8 +145,10 @@ var/list/gamemode_cache = list()
 
 	//Used for modifying movement speed for mobs.
 	//Unversal modifiers
-	var/run_speed = 0
 	var/walk_speed = 0
+	var/walk_delay_multiplier = 1
+	var/run_delay_multiplier = 1
+	var/vehicle_delay_multiplier = 1
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -172,6 +174,8 @@ var/list/gamemode_cache = list()
 	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
 	var/ghost_interaction = 0
+
+	var/night_lighting = 0
 
 	var/comms_password = ""
 
@@ -615,6 +619,9 @@ var/list/gamemode_cache = list()
 				if("ghost_interaction")
 					config.ghost_interaction = 1
 
+				if("night_lighting")
+					config.night_lighting = 1
+
 				if("disable_player_mice")
 					config.disable_player_mice = 1
 
@@ -810,10 +817,16 @@ var/list/gamemode_cache = list()
 				if("limbs_can_break")
 					config.limbs_can_break = value
 
-				if("run_speed")
-					config.run_speed = value
 				if("walk_speed")
 					config.walk_speed = value
+
+				// These should never go to 0 or below. So, we clamp them.
+				if("walk_delay_multiplier")
+					config.walk_delay_multiplier = max(0.1, value)
+				if("run_delay_multiplier")
+					config.run_delay_multiplier = max(0.1, value)
+				if("vehicle_delay_multiplier")
+					config.vehicle_delay_multiplier = max(0.1, value)
 
 				if("human_delay")
 					config.human_delay = value

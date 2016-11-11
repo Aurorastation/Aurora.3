@@ -606,6 +606,10 @@ About the new airlock wires panel:
 				flick("door_deny", src)
 				if(secured_wires)
 					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
+		if ("braced")
+			if (src.arePowerSystemsOn())
+				flick("door_deny", src)
+				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
 	return
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
@@ -898,9 +902,20 @@ About the new airlock wires panel:
 					spawn(0)	close(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
+
+	else if(istype(C, /obj/item/weapon/melee/hammer) && !arePowerSystemsOn())
+		if(locked)
+			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
+		else if( !welded && !operating )
+
+			if(density)
+				spawn(0)	open(1)
+			else
+				spawn(0)	close(1)
 	else
 		..()
 	return
+
 
 /obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
 	if(C)
@@ -930,9 +945,9 @@ About the new airlock wires panel:
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(arePowerSystemsOn())
-		playsound(src.loc, open_sound_powered, 100, 1)
+		playsound(src.loc, open_sound_powered, 60, 1)
 	else
-		playsound(src.loc, open_sound_unpowered, 100, 1)
+		playsound(src.loc, open_sound_unpowered, 60, 1)
 
 	if(src.closeOther != null && istype(src.closeOther, /obj/machinery/door/airlock/) && !src.closeOther.density)
 		src.closeOther.close()
@@ -943,7 +958,8 @@ About the new airlock wires panel:
 		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR))
 			return 0
 	if (bracer)
-		visible_message("<span class='notice'>[src]'s actuators whirr, but the door does not open.</span>")
+		do_animate("braced")
+		visible_message("<span class='warning'>[src]'s actuators whirr, but the door does not open.</span>")
 		return 0
 	if(locked || welded)
 		return 0
@@ -1000,7 +1016,7 @@ About the new airlock wires panel:
 		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
 	SetStunned(5)
 	SetWeakened(5)
-	
+
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
@@ -1012,7 +1028,7 @@ About the new airlock wires panel:
 	while(valid_turfs.len)
 		T = pick(valid_turfs)
 		valid_turfs -= T
-		
+
 		if(src.forceMove(T))
 			return
 

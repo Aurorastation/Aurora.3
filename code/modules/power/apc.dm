@@ -78,6 +78,7 @@
 	var/cell_type = /obj/item/weapon/cell/apc
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
 	var/shorted = 0
+	var/night_mode = 0 // Determines if the light level is set to dimmed or not
 	var/lighting = 3
 	var/equipment = 3
 	var/environ = 3
@@ -772,6 +773,7 @@
 		"externalPower" = main_status,
 		"powerCellStatus" = cell ? cell.percent() : null,
 		"chargeMode" = chargemode,
+		"lightingMode" = night_mode,
 		"chargingStatus" = charging,
 		"totalLoad" = round(lastused_total),
 		"totalCharging" = round(lastused_charging),
@@ -900,7 +902,11 @@
 	if(!can_use(usr, 1))
 		return 1
 
-	if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
+	if (href_list["lmode"])
+		src.toggle_nightlight()
+		update_icon()
+
+	else if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
 		// Shouldn't happen, this is here to prevent href exploits
 		usr << "You must unlock the panel to use this!"
 		return 1
@@ -1246,6 +1252,27 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 					L.on = 1
 					L.broken()
 				sleep(1)
+
+/obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
+	var/list/night_light_args = list( // this defines what the list level arguments are when night mode is turned on
+	                           /obj/machinery/light = list(6, 1),
+	                           /obj/machinery/light/small = list(4, 1)
+	                           )
+	for (var/obj/machinery/light/L in area.contents)
+		if (!listgetindex(night_light_args, L.type)) // if L's type isn't defined in our args list
+			continue
+		if (force == "on" || !night_mode)
+			L.set_light_source(arglist(night_light_args[L.type]))
+		else if (force == "off" || night_mode)
+			L.set_light_source()
+		L.update()
+	switch (force)
+		if ("on")
+			night_mode = 1
+		if ("off")
+			night_mode = 0
+		else
+			night_mode = !night_mode
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)

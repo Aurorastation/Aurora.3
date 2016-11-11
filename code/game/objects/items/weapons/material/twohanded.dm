@@ -223,9 +223,20 @@
 		var/image/IM = image(I.icon,I.icon_state)
 		IM.overlays = I.overlays.Copy()
 		HS.overlays += IM
+		HS.name = "[I.name] on a spear"
 		qdel(src)
 		return
 	return ..()
+
+//predefined materials for spears
+/obj/item/weapon/material/twohanded/spear/steel/New(var/newloc)
+	..(newloc,"steel")
+
+/obj/item/weapon/material/twohanded/spear/plasteel/New(var/newloc)
+	..(newloc,"plasteel")
+
+/obj/item/weapon/material/twohanded/spear/diamond/New(var/newloc)
+	..(newloc,"diamond")
 
 /obj/structure/headspear
 	name = "head on a spear"

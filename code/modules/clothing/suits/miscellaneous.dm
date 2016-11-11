@@ -402,3 +402,13 @@
 	item_state = "black_hoodie"
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
+	
+/obj/item/clothing/suit/storage/toggle/tracksuit
+	name = "track jacket"
+	desc = "An athletic black and white track jacket."
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackjacket"
+	item_state = "trackjacket"
+	icon_open = "trackjacket_open"
+	icon_closed = "trackjacket"
+	contained_sprite = 1

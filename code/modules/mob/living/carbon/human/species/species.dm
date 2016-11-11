@@ -126,6 +126,12 @@
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
 
+	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
+	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
+	var/sprint_speed_factor = 0.65	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
+	var/sprint_cost_factor = 1.0  	// Multiplier on stamina cost for sprinting
+	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
+
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
 		"heart" =    /obj/item/organ/heart,
@@ -387,4 +393,34 @@
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
+	return 1
+
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	cost *= H.sprint_cost_factor
+	if (H.stamina == -1)
+		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
+		return 0
+
+	var/remainder = 0
+	if (H.stamina > cost)
+		H.stamina -= cost
+		H.hud_used.move_intent.update_move_icon(H)
+		return 1
+	else if (H.stamina > 0)
+		remainder = cost - H.stamina
+		H.stamina = 0
+	else
+		remainder = cost
+
+	H.adjustOxyLoss(remainder*0.25)
+	H.adjustHalLoss(remainder*0.25)
+	H.updatehealth()
+	H.update_oxy_overlay()
+
+	if (H.oxyloss >= (exhaust_threshold * 0.8))
+		H.m_intent = "walk"
+		H.hud_used.move_intent.update_move_icon(H)
+		H << span("danger", "You're too exhausted to run anymore!")
+		return 0
+	H.hud_used.move_intent.update_move_icon(H)
 	return 1

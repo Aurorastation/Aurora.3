@@ -105,9 +105,33 @@
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/suit/storage/det_trench/grey
-	name = "grey trenchcoat"
+/obj/item/clothing/suit/storage/det_suit/black
 	icon_state = "detective2"
+
+/obj/item/clothing/suit/storage/det_suit/technicolor
+	desc = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent."
+	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
+	icon_state = "suit_detective_black"
+	item_state = "suit_detective_black"
+	var/suit_color
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/det_suit/technicolor/New()
+	if(prob(5))
+		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
+		var/color = pickweight(colors)
+		icon_state = "suit_detective_[color]"
+		item_state = "suit_detective_[color]"
+	..()
+
+/obj/item/clothing/suit/storage/det_suit/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
+		var/obj/item/weapon/reagent_containers/glass/paint/P = O
+		suit_color = P.paint_type
+		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		icon_state = "suit_detective_[suit_color]"
+		item_state = "suit_detective_[suit_color]"
+	..()
 
 //Forensics
 /obj/item/clothing/suit/storage/forensics

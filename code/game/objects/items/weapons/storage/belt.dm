@@ -198,7 +198,7 @@
 		/obj/item/device/flashlight,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
-		/obj/item/weapon/melee/energy/sword,
+		/obj/item/weapon/melee,
 		/obj/item/weapon/shield/energy,
 		/obj/item/weapon/pinpointer,
 		/obj/item/weapon/plastique,

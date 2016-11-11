@@ -343,7 +343,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	return id
 
 /obj/item/device/pda/AltClick(var/mob/user)
-	verb_remove_id()
+	if (ismob(src.loc))
+		verb_remove_id()
 
 /obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
 	var/mob/M = usr

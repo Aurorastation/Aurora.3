@@ -46,6 +46,7 @@
 
 /obj/structure/New()
 	..()
+	updateVisibility(src)
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
 

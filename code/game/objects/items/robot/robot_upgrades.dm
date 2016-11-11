@@ -161,3 +161,19 @@
 
 	R.emagged = 1
 	return 1
+
+/obj/item/borg/upgrade/combat
+	name = "combat cyborg module"
+	desc = "Unlocks the combat cyborg module"
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=15000,"gold"= 5000,"diamond" = 1000)
+	icon_state = "cyborg_upgrade3"
+	require_module = 0
+
+/obj/item/borg/upgrade/combat/action(var/mob/living/silicon/robot/R)
+	if(..()) return 0
+
+	if(R.crisis_override == 1)
+		return 0
+
+	R.crisis_override = 1
+	return 1

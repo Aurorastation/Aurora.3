@@ -94,6 +94,8 @@
 	var/adj_temp = 0
 	var/targ_temp = 310
 	var/halluci = 0
+	var/datum/modifier/caffeine_mod
+	var/caffeine  = 0
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of ethanol"
@@ -131,6 +133,10 @@
 
 	if(halluci)
 		M.hallucination = max(M.hallucination, halluci)
+
+	if (caffeine && !caffeine_mod)
+		caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
 
 
 /datum/reagent/ethanol/touch_obj(var/obj/O)

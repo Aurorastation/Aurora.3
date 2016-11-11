@@ -142,8 +142,10 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Trivial News",		/datum/event/trivial_news, 		400),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",/datum/event/infestation, 		60,	list(ASSIGNMENT_JANITOR = 20, ASSIGNMENT_SECURITY = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",		/datum/event/vent_clog, 		100),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",		/datum/event/vent_clog, 		85),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",		/datum/event/false_alarm, 		100),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",		/datum/event/supply_drop, 		80),
+
 	)
 
 /datum/event_container/moderate
@@ -171,13 +173,13 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 /datum/event_container/major
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",			/datum/event/nothing,			80),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",			/datum/event/nothing,			90),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",			/datum/event/blob, 				50,	list(ASSIGNMENT_ENGINEER = 5,ASSIGNMENT_SECURITY =  5), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",	/datum/event/carp_migration,	60,	list(ASSIGNMENT_SECURITY =  10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",		/datum/event/meteor_wave,		40,	list(ASSIGNMENT_ENGINEER =  10),1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",		/datum/event/spacevine, 		50,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",		/datum/event/spacevine, 		60,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",	/datum/event/viral_infection,	20,	list(ASSIGNMENT_MEDICAL =  13), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Bluespace Bears",	/datum/event/bear_attack,		60,	list(ASSIGNMENT_SECURITY =  10), 1)
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Bluespace Bears",	/datum/event/bear_attack,		50,	list(ASSIGNMENT_SECURITY =  10), 1)
 	)
 
 //NOTE: Re added nothing option, but with fairly low weight

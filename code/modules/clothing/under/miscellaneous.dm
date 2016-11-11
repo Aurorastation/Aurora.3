@@ -525,3 +525,11 @@
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
+	
+/obj/item/clothing/under/track
+	name = "track pants"
+	desc = "Track pants, perfect for squatting."
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackpants"
+	item_state = "trackpants"
+	contained_sprite = 1

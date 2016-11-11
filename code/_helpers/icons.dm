@@ -863,6 +863,7 @@ proc/sort_atoms_by_layer(var/list/atoms)
 				result.Swap(i, gap + i)
 				swapped = 1
 	return result
+
 /*
 generate_image function generates image of specified range and location
 arguments tx, ty, tz are target coordinates (requred), range defines render distance to opposite corner (requred)
@@ -913,3 +914,15 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 
 	return cap
 
+proc/percentage_to_colour(var/P)
+	//Takes a value between 0-1
+	//Returns a colour - pure green if 1, pure red if 0
+	//Inbetween values will gradiant through green, yellow, orange, red
+
+
+	var/green = min(1, P*2)*255
+	var/red = 255 - (min(1, (P-0.5)*2)*255)
+	//var/green = (max(0, P-0.5)*2)*255
+	//var/red = 255 - (min(1, P*2)*255)
+
+	return rgb(red,green,0)

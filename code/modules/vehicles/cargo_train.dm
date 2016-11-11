@@ -6,7 +6,7 @@
 	on = 0
 	powered = 1
 	locked = 0
-
+	move_speed = 3
 	load_item_visible = 1
 	load_offset_x = 0
 	mob_offset_y = 7
@@ -29,7 +29,7 @@
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
-
+	//move_speed = 3
 	load_item_visible = 1
 	load_offset_x = 0
 	load_offset_y = 4
@@ -352,15 +352,12 @@
 /obj/vehicle/train/cargo/engine/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length
 	src.active_engines = active_engines
-
+	move_speed = initial(move_speed)		//so that engines that have been turned off don't lag behind
 	//Update move delay
-	if(!is_train_head() || !on)
-		move_delay = initial(move_delay)		//so that engines that have been turned off don't lag behind
-	else
-		move_delay = max(0, (-car_limit * active_engines) + train_length - active_engines)	//limits base overweight so you cant overspeed trains
-		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
-		move_delay += config.run_speed 														//base reference speed
-		move_delay *= 1.1																	//makes cargo trains 10% slower than running when not overweight
+	if(is_train_head() && on)
+		var/remainder = (car_limit * active_engines) - (train_length - active_engines)
+		if (remainder)
+			move_speed -= 0.25 * remainder															//makes cargo trains 10% slower than running when not overweight
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length
