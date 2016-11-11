@@ -39,7 +39,7 @@
 	switch (worldtime2ticks())
 		if (0 to config.nl_finish)
 			deactivate()
-		if ((config.nl_start to TICKS_IN_DAY)
+		if (config.nl_start to TICKS_IN_DAY)
 			activate()
 
 
