@@ -100,8 +100,6 @@ var/list/holder_mob_icon_cache = list()
 		return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
->>>>>>> development-2
-
 
 //This function checks if the current location is safe to release inside
 //it returns 1 if the creature will bug out when released
@@ -480,6 +478,3 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "mushroom_dead"
 	slot_flags = SLOT_HEAD
 	w_class = 2
-
-
-

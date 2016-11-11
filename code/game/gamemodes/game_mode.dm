@@ -297,9 +297,9 @@ var/global/list/additional_antag_types = list()
 		sleep(10)
 		print_ownerless_uplinks()
 
-			// Avoid the longest loop if we aren't actively using the bot.
-			if (discord_bot.active)
-				discord_text += antag.print_player_summary_discord()
+		// Avoid the longest loop if we aren't actively using the bot.
+		if (discord_bot.active)
+			discord_text += antag.print_player_summary_discord()
 
 	discord_bot.send_to_announce(discord_text)
 	discord_text = ""

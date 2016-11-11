@@ -1302,22 +1302,22 @@
 			if(healths)		healths.icon_state = "health7"	//DEAD healthmeter
 		// #TODO-MERGE: Check the indentation of this file! It's awful!
 		if(healths)
-				if(client.view != world.view) // If mob dies while zoomed in with device, unzoom them.
-					for(var/obj/item/item in contents)
-						if(item.zoom)
-							item.zoom()
-							break
+			if(client.view != world.view) // If mob dies while zoomed in with device, unzoom them.
+				for(var/obj/item/item in contents)
+					if(item.zoom)
+						item.zoom()
+						break
 
-					/*
-					if(locate(/obj/item/weapon/gun/energy/sniperrifle, contents))
-						var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in src
-						if(s.zoom)
-							s.zoom()
-					if(locate(/obj/item/device/binoculars, contents))
-						var/obj/item/device/binoculars/b = locate() in src
-						if(b.zoom)
-							b.zoom()
-					*/
+				/*
+				if(locate(/obj/item/weapon/gun/energy/sniperrifle, contents))
+					var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in src
+					if(s.zoom)
+						s.zoom()
+				if(locate(/obj/item/device/binoculars, contents))
+					var/obj/item/device/binoculars/b = locate() in src
+					if(b.zoom)
+						b.zoom()
+				*/
 
 		else
 			if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
