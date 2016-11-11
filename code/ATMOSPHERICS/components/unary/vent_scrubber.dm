@@ -27,6 +27,8 @@
 	var/radio_filter_out
 	var/radio_filter_in
 
+	var/welded = 0
+
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1
 	icon_state = "map_scrubber_on"
@@ -53,16 +55,19 @@
 
 	overlays.Cut()
 
-	var/scrubber_icon = "scrubber"
 
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return
 
-	if(!powered())
-		scrubber_icon += "off"
+	var/scrubber_icon = "scrubber"
+	if(welded)
+		scrubber_icon += "weld"
 	else
-		scrubber_icon += "[use_power ? "[scrubbing ? "on" : "in"]" : "off"]"
+		if(!powered())
+			scrubber_icon += "off"
+		else
+			scrubber_icon += "[use_power ? "[scrubbing ? "on" : "in"]" : "off"]"
 
 	overlays += icon_manager.get_atmos_icon("device", , , scrubber_icon)
 
@@ -127,13 +132,15 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/process()
 	..()
 
-	if (hibernate)
+	if (hibernate > world.time)
 		return 1
 
 	if (!node)
 		use_power = 0
 	//broadcast_status()
 	if(!use_power || (stat & (NOPOWER|BROKEN)))
+		return 0
+	if(welded)
 		return 0
 
 	var/datum/gas_mixture/environment = loc.return_air()
@@ -255,36 +262,60 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
-		return ..()
-	if (!(stat & NOPOWER) && use_power)
-		user << "\red You cannot unwrench this [src], turn it off first."
+	if (istype(W, /obj/item/weapon/wrench))
+		if (!(stat & NOPOWER) && use_power)
+			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
+			return 1
+		var/turf/T = src.loc
+		if (node && node.level==1 && isturf(T) && !T.is_plating())
+			to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
+			return 1
+		var/datum/gas_mixture/int_air = return_air()
+		var/datum/gas_mixture/env_air = loc.return_air()
+		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+			add_fingerprint(user)
+			return 1
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+		if (do_after(user, 40, src))
+			user.visible_message( \
+				"<span class='notice'>\The [user] unfastens \the [src].</span>", \
+				"<span class='notice'>You have unfastened \the [src].</span>", \
+				"You hear a ratchet.")
+			new /obj/item/pipe(loc, make_from=src)
+			qdel(src)
 		return 1
-	var/turf/T = src.loc
-	if (node && node.level==1 && isturf(T) && T.intact)
-		user << "\red You must remove the plating first."
+
+	if(istype(W, /obj/item/weapon/weldingtool))
+		var/obj/item/weapon/weldingtool/WT = W
+		if (WT.remove_fuel(0,user))
+			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
+			if(do_after(user, 20, src))
+				if(!src || !WT.isOn()) return
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				if(!welded)
+					user.visible_message("<span class='notice'>\The [user] welds \the [src] shut.</span>", "<span class='notice'>You weld \the [src] shut.</span>", "You hear welding.")
+					welded = 1
+					update_icon()
+				else
+					user.visible_message("<span class='notice'>[user] unwelds \the [src].</span>", "<span class='notice'>You unweld \the [src].</span>", "You hear welding.")
+					welded = 0
+					update_icon()
+			else
+				to_chat(user, "<span class='notice'>The welding tool needs to be on to start this task.</span>")
+		else
+			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 		return 1
-	var/datum/gas_mixture/int_air = return_air()
-	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		user << "\red You cannot unwrench this [src], it too exerted due to internal pressure."
-		add_fingerprint(user)
-		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	user << "\blue You begin to unfasten \the [src]..."
-	if (do_after(user, 40))
-		user.visible_message( \
-			"[user] unfastens \the [src].", \
-			"\blue You have unfastened \the [src].", \
-			"You hear ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
-		qdel(src)
+	return ..()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)
 	if(..(user, 1))
 		user << "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W"
 	else
-		user << "You are too far away to read the gauge."
+		to_chat(user, "You are too far away to read the gauge.")
+	if(welded)
+		to_chat(user, "It seems welded shut.")
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Destroy()
 	if(initial_loc)
