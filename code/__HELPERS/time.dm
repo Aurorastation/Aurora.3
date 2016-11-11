@@ -7,7 +7,7 @@
 var/roundstart_hour = 0
 //Returns the world time in english
 proc/worldtime2text(time = world.time)
-	if(!roundstart_hour) roundstart_hour = rand(0. 23)
+	if(!roundstart_hour) roundstart_hour = rand(0, 23)
 	return "[(round(time / 36000)+roundstart_hour) % 24]:[(time / 600 % 60) < 10 ? add_zero(time / 600 % 60, 1) : time / 600 % 60]"
 
 proc/worldtime2ticks(time = world.time)
