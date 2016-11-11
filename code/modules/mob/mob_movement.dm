@@ -290,20 +290,20 @@
 				move_delay += 2
 				return mob.buckled.relaymove(mob,direct)
 
+		var/tally = mob.movement_delay() + config.walk_speed
+
+		// Apply huuman specific modifiers.
 		if (ishuman(mob))
-
 			var/mob/living/carbon/human/H = mob
-			var/tally = mob.movement_delay()+config.walk_speed
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
-			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally))//This will return false if we collapse from exhaustion
-				tally = tally/(1+H.sprint_speed_factor)
+			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
+				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
-				tally = max(tally, H.min_walk_delay)//clamp walking speed if its limited
-			move_delay += tally
-
+				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
 		else
-			move_delay += config.walk_speed
-			move_delay += mob.movement_delay()
+			tally *= config.walk_delay_multiplier
+
+		move_delay += tally
 
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
@@ -311,9 +311,6 @@
 			// move_delay -= 1.3 //~added to the tickcomp calculation below
 			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 			move_delay = move_delay + tickcomp
-
-
-
 
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))

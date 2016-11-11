@@ -1,7 +1,0 @@
-author: inselc
-
-delete-after: True
-
-changes: 
-  - tweak: "Updated PDA Power Monitor UI."
-  - tweak: "Sleeper Console now uses fancy NanoUI. Added printout feature. Added sanity checks."
