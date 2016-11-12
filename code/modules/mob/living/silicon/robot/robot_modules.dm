@@ -690,12 +690,12 @@ var/global/list/robot_modules = list(
 	JC.install()//This install function will setup the actual jetpack which functions
 
 	return
-
+/*
 /obj/item/weapon/robot_module/combat
 	src.modules -= id
 	id = null
 	return ..()
-
+*/
 /obj/item/weapon/robot_module/security/combat
 	name = "combat robot module"
 	channels = list("Security" = 1)

@@ -1470,14 +1470,12 @@ datum/design/item/weapon/lasshotgun
 	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
 	reliability_base = 76
 	build_path = /obj/item/weapon/gun/energy/laser/shotgun
-	locked = 1
 
 datum/design/item/weapon/stunrevolver
 	id = "stunrevolver"
 	req_tech = list("combat" = 3, "materials" = 3, "powerstorage" = 2)
 	materials = list("$metal" = 4000)
 	build_path = /obj/item/weapon/gun/energy/stunrevolver
-	locked = 1
 
 datum/design/item/weapon/lasercannon
 	desc = "The lasing medium of this prototype is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core."
@@ -1485,14 +1483,12 @@ datum/design/item/weapon/lasercannon
 	req_tech = list("combat" = 4, "materials" = 3, "powerstorage" = 3)
 	materials = list("$metal" = 10000, "$glass" = 1000, "$diamond" = 2000)
 	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
-	locked = 1
 
 datum/design/item/weapon/decloner
 	id = "decloner"
 	req_tech = list("combat" = 8, "materials" = 7, "biotech" = 5, "powerstorage" = 6)
 	materials = list("$gold" = 5000,"$uranium" = 10000)
 	build_path = /obj/item/weapon/gun/energy/decloner
-	locked = 1
 
 
 /datum/design/circuit/tcom/receiver
@@ -1539,7 +1535,7 @@ datum/design/item/weapon/decloner
 	build_path = /obj/item/weapon/circuitboard/ntnet_relay
 	sort_string = "WAAAA"
 // #TODO-MERGE: Add in large crossbow and temperature gun.
-	
+
 /datum/design/circuit/aicore
 	name = "AI core"
 	id = "aicore"
@@ -1648,7 +1644,6 @@ datum/design/item/forcegloves
  	build_type = PROTOLATHE
  	materials = list("$metal" = 4000)
  	build_path = "/obj/item/clothing/gloves/force/basic"
- 	locked = 1
  	category = "Weapons"
 
 /////////////////////////////////////////

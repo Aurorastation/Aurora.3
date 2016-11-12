@@ -53,17 +53,17 @@
 	item_state = "knife"
 	w_class = 3
 	slot_flags = SLOT_BELT
-	
-/obj/item/weapon/material/sword/trench/IsShield()
+
+/obj/item/weapon/material/sword/trench/handle_shield()
 	return 0
-	
+
 /obj/item/weapon/material/sword/sabre
 	name = "sabre"
 	desc = "A sharp curved backsword."
 	icon_state = "sabre"
 	item_state = "katana"
 	slot_flags = SLOT_BELT
-	
+
 /obj/item/weapon/material/sword/axe
 	name = "battle axe"
 	desc = "A one handed battle axe, still a deadly weapon."

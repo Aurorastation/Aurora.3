@@ -45,8 +45,8 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a12mm
-	allowed_magazines = list(/obj/item/ammo_magazine/a12mm)
+	magazine_type = /obj/item/ammo_magazine/a10mm
+	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 

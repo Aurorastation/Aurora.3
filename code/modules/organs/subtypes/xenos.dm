@@ -67,3 +67,40 @@
 		if(H.mind && H.species.get_bodytype() != "Xenomorph")
 			H << "<span class='alium'>You feel a sense of pressure as a vast intelligence meshes with your thoughts...</span>"
 			xenomorphs.add_antagonist_mind(H.mind,1, xenomorphs.faction_role_text, xenomorphs.faction_welcome)
+
+// Skeleton limbs.
+/obj/item/organ/external/chest/skeleton
+	name = "rib cage"
+
+/obj/item/organ/external/groin/skeleton
+	name = "pelvis"
+	vital = 0
+
+/obj/item/organ/external/arm/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/arm/right/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/leg/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/leg/right/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/foot/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/foot/right/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/hand/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/hand/right/skeleton
+	dislocated = -1
+
+/obj/item/organ/external/head/skeleton
+	name = "skull"
+	dislocated = -1
+	vital = 0
