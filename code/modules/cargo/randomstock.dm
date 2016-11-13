@@ -207,14 +207,13 @@ var/list/global/random_stock_rare = list(
 	"combatmeds" = 3,
 	"batterer" = 0.75,
 	"posibrain" = 3,
-	"augmentvision" = 1.6,
-	"thermals" = 1.5,
+	"thermals" = 0.75,
 	"bsbeaker" = 3,
 	"energyshield" = 2,
 	"hardsuit" = 0.75,
 	"cluster" = 2.0,
 	"cloak" = 0.75,
-	"sword" = 0.75,
+	"sword" = 0.5,
 	"ims" = 1.5,
 	"exogear" = 1.5,
 	"teleporter" = 1,
@@ -225,7 +224,7 @@ var/list/global/random_stock_large = list(
 	"russian" = 1,
 	"emergency" = 2,
 	"firecloset" = 2,
-	"tacticool" = 0.4,
+	"tacticool" = 0.2,
 	"radsuit" = 3,
 	"exosuit" = 1.2,//A randomly generated exosuit in a very variable condition.
 	"EOD"	=	1.5,
@@ -1464,8 +1463,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/device/batterer(L)
 		if("posibrain")
 			new /obj/item/device/mmi/digital/posibrain(L)
-		if("augmentvision")
-			new /obj/item/clothing/glasses/hud/security/jensenshades(L)
 		if("thermals")
 			new /obj/item/clothing/glasses/thermal(L)
 		if("bsbeaker")
@@ -1497,30 +1494,30 @@ var/list/global/random_stock_large = list(
 			//It will come with some screwy electronics and possibly need reprogramming
 			var/list/rigs = list(
 			"/obj/item/weapon/rig/unathi" = 2,
-			"/obj/item/weapon/rig/unathi/fancy" = 1,
+			"/obj/item/weapon/rig/unathi/fancy" = 0.75,
 			"/obj/item/weapon/rig/combat" = 0.1,
-			"/obj/item/weapon/rig/ert" = 0.2,
-			"/obj/item/weapon/rig/ert/engineer" = 0.2,
-			"/obj/item/weapon/rig/ert/medical" = 0.3,
-			"/obj/item/weapon/rig/ert/security" = 0.15,
-			"/obj/item/weapon/rig/ert/assetprotection" = 0.1,
+			"/obj/item/weapon/rig/ert" = 0.1,
+			"/obj/item/weapon/rig/ert/engineer" = 0.1,
+			"/obj/item/weapon/rig/ert/medical" = 0.15,
+			"/obj/item/weapon/rig/ert/security" = 0.075,
+			"/obj/item/weapon/rig/ert/assetprotection" = 0.05,
 			"/obj/item/weapon/rig/light" = 0.5,
 			"/obj/item/weapon/rig/light/hacker" = 0.8,
 			"/obj/item/weapon/rig/light/stealth" = 1.5,
-			"/obj/item/weapon/rig/merc" = 1,
+			"/obj/item/weapon/rig/merc" = 0.5,
 			"/obj/item/weapon/rig/industrial" = 3,
 			"/obj/item/weapon/rig/eva" = 3,
 			"/obj/item/weapon/rig/ce" = 2,
 			"/obj/item/weapon/rig/hazmat" = 4,
 			"/obj/item/weapon/rig/medical" = 4,
-			"/obj/item/weapon/rig/hazard" = 4,
+			"/obj/item/weapon/rig/hazard" = 3,
 			)
 
 			var/type = pickweight(rigs)
 			var/obj/item/weapon/rig/module = new type(L)
 
 			//screw it up a bit
-			var/cnd = rand(1,100)
+			var/cnd = rand(40,100)
 			module.lose_modules(cnd)
 			module.misconfigure(cnd)
 			module.sabotage_cell()
