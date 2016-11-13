@@ -359,7 +359,7 @@
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
-		if (WT.remove_fuel(0,user))
+		else if (WT.remove_fuel(0,user))
 			user << "\blue Now welding the vent."
 			if(do_after(user, 20))
 				if(!src || !WT.isOn()) return
