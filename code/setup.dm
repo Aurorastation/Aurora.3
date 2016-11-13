@@ -1105,7 +1105,7 @@ var/list/be_special_flags = list(
 #define STOCK_UNCOMMON_PROB	23
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
 
-#define STOCK_RARE_PROB	2.8
+#define STOCK_RARE_PROB	2.4
 //The probability, as a percentage for each item, that we'll choose from the rare spawns list
 
 //If an item is not rare or uncommon, it will be chosen from the common spawns list.
