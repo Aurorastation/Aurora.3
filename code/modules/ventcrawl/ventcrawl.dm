@@ -153,7 +153,7 @@ var/list/ventcrawl_machinery = list(
 					if(vent_found)
 						break
 
-			if(istype(vent_found, /obj/machinery/atmospherics/unary/vent_pump/) && vent_found:is_welded()) // welded check
+			if(vent_found:is_welded()) // welded check
 				src << "<span class='warning'>You can't crawl into a welded vent!</span>"
 				return
 
