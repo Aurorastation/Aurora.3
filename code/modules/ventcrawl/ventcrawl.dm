@@ -4,7 +4,7 @@ var/list/ventcrawl_machinery = list(
 	)
 
 // Vent crawling whitelisted items, whoo
-var/const/list/can_enter_vent_with = list(
+var/global/list/can_enter_vent_with = list(
 	/obj/item/weapon/implant,
 	/obj/item/device/radio/borg,
 	/obj/item/weapon/holder,
