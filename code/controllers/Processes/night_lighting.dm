@@ -37,21 +37,21 @@
 /datum/controller/process/night_lighting/preStart()
 
 	switch (worldtime2ticks())
-		if (0 to MORNING_LIGHT_RESET)
+		if (0 to config.nl_finish)
 			deactivate()
-		if (NIGHT_LIGHT_ACTIVE to TICKS_IN_DAY)
+		if (config.nl_start to TICKS_IN_DAY)
 			activate()
 
 
 /datum/controller/process/night_lighting/doWork()
 
 	switch (worldtime2ticks())
-		if (0 to MORNING_LIGHT_RESET)
+		if (0 to config.nl_finish)
 			if (isactive)
 				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 				deactivate()
 
-		if (NIGHT_LIGHT_ACTIVE to TICKS_IN_DAY)
+		if (config.nl_start to TICKS_IN_DAY)
 			if (!isactive)
 				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 				activate()

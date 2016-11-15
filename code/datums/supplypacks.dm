@@ -1648,3 +1648,32 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "security magnetic locks"
 	access = access_security
 	group = "Security"
+
+/datum/supply_packs/randomised/glowsticks
+	name = "Glowsticks crate"
+	num_contained = 4
+	contains = list(/obj/item/device/flashlight/glowstick,
+					/obj/item/device/flashlight/glowstick/red,
+					/obj/item/device/flashlight/glowstick/blue,
+					/obj/item/device/flashlight/glowstick/orange,
+					/obj/item/device/flashlight/glowstick/yellow)
+	cost = 25
+	containertype = /obj/structure/closet/crate
+	containername = "glowsticks crate"
+	group = "Operations"
+	
+/datum/supply_packs/randomised/illegalguns
+	name = "Illegal weapons crate"
+	num_contained = 2
+	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
+					/obj/item/weapon/gun/projectile/boltaction,
+					/obj/item/weapon/gun/projectile/silenced,
+					/obj/item/weapon/gun/projectile/pirate,
+					/obj/item/weapon/gun/projectile/revolver/derringer,
+					/obj/item/weapon/gun/projectile/dragunov,
+					/obj/item/weapon/gun/energy/retro)
+	cost = 120
+	containertype = /obj/structure/closet/crate
+	containername = "Unlabeled crate"
+	contraband = 1
+	group = "Security"

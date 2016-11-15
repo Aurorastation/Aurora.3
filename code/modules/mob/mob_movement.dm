@@ -181,7 +181,19 @@
 
 	if(moving) return 0
 
-	if(world.time < move_delay)	return
+	if(world.time < move_delay)
+		return
+
+
+//This compensates for the inaccuracy of move ticks
+//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
+//The overshoot value is subtracted from our next delay, farther down where move delay is set.
+//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
+//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
+	var/leftover = world.time - move_delay
+	if (leftover > 1)
+		leftover = 0
+
 
 	if(locate(/obj/effect/stop/, mob.loc))
 		for(var/obj/effect/stop/S in mob.loc)
@@ -259,7 +271,7 @@
 
 
 
-		move_delay = world.time//set move delay
+		move_delay = world.time - leftover//set move delay
 		mob.last_move_intent = world.time + 10
 
 
@@ -278,16 +290,18 @@
 			if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
 				return mob.pulledby.relaymove(mob, direct)
 			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
+				var/min_move_delay = 0
 				if(ishuman(mob.buckled))
 					var/mob/living/carbon/human/driver = mob.buckled
 					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
 					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
 						return // No hands to drive your chair? Tough luck!
+					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
 				if(mob.confused && prob(20))
 					direct = pick(cardinal)
-				move_delay += 2
+				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + config.walk_speed

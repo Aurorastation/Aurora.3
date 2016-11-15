@@ -1091,11 +1091,6 @@ var/list/be_special_flags = list(
 #define RESPAWN_ANIMAL	3000
 #define RESPAWN_MINISYNTH	6000
 
-// Night lighting controller times
-// The time (in ticks based on worldtime2ticks()) that various actions trigger
-#define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning
-#define NIGHT_LIGHT_ACTIVE 648000        // 6pm or 18:00 - night lighting mode activates
-
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm

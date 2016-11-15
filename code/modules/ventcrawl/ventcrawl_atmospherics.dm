@@ -51,10 +51,10 @@
 	else
 		if((direction & initialize_directions) || is_type_in_list(src, ventcrawl_machinery) && src.can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
 			user.remove_ventcrawl()
-			user.forceMove(src.loc)
+			user.forceMove(check_neighbor_density(get_turf(src.loc), direction) ? src.loc : get_step(src, direction))
 			user.sight &= ~(SEE_TURFS|BLIND)
 			user.visible_message("<span class='warning'>You hear something squeezing through the pipes.</span>", "You climb out the ventilation system.")
-			user.vent_trap_check("arriving", target_move)
+			user.vent_trap_check("arriving", user.loc)
 	user.canmove = 0
 	spawn(1)
 		user.canmove = 1

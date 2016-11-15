@@ -154,9 +154,8 @@
 
 			M.implant_loyalty(M, 1)
 
-			var/obj/item/weapon/card/id/W = new(M)
+			var/obj/item/weapon/card/id/centcom/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
-			W.icon_state = "centcom"
 			W.item_state = "id_inv"
 			W.access = get_all_accesses() + get_centcom_access("CCIA Agent")
 			W.assignment = "Central Command Internal Affairs Agent"
