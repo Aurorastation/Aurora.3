@@ -1740,7 +1740,7 @@
 		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			nutrition = max(0, nutrition - stamina_recovery*0.32)
+			nutrition = max(0, nutrition - stamina_recovery*0.18)
 			hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_health_display()

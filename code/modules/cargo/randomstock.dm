@@ -1101,11 +1101,17 @@ var/list/global/random_stock_large = list(
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
 				var/rname = pick(chemical_reagents_list)
+
+
 				var/datum/reagent/R = chemical_reagents_list[rname]
 
 				//If we get a drink, reroll it once.
 				//Should result in a higher chance of getting medicines and chemicals
 				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/ethanol))
+					rname = pick(chemical_reagents_list)
+					R = chemical_reagents_list[rname]
+
+				while(rname == "adminordrazine")
 					rname = pick(chemical_reagents_list)
 					R = chemical_reagents_list[rname]
 				C.reagents.add_reagent(rname, C.volume)
