@@ -68,7 +68,7 @@
 /obj/item/weapon/reagent_containers/blood/examine(mob/user, distance = 2)
 	..()
 	if (vampire_marks)
-		user << "<span='notice'>There are teeth marks on it.</span>"
+		user << "<span class='warning'>There are teeth marks on it.</span>"
 	return
 
 /obj/item/weapon/reagent_containers/blood/attackby(obj/item/weapon/P as obj, mob/user as mob)
