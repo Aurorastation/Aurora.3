@@ -1098,21 +1098,18 @@ var/list/global/random_stock_large = list(
 		//Can be slotted into any dispenser
 		if("chempack")
 			var/total = rand(2,6)
+			var/list/chems = chemical_reagents_list.Copy()
+			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2")
+			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
-				var/rname = pick(chemical_reagents_list)
-
-
+				var/rname = pick(chems)
 				var/datum/reagent/R = chemical_reagents_list[rname]
 
 				//If we get a drink, reroll it once.
 				//Should result in a higher chance of getting medicines and chemicals
 				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/ethanol))
-					rname = pick(chemical_reagents_list)
-					R = chemical_reagents_list[rname]
-
-				while(rname == "adminordrazine")
-					rname = pick(chemical_reagents_list)
+					rname = pick(chems)
 					R = chemical_reagents_list[rname]
 				C.reagents.add_reagent(rname, C.volume)
 				C.setLabel(R.name)
