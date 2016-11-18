@@ -108,6 +108,12 @@
 	return ..()
 
 /obj/item/weapon/melee/baton/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+	if(status && (CLUMSY in user.mutations) && prob(50))
+		user << "span class='danger'>You accidentally hit yourself with the [src]!</span>"
+		user.Weaken(30)
+		deductcharge(hitcost)
+		return
+
 	if(isrobot(target))
 		return ..()
 
@@ -141,11 +147,11 @@
 		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 	//stun effects
-	L.stun_effect_act(stun, agony, target_zone, src)
+	target.stun_effect_act(stun, agony, hit_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-	
+	msg_admin_attack("[key_name(user)] stunned [key_name(target)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+
 	if(status)
 		deductcharge(hitcost)
 
@@ -183,7 +189,7 @@
 	attack_verb = list("poked")
 	slot_flags = null
 	baton_color = "#FFDF00"
-	
+
 /obj/item/weapon/melee/baton/stunrod
 	name = "stunrod"
 	desc = "A more-than-lethal weapon used to deal with high threat situations."

@@ -4,7 +4,6 @@
 	icon_state = "repairbot"
 
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
-	small = 1
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	density = 0
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device

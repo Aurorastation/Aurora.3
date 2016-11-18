@@ -21,7 +21,6 @@
 	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
 
 	pass_flags = PASSTABLE
-	small = 1
 	speak_chance = 5
 	turns_per_move = 5
 	see_in_dark = 6

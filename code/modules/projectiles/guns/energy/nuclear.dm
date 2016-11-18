@@ -16,6 +16,8 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/Laser.ogg'),
 		)
 
+	var/crit_fail = 0 //Added crit_fail as a local variable
+
 /obj/item/weapon/gun/energy/gun/mounted
 	name = "mounted energy gun"
 	self_recharge = 1

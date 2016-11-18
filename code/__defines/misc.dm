@@ -210,3 +210,28 @@
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
 #define CAPTURE_MODE_ALL 1 //Admin camera mode
 #define CAPTURE_MODE_PARTIAL 3 //Simular to regular mode, but does not do dummy check
+
+//Sound effects toggles
+#define ASFX_AMBIENCE	1
+#define ASFX_FOOTSTEPS	2
+#define ASFX_VOTE		4
+
+//Cargo random stock vars
+//These are used in randomstock.dm
+//And also for generating random loot crates in crates.dm
+#define TOTAL_STOCK 	80//The total number of items we'll spawn in cargo stock
+
+
+#define STOCK_UNCOMMON_PROB	23
+//The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
+
+#define STOCK_RARE_PROB	2.8
+//The probability, as a percentage for each item, that we'll choose from the rare spawns list
+
+//If an item is not rare or uncommon, it will be chosen from the common spawns list.
+//So the probability of a common item is 100 - (uncommon + rare)
+
+
+#define STOCK_LARGE_PROB	75
+//Large items are spawned on predetermined locations.
+//For each large spawn marker, this is the chance that we will spawn there

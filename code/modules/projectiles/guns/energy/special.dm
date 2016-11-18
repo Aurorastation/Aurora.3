@@ -150,7 +150,7 @@
 				M << "<span class='danger'>[src]'s reactor overloads!</span>"
 			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 			M.apply_effect(300, IRRADIATE)
-		crit_fail = 1 //break the gun so it stops recharging
+		//crit_fail = 1 //break the gun so it stops recharging
 		processing_objects.Remove(src)
 		update_icon()
 	return 0
@@ -397,4 +397,3 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		charge_cost = 200
 		user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
 		projectile_type = /obj/item/projectile/forcebolt
-

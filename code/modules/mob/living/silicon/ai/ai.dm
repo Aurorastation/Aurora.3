@@ -82,6 +82,7 @@ var/list/ai_verbs_default = list(
 	var/bombing_station = 0						// Set to 1 if station nuke auto-destruct is activated
 	var/override_CPUStorage = 0					// Bonus/Penalty CPU Storage. For use by admins/testers.
 	var/override_CPURate = 0					// Bonus/Penalty CPU generation rate. For use by admins/testers.
+	var/list/cameraRecords = list()				//For storing what is shown to the cameras
 
 	var/datum/ai_icon/selected_sprite			// The selected icon set
 	var/custom_sprite 	= 0 					// Whether the selected icon is custom

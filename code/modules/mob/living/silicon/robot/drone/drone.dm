@@ -38,7 +38,6 @@ var/list/mob_hat_cache = list()
 	local_transmit = 1
 	possession_candidate = 1
 	mob_size = 4
-	small = 1
 
 	can_pull_size = 3
 	can_pull_mobs = MOB_PULL_SMALLER

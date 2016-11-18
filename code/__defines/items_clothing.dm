@@ -63,6 +63,10 @@
 #define BLOCKHEADHAIR   0x20    // Hides the user's hair overlay. Leaves facial hair.
 #define BLOCKHAIR       0x40    // Hides the user's hair, facial and otherwise.
 
+//This flag applies to gloves, uniforms, shoes, masks, ear items, glasses
+#define ALWAYSDRAW	32//If set, this item is always rendered even if its slot is hidden by other clothing
+//Note that the item may still not be visible if its sprite is actually covered up.
+
 // Slots.
 #define slot_back        1
 #define slot_wear_mask   2
@@ -96,6 +100,25 @@
 #define slot_w_uniform_str	"slot_w_uniform"
 #define slot_head_str		"slot_head"
 #define slot_wear_suit_str	"slot_suit"
+
+//itemstate suffixes. Used for containedsprite worn items
+#define WORN_LHAND	"_lh"
+#define WORN_RHAND	"_rh"
+#define WORN_LSTORE	"_ls"
+#define WORN_RSTORE "_rs"
+#define WORN_SSTORE "_ss"
+#define WORN_LEAR 	"_le"
+#define WORN_REAR 	"_re"
+#define WORN_HEAD 	"_he"
+#define WORN_UNDER 	"_un"
+#define WORN_SUIT 	"_su"
+#define WORN_GLOVES	"_gl"
+#define WORN_SHOES	"_sh"
+#define WORN_EYES	"_ey"
+#define WORN_BELT	"_be"
+#define WORN_BACK	"_ba"
+#define WORN_ID		"_id"
+#define WORN_MASK	"_ma"
 
 // Bitflags for clothing parts.
 #define HEAD        0x1
