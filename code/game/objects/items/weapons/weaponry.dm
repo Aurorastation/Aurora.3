@@ -229,3 +229,34 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = 1
+
+/obj/item/weapon/sord
+	name = "\improper SORD"
+	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
+	icon_state = "sord"
+	item_state = "sord"
+	slot_flags = SLOT_BELT
+	force = 2
+	throwforce = 1
+	sharp = 1
+	edge = 1
+	w_class = 3
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	
+/obj/item/weapon/banhammer
+	desc = "banhammer"
+	name = "banhammer"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "toyhammer"
+	slot_flags = SLOT_BELT
+	throwforce = 0
+	w_class = 2.0
+	throw_speed = 7
+	throw_range = 15
+	attack_verb = list("banned")
+	
+/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
+	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]<b></font>"
+	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
+	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

@@ -479,8 +479,8 @@
 				/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy,\
 				/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes,\
 				/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie,\
-				/obj/item/weapon/reagent_containers/food/drinks/cans/beer,\
-				/obj/item/weapon/reagent_containers/food/drinks/cans/ale)
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale)
 
 /obj/random/melee
 	name = "random melee weapon"

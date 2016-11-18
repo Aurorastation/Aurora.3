@@ -167,7 +167,6 @@ obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mo
 	name = "Head of Security hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "hoscap"
-	flags = HEADCOVERSEYES
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 10, bomb = 25, bio = 10, rad = 0)
 	flags_inv = HIDEEARS
 	body_parts_covered = 0
