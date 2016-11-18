@@ -1,0 +1,6 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed bitten blood bag message displaying incorrectly."
