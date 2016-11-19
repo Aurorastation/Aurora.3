@@ -73,8 +73,9 @@
 /mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
 	return
 
-/mob/living/proc/handle_stomach()
-	return
+// Defined in devour.dm
+// /mob/living/proc/handle_stomach()
+// 	return
 
 /mob/living/proc/update_pulling()
 	if(pulling)

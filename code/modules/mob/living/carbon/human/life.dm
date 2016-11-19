@@ -297,11 +297,6 @@
 			updatehealth()
 			return
 
-		var/damage = 0
-		radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-		if(prob(25))
-			damage = 1
-
 		if (radiation)
 			//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 			if(src.is_diona())

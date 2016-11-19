@@ -36,7 +36,7 @@ REAGENT SCANNER
 
 	for(var/turf/T in range(1, src.loc) )
 
-		if(!T || !T.intact)
+		if(!T || !T.is_intact())
 			continue
 
 		for(var/obj/O in T.contents)
@@ -50,7 +50,7 @@ REAGENT SCANNER
 				spawn(10)
 					if(O)
 						var/turf/U = O.loc
-						if(U.intact)
+						if(U.is_intact())
 							O.invisibility = 101
 							O.alpha = 255
 

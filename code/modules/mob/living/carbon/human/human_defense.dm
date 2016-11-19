@@ -165,7 +165,7 @@ emp_act
 		visible_message("\red <B>[user] misses [src] with \the [I]!")
 		return 0
 
-	var/obj/item/organ/external/affecting = get_organ(target_zone)
+	//var/obj/item/organ/external/affecting = get_organ(target_zone)
 
 	if(check_shields(I.force, I, user, target_zone, "the [I.name]"))
 		return null

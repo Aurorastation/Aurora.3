@@ -141,20 +141,20 @@
 // Use for objects performing visible actions
 // message is output to anyone who can see, e.g. "The [src] does something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
-/atom/proc/visible_message(var/message, var/blind_message)
-	var/list/messageturfs = list()//List of turfs we broadcast to.
-	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
-	for (var/turf in view(world.view, get_turf(src)))
-		messageturfs += turf
-
-	for(var/mob/M in player_list)
-		if (!M.client || istype(M, /mob/new_player))
-			continue
-		if(get_turf(M) in messageturfs)
-			messagemobs += M
-
-	for(var/mob/M in messagemobs)
-		M.show_message( message, 1, blind_message, 2)
+// /atom/proc/visible_message(var/message, var/blind_message)
+// 	var/list/messageturfs = list()//List of turfs we broadcast to.
+// 	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+// 	for (var/turf in view(world.view, get_turf(src)))
+// 		messageturfs += turf
+//
+// 	for(var/mob/M in player_list)
+// 		if (!M.client || istype(M, /mob/new_player))
+// 			continue
+// 		if(get_turf(M) in messageturfs)
+// 			messagemobs += M
+//
+// 	for(var/mob/M in messagemobs)
+// 		M.show_message( message, 1, blind_message, 2)
 
 
 // Returns an amount of power drawn from the object (-1 if it's not viable).
