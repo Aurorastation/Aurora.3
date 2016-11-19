@@ -275,7 +275,7 @@
 		mob.last_move_intent = world.time + 10
 
 
-		if (mob.buckled || mob.pulledby)
+		if (mob.buckled)
 			if(istype(mob.buckled, /obj/vehicle))
 				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
@@ -287,8 +287,9 @@
 
 			if(istype(mob.loc, /turf/space)) // Wheelchair driving!
 				return // No wheelchair driving in space
-			if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
-				return mob.pulledby.relaymove(mob, direct)
+
+			//TODO: Fuck wheelchairs.
+			//Toss away all this snowflake code here, and rewrite wheelchairs as a vehicle.
 			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
 				var/min_move_delay = 0
 				if(ishuman(mob.buckled))
@@ -329,6 +330,13 @@
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))
 				return
+
+		//Wheelchair pushing goes here for now.
+		//TODO: Fuck wheelchairs.
+		if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
+			move_delay += 1
+			return mob.pulledby.relaymove(mob, direct)
+
 
 
 		//We are now going to move
