@@ -62,6 +62,10 @@
 #define HEAVY 64
 #define ALLMOBS (HUMAN|MONKEY|ALIEN|ROBOT|SLIME|SIMPLE_ANIMAL|HEAVY)
 
+//Types of diona, returned by is_diona
+#define DIONA_NYMPH		1
+#define DIONA_WORKER	2
+
 // Robot AI notifications
 #define ROBOT_NOTIFICATION_NEW_UNIT 1
 #define ROBOT_NOTIFICATION_NEW_NAME 2
@@ -117,7 +121,7 @@
 #define MOB_TINY 		5
 #define MOB_MINISCULE	1
 
-// Gluttony levels. 
+// Gluttony levels.
 #define GLUT_TINY 1       // Eat anything tiny and smaller
 #define GLUT_SMALLER 2    // Eat anything smaller than we are
 #define GLUT_ANYTHING 3   // Eat anything, ever
@@ -141,7 +145,7 @@
 #define INCAPACITATION_RESTRAINED 1
 #define INCAPACITATION_BUCKLED_PARTIALLY 2
 #define INCAPACITATION_BUCKLED_FULLY 4
-#define INCAPACITATION_DISABLED 8 
+#define INCAPACITATION_DISABLED 8
 
 #define INCAPACITATION_DEFAULT (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_DISABLED)
 #define INCAPACITATION_ALL (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_DISABLED)
@@ -151,3 +155,11 @@
 #define MOB_PULL_SAME 2
 #define MOB_PULL_LARGER 3
 
+//Time of Death constants
+//Used with a list in preference datums to track times of death
+#define CREW "crew" //Used for crewmembers, AI, cyborgs, nymphs, antags
+#define ANIMAL "animal" //Used for mice and any other simple animals
+#define MINISYNTH "minisynth"//Used for drones and pAIs
+
+#define RESPAWN_ANIMAL 3000
+#define RESPAWN_MINISYNTH 6000
