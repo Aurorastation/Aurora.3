@@ -43,6 +43,7 @@
 #define MIN_TOXIN_DAMAGE 1
 #define MAX_TOXIN_DAMAGE 10
 
+#define BREATH_SCALE_COEFFICIENT 100 // Increases the air handled in environment breathing but not internals breathing, realistic should be set to 1
 #define BREATH_VOLUME       0.5 // Liters in a normal breath.
 #define BREATH_MOLES        (ONE_ATMOSPHERE * BREATH_VOLUME / (T20C * R_IDEAL_GAS_EQUATION)) // Amount of air to take a from a tile
 #define BREATH_PERCENTAGE   (BREATH_VOLUME / CELL_VOLUME)                                    // Amount of air needed before pass out/suffocation commences.
