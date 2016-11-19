@@ -443,7 +443,7 @@
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	brute_mod = 0.5 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
-	tox_mod = 3 //they're not used to all our weird human bacteria.
+	toxins_mod = 3 //they're not used to all our weird human bacteria.
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2

@@ -182,17 +182,18 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_MEDICAL)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
+	sprites = list(
+				"Basic" = "Medbot",
+				"Standard" = "surgeon",
+				"Advanced Droid" = "droid-medical",
+				"Needles" = "medicalrobot",
+				"Drone - Medical" = "drone-medical",
+				"Drone - Chemistry" = "drone-chemistry",
+				"Eyebot" = "eyebot-medical"
+				)
 
 /obj/item/weapon/robot_module/medical/general
 	name = "medical robot module"
-	sprites = list(
-					"Basic" = "Medbot",
-					"Standard" = "surgeon",
-					"Advanced Droid" = "droid-medical",
-					"Needles" = "medicalrobot",
-					"Drone" = "drone-surgery",
-					"Eyebot" = "eyebot-medical"
-					)
 
 /obj/item/weapon/robot_module/medical/general/New()
 	..()
@@ -240,15 +241,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/medical/rescue
 	name = "rescue robot module"
-	sprites = list(
-					"Basic" = "Medbot",
-					"Standard" = "surgeon",
-					"Advanced Droid" = "droid-medical",
-					"Needles" = "medicalrobot",
-					"Drone - Medical" = "drone-medical",
-					"Drone - Chemistry" = "drone-chemistry",
-					"Eyebot" = "eyebot-medical"
-					)
+
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/medical/rescue/New()
@@ -309,7 +302,7 @@ var/global/list/robot_modules = list(
 	channels = list("Engineering" = 1)
 	networks = list(NETWORK_ENGINEERING)
 	subsystems = list(/mob/living/silicon/proc/subsystem_power_monitor)
-	supported_upgrades = list(/obj/item/borg/upgrade/rcd)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
 					"Basic" = "Engineering",
 					"Antique" = "engineerrobot",
@@ -430,7 +423,7 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_SECURITY)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
-	supported_upgrades = list(/obj/item/borg/upgrade/tasercooler)
+	supported_upgrades = list(/obj/item/borg/upgrade/tasercooler,/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/security/general
 	sprites = list(
@@ -467,7 +460,7 @@ var/global/list/robot_modules = list(
 		B.bcell.give(amount)
 
 /obj/item/weapon/robot_module/janitor
-	name = "janitorial robot module"
+	name = "custodial robot module"
 	channels = list("Service" = 1)
 	sprites = list(
 					"Basic" = "JanBot2",
