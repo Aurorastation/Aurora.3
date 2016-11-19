@@ -186,3 +186,14 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 	if(!assess_candidate(candidate))
 		return 0
 	drone.transfer_personality(candidate.client)
+
+/***********************************
+* Syndicate Cyborg *
+***********************************/
+/datum/ghosttrap/syndicateborg
+	object = "syndicate cyborg"
+	ban_checks = list("Syndicate","AI","Cyborg")
+	pref_check = "BE_SYNTH"
+	ghost_trap_message = "They are occupying a syndicate cyborg now."
+	ghost_trap_role = "Syndicate Cyborg"
+	can_set_own_name = TRUE
