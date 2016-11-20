@@ -673,8 +673,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/fluff/cac_picture //Photo of a spider and a robot - CAC - fireandglory
-	name = "pressing of S'Rendarr's hand"
-	desc = "It is a photo of a cyan IPC holding a thick fuzzy spider the size of a football.."
+	name = "photo of a spider and a robot"
+	desc = "It is a photo of a cyan IPC holding a thick fuzzy spider of the size of a football."
 	icon = 'icons/obj/custom_items/cac_picture.dmi'
 	icon_state = "cac_picture"
 	w_class = 2
@@ -699,7 +699,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/zohjar_jacket //People's Republic Medical Officer Coat - Zohjar Rasateir - lordraven001
 	name = "people's republic medical officer coat"
 	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
-	icon = 'icons/obj/custom_items/ash_jacket.dmi'
 	icon = 'icons/obj/custom_items/zohjar_clothing.dmi'
 	item_state = "zohjar_jacket"
 	icon_open = "zohjar_jacket_open"
@@ -710,7 +709,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
 	name = "naval officer coat"
 	desc = "A thick wool coat from Adhomai, calling back to days long past."
-	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
+	icon = 'icons/obj/custom_items/maksim_coat.dmi'
 	icon_state = "maksim_coat"
 	item_state = "maksim_coat"
 	contained_sprite = 1
@@ -722,5 +721,3 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "iskanz_atimono"
 	sign_state = "iskanz_atimono"
 	w_class = 2
-
-
