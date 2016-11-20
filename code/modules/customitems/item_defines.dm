@@ -161,7 +161,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A loose-fitting turtleneck, common among borderworld pilots and criminals. One criminal in particular is missing his, apparently."
 
 
-/obj/item/weapon/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa - DONE
+/obj/item/weapon/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa
 	name = "consecrated athame"
 	desc = "An athame used in occult rituals. The double-edged dagger is dull. The handle is black with a pink/white occult design strewn about it, and 'Tina' is inscribed into it in decorated letters."
 	icon = 'icons/obj/custom_items/tina_knife.dmi'
