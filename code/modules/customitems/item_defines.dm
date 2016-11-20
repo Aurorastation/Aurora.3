@@ -708,7 +708,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/suit/storage/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
-	name = "naval officer coat"
+	name = "tajaran naval officer coat"
 	desc = "A thick wool coat from Adhomai, calling back to days long past."
 	icon = 'icons/obj/custom_items/maksim_coat.dmi'
 	icon_state = "maksim_coat"
