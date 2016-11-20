@@ -776,7 +776,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	num_contained = 5
 	contains = list(/obj/item/clothing/suit/armor/vest,
 					/obj/item/clothing/suit/armor/vest/security,
-					/obj/item/clothing/suit/armor/vest/detective,
+					/obj/item/clothing/suit/storage/vest/detective,
 					/obj/item/clothing/suit/storage/vest/hos,
 					/obj/item/clothing/suit/storage/vest/pcrc,
 					/obj/item/clothing/suit/storage/vest/warden,

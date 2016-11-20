@@ -47,8 +47,8 @@ var/religion_name = null
 	return "Tau Ceti"
 
 /proc/commstation_name()
-	if (commstation_name)
-		return commstation_name
+	if (dock_name)
+		return dock_name
 
 /proc/station_name()
 	if (station_name)

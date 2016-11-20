@@ -29,6 +29,7 @@
 	holder_type = /obj/item/weapon/holder/diona
 	var/list/sampled_DNA
 	var/list/language_progress
+	var/obj/item/clothing/head/hat
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if (life_tick < 4)
@@ -294,3 +295,11 @@
 		update_icons()
 
 	return 1
+
+
+/mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
+	if(hat)
+		return
+	hat = new_hat
+	new_hat.forceMove(src)
+	update_icons()

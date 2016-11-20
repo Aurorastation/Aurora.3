@@ -73,6 +73,8 @@
 	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
 	var/list/sprite_sheets_obj = list()
 
+	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing pr
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -110,7 +112,7 @@
 		else
 	return
 
-/obj/item/verb/move_to_top()
+/obj/item/verb/move_to_top(obj/item/I in range(1))
 	set name = "Move To Top"
 	set category = "Object"
 

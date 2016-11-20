@@ -34,6 +34,8 @@
 #define ORGAN_DEAD       (1<<6)
 #define ORGAN_MUTATED    (1<<7)
 #define ORGAN_ASSISTED   (1<<8)
+#define ORGAN_ADV_ROBOT  (1<<9)
+#define ORGAN_PLANT      (1<<10)
 
 #define DROPLIMB_EDGE 0
 #define DROPLIMB_BLUNT 1

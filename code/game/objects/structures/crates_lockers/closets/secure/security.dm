@@ -256,7 +256,6 @@
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/grey(src)
 		new /obj/item/clothing/under/det/black(src)
-		new /obj/item/clothing/under/det/slob(src)
 		new /obj/item/clothing/suit/storage/det_suit(src)
 		new /obj/item/clothing/suit/storage/det_suit/technicolor(src)
 		new /obj/item/clothing/suit/storage/forensics/blue(src)

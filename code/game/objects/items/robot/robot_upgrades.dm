@@ -41,7 +41,7 @@
 	name = "robot reclassification board"
 	desc = "Used to rename a cyborg."
 	icon_state = "cyborg_upgrade1"
-	construction_cost = list(DEFAULT_WALL_MATERIAL=1000)
+//	construction_cost = list(DEFAULT_WALL_MATERIAL=1000)
 	var/heldname = "default name"
 
 /obj/item/borg/upgrade/rename/attack_self(mob/user as mob)
@@ -165,7 +165,7 @@
 /obj/item/borg/upgrade/combat
 	name = "combat cyborg module"
 	desc = "Unlocks the combat cyborg module"
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=15000,"gold"= 5000,"diamond" = 1000)
+//	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=15000,"gold"= 5000,"diamond" = 1000)
 	icon_state = "cyborg_upgrade3"
 	require_module = 0
 

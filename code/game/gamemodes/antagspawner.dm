@@ -19,51 +19,29 @@
 	return
 
 /obj/item/weapon/antag_spawner/borg_tele
-	name = "Syndicate Cyborg Teleporter"
+	name = "syndicate cyborg teleporter"
 	desc = "A single-use teleporter used to deploy a Syndicate Cyborg on the field. Due to budget restrictions, it is only possible to deploy a single cyborg at time."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	var/searching = 0
 	var/askDelay = 10 * 60 * 1
 
-/obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user)
-	user << "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>"
-	searching = 1
-	for(var/mob/dead/observer/O in player_list)
-		if(!O.MayRespawn())
-			continue
-		if(jobban_isbanned(O, "Syndicate") && jobban_isbanned(O, "Mercenary") && jobban_isbanned(O, "Cyborg"))
-			continue
-		if(O.client)
-			if(O.client.prefs.be_special & BE_OPERATIVE)
-				question(O.client)
-	spawn(600)
-		searching = 0
-		if(!used)
-			user << "<span class='warning'>Unable to connect to the Syndicate Command. Perhaps you could try again later?</span>"
+/obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user as mob)
+	if(searching == 0)
+		//Start the process of searching for a new user.
+		user << "<span class='notice'>You carefully locate the manual activation switch and start the positronic brain's boot process.</span>"
+		src.searching = 1
+		var/datum/ghosttrap/G = get_ghost_trap("syndicate cyborg")
+		G.request_player(brainmob, "Someone is requesting a syndicate cyborg.", 60 SECONDS)
+		spawn_antag(G, get_turf(src))
+		spawn(600) reset_search()
 
-
-/obj/item/weapon/antag_spawner/borg_tele/proc/question(var/client/C)
-	spawn(0)
-		if(!C)
-			return
-		var/response = alert(C, "Someone is requesting a syndicate cyborg  Would you like to play as one?",
-		"Syndicate robot request","Yes", "No", "Never for this round")
-		if(response == "Yes")
-			response = alert(C, "Are you sure you want to play as a syndicate cyborg?", "Syndicate cyborg request", "Yes", "No")
-		if(!C || used || !searching)
-			return
-		if(response == "Yes")
-			spawn_antag(C, get_turf(src))
-		else if (response == "Never for this round")
-			C.prefs.be_special ^= BE_OPERATIVE
-
-obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
+obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/G, turf/T)
 	var/datum/effect/effect/system/spark_spread/S = new /datum/effect/effect/system/spark_spread
 	S.set_up(4, 1, src)
 	S.start()
 	var/mob/living/silicon/robot/H = new /mob/living/silicon/robot/syndicate(T)
-	H.key = C.key
+	H.key = G.key
 	var/newname = sanitizeSafe(input(H,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 	if (newname != "")
 		H.real_name = newname
