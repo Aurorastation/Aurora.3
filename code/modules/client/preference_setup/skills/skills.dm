@@ -12,6 +12,9 @@
 	S["used_skillpoints"]		<< pref.used_skillpoints
 	S["skill_specialization"]	<< pref.skill_specialization
 
+/datum/category_item/player_setup_item/skills/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("skills", "skill_specialization"), "args" = list("id")))
+
 /datum/category_item/player_setup_item/skills/sanitize_character()
 	if(SKILLS == null)				setup_skills()
 	if(!pref.skills)				pref.skills = list()

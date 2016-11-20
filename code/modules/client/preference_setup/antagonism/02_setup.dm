@@ -12,6 +12,10 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 	S["uplinklocation"] << pref.uplinklocation
 	S["exploit_record"] << pref.exploit_record
 
+/datum/category_item/player_setup_item/antagonism/basic/gather_load_query()
+	return list("ss13_characters_flavour" = list("vars" = list("records_exploit" = "exploit_record"), "args" = list("char_id")),
+				"ss13_characters" = list("vars" = list("uplink_location" = "uplinklocation"), "args" = list("id")))
+
 /datum/category_item/player_setup_item/antagonism/basic/sanitize_character()
 	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, uplink_locations, initial(pref.uplinklocation))
 

@@ -33,6 +33,9 @@
 	S["job_engsec_low"]		<< pref.job_engsec_low
 	S["player_alt_titles"]	<< pref.player_alt_titles
 
+/datum/category_item/player_setup_item/occupation/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("jobs" = "unsanitized_jobs", "alternate_option", "alternate_titles" = "player_alt_titles"), "args" = list("id")))
+
 /datum/category_item/player_setup_item/occupation/sanitize_character()
 	pref.alternate_option	= sanitize_integer(pref.alternate_option, 0, 2, initial(pref.alternate_option))
 	pref.job_civilian_high	= sanitize_integer(pref.job_civilian_high, 0, 65535, initial(pref.job_civilian_high))

@@ -48,6 +48,21 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["organ_data"]			<< pref.organ_data
 	S["rlimb_data"]			<< pref.rlimb_data
 
+/datum/category_item/player_setup_item/general/body/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("species",
+														"hair_colour",
+														"facial_colour",
+														"skin_tone" = "s_tone",
+														"skin_colour",
+														"hair_style" = "h_style",
+														"facial_style" = "f_style",
+														"eyes_colour",
+														"b_type",
+														"disabilities",
+														"organs_data" = "organ_data",
+														"organs_robotic" = "rlimb_data"),
+										"args" = list("id")))
+
 /datum/category_item/player_setup_item/general/body/sanitize_character(var/savefile/S)
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = "Human"
@@ -210,7 +225,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.species = href_list["set_species"]
 		if(prev_species != pref.species)
 			mob_species = all_species[pref.species]
-			
+
 			//grab one of the valid hair styles for the newly chosen species
 			var/list/valid_hairstyles = list()
 			for(var/hairstyle in hair_styles_list)

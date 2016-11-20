@@ -8,6 +8,9 @@
 /datum/category_item/player_setup_item/player_global/language/save_preferences(var/savefile/S)
 	S["language_prefixes"]	<< pref.language_prefixes
 
+/datum/category_item/player_setup_item/player_global/language/gather_load_query()
+	return list("ss13_player_preferences" = list("vars" = list("language_prefixes"), "args" = list("ckey")))
+
 /datum/category_item/player_setup_item/player_global/language/sanitize_preferences()
 	if(isnull(pref.language_prefixes) || !pref.language_prefixes.len)
 		pref.language_prefixes = config.language_prefixes.Copy()
@@ -52,4 +55,3 @@
 		if(istype(prefixes) && prefixes.len)
 			preferences["language_prefixes"] = prefixes.Copy()
 		return 1
-

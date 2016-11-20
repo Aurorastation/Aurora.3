@@ -33,6 +33,23 @@
 	for(var/module in robot_module_types)
 		S["flavour_texts_robot_[module]"] << pref.flavour_texts_robot[module]
 
+/datum/category_item/player_setup_item/general/flavor/gather_load_query()
+	var/list/var_list = list("flavour_general" = "flavor_texts/general",
+												"flavour_head" = "flavour_texts/head",
+												"flavour_face" = "flavour_texts/face",
+												"flavour_eyes" = "flavour_texts/eyes",
+												"flavour_torso" = "flavour_texts/torso",
+												"flavour_arms" = "flavour_texts/arms",
+												"flavour_hands" = "flavour_texts/hands",
+												"flavour_legs" = "flavour_texts/legs",
+												"flavour_feet" = "flavour_texts/feet",
+												"robot_default" = "flavour_texts_robot/default")
+
+	for (var/module in robot_module_types)
+		var_list["robot_[module]"] = "flavour_texts_robot/[module]"
+
+	return list("ss13_characters_flavour" = list("vars" = var_list, "args" = list("char_id")))
+
 /datum/category_item/player_setup_item/general/flavor/sanitize_character()
 	return
 

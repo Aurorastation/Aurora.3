@@ -125,12 +125,93 @@
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character()
 
+// For loading character by category. Utilizes query caching.
 /datum/category_group/player_setup_category/proc/load_character_sql()
-	var/static/list/query_cache = list()
-	if (isnull(query_cache[type]))
-		var/query = "FROM ss13_characters"
-		for (var/datum/category_item/player_setup_item/PI in items)
+	var/static/list/query_cache
 
+	if (isnull(query_cache))
+		query_cache = list()
+
+	// This handles the generation of queries. One per category, total of 5 UNLESS one category wants to query more than one table.
+	// It uses like, 3+ levels of lists. But it works, and is only run once per category in the global sense. So technically, efficient!
+	// :D - Skull132
+	if (!query_cache.len || isnull(query_cache[type]))
+		query_cache[type] = list()
+		var/list/tables = list()
+
+		// First, consolidate the different lists into one.
+		for (var/datum/category_item/player_setup_item/PI in items)
+			var/list/pi_tables = PI.gather_load_query()
+			// Expected layout: list("table A name" = list("vars" = list("column name" = "var name"), "args" = list()),
+			//						"table B name" = list("vars" = list(), "args" = list()))
+
+			for (var/table in pi_tables)
+				var/list/A = pi_tables[table]
+				if (isnull(tables[table]))
+					tables[table] = list("vars" = list(), "args" = list())
+
+				tables[table]["vars"] |= A["vars"]
+				tables[table]["args"] |= A["args"]
+
+		// Second, create the queries and save them.
+		for (var/table in tables)
+			var/query = "SELECT "
+			var/list/var_names = tables[table]["vars"]
+			var/count = var_names.len
+
+			// Process the variables and rows we want.
+			var/i = 1
+			for (var/name in var_names)
+				query += name
+
+				if (!isnull(var_names[name]))
+					var/new_name = var_names[name]
+					var_names.Remove(name)
+					var_names.Insert(i, new_name)
+
+				if (i != count)
+					query += ", "
+				else
+					query += " "
+
+				i++
+
+			query += "FROM [table] WHERE "
+
+			// Process the args.
+			var/list/arg_names = tables[table]["args"]
+			count = arg_names.len
+			for (i = 1, i <= count, i++)
+				query += "[arg_names[i]] = :[arg_names[i]]"
+				arg_names[i] = ":[arg_names[i]]"
+
+				if (i != count)
+					query += " AND "
+				else
+					query += ";"
+
+			// Save it.
+			query_cache[type][query] = var_names
+
+	// Actually utilize the query.
+	var/list/arg_list = gather_load_parameters()
+	for (var/query in query_cache[type])
+		var/DBQuery/query = dbcon.NewQuery(query)
+		query.Execute(arg_list, 1)
+
+		// Each query should only return exactly 1 row.
+		var/list/var_names = query_cache[type]
+		if (query.NextRow())
+			for (var/i = 1, i <= var_names.len, i++)
+				// We can do this, because when generating, we ensured that
+				preferences.vars[var_names[i]] = query.item[i]
+
+/datum/category_group/player_setup_category/proc/gather_load_parameters()
+	var/list/arg_list = list()
+	for (var/datum/category_item/player_setup_item/PI in items)
+		arg_list |= PI.gather_load_parameters()
+
+	return arg_list
 
 /datum/category_group/player_setup_category/proc/save_character(var/savefile/S)
 	// Sanitize all data, then save it
@@ -218,6 +299,18 @@
 */
 /datum/category_item/player_setup_item/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	return 0
+
+/*
+* Called when the owner category is composing its load query
+*/
+/datum/category_item/player_setup_item/proc/gather_load_query()
+	return list()
+
+/*
+* Called when the owner category is composing its query parameters for loading.
+*/
+/datum/category_item/player_setup_item/proc/gather_load_parameters()
+	return list()
 
 /datum/category_item/player_setup_item/proc/content()
 	return

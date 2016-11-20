@@ -22,6 +22,13 @@
 	S["religion"]				<< pref.religion
 	S["nanotrasen_relation"]	<< pref.nanotrasen_relation
 
+/datum/category_item/player_setup_item/general/background/gather_load_query()
+	return list("ss13_characters_flavour" = list("vars" = list("records_employment" = "gen_record",
+																"records_medical" = "med_record",
+																"records_security" = "sec_record"),
+												"args" = list("char_id")),
+				"ss13_characters" = list("vars" = list("home_system", "citizenship", "faction", "religion"), "args" = list("id")))
+
 /datum/category_item/player_setup_item/general/background/sanitize_character()
 	if(!pref.home_system) pref.home_system = "Unset"
 	if(!pref.citizenship) pref.citizenship = "None"

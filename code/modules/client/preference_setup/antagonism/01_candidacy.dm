@@ -8,6 +8,9 @@
 /datum/category_item/player_setup_item/antagonism/candidacy/save_character(var/savefile/S)
 	S["be_special"]	<< pref.be_special_role
 
+/datum/category_item/player_setup_item/antagonism/candidacy/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("be_special_role"), "args" = list("id")))
+
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character()
 	if(!istype(pref.be_special_role))
 		pref.be_special_role = list()

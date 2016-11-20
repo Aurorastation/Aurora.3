@@ -19,6 +19,15 @@
 	S["spawnpoint"]				<< pref.spawnpoint
 	S["OOC_Notes"]				<< pref.metadata
 
+/datum/category_item/player_setup_item/general/basic/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("name" = "real_name",
+													"random_name" = "be_random_name",
+													"gender",
+													"age",
+													"metadata",
+													"spawnpoint"),
+										"args" = list("id")))
+
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	pref.age			= sanitize_integer(pref.age, AGE_MIN, AGE_MAX, initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))

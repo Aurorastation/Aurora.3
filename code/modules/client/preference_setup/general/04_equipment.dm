@@ -14,6 +14,9 @@
 	S["backbag"]	<< pref.backbag
 	S["gear"]		<< pref.gear
 
+/datum/category_item/player_setup_item/general/equipment/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("underwear", "undershirt", "backbag", "gear"), "args" = list("id")))
+
 /datum/category_item/player_setup_item/general/equipment/sanitize_character()
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 

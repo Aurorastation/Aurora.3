@@ -13,6 +13,8 @@
 
 	candidate.savefile_load(preference_mob())
 
+// #TODO-MERGE: Figure out how to handle pAI saving on SQL.
+
 /datum/category_item/player_setup_item/player_global/pai/save_preferences(var/savefile/S)
 	if(!candidate)
 		return
