@@ -721,3 +721,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "iskanz_atimono"
 	sign_state = "iskanz_atimono"
 	w_class = 2
+
+
+/obj/item/clothing/accessory/fluff/zahra_pin //Indigo remembrance pin -  Zahra Karimi - synnono
+	name = "Indigo remembrance pin"
+	desc = "A small metal pin, worked into the likeness of an indigo iris blossom."
+	icon = 'icons/obj/custom_items/zahra_pin.dmi'
+	icon_state = "zahra_pin"
+	item_state = "zahra_pin"
+	contained_sprite = 1
