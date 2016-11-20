@@ -700,6 +700,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "people's republic medical officer coat"
 	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
 	icon = 'icons/obj/custom_items/zohjar_clothing.dmi'
+	icon_state = "zohjar_jacket"
 	item_state = "zohjar_jacket"
 	icon_open = "zohjar_jacket_open"
 	icon_closed = "zohjar_jacket"
