@@ -254,9 +254,6 @@ var/global/list/damage_icon_parts = list()
 		qdel(stand_icon)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-	var/g = "male"
-	if(gender == FEMALE)
-		g = "female"
 
 	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin]"
 	if(lip_style)
@@ -865,7 +862,7 @@ var/global/list/damage_icon_parts = list()
 		else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[species.get_bodytype()])
 			standing = image("icon" = wear_suit.sprite_sheets[species.get_bodytype()], "icon_state" = "[wear_suit.icon_state]")
 		else
-			standing = image("icon" = t_icon, "icon_state" = "[wear_suit.icon_state]")
+			standing = image("icon" = 'icons/mob/suit.dmi', "icon_state" = "[wear_suit.icon_state]")
 		standing.color = wear_suit.color
 
 		if(wear_suit.blood_DNA)
@@ -1072,15 +1069,8 @@ var/global/list/damage_icon_parts = list()
 			else
 				t_icon = INV_R_HAND_DEF_ICON
 
-		//apply color
-		var/image/standing = image(icon = t_icon, icon_state = t_state)
-		standing.color = r_hand.color
+			overlays_standing[R_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
 
-		overlays_standing[R_HAND_LAYER] = standing
-
-		if (handcuffed) drop_r_hand() //this should be moved out of icon code
-	else
-		overlays_standing[R_HAND_LAYER] = null
 
 	if(update_icons) update_icons()
 
@@ -1121,15 +1111,8 @@ var/global/list/damage_icon_parts = list()
 			else
 				t_icon = INV_L_HAND_DEF_ICON
 
-		//apply color
-		var/image/standing = image(icon = t_icon, icon_state = t_state)
-		standing.color = l_hand.color
+			overlays_standing[L_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
 
-		overlays_standing[L_HAND_LAYER] = standing
-
-		if (handcuffed) drop_l_hand() //This probably should not be here
-	else
-		overlays_standing[L_HAND_LAYER] = null
 
 	if(update_icons) update_icons()
 
