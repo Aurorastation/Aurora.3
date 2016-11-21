@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Mechanical traps and portable flashers will trigger regardless if you are walking or running."
