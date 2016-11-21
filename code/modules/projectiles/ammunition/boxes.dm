@@ -304,7 +304,7 @@
 
 /obj/item/ammo_magazine/shotgun/shell
 	name = "ammunition box (shell)"
-	icon_state = "llethalslug_box"
+	icon_state = "lethalslug_box"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	max_ammo = 8
 
