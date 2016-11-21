@@ -1468,7 +1468,6 @@ datum/design/item/weapon/lasshotgun
 	id = "laser_shotgun"
 	req_tech = list("combat" = 3, "materials" = 5, "powerstorage" = 4)
 	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
-	reliability_base = 76
 	build_path = /obj/item/weapon/gun/energy/laser/shotgun
 
 datum/design/item/weapon/stunrevolver
@@ -1559,7 +1558,6 @@ datum/design/item/weapon/large_grenade
 	id = "large_Grenade"
 	req_tech = list("combat" = 3, "materials" = 2)
 	materials = list("$metal" = 3000)
-	reliability_base = 79
 	build_path = /obj/item/weapon/grenade/chem_grenade/large
 
 /datum/design/aimodule
