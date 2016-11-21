@@ -84,9 +84,9 @@
 		var/turf/simulated/floor/T = new_turf
 		if(!T.is_plating())
 			if(!T.broken && !T.burnt)
-				new T.floor_type(T)
+				new T.flooring.build_type()
 			T.make_plating()
-		return !new_turf.intact
+		return T.is_plating()
 	return 0
 
 /obj/machinery/floorlayer/proc/TakeNewStack()
