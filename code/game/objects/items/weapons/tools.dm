@@ -289,7 +289,7 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
-/obj/item/weapon/weldingtool/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/weldingtool/attack(mob/living/M as mob, mob/user as mob)
 
 	if(hasorgans(M))
 
@@ -299,12 +299,9 @@
 		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
 			return ..()
 
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			if(H.species.flags & IS_SYNTHETIC)
-				if(M == user)
-					user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
-					return
+		if(M.isSynthetic() && M == user)
+			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
+			return
 		if(S.brute_dam == 0)
 			// Organ undamaged
 			user << "Nothing to fix here!"
