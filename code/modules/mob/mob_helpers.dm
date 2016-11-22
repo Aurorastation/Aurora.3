@@ -30,6 +30,44 @@
 /mob/living/carbon/human/isMonkey()
 	return istype(species, /datum/species/monkey)
 
+
+/proc/ishuman_species(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
+		return 1
+	return 0
+
+/proc/isunathi(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
+		return 1
+	return 0
+
+/proc/istajara(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Tajara"))
+		return 1
+	return 0
+
+/proc/isskrell(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skrell"))
+		return 1
+	return 0
+
+/proc/isvaurca(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca"))
+		return 1
+	return 0
+
+/proc/isipc(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Machine"))
+		return 1
+	return 0
+
+/proc/isvox(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vox"))
+		return 1
+	return 0
+
+
+
 /mob/proc/is_diona()
 	//returns which type of diona we are, or zero
 	if (istype(src, /mob/living/carbon/human))

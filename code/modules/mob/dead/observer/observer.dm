@@ -182,7 +182,7 @@ Works together with spawning an observer, noted above.
 		//It is also set in the mob/death proc
 		if (isanimal(src))
 			set_death_time(ANIMAL, world.time)
-		else if (ispAI(src) || isdrone(src))
+		else if (ispAI(src) || isDrone(src))
 			set_death_time(MINISYNTH, world.time)
 		else
 			set_death_time(CREW, world.time)//Crew is the fallback

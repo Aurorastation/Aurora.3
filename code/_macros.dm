@@ -2,6 +2,7 @@
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
+#define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)
 
