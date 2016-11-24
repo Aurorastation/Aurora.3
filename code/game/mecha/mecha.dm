@@ -1985,8 +1985,7 @@
 
 
 	process(var/obj/mecha/mecha)
-		// No cell will kill warnings.
-		// Makes sense, caution systems are battery powered.
+
 		if (!mecha)
 			return
 
@@ -2000,6 +1999,8 @@
 
 		if (mecha.power_alert_status)//IF we're in either warning status
 			if (!mecha.cell)
+				// No cell will kill warnings.
+				// Makes sense, caution systems are battery powered.
 				mecha.power_alert_status = 0//cancel the alert status
 				power_warning_delay = initial(power_warning_delay)//Reset the delay
 				stop_sound(1, mecha)
