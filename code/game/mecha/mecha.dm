@@ -1990,14 +1990,14 @@
 			return
 
 		if (!mecha.cell)
-				// No cell will kill warnings.
-				// Makes sense, caution systems are battery powered.
-				mecha.power_alert_status = 0//cancel the alert status
-				power_warning_delay = initial(power_warning_delay)//Reset the delay
-				stop_sound(1, mecha)
-				mecha.damage_alert_status = 0
-				damage_warning_delay = initial(damage_warning_delay)//Reset the delay
-				stop_sound(2, mecha)
+			// No cell will kill warnings.
+			// Makes sense, caution systems are battery powered.
+			mecha.power_alert_status = 0//cancel the alert status
+			power_warning_delay = initial(power_warning_delay)//Reset the delay
+			stop_sound(1, mecha)
+			mecha.damage_alert_status = 0
+			damage_warning_delay = initial(damage_warning_delay)//Reset the delay
+			stop_sound(2, mecha)
 
 		if (!mecha.power_alert_status && mecha.cell)//If we're in the fine status
 			if (mecha.cell.charge < (mecha.cell.maxcharge*0.3))//but power is below 30%
