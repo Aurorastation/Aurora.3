@@ -1998,6 +1998,7 @@
 			mecha.damage_alert_status = 0
 			damage_warning_delay = initial(damage_warning_delay)//Reset the delay
 			stop_sound(2, mecha)
+			return
 
 		if (!mecha.power_alert_status && mecha.cell)//If we're in the fine status
 			if (mecha.cell.charge < (mecha.cell.maxcharge*0.3))//but power is below 30%
