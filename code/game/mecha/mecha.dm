@@ -1987,7 +1987,7 @@
 	process(var/obj/mecha/mecha)
 		// No cell will kill warnings.
 		// Makes sense, caution systems are battery powered.
-		if (!mecha || !mecha.cell)
+		if (!mecha)
 			return
 
 		if (!mecha.power_alert_status && mecha.cell)//If we're in the fine status
@@ -1999,33 +1999,39 @@
 		//No 'else' here, we want this to run in the same proc if the alert status was just enabled
 
 		if (mecha.power_alert_status)//IF we're in either warning status
-			if (mecha.cell.charge >= (mecha.cell.maxcharge*0.3))//But power has risen back above danger levels
+			if (!mecha.cell)
 				mecha.power_alert_status = 0//cancel the alert status
 				power_warning_delay = initial(power_warning_delay)//Reset the delay
 				stop_sound(1, mecha)
-				mecha.occupant << "<span class='notice'>[mecha] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>"
-				mecha.log_append_to_last("Power alert cleared")
-				return
 
-			if (mecha.power_alert_status == 1)//If we're in alert 1, constant loop
-				if (!powerloop)//If the powerloop sound var is still null, it means we havent started playing it yet
-					mecha.occupant << "<span class='danger'>WARNING: [mecha] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>"
-					create_sound(1)//We create it
-					mecha.occupant << powerloop//and start playing it to the occupant
-					last_power_warning = world.time//We set this var when we enter alert 1, to track how long we've been in it
+			else
+				if (mecha.cell.charge >= (mecha.cell.maxcharge*0.3))//But power has risen back above danger levels
+					mecha.power_alert_status = 0//cancel the alert status
+					power_warning_delay = initial(power_warning_delay)//Reset the delay
+					stop_sound(1, mecha)
+					mecha.occupant << "<span class='notice'>[mecha] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>"
+					mecha.log_append_to_last("Power alert cleared")
+					return
 
-				if ((world.time - last_power_warning) >= looptime) //If we've been in looping mode for long enough
-					mecha.occupant << "<span class='danger'>Alert: [mecha] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>"
-					stop_sound(1, mecha)//We stop the soundloop
-					mecha.power_alert_status = 2//And switch to alert 2
-					last_power_warning = world.time
+				if (mecha.power_alert_status == 1)//If we're in alert 1, constant loop
+					if (!powerloop)//If the powerloop sound var is still null, it means we havent started playing it yet
+						mecha.occupant << "<span class='danger'>WARNING: [mecha] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>"
+						create_sound(1)//We create it
+						mecha.occupant << powerloop//and start playing it to the occupant
+						last_power_warning = world.time//We set this var when we enter alert 1, to track how long we've been in it
 
-			else if (mecha.power_alert_status == 2)//If we're in alert 2 - infrequent vocal warnings
-				if ((world.time - last_power_warning) >= power_warning_delay)//IF its been long enough since the last warning
-					mecha.narrator_message(POWER)//We send a warning message to remind them
-					power_warning_delay *= 1.05//We increase the delay between warnings by 5% multiplicatively each time
-					last_power_warning = world.time
-					//This causes the warnings to become less frequent and not be a constant annoyance
+					if ((world.time - last_power_warning) >= looptime) //If we've been in looping mode for long enough
+						mecha.occupant << "<span class='danger'>Alert: [mecha] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>"
+						stop_sound(1, mecha)//We stop the soundloop
+						mecha.power_alert_status = 2//And switch to alert 2
+						last_power_warning = world.time
+
+				else if (mecha.power_alert_status == 2)//If we're in alert 2 - infrequent vocal warnings
+					if ((world.time - last_power_warning) >= power_warning_delay)//IF its been long enough since the last warning
+						mecha.narrator_message(POWER)//We send a warning message to remind them
+						power_warning_delay *= 1.05//We increase the delay between warnings by 5% multiplicatively each time
+						last_power_warning = world.time
+						//This causes the warnings to become less frequent and not be a constant annoyance
 
 
 		//The following block is basically a carbon copy of the above with minor alterations for damage
