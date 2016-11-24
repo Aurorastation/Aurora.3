@@ -1240,7 +1240,7 @@
 		set_dir(dir_in)
 		pr_manage_warnings.resume_sounds(src)
 		playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
-		if(!hasInternalDamage() && cell.charge >= cell.maxcharge && health >= initial(health))
+		if(cell && !hasInternalDamage() && cell.charge >= cell.maxcharge && health >= initial(health))
 			narrator_message(NOMINAL)
 		return 1
 	else
@@ -1985,9 +1985,20 @@
 
 
 	process(var/obj/mecha/mecha)
-		// No cell will kill warnings.
-		// Makes sense, caution systems are battery powered.
-		if (!mecha || !mecha.cell)
+
+		if (!mecha)
+			return
+
+		if (!mecha.cell)
+			if((mecha.power_alert_status || mecha.damage_alert_status))
+				// No cell will kill warnings.
+				// Makes sense, caution systems are battery powered.
+				mecha.power_alert_status = 0//cancel the alert status
+				power_warning_delay = initial(power_warning_delay)//Reset the delay
+				stop_sound(1, mecha)
+				mecha.damage_alert_status = 0
+				damage_warning_delay = initial(damage_warning_delay)//Reset the delay
+				stop_sound(2, mecha)
 			return
 
 		if (!mecha.power_alert_status && mecha.cell)//If we're in the fine status
@@ -1999,6 +2010,7 @@
 		//No 'else' here, we want this to run in the same proc if the alert status was just enabled
 
 		if (mecha.power_alert_status)//IF we're in either warning status
+
 			if (mecha.cell.charge >= (mecha.cell.maxcharge*0.3))//But power has risen back above danger levels
 				mecha.power_alert_status = 0//cancel the alert status
 				power_warning_delay = initial(power_warning_delay)//Reset the delay
