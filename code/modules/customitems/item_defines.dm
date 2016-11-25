@@ -486,7 +486,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "stone_ring"
 	item_state = "stone_ring"
 	contained_sprite = 1
-
+	clipped = 1
+	species_restricted = null
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
