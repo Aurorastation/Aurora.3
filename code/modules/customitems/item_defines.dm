@@ -756,7 +756,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 
 
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/lilith_coat //Black Labcoat - LiLITH - lady_of_ravens
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/lilith_coat //Black Labcoat - LiLITH - ladyofravens
 	name = "black labcoat"
 	desc = "A sleek black labcoat made from durable synthetics. A tag inside the collar reads \"Property of LiLITH\" in red block letters."
 	icon = 'icons/obj/custom_items/lilith_coat.dmi'
