@@ -54,7 +54,7 @@
 	desc = "Use in case of bomb."
 	icon_state = "bombsuit"
 	w_class = 5//Too large to fit in a backpack
-	flags_item = STOPPRESSUREDAMAGE|THICKMATERIAL|BLOCK_GAS_SMOKE_EFFECT
+	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|BLOCK_GAS_SMOKE_EFFECT
 	armor = list(melee = 30, bullet = 20, laser = 25,energy = 30, bomb = 100, bio = 60, rad = 60)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
@@ -77,7 +77,7 @@
 	permeability_coefficient = 0.01
 	slowdown = 8
 	armor = list(melee = 55, bullet = 55, laser = 55,energy = 60, bomb = 100, bio = 60, rad = 60)
-	flags_item = STOPPRESSUREDAMAGE|THICKMATERIAL
+	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS

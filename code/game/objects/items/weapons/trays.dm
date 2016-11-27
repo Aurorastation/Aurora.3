@@ -148,7 +148,7 @@
 /obj/item/weapon/tray/var/cooldown = 0	//shield bash cooldown. based on world.time
 
 /obj/item/weapon/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (issilicon(M))//safety to stop robots losing their items
+	if (istype(user,/mob/living/silicon/robot))//safety to stop robots losing their items
 		return
 
 	if (istype(W, /obj/item/weapon/tray))//safety to prevent tray stacking
