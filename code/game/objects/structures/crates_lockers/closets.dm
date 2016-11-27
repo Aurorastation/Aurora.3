@@ -62,9 +62,6 @@
 			content_size += Ceiling(I.w_class/2)
 	return content_size
 
-/obj/structure/closet/alter_health()
-	return get_turf(src)
-
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
 	return (!density)

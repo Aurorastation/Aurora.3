@@ -152,8 +152,6 @@ var/const/NO_EMAG_ACT = -50
 	id_card.registered_name		= real_name
 	id_card.sex 				= capitalize(gender)
 	id_card.set_id_photo(src)
-	id_card.citizenship			= citizenship
-	id_card.religion			= religion
 
 	if(dna)
 		id_card.blood_type		= dna.b_type
@@ -164,6 +162,8 @@ var/const/NO_EMAG_ACT = -50
 /mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
 	..()
 	id_card.age = age
+	id_card.citizenship			= citizenship
+	id_card.religion			= religion
 
 /obj/item/weapon/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")

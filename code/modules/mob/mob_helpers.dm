@@ -1105,15 +1105,6 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		else
 			return "its"//Something went wrong
 
-
-/mob/proc/isHoldingShield()
-	var/obj/item/test = l_hand
-	if (istype(test, /obj/item) && test.IsShield())
-		return 1
-	test = r_hand
-	if (istype(test, /obj/item) && test.IsShield())
-		return 1
-	return 0
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/item/device/multitool/P)

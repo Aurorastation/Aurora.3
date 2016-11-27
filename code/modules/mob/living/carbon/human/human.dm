@@ -378,7 +378,7 @@
 		src << browse(null, t1)
 
 	if(href_list["item"])
-		if (handle_strip(href_list["item"],usr))
+		handle_strip(href_list["item"],usr)
 
 	if(href_list["criminal"])
 		if(hasHUD(usr,"security"))

@@ -75,12 +75,6 @@ datum/controller/game_controller/proc/setup_objects()
 	sleep(-1)
 	spawn_cargo_stock()
 
-
-	// Create the mining ore distribution map.
-	// These values determine the specific area that the map is applied to.
-	// If you do not use the official Baycode asteroid map, you will need to change them.
-	asteroid_ore_map = new /datum/random_map/ore(null,13,32,5,217,223)
-
 	// Set up antagonists.
 	populate_antag_type_list()
 
