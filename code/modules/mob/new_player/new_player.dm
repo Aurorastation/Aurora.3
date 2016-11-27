@@ -18,48 +18,58 @@
 	New()
 		mob_list += src
 
-	verb/new_player_panel()
-		set src = usr
-		new_player_panel_proc()
-
-
-	proc/new_player_panel_proc()
-		var/output = "<div align='center'><B>New Player Options</B>"
-		output +="<hr>"
-		output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
-
-		if(!ticker || ticker.current_state <= GAME_STATE_PREGAME)
-			if(ready)
-				output += "<p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
-			else
-				output += "<p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
-
+	verb/new_player_panel(var/is_start as num)
+		if (is_start != 1)
+			set src = usr
+			new_player_panel_proc(0)
 		else
-			output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br><br>"
-			output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"
+			set src = usr
+			new_player_panel_proc(1)
 
-		output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
 
-		if(!IsGuestKey(src.key))
-			establish_db_connection(dbcon)
+	proc/new_player_panel_proc(var/is_start)
+		var/output
 
-			if(dbcon.IsConnected())
-				var/isadmin = 0
-				if(src.client && src.client.holder)
-					isadmin = 1
-				var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[ckey]\")")
-				query.Execute()
-				var/newpoll = 0
-				while(query.NextRow())
-					newpoll = 1
-					break
+		if (is_start != 1)
+			output = "<div align='center'><B>New Player Options</B>"
+			output +="<hr>"
+			output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
+		else
+			output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
-				if(newpoll)
-					output += "<p><b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+		if (is_start != 1)
+			if(!ticker || ticker.current_state <= GAME_STATE_PREGAME)
+				if(ready)
+					output += "<p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
 				else
-					output += "<p><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A></p>"
+					output += "<p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
 
-		output += "</div>"
+			else
+				output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br><br>"
+				output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"
+
+			output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
+
+			if(!IsGuestKey(src.key))
+				establish_db_connection(dbcon)
+
+				if(dbcon.IsConnected())
+					var/isadmin = 0
+					if(src.client && src.client.holder)
+						isadmin = 1
+					var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[ckey]\")")
+					query.Execute()
+					var/newpoll = 0
+					while(query.NextRow())
+						newpoll = 1
+						break
+
+					if(newpoll)
+						output += "<p><b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+					else
+						output += "<p><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A></p>"
+
+			output += "</div>"
 
 		src << browse(output,"window=playersetup;size=210x280;can_close=0")
 		return
@@ -224,7 +234,7 @@
 			if(client)
 				client.prefs.process_link(src, href_list)
 		else if(!href_list["late_join"])
-			new_player_panel()
+			new_player_panel(0)
 
 		if(href_list["showpoll"])
 

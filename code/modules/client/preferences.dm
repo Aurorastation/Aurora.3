@@ -281,8 +281,12 @@ datum/preferences
 	return
 
 /datum/preferences/proc/ShowChoices(mob/user)
-	if(!user || !user.client)	return
+	if(!user || !user.client)
+		user << "Error."
+		return
+
 	update_preview_icon()
+
 	if(preview_icon_front && preview_icon_side)
 		user << browse_rsc(preview_icon_front, "previewicon.png")
 		user << browse_rsc(preview_icon_side, "previewicon2.png")
@@ -957,7 +961,7 @@ datum/preferences
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
 
-	if(!istype(user, /mob/new_player))	return
+	if(!istype(user, /mob/new_player) || (!istype(user, /mob/dead/observer))) return
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)

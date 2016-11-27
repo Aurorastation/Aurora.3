@@ -597,6 +597,20 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	return ..()
 
+/mob/dead/verb/setup_character()
+
+	set category = "Ghost"
+	set name = "Setup Character"
+	set desc = "Edit your characters for the next round!"
+
+	if(!istype(usr, /mob/dead/observer)) return //Check if they're a ghost.
+
+	var/mob/new_player/player_call = usr
+
+	player_call.new_player_panel(1)
+
+
+
 //Used for drawing on walls with blood puddles as a spooky ghost.
 /mob/dead/verb/bloody_doodle()
 
