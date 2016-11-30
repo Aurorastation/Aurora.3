@@ -604,57 +604,12 @@
 				apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, "head", used_weapon = "Excessive Cold")
 				fire_alert = max(fire_alert, 1)
 
-
 		//breathing in hot/cold air also heats/cools you a bit
 		var/temp_adj = breath.temperature - bodytemperature
 		if (temp_adj < 0)
 			temp_adj /= (BODYTEMP_COLD_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
 		else
-			failed_last_breath = 0
-			adjustOxyLoss(-3)
-
-
-
-
-		// Hot air hurts :(
-		if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in mutations))
-
-			if(breath.temperature <= species.cold_level_1)
-				if(prob(20))
-					src << "<span class='danger'>You feel your face freezing and icicles forming in your lungs!</span>"
-			else if(breath.temperature >= species.heat_level_1)
-				if(prob(20))
-					src << "<span class='danger'>You feel your face burning and a searing heat in your lungs!</span>"
-
-			if(breath.temperature >= species.heat_level_1)
-				if(breath.temperature < species.heat_level_2)
-					apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, BURN, "head", used_weapon = "Excessive Heat")
-					fire_alert = max(fire_alert, 2)
-				else if(breath.temperature < species.heat_level_3)
-					apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, BURN, "head", used_weapon = "Excessive Heat")
-					fire_alert = max(fire_alert, 2)
-				else
-					apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, BURN, "head", used_weapon = "Excessive Heat")
-					fire_alert = max(fire_alert, 2)
-
-			else if(breath.temperature <= species.cold_level_1)
-				if(breath.temperature > species.cold_level_2)
-					apply_damage(COLD_GAS_DAMAGE_LEVEL_1, BURN, "head", used_weapon = "Excessive Cold")
-					fire_alert = max(fire_alert, 1)
-				else if(breath.temperature > species.cold_level_3)
-					apply_damage(COLD_GAS_DAMAGE_LEVEL_2, BURN, "head", used_weapon = "Excessive Cold")
-					fire_alert = max(fire_alert, 1)
-				else
-					apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, "head", used_weapon = "Excessive Cold")
-					fire_alert = max(fire_alert, 1)
-
-
-			//breathing in hot/cold air also heats/cools you a bit
-			var/temp_adj = breath.temperature - bodytemperature
-			if (temp_adj < 0)
-				temp_adj /= (BODYTEMP_COLD_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
-			else
-				temp_adj /= (BODYTEMP_HEAT_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
+			temp_adj /= (BODYTEMP_HEAT_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
 
 		var/relative_density = breath.total_moles / (MOLES_CELLSTANDARD * BREATH_PERCENTAGE)
 		temp_adj *= relative_density

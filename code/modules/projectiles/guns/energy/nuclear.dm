@@ -32,6 +32,7 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
+	var/reliability = 95
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
