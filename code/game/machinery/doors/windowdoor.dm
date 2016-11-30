@@ -76,7 +76,7 @@
 		return
 	if (src.operating)
 		return
-	if (src.density && (!issmall(M) || ishuman(M)) && src.allowed(AM))
+	if (src.density && (!issmall(AM) || ishuman(AM)) && src.allowed(AM))
 		open()
 		if(src.check_access(null))
 			sleep(50)

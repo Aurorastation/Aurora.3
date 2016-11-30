@@ -16,7 +16,6 @@
 
 	var/being_shocked = 0
 
-	var/item_state // Base name of the image used for when the item is worn. Suffixes are added to this.
 	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
 	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
 	//requires that the wearer's species is listed in icon_supported_species_tags

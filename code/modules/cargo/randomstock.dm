@@ -1214,7 +1214,7 @@ var/list/global/random_stock_large = list(
 			var/mob/living/bot/newbot = new type(L)
 			newbot.on = 0//Deactivated
 			if (prob(10))
-				newbot.Emag(null)
+				newbot.emag_act(9999,null)
 		if ("latexb")
 			new /obj/item/latexballon(L)
 
