@@ -486,7 +486,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "stone_ring"
 	item_state = "stone_ring"
 	contained_sprite = 1
-
+	clipped = 1
+	species_restricted = null
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
@@ -730,4 +731,46 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/zahra_pin.dmi'
 	icon_state = "zahra_pin"
 	item_state = "zahra_pin"
+	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/armband/fluff/karl_armband //Medizinercorps armband - Karl Jonson - arrow768
+	name = "medizinercorps armband"
+	desc = "A plain black armband with the golden Medizinercorps logo on it."
+	icon = 'icons/obj/custom_items/karl_armband.dmi'
+	icon_state = "karl_armband"
+	item_state = "karl_armband"
+	contained_sprite = 1
+
+
+/obj/item/weapon/melee/fluff/rook_whip //Ceremonial Whip - Rook Jameson - hivefleetchicken
+	name = "ceremonial whip"
+	desc = "A traditional cat o'nine tails whip made of jet black leather and embroidered with a few golden touches, made on Earth. It looks ceremoniously robust."
+	icon = 'icons/obj/custom_items/rook_whip.dmi'
+	icon_state = "rook_whip"
+	item_state = "rook_whip"
+	slot_flags = SLOT_BELT
+	contained_sprite = 1
+	w_class = 3
+	force = 2
+	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
+
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/lilith_coat //Black Labcoat - LiLITH - ladyofravens
+	name = "black labcoat"
+	desc = "A sleek black labcoat made from durable synthetics. A tag inside the collar reads \"Property of LiLITH\" in red block letters."
+	icon = 'icons/obj/custom_items/lilith_coat.dmi'
+	icon_state = "lilith_coat"
+	item_state = "lilith_coat"
+	icon_open = "lilith_coat_open"
+	icon_closed = "lilith_coat"
+	contained_sprite = 1
+
+
+/obj/item/clothing/head/fluff/sayyidah_tiara //Jeweled Tiara - Sayyidah Al-Kateb - alberyk
+	name = "jeweled tiara"
+	desc = "A headdress in the shape of a tiara, it is adorned by not so valuable jewels and spots a translucid veil on the back. There is room for pointy ears in the sides of the piece, as it was molded for a tajara."
+	icon = 'icons/obj/custom_items/sayyidah_dress.dmi' //special thanks to TheGreatJorge for the sprites
+	icon_state = "sayyidah_tiara"
+	item_state = "sayyidah_tiara"
 	contained_sprite = 1
