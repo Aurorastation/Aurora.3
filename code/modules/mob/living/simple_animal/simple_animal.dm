@@ -374,7 +374,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/stack/medical))
-		user.changeNext_move(4)
 		if(stat != DEAD)
 			var/obj/item/stack/medical/MED = O
 			if(health < maxHealth)
@@ -399,7 +398,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
-	user.changeNext_move(8)
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
 		return

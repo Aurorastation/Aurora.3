@@ -266,11 +266,7 @@
 			src << "\blue You're pinned to a wall by [mob.pinned[1]]!"
 			return 0
 
-
-
-		move_delay = world.time//set move delay
-		mob.last_move_intent = world.time + 10
-
+		move_delay = world.time //set move delay
 
 		if (mob.buckled || mob.pulledby)
 			if(istype(mob.buckled, /obj/vehicle))
