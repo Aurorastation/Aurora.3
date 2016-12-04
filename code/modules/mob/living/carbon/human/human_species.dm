@@ -61,6 +61,7 @@
 /mob/living/carbon/human/breeder/New(var/new_loc)
 	..(new_loc, "Vaurca Breeder")
 	src.gender = FEMALE
+	src.see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
 
 /mob/living/carbon/human/breeder
 	mob_size = 30 //same size as moghes lizard

@@ -27,9 +27,14 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
 
-	//vision_flags = SEE_INVISIBLE_OBSERVER_NOLIGHTING
+	stamina	=	250			  // Very long period of sprinting, but relatively low speed gain
+	sprint_speed_factor = 0.7
+	sprint_cost_factor = 0.27
+	stamina_recovery = 1//slow recovery
 
-	flags = CAN_JOIN | NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
+	vision_flags = SEE_SELF
+
+	flags = IS_RESTRICTED | NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,

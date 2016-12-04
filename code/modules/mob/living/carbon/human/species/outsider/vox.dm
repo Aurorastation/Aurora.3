@@ -138,6 +138,12 @@
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 
+	stamina	=	120			  // Vox are even faster than unathi and can go longer, but recover slowly
+	sprint_speed_factor = 3
+	stamina_recovery = 1
+	sprint_cost_factor = 0.7
+
+
 	cold_level_1 = 80
 	cold_level_2 = 50
 	cold_level_3 = 0
@@ -166,6 +172,7 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/gut,
-		/mob/living/carbon/human/proc/commune
+		/mob/living/carbon/human/proc/commune,
+		/mob/living/carbon/human/proc/quillboar
 		)
 

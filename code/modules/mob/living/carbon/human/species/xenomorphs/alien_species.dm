@@ -15,6 +15,11 @@
 
 	eyes = "blank_eyes"
 
+	stamina	=	100			  // Xenos are fast killing machines
+	sprint_speed_factor = 3.5
+	stamina_recovery = 1
+	sprint_cost_factor = 0.7
+
 	brute_mod = 0.5 // Hardened carapace.
 	burn_mod = 2    // Weak to fire.
 
@@ -205,6 +210,11 @@
 		"hive node" =       /obj/item/organ/xenos/hivenode,
 		"nutrient channel" = /obj/item/organ/diona/nutrients
 		)
+
+	stamina	=	120			  // Hunters are greased lightning
+	sprint_speed_factor = 4.25
+	stamina_recovery = 1
+	sprint_cost_factor = 0.7
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,

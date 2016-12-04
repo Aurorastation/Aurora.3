@@ -363,3 +363,27 @@
 				return
 			H << "<span class='danger'> Your nose begins to bleed...</span>"
 			H.drip(1)
+
+/mob/living/carbon/human/proc/quillboar(mob/target as mob in oview())
+	set name = "Launch Quill"
+	set desc = "Launches a quill in self-defense. Painful, but effective."
+	set category = "Abilities"
+
+	if(last_special > world.time)
+		src << "<span class='danger'>Your spine still aches!</span>"
+		return
+
+
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		src << "You cannot launch a quill in your current state."
+		return
+
+	last_special = world.time + 10
+
+	visible_message("<span class='warning'><b>\The [src]</b> launches a spine-quill at [target]!</span>")
+
+	src.apply_damage(10,BRUTE)
+	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
+	var/obj/item/weapon/arrow/quill/A = new /obj/item/weapon/arrow/quill(usr.loc)
+	A.throw_at(target, 10, 30, user)
+	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
