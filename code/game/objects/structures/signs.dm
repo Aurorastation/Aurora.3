@@ -208,11 +208,11 @@
 	desc = "Flashy."
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "xmaslights"
-	layer = LIGHTING_LAYER
+	layer = 5
 
 /obj/structure/sign/christmas/wreath
 	name = "wreath"
 	desc = "Prickly and overrated."
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "doorwreath"
-	layer = LIGHTING_LAYER
+	layer = 5

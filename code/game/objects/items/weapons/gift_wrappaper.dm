@@ -265,7 +265,8 @@
 		/obj/item/trash/raisins,
 		/obj/item/trash/koisbar,
 		/obj/item/weapon/xmasgift/medium,
-		/obj/item/toy/syndicateballoon)
+		/obj/item/toy/syndicateballoon,
+		/obj/item/toy/xmastree)
 
 	var/atom/movable/I = new gift_type(M)
 	M.remove_from_mob(src)
@@ -311,9 +312,8 @@
 		/mob/living/simple_animal/mouse/white,
 		/obj/item/weapon/xmasgift/small,
 		/obj/item/weapon/tank/jetpack/void,
-		/obj/structure/plushie/drone,
-		/obj/structure/plushie/ivancarp,
-		/obj/item/weapon/xmasgift/large)
+		/obj/item/weapon/xmasgift/large,
+		/obj/item/weapon/reagent_containers/food/snacks/pudding)
 
 	var/atom/movable/I = new gift_type(M)
 	M.remove_from_mob(src)
@@ -341,7 +341,9 @@
 		/mob/living/simple_animal/mushroom,
 		/mob/living/carbon/human/monkey/nupnup,
 		/obj/item/weapon/xmasgift/medium,
-		/obj/item/weapon/tank/jetpack)
+		/obj/item/weapon/tank/jetpack,
+		/obj/structure/plushie/drone,
+		/obj/structure/plushie/ivancarp,)
 
 	var/atom/movable/I = new gift_type(M)
 	M.remove_from_mob(src)
