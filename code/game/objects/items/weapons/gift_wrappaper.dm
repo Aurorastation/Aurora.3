@@ -1,6 +1,7 @@
 /* Gifts and wrapping paper
  * Contains:
  *		Gifts
+ *		X-mas Gifts
  *		Wrapping Paper
  */
 
@@ -188,3 +189,163 @@
 			user << "\blue You need more paper."
 	else
 		user << "They are moving around too much. A straightjacket would help."
+
+/*
+ * Xmas Gifts
+ */
+/obj/item/weapon/xmasgift
+	name = "christmas gift"
+	desc = "PRESENTS!!!! eek!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift1"
+	item_state = "gift1"
+	w_class = 1
+
+/obj/item/weapon/xmasgift/New()
+	..()
+	var/gift_benefactor = pick("John Rolf","Isaac Bureaurgard","David Montrello","Sarah Karpac","Camille Rodgers","Luke Lawrence","Goliath Grills","Torbjorn","Odin","Jesus DeSanto","Santa Claus","Ms. Claus","Mr. Claus","Bjorn","Frodo","Gandalf","Elrond",
+		"Robert Heinlen","Martin Fresco","Lawrence Chamberlain","Buster Kilrain","Nerevar","Neville Trouserkepling","Adam Sortings","Eve's Grocers","Father Christmas","Adolph Romkippler","Adolf Strange","Camille","Maximilian von Biesel","Max","Bob Wallace",
+		"The Grinch","Cicilia Simon","John F. Kennedy","Joseph Dorn","Mendell City","Ta’Akaix’Scay’extiih’aur Zo’ra","Ta'Akaix'Vaur'skiyet'sca Zo'ra","Miranda Trasen","Jiub","The Biesellian National Guard","The ERT","Baal D. Griffon","Hephaestus Industries","The Sol Alliance (Sorry about the blockade!")
+	var/pick_emotion = pick("love","platonic admiration","approval","love (not in a sexual way or anything, though)","apathy", "schadenfreude","love","God's blessing","Santa's blessing","Non-demoninational deity's blessing","love","compassion","appreciation",
+		"respect","begrudging respect","love")
+	desc = "To: The NSS Exodus<BR>From: <i>[gift_benefactor], with [pick_emotion]</i>"
+
+	return
+
+/obj/item/weapon/xmasgift/ex_act()
+	qdel(src)
+	return
+
+/obj/item/weapon/xmasgift/small/attack_self(mob/M as mob)
+	var/gift_type = pick(
+		/obj/item/weapon/storage/wallet,
+		/obj/item/weapon/storage/photo_album,
+		/obj/item/weapon/storage/box/snappops,
+		/obj/item/weapon/storage/fancy/crayons,
+		/obj/item/weapon/soap/deluxe,
+		/obj/item/weapon/pen/invisible,
+		/obj/item/weapon/lipstick/random,
+		/obj/item/weapon/corncob,
+		/obj/item/weapon/bikehorn,
+		/obj/item/toy/balloon,
+		/obj/item/toy/blink,
+		/obj/item/toy/gun,
+		/obj/item/toy/prize/deathripley,
+		/obj/item/toy/prize/durand,
+		/obj/item/toy/prize/fireripley,
+		/obj/item/toy/prize/gygax,
+		/obj/item/toy/prize/honk,
+		/obj/item/toy/prize/marauder,
+		/obj/item/toy/prize/mauler,
+		/obj/item/toy/prize/odysseus,
+		/obj/item/toy/prize/phazon,
+		/obj/item/toy/prize/ripley,
+		/obj/item/toy/prize/seraph,
+		/obj/item/device/paicard,
+		/obj/item/clothing/accessory/horrible,
+		/obj/item/weapon/coin/silver,
+		/obj/item/device/camera,
+		/obj/item/weapon/coin/gold,
+		/obj/item/bluespace_crystal,
+		/obj/item/weapon/flame/lighter/zippo,
+		/obj/item/device/taperecorder,
+		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
+		/obj/item/toy/bosunwhistle,
+		/obj/item/clothing/mask/fakemoustache,
+		/obj/item/clothing/mask/gas/clown_hat,
+		/obj/item/clothing/mask/gas/mime,
+		/obj/item/clothing/head/festive/santa,
+		/obj/item/stack/material/animalhide/lizard,
+		/obj/item/stack/material/animalhide/cat,
+		/obj/item/stack/material/animalhide/corgi,
+		/obj/item/stack/material/animalhide/human,
+		/obj/item/stack/material/animalhide/monkey,
+		/obj/item/stack/material/animalhide/xeno,
+		/obj/item/trash/cheesie,
+		/obj/item/trash/raisins,
+		/obj/item/trash/koisbar,
+		/obj/item/weapon/xmasgift/medium,
+		/obj/item/toy/syndicateballoon)
+
+	var/atom/movable/I = new gift_type(M)
+	M.remove_from_mob(src)
+	M.put_in_hands(I)
+	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
+	qdel(src)
+	return
+
+/obj/item/weapon/xmasgift/medium
+	icon_state = "gift2"
+	item_state = "gift2"
+	w_class = 2
+
+/obj/item/weapon/xmasgift/medium/attack_self(mob/M as mob)
+	var/gift_type = pick(
+		/obj/item/weapon/sord,
+		/obj/item/weapon/storage/belt/champion,
+		/obj/item/weapon/pickaxe/silver,
+		/obj/item/weapon/grenade/smokebomb,
+		/obj/item/weapon/contraband/poster,
+		/obj/item/weapon/book/manual/barman_recipes,
+		/obj/item/weapon/book/manual/chef_recipes,
+		/obj/item/weapon/banhammer,
+		/obj/item/toy/crossbow,
+		/obj/item/toy/katana,
+		/obj/item/toy/spinningtoy,
+		/obj/item/toy/sword,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+		/obj/item/device/paicard,
+		/obj/item/clothing/accessory/horrible,
+		/obj/item/weapon/storage/box/donkpockets,
+		/obj/item/weapon/reagent_containers/food/drinks/teapot,
+		/obj/item/device/flashlight/lantern,
+		/obj/item/clothing/mask/balaclava,
+		/obj/item/clothing/accessory/badge/old,
+		/obj/item/clothing/mask/gas/clown_hat,
+		/obj/item/clothing/mask/gas/mime,
+		/obj/item/clothing/shoes/galoshes,
+		/mob/living/simple_animal/lizard,
+		/mob/living/simple_animal/mouse/brown,
+		/mob/living/simple_animal/mouse/gray,
+		/mob/living/simple_animal/mouse/white,
+		/obj/item/weapon/xmasgift/small,
+		/obj/item/weapon/tank/jetpack/void,
+		/obj/structure/plushie/drone,
+		/obj/structure/plushie/ivancarp,
+		/obj/item/weapon/xmasgift/large)
+
+	var/atom/movable/I = new gift_type(M)
+	M.remove_from_mob(src)
+	M.put_in_hands(I)
+	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
+	qdel(src)
+	return
+
+/obj/item/weapon/xmasgift/large
+	icon_state = "gift3"
+	item_state = "gift3"
+	w_class = 3
+
+/obj/item/weapon/xmasgift/large/attack_self(mob/M as mob)
+	var/gift_type = pick(
+		/obj/item/weapon/inflatable_duck,
+		/obj/item/weapon/beach_ball,
+		/obj/item/clothing/under/redcoat,
+		/obj/item/clothing/under/syndicate/tracksuit,
+		/obj/item/clothing/under/rank/clown,
+		/obj/item/clothing/under/mime,
+		/mob/living/simple_animal/cat/kitten,
+		/mob/living/simple_animal/chick,
+		/mob/living/simple_animal/corgi/puppy,
+		/mob/living/simple_animal/mushroom,
+		/mob/living/carbon/human/monkey/nupnup,
+		/obj/item/weapon/xmasgift/medium,
+		/obj/item/weapon/tank/jetpack)
+
+	var/atom/movable/I = new gift_type(M)
+	M.remove_from_mob(src)
+	M.put_in_hands(I)
+	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
+	qdel(src)
+	return
