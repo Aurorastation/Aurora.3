@@ -61,3 +61,9 @@
 	body_parts_covered = 0
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 
+/obj/item/clothing/head/festive/santa
+	name = "santa hat"
+	icon_state = "santahat"
+	body_parts_covered = HEAD
+	desc = "A cheap fabric santa hat, with a fake beard and a little bell at the end."
+
