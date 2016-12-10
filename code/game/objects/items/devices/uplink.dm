@@ -258,8 +258,24 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		establish_db_connection(dbcon)
 
 		if (dbcon.IsConnected())
+			nanoui_data["contracts"] = list()
+
+			if (!nanoui_data["contracts_current_page"])
+				nanoui_data["contracts_current_page"] = 1
+
+			if (!nanoui_data["contracts_view"])
+				nanoui_data["contracts_view"] = 1
+
 			var/query_details[0]
-			query_details[":contract_id"] = text2num(id)
+
+			switch (nanoui_data["contracts_view"])
+				if (1)
+					query_details[":status"] = "open"
+				if (2)
+					query_details[":status"] = "closed"
+				else
+					nanoui_data["contracts_view"] = 1
+					query_details[":status"] = "open"
 
 			var/DBQuery/select_query = dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id")
 			select_query.Execute(query_details)

@@ -28,13 +28,10 @@
 				user << "You activate the analyzer's microlaser, analyzing \the [loaded_item] and breaking it down."
 				flick("portable_analyzer_scan", src)
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				if(loaded_item.reliability >= min_reliability)
-					var/list/temp_tech = ConvertReqString2List(loaded_item.origin_tech)
-					for(var/T in temp_tech)
-						files.UpdateTech(T, temp_tech[T])
-						user << "\The [loaded_item] had level [temp_tech[T]] in [T]."
-				else
-					user << "\The [loaded_item] was not reliable enough to advance research."
+				var/list/temp_tech = ConvertReqString2List(loaded_item.origin_tech)
+				for(var/T in temp_tech)
+					files.UpdateTech(T, temp_tech[T])
+					user << "\The [loaded_item] had level [temp_tech[T]] in [T]."
 				loaded_item = null
 				for(var/obj/I in contents)
 					for(var/mob/M in I.contents)

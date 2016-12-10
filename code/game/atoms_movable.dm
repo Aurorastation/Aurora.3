@@ -13,7 +13,8 @@
 	var/throw_range = 7
 	var/moved_recently = 0
 	var/mob/pulledby = null
-	var/item_state = null // Used to specify the item state for the on-mob overlays.
+	var/item_state = null // Base name of the image used for when the item is worn. Suffixes are added to this.
+	//Also used on holdable mobs for the same info related to their held version
 
 	var/auto_init = 1
 

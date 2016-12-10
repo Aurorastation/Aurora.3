@@ -479,10 +479,7 @@
 			user << "<span class='notice'>You stop [L == user ? "climbing into the cryo pod." : "putting [L] into the cryo pod."]</span>"
 			return
 
-		if(orient_right)
-			icon_state = "[occupied_icon_state]-r"
-		else
-			icon_state = occupied_icon_state
+		icon_state = occupied_icon_state
 
 		L << "\blue You feel cool air surround you. You go numb as your senses turn inward."
 		L << "\blue <b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b>"

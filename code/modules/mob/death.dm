@@ -82,7 +82,7 @@
 	timeofdeath = world.time
 	if (isanimal(src))
 		set_death_time(ANIMAL, world.time)
-	else if (ispAI(src) || isdrone(src))
+	else if (ispAI(src) || isDrone(src))
 		set_death_time(MINISYNTH, world.time)
 	else if (isliving(src))
 		set_death_time(CREW, world.time)//Crew is the fallback

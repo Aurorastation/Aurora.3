@@ -32,6 +32,7 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
+	var/reliability = 95
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
@@ -98,11 +99,11 @@
 	switch(current_mode.name)
 		if("stun") overlays += "nucgun-stun"
 		if("lethal") overlays += "nucgun-kill"
-
+/*
 /obj/item/weapon/gun/energy/gun/nuclear/emp_act(severity)
 	..()
 	reliability -= round(15/severity)
-
+*/
 /obj/item/weapon/gun/energy/gun/nuclear/update_icon()
 	overlays.Cut()
 	update_charge()

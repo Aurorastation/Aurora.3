@@ -36,9 +36,6 @@ var/list/holder_mob_icon_cache = list()
 	else
 		..()
 
-/obj/item/weapon/holder/process()
-	update_state()
-
 
 /obj/item/weapon/holder/GetID()
 	for(var/mob/M in contents)
@@ -100,6 +97,7 @@ var/list/holder_mob_icon_cache = list()
 		return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
+
 
 //This function checks if the current location is safe to release inside
 //it returns 1 if the creature will bug out when released
@@ -306,6 +304,9 @@ var/list/holder_mob_icon_cache = list()
 	// Handle the rest of sync().
 	..(M)
 
+//#TODO-MERGE
+//Port the reduced-duplication holder method from baystation upstream:
+//https://github.com/Baystation12/Baystation12/blob/master/code/modules/mob/holder.dm
 
 //Mob specific holders.
 //w_class mainly determines whether they can fit in trashbags. <=2 can, >=3 cannot

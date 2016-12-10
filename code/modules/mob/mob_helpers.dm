@@ -30,6 +30,44 @@
 /mob/living/carbon/human/isMonkey()
 	return istype(species, /datum/species/monkey)
 
+
+/proc/ishuman_species(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
+		return 1
+	return 0
+
+/proc/isunathi(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
+		return 1
+	return 0
+
+/proc/istajara(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Tajara"))
+		return 1
+	return 0
+
+/proc/isskrell(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skrell"))
+		return 1
+	return 0
+
+/proc/isvaurca(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca"))
+		return 1
+	return 0
+
+/proc/isipc(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Machine"))
+		return 1
+	return 0
+
+/proc/isvox(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vox"))
+		return 1
+	return 0
+
+
+
 /mob/proc/is_diona()
 	//returns which type of diona we are, or zero
 	if (istype(src, /mob/living/carbon/human))
@@ -952,8 +990,7 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 	else if (mob_listed(src, synthetic_mobs_inclusive,0))
 		mobtypes |= TYPE_SYNTHETIC
 	else
-		var/datum/species/S = src.get_species(1)
-		if (S && (S.flags & IS_SYNTHETIC))
+		if (isSynthetic())
 			mobtypes |= TYPE_SYNTHETIC
 
 	if (mob_listed(src, wierd_mobs_specific,1))
@@ -1068,15 +1105,6 @@ var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
 		else
 			return "its"//Something went wrong
 
-
-/mob/proc/isHoldingShield()
-	var/obj/item/test = l_hand
-	if (istype(test, /obj/item) && test.IsShield())
-		return 1
-	test = r_hand
-	if (istype(test, /obj/item) && test.IsShield())
-		return 1
-	return 0
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/item/device/multitool/P)
