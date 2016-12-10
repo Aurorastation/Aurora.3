@@ -36,7 +36,19 @@
 /datum/category_item/player_setup_item/occupation/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("jobs" = "unsanitized_jobs", "alternate_option", "alternate_titles" = "player_alt_titles"), "args" = list("id")))
 
-/datum/category_item/player_setup_item/occupation/sanitize_character()
+/datum/category_item/player_setup_item/occupation/sanitize_character(var/sql_load = 0)
+	if (sql_load)
+		pref.alternate_option = text2num(alternate_option)
+
+		var/list/jobs = params2list(pref.unsanitized_jobs)
+
+		for (var/preference in jobs)
+			try
+				pref.vars[preference] = text2num(jobs[preference])
+			catch(var/exception/e)
+				log_debug("LOADING: Bad job preference key: [preference].")
+				log_debug(e.desc)
+
 	pref.alternate_option	= sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
 	pref.job_civilian_high	= sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
 	pref.job_civilian_med	= sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
