@@ -122,10 +122,16 @@
 			PI.load_character(S)
 	else
 		src.load_character_sql()
+
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character()
 
-// For loading character by category. Utilizes query caching.
+/*
+ * A proc for dynamically loading a character from the database.
+ * See the category items for procs on what pieces are given.
+ *
+ * Each query is cached as well, after generation. Only things recompiled are the arguments and the finalized query text (with arguments in it).
+ */
 /datum/category_group/player_setup_category/proc/load_character_sql()
 	var/static/list/query_cache
 
@@ -193,18 +199,24 @@
 			// Save it.
 			query_cache[type][query] = var_names
 
-	// Actually utilize the query.
+	// Need to typecast due to reasons.
+	var/datum/category_collection/player_setup_collection/cc = collection
+
+	// Actually utilize the queries.
 	var/list/arg_list = gather_load_parameters()
-	for (var/query in query_cache[type])
-		var/DBQuery/query = dbcon.NewQuery(query)
+	for (var/query_text in query_cache[type])
+		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list, 1)
 
 		// Each query should only return exactly 1 row.
-		var/list/var_names = query_cache[type]
+		var/list/var_names = query_cache[type][query_text]
 		if (query.NextRow())
 			for (var/i = 1, i <= var_names.len, i++)
-				// We can do this, because when generating, we ensured that
-				preferences.vars[var_names[i]] = query.item[i]
+				var/list/layers = splittext(var_names[i], "/")
+				if (layers.len == 1)
+					cc.preferences.vars[var_names[i]] = query.item[i]
+				else
+					cc.preferences.vars[layers[1]][layers[2]] = query.item[i]
 
 /datum/category_group/player_setup_category/proc/gather_load_parameters()
 	var/list/arg_list = list()
