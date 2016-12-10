@@ -6,14 +6,20 @@
 	S["lastchangelog"]	>> pref.lastchangelog
 	S["default_slot"]	>> pref.default_slot
 	S["toggles"]		>> pref.toggles
+	S["asfx_togs"]		>> pref.asfx_togs
+	S["motd_hash"]		>> pref.motd_hash
+	S["memo_hash"]		>> pref.memo_hash
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]	<< pref.lastchangelog
 	S["default_slot"]	<< pref.default_slot
 	S["toggles"]		<< pref.toggles
+	S["asfx_togs"]		<< pref.asfx_togs
+	S["motd_hash"]		<< pref.motd_hash
+	S["memo_hash"]		<< pref.memo_hash
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
-	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_toggles"), "args" = list("ckey")))
+	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_toggles" = "asfx_togs", "motd_hash", "memo_hash"), "args" = list("ckey")))
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
 	if (sql_load)
