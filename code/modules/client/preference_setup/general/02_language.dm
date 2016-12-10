@@ -11,8 +11,12 @@
 /datum/category_item/player_setup_item/general/language/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("language" = "alternate_languages"), "args" = list("id")))
 
-/datum/category_item/player_setup_item/general/language/sanitize_character()
-	if(!islist(pref.alternate_languages))	pref.alternate_languages = list()
+/datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
+	if (sql_load)
+		pref.alternate_languages = params2list(pref.alternate_languages)
+
+	if(!islist(pref.alternate_languages))
+		pref.alternate_languages = list()
 
 /datum/category_item/player_setup_item/general/language/content()
 	. += "<b>Languages</b><br>"

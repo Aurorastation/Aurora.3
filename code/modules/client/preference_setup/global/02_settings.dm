@@ -15,10 +15,13 @@
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_toggles"), "args" = list("ckey")))
 
-/datum/category_item/player_setup_item/player_global/settings/sanitize_preferences()
+/datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
+	if (sql_load)
+		pref.current_character = text2num(pref.current_character)
+
 	pref.lastchangelog	= sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
-	pref.default_slot	= sanitize_integer(pref.default_slot, 1, config.character_slots, initial(pref.default_slot))
-	pref.toggles		= sanitize_integer(pref.toggles, 0, 65535, initial(pref.toggles))
+	pref.default_slot	= sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
+	pref.toggles		= sanitize_integer(text2num(pref.toggles), 0, 65535, initial(pref.toggles))
 
 /datum/category_item/player_setup_item/player_global/settings/content(var/mob/user)
 	. += "<b>Play admin midis:</b> <a href='?src=\ref[src];toggle=[SOUND_MIDI]'><b>[(pref.toggles & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>"

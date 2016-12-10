@@ -25,17 +25,17 @@
 													"gender",
 													"age",
 													"metadata",
-													"spawnpoint"),
+													"spawnpoint",),
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
-	pref.age			= sanitize_integer(pref.age, AGE_MIN, AGE_MAX, initial(pref.age))
+	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
 	pref.real_name		= sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name	= random_name(pref.gender, pref.species)
 	pref.spawnpoint		= sanitize_inlist(pref.spawnpoint, spawntypes, initial(pref.spawnpoint))
-	pref.be_random_name	= sanitize_integer(pref.be_random_name, 0, 1, initial(pref.be_random_name))
+	pref.be_random_name	= sanitize_integer(text2num(pref.be_random_name), 0, 1, initial(pref.be_random_name))
 
 /datum/category_item/player_setup_item/general/basic/content()
 	. = "<b>Name:</b> "

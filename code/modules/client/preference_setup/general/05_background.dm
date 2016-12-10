@@ -30,10 +30,14 @@
 				"ss13_characters" = list("vars" = list("home_system", "citizenship", "faction", "religion"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()
-	if(!pref.home_system) pref.home_system = "Unset"
-	if(!pref.citizenship) pref.citizenship = "None"
-	if(!pref.faction)     pref.faction =     "None"
-	if(!pref.religion)    pref.religion =    "None"
+	if(!pref.home_system)
+		pref.home_system	= "Unset"
+	if(!pref.citizenship)
+		pref.citizenship	= "None"
+	if(!pref.faction)
+		pref.faction		= "None"
+	if(!pref.religion)
+		pref.religion		= "None"
 
 	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, COMPANY_ALIGNMENTS, initial(pref.nanotrasen_relation))
 

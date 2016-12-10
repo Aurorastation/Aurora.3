@@ -40,17 +40,21 @@ datum/preferences
 	var/undershirt						//undershirt type
 	var/backbag = 2						//backpack type
 	var/h_style = "Bald"				//Hair type
+	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
 	var/g_hair = 0						//Hair color
 	var/b_hair = 0						//Hair color
 	var/f_style = "Shaved"				//Face hair type
+	var/facial_colour = "#000000"		//Facial colour hex value, for SQL loading
 	var/r_facial = 0					//Face hair color
 	var/g_facial = 0					//Face hair color
 	var/b_facial = 0					//Face hair color
 	var/s_tone = 0						//Skin tone
+	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
 	var/r_skin = 0						//Skin color
 	var/g_skin = 0						//Skin color
 	var/b_skin = 0						//Skin color
+	var/eyes_colour = "#000000"			//Eye colour hex value, for SQL loading
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color

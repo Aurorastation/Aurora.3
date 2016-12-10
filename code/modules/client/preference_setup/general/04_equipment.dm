@@ -17,10 +17,15 @@
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("underwear", "undershirt", "backbag", "gear"), "args" = list("id")))
 
-/datum/category_item/player_setup_item/general/equipment/sanitize_character()
+/datum/category_item/player_setup_item/general/equipment/sanitize_character(var/sql_load = 0)
+	if (sql_load)
+		pref.backbag = text2num(pref.backbag)
+		pref.gear	= params2list(pref.gear)
+
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 
-	if(!islist(pref.gear)) pref.gear = list()
+	if (!islist(pref.gear))
+		pref.gear = list()
 
 	var/undies = get_undies()
 	if(!get_key_by_value(undies, pref.underwear))

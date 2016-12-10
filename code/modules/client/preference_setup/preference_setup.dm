@@ -124,7 +124,7 @@
 		src.load_character_sql()
 
 	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_character()
+		PI.sanitize_character(config.sql_saves)
 
 /*
  * A proc for dynamically loading a character from the database.
@@ -327,10 +327,10 @@
 /datum/category_item/player_setup_item/proc/content()
 	return
 
-/datum/category_item/player_setup_item/proc/sanitize_character()
+/datum/category_item/player_setup_item/proc/sanitize_character(var/sql_load = 0)
 	return
 
-/datum/category_item/player_setup_item/proc/sanitize_preferences()
+/datum/category_item/player_setup_item/proc/sanitize_preferences(var/sql_load = 0)
 	return
 
 /datum/category_item/player_setup_item/Topic(var/href,var/list/href_list)

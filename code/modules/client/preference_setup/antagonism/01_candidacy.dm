@@ -11,12 +11,16 @@
 /datum/category_item/player_setup_item/antagonism/candidacy/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("be_special_role"), "args" = list("id")))
 
-/datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character()
-	if(!istype(pref.be_special_role))
+/datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character(var/sql_load = 0)
+	if (sql_load)
+		if (pref.be_special_role)
+			pref.be_special_role = params2list(pref.be_special_role)
+
+	if (!istype(pref.be_special_role))
 		pref.be_special_role = list()
 
-	for(var/role in pref.be_special_role)
-		if(!(role in valid_special_roles()))
+	for (var/role in pref.be_special_role)
+		if (!(role in valid_special_roles()))
 			pref.be_special_role -= role
 
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)

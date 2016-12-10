@@ -15,11 +15,17 @@
 /datum/category_item/player_setup_item/skills/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("skills", "skill_specialization"), "args" = list("id")))
 
-/datum/category_item/player_setup_item/skills/sanitize_character()
-	if(SKILLS == null)				setup_skills()
-	if(!pref.skills)				pref.skills = list()
-	if(!pref.skills.len)			pref.ZeroSkills()
-	if(pref.used_skillpoints < 0)	pref.used_skillpoints = 0
+/datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
+	if (SKILLS == null)
+		setup_skills()
+	if (!pref.skills)
+		pref.skills = list()
+	if (sql_load)
+		pref.skills = params2list(pref.skills)
+	if (!pref.skills.len)
+		pref.ZeroSkills()
+	if (pref.used_skillpoints < 0)
+		pref.used_skillpoints = 0
 
 /datum/category_item/player_setup_item/skills/content()
 	. += "<b>Select your Skills</b><br>"
