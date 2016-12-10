@@ -3,6 +3,9 @@
 #define TOPIC_HANDLED 1
 #define TOPIC_REFRESH 2
 
+#define SQL_CHARACTER 1
+#define SQL_PREFERENCES 2
+
 /datum/category_group/player_setup_category/general_preferences
 	name = "General"
 	sort_order = 1
@@ -27,6 +30,7 @@
 	name = "Global"
 	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/player_global
+	sql_role = SQL_PREFERENCES
 
 /****************************
 * Category Collection Setup *
@@ -104,6 +108,7 @@
 **************************/
 /datum/category_group/player_setup_category
 	var/sort_order = 0
+	var/sql_role = SQL_CHARACTER
 
 /datum/category_group/player_setup_category/dd_SortValue()
 	return sort_order
@@ -117,11 +122,12 @@
 /datum/category_group/player_setup_category/proc/load_character(var/savefile/S)
 	// Load all data, then sanitize it.
 	// Need due to, for example, the 01_basic module relying on species having been loaded to sanitize correctly but that isn't loaded until module 03_body.
-	if (!config.sql_saves && !establish_db_connection(dbcon))
+	if (!config.sql_saves || !establish_db_connection(dbcon))
 		for(var/datum/category_item/player_setup_item/PI in items)
 			PI.load_character(S)
 	else
-		src.load_character_sql()
+		// Load every category minus the global
+		handle_sql_loading(SQL_CHARACTER)
 
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character(config.sql_saves)
@@ -132,8 +138,12 @@
  *
  * Each query is cached as well, after generation. Only things recompiled are the arguments and the finalized query text (with arguments in it).
  */
-/datum/category_group/player_setup_category/proc/load_character_sql()
+/datum/category_group/player_setup_category/proc/handle_sql_loading(var/load_type)
 	var/static/list/query_cache
+
+	// We aren't loading this category. Bye.
+	if (sql_role != load_type)
+		return
 
 	if (isnull(query_cache))
 		query_cache = list()
@@ -233,10 +243,14 @@
 		PI.save_character(S)
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
+	if (!config.sql_saves || !establish_db_connection(dbcon))
+		for(var/datum/category_item/player_setup_item/PI in items)
+			PI.load_preferences(S)
+	else
+		handle_sql_loading(SQL_PREFERENCES)
+
 	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.load_preferences(S)
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_preferences()
+		PI.sanitize_preferences(config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_preferences(var/savefile/S)
 	for(var/datum/category_item/player_setup_item/PI in items)
@@ -353,3 +367,6 @@
 /datum/category_item/player_setup_item/proc/preference_mob()
 	if(pref && pref.client && pref.client.mob)
 		return pref.client.mob
+
+#undef SQL_CHARACTER
+#undef SQL_PREFERENCES
