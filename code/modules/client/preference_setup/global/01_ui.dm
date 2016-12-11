@@ -17,6 +17,15 @@
 /datum/category_item/player_setup_item/player_global/ui/gather_load_query()
 	return list("ss13_player_preferences" = list("vars" = list("UI_style", "UI_style_color", "UI_style_alpha", "ooccolor"), "args" = list("ckey")))
 
+/datum/category_item/player_setup_item/player_global/ui/gather_load_parameters()
+	return list(":ckey" = pref.client.ckey)
+
+/datum/category_item/player_setup_item/player_global/ui/gather_save_query()
+	return list("ss13_player_preferences" = list("UI_style", "UI_style_color", "UI_style_alpha", "ooccolor", "ckey" = 1))
+
+/datum/category_item/player_setup_item/player_global/ui/gather_save_parameters()
+	return list(":ckey" = pref.client.ckey, ":UI_style" = pref.UI_style, ":UI_style_alpha" = pref.UI_style_alpha, ":UI_style_color" = pref.UI_style_color, ":ooccolor" = pref.ooccolor)
+
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
 	pref.UI_style		= sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
 	pref.UI_style_color	= sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))

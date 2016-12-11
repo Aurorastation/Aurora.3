@@ -88,6 +88,9 @@ datum/preferences
 	var/job_engsec_med = 0
 	var/job_engsec_low = 0
 
+	// A text blob which temporarily houses data from the SQL.
+	var/unsanitized_jobs = ""
+
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = 0
 
@@ -126,22 +129,6 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 /datum/preferences/New(client/C)
-	// #TODO-MERGE: Review SQL saving and migration
-	if (config.sql_saves && C.need_saves_migrated)
-		var/dat = "<center>The server attempted to automatically migrate your saves from the old file-system onto an SQL database.<br>"
-		dat += "This operation was "
-		if (!handle_saves_migration(C))
-			error("Failed migrating saves from [C.ckey] to the database!")
-			dat += "<font color='red'><b>unsuccessful!</b></font><br><br>"
-			dat += "There was most likely an error in one of the SQL commands used to handle this migration. Do not worry: your saves are still safe in the old system and retreivable. Please contact Skull132 <b>immediately</b> in order to have the issue resolved. Until such a time, you will have to play without your old characters.</center>"
-		else
-			dat += "<font color='green'><b>successful!</b></font><br><br>"
-			dat += "All of your character and preference data should be now neatly housed on the SQL database. Please look over it to see if anything is wrong or otherwise messed up. If you find something like that, please contact Skull132 <b>immediately.</b> Your old saves are still completely safe on the old system, should anything have gone wrong!<br><br>"
-			dat += "<b>You should now immediately load a character. Otherwise you risk overriding one of your characters!</b> Once that is done, everything shuold be fine.</center>"
-
-		C << browse(dat, "window=migrate_status")
-		update_migrate_status(C)
-
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
@@ -153,16 +140,16 @@ datum/preferences
 		client = C
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			handle_preferences_load(C)
+			load_preferences()
 			load_and_update_character()
 
 	ZeroSkills(1)
 
 /datum/preferences/proc/load_and_update_character(var/slot)
-	handle_character_load(get_default_slot(), client)
+	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
-		handle_preferences_save(client)
-		handle_character_save(client)
+		save_preferences()
+		save_character()
 
 /datum/preferences/proc/getMinAge(var/age_min)
 	if(species == "Vaurca" || species == "Machine" || species == "Diona")
@@ -284,7 +271,10 @@ datum/preferences
 		load_character()
 	else if(href_list["load"])
 		if(!IsGuestKey(usr.key))
-			open_load_dialog(usr)
+			if (config.sql_saves)
+				open_load_dialog_sql(usr)
+			else
+				open_load_dialog_file(usr)
 			return 1
 	else if(href_list["changeslot"])
 		load_character(text2num(href_list["changeslot"]))

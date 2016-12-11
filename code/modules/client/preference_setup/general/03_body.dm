@@ -63,6 +63,39 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 														"organs_robotic" = "rlimb_data"),
 										"args" = list("id")))
 
+/datum/category_item/player_setup_item/general/body/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/general/body/gather_save_query()
+	return list("ss13_characters" = list("species",
+										 "hair_colour",
+										 "facial_colour",
+										 "skin_tone",
+										 "skin_colour",
+										 "hair_style",
+										 "facial_style",
+										 "eyes_colour",
+										 "b_type",
+										 "disabilities",
+										 "organs_data",
+										 "organs_robotic",
+										 "id" = 1))
+
+/datum/category_item/player_setup_item/general/body/gather_save_parameters()
+	return list("ss13_characters" = list(":species" = pref.species,
+										 ":hair_colour" = "#" + num2hex(pref.r_hair) + num2hex(pref.g_hair) + num2hex(pref.b_hair),
+										 ":facial_colour" = "#" + num2hex(pref.r_facial) + num2hex(pref.g_facial) + num2hex(pref.b_facial),
+										 ":skin_tone" = pref.s_tone,
+										 ":skin_colour" = "#" + num2hex(pref.r_skin) + num2hex(pref.g_skin) + num2hex(pref.b_skin),
+										 ":hair_style" = pref.h_style,
+										 ":facial_style" = pref.f_style,
+										 ":eyes_colour" = "#" + num2hex(pref.r_eyes) + num2hex(pref.g_eyes) + num2hex(pref.b_eyes),
+										 ":b_type" = pref.b_type,
+										 ":disabilities" = pref.disabilities,
+										 ":organs_data" = list2params(pref.organ_data),
+										 ":organs_robotic"= list2params(pref.rlimb_data),
+										 ":id" = pref.current_character))
+
 /datum/category_item/player_setup_item/general/body/sanitize_character(var/sql_load = 0)
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = "Human"

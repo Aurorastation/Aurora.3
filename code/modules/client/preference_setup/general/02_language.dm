@@ -11,6 +11,17 @@
 /datum/category_item/player_setup_item/general/language/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("language" = "alternate_languages"), "args" = list("id")))
 
+/datum/category_item/player_setup_item/general/language/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/general/language/gather_save_query()
+	return list("ss13_characters" = list("language",
+										 "id" = 1))
+
+/datum/category_item/player_setup_item/general/language/gather_save_parameters()
+	return list("ss13_characters" = list(":language" = list2params(pref.alternate_languages),
+										 ":id" = pref.current_character))
+
 /datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
 	if (sql_load)
 		pref.alternate_languages = params2list(pref.alternate_languages)

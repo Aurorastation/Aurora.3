@@ -11,6 +11,15 @@
 /datum/category_item/player_setup_item/player_global/language/gather_load_query()
 	return list("ss13_player_preferences" = list("vars" = list("language_prefixes"), "args" = list("ckey")))
 
+/datum/category_item/player_setup_item/player_global/language/gather_load_parameters()
+	return list(":ckey" = pref.client.ckey)
+
+/datum/category_item/player_setup_item/player_global/ui/gather_save_query()
+	return list("ss13_player_preferences" = list("language_prefixes", "ckey" = 1))
+
+/datum/category_item/player_setup_item/player_global/language/gather_save_parameters()
+	return list(":ckey" = pref.client.ckey, ":language_prefixes" = list2params(pref.language_prefixes))
+
 /datum/category_item/player_setup_item/player_global/language/sanitize_preferences(var/sql_load = 0)
 	if (sql_load && pref.language_prefixes)
 		pref.language_prefixes = params2list(pref.language_prefixes)

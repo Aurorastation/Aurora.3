@@ -1,7 +1,7 @@
 /datum/category_item/player_setup_item/general/basic
 	name = "Basic"
 	sort_order = 1
-	var/list/valid_player_genders = list(MALE, FEMALE)
+	var/static/list/valid_player_genders = list(MALE, FEMALE)
 
 /datum/category_item/player_setup_item/general/basic/load_character(var/savefile/S)
 	S["real_name"]				>> pref.real_name
@@ -27,6 +27,27 @@
 													"metadata",
 													"spawnpoint",),
 										"args" = list("id")))
+
+/datum/category_item/player_setup_item/general/basic/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/general/basic/gather_save_query()
+	return list("ss13_characters" = list("name",
+										 "random_name",
+										 "gender",
+										 "age",
+										 "metadata",
+										 "spawnpoint",
+										 "id" = 1))
+
+/datum/category_item/player_setup_item/general/basic/gather_save_parameters()
+	return list("ss13_characters" = list(":name" = pref.real_name,
+										 ":random_name" = pref.be_random_name,
+										 ":gender" = pref.gender,
+										 ":age" = pref.age,
+										 ":metadata" = pref.metadata,
+										 ":spawnpoint" = pref.spawnpoint,
+										 ":id" = pref.current_character))
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))

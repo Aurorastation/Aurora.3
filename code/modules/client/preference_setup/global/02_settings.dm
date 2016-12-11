@@ -21,6 +21,21 @@
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_toggles" = "asfx_togs", "motd_hash", "memo_hash"), "args" = list("ckey")))
 
+/datum/category_item/player_setup_item/player_global/settings/gather_load_parameters()
+	return list(":ckey" = pref.client.ckey)
+
+/datum/category_item/player_setup_item/player_global/settings/gather_save_query()
+	return list("ss13_player_preferences" = list("lastchangelog", "current_character", "toggles", "asfx_toggles", "motd_hash", "memo_hash", "ckey" = 1))
+
+/datum/category_item/player_setup_item/player_global/settings/gather_save_parameters()
+	return list(":ckey" = pref.client.ckey,
+				":lastchangelog" = pref.lastchangelog,
+				":current_character" = pref.current_character,
+				":toggles" = pref.toggles,
+				":asfx_toggles" = pref.asfx_togs,
+				":motd_hash" = pref.motd_hash,
+				":memo_hash" = pref.memo_hash)
+
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
 	if (sql_load)
 		pref.current_character = text2num(pref.current_character)
@@ -28,6 +43,9 @@
 	pref.lastchangelog	= sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
 	pref.default_slot	= sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
 	pref.toggles		= sanitize_integer(text2num(pref.toggles), 0, 65535, initial(pref.toggles))
+	pref.asfx_togs		= sanitize_integer(text2num(pref.asfx_togs), 0, 65535, initial(pref.toggles))
+	pref.motd_hash		= sanitize_text(pref.motd_hash, initial(pref.motd_hash))
+	pref.memo_hash		= sanitize_text(pref.memo_hash, initial(pref.memo_hash))
 
 /datum/category_item/player_setup_item/player_global/settings/content(var/mob/user)
 	. += "<b>Play admin midis:</b> <a href='?src=\ref[src];toggle=[SOUND_MIDI]'><b>[(pref.toggles & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>"

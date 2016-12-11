@@ -15,6 +15,15 @@
 /datum/category_item/player_setup_item/skills/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("skills", "skill_specialization"), "args" = list("id")))
 
+/datum/category_item/player_setup_item/skills/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/skills/gather_save_query()
+	return list("ss13_characters" = list("skills", "skill_specialization", "id" = 1))
+
+/datum/category_item/player_setup_item/skills/gather_save_parameters()
+	return list(":skills" = list2params(pref.skills), ":skill_specialization" = pref.skill_specialization, ":id" = pref.current_character)
+
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	if (SKILLS == null)
 		setup_skills()

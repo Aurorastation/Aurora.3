@@ -109,6 +109,7 @@
 /datum/category_group/player_setup_category
 	var/sort_order = 0
 	var/sql_role = SQL_CHARACTER
+	var/modified = 0
 
 /datum/category_group/player_setup_category/dd_SortValue()
 	return sort_order
@@ -132,131 +133,40 @@
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character(config.sql_saves)
 
-/*
- * A proc for dynamically loading a character from the database.
- * See the category items for procs on what pieces are given.
- *
- * Each query is cached as well, after generation. Only things recompiled are the arguments and the finalized query text (with arguments in it).
- */
-/datum/category_group/player_setup_category/proc/handle_sql_loading(var/load_type)
-	var/static/list/query_cache
-
-	// We aren't loading this category. Bye.
-	if (sql_role != load_type)
-		return
-
-	if (isnull(query_cache))
-		query_cache = list()
-
-	// This handles the generation of queries. One per category, total of 5 UNLESS one category wants to query more than one table.
-	// It uses like, 3+ levels of lists. But it works, and is only run once per category in the global sense. So technically, efficient!
-	// :D - Skull132
-	if (!query_cache.len || isnull(query_cache[type]))
-		query_cache[type] = list()
-		var/list/tables = list()
-
-		// First, consolidate the different lists into one.
-		for (var/datum/category_item/player_setup_item/PI in items)
-			var/list/pi_tables = PI.gather_load_query()
-			// Expected layout: list("table A name" = list("vars" = list("column name" = "var name"), "args" = list()),
-			//						"table B name" = list("vars" = list(), "args" = list()))
-
-			for (var/table in pi_tables)
-				var/list/A = pi_tables[table]
-				if (isnull(tables[table]))
-					tables[table] = list("vars" = list(), "args" = list())
-
-				tables[table]["vars"] |= A["vars"]
-				tables[table]["args"] |= A["args"]
-
-		// Second, create the queries and save them.
-		for (var/table in tables)
-			var/query = "SELECT "
-			var/list/var_names = tables[table]["vars"]
-			var/count = var_names.len
-
-			// Process the variables and rows we want.
-			var/i = 1
-			for (var/name in var_names)
-				query += name
-
-				if (!isnull(var_names[name]))
-					var/new_name = var_names[name]
-					var_names.Remove(name)
-					var_names.Insert(i, new_name)
-
-				if (i != count)
-					query += ", "
-				else
-					query += " "
-
-				i++
-
-			query += "FROM [table] WHERE "
-
-			// Process the args.
-			var/list/arg_names = tables[table]["args"]
-			count = arg_names.len
-			for (i = 1, i <= count, i++)
-				query += "[arg_names[i]] = :[arg_names[i]]"
-				arg_names[i] = ":[arg_names[i]]"
-
-				if (i != count)
-					query += " AND "
-				else
-					query += ";"
-
-			// Save it.
-			query_cache[type][query] = var_names
-
-	// Need to typecast due to reasons.
-	var/datum/category_collection/player_setup_collection/cc = collection
-
-	// Actually utilize the queries.
-	var/list/arg_list = gather_load_parameters()
-	for (var/query_text in query_cache[type])
-		var/DBQuery/query = dbcon.NewQuery(query_text)
-		query.Execute(arg_list, 1)
-
-		// Each query should only return exactly 1 row.
-		var/list/var_names = query_cache[type][query_text]
-		if (query.NextRow())
-			for (var/i = 1, i <= var_names.len, i++)
-				var/list/layers = splittext(var_names[i], "/")
-				if (layers.len == 1)
-					cc.preferences.vars[var_names[i]] = query.item[i]
-				else
-					cc.preferences.vars[layers[1]][layers[2]] = query.item[i]
-
-/datum/category_group/player_setup_category/proc/gather_load_parameters()
-	var/list/arg_list = list()
-	for (var/datum/category_item/player_setup_item/PI in items)
-		arg_list |= PI.gather_load_parameters()
-
-	return arg_list
-
 /datum/category_group/player_setup_category/proc/save_character(var/savefile/S)
 	// Sanitize all data, then save it
-	for(var/datum/category_item/player_setup_item/PI in items)
+	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character()
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.save_character(S)
+
+	if (!config.sql_saves || !establish_db_connection(dbcon))
+		for (var/datum/category_item/player_setup_item/PI in items)
+			PI.save_character(S)
+	else
+		if (modified && sql_role == SQL_CHARACTER)
+			handle_sql_saving(SQL_CHARACTER)
+			modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
 	if (!config.sql_saves || !establish_db_connection(dbcon))
-		for(var/datum/category_item/player_setup_item/PI in items)
+		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.load_preferences(S)
 	else
 		handle_sql_loading(SQL_PREFERENCES)
 
-	for(var/datum/category_item/player_setup_item/PI in items)
+	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences(config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_preferences(var/savefile/S)
-	for(var/datum/category_item/player_setup_item/PI in items)
+	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences()
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.save_preferences(S)
+
+	if (!config.sql_saves || !establish_db_connection(dbcon))
+		for (var/datum/category_item/player_setup_item/PI in items)
+			PI.save_preferences(S)
+	else
+		if (modified && sql_role == SQL_PREFERENCES)
+			handle_sql_saving(SQL_PREFERENCES)
+			modified = 0
 
 /datum/category_group/player_setup_category/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	for(var/datum/category_item/player_setup_item/PI in items)
@@ -333,9 +243,21 @@
 	return list()
 
 /*
+* Called when the owner category is composing its insert query
+*/
+/datum/category_item/player_setup_item/proc/gather_save_query()
+	return list()
+
+/*
 * Called when the owner category is composing its query parameters for loading.
 */
 /datum/category_item/player_setup_item/proc/gather_load_parameters()
+	return list()
+
+/*
+* Called when the owner category is composing its query parameters for inserting a new record.
+*/
+/datum/category_item/player_setup_item/proc/gather_save_parameters()
 	return list()
 
 /datum/category_item/player_setup_item/proc/content()
@@ -351,11 +273,14 @@
 	if(..())
 		return 1
 	var/mob/user = usr
-	if(!user.client)
+	if (!user.client)
 		return 1
 
 	. = OnTopic(href, href_list, user)
-	if(. == TOPIC_REFRESH)
+	if (. != TOPIC_NOACTION)
+		var/datum/category_group/player_setup_category/cat = category
+		cat.modified = 1
+	if (. == TOPIC_REFRESH)
 		user.client.prefs.ShowChoices(user)
 
 /datum/category_item/player_setup_item/CanUseTopic(var/mob/user)
@@ -367,6 +292,3 @@
 /datum/category_item/player_setup_item/proc/preference_mob()
 	if(pref && pref.client && pref.client.mob)
 		return pref.client.mob
-
-#undef SQL_CHARACTER
-#undef SQL_PREFERENCES

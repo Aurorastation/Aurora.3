@@ -36,9 +36,28 @@
 /datum/category_item/player_setup_item/occupation/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("jobs" = "unsanitized_jobs", "alternate_option", "alternate_titles" = "player_alt_titles"), "args" = list("id")))
 
+/datum/category_item/player_setup_item/occupation/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/occupation/gather_save_query()
+	return list("ss13_characters" = list("jobs", "alternate_option", "alternate_titles", "id" = 1))
+
+/datum/category_item/player_setup_item/occupation/gather_save_parameters()
+	var/list/compiled_jobs = list("job_civilian_high" = pref.job_civilian_high,
+								"job_civilian_med" = pref.job_civilian_med,
+								"job_civilian_low" = pref.job_civilian_low,
+								"job_medsci_high" = pref.job_medsci_high,
+								"job_medsci_med" = pref.job_medsci_med,
+								"job_medsci_low" = pref.job_medsci_low,
+								"job_engsec_high" = pref.job_engsec_high,
+								"job_engsec_med" = pref.job_engsec_med,
+								"job_engsec_low" = pref.job_engsec_low)
+
+	return list(":jobs" = list2params(compiled_jobs), ":alternate_option" = pref.alternate_option, ":alternate_titles" = list2params(pref.player_alt_titles), ":id" = pref.current_character)
+
 /datum/category_item/player_setup_item/occupation/sanitize_character(var/sql_load = 0)
 	if (sql_load)
-		pref.alternate_option = text2num(alternate_option)
+		pref.alternate_option = text2num(pref.alternate_option)
 
 		var/list/jobs = params2list(pref.unsanitized_jobs)
 
