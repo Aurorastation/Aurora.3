@@ -22,9 +22,12 @@
 	slowdown = 1.0
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	flags = STOPPRESSUREDAMAGE
+	armor = list(melee = 20, bullet = 5, laser = 5,energy = 10, bomb = 50, bio = 10, rad = 25)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	var/suit_temp = T20C
 
 
 /obj/item/clothing/suit/fire/firefighter
