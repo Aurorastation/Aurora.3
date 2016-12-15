@@ -41,13 +41,13 @@
 										 "id" = 1))
 
 /datum/category_item/player_setup_item/general/basic/gather_save_parameters()
-	return list("ss13_characters" = list(":name" = pref.real_name,
-										 ":random_name" = pref.be_random_name,
-										 ":gender" = pref.gender,
-										 ":age" = pref.age,
-										 ":metadata" = pref.metadata,
-										 ":spawnpoint" = pref.spawnpoint,
-										 ":id" = pref.current_character))
+	return list(":name" = pref.real_name,
+				":random_name" = pref.be_random_name,
+				":gender" = pref.gender,
+				":age" = pref.age,
+				":metadata" = pref.metadata,
+				":spawnpoint" = pref.spawnpoint,
+				":id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))

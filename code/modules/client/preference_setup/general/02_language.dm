@@ -19,8 +19,8 @@
 										 "id" = 1))
 
 /datum/category_item/player_setup_item/general/language/gather_save_parameters()
-	return list("ss13_characters" = list(":language" = list2params(pref.alternate_languages),
-										 ":id" = pref.current_character))
+	return list(":language" = list2params(pref.alternate_languages),
+				":id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
 	if (sql_load)

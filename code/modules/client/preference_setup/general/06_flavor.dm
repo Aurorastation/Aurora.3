@@ -86,7 +86,7 @@
 	for (var/module in robot_module_types)
 		var_list[":robot_[module]"] += pref.flavour_texts_robot[module]
 
-	return list("ss13_characters_flavour" = var_list)
+	return var_list
 
 /datum/category_item/player_setup_item/general/flavor/sanitize_character()
 	return

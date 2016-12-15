@@ -164,9 +164,7 @@
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_preferences(S)
 	else
-		if (modified && sql_role == SQL_PREFERENCES)
-			handle_sql_saving(SQL_PREFERENCES)
-			modified = 0
+		handle_sql_saving(SQL_PREFERENCES)
 
 /datum/category_group/player_setup_category/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	for(var/datum/category_item/player_setup_item/PI in items)

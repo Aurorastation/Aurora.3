@@ -170,6 +170,9 @@
 
 	// Actually utilize the queries.
 	var/list/arg_list = gather_save_parameters()
+
+	// Typecast the collection so we can access its preferences var.
+	var/datum/category_collection/player_setup_collection/cc = collection
 	for (var/query_text in query_cache[type])
 		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list, 1)
@@ -177,17 +180,20 @@
 		if (query.ErrorMsg())
 			error("Error saving character to SQL: [query.ErrorMsg()]")
 
-	// Get the character ID if we inserted a new character.
-	if (role_type == SQL_CHARACTER)
-		// Need to typecast due to reasons.
-		var/datum/category_collection/player_setup_collection/cc = collection
-
-		if (!cc.preferences.current_character)
-			var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey ORDER BY id DESC LIMIT 1")
-			query.Execute(list(":ckey" = cc.preferences.client.ckey))
+		if (role_type == SQL_CHARACTER && !cc.preferences.current_character)
+			// No current character, means we're doing insert queries.
+			// Quickly nab the new ID and substitute it within the args.
+			query = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS new_id")
+			query.Execute()
 
 			if (query.NextRow())
+				arg_list[":id"] = text2num(query.item[1])
+				arg_list[":char_id"] = text2num(query.item[1])
 				cc.preferences.current_character = text2num(query.item[1])
+			else
+				error("Error inserting character to SQL: New ID was not recovered.")
+				if (query.ErrorMsg())
+					error("Error retreiving new character ID: [query.ErrorMsg()]")
 
 /datum/category_group/player_setup_category/proc/gather_save_parameters()
 	var/list/arg_list = list()
