@@ -419,14 +419,14 @@ datum/preferences
 				id = text2num(query.item[1])
 				name = query.item[2]
 				if (id == current_character)
-					dat += "<b><a href='?_src_=prefs;preference=changeslot;num=[id];'>[name]</a></b><br>"
+					dat += "<b><a href='?src=\ref[src];changeslot=[id];'>[name]</a></b><br>"
 				else
-					dat += "<a href='?_src_=prefs;preference=changeslot;num=[id];'>[name]</a><br>"
+					dat += "<a href='?src=\ref[src];changeslot=[id];'>[name]</a><br>"
 
 			dat += "<hr>"
 			dat += "<b>[query.RowCount()]/[config.character_slots] slots used</b><br>"
 			if (query.RowCount() < config.character_slots)
-				dat += "<a href='byond://?_src_=prefs;preference=new_character_sql;'>New Character</a>"
+				dat += "<a href='byond://?src=\ref[src];preference=new_character_sql;'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"
 
