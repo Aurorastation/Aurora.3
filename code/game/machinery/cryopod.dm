@@ -404,7 +404,7 @@
 
 		if(willing)
 
-			visible_message("[user] starts putting [G:affecting:name] into \the [src].", 3)
+			visible_message("[user] starts putting [G:affecting:name] into \the [name].", 3)
 
 			if(do_after(user, 20))
 				if(!M || !G || !G:affecting) return
@@ -444,7 +444,7 @@
 	var/mob/living/L = O
 
 	if(L.stat == DEAD)
-		user << "<span class='notice'>Dead people can not be put into cryo.</span>"
+		user << "<span class='notice'>Dead people can not be put into stasis.</span>"
 		return
 
 	for(var/mob/living/carbon/slime/M in range(1,L))
@@ -455,7 +455,7 @@
 	var/willing = null //We don't want to allow people to be forced into despawning.
 
 	if(L.client)
-		if(alert(L,"Would you like to enter cryosleep?",,"Yes","No") == "Yes")
+		if(alert(L,"Would you like to enter stasis?",,"Yes","No") == "Yes")
 			if(!L) return
 			willing = 1
 	else
@@ -463,9 +463,9 @@
 
 	if(willing)
 		if(L == user)
-			visible_message("[user] starts climbing into the cryo pod.", 3)
+			visible_message("[user] starts climbing into \the [name].", 3)
 		else
-			visible_message("[user] starts putting [L] into the cryo pod.", 3)
+			visible_message("[user] starts putting [L] into \the [name].", 3)
 
 		if(do_after(user, 20))
 			if(!L) return
@@ -476,7 +476,7 @@
 				L.client.perspective = EYE_PERSPECTIVE
 				L.client.eye = src
 		else
-			user << "<span class='notice'>You stop [L == user ? "climbing into the cryo pod." : "putting [L] into the cryo pod."]</span>"
+			user << "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>"
 			return
 
 		icon_state = occupied_icon_state

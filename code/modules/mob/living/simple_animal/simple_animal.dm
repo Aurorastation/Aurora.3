@@ -142,6 +142,11 @@
 			user << "<span class='notice'>It looks hungry.</span>"
 		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
 			user << "It looks full and contented."
+	if (health < maxHealth * 0.5)
+		user << "<span class='danger'>It looks badly wounded.</span>"
+	else if (health < maxHealth)
+		user << "<span class='warning'>It looks wounded.</span>"
+
 
 /mob/living/simple_animal/Life()
 	..()
@@ -293,7 +298,16 @@
 			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
 				var/datum/reagent/nutriment/N = current
 				nutrition += removed*N.nutriment_factor
-				health = min(health+(removed*N.regen_factor), maxHealth)
+				var/heal_amount = removed*N.regen_factor
+				if (bruteloss > 0)
+					var/n = min(heal_amount, bruteloss)
+					adjustBruteLoss(-n)
+					heal_amount -= n
+				if (fireloss && heal_amount)
+					var/n = min(heal_amount, fireloss)
+					adjustFireLoss(-n)
+					heal_amount -= n
+				updatehealth()
 			current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
 
 /mob/living/simple_animal/can_eat()
@@ -373,21 +387,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/stack/medical))
-		if(stat != DEAD)
-			var/obj/item/stack/medical/MED = O
-			if(health < maxHealth)
-				if(MED.amount >= 1)
-					adjustBruteLoss(-MED.heal_brute)
-					MED.amount -= 1
-					if(MED.amount <= 0)
-						qdel(MED)
-					for(var/mob/M in viewers(src, null))
-						if ((M.client && !( M.blinded )))
-							M.show_message("<span class='notice'>[user] applies the [MED] on [src].</span>")
-		else
-			user << "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>"
-	else if(istype(O, /obj/item/weapon/reagent_containers))
+	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical))
 		..()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.

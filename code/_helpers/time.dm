@@ -7,7 +7,7 @@
 var/roundstart_hour = 0
 //Returns the world time in english
 proc/worldtime2text(time = world.time, timeshift = 1)
-	if(!roundstart_hour) roundstart_hour = pick(2,7,12,17)
+	if(!roundstart_hour) roundstart_hour = rand(0, 23)
 	return timeshift ? time2text(time+(36000*roundstart_hour), "hh:mm") : time2text(time, "hh:mm")
 
 proc/worldtime2ticks(time = world.time)

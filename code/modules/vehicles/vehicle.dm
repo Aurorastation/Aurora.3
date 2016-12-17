@@ -28,10 +28,7 @@
 	var/stat = 0
 	var/emagged = 0
 	var/powered = 0		//set if vehicle is powered and should use fuel when moving
-
-	move_speed = 2//Expressed in tiles per second. This is used to control how fast the vehicle moves
-
-	var/move_delay//DO NOT MANUALLY SET THIS. For internal use only
+	var/move_delay = 1	//set this to limit the speed of the vehicle
 
 	var/obj/item/weapon/cell/cell
 	var/charge_use = 5	//set this to adjust the amount of power the vehicle uses per move
@@ -48,22 +45,8 @@
 /obj/vehicle/New()
 	..()
 	//spawn the cell you want in each vehicle
-	calc_delay()
-
-/obj/vehicle/proc/calc_delay()
-	if (!move_speed || move_speed < 0)//Shouldn't happen
-		move_speed = 0
-		move_delay = 999999999
-		return 0
-
-	move_delay = (1 / move_speed) * 10 * config.vehicle_delay_multiplier
-	return 1
-
 
 /obj/vehicle/Move()
-	if (!move_speed)
-		return 0
-
 	if(world.time > l_move_time + move_delay)
 		var/old_loc = get_turf(src)
 		if(on && powered && cell.charge < charge_use)
@@ -188,7 +171,6 @@
 // Vehicle procs
 //-------------------------------------------
 /obj/vehicle/proc/turn_on()
-	calc_delay()
 	if(stat)
 		return 0
 	if(powered && cell.charge < charge_use)
@@ -318,7 +300,6 @@
 	if(ismob(C))
 		buckle_mob(C)
 
-	calc_delay()
 	return 1
 
 /obj/vehicle/user_unbuckle_mob(var/mob/user)
@@ -366,9 +347,15 @@
 		unbuckle_mob(load)
 
 	load = null
-	calc_delay()
+
 	return 1
 
+// This exists to stop a weird jumping motion when you disembark.
+// It essentially makes disembarkation count as a movement.
+// Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
+/obj/vehicle/post_buckle_mob(var/mob/M)
+	if (M.client)
+		M.client.move_delay = M.movement_delay() + config.walk_speed
 
 //-------------------------------------------------------
 // Stat update procs

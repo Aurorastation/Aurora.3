@@ -573,10 +573,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	last_special = world.time + 500
 
 	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
-	
+
 	if(isnull(F))
 		return
-		
+
 	F.damage += 5
 	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
 	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
@@ -616,9 +616,56 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "poslan_jacket"
 	contained_sprite = 1
 
+
 /obj/item/sign/fluff/alexis_degree //Xenonuerology Doctorate - Alexis Shaw - Tenenza - DONE
 	name = "xenonuerology degree"
 	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
 	icon_state = "alexis_degree"
 	sign_state = "alexis_degree"
-	w_class = 2	
+	w_class = 2
+
+
+/obj/item/clothing/mask/fluff/rur_collar //Tagging Collar - R.U.R - coalf - DONE
+	name = "tagging collar"
+	desc = "A steel tagging collar, a giant golden D is imprinted on the front."
+	icon = 'icons/obj/custom_items/rur_collar.dmi'
+	icon_state = "rur_collar"
+	item_state = "rur_collar"
+	contained_sprite = 1
+	body_parts_covered = 0
+	canremove = 0
+	species_restricted = list("Machine")
+	var/emagged = 0
+
+/obj/item/clothing/mask/fluff/rur_collar/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/weapon/card/emag) && !emagged)
+		user << "<span class='danger'>You short out \the [src]'s locking mechanism.</span>"
+		src.icon_state = "rur_collar_broken"
+		src.canremove = 1
+		src.emagged = 1
+		playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 0)
+		return
+
+	return
+
+
+/obj/item/clothing/mask/bluescarf/fluff/simon_scarf //Fancy Scarf - Simon Greene - icydew - DONE
+	name = "fancy scarf"
+	desc = "A very smooth, dark blue scarf with a golden trim. It feels really new and clean."
+	icon = 'icons/obj/custom_items/simon_scarf.dmi'
+	icon_state = "simon_scarf"
+	item_state = "simon_scarf"
+	contained_sprite = 1
+
+
+/obj/item/clothing/head/soft/sec/corp/fluff/karson_cap //Karson's Cap - Eric Karson - dronzthewolf - DONE
+	name = "well-worn corporate security cap"
+	desc = "A well-worn corporate security cap. The name Karson is written on the underside of the brim, it is well-worn at the point where it has shaped to the owner's head."
+
+
+/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot - DONE
+	name = "framed zatimono"
+	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
+	icon_state = "triaka_atimono"
+	sign_state = "triaka_atimono"
+	w_class = 2

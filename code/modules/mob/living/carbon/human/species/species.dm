@@ -128,8 +128,8 @@
 
 	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
-	var/sprint_speed_factor = 0.65	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
-	var/sprint_cost_factor = 1.0  	// Multiplier on stamina cost for sprinting
+	var/sprint_speed_factor = 0.7	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
+	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
 	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
 	                              // Determines the organs that the species spawns with and

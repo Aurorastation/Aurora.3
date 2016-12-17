@@ -756,7 +756,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)
+			// compile_icon() used to be here, but it's causing issues, so RIP.
 			add_blood(victim)
+			var/matrix/M = matrix()
+			M.Turn(rand(180))
+			src.transform = M
 			if(!clean)
 				 //Throw limb around.
 				if(src && istype(loc,/turf))

@@ -1677,7 +1677,7 @@
 
 	afterattack(obj/O as obj, var/mob/living/carbon/human/user as mob, proximity)
 		if(!proximity) return
-		if(istype(O,/obj/structure/sink) && !wrapped)
+		if(( istype(O, /obj/structure/reagent_dispensers/watertank) || istype(O,/obj/structure/sink) ) && !wrapped)
 			user << "You place \the [name] under a stream of water..."
 			if(istype(user))
 				user.unEquip(src)
