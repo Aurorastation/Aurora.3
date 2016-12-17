@@ -33,6 +33,61 @@
 	for(var/module in robot_module_types)
 		S["flavour_texts_robot_[module]"] << pref.flavour_texts_robot[module]
 
+/datum/category_item/player_setup_item/general/flavor/gather_load_query()
+	var/list/var_list = list("flavour_general" = "flavor_texts/general",
+												"flavour_head" = "flavor_texts/head",
+												"flavour_face" = "flavor_texts/face",
+												"flavour_eyes" = "flavor_texts/eyes",
+												"flavour_torso" = "flavor_texts/torso",
+												"flavour_arms" = "flavor_texts/arms",
+												"flavour_hands" = "flavor_texts/hands",
+												"flavour_legs" = "flavor_texts/legs",
+												"flavour_feet" = "flavor_texts/feet",
+												"robot_default" = "flavour_texts_robot/default")
+
+	for (var/module in robot_module_types)
+		var_list["robot_[module]"] = "flavour_texts_robot/[module]"
+
+	return list("ss13_characters_flavour" = list("vars" = var_list, "args" = list("char_id")))
+
+/datum/category_item/player_setup_item/general/flavor/gather_load_parameters()
+	return list(":char_id" = pref.current_character)
+
+/datum/category_item/player_setup_item/general/flavor/gather_save_query()
+	var/list/var_list = list("flavour_general",
+							 "flavour_head",
+							 "flavour_face",
+							 "flavour_eyes",
+							 "flavour_torso",
+							 "flavour_arms",
+							 "flavour_hands",
+							 "flavour_legs",
+							 "flavour_feet",
+							 "robot_default",
+							 "char_id" = 1)
+
+	for (var/module in robot_module_types)
+		var_list += "robot_[module]"
+
+	return list("ss13_characters_flavour" = var_list)
+
+/datum/category_item/player_setup_item/general/flavor/gather_save_parameters()
+	var/list/var_list = list(":char_id" = pref.current_character,
+							":flavour_head" = pref.flavor_texts["head"],
+							":flavour_face" = pref.flavor_texts["face"],
+							":flavour_eyes" = pref.flavor_texts["eyes"],
+							":flavour_torso" = pref.flavor_texts["torso"],
+							":flavour_arms" = pref.flavor_texts["arms"],
+							":flavour_hands" = pref.flavor_texts["hands"],
+							":flavour_legs" = pref.flavor_texts["legs"],
+							":flavour_feet" = pref.flavor_texts["feet"],
+							":robot_default" = pref.flavour_texts_robot["default"])
+
+	for (var/module in robot_module_types)
+		var_list[":robot_[module]"] += pref.flavour_texts_robot[module]
+
+	return var_list
+
 /datum/category_item/player_setup_item/general/flavor/sanitize_character()
 	return
 

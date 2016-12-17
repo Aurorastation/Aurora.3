@@ -48,9 +48,88 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["organ_data"]			<< pref.organ_data
 	S["rlimb_data"]			<< pref.rlimb_data
 
-/datum/category_item/player_setup_item/general/body/sanitize_character(var/savefile/S)
+/datum/category_item/player_setup_item/general/body/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("species",
+														"hair_colour",
+														"facial_colour",
+														"skin_tone" = "s_tone",
+														"skin_colour",
+														"hair_style" = "h_style",
+														"facial_style" = "f_style",
+														"eyes_colour",
+														"b_type",
+														"disabilities",
+														"organs_data" = "organ_data",
+														"organs_robotic" = "rlimb_data"),
+										"args" = list("id")))
+
+/datum/category_item/player_setup_item/general/body/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/general/body/gather_save_query()
+	return list("ss13_characters" = list("species",
+										 "hair_colour",
+										 "facial_colour",
+										 "skin_tone",
+										 "skin_colour",
+										 "hair_style",
+										 "facial_style",
+										 "eyes_colour",
+										 "b_type",
+										 "disabilities",
+										 "organs_data",
+										 "organs_robotic",
+										 "id" = 1))
+
+/datum/category_item/player_setup_item/general/body/gather_save_parameters()
+	return list(":species" = pref.species,
+				":hair_colour" = "#" + num2hex(pref.r_hair) + num2hex(pref.g_hair) + num2hex(pref.b_hair),
+				":facial_colour" = "#" + num2hex(pref.r_facial) + num2hex(pref.g_facial) + num2hex(pref.b_facial),
+				":skin_tone" = pref.s_tone,
+				":skin_colour" = "#" + num2hex(pref.r_skin) + num2hex(pref.g_skin) + num2hex(pref.b_skin),
+				":hair_style" = pref.h_style,
+				":facial_style" = pref.f_style,
+				":eyes_colour" = "#" + num2hex(pref.r_eyes) + num2hex(pref.g_eyes) + num2hex(pref.b_eyes),
+				":b_type" = pref.b_type,
+				":disabilities" = pref.disabilities,
+				":organs_data" = list2params(pref.organ_data),
+				":organs_robotic"= list2params(pref.rlimb_data),
+				":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/general/body/sanitize_character(var/sql_load = 0)
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = "Human"
+
+	if (sql_load)
+		pref.hair_colour = sanitize_hexcolor(pref.hair_colour)
+		pref.r_hair		= GetRedPart(pref.hair_colour)
+		pref.g_hair		= GetGreenPart(pref.hair_colour)
+		pref.b_hair		= GetBluePart(pref.hair_colour)
+
+		pref.facial_colour = sanitize_hexcolor(pref.facial_colour)
+		pref.r_facial	= GetRedPart(pref.facial_colour)
+		pref.g_facial	= GetGreenPart(pref.facial_colour)
+		pref.b_facial	= GetBluePart(pref.facial_colour)
+
+		pref.s_tone		= text2num(pref.s_tone)
+
+		pref.skin_colour = sanitize_hexcolor(pref.skin_colour)
+		pref.r_skin		= GetRedPart(pref.skin_colour)
+		pref.g_skin		= GetGreenPart(pref.skin_colour)
+		pref.b_skin		= GetBluePart(pref.skin_colour)
+
+		pref.skin_colour = sanitize_hexcolor(pref.skin_colour)
+		pref.r_eyes		= GetRedPart(pref.eyes_colour)
+		pref.g_eyes		= GetGreenPart(pref.eyes_colour)
+		pref.b_eyes		= GetBluePart(pref.eyes_colour)
+
+		pref.disabilities = text2num(pref.disabilities)
+
+		if (pref.organ_data)
+			pref.organ_data = params2list(pref.organ_data)
+		if (pref.rlimb_data)
+			pref.rlimb_data = params2list(pref.rlimb_data)
+
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair			= sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
 	pref.b_hair			= sanitize_integer(pref.b_hair, 0, 255, initial(pref.b_hair))
@@ -69,8 +148,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.b_type			= sanitize_text(pref.b_type, initial(pref.b_type))
 
 	pref.disabilities	= sanitize_integer(pref.disabilities, 0, 65535, initial(pref.disabilities))
-	if(!pref.organ_data) pref.organ_data = list()
-	if(!pref.rlimb_data) pref.rlimb_data = list()
+	if (!pref.organ_data || !islist(pref.organ_data))
+		pref.organ_data = list()
+	if (!pref.rlimb_data || !islist(pref.rlimb_data))
+		pref.rlimb_data = list()
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	pref.update_preview_icon()
@@ -210,7 +291,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.species = href_list["set_species"]
 		if(prev_species != pref.species)
 			mob_species = all_species[pref.species]
-			
+
 			//grab one of the valid hair styles for the newly chosen species
 			var/list/valid_hairstyles = list()
 			for(var/hairstyle in hair_styles_list)

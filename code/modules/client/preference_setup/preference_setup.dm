@@ -3,6 +3,9 @@
 #define TOPIC_HANDLED 1
 #define TOPIC_REFRESH 2
 
+#define SQL_CHARACTER 1
+#define SQL_PREFERENCES 2
+
 /datum/category_group/player_setup_category/general_preferences
 	name = "General"
 	sort_order = 1
@@ -27,6 +30,7 @@
 	name = "Global"
 	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/player_global
+	sql_role = SQL_PREFERENCES
 
 /****************************
 * Category Collection Setup *
@@ -104,6 +108,8 @@
 **************************/
 /datum/category_group/player_setup_category
 	var/sort_order = 0
+	var/sql_role = SQL_CHARACTER
+	var/modified = 0
 
 /datum/category_group/player_setup_category/dd_SortValue()
 	return sort_order
@@ -117,29 +123,48 @@
 /datum/category_group/player_setup_category/proc/load_character(var/savefile/S)
 	// Load all data, then sanitize it.
 	// Need due to, for example, the 01_basic module relying on species having been loaded to sanitize correctly but that isn't loaded until module 03_body.
+	if (!config.sql_saves || !establish_db_connection(dbcon))
+		for(var/datum/category_item/player_setup_item/PI in items)
+			PI.load_character(S)
+	else
+		// Load every category minus the global
+		handle_sql_loading(SQL_CHARACTER)
+
 	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.load_character(S)
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_character()
+		PI.sanitize_character(config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_character(var/savefile/S)
 	// Sanitize all data, then save it
-	for(var/datum/category_item/player_setup_item/PI in items)
+	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character()
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.save_character(S)
+
+	if (!config.sql_saves || !establish_db_connection(dbcon))
+		for (var/datum/category_item/player_setup_item/PI in items)
+			PI.save_character(S)
+	else
+		if (modified && sql_role == SQL_CHARACTER)
+			handle_sql_saving(SQL_CHARACTER)
+			modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.load_preferences(S)
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_preferences()
+	if (!config.sql_saves || !establish_db_connection(dbcon))
+		for (var/datum/category_item/player_setup_item/PI in items)
+			PI.load_preferences(S)
+	else
+		handle_sql_loading(SQL_PREFERENCES)
+
+	for (var/datum/category_item/player_setup_item/PI in items)
+		PI.sanitize_preferences(config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_preferences(var/savefile/S)
-	for(var/datum/category_item/player_setup_item/PI in items)
+	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences()
-	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.save_preferences(S)
+
+	if (!config.sql_saves || !establish_db_connection(dbcon))
+		for (var/datum/category_item/player_setup_item/PI in items)
+			PI.save_preferences(S)
+	else
+		handle_sql_saving(SQL_PREFERENCES)
 
 /datum/category_group/player_setup_category/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	for(var/datum/category_item/player_setup_item/PI in items)
@@ -209,24 +234,51 @@
 /datum/category_item/player_setup_item/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	return 0
 
+/*
+* Called when the owner category is composing its load query
+*/
+/datum/category_item/player_setup_item/proc/gather_load_query()
+	return list()
+
+/*
+* Called when the owner category is composing its insert query
+*/
+/datum/category_item/player_setup_item/proc/gather_save_query()
+	return list()
+
+/*
+* Called when the owner category is composing its query parameters for loading.
+*/
+/datum/category_item/player_setup_item/proc/gather_load_parameters()
+	return list()
+
+/*
+* Called when the owner category is composing its query parameters for inserting a new record.
+*/
+/datum/category_item/player_setup_item/proc/gather_save_parameters()
+	return list()
+
 /datum/category_item/player_setup_item/proc/content()
 	return
 
-/datum/category_item/player_setup_item/proc/sanitize_character()
+/datum/category_item/player_setup_item/proc/sanitize_character(var/sql_load = 0)
 	return
 
-/datum/category_item/player_setup_item/proc/sanitize_preferences()
+/datum/category_item/player_setup_item/proc/sanitize_preferences(var/sql_load = 0)
 	return
 
 /datum/category_item/player_setup_item/Topic(var/href,var/list/href_list)
 	if(..())
 		return 1
 	var/mob/user = usr
-	if(!user.client)
+	if (!user.client)
 		return 1
 
 	. = OnTopic(href, href_list, user)
-	if(. == TOPIC_REFRESH)
+	if (. != TOPIC_NOACTION)
+		var/datum/category_group/player_setup_category/cat = category
+		cat.modified = 1
+	if (. == TOPIC_REFRESH)
 		user.client.prefs.ShowChoices(user)
 
 /datum/category_item/player_setup_item/CanUseTopic(var/mob/user)

@@ -40,17 +40,21 @@ datum/preferences
 	var/undershirt						//undershirt type
 	var/backbag = 2						//backpack type
 	var/h_style = "Bald"				//Hair type
+	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
 	var/g_hair = 0						//Hair color
 	var/b_hair = 0						//Hair color
 	var/f_style = "Shaved"				//Face hair type
+	var/facial_colour = "#000000"		//Facial colour hex value, for SQL loading
 	var/r_facial = 0					//Face hair color
 	var/g_facial = 0					//Face hair color
 	var/b_facial = 0					//Face hair color
 	var/s_tone = 0						//Skin tone
+	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
 	var/r_skin = 0						//Skin color
 	var/g_skin = 0						//Skin color
 	var/b_skin = 0						//Skin color
+	var/eyes_colour = "#000000"			//Eye colour hex value, for SQL loading
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
@@ -83,6 +87,9 @@ datum/preferences
 	var/job_engsec_high = 0
 	var/job_engsec_med = 0
 	var/job_engsec_low = 0
+
+	// A text blob which temporarily houses data from the SQL.
+	var/unsanitized_jobs = ""
 
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = 0
@@ -122,22 +129,6 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 /datum/preferences/New(client/C)
-	// #TODO-MERGE: Review SQL saving and migration
-	if (config.sql_saves && C.need_saves_migrated)
-		var/dat = "<center>The server attempted to automatically migrate your saves from the old file-system onto an SQL database.<br>"
-		dat += "This operation was "
-		if (!handle_saves_migration(C))
-			error("Failed migrating saves from [C.ckey] to the database!")
-			dat += "<font color='red'><b>unsuccessful!</b></font><br><br>"
-			dat += "There was most likely an error in one of the SQL commands used to handle this migration. Do not worry: your saves are still safe in the old system and retreivable. Please contact Skull132 <b>immediately</b> in order to have the issue resolved. Until such a time, you will have to play without your old characters.</center>"
-		else
-			dat += "<font color='green'><b>successful!</b></font><br><br>"
-			dat += "All of your character and preference data should be now neatly housed on the SQL database. Please look over it to see if anything is wrong or otherwise messed up. If you find something like that, please contact Skull132 <b>immediately.</b> Your old saves are still completely safe on the old system, should anything have gone wrong!<br><br>"
-			dat += "<b>You should now immediately load a character. Otherwise you risk overriding one of your characters!</b> Once that is done, everything shuold be fine.</center>"
-
-		C << browse(dat, "window=migrate_status")
-		update_migrate_status(C)
-
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
@@ -149,16 +140,16 @@ datum/preferences
 		client = C
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
-			handle_preferences_load(C)
+			load_preferences()
 			load_and_update_character()
 
 	ZeroSkills(1)
 
 /datum/preferences/proc/load_and_update_character(var/slot)
-	handle_character_load(get_default_slot(), client)
+	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
-		handle_preferences_save(client)
-		handle_character_save(client)
+		save_preferences()
+		save_character()
 
 /datum/preferences/proc/getMinAge(var/age_min)
 	if(species == "Vaurca" || species == "Machine" || species == "Diona")
@@ -280,7 +271,10 @@ datum/preferences
 		load_character()
 	else if(href_list["load"])
 		if(!IsGuestKey(usr.key))
-			open_load_dialog(usr)
+			if (config.sql_saves)
+				open_load_dialog_sql(usr)
+			else
+				open_load_dialog_file(usr)
 			return 1
 	else if(href_list["changeslot"])
 		load_character(text2num(href_list["changeslot"]))
@@ -425,14 +419,14 @@ datum/preferences
 				id = text2num(query.item[1])
 				name = query.item[2]
 				if (id == current_character)
-					dat += "<b><a href='?_src_=prefs;preference=changeslot;num=[id];'>[name]</a></b><br>"
+					dat += "<b><a href='?src=\ref[src];changeslot=[id];'>[name]</a></b><br>"
 				else
-					dat += "<a href='?_src_=prefs;preference=changeslot;num=[id];'>[name]</a><br>"
+					dat += "<a href='?src=\ref[src];changeslot=[id];'>[name]</a><br>"
 
 			dat += "<hr>"
 			dat += "<b>[query.RowCount()]/[config.character_slots] slots used</b><br>"
 			if (query.RowCount() < config.character_slots)
-				dat += "<a href='byond://?_src_=prefs;preference=new_character_sql;'>New Character</a>"
+				dat += "<a href='byond://?src=\ref[src];preference=new_character_sql;'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"
 

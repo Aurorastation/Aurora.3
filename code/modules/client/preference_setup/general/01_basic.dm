@@ -1,7 +1,7 @@
 /datum/category_item/player_setup_item/general/basic
 	name = "Basic"
 	sort_order = 1
-	var/list/valid_player_genders = list(MALE, FEMALE)
+	var/static/list/valid_player_genders = list(MALE, FEMALE)
 
 /datum/category_item/player_setup_item/general/basic/load_character(var/savefile/S)
 	S["real_name"]				>> pref.real_name
@@ -19,14 +19,44 @@
 	S["spawnpoint"]				<< pref.spawnpoint
 	S["OOC_Notes"]				<< pref.metadata
 
+/datum/category_item/player_setup_item/general/basic/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("name" = "real_name",
+													"random_name" = "be_random_name",
+													"gender",
+													"age",
+													"metadata",
+													"spawnpoint",),
+										"args" = list("id")))
+
+/datum/category_item/player_setup_item/general/basic/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
+/datum/category_item/player_setup_item/general/basic/gather_save_query()
+	return list("ss13_characters" = list("name",
+										 "random_name",
+										 "gender",
+										 "age",
+										 "metadata",
+										 "spawnpoint",
+										 "id" = 1))
+
+/datum/category_item/player_setup_item/general/basic/gather_save_parameters()
+	return list(":name" = pref.real_name,
+				":random_name" = pref.be_random_name,
+				":gender" = pref.gender,
+				":age" = pref.age,
+				":metadata" = pref.metadata,
+				":spawnpoint" = pref.spawnpoint,
+				":id" = pref.current_character)
+
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
-	pref.age			= sanitize_integer(pref.age, AGE_MIN, AGE_MAX, initial(pref.age))
+	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
 	pref.real_name		= sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name	= random_name(pref.gender, pref.species)
 	pref.spawnpoint		= sanitize_inlist(pref.spawnpoint, spawntypes, initial(pref.spawnpoint))
-	pref.be_random_name	= sanitize_integer(pref.be_random_name, 0, 1, initial(pref.be_random_name))
+	pref.be_random_name	= sanitize_integer(text2num(pref.be_random_name), 0, 1, initial(pref.be_random_name))
 
 /datum/category_item/player_setup_item/general/basic/content()
 	. = "<b>Name:</b> "
