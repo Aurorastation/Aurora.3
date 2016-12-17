@@ -89,7 +89,7 @@
 	bst.add_language("Siik'maas")
 	bst.add_language("Skrellian")
 	bst.add_language("Vox-pidgin")
-	bst.add_language("Rootsong")
+	bst.add_language(LANGUAGE_ROOTSPEAK)
 	bst.add_language("Ceti Basic")
 	bst.add_language("Sol Common")
 	bst.add_language("Tradeband")
