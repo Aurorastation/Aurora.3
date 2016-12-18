@@ -155,7 +155,7 @@
 					user << span("notice", "You pry the cover off [src].")
 					setconstructionstate(1)
 				else
-					user << span("notice", "You try to pry the cover off [src] but it doesn't budge.</span>")
+					user << span("notice", "You try to pry the cover off [src] but it doesn't budge.")
 				return
 
 		if (1)

@@ -13,6 +13,8 @@
 	radiation_mod = 0.5
 	brute_mod =     0.85
 	slowdown =      1
+	
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/human/spacer
 	name = "space-adapted Human"
@@ -27,6 +29,8 @@
 	flash_mod = 1.2
 	brute_mod = 1.1
 	burn_mod =  1.1
+	
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/human/vatgrown
 	name = "vat-grown Human"
@@ -45,6 +49,8 @@
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes
 		)
+		
+	spawn_flags = IS_RESTRICTED
 
 /*
 // These guys are going to need full resprites of all the suits/etc so I'm going to

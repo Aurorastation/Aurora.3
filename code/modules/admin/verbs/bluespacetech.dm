@@ -89,7 +89,7 @@
 	bst.add_language("Siik'maas")
 	bst.add_language("Skrellian")
 	bst.add_language("Vox-pidgin")
-	bst.add_language(LANGUAGE_ROOTSPEAK)
+	bst.add_language("Rootsong")
 	bst.add_language("Ceti Basic")
 	bst.add_language("Sol Common")
 	bst.add_language("Tradeband")
@@ -124,7 +124,7 @@
 	binarycheck()
 		return 1
 
-/*	suicide()
+	proc/suicide()
 		if(key && species.name != "Human")
 			switch(species.name)
 				if("Tajara")
@@ -137,6 +137,8 @@
 					bsu()
 				if("Skrell")
 					bss()
+				if("Vaurca")
+					bsv()
 			return
 
 		src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
@@ -157,7 +159,7 @@
 					ghost.real_name = "[ghost.key] BSTech"
 					ghost.voice_name = "[ghost.key] BSTech"
 			qdel(src)
-		return*/
+		return
 
 	proc/bsc() //because we all have our unrealistic snowflakes right?
 		if(set_species("Tajara"))
@@ -177,7 +179,7 @@
 		else
 			ghostize(0)
 			key = null
-			//suicide()
+			suicide()
 
 	proc/bsb()
 		if(set_species("Machine"))
@@ -196,7 +198,7 @@
 		else
 			ghostize(0)
 			key = null
-			//suicide()
+			suicide()
 
 	proc/bsd()
 		if(set_species("Diona"))
@@ -214,26 +216,26 @@
 		else
 			ghostize(0)
 			key = null
-			//suicide()
+			suicide()
 
 	proc/bsu()
 		if(set_species("Unathi"))
 			h_style = "Unathi Horns"
-			name = "Bluespace Snake"
-			voice_name = "Bluespace Snake"
-			real_name = "Bluespace Snake"
-			mind.name = "Bluespace Snake"
+			name = "Bluespace Lizard"
+			voice_name = "Bluespace Lizard"
+			real_name = "Bluespace Lizard"
+			mind.name = "Bluespace Lizard"
 			if(wear_id)
 				var/obj/item/weapon/card/id/id = wear_id
 				if(istype(wear_id, /obj/item/device/pda))
 					var/obj/item/device/pda/pda = wear_id
 					id = pda.id
-				id.registered_name = "Bluespace Snake"
+				id.registered_name = "Bluespace Lizard"
 			regenerate_icons()
 		else
 			ghostize(0)
 			key = null
-			//suicide()
+			suicide()
 
 	proc/bss()
 		if(set_species("Skrell"))
@@ -253,7 +255,26 @@
 		else
 			ghostize(0)
 			key = null
-		//	suicide()
+			suicide()
+
+	proc/bsv()
+		if(set_species("Vaurca"))
+			h_style = "Bald"
+			name = "Bluespace Bug"
+			voice_name = "Bluespace Bug"
+			real_name = "Bluespace Bug"
+			mind.name = "Bluespace Bug"
+			if(wear_id)
+				var/obj/item/weapon/card/id/id = wear_id
+				if(istype(wear_id, /obj/item/device/pda))
+					var/obj/item/device/pda/pda = wear_id
+					id = pda.id
+				id.registered_name = "Bluespace Bug"
+			regenerate_icons()
+		else
+			ghostize(0)
+			key = null
+			suicide()
 
 	say(var/message)
 		var/verb = "says in a subdued tone"
@@ -302,7 +323,7 @@
 
 			C.holder.original_mob.key = key
 			C.holder.original_mob = null
-	//	suicide()
+		suicide()
 
 //Equipment. All should have canremove set to 0
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.
@@ -384,6 +405,7 @@
 	desc = "A pair of sunglasses, these look modified, 'BST' marked on the side."
 //	var/list/obj/item/clothing/glasses/hud/health/hud = null
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
 /*	New()
 		..()

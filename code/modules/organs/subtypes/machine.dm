@@ -108,7 +108,7 @@
 /obj/item/organ/mmi_holder
 	name = "brain"
 	organ_tag = "brain"
-	parent_organ = "chest"
+	parent_organ = "head"
 	vital = 1
 	var/obj/item/device/mmi/stored_mmi
 

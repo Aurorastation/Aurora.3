@@ -195,7 +195,7 @@
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
 	language = "Ceti Basic"
-	default_language = LANGUAGE_ROOTSPEAK
+	default_language = LANGUAGE_ROOTSONG
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/diona)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -205,7 +205,7 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 1
-	name_language = "Rootspeak"
+	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
 
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
@@ -336,11 +336,12 @@
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
 
-	language = "Encoded Audio Language"
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
-	num_alternate_languages = 1 // potentially could be 2?
+	
 	name_language = "Encoded Audio Language"
+	num_alternate_languages = 2
+	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
 
 	eyes = "blank_eyes"
@@ -437,6 +438,7 @@
 	language = "Hivenet"
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
+	name_language = "Hivenet"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	rarity_value = 4
 	slowdown = 0	//may become a bonus if vaurca gain more legs.
@@ -465,7 +467,8 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = CAN_JOIN | NO_SCAN | HAS_SKIN_COLOR | IS_WHITELISTED | NO_SLIP
+	flags = NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
+	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"

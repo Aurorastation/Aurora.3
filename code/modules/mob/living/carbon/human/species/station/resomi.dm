@@ -32,7 +32,7 @@
 	short_sighted = 1
 	gluttonous = GLUT_TINY
 
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
