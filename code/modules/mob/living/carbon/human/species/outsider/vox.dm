@@ -108,7 +108,8 @@
 		"brain" =    /obj/item/organ/pariah_brain,
 		"eyes" =     /obj/item/organ/eyes
 		)
-	flags = IS_RESTRICTED | NO_SCAN | HAS_EYE_COLOR
+	flags = NO_SCAN | HAS_EYE_COLOR
+	spawn_flags = IS_RESTRICTED
 
 // No combat skills for you.
 /datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
