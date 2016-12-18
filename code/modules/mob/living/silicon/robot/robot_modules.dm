@@ -685,7 +685,7 @@ var/global/list/robot_modules = list(
 	id = null
 	return ..()
 */
-/obj/item/weapon/robot_moduley/combat
+/obj/item/weapon/robot_module/combat
 	name = "combat robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
