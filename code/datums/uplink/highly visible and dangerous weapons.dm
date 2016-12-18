@@ -14,6 +14,11 @@
 	item_cost = 6
 	path = /obj/item/weapon/gun/energy/crossbow
 
+/datum/uplink_item/item/visible_weapons/forcegloves
+	name = "Force Gloves"
+	item_cost = 8
+	path = /obj/item/clothing/gloves/force/syndicate
+
 /datum/uplink_item/item/visible_weapons/energy_sword
 	name = "Energy Sword"
 	item_cost = 8
@@ -34,16 +39,10 @@
 	item_cost = 12
 	path = /obj/item/weapon/gun/projectile/revolver
 
-//These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Submachine Gun"
-	item_cost = 12
-	path = /obj/item/weapon/gun/projectile/automatic/c20r
-
-/datum/uplink_item/item/visible_weapons/assaultrifle
-	name = "Assault Rifle"
+	name = "Tommy Gun"
 	item_cost = 14
-	path = /obj/item/weapon/gun/projectile/automatic/rifle/sts35
+	path = /obj/item/weapon/gun/projectile/automatic/tommygun
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"

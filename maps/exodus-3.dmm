@@ -301,7 +301,7 @@
 "fO" = (/obj/machinery/atmospherics/pipe/simple/hidden/yellow{dir = 6},/turf/simulated/floor/tiled/dark,/area/tcommsat/chamber)
 "fP" = (/obj/machinery/atmospherics/pipe/simple/hidden/yellow{dir = 5},/turf/simulated/floor/tiled/dark,/area/tcommsat/chamber)
 "fQ" = (/obj/machinery/telecomms/server/presets/command,/obj/effect/floor_decal/industrial/outline/grey,/turf/simulated/floor/tiled/dark,/area/tcommsat/chamber)
-"fR" = (/obj/machinery/atmospherics/pipe/simple/hidden/yellow{dir = 10},/turf/simulated/floor/tiled/dark,/area/tcommsat/chamber)
+"fR" = (/obj/machinery/atmospherics/pipe/simple/hidden/yellow{dir = 10},/obj/machinery/ntnet_relay,/turf/simulated/floor/tiled/dark,/area/tcommsat/chamber)
 "fS" = (/obj/machinery/telecomms/server/presets/security,/obj/effect/floor_decal/industrial/outline/grey,/turf/simulated/floor/tiled/dark,/area/tcommsat/chamber)
 "fT" = (/obj/machinery/porta_turret{dir = 6},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/effect/floor_decal/industrial/warning/corner{icon_state = "warningcorner"; dir = 1},/turf/simulated/floor/tiled,/area/turret_protected/tcomfoyer)
 "fU" = (/obj/structure/sign/securearea{desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!"; name = "LETHAL TURRETS"; pixel_x = -32; pixel_y = 0},/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_x = 0; pixel_y = 24},/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 9},/turf/simulated/floor/tiled,/area/turret_protected/tcomfoyer)
