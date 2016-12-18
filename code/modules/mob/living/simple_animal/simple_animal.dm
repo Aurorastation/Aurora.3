@@ -412,7 +412,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 	else
-		usr << "<span class='danger>This weapon is ineffective, it does no damage.</span>"
+		usr << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
 
 	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
 	user.do_attack_animation(src)

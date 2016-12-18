@@ -346,7 +346,7 @@ proc/admin_notice(var/message, var/rights)
 		if(0)
 			dat += {"Welcome to the admin newscaster.<BR> Here you can add, edit and censor every newspiece on the network.
 				<BR>Feed channels and stories entered through here will be uneditable and handled as official news by the rest of the units.
-				<BR>Note that this panel allows full freedom over the news network, there are no constrictions except the few basic ones. Don't break things!</FONT>
+				<BR>Note that this panel allows full freedom over the news network, there are no constrictions except the few basic ones. Don't break things!
 			"}
 			if(news_network.wanted_issue)
 				dat+= "<HR><A href='?src=\ref[src];ac_view_wanted=1'>Read Wanted Issue</A>"
@@ -431,7 +431,7 @@ proc/admin_notice(var/message, var/rights)
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
 					<FONT COLOR='red'><B>ATTENTION: </B></FONT>This channel has been deemed as threatening to the welfare of the station, and marked with a [company_name] D-Notice.<BR>
-					No further feed story additions are allowed while the D-Notice is in effect.</FONT><BR><BR>
+					No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>
 				"}
 			else
 				if( isemptylist(src.admincaster_feed_channel.messages) )
@@ -498,7 +498,7 @@ proc/admin_notice(var/message, var/rights)
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
 					<FONT COLOR='red'><B>ATTENTION: </B></FONT>This channel has been deemed as threatening to the welfare of the station, and marked with a [company_name] D-Notice.<BR>
-					No further feed story additions are allowed while the D-Notice is in effect.</FONT><BR><BR>
+					No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>
 				"}
 			else
 				if( isemptylist(src.admincaster_feed_channel.messages) )
