@@ -478,7 +478,7 @@
 			user.remove_language("Siik'maas")
 			user.remove_language("Skrellian")
 			//user.add_language("Hivenet") //I can buy an AI core and its cyborgs having access to the local hivenet for security reasons, but a pAI?
-			user.add_language(LANGUAGE_ROOTSPEAK)
+			user.add_language("Rootsong")
 
 	is_active(mob/living/silicon/pai/user)
 		return user.translator_on
