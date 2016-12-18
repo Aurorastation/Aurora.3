@@ -336,11 +336,12 @@
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
 
-	language = "Encoded Audio Language"
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
-	num_alternate_languages = 1 // potentially could be 2?
+	
 	name_language = "Encoded Audio Language"
+	num_alternate_languages = 2
+	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
 
 	eyes = "blank_eyes"
@@ -466,7 +467,8 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = CAN_JOIN | NO_SCAN | HAS_SKIN_COLOR | IS_WHITELISTED | NO_SLIP
+	flags = NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
+	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
