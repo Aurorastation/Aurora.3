@@ -457,6 +457,7 @@ datum/unit_test/mob_damage/machine/brute
 datum/unit_test/mob_damage/machine/fire
 	name = "MOB: IPC Fire Damage Check"
 	damagetype = BURN
+	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/machine/tox
 	name = "MOB: IPC Toxins Damage Check"
