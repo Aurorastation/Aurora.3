@@ -255,6 +255,8 @@ var/obj/machinery/blackbox_recorder/blackbox
 	blackbox = src
 
 /obj/machinery/blackbox_recorder/Destroy()
+	feedback_set_details("blackbox_destroyed","true")
+	feedback_set("blackbox_destroyed",1)
 	var/turf/T = locate(1,1,2)
 	if(T)
 		blackbox = null
@@ -328,20 +330,11 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 	round_end_data_gathering() //round_end time logging and some other data processing
 	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected()) return
-	var/round_id
-
-	var/DBQuery/query = dbcon.NewQuery("SELECT MAX(round_id) AS round_id FROM ss13_feedback")
-	query.Execute()
-	while(query.NextRow())
-		round_id = query.item[1]
-
-	if(!isnum(round_id))
-		round_id = text2num(round_id)
-	round_id++
+	if(!dbcon.IsConnected())
+		return
 
 	for(var/datum/feedback_variable/FV in feedback)
-		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), [round_id], \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
+		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[game_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
 		var/DBQuery/query_insert = dbcon.NewQuery(sql)
 		query_insert.Execute()
 
