@@ -205,7 +205,7 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 1
-	name_language = "Rootspeak"
+	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
 
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
