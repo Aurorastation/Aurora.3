@@ -18,3 +18,8 @@
 	name = "5xEMP Grenades"
 	item_cost = 6
 	path = /obj/item/weapon/storage/box/emps
+
+/datum/uplink_item/item/grenades/manhack
+	name = "Manhack Delivery Grenade"
+	item_cost = 3
+	path = /obj/item/weapon/grenade/spawnergrenade/manhacks

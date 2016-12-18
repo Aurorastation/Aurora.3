@@ -16,7 +16,7 @@
 
 /datum/uplink_item/item/stealthy_weapons/concealed_cane
 	name = "Concealed Cane Sword"
-	item_cost = 2
+	item_cost = 9
 	path = /obj/item/weapon/cane/concealed
 
 /datum/uplink_item/item/stealthy_weapons/random_toxin
