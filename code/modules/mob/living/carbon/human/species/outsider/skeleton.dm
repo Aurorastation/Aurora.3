@@ -39,7 +39,8 @@
 	breath_type = null
 	poison_type = null
 
-	flags = IS_RESTRICTED | NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/skeleton),
