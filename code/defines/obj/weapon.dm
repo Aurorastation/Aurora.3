@@ -122,16 +122,6 @@
 	else
 		..()
 
-/obj/item/weapon/cane/concealed/update_icon()
-	if(concealed_blade)
-		name = initial(name)
-		icon_state = initial(icon_state)
-		item_state = initial(icon_state)
-	else
-		name = "cane shaft"
-		icon_state = "nullrod"
-		item_state = "foldcane"
-
 /obj/item/weapon/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'

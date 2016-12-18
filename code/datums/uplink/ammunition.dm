@@ -10,10 +10,15 @@
 	item_cost = 1
 	path = /obj/item/ammo_magazine/mc9mm
 
-/datum/uplink_item/item/ammo/a10mm
-	name = "10mm"
-	item_cost = 1
-	path = /obj/item/ammo_magazine/a10mm
+/datum/uplink_item/item/ammo/tommygunmag
+	name = "Tommygun Magazine (.45)"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/tommymag
+
+/datum/uplink_item/item/ammo/tommygundrum
+	name = "Tommygun Drum Magazine (.45)"
+	item_cost = 4
+	path = /obj/item/ammo_magazine/tommydrum
 
 /datum/uplink_item/item/ammo/darts
 	name = "Darts"
@@ -24,11 +29,6 @@
 	name = ".357"
 	item_cost = 2
 	path = /obj/item/ammo_magazine/a357
-
-/datum/uplink_item/item/ammo/a762
-	name = "7.62mm"
-	item_cost = 3
-	path = /obj/item/ammo_magazine/a762
 
 /datum/uplink_item/item/ammo/sniperammo
 	name = "14.5mm"

@@ -389,6 +389,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/color/blackf
 	slot = slot_w_uniform
 	cost = 1
+	
 /datum/gear/blackfjumpsuit
 	display_name = "jumpsuit, rainbow"
 	path = /obj/item/clothing/under/rainbow
@@ -418,13 +419,6 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/blackskirt
 	slot = slot_w_uniform
 	cost = 1
-
-/datum/gear/roboticist_skirt
-	display_name = "skirt, roboticist"
-	path = /obj/item/clothing/under/rank/roboticist/skirt
-	slot = slot_w_uniform
-	cost = 1
-	allowed_roles = list("Roboticist")
 
 /datum/gear/amishsuit
 	display_name = "suit, amish"
@@ -610,46 +604,6 @@ var/global/list/gear_datums = list()
 	slot = slot_w_uniform
 	cost = 1
 	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective",)
-
-// Resomi junk
-/datum/gear/resomi_grey
-	display_name = "Resomi uniform, grey"
-	path = /obj/item/clothing/under/resomi
-	cost = 1
-	slot = slot_w_uniform
-
-/datum/gear/resomi_rainbow
-	display_name = "Resomi uniform, rainbow"
-	path = /obj/item/clothing/under/resomi/rainbow
-	cost = 1
-	slot = slot_w_uniform
-
-/datum/gear/resomi_white
-	display_name = "Resomi uniform, white"
-	path = /obj/item/clothing/under/resomi/white
-	cost = 1
-	slot = slot_w_uniform
-
-/datum/gear/resomi_eng
-	display_name = "Resomi uniform, Engineering"
-	path = /obj/item/clothing/under/resomi/yellow
-	cost = 1
-	slot = slot_w_uniform
-	allowed_roles = list("Chief Engineer","Station Engineer","Atmospherics Technician")
-
-/datum/gear/resomi_sec
-	display_name = "Resomi uniform, Security"
-	path = /obj/item/clothing/under/resomi/red
-	cost = 1
-	slot = slot_w_uniform
-	allowed_roles = list("Security Officer","Head of Security","Warden")
-
-
-/datum/gear/resomi_med
-	display_name = "Resomi uniform, Medical"
-	path = /obj/item/clothing/under/resomi/medical
-	cost = 1
-	slot = slot_w_uniform
 
 // Attachments
 /datum/gear/armband_cargo
@@ -1272,7 +1226,6 @@ var/global/list/gear_datums = list()
 	sort_category = "utility"
 	cost = 2
 
-
 /datum/gear/wallet
 	display_name = "wallet"
 	path = 	/obj/item/weapon/storage/wallet
@@ -1418,7 +1371,6 @@ var/global/list/gear_datums = list()
 	sort_category = "misc"
 	cost = 1
 
-
 /datum/gear/cape
 	display_name = "tunnel cloak"
 	path = /obj/item/weapon/storage/backpack/cloak
@@ -1436,11 +1388,6 @@ var/global/list/gear_datums = list()
 	path = /obj/item/weapon/flame/lighter/zippo
 	sort_category = "misc"
 	cost = 1
-
-/*/datum/gear/combitool
-	display_name = "combi-tool"
-	path = /obj/item/weapon/combitool
-	cost = 3*/
 
 // Stuff worn on the ears. Items here go in the "ears" sort_category but they must not use
 // the slot_r_ear or slot_l_ear as the slot, or else players will spawn with no headset.

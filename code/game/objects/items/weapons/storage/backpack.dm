@@ -328,6 +328,7 @@
 /obj/item/weapon/storage/backpack/duffel/tox
 	name = "scientist's duffel bag"
 	desc = "Handy when it comes to storing volatile materials of the anomalous persuasion."
+	icon_state = "duffel-toxins"
 
 /obj/item/weapon/storage/backpack/duffel/sec
 	name = "security duffel bag"
