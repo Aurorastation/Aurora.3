@@ -437,6 +437,7 @@
 	language = "Hivenet"
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
+	name_language = "Hivenet"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	rarity_value = 4
 	slowdown = 0	//may become a bonus if vaurca gain more legs.
