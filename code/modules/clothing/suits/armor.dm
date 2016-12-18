@@ -315,24 +315,30 @@
 	icon_state = "ertarmor_med"
 
 //New Vests
-/obj/item/clothing/suit/armor/vest
+/obj/item/clothing/suit/storage/vest
 	name = "armor vest"
-	desc = "An armor vest made of synthetic fibers."
+	desc = "A simple kevlar plate carrier."
 	icon_state = "kvest"
-	item_state = "armor"
+	item_state = "kvest"
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	siemens_coefficient = 0.5
 
 /obj/item/clothing/suit/storage/vest/officer
-	name = "security armor vest"
-	desc = "A synthetic armor vest with SECURITY printed in red lettering on the chest. This one has added webbing and ballistic plates."
-	icon_state = "officervest"
+	name = "officer armor vest"
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a security holobadge clipped to the chest."
+	icon_state = "officervest_nobadge"
+	item_state = "officervest_nobadge"
+	icon_badge = "officervest_badge"
+	icon_nobadge = "officervest_nobadge"
 
 /obj/item/clothing/suit/storage/vest/warden
 	name = "warden armor vest"
-	desc = "A synthetic armor vest with WARDEN printed in silver lettering on the chest. This one has added webbing and ballistic plates."
-	icon_state = "wardenvest"
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a silver badge clipped to the chest."
+	icon_state = "wardenvest_nobadge"
+	item_state = "wardenvest_nobadge"
+	icon_badge = "wardenvest_badge"
+	icon_nobadge = "wardenvest_nobadge"
 
 /obj/item/clothing/suit/storage/vest/hos
 	name = "commander armor vest"
