@@ -282,10 +282,11 @@
 		target.apply_damage(12, BRUTE, affected, sharp=1)
 
 /datum/surgery_step/generic/cauterize
-	allowed_tools = list(//Fixed these tool probabilities because they were dumb
-	/obj/item/weapon/cautery = 100,			\
-	/obj/item/clothing/mask/smokable/cigarette = 25,	\
-	/obj/item/weapon/flame/lighter = 50,			\
+	//Fixed these tool probabilities because they were dumb
+	allowed_tools = list(
+	/obj/item/weapon/cautery = 100,
+	/obj/item/clothing/mask/smokable/cigarette = 25,
+	/obj/item/weapon/flame/lighter = 50,
 	/obj/item/weapon/weldingtool = 75
 	)
 
@@ -320,9 +321,9 @@
 
 /datum/surgery_step/generic/amputate
 	allowed_tools = list(
-	/obj/item/weapon/circular_saw = 100, \
-	/obj/item/weapon/melee/energy = 100, \
-	/obj/item/weapon/melee/chainsword = 100, \
+	/obj/item/weapon/circular_saw = 100,
+	/obj/item/weapon/melee/energy = 100,
+	/obj/item/weapon/melee/chainsword = 100,
 	/obj/item/weapon/material/hatchet = 55
 	)
 
