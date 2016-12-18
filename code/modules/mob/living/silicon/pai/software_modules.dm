@@ -472,7 +472,7 @@
 			user.add_language("Siik'maas")
 			user.add_language("Skrellian")
 //			user.add_language("Vaurcese")
-			user.add_language(LANGUAGE_ROOTSPEAK)
+			user.add_language(LANGUAGE_ROOTSONG)
 		else
 			user.remove_language("Sinta'unathi")
 			user.remove_language("Siik'maas")
