@@ -152,7 +152,7 @@ var/list/ai_verbs_default = list(
 	add_language("Tradeband", 1)
 	add_language("Gutter", 0)
 	add_language("Hivenet", 0)
-	add_language(LANGUAGE_ROOTSONG, 0)
+	add_language("Rootsong", 0)
 	add_language(LANGUAGE_EAL, 1)
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
