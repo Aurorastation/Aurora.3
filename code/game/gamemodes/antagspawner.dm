@@ -19,7 +19,7 @@
 	return
 
 /obj/item/weapon/antag_spawner/borg_tele
-	name = "Syndicate Cyborg Teleporter"
+	name = "syndicate cyborg teleporter"
 	desc = "A single-use teleporter used to deploy a Syndicate Cyborg on the field. Due to budget restrictions, it is only possible to deploy a single cyborg at time."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
@@ -34,9 +34,9 @@
 			continue
 		if(jobban_isbanned(O, "Syndicate") && jobban_isbanned(O, "Mercenary") && jobban_isbanned(O, "Cyborg"))
 			continue
-		if(O.client)
-			if(O.client.prefs.be_special & BE_OPERATIVE)
-				question(O.client)
+		if(O.client && O.client.prefs && (MODE_MERCENARY in O.client.prefs.be_special_role))
+			question(O.client)
+			
 	spawn(600)
 		searching = 0
 		if(!used)
@@ -56,7 +56,7 @@
 		if(response == "Yes")
 			spawn_antag(C, get_turf(src))
 		else if (response == "Never for this round")
-			C.prefs.be_special ^= BE_OPERATIVE
+			C.prefs.be_special_role ^= MODE_MERCENARY
 
 obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 	var/datum/effect/effect/system/spark_spread/S = new /datum/effect/effect/system/spark_spread
@@ -69,6 +69,11 @@ obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 		H.real_name = newname
 		H.name = H.real_name
 	H.mind.special_role = "Mercenary"
+	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans, you are also able to change your name using the name pick command.</b>"
+
+	spawn(1)
+		used = 1
+		qdel(src)
 	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans, you are also able to change your name using the name pick command.</b>"
 
 	spawn(1)

@@ -1,4 +1,3 @@
-//meteor storms are much heavier
 /datum/event/meteor_wave
 	startWhen		= 86
 	endWhen			= 9999//safety value, will be set during ticks

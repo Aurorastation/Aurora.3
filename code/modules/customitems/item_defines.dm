@@ -573,10 +573,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	last_special = world.time + 500
 
 	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
-	
+
 	if(isnull(F))
 		return
-		
+
 	F.damage += 5
 	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
 	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
@@ -622,7 +622,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
 	icon_state = "alexis_degree"
 	sign_state = "alexis_degree"
-	w_class = 2	
+	w_class = 2
 
 
 /obj/item/clothing/mask/fluff/rur_collar //Tagging Collar - R.U.R - coalf - DONE
@@ -632,7 +632,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rur_collar"
 	item_state = "rur_collar"
 	contained_sprite = 1
-	flags = MASKCOVERSMOUTH
 	body_parts_covered = 0
 	canremove = 0
 	species_restricted = list("Machine")

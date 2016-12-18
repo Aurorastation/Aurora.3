@@ -472,13 +472,13 @@
 			user.add_language("Siik'maas")
 			user.add_language("Skrellian")
 //			user.add_language("Vaurcese")
-			user.add_language("Rootsong")
+			user.add_language(LANGUAGE_ROOTSPEAK)
 		else
 			user.remove_language("Sinta'unathi")
 			user.remove_language("Siik'maas")
 			user.remove_language("Skrellian")
 			//user.add_language("Hivenet") //I can buy an AI core and its cyborgs having access to the local hivenet for security reasons, but a pAI?
-			user.add_language("Rootsong")
+			user.add_language(LANGUAGE_ROOTSPEAK)
 
 	is_active(mob/living/silicon/pai/user)
 		return user.translator_on
@@ -514,7 +514,7 @@
 
 		else if(href_list["freq"])
 			var/new_frequency = (P.sradio.frequency + text2num(href_list["freq"]))
-			if(new_frequency < 1200 || new_frequency > 1600)
+			if(new_frequency < PUBLIC_LOW_FREQ || new_frequency > PUBLIC_HIGH_FREQ)
 				new_frequency = sanitize_frequency(new_frequency)
 			P.sradio.set_frequency(new_frequency)
 			return 1

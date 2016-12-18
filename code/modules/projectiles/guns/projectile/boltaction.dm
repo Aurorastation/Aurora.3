@@ -15,7 +15,6 @@
 	force = 10
 	var/recentpump = 0
 
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/boltaction/can_wield()

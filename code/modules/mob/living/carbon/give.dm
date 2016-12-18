@@ -2,11 +2,7 @@
 	set category = "IC"
 	set name = "Give"
 
-	// TODO :  Change to incapacitated() on merge.
-	//Edit by Nanako: Removed buckled check so people can give while sitting,
-	//added restrained check so people cant give/recieve while cuffed or straitjacketed
-	if(usr.stat || usr.lying || usr.resting || usr.restrained())
-		usr << "\red You're in no condition to handle items!"
+	if(incapacitated())
 		return
 	if(!istype(target) || target.stat || target.lying || target.resting || target.restrained() || target.client == null)
 		usr << "\red [target.name] is in no condition to handle items!"

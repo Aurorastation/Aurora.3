@@ -116,7 +116,7 @@
 		if(!src.isbroken)
 			dat+= "<HEAD><TITLE>Suit storage unit</TITLE></HEAD>"
 			dat+= "<font color='blue'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></FONT><BR>"
-			dat+= "<B>Welcome to the Unit control panel.</B><HR>"
+			dat+= "<B>Welcome to the Unit control panel.</B></FONT><HR>"
 			dat+= text("<font color='black'>Helmet storage compartment: <B>[]</B></font><BR>",(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.") )
 			if(HELMET && src.isopen)
 				dat+=text("<A href='?src=\ref[];dispense_helmet=1'>Dispense helmet</A><BR>",src)
@@ -616,7 +616,7 @@
 /obj/machinery/suit_cycler/Destroy()
 	qdel(wires)
 	wires = null
-	..()
+	return ..()
 
 /obj/machinery/suit_cycler/engineering
 	name = "Engineering suit cycler"
@@ -691,7 +691,7 @@
 			user << "<span class='danger'>There is no room inside the cycler for [G.affecting.name].</span>"
 			return
 
-		visible_message("[user] starts putting [G.affecting.name] into the suit cycler.</span>", 3)
+		visible_message("<span class='notice'>[user] starts putting [G.affecting.name] into the suit cycler.</span>", 3)
 
 		if(do_after(user, 20))
 			if(!G || !G.affecting) return
@@ -713,24 +713,6 @@
 		panel_open = !panel_open
 		user << "You [panel_open ?  "open" : "close"] the maintenance panel."
 		src.updateUsrDialog()
-		return
-
-	else if(istype(I,/obj/item/weapon/card/emag))
-
-		if(emagged)
-			user << "<span class='danger'>The cycler has already been subverted.</span>"
-			return
-
-		var/obj/item/weapon/card/emag/E = I
-		src.updateUsrDialog()
-		E.uses--
-
-		//Clear the access reqs, disable the safeties, and open up all paintjobs.
-		user << "<span class='danger'>You run the sequencer across the interface, corrupting the operating protocols.</span>"
-		departments = list("Engineering","Mining","Medical","Security","Atmos","^%###^%$")
-		emagged = 1
-		safeties = 0
-		req_access = list()
 		return
 
 	else if(istype(I,/obj/item/clothing/head/helmet/space) && !istype(I, /obj/item/clothing/head/helmet/space/rig))
@@ -781,6 +763,20 @@
 
 	..()
 
+/obj/machinery/suit_cycler/emag_act(var/remaining_charges, var/mob/user)
+	if(emagged)
+		user << "<span class='danger'>The cycler has already been subverted.</span>"
+		return
+
+	//Clear the access reqs, disable the safeties, and open up all paintjobs.
+	user << "<span class='danger'>You run the sequencer across the interface, corrupting the operating protocols.</span>"
+	departments = list("Engineering","Mining","Medical","Security","Atmos","^%###^%$")
+	emagged = 1
+	safeties = 0
+	req_access = list()
+	src.updateUsrDialog()
+	return 1
+
 /obj/machinery/suit_cycler/attack_hand(mob/user as mob)
 
 	add_fingerprint(user)
@@ -822,7 +818,7 @@
 		dat += "<A href='?src=\ref[src];select_rad_level=1'>\[select power level\]</a> <A href='?src=\ref[src];begin_decontamination=1'>\[begin decontamination cycle\]</a><br><hr>"
 
 		dat += "<h2>Customisation</h2>"
-		dat += "<b>Target product: <A href='?src=\ref[src];select_department=1'>[target_department]</a>, <A href='?src=\ref[src];select_species=1'>[target_species]</a>."
+		dat += "<b>Target product:</b> <A href='?src=\ref[src];select_department=1'>[target_department]</a>, <A href='?src=\ref[src];select_species=1'>[target_species]</a>."
 		dat += "<A href='?src=\ref[src];apply_paintjob=1'><br>\[apply customisation routine\]</a><br><hr>"
 
 	if(panel_open)
@@ -933,11 +929,11 @@
 			occupant.take_organ_damage(0,radiation_level*2 + rand(1,3))
 		if(radiation_level > 1)
 			occupant.take_organ_damage(0,radiation_level + rand(1,3))
-		occupant.radiation += radiation_level*10
+		occupant.apply_effect(radiation_level*10, IRRADIATE)
 
 /obj/machinery/suit_cycler/proc/finished_job()
 	var/turf/T = get_turf(src)
-	T.visible_message("\icon[src] \blue The [src] pings loudly.")
+	T.visible_message("\icon[src]<span class='notice'>The [src] pings loudly.</span>")
 	icon_state = initial(icon_state)
 	active = 0
 	src.updateUsrDialog()
@@ -964,7 +960,7 @@
 /obj/machinery/suit_cycler/proc/eject_occupant(mob/user as mob)
 
 	if(locked || active)
-		user << "\red The cycler is locked."
+		user << "<span class='warning'>The cycler is locked.</span>"
 		return
 
 	if (!occupant)
