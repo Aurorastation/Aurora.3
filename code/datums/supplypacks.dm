@@ -719,8 +719,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/weapons
 	name = "Weapons crate"
-	contains = list(/obj/item/weapon/gun/energy/rifle,
-					/obj/item/weapon/gun/energy/rifle,
+	contains = list(/obj/item/weapon/gun/energy/rifle/laser,
+					/obj/item/weapon/gun/energy/rifle/laser,
 					/obj/item/weapon/gun/projectile/sec,
 					/obj/item/weapon/gun/projectile/sec,
 					/obj/item/ammo_magazine/c45m,

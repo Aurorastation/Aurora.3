@@ -2050,6 +2050,18 @@
 		reagents.add_reagent("nutriment", 4)
 		bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/pudding
+	name = "Figgy pudding"
+	icon_state = "pudding"
+	desc = "Bring it to me."
+	trash = /obj/item/trash/plate
+	filling_color = "#FFFEE0"
+
+	New()
+		..()
+		reagents.add_reagent("nutriment", 10)
+		bitesize = 2
+
 /obj/item/weapon/reagent_containers/food/snacks/pastatomato
 	name = "Spaghetti"
 	desc = "Spaghetti and crushed tomatoes. Just like your abusive father used to make!"

@@ -338,7 +338,7 @@
 
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
-	
+
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
 	secondary_langs = list("Encoded Audio Language")
@@ -467,8 +467,9 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
+	flags = NO_SCAN | NO_SLIP
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	appearance_flags = HAS_SKIN_COLOR
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
