@@ -386,7 +386,7 @@ var/controlling
 	if(!use_points(350)) return
 
 	for(var/mob/M in view(1, host))
-		M.show_message("<B>[host]</B> whispers something incoherent.</b>",2) // 2 stands for hearable message
+		M.show_message("<B>[host]</B> whispers something incoherent.",2) // 2 stands for hearable message
 
 	// Find out whether the target can hear
 	if(target.disabilities & 32 || target.ear_deaf)
@@ -425,7 +425,7 @@ var/controlling
 	if(!use_points(750)) return
 
 	for(var/mob/M in view(host)+src)
-		M.show_message("<B>[host]</B> screams something incoherent!</b>",2) // 2 stands for hearable message
+		M.show_message("<B>[host]</B> screams something incoherent!",2) // 2 stands for hearable message
 
 	// Find out whether the target can hear
 	if(target.disabilities & 32 || target.ear_deaf)
