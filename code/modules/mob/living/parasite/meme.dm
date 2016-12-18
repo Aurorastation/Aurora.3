@@ -333,7 +333,7 @@ var/controlling
 		host.druggy = max(host.druggy, 50)
 		host.slurring = max(host.slurring, 10)
 
-		usr << "<b>You stimulate [host.name]'s brain, injecting waves of endorphines and dopamine into the tissue. They should now forget all their worries, particularly relating to you, for around a minute."
+		usr << "<b>You stimulate [host.name]'s brain, injecting waves of endorphines and dopamine into the tissue. They should now forget all their worries, particularly relating to you, for around a minute.</b>"
 
 		host << "\red You are feeling wonderful! Your head is numb and drowsy, and you can't help forgetting all the worries in the world."
 
@@ -386,7 +386,7 @@ var/controlling
 	if(!use_points(350)) return
 
 	for(var/mob/M in view(1, host))
-		M.show_message("<B>[host]</B> whispers something incoherent.",2) // 2 stands for hearable message
+		M.show_message("<B>[host]</B> whispers something incoherent.</b>",2) // 2 stands for hearable message
 
 	// Find out whether the target can hear
 	if(target.disabilities & 32 || target.ear_deaf)
@@ -400,7 +400,7 @@ var/controlling
 	src.exit_host()
 	src.enter_host(target)
 
-	usr << "<b>You successfully jumped to [target]."
+	usr << "<b>You successfully jumped to [target].</b>"
 	log_admin("[src.key] has jumped to [target]")
 	message_admins("[src.key] has jumped to [target]")
 
@@ -425,7 +425,7 @@ var/controlling
 	if(!use_points(750)) return
 
 	for(var/mob/M in view(host)+src)
-		M.show_message("<B>[host]</B> screams something incoherent!",2) // 2 stands for hearable message
+		M.show_message("<B>[host]</B> screams something incoherent!</b>",2) // 2 stands for hearable message
 
 	// Find out whether the target can hear
 	if(target.disabilities & 32 || target.ear_deaf)
@@ -439,7 +439,7 @@ var/controlling
 	src.exit_host()
 	src.enter_host(target)
 
-	usr << "<b>You successfully jumped to [target]."
+	usr << "<b>You successfully jumped to [target].</b>"
 	log_admin("[src.key] has jumped to [target]")
 	message_admins("[src.key] has jumped to [target]")
 
@@ -462,7 +462,7 @@ var/controlling
 	src.exit_host()
 	src.enter_host(target)
 
-	usr << "<b>You successfully jumped to [target]."
+	usr << "<b>You successfully jumped to [target].</b>"
 
 	log_admin("[src.key] has jumped to [target]")
 	message_admins("[src.key] has jumped to [target]")
@@ -482,7 +482,7 @@ var/controlling
 
 	src.indoctrinated.Add(host)
 
-	usr << "<b>You successfully indoctrinated [host]."
+	usr << "<b>You successfully indoctrinated [host].</b>"
 	host << "\red Your head feels a bit roomier.."
 
 	log_admin("[src.key] has attuned [host]")
@@ -500,7 +500,7 @@ var/controlling
 		return
 	if(!use_points(500)) return
 
-	usr << "<b>You inject drugs into [host]."
+	usr << "<b>You inject drugs into [host].</b>"
 	host << "\red You feel your body strengthen and your pain subside.."
 	host.analgesic = 60
 	while(host.analgesic > 0)
