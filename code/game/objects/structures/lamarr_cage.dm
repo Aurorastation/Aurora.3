@@ -62,10 +62,11 @@
 	if (src.destroyed)
 		return
 	else
-		usr << text("\blue You kick the lab cage.")
+		usr << "<span class='warning'>You kick the lab cage.</span>"
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << text("\red [] kicks the lab cage.", usr)
+				O << "<span class='warning'>[] kicks the lab cage.</span>"
+				
 		src.health -= 2
 		healthcheck()
 		return
@@ -119,11 +120,11 @@ var/const/MAX_ACTIVE_TIME = 400
 	..(user)
 	switch(stat)
 		if(DEAD,UNCONSCIOUS)
-			user << "\red \b [src] is not moving."
+			user << "<span class='warning'>[src] is not moving.</span>"
 		if(CONSCIOUS)
-			user << "\red \b [src] seems to be active."
+			user << "<span class='warning'>[src] seems to be active.</span>"
 	if (sterile)
-		user << "\red \b It looks like the proboscis has been removed."
+		user << "<span class='warning'> It looks like the proboscis has been removed.</span>"
 	return
 
 /obj/item/clothing/mask/lamarr/attackby(obj/item/I, mob/user)
@@ -181,13 +182,13 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(stat != CONSCIOUS)	return
 	if(!sterile) L.take_organ_damage(strength,0) //done here so that even borgs and humans in helmets take damage
 
-	L.visible_message("\red \b [src] leaps at [L]'s face!")
+	L.visible_message("<span class='danger'>\[src] leaps at [L]'s face!</span>")
 
 
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(H.head && H.head.flags & AIRTIGHT)
-			H.visible_message("\red \b [src] smashes against [H]'s [H.head]!")
+			H.visible_message("<span class='danger'>\The [src] smashes against [H]'s [H.head]!</span>")
 			Die()
 			return
 
@@ -201,7 +202,7 @@ var/const/MAX_ACTIVE_TIME = 400
 			if(!W.canremove)	return
 			target.drop_from_inventory(W)
 
-			target.visible_message("\red \b [src] tears [W] off of [target]'s face!")
+			target.visible_message("<span class='danger'>\The [src] tears [W] off of [target]'s face!</span>")
 
 		target.equip_to_slot(src, slot_wear_mask)
 		target.contents += src // Monkey sanity check - Snapshot
@@ -241,7 +242,7 @@ var/const/MAX_ACTIVE_TIME = 400
 	icon_state = "[initial(icon_state)]_dead"
 	stat = DEAD
 
-	src.visible_message("\red \b[src] curls up into a ball!")
+	src.visible_message("<span class='danger'>\The [src] curls up into a ball!</span>")
 
 	return
 
