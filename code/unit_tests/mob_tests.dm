@@ -479,6 +479,41 @@ datum/unit_test/mob_damage/machine/halloss
 	damagetype = HALLOSS
 	expected_vulnerability = IMMUNE
 
+// =================================================================
+// Vaurca
+// =================================================================
+
+datum/unit_test/mob_damage/vaurca
+	name = "MOB: Vaurca damage check template"
+	mob_type = /mob/living/carbon/human/bug
+
+datum/unit_test/mob_damage/vaurca/brute
+	name = "MOB: Vaurca Brute Damage Check"
+	damagetype = BRUTE
+	expected_vulnerability = ARMORED
+
+datum/unit_test/mob_damage/vaurca/fire
+	name = "MOB: Vaurca Fire Damage Check"
+	damagetype = BURN
+	expected_vulnerability = EXTRA_VULNERABLE
+
+datum/unit_test/mob_damage/vaurca/tox
+	name = "MOB: Vaurca Toxins Damage Check"
+	damagetype = TOX
+	expected_vulnerability = EXTRA_VULNERABLE
+
+datum/unit_test/mob_damage/vaurca/oxy
+	name = "MOB: Vaurca Oxygen Damage Check"
+	damagetype = OXY
+
+datum/unit_test/mob_damage/vaurca/clone
+	name = "MOB: Vaurca Clone Damage Check"
+	damagetype = CLONE
+	expected_vulnerability = IMMUNE
+
+datum/unit_test/mob_damage/vaurca/halloss
+	name = "MOB: Vaurca Halloss Damage Check"
+	damagetype = HALLOSS
 
 // ==============================================================================
 
