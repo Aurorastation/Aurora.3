@@ -100,7 +100,7 @@
 		dat+= "<HEAD><TITLE>Suit storage unit: Maintenance panel</TITLE></HEAD>"
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
 		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.<BR><BR></font>"
-		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></font>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
+		dat+= text("<font color ='black'>A small dial with a \"Ã«\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></font>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
 		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : "<font color='red'><B>RED</B></font>"),src)
 		dat+= text("<HR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close panel</A>", user)
 		//user << browse(dat, "window=ssu_m_panel;size=400x500")
@@ -661,6 +661,14 @@
 	departments = list("Wizardry")
 	species = list("Human","Tajara","Skrell","Unathi")
 	can_repair = 1
+	
+/obj/machinery/suit_cycler/captain
+	name = "Captain suit cycler"
+	model_text = "Captain"
+	req_access = list(access_captain)
+	departments = list("Captain")
+	species = list("Human","Tajara","Skrell","Unathi")
+	can_repair = 1
 
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
@@ -1035,6 +1043,15 @@
 				suit.name = "atmospherics voidsuit"
 				suit.icon_state = "rig-atmos"
 				suit.item_state = "atmos_voidsuit"
+		if("Captain")
+			if(helmet)
+				helmet.name = "captain voidsuit helmet"
+				helmet.icon_state = "capspace"
+				helmet.item_state = "capspace"
+			if(suit)
+				suit.name = "captain voidsuit"
+				suit.icon_state = "capspace"
+				suit.item_state = "capspace"
 		if("^%###^%$" || "Mercenary")
 			if(helmet)
 				helmet.name = "blood-red voidsuit helmet"
