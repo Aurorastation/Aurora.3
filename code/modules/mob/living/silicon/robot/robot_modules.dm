@@ -656,11 +656,7 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SKRELLIAN = 0,
 					LANGUAGE_GUTTER = 1
 					)
-	sprites = list(
-					"Dread" = "securityrobot",
-				)
-	var/id
-
+					
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	loc = R
 	src.modules += new /obj/item/device/flash(src)
@@ -689,7 +685,7 @@ var/global/list/robot_modules = list(
 	id = null
 	return ..()
 */
-/obj/item/weapon/robot_module/security/combat
+/obj/item/weapon/robot_moduley/combat
 	name = "combat robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
