@@ -43,13 +43,15 @@
 
 	if ( comma != 1 ) { # No comma/'list('/etc at the end of the previous line
 		if ( $0 ~ /^[\t ]+\/[^\/*]/ ) { # Current line's first non-whitespace character is a slash, followed by something that is not another slash or an asterisk
-			print "Extra whitespace in path definition:", FILENAME, "line:"curLine,"("$0")"
+			print "Extra whitespace in path definition:", FILENAME, "line:"curLine
+			print "("$0")"
 			fail = 1
 		}
 	} else {
 		# Is this the end of a list
 		if ( $0 ~ /^[\t ]*\)[\t ]*(\/\/|\r?$)/ ) {
-			print "Unexpected comma at end of list:", FILENAME, "line:"curLine,"("PREVIOUSLINE")"
+			print "Unexpected comma at end of list:", FILENAME, "line:"curLine
+			print "("PREVIOUSLINE")"
 			fail = 1
 		}
 	}
