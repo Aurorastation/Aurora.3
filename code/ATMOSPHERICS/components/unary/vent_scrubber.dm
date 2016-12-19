@@ -55,8 +55,6 @@
 
 	overlays.Cut()
 
-	var/scrubber_icon = "scrubber"
-
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return
