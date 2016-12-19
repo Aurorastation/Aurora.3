@@ -13,7 +13,7 @@ var/global/list/gear_datums = list()
 		"[slot_shoes]"		= list(),
 		"utility"			= list(),
 		"misc"				= list(),
-		"unknown"			= list(),
+		"unknown"			= list()
 	)
 
 	//create a list of gear datums to sort

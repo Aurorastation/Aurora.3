@@ -55,7 +55,7 @@
 		"docking_override" = shuttle.docking_controller? shuttle.docking_controller.override_enabled : null,
 		"can_launch" = shuttle.can_launch(),
 		"can_cancel" = shuttle.can_cancel(),
-		"can_force" = shuttle.can_force(),
+		"can_force" = shuttle.can_force()
 	)
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)

@@ -1254,7 +1254,8 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				sleep(1)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
-	var/list/night_light_args = list( // this defines what the list level arguments are when night mode is turned on
+	// this defines what the list level arguments are when night mode is turned on
+	var/list/night_light_args = list(
 	                           /obj/machinery/light = list(6, 1),
 	                           /obj/machinery/light/small = list(4, 1)
 	                           )

@@ -13,7 +13,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/Laser.ogg')
 		)
 
 	var/crit_fail = 0 //Added crit_fail as a local variable
@@ -36,7 +36,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg')
 		)
 
 	var/lightfail = 0
@@ -126,5 +126,5 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg')
 		)

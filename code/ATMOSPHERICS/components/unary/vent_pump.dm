@@ -237,7 +237,7 @@
 		"timestamp" = world.time,
 		"sigtype" = "status",
 		"power_draw" = last_power_draw,
-		"flow_rate" = last_flow_rate,
+		"flow_rate" = last_flow_rate
 	)
 
 	if(!initial_loc.air_vent_names[id_tag])

@@ -109,9 +109,9 @@
 
 /datum/surgery_step/generic/cut_open
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,		\
-	/obj/item/weapon/material/knife = 75,	\
-	/obj/item/weapon/material/shard = 50, 		\
+	/obj/item/weapon/scalpel = 100,	
+	/obj/item/weapon/material/knife = 75,
+	/obj/item/weapon/material/shard = 50
 	)
 
 	min_duration = 90
@@ -152,8 +152,8 @@
 
 /datum/surgery_step/generic/cut_openvaurca
 	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 85, \
-	/obj/item/weapon/pickaxe/ = 15, \
+	/obj/item/weapon/surgicaldrill = 85,
+	/obj/item/weapon/pickaxe/ = 15
 	)
 
 	min_duration = 110

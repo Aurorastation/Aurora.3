@@ -17,7 +17,7 @@
 	icon_state = "welding"
 	item_state_slots = list(
 		slot_l_hand_str = "welding",
-		slot_r_hand_str = "welding",
+		slot_r_hand_str = "welding"
 		)
 	matter = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1000)
 	var/up = 0
