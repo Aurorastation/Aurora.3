@@ -4,7 +4,7 @@
 	icon_state = "helmet"
 	item_state_slots = list(
 		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet",
+		slot_r_hand_str = "helmet"
 		)
 	item_flags = THICKMATERIAL
 	body_parts_covered = HEAD
@@ -110,7 +110,7 @@
 	icon_state = "erthelmet_cmd"
 	item_state_slots = list(
 		slot_l_hand_str = "syndicate-helm-green",
-		slot_r_hand_str = "syndicate-helm-green",
+		slot_r_hand_str = "syndicate-helm-green"
 		)
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
 
