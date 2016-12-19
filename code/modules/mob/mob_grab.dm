@@ -292,7 +292,7 @@
 
 	return 1
 
-/obj/item/weapon/grab/attack(mob/M, mob/living/user)
+/obj/item/weapon/grab/attack(mob/M, mob/living/user, var/target_zone)
 	if(!affecting)
 		return
 	if(world.time < (last_action + 20))
@@ -304,7 +304,7 @@
 	//clicking on the victim while grabbing them
 	if(M == affecting)
 		if(ishuman(affecting))
-			var/hit_zone = assailant.zone_sel.selecting
+			var/hit_zone = target_zone
 			flick(hud.icon_state, hud)
 			switch(assailant.a_intent)
 				if(I_HELP)

@@ -152,9 +152,11 @@ emp_act
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	if(check_attack_throat(I, user))
+		world << "Attack throat is true?"
 		return null
 
 	if(user == src) // Attacking yourself can't miss
+		world << "Returning target zone"
 		return target_zone
 
 	var/hit_zone = get_zone_with_miss_chance(target_zone, src)

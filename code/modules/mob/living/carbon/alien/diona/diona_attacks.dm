@@ -36,3 +36,4 @@
 		wear_hat(W)
 		user.visible_message("<span class='notice'>\The [user] puts \the [W] on \the [src].</span>")
 		return
+	..(W, user)
