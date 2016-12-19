@@ -4,7 +4,7 @@
 	icon_state = "bio"
 	item_state_slots = list(
 		slot_l_hand_str = "bio_hood",
-		slot_r_hand_str = "bio_hood",
+		slot_r_hand_str = "bio_hood"
 		)
 	desc = "A hood that protects the head and face from biological comtaminants."
 	permeability_coefficient = 0.01
