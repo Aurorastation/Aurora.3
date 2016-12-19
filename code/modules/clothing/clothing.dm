@@ -191,7 +191,7 @@ BLIND     // can't see anything
 	var/see_invisible = -1
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/eyes.dmi',
+		"Resomi" = 'icons/mob/species/resomi/eyes.dmi'
 		)
 
 /obj/item/clothing/glasses/update_clothing_icon()
@@ -216,7 +216,7 @@ BLIND     // can't see anything
 	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/gloves.dmi',
-		"Resomi" = 'icons/mob/species/resomi/gloves.dmi',
+		"Resomi" = 'icons/mob/species/resomi/gloves.dmi'
 		)
 
 /obj/item/clothing/gloves/update_clothing_icon()
@@ -262,7 +262,7 @@ BLIND     // can't see anything
 	icon = 'icons/obj/clothing/hats.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_hats.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hats.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hats.dmi'
 		)
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
@@ -414,7 +414,7 @@ BLIND     // can't see anything
 	species_restricted = list("exclude","Unathi","Tajara","Vox", "Vaurca")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/shoes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/shoes.dmi',
+		"Resomi" = 'icons/mob/species/resomi/shoes.dmi'
 		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
@@ -500,7 +500,7 @@ BLIND     // can't see anything
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_uniforms.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_uniforms.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_uniforms.dmi'
 		)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
