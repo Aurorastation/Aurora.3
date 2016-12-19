@@ -103,7 +103,7 @@
 		/obj/item/weapon/reagent_containers/glass/bottle = 75,
 		/obj/item/weapon/reagent_containers/glass/beaker = 75,
 		/obj/item/weapon/reagent_containers/spray = 50,
-		/obj/item/weapon/reagent_containers/glass/bucket = 50,
+		/obj/item/weapon/reagent_containers/glass/bucket = 50
 	)
 
 	can_infect = 0
