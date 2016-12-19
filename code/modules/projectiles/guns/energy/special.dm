@@ -1,10 +1,10 @@
 /obj/item/weapon/gun/energy/ionrifle
 	name = "ion rifle"
-	desc = "A man portable anti-armor weapon designed to disable mechanical threats"
+	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Not the best of its type."
 	icon_state = "ionrifle"
 	item_state = "ionrifle"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	origin_tech = "combat=2;magnets=4"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
 	force = 10
 	flags =  CONDUCT
@@ -29,7 +29,7 @@
 	icon_state = "decloner"
 	item_state = "decloner"
 	fire_sound = 'sound/weapons/pulse3.ogg'
-	origin_tech = "combat=5;materials=4;powerstorage=3"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
 
@@ -42,13 +42,13 @@
 	charge_cost = 100
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/floramut
-	origin_tech = "materials=2;biotech=3;powerstorage=3"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
 	self_recharge = 1
 
 	firemodes = list(
-		list(name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
-		list(name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
+		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
+		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
 		)
 
 /obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
@@ -95,8 +95,7 @@
 	icon_state = "toxgun"
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	w_class = 3.0
-	origin_tech = "combat=5;phorontech=4"
-	slot_flags = SLOT_HOLSTER | SLOT_BELT
+	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
 
 /obj/item/weapon/gun/energy/beegun
@@ -151,7 +150,7 @@
 				M << "<span class='danger'>[src]'s reactor overloads!</span>"
 			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 			M.apply_effect(300, IRRADIATE)
-		crit_fail = 1 //break the gun so it stops recharging
+		//crit_fail = 1 //break the gun so it stops recharging
 		processing_objects.Remove(src)
 		update_icon()
 	return 0
@@ -198,7 +197,6 @@
 		list(name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = list(0.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.0, 3.25)),
 		)
 
-	icon_action_button = "action_blank"
 	action_button_name = "Wield gatling laser"
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/can_wield()
@@ -399,4 +397,3 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		charge_cost = 200
 		user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
 		projectile_type = /obj/item/projectile/forcebolt
-

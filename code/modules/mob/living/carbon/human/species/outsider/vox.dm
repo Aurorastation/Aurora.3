@@ -6,6 +6,7 @@
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
 	default_language = "Vox-pidgin"
 	language = "Ceti Basic"
+	num_alternate_languages = 1
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 4
 	blurb = "The Vox are the broken remnants of a once-proud race, now reduced to little more than \
@@ -32,12 +33,15 @@
 	cold_level_3 = 0
 
 	eyes = "vox_eyes_s"
+	gluttonous = GLUT_SMALLER
 
 	breath_type = "nitrogen"
 	poison_type = "oxygen"
 	siemens_coefficient = 0.2
 
-	flags = IS_RESTRICTED | NO_SCAN | HAS_EYE_COLOR
+	flags = NO_SCAN | NO_MINOR_CUT
+	spawn_flags = IS_RESTRICTED
+	appearance_flags = HAS_EYE_COLOR
 
 	blood_color = "#2299FC"
 	flesh_color = "#808D11"
@@ -104,7 +108,8 @@
 		"brain" =    /obj/item/organ/pariah_brain,
 		"eyes" =     /obj/item/organ/eyes
 		)
-	flags = IS_RESTRICTED | NO_SCAN | HAS_EYE_COLOR
+	flags = NO_SCAN | HAS_EYE_COLOR
+	spawn_flags = IS_RESTRICTED
 
 // No combat skills for you.
 /datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
@@ -119,9 +124,11 @@
 				continue
 			var/mob/living/carbon/human/target = M
 			if(istype(target))
-				if(target.head && (target.head.flags & HEADCOVERSMOUTH) && (target.head.flags & AIRTIGHT))
+				if(target.internals)
 					continue
-				if(target.wear_mask && (target.wear_mask.flags & MASKCOVERSMOUTH) && (target.wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
+				if(target.head && (target.head.body_parts_covered & FACE) && (target.head.flags & AIRTIGHT))
+					continue
+				if(target.wear_mask && (target.wear_mask.body_parts_covered & FACE) && (target.wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
 					continue
 			M << "<span class='danger'>A terrible stench emanates from \the [H].</span>"
 

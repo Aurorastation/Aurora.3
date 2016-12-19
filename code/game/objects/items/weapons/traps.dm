@@ -12,10 +12,6 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = 0
 
-/obj/item/weapon/beartrap/suicide_act(mob/user)
-	viewers(user) << "<span class='danger'>[user] is putting the [src.name] on \his head! It looks like \he's trying to commit suicide.</span>"
-	return (BRUTELOSS)
-
 /obj/item/weapon/beartrap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
 
@@ -102,18 +98,18 @@
 /obj/item/weapon/beartrap/Crossed(AM as mob|obj)
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
-		if(L.m_intent == "run")
-			L.visible_message(
-				"<span class='danger'>[L] steps on \the [src].</span>",
-				"<span class='danger'>You step on \the [src]!</span>",
-				"<b>You hear a loud metallic snap!</b>"
-				)
-			attack_mob(L)
-			if(!buckled_mob)
-				anchored = 0
-			deployed = 0
-			update_icon()
+		L.visible_message(
+			"<span class='danger'>[L] steps on \the [src].</span>",
+			"<span class='danger'>You step on \the [src]!</span>",
+			"<b>You hear a loud metallic snap!</b>"
+			)
+		attack_mob(L)
+		if(!buckled_mob)
+			anchored = 0
+		deployed = 0
+		update_icon()
 	..()
+
 
 /obj/item/weapon/beartrap/update_icon()
 	..()

@@ -195,5 +195,3 @@ var/list/tape_roll_applications = list()
 
 	qdel(src)
 	return
-
-

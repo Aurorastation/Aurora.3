@@ -11,7 +11,7 @@
 			qdel(src.cable)
 			src.cable = null
 
-	regular_hud_updates()
+	handle_regular_hud_updates()
 
 	if(src.secHUD == 1)
 		process_sec_hud(src, 1)

@@ -23,7 +23,6 @@
 	accuracy_wielded = 0
 
 	//action button for wielding
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/dragunov/update_icon()

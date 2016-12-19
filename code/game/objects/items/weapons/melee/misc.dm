@@ -8,12 +8,8 @@
 	force = 10
 	throwforce = 7
 	w_class = 3
-	origin_tech = "combat=4"
+	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
-
-	suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is strangling \himself with the [src.name]! It looks like \he's trying to commit suicide.</b>"
-		return (OXYLOSS)
 
 /obj/item/weapon/melee/chainsword
 	name = "chainsword"
@@ -27,7 +23,7 @@
 	w_class = 4
 	sharp = 1
 	edge = 1
-	origin_tech = "combat=5"
+	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/active = 0
@@ -50,10 +46,11 @@
 		slot_flags = initial(slot_flags)
 	user.regenerate_icons()
 
+/*
 /obj/item/weapon/melee/chainsword/suicide_act(mob/user)
 	viewers(user) << "\red <b>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</b>"
 	return (BRUTELOSS|OXYLOSS)
-
+*/
 
 //This is essentially a crowbar and a baseball bat in one.
 /obj/item/weapon/melee/hammer

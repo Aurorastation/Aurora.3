@@ -74,22 +74,36 @@ var/global/list/gear_datums = list()
 	slot = slot_head
 
 /datum/gear/bsec_beret
-	display_name = "beret, blue (security)"
-	path = /obj/item/clothing/head/beret/sec/alt
+	display_name = "beret, navy (officer)"
+	path = /obj/item/clothing/head/beret/sec/navy/officer
 	cost = 1
 	slot = slot_head
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
+/datum/gear/bsec_beret_warden
+	display_name = "beret, navy (warden)"
+	path = /obj/item/clothing/head/beret/sec/navy/warden
+	cost = 1
+	slot = slot_head
+	allowed_roles = list("Head of Security","Warden")
+
+/datum/gear/bsec_beret_hos
+	display_name = "beret, navy (hos)"
+	path = /obj/item/clothing/head/beret/sec/navy/hos
+	cost = 1
+	slot = slot_head
+	allowed_roles = list("Head of Security")
+
 /datum/gear/eng_beret
 	display_name = "beret, engie-orange"
-	path = /obj/item/clothing/head/beret/eng
+	path = /obj/item/clothing/head/beret/engineering
 	cost = 1
 	slot = slot_head
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/purp_beret
 	display_name = "beret, purple"
-	path = /obj/item/clothing/head/beret/jan
+	path = /obj/item/clothing/head/beret/purple
 	cost = 1
 	slot = slot_head
 
@@ -375,6 +389,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/color/blackf
 	slot = slot_w_uniform
 	cost = 1
+	
 /datum/gear/blackfjumpsuit
 	display_name = "jumpsuit, rainbow"
 	path = /obj/item/clothing/under/rainbow
@@ -591,7 +606,6 @@ var/global/list/gear_datums = list()
 	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective",)
 
 // Attachments
-
 /datum/gear/armband_cargo
 	display_name = "armband, cargo"
 	path = /obj/item/clothing/accessory/armband/cargo
@@ -726,7 +740,7 @@ var/global/list/gear_datums = list()
 	slot = slot_wear_suit
 
 /datum/gear/leather_jacket_nt
-	display_name = "leather jacket, NanoTrasen, black"
+	display_name = "leather jacket, corporate, black"
 	path = /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
 	cost = 2
 	slot = slot_wear_suit
@@ -738,7 +752,7 @@ var/global/list/gear_datums = list()
 	slot = slot_wear_suit
 
 /datum/gear/brown_jacket_nt
-	display_name = "leather jacket, NanoTrasen, brown"
+	display_name = "leather jacket, corporate, brown"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	cost = 2
 	slot = slot_wear_suit
@@ -1218,6 +1232,18 @@ var/global/list/gear_datums = list()
 	sort_category = "utility"
 	cost = 1
 
+/datum/gear/cheaptablet
+	display_name = "cheap tablet computer"
+	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
+	sort_category = "utility"
+	cost = 3
+
+/datum/gear/normaltablet
+	display_name = "tablet computer"
+	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+	sort_category = "utility"
+	cost = 4
+
 // The rest of the trash.
 
 /datum/gear/ashtray
@@ -1225,6 +1251,12 @@ var/global/list/gear_datums = list()
 	path = /obj/item/weapon/material/ashtray/plastic
 	sort_category = "misc"
 	cost = 1
+
+/datum/gear/boot_knife
+	display_name = "boot knife"
+	path = /obj/item/weapon/material/kitchen/utensil/knife/boot
+	sort_category = "misc"
+	cost = 3
 
 /datum/gear/cane
 	display_name = "cane"
@@ -1240,7 +1272,31 @@ var/global/list/gear_datums = list()
 
 /datum/gear/cards
 	display_name = "deck of cards"
-	path = /obj/item/weapon/deck
+	path = /obj/item/weapon/deck/cards
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/tarot
+	display_name = "deck of tarot cards"
+	path = /obj/item/weapon/deck/tarot
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/holder
+	display_name = "card holder"
+	path = /obj/item/weapon/deck/holder
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/cardemon_pack
+	display_name = "\improper Cardemon booster pack"
+	path = /obj/item/weapon/pack/cardemon
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/spaceball_pack
+	display_name = "\improper Spaceball booster pack"
+	path = /obj/item/weapon/pack/spaceball
 	sort_category = "misc"
 	cost = 1
 
@@ -1321,16 +1377,17 @@ var/global/list/gear_datums = list()
 	sort_category = "misc"
 	cost = 1
 
+/datum/gear/mirror
+	display_name = "handheld mirror"
+	path = /obj/item/weapon/mirror
+	sort_category = "misc"
+	cost = 1
+
 /datum/gear/zippo
 	display_name = "zippo"
 	path = /obj/item/weapon/flame/lighter/zippo
 	sort_category = "misc"
 	cost = 1
-
-/*/datum/gear/combitool
-	display_name = "combi-tool"
-	path = /obj/item/weapon/combitool
-	cost = 3*/
 
 // Stuff worn on the ears. Items here go in the "ears" sort_category but they must not use
 // the slot_r_ear or slot_l_ear as the slot, or else players will spawn with no headset.

@@ -68,7 +68,7 @@
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
 	icon_state = "9x19p"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	caliber = "9mm"
@@ -85,7 +85,7 @@
 /obj/item/ammo_magazine/c9mm
 	name = "ammunition Box (9mm)"
 	icon_state = "9mm"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	caliber = "9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
@@ -118,7 +118,7 @@
 /obj/item/ammo_magazine/c45
 	name = "ammunition Box (.45)"
 	icon_state = "9mm"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	caliber = ".45"
 	matter = list(DEFAULT_WALL_MATERIAL = 2250)
 	ammo_type = /obj/item/ammo_casing/c45
@@ -127,24 +127,24 @@
 /obj/item/ammo_magazine/c9mm/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a12mm
-	name = "magazine (12mm)"
+/obj/item/ammo_magazine/a10mm
+	name = "magazine (10mm)"
 	icon_state = "12mm"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "12mm"
+	caliber = "10mm"
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	ammo_type = "/obj/item/ammo_casing/a12mm"
+	ammo_type = /obj/item/ammo_casing/t40
 	max_ammo = 20
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/a12mm/empty
+/obj/item/ammo_magazine/a10mm/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a556
 	name = "magazine (5.56mm)"
 	icon_state = "5.56"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a556"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
@@ -162,7 +162,7 @@
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
 	icon_state = "50ae"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = ".50"
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
@@ -213,7 +213,7 @@
 /obj/item/ammo_magazine/a762
 	name = "magazine box (7.62mm)"
 	icon_state = "a762"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a762"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
@@ -233,19 +233,6 @@
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 20
 	multiple_sprites = 1
-
-/obj/item/ammo_magazine/chameleon
-	name = "magazine (.45)"
-	icon_state = "45"
-	mag_type = MAGAZINE
-	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/chameleon
-	max_ammo = 7
-	multiple_sprites = 1
-	matter = list()
-
-/obj/item/ammo_magazine/chameleon/empty
-	initial_ammo = 0
 
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
@@ -304,7 +291,7 @@
 
 /obj/item/ammo_magazine/shotgun/shell
 	name = "ammunition box (shell)"
-	icon_state = "llethalslug_box"
+	icon_state = "lethalslug_box"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	max_ammo = 8
 
@@ -328,6 +315,16 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
 	max_ammo = 8
 	matter = list(DEFAULT_WALL_MATERIAL = 3600)
+
+/obj/item/ammo_magazine/caps
+	name = "speed loader (caps)"
+	icon_state = "T38"
+	caliber = "caps"
+	color = "#FF0000"
+	ammo_type = /obj/item/ammo_casing/cap
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	max_ammo = 7
+	multiple_sprites = 1
 
 //dragunov magazine
 

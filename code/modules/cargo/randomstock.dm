@@ -176,7 +176,6 @@ var/list/global/random_stock_uncommon = list(
 	"crimekit" = 1,
 	"carpet" = 2,
 	"gift" = 4,
-	"lightfloor" = 2,
 	"linenbin" = 1,
 	"coatrack" = 1,
 	"riotshield" = 2,
@@ -1219,8 +1218,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/stack/tile/carpet(L, 50)
 		if ("gift")
 			new /obj/item/weapon/a_gift(L)
-		if ("lightfloor")
-			new /obj/item/stack/tile/light(L, 50)
 		if ("linenbin")
 			new /obj/structure/bedsheetbin(get_turf(L))
 		if ("coatrack")
@@ -1262,10 +1259,9 @@ var/list/global/random_stock_large = list(
 							L = U
 							break
 			var/mob/living/bot/newbot = new type(L)
-
+			newbot.on = 0//Deactivated
 			if (prob(10))
-				newbot.Emag(null)
-			newbot.turn_off()
+				newbot.emag_act(9999,null)
 		if ("latexb")
 			new /obj/item/latexballon(L)
 
@@ -1931,6 +1927,3 @@ var/list/global/random_stock_large = list(
 					exosuit.pr_manage_warnings.process(exosuit)
 		else
 			log_debug("ERROR: Random cargo spawn failed for [stock]")
-
-
-

@@ -62,8 +62,10 @@ var/list/whitelist = list()
 	var/text = file2text("config/alienwhitelist.txt")
 	if (!text)
 		log_misc("Failed to load config/alienwhitelist.txt")
+		return 0
 	else
 		alien_whitelist = text2list(text, "\n")
+		return 1
 
 /proc/is_alien_whitelisted(mob/M, var/species)
 	if (!config.usealienwhitelist)

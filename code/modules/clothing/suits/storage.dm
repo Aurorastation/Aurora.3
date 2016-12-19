@@ -58,8 +58,7 @@
 		update_clothing_icon()	//so our overlays update
 
 
-//New Vest 4 pocket storage and badge toggles, until suit accessories are a thing.
-/obj/item/clothing/suit/storage/vest/heavy/New()
+/obj/item/clothing/suit/storage/vest/merc/New()
 	..()
 	pockets = new/obj/item/weapon/storage/internal(src)
 	pockets.storage_slots = 4

@@ -207,7 +207,7 @@
 	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	if (save_prefs)
-		user.prefs.handle_preferences_save(user)
+		user.prefs.save_preferences()
 
 /*
  * Basically the Topic proc for the greeting datum.
