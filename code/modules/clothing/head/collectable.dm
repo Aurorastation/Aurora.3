@@ -26,7 +26,7 @@
 	icon_state = "xenom"
 	item_state_slots = list(
 		slot_l_hand_str = "xenos_helm",
-		slot_r_hand_str = "xenos_helm",
+		slot_r_hand_str = "xenos_helm"
 		)
 	body_parts_covered = HEAD|FACE|EYES
 
@@ -56,7 +56,7 @@
 	icon_state = "captain"
 	item_state_slots = list(
 		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat",
+		slot_r_hand_str = "caphat"
 		)
 	body_parts_covered = 0
 
@@ -90,7 +90,7 @@
 	icon_state = "flat_cap"
 	item_state_slots = list(
 		slot_l_hand_str = "detective",
-		slot_r_hand_str = "detective",
+		slot_r_hand_str = "detective"
 		)
 
 /obj/item/clothing/head/collectable/pirate
