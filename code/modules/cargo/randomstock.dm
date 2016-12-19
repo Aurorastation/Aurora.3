@@ -35,7 +35,7 @@ more variety, and keeps the odds of any one specific item to be about the same
 
 
 //Debugging verbs. Uncomment this block for some useful cargo debug commands
-
+/*
 var/global/stockname = ""
 
 /client/verb/set_stock_name()
@@ -55,7 +55,7 @@ var/global/stockname = ""
 	while (num > 0)
 		spawn_stock(stockname, get_turf(mob))
 		num--
-
+*/
 
 var/list/global/random_stock_common = list(
 	"toolbox" = 4,
@@ -1559,7 +1559,6 @@ var/list/global/random_stock_large = list(
 			var/number = rand(2,5)
 			while (number > 0)
 				var/type = pickweight(equips)
-				world << "Type selected is [type]"
 				new type(L)
 				number--
 
