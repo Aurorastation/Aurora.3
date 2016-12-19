@@ -152,8 +152,8 @@
 
 /datum/surgery_step/generic/cut_openvaurca
 	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 85, \
-	/obj/item/weapon/pickaxe/ = 15, \
+	/obj/item/weapon/surgicaldrill = 85,
+	/obj/item/weapon/pickaxe/ = 15
 	)
 
 	min_duration = 110
