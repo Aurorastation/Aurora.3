@@ -72,7 +72,7 @@
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
-	name = "\improper NanoTrasen Officer's Dress Uniform"
+	name = "\improper Officer's Dress Uniform"
 	icon_state = "officer"
 	item_state = "lawyer_black"
 	worn_state = "officer"
@@ -80,7 +80,7 @@
 
 /obj/item/clothing/under/rank/centcom_officer
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral.\""
-	name = "\improper NanoTrasen Officer's Dress Uniform"
+	name = "\improper Officer's Dress Uniform"
 	icon_state = "officer"
 	item_state = "lawyer_black"
 	worn_state = "officer"
@@ -88,7 +88,7 @@
 
 /obj/item/clothing/under/rank/centcom_captain
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral-Executive.\""
-	name = "\improper NanoTrasen Officer's Dress Uniform"
+	name = "\improper Officer's Dress Uniform"
 	icon_state = "centcom"
 	item_state = "lawyer_black"
 	worn_state = "centcom"

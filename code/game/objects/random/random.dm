@@ -11,8 +11,10 @@
 	..()
 	if (!prob(spawn_nothing_percentage))
 		spawn_item()
+		
+/obj/random/initialize()
+	..()
 	qdel(src)
-
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()
@@ -477,8 +479,8 @@
 				/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy,\
 				/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes,\
 				/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie,\
-				/obj/item/weapon/reagent_containers/food/drinks/cans/beer,\
-				/obj/item/weapon/reagent_containers/food/drinks/cans/ale)
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,\
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale)
 
 /obj/random/melee
 	name = "random melee weapon"
@@ -512,7 +514,7 @@
 	"/obj/item/weapon/coin/phoron" = 0.5,
 	"/obj/item/weapon/coin/uranium" = 0.5,
 	"/obj/item/weapon/coin/platinum" = 0.2,
-	"/obj/item/weapon/coin/diamond" = 0.1,
+	"/obj/item/weapon/coin/diamond" = 0.1
 	)
 	return pickweight(coin)
 

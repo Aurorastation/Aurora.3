@@ -76,7 +76,7 @@
 	firemodes = list(
 	list(name="semiauto", burst=1, fire_delay=0),
 	list(name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0)),
-	list(name="short bursts", 	burst=5, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+	list(name="short bursts", burst=5, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2))
 	)
 
 /obj/item/weapon/gun/energy/crossbow/cyborg

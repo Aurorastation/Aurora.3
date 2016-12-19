@@ -2,7 +2,6 @@ var/datum/antagonist/vampire/vamp = null
 
 /datum/antagonist/vampire
 	id = MODE_VAMPIRE
-	role_type = BE_VAMPIRE
 	role_text = "Vampire"
 	role_text_plural = "Vampires"
 	bantype = "vampires"

@@ -49,8 +49,7 @@ var/const/MIME				=(1<<12)
 var/const/ASSISTANT			=(1<<13)
 
 
-var/list/assistant_occupations = list(
-)
+var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
 
 
 var/list/command_positions = list(
@@ -92,17 +91,20 @@ var/list/science_positions = list(
 )
 
 //BS12 EDIT
+var/list/cargo_positions = list(
+	"Quartermaster",
+	"Cargo Technician",
+	"Shaft Miner"
+)
+
 var/list/civilian_positions = list(
 	"Head of Personnel",
+	"Internal Affairs Agent",
 	"Bartender",
 	"Gardener",
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner",
-	"Lawyer",
 	"Chaplain",
 	"Assistant"
 )

@@ -3,7 +3,6 @@
 	name = "void helmet"
 	desc = "A high-tech dark red space suit helmet. Used for AI satellite maintenance."
 	icon_state = "void"
-	item_state = "void"
 
 	heat_protection = HEAD
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
@@ -11,16 +10,16 @@
 	siemens_coefficient = 0.4
 
 	//Species-specific stuff.
-	species_restricted = list("exclude","Unathi","Tajara","Skrell","Diona","Vox","Xenomorph","Vaurca","Golem")
+	species_restricted = list("Human")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
+		"Skrell" = 'icons/mob/species/skrell/helmet.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
+		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi'
 		)
 
 	light_overlay = "helmet_light"
@@ -37,16 +36,17 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.4
 
-	species_restricted = list("exclude","Unathi","Tajara","Diona","Vox","Xenomorph","Vaurca","Golem")
+
+	species_restricted = list("Human", "Skrell")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
+		"Skrell" = 'icons/mob/species/skrell/suit.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/suits.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
+		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi'
 		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
@@ -115,7 +115,7 @@
 		if(istype(H))
 			if(helmet && H.head == helmet)
 				H.drop_from_inventory(helmet)
-				helmet.loc = src
+				helmet.forceMove(src)
 
 	if(boots)
 		boots.canremove = 1
@@ -123,11 +123,11 @@
 		if(istype(H))
 			if(boots && H.shoes == boots)
 				H.drop_from_inventory(boots)
-				boots.loc = src
+				boots.forceMove(src)
 
 	if(tank)
 		tank.canremove = 1
-		tank.loc = src
+		tank.forceMove(src)
 
 /obj/item/clothing/suit/space/void/verb/toggle_helmet()
 
@@ -151,7 +151,7 @@
 		H << "<span class='notice'>You retract your suit helmet.</span>"
 		helmet.canremove = 1
 		H.drop_from_inventory(helmet)
-		helmet.loc = src
+		helmet.forceMove(src)
 	else
 		if(H.head)
 			H << "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>"
@@ -189,8 +189,11 @@
 
 	if(!istype(user,/mob/living)) return
 
+	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/weapon/hand_labeler))
+		return ..()
+
 	if(istype(src.loc,/mob/living))
-		user << "<span class='danger'>How do you propose to modify a voidsuit while it is being worn?</span>"
+		user << "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>"
 		return
 
 	if(istype(W,/obj/item/weapon/screwdriver))
@@ -200,15 +203,15 @@
 
 			if(choice == tank)	//No, a switch doesn't work here. Sorry. ~Techhead
 				user << "You pop \the [tank] out of \the [src]'s storage compartment."
-				tank.loc = get_turf(src)
+				tank.forceMove(get_turf(src))
 				src.tank = null
 			else if(choice == helmet)
 				user << "You detatch \the [helmet] from \the [src]'s helmet mount."
-				helmet.loc = get_turf(src)
+				helmet.forceMove(get_turf(src))
 				src.helmet = null
 			else if(choice == boots)
 				user << "You detatch \the [boots] from \the [src]'s boot mounts."
-				boots.loc = get_turf(src)
+				boots.forceMove(get_turf(src))
 				src.boots = null
 		else
 			user << "\The [src] does not have anything installed."
@@ -219,7 +222,7 @@
 		else
 			user << "You attach \the [W] to \the [src]'s helmet mount."
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			src.helmet = W
 		return
 	else if(istype(W,/obj/item/clothing/shoes/magboots))
@@ -228,7 +231,7 @@
 		else
 			user << "You attach \the [W] to \the [src]'s boot mounts."
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			boots = W
 		return
 	else if(istype(W,/obj/item/weapon/tank))
@@ -239,7 +242,7 @@
 		else
 			user << "You insert \the [W] into \the [src]'s storage compartment."
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			tank = W
 		return
 

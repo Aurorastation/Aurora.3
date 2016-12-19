@@ -4,6 +4,7 @@
 	opacity = 0
 	density = 0
 	layer = 3.5
+	w_class = 3
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
@@ -17,10 +18,6 @@
 			qdel(src)
 			return
 		else
-	return
-
-/obj/structure/sign/blob_act()
-	qdel(src)
 	return
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
@@ -178,6 +175,11 @@
 	desc = "A warning sign which reads 'HYDROPONICS'."
 	icon_state = "hydro1"
 
+/obj/structure/sign/directions
+	name = "direction sign"
+	desc = "A direction sign, claiming to know the way."
+	icon_state = "direction"
+
 /obj/structure/sign/directions/science
 	name = "\improper Science department"
 	desc = "A direction sign, pointing out which way the Science department is."
@@ -202,3 +204,17 @@
 	name = "\improper Escape Arm"
 	desc = "A direction sign, pointing out which way the escape shuttle dock is."
 	icon_state = "direction_evac"
+
+/obj/structure/sign/christmas/lights
+	name = "Christmas lights"
+	desc = "Flashy."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmaslights"
+	layer = 5
+
+/obj/structure/sign/christmas/wreath
+	name = "wreath"
+	desc = "Prickly and overrated."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "doorwreath"
+	layer = 5

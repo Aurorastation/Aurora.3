@@ -176,7 +176,6 @@ var/list/global/random_stock_uncommon = list(
 	"crimekit" = 1,
 	"carpet" = 2,
 	"gift" = 4,
-	"lightfloor" = 2,
 	"linenbin" = 1,
 	"coatrack" = 1,
 	"riotshield" = 2,
@@ -207,14 +206,13 @@ var/list/global/random_stock_rare = list(
 	"combatmeds" = 3,
 	"batterer" = 0.75,
 	"posibrain" = 3,
-	"augmentvision" = 1.6,
-	"thermals" = 1.5,
+	"thermals" = 0.75,
 	"bsbeaker" = 3,
 	"energyshield" = 2,
 	"hardsuit" = 0.75,
 	"cluster" = 2.0,
 	"cloak" = 0.75,
-	"sword" = 0.75,
+	"sword" = 0.5,
 	"ims" = 1.5,
 	"exogear" = 1.5,
 	"teleporter" = 1,
@@ -225,7 +223,7 @@ var/list/global/random_stock_large = list(
 	"russian" = 1,
 	"emergency" = 2,
 	"firecloset" = 2,
-	"tacticool" = 0.4,
+	"tacticool" = 0.2,
 	"radsuit" = 3,
 	"exosuit" = 1.2,//A randomly generated exosuit in a very variable condition.
 	"EOD"	=	1.5,
@@ -758,7 +756,7 @@ var/list/global/random_stock_large = list(
 			/obj/item/weapon/storage/pill_bottle/inaprovaline,
 			/obj/item/weapon/storage/pill_bottle/kelotane,
 			/obj/item/weapon/storage/pill_bottle/spaceacillin,
-			/obj/item/weapon/storage/pill_bottle/tramadol,
+			/obj/item/weapon/storage/pill_bottle/tramadol
 			)
 			var/newtype = pick(options)
 			new newtype(L)
@@ -1099,15 +1097,18 @@ var/list/global/random_stock_large = list(
 		//Can be slotted into any dispenser
 		if("chempack")
 			var/total = rand(2,6)
+			var/list/chems = chemical_reagents_list.Copy()
+			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2")
+			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
-				var/rname = pick(chemical_reagents_list)
+				var/rname = pick(chems)
 				var/datum/reagent/R = chemical_reagents_list[rname]
 
 				//If we get a drink, reroll it once.
 				//Should result in a higher chance of getting medicines and chemicals
 				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/ethanol))
-					rname = pick(chemical_reagents_list)
+					rname = pick(chems)
 					R = chemical_reagents_list[rname]
 				C.reagents.add_reagent(rname, C.volume)
 				C.setLabel(R.name)
@@ -1217,8 +1218,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/stack/tile/carpet(L, 50)
 		if ("gift")
 			new /obj/item/weapon/a_gift(L)
-		if ("lightfloor")
-			new /obj/item/stack/tile/light(L, 50)
 		if ("linenbin")
 			new /obj/structure/bedsheetbin(get_turf(L))
 		if ("coatrack")
@@ -1260,10 +1259,9 @@ var/list/global/random_stock_large = list(
 							L = U
 							break
 			var/mob/living/bot/newbot = new type(L)
-
+			newbot.on = 0//Deactivated
 			if (prob(10))
-				newbot.Emag(null)
-			newbot.turn_off()
+				newbot.emag_act(9999,null)
 		if ("latexb")
 			new /obj/item/latexballon(L)
 
@@ -1341,7 +1339,7 @@ var/list/global/random_stock_large = list(
 			"/obj/item/weapon/material/knife/butch" = 1,
 			"/obj/item/weapon/material/hatchet" = 1.5,
 			"/obj/item/weapon/material/hatchet/unathiknife" = 0.75,
-			"/obj/item/weapon/material/hatchet/tacknife" = 1,
+			"/obj/item/weapon/material/hatchet/tacknife" = 1
 			)
 
 			var/type = pickweight(blades)
@@ -1464,8 +1462,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/device/batterer(L)
 		if("posibrain")
 			new /obj/item/device/mmi/digital/posibrain(L)
-		if("augmentvision")
-			new /obj/item/clothing/glasses/hud/security/jensenshades(L)
 		if("thermals")
 			new /obj/item/clothing/glasses/thermal(L)
 		if("bsbeaker")
@@ -1497,30 +1493,30 @@ var/list/global/random_stock_large = list(
 			//It will come with some screwy electronics and possibly need reprogramming
 			var/list/rigs = list(
 			"/obj/item/weapon/rig/unathi" = 2,
-			"/obj/item/weapon/rig/unathi/fancy" = 1,
+			"/obj/item/weapon/rig/unathi/fancy" = 0.75,
 			"/obj/item/weapon/rig/combat" = 0.1,
-			"/obj/item/weapon/rig/ert" = 0.2,
-			"/obj/item/weapon/rig/ert/engineer" = 0.2,
-			"/obj/item/weapon/rig/ert/medical" = 0.3,
-			"/obj/item/weapon/rig/ert/security" = 0.15,
-			"/obj/item/weapon/rig/ert/assetprotection" = 0.1,
+			"/obj/item/weapon/rig/ert" = 0.1,
+			"/obj/item/weapon/rig/ert/engineer" = 0.1,
+			"/obj/item/weapon/rig/ert/medical" = 0.15,
+			"/obj/item/weapon/rig/ert/security" = 0.075,
+			"/obj/item/weapon/rig/ert/assetprotection" = 0.05,
 			"/obj/item/weapon/rig/light" = 0.5,
 			"/obj/item/weapon/rig/light/hacker" = 0.8,
 			"/obj/item/weapon/rig/light/stealth" = 1.5,
-			"/obj/item/weapon/rig/merc" = 1,
+			"/obj/item/weapon/rig/merc" = 0.5,
 			"/obj/item/weapon/rig/industrial" = 3,
 			"/obj/item/weapon/rig/eva" = 3,
 			"/obj/item/weapon/rig/ce" = 2,
 			"/obj/item/weapon/rig/hazmat" = 4,
 			"/obj/item/weapon/rig/medical" = 4,
-			"/obj/item/weapon/rig/hazard" = 4,
+			"/obj/item/weapon/rig/hazard" = 3
 			)
 
 			var/type = pickweight(rigs)
 			var/obj/item/weapon/rig/module = new type(L)
 
 			//screw it up a bit
-			var/cnd = rand(1,100)
+			var/cnd = rand(40,100)
 			module.lose_modules(cnd)
 			module.misconfigure(cnd)
 			module.sabotage_cell()
@@ -1931,6 +1927,3 @@ var/list/global/random_stock_large = list(
 					exosuit.pr_manage_warnings.process(exosuit)
 		else
 			log_debug("ERROR: Random cargo spawn failed for [stock]")
-
-
-

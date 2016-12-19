@@ -55,6 +55,7 @@
 
 	overlays.Cut()
 
+	var/scrubber_icon = "scrubber"
 
 	var/turf/T = get_turf(src)
 	if(!istype(T))
@@ -77,7 +78,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(T.intact && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -157,11 +158,9 @@
 
 		power_draw = pump_gas(src, environment, air_contents, transfer_moles, power_rating)
 
-	if(scrubbing && power_draw < 0 && controller_iteration > 10)	//99% of all scrubbers
+	if(scrubbing && power_draw <= 0)	//99% of all scrubbers
 		//Fucking hibernate because you ain't doing shit.
-		hibernate = 1
-		spawn(rand(100,200))	//hibernate for 10 or 20 seconds randomly
-			hibernate = 0
+		hibernate = world.time + (rand(100,200))
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw

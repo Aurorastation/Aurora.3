@@ -1,7 +1,7 @@
 // The time a datum was destroyed by the GC, or null if it hasn't been
 /datum/var/gcDestroyed
 
-#define GC_COLLECTIONS_PER_RUN 150
+#define GC_COLLECTIONS_PER_RUN 300
 #define GC_COLLECTION_TIMEOUT (30 SECONDS)
 #define GC_FORCE_DEL_PER_RUN 30
 
@@ -23,7 +23,7 @@ var/list/delayed_garbage = list()
 
 /datum/controller/process/garbage_collector/setup()
 	name = "garbage"
-	schedule_interval = 10 SECONDS
+	schedule_interval = 5 SECONDS
 	start_delay = 3
 
 	if(!garbage_collector)
@@ -33,6 +33,10 @@ var/list/delayed_garbage = list()
 		qdel(garbage)
 	delayed_garbage.Cut()
 	delayed_garbage = null
+
+#ifdef GC_FINDREF
+world/loop_checks = 0
+#endif
 
 /datum/controller/process/garbage_collector/doWork()
 	if(!garbage_collect)
@@ -81,6 +85,32 @@ var/list/delayed_garbage = list()
 #undef GC_FORCE_DEL_PER_TICK
 #undef GC_COLLECTION_TIMEOUT
 #undef GC_COLLECTIONS_PER_TICK
+
+#ifdef GC_FINDREF
+/datum/controller/process/garbage_collector/proc/LookForRefs(var/datum/D, var/list/targ)
+	. = 0
+	for(var/V in D.vars)
+		if(V == "contents")
+			continue
+		if(istype(D.vars[V], /atom))
+			var/atom/A = D.vars[V]
+			if(A in targ)
+				testing("GC: [A] | [A.type] referenced by [D] | [D.type], var [V]")
+				. += 1
+		else if(islist(D.vars[V]))
+			. += LookForListRefs(D.vars[V], targ, D, V)
+
+/datum/controller/process/garbage_collector/proc/LookForListRefs(var/list/L, var/list/targ, var/datum/D, var/V)
+	. = 0
+	for(var/F in L)
+		if(istype(F, /atom))
+			var/atom/A = F
+			if(A in targ)
+				testing("GC: [A] | [A.type] referenced by [D] | [D.type], list [V]")
+				. += 1
+		if(islist(F))
+			. += LookForListRefs(F, targ, D, "[F] in list [V]")
+#endif
 
 /datum/controller/process/garbage_collector/proc/AddTrash(datum/A)
 	if(!istype(A) || !isnull(A.gcDestroyed))
@@ -151,6 +181,7 @@ var/list/delayed_garbage = list()
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return true if the the GC controller should allow the object to continue existing. (Useful if pooling objects.)
 /datum/proc/Destroy()
+	nanomanager.close_uis(src)
 	tag = null
 	return
 
@@ -221,4 +252,8 @@ var/list/delayed_garbage = list()
 
 #ifdef GC_DEBUG
 #undef GC_DEBUG
+#endif
+
+#ifdef GC_FINDREF
+#undef GC_FINDREF
 #endif

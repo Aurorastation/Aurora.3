@@ -5,18 +5,17 @@
 	item_state = "electronic"
 	w_class = 2.0
 	slot_flags = SLOT_BELT
-	origin_tech = "programming=2"
+	origin_tech = list(TECH_DATA = 2)
 	var/obj/item/device/radio/radio
 	var/looking_for_personality = 0
 	var/mob/living/silicon/pai/pai
 
-
-/*/obj/item/device/paicard/relaymove(var/mob/user, var/direction)
-	if(src.loc && istype(src.loc.loc, /obj/item/rig_module))
-		var/obj/item/rig_module/module = src.loc.loc
-		if(!module.holder || !direction)
-			return
-		module.holder.forced_move(direction)*/
+/obj/item/device/paicard/relaymove(var/mob/user, var/direction)
+	if(user.stat || user.stunned)
+		return
+	var/obj/item/weapon/rig/rig = src.get_rig()
+	if(istype(rig))
+		rig.forced_move(direction, user)
 
 /obj/item/device/paicard/New()
 	..()
@@ -225,7 +224,7 @@
 				</table>
 				<br>
 			"}
-		else
+		else //</font></font>
 			dat += "<b>Radio Uplink</b><br>"
 			dat += "<font color=red><i>Radio firmware not loaded. Please install a pAI personality to load firmware.</i></font><br>"
 		dat += {"
@@ -354,7 +353,7 @@
 /obj/item/device/paicard/proc/alertUpdate()
 	var/turf/T = get_turf_or_move(src.loc)
 	for (var/mob/M in viewers(T))
-		M.show_message("\blue [src] flashes a message across its screen, \"Additional personalities available for download.\"", 3, "\blue [src] bleeps electronically.", 2)
+		M.show_message("<span class='notice'>\The [src] flashes a message across its screen, \"Additional personalities available for download.\"</span>", 3, "<span class='notice'>\The [src] bleeps electronically.</span>", 2)
 
 /obj/item/device/paicard/emp_act(severity)
 	for(var/mob/M in src)
@@ -394,3 +393,9 @@
 			slotnumber = get_equip_slot()
 
 	report_onmob_location(1, slotnumber, pai)
+
+/obj/item/device/paicard/show_message(msg, type, alt, alt_type)
+	if(pai && pai.client)
+		var/rendered = "<span class='message'>[msg]</span>"
+		pai.show_message(rendered, type)
+	..()
