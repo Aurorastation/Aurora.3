@@ -61,13 +61,13 @@
  * Returns the HTML required to display this alert.
  */
 /datum/client_notification/proc/get_html()
-	var/html = "<div class=\"row\">[note_wrapper[1]]\n"
+	var/html = "<div class=\"row\">[note_wrapper[1]]"
 
 	if (!persistent)
-		html += "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n"
+		html += "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>"
 
 	html += note_text
-	html += "\n[note_wrapper[2]]</div>"
+	html += "[note_wrapper[2]]</div>"
 
 	return html
 

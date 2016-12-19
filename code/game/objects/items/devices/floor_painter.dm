@@ -21,7 +21,7 @@
 	if(istype(A, /turf/simulated/floor))
 		var/turf/simulated/floor/F = A
 
-		if(F.is_steel_floor()) // only tiled floors
+		if(!is_type_in_list(F, subtypesof(/turf/simulated/floor))) // only tiled floors
 			if(tile_dir_mode)
 				var/D = get_dir(usr, F)
 				if(usr.loc == F)

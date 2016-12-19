@@ -174,7 +174,7 @@
 
 /obj/structure/window/attack_tk(mob/user as mob)
 	user.visible_message("<span class='notice'>Something knocks on [src].</span>")
-	playsound(loc, 'sound/effects/Glasshit.ogg', 50, 1)
+	playsound(loc, 'sound/effects/Glasshit.ogg', 60, 1)
 
 /obj/structure/window/attack_hand(mob/user as mob)
 	if(HULK in user.mutations)
@@ -191,26 +191,25 @@
 				attack_generic(H,25)
 				return
 
-		playsound(src.loc, 'sound/effects/glassknock.ogg', 80, 1)
+		playsound(src.loc, 'sound/effects/glassknock.ogg', 90, 1)
 		user.do_attack_animation(src)
 		usr.visible_message("\red [usr.name] bangs against the [src.name]!",
 							"\red You bang against the [src.name]!",
 							"You hear a banging sound.")
 	else
-		playsound(src.loc, 'sound/effects/glassknock.ogg', 80, 1)
+		playsound(src.loc, 'sound/effects/glassknock.ogg', 60, 1)
 		usr.visible_message("[usr.name] knocks on the [src.name].",
 							"You knock on the [src.name].",
 							"You hear a knocking sound.")
 	return
 
 /obj/structure/window/attack_generic(var/mob/user, var/damage)
-	if(!damage)
-		return
 	if(damage >= 10)
 		visible_message("<span class='danger'>[user] smashes into [src]!</span>")
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+		playsound(src.loc, 'sound/effects/Glasshit.ogg', 7, 1, -1)
 	user.do_attack_animation(src)
 	return 1
 

@@ -179,9 +179,21 @@
 		Process_Incorpmove(direct)
 		return
 
-	if(moving)	return 0
+	if(moving) return 0
 
-	if(world.time < move_delay)	return
+	if(world.time < move_delay)
+		return
+
+
+//This compensates for the inaccuracy of move ticks
+//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
+//The overshoot value is subtracted from our next delay, farther down where move delay is set.
+//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
+//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
+	var/leftover = world.time - move_delay
+	if (leftover > 1)
+		leftover = 0
+
 
 	if(locate(/obj/effect/stop/, mob.loc))
 		for(var/obj/effect/stop/S in mob.loc)
@@ -209,6 +221,8 @@
 					if(item.zoom)
 						item.zoom()
 						break
+
+				//TODO: REMOVE This stupid zooming stuff
 				/*
 				if(locate(/obj/item/weapon/gun/energy/sniperrifle, mob.contents))		// If mob moves while zoomed in with sniper rifle, unzoom them.
 					var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in mob
@@ -255,16 +269,57 @@
 			src << "\blue You're pinned to a wall by [mob.pinned[1]]!"
 			return 0
 
-		move_delay = world.time//set move delay
+
+
+		move_delay = world.time - leftover//set move delay
 		mob.last_move_intent = world.time + 10
-		switch(mob.m_intent)
-			if("run")
-				if(mob.drowsyness > 0)
-					move_delay += 6
-				move_delay += 1+config.run_speed
-			if("walk")
-				move_delay += 7+config.walk_speed
-		move_delay += mob.movement_delay()
+
+
+		if (mob.buckled)
+			if(istype(mob.buckled, /obj/vehicle))
+				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
+				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
+				move_delay = world.time
+				//drunk driving
+				if(mob.confused && prob(20))
+					direct = pick(cardinal)
+				return mob.buckled.relaymove(mob,direct)
+
+			if(istype(mob.loc, /turf/space)) // Wheelchair driving!
+				return // No wheelchair driving in space
+
+			//TODO: Fuck wheelchairs.
+			//Toss away all this snowflake code here, and rewrite wheelchairs as a vehicle.
+			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
+				var/min_move_delay = 0
+				if(ishuman(mob.buckled))
+					var/mob/living/carbon/human/driver = mob.buckled
+					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
+					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
+					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
+						return // No hands to drive your chair? Tough luck!
+					min_move_delay = driver.min_walk_delay
+				//drunk wheelchair driving
+				if(mob.confused && prob(20))
+					direct = pick(cardinal)
+				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
+				return mob.buckled.relaymove(mob,direct)
+
+		var/tally = mob.movement_delay() + config.walk_speed
+
+		// Apply huuman specific modifiers.
+		if (ishuman(mob))
+			var/mob/living/carbon/human/H = mob
+			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
+			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
+				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+			else
+				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
+		else
+			tally *= config.walk_delay_multiplier
+
+		move_delay += tally
+
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
@@ -272,36 +327,17 @@
 			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 			move_delay = move_delay + tickcomp
 
-		if(istype(mob.buckled, /obj/vehicle))
-			//manually set move_delay for vehicles so we don't inherit any mob movement penalties
-			//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-			move_delay = world.time + tickcomp
-			//drunk driving
-			if(mob.confused && prob(20))
-				direct = pick(cardinal)
-			return mob.buckled.relaymove(mob,direct)
-
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))
 				return
 
-		if(mob.pulledby || mob.buckled) // Wheelchair driving!
-			if(istype(mob.loc, /turf/space))
-				return // No wheelchair driving in space
-			if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
-				return mob.pulledby.relaymove(mob, direct)
-			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
-				if(ishuman(mob.buckled))
-					var/mob/living/carbon/human/driver = mob.buckled
-					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
-					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
-					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
-						return // No hands to drive your chair? Tough luck!
-				//drunk wheelchair driving
-				if(mob.confused && prob(20))
-					direct = pick(cardinal)
-				move_delay += 2
-				return mob.buckled.relaymove(mob,direct)
+		//Wheelchair pushing goes here for now.
+		//TODO: Fuck wheelchairs.
+		if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
+			move_delay += 1
+			return mob.pulledby.relaymove(mob, direct)
+
+
 
 		//We are now going to move
 		moving = 1
@@ -351,7 +387,6 @@
 			G.adjust_position()
 
 		moving = 0
-
 		return .
 
 	return

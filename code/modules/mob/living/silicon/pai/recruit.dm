@@ -73,6 +73,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				t = input("Enter any OOC comments", "pAI OOC Comments", candidate.comments) as message
 				if(t)
 					candidate.comments = sanitize(t)
+
 			if("save")
 				candidate.savefile_save(usr)
 			if("load")
@@ -95,7 +96,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 							p.alertUpdate()
 				usr << browse(null, "window=paiRecruit")
 				return
-
+		candidate.savefile_save(usr)
 		recruitWindow(usr, href_list["allow_submit"] != "0")
 
 /datum/paiController/proc/recruitWindow(var/mob/M as mob, allowSubmit = 1)
@@ -206,18 +207,6 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			</tr>
 		</table>
 		<br>
-		<table>
-			<tr>
-				<td class="button">
-					<a href='byond://?src=\ref[src];option=save;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]' class="button">Save Personality</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="button">
-					<a href='byond://?src=\ref[src];option=load;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]' class="button">Load Personality</a>
-				</td>
-			</tr>
-		</table><br>
 	"}
 	if(allowSubmit)
 		dat += {"

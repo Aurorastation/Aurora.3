@@ -15,6 +15,12 @@
 	smell.<br/><br/>Most humans will never meet a Vox raider, instead learning of this insular species through \
 	dealing with their traders and merchants; those that do rarely enjoy the experience."
 
+
+	stamina	=	120			  // Vox are even faster than unathi and can go longer, but recover slowly
+	sprint_speed_factor = 3
+	stamina_recovery = 1
+	sprint_cost_factor = 1
+
 	speech_sounds = list('sound/voice/shriek1.ogg')
 	speech_chance = 20
 

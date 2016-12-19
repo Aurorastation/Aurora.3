@@ -774,6 +774,54 @@
 /obj/item/weapon/rig/get_rig()
 	return src
 
+
+//Used in random rig spawning for cargo
+//Randomly deletes modules
+/obj/item/weapon/rig/proc/lose_modules(var/probability)
+	for(var/obj/item/rig_module/module in installed_modules)
+		if (probability)
+			qdel(module)
+
+
+//Fiddles with some wires to possibly make the suit malfunction a little
+//Had to use numeric literals here, the wire defines in rig_wiring.dm weren't working
+//Possibly due to being defined in a later file, or undef'd somewhere
+/obj/item/weapon/rig/proc/misconfigure(var/probability)
+	if (prob(probability))
+		wires.UpdatePulsed(1)//Fiddle with access
+	if (prob(probability))
+		wires.UpdatePulsed(2)//frustrate the AI
+	if (prob(probability))
+		wires.UpdateCut(4)//break the suit
+	if (prob(probability))
+		wires.UpdatePulsed(8)
+	if (prob(probability))
+		wires.UpdateCut(16)
+	if (prob(probability))
+		subverted = 1
+
+//Drains, rigs or removes the cell
+/obj/item/weapon/rig/proc/sabotage_cell()
+	if (!cell)
+		return
+
+	if (prob(50))
+		cell.charge = rand(0, cell.charge*0.5)
+	else if (prob(15))
+		cell.rigged = 1
+	else
+		cell = null
+
+//Depletes or removes the airtank
+/obj/item/weapon/rig/proc/sabotage_tank()
+	if (!air_supply)
+		return
+
+	if (prob(70))
+		air_supply.remove_air(air_supply.air_contents.total_moles)
+	else
+		air_supply = null
+
 #undef ONLY_DEPLOY
 #undef ONLY_RETRACT
 #undef SEAL_DELAY

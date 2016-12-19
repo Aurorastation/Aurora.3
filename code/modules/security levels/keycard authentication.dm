@@ -70,6 +70,8 @@
 
 		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
+		dat += "<li><A href='?src=\ref[src];triggerevent=Cyborg Crisis Override'>Cyborg Crisis Override</A></li>"
+		dat += "<li><A href='?src=\ref[src];triggerevent=Disable Cyborg Crisis Override'>Disable Cyborg Crisis Override</A></li>"
 		dat += "</ul>"
 		user << browse(dat, "window=keycard_auth;size=500x250")
 	if(screen == 2)
@@ -149,6 +151,12 @@
 		if("Revoke Emergency Maintenance Access")
 			revoke_maint_all_access()
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
+		if("Cyborg Crisis Override")
+			cyborg_crisis_override()
+			feedback_inc("alert_keycard_auth_borgCrisis",1)	
+		if("Disable Cyborg Crisis Override")
+			disable_cyborg_crisis_override()
+			feedback_inc("alert_keycard_auth_borgDisable",1)	
 		if("Emergency Response Team")
 			if(is_ert_blocked())
 				usr << "\red All emergency response teams are dispatched and can not be called at this time."
@@ -177,3 +185,15 @@ var/global/maint_all_access = 0
 	if(maint_all_access && src.check_access_list(list(access_maint_tunnels)))
 		return 1
 	return ..(M)
+
+/proc/cyborg_crisis_override()
+	for(var/mob/living/silicon/robot/M in silicon_mob_list)
+		M.crisis_override = 1
+	world << "<font size=4 color='red'>Attention!</font>"
+	world << "<font color='red'>Cyborg crisis override has been activated, station bound cyborgs are allowed to select the combat module during code red.</font>"
+
+/proc/disable_cyborg_crisis_override()
+	for(var/mob/living/silicon/robot/M in silicon_mob_list)
+		M.crisis_override = 0
+	world << "<font size=4 color='red'>Attention!</font>"
+	world << "<font color='red'>Cyborg crisis override has been deactivated, station bound cyborgs are no longer allowed to select the combat module.</font>"

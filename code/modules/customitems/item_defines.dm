@@ -138,6 +138,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user << "You close the pocket altar."
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 
+
 /obj/item/clothing/head/det_hat/fluff/bell_hat //Brown Hat - Avery Bell - serveris6 - DONE
 	name = "brown hat"
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
@@ -145,7 +146,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "bell_hat"
 	item_state = "bell_hat"
 	contained_sprite = 1
-
 
 /obj/item/clothing/suit/storage/det_suit/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6 - DONE
 	name = "pinned brown coat"
@@ -255,11 +255,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/contraband/poster/fluff/conservan_poster/New()
 	serial_number = 59
-
-/datum/poster/bay_59
-	name = "ATLAS poster"
-	desc = "ATLAS: For all of Humanity."
-	icon_state = "bposter59"
 
 
 /obj/item/weapon/flame/lighter/zippo/fluff/locke_zippo // Fire Extinguisher Zippo - Jacob Locke - completegarbage - DONE
@@ -553,4 +548,125 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "You see on the photo a tajaran couple holding a small kit in their arms, while looking very happy. On the back it is written; 'Nasir, Akela and Ishka' with a little gold mark that reads: 'Two months'."
 	icon = 'icons/obj/custom_items/akela_photo.dmi'
 	icon_state = "akela_photo"
+	w_class = 2
+
+
+/obj/item/weapon/implant/fluff/ziva_implant //Heart Condition - Ziva Ta'Kim - sierrakomodo - DONE
+	name = "heart monitor"
+	desc = "A small machine to watch upon broken hearts."
+
+/obj/item/weapon/implant/fluff/ziva_implant/implanted(mob/living/carbon/human/M as mob)
+	if (M.ckey == "sierrakomodo") //just to be sure
+		M.verbs += /mob/living/carbon/human/proc/heart_attack
+	else
+		return
+
+/mob/living/carbon/human/proc/heart_attack()
+	set category = "IC"
+	set name = "Suffer Heart Condition"
+	set desc = "HNNNNG."
+
+	if(last_special > world.time)
+		src << "<span class='warning'>Your chest still hurts badly!</span>"
+		return
+
+	last_special = world.time + 500
+
+	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
+	
+	if(isnull(F))
+		return
+		
+	F.damage += 5
+	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
+	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
+
+
+/obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron - DONE
+	name = "worn badge"
+	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, Caleb Greene, is still clearly legible."
+	icon_state = "badge"
+	icon = 'icons/obj/custom_items/caleb_badge.dmi'
+	item_state = "caleb_badge"
+	icon_state = "caleb_badge"
+	stored_name = "Caleb Greene"
+	badge_string = "NOS Apollo Head of Security"
+	contained_sprite = 1
+
+
+/obj/item/fluff/messa_pressing //Pressing of Messa's Tears - Poslan Kur'yer-Isra - jboy2000000 - DONE
+	name = "pressing of Messa's tears"
+	desc = "As Messa looked at the pain and death wrought on the world she had given life, she cried, and from her tears sprouted these leaves."
+	icon = 'icons/obj/custom_items/cat_religion.dmi'
+	icon_state = "messa"
+	w_class = 2
+
+/obj/item/fluff/srendarr_pressing //Pressing of S'Rendarr's Hand - Poslan Kur'yer-Isra - jboy2000000 - DONE
+	name = "pressing of S'Rendarr's hand"
+	desc = "As S'Rendarr watched her sister cry, she felt rage never known to her before. Her fists clashed with those who upset her sister, and from their blood came these."
+	icon = 'icons/obj/custom_items/cat_religion.dmi'
+	icon_state = "srendarr"
+	w_class = 2
+
+/obj/item/clothing/suit/chaplain_hoodie/fluff/poslan_jacket //Twin Suns Throw-over - Poslan Kur'yer-Isra - jboy2000000 - DONE
+	name = "twin suns throw-over"
+	desc = "A light black jacket, on one side of its breast is the design of a yellow sun, and on the other side there is a smaller blue sun."
+	icon = 'icons/obj/custom_items/cat_religion.dmi'
+	icon_state = "poslan_jacket"
+	item_state = "poslan_jacket"
+	contained_sprite = 1
+
+
+/obj/item/sign/fluff/alexis_degree //Xenonuerology Doctorate - Alexis Shaw - Tenenza - DONE
+	name = "xenonuerology degree"
+	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
+	icon_state = "alexis_degree"
+	sign_state = "alexis_degree"
+	w_class = 2	
+
+
+/obj/item/clothing/mask/fluff/rur_collar //Tagging Collar - R.U.R - coalf - DONE
+	name = "tagging collar"
+	desc = "A steel tagging collar, a giant golden D is imprinted on the front."
+	icon = 'icons/obj/custom_items/rur_collar.dmi'
+	icon_state = "rur_collar"
+	item_state = "rur_collar"
+	contained_sprite = 1
+	flags = MASKCOVERSMOUTH
+	body_parts_covered = 0
+	canremove = 0
+	species_restricted = list("Machine")
+	var/emagged = 0
+
+/obj/item/clothing/mask/fluff/rur_collar/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/weapon/card/emag) && !emagged)
+		user << "<span class='danger'>You short out \the [src]'s locking mechanism.</span>"
+		src.icon_state = "rur_collar_broken"
+		src.canremove = 1
+		src.emagged = 1
+		playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 0)
+		return
+
+	return
+
+
+/obj/item/clothing/mask/bluescarf/fluff/simon_scarf //Fancy Scarf - Simon Greene - icydew - DONE
+	name = "fancy scarf"
+	desc = "A very smooth, dark blue scarf with a golden trim. It feels really new and clean."
+	icon = 'icons/obj/custom_items/simon_scarf.dmi'
+	icon_state = "simon_scarf"
+	item_state = "simon_scarf"
+	contained_sprite = 1
+
+
+/obj/item/clothing/head/soft/sec/corp/fluff/karson_cap //Karson's Cap - Eric Karson - dronzthewolf - DONE
+	name = "well-worn corporate security cap"
+	desc = "A well-worn corporate security cap. The name Karson is written on the underside of the brim, it is well-worn at the point where it has shaped to the owner's head."
+
+
+/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot - DONE
+	name = "framed zatimono"
+	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
+	icon_state = "triaka_atimono"
+	sign_state = "triaka_atimono"
 	w_class = 2

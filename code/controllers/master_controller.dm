@@ -71,6 +71,11 @@ datum/controller/game_controller/proc/setup_objects()
 			T.broadcast_status()
 
 
+	//Spawn the contents of the cargo warehouse
+	sleep(-1)
+	spawn_cargo_stock()
+
+
 	// Create the mining ore distribution map.
 	// These values determine the specific area that the map is applied to.
 	// If you do not use the official Baycode asteroid map, you will need to change them.

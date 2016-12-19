@@ -233,3 +233,8 @@
 
 /mob/living/simple_animal/bee/attempt_pull(var/mob/living/grabber)
 	return attempt_grab(grabber)
+
+/mob/living/simple_animal/bee/beegun
+	maxHealth = 30
+	strength = 5
+	feral = 30

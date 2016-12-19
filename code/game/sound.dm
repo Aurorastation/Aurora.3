@@ -48,11 +48,11 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 var/const/FALLOFF_SOUNDS = 0.5
 
 /mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, var/usepressure = 1, var/environment = -1)
-	if(!src.client || ear_deaf > 0)	return
 
+	if(!src.client || ear_deaf > 0)	return 0
 	if(soundin in footstepfx)
 		if(!(src.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
-			return
+			return 0
 
 	soundin = get_sfx(soundin)
 
@@ -79,7 +79,6 @@ var/const/FALLOFF_SOUNDS = 0.5
 			//This extra falloff should probably be rewritten or removed, but for now ive implemented a quick fix by only setting S.volume to vol after calculations are done
 			//This fix allows feeding in high volume values (>100) to make longrange sounds audible
 			// -Nanako
-
 		if (usepressure)
 			//sound volume falloff with pressure. Pass usepressure = 0 to disable these calculations
 			var/pressure_factor = 1.0
@@ -101,7 +100,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 			vol *= pressure_factor
 
 		if (vol <= 0)
-			return	//no volume means no sound
+			return	0//no volume means no sound
 
 		S.volume = vol
 		var/dx = turf_source.x - T.x // Hearing from the right/left
@@ -117,6 +116,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 		S.environment = A.sound_env
 
 	src << S
+	return S.volume
 
 
 

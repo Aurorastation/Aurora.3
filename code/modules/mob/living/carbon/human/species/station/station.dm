@@ -13,6 +13,11 @@
 
 	flags = CAN_JOIN | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
+	stamina	=	130			  // Humans can sprint for longer than any other species
+	stamina_recovery = 5
+	sprint_speed_factor = 0.9
+	sprint_cost_factor = 0.5
+
 /datum/species/unathi
 	name = "Unathi"
 	short_name = "una"
@@ -27,6 +32,11 @@
 	darksight = 3
 	gluttonous = 1
 	ethanol_resistance = 0.4
+	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
+	sprint_speed_factor = 3.2
+	stamina_recovery = 5
+	sprint_cost_factor = 1.45
+	exhaust_threshold = 65
 	rarity_value = 3
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
@@ -90,6 +100,12 @@
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
 
+	stamina	=	90			  // Tajarans evolved to maintain a steady pace in the snow, sprinting wastes energy
+	stamina_recovery = 4
+	sprint_speed_factor = 0.65
+	sprint_cost_factor = 0.75
+
+
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
 	influenced heavily by their long history of Slavemaster rule. They have a structured, clan-influenced way \
@@ -138,7 +154,7 @@
 	of the Qerr'Katish, a caste within their society which keeps the empire of the Skrell running smoothly. Skrell are \
 	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
 	the secrets of their empire to their allies."
-	
+
 	rarity_value = 3
 
 	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | NO_SLIP | HAS_SKIN_COLOR
@@ -149,6 +165,10 @@
 
 	reagent_tag = IS_SKRELL
 	ethanol_resistance = 0.5//gets drunk faster
+
+	stamina	=	90
+	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
+
 
 /datum/species/diona
 	name = "Diona"
@@ -222,6 +242,41 @@
 
 	reagent_tag = IS_DIONA
 
+	stamina	=	-1			  // Diona sprinting uses energy instead of stamina
+	sprint_speed_factor = 0.5		  //Speed gained is minor
+	sprint_cost_factor = 0.8
+
+/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	var/datum/dionastats/DS = H.get_dionastats()
+
+	if (!DS)
+		return 0 //Something is very wrong
+
+	var/remainder = cost * sprint_cost_factor
+
+	if (H.radiation)
+		if (H.radiation > (cost*0.5))//Radiation counts as double energy
+			H.radiation -= cost*0.5
+			return 1
+		else
+			remainder = cost - (H.radiation*2)
+			H.radiation = 0
+
+	if (DS.stored_energy > remainder)
+		DS.stored_energy -= remainder
+		return 1
+	else
+		remainder -= DS.stored_energy
+		DS.stored_energy = 0
+		H.adjustHalLoss(remainder*5, 1)
+		H.updatehealth()
+		H.m_intent = "walk"
+		H.hud_used.move_intent.update_move_icon(H)
+		H << span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!")
+		return 0
+
+
+
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
@@ -283,6 +338,26 @@
 
 	has_organ = list() //TODO: Positronic brain.
 
+	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
+	sprint_speed_factor = 1	  // About as capable of speed as a human
+
+
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	if (H.stat == CONSCIOUS)
+		H.bodytemperature += cost*1.15
+		H.nutrition -= cost*0.65
+		if (H.nutrition > 0)
+			return 1
+		else
+			H.Weaken(30)
+			H.m_intent = "walk"
+			H.hud_used.move_intent.update_move_icon(H)
+			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in 60 seconds, initiate charging as primary directive.")
+			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
+	return 0
+
+
+
 /datum/species/machine/equip_survival_gear(var/mob/living/carbon/human/H)
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
@@ -331,6 +406,12 @@
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
+
+	stamina	=	100			  // Long period of sprinting, but relatively low speed gain
+	sprint_speed_factor = 0.55
+	sprint_cost_factor = 0.20
+	stamina_recovery = 1//slow recovery
+
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite, //weaker version of gut.

@@ -138,6 +138,9 @@
 	speak = list("Awrr?","Aowrl!","Worrl")
 	emote_see = list("sniffs the air cautiously","looks around")
 	emote_hear = list("snuffles")
+	pass_flags = PASSTABLE
+	small = 1
+	density = 0
 	mob_size = 3
 
 /mob/living/simple_animal/hostile/shantak
@@ -168,6 +171,9 @@
 	icon_living = "yithian"
 	icon_dead = "yithian_dead"
 	icon = 'icons/jungle.dmi'
+	pass_flags = PASSTABLE
+	small = 1
+	density = 0
 	mob_size = 2
 
 /mob/living/simple_animal/tindalos
@@ -177,4 +183,7 @@
 	icon_living = "tindalos"
 	icon_dead = "tindalos_dead"
 	icon = 'icons/jungle.dmi'
+	pass_flags = PASSTABLE
+	small = 1
+	density = 0
 	mob_size = 1.5
