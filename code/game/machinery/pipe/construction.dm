@@ -206,104 +206,104 @@ Buildable meters
 //update the name and icon of the pipe item depending on the type
 
 /obj/item/pipe/proc/update()
-	var/list/nlist = list( \
-		"pipe", \
-		"bent pipe", \
-		"h/e pipe", \
-		"bent h/e pipe", \
-		"connector", \
-		"manifold", \
-		"junction", \
-		"uvent", \
-		"mvalve", \
-		"pump", \
-		"scrubber", \
-		"insulated pipe", \
-		"bent insulated pipe", \
-		"gas filter", \
-		"gas mixer", \
-		"pressure regulator", \
-		"high power pump", \
-		"heat exchanger", \
-		"t-valve", \
-		"4-way manifold", \
-		"pipe cap", \
+	var/list/nlist = list(
+		"pipe",
+		"bent pipe", 
+		"h/e pipe",
+		"bent h/e pipe",
+		"connector",
+		"manifold", 
+		"junction", 
+		"uvent", 
+		"mvalve", 
+		"pump", 
+		"scrubber", 
+		"insulated pipe", 
+		"bent insulated pipe", 
+		"gas filter", 
+		"gas mixer", 
+		"pressure regulator", 
+		"high power pump", 
+		"heat exchanger", 
+		"t-valve", 
+		"4-way manifold", 
+		"pipe cap", 
 ///// Z-Level stuff
-		"pipe up", \
-		"pipe down", \
+		"pipe up", 
+		"pipe down", 
 ///// Z-Level stuff
-		"gas filter m", \
-		"gas mixer t", \
-		"gas mixer m", \
-		"omni mixer", \
-		"omni filter", \
+		"gas filter m", 
+		"gas mixer t", 
+		"gas mixer m", 
+		"omni mixer", 
+		"omni filter", 
 ///// Supply and scrubbers pipes
-		"universal pipe adapter", \
-		"supply pipe", \
-		"bent supply pipe", \
-		"scrubbers pipe", \
-		"bent scrubbers pipe", \
-		"supply manifold", \
-		"scrubbers manifold", \
-		"supply 4-way manifold", \
-		"scrubbers 4-way manifold", \
-		"supply pipe up", \
-		"scrubbers pipe up", \
-		"supply pipe down", \
-		"scrubbers pipe down", \
-		"supply pipe cap", \
-		"scrubbers pipe cap", \
-		"t-valve m", \
+		"universal pipe adapter", 
+		"supply pipe", 
+		"bent supply pipe", 
+		"scrubbers pipe", 
+		"bent scrubbers pipe", 
+		"supply manifold", 
+		"scrubbers manifold", 
+		"supply 4-way manifold", 
+		"scrubbers 4-way manifold", 
+		"supply pipe up", 
+		"scrubbers pipe up", 
+		"supply pipe down", 
+		"scrubbers pipe down", 
+		"supply pipe cap", 
+		"scrubbers pipe cap", 
+		"t-valve m"
 	)
 	name = nlist[pipe_type+1] + " fitting"
-	var/list/islist = list( \
-		"simple", \
-		"simple", \
-		"he", \
-		"he", \
-		"connector", \
-		"manifold", \
-		"junction", \
-		"uvent", \
-		"mvalve", \
-		"pump", \
-		"scrubber", \
-		"insulated", \
-		"insulated", \
-		"filter", \
-		"mixer", \
-		"passivegate", \
-		"volumepump", \
-		"heunary", \
-		"mtvalve", \
-		"manifold4w", \
-		"cap", \
+	var/list/islist = list( 
+		"simple", 
+		"simple", 
+		"he", 
+		"he", 
+		"connector", 
+		"manifold", 
+		"junction", 
+		"uvent", 
+		"mvalve", 
+		"pump", 
+		"scrubber", 
+		"insulated", 
+		"insulated", 
+		"filter", 
+		"mixer", 
+		"passivegate", 
+		"volumepump", 
+		"heunary", 
+		"mtvalve", 
+		"manifold4w", 
+		"cap", 
 ///// Z-Level stuff
-		"cap", \
-		"cap", \
+		"cap", 
+		"cap", 
 ///// Z-Level stuff
-		"m_filter", \
-		"t_mixer", \
-		"m_mixer", \
-		"omni_mixer", \
-		"omni_filter", \
+		"m_filter", 
+		"t_mixer", 
+		"m_mixer", 
+		"omni_mixer", 
+		"omni_filter", 
 ///// Supply and scrubbers pipes
-		"universal", \
-		"simple", \
-		"simple", \
-		"simple", \
-		"simple", \
-		"manifold", \
-		"manifold", \
-		"manifold4w", \
-		"manifold4w", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"mtvalvem", \
+		"universal", 
+		"simple", 
+		"simple", 
+		"simple", 
+		"simple", 
+		"manifold", 
+		"manifold", 
+		"manifold4w", 
+		"manifold4w", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"mtvalvem"
 	)
 	icon_state = islist[pipe_type + 1]
 
@@ -359,17 +359,17 @@ Buildable meters
 	var/acw = turn(dir, 90)
 
 	switch(pipe_type)
-		if(	PIPE_SIMPLE_STRAIGHT, \
-			PIPE_INSULATED_STRAIGHT, \
-			PIPE_HE_STRAIGHT, \
-			PIPE_JUNCTION ,\
-			PIPE_PUMP ,\
-			PIPE_VOLUME_PUMP ,\
-			PIPE_PASSIVE_GATE ,\
-			PIPE_MVALVE, \
-			PIPE_SUPPLY_STRAIGHT, \
-			PIPE_SCRUBBERS_STRAIGHT, \
-			PIPE_UNIVERSAL, \
+		if(	PIPE_SIMPLE_STRAIGHT, 
+			PIPE_INSULATED_STRAIGHT,
+			PIPE_HE_STRAIGHT, 
+			PIPE_JUNCTION ,
+			PIPE_PUMP ,
+			PIPE_VOLUME_PUMP ,
+			PIPE_PASSIVE_GATE ,
+			PIPE_MVALVE, 
+			PIPE_SUPPLY_STRAIGHT, 
+			PIPE_SCRUBBERS_STRAIGHT, 
+			PIPE_UNIVERSAL
 		)
 			return dir|flip
 		if(PIPE_SIMPLE_BENT, PIPE_INSULATED_BENT, PIPE_HE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT)
