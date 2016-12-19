@@ -71,7 +71,6 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	user.do_attack_animation(M)
 
 	var/hit_zone = M.resolve_item_attack(src, user, target_zone)
-	world << "[src] hitzone is [hit_zone] and targetzone is [target_zone]"
 	if(hit_zone)
 		apply_hit_effect(M, user, hit_zone)
 
@@ -85,6 +84,5 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/power = force
 	if(HULK in user.mutations)
 		power *= 2
-	world << "Hitting with power [power]"
 	return target.hit_with_weapon(src, user, power, hit_zone)
 

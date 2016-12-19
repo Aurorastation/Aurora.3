@@ -90,7 +90,6 @@
 	force = initial(force)
 	for (var/obj/item/I in contents)
 		force += I.w_class*1.5
-	world << "Update force called"
 
 /obj/item/weapon/storage/toolbox/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
 	if (..(W, prevent_warning))
