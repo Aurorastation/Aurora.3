@@ -47,7 +47,7 @@
 	heat_discomfort_level = 292
 	heat_discomfort_strings = list(
 		"Your feathers prickle in the heat.",
-		"You feel uncomfortably warm.",
+		"You feel uncomfortably warm."
 		)
 	cold_discomfort_level = 180
 
