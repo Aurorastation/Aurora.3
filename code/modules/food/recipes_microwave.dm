@@ -248,7 +248,7 @@ I said no!
 /datum/recipe/muffin
 	reagents = list("milk" = 5, "sugar" = 5)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/muffin
 
@@ -694,7 +694,7 @@ I said no!
 /datum/recipe/boiledspagetti
 	reagents = list("water" = 5)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/spagetti,
+		/obj/item/weapon/reagent_containers/food/snacks/spagetti
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/boiledspagetti
 
@@ -809,7 +809,7 @@ I said no!
 /datum/recipe/boiledslimeextract
 	reagents = list("water" = 5)
 	items = list(
-		/obj/item/slime_extract,
+		/obj/item/slime_extract
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/boiledslimecore
 
