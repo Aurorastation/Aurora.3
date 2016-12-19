@@ -35,7 +35,7 @@ more variety, and keeps the odds of any one specific item to be about the same
 
 
 //Debugging verbs. Uncomment this block for some useful cargo debug commands
-/*
+
 var/global/stockname = ""
 
 /client/verb/set_stock_name()
@@ -55,7 +55,7 @@ var/global/stockname = ""
 	while (num > 0)
 		spawn_stock(stockname, get_turf(mob))
 		num--
-*/
+
 
 var/list/global/random_stock_common = list(
 	"toolbox" = 4,
@@ -1534,8 +1534,8 @@ var/list/global/random_stock_large = list(
 			"/obj/item/mecha_parts/mecha_equipment/teleporter" = 0.3,
 			"/obj/item/mecha_parts/mecha_equipment/wormhole_generator" = 0.5,
 			"/obj/item/mecha_parts/mecha_equipment/gravcatapult" = 0.8,
-			"/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster" = 0.9,
+			"/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster" = 0.9,
 			"/obj/item/mecha_parts/mecha_equipment/repair_droid" = 0.7,
 			"/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay" = 0.4,
 			"/obj/item/mecha_parts/mecha_equipment/generator" = 1.5,
@@ -1547,9 +1547,11 @@ var/list/global/random_stock_large = list(
 			"/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun" = 1
 			)
 
+
 			var/number = rand(2,5)
 			while (number > 0)
 				var/type = pickweight(equips)
+				world << "Type selected is [type]"
 				new type(L)
 				number--
 
