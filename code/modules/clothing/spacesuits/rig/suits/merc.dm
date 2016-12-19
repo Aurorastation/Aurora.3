@@ -30,5 +30,5 @@
 /obj/item/weapon/rig/merc/empty
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
-		/obj/item/rig_module/electrowarfare_suite, //might as well
+		/obj/item/rig_module/electrowarfare_suite //might as well
 		)
