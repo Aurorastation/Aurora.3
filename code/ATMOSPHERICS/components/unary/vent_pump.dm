@@ -354,7 +354,7 @@
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
 		else if (WT.remove_fuel(0,user))
-			user << "\blue Now welding the vent."
+			user << "<span class='notice'>Now welding the vent.</span>"
 			if(do_after(user, 20))
 				if(!src || !WT.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
