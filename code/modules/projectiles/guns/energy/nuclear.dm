@@ -118,13 +118,13 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 5
-	fire_delay = 2
+	fire_delay = 4
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "epistolstun"
 
 	firemodes = list(
-		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg'),
 		)

@@ -661,6 +661,14 @@
 	departments = list("Wizardry")
 	species = list("Human","Tajara","Skrell","Unathi")
 	can_repair = 1
+	
+/obj/machinery/suit_cycler/captain
+	name = "Captain suit cycler"
+	model_text = "Captain"
+	req_access = list(access_captain)
+	departments = list("Captain")
+	species = list("Human","Tajara","Skrell","Unathi")
+	can_repair = 1
 
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
@@ -1035,6 +1043,15 @@
 				suit.name = "atmospherics voidsuit"
 				suit.icon_state = "rig-atmos"
 				suit.item_state = "atmos_voidsuit"
+		if("Captain")
+			if(helmet)
+				helmet.name = "captain voidsuit helmet"
+				helmet.icon_state = "capspace"
+				helmet.item_state = "capspace"
+			if(suit)
+				suit.name = "captain voidsuit"
+				suit.icon_state = "capspace"
+				suit.item_state = "capspace"
 		if("^%###^%$" || "Mercenary")
 			if(helmet)
 				helmet.name = "blood-red voidsuit helmet"
