@@ -160,6 +160,7 @@
 	. += "<center>"
 	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty</a>"
 	//  . += "<a href='?src=\ref[src];button=render_guilty_fine'>Render Guilty - Fine</a>"
+	. += "</center>"
 
 	return .
 

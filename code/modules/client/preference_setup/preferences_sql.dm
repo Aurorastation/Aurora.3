@@ -162,6 +162,8 @@
 			for (var/variable in var_names)
 				if (isnull(var_names[variable]))
 					query += " [variable] = [arg_names[i]]"
+				if (i < var_names.len)
+					query += ", "
 
 				i++
 

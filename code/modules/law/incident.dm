@@ -245,13 +245,14 @@
 		":brig_sentence" = brig_sentence,
 		":fine" = fine,
 		":felony" = felony,
-		":created_by" = created_by
+		":created_by" = created_by,
+		":game_id" = game_id
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
 	var/DBQuery/infraction_insert_query = dbcon.NewQuery({"INSERT INTO ss13_character_infractions
-		(char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by)
+		(char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by, game_id)
 	VALUES
-		(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by)
+		(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by, :game_id)
 	ON DUPLICATE KEY UPDATE
 		notes = :notes,
 		charges = :charges,
@@ -260,7 +261,8 @@
 		brig_sentence = :brig_sentence,
 		fine = :fine,
 		felony = :felony,
-		created_by = :created_by
+		created_by = :created_by,
+		game_id = :game_id
 	"})
 	infraction_insert_query.Execute(sql_args)
 

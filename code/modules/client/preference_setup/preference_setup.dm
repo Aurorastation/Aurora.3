@@ -131,6 +131,7 @@
 		handle_sql_loading(SQL_CHARACTER)
 
 	for(var/datum/category_item/player_setup_item/PI in items)
+		PI.load_special(S)
 		PI.sanitize_character(config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_character(var/savefile/S)
@@ -205,9 +206,15 @@
 	return sort_order
 
 /*
-* Called when the item is asked to load per character settings
+* Called when the item is asked to load per character settings - Only called when sql saves are disabled or unavailable
 */
 /datum/category_item/player_setup_item/proc/load_character(var/savefile/S)
+	return
+
+/*
+* Called no matter if sql safes are enabled or disabled
+*/
+/datum/category_item/player_setup_item/proc/load_special(var/savefile/S)
 	return
 
 /*

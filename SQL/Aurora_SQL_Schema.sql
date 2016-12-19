@@ -498,3 +498,25 @@ CREATE TABLE `ss13_stats_ie` (
   `DateUpdated` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ckey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ss13_character_infractions` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`char_id` INT(11) NOT NULL,
+	`UID` VARCHAR(32) NOT NULL COLLATE 'utf8_bin',
+	`datetime` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`notes` TEXT NOT NULL COLLATE 'utf8_bin',
+	`charges` TEXT NOT NULL COLLATE 'utf8_bin',
+	`evidence` TEXT NOT NULL COLLATE 'utf8_bin',
+	`arbiters` TEXT NOT NULL COLLATE 'utf8_bin',
+	`brig_sentence` INT(11) NOT NULL DEFAULT '0',
+	`fine` INT(11) NOT NULL DEFAULT '0',
+	`felony` INT(11) NOT NULL DEFAULT '0',
+	`created_by` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`deleted_by` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`game_id` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`deleted_at` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `Schlüssel 2` (`char_id`, `UID`)
+) COLLATE='utf8_bin' ENGINE=InnoDB;

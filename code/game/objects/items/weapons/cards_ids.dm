@@ -165,6 +165,7 @@ var/const/NO_EMAG_ACT = -50
 	id_card.age = age
 	id_card.citizenship			= citizenship
 	id_card.religion			= religion
+	id_card.mob					= src
 
 /obj/item/weapon/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
