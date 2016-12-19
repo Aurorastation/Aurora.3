@@ -5,7 +5,6 @@
 /datum/controller/process/lighting/setup()
 	name = "lighting"
 	schedule_interval = LIGHTING_INTERVAL
-
 	create_lighting_overlays()
 
 /datum/controller/process/lighting/doWork()

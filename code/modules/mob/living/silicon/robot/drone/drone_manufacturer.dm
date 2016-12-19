@@ -78,66 +78,55 @@
 	flick("h_lathe_leave",src)
 
 	time_last_drone = world.time
-	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
+	if(player.mob && player.mob.mind) player.mob.mind.reset()
+	var/mob/living/silicon/robot/drone/new_drone = PoolOrNew(drone_type, get_turf(src))
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
 
 	drone_progress = 0
 
-/mob/dead/verb/join_as_drone()
-
+/mob/dead/observer/verb/join_as_drone()
 	set category = "Ghost"
 	set name = "Join As Drone"
 	set desc = "If there is a powered, enabled fabricator in the game world with a prepared chassis, join as a maintenance drone."
+	try_drone_spawn(src)
 
+/proc/try_drone_spawn(var/mob/user, var/obj/machinery/drone_fabricator/fabricator)
 
 	if(ticker.current_state < GAME_STATE_PLAYING)
-		src << "<span class='danger'>The game hasn't started yet!</span>"
+		user << "<span class='danger'>The game hasn't started yet!</span>"
 		return
 
 	if(!(config.allow_drone_spawn))
-		src << "<span class='danger'>That verb is not currently permitted.</span>"
+		user << "<span class='danger'>That verb is not currently permitted.</span>"
 		return
 
-	if (!src.stat || !client)
+	if(jobban_isbanned(user,"Cyborg"))
+		user << "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>"
 		return
 
-	if (usr != src)
-		return 0 //something is terribly wrong
-
-	if(jobban_isbanned(src,"Cyborg"))
-		usr << "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>"
+	// #TODO-MERGE: refactor teh various respawn timers into MayRespawn
+	if(!user.MayRespawn(1, DRONE_SPAWN_DELAY))
 		return
 
-	if(!MayRespawn(1))
-		return
+	if(!fabricator)
 
-	var/deathtime = world.time - get_death_time(MINISYNTH)//get/set death_time functions are in mob_helpers.dm
-	if(istype(src,/mob/dead/observer))
-		var/mob/dead/observer/G = src
-		if(G.has_enabled_antagHUD == 1 && config.antag_hud_restricted)
-			usr << "<span class='notice'>Upon using the antagHUD you forfeighted the ability to join the round.</span>"
-			return
-
-
-	if (deathtime < RESPAWN_MINISYNTH)
-		var/timedifference_text = time2text(RESPAWN_MINISYNTH - deathtime,"mm:ss")
-		var/basetime = time2text(RESPAWN_MINISYNTH,"mm:ss")
-		usr << "<span class='warning'>You may only spawn again as a drone more than [basetime] minutes after your death. You have [timedifference_text] left.</span>"
-		return
-
-	var/list/all_fabricators = list()
-	for(var/obj/machinery/drone_fabricator/DF in world)
-		if(DF.stat & NOPOWER || !DF.produce_drones)
-			continue
-		if(DF.drone_progress >= 100)
+		var/list/all_fabricators = list()
+		for(var/obj/machinery/drone_fabricator/DF in machines)
+			if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
+				continue
 			all_fabricators[DF.fabricator_tag] = DF
 
-	if(!all_fabricators.len)
-		src << "<span class='danger'>There are no available drone spawn points, sorry.</span>"
-		return
+		if(!all_fabricators.len)
+			user << "<span class='danger'>There are no available drone spawn points, sorry.</span>"
+			return
 
-	var/choice = input(src,"Which fabricator do you wish to use?") as null|anything in all_fabricators
-	if(choice)
-		var/obj/machinery/drone_fabricator/chosen_fabricator = all_fabricators[choice]
-		chosen_fabricator.create_drone(src.client)
+		var/choice = input(user,"Which fabricator do you wish to use?") as null|anything in all_fabricators
+		if(!choice || !all_fabricators[choice])
+			return
+		fabricator = all_fabricators[choice]
+
+	if(user && fabricator && !((fabricator.stat & NOPOWER) || !fabricator.produce_drones || fabricator.drone_progress < 100))
+		fabricator.create_drone(user.client)
+		return 1
+	return

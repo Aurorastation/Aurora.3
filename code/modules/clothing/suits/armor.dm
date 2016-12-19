@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/armor
 	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	flags = THICKMATERIAL
+	item_flags = THICKMATERIAL
 
 	cold_protection = UPPER_TORSO|LOWER_TORSO
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
@@ -64,12 +64,11 @@
 	icon_state = "armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	flags = ONESIZEFITSALL
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/vest/security
 	name = "security armor"
-	desc = "An armored vest that protects against some damage. This one has a NanoTrasen corporate badge."
+	desc = "An armored vest that protects against some damage. This one has a corporate badge."
 	icon_state = "armorsec"
 	item_state = "armor"
 
@@ -117,6 +116,26 @@
 	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0
 
+/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
+		var/obj/item/projectile/P = damage_source
+
+		var/reflectchance = 40 - round(damage/3)
+		if(!(def_zone in list("chest", "groin")))
+			reflectchance /= 2
+		if(P.starting && prob(reflectchance))
+			visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+
+			// Find a turf near or on the original location to bounce to
+			var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+			var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+			var/turf/curloc = get_turf(user)
+
+			// redirect the projectile
+			P.redirect(new_x, new_y, curloc, user)
+
+			return PROJECTILE_CONTINUE // complete projectile permutation
+
 /obj/item/clothing/suit/armor/swat
 	name = "swat suit"
 	desc = "A heavily armored suit that protects against moderate damage. Used in special operations."
@@ -124,7 +143,7 @@
 	item_state = "swat_suit"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen)
 	slowdown = 1
@@ -153,7 +172,6 @@
 	icon_state = "detective-armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	flags = ONESIZEFITSALL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
@@ -170,9 +188,27 @@
 	slowdown = 1
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/armor/reactive/IsShield()
-	if(active)
-		return 1
+/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(prob(50))
+		user.visible_message("<span class='danger'>The reactive teleport system flings [user] clear of the attack!</span>")
+		var/list/turfs = new/list()
+		for(var/turf/T in orange(6, user))
+			if(istype(T,/turf/space)) continue
+			if(T.density) continue
+			if(T.x>world.maxx-6 || T.x<6)	continue
+			if(T.y>world.maxy-6 || T.y<6)	continue
+			turfs += T
+		if(!turfs.len) turfs += pick(/turf in orange(6))
+		var/turf/picked = pick(turfs)
+		if(!isturf(picked)) return
+
+		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+		spark_system.set_up(5, 0, user.loc)
+		spark_system.start()
+		playsound(user.loc, "sparks", 50, 1)
+
+		user.loc = picked
+		return PROJECTILE_FORCE_MISS
 	return 0
 
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
@@ -249,7 +285,7 @@
 //Non-hardsuit ERT armor.
 /obj/item/clothing/suit/armor/vest/ert
 	name = "emergency response team armor"
-	desc = "A set of armor worn by members of the NanoTrasen Emergency Response Team."
+	desc = "A set of armor worn by members of the Emergency Response Team."
 	icon_state = "ertarmor_cmd"
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -258,24 +294,24 @@
 //Commander
 /obj/item/clothing/suit/armor/vest/ert/command
 	name = "emergency response team commander armor"
-	desc = "A set of armor worn by the commander of a NanoTrasen Emergency Response Team. Has blue highlights."
+	desc = "A set of armor worn by the commander of an Emergency Response Team. Has blue highlights."
 
 //Security
 /obj/item/clothing/suit/armor/vest/ert/security
 	name = "emergency response team security armor"
-	desc = "A set of armor worn by security members of the NanoTrasen Emergency Response Team. Has red highlights."
+	desc = "A set of armor worn by security members of the Emergency Response Team. Has red highlights."
 	icon_state = "ertarmor_sec"
 
 //Engineer
 /obj/item/clothing/suit/armor/vest/ert/engineer
 	name = "emergency response team engineer armor"
-	desc = "A set of armor worn by engineering members of the NanoTrasen Emergency Response Team. Has orange highlights."
+	desc = "A set of armor worn by engineering members of the Emergency Response Team. Has orange highlights."
 	icon_state = "ertarmor_eng"
 
 //Medical
 /obj/item/clothing/suit/armor/vest/ert/medical
 	name = "emergency response team medical armor"
-	desc = "A set of armor worn by medical members of the NanoTrasen Emergency Response Team. Has red and white highlights."
+	desc = "A set of armor worn by medical members of the Emergency Response Team. Has red and white highlights."
 	icon_state = "ertarmor_med"
 
 //New Vests
@@ -371,13 +407,13 @@
 	icon_nobadge = "pcrcwebvest_nobadge"
 
 //Provides the protection of a merc voidsuit, but only covers the chest/groin, and also takes up a suit slot. In exchange it has no slowdown and provides storage.
-/obj/item/clothing/suit/storage/vest/heavy/merc
+/obj/item/clothing/suit/storage/vest/merc
 	name = "heavy armor vest"
-	desc = "A high-quality heavy kevlar plate carrier in a fetching tan. The vest is surprisingly flexible, and possibly made of an advanced material."
+	desc = "A high-quality armor vest in a fetching tan. It is surprisingly flexible and light, even with the added webbing and armor plating."
 	icon_state = "mercwebvest"
 	item_state = "mercwebvest"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
-	slowdown = 0
+
 
 //All of the armor below is mostly unused
 

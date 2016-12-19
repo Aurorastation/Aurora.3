@@ -14,6 +14,7 @@ datum/objective
 		all_objectives |= src
 		if(text)
 			explanation_text = text
+		..()
 
 		if (process)
 			process_objectives |= src
@@ -136,7 +137,7 @@ datum/objective/anti_revolution/demote
 	find_target()
 		..()
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to NanoTrasen's goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [company_name]'s goals. Demote \him[target.current] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -144,7 +145,7 @@ datum/objective/anti_revolution/demote
 	find_target_by_role(role, role_type=0)
 		..(role, role_type)
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to NanoTrasen's goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [company_name]'s goals. Demote \him[target.current] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -451,7 +452,7 @@ datum/objective/steal
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
+		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof
 	)
 
 	var/global/possible_items_special[] = list(
@@ -462,7 +463,7 @@ datum/objective/steal
 		"hyper-capacity cell" = /obj/item/weapon/cell/hyper,
 		"10 diamonds" = /obj/item/stack/material/diamond,
 		"50 gold bars" = /obj/item/stack/material/gold,
-		"25 refined uranium bars" = /obj/item/stack/material/uranium,
+		"25 refined uranium bars" = /obj/item/stack/material/uranium
 	)
 
 

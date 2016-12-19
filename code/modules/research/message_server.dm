@@ -108,6 +108,32 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 
 /obj/machinery/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
 	rc_msgs += new/datum/data_rc_msg(recipient,sender,message,stamp,id_auth)
+	var/authmsg = "[message]<br>"
+	if (id_auth)
+		authmsg += "[id_auth]<br>"
+	if (stamp)
+		authmsg += "[stamp]<br>"
+	for (var/obj/machinery/requests_console/Console in allConsoles)
+		if (ckey(Console.department) == ckey(recipient))
+			if(Console.inoperable())
+				Console.message_log += "<B>Message lost due to console failure.</B><BR>Please contact [station_name()] system adminsitrator or AI for technical assistance.<BR>"
+				continue
+			if(Console.newmessagepriority < priority)
+				Console.newmessagepriority = priority
+				Console.icon_state = "req_comp[priority]"
+			switch(priority)
+				if(2)
+					if(!Console.silent)
+						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+						Console.audible_message(text("\icon[Console] *The Requests Console beeps: 'PRIORITY Alert in [sender]'"),,5)
+					Console.message_log += "<B><FONT color='red'>High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></FONT></B><BR>[authmsg]"
+				else
+					if(!Console.silent)
+						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+						Console.audible_message(text("\icon[Console] *The Requests Console beeps: 'Message from [sender]'"),,4)
+					Console.message_log += "<B>Message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></B><BR>[authmsg]"
+			Console.set_light(2)
+
 
 /obj/machinery/message_server/attack_hand(user as mob)
 //	user << "\blue There seem to be some parts missing from this server. They should arrive on the station in a few days, give or take a few CentCom delays."
@@ -229,6 +255,8 @@ var/obj/machinery/blackbox_recorder/blackbox
 	blackbox = src
 
 /obj/machinery/blackbox_recorder/Destroy()
+	feedback_set_details("blackbox_destroyed","true")
+	feedback_set("blackbox_destroyed",1)
 	var/turf/T = locate(1,1,2)
 	if(T)
 		blackbox = null
@@ -302,20 +330,11 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 	round_end_data_gathering() //round_end time logging and some other data processing
 	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected()) return
-	var/round_id
-
-	var/DBQuery/query = dbcon.NewQuery("SELECT MAX(round_id) AS round_id FROM ss13_feedback")
-	query.Execute()
-	while(query.NextRow())
-		round_id = query.item[1]
-
-	if(!isnum(round_id))
-		round_id = text2num(round_id)
-	round_id++
+	if(!dbcon.IsConnected())
+		return
 
 	for(var/datum/feedback_variable/FV in feedback)
-		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), [round_id], \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
+		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[game_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
 		var/DBQuery/query_insert = dbcon.NewQuery(sql)
 		query_insert.Execute()
 

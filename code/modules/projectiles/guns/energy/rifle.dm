@@ -21,11 +21,10 @@
 
 	firemodes = list(
 		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="eriflestun", fire_sound='sound/weapons/Taser.ogg'),
-		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/Laser.ogg'),
+		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/Laser.ogg')
 		)
 
     //action button for wielding
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/energy/rifle/can_wield()
@@ -84,5 +83,5 @@
 	firemodes = list(
 		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
 		list(name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),
-		list(name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=15, charge_cost=400),
+		list(name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=15, charge_cost=400)
 		)

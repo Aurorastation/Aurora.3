@@ -52,6 +52,8 @@
 
 	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
 
+	user.setClickCooldown(4)
+
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
 		log_game("[key_name(user)] fired sulphuric acid from \a [src].")
@@ -64,7 +66,7 @@
 	return
 
 /obj/item/weapon/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
-	if ((A.density || istype(A, /mob/living)) && proximity)//isHuman check allows the visible message to proc when spraying lying-down people and
+	if (A.density && proximity)
 		A.visible_message("[usr] sprays [A] with [src].")
 		reagents.splash(A, amount_per_transfer_from_this)
 	else
@@ -182,7 +184,7 @@
 	w_class = 3.0
 	possible_transfer_amounts = null
 	volume = 600
-	origin_tech = "combat=3;materials=3;engineering=3"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 
 /obj/item/weapon/reagent_containers/spray/chemsprayer/Spray_at(atom/A as mob|obj)
 	var/direction = get_dir(src, A)

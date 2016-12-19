@@ -251,7 +251,7 @@ CREATE TABLE `ss13_directives` (
 CREATE TABLE `ss13_feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` datetime NOT NULL,
-  `round_id` int(8) NOT NULL,
+  `game_id` varchar(32) NOT NULL,
   `var_name` varchar(32) CHARACTER SET latin1 NOT NULL,
   `var_value` int(16) DEFAULT NULL,
   `details` text CHARACTER SET latin1,

@@ -2,7 +2,6 @@ var/datum/antagonist/raider/raiders
 
 /datum/antagonist/raider
 	id = MODE_RAIDER
-	role_type = BE_RAIDER
 	role_text = "Raider"
 	role_text_plural = "Raiders"
 	bantype = "raider"
@@ -49,7 +48,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/head/ushanka,
 		/obj/item/clothing/head/pirate,
 		/obj/item/clothing/head/bandana,
-		/obj/item/clothing/head/hgpiratecap,
+		/obj/item/clothing/head/hgpiratecap
 		)
 
 	var/list/raider_suits = list(
@@ -61,7 +60,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
 		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/suit/poncho,
+		/obj/item/clothing/suit/poncho
 		)
 
 	var/list/raider_guns = list(
@@ -187,7 +186,7 @@ var/datum/antagonist/raider/raiders
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 
-	world << "<span class='danger'><font size = 3>[win_type] [win_group] victory!</font>"
+	world << "<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>"
 	world << "[win_msg]"
 	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
 
