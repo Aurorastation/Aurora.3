@@ -74,7 +74,6 @@ obj/machinery/air_sensor/Destroy()
 
 /obj/machinery/computer/general_air_control
 	icon = 'icons/obj/computer.dmi'
-	icon_keyboard = "atmos_key"
 	icon_screen = "tank"
 
 	name = "Computer"

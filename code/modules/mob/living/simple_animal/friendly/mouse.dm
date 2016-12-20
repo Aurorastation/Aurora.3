@@ -34,6 +34,7 @@
 	meat_amount = 1
 	var/body_color //brown, gray and white, leave blank for random
 	layer = MOB_LAYER
+	mob_size = MOB_MINISCULE
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius

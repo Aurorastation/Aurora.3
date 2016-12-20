@@ -1,7 +1,7 @@
 /obj/machinery/computer/shuttle
 	name = "Shuttle"
 	desc = "For shuttle control."
-	icon_keyboard = "tech_key"
+
 	icon_screen = "shuttle"
 	light_color = "#00ffff"
 	var/auth_need = 3.0
