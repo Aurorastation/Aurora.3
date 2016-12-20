@@ -13,7 +13,7 @@
 	desc = "It's good being the king."
 	item_state_slots = list(
 		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
+		slot_r_hand_str = "caphat",
 		)
 	body_parts_covered = 0
 

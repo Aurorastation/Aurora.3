@@ -514,7 +514,7 @@
 	"/obj/item/weapon/coin/phoron" = 0.5,
 	"/obj/item/weapon/coin/uranium" = 0.5,
 	"/obj/item/weapon/coin/platinum" = 0.2,
-	"/obj/item/weapon/coin/diamond" = 0.1
+	"/obj/item/weapon/coin/diamond" = 0.1,
 	)
 	return pickweight(coin)
 

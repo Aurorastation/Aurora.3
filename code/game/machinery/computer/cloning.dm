@@ -1,7 +1,7 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
 	icon = 'icons/obj/computer.dmi'
-	icon_keyboard = "med_key"
+
 	icon_screen = "dna"
 	light_color = "#315ab4"
 	circuit = /obj/item/weapon/circuitboard/cloning

@@ -853,7 +853,7 @@
 		"home" = home_destination,
 		"load" = load,
 		"retn" = auto_return,
-		"pick" = auto_pickup
+		"pick" = auto_pickup,
 	)
 	post_signal_multiple(control_freq, kv)
 

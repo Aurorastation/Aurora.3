@@ -52,7 +52,7 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/voice,
-		/obj/item/rig_module/vision
+		/obj/item/rig_module/vision,
 		)
 
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values

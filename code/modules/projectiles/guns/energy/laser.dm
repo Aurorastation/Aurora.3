@@ -129,10 +129,12 @@ obj/item/weapon/gun/energy/retro
 	origin_tech = "combat=4;magnets=2"
 	projectile_type = /obj/item/projectile/beam/shotgun
 	max_shots = 12
-
-	firemodes = list(
-		list(name="diffuse", burst=4, burst_delay = 0, move_delay = 0, fire_delay = 2, dispersion = list(1.0, -1.0, 2.0, -2.0))
-		)
+	sel_mode = 1
+	burst = 4
+	burst_delay = 0
+	move_delay = 0
+	fire_delay = 2
+	dispersion = list(1.0, -1.0, 2.0, -2.0)
 
 ////////Laser Tag////////////////////
 

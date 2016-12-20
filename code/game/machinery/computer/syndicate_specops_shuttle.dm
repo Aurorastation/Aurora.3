@@ -13,7 +13,7 @@ var/syndicate_elite_shuttle_timeleft = 0
 /obj/machinery/computer/syndicate_elite_shuttle
 	name = "elite syndicate squad shuttle control console"
 	icon = 'icons/obj/computer.dmi'
-	icon_keyboard = "syndie_key"
+
 	icon_screen = "syndishuttle"
 	light_color = "#00ffff"
 	req_access = list(access_cent_specops)

@@ -5,7 +5,7 @@
 	icon_state = "centcom"
 	item_state_slots = list(
 		slot_l_hand_str = "centhat",
-		slot_r_hand_str = "centhat"
+		slot_r_hand_str = "centhat",
 		)
 	desc = "It's good to be emperor."
 	siemens_coefficient = 0.9
@@ -70,7 +70,7 @@
 	name = "red space-helmet replica"
 	item_state_slots = list(
 		slot_l_hand_str = "syndicate-helm-black-red",
-		slot_r_hand_str = "syndicate-helm-black-red"
+		slot_r_hand_str = "syndicate-helm-black-red",
 		)
 	icon_state = "syndicate"
 	desc = "A plastic replica of a bloodthirsty mercenary's space helmet, you'll look just like a real murderous criminal operative in this! This is a toy, it is not made for use in space!"
@@ -133,7 +133,7 @@
 	icon_state = "flat_cap"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
+		slot_r_hand_str = "det_hat",
 		)
 	siemens_coefficient = 0.9
 
@@ -208,7 +208,7 @@
 	icon_state = "chickenhead"
 	item_state_slots = list(
 		slot_l_hand_str = "chickensuit",
-		slot_r_hand_str = "chickensuit"
+		slot_r_hand_str = "chickensuit",
 		)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.7
@@ -226,7 +226,7 @@
 	icon_state = "xenos"
 	item_state_slots = list(
 		slot_l_hand_str = "xenos_helm",
-		slot_r_hand_str = "xenos_helm"
+		slot_r_hand_str = "xenos_helm",
 		)
 	desc = "A helmet made out of chitinous alien hide."
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
@@ -239,7 +239,7 @@
 	icon_state = "philosopher_wig"
 	item_state_slots = list(
 		slot_l_hand_str = "pwig",
-		slot_r_hand_str = "pwig"
+		slot_r_hand_str = "pwig",
 		)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!

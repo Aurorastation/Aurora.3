@@ -48,7 +48,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/head/ushanka,
 		/obj/item/clothing/head/pirate,
 		/obj/item/clothing/head/bandana,
-		/obj/item/clothing/head/hgpiratecap
+		/obj/item/clothing/head/hgpiratecap,
 		)
 
 	var/list/raider_suits = list(
@@ -60,7 +60,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
 		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/suit/poncho
+		/obj/item/clothing/suit/poncho,
 		)
 
 	var/list/raider_guns = list(

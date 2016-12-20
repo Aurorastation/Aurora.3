@@ -21,7 +21,7 @@ var/global/list/citizenship_choices = list(
 	"People's Republic of Adhomai",
 	"Izweski Hegemony",
 	"Zo'ra Hive",
-	"K'lax Hive"
+	"K'lax Hive",
 	)
 
 var/global/list/home_system_choices = list(

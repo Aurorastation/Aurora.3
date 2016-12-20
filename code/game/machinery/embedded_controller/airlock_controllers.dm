@@ -85,7 +85,7 @@
 		"chamber_pressure" = round(program.memory["chamber_sensor_pressure"]),
 		"exterior_status" = program.memory["exterior_status"],
 		"interior_status" = program.memory["interior_status"],
-		"processing" = program.memory["processing"]
+		"processing" = program.memory["processing"],
 	)
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)

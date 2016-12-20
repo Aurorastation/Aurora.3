@@ -4,7 +4,7 @@
 	icon_state = "wizard"
 	item_state_slots = list(
 		slot_l_hand_str = "wizhat",
-		slot_r_hand_str = "wizhat"
+		slot_r_hand_str = "wizhat",
 		)
 	//Not given any special protective value since the magic robes are full-body protection --NEO
 	siemens_coefficient = 0.7
@@ -36,7 +36,7 @@
 	item_state = "magus"
 	item_state_slots = list(
 		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet"
+		slot_r_hand_str = "helmet",
 		)
 	siemens_coefficient = 0.8
 	body_parts_covered = HEAD|FACE|EYES
@@ -47,7 +47,7 @@
 	icon_state = "amp"
 	item_state_slots = list(
 		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet"
+		slot_r_hand_str = "helmet",
 		)
 	siemens_coefficient = 0.8
 
@@ -57,7 +57,7 @@
 	icon_state = "gentcap"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
+		slot_r_hand_str = "det_hat",
 		)
 	siemens_coefficient = 0.8
 

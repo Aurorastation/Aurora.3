@@ -16,7 +16,7 @@
 		"docking_status" = docking_program.get_docking_status(),
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
-		"door_lock" = 	docking_program.memory["door_status"]["lock"]
+		"door_lock" = 	docking_program.memory["door_status"]["lock"],
 	)
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)

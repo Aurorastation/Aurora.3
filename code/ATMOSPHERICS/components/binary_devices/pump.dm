@@ -130,7 +130,7 @@ Thus, the two variables affect pump operation are set in New():
 		"max_pressure" = max_pressure_setting,
 		"last_flow_rate" = round(last_flow_rate*10),
 		"last_power_draw" = round(last_power_draw),
-		"max_power_draw" = power_rating
+		"max_power_draw" = power_rating,
 	)
 
 	// update the ui if it exists, returns null if no ui is passed/found

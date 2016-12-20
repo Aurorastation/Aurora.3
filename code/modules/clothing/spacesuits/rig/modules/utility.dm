@@ -258,7 +258,7 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("nutrients",     "nutriment",     0, 80)
+		list("nutrients",     "nutriment",     0, 80),
 		)
 
 	interface_name = "combat chem dispenser"

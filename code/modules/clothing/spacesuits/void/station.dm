@@ -6,7 +6,7 @@
 	icon_state = "rig0-engineering"
 	item_state_slots = list(
 		slot_l_hand_str = "eng_helm",
-		slot_r_hand_str = "eng_helm"
+		slot_r_hand_str = "eng_helm",
 		)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
 
@@ -26,7 +26,7 @@
 	icon_state = "rig0-mining"
 	item_state_slots = list(
 		slot_l_hand_str = "mining_helm",
-		slot_r_hand_str = "mining_helm"
+		slot_r_hand_str = "mining_helm",
 		)
 	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
 	light_overlay = "helmet_light_dual"
@@ -45,7 +45,7 @@
 	icon_state = "rig0-medical"
 	item_state_slots = list(
 		slot_l_hand_str = "medical_helm",
-		slot_r_hand_str = "medical_helm"
+		slot_r_hand_str = "medical_helm",
 		)
 	armor = list(melee = 30, bullet = 5, laser = 20,energy = 5, bomb = 25, bio = 100, rad = 50)
 
@@ -64,7 +64,7 @@
 	icon_state = "rig0-sec"
 	item_state_slots = list(
 		slot_l_hand_str = "sec_helm",
-		slot_r_hand_str = "sec_helm"
+		slot_r_hand_str = "sec_helm",
 		)
 	armor = list(melee = 60, bullet = 10, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
 	light_overlay = "helmet_light_dual"
@@ -84,7 +84,7 @@
 	icon_state = "rig0-atmos"
 	item_state_slots = list(
 		slot_l_hand_str = "atmos_helm",
-		slot_r_hand_str = "atmos_helm"
+		slot_r_hand_str = "atmos_helm",
 		)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 50)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
