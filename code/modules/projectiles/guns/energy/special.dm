@@ -48,7 +48,7 @@
 
 	firemodes = list(
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
-		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
+		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
 		)
 
 /obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
@@ -112,7 +112,7 @@
 	max_shots = 9
 
 	firemodes = list(
-		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 0, dispersion = list(0.0, 0.2, -0.2)),
+		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 0, dispersion = list(0.0, 0.2, -0.2))
 		)
 
 /obj/item/weapon/gun/energy/mousegun
@@ -129,7 +129,7 @@
 	max_shots = 6
 
 	firemodes = list(
-		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 3, dispersion = list(0.0, 6,0, -6.0)),
+		list(name="EXTERMINATE", burst=3, burst_delay = 1, move_delay = 0, fire_delay = 3, dispersion = list(0.0, 6,0, -6.0))
 		)
 
 	var/lightfail = 0
@@ -175,7 +175,7 @@
 	max_shots = 40
 
 	firemodes = list(
-		list(name="EXTERMINATE", burst=20, burst_delay = 1, move_delay = 20, fire_delay = 40, dispersion = list(3.0, 3.25, 3.5, 3.75, 4.0, 4.25, 4.5, 4.75, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.25)),
+		list(name="EXTERMINATE", burst=20, burst_delay = 1, move_delay = 20, fire_delay = 40, dispersion = list(3.0, 3.25, 3.5, 3.75, 4.0, 4.25, 4.5, 4.75, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.25))
 		)
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser
@@ -194,7 +194,7 @@
 
 	firemodes = list(
 		list(name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
-		list(name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = list(0.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.0, 3.25)),
+		list(name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = list(0.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.0, 3.25))
 		)
 
 	action_button_name = "Wield gatling laser"
@@ -238,7 +238,7 @@
 
 	firemodes = list(
 		list(name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
-		list(name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5),
+		list(name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
 		)
 
 /*/obj/item/weapon/gun/energy/vaurca/flamer
@@ -258,7 +258,7 @@
 	max_shots = 80
 
 	firemodes = list(
-		list(name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
+		list(name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0))
 		)*/
 
 /* Staves */

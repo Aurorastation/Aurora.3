@@ -35,7 +35,7 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
 		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
-		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
+		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg')
 	)
 
 

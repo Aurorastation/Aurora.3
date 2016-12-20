@@ -187,7 +187,7 @@
 		"output_pressure" = round(air2.return_pressure()*100),
 		"regulate_mode" = regulate_mode,
 		"set_flow_rate" = round(set_flow_rate*10),
-		"last_flow_rate" = round(last_flow_rate*10),
+		"last_flow_rate" = round(last_flow_rate*10)
 	)
 
 	// update the ui if it exists, returns null if no ui is passed/found

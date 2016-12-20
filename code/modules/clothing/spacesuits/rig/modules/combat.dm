@@ -32,7 +32,7 @@
 	charges = list(
 		list("flashbang",   "flashbang",   /obj/item/weapon/grenade/flashbang,  3),
 		list("smoke bomb",  "smoke bomb",  /obj/item/weapon/grenade/smokebomb,  3),
-		list("EMP grenade", "EMP grenade", /obj/item/weapon/grenade/empgrenade, 3),
+		list("EMP grenade", "EMP grenade", /obj/item/weapon/grenade/empgrenade, 3)
 		)
 
 /obj/item/rig_module/grenade_launcher/accepts_item(var/obj/item/input_device, var/mob/living/user)

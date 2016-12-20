@@ -12,7 +12,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
 	/client/proc/player_panel_new,		/*shows an interface for all players, with links to various panels*/
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
-//	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage
+//	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage */
 	/datum/admins/proc/show_game_mode,  /*Configuration window for the current game mode.*/
 	/datum/admins/proc/force_mode_latespawn, /*Force the mode to try a latespawn proc*/
 	/datum/admins/proc/force_antag_latespawn, /*Force a specific template to try a latespawn proc*/
@@ -35,7 +35,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
-//	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage
+//	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage */
 	/client/proc/Jump,
 	/client/proc/jumptokey,				//allows us to jump to the location of a mob with a certain ckey,
 	/client/proc/jumptomob,				//allows us to jump to a specific mob,
