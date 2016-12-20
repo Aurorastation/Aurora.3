@@ -187,7 +187,7 @@ var/list/admin_departments = list("[boss_name]", "Sol Government", "Supply")
 
 /obj/machinery/photocopier/faxmachine/process()
 	.=..()
-	var/static/ui_update_delay = 0
+	/var/static/ui_update_delay = 0
 
 	var/current_time = world.time
 	if (current_time > sendtime + sendcooldown)

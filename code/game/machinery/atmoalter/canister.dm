@@ -365,14 +365,14 @@ update_flag
 
 	if (href_list["relabel"])
 		if (can_label)
-			var/list/colors = list(
-				"\[N2O\]" = "redws",
-				"\[N2\]" = "red",
-				"\[O2\]" = "blue",
-				"\[Phoron\]" = "orange",
-				"\[CO2\]" = "black",
-				"\[Air\]" = "grey",
-				"\[CAUTION\]" = "yellow"
+			var/list/colors = list(\
+				"\[N2O\]" = "redws", \
+				"\[N2\]" = "red", \
+				"\[O2\]" = "blue", \
+				"\[Phoron\]" = "orange", \
+				"\[CO2\]" = "black", \
+				"\[Air\]" = "grey", \
+				"\[CAUTION\]" = "yellow", \
 			)
 			var/label = input("Choose canister label", "Gas canister") as null|anything in colors
 			if (label)

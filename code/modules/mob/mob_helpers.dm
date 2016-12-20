@@ -135,7 +135,7 @@ var/list/global/base_miss_chance = list(
 	"l_hand" = 50,
 	"r_hand" = 50,
 	"l_foot" = 50,
-	"r_foot" = 50
+	"r_foot" = 50,
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
@@ -151,7 +151,7 @@ var/list/global/organ_rel_size = list(
 	"l_hand" = 10,
 	"r_hand" = 10,
 	"l_foot" = 10,
-	"r_foot" = 10
+	"r_foot" = 10,
 )
 
 /proc/check_zone(zone)
@@ -185,7 +185,7 @@ var/list/global/organ_rel_size = list(
 			organ_rel_size["l_hand"]; "l_hand",
 			organ_rel_size["r_hand"]; "r_hand",
 			organ_rel_size["l_foot"]; "l_foot",
-			organ_rel_size["r_foot"]; "r_foot"
+			organ_rel_size["r_foot"]; "r_foot",
 		)
 
 	return ran_zone

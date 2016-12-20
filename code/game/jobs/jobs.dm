@@ -49,7 +49,8 @@ var/const/MIME				=(1<<12)
 var/const/ASSISTANT			=(1<<13)
 
 
-var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
+var/list/assistant_occupations = list(
+)
 
 
 var/list/command_positions = list(

@@ -806,7 +806,7 @@ proc/api_update_command_database()
 		"ckey" = list("name"="ckey","desc"="The target of the adminmessage","req"=1,"type"="str"),
 		"msg" = list("name"="msg","desc"="The message that should be sent","req"=1,"type"="str"),
 		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the adminmessage","req"=1,"type"="senderkey"),
-		"rank" = list("name"="rank","desc"="The rank that should be displayed - Defaults to admin if none specified","req"=0,"type"="str")
+		"rank" = list("name"="rank","desc"="The rank that should be displayed - Defaults to admin if none specified","req"=0,"type"="str"),
 		)
 
 /datum/topic_command/send_adminmsg/run_command(queryparams)

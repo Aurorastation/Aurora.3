@@ -3,7 +3,7 @@
 /obj/machinery/computer/med_data//TODO:SANITY
 	name = "medical records console"
 	desc = "Used to view, edit and maintain medical records."
-	icon_keyboard = "med_key"
+
 	icon_screen = "medcomp"
 	light_color = "#315ab4"
 	req_one_access = list(access_medical_equip, access_forensics_lockers)
@@ -560,5 +560,5 @@
 	name = "Medical Laptop"
 	desc = "A cheap laptop."
 	icon_state = "laptop"
-	icon_keyboard = "laptop_key"
+
 	icon_screen = "medlaptop"

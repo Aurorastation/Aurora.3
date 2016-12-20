@@ -13,7 +13,7 @@
 		/obj/item/weapon/paper = 1,
 		/obj/item/weapon/newspaper = 3,
 		/obj/item/weapon/card/id = 3,
-		/obj/item/weapon/paper_bundle = 3
+		/obj/item/weapon/paper_bundle = 3,
 		)
 
 /obj/machinery/papershredder/attackby(var/obj/item/W, var/mob/user)

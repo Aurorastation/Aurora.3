@@ -793,7 +793,7 @@
 			/obj/item/weapon/reagent_containers/food/snacks/tastybread,
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
-			/obj/item/weapon/reagent_containers/food/snacks/nathisnack
+			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)

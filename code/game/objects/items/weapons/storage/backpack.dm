@@ -8,14 +8,14 @@
 	desc = "You wear this on your back and put items into it."
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		slot_l_hand_str = 'icons/mob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi'
+		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi',
 		)
 	icon_state = "backpack"
 	item_state = null
 	//most backpacks use the default backpack state for inhand overlays
 	item_state_slots = list(
 		slot_l_hand_str = "backpack",
-		slot_r_hand_str = "backpack"
+		slot_r_hand_str = "backpack",
 		)
 	sprite_sheets = list(
 		"Resomi" = 'icons/mob/species/resomi/back.dmi'
@@ -195,7 +195,7 @@
 	icon_state = "satchel-eng"
 	item_state_slots = list(
 		slot_l_hand_str = "engiepack",
-		slot_r_hand_str = "engiepack"
+		slot_r_hand_str = "engiepack",
 		)
 
 /obj/item/weapon/storage/backpack/satchel_med
@@ -204,7 +204,7 @@
 	icon_state = "satchel-med"
 	item_state_slots = list(
 		slot_l_hand_str = "medicalpack",
-		slot_r_hand_str = "medicalpack"
+		slot_r_hand_str = "medicalpack",
 		)
 
 /obj/item/weapon/storage/backpack/satchel_vir
@@ -233,7 +233,7 @@
 	icon_state = "satchel-sec"
 	item_state_slots = list(
 		slot_l_hand_str = "securitypack",
-		slot_r_hand_str = "securitypack"
+		slot_r_hand_str = "securitypack",
 		)
 
 /obj/item/weapon/storage/backpack/satchel_hyd
@@ -247,7 +247,7 @@
 	icon_state = "satchel-cap"
 	item_state_slots = list(
 		slot_l_hand_str = "satchel-cap",
-		slot_r_hand_str = "satchel-cap"
+		slot_r_hand_str = "satchel-cap",
 		)
 
 /obj/item/weapon/storage/backpack/satchel_syndie
@@ -267,7 +267,7 @@
 	icon_state = "ert_commander"
 	item_state_slots = list(
 		slot_l_hand_str = "securitypack",
-		slot_r_hand_str = "securitypack"
+		slot_r_hand_str = "securitypack",
 		)
 
 //Commander

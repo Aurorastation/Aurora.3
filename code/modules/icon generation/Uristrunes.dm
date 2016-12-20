@@ -165,7 +165,7 @@ var/list/rune_animation = list(
 		list(0.500, 1),
 		list(0.375, 1),
 		list(0.250, 1),
-		list(0.125, 1)
+		list(0.125, 1),
 	)
 
 /var/list/rune_cache = list()

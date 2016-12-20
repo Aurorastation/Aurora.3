@@ -1,7 +1,7 @@
 /obj/machinery/computer/HolodeckControl
 	name = "holodeck control console"
 	desc = "A computer used to control a nearby holodeck."
-	icon_keyboard = "tech_key"
+
 	icon_screen = "holocontrol"
 
 	use_power = 1

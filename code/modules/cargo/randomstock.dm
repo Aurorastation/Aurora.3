@@ -756,7 +756,7 @@ var/list/global/random_stock_large = list(
 			/obj/item/weapon/storage/pill_bottle/inaprovaline,
 			/obj/item/weapon/storage/pill_bottle/kelotane,
 			/obj/item/weapon/storage/pill_bottle/spaceacillin,
-			/obj/item/weapon/storage/pill_bottle/tramadol
+			/obj/item/weapon/storage/pill_bottle/tramadol,
 			)
 			var/newtype = pick(options)
 			new newtype(L)
@@ -1339,7 +1339,7 @@ var/list/global/random_stock_large = list(
 			"/obj/item/weapon/material/knife/butch" = 1,
 			"/obj/item/weapon/material/hatchet" = 1.5,
 			"/obj/item/weapon/material/hatchet/unathiknife" = 0.75,
-			"/obj/item/weapon/material/hatchet/tacknife" = 1
+			"/obj/item/weapon/material/hatchet/tacknife" = 1,
 			)
 
 			var/type = pickweight(blades)
@@ -1509,7 +1509,7 @@ var/list/global/random_stock_large = list(
 			"/obj/item/weapon/rig/ce" = 2,
 			"/obj/item/weapon/rig/hazmat" = 4,
 			"/obj/item/weapon/rig/medical" = 4,
-			"/obj/item/weapon/rig/hazard" = 3
+			"/obj/item/weapon/rig/hazard" = 3,
 			)
 
 			var/type = pickweight(rigs)

@@ -2165,7 +2165,7 @@ var/list/centcom_areas = list (
 	/area/shuttle/escape_pod5/centcom,
 	/area/shuttle/transport1/centcom,
 	/area/shuttle/administration/centcom,
-	/area/shuttle/specops/centcom
+	/area/shuttle/specops/centcom,
 )
 
 //SPACE STATION 13
@@ -2208,7 +2208,7 @@ var/list/the_station_areas = list (
 	/area/ai_monitored/storage/emergency,
 	/area/turret_protected/ai_upload, //do not try to simplify to "/area/turret_protected" --rastaf0,
 	/area/turret_protected/ai_upload_foyer,
-	/area/turret_protected/ai
+	/area/turret_protected/ai,
 )
 
 

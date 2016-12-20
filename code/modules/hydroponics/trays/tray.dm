@@ -98,7 +98,7 @@
 		"hydrazine" =      -2,
 		"phosphorus" =     -0.5,
 		"water" =           1,
-		"sodawater" =       1
+		"sodawater" =       1,
 		)
 
 	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).

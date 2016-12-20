@@ -111,7 +111,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 		shuttles["Escape Pod 1"],
 		shuttles["Escape Pod 2"],
 		shuttles["Escape Pod 3"],
-		shuttles["Escape Pod 5"]
+		shuttles["Escape Pod 5"],
 	)
 
 	// Supply shuttle
@@ -235,13 +235,13 @@ var/global/datum/shuttle_controller/shuttle_controller
 		"Southeast of the station" = locate(/area/syndicate_station/southeast),
 		"Telecomms Satellite" = locate(/area/syndicate_station/commssat),
 		"Mining Station" = locate(/area/syndicate_station/mining),
-		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock)
+		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock),
 		)
 
 	MS.docking_controller_tag = "merc_shuttle"
 	MS.destination_dock_targets = list(
 		"Mercenary Base" = "merc_base",
-		"Arrivals dock" = "nuke_shuttle_dock_airlock"
+		"Arrivals dock" = "nuke_shuttle_dock_airlock",
 		)
 
 	MS.announcer = "NDV Icarus"

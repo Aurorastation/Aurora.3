@@ -10,7 +10,7 @@
 	flags_inv = BLOCKHAIR
 	item_state_slots = list(
 		slot_l_hand_str = "s_helmet",
-		slot_r_hand_str = "s_helmet"
+		slot_r_hand_str = "s_helmet",
 		)
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 50)
