@@ -65,11 +65,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "nebula_glasses"
 	item_state = "nebula_glasses"
 	contained_sprite = 1
+	var/obj/item/weapon/disk/chip
 
-/obj/item/clothing/glasses/fluff/nebula_glasses/var/chip
-	/obj/item/clothing/glasses/fluff/nebula_glasses/New()
-		chip = new /obj/item/weapon/disk/fluff/nebula_chip()
-		..()
+/obj/item/clothing/glasses/fluff/nebula_glasses/New()
+	chip = new /obj/item/weapon/disk/fluff/nebula_chip()
+	..()
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)

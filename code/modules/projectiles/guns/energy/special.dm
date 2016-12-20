@@ -117,7 +117,6 @@
 	fire_delay = 0
 	dispersion = list(0.0, 0.2, -0.2)
 
-
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Exterminator ray"
 	desc = "A highly sophisticated and certainly experimental raygun designed for rapid pest-control."

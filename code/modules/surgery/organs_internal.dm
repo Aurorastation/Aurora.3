@@ -101,9 +101,9 @@
 /datum/surgery_step/internal/detatch_organ
 
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,		\
-	/obj/item/weapon/material/knife = 75,	\
-	/obj/item/weapon/material/shard = 50, 		\
+	/obj/item/weapon/scalpel = 100,	
+	/obj/item/weapon/material/knife = 75,
+	/obj/item/weapon/material/shard = 50
 	)
 
 	min_duration = 90
