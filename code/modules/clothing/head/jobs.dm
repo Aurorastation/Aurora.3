@@ -95,12 +95,16 @@
 	icon_state = "beret_purple"
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
-	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the corporate security forces."
-	icon_state = "beret_centcom_officer"
+	desc = "A black beret adorned with the shield—a silver kite shield with an engraved sword—of the NanoTrasen security forces."
+	icon_state = "centcomofficerberet"
 /obj/item/clothing/head/beret/centcom/captain
 	name = "captains beret"
-	desc = "A white beret adorned with the shield - a silver kite shield with an engraved sword - of the corporate security forces."
-	icon_state = "beret_centcom_captain"
+	desc = "A white beret adorned with the shield—a silver kite shield with an engraved sword—of the NanoTrasen security forces."
+	icon_state = "centcomcaptain"
+/obj/item/clothing/head/beret/centcom/commander
+	name = "commanders beret"
+	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
+	icon_state = "centcomcaptain"
 
 //Medical
 /obj/item/clothing/head/surgery
