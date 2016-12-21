@@ -16,13 +16,13 @@
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
-/datum/species/human/get_bodytype()
-	return "Human"
-
 	stamina	=	130			  // Humans can sprint for longer than any other species
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
+	
+/datum/species/human/get_bodytype()
+	return "Human"
 
 /datum/species/unathi
 	name = "Unathi"
