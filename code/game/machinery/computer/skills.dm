@@ -4,7 +4,7 @@
 	name = "employment records console"
 	desc = "Used to view, edit and maintain employment records."
 	icon_state = "laptop"
-	icon_keyboard = "laptop_key"
+
 	icon_screen = "medlaptop"
 	light_color = "#00b000"
 	req_one_access = list(access_heads)

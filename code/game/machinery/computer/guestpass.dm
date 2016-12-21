@@ -43,7 +43,7 @@
 /obj/machinery/computer/guestpass
 	name = "guest pass terminal"
 	icon_state = "guest"
-	icon_keyboard = null
+
 	icon_screen = "pass"
 	density = 0
 
