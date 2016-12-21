@@ -4,7 +4,7 @@ var/list/ventcrawl_machinery = list(
 	)
 
 // Vent crawling whitelisted items, whoo
-/mob/living/var/list/can_enter_vent_with = list(
+var/global/list/can_enter_vent_with = list(
 	/obj/item/device/mmi,
 	/obj/item/weapon/implant,
 	/obj/item/device/radio/borg,
@@ -154,7 +154,7 @@ var/list/ventcrawl_machinery = list(
 					if(vent_found)
 						break
 
-			if(istype(vent_found, /obj/machinery/atmospherics/unary/vent_pump/) && vent_found:is_welded()) // welded check
+			if(vent_found:is_welded()) // welded check
 				src << "<span class='warning'>You can't crawl into a welded vent!</span>"
 				return
 

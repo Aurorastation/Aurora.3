@@ -1,0 +1,7 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - rscadd: "Bayport: Scrubbers are now weldable."
+  - bugfix: "Fixed incorrect messages when welding vents."
