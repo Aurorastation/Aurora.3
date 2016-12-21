@@ -1,9 +1,11 @@
 /obj/machinery/computer/sentencing
 	name = "criminal sentencing console"
 	desc = "Used to generate a criminal sentence."
-	icon_state = "request"
+	icon_state = "securityw"
+	icon_screen = null
 	req_one_access = list( access_brig, access_heads )
 	circuit = "/obj/item/weapon/circuitboard/sentencing"
+	density = 0
 
 	var/datum/crime_incident/incident
 	var/menu_screen = "main_menu"
@@ -642,10 +644,5 @@
 	add_fingerprint(usr)
 	updateUsrDialog()
 
-/obj/machinery/computer/sentencing/wall
-	name = "criminal sentencing wall console"
-	icon_state = "securityw"
-	density = 0
-
-/obj/machinery/computer/sentencing/wall/courtroom
+/obj/machinery/computer/sentencing/courtroom
 	console_tag = "sentencing_courtroom"
