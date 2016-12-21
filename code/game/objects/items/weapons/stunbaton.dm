@@ -107,7 +107,7 @@
 		return
 	return ..()
 
-/obj/item/weapon/melee/baton/attack(mob/M, mob/user)
+/obj/item/weapon/melee/baton/attack(mob/M, mob/user,var/hit_zone)
 	if(status && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
@@ -122,7 +122,7 @@
 	var/stun = stunforce
 	var/mob/living/L = M
 
-	var/target_zone = check_zone(user.zone_sel.selecting)
+	var/target_zone = check_zone(hit_zone)
 	if(user.a_intent == I_HURT)
 		if (!..())	//item/attack() does it's own messaging and logs
 			return 0	// item/attack() will return 1 if they hit, 0 if they missed.
