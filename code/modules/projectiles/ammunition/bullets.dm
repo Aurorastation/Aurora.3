@@ -34,6 +34,11 @@
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
 
+/obj/item/ammo_casing/a556/ap
+	desc = "A 5.56mm armor piercing round."
+	caliber = "a556"
+	projectile_type = /obj/item/projectile/bullet/rifle/a556/ap
+
 /obj/item/ammo_casing/c9mmf
 	desc = "A 9mm flash shell casing."
 	caliber = "9mm"
