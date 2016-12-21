@@ -824,7 +824,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/forensics/fluff/ana_jacket //CSI Jacket - Ana Roh'hi'tin - suethecake
 	name = "CSI jacket"
-	desc = " A black jacket with the words 'CSI' printed in the back in bright, white letters."
+	desc = "A black jacket with the words 'CSI' printed in the back in bright, white letters."
 	icon = 'icons/obj/custom_items/ana_clothing.dmi'
 	icon_state = "ana_jacket"
 	item_state = "ana_jacket"
