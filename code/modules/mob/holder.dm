@@ -28,6 +28,8 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/weapon/holder/Destroy()
 	processing_objects.Remove(src)
+	if (contained)
+		release_mob()
 	..()
 
 /obj/item/weapon/holder/examine(mob/user)
@@ -120,6 +122,7 @@ var/list/holder_mob_icon_cache = list()
 		M.reset_view()
 		M.Released()
 
+	contained = null
 	var/mob/L = get_holding_mob()
 	if (L)
 		L.drop_from_inventory(src)
@@ -241,15 +244,31 @@ var/list/holder_mob_icon_cache = list()
 		else
 			H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
 
-		if (user == src)
-			grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
-			src << "<span class='notice'>You climb up onto [grabber].</span>"
+
+
+
+		var/success = 0
+		if (src == user)
+			success = grabber.put_in_any_hand_if_possible(H, 0,1,1)
 		else
-			grabber << "<span class='notice'>You scoop up [src].</span>"
-			src << "<span class='notice'>[grabber] scoops you up.</span>"
-		grabber.status_flags |= PASSEMOTES
-		H.attack_hand(grabber)//We put this last to prevent some race conditions
-		return
+			H.attack_hand(grabber)//We put this last to prevent some race conditions
+			if (H.loc == grabber)
+				success = 1
+
+		if (success)
+			if (user == src)
+				grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
+				src << "<span class='notice'>You climb up onto [grabber].</span>"
+			else
+				grabber << "<span class='notice'>You scoop up [src].</span>"
+				src << "<span class='notice'>[grabber] scoops you up.</span>"
+
+		else
+			user << "Failed, try again!"
+			//If the scooping up failed something must have gone wrong
+			H.release_mob()
+
+		return success
 
 
 /mob/living/proc/get_holder_location()
