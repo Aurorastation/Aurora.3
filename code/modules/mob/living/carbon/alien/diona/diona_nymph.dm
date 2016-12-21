@@ -6,7 +6,7 @@
 /mob/living/carbon/alien/diona
 	var/datum/reagents/vessel
 	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
-	var/max_nutrition = 6000
+	max_nutrition = 6000
 	language = null
 	var/energy_duration = 144//The time in seconds that this diona can exist in total darkness before its energy runs out
 	var/dark_consciousness = 144//How long this diona can stay on its feet and keep moving in darkness after energy is gone.

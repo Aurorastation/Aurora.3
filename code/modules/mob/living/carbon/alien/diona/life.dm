@@ -14,7 +14,7 @@
 
 	// nutrition decrease
 	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - HUNGER_FACTOR)
+		nutrition = max (0, nutrition - nutrition_loss)
 
 	if (nutrition > max_nutrition)
 		nutrition = max_nutrition
