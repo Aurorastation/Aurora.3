@@ -131,7 +131,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 12
 
 	firemodes = list(
-		list(name="diffuse", burst=4, burst_delay = 0, move_delay = 0, fire_delay = 2, dispersion = list(1.0, -1.0, 2.0, -2.0)),
+		list(name="diffuse", burst=4, burst_delay = 0, move_delay = 0, fire_delay = 2, dispersion = list(1.0, -1.0, 2.0, -2.0))
 		)
 
 ////////Laser Tag////////////////////

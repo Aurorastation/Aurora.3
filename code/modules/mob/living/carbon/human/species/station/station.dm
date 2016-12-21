@@ -481,7 +481,7 @@
 
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite, //weaker version of gut.
+		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
 		)
 
 
@@ -494,9 +494,8 @@
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes,
-
-)
+		"eyes" =     /obj/item/organ/eyes
+		)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()

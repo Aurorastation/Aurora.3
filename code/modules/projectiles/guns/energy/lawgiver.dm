@@ -62,7 +62,7 @@
 			charge_cost=300,
 			fire_delay=6,
 			recoil=3
-		),
+		)
 	)
 
 /obj/item/weapon/gun/energy/lawgiver/proc/play_message()

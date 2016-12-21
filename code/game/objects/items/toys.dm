@@ -144,7 +144,7 @@
 	item_state = "revolver"
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		icon_l_hand = 'icons/mob/items/lefthand_guns.dmi',
-		icon_r_hand = 'icons/mob/items/righthand_guns.dmi',
+		icon_r_hand = 'icons/mob/items/righthand_guns.dmi'
 		)
 	flags =  CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -226,7 +226,7 @@
 	item_state = "crossbow"
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		icon_l_hand = 'icons/mob/items/lefthand_guns.dmi',
-		icon_r_hand = 'icons/mob/items/righthand_guns.dmi',
+		icon_r_hand = 'icons/mob/items/righthand_guns.dmi'
 		)
 	w_class = 2.0
 	attack_verb = list("attacked", "struck", "hit")
