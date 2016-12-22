@@ -473,13 +473,15 @@ its easier to just keep the beam vertical.
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/A in player_list)
+		var/mob/M = A
 		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
 
-	for(var/mob/M in messagemobs)
+	for(var/A in messagemobs)
+		var/mob/M = A
 		M.show_message(message, 1, blind_message, 2)
 
 // Show a message to all mobs and objects in earshot of this atom

@@ -101,13 +101,15 @@
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/A in player_list)
+		var/mob/M = A
 		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
 
-	for(var/mob/M in messagemobs)
+	for(var/A in messagemobs)
+		var/mob/M = A
 		if(self_message && M==src)
 			M.show_message(self_message, 1, blind_message, 2)
 		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
@@ -662,9 +664,9 @@
 		src << "<span class='warning'>It won't budge!</span>"
 		return
 
-	var/mob/M = AM
+	var/mob/M = null
 	if(ismob(AM))
-
+		M = AM
 		if(!can_pull_mobs || !can_pull_size)
 			src << "<span class='warning'>It won't budge!</span>"
 			return
