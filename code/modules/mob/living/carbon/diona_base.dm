@@ -518,7 +518,7 @@ if (flashlight_active)
 	for (var/datum/language/L in languages)
 		if (!(L in host.languages))
 			host.add_language(L.name)
-			host << "<span class='notice'><font size=3>[src] has passed on its knowledge of the [L.name] language to you!</span>"
+			host << "<span class='notice'><font size=3>[src] has passed on its knowledge of the [L.name] language to you!</font></span>"
 
 	languages = host.languages.Copy()
 

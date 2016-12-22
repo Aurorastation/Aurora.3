@@ -2,7 +2,7 @@
 //added different sort of gibs and animations. N
 /mob/proc/gib(anim="gibbed-m",do_gibs)
 	death(1)
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -28,7 +28,7 @@
 /mob/proc/dust(anim="dust-m",remains=/obj/effect/decal/cleanable/ash)
 	death(1)
 	var/atom/movable/overlay/animation = null
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -82,7 +82,7 @@
 	timeofdeath = world.time
 	if (isanimal(src))
 		set_death_time(ANIMAL, world.time)
-	else if (ispAI(src) || isdrone(src))
+	else if (ispAI(src) || isDrone(src))
 		set_death_time(MINISYNTH, world.time)
 	else if (isliving(src))
 		set_death_time(CREW, world.time)//Crew is the fallback

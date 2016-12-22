@@ -275,7 +275,7 @@
 						var/current_progress = language_progress[L.name]
 						current_progress += 1
 						language_progress[L.name] = current_progress
-						src << "<span class='notice'><font size=3>You come a little closer to learning [L.name]!</span>"
+						src << "<span class='notice'><font size=3>You come a little closer to learning [L.name]!</font></span>"
 						learned = 2
 
 				if (!learned)
@@ -292,5 +292,5 @@
 	for (var/i in language_progress)
 		if (language_progress[i] >= LANGUAGE_POINTS_TO_LEARN)
 			add_language(i)
-			src << "<span class='notice'><font size=3>You have mastered the [i] language!!</span>"
+			src << "<span class='notice'><font size=3>You have mastered the [i] language!!</font></span>"
 			language_progress.Remove(i)

@@ -3,10 +3,12 @@
 /obj/machinery/computer/skills//TODO:SANITY
 	name = "employment records console"
 	desc = "Used to view, edit and maintain employment records."
-	icon_state = "medlaptop"
-	light_color = "#315ab4"
+	icon_state = "laptop"
+
+	icon_screen = "medlaptop"
+	light_color = "#00b000"
 	req_one_access = list(access_heads)
-	circuit = "/obj/item/weapon/circuitboard/skills"
+	circuit = /obj/item/weapon/circuitboard/skills
 	var/obj/item/weapon/card/id/scan = null
 	var/authenticated = null
 	var/rank = null
@@ -23,14 +25,13 @@
 	var/order = 1 // -1 = Descending - 1 = Ascending
 	density = 0
 
-
-/obj/machinery/computer/skills/attackby(obj/item/O as obj, user as mob)
-	if(istype(O, /obj/item/weapon/card/id) && !scan)
-		usr.drop_item()
+/obj/machinery/computer/skills/attackby(obj/item/O as obj, var/mob/user)
+	if(istype(O, /obj/item/weapon/card/id) && !scan && user.unEquip(O))
 		O.loc = src
 		scan = O
 		user << "You insert [O]."
-	..()
+	else
+		..()
 
 /obj/machinery/computer/skills/AltClick(var/mob/user)
 	eject_id()
@@ -60,8 +61,11 @@
 /obj/machinery/computer/skills/attack_hand(mob/user as mob)
 	if(..())
 		return
+	ui_interact(user)
+
+/obj/machinery/computer/skills/ui_interact(mob/user as mob)
 	if (src.z > 6)
-		user << "\red <b>Unable to establish a connection</b>: \black You're too far away from the station!"
+		user << "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!"
 		return
 	var/dat
 
@@ -112,21 +116,21 @@
 						user << browse_rsc(front, "front.png")
 						user << browse_rsc(side, "side.png")
 						dat += text({"<table><tr><td>	\
-<b>Name:</b> <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR>
-<b>ID:</b> <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>
-<b>Sex:</b> <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>
-<b>Age:</b> <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>
-<b>Rank:</b> <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>
-<b>Citizenship:</b> <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>
-<b>Home System:</b> <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>
-<b>Religion:</b> <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>
-<b>Fingerprint:</b> <A href='?src=\ref[src];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>
-<b>Physical Status:</b> [active1.fields["p_stat"]]<BR>
-<b>Mental Status:</b> [active1.fields["m_stat"]]<BR><BR></td>
-<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4>
-<img src=side.png height=80 width=80 border=4></td></tr></table>
-<h3>Employment/skills summary:</h3> [decode(active1.fields["notes"])]<br><br>
-<h3>CCIA Notes:</h3>[nl2br(decode(active1.fields["ccia_record"]))]<br><br>"})
+						<b>Name:</b> <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR>
+						<b>ID:</b> <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>
+						<b>Sex:</b> <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>
+						<b>Age:</b> <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>
+						<b>Rank:</b> <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>
+						<b>Citizenship:</b> <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>
+						<b>Home System:</b> <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>
+						<b>Religion:</b> <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>
+						<b>Fingerprint:</b> <A href='?src=\ref[src];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>
+						<b>Physical Status:</b> [active1.fields["p_stat"]]<BR>
+						<b>Mental Status:</b> [active1.fields["m_stat"]]<BR><BR></td>
+						<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4>
+						<img src=side.png height=80 width=80 border=4></td></tr></table>
+						<h3>Employment/skills summary:</h3> [decode(active1.fields["notes"])]<br><br>
+						<h3>CCIA Notes:</h3>[nl2br(decode(active1.fields["ccia_record"]))]<br><br>"})
 
 						//Add the CCIA Actions
 						dat+= text({"<h3>CCIA Actions:</h3><table border=1 width="100%"><tr><th>Title</th><th>Type</th><th>CCIA Thread</th></tr>"})
@@ -221,8 +225,7 @@ What a mess.*/
 					eject_id()
 				else
 					var/obj/item/I = usr.get_active_hand()
-					if (istype(I, /obj/item/weapon/card/id))
-						usr.drop_item()
+					if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
 						I.loc = src
 						scan = I
 
@@ -343,7 +346,7 @@ What a mess.*/
 			if ("New Record (General)")
 				if(PDA_Manifest.len)
 					PDA_Manifest.Cut()
-				active1 = CreateGeneralRecord()
+				active1 = data_core.CreateGeneralRecord()
 
 //FIELD FUNCTIONS
 			if ("Edit Field")

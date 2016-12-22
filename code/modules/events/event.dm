@@ -5,7 +5,8 @@
 	var/min_weight	= 0 // The minimum weight that this event will have. Only used if non-zero.
 	var/max_weight	= 0 // The maximum weight that this event will have. Only use if non-zero.
 	var/severity 	= 0 // The current severity of this event
-	var/one_shot	= 0	//If true, then the event will not be re-added to the list of available events
+	var/one_shot	= 0	// If true, then the event will not be re-added to the list of available events
+	var/add_to_queue= 1	// If true, add back to the queue of events upon finishing.
 	var/list/role_weights = list()
 	var/list/excluded_gamemodes = list()	// A list of gamemodes during which this event won't fire.
 	var/datum/event/event_type
@@ -18,6 +19,7 @@
 	weight = event_weight
 	min_weight = min_event_weight
 	max_weight = max_event_weight
+	src.add_to_queue = add_to_queue
 	if(job_weights)
 		role_weights = job_weights
 	if(excluded_roundtypes)

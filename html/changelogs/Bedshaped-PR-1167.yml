@@ -1,0 +1,6 @@
+author: Bedshaped
+
+delete-after: True
+
+changes: 
+  - tweak: "Moved badge overlays to opposite side of uniform."

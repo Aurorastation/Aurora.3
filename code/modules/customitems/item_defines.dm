@@ -633,7 +633,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rur_collar"
 	item_state = "rur_collar"
 	contained_sprite = 1
-	flags = MASKCOVERSMOUTH
 	body_parts_covered = 0
 	canremove = 0
 	species_restricted = list("Machine")

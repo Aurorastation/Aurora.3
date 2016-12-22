@@ -2,7 +2,6 @@
 	name = "AI malfunction"
 	round_description = "The AI is behaving abnormally and must be stopped."
 	extended_round_description = "The AI will attempt to hack the APCs around the station in order to gain as much control as possible."
-	uplink_welcome = "Crazy AI Uplink Console:"
 	config_tag = "malfunction"
 	required_players = 2
 	required_enemies = 1
@@ -29,7 +28,7 @@
 	sleep(10)
 	borg << "Connection to station AI successful. Synchronizing laws..." //Fluff.
 	sleep(5)
-	borg << "<span class='danger'>You have been bound to an AI, Laws synchronized!" //to provide a noticable chat notification.
+	borg << "<span class='danger'>You have been bound to an AI, Laws synchronized!</span>" //to provide a noticable chat notification.
 	borg.lawupdate = 1 //Required for sync() to function.
 	borg.sync()
 	borg.show_laws(0) //This should display updated laws to the borg.

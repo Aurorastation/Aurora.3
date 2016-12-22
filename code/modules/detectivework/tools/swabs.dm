@@ -36,8 +36,8 @@
 		if(!H.organs_by_name["head"])
 			user << "<span class='warning'>They don't have a head.</span>"
 			return
-		if(H.species && (H.species.flags & NO_SCAN))
-			user << "<span class='warning'>They don't have any biological fluids to check!.</span>"
+		if(!H.check_has_mouth())
+			user << "<span class='warning'>They don't have a mouth.</span>"
 			return
 		user.visible_message("[user] swabs \the [H]'s mouth for a saliva sample.")
 		dna = list(H.dna.unique_enzymes)

@@ -860,9 +860,9 @@
 
 	vampire.status |= VAMP_DRAINING
 
-	visible_message("\red <b>[src.name] bites [T.name]'s neck!<b>", "\red <b>You bite [T.name]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them.</b>", "\blue You hear a soft puncture and a wet sucking noise")
+	visible_message("\red <b>[src.name] bites [T.name]'s neck!</b>", "\red <b>You bite [T.name]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them.</b>", "\blue You hear a soft puncture and a wet sucking noise")
 
-	T << "<span class='notice><br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete.</span>"
+	T << "<span class='notice'><br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete.</span>"
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)

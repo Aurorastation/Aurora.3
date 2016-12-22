@@ -2,6 +2,7 @@ var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
 var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
 var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 var/list/alldepartments = list()
+var/list/admin_departments = list("[boss_name]", "Sol Government", "Supply")
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
@@ -27,15 +28,14 @@ var/list/alldepartments = list()
 	var/sendcooldown = 0	// Delay, before another fax can be sent (in 1/10 second). Used by set_cooldown() and get_remaining_cooldown()
 
 	var/department = "Unknown" // our department
-
-	var/destination = "Central Command" // the department we're sending to
+	var/destination = null // the department we're sending to
 
 	var/list/obj/item/device/pda/alert_pdas = list() //A list of PDAs to alert upon arrival of the fax.
 
 /obj/machinery/photocopier/faxmachine/New()
 	..()
 	allfaxes += src
-
+	if(!destination) destination = "[boss_name]"
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
 
@@ -60,7 +60,7 @@ var/list/alldepartments = list()
 	dat += "<hr>"
 
 	if(authenticated)
-		dat += "<b>Logged in to:</b> Central Command Quantum Entanglement Network<br><br>"
+		dat += "<b>Logged in to:</b> [boss_name] Quantum Entanglement Network<br><br>"
 
 		if(copyitem)
 			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
@@ -145,8 +145,7 @@ var/list/alldepartments = list()
 				scan = null
 		else
 			var/obj/item/I = usr.get_active_hand()
-			if (istype(I, /obj/item/weapon/card/id))
-				usr.drop_item()
+			if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
 				I.loc = src
 				scan = I
 		authenticated = 0
@@ -305,8 +304,8 @@ var/list/alldepartments = list()
 
 	//message badmins that a fax has arrived
 	switch(destination)
-		if ("Central Command")
-			message_admins(sender, "CENTCOMM FAX", rcvdcopy, "CentcommFaxReply", "#006100")
+		if (boss_name)
+			message_admins(sender, "[uppertext(boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
 		if ("Sol Government")
 			message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 			//message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "SolGovFaxReply", "#1F66A0")
