@@ -786,7 +786,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/suit/storage/fluff/basil_coat //Consortium Magister's Robes - Basil Drabardi - aimlessanalyst TODO: turns this into a proper hoodie, because suits won't work with the hair overlay
+/obj/item/clothing/suit/storage/fluff/basil_coat //Consortium Magister's Robes - Basil Drabardi - aimlessanalyst - TODO: turns this into a proper hoodie, because suits won't work with the hair overlay
 	name = "consortium magister's robes"
 	desc = "Deep red robes belonging to a Consortium Magister. A curious symbol is displayed on the black tabard down it's front."
 	icon = 'icons/obj/custom_items/basil_coat.dmi'
