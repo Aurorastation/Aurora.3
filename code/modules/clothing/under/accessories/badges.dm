@@ -112,10 +112,3 @@
 	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_TIE
-
-/obj/item/clothing/accessory/badge/marshal
-	name = "marshal's badge"
-	desc = "A leather-backed gold badge displaying the crest of the Colonial Marshals."
-	icon_state = "marshalbadge"
-	badge_string = "Colonial Marshal Bureau"
-
