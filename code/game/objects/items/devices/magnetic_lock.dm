@@ -13,7 +13,7 @@
 	//icon_state = "inactive"
 	w_class = 3
 	req_access = list(access_cent_specops)
-	health = 90
+	health = 150
 
 	var/department = "CENTCOM"
 	var/status = 0
@@ -107,13 +107,17 @@
 			user << "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>"
 		return
 
-	if (istype(I, /obj/item/weapon) && user.a_intent == "hurt")
-		if (I.force >= 8)
+	if (istype(I, /obj/item/weapon) && user.a_intent == "harm")
+		if (I.force >= 18)
 			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
 			takedamage(I.force)
+			playsound(loc, "sound/weapons/genhit[rand(1,3)].ogg", I.force*3, 1)
+			spawn(3)
+				playsound(loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1)
 			return
 		else
-			user.visible_message("<span class='notice'>[user] hits [src] with [I] to no visible effect.</span>", "<span class='notice'>You hit [src] with [I], but it appears to have no effect.</span>")
+			user.visible_message("<span class='danger'>[user] hits [src] with [I] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
+			playsound(loc, "sound/weapons/Genhit.ogg", I.force*2.5, 1)
 			return
 
 	switch (constructionstate)
@@ -151,7 +155,7 @@
 					user << span("notice", "You pry the cover off [src].")
 					setconstructionstate(1)
 				else
-					user << span("notice", "You try to pry the cover off [src] but it doesn't budge.</span>")
+					user << span("notice", "You try to pry the cover off [src] but it doesn't budge.")
 				return
 
 		if (1)
@@ -402,13 +406,14 @@
 					overlays += "overlay_deconstruct_[constructionstate]"
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
-	health -= damage
+	health -= rand(damage/2, damage)
 
 	if (damage >= 40 && prob(50))
 		health = 0
 
 	if (health <= 0)
 		visible_message("<span class='danger'>[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!</span>")
+		detach(0)
 		status = STATUS_BROKEN
 		update_icon()
 		return

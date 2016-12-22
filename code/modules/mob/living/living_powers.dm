@@ -59,7 +59,7 @@
 	else
 		newspeed = text2num(response)
 
-	if (!newspeed || newspeed >= speed || newspeed <= 0)
+	if (!newspeed || newspeed >= speed || newspeed <= 0.2)
 		src << "Error, invalid value entered. Walk speed has not been changed"
 		return
 

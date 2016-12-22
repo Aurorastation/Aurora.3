@@ -91,3 +91,13 @@
 		update_underlays()
 
 		return null
+
+/obj/machinery/atmospherics/unary/vent_pump/proc/is_welded() // TODO: refactor welding into unary
+	if (welded > 0)
+		return 1
+	return 0
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/is_welded()
+	if (welded > 0)
+		return 1
+	return 0

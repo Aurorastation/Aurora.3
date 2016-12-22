@@ -48,7 +48,8 @@
 	description = "Phoron in its liquid form."
 	reagent_state = LIQUID
 	color = "#9D14DB"
-	strength = 4
+	strength = 30
+	touch_met = 5
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -80,13 +81,14 @@
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(isvaurca(M))
 		return
-	else
-		M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
+	M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
+	if(prob(50))
+		M.pl_effects()
 
 /datum/reagent/toxin/phoron/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return
-	T.assume_gas("volatile_fuel", volume, T20C)
+	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
@@ -201,14 +203,10 @@
 		if(locate(/obj/effect/overlay/wallrot) in W)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
-			W.visible_message("<span class='notice'>The fungi are completely dissolved by the solution!")
+			W.visible_message("<span class='notice'>The fungi are completely dissolved by the solution!</span>")
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
-	if(istype(O, /obj/effect/alien/weeds/))
-		var/obj/effect/alien/weeds/alien_weeds = O
-		alien_weeds.health -= rand(15, 35)
-		alien_weeds.healthcheck()
-	else if(istype(O, /obj/effect/plant))
+	if(istype(O, /obj/effect/plant))
 		qdel(O)
 
 /datum/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -261,6 +259,9 @@
 		affect_blood(M, alien, removed)
 
 /datum/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_SCAN))
+		return
 	if(M.dna)
 		if(prob(removed * 10)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
 			M << "Something feels different about you..."
@@ -449,13 +450,12 @@
 		return
 	M.druggy = max(M.druggy, 30)
 	if(dose < 1)
-		M.stuttering = max(M.stuttering, 3)
-		M.dizziness = max(150, M.dizziness)
+		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
 		if(prob(5))
 			M.emote(pick("twitch", "giggle"))
 	else if(dose < 2)
-		M.stuttering = max(M.stuttering, 3)
+		M.apply_effect(3, STUTTER)
 		M.make_jittery(5)
 		M.dizziness = max(150, M.dizziness)
 		M.make_dizzy(5)
@@ -463,7 +463,7 @@
 		if(prob(10))
 			M.emote(pick("twitch", "giggle"))
 	else
-		M.stuttering = max(M.stuttering, 3)
+		M.apply_effect(3, STUTTER)
 		M.make_jittery(10)
 		M.dizziness = max(150, M.dizziness)
 		M.make_dizzy(10)
@@ -502,10 +502,10 @@
 	color = "#13BC5E"
 
 /datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
-	if(M.monkeyizing)
+	if(M.transforming)
 		return
 	M << "<span class='danger'>Your flesh rapidly mutates!</span>"
-	M.monkeyizing = 1
+	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
 	M.overlays.Cut()

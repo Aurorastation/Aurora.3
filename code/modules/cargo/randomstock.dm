@@ -32,6 +32,31 @@ more variety, and keeps the odds of any one specific item to be about the same
 
 */
 
+
+
+//Debugging verbs. Uncomment this block for some useful cargo debug commands
+/*
+var/global/stockname = ""
+
+/client/verb/set_stock_name()
+	stockname = input(usr, "Enter name", "Select stock by name") as text
+
+/client/verb/spawn_1()
+	spawn_stock(stockname, get_turf(mob))
+
+/client/verb/spawn_10()
+	var/num = 10
+	while (num > 0)
+		spawn_stock(stockname, get_turf(mob))
+		num--
+
+/client/verb/spawn_100()
+	var/num = 100
+	while (num > 0)
+		spawn_stock(stockname, get_turf(mob))
+		num--
+*/
+
 var/list/global/random_stock_common = list(
 	"toolbox" = 4,
 	"meds" = 5,
@@ -90,15 +115,16 @@ var/list/global/random_stock_common = list(
 	"cosmetic" = 2.2,
 	"suitcooler" = 1.2,
 	"officechair" = 1.2,
-	"booze" = 3,
+	"booze" = 3.5,
 	"plant" = 3.5,
 	"bag" = 2,
 	"extinguish" = 2.2,
 	"hailer" = 1.1,
 	"target" = 2,
-	"snacks" = 3.5,
-	"oxytank" = 2.5,
+	"snacks" = 4,
+	"oxytank" = 2.5,//
 	"signs" = 4,
+	"posters" = 3,
 	"parts" = 6,
 	"cane" = 2,
 	"warning" = 2.2,
@@ -120,7 +146,7 @@ var/list/global/random_stock_uncommon = list(
 	"flare" = 2,
 	"deathalarm" = 2,
 	"trackimp" = 1,
-	"flashbang" = 1,
+	"flashbang" = 0.75,
 	"cuffs" = 1,
 	"monkey" = 2,
 	"specialcrayon" = 1.5,
@@ -136,8 +162,8 @@ var/list/global/random_stock_uncommon = list(
 	"bible" = 1,
 	"advwelder" = 2,
 	"sord" = 1,
-	"policebaton" = 2,
-	"stunbaton" = 1,//batons spawn with no powercell
+	"policebaton" = 1.5,
+	"stunbaton" = 0.75,//batons spawn with no powercell
 	"watches" = 3,
 	"MMI" = 1.5,
 	"voidsuit" = 2,
@@ -150,25 +176,24 @@ var/list/global/random_stock_uncommon = list(
 	"crimekit" = 1,
 	"carpet" = 2,
 	"gift" = 4,
-	"lightfloor" = 2,
 	"linenbin" = 1,
 	"coatrack" = 1,
 	"riotshield" = 2,
-	"fireaxe" = 1.5,
+	"fireaxe" = 1,
 	"service" = 2,
 	"robot" = 2,
-	"latexb" = 1.2,
+	"latexb" = 0.5,
 	"taperoll" = 1,
 	"headset" = 2,
 	"bat" = 1.2,
-	"scythe" = 1,
+	"scythe" = 0.75,
 	"manual" = 2,
 	"jammer" = 2,
 	"rped" = 2,
 	"briefcase" = 2,
-	"blade" = 1.5,
+	"blade" = 1.2,
 	"exoquip" = 2,
-	"laserscalpel" = 1.5,
+	"laserscalpel" = 1.3,
 	"electropack" = 1,
 	"nothing" = 0)
 
@@ -176,30 +201,29 @@ var/list/global/random_stock_rare = list(
 	"gold" = 2.5,
 	"diamond" = 1.5,
 	"uranium" = 3,
-	"EMP" = 1,
+	"EMP" = 0.75,
 	"hypercell" = 3,
 	"combatmeds" = 3,
-	"batterer" = 1,
+	"batterer" = 0.75,
 	"posibrain" = 3,
-	"augmentvision" = 1.6,
-	"thermals" = 2,
+	"thermals" = 0.75,
 	"bsbeaker" = 3,
-	"energyshield" = 3,
+	"energyshield" = 2,
 	"hardsuit" = 0.75,
 	"cluster" = 2.0,
-	"cloak" = 1,
-	"sword" = 1,
+	"cloak" = 0.75,
+	"sword" = 0.5,
 	"ims" = 1.5,
 	"exogear" = 1.5,
 	"teleporter" = 1,
-	"voice" = 2,
+	"voice" = 1.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
 	"russian" = 1,
 	"emergency" = 2,
 	"firecloset" = 2,
-	"tacticool" = 0.4,
+	"tacticool" = 0.2,
 	"radsuit" = 3,
 	"exosuit" = 1.2,//A randomly generated exosuit in a very variable condition.
 	"EOD"	=	1.5,
@@ -573,8 +597,12 @@ var/list/global/random_stock_large = list(
 		if("circuitboard")
 			//Spawns a random circuitboard
 			//Allboards being a global list might be faster, but it didnt seem worth the extra memory
-			var/list/allboards = typesof(/obj/item/weapon/circuitboard)
-			allboards -= typesof(/obj/item/weapon/circuitboard/mecha)
+			var/list/allboards = subtypesof(/obj/item/weapon/circuitboard)
+			var/list/exclusion = list(/obj/item/weapon/circuitboard/unary_atmos, \
+				/obj/item/weapon/circuitboard/telecomms, )
+			exclusion += typesof(/obj/item/weapon/circuitboard/mecha)
+
+			allboards -= exclusion
 			var/type = pick(allboards)
 			new type(L)
 
@@ -630,14 +658,18 @@ var/list/global/random_stock_large = list(
 			new /obj/item/weapon/grenade/chem_grenade/metalfoam(L)
 		if ("gloves")
 			var/list/allgloves = typesof(/obj/item/clothing/gloves)
+
+			var/list/exclusion = list(/obj/item/clothing/gloves,
+			/obj/item/clothing/gloves/fluff,
+			/obj/item/clothing/gloves/swat/bst)
+			exclusion += typesof(/obj/item/clothing/gloves/rig)
+			exclusion += typesof(/obj/item/clothing/gloves/lightrig)
+			allgloves -= exclusion
 			var/number = rand(1,5)
 			while (number > 0)
 				var/gtype = pick(allgloves)
-				var/thing = new gtype(L)
-				if (!istype(thing, /obj/item/clothing/gloves/rig))//Rig gloves would be buggy
-					number--
-				else
-					qdel(thing)
+				new gtype(L)
+				number--
 		if ("insulated")
 			new /obj/item/clothing/gloves/yellow(L)
 			new /obj/item/clothing/gloves/yellow(L)
@@ -651,7 +683,6 @@ var/list/global/random_stock_large = list(
 			"/obj/item/device/slime_scanner" = 1,
 			"/obj/item/weapon/autopsy_scanner" = 1,
 			"/obj/item/device/robotanalyzer" = 4,
-			"/obj/machinery/disease2/diseaseanalyser" = 0.5,
 			"/obj/item/weapon/mining_scanner" = 1,
 			"/obj/item/device/ano_scanner" = 1,
 			"/obj/item/device/reagent_scanner" = 2,
@@ -725,7 +756,7 @@ var/list/global/random_stock_large = list(
 			/obj/item/weapon/storage/pill_bottle/inaprovaline,
 			/obj/item/weapon/storage/pill_bottle/kelotane,
 			/obj/item/weapon/storage/pill_bottle/spaceacillin,
-			/obj/item/weapon/storage/pill_bottle/tramadol,
+			/obj/item/weapon/storage/pill_bottle/tramadol
 			)
 			var/newtype = pick(options)
 			new newtype(L)
@@ -757,7 +788,7 @@ var/list/global/random_stock_large = list(
 				new /obj/structure/reagent_dispensers/beerkeg(T)
 			else
 				var/list/drinks = typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle)
-
+				drinks -= /obj/item/weapon/reagent_containers/food/drinks/bottle
 				var/number = rand(1,3)
 				while (number > 0)
 					var/type = pick(drinks)
@@ -885,8 +916,6 @@ var/list/global/random_stock_large = list(
 				new /obj/item/weapon/cane/concealed(L)
 			else if (prob(20))
 				new /obj/item/weapon/staff/broom(L)
-			else if (prob(30))
-				new /obj/item/weapon/staff/stick(L)
 			else
 				new /obj/item/weapon/cane(L)
 
@@ -906,7 +935,6 @@ var/list/global/random_stock_large = list(
 			"/obj/item/clothing/mask/gas/mime" = 0.5,
 			"/obj/item/clothing/mask/gas/monkeymask" = 0.5,
 			"/obj/item/clothing/mask/gas/sexymime" = 0.5,
-			"/obj/item/clothing/mask/gas/death_commando" = 2,
 			"/obj/item/clothing/mask/gas/cyborg" = 1,
 			"/obj/item/clothing/mask/gas/owl_mask" = 1
 			)
@@ -934,6 +962,8 @@ var/list/global/random_stock_large = list(
 				new /obj/item/device/flashlight/lantern(L)
 			if (prob(50))
 				new /obj/item/weapon/mining_scanner(L)
+			if (prob(25))
+				new /obj/item/weapon/storage/box/excavation(L)
 
 		if ("paicard")
 			new /obj/item/device/paicard(L)
@@ -1067,15 +1097,18 @@ var/list/global/random_stock_large = list(
 		//Can be slotted into any dispenser
 		if("chempack")
 			var/total = rand(2,6)
+			var/list/chems = chemical_reagents_list.Copy()
+			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2")
+			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
-				var/rname = pick(chemical_reagents_list)
+				var/rname = pick(chems)
 				var/datum/reagent/R = chemical_reagents_list[rname]
 
 				//If we get a drink, reroll it once.
 				//Should result in a higher chance of getting medicines and chemicals
 				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/ethanol))
-					rname = pick(chemical_reagents_list)
+					rname = pick(chems)
 					R = chemical_reagents_list[rname]
 				C.reagents.add_reagent(rname, C.volume)
 				C.setLabel(R.name)
@@ -1096,8 +1129,13 @@ var/list/global/random_stock_large = list(
 
 		//Spawns several random circuitboards
 		if("circuitboards")
-			var/list/allboards = typesof(/obj/item/weapon/circuitboard)
-			allboards -= typesof(/obj/item/weapon/circuitboard/mecha)
+			var/list/allboards = subtypesof(/obj/item/weapon/circuitboard)
+			var/list/exclusion = list(/obj/item/weapon/circuitboard/unary_atmos, \
+				/obj/item/weapon/circuitboard/telecomms, )
+			exclusion += typesof(/obj/item/weapon/circuitboard/mecha)
+
+			allboards -= exclusion
+
 			var/number = rand(2,5)
 			while (number > 0)
 				var/type = pick(allboards)
@@ -1139,8 +1177,10 @@ var/list/global/random_stock_large = list(
 			new /obj/random/voidsuit(L,1)
 
 		if ("signs")
-			var/list/allsigns = typesof(/obj/structure/sign)
+			var/list/allsigns = subtypesof(/obj/structure/sign)
 			allsigns -= typesof(/obj/structure/sign/double)
+			allsigns -= typesof(/obj/structure/sign/poster)
+			allsigns -= /obj/structure/sign/directions
 			var/number = rand(1,5)
 
 			while (number > 0)
@@ -1149,6 +1189,12 @@ var/list/global/random_stock_large = list(
 					var/obj/structure/sign/S = new newsign(L)
 					S.unfasten()
 					number--
+		if ("posters")
+			new /obj/item/weapon/contraband/poster(L)
+			if (prob(50))
+				new /obj/item/weapon/contraband/poster(L)
+			if (prob(50))
+				new /obj/item/weapon/contraband/poster(L)
 
 		if ("violin")
 			new /obj/item/device/violin(L)
@@ -1172,8 +1218,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/stack/tile/carpet(L, 50)
 		if ("gift")
 			new /obj/item/weapon/a_gift(L)
-		if ("lightfloor")
-			new /obj/item/stack/tile/light(L, 50)
 		if ("linenbin")
 			new /obj/structure/bedsheetbin(get_turf(L))
 		if ("coatrack")
@@ -1217,7 +1261,7 @@ var/list/global/random_stock_large = list(
 			var/mob/living/bot/newbot = new type(L)
 			newbot.on = 0//Deactivated
 			if (prob(10))
-				newbot.Emag(null)
+				newbot.emag_act(9999,null)
 		if ("latexb")
 			new /obj/item/latexballon(L)
 
@@ -1295,7 +1339,7 @@ var/list/global/random_stock_large = list(
 			"/obj/item/weapon/material/knife/butch" = 1,
 			"/obj/item/weapon/material/hatchet" = 1.5,
 			"/obj/item/weapon/material/hatchet/unathiknife" = 0.75,
-			"/obj/item/weapon/material/hatchet/tacknife" = 1,
+			"/obj/item/weapon/material/hatchet/tacknife" = 1
 			)
 
 			var/type = pickweight(blades)
@@ -1307,11 +1351,19 @@ var/list/global/random_stock_large = list(
 			var/list/equips = list(
 			"/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp" = 1,
 			"/obj/item/mecha_parts/mecha_equipment/tool/drill" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill" = 0.7,
 			"/obj/item/mecha_parts/mecha_equipment/tool/extinguisher" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/tool/rcd" = 0.08,
+			"/obj/item/mecha_parts/mecha_equipment/teleporter" = 0.3,
+			"/obj/item/mecha_parts/mecha_equipment/wormhole_generator" = 0.5,
 			"/obj/item/mecha_parts/mecha_equipment/gravcatapult" = 0.8,
-			"/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster" = 0.9,
+			"/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster" = 0.9,
+			"/obj/item/mecha_parts/mecha_equipment/repair_droid" = 0.7,
+			"/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay" = 0.4,
 			"/obj/item/mecha_parts/mecha_equipment/generator" = 1.5,
+			"/obj/item/mecha_parts/mecha_equipment/generator/nuclear" = 0.8,
+			"/obj/item/mecha_parts/mecha_equipment/tool/safety_clamp" = 0.2,
 			"/obj/item/mecha_parts/mecha_equipment/tool/passenger" = 1,
 			"/obj/item/mecha_parts/mecha_equipment/tool/sleeper" = 0.9,
 			"/obj/item/mecha_parts/mecha_equipment/tool/cable_layer" = 1.2,
@@ -1418,8 +1470,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/device/batterer(L)
 		if("posibrain")
 			new /obj/item/device/mmi/digital/posibrain(L)
-		if("augmentvision")
-			new /obj/item/clothing/glasses/hud/security/jensenshades(L)
 		if("thermals")
 			new /obj/item/clothing/glasses/thermal(L)
 		if("bsbeaker")
@@ -1451,30 +1501,30 @@ var/list/global/random_stock_large = list(
 			//It will come with some screwy electronics and possibly need reprogramming
 			var/list/rigs = list(
 			"/obj/item/weapon/rig/unathi" = 2,
-			"/obj/item/weapon/rig/unathi/fancy" = 1,
+			"/obj/item/weapon/rig/unathi/fancy" = 0.75,
 			"/obj/item/weapon/rig/combat" = 0.1,
-			"/obj/item/weapon/rig/ert" = 0.2,
-			"/obj/item/weapon/rig/ert/engineer" = 0.2,
-			"/obj/item/weapon/rig/ert/medical" = 0.3,
-			"/obj/item/weapon/rig/ert/security" = 0.15,
-			"/obj/item/weapon/rig/ert/assetprotection" = 0.1,
+			"/obj/item/weapon/rig/ert" = 0.1,
+			"/obj/item/weapon/rig/ert/engineer" = 0.1,
+			"/obj/item/weapon/rig/ert/medical" = 0.15,
+			"/obj/item/weapon/rig/ert/security" = 0.075,
+			"/obj/item/weapon/rig/ert/assetprotection" = 0.05,
 			"/obj/item/weapon/rig/light" = 0.5,
 			"/obj/item/weapon/rig/light/hacker" = 0.8,
 			"/obj/item/weapon/rig/light/stealth" = 1.5,
-			"/obj/item/weapon/rig/merc" = 1,
+			"/obj/item/weapon/rig/merc" = 0.5,
 			"/obj/item/weapon/rig/industrial" = 3,
 			"/obj/item/weapon/rig/eva" = 3,
 			"/obj/item/weapon/rig/ce" = 2,
 			"/obj/item/weapon/rig/hazmat" = 4,
 			"/obj/item/weapon/rig/medical" = 4,
-			"/obj/item/weapon/rig/hazard" = 4,
+			"/obj/item/weapon/rig/hazard" = 3
 			)
 
 			var/type = pickweight(rigs)
 			var/obj/item/weapon/rig/module = new type(L)
 
 			//screw it up a bit
-			var/cnd = rand(1,100)
+			var/cnd = rand(40,100)
 			module.lose_modules(cnd)
 			module.misconfigure(cnd)
 			module.sabotage_cell()
@@ -1492,8 +1542,8 @@ var/list/global/random_stock_large = list(
 			"/obj/item/mecha_parts/mecha_equipment/teleporter" = 0.3,
 			"/obj/item/mecha_parts/mecha_equipment/wormhole_generator" = 0.5,
 			"/obj/item/mecha_parts/mecha_equipment/gravcatapult" = 0.8,
-			"/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster" = 0.9,
+			"/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster" = 1,
+			"/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster" = 0.9,
 			"/obj/item/mecha_parts/mecha_equipment/repair_droid" = 0.7,
 			"/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay" = 0.4,
 			"/obj/item/mecha_parts/mecha_equipment/generator" = 1.5,
@@ -1505,10 +1555,12 @@ var/list/global/random_stock_large = list(
 			"/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun" = 1
 			)
 
+
 			var/number = rand(2,5)
 			while (number > 0)
 				var/type = pickweight(equips)
 				new type(L)
+				number--
 
 		if ("teleporter")
 			new /obj/item/weapon/hand_tele(L)
@@ -1884,6 +1936,3 @@ var/list/global/random_stock_large = list(
 					exosuit.pr_manage_warnings.process(exosuit)
 		else
 			log_debug("ERROR: Random cargo spawn failed for [stock]")
-
-
-
