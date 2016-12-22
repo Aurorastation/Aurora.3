@@ -180,7 +180,7 @@
 	cinf.notes = notes
 	cinf.charges = json_decode(json_encode(charges)) //Thats there to strip all the non-needed values from the data before saving it to the db
 	cinf.evidence = json_decode(json_encode(evidence))
-	cinf.arbiters = json_decode(json_encode(evidence))
+	cinf.arbiters = json_decode(json_encode(arbiters))
 	cinf.datetime = datetime
 	cinf.brig_sentence = brig_sentence
 	cinf.prison_sentence = prison_sentence
@@ -249,8 +249,8 @@
 		":game_id" = game_id
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
-	var/DBQuery/infraction_insert_query = dbcon.NewQuery({"INSERT INTO ss13_character_infractions
-		(char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by, game_id)
+	var/DBQuery/infraction_insert_query = dbcon.NewQuery({"INSERT INTO ss13_character_incidents
+		(char_id,  UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by, game_id)
 	VALUES
 		(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by, :game_id)
 	ON DUPLICATE KEY UPDATE
@@ -286,7 +286,7 @@
 		":deleted_by" = deleted_by
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
-	var/DBQuery/infraction_delete_query = dbcon.NewQuery({"UPDATE ss13_character_infractions
+	var/DBQuery/infraction_delete_query = dbcon.NewQuery({"UPDATE ss13_character_incidents
 	SET
 		deleted_by=:deleted_by,
 		deleted_at=NOW()

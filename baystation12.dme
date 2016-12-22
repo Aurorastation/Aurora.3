@@ -1030,6 +1030,7 @@
 #include "code\modules\client\preference_setup\global\03_language.dm"
 #include "code\modules\client\preference_setup\global\04_pai.dm"
 #include "code\modules\client\preference_setup\occupation\occupation.dm"
+#include "code\modules\client\preference_setup\other\01_incidents.dm"
 #include "code\modules\client\preference_setup\skills\skills.dm"
 #include "code\modules\clothing\chameleon.dm"
 #include "code\modules\clothing\clothing.dm"

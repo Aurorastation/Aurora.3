@@ -456,7 +456,10 @@
 
 	incident.renderGuilty( user )
 
-	ping( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes!\"" )
+	if( incident.brig_sentence < PERMABRIG_SENTENCE)
+		ping( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes!\"" )
+	else
+		pingx3( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes and earned a HuT Sentence\"" )
 
 	incident = null
 	menu_screen = "main_menu"

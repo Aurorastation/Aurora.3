@@ -268,6 +268,13 @@ Class Procs:
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
+/obj/machinery/proc/pingx3(text=null)
+	if (!text)
+		text = "\The [src] pings."
+
+	state(text, "blue")
+	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
+
 /obj/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
 		return 0

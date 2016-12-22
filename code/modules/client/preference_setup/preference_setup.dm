@@ -32,6 +32,11 @@
 	category_item_type = /datum/category_item/player_setup_item/player_global
 	sql_role = SQL_PREFERENCES
 
+/datum/category_group/player_setup_category/other_preferences
+	name = "Other"
+	sort_order = 6
+	category_item_type = /datum/category_item/player_setup_item/other
+
 /****************************
 * Category Collection Setup *
 ****************************/

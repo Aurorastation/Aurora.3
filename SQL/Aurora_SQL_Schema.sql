@@ -499,7 +499,7 @@ CREATE TABLE `ss13_stats_ie` (
   PRIMARY KEY (`ckey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ss13_character_infractions` (
+CREATE TABLE `ss13_character_incidents` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`char_id` INT(11) NOT NULL,
 	`UID` VARCHAR(32) NOT NULL COLLATE 'utf8_bin',
@@ -518,5 +518,5 @@ CREATE TABLE `ss13_character_infractions` (
 	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`deleted_at` DATETIME NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE INDEX `Schlüssel 2` (`char_id`, `UID`)
-) COLLATE='utf8_bin' ENGINE=InnoDB;
+	UNIQUE INDEX `UID_char_id` (`char_id`, `UID`)
+COLLATE='utf8_bin' ENGINE=InnoDB;
