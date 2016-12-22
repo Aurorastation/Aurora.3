@@ -102,6 +102,7 @@ var/const/NO_EMAG_ACT = -50
 
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
+	var/mob/living/carbon/human/mob
 	slot_flags = SLOT_ID
 
 	var/age = "\[UNSET\]"
@@ -164,6 +165,7 @@ var/const/NO_EMAG_ACT = -50
 	id_card.age = age
 	id_card.citizenship			= citizenship
 	id_card.religion			= religion
+	id_card.mob					= src
 
 /obj/item/weapon/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
@@ -186,20 +188,74 @@ var/const/NO_EMAG_ACT = -50
 		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
-			blood_type = H.dna.b_type
-			dna_hash = H.dna.unique_enzymes
-			fingerprint_hash = md5(H.dna.uni_identity)
-			citizenship = H.citizenship
-			religion = H.religion
-			age = H.age
-			user << "<span class='notice'>Biometric Imprinting Successful!.</span>"
-			return
+			if(H.gloves)
+				user << "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>"
+				return
+			else
+				mob = H
+				blood_type = H.dna.b_type
+				dna_hash = H.dna.unique_enzymes
+				fingerprint_hash = md5(H.dna.uni_identity)
+				citizenship = H.citizenship
+				religion = H.religion
+				age = H.age
+				user << "<span class='notice'>Biometric Imprinting Successful!.</span>"
+				return
 
 	for(var/mob/O in viewers(user, null))
 		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
 
 	src.add_fingerprint(user)
 	return
+
+/obj/item/weapon/card/id/attack(var/mob/living/M, var/mob/user, proximity)
+
+	if(user.zone_sel.selecting == "r_hand" || user.zone_sel.selecting == "l_hand")
+
+		if(!ishuman(M))
+			return ..()
+
+		if (dna_hash == "\[UNSET\]" && ishuman(user))
+			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [M]'s now?", "Biometric Imprinting", "Yes", "No")
+			if (response == "Yes")
+
+				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
+					user << "<span class='warning'>You must remain adjacent to [M] to scan their biometric data.</span>"
+					return
+
+				var/mob/living/carbon/human/H = M
+
+				if(H.gloves)
+					user << "<span class='warning'>\The [H] is wearing gloves.</span>"
+					return 1
+
+				if(user != H && H.a_intent != "help" && !H.lying)
+					user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
+					return 1
+
+				var/has_hand
+				var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
+				if(istype(O) && !O.is_stump())
+					has_hand = 1
+				else
+					O = H.organs_by_name["l_hand"]
+					if(istype(O) && !O.is_stump())
+						has_hand = 1
+				if(!has_hand)
+					user << "<span class='warning'>They don't have any hands.</span>"
+					return 1
+				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
+				mob = H
+				blood_type = H.dna.b_type
+				dna_hash = H.dna.unique_enzymes
+				fingerprint_hash = md5(H.dna.uni_identity)
+				citizenship = H.citizenship
+				religion = H.religion
+				age = H.age
+				src.add_fingerprint(H)
+				user << "<span class='notice'>Biometric Imprinting Successful!.</span>"
+				return 1
+	return ..()
 
 /obj/item/weapon/card/id/GetAccess()
 	return access

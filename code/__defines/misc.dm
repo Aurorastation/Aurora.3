@@ -242,3 +242,9 @@
 #define STOCK_LARGE_PROB	75
 //Large items are spawned on predetermined locations.
 //For each large spawn marker, this is the chance that we will spawn there
+
+
+// Law settings
+#define PERMABRIG_SENTENCE 90 // Measured in minutes
+//#define PERMAPRISON_SENTENCE 60 // Measured in IC days
+#define FELONY_LEVEL 2.0 // What is the minimum law severity that counts as a felony?
