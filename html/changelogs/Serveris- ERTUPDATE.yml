@@ -3,9 +3,9 @@ author: Serveris6
 delete-after: True
 
 changes: 
-  - rscadd: "Added new gear and weaponry, available to Emergency Response Teams."
-  - maptweak: "Remapped the NTCC Odin ERT Division, introducing the tactical vending machine, containing some new gear and providing better storage for existing gear"
-  - rscadd: "Added several new admin loadouts for ERT and DO escorts."
-  - rscadd: "Added a variant of the new tactical vending machine to security, with slight differences to the ERT variant."
-  - bugfix: "ERT no longer have access to the entire CC station; DOs now have access to most of it."
-  - bugfix: "ERT are now loalty implanted (printer16)"
+  - rscadd: "Added new gear and weaponry, available to Emergency Response Teams."'
+  - maptweak: "Remapped the NTCC Odin ERT Division, introducing the tactical vending machine, containing some new gear and providing better storage for existing gear"'
+  - rscadd: "Added several new admin loadouts for ERT and DO escorts."'
+  - rscadd: "Added a variant of the new tactical vending machine to security, with slight differences to the ERT variant."'
+  - bugfix: "ERT no longer have access to the entire CC station; DOs now have access to most of it."'
+  - bugfix: "ERT are now loalty implanted (printer16)"'
