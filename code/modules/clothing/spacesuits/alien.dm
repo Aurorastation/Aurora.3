@@ -215,7 +215,7 @@
 	siemens_coefficient = 0
 	item_state = "carapace_head"
 	icon_state = "carapace_head"
-	flags = HEADCOVERSEYES|STOPPRESSUREDAMAGE
+	flags = STOPPRESSUREDAMAGE
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/head.dmi',

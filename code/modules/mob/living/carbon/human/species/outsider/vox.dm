@@ -140,6 +140,7 @@
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_armalis.dmi'
 	deform = 'icons/mob/human_races/r_armalis.dmi'
+	tail = "armalis_tail"
 	rarity_value = 10
 
 	warning_low_pressure = 50

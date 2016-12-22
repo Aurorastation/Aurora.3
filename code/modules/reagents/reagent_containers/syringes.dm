@@ -176,7 +176,6 @@
 					if(injtime == time)
 						user.visible_message("<span class='warning'>[user] is trying to inject [target] with [visible_name]!</span>")
 					else
-						var/mob/living/carbon/human/H = target
 						if(isvaurca(H))
 							user.visible_message("<span class='warning'>[user] begins hunting for an injection port on [target]'s carapace!</span>")
 						else

@@ -186,24 +186,24 @@
 
 obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
-		if (all_languages["Hivenet"] in owner.languages)
-			owner.remove_language("Hivenet")
+		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
+			owner.remove_language(LANGUAGE_VAURCA)
 			owner << "<span class='warning'> Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
 	else
-		if (!(all_languages["Hivenet"] in owner.languages))
-			owner.add_language("Hivenet")
+		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+			owner.add_language(LANGUAGE_VAURCA)
 			owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
-	if (!(all_languages["Hivenet"] in owner.languages))
-		owner.add_language("Hivenet")
+	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+		owner.add_language(LANGUAGE_VAURCA)
 		owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
-	if(all_languages["Hivenet"] in target.languages)
-		target.remove_language("Hivenet")
+	if(all_languages[LANGUAGE_VAURCA] in target.languages)
+		target.remove_language(LANGUAGE_VAURCA)
 		target << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
 	..()
 

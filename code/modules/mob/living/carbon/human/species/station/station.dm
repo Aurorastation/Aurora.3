@@ -20,7 +20,7 @@
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
-	
+
 /datum/species/human/get_bodytype()
 	return "Human"
 
@@ -40,8 +40,8 @@
 	brute_mod = 0.8
 	ethanol_resistance = 0.4
 	num_alternate_languages = 2
-	secondary_langs = list("Sinta'unathi")
-	name_language = "Sinta'unathi"
+	secondary_langs = list(LANGUAGE_UNATHI)
+	name_language = LANGUAGE_UNATHI
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
 	sprint_speed_factor = 3.2
 	stamina_recovery = 5
@@ -101,7 +101,7 @@
 	name_plural = "Tajaran"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
-	language = "Siik'maas"
+	language = LANGUAGE_SIIK_MAAS
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
@@ -110,8 +110,8 @@
 	brute_mod = 1.2
 	gluttonous = GLUT_TINY
 	num_alternate_languages = 2
-	secondary_langs = list("Siik'maas")
-	name_language = "Siik'maas"
+	secondary_langs = list(LANGUAGE_SIIK_MAAS)
+	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
 
@@ -170,7 +170,7 @@
 	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
 	the secrets of their empire to their allies."
 	num_alternate_languages = 2
-	secondary_langs = list("Skrellian")
+	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = null
 	rarity_value = 3
 
@@ -368,7 +368,7 @@
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
+	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON | NO_MINOR_CUT
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
 	blood_color = "#1F181F"
@@ -432,33 +432,39 @@
 
 
 /datum/species/bug
-	name = "Vaurca"
+	name = "Vaurca Worker"
 	short_name = "vau"
-	name_plural = "Vaurcae"
-	language = "Hivenet"
+	name_plural = "Type A"
+	language = LANGUAGE_VAURCA
+	primitive_form = "V'krexi"
+	greater_form = "Vaurca Warrior"
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
-	name_language = "Hivenet"
+	name_language = LANGUAGE_VAURCA
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
-	slowdown = 0
+	slowdown = 1
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
-	brute_mod = 0.5 //note to self: remove is_synthetic checks for brmod and burnmod
+	brute_mod = 0.5
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
-	tox_mod = 2 //they're not used to all our weird human bacteria.
+	toxins_mod = 2 //they're not used to all our weird human bacteria.
+	oxy_mod = 0.8
+	radiation_mod = 0.2 //almost total radiation protection
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
-	blurb = "Vaurca are a bipedal insectoid species from the first moon of Sedantis I. \
-	 They have a complex caste system consisting of the lower slave caste called The Bound and the higher, free-thinking caste of the Unbound. \
-	 The majority of Vaurca present in human-space belong to the former caste of Bound, and almost all Vaurca working on NanoTrasen Stations are similarly Bound. \
-	 Although tolerated on Nanotrasen stations and in Tau Ceti, they are often discriminated against and are unwelcome in most human-owned \
-	 sectors in the Sol Alliance. All Vaurca present in human space are colonists at the end of a 2,000 year journey, and all contact with \
-	 their homeworld has been lost. All Vaurca legally present in Tau Ceti belong either to the Zo'ra hive, or the K'lax hive."
+
+	blurb = "Type A are the most common type of Vaurca and can be seen as the 'backbone' of Vaurcae societies. Their most prevalent feature is their hardened exoskeleton, varying in colors \
+	in accordance to their hive. It is approximately half an inch thick among all Type A Vaurca. The carapace provides protection against harsh radiation, solar \
+	and otherwise, and acts as a pressure-suit to seal their soft inner core from the outside world. This allows most Type A Vaurca to have extended EVA \
+	expeditions, assuming they have internals. They are bipedal, and compared to warriors they are better suited for EVA and environments, and more resistant to brute force thanks to their \
+	thicker carapace, but also a fair bit slower and less agile. \
+	<b>Type A comfortable in any department except security. There will almost never be a Worker in a security position, as they are as a type disposed against combat.</b>"
 
 	cold_level_1 = 50
 	cold_level_2 = -1
@@ -467,32 +473,39 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SCAN | NO_SLIP
+	flags = NO_SCAN | NO_SLIP | NO_MINOR_CUT
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_SKIN_COLOR
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#330000"
 	base_color = "#330000"
-	reagent_tag = IS_VAURCA
 
-	stamina	=	100			  // Long period of sprinting, but relatively low speed gain
-	sprint_speed_factor = 0.55
-	sprint_cost_factor = 0.20
-	stamina_recovery = 1//slow recovery
+	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
+	halloss_message = "crumbles to the ground, too weak to continue fighting."
 
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
+	list/heat_discomfort_strings = list(
+		"Your blood feels like its boiling in the heat.",
+		"You feel uncomfortably warm.",
+		"Your carapace feels hot as the sun."
+		)
+	list/cold_discomfort_strings = list(
+		"You chitter in the cold.",
+		"You shiver suddenly.",
+		"Your carapace is ice to the touch."
 		)
 
+	stamina	=	100			  // Long period of sprinting, but relatively low speed gain
+	sprint_speed_factor = 0.7
+	sprint_cost_factor = 0.30
+	stamina_recovery = 2//slow recovery
 
 	has_organ = list(
 		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
 		"filtration bit" = /obj/item/organ/vaurca/filtrationbit,
 		"lungs" =    /obj/item/organ/lungs,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"heart" =    /obj/item/organ/heart,
-		"heart" =    /obj/item/organ/heart,
+		"right heart" =    /obj/item/organ/heart,
+		"left heart" =    /obj/item/organ/heart,
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,

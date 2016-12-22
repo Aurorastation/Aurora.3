@@ -75,7 +75,7 @@
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
 /datum/language/bug
-	name = "Hivenet"
+	name = LANGUAGE_VAURCA
 	desc = "A localised expression of the Vaurcae hivemind, allowing Vaurcae to communicate from across great distances. \"It's a bugs life.\""
 	speech_verb = " broadcasts"
 	colour = "vaurca"

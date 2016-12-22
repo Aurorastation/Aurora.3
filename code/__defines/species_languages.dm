@@ -28,12 +28,12 @@
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
-#define LANGUAGE_SKRELLIAN "Skrellian"
+#define LANGUAGE_SKRELLIAN "Nral'Malic"
 #define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Gutter"
-
+#define LANGUAGE_VAURCA "Hivenet"
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.
 #define RESTRICTED   2   // Language can only be acquired by spawning or an admin.

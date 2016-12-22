@@ -325,7 +325,7 @@
 	var/target = null
 	var/text = null
 
-	if(!(all_languages["Hivenet"] in src.languages))
+	if(!(all_languages[LANGUAGE_VAURCA] in src.languages))
 		src << "<span class='danger'>Your mind is dark, the unity of the hive is torn from you!</span>"
 		return
 
@@ -346,7 +346,7 @@
 		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
 		return
 
-	if(!(all_languages["Hivenet"] in M.languages))
+	if(!(all_languages[LANGUAGE_VAURCA] in M.languages))
 		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
 		return
 
