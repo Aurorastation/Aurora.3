@@ -660,9 +660,9 @@
 		src << "<span class='warning'>It won't budge!</span>"
 		return
 
-	var/mob/M = AM
+	var/mob/M = null
 	if(ismob(AM))
-
+		M = AM
 		if(!can_pull_mobs || !can_pull_size)
 			src << "<span class='warning'>It won't budge!</span>"
 			return
