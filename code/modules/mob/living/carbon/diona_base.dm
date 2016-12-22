@@ -92,8 +92,8 @@ var/list/diona_banned_languages = list(
 		if(DS.nutrient_organ.is_bruised())
 			plus *= 0.5
 	nutrition += plus
-	if (nutrition > 400)
-		nutrition = 400
+	if (nutrition > max_nutrition)
+		nutrition = max_nutrition
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)
