@@ -278,8 +278,9 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Emergency Response Team"
 
 /obj/item/weapon/card/id/ERT/New()
-	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
 	..()
+	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
+	
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
