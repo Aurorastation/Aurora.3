@@ -22,7 +22,7 @@
 
 	firemodes = list(
 		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="2-round bursts", burst=2, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.5, 0.6)),
+		list(name="2-round bursts", burst=2, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.5, 0.6))
 		)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/w556/verb/scope()
