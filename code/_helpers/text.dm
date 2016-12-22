@@ -366,7 +366,3 @@ proc/TextPreview(var/string,var/len=40)
 			if(48 to 57)			//Numbers
 				return 1
 	return 0
-
-//A shortcut for assigning a span class to a string of text
-/proc/span(var/class, var/text)
-	return "<span class='[class]'>[text]</span>"
