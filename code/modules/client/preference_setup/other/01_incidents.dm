@@ -3,6 +3,7 @@
 	sort_order = 7
 
 /datum/category_item/player_setup_item/other/incidents/load_special(var/savefile/S)
+	pref.incidents = list()
 
 	//Special Aurora Snowflake to load in the ccia actions and persistant incidents
 	if (config.sql_saves) // Doesnt work without db
@@ -41,7 +42,7 @@
 			id, char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony
 		FROM ss13_character_incidents
 		WHERE
-			char_id = ':char_id'
+			char_id = ':char_id' AND deleted_at IS NULL
 		"})
 		char_infraction_query.Execute(list(":char_id" = pref.current_character))
 
@@ -86,8 +87,9 @@
 /datum/category_item/player_setup_item/other/incidents/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["del_sec_incident"])
 		var/search_incident = text2num(href_list["del_sec_incident"])
+		var/confirm = alert(user,"Do you want to delete that incident ?","Delete Incident","Yes","No")
 
-		if(!search_incident || !CanUseTopic(user))
+		if(!search_incident || !CanUseTopic(user) || confirm == "No")
 			return TOPIC_NOACTION
 
 		for(var/datum/char_infraction/I in pref.incidents)
