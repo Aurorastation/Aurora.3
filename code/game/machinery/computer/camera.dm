@@ -3,7 +3,6 @@
 /obj/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
-	icon_keyboard = "security_key"
 	icon_screen = "cameras"
 	light_color = "#a91515"
 	var/current_network = null
@@ -202,7 +201,6 @@
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."
 	icon_state = "wallframe"
-	icon_keyboard = null
 	icon_screen = null
 	light_range_on = 0
 	network = list(NETWORK_THUNDER)
@@ -222,7 +220,6 @@
 	name = "security camera monitor"
 	desc = "An old TV hooked into the stations camera network."
 	icon_state = "television"
-	icon_keyboard = null
 	icon_screen = "detective_tv"
 	circuit = null
 	light_color = "#3848B3"
@@ -231,7 +228,6 @@
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."
-	icon_keyboard = "mining_key"
 	icon_screen = "mining"
 	network = list("MINE")
 	circuit = /obj/item/weapon/circuitboard/security/mining
@@ -240,7 +236,6 @@
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
-	icon_keyboard = "power_key"
 	icon_screen = "engie_cams"
 	circuit = /obj/item/weapon/circuitboard/security/engineering
 	light_color = "#FAC54B"

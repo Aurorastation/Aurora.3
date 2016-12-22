@@ -26,11 +26,10 @@
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
-	new /obj/item/clothing/head/beret/sec/corporate/officer(src)
-	new /obj/item/clothing/head/beret/sec/corporate/officer(src)
-	new /obj/item/clothing/head/beret/sec/corporate/officer(src)
+	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/beret/sec/alt(src)
 	return
-
 
 /obj/structure/closet/wardrobe/pink
 	name = "pink wardrobe"

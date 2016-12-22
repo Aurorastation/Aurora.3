@@ -10,7 +10,6 @@
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
 
-	var/icon_keyboard = "generic_key"
 	var/icon_screen = "generic"
 	var/light_range_on = 2
 	var/light_power_on = 1
@@ -64,8 +63,6 @@
 	overlays.Cut()
 	if(stat & NOPOWER)
 		set_light(0)
-		if(icon_keyboard)
-			overlays += image(icon,"[icon_keyboard]_off", overlay_layer)
 		return
 	else
 		set_light(light_range_on, light_power_on)
@@ -74,9 +71,6 @@
 		overlays += image(icon,"[icon_state]_broken", overlay_layer)
 	else
 		overlays += image(icon,icon_screen, overlay_layer)
-
-	if(icon_keyboard)
-		overlays += image(icon, icon_keyboard, overlay_layer)
 
 /obj/machinery/computer/power_change()
 	..()

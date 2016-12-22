@@ -3,7 +3,7 @@
 /obj/machinery/computer/secure_data//TODO:SANITY
 	name = "security records console"
 	desc = "Used to view, edit and maintain security records"
-	icon_keyboard = "security_key"
+
 	icon_screen = "security"
 	light_color = "#a91515"
 	req_one_access = list(access_security, access_forensics_lockers, access_lawyer)
@@ -637,6 +637,8 @@ What a mess.*/
 /obj/machinery/computer/secure_data/detective_computer
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "messyfiles"
+
+	icon_screen = null
 
 	light_range_on = 0
 	light_power_on = 0

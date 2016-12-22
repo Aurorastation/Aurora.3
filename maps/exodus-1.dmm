@@ -3260,7 +3260,7 @@
 "bkL" = (/obj/machinery/door/airlock{name = "Unit 4"},/turf/simulated/floor/tiled/freezer,/area/crew_quarters/locker/locker_toilet)
 "bkM" = (/obj/machinery/alarm{dir = 1; icon_state = "alarm0"; pixel_y = -22},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1},/turf/simulated/floor/tiled/freezer,/area/crew_quarters/locker/locker_toilet)
 "bkN" = (/obj/machinery/button/remote/blast_door{id = "qm_warehouse"; name = "Warehouse Door Control"; pixel_x = -1; pixel_y = -24; req_access = list(31)},/obj/structure/closet/crate,/turf/simulated/floor/tiled,/area/quartermaster/storage)
-"bkO" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/power/apc{dir = 8; name = "west bump"; pixel_x = -24},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/quartermaster/storage)
+"bkO" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/power/apc{dir = 8; name = "west bump"; pixel_x = -24},/obj/effect/decal/cleanable/dirt,/obj/structure/cable,/turf/simulated/floor/tiled,/area/quartermaster/storage)
 "bkP" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1},/obj/structure/table/steel,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/quartermaster/storage)
 "bkQ" = (/obj/effect/large_stock_marker,/turf/simulated/floor/tiled,/area/quartermaster/storage)
 "bkR" = (/obj/structure/disposalpipe/sortjunction/untagged{dir = 1},/obj/structure/table/steel,/turf/simulated/floor/tiled,/area/quartermaster/storage)

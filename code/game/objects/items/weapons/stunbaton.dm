@@ -107,57 +107,73 @@
 		return
 	return ..()
 
-/obj/item/weapon/melee/baton/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/weapon/melee/baton/attack(mob/M, mob/user,var/hit_zone)
 	if(status && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
 		deductcharge(hitcost)
 		return
 
-	if(isrobot(target))
-		return ..()
+	if(isrobot(M))
+		..()
+		return
 
 	var/agony = agonyforce
 	var/stun = stunforce
-	var/obj/item/organ/external/affecting = null
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		affecting = H.get_organ(hit_zone)
+	var/mob/living/L = M
 
+	var/target_zone = check_zone(hit_zone)
 	if(user.a_intent == I_HURT)
-		. = ..()
-		//whacking someone causes a much poorer electrical contact than deliberately prodding them.
-		agony *= 0.5
+		if (!..())	//item/attack() does it's own messaging and logs
+			return 0	// item/attack() will return 1 if they hit, 0 if they missed.
 		stun *= 0.5
 		if(status)		//Checks to see if the stunbaton is on.
 			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
 		else
 			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
-	else if(!status)
-		if(affecting)
-			target.visible_message("<span class='warning'>[target] has been prodded in the [affecting.name] with [src] by [user]. Luckily it was off.</span>")
-		else
-			target.visible_message("<span class='warning'>[target] has been prodded with [src] by [user]. Luckily it was off.</span>")
 	else
-		if(affecting)
-			target.visible_message("<span class='danger'>[target] has been prodded in the [affecting.name] with [src] by [user]!</span>")
+		//copied from human_defense.dm - human defence code should really be refactored some time.
+		if (ishuman(L))
+			user.lastattacked = L	//are these used at all, if we have logs?
+			L.lastattacker = user
+
+			if (user != L) // Attacking yourself can't miss
+				target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, L)
+
+			if(!target_zone)
+				L.visible_message("<span class='warning'>[user] misses [L] with \the [src]!</span>")
+				return 0
+
+			var/mob/living/carbon/human/H = L
+			var/obj/item/organ/external/affecting = H.get_organ(target_zone)
+			if (affecting)
+				if(!status)
+					L.visible_message("<span class='warning'>[L] has been prodded in the [affecting.name] with [src] by [user]. Luckily it was off.</span>")
+					return 1
+				else
+					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
 		else
-			target.visible_message("<span class='danger'>[target] has been prodded with [src] by [user]!</span>")
-		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
+			if(!status)
+				L.visible_message("<span class='warning'>[L] has been prodded with [src] by [user]. Luckily it was off.</span>")
+				return 1
+			else
+				L.visible_message("<span class='danger'>[L] has been prodded with [src] by [user]!</span>")
 
 	//stun effects
-	target.stun_effect_act(stun, agony, hit_zone, src)
+	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-	msg_admin_attack("[key_name(user)] stunned [key_name(target)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-
+	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+	
 	if(status)
 		deductcharge(hitcost)
 
-		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
-			H.forcesay(hit_appends)
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		H.forcesay(hit_appends)
+
+	return 1
 
 /obj/item/weapon/melee/baton/emp_act(severity)
 	if(bcell)

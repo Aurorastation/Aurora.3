@@ -195,7 +195,7 @@
 
 /obj/machinery/computer/pod/old
 	icon_state = "oldcomp"
-	icon_keyboard = null
+
 	icon_screen = "library"
 	name = "DoorMex Control Computer"
 	title = "Door Controls"

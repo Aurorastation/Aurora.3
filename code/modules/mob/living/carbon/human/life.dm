@@ -285,60 +285,47 @@
 
 	// #TODO-MERGE: Check vaurca and IPC radiation management
 	if (radiation)
-		var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
-		if(rad_organ && !rad_organ.is_broken())
-			var/rads = radiation/25
-			radiation -= rads
-			nutrition += rads
-			adjustBruteLoss(-(rads))
-			adjustFireLoss(-(rads))
-			adjustOxyLoss(-(rads))
-			adjustToxLoss(-(rads))
-			updatehealth()
-			return
+		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
+		if(src.is_diona())
+			diona_handle_regeneration(get_dionastats())
+		else
+			var/damage = 0
+			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+			if(prob(25))
+				damage = 1
 
-		if (radiation)
-			//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
-			if(src.is_diona())
-				diona_handle_regeneration(get_dionastats())
-			else
-				var/damage = 0
+			if (radiation > 50)
+				damage = 1
 				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-				if(prob(25))
-					damage = 1
+				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
+					radiation -= 5 * RADIATION_SPEED_COEFFICIENT
+					src << "<span class='warning'>You feel weak.</span>"
+					Weaken(3)
+					if(!lying)
+						emote("collapse")
+				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
+					if((h_style != "Bald" || f_style != "Shaved" ))
+						src << "<span class='warning'>Your hair falls out.</span>"
+						h_style = "Bald"
+						f_style = "Shaved"
+						update_hair()
 
-				if (radiation > 50)
-					damage = 1
-					radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-					if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
-						radiation -= 5 * RADIATION_SPEED_COEFFICIENT
-						src << "<span class='warning'>You feel weak.</span>"
-						Weaken(3)
-						if(!lying)
-							emote("collapse")
-					if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
-						if((h_style != "Bald" || f_style != "Shaved" ))
-							src << "<span class='warning'>Your hair falls out.</span>"
-							h_style = "Bald"
-							f_style = "Shaved"
-							update_hair()
+			if (radiation > 75)
+				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+				damage = 3
+				if(prob(5))
+					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+				if(prob(1))
+					src << "<span class='warning'>You feel strange!</span>"
+					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
+					emote("gasp")
 
-				if (radiation > 75)
-					radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-					damage = 3
-					if(prob(5))
-						take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-					if(prob(1))
-						src << "<span class='warning'>You feel strange!</span>"
-						adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
-						emote("gasp")
-
-				if(damage)
-					adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
-					updatehealth()
-					if(organs.len)
-						var/obj/item/organ/external/O = pick(organs)
-						if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
+			if(damage)
+				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
+				updatehealth()
+				if(organs.len)
+					var/obj/item/organ/external/O = pick(organs)
+					if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
 
 	/** breathing **/
 
@@ -937,58 +924,18 @@
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
-	var/obj/item/organ/diona/node/light_organ = locate() in internal_organs
-	if(light_organ && !light_organ.is_broken())
-		var/light_amount = 0 //how much light there is in the place, affects receiving nutrition and healing
-		if(isturf(loc)) //else, there's considered to be no light
-			var/turf/T = loc
-			var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-			if(L)
-				light_amount = min(10,L.lum_r + L.lum_g + L.lum_b) - 5 //hardcapped so it's not abused by having a ton of flashlights
-			else
-				light_amount =  5
-		nutrition += light_amount
-		traumatic_shock -= light_amount
-
-		if(species.flags & IS_PLANT)
-			if(nutrition > 450)
-				nutrition = 450
-			if(light_amount >= 3) //if there's enough light, heal
-				adjustBruteLoss(-(round(light_amount/2)))
-				adjustFireLoss(-(round(light_amount/2)))
-				adjustToxLoss(-(light_amount))
-				adjustOxyLoss(-(light_amount))
-				//TODO: heal wounds, heal broken limbs.
-
-	if(species.light_dam)
-		var/light_amount = 0
-		if(isturf(loc))
-			var/turf/T = loc
-			var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-			if(L)
-				light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-			else
-				light_amount =  10
-		if(light_amount > species.light_dam) //if there's enough light, start dying
-			take_overall_damage(1,1)
-		else //heal in the dark
-			heal_overall_damage(1,1)
 
 	// nutrition decrease
 	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - HUNGER_FACTOR)
+		nutrition = max (0, nutrition - nutrition_loss)
 
-	if (nutrition > 450)
+	if (nutrition > max_nutrition)
 		if(overeatduration < 600) //capped so people don't take forever to unfat
 			overeatduration++
 	else
 		if(overeatduration > 1)
 			overeatduration -= 2 //doubled the unfat rate
 
-	if(species.flags & IS_PLANT && (!light_organ || light_organ.is_broken()))
-		if(nutrition < 200)
-			take_overall_damage(2,0)
-			traumatic_shock++
 
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
@@ -1162,7 +1109,6 @@
 		handle_hud_list()
 
 	// now handle what we see on our screen
-
 	if(!..())
 		return
 
@@ -1197,24 +1143,7 @@
 			damageoverlay.overlays += I
 	else
 		//Oxygen damage overlay
-		if(oxyloss)
-			var/image/I
-			switch(oxyloss)
-				if(10 to 20)
-					I = overlays_cache[11]
-				if(20 to 25)
-					I = overlays_cache[12]
-				if(25 to 30)
-					I = overlays_cache[13]
-				if(30 to 35)
-					I = overlays_cache[14]
-				if(35 to 40)
-					I = overlays_cache[15]
-				if(40 to 45)
-					I = overlays_cache[16]
-				if(45 to INFINITY)
-					I = overlays_cache[17]
-			damageoverlay.overlays += I
+		update_oxy_overlay()
 
 		// Vampire frenzy overlay.
 		if (mind.vampire)
@@ -1247,8 +1176,7 @@
 			see_in_dark = 8
 			if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
 			if(healths)		healths.icon_state = "health7"	//DEAD healthmeter
-		// #TODO-MERGE: Check the indentation of this file! It's awful!
-		if(healths)
+			// #TODO-MERGE: Check the indentation of this file! It's awful!
 			if(client.view != world.view) // If mob dies while zoomed in with device, unzoom them.
 				for(var/obj/item/item in contents)
 					if(item.zoom)
@@ -1299,13 +1227,14 @@
 
 			update_health_display()
 
-
-			if(nutrition_icon)
-				switch(nutrition)
-					if(450 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
-					if(350 to 450)					nutrition_icon.icon_state = "nutrition1"
-					if(250 to 350)					nutrition_icon.icon_state = "nutrition2"
-					if(150 to 250)					nutrition_icon.icon_state = "nutrition3"
+			//Update hunger UI less often, its not important
+			if((life_tick % 3 == 0) && nutrition_icon)
+				var/nut_factor = max(1,nutrition) / max_nutrition
+				switch(nut_factor)
+					if(1 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
+					if(0.75 to 1)					nutrition_icon.icon_state = "nutrition1"
+					if(0.5 to 0.75)					nutrition_icon.icon_state = "nutrition2"
+					if(0.25 to 0.5)					nutrition_icon.icon_state = "nutrition3"
 					else							nutrition_icon.icon_state = "nutrition4"
 
 			if(pressure)

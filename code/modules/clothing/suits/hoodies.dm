@@ -1,0 +1,142 @@
+//Hoods for winter coats and chaplain hoodie etc
+
+/obj/item/clothing/suit/storage/hooded
+	var/obj/item/clothing/head/winterhood/hood
+	var/hoodtype = null
+	var/suittoggled = 0
+	var/hooded = 0
+
+/obj/item/clothing/suit/storage/hooded/New()
+	MakeHood()
+	..()
+
+/obj/item/clothing/suit/storage/hooded/Destroy()
+	qdel(hood)
+	return ..()
+
+/obj/item/clothing/suit/storage/hooded/proc/MakeHood()
+	if(!hood)
+		var/obj/item/clothing/head/winterhood/W = new hoodtype(src)
+		hood = W
+
+/obj/item/clothing/suit/storage/hooded/equipped(mob/user, slot)
+	if(slot != slot_wear_suit)
+		RemoveHood()
+	..()
+
+/obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
+	icon_state = "[initial(icon_state)]"
+	item_state = "[initial(item_state)]"
+	suittoggled = 0
+	if(ishuman(hood.loc))
+		var/mob/living/carbon/H = hood.loc
+		H.unEquip(hood, 1)
+		H.update_inv_wear_suit()
+	hood.loc = src
+
+/obj/item/clothing/suit/storage/hooded/dropped()
+	RemoveHood()
+
+/obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
+
+	set name ="Toggle Coat Hood"
+	set category = "Object"
+	set src in usr
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return 0
+
+	if(!suittoggled)
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = src.loc
+			if(H.wear_suit != src)
+				H << "<span class='warning'>You must be wearing [src] to put up the hood!</span>"
+				return
+			if(H.head)
+				H << "<span class='warning'>You're already wearing something on your head!</span>"
+				return
+			else
+				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
+				suittoggled = 1
+				icon_state = "[initial(icon_state)]_t"
+				item_state = "[initial(item_state)]_t"
+				H.update_inv_wear_suit()
+	else
+		RemoveHood()
+
+
+//hoodies and the like
+
+/obj/item/clothing/suit/storage/hooded/wintercoat
+	name = "winter coat"
+	desc = "A heavy jacket made from animal furs."
+	icon = 'icons/obj/hoodies.dmi'
+	icon_state = "coatwinter"
+	item_state = "coatwinter"
+	contained_sprite = 1
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	hooded = 1
+	hoodtype = /obj/item/clothing/head/winterhood
+
+/obj/item/clothing/head/winterhood
+	name = "winter hood"
+	desc = "A hood attached to a heavy winter jacket."
+	icon = 'icons/obj/hoodies.dmi'
+	icon_state = "generic_hood"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	flags_inv = HIDEEARS | BLOCKHAIR
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	canremove = 0
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/captain
+	name = "captain's winter coat"
+	icon_state = "coatcaptain"
+	item_state = "coatcaptain"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/security
+	name = "security winter coat"
+	icon_state = "coatsecurity"
+	item_state = "coatsecurity"
+	armor = list(melee = 25, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/medical
+	name = "medical winter coat"
+	icon_state = "coatmedical"
+	item_state = "coatmedical"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/science
+	name = "science winter coat"
+	icon_state = "coatscience"
+	item_state = "coatscience"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/engineering
+	name = "engineering winter coat"
+	icon_state = "coatengineer"
+	item_state = "coatengineer"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 20)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
+	name = "atmospherics winter coat"
+	icon_state = "coatatmos"
+	item_state = "coatatmos"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hydro
+	name = "hydroponics winter coat"
+	icon_state = "coathydro"
+	item_state = "coathydro"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/cargo
+	name = "cargo winter coat"
+	icon_state = "coatcargo"
+	item_state = "coatcargo"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/miner
+	name = "mining winter coat"
+	icon_state = "coatminer"
+	item_state = "coatminer"

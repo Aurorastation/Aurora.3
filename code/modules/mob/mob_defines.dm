@@ -110,6 +110,8 @@
 	var/drowsyness = 0.0//Carbon
 	var/charges = 0.0
 	var/nutrition = 400.0//Carbon
+	var/nutrition_loss = HUNGER_FACTOR//How much hunger is lost per tick. This is modified by species
+	var/max_nutrition = 400
 
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 	var/paralysis = 0.0

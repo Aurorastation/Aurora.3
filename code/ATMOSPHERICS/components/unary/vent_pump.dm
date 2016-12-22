@@ -351,31 +351,28 @@
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
-		if (WT.remove_fuel(0,user))
+		if (!WT.welding)
+			user << "<span class='danger'>\The [WT] must be turned on!</span>"
+		else if (WT.remove_fuel(0,user))
 			user << "<span class='notice'>Now welding the vent.</span>"
 			if(do_after(user, 20))
 				if(!src || !WT.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				if(!welded)
-					user.visible_message("<span class='notice'>\The [user] welds the vent shut.</span>", "<span class='notice'>You weld the vent shut.</span>", "You hear welding.")
+					user.visible_message("<span class='danger'>\The [user] welds \the [src] shut.</span>", "<span class='notice'>You weld \the [src] shut.</span>", "You hear welding.")
 					welded = 1
 					update_icon()
 				else
-					user.visible_message("<span class='notice'>[user] unwelds the vent.</span>", "<span class='notice'>You unweld the vent.</span>", "You hear welding.")
+					user.visible_message("<span class='danger'>[user] unwelds \the [src].</span>", "<span class='notice'>You unweld \the [src].</span>", "You hear welding.")
 					welded = 0
 					update_icon()
 			else
-				user << "<span class='notice'>The welding tool needs to be on to start this task.</span>"
+				user << "<span class='notice'>You fail to complete the welding.</span>"
 		else
 			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 			return 1
 	else
 		..()
-
-/obj/machinery/atmospherics/unary/vent_pump/proc/is_welded()
-	if (welded > 0)
-		return 1
-	return 0
 
 /obj/machinery/atmospherics/unary/vent_pump/examine(mob/user)
 	if(..(user, 1))
