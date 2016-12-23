@@ -173,3 +173,40 @@ Proc for attack log creation, because really why not
 		return pick("head", "l_hand", "r_hand", "l_foot", "r_foot", "l_arm", "r_arm", "l_leg", "r_leg")
 	else
 		return pick("chest", "groin")
+
+
+// Returns true if M was not already in the dead mob list
+/mob/proc/switch_from_living_to_dead_mob_list()
+	remove_from_living_mob_list()
+	. = add_to_dead_mob_list()
+
+// Returns true if M was not already in the living mob list
+/mob/proc/switch_from_dead_to_living_mob_list()
+	remove_from_dead_mob_list()
+	. = add_to_living_mob_list()
+
+// Returns true if the mob was in neither the dead or living list
+/mob/proc/add_to_living_mob_list()
+	return FALSE
+/mob/living/add_to_living_mob_list()
+	if((src in living_mob_list) || (src in dead_mob_list))
+		return FALSE
+	living_mob_list += src
+	return TRUE
+
+// Returns true if the mob was removed from the living list
+/mob/proc/remove_from_living_mob_list()
+	return living_mob_list.Remove(src)
+
+// Returns true if the mob was in neither the dead or living list
+/mob/proc/add_to_dead_mob_list()
+	return FALSE
+/mob/living/add_to_dead_mob_list()
+	if((src in living_mob_list) || (src in dead_mob_list))
+		return FALSE
+	dead_mob_list += src
+	return TRUE
+
+// Returns true if the mob was removed form the dead list
+/mob/proc/remove_from_dead_mob_list()
+	return dead_mob_list.Remove(src)

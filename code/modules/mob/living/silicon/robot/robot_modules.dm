@@ -180,7 +180,7 @@ var/global/list/robot_modules = list(
 	name = "medical robot module"
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
+	subsystems = list(/datum/nano_module/crew_monitor)
 	can_be_pushed = 0
 	sprites = list(
 				"Basic" = "Medbot",
@@ -301,7 +301,7 @@ var/global/list/robot_modules = list(
 	name = "engineering robot module"
 	channels = list("Engineering" = 1)
 	networks = list(NETWORK_ENGINEERING)
-	subsystems = list(/mob/living/silicon/proc/subsystem_power_monitor)
+	subsystems = list(/datum/nano_module/power_monitor)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
 					"Basic" = "Engineering",
@@ -421,7 +421,7 @@ var/global/list/robot_modules = list(
 	name = "security robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
+	subsystems = list(/datum/nano_module/crew_monitor)
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/borg/upgrade/tasercooler,/obj/item/robot_parts/robot_component/jetpack)
 
@@ -681,7 +681,7 @@ var/global/list/robot_modules = list(
 	name = "combat robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
+	subsystems = list(/datum/nano_module/crew_monitor)
 	sprites = list("Combat Android" = "droid-combat")
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)

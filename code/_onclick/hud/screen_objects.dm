@@ -427,20 +427,20 @@
 				var/mob/living/silicon/ai/AI = usr
 				AI.toggle_camera_light()
 
-		if("Crew Monitoring")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.subsystem_crew_monitor()
+		// if("Crew Monitoring")
+		// 	if(isAI(usr))
+		// 		var/mob/living/silicon/ai/AI = usr
+		// 		AI.subsystem_crew_monitor()
 
 		if("Show Crew Manifest")
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
 				AI.show_station_manifest()
 
-		if("Show Alerts")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.subsystem_alarm_monitor()
+		// if("Show Alerts")
+		// 	if(isAI(usr))
+		// 		var/mob/living/silicon/ai/AI = usr
+		// 		AI.subsystem_alarm_monitor()
 
 		if("Announcement")
 			if(isAI(usr))
@@ -452,10 +452,10 @@
 				var/mob/living/silicon/ai/AI = usr
 				AI.ai_call_shuttle()
 
-		if("State Laws")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.subsystem_law_manager()
+		// if("State Laws")
+		// 	if(isAI(usr))
+		// 		var/mob/living/silicon/ai/AI = usr
+		// 		AI.subsystem_law_manager()
 
 		if("PDA - Send Message")
 			if(isAI(usr))

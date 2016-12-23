@@ -12,7 +12,7 @@ obj/machinery/recharger
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging = null
 
-	var/list/allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton, /obj/item/laptop, /obj/item/weapon/cell, /obj/item/modular_computer/, /obj/item/device/suit_sensor_jammer, /obj/item/weapon/computer_hardware/battery_module)
+	var/list/allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton, /obj/item/laptop, /obj/item/weapon/cell, /obj/item/modular_computer/, /obj/item/weapon/computer_hardware/battery_module)
 	var/icon_state_charged = "recharger2"
 	var/icon_state_charging = "recharger1"
 	var/icon_state_idle = "recharger0" //also when unpowered
@@ -113,10 +113,7 @@ obj/machinery/recharger/process()
 		icon_state = icon_state_idle
 	else
 		var/cell = charging
-		if(istype(charging, /obj/item/device/suit_sensor_jammer))
-			var/obj/item/device/suit_sensor_jammer/J = charging
-			charging = J.bcell
-		else if(istype(charging, /obj/item/weapon/melee/baton))
+		if(istype(charging, /obj/item/weapon/melee/baton))
 			var/obj/item/weapon/melee/baton/B = charging
 			cell = B.bcell
 		else if(istype(charging, /obj/item/modular_computer))

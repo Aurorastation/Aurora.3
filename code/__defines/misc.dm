@@ -204,6 +204,10 @@
 #define PROGRAM_LAPTOP 2
 #define PROGRAM_TABLET 4
 
+#define PROGRAM_STATE_KILLED 0
+#define PROGRAM_STATE_BACKGROUND 1
+#define PROGRAM_STATE_ACTIVE 2
+
 // Caps for NTNet logging. Less than 10 would make logging useless anyway, more than 500 may make the log browser too laggy. Defaults to 100 unless user changes it.
 #define MAX_NTNET_LOGS 500
 #define MIN_NTNET_LOGS 10
@@ -248,3 +252,26 @@
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
 //#define PERMAPRISON_SENTENCE 60 // Measured in IC days
 #define FELONY_LEVEL 2.0 // What is the minimum law severity that counts as a felony?
+
+// How many times an AI tries to connect to APC before switching to low power mode.
+#define AI_POWER_RESTORE_MAX_ATTEMPTS 3
+
+// AI power restoration routine steps.
+#define AI_RESTOREPOWER_FAILED -1
+#define AI_RESTOREPOWER_IDLE 0
+#define AI_RESTOREPOWER_STARTING 1
+#define AI_RESTOREPOWER_DIAGNOSTICS 2
+#define AI_RESTOREPOWER_CONNECTING 3
+#define AI_RESTOREPOWER_CONNECTED 4
+#define AI_RESTOREPOWER_COMPLETED 5
+
+
+// Values represented as Oxyloss. Can be tweaked, but make sure to use integers only.
+#define AI_POWERUSAGE_LOWPOWER 1
+#define AI_POWERUSAGE_RESTORATION 2
+#define AI_POWERUSAGE_NORMAL 5
+#define AI_POWERUSAGE_RECHARGING 7
+
+// Above values get multiplied by this when converting AI oxyloss -> watts.
+// For now, one oxyloss point equals 10kJ of energy, so normal AI uses 5 oxyloss per tick (50kW or 70kW if charging)
+#define AI_POWERUSAGE_OXYLOSS_TO_WATTS_MULTIPLIER 10000

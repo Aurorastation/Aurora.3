@@ -64,14 +64,14 @@
 	..()
 	if(name != "sheet of paper")
 		user << "It's titled '[name]'."
-	if(in_range(user, src) || isghost(user))
+	if(in_range(user, src) || isobserver(user))
 		show_content(usr)
 	else
 		user << "<span class='notice'>You have to go closer if you want to read it.</span>"
 
 
 /obj/item/weapon/paper/proc/show_content(mob/user, forceshow)
-	var/can_read = (istype(user, /mob/living/carbon/human) || isghost(user) || istype(user, /mob/living/silicon)) || forceshow
+	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2

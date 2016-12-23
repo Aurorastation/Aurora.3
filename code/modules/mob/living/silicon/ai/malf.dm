@@ -20,23 +20,32 @@
 	user << "Use ai-help command to view relevant information about your abilities"
 
 // Safely remove malfunction status, fixing hacked APCs and resetting variables.
-/mob/living/silicon/ai/proc/stop_malf()
+/mob/living/silicon/ai/proc/stop_malf(var/loud = 1)
+	if(!malfunctioning)
+		return
 	var/mob/living/silicon/ai/user = src
 	log_ability_use(user, "malfunction status removed")
 	// Generic variables
 	malfunctioning = 0
 	sleep(10)
 	research = null
+	hardware = null
 	// Fix hacked APCs
 	if(hacked_apcs)
 		for(var/obj/machinery/power/apc/A in hacked_apcs)
 			A.hacker = null
+			A.update_icon()
 	hacked_apcs = null
+	// Stop the delta alert, and, if applicable, self-destruct timer.
+	bombing_station = 0
+	if(security_level == SEC_LEVEL_DELTA)
+		set_security_level(SEC_LEVEL_RED)
 	// Reset our verbs
 	src.verbs.Cut()
 	add_ai_verbs()
 	// Let them know.
-	user << "You are no longer malfunctioning. Your abilities have been removed."
+	if(loud)
+		user << "You are no longer malfunctioning. Your abilities have been removed."
 
 // Called every tick. Checks if AI is malfunctioning. If yes calls Process on research datum which handles all logic.
 /mob/living/silicon/ai/proc/malf_process()
@@ -136,9 +145,3 @@
 				stat("SYSTEM OVERRIDE INITIATED")
 			else if(system_override == 2)
 				stat("SYSTEM OVERRIDE COMPLETED")
-
-// Cleaner proc for creating powersupply for an AI.
-/mob/living/silicon/ai/proc/create_powersupply()
-	if(psupply)
-		qdel(psupply)
-	psupply = new/obj/machinery/ai_powersupply(src)

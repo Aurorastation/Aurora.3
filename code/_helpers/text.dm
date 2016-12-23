@@ -384,6 +384,10 @@ proc/TextPreview(var/string,var/len=40)
  */
 #define strip_improper(input_text) replacetext(replacetext(input_text, "\proper", ""), "\improper", "")
 
+//A shortcut for assigning a span class to a string of text
+/proc/span(var/class, var/text)
+	return "<span class='[class]'>[text]</span>"
+
 /proc/pencode2html(t)
 	t = replacetext(t, "\n", "<BR>")
 	t = replacetext(t, "\[center\]", "<center>")
@@ -395,8 +399,6 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[/i\]", "</I>")
 	t = replacetext(t, "\[u\]", "<U>")
 	t = replacetext(t, "\[/u\]", "</U>")
-	t = replacetext(t, "\[time\]", "[stationtime2text()]")
-	t = replacetext(t, "\[date\]", "[stationdate2text()]")
 	t = replacetext(t, "\[large\]", "<font size=\"4\">")
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[field\]", "<span class=\"paper_field\"></span>")

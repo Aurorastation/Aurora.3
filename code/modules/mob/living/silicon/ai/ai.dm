@@ -65,6 +65,10 @@ var/list/ai_verbs_default = list(
 	var/datum/announcement/priority/announcement
 	var/obj/machinery/ai_powersupply/psupply = null // Backwards reference to AI's powersupply object.
 	var/hologram_follow = 1 //This is used for the AI eye, to determine if a holopad's hologram should follow it or not
+	var/power_override_active = 0 				// If set to 1 the AI gains oxyloss (power loss damage) much faster, but is able to work as if powered normally.
+	var/admin_powered = 0						// For admin/debug use only, makes the AI have infinite power.
+	var/self_shutdown = 0						// Set to 1 when the AI uses self-shutdown verb to turn itself off. Reduces power usage but makes the AI mostly inoperable.
+
 
 	//NEWMALF VARIABLES
 	var/malfunctioning = 0						// Master var that determines if AI is malfunctioning.
@@ -276,13 +280,13 @@ var/list/ai_verbs_default = list(
 	The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
 	The alternative was to rewrite a bunch of AI code instead here we are.
 */
-/obj/machinery/ai_powersupply
-	name="Power Supply"
-	active_power_usage=50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
-	use_power = 2
-	power_channel = EQUIP
-	var/mob/living/silicon/ai/powered_ai = null
-	invisibility = 100
+// /obj/machinery/ai_powersupply
+// 	name="Power Supply"
+// 	active_power_usage=50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
+// 	use_power = 2
+// 	power_channel = EQUIP
+// 	var/mob/living/silicon/ai/powered_ai = null
+// 	invisibility = 100
 
 /obj/machinery/ai_powersupply/New(var/mob/living/silicon/ai/ai=null)
 	powered_ai = ai
@@ -451,7 +455,7 @@ var/list/ai_verbs_default = list(
 	if (href_list["switchcamera"])
 		switchCamera(locate(href_list["switchcamera"])) in cameranet.cameras
 	if (href_list["showalerts"])
-		subsystem_alarm_monitor()
+		open_subsystem(/datum/nano_module/alarm_monitor/all)
 	//Carn: holopad requests
 	if (href_list["jumptoholopad"])
 		var/obj/machinery/hologram/holopad/H = locate(href_list["jumptoholopad"])

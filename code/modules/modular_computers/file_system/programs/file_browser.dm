@@ -7,7 +7,7 @@
 	requires_ntnet = 0
 	available_on_ntnet = 0
 	undeletable = 1
-	nanomodule_path = /datum/nano_module/computer_filemanager/
+	nanomodule_path = /datum/nano_module/program/computer_filemanager/
 	var/open_file
 	var/error
 
@@ -141,14 +141,9 @@
 	name = "NTOS File Manager"
 
 /datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-
 	var/datum/computer_file/program/filemanager/PRG
-	var/list/data = list()
-	if(program)
-		data = program.get_header_data()
-		PRG = program
-	else
-		return
+	var/list/data = program.get_header_data()
+	PRG = program
 
 	var/obj/item/weapon/computer_hardware/hard_drive/HDD
 	var/obj/item/weapon/computer_hardware/hard_drive/portable/RHDD
@@ -200,5 +195,3 @@
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
-
-
