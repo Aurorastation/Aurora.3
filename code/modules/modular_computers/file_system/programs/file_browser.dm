@@ -109,7 +109,7 @@
 		if(!computer.nano_printer)
 			error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
 			return 1
-		if(!computer.nano_printer.print_text(parse_tags(F.stored_data)))
+		if(!computer.nano_printer.print_text(pencode2html(F.stored_data)))
 			error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 			return 1
 	if(href_list["PRG_copytousb"])
@@ -137,48 +137,10 @@
 	if(.)
 		nanomanager.update_uis(NM)
 
-/datum/computer_file/program/filemanager/proc/parse_tags(var/t)
-	t = replacetext(t, "\[center\]", "<center>")
-	t = replacetext(t, "\[/center\]", "</center>")
-	t = replacetext(t, "\[br\]", "<BR>")
-	t = replacetext(t, "\[b\]", "<B>")
-	t = replacetext(t, "\[/b\]", "</B>")
-	t = replacetext(t, "\[i\]", "<I>")
-	t = replacetext(t, "\[/i\]", "</I>")
-	t = replacetext(t, "\[u\]", "<U>")
-	t = replacetext(t, "\[/u\]", "</U>")
-	t = replacetext(t, "\[time\]", "[worldtime2text()]")
-	t = replacetext(t, "\[date\]", "[worlddate2text()]")
-	t = replacetext(t, "\[large\]", "<font size=\"4\">")
-	t = replacetext(t, "\[/large\]", "</font>")
-	t = replacetext(t, "\[h1\]", "<H1>")
-	t = replacetext(t, "\[/h1\]", "</H1>")
-	t = replacetext(t, "\[h2\]", "<H2>")
-	t = replacetext(t, "\[/h2\]", "</H2>")
-	t = replacetext(t, "\[h3\]", "<H3>")
-	t = replacetext(t, "\[/h3\]", "</H3>")
-	t = replacetext(t, "\[*\]", "<li>")
-	t = replacetext(t, "\[hr\]", "<HR>")
-	t = replacetext(t, "\[small\]", "<font size = \"1\">")
-	t = replacetext(t, "\[/small\]", "</font>")
-	t = replacetext(t, "\[list\]", "<ul>")
-	t = replacetext(t, "\[/list\]", "</ul>")
-	t = replacetext(t, "\[table\]", "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'>")
-	t = replacetext(t, "\[/table\]", "</td></tr></table>")
-	t = replacetext(t, "\[grid\]", "<table>")
-	t = replacetext(t, "\[/grid\]", "</td></tr></table>")
-	t = replacetext(t, "\[row\]", "</td><tr>")
-	t = replacetext(t, "\[tr\]", "</td><tr>")
-	t = replacetext(t, "\[td\]", "<td>")
-	t = replacetext(t, "\[cell\]", "<td>")
-	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
-	return t
-
-
-/datum/nano_module/computer_filemanager
+/datum/nano_module/program/computer_filemanager
 	name = "NTOS File Manager"
 
-/datum/nano_module/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 
 	var/datum/computer_file/program/filemanager/PRG
 	var/list/data = list()
@@ -203,7 +165,7 @@
 			if(!istype(file))
 				data["error"] = "I/O ERROR: Unable to open file."
 			else
-				data["filedata"] = PRG.parse_tags(file.stored_data)
+				data["filedata"] = pencode2html(file.stored_data)
 				data["filename"] = "[file.filename].[file.filetype]"
 	else
 		if(!PRG.computer || !PRG.computer.hard_drive)
