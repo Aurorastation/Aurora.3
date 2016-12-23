@@ -49,38 +49,43 @@
 	can_pull_size = 1
 	can_pull_mobs = MOB_PULL_NONE
 
+	var/decompose_time = 18000
+
 /mob/living/simple_animal/mouse/Life()
-	..()
+	if(..())
 
-	if(client)
-		//Player-animals don't do random speech normally, so this is here
-		//Player-controlled mice will still squeak, but less often than NPC mice
-		if (stat == CONSCIOUS && prob(speak_chance*0.1))
-			squeak_soft(0)
+		if(client)
+			//Player-animals don't do random speech normally, so this is here
+			//Player-controlled mice will still squeak, but less often than NPC mice
+			if (stat == CONSCIOUS && prob(speak_chance*0.1))
+				squeak_soft(0)
 
-		if(is_ventcrawling == 0)
-			sight = SEE_SELF // Returns mouse sight to normal when they leave a vent
+			if(is_ventcrawling == 0)
+				sight = SEE_SELF // Returns mouse sight to normal when they leave a vent
 
-		if (squeals < maxSqueals)
-			var/diff = world.time - last_squealgain
-			if (diff > 600)
-				squeals++
-				last_squealgain = world.time
+			if (squeals < maxSqueals)
+				var/diff = world.time - last_squealgain
+				if (diff > 600)
+					squeals++
+					last_squealgain = world.time
 
-	if(!ckey && stat == CONSCIOUS && prob(0.5))
-		stat = UNCONSCIOUS
-		icon_state = "mouse_[body_color]_sleep"
-		wander = 0
-		speak_chance = 0
-		//snuffles
-	else if(stat == UNCONSCIOUS)
-		if(ckey || prob(1))
-			stat = CONSCIOUS
-			icon_state = "mouse_[body_color]"
-			wander = 1
-			speak_chance = initial(speak_chance)
-		else if(prob(5))
-			audible_emote("snuffles.")
+		if(!ckey && stat == CONSCIOUS && prob(0.5))
+			stat = UNCONSCIOUS
+			icon_state = "mouse_[body_color]_sleep"
+			wander = 0
+			speak_chance = 0
+			//snuffles
+		else if(stat == UNCONSCIOUS)
+			if(ckey || prob(1))
+				stat = CONSCIOUS
+				icon_state = "mouse_[body_color]"
+				wander = 1
+				speak_chance = initial(speak_chance)
+			else if(prob(5))
+				audible_emote("snuffles.")
+	else
+		if ((world.time - timeofdeath) > decompose_time)
+			dust()
 
 
 
@@ -220,6 +225,9 @@
 	if(client)
 		client.time_died_as_mouse = world.time
 	..()
+
+/mob/living/simple_animal/mouse/dust()
+	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
 
 /mob/living/simple_animal/mouse/lay_down()
 	set name = "Rest"

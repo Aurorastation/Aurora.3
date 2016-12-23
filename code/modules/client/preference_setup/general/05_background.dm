@@ -25,7 +25,8 @@
 /datum/category_item/player_setup_item/general/background/gather_load_query()
 	return list("ss13_characters_flavour" = list("vars" = list("records_employment" = "gen_record",
 																"records_medical" = "med_record",
-																"records_security" = "sec_record"),
+																"records_security" = "sec_record",
+																"records_ccia" = "ccia_record"),
 												"args" = list("char_id")),
 				"ss13_characters" = list("vars" = list("home_system", "citizenship", "faction", "religion"), "args" = list("id")))
 

@@ -62,9 +62,9 @@
 	if (!istype(user))
 		return 0
 
-	var/list/permitted_locations = list("user_dashboard", "contract_overview", "contract_details")
+	var/list/permitted_locations = list("user_dashboard", "contract_overview", "contract_details", "security_incident")
 
-	if (!webint_validate_attributes(list("location" = permitted_locations, "contract"), attributes_text = attributes))
+	if (!webint_validate_attributes(list("location" = permitted_locations, "contract", "incident"), attributes_text = attributes))
 		return 0
 
 	var/token = ""

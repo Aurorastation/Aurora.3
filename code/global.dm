@@ -164,3 +164,7 @@ var/list/station_departments = list("Command", "Medical", "Engineering", "Scienc
 var/global/const/TICKS_IN_DAY = 864000
 var/global/const/TICKS_IN_HOUR = 36000
 var/global/const/TICKS_IN_SECOND = 10
+
+
+//List of exosuit tracking beacons, to save performance
+var/global/list/exo_beacons = list()
