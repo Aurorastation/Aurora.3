@@ -26,7 +26,7 @@
 	return list("ss13_characters" = list("underwear", "undershirt", "socks", "backbag", "gear", "id" = 1))
 
 /datum/category_item/player_setup_item/general/equipment/gather_save_parameters()
-	return list(":underwear" = pref.underwear, ":undershirt" = pref.undershirt, ":backbag" = pref.backbag, ":gear" = list2params(pref.gear), ":id" = pref.current_character)
+	return list(":underwear" = pref.underwear, ":undershirt" = pref.undershirt, ":socks" = pref.socks, ":backbag" = pref.backbag, ":gear" = list2params(pref.gear), ":id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/equipment/sanitize_character(var/sql_load = 0)
 	if (sql_load)
