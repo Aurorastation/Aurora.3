@@ -88,6 +88,8 @@ var/list/holder_mob_icon_cache = list()
 	origin_tech = list(TECH_BIO = 6)
 
 /obj/item/weapon/holder/process()
+	if (!contained)
+		qdel(src)
 
 	if(!get_holding_mob() || contained.loc != src)
 		if (is_unsafe_container(loc) && contained.loc == src)
