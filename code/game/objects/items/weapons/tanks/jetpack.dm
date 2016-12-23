@@ -11,6 +11,8 @@
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail
 	var/on = 0.0
 	var/stabilization_on = 0
+	var/warned = 0
+	var/warnednogas
 	var/volume_rate = 500              //Needed for borg jetpack transfer
 	action_button_name = "Toggle Jetpack"
 
@@ -63,6 +65,12 @@
 	if((num < 0.005 || src.air_contents.total_moles < num))
 		src.ion_trail.stop()
 		return 0
+
+	if((num < 5))
+		if(src.air_contents.total_moles <num && warned != 1)
+			warned = 1
+			playsound(user, 'sound/effects/alert.ogg', 50, 1)
+			user << "<span class='danger'>The meter on \the [src] indicates you are almost out of gas and beeps loudly!</span>"
 
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)
