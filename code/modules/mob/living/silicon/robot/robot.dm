@@ -73,6 +73,14 @@
 	var/wiresexposed = 0
 	var/locked = 1
 	var/has_power = 1
+
+	var/lawpreset = /datum/ai_laws/nanotrasen
+	var/spawn_module = null
+	var/key_type = null
+	var/spawn_sound = 'sound/voice/liveagain.ogg'
+	var/cell_type = /obj/item/weapon/cell/high
+	var/pitch_toggle = 1
+
 	var/list/req_access = list(access_robotics)
 	var/ident = 0
 	//var/list/laws = list()
@@ -117,7 +125,7 @@
 	ident = rand(1, 999)
 	module_sprites["Basic"] = "robot"
 	icontype = "Basic"
-	updatename("Default")
+	updatename(modtype)
 	updateicon()
 
 	radio = new /obj/item/device/radio/borg(src)
@@ -140,9 +148,7 @@
 		C.wrapped = new C.external_type
 
 	if(!cell)
-		cell = new /obj/item/weapon/cell(src)
-		cell.maxcharge = 7500
-		cell.charge = 7500
+		cell = new cell_type(src)
 
 	..()
 
@@ -174,15 +180,21 @@
 
 /mob/living/silicon/robot/proc/init()
 	aiCamera = new/obj/item/device/camera/siliconcam/robot_camera(src)
-	laws = new /datum/ai_laws/nanotrasen()
-	var/new_ai = select_active_ai_with_fewest_borgs()
-	if(new_ai)
-		lawupdate = 1
-		connect_to_ai(new_ai)
-	else
-		lawupdate = 0
+	laws = new lawpreset()
+	if(spawn_module)
+		new spawn_module(src)
+	if(key_type)
+		radio.keyslot = new key_type(radio)
+		radio.recalculateChannels()
+	if(lawupdate)
+		var/new_ai = select_active_ai_with_fewest_borgs()
+		if(new_ai)
+			lawupdate = 1
+			connect_to_ai(new_ai)
+		else
+			lawupdate = 0
 
-	playsound(loc, 'sound/voice/liveagain.ogg', 75, 1)
+	playsound(loc, spawn_sound, 75, pitch_toggle)
 
 /mob/living/silicon/robot/SetName(pickedName as text)
 	custom_name = pickedName
