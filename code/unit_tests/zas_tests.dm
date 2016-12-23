@@ -2,13 +2,14 @@
  *
  *  Zas Unit Tests.
  *  Shuttle Pressurized.
- *  
+ *
  *
  */
 
 #define UT_NORMAL 1                   // Standard one atmosphere 20celsius
 #define UT_VACUUM 2                   // Vacume on simulated turfs
 #define UT_NORMAL_COLD 3              // Cold but standard atmosphere.
+#define UT_NORMAL_COOL 4              // Cool (5C) but standard atmosphere.
 
 #define FAILURE 0
 #define SUCCESS 1
@@ -71,13 +72,13 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 					return test_result
 
 
-			if(UT_NORMAL || UT_NORMAL_COLD)
+			if(UT_NORMAL || UT_NORMAL_COLD || UT_NORMAL_COOL)
 				if(abs(pressure - ONE_ATMOSPHERE) > 10)
 					test_result["msg"] = "Pressure out of bounds: [pressure] | [t_msg]"
 					return test_result
 
 				if(expectation == UT_NORMAL)
-	
+
 					if(abs(temp - T20C) > 10)
 						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
 						return test_result
@@ -85,6 +86,10 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 				if(expectation == UT_NORMAL_COLD)
 
 					if(temp > 120)
+						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
+						return test_result
+				if(expectation == UT_NORMAL_COOL)
+					if(temp > 283)
 						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
 						return test_result
 
@@ -112,6 +117,7 @@ datum/unit_test/zas_area_test/emergency_shuttle
 datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
 	area_path = /area/turret_protected/ai
+	expectation = UT_NORMAL_COOL
 
 datum/unit_test/zas_area_test/arrival_maint
 	name = "ZAS: Arrival Maintenance"
@@ -123,7 +129,7 @@ datum/unit_test/zas_area_test/mining_shuttle_at_station
 
 datum/unit_test/zas_area_test/
 	name = "ZAS: Cargo Maintenance"
-	area_path = /area/maintenance/cargo 
+	area_path = /area/maintenance/cargo
 
 datum/unit_test/zas_area_test/eng_shuttle
 	name = "ZAS: Construction Site Shuttle (Station)"
@@ -131,8 +137,8 @@ datum/unit_test/zas_area_test/eng_shuttle
 
 datum/unit_test/zas_area_test/incinerator
 	name = "ZAS: Incinerator"
-	area_path = /area/maintenance/incinerator 
-	disabled = 1		
+	area_path = /area/maintenance/incinerator
+	disabled = 1
 	why_disabled = "Scrubber pulls air, this area cannot be tested."
 
 datum/unit_test/zas_area_test/virology
@@ -141,7 +147,7 @@ datum/unit_test/zas_area_test/virology
 
 datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
-	area_path = /area/rnd/xenobiology 
+	area_path = /area/rnd/xenobiology
 
 datum/unit_test/zas_area_test/research_maint_starboard
 	name = "ZAS: Research Starboard Maintenance"
@@ -181,7 +187,7 @@ datum/unit_test/zas_supply_shuttle_moved/start_test()
 
 	if(!shuttle_controller || !shuttle_controller.shuttles.len)
 		fail("Shuttle Controller not setup at time of test.")
-	
+
 	Shuttle = shuttle_controller.shuttles["Supply"]
 	supply_controller.movetime = 5 // Speed up the shuttle movement.
 
@@ -206,7 +212,7 @@ datum/unit_test/zas_supply_shuttle_moved/check_result()
 
 	if(world.time < testtime)
 		return 0
-		
+
 
 	var/list/test = test_air_in_area(/area/supply/station)
 	if(isnull(test))

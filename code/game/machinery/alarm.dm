@@ -113,6 +113,7 @@
 	idle_power_usage *= 3
 	name = "High Power [name]"
 	req_one_access.Add(access_kitchen)
+	TLV["oxygen"] =			list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
 	TLV["temperature"] =	list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 	target_temperature = 253//-20c
