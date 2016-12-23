@@ -44,6 +44,14 @@
 /obj/item/weapon/gun/projectile/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
 
+/obj/item/weapon/gun/projectile/sec/flash
+	name = ".45 signal pistol"
+
+/obj/item/weapon/gun/projectile/sec/wood
+	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip. Uses .45 rounds."
+	name = "custom .45 Pistol"
+	icon_state = "secgundark"
+
 /obj/item/weapon/gun/projectile/automatic/x9
 	name = "x9 tactical pistol"
 	desc = "A lightweight, fast firing handgun, excels at firing the medium caliber .45 in controlled shooting."
@@ -64,14 +72,6 @@
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
 		)
-
-/obj/item/weapon/gun/projectile/sec/flash
-	name = ".45 signal pistol"
-
-/obj/item/weapon/gun/projectile/sec/wood
-	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip. Uses .45 rounds."
-	name = "custom .45 Pistol"
-	icon_state = "secgundark"
 
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries designed sidearm, designed to compete with the NT Mk58. Uses 10mm rounds."
