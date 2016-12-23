@@ -17,7 +17,7 @@
 	var/restore_power_passive	// W. Power drawn from APC to recharge internal cell when idle. 7 kW if un-upgraded
 	var/weld_rate = 0			// How much brute damage is repaired per tick
 	var/wire_rate = 0			// How much burn damage is repaired per tick
-
+	var/cell_warning_state = 0	// Whether or not the charger is in low power mode
 	var/weld_power_use = 2300	// power used per point of brute damage repaired. 2.3 kW ~ about the same power usage of a handheld arc welder
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
@@ -53,7 +53,7 @@
 		return
 
 	//First, draw from the internal power cell to recharge/repair/etc the occupant
-	if(occupant)
+	if(occupant && has_cell_power())
 		process_occupant()
 
 	//Then, if external power is available, recharge the internal cell
@@ -64,6 +64,9 @@
 
 		recharge_amount = cell.give(recharge_amount*charging_efficiency)
 		use_power(recharge_amount / CELLRATE)
+
+		if (cell_warning_state && cell && cell.percent() > 10)
+			cell_warning_state = 0
 
 	if(icon_update_tick >= 10)
 		icon_update_tick = 0
@@ -103,6 +106,11 @@
 			R.adjustBruteLoss(-weld_rate)
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
+
+		if (!cell_warning_state && cell && cell.percent() < 3)
+			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 100, 0)
+			visible_message(span("danger", "The recharger buzzes and announces a vocal warning: \" ERROR: Recharger internal power cell depleted. Charging efficiency will be negatively affected. Please consider upgrading internal power cell. \""))
+			cell_warning_state = 1
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
@@ -151,9 +159,9 @@
 	cell = locate(/obj/item/weapon/cell) in component_parts
 
 	charging_efficiency = 0.85 + 0.015 * cap_rating
-	charging_power = 30000 + 12000 * cap_rating
-	restore_power_active = 10000 + 10000 * cap_rating
-	restore_power_passive = 5000 + 1000 * cap_rating
+	charging_power = 30000 + 16000 * cap_rating
+	restore_power_active = 10000 + 12000 * cap_rating
+	restore_power_passive = 5000 + 6000 * cap_rating
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
 
@@ -207,7 +215,7 @@
 		return
 
 	// TODO :  Change to incapacitated() on merge.
-	if(R.stat || R.lying || R.resting || R.buckled)
+	if(R.buckled)
 		return
 	if(!R.cell)
 		return
@@ -247,3 +255,23 @@
 	set src in oview(1)
 
 	go_in(usr)
+
+
+/obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
+	if (istype(C, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = C
+		if (!user.Adjacent(R) || !Adjacent(user))
+			user << span("danger", "You need to get closer if you want to put [C] into that charger!")
+			return
+
+		user.visible_message(span("danger","[user] starts hauling [C] into the recharging unit!"), span("danger","You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
+		if (do_mob(user, R, R.mob_size*10, needhand = 1))
+			if (go_in(R))
+				user.visible_message(span("notice","After a great effort, [user] manages to get [C] into the recharging unit!"))
+				return 1
+			else
+				user << span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning.")
+		else
+			user << span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!")
+		return
+	return ..()

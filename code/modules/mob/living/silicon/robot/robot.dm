@@ -1075,3 +1075,6 @@
 		connected_ai.connected_robots |= src
 		notify_ai(ROBOT_NOTIFICATION_NEW_UNIT)
 		sync()
+
+
+
