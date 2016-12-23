@@ -589,6 +589,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("[key_name_admin(src)] has created a command report", 1)
 	feedback_add_details("admin_verb","CCR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+	//New message handling
+	//TODO-Merge Look into the post_comm_message
+	//post_comm_message(customname, replacetext(input, "\n", "<br/>"))
+	
 /client/proc/cmd_admin_delete(atom/O as obj|mob|turf in range(world.view))
 	set category = "Admin"
 	set name = "Delete"
