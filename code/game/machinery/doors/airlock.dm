@@ -145,9 +145,12 @@
 /obj/machinery/door/airlock/freezer
 	name = "Freezer Airlock"
 	icon = 'icons/obj/doors/Doorfreezer.dmi'
+	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
+	maxhealth = 800
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_fre
 	hatch_colour = "#ffffff"
+	open_duration = 20
 
 /obj/machinery/door/airlock/hatch
 	name = "Airtight Hatch"

@@ -90,7 +90,7 @@
 
 /obj/machinery/alarm/server/New()
 	..()
-	active_power_usage *= 3
+	active_power_usage *= 6
 	idle_power_usage *= 3
 	name = "High Power [name]"
 	req_access = list(access_rd, access_atmospherics, access_engine_equip)
@@ -109,7 +109,7 @@
 //Kitchen freezer
 /obj/machinery/alarm/freezer/New()
 	..()
-	active_power_usage *= 3
+	active_power_usage *= 6
 	idle_power_usage *= 3
 	name = "High Power [name]"
 	req_one_access.Add(access_kitchen)
@@ -121,7 +121,7 @@
 //Refridgerated area, cold but above-freezing
 /obj/machinery/alarm/cold/New()
 	..()
-	active_power_usage *= 3
+	active_power_usage *= 6
 	idle_power_usage *= 3
 	name = "High Power [name]"
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */

@@ -37,3 +37,5 @@ changes:
   - tweak: "Morgue, medical storage, AI core, AI upload, kitchen freezer and research server room, all now have high-power air alarms that use 3x as much power and are better at regulating temperatures."
   - tweak: "Power costs of all air alarms increased a little."
   - bugfix: "Fixed a bug where thermostats wouldn't work if set to 0 celsius. Thermostats will now also clamp inputs to the nearest valid temperature instead of discarding invalid input."
+  - tweak: "Kitchen rearranged slightly to make more sense. Equipment moved out of freezer, flaps added to keep heat out."
+  - rscadd: "ChemMaster and Condimaster machines can now be unwrenched and moved around."
