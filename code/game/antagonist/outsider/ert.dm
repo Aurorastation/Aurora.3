@@ -3,12 +3,14 @@ var/datum/antagonist/ert/ert
 /datum/antagonist/ert
 	id = MODE_ERT
 	bantype = "Emergency Response Team"
-	//role_type = BE_OPERATIVE --causing issues???
 	role_text = "Emergency Responder"
 	role_text_plural = "Emergency Responders"
 	welcome_text = "As member of the Emergency Response Team, you answer only to your leader and CentComm officials."
 	leader_welcome_text = "As leader of the Emergency Response Team, you answer only to CentComm, and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
 	landmark_id = "Response Team"
+	
+	id_type = /obj/item/weapon/card/id/centcom/ERT
+	
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_CHOOSE_NAME | ANTAG_RANDOM_EXCEPTED
 	antaghud_indicator = "hudloyalist"
 
@@ -39,10 +41,6 @@ var/datum/antagonist/ert/ert
 	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(src), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(src), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(src), slot_glasses)
-	player.implant_loyalty(player) //aparantly they are loyalty implanted??
-	var/obj/item/weapon/card/id/ERT/W = new(src)
-	W.registered_name = player.real_name
-	W.name = "[player.real_name]'s ID Card ([W.assignment])"
-	player.equip_to_slot_or_del(W, slot_wear_id)
 
+	create_id(role_text, player)
 	return 1
