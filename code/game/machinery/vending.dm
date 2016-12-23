@@ -954,8 +954,8 @@
 	icon_state = "tact"
 	icon_deny = "tact-deny"
 	req_access = list(access_security)
-	products = list(/obj/item/weapon/storage/box/shotgunammo = 2,/obj/item/weapon/storage/box/shotgunshells = 2,/obj/item/ammo_magazine/c45m = 6,/obj/item/weapon/grenade/chem_grenade/gas = 6,
-					/obj/item/ammo_magazine/mc9mmt = 2, /obj/item/clothing/mask/gas/tactical = 4,/obj/item/weapon/shield/riot/tact = 3, /obj/item/weapon/handcuffs/ziptie = 3)
+	products = list(/obj/item/weapon/storage/box/shotgunammo = 2,/obj/item/weapon/storage/box/shotgunshells = 2,/obj/item/ammo_magazine/c45m = 6,/obj/item/weapon/grenade/chem_grenade/teargas = 6,
+					/obj/item/ammo_magazine/mc9mmt = 2, /obj/item/clothing/mask/gas/tactical = 4, /obj/item/weapon/handcuffs/ziptie = 3)
 
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
