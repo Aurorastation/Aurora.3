@@ -13,6 +13,6 @@ changes:
   - rscdel: "Removed empty jetpacks playing a sound."
   - bugfix: "A malfunctioning AI's advanced encyrption hack now prints a paper at the communications console."
   - bugfix: "Intercepted messages now say 'to' depending if it intercepted the message sender."
-  - bugfix: "Cleanbots no longer make emotes when they are unable to find their path (How would you know anyways?)"
+  - bugfix: "Cleanbots no longer make emotes when they are unable to find their path (How would you know anyways?) They are also a lot more quite."
   - bugfix: "You can no longer join as a mouse before roundstart."
   - bugfix: "The maintenance drone poster no longer has a typo."
