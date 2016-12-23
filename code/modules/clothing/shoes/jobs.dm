@@ -9,7 +9,7 @@
 
 /obj/item/clothing/shoes/jackboots
 	name = "jackboots"
-	desc = "Standard-issue Security combat boots for combat scenarios or combat situations. All combat, all the time."
+	desc = "Tall synthleather boots with an artificial shine."
 	icon_state = "jackboots"
 	item_state = "jackboots"
 	force = 3

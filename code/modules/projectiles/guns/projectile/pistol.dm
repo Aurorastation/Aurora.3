@@ -40,8 +40,17 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
+	
 /obj/item/weapon/gun/projectile/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
+
+/obj/item/weapon/gun/projectile/sec/flash
+	name = ".45 signal pistol"
+
+/obj/item/weapon/gun/projectile/sec/wood
+	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip. Uses .45 rounds."
+	name = "custom .45 Pistol"
+	icon_state = "secgundark"
 
 /obj/item/weapon/gun/projectile/automatic/x9
 	name = "x9 tactical pistol"
@@ -59,18 +68,10 @@
 	auto_eject = 1
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0)),
-		list(name="short bursts", 	burst=5, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
+		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
 		)
-
-/obj/item/weapon/gun/projectile/sec/flash
-	name = ".45 signal pistol"
-
-/obj/item/weapon/gun/projectile/sec/wood
-	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip. Uses .45 rounds."
-	name = "custom .45 Pistol"
-	icon_state = "secgundark"
 
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries designed sidearm, designed to compete with the NT Mk58. Uses 10mm rounds."
@@ -85,9 +86,10 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
-		list(mode_name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0))
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0))
 		)
+
 
 /obj/item/weapon/gun/projectile/tanto/update_icon()
 	..()

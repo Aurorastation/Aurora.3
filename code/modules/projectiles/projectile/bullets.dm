@@ -146,8 +146,7 @@
 
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
-	damage = 50
-	armor_penetration = 15
+	damage = 60
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -185,7 +184,7 @@
 	damage = 25
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 35
+	damage = 30
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
@@ -245,13 +244,9 @@
 	damage = 20
 	damage_type = OXY
 
-/obj/item/projectile/bullet/rifle/a556
-	damage = 40
-	penetrating = 1
-
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 35
-	penetrating = 3
+	damage = 25
+	armor_penetration = 25
 
 /obj/item/projectile/bullet/cyanideround
 	name = "poison bullet"

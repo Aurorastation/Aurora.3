@@ -156,12 +156,15 @@
 		set_light(1.5, 1.5, "#006AFF")
 	else
 		set_light(0)
+		
 // tact
 /obj/item/weapon/shield/riot/tact
 	name = "tactical shield"
 	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/tactshield.dmi'
 	icon_state = "tactshield0"
+	item_state = "tactshield0"
+	contained_sprite = 1
 	force = 3.0
 	throwforce = 3.0
 	throw_speed = 3
@@ -170,13 +173,22 @@
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
+/obj/item/weapon/shield/riot/tact/handle_shield(mob/user)
+	if(!active)
+		return 0 //turn it on first!
+	. = ..()
+
+	if(.)
+		if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+
 /obj/item/weapon/shield/riot/tact/attack_self(mob/living/user)
 	active = !active
 	icon_state = "tactshield[active]"
+	item_state = "tactshield[active]"
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
 	if(active)
-		force = 15
+		force = 5
 		throwforce = 5
 		throw_speed = 2
 		w_class = 4

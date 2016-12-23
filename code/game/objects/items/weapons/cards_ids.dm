@@ -333,11 +333,10 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
-/obj/item/weapon/card/id/ERT/New()
+obj/item/weapon/card/id/centcom/ERT/New()
 	..()
 	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
 	
-
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
 	desc = "The spare ID of the Lord of Lords himself."

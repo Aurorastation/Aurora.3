@@ -14,6 +14,7 @@
 	max_shells = 20
 	ammo_type = /obj/item/ammo_casing/a556/ap
 	magazine_type = /obj/item/ammo_magazine/a556/ap
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/ap)
 	accuracy = -1
 	scoped_accuracy = 3
 	recoil_wielded = 2
@@ -21,8 +22,8 @@
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="2-round bursts", burst=2, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.5, 0.6))
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 1.0))
 		)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/w556/verb/scope()
