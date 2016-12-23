@@ -228,5 +228,6 @@ datum/unit_test/zas_supply_shuttle_moved/check_result()
 #undef UT_NORMAL
 #undef UT_VACUUM
 #undef UT_NORMAL_COLD
+#undef UT_NORMAL_COOL
 #undef SUCCESS
 #undef FAILURE
