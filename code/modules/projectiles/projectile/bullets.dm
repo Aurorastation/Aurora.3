@@ -245,6 +245,14 @@
 	damage = 20
 	damage_type = OXY
 
+/obj/item/projectile/bullet/rifle/a556
+	damage = 40
+	penetrating = 1
+
+/obj/item/projectile/bullet/rifle/a556/ap
+	damage = 35
+	penetrating = 3
+
 /obj/item/projectile/bullet/cyanideround
 	name = "poison bullet"
 	damage = 40

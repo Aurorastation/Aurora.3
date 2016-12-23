@@ -64,7 +64,7 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(H)
-	
+
 	user.visible_message("<span class='danger'>\The [user] has put [cuff_type] on \the [H]!</span>")
 	target.drop_r_hand()
 	target.drop_l_hand()
@@ -160,3 +160,11 @@ var/last_chew = 0
 	icon = 'icons/obj/bureaucracy.dmi'
 	breakouttime = 200
 	cuff_type = "duct tape"
+
+/obj/item/weapon/handcuffs/ziptie
+	name = "ziptie"
+	desc = " A sturdy and reliable plastic ziptie for binding the wrists."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "ziptie"
+	breakouttime = 600
+	cuff_sound = 'sound/weapons/cablecuff.ogg'

@@ -44,7 +44,7 @@
 
 // ===== RESEARCH CONSOLE =====
 /obj/machinery/modular_computer/console/preset/research
-	 console_department = "Medbay"
+	 console_department = "Research"
 	 desc = "A stationary computer. This one comes preloaded with research programs."
 
 /obj/machinery/modular_computer/console/preset/research/install_programs()
