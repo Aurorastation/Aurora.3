@@ -10,8 +10,8 @@
 	var/console_department = "" // Used in New() to set network tag according to our area.
 	anchored = 1
 	density = 1
-	base_idle_power_usage = 100
-	base_active_power_usage = 500
+	base_idle_power_usage = 120
+	base_active_power_usage = 600
 	max_hardware_size = 3
 	steel_sheet_cost = 20
 
