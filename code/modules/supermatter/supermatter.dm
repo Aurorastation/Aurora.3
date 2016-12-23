@@ -371,6 +371,11 @@
 		user.dust()
 		power += 200
 	else
+		if (istype(user, /obj/item/weapon/holder))
+			var/obj/item/weapon/holder/H = user
+			Consume(H.contained)//If its a holder, eat the thing inside
+			qdel(H)
+			return
 		qdel(user)
 
 	power += 200
