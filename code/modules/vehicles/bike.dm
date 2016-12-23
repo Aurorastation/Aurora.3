@@ -1,4 +1,4 @@
-/obj/vehicle/bike/
+/obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo! "
 	icon = 'icons/obj/bike.dmi'
@@ -81,7 +81,7 @@
 		user << "You unbuckle yourself from \the [src]"
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
-	if(user != load || !on)
+	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))
 
