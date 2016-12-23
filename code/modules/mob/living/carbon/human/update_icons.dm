@@ -343,6 +343,9 @@ var/global/list/damage_icon_parts = list()
 
 	if(undershirt && species.appearance_flags & HAS_UNDERWEAR)
 		stand_icon.Blend(new /icon('icons/mob/human.dmi', undershirt), ICON_OVERLAY)
+		
+	if(socks && species.appearance_flags & HAS_SKIN_TONE)
+		stand_icon.Blend(new /icon('icons/mob/human.dmi', socks), ICON_OVERLAY)
 
 	if(update_icons)
 		update_icons()
