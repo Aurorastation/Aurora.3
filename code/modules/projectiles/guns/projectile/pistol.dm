@@ -40,6 +40,29 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
+/obj/item/weapon/gun/projectile/sec/lethal
+	magazine_type = /obj/item/ammo_magazine/c45m
+
+/obj/item/weapon/gun/projectile/automatic/x9
+	name = "x9 tactical pistol"
+	desc = "A lightweight, fast firing handgun, excels at firing the medium caliber .45 in controlled shooting."
+	icon_state = "x9tactical"
+	w_class = 3
+	load_method = MAGAZINE
+	max_shells = 16
+	caliber = ".45"
+	slot_flags = slot_belt
+	origin_tech = "combat=4;materials=2"
+	ammo_type = /obj/item/ammo_casing/c45
+	magazine_type = /obj/item/ammo_magazine/c45x
+	multi_aim = 1
+	auto_eject = 1
+
+	firemodes = list(
+		list(name="semiauto", burst=1, fire_delay=0),
+		list(name="3-round bursts", burst=3, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 1.0)),
+		list(name="short bursts", 	burst=5, move_delay=4, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2))
+		)
 
 /obj/item/weapon/gun/projectile/sec/flash
 	name = ".45 signal pistol"
