@@ -38,7 +38,7 @@ var/datum/antagonist/actor/actor
 
 	return 1
 
-
+/*
 /client/verb/join_as_actor()
 	set category = "IC"
 	set name = "Join as Actor"
@@ -59,3 +59,4 @@ var/datum/antagonist/actor/actor
 		return
 
 	usr << "You must be observing or be a new player to spawn as an actor."
+	*/
