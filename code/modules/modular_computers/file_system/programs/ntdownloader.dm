@@ -111,6 +111,8 @@
 	// Trust me, it's fine. - Skull132
 	if (!download_netspeed)
 		download_last_update = 0
+	else
+		download_last_update = world.time
 
 /datum/computer_file/program/ntnetdownload/Topic(href, href_list)
 	if(..())
