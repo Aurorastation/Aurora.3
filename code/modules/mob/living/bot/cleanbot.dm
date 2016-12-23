@@ -75,7 +75,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	if(!path.len)
 		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-			custom_emote(2, "can't reach \the [target.name] and is giving up for now.")
 			log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
 			ignorelist |= target
 			target.clean_marked = null
