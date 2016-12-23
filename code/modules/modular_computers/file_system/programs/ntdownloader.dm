@@ -15,6 +15,7 @@
 	var/hacked_download = 0
 	var/download_completion = 0 //GQ of downloaded data.
 	var/download_netspeed = 0
+	var/download_last_update = 0 // For tracking download rates and completion.
 	var/downloaderror = ""
 	var/downstream_variance = 0.1
 
@@ -57,6 +58,7 @@
 	generate_network_log("Aborted download of file [hacked_download ? "**ENCRYPTED**" : downloaded_file.filename].[downloaded_file.filetype].")
 	downloaded_file = null
 	download_completion = 0
+	download_last_update = 0
 	ui_header = "downloader_finished.gif"
 
 /datum/computer_file/program/ntnetdownload/proc/complete_file_download()
@@ -68,6 +70,7 @@
 		downloaderror = "I/O ERROR - Unable to save file. Check whether you have enough free space on your hard drive and whether your hard drive is properly connected. If the issue persists contact your system administrator for assistance."
 	downloaded_file = null
 	download_completion = 0
+	download_last_update = 0
 	ui_header = "downloader_finished.gif"
 
 /datum/computer_file/program/ntnetdownload/process_tick()
@@ -87,12 +90,27 @@
 		if(3)
 			download_netspeed = NTNETSPEED_ETHERNET
 
-	var/delta = ((rand()-0.5)*2)*downstream_variance*download_netspeed
+	// We recovered connection or started a new download.
+	// So we don't have any bytes yet. We'll get them next time!
+	if (!download_last_update)
+		download_last_update = world.time
+		return
+
+	var/delta = ((rand() - 0.5) * 2) * downstream_variance * download_netspeed
 	//Download speed varies +/- 10% each proc. Adds a more realistic feel
 
 	download_netspeed += delta
 	download_netspeed = round(download_netspeed, 0.002)//3 decimal places
-	download_completion = min(download_completion + download_netspeed, downloaded_file.size)
+
+	var/delta_seconds = (download_last_update - world.time) * 10
+
+	download_completion = min(download_completion + delta_seconds * download_netspeed, downloaded_file.size)
+
+	// No connection, so cancel the download.
+	// This is done at the end because of logic reasons.
+	// Trust me, it's fine. - Skull132
+	if (!download_netspeed)
+		download_last_update = 0
 
 /datum/computer_file/program/ntnetdownload/Topic(href, href_list)
 	if(..())
@@ -136,7 +154,7 @@
 		data["downloadname"] = prog.downloaded_file.filename
 		data["downloaddesc"] = prog.downloaded_file.filedesc
 		data["downloadsize"] = prog.downloaded_file.size
-		data["downloadspeed"] = (prog.download_netspeed * 0.5)//It updates every two seconds
+		data["downloadspeed"] = prog.download_netspeed //Even if it does update every 2 seconds, this is bad coding on everyone's count. :ree:
 		data["downloadcompletion"] = round(prog.download_completion, 0.01)
 	else // No download running, pick file.
 		data["disk_size"] = my_computer.hard_drive.max_capacity
