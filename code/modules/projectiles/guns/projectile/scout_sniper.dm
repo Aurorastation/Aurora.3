@@ -14,6 +14,7 @@
 	max_shells = 20
 	ammo_type = /obj/item/ammo_casing/a556/ap
 	magazine_type = /obj/item/ammo_magazine/a556/ap
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/ap)
 	accuracy = -1
 	scoped_accuracy = 3
 	recoil_wielded = 2
