@@ -86,3 +86,12 @@
 	name = "Hacked Supply Beacon (DANGER!)"
 	item_cost = 14
 	path = /obj/item/supply_beacon
+
+/datum/uplink_item/item/tools/syndieborg
+	name = "Syndicate Cyborg Teleporter"
+	item_cost = 15
+	path = /obj/item/weapon/antag_spawner/borg_tele
+
+/datum/uplink_item/item/tools/syndieborg/New()
+	..()
+	antag_roles = list(MODE_MERCENARY)
