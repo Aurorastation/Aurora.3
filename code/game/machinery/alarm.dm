@@ -38,8 +38,8 @@
 	icon_state = "alarm0"
 	anchored = 1
 	use_power = 1
-	idle_power_usage = 80
-	active_power_usage = 1000 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
+	idle_power_usage = 90
+	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
 	req_one_access = list(access_atmospherics, access_engine_equip)
 	var/alarm_id = null
@@ -90,6 +90,9 @@
 
 /obj/machinery/alarm/server/New()
 	..()
+	active_power_usage *= 3
+	idle_power_usage *= 3
+	name = "High Power [name]"
 	req_access = list(access_rd, access_atmospherics, access_engine_equip)
 	TLV["oxygen"] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
@@ -98,6 +101,31 @@
 	TLV["pressure"] =		list(0,ONE_ATMOSPHERE*0.10,ONE_ATMOSPHERE*1.40,ONE_ATMOSPHERE*1.60) /* kpa */
 	TLV["temperature"] =	list(20, 40, 140, 160) // K
 	target_temperature = 90
+
+//For colder alarms, allowing pressure to drop a bit below normal is necessary. Pressure fluctuates downwards
+//While temperature stabilises.
+
+
+//Kitchen freezer
+/obj/machinery/alarm/freezer/New()
+	..()
+	active_power_usage *= 3
+	idle_power_usage *= 3
+	name = "High Power [name]"
+	req_one_access.Add(access_kitchen)
+	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
+	TLV["temperature"] =	list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
+	target_temperature = 253//-20c
+
+//Refridgerated area, cold but above-freezing
+/obj/machinery/alarm/cold/New()
+	..()
+	active_power_usage *= 3
+	idle_power_usage *= 3
+	name = "High Power [name]"
+	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
+	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
+	target_temperature = 278//5c
 
 /obj/machinery/alarm/Destroy()
 	unregister_radio(src, frequency)
@@ -206,11 +234,7 @@
 			"You hear a click as a faint electronic humming stops.")
 
 	if (regulating_temperature)
-		if(target_temperature > T0C + MAX_TEMPERATURE)
-			target_temperature = T0C + MAX_TEMPERATURE
-
-		if(target_temperature < T0C + MIN_TEMPERATURE)
-			target_temperature = T0C + MIN_TEMPERATURE
+		//Unnecessary checks removed, duplication of effort
 
 		var/datum/gas_mixture/gas
 		gas = environment.remove(0.25*environment.total_moles)
@@ -294,9 +318,9 @@
 	return 0
 
 /obj/machinery/alarm/proc/get_danger_level(var/current_value, var/list/danger_levels)
-	if((current_value >= danger_levels[4] && danger_levels[4] > 0) || current_value <= danger_levels[1])
+	if((current_value > danger_levels[4] && danger_levels[4] > 0) || current_value < danger_levels[1])
 		return 2
-	if((current_value >= danger_levels[3] && danger_levels[3] > 0) || current_value <= danger_levels[2])
+	if((current_value > danger_levels[3] && danger_levels[3] > 0) || current_value < danger_levels[2])
 		return 1
 	return 0
 
@@ -645,10 +669,13 @@
 		var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
 		var/input_temperature = input("What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
 		if(isnum(input_temperature))
+			var/temp = Clamp(input_temperature, min_temperature,  max_temperature)
 			if(input_temperature > max_temperature || input_temperature < min_temperature)
-				usr << "Temperature must be between [min_temperature]C and [max_temperature]C"
-			else
-				target_temperature = input_temperature + T0C
+				usr << "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C"
+			target_temperature = Clamp(input_temperature + T0C, selected[2],  selected[3])
+		else
+			usr << "Error, input not recognised. Temperature unchanged."
+
 		return 1
 
 	// hrefs that need the AA unlocked -walter0o
