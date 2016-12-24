@@ -123,6 +123,8 @@
 		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
 		return 1
+	if(istype(M,/mob/living/silicon/))
+		return 1
 
 	if (M.l_ear || M.r_ear)
 		var/obj/item/device/radio/headset/dongle

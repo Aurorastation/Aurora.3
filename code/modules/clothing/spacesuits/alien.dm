@@ -276,16 +276,14 @@
 
 
 //ZZODDAA
-/obj/item/clothing/gloves/force/typec
+/obj/item/clothing/gloves/yellow/typec
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
 	desc = "A set of form-fitting carapace gauntlets. They appear to be fitted with some robust hydralics."
 	name = "carapace gauntlets"
 	w_class = 5.0
 	icon_state = "forceglove"
 	item_state = "forceglove"
-	amplification = 1.5
 	siemens_coefficient = 0
-	permeability_coefficient = 0.05
 	armor = list(melee = 60, bullet = 60, laser = 30, energy = 30, bomb = 30, bio = 30, rad = 30)
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(

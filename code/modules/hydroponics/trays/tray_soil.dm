@@ -45,7 +45,7 @@
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/New(var/newloc,var/datum/seed/newseed)
 	..()
-	seed = newseed
+	seed = new newseed
 	dead = 0
 	age = 1
 	health = seed.get_trait(TRAIT_ENDURANCE)
