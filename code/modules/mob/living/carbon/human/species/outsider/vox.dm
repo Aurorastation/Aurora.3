@@ -134,3 +134,54 @@
 
 /datum/species/vox/pariah/get_bodytype()
 	return "Vox"
+
+/datum/species/vox/armalis
+	name = "Vox Armalis"
+	name_plural = "Vox"
+	icobase = 'icons/mob/human_races/r_armalis.dmi'
+	deform = 'icons/mob/human_races/r_armalis.dmi'
+	tail = "armalis_tail"
+	rarity_value = 10
+
+	warning_low_pressure = 50
+	hazard_low_pressure = 0
+
+	stamina	=	120			  // Vox are even faster than unathi and can go longer, but recover slowly
+	sprint_speed_factor = 3
+	stamina_recovery = 1
+	sprint_cost_factor = 0.7
+
+
+	cold_level_1 = 80
+	cold_level_2 = 50
+	cold_level_3 = 0
+
+	heat_level_1 = 2000
+	heat_level_2 = 3000
+	heat_level_3 = 4000
+
+	brute_mod = 0.2
+	burn_mod = 0.2
+
+	eyes = "blank_eyes"
+	breath_type = "nitrogen"
+	poison_type = "oxygen"
+
+	flags = NO_SCAN | NO_PAIN
+	spawn_flags = IS_RESTRICTED
+
+	blood_color = "#2299FC"
+	flesh_color = "#808D11"
+
+	tail = "armalis_tail"
+	icon_template = 'icons/mob/human_races/r_armalis.dmi'
+
+	reagent_tag = IS_VOX
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/leap,
+		/mob/living/carbon/human/proc/gut,
+		/mob/living/carbon/human/proc/commune,
+		/mob/living/carbon/human/proc/quillboar
+		)
+

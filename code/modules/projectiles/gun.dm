@@ -135,7 +135,7 @@
 	if(user && user.client && user.aiming && user.aiming.active && user.aiming.aiming_at != A)
 		PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
 		return
-		
+
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
@@ -181,7 +181,7 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex)
+			handle_post_fire(user, target, pointblank, reflex, i == burst)
 			update_icon()
 
 		if(i < burst)

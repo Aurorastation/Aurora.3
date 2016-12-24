@@ -147,14 +147,14 @@ datum/preferences
 		save_character()
 
 /datum/preferences/proc/getMinAge(var/age_min)
-	if(species == "Vaurca" || species == "Machine" || species == "Diona")
+	if(species == "Vaurca Worker" || species == "Vaurca Warrior" || species == "Machine" || species == "Diona")
 		age_min = 1
 	if(species == "Human" || species == "Skrell" || species == "Tajara" || species == "Unathi")
 		age_min = 17
 	return age_min
 
 /datum/preferences/proc/getMaxAge(var/age_max)
-	if(species == "Vaurca")
+	if((species == "Vaurca Worker" || species == "Vaurca Warrior"))
 		age_max = 20
 	if(species == "Machine")
 		age_max = 30

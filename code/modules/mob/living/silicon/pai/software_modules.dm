@@ -468,16 +468,16 @@
 		// 	Sol Common, Tradeband and Gutter are added with New() and are therefore the current default, always active languages
 		user.translator_on = !user.translator_on
 		if(user.translator_on)
-			user.add_language("Sinta'unathi")
-			user.add_language("Siik'maas")
-			user.add_language("Skrellian")
+			user.add_language(LANGUAGE_UNATHI)
+			user.add_language(LANGUAGE_SIIK_MAAS)
+			user.add_language(LANGUAGE_SKRELLIAN)
 //			user.add_language("Vaurcese")
 			user.add_language("Rootsong")
 		else
-			user.remove_language("Sinta'unathi")
-			user.remove_language("Siik'maas")
-			user.remove_language("Skrellian")
-			//user.add_language("Hivenet") //I can buy an AI core and its cyborgs having access to the local hivenet for security reasons, but a pAI?
+			user.remove_language(LANGUAGE_UNATHI)
+			user.remove_language(LANGUAGE_SIIK_MAAS)
+			user.remove_language(LANGUAGE_SKRELLIAN)
+			//user.add_language(LANGUAGE_VAURCA) //I can buy an AI core and its cyborgs having access to the local hivenet for security reasons, but a pAI?
 			user.add_language("Rootsong")
 
 	is_active(mob/living/silicon/pai/user)
