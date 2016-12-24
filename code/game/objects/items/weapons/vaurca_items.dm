@@ -28,7 +28,6 @@
 	throw_range = 10
 	w_class = 1
 	flags = CONDUCT | NOBLOODY
-	origin_tech = "combat=6;phorontech=4;materials=7;syndicate=4"
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = 1
