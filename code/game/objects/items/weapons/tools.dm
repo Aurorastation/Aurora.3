@@ -75,10 +75,10 @@
 		src.pixel_y = rand(0, 16)
 	..()
 
-/obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(user.zone_sel.selecting != "eyes" && user.zone_sel.selecting != "head")
+	if(target_zone != "eyes" && target_zone != "head")
 		return ..()
 	if((CLUMSY in user.mutations) && prob(50))
 		M = user
@@ -110,7 +110,7 @@
 		item_state = "cutters_yellow"
 	..()
 
-/obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob)
+/obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/weapon/handcuffs/cable)))
 		usr.visible_message("\The [usr] cuts \the [C]'s restraints with \the [src]!",\
 		"You cut \the [C]'s restraints with \the [src]!",\
@@ -289,11 +289,11 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
-/obj/item/weapon/weldingtool/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/weapon/weldingtool/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 
 	if(hasorgans(M))
 
-		var/obj/item/organ/external/S = M:organs_by_name[user.zone_sel.selecting]
+		var/obj/item/organ/external/S = M:organs_by_name[target_zone]
 
 		if (!S) return
 		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)

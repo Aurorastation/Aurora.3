@@ -139,13 +139,13 @@
 		onclose(usr, "[name]")
 	return
 
-/obj/item/weapon/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(user.zone_sel.selecting == "eyes")
+/obj/item/weapon/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+	if(target_zone == "eyes")
 		user.visible_message("<span class='notice'>You show the paper to [M]. </span>", \
 			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
 		M.examinate(src)
 
-	else if(user.zone_sel.selecting == "mouth") // lipstick wiping
+	else if(target_zone == "mouth") // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -260,6 +260,7 @@
 		t = replacetext(t, "\[row\]", "</td><tr>")
 		t = replacetext(t, "\[cell\]", "<td>")
 		t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
+		t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 
 		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 	else // If it is a crayon, and he still tries to use these, make them empty!
@@ -573,3 +574,38 @@
 
 /obj/item/weapon/paper/crumpled/bloody
 	icon_state = "scrap_bloodied"
+
+/obj/item/weapon/paper/incident
+	name = "incident form receipt"
+	var/datum/crime_incident/incident
+	var/sentence = 1 // Is this form contain a sentence of guilty?
+
+/obj/item/weapon/paper/incident/New()
+	info = {"\[center\]\[logo\]\[/center\]
+\[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
+\[barcode\]\[/center\]"}
+
+	..()
+
+/obj/item/weapon/paper/sentencing
+	name = "Criminal Sentencing and You"
+	icon_state = "pamphlet"
+
+/obj/item/weapon/paper/sentencing/New()
+	info = {"\[center\]\[logo\]\[/center\]
+\[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
+\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\]NSS Exodus\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
+\[br\]
+While preparing a convicted individual, remove their ID and have the terminal scan it.\[br\]
+Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
+After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
+Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
+\[hr\]
+Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+
+	..()
+
+/obj/item/weapon/paper/sentencing/update_icon()
+	return

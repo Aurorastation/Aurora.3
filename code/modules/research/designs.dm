@@ -164,6 +164,7 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/stock_parts/micro_laser
 	sort_string = "CAADA"
 
+
 /datum/design/item/stock_part/high_micro_laser
 	id = "high_micro_laser"
 	req_tech = list(TECH_MAGNET = 3)
@@ -1033,6 +1034,13 @@ CIRCUITS BELOW
 	id = "med_data"
 	build_path = /obj/item/weapon/circuitboard/med_data
 	sort_string = "FAAAA"
+
+/datum/design/circuit/sentencing
+	name = "criminal sentencing console"
+	id = "sentencing"
+	build_path = /obj/machinery/computer/sentencing
+	sort_string = "DADAA"
+
 
 /datum/design/circuit/operating
 	name = "patient monitoring console"

@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a frag grenade module to the syndicate cyborg."
+  - rscadd: "Added a rather explosive failsafe device to syndicate borgs."
+  - rscadd: "Added space-bikes."

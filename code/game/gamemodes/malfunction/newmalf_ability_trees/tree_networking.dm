@@ -107,6 +107,14 @@
 		return
 
 	command_announcement.Announce(text, title, new_sound = 'sound/AI/commandreport.ogg')
+	for (var/obj/machinery/computer/communications/C in machines)
+		if(! (C.stat & (BROKEN|NOPOWER) ) )
+			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
+			P.name = "[command_name()] Update"
+			P.info = replacetext(text, "\n", "<br/>")
+			P.update_space(P.info)
+			P.update_icon()
+
 
 /datum/game_mode/malfunction/verb/elite_encryption_hack()
 	set category = "Software"

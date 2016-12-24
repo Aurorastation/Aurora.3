@@ -96,12 +96,12 @@
 		update_force()
 
 
-/obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	update_force()
-	..(M, user)
-	if (contents.len)
-		spill(3, get_turf(M))
-		playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
-		update_force()
-		user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+	if (..())
+		if (contents.len)
+			spill(3, get_turf(M))
+			playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
+			update_force()
+			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 

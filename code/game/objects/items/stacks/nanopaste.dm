@@ -6,12 +6,12 @@
 	icon_state = "tube"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
-	
+
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
 	var/construction_time = 5
 
 
-/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if (!istype(M) || !istype(user))
 		return 0
 	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
@@ -29,7 +29,7 @@
 
 	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/S = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/S = H.get_organ(target_zone)
 
 		if(S.open == 1)
 			if (S && (S.status & ORGAN_ROBOT))

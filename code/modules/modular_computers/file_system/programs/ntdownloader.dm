@@ -16,8 +16,9 @@
 	var/download_completion = 0 //GQ of downloaded data.
 	var/download_netspeed = 0
 	var/downloaderror = ""
+	var/downstream_variance = 0.1
 
-/datum/computer_file/program/ntnetdownload/proc/begin_file_download(var/filename)
+/datum/computer_file/program/ntnetdownload/proc/begin_file_download(var/filename, var/user = null)
 	if(downloaded_file)
 		return 0
 
@@ -46,6 +47,9 @@
 		hacked_download = 0
 
 	downloaded_file = PRG.clone()
+	if (user)
+		spawn()
+			ui_interact(user)
 
 /datum/computer_file/program/ntnetdownload/proc/abort_file_download()
 	if(!downloaded_file)
@@ -71,6 +75,7 @@
 		return
 	if(download_completion >= downloaded_file.size)
 		complete_file_download()
+		return
 	// Download speed according to connectivity state. NTNet server is assumed to be on unlimited speed so we're limited by our local connectivity
 	download_netspeed = 0
 	// Speed defines are found in misc.dm
@@ -81,14 +86,20 @@
 			download_netspeed = NTNETSPEED_HIGHSIGNAL
 		if(3)
 			download_netspeed = NTNETSPEED_ETHERNET
-	download_completion += download_netspeed
+
+	var/delta = ((rand()-0.5)*2)*downstream_variance*download_netspeed
+	//Download speed varies +/- 10% each proc. Adds a more realistic feel
+
+	download_netspeed += delta
+	download_netspeed = round(download_netspeed, 0.002)//3 decimal places
+	download_completion = min(download_completion + download_netspeed, downloaded_file.size)
 
 /datum/computer_file/program/ntnetdownload/Topic(href, href_list)
 	if(..())
 		return 1
 	if(href_list["PRG_downloadfile"])
 		if(!downloaded_file)
-			begin_file_download(href_list["PRG_downloadfile"])
+			begin_file_download(href_list["PRG_downloadfile"], usr)
 		return 1
 	if(href_list["PRG_reseterror"])
 		if(downloaderror)
@@ -125,8 +136,8 @@
 		data["downloadname"] = prog.downloaded_file.filename
 		data["downloaddesc"] = prog.downloaded_file.filedesc
 		data["downloadsize"] = prog.downloaded_file.size
-		data["downloadspeed"] = prog.download_netspeed
-		data["downloadcompletion"] = round(prog.download_completion, 0.1)
+		data["downloadspeed"] = (prog.download_netspeed * 0.5)//It updates every two seconds
+		data["downloadcompletion"] = round(prog.download_completion, 0.01)
 	else // No download running, pick file.
 		data["disk_size"] = my_computer.hard_drive.max_capacity
 		data["disk_used"] = my_computer.hard_drive.used_capacity

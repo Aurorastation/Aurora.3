@@ -91,7 +91,7 @@
 					qdel(src)
 	return
 
-/obj/item/weapon/pen/crayon/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/pen/crayon/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if(M == user)
 		user << "You take a bite of the crayon and swallow it."
 		user.nutrition += 1
@@ -102,4 +102,4 @@
 				user << "<span class='warning'>You ate your crayon!</span>"
 				qdel(src)
 	else
-		..()
+		..(M, user, target_zone)

@@ -328,7 +328,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	return
 
-/obj/item/weapon/implanter/fluff/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/implanter/fluff/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if (!M.ckey || M.ckey != allowed_ckey)
 		return
 

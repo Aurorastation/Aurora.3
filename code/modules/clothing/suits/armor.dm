@@ -107,6 +107,15 @@
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.6
 
+/obj/item/clothing/head/helmet/swat/peacekeeper
+	name = "\improper ERT civil protection helmet"
+	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
+	icon_state = "erthelmet_peacekeeper"
+	body_parts_covered = HEAD
+	item_state = "erthelmet_peacekeeper"
+	armor = list(melee = 80, bullet = 60, laser = 50,energy = 50, bomb = 50, bio = 10, rad = 0)
+	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+
 /obj/item/clothing/suit/armor/laserproof
 	name = "Ablative Armor Vest"
 	desc = "A vest that excels in protecting the wearer against energy projectiles."
@@ -413,6 +422,58 @@
 	icon_state = "mercwebvest"
 	item_state = "mercwebvest"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+
+/obj/item/clothing/under/ccpolice
+	name = "ERT civil protection uniform"
+	desc = "A sturdy navy uniform, carefully ironed and folded. Worn by specialist troopers on civil protection duties."
+	icon_state = "officerdnavyclothes"
+	item_state = "scratch"
+	worn_state = "officerdnavyclothes"
+
+/obj/item/clothing/under/rank/centcom_commander
+	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
+	name = "\improper ERT Commander's Dress Uniform"
+	icon_state = "centcom"
+	item_state = "lawyer_black"
+	worn_state = "centcom"
+/obj/item/clothing/suit/storage/vest/heavy/ert
+	name = "ERT trooper's plate carrier"
+	desc = "A plate carrier worn by troopers of the emergency response team. Has crimson highlights."
+	icon_state = "ert_soldier"
+	item_state = "ert_soldier"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 20, bio = 0, rad = 0)
+	slowdown = 0
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/commander
+	name = "ERT commander's plate carrier"
+	desc = "A plate carrier worn by the elite emergency response team commander. Has gold highlights. This one has a Medal of Valor pinned to the breastplate."
+	icon_state = "ert_commander"
+	item_state = "ert_commander"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/lead
+	name = "Leading trooper's plate carrier"
+	desc = "A plate carrier worn by veteran troopers of the emergency response team qualified to lead small squads. Has blue highlights."
+	icon_state = "ert_lead"
+	item_state = "ert_lead"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/medic
+	name = "ERT medic's plate carrier"
+	desc = "A plate carrier worn by combat medics of the emergency response team. Has white highlights. This one has a medic patch sewn to the breastplate."
+	icon_state = "ert_medic"
+	item_state = "ert_medic"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/sapper
+	name = "ERT sapper's plate carrier"
+	desc = "A plate carrier worn by sappers of the emergency response team. Has green highlights."
+	icon_state = "ert_sapper"
+	item_state = "ert_sapper"
+
+/obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
+	name = "ERT civil protection plate carrier"
+	desc = "A plate carrier worn by troopers serving civil protection details. Commonly seen on high-profile escorts and Nanotrasen administration centers."
+	icon_state = "ert_peacekeeper"
+	item_state = "ert_peacekeeper"
 
 
 //All of the armor below is mostly unused

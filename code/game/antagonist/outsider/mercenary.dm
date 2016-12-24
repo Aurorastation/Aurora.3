@@ -34,9 +34,9 @@ var/datum/antagonist/mercenary/mercs
 		return 0
 
 	player.equip_to_slot_or_del(new /obj/item/clothing/under/syndicate(player), slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(player), slot_shoes)
-	if(!player.shoes) //If equipping shoes failed, fall back to equipping sandals
-		var/fallback_type = pick(/obj/item/clothing/shoes/sandal)
+	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(player), slot_shoes)
+	if(!player.shoes) //If equipping shoes failed, fall back to equipping toeless jackboots
+		var/fallback_type = pick(/obj/item/clothing/shoes/jackboots/unathi)
 		player.equip_to_slot_or_del(new fallback_type(player), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(player), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/military(player), slot_belt)

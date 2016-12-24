@@ -105,9 +105,9 @@
 			R.adjustFireLoss(-wire_rate)
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < 450)
-			H.nutrition = min(H.nutrition+10, 450)
-			cell.use(7000/450*10)
+		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
+			H.nutrition = min(H.nutrition+10, H.max_nutrition)
+			cell.use(7000/H.max_nutrition*10)
 
 
 /obj/machinery/recharge_station/examine(mob/user)

@@ -651,40 +651,32 @@ var/global/list/robot_modules = list(
 	languages = list(
 					LANGUAGE_SOL_COMMON = 1,
 					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 0,
-					LANGUAGE_SIIK_MAAS = 0,
-					LANGUAGE_SKRELLIAN = 0,
+					LANGUAGE_UNATHI = 1,
+					LANGUAGE_SIIK_MAAS = 1,
+					LANGUAGE_SKRELLIAN = 1,
 					LANGUAGE_GUTTER = 1
 					)
-					
+
+	sprites = list(
+					"Bloodhound" = "syndie_bloodhound",
+					"Treadhound" = "syndie_treadhound"
+					)
+
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
+	..()
 	loc = R
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
 	src.modules += new /obj/item/weapon/gun/energy/mountedsmg(src)
 	src.modules += new /obj/item/weapon/gun/energy/crossbow/cyborg(src)
+	src.modules += new /obj/item/weapon/gun/launcher/grenade/cyborg(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/card/emag(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-	//Adding a free jetpack for the syndicate module:
-
-	//JCE = Jetpack Component: External.
-	var/obj/item/robot_parts/robot_component/jetpack/JCE = new/obj/item/robot_parts/robot_component/jetpack
-
-	//JC = Jetpack Component, internal
-	var/datum/robot_component/jetpack/JC = R.get_component("jetpack")
-	JC.wrapped = JCE
-	JC.install()//This install function will setup the actual jetpack which functions
-
 	return
-/*
-/obj/item/weapon/robot_module/combat
-	src.modules -= id
-	id = null
-	return ..()
-*/
+
 /obj/item/weapon/robot_module/combat
 	name = "combat robot module"
 	channels = list("Security" = 1)
