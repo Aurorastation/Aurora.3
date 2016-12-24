@@ -132,8 +132,6 @@
 				observer.icon = client.prefs.preview_icon
 				observer.alpha = 127
 
-				if(client.prefs.be_random_name)
-					client.prefs.real_name = random_name(client.prefs.gender)
 				observer.real_name = client.prefs.real_name
 				observer.name = observer.real_name
 				if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
@@ -374,7 +372,7 @@
 			global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 
 	proc/LateChoices()
-		var/name = client.prefs.be_random_name ? "friend" : client.prefs.real_name
+		var/name = client.prefs.real_name
 
 		var/dat = "<html><body><center>"
 		dat += "<b>Welcome, [name].<br></b>"

@@ -5,7 +5,6 @@
 
 /datum/category_item/player_setup_item/general/basic/load_character(var/savefile/S)
 	S["real_name"]				>> pref.real_name
-	S["name_is_always_random"]	>> pref.be_random_name
 	S["gender"]					>> pref.gender
 	S["age"]					>> pref.age
 	S["spawnpoint"]				>> pref.spawnpoint
@@ -13,7 +12,6 @@
 
 /datum/category_item/player_setup_item/general/basic/save_character(var/savefile/S)
 	S["real_name"]				<< pref.real_name
-	S["name_is_always_random"]	<< pref.be_random_name
 	S["gender"]					<< pref.gender
 	S["age"]					<< pref.age
 	S["spawnpoint"]				<< pref.spawnpoint
@@ -21,7 +19,6 @@
 
 /datum/category_item/player_setup_item/general/basic/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("name" = "real_name",
-													"random_name" = "be_random_name",
 													"gender",
 													"age",
 													"metadata",
@@ -33,7 +30,6 @@
 
 /datum/category_item/player_setup_item/general/basic/gather_save_query()
 	return list("ss13_characters" = list("name",
-										 "random_name",
 										 "gender",
 										 "age",
 										 "metadata",
@@ -43,7 +39,6 @@
 
 /datum/category_item/player_setup_item/general/basic/gather_save_parameters()
 	return list(":name" = pref.real_name,
-				":random_name" = pref.be_random_name,
 				":gender" = pref.gender,
 				":age" = pref.age,
 				":metadata" = pref.metadata,
@@ -77,7 +72,6 @@
 	if(!pref.real_name)
 		pref.real_name	= random_name(pref.gender, pref.species)
 	pref.spawnpoint		= sanitize_inlist(pref.spawnpoint, spawntypes, initial(pref.spawnpoint))
-	pref.be_random_name	= sanitize_integer(text2num(pref.be_random_name), 0, 1, initial(pref.be_random_name))
 
 /datum/category_item/player_setup_item/general/basic/content()
 	. = "<b>Name:</b> "
@@ -85,8 +79,8 @@
 		. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
 	else
 		. += "<b>[pref.real_name]</b><br> (<a href='?src=\ref[src];namehelp=1'>?</a>)"
-	. += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>) "
-	. += "(<a href='?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>)"
+	if (pref.can_edit_name)
+		. += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>)"
 	. += "<br>"
 	. += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
 	. += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
@@ -115,11 +109,11 @@
 		return TOPIC_NOACTION
 
 	else if(href_list["random_name"])
-		pref.real_name = random_name(pref.gender, pref.species)
-		return TOPIC_REFRESH
+		if (!pref.can_edit_name)
+			alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
+			return TOPIC_NOACTION
 
-	else if(href_list["always_random_name"])
-		pref.be_random_name = !pref.be_random_name
+		pref.real_name = random_name(pref.gender, pref.species)
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])

@@ -32,7 +32,6 @@ datum/preferences
 	//character preferences
 	var/real_name						//our character's name
 	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
-	var/be_random_name = 0				//whether we are a random name every round
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
@@ -289,8 +288,6 @@ datum/preferences
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = 0)
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
-	if(be_random_name)
-		real_name = random_name(gender,species)
 
 	if(config.humans_need_surnames)
 		var/firstspace = findtext(real_name, " ")
