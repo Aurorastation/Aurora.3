@@ -76,7 +76,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 20
 	fire_delay = 1
 	
-/obj/item/weapon/gun/energy/xraymounted
+/obj/item/weapon/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
 	charge_cost = 200
 	self_recharge = 1
