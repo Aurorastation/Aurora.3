@@ -16,10 +16,10 @@
 	var/wl_only = context == "all" ? 0 : 1
 
 	if (lstate == "dark")
-		log_and_message_admins("[lusr] enabled night-mode [wl_only ? "in public areas" : "globally"]", lusr)
+		log_and_message_admins("enabled night-mode [wl_only ? "in public areas" : "globally"].", lusr)
 		nl_ctrl.activate(wl_only)
 	else if (lstate == "full")
-		log_and_message_admins("[lusr] disabled night-mode [wl_only ? "in public areas" : "globally"]", lusr)
+		log_and_message_admins("disabled night-mode [wl_only ? "in public areas" : "globally"].", lusr)
 		nl_ctrl.deactivate(wl_only)
 
 /datum/nano_module/lighting_ctrl/Topic(href, href_list)
@@ -40,8 +40,6 @@
 
 	data["context"] = context
 	data["status"] = lstate
-	if (config.night_lighting)
-		data["allowed"] = 1
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
