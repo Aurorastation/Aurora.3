@@ -17,7 +17,7 @@
 				msg += "It looks slightly charred.\n"
 			else
 				msg += "<B>Its casing is melted and heat-warped!</B>\n"
-		if (src.getOxyLoss() && (aiRestorePowerRoutine != 0 && !APU_power))
+		if (!has_power())
 			if (src.getOxyLoss() > 175)
 				msg += "<B>It seems to be running on backup power. Its display is blinking a \"BACKUP POWER CRITICAL\" warning.</B>\n"
 			else if(src.getOxyLoss() > 100)
@@ -32,7 +32,7 @@
 	if(hardware && (hardware.owner == src))
 		msg += "<br>"
 		msg += hardware.get_examine_desc()
-	user << msg
+	to_chat(user, msg)
 	user.showLaws(src)
 	return
 

@@ -26,7 +26,9 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/toggle_camera_light,
 	/mob/living/silicon/ai/proc/ai_examine,
 	/mob/living/silicon/ai/proc/multitool_mode,
-	/mob/living/silicon/ai/proc/toggle_hologram_movement
+	/mob/living/silicon/ai/proc/toggle_hologram_movement,
+	/mob/living/silicon/ai/proc/ai_power_override,
+	/mob/living/silicon/ai/proc/ai_shutdown
 )
 
 //Not sure why this is necessary...
@@ -68,7 +70,7 @@ var/list/ai_verbs_default = list(
 	var/power_override_active = 0 				// If set to 1 the AI gains oxyloss (power loss damage) much faster, but is able to work as if powered normally.
 	var/admin_powered = 0						// For admin/debug use only, makes the AI have infinite power.
 	var/self_shutdown = 0						// Set to 1 when the AI uses self-shutdown verb to turn itself off. Reduces power usage but makes the AI mostly inoperable.
-
+	var/list/cameraRecords = list()				//For storing what is shown to the cameras
 
 	//NEWMALF VARIABLES
 	var/malfunctioning = 0						// Master var that determines if AI is malfunctioning.
@@ -86,7 +88,6 @@ var/list/ai_verbs_default = list(
 	var/bombing_station = 0						// Set to 1 if station nuke auto-destruct is activated
 	var/override_CPUStorage = 0					// Bonus/Penalty CPU Storage. For use by admins/testers.
 	var/override_CPURate = 0					// Bonus/Penalty CPU generation rate. For use by admins/testers.
-	var/list/cameraRecords = list()				//For storing what is shown to the cameras
 
 	var/datum/ai_icon/selected_sprite			// The selected icon set
 	var/custom_sprite 	= 0 					// Whether the selected icon is custom
@@ -96,11 +97,9 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	src.verbs |= ai_verbs_default
-	src.verbs |= silicon_subsystems
 
 /mob/living/silicon/ai/proc/remove_ai_verbs()
 	src.verbs -= ai_verbs_default
-	src.verbs -= silicon_subsystems
 
 /mob/living/silicon/ai/New(loc, var/datum/ai_laws/L, var/obj/item/device/mmi/B, var/safety = 0)
 	announcement = new()
@@ -119,7 +118,7 @@ var/list/ai_verbs_default = list(
 				pickedName = null
 
 	aiPDA = new/obj/item/device/pda/ai(src)
-	SetName(pickedName)
+	fully_replace_character_name(pickedName)
 	anchored = 1
 	canmove = 0
 	density = 1
@@ -127,13 +126,8 @@ var/list/ai_verbs_default = list(
 
 	holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo1"))
 
-	proc_holder_list = new()
-
-	if(L)
-		if (istype(L, /datum/ai_laws))
-			laws = L
-	else
-		laws = new base_law_type
+	if(istype(L, /datum/ai_laws))
+		laws = L
 
 	aiMulti = new(src)
 	aiRadio = new(src)
@@ -148,16 +142,16 @@ var/list/ai_verbs_default = list(
 
 	//Languages
 	add_language("Robot Talk", 1)
-	add_language("Ceti Basic", 1)
-	add_language("Sol Common", 0)
-	add_language("Sinta'unathi", 0)
-	add_language("Siik'maas", 0)
-	add_language("Skrellian", 0)
-	add_language("Tradeband", 1)
-	add_language("Gutter", 0)
 	add_language("Hivenet", 0)
 	add_language("Rootsong", 0)
 	add_language(LANGUAGE_EAL, 1)
+	add_language(LANGUAGE_SOL_COMMON, 1)
+	add_language(LANGUAGE_UNATHI, 1)
+	add_language(LANGUAGE_SIIK_MAAS, 1)
+	add_language(LANGUAGE_SKRELLIAN, 1)
+	add_language(LANGUAGE_RESOMI, 1)
+	add_language(LANGUAGE_TRADEBAND, 1)
+	add_language(LANGUAGE_GUTTER, 1)
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -170,8 +164,7 @@ var/list/ai_verbs_default = list(
 
 			on_mob_init()
 
-	spawn(5)
-		new /obj/machinery/ai_powersupply(src)
+	create_powersupply()
 
 	hud_list[HEALTH_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[STATUS_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
@@ -187,12 +180,12 @@ var/list/ai_verbs_default = list(
 	..()
 
 /mob/living/silicon/ai/proc/on_mob_init()
-	src << "<B>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>"
-	src << "<B>To look at other parts of the station, click on yourself to get a camera menu.</B>"
-	src << "<B>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc.</B>"
-	src << "To use something, simply click on it."
-	src << "Use say [get_language_prefix()]b to speak to your cyborgs through binary. Use say :h to speak from an active holopad."
-	src << "For department channels, use the following say commands:"
+	to_chat(src, "<B>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>")
+	to_chat(src, "<B>To look at other parts of the station, click on yourself to get a camera menu.</B>")
+	to_chat(src, "<B>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc.</B>")
+	to_chat(src, "To use something, simply click on it.")
+	to_chat(src, "Use say [get_language_prefix()]b to speak to your cyborgs through binary. Use say :h to speak from an active holopad.")
+	to_chat(src, "For department channels, use the following say commands:")
 
 	var/radio_text = ""
 	for(var/i = 1 to common_radio.channels.len)
@@ -202,11 +195,11 @@ var/list/ai_verbs_default = list(
 		if(i != common_radio.channels.len)
 			radio_text += ", "
 
-	src << radio_text
+	to_chat(src, radio_text)
 
 	if (malf && !(mind in malf.current_antagonists))
 		show_laws()
-		src << "<b>These laws may be changed by other players, or by you being the traitor.</b>"
+		to_chat(src, "<b>These laws may be changed by other players, or by you being the traitor.</b>")
 
 	job = "AI"
 	setup_icon()
@@ -264,7 +257,7 @@ var/list/ai_verbs_default = list(
 	set src = usr.contents
 	return 0
 
-/mob/living/silicon/ai/SetName(pickedName as text)
+/mob/living/silicon/ai/fully_replace_character_name(pickedName as text)
 	..()
 	announcement.announcer = pickedName
 	if(eyeobj)
@@ -276,51 +269,10 @@ var/list/ai_verbs_default = list(
 		aiPDA.owner = pickedName
 		aiPDA.name = pickedName + " (" + aiPDA.ownjob + ")"
 
-/*
-	The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
-	The alternative was to rewrite a bunch of AI code instead here we are.
-*/
-// /obj/machinery/ai_powersupply
-// 	name="Power Supply"
-// 	active_power_usage=50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
-// 	use_power = 2
-// 	power_channel = EQUIP
-// 	var/mob/living/silicon/ai/powered_ai = null
-// 	invisibility = 100
-
-/obj/machinery/ai_powersupply/New(var/mob/living/silicon/ai/ai=null)
-	powered_ai = ai
-	powered_ai.psupply = src
-	forceMove(powered_ai.loc)
-
-	..()
-	use_power(1) // Just incase we need to wake up the power system.
-
-/obj/machinery/ai_powersupply/Destroy()
-	. = ..()
-	powered_ai = null
-
-/obj/machinery/ai_powersupply/process()
-	if(!powered_ai || powered_ai.stat == DEAD)
-		qdel(src)
-		return
-	if(powered_ai.psupply != src) // For some reason, the AI has different powersupply object. Delete this one, it's no longer needed.
-		qdel(src)
-		return
-	if(powered_ai.APU_power)
-		use_power = 0
-		return
-	if(!powered_ai.anchored)
-		loc = powered_ai.loc
-		use_power = 0
-		use_power(50000) // Less optimalised but only called if AI is unwrenched. This prevents usage of wrenching as method to keep AI operational without power. Intellicard is for that.
-	if(powered_ai.anchored)
-		use_power = 2
-
 /mob/living/silicon/ai/proc/pick_icon()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Set AI Core Display"
-	if(stat || aiRestorePowerRoutine)
+	if(stat || !has_power())
 		return
 
 	if (!custom_sprite)
@@ -330,7 +282,7 @@ var/list/ai_verbs_default = list(
 
 // this verb lets the ai see the stations manifest
 /mob/living/silicon/ai/proc/ai_roster()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Show Crew Manifest"
 	show_station_manifest()
 
@@ -348,14 +300,14 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/var/message_cooldown = 0
 /mob/living/silicon/ai/proc/ai_announcement()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Make Station Announcement"
 
 	if(check_unable(AI_CHECK_WIRELESS | AI_CHECK_RADIO))
 		return
 
 	if(message_cooldown)
-		src << "Please allow one minute to pass between announcements."
+		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
 	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement")
 	if(!input)
@@ -370,13 +322,13 @@ var/list/ai_verbs_default = list(
 		message_cooldown = 0
 
 /mob/living/silicon/ai/proc/ai_call_shuttle()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Call Emergency Shuttle"
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
 
-	var/confirm = alert("Are you sure you want to call the shuttle?", "Confirm Shuttle Call", "Yes", "No")
+	var/confirm = alert("Are you sure you want to call the shuttle ?", "Confirm Shuttle Call", "Yes", "No")
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
@@ -391,7 +343,7 @@ var/list/ai_verbs_default = list(
 			C.post_status("shuttle")
 
 /mob/living/silicon/ai/proc/ai_recall_shuttle()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Recall Emergency Shuttle"
 
 	if(check_unable(AI_CHECK_WIRELESS))
@@ -406,22 +358,22 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/var/emergency_message_cooldown = 0
 /mob/living/silicon/ai/proc/ai_emergency_message()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Send Emergency Message"
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
 	if(!is_relay_online())
-		usr <<"<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>"
+		to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 		return
 	if(emergency_message_cooldown)
-		usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
+		to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 		return
 	var/input = sanitize(input(usr, "Please choose a message to transmit to [boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
 		return
 	Centcomm_announce(input, usr)
-	usr << "<span class='notice'>Message transmitted.</span>"
+	to_chat(usr, "<span class='notice'>Message transmitted.</span>")
 	log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]")
 	emergency_message_cooldown = 1
 	spawn(300)
@@ -463,7 +415,7 @@ var/list/ai_verbs_default = list(
 			if(H)
 				H.attack_ai(src) //may as well recycle
 			else
-				src << "<span class='notice'>Unable to locate the holopad.</span>"
+				to_chat(src, "<span class='notice'>Unable to locate the holopad.</span>")
 
 	if (href_list["track"])
 		var/mob/target = locate(href_list["track"]) in mob_list
@@ -471,24 +423,18 @@ var/list/ai_verbs_default = list(
 		if(target && (!istype(target, /mob/living/carbon/human) || html_decode(href_list["trackname"]) == target:get_face_name()))
 			ai_actual_track(target)
 		else
-			src << "\red System error. Cannot locate [html_decode(href_list["trackname"])]."
+			to_chat(src, "<span class='warning'>System error. Cannot locate [html_decode(href_list["trackname"])].</span>")
 		return
 	if (href_list["readcapturedpaper"]) //Yep stolen from admin faxes
 		var/entry = text2num(href_list["readcapturedpaper"])
 		if(!entry || !cameraRecords.len) return
 		if(!cameraRecords[entry])
-			src << "<span class='notice'>Unable to locate visual entry.</span>"
+			to_chat(src, "<span class='notice'>Unable to locate visual entry.</span>")
 			return
 		var/info = cameraRecords[entry]
-		src<< browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", html_encode(info[1]), html_encode(info[2])), text("window=[]", html_encode(info[1])))
+		src << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", html_encode(info[1]), html_encode(info[2])), text("window=[]", html_encode(info[1])))
 		return
 
-	return
-
-/mob/living/silicon/ai/ex_act(severity)
-	if (health > 0)
-		adjustBruteLoss(min(30/severity, health))
-		updatehealth()
 	return
 
 /mob/living/silicon/ai/reset_view(atom/A)
@@ -516,7 +462,7 @@ var/list/ai_verbs_default = list(
 	return 1
 
 /mob/living/silicon/ai/cancel_camera()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Cancel Camera View"
 
 	//src.cameraFollow = null
@@ -541,7 +487,7 @@ var/list/ai_verbs_default = list(
 	return cameralist
 
 /mob/living/silicon/ai/proc/ai_network_change(var/network in get_camera_network_list())
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Jump To Network"
 	unset_machine()
 
@@ -560,11 +506,11 @@ var/list/ai_verbs_default = list(
 		if(network in C.network)
 			eyeobj.setLoc(get_turf(C))
 			break
-	src << "\blue Switched to [network] camera network."
+	to_chat(src, "<span class='notice'>Switched to [network] camera network.</span>")
 //End of code by Mord_Sith
 
 /mob/living/silicon/ai/proc/ai_statuschange()
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "AI Status"
 
 	if(check_unable(AI_CHECK_WIRELESS))
@@ -577,7 +523,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/ai_hologram_change()
 	set name = "Change Hologram"
 	set desc = "Change the default hologram available to AI to something else."
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 
 	if(check_unable())
 		return
@@ -621,13 +567,13 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/toggle_camera_light()
 	set name = "Toggle Camera Light"
 	set desc = "Toggles the light on the camera the AI is looking through."
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 
 	if(check_unable())
 		return
 
 	camera_light_on = !camera_light_on
-	src << "Camera lights [camera_light_on ? "activated" : "deactivated"]."
+	to_chat(src, "Camera lights [camera_light_on ? "activated" : "deactivated"].")
 	if(!camera_light_on)
 		if(camera)
 			camera.set_light(0)
@@ -670,19 +616,19 @@ var/list/ai_verbs_default = list(
 
 	else if(istype(W, /obj/item/weapon/wrench))
 		if(anchored)
-			user.visible_message("\blue \The [user] starts to unbolt \the [src] from the plating...")
-			if(!do_after(user,40))
-				user.visible_message("\blue \The [user] decides not to unbolt \the [src].")
+			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
+			if(!do_after(user,40, src))
+				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
-			user.visible_message("\blue \The [user] finishes unfastening \the [src]!")
+			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
 			anchored = 0
 			return
 		else
-			user.visible_message("\blue \The [user] starts to bolt \the [src] to the plating...")
-			if(!do_after(user,40))
-				user.visible_message("\blue \The [user] decides not to bolt \the [src].")
+			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating...</span>")
+			if(!do_after(user,40,src))
+				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
 				return
-			user.visible_message("\blue \The [user] finishes fastening down \the [src]!")
+			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
 			anchored = 1
 			return
 	else
@@ -691,62 +637,59 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/control_integrated_radio()
 	set name = "Radio Settings"
 	set desc = "Allows you to change settings of your radio."
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 
 	if(check_unable(AI_CHECK_RADIO))
 		return
 
-	src << "Accessing Subspace Transceiver control..."
+	to_chat(src, "Accessing Subspace Transceiver control...")
 	if (src.aiRadio)
 		src.aiRadio.interact(src)
 
 /mob/living/silicon/ai/proc/sensor_mode()
 	set name = "Set Sensor Augmentation"
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set desc = "Toggles hologram movement based on moving with your virtual eye."
 
 	hologram_follow = !hologram_follow
-	usr << "<span class='info'>Your hologram will now [hologram_follow ? "follow" : "no longer follow"] you.</span>"
+	to_chat(usr, "<span class='info'>Your hologram will now [hologram_follow ? "follow" : "no longer follow"] you.</span>")
 
 /mob/living/silicon/ai/proc/check_unable(var/flags = 0, var/feedback = 1)
 	if(stat == DEAD)
-		if(feedback) src << "<span class='warning'>You are dead!</span>"
+		if(feedback) to_chat(src, "<span class='warning'>You are dead!</span>")
 		return 1
 
-	if(aiRestorePowerRoutine)
-		if(feedback) src << "<span class='warning'>You lack power!</span>"
+	if(!has_power())
+		if(feedback) to_chat(src, "<span class='warning'>You lack power!</span>")
+		return 1
+
+	if(self_shutdown)
+		if(feedback) to_chat(src, "<span class='warning'>You are offline!</span>")
 		return 1
 
 	if((flags & AI_CHECK_WIRELESS) && src.control_disabled)
-		if(feedback) src << "<span class='warning'>Wireless control is disabled!</span>"
+		if(feedback) to_chat(src, "<span class='warning'>Wireless control is disabled!</span>")
 		return 1
 	if((flags & AI_CHECK_RADIO) && src.aiRadio.disabledAi)
-		if(feedback) src << "<span class='warning'>System Error - Transceiver Disabled!</span>"
+		if(feedback) to_chat(src, "<span class='warning'>System Error - Transceiver Disabled!</span>")
 		return 1
 	return 0
 
 /mob/living/silicon/ai/proc/is_in_chassis()
 	return istype(loc, /turf)
 
-
-/mob/living/silicon/ai/ex_act(var/severity)
-	if(severity == 1.0)
-		qdel(src)
-		return
-	..()
-
 /mob/living/silicon/ai/proc/multitool_mode()
 	set name = "Toggle Multitool Mode"
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 
 	multitool_mode = !multitool_mode
-	src << "<span class='notice'>Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged</span>"
+	to_chat(src, "<span class='notice'>Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged</span>")
 
 /mob/living/silicon/ai/updateicon()
 	if(!selected_sprite) selected_sprite = default_ai_icon
@@ -754,7 +697,7 @@ var/list/ai_verbs_default = list(
 	if(stat == DEAD)
 		icon_state = selected_sprite.dead_icon
 		set_light(3, 1, selected_sprite.dead_light)
-	else if(aiRestorePowerRoutine)
+	else if(!has_power())
 		icon_state = selected_sprite.nopower_icon
 		set_light(1, 1, selected_sprite.nopower_light)
 	else
@@ -770,7 +713,7 @@ var/list/ai_verbs_default = list(
 	var/obj/item/weapon/rig/rig = src.get_rig()
 	if(rig)
 		rig.force_rest(src)
-
+		
 /mob/living/silicon/ai/proc/addCameraRecord(var/itemName,var/info)
 	if(!itemName || !info)
 		return -1

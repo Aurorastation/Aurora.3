@@ -55,6 +55,9 @@
 	icon_state = "battery_lambda"
 	hardware_size = 1
 	battery_rating = 1000000
+/obj/item/weapon/computer_hardware/battery_module/lambda/New()
+	..()
+	battery = new/obj/item/weapon/cell/infinite(src)
 
 /obj/item/weapon/computer_hardware/battery_module/diagnostics(var/mob/user)
 	..()

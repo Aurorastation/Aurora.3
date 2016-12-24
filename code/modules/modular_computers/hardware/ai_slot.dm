@@ -9,7 +9,7 @@
 	origin_tech = list(TECH_POWER = 2, TECH_DATA = 3)
 	var/obj/item/weapon/aicard/stored_card
 	var/power_usage_idle = 100
-	var/power_usage_occupied = 2000
+	var/power_usage_occupied = 2 KILOWATTS
 
 /obj/item/weapon/computer_hardware/ai_slot/proc/update_power_usage()
 	if(!stored_card || !stored_card.carded_ai)

@@ -24,6 +24,7 @@
 
 /datum/nano_module/program/comm
 	name = "Command and communications program"
+	available_to_ai = TRUE
 	var/current_status = STATE_DEFAULT
 	var/msg_line1 = ""
 	var/msg_line2 = ""
@@ -273,11 +274,11 @@ var/list/comm_message_listeners = list() //We first have to initialize list then
 var/datum/comm_message_listener/global_message_listener = new //May be used by admins
 var/last_message_id = 0
 
-proc/get_comm_message_id()
+/proc/get_comm_message_id()
 	last_message_id = last_message_id + 1
 	return last_message_id
 
-proc/post_comm_message(var/message_title, var/message_text)
+/proc/post_comm_message(var/message_title, var/message_text)
 	var/list/message = list()
 	message["id"] = get_comm_message_id()
 	message["title"] = message_title

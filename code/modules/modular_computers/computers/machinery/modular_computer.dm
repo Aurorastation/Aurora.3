@@ -1,8 +1,11 @@
+// Global var to track modular computers
+var/list/global_modular_computers = list()
+
 // Modular Computer - device that runs various programs and operates with hardware
 // DO NOT SPAWN THIS TYPE. Use /laptop/ or /console/ instead.
 /obj/machinery/modular_computer/
 	name = "modular computer"
-	desc = "An advanced computer"
+	desc = "An advanced computer."
 
 	var/battery_powered = 0											// Whether computer should be battery powered. It is set automatically
 	use_power = 0
@@ -83,6 +86,7 @@
 /obj/machinery/modular_computer/New()
 	..()
 	cpu = new(src)
+	global_modular_computers.Add(src)
 
 /obj/machinery/modular_computer/Destroy()
 	if(cpu)
@@ -120,8 +124,9 @@
 		if(cpu)
 			cpu.shutdown_computer(0)
 		battery_powered = 0
-		update_icon()
+
 	stat |= NOPOWER
+	update_icon()
 
 // Called by cpu item's process() automatically, handles our power interaction.
 /obj/machinery/modular_computer/proc/handle_power()
@@ -171,8 +176,8 @@
 /obj/machinery/modular_computer/power_change()
 	if(battery_powered)
 		return
-	else
-		..()
+	..()
+
 
 /obj/machinery/modular_computer/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(cpu)
@@ -198,5 +203,7 @@
 	if(cpu)
 		cpu.bullet_act(Proj)
 
-
-
+/obj/machinery/modular_computer/check_eye(var/mob/user)
+	if(cpu)
+		return cpu.check_eye(user)
+	return -1

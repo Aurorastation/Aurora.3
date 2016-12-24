@@ -2,6 +2,12 @@
 	var/datum/ai_laws/laws = null
 	var/list/additional_law_channels = list("State" = "")
 
+/mob/living/silicon/New()
+	..()
+	if(ispath(laws))
+		laws = new laws()
+	laws_sanity_check()
+
 /mob/living/silicon/proc/laws_sanity_check()
 	if (!src.laws)
 		laws = new base_law_type
