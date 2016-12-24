@@ -695,6 +695,7 @@
 #include "code\game\objects\items\weapons\tools.dm"
 #include "code\game\objects\items\weapons\traps.dm"
 #include "code\game\objects\items\weapons\trays.dm"
+#include "code\game\objects\items\weapons\vaurca_items.dm"
 #include "code\game\objects\items\weapons\weaponry.dm"
 #include "code\game\objects\items\weapons\weldbackpack.dm"
 #include "code\game\objects\items\weapons\wires.dm"
