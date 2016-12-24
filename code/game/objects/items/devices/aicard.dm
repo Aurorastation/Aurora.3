@@ -113,7 +113,6 @@
 	ai.cancel_camera()
 	ai.control_disabled = 1
 	ai.aiRestorePowerRoutine = 0
-	ai.calculate_power_usage()
 	carded_ai = ai
 
 	if(ai.client)
@@ -130,7 +129,6 @@
 		carded_ai.canmove = 0
 		carded_ai.carded = 0
 	name = initial(name)
-	carded_ai.calculate_power_usage()
 	carded_ai = null
 	update_icon()
 

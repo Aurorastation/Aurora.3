@@ -793,7 +793,7 @@
 		return 1
 
 	if (href_list["showalerts"])
-		open_subsystem(/datum/nano_module/alarm_monitor/all)
+		subsystem_alarm_monitor()
 		return 1
 
 	if (href_list["mod"])
