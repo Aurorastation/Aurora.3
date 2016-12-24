@@ -32,13 +32,26 @@
 	hud_list[HEALTH_HUD]      = image('icons/mob/hud.dmi', src, "hudhealth100")
 	hud_list[STATUS_HUD]      = image('icons/mob/hud.dmi', src, "hudhealthy")
 	hud_list[LIFE_HUD]	      = image('icons/mob/hud.dmi', src, "hudhealthy")
-	hud_list[ID_HUD]          = image('icons/mob/hud.dmi', src, "hudunknown")
-	hud_list[WANTED_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[ID_HUD]          = image('icons/hud/hud_security.dmi', src, "hudunknown")
+	hud_list[WANTED_HUD]      = image('icons/hud/hud_security.dmi', src, "hudblank")
 	hud_list[IMPLOYAL_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[IMPCHEM_HUD]     = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[IMPTRACK_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[SPECIALROLE_HUD] = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[STATUS_HUD_OOC]  = image('icons/mob/hud.dmi', src, "hudhealthy")
+
+	//Scaling down the ID hud
+	var/image/holder = hud_list[ID_HUD]
+	holder.pixel_x = -5
+	holder.pixel_y = 26
+	hud_list[ID_HUD] = holder
+
+
+	holder = hud_list[WANTED_HUD]
+	holder.pixel_x = -5
+	holder.pixel_y = 14
+	hud_list[WANTED_HUD] = holder
+
 
 	human_mob_list |= src
 	..()
