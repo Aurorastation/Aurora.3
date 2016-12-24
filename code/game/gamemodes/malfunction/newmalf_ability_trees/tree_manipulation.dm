@@ -25,14 +25,14 @@
 
 /datum/malf_research_ability/manipulation/emergency_forcefield
 	ability = new/datum/game_mode/malfunction/verb/emergency_forcefield()
-	price = 3000
+	price = 1750
 	next = new/datum/malf_research_ability/manipulation/machine_overload()
 	name = "Emergency Forcefield"
 
 
 /datum/malf_research_ability/manipulation/machine_overload
 	ability = new/datum/game_mode/malfunction/verb/machine_overload()
-	price = 7500
+	price = 5000
 	name = "Machine Overload"
 
 // END RESEARCH DATUMS
