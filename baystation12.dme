@@ -1595,6 +1595,7 @@
 #include "code\modules\nano\modules\exosuit_control.dm"
 #include "code\modules\nano\modules\human_appearance.dm"
 #include "code\modules\nano\modules\law_manager.dm"
+#include "code\modules\nano\modules\lighting_ctrl.dm"
 #include "code\modules\nano\modules\nano_module.dm"
 #include "code\modules\nano\modules\power_monitor.dm"
 #include "code\modules\nano\modules\rcon.dm"
