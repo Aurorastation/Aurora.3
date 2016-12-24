@@ -270,7 +270,7 @@ datum/preferences
 			undershirt_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = undershirt)
 
 		var/icon/socks_s = null
-		if(socks && current_species.flags & HAS_SOCKS)
+		if(socks && current_species.appearance_flags & HAS_SOCKS)
 			socks_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = socks)
 
 		var/icon/clothes_s = null
