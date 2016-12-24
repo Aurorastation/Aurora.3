@@ -54,7 +54,7 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		SCHECK
 
 /datum/controller/process/night_lighting/proc/deactivate(var/whitelisted_only = 1)
-	isactive = 1
+	isactive = 0
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("off")
 
