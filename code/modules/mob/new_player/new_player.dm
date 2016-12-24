@@ -95,6 +95,11 @@
 
 		if(href_list["ready"])
 			if(!ticker || ticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
+				// Cannot join without a saved character, if we're on SQL saves.
+				if (config.sql_saves && !client.prefs.current_character)
+					alert(src, "You have not saved your character yet. Please do so before readying up.")
+					return
+
 				ready = text2num(href_list["ready"])
 			else
 				ready = 0
@@ -143,6 +148,11 @@
 
 			if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
 				usr << "\red The round is either not ready, or has already finished..."
+				return
+
+			// Cannot join without a saved character, if we're on SQL saves.
+			if (config.sql_saves && !client.prefs.current_character)
+				alert(src, "You have not saved your character yet. Please do so before attempting to join.")
 				return
 
 			if(!check_rights(R_ADMIN, 0))
@@ -297,6 +307,9 @@
 			return 0
 		if(!config.enter_allowed)
 			usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
+			return 0
+		if(config.sql_saves && !client.prefs.current_character)
+			alert(src, "You have not saved your character yet. Please do so before attempting to join.")
 			return 0
 		if(!IsJobAvailable(rank))
 			src << alert("[rank] is not available. Please try another.")
