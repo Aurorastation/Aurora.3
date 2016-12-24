@@ -251,8 +251,8 @@
 	else
 		..()
 
-/obj/item/weapon/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(user.zone_sel.selecting == "eyes")
+/obj/item/weapon/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+	if(target_zone == "eyes")
 		user.visible_message("<span class='notice'>You open up the book and show it to [M]. </span>", \
 			"<span class='notice'> [user] opens up a book and shows it to [M]. </span>")
 		M << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")

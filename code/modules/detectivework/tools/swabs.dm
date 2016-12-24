@@ -9,7 +9,7 @@
 /obj/item/weapon/forensics/swab/proc/is_used()
 	return used
 
-/obj/item/weapon/forensics/swab/attack(var/mob/living/M, var/mob/user)
+/obj/item/weapon/forensics/swab/attack(var/mob/living/M, var/mob/user, var/target_zone)
 
 	if(!ishuman(M))
 		return ..()
@@ -32,7 +32,7 @@
 		user.visible_message("<span class='danger'>\The [user] tries to take a swab sample from \the [H], but they move away.</span>")
 		return
 
-	if(user.zone_sel.selecting == "mouth")
+	if(target_zone == "mouth")
 		if(!H.organs_by_name["head"])
 			user << "<span class='warning'>They don't have a head.</span>"
 			return
@@ -43,7 +43,7 @@
 		dna = list(H.dna.unique_enzymes)
 		sample_type = "DNA"
 
-	else if(user.zone_sel.selecting == "r_hand" || user.zone_sel.selecting == "l_hand")
+	else if(target_zone == "r_hand" || target_zone == "l_hand")
 		var/has_hand
 		var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
 		if(istype(O) && !O.is_stump())

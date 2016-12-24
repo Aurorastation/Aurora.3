@@ -31,7 +31,7 @@
 		/obj/item/weapon/flame/match,
 		/obj/item/weapon/material/ashtray)
 
-/obj/item/weapon/tray/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/tray/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 
 	// Drop all the things. All of them.
 	spill(user, M.loc)
@@ -53,7 +53,7 @@
 	var/mob/living/carbon/human/H = M      ///////////////////////////////////// /Let's have this ready for later.
 
 
-	if(!(user.zone_sel.selecting == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
+	if(!(target_zone == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
 		if(prob(33) && !issilicon(M))//robots dont bleed
 			src.add_blood(H)
 			var/turf/location = H.loc
@@ -87,7 +87,7 @@
 		if(istype(protection) && (protection.body_parts_covered & FACE))
 			protected = 1
 			break
-	
+
 	if(protected)
 		M << "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>"
 		if(prob(33) && !issilicon(M))
