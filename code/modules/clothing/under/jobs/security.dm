@@ -167,16 +167,15 @@ obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mo
 	name = "Head of Security hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "hoscap"
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 10, bomb = 25, bio = 10, rad = 0)
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS
 	body_parts_covered = 0
 	siemens_coefficient = 0.5
 
-/obj/item/clothing/head/HoS/dermal
+/obj/item/clothing/head/helmet/HoS/dermal
 	name = "Dermal Armour Patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
-	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/armor/hos
 	name = "head of security's jacket"
@@ -185,7 +184,6 @@ obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mo
 	item_state = "hos"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0.5
 	pocket_slots = 4//More slots because coat
 
@@ -196,17 +194,12 @@ obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mo
 	icon_state = "jensen"
 	item_state = "jensen"
 	worn_state = "jensen"
-	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/armor/hos/jensen
 	name = "armored trenchcoat"
 	desc = "A trenchcoat augmented with a special alloy for some protection and style."
 	icon_state = "jensencoat"
 	item_state = "jensencoat"
-	flags_inv = 0
-	siemens_coefficient = 0.5
-	body_parts_covered = UPPER_TORSO|ARMS
-	pocket_slots = 4//More slots because coat
 
 /*
  * Navy uniforms

@@ -384,6 +384,12 @@
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
+/var/const/access_paramedic = 67
+/datum/access/access_paramedic
+	id = access_paramedic
+	desc = "Paramedic Equipment"
+	region = ACCESS_REGION_MEDBAY
+
 /******************
 * Central Command *
 ******************/

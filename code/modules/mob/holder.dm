@@ -54,24 +54,6 @@ var/list/holder_mob_icon_cache = list()
 	for(var/mob/M in contents)
 		M.show_inv(usr)
 
-/obj/item/weapon/holder/proc/sync(var/mob/living/M)
-	dir = 2
-	overlays.Cut()
-	icon = M.icon
-	icon_state = M.icon_state
-	item_state = M.item_state
-	color = M.color
-	name = M.name
-	desc = M.desc
-	overlays |= M.overlays
-	var/mob/living/carbon/human/H = loc
-	if(istype(H))
-		if(H.l_hand == src)
-			H.update_inv_l_hand()
-		else if(H.r_hand == src)
-			H.update_inv_r_hand()
-		else
-			H.regenerate_icons()
 
 //Mob specific holders.
 /obj/item/weapon/holder/diona
@@ -88,6 +70,8 @@ var/list/holder_mob_icon_cache = list()
 	origin_tech = list(TECH_BIO = 6)
 
 /obj/item/weapon/holder/process()
+	if (!contained)
+		qdel(src)
 
 	if(!get_holding_mob() || contained.loc != src)
 		if (is_unsafe_container(loc) && contained.loc == src)
@@ -263,6 +247,10 @@ var/list/holder_mob_icon_cache = list()
 				grabber << "<span class='notice'>You scoop up [src].</span>"
 				src << "<span class='notice'>[grabber] scoops you up.</span>"
 
+			if (istype(H, /obj/item/weapon/holder/human))
+				var/obj/item/weapon/holder/human/HU = H
+				HU.sync(src)
+
 		else
 			user << "Failed, try again!"
 			//If the scooping up failed something must have gone wrong
@@ -285,15 +273,17 @@ var/list/holder_mob_icon_cache = list()
 		H.report_onmob_location(0, H.get_equip_slot(), src)
 
 /obj/item/weapon/holder/human
-	icon = 'icons/mob/holder_complex.dmi'
+	icon = null
+	var/holder_icon = 'icons/mob/holder_complex.dmi'
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
 
-/obj/item/weapon/holder/human/sync(var/mob/living/M)
+/obj/item/weapon/holder/human/proc/sync(var/mob/living/M)
 
 	// Generate appropriate on-mob icons.
 	var/mob/living/carbon/human/owner = M
-	if(istype(owner) && owner.species)
+	if(!icon && istype(owner) && owner.species)
+		var/icon/I = new /icon()
 
 		var/skin_colour = rgb(owner.r_skin, owner.g_skin, owner.b_skin)
 		var/hair_colour = rgb(owner.r_hair, owner.g_hair, owner.b_hair)
@@ -305,11 +295,11 @@ var/list/holder_mob_icon_cache = list()
 			if(!holder_mob_icon_cache[cache_key])
 
 				// Generate individual icons.
-				var/icon/mob_icon = icon(icon, "[species_name]_holder_[cache_entry]_base")
+				var/icon/mob_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_base")
 				mob_icon.Blend(skin_colour, ICON_ADD)
-				var/icon/hair_icon = icon(icon, "[species_name]_holder_[cache_entry]_hair")
+				var/icon/hair_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_hair")
 				hair_icon.Blend(hair_colour, ICON_ADD)
-				var/icon/eyes_icon = icon(icon, "[species_name]_holder_[cache_entry]_eyes")
+				var/icon/eyes_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_eyes")
 				eyes_icon.Blend(eye_colour, ICON_ADD)
 
 				// Blend them together.
@@ -318,10 +308,40 @@ var/list/holder_mob_icon_cache = list()
 
 				// Add to the cache.
 				holder_mob_icon_cache[cache_key] = mob_icon
-			item_icons[cache_entry] = holder_mob_icon_cache[cache_key]
 
-	// Handle the rest of sync().
-	..(M)
+			var/newstate
+			switch (cache_entry)
+				if (slot_l_hand_str)
+					newstate = "[species_name]_lh"
+				if (slot_r_hand_str)
+					newstate = "[species_name]_rh"
+				if (slot_back_str)
+					newstate = "[species_name]_ba"
+
+			I.Insert(holder_mob_icon_cache[cache_key], newstate)
+
+
+		dir = 2
+		var/icon/mob_icon = icon(owner.icon, owner.icon_state)
+		I.Insert(mob_icon, species_name)
+		icon = I
+		icon_state = species_name
+		item_state = species_name
+		src.overlays = owner.overlays
+		contained_sprite = 1
+
+		color = M.color
+		name = M.name
+		desc = M.desc
+		overlays |= M.overlays
+		var/mob/living/carbon/human/H = loc
+		if(istype(H))
+			if(H.l_hand == src)
+				H.update_inv_l_hand()
+			else if(H.r_hand == src)
+				H.update_inv_r_hand()
+			else
+				H.regenerate_icons()
 
 //#TODO-MERGE
 //Port the reduced-duplication holder method from baystation upstream:

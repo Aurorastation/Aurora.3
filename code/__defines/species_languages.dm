@@ -21,6 +21,7 @@
 #define HAS_UNDERWEAR     0x8    // Underwear is drawn onto the mob icon.
 #define HAS_EYE_COLOR     0x10   // Eye colour selectable in chargen. (RGB)
 #define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
+#define HAS_SOCKS         0x40   // If this species can wear socks
 
 // Languages.
 #define LANGUAGE_EAL "Encoded Audio Language"

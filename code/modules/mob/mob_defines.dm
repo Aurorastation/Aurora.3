@@ -48,6 +48,7 @@
 	var/use_me = 1 //Allows all mobs to use the me verb by default, will have to manually specify they cannot
 	var/damageoverlaytemp = 0
 	var/computer_id = null
+	var/character_id = 0
 	var/already_placed = 0.0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
@@ -70,6 +71,7 @@
 	var/flavor_text = ""
 	var/med_record = ""
 	var/sec_record = ""
+	var/list/incidents = list()
 	var/gen_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()
@@ -108,6 +110,8 @@
 	var/drowsyness = 0.0//Carbon
 	var/charges = 0.0
 	var/nutrition = 400.0//Carbon
+	var/nutrition_loss = HUNGER_FACTOR//How much hunger is lost per tick. This is modified by species
+	var/max_nutrition = 400
 
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 	var/paralysis = 0.0

@@ -22,6 +22,12 @@
 		item_state = "ionrifle-empty"
 	else
 		item_state = initial(item_state)
+		
+/obj/item/weapon/gun/energy/ionrifle/mounted
+	name = "mounted ion rifle"
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
 
 /obj/item/weapon/gun/energy/decloner
 	name = "biological demolecularisor"

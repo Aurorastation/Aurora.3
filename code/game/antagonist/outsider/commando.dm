@@ -46,7 +46,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	syndie_belt.contents += new /obj/item/weapon/shield/energy
 	syndie_belt.contents += new /obj/item/weapon/handcuffs
 	syndie_belt.contents += new /obj/item/weapon/grenade/flashbang
-	syndie_belt.contents += new /obj/item/weapon/plastique
+	syndie_belt.contents += new /obj/item/weapon/grenade/frag
 	syndie_belt.contents += new /obj/item/weapon/plastique
 	player.equip_to_slot_or_del(syndie_belt, slot_belt)
 

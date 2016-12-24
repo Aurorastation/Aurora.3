@@ -75,21 +75,21 @@ var/global/list/gear_datums = list()
 
 /datum/gear/bsec_beret
 	display_name = "beret, navy (officer)"
-	path = /obj/item/clothing/head/beret/sec/navy/officer
+	path = /obj/item/clothing/head/beret/sec
 	cost = 1
 	slot = slot_head
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/bsec_beret_warden
 	display_name = "beret, navy (warden)"
-	path = /obj/item/clothing/head/beret/sec/navy/warden
+	path = /obj/item/clothing/head/beret/sec/warden
 	cost = 1
 	slot = slot_head
 	allowed_roles = list("Head of Security","Warden")
 
 /datum/gear/bsec_beret_hos
 	display_name = "beret, navy (hos)"
-	path = /obj/item/clothing/head/beret/sec/navy/hos
+	path = /obj/item/clothing/head/beret/sec/hos
 	cost = 1
 	slot = slot_head
 	allowed_roles = list("Head of Security")

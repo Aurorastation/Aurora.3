@@ -387,11 +387,19 @@
 
 /datum/design/item/mecha_tracking
 	name = "Exosuit tracking beacon"
+	id = "exotrack"
 	build_type = MECHFAB
 	time = 5
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path = /obj/item/mecha_parts/mecha_tracking
 	category = "Misc"
+
+/datum/design/item/mecha_tracking/control
+	name = "Exosuit control beacon"
+	id = "exocontrol"
+	time = 30
+	materials = list(DEFAULT_WALL_MATERIAL = 3000)
+	build_path = /obj/item/mecha_parts/mecha_tracking/control
 
 /datum/design/item/mecha
 	build_type = MECHFAB

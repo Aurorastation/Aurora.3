@@ -195,7 +195,7 @@
 			M.fields["notes"] = H.med_record
 
 		//Security Record
-		var/datum/data/record/S = CreateSecurityRecord(H.real_name, id)
+		var/datum/data/record/S = CreateSecurityRecord(H.real_name, id, H.incidents)
 		if(H.sec_record && !jobban_isbanned(H, "Records"))
 			S.fields["notes"] = H.sec_record
 
@@ -424,7 +424,7 @@ proc/get_id_photo(var/mob/living/carbon/human/H, var/assigned_role)
 
 	return G
 
-/datum/datacore/proc/CreateSecurityRecord(var/name, var/id)
+/datum/datacore/proc/CreateSecurityRecord(var/name, var/id, var/incidents)
 	ResetPDAManifest()
 	var/datum/data/record/R = new /datum/data/record()
 	R.name = "Security Record #[id]"
@@ -437,6 +437,7 @@ proc/get_id_photo(var/mob/living/carbon/human/H, var/assigned_role)
 	R.fields["ma_crim_d"]	= "No major crime convictions."
 	R.fields["notes"]		= "No notes."
 	R.fields["notes"] = "No notes."
+	R.fields["incidents"]	= incidents
 	data_core.security += R
 
 	return R

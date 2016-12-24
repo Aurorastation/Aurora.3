@@ -62,11 +62,9 @@ var/datum/antagonist/deathsquad/deathsquad
 	commando_belt.contents += new /obj/item/weapon/grenade/flashbang
 	commando_belt.contents += new /obj/item/weapon/handcuffs
 	commando_belt.contents += new /obj/item/weapon/handcuffs
-	commando_belt.contents += new /obj/item/weapon/plastique
+	commando_belt.contents += new /obj/item/weapon/grenade/frag
 	player.equip_to_slot_or_del(commando_belt, slot_belt)
 	
-	player.implant_loyalty(player)
-
 	var/obj/item/weapon/card/id/id = create_id("Asset Protection", player)
 	if(id)
 		id.access |= get_all_station_access()

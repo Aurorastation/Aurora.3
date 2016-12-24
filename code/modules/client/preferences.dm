@@ -38,6 +38,7 @@ datum/preferences
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/underwear						//underwear type
 	var/undershirt						//undershirt type
+	var/socks						//socks type
 	var/backbag = 2						//backpack type
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
@@ -109,6 +110,7 @@ datum/preferences
 
 	var/med_record = ""
 	var/sec_record = ""
+	var/list/incidents = list()
 	var/gen_record = ""
 	var/exploit_record = ""
 	var/ccia_record = ""
@@ -142,6 +144,14 @@ datum/preferences
 			load_path(C.ckey)
 			load_preferences()
 			load_and_update_character()
+
+	//Reset the records when making a new char
+	med_record = ""
+	sec_record = ""
+	incidents = list()
+	gen_record = ""
+	exploit_record = ""
+	ccia_record = ""
 
 	ZeroSkills(1)
 
@@ -313,9 +323,11 @@ datum/preferences
 	character.flavor_texts["hands"] = flavor_texts["hands"]
 	character.flavor_texts["legs"] = flavor_texts["legs"]
 	character.flavor_texts["feet"] = flavor_texts["feet"]
+	character.character_id = current_character
 
 	character.med_record = med_record
 	character.sec_record = sec_record
+	character.incidents = incidents
 	character.gen_record = gen_record
 	character.ccia_record = ccia_record
 	character.ccia_actions = ccia_actions
@@ -386,6 +398,8 @@ datum/preferences
 	character.underwear = underwear
 
 	character.undershirt = undershirt
+	
+	character.socks = socks
 
 	if(backbag > 5 || backbag < 1)
 		backbag = 1 //Same as above

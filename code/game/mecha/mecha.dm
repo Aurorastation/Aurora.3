@@ -343,6 +343,37 @@
 		if(src_object in view(2, src))
 			return STATUS_UPDATE //if they're close enough, allow the occupant to see the screen through the viewport or whatever.
 
+//Menu for physically removing things from the suit while fiddling around in the maintenance panel
+/obj/mecha/proc/removal_menu(var/mob/living/user)
+	var/list/options = list()
+	if(src.cell)
+		options += "Power Cell"
+
+	var/obj/item/mecha_parts/mecha_tracking/beacon = locate(/obj/item/mecha_parts/mecha_tracking) in src
+	if (beacon)
+		options += "Tracking Beacon"
+
+	if (!options.len)
+		user << "There are no components in [src] that can be removed"
+		return
+
+	var/choice = input(user, "Choose a component to remove.", "Component removal") as null|anything in options
+
+	if (!choice || !user)
+		return
+
+	switch(choice)
+		if("Power Cell")
+			if (!cell)
+				return
+			user.put_in_hands(cell)
+			cell = null
+			user << "You unscrew and pry out the powercell."
+			log_message("Powercell removed.")
+		if ("Tracking Beacon")
+			if (beacon && beacon.loc == src)//safety
+				beacon.uninstall(user)
+
 /obj/mecha/proc/melee_action(atom/target)
 	return
 
@@ -706,8 +737,10 @@
 
 /obj/mecha/emp_act(severity)
 	if(get_charge())
-		use_power((6500)/severity)
-		take_damage(40 / severity,"energy")
+		use_power((4000)/severity)
+		take_damage(30 / severity,"energy")
+	random_internal_damage(7/severity)
+	misconfigure_systems(10/severity)
 	src.log_message("EMP detected",1)
 	check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),1)
 	return
@@ -755,17 +788,21 @@
 		if(state==1)
 			state = 2
 			user << "You undo the securing bolts."
+			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
 		else if(state==2)
 			state = 1
 			user << "You tighten the securing bolts."
+			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
 		return
 	else if(istype(W, /obj/item/weapon/crowbar))
 		if(state==2)
 			state = 3
 			user << "You open the hatch to the power unit"
+			playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 		else if(state==3)
 			state=2
 			user << "You close the hatch to the power unit"
+			playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
 		return
 	else if(istype(W, /obj/item/stack/cable_coil))
 		if(state == 3 && hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
@@ -780,15 +817,10 @@
 		if(hasInternalDamage(MECHA_INT_TEMP_CONTROL))
 			clearInternalDamage(MECHA_INT_TEMP_CONTROL)
 			user << "You repair the damaged temperature controller."
-		else if(state==3 && src.cell)
-			src.cell.forceMove(src.loc)
-			src.cell = null
-			state = 4
-			user << "You unscrew and pry out the powercell."
-			src.log_message("Powercell removed.")
-		else if(state==4 && src.cell)
-			state=3
-			user << "You screw the cell in place."
+
+		else if(state==3)
+			removal_menu(user)
+
 		return
 
 	else if(istype(W, /obj/item/device/multitool))
@@ -804,7 +836,7 @@
 		return
 
 	else if(istype(W, /obj/item/weapon/cell))
-		if(state==4)
+		if(state==3)
 			if(!src.cell)
 				user << "You install the powercell"
 				user.drop_item()
@@ -833,9 +865,8 @@
 		return
 
 	else if(istype(W, /obj/item/mecha_parts/mecha_tracking))
-		user.drop_from_inventory(W)
-		W.forceMove(src)
-		user.visible_message("[user] attaches [W] to [src].", "You attach [W] to [src]")
+		var/obj/item/mecha_parts/mecha_tracking/C = W
+		C.install(src, user)
 		return
 
 	else

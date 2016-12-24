@@ -50,53 +50,63 @@ and similar programs which for some reason require HTML UI. Most software will b
 What i plan to add:
 
 Note: XXXXDB programs will use ingame_manuals to display basic help for players, similar to how books, etc. do
+Programs prefixed with // have not been made yet, they seem to only be listed here as future plans/ideas
 
 Basic - Software in this bundle is automagically preinstalled in every new computer
 	NTN Transfer - Allows P2P transfer of files to other computers that run this.
 	Configurator - Allows configuration of computer's hardware, basically status screen.
 	File Browser - Allows you to browse all files stored on the computer. Allows renaming/deleting of files.
-	TXT Editor - Allows you editing data files in text editor mode.
+	//TXT Editor - Allows you editing data files in text editor mode.
 	NanoPrint - Allows you to operate NanoPrinter hardware to print text files.
 	NTNRC Chat - NTNet Relay Chat client. Allows PDA-messaging style messaging for more than two users. Person which created the conversation is Host and has administrative privilegies (kicking, etc.)
-	NTNet News - Allows reading news from newscaster network.
+	//NTNet News - Allows reading news from newscaster network.
 
 Engineering - Requires "Engineering" access on ID card (ie. CE, Atmostech, Engineer)
 	Alarm Monitor - Allows monitoring alarms, same as the stationbound one.
 	Power Monitor - Power monitoring computer, connects to sensors in same way as regular one does.
 	Atmospheric Control - Allows access to the Atmospherics Monitor Console that operates air alarms. Requires extra access: "Atmospherics"
 	RCON Remote Control Console - Allows access to the RCON Remote Control Console. Requires extra access: "Power Equipment"
-	EngiDB - Allows accessing NTNet information repository for information about engineering-related things.
+	//EngiDB - Allows accessing NTNet information repository for information about engineering-related things.
 
 Medical - Requires "Medbay" access on ID card (ie. CMO, Doctor,..)
-	Medical Records Uplink - Allows editing/reading of medical records. Printing requires NanoPrinter hardware.
-	MediDB - Allows accessing NTNet information repository for information about medical procedures
-	ChemDB - Requires extra access: "Chemistry" - Downloads basic information about recipes from NTNet
+	//Medical Records Uplink - Allows editing/reading of medical records. Printing requires NanoPrinter hardware.
+	//MediDB - Allows accessing NTNet information repository for information about medical procedures
+	//ChemDB - Requires extra access: "Chemistry" - Downloads basic information about recipes from NTNet
+	Crew Monitor - Allows tracking vitals and locations via suit sensors
 
 Research - Requires "Research and Development" access on ID card (ie. RD, Roboticist, etc.)
-	Research Server Monitor - Allows monitoring of research levels on RnD servers. (read only)
-	Robotics Monitor Console - Allows monitoring of robots and exosuits. Lockdown/Self-Destruct options are unavailable [balance reasons for malf/traitor AIs]. Requires extra access: "Robotics"
-	NTNRC Administration Console - Allows administrative access to NTNRC. This includes bypassing any channel passwords and enabling "invisible" mode for spying on conversations. Requires extra access: "Research Director"
-	NTNet Administration Console - Allows remote configuration of NTNet Relay - CAUTION: If NTNet is turned off it won't be possible to turn it on again from the computer, as operation requires NTNet to work! Requires extra access: "Research Director"
+	//Research Server Monitor - Allows monitoring of research levels on RnD servers. (read only)
+
+Robotics - Requires Robotics access, ie Roboticist and RD
+	Exosuit Monitor - Allows monitoring and remote destruction of exosuits, if they have the appropriate hardware.
+	//Robotics Monitor Console - Allows monitoring of robots. Lockdown/Self-Destruct options are unavailable [balance reasons for malf/traitor AIs]. Requires extra access: "Robotics"
+
+Network - Requires Network Access, RD only
 	NTNet Monitor - Allows monitoring of NTNet and it's various components, including simplified network logs and system status.
+	//NTNRC Administration Console - Allows administrative access to NTNRC. This includes bypassing any channel passwords and enabling "invisible" mode for spying on conversations. Requires extra access: "Research Director"
+	//NTNet Administration Console - Allows remote configuration of NTNet Relay - CAUTION: If NTNet is turned off it won't be possible to turn it on again from the computer, as operation requires NTNet to work! Requires extra access: "Research Director"
+
 
 Security - Requires "Security" access on ID card (ie. HOS, Security officer, Detective)
-	Security Records Uplink - Allows editing/reading of security records. Printing requires Nanoprinter hardware.
-	LawDB - Allows accessing NTNet information repository for security information (corporate regulations)
-	Camera Uplink - Allows viewing cameras around the station.
+	//Security Records Uplink - Allows editing/reading of security records. Printing requires Nanoprinter hardware.
+	//LawDB - Allows accessing NTNet information repository for security information (corporate regulations)
+	//Camera Uplink - Allows viewing cameras around the station.
 
 Command - Requires "Bridge" access on ID card (all heads)
-	Alertcon Access - Allows changing of alert levels. Red requires activation from two computers with two IDs similar to how those wall mounted devices do.
-	Employment Records Access - Allows reading of employment records. Printing requires NanoPrinter hardware.
-	Communication Console - Allows sending emergency messages to Central.
-	Emergency Shuttle Control Console - Allows calling/recalling the emergency shuttle.
-	Shuttle Control Console - Allows control of various shuttles around the station (mining, research, engineering)
+	//Alertcon Access - Allows changing of alert levels. Red requires activation from two computers with two IDs similar to how those wall mounted devices do.
+	//Employment Records Access - Allows reading of employment records. Printing requires NanoPrinter hardware.
+	//Communication Console - Allows sending emergency messages to Central.
+	//Emergency Shuttle Control Console - Allows calling/recalling the emergency shuttle.
+	//Shuttle Control Console - Allows control of various shuttles around the station (mining, research, engineering)
+
+	ID Card modifier - Allows modifying access cards. Requires access_change_ids
 
 *REDACTED* - Can be downloaded from SyndiCorp servers, only via emagged devices. These files are very large and limited to laptops/consoles only.
-	SYSCRACK - Allows cracking of secure network terminals, such as, NTNet administration. The sysadmin will probably notice this.
-	SYSOVERRIDE - Allows hacking into any device connected to NTNet. User will notice this and may stop the hack by disconnecting from NTNet first. After hacking various options exist, such as stealing/deleting files.
-	SYSKILL - Tricks NTNet to force-disconnect a device. The sysadmin will probably notice this.
+	//SYSCRACK - Allows cracking of secure network terminals, such as, NTNet administration. The sysadmin will probably notice this.
+	//SYSOVERRIDE - Allows hacking into any device connected to NTNet. User will notice this and may stop the hack by disconnecting from NTNet first. After hacking various options exist, such as stealing/deleting files.
+	//SYSKILL - Tricks NTNet to force-disconnect a device. The sysadmin will probably notice this.
 	SYSDOS - Launches a Denial of Service attack on NTNet relay. Can DoS only one relay at once. Requires NTNet connection. After some time the relay crashes until attack stops. The sysadmin will probably notice this.
-	AIHACK - Hacks an AI, allowing you to upload/remove/modify a law even without relevant circuit board. The AI is alerted once the hack starts, and it takes a while for it to complete. Does not work on AIs with zeroth law.
+	//AIHACK - Hacks an AI, allowing you to upload/remove/modify a law even without relevant circuit board. The AI is alerted once the hack starts, and it takes a while for it to complete. Does not work on AIs with zeroth law.
 	COREPURGE - Deletes all files on the hard drive, including the undeletable ones. Something like software self-destruct for computer.
 
 6. Security

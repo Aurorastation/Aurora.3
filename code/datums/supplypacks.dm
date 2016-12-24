@@ -1698,3 +1698,12 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "Unlabeled crate"
 	contraband = 1
 	group = "Security"
+
+/datum/supply_packs/spessbike
+	name = "Space-bike Crate"
+	contains = list(/obj/vehicle/bike)
+	cost = 150
+	containertype = /obj/structure/largecrate
+	containername = "Space-bike Crate"
+	contraband = 1
+	group = "Operations"
