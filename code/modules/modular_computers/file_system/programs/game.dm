@@ -15,8 +15,8 @@
 
 // Blatantly stolen and shortened version from arcade machines. Generates a random enemy name
 /datum/computer_file/program/game/proc/random_enemy_name()
-	var/name_part1 = pick("the Automatic ", "Farmer ", "Lord ", "Professor ", "the Cuban ", "the Evil ", "the Dread King ", "the Space ", "Lord ", "the Great ", "Duke ", "General ")
-	var/name_part2 = pick("Melonoid", "Murdertron", "Sorcerer", "Ruin", "Jeff", "Ectoplasm", "Crushulon", "Uhangoid", "Vhakoid", "Peteoid", "Slime", "Lizard Man", "Unicorn")
+	var/name_part1 = pick("the Automatic ", "Farmer ", "Lord ", "Professor ", "the Cuban ", "the Evil ", "the Dread King ", "the Space ", "Lord ", "the Great ", "Duke ", "General ", "the vibrating bluespace")
+	var/name_part2 = pick("Melonoid", "Murdertron", "Sorcerer", "Ruin", "Jeff", "Ectoplasm", "Crushulon", "Uhangoid", "Vhakoid", "Peteoid", "Slime", "Lizard Man", "Unicorn", "Squirrel")
 	return "[name_part1] [name_part2]"
 
 // When the program is first created, we generate a new enemy name and name ourselves accordingly.

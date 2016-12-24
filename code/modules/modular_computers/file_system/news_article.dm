@@ -17,27 +17,27 @@
 
 // NEWS DEFINITIONS BELOW THIS LINE
 
-/datum/computer_file/data/news_article/space/vol_one
-	filename = "SPACE Magazine vol. 1"
-	server_file_path = 'news_articles/space_magazine_1.html'
-	archived = 1
-
-/datum/computer_file/data/news_article/space/vol_two
-	filename = "SPACE Magazine vol. 2"
-	server_file_path = 'news_articles/space_magazine_2.html'
-	archived = 1
-
-/datum/computer_file/data/news_article/space/vol_three
-	filename = "SPACE Magazine vol. 3"
-	server_file_path = 'news_articles/space_magazine_3.html'
-	archived = 1
-
-/datum/computer_file/data/news_article/space/vol_four
-	filename = "SPACE Magazine vol. 4"
-	server_file_path = 'news_articles/space_magazine_4.html'
-	archived = 0
-
-/datum/computer_file/data/news_article/space/vol_five
-	filename = "SPACE Magazine vol. 5"
-	server_file_path = 'news_articles/space_magazine_5.html'
-	archived = 0
+// /datum/computer_file/data/news_article/space/vol_one
+// 	filename = "SPACE Magazine vol. 1"
+// 	server_file_path = 'news_articles/space_magazine_1.html'
+// 	archived = 1
+//
+// /datum/computer_file/data/news_article/space/vol_two
+// 	filename = "SPACE Magazine vol. 2"
+// 	server_file_path = 'news_articles/space_magazine_2.html'
+// 	archived = 1
+//
+// /datum/computer_file/data/news_article/space/vol_three
+// 	filename = "SPACE Magazine vol. 3"
+// 	server_file_path = 'news_articles/space_magazine_3.html'
+// 	archived = 1
+//
+// /datum/computer_file/data/news_article/space/vol_four
+// 	filename = "SPACE Magazine vol. 4"
+// 	server_file_path = 'news_articles/space_magazine_4.html'
+// 	archived = 0
+//
+// /datum/computer_file/data/news_article/space/vol_five
+// 	filename = "SPACE Magazine vol. 5"
+// 	server_file_path = 'news_articles/space_magazine_5.html'
+// 	archived = 0

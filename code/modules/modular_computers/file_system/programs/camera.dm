@@ -43,7 +43,7 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks[0]
-	for(var/network in using_map.station_networks)
+	for(var/network in station_networks)
 		all_networks.Add(list(list(
 							"tag" = network,
 							"has_access" = can_access_network(user, get_camera_access(network))
