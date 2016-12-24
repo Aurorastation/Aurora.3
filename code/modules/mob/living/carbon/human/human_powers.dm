@@ -230,7 +230,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		src << "\red You cannot do that in your current state.</span>"
+		src << "<span class='warning'> You cannot do that in your current state.</span>"
 		return
 
 	var/obj/item/weapon/grab/G = locate() in src
@@ -310,7 +310,7 @@
 	else
 		var/mob/living/M = G.affecting
 		if(istype(M))
-			visible_message("<span class='danger'><b>\The [src]</b> rips viciously at \the [M]'s body with its claws!</span>")
+			visible_message("<span class='danger'>\The [src] rips viciously at \the [M]'s body with its claws!</span>")
 			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
 			M.gib()
 
@@ -354,7 +354,7 @@
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
-		M << "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"
+		M << "<span class='danger'> You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"
 		M << "<span class='notice'> [text]</span>"
 	else
 		M << "<span class='danger'> Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"

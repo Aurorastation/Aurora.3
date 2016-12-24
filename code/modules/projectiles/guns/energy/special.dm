@@ -236,6 +236,7 @@
 					"<span class='danger'>You hear the spin of a rotary gun!</span>"
 					)
 	sleep(30)
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
 /obj/item/weapon/gun/energy/vaurca/blaster
@@ -322,6 +323,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	sleep(90)
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
 /obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
@@ -404,6 +406,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	sleep(90)
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
 /*/obj/item/weapon/gun/energy/vaurca/flamer

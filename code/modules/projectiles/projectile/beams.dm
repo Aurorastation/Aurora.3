@@ -156,6 +156,7 @@
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	damage = 10
+	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
 	tracer_type = /obj/effect/projectile/laser_omni/tracer
@@ -227,6 +228,7 @@
 	damage = 10
 	incinerate = 5
 	armor_penetration = 10
+	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/solar/muzzle
 	tracer_type = /obj/effect/projectile/solar/tracer
@@ -241,7 +243,8 @@
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal lance"
 	icon_state = "megaglaive"
-	damage = 2
+	damage = 3
+	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/solar/muzzle
 	tracer_type = /obj/effect/projectile/solar/tracer
