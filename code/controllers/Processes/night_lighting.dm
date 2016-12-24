@@ -47,16 +47,16 @@ var/datum/controller/process/night_lighting/nl_ctrl
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
 /datum/controller/process/night_lighting/proc/activate(var/whitelisted_only = 1)
+	isactive = 1
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("on")
-		isactive = 1
 
 		SCHECK
 
 /datum/controller/process/night_lighting/proc/deactivate(var/whitelisted_only = 1)
+	isactive = 1
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("off")
-		isactive = 0
 
 		SCHECK
 
@@ -65,7 +65,9 @@ var/datum/controller/process/night_lighting/nl_ctrl
 
 	for (var/A in all_areas)
 		var/area/B = A
-		if ((!(B.allow_nightmode) && whitelisted_only) || (B.no_light_control && !whitelisted_only))
+		if (B.allow_nightmode && whitelisted_only)
+			continue
+		if (B.no_light_control && !whitelisted_only)
 			continue
 		if (B.apc)
 			lighting_apcs += B.apc
