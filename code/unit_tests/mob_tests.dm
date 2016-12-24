@@ -505,11 +505,11 @@ datum/unit_test/mob_damage/vaurca/tox
 datum/unit_test/mob_damage/vaurca/oxy
 	name = "MOB: Vaurca Oxygen Damage Check"
 	damagetype = OXY
+	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/vaurca/clone
 	name = "MOB: Vaurca Clone Damage Check"
 	damagetype = CLONE
-	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/vaurca/halloss
 	name = "MOB: Vaurca Halloss Damage Check"
