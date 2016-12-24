@@ -44,7 +44,7 @@
 	species_restricted = list("Vox", "Vox Armalis")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/suit.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/suit.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/suit.dmi'
 		)
 
 /obj/item/clothing/head/helmet/space/vox
@@ -54,7 +54,7 @@
 	species_restricted = list("Vox","Vox Armalis")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/head.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/head.dmi'
 		)
 
 /obj/item/clothing/head/helmet/space/vox/pressure
@@ -132,7 +132,7 @@
 	species_restricted = list("Vox","Vox Armalis")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/gloves.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/gloves.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/gloves.dmi'
 		)
 
 /obj/item/clothing/shoes/magboots/vox
@@ -145,7 +145,7 @@
 	species_restricted = list("Vox","Vox Armalis")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/shoes.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/feet.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/feet.dmi'
 		)
 
 	action_button_name = "Toggle the magclaws"
@@ -204,7 +204,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi',
+		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
 		)
 /obj/item/clothing/head/helmet/space/typec
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
@@ -218,7 +218,7 @@
 	flags = STOPPRESSUREDAMAGE
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/head.dmi',
+		"Vaurca Breeder" = 'icons/mob/species/breeder/head.dmi'
 		)
 
 /obj/item/clothing/shoes/magboots/typec
@@ -233,7 +233,7 @@
 
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/shoes.dmi',
+		"Vaurca Breeder" = 'icons/mob/species/breeder/shoes.dmi'
 		)
 
 	action_button_name = "Toggle the magclaws"
@@ -287,7 +287,7 @@
 	armor = list(melee = 60, bullet = 60, laser = 30, energy = 30, bomb = 30, bio = 30, rad = 30)
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/gloves.dmi',
+		"Vaurca Breeder" = 'icons/mob/species/breeder/gloves.dmi'
 		)
 
 /obj/item/clothing/mask/gas/typec
@@ -307,7 +307,7 @@
 	armor = list(melee = 25, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 75, rad = 50)
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/mask.dmi',
+		"Vaurca Breeder" = 'icons/mob/species/breeder/mask.dmi'
 		)
 
 obj/item/weapon/storage/backpack/typec
@@ -323,5 +323,5 @@ obj/item/weapon/storage/backpack/typec
 	canremove = 0
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi',
+		"Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi'
 		)

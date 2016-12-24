@@ -13,7 +13,7 @@
 	item_state = "w_suit"
 	species_restricted = null
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi',
+		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
 		)
 
 /obj/item/clothing/under/pj/blue
@@ -529,7 +529,7 @@
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
-	
+
 /obj/item/clothing/under/track
 	name = "track pants"
 	desc = "Track pants, perfect for squatting."

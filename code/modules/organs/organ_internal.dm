@@ -459,7 +459,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			round(min(BOMBCAP_DVSTN_RADIUS, range*0.25)),
 			round(min(BOMBCAP_HEAVY_RADIUS, range*0.50)),
 			round(min(BOMBCAP_LIGHT_RADIUS, range*1.00)),
-			round(min(BOMBCAP_FLASH_RADIUS, range*1.50)),
+			round(min(BOMBCAP_FLASH_RADIUS, range*1.50))
 			)
 		qdel(src)
 

@@ -72,7 +72,7 @@
 	var/mode = 1
 
 	sprite_sheets = list(
-		"Vox Armalis" = 'icons/mob/species/armalis/held.dmi',
+		"Vox Armalis" = 'icons/mob/species/armalis/held.dmi'
 		)
 
 /obj/item/weapon/gun/energy/noisecannon/attack_hand(mob/user as mob)

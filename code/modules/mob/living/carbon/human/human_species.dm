@@ -79,3 +79,4 @@
 
 /mob/living/carbon/human/type_c
 	mob_size = 30 //same size as moghes lizard
+	layer = 5
