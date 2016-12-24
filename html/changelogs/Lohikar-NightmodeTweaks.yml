@@ -37,3 +37,4 @@ changes:
   - tweak: "Changed how night-mode works internally."
   - tweak: "Red alert now disables night-mode."
   - spellcheck: "Slightly changed alert messages."
+  - bugfix: "Speculative fix for perpetual night-mode."
