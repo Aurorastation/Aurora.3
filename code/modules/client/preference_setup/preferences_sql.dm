@@ -84,7 +84,11 @@
 		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list, 1)
 		if (query.ErrorMsg())
-			error("Error loading character from SQL: [query.ErrorMsg()]")
+			error("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
+			log_debug("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
+			log_debug("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
+
+			continue
 
 		// Each query should only return exactly 1 row.
 		var/list/var_names = query_cache[type][query_text]
@@ -97,8 +101,9 @@
 					else
 						cc.preferences.vars[layers[1]][layers[2]] = query.item[i]
 				catch(var/exception/e)
-					error("Error loading character from SQL: [e.name]")
-					log_debug("Error loading character from SQL: [e.name]")
+					error("SQL CHARACTER LOAD: bad variable name: [e.name]")
+					log_debug("SQL CHARACTER LOAD: bad variable name: [e.name]")
+					log_debug("SQL CHARACTER LOAD: var name: [var_names[i]]")
 
 /datum/category_group/player_setup_category/proc/gather_load_parameters()
 	var/list/arg_list = list()
@@ -183,7 +188,11 @@
 		query.Execute(arg_list, 1)
 
 		if (query.ErrorMsg())
-			error("Error saving character to SQL: [query.ErrorMsg()]")
+			error("SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
+			log_debug("SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
+			log_debug("SQL CHARACTER SAVE: query args: [json_encode(arg_list)]")
+
+			continue
 
 		if (role_type == SQL_CHARACTER && !cc.preferences.current_character)
 			// No current character, means we're doing insert queries.
@@ -196,9 +205,11 @@
 				arg_list[":char_id"] = text2num(query.item[1])
 				cc.preferences.current_character = text2num(query.item[1])
 			else
-				error("Error inserting character to SQL: New ID was not recovered.")
+				error("SQL CHARACTER SAVE: New ID was not recovered.")
+				log_debug("SQL CHARACTER SAVE: New ID was not recovered.")
 				if (query.ErrorMsg())
-					error("Error retreiving new character ID: [query.ErrorMsg()]")
+					error("SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")
+					log_debug("SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")
 
 /datum/category_group/player_setup_category/proc/gather_save_parameters()
 	var/list/arg_list = list()
