@@ -354,10 +354,10 @@
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
-		M << "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src], your ruler:</span>"
-		M << "<span class='danger'>[src.real_name]:<span class='notice'> [text]</span>"
+		M << "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"
+		M << "<span class='notice'> [text]</span>"
 	else
-		M << "<span class='danger'> Like lead slabs crashing into the ocean, alien thoughts drop into your mind:<span class='notice'> [text]</span>"
+		M << "<span class='danger'> Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			if(H.species.name == src.species.name)
