@@ -172,6 +172,19 @@
 	..()
 
 //VAURCA ORGANS
+/obj/item/organ/heart/left
+	name = "heart"
+	icon_state = "heart-on"
+	organ_tag = "left heart"
+	parent_organ = "chest"
+	dead_icon = "heart-off"
+
+/obj/item/organ/heart/right
+	name = "heart"
+	icon_state = "heart-on"
+	organ_tag = "right heart"
+	parent_organ = "chest"
+	dead_icon = "heart-off"
 
 /obj/item/organ/internal/vaurca/process()
 	return

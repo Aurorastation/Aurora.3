@@ -28,6 +28,7 @@
 	throw_range = 10
 	w_class = 1
 	flags = CONDUCT | NOBLOODY
+	origin_tech = "combat=6;phorontech=4;materials=7;syndicate=4"
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = 1
@@ -141,9 +142,7 @@
 				flick("e_flash", M.flash)
 
 		for(var/i=1, i<=deliveryamt, i++)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T,/datum/seed/koisspore)
-			//x.loc = T
-			//x.seed = new /datum/seed/koisspore
+			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new /datum/seed/koisspore())
 			x.tumble(4)
 	qdel(src)
 	return
@@ -157,7 +156,7 @@
 	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
-	species_restricted = list("Vaurca Worker", "Vaurca Worker")
+	species_restricted = list("Vaurca Worker", "Vaurca Warrior")
 
 	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
 	helmet = /obj/item/clothing/head/helmet/space/void/vaurca
@@ -170,7 +169,7 @@
 	icon_state = "helm_void"
 	item_state = "helm_void"
 
-	species_restricted = list("Vaurca Worker", "Vaurca Worker")
+	species_restricted = list("Vaurca Worker", "Vaurca Warrior")
 
 	light_overlay = "helmet_light"
 
@@ -183,7 +182,7 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list("Vaurca Worker", "Vaurca Worker")
+	species_restricted = list("Vaurca Worker", "Vaurca Warrior")
 
 	action_button_name = "Toggle the magclaws"
 

@@ -52,14 +52,16 @@
 	return 0
 
 /proc/isvaurca(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca Worker"))
-		return 1
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca Warrior"))
-		return 1
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca Breeder"))
-		return 1
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "V'krexi"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Vaurca Worker")
+				return 1
+			if("Vaurca Warrior")
+				return 1
+			if("Vaurca Breeder")
+				return 1
+			if("V'krexi")
+				return 1
 	return 0
 
 /proc/isipc(A)
