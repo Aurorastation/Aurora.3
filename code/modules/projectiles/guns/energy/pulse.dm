@@ -17,8 +17,10 @@
 		)
 
 /obj/item/weapon/gun/energy/pulse_rifle/mounted
+	charge_cost = 400
 	self_recharge = 1
 	use_external_power = 1
+	recharge_time = 10
 
 /obj/item/weapon/gun/energy/pulse_rifle/destroyer
 	name = "pulse destroyer"
