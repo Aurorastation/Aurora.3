@@ -1,6 +1,6 @@
 /datum/nano_module/lighting_ctrl
 	name = "Lighting Control"
-	var/context = "all"
+	var/context = "pub"
 	var/lstate = "full"
 	var/mob/lusr = null 	// for admin logs
 
