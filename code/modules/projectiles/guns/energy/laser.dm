@@ -75,6 +75,13 @@ obj/item/weapon/gun/energy/retro
 	charge_cost = 100
 	max_shots = 20
 	fire_delay = 1
+	
+/obj/item/weapon/gun/energy/xraymounted
+	name = "mounted xray laser gun"
+	charge_cost = 200
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 5
 
 /obj/item/weapon/gun/energy/sniperrifle
 	name = "marksman energy rifle"
