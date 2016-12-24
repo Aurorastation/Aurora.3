@@ -30,6 +30,7 @@
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/close_door_at = 0 //When to automatically close the door, if possible
+	var/open_duration = 150//How long it stays open
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
 	var/hatchstate = 0//0: closed, 1: open
@@ -495,7 +496,7 @@
 	return 1
 
 /obj/machinery/door/proc/next_close_time()
-	return world.time + (normalspeed ? 150 : 5)
+	return world.time + (normalspeed ? open_duration : 5)
 
 /obj/machinery/door/proc/close(var/forced = 0)
 	if(!can_close(forced))
