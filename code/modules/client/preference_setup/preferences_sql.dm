@@ -167,15 +167,14 @@
 
 				i++
 
+			// Remove any potentially damaging commas from the end.
 			query = replacetext(query, ",", "", length(query) - 1)
 
 			// Save it.
-			log_debug("Cached query:  [query]")
 			query_cache[type] += query
 
 	// Actually utilize the queries.
 	var/list/arg_list = gather_save_parameters()
-	log_debug("PREFS SAVE ARGS: [json_encode(arg_list)]")
 
 	// Typecast the collection so we can access its preferences var.
 	var/datum/category_collection/player_setup_collection/cc = collection
@@ -185,7 +184,6 @@
 
 		if (query.ErrorMsg())
 			error("Error saving character to SQL: [query.ErrorMsg()]")
-			log_debug("Error this query.")
 
 		if (role_type == SQL_CHARACTER && !cc.preferences.current_character)
 			// No current character, means we're doing insert queries.
