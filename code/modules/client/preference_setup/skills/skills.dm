@@ -31,6 +31,11 @@
 		pref.skills = list()
 	if (sql_load)
 		pref.skills = params2list(pref.skills)
+
+		for (var/skill in pref.skills)
+			pref.skills[skill] = text2num(pref.skills[skill])
+
+		pref.CalculateSkillPoints()
 	if (!pref.skills.len)
 		pref.ZeroSkills()
 	if (pref.used_skillpoints < 0)
