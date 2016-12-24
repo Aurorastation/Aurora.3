@@ -160,7 +160,7 @@
 /datum/preferences/proc/count_ccia_actions(var/client/user)
 	if (!user)
 		return null
-/*
+
 	if (!establish_db_connection(dbcon))
 		error("Error initiatlizing database connection while counting CCIA actions.")
 		return null
@@ -196,4 +196,3 @@
 		return string
 
 	return null
-*/
