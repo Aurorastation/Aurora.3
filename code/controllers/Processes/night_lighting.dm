@@ -65,9 +65,7 @@ var/datum/controller/process/night_lighting/nl_ctrl
 
 	for (var/A in all_areas)
 		var/area/B = A
-		if (B.allow_nightmode && whitelisted_only)
-			continue
-		if (B.no_light_control && !whitelisted_only)
+		if (B.no_light_control || (!(B.allow_nightmode) && whitelisted_only))
 			continue
 		if (B.apc)
 			lighting_apcs += B.apc
