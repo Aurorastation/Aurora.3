@@ -51,6 +51,25 @@
 				":id" = pref.current_character,
 				":ckey" = pref.client.ckey)
 
+/datum/category_item/player_setup_item/general/basic/load_special()
+	pref.can_edit_name = 1
+
+	if (config.sql_saves && pref.current_character)
+		if (!establish_db_connection(dbcon))
+			return
+
+		// Called /after/ loading and /before/ sanitization.
+		// So we have pref.current_character. It's just in text format.
+		var/DBQuery/query = dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id")
+		query.Execute(list(":id" = text2num(pref.current_character)))
+
+		if (query.NextRow())
+			if (text2num(query.item[1]) > 5)
+				pref.can_edit_name = 0
+		else
+			error("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have.")
+			log_debug("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
+
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
@@ -62,7 +81,10 @@
 
 /datum/category_item/player_setup_item/general/basic/content()
 	. = "<b>Name:</b> "
-	. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
+	if (pref.can_edit_name)
+		. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
+	else
+		. += "<b>[pref.real_name]</b><br> (<a href='?src=\ref[src];namehelp=1'>?</a>)"
 	. += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>) "
 	. += "(<a href='?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>)"
 	. += "<br>"
@@ -74,6 +96,10 @@
 
 /datum/category_item/player_setup_item/general/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["rename"])
+		if (!pref.can_edit_name)
+			alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
+			return TOPIC_NOACTION
+
 		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
 		if (!isnull(raw_name) && CanUseTopic(user))
 			var/new_name = sanitize_name(raw_name, pref.species)
@@ -83,6 +109,10 @@
 			else
 				user << "<span class='warning'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>"
 				return TOPIC_NOACTION
+
+	else if(href_list["namehelp"])
+		alert(user, "Due to game mechanics, you are no longer able to edit the name for this character. The grace period offered is 5 days since the character's initial save.<br><br>If you have a need to change the character's name, or further questions regarding this policy, please contact an administrator.")
+		return TOPIC_NOACTION
 
 	else if(href_list["random_name"])
 		pref.real_name = random_name(pref.gender, pref.species)

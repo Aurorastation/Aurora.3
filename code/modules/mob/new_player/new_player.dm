@@ -457,6 +457,8 @@
 
 		new_character.key = key		//Manually transfer the key to log them in
 
+		client.prefs.log_character(new_character)
+
 		return new_character
 
 	proc/ViewManifest()

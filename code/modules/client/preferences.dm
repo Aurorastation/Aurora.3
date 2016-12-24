@@ -31,6 +31,7 @@ datum/preferences
 
 	//character preferences
 	var/real_name						//our character's name
+	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/be_random_name = 0				//whether we are a random name every round
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
@@ -469,3 +470,11 @@ datum/preferences
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")
+
+// Logs a character to the database. For statistics.
+/datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
+	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
+		return
+
+	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id, :game_id, NOW(), :job, :special_role)")
+	query.Execute(list(":char_id" = current_character, ":game_id" = game_id, ":job" = H.mind.assigned_role, ":special_role" = H.mind.special_role))

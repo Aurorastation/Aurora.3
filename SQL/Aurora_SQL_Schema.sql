@@ -147,6 +147,7 @@ CREATE TABLE `ss13_characters` (
   `organs_data` text NULL DEFAULT NULL,
   `organs_robotic` text NULL DEFAULT NULL,
   `gear` text NULL DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ss13_characters_ckey` (`ckey`),
@@ -185,6 +186,17 @@ CREATE TABLE `ss13_characters_flavour` (
   PRIMARY KEY (`char_id`),
   CONSTRAINT `ss13_flavour_fk_char_id` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+CREATE TABLE `ss13_characters_log` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`char_id` INT(11) NOT NULL,
+	`game_id` VARCHAR(50) NOT NULL,
+	`datetime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`job_name` VARCHAR(32) NOT NULL,
+	`special_role` VARCHAR(32) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	CONSTRAINT `ss13_charlog_fk_char_id` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON DELETED CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ss13_connection_log` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
