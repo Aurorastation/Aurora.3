@@ -198,7 +198,7 @@
 	interface_name = "mounted xray laser gun"
 	interface_desc = "A forearm-mounted suit-powered xray laser gun."
 
-	gun_type = /obj/item/weapon/gun/energy/xraymounted
+	gun_type = /obj/item/weapon/gun/energy/xray/mounted
 	
 /obj/item/rig_module/mounted/ion
 
