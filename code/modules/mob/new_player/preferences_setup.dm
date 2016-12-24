@@ -17,7 +17,7 @@ datum/preferences
 				else
 					underwear = underwear_m[pick(underwear_m)]
 				undershirt = undershirt_t[pick(undershirt_t)]
-			if(current_species.appearance_flags & HAS_SKIN_TONE)
+			if(current_species.appearance_flags & HAS_SOCKS)
 				if(gender == FEMALE)
 					socks = socks_f[pick(socks_f)]
 				else
