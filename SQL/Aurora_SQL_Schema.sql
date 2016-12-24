@@ -195,7 +195,7 @@ CREATE TABLE `ss13_characters_log` (
 	`job_name` VARCHAR(32) NOT NULL,
 	`special_role` VARCHAR(32) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	CONSTRAINT `ss13_charlog_fk_char_id` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON DELETED CASCADE ON UPDATE CASCADE
+	CONSTRAINT `ss13_charlog_fk_char_id` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ss13_connection_log` (
