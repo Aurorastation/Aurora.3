@@ -62,8 +62,8 @@
 			pref.incidents.Add(infraction)
 			log_debug("Added infraction with [infraction.UID]")
 
-
 /datum/category_item/player_setup_item/other/incidents/content(var/mob/user)
+	pref.incidents = list()
 	. += "<b>Incident Information</b><br>"
 	. += "The following incidents are on file for your character<br>"
 	for (var/datum/char_infraction/I in pref.incidents)

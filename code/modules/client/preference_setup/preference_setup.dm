@@ -157,7 +157,8 @@
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.load_preferences(S)
 	else
-		handle_sql_loading(SQL_PREFERENCES)
+		if (sql_role == SQL_PREFERENCES)
+			handle_sql_loading(SQL_PREFERENCES)
 
 	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences(config.sql_saves)
@@ -170,7 +171,8 @@
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_preferences(S)
 	else
-		handle_sql_saving(SQL_PREFERENCES)
+		if (sql_role == SQL_PREFERENCES)
+			handle_sql_saving(SQL_PREFERENCES)
 
 /datum/category_group/player_setup_category/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	for(var/datum/category_item/player_setup_item/PI in items)
