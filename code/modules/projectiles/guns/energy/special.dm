@@ -24,7 +24,7 @@
 		item_state = initial(item_state)
 		
 /obj/item/weapon/gun/energy/ionrifle/mounted
-	name = "ion rifle"
+	name = "mounted ion rifle"
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
