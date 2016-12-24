@@ -137,7 +137,10 @@
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee,
 		/obj/item/weapon/gun/projectile/sec,
-		/obj/item/taperoll/police
+		/obj/item/taperoll/police,
+		/obj/item/weapon/material/sword/trench,
+		/obj/item/weapon/shield/energy,
+		/obj/item/weapon/shield/riot/tact		
 		)
 
 /obj/item/weapon/storage/belt/soulstone
@@ -158,7 +161,6 @@
 	new /obj/item/device/soulstone(src)
 	new /obj/item/device/soulstone(src)
 	new /obj/item/device/soulstone(src)
-
 
 /obj/item/weapon/storage/belt/champion
 	name = "championship belt"
@@ -204,8 +206,13 @@
 		/obj/item/weapon/plastique,
 		/obj/item/weapon/gun/projectile/pistol,
 		/obj/item/weapon/gun/energy/crossbow,
+		/obj/item/weapon/material/sword/trench,
 		/obj/item/ammo_casing/a145,
-		/obj/item/device/radio/uplink
+		/obj/item/device/radio/uplink,
+		/obj/item/weapon/card/emag,
+		/obj/item/device/multitool/hacktool,
+		/obj/item/weapon/reagent_containers/hypospray/combat,
+		/obj/item/stack/telecrystal
 		)
 
 /obj/item/weapon/storage/belt/janitor
@@ -223,4 +230,4 @@
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/soap,
 		/obj/item/weapon/storage/bag/trash
-)
+		)
