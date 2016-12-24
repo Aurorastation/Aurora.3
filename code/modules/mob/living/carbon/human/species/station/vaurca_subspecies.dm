@@ -7,8 +7,8 @@
 	greater_form = "Vaurca Breeder"
 	icobase = 'icons/mob/human_races/subspecies/r_vaurcab.dmi'
 	slowdown = 0
-	brute_mod = 0.75
-	burn_mod = 1.25
+	brute_mod = 0.7
+	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
 
@@ -24,8 +24,8 @@
 	heat_level_3 = 800 //Default 1000
 
 	stamina = 115
-	sprint_speed_factor = 0.9
-	sprint_cost_factor = 0.60
+	sprint_speed_factor = 1.0
+	sprint_cost_factor = 0.40
 	stamina_recovery = 3
 
 
@@ -38,7 +38,7 @@
 	short_name = "vab"
 	name_plural = "Type CB"
 	primitive_form = "Vaurca Warrior"
-	icon_template = 'icons/mob/human_races/r_vaurcac.dmi'
+	icon_template = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
 	icon_x_offset = -8
@@ -46,7 +46,7 @@
 	rarity_value = 10
 	slowdown = 2
 	eyes = "blank_eyes" //makes it so that eye colour is not changed when skin colour is.
-	brute_mod = 0.4 //note to self: remove is_synthetic checks for brmod and burnmod
+	brute_mod = 0.2 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	warning_low_pressure = 50
@@ -57,7 +57,6 @@
 	speech_chance = 100
 
 	death_sound = 'sound/voice/hiss6.ogg'
-	death_message = "seizes up and falls limp, their eyes dead and lifeless..."
 	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
@@ -69,7 +68,8 @@
 
 	vision_flags = SEE_SELF
 
-	flags = IS_RESTRICTED | NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
+	spawn_flags = IS_RESTRICTED
+	flags = NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,

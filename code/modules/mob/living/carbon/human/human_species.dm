@@ -73,7 +73,7 @@
 	..(new_loc, "Vaurca Warrior")
 	src.gender = NEUTER
 
-/mob/living/carbon/human/bug/type_c/New(var/new_loc)
+/mob/living/carbon/human/type_c/New(var/new_loc)
 	..(new_loc, "Vaurca Breeder")
 	src.gender = FEMALE
 

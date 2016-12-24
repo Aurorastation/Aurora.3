@@ -220,3 +220,40 @@
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer
 	impact_type = /obj/effect/projectile/laser/impact
+
+/obj/item/projectile/beam/megaglaive
+	name = "thermal lance"
+	icon_state = "megaglaive"
+	damage = 10
+	incinerate = 5
+	armor_penetration = 10
+
+	muzzle_type = /obj/effect/projectile/solar/muzzle
+	tracer_type = /obj/effect/projectile/solar/tracer
+	impact_type = /obj/effect/projectile/solar/impact
+
+/obj/item/projectile/beam/megaglaive/on_impact(var/atom/A)
+	if(isturf(A))
+		A.ex_act(0)
+	explosion(A, -1, 0, 2)
+	..()
+
+/obj/item/projectile/beam/thermaldrill
+	name = "thermal lance"
+	icon_state = "megaglaive"
+	damage = 2
+
+	muzzle_type = /obj/effect/projectile/solar/muzzle
+	tracer_type = /obj/effect/projectile/solar/tracer
+	impact_type = /obj/effect/projectile/solar/impact
+
+/obj/item/projectile/beam/thermaldrill/on_impact(var/atom/A)
+	if(isturf(A))
+		if(istype(A, /turf/simulated/mineral))
+			if(prob(75)) //likely because its a mining tool
+				var/turf/simulated/mineral/M = A
+				M.GetDrilled()
+	if(ismob(A))
+		var/mob/living/M = A
+		M.apply_effect(1, INCINERATE, 0)
+	..()

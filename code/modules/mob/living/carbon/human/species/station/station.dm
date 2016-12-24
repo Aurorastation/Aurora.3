@@ -450,7 +450,7 @@
 	brute_mod = 0.5
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 2 //they're not used to all our weird human bacteria.
-	oxy_mod = 0.8
+	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
@@ -473,7 +473,7 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SCAN | NO_SLIP | NO_MINOR_CUT
+	flags = NO_SLIP | NO_MINOR_CUT
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_SKIN_COLOR
 	blood_color = "#E6E600" // dark yellow

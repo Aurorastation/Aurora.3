@@ -67,9 +67,7 @@
 		)
 	If index term exists and icon_override is not set, this sprite sheet will be used.
 	*/
-	var/list/sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/held.dmi', //every item they hold will either have a special sprite or no sprite at all
-		)
+	var/list/sprite_sheets = list()
 
 	// Species-specific sprite sheets for inventory sprites
 	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.

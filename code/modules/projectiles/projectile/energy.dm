@@ -117,7 +117,7 @@
 
 /obj/item/projectile/energy/sonic/on_impact(var/atom/A)
 	if(isturf(A))
-		A.ex_act(0)
+		A.ex_act(2)
 	if(ismob(A))
 		var/mob/M = A
 		explosion(M, -1, 0, 2)

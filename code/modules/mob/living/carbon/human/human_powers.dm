@@ -226,23 +226,23 @@
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
 	if(last_special > world.time)
-		src << "\red Your mandibles still ache!"
+		src << "<span class='warning'>Your mandibles still ache!</span>"
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		src << "\red You cannot do that in your current state."
+		src << "\red You cannot do that in your current state.</span>"
 		return
 
 	var/obj/item/weapon/grab/G = locate() in src
 	if(!G || !istype(G))
-		src << "\red You are not grabbing anyone."
+		src << "<span class='warning'>You are not grabbing anyone.</span>"
 		return
 
 	if(G.state < GRAB_AGGRESSIVE)
-		src << "\red You must have an aggressive grab to gut your prey!"
+		src << "<span class='warning'>You must have an aggressive grab to gut your prey!</span>"
 		return
 
-	last_special = world.time + 35
+	last_special = world.time + 25
 
 	visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
 
@@ -277,6 +277,7 @@
 	set desc = "While grabbing someone aggressively, bite their head off."
 
 	if(last_special > world.time)
+		src << "<span class='warning'>Your mandibles still ache!</span>"
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
@@ -313,7 +314,7 @@
 			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
 			M.gib()
 
-	last_special = world.time + 50
+	last_special = world.time + 200
 	return
 
 /mob/living/carbon/human/proc/hivenet()
@@ -352,9 +353,9 @@
 
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
 
-	if(istype(M, /mob/living/carbon/human) && (M:get_species() == "Vaurca"))
+	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
 		M << "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src], your ruler:</span>"
-		M << "<span class='danger'>[src]:</span><span class='notice'>[text]</span>"
+		M << "<span class='danger'>[src.real_name]:</span><span class='notice'> [text]</span>"
 	else
 		M << "<span class='danger'> Like lead slabs crashing into the ocean, alien thoughts drop into your mind:</span><span class='notice'> [text]</span>"
 		if(istype(M,/mob/living/carbon/human))
@@ -378,7 +379,7 @@
 		src << "You cannot launch a quill in your current state."
 		return
 
-	last_special = world.time + 10
+	last_special = world.time + 30
 
 	visible_message("<span class='warning'><b>\The [src]</b> launches a spine-quill at [target]!</span>")
 
