@@ -19,13 +19,13 @@
 	S["memo_hash"]		<< pref.memo_hash
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
-	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_togs" = "asfx_toggles", "motd_hash", "memo_hash"), "args" = list("ckey")))
+	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_togs", "lastmotd" = "motd_hash", "lastmemo" = "memo_hash"), "args" = list("ckey")))
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_parameters()
 	return list(":ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_query()
-	return list("ss13_player_preferences" = list("lastchangelog", "current_character", "toggles", "asfx_togs", "motd_hash", "memo_hash", "ckey" = 1))
+	return list("ss13_player_preferences" = list("lastchangelog", "current_character", "toggles", "asfx_togs", "lastmotd", "lastmemo", "ckey" = 1))
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_parameters()
 	return list(":ckey" = pref.client.ckey,
@@ -33,8 +33,8 @@
 				":current_character" = pref.current_character,
 				":toggles" = pref.toggles,
 				":asfx_togs" = pref.asfx_togs,
-				":motd_hash" = pref.motd_hash,
-				":memo_hash" = pref.memo_hash)
+				":lastmotd" = pref.motd_hash,
+				":lastmemo" = pref.memo_hash)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
 	if (sql_load)

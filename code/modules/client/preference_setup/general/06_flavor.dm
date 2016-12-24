@@ -73,6 +73,7 @@
 
 /datum/category_item/player_setup_item/general/flavor/gather_save_parameters()
 	var/list/var_list = list(":char_id" = pref.current_character,
+							":flavour_general" = pref.flavor_texts["general"],
 							":flavour_head" = pref.flavor_texts["head"],
 							":flavour_face" = pref.flavor_texts["face"],
 							":flavour_eyes" = pref.flavor_texts["eyes"],

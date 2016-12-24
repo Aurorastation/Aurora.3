@@ -98,8 +98,7 @@
 						cc.preferences.vars[layers[1]][layers[2]] = query.item[i]
 				catch(var/exception/e)
 					error("Error loading character from SQL: [e.name]")
-					log_debug("SQL Saves: [e.name]")
-					log_debug("SQL Saves: [e.desc]")
+					log_debug("Error loading character from SQL: [e.name]")
 
 /datum/category_group/player_setup_category/proc/gather_load_parameters()
 	var/list/arg_list = list()
@@ -162,16 +161,21 @@
 			for (var/variable in var_names)
 				if (isnull(var_names[variable]))
 					query += " [variable] = [arg_names[i]]"
-				if (i < var_names.len)
-					query += ", "
+
+					if (i < var_names.len)
+						query += ","
 
 				i++
 
+			query = replacetext(query, ",", "", length(query) - 1)
+
 			// Save it.
+			log_debug("Cached query:  [query]")
 			query_cache[type] += query
 
 	// Actually utilize the queries.
 	var/list/arg_list = gather_save_parameters()
+	log_debug("PREFS SAVE ARGS: [json_encode(arg_list)]")
 
 	// Typecast the collection so we can access its preferences var.
 	var/datum/category_collection/player_setup_collection/cc = collection
@@ -181,6 +185,7 @@
 
 		if (query.ErrorMsg())
 			error("Error saving character to SQL: [query.ErrorMsg()]")
+			log_debug("Error this query.")
 
 		if (role_type == SQL_CHARACTER && !cc.preferences.current_character)
 			// No current character, means we're doing insert queries.

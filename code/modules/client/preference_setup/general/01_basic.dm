@@ -38,7 +38,8 @@
 										 "age",
 										 "metadata",
 										 "spawnpoint",
-										 "id" = 1))
+										 "id" = 1,
+										 "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/basic/gather_save_parameters()
 	return list(":name" = pref.real_name,
@@ -47,7 +48,8 @@
 				":age" = pref.age,
 				":metadata" = pref.metadata,
 				":spawnpoint" = pref.spawnpoint,
-				":id" = pref.current_character)
+				":id" = pref.current_character,
+				":ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))

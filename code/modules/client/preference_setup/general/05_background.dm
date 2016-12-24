@@ -38,7 +38,7 @@
 												 "records_medical",
 												 "records_security",
 												 "char_id" = 1),
-				"ss13_characters" = list("home_system", "citizenship", "faction", "religion", "id" = 1))
+				"ss13_characters" = list("home_system", "citizenship", "faction", "religion", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/background/gather_save_parameters()
 	return list(":records_employment" = pref.gen_record,
@@ -49,7 +49,8 @@
 				":citizenship" = pref.citizenship,
 				":faction" = pref.faction,
 				":religion" = pref.religion,
-				":id" = pref.current_character)
+				":id" = pref.current_character,
+				":ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()
 	if(!pref.home_system)
