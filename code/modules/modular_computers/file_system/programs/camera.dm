@@ -82,17 +82,12 @@
 		return 1
 
 	if(href_list["switch_camera"])
-		log_debug("Call 1")
 		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in cameranet.cameras
 		if(!C)
-			log_debug("Call 2")
 			return
-		log_debug("Call 3 [C.c_tag]")
 		if(!(current_network in C.network))
-			log_debug("Call 4")
 			return
 
-		log_debug("Call 5")
 		switch_to_camera(usr, C)
 		return 1
 
@@ -111,21 +106,16 @@
 
 /datum/nano_module/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
-	log_debug("Call 6")
 	if(isAI(user))
-		log_debug("Call 7")
 		var/mob/living/silicon/ai/A = user
 		// Only allow non-carded AIs to view because the interaction with the eye gets all wonky otherwise.
 		if(!A.is_in_chassis())
 			return 0
-		log_debug("Call 8")
 
 		A.eyeobj.setLoc(get_turf(C))
 		A.client.eye = A.eyeobj
-		log_debug("Call 9")
 		return 1
 
-	log_debug("Call 10")
 	set_current(C)
 	user.machine = nano_host()
 	user.reset_view(current_camera)
@@ -133,23 +123,16 @@
 	return 1
 
 /datum/nano_module/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
-	log_debug("Call 11")
 	if(current_camera == C)
-		log_debug("Call 12")
 		return
 
-	log_debug("Call 13")
 	if(current_camera)
-		log_debug("Call 14")
 		reset_current()
 
-	log_debug("Call 15")
 	current_camera = C
 	if(current_camera)
-		log_debug("Call 16")
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
-			log_debug("Call 17")
 			L.tracking_initiated()
 
 /datum/nano_module/camera_monitor/proc/reset_current()

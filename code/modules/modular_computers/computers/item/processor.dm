@@ -130,3 +130,9 @@
 	if(machinery_computer && machinery_computer.tesla_link)
 		machinery_computer.tesla_link.enabled = 1
 	..()
+
+/obj/item/modular_computer/processor/check_eye(var/mob/user)
+	if (active_program)
+		return active_program.check_eye(user)
+
+	return -1
