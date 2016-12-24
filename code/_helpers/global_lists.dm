@@ -52,6 +52,22 @@ var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3"
 var/global/list/underwear_f = list("Red" = "f1", "White" = "f2", "Yellow" = "f3", "Blue" = "f4", "Black" = "f5", "Thong" = "f6", "Black Sports" = "f7","White Sports" = "f8","None")
 	//undershirt
 var/global/list/undershirt_t = list("White Tank top" = "u1", "Black Tank top" = "u2", "Black shirt" = "u3", "White shirt" = "u4", "None")
+
+	//socks
+var/global/list/socks_f = list(
+	"White normal" = "white_norm", "White short" = "white_short", "White knee" = "white_knee",
+	"White thigh" = "white_thigh", "Black normal" = "black_norm", "Black short" = "black_short",
+	"Black knee" = "black_knee", "Black thigh" = "black_thigh", "Striped normal" = "striped_norm",
+	"Striped short" = "striped_short", "Striped knee" = "striped_knee", "Striped thigh" = "striped_thigh",
+	"Rainbow normal" = "rainbow_norm", "Rainbow short" = "rainbow_short", "Rainbow knee" = "rainbow_knee", 
+	"Rainbow thigh" = "rainbow_thigh", "Pantyhose" = "pantyhose", "None")
+
+var/global/list/socks_m = list(
+	"White normal" = "white_norm", "White short" = "white_short", "White knee" = "white_knee",
+	"Black normal" = "black_norm", "Black short" = "black_short", "Black knee" = "black_knee", 
+	"Striped normal" = "striped_norm", "Striped short" = "striped_short", "Striped knee" = "striped_knee", 
+	"Rainbow normal" = "rainbow_norm", "Rainbow short" = "rainbow_short", "Rainbow knee" = "rainbow_knee", "None")
+
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)

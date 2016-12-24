@@ -38,6 +38,7 @@ datum/preferences
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/underwear						//underwear type
 	var/undershirt						//undershirt type
+	var/socks						//socks type
 	var/backbag = 2						//backpack type
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
@@ -397,6 +398,8 @@ datum/preferences
 	character.underwear = underwear
 
 	character.undershirt = undershirt
+	
+	character.socks = socks
 
 	if(backbag > 5 || backbag < 1)
 		backbag = 1 //Same as above
