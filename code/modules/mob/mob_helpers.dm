@@ -947,8 +947,8 @@ var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
 	/mob/living/carbon/human/tajaran,
 	/mob/living/carbon/human/vox,
 	/mob/living/carbon/human/machine,
-	/mob/living/carbon/human/bug,
-	/datum/species/bug/type_b
+	/mob/living/carbon/human/type_a,
+	/mob/living/carbon/human/type_b
 	)
 
 var/list/humanoid_mobs_inclusive = list(
