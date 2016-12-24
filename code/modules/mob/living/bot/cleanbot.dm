@@ -75,8 +75,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	if(!path.len)
 		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-			custom_emote(2, "can't reach \the [target.name] and is giving up for now.")
-			log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
+			//log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
 			ignorelist |= target
 			target.clean_marked = null
 			target = null
@@ -199,7 +198,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	cleaning = 1
-	custom_emote(2, "begins to clean up \the [D]")
 	target.being_cleaned = 1
 	update_icons()
 	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50

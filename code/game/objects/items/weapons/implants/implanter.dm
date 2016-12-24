@@ -26,12 +26,12 @@
 		src.icon_state = "implanter0"
 	return
 
-/obj/item/weapon/implanter/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/implanter/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if (!istype(M, /mob/living/carbon))
 		return
 	if (user && src.imp)
 		M.visible_message("<span class='warning'>[user] is attemping to implant [M].</span>")
-		
+
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
 
@@ -48,7 +48,7 @@
 					src.imp.implanted = 1
 					if (ishuman(M))
 						var/mob/living/carbon/human/H = M
-						var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
+						var/obj/item/organ/external/affected = H.get_organ(target_zone)
 						affected.implants += src.imp
 						imp.part = affected
 

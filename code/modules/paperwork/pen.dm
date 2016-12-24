@@ -58,7 +58,7 @@
 	colour = "white"
 
 
-/obj/item/weapon/pen/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/pen/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if(!ismob(M))
 		return
 	user << "<span class='warning'>You stab [M] with the pen.</span>"

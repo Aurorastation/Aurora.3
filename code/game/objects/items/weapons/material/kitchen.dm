@@ -23,12 +23,12 @@
 	create_reagents(5)
 	return
 
-/obj/item/weapon/material/kitchen/utensil/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/material/kitchen/utensil/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M))
 		return ..()
 
 	if(user.a_intent != I_HELP)
-		if(user.zone_sel.selecting == "head" || user.zone_sel.selecting == "eyes")
+		if(target_zone == "head" || target_zone == "eyes")
 			if((CLUMSY in user.mutations) && prob(50))
 				M = user
 			return eyestab(M,user)
@@ -93,7 +93,7 @@
 	applies_material_colour = 0
 	unbreakable = 1
 
-/obj/item/weapon/material/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob)
+/obj/item/weapon/material/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
 		user << "<span class='warning'>You accidentally cut yourself with \the [src].</span>"
 		user.take_organ_damage(20)
@@ -116,7 +116,7 @@
 	force_divisor = 0.7 // 10 when wielded with weight 15 (wood)
 	thrown_force_divisor = 1 // as above
 
-/obj/item/weapon/material/kitchen/rollingpin/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/weapon/material/kitchen/rollingpin/attack(mob/living/M as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
 		user << "<span class='warning'>\The [src] slips out of your hand and hits your head.</span>"
 		user.drop_from_inventory(src)

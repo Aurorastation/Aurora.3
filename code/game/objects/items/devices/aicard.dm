@@ -10,7 +10,7 @@
 
 	var/mob/living/silicon/ai/carded_ai
 
-/obj/item/weapon/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob)
+/obj/item/weapon/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
 	if (!istype (M, /mob/living/silicon/decoy))
 		return ..()
 	else

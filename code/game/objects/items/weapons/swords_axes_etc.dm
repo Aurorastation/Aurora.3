@@ -24,7 +24,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 
-/obj/item/weapon/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/weapon/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
 		user << "<span class='warning'>You club yourself over the head.</span>"
 		user.Weaken(3 * force)
@@ -90,7 +90,7 @@
 
 	return
 
-/obj/item/weapon/melee/telebaton/attack(mob/target as mob, mob/living/user as mob)
+/obj/item/weapon/melee/telebaton/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
 	if(on)
 		if ((CLUMSY in user.mutations) && prob(50))
 			user << "<span class='warning'>You club yourself over the head.</span>"
@@ -103,7 +103,7 @@
 			return
 		if(..() == 1)
 			playsound(src.loc, "swing_hit", 50, 1, -1)
-			if(user.zone_sel.selecting == "r_leg" || user.zone_sel.selecting == "l_leg")
+			if(target_zone == "r_leg" || target_zone == "l_leg")
 				target.Weaken(5) //nerfed, because yes.
 			return
 	else

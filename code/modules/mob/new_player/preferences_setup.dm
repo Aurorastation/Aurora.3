@@ -17,6 +17,11 @@ datum/preferences
 				else
 					underwear = underwear_m[pick(underwear_m)]
 				undershirt = undershirt_t[pick(undershirt_t)]
+			if(current_species.appearance_flags & HAS_SOCKS)
+				if(gender == FEMALE)
+					socks = socks_f[pick(socks_f)]
+				else
+					socks = socks_m[pick(socks_m)]
 
 		h_style = random_hair_style(gender, species)
 		f_style = random_facial_hair_style(gender, species)
