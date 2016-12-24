@@ -61,46 +61,46 @@
 					fabricated_laptop.cpu.processor_unit = new/obj/item/weapon/computer_hardware/processor_unit(fabricated_laptop.cpu)
 				total_price += 299
 		switch(dev_battery)
-			if(1) // Basic(750C)
+			if(1) //Micro(500C)
+				if(fabricate)
+					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/micro(fabricated_laptop.cpu)
+			if(2) // Basic(750C)
 				if(fabricate)
 					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module(fabricated_laptop.cpu)
-			if(2) // Upgraded(1100C)
-				if(fabricate)
-					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/advanced(fabricated_laptop.cpu)
 				total_price += 199
-			if(3) // Advanced(1500C)
-				if(fabricate)
-					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/super(fabricated_laptop.cpu)
-				total_price += 499
+			// if(3) // Upgraded(1100C)
+			// 	if(fabricate)
+			// 		fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/advanced(fabricated_laptop.cpu)
+			// 	total_price += 499
 		switch(dev_disk)
-			if(1) // Basic(128GQ)
+			if(1)
+				if(fabricate)
+					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/small(fabricated_laptop.cpu)
+			if(2) // Basic(128GQ)
 				if(fabricate)
 					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive(fabricated_laptop.cpu)
-			if(2) // Upgraded(256GQ)
-				if(fabricate)
-					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/advanced(fabricated_laptop.cpu)
-				total_price += 99
-			if(3) // Advanced(512GQ)
-				if(fabricate)
-					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/super(fabricated_laptop.cpu)
-				total_price += 299
+				total_price += 199
+			// if(3)  // Upgraded(256GQ)
+			// 	if(fabricate)
+			// 		fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/advanced(fabricated_laptop.cpu)
+			// 	total_price += 299
 		switch(dev_netcard)
 			if(1) // Basic(Short-Range)
 				if(fabricate)
 					fabricated_laptop.cpu.network_card = new/obj/item/weapon/computer_hardware/network_card(fabricated_laptop.cpu)
-				total_price += 99
-			if(2) // Advanced (Long Range)
-				if(fabricate)
-					fabricated_laptop.cpu.network_card = new/obj/item/weapon/computer_hardware/network_card/advanced(fabricated_laptop.cpu)
-				total_price += 299
-		if(dev_tesla)
-			total_price += 399
-			if(fabricate)
-				fabricated_laptop.tesla_link = new/obj/item/weapon/computer_hardware/tesla_link(fabricated_laptop)
-		if(dev_nanoprint)
-			total_price += 99
-			if(fabricate)
-				fabricated_laptop.cpu.nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(fabricated_laptop.cpu)
+				total_price += 199
+			// if(2) // Advanced (Long Range)
+			// 	if(fabricate)
+			// 		fabricated_laptop.cpu.network_card = new/obj/item/weapon/computer_hardware/network_card/advanced(fabricated_laptop.cpu)
+			// 	total_price += 299
+		// if(dev_tesla)
+			// total_price += 399
+			// if(fabricate)
+			// 	fabricated_laptop.tesla_link = new/obj/item/weapon/computer_hardware/tesla_link(fabricated_laptop)
+		// if(dev_nanoprint)
+			// total_price += 99
+			// if(fabricate)
+			// 	fabricated_laptop.cpu.nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(fabricated_laptop.cpu)
 		if(dev_card)
 			total_price += 199
 			if(fabricate)
@@ -167,7 +167,8 @@
 	if(href_list["pick_device"])
 		if(state) // We've already picked a device type
 			return 0
-		devtype = text2num(href_list["pick_device"])
+		// devtype = text2num(href_list["pick_device"]) // Currently unavailable
+		devtype = 1
 		state = 1
 		fabricate_and_recalc_price(0)
 		return 1
@@ -197,12 +198,12 @@
 		fabricate_and_recalc_price(0)
 		return 1
 	if(href_list["hw_tesla"])
-		dev_tesla = text2num(href_list["hw_tesla"])
-		fabricate_and_recalc_price(0)
+		// dev_tesla = text2num(href_list["hw_tesla"]) // Currently unavailable
+		// fabricate_and_recalc_price(0)
 		return 1
 	if(href_list["hw_nanoprint"])
-		dev_nanoprint = text2num(href_list["hw_nanoprint"])
-		fabricate_and_recalc_price(0)
+		//dev_nanoprint = text2num(href_list["hw_nanoprint"]) // Currently unavailable
+		// fabricate_and_recalc_price(0)
 		return 1
 	if(href_list["hw_card"])
 		dev_card = text2num(href_list["hw_card"])

@@ -149,9 +149,9 @@
 	if(computer)
 		return computer.Topic(href, href_list)
 
-// // Relays the call to nano module, if we have one
-// /datum/computer_file/program/proc/check_eye(var/mob/user)
-// 	if(NM)
-// 		return NM.check_eye(user)
-// 	else
-// 		return -1
+// Relays the call to nano module, if we have one
+/datum/computer_file/program/proc/check_eye(var/mob/user)
+	if(NM)
+		return NM.check_eye(user)
+	else
+		return -1
