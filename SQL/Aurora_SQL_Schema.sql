@@ -533,3 +533,43 @@ CREATE TABLE `ss13_character_incidents` (
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `UID_char_id` (`char_id`, `UID`),
 ) COLLATE='utf8_bin' ENGINE=InnoDB;
+
+CREATE TABLE `discord_channels` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `channel_group` varchar(32) NOT NULL,
+  `channel_id` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ss13_ccia_actions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` text COLLATE utf8_unicode_ci NOT NULL,
+  `type` enum('injunction','suspension','warning','other') COLLATE utf8_unicode_ci NOT NULL,
+  `issuedby` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `details` text COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `expires_at` date DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `ss13_ccia_action_char` (
+  `action_id` int(10) unsigned NOT NULL,
+  `char_id` int(11) NOT NULL,
+  PRIMARY KEY (`action_id`,`char_id`),
+  KEY `ccia_action_char_char_id_foreign` (`char_id`),
+  CONSTRAINT `ccia_action_char_action_id_foreign` FOREIGN KEY (`action_id`) REFERENCES `ss13_ccia_actions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ccia_action_char_char_id_foreign` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `ss13_ccia_general_notice_list` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
