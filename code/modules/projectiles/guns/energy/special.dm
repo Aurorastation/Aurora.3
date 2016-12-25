@@ -170,6 +170,7 @@
 /obj/item/weapon/gun/energy/vaurca
 	name = "Alien Firearm"
 	desc = "Vaurcae weapons tend to be specialized and highly lethal. This one doesn't do much"
+	var/is_charging = 0 //special var for sanity checks in the three guns that currently use charging as a special_check
 
 /obj/item/weapon/gun/energy/vaurca/bfg
 	name = "BFG 9000"
