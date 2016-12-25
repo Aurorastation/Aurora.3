@@ -9,7 +9,7 @@
 	color = "#dcd9cd"
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-    if(M.get_species() == "Vaurca")
+    if(isvaurca(M))
         M.heal_organ_damage(0.8 * removed, 0)
         M.nutrition += nutriment_factor * removed // For hunger and fatness
         M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
@@ -37,7 +37,7 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.get_species() == "Vaurca")
+	if(isvaurca(M))
 		M.adjustToxLoss(1.5 * removed)
 	if(alien && alien == IS_UNATHI)
 		return
@@ -624,12 +624,9 @@
 	glass_desc = "Don't drop it, or you'll send scalding liquid and glass shards everywhere."
 
 /datum/reagent/drink/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
 	if(alien == IS_DIONA)
 		return
-	..()
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(0.5 * removed)
-		M.make_jittery(4) //extra sensitive to caffine
 	if(adj_temp > 0)
 		holder.remove_reagent("frostoil", 10 * removed)
 

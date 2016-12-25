@@ -80,8 +80,7 @@
 	 desc = "A stationary computer. This one comes preloaded with security programs."
 
 /obj/machinery/modular_computer/console/preset/security/install_programs()
-	return // No security programs exist, yet, but the preset is ready so it may be mapped in.
-
+	cpu.hard_drive.store_file(new/datum/computer_file/program/camera_monitor())
 
 // ===== CIVILIAN CONSOLE =====
 /obj/machinery/modular_computer/console/preset/civilian
@@ -91,4 +90,3 @@
 /obj/machinery/modular_computer/console/preset/civilian/install_programs()
 	cpu.hard_drive.store_file(new/datum/computer_file/program/chatclient())
 	cpu.hard_drive.store_file(new/datum/computer_file/program/nttransfer())
-

@@ -99,6 +99,7 @@
 	offline_vision_restriction = 1
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
+	glove_type = /obj/item/clothing/gloves/rig/eva
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
 
@@ -113,6 +114,9 @@
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson
 		)
+		
+/obj/item/clothing/gloves/rig/eva
+	siemens_coefficient = 0
 
 /obj/item/weapon/rig/ce
 
@@ -126,13 +130,12 @@
 	offline_vision_restriction = 0
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
+	glove_type = /obj/item/clothing/gloves/rig/ce
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
 
 	req_access = list()
 	req_one_access = list()
-
-	glove_type = /obj/item/clothing/gloves/rig/ce
 
 /obj/item/weapon/rig/ce/equipped
 

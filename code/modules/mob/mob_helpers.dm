@@ -52,8 +52,16 @@
 	return 0
 
 /proc/isvaurca(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Vaurca Worker")
+				return 1
+			if("Vaurca Warrior")
+				return 1
+			if("Vaurca Breeder")
+				return 1
+			if("V'krexi")
+				return 1
 	return 0
 
 /proc/isipc(A)
@@ -941,7 +949,8 @@ var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
 	/mob/living/carbon/human/tajaran,
 	/mob/living/carbon/human/vox,
 	/mob/living/carbon/human/machine,
-	/mob/living/carbon/human/bug
+	/mob/living/carbon/human/type_a,
+	/mob/living/carbon/human/type_b
 	)
 
 var/list/humanoid_mobs_inclusive = list(

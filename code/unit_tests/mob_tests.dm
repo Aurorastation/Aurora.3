@@ -480,12 +480,12 @@ datum/unit_test/mob_damage/machine/halloss
 	expected_vulnerability = IMMUNE
 
 // =================================================================
-// Vaurca
+// Vaurca Worker
 // =================================================================
 
 datum/unit_test/mob_damage/vaurca
 	name = "MOB: Vaurca damage check template"
-	mob_type = /mob/living/carbon/human/bug
+	mob_type = /mob/living/carbon/human/type_a
 
 datum/unit_test/mob_damage/vaurca/brute
 	name = "MOB: Vaurca Brute Damage Check"
@@ -505,11 +505,11 @@ datum/unit_test/mob_damage/vaurca/tox
 datum/unit_test/mob_damage/vaurca/oxy
 	name = "MOB: Vaurca Oxygen Damage Check"
 	damagetype = OXY
+	expected_vulnerability = ARMORED
 
 datum/unit_test/mob_damage/vaurca/clone
 	name = "MOB: Vaurca Clone Damage Check"
 	damagetype = CLONE
-	expected_vulnerability = IMMUNE
 
 datum/unit_test/mob_damage/vaurca/halloss
 	name = "MOB: Vaurca Halloss Damage Check"

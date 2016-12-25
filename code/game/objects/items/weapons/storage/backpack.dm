@@ -24,6 +24,34 @@
 	slot_flags = SLOT_BACK
 	max_w_class = 4
 	max_storage_space = 28
+	var/species_restricted = list("exclude","Vaurca Breeder")
+
+/obj/item/weapon/storage/backpack/mob_can_equip(M as mob, slot)
+
+	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
+	if (!..())
+		return 0
+
+	if(species_restricted && istype(M,/mob/living/carbon/human))
+		var/exclusive = null
+		var/wearable = null
+		var/mob/living/carbon/human/H = M
+
+		if("exclude" in species_restricted)
+			exclusive = 1
+
+		if(H.species)
+			if(exclusive)
+				if(!(H.species.get_bodytype() in species_restricted))
+					wearable = 1
+			else
+				if(H.species.get_bodytype() in species_restricted)
+					wearable = 1
+
+			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
+				H << "<span class='danger'>Your species cannot wear [src].</span>"
+				return 0
+	return 1
 
 /obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (src.use_sound)

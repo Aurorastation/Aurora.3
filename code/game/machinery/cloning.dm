@@ -149,6 +149,14 @@
 
 	for(var/datum/language/L in R.languages)
 		H.add_language(L.name)
+
+	for(var/obj/item/organ/I in H.internal_organs)
+		if(I.robotic)
+			qdel(I) //cloner can't clone inorganic organs
+	for(var/obj/item/organ/external/E in H.organs)
+		if(E.status & ORGAN_ROBOT)
+			qdel(E) //cloner can't clone inorganic organs
+
 	H.flavor_texts = R.flavor.Copy()
 	attempting = 0
 	return 1

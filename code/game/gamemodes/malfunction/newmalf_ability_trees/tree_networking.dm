@@ -15,13 +15,11 @@
 	next = new/datum/malf_research_ability/networking/advanced_hack()
 	name = "Basic Encryption Hack"
 
-
 /datum/malf_research_ability/networking/advanced_hack
 	ability = new/datum/game_mode/malfunction/verb/advanced_encryption_hack()
 	price = 400
 	next = new/datum/malf_research_ability/networking/elite_hack()
 	name = "Advanced Encryption Hack"
-
 
 /datum/malf_research_ability/networking/elite_hack
 	ability = new/datum/game_mode/malfunction/verb/elite_encryption_hack()
@@ -32,7 +30,7 @@
 
 /datum/malf_research_ability/networking/system_override
 	ability = new/datum/game_mode/malfunction/verb/system_override()
-	price = 2750
+	price = 5000
 	name = "System Override"
 
 // END RESEARCH DATUMS
@@ -102,9 +100,9 @@
 
 	log_ability_use(user, "advanced encryption hack")
 
-	if(prob(60) && user.hack_can_fail)
+	if(prob(50) && user.hack_can_fail)
 		user << "Hack Failed."
-		if(prob(10))
+		if(prob(5))
 			user.hack_fails ++
 			announce_hack_failure(user, "quantum message relay")
 			log_ability_use(user, "elite encryption hack (CRITFAIL - title: [title])")
@@ -128,9 +126,9 @@
 		user << "Hack Aborted"
 		return
 
-	if(prob(75) && user.hack_can_fail)
+	if(prob(60) && user.hack_can_fail)
 		user << "Hack Failed."
-		if(prob(20))
+		if(prob(10))
 			user.hack_fails ++
 			announce_hack_failure(user, "alert control system")
 			log_ability_use(user, "elite encryption hack (CRITFAIL - [alert_target])")

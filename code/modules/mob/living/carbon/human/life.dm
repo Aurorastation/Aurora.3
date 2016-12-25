@@ -442,19 +442,10 @@
 
 	inhaling = breath.gas[breath_type]
 
-	if(species.has_organ["filtration bit"] && src.get_species() == "Vaurca")
-		var/obj/item/organ/vaurca/filtrationbit/F = internal_organs_by_name["filtration bit"]
-		if(isnull(F))
-			poison_type = "oxygen" //if Vaurca does not have filter, oxygen becomes poisonous
-		else if(F.is_broken())
-			poison_type = "oxygen" //if Vaurca filter breaks, oxygen becomes poisonous.
-		else
-			poison_type = "null"
+	if(species.poison_type)
+		poison_type = species.poison_type
 	else
-		if(species.poison_type)
-			poison_type = species.poison_type
-		else
-			poison_type = "phoron"
+		poison_type = "phoron"
 	poison = breath.gas[poison_type]
 
 	if(species.exhale_type)

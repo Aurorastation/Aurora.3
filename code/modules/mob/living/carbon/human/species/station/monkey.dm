@@ -95,3 +95,49 @@
 	flesh_color = "#34AF10"
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
+
+/datum/species/monkey/bug
+	name = "V'krexi"
+	short_name = "kre"
+	name_plural = "V'krexi"
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
+
+	icobase = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
+	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/bugbite
+		)
+
+	tail = "vkrexitail"
+	greater_form = "Vaurca Worker"
+	default_language = "V'krexi"
+	blood_color = "#E6E600"
+	flesh_color = "#E6E600"
+	//base_color = "#E6E600"
+	breath_type = "oxygen"
+	poison_type = ""
+	exhale_type = "phoron"
+	warning_low_pressure = 50
+	hazard_low_pressure = 0
+	siemens_coefficient = 0.2
+	darksight = 8
+	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
+	halloss_message = "crumbles to the ground, too weak to continue fighting."
+	list/heat_discomfort_strings = list(
+		"Your blood feels like its boiling in the heat.",
+		"You feel uncomfortably warm.",
+		"Your carapace feels hot as the sun."
+		)
+	list/cold_discomfort_strings = list(
+		"You chitter in the cold.",
+		"You shiver suddenly.",
+		"Your carapace is ice to the touch."
+		)
+	cold_level_1 = 50
+	cold_level_2 = -1
+	cold_level_3 = -1
+	brute_mod = 0.8
+	burn_mod = 2
+	slowdown = -1
+
