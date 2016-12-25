@@ -875,27 +875,23 @@ var/list/global/random_stock_large = list(
 		//Because they are interesting
 		if ("parts")
 			var/list/parts = list(
-			//Low ranking parts, common
-			/obj/item/weapon/stock_parts/console_screen = 3,
+			/obj/item/weapon/stock_parts/console_screen = 3, //Low ranking parts, common
 			/obj/item/weapon/stock_parts/capacitor = 3,
 			/obj/item/weapon/stock_parts/scanning_module = 3,
 			/obj/item/weapon/stock_parts/manipulator = 3,
 			/obj/item/weapon/stock_parts/micro_laser = 3,
 			/obj/item/weapon/stock_parts/matter_bin = 3,
-			//Improved parts, less common
-			/obj/item/weapon/stock_parts/capacitor/adv = 1,
+			/obj/item/weapon/stock_parts/capacitor/adv = 1, //Improved parts, less common
 			/obj/item/weapon/stock_parts/scanning_module/adv = 1,
 			/obj/item/weapon/stock_parts/manipulator/nano = 1,
 			/obj/item/weapon/stock_parts/micro_laser/high = 1,
 			/obj/item/weapon/stock_parts/matter_bin/adv = 1,
-			//Top level parts, rare
-			/obj/item/weapon/stock_parts/capacitor/super = 0.3,
+			/obj/item/weapon/stock_parts/capacitor/super = 0.3, //Top level parts, rare
 			/obj/item/weapon/stock_parts/scanning_module/phasic = 0.3,
 			/obj/item/weapon/stock_parts/manipulator/pico = 0.3,
 			/obj/item/weapon/stock_parts/micro_laser/ultra = 0.3,
 			/obj/item/weapon/stock_parts/matter_bin/super = 0.3,
-			//Telecomms parts, useless novelties and red herrings.
-			/obj/item/weapon/stock_parts/subspace/ansible = 0.5,
+			/obj/item/weapon/stock_parts/subspace/ansible = 0.5, //Telecomms parts, useless novelties and red herrings.
 			/obj/item/weapon/stock_parts/subspace/filter = 0.5,
 			/obj/item/weapon/stock_parts/subspace/amplifier = 0.5,
 			/obj/item/weapon/stock_parts/subspace/treatment = 0.5,
