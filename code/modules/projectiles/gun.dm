@@ -63,7 +63,7 @@
 	var/scoped_accuracy = null
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
-	var/is_charging = 0 //special var for sanity checks in the three guns that currently use charging as a special_check
+
 
 	var/next_fire_time = 0
 
