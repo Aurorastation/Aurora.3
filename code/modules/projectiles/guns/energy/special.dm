@@ -247,6 +247,8 @@
 	is_charging = 1
 	sleep(30)
 	is_charging = 0
+	if(!istype(user.get_active_hand(), src))
+		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
@@ -339,6 +341,8 @@
 	is_charging = 1
 	sleep(90)
 	is_charging = 0
+	if(!istype(user.get_active_hand(), src))
+		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
@@ -427,6 +431,8 @@
 	is_charging = 1
 	sleep(90)
 	is_charging = 0
+	if(!istype(user.get_active_hand(), src))
+		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
