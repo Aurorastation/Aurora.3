@@ -11,7 +11,7 @@
     slowdown = -0.8 //As opposed to -1 for Base tajara
     sprint_speed_factor = 0.55 // As opposed to 0.65
     stamina = 100 // As opposed to 90
-    brute_mod = 0.85 // Less Brute Damage
+    brute_mod = 1.1 // Less Brute Damage
     ethanol_resistance = 1 // Default value
 
     cold_level_1 = 160 //RaceDefault 200 Default 260
@@ -36,7 +36,7 @@
     slowdown = -1.2 //As opposed to -1 for Base tajara
     sprint_speed_factor = 0.75 // As opposed to 0.65
     stamina = 80 // As opposed to 90
-    brute_mod = 1.15 // More Brute Damage
+    brute_mod = 1.3 // More Brute Damage
     ethanol_resistance = 0.6 // Species Default 0.8
 
     cold_level_1 = 220 //RaceDefault 200 Default 260
@@ -47,4 +47,4 @@
     heat_level_2 = 390 //RaceDefault 380 Default 400
     heat_level_3 = 900 //RaceDefault 800 Default 1000
 
-    secondary_langs = list(LANGUAGE_SIGN_TAJARA)
+    secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIGN_TAJARA)
