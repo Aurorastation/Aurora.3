@@ -3,6 +3,7 @@ var/datum/controller/process/night_lighting/nl_ctrl
 /datum/controller/process/night_lighting/
 	var/isactive = 0
 	var/firstrun = 1
+	var/manual_override = 0
 
 /datum/controller/process/night_lighting/proc/is_active()
 	return isactive
@@ -28,6 +29,8 @@ var/datum/controller/process/night_lighting/nl_ctrl
 
 
 /datum/controller/process/night_lighting/doWork()
+	if (manual_override)	// don't automatically change lighting if it was manually changed in-game
+		return
 
 	switch (worldtime2ticks())
 		if (0 to config.nl_finish)
