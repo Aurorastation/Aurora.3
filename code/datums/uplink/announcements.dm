@@ -1,6 +1,8 @@
 /****************
 * Announcements *
 *****************/
+var/cooldown = 0
+var/cooldownr = 0
 /datum/uplink_item/abstract/announcements
 	category = /datum/uplink_category/services
 
@@ -87,8 +89,15 @@
 	item_cost = 2
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm/get_goods(var/obj/item/device/uplink/U, var/loc)
-	ion_storm_announcement()
-	return 1
+	if(cooldown != 1)
+		ion_storm_announcement()
+		cooldown = 1
+		spawn(240)
+			cooldown = 0
+		return 1
+	else
+		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		return 0
 
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
@@ -96,6 +105,13 @@
 	item_cost = 6
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
-	var/datum/event_meta/EM = new(EVENT_LEVEL_MUNDANE, "Fake Radiation Storm", add_to_queue = 0)
-	new/datum/event/radiation_storm/syndicate(EM)
-	return 1
+	if(cooldownr != 1)
+		var/datum/event_meta/EM = new(EVENT_LEVEL_MUNDANE, "Fake Radiation Storm", add_to_queue = 0)
+		new/datum/event/radiation_storm/syndicate(EM)
+		cooldownr = 1
+		spawn(240)
+			cooldownr = 0
+		return 1
+	else
+		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		return 0
