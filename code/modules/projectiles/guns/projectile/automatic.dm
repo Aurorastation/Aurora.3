@@ -341,3 +341,7 @@
 		list(mode_name="semiauto",       burst=1, fire_delay= 10,    move_delay=null, burst_accuracy=-2, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0))
 		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "cshotgun" : "cshotgun-empty"
