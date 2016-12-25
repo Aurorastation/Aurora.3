@@ -284,8 +284,14 @@
 		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
-	var/obj/item/weapon/grab/G = get_aggressive_grab()
-	if(!G) return
+	var/obj/item/weapon/grab/G = src.get_active_hand()
+	if(!istype(G))
+		src << "<span class='warning'>We must be grabbing a creature in our active hand to devour their head.</span>"
+		return
+
+	if(G.state != GRAB_KILL)
+		src << "<span class='warning'>We must have a tighter grip to devour their head.</span>"
+		return
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
@@ -300,9 +306,9 @@
 			return
 
 		visible_message("<span class='danger'>\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!</span>")
-		sleep(50)
-		get_aggressive_grab()
-		if(!G) return
+		sleep(10)
+		if(!src.Adjacent(G.affecting))
+			return
 		visible_message("<span class='danger'>\The [src] closes their jaws around \the [H]'s head!</span>")
 		playsound(H.loc, 'sound/effects/blobattack.ogg', 50, 1)
 		affecting.droplimb(0, DROPLIMB_BLUNT)

@@ -49,9 +49,6 @@
 	brute_mod = 0.2 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
-	warning_low_pressure = 50
-	hazard_low_pressure = 0
-	ethanol_resistance = 2
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
@@ -66,10 +63,8 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	vision_flags = SEE_SELF
-
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | HAS_SKIN_COLOR | NO_SLIP
+	flags = NO_SCAN | NO_SLIP | NO_MINOR_CUT
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,
@@ -78,10 +73,6 @@
 		)
 
 /datum/species/bug/type_c/equip_survival_gear(var/mob/living/carbon/human/H)
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/typec(H),slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
-	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
 	return
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)

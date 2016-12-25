@@ -64,6 +64,7 @@
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 
+
 	var/next_fire_time = 0
 
 	var/sel_mode = 1 //index of the currently selected mode

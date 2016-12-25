@@ -37,15 +37,17 @@
 /obj/item/weapon/melee/energy/vaurca/activate(mob/living/user)
 	..()
 	icon_state = "eknife1"
-	item_state = "eknife0"
+	item_state = icon_state
 	damtype = "fire"
+	user.regenerate_icons()
 	user << "<span class='notice'>\The [src] is now energised.</span>"
 
 /obj/item/weapon/melee/energy/vaurca/deactivate(mob/living/user)
 	..()
 	icon_state = "eknife0"
-	item_state = "eknife0"
+	item_state = icon_state
 	damtype = "brute"
+	user.regenerate_icons()
 	user << "<span class='notice'>\The [src] is de-energised.</span>"
 
 /obj/item/vaurca/box
@@ -57,14 +59,14 @@
 
 /obj/item/vaurca/box/attack_self(mob/user as mob)
 
-	if(isvaurca(src))
+	if(isvaurca(user))
 		user << "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>"
 		var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 		user.remove_from_mob(src)
 		user.put_in_hands(X)
 		qdel(src)
 
-	else if(isipc(src))
+	else if(isipc(user))
 		user << "<span class='notice'>You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)</span>"
 		if(do_after(user, 100))
 			user << "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>"
@@ -75,7 +77,7 @@
 				user.put_in_hands(X)
 				qdel(src)
 
-	else if(isvox(src))
+	else if(isvox(user))
 		user << "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>"
 		if(do_after(user, 100))
 			user << "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>"
