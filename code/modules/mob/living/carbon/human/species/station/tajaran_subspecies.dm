@@ -1,4 +1,4 @@
-/datum/species/tajaran/zhan-khazan
+/datum/species/tajaran/zhan_khazan
     name = "Zhan-Khaza"
     name_plural = "Zhan-Khazan"
     blurb = "Zhan-Khazan are the second most populous of Tajaran ethnicities, and are considered to be \
