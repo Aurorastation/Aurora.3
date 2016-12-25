@@ -1397,10 +1397,12 @@ area/space/atmosalert()
 /area/medical/surgery
 	name = "\improper Operating Theatre 1"
 	icon_state = "surgery"
+	no_light_control = 1
 
 /area/medical/surgery2
 	name = "\improper Operating Theatre 2"
 	icon_state = "surgery"
+	no_light_control = 1
 
 /area/medical/surgeryobs
 	name = "\improper Operation Observation Room"
@@ -1429,6 +1431,7 @@ area/space/atmosalert()
 /area/medical/sleeper
 	name = "\improper Emergency Treatment Centre"
 	icon_state = "exam_room"
+	no_light_control = 1
 
 //Security
 

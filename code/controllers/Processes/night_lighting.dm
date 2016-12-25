@@ -67,7 +67,7 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		var/area/B = A
 		if (B.no_light_control || (!(B.allow_nightmode) && whitelisted_only))
 			continue
-		if (B.apc)
+		if (B.apc && !B.apc.aidisabled)
 			lighting_apcs += B.apc
 
 		SCHECK
