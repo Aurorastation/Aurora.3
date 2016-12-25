@@ -29,6 +29,7 @@
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
+#define LANGUAGE_SIGN_TAJARA "Nal'rasan"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
 #define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
