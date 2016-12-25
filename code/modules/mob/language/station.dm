@@ -203,6 +203,17 @@
 
 /datum/language/resomi/get_random_name(gender)
 	return ..(gender, 1, 4, 1.5)
+	
+/datum/language/unathi_azaziba
+	name = LANGUAGE_AZAZIBA
+	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the glactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
+	speech_verb = "hisses"
+	ask_verb = "gestures"
+	exclaim_verb = "roars"
+	colour = "soghun_alt"
+	key = "p"
+	flags = WHITELISTED | NONVERBAL
+	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 
 //Syllable Lists
 /*

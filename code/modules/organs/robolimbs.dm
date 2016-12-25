@@ -38,7 +38,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/xion.dmi'
 
 /datum/robolimb/ipc
-	company = "Morpheus Cyberkinetics"
+	company = "Hephaestus Integrated Limb"
 	desc = "This limb is simple and functional; no effort has been made to make it look human."
 	icon = 'icons/mob/human_races/cyberlimbs/ipc.dmi'
 	unavailable_at_chargen = 1

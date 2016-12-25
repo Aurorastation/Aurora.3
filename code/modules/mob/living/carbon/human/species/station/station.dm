@@ -40,7 +40,7 @@
 	brute_mod = 0.8
 	ethanol_resistance = 0.4
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_UNATHI)
+	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
 	sprint_speed_factor = 3.2

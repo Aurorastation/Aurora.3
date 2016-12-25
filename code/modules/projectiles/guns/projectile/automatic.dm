@@ -99,7 +99,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="semiauto",       burst=1, fire_delay=10,    move_delay=null, burst_accuracy=-2, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
 		)
@@ -161,7 +161,7 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1,    fire_delay=0,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="semiauto",       burst=1,    fire_delay=10,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=6,    use_launcher=null, burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 0.6)),
 		list(mode_name="fire grenades",  burst=null, fire_delay=null, move_delay=null, use_launcher=1,    burst_accuracy=null, dispersion=null)
 		)
@@ -310,3 +310,38 @@
 		list(mode_name="single coil",	burst=1,    fire_delay=0,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="dual coil",	burst=2, move_delay=8, accuracy = list(-2,-3), dispersion = list(2.0, 3.0))
 		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/shotgun
+	name = "assault shotgun"
+	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
+	icon = 'icons/obj/dragunov.dmi' //lazy but works fine
+	icon_state = "cshotgun"
+	item_state = "cshotgun"
+	contained_sprite = 1
+	w_class = 4
+	load_method = MAGAZINE
+	max_shells = 8
+	caliber = "shotgun"
+	magazine_type = /obj/item/ammo_magazine/assault_shotgun
+	allowed_magazines = list(/obj/item/ammo_magazine/assault_shotgun)
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 4, TECH_ILLEGAL = 5)
+	slot_flags = SLOT_BACK
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	recoil = 3
+	
+	accuracy = -2
+	fire_delay = 10
+	recoil_wielded = 0
+	
+	fire_delay_wielded = 6
+	accuracy_wielded = 0
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay= 10,    move_delay=null, burst_accuracy=-2, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0))
+		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "cshotgun" : "cshotgun-empty"

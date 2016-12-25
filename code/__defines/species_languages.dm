@@ -35,6 +35,8 @@
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Gutter"
 #define LANGUAGE_VAURCA "Hivenet"
+#define LANGUAGE_AZAZIBA "Sinta'azaziba"
+
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.
 #define RESTRICTED   2   // Language can only be acquired by spawning or an admin.
