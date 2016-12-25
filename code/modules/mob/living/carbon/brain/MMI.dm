@@ -34,7 +34,7 @@
 	var/obj/mecha = null//This does not appear to be used outside of reference in mecha.dm.
 
 	attackby(var/obj/item/O as obj, var/mob/user as mob)
-		if(istype(O,/obj/item/organ/brain) && !brainmob) //Time to stick a brain in it --NEO
+		if(istype(O,/obj/item/organ/brain) && !(istype(O,/obj/item/organ/brain/golem)) && !brainmob) //Time to stick a brain in it --NEO /MMI'ing a scroll of paper makes 0 sense
 
 			var/obj/item/organ/brain/B = O
 			if(B.health <= 0)
