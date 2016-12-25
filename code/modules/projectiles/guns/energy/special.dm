@@ -22,7 +22,7 @@
 		item_state = "ionrifle-empty"
 	else
 		item_state = initial(item_state)
-		
+
 /obj/item/weapon/gun/energy/ionrifle/mounted
 	name = "mounted ion rifle"
 	self_recharge = 1
@@ -232,6 +232,9 @@
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	..()
+	if(is_charging)
+		user << "<span class='danger'>\The [src] is already spinning!</span>"
+		return 0
 	if(!wielded)
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
@@ -241,7 +244,9 @@
 					"<span class='danger'>You begin spinning [src]'s barrels!</span>",
 					"<span class='danger'>You hear the spin of a rotary gun!</span>"
 					)
+	is_charging = 1
 	sleep(30)
+	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
@@ -319,6 +324,9 @@
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
 	..()
+	if(is_charging)
+		user << "<span class='danger'>\The [src] is already charging!</span>"
+		return 0
 	if(!wielded)
 		user << "<span class='danger'>You could never fire this weapon with merely one hand!</span>"
 		return 0
@@ -328,7 +336,9 @@
 					"<span class='danger'>You begin charging the [src]!</span>",
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
+	is_charging = 1
 	sleep(90)
+	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
@@ -402,6 +412,9 @@
 
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	..()
+	if(is_charging)
+		user << "<span class='danger'>\The [src] is already charging!</span>"
+		return 0
 	if(!wielded)
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
@@ -411,7 +424,9 @@
 					"<span class='danger'>You begin charging the [src]!</span>",
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
+	is_charging = 1
 	sleep(90)
+	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
