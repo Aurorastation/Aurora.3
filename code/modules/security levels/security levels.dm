@@ -23,17 +23,18 @@
 	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_DELTA && level != security_level)
 		switch(level)
 			if(SEC_LEVEL_GREEN)
-				security_announcement_down.Announce("[config.alert_desc_green]", "Attention! Security level lowered to green")
+				security_announcement_down.Announce("[config.alert_desc_green]", "Attention! Security level lowered to green.")
 				security_level = SEC_LEVEL_GREEN
 			if(SEC_LEVEL_BLUE)
 				if(security_level < SEC_LEVEL_BLUE)
-					security_announcement_up.Announce("[config.alert_desc_blue_upto]", "Attention! Security level elevated to blue")
+					security_announcement_up.Announce("[config.alert_desc_blue_upto]", "Attention! Security level elevated to blue.")
 				else
-					security_announcement_down.Announce("[config.alert_desc_blue_downto]", "Attention! Security level lowered to blue")
+					security_announcement_down.Announce("[config.alert_desc_blue_downto]", "Attention! Security level lowered to blue.")
 				security_level = SEC_LEVEL_BLUE
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
-					security_announcement_up.Announce("[config.alert_desc_red_upto]", "Attention! Code red!")
+					security_announcement_up.Announce("[config.alert_desc_red_upto]", "Attention! Security level elevated to red!")
+					nl_ctrl.deactivate(0)	// Disable nightmode globally
 				else
 					security_announcement_down.Announce("[config.alert_desc_red_downto]", "Attention! Code red!")
 				security_level = SEC_LEVEL_RED

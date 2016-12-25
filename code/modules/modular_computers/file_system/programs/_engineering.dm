@@ -83,3 +83,17 @@
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE
 	size = 19
+
+// Night-Mode Toggle for CE
+/datum/computer_file/program/lighting_control
+	filename = "lightctrl"
+	filedesc = "Lighting Controller"
+	nanomodule_path = /datum/nano_module/lighting_ctrl
+	program_icon_state = "comm_monitor"
+	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
+	required_access = access_ce
+	requires_ntnet = 1
+	network_destination = "APC Coordinator"
+	requires_ntnet_feature = NTNET_SYSTEMCONTROL
+	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE
+	size = 9
