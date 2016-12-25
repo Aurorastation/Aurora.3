@@ -4,16 +4,19 @@
 
 	var/datum/paiCandidate/candidate
 
+/datum/category_item/player_setup_item/player_global/pai/New()
+	..()
+
+	candidate = new()
+
 /datum/category_item/player_setup_item/player_global/pai/load_preferences(var/savefile/S)
 	if(!candidate)
-		candidate = new()
+		return
 
 	if(!preference_mob())
 		return
 
 	candidate.savefile_load(preference_mob())
-
-// #TODO-MERGE: Figure out how to handle pAI saving on SQL.
 
 /datum/category_item/player_setup_item/player_global/pai/save_preferences(var/savefile/S)
 	if(!candidate)
@@ -23,6 +26,28 @@
 		return
 
 	candidate.savefile_save(preference_mob())
+
+/datum/category_item/player_setup_item/player_global/pai/gather_load_query()
+	return list("ss13_player_pai" = list("vars" = list("name" = "pai/name", "description" = "pai/description", "role" = "pai/role", "comments" = "pai/comments"), "args" = list("ckey")))
+
+/datum/category_item/player_setup_item/player_global/pai/gather_load_parameters()
+	return list(":ckey" = pref.client.ckey)
+
+/datum/category_item/player_setup_item/player_global/pai/gather_save_query()
+	return list("ss13_player_pai" = list("name", "description", "role", "comments", "ckey" = 1))
+
+/datum/category_item/player_setup_item/player_global/pai/gather_save_parameters()
+	if (!candidate)
+		return list()
+
+	return list(":ckey" = pref.client.ckey, ":name" = candidate.name, ":description" = candidate.description, ":role" = candidate.role, ":comments" = candidate.comments)
+
+/datum/category_item/player_setup_item/player_global/pai/sanitize_preferences(var/sql_load = 0)
+	if (sql_load && candidate && pref.pai.len)
+		candidate.name = pref.pai["name"]
+		candidate.description = pref.pai["description"]
+		candidate.role = pref.pai["role"]
+		candidate.comments = pref.pai["comments"]
 
 /datum/category_item/player_setup_item/player_global/pai/content(var/mob/user)
 	if(!candidate)

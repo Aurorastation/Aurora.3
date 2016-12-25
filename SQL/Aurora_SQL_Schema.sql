@@ -553,7 +553,7 @@ CREATE TABLE `ss13_ccia_actions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `ss13_ccia_action_char` (
   `action_id` int(10) unsigned NOT NULL,
@@ -572,4 +572,14 @@ CREATE TABLE `ss13_ccia_general_notice_list` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `ss13_player_pai` (
+  `ckey` VARCHAR(32) NOT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `role` TEXT NULL DEFAULT NULL,
+  `comments` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`ckey`),
+  CONSTRAINT `player_pai_fk_ckey` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
