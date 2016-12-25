@@ -269,6 +269,10 @@ datum/preferences
 		if(undershirt && current_species.appearance_flags & HAS_UNDERWEAR)
 			undershirt_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = undershirt)
 
+		var/icon/socks_s = null
+		if(socks && current_species.appearance_flags & HAS_SOCKS)
+			socks_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = socks)
+
 		var/icon/clothes_s = null
 		if(job_civilian_low & ASSISTANT)//This gives the preview icon clothes depending on which job(if any) is set to 'high'
 			clothes_s = new /icon('icons/mob/uniform.dmi', "grey_s")
@@ -706,6 +710,8 @@ datum/preferences
 			preview_icon.Blend(underwear_s, ICON_OVERLAY)
 		if(undershirt_s)
 			preview_icon.Blend(undershirt_s, ICON_OVERLAY)
+		if(socks_s)
+			preview_icon.Blend(socks_s, ICON_OVERLAY)
 		if(clothes_s)
 			preview_icon.Blend(clothes_s, ICON_OVERLAY)
 		preview_icon_front = new(preview_icon, dir = SOUTH)
@@ -714,4 +720,5 @@ datum/preferences
 		qdel(eyes_s)
 		qdel(underwear_s)
 		qdel(undershirt_s)
+		qdel(socks_s)
 		qdel(clothes_s)

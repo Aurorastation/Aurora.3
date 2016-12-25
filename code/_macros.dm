@@ -1,6 +1,8 @@
 #define Clamp(x, y, z) 	(x <= y ? y : (x >= z ? z : x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 
+#define span(class, text) ("<span class='[class]'>[text]</span>")
+
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
 
@@ -39,3 +41,10 @@
 #define issilicon(A) istype(A, /mob/living/silicon)
 
 #define isslime(A) istype(A, /mob/living/carbon/slime)
+
+#define to_chat(target, message)                            target << message
+#define to_world(message)                                   world << message
+#define sound_to(target, sound)                             target << sound
+#define to_file(file_entry, file_content)                   file_entry << file_content
+#define show_browser(target, browser_content, browser_name) target << browse(browser_content, browser_name)
+#define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)

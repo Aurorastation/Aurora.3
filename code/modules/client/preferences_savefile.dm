@@ -65,12 +65,15 @@
 			S["default_slot"] << slot
 		S.cd = "/character[slot]"
 	else
-		current_character = slot
+		if (slot)
+			current_character = slot
 
 	player_setup.load_character(S)
 
 	if (!config.sql_saves)
 		loaded_character = S
+	else
+		save_preferences()
 
 	return 1
 

@@ -28,6 +28,15 @@
 // TODO: rewrite kitchen code to check a var on the meat item so we can remove
 // all these sybtypes.
 /obj/item/weapon/reagent_containers/food/snacks/meat/human
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/bug
+	filling_color = "#E6E600"
+	New()
+		..()
+		reagents.add_reagent("protein", 9)
+		reagents.add_reagent("phoron", 27)
+		src.bitesize = 3
+
 /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
 	//same as plain meat
 

@@ -85,9 +85,9 @@
 
 	//Add the rest of the languages
 	//Because universal speak doesn't work right.
-	bst.add_language("Sinta'unathi")
-	bst.add_language("Siik'maas")
-	bst.add_language("Skrellian")
+	bst.add_language(LANGUAGE_UNATHI)
+	bst.add_language(LANGUAGE_SIIK_MAAS)
+	bst.add_language(LANGUAGE_SKRELLIAN)
 	bst.add_language("Vox-pidgin")
 	bst.add_language("Rootsong")
 	bst.add_language("Ceti Basic")

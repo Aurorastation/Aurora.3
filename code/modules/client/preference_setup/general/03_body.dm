@@ -79,7 +79,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 										 "disabilities",
 										 "organs_data",
 										 "organs_robotic",
-										 "id" = 1))
+										 "id" = 1,
+										 "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/body/gather_save_parameters()
 	return list(":species" = pref.species,
@@ -94,7 +95,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				":disabilities" = pref.disabilities,
 				":organs_data" = list2params(pref.organ_data),
 				":organs_robotic"= list2params(pref.rlimb_data),
-				":id" = pref.current_character)
+				":id" = pref.current_character,
+				":ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/body/sanitize_character(var/sql_load = 0)
 	if(!pref.species || !(pref.species in playable_species))

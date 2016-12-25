@@ -55,7 +55,7 @@
 			var/datum/language/hivemind = all_languages["Hivemind"]
 			hivemind.broadcast(M, message)
 		if (translate_hivenet)
-			var/datum/language/bug = all_languages["Hivenet"]
+			var/datum/language/bug = all_languages[LANGUAGE_VAURCA]
 			bug.broadcast(M, message)
 		return null
 

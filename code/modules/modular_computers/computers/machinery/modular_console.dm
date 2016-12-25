@@ -14,6 +14,9 @@
 	base_active_power_usage = 600
 	max_hardware_size = 3
 	steel_sheet_cost = 20
+	light_strength = 4
+	_max_damage = 300
+	_break_damage = 150
 
 /obj/machinery/modular_computer/console/buildable/New()
 	..()
@@ -27,8 +30,6 @@
 	cpu.battery_module = null
 	cpu.network_card = new/obj/item/weapon/computer_hardware/network_card/wired(src)
 	tesla_link = new/obj/item/weapon/computer_hardware/tesla_link(src)
-	tesla_link.enabled = 1
-	tesla_link.critical = 1 // Consoles don't usually come with cells, and this prevents people from disabling their only power source, as they wouldn't be able to enable it again.
 	cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/super(src) // Consoles generally have better HDDs due to lower space limitations
 	var/area/A = get_area(src)
 	// Attempts to set this console's tag according to our area. Since some areas have stuff like "XX - YY" in their names we try to remove that too.

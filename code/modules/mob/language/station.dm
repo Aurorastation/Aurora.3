@@ -75,8 +75,8 @@
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
 /datum/language/bug
-	name = "Hivenet"
-	desc = "Complex Vaurcesian language comprised of rapid mandible-clicking, \"It's a bugs life.\""
+	name = LANGUAGE_VAURCA
+	desc = "A localised expression of the Vaurcae hivemind, allowing Vaurcae to communicate from across great distances. \"It's a bugs life.\""
 	speech_verb = " broadcasts"
 	colour = "vaurca"
 	key = "9"
@@ -122,6 +122,8 @@
 	if(within_jamming_range(other))
 		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
+		return 1
+	if(istype(M,/mob/living/silicon/))
 		return 1
 
 	if (M.l_ear || M.r_ear)

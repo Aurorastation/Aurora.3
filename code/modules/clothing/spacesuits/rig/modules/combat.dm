@@ -89,6 +89,20 @@
 	new_grenade.activate(H)
 	new_grenade.throw_at(target,fire_force,fire_distance)
 
+/obj/item/rig_module/grenade_launcher/frag
+
+	name = "mounted frag grenade launcher"
+	desc = "A shoulder-mounted fragmentation explosives dispenser."
+	selectable = 1
+	icon_state = "grenade"
+
+	interface_name = "integrated frag grenade launcher"
+	interface_desc = "Discharges loaded frag grenades against the wearer's location."
+
+	charges = list(
+		list("frag grenade",   "frag grenade",   /obj/item/weapon/grenade/frag,  3)
+		)
+
 /obj/item/rig_module/mounted
 
 	name = "mounted laser cannon"
@@ -152,6 +166,50 @@
 	interface_desc = "A shoulder-mounted cell-powered taser."
 
 	gun_type = /obj/item/weapon/gun/energy/taser/mounted
+	
+/obj/item/rig_module/mounted/pulse
+
+	name = "mounted pulse rifle"
+	desc = "A shoulder-mounted battery-powered pulse rifle mount."
+	icon_state = "pulse"
+
+	interface_name = "mounted pulse rifle"
+	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
+
+	gun_type = /obj/item/weapon/gun/energy/pulse_rifle/mounted
+	
+/obj/item/rig_module/mounted/smg
+
+	name = "mounted submachine gun"
+	desc = "A forearm-mounted suit-powered ballistic submachine gun."
+	icon_state = "smg"
+
+	interface_name = "mounted submachine gun"
+	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
+
+	gun_type = /obj/item/weapon/gun/energy/mountedsmg
+	
+/obj/item/rig_module/mounted/xray
+
+	name = "mounted xray laser gun"
+	desc = "A forearm-mounted suit-powered xray laser gun."
+	icon_state = "xray"
+
+	interface_name = "mounted xray laser gun"
+	interface_desc = "A forearm-mounted suit-powered xray laser gun."
+
+	gun_type = /obj/item/weapon/gun/energy/xray/mounted
+	
+/obj/item/rig_module/mounted/ion
+
+	name = "mounted ion rifle"
+	desc = "A shoulder-mounted battery-powered ion rifle mount."
+	icon_state = "ion"
+
+	interface_name = "mounted ion rifle"
+	interface_desc = "A shoulder-mounted cell-powered ion rifle."
+
+	gun_type = /obj/item/weapon/gun/energy/ionrifle/mounted
 
 /obj/item/rig_module/mounted/energy_blade
 

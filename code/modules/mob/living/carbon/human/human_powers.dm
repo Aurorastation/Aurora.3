@@ -220,33 +220,29 @@
 		src << "\green You said: \"[msg]\" to [M]"
 	return
 
-
-
-
-
 /mob/living/carbon/human/proc/bugbite()
 	set category = "Abilities"
 	set name = "Bite"
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
 	if(last_special > world.time)
-		src << "\red Your mandibles still ache!"
+		src << "<span class='warning'>Your mandibles still ache!</span>"
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		src << "\red You cannot do that in your current state."
+		src << "<span class='warning'> You cannot do that in your current state.</span>"
 		return
 
 	var/obj/item/weapon/grab/G = locate() in src
 	if(!G || !istype(G))
-		src << "\red You are not grabbing anyone."
+		src << "<span class='warning'>You are not grabbing anyone.</span>"
 		return
 
 	if(G.state < GRAB_AGGRESSIVE)
-		src << "\red You must have an aggressive grab to gut your prey!"
+		src << "<span class='warning'>You must have an aggressive grab to gut your prey!</span>"
 		return
 
-	last_special = world.time + 35
+	last_special = world.time + 25
 
 	visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
 
@@ -261,3 +257,134 @@
 		M.apply_damage(25,BRUTE, sharp=1, edge=1)
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
+
+/mob/living/carbon/human/proc/get_aggressive_grab()
+
+	var/obj/item/weapon/grab/G = locate() in src
+	if(!G || !istype(G))
+		src << "<span class='warning'>You are not grabbing anyone.</span>"
+		return
+
+	if(G.state < GRAB_AGGRESSIVE)
+		src << "<span class='warning'>You must have an aggressive grab to do this!</span>"
+		return
+
+	return G
+
+/mob/living/carbon/human/proc/devour_head()
+	set category = "Abilities"
+	set name = "Devour Head"
+	set desc = "While grabbing someone aggressively, bite their head off."
+
+	if(last_special > world.time)
+		src << "<span class='warning'>Your mandibles still ache!</span>"
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
+		return
+
+	var/obj/item/weapon/grab/G = get_aggressive_grab()
+	if(!G) return
+
+	if(istype(G.affecting,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = G.affecting
+
+		if(!H.species.has_limbs["head"])
+			src << "<span class='warning'>\The [H] does not have a head!</span>"
+			return
+
+		var/obj/item/organ/external/affecting = H.get_organ("head")
+		if(!istype(affecting) || affecting.is_stump())
+			src << "<span class='warning'>\The [H] does not have a head!</span>"
+			return
+
+		visible_message("<span class='danger'>\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!</span>")
+		sleep(50)
+		get_aggressive_grab()
+		if(!G) return
+		visible_message("<span class='danger'>\The [src] closes their jaws around \the [H]'s head!</span>")
+		playsound(H.loc, 'sound/effects/blobattack.ogg', 50, 1)
+		affecting.droplimb(0, DROPLIMB_BLUNT)
+
+	else
+		var/mob/living/M = G.affecting
+		if(istype(M))
+			visible_message("<span class='danger'>\The [src] rips viciously at \the [M]'s body with its claws!</span>")
+			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
+			M.gib()
+
+	last_special = world.time + 200
+	return
+
+/mob/living/carbon/human/proc/hivenet()
+	set category = "Abilities"
+	set name = "Hivenet Control"
+	set desc = "Issue an order over the hivenet."
+
+	var/list/targets = list()
+	var/target = null
+	var/text = null
+
+	if(!(all_languages[LANGUAGE_VAURCA] in src.languages))
+		src << "<span class='danger'>Your mind is dark, the unity of the hive is torn from you!</span>"
+		return
+
+	targets += getmobs()
+	target = input("Select a pawn!", "Issue an order", null, null) as null|anything in targets
+
+	if(!target) return
+
+	text = input("What is your will?", "Issue an order", null, null)
+
+	text = sanitize(text)
+
+	if(!text) return
+
+	var/mob/M = targets[target]
+
+	if(istype(M, /mob/dead/observer) || M.stat == DEAD)
+		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
+		return
+
+	if(!(all_languages[LANGUAGE_VAURCA] in M.languages))
+		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
+		return
+
+	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
+
+	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
+		M << "<span class='danger'> You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"
+		M << "<span class='notice'> [text]</span>"
+	else
+		M << "<span class='danger'> Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
+		if(istype(M,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(H.species.name == src.species.name)
+				return
+			H << "<span class='danger'> Your nose begins to bleed...</span>"
+			H.drip(1)
+
+/mob/living/carbon/human/proc/quillboar(mob/target as mob in oview())
+	set name = "Launch Quill"
+	set desc = "Launches a quill in self-defense. Painful, but effective."
+	set category = "Abilities"
+
+	if(last_special > world.time)
+		src << "<span class='danger'>Your spine still aches!</span>"
+		return
+
+
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		src << "You cannot launch a quill in your current state."
+		return
+
+	last_special = world.time + 30
+
+	visible_message("<span class='warning'><b>\The [src]</b> launches a spine-quill at [target]!</span>")
+
+	src.apply_damage(10,BRUTE)
+	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
+	var/obj/item/weapon/arrow/quill/A = new /obj/item/weapon/arrow/quill(usr.loc)
+	A.throw_at(target, 10, 30, user)
+	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
