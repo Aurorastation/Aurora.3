@@ -1,7 +1,7 @@
 /mob/living/carbon/human/dummy
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
-    
+
 /mob/living/carbon/human/resomi/New(var/new_loc)
 	h_style = "Resomi Plumage"
 	..(new_loc, "Resomi")
@@ -55,3 +55,9 @@
 
 /mob/living/carbon/human/bug/New(var/new_loc)
 	..(new_loc, "Vaurca")
+
+/mob/living/carbon/human/neaera/New(var/new_loc)
+	..(new_loc, "Neaera")
+
+/mob/living/carbon/human/stok
+	mob_size = 2.6//Roughly the same size as monkey

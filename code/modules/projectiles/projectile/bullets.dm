@@ -7,6 +7,7 @@
 	check_armour = "bullet"
 	embed = 1
 	sharp = 1
+	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
@@ -295,3 +296,21 @@
 /obj/item/projectile/bullet/pistol/cap/process()
 	loc = null
 	qdel(src)
+
+/obj/item/projectile/bullet/flechette
+	name = "flechette"
+	icon = 'icons/obj/terminator.dmi'
+	icon_state = "flechette_bullet"
+	damage = 40
+	damage_type = BRUTE
+	check_armour = "bullet"
+	embed = 1
+	sharp = 1
+	penetrating = 1
+
+	muzzle_type = /obj/effect/projectile/pulse_bullet/muzzle
+
+/obj/item/projectile/bullet/flechette/explosive
+	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
+	penetrating = 0
+	damage = 10

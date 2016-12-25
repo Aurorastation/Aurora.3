@@ -6,7 +6,7 @@
 	max_damage = 50 //made same as arm, since it is not vital
 	min_broken_damage = 30
 	encased = null
-	
+
 /obj/item/organ/external/head/ipc/New()
 	robotize("Morpheus Cyberkinetics")
 	..()
@@ -155,3 +155,110 @@
 		else
 			stored_mmi.loc = get_turf(src)
 			qdel(src)
+
+
+//terminator organs
+
+/obj/item/organ/mmi_holder/posibrain/terminator
+	name = "brain"
+	organ_tag = "brain"
+	parent_organ = "chest"
+	vital = 1
+
+/obj/item/organ/data
+	name = "data core"
+	organ_tag = "data core"
+	parent_organ = "groin"
+	icon = 'icons/obj/cloning.dmi'
+	icon_state = "harddisk"
+	vital = 0
+
+/obj/item/organ/data/New()
+	robotize()
+	..()
+
+/obj/item/organ/cell/terminator
+	name = "shielded microbattery"
+	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
+	icon = 'icons/obj/power.dmi'
+	icon_state = "scell"
+	organ_tag = "shielded cell"
+	parent_organ = "chest"
+	vital = 1
+
+/obj/item/organ/cell/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/head/terminator
+	dislocated = -1
+	can_intake_reagents = 0
+	vital = 0
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
+	encased = null
+
+/obj/item/organ/external/head/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/chest/terminator
+	dislocated = -1
+	encased = null
+/obj/item/organ/external/chest/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/groin/terminator
+	dislocated = -1
+/obj/item/organ/external/groin/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/arm/terminator
+	dislocated = -1
+/obj/item/organ/external/arm/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/arm/right/terminator
+	dislocated = -1
+/obj/item/organ/external/arm/right/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/leg/terminator
+	dislocated = -1
+/obj/item/organ/external/leg/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/leg/right/terminator
+	dislocated = -1
+/obj/item/organ/external/leg/right/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/foot/terminator
+	dislocated = -1
+/obj/item/organ/external/foot/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/foot/right/terminator
+	dislocated = -1
+/obj/item/organ/external/foot/right/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/hand/terminator
+	dislocated = -1
+/obj/item/organ/external/hand/terminator/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/hand/right/terminator
+	dislocated = -1
+/obj/item/organ/external/hand/right/terminator/New()
+	mechassist()
+	..()

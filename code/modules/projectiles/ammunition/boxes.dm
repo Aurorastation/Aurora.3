@@ -372,3 +372,34 @@
 
 /obj/item/ammo_magazine/d762/empty
 	initial_ammo = 0
+
+/obj/item/ammo_magazine/flechette
+	name = "flechette rounds"
+	icon = 'icons/obj/terminator.dmi'
+	icon_state = "flechette"
+	mag_type = MAGAZINE
+	caliber = "flechette"
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	ammo_type = /obj/item/ammo_casing/flechette
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/flechette
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/flechette/explosive
+	name = "explosive flechette rounds"
+	desc = "A box of ten explosive flechettes that can be remotely detonated by a certain signal."
+	icon = 'icons/obj/terminator.dmi'
+	icon_state = "flechette"
+	mag_type = MAGAZINE
+	caliber = "flechette"
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	ammo_type = /obj/item/projectile/bullet/flechette/explosive
+	max_ammo = 10
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/flechette
+	initial_ammo = 0
+
+

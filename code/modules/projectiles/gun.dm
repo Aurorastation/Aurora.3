@@ -1,4 +1,4 @@
-/*
+h/*
 	Defines a firing mode for a gun.
 
 	A firemode is created from a list of fire mode settings. Each setting modifies the value of the gun var with the same name.
@@ -135,7 +135,7 @@
 	if(user && user.client && user.aiming && user.aiming.active && user.aiming.aiming_at != A)
 		PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
 		return
-		
+
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
