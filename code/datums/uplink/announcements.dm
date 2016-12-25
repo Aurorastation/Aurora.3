@@ -1,8 +1,6 @@
 /****************
 * Announcements *
 *****************/
-var/cooldown = 0
-var/cooldownr = 0
 /datum/uplink_item/abstract/announcements
 	category = /datum/uplink_category/services
 
