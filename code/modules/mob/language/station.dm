@@ -208,8 +208,9 @@
 	name = LANGUAGE_AZAZIBA
 	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the glactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
 	speech_verb = "hisses"
-	ask_verb = "gestures"
+	ask_verb = "hisses"
 	exclaim_verb = "roars"
+	signlang_verb = list("signs", "gestures aggressively")
 	colour = "soghun_alt"
 	key = "p"
 	flags = WHITELISTED | NONVERBAL

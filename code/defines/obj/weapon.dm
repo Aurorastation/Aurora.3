@@ -173,6 +173,7 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("warned", "cautioned", "smashed")
+	
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
@@ -180,6 +181,7 @@
     else
         src.icon_state = "caution"
         user << "You turn the sign off."
+        
 /obj/item/weapon/caution/AltClick()
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
@@ -192,6 +194,15 @@
 	desc = "This cone is trying to warn you of something!"
 	name = "warning cone"
 	icon_state = "cone"
+	item_state = "cone"
+	contained_sprite = 1
+	slot_flags = SLOT_HEAD
+	
+/obj/item/weapon/caution/cone/attack_self(mob/user as mob)
+	return
+	
+/obj/item/weapon/caution/cone/AltClick()
+	return
 
 /*/obj/item/weapon/syndicate_uplink
 	name = "station bounced radio"
