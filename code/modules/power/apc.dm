@@ -903,7 +903,7 @@
 		return 1
 
 	if (href_list["lmode"])
-		src.toggle_nightlight()
+		src.toggle_nightlight(href_list["lmode"])
 		update_icon()
 
 	else if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
