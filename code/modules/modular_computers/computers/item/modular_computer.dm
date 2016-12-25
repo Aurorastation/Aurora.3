@@ -28,7 +28,12 @@
 	var/icon_state_menu = "menu"							// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
 	var/max_hardware_size = 0								// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
+	var/light_strength = 0
 
+	// Damage of the chassis. If the chassis takes too much damage it will break apart.
+	var/damage = 0				// Current damage level
+	var/broken_damage = 50		// Damage level at which the computer ceases to operate
+	var/max_damage = 100		// Damage level at which the computer breaks apart.
 
 	// Important hardware (must be installed for computer to work)
 	var/obj/item/weapon/computer_hardware/processor_unit/processor_unit				// CPU. Without it the computer won't run. Better CPUs can run more programs at once.
@@ -39,6 +44,7 @@
 	var/obj/item/weapon/computer_hardware/card_slot/card_slot						// ID Card slot component of this computer. Mostly for HoP modification console that needs ID slot for modification.
 	var/obj/item/weapon/computer_hardware/nano_printer/nano_printer					// Nano Printer component of this computer, for your everyday paperwork needs.
 	var/obj/item/weapon/computer_hardware/hard_drive/portable/portable_drive		// Portable data storage
+	var/obj/item/weapon/computer_hardware/ai_slot/ai_slot							// AI slot, an intellicard housing that allows modifications of AIs.
 
 	var/list/idle_threads = list()							// Idle programs on background. They still receive process calls but can't be interacted with.
 
@@ -59,6 +65,37 @@
 
 	proc_eject_id(usr)
 
+// Eject ID card from computer, if it has ID slot with card inside.
+/obj/item/modular_computer/verb/eject_usb()
+	set name = "Eject Portable Storage"
+	set category = "Object"
+	set src in view(1)
+
+	if(usr.incapacitated() || !istype(usr, /mob/living))
+		usr << "<span class='warning'>You can't do that.</span>"
+		return
+
+	if(!Adjacent(usr))
+		usr << "<span class='warning'>You can't reach it.</span>"
+		return
+
+	proc_eject_usb(usr)
+
+/obj/item/modular_computer/verb/eject_ai()
+	set name = "Eject Portable Storage"
+	set category = "Object"
+	set src in view(1)
+
+	if(usr.incapacitated() || !istype(usr, /mob/living))
+		usr << "<span class='warning'>You can't do that.</span>"
+		return
+
+	if(!Adjacent(usr))
+		usr << "<span class='warning'>You can't reach it.</span>"
+		return
+
+	proc_eject_ai(usr)
+
 /obj/item/modular_computer/proc/proc_eject_id(mob/user)
 	if(!user)
 		user = usr
@@ -71,10 +108,41 @@
 		user << "There is no card in \the [src]"
 		return
 
+	if(active_program)
+		active_program.event_idremoved(0)
+
+	for(var/datum/computer_file/program/P in idle_threads)
+		P.event_idremoved(1)
+
 	card_slot.stored_card.forceMove(get_turf(src))
 	card_slot.stored_card = null
 	update_uis()
 	user << "You remove the card from \the [src]"
+
+
+/obj/item/modular_computer/proc/proc_eject_usb(mob/user)
+	if(!user)
+		user = usr
+
+	if(!portable_drive)
+		user << "There is no portable device connected to \the [src]."
+		return
+
+	uninstall_component(user, portable_drive)
+	update_uis()
+
+/obj/item/modular_computer/proc/proc_eject_ai(mob/user)
+	if(!user)
+		user = usr
+
+	if(!ai_slot || !ai_slot.stored_card)
+		user << "There is no intellicard connected to \the [src]."
+		return
+
+	ai_slot.stored_card.forceMove(get_turf(src))
+	ai_slot.stored_card = null
+	ai_slot.update_power_usage()
+	update_uis()
 
 /obj/item/modular_computer/attack_ghost(var/mob/dead/observer/user)
 	if(enabled)
@@ -93,6 +161,13 @@
 		user << "You emag \the [src]. It's screen briefly shows a \"OVERRIDE ACCEPTED: New software downloads available.\" message."
 		return 1
 
+/obj/item/modular_computer/examine(var/mob/user)
+	..()
+	if(damage > broken_damage)
+		user << "<span class='danger'>It is heavily damaged!</span>"
+	else if(damage)
+		user << "It is damaged."
+
 /obj/item/modular_computer/New()
 	processing_objects.Add(src)
 	update_icon()
@@ -102,6 +177,7 @@
 	kill_program(1)
 	processing_objects.Remove(src)
 	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
+		uninstall_component(null, CH)
 		qdel(CH)
 	return ..()
 
@@ -110,7 +186,9 @@
 
 	overlays.Cut()
 	if(!enabled)
+		set_light(0)
 		return
+	set_light(light_strength)
 	if(active_program)
 		overlays.Add(active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu)
 	else
@@ -151,6 +229,8 @@
 		var/list/program = list()
 		program["name"] = P.filename
 		program["desc"] = P.filedesc
+		if(P in idle_threads)
+			program["running"] = 1
 		programs.Add(list(program))
 
 	data["programs"] = programs
@@ -169,9 +249,27 @@
 	else
 		turn_on(user)
 
+/obj/item/modular_computer/proc/break_apart()
+	visible_message("\The [src] breaks apart!")
+	var/turf/newloc = get_turf(src)
+	new /obj/item/stack/material/steel(newloc, round(steel_sheet_cost/2))
+	for(var/obj/item/weapon/computer_hardware/H in get_all_components())
+		uninstall_component(null, H)
+		H.forceMove(newloc)
+		if(prob(25))
+			H.take_damage(rand(10,30))
+	relay_qdel()
+	qdel()
+
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
-	if(processor_unit && ((battery_module && battery_module.battery.charge) || check_power_override())) // Battery-run and charged or non-battery but powered by APC.
+	if(damage > broken_damage)
+		if(issynth)
+			user << "You send an activation signal to \the [src], but it responds with an error code. It must be damaged."
+		else
+			user << "You press the power button, but the computer fails to boot up, displaying variety of errors before shutting down again."
+		return
+	if(processor_unit && ((battery_module && battery_module.battery.charge && battery_module.check_functionality()) || check_power_override())) // Battery-run and charged or non-battery but powered by APC.
 		if(issynth)
 			user << "You send an activation signal to \the [src], turning it on"
 		else
@@ -191,26 +289,32 @@
 		last_power_usage = 0
 		return 0
 
+	if(damage > broken_damage)
+		shutdown_computer()
+		return 0
+
 	if(active_program && active_program.requires_ntnet && !get_ntnet_status(active_program.requires_ntnet_feature)) // Active program requires NTNet to run but we've just lost connection. Crash.
-		kill_program(1)
-		visible_message("<span class='danger'>\The [src]'s screen briefly freezes and then shows \"NETWORK ERROR - NTNet connection lost. Please retry. If problem persists contact your system administrator.\" error.</span>")
+		active_program.event_networkfailure(0)
 
 	for(var/datum/computer_file/program/P in idle_threads)
 		if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature))
-			P.kill_program(1)
-			idle_threads.Remove(P)
-			visible_message("<span class='danger'>\The [src] screen displays an \"Process [P.filename].[P.filetype] (PID [rand(100,999)]) terminated - Network Error\" error</span>")
+			P.event_networkfailure(1)
 
 	if(active_program)
-		active_program.process_tick()
-		active_program.ntnet_status = get_ntnet_status()
-		active_program.computer_emagged = computer_emagged
+		if(active_program.program_state != PROGRAM_STATE_KILLED)
+			active_program.process_tick()
+			active_program.ntnet_status = get_ntnet_status()
+			active_program.computer_emagged = computer_emagged
+		else
+			active_program = null
 
 	for(var/datum/computer_file/program/P in idle_threads)
-		P.process_tick()
-		P.ntnet_status = get_ntnet_status()
-		P.computer_emagged = computer_emagged
-
+		if(P.program_state != PROGRAM_STATE_KILLED)
+			P.process_tick()
+			P.ntnet_status = get_ntnet_status()
+			P.computer_emagged = computer_emagged
+		else
+			idle_threads.Remove(P)
 
 	handle_power() // Handles all computer power interaction
 	check_update_ui_need()
@@ -324,17 +428,27 @@
 		if(!active_program || !processor_unit)
 			return
 
-		if(idle_threads.len >= processor_unit.max_idle_programs)
-			user << "<span class='notice'>\The [src] displays a \"Maximal CPU load reached. Unable to minimize another program.\" error</span>"
-			return
-
 		idle_threads.Add(active_program)
-		active_program.running = 0 // Should close any existing UIs
+		active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
 		nanomanager.close_uis(active_program.NM ? active_program.NM : active_program)
 		active_program = null
 		update_icon()
 		if(user && istype(user))
 			ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+
+	if( href_list["PC_killprogram"] )
+		var/prog = href_list["PC_killprogram"]
+		var/datum/computer_file/program/P = null
+		var/mob/user = usr
+		if(hard_drive)
+			P = hard_drive.find_file_by_name(prog)
+
+		if(!istype(P) || P.program_state == PROGRAM_STATE_KILLED)
+			return
+
+		P.kill_program(1)
+		update_uis()
+		user << "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>"
 
 	if( href_list["PC_runprogram"] )
 		var/prog = href_list["PC_runprogram"]
@@ -342,26 +456,32 @@
 		var/mob/user = usr
 		if(hard_drive)
 			P = hard_drive.find_file_by_name(prog)
-			P.computer = src
 
 		if(!P || !istype(P)) // Program not found or it's not executable program.
 			user << "<span class='danger'>\The [src]'s screen shows \"I/O ERROR - Unable to run program\" warning.</span>"
 			return
+
+		P.computer = src
 
 		if(!P.is_supported_by_hardware(hardware_flag, 1, user))
 			return
 
 		// The program is already running. Resume it.
 		if(P in idle_threads)
-			P.running = 1
+			P.program_state = PROGRAM_STATE_ACTIVE
 			active_program = P
 			idle_threads.Remove(P)
 			update_icon()
 			return
 
+		if(idle_threads.len >= processor_unit.max_idle_programs+1)
+			user << "<span class='notice'>\The [src] displays a \"Maximal CPU load reached. Unable to run another program.\" error</span>"
+			return
+
 		if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
 			user << "<span class='danger'>\The [src]'s screen shows \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\" warning.</span>"
 			return
+
 		if(P.run_program(user))
 			active_program = P
 			update_icon()
@@ -370,9 +490,13 @@
 		update_uis()
 
 // Used in following function to reduce copypaste
-/obj/item/modular_computer/proc/power_failure()
+/obj/item/modular_computer/proc/power_failure(var/malfunction = 0)
 	if(enabled) // Shut down the computer
-		visible_message("<span class='danger'>\The [src]'s screen flickers \"BATTERY CRITICAL\" warning as it shuts down unexpectedly.</span>")
+		visible_message("<span class='danger'>\The [src]'s screen flickers \"BATTERY [malfunction ? "MALFUNCTION" : "CRITICAL"]\" warning as it shuts down unexpectedly.</span>")
+		if(active_program)
+			active_program.event_powerfailure(0)
+		for(var/datum/computer_file/program/PRG in idle_threads)
+			PRG.event_powerfailure(1)
 		shutdown_computer(0)
 
 // Handles power-related things, such as battery interaction, recharging, shutdown when it's discharged
@@ -388,6 +512,9 @@
 			power_usage += H.power_usage
 
 	if(battery_module)
+		if(!battery_module.check_functionality())
+			power_failure(1)
+			return
 		battery_module.battery.use(power_usage * CELLRATE)
 
 	last_power_usage = power_usage
@@ -409,10 +536,13 @@
 		user << "You insert \the [I] into \the [src]."
 		return
 	if(istype(W, /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/P = W
 		if(!nano_printer)
 			return
-		nano_printer.load_paper(P)
+		nano_printer.attackby(W, user)
+	if(istype(W, /obj/item/weapon/aicard))
+		if(!ai_slot)
+			return
+		ai_slot.attackby(W, user)
 	if(istype(W, /obj/item/weapon/computer_hardware))
 		var/obj/item/weapon/computer_hardware/C = W
 		if(C.hardware_size <= max_hardware_size)
@@ -428,6 +558,21 @@
 		src.visible_message("\The [src] has been disassembled by [user].")
 		relay_qdel()
 		qdel(src)
+		return
+	if(istype(W, /obj/item/weapon/weldingtool))
+		var/obj/item/weapon/weldingtool/WT = W
+		if(!WT.isOn())
+			user << "\The [W] is off."
+			return
+
+		if(!damage)
+			user << "\The [src] does not require repairs."
+			return
+
+		user << "You begin repairing damage to \the [src]..."
+		if(WT.remove_fuel(round(damage/75)) && do_after(usr, damage/10))
+			damage = 0
+			user << "You repair \the [src]."
 		return
 
 	if(istype(W, /obj/item/weapon/screwdriver))
@@ -507,6 +652,12 @@
 			return
 		found = 1
 		processor_unit = H
+	else if(istype(H, /obj/item/weapon/computer_hardware/ai_slot))
+		if(ai_slot)
+			user << "This computer's intellicard slot is already occupied by \the [ai_slot]."
+			return
+		found = 1
+		ai_slot = H
 	if(found)
 		user << "You install \the [H] into \the [src]"
 		H.holder2 = src
@@ -538,14 +689,18 @@
 		processor_unit = null
 		found = 1
 		critical = 1
+	if(ai_slot == H)
+		ai_slot = null
+		found = 1
 	if(found)
-		user << "You remove \the [H] from \the [src]."
+		if(user)
+			user << "You remove \the [H] from \the [src]."
 		H.forceMove(get_turf(src))
 		H.holder2 = null
 	if(critical && enabled)
-		user << "<span class='danger'>\The [src]'s screen freezes for few seconds and then displays an \"HARDWARE ERROR: Critical component disconnected. Please verify component connection and reboot the device. If the problem persists contact technical support for assistance.\" warning.</span>"
-		kill_program(1)
-		enabled = 0
+		if(user)
+			user << "<span class='danger'>\The [src]'s screen freezes for few seconds and then displays an \"HARDWARE ERROR: Critical component disconnected. Please verify component connection and reboot the device. If the problem persists contact technical support for assistance.\" warning.</span>"
+		shutdown_computer()
 		update_icon()
 
 
@@ -565,6 +720,8 @@
 		return battery_module
 	if(processor_unit && (processor_unit.name == name))
 		return processor_unit
+	if(ai_slot && (ai_slot.name == name))
+		return ai_slot
 	return null
 
 // Returns list of all components
@@ -584,6 +741,8 @@
 		all_components.Add(battery_module)
 	if(processor_unit)
 		all_components.Add(processor_unit)
+	if(ai_slot)
+		all_components.Add(ai_slot)
 	return all_components
 
 /obj/item/modular_computer/proc/update_uis()
@@ -595,16 +754,16 @@
 		nanomanager.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
-	var/ui_updated_needed = 0
+	var/ui_update_needed = 0
 	if(battery_module)
 		var/batery_percent = battery_module.battery.percent()
-		if(last_battery_percent != batery_percent) //Let's update UI on percent chandge
-			ui_updated_needed = 1
+		if(last_battery_percent != batery_percent) //Let's update UI on percent change
+			ui_update_needed = 1
 			last_battery_percent = batery_percent
 
 	if(worldtime2text() != last_world_time)
 		last_world_time = worldtime2text()
-		ui_updated_needed = 1
+		ui_update_needed = 1
 
 	if(idle_threads.len)
 		var/list/current_header_icons = list()
@@ -617,13 +776,51 @@
 
 		else if(!listequal(last_header_icons, current_header_icons))
 			last_header_icons = current_header_icons
-			ui_updated_needed = 1
+			ui_update_needed = 1
 		else
 			for(var/x in last_header_icons|current_header_icons)
 				if(last_header_icons[x]!=current_header_icons[x])
 					last_header_icons = current_header_icons
-					ui_updated_needed = 1
+					ui_update_needed = 1
 					break
 
-	if(ui_updated_needed)
+	if(ui_update_needed)
 		update_uis()
+
+/obj/item/modular_computer/proc/take_damage(var/amount, var/component_probability, var/damage_casing = 1, var/randomize = 1)
+	if(randomize)
+		// 75%-125%, rand() works with integers, apparently.
+		amount *= (rand(75, 125) / 100.0)
+	amount = round(amount)
+	if(damage_casing)
+		damage += amount
+		damage = between(0, damage, max_damage)
+
+	if(component_probability)
+		for(var/obj/item/weapon/computer_hardware/H in get_all_components())
+			if(prob(component_probability))
+				H.take_damage(round(amount / 2))
+
+	if(damage >= max_damage)
+		break_apart()
+
+// Stronger explosions cause serious damage to internal components
+// Minor explosions are mostly mitigitated by casing.
+/obj/item/modular_computer/ex_act(var/severity)
+	take_damage(rand(100,200) / severity, 30 / severity)
+
+// EMPs are similar to explosions, but don't cause physical damage to the casing. Instead they screw up the components
+/obj/item/modular_computer/emp_act(var/severity)
+	take_damage(rand(100,200) / severity, 50 / severity, 0)
+
+// "Stun" weapons can cause minor damage to components (short-circuits?)
+// "Burn" damage is equally strong against internal components and exterior casing
+// "Brute" damage mostly damages the casing.
+/obj/item/modular_computer/bullet_act(var/obj/item/projectile/Proj)
+	switch(Proj.damage_type)
+		if(BRUTE)
+			take_damage(Proj.damage, Proj.damage / 2)
+		if(HALLOSS)
+			take_damage(Proj.damage, Proj.damage / 3, 0)
+		if(BURN)
+			take_damage(Proj.damage, Proj.damage / 1.5)

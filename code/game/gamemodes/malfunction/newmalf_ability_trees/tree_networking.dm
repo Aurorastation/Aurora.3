@@ -63,6 +63,7 @@
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 
+	log_ability_use(user, "basic encryption hack", A, 0)	// Does not notify admins, but it's still logged for reference.
 	user.hacking = 1
 	user << "Beginning APC system override..."
 	sleep(300)
@@ -97,21 +98,19 @@
 		user << "Hack Aborted"
 		return
 
+	log_ability_use(user, "advanced encryption hack")
+
 	if(prob(50) && user.hack_can_fail)
 		user << "Hack Failed."
 		if(prob(5))
 			user.hack_fails ++
 			announce_hack_failure(user, "quantum message relay")
+			log_ability_use(user, "elite encryption hack (CRITFAIL - title: [title])")
+			return
+		log_ability_use(user, "elite encryption hack (FAIL - title: [title])")
 		return
-
-	command_announcement.Announce(text, title, new_sound = 'sound/AI/commandreport.ogg')
-	for (var/obj/machinery/computer/communications/C in machines)
-		if(! (C.stat & (BROKEN|NOPOWER) ) )
-			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
-			P.name = "[command_name()] Update"
-			P.info = replacetext(text, "\n", "<br/>")
-			P.update_space(P.info)
-			P.update_icon()
+	log_ability_use(user, "elite encryption hack (SUCCESS - title: [title])")
+	command_announcement.Announce(text, title)
 
 /datum/game_mode/malfunction/verb/elite_encryption_hack()
 	set category = "Software"
@@ -132,7 +131,11 @@
 		if(prob(10))
 			user.hack_fails ++
 			announce_hack_failure(user, "alert control system")
+			log_ability_use(user, "elite encryption hack (CRITFAIL - [alert_target])")
+			return
+		log_ability_use(user, "elite encryption hack (FAIL - [alert_target])")
 		return
+	log_ability_use(user, "elite encryption hack (SUCCESS - [alert_target])")
 	set_security_level(alert_target)
 
 
@@ -148,6 +151,7 @@
 		if(user.system_override)
 			user << "You already started the system override sequence."
 		return
+	log_ability_use(user, "system override (STARTED)")
 	var/list/remaining_apcs = list()
 	for(var/obj/machinery/power/apc/A in machines)
 		if(!(A.z in config.station_levels)) 		// Only station APCs
@@ -199,7 +203,7 @@
 		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in config.station_levels)
 			A.ai_hack(src)
 
-
+	log_ability_use(user, "system override (FINISHED)")
 	user << "## PRIMARY FIREWALL BYPASSED. YOU NOW HAVE FULL SYSTEM CONTROL."
 	command_announcement.Announce("Our system administrators just reported that we've been locked out from your control network. Whoever did this now has full access to the station's systems.", "Network Administration Center")
 	user.hack_can_fail = 0

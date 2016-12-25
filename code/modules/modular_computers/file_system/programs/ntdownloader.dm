@@ -9,7 +9,7 @@
 	requires_ntnet = 1
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
 	available_on_ntnet = 0
-	nanomodule_path = /datum/nano_module/computer_ntnetdownload/
+	nanomodule_path = /datum/nano_module/program/computer_ntnetdownload/
 	ui_header = "downloader_finished.gif"
 	var/datum/computer_file/program/downloaded_file = null
 	var/hacked_download = 0
@@ -102,7 +102,7 @@
 	download_netspeed += delta
 	download_netspeed = round(download_netspeed, 0.002)//3 decimal places
 
-	var/delta_seconds = (download_last_update - world.time) * 10
+	var/delta_seconds = (world.time - download_last_update) / 10
 
 	download_completion = min(download_completion + delta_seconds * download_netspeed, downloaded_file.size)
 
@@ -130,11 +130,11 @@
 		return 1
 	return 0
 
-/datum/nano_module/computer_ntnetdownload
+/datum/nano_module/program/computer_ntnetdownload
 	name = "Network Downloader"
 	var/obj/item/modular_computer/my_computer = null
 
-/datum/nano_module/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	if(program)
 		my_computer = program.computer
 
@@ -164,7 +164,7 @@
 		var/list/all_entries[0]
 		for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
 			// Only those programs our user can run will show in the list
-			if(!P.can_run(user))
+			if(!P.can_run(user) && P.requires_access_to_download)
 				continue
 			all_entries.Add(list(list(
 			"filename" = P.filename,

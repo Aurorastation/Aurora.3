@@ -2,7 +2,7 @@
 
 /obj/machinery/lapvend
 	name = "computer vendor"
-	desc = "A vending machine with microfabricator capable of dispensing various NT-branded computers"
+	desc = "A vending machine with microfabricator capable of dispensing various NT-branded computers."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "robotics"
 	layer = 2.9
@@ -61,46 +61,46 @@
 					fabricated_laptop.cpu.processor_unit = new/obj/item/weapon/computer_hardware/processor_unit(fabricated_laptop.cpu)
 				total_price += 299
 		switch(dev_battery)
-			if(1) // Basic(750C)
+			if(1) //Micro(500C)
+				if(fabricate)
+					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/micro(fabricated_laptop.cpu)
+			if(2) // Basic(750C)
 				if(fabricate)
 					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module(fabricated_laptop.cpu)
-			if(2) // Upgraded(1100C)
-				if(fabricate)
-					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/advanced(fabricated_laptop.cpu)
 				total_price += 199
-			if(3) // Advanced(1500C)
-				if(fabricate)
-					fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/super(fabricated_laptop.cpu)
-				total_price += 499
+			// if(3) // Upgraded(1100C)
+			// 	if(fabricate)
+			// 		fabricated_laptop.cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/advanced(fabricated_laptop.cpu)
+			// 	total_price += 499
 		switch(dev_disk)
-			if(1) // Basic(128GQ)
+			if(1)
+				if(fabricate)
+					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/small(fabricated_laptop.cpu)
+			if(2) // Basic(128GQ)
 				if(fabricate)
 					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive(fabricated_laptop.cpu)
-			if(2) // Upgraded(256GQ)
-				if(fabricate)
-					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/advanced(fabricated_laptop.cpu)
-				total_price += 99
-			if(3) // Advanced(512GQ)
-				if(fabricate)
-					fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/super(fabricated_laptop.cpu)
-				total_price += 299
+				total_price += 199
+			// if(3)  // Upgraded(256GQ)
+			// 	if(fabricate)
+			// 		fabricated_laptop.cpu.hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/advanced(fabricated_laptop.cpu)
+			// 	total_price += 299
 		switch(dev_netcard)
 			if(1) // Basic(Short-Range)
 				if(fabricate)
 					fabricated_laptop.cpu.network_card = new/obj/item/weapon/computer_hardware/network_card(fabricated_laptop.cpu)
-				total_price += 99
-			if(2) // Advanced (Long Range)
-				if(fabricate)
-					fabricated_laptop.cpu.network_card = new/obj/item/weapon/computer_hardware/network_card/advanced(fabricated_laptop.cpu)
-				total_price += 299
-		if(dev_tesla)
-			total_price += 399
-			if(fabricate)
-				fabricated_laptop.tesla_link = new/obj/item/weapon/computer_hardware/tesla_link(fabricated_laptop)
-		if(dev_nanoprint)
-			total_price += 99
-			if(fabricate)
-				fabricated_laptop.cpu.nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(fabricated_laptop.cpu)
+				total_price += 199
+			// if(2) // Advanced (Long Range)
+			// 	if(fabricate)
+			// 		fabricated_laptop.cpu.network_card = new/obj/item/weapon/computer_hardware/network_card/advanced(fabricated_laptop.cpu)
+			// 	total_price += 299
+		// if(dev_tesla)
+			// total_price += 399
+			// if(fabricate)
+			// 	fabricated_laptop.tesla_link = new/obj/item/weapon/computer_hardware/tesla_link(fabricated_laptop)
+		// if(dev_nanoprint)
+			// total_price += 99
+			// if(fabricate)
+			// 	fabricated_laptop.cpu.nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(fabricated_laptop.cpu)
 		if(dev_card)
 			total_price += 199
 			if(fabricate)
@@ -167,7 +167,8 @@
 	if(href_list["pick_device"])
 		if(state) // We've already picked a device type
 			return 0
-		devtype = text2num(href_list["pick_device"])
+		// devtype = text2num(href_list["pick_device"]) // Currently unavailable
+		devtype = 1
 		state = 1
 		fabricate_and_recalc_price(0)
 		return 1
@@ -197,12 +198,12 @@
 		fabricate_and_recalc_price(0)
 		return 1
 	if(href_list["hw_tesla"])
-		dev_tesla = text2num(href_list["hw_tesla"])
-		fabricate_and_recalc_price(0)
+		// dev_tesla = text2num(href_list["hw_tesla"]) // Currently unavailable
+		// fabricate_and_recalc_price(0)
 		return 1
 	if(href_list["hw_nanoprint"])
-		dev_nanoprint = text2num(href_list["hw_nanoprint"])
-		fabricate_and_recalc_price(0)
+		//dev_nanoprint = text2num(href_list["hw_nanoprint"]) // Currently unavailable
+		// fabricate_and_recalc_price(0)
 		return 1
 	if(href_list["hw_card"])
 		dev_card = text2num(href_list["hw_card"])
@@ -221,15 +222,17 @@
 
 	var/list/data[0]
 	data["state"] = state
-	data["devtype"] = devtype
-	data["hw_battery"] = dev_battery
-	data["hw_disk"] = dev_disk
-	data["hw_netcard"] = dev_netcard
-	data["hw_tesla"] = dev_tesla
-	data["hw_nanoprint"] = dev_nanoprint
-	data["hw_card"] = dev_card
-	data["hw_cpu"] = dev_cpu
-	data["totalprice"] = "[total_price]$"
+	if(state == 1)
+		data["devtype"] = devtype
+		data["hw_battery"] = dev_battery
+		data["hw_disk"] = dev_disk
+		data["hw_netcard"] = dev_netcard
+		data["hw_tesla"] = dev_tesla
+		data["hw_nanoprint"] = dev_nanoprint
+		data["hw_card"] = dev_card
+		data["hw_cpu"] = dev_cpu
+	if(state == 1 || state == 2)
+		data["totalprice"] = total_price
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -246,10 +249,12 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(process_payment(I,W))
 			fabricate_and_recalc_price(1)
 			if((devtype == 1) && fabricated_laptop)
+				fabricated_laptop.cpu.battery_module.charge_to_full()
 				fabricated_laptop.forceMove(src.loc)
 				fabricated_laptop.close_laptop()
 				fabricated_laptop = null
 			else if((devtype == 2) && fabricated_tablet)
+				fabricated_tablet.battery_module.charge_to_full()
 				fabricated_tablet.forceMove(src.loc)
 				fabricated_tablet = null
 			ping("Enjoy your new product!")

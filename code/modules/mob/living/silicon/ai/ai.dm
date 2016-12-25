@@ -659,9 +659,9 @@ var/list/ai_verbs_default = list(
 
 
 /mob/living/silicon/ai/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/aicard))
+	if(istype(W, /obj/item/weapon/aicard))
 
-		var/obj/item/device/aicard/card = W
+		var/obj/item/weapon/aicard/card = W
 		card.grab_ai(src, user)
 
 	else if(istype(W, /obj/item/weapon/wrench))
@@ -782,6 +782,9 @@ var/list/ai_verbs_default = list(
 	var/s = list(itemName,info)
 	cameraRecords += list(s)
 	return cameraRecords.len
+
+/mob/living/silicon/ai/proc/has_power()
+	return (aiRestorePowerRoutine == 0)
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO
