@@ -75,7 +75,7 @@
 	if( istype(target, /obj/structure/reagent_dispensers/watertank) && flag)
 		var/obj/o = target
 		var/amount = o.reagents.trans_to_obj(src, 50)
-		if (amount == 0)
+		if((amount == 0))
 			user << "<span class='notice'>There is nothing left in the [target].</span>"
 			return
 		else
