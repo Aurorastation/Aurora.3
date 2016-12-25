@@ -34,9 +34,7 @@
 
 /datum/nano_module/lighting_ctrl/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	lusr = user
-	var/list/data = list()
-	if(program)
-		data = program.get_header_data()
+	var/list/data = host.initial_data()
 
 	data["context"] = context
 	data["status"] = lstate
@@ -44,7 +42,7 @@
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "lighting_ctrl.tmpl", "Lighting Control", 800, 500, state = state)
-		if(program) // This is necessary to ensure the status bar remains updated along with rest of the UI.
+		if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
 			ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
