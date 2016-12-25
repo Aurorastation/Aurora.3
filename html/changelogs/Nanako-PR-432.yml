@@ -33,7 +33,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Overhauled all of the security hud job icons, to be more visually pleasing and better communicate roles"
-  - bugfix: "Intern positions and psychiatrists now have an icon. All jobs that were missing an icon should be fixed"
+  - rscadd: "Overhauled all of the security hud job icons, to be larger, more visually pleasing and better communicate roles"
+  - bugfix: "Intern positions, paramedics and psychiatrists now have an icon. All jobs that were missing an icon should be fixed"
   - tweak: "Made the loyalty implant icon a less obtrusive green light, instead of a big red square"
-  - tweak: "CCIA, ERT, IAA and any similar nanotrasen representatives now have the N logo as their icon"
+  - tweak: "CCIA, ERT, IAA, bluespace techs and any similar nanotrasen representatives should now have the N logo as their icon"
