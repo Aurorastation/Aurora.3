@@ -1,0 +1,8 @@
+author: Printer16
+
+delete-after: True
+
+changes: 
+  - bugfix: "You can no longer fill fire extiguishers with blank units."
+  - bugfix: "You can't spam buy services anymore."
+  - tweak: "CE hardsuit is more resistant to fires. RD hardsuit is more resistant to EMP's, but slightly weaker."
