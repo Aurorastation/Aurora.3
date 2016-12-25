@@ -540,3 +540,8 @@
 	..()
 	mind.assigned_role = "Armalis"
 	mind.special_role = "Vox Raider"
+	
+/mob/living/silicon/robot/syndicate/mind_initialize()
+	..()
+	mind.assigned_role = "Syndicate Robot"
+	mind.special_role = "Mercenary"
