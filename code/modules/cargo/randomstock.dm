@@ -266,23 +266,23 @@ var/list/global/random_stock_large = list(
 	var/list/warehouseturfs = list()
 
 	var/list/infest_mobs_minor = list(
-		"/mob/living/simple_animal/mouse" = 1,
-		"/mob/living/simple_animal/lizard" = 0.5,
-		"/mob/living/simple_animal/yithian" = 0.7,
-		"/mob/living/simple_animal/tindalos" = 0.6,
-		"/mob/living/bot/secbot" = 0.1)
+		/mob/living/simple_animal/mouse = 1,
+		/mob/living/simple_animal/lizard = 0.5,
+		/mob/living/simple_animal/yithian = 0.7,
+		/mob/living/simple_animal/tindalos = 0.6,
+		/mob/living/bot/secbot = 0.1)
 
 	var/list/infest_mobs_moderate = list(
-		"/mob/living/simple_animal/bee" = 1,
-		"/mob/living/simple_animal/hostile/diyaab" = 1,
-		"/mob/living/simple_animal/hostile/viscerator" = 1,
-		"/mob/living/simple_animal/hostile/scarybat" = 1)
+		/mob/living/simple_animal/bee = 1,
+		/mob/living/simple_animal/hostile/diyaab = 1,
+		/mob/living/simple_animal/hostile/viscerator = 1,
+		/mob/living/simple_animal/hostile/scarybat = 1)
 
 	var/list/infest_mobs_severe = list(
-		"/mob/living/simple_animal/hostile/giant_spider/hunter" = 1,
-		"/mob/living/simple_animal/hostile/shantak" = 0.7,
-		"/mob/living/simple_animal/hostile/bear" = 0.5,
-		"/mob/living/simple_animal/hostile/carp" = 1.5,
+		/mob/living/simple_animal/hostile/giant_spider/hunter = 1,
+		/mob/living/simple_animal/hostile/shantak = 0.7,
+		/mob/living/simple_animal/hostile/bear = 0.5,
+		/mob/living/simple_animal/hostile/carp = 1.5,
 		"cratey" = 1
 	)
 
@@ -676,20 +676,20 @@ var/list/global/random_stock_large = list(
 		if ("scanners")
 			//A random scanning device, most are useless
 			var/list/possible = list(
-			"/obj/item/device/healthanalyzer" = 5,
-			"/obj/item/device/analyzer" = 0.5,
-			"/obj/item/device/mass_spectrometer" = 0.5,
-			"/obj/item/device/mass_spectrometer/adv" = 0.5,
-			"/obj/item/device/slime_scanner" = 1,
-			"/obj/item/weapon/autopsy_scanner" = 1,
-			"/obj/item/device/robotanalyzer" = 4,
-			"/obj/item/weapon/mining_scanner" = 1,
-			"/obj/item/device/ano_scanner" = 1,
-			"/obj/item/device/reagent_scanner" = 2,
-			"/obj/item/device/reagent_scanner/adv" = 2,
-			"/obj/item/weapon/barcodescanner" = 1,
-			"/obj/item/device/depth_scanner" = 1,
-			"/obj/item/device/antibody_scanner" = 0.5
+			/obj/item/device/healthanalyzer = 5,
+			/obj/item/device/analyzer = 0.5,
+			/obj/item/device/mass_spectrometer = 0.5,
+			/obj/item/device/mass_spectrometer/adv = 0.5,
+			/obj/item/device/slime_scanner = 1,
+			/obj/item/weapon/autopsy_scanner = 1,
+			/obj/item/device/robotanalyzer = 4,
+			/obj/item/weapon/mining_scanner = 1,
+			/obj/item/device/ano_scanner = 1,
+			/obj/item/device/reagent_scanner = 2,
+			/obj/item/device/reagent_scanner/adv = 2,
+			/obj/item/weapon/barcodescanner = 1,
+			/obj/item/device/depth_scanner = 1,
+			/obj/item/device/antibody_scanner = 0.5
 			)
 			var/number = rand(1,3)
 			while (number > 0)
@@ -804,13 +804,13 @@ var/list/global/random_stock_large = list(
 			new /obj/structure/flora/pottedplant/random(T)
 		if ("bag")
 			var/list/bags = list(
-			"/obj/item/weapon/storage/bag/trash",
-			"/obj/item/weapon/storage/bag/plasticbag",
-			"/obj/item/weapon/storage/bag/ore",
-			"/obj/item/weapon/storage/bag/plants",
-			"/obj/item/weapon/storage/bag/sheetsnatcher",
-			"/obj/item/weapon/storage/bag/cash",
-			"/obj/item/weapon/storage/bag/books"
+			/obj/item/weapon/storage/bag/trash,
+			/obj/item/weapon/storage/bag/plasticbag,
+			/obj/item/weapon/storage/bag/ore,
+			/obj/item/weapon/storage/bag/plants,
+			/obj/item/weapon/storage/bag/sheetsnatcher,
+			/obj/item/weapon/storage/bag/cash,
+			/obj/item/weapon/storage/bag/books
 			)
 			var/type = pick(bags)
 			new type(L)
@@ -875,33 +875,29 @@ var/list/global/random_stock_large = list(
 		//Because they are interesting
 		if ("parts")
 			var/list/parts = list(
-			//Low ranking parts, common
-			"/obj/item/weapon/stock_parts/console_screen" = 3,
-			"/obj/item/weapon/stock_parts/capacitor" = 3,
-			"/obj/item/weapon/stock_parts/scanning_module" = 3,
-			"/obj/item/weapon/stock_parts/manipulator" = 3,
-			"/obj/item/weapon/stock_parts/micro_laser" = 3,
-			"/obj/item/weapon/stock_parts/matter_bin" = 3,
-			//Improved parts, less common
-			"/obj/item/weapon/stock_parts/capacitor/adv" = 1,
-			"/obj/item/weapon/stock_parts/scanning_module/adv" = 1,
-			"/obj/item/weapon/stock_parts/manipulator/nano" = 1,
-			"/obj/item/weapon/stock_parts/micro_laser/high" = 1,
-			"/obj/item/weapon/stock_parts/matter_bin/adv" = 1,
-			//Top level parts, rare
-			"/obj/item/weapon/stock_parts/capacitor/super" = 0.3,
-			"/obj/item/weapon/stock_parts/scanning_module/phasic" = 0.3,
-			"/obj/item/weapon/stock_parts/manipulator/pico" = 0.3,
-			"/obj/item/weapon/stock_parts/micro_laser/ultra" = 0.3,
-			"/obj/item/weapon/stock_parts/matter_bin/super" = 0.3,
-			//Telecomms parts, useless novelties and red herrings.
-			"/obj/item/weapon/stock_parts/subspace/ansible" = 0.5,
-			"/obj/item/weapon/stock_parts/subspace/filter" = 0.5,
-			"/obj/item/weapon/stock_parts/subspace/amplifier" = 0.5,
-			"/obj/item/weapon/stock_parts/subspace/treatment" = 0.5,
-			"/obj/item/weapon/stock_parts/subspace/analyzer" = 0.5,
-			"/obj/item/weapon/stock_parts/subspace/crystal" = 0.5,
-			"/obj/item/weapon/stock_parts/subspace/transmitter" = 0.5
+			/obj/item/weapon/stock_parts/console_screen = 3, //Low ranking parts, common
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module = 3,
+			/obj/item/weapon/stock_parts/manipulator = 3,
+			/obj/item/weapon/stock_parts/micro_laser = 3,
+			/obj/item/weapon/stock_parts/matter_bin = 3,
+			/obj/item/weapon/stock_parts/capacitor/adv = 1, //Improved parts, less common
+			/obj/item/weapon/stock_parts/scanning_module/adv = 1,
+			/obj/item/weapon/stock_parts/manipulator/nano = 1,
+			/obj/item/weapon/stock_parts/micro_laser/high = 1,
+			/obj/item/weapon/stock_parts/matter_bin/adv = 1,
+			/obj/item/weapon/stock_parts/capacitor/super = 0.3, //Top level parts, rare
+			/obj/item/weapon/stock_parts/scanning_module/phasic = 0.3,
+			/obj/item/weapon/stock_parts/manipulator/pico = 0.3,
+			/obj/item/weapon/stock_parts/micro_laser/ultra = 0.3,
+			/obj/item/weapon/stock_parts/matter_bin/super = 0.3,
+			/obj/item/weapon/stock_parts/subspace/ansible = 0.5, //Telecomms parts, useless novelties and red herrings.
+			/obj/item/weapon/stock_parts/subspace/filter = 0.5,
+			/obj/item/weapon/stock_parts/subspace/amplifier = 0.5,
+			/obj/item/weapon/stock_parts/subspace/treatment = 0.5,
+			/obj/item/weapon/stock_parts/subspace/analyzer = 0.5,
+			/obj/item/weapon/stock_parts/subspace/crystal = 0.5,
+			/obj/item/weapon/stock_parts/subspace/transmitter = 0.5
 			)
 
 			var/number = rand(2,5)
@@ -927,16 +923,16 @@ var/list/global/random_stock_large = list(
 
 		if ("gasmask")
 			var/list/masks = list(
-			"/obj/item/clothing/mask/gas" = 10,
-			"/obj/item/clothing/mask/gas/plaguedoctor" = 1,
-			"/obj/item/clothing/mask/gas/swat" = 5,
-			"/obj/item/clothing/mask/gas/clown_hat" = 0.5,
-			"/obj/item/clothing/mask/gas/sexyclown" = 0.5,
-			"/obj/item/clothing/mask/gas/mime" = 0.5,
-			"/obj/item/clothing/mask/gas/monkeymask" = 0.5,
-			"/obj/item/clothing/mask/gas/sexymime" = 0.5,
-			"/obj/item/clothing/mask/gas/cyborg" = 1,
-			"/obj/item/clothing/mask/gas/owl_mask" = 1
+			/obj/item/clothing/mask/gas = 10,
+			/obj/item/clothing/mask/gas/plaguedoctor = 1,
+			/obj/item/clothing/mask/gas/swat = 5,
+			/obj/item/clothing/mask/gas/clown_hat = 0.5,
+			/obj/item/clothing/mask/gas/sexyclown = 0.5,
+			/obj/item/clothing/mask/gas/mime = 0.5,
+			/obj/item/clothing/mask/gas/monkeymask = 0.5,
+			/obj/item/clothing/mask/gas/sexymime = 0.5,
+			/obj/item/clothing/mask/gas/cyborg = 1,
+			/obj/item/clothing/mask/gas/owl_mask = 1
 			)
 
 			var/type = pickweight(masks)
@@ -1242,12 +1238,12 @@ var/list/global/random_stock_large = list(
 		//Spawns a random deactivated bot
 		if ("robot")
 			var/list/bots = list(
-			"/mob/living/bot/cleanbot" = 2,
-			"/mob/living/bot/secbot" = 0.7,
-			"/mob/living/bot/medbot" = 2,
-			"/mob/living/bot/floorbot" = 2.5,
-			"/mob/living/bot/farmbot" = 1,
-			"/mob/living/bot/secbot/ed209" = 0.3
+			/mob/living/bot/cleanbot = 2,
+			/mob/living/bot/secbot = 0.7,
+			/mob/living/bot/medbot = 2,
+			/mob/living/bot/floorbot = 2.5,
+			/mob/living/bot/farmbot = 1,
+			/mob/living/bot/secbot/ed209 = 0.3
 			)
 
 			var/type = pickweight(bots)
@@ -1269,13 +1265,13 @@ var/list/global/random_stock_large = list(
 	//No command or sec
 		if ("headset")
 			var/list/sets = list(
-			"/obj/item/device/radio/headset/headset_eng" = 1,
-			"/obj/item/device/radio/headset/headset_rob" = 0.4,
-			"/obj/item/device/radio/headset/headset_med" = 1,
-			"/obj/item/device/radio/headset/headset_sci" = 0.8,
-			"/obj/item/device/radio/headset/headset_medsci" = 0.4,
-			"/obj/item/device/radio/headset/headset_cargo" = 1,
-			"/obj/item/device/radio/headset/headset_service" = 1
+			/obj/item/device/radio/headset/headset_eng = 1,
+			/obj/item/device/radio/headset/headset_rob = 0.4,
+			/obj/item/device/radio/headset/headset_med = 1,
+			/obj/item/device/radio/headset/headset_sci = 0.8,
+			/obj/item/device/radio/headset/headset_medsci = 0.4,
+			/obj/item/device/radio/headset/headset_cargo = 1,
+			/obj/item/device/radio/headset/headset_service = 1
 			)
 
 			var/type = pickweight(sets)
@@ -1332,14 +1328,14 @@ var/list/global/random_stock_large = list(
 
 		if ("blade")
 			var/list/blades = list(
-			"/obj/item/weapon/material/butterfly" = 1,
-			"/obj/item/weapon/material/butterfly/switchblade" = 1,
-			"/obj/item/weapon/material/knife/hook" = 1.5,
-			"/obj/item/weapon/material/knife/ritual" = 1.5,
-			"/obj/item/weapon/material/knife/butch" = 1,
-			"/obj/item/weapon/material/hatchet" = 1.5,
-			"/obj/item/weapon/material/hatchet/unathiknife" = 0.75,
-			"/obj/item/weapon/material/hatchet/tacknife" = 1
+			/obj/item/weapon/material/butterfly = 1,
+			/obj/item/weapon/material/butterfly/switchblade = 1,
+			/obj/item/weapon/material/knife/hook = 1.5,
+			/obj/item/weapon/material/knife/ritual = 1.5,
+			/obj/item/weapon/material/knife/butch = 1,
+			/obj/item/weapon/material/hatchet = 1.5,
+			/obj/item/weapon/material/hatchet/unathiknife = 0.75,
+			/obj/item/weapon/material/hatchet/tacknife = 1
 			)
 
 			var/type = pickweight(blades)
@@ -1349,25 +1345,25 @@ var/list/global/random_stock_large = list(
 		//with some of the more overpowered ones excluded
 		if ("exoquip")
 			var/list/equips = list(
-			"/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/drill" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill" = 0.7,
-			"/obj/item/mecha_parts/mecha_equipment/tool/extinguisher" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/rcd" = 0.08,
-			"/obj/item/mecha_parts/mecha_equipment/teleporter" = 0.3,
-			"/obj/item/mecha_parts/mecha_equipment/wormhole_generator" = 0.5,
-			"/obj/item/mecha_parts/mecha_equipment/gravcatapult" = 0.8,
-			"/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster" = 0.9,
-			"/obj/item/mecha_parts/mecha_equipment/repair_droid" = 0.7,
-			"/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay" = 0.4,
-			"/obj/item/mecha_parts/mecha_equipment/generator" = 1.5,
-			"/obj/item/mecha_parts/mecha_equipment/generator/nuclear" = 0.8,
-			"/obj/item/mecha_parts/mecha_equipment/tool/safety_clamp" = 0.2,
-			"/obj/item/mecha_parts/mecha_equipment/tool/passenger" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/sleeper" = 0.9,
-			"/obj/item/mecha_parts/mecha_equipment/tool/cable_layer" = 1.2,
-			"/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun" = 1
+			/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/drill = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill = 0.7,
+			/obj/item/mecha_parts/mecha_equipment/tool/extinguisher = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/rcd = 0.08,
+			/obj/item/mecha_parts/mecha_equipment/teleporter = 0.3,
+			/obj/item/mecha_parts/mecha_equipment/wormhole_generator = 0.5,
+			/obj/item/mecha_parts/mecha_equipment/gravcatapult = 0.8,
+			/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster = 1,
+			/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster = 0.9,
+			/obj/item/mecha_parts/mecha_equipment/repair_droid = 0.7,
+			/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay = 0.4,
+			/obj/item/mecha_parts/mecha_equipment/generator = 1.5,
+			/obj/item/mecha_parts/mecha_equipment/generator/nuclear = 0.8,
+			/obj/item/mecha_parts/mecha_equipment/tool/safety_clamp = 0.2,
+			/obj/item/mecha_parts/mecha_equipment/tool/passenger = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/sleeper = 0.9,
+			/obj/item/mecha_parts/mecha_equipment/tool/cable_layer = 1.2,
+			/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun = 1
 			)
 
 			var/type = pickweight(equips)
@@ -1375,9 +1371,9 @@ var/list/global/random_stock_large = list(
 
 		if ("laserscalpel")
 			var/list/lasers = list(
-			"/obj/item/weapon/scalpel/laser1" = 3,
-			"/obj/item/weapon/scalpel/laser2" = 2,
-			"/obj/item/weapon/scalpel/laser3" = 1
+			/obj/item/weapon/scalpel/laser1 = 3,
+			/obj/item/weapon/scalpel/laser2 = 2,
+			/obj/item/weapon/scalpel/laser3 = 1
 			)
 			var/type = pickweight(lasers)
 			new type(L)
@@ -1500,24 +1496,24 @@ var/list/global/random_stock_large = list(
 			//A random RIG/hardsuit
 			//It will come with some screwy electronics and possibly need reprogramming
 			var/list/rigs = list(
-			"/obj/item/weapon/rig/unathi" = 2,
-			"/obj/item/weapon/rig/unathi/fancy" = 0.75,
-			"/obj/item/weapon/rig/combat" = 0.1,
-			"/obj/item/weapon/rig/ert" = 0.1,
-			"/obj/item/weapon/rig/ert/engineer" = 0.1,
-			"/obj/item/weapon/rig/ert/medical" = 0.15,
-			"/obj/item/weapon/rig/ert/security" = 0.075,
-			"/obj/item/weapon/rig/ert/assetprotection" = 0.05,
-			"/obj/item/weapon/rig/light" = 0.5,
-			"/obj/item/weapon/rig/light/hacker" = 0.8,
-			"/obj/item/weapon/rig/light/stealth" = 1.5,
-			"/obj/item/weapon/rig/merc" = 0.5,
-			"/obj/item/weapon/rig/industrial" = 3,
-			"/obj/item/weapon/rig/eva" = 3,
-			"/obj/item/weapon/rig/ce" = 2,
-			"/obj/item/weapon/rig/hazmat" = 4,
-			"/obj/item/weapon/rig/medical" = 4,
-			"/obj/item/weapon/rig/hazard" = 3
+			/obj/item/weapon/rig/unathi = 2,
+			/obj/item/weapon/rig/unathi/fancy = 0.75,
+			/obj/item/weapon/rig/combat = 0.1,
+			/obj/item/weapon/rig/ert = 0.1,
+			/obj/item/weapon/rig/ert/engineer = 0.1,
+			/obj/item/weapon/rig/ert/medical = 0.15,
+			/obj/item/weapon/rig/ert/security = 0.075,
+			/obj/item/weapon/rig/ert/assetprotection = 0.05,
+			/obj/item/weapon/rig/light = 0.5,
+			/obj/item/weapon/rig/light/hacker = 0.8,
+			/obj/item/weapon/rig/light/stealth = 1.5,
+			/obj/item/weapon/rig/merc = 0.5,
+			/obj/item/weapon/rig/industrial = 3,
+			/obj/item/weapon/rig/eva = 3,
+			/obj/item/weapon/rig/ce = 2,
+			/obj/item/weapon/rig/hazmat = 4,
+			/obj/item/weapon/rig/medical = 4,
+			/obj/item/weapon/rig/hazard = 3
 			)
 
 			var/type = pickweight(rigs)
@@ -1534,25 +1530,25 @@ var/list/global/random_stock_large = list(
 		//Several random non-weapon exosuit attachments
 		if ("exogear")
 			var/list/equips = list(
-			"/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/drill" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill" = 0.7,
-			"/obj/item/mecha_parts/mecha_equipment/tool/extinguisher" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/rcd" = 0.08,
-			"/obj/item/mecha_parts/mecha_equipment/teleporter" = 0.3,
-			"/obj/item/mecha_parts/mecha_equipment/wormhole_generator" = 0.5,
-			"/obj/item/mecha_parts/mecha_equipment/gravcatapult" = 0.8,
-			"/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster" = 0.9,
-			"/obj/item/mecha_parts/mecha_equipment/repair_droid" = 0.7,
-			"/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay" = 0.4,
-			"/obj/item/mecha_parts/mecha_equipment/generator" = 1.5,
-			"/obj/item/mecha_parts/mecha_equipment/generator/nuclear" = 0.8,
-			"/obj/item/mecha_parts/mecha_equipment/tool/safety_clamp" = 0.2,
-			"/obj/item/mecha_parts/mecha_equipment/tool/passenger" = 1,
-			"/obj/item/mecha_parts/mecha_equipment/tool/sleeper" = 0.9,
-			"/obj/item/mecha_parts/mecha_equipment/tool/cable_layer" = 1.2,
-			"/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun" = 1
+			/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/drill = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill = 0.7,
+			/obj/item/mecha_parts/mecha_equipment/tool/extinguisher = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/rcd = 0.08,
+			/obj/item/mecha_parts/mecha_equipment/teleporter = 0.3,
+			/obj/item/mecha_parts/mecha_equipment/wormhole_generator = 0.5,
+			/obj/item/mecha_parts/mecha_equipment/gravcatapult = 0.8,
+			/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster = 1,
+			/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster = 0.9,
+			/obj/item/mecha_parts/mecha_equipment/repair_droid = 0.7,
+			/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay = 0.4,
+			/obj/item/mecha_parts/mecha_equipment/generator = 1.5,
+			/obj/item/mecha_parts/mecha_equipment/generator/nuclear = 0.8,
+			/obj/item/mecha_parts/mecha_equipment/tool/safety_clamp = 0.2,
+			/obj/item/mecha_parts/mecha_equipment/tool/passenger = 1,
+			/obj/item/mecha_parts/mecha_equipment/tool/sleeper = 0.9,
+			/obj/item/mecha_parts/mecha_equipment/tool/cable_layer = 1.2,
+			/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun = 1
 			)
 
 
@@ -1717,9 +1713,9 @@ var/list/global/random_stock_large = list(
 
 		if ("generator")
 			var/list/generators = list(
-				"/obj/machinery/power/port_gen/pacman" = 1,
-				"/obj/machinery/power/port_gen/pacman/super" = 0.7,
-				"/obj/machinery/power/port_gen/pacman/mrs" = 0.5
+				/obj/machinery/power/port_gen/pacman = 1,
+				/obj/machinery/power/port_gen/pacman/super = 0.7,
+				/obj/machinery/power/port_gen/pacman/mrs = 0.5
 			)
 			var/type = pickweight(generators)
 			new type(L)
@@ -1727,9 +1723,9 @@ var/list/global/random_stock_large = list(
 		//Spawns a reagent dispenser without most of its cartridges
 		if ("dispenser")
 			var/list/dispensers = list(
-				"/obj/machinery/chemical_dispenser/bar_alc/full" = 0.6,
-				"/obj/machinery/chemical_dispenser/bar_soft/full" = 1,
-				"/obj/machinery/chemical_dispenser/full" = 0.3
+				/obj/machinery/chemical_dispenser/bar_alc/full = 0.6,
+				/obj/machinery/chemical_dispenser/bar_soft/full = 1,
+				/obj/machinery/chemical_dispenser/full = 0.3
 			)
 			var/type = pickweight(dispensers)
 			var/obj/machinery/chemical_dispenser/CD = new type(L)
@@ -1772,22 +1768,22 @@ var/list/global/random_stock_large = list(
 
 			//We may farther remove modules to mitigate it
 			var/list/randsuits = list(
-			"/obj/mecha/working/hoverpod" = 5,
-			"/obj/mecha/working/hoverpod/combatpod" = 0.5,//Comes with weapons
-			"/obj/mecha/working/hoverpod/shuttlepod" = 6,
-			"/obj/mecha/working/ripley" = 5,
-			"/obj/mecha/working/ripley/firefighter" = 6,
-			"/obj/mecha/working/ripley/deathripley" = 0.5,//has a dangerous melee weapon
-			"/obj/mecha/working/ripley/mining" = 4,
-			"/obj/mecha/medical/odysseus" = 6,
-			"/obj/mecha/medical/odysseus/loaded" = 5,
-			"/obj/mecha/combat/durand" = 1,//comes unarmed
-			"/obj/mecha/combat/gygax" = 1.5,//comes unarmed
-			"/obj/mecha/combat/gygax/dark" = 0.5,//has weapons
-			"/obj/mecha/combat/marauder" = 0.6,
-			"/obj/mecha/combat/marauder/seraph" = 0.3,
-			"/obj/mecha/combat/marauder/mauler" = 0.4,
-			"/obj/mecha/combat/phazon" = 0.1
+			/obj/mecha/working/hoverpod = 5,
+			/obj/mecha/working/hoverpod/combatpod = 0.5,//Comes with weapons
+			/obj/mecha/working/hoverpod/shuttlepod = 6,
+			/obj/mecha/working/ripley = 5,
+			/obj/mecha/working/ripley/firefighter = 6,
+			/obj/mecha/working/ripley/deathripley = 0.5,//has a dangerous melee weapon
+			/obj/mecha/working/ripley/mining = 4,
+			/obj/mecha/medical/odysseus = 6,
+			/obj/mecha/medical/odysseus/loaded = 5,
+			/obj/mecha/combat/durand = 1,//comes unarmed
+			/obj/mecha/combat/gygax = 1.5,//comes unarmed
+			/obj/mecha/combat/gygax/dark = 0.5,//has weapons
+			/obj/mecha/combat/marauder = 0.6,
+			/obj/mecha/combat/marauder/seraph = 0.3,
+			/obj/mecha/combat/marauder/mauler = 0.4,
+			/obj/mecha/combat/phazon = 0.1
 			)
 			var/type = pickweight(randsuits)
 			var/obj/mecha/exosuit = new type(get_turf(L))
