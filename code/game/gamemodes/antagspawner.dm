@@ -68,7 +68,6 @@ obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
 	if (newname != "")
 		H.real_name = newname
 		H.name = H.real_name
-	H.mind.special_role = "Mercenary"
 	H << "<b>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans, you are also able to change your name using the name pick command.</b>"
 
 	spawn(1)
