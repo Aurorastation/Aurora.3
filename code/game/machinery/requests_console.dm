@@ -18,6 +18,7 @@
 #define RCS_VIEWMSGS 6	// View messages
 #define RCS_MESSAUTH 7	// Authentication before sending
 #define RCS_ANNOUNCE 8	// Send announcement
+#define RCS_FORMS	 9	// Forms database
 
 var/req_console_assistance = list()
 var/req_console_supplies = list()
@@ -87,7 +88,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
-	
+
 	set_light(1)
 
 /obj/machinery/requests_console/Destroy()
@@ -131,6 +132,34 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["msgStamped"] = msgStamped
 	data["msgVerified"] = msgVerified
 	data["announceAuth"] = announceAuth
+
+	if (screen == RCS_FORMS)
+		if (!establish_db_connection(dbcon))
+			data["sql_error"] = 1
+		else
+			if (!SQLquery)
+				SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
+
+			var/DBQuery/query = dbcon.NewQuery(SQLquery)
+			query.Execute()
+
+			var/list/forms = list()
+			while (query.NextRow())
+				forms += list(list("id" = query.item[1], "name" = query.item[2], "department" = query.item[3]))
+
+			if (!forms.len)
+				data["sql_error"] = 1
+
+			data["forms"] = forms
+
+	data["pda_list"] = list()
+
+	for (var/A in alert_pdas)
+		var/obj/item/device/pda/pda = A
+		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "\ref[pda]"))
+
+	data["lid"] = lid
+	data["paper"] = paperstock
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -202,6 +231,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["toggleSilent"])
 		silent = !silent
 
+	// Link a PDA
 	if(href_list["linkpda"])
 		var/obj/item/device/pda/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
@@ -215,12 +245,79 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			alert_pdas[pda] = pda.name
 			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
 
+	// Unlink a PDA.
 	if(href_list["unlink"])
 		var/obj/item/device/pda/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
 				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
 				alert_pdas -= pda
+
+	// Sort the forms.
+	if(href_list["sort"])
+		var/sortdep = sanitizeSQL(href_list["sort"])
+		SQLquery = "SELECT id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%' ORDER BY id"
+
+	if (href_list["resetSQL"])
+		SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
+
+	// Print a form.
+	if(href_list["print"])
+		var/printid = sanitizeSQL(href_list["print"])
+		establish_db_connection(dbcon)
+
+		if(!dbcon.IsConnected())
+			alert("Connection to the database lost. Aborting.")
+		if(!printid)
+			alert("Invalid query. Try again.")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
+		query.Execute()
+
+		while(query.NextRow())
+			var/id = query.item[1]
+			var/name = query.item[2]
+			var/data = query.item[3]
+			var/obj/item/weapon/paper/C = new(src.loc)
+
+			//Let's start the BB >> HTML conversion!
+
+			data = html_encode(data)
+			data = replacetext(data, "\n", "<BR>")
+
+			C.info += data
+			C.info = C.parsepencode(C.info)
+			C.updateinfolinks()
+			C.name = "NFC-[id] - [name]"
+			paperstock--
+
+	// Get extra information about the form.
+	if(href_list["whatis"])
+		var/whatisid = sanitizeSQL(href_list["whatis"])
+		establish_db_connection(dbcon)
+		if(!dbcon.IsConnected())
+			alert("Connection to the database lost. Aborting.")
+		if(!whatisid)
+			alert("Invalid query. Try again.")
+		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
+		query.Execute()
+		var/dat = "<center><b>NanoTrasen Corporate Form</b><br>"
+		while(query.NextRow())
+			var/id = query.item[1]
+			var/name = query.item[2]
+			var/department = query.item[3]
+			var/info = query.item[4]
+
+			dat += "<b>NCF-[id]</b><br><br>"
+			dat += "<b>[name]</b><br>"
+			dat += "<b>[department] Department</b><hr>"
+			dat += "[info]"
+		dat += "</center>"
+		usr << browse(dat, "window=Information;size=560x240")
+
+	// Toggle the paper bin lid.
+	if(href_list["setLid"])
+		lid = !lid
+		usr << "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>"
 
 	updateUsrDialog()
 	return
@@ -279,7 +376,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
-			user << "\blue I should open the lid to add more paper, or try faxing one paper at a time."
+			user << "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>"
 	if (istype(O, /obj/item/weapon/paper))
 		if(lid)					//Stocking them papers
 			var/obj/item/weapon/paper/C = O
