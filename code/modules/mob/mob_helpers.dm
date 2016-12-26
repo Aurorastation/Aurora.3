@@ -906,8 +906,16 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
-	else return null
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
+	else
+		return null
+
+	if (!P)
+		return null
 
 	return P.time_of_death[which]
 
@@ -916,8 +924,15 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
 	else
+		return 0
+
+	if (!P)
 		return 0
 
 	P.time_of_death[which] = value
