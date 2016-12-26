@@ -143,9 +143,9 @@
 
 	if(blind)
 		if(eye_blind)
-			blind.invisibility = 18
-		else
 			blind.invisibility = 0
+		else
+			blind.invisibility = 101
 			if (disabilities & NEARSIGHTED)
 				client.screen += global_hud.vimpaired
 			if (eye_blurry)
