@@ -154,6 +154,9 @@
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
 
+/datum/species/tajaran/get_bodytype()
+	return "Tajara"
+
 /datum/species/skrell
 	name = "Skrell"
 	short_name = "skr"
