@@ -418,7 +418,7 @@ var/bomb_set
 /obj/machinery/nuclearbomb/station
 	name = "station authentication terminal"
 	desc = "An ominous looking terminal, designed for purposes unknown to the mere crewmember."
-	icon = 'icons/obj/nuke_terminal.dmi'
+	icon = 'icons/obj/nuke_station.dmi'
 	anchored = 1
 	deployable = 1
 	extended = 1
