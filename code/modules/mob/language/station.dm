@@ -54,6 +54,16 @@
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
 
+// Sign language
+/datum/language/tajaran_sign
+	name = LANGUAGE_SIGN_TAJARA
+	desc = "A sign language developed by Adhomai hunters"
+	speech_verb = "signs"
+	signlang_verb = list("signs", "gestures")
+	colour = "i"
+	key = "i"
+	flags = NO_STUTTER|SIGNLANG
+
 /datum/language/tajaran/get_random_name(var/gender)
 
 	var/new_name = ..(gender,1)
