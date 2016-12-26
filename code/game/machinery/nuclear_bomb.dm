@@ -4,7 +4,7 @@ var/bomb_set
 	name = "\improper Nuclear Fission Explosive"
 	desc = "Uh oh. RUN!!!!"
 	icon = 'icons/obj/nuke.dmi'
-	icon_state = "nuclearbomb0"
+	icon_state = "idle"
 	density = 1
 	var/deployable = 0
 	var/extended = 0
