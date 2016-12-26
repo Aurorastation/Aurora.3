@@ -1547,7 +1547,7 @@
 "aDM" = (/obj/machinery/vending/tool,/turf/simulated/floor/tiled,/area/storage/primary)
 "aDN" = (/turf/simulated/floor/tiled/dark,/area/security/nuke_storage)
 "aDO" = (/obj/effect/landmark{name = "blobstart"},/turf/simulated/floor/tiled/dark,/area/security/nuke_storage)
-"aDP" = (/obj/machinery/nuclearbomb{r_code = "LOLNO"},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled/dark,/area/security/nuke_storage)
+"aDP" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/nuclearbomb/station,/turf/simulated/floor/tiled/dark,/area/security/nuke_storage)
 "aDQ" = (/obj/effect/landmark{name = "xeno_spawn"; pixel_x = -1},/turf/simulated/floor/tiled/dark,/area/security/nuke_storage)
 "aDR" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled/dark,/area/gateway)
 "aDS" = (/obj/structure/window/reinforced,/obj/machinery/light_switch{pixel_x = -24},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/dark,/area/gateway)
