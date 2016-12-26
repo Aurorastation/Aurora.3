@@ -73,35 +73,24 @@
 /*
  * Detective
  */
+ 
 /obj/item/clothing/under/det
-	name = "detective's suit"
-	desc = "A rumpled white dress shirt paired with well-worn grey slacks, complete with a blue striped tie and a faux-gold tie clip."
+	name = "hard-worn suit"
+	desc = "Someone who wears this means business."
 	icon_state = "detective"
 	item_state = "det"
 	worn_state = "detective"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/under/det/verb/rollup()
-	set name = "Roll Suit Sleeves"
-	set category = "Object"
-	set src in usr
-	var/unrolled = item_state_slots[slot_w_uniform_str] == initial(worn_state)
-	item_state_slots[slot_w_uniform_str] = unrolled ? "[worn_state]_r" : initial(worn_state)
-	var/mob/living/carbon/human/H = loc
-	H.update_inv_w_uniform(1)
-	H << "<span class='notice'>You roll the sleeves of your shirt [unrolled ? "up" : "down"]</span>"
-
-/obj/item/clothing/under/det/grey
+/obj/item/clothing/under/det/black
 	icon_state = "detective2"
 	worn_state = "detective2"
-	desc = "A serious-looking tan dress shirt paired with freshly-pressed black slacks, complete with a red striped tie."
-
-/obj/item/clothing/under/det/black
-	icon_state = "detective3"
-	worn_state = "detective3"
 	item_state = "sl_suit"
-	desc = "An immaculate white dress shirt, paired with a pair of dark grey dress pants, a red tie, and a charcoal vest."
+
+/obj/item/clothing/under/det/slob
+	icon_state = "polsuit"
+	worn_state = "polsuit"
 
 /obj/item/clothing/head/det
 	name = "fedora"
@@ -120,7 +109,7 @@
 	icon_state = "detective2"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
-/obj/item/clothing/head/det_hat/technicolor
+/obj/item/clothing/head/det/technicolor
 	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
 	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
 	icon_state = "hat_detective_black"
@@ -128,7 +117,7 @@
 	var/hat_color
 	contained_sprite = 1
 
-/obj/item/clothing/head/det_hat/technicolor/New()
+/obj/item/clothing/head/det/technicolor/New()
 	if(prob(5))
 		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
 		var/color = pickweight(colors)
@@ -136,7 +125,7 @@
 		item_state = "hat_detective_[color]"
 	..()
 
-obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
+/obj/item/clothing/head/det/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
 		var/obj/item/weapon/reagent_containers/glass/paint/P = O
 		hat_color = P.paint_type
@@ -144,7 +133,6 @@ obj/item/clothing/head/det_hat/technicolor/attackby(obj/item/weapon/O as obj, mo
 		icon_state = "hat_detective_[hat_color]"
 		item_state = "hat_detective_[hat_color]"
 	..()
-
 
 /*
  * Head of Security

@@ -35,7 +35,6 @@
 /mob/living/silicon/New()
 	silicon_mob_list |= src
 	..()
-	// #TODO-MERGE: Search for all isntances of Galactic Common and REPLACE THE FUCK OUT OF THEM!
 	add_language("Ceti Basic")
 	init_id()
 
@@ -382,5 +381,3 @@
 			if (!underdoor)
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
-
-
