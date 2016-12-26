@@ -19,5 +19,5 @@
 		"Kebab" = /obj/item/weapon/reagent_containers/food/snacks/variable/kebab,
 		"Waffles" = /obj/item/weapon/reagent_containers/food/snacks/variable/waffles,
 		"Cookie" = /obj/item/weapon/reagent_containers/food/snacks/variable/cookie,
-		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut,
+		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
 		)
