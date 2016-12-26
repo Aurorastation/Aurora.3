@@ -5,7 +5,7 @@
 
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/cooker
-  name = "cooker"
+	name = "cooker"
 	desc = "You shouldn't be seeing this!"
 	icon = 'icons/obj/cooking_machines.dmi'
 	density = 1
