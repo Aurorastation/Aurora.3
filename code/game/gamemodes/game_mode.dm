@@ -35,9 +35,6 @@ var/global/list/additional_antag_types = list()
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
 
-
-	// #TODO-MERGE: Check where uplink shit is hidden now.
-
 /datum/game_mode/New()
 	..()
 	// Enforce some formatting.

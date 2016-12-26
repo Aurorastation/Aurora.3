@@ -24,7 +24,7 @@
 	return list("ss13_player_preferences" = list("UI_style", "UI_style_color", "UI_style_alpha", "ooccolor", "ckey" = 1))
 
 /datum/category_item/player_setup_item/player_global/ui/gather_save_parameters()
-	return list(":ckey" = pref.client.ckey, ":UI_style" = pref.UI_style, ":UI_style_alpha" = pref.UI_style_alpha, ":UI_style_color" = pref.UI_style_color, ":ooccolor" = pref.ooccolor)
+	return list(":ckey" = pref.client.ckey, ":UI_style_alpha" = pref.UI_style_alpha, ":UI_style_color" = pref.UI_style_color, ":UI_style" = pref.UI_style, ":ooccolor" = pref.ooccolor)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
 	pref.UI_style		= sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))

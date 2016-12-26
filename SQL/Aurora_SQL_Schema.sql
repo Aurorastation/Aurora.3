@@ -344,7 +344,7 @@ CREATE TABLE `ss13_player_preferences` (
   `current_character` int(11) NULL DEFAULT NULL,
   `toggles` int(11) DEFAULT '0',
   `UI_style_color` text NULL DEFAULT NULL,
-  `UI_style_alpha` int(11) NULL DEFAULT NULL,
+  `UI_style_alpha` int(11) NULL DEFAULT '255',
   `asfx_togs` int(11) DEFAULT '0',
   `lastmotd` text NULL DEFAULT NULL,
   `lastmemo` text NULL DEFAULT NULL,
@@ -531,7 +531,7 @@ CREATE TABLE `ss13_character_incidents` (
 	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`deleted_at` DATETIME NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE INDEX `UID_char_id` (`char_id`, `UID`),
+	UNIQUE INDEX `UID_char_id` (`char_id`, `UID`)
 ) COLLATE='utf8_bin' ENGINE=InnoDB;
 
 CREATE TABLE `discord_channels` (
@@ -553,7 +553,7 @@ CREATE TABLE `ss13_ccia_actions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `ss13_ccia_action_char` (
   `action_id` int(10) unsigned NOT NULL,
@@ -572,4 +572,14 @@ CREATE TABLE `ss13_ccia_general_notice_list` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `ss13_player_pai` (
+  `ckey` VARCHAR(32) NOT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `role` TEXT NULL DEFAULT NULL,
+  `comments` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`ckey`),
+  CONSTRAINT `player_pai_fk_ckey` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
