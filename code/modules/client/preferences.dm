@@ -124,6 +124,8 @@ datum/preferences
 	// OOC Metadata:
 	var/metadata = ""
 
+	var/list/pai = list()	// A list for holding pAI related data.
+
 	var/client/client = null
 
 	var/savefile/loaded_preferences
@@ -387,7 +389,7 @@ datum/preferences
 	character.underwear = underwear
 
 	character.undershirt = undershirt
-	
+
 	character.socks = socks
 
 	if(backbag > 5 || backbag < 1)
