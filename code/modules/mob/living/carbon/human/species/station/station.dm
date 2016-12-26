@@ -108,7 +108,7 @@
 	slowdown = -1
 	brute_mod = 1.2
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS)
+	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
