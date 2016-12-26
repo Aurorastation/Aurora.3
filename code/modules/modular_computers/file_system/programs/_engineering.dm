@@ -7,7 +7,8 @@
 	program_icon_state = "power_monitor"
 	extended_desc = "This program connects to sensors around the station to provide information about electrical systems"
 	ui_header = "power_norm.gif"
-	required_access = access_engine
+	required_access_run = access_engine
+	required_access_download = access_ce
 	requires_ntnet = 1
 	network_destination = "power monitoring system"
 	size = 9
@@ -64,11 +65,12 @@
 	nanomodule_path = /datum/nano_module/atmos_control
 	program_icon_state = "atmos_control"
 	extended_desc = "This program allows remote control of air alarms around the station. This program can not be run on tablet computers."
-	required_access = access_atmospherics
+	required_access_run = access_atmospherics
+	required_access_download = access_ce
 	requires_ntnet = 1
 	network_destination = "atmospheric control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE
 	size = 17
 
 /datum/computer_file/program/rcon_console
@@ -77,11 +79,12 @@
 	nanomodule_path = /datum/nano_module/rcon
 	program_icon_state = "generic"
 	extended_desc = "This program allows remote control of power distribution systems around the station. This program can not be run on tablet computers."
-	required_access = access_engine
+	required_access_run = access_engine
+	required_access_download = access_ce
 	requires_ntnet = 1
 	network_destination = "RCON remote control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE
 	size = 19
 
 // Night-Mode Toggle for CE
@@ -91,9 +94,10 @@
 	nanomodule_path = /datum/nano_module/lighting_ctrl
 	program_icon_state = "comm_monitor"
 	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
-	required_access = access_ce
+	required_access_run = access_ce
+	required_access_download = access_captain
 	requires_ntnet = 1
 	network_destination = "APC Coordinator"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE
 	size = 9

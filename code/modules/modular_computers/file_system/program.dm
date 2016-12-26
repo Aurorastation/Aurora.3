@@ -2,9 +2,10 @@
 /datum/computer_file/program
 	filetype = "PRG"
 	filename = "UnknownProgram"				// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
-	var/required_access = null				// List of required accesses to run/download the program.
-	var/requires_access_to_run = 1			// Whether the program checks for required_access when run.
-	var/requires_access_to_download = 1		// Whether the program checks for required_access when downloading.
+	var/required_access_run = null			// List of required accesses to run the program.
+	var/required_access_download = null		// List of required accesses to download the program.
+	var/requires_access_to_run = PROGRAM_ACCESS_ONE	// Whether the program checks for required_access when run. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
+	var/requires_access_to_download = PROGRAM_ACCESS_ONE // Whether the program checks for required_access when downloading. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
 	var/datum/nano_module/NM = null			// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
 	var/nanomodule_path = null				// Path to nanomodule, make sure to set this if implementing new program.
 	var/program_state = PROGRAM_STATE_KILLED// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
@@ -36,7 +37,8 @@
 
 /datum/computer_file/program/clone()
 	var/datum/computer_file/program/temp = ..()
-	temp.required_access = required_access
+	temp.required_access_run = required_access_run
+	temp.required_access_download = required_access_download
 	temp.nanomodule_path = nanomodule_path
 	temp.filedesc = filedesc
 	temp.program_icon_state = program_icon_state
@@ -75,11 +77,18 @@
 // Check if the user can run program. Only humans can operate computer. Automatically called in run_program()
 // User has to wear their ID or have it inhand for ID Scan to work.
 // Can also be called manually, with optional parameter being access_to_check to scan the user's ID
-/datum/computer_file/program/proc/can_run(var/mob/living/user, var/loud = 0, var/access_to_check)
-	// Defaults to required_access
+// Check type determines how the access should be checked PROGRAM_ACCESS_ONE, PROGRAM_ACCESS_LIST_ONE, PROGRAM_ACCESS_LIST_ALL
+/datum/computer_file/program/proc/can_run(var/mob/living/user, var/loud = 0, var/access_to_check, var/check_type)
+	// Defaults to required_access_run
 	if(!access_to_check)
-		access_to_check = required_access
-	if(!access_to_check) // No required_access, allow it.
+		access_to_check = required_access_run
+
+	//Default to requires_access_to_run
+	if(!check_type)
+		check_type = requires_access_to_run
+
+	// No required_access, allow it.
+	if(!access_to_check || !requires_access_to_run)
 		return 1
 
 	if(!istype(user))
@@ -91,10 +100,65 @@
 			user << "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>"
 		return 0
 
-	if(access_to_check in I.access)
+	if(check_type == PROGRAM_ACCESS_ONE) //Check for single access
+		if(access_to_check in I.access)
+			return 1
+		else if(loud)
+			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+	else if(check_type == PROGRAM_ACCESS_LIST_ONE)
+		for(var/check in access_to_check) //Loop through all the accesse's to check
+			if(check in I.access) //Success on first match
+				return 1
+	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
+		for(var/check in access_to_check) //Loop through all the accesse's to check
+			if(!check in I.access) //Fail on first miss
+				return 0
+	else // Should never happen - So fail silently
+		return 0
+
+
+
+// Check if the user can run program. Only humans can operate computer. Automatically called in run_program()
+// User has to wear their ID or have it inhand for ID Scan to work.
+// Can also be called manually, with optional parameter being access_to_check to scan the user's ID
+// Check type determines how the access should be checked PROGRAM_ACCESS_ONE, PROGRAM_ACCESS_LIST_ONE, PROGRAM_ACCESS_LIST_ALL
+/datum/computer_file/program/proc/can_download(var/mob/living/user, var/loud = 0, var/access_to_check, var/check_type)
+	// Defaults to required_access_run
+	if(!access_to_check)
+		access_to_check = required_access_download
+
+	//Default to requires_access_to_run
+	if(!check_type)
+		check_type = requires_access_to_download
+
+	// No required_access, allow it.
+	if(!access_to_check || !requires_access_to_download)
 		return 1
-	else if(loud)
-		user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+
+	if(!istype(user))
+		return 0
+
+	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	if(!I)
+		if(loud)
+			user << "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>"
+		return 0
+
+	if(check_type == PROGRAM_ACCESS_ONE) //Check for single access
+		if(access_to_check in I.access)
+			return 1
+		else if(loud)
+			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+	else if(check_type == PROGRAM_ACCESS_LIST_ONE)
+		for(var/check in access_to_check) //Loop through all the accesse's to check
+			if(check in I.access) //Success on first match
+				return 1
+	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
+		for(var/check in access_to_check) //Loop through all the accesse's to check
+			if(!check in I.access) //Fail on first miss
+				return 0
+	else // Should never happen - So fail silently
+		return 0
 
 // This attempts to retrieve header data for NanoUIs. If implementing completely new device of different type than existing ones
 // always include the device here in this proc. This proc basically relays the request to whatever is running the program.

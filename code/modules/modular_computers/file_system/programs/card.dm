@@ -4,7 +4,9 @@
 	nanomodule_path = /datum/nano_module/program/card_mod
 	program_icon_state = "id"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
-	required_access = access_change_ids
+	required_access_run = access_change_ids
+	required_access_download = access_change_ids
+	usage_flags = PROGRAM_CONSOLE
 	requires_ntnet = 0
 	size = 8
 

@@ -30,6 +30,7 @@
 	size = 12
 	available_on_ntnet = 1
 	requires_ntnet = 1
+	required_access_download = access_heads
 
 /datum/nano_module/camera_monitor
 	name = "Camera Monitoring program"
