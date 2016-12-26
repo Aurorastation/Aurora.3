@@ -47,4 +47,4 @@
     heat_level_2 = 390 //RaceDefault 380 Default 400
     heat_level_3 = 900 //RaceDefault 800 Default 1000
 
-    secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIGN_TAJARA)
+    secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
