@@ -288,7 +288,7 @@
 	set desc = "State your laws aloud."
 
 	if(last_special > world.time)
- 
+		return
 	last_special = world.time + 20
 
 	say("Current Active Laws:")
@@ -363,7 +363,6 @@
 			M.gib()
 
 	last_special = world.time + 200
-	return
 
 /mob/living/carbon/human/proc/self_destruct()
 	set category = "Hunter-Killer"

@@ -81,8 +81,6 @@
 	mob_size = 30 //same size as moghes lizard
 	layer = 5
 
-	..(new_loc, "Vaurca")
-
 /mob/living/carbon/human/industrial/New(var/new_loc)
 	..(new_loc, "Industrial Frame")
 

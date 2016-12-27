@@ -132,6 +132,8 @@
 				observer.icon = client.prefs.preview_icon
 				observer.alpha = 127
 
+				if(client.prefs.be_random_name)
+					client.prefs.real_name = random_name(client.prefs.gender)
 				observer.real_name = client.prefs.real_name
 				observer.name = observer.real_name
 				if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
@@ -419,6 +421,10 @@
 			// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
 			if(is_species_whitelisted(chosen_species) || has_admin_rights())
 				new_character = new(loc, use_species_name)
+
+				if (istype(chosen_species, /datum/species/machine))
+					var/datum/species/machine/chose_machine = chosen_species
+					chose_machine.check_tag(new_character, client)
 
 		if(!new_character)
 			new_character = new(loc)

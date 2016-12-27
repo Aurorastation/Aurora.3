@@ -28,7 +28,7 @@
 	heat_discomfort_level = 400
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!",
-		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic.",
+		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR |  HAS_SKIN_COLOR | HAS_FBP

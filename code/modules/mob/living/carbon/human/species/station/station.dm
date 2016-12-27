@@ -448,6 +448,57 @@
 /datum/species/machine/get_bodytype()
 	return "Machine"
 
+/datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
+	if (!new_machine || !player)
+		return
+
+	establish_db_connection()
+
+	if (dbcon.IsConnected())
+		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
+
+		var/status = 0
+		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = player.prefs.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		query.Execute(query_details)
+
+		if (query.NextRow())
+			status = text2num(query.item[1])
+		else
+			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey, :character_name)")
+			log_query.Execute(query_details)
+
+		if (!status)
+			new_machine.internal_organs_by_name.Remove("ipc tag")
+			new_machine.internal_organs.Remove(tag)
+			del(tag)
+
+/datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
+	if (!target || !player)
+		return
+
+	establish_db_connection()
+
+	if (dbcon.IsConnected())
+		var/status = 0
+		var/sql_status = 0
+		if (target.internal_organs_by_name["ipc tag"])
+			status = 1
+
+		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = target.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		query.Execute(query_details)
+
+		if (query.NextRow())
+			sql_status = text2num(query.item[1])
+			if (sql_status == status)
+				return
+
+			query_details.Add(":status")
+			query_details[":status"] = status
+			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status WHERE player_ckey = :ckey AND character_name = :character_name")
+			update_query.Execute(query_details)
+
 /datum/species/bug
 	name = "Vaurca Worker"
 	short_name = "vau"
@@ -494,8 +545,8 @@
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_SKIN_COLOR
 	blood_color = "#E6E600" // dark yellow
-	flesh_color = "#330000"
-	base_color = "#330000"
+	flesh_color = "#E6E600"
+	base_color = "#575757"
 
 	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
@@ -516,12 +567,20 @@
 	sprint_cost_factor = 0.30
 	stamina_recovery = 2//slow recovery
 
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
+		)
+
+
 	has_organ = list(
 		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
+		"lungs" =    /obj/item/organ/lungs,
 		"filtration bit" = /obj/item/organ/vaurca/filtrationbit,
 		"lungs" =    /obj/item/organ/lungs,
+		"heart" =    /obj/item/organ/heart,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"right heart" =    /obj/item/organ/heart/right,
+		"second heart" =    /obj/item/organ/heart,
 		"left heart" =    /obj/item/organ/heart/left,
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
