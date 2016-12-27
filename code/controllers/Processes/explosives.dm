@@ -7,12 +7,13 @@ var/datum/controller/process/explosives/bomb_processor
 
 /datum/controller/process/explosives/setup()
 	name = "explosives"
-	schedule_interval = 10 // every second
+	schedule_interval = 5 // every half-second
 	work_queue = list()
 	bomb_processor = src
 
 /datum/controller/process/explosives/doWork()
 	if (!(work_queue.len)) return
+	var/powernet_rebuild_was_deferred_already
 	for (var/datum/explosiondata/data in work_queue)
 		SCHECK
 		var/turf/epicenter = data.epicenter
@@ -121,7 +122,7 @@ var/datum/controller/process/explosives/bomb_processor
 			log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ")
 
 		var/approximate_intensity = (devastation_range * 3) + (heavy_impact_range * 2) + light_impact_range
-		var/powernet_rebuild_was_deferred_already = defer_powernet_rebuild
+		powernet_rebuild_was_deferred_already = defer_powernet_rebuild
 		// Large enough explosion. For performance reasons, powernets will be rebuilt manually
 		if(!defer_powernet_rebuild && (approximate_intensity > 25))
 			defer_powernet_rebuild = 1
@@ -161,11 +162,12 @@ var/datum/controller/process/explosives/bomb_processor
 			if(Array)
 				Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
 
-		sleep(8)
+		work_queue -= data
 
-		if(!powernet_rebuild_was_deferred_already && defer_powernet_rebuild)
-			makepowernets()
-			defer_powernet_rebuild = 0
+	if(!powernet_rebuild_was_deferred_already && defer_powernet_rebuild)
+		makepowernets()
+		defer_powernet_rebuild = 0
+
 
 /datum/controller/process/explosives/proc/queue(var/data)
 	work_queue += data
