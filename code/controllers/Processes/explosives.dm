@@ -4,6 +4,8 @@ var/datum/controller/process/explosives/bomb_processor
 // nothing could go wrong -- Lohikar
 /datum/controller/process/explosives
 	var/list/work_queue
+	var/ticks_without_work = 0
+	var/powernet_rebuild_was_deferred_already
 
 /datum/controller/process/explosives/setup()
 	name = "explosives"
@@ -12,8 +14,16 @@ var/datum/controller/process/explosives/bomb_processor
 	bomb_processor = src
 
 /datum/controller/process/explosives/doWork()
-	if (!(work_queue.len)) return
-	var/powernet_rebuild_was_deferred_already
+	if (!(work_queue.len))
+		ticks_without_work++
+		if (ticks_without_work > 5)
+			if(defer_powernet_rebuild)
+				makepowernets()
+				defer_powernet_rebuild = 0
+		return
+
+	ticks_without_work = 0
+
 	for (var/datum/explosiondata/data in work_queue)
 		SCHECK
 		var/turf/epicenter = data.epicenter
