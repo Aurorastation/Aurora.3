@@ -442,19 +442,10 @@
 
 	inhaling = breath.gas[breath_type]
 
-	if(species.has_organ["filtration bit"] && src.get_species() == "Vaurca")
-		var/obj/item/organ/vaurca/filtrationbit/F = internal_organs_by_name["filtration bit"]
-		if(isnull(F))
-			poison_type = "oxygen" //if Vaurca does not have filter, oxygen becomes poisonous
-		else if(F.is_broken())
-			poison_type = "oxygen" //if Vaurca filter breaks, oxygen becomes poisonous.
-		else
-			poison_type = "null"
+	if(species.poison_type)
+		poison_type = species.poison_type
 	else
-		if(species.poison_type)
-			poison_type = species.poison_type
-		else
-			poison_type = "phoron"
+		poison_type = "phoron"
 	poison = breath.gas[poison_type]
 
 	if(species.exhale_type)
@@ -964,48 +955,41 @@
 			death()
 			blinded = 1
 			silent = 0
-		else				//ALIVE. LIGHTS ARE ON
-			updatehealth()	//TODO
+			return 1
 
-			if(health <= config.health_threshold_dead || (species.has_organ["brain"] && !has_brain()))
-				death()
-				blinded = 1
-				silent = 0
-				return 1
+		//UNCONSCIOUS. NO-ONE IS HOME
+		if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
+			Paralyse(3)
 
-			//UNCONSCIOUS. NO-ONE IS HOME
-			if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
-				Paralyse(3)
+		if(hallucination)
+			//Machines do not hallucinate.
+			if (hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
+				if(prob(3))
+					fake_attack(src)
+				if(!handling_hal)
+					spawn handle_hallucinations() //The not boring kind!
+				if(client && prob(5))
+					client.dir = pick(2,4,8)
+					var/client/C = client
+					spawn(rand(20,50))
+						if(C)
+							C.dir = 1
 
-			if(hallucination)
-				//Machines do not hallucinate.
-				if (hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
-					if(prob(3))
-						fake_attack(src)
-					if(!handling_hal)
-						spawn handle_hallucinations() //The not boring kind!
-					if(client && prob(5))
-						client.dir = pick(2,4,8)
-						var/client/C = client
-						spawn(rand(20,50))
-							if(C)
-								C.dir = 1
-
-				if(hallucination<=2)
-					hallucination = 0
-					halloss = 0
-				else
-					hallucination -= 2
-
+			if(hallucination<=2)
+				hallucination = 0
+				halloss = 0
 			else
-				for(var/atom/a in hallucinations)
-					qdel(a)
+				hallucination -= 2
 
-			if(halloss > 100)
-				src << "<span class='warning'>[species.halloss_message_self]</span>"
-				src.visible_message("<B>[src]</B> [species.halloss_message].")
-				Paralyse(10)
-				setHalLoss(99)
+		else
+			for(var/atom/a in hallucinations)
+				qdel(a)
+
+		if(halloss > 100)
+			src << "<span class='warning'>[species.halloss_message_self]</span>"
+			src.visible_message("<B>[src]</B> [species.halloss_message].")
+			Paralyse(10)
+			setHalLoss(99)
 
 		if(paralysis || sleeping)
 			blinded = 1

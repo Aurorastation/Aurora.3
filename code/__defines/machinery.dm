@@ -1,5 +1,9 @@
 var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called manually after an event.
 
+#define KILOWATTS *1000
+#define MEGAWATTS *1000000
+#define GIGAWATTS *1000000000
+
 #define CELLRATE 0.002 // Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)
                        // It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
 
@@ -46,6 +50,13 @@ var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called
 #define NETWORK_SECURITY "Security"
 #define NETWORK_TELECOM "Tcomsat"
 #define NETWORK_THUNDER "Thunderdome"
+#define NETWORK_ALARM_ATMOS "Atmosphere Alarms"
+#define NETWORK_ALARM_POWER "Power Alarms"
+#define NETWORK_ALARM_FIRE "Fire Alarms"
+#define NETWORK_SUPPLY "Supply"
+#define NETWORK_EXPEDITION "Expedition"
+#define NETWORK_CALYPSO "Calypso"
+#define NETWORK_POD "General Utility Pod"
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
 var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")

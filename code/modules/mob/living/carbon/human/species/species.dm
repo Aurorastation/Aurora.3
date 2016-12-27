@@ -21,6 +21,8 @@
 	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
 
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
+	var/icon_x_offset = 0
+	var/icon_y_offset = 0
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/blood_color = "#A10808"                          // Red.
@@ -43,7 +45,7 @@
 	var/list/speech_sounds                   // A list of sounds to potentially play when speaking.
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
 	var/num_alternate_languages = 0          // How many secondary languages are available to select at character creation
-	var/name_language = "Galactic Common"    // The language to use when determining names for this species, or null to use the first name/last name generator
+	var/name_language = "Ceti Basic"	    // The language to use when determining names for this species, or null to use the first name/last name generator
 
 	// Combat vars.
 	var/total_health = 100                   // Point at which the mob will enter crit.
@@ -361,7 +363,6 @@
 /datum/species/proc/get_vision_flags(var/mob/living/carbon/human/H)
 	return vision_flags
 
-// #TODO-MERGE: Search for blind.layer refs, change to blind.invisibility
 /datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
 	H.update_sight()
 	H.sight |= get_vision_flags(H)
@@ -383,7 +384,7 @@
 		H.eye_blind = max(H.eye_blind, 1)
 
 	if(H.blind)
-		H.blind.layer = (H.eye_blind ? 18 : 0)
+		H.blind.invisibility = (H.eye_blind ? 0 : 101)
 
 	if(!H.client)//no client, no screen to update
 		return 1

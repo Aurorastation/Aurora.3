@@ -6,9 +6,7 @@
 // If PC is not null header template is loaded. Use PC.get_header_data() to get relevant nanoui data from it. All data entries begin with "PC_...."
 // In future it may be expanded to other modular computer devices.
 /datum/nano_module/exosuit_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/list/data = list()
-	if(program)
-		data = program.get_header_data()
+	var/list/data = host.initial_data()
 
 	data["screen"] = screen
 	switch (screen)
@@ -25,7 +23,7 @@
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "exosuit_control.tmpl", "Exosuit Control and Monitoring", 800, 500, state = state)
-		if(program) // This is necessary to ensure the status bar remains updated along with rest of the UI.
+		if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
 			ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
@@ -55,8 +53,4 @@
 		screen = 1
 	if(href_list["return"])
 		screen = 0
-
-	if (usr)
-		spawn()
-			program.ui_interact(usr)
 	return

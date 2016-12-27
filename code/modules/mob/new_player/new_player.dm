@@ -95,6 +95,11 @@
 
 		if(href_list["ready"])
 			if(!ticker || ticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
+				// Cannot join without a saved character, if we're on SQL saves.
+				if (config.sql_saves && !client.prefs.current_character)
+					alert(src, "You have not saved your character yet. Please do so before readying up.")
+					return
+
 				ready = text2num(href_list["ready"])
 			else
 				ready = 0
@@ -127,8 +132,6 @@
 				observer.icon = client.prefs.preview_icon
 				observer.alpha = 127
 
-				if(client.prefs.be_random_name)
-					client.prefs.real_name = random_name(client.prefs.gender)
 				observer.real_name = client.prefs.real_name
 				observer.name = observer.real_name
 				if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
@@ -143,6 +146,11 @@
 
 			if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
 				usr << "\red The round is either not ready, or has already finished..."
+				return
+
+			// Cannot join without a saved character, if we're on SQL saves.
+			if (config.sql_saves && !client.prefs.current_character)
+				alert(src, "You have not saved your character yet. Please do so before attempting to join.")
 				return
 
 			if(!check_rights(R_ADMIN, 0))
@@ -298,6 +306,9 @@
 		if(!config.enter_allowed)
 			usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
 			return 0
+		if(config.sql_saves && !client.prefs.current_character)
+			alert(src, "You have not saved your character yet. Please do so before attempting to join.")
+			return 0
 		if(!IsJobAvailable(rank))
 			src << alert("[rank] is not available. Please try another.")
 			return 0
@@ -361,7 +372,7 @@
 			global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 
 	proc/LateChoices()
-		var/name = client.prefs.be_random_name ? "friend" : client.prefs.real_name
+		var/name = client.prefs.real_name
 
 		var/dat = "<html><body><center>"
 		dat += "<b>Welcome, [name].<br></b>"
@@ -454,6 +465,8 @@
 		new_character.force_update_limbs()
 		new_character.update_eyes()
 		new_character.regenerate_icons()
+
+		client.prefs.log_character(new_character)
 
 		new_character.key = key		//Manually transfer the key to log them in
 

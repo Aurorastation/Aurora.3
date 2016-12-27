@@ -11,7 +11,8 @@ obj/machinery/recharger
 	var/charging_efficiency = 0.85
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging = null
-	var/list/allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton, /obj/item/laptop, /obj/item/weapon/cell, /obj/item/modular_computer/)
+
+	var/list/allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton, /obj/item/laptop, /obj/item/weapon/cell, /obj/item/modular_computer/, /obj/item/weapon/computer_hardware/battery_module)
 	var/icon_state_charged = "recharger2"
 	var/icon_state_charging = "recharger1"
 	var/icon_state_idle = "recharger0" //also when unpowered
@@ -111,56 +112,24 @@ obj/machinery/recharger/process()
 		update_use_power(1)
 		icon_state = icon_state_idle
 	else
-		if(istype(charging, /obj/item/weapon/gun/energy))
-			var/obj/item/weapon/gun/energy/E = charging
-			if(!E.power_supply.fully_charged())
-				icon_state = icon_state_charging
-				E.power_supply.give(active_power_usage*CELLRATE*charging_efficiency)
-				update_use_power(2)
-			else
-				icon_state = icon_state_charged
-				update_use_power(1)
-			return
-
+		var/cell = charging
 		if(istype(charging, /obj/item/weapon/melee/baton))
 			var/obj/item/weapon/melee/baton/B = charging
-			if(B.bcell)
-				if(!B.bcell.fully_charged())
-					icon_state = icon_state_charging
-					B.bcell.give(active_power_usage*CELLRATE*charging_efficiency)
-					update_use_power(2)
-				else
-					icon_state = icon_state_charged
-					update_use_power(1)
-			else
-				icon_state = icon_state_idle
-				update_use_power(1)
-			return
-
-		if(istype(charging, /obj/item/laptop))
-			var/obj/item/laptop/L = charging
-			if(!L.stored_computer.cpu.battery_module.battery.fully_charged())
-				icon_state = icon_state_charging
-				L.stored_computer.cpu.battery_module.battery.give(active_power_usage*CELLRATE)
-				update_use_power(2)
-			else
-				icon_state = icon_state_charged
-				update_use_power(1)
-			return
-
-		if(istype(charging, /obj/item/modular_computer))
+			cell = B.bcell
+		else if(istype(charging, /obj/item/modular_computer))
 			var/obj/item/modular_computer/C = charging
-			if(!C.battery_module.battery.fully_charged())
-				icon_state = icon_state_charging
-				C.battery_module.battery.give(active_power_usage*CELLRATE)
-				update_use_power(2)
-			else
-				icon_state = icon_state_charged
-				update_use_power(1)
-			return
-
-		if(istype(charging, /obj/item/weapon/cell))
-			var/obj/item/weapon/cell/C = charging
+			cell = C.battery_module.battery
+		else if(istype(charging, /obj/item/laptop))
+			var/obj/item/laptop/L = charging
+			cell = L.stored_computer.cpu.battery_module.battery
+		else if(istype(charging, /obj/item/weapon/gun/energy))
+			var/obj/item/weapon/gun/energy/E = charging
+			cell = E.power_supply
+		else if(istype(charging, /obj/item/weapon/computer_hardware/battery_module))
+			var/obj/item/weapon/computer_hardware/battery_module/BM = charging
+			cell = BM.battery
+		if(istype(cell, /obj/item/weapon/cell))
+			var/obj/item/weapon/cell/C = cell
 			if(!C.fully_charged())
 				icon_state = icon_state_charging
 				C.give(active_power_usage*CELLRATE*charging_efficiency)

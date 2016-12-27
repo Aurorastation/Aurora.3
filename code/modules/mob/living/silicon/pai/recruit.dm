@@ -75,9 +75,15 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 					candidate.comments = sanitize(t)
 
 			if("save")
-				candidate.savefile_save(usr)
+				if (config.sql_saves)
+					usr.client.prefs.save_preferences()
+				else
+					candidate.savefile_save(usr)
 			if("load")
-				candidate.savefile_load(usr)
+				if (config.sql_saves)
+					usr.client.prefs.load_preferences()
+				else
+					candidate.savefile_load(usr)
 				//In case people have saved unsanitized stuff.
 				if(candidate.name)
 					candidate.name = sanitizeSafe(candidate.name, MAX_NAME_LEN)
@@ -96,7 +102,10 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 							p.alertUpdate()
 				usr << browse(null, "window=paiRecruit")
 				return
-		candidate.savefile_save(usr)
+		if (config.sql_saves)
+			usr.client.prefs.save_preferences()
+		else
+			candidate.savefile_save(usr)
 		recruitWindow(usr, href_list["allow_submit"] != "0")
 
 /datum/paiController/proc/recruitWindow(var/mob/M as mob, allowSubmit = 1)
@@ -111,7 +120,12 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		candidate.key = M.key
 		pai_candidates.Add(candidate)
 
-	candidate.savefile_load(M)//Load the pAI config before displaying the window
+	// Load the data before displaying.
+	if (!config.sql_saves)
+		candidate.savefile_load(M)
+	else
+		M.client.prefs.load_preferences()
+
 	var/dat = ""
 	dat += {"
 			<style type="text/css">

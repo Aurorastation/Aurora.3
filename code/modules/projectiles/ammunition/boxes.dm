@@ -402,4 +402,30 @@
 /obj/item/ammo_magazine/flechette/explosive/empty
 	initial_ammo = 0
 
-
+/obj/item/ammo_magazine/assault_shotgun
+	name = "magazine (slug)"
+	icon = 'icons/obj/dragunov.dmi'
+	icon_state = "csmb"
+	caliber = "shotgun"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 8
+	matter = list("metal" = 2880)
+	multiple_sprites = 1
+	
+/obj/item/ammo_magazine/assault_shotgun/shells
+	name = "magazine (shells)"
+	icon_state = "csm"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	
+/obj/item/ammo_magazine/assault_shotgun/incendiary
+	name = "magazine (incendiary shells)"
+	icon_state = "csmi"
+	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
+	matter = list(DEFAULT_WALL_MATERIAL = 3600)
+	
+/obj/item/ammo_magazine/assault_shotgun/stun
+	name = "magazine (stun shells)"
+	icon_state = "csms"
+	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
+	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)

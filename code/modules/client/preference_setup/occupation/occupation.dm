@@ -40,7 +40,7 @@
 	return list(":id" = pref.current_character)
 
 /datum/category_item/player_setup_item/occupation/gather_save_query()
-	return list("ss13_characters" = list("jobs", "alternate_option", "alternate_titles", "id" = 1))
+	return list("ss13_characters" = list("jobs", "alternate_option", "alternate_titles", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/occupation/gather_save_parameters()
 	var/list/compiled_jobs = list("job_civilian_high" = pref.job_civilian_high,
@@ -53,11 +53,12 @@
 								"job_engsec_med" = pref.job_engsec_med,
 								"job_engsec_low" = pref.job_engsec_low)
 
-	return list(":jobs" = list2params(compiled_jobs), ":alternate_option" = pref.alternate_option, ":alternate_titles" = list2params(pref.player_alt_titles), ":id" = pref.current_character)
+	return list(":jobs" = list2params(compiled_jobs), ":alternate_option" = pref.alternate_option, ":alternate_titles" = list2params(pref.player_alt_titles), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character(var/sql_load = 0)
 	if (sql_load)
 		pref.alternate_option = text2num(pref.alternate_option)
+		pref.player_alt_titles = params2list(pref.player_alt_titles)
 
 		var/list/jobs = params2list(pref.unsanitized_jobs)
 

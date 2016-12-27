@@ -54,6 +54,16 @@
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
 
+// Sign language
+/datum/language/tajaran_sign
+	name = LANGUAGE_SIGN_TAJARA
+	desc = "A sign language developed by Adhomai hunters"
+	speech_verb = "signs"
+	signlang_verb = list("signs", "gestures")
+	colour = "i"
+	key = "i"
+	flags = NO_STUTTER|SIGNLANG
+
 /datum/language/tajaran/get_random_name(var/gender)
 
 	var/new_name = ..(gender,1)
@@ -75,8 +85,8 @@
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
 /datum/language/bug
-	name = "Hivenet"
-	desc = "Complex Vaurcesian language comprised of rapid mandible-clicking, \"It's a bugs life.\""
+	name = LANGUAGE_VAURCA
+	desc = "A localised expression of the Vaurcae hivemind, allowing Vaurcae to communicate from across great distances. \"It's a bugs life.\""
 	speech_verb = " broadcasts"
 	colour = "vaurca"
 	key = "9"
@@ -122,6 +132,8 @@
 	if(within_jamming_range(other))
 		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
+		return 1
+	if(istype(M,/mob/living/silicon/))
 		return 1
 
 	if (M.l_ear || M.r_ear)
@@ -201,6 +213,18 @@
 
 /datum/language/resomi/get_random_name(gender)
 	return ..(gender, 1, 4, 1.5)
+	
+/datum/language/unathi_azaziba
+	name = LANGUAGE_AZAZIBA
+	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the glactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
+	speech_verb = "hisses"
+	ask_verb = "hisses"
+	exclaim_verb = "roars"
+	signlang_verb = list("signs", "gestures aggressively")
+	colour = "soghun_alt"
+	key = "p"
+	flags = WHITELISTED | NONVERBAL
+	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 
 //Syllable Lists
 /*

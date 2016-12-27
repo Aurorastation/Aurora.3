@@ -22,7 +22,7 @@
 		item_state = "ionrifle-empty"
 	else
 		item_state = initial(item_state)
-		
+
 /obj/item/weapon/gun/energy/ionrifle/mounted
 	name = "mounted ion rifle"
 	self_recharge = 1
@@ -170,6 +170,7 @@
 /obj/item/weapon/gun/energy/vaurca
 	name = "Alien Firearm"
 	desc = "Vaurcae weapons tend to be specialized and highly lethal. This one doesn't do much"
+	var/is_charging = 0 //special var for sanity checks in the three guns that currently use charging as a special_check
 
 /obj/item/weapon/gun/energy/vaurca/bfg
 	name = "BFG 9000"
@@ -180,7 +181,7 @@
 	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
-	projectile_type = /obj/item/projectile/energy/sonic
+	projectile_type = /obj/item/projectile/energy/bfg
 	slot_flags = SLOT_BACK
 	max_shots = 40
 	sel_mode = 1
@@ -232,12 +233,24 @@
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	..()
+	if(is_charging)
+		user << "<span class='danger'>\The [src] is already spinning!</span>"
+		return 0
 	if(!wielded)
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
 	playsound(src, 'sound/weapons/chainsawhit.ogg', 90, 1)
-	user.visible_message("<span class='danger'>[user] begins spinning [src]'s barrels!</span>")
+	user.visible_message(
+					"<span class='danger'>\The [user] begins spinning [src]'s barrels!</span>",
+					"<span class='danger'>You begin spinning [src]'s barrels!</span>",
+					"<span class='danger'>You hear the spin of a rotary gun!</span>"
+					)
+	is_charging = 1
 	sleep(30)
+	is_charging = 0
+	if(!istype(user.get_active_hand(), src))
+		return
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return 1
 
 /obj/item/weapon/gun/energy/vaurca/blaster
@@ -261,6 +274,168 @@
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
 		)
+
+/obj/item/weapon/gun/energy/vaurca/typec
+	name = "thermal lance"
+	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
+	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon_state = "megaglaive0"
+	item_state = "megaglaive"
+	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
+		slot_l_hand_str = 'icons/mob/species/breeder/held_l.dmi',
+		slot_r_hand_str = 'icons/mob/species/breeder/held_r.dmi'
+		)
+	origin_tech = "combat=6;phorontech=8,"
+	fire_sound = 'sound/magic/lightningbolt.ogg'
+	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
+	slot_flags = SLOT_BACK
+	w_class = 5
+	force = 60
+	projectile_type = /obj/item/projectile/beam/megaglaive
+	max_shots = 36
+	sel_mode = 1
+	burst = 6
+	burst_delay = 1
+	fire_delay = 30
+	sharp = 1
+	edge = 1
+	anchored = 0
+	armor_penetration = 40
+	flags = NOBLOODY
+	can_embed = 0
+	self_recharge = 1
+	recharge_time = 2
+
+	action_button_name = "Wield thermal lance"
+
+/obj/item/weapon/gun/energy/vaurca/typec/can_wield()
+	return 1
+
+/obj/item/weapon/gun/energy/vaurca/typec/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/typec/verb/wield_rifle()
+	set name = "Wield thermal lance"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/typec/attack(atom/A, mob/living/user, def_zone)
+	return ..() //Pistolwhippin'
+
+/obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
+	..()
+	if(is_charging)
+		user << "<span class='danger'>\The [src] is already charging!</span>"
+		return 0
+	if(!wielded)
+		user << "<span class='danger'>You could never fire this weapon with merely one hand!</span>"
+		return 0
+	playsound(user, 'sound/magic/lightning_chargeup.ogg', 75, 1)
+	user.visible_message(
+					"<span class='danger'>\The [user] begins charging the [src]!</span>",
+					"<span class='danger'>You begin charging the [src]!</span>",
+					"<span class='danger'>You hear a low pulsing roar!</span>"
+					)
+	is_charging = 1
+	sleep(90)
+	is_charging = 0
+	if(!istype(user.get_active_hand(), src))
+		return
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	return 1
+
+/obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
+	if(loc != user)
+		var/mob/living/carbon/human/H = user
+		if(istype(H))
+			if(H.species.name == "Vaurca Breeder")
+				playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+				anchored = 1
+				user << "<span class='notice'>\The [src] is now energised.</span>"
+				icon_state = "megaglaive1"
+				..()
+				return
+		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
+		return
+
+/obj/item/weapon/gun/energy/vaurca/typec/dropped(var/mob/user)
+	..()
+	if(!istype(loc,/mob))
+		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+		icon_state = "megaglaive0"
+		anchored = 0
+
+/obj/item/weapon/gun/energy/vaurca/typec/update_icon()
+	return
+
+/obj/item/weapon/gun/energy/vaurca/thermaldrill
+	name = "thermal drill"
+	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "thermaldrill"
+	item_state = "thermaldrill"
+	origin_tech = "combat=6;phorontech=8,"
+	fire_sound = 'sound/magic/lightningbolt.ogg'
+	slot_flags = SLOT_BACK
+	w_class = 4
+	force = 15
+	projectile_type = /obj/item/projectile/beam/thermaldrill
+	max_shots = 90
+	sel_mode = 1
+	burst = 10
+	burst_delay = 1
+	fire_delay = 20
+	self_recharge = 1
+	recharge_time = 1
+	charge_meter = 1
+
+	firemodes = list(
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60)
+		)
+
+	action_button_name = "Wield thermal drill"
+
+/obj/item/weapon/gun/energy/vaurca/thermaldrill/can_wield()
+	return 1
+
+/obj/item/weapon/gun/energy/vaurca/thermaldrill/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/thermaldrill/verb/wield_rifle()
+	set name = "Wield thermal drill"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
+	..()
+	if(is_charging)
+		user << "<span class='danger'>\The [src] is already charging!</span>"
+		return 0
+	if(!wielded)
+		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
+		return 0
+	playsound(user, 'sound/magic/lightning_chargeup.ogg', 75, 1)
+	user.visible_message(
+					"<span class='danger'>\The [user] begins charging the [src]!</span>",
+					"<span class='danger'>You begin charging the [src]!</span>",
+					"<span class='danger'>You hear a low pulsing roar!</span>"
+					)
+	is_charging = 1
+	sleep(90)
+	is_charging = 0
+	if(!istype(user.get_active_hand(), src))
+		return
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	return 1
 
 /*/obj/item/weapon/gun/energy/vaurca/flamer
 	name = "Vaurcae Incinerator"

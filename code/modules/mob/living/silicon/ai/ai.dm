@@ -146,12 +146,12 @@ var/list/ai_verbs_default = list(
 	add_language("Robot Talk", 1)
 	add_language("Ceti Basic", 1)
 	add_language("Sol Common", 0)
-	add_language("Sinta'unathi", 0)
-	add_language("Siik'maas", 0)
-	add_language("Skrellian", 0)
+	add_language(LANGUAGE_UNATHI, 0)
+	add_language(LANGUAGE_SIIK_MAAS, 0)
+	add_language(LANGUAGE_SKRELLIAN, 0)
 	add_language("Tradeband", 1)
 	add_language("Gutter", 0)
-	add_language("Hivenet", 0)
+	add_language(LANGUAGE_VAURCA, 0)
 	add_language("Rootsong", 0)
 	add_language(LANGUAGE_EAL, 1)
 
@@ -659,9 +659,9 @@ var/list/ai_verbs_default = list(
 
 
 /mob/living/silicon/ai/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/aicard))
+	if(istype(W, /obj/item/weapon/aicard))
 
-		var/obj/item/device/aicard/card = W
+		var/obj/item/weapon/aicard/card = W
 		card.grab_ai(src, user)
 
 	else if(istype(W, /obj/item/weapon/wrench))
@@ -782,6 +782,9 @@ var/list/ai_verbs_default = list(
 	var/s = list(itemName,info)
 	cameraRecords += list(s)
 	return cameraRecords.len
+
+/mob/living/silicon/ai/proc/has_power()
+	return (aiRestorePowerRoutine == 0)
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO

@@ -19,10 +19,10 @@
 	return list(":id" = pref.current_character)
 
 /datum/category_item/player_setup_item/skills/gather_save_query()
-	return list("ss13_characters" = list("skills", "skill_specialization", "id" = 1))
+	return list("ss13_characters" = list("skills", "skill_specialization", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/skills/gather_save_parameters()
-	return list(":skills" = list2params(pref.skills), ":skill_specialization" = pref.skill_specialization, ":id" = pref.current_character)
+	return list(":skills" = list2params(pref.skills), ":skill_specialization" = pref.skill_specialization, ":id" = pref.current_character, ":ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	if (SKILLS == null)
@@ -31,6 +31,11 @@
 		pref.skills = list()
 	if (sql_load)
 		pref.skills = params2list(pref.skills)
+
+		for (var/skill in pref.skills)
+			pref.skills[skill] = text2num(pref.skills[skill])
+
+		pref.CalculateSkillPoints()
 	if (!pref.skills.len)
 		pref.ZeroSkills()
 	if (pref.used_skillpoints < 0)

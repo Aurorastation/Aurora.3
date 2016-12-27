@@ -52,8 +52,16 @@
 	return 0
 
 /proc/isvaurca(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vaurca"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Vaurca Worker")
+				return 1
+			if("Vaurca Warrior")
+				return 1
+			if("Vaurca Breeder")
+				return 1
+			if("V'krexi")
+				return 1
 	return 0
 
 /proc/isipc(A)
@@ -904,8 +912,16 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
-	else return null
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
+	else
+		return null
+
+	if (!P)
+		return null
 
 	return P.time_of_death[which]
 
@@ -914,8 +930,15 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
 	else
+		return 0
+
+	if (!P)
 		return 0
 
 	P.time_of_death[which] = value
@@ -947,7 +970,8 @@ var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
 	/mob/living/carbon/human/tajaran,
 	/mob/living/carbon/human/vox,
 	/mob/living/carbon/human/machine,
-	/mob/living/carbon/human/bug
+	/mob/living/carbon/human/type_a,
+	/mob/living/carbon/human/type_b
 	)
 
 var/list/humanoid_mobs_inclusive = list(

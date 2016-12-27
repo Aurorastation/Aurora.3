@@ -19,7 +19,7 @@
 
 /client/verb/toggle_autohiss()
 	set name = "Toggle Auto-Hiss"
-	set desc = "Toggle automatic hissing as Unathi and r-rolling as Taj"
+	set desc = "Toggle automatic hissing as Unathi, r-rolling as Taj, and buzzing as Vaurca"
 	set category = "OOC"
 
 	autohiss_mode = (autohiss_mode + 1) % AUTOHISS_NUM
@@ -47,13 +47,33 @@
 	autohiss_extra_map = list(
 			"x" = list("ks", "kss", "ksss")
 		)
-	autohiss_exempt = list("Sinta'unathi")
+	autohiss_exempt = list(LANGUAGE_UNATHI)
 
 /datum/species/tajaran
 	autohiss_basic_map = list(
 			"r" = list("rr", "rrr", "rrrr")
 		)
-	autohiss_exempt = list("Siik'tajr")
+	autohiss_exempt = list(LANGUAGE_SIIK_TAJR)
+
+/datum/species/bug
+	autohiss_basic_map = list(
+			"s" = list("z","zz")
+		)
+	autohiss_extra_map = list(
+			"f" = list("v", "vh"),
+			"ph" = list("v", "vh")
+		)
+	autohiss_exempt = list(LANGUAGE_VAURCA)
+
+/datum/species/bug/type_b
+	autohiss_basic_map = list(
+			"s" = list("z","zz", "zzz")
+		)
+	autohiss_extra_map = list(
+			"f" = list("v", "vh"),
+			"ph" = list("v", "vh")
+		)
+	autohiss_exempt = list(LANGUAGE_VAURCA)
 
 
 /datum/species/proc/handle_autohiss(message, datum/language/lang, mode)

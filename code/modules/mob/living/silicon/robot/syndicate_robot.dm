@@ -12,6 +12,7 @@
 	spawn_module = /obj/item/weapon/robot_module/syndicate
 	key_type = /obj/item/device/encryptionkey/syndicate
 	spawn_sound = 'sound/mecha/nominalsyndi.ogg'
+	pitch_toggle = 0
 	cell_type = /obj/item/weapon/cell/super
 	req_access = list(access_syndicate)
 	faction = "syndicate"

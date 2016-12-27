@@ -903,7 +903,7 @@
 		return 1
 
 	if (href_list["lmode"])
-		src.toggle_nightlight()
+		src.toggle_nightlight(href_list["lmode"])
 		update_icon()
 
 	else if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
@@ -1262,9 +1262,9 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	for (var/obj/machinery/light/L in area.contents)
 		if (!listgetindex(night_light_args, L.type)) // if L's type isn't defined in our args list
 			continue
-		if (force == "on" || !night_mode)
+		if (force == "on")
 			L.set_light_source(arglist(night_light_args[L.type]))
-		else if (force == "off" || night_mode)
+		else if (force == "off")
 			L.set_light_source()
 		L.update()
 	switch (force)

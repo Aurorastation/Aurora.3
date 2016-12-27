@@ -91,7 +91,7 @@
 				for(var/datum/objective/OBJ in user.mind.objectives)
 					user << "<B>Objective #[obj_count]</B>: [OBJ.explanation_text]"
 					obj_count++
-				for(var/obj/machinery/nuclearbomb/N in world)
+				for(var/obj/machinery/nuclearbomb/station/N in world)
 					user << "<span class='warning'>[N.r_code]...!</span>"
 					user.mind.store_memory("<B>Nuclear Bomb Code</B>: [N.r_code]", 0, 0)
 			if("I want peace")

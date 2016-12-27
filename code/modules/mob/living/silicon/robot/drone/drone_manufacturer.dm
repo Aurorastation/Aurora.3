@@ -105,7 +105,6 @@
 		user << "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>"
 		return
 
-	// #TODO-MERGE: refactor teh various respawn timers into MayRespawn
 	if(!user.MayRespawn(1, DRONE_SPAWN_DELAY))
 		return
 

@@ -11,8 +11,8 @@
 	for(var/obj/machinery/ai_status_display/O in world)
 		spawn( 0 )
 		O.mode = 2
-		if (istype(loc, /obj/item/device/aicard))
-			var/obj/item/device/aicard/card = loc
+		if (istype(loc, /obj/item/weapon/aicard))
+			var/obj/item/weapon/aicard/card = loc
 			card.update_icon()
 
 	. = ..(gibbed,"gives one shrill beep before falling lifeless.")

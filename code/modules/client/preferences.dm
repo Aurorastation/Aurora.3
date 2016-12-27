@@ -31,7 +31,7 @@ datum/preferences
 
 	//character preferences
 	var/real_name						//our character's name
-	var/be_random_name = 0				//whether we are a random name every round
+	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
@@ -124,6 +124,8 @@ datum/preferences
 	// OOC Metadata:
 	var/metadata = ""
 
+	var/list/pai = list()	// A list for holding pAI related data.
+
 	var/client/client = null
 
 	var/savefile/loaded_preferences
@@ -131,12 +133,7 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 /datum/preferences/New(client/C)
-	player_setup = new(src)
-	gender = pick(MALE, FEMALE)
-	real_name = random_name(gender,species)
-	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
-
-	gear = list()
+	new_setup()
 
 	if(istype(C))
 		client = C
@@ -145,16 +142,6 @@ datum/preferences
 			load_preferences()
 			load_and_update_character()
 
-	//Reset the records when making a new char
-	med_record = ""
-	sec_record = ""
-	incidents = list()
-	gen_record = ""
-	exploit_record = ""
-	ccia_record = ""
-
-	ZeroSkills(1)
-
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
@@ -162,6 +149,7 @@ datum/preferences
 		save_character()
 
 /datum/preferences/proc/getMinAge(var/age_min)
+
 	var/datum/species/mob_species = all_species[species]
 	if(mob_species.get_bodytype() == "Vaurca" || mob_species.get_bodytype() == "Diona" || mob_species.get_bodytype() == "Machine" || mob_species.name == "Shell")
 		age_min = 1
@@ -296,6 +284,12 @@ datum/preferences
 	else if(href_list["changeslot"])
 		load_character(text2num(href_list["changeslot"]))
 		close_load_dialog(usr)
+	else if(href_list["new_character_sql"])
+		new_setup(1)
+		usr << "<span class='notice'>Your setup has been refreshed.</span>"
+		close_load_dialog(usr)
+	else if(href_list["close_load_dialog"])
+		close_load_dialog(usr)
 	else
 		return 0
 
@@ -305,8 +299,6 @@ datum/preferences
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = 0)
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
-	if(be_random_name)
-		real_name = random_name(gender,species)
 
 	if(config.humans_need_surnames)
 		var/firstspace = findtext(real_name, " ")
@@ -447,12 +439,12 @@ datum/preferences
 			dat += "<hr>"
 			dat += "<b>[query.RowCount()]/[config.character_slots] slots used</b><br>"
 			if (query.RowCount() < config.character_slots)
-				dat += "<a href='byond://?src=\ref[src];preference=new_character_sql;'>New Character</a>"
+				dat += "<a href='?src=\ref[src];new_character_sql=1'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"
 
 	dat += "<hr>"
-	dat += "<a href='byond://?src=\ref[user];preference=close_load_dialog'>Close</a><br>"
+	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
 	user << browse(dat, "window=saves;size=300x390")
 
@@ -479,3 +471,92 @@ datum/preferences
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")
+
+// Logs a character to the database. For statistics.
+/datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
+	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
+		return
+
+	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id, :game_id, NOW(), :job, :special_role)")
+	query.Execute(list(":char_id" = current_character, ":game_id" = game_id, ":job" = H.mind.assigned_role, ":special_role" = H.mind.special_role))
+
+// Turned into a proc so we could reuse it for SQL shenanigans.
+/datum/preferences/proc/new_setup(var/re_initialize = 0)
+	if (player_setup)
+		qdel(player_setup)
+		player_setup = null
+
+	player_setup = new(src)
+	gender = pick(MALE, FEMALE)
+	real_name = random_name(gender,species)
+	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
+
+	current_character = 0
+	can_edit_name = 1
+
+	gear = list()
+
+	//Reset the records when making a new char
+	med_record = ""
+	sec_record = ""
+	incidents = list()
+	gen_record = ""
+	exploit_record = ""
+	ccia_record = ""
+
+	ZeroSkills(1)
+
+	// Do we need to reinitialize a whole bunch more vars?
+	if (re_initialize)
+		be_special_role = list()
+		uplinklocation = initial(uplinklocation)
+
+		r_hair = 0
+		g_hair = 0
+		b_hair = 0
+		r_facial = 0
+		g_facial = 0
+		b_facial = 0
+		r_skin = 0
+		g_skin = 0
+		b_skin = 0
+		r_eyes = 0
+		g_eyes = 0
+		b_eyes = 0
+
+		species = "Human"
+		home_system = "Unset"
+		citizenship = "None"
+		faction = "None"
+		religion = "None"
+
+		species = "Human"
+
+		job_civilian_high = 0
+		job_civilian_med = 0
+		job_civilian_low = 0
+
+		job_medsci_high = 0
+		job_medsci_med = 0
+		job_medsci_low = 0
+
+		job_engsec_high = 0
+		job_engsec_med = 0
+		job_engsec_low = 0
+
+		alternate_option = 0
+		metadata = ""
+
+		organ_data = list()
+		rlimb_data = list()
+		player_alt_titles = new()
+
+		flavor_texts = list()
+		flavour_texts_robot = list()
+
+		ccia_actions = list()
+		disabilities = 0
+
+		nanotrasen_relation = "Neutral"
+
+		update_preview_icon()

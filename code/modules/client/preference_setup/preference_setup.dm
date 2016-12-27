@@ -148,8 +148,9 @@
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_character(S)
 	else
-		if (modified && sql_role == SQL_CHARACTER)
-			handle_sql_saving(SQL_CHARACTER)
+		if (modified)
+			// No save here, because this is only called from the menu and needs to save /everything/.
+			handle_sql_saving(0)
 			modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)

@@ -14,7 +14,7 @@
 /datum/category_item/player_setup_item/player_global/language/gather_load_parameters()
 	return list(":ckey" = pref.client.ckey)
 
-/datum/category_item/player_setup_item/player_global/ui/gather_save_query()
+/datum/category_item/player_setup_item/player_global/language/gather_save_query()
 	return list("ss13_player_preferences" = list("language_prefixes", "ckey" = 1))
 
 /datum/category_item/player_setup_item/player_global/language/gather_save_parameters()

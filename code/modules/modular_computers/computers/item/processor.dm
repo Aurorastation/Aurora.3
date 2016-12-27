@@ -11,11 +11,13 @@
 	var/obj/machinery/modular_computer/machinery_computer = null
 
 /obj/item/modular_computer/processor/Destroy()
+	. = ..()
 	if(machinery_computer && (machinery_computer.cpu == src))
 		machinery_computer.cpu = null
 	machinery_computer = null
-	return ..()
 
+/obj/item/modular_computer/processor/nano_host()
+	return machinery_computer.nano_host()
 // Due to how processes work, we'd receive two process calls - one from machinery type and one from our own type.
 // Since we want this to be in-sync with machinery (as it's hidden type for machinery-based computers) we'll ignore
 // non-relayed process calls.
@@ -24,6 +26,12 @@
 		..()
 	else
 		return
+
+/obj/item/modular_computer/processor/examine(var/mob/user)
+	if(damage > broken_damage)
+		user << "<span class='danger'>It is heavily damaged!</span>"
+	else if(damage)
+		user << "It is damaged."
 
 // Power interaction is handled by our machinery part, due to machinery having APC connection.
 /obj/item/modular_computer/processor/handle_power()
@@ -40,6 +48,8 @@
 	hardware_flag = machinery_computer.hardware_flag
 	max_hardware_size = machinery_computer.max_hardware_size
 	steel_sheet_cost = machinery_computer.steel_sheet_cost
+	max_damage = machinery_computer._max_damage
+	broken_damage = machinery_computer._break_damage
 
 /obj/item/modular_computer/processor/relay_qdel()
 	qdel(machinery_computer)
@@ -92,10 +102,6 @@
 		var/obj/item/weapon/computer_hardware/tesla_link/L = H
 		L.holder = machinery_computer
 		machinery_computer.tesla_link = L
-		// Consoles don't usually have internal power source, so we can't disable tesla link in them.
-		if(istype(machinery_computer, /obj/machinery/modular_computer/console))
-			L.critical = 1
-			L.enabled = 1
 		found = 1
 	..(user, H, found)
 
@@ -103,14 +109,13 @@
 	if(machinery_computer.tesla_link == H)
 		machinery_computer.tesla_link = null
 		var/obj/item/weapon/computer_hardware/tesla_link/L = H
-		L.critical = 0		// That way we can install tesla link from console to laptop and it will be possible to turn it off via config.
 		L.holder = null
 		found = 1
 	..(user, H, found, critical)
 
 /obj/item/modular_computer/processor/get_all_components()
 	var/list/all_components = ..()
-	if(machinery_computer.tesla_link)
+	if(machinery_computer && machinery_computer.tesla_link)
 		all_components.Add(machinery_computer.tesla_link)
 	return all_components
 
@@ -119,3 +124,15 @@
 	if(!machinery_computer)
 		return 0
 	return machinery_computer.Adjacent(neighbor)
+
+/obj/item/modular_computer/processor/turn_on(var/mob/user)
+	// If we have a tesla link on our machinery counterpart, enable it automatically. Lets computer without a battery work.
+	if(machinery_computer && machinery_computer.tesla_link)
+		machinery_computer.tesla_link.enabled = 1
+	..()
+
+/obj/item/modular_computer/processor/check_eye(var/mob/user)
+	if (active_program)
+		return active_program.check_eye(user)
+
+	return -1
