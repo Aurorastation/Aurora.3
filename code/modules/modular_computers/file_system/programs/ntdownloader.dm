@@ -85,8 +85,10 @@
 	switch(ntnet_status)
 		if(1)
 			download_netspeed = NTNETSPEED_LOWSIGNAL
+			downstream_variance = 0.3
 		if(2)
 			download_netspeed = NTNETSPEED_HIGHSIGNAL
+			downstream_variance = 0.2
 		if(3)
 			download_netspeed = NTNETSPEED_ETHERNET
 

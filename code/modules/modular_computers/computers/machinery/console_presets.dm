@@ -27,6 +27,18 @@
 /obj/machinery/modular_computer/console/preset/proc/install_programs()
 	return
 
+
+// ===== ADMIN CONSOLE =====
+/obj/machinery/modular_computer/console/preset/admin
+	console_department = "CC ITIQ"
+	desc = "A computer from the CC ITIQ Department. Only available on the odin"
+
+/obj/machinery/modular_computer/console/preset/admin/install_programs()
+	for(var/F in typesof(/datum/computer_file/program))
+		var/datum/computer_file/program/prog = new F
+		cpu.hard_drive.store_file(prog)
+	cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/lambda(cpu)
+
 // ===== ENGINEERING CONSOLE =====
 /obj/machinery/modular_computer/console/preset/engineering
 	 console_department = "Engineering"

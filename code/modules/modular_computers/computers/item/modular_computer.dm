@@ -97,6 +97,22 @@
 
 	proc_eject_ai(usr)
 
+// Reset Computer
+/obj/item/modular_computer/verb/reset_computer()
+	set name = "Reset Computer"
+	set category = "Object"
+	set src in view(1)
+
+	if(usr.incapacitated() || !istype(usr, /mob/living))
+		usr << "<span class='warning'>You can't do that.</span>"
+		return
+
+	if(!Adjacent(usr))
+		usr << "<span class='warning'>You can't reach it.</span>"
+		return
+
+	proc_reset_computer()
+
 /obj/item/modular_computer/proc/proc_eject_id(mob/user)
 	if(!user)
 		user = usr
@@ -144,6 +160,10 @@
 	ai_slot.stored_card = null
 	ai_slot.update_power_usage()
 	update_uis()
+
+/obj/item/modular_computer/proc/proc_reset_computer(mob/user)
+	kill_program(1)
+	//shutdown_computer(1) // Killing the current program should be enough
 
 /obj/item/modular_computer/attack_ghost(var/mob/dead/observer/user)
 	if(enabled)
@@ -613,7 +633,7 @@
 	// "USB" flash drive.
 	if(istype(H, /obj/item/weapon/computer_hardware/hard_drive/portable))
 		if(software_locked)
-			user << "This computer is locked down by the Central Command IT IQ department. You can not connect \the [portable_drive]."
+			user << "This computer is locked down by the Central Command IT IQ department. You can not connect \the [H]."
 			return
 		if(portable_drive)
 			user << "This computer's portable drive slot is already occupied by \the [portable_drive]."
