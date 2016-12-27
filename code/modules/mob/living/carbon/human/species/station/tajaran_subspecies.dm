@@ -1,6 +1,6 @@
 /datum/species/tajaran/zhan_khazan
-    name = "Zhan-Khaza"
-    name_plural = "Zhan-Khazan"
+    name = "Zhan-Khazan Tajara"
+    name_plural = "Zhan-Khazan Tajaran"
     blurb = "Zhan-Khazan are the second most populous of Tajaran ethnicities, and are considered to be \
     the backbone of the Tajaran workforce. Their history as an ethnicity is one not well documented; \
     very little historical texts describing them were preserved in the wake of the Great War, and archaeological \
@@ -25,8 +25,8 @@
     num_alternate_languages = 1 // Only one Extra Language
 
 /datum/species/tajaran/m_sai
-    name = "M'sai"
-    name_plural = "M'sai"
+    name = "M'sai Tajara"
+    name_plural = "M'sai Tajaran"
     blurb = "As the third (though only by a small margin) populous Tajaran ethnic group, the M'sai were at one point \
     the hunters for ancient Tajara and evolved to have lithe, slender forms, and light fur that hid them in the blizzards on Adhomai. \
     As Tajaran society advanced, M'sai could be found in many roles related to combat, including law enforcement and military service. \
@@ -47,4 +47,4 @@
     heat_level_2 = 390 //RaceDefault 380 Default 400
     heat_level_3 = 900 //RaceDefault 800 Default 1000
 
-    secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIGN_TAJARA)
+    secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)

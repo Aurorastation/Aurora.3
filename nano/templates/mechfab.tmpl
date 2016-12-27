@@ -1,16 +1,18 @@
-<h3>Exosuit Fabricator</h3>
 <div style="float: left; width: 60%;">
 	<div class="item">
 		{{:helper.link("Sync", null, {'sync' : 1})}}
 		{{:data.sync}}
 	</div>
+	<hr/>
 	{{if data.manufacturers}}
+	<h3>Manufacturers</h3>
 		<div class="item">
 			{{for data.manufacturers}}
 				{{:helper.link(value.company, null, {'manufacturer' : value.id}, value.id == data.manufacturer ? 'selected' : null)}}
 			{{/for}}
 		</div>
 	{{/if}}
+	<h3>Categories</h3>
 	<div class="item">
 		{{for data.categories}}
 			{{:helper.link(value, null, {'category' : value}, value == data.category ? 'selected' : null)}}
@@ -18,6 +20,7 @@
 		There are no known designs
 		{{/for}}
 	</div>
+	<h3>Component</h3>
 	{{for data.buildable}}
 		{{if value.category == data.category}}
 			<div class="item">

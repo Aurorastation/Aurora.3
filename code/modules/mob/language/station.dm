@@ -54,16 +54,6 @@
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
 
-// Sign language
-/datum/language/tajaran_sign
-	name = LANGUAGE_SIGN_TAJARA
-	desc = "A sign language developed by Adhomai hunters"
-	speech_verb = "signs"
-	signlang_verb = list("signs", "gestures")
-	colour = "i"
-	key = "i"
-	flags = NO_STUTTER|SIGNLANG
-
 /datum/language/tajaran/get_random_name(var/gender)
 
 	var/new_name = ..(gender,1)
@@ -72,6 +62,31 @@
 	else
 		new_name += " [..(gender,1)]"
 	return new_name
+	
+// tajaran sign language
+/datum/language/tajaran_sign
+	name = LANGUAGE_SIGN_TAJARA
+	desc = "A sign language developed by Adhomai hunters"
+	speech_verb = "signs"
+	signlang_verb = list("signs", "flicks their ears", "gestures")
+	colour = "i"
+	key = "i"
+	flags = NO_STUTTER | SIGNLANG
+	
+/datum/language/siik_tajr
+	name = LANGUAGE_SIIK_TAJR
+	desc = "A language native to the tajaran, it employes both verbal and non-verbal elements."
+	speech_verb = "mrowls"
+	ask_verb = "mrowls"
+	exclaim_verb = "yowls"
+	signlang_verb = list("signs", "flicks their ears", "gestures")
+	colour = "tajaran_signlang"
+	key = "w"
+	flags = WHITELISTED | NONVERBAL
+	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
+	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
+	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
+	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
