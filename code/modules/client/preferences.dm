@@ -162,23 +162,30 @@ datum/preferences
 		save_character()
 
 /datum/preferences/proc/getMinAge(var/age_min)
-	if(species == "Vaurca" || species == "Machine" || species == "Diona")
+	var/datum/species/mob_species = all_species[species]
+	if(mob_species.get_bodytype() == "Vaurca" || mob_species.get_bodytype() == "Diona" || mob_species.get_bodytype() == "Machine" || mob_species.name == "Shell")
 		age_min = 1
-	if(species == "Human" || species == "Skrell" || species == "Tajara" || species == "Unathi")
-		age_min = 17
+	if(mob_species.get_bodytype() == "Human" || mob_species.get_bodytype() == "Skrell" || mob_species.get_bodytype() == "Tajara" || "|| " || mob_species.get_bodytype() == "Unathi")
+		if(mob_species.name != "Shell")
+			age_min = 17
 	return age_min
 
 /datum/preferences/proc/getMaxAge(var/age_max)
-	if(species == "Vaurca")
-		age_max = 20
-	if(species == "Machine")
+	var/datum/species/mob_species = all_species[species]
+	if(mob_species.get_bodytype() == "Vaurca")
+		if(mob_species.name != "Shell")
+			age_max = 20
+	if(mob_species.get_bodytype() == "Machine" || mob_species.name == "Shell")
 		age_max = 30
-	if(species == "Skrell" || species == "Diona")
-		age_max = 500
-	if(species == "Human")
-		age_max = 120
-	if(species == "Tajara" || species == "Unathi")
-		age_max = 85
+	if(mob_species.get_bodytype() == "Skrell" || mob_species.get_bodytype() == "Diona")
+		if(mob_species.name != "Shell")
+			age_max = 500
+	if(mob_species.get_bodytype() == "Human")
+		if(mob_species.name != "Shell")
+			age_max = 120
+	if(mob_species.get_bodytype() == "Tajara" || mob_species.get_bodytype() == "Unathi")
+		if(mob_species.name != "Shell")
+			age_max = 85
 	return age_max
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
@@ -398,7 +405,7 @@ datum/preferences
 	character.underwear = underwear
 
 	character.undershirt = undershirt
-	
+
 	character.socks = socks
 
 	if(backbag > 5 || backbag < 1)

@@ -50,7 +50,7 @@
 				":id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
-	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))
+	pref.age			= sanitize_integer(text2num(pref.age), getMinAge(), getMaxAge(), initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
 	pref.real_name		= sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
@@ -95,9 +95,9 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["age"])
-		var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference", pref.age) as num|null
+		var/new_age = input(user, "Choose your character's age:\n([getMinAge()]-[getMaxAge()])", "Character Preference", pref.age) as num|null
 		if(new_age && CanUseTopic(user))
-			pref.age = max(min(round(text2num(new_age)), AGE_MAX), AGE_MIN)
+			pref.age = max(min(round(text2num(new_age)),  getMaxAge()),getMinAge())
 			return TOPIC_REFRESH
 
 	else if(href_list["spawnpoint"])
@@ -116,3 +116,30 @@
 			return TOPIC_REFRESH
 
 	return ..()
+
+/datum/category_item/player_setup_item/general/basic/proc/getMinAge(var/age_min)
+	var/datum/species/mob_species = all_species[pref.species]
+	if(mob_species.get_bodytype() == "Vaurca" || mob_species.get_bodytype() == "Diona" || mob_species.get_bodytype() == "Machine" || mob_species.name == "Shell Frame")
+		age_min = 1
+	if(mob_species.get_bodytype() == "Human" || mob_species.get_bodytype() == "Skrell" || mob_species.get_bodytype() == "Tajara" || "|| " || mob_species.get_bodytype() == "Unathi")
+		if(mob_species.name != "Shell Frame")
+			age_min = 17
+	return age_min
+
+/datum/category_item/player_setup_item/general/basic/proc/getMaxAge(var/age_max)
+	var/datum/species/mob_species = all_species[pref.species]
+	if(mob_species.get_bodytype() == "Vaurca")
+		if(mob_species.name != "Shell Frame")
+			age_max = 20
+	if(mob_species.get_bodytype() == "Machine" || mob_species.name == "Shell Frame")
+		age_max = 30
+	if(mob_species.get_bodytype() == "Skrell" || mob_species.get_bodytype() == "Diona")
+		if(mob_species.name != "Shell Frame")
+			age_max = 500
+	if(mob_species.get_bodytype() == "Human")
+		if(mob_species.name != "Shell Frame")
+			age_max = 120
+	if(mob_species.get_bodytype() == "Tajara" || mob_species.get_bodytype() == "Unathi")
+		if(mob_species.name != "Shell Frame")
+			age_max = 85
+	return age_max

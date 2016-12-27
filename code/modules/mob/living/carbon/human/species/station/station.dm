@@ -20,7 +20,7 @@
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
-	
+
 /datum/species/human/get_bodytype()
 	return "Human"
 
@@ -95,6 +95,9 @@
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
 
+/datum/species/unathi/get_bodytype()
+	return "Unathi"
+
 /datum/species/tajaran
 	name = "Tajara"
 	short_name = "taj"
@@ -154,6 +157,9 @@
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
 
+/datum/species/tajaran/get_bodytype()
+	return "Tajara"
+
 /datum/species/skrell
 	name = "Skrell"
 	short_name = "skr"
@@ -186,6 +192,8 @@
 	stamina	=	90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
+/datum/species/skrell/get_bodytype()
+	return "Skrell"
 
 /datum/species/diona
 	name = "Diona"
@@ -321,16 +329,19 @@
 	if (!gibbed)
 		H.diona_split_into_nymphs(0)
 
-/datum/species/machine
-	name = "Machine"
-	short_name = "ipc"
-	name_plural = "machines"
+/datum/species/diona/get_bodytype()
+	return "Diona"
 
-	blurb = "Positronic intelligence really took off in the 26th century, and it is not uncommon to see independant, free-willed \
-	robots on many human stations, particularly in fringe systems where standards are slightly lax and public opinion less relevant \
-	to corporate operations. IPCs (Integrated Positronic Chassis) are a loose category of self-willed robots with a humanoid form, \
-	generally self-owned after being 'born' into servitude; they are reliable and dedicated workers, albeit more than slightly \
-	inhuman in outlook and perspective."
+/datum/species/machine
+	name = "Baseline Frame"
+	short_name = "ipc"
+	name_plural = "Baselines"
+
+	blurb = "IPCs are, quite simply, 'Integrated Positronic Chassis'. In this scenario, positronic does not mean anything significant - it is a nickname given \
+	to all advanced processing units, based on the works of vintage writer Isaac Asimov. The long of the short is that they represent all unbound synthetic \
+	units.Assembly produced, simple IPC units. Simple skeleton designed for minimal use, generally in civilian roles. The most common form of chassis used by \
+	IPCs, first designed and produced by Hephaestus Industries in the early years of synthetic production. It has become ubiquitous, and for all of its many \
+	faults - its shoddy coolant systems and fragile frame - it would be very odd to see a standard IPC without it."
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
@@ -343,7 +354,6 @@
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
 
-	eyes = "blank_eyes"
 	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
 	brute_mod = 0.5
 	burn_mod = 1.0
@@ -368,6 +378,7 @@
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
 	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
+	appearance_flags = HAS_SKIN_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
 	blood_color = "#1F181F"
@@ -378,7 +389,8 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain,
 		"cell" = /obj/item/organ/cell,
-		"optics" = /obj/item/organ/optical_sensor
+		"optics" = /obj/item/organ/optical_sensor,
+		"ipc tag" = /obj/item/organ/ipc_tag
 		)
 
 	vision_organ = "optics"
@@ -405,6 +417,10 @@
 	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1	  // About as capable of speed as a human
 
+/datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
+	return ..()
+
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
@@ -429,6 +445,8 @@
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
 
+/datum/species/machine/get_bodytype()
+	return "Machine"
 
 /datum/species/bug
 	name = "Vaurca"
@@ -503,3 +521,6 @@
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
+
+/datum/species/bug/get_bodytype()
+	return "Vaurca"

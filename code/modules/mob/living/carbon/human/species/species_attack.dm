@@ -83,26 +83,26 @@
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/terminator
-	attack_verb = list("pulverized", "crushed", "punded")
+	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("power fist")
 	damage = 12
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
 	..()
-	if(prob(10) && target.mob_size <= 20)
+	if(prob(25) && target.mob_size <= 30)
 		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
 		var/T = get_turf(user)
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(3, 1, T)
 		s.start()
-		step_away(src,target,15)
+		step_away(target,user,15)
 		sleep(1)
-		step_away(src,target,15)
+		step_away(target,user,15)
 		sleep(1)
-		step_away(src,target,15)
+		step_away(target,user,15)
 		sleep(1)
-		step_away(src,target,15)
+		step_away(target,user,15)
 		sleep(1)
 		target.apply_effect(attack_damage * 0.4, WEAKEN, armour)

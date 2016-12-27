@@ -129,7 +129,7 @@
 			switch(species.name)
 				if("Tajara")
 					bsc()
-				if("Machine")
+				if("Baseline Frame")
 					bsb()
 				if("Diona")
 					bsd()
@@ -182,7 +182,7 @@
 			suicide()
 
 	proc/bsb()
-		if(set_species("Machine"))
+		if(set_species("Baseline Frame"))
 			h_style = "blue IPC screen"
 			name = "Bluespace Bot"
 			voice_name = "Bluespace Bot"
@@ -258,7 +258,7 @@
 			suicide()
 
 	proc/bsv()
-		if(set_species("Vaurca"))
+		if(set_species("Vaurca Worker"))
 			h_style = "Bald"
 			name = "Bluespace Bug"
 			voice_name = "Bluespace Bug"

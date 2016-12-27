@@ -16,7 +16,7 @@ var/global/list/limb_icon_cache = list()
 	s_tone = null
 	s_col = null
 	h_col = null
-	if(status & ORGAN_ROBOT)
+	if(status & ORGAN_ROBOT && !(isipc(human)))
 		return
 	if(species && human.species && species.name != human.species.name)
 		return

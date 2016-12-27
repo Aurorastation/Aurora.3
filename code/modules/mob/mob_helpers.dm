@@ -57,16 +57,22 @@
 	return 0
 
 /proc/isipc(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Machine"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Baseline Frame")
+				return 1
+			if ("Industrial Frame")
+				return 1
+			if ("Shell Frame")
+				return 1
+			if ("Hunter-Killer")
+				return 1
 	return 0
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vox"))
 		return 1
 	return 0
-
-
 
 /mob/proc/is_diona()
 	//returns which type of diona we are, or zero

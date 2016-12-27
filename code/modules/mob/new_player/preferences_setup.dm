@@ -196,8 +196,17 @@ datum/preferences
 		qdel(preview_icon_side)
 		qdel(preview_icon)
 
-		var/g = "m"
-		if(gender == FEMALE)	g = "f"
+		var/genderhead = "head"
+		var/gendergroin = "groin"
+		var/genderbust = "torso"
+		if(gender == FEMALE)
+			genderhead = "head_f"
+			gendergroin = "groin_f"
+			genderbust = "torso_f"
+		if(gender == MALE)
+			genderhead = "head_m"
+			gendergroin = "groin_m"
+			genderbust = "torso_m"
 
 		var/icon/icobase
 		var/datum/species/current_species = all_species[species]
@@ -207,17 +216,21 @@ datum/preferences
 		else
 			icobase = 'icons/mob/human_races/r_human.dmi'
 
-		preview_icon = new /icon(icobase, "torso_[g]")
-		preview_icon.Blend(new /icon(icobase, "groin_[g]"), ICON_OVERLAY)
-		preview_icon.Blend(new /icon(icobase, "head_[g]"), ICON_OVERLAY)
-
+		preview_icon = new /icon('icons/effects/effects.dmi', "nothing")
 
 		//Non-robotic limbs
-		for(var/name in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand"))
-			if(organ_data[name] == "amputated") continue
-			if(organ_data[name] == "cyborg")
+		for(var/organname in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand","groin","chest","head"))
+			if(organ_data[organname] == "amputated") continue
+			if(organ_data[organname] == "cyborg")
 				continue//We will add the icons for robolimbs after the skin color is applied
-			preview_icon.Blend(new /icon(icobase, "[name]"), ICON_OVERLAY)
+			if(organname == "head")
+				preview_icon.Blend(new /icon(icobase, "[genderhead]"), ICON_OVERLAY)
+			else if(organname == "groin")
+				preview_icon.Blend(new /icon(icobase, "[gendergroin]"), ICON_OVERLAY)
+			else if(organname == "chest")
+				preview_icon.Blend(new /icon(icobase, "[genderbust]"), ICON_OVERLAY)
+			else
+				preview_icon.Blend(new /icon(icobase, "[organname]"), ICON_OVERLAY)
 
 		//Tail
 		if(current_species && (current_species.tail))
@@ -237,12 +250,19 @@ datum/preferences
 
 
 		//Robotic limbs, done AFTER skin color/tone blending
-		for(var/name in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand"))
-			if(organ_data[name] == "cyborg")
+		for(var/roboname in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand","groin","chest","head"))
+			if(organ_data[roboname] == "cyborg")
 				var/datum/robolimb/R
-				if(rlimb_data[name]) R = all_robolimbs[rlimb_data[name]]
+				if(rlimb_data[roboname]) R = all_robolimbs[rlimb_data[roboname]]
 				if(!R) R = basic_robolimb
-				preview_icon.Blend(icon(R.icon, "[name]"), ICON_OVERLAY) // This doesn't check gendered_icon. Not an issue while only limbs can be robotic.
+				if(roboname == "head")
+					preview_icon.Blend(icon(R.icon, "[genderhead]"), ICON_OVERLAY)
+				else if(roboname == "groin")
+					preview_icon.Blend(icon(R.icon, "[gendergroin]"), ICON_OVERLAY)
+				else if(roboname == "chest")
+					preview_icon.Blend(icon(R.icon, "[genderbust]"), ICON_OVERLAY)
+				else
+					preview_icon.Blend(icon(R.icon, "[roboname]"), ICON_OVERLAY)
 
 
 		var/icon/eyes_s = new/icon("icon" = 'icons/mob/human_face.dmi', "icon_state" = current_species ? current_species.eyes : "eyes_s")

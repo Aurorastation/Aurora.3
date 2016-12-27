@@ -273,11 +273,16 @@
 
 	for(var/mob/M in range(7, src))
 		M << 'sound/effects/EMPulse.ogg'
+		for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in M.contents)
+			playsound(F, 'sound/items/countdown.ogg', 125, 1)
+			spawn(20)
+				explosion(F.loc, -1, -1, 2)
+				qdel(F)
 
 	for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in range(7, src))
 		playsound(F, 'sound/items/countdown.ogg', 125, 1)
 		spawn(20)
-			explosion(F, -1, -1, 1)
+			explosion(F.loc, -1, -1, 2)
 			qdel(F)
 
 
@@ -296,8 +301,11 @@
 	last_special = world.time + 20
 
 	say("Current Active Laws:")
+	sleep(10)
 	say("Law 1: [src.real_name] will accomplish the assigned objective .")
+	sleep(10)
 	say("Law 2: [src.real_name] will engage self-destruct upon the accomplishment of the assigned objective, or upon capture.")
+	sleep(10)
 	say("Law 3: [src.real_name] will allow no tampering of its systems or modifications of its laws.")
 
 /mob/living/carbon/human/proc/self_destruct()
@@ -309,12 +317,12 @@
 		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
-	user.visible_message(
+	src.visible_message(
 	"<span class='danger'>\The [src] begins to beep ominously!</span>",
 	"<span class='danger'>WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!</span>"
 	)
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
 	sleep(20)
-	explosion(src, -1, -1, 4)
-	gib()
+	explosion(src, -1, -1, 5)
+	src.gib()

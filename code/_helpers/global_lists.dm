@@ -59,13 +59,13 @@ var/global/list/socks_f = list(
 	"White thigh" = "white_thigh", "Black normal" = "black_norm", "Black short" = "black_short",
 	"Black knee" = "black_knee", "Black thigh" = "black_thigh", "Striped normal" = "striped_norm",
 	"Striped short" = "striped_short", "Striped knee" = "striped_knee", "Striped thigh" = "striped_thigh",
-	"Rainbow normal" = "rainbow_norm", "Rainbow short" = "rainbow_short", "Rainbow knee" = "rainbow_knee", 
+	"Rainbow normal" = "rainbow_norm", "Rainbow short" = "rainbow_short", "Rainbow knee" = "rainbow_knee",
 	"Rainbow thigh" = "rainbow_thigh", "Pantyhose" = "pantyhose", "None")
 
 var/global/list/socks_m = list(
 	"White normal" = "white_norm", "White short" = "white_short", "White knee" = "white_knee",
-	"Black normal" = "black_norm", "Black short" = "black_short", "Black knee" = "black_knee", 
-	"Striped normal" = "striped_norm", "Striped short" = "striped_short", "Striped knee" = "striped_knee", 
+	"Black normal" = "black_norm", "Black short" = "black_short", "Black knee" = "black_knee",
+	"Striped normal" = "striped_norm", "Striped short" = "striped_short", "Striped knee" = "striped_knee",
 	"Rainbow normal" = "rainbow_norm", "Rainbow short" = "rainbow_short", "Rainbow knee" = "rainbow_knee", "None")
 
 	//Backpacks
@@ -84,6 +84,7 @@ var/global/list/endgame_exits = list()
 var/global/list/endgame_safespawns = list()
 
 var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, access_external_airlocks)
+
 //////////////////////////
 /////Initial Building/////
 //////////////////////////

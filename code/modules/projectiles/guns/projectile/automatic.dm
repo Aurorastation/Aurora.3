@@ -325,7 +325,7 @@
 	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/flechette
-	allowed_magazines = list(/obj/item/ammo_magazine/flechette)
+	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
@@ -367,13 +367,3 @@
 	set name = "Wield rifle"
 	set category = "Object"
 	set src in usr
-
-	if(wielded)
-		icon_state = "flechetterifle"
-		item_state = "flechetterifle"
-		user.regenerate_icons()
-	else
-		icon_state = "flechetterifle_wielded"
-		item_state = icon_state
-		user.regenerate_icons()
-	toggle_wield(usr)

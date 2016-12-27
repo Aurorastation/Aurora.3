@@ -381,25 +381,25 @@
 	caliber = "flechette"
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	ammo_type = /obj/item/ammo_casing/flechette
-	max_ammo = 30
+	max_ammo = 40
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/flechette
+/obj/item/ammo_magazine/flechette/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/flechette/explosive
 	name = "explosive flechette rounds"
 	desc = "A box of ten explosive flechettes that can be remotely detonated by a certain signal."
 	icon = 'icons/obj/terminator.dmi'
-	icon_state = "flechette"
+	icon_state = "flechette_e"
 	mag_type = MAGAZINE
 	caliber = "flechette"
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
-	ammo_type = /obj/item/projectile/bullet/flechette/explosive
+	ammo_type = /obj/item/ammo_casing/flechette/explosive
 	max_ammo = 10
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/flechette
+/obj/item/ammo_magazine/flechette/explosive/empty
 	initial_ammo = 0
 
 
