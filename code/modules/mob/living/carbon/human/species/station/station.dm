@@ -342,6 +342,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
+	radiation_mod = 0	// not affected by radiation
 
 	eyes = "blank_eyes"
 	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
