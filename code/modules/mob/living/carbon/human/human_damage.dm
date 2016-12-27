@@ -403,6 +403,6 @@ This function restores all organs.
 	return 1
 
 /mob/living/carbon/human/apply_radiation(var/rads)
-	if (species)
+	if (species && rads > 0)
 		rads = rads * species.radiation_mod
 	..(rads)

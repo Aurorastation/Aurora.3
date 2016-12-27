@@ -281,24 +281,24 @@
 			speech_problem_flag = 1
 			gene.OnMobLife(src)
 
-	var/radiation = Clamp(total_radiation,0,100)
+	total_radiation = Clamp(total_radiation,0,100)
 
 	// #TODO-MERGE: Check vaurca and IPC radiation management
-	if (radiation)
+	if (total_radiation)
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
 			diona_handle_regeneration(get_dionastats())
 		else
 			var/damage = 0
-			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			if(prob(25))
 				damage = 1
 
-			if (radiation > 50)
+			if (total_radiation > 50)
 				damage = 1
-				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
-					radiation -= 5 * RADIATION_SPEED_COEFFICIENT
+					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
 					src << "<span class='warning'>You feel weak.</span>"
 					Weaken(3)
 					if(!lying)
@@ -310,8 +310,8 @@
 						f_style = "Shaved"
 						update_hair()
 
-			if (radiation > 75)
-				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+			if (total_radiation > 75)
+				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
 				damage = 3
 				if(prob(5))
 					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
