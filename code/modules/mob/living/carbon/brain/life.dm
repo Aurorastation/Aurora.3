@@ -2,6 +2,7 @@
 	return
 
 /mob/living/carbon/brain/handle_mutations_and_radiation()
+	var/radiation = total_radiation
 	if (radiation)
 		if (radiation > 100)
 			radiation = 100

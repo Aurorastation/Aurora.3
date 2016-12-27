@@ -67,3 +67,5 @@
 	var/exhaust_threshold = 50
 
 	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
+
+	var/total_radiation	// DON'T MODIFY THIS DIRECTLY. USE apply_radiation()!

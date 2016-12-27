@@ -274,13 +274,13 @@
 
 	var/remainder = cost * sprint_cost_factor
 
-	if (H.radiation)
-		if (H.radiation > (cost*0.5))//Radiation counts as double energy
-			H.radiation -= cost*0.5
+	if (H.total_radiation)
+		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
+			H.apply_radiation(cost*(-0.5))
 			return 1
 		else
-			remainder = cost - (H.radiation*2)
-			H.radiation = 0
+			remainder = cost - (H.total_radiation*2)
+			H.total_radiation = 0
 
 	if (DS.stored_energy > remainder)
 		DS.stored_energy -= remainder

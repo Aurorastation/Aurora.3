@@ -281,7 +281,7 @@
 			speech_problem_flag = 1
 			gene.OnMobLife(src)
 
-	radiation = Clamp(radiation,0,100)
+	var/radiation = Clamp(total_radiation,0,100)
 
 	// #TODO-MERGE: Check vaurca and IPC radiation management
 	if (radiation)
