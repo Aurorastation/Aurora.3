@@ -1,5 +1,3 @@
-var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called manually after an event.
-
 #define KILOWATTS *1000
 #define MEGAWATTS *1000000
 #define GIGAWATTS *1000000000
