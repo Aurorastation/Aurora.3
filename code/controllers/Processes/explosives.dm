@@ -6,6 +6,8 @@ var/datum/controller/process/explosives/bomb_processor
 	var/list/work_queue
 	var/ticks_without_work = 0
 	var/powernet_rebuild_was_deferred_already
+	var/list/explosion_turfs
+	var/explosion_in_progress
 
 /datum/controller/process/explosives/setup()
 	name = "explosives"
@@ -191,12 +193,6 @@ var/datum/controller/process/explosives/bomb_processor
 			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
 
 /datum/controller/process/explosives/proc/explosion_rec(turf/epicenter, power)
-	var/loopbreak = 0
-	while(explosion_in_progress)
-		if(loopbreak >= 15) return
-		sleep(10)
-		loopbreak++
-
 	if(power <= 0) return
 	epicenter = get_turf(epicenter)
 	if(!epicenter) return
@@ -215,7 +211,7 @@ var/datum/controller/process/explosives/bomb_processor
 	//This steap handles the gathering of turfs which will be ex_act() -ed in the next step. It also ensures each turf gets the maximum possible amount of power dealt to it.
 	for(var/direction in cardinal)
 		var/turf/T = get_step(epicenter, direction)
-		T.explosion_spread(power - epicenter.explosion_resistance, direction)
+		explosion_spread(T, power - epicenter.explosion_resistance, direction)
 		SCHECK
 
 	//This step applies the ex_act effects for the explosion, as planned in the previous step.
@@ -239,6 +235,27 @@ var/datum/controller/process/explosives/bomb_processor
 
 	explosion_in_progress = 0
 
+/datum/controller/process/explosives/proc/explosion_spread(turf/s, power, direction)
+	if (istype(s, /turf/unsimulated))
+		return
+	if(power <= 0)
+		return
+
+	if(explosion_turfs[s] >= power)
+		return //The turf already sustained and spread a power greated than what we are dealing with. No point spreading again.
+	explosion_turfs[s] = power
+
+	var/spread_power = power - s.explosion_resistance //This is the amount of power that will be spread to the tile in the direction of the blast
+	for(var/obj/O in src)
+		if(O.explosion_resistance)
+			spread_power -= O.explosion_resistance
+
+	var/turf/T = get_step(src, direction)
+	explosion_spread(T, spread_power, direction)
+	T = get_step(s, turn(direction,90))
+	explosion_spread(T, spread_power, turn(direction,90))
+	T = get_step(s, turn(direction,-90))
+	explosion_spread(T, spread_power, turn(direction,90))
 
 /datum/controller/process/explosives/proc/queue(var/datum/explosiondata/data)
 	if (!data) return
