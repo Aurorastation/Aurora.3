@@ -7,6 +7,7 @@ var/datum/controller/process/explosives/bomb_processor
 	var/ticks_without_work = 0
 	var/list/explosion_turfs
 	var/explosion_in_progress
+	var/powernet_update_pending = 0
 
 /datum/controller/process/explosives/setup()
 	name = "explosives"
@@ -20,11 +21,13 @@ var/datum/controller/process/explosives/bomb_processor
 
 	if (!(work_queue.len))
 		ticks_without_work++
-		if (ticks_without_work > 5)
+		if (powernet_update_pending && ticks_without_work > 5)
 			makepowernets()
+			powernet_update_pending = 0
 		return
 
 	ticks_without_work = 0
+	powernet_update_pending = 1
 
 	for (var/A in work_queue)
 		var/datum/explosiondata/data = A
