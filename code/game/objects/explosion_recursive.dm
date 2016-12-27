@@ -1,7 +1,11 @@
 /client/proc/kaboom()
 	var/power = input(src, "power?", "power?") as num
 	var/turf/T = get_turf(src.mob)
-	explosion_rec(T, power)
+	var/datum/explosiondata/d = new
+	d.is_rec = 1
+	d.epicenter = T
+	d.rec_pow = power
+	bomb_processor.queue(d)
 
 /obj
 	var/explosion_resistance
@@ -13,7 +17,7 @@ var/list/explosion_turfs = list()
 var/explosion_in_progress = 0
 
 
-proc/explosion_rec(turf/epicenter, power)
+/*proc/explosion_rec(turf/epicenter, power)
 
 	var/loopbreak = 0
 	while(explosion_in_progress)
@@ -59,7 +63,7 @@ proc/explosion_rec(turf/epicenter, power)
 		for(var/atom/A in T)
 			A.ex_act(severity)
 
-	explosion_in_progress = 0
+	explosion_in_progress = 0*/
 
 /turf
 	var/explosion_resistance
