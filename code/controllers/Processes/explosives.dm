@@ -12,6 +12,7 @@ var/datum/controller/process/explosives/bomb_processor
 /datum/controller/process/explosives/setup()
 	name = "explosives"
 	schedule_interval = 5 // every half-second
+	tick_allowance = 25	// 25% of a tick
 	work_queue = list()
 	bomb_processor = src
 
@@ -30,6 +31,7 @@ var/datum/controller/process/explosives/bomb_processor
 	powernet_update_pending = 1
 
 	for (var/A in work_queue)
+		lighting_process.disable()
 		var/datum/explosiondata/data = A
 
 		if (data.is_rec)
@@ -40,6 +42,7 @@ var/datum/controller/process/explosives/bomb_processor
 		SCHECK
 
 		work_queue -= data
+		lighting_process.enable()
 
 /datum/controller/process/explosives/proc/explosion(var/datum/explosiondata/data)
 	var/turf/epicenter = data.epicenter
