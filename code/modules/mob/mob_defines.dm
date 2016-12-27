@@ -159,7 +159,6 @@
 	var/can_pull_mobs = MOB_PULL_LARGER // Whether or not the mob can pull other mobs.
 
 	var/datum/dna/dna = null//Carbon
-	//var/radiation = 0.0//Carbon
 
 	var/list/mutations = list() //Carbon -- Doohl
 	//see: setup.dm for list of mutations

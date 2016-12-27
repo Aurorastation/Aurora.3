@@ -330,7 +330,7 @@
 	for(i=0,i<4,i++)
 		sleep(50)
 		if(src.OCCUPANT)
-			OCCUPANT.total_radiation += 50
+			OCCUPANT.apply_radiation(50)
 			if (!OCCUPANT.is_diona())
 				if(src.issuperUV)
 					var/burndamage = rand(28,35)
