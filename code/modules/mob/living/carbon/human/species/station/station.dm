@@ -464,7 +464,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if (!status)
 			new_machine.internal_organs_by_name.Remove("ipc tag")
 			new_machine.internal_organs.Remove(tag)
-			del(tag)
+			qdel(tag)
 
 /datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
 	if (!target || !player)
