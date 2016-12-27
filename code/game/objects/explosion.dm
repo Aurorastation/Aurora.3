@@ -11,6 +11,7 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 	data.adminlog = adminlog
 	data.z_transfer = z_transfer
 	data.is_rec = is_rec
+	data.rec_power = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
 
 	// queue work
 	bomb_processor.queue(data)
