@@ -236,6 +236,7 @@ var/datum/controller/process/explosives/bomb_processor
 	explosion_in_progress = 0
 
 /datum/controller/process/explosives/proc/explosion_spread(turf/s, power, direction)
+	SCHECK
 	if (istype(s, /turf/unsimulated))
 		return
 	if(power <= 0)
@@ -246,11 +247,11 @@ var/datum/controller/process/explosives/bomb_processor
 	explosion_turfs[s] = power
 
 	var/spread_power = power - s.explosion_resistance //This is the amount of power that will be spread to the tile in the direction of the blast
-	for(var/obj/O in src)
+	for(var/obj/O in s)
 		if(O.explosion_resistance)
 			spread_power -= O.explosion_resistance
 
-	var/turf/T = get_step(src, direction)
+	var/turf/T = get_step(s, direction)
 	explosion_spread(T, spread_power, direction)
 	T = get_step(s, turn(direction,90))
 	explosion_spread(T, spread_power, turn(direction,90))
