@@ -203,7 +203,7 @@ datum/preferences
 			genderhead = "head_f"
 			gendergroin = "groin_f"
 			genderbust = "torso_f"
-		if(gender == MALE)
+		else if(gender == MALE)
 			genderhead = "head_m"
 			gendergroin = "groin_m"
 			genderbust = "torso_m"

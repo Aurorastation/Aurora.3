@@ -2,6 +2,8 @@
 	name = "Human"
 	short_name = "hum"
 	name_plural = "Humans"
+	bodytype = "Human"
+	age_max = 125
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
 	blurb = "Humanity originated in the Sol system, and over the last five centuries has spread \
@@ -21,13 +23,11 @@
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
-/datum/species/human/get_bodytype()
-	return "Human"
-
 /datum/species/unathi
 	name = "Unathi"
 	short_name = "una"
 	name_plural = "Unathi"
+	bodytype = "Unathi"
 	icobase = 'icons/mob/human_races/r_lizard.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
 	tail = "sogtail"
@@ -95,13 +95,11 @@
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
 
-/datum/species/unathi/get_bodytype()
-	return "Unathi"
-
 /datum/species/tajaran
 	name = "Tajara"
 	short_name = "taj"
 	name_plural = "Tajaran"
+	bodytype = "Tajara"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
 	tail = "tajtail"
@@ -157,13 +155,13 @@
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
 
-/datum/species/tajaran/get_bodytype()
-	return "Tajara"
 
 /datum/species/skrell
 	name = "Skrell"
 	short_name = "skr"
 	name_plural = "Skrell"
+	bodytype = "Skrell"
+	age_max = 500
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	eyes = "skrell_eyes_s"
@@ -192,13 +190,13 @@
 	stamina	=	90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
-/datum/species/skrell/get_bodytype()
-	return "Skrell"
 
 /datum/species/diona
 	name = "Diona"
 	short_name = "dio"
 	name_plural = "Dionaea"
+	bodytype = "Diona"
+	age_max = 1000
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
 	language = "Ceti Basic"
@@ -329,13 +327,14 @@
 	if (!gibbed)
 		H.diona_split_into_nymphs(0)
 
-/datum/species/diona/get_bodytype()
-	return "Diona"
 
 /datum/species/machine
 	name = "Baseline Frame"
 	short_name = "ipc"
 	name_plural = "Baselines"
+	bodytype = "Machine"
+	age_min = 1
+	age_max = 30
 
 	blurb = "IPCs are, quite simply, 'Integrated Positronic Chassis'. In this scenario, positronic does not mean anything significant - it is a nickname given \
 	to all advanced processing units, based on the works of vintage writer Isaac Asimov. The long of the short is that they represent all unbound synthetic \
@@ -417,10 +416,10 @@
 	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1	  // About as capable of speed as a human
 
-/datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
+datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
-	return ..()
-
+	. = ..()
+	check_tag(H, H.client)
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
@@ -444,9 +443,6 @@
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
-
-/datum/species/machine/get_bodytype()
-	return "Machine"
 
 /datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	if (!new_machine || !player)
@@ -503,6 +499,9 @@
 	name = "Vaurca Worker"
 	short_name = "vau"
 	name_plural = "Type A"
+	bodytype = "Vaurca"
+	age_min = 1
+	age_max = 20
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
 	greater_form = "Vaurca Warrior"
@@ -597,6 +596,3 @@
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
-
-/datum/species/bug/get_bodytype()
-	return "Vaurca"

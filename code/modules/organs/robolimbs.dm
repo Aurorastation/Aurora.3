@@ -84,9 +84,3 @@ var/global/datum/robolimb/basic_robolimb
 	desc = "This limb is designed to mimic the Vaurcae form. It does so with moderate success."
 	icon = 'icons/mob/human_races/r_vaurca.dmi'
 	species_can_use = list("Vaurca Worker","Vaurca Warrior")
-
-/datum/robolimb/diona
-	company = "Diona Synthskin"
-	desc = "This limb is designed to mimic the Dionaea form. It does so with moderate success."
-	icon = 'icons/mob/human_races/r_diona.dmi'
-	species_can_use = list()

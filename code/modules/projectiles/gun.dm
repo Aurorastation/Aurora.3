@@ -1,4 +1,4 @@
-h/*
+/*
 	Defines a firing mode for a gun.
 
 	A firemode is created from a list of fire mode settings. Each setting modifies the value of the gun var with the same name.

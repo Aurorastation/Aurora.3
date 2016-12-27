@@ -349,7 +349,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.b_hair = 0//hex2num(copytext(new_hair, 6, 8))
 			pref.s_tone = 0
 
-			reset_limbs()
+			pref.organ_data.Cut()
+			pref.rlimb_data.Cut()
 
 			return TOPIC_REFRESH
 
@@ -543,12 +544,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH
 
 	else if(href_list["reset_organs"])
-		reset_limbs()
+		pref.organ_data.Cut()
+		pref.rlimb_data.Cut()
 
 		return TOPIC_REFRESH
 
 	else if(href_list["shell"])
-		var/shellection = input(user, "What species shall you mimic?") as null|anything in list("Humanity","Vaurcae","Unathi","Tajara","Dionaea","Skrell")
+		var/shellection = input(user, "What species shall you mimic?") as null|anything in list("Humanity","Vaurcae","Unathi","Tajara","Skrell")
 		if(!shellection) return
 
 		var/shell_type
@@ -569,10 +571,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				shell_type = "Tajara"
 				mob_species.tail = "tajtail"
 				mob_species.tail_animation = 'icons/mob/species/tajaran/tail.dmi'
-			if("Dionaea")
-				shell_type = "Diona"
-				mob_species.tail = null
-				mob_species.tail_animation = null
 			if("Skrell")
 				shell_type = "Skrell"
 				mob_species.tail = null
@@ -656,7 +654,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	user << browse(dat, "window=species;size=700x400")
 
-/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
+/*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
 
 	for(var/organ in pref.organ_data)
 		pref.organ_data[organ] = null
@@ -666,4 +664,4 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	for(var/organ in pref.rlimb_data)
 		pref.rlimb_data[organ] = null
 	while(null in pref.rlimb_data)
-		pref.rlimb_data -= null
+		pref.rlimb_data -= null*/

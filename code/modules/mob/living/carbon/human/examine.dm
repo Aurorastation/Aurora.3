@@ -46,9 +46,6 @@
 	if (species && species.has_organ["ipc tag"] && internal_organs_by_name["ipc tag"])
 		msg += "[T.He] [T.is] wearing a tag designating them as Integrated Positronic Chassis <b>[src.real_name]</b>.\n"
 
-	if (species && species.has_organ["ipc tag"] && !internal_organs_by_name["ipc tag"])
-		msg += "<span class='warning'>[T.He] [T.is] not wearing their Federally mandated identification tag!</span>.\n"
-
 	//uniform
 	if(w_uniform && !skipjumpsuit)
 		//Ties

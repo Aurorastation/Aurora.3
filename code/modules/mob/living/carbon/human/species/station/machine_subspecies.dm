@@ -34,7 +34,14 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR |  HAS_SKIN_COLOR | HAS_FBP
 
 /datum/species/machine/shell/handle_post_spawn(var/mob/living/carbon/human/H)
-	return ..()
+	add_inherent_verbs(H)
+	H.mob_bump_flag = bump_flag
+	H.mob_swap_flags = swap_flags
+	H.mob_push_flags = push_flags
+	H.pass_flags = pass_flags
+	H.mob_size = mob_size
+	. = ..()
+	check_tag(H, H.client)
 
 /datum/species/machine/shell/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
@@ -51,7 +58,7 @@
 	return 0
 
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
-	..()
+	return
 
 /datum/species/machine/shell/get_bodytype()
 	return bodytype
@@ -117,7 +124,7 @@
 	return 0
 
 /datum/species/machine/industrial/handle_death(var/mob/living/carbon/human/H)
-	..()
+	return
 
 /datum/species/machine/terminator
 	name = "Hunter-Killer"
