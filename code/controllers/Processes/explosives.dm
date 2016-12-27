@@ -5,7 +5,6 @@ var/datum/controller/process/explosives/bomb_processor
 /datum/controller/process/explosives
 	var/list/work_queue
 	var/ticks_without_work = 0
-	var/powernet_rebuild_was_deferred_already
 	var/list/explosion_turfs
 	var/explosion_in_progress
 
@@ -22,9 +21,7 @@ var/datum/controller/process/explosives/bomb_processor
 	if (!(work_queue.len))
 		ticks_without_work++
 		if (ticks_without_work > 5)
-			if(defer_powernet_rebuild)
-				makepowernets()
-				defer_powernet_rebuild = 0
+			makepowernets()
 		return
 
 	ticks_without_work = 0
@@ -40,10 +37,6 @@ var/datum/controller/process/explosives/bomb_processor
 		SCHECK
 
 		work_queue -= data
-
-	if(!powernet_rebuild_was_deferred_already && defer_powernet_rebuild)
-		makepowernets()
-		defer_powernet_rebuild = 0
 
 /datum/controller/process/explosives/proc/explosion(var/datum/explosiondata/data)
 	var/turf/epicenter = data.epicenter
@@ -150,12 +143,6 @@ var/datum/controller/process/explosives/bomb_processor
 	if(adminlog)
 		message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
 		log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ")
-
-	var/approximate_intensity = (devastation_range * 3) + (heavy_impact_range * 2) + light_impact_range
-	powernet_rebuild_was_deferred_already = defer_powernet_rebuild
-	// Large enough explosion. For performance reasons, powernets will be rebuilt manually
-	if(!defer_powernet_rebuild && (approximate_intensity > 25))
-		defer_powernet_rebuild = 1
 
 	if(heavy_impact_range > 1)
 		var/datum/effect/system/explosion/E = new/datum/effect/system/explosion()
