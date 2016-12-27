@@ -246,7 +246,7 @@ var/datum/controller/process/explosives/bomb_processor
 
 /datum/controller/process/explosives/statProcess()
 	..()
-	stat(null, "[work_queue.len] items in explosion queue.")
+	stat(null, "[work_queue.len] items in explosion queue")
 
 
 /datum/explosiondata
