@@ -2,26 +2,26 @@
 	return
 
 /mob/living/carbon/brain/handle_mutations_and_radiation()
-	if (radiation)
-		if (radiation > 100)
-			radiation = 100
+	if (total_radiation)
+		if (total_radiation > 100)
+			total_radiation = 100
 			if(!container)//If it's not in an MMI
 				src << "\red You feel weak."
 			else//Fluff-wise, since the brain can't detect anything itself, the MMI handles thing like that
 				src << "\red STATUS: CRITICAL AMOUNTS OF RADIATION DETECTED."
 
-		switch(radiation)
+		switch(total_radiation)
 			if(1 to 49)
-				radiation--
+				apply_radiation(-1)
 				if(prob(25))
 					adjustToxLoss(1)
 					updatehealth()
 
 			if(50 to 74)
-				radiation -= 2
+				apply_radiation(-2)
 				adjustToxLoss(1)
 				if(prob(5))
-					radiation -= 5
+					apply_radiation(-5)
 					if(!container)
 						src << "\red You feel weak."
 					else
@@ -29,7 +29,7 @@
 				updatehealth()
 
 			if(75 to 100)
-				radiation -= 3
+				apply_radiation(-3)
 				adjustToxLoss(3)
 				updatehealth()
 

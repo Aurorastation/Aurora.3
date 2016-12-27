@@ -26,11 +26,11 @@
 	// Currently both Dionaea and larvae like to eat radiation, so I'm defining the
 	// rad absorbtion here. This will need to be changed if other baby aliens are added.
 
-	if(!radiation)
+	if(!total_radiation)
 		return
 
-	var/rads = radiation/25
-	radiation -= rads
+	var/rads = total_radiation/25
+	apply_radiation(rads*-1)
 	nutrition += rads
 	heal_overall_damage(rads,rads)
 	adjustOxyLoss(-(rads))

@@ -275,13 +275,13 @@
 
 	var/remainder = cost * sprint_cost_factor
 
-	if (H.radiation)
-		if (H.radiation > (cost*0.5))//Radiation counts as double energy
-			H.radiation -= cost*0.5
+	if (H.total_radiation)
+		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
+			H.apply_radiation(cost*(-0.5))
 			return 1
 		else
-			remainder = cost - (H.radiation*2)
-			H.radiation = 0
+			remainder = cost - (H.total_radiation*2)
+			H.total_radiation = 0
 
 	if (DS.stored_energy > remainder)
 		DS.stored_energy -= remainder
@@ -343,6 +343,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
+	radiation_mod = 0	// not affected by radiation
 
 	eyes = "blank_eyes"
 	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.

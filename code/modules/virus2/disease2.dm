@@ -75,7 +75,7 @@
 		cure(mob)
 		return
 
-	if(mob.radiation > 50)
+	if(mob.total_radiation > 50)
 		if(prob(1))
 			majormutate()
 

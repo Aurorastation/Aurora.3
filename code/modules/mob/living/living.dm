@@ -442,7 +442,7 @@ default behaviour is:
 	SetWeakened(0)
 
 	// shut down ongoing problems
-	radiation = 0
+	total_radiation = 0
 	nutrition = 400
 	bodytemperature = T20C
 	sdisabilities = 0
