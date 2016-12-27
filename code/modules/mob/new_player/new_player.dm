@@ -132,8 +132,6 @@
 				observer.icon = client.prefs.preview_icon
 				observer.alpha = 127
 
-				if(client.prefs.be_random_name)
-					client.prefs.real_name = random_name(client.prefs.gender)
 				observer.real_name = client.prefs.real_name
 				observer.name = observer.real_name
 				if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.

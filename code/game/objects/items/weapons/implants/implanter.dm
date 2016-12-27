@@ -178,6 +178,8 @@
 
 	ipc_tag.replaced(H, H.organs_by_name["groin"])
 
+	qdel(ipc_tag)
+
 	update()
 
 	var/datum/species/machine/machine = H.species

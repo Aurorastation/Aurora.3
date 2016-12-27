@@ -109,8 +109,8 @@
 	organ_tag = "ipc tag"
 	parent_organ = "groin"
 	icon = 'icons/obj/telescience.dmi'
-	icon_state = "gps_c"
-	dead_icon = "gps_c"
+	icon_state = "gps-c"
+	dead_icon = "gps-c"
 
 /obj/item/organ/ipc_tag/New()
 	robotize()
