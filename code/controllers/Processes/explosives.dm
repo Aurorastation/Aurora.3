@@ -52,8 +52,8 @@ var/datum/controller/process/explosives/bomb_processor
 	var/flash_range = data.flash_range
 	var/adminlog = data.adminlog
 	var/z_transfer = data.z_transfer
+	var/power = data.rec_pow
 
-	var/power = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
 	if(config.use_recursive_explosions)
 		explosion_rec(epicenter, power)
 		return
