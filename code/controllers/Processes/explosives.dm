@@ -14,6 +14,9 @@ var/datum/controller/process/explosives/bomb_processor
 	bomb_processor = src
 
 /datum/controller/process/explosives/doWork()
+	if (!work_queue)
+		setup()	// fix for process failing to re-init after termination
+
 	if (!(work_queue.len))
 		ticks_without_work++
 		if (ticks_without_work > 5)
