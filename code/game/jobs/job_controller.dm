@@ -52,8 +52,6 @@ var/global/datum/controller/occupations/job_master
 			var/datum/job/job = GetJob(rank)
 			if(!job)
 				return 0
-			if(job.minimum_character_age && (player.client.prefs.age < job.minimum_character_age))
-				return 0
 			if(jobban_isbanned(player, rank))
 				return 0
 			if(!job.player_old_enough(player.client))
@@ -89,9 +87,6 @@ var/global/datum/controller/occupations/job_master
 			if(!job.player_old_enough(player.client))
 				Debug("FOC player not old enough, Player: [player]")
 				continue
-			if(job.minimum_character_age && (player.client.prefs.age < job.minimum_character_age))
-				Debug("FOC character not old enough, Player: [player]")
-				continue
 			if(flag && !(flag in player.client.prefs.be_special_role))
 				Debug("FOC flag failed, Player: [player], Flag: [flag], ")
 				continue
@@ -104,9 +99,6 @@ var/global/datum/controller/occupations/job_master
 		Debug("GRJ Giving random job, Player: [player]")
 		for(var/datum/job/job in shuffle(occupations))
 			if(!job)
-				continue
-
-			if(job.minimum_character_age && (player.client.prefs.age < job.minimum_character_age))
 				continue
 
 			if(istype(job, GetJob("Assistant"))) // We don't want to give him assistant, that's boring!
@@ -154,9 +146,6 @@ var/global/datum/controller/occupations/job_master
 					// Log-out during round-start? What a bad boy, no head position for you!
 					if(!V.client) continue
 					var/age = V.client.prefs.age
-
-					if(age < job.minimum_character_age) // Nope.
-						continue
 
 					switch(age)
 						if(job.minimum_character_age to (job.minimum_character_age+10))
