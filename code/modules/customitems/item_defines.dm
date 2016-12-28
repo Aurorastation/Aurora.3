@@ -469,7 +469,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	canremove = 0
 	abstract = 1
-	species_restricted = list("Machine")
+	species_restricted = list("Baseline Frame")
 
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100
@@ -635,7 +635,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	body_parts_covered = 0
 	canremove = 0
-	species_restricted = list("Machine")
+	species_restricted = list("Baseline Frame")
 	var/emagged = 0
 
 /obj/item/clothing/mask/fluff/rur_collar/attackby(obj/item/I, mob/user)

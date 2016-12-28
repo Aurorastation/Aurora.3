@@ -311,6 +311,64 @@
 		list(mode_name="dual coil",	burst=2, move_delay=8, accuracy = list(-2,-3), dispersion = list(2.0, 3.0))
 		)
 
+
+/obj/item/weapon/gun/projectile/automatic/terminator
+	name = "flechette rifle"
+	desc = "A fearsome Necropolis Industries designed rifle with attached bayonet that fires lethal flechette rounds."
+	icon = 'icons/obj/terminator.dmi'
+	icon_state = "flechetterifle"
+	item_state = "flechetterifle"
+	contained_sprite = 1
+	w_class = 5
+	force = 30
+	caliber = "flechette"
+	slot_flags = SLOT_BELT|SLOT_BACK
+	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/flechette
+	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
+		list(mode_name="short bursts",   burst=5, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
+		)
+
+
+	fire_delay = 20
+	accuracy = -4
+
+	//wielding information
+	fire_delay_wielded = 5
+	accuracy_wielded = 0
+	scoped_accuracy = 2
+
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/projectile/automatic/terminator/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	if(wielded)
+		toggle_scope(2.0)
+	else
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+
+/obj/item/weapon/gun/projectile/automatic/terminator/can_wield()
+	return 1
+
+/obj/item/weapon/gun/projectile/automatic/terminator/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/automatic/terminator/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
@@ -345,3 +403,4 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "cshotgun" : "cshotgun-empty"
+

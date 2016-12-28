@@ -89,7 +89,7 @@
 				src << "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>"
 			return 0
 
-	if (T.get_species() == "Machine")
+	if (isipc(T))
 		if (notify)
 			src << "<span class='warning'>You lack the power interact with mechanical constructs.</span>"
 		return 0

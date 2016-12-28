@@ -116,3 +116,18 @@
 	colour = "cult"
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
+
+/datum/language/terminator
+	name = "Hephaestus Darkcomms"
+	desc = "A heavily encrypted communication network that piggybacks off of the state telecomms relays to covertly link Hephaestus black ops droids to their control AIs."
+	speech_verb = "buzzes"
+	ask_verb = "buzzes"
+	exclaim_verb = "buzzes"
+	colour = "bad"
+	key = "#"
+	flags = RESTRICTED | HIVEMIND
+	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
+	space_chance = 10
+
+/datum/language/terminator/get_random_name()
+	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"

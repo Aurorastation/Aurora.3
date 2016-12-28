@@ -58,6 +58,7 @@
 	var/agony = 0
 	var/incinerate = 0
 	var/embed = 0 // whether or not the projectile can embed itself in the mob
+	var/shrapnel_type //type of shrapnel the projectile leaves in its target.
 
 	var/hitscan = 0		// whether the projectile should be hitscan
 	var/step_delay = 1	// the delay between iterations if not a hitscan projectile

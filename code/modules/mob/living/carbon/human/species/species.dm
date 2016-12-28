@@ -9,6 +9,9 @@
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
 	var/short_name											 // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
+	var/bodytype
+	var/age_min = 17
+	var/age_max = 85
 
 	// Icon/appearance vars.
 	var/icobase = 'icons/mob/human_races/r_human.dmi'    // Normal icon set.
@@ -191,7 +194,9 @@
 	return name
 
 /datum/species/proc/get_bodytype()
-	return name
+	if(!bodytype)
+		bodytype = name
+	return bodytype
 
 /datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
 

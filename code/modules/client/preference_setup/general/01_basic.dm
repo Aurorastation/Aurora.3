@@ -66,7 +66,7 @@
 			log_debug("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
-	pref.age			= sanitize_integer(text2num(pref.age), AGE_MIN, AGE_MAX, initial(pref.age))
+	pref.age			= sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
 	pref.real_name		= sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
@@ -121,9 +121,9 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["age"])
-		var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference", pref.age) as num|null
+		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null
 		if(new_age && CanUseTopic(user))
-			pref.age = max(min(round(text2num(new_age)), AGE_MAX), AGE_MIN)
+			pref.age = max(min(round(text2num(new_age)),  pref.getMaxAge()),pref.getMinAge())
 			return TOPIC_REFRESH
 
 	else if(href_list["spawnpoint"])

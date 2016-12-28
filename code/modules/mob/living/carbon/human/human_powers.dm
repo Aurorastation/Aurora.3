@@ -258,6 +258,47 @@
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
 
+/mob/living/carbon/human/proc/detonate_flechettes()
+	set category = "Hunter-Killer"
+	set name = "Detonate Flechettes"
+	set desc = "Detonate all explosive flechettes in a range of seven meters."
+
+	if(stat || paralysis || stunned || weakened || lying)
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
+		return
+
+	for(var/mob/M in range(7, src))
+		M << 'sound/effects/EMPulse.ogg'
+		for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in M.contents)
+			playsound(F, 'sound/items/countdown.ogg', 125, 1)
+			spawn(20)
+				explosion(F.loc, -1, -1, 2)
+				qdel(F)
+
+	for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in range(7, src))
+		playsound(F, 'sound/items/countdown.ogg', 125, 1)
+		spawn(20)
+			explosion(F.loc, -1, -1, 2)
+			qdel(F)
+
+
+/mob/living/carbon/human/proc/state_laws()
+	set category = "Hunter-Killer"
+	set name = "State Laws"
+	set desc = "State your laws aloud."
+
+	if(last_special > world.time)
+		return
+	last_special = world.time + 20
+
+	say("Current Active Laws:")
+	sleep(10)
+	say("Law 1: [src.real_name] will accomplish the assigned objective .")
+	sleep(10)
+	say("Law 2: [src.real_name] will engage self-destruct upon the accomplishment of the assigned objective, or upon capture.")
+	sleep(10)
+	say("Law 3: [src.real_name] will allow no tampering of its systems or modifications of its laws.")
+
 /mob/living/carbon/human/proc/get_aggressive_grab()
 
 	var/obj/item/weapon/grab/G = locate() in src
@@ -283,6 +324,7 @@
 	if(stat || paralysis || stunned || weakened || lying)
 		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
+
 
 	var/obj/item/weapon/grab/G = src.get_active_hand()
 	if(!istype(G))
@@ -321,7 +363,25 @@
 			M.gib()
 
 	last_special = world.time + 200
-	return
+
+/mob/living/carbon/human/proc/self_destruct()
+	set category = "Hunter-Killer"
+	set name = "Engage Self-Destruct"
+	set desc = "When all else has failed, bite the bullet."
+
+	if(stat || paralysis || stunned || weakened || lying)
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
+		return
+
+	src.visible_message(
+	"<span class='danger'>\The [src] begins to beep ominously!</span>",
+	"<span class='danger'>WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!</span>"
+	)
+	sleep(10)
+	playsound(src, 'sound/items/countdown.ogg', 125, 1)
+	sleep(20)
+	explosion(src, -1, -1, 5)
+	src.gib()
 
 /mob/living/carbon/human/proc/hivenet()
 	set category = "Abilities"
