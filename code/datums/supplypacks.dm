@@ -1255,15 +1255,21 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_packs/bee_keeper
 	name = "Beekeeping crate"
 	contains = list(/obj/item/beehive_assembly,
-					/obj/item/bee_smoker,
+					/obj/item/weapon/bee_smoker,
+					/obj/item/weapon/bee_net,
+					/obj/item/weapon/bee_net,
+					/obj/item/clothing/suit/bio_suit/general,//beekeeping suit
+					/obj/item/clothing/head/bio_hood/general,
 					/obj/item/honey_frame,
 					/obj/item/honey_frame,
 					/obj/item/honey_frame,
 					/obj/item/honey_frame,
 					/obj/item/honey_frame,
-					/obj/item/bee_pack)
+					/obj/item/bee_pack,
+					/obj/machinery/honey_extractor,
+					/obj/item/weapon/book/manual/hydroponics_beekeeping)
 	cost = 40
-	containertype = /obj/structure/closet/crate/hydroponics
+	containertype = /obj/structure/largecrate
 	containername = "Beekeeping crate"
 	access = access_hydroponics
 	group = "Hydroponics"
@@ -1371,7 +1377,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/hydrotray
 	name = "Empty hydroponics tray"
-	cost = 30
+	cost = 10
 	containertype = /obj/structure/closet/crate/hydroponics
 	containername = "Hydroponics tray crate"
 	group = "Hydroponics"
@@ -1682,7 +1688,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate
 	containername = "glowsticks crate"
 	group = "Operations"
-	
+
 /datum/supply_packs/randomised/illegalguns
 	name = "Illegal weapons crate"
 	num_contained = 2
