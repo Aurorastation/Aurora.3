@@ -83,7 +83,7 @@
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson
 		)
-		
+
 /obj/item/weapon/rig/industrial/syndicate
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig
@@ -114,7 +114,7 @@
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson
 		)
-		
+
 /obj/item/clothing/gloves/rig/eva
 	siemens_coefficient = 0
 
@@ -128,6 +128,7 @@
 	slowdown = 0
 	offline_slowdown = 0
 	offline_vision_restriction = 0
+	max_heat_protection_temperature = 7500
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
@@ -158,9 +159,10 @@
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	icon_state = "science_rig"
-	armor = list(melee = 45, bullet = 5, laser = 45, energy = 80, bomb = 60, bio = 100, rad = 100)
+	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
 	slowdown = 1
 	offline_vision_restriction = 1
+	emp_protection = 40
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
 
