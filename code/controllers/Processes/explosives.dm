@@ -16,6 +16,9 @@ var/datum/controller/process/explosives/bomb_processor
 	work_queue = list()
 	bomb_processor = src
 
+	// Kill it until we have an explosion to run.
+	disable()
+
 /datum/controller/process/explosives/doWork()
 	if (!work_queue)
 		setup()	// fix for process failing to re-init after termination
@@ -25,6 +28,10 @@ var/datum/controller/process/explosives/bomb_processor
 		if (powernet_update_pending && ticks_without_work > 5)
 			makepowernets()
 			powernet_update_pending = 0
+
+			// All explosions handled, powernet rebuilt.
+			// We can sleep now.
+			disable()
 		return
 
 	ticks_without_work = 0
@@ -44,6 +51,7 @@ var/datum/controller/process/explosives/bomb_processor
 		work_queue -= data
 		lighting_process.enable()
 
+// Handle a non-recusrive explosion.
 /datum/controller/process/explosives/proc/explosion(var/datum/explosiondata/data)
 	var/turf/epicenter = data.epicenter
 	var/devastation_range = data.devastation_range
@@ -185,6 +193,7 @@ var/datum/controller/process/explosives/bomb_processor
 		if(Array)
 			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
 
+// Handle a recursive explosion.
 /datum/controller/process/explosives/proc/explosion_rec(turf/epicenter, power)
 	if(power <= 0) return
 	epicenter = get_turf(epicenter)
@@ -228,6 +237,7 @@ var/datum/controller/process/explosives/bomb_processor
 
 	explosion_in_progress = 0
 
+// A proc used by recursive explosions. (The actually recursive bit.)
 /datum/controller/process/explosives/proc/explosion_spread(turf/s, power, direction)
 	SCHECK
 	if (istype(s, /turf/unsimulated))
@@ -251,15 +261,22 @@ var/datum/controller/process/explosives/bomb_processor
 	T = get_step(s, turn(direction,-90))
 	explosion_spread(T, spread_power, turn(direction,90))
 
+// Add an explosion to the queue for processing.
 /datum/controller/process/explosives/proc/queue(var/datum/explosiondata/data)
-	if (!data) return
+	if (!data || !istype(data))
+		return
+
 	work_queue += data
+
+	// Wake it up from sleeping if necessary.
+	if (disabled)
+		enable()
 
 /datum/controller/process/explosives/statProcess()
 	..()
 	stat(null, "[work_queue.len] items in explosion queue")
 
-
+// The data datum for explosions.
 /datum/explosiondata
 	var/turf/epicenter
 	var/devastation_range
