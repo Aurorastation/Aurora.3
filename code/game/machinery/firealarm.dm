@@ -182,7 +182,7 @@
 	else if (href_list["state"] == "inactive")
 		src.reset()
 	if (href_list["tmr"] == "set")
-			// set or something
+		time = input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num
 	else if (href_list["tmr"] == "start")
 		src.timing = 1
 	else if (href_list["tmr"] == "stop")
@@ -251,32 +251,32 @@ Just a object used in constructing fire alarms
 	name = "\improper PARTY BUTTON"
 	desc = "Cuban Pete is in the house!"
 
-	/obj/machinery/firealarm/partyalarm/alarm(var/duration = 0)
-		if (!( working ))
-			return
-		var/area/A = get_area(src)
-		ASSERT(isarea(A))
-		A.partyalert()
+/obj/machinery/firealarm/partyalarm/alarm(var/duration = 0)
+	if (!( working ))
 		return
+	var/area/A = get_area(src)
+	ASSERT(isarea(A))
+	A.partyalert()
+	return
 
-	/obj/machinery/firealarm/partyalarm/reset()
-		if (!( working ))
-			return
-		var/area/A = get_area(src)
-		ASSERT(isarea(A))
-		A.partyreset()
+/obj/machinery/firealarm/partyalarm/reset()
+	if (!( working ))
 		return
+	var/area/A = get_area(src)
+	ASSERT(isarea(A))
+	A.partyreset()
+	return
 
-	/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-		var/data[0]
-		data["alertLevel"] = get_security_level()
-		data["time"] = src.time
-		var/area/A = get_area(src)
-		data["active"] = A.party
+/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+	var/data[0]
+	data["alertLevel"] = get_security_level()
+	data["time"] = src.time
+	var/area/A = get_area(src)
+	data["active"] = A.party
 
-		ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
-		if (!ui)
-			ui = new(user, src, ui_key, "partyalarm.tmpl", "PARTY ALARM", 325, 325, state = state)
-			ui.set_initial_data(data)
-			ui.open()
-			ui.set_auto_update(1)
+	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "partyalarm.tmpl", "PARTY ALARM", 325, 325, state = state)
+		ui.set_initial_data(data)
+		ui.open()
+		ui.set_auto_update(1)
