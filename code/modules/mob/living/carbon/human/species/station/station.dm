@@ -6,11 +6,12 @@
 	age_max = 125
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
-	blurb = "Humanity originated in the Sol system, and over the last five centuries has spread \
-	colonies across a wide swathe of space. They hold a wide range of forms and creeds.<br/><br/> \
-	While the central Sol government maintains control of its far-flung people, powerful corporate \
-	interests, rampant cyber and bio-augmentation and secretive factions make life on most human \
-	worlds tumultous at best."
+	blurb = "Humanity originated in the Sol system, and over the last four centuries has spread colonies across a wide swathe of space. \
+	They hold a wide range of forms and creeds.<br><br>\
+	The Sol Alliance is still massively influential, but independent human nations have managed to shake off its dominance and forge their \
+	own path. Driven by an unending hunger for wealth, powerful corporate interests are bringing untold wealth to humanity. Unchecked \
+	megacorporations have sparked secretive factions to fight their influence, while there is always the risk of someone digging too \
+	deep into the secrets of the galaxy..."
 	num_alternate_languages = 2
 	secondary_langs = list("Sol Common")
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
@@ -49,11 +50,13 @@
 	exhaust_threshold = 65
 	rarity_value = 3
 
-	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
-	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
-	desert planet, they mostly hold ideals of honesty, virtue, martial combat and bravery above all \
-	else, frequently even their own lives. They prefer warmer temperatures than most species and \
-	their native tongue is a heavy hissing laungage called Sinta'Unathi."
+	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
+	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
+	suffered immense turmoil after the cultural and economic disruption following first contact with humanity.<br><br>\
+	With their homeworld of Moghes suffering catastrophic climate change from a nuclear war in the recent past, the \
+	Hegemony that rules the majority of the species struggles to find itself in a galaxy filled with dangers far \
+	greater than themselves. They mostly hold ideals of honesty, virtue, martial combat and spirituality above all \
+	else.They prefer warmer temperatures than most species."
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
@@ -119,11 +122,12 @@
 	sprint_speed_factor = 0.65
 	sprint_cost_factor = 0.75
 
-	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
-	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
-	influenced heavily by their long history of Slavemaster rule. They have a structured, clan-influenced way \
-	of family and politics. They prefer colder environments, and speak a variety of languages, mostly Siik'Maas, \
-	using unique inflections their mouths form."
+	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the S'randarr \
+	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \
+	eventual revolution that overthrew their ancient monarchies to become totalitarian - and NanoTrasen friendly - \
+	republics. Adhomai is still enduring a global war in the aftermath of the new world order, and many Tajara are \
+	fleeing their homeworld to seek safety and employment in human space. They prefer colder environments, and speak \
+	a variety of languages, mostly Siik'Maas, using unique inflections their mouths form."
 
 	cold_level_1 = 200 //Default 260
 	cold_level_2 = 140 //Default 200
@@ -164,11 +168,14 @@
 	eyes = "skrell_eyes_s"
 	primitive_form = "Neaera"
 	unarmed_types = list(/datum/unarmed_attack/punch)
-	blurb = "An amphibious species, Skrell come from the star system known as Qerr'Vallis, which translates to 'Star of \
-	the royals' or 'Light of the Crown'.<br/><br/>Skrell are a highly advanced and logical race who live under the rule \
-	of the Qerr'Katish, a caste within their society which keeps the empire of the Skrell running smoothly. Skrell are \
-	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
-	the secrets of their empire to their allies."
+
+	blurb = "An amphibious species, Skrell come from the star system known as Nralakk, coined 'Jargon' by \
+	humanity.<br><br>Skrell are a highly advanced, ancient race who place knowledge as the highest ideal. \
+	A dedicated meritocracy, the Skrell strive for ever-expanding knowledge of the galaxy and their place \
+	in it. However, a cataclysmic AI rebellion by Glorsh and its associated atrocities in the far past has \
+	forever scarred the species and left them with a deep rooted suspicion of artificial intelligence. As \
+	such an ancient and venerable species, they often hold patronizing attitudes towards the younger races."
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = null
