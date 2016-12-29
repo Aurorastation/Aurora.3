@@ -182,7 +182,7 @@
 	else if (href_list["state"] == "inactive")
 		src.reset()
 	if (href_list["tmr"] == "set")
-		time = input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num
+		time = max(0, input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num)
 	else if (href_list["tmr"] == "start")
 		src.timing = 1
 	else if (href_list["tmr"] == "stop")
