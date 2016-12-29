@@ -36,5 +36,5 @@ changes:
   - imageadd: "Added Rabbit pai image option, and pais can now be picked up in expanded form, ported from baystation"
   - imageadd: "Added in-hand sprites for mice, ported from baystation"
   - imageadd: "Construction drones now have unique sprites for being held in hand and worn on head."
-  - tweak: "Pais are now collapsed with an alt + click. Normal clicks will do similar things to animals, petting, kicking, etc."	
+  - tweak: "Pais are now collapsed with an alt + click. Normal clicks will do similar things to animals, petting, kicking, etc."
   - rscadd: "pAIs when unfolded can now be scooped up, held and worn on your head."
