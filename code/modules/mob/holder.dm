@@ -33,7 +33,6 @@ var/list/holder_mob_icon_cache = list()
 	..()
 
 /obj/item/weapon/holder/examine(mob/user)
-	..()
 	if (contained)
 		contained.examine(user)
 
@@ -345,6 +344,8 @@ var/list/holder_mob_icon_cache = list()
 				H.update_inv_r_hand()
 			else
 				H.regenerate_icons()
+
+		..()
 
 //#TODO-MERGE
 //Port the reduced-duplication holder method from baystation upstream:
