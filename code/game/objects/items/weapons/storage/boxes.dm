@@ -393,6 +393,19 @@
 		new /obj/item/weapon/grenade/anti_photon(src)
 		new /obj/item/weapon/grenade/anti_photon(src)
 
+/obj/item/weapon/storage/box/frags
+	name = "box of frag grenades"
+	desc = "A box containing 5 military grade fragmentation grenades.<br> WARNING: Live explosives. Misuse may result in serious injury or death."
+	icon_state = "flashbang"
+
+	New()
+		..()
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
+
 /obj/item/weapon/storage/box/trackimp
 	name = "boxed tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."

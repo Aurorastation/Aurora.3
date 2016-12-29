@@ -257,7 +257,7 @@
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
 	desc = "Used to access the built-in cameras in helmets."
-	icon_state = "syndicam"
+	icon_screen = "syndicam"
 	network = list(NETWORK_MERCENARY)
 	circuit = null
 
