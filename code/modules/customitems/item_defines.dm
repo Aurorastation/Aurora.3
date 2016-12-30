@@ -874,7 +874,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!src.letter && istype(W))
 		user << "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>"
 		user.drop_from_inventory(W)
-		W.loc = src
+		W.forceMove(src)
 		src.letter = W
 	else
 		..()
