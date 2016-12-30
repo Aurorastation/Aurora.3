@@ -170,7 +170,7 @@
 				break
 		else
 			devouring = null
-			if (victimloc != victim.loc)
+			if (victim && victimloc != victim.loc)
 				src << "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>"
 			else if (ourloc != src.loc)
 				src << "<span class='danger'>You moved! Devouring cancelled</span>"
