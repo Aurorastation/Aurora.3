@@ -18,7 +18,7 @@
 	wires = new(src)
 	image_overlay = image('icons/obj/assemblies.dmi', "plastic-explosive2")
 	..()
-	
+
 /obj/item/weapon/plastique/Destroy()
 	qdel(wires)
 	wires = null
@@ -74,7 +74,7 @@
 	if(!target)
 		target = src
 	if(location)
-		explosion(location, -1, -1, 2, 3)
+		explosion(location, -1, -1, 2, 3, is_rec = 0)
 
 	if(target)
 		if (istype(target, /turf/simulated/wall))
