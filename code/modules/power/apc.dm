@@ -724,8 +724,8 @@
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
 			else if(src.cell && src.cell.charge > 0)
-				if(H.nutrition < 450)
-					if(src.cell.charge >= 500)
+				if(H.nutrition < H.max_nutrition)
+					if(src.cell.charge >= H.max_nutrition)
 						H.nutrition += 50
 						src.cell.charge -= 500
 					else
@@ -736,9 +736,9 @@
 
 					if (src.cell.charge < 0)
 						src.cell.charge = 0
-					if (H.nutrition > 500)
-						H.nutrition = 500
-					if (prob(1))
+					if (H.nutrition > H.max_nutrition)
+						H.nutrition = H.max_nutrition
+					if (prob(0.5))
 						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 						s.set_up(3, 1, src)
 						s.start()
