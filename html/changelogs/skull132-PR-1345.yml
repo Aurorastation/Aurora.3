@@ -9,6 +9,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Chat mark-up now requires whitespace (or radio tokens, in case of radio speech) to surround mark-up markers for them to be valid. "/this will/ work," "as /will/ this," ":s/and this./" But, "/this will not /work." This enables you to use words with underscores in them, and to type type-paths and other things in BYOND."
+  - tweak: "Chat mark-up now requires whitespace (or radio tokens, in case of radio speech) to surround mark-up markers for them to be valid. \"/this will/ work,\" \"as /will/ this,\" \":s/and this./\" But, \"/this will not /work.\" This enables you to use words with underscores in them, and to type type-paths and other things in BYOND."
   - bugfix: "Mark-up no longer nukes BYOND server addresses."
   - tweak: "IPCs now have a very minor chance of getting shocked from feeding on APCs. There's 0 chance of getting shocked from using a cyborg recharger, though. To that end, also added 1 extra borg recharger into arrivals bathroom."
