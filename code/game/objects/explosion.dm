@@ -1,152 +1,58 @@
-//TODO: Flash range does nothing currently
+// explosion logic is in code/controllers/Processes/explosives.dm now
 
-proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN)
+proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, is_rec = config.use_recursive_explosions)
 	src = null	//so we don't abort once src is deleted
-	spawn(0)
-		var/power = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
-		if(config.use_recursive_explosions)
-			explosion_rec(epicenter, power)
-			return
+	var/datum/explosiondata/data = new
+	data.epicenter = epicenter
+	data.devastation_range = devastation_range
+	data.heavy_impact_range = heavy_impact_range
+	data.light_impact_range = light_impact_range
+	data.flash_range = flash_range
+	data.adminlog = adminlog
+	data.z_transfer = z_transfer
+	data.is_rec = is_rec
+	data.rec_pow = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
 
-		var/start = world.timeofday
-		epicenter = get_turf(epicenter)
-		if(!epicenter) return
+	// queue work
+	bomb_processor.queue(data)
 
-		// Handles recursive propagation of explosions.
-		if(devastation_range > 2 || heavy_impact_range > 2)
-			if(HasAbove(epicenter.z) && z_transfer & UP)
-				explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP)
-			if(HasBelow(epicenter.z) && z_transfer & DOWN)
-				explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN)
+// == Recursive Explosions stuff ==
 
-		var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, flash_range)
+/client/proc/kaboom()
+	var/power = input(src, "power?", "power?") as num
+	var/turf/T = get_turf(src.mob)
+	var/datum/explosiondata/d = new
+	d.is_rec = 1
+	d.epicenter = T
+	d.rec_pow = power
+	bomb_processor.queue(d)
 
-		// Play sounds; we want sounds to be different depending on distance so we will manually do it ourselves.
-		// Stereo users will also hear the direction of the explosion!
-		// Calculate far explosion sound range. Only allow the sound effect for heavy/devastating explosions.
-		// 3/7/14 will calculate to 80 + 35
-		var/far_dist = 0
-		far_dist += heavy_impact_range * 5
-		far_dist += devastation_range * 20
-// Play sounds; we want sounds to be different depending on distance so we will manually do it ourselves.
+/obj
+	var/explosion_resistance
 
-// Stereo users will also hear the direction of the explosion!
+/turf
+	var/explosion_resistance
 
-// Calculate far explosion sound range. Only allow the sound effect for heavy/devastating explosions.
+/turf/space
+	explosion_resistance = 3
 
-// 3/7/14 will calculate to 80 + 35
-		var/volume = 10 + (power * 20)
+/turf/simulated/floor
+	explosion_resistance = 1
 
-		var/frequency = get_rand_frequency()
-		var/closedist = round(max_range + world.view - 2, 1)
+/turf/simulated/mineral
+	explosion_resistance = 2
 
-		//Whether or not this explosion causes enough vibration to send sound or shockwaves through the station
-		var/vibration = 1
-		if (istype(epicenter,/turf/space))
-			vibration = 0
-			for (var/turf/T in range(src, max_range))
-				if (!istype(T,/turf/space))
-			//If there is a nonspace tile within the explosion radius
-			//Then we can reverberate shockwaves through that, and allow it to be felt in a vacuum
-					vibration = 1
+/turf/simulated/shuttle/floor
+	explosion_resistance = 1
 
-		if (vibration)
-			for(var/mob/M in player_list)
-				// Double check for client
-				var/reception = 2//Whether the person can be shaken or hear sound
-				//2 = BOTH
-				//1 = shockwaves only
-				//0 = no effect
-				if(M && M.client)
-					var/turf/M_turf = get_turf(M)
+/turf/simulated/shuttle/floor4
+	explosion_resistance = 1
 
+/turf/simulated/shuttle/plating
+	explosion_resistance = 1
 
+/turf/simulated/shuttle/wall
+	explosion_resistance = 10
 
-					if(M_turf && M_turf.z == epicenter.z)
-						if (istype(M_turf,/turf/space))
-						//If the person is standing in space, they wont hear
-							//But they may still feel the shaking
-							reception = 0
-							for (var/turf/T in range(M, 1))
-								if (!istype(T,/turf/space))
-								//If theyre touching the hull or on some extruding part of the station
-									reception = 1//They will get screenshake
-									break
-
-						if (!reception)
-							continue
-
-						var/dist = get_dist(M_turf, epicenter)
-						if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf))//Dont play sounds to deaf people
-							// If inside the blast radius + world.view - 2
-							if(dist <= closedist)
-								M.playsound_local(epicenter, get_sfx("explosion"), min(100, volume), 1, frequency, falloff = 5) // get_sfx() is so that everyone gets the same sound
-								//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
-
-							else
-								volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, 1, frequency, usepressure = 0, falloff = 1000)
-								//Playsound local will return the final volume the sound is actually played at
-								//It will return 0 if the sound volume falls to 0 due to falloff or pressure
-								//Also return zero if sound playing failed for some other reason
-
-						//Deaf people will feel vibrations though
-						if (volume > 0)//Only shake camera if someone was close enough to hear it
-							shake_camera(M, min(60,max(2,(power*18) / dist)), min(3.5,((power*3) / dist)),0.05)
-							//Maximum duration is 6 seconds, and max strength is 3.5
-							//Becuse values higher than those just get really silly
-
-		if(adminlog)
-			message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
-			log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ")
-
-		var/approximate_intensity = (devastation_range * 3) + (heavy_impact_range * 2) + light_impact_range
-		var/powernet_rebuild_was_deferred_already = defer_powernet_rebuild
-		// Large enough explosion. For performance reasons, powernets will be rebuilt manually
-		if(!defer_powernet_rebuild && (approximate_intensity > 25))
-			defer_powernet_rebuild = 1
-
-		if(heavy_impact_range > 1)
-			var/datum/effect/system/explosion/E = new/datum/effect/system/explosion()
-			E.set_up(epicenter)
-			E.start()
-
-		var/x0 = epicenter.x
-		var/y0 = epicenter.y
-		var/z0 = epicenter.z
-
-		for(var/turf/T in trange(max_range, epicenter))
-			var/dist = sqrt((T.x - x0)**2 + (T.y - y0)**2)
-
-			if(dist < devastation_range)		dist = 1
-			else if(dist < heavy_impact_range)	dist = 2
-			else if(dist < light_impact_range)	dist = 3
-			else								continue
-
-			T.ex_act(dist)
-			if(T)
-				for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
-					var/atom/movable/AM = atom_movable
-					if(AM && AM.simulated)	AM.ex_act(dist)
-
-		var/took = (world.timeofday-start)/10
-		//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
-		if(Debug2)	world.log << "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
-
-		//Machines which report explosions.
-		for(var/i,i<=doppler_arrays.len,i++)
-			var/obj/machinery/doppler_array/Array = doppler_arrays[i]
-			if(Array)
-				Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
-
-		sleep(8)
-
-		if(!powernet_rebuild_was_deferred_already && defer_powernet_rebuild)
-			makepowernets()
-			defer_powernet_rebuild = 0
-
-	return 1
-
-
-proc/secondaryexplosion(turf/epicenter, range)
-	for(var/turf/tile in range(range, epicenter))
-		tile.ex_act(2)
+/turf/simulated/wall
+	explosion_resistance = 10

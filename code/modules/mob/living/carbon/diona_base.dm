@@ -55,6 +55,8 @@ var/list/diona_banned_languages = list(
 	//Converts radiation to stored energy if its needed, and gives messages related to radiation
 	//Rads can be used to heal in place of light energy, that is handled in the regular regeneration proc
 
+	var/radiation = total_radiation
+
 	if (radiation && DS.stored_energy < (DS.max_energy * 0.8))//Radiation can provide energy in place of light
 		radiation -= 2
 		DS.stored_energy += 2
@@ -116,10 +118,10 @@ var/list/diona_banned_languages = list(
 //Most medicines don't work on diona, but physical treatment for external wounds helps a little,
 //and some alternative things that are toxic to other life, such as radium and mutagen, will benefit diona
 /mob/living/carbon/proc/diona_handle_regeneration(var/datum/dionastats/DS)
-	if ((DS.stored_energy < 1 && !radiation))//we need energy or radiation to heal
+	if ((DS.stored_energy < 1 && !total_radiation))//we need energy or radiation to heal
 		return
 
-	radiation = max(radiation, 0)
+	var/radiation = max(total_radiation, 0)
 
 
 	var/value //A little variable we'll reuse to optimise

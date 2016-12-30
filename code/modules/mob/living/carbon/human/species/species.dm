@@ -9,6 +9,9 @@
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
 	var/short_name											 // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
+	var/bodytype
+	var/age_min = 17
+	var/age_max = 85
 
 	// Icon/appearance vars.
 	var/icobase = 'icons/mob/human_races/r_human.dmi'    // Normal icon set.
@@ -44,7 +47,7 @@
 	var/list/speech_sounds                   // A list of sounds to potentially play when speaking.
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
 	var/num_alternate_languages = 0          // How many secondary languages are available to select at character creation
-	var/name_language = "Galactic Common"    // The language to use when determining names for this species, or null to use the first name/last name generator
+	var/name_language = "Ceti Basic"	    // The language to use when determining names for this species, or null to use the first name/last name generator
 
 	// Combat vars.
 	var/total_health = 100                   // Point at which the mob will enter crit.
@@ -191,7 +194,9 @@
 	return name
 
 /datum/species/proc/get_bodytype()
-	return name
+	if(!bodytype)
+		bodytype = name
+	return bodytype
 
 /datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
 
@@ -360,7 +365,6 @@
 /datum/species/proc/get_vision_flags(var/mob/living/carbon/human/H)
 	return vision_flags
 
-// #TODO-MERGE: Search for blind.layer refs, change to blind.invisibility
 /datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
 	H.update_sight()
 	H.sight |= get_vision_flags(H)
@@ -382,7 +386,7 @@
 		H.eye_blind = max(H.eye_blind, 1)
 
 	if(H.blind)
-		H.blind.layer = (H.eye_blind ? 18 : 0)
+		H.blind.invisibility = (H.eye_blind ? 0 : 101)
 
 	if(!H.client)//no client, no screen to update
 		return 1

@@ -19,7 +19,7 @@
 	projectile_type = /obj/item/projectile/bullet/pistol
 
 /obj/item/ammo_casing/trod
-	desc = "Hyperdense tungsten rod residue."
+	desc = "hyperdense tungsten rod residue."
 	icon_state = "trod"
 	caliber = "trod"
 	projectile_type = /obj/item/projectile/bullet/trod
@@ -225,4 +225,14 @@
 	caliber = "caps"
 	color = "#FF0000"
 	projectile_type = /obj/item/projectile/bullet/pistol/cap
+
+/obj/item/ammo_casing/flechette
+	desc = "A flechette casing."
+	icon = 'icons/obj/terminator.dmi'
+	icon_state = "flechette_casing"
+	caliber = "flechette"
+	projectile_type = /obj/item/projectile/bullet/flechette
+
+/obj/item/ammo_casing/flechette/explosive
+	projectile_type = /obj/item/projectile/bullet/flechette/explosive
 

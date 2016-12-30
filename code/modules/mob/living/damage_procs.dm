@@ -54,7 +54,7 @@
 			adjustHalLoss(effect) //Changed this to use the wrapper function, it shouldn't directly alter the value
 		if(IRRADIATE)
 			var/rad_protection = check_protection ? getarmor(null, "rad")/100 : 0
-			radiation += max((1-rad_protection)*effect/(blocked+1),0)//Rads auto check armor
+			apply_radiation(max((1-rad_protection)*effect/(blocked+1),0))//Rads auto check armor
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
 				stuttering = max(stuttering,(effect/(blocked+1)))
@@ -81,3 +81,9 @@
 	if(agony)		apply_effect(agony, AGONY, blocked)
 	if(incinerate) apply_effect(incinerate, INCINERATE, blocked)
 	return 1
+
+// overridden by human
+/mob/living/proc/apply_radiation(var/rads)
+	total_radiation += rads
+	if (total_radiation < 0)
+		total_radiation = 0

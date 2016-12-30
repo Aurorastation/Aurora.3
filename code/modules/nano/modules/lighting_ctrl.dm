@@ -15,6 +15,11 @@
 	// whether to only select areas explicitly marked for nightlighting
 	var/wl_only = context == "all" ? 0 : 1
 
+	if (!wl_only && lstate == "dark")
+		nl_ctrl.manual_override = 1
+	else if (!wl_only)
+		nl_ctrl.manual_override = 0
+
 	if (lstate == "dark")
 		log_and_message_admins("enabled night-mode [wl_only ? "in public areas" : "globally"].", lusr)
 		nl_ctrl.activate(wl_only)

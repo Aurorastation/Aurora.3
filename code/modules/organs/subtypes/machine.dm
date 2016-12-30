@@ -6,7 +6,7 @@
 	max_damage = 50 //made same as arm, since it is not vital
 	min_broken_damage = 30
 	encased = null
-	
+
 /obj/item/organ/external/head/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -104,6 +104,18 @@
 	robotize()
 	..()
 
+/obj/item/organ/ipc_tag
+	name = "identification tag"
+	organ_tag = "ipc tag"
+	parent_organ = "groin"
+	icon = 'icons/obj/telescience.dmi'
+	icon_state = "gps-c"
+	dead_icon = "gps-c"
+
+/obj/item/organ/ipc_tag/New()
+	robotize()
+	..()
+
 // Used for an MMI or posibrain being installed into a human.
 /obj/item/organ/mmi_holder
 	name = "brain"
@@ -155,3 +167,183 @@
 		else
 			stored_mmi.loc = get_turf(src)
 			qdel(src)
+
+
+//terminator organs
+
+/obj/item/organ/mmi_holder/posibrain/terminator
+	name = "brain"
+	organ_tag = "brain"
+	parent_organ = "chest"
+	vital = 1
+
+/obj/item/organ/data
+	name = "data core"
+	organ_tag = "data core"
+	parent_organ = "groin"
+	icon = 'icons/obj/cloning.dmi'
+	icon_state = "harddisk"
+	vital = 0
+
+/obj/item/organ/data/New()
+	robotize()
+	..()
+
+/obj/item/organ/cell/terminator
+	name = "shielded microbattery"
+	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
+	icon = 'icons/obj/power.dmi'
+	icon_state = "scell"
+	organ_tag = "shielded cell"
+	parent_organ = "chest"
+	vital = 1
+
+/obj/item/organ/cell/New()
+	mechassist()
+	..()
+
+/obj/item/organ/external/head/terminator
+	dislocated = -1
+	can_intake_reagents = 0
+	vital = 0
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
+	encased = null
+
+/obj/item/organ/external/head/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/chest/terminator
+	dislocated = -1
+	encased = null
+/obj/item/organ/external/chest/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/groin/terminator
+	dislocated = -1
+/obj/item/organ/external/groin/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/arm/terminator
+	dislocated = -1
+/obj/item/organ/external/arm/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/arm/right/terminator
+	dislocated = -1
+/obj/item/organ/external/arm/right/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/leg/terminator
+	dislocated = -1
+/obj/item/organ/external/leg/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/leg/right/terminator
+	dislocated = -1
+/obj/item/organ/external/leg/right/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/foot/terminator
+	dislocated = -1
+/obj/item/organ/external/foot/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/foot/right/terminator
+	dislocated = -1
+/obj/item/organ/external/foot/right/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/hand/terminator
+	dislocated = -1
+/obj/item/organ/external/hand/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/hand/right/terminator
+	dislocated = -1
+/obj/item/organ/external/hand/right/terminator/New()
+	mechassist("Hephaestus Vulcanite Limb")
+	..()
+
+/obj/item/organ/external/head/industrial
+	dislocated = -1
+	can_intake_reagents = 0
+	vital = 0
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
+	encased = null
+
+/obj/item/organ/external/head/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/chest/industrial
+	dislocated = -1
+	encased = null
+/obj/item/organ/external/chest/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/groin/industrial
+	dislocated = -1
+/obj/item/organ/external/groin/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/arm/industrial
+	dislocated = -1
+/obj/item/organ/external/arm/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/arm/right/industrial
+	dislocated = -1
+/obj/item/organ/external/arm/right/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/leg/industrial
+	dislocated = -1
+/obj/item/organ/external/leg/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/leg/right/industrial
+	dislocated = -1
+/obj/item/organ/external/leg/right/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/foot/industrial
+	dislocated = -1
+/obj/item/organ/external/foot/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/foot/right/industrial
+	dislocated = -1
+/obj/item/organ/external/foot/right/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/hand/industrial
+	dislocated = -1
+/obj/item/organ/external/hand/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()
+
+/obj/item/organ/external/hand/right/industrial
+	dislocated = -1
+/obj/item/organ/external/hand/right/industrial/New()
+	robotize("Hephaestus Industrial Limb")
+	..()

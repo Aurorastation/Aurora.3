@@ -281,24 +281,24 @@
 			speech_problem_flag = 1
 			gene.OnMobLife(src)
 
-	radiation = Clamp(radiation,0,100)
+	total_radiation = Clamp(total_radiation,0,100)
 
 	// #TODO-MERGE: Check vaurca and IPC radiation management
-	if (radiation)
+	if (total_radiation)
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
 			diona_handle_regeneration(get_dionastats())
 		else
 			var/damage = 0
-			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			if(prob(25))
 				damage = 1
 
-			if (radiation > 50)
+			if (total_radiation > 50)
 				damage = 1
-				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
-					radiation -= 5 * RADIATION_SPEED_COEFFICIENT
+					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
 					src << "<span class='warning'>You feel weak.</span>"
 					Weaken(3)
 					if(!lying)
@@ -310,8 +310,8 @@
 						f_style = "Shaved"
 						update_hair()
 
-			if (radiation > 75)
-				radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+			if (total_radiation > 75)
+				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
 				damage = 3
 				if(prob(5))
 					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
@@ -955,48 +955,41 @@
 			death()
 			blinded = 1
 			silent = 0
-		else				//ALIVE. LIGHTS ARE ON
-			updatehealth()	//TODO
+			return 1
 
-			if(health <= config.health_threshold_dead || (species.has_organ["brain"] && !has_brain()))
-				death()
-				blinded = 1
-				silent = 0
-				return 1
+		//UNCONSCIOUS. NO-ONE IS HOME
+		if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
+			Paralyse(3)
 
-			//UNCONSCIOUS. NO-ONE IS HOME
-			if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
-				Paralyse(3)
+		if(hallucination)
+			//Machines do not hallucinate.
+			if (hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
+				if(prob(3))
+					fake_attack(src)
+				if(!handling_hal)
+					spawn handle_hallucinations() //The not boring kind!
+				if(client && prob(5))
+					client.dir = pick(2,4,8)
+					var/client/C = client
+					spawn(rand(20,50))
+						if(C)
+							C.dir = 1
 
-			if(hallucination)
-				//Machines do not hallucinate.
-				if (hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
-					if(prob(3))
-						fake_attack(src)
-					if(!handling_hal)
-						spawn handle_hallucinations() //The not boring kind!
-					if(client && prob(5))
-						client.dir = pick(2,4,8)
-						var/client/C = client
-						spawn(rand(20,50))
-							if(C)
-								C.dir = 1
-
-				if(hallucination<=2)
-					hallucination = 0
-					halloss = 0
-				else
-					hallucination -= 2
-
+			if(hallucination<=2)
+				hallucination = 0
+				halloss = 0
 			else
-				for(var/atom/a in hallucinations)
-					qdel(a)
+				hallucination -= 2
 
-			if(halloss > 100)
-				src << "<span class='warning'>[species.halloss_message_self]</span>"
-				src.visible_message("<B>[src]</B> [species.halloss_message].")
-				Paralyse(10)
-				setHalLoss(99)
+		else
+			for(var/atom/a in hallucinations)
+				qdel(a)
+
+		if(halloss > 100)
+			src << "<span class='warning'>[species.halloss_message_self]</span>"
+			src.visible_message("<B>[src]</B> [species.halloss_message].")
+			Paralyse(10)
+			setHalLoss(99)
 
 		if(paralysis || sleeping)
 			blinded = 1

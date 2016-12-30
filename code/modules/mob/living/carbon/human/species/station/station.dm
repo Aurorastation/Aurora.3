@@ -2,6 +2,8 @@
 	name = "Human"
 	short_name = "hum"
 	name_plural = "Humans"
+	bodytype = "Human"
+	age_max = 125
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
 	blurb = "Humanity originated in the Sol system, and over the last five centuries has spread \
@@ -21,13 +23,11 @@
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
-/datum/species/human/get_bodytype()
-	return "Human"
-
 /datum/species/unathi
 	name = "Unathi"
 	short_name = "una"
 	name_plural = "Unathi"
+	bodytype = "Unathi"
 	icobase = 'icons/mob/human_races/r_lizard.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
 	tail = "sogtail"
@@ -99,6 +99,7 @@
 	name = "Tajara"
 	short_name = "taj"
 	name_plural = "Tajaran"
+	bodytype = "Tajara"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
 	tail = "tajtail"
@@ -107,9 +108,8 @@
 	darksight = 8
 	slowdown = -1
 	brute_mod = 1.2
-	gluttonous = GLUT_TINY
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS)
+	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
@@ -118,7 +118,6 @@
 	stamina_recovery = 4
 	sprint_speed_factor = 0.65
 	sprint_cost_factor = 0.75
-
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
 	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
@@ -158,6 +157,8 @@
 	name = "Skrell"
 	short_name = "skr"
 	name_plural = "Skrell"
+	bodytype = "Skrell"
+	age_max = 500
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	eyes = "skrell_eyes_s"
@@ -191,6 +192,8 @@
 	name = "Diona"
 	short_name = "dio"
 	name_plural = "Dionaea"
+	bodytype = "Diona"
+	age_max = 1000
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
 	language = "Ceti Basic"
@@ -274,13 +277,13 @@
 
 	var/remainder = cost * sprint_cost_factor
 
-	if (H.radiation)
-		if (H.radiation > (cost*0.5))//Radiation counts as double energy
-			H.radiation -= cost*0.5
+	if (H.total_radiation)
+		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
+			H.apply_radiation(cost*(-0.5))
 			return 1
 		else
-			remainder = cost - (H.radiation*2)
-			H.radiation = 0
+			remainder = cost - (H.total_radiation*2)
+			H.total_radiation = 0
 
 	if (DS.stored_energy > remainder)
 		DS.stored_energy -= remainder
@@ -321,16 +324,20 @@
 	if (!gibbed)
 		H.diona_split_into_nymphs(0)
 
-/datum/species/machine
-	name = "Machine"
-	short_name = "ipc"
-	name_plural = "machines"
 
-	blurb = "Positronic intelligence really took off in the 26th century, and it is not uncommon to see independant, free-willed \
-	robots on many human stations, particularly in fringe systems where standards are slightly lax and public opinion less relevant \
-	to corporate operations. IPCs (Integrated Positronic Chassis) are a loose category of self-willed robots with a humanoid form, \
-	generally self-owned after being 'born' into servitude; they are reliable and dedicated workers, albeit more than slightly \
-	inhuman in outlook and perspective."
+/datum/species/machine
+	name = "Baseline Frame"
+	short_name = "ipc"
+	name_plural = "Baselines"
+	bodytype = "Machine"
+	age_min = 1
+	age_max = 30
+
+	blurb = "IPCs are, quite simply, 'Integrated Positronic Chassis'. In this scenario, positronic does not mean anything significant - it is a nickname given \
+	to all advanced processing units, based on the works of vintage writer Isaac Asimov. The long of the short is that they represent all unbound synthetic \
+	units.Assembly produced, simple IPC units. Simple skeleton designed for minimal use, generally in civilian roles. The most common form of chassis used by \
+	IPCs, first designed and produced by Hephaestus Industries in the early years of synthetic production. It has become ubiquitous, and for all of its many \
+	faults - its shoddy coolant systems and fragile frame - it would be very odd to see a standard IPC without it."
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
@@ -342,8 +349,8 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
+	radiation_mod = 0	// not affected by radiation
 
-	eyes = "blank_eyes"
 	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
 	brute_mod = 0.5
 	burn_mod = 1.0
@@ -368,6 +375,7 @@
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
 	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON | NO_MINOR_CUT
+	appearance_flags = HAS_SKIN_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
 	blood_color = "#1F181F"
@@ -378,7 +386,8 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain,
 		"cell" = /obj/item/organ/cell,
-		"optics" = /obj/item/organ/optical_sensor
+		"optics" = /obj/item/organ/optical_sensor,
+		"ipc tag" = /obj/item/organ/ipc_tag
 		)
 
 	vision_organ = "optics"
@@ -405,6 +414,10 @@
 	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1	  // About as capable of speed as a human
 
+datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
+	. = ..()
+	check_tag(H, H.client)
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
@@ -429,11 +442,64 @@
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
 
+/datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
+	if (!new_machine || !player)
+		return
+
+	establish_db_connection()
+
+	if (dbcon.IsConnected())
+		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
+
+		var/status = 0
+		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = player.prefs.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		query.Execute(query_details)
+
+		if (query.NextRow())
+			status = text2num(query.item[1])
+		else
+			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey, :character_name)")
+			log_query.Execute(query_details)
+
+		if (!status)
+			new_machine.internal_organs_by_name.Remove("ipc tag")
+			new_machine.internal_organs.Remove(tag)
+			qdel(tag)
+
+/datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
+	if (!target || !player)
+		return
+
+	establish_db_connection()
+
+	if (dbcon.IsConnected())
+		var/status = 0
+		var/sql_status = 0
+		if (target.internal_organs_by_name["ipc tag"])
+			status = 1
+
+		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = target.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		query.Execute(query_details)
+
+		if (query.NextRow())
+			sql_status = text2num(query.item[1])
+			if (sql_status == status)
+				return
+
+			query_details.Add(":status")
+			query_details[":status"] = status
+			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status WHERE player_ckey = :ckey AND character_name = :character_name")
+			update_query.Execute(query_details)
 
 /datum/species/bug
 	name = "Vaurca Worker"
 	short_name = "vau"
 	name_plural = "Type A"
+	bodytype = "Vaurca"
+	age_min = 1
+	age_max = 20
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
 	greater_form = "Vaurca Warrior"
@@ -476,8 +542,8 @@
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_SKIN_COLOR
 	blood_color = "#E6E600" // dark yellow
-	flesh_color = "#330000"
-	base_color = "#330000"
+	flesh_color = "#E6E600"
+	base_color = "#575757"
 
 	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
@@ -498,12 +564,20 @@
 	sprint_cost_factor = 0.30
 	stamina_recovery = 2//slow recovery
 
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
+		)
+
+
 	has_organ = list(
 		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
+		"lungs" =    /obj/item/organ/lungs,
 		"filtration bit" = /obj/item/organ/vaurca/filtrationbit,
 		"lungs" =    /obj/item/organ/lungs,
+		"heart" =    /obj/item/organ/heart,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"right heart" =    /obj/item/organ/heart/right,
+		"second heart" =    /obj/item/organ/heart,
 		"left heart" =    /obj/item/organ/heart/left,
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,

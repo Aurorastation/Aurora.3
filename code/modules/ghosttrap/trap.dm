@@ -109,7 +109,7 @@ var/list/ghost_traps
 	target << "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>"
 	target << "<b>Use say [target.get_language_prefix()]b to speak to other artificial intelligences.</b>"
 	var/turf/T = get_turf(target)
-	T.visible_message("<span class='notice'>\The [src] chimes quietly.</span>")
+	T.visible_message("<span class='notice'>\The [target] chimes quietly.</span>")
 	var/obj/item/device/mmi/digital/posibrain/P = target.loc
 	if(!istype(P)) //wat
 		return

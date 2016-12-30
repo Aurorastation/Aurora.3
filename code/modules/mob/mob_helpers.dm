@@ -65,16 +65,22 @@
 	return 0
 
 /proc/isipc(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Machine"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Baseline Frame")
+				return 1
+			if ("Industrial Frame")
+				return 1
+			if ("Shell Frame")
+				return 1
+			if ("Hunter-Killer")
+				return 1
 	return 0
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vox"))
 		return 1
 	return 0
-
-
 
 /mob/proc/is_diona()
 	//returns which type of diona we are, or zero
@@ -906,8 +912,16 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
-	else return null
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
+	else
+		return null
+
+	if (!P)
+		return null
 
 	return P.time_of_death[which]
 
@@ -916,8 +930,15 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
 	else
+		return 0
+
+	if (!P)
 		return 0
 
 	P.time_of_death[which] = value

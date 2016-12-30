@@ -401,3 +401,8 @@ This function restores all organs.
 	updatehealth()
 	BITSET(hud_updateflag, HEALTH_HUD)
 	return 1
+
+/mob/living/carbon/human/apply_radiation(var/rads)
+	if (species && rads > 0)
+		rads = rads * species.radiation_mod
+	..(rads)

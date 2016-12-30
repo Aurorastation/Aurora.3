@@ -124,6 +124,8 @@ datum/preferences
 	// OOC Metadata:
 	var/metadata = ""
 
+	var/list/pai = list()	// A list for holding pAI related data.
+
 	var/client/client = null
 
 	var/savefile/loaded_preferences
@@ -146,25 +148,13 @@ datum/preferences
 		save_preferences()
 		save_character()
 
-/datum/preferences/proc/getMinAge(var/age_min)
-	if(species == "Vaurca Worker" || species == "Vaurca Warrior" || species == "Machine" || species == "Diona")
-		age_min = 1
-	if(species == "Human" || species == "Skrell" || species == "Tajara" || species == "Unathi")
-		age_min = 17
-	return age_min
+/datum/preferences/proc/getMinAge()
+    var/datum/species/mob_species = all_species[species]
+    return mob_species.age_min
 
-/datum/preferences/proc/getMaxAge(var/age_max)
-	if((species == "Vaurca Worker" || species == "Vaurca Warrior"))
-		age_max = 20
-	if(species == "Machine")
-		age_max = 30
-	if(species == "Skrell" || species == "Diona")
-		age_max = 500
-	if(species == "Human")
-		age_max = 120
-	if(species == "Tajara" || species == "Unathi")
-		age_max = 85
-	return age_max
+/datum/preferences/proc/getMaxAge()
+    var/datum/species/mob_species = all_species[species]
+    return mob_species.age_max
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
@@ -387,7 +377,7 @@ datum/preferences
 	character.underwear = underwear
 
 	character.undershirt = undershirt
-	
+
 	character.socks = socks
 
 	if(backbag > 5 || backbag < 1)

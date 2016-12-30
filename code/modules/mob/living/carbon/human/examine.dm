@@ -38,9 +38,13 @@
 		CRASH("Gender datum was null; key was '[(skipjumpsuit && skipface) ? PLURAL : gender]'")
 
 	msg += "<EM>[src.name]</EM>"
+
 	if(species.name != "Human")
 		msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
 	msg += "!\n"
+
+	if (species && species.has_organ["ipc tag"] && internal_organs_by_name["ipc tag"])
+		msg += "[T.He] [T.is] wearing a tag designating them as Integrated Positronic Chassis <b>[src.real_name]</b>.\n"
 
 	//uniform
 	if(w_uniform && !skipjumpsuit)

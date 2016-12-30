@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Global nightmode toggle no longer affects security as was originally intended."
+  - tweak: "Manually turning on nightmode will prevent the automatic system from turning it off."

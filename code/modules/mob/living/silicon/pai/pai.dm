@@ -2,6 +2,7 @@
 	name = "pAI"
 	icon = 'icons/mob/pai.dmi'
 	icon_state = "repairbot"
+	holder_type = /obj/item/weapon/holder/pai/drone
 
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
 	pass_flags = PASSTABLE | PASSDOORHATCH
@@ -21,7 +22,16 @@
 		"Drone" = "repairbot",
 		"Cat" = "cat",
 		"Mouse" = "mouse",
-		"Monkey" = "monkey"
+		"Monkey" = "monkey",
+		"Rabbit" = "rabbit"
+		)
+
+	var/global/list/pai_holder_types = list(
+		"Drone" = /obj/item/weapon/holder/pai/drone,
+		"Cat" = /obj/item/weapon/holder/pai/cat,
+		"Mouse" = /obj/item/weapon/holder/pai/mouse,
+		"Monkey" = /obj/item/weapon/holder/pai/monkey,
+		"Rabbit" = /obj/item/weapon/holder/pai/rabbit
 		)
 
 	var/global/list/possible_say_verbs = list(
@@ -73,6 +83,32 @@
 
 	var/greeted = 0
 	var/current_pda_messaging = null
+
+		//Interaction
+	var/response_help   = "pets"
+	var/response_disarm = "shoves"
+	var/response_harm   = "kicks"
+	var/harm_intent_damage = 15//based on 100 health, which is probably too much for a pai to have
+
+/mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M as mob)
+	..()
+
+	switch(M.a_intent)
+
+		if(I_HELP)
+			M.visible_message(span("notice","[M] [response_help] \the [src]"))
+
+		if(I_DISARM)
+			M.visible_message(span("notice","[M] [response_disarm] \the [src]"))
+			M.do_attack_animation(src)
+			//TODO: Push the mob away or something
+
+
+		if(I_HURT)
+			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
+			M.visible_message(span("danger","[M] [response_harm] \the [src]"))
+			M.do_attack_animation(src)
+			updatehealth()
 
 /mob/living/silicon/pai/New(var/obj/item/device/paicard/newlocation)
 	var/obj/item/device/paicard/paicard
@@ -270,7 +306,7 @@
 	if(world.time <= last_special)
 		return
 
-	last_special = world.time + 100
+	last_special = world.time + 20
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
 	if(istype(card.loc,/obj/item/rig_module))
@@ -328,6 +364,7 @@
 		if(!choice) return
 
 		icon_state = possible_chassis[choice]
+		holder_type = pai_holder_types[choice]
 		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
 
 	chassis = possible_chassis[choice]
@@ -384,18 +421,17 @@
 		src.updatehealth()
 	else
 		visible_message("<span class='warning'>[user.name] bonks [src] harmlessly with [W].</span>")
-	spawn(1)
-		if(stat != 2) close_up()
+
 	return
 
-/mob/living/silicon/pai/attack_hand(mob/user as mob)
+/mob/living/silicon/pai/AltClick(mob/user as mob)
 	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
 	close_up()
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.
 /mob/living/silicon/pai/proc/close_up()
 
-	last_special = world.time + 100
+	last_special = world.time + 20
 
 	if(src.loc == card)
 		return
@@ -404,8 +440,9 @@
 	if(istype(T)) T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
 
 	src.stop_pulling()
-	src.client.perspective = EYE_PERSPECTIVE
-	src.client.eye = src
+	if (client)
+		client.perspective = EYE_PERSPECTIVE
+		client.eye = src
 //Changed the client eye to follow the mob itself instead of the card that contains it. This makes examining work, and the camera still follows wherever the card goes
 
 	//stop resting
@@ -446,8 +483,4 @@
 /mob/living/silicon/pai/MouseDrop(atom/over_object)
 	var/mob/living/carbon/H = over_object
 	if(!istype(H) || !Adjacent(H)) return ..()
-	if(H.a_intent == "help")
-		get_scooped(H)
-		return
-	else
-		return ..()
+	get_scooped(H, usr)

@@ -122,7 +122,7 @@
 /datum/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.setCloneLoss(0)
 	M.setOxyLoss(0)
-	M.radiation = 0
+	M.total_radiation = 0
 	M.heal_organ_damage(5,5)
 	M.adjustToxLoss(-5)
 	M.hallucination = 0

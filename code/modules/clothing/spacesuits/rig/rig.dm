@@ -77,7 +77,7 @@
 
 	var/emp_protection = 0
 
-	// Wiring! How exciting.
+	// Wiring! How exciting.]
 	var/datum/wires/rig/wires
 	var/datum/effect/effect/system/spark_spread/spark_system
 
@@ -190,9 +190,9 @@
 	update_icon(1)
 
 /obj/item/weapon/rig/proc/toggle_seals(var/mob/initiator,var/instant)
-		
+
 	if(sealing) return
-	
+
 	// Seal toggling can be initiated by the suit AI, too
 	if(!wearer)
 		initiator << "<span class='danger'>Cannot toggle suit: The suit is currently not being worn by anyone.</span>"
@@ -288,7 +288,7 @@
 	// Success!
 	canremove = seal_target
 	wearer << "<font color='blue'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></font>"
-	
+
 	if(wearer != initiator)
 		initiator << "<font color='blue'>Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"].</font>"
 
@@ -704,7 +704,7 @@
 			malfunction_delay = max(malfunction_delay, round(30/severity_class))
 
 	//drain some charge
-	if(cell) cell.emp_act(severity_class + 15)
+	if(cell) cell.emp_act((severity_class + 15)*1+(0.1*emp_protection))
 
 	//possibly damage some modules
 	take_hit((100/severity_class), "electrical pulse", 1)

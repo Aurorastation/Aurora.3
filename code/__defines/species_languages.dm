@@ -22,6 +22,7 @@
 #define HAS_EYE_COLOR     0x10   // Eye colour selectable in chargen. (RGB)
 #define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
 #define HAS_SOCKS         0x40   // If this species can wear socks
+#define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
 
 // Languages.
 #define LANGUAGE_EAL "Encoded Audio Language"
@@ -29,6 +30,7 @@
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
+#define LANGUAGE_SIGN_TAJARA "Nal'rasan"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
 #define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"

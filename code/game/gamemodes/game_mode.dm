@@ -35,9 +35,6 @@ var/global/list/additional_antag_types = list()
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
 
-
-	// #TODO-MERGE: Check where uplink shit is hidden now.
-
 /datum/game_mode/New()
 	..()
 	// Enforce some formatting.
@@ -322,10 +319,14 @@ var/global/list/additional_antag_types = list()
 		if(M.client)
 			clients++
 			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
 				if(M.stat != DEAD)
 					surviving_humans++
 					if(M.loc && M.loc.loc && M.loc.loc.type in escape_locations)
 						escaped_humans++
+					if (isipc(H))
+						var/datum/species/machine/machine = H.species
+						machine.update_tag(H, H.client)
 			if(M.stat != DEAD)
 				surviving_total++
 				if(M.loc && M.loc.loc && M.loc.loc.type in escape_locations)

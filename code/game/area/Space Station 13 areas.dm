@@ -1435,10 +1435,12 @@ area/space/atmosalert()
 
 //Security
 
+/area/security
+	no_light_control = 1
+
 /area/security/main
 	name = "\improper Security Office"
 	icon_state = "security"
-	no_light_control = 1
 
 /area/security/lobby
 	name = "\improper Security Lobby"
