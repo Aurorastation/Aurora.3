@@ -149,13 +149,12 @@
 
 
 /mob/living/simple_animal/Life()
-	..()
+	. = ..()
 	life_tick++
+	if (!.)
+		return 0
 	//Health
 	updatehealth()
-
-	if(stat == DEAD)
-		return 0
 
 	if(health > maxHealth)
 		health = maxHealth
