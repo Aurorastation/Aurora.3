@@ -94,8 +94,8 @@
 	nanomodule_path = /datum/nano_module/lighting_ctrl
 	program_icon_state = "comm_monitor"
 	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
-	required_access_run = access_ce
-	required_access_download = access_captain
+	required_access_run = access_heads
+	required_access_download = access_ce
 	requires_ntnet = 1
 	network_destination = "APC Coordinator"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
