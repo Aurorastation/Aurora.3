@@ -99,6 +99,7 @@ var/list/mob_hat_cache = list()
 	hat_y_offset = -12
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
+	holder_type = /obj/item/weapon/holder/drone/heavy
 
 /mob/living/silicon/robot/drone/New()
 

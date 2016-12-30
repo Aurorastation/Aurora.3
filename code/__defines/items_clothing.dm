@@ -64,7 +64,7 @@
 #define BLOCKHAIR       0x40    // Hides the user's hair, facial and otherwise.
 
 //This flag applies to gloves, uniforms, shoes, masks, ear items, glasses
-#define ALWAYSDRAW	32//If set, this item is always rendered even if its slot is hidden by other clothing
+#define ALWAYSDRAW	0x80//If set, this item is always rendered even if its slot is hidden by other clothing
 //Note that the item may still not be visible if its sprite is actually covered up.
 
 // Slots.
