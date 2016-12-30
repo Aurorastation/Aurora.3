@@ -228,5 +228,5 @@
 	..()
 	playsound(H.loc, 'sound/items/countdown.ogg', 125, 1)
 	spawn(15)
-		explosion(src, -1, 1, 5)
+		explosion(H.loc, -1, 1, 5)
 		H.gib()
