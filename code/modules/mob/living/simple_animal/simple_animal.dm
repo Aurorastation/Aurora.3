@@ -149,9 +149,9 @@
 
 
 /mob/living/simple_animal/Life()
-	. = ..()
+	..()
 	life_tick++
-	if (!.)
+	if (stat == DEAD)
 		return 0
 	//Health
 	updatehealth()
