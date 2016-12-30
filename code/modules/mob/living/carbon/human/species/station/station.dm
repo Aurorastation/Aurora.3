@@ -48,6 +48,7 @@
 	sprint_cost_factor = 1.45
 	exhaust_threshold = 65
 	rarity_value = 3
+	breakcuffs = list(MALE)
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
 	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
@@ -90,11 +91,6 @@
 		"You feel sluggish and cold.",
 		"Your scales bristle against the cold."
 		)
-
-/datum/species/unathi/handle_post_spawn(var/mob/living/carbon/human/H)
-	..()
-	if(H.gender == "male")
-		breakcuffs = 1
 
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()

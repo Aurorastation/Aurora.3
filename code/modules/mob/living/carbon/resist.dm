@@ -107,7 +107,7 @@
 	if(HULK in mutations)
 		return 1
 
-	if(species.breakcuffs)
+	if(src.gender in src.species.breakcuffs)
 		return 1
 
 	return 0

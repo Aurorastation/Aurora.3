@@ -49,7 +49,7 @@
 	brute_mod = 0.2 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
-	breakcuffs = 1
+	breakcuffs = list(MALE,FEMALE,NEUTER)
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100

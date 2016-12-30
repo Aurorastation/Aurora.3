@@ -149,7 +149,7 @@
 	burn_mod = 0.5
 	flash_mod = 0
 	siemens_coefficient = 0
-	breakcuffs = 1
+	breakcuffs = list(MALE,FEMALE,NEUTER)
 
 	show_ssd = "laying inert, its activation glyph dark."
 	death_sound = 'sound/effects/bang.ogg'
