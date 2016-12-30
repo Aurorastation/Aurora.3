@@ -135,8 +135,11 @@
 
 
 
-
-//Table interactions
+/*
+==========================
+	Table interactions
+==========================
+*/
 /obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
 		var/obj/structure/closet/crate/C = mover
@@ -199,24 +202,24 @@
 
 
 
-/obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/usr)
-	if (!table || !usr || (tablestatus == -1))
+/obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
+	if (!table || !user || (tablestatus == -1))
 		return
 
 	//User must be in reach of the crate
-	if (!usr.Adjacent(src))
-		usr << span("warning", "You need to be closer to the crate!")
+	if (!user.Adjacent(src))
+		user << span("warning", "You need to be closer to the crate!")
 		return
 
 	//One of us has to be near the table
-	if (!usr.Adjacent(table) && !Adjacent(table))
-		usr << span("warning", "Take the crate closer to the table!")
+	if (!user.Adjacent(table) && !Adjacent(table))
+		user << span("warning", "Take the crate closer to the table!")
 		return
 
 
 	for (var/obj/structure/closet/crate/C in get_turf(table))
 		if (C.tablestatus != -1)
-			usr << span("warning", "There's already a crate on this table!")
+			user << span("warning", "There's already a crate on this table!")
 			return
 
 	//Crates are heavy, hauling them onto tables is hard.
@@ -239,9 +242,9 @@
 			timeneeded += 3* M.mob_size
 
 	if (timeneeded > 0)
-		usr.visible_message("[usr] starts hoisting [src] onto the [table]", "You start hoisting [src] onto the [table]. This will take about [timeneeded*0.1] seconds")
-		usr.face_atom(src)
-		if (do_after(usr, timeneeded, needhand = 1))
+		user.visible_message("[user] starts hoisting [src] onto the [table]", "You start hoisting [src] onto the [table]. This will take about [timeneeded*0.1] seconds")
+		user.face_atom(src)
+		if (do_after(user, timeneeded, needhand = 1))
 			success = 1
 
 
@@ -257,13 +260,11 @@
 
 
 
-
-
-
-
-
-
-
+/*
+=====================
+	Secure Crates
+=====================
+*/
 
 
 /obj/structure/closet/crate/secure
