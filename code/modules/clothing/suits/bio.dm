@@ -33,9 +33,11 @@
 /obj/item/clothing/head/bio_hood/general
 	icon_state = "bio_general"
 	body_parts_covered = HEAD|FACE|EYES
+	desc = "A hood that protects the head and face from biological comtaminants. And bees."
 
 /obj/item/clothing/suit/bio_suit/general
 	icon_state = "bio_general"
+	desc = "A suit that protects against biological contamination and beestings."
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL
 

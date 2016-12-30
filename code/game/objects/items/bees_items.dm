@@ -6,53 +6,7 @@
 	icon_state = "seed-kudzu"
 	w_class = 1
 
-/obj/item/weapon/bee_net
-	name = "bee net"
-	desc = "For catching rogue bees."
-	icon = 'icons/obj/apiary_bees_etc.dmi'
-	icon_state = "bee_net"
-	item_state = "bedsheet"
-	w_class = 3
-	var/caught_bees = 0
 
-/obj/item/weapon/bee_net/attack_self(mob/user as mob)
-	var/turf/T = get_step(get_turf(user), user.dir)
-	for(var/mob/living/simple_animal/bee/B in T)
-		if(B.feral < 0)
-			caught_bees += B.strength
-			qdel(B)
-			user.visible_message("\blue [user] nets some bees.","\blue You net up some of the becalmed bees.")
-		else
-			user.visible_message("\red [user] swings at some bees, they don't seem to like it.","\red You swing at some bees, they don't seem to like it.")
-			B.feral = 5
-			B.target_mob = user
-
-/obj/item/weapon/bee_net/verb/empty_bees()
-	set src in usr
-	set name = "Empty bee net"
-	set category = "Object"
-	var/mob/living/carbon/M
-	if(iscarbon(usr))
-		M = usr
-
-	while(caught_bees > 0)
-		//release a few super massive swarms
-		while(caught_bees > 5)
-			var/mob/living/simple_animal/bee/B = new(src.loc)
-			B.feral = 5
-			B.target_mob = M
-			B.strength = 6
-			B.icon_state = "bees_swarm"
-			caught_bees -= 6
-
-		//what's left over
-		var/mob/living/simple_animal/bee/B = new(src.loc)
-		B.strength = caught_bees
-		B.icon_state = "bees[B.strength]"
-		B.feral = 5
-		B.target_mob = M
-
-		caught_bees = 0
 
 /obj/item/apiary
 	name = "moveable apiary"
@@ -93,7 +47,7 @@
 /obj/item/weapon/book/manual/hydroponics_beekeeping
 	name = "The Ins and Outs of Apiculture - A Precise Art"
 	icon_state ="bookHydroponicsBees"
-	author = "Beekeeper Dave"
+	author = "Beekeeper Nanako"
 	title = "The Ins and Outs of Apiculture - A Precise Art"
 	dat = {"<html>
 				<head>
@@ -109,14 +63,17 @@
 				<body>
 				<h1>Raising Bees</h1>
 
-				Bees are loving but fickle creatures. Don't mess with their hive and stay away from any clusters of them, and you'll avoid their ire.
-				Sometimes, you'll need to dig around in there for those delicious sweeties though - in that case make sure you wear sealed protection gear
-				and carry an extinguisher or smoker with you - any bees chasing you, once calmed down, can thusly be netted and returned safely to the hive.<br.
-				<br>
-				BeezEez is a cure-all panacea for them, but use it too much and the hive may grow to apocalyptic proportions. Other than that, bees are excellent pets
-				for all the family and are excellent caretakers of one's garden: having a hive or two around will aid in the longevity and growth rate of plants,
-				and aid them in fighting off poisons and disease.
+				Bees require their hive to be built near plants in order to feed on them, so construct it somewhere in a garden. Insert the honey frames so they can start preparing honey.<br>
+				The lid needs to be closed to give them a safe environment to breed in, but you'll need to open it to perform maintenance and extract honey, open and close with a crowbar.<br>
+				Use a smoker to calm them down before extracting honey, and if the bees get free, smoke them until they calm down, scoop them up with the net and return them to the hive. <br>
+				The smoker runs on welding fuel, be sure to keep it topped up <br>
+				Use a plant analyser to check on the hive, it'll let you know the population and their progress on making honey <br>
+				Once you've extracted some honey frames, run them through the provided extractor machine to retrieve the products, and return the empty frames to the hive.<br>
+				Don't forget to wear a thick suit, a biosuit is included for your safety. Bee stings can hurt <br>
 
+				And last but not least, prepare for future expansion. Your bees will grow fast, and at some point you'll find the hive full. You can construct a second one and frames for it with enough wood.
 				</body>
 			</html>
 			"}
+
+
