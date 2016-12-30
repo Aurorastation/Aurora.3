@@ -1,5 +1,4 @@
 //Bees are spawned from an apiary, and will slowly die if it is destroyed.
-var/global/list/bee_list = list()
 
 /mob/living/simple_animal/bee
 	name = "bees"
@@ -25,7 +24,6 @@ var/global/list/bee_list = list()
 /mob/living/simple_animal/bee/New(loc, var/obj/machinery/beehive/new_parent)
 	..()
 	parent = new_parent
-	bee_list["\ref[src]"] = src
 
 /mob/living/simple_animal/bee/Destroy()
 	if(parent)
