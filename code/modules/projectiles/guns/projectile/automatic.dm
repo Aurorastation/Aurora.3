@@ -338,7 +338,7 @@
 
 
 	fire_delay = 20
-	accuracy = -4
+	accuracy = -1
 
 	//wielding information
 	fire_delay_wielded = 5
@@ -387,11 +387,11 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
-	
+
 	accuracy = -2
 	fire_delay = 10
 	recoil_wielded = 0
-	
+
 	fire_delay_wielded = 6
 	accuracy_wielded = 0
 

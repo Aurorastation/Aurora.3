@@ -68,8 +68,8 @@
 	short_name = "ind"
 	name_plural = "Industrials"
 
-	brute_mod = 0.3
-	burn_mod = 1.2
+	brute_mod = 0.5
+	burn_mod = 1.3
 	slowdown = 4
 
 	blurb = "Tough units made for engineering and security with simple exteriors, roughly resembling humans. No job restrictions. Heavy emphasis on \
@@ -98,9 +98,9 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
 
-	heat_level_1 = 800
-	heat_level_2 = 1300
-	heat_level_3 = 2500
+	heat_level_1 = 600
+	heat_level_2 = 1200
+	heat_level_3 = 2400
 
 	heat_discomfort_level = 800
 
@@ -145,10 +145,11 @@
 	eyes = "eyes_terminator"
 	has_floating_eyes = 1
 
-	brute_mod = 0.2
-	burn_mod = 0.4
+	brute_mod = 0.3
+	burn_mod = 0.5
 	flash_mod = 0
 	siemens_coefficient = 0
+	breakcuffs = 1
 
 	show_ssd = "laying inert, its activation glyph dark."
 	death_sound = 'sound/effects/bang.ogg'
@@ -179,7 +180,7 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
-		"optics" = /obj/item/organ/optical_sensor,
+		"optics" = /obj/item/organ/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data
 		)
 
@@ -223,13 +224,9 @@
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 	return 0
 
-/datum/species/machine/handle_death(var/mob/living/carbon/human/H)
+/datum/species/machine/terminator/handle_death(var/mob/living/carbon/human/H)
 	..()
-	spawn(10)
-		playsound(H.loc, 'sound/items/countdown.ogg', 125, 1)
-		spawn(20)
-			explosion(H, -1, -1, 5)
-			H.gib()
-
-/datum/species/machine/sanitize_name(var/new_name)
-	return sanitizeName(new_name, allow_numbers = 1)
+	playsound(H.loc, 'sound/items/countdown.ogg', 125, 1)
+	spawn(15)
+		explosion(src, -1, 1, 5)
+		H.gib()

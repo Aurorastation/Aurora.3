@@ -267,12 +267,14 @@
 		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
-	for(var/mob/M in range(7, src))
+	for(var/mob/living/M in range(7, src))
 		M << 'sound/effects/EMPulse.ogg'
 		for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in M.contents)
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
 				explosion(F.loc, -1, -1, 2)
+				M.apply_damage(20,BRUTE)
+				M.apply_damage(15,BURN)
 				qdel(F)
 
 	for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in range(7, src))
@@ -286,6 +288,10 @@
 	set category = "Hunter-Killer"
 	set name = "State Laws"
 	set desc = "State your laws aloud."
+
+	if(stat)
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
+		return
 
 	if(last_special > world.time)
 		return
@@ -380,7 +386,7 @@
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
 	sleep(20)
-	explosion(src, -1, -1, 5)
+	explosion(src, -1, 1, 5)
 	src.gib()
 
 /mob/living/carbon/human/proc/hivenet()

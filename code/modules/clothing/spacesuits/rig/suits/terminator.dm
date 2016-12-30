@@ -29,16 +29,16 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/terminator
-	species_restricted = list("Hunter-Killer")
+	species_restricted = list("Machine")
 
 /obj/item/clothing/suit/space/rig/terminator
-	species_restricted = list("Hunter-Killer")
+	species_restricted = list("Machine")
 
 /obj/item/clothing/shoes/magboots/rig/terminator
-	species_restricted = list("Hunter-Killer")
+	species_restricted = list("Machine")
 
 /obj/item/clothing/gloves/rig/terminator
-	species_restricted = list("Hunter-Killer")
+	species_restricted = list("Machine")
 
 /obj/item/weapon/rig/terminator/equipped
 	initial_modules = list(

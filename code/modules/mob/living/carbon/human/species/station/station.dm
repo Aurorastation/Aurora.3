@@ -91,6 +91,11 @@
 		"Your scales bristle against the cold."
 		)
 
+/datum/species/unathi/handle_post_spawn(var/mob/living/carbon/human/H)
+	..()
+	if(H.gender == "male")
+		breakcuffs = 1
+
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
@@ -352,7 +357,7 @@
 	radiation_mod = 0	// not affected by radiation
 
 	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
-	brute_mod = 0.5
+	brute_mod = 0.8
 	burn_mod = 1.0
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
@@ -375,7 +380,7 @@
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
 	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON | NO_MINOR_CUT
-	appearance_flags = HAS_SKIN_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
 	blood_color = "#1F181F"
