@@ -96,17 +96,17 @@
 	switch(M.a_intent)
 
 		if(I_HELP)
-			M.visible_message("\blue [M] [response_help] \the [src]")
+			M.visible_message(span("notice","[M] [response_help] \the [src]"))
 
 		if(I_DISARM)
-			M.visible_message("\blue [M] [response_disarm] \the [src]")
+			M.visible_message(span("notice","[M] [response_disarm] \the [src]"))
 			M.do_attack_animation(src)
 			//TODO: Push the mob away or something
 
 
 		if(I_HURT)
 			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message("\red [M] [response_harm] \the [src]")
+			M.visible_message(span("danger","[M] [response_harm] \the [src]"))
 			M.do_attack_animation(src)
 			updatehealth()
 
