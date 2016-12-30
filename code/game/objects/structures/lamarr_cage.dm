@@ -65,8 +65,8 @@
 		usr << "<span class='warning'>You kick the lab cage.</span>"
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << "<span class='warning'>[] kicks the lab cage.</span>"
-				
+				O << "<span class='warning'>[user] kicks the lab cage.</span>"
+
 		src.health -= 2
 		healthcheck()
 		return
@@ -182,7 +182,7 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(stat != CONSCIOUS)	return
 	if(!sterile) L.take_organ_damage(strength,0) //done here so that even borgs and humans in helmets take damage
 
-	L.visible_message("<span class='danger'>\[src] leaps at [L]'s face!</span>")
+	L.visible_message("<span class='danger'>[src] leaps at [L]'s face!</span>")
 
 
 	if(ishuman(L))

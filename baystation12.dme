@@ -420,6 +420,7 @@
 #include "code\game\machinery\deployable.dm"
 #include "code\game\machinery\door_control.dm"
 #include "code\game\machinery\doppler_array.dm"
+#include "code\game\machinery\firealarm.dm"
 #include "code\game\machinery\flasher.dm"
 #include "code\game\machinery\floodlight.dm"
 #include "code\game\machinery\floor_light.dm"
