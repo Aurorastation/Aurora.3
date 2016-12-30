@@ -1,10 +1,11 @@
 // These are not flags, binary operations not intended
-#define TOPIC_NOACTION 0
-#define TOPIC_HANDLED 1
-#define TOPIC_REFRESH 2
+#define TOPIC_NOACTION	0
+#define TOPIC_HANDLED	1
+#define TOPIC_REFRESH	2
 
-#define SQL_CHARACTER 1
-#define SQL_PREFERENCES 2
+// These are bitflags. Use wisely.
+#define SQL_CHARACTER	0x1
+#define SQL_PREFERENCES	0x2
 
 /datum/category_group/player_setup_category/general_preferences
 	name = "General"
@@ -150,7 +151,7 @@
 	else
 		if (modified)
 			// No save here, because this is only called from the menu and needs to save /everything/.
-			handle_sql_saving(0)
+			handle_sql_saving(SQL_PREFERENCES|SQL_CHARACTER)
 			modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
