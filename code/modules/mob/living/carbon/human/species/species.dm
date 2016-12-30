@@ -63,7 +63,7 @@
 	var/radiation_mod = 1                    // Radiation modifier
 	var/flash_mod =     1                    // Stun from blindness modifier.
 	var/vision_flags = SEE_SELF              // Same flags as glasses.
-	var/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
+	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
 
 	// Death vars.
 	var/meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human
