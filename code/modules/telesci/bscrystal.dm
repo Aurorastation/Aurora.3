@@ -31,7 +31,7 @@
 	if(!..()) // not caught in mid-air
 		visible_message("<span class='notice'>[src] fizzles and disappears upon impact!</span>")
 		var/turf/T = get_turf(hit_atom)
-		PoolOrNew(/obj/effect/sparks, T)
+		PoolOrNew(/obj/effect/effect/sparks, T)
 		playsound(src.loc, "sparks", 50, 1)
 		if(isliving(hit_atom))
 			blink_mob(hit_atom)
