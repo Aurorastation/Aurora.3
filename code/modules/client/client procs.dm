@@ -136,49 +136,57 @@
 	// JSlink switch.
 	if (href_list["JSlink"])
 		switch (href_list["JSlink"])
+			// Warnings panel for each user.
 			if ("warnings")
 				src.warnings_check()
 
+			// Linking request handling.
 			if ("linking")
 				src.check_linking_requests()
 
+			// Notification dismissal from the server greeting.
 			if ("dismiss")
 				if (href_list["notification"])
 					var/datum/client_notification/a = locate(href_list["notification"])
 					if (a && isnull(a.gcDestroyed))
 						a.dismiss()
 
+			// Forum link from various panels.
 			if ("github")
 				if (!config.githuburl)
 					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
 				else if (alert("This will open the issue tracker in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					src << link(config.githuburl)
 
+			// Forum link from various panels.
 			if ("forums")
 				src.forum()
 
+			// Wiki link from various panels.
 			if ("wiki")
 				src.wiki()
 
+			// Web interface href link from various panels.
 			if ("webint")
 				src.open_webint()
 
-			if ("logie")
-				if (config.sql_stats && href_list["ie_data"])
-					var/list/data = json_decode(href_list["ie_data"])
-					data["_ckey"] = src.ckey
-					if (data.len != 7)
-						return
-
-					if (!establish_db_connection(dbcon))
-						return
-
-					var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_stats_ie (ckey, IsIE, IsEdge, EdgeHtmlVersion, TrueVersion, ActingVersion, CompatibilityMode, DateUpdated) VALUES (_ckey, _IsIE, _IsEdge, _EdgeHtmlVersion, _TrueVersion, _ActingVersion, _CompatibilityMode, NOW()) ON DUPLICATE KEY UPDATE IsIE = VALUES(IsIe), IsEdge = VALUES(IsEdge), EdgeHtmlVersion = VALUES(EdgeHtmlVersion), TrueVersion = VALUES(TrueVersion), ActingVersion = VALUES(ActingVersion), CompatibilityMode = VALUES(CompatibilityMode), DateUpdated = NOW()")
-					query.Execute(data)
-
+			// Forward appropriate topics to the server greeting datum.
 			if ("greeting")
 				if (server_greeting)
 					server_greeting.handle_call(href_list, src)
+
+			// Handle the updating of MotD and Memo tabs upon click.
+			if ("updateHashes")
+				var/save = 0
+				if (href_list["#motd-tab"])
+					src.prefs.motd_hash = href_list["#motd-tab"]
+					save = 1
+				if (href_list["#memo-tab"])
+					src.prefs.memo_hash = href_list["#memo-tab"]
+					save = 1
+
+				if (save)
+					src.prefs.save_preferences()
 
 		return
 

@@ -161,7 +161,8 @@ var/list/admin_verbs_server = list(
 	/client/proc/toggle_random_events,
 	/client/proc/check_customitem_activity,
 	/client/proc/nanomapgen_DumpImage,
-	/client/proc/admin_edit_motd
+	/client/proc/admin_edit_motd,
+	/client/proc/toggle_recursive_explosions
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -196,7 +197,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/Jump,
 	/client/proc/jumptomob,
 	/client/proc/jumptocoord,
-	/client/proc/dsay
+	/client/proc/dsay,
+	/client/proc/toggle_recursive_explosions
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -286,7 +288,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/enable_debug_verbs,
 	/client/proc/roll_dices,
 	/proc/possess,
-	/proc/release
+	/proc/release,
+	/client/proc/toggle_recursive_explosions
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -995,3 +998,22 @@ var/list/admin_verbs_cciaa = list(
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
 	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] the spell [S].", 1)
+
+/client/proc/toggle_recursive_explosions()
+	set category = "Server"
+	set name = "Explosion Type"
+	set desc = "Toggle between recursive and non-recursive explosions."
+
+	if (!check_rights(R_SERVER|R_DEBUG))
+		return
+
+	var/ans = alert(src, "This will force explosions to run in the [config.use_recursive_explosions ? "old manner (non-recursive)" : "new, realistic manner (recursive)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
+
+	if (!ans || ans == "Cancel")
+		src << "<span class='notice'>Cancelled.</span>"
+		return
+
+	config.use_recursive_explosions = !config.use_recursive_explosions
+
+	log_and_message_admins("has toggled explosions to be [config.use_recursive_explosions ? "recursive" : "non-recursive"].")
+	feedback_add_details("admin_verb", "TRE")

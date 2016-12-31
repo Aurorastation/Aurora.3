@@ -1,3 +1,7 @@
+// Set this to 1 if you want to debug the SQL saves.
+// I got tired as hell from writing these debug lines and deleting them later.
+#define SQL_PREF_DEBUG 0
+
 /*
  * A proc for dynamically loading a character from the database.
  * See the category items for procs on what pieces are given.
@@ -8,7 +12,10 @@
 	var/static/list/query_cache
 
 	// We aren't loading this category. Bye.
-	if (role_type && sql_role != role_type)
+	if (role_type && !(sql_role & role_type))
+#ifdef SQL_PREF_DEBUG
+		log_debug("SQL CHARACTER LOAD: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
+#endif
 		return
 
 	if (isnull(query_cache))
@@ -72,6 +79,9 @@
 				else
 					query += ";"
 
+#ifdef SQL_PREF_DEBUG
+			log_debug("SQL CHARACTER LOAD: Cached query [query] with variables [json_encode(var_names)]")
+#endif
 			// Save it.
 			query_cache[type][query] = var_names
 
@@ -80,6 +90,11 @@
 
 	// Actually utilize the queries.
 	var/list/arg_list = gather_load_parameters()
+
+#ifdef SQL_PREF_DEBUG
+	log_debug("SQL CHARACTER LOAD: Started loading with arguments: [json_encode(arg_list)]. Role type: [role_type]")
+#endif
+
 	for (var/query_text in query_cache[type])
 		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list, 1)
@@ -87,6 +102,11 @@
 			error("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
 			log_debug("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
 			log_debug("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
+
+#ifdef SQL_PREF_DEBUG
+		else
+			log_debug("SQL CHARACTER LOAD: Successfully executed query: [query_text]")
+#endif
 
 			continue
 
@@ -122,7 +142,10 @@
 	var/static/list/query_cache
 
 	// We aren't loading this category. Bye.
-	if (role_type && sql_role != role_type)
+	if (role_type && !(sql_role & role_type))
+#ifdef SQL_PREF_DEBUG
+		log_debug("SQL CHARACTER SAVE: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
+#endif
 		return
 
 	if (isnull(query_cache))
@@ -175,11 +198,19 @@
 			// Remove any potentially damaging commas from the end.
 			query = replacetext(query, ",", "", length(query) - 1)
 
+#ifdef SQL_PREF_DEBUG
+			log_debug("SQL CHARACTER SAVE: Cached query [query].")
+#endif
+
 			// Save it.
 			query_cache[type] += query
 
 	// Actually utilize the queries.
 	var/list/arg_list = gather_save_parameters()
+
+#ifdef SQL_PREF_DEBUG
+	log_debug("SQL CHARACTER SAVE: Started saving with arguments: [json_encode(arg_list)]. Role type: [role_type]")
+#endif
 
 	// Typecast the collection so we can access its preferences var.
 	var/datum/category_collection/player_setup_collection/cc = collection
@@ -194,7 +225,12 @@
 
 			continue
 
-		if (role_type == SQL_CHARACTER && !cc.preferences.current_character)
+#ifdef SQL_PREF_DEBUG
+		else
+			log_debug("SQL CHARACTER SAVE: Successfully executed query: [query_text]")
+#endif
+
+		if ((role_type & SQL_CHARACTER) && !cc.preferences.current_character)
 			// No current character, means we're doing insert queries.
 			// Quickly nab the new ID and substitute it within the args.
 			query = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS new_id")
@@ -204,6 +240,11 @@
 				arg_list[":id"] = text2num(query.item[1])
 				arg_list[":char_id"] = text2num(query.item[1])
 				cc.preferences.current_character = text2num(query.item[1])
+
+#ifdef SQL_PREF_DEBUG
+				log_debug("SQL CHARACTER SAVE: Successfully set character ID to [cc.preferences.current_character]")
+#endif
+
 			else
 				error("SQL CHARACTER SAVE: New ID was not recovered.")
 				log_debug("SQL CHARACTER SAVE: New ID was not recovered.")
@@ -217,3 +258,5 @@
 		arg_list |= PI.gather_save_parameters()
 
 	return arg_list
+
+#undef SQL_PREF_DEBUG

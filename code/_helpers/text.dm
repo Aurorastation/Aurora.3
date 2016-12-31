@@ -339,7 +339,7 @@ proc/TextPreview(var/string,var/len=40)
 	var/regex/tag_markup
 	for (var/tag in (markup_tags - ignore_tags))
 		tag_markup = markup_regex[tag]
-		message = tag_markup.Replace(message, "[markup_tags[tag][1]]$2[markup_tags[tag][2]]")
+		message = tag_markup.Replace(message, "$2[markup_tags[tag][1]]$3[markup_tags[tag][2]]$5")
 
 	// ---Unload URL cache
 	for (var/ref in urls)

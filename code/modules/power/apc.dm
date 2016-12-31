@@ -716,7 +716,43 @@
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 
-		if(H.species.can_shred(H))
+		if(isipc(H) && H.a_intent == I_GRAB)
+			if(emagged || stat & BROKEN)
+				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+				s.set_up(3, 1, src)
+				s.start()
+				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
+				H.adjustFireLoss(10, 0)
+			else if(src.cell && src.cell.charge > 0)
+				if(H.nutrition < H.max_nutrition)
+					if(src.cell.charge >= H.max_nutrition)
+						H.nutrition += 50
+						src.cell.charge -= 500
+					else
+						H.nutrition += src.cell.charge / 10
+						src.cell.charge = 0
+
+					user << "<span class='notice'>You slot your fingers into the APC interface and siphon off some of the stored charge for your own use.</span>"
+
+					if (src.cell.charge < 0)
+						src.cell.charge = 0
+					if (H.nutrition > H.max_nutrition)
+						H.nutrition = H.max_nutrition
+					if (prob(0.5))
+						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+						s.set_up(3, 1, src)
+						s.start()
+						H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
+						H.adjustFireLoss(10, 0)
+
+					src.charging = 1
+				else
+					user << "<span class='notice'>You are already fully charged.</span>"
+			else
+				user << "<span class='notice'>There is no charge to draw from that APC.</span>"
+
+			return
+		else if(H.species.can_shred(H))
 			user.visible_message("\red [user.name] slashes at the [src.name]!", "\blue You slash at the [src.name]!")
 			playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 

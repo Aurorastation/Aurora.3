@@ -169,7 +169,7 @@ var/list/gamemode_cache = list()
 
 	var/simultaneous_pm_warning_timeout = 100
 
-	var/use_recursive_explosions //Defines whether the server uses recursive or circular explosions.
+	var/use_recursive_explosions = 0 //Defines whether the server uses recursive or circular explosions.
 
 	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
