@@ -97,30 +97,30 @@
 		return 0
 	if(my_atom.flags & NOREACT) // No reactions here
 		return 0
-	
+
 	var/reaction_occured
 	var/list/effect_reactions = list()
 	var/list/eligible_reactions = list()
 	for(var/i in 1 to PROCESS_REACTION_ITER)
 		reaction_occured = 0
-		
+
 		//need to rebuild this to account for chain reactions
 		for(var/datum/reagent/R in reagent_list)
 			eligible_reactions |= chemical_reactions_list[R.id]
-		
+
 		for(var/datum/chemical_reaction/C in eligible_reactions)
 			if(C.can_happen(src) && C.process(src))
 				effect_reactions |= C
 				reaction_occured = 1
-		
+
 		eligible_reactions.Cut()
-		
+
 		if(!reaction_occured)
 			break
-	
+
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
-	
+
 	update_total()
 	return reaction_occured
 
@@ -257,6 +257,9 @@
 	if(!target || !istype(target))
 		return
 
+	if (amount <= 0 || multiplier <= 0)
+		return
+
 	amount = max(0, min(amount, total_volume, target.get_free_space() / multiplier))
 
 	if(!amount)
@@ -285,10 +288,10 @@
 	touch(target) //First, handle mere touch effects
 
 	if(ismob(target))
-		return splash_mob(target, amount, copy)
+		return splash_mob(target, amount, multiplier, copy)
 	if(isturf(target))
 		return trans_to_turf(target, amount, multiplier, copy)
-	if(isobj(target) && target.is_open_container())
+	if(isobj(target))
 		return trans_to_obj(target, amount, multiplier, copy)
 	return 0
 
@@ -300,7 +303,7 @@
 		amount -= spill
 	if(spill)
 		splash(target.loc, spill, multiplier, copy, min_spill, max_spill)
-	
+
 	trans_to(target, amount, multiplier, copy)
 
 /datum/reagents/proc/trans_id_to(var/atom/target, var/id, var/amount = 1)
@@ -362,12 +365,13 @@
 // Attempts to place a reagent on the mob's skin.
 // Reagents are not guaranteed to transfer to the target.
 // Do not call this directly, call trans_to() instead.
-/datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/copy = 0)
+/datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
 	var/perm = 1
 	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
-	return trans_to_mob(target, amount, CHEM_TOUCH, perm, copy)
+	multiplier *= perm
+	return trans_to_mob(target, amount, CHEM_TOUCH, multiplier, copy)
 
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0) // Transfer after checking into which holder...
 	if(!target || !istype(target) || !target.simulated)
