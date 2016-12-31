@@ -18,7 +18,7 @@
 
 /obj/item/bluespace_crystal/attack_self(mob/user)
 	user.visible_message("<span class='warning'>[user] crushes [src]!</span>", "<span class='danger'>You crush [src]!</span>")
-	PoolOrNew(/obj/effect/sparks, loc)
+	PoolOrNew(/obj/effect/effect/sparks, loc)
 	playsound(src.loc, "sparks", 50, 1)
 	blink_mob(user)
 	user.unEquip(src)
