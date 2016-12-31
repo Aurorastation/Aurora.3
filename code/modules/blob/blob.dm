@@ -4,16 +4,21 @@
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob"
 	light_range = 3
+	light_color = "#b5ff5b"
 	desc = "Some blob creature thingy"
 	density = 1
 	opacity = 0
 	anchored = 1
 	mouse_opacity = 2
+	layer = 4
 
 	var/maxHealth = 30
 	var/health
+	var/regen_rate = 5
 	var/brute_resist = 4
+	var/laser_resist = 5	// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
 	var/fire_resist = 1
+	var/secondary_core_growth_chance = 5 //% chance to grow a secondary blob core instead of whatever was suposed to grown. Secondary cores are considerably weaker, but still nasty.
 	var/expandType = /obj/effect/blob
 
 /obj/effect/blob/New(loc)
@@ -50,7 +55,7 @@
 		update_icon()
 
 /obj/effect/blob/proc/regen()
-	health = min(health + 1, maxHealth)
+	health = min(health + regen_rate, maxHealth)
 	update_icon()
 
 /obj/effect/blob/proc/expand(var/turf/T)
@@ -108,7 +113,11 @@
 		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 		L.take_organ_damage(rand(30, 40))
 		return
-	new expandType(T, min(health, 30))
+
+	if(prob(secondary_core_growth_chance))
+		new/obj/effect/blob/core/secondary(T)
+	else
+		new expandType(T, min(health, 30))
 
 /obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
 	regen()
@@ -131,7 +140,7 @@
 		if(BRUTE)
 			take_damage(Proj.damage / brute_resist)
 		if(BURN)
-			take_damage(Proj.damage / fire_resist)
+			take_damage((Proj.damage / laser_resist) / fire_resist)
 	return 0
 
 /obj/effect/blob/attackby(var/obj/item/weapon/W, var/mob/user)
@@ -154,15 +163,28 @@
 	name = "blob core"
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_core"
+	light_range = 4
+	light_power = 2
+	light_color = "#F3D203"
 	maxHealth = 200
 	brute_resist = 2
+	laser_resist = 10
+	regen_rate = 2
 	fire_resist = 2
 
 	expandType = /obj/effect/blob/shield
 	var/blob_may_process = 1
+	var/growth_range = 20 // Maximal distance for new blob pieces from this core.
 
 /obj/effect/blob/core/update_icon()
-	return
+	var/health_percent = (health / maxHealth) * 100
+	switch(health_percent)
+		if(66 to INFINITY)
+			icon_state = "blob_core"
+		if(33 to 66)
+			icon_state = "blob_node"
+		if(-INFINITY to 33)
+			icon_state = "blob_factory"
 
 /obj/effect/blob/core/New(loc)
 	processing_objects.Add(src)
@@ -184,6 +206,18 @@
 	pulse(20, list(SOUTH, WEST))
 	blob_may_process = 1
 
+// Half the stats of a normal core. Blob has a very small probability of growing these when spreading. These will spread the blob further.
+/obj/effect/blob/core/secondary
+	name = "small blob core"
+	icon = 'icons/mob/blob.dmi'
+	icon_state = "blob_core"
+	maxHealth = 100
+	brute_resist = 1
+	fire_resist = 1
+	laser_resist = 5
+	regen_rate = 1
+	growth_range = 6
+
 /obj/effect/blob/shield
 	name = "strong blob"
 	icon = 'icons/mob/blob.dmi'
@@ -192,6 +226,7 @@
 	maxHealth = 60
 	brute_resist = 1
 	fire_resist = 2
+	laser_resist = 7
 
 /obj/effect/blob/shield/New()
 	..()

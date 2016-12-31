@@ -500,15 +500,15 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/user)
 			LL.droplimb(0,DROPLIMB_BLUNT)
 			RL.droplimb(0,DROPLIMB_BLUNT)
 			playsound(user, 'sound/effects/splat.ogg', 50, 1)
-			user.show_message("\red With a sickening series of crunches, [user]'s body shrinks, and they begin to sprout feathers!")
-			user.show_message("<b>[user]</b> screams!",2)
+			user.visible_message("<span class = 'danger'> With a sickening series of crunches, [user]'s body shrinks, and they begin to sprout feathers!</span>")
+			user.visible_message("<b>[user]</b> screams!",2)
 			new_mob = new /mob/living/simple_animal/parrot(H.loc)
 			new_mob.universal_speak = 1
 			new_mob.key = H.key
 			new_mob.a_intent = "harm"
 			qdel(H)
 			sleep(20)
-			new_mob.show_message("<b>[new_mob]</b> squawks, 'Poly wanna cracker!'",2)
+			new_mob.say("Poly wanna cracker!")
 		return 0
 	return 1
 
@@ -537,8 +537,8 @@ obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/user)
 			var/obj/item/organ/external/RA = H.get_organ("r_hand")
 			var/active_hand = H.hand
 			playsound(user, 'sound/effects/blobattack.ogg', 40, 1)
-			user.visible_message("\red With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!")
-			user.show_message("<b>[user]</b> screams!",2)
+			user.visible_message("<span class = 'danger'> With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!</span>")
+			user.visible_message("<b>[user]</b> screams!",2)
 			user.drop_item()
 			if(active_hand)
 				LA.droplimb(0,DROPLIMB_EDGE)

@@ -908,24 +908,8 @@
 	sleep(20)
 	playsound(loc, 'sound/effects/alert.ogg', 125, 1)
 	sleep(10)
-	var/turf/O = get_turf(src)
-	var/fragger = rand(50,100)
 	density = 0
-	explosion(O, -1, -1, 2)
-	var/list/target_turfs = getcircle(O, 7)
-	var/fragments_per_projectile = round(fragger/target_turfs.len)
-
-	for(var/turf/T in target_turfs)
-		sleep(0)
-		var/obj/item/projectile/bullet/pellet/fragment/P = new (O)
-
-		P.damage = 5
-		P.pellets = fragments_per_projectile
-		P.range_step = 1
-		P.shot_from = src.name
-		P.name = "[src]'s shrapnel"
-
-		P.launch(T)
+	fragem(src,50,100,2,1,5,1,0)
 	gib()
 	return
 

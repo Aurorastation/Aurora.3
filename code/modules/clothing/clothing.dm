@@ -580,7 +580,7 @@ BLIND     // can't see anything
 	else
 		rolled_down = -1
 	if(H) update_clothing_icon()
-	
+
 /obj/item/clothing/under/proc/update_rollsleeves_status()
 	var/mob/living/carbon/human/H
 	if(istype(src.loc, /mob/living/carbon/human))
@@ -624,8 +624,9 @@ BLIND     // can't see anything
 
 /obj/item/clothing/under/proc/set_sensors(mob/usr as mob)
 	var/mob/M = usr
-	if (istype(M, /mob/dead/)) return
-	if (usr.stat || usr.restrained()) return
+	if(M.stat || M.paralysis || M.stunned || M.weakened || M.restrained())
+		usr << "You cannot reach your suit sensors like this..."
+		return
 	if(has_sensor >= 2)
 		usr << "The controls are locked."
 		return 0

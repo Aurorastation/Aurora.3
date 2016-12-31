@@ -141,14 +141,22 @@
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O as obj, mob/user as mob)
-	if(!active)
+	if(!active && !panel_open)
 		if(default_deconstruction_screwdriver(user, O))
 			return
 		if(default_deconstruction_crowbar(user, O))
 			return
 		if(default_part_replacement(user, O))
 			return
-	if(!panel_open || active) return ..()
+	if(active) return ..()
+
+	if(istype(O, /obj/item/weapon/crowbar))
+		if (panel_open && cell)
+			user << "You wrench out \the [cell]."
+			cell.loc = get_turf(user)
+			component_parts -= cell
+			cell = null
+			return
 
 	if(istype(O, /obj/item/weapon/cell))
 		if(cell)
@@ -165,13 +173,7 @@
 /obj/machinery/mining/drill/attack_hand(mob/user as mob)
 	check_supports()
 
-	if (panel_open && cell)
-		user << "You take out \the [cell]."
-		cell.loc = get_turf(user)
-		component_parts -= cell
-		cell = null
-		return
-	else if(need_player_check)
+	if(need_player_check)
 		user << "You hit the manual override and reset the drill's error checking."
 		need_player_check = 0
 		if(anchored)
@@ -189,8 +191,44 @@
 		else
 			user << "<span class='notice'>The drill is unpowered.</span>"
 	else
-		user << "<span class='notice'>Turning on a piece of industrial machinery without sufficient bracing or wires exposed is a bad idea.</span>"
-
+		if(use_cell_power())
+			if(!supported && !panel_open)
+				system_error("unbraced drill error")
+				sleep(30)
+				if(!supported) //if you can resolve it manually in three seconds then power to you good-sir.
+					if(prob(50))
+						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"")
+					else
+						visible_message("<span class='danger'>\The [src] explodes!</span>")
+						fragem(src,10,35,2,1,5,1,0)
+						qdel(src)
+				else
+					visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\"")
+			if(supported && panel_open)
+				if(cell)
+					system_error("unsealed cell fitting error")
+					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+					s.set_up(3, 1, src.loc)
+					s.start()
+					sleep(20)
+					s.set_up(3, 1, src.loc)
+					s.start()
+					sleep(10)
+					s.set_up(3, 1, src.loc)
+					s.start()
+					sleep(10)
+					if(panel_open)
+						if(prob(70))
+							visible_message("<span class='danger'>\The [src]'s cell shorts out!</span>")
+							cell.use(cell.charge)
+						else
+							visible_message("<span class='danger'>\The [src]'s cell detonates!</span>")
+							explosion(src.loc, -1, -1, 2, 1)
+							qdel(cell)
+					else
+						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\"")
+		else
+			user << "<span class='notice'>The drill is unpowered.</span>"
 	update_icon()
 
 /obj/machinery/mining/drill/update_icon()
@@ -238,7 +276,8 @@
 /obj/machinery/mining/drill/proc/system_error(var/error)
 
 	if(error)
-		src.visible_message("<span class='notice'>\The [src] flashes a '[error]' warning.</span>")
+		visible_message("<span class='warning'>\icon[src] [src.name] flashes a system warning: [error].</span>")
+		playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 100, 1)
 	need_player_check = 1
 	active = 0
 	update_icon()
@@ -283,7 +322,9 @@
 			O.loc = B
 		usr << "<span class='notice'>You unload the drill's storage cache into the ore box.</span>"
 	else
-		usr << "<span class='notice'>You must move an ore box up to the drill before you can unload it.</span>"
+		for(var/obj/item/weapon/ore/O in contents)
+			O.loc = src.loc
+		usr << "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>"
 
 
 /obj/machinery/mining/brace
@@ -292,16 +333,70 @@
 	icon_state = "mining_brace"
 	var/obj/machinery/mining/drill/connected
 
+/obj/machinery/mining/brace/New()
+	..()
+
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/miningdrillbrace(src)
+
 /obj/machinery/mining/brace/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(connected && connected.active)
+		user << "<span class='notice'>You know you ought not work with the brace of a <i>running</i> drill, but you do anyways.</span>"
+		sleep(5)
+		if(istype(user, /mob/living/carbon/human))
+			//Save the users active hand
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/LA = H.get_organ("l_hand")
+			var/obj/item/organ/external/RA = H.get_organ("r_hand")
+			var/active_hand = H.hand
+			if(prob(20))
+				if(active_hand)
+					LA.droplimb(0,DROPLIMB_BLUNT)
+				else
+					RA.droplimb(0,DROPLIMB_BLUNT)
+				connected.system_error("unexpected user interface error")
+				return
+			else
+				H.apply_damage(25,BRUTE, sharp=1, edge=1)
+				connected.system_error("unexpected user interface error")
+				return
+		else
+			var/mob/living/M = user
+			M.apply_damage(25,BRUTE, sharp=1, edge=1)
+
+	if(default_deconstruction_screwdriver(user, W))
+		return
+	if(default_deconstruction_crowbar(user, W))
+		return
+
 	if(istype(W,/obj/item/weapon/wrench))
 
 		if(istype(get_turf(src), /turf/space))
-			user << "<span class='notice'>You can't anchor something to empty space. Idiot.</span>"
+			user << "<span class='notice'>You send the [src] careening into space. Idiot.</span>"
+			var/inertia = rand(10,30)
+			for(var/i in 1 to inertia)
+				step_away(src,user,15,8)
+				if(!(istype(get_turf(src), /turf/space)))
+					break
+				sleep(1)
 			return
 
 		if(connected && connected.active)
-			user << "<span class='notice'>You can't unanchor the brace of a running drill!</span>"
-			return
+			if(prob(50))
+				sleep(10)
+				connected.system_error("unbraced drill error")
+				sleep(30)
+				if(connected && connected.active) //if you can resolve it manually in three seconds then power to you good-sir.
+					if(prob(50))
+						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"")
+					else
+						visible_message("<span class='danger'>\The [src] explodes!</span>")
+						fragem(src,10,35,2,1,5,1,0)
+						qdel(src)
+						return
+			else
+				connected.system_error("unexpected user interface error")
+				return
 
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>"
