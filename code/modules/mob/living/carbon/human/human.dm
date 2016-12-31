@@ -42,14 +42,26 @@
 
 	//Scaling down the ID hud
 	var/image/holder = hud_list[ID_HUD]
-	holder.pixel_x = -5
-	holder.pixel_y = 26
+	holder.pixel_x = -3
+	holder.pixel_y = 24
 	hud_list[ID_HUD] = holder
+
+	holder = hud_list[IMPLOYAL_HUD]
+	holder.pixel_y = 2
+	hud_list[IMPLOYAL_HUD] = holder
+
+	holder = hud_list[IMPCHEM_HUD]
+	holder.pixel_y = 2
+	hud_list[IMPCHEM_HUD] = holder
+
+	holder = hud_list[IMPTRACK_HUD]
+	holder.pixel_y = 2
+	hud_list[IMPTRACK_HUD] = holder
 
 
 	holder = hud_list[WANTED_HUD]
-	holder.pixel_x = -5
-	holder.pixel_y = 14
+	holder.pixel_x = -3
+	holder.pixel_y = 12
 	hud_list[WANTED_HUD] = holder
 
 
