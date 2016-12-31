@@ -181,6 +181,7 @@
 
 /obj/structure/AIcore/deactivated
 	name = "inactive AI"
+	desc = "An empty AI core."
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "ai-empty"
 	anchored = 1

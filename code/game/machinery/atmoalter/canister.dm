@@ -1,5 +1,6 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
+	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1

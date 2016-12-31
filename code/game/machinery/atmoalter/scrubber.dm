@@ -1,5 +1,6 @@
 /obj/machinery/portable_atmospherics/powered/scrubber
 	name = "Portable Air Scrubber"
+	desc = "Scrubs contaminants from the local atmosphere or the connected portable tank."
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"

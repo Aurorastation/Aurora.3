@@ -34,6 +34,7 @@
 
 /obj/machinery/alarm
 	name = "alarm"
+	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
 	anchored = 1
@@ -54,6 +55,7 @@
 	var/wiresexposed = 0 // If it's been screwdrivered open.
 	var/aidisabled = 0
 	var/shorted = 0
+	var/highpower = 0	// if true, power usage & temperature regulation power is increased
 
 	var/datum/wires/alarm/wires
 
@@ -83,50 +85,51 @@
 
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
+	desc = "A device that controls the local air regulation machinery."
 
 /obj/machinery/alarm/monitor
 	report_danger_level = 0
 	breach_detection = 0
+	desc = "A device that controls the local air regulation machinery."
+
+/obj/machinery/alarm/server
+	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
+	target_temperature = 90
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in server rooms."
+	highpower = 1
+
+/obj/machinery/alarm/freezer
+	req_one_access = list(access_kitchen, access_atmospherics, access_engine_equip)
+	highpower = 1
+	target_temperature = T0C - 20
+
+/obj/machinery/alarm/cold
+	target_temperature = T0C + 5
 
 /obj/machinery/alarm/server/New()
 	..()
-	active_power_usage *= 6
-	idle_power_usage *= 3
-	name = "High Power [name]"
-	req_access = list(access_rd, access_atmospherics, access_engine_equip)
 	TLV["oxygen"] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
 	TLV["phoron"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.5, 1.0) // Partial pressure, kpa
 	TLV["pressure"] =		list(0,ONE_ATMOSPHERE*0.10,ONE_ATMOSPHERE*1.40,ONE_ATMOSPHERE*1.60) /* kpa */
 	TLV["temperature"] =	list(20, 40, 140, 160) // K
-	target_temperature = 90
 
 //For colder alarms, allowing pressure to drop a bit below normal is necessary. Pressure fluctuates downwards
 //While temperature stabilises.
 
-
 //Kitchen freezer
 /obj/machinery/alarm/freezer/New()
 	..()
-	active_power_usage *= 6
-	idle_power_usage *= 3
-	name = "High Power [name]"
-	req_one_access.Add(access_kitchen)
-	TLV["oxygen"] =			list(16, 17, 135, 140) // Partial pressure, kpa
-	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
-	TLV["temperature"] =	list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
-	target_temperature = 253//-20c
+	TLV["oxygen"] = list(16, 17, 135, 140) // Partial pressure, kpa
+	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
+	TLV["temperature"] = list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 
 //Refridgerated area, cold but above-freezing
 /obj/machinery/alarm/cold/New()
 	..()
-	active_power_usage *= 6
-	idle_power_usage *= 3
-	name = "High Power [name]"
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
-	target_temperature = 278//5c
 
 /obj/machinery/alarm/Destroy()
 	unregister_radio(src, frequency)
@@ -157,10 +160,17 @@
 	alarm_area = get_area(src)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
-		name = "[alarm_area.name] Air Alarm"
+		if (highpower)
+			name = "[alarm_area.name] High-Power Air Alarm"
+		else
+			name = "[alarm_area.name] Air Alarm"
 
 	if(!wires)
 		wires = new(src)
+
+	if (highpower)
+		active_power_usage *= 6
+		idle_power_usage *= 3
 
 	// breathable air according to human/Life()
 	TLV["oxygen"] =			list(16, 19, 135, 140) // Partial pressure, kpa
@@ -728,34 +738,36 @@
 					else
 						newval = round(newval,0.01)
 						selected[threshold] = newval
-					if(threshold == 1)
-						if(selected[1] > selected[2])
-							selected[2] = selected[1]
-						if(selected[1] > selected[3])
-							selected[3] = selected[1]
-						if(selected[1] > selected[4])
-							selected[4] = selected[1]
-					if(threshold == 2)
-						if(selected[1] > selected[2])
-							selected[1] = selected[2]
-						if(selected[2] > selected[3])
-							selected[3] = selected[2]
-						if(selected[2] > selected[4])
-							selected[4] = selected[2]
-					if(threshold == 3)
-						if(selected[1] > selected[3])
-							selected[1] = selected[3]
-						if(selected[2] > selected[3])
-							selected[2] = selected[3]
-						if(selected[3] > selected[4])
-							selected[4] = selected[3]
-					if(threshold == 4)
-						if(selected[1] > selected[4])
-							selected[1] = selected[4]
-						if(selected[2] > selected[4])
-							selected[2] = selected[4]
-						if(selected[3] > selected[4])
-							selected[3] = selected[4]
+
+					switch (threshold)
+						if (1)
+							if(selected[1] > selected[2])
+								selected[2] = selected[1]
+							if(selected[1] > selected[3])
+								selected[3] = selected[1]
+							if(selected[1] > selected[4])
+								selected[4] = selected[1]
+						if (2)
+							if(selected[1] > selected[2])
+								selected[1] = selected[2]
+							if(selected[2] > selected[3])
+								selected[3] = selected[2]
+							if(selected[2] > selected[4])
+								selected[4] = selected[2]
+						if (3)
+							if(selected[1] > selected[3])
+								selected[1] = selected[3]
+							if(selected[2] > selected[3])
+								selected[2] = selected[3]
+							if(selected[3] > selected[4])
+								selected[4] = selected[3]
+						if (4)
+							if(selected[1] > selected[4])
+								selected[1] = selected[4]
+							if(selected[2] > selected[4])
+								selected[2] = selected[4]
+							if(selected[3] > selected[4])
+								selected[3] = selected[4]
 
 					apply_mode()
 					return 1
@@ -795,14 +807,13 @@
 	switch(buildstage)
 		if(2)
 			if(istype(W, /obj/item/weapon/screwdriver))  // Opening that Air Alarm up.
-				//user << "You pop the Air Alarm's maintence panel open."
 				wiresexposed = !wiresexposed
-				user << "The wires have been [wiresexposed ? "exposed" : "unexposed"]"
+				user << "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>"
 				update_icon()
 				return
 
 			if (wiresexposed && istype(W, /obj/item/weapon/wirecutters))
-				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You have cut the wires inside \the [src].")
+				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
@@ -811,7 +822,7 @@
 
 			if (istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/device/pda))// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
-					user << "It does nothing"
+					user << "<span class='notice'>Nothing happens.</span>"
 					return
 				else
 					if(allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
