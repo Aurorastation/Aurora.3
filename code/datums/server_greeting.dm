@@ -168,8 +168,7 @@
 	// This is fine now, because it uses cached information.
 	var/outdated_info = server_greeting.find_outdated_info(user)
 
-	var/save_prefs = 0
-	var/list/data = list("div" = "", "content" = "", "update" = 1)
+	var/list/data = list("div" = "", "content" = "", "update" = 1, "changeHash" = null)
 
 	if (outdated_info & OUTDATED_NOTE)
 		user << output("#note-placeholder", "greeting.browser:RemoveElement")
@@ -186,10 +185,10 @@
 	else
 		if (outdated_info & OUTDATED_MEMO)
 			data["update"] = 1
-			user.prefs.memo_hash = memo_hash
-			save_prefs = 1
+			data["changeHash"] = memo_hash
 		else
 			data["update"] = 0
+			data["changeHash"] = null
 
 		data["div"] = "#memo"
 		data["content"] = memo
@@ -197,17 +196,14 @@
 
 	if (outdated_info & OUTDATED_MOTD)
 		data["update"] = 1
-		user.prefs.motd_hash = motd_hash
-		save_prefs = 1
+		data["changeHash"] = motd_hash
 	else
 		data["update"] = 0
+		data["changeHash"] = null
 
 	data["div"] = "#motd"
 	data["content"] = motd
 	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
-
-	if (save_prefs)
-		user.prefs.save_preferences()
 
 /*
  * Basically the Topic proc for the greeting datum.
