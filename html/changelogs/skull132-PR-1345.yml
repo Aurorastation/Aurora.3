@@ -12,3 +12,5 @@ changes:
   - tweak: "Chat mark-up now requires whitespace (or radio tokens, in case of radio speech) to surround mark-up markers for them to be valid. \"/this will/ work,\" \"as /will/ this,\" \":s/and this./\" But, \"/this will not /work.\" This enables you to use words with underscores in them, and to type type-paths and other things in BYOND."
   - bugfix: "Mark-up no longer nukes BYOND server addresses."
   - tweak: "IPCs now have a very minor chance of getting shocked from feeding on APCs. There's 0 chance of getting shocked from using a cyborg recharger, though. To that end, also added 1 extra borg recharger into arrivals bathroom."
+  - tweak: "The server greeting window now only updates your saved hashes (makes tabs not yellow) if you actually view what's in them. Opening and closing the greeting without viewing at the individual tabs no longer toggles them as read."
+  - rscadd: "Added an admin command for R_DEBUG and R_SERVER flag owners to toggle the global default explosion type."
