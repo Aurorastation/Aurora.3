@@ -83,6 +83,15 @@ var/list/global_modular_computers = list()
 	if(cpu)
 		cpu.eject_ai()
 
+// Reset Computer
+/obj/machinery/modular_computer/verb/reset_computer()
+	set name = "Reset Computer"
+	set category = "Object"
+	set src in view(1)
+
+	if(cpu)
+		cpu.proc_reset_computer()
+
 /obj/machinery/modular_computer/New()
 	..()
 	cpu = new(src)

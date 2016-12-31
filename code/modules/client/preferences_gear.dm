@@ -389,7 +389,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/color/blackf
 	slot = slot_w_uniform
 	cost = 1
-	
+
 /datum/gear/blackfjumpsuit
 	display_name = "jumpsuit, rainbow"
 	path = /obj/item/clothing/under/rainbow
@@ -1062,7 +1062,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/gloves/white/tajara
 	cost = 2
 	slot = slot_gloves
-	
+
 /datum/gear/watch
 	display_name = "watch"
 	path = 	/obj/item/clothing/gloves/watch
@@ -1232,17 +1232,18 @@ var/global/list/gear_datums = list()
 	sort_category = "utility"
 	cost = 1
 
-/datum/gear/cheaptablet
-	display_name = "cheap tablet computer"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
-	sort_category = "utility"
-	cost = 3
-
-/datum/gear/normaltablet
-	display_name = "tablet computer"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
-	sort_category = "utility"
-	cost = 4
+// Reserved for later use
+// /datum/gear/cheaptablet
+// 	display_name = "cheap tablet computer"
+// 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
+// 	sort_category = "utility"
+// 	cost = 3
+//
+// /datum/gear/normaltablet
+// 	display_name = "tablet computer"
+// 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+// 	sort_category = "utility"
+// 	cost = 4
 
 // The rest of the trash.
 

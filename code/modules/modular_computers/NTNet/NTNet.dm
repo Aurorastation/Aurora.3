@@ -7,6 +7,7 @@ var/global/datum/ntnet/ntnet_global = new()
 	var/list/logs = list()
 	var/list/available_station_software = list()
 	var/list/available_antag_software = list()
+	var/list/available_software = list()
 	var/list/available_news = list()
 	var/list/chat_channels = list()
 	var/list/fileservers = list()
@@ -84,11 +85,14 @@ var/global/datum/ntnet/ntnet_global = new()
 /datum/ntnet/proc/build_software_lists()
 	available_station_software = list()
 	available_antag_software = list()
+	available_software = list()
 	for(var/F in typesof(/datum/computer_file/program))
 		var/datum/computer_file/program/prog = new F
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue
+
+		available_software.Add(prog)
 		// Check whether the program should be available for station/antag download, if yes, add it to lists.
 		if(prog.available_on_ntnet)
 			available_station_software.Add(prog)
@@ -106,10 +110,7 @@ var/global/datum/ntnet/ntnet_global = new()
 
 // Attempts to find a downloadable file according to filename var
 /datum/ntnet/proc/find_ntnet_file_by_name(var/filename)
-	for(var/datum/computer_file/program/P in available_station_software)
-		if(filename == P.filename)
-			return P
-	for(var/datum/computer_file/program/P in available_antag_software)
+	for(var/datum/computer_file/program/P in available_software)
 		if(filename == P.filename)
 			return P
 
@@ -152,8 +153,3 @@ var/global/datum/ntnet/ntnet_global = new()
 		if(NTNET_SYSTEMCONTROL)
 			setting_systemcontrol = !setting_systemcontrol
 			add_log("Configuration Updated. Wireless network firewall now [setting_systemcontrol ? "allows" : "disallows"] remote control of station's systems.")
-
-
-
-
-

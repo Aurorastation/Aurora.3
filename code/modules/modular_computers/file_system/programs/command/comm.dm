@@ -9,10 +9,11 @@
 	program_icon_state = "comm"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
-	required_access = access_heads
+	required_access_run = access_heads
+	required_access_download = access_heads
 	requires_ntnet = 1
 	size = 12
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	usage_flags = PROGRAM_CONSOLE
 	network_destination = "station long-range communication array"
 	var/datum/comm_message_listener/message_core = new
 

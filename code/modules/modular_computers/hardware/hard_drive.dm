@@ -7,6 +7,7 @@
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	var/max_capacity = 128
 	var/used_capacity = 0
+	var/read_only = 0 					// If the HDD is read only
 	var/list/stored_files = list()		// List of stored files on this drive. DO NOT MODIFY DIRECTLY!
 
 /obj/item/weapon/computer_hardware/hard_drive/advanced
@@ -96,7 +97,7 @@
 	if(!F || !istype(F))
 		return 0
 
-	if(!stored_files)
+	if(!stored_files || read_only)
 		return 0
 
 	if(!check_functionality())
@@ -121,6 +122,8 @@
 /obj/item/weapon/computer_hardware/hard_drive/proc/can_store_file(var/size = 1)
 	// In the unlikely event someone manages to create that many files.
 	// BYOND is acting weird with numbers above 999 in loops (infinite loop prevention)
+	if(read_only)
+		return 0
 	if(stored_files.len >= 999)
 		return 0
 	if(used_capacity + size > max_capacity)

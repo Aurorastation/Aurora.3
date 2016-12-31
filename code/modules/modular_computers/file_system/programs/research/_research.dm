@@ -4,6 +4,8 @@
 	nanomodule_path = /datum/nano_module/exosuit_control
 	program_icon_state = "mecha"
 	extended_desc = "This program allows remote monitoring and administration of exosuits with tracking beacons installed."
-	required_access = access_robotics
+	required_access_run = access_robotics
+	required_access_download = access_rd
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = 1
 	size = 8
