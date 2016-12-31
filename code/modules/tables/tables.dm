@@ -6,7 +6,7 @@
 	density = 1
 	anchored = 1
 	climbable = 1
-	layer = 2.8
+	layer = LAYER_TABLE
 	throwpass = 1
 	var/flipped = 0
 	var/maxhealth = 10
@@ -65,7 +65,7 @@
 
 /obj/structure/table/initialize()
 	..()
-	
+
 	// One table per turf.
 	for(var/obj/structure/table/T in loc)
 		if(T != src)

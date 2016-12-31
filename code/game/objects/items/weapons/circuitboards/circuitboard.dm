@@ -6,6 +6,7 @@
 
 /obj/item/weapon/circuitboard
 	name = "circuit board"
+	desc = "Looks like a circuit. Probably is."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "id_mod"
 	item_state = "electronic"

@@ -195,6 +195,7 @@ var/list/global/random_stock_uncommon = list(
 	"exoquip" = 2,
 	"laserscalpel" = 1.3,
 	"electropack" = 1,
+	"beesmoker" = 1.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_rare = list(
@@ -273,7 +274,7 @@ var/list/global/random_stock_large = list(
 		/mob/living/bot/secbot = 0.1)
 
 	var/list/infest_mobs_moderate = list(
-		/mob/living/simple_animal/bee = 1,
+		/mob/living/simple_animal/bee/standalone = 1,
 		/mob/living/simple_animal/hostile/diyaab = 1,
 		/mob/living/simple_animal/hostile/viscerator = 1,
 		/mob/living/simple_animal/hostile/scarybat = 1)
@@ -1386,7 +1387,8 @@ var/list/global/random_stock_large = list(
 				cr.rigged = 1//Boobytrapped crate, will electrocute when you attempt to open it
 				//Can be disarmed with wirecutters or ignored with insulated gloves
 
-
+		if ("beesmoker")
+			new /obj/item/weapon/bee_smoker(L)
 
 
 

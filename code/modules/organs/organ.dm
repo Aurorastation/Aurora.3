@@ -25,6 +25,7 @@ var/list/organ_cache = list()
 	germ_level = 0
 	var/datum/dna/dna
 	var/datum/species/species
+	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
 
 /obj/item/organ/Destroy()
 	if(!owner)
@@ -265,13 +266,13 @@ var/list/organ_cache = list()
 		return
 	switch (severity)
 		if (1.0)
-			take_damage(20)
+			take_damage(rand(7,20) * emp_coeff)
 			return
 		if (2.0)
-			take_damage(7)
+			take_damage(rand(3,7) * emp_coeff)
 			return
 		if(3.0)
-			take_damage(3)
+			take_damage(rand(3) * emp_coeff)
 
 /obj/item/organ/proc/removed(var/mob/living/user)
 

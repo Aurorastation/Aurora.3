@@ -176,6 +176,7 @@
 	organ_tag = "brain"
 	parent_organ = "chest"
 	vital = 1
+	emp_coeff = 0.1
 
 /obj/item/organ/data
 	name = "data core"
@@ -184,6 +185,7 @@
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
 	vital = 0
+	emp_coeff = 0.1
 
 /obj/item/organ/data/New()
 	robotize()
@@ -197,9 +199,10 @@
 	organ_tag = "shielded cell"
 	parent_organ = "chest"
 	vital = 1
+	emp_coeff = 0.1
 
 /obj/item/organ/cell/New()
-	mechassist()
+	robotize()
 	..()
 
 /obj/item/organ/external/head/terminator
@@ -209,70 +212,105 @@
 	max_damage = 50 //made same as arm, since it is not vital
 	min_broken_damage = 30
 	encased = null
+	emp_coeff = 0.5
+
+/obj/item/organ/optical_sensorterminator
+	name = "optical sensor"
+	organ_tag = "optics"
+	parent_organ = "head"
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "camera"
+	dead_icon = "camera_broken"
+	emp_coeff = 0.5
+
+/obj/item/organ/optical_sensor/terminator/New()
+	robotize()
+	..()
+
 
 /obj/item/organ/external/head/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/chest/terminator
 	dislocated = -1
 	encased = null
+	emp_coeff = 0.5
+
 /obj/item/organ/external/chest/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/groin/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/groin/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/arm/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/arm/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/arm/right/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/arm/right/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/leg/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/leg/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/leg/right/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/leg/right/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/foot/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/foot/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/foot/right/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/foot/right/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/hand/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/hand/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/hand/right/terminator
 	dislocated = -1
+	emp_coeff = 0.5
+
 /obj/item/organ/external/hand/right/terminator/New()
-	mechassist("Hephaestus Vulcanite Limb")
+	robotize("Hephaestus Vulcanite Limb")
 	..()
 
 /obj/item/organ/external/head/industrial

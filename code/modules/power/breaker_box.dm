@@ -5,7 +5,8 @@
 // Used for advanced grid control (read: Substations)
 
 /obj/machinery/power/breakerbox
-	name = "Breaker Box"
+	name = "breaker box"
+	desc = "A large machine with heavy duty switching circuits used for advanced grid control."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_off"
 	//directwired = 0
@@ -32,26 +33,26 @@
 	set_state(1)
 
 /obj/machinery/power/breakerbox/examine(mob/user)
-	user << "Large machine with heavy duty switching circuits used for advanced grid control"
+	..()
 	if(on)
-		user << "\green It seems to be online."
+		user << "<span class='good'>It seems to be online.</span>"
 	else
-		user << "\red It seems to be offline"
+		user << "<span class='bad'>It seems to be offline.</span>"
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)
 	if(update_locked)
-		user << "\red System locked. Please try again later."
+		user << "<span class='bad'>System locked. Please try again later.</span>"
 		return
 
 	if(busy)
-		user << "\red System is busy. Please wait until current operation is finished before changing power settings."
+		user << "<span class='bad'>System is busy. Please wait until current operation is finished before changing power settings.</span>"
 		return
 
 	busy = 1
-	user << "\green Updating power settings.."
+	user << "<span class='good'>Updating power settings..</span>"
 	if(do_after(user, 50))
 		set_state(!on)
-		user << "\green Update Completed. New setting:[on ? "on": "off"]"
+		user << "<span class='good'>Update Completed. New setting:[on ? "on": "off"]</span>"
 		update_locked = 1
 		spawn(600)
 			update_locked = 0
@@ -60,16 +61,16 @@
 
 /obj/machinery/power/breakerbox/attack_hand(mob/user)
 	if(update_locked)
-		user << "\red System locked. Please try again later."
+		user << "<span class='bad'>System locked. Please try again later.</span>"
 		return
 
 	if(busy)
-		user << "\red System is busy. Please wait until current operation is finished before changing power settings."
+		user << "<span class='bad'>System is busy. Please wait until current operation is finished before changing power settings.</span>"
 		return
 
 	busy = 1
 	for(var/mob/O in viewers(user))
-		O.show_message(text("\red [user] started reprogramming [src]!"), 1)
+		O.show_message(text("<span class='warning'>[user] started reprogramming [src]!</span>"), 1)
 
 	if(do_after(user, 50))
 		set_state(!on)
@@ -87,10 +88,6 @@
 		if(newtag)
 			RCon_tag = newtag
 			user << "<span class='notice'>You changed the RCON tag to: [newtag]</span>"
-
-
-
-
 
 /obj/machinery/power/breakerbox/proc/set_state(var/state)
 	on = state

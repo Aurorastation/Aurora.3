@@ -42,6 +42,7 @@
 
 /obj/machinery/computer/guestpass
 	name = "guest pass terminal"
+	desc = "Allows issuing temporary access to an area."
 	icon_state = "guest"
 
 	icon_screen = "pass"

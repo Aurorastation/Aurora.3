@@ -40,7 +40,7 @@
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
 	pass_flags = PASSTABLE
-	holder_type = /obj/item/weapon/holder
+	holder_type = /obj/item/weapon/holder/monkey
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
@@ -65,6 +65,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	tail = "farwatail"
+	holder_type = /obj/item/weapon/holder/monkey/farwa
 
 /datum/species/monkey/skrell
 	name = "Neaera"
@@ -80,6 +81,7 @@
 	blood_color = "#1D2CBF"
 	reagent_tag = IS_SKRELL
 	tail = null
+	holder_type = /obj/item/weapon/holder/monkey/neaera
 
 /datum/species/monkey/unathi
 	name = "Stok"
@@ -95,13 +97,14 @@
 	flesh_color = "#34AF10"
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
+	holder_type = /obj/item/weapon/holder/monkey/stok
 
 /datum/species/monkey/bug
 	name = "V'krexi"
 	short_name = "kre"
 	name_plural = "V'krexi"
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
-
+	holder_type = null//No icons for held Vkrexi yet
 	icobase = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
 

@@ -35,8 +35,6 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder/examine(mob/user)
 	if (contained)
 		contained.examine(user)
-	else
-		..()
 
 
 /obj/item/weapon/holder/GetID()
@@ -215,7 +213,7 @@ var/list/holder_mob_icon_cache = list()
 
 	spawn(2)
 		var/obj/item/weapon/holder/H = new holder_type(loc)
-		H.name = src.name
+
 		src.forceMove(H)
 
 
@@ -247,9 +245,7 @@ var/list/holder_mob_icon_cache = list()
 				grabber << "<span class='notice'>You scoop up [src].</span>"
 				src << "<span class='notice'>[grabber] scoops you up.</span>"
 
-			if (istype(H, /obj/item/weapon/holder/human))
-				var/obj/item/weapon/holder/human/HU = H
-				HU.sync(src)
+			H.sync(src)
 
 		else
 			user << "Failed, try again!"
@@ -278,7 +274,13 @@ var/list/holder_mob_icon_cache = list()
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
 
-/obj/item/weapon/holder/human/proc/sync(var/mob/living/M)
+
+/obj/item/weapon/holder/proc/sync(var/mob/living/M)
+	src.name = M.name
+	src.overlays = M.overlays
+	dir = M.dir
+
+/obj/item/weapon/holder/human/sync(var/mob/living/M)
 
 	// Generate appropriate on-mob icons.
 	var/mob/living/carbon/human/owner = M
@@ -327,7 +329,7 @@ var/list/holder_mob_icon_cache = list()
 		icon = I
 		icon_state = species_name
 		item_state = species_name
-		src.overlays = owner.overlays
+
 		contained_sprite = 1
 
 		color = M.color
@@ -342,6 +344,8 @@ var/list/holder_mob_icon_cache = list()
 				H.update_inv_r_hand()
 			else
 				H.regenerate_icons()
+
+		..()
 
 //#TODO-MERGE
 //Port the reduced-duplication holder method from baystation upstream:
@@ -366,9 +370,18 @@ var/list/holder_mob_icon_cache = list()
 	name = "maintenance drone"
 	desc = "It's a small maintenance robot."
 	icon_state = "drone"
+	item_state = "drone"
 	origin_tech = "magnets=3;engineering=5"
 	slot_flags = SLOT_HEAD
-	w_class = 2
+	w_class = 4
+	contained_sprite = 1
+
+/obj/item/weapon/holder/drone/heavy
+	name = "construction drone"
+	desc = "It's a really big maintenance robot."
+	icon_state = "constructiondrone"
+	item_state = "constructiondrone"
+	w_class = 6//You're not fitting this thing in a backpack
 
 /obj/item/weapon/holder/cat
 	name = "cat"
@@ -408,13 +421,16 @@ var/list/holder_mob_icon_cache = list()
 	name = "monkey"
 	desc = "It's a monkey. Ook."
 	icon_state = "monkey"
+	item_state = "monkey"
 	slot_flags = SLOT_HEAD
+	contained_sprite = 1
 	w_class = 3
 
 /obj/item/weapon/holder/monkey/farwa
 	name = "farwa"
 	desc = "It's a farwa."
 	icon_state = "farwa"
+	item_state = "farwa"
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -422,6 +438,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "stok"
 	desc = "It's a stok. stok."
 	icon_state = "stok"
+	item_state = "stok"
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -429,6 +446,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "neaera"
 	desc = "It's a neaera."
 	icon_state = "neaera"
+	item_state = "neaera"
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -518,3 +536,32 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "mushroom_dead"
 	slot_flags = SLOT_HEAD
 	w_class = 2
+
+
+
+//pAI
+/obj/item/weapon/holder/pai
+	icon = 'icons/mob/pai.dmi'
+	dir = EAST
+	contained_sprite = 1
+	slot_flags = SLOT_HEAD
+
+/obj/item/weapon/holder/pai/drone
+	icon_state = "repairbot_rest"
+	item_state = "repairbot"
+
+/obj/item/weapon/holder/pai/cat
+	icon_state = "cat_rest"
+	item_state = "cat"
+
+/obj/item/weapon/holder/pai/mouse
+	icon_state = "mouse_rest"
+	item_state = "mouse"
+
+/obj/item/weapon/holder/pai/monkey
+	icon_state = "monkey"
+	item_state = "monkey"
+
+/obj/item/weapon/holder/pai/rabbit
+	icon_state = "rabbit_rest"
+	item_state = "rabbit"

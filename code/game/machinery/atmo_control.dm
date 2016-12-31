@@ -2,6 +2,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "gsensor1"
 	name = "Gas Sensor"
+	desc = "Measures the gas content of the atmosphere around the sensor."
 
 	anchored = 1
 	var/state = 0
@@ -520,7 +521,3 @@ Rate: [volume_rate] L/sec<BR>"}
 		)
 
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
-
-
-
-

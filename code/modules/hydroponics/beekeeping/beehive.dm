@@ -12,6 +12,8 @@
 	var/frames = 0
 	var/maxFrames = 5
 
+	var/list/owned_bee_swarms = list()
+
 /obj/machinery/beehive/update_icon()
 	overlays.Cut()
 	icon_state = "beehive"
@@ -33,7 +35,7 @@
 /obj/machinery/beehive/examine(var/mob/user)
 	..()
 	if(!closed)
-		user << "The lid is open."
+		user << "The lid is open. The bees can't grow and produce honey until it's closed!"
 
 /obj/machinery/beehive/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/weapon/crowbar))
@@ -44,14 +46,9 @@
 	else if(istype(I, /obj/item/weapon/wrench))
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] [anchored ? "wrenches" : "unwrenches"] \the [src].</span>", "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
-		return
-	else if(istype(I, /obj/item/bee_smoker))
-		if(closed)
-			user << "<span class='notice'>You need to open \the [src] with a crowbar before smoking the bees.</span>"
-			return
-		user.visible_message("<span class='notice'>[user] smokes the bees in \the [src].</span>", "<span class='notice'>You smoke the bees in \the [src].</span>")
-		smoked = 30
-		update_icon()
+		if (!smoked && !anchored && (bee_count > 10))
+			visible_message("<span class='danger'>The bees don't like their home being moved!.</span>")
+			release_bees(0.1, 5)
 		return
 	else if(istype(I, /obj/item/honey_frame))
 		if(closed)
@@ -108,11 +105,11 @@
 		return 1
 	else if(istype(I, /obj/item/weapon/screwdriver))
 		if(bee_count)
-			user << "<span class='notice'>You can't dismantle \the [src] with these bees inside.</span>"
-			return
-		user << "<span class='notice'>You start dismantling \the [src]...</span>"
+			visible_message("<span class='danger'>The bees are furious you're trying to destroy their home!</span>")
+			release_bees(1, 30)
+		user << "<span class='notice'>You start dismantling \the [src]. This will take a while...</span>"
 		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 30))
+		if(do_after(user, 150))
 			user.visible_message("<span class='notice'>[user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
 			new /obj/item/beehive_assembly(loc)
 			qdel(src)
@@ -123,9 +120,9 @@
 		if(honeycombs < 100)
 			user << "<span class='notice'>There are no filled honeycombs.</span>"
 			return
-		if(!smoked && bee_count)
-			user << "<span class='notice'>The bees won't let you take the honeycombs out like this, smoke them first.</span>"
-			return
+		if(!smoked && (bee_count > 5))
+			visible_message("<span class='danger'>The bees don't like you taking their honey!</span>")
+			release_bees(0.2, 5)
 		user.visible_message("<span class='notice'>[user] starts taking the honeycombs out of \the [src].</span>", "<span class='notice'>You start taking the honeycombs out of \the [src]...</span>")
 		while(honeycombs >= 100 && do_after(user, 30))
 			new /obj/item/honey_frame/filled(loc)
@@ -140,19 +137,63 @@
 	if(closed && !smoked && bee_count)
 		pollinate_flowers()
 		update_icon()
+	else if (!closed && bee_count && prob(bee_count*0.1))
+	//If the hive is opened, periodically release docile bees
+		visible_message("<span class='notice'>A few curious bees float out of the open hive to buzz around</span>")
+		release_bees(0.1, 0, 3)
+
 	smoked = max(0, smoked - 1)
 	if(!smoked && bee_count)
-		bee_count = min(bee_count * 1.005, 100)
+		bee_count = min(bee_count * 1.004, 100)
 		update_icon()
 
 /obj/machinery/beehive/proc/pollinate_flowers()
-	var/coef = bee_count / 100
+	var/coef = bee_count *0.01
 	var/trays = 0
 	for(var/obj/machinery/portable_atmospherics/hydroponics/H in view(7, src))
 		if(H.seed && !H.dead)
 			H.health += 0.05 * coef
 			++trays
-	honeycombs = min(honeycombs + 0.1 * coef * min(trays, 5), frames * 100)
+	honeycombs = min(honeycombs + 0.12 * coef * min(trays, 5), frames * 100)
+
+
+/obj/machinery/beehive/proc/release_bees(var/severity, var/angry, var/swarmsize = 6)
+
+
+	if (bee_count < 1)
+		return
+
+	src.visible_message(span("notice"," [pick("Buzzzz.","Hmmmmm.","Bzzz.")]"))
+	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 45, 1,0)
+
+	severity = Clamp(severity, 0, 1)
+	var/beestorelease = bee_count * severity
+	beestorelease = round(beestorelease,1)
+	bee_count -= beestorelease
+
+	var/list/spawn_turfs = list(get_turf(src))
+	for (var/T in orange(1, src))
+		if (istype(T, /turf/simulated/floor))
+			spawn_turfs += T
+
+
+	while(beestorelease > 0)
+		while(beestorelease > swarmsize)
+			var/mob/living/simple_animal/bee/B = new(pick(spawn_turfs), src)
+			B.feral = angry
+			B.strength = swarmsize
+			B.update_icons()
+			beestorelease -= swarmsize
+
+		//what's left over
+		var/mob/living/simple_animal/bee/B = new(pick(spawn_turfs), src)
+		B.strength = beestorelease
+		B.icon_state = "bees[B.strength]"
+		B.feral = angry
+		B.update_icons()
+		beestorelease = 0
+
+
 
 /obj/machinery/honey_extractor
 	name = "honey extractor"
@@ -162,6 +203,11 @@
 
 	var/processing = 0
 	var/honey = 0
+	anchored = 0
+
+/obj/machinery/honey_extractor/examine(var/mob/user)
+	..()
+	user << "It contains [honey] units of honey for collection."
 
 /obj/machinery/honey_extractor/attackby(var/obj/item/I, var/mob/user)
 	if(processing)
@@ -176,7 +222,7 @@
 		processing = H.honey
 		icon_state = "centrifuge_moving"
 		qdel(H)
-		spawn(50)
+		spawn(200)
 			new /obj/item/honey_frame(loc)
 			new /obj/item/stack/wax(loc)
 			honey += processing
@@ -192,13 +238,8 @@
 		honey -= transferred
 		user.visible_message("<span class='notice'>[user] collects honey from \the [src] into \the [G].</span>", "<span class='notice'>You collect [transferred] units of honey from \the [src] into \the [G].</span>")
 		return 1
-
-/obj/item/bee_smoker
-	name = "bee smoker"
-	desc = "A device used to calm down bees before harvesting honey."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "battererburnt"
-	w_class = 2
+	else
+		..()
 
 /obj/item/honey_frame
 	name = "beehive frame"

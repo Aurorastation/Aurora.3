@@ -340,7 +340,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(90)
+	sleep(60)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -430,7 +430,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(90)
+	sleep(60)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
