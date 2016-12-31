@@ -643,7 +643,7 @@
 	/obj/item/clothing/gloves/yellow = 0.9,
 	/obj/item/clothing/gloves/watch = 0.3,
 	/obj/item/clothing/gloves/boxing = 0.3,
-	/obj/item/clothing/gloves/boxing/green = 0.8,
+	/obj/item/clothing/gloves/boxing/green = 0.3,
 	/obj/item/clothing/gloves/botanic_leather = 0.7,
 	/obj/item/clothing/gloves/combat = 0.2,
 	/obj/item/toy/bosunwhistle = 0.5,
@@ -691,14 +691,33 @@
 	/obj/item/weapon/caution/cone = 0.7,
 	/obj/item/weapon/staff/broom = 0.5,
 	/obj/item/weapon/soap = 0.4,
-	/obj/item/weapon/material/wirerod = 0.4,
 	/obj/item/weapon/storage/box/donkpockets = 0.6,
 	/obj/item/weapon/contraband/poster = 1.3,
 	/obj/item/device/magnetic_lock/security = 0.3,
 	/obj/item/device/magnetic_lock/engineering = 0.3,
 	/obj/item/weapon/shovel = 0.5,
 	/obj/item/weapon/pickaxe = 0.4,
-	/obj/item/weapon/pickaxe = 0.4,
-	/obj/item/weapon/inflatable_duck = 0.2
+	/obj/item/weapon/inflatable_duck = 0.2,
+	/obj/random/hoodie = 0.5
 	)
 	return pickweight(maint)
+
+/obj/random/hoodie
+	name = "random winter coat"
+	desc = "This is a random winter coat."
+	icon = 'icons/obj/hoodies.dmi'
+	icon_state = "coatwinter"
+
+/obj/random/hoodie/item_to_spawn()
+	var/list/hoodie = list(/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/engineering = 3,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos = 3,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/medical = 3,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/science = 3,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/hydro = 3,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/cargo = 3,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/miner = 3,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/security = 2,
+	/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
+	)
+	return pickweight(hoodie)
