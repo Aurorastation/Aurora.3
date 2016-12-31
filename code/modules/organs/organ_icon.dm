@@ -95,6 +95,9 @@ var/global/list/limb_icon_cache = list()
 
 	if(force_icon)
 		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
+		if(painted)
+			if(s_col && s_col.len >= 3)
+				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_ADD)
 	else
 		if(!dna)
 			mob_icon = new /icon('icons/mob/human_races/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")

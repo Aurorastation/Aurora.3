@@ -117,3 +117,4 @@
 
 /mob/living/carbon/human/terminator
 	mob_size = 30
+	offset_light = 1

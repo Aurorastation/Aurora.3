@@ -57,6 +57,7 @@
 	var/can_grasp //It would be more appropriate if these two were named "affects_grasp" and "affects_stand" at this point
 	var/can_stand
 	var/body_hair
+	var/painted = 0
 
 /obj/item/organ/external/Destroy()
 	if(parent && parent.children)
@@ -343,10 +344,14 @@ This function completely restores a damaged organ to perfect condition.
 */
 /obj/item/organ/external/rejuvenate()
 	damage_state = "00"
-	if(status & 128)	//Robotic organs stay robotic.  Fix because right click rejuvinate makes IPC's organs organic.
-		status = 128
-	else
-		status = 0
+	src.status &= ~ORGAN_BROKEN
+	src.status &= ~ORGAN_BLEEDING
+	src.status &= ~ORGAN_SPLINTED
+	src.status &= ~ORGAN_CUT_AWAY
+	src.status &= ~ORGAN_DESTROYED
+	src.status &= ~ORGAN_DEAD
+	src.status &= ~ORGAN_MUTATED
+	src.status &= ~ORGAN_SPLINTED
 	perma_injury = 0
 	brute_dam = 0
 	burn_dam = 0
@@ -932,10 +937,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(company)
 		model = company
 		var/datum/robolimb/R = all_robolimbs[company]
+		if(species && !(species.name in R.species_can_use))
+			R = basic_robolimb
 		if(R)
 			force_icon = R.icon
 			name = "[R.company] [initial(name)]"
 			desc = "[R.desc]"
+			if(R.paintable)
+				painted = 1
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	cannot_break = 1
