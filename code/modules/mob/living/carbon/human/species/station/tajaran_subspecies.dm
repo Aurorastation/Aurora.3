@@ -26,8 +26,8 @@
 	num_alternate_languages = 1 // Only one Extra Language
 
 /datum/species/tajaran/m_sai
-	name = "M`sai Tajara"
-	name_plural = "M`sai Tajaran"
+	name = "M'sai Tajara"
+	name_plural = "M'sai Tajaran"
 	blurb = "The M'sai are a race of Tajara with slender lithe bodies and \
 	lightly covered fur which blends in with the snowy environments of Adhomai. \
 	They aren't as well-insulated against Adhomai's cold as their brethren. \
