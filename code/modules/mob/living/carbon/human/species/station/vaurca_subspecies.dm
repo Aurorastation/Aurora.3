@@ -37,6 +37,7 @@
 	name = "Vaurca Breeder"
 	short_name = "vab"
 	name_plural = "Type CB"
+	bodytype = "Vaurca Breeder"
 	primitive_form = "Vaurca Warrior"
 	icon_template = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
