@@ -15,7 +15,7 @@ var/datum/controller/process/explosives/bomb_processor
 	var/work_index = 0 // which queued explosion we're working on
 	var/last_work_index = 0
 
-/datum/controller/process/explosives/proc/idle()
+/datum/controller/process/explosives/proc/go_idle()
 	disable()
 	lighting_process.schedule_interval *= 4
 
@@ -45,18 +45,19 @@ var/datum/controller/process/explosives/bomb_processor
 
 			// All explosions handled, powernet rebuilt.
 			// We can sleep now.
-			idle()
+			go_idle()
 		return
 
 	if (work_index)
-		if (work_queue[work_index].process_many(tiles_per_tick))
-			work_queue[work_index].notify_listeners()
-			work_queue -= work_queue[work_index]
+		var/datum/explosiondata/E = work_queue[work_index]
+		if (E.process_many(tiles_per_tick))
+			E.notify_listeners()
+			work_queue -= E
 		last_work_index = work_index
 		work_index = 0
 	else
 		work_index = get_work_index()
-		doWorkNew()
+		doWork()
 
 /datum/controller/process/explosives/proc/get_work_index()
 	if (work_queue.len == 1 || last_work_index == 0)
@@ -168,11 +169,17 @@ var/datum/controller/process/explosives/bomb_processor
 	var/epi_y
 	var/epi_z
 	var/start_time
+	var/max_range
+	var/power
 
 /datum/explosiondata/proc/prepare()
 	epicenter = get_turf(epicenter)
 	if (!epicenter)
 		return 0
+
+	epi_x = epicenter.x
+	epi_y = epicenter.y
+	epi_z = epicenter.z
 
 	if(devastation_range > 2 || heavy_impact_range > 2)
 		if(HasAbove(epicenter.z) && z_transfer & UP)
@@ -207,7 +214,7 @@ var/datum/controller/process/explosives/bomb_processor
 	if(dist < devastation_range)		dist = 1
 	else if(dist < heavy_impact_range)	dist = 2
 	else if(dist < light_impact_range)	dist = 3
-	else								continue
+	else return
 
 	T.ex_act(dist)
 
@@ -219,14 +226,17 @@ var/datum/controller/process/explosives/bomb_processor
 /datum/explosiondata/proc/notify_listeners()
 	var/took = (world.timeofday - start_time) / 10
 	if(Debug2)
-		world.log << "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
+		world.log << "## DEBUG: Explosion([epi_x],[epi_y],[epi_z])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
 
 	for (var/array in doppler_arrays)
-		var/obj/machinery/doppler_array/A = Array
+		var/obj/machinery/doppler_array/A = array
 		if (A)
 			A.sense_explosion(epi_x, epi_y, epi_z, devastation_range, heavy_impact_range, light_impact_range, took)
 
 /datum/explosiondata/proc/handle_shake(var/max_duration = 60)
+	var/volume = 10 + (power * 20)
+	var/frequency = get_rand_frequency()
+	var/closedist = round(max_range + world.view - 2, 1)
 	//Whether or not this explosion causes enough vibration to send sound or shockwaves through the station
 	var/vibration = 1
 	if (istype(epicenter,/turf/space))
@@ -247,7 +257,7 @@ var/datum/controller/process/explosives/bomb_processor
 			if(M && M.client)
 				var/turf/M_turf = get_turf(M)
 
-				if(M_turf && M_turf.z == epicenter.z)
+				if(M_turf && M_turf.z == epi_z)
 					if (istype(M_turf,/turf/space))
 					//If the person is standing in space, they wont hear
 						//But they may still feel the shaking
