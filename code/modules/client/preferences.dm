@@ -149,12 +149,12 @@ datum/preferences
 		save_character()
 
 /datum/preferences/proc/getMinAge()
-    var/datum/species/mob_species = all_species[species]
-    return mob_species.age_min
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.age_min
 
 /datum/preferences/proc/getMaxAge()
-    var/datum/species/mob_species = all_species[species]
-    return mob_species.age_max
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.age_max
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
 	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
@@ -249,8 +249,8 @@ datum/preferences
 		return 1
 
 	if(href_list["save"])
-		save_preferences()
 		save_character()
+		save_preferences()
 	else if(href_list["reload"])
 		load_preferences()
 		load_character()

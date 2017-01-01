@@ -62,12 +62,25 @@
 
 		var/list/jobs = params2list(pref.unsanitized_jobs)
 
-		for (var/preference in jobs)
-			try
-				pref.vars[preference] = text2num(jobs[preference])
-			catch(var/exception/e)
-				log_debug("LOADING: Bad job preference key: [preference].")
-				log_debug(e.desc)
+		// In case we return 0 data from the database.
+		if (!jobs || !jobs.len)
+			pref.alternate_option	= 0
+			pref.job_civilian_high	= 0
+			pref.job_civilian_med	= 0
+			pref.job_civilian_low	= 0
+			pref.job_medsci_high	= 0
+			pref.job_medsci_med		= 0
+			pref.job_medsci_low		= 0
+			pref.job_engsec_high	= 0
+			pref.job_engsec_med 	= 0
+			pref.job_engsec_low 	= 0
+		else
+			for (var/preference in jobs)
+				try
+					pref.vars[preference] = text2num(jobs[preference])
+				catch(var/exception/e)
+					log_debug("LOADING: Bad job preference key: [preference].")
+					log_debug(e.desc)
 
 	pref.alternate_option	= sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
 	pref.job_civilian_high	= sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))

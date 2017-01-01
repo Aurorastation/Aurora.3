@@ -161,7 +161,7 @@
 
 			// Operations before closing.
 			$(window).unload(function() {
-				window.location = '?JSlink=updateHashes' + jQuery.param(hashesToUpdate);
+				window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
 			});
 
 			// Call the IE analyzer and warn the user if they're horribly out of date.
