@@ -53,6 +53,8 @@ var/datum/controller/process/explosives/bomb_processor
 		if (E.process_many(tiles_per_tick))
 			E.notify_listeners()
 			work_queue -= E
+		else
+			work_queue[work_index] = E
 		last_work_index = work_index
 		work_index = 0
 	else
