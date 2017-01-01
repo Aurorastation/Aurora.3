@@ -20,11 +20,11 @@
 
 /atom/movable/New()
 	..()
-	if (auto_init)
-		if (objects_initialized)
+	if (objects_initialized)
+		if (auto_init)
 			initialize()
-		else
-			objects_init_list += src
+	else
+		objects_init_list += src
 
 /atom/movable/Del()
 	if(isnull(gcDestroyed) && loc)
