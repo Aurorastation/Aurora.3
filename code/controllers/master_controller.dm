@@ -46,13 +46,18 @@ datum/controller/game_controller/proc/setup()
 datum/controller/game_controller/proc/setup_objects()
 	admin_notice("<span class='danger'>Initializing objects</span>", R_DEBUG)
 	sleep(-1)
-	for(var/atom/movable/object in world)
+	objects_initialized = 1
+	for(var/A in objects_init_list)
+		var/atom/movable/object = A
 		if(isnull(object.gcDestroyed))
 			object.initialize()
 
+	objects_init_list.Cut()
+
 	admin_notice("<span class='danger'>Initializing areas</span>", R_DEBUG)
 	sleep(-1)
-	for(var/area/area in all_areas)
+	for(var/A in all_areas)
+		var/area/area = A
 		area.initialize()
 
 	admin_notice("<span class='danger'>Initializing pipe networks</span>", R_DEBUG)

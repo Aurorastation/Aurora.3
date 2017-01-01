@@ -20,8 +20,11 @@
 
 /atom/movable/New()
 	..()
-	if(auto_init && ticker && ticker.current_state == GAME_STATE_PLAYING)
-		initialize()
+	if (objects_initialized)
+		if (auto_init)
+			initialize()
+	else
+		objects_init_list += src
 
 /atom/movable/Del()
 	if(isnull(gcDestroyed) && loc)
@@ -271,4 +274,3 @@ var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "6" = 60)
 	if(!candidates.len)
 		return null
 	return text2num(pickweight(candidates))
-

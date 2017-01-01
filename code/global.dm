@@ -168,3 +168,8 @@ var/global/const/TICKS_IN_SECOND = 10
 
 //List of exosuit tracking beacons, to save performance
 var/global/list/exo_beacons = list()
+
+// Global variables to speed up object initialization.
+// Boolean to indicate whether objects should initialize themselves in their New() or wait for the game ticker to do it.
+// Check world.dm for the object list.
+var/global/objects_initialized = 0
