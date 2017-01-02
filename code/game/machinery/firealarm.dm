@@ -194,6 +194,7 @@
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.clearAlarm(loc, FA)
+		fire_alarm.update_icon()
 	update_icon()
 	return
 
@@ -206,8 +207,6 @@
 	update_icon()
 	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
 	return
-
-
 
 /obj/machinery/firealarm/New(loc, dir, building)
 	..()
