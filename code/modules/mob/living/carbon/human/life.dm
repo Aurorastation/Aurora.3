@@ -1155,78 +1155,21 @@
 					I = overlays_cache[23]
 			damageoverlay.overlays += I
 
-		if( stat == DEAD )
-			sight = SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_SELF
-			see_in_dark = 8
-			if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-			if(healths)		healths.icon_state = "health7"	//DEAD healthmeter
-			// #TODO-MERGE: Check the indentation of this file! It's awful!
-			if(client.view != world.view) // If mob dies while zoomed in with device, unzoom them.
-				for(var/obj/item/item in contents)
-					if(item.zoom)
-						item.zoom()
-						break
+		update_health_display()
 
-				/*
-				if(locate(/obj/item/weapon/gun/energy/sniperrifle, contents))
-					var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in src
-					if(s.zoom)
-						s.zoom()
-				if(locate(/obj/item/device/binoculars, contents))
-					var/obj/item/device/binoculars/b = locate() in src
-					if(b.zoom)
-						b.zoom()
-				*/
+		//Update hunger UI less often, its not important
+		if((life_tick % 3 == 0) && nutrition_icon)
+			var/nut_factor = max(1,nutrition) / max_nutrition
+			switch(nut_factor)
+				if(1 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
+				if(0.75 to 1)					nutrition_icon.icon_state = "nutrition1"
+				if(0.5 to 0.75)					nutrition_icon.icon_state = "nutrition2"
+				if(0.25 to 0.5)					nutrition_icon.icon_state = "nutrition3"
+				else							nutrition_icon.icon_state = "nutrition4"
 
-		else
-			if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
-				sight = species.vision_flags
-				see_in_dark = species.darksight
-				see_invisible = see_in_dark>2 ? SEE_INVISIBLE_LEVEL_ONE : SEE_INVISIBLE_LIVING
+		if(pressure)
+			pressure.icon_state = "pressure[pressure_alert]"
 
-			if(XRAY in mutations)
-				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
-				see_in_dark = 8
-				if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-
-			if(seer)
-				var/obj/effect/rune/R = locate() in loc
-				if(R && R.word1 == cultwords["see"] && R.word2 == cultwords["hell"] && R.word3 == cultwords["join"])
-					see_invisible = SEE_INVISIBLE_CULT
-				else
-					seer = 0
-
-			if(!seer)
-				see_invisible = SEE_INVISIBLE_LIVING
-
-			var/equipped_glasses = glasses
-			var/obj/item/weapon/rig/rig = back
-			if(istype(rig) && rig.visor)
-				if(!rig.helmet || (head && rig.helmet == head))
-					if(rig.visor && rig.visor.vision && rig.visor.active && rig.visor.vision.glasses)
-						equipped_glasses = rig.visor.vision.glasses
-			if(equipped_glasses)
-				process_glasses(equipped_glasses)
-
-
-			update_health_display()
-
-			//Update hunger UI less often, its not important
-			if((life_tick % 3 == 0) && nutrition_icon)
-				var/nut_factor = max(1,nutrition) / max_nutrition
-				switch(nut_factor)
-					if(1 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
-					if(0.75 to 1)					nutrition_icon.icon_state = "nutrition1"
-					if(0.5 to 0.75)					nutrition_icon.icon_state = "nutrition2"
-					if(0.25 to 0.5)					nutrition_icon.icon_state = "nutrition3"
-					else							nutrition_icon.icon_state = "nutrition4"
-
-			if(pressure)
-				pressure.icon_state = "pressure[pressure_alert]"
-
-//			if(rest)	//Not used with new UI
-//				if(resting || lying || sleeping)		rest.icon_state = "rest1"
-//				else									rest.icon_state = "rest0"
 		if(toxin)
 			if(hal_screwyhud == 4 || phoron_alert)	toxin.icon_state = "tox1"
 			else									toxin.icon_state = "tox0"
