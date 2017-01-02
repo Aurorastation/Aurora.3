@@ -59,7 +59,7 @@
 				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 				if(!E)
 					return
-				usr << span("Your eyes burn with the intense light of the flash!.", "alert")
+				usr << span("alert", "Your eyes burn with the intense light of the flash!.")
 				E.damage += rand(10, 11)
 				if(E.damage > 12)
 					M.eye_blurry += rand(3,6)

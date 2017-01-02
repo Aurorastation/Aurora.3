@@ -16,9 +16,9 @@
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick("eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
 			if(O == null)
-				user << span("You can't make any sense of the arcane glyphs. . . maybe you should try again.", "notice")
+				user << span("notice", "You can't make any sense of the arcane glyphs. . . maybe you should try again.")
 			else
-				user << span("As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!", "alert")
+				user << span("alert", "As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!")
 				user.visible_message("<span class='danger'>A flash of smoke pours out of [user]'s orifices!</span>")
 				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()

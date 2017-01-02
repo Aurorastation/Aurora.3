@@ -209,7 +209,7 @@
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
-			user.visible_message(span("[user] looks like they're about to feed their own hair into the [src], but think better of it.", "notice"), span("You grasp your hair and are about to feed it into the [src], but stop and come to your senses.", "notice"))
+			user.visible_message(span("notice", "[user] looks like they're about to feed their own hair into the [src], but think better of it."), span("notice", "You grasp your hair and are about to feed it into the [src], but stop and come to your senses."))
 			return
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
@@ -221,7 +221,7 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(span("[user] feeds the [target]'s hair into the [src] and flicks it on!", "warning"), span("You turn the [src] on!", "alert"))
+			user.visible_message(span("warning", "[user] feeds the [target]'s hair into the [src] and flicks it on!"), span("alert", "You turn the [src] on!"))
 			target.apply_damage(30, BRUTE, "head")
 			target.apply_damage(25, HALLOSS)
 			target.say("*scream")
@@ -236,12 +236,12 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(span("[user] starts tugging on [target]'s head as the [src] keeps running!", "alert"), span("You start tugging on [target]'s head!", "alert"))
+			user.visible_message(span("alert", "[user] starts tugging on [target]'s head as the [src] keeps running!"), span("alert", "You start tugging on [target]'s head!"))
 			target.apply_damage(25, BRUTE, "head")
 			target.apply_damage(10, HALLOSS)
 			target.say("*scream")
 			spawn(10)
-			user.visible_message(span("[user] stops the [src] and leaves [target] resting as they are.", "alert"), span("You turn the [src] off and let go of [target].", "alert"))
+			user.visible_message(span("alert", "[user] stops the [src] and leaves [target] resting as they are."), span("alert", "You turn the [src] off and let go of [target]."))
 
 /obj/machinery/mecha_part_fabricator/emag_act(var/remaining_charges, var/mob/user)
 	switch(emagged)
