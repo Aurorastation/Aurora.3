@@ -2,14 +2,14 @@ var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
 var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
 var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 var/list/alldepartments = list()
-var/list/admin_departments = list("[boss_name]", "Sol Government", "Supply")
+var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply")
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(access_lawyer, access_heads, access_armory) //Warden needs to be able to Fax solgov too.
+	req_one_access = list(access_lawyer, access_heads, access_armory) //Warden needs to be able to Fax tau ceti gov too.
 	density = 0//It's a small machine that sits on a table, this allows small things to walk under that table
 	use_power = 1
 	idle_power_usage = 30
@@ -20,7 +20,7 @@ var/list/admin_departments = list("[boss_name]", "Sol Government", "Supply")
 	var/static/const/broadcastfax_cooldown = 3000
 
 	var/static/const/broadcast_departments = "Stationwide broadcast (WARNING)"
-	var/static/list/admin_departments = list("Central Command", "Sol Government")
+	var/static/list/admin_departments = list("Central Command", "Tau Ceti Government")
 
 	var/obj/item/weapon/card/id/scan = null // identification
 	var/authenticated = 0
@@ -306,9 +306,9 @@ var/list/admin_departments = list("[boss_name]", "Sol Government", "Supply")
 	switch(destination)
 		if (boss_name)
 			message_admins(sender, "[uppertext(boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
-		if ("Sol Government")
-			message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
-			//message_admins(sender, "SOL GOVERNMENT FAX", rcvdcopy, "SolGovFaxReply", "#1F66A0")
+		if ("Tau Ceti Government")
+			message_admins(sender, "TAU CETI GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
+			//message_admins(sender, "TAU CETi GOVERNMENT FAX", rcvdcopy, "TauCetiGovFaxReply", "#1F66A0")
 
 	set_cooldown(adminfax_cooldown)
 	spawn(50)
