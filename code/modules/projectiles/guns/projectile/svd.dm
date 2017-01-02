@@ -58,6 +58,6 @@
 	set popup_menu = 1
 
 	if(wielded)
-		toggle_scope(2.0)
+		toggle_scope(2.0, usr)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"

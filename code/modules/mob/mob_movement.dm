@@ -230,20 +230,8 @@
 			if(mob.client.view != world.view) // If mob moves while zoomed in with device, unzoom them.
 				for(var/obj/item/item in mob.contents)
 					if(item.zoom)
-						item.zoom()
+						item.zoom(mob)
 						break
-
-				//TODO: REMOVE This stupid zooming stuff
-				/*
-				if(locate(/obj/item/weapon/gun/energy/sniperrifle, mob.contents))		// If mob moves while zoomed in with sniper rifle, unzoom them.
-					var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in mob
-					if(s.zoom)
-						s.zoom()
-				if(locate(/obj/item/device/binoculars, mob.contents))		// If mob moves while zoomed in with binoculars, unzoom them.
-					var/obj/item/device/binoculars/b = locate() in mob
-					if(b.zoom)
-						b.zoom()
-				*/
 
 	if(Process_Grab())	return
 
