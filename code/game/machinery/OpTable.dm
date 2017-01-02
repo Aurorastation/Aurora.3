@@ -140,7 +140,7 @@
 	if (istype(W, /obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = W
 		if (src.victim)
-			usr << "\blue <B>The table is already occupied!</B>"
+			usr << "<span class='notice'><B>The table is already occupied!</B></span>"
 			return 0
 
 		var/mob/living/L = G.affecting

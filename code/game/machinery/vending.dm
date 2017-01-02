@@ -521,17 +521,17 @@
 		if(coin.string_attached)
 			if(prob(50))
 				user << "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>"
-				src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			else
 				user << "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>"
-				src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 				qdel(coin)
 				coin = null
 				categories &= ~CAT_COIN
 		else
-			src.visible_message("\blue The [src] putters to life, coughing out its 'premium' item after a moment.")
+			src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
 			playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			qdel(coin)
 			coin = null

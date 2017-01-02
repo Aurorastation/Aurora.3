@@ -33,13 +33,13 @@
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/chainsawhit.ogg', 50, 1)
-		user << "\blue \The [src] rumbles to life."
+		user << span("notice", "\The [src] rumbles to life.")
 		force = 35
 		hitsound = 'sound/weapons/chainsawhit.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
-		user << "\blue \The [src] slowly powers down."
+		user << span("notice", "\The [src] slowly powers down.")
 		force = initial(force)
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
