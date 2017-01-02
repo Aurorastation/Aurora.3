@@ -75,7 +75,7 @@ obj/item/weapon/gun/energy/retro
 	charge_cost = 100
 	max_shots = 20
 	fire_delay = 1
-	
+
 /obj/item/weapon/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
 	charge_cost = 200
@@ -119,7 +119,7 @@ obj/item/weapon/gun/energy/retro
 	set popup_menu = 1
 
 	if(wielded)
-		toggle_scope(2.0)
+		toggle_scope(2.0, usr)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 

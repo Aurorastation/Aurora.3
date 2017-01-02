@@ -218,9 +218,10 @@
 	return
 
 // apparently called whenever an item is removed from a slot, container, or anything else.
-/obj/item/proc/dropped(mob/user as mob)
+/obj/item/proc/dropped(var/mob/user)
 	..()
-	if(zoom) zoom() //binoculars, scope, etc
+	if(zoom)
+		zoom(user) //binoculars, scope, etc
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
@@ -595,7 +596,9 @@ modules/mob/mob_movement.dm if you move you will be zoomed out
 modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 */
 //Looking through a scope or binoculars should /not/ improve your periphereal vision. Still, increase viewsize a tiny bit so that sniping isn't as restricted to NSEW
-/obj/item/proc/zoom(var/tileoffset = 14,var/viewsize = 9) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+	if (!M)
+		return
 
 	var/devicename
 
@@ -606,52 +609,52 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/cannotzoom
 
-	if(usr.stat || !(istype(usr,/mob/living/carbon/human)))
-		usr << "You are unable to focus through the [devicename]"
+	if(M.stat || !(istype(M,/mob/living/carbon/human)))
+		M << "You are unable to focus through the [devicename]"
 		cannotzoom = 1
-	else if(!zoom && global_hud.darkMask[1] in usr.client.screen)
-		usr << "Your visor gets in the way of looking through the [devicename]"
+	else if(!zoom && global_hud.darkMask[1] in M.client.screen)
+		M << "Your visor gets in the way of looking through the [devicename]"
 		cannotzoom = 1
-	else if(!zoom && usr.get_active_hand() != src)
-		usr << "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better"
+	else if(!zoom && M.get_active_hand() != src)
+		M << "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better"
 		cannotzoom = 1
 
 	if(!zoom && !cannotzoom)
-		if(usr.hud_used.hud_shown)
-			usr.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
-		usr.client.view = viewsize
+		if(M.hud_used.hud_shown)
+			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
+		M.client.view = viewsize
 		zoom = 1
 
 		var/tilesize = 32
 		var/viewoffset = tilesize * tileoffset
 
-		switch(usr.dir)
+		switch(M.dir)
 			if (NORTH)
-				usr.client.pixel_x = 0
-				usr.client.pixel_y = viewoffset
+				M.client.pixel_x = 0
+				M.client.pixel_y = viewoffset
 			if (SOUTH)
-				usr.client.pixel_x = 0
-				usr.client.pixel_y = -viewoffset
+				M.client.pixel_x = 0
+				M.client.pixel_y = -viewoffset
 			if (EAST)
-				usr.client.pixel_x = viewoffset
-				usr.client.pixel_y = 0
+				M.client.pixel_x = viewoffset
+				M.client.pixel_y = 0
 			if (WEST)
-				usr.client.pixel_x = -viewoffset
-				usr.client.pixel_y = 0
+				M.client.pixel_x = -viewoffset
+				M.client.pixel_y = 0
 
-		usr.visible_message("[usr] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
+		M.visible_message("[M] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
 
 	else
-		usr.client.view = world.view
-		if(!usr.hud_used.hud_shown)
-			usr.toggle_zoom_hud()
+		M.client.view = world.view
+		if(!M.hud_used.hud_shown)
+			M.toggle_zoom_hud()
 		zoom = 0
 
-		usr.client.pixel_x = 0
-		usr.client.pixel_y = 0
+		M.client.pixel_x = 0
+		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			usr.visible_message("[zoomdevicename ? "[usr] looks up from the [src.name]" : "[usr] lowers the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "[M] looks up from the [src.name]" : "[M] lowers the [src.name]"].")
 
 	return
 
