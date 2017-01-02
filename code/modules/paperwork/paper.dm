@@ -42,8 +42,12 @@
 /obj/item/weapon/paper/proc/set_content(text,title)
 	if(title)
 		name = title
-	info = html_encode(text)
-	info = parsepencode(text)
+	if (text && length(text))
+		info = html_encode(text)
+		info = parsepencode(text)
+	else
+		info = ""
+		
 	update_icon()
 	update_space(info)
 	updateinfolinks()
@@ -51,7 +55,7 @@
 /obj/item/weapon/paper/update_icon()
 	if(icon_state == "paper_talisman")
 		return
-	else if(info)
+	else if (info && length(trim(info)))
 		icon_state = "paper_words"
 	else
 		icon_state = "paper"
