@@ -132,6 +132,8 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 
+	update_icon()
+
 	if(src.timing)
 		if(src.time > 0)
 			src.time = src.time - ((world.timeofday - last_process)/10)
@@ -194,7 +196,6 @@
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.clearAlarm(loc, FA)
-		FA.update_icon()
 	update_icon()
 	return
 
