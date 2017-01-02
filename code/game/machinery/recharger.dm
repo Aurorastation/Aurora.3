@@ -22,10 +22,10 @@ obj/machinery/recharger
 obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(portable && istype(G, /obj/item/weapon/wrench))
 		if(charging)
-			user << "\red Remove [charging] first!"
+			user << "<span class='alert'>Remove [charging] first!</span>"
 			return
 		anchored = !anchored
-		user << "You [anchored ? "attached" : "detached"] the recharger."
+		user << "You have [anchored ? "attached" : "detached"] the recharger."
 		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 		return
 

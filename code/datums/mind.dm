@@ -393,7 +393,7 @@
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
-		current << "\blue Your current objectives:"
+		current << "<span class='notice'>Your current objectives:</span>"
 		for(var/datum/objective/objective in objectives)
 			current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
@@ -540,7 +540,7 @@
 	..()
 	mind.assigned_role = "Armalis"
 	mind.special_role = "Vox Raider"
-	
+
 /mob/living/silicon/robot/syndicate/mind_initialize()
 	..()
 	mind.assigned_role = "Syndicate Robot"

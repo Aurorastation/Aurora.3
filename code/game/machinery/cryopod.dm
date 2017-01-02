@@ -481,15 +481,15 @@
 
 		icon_state = occupied_icon_state
 
-		L << "\blue You feel cool air surround you. You go numb as your senses turn inward."
-		L << "\blue <b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b>"
+		L << "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>"
+		L << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
 		occupant = L
 		time_entered = world.time
 
 		// Book keeping!
 		var/turf/location = get_turf(src)
 		log_admin("[key_name_admin(L)] has entered a stasis pod.")
-		message_admins("\blue [key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+		message_admins("<span class='notice'>[key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
 
 		//Despawning occurs when process() is called with an occupant without a client.
 		src.add_fingerprint(L)

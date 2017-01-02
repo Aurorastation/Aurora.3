@@ -199,7 +199,7 @@
 			var/target_atom = pick(nearby)
 			walk_to(src, target_atom, 5)
 			if(prob(25))
-				src.visible_message("\blue \the [src] skitters[pick(" away"," around","")].")
+				src.visible_message(span("\the [src] skitters[pick(" away"," around","")].", "notice"))
 	else if(prob(5))
 		//vent crawl!
 		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
@@ -209,7 +209,7 @@
 				break
 
 	if(prob(1))
-		src.visible_message("\blue \the [src] chitters.")
+		src.visible_message(span("\the [src] chitters.", "notice"))
 	if(isturf(loc) && amount_grown > 0)
 		amount_grown += (rand(0,2)*growth_rate)
 		if(amount_grown >= 100)
