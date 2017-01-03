@@ -110,7 +110,7 @@
 		A = json_decode(result)
 
 		return A
-	except()
+	catch()
 	// Nope, we failed. do regular error parsing instead.
 		A = params2list(result)
 
