@@ -135,6 +135,7 @@
 /datum/nano_module/program/computer_ntnetdownload
 	name = "Network Downloader"
 	var/obj/item/modular_computer/my_computer = null
+	var/obj/item/weapon/computer_hardware/hard_drive/drive = null
 
 /datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	if(program)
@@ -163,32 +164,11 @@
 	else // No download running, pick file.
 		data["disk_size"] = my_computer.hard_drive.max_capacity
 		data["disk_used"] = my_computer.hard_drive.used_capacity
-		var/list/all_entries[0]
-		if(!my_computer.software_locked) //To lock installation of software on work computers until the IT Department is properly implemented
-			for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
-				// Only those programs our user can run will show in the list
-				if(!P.can_download(user) && P.requires_access_to_download)
-					continue
-				all_entries.Add(list(list(
-				"filename" = P.filename,
-				"filedesc" = P.filedesc,
-				"fileinfo" = P.extended_desc,
-				"size" = P.size
-				)))
-			data["hackedavailable"] = 0
-			if(prog.computer_emagged) // If we are running on emagged computer we have access to some "bonus" software
-				var/list/hacked_programs[0]
-				for(var/datum/computer_file/program/P in ntnet_global.available_antag_software)
-					data["hackedavailable"] = 1
-					hacked_programs.Add(list(list(
-					"filename" = P.filename,
-					"filedesc" = P.filedesc,
-					"fileinfo" = P.extended_desc,
-					"size" = P.size
-					)))
-				data["hacked_programs"] = hacked_programs
 
-		data["downloadable_programs"] = all_entries
+		if(!my_computer.software_locked) //To lock installation of software on work computers until the IT Department is properly implemented
+			data += get_programlist
+		else
+			data["downloadable_programs"] = list()
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_downloader.tmpl", "NTNet Download Program", 575, 700, state = state)
@@ -196,3 +176,51 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
+
+
+/datum/nano_module/program/computer_ntnetdownload/proc/get_programlist()
+
+	var/list/all_entries[0]
+	var/list/data = list()
+	for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
+		var/installed = 0
+		for(var/datum/computer_file/program/Q in holder.stored_files)
+			if (istype(P, Q.type))
+				installed = 1
+				break
+
+		if (!installed)
+			// Only those programs our user can run will show in the list
+			if(!P.can_download(user) && P.requires_access_to_download)
+				continue
+
+			all_entries.Add(list(list(
+				"filename" = P.filename,
+				"filedesc" = P.filedesc,
+				"fileinfo" = P.extended_desc,
+				"size" = P.size
+				)))
+			data["hackedavailable"] = 0
+
+	if(prog.computer_emagged) // If we are running on emagged computer we have access to some "bonus" software
+		var/list/hacked_programs[0]
+		for(var/datum/computer_file/program/P in ntnet_global.available_antag_software)
+			installed = 0
+			for(var/datum/computer_file/program/Q in holder.stored_files)
+				if (istype(P, Q.type))
+					installed = 1
+					break
+
+			if (!installed)
+				data["hackedavailable"] = 1
+				hacked_programs.Add(list(list(
+				"filename" = P.filename,
+				"filedesc" = P.filedesc,
+				"fileinfo" = P.extended_desc,
+				"size" = P.size
+				)))
+				data["hacked_programs"] = hacked_programs
+
+	data["downloadable_programs"] = all_entries
+	return data
+
