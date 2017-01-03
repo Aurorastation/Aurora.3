@@ -3,7 +3,7 @@
 	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses 7.62mm rounds."
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
