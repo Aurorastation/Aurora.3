@@ -9,12 +9,11 @@
 	max_shells = 2
 	w_class = 4.0
 	force = 5
-	flags =  CONDUCT
 	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 
@@ -137,10 +136,10 @@
 	item_state = "gun"
 	caliber = ".45"
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
-	jam_chance = 30
+	jam_chance = 20
 
 /obj/item/weapon/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
