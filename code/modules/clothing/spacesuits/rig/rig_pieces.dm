@@ -15,7 +15,7 @@
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
-	species_restricted = null
+	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem")
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
