@@ -135,8 +135,7 @@
 	return 1
 
 /mob/living/proc/handle_vision()
-	if (client)
-		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+	client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
 	update_sight()
 
 	if(stat == DEAD)
@@ -147,13 +146,12 @@
 			blind.invisibility = 0
 		else
 			blind.invisibility = 101
-			if (client)
-				if (disabilities & NEARSIGHTED)
-					client.screen += global_hud.vimpaired
-				if (eye_blurry)
-					client.screen += global_hud.blurry
-				if (druggy)
-					client.screen += global_hud.druggy
+			if (disabilities & NEARSIGHTED)
+				client.screen += global_hud.vimpaired
+			if (eye_blurry)
+				client.screen += global_hud.blurry
+			if (druggy)
+				client.screen += global_hud.druggy
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)

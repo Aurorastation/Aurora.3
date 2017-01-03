@@ -93,6 +93,8 @@
 	return 1
 
 /mob/living/carbon/alien/handle_regular_hud_updates()
+	if (!..())
+		return//Returns if no client
 
 	if (stat == 2 || (XRAY in src.mutations))
 		sight |= SEE_TURFS
@@ -128,21 +130,19 @@
 		else
 			healths.icon_state = "health7"
 
-	if (client)
-		client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
+	client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
 
 	if ((blind && stat != 2))
 		if ((blinded))
 			blind.invisibility = 0
 		else
 			blind.invisibility = 101
-			if (client)
-				if (disabilities & NEARSIGHTED)
-					client.screen += global_hud.vimpaired
-				if (eye_blurry)
-					client.screen += global_hud.blurry
-				if (druggy)
-					client.screen += global_hud.druggy
+			if (disabilities & NEARSIGHTED)
+				client.screen += global_hud.vimpaired
+			if (eye_blurry)
+				client.screen += global_hud.blurry
+			if (druggy)
+				client.screen += global_hud.druggy
 
 	if (stat != 2)
 		if (machine)
