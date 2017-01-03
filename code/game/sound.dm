@@ -209,5 +209,5 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("dirtstep") soundin = pick(dirtfootsteps)
 			if ("waterstep") soundin = pick(waterfootsteps)
 			if ("sandstep") soundin = pick(sandfootsteps)
-			if ("gravekstep") soundin = pick(gravelfootsteps)
+			if ("gravelstep") soundin = pick(gravelfootsteps)
 	return soundin
