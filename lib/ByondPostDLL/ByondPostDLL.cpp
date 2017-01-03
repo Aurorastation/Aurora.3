@@ -14,7 +14,7 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
+#include <string.h>
 #include <curl\curl.h>
 
 extern "C" __declspec(dllexport) char *send_post_request(int argc, char *argv[])
@@ -68,4 +68,76 @@ extern "C" __declspec(dllexport) char *send_post_request(int argc, char *argv[])
 	snprintf(return_value, 32, "http=%d&curl=%d", http_code, res);
 
 	return return_value;
+}
+
+static std::string getBuffer;
+
+// Callback function to write into the return string.
+static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+	size_t realsize = size * nmemb;
+	getBuffer.append((char*)contents, realsize);
+	return realsize;
+}
+
+extern "C" __declspec(dllexport) char *send_get_request(int argc, char *argv[])
+{
+	// If you're not using this with at least 1 custom header, why /are/ you using it?
+	// Use world.Export() instead you dolt.
+	if (argc < 2)
+	{
+		return "proc=1";
+	}
+
+	// A lot of code duplication from send_post_request. But. It's like 2AM.
+	curl_global_init(CURL_GLOBAL_DEFAULT);
+	CURL *curl = curl_easy_init();
+
+	if (!curl)
+	{
+		return "proc=2";
+	}
+
+	// Initialize variables.
+	getBuffer.clear();
+	long http_code = 0;
+	CURLcode res;
+	struct curl_slist *chunk = NULL;
+
+	for (int i = 1; i < argc; i++)
+	{
+		chunk = curl_slist_append(chunk, argv[i]);
+	}
+
+	// Set curl options.
+	curl_easy_setopt(curl, CURLOPT_TIMEOUT, 2L);
+	curl_easy_setopt(curl, CURLOPT_URL, argv[0]);
+	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &getBuffer);
+
+	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, chunk);
+
+	// Save the response.
+	res = curl_easy_perform(curl);
+
+	// Get the response code and save it to http_code.
+	curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
+
+	// Clean up the session info.
+	curl_global_cleanup();
+
+	if (res != CURLE_OK || http_code != 200)
+	{
+		static char return_value[33] = {0};
+		// Create the feedback message.
+		// Format used is key=value&key=value.
+		snprintf(return_value, 32, "http=%d&curl=%d", http_code, res);
+
+		return return_value;
+	}
+	else
+	{
+		// No error, return the body.
+		return (char *)getBuffer.c_str();
+	}
 }
