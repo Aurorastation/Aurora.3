@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - imageadd: "Some AI displays now have special icons used when the AI is dead."
+  - rscadd: "Added an admin verb that allows force-storaging of SSD AIs."
