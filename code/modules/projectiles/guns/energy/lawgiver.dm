@@ -2,7 +2,7 @@
 	name = "Lawgiver Mk II"
 	icon_state = "lawgiver"
 	item_state = "gun"
-	origin_tech = "combat=6;magnets=5"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	projectile_type=/obj/item/projectile/bullet/pistol
 	fire_sound='sound/weapons/Gunshot_smg.ogg'
 	sel_mode = 1
