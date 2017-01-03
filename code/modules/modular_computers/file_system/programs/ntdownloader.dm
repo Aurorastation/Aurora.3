@@ -138,7 +138,6 @@
 	var/obj/item/weapon/computer_hardware/hard_drive/drive = null
 
 /datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	world << "UI interact"
 	if(program)
 		my_computer = program.computer
 
@@ -189,10 +188,8 @@
 	var/list/data = list()
 	for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
 		var/installed = 0
-		world << "Checking [P]"
 		for(var/datum/computer_file/program/Q in program.holder.stored_files)
 			if (istype(P, Q.type))
-				world << "Already installed"
 				installed = 1
 				break
 
@@ -230,7 +227,6 @@
 
 	for (var/i = 1,i < all_entries.len, i++)
 		var/list/a = all_entries[i]
-		world << a["filename"]
 	data["downloadable_programs"] = all_entries
 	return data
 
