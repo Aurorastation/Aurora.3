@@ -136,12 +136,13 @@
 			blind.invisibility = 0
 		else
 			blind.invisibility = 101
-			if (disabilities & NEARSIGHTED)
-				client.screen += global_hud.vimpaired
-			if (eye_blurry)
-				client.screen += global_hud.blurry
-			if (druggy)
-				client.screen += global_hud.druggy
+			if (client)
+				if (disabilities & NEARSIGHTED)
+					client.screen += global_hud.vimpaired
+				if (eye_blurry)
+					client.screen += global_hud.blurry
+				if (druggy)
+					client.screen += global_hud.druggy
 
 	if (stat != 2)
 		if (machine)
