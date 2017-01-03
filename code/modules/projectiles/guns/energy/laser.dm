@@ -133,7 +133,7 @@ obj/item/weapon/gun/energy/retro
 	w_class = 3
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	origin_tech = "combat=4;magnets=2"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam/shotgun
 	max_shots = 12
 	sel_mode = 1
