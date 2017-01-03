@@ -1206,6 +1206,9 @@ proc/is_hot(obj/item/W as obj)
 	istype(W, /obj/item/weapon/bonesetter)
 	)
 
+/proc/is_borg_item(obj/item/W as obj)
+	return W && W.loc && isrobot(W.loc)
+
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M)
 	return (M.lying && \
