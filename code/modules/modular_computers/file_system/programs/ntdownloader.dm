@@ -224,8 +224,7 @@
 				)))
 				data["hacked_programs"] = hacked_programs
 
-	for (var/i = 1,i < all_entries.len, i++)
-		var/list/a = all_entries[i]
+
 	data["downloadable_programs"] = all_entries
 	return data
 
