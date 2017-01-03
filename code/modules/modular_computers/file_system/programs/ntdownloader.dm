@@ -138,6 +138,7 @@
 	var/obj/item/weapon/computer_hardware/hard_drive/drive = null
 
 /datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+	world << "UI interact"
 	if(program)
 		my_computer = program.computer
 
@@ -156,19 +157,23 @@
 	if(prog.downloaderror) // Download errored. Wait until user resets the program.
 		data["error"] = prog.downloaderror
 	else if(prog.downloaded_file) // Download running. Wait please..
+		if (ui)
+			ui.set_auto_update(1)
 		data["downloadname"] = prog.downloaded_file.filename
 		data["downloaddesc"] = prog.downloaded_file.filedesc
 		data["downloadsize"] = prog.downloaded_file.size
 		data["downloadspeed"] = prog.download_netspeed //Even if it does update every 2 seconds, this is bad coding on everyone's count. :ree:
 		data["downloadcompletion"] = round(prog.download_completion, 0.01)
 	else // No download running, pick file.
+		if (ui)
+			ui.set_auto_update(0)//No need for auto updating on the software menu
 		data["disk_size"] = my_computer.hard_drive.max_capacity
 		data["disk_used"] = my_computer.hard_drive.used_capacity
-
 		if(!my_computer.software_locked) //To lock installation of software on work computers until the IT Department is properly implemented
-			data += get_programlist
+			data += get_programlist(user)
 		else
 			data["downloadable_programs"] = list()
+			data["locked"] = 1
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_downloader.tmpl", "NTNet Download Program", 575, 700, state = state)
@@ -178,14 +183,16 @@
 		ui.set_auto_update(1)
 
 
-/datum/nano_module/program/computer_ntnetdownload/proc/get_programlist()
-
+/datum/nano_module/program/computer_ntnetdownload/proc/get_programlist(var/mob/user)
 	var/list/all_entries[0]
+	var/datum/computer_file/program/ntnetdownload/prog = program
 	var/list/data = list()
 	for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
 		var/installed = 0
-		for(var/datum/computer_file/program/Q in holder.stored_files)
+		world << "Checking [P]"
+		for(var/datum/computer_file/program/Q in program.holder.stored_files)
 			if (istype(P, Q.type))
+				world << "Already installed"
 				installed = 1
 				break
 
@@ -205,8 +212,8 @@
 	if(prog.computer_emagged) // If we are running on emagged computer we have access to some "bonus" software
 		var/list/hacked_programs[0]
 		for(var/datum/computer_file/program/P in ntnet_global.available_antag_software)
-			installed = 0
-			for(var/datum/computer_file/program/Q in holder.stored_files)
+			var/installed = 0
+			for(var/datum/computer_file/program/Q in program.holder.stored_files)
 				if (istype(P, Q.type))
 					installed = 1
 					break
@@ -221,6 +228,9 @@
 				)))
 				data["hacked_programs"] = hacked_programs
 
+	for (var/i = 1,i < all_entries.len, i++)
+		var/list/a = all_entries[i]
+		world << a["filename"]
 	data["downloadable_programs"] = all_entries
 	return data
 

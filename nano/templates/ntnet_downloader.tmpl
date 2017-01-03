@@ -84,6 +84,13 @@
 				{{:helper.link("Download", null, {'PRG_downloadfile' : value.filename})}}
 			</div>
 		</div>
+	{{empty}}
+		{{if data.locked}}
+			<div class="itemContent"><b>ERROR: This terminal is locked, users are disallowed from downloading software. Please contact your system administrator.</b></div>
+		{{else}}
+			<div class="itemContent"><b>There are no available programs at this time.</b></div>
+		{{/if}}
+		<br>
 	{{/for}}
 	{{if data.hackedavailable}}
 		<h2>*UNKNOWN* software repository</h2>
