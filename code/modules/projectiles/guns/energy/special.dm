@@ -197,7 +197,7 @@
 	icon_state = "gatling"
 	item_state = "gatling"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	origin_tech = "combat=6;phorontech=5;materials=6"
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -258,7 +258,7 @@
 	desc = "An elegant weapon for a more civilized time."
 	icon_state = "blaster"
 	item_state = "blaster"
-	origin_tech = "combat=2;phorontech=4,"
+	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
@@ -285,7 +285,7 @@
 		slot_l_hand_str = 'icons/mob/species/breeder/held_l.dmi',
 		slot_r_hand_str = 'icons/mob/species/breeder/held_r.dmi'
 		)
-	origin_tech = "combat=6;phorontech=8,"
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
