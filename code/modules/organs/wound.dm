@@ -46,7 +46,6 @@
 
 
 
-
 	// helper lists
 	var/tmp/list/desc_list = list()
 	var/tmp/list/damage_list = list()
@@ -165,6 +164,16 @@
 			current_stage++
 		desc = desc_list[current_stage]
 		src.min_damage = damage_list[current_stage]
+
+		//Internal wounds should vanish if damage reaches 0
+		if (internal && damage <= 0)
+			//Wounds can't clean themselves up. Instead we'll set vars that will make the organ delete us
+			internal = 0
+			bleed_timer = 0
+			damage = 0
+			created = -6000//Wounds only disappear after 10 mins
+			//These vars will cause this wound to be removed and GC'd next tick
+
 
 		// return amount of healing still leftover, can be used for other wounds
 		return amount

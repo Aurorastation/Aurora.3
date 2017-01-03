@@ -53,9 +53,9 @@ var/list/grassfootsteps = list('sound/effects/footsteps/grass1.wav','sound/effec
 var/list/dirtfootsteps = list('sound/effects/footsteps/dirt1.wav','sound/effects/footsteps/dirt2.wav','sound/effects/footsteps/dirt3.wav','sound/effects/footsteps/dirt4.wav')
 var/list/waterfootsteps = list('sound/effects/footsteps/slosh1.wav','sound/effects/footsteps/slosh2.wav','sound/effects/footsteps/slosh3.wav','sound/effects/footsteps/slosh4.wav')
 var/list/sandfootsteps = list('sound/effects/footsteps/sand1.wav','sound/effects/footsteps/sand2.wav','sound/effects/footsteps/sand3.wav','sound/effects/footsteps/sand4.wav')
-var/list/gravelstep = list('sound/effects/footsteps/gravel1.wav','sound/effects/footsteps/gravel2.wav','sound/effects/footsteps/gravel3.wav','sound/effects/footsteps/gravel4.wav')
+var/list/gravelfootsteps = list('sound/effects/footsteps/gravel1.wav','sound/effects/footsteps/gravel2.wav','sound/effects/footsteps/gravel3.wav','sound/effects/footsteps/gravel4.wav')
 
-var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep")
+var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
 //var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
 
@@ -209,4 +209,5 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("dirtstep") soundin = pick(dirtfootsteps)
 			if ("waterstep") soundin = pick(waterfootsteps)
 			if ("sandstep") soundin = pick(sandfootsteps)
+			if ("gravekstep") soundin = pick(gravelfootsteps)
 	return soundin
