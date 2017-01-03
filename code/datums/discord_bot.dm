@@ -2,6 +2,12 @@
 #define CHAN_CCIAA		"channel_cciaa"
 #define CHAN_ANNOUNCE	"channel_announce"
 
+#define SEND_OK			0
+#define SEND_TIMEOUT	1
+#define ERROR_PROC		2
+#define ERROR_CURL		3
+#define ERROR_HTTP		4
+
 var/datum/discord_bot/discord_bot = null
 
 /hook/startup/proc/initialize_discord_bot()
@@ -18,7 +24,10 @@ var/datum/discord_bot/discord_bot = null
 	return 1
 
 /datum/discord_bot
+	var/list/channels_to_group = list()
 	var/list/channels = list()
+
+	var/list/roles_map = list()
 
 	var/active = 0
 	var/auth_token = ""
@@ -26,8 +35,7 @@ var/datum/discord_bot/discord_bot = null
 	var/robust_debug = 0
 
 	// Lazy man's rate limiting vars
-	var/rate_limited_since = 0
-	var/queue_being_pushed = 0
+	var/queue_push_planned = 0
 	var/list/queue = list()
 
 /datum/discord_bot/proc/update_channels()
@@ -38,18 +46,33 @@ var/datum/discord_bot/discord_bot = null
 		log_debug("BOREALIS: Failed to update channels due to missing database.")
 		return 2
 
-	channels = list()
+	// Reset the channel lists.
+	channels_to_group.Cut()
+	channels.Cut()
 
-	var/DBQuery/channel_query = dbcon.NewQuery("SELECT channel_group, channel_id FROM discord_channels")
+	var/DBQuery/channel_query = dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
 	channel_query.Execute()
 
 	var/list/A
 	while (channel_query.NextRow())
-		if (isnull(channels[channel_query.item[1]]))
-			channels[channel_query.item[1]] = list()
+		// Create the channel map.
+		if (isnull(channels_to_group[channel_query.item[1]]))
+			channels_to_group[channel_query.item[1]] = list()
 
-		A = channels[channel_query.item[1]]
-		A += channel_query.item[2]
+		// Create an entry in the roles map for the server ID.
+		if (isnull(roles_map[channel_query.item[4]]))
+			roles_map[channel_query.item[4]] = list()
+
+		var/datum/discord_channel/B = new(text2num(channel_query.item[2]), channel_query.item[1], text2num())
+
+		if (!B)
+			log_debug("BOREALIS: Bad channel data during update channels. [jointext(channel_query.item, ", ")].")
+			continue
+
+		// Add the channel to the required lists.
+		A = channels_to_group[channel_query.item[1]]
+		A += B
+		channels += B
 
 	log_debug("BOREALIS: Channels updated successfully.")
 	return 0
@@ -58,7 +81,7 @@ var/datum/discord_bot/discord_bot = null
 	if (!active || !auth_token)
 		return
 
-	if (!channel_group || !channels.len || isnull(channels[channel_group]))
+	if (!channel_group || !channels.len || isnull(channels_to_group[channel_group]))
 		return
 
 	if (!message)
@@ -70,18 +93,20 @@ var/datum/discord_bot/discord_bot = null
 	// Let's run it through the proper JSON encoder, just in case of special characters.
 	message = json_encode(list("content" = message))
 
-	var/list/A = channels[channel_group]
+	var/list/A = channels_to_group[channel_group]
 	var/list/sent = list()
-	for (var/channel in A)
-		if (send_post_request("https://discordapp.com/api/channels/[channel]/messages", message, "Authorization: Bot [auth_token]", "Content-Type: application/json") == 429)
+	for (var/B in A)
+		var/datum/discord_channel/channel = B
+		if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
 			// Whoopsies, rate limited.
 			// Set up the queue.
-			rate_limited_since = world.time
 			queue.Add(list(message, A - sent))
 
-			// Schedule a push.
-			spawn (100)
-				push_queue()
+			if (!queue_push_planned)
+				// Schedule a push.
+				queue_push_planned = 1
+				spawn (100)
+					push_queue()
 
 			// And exit.
 			return
@@ -90,6 +115,15 @@ var/datum/discord_bot/discord_bot = null
 
 	if (robust_debug)
 		log_debug("BOEALIS: Message sent to [channel_group]. JSON body: '[message]'")
+
+/datum/discord_bot/proc/retreive_pins()
+	if (!active || !auth_token)
+		return
+
+	if (!channels.len || isnull(channels_to_group["pins"]))
+		return
+
+
 
 /datum/discord_bot/proc/send_to_admins(message)
 	send_message(CHAN_ADMIN, message)
@@ -102,29 +136,10 @@ var/datum/discord_bot/discord_bot = null
 
 /datum/discord_bot/proc/push_queue()
 	// What facking queue.
-	if (!queue.len)
+	if (!queue || !queue.len)
 		if (robust_debug)
 			log_debug("BOREALIS: Attempted to push a null length queue.")
-		if (queue_being_pushed)
-			queue_being_pushed = 0
 		return
-
-	if (queue_being_pushed)
-		if (robust_debug)
-			log_debug("BOREALIS: Attempted to initialize a second queue driver.")
-		return
-
-	if ((world.time - rate_limited_since) < 100)
-		// Something broke the limit again. Ideally, this wouldn't happen. But sure.
-		// Use a longer timeout, just in case.
-		spawn (200)
-			push_queue()
-
-		queue_being_pushed = 0
-		return
-
-	// Async process lock var. No touchy.
-	queue_being_pushed = 1
 
 	// A[1] - message body.
 	// A[2] - list of channels to send to.
@@ -134,22 +149,107 @@ var/datum/discord_bot/discord_bot = null
 		message = A[1]
 		destinations = A[2]
 
-		for (var/channel in destinations)
-			if (send_post_request("https://discordapp.com/api/channels/[channel]/messages", message, "Authorization: Bot [auth_token]", "Content-Type: application/json") == 429)
-				// Limited again. Reschedule.
-				rate_limited_since = world.time
-				spawn (100)
-					push_queue()
+		for (var/A in destinations)
+			var/datum/discord_channel/channel = A
+			switch (channel.send_message_to(auth_token, message))
+				if (RATE_LIMITED)
+					// Limited again. Reschedule.
+					spawn (100)
+						push_queue()
 
-				queue_being_pushed = 0
-				return
-			else
-				destinations.Remove(channel)
+					return
+				else
+					destinations.Remove(channel)
 
 		queue.Remove(A)
 
-	queue_being_pushed = 0
+	// Reset the var once we're done with the queue.
+	queue_push_planned = 0
+
+// A holder class for channels.
+/datum/discord_channel
+	var/id = 0
+	var/group = ""
+	var/pin_flag = 0
+
+/datum/discord_channel/New(var/_id, var/_group, var/_pin)
+	id = _id
+	group = _group
+
+	if (_pin)
+		pin_flag = _pin
+
+/datum/discord_channel/proc/send_message_to(var/token, var/message)
+	if (!token || !message)
+		return ERROR_PROC
+
+	var/res = send_post_request("https://discordapp.com/api/channels/[channel]/messages", message, "Authorization: Bot [token]", "Content-Type: application/json")
+
+	switch (res)
+		if (-1)
+			return ERROR_PROC
+
+		if (200)
+			return SEND_OK
+
+		if (429)
+			return SEND_TIMEOUT
+
+		if (0 to 90)
+			log_debug("BOREALIS: cURL error while forwarding message to Discord API: [res]. Message body: [message].")
+			return ERROR_CURL
+
+		if (100 to 600)
+			log_debug("BOREALIS: HTTP error while forwarding message to Discord API: [res]. Channel: [id]. Message body: [message].")
+			return ERROR_HTTP
+
+		else
+			log_debug("BOREALIS: Unknown response code while forwarding message to Discord API: [res].")
+			return ERROR_PROC
+
+/datum/discord_channel/proc/get_pins(var/, var/token)
+	var/res = send_get_request("https://discordapp.com/api/channels/[channel]/pins", "Authorization: Bot [token]")
+
+	// Is a number, so an error code.
+	if (isnum(res))
+		switch (res)
+			if (-1)
+				return ERROR_PROC
+
+			if (0 to 90)
+				log_debug("BOREALIS: cURL error while fetching pins from the Discord API: [res].")
+				return ERROR_CURL
+
+			if (100 to 600)
+				log_debug("BOREALIS: HTTP error while fetching pins from the Discord API: [res].")
+				return ERROR_HTTP
+
+			else
+				log_debug("BOREALIS: Unknown response code while fetching pins from the Discord API: [res].")
+				return ERROR_PROC
+	else
+		var/list/A = res
+		var/list/pinned_messages = list()
+
+		// Begin processing the list structure delivered back to us from send_get_request.
+		for (var/list/B in A)
+			var/content = B["content"]
+
+			if (!isnull(B["mentions"]))
+				var/list/mentions = B["mentions"]
+
+				for (var/list/C in mentions)
+					content = replacetextEx(content, "<@[C["id"]]>", C["username"])
+
+			if (!isnull(B["mention_roles"]))
+
 
 #undef CHAN_ADMIN
 #undef CHAN_CCIAA
 #undef CHAN_ANNOUNCE
+
+#undef SEND_OK
+#undef SEND_TIMEOUT
+#undef ERROR_PROC
+#undef ERROR_CURL
+#undef ERROR_HTTP
