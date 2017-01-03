@@ -297,6 +297,7 @@
 	w_class = 4
 	force = 10
 	caliber = "trod"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7)
 	origin_tech = "combat=8;materials=7"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/effects/Explosion2.ogg'
