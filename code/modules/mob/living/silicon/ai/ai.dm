@@ -435,6 +435,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/emp_act(severity)
 	if (prob(30))
 		view_core()
+	icon_state = "ai-fuzz"
 	..()
 
 /mob/living/silicon/ai/Topic(href, href_list)
