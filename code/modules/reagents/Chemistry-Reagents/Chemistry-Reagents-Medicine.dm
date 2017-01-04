@@ -27,10 +27,25 @@
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	metabolism = REM * 1.5//Get to overdose state a bit faster
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
-		M.heal_organ_damage(6 * removed, 0)
+		M.heal_organ_damage(5 * removed, 0)
+
+/datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
+	..()//Bicard overdose heals internal wounds
+	if(alien != IS_DIONA && ishuman(M))
+		var/healpower = 1
+		var/mob/living/carbon/human/H = M
+		for (var/a in H.organs)
+			var/obj/item/organ/external/E = a
+			for (var/w in E.wounds)
+				var/datum/wound/W = w
+				if (W && W.internal)
+					healpower = W.heal_damage(healpower,1)
+					if (healpower <= 0)
+						return
 
 /datum/reagent/kelotane
 	name = "Kelotane"

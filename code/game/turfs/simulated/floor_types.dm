@@ -1,6 +1,10 @@
+/turf/simulated/floor/plating
+	footstep_sound = "concretestep"
+
 /turf/simulated/floor/diona
 	name = "biomass flooring"
 	icon_state = "diona"
+	footstep_sound = "grassstep"
 
 /turf/simulated/floor/diona/attackby()
 	return
@@ -22,13 +26,13 @@
 /turf/simulated/shuttle/floor
 	name = "floor"
 	icon_state = "floor"
-	footstep_sound = "concretefootsteps"
+	footstep_sound = "concretestep"
 
 /turf/simulated/shuttle/plating
 	name = "plating"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
-	footstep_sound = "concretefootsteps"
+	footstep_sound = "concretestep"
 	level = 1
 
 /turf/simulated/shuttle/plating/is_plating()

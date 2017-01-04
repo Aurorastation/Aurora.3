@@ -3,6 +3,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
+	footstep_sound = "dirtstep"//It sounds better than squeaky hard-floor audio
 
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
@@ -27,6 +28,7 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
+	footstep_sound = "grassstep"
 
 /turf/simulated/floor/carpet/blue
 	name = "blue carpet"
@@ -44,6 +46,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced"
 	initial_flooring = /decl/flooring/reinforced
+	footstep_sound = "concretestep"
 
 /turf/simulated/floor/reinforced/airless
 	oxygen = 0
@@ -145,6 +148,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+	footstep_sound = "concretestep"
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
@@ -177,13 +181,15 @@
 /turf/simulated/floor/airless/lava
 /turf/simulated/floor/light
 /turf/simulated/floor/snow
-/turf/simulated/floor/beach/coastline
+	footstep_sound = "gravelstep"
 /turf/simulated/floor/plating/snow
+	footstep_sound = "gravelstep"
 /turf/simulated/floor/airless/ceiling
 
 /turf/simulated/floor/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
+	footstep_sound = "sandstep"
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
@@ -196,10 +202,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
+	footstep_sound = "waterstep"
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
+	footstep_sound = "waterstep"
 
 /turf/simulated/floor/beach/water/update_dirt()
 	return	// Water doesn't become dirty

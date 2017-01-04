@@ -23,7 +23,7 @@
 	var/blessed = 0             // Has the turf been blessed?
 	var/dynamic_lighting = 1    // Does the turf use dynamic lighting?
 
-	var/footstep_sound = null
+	var/footstep_sound = "defaultstep"
 
 	var/list/decals
 
