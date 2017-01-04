@@ -153,7 +153,7 @@
 	if(istype(O, /obj/item/weapon/crowbar))
 		if (panel_open && cell)
 			user << "You wrench out \the [cell]."
-			cell.loc = get_turf(user)
+			cell.forceMove(get_turf(user))
 			component_parts -= cell
 			cell = null
 			return
@@ -225,6 +225,8 @@
 							visible_message("<span class='danger'>\The [src]'s cell detonates!</span>")
 							explosion(src.loc, -1, -1, 2, 1)
 							qdel(cell)
+							cell = null
+							component_parts -= cell
 					else
 						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\"</span>")
 		else
@@ -323,7 +325,7 @@
 		usr << "<span class='notice'>You unload the drill's storage cache into the ore box.</span>"
 	else
 		for(var/obj/item/weapon/ore/O in contents)
-			O.loc = src.loc
+			O.forceMove(src.loc)
 		usr << "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>"
 
 

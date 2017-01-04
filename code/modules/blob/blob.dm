@@ -138,7 +138,7 @@
 			L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
 			playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 			L.take_organ_damage(rand(5, 10))
-			L.loc = src.loc
+			L.forceMove(src.loc)
 		else
 			L.visible_message("<span class='danger'>The blob pulverizes \the [L]!</span>", "<span class='danger'>The blob pulverizes you!</span>")
 			playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
@@ -198,7 +198,7 @@
 			if(prob(30))
 				visible_message("<span class='danger'>\The [W] gets caught in the gelatinous folds of \the [src]</span>")
 				user.drop_from_inventory(W)
-				W.loc = src.loc
+				W.forceMove(src.loc)
 				return
 			damage = (W.force / brute_resist)
 

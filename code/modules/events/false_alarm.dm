@@ -21,11 +21,10 @@
 
 /datum/event/false_alarm/announce()
 	var/datum/event_container/EC
-	EC = event_manager.event_containers[EVENT_LEVEL_MODERATE]
-	/*if (prob(60))
+	if (prob(60))
 		EC = event_manager.event_containers[EVENT_LEVEL_MODERATE]
 	else
-		EC = event_manager.event_containers[EVENT_LEVEL_MAJOR]*/
+		EC = event_manager.event_containers[EVENT_LEVEL_MAJOR]
 
 	//Don't pick events that are excluded from faking.
 	EM = pick(EC.available_events)
