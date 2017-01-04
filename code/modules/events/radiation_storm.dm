@@ -7,6 +7,7 @@
 	announceWhen			= 1
 	endWhen					= revokeAccess
 	var/postStartTicks 		= 0
+	two_part = 1
 	ic_name = "radiation"
 
 /datum/event/radiation_storm/announce()
