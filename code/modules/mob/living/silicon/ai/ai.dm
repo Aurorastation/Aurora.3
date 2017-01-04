@@ -313,6 +313,9 @@ var/list/ai_verbs_default = list(
 	if(powered_ai.anchored)
 		use_power = 2
 
+/mob/living/silicon/ai/rejuvenate()
+	return 	// TODO: Implement AI rejuvination
+
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"
 	set name = "Set AI Core Display"
@@ -435,6 +438,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/emp_act(severity)
 	if (prob(30))
 		view_core()
+	icon_state = "ai-fuzz"
 	..()
 
 /mob/living/silicon/ai/Topic(href, href_list)

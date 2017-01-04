@@ -97,7 +97,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_dev_say,
 	/client/proc/view_duty_log,
 	/client/proc/cmd_dev_bst,
-	/client/proc/clear_toxins
+	/client/proc/clear_toxins,
+	/client/proc/wipe_ai	// allow admins to force-wipe AIs
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -1017,3 +1018,20 @@ var/list/admin_verbs_cciaa = list(
 
 	log_and_message_admins("has toggled explosions to be [config.use_recursive_explosions ? "recursive" : "non-recursive"].")
 	feedback_add_details("admin_verb", "TRE")
+
+/client/proc/wipe_ai()
+	set category = "Admin"
+	set name = "Wipe AI"
+	set desc = "Forces an AI to wipe its own core, ghosting them and freeing their job slot."
+
+	if (!check_rights(R_ADMIN))
+		return
+
+	var/mob/living/silicon/ai/target = input("Choose the AI to force-wipe:", "AI Termination") as null|anything in ai_list
+
+	if (alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
+		return
+	
+	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
+	target.do_wipe_core()
+	
