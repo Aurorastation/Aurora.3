@@ -70,7 +70,7 @@
 					L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
 					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 					L.take_organ_damage(rand(5, 10))
-					L.loc = src.loc
+					L.forceMove(src.loc)
 				else
 					L.visible_message("<span class='danger'>The blob glomps \the [L]!</span>", "<span class='danger'>The blob glomps you!</span>")
 					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
