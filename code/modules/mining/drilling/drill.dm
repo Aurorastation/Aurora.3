@@ -225,8 +225,8 @@
 							visible_message("<span class='danger'>\The [src]'s cell detonates!</span>")
 							explosion(src.loc, -1, -1, 2, 1)
 							qdel(cell)
-							cell = null
 							component_parts -= cell
+							cell = null
 					else
 						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\"</span>")
 		else
