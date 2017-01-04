@@ -8,7 +8,7 @@
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = "combat=8;materials=3;syndicate=5"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	caliber = "a762"
 	recoil = 2
 	fire_sound = 'sound/weapons/svd_shot.ogg'

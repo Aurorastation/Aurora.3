@@ -68,7 +68,5 @@
 	throw_range = 5
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = 3
-	origin_tech = "materials=3;syndicate=2"
-	sharp = 0
-	edge = 0
+	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 	hitsound = 'sound/weapons/genhit3.ogg'

@@ -6,7 +6,7 @@
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = "combat=5;materials=3"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
 	caliber = "a556"
 	recoil = 4
 	load_method = MAGAZINE
@@ -15,10 +15,10 @@
 	ammo_type = /obj/item/ammo_casing/a556/ap
 	magazine_type = /obj/item/ammo_magazine/a556/ap
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/ap)
-	accuracy = -1
+	accuracy = -2
 	scoped_accuracy = 3
 	recoil_wielded = 2
-	accuracy_wielded = -1
+	accuracy_wielded = 0
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
 
 	firemodes = list(

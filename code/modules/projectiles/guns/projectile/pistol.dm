@@ -61,7 +61,7 @@
 	max_shells = 16
 	caliber = ".45"
 	slot_flags = slot_belt
-	origin_tech = "combat=4;materials=2"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
 	magazine_type = /obj/item/ammo_magazine/c45x
 	multi_aim = 1
