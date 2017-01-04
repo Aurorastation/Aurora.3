@@ -59,41 +59,44 @@ function autosubmit()
 		</table>
 		<br>
 		<!-- <input type='submit' class="nanoformbutton" value='Check'>	-->
-		{{:helper.link("Check", null, {'check' : value.ref})}} {{:helper.link("Reset Grid", null, {'clear' : value.ref})}}
+		{{:helper.link("Check", null, {'check' : value.ref})}} 
+		{{:helper.link("Reset Grid", null, {'clear' : value.ref})}}
+		{{:helper.link((data.collapse) ? "Expand" : "Collapse", null, {'collapse' : value.ref})}}
 	</form>
 	</td>
-	
-	<td style="vertical-align: top;">
-	<table>
-		<tr><td>
-		<div>Sudoku is a classic human game of logic and deduction originating from Earth, in the Sol system. Invented in 19th century France and later popularised in 20th century Japan, where the name originates. It has proven a popular and diverting pastime for almost 500 years.<br>
-		<br>
-		The object of the game is simple. Complete the board by filling in digits from 1 to 9, with the constraint that each digit can only appear once per row, once per column, and once per 3x3 subgrid. The solution can usually be figured out by a process of elimination: Carefully check each tile against those around it based on the above rules, and fill in the tiles where there is only one option. Each new tile filled is a clue to the value of other tiles!</div>
-		</td></tr>
-		<tr><td style="height:50px;">
-			{{if data.message}}
-				<div style="font-size: 18px; color: #7799cc;">{{:data.message}}</div>
-			{{/if}}
-		</td></tr>
-		<tr><td>
-			{{:helper.link("Hint", null, {'hint' : value.ref})}}
-			<!-- {{:helper.link("Solve grid", null, {'solve' : value.ref})}}-->
-			<!-- {{:helper.link("Purge Grid", null, {'purge' : value.ref})}}-->
+	{{if data.collapse == 0}}
+		<td style="vertical-align: top;">
+		<table>
+			<tr><td>
+			<div>Sudoku is a classic human game of logic and deduction originating from Earth, in the Sol system. Invented in 19th century France and later popularised in 20th century Japan, where the name originates. It has proven a popular and diverting pastime for almost 500 years.<br>
+			<br>
+			The object of the game is simple. Complete the board by filling in digits from 1 to 9, with the constraint that each digit can only appear once per row, once per column, and once per 3x3 subgrid. The solution can usually be figured out by a process of elimination: Carefully check each tile against those around it based on the above rules, and fill in the tiles where there is only one option. Each new tile filled is a clue to the value of other tiles!</div>
+			</td></tr>
+			<tr><td style="height:50px;">
+				{{if data.message}}
+					<div style="font-size: 18px; color: #7799cc;">{{:data.message}}</div>
+				{{/if}}
+			</td></tr>
+			<tr><td>
+				{{:helper.link("Hint", null, {'hint' : value.ref})}}
+				<!-- {{:helper.link("Solve grid", null, {'solve' : value.ref})}}-->
+				<!-- {{:helper.link("Purge Grid", null, {'purge' : value.ref})}}-->
+			</td>
+			</tr>
+			<tr><td>
+				<div style="font-size: 18px;">Start a New Game</div>
+				<hr>
+				<form name="newgame" method="get" action='?src={{:data.src}}'>
+					<input type='hidden' name='src' value='{{:data.src}}'>
+					<input type="radio" name="difficulty" value="Easy" checked> Easy<br>
+					<input type="radio" name="difficulty" value="Medium"> Medium<br>
+					<input type="radio" name="difficulty" value="Hard"> Hard<br>
+					<input type="radio" name="difficulty" value="Robust"> Robust<br>
+					<input type='submit' class="nanoformbutton" value='Generate New Grid'>
+				</form>
+			</td>
+			</tr>
 		</td>
-		</tr>
-		<tr><td>
-			<div style="font-size: 18px;">Start a New Game</div>
-			<hr>
-			<form name="newgame" method="get" action='?src={{:data.src}}'>
-				<input type='hidden' name='src' value='{{:data.src}}'>
-				<input type="radio" name="difficulty" value="Easy" checked> Easy<br>
-				<input type="radio" name="difficulty" value="Medium"> Medium<br>
-				<input type="radio" name="difficulty" value="Hard"> Hard<br>
-				<input type="radio" name="difficulty" value="Robust"> Robust<br>
-				<input type='submit' class="nanoformbutton" value='Generate New Grid'>
-			</form>
-		</td>
-		</tr>
-	</td>
+	{{/if}}
 	<tr>
 </table

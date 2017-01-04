@@ -34,13 +34,17 @@
 	var/wongame = 0
 	var/datum/computer_file/program/game/sudoku
 
-/datum/nano_module/program/sudoku/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+	var/collapse = 0
+	var/width = 900
+
+/datum/nano_module/program/sudoku/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 0, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	if (!grid)
 		create_grid()
 	data["grid"] = grid
 	data["src"] = "\ref[src]"
+	data["collapse"] = collapse
 	data["message"] = message
 	if (message != lastmessage)
 		lastmessage = message
@@ -51,9 +55,9 @@
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "sudoku.tmpl", "Sudoku", 900, 557, state = state)
+		ui = new(user, src, ui_key, "sudoku.tmpl", "Sudoku", width, 557, state = state)
 		//if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
-		ui.auto_update_layout = 0
+		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(0)
@@ -92,11 +96,24 @@
 			advanced_populate_grid(clues[href_list["difficulty"]])
 		else
 			return
-
-
+	else if (href_list["collapse"])
+		collapse = !collapse
+		set_width(usr)
+		return
 
 	if (usr)
 		ui_interact(usr)
+
+/datum/nano_module/program/sudoku/proc/set_width(var/mob/user)
+	if (collapse)
+		width = 400
+	else
+		width = 900
+
+	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
+	if (ui)
+		ui.close()
+		ui_interact(user, force_open = 1)
 
 /datum/nano_module/program/sudoku/proc/save_grid(var/list/inputdata)
 	var/i = 1
