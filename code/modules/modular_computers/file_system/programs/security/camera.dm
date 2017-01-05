@@ -25,12 +25,14 @@
 	filename = "cammon"
 	filedesc = "Camera Monitoring"
 	nanomodule_path = /datum/nano_module/camera_monitor
-	program_icon_state = "generic"
+	program_icon_state = "cameras"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements."
 	size = 12
 	available_on_ntnet = 1
 	requires_ntnet = 1
-	required_access_download = access_heads
+	required_access_download = list(access_heads, access_security)
+	//Note, access_security has been changed in baymerge. This won't give janitors access
+	requires_access_to_download = PROGRAM_ACCESS_LIST_ONE
 
 /datum/nano_module/camera_monitor
 	name = "Camera Monitoring program"
