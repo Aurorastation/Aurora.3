@@ -70,6 +70,10 @@ DBConnection/proc/Connect(dbi_handler = con_dbi, user_handler = con_user, passwo
 DBConnection/proc/Disconnect()
 	return _dm_db_close(_db_con)
 
+DBConnection/proc/Reconnect()
+	Disconnect()
+	Connect()
+
 DBConnection/proc/IsConnected()
 	if(!config.sql_enabled)
 		return 0
@@ -122,8 +126,13 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 
 	var/result = _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
 
-	if (ErrorMsg())
-		error("SQL Error: '[ErrorMsg()]'")
+	var error = ErrorMsg()
+	if (error)
+		error("SQL Error: '[error]'")
+		// This is hacky and should probably be changed
+		if (error == "MySQL server has gone away")
+			log_and_message_admins("is attempting to reconnect the server to MySQL. (Connection Failure)")
+			dbcon.Reconnect()
 
 	return result
 
