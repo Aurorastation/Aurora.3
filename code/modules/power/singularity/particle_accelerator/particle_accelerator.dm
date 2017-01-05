@@ -61,7 +61,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/structure/particle_accelerator
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	icon_state = "none"
 	anchored = 0
 	density = 1
@@ -83,11 +83,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	desc_holder = "This is where Alpha particles are generated from \[REDACTED\]"
 	icon_state = "end_cap"
 	reference = "end_cap"
-
-/obj/structure/particle_accelerator/update_icon()
-	..()
-	return
-
 
 /obj/structure/particle_accelerator/verb/rotate()
 	set name = "Rotate Clockwise"
