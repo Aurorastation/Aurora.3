@@ -126,7 +126,7 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 
 	var/result = _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
 
-	var error = ErrorMsg()
+	var/error = ErrorMsg()
 	if (error)
 		error("SQL Error: '[error]'")
 		// This is hacky and should probably be changed
