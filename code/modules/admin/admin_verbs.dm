@@ -199,7 +199,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/jumptomob,
 	/client/proc/jumptocoord,
 	/client/proc/dsay,
-	/client/proc/toggle_recursive_explosions
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/restart_sql
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -1035,3 +1036,17 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
 	target.do_wipe_core()
 	
+/client/proc/restart_sql()
+	set category = "Debug"
+	set name = "Reconnect SQL"
+	set desc = "Causes the server to re-establish its connection to the MySQL server."
+
+	if (!check_rights(R_DEBUG))
+		return
+
+	if (alert("Reconnect to SQL?", "SQL Reconnection", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("is attempting to reconnect the server to MySQL.")
+
+	dbcon.Reconnect()
