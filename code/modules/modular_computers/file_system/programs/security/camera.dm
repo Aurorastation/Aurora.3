@@ -30,8 +30,7 @@
 	size = 12
 	available_on_ntnet = 1
 	requires_ntnet = 1
-	required_access_download = list(access_heads, access_security)
-	//Note, access_security has been changed in baymerge. This won't give janitors access
+	required_access_download = list(access_heads)
 	requires_access_to_download = PROGRAM_ACCESS_LIST_ONE
 
 /datum/nano_module/camera_monitor
