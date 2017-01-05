@@ -133,6 +133,8 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 		if (error == "MySQL server has gone away")
 			log_and_message_admins("is attempting to reconnect the server to MySQL. (Connection Failure)")
 			dbcon.Reconnect()
+			if (db_connection.IsConnected())
+				src.Execute(argument_list)
 
 	return result
 
