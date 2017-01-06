@@ -1,0 +1,9 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed hide behaving like metal sheets."
+  - bugfix: "Fixed being unable to remove the medal of captaincy from the captain jumpsuit."
+  - rscadd: "Added new custom loadout options, like tracksuits and the atlas armband."
+  - tweak: "Waistcoats and suspenders are now accessories instead of suits."
