@@ -101,13 +101,6 @@
 			advanced_populate_grid(clues[newdifficulty])
 		else
 			return
-	/*else if (href_list["difficulty"])
-		var/response = alert(usr,"Are you sure you want to start a new game? All progress on this one will be lost. Be sure to pick your desired difficulty first.","New Puzzle","Start Anew","Wait no!")
-		if (response == "Start Anew")
-			advanced_populate_grid(clues[href_list["difficulty"]])
-		else
-			return
-	*/
 	else if (href_list["collapse"])
 		collapse = !collapse
 		set_width(usr)
