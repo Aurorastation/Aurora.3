@@ -126,6 +126,7 @@
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(M)
 		//copied from human_defense.dm - human defence code should really be refactored some time.
 		if (ishuman(L))
 			user.lastattacked = L	//are these used at all, if we have logs?
