@@ -110,8 +110,6 @@
 		..()
 		return
 
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
 	var/agony = agonyforce
 	var/stun = stunforce
 	var/mob/living/L = M
@@ -127,6 +125,7 @@
 			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
 	else
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		//copied from human_defense.dm - human defence code should really be refactored some time.
 		if (ishuman(L))
 			user.lastattacked = L	//are these used at all, if we have logs?
