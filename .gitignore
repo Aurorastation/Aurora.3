@@ -11,3 +11,4 @@ cfg/
 build_log.txt
 
 /.atom-build.json
+.vscode/
