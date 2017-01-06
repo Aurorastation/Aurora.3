@@ -263,7 +263,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_deployer"
 	w_class = 3
-
+	var/deploying = 0
 	// By default stores up to 10 walls and 5 doors. May be changed.
 	var/stored_walls = 10
 	var/stored_doors = 5
@@ -294,14 +294,17 @@
 		pick_up(A, user)
 
 /obj/item/weapon/inflatable_dispenser/proc/try_deploy_inflatable(var/turf/T, var/mob/living/user)
+	if (deploying)
+		return
+	deploying = 1
+	var/newtype
 	if(mode) // Door deployment
 		if(!stored_doors)
 			user << "\The [src] is out of doors!"
 			return
 
 		if(T && istype(T))
-			new /obj/structure/inflatable/door(T)
-			stored_doors--
+			newtype = /obj/structure/inflatable/door
 
 	else // Wall deployment
 		if(!stored_walls)
@@ -309,11 +312,18 @@
 			return
 
 		if(T && istype(T))
-			new /obj/structure/inflatable/wall(T)
+			newtype = /obj/structure/inflatable/wall
+
+	user.visible_message(span("notice", "[user] starts deploying an inflatable"), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
+	playsound(T, 'sound/items/zip.ogg', 75, 1)
+	if (do_after(user, 20, needhand = 0))
+		new newtype(T)
+		if (mode)
+			stored_doors--
+		else
 			stored_walls--
 
-	playsound(T, 'sound/items/zip.ogg', 75, 1)
-	user << "You deploy the inflatable [mode ? "door" : "wall"]!"
+	deploying = 0
 
 /obj/item/weapon/inflatable_dispenser/proc/pick_up(var/obj/A, var/mob/living/user)
 	if(istype(A, /obj/structure/inflatable))

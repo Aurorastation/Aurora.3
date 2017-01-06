@@ -18,6 +18,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
+	footstep_sound = "dirtstep"//It sounds better than squeaky hard-floor audio
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
@@ -56,6 +57,7 @@
 	base_icon = 'icons/turf/floors.dmi'
 	icon_state = "snow"
 	base_icon_state = "snow"
+	footstep_sound = "gravelstep"
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
@@ -68,6 +70,7 @@
 	initial_flooring = /decl/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
+	footstep_sound = "concretestep"
 
 /turf/simulated/floor/holofloor/space/New()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
@@ -78,6 +81,7 @@
 	icon = 'icons/misc/beach.dmi'
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
+	footstep_sound = "sandstep"
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -89,11 +93,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
+	footstep_sound = "waterstep"
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
+	footstep_sound = "waterstep"
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -257,7 +263,7 @@
 /obj/item/weapon/holo/esword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		
+
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()

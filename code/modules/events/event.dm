@@ -69,6 +69,9 @@
 	var/dummy 			=	0
 	//If 1, this event is a dummy instance used for retrieving values, it should not run or add/remove itself from any lists
 
+	var/two_part		=	0
+	//used for events that run secondary announcements, like releasing maint access.
+
 /datum/event/nothing
 	no_fake = 1
 

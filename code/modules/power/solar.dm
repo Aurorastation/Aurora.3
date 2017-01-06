@@ -357,10 +357,10 @@ var/list/solars_list = list()
 		overlays.Cut()
 		return
 	if(stat & NOPOWER)
-		icon_state = "c_unpowered"
+		icon_state = "computer"
 		overlays.Cut()
 		return
-	icon_state = "solar"
+	icon_state = "solar_control"
 	overlays.Cut()
 	if(cdir > -1)
 		overlays += image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir))

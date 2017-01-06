@@ -84,6 +84,14 @@
 				{{:helper.link("Download", null, {'PRG_downloadfile' : value.filename})}}
 			</div>
 		</div>
+	{{empty}}
+		<hr><br>
+		{{if data.locked}}
+			<div class="itemContent" style="color: red; text-align: center; width: 100%;"><b>ERROR: This terminal is locked, users are disallowed from downloading software. Please contact your system administrator.</b></div>
+		{{else}}
+			<div class="itemContent" style="text-align: center; width: 100%;"><b>There are no available programs for your clearance level at this time.</b></div>
+		{{/if}}
+		<br>
 	{{/for}}
 	{{if data.hackedavailable}}
 		<h2>*UNKNOWN* software repository</h2>
@@ -119,4 +127,6 @@
 	{{/if}}
 
 {{/if}}
-<br><br><hr><i>NTOS v2.0.5 Copyright NanoTrasen 2450 - 2458</i>
+<br><br>
+
+<div style="position: fixed; bottom: 5px;"><hr><i>NTOS v2.0.6 Copyright NanoTrasen 2450 - 2458</i></div>

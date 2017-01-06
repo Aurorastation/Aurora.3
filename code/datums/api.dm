@@ -749,7 +749,7 @@ proc/api_update_command_database()
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text("\blue <B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
+	G:show_message(text("<span class='notice'><B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
 	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API")
 	message_admins("Admin [senderkey] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit via the API", 1)
 
@@ -903,7 +903,7 @@ proc/api_update_command_database()
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		world << "\red New NanoTrasen Update available at all communication consoles."
+		world << "<span class='alert'>New NanoTrasen Update available at all communication consoles.</span>"
 		world << sound('sound/AI/commandreport.ogg')
 
 

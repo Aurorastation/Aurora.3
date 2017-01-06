@@ -235,14 +235,17 @@
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/screwdriver))
+		if (isrobot(loc))
+			user << span("alert", "You cannot modify your own welder!")
+			return
 		if(welding)
-			user << "<span class='danger'>Stop welding first!</span>"
+			user << span("danger", "Stop welding first!")
 			return
 		status = !status
 		if(status)
-			user << "<span class='notice'>You secure the welder.</span>"
+			user << span("notice", "You secure the welder.")
 		else
-			user << "<span class='notice'>The welder can now be attached and modified.</span>"
+			user << span("notice", "The welder can now be attached and modified.")
 		src.add_fingerprint(user)
 		return
 
@@ -346,7 +349,7 @@
 				return
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.")
-			user << "\red That was stupid of you."
+			user << span("alert", "That was stupid of you.")
 			tank.explode()
 			return
 		else
@@ -385,7 +388,7 @@
 		return 1
 	else
 		if(M)
-			M << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+			M << span("notice", "You need more welding fuel to complete this task.")
 		return 0
 
 //Returns whether or not the welding tool is currently on.

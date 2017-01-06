@@ -1,6 +1,5 @@
 // Set this to 1 if you want to debug the SQL saves.
 // I got tired as hell from writing these debug lines and deleting them later.
-#define SQL_PREF_DEBUG 0
 
 /*
  * A proc for dynamically loading a character from the database.
@@ -103,12 +102,12 @@
 			log_debug("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
 			log_debug("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
 
+			continue
+
 #ifdef SQL_PREF_DEBUG
 		else
 			log_debug("SQL CHARACTER LOAD: Successfully executed query: [query_text]")
 #endif
-
-			continue
 
 		// Each query should only return exactly 1 row.
 		var/list/var_names = query_cache[type][query_text]
@@ -258,5 +257,3 @@
 		arg_list |= PI.gather_save_parameters()
 
 	return arg_list
-
-#undef SQL_PREF_DEBUG

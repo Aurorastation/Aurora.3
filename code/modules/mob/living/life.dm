@@ -169,6 +169,9 @@
 		update_dead_sight()
 	else
 		sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		if (is_ventcrawling)
+			sight |= SEE_TURFS|BLIND
+
 		see_in_dark = initial(see_in_dark)
 		see_invisible = initial(see_invisible)
 

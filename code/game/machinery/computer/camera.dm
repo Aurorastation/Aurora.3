@@ -237,7 +237,7 @@
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."
-	icon_screen = "mining"
+	icon_screen = "miningcameras"
 	network = list("MINE")
 	circuit = /obj/item/weapon/circuitboard/security/mining
 	light_color = "#F9BBFC"
@@ -245,7 +245,7 @@
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
-	icon_screen = "engie_cams"
+	icon_screen = "engineeringcameras"
 	circuit = /obj/item/weapon/circuitboard/security/engineering
 	light_color = "#FAC54B"
 

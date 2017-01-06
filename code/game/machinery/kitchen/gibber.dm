@@ -108,7 +108,7 @@
 			if(prob(10))
 				M.apply_damage(30, BRUTE, "head")
 				M.apply_damage(45, HALLOSS)
-				M.visible_message("\red [user]'s hair catches in the [src]!", "\red Your hair gets caught in the [src]!")
+				M.visible_message("<span class='danger'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
 				M.say("*scream")
 
 /obj/machinery/gibber/MouseDrop_T(mob/target, mob/user)

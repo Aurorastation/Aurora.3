@@ -551,15 +551,75 @@
 		if("swag", "stopsway")
 			src.animate_tail_stop()
 
+		if("beep")
+			if (!isipc(src))
+				src << span("notice", "You're not a machine!")
+			else 
+				var/M = null
+				if(param)
+					for (var/mob/A in view(null, null))
+						if (param == A.name)
+							M = A
+							break
+				if(!M)
+					param = null
+
+				if (param)
+					message = "beeps at [param]."
+				else
+					message = "beeps."
+				playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
+				m_type = 1
+
+		if("ping")
+			if (!isipc(src))
+				src << span("notice", "You're not a machine!")
+			else 
+				var/M = null
+				if(param)
+					for (var/mob/A in view(null, null))
+						if (param == A.name)
+							M = A
+							break
+				if(!M)
+					param = null
+
+				if (param)
+					message = "pings at [param]."
+				else
+					message = "pings."
+				playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+				m_type = 1
+
+		if("buzz")
+			if (!isipc(src))
+				src << span("notice", "You're not a machine!")
+			else
+				var/M = null
+				if(param)
+					for (var/mob/A in view(null, null))
+						if (param == A.name)
+							M = A
+							break
+				if(!M)
+					param = null
+
+				if (param)
+					message = "buzzes at [param]."
+				else
+					message = "buzzes."
+				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+				m_type = 1
+
 		if ("help")
 			src << {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,
 cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,
 grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,
 sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,
-wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag"}
+wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 
 		else
-			src << "\blue Unusable emote '[act]'. Say *help for a list."
+			src << span("notice", "Unusable emote '[act]'. Say *help for a list.")
 
 
 

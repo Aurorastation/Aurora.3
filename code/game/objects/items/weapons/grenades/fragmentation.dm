@@ -1,3 +1,31 @@
+proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam,var/p_range,var/can_cover=1)
+	var/turf/O = get_turf(source)
+	var/fragger = rand(fragx,fragy)
+	explosion(O, -1, -1, light_dam, flash_dam)
+	var/list/target_turfs = getcircle(O, 7)
+	var/fragments_per_projectile = round(fragger/target_turfs.len)
+
+	for(var/turf/T in target_turfs)
+		sleep(0)
+		var/obj/item/projectile/bullet/pellet/fragment/P = new (O)
+
+		P.damage = p_dam
+		P.pellets = fragments_per_projectile
+		P.range_step = p_range
+		P.shot_from = source
+		P.name = "[source]'s shrapnel"
+
+		P.launch(T)
+
+		if(can_cover)
+			for(var/mob/living/M in O)
+				//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
+				//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
+				if(M.lying && isturf(get_turf(source)))
+					P.attack_mob(M, 0, 0)
+				else
+					P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
+
 //Fragmentation grenade projectile
 /obj/item/projectile/bullet/pellet/fragment
 	damage = 15
@@ -27,36 +55,6 @@
 	set waitfor = 0
 	..()
 
-	var/turf/O = get_turf(src)
-	if(!O) return
-
-	if(explosion_size)
-		explosion(O, -1, -1, explosion_size, explosion_size+1)
-
-	var/list/target_turfs = getcircle(O, spread_range)
-	var/fragments_per_projectile = round(num_fragments/target_turfs.len)
-
-	for(var/turf/T in target_turfs)
-		sleep(0)
-		var/obj/item/projectile/bullet/pellet/fragment/P = new (O)
-
-		P.damage = fragment_damage
-		P.pellets = fragments_per_projectile
-		P.range_step = damage_step
-		P.shot_from = src.name
-
-		P.launch(T)
-
-		//var/cone = new /obj/item/weapon/caution/cone (T)
-		//spawn(100) qdel(cone)
-
-		//Make sure to hit any mobs in the source turf
-		for(var/mob/living/M in O)
-			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
-			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
-			if(M.lying && isturf(src.loc))
-				P.attack_mob(M, 0, 0)
-			else
-				P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
+	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,1)
 
 	qdel(src)

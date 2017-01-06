@@ -30,6 +30,7 @@
 	var/list/sampled_DNA
 	var/list/language_progress
 	var/obj/item/clothing/head/hat
+	maxHealth = 85
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if (life_tick < 4)

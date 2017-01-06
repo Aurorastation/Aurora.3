@@ -581,7 +581,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/updatehud
 	for(var/datum/wound/W in wounds)
 		// wounds can disappear after 10 minutes at the earliest
-		if(W.damage <= 0 && W.created + 10 * 10 * 60 <= world.time)
+		if(W.damage <= 0 && W.created + 6000 <= world.time)
 			wounds -= W
 			continue
 			// let the GC handle the deletion of the wound
@@ -590,13 +590,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			updatehud = 1//If there are any wounds with damage to heal, then we'll update health huds
 
 		// Internal wounds get worse over time. Low temperatures (cryo) stop them.
-		if(W.internal && owner.bodytemperature >= 170)
+		if(W.damage && W.internal && owner.bodytemperature >= 170)
 			var/bicardose = owner.reagents.get_reagent_amount("bicaridine")
 			var/inaprovaline = owner.reagents.get_reagent_amount("inaprovaline")
 			if(!(W.can_autoheal() || (bicardose && inaprovaline)))	//bicaridine and inaprovaline stop internal wounds from growing bigger with time, unless it is so small that it is already healing
-				W.open_wound(0.1 * wound_update_accuracy)
-			if(bicardose >= 30)	//overdose of bicaridine begins healing IB
-				W.damage = max(0, W.damage - 0.2)
+				W.open_wound(0.09 * wound_update_accuracy)
+
 
 			owner.vessel.remove_reagent("blood", wound_update_accuracy * W.damage/40) //line should possibly be moved to handle_blood, so all the bleeding stuff is in one place.
 			if(prob(1 * wound_update_accuracy))

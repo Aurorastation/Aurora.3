@@ -132,6 +132,8 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 
+	update_icon()
+
 	if(src.timing)
 		if(src.time > 0)
 			src.time = src.time - ((world.timeofday - last_process)/10)
@@ -206,8 +208,6 @@
 	update_icon()
 	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
 	return
-
-
 
 /obj/machinery/firealarm/New(loc, dir, building)
 	..()

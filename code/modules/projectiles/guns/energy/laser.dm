@@ -75,7 +75,7 @@ obj/item/weapon/gun/energy/retro
 	charge_cost = 100
 	max_shots = 20
 	fire_delay = 1
-	
+
 /obj/item/weapon/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
 	charge_cost = 200
@@ -119,7 +119,7 @@ obj/item/weapon/gun/energy/retro
 	set popup_menu = 1
 
 	if(wielded)
-		toggle_scope(2.0)
+		toggle_scope(2.0, usr)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
@@ -133,7 +133,7 @@ obj/item/weapon/gun/energy/retro
 	w_class = 3
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	origin_tech = "combat=4;magnets=2"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam/shotgun
 	max_shots = 12
 	sel_mode = 1

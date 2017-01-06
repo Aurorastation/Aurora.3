@@ -580,6 +580,7 @@ var/global/list/default_medbay_channels = list(
 	icon_state = "radio"
 	canhear_range = 0
 	subspace_transmission = 1
+	name = "integrated radio"
 
 /obj/item/device/radio/borg/Destroy()
 	myborg = null
