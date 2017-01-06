@@ -14,7 +14,7 @@
 	var/last_world_time = "00:00"
 	var/list/last_header_icons
 	var/computer_emagged = 0								// Whether the computer is emagged.
-	var/software_locked = 0									// Weather the software on the computer is locked TODO-IT: Look over when implementing IT properly
+	var/enrolled = 0								// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
 
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
@@ -632,7 +632,7 @@
 /obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0)
 	// "USB" flash drive.
 	if(istype(H, /obj/item/weapon/computer_hardware/hard_drive/portable))
-		if(software_locked)
+		if(enrolled == 1)
 			user << "This computer is locked down by the Central Command IT IQ department. You can not connect \the [H]."
 			return
 		if(portable_drive)

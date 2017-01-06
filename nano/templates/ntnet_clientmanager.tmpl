@@ -1,0 +1,69 @@
+<i>Welcome to NT IT client manager</i><hr>
+<div>This is the Client Management Application of the Nanotrasen IT Department. It is used ensure that the clients comply with the corporate IT policy, enroll new clients and manage consoles remotely</div>
+<h2>Status</h2>
+<div class="item">
+	<div class="itemLabel">
+		Enrollment Status:
+	</div>
+	<div class="itemContent">
+		{{if data.status_enrollment == 0}}
+		Unconfigured
+		{{else data.status_enrollment == 1}}
+		Work Device
+		{{else data.status_enrollment == 2}}
+		Private Device
+		{{else}}
+		Error - Contact the IT Department
+		{{/if}}
+	</div>
+</div>
+{{if data.status_enrollment == 1}}
+	<div class="item">
+		<div class="itemLabel">
+			Policy Compliance Status:
+		</div>
+		<div class="itemContent">
+			{{if data.status_compliance == 0}}
+			Not Compliant
+			{{else data.status_compliance == 1}}
+			Compliant
+			{{else}}
+			Error - Contact the IT Department
+			{{/if}}
+		</div>
+	</div>
+	<div class="item">
+		<div class="itemLabel">
+			Remote Management Status:
+		</div>
+		<div class="itemContent">
+			{{if data.status_remote == 0}}
+			Inactive
+			{{else data.status_remote == 1}}
+			Active
+			{{else}}
+			Error - Contact the IT Department
+			{{/if}}
+		</div>
+	</div>
+{{/if}}
+{{if data.status_enrollment == 0}}
+	<h2>Device Enrollment</h2>
+	<tr>
+	    <td><b>Device Type:</b>
+	    <td>{{:helper.link('Company', null, { "PRG_dev_type" : 1 }, data.dev_type == 1 ? 'selected' : null)}}
+	    <td>{{:helper.link('Private', null, { "PRG_dev_type" : 2 }, data.dev_type == 2 ? 'selected' : null)}}
+	<tr>
+		<td>{{:helper.link('Enroll', null, { "PRG_enroll" : 1 })}}
+{{else data.status_enrollment == 1}}
+	<h2>Control</h2>
+	Request Support - Button<br>
+	ID Locked, reset device - button
+{{else data.status_enrollment == 2}}
+	<h2>Control</h2>
+	ID Locked, reset device - button
+{{else}}
+	Error Message
+{{/if}}
+<hr><hr>
+<!-- <i>NTOS v2.0.4b Copyright NanoTrasen 2450 - 2248</i> -->

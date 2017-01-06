@@ -4,7 +4,8 @@
 	var/_has_printer = 0
 	var/_has_battery = 0
 	var/_has_aislot = 0
-	var/_software_locked = 0
+	var/_enrolled = 0
+	var/_app_preset_name = "" //name of the app preset
 
 /obj/machinery/modular_computer/console/preset/New()
 	. = ..()
@@ -19,76 +20,67 @@
 		cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/super(cpu)
 	if(_has_aislot)
 		cpu.ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(cpu)
-	if(_software_locked)
-		cpu.software_locked = 1
-	install_programs()
+	if(_enrolled)
+		cpu.enrolled = _enrolled
+	install_programs(get_preset_programs(_app_preset_name))
+
+/obj/machinery/modular_computer/console/preset/proc/get_preset_programs(var/app_preset_name)
+	log_debug("=== Searchng for matching preset")
+	for (var/path in ntnet_global.available_software_presets)
+		var/datum/modular_computer_app_presets/prs = new path()
+		log_debug("comparing preset [prs.name]")
+		if(prs.name == app_preset_name && prs.available == 1)
+			log_debug("preset matched")
+			return prs.return_install_programs()
 
 // Override in child types to install preset-specific programs.
-/obj/machinery/modular_computer/console/preset/proc/install_programs()
-	return
-
+/obj/machinery/modular_computer/console/preset/proc/install_programs(var/list/programs)
+	log_debug("=== Calling install programs for preset")
+	for (var/datum/computer_file/program/prog in programs)
+		log_debug("Installing prog [prog.filename]")
+		cpu.hard_drive.store_file(prog)
 
 // ===== ADMIN CONSOLE =====
-/obj/machinery/modular_computer/console/preset/admin
+/obj/machinery/modular_computer/console/preset/all
 	console_department = "CC ITIQ"
-	desc = "A computer from the CC ITIQ Department. Only available on the odin"
+	desc = "A computer from the CC ITIQ Department. Only available on the Odin"
+	_app_preset_name = "all"
+	_enrolled = 1
 
 /obj/machinery/modular_computer/console/preset/admin/install_programs()
-	for(var/F in typesof(/datum/computer_file/program))
-		var/datum/computer_file/program/prog = new F
-		cpu.hard_drive.store_file(prog)
+	..()
 	cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/lambda(cpu)
 
 // ===== ENGINEERING CONSOLE =====
 /obj/machinery/modular_computer/console/preset/engineering
 	 console_department = "Engineering"
 	 desc = "A stationary computer. This one comes preloaded with engineering programs."
-	 _software_locked = 1
-
-/obj/machinery/modular_computer/console/preset/engineering/install_programs()
-	cpu.hard_drive.store_file(new/datum/computer_file/program/power_monitor())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/alarm_monitor())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/atmos_control())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/rcon_console())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/chatclient())
-
+	 _app_preset_name = "engineering"
+	 _enrolled = 1
 
 // ===== MEDICAL CONSOLE =====
 /obj/machinery/modular_computer/console/preset/medical
 	 console_department = "Medbay"
 	 desc = "A stationary computer. This one comes preloaded with medical programs."
-	 _software_locked = 1
-
-/obj/machinery/modular_computer/console/preset/medical/install_programs()
-	cpu.hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/suit_sensors())
-
+	 _app_preset_name = "medical"
+	 _enrolled = 1
 
 // ===== RESEARCH CONSOLE =====
 /obj/machinery/modular_computer/console/preset/research
 	 console_department = "Research"
 	 desc = "A stationary computer. This one comes preloaded with research programs."
+	 _app_preset_name = "research"
 	 _has_aislot = 1
-	 _software_locked = 1
-
-/obj/machinery/modular_computer/console/preset/research/install_programs()
-	cpu.hard_drive.store_file(new/datum/computer_file/program/ntnetmonitor())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/aidiag())
-
+	 _enrolled = 1
 
 // ===== COMMAND CONSOLE =====
 /obj/machinery/modular_computer/console/preset/command
 	 console_department = "Command"
 	 desc = "A stationary computer. This one comes preloaded with command programs."
+	 _app_preset_name = "command"
 	 _has_id_slot = 1
 	 _has_printer = 1
-	 _software_locked = 1
-
-/obj/machinery/modular_computer/console/preset/command/install_programs()
-	cpu.hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/card_mod())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/comm())
+	 _enrolled = 1
 
 /obj/machinery/modular_computer/console/preset/command/main
 	 console_department = "Command"
@@ -98,17 +90,12 @@
 /obj/machinery/modular_computer/console/preset/security
 	 console_department = "Security"
 	 desc = "A stationary computer. This one comes preloaded with security programs."
-	 _software_locked = 1
-
-/obj/machinery/modular_computer/console/preset/security/install_programs()
-	cpu.hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/camera_monitor())
+	 _app_preset_name = "security"
+	 _enrolled = 1
 
 // ===== CIVILIAN CONSOLE =====
 /obj/machinery/modular_computer/console/preset/civilian
 	 console_department = "Civilian"
 	 desc = "A stationary computer. This one comes preloaded with generic programs."
-
-/obj/machinery/modular_computer/console/preset/civilian/install_programs()
-	cpu.hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	cpu.hard_drive.store_file(new/datum/computer_file/program/nttransfer())
+	 _app_preset_name = "civilian"
+	 _enrolled = 1

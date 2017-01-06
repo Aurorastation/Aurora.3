@@ -32,7 +32,7 @@
 	if(PRG.available_on_syndinet && !computer_emagged)
 		return 0
 
-	if(!computer || !computer.hard_drive || !computer.hard_drive.try_store_file(PRG) || computer.software_locked)
+	if(!computer || !computer.hard_drive || !computer.hard_drive.try_store_file(PRG) || computer.enrolled == 1)
 		return 0
 
 	ui_header = "downloader_running.gif"
@@ -167,7 +167,7 @@
 			ui.set_auto_update(0)//No need for auto updating on the software menu
 		data["disk_size"] = my_computer.hard_drive.max_capacity
 		data["disk_used"] = my_computer.hard_drive.used_capacity
-		if(!my_computer.software_locked) //To lock installation of software on work computers until the IT Department is properly implemented
+		if(my_computer.enrolled == 2) //To lock installation of software on work computers until the IT Department is properly implemented - Then check for access on enrolled computers
 			data += get_programlist(user)
 		else
 			data["downloadable_programs"] = list()
@@ -227,4 +227,3 @@
 
 	data["downloadable_programs"] = all_entries
 	return data
-
