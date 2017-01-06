@@ -152,10 +152,23 @@
 	name = "bronze medal"
 	desc = "A bronze medal."
 	icon_state = "bronze"
+	item_state = "bronze"
+	
+/obj/item/clothing/accessory/medal/iron
+	name = "iron medal"
+	desc = "A simple iron medal."
+	icon_state = "iron"
+	item_state = "iron"
+
+/obj/item/clothing/accessory/medal/iron/merit
+	name = "iron merit medal"
+	desc = "An iron medal awarded to NanoTrasen employees for merit."
+	icon_state = "iron_nt"
 
 /obj/item/clothing/accessory/medal/conduct
 	name = "distinguished conduct medal"
 	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is most basic award on offer. It is often awarded by a captain to a member of their crew."
+	icon_state = "bronze_nt"
 
 /obj/item/clothing/accessory/medal/bronze_heart
 	name = "bronze heart medal"
@@ -170,6 +183,7 @@
 	name = "silver medal"
 	desc = "A silver medal."
 	icon_state = "silver"
+	item_state = "silver"
 
 /obj/item/clothing/accessory/medal/silver/valor
 	name = "medal of valor"
@@ -178,16 +192,34 @@
 /obj/item/clothing/accessory/medal/silver/security
 	name = "robust security award"
 	desc = "An award for distinguished combat and sacrifice in defence of corporate commercial interests. Often awarded to security staff."
+	icon_state = "silver_nt"
 
 /obj/item/clothing/accessory/medal/gold
 	name = "gold medal"
 	desc = "A prestigious golden medal."
 	icon_state = "gold"
+	item_state = "gold"
 
 /obj/item/clothing/accessory/medal/gold/captain
 	name = "medal of captaincy"
 	desc = "A golden medal awarded exclusively to those promoted to the rank of captain. It signifies the codified responsibilities of a captain, and their undisputable authority over their crew."
+	icon_state = "gold_nt"
 
 /obj/item/clothing/accessory/medal/gold/heroism
 	name = "medal of exceptional heroism"
 	desc = "An extremely rare golden medal awarded only by company officials. To recieve such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
+	icon_state = "gold_crest"
+
+//clothing-like acessories
+
+/obj/item/clothing/accessory/wcoat
+	name = "waistcoat"
+	desc = "For some classy, murderous fun."
+	icon_state = "wcoat"
+	item_state = "wcoat"
+
+/obj/item/clothing/accessory/suspenders
+	name = "suspenders"
+	desc = "They suspend the illusion of the mime's play."
+	icon_state = "suspenders"
+	item_state = "suspenders"
