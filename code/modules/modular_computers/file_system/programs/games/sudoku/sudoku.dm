@@ -3,7 +3,7 @@
 	filedesc = "Sudoku"				// User-Friendly name. In this case, we will generate a random name in constructor.
 	program_icon_state = "sudoku"				// Icon state of this program's screen.
 	extended_desc = "A game of numbers, logic, and deduction. Popular for centuries to keep the mind sharp."		// A nice description.
-	size = 2								// Size in GQ. Integers only. Smaller sizes should be used for utility/low use programs (like this one), while large sizes are for important programs.
+	size = 5								// Size in GQ. Integers only. Smaller sizes should be used for utility/low use programs (like this one), while large sizes are for important programs.
 	requires_ntnet = 0						// This particular program does not require NTNet network conectivity...
 	available_on_ntnet = 1					// ... but we want it to be available for download.
 	nanomodule_path = /datum/nano_module/program/sudoku	// Path of relevant nano module. The nano module is defined further in the file.
@@ -34,6 +34,8 @@
 	var/wongame = 0
 	var/datum/computer_file/program/game/sudoku
 
+	var/newdifficulty = "Easy"//The selected difficulty mode for generating the next grid
+
 	var/collapse = 0
 	var/width = 900
 
@@ -46,6 +48,7 @@
 	data["src"] = "\ref[src]"
 	data["collapse"] = collapse
 	data["message"] = message
+	data["difficulty"] = newdifficulty
 	if (message != lastmessage)
 		lastmessage = message
 		messagesent = world.time
@@ -91,11 +94,20 @@
 	else if (href_list["purge"])
 		clear_grid(1)
 	else if (href_list["difficulty"])
+		newdifficulty = href_list["difficulty"]
+	else if (href_list["newgame"])
+		var/response = alert(usr,"Are you sure you want to start a new game? All progress on this one will be lost. Be sure to pick your desired difficulty first.","New Puzzle","Start Anew","Wait no!")
+		if (response == "Start Anew")
+			advanced_populate_grid(clues[newdifficulty])
+		else
+			return
+	/*else if (href_list["difficulty"])
 		var/response = alert(usr,"Are you sure you want to start a new game? All progress on this one will be lost. Be sure to pick your desired difficulty first.","New Puzzle","Start Anew","Wait no!")
 		if (response == "Start Anew")
 			advanced_populate_grid(clues[href_list["difficulty"]])
 		else
 			return
+	*/
 	else if (href_list["collapse"])
 		collapse = !collapse
 		set_width(usr)
