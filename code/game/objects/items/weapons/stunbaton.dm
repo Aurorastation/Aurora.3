@@ -99,17 +99,7 @@
 			user << "<span class='warning'>[src] is out of charge.</span>"
 	add_fingerprint(user)
 
-/obj/item/weapon/melee/baton/attack(mob/M, mob/user)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*1.5)
-	if(status && (CLUMSY in user.mutations) && prob(50))
-		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
-		user.Weaken(30)
-		deductcharge(hitcost)
-		return
-	return ..()
-
 /obj/item/weapon/melee/baton/attack(mob/M, mob/user, var/hit_zone)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*1.5)
 	if(status && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
@@ -119,6 +109,8 @@
 	if(isrobot(M))
 		..()
 		return
+
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	var/agony = agonyforce
 	var/stun = stunforce
