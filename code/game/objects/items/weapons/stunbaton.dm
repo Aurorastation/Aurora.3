@@ -100,6 +100,7 @@
 	add_fingerprint(user)
 
 /obj/item/weapon/melee/baton/attack(mob/M, mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*1.5)
 	if(status && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
@@ -107,7 +108,8 @@
 		return
 	return ..()
 
-/obj/item/weapon/melee/baton/attack(mob/M, mob/user,var/hit_zone)
+/obj/item/weapon/melee/baton/attack(mob/M, mob/user, var/hit_zone)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*1.5)
 	if(status && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
