@@ -10,8 +10,7 @@
 	use_power = 2
 	active_power_usage = 20000 //20kW, apropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
-	icon_state = "ntnet_on"
-	var/icon_base = "ntnet"
+	icon_state = "ntnet"
 	icon = 'icons/obj/machines/telecomms.dmi'
 	anchored = 1
 	density = 1
@@ -49,34 +48,32 @@
 
 /obj/machinery/ntnet_relay/update_icon()
 	var/state = get_state()
-	icon_state = icon_base
+	icon_state = initial(icon_state)
+
+	if (panel_open)
+		icon_state += "_o"
+
 	switch (state)
 		if (NTR_NORMAL)
 			overlays += overlay_cache["ok"]
 			overlays -= overlay_cache["problem"]
 			overlays -= overlay_cache["error"]
-			icon_state += "_on"
 
 		if (NTR_OVERLOAD)
 			overlays -= overlay_cache["ok"]
 			overlays += overlay_cache["problem"]
 			overlays -= overlay_cache["error"]
-			icon_state += "_on"
 		
 		if (NTR_DISABLE)
 			overlays -= overlay_cache["ok"]
 			overlays -= overlay_cache["problem"]
 			overlays += overlay_cache["error"]
-			icon_state += "_on"
 
 		if (NTR_POWERLOSS)
 			overlays -= overlay_cache["ok"]
 			overlays -= overlay_cache["problem"]
 			overlays -= overlay_cache["error"]
 			icon_state += "_off"
-
-	if (panel_open)
-		icon_base += "_open"
 
 /obj/machinery/ntnet_relay/process()
 	if(operable())
