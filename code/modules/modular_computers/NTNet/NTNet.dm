@@ -99,8 +99,9 @@ var/global/datum/ntnet/ntnet_global = new()
 			available_station_software.Add(prog)
 		if(prog.available_on_syndinet)
 			available_antag_software.Add(prog)
-	for(var/P in typesof(/datum/modular_computer_app_presets))
-		available_software_presets.Add(P)
+	for(var/path in typesof(/datum/modular_computer_app_presets))
+		var/datum/modular_computer_app_presets/prs = new path()
+		available_software_presets.Add(prs)
 
 // Builds lists that contain downloadable software.
 /datum/ntnet/proc/build_news_list()

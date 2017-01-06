@@ -14,6 +14,8 @@
     requires_ntnet = 0
     nanomodule_path = /datum/nano_module/program/clientmanager/
     var/_dev_type = 1 //1 - Company Device ,2 - Private device
+    var/_dev_preset = "civilian"
+    var/_error_message = null
 
 /datum/nano_module/program/clientmanager
     name = "NTOS Client Manager"
@@ -27,14 +29,23 @@
         _dev_type = text2num(href_list["PRG_dev_type"])
         return 1
 
+    if(href_list["PRG_dev_preset"])
+        _dev_preset = href_list["PRG_dev_preset"]
+        return 1
+
     if(href_list["PRG_enroll"])
-        if(_dev_type == 1)
-            enroll_company_device()
-            return 1
-        if(_dev_type == 2)
-            enroll_private_device()
-            return 1
-        return 0
+        if(ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD))
+            _error_message = null
+            if(_dev_type == 1)
+                enroll_company_device()
+                return 1
+            if(_dev_type == 2)
+                enroll_private_device()
+                return 1
+            return 0
+        else
+            _error_message = "NTNET unavailable. Unable to enroll device"
+            return 0
 
 //Set´s up the computer with the file manager and the downloader and removes the lock
 /datum/computer_file/program/clientmanager/proc/enroll_private_device()
@@ -47,11 +58,17 @@
 
 //Set´s up the programs from the preset
 /datum/computer_file/program/clientmanager/proc/enroll_company_device()
-    if(!computer)
+    if(!computer || !_dev_type || !_dev_preset)
         return 0
-    //Somehow integrate the preset selection
-    //Then deploy the preset
-    return 1
+
+    for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
+        if(prs.name == _dev_preset && prs.available == 1)
+            var/list/prs_programs = prs.return_install_programs()
+            for (var/datum/computer_file/program/prog in prs_programs)
+                computer.hard_drive.store_file(prog)
+            computer.enrolled = 1 // enroll as company device after finding matching preset and storing software
+            return 1
+    return 0
 
 
 /datum/nano_module/program/clientmanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
@@ -74,10 +91,23 @@
 
     if(!movable.enrolled)
         data["dev_type"] = PRG._dev_type
+        var/list/all_presets = list()
+        for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
+            if(prs.available)
+                all_presets.Add(list(list(
+                "name" = prs.name,
+                "display_name" = prs.display_name,
+                "description" = prs.description
+                )))
+        data["dev_presets"] = all_presets
+        data["dev_preset"] = PRG._dev_preset
+    else if(movable.enrolled > 2)
+        PRG._error_message = "Unable to determine enrollment status. Contact IT department"
 
+    data["error_message"] = PRG._error_message
     ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
     if (!ui)
-        ui = new(user, src, ui_key, "ntnet_clientmanager.tmpl", "NTOS Configuration Utility", 575, 700, state = state)
+        ui = new(user, src, ui_key, "ntnet_clientmanager.tmpl", "NTOS Client Manager", 575, 700, state = state)
         ui.auto_update_layout = 1
         ui.set_initial_data(data)
         ui.open()

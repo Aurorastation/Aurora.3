@@ -25,19 +25,14 @@
 	install_programs(get_preset_programs(_app_preset_name))
 
 /obj/machinery/modular_computer/console/preset/proc/get_preset_programs(var/app_preset_name)
-	log_debug("=== Searchng for matching preset")
-	for (var/path in ntnet_global.available_software_presets)
-		var/datum/modular_computer_app_presets/prs = new path()
-		log_debug("comparing preset [prs.name]")
+	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
+		//var/datum/modular_computer_app_presets/prs = new path()
 		if(prs.name == app_preset_name && prs.available == 1)
-			log_debug("preset matched")
 			return prs.return_install_programs()
 
 // Override in child types to install preset-specific programs.
 /obj/machinery/modular_computer/console/preset/proc/install_programs(var/list/programs)
-	log_debug("=== Calling install programs for preset")
 	for (var/datum/computer_file/program/prog in programs)
-		log_debug("Installing prog [prog.filename]")
 		cpu.hard_drive.store_file(prog)
 
 // ===== ADMIN CONSOLE =====
@@ -50,6 +45,10 @@
 /obj/machinery/modular_computer/console/preset/admin/install_programs()
 	..()
 	cpu.battery_module = new/obj/item/weapon/computer_hardware/battery_module/lambda(cpu)
+
+// ===== Empty Test console CONSOLE =====
+/obj/machinery/modular_computer/console/preset/empty
+	 desc = "A stationary computer."
 
 // ===== ENGINEERING CONSOLE =====
 /obj/machinery/modular_computer/console/preset/engineering

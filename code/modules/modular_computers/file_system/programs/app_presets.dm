@@ -2,7 +2,7 @@
     var/name = "default_preset"
     var/display_name = "default preset"
     var/description = "Description of the preset"
-    var/available = 1
+    var/available = 0
 /datum/modular_computer_app_presets/proc/return_install_programs()
     return list()
 
@@ -20,8 +20,9 @@
 
 /datum/modular_computer_app_presets/engineering
     name = "engineering"
-    display_name = "Engineering Preset"
+    display_name = "Engineering"
     description = "Contains the most common engineering Programs"
+    available = 1
 /datum/modular_computer_app_presets/engineering/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/power_monitor(),
@@ -34,8 +35,9 @@
 
 /datum/modular_computer_app_presets/medical
     name = "medical"
-    display_name = "Medical Preset"
+    display_name = "Medical"
     description = "Contains the most common medical Programs"
+    available = 1
 /datum/modular_computer_app_presets/medical/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
@@ -45,8 +47,9 @@
 
 /datum/modular_computer_app_presets/research
     name = "research"
-    display_name = "Research Preset"
+    display_name = "Research"
     description = "Contains the most common research Programs"
+    available = 1
 /datum/modular_computer_app_presets/research/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
@@ -57,8 +60,9 @@
 
 /datum/modular_computer_app_presets/command
     name = "command"
-    display_name = "Command Preset"
+    display_name = "Command"
     description = "Contains the most common command Programs"
+    available = 1
 /datum/modular_computer_app_presets/command/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
@@ -69,8 +73,9 @@
 
 /datum/modular_computer_app_presets/security
     name = "security"
-    display_name = "Security Preset"
+    display_name = "Security"
     description = "Contains the most common security Programs"
+    available = 1
 /datum/modular_computer_app_presets/security/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
@@ -81,8 +86,9 @@
 
 /datum/modular_computer_app_presets/civilian
     name = "civilian"
-    display_name = "Cibilian Preset"
+    display_name = "Civilian"
     description = "Contains the most common civilian Programs"
+    available = 1
 /datum/modular_computer_app_presets/civilian/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
