@@ -24,10 +24,11 @@ var/datum/discord_bot/discord_bot = null
 	return 1
 
 /datum/discord_bot
-	var/list/channels_to_group = list()
-	var/list/channels = list()
+	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
+	var/list/channels = list()				// Channel ID -> channel datum map. Will ensure that only one datum per channel ID exists.
 
-	var/list/roles_map = list()
+	var/list/roles_map = list()				// Role ID -> role name map.
+	var/datum/discord_channel/invite = null	// The channel datum where the ingame Join Channel button will link to.
 
 	var/active = 0
 	var/auth_token = ""
@@ -53,7 +54,6 @@ var/datum/discord_bot/discord_bot = null
 	var/DBQuery/channel_query = dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
 	channel_query.Execute()
 
-	var/list/A
 	while (channel_query.NextRow())
 		// Create the channel map.
 		if (isnull(channels_to_group[channel_query.item[1]]))
@@ -63,16 +63,20 @@ var/datum/discord_bot/discord_bot = null
 		if (isnull(roles_map[channel_query.item[4]]))
 			roles_map[channel_query.item[4]] = list()
 
-		var/datum/discord_channel/B = new(text2num(channel_query.item[2]), channel_query.item[1], text2num())
+		var/datum/discord_channel/B = channels[channel_query.item[2]]
 
-		if (!B)
-			log_debug("BOREALIS: Bad channel data during update channels. [jointext(channel_query.item, ", ")].")
-			continue
+		// We don't have this channel datum yet.
+		if (isnull(B))
+			B = new(channel_query.item[2], channel_query.item[3], channel_query.item[4])
+
+			if (!B)
+				log_debug("BOREALIS: Bad channel data during update channels. [jointext(channel_query.item, ", ")].")
+				continue
+
+			channels[channel_query.item[2]] = B
 
 		// Add the channel to the required lists.
-		A = channels_to_group[channel_query.item[1]]
-		A += B
-		channels += B
+		channels_to_group[channel_query.item[1]] += B
 
 	log_debug("BOREALIS: Channels updated successfully.")
 	return 0
@@ -137,6 +141,8 @@ var/datum/discord_bot/discord_bot = null
 /datum/discord_bot/proc/push_queue()
 	// What facking queue.
 	if (!queue || !queue.len)
+		queue_push_planned = 0
+
 		if (robust_debug)
 			log_debug("BOREALIS: Attempted to push a null length queue.")
 		return
@@ -149,10 +155,10 @@ var/datum/discord_bot/discord_bot = null
 		message = A[1]
 		destinations = A[2]
 
-		for (var/A in destinations)
-			var/datum/discord_channel/channel = A
+		for (var/B in destinations)
+			var/datum/discord_channel/channel = B
 			switch (channel.send_message_to(auth_token, message))
-				if (RATE_LIMITED)
+				if (SEND_TIMEOUT)
 					// Limited again. Reschedule.
 					spawn (100)
 						push_queue()
@@ -168,22 +174,38 @@ var/datum/discord_bot/discord_bot = null
 
 // A holder class for channels.
 /datum/discord_channel
-	var/id = 0
-	var/group = ""
+	var/id = ""
+	var/server_id = ""
 	var/pin_flag = 0
+	var/invite_url = ""
 
-/datum/discord_channel/New(var/_id, var/_group, var/_pin)
+/*
+ * Constructor
+ *
+ * @param text _id	- the
+ * @param text _sid	- the sanitized message content to be sent.
+ * @param num _pin	- a specific return code for the discord_bot to handle.
+ */
+/datum/discord_channel/New(var/_id, var/_sid, var/_pin)
 	id = _id
-	group = _group
+	server_id = _sid
 
 	if (_pin)
 		pin_flag = _pin
 
+/*
+ * Proc send_message_to
+ * Sends a message to the channel.
+ *
+ * @param text token	- the authorization token to be used for the requests.
+ * @param text message	- the sanitized message content to be sent.
+ * @return num			- a specific return code for the discord_bot to handle.
+ */
 /datum/discord_channel/proc/send_message_to(var/token, var/message)
 	if (!token || !message)
 		return ERROR_PROC
 
-	var/res = send_post_request("https://discordapp.com/api/channels/[channel]/messages", message, "Authorization: Bot [token]", "Content-Type: application/json")
+	var/res = send_post_request("https://discordapp.com/api/channels/[id]/messages", message, "Authorization: Bot [token]", "Content-Type: application/json")
 
 	switch (res)
 		if (-1)
@@ -207,8 +229,16 @@ var/datum/discord_bot/discord_bot = null
 			log_debug("BOREALIS: Unknown response code while forwarding message to Discord API: [res].")
 			return ERROR_PROC
 
-/datum/discord_channel/proc/get_pins(var/, var/token)
-	var/res = send_get_request("https://discordapp.com/api/channels/[channel]/pins", "Authorization: Bot [token]")
+/*
+ * Proc get_pins
+ * Retreives a list of pinned messages from the channel.
+ *
+ * @param text token	- the authorization token to be used for the requests.
+ * @return mixed		- 2d array of content upon success, in format: list(list("author" = text, "content" = text)).
+ *						  Num upon failure.
+ */
+/datum/discord_channel/proc/get_pins(var/token)
+	var/res = send_get_request("https://discordapp.com/api/channels/[id]/pins", "Authorization: Bot [token]")
 
 	// Is a number, so an error code.
 	if (isnum(res))
@@ -235,13 +265,85 @@ var/datum/discord_bot/discord_bot = null
 		for (var/list/B in A)
 			var/content = B["content"]
 
+			// We have mentions to take care of.
 			if (!isnull(B["mentions"]))
 				var/list/mentions = B["mentions"]
 
 				for (var/list/C in mentions)
 					content = replacetextEx(content, "<@[C["id"]]>", C["username"])
 
+			// Role mentions are up next.
 			if (!isnull(B["mention_roles"]))
+				var/list/mentions = B["mention_roles"]
+
+				for (var/C in mentions)
+					content = replacetextEx(content, "<@&[C]>", discord_bot.roles_map[C])
+
+			pinned_messages += list(list("author" = B["author"]["username"], "content" = content))
+
+		return pinned_messages
+
+/*
+ * Proc get_invite
+ * Retreives (or creates if none found) an invite URL to the specific channel.
+ *
+ * @param text token	- the authorization token to be used for the requests.
+ * @return mixed		- text upon success, the link to the invite; num upon failure.
+ */
+/datum/discord_channel/proc/get_invite(var/token)
+	if (invite_url)
+		return invite_url
+
+	var/res = send_get_request("https://discordapp.com/api/channels/[id]/invites", "Authorization: Bot [token]")
+
+	// Is a number, so an error code.
+	if (isnum(res))
+		switch (res)
+			if (-1)
+				return ERROR_PROC
+
+			if (0 to 90)
+				log_debug("BOREALIS: cURL error while fetching pins from the Discord API: [res].")
+				return ERROR_CURL
+
+			if (100 to 600)
+				log_debug("BOREALIS: HTTP error while fetching pins from the Discord API: [res].")
+				return ERROR_HTTP
+
+			else
+				log_debug("BOREALIS: Unknown response code while fetching pins from the Discord API: [res].")
+				return ERROR_PROC
+	else
+		var/list/A = res
+
+		// No length to return data, but a valid 200 return header.
+		// So we simply have no invites active. Make one!
+		if (!A || !A.len)
+			return create_invite(token)
+
+		var/best_age = A[1]["max_age"]
+		var/code = A[1]["code"]
+
+		// Find the best invite.
+		// Why? Because round time expires are lame, I guess.
+		if (best_age != 0)
+			for (var/i = 2, i < A.len, i++)
+				if (A[i]["max_age"] == 0)
+					code = A[i]["code"]
+					break
+
+				if (best_age < A[i]["max_age"])
+					best_Age = A[i]["max_age"]
+					code = A[i]["code"]
+
+		// Sanity check for debug I guess.
+		if (!code)
+			log_debug("BOREALIS: Retreived an empty invite. This should not happen. Response object: [json_encode(A)]")
+
+		// Save the URL for later retreival.
+		invite_url = "https://discord.gg/[code]"
+		return invite_url
+
 
 
 #undef CHAN_ADMIN
