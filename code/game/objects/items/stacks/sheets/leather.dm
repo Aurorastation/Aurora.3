@@ -1,9 +1,14 @@
+/obj/item/stack/material/animalhide
+	name = "hide"
+	desc = "The by-product of some animal farming."
+	singular_name = "hide piece"
+	icon_state = "sheet-hide"
+	default_type = "hide"
+
 /obj/item/stack/material/animalhide/human
 	name = "human skin"
 	desc = "The by-product of human farming."
 	singular_name = "human skin piece"
-	icon_state = "sheet-hide"
-	default_type = "hide"
 
 /obj/item/stack/material/animalhide/corgi
 	name = "corgi hide"
