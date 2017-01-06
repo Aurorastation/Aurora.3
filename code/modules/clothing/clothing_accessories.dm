@@ -17,13 +17,7 @@
 
 		var/obj/item/clothing/accessory/A = I
 		if(can_attach_accessory(A))
-			user.drop_item()
-			accessories += A
-			A.on_attached(src, user)
-			src.verbs |= /obj/item/clothing/proc/removetie_verb
-			if(istype(loc, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = loc
-				H.update_inv_w_uniform()
+			attach_accessory(user, A)
 			return
 		else
 			user << "<span class='warning'>You cannot attach more accessories of this type to [src].</span>"
@@ -68,6 +62,12 @@
 	if(accessories.len)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			user << "\A [A] is attached to it."
+
+/obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
+	accessories += A
+	A.on_attached(src, user)
+	src.verbs |= /obj/item/clothing/proc/removetie_verb
+	update_clothing_icon()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
