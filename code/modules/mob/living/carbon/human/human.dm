@@ -61,7 +61,7 @@
 
 	holder = hud_list[WANTED_HUD]
 	holder.pixel_x = -3
-	holder.pixel_y = 12
+	holder.pixel_y = 14
 	hud_list[WANTED_HUD] = holder
 
 
