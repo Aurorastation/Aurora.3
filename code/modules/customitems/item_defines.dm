@@ -74,7 +74,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)
 		user.put_in_hands(chip)
-		user << "\blue You eject a small, concealed data chip from a small slot in the frames of the [src]."
+		user << "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of the [src].</span>"
 		chip = null
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -139,7 +139,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 
 
-/obj/item/clothing/head/det_hat/fluff/bell_hat //Brown Hat - Avery Bell - serveris6
+/obj/item/clothing/head/det/fluff/bell_hat //Brown Hat - Avery Bell - serveris6
 	name = "brown hat"
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
 	icon = 'icons/obj/custom_items/bell_hat.dmi'
@@ -147,7 +147,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "bell_hat"
 	contained_sprite = 1
 
-/obj/item/clothing/suit/storage/det_suit/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
+/obj/item/clothing/suit/storage/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
 	name = "pinned brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - 'Avery Bell, Silhouette Co.'."
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
@@ -351,14 +351,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		user << "\blue \The [src] is now energised."
+		user << "<span class='notice'>\The [src] is now energised.</span>"
 		icon_state = "tigerclaw_active"
 		item_state = icon_state
 		slot_flags = null
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		user << "\blue \The [src] is de-energised."
+		user << "<span class='notice'>\The [src] is now de-energised.</span>"
 		icon_state = initial(icon_state)
 		item_state = icon_state
 		slot_flags = initial(slot_flags)
@@ -635,7 +635,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	body_parts_covered = 0
 	canremove = 0
-	species_restricted = list("Baseline Frame")
+	species_restricted = list("Machine")
 	var/emagged = 0
 
 /obj/item/clothing/mask/fluff/rur_collar/attackby(obj/item/I, mob/user)
@@ -785,7 +785,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/suit/storage/fluff/basil_coat //Consortium Magister's Robes - Basil Drabardi - aimlessanalyst - TODO: turns this into a proper hoodie, because suits won't work with the hair overlay
+/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/basil_coat //Consortium Magister's Robes - Basil Drabardi - aimlessanalyst
 	name = "consortium magister's robes"
 	desc = "Deep red robes belonging to a Consortium Magister. A curious symbol is displayed on the black tabard down it's front."
 	icon = 'icons/obj/custom_items/basil_coat.dmi'
@@ -793,7 +793,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "basil_coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	contained_sprite = 1
+	hoodtype = /obj/item/clothing/head/winterhood/fluff/basil_hood
 
+/obj/item/clothing/head/winterhood/fluff/basil_hood
+	name = "consortium magister's hood"
+	desc = "A hood beloging to a consortium magister's robes."
+	icon = 'icons/obj/custom_items/basil_coat.dmi'
+	icon_state = "basil_hood"
 
 /obj/item/clothing/under/fluff/iskra_uniform //Worn People's Republic Service Uniform - Iskra Ayrat - alberyk
 	name = "worn people's republic service uniform"
@@ -839,8 +845,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/hairflower/fluff/aquila_pin //Magnetic Flower Pin - Aquila - nandabun
 	name = "magnetic flower pin"
 	desc = "That's a magnet in the shape of a hair flower pin. Smells nice."
-	
-	
+
+
 /obj/item/clothing/head/beret/eng/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
 	name = "LR-31MTA Beret"
 	desc = "A silver beret with an insignia on the front, it looks like an old Tajaran cannon with a ring around it. \
@@ -851,8 +857,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ikrad_beret"
 	item_state = "ikrad_beret"
 	contained_sprite = 1
-	var/letter	
-	
+	var/letter
+
 /obj/item/clothing/head/beret/eng/fluff/ikrad_beret/New()
 	..()
 	var/obj/item/fluff/ikrad_letter/hat_letter = new(src)
@@ -886,3 +892,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
 	icon_state = "ikrad_letter"
 	w_class = 2
+
+
+/obj/item/clothing/suit/storage/fluff/ryan_jacket //Mars' Militia Leather Jacket - Ryan McLean - seniorscore
+	name = "mars' militia leather jacket"
+	desc = "A leather jacket, appears to have a shield on back with the words \"Contra omnes stabimus\", as well as a unit name \"Sandworms of Thadeus\", \
+	stitched along a banner at the bottom of the shield."
+	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
+	icon_state = "ryan_jacket"
+	item_state = "ryan_jacket"
+	contained_sprite = 1
