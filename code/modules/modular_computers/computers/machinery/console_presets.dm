@@ -81,10 +81,6 @@
 	 _has_printer = 1
 	 _enrolled = 1
 
-/obj/machinery/modular_computer/console/preset/command/main
-	 console_department = "Command"
-	 desc = "A stationary computer. This one comes preloaded with essential command programs."
-
 // ===== SECURITY CONSOLE =====
 /obj/machinery/modular_computer/console/preset/security
 	 console_department = "Security"

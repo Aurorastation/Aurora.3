@@ -29,6 +29,8 @@
         new/datum/computer_file/program/alarm_monitor(),
         new/datum/computer_file/program/atmos_control(),
         new/datum/computer_file/program/rcon_console(),
+        new/datum/computer_file/program/camera_monitor/engineering(),
+        new/datum/computer_file/program/lighting_control(),
         new/datum/computer_file/program/chatclient()
     )
     return _prg_list
@@ -54,7 +56,8 @@
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
         new/datum/computer_file/program/ntnetmonitor(),
-        new/datum/computer_file/program/aidiag()
+        new/datum/computer_file/program/aidiag(),
+        new/datum/computer_file/program/exosuit_monitor()
     )
     return _prg_list
 
@@ -92,7 +95,6 @@
 /datum/modular_computer_app_presets/civilian/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
-        new/datum/computer_file/program/nttransfer(),
         new/datum/computer_file/program/game/arcade(),
         new/datum/computer_file/program/game/sudoku()
     )
