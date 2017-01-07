@@ -847,7 +847,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "That's a magnet in the shape of a hair flower pin. Smells nice."
 
 
-/obj/item/clothing/head/beret/eng/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
+/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
 	name = "LR-31MTA Beret"
 	desc = "A silver beret with an insignia on the front, it looks like an old Tajaran cannon with a ring around it. \
 	Along the top half of the ring \"LR-31MTA\" is engraved. The word \"Yam'hir\" is engraved along the bottom half of the ring. \
@@ -859,13 +859,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	var/letter
 
-/obj/item/clothing/head/beret/eng/fluff/ikrad_beret/New()
+/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/New()
 	..()
 	var/obj/item/fluff/ikrad_letter/hat_letter = new(src)
 	letter = hat_letter
 	hat_letter.attack_self()
 
-/obj/item/clothing/head/beret/eng/fluff/ikrad_beret/attack_self(var/mob/user)
+/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attack_self(var/mob/user)
 	if(letter)
 		user << "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>"
 		user.drop_from_inventory(src)
@@ -875,7 +875,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
-/obj/item/clothing/head/beret/eng/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
+/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
 	if(!src.letter && istype(W))
 		user << "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>"
 		user.drop_from_inventory(W)
