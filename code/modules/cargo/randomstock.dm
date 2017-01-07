@@ -133,6 +133,7 @@ var/list/global/random_stock_common = list(
 	"mining" = 2,
 	"paicard" = 2,
 	"phoronsheets" = 2,
+	"hide" = 1,
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
@@ -196,6 +197,11 @@ var/list/global/random_stock_uncommon = list(
 	"laserscalpel" = 1.3,
 	"electropack" = 1,
 	"beesmoker" = 1.5,
+	"monkeyhide" = 0.5,
+	"cathide" = 0.5,
+	"corgihide" = 0.5,
+	"lizardhide" = 0.5,
+	"wintercoat" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_rare = list(
@@ -218,6 +224,8 @@ var/list/global/random_stock_rare = list(
 	"exogear" = 1.5,
 	"teleporter" = 1,
 	"voice" = 1.5,
+	"xenohide" = 0.5,
+	"humanhide" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
@@ -251,6 +259,7 @@ var/list/global/random_stock_large = list(
 	"dispenser" = 2.5,
 	"jukebox" = 1.2,
 	"pipemachine" = 1.7,
+	"bike" = 0.3,
 	"nothing" = 0)
 
 
@@ -968,7 +977,8 @@ var/list/global/random_stock_large = list(
 		if ("phoronsheets")
 			new /obj/item/stack/material/phoron(L, rand(5,50))
 
-
+		if ("hide")
+			new /obj/item/stack/material/animalhide(L, rand(5,50))
 
 
 
@@ -1390,11 +1400,20 @@ var/list/global/random_stock_large = list(
 		if ("beesmoker")
 			new /obj/item/weapon/bee_smoker(L)
 
+		if("monkeyhide")
+			new /obj/item/stack/material/animalhide/monkey(L, 50)
 
+		if("cathide")
+			new /obj/item/stack/material/animalhide/cat(L, 50)
 
+		if("corgihide")
+			new /obj/item/stack/material/animalhide/corgi(L, 50)
 
+		if("lizardhide")
+			new /obj/item/stack/material/animalhide/lizard(L, 50)
 
-
+		if ("wintercoat")
+			new /obj/random/hoodie(L)
 
 
 
@@ -1566,7 +1585,11 @@ var/list/global/random_stock_large = list(
 		if ("voice")
 			new /obj/item/clothing/mask/gas/voice(L)
 
+		if("xenohide")
+			new /obj/item/stack/material/animalhide/xeno(L, rand(2,15))
 
+		if("humanhide")
+			new /obj/item/stack/material/animalhide/human(L, rand(2,15))
 
 
 
@@ -1758,6 +1781,9 @@ var/list/global/random_stock_large = list(
 				new /obj/machinery/pipedispenser/disposal(L)
 			else
 				new /obj/machinery/pipedispenser(L)
+
+		if ("bike")
+			new /obj/vehicle/bike(L)
 
 	//This will be complex
 	//Spawns a random exosuit, Probably not in good condition
