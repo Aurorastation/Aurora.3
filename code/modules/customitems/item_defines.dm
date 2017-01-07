@@ -773,3 +773,116 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sayyidah_tiara"
 	item_state = "sayyidah_tiara"
 	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/fluff/jeyne_pendant //Jeyne's Pendant - Jeyne Kahale - themuncorn
+	name = "black choker with pendant"
+	desc = "A simple black choker, with a small pendant on the front. The pendant is carefully inscribed with some simple Sinta'Unathi script in white."
+	icon = 'icons/obj/custom_items/jeyne_pendant.dmi'
+	icon_state = "jeyne_pendant"
+	item_state = "jeyne_pendant"
+	slot_flags = SLOT_MASK | SLOT_TIE
+	contained_sprite = 1
+
+
+/obj/item/clothing/suit/storage/fluff/basil_coat //Consortium Magister's Robes - Basil Drabardi - aimlessanalyst - TODO: turns this into a proper hoodie, because suits won't work with the hair overlay
+	name = "consortium magister's robes"
+	desc = "Deep red robes belonging to a Consortium Magister. A curious symbol is displayed on the black tabard down it's front."
+	icon = 'icons/obj/custom_items/basil_coat.dmi'
+	icon_state = "basil_coat"
+	item_state = "basil_coat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = 1
+
+
+/obj/item/clothing/under/fluff/iskra_uniform //Worn People's Republic Service Uniform - Iskra Ayrat - alberyk
+	name = "worn people's republic service uniform"
+	desc = "A well-worn shirt with blue strips, coupled with brown uniform pants. It seems to be part of the people's republic of Adhomai service uniform."
+	icon = 'icons/obj/custom_items/iskra_clothing.dmi'
+	icon_state = "iskra_clothing"
+	item_state = "iskra_clothing"
+	contained_sprite = 1
+
+
+/obj/item/clothing/suit/storage/fluff/tsali_coat //Mariziite Shroud - Cruz Tsali - serveris6
+	name = "mariziite shroud"
+	desc = "A worn duster coat frayed near the bottom, with a dark-hide shoulder cape thrown over the torso bearing the mark of a Mariziite warrior priest. Commonly known as the garb worn by members of the Mariziite Order in the performance of their duties."
+	icon = 'icons/obj/custom_items/tsali_coat.dmi'
+	icon_state = "tsali_coat"
+	item_state = "tsali_coat"
+	contained_sprite = 1
+
+
+/obj/item/clothing/under/fluff/ana_uniform //Retired Uniform - Ana Roh'hi'tin - suethecake
+	name = "retired uniform"
+	desc = "A silken blouse paired with dark-colored slacks. It has the words 'Chief Investigator' embroidered into the shoulder bar."
+	icon = 'icons/obj/custom_items/ana_clothing.dmi'
+	icon_state = "ana_uniform"
+	item_state = "ana_uniform"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/forensics/fluff/ana_jacket //CSI Jacket - Ana Roh'hi'tin - suethecake
+	name = "CSI jacket"
+	desc = "A black jacket with the words 'CSI' printed in the back in bright, white letters."
+	icon = 'icons/obj/custom_items/ana_clothing.dmi'
+	icon_state = "ana_jacket"
+	item_state = "ana_jacket"
+	contained_sprite = 1
+
+/obj/item/clothing/accessory/badge/old/fluff/ana_badge //Faded Badge - Ana Roh'hi'tin - suethecake
+	name = "faded badge"
+	desc = "A faded badge, backed with leather, that reads 'NT Security Force' across the front. It bears the emblem of the Forensic division."
+	stored_name = "Ana Issek"
+	badge_string = "NanoTrasen Security Department"
+
+
+/obj/item/clothing/head/hairflower/fluff/aquila_pin //Magnetic Flower Pin - Aquila - nandabun
+	name = "magnetic flower pin"
+	desc = "That's a magnet in the shape of a hair flower pin. Smells nice."
+	
+	
+/obj/item/clothing/head/beret/eng/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
+	name = "LR-31MTA Beret"
+	desc = "A silver beret with an insignia on the front, it looks like an old Tajaran cannon with a ring around it. \
+	Along the top half of the ring \"LR-31MTA\" is engraved. The word \"Yam'hir\" is engraved along the bottom half of the ring. \
+	The beret looks old and is worn in some places around the edges. It appears to have a flap inside, \
+	secured by a piece of elastic that loops around a button."
+	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
+	icon_state = "ikrad_beret"
+	item_state = "ikrad_beret"
+	contained_sprite = 1
+	var/letter	
+	
+/obj/item/clothing/head/beret/eng/fluff/ikrad_beret/New()
+	..()
+	var/obj/item/fluff/ikrad_letter/hat_letter = new(src)
+	letter = hat_letter
+	hat_letter.attack_self()
+
+/obj/item/clothing/head/beret/eng/fluff/ikrad_beret/attack_self(var/mob/user)
+	if(letter)
+		user << "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>"
+		user.drop_from_inventory(src)
+		user.put_in_hands(letter)
+		user.put_in_hands(src)
+		letter = null
+	else
+		..()
+
+/obj/item/clothing/head/beret/eng/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
+	if(!src.letter && istype(W))
+		user << "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>"
+		user.drop_from_inventory(W)
+		W.forceMove(src)
+		src.letter = W
+	else
+		..()
+
+/obj/item/fluff/ikrad_letter //Tattered Letter - Ikrad Yam'hir - houseofsynth
+	name = "tattered letter"
+	desc = "A tattered looking piece of paper that looks to have been folded multiple times. \
+	Although written in Siik'Maas it seems to be laid out like a letter, addressed to an \"Ikta Yam'hir\" and written in quite \
+	an untidy scrawl. The letter is torn in some places and the is writing faded."
+	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
+	icon_state = "ikrad_letter"
+	w_class = 2

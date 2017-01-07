@@ -46,10 +46,7 @@
 					bad_data &= ~BAD_CID
 
 			if (bad_data)
-				var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (ban_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, ban_mirror_datetime) VALUES (:ban_id, :ckey, :address, :computerid, NOW())")
-				new_mirror.Execute(list(":ban_id" = ban_id, ":ckey" = ckey, ":address" = address, ":computerid" = computer_id))
-
-				log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
+				apply_ban_mirror(ckey, address, computer_id, ban_id)
 
 		return
 
@@ -57,10 +54,6 @@
 		error("No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
 		log_misc("No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
 		return
-
-#undef BAD_CID
-#undef BAD_IP
-#undef BAD_CKEY
 
 /proc/get_active_mirror(var/ckey, var/address, var/computer_id)
 	if (!ckey || !address || !computer_id)
@@ -124,3 +117,70 @@
 		mirrors[query.item[1]] = items
 
 	return mirrors
+
+/proc/apply_ban_mirror(var/ckey, var/address, var/computer_id, var/ban_id)
+	if (!ckey || !address || !computer_id || !ban_id)
+		return
+
+	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (ban_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, ban_mirror_datetime) VALUES (:ban_id, :ckey, :address, :computerid, NOW())")
+	new_mirror.Execute(list(":ban_id" = ban_id, ":ckey" = ckey, ":address" = address, ":computerid" = computer_id))
+
+	log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
+
+/proc/handle_connection_info(var/client/C, var/data)
+	if (!C)
+		return
+
+	if (!data)
+		update_connection_data(C)
+		return
+
+	var/list/conn_info = json_decode(data)
+
+	if (!conn_info || !conn_info.len)
+		return
+
+	var/ding_bannu = 0
+	var/new_info = BAD_CKEY|BAD_IP|BAD_CID
+
+	for (var/A in conn_info)
+		var/list/dset = A
+		if (dset.len != 3)
+			continue
+
+		if (new_info)
+			if (dset[1] == C.ckey)
+				new_info &= ~BAD_CKEY
+			if (dset[2] == C.address)
+				new_info &= ~BAD_IP
+			if (dset[3] == C.computer_id)
+				new_info &= ~BAD_CID
+
+		var/list/bdata = world.IsBanned(dset[1], dset[2], dset[3], 1)
+		if (bdata && bdata.len && !isnull(bdata["id"]))
+			ding_bannu = bdata["id"]
+			break
+
+	if (new_info)
+		update_connection_data(C, conn_info)
+
+	if (ding_bannu)
+		log_and_message_admins("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.")
+		apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu)
+		spawn(20)
+			del(C)
+
+	return
+
+/proc/update_connection_data(var/client/C, var/list/data = list())
+	if (!C)
+		return
+
+	data += list(list(C.ckey, C.address, C.computer_id))
+
+	var/data_str = json_encode(data)
+	C << output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie")
+
+#undef BAD_CID
+#undef BAD_IP
+#undef BAD_CKEY

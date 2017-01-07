@@ -24,6 +24,10 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	if (href_list["EMERG"] && href_list["EMERG"] == "action")
+		handle_connection_info(src, href_list["data"])
+		return
+
 	//Reduces spamming of links by dropping calls that happen during the delay period
 	if(next_allowed_topic_time > world.time)
 		return
