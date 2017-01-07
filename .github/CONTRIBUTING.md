@@ -71,6 +71,7 @@ An example of how to define `Destroy()` for an item that needs it:
 * savefile
 * SQLLite object
 * Client object
+* list objects.
 
 You will have to use the regular `del()` proc to delete any object of that type.
 
@@ -81,6 +82,8 @@ For reference, here are the standard span classes for user output, and the corre
 * `<span class="danger"></span>` corresponds to `\red` and is bold.
 * `<span class="warning"></span>` also corresponds to `\red` and is not bold.
 * `<span class="notice"></span>` corresponds to `\blue` and is not bold.
+
+There exist pre-processor macros for using these spans. `span(class, text)` which is the equivilant of typing a string that looks like this: `"<span class='[class]'>[text]</span>"`.
 
 ### Usage of forceMove
 In order to make `Exited()` and `Entered()` procs more reliable, the usage of `forceMove()` when forcibly moving one item to another location, be it another item or turf, is required. Directly changing an item's loc values will skip over calls to the aforementioned procs, thus making them less useful and more unreliable.
@@ -102,3 +105,8 @@ An example of proper item moving:
 All tables for the database should be prefixed according to the following list:
 * `ss13_` for tables in which ingame data is held.
 * `discord_` for tables in which BOREALIS data is held.
+
+### Regarding the variable usr
+`usr` should never be defined as a name for a custom variable. It is the name for a specific variable which exists for every proc, though it may not always have a value.
+
+If at all possible, procs outside of verbs and `Topic()` should avoid reliance on `usr`, and instead use a custom argument to specify the user and its expected type. This makes it easier to reuse procs in chains where `usr` is not always defined.
