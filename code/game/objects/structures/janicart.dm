@@ -1,6 +1,10 @@
 /obj/structure/janitorialcart
 	name = "janitorial cart"
 	desc = "The ultimate in janitorial carts! Has space for water, mops, signs, trash bags, and more!"
+	description_info  = "Click and drag a mop bucket onto the cart to mount it\
+	</br>Alt+Click with a mop to put it away, a normal click will wet it in the bucket.\
+	</br>Alt+Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash\
+	</br>You can also use a lightreplacer, spraybottle (of spacecleaner) and four wet-floor signs on the cart to store them"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
 	anchored = 0
@@ -219,7 +223,6 @@
 	if(!isliving(usr))
 		return
 	var/mob/living/user = usr
-
 	if(href_list["take"])
 		switch(href_list["take"])
 			if("garbage")

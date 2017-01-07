@@ -259,3 +259,23 @@
 	if(!usr.incapacitated())
 		return
 	go_in(usr)
+
+
+/obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
+	if (istype(C, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = C
+		if (!user.Adjacent(R) || !Adjacent(user))
+			user << span("danger", "You need to get closer if you want to put [C] into that charger!")
+			return
+		user.face_atom(src)
+		user.visible_message(span("danger","[user] starts hauling [C] into the recharging unit!"), span("danger","You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
+		if (do_mob(user, R, R.mob_size*10, needhand = 1))
+			if (go_in(R))
+				user.visible_message(span("notice","After a great effort, [user] manages to get [C] into the recharging unit!"))
+				return 1
+			else
+				user << span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning.")
+		else
+			user << span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!")
+		return
+	return ..()
