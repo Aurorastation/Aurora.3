@@ -218,15 +218,12 @@
 		ui.open()
 
 /obj/structure/janitorialcart/Topic(href, href_list)
-	world << "Janicart Topic"
 	if(!in_range(src, usr))
 		return
 	if(!isliving(usr))
 		return
 	var/mob/living/user = usr
-	world << "JC Topic 2"
 	if(href_list["take"])
-		world << "JC Topic 2: [href_list["take"]]"
 		switch(href_list["take"])
 			if("garbage")
 				if(mybag)
