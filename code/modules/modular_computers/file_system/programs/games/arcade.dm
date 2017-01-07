@@ -2,7 +2,7 @@
 // for someone who may not be as experienced in coding. When making changes, please try to keep it this way.
 
 // An actual program definition.
-/datum/computer_file/program/game
+/datum/computer_file/program/game/arcade
 	filename = "arcadec"					// File name, as shown in the file browser program.
 	filedesc = "Unknown Game"				// User-Friendly name. In this case, we will generate a random name in constructor.
 	program_icon_state = "game"				// Icon state of this program's screen.
@@ -14,25 +14,25 @@
 	var/picked_enemy_name
 
 // Blatantly stolen and shortened version from arcade machines. Generates a random enemy name
-/datum/computer_file/program/game/proc/random_enemy_name()
+/datum/computer_file/program/game/arcade/proc/random_enemy_name()
 	var/name_part1 = pick("the Automatic ", "Farmer ", "Lord ", "Professor ", "the Cuban ", "the Evil ", "the Dread King ", "the Space ", "Lord ", "the Great ", "Duke ", "General ", "the vibrating bluespace")
 	var/name_part2 = pick("Melonoid", "Murdertron", "Sorcerer", "Ruin", "Jeff", "Ectoplasm", "Crushulon", "Uhangoid", "Vhakoid", "Peteoid", "Slime", "Lizard Man", "Unicorn", "Squirrel")
 	return "[name_part1] [name_part2]"
 
 // When the program is first created, we generate a new enemy name and name ourselves accordingly.
-/datum/computer_file/program/game/New()
+/datum/computer_file/program/game/arcade/New()
 	..()
 	picked_enemy_name = random_enemy_name()
 	filedesc = "Defeat [picked_enemy_name]"
 
 // Important in order to ensure that copied versions will have the same enemy name.
-/datum/computer_file/program/game/clone()
-	var/datum/computer_file/program/game/G = ..()
+/datum/computer_file/program/game/arcade/clone()
+	var/datum/computer_file/program/game/arcade/G = ..()
 	G.picked_enemy_name = picked_enemy_name
 	return G
 
 // When running the program, we also want to pass our enemy name to the nano module.
-/datum/computer_file/program/game/run_program()
+/datum/computer_file/program/game/arcade/run_program()
 	. = ..()
 	if(. && NM)
 		var/datum/nano_module/arcade_classic/NMC = NM
