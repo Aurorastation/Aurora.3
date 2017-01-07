@@ -24,10 +24,15 @@
 	check_armour = "laser"
 	eyeblur = 2
 
+/obj/item/projectile/beam/midlaser
+	damage = 40
+	armor_penetration = 10
+
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	damage = 60
+	armor_penetration = 30
 
 	muzzle_type = /obj/effect/projectile/laser_heavy/muzzle
 	tracer_type = /obj/effect/projectile/laser_heavy/tracer
@@ -36,7 +41,8 @@
 /obj/item/projectile/beam/xray
 	name = "xray beam"
 	icon_state = "xray"
-	damage = 30
+	damage = 25
+	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/xray/muzzle
 	tracer_type = /obj/effect/projectile/xray/tracer
@@ -46,6 +52,7 @@
 	name = "pulse"
 	icon_state = "u_laser"
 	damage = 50
+	armor_penetration = 30
 
 	muzzle_type = /obj/effect/projectile/laser_pulse/muzzle
 	tracer_type = /obj/effect/projectile/laser_pulse/tracer
@@ -123,7 +130,8 @@
 /obj/item/projectile/beam/sniper
 	name = "sniper beam"
 	icon_state = "xray"
-	damage = 60
+	damage = 50
+	armor_penetration = 10
 	stun = 3
 	weaken = 3
 	stutter = 3
@@ -147,9 +155,108 @@
 /obj/item/projectile/beam/gatlinglaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
-	damage = 5
+	damage = 10
+	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
 	tracer_type = /obj/effect/projectile/laser_omni/tracer
 	impact_type = /obj/effect/projectile/laser_omni/impact
 
+/obj/item/projectile/beam/mousegun
+	name = "diffuse electrical arc"
+	icon_state = "stun"
+	nodamage = 1
+	damage_type = HALLOSS
+
+	muzzle_type = /obj/effect/projectile/stun/muzzle
+	tracer_type = /obj/effect/projectile/stun/tracer
+	impact_type = /obj/effect/projectile/stun/impact
+
+/obj/item/projectile/beam/mousegun/on_impact(var/atom/A)
+	mousepulse(A, 1)
+	..()
+
+/obj/item/projectile/beam/mousegun/proc/mousepulse(turf/epicenter, range, log=0)
+	if (!epicenter)
+		return
+
+	if (!istype(epicenter, /turf))
+		epicenter = get_turf(epicenter.loc)
+
+	for (var/mob/living/M in range(range, epicenter))
+		var/distance = get_dist(epicenter, M)
+		if (distance < 0)
+			distance = 0
+		if (distance <= range)
+			if (M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
+				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
+				M.gib()
+				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+				s.set_up(3, 1, M)
+				s.start()
+			else if (iscarbon(M) && M.contents.len)
+				for (var/obj/item/weapon/holder/H in M.contents)
+					if (!H.contained)
+						continue
+
+					var/mob/living/A = H.contained
+					if (!istype(A))
+						continue
+
+					if (A.mob_size <= 2 && (A.find_type() & TYPE_ORGANIC))
+						H.release_mob()
+						A.visible_message("<span class='danger'>[A] bursts like a balloon!</span>")
+						A.gib()
+
+			M << 'sound/effects/basscannon.ogg'
+	return 1
+
+/obj/item/projectile/beam/shotgun
+	name = "diffuse laser"
+	icon_state = "laser"
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage = 15
+	eyeblur = 4
+
+	muzzle_type = /obj/effect/projectile/laser/muzzle
+	tracer_type = /obj/effect/projectile/laser/tracer
+	impact_type = /obj/effect/projectile/laser/impact
+
+/obj/item/projectile/beam/megaglaive
+	name = "thermal lance"
+	icon_state = "megaglaive"
+	damage = 10
+	incinerate = 5
+	armor_penetration = 10
+	no_attack_log = 1
+
+	muzzle_type = /obj/effect/projectile/solar/muzzle
+	tracer_type = /obj/effect/projectile/solar/tracer
+	impact_type = /obj/effect/projectile/solar/impact
+
+/obj/item/projectile/beam/megaglaive/on_impact(var/atom/A)
+	if(isturf(A))
+		A.ex_act(0)
+	explosion(A, -1, 0, 2)
+	..()
+
+/obj/item/projectile/beam/thermaldrill
+	name = "thermal lance"
+	icon_state = "megaglaive"
+	damage = 3
+	no_attack_log = 1
+
+	muzzle_type = /obj/effect/projectile/solar/muzzle
+	tracer_type = /obj/effect/projectile/solar/tracer
+	impact_type = /obj/effect/projectile/solar/impact
+
+/obj/item/projectile/beam/thermaldrill/on_impact(var/atom/A)
+	if(isturf(A))
+		if(istype(A, /turf/simulated/mineral))
+			if(prob(75)) //likely because its a mining tool
+				var/turf/simulated/mineral/M = A
+				M.GetDrilled()
+	if(ismob(A))
+		var/mob/living/M = A
+		M.apply_effect(1, INCINERATE, 0)
+	..()

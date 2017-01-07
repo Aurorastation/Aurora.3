@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Aurorastation Welcome Screen</title>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-UA-Compatible" content="IE=11">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap -->
 		<link href="bootstrap.min.css" rel="stylesheet" media="screen">
@@ -46,9 +46,9 @@
 							</ul>
 						</p>
 					</div>
-					<div role="tabpanel" class="tab-pane" id="motd"><!--motd--></div>
-					<div role="tabpanel" class="tab-pane" id="memo"><!--memo--></div>
-					<div role="tabpanel" class="tab-pane" id="note"><!--note--></div>
+					<div role="tabpanel" class="tab-pane" id="motd"><div class="row"></div></div>
+					<div role="tabpanel" class="tab-pane" id="memo"></div>
+					<div role="tabpanel" class="tab-pane" id="note"><div class="alert alert-info" id="note-placeholder">You do not have any notifications to show.</div></div>
 				</div>
 			</div>
 		</div>
@@ -56,42 +56,100 @@
 
 	<script src="jquery-2.0.0.min.js"></script>
 	<script src="bootstrap.min.js"></script>
-	<script src="html5shiv.min.js"></script>
-	<script src="respond.min.js"></script>
-	<script src="json2.min.js"></script>
 	<script src="ie-truth.min.js"></script>
-	<script>
+	<script type="text/javascript">
+		// IE statistics function.
 		function analyzeIe() {
 			var ieStats = IeVersion();
-			window.location = "?JSlink=logie&ie_data=" + JSON.stringify(ieStats);
+			if (ieStats._TrueVersion < 9) {
+				alert("It appears that you have an IE version lower than 9! Some of our menus no longer support this! Please look into updating.");
+			} else if (ieStats._TrueVersion < 11) {
+				alert("It appears that you have an IE version lower than 11! While this shouldn't pose any immediate issues, it may be worth looking to update.");
+			}
 		}
 
-		$(document).ready(function () {
-			// Deal with updating the tabs if any need an updated marker.
-			var updated_tabs = [];
-
-			if (updated_tabs.length > 0) {
-				var changes_needed = updated_tabs.length;
-
-				for (var i = 0; i < changes_needed; i++) {
-					$(updated_tabs[i]).addClass('updated');
-				}
+		// Dynamic content entry controller.
+		function AddContent(data) {
+			var obj;
+			try {
+				obj = JSON.parse(data);
+			}
+			catch(err) {
+				return;
 			}
 
+			if (obj.length < 3) {
+				return;
+			}
+
+			gotReply = true;
+
+			$(obj.div).append($(obj.content));
+
+			if (obj.update == 1 && !$(obj.div + '-tab').hasClass('updated')) {
+				$(obj.div + '-tab').addClass('updated');
+			}
+
+			if (obj.changeHash) {
+				hashes[obj.div + "-tab"] = obj.changeHash;
+			}
+		}
+
+		// Function to remove a tab. Specifically, the admin one.
+		function RemoveElement(el) {
+			$(el).remove();
+		}
+
+		var loopIter = 0;
+		var gotReply = false;
+		var hashes = {};
+		var hashesToUpdate = {};
+
+		// This loop repeats itself 10 times as it attempts to fetch Topic information.
+		// It's here to prevent a full null-route by spam protection. It'll just query until it finds something.
+		function RequestLoop() {
+			setTimeout(function () {
+				loopIter++;
+
+				if (!gotReply) {
+					window.location = '?JSlink=greeting;command=request_data';
+				} else {
+					return;
+				}
+
+
+				if (loopIter < 10 && !gotReply) {
+					RequestLoop();
+				} else {
+					alert("The Greeting Window timed out. If this happens regularly, please submit a Github issue.");
+				}
+			}, 500)
+		}
+
+		// DOM ready function.
+		$(document).ready(function () {
 			// Handle tabs (mostly bootstrap).
 			$('#myTab a').click(function (e) {
 				e.preventDefault();
 
+				var elem = $(this);
+
 				// One special exception for the web interface.
-				if ($(this).attr('href') == '#webint') {
+				if (elem.attr('href') == '#webint') {
 					window.location = '?routeWebInt=interface/login/sso_server;routeAttributes=location=user_dashboard;';
 				} else {
-					$(this).tab('show');
+					elem.tab('show');
 				}
 
 				// Handle clicking of updated classes.
-				if ($(this).parent().hasClass('updated') == 1) {
-					$(this).parent().removeClass('updated');
+				if (elem.parent().hasClass('updated') == 1) {
+					elem.parent().removeClass('updated');
+
+					var parentId = "#" + elem.parent().attr("id");
+					// Move the hash around, and prep it for saving.
+					if (hashes.hasOwnProperty(parentId)) {
+						hashesToUpdate[parentId] = hashes[parentId];
+					}
 				}
 			});
 
@@ -101,8 +159,16 @@
 				window.location = command;
 			});
 
-			// Get the browser stats.
+			// Operations before closing.
+			$(window).unload(function() {
+				window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
+			});
+
+			// Call the IE analyzer and warn the user if they're horribly out of date.
 			analyzeIe();
+
+			// Tell the server that we're ready, and awaiting data.
+			RequestLoop();
 		});
 	</script>
 

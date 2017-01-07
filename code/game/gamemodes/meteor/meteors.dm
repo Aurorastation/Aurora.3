@@ -4,19 +4,6 @@
 /var/const/meteors_in_wave = 50
 /var/const/meteors_in_small_wave = 10
 
-/proc/meteor_wave(var/number = meteors_in_wave)
-	if (number == 0)
-		return
-
-	if(!ticker || wavesecret)
-		return
-
-	wavesecret = 1
-	for(var/i = 0 to number)
-		spawn(rand(10,100))
-			spawn_meteor()
-	spawn(meteor_wave_delay)
-		wavesecret = 0
 
 /proc/spawn_meteors(var/number = meteors_in_small_wave)
 	for(var/i = 0; i < number; i++)
@@ -117,7 +104,7 @@
 		spawn(0)
 
 			if (A)
-				A.meteorhit(src)
+				A.ex_act(2)
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
 			if (istype(A, /obj/effect/energy_field))//If a normal/small meteor impacts an energy field, then it makes a widely audible impact sound and qdels

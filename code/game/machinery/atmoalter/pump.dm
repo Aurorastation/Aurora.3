@@ -1,9 +1,11 @@
 /obj/machinery/portable_atmospherics/powered/pump
 	name = "portable air pump"
+	desc = "Used to fill or drain rooms without differentiating between gasses."
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
 	density = 1
+	w_class = 3
 
 	var/on = 0
 	var/direction_out = 0 //0 = siphoning, 1 = releasing

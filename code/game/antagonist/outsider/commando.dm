@@ -5,7 +5,8 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	landmark_id = "Syndicate-Commando"
 	role_text = "Syndicate Commando"
 	role_text_plural = "Commandos"
-	welcome_text = "You are in the employ of a criminal syndicate hostile to NanoTrasen."
+	welcome_text = "You are in the employ of a criminal syndicate hostile to corporate interests."
+	id_type = /obj/item/weapon/card/id/centcom/ERT
 
 	hard_cap = 4
 	hard_cap_round = 8
@@ -36,7 +37,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/rig/merc(player), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/rifle/sts35(player), slot_l_hand)
-	
+
 	var/obj/item/weapon/storage/belt/military/syndie_belt = new(player)
 	syndie_belt.contents += new /obj/item/ammo_magazine/c762
 	syndie_belt.contents += new /obj/item/ammo_magazine/c762
@@ -45,7 +46,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	syndie_belt.contents += new /obj/item/weapon/shield/energy
 	syndie_belt.contents += new /obj/item/weapon/handcuffs
 	syndie_belt.contents += new /obj/item/weapon/grenade/flashbang
-	syndie_belt.contents += new /obj/item/weapon/plastique
+	syndie_belt.contents += new /obj/item/weapon/grenade/frag
 	syndie_belt.contents += new /obj/item/weapon/plastique
 	player.equip_to_slot_or_del(syndie_belt, slot_belt)
 
@@ -53,3 +54,6 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	id.access |= get_all_accesses()
 	id.icon_state = "centcom"
 	create_radio(SYND_FREQ, player)
+	player.faction = "syndicate"
+
+	return 1

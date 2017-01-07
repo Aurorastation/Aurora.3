@@ -4,8 +4,12 @@
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "utilitybelt"
 	item_state = "utility"
+	storage_slots = 7
+	max_w_class = 3
+	max_storage_space = 28
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
+	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/belt.dmi')
 
 	var/show_above_suit = 0
 
@@ -111,9 +115,6 @@
 	desc = "Can hold security gear like handcuffs and flashes."
 	icon_state = "securitybelt"
 	item_state = "security"
-	storage_slots = 7
-	max_w_class = 3
-	max_storage_space = 28
 	can_hold = list(
 		/obj/item/weapon/grenade,
 		/obj/item/weapon/reagent_containers/spray/pepper,
@@ -127,14 +128,19 @@
 		/obj/item/weapon/gun/energy/taser,
 		/obj/item/weapon/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
-		/obj/item/device/flashlight,
+		/obj/item/device/flashlight/maglight,
+		/obj/item/device/flashlight/flare,
+		/obj/item/device/flashlight/glowstick,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee,
 		/obj/item/weapon/gun/projectile/sec,
-		/obj/item/taperoll/police
+		/obj/item/taperoll/police,
+		/obj/item/weapon/material/sword/trench,
+		/obj/item/weapon/shield/energy,
+		/obj/item/weapon/shield/riot/tact		
 		)
 
 /obj/item/weapon/storage/belt/soulstone
@@ -155,7 +161,6 @@
 	new /obj/item/device/soulstone(src)
 	new /obj/item/device/soulstone(src)
 	new /obj/item/device/soulstone(src)
-
 
 /obj/item/weapon/storage/belt/champion
 	name = "championship belt"
@@ -195,14 +200,19 @@
 		/obj/item/device/flashlight,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
-		/obj/item/weapon/melee/energy/sword,
+		/obj/item/weapon/melee,
 		/obj/item/weapon/shield/energy,
 		/obj/item/weapon/pinpointer,
 		/obj/item/weapon/plastique,
 		/obj/item/weapon/gun/projectile/pistol,
 		/obj/item/weapon/gun/energy/crossbow,
+		/obj/item/weapon/material/sword/trench,
 		/obj/item/ammo_casing/a145,
-		/obj/item/device/radio/uplink
+		/obj/item/device/radio/uplink,
+		/obj/item/weapon/card/emag,
+		/obj/item/device/multitool/hacktool,
+		/obj/item/weapon/reagent_containers/hypospray/combat,
+		/obj/item/stack/telecrystal
 		)
 
 /obj/item/weapon/storage/belt/janitor
@@ -220,4 +230,4 @@
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/soap,
 		/obj/item/weapon/storage/bag/trash
-)
+		)

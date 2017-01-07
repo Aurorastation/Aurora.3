@@ -555,6 +555,12 @@ th.sci {
     color: #ffffff;
 }
 
+th.car {
+    background: #bb9040;
+    font-weight: bold;
+    color: #ffffff;
+}
+
 th.civ {
     background: #a32800;
     font-weight: bold;
@@ -578,11 +584,11 @@ th.misc {
 }
 
 .toxin {
-    color: green;
+    color: #8ac44c;
 }
 
 .oxyloss {
-    color: blue;
+    color: #00baee;
 }
 
 /* 75px width used in power monitoring console buttons */

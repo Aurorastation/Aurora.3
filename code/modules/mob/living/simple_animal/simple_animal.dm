@@ -71,7 +71,7 @@
 
 	//Hunger/feeding vars
 	var/hunger_enabled = 1//If set to 0, a creature ignores hunger
-	var/max_nutrition = 50
+	max_nutrition = 50
 	var/metabolic_factor = 1//A multiplier on how fast nutrition is lost. used to tweak the rates on a per-animal basis
 	var/nutrition_step = 0.2 //nutrition lost per tick and per step, calculated from mob_size, 0.2 is a fallback
 	var/bite_factor = 0.4
@@ -142,6 +142,11 @@
 			user << "<span class='notice'>It looks hungry.</span>"
 		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
 			user << "It looks full and contented."
+	if (health < maxHealth * 0.5)
+		user << "<span class='danger'>It looks badly wounded.</span>"
+	else if (health < maxHealth)
+		user << "<span class='warning'>It looks wounded.</span>"
+
 
 /mob/living/simple_animal/Life()
 	..()
@@ -170,7 +175,7 @@
 
 			if(turns_since_move >= turns_per_move)
 				if(!(stop_automated_movement_when_pulled && pulledby)) //Soma animals don't move when pulled
-					/var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
+					var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
 					moving_to = pick(cardinal)
 					dir = moving_to			//How about we turn them the direction they are moving, yay.
 					Move(get_step(src,moving_to))
@@ -293,10 +298,19 @@
 			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
 				var/datum/reagent/nutriment/N = current
 				nutrition += removed*N.nutriment_factor
-				health = min(health+(removed*N.regen_factor), maxHealth)
+				var/heal_amount = removed*N.regen_factor
+				if (bruteloss > 0)
+					var/n = min(heal_amount, bruteloss)
+					adjustBruteLoss(-n)
+					heal_amount -= n
+				if (fireloss && heal_amount)
+					var/n = min(heal_amount, fireloss)
+					adjustFireLoss(-n)
+					heal_amount -= n
+				updatehealth()
 			current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
 
-/mob/living/simple_animal/proc/can_eat()
+/mob/living/simple_animal/can_eat()
 	if (!hunger_enabled || nutrition > max_nutrition * 0.9)
 		return 0//full
 
@@ -373,22 +387,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/stack/medical))
-		user.changeNext_move(4)
-		if(stat != DEAD)
-			var/obj/item/stack/medical/MED = O
-			if(health < maxHealth)
-				if(MED.amount >= 1)
-					adjustBruteLoss(-MED.heal_brute)
-					MED.amount -= 1
-					if(MED.amount <= 0)
-						qdel(MED)
-					for(var/mob/M in viewers(src, null))
-						if ((M.client && !( M.blinded )))
-							M.show_message("<span class='notice'>[user] applies the [MED] on [src].</span>")
-		else
-			user << "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>"
-	else if(istype(O, /obj/item/weapon/reagent_containers))
+	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical))
 		..()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
@@ -399,7 +398,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
-	user.changeNext_move(8)
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
 		return
@@ -414,7 +412,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 	else
-		usr << "<span class='danger>This weapon is ineffective, it does no damage.</span>"
+		usr << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
 
 	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
 	user.do_attack_animation(src)
@@ -482,14 +480,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			return (0)
 	return 1
 
-//Call when target overlay should be added/removed
-/mob/living/simple_animal/update_targeted()
-	if(!targeted_by && target_locked)
-		qdel(target_locked)
-	overlays = null
-	if (targeted_by && target_locked)
-		overlays += target_locked
-
 /mob/living/simple_animal/say(var/message)
 	var/verb = "says"
 	if(speak_emote.len)
@@ -513,7 +503,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		for(var/i=0;i<actual_meat_amount;i++)
 			var/obj/item/meat = new meat_type(get_turf(src))
 			meat.name = "[src.name] [meat.name]"
-		if(small)
+		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
@@ -607,3 +597,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		get_scooped(H, usr)
 		return
 	return ..()
+
+
+/mob/living/simple_animal/handle_fire()
+	return
+/mob/living/simple_animal/update_fire()
+	return
+/mob/living/simple_animal/IgniteMob()
+	return
+/mob/living/simple_animal/ExtinguishMob()
+	return

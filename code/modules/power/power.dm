@@ -37,6 +37,8 @@
 /obj/machinery/power/proc/add_avail(var/amount)
 	if(powernet)
 		powernet.newavail += amount
+		return 1
+	return 0
 
 /obj/machinery/power/proc/draw_power(var/amount)
 	if(powernet)
@@ -126,7 +128,7 @@
 
 		var/turf/T = user.loc
 
-		if(T.intact || !istype(T, /turf/simulated/floor))
+		if(!T.is_plating() || !istype(T, /turf/simulated/floor))
 			return
 
 		if(get_dist(src, user) > 1)
@@ -312,7 +314,11 @@
 //source is an object caused electrocuting (airlock, grille, etc)
 //No animations will be performed by this proc.
 /proc/electrocute_mob(mob/living/carbon/M as mob, var/power_source, var/obj/source, var/siemens_coeff = 1.0)
-	if(istype(M.loc,/obj/mecha))	return 0	//feckin mechs are dumb
+
+	if (!M)
+		return 0
+	if(istype(M.loc,/obj/mecha))
+		return 0	//feckin mechs are dumb
 	var/mob/living/carbon/human/H = null
 	if (ishuman(M))
 		H = M //20/1/16 Insulation (vaurca)

@@ -1,4 +1,5 @@
 /mob/living
+	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 
 	//Health and life related vars
@@ -33,13 +34,19 @@
 	var/mob_push_flags = 0
 	var/mob_always_swap = 0
 
+	var/mob/living/cameraFollow = null
+	var/list/datum/action/actions = list()
+
 	var/tod = null // Time of death
 	var/update_slimes = 1
 	var/silent = null 		// Can't talk. Value goes down every life proc.
-	var/mob_size            // Used by lockers.
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks
 	var/footstep = 0
+
+	var/failed_last_breath = 0 //This is used to determine if the mob failed a breath. If they did fail a brath, they will attempt to breathe each tick, otherwise just once per 4 ticks.
+	var/possession_candidate // Can be possessed by ghosts if unplayed.
+
 	var/list/stomach_contents = list()//This is moved here from carbon defines
 	var/composition_reagent
 	var/composition_reagent_quantity
@@ -48,3 +55,17 @@
 	var/datum/reagents/metabolism/ingested = null
 	var/underdoor //Used for mobs that can walk through maintenance hatches - drones, pais, and spiderbots
 	var/life_tick = 0      // The amount of life ticks that have processed on this mob.
+
+
+	//These values are duplicated from the species datum so we can handle things on a per-mob basis, allows for chemicals to affect them
+	var/stamina = 0
+	var/max_stamina = 100//Maximum stamina. We start taking oxyloss when this runs out while sprinting
+	var/sprint_speed_factor = 0.4
+	var/sprint_cost_factor = 1
+	var/stamina_recovery = 1
+	var/min_walk_delay = 0//When move intent is walk, movedelay is clamped to this value as a lower bound
+	var/exhaust_threshold = 50
+
+	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
+
+	var/total_radiation	// DON'T MODIFY THIS DIRECTLY. USE apply_radiation()!

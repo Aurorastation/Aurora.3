@@ -4,6 +4,7 @@
 	desc = "It's a small rodent."
 	icon = 'icons/mob/mouse.dmi'
 	icon_state = "mouse_gray"
+	item_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
 	speak = list("Squeek!","SQUEEK!","Squeek?")
@@ -20,7 +21,6 @@
 	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
 
 	pass_flags = PASSTABLE
-	small = 1
 	speak_chance = 5
 	turns_per_move = 5
 	see_in_dark = 6
@@ -34,50 +34,58 @@
 	meat_amount = 1
 	var/body_color //brown, gray and white, leave blank for random
 	layer = MOB_LAYER
+	mob_size = MOB_MINISCULE
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	universal_speak = 0
 	universal_understand = 1
-	mob_size = 1
 	holder_type = /obj/item/weapon/holder/mouse
 	digest_factor = 0.05
 	min_scan_interval = 2
 	max_scan_interval = 20
 	seek_speed = 1
 
+	can_pull_size = 1
+	can_pull_mobs = MOB_PULL_NONE
+
+	var/decompose_time = 18000
+
 /mob/living/simple_animal/mouse/Life()
-	..()
+	if(..())
 
-	if(client)
-		//Player-animals don't do random speech normally, so this is here
-		//Player-controlled mice will still squeak, but less often than NPC mice
-		if (stat == CONSCIOUS && prob(speak_chance*0.1))
-			squeak_soft(0)
+		if(client)
+			//Player-animals don't do random speech normally, so this is here
+			//Player-controlled mice will still squeak, but less often than NPC mice
+			if (stat == CONSCIOUS && prob(speak_chance*0.1))
+				squeak_soft(0)
 
-		if(is_ventcrawling == 0)
-			sight = SEE_SELF // Returns mouse sight to normal when they leave a vent
+			if(is_ventcrawling == 0)
+				sight = SEE_SELF // Returns mouse sight to normal when they leave a vent
 
-		if (squeals < maxSqueals)
-			var/diff = world.time - last_squealgain
-			if (diff > 600)
-				squeals++
-				last_squealgain = world.time
+			if (squeals < maxSqueals)
+				var/diff = world.time - last_squealgain
+				if (diff > 600)
+					squeals++
+					last_squealgain = world.time
 
-	if(!ckey && stat == CONSCIOUS && prob(0.5))
-		stat = UNCONSCIOUS
-		icon_state = "mouse_[body_color]_sleep"
-		wander = 0
-		speak_chance = 0
-		//snuffles
-	else if(stat == UNCONSCIOUS)
-		if(ckey || prob(1))
-			stat = CONSCIOUS
-			icon_state = "mouse_[body_color]"
-			wander = 1
-			speak_chance = initial(speak_chance)
-		else if(prob(5))
-			audible_emote("snuffles.")
+		if(!ckey && stat == CONSCIOUS && prob(0.5))
+			stat = UNCONSCIOUS
+			icon_state = "mouse_[body_color]_sleep"
+			wander = 0
+			speak_chance = 0
+			//snuffles
+		else if(stat == UNCONSCIOUS)
+			if(ckey || prob(1))
+				stat = CONSCIOUS
+				icon_state = "mouse_[body_color]"
+				wander = 1
+				speak_chance = initial(speak_chance)
+			else if(prob(5))
+				audible_emote("snuffles.")
+	else
+		if ((world.time - timeofdeath) > decompose_time)
+			dust()
 
 
 
@@ -95,6 +103,7 @@
 	if(!body_color)
 		body_color = pick( list("brown","gray","white") )
 	icon_state = "mouse_[body_color]"
+	item_state = "mouse_[body_color]"
 	icon_living = "mouse_[body_color]"
 	icon_dead = "mouse_[body_color]_dead"
 	desc = "It's a small [body_color] rodent, often seen hiding in maintenance areas and making a nuisance of itself."
@@ -125,16 +134,22 @@
 
 /mob/living/simple_animal/mouse/proc/splat()
 	src.health = 0
-	src.stat = DEAD
+	src.death()
 	src.icon_dead = "mouse_[body_color]_splat"
 	src.icon_state = "mouse_[body_color]_splat"
-	layer = MOB_LAYER
 	if(client)
 		client.time_died_as_mouse = world.time
 
-/mob/living/simple_animal/mouse/start_pulling(var/atom/movable/AM)//Prevents mouse from pulling things
-	src << "<span class='warning'>You are too small to pull anything.</span>"
-	return
+/mob/living/simple_animal/mouse/MouseDrop(atom/over_object)
+
+	var/mob/living/carbon/H = over_object
+	if(!istype(H) || !Adjacent(H)) return ..()
+
+	if(H.a_intent == "help")
+		get_scooped(H)
+		return
+	else
+		return ..()
 
 
 
@@ -209,7 +224,10 @@
 
 	if(client)
 		client.time_died_as_mouse = world.time
-	.=..()
+	..()
+
+/mob/living/simple_animal/mouse/dust()
+	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
 
 /mob/living/simple_animal/mouse/lay_down()
 	set name = "Rest"

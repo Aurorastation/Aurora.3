@@ -24,6 +24,7 @@
 			adjustCloneLoss(damage/(blocked+1))
 		if(HALLOSS)
 			adjustHalLoss(damage/(blocked+1))
+	flash_weak_pain()
 	updatehealth()
 	return 1
 
@@ -40,7 +41,7 @@
 
 
 
-/mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
+/mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0, var/check_protection = 1)
 	if(!effect || (blocked >= 2))	return 0
 	switch(effecttype)
 		if(STUN)
@@ -52,8 +53,8 @@
 		if(AGONY)
 			adjustHalLoss(effect) //Changed this to use the wrapper function, it shouldn't directly alter the value
 		if(IRRADIATE)
-			var/rad_protection = getarmor(null, "rad")/100
-			radiation += max((1-rad_protection)*effect/(blocked+1),0)//Rads auto check armor
+			var/rad_protection = check_protection ? getarmor(null, "rad")/100 : 0
+			apply_radiation(max((1-rad_protection)*effect/(blocked+1),0))//Rads auto check armor
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
 				stuttering = max(stuttering,(effect/(blocked+1)))
@@ -80,3 +81,9 @@
 	if(agony)		apply_effect(agony, AGONY, blocked)
 	if(incinerate) apply_effect(incinerate, INCINERATE, blocked)
 	return 1
+
+// overridden by human
+/mob/living/proc/apply_radiation(var/rads)
+	total_radiation += rads
+	if (total_radiation < 0)
+		total_radiation = 0

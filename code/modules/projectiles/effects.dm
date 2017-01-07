@@ -136,3 +136,20 @@
 //----------------------------
 /obj/effect/projectile/bullet/muzzle
 	icon_state = "muzzle_bullet"
+
+// Solar beam
+//----------------------------
+/obj/effect/projectile/solar/tracer
+	icon_state = "solar"
+
+/obj/effect/projectile/solar/muzzle
+	icon_state = "muzzle_solar"
+
+/obj/effect/projectile/solar/impact
+	icon_state = "impact_solar"
+
+//----------------------------
+// Pulse muzzle
+//----------------------------
+/obj/effect/projectile/pulse_bullet/muzzle
+	icon_state = "muzzle_pulse"

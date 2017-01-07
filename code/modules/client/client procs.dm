@@ -55,8 +55,6 @@
 		cmd_admin_discord_pm(href_list["discord_msg"])
 		return
 
-
-
 	//Logs all hrefs
 	if(config && config.log_hrefs && href_logfile)
 		href_logfile << "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>"
@@ -138,45 +136,57 @@
 	// JSlink switch.
 	if (href_list["JSlink"])
 		switch (href_list["JSlink"])
+			// Warnings panel for each user.
 			if ("warnings")
 				src.warnings_check()
 
+			// Linking request handling.
 			if ("linking")
 				src.check_linking_requests()
 
+			// Notification dismissal from the server greeting.
 			if ("dismiss")
 				if (href_list["notification"])
 					var/datum/client_notification/a = locate(href_list["notification"])
 					if (a && isnull(a.gcDestroyed))
 						a.dismiss()
 
+			// Forum link from various panels.
 			if ("github")
 				if (!config.githuburl)
 					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
 				else if (alert("This will open the issue tracker in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					src << link(config.githuburl)
 
+			// Forum link from various panels.
 			if ("forums")
 				src.forum()
 
+			// Wiki link from various panels.
 			if ("wiki")
 				src.wiki()
 
+			// Web interface href link from various panels.
 			if ("webint")
 				src.open_webint()
 
-			if ("logie")
-				if (config.sql_stats && href_list["ie_data"])
-					var/list/data = json_decode(href_list["ie_data"])
-					data["_ckey"] = src.ckey
-					if (data.len != 7)
-						return
+			// Forward appropriate topics to the server greeting datum.
+			if ("greeting")
+				if (server_greeting)
+					server_greeting.handle_call(href_list, src)
 
-					if (!establish_db_connection(dbcon))
-						return
+			// Handle the updating of MotD and Memo tabs upon click.
+			if ("updateHashes")
+				var/save = 0
+				if (href_list["#motd-tab"])
+					src.prefs.motd_hash = href_list["#motd-tab"]
+					save = 1
+				if (href_list["#memo-tab"])
+					src.prefs.memo_hash = href_list["#memo-tab"]
+					save = 1
 
-					var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_stats_ie (ckey, IsIE, IsEdge, EdgeHtmlVersion, TrueVersion, ActingVersion, CompatibilityMode, DateUpdated) VALUES (_ckey, _IsIE, _IsEdge, _EdgeHtmlVersion, _TrueVersion, _ActingVersion, _CompatibilityMode, NOW()) ON DUPLICATE KEY UPDATE IsIE = VALUES(IsIe), IsEdge = VALUES(IsEdge), EdgeHtmlVersion = VALUES(EdgeHtmlVersion), TrueVersion = VALUES(TrueVersion), ActingVersion = VALUES(ActingVersion), CompatibilityMode = VALUES(CompatibilityMode), DateUpdated = NOW()")
-					query.Execute(data)
+				if (save)
+					src.prefs.save_preferences()
 
 		return
 
@@ -259,6 +269,7 @@
 		preferences_datums[ckey] = prefs
 
 		prefs.gather_notifications(src)
+	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
@@ -276,9 +287,6 @@
 			del(src)
 			return 0
 
-	if( (world.address == address || !address) && !host )
-		host = key
-		world.update_status()
 
 	if(holder)
 		add_admin_verbs()
@@ -294,10 +302,9 @@
 	send_resources()
 	nanomanager.send_resources(src)
 
-	var/outdated_greeting_info = server_greeting.find_outdated_info(src)
-
-	if (outdated_greeting_info)
-		server_greeting.display_to_client(src, outdated_greeting_info)
+	// Server greeting shenanigans.
+	if (server_greeting.find_outdated_info(src, 1))
+		server_greeting.display_to_client(src)
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	add_aooc_if_necessary()
@@ -419,12 +426,13 @@
 		'html/images/loading.gif',
 		'html/images/ntlogo.png',
 		'html/images/talisman.png',
+		'html/images/barcode0.png',
+		'html/images/barcode1.png',
+		'html/images/barcode2.png',
+		'html/images/barcode3.png',
 		'html/bootstrap/css/bootstrap.min.css',
 		'html/bootstrap/js/bootstrap.min.js',
-		'html/bootstrap/js/html5shiv.min.js',
-		'html/bootstrap/js/respond.min.js',
 		'html/jquery/jquery-2.0.0.min.js',
-		'html/iestats/json2.min.js',
 		'html/iestats/ie-truth.min.js',
 		'icons/pda_icons/pda_atmos.png',
 		'icons/pda_icons/pda_back.png',
@@ -475,6 +483,12 @@
 
 	// Something went wrong, client is usually kicked or transfered to a new mob at this point
 	return 0
+
+/client/verb/character_setup()
+	set name = "Character Setup"
+	set category = "Preferences"
+	if(prefs)
+		prefs.ShowChoices(usr)
 
 //I honestly can't find a good place for this atm.
 //If the webint interaction gets more features, I'll move it. - Skull132
@@ -586,4 +600,7 @@
 	set name = "Open Greeting"
 	set category = "OOC"
 
-	server_greeting.display_to_client(src, server_greeting.find_outdated_info(src))
+	// Update the information just in case.
+	server_greeting.find_outdated_info(src, 1)
+
+	server_greeting.display_to_client(src)

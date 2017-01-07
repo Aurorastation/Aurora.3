@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes:
+  - bugfix: "Fixed formatting of forms when held up to a security camera."
+  - spellcheck: "Fixed grammar error in IA and CE's headsets."

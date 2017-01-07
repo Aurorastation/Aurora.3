@@ -1,31 +1,30 @@
 /obj/item/weapon/gun/energy/laser
 	name = "laser carbine"
-	desc = "A common laser weapon, designed to kill with concentrated energy blasts."
+	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
 	icon_state = "laser"
 	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
 	force = 10
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	origin_tech = "combat=3;magnets=2"
-	projectile_type = /obj/item/projectile/beam
-	fire_delay = 1 //rapid fire
+	projectile_type = /obj/item/projectile/beam/midlaser
 
 /obj/item/weapon/gun/energy/laser/mounted
 	self_recharge = 1
 	use_external_power = 1
 
 /obj/item/weapon/gun/energy/laser/practice
-	name = "practice laser gun"
-	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."
+	name = "practice laser carbine"
+	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/item/projectile/beam/practice
 
 obj/item/weapon/gun/energy/retro
 	name = "retro laser"
 	icon_state = "retro"
 	item_state = "retro"
-	desc = "An older model of the basic lasergun, no longer used by Nanotrasen's security or military forces. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
+	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
 	w_class = 3
@@ -36,7 +35,7 @@ obj/item/weapon/gun/energy/retro
 	name = "antique laser gun"
 	icon_state = "caplaser"
 	item_state = "caplaser"
-	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Space Station 13. The station is exploding."
+	desc = "A rare weapon, handcrafted by a now defunct specialty manufacturer on Luna for a small fortune. It's certainly aged well."
 	force = 5
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
@@ -52,7 +51,7 @@ obj/item/weapon/gun/energy/retro
 	icon_state = "lasercannon"
 	item_state = null
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	origin_tech = "combat=4;materials=3;powerstorage=3"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	slot_flags = SLOT_BELT|SLOT_BACK
 	projectile_type = /obj/item/projectile/beam/heavylaser
 	charge_cost = 400
@@ -71,19 +70,26 @@ obj/item/weapon/gun/energy/retro
 	icon_state = "xray"
 	item_state = "xray"
 	fire_sound = 'sound/weapons/laser3.ogg'
-	origin_tech = "combat=5;materials=3;magnets=2;syndicate=2"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	projectile_type = /obj/item/projectile/beam/xray
 	charge_cost = 100
 	max_shots = 20
 	fire_delay = 1
 
+/obj/item/weapon/gun/energy/xray/mounted
+	name = "mounted xray laser gun"
+	charge_cost = 200
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 5
+
 /obj/item/weapon/gun/energy/sniperrifle
-	name = "\improper L.W.A.P. sniper rifle"
-	desc = "A high-power laser rifle fitted with a SMART aiming-system scope."
+	name = "marksman energy rifle"
+	desc = "The HI DMR 9E is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
 	icon_state = "sniper"
 	item_state = "sniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
-	origin_tech = "combat=6;materials=5;powerstorage=4"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/beam/sniper
 	slot_flags = SLOT_BACK
 	charge_cost = 400
@@ -98,7 +104,6 @@ obj/item/weapon/gun/energy/retro
 	accuracy_wielded = -3
 
 	//action button for wielding
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/energy/sniperrifle/can_wield()
@@ -114,9 +119,29 @@ obj/item/weapon/gun/energy/retro
 	set popup_menu = 1
 
 	if(wielded)
-		toggle_scope(2.0)
+		toggle_scope(2.0, usr)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+
+/obj/item/weapon/gun/energy/laser/shotgun
+	name = "quad-beam laser"
+	desc = "A modified laser weapon, designed to split a single beam four times."
+	icon_state = "oldenergykill"
+	item_state = "energykill"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = 3
+	force = 10
+	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
+	projectile_type = /obj/item/projectile/beam/shotgun
+	max_shots = 12
+	sel_mode = 1
+	burst = 4
+	burst_delay = 0
+	move_delay = 0
+	fire_delay = 2
+	dispersion = list(1.0, -1.0, 2.0, -2.0)
 
 ////////Laser Tag////////////////////
 
@@ -124,7 +149,7 @@ obj/item/weapon/gun/energy/retro
 	name = "laser tag gun"
 	item_state = "laser"
 	desc = "Standard issue weapon of the Imperial Guard"
-	origin_tech = "combat=1;magnets=2"
+	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	self_recharge = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	fire_sound = 'sound/weapons/Laser.ogg'

@@ -27,7 +27,8 @@
 	show_stat_health = 1
 	faction = "cult"
 	supernatural = 1
-	see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	var/nullblock = 0
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
@@ -57,11 +58,14 @@
 
 /mob/living/simple_animal/construct/attack_generic(var/mob/user)
 	if(istype(user, /mob/living/simple_animal/construct/builder))
-		if(health < maxHealth)
+		if(getBruteLoss() > 0)
 			adjustBruteLoss(-5)
-			user.visible_message("<span class='notice'>\The [user]</b> mends some of \the [src]'s wounds.</span>")
+			user.visible_message("<span class='notice'>\The [user] mends some of \the [src]'s wounds.</span>")
 		else
-			user << "<span class='notice'>\The [src] is undamaged.</span>"
+			if (health < maxHealth)
+				user << "<span class='notice'>Healing \the [src] any further is beyond your abilities.</span>"
+			else
+				user << "<span class='notice'>\The [src] is undamaged.</span>"
 		return
 	return ..()
 
@@ -98,7 +102,7 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	attacktext = "smashed their armoured gauntlet into"
-	mob_size = 20
+	mob_size = MOB_LARGE
 	speed = 3
 	environment_smash = 2
 	attack_sound = 'sound/weapons/heavysmash.ogg'
@@ -130,6 +134,16 @@
 			return -1 // complete projectile permutation
 
 	return (..(P))
+
+/mob/living/simple_animal/construct/armoured/UnarmedAttack(var/atom/A, var/proximity)
+	if(istype(A, /obj/machinery))
+		// Destroy machines instead of opening their UI
+		var/obj/machinery/M = A
+		do_attack_animation(M)
+		playsound(loc, attack_sound, 50, 1, 1)
+		M.ex_act(3.0)
+	else
+		..()
 
 
 

@@ -16,6 +16,8 @@
 var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms
+	icon = 'icons/obj/machines/telecomms.dmi'
+
 	var/list/links = list() // list of machines this machine is linked to
 	var/traffic = 0 // value increases as traffic increases
 	var/netspeed = 5 // how much traffic to lose per tick (50 gigabytes/second * netspeed)
@@ -150,10 +152,11 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 					links |= T
 
 /obj/machinery/telecomms/update_icon()
-	if(on)
-		icon_state = initial(icon_state)
-	else
-		icon_state = "[initial(icon_state)]_off"
+	var/state = construct_op ? "[initial(icon_state)]_o" : initial(icon_state)
+	if(!on)
+		state += "_off"
+
+	icon_state = state
 
 /obj/machinery/telecomms/proc/update_power()
 
@@ -246,7 +249,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/receiver
 	name = "Subspace Receiver"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "broadcast receiver"
 	desc = "This machine has a dish-like shape and green lights. It is designed to detect and process subspace radio activity."
 	density = 1
@@ -303,7 +305,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/hub
 	name = "Telecommunication Hub"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "hub"
 	desc = "A mighty piece of hardware used to send/receive massive amounts of data."
 	density = 1
@@ -337,7 +338,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/relay
 	name = "Telecommunication Relay"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "relay"
 	desc = "A mighty piece of hardware used to send massive amounts of data far away."
 	density = 1
@@ -389,7 +389,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/bus
 	name = "Bus Mainframe"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "bus"
 	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
 	density = 1
@@ -441,7 +440,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/processor
 	name = "Processor Unit"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "processor"
 	desc = "This machine is used to process large quantities of information."
 	density = 1
@@ -479,7 +477,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/server
 	name = "Telecommunication Server"
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comm_server"
 	desc = "A machine used to store data and network statistics."
 	density = 1
@@ -552,7 +549,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 					log.parameters["intelligible"] = 1
 				else if(M.isMonkey())
 					race = "Monkey"
-				else if(M.isSilicon())
+				else if(issilicon(M))
 					race = "Artificial Life"
 					log.parameters["intelligible"] = 1
 				else if(isslime(M))

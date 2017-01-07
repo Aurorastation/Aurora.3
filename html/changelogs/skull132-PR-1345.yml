@@ -1,0 +1,16 @@
+author: Skull132
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - tweak: "Chat mark-up now requires whitespace (or radio tokens, in case of radio speech) to surround mark-up markers for them to be valid. \"/this will/ work,\" \"as /will/ this,\" \":s/and this./\" But, \"/this will not /work.\" This enables you to use words with underscores in them, and to type type-paths and other things in BYOND."
+  - bugfix: "Mark-up no longer nukes BYOND server addresses."
+  - tweak: "IPCs now have a very minor chance of getting shocked from feeding on APCs. There's 0 chance of getting shocked from using a cyborg recharger, though. To that end, also added 1 extra borg recharger into arrivals bathroom."
+  - tweak: "The server greeting window now only updates your saved hashes (makes tabs not yellow) if you actually view what's in them. Opening and closing the greeting without viewing at the individual tabs no longer toggles them as read."
+  - rscadd: "Added an admin command for R_DEBUG and R_SERVER flag owners to toggle the global default explosion type."

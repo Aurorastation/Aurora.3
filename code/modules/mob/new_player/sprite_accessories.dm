@@ -61,6 +61,21 @@
 		name = "Short Hair 2"
 		icon_state = "hair_shorthair3"
 
+	resomi
+		name = "Resomi Plumage"
+		icon_state = "resomi_default"
+		species_allowed = list("Resomi")
+
+	resomi_ears
+		name = "Resomi Ears"
+		icon_state = "resomi_ears"
+		species_allowed = list("Resomi")
+
+	resomi_excited
+		name = "Resomi Spiky"
+		icon_state = "resomi_spiky"
+		species_allowed = list("Resomi")
+
 	cut
 		name = "Cut Hair"
 		icon_state = "hair_c"
@@ -465,6 +480,10 @@
 		name = "Volaju"
 		icon_state = "hair_volaju"
 
+	bald
+		name = "Bald"
+		icon_state = "bald"
+
 	eighties
 		name = "80's"
 		icon_state = "hair_80s"
@@ -777,6 +796,16 @@
 	vox_quills_short
 		name = "Short Vox Quills"
 		icon_state = "vox_shortquills"
+		species_allowed = list("Vox")
+
+	vox_quills_kingly
+		name = "Kingly Vox Quills"
+		icon_state = "vox_kingly"
+		species_allowed = list("Vox")
+
+	vox_quills_mohawk
+		name = "Quill Mohawk"
+		icon_state = "vox_mohawk"
 		species_allowed = list("Vox")
 
 //ipc screens

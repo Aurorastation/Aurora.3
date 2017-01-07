@@ -16,7 +16,7 @@
 	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
 	var/simulated = 1 //filter for actions - used by lighting overlays
 	var/fluorescent // Shows up under a UV light.
-
+	var/list/modifiers = list()
 	///Chemistry.
 	var/datum/reagents/reagents = null
 
@@ -74,12 +74,11 @@
 		return flags & INSERT_CONTAINER
 */
 
-/atom/proc/meteorhit(obj/meteor as obj)
-	return
-
 /atom/proc/CheckExit()
 	return 1
 
+// If you want to use this, the atom must have the PROXMOVE flag, and the moving
+// atom must also have the PROXMOVE flag currently to help with lag. ~ ComicIronic
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
@@ -237,8 +236,8 @@ its easier to just keep the beam vertical.
 /atom/proc/ex_act()
 	return
 
-/atom/proc/blob_act()
-	return
+/atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+	return NO_EMAG_ACT
 
 /atom/proc/fire_act()
 	return
@@ -439,7 +438,6 @@ its easier to just keep the beam vertical.
 		blood_DNA = null
 		return 1
 
-
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return
 	var/cur_x = null
@@ -464,3 +462,46 @@ its easier to just keep the beam vertical.
 		return 1
 	else
 		return 0
+
+// Show a message to all mobs and objects in sight of this atom
+// Use for objects performing visible actions
+// message is output to anyone who can see, e.g. "The [src] does something!"
+// blind_message (optional) is what blind people will hear e.g. "You hear something!"
+/atom/proc/visible_message(var/message, var/blind_message)
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/A in player_list)
+		var/mob/M = A
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	for(var/A in messagemobs)
+		var/mob/M = A
+		M.show_message(message, 1, blind_message, 2)
+
+// Show a message to all mobs and objects in earshot of this atom
+// Use for objects performing audible actions
+// message is the message output to anyone who can hear.
+// deaf_message (optional) is what deaf people will see.
+// hearing_distance (optional) is the range, how many tiles away the message can be heard.
+/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance)
+
+	var/range = world.view
+	if(hearing_distance)
+		range = hearing_distance
+	var/list/hear = get_mobs_or_objects_in_view(range,src)
+
+	for(var/I in hear)
+		if(isobj(I))
+			spawn(0)
+				if(I) //It's possible that it could be deleted in the meantime.
+					var/obj/O = I
+					O.show_message( message, 2, deaf_message, 1)
+		else if(ismob(I))
+			var/mob/M = I
+			M.show_message( message, 2, deaf_message, 1)

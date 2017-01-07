@@ -1,6 +1,6 @@
 /obj/item/clothing/head/helmet/space/rig/merc
 	light_overlay = "helmet_light_dual_green"
-	camera_networks = list("NUKE")
+	camera_networks = list(NETWORK_MERCENARY)
 
 /obj/item/weapon/rig/merc
 	name = "crimson hardsuit control module"
@@ -11,6 +11,7 @@
 	slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = 1
+	emp_protection = 30
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
@@ -30,5 +31,5 @@
 /obj/item/weapon/rig/merc/empty
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
-		/obj/item/rig_module/electrowarfare_suite, //might as well
+		/obj/item/rig_module/electrowarfare_suite //might as well
 		)

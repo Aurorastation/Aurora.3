@@ -6,6 +6,8 @@ var/list/gamemode_cache = list()
 
 	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
 
+	var/list/lobby_screens = list("title") // Which lobby screens are available
+
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -61,7 +63,7 @@ var/list/gamemode_cache = list()
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
-	var/respawn = 1
+	var/respawn_delay = 30
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0
@@ -139,11 +141,14 @@ var/list/gamemode_cache = list()
 
 	var/welder_vision = 1
 	var/generate_asteroid = 0
+	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
 	//Unversal modifiers
-	var/run_speed = 0
 	var/walk_speed = 0
+	var/walk_delay_multiplier = 1
+	var/run_delay_multiplier = 1
+	var/vehicle_delay_multiplier = 1
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -153,20 +158,26 @@ var/list/gamemode_cache = list()
 	var/slime_delay = 0
 	var/animal_delay = 0
 
+
 	var/admin_legacy_system = 0	//Defines whether the server uses the legacy admin system with admins.txt or the SQL system. Config option in config.txt
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
 	var/use_age_restriction_for_jobs = 0 //Do jobs use account age restrictions? --requires database
+	var/use_age_restriction_for_antags = 0 //Do antags use account age restrictions? --requires database
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
 
 	var/simultaneous_pm_warning_timeout = 100
 
-	var/use_recursive_explosions //Defines whether the server uses recursive or circular explosions.
+	var/use_recursive_explosions = 0 //Defines whether the server uses recursive or circular explosions.
 
 	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
 	var/ghost_interaction = 0
+
+	var/night_lighting = 0
+	var/nl_start = 19 * TICKS_IN_HOUR
+	var/nl_finish = 8 * TICKS_IN_HOUR
 
 	var/comms_password = ""
 
@@ -183,6 +194,7 @@ var/list/gamemode_cache = list()
 	var/list/admin_levels= list(2)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
 	var/list/contact_levels = list(1, 5)			// Defines which Z-levels which, for example, a Code Red announcement may affect
 	var/list/player_levels = list(1, 3, 4, 5, 6)	// Defines all Z-levels a character can typically reach
+	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
 
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
@@ -225,6 +237,12 @@ var/list/gamemode_cache = list()
 
 	//Mark-up enabling
 	var/allow_chat_markup = 0
+
+
+	var/list/language_prefixes = list(",","#","-")//Default language prefixes
+
+	var/ghosts_can_possess_animals = 0
+	var/delist_when_no_admins = 0
 
 	//Snowflake antag contest boolean
 	//AUG2016
@@ -290,6 +308,9 @@ var/list/gamemode_cache = list()
 				if ("use_age_restriction_for_jobs")
 					config.use_age_restriction_for_jobs = 1
 
+				if ("use_age_restriction_for_antags")
+					config.use_age_restriction_for_antags = 1
+
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
 
@@ -353,6 +374,9 @@ var/list/gamemode_cache = list()
 				if ("generate_asteroid")
 					config.generate_asteroid = 1
 
+				if ("no_click_cooldown")
+					config.no_click_cooldown = 1
+
 				if("allow_admin_ooccolor")
 					config.allow_admin_ooccolor = 1
 
@@ -404,8 +428,8 @@ var/list/gamemode_cache = list()
 //				if ("authentication")
 //					config.enable_authentication = 1
 
-				if ("norespawn")
-					config.respawn = 0
+				if ("respawn_delay")
+					config.respawn_delay = text2num(value)
 
 				if ("servername")
 					config.server_name = value
@@ -436,6 +460,9 @@ var/list/gamemode_cache = list()
 
 				if ("githuburl")
 					config.githuburl = value
+
+				if ("ghosts_can_possess_animals")
+					config.ghosts_can_possess_animals = value
 
 				if ("guest_jobban")
 					config.guest_jobban = 1
@@ -594,6 +621,15 @@ var/list/gamemode_cache = list()
 				if("ghost_interaction")
 					config.ghost_interaction = 1
 
+				if("night_lighting")
+					config.night_lighting = 1
+
+				if("nl_start_hour")
+					config.nl_start = text2num(value) * TICKS_IN_HOUR
+
+				if("nl_finish_hour")
+					config.nl_finish = text2num(value) * TICKS_IN_HOUR
+
 				if("disable_player_mice")
 					config.disable_player_mice = 1
 
@@ -700,6 +736,7 @@ var/list/gamemode_cache = list()
 				if("aggressive_changelog")
 					config.aggressive_changelog = 1
 
+
 				if("sql_whitelists")
 					config.sql_whitelists = 1
 
@@ -729,6 +766,17 @@ var/list/gamemode_cache = list()
 
 				if("sql_stats")
 					config.sql_stats = 1
+
+				if("default_language_prefixes")
+					var/list/values = text2list(value, " ")
+					if(values.len > 0)
+						language_prefixes = values
+
+				if ("lobby_screens")
+					config.lobby_screens = text2list(value, ";")
+
+				if("delist_when_no_admins")
+					config.delist_when_no_admins = 1
 
 				if("antag_contest_enabled")
 					config.antag_contest_enabled = 1
@@ -777,10 +825,16 @@ var/list/gamemode_cache = list()
 				if("limbs_can_break")
 					config.limbs_can_break = value
 
-				if("run_speed")
-					config.run_speed = value
 				if("walk_speed")
 					config.walk_speed = value
+
+				// These should never go to 0 or below. So, we clamp them.
+				if("walk_delay_multiplier")
+					config.walk_delay_multiplier = max(0.1, value)
+				if("run_delay_multiplier")
+					config.run_delay_multiplier = max(0.1, value)
+				if("vehicle_delay_multiplier")
+					config.vehicle_delay_multiplier = max(0.1, value)
 
 				if("human_delay")
 					config.human_delay = value

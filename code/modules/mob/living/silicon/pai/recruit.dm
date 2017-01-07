@@ -73,10 +73,17 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				t = input("Enter any OOC comments", "pAI OOC Comments", candidate.comments) as message
 				if(t)
 					candidate.comments = sanitize(t)
+
 			if("save")
-				candidate.savefile_save(usr)
+				if (config.sql_saves)
+					usr.client.prefs.save_preferences()
+				else
+					candidate.savefile_save(usr)
 			if("load")
-				candidate.savefile_load(usr)
+				if (config.sql_saves)
+					usr.client.prefs.load_preferences()
+				else
+					candidate.savefile_load(usr)
 				//In case people have saved unsanitized stuff.
 				if(candidate.name)
 					candidate.name = sanitizeSafe(candidate.name, MAX_NAME_LEN)
@@ -95,7 +102,10 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 							p.alertUpdate()
 				usr << browse(null, "window=paiRecruit")
 				return
-
+		if (config.sql_saves)
+			usr.client.prefs.save_preferences()
+		else
+			candidate.savefile_save(usr)
 		recruitWindow(usr, href_list["allow_submit"] != "0")
 
 /datum/paiController/proc/recruitWindow(var/mob/M as mob, allowSubmit = 1)
@@ -110,7 +120,12 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		candidate.key = M.key
 		pai_candidates.Add(candidate)
 
-	candidate.savefile_load(M)//Load the pAI config before displaying the window
+	// Load the data before displaying.
+	if (!config.sql_saves)
+		candidate.savefile_load(M)
+	else
+		M.client.prefs.load_preferences()
+
 	var/dat = ""
 	dat += {"
 			<style type="text/css">
@@ -206,18 +221,6 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			</tr>
 		</table>
 		<br>
-		<table>
-			<tr>
-				<td class="button">
-					<a href='byond://?src=\ref[src];option=save;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]' class="button">Save Personality</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="button">
-					<a href='byond://?src=\ref[src];option=load;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]' class="button">Load Personality</a>
-				</td>
-			</tr>
-		</table><br>
 	"}
 	if(allowSubmit)
 		dat += {"
@@ -361,7 +364,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			else
 				asked.Remove(O.key)
 		if(O.client)
-			if(O.client.prefs.be_special & BE_PAI)
+			if(BE_PAI in O.client.prefs.be_special_role)
 				question(O.client)
 
 /datum/paiController/proc/question(var/client/C)
@@ -374,4 +377,4 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		if(response == "Yes")
 			recruitWindow(C.mob)
 		else if (response == "Never for this round")
-			C.prefs.be_special ^= BE_PAI
+			C.prefs.be_special_role -= BE_PAI

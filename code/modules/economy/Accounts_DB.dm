@@ -3,7 +3,7 @@
 	name = "Accounts uplink terminal"
 	desc = "Access transaction logs, account data and all kinds of other financial records."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "aiupload"
+	icon_state = "account_uplink"
 	density = 1
 	req_one_access = list(access_hop, access_captain, access_cent_captain)
 	anchored = 1

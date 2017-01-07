@@ -14,9 +14,9 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 
-	var/spray_particles = 6
-	var/spray_amount = 8	//units of liquid per particle
-	var/max_water = 240
+	var/spray_particles = 3
+	var/spray_amount = 10	//units of liquid per particle
+	var/max_water = 300
 	var/last_use = 1.0
 	var/safety = 1
 	var/sprite_name = "fire_extinguisher"
@@ -30,13 +30,14 @@
 	throwforce = 2
 	w_class = 2.0
 	force = 3.0
-	max_water = 120
-	spray_particles = 5
+	max_water = 150
+	spray_particles = 3
 	sprite_name = "miniFE"
 
 /obj/item/weapon/extinguisher/New()
 	create_reagents(max_water)
 	reagents.add_reagent("water", max_water)
+	..()
 
 /obj/item/weapon/extinguisher/examine(mob/user)
 	if(..(user, 0))
@@ -62,7 +63,7 @@
 		if(C) C.propelled = (6-i)
 		O.Move(get_step(user,movementdirection), movementdirection)
 		sleep(move_speed[i])
-	
+
 	//additional movement
 	for(var/i in 1 to 3)
 		O.Move(get_step(user,movementdirection), movementdirection)
@@ -74,9 +75,18 @@
 	if( istype(target, /obj/structure/reagent_dispensers/watertank) && flag)
 		var/obj/o = target
 		var/amount = o.reagents.trans_to_obj(src, 50)
-		user << "<span class='notice'>You fill [src] with [amount] units of the contents of [target].</span>"
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
-		return
+
+		if (src.reagents.total_volume == 300)
+			user << "<span class='danger'>The fire extinguisher is full!</span>"
+			return 0
+
+		if (o.reagents.total_volume < 1)
+			user << "<span class='danger'>There is nothing left in the [target].</span>"
+			return 0
+		else
+			user << "<span class='notice'>You fill [src] with [amount] units of the contents of [target].</span>"
+			playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+			return
 
 	if (!safety)
 		if (src.reagents.total_volume < 1)
@@ -105,7 +115,7 @@
 		for(var/a = 1 to spray_particles)
 			spawn(0)
 				if(!src || !reagents.total_volume) return
-			
+
 				var/obj/effect/effect/water/W = PoolOrNew(/obj/effect/effect/water, get_turf(src))
 				var/turf/my_target
 				if(a <= the_targets.len)

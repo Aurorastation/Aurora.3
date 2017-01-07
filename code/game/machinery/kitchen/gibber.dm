@@ -84,16 +84,12 @@
 	..()
 	usr << "The safety guard is [emagged ? "<span class='danger'>disabled</span>" : "enabled"]."
 
+/obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
+	emagged = !emagged
+	user << "<span class='danger'>You [emagged ? "disable" : "enable"] the gibber safety guard.</span>"
+	return 1
+
 /obj/machinery/gibber/attackby(var/obj/item/W, var/mob/user)
-
-	if(istype(W,/obj/item/weapon/card))
-		if(!allowed(user) && !istype(W,/obj/item/weapon/card/emag))
-			user << "<span class='danger'>Access denied.</span>"
-			return
-		emagged = !emagged
-		user << "<span class='danger'>You [emagged ? "disable" : "enable"] the gibber safety guard.</span>"
-		return
-
 	var/obj/item/weapon/grab/G = W
 
 	if(!istype(G))
@@ -112,7 +108,7 @@
 			if(prob(10))
 				M.apply_damage(30, BRUTE, "head")
 				M.apply_damage(45, HALLOSS)
-				M.visible_message("\red [user]'s hair catches in the [src]!", "\red Your hair gets caught in the [src]!")
+				M.visible_message("<span class='danger'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
 				M.say("*scream")
 
 /obj/machinery/gibber/MouseDrop_T(mob/target, mob/user)
@@ -143,10 +139,10 @@
 		user << "<span class='danger'>Subject may not have abiotic items on.</span>"
 		return
 
-	user.visible_message("\red [user] starts to put [victim] into the gibber!")
+	user.visible_message("<span class='danger'>[user] starts to put [victim] into the gibber!</span>")
 	src.add_fingerprint(user)
 	if(do_after(user, 30) && victim.Adjacent(src) && user.Adjacent(src) && victim.Adjacent(user) && !occupant)
-		user.visible_message("\red [user] stuffs [victim] into the gibber!")
+		user.visible_message("<span class='danger'>[user] stuffs [victim] into the gibber!</span>")
 		if(victim.client)
 			victim.client.perspective = EYE_PERSPECTIVE
 			victim.client.eye = src
@@ -208,7 +204,7 @@
 		slab_type = H.species.meat_type
 
 	// Small mobs don't give as much nutrition.
-	if(src.occupant.small)
+	if(issmall(src.occupant))
 		slab_nutrition *= 0.5
 	slab_nutrition /= slab_count
 

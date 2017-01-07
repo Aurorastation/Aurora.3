@@ -6,10 +6,11 @@
 
 /obj/item/weapon/circuitboard
 	name = "circuit board"
+	desc = "Looks like a circuit. Probably is."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "id_mod"
 	item_state = "electronic"
-	origin_tech = "programming=2"
+	origin_tech = list(TECH_DATA = 2)
 	density = 0
 	anchored = 0
 	w_class = 2.0

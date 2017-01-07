@@ -21,10 +21,10 @@
 	for(var/datum/mind/possible_target in ticker.minds)
 		if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2))
 			if (require_synth)
-				if (possible_target.current.get_species() == "Machine")
+				if (possible_target.current.get_species() == "Baseline Frame")
 					possible_targets += possible_target
 			else
-				if (possible_target.current.get_species() == "Machine")
+				if (possible_target.current.get_species() == "Baseline Frame")
 					continue
 				possible_targets += possible_target
 	if(possible_targets.len > 0)
@@ -33,9 +33,9 @@
 /datum/objective/competition/find_target_by_role(role, role_type = 0, var/require_synth = 0)
 	for(var/datum/mind/possible_target in ticker.minds)
 		if((possible_target != owner) && ishuman(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role))
-			if (require_synth && possible_target.current.get_species() != "Machine")
+			if (require_synth && possible_target.current.get_species() != "Baseline Frame")
 				continue
-			if (!require_synth && possible_target.current.get_species() == "Machine")
+			if (!require_synth && possible_target.current.get_species() == "Baseline Frame")
 				continue
 			target = possible_target
 			break

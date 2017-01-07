@@ -108,7 +108,7 @@
 			if(NOCLONE in T.mutations)
 				return
 
-			if(T.species && T.species.flags & NO_BLOOD)
+			if(T.species.flags & NO_BLOOD)
 				return
 
 			// If the human is losing too much blood, beep.
@@ -125,6 +125,8 @@
 				update_icon()
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
+	if (isAI(user))
+		return
 	if(src.beaker)
 		src.beaker.loc = get_turf(src)
 		src.beaker = null

@@ -1,0 +1,18 @@
+# Your name.  
+author: Printer16
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscdel: "Removed empty jetpacks playing a sound."
+  - bugfix: "A malfunctioning AI's advanced encyrption hack now prints a paper at the communications console."
+  - bugfix: "Intercepted messages now say 'to' depending if it intercepted the message sender."
+  - bugfix: "Cleanbots no longer make emotes when they are unable to find their path (How would you know anyways?) They are also a lot more quite."
+  - bugfix: "You can no longer join as a mouse before roundstart."
+  - bugfix: "The maintenance drone poster no longer has a typo."

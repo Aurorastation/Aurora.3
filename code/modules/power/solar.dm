@@ -80,12 +80,6 @@ var/list/solars_list = list()
 	..()
 
 
-/obj/machinery/power/solar/blob_act()
-	src.health--
-	src.healthcheck()
-	return
-
-
 /obj/machinery/power/solar/proc/healthcheck()
 	if (src.health <= 0)
 		if(!(stat & BROKEN))
@@ -170,12 +164,6 @@ var/list/solars_list = list()
 			if (prob(25))
 				broken()
 	return
-
-
-/obj/machinery/power/solar/blob_act()
-	if(prob(75))
-		broken()
-		src.density = 0
 
 
 /obj/machinery/power/solar/fake/New(var/turf/loc, var/obj/item/solar_assembly/S)
@@ -289,7 +277,7 @@ var/list/solars_list = list()
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "solar"
+	icon_state = "solar_control"
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -301,7 +289,7 @@ var/list/solars_list = list()
 	var/lastgen = 0
 	var/track = 0			// 0= off  1=timed  2=auto (tracker)
 	var/trackrate = 600		// 300-900 seconds
-	var/nexttime = 0		// time for a panel to rotate of 1° in manual tracking
+	var/nexttime = 0		// time for a panel to rotate of 1Â° in manual tracking
 	var/obj/machinery/power/tracker/connected_tracker = null
 	var/list/connected_panels = list()
 
@@ -369,10 +357,10 @@ var/list/solars_list = list()
 		overlays.Cut()
 		return
 	if(stat & NOPOWER)
-		icon_state = "c_unpowered"
+		icon_state = "computer"
 		overlays.Cut()
 		return
-	icon_state = "solar"
+	icon_state = "solar_control"
 	overlays.Cut()
 	if(cdir > -1)
 		overlays += image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir))
@@ -387,7 +375,7 @@ var/list/solars_list = list()
 	var/t = "<B><span class='highlight'>Generated power</span></B> : [round(lastgen)] W<BR>"
 	t += "<B><span class='highlight'>Star Orientation</span></B>: [sun.angle]&deg ([angle2text(sun.angle)])<BR>"
 	t += "<B><span class='highlight'>Array Orientation</span></B>: [rate_control(src,"cdir","[cdir]&deg",1,15)] ([angle2text(cdir)])<BR>"
-	t += "<B><span class='highlight'>Tracking:</B><div class='statusDisplay'>"
+	t += "<B><span class='highlight'>Tracking:</span></B><div class='statusDisplay'>"
 	switch(track)
 		if(0)
 			t += "<span class='linkOn'>Off</span> <A href='?src=\ref[src];track=1'>Timed</A> <A href='?src=\ref[src];track=2'>Auto</A><BR>"
@@ -455,9 +443,9 @@ var/list/solars_list = list()
 			connected_tracker.unset_control()
 
 	if(track==1 && trackrate) //manual tracking and set a rotation speed
-		if(nexttime <= world.time) //every time we need to increase/decrease the angle by 1°...
+		if(nexttime <= world.time) //every time we need to increase/decrease the angle by 1Â°...
 			targetdir = (targetdir + trackrate/abs(trackrate) + 360) % 360 	//... do it
-			nexttime += 36000/abs(trackrate) //reset the counter for the next 1°
+			nexttime += 36000/abs(trackrate) //reset the counter for the next 1Â°
 
 	updateDialog()
 
@@ -538,12 +526,17 @@ var/list/solars_list = list()
 				broken()
 	return
 
+// Used for mapping in solar array which automatically starts itself (telecomms, for example)
+/obj/machinery/power/solar_control/autostart
+	track = 2 // Auto tracking mode
 
-/obj/machinery/power/solar_control/blob_act()
-	if (prob(75))
-		broken()
-		src.density = 0
-
+/obj/machinery/power/solar_control/autostart/New()
+	..()
+	spawn(150) // Wait 15 seconds to ensure everything was set up properly (such as, powernets, solar panels, etc.
+		src.search_for_connected()
+		if(connected_tracker && track == 2)
+			connected_tracker.set_angle(sun.angle)
+		src.set_panels(cdir)
 
 //
 // MISC

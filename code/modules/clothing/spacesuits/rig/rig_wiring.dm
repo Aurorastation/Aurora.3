@@ -26,6 +26,13 @@
 		if(RIG_INTERFACE_SHOCK)
 			rig.electrified = mended ? 0 : -1
 			rig.shock(usr,100)
+		if(RIG_SYSTEM_CONTROL)
+			if(mended)
+				rig.malfunctioning = 0
+				rig.malfunction_delay = 0
+			else
+				rig.malfunctioning += 10
+				rig.malfunction_delay = 99999999999999999999
 
 /datum/wires/rig/UpdatePulsed(var/index)
 

@@ -1,3 +1,15 @@
+
+//Chemical Reagents - Initialises all /datum/reagent into a list indexed by reagent id
+/proc/initialize_chemical_reagents()
+	var/paths = typesof(/datum/reagent) - /datum/reagent
+	chemical_reagents_list = list()
+	for(var/path in paths)
+		var/datum/reagent/D = new path()
+		if(!D.name)
+			continue
+		chemical_reagents_list[D.id] = D
+
+
 /datum/reagent
 	var/name = "Reagent"
 	var/id = "reagent"
@@ -39,6 +51,10 @@
 		return
 	if(!affects_dead && M.stat == DEAD)
 		return
+
+	if(!dose && volume)//If dose is currently zero, we do the first effect
+		initial_effect(M, alien)
+
 	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
 		overdose(M, alien)
 	var/removed = metabolism
@@ -59,6 +75,11 @@
 			if(CHEM_TOUCH)
 				affect_touch(M, alien, removed)
 	remove_self(removed)
+	return
+
+
+//Initial effect is called once when the reagent first starts affecting a mob.
+/datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)
 	return
 
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)

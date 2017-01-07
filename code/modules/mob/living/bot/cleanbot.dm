@@ -14,7 +14,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	name = "Cleanbot"
 	desc = "A little cleaning robot, he looks so excited!"
 	icon_state = "cleanbot0"
-	req_access = list(access_janitor, access_robotics)
+	req_one_access = list(access_janitor, access_robotics)
 	botcard_access = list(access_janitor, access_maint_tunnels)
 
 	locked = 0 // Start unlocked so roboticist can set them to patrol.
@@ -75,8 +75,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	if(!path.len)
 		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-			custom_emote(2, "can't reach \the [target.name] and is giving up for now.")
-			log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
+			//log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
 			ignorelist |= target
 			target.clean_marked = null
 			target = null
@@ -199,7 +198,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	cleaning = 1
-	custom_emote(2, "begins to clean up \the [D]")
 	target.being_cleaned = 1
 	update_icons()
 	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
@@ -247,8 +245,12 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	patrol_path = list()
 
 /mob/living/bot/cleanbot/attack_hand(var/mob/user)
+	if (!has_ui_access(user) && !emagged)
+		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		return
+
 	var/dat
-	dat += "<TT><B>Automatic Station Cleaner v1.0</B></TT><BR><BR>"
+	dat += "<TT><B>Automatic Station Cleaner v1.1</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]"
@@ -259,7 +261,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screwloose ? "Yes" : "No"]</A><BR>"
 		dat += "Weird button pressed: <A href='?src=\ref[src];operation=oddbutton'>[oddbutton ? "Yes" : "No"]</A>"
 
-	user << browse("<HEAD><TITLE>Cleaner v1.0 controls</TITLE></HEAD>[dat]", "window=autocleaner")
+	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
 	onclose(user, "autocleaner")
 	return
 
@@ -268,6 +270,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 	usr.set_machine(src)
 	add_fingerprint(usr)
+
+	if (!has_ui_access(usr) && !emagged)
+		usr << "<span class='warning'>Insufficient permissions.</span>"
+		return
+
 	switch(href_list["operation"])
 		if("start")
 			if(on)
@@ -292,12 +299,14 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			usr << "<span class='notice'>You press the weird button.</span>"
 	attack_hand(usr)
 
-/mob/living/bot/cleanbot/Emag(var/mob/user)
-	..()
-	if(user)
-		user << "<span class='notice'>The [src] buzzes and beeps.</span>"
-	oddbutton = 1
-	screwloose = 1
+/mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
+	. = ..()
+	if(!screwloose || !oddbutton)
+		if(user)
+			user << "<span class='notice'>The [src] buzzes and beeps.</span>"
+		oddbutton = 1
+		screwloose = 1
+		return 1
 
 /mob/living/bot/cleanbot/proc/get_targets()
 	// To avoid excessive loops, instead of storing a list of top-level types, we're going to store a list of all cleanables.

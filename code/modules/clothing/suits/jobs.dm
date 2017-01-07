@@ -11,7 +11,7 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
 	allowed = list (/obj/item/weapon/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/weapon/reagent_containers/glass/fertilizer,/obj/item/weapon/material/minihoe)
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
+
 //Captain
 /obj/item/clothing/suit/captunic
 	name = "captain's parade tunic"
@@ -20,7 +20,6 @@
 	item_state = "captunic"
 	body_parts_covered = UPPER_TORSO|ARMS
 	flags_inv = HIDEJUMPSUIT
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 /obj/item/clothing/suit/captunic/capjacket
 	name = "captain's uniform jacket"
@@ -37,6 +36,7 @@
 	icon_state = "chaplain_hoodie"
 	item_state = "chaplain_hoodie"
 	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 //Chaplain
@@ -47,6 +47,7 @@
 	item_state = "nun"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 //Chef
@@ -59,7 +60,6 @@
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	allowed = list (/obj/item/weapon/material/knife)
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 //Chef
 /obj/item/clothing/suit/chef/classic
@@ -93,9 +93,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 //Detective
-/obj/item/clothing/suit/storage/det_suit
-	name = "coat"
-	desc = "An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business."
+/obj/item/clothing/suit/storage/det_trench
+	name = "brown trenchcoat"
+	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
 	icon_state = "detective"
 	item_state = "det_suit"
 	blood_overlay_type = "coat"
@@ -104,9 +104,34 @@
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 	siemens_coefficient = 0.7
-	
-/obj/item/clothing/suit/storage/det_suit/black
+
+/obj/item/clothing/suit/storage/det_trench/black
 	icon_state = "detective2"
+
+/obj/item/clothing/suit/storage/det_trench/technicolor
+	desc = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent."
+	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
+	icon_state = "suit_detective_black"
+	item_state = "suit_detective_black"
+	var/suit_color
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/det_trench/technicolor/New()
+	if(prob(5))
+		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
+		var/color = pickweight(colors)
+		icon_state = "suit_detective_[color]"
+		item_state = "suit_detective_[color]"
+	..()
+
+/obj/item/clothing/suit/storage/det_trench/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
+		var/obj/item/weapon/reagent_containers/glass/paint/P = O
+		suit_color = P.paint_type
+		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		icon_state = "suit_detective_[suit_color]"
+		item_state = "suit_detective_[suit_color]"
+	..()
 
 //Forensics
 /obj/item/clothing/suit/storage/forensics
@@ -138,8 +163,6 @@
 	/obj/item/weapon/crowbar, /obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/weapon/tank/emergency_oxygen, \
 	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering)
 	body_parts_covered = UPPER_TORSO
-
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket

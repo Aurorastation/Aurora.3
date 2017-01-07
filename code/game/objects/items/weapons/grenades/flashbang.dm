@@ -2,7 +2,7 @@
 	name = "flashbang"
 	icon_state = "flashbang"
 	item_state = "flashbang"
-	origin_tech = "materials=2;combat=1"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
 	var/banglet = 0
 
 	prime()
@@ -21,7 +21,7 @@
 			B.health -= damage
 			B.update_icon()
 
-		new/obj/effect/effect/sparks(src.loc)
+		new/obj/effect/sparks(src.loc)
 		new/obj/effect/effect/smoke/illumination(src.loc, brightness=15)
 		qdel(src)
 		return
@@ -32,7 +32,7 @@
 				S.active = 0										// -- Polymorph
 				S.icon_state = "shield0"
 
-		M << "\red <B>BANG</B>"
+		M << "<span class='danger'>BANG</span>"
 		playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
 
 //Checking for protections
@@ -49,7 +49,7 @@
 					ear_safety += 1
 
 //Flashing everyone
-		if(eye_safety < 1)
+		if(eye_safety < FLASH_PROTECTION_MODERATE)
 			flick("e_flash", M.flash)
 			M.Stun(2)
 			M.Weaken(10)
@@ -59,7 +59,7 @@
 				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 				if(!E)
 					return
-				usr << "\red Your eyes burn with the intense light of the flash!."
+				usr << span("alert", "Your eyes burn with the intense light of the flash!.")
 				E.damage += rand(10, 11)
 				if(E.damage > 12)
 					M.eye_blurry += rand(3,6)
@@ -104,19 +104,19 @@
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 			if (E && E.damage >= E.min_bruised_damage)
-				M << "\red Your eyes start to burn badly!"
+				M << "<span class='danger'>Your eyes start to burn badly!</span>"
 				if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
 					if (E.damage >= E.min_broken_damage)
-						M << "\red You can't see anything!"
+						M << "<span class='danger'>You can't see anything!</span>"
 		if (M.ear_damage >= 15)
-			M << "\red Your ears start to ring badly!"
+			M << "<span class='danger'>Your ears start to ring badly!</span>"
 			if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
 				if (prob(M.ear_damage - 10 + 5))
-					M << "\red You can't hear anything!"
+					M << "<span class='danger'>You can't hear anything!</span>"
 					M.sdisabilities |= DEAF
 		else
 			if (M.ear_damage >= 5)
-				M << "\red Your ears start to ring!"
+				M << "<span class='danger'>Your ears start to ring!</span>"
 		M.update_icons()
 
 /obj/item/weapon/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
@@ -128,6 +128,7 @@
 /obj/item/weapon/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
 	var/again = 0
+	var/atom/A = loc
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			again++
@@ -135,15 +136,15 @@
 
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
-			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)//Launches flashbangs
+			new /obj/item/weapon/grenade/flashbang/cluster(A)//Launches flashbangs
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
 
 	for(,again > 0, again--)
 		spawn(0)
-			new /obj/item/weapon/grenade/flashbang/clusterbang/segment(src.loc)//Creates a 'segment' that launches a few more flashbangs
+			new /obj/item/weapon/grenade/flashbang/clusterbang/segment(A)//Creates a 'segment' that launches a few more flashbangs
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
-	qdel(src)
-	return
+	spawn(1)
+		qdel(src)
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment
 	desc = "A smaller segment of a clusterbang. Better run."
@@ -152,6 +153,7 @@
 	icon_state = "clusterbang_segment"
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment/New()//Segments should never exist except part of the clusterbang, since these immediately 'do their thing' and asplode
+
 	icon_state = "clusterbang_segment_active"
 	active = 1
 	banglet = 1
@@ -168,13 +170,14 @@
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			numspawned --
-
+	var/atom/A = src.loc
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
-			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)
+			new /obj/item/weapon/grenade/flashbang/cluster(A)
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
-	qdel(src)
-	return
+
+	spawn(1)
+		qdel(src)
 
 /obj/item/weapon/grenade/flashbang/cluster/New()//Same concept as the segments, so that all of the parts don't become reliant on the clusterbang
 	spawn(0)
@@ -186,5 +189,5 @@
 		walk_away(src,temploc,stepdist)
 		var/dettime = rand(15,60)
 		spawn(dettime)
-		prime()
-	..()
+			prime()
+		..()

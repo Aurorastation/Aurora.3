@@ -14,6 +14,12 @@
 			topic_commands_names.Add(A.name)
 		listclearnulls(topic_commands)
 		listclearnulls(topic_commands_names)
+
+	if (config.api_rate_limit_whitelist.len)
+		// To make the api_rate_limit_whitelist[addr] grabs actually work.
+		for (var/addr in config.api_rate_limit_whitelist)
+			config.api_rate_limit_whitelist[addr] = 1
+
 	return 1
 
 /world/proc/api_do_auth_check(var/addr, var/auth, var/datum/topic_command/command)
@@ -525,10 +531,21 @@ proc/api_update_command_database()
 /datum/topic_command/get_player_list
 	name = "get_player_list"
 	description = "Gets a list of connected players"
+	params = list(
+		"showadmins" = list("name"="show admins","desc"="A boolean to toggle whether or not hidden admins should be shown with proper or improper ckeys.","req"=0,"type"="int")
+		)
 /datum/topic_command/get_player_list/run_command(queryparams)
+	var/show_hidden_admins = 0
+
+	if (!isnull(queryparams["showadmins"]))
+		show_hidden_admins = text2num(queryparams["showadmins"])
+
 	var/list/players = list()
 	for (var/client/C in clients)
-		players += C.key
+		if (show_hidden_admins && C.holder && C.holder.fakekey)
+			players += ckey(C.holder.fakekey)
+		else
+			players += C.ckey
 
 	statuscode = 200
 	response = "Player list fetched"
@@ -732,7 +749,7 @@ proc/api_update_command_database()
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text("\blue <B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
+	G:show_message(text("<span class='notice'><B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
 	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API")
 	message_admins("Admin [senderkey] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit via the API", 1)
 
@@ -789,7 +806,7 @@ proc/api_update_command_database()
 		"ckey" = list("name"="ckey","desc"="The target of the adminmessage","req"=1,"type"="str"),
 		"msg" = list("name"="msg","desc"="The message that should be sent","req"=1,"type"="str"),
 		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the adminmessage","req"=1,"type"="senderkey"),
-		"rank" = list("name"="rank","desc"="The rank that should be displayed - Defaults to admin if none specified","req"=0,"type"="str"),
+		"rank" = list("name"="rank","desc"="The rank that should be displayed - Defaults to admin if none specified","req"=0,"type"="str")
 		)
 
 /datum/topic_command/send_adminmsg/run_command(queryparams)
@@ -853,10 +870,10 @@ proc/api_update_command_database()
 /datum/topic_command/send_commandreport/run_command(queryparams)
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 	var/reporttitle = sanitizeSafe(queryparams["title"]) //Title of the report
-	var/reportbody = nl2br(sanitize(queryparams["body"],encode=0,extra=0)) //Body of the report
+	var/reportbody = nl2br(sanitize(queryparams["body"],encode=0,extra=0,max_length=0)) //Body of the report
 	var/reporttype = queryparams["type"] //Type of the report: freeform / ccia / admin
 	var/reportsender = sanitizeSafe(queryparams["sendername"]) //Name of the sender
-	var/reportannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
+	var/reportannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 1 / 0
 
 	if(!reporttitle)
 		reporttitle = "NanoTrasen Update"
@@ -886,7 +903,7 @@ proc/api_update_command_database()
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		world << "\red New NanoTrasen Update available at all communication consoles."
+		world << "<span class='alert'>New NanoTrasen Update available at all communication consoles.</span>"
 		world << sound('sound/AI/commandreport.ogg')
 
 
@@ -914,16 +931,14 @@ proc/api_update_command_database()
 	var/list/targetlist = queryparams["target"] //Target locations where the fax should be sent to
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 	var/faxtitle = sanitizeSafe(queryparams["title"]) //Title of the report
-	var/faxbody = sanitize(queryparams["body"]) //Body of the report
-	var/faxannounce = queryparams["announce"] //Announce the contents report to the public: 1 / 0
+	var/faxbody = sanitize(queryparams["body"],max_length=0) //Body of the report
+	var/faxannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 1 / 0
 
 	if(!targetlist || targetlist.len < 1)
 		statuscode = 400
 		response = "Parameter target not set"
 		data = null
 		return 1
-	if(!faxannounce)
-		faxannounce = 1
 
 	var/sendresult = 0
 

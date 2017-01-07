@@ -1,3 +1,5 @@
+var/list/holder_mob_icon_cache = list()
+
 //Helper object for picking dionaea (and other creatures) up.
 /obj/item/weapon/holder
 	name = "holder"
@@ -26,15 +28,48 @@
 
 /obj/item/weapon/holder/Destroy()
 	processing_objects.Remove(src)
+	if (contained)
+		release_mob()
 	..()
 
 /obj/item/weapon/holder/examine(mob/user)
 	if (contained)
 		contained.examine(user)
-	else
-		..()
+
+
+/obj/item/weapon/holder/GetID()
+	for(var/mob/M in contents)
+		var/obj/item/I = M.GetIdCard()
+		if(I)
+			return I
+	return null
+
+/obj/item/weapon/holder/GetAccess()
+	var/obj/item/I = GetID()
+	return I ? I.GetAccess() : ..()
+
+/obj/item/weapon/holder/attack_self()
+	for(var/mob/M in contents)
+		M.show_inv(usr)
+
+
+//Mob specific holders.
+/obj/item/weapon/holder/diona
+	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
+	slot_flags = SLOT_HEAD | SLOT_OCLOTHING | SLOT_HOLSTER
+
+/obj/item/weapon/holder/drone
+	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
+
+/obj/item/weapon/holder/mouse
+	w_class = 1
+
+/obj/item/weapon/holder/borer
+	origin_tech = list(TECH_BIO = 6)
 
 /obj/item/weapon/holder/process()
+	if (!contained)
+		qdel(src)
 
 	if(!get_holding_mob() || contained.loc != src)
 		if (is_unsafe_container(loc) && contained.loc == src)
@@ -69,6 +104,7 @@
 		M.reset_view()
 		M.Released()
 
+	contained = null
 	var/mob/L = get_holding_mob()
 	if (L)
 		L.drop_from_inventory(src)
@@ -130,7 +166,7 @@
 		M << "[contained] is dead."
 
 
-/obj/item/weapon/holder/proc/show_message(var/message, var/m_type)
+/obj/item/weapon/holder/show_message(var/message, var/m_type)
 	for(var/mob/living/M in contents)
 		M.show_message(message,m_type)
 
@@ -177,7 +213,7 @@
 
 	spawn(2)
 		var/obj/item/weapon/holder/H = new holder_type(loc)
-		H.name = src.name
+
 		src.forceMove(H)
 
 
@@ -190,15 +226,33 @@
 		else
 			H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
 
-		if (user == src)
-			grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
-			src << "<span class='notice'>You climb up onto [grabber].</span>"
+
+
+
+		var/success = 0
+		if (src == user)
+			success = grabber.put_in_any_hand_if_possible(H, 0,1,1)
 		else
-			grabber << "<span class='notice'>You scoop up [src].</span>"
-			src << "<span class='notice'>[grabber] scoops you up.</span>"
-		grabber.status_flags |= PASSEMOTES
-		H.attack_hand(grabber)//We put this last to prevent some race conditions
-		return
+			H.attack_hand(grabber)//We put this last to prevent some race conditions
+			if (H.loc == grabber)
+				success = 1
+
+		if (success)
+			if (user == src)
+				grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
+				src << "<span class='notice'>You climb up onto [grabber].</span>"
+			else
+				grabber << "<span class='notice'>You scoop up [src].</span>"
+				src << "<span class='notice'>[grabber] scoops you up.</span>"
+
+			H.sync(src)
+
+		else
+			user << "Failed, try again!"
+			//If the scooping up failed something must have gone wrong
+			H.release_mob()
+
+		return success
 
 
 /mob/living/proc/get_holder_location()
@@ -213,6 +267,89 @@
 	if (istype(usr.loc, /obj/item/weapon/holder))
 		var/obj/item/weapon/holder/H = usr.loc
 		H.report_onmob_location(0, H.get_equip_slot(), src)
+
+/obj/item/weapon/holder/human
+	icon = null
+	var/holder_icon = 'icons/mob/holder_complex.dmi'
+	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
+	slot_flags = SLOT_BACK
+
+
+/obj/item/weapon/holder/proc/sync(var/mob/living/M)
+	src.name = M.name
+	src.overlays = M.overlays
+	dir = M.dir
+
+/obj/item/weapon/holder/human/sync(var/mob/living/M)
+
+	// Generate appropriate on-mob icons.
+	var/mob/living/carbon/human/owner = M
+	if(!icon && istype(owner) && owner.species)
+		var/icon/I = new /icon()
+
+		var/skin_colour = rgb(owner.r_skin, owner.g_skin, owner.b_skin)
+		var/hair_colour = rgb(owner.r_hair, owner.g_hair, owner.b_hair)
+		var/eye_colour =  rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
+		var/species_name = lowertext(owner.species.get_bodytype())
+
+		for(var/cache_entry in generate_for_slots)
+			var/cache_key = "[owner.species]-[cache_entry]-[skin_colour]-[hair_colour]"
+			if(!holder_mob_icon_cache[cache_key])
+
+				// Generate individual icons.
+				var/icon/mob_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_base")
+				mob_icon.Blend(skin_colour, ICON_ADD)
+				var/icon/hair_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_hair")
+				hair_icon.Blend(hair_colour, ICON_ADD)
+				var/icon/eyes_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_eyes")
+				eyes_icon.Blend(eye_colour, ICON_ADD)
+
+				// Blend them together.
+				mob_icon.Blend(eyes_icon, ICON_OVERLAY)
+				mob_icon.Blend(hair_icon, ICON_OVERLAY)
+
+				// Add to the cache.
+				holder_mob_icon_cache[cache_key] = mob_icon
+
+			var/newstate
+			switch (cache_entry)
+				if (slot_l_hand_str)
+					newstate = "[species_name]_lh"
+				if (slot_r_hand_str)
+					newstate = "[species_name]_rh"
+				if (slot_back_str)
+					newstate = "[species_name]_ba"
+
+			I.Insert(holder_mob_icon_cache[cache_key], newstate)
+
+
+		dir = 2
+		var/icon/mob_icon = icon(owner.icon, owner.icon_state)
+		I.Insert(mob_icon, species_name)
+		icon = I
+		icon_state = species_name
+		item_state = species_name
+
+		contained_sprite = 1
+
+		color = M.color
+		name = M.name
+		desc = M.desc
+		overlays |= M.overlays
+		var/mob/living/carbon/human/H = loc
+		if(istype(H))
+			if(H.l_hand == src)
+				H.update_inv_l_hand()
+			else if(H.r_hand == src)
+				H.update_inv_r_hand()
+			else
+				H.regenerate_icons()
+
+		..()
+
+//#TODO-MERGE
+//Port the reduced-duplication holder method from baystation upstream:
+//https://github.com/Baystation12/Baystation12/blob/master/code/modules/mob/holder.dm
 
 //Mob specific holders.
 //w_class mainly determines whether they can fit in trashbags. <=2 can, >=3 cannot
@@ -233,9 +370,18 @@
 	name = "maintenance drone"
 	desc = "It's a small maintenance robot."
 	icon_state = "drone"
+	item_state = "drone"
 	origin_tech = "magnets=3;engineering=5"
 	slot_flags = SLOT_HEAD
-	w_class = 2
+	w_class = 4
+	contained_sprite = 1
+
+/obj/item/weapon/holder/drone/heavy
+	name = "construction drone"
+	desc = "It's a really big maintenance robot."
+	icon_state = "constructiondrone"
+	item_state = "constructiondrone"
+	w_class = 6//You're not fitting this thing in a backpack
 
 /obj/item/weapon/holder/cat
 	name = "cat"
@@ -275,13 +421,16 @@
 	name = "monkey"
 	desc = "It's a monkey. Ook."
 	icon_state = "monkey"
+	item_state = "monkey"
 	slot_flags = SLOT_HEAD
+	contained_sprite = 1
 	w_class = 3
 
 /obj/item/weapon/holder/monkey/farwa
 	name = "farwa"
 	desc = "It's a farwa."
 	icon_state = "farwa"
+	item_state = "farwa"
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -289,6 +438,7 @@
 	name = "stok"
 	desc = "It's a stok. stok."
 	icon_state = "stok"
+	item_state = "stok"
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -296,6 +446,7 @@
 	name = "neaera"
 	desc = "It's a neaera."
 	icon_state = "neaera"
+	item_state = "neaera"
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
@@ -388,3 +539,29 @@
 
 
 
+//pAI
+/obj/item/weapon/holder/pai
+	icon = 'icons/mob/pai.dmi'
+	dir = EAST
+	contained_sprite = 1
+	slot_flags = SLOT_HEAD
+
+/obj/item/weapon/holder/pai/drone
+	icon_state = "repairbot_rest"
+	item_state = "repairbot"
+
+/obj/item/weapon/holder/pai/cat
+	icon_state = "cat_rest"
+	item_state = "cat"
+
+/obj/item/weapon/holder/pai/mouse
+	icon_state = "mouse_rest"
+	item_state = "mouse"
+
+/obj/item/weapon/holder/pai/monkey
+	icon_state = "monkey"
+	item_state = "monkey"
+
+/obj/item/weapon/holder/pai/rabbit
+	icon_state = "rabbit_rest"
+	item_state = "rabbit"

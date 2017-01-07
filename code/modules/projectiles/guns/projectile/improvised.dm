@@ -9,17 +9,16 @@
 	max_shells = 2
 	w_class = 4.0
 	force = 5
-	flags =  CONDUCT
 	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
-	if(prob(60 - (loaded.len * 10)))
+	if(prob(35))
 		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
 		M.take_organ_damage(0,30)
 		M.drop_item()
@@ -137,10 +136,10 @@
 	item_state = "gun"
 	caliber = ".45"
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
-	jam_chance = 55
+	jam_chance = 20
 
 /obj/item/weapon/stock/update_icon()
 	icon_state = "ipistol[buildstate]"

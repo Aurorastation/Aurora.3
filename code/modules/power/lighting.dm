@@ -171,6 +171,11 @@
 	brightness_power = 2
 	brightness_color = "#da0205"
 
+/obj/machinery/light/small/red
+	brightness_range = 5
+	brightness_power = 1
+	brightness_color = "#da0205"
+
 /obj/machinery/light/spot
 	name = "spotlight"
 	fitting = "large tube"
@@ -548,10 +553,6 @@
 
 //blob effect
 
-/obj/machinery/light/blob_act()
-	if(prob(75))
-		broken()
-
 
 // timed process
 // use power
@@ -586,6 +587,24 @@
 		sleep(1)
 		qdel(src)
 
+// Sets the light being output by a light tube or other static source
+// Non or negative inputs will reset to default
+/obj/machinery/light/proc/set_light_source(var/range = 0, var/power = 0, var/color = "")
+	if (range > 0 && isnum(range))
+		brightness_range = round(range)
+	else
+		brightness_range = initial(brightness_range)
+
+	if (power > 0 && isnum(power))
+		brightness_power = round(power)
+	else
+		brightness_power = initial(brightness_power)
+
+	if (color && !isnull(sanitize_hexcolor(color, null)))
+		brightness_color = color
+	else
+		brightness_color = initial(brightness_color)
+
 // the light item
 // can be tube or bulb subtypes
 // will fit into empty /obj/machinery/light of the corresponding type
@@ -594,7 +613,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	force = 2
 	throwforce = 5
-	w_class = 2
+	w_class = 1
 	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
 	var/base_state
 	var/switchcount = 0	// number of times switched

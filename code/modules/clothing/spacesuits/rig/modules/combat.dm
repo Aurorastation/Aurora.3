@@ -5,7 +5,16 @@
  * /obj/item/rig_module/mounted/taser
  * /obj/item/rig_module/shield
  * /obj/item/rig_module/fabricator
+ * /obj/item/rig_module/device/flash
  */
+
+/obj/item/rig_module/device/flash
+	name = "mounted flash"
+	desc = "You are the law."
+	icon_state = "flash"
+	interface_name = "mounted flash"
+	interface_desc = "Stuns your target by blinding them with a bright light."
+	device_type = /obj/item/device/flash
 
 /obj/item/rig_module/grenade_launcher
 
@@ -23,7 +32,7 @@
 	charges = list(
 		list("flashbang",   "flashbang",   /obj/item/weapon/grenade/flashbang,  3),
 		list("smoke bomb",  "smoke bomb",  /obj/item/weapon/grenade/smokebomb,  3),
-		list("EMP grenade", "EMP grenade", /obj/item/weapon/grenade/empgrenade, 3),
+		list("EMP grenade", "EMP grenade", /obj/item/weapon/grenade/empgrenade, 3)
 		)
 
 /obj/item/rig_module/grenade_launcher/accepts_item(var/obj/item/input_device, var/mob/living/user)
@@ -76,9 +85,23 @@
 
 	charge.charges--
 	var/obj/item/weapon/grenade/new_grenade = new charge.product_type(get_turf(H))
-	H.visible_message("<span class='danger'>[H] launches \a [new_grenade]!")
+	H.visible_message("<span class='danger'>[H] launches \a [new_grenade]!</span>")
 	new_grenade.activate(H)
 	new_grenade.throw_at(target,fire_force,fire_distance)
+
+/obj/item/rig_module/grenade_launcher/frag
+
+	name = "mounted frag grenade launcher"
+	desc = "A shoulder-mounted fragmentation explosives dispenser."
+	selectable = 1
+	icon_state = "grenade"
+
+	interface_name = "integrated frag grenade launcher"
+	interface_desc = "Discharges loaded frag grenades against the wearer's location."
+
+	charges = list(
+		list("frag grenade",   "frag grenade",   /obj/item/weapon/grenade/frag,  3)
+		)
 
 /obj/item/rig_module/mounted
 
@@ -143,6 +166,50 @@
 	interface_desc = "A shoulder-mounted cell-powered taser."
 
 	gun_type = /obj/item/weapon/gun/energy/taser/mounted
+	
+/obj/item/rig_module/mounted/pulse
+
+	name = "mounted pulse rifle"
+	desc = "A shoulder-mounted battery-powered pulse rifle mount."
+	icon_state = "pulse"
+
+	interface_name = "mounted pulse rifle"
+	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
+
+	gun_type = /obj/item/weapon/gun/energy/pulse_rifle/mounted
+	
+/obj/item/rig_module/mounted/smg
+
+	name = "mounted submachine gun"
+	desc = "A forearm-mounted suit-powered ballistic submachine gun."
+	icon_state = "smg"
+
+	interface_name = "mounted submachine gun"
+	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
+
+	gun_type = /obj/item/weapon/gun/energy/mountedsmg
+	
+/obj/item/rig_module/mounted/xray
+
+	name = "mounted xray laser gun"
+	desc = "A forearm-mounted suit-powered xray laser gun."
+	icon_state = "xray"
+
+	interface_name = "mounted xray laser gun"
+	interface_desc = "A forearm-mounted suit-powered xray laser gun."
+
+	gun_type = /obj/item/weapon/gun/energy/xray/mounted
+	
+/obj/item/rig_module/mounted/ion
+
+	name = "mounted ion rifle"
+	desc = "A shoulder-mounted battery-powered ion rifle mount."
+	icon_state = "ion"
+
+	interface_name = "mounted ion rifle"
+	interface_desc = "A shoulder-mounted cell-powered ion rifle."
+
+	gun_type = /obj/item/weapon/gun/energy/ionrifle/mounted
 
 /obj/item/rig_module/mounted/energy_blade
 
@@ -234,7 +301,7 @@
 		firing.throw_at(target,fire_force,fire_distance)
 	else
 		if(H.l_hand && H.r_hand)
-			H << "<span class='danger'>Your hands are full."
+			H << "<span class='danger'>Your hands are full.</span>"
 		else
 			var/obj/item/new_weapon = new fabrication_type()
 			new_weapon.forceMove(H)

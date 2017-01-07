@@ -11,11 +11,12 @@
 	selection_color = "#ffdddd"
 	idtype = /obj/item/weapon/card/id/silver
 	req_admin_notify = 1
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_court,
+	economic_modifier = 10
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_court,
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
@@ -60,8 +61,9 @@
 	spawn_positions = 1
 	supervisors = "the head of security"
 	selection_color = "#ffeeee"
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_court, access_maint_tunnels, access_morgue, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_court, access_maint_tunnels, access_external_airlocks)
+	economic_modifier = 5
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_external_airlocks)
 	minimal_player_age = 5
 
 	equip(var/mob/living/carbon/human/H)
@@ -103,10 +105,9 @@
 	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	alt_titles = list("Forensic Technician")
-
-	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court)
-	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court)
-	alt_titles = list("Forensic Technician")
+	economic_modifier = 5
+	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels)
+	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels)
 	minimal_player_age = 3
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -117,7 +118,7 @@
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/det(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/detective(H), slot_belt)
 		if(H.species.name == "Tajara")
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
@@ -134,8 +135,8 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/forensics/blue(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase/crimekit, slot_r_hand)
 		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/det_suit(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/det_hat(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/det_trench(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/det(H), slot_head)
 		return 1
 
 
@@ -150,8 +151,10 @@
 	spawn_positions = 4
 	supervisors = "the head of security"
 	selection_color = "#ffeeee"
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_court, access_maint_tunnels, access_morgue, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_court, access_maint_tunnels, access_external_airlocks)
+//	alt_titles = list("Junior Officer") //aurora already has security cadets
+	economic_modifier = 4
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks)
 	minimal_player_age = 3
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

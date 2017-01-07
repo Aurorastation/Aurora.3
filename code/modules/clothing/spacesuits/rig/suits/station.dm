@@ -19,6 +19,42 @@
 	light_overlay = "helmet_light_dual"
 	camera_networks = list(NETWORK_SECURITY)
 
+/obj/item/weapon/rig/internalaffairs
+	name = "augmented tie"
+	suit_type = "augmented suit"
+	desc = "Prepare for paperwork."
+	icon_state = "internalaffairs_rig"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+	slowdown = 0
+	offline_slowdown = 0
+	offline_vision_restriction = 0
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/briefcase,/obj/item/weapon/storage/secure/briefcase)
+
+	req_access = list()
+	req_one_access = list()
+
+	glove_type = null
+	helm_type = null
+	boot_type = null
+
+/obj/item/weapon/rig/internalaffairs/equipped
+
+	req_access = list(access_lawyer)
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/device/flash,
+		/obj/item/rig_module/device/paperdispenser,
+		/obj/item/rig_module/device/pen,
+		/obj/item/rig_module/device/stamp
+		)
+
+	glove_type = null
+	helm_type = null
+	boot_type = null
+
 /obj/item/weapon/rig/industrial
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
@@ -47,7 +83,7 @@
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson
 		)
-		
+
 /obj/item/weapon/rig/industrial/syndicate
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig
@@ -63,6 +99,7 @@
 	offline_vision_restriction = 1
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
+	glove_type = /obj/item/clothing/gloves/rig/eva
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
 
@@ -78,7 +115,9 @@
 		/obj/item/rig_module/vision/meson
 		)
 
-//Chief Engineer's rig. This is sort of a halfway point between the old hardsuits (voidsuits) and the rig class.
+/obj/item/clothing/gloves/rig/eva
+	siemens_coefficient = 0
+
 /obj/item/weapon/rig/ce
 
 	name = "advanced voidsuit control module"
@@ -89,17 +128,15 @@
 	slowdown = 0
 	offline_slowdown = 0
 	offline_vision_restriction = 0
+	max_heat_protection_temperature = 7500
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
+	glove_type = /obj/item/clothing/gloves/rig/ce
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
 
-
 	req_access = list()
 	req_one_access = list()
-
-	boot_type =  null
-	glove_type = null
 
 /obj/item/weapon/rig/ce/equipped
 
@@ -113,13 +150,8 @@
 		/obj/item/rig_module/vision/meson
 		)
 
-	chest_type = /obj/item/clothing/suit/space/rig/ce
-	boot_type =  null
-	glove_type = null
-
-/obj/item/clothing/suit/space/rig/ce
-	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+/obj/item/clothing/gloves/rig/ce
+	siemens_coefficient = 0
 
 /obj/item/weapon/rig/hazmat
 
@@ -127,13 +159,12 @@
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	icon_state = "science_rig"
-	armor = list(melee = 45, bullet = 5, laser = 45, energy = 80, bomb = 60, bio = 100, rad = 100)
+	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
 	slowdown = 1
 	offline_vision_restriction = 1
+	emp_protection = 40
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
-
-	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/weapon/storage/box/excavation,/obj/item/weapon/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/weapon/pickaxe/hand,/obj/item/weapon/storage/bag/fossils)
 
@@ -179,7 +210,7 @@
 /obj/item/weapon/rig/hazard
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
-	desc = "A Nanotrasen security hardsuit designed for prolonged EVA in dangerous environments."
+	desc = "A Security hardsuit designed for prolonged EVA in dangerous environments."
 	icon_state = "hazard_rig"
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 30)
 	slowdown = 1

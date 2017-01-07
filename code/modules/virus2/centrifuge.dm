@@ -171,7 +171,7 @@
 	update_icon()
 	ping("\The [src] pings, \"Pathogen isolated.\"")
 
-/obj/machinery/computer/centrifuge/proc/print(var/mob/user)
+/obj/machinery/computer/centrifuge/print(var/mob/user)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
 	P.name = "paper - Pathology Report"
 	P.info = {"
