@@ -115,7 +115,7 @@
 		..()
 
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile) && desnity)
+	if(istype(mover,/obj/item/projectile) && density)
 		if (prob(80))
 //Holoscreens are non solid, and the frames of the computers are thin. So projectiles will usually
 //pass through
