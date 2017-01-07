@@ -85,6 +85,8 @@ For reference, here are the standard span classes for user output, and the corre
 
 There exist pre-processor macros for using these spans. `span(class, text)` which is the equivilant of typing a string that looks like this: `"<span class='[class]'>[text]</span>"`.
 
+The stylesheet available for use within DM can be found in `code/stylesheet.dm`.
+
 ### Usage of forceMove
 In order to make `Exited()` and `Entered()` procs more reliable, the usage of `forceMove()` when forcibly moving one item to another location, be it another item or turf, is required. Directly changing an item's loc values will skip over calls to the aforementioned procs, thus making them less useful and more unreliable.
 
