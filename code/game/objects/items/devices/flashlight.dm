@@ -57,7 +57,7 @@
 			if(!vision)
 				user << span("warning", "You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!")
 
-			user.visible_message(span("notice", "\The [user] directs [src] to [M]'s eyes.</span>"), span("notice", "You direct [src] to [M]'s eyes."))
+			user.visible_message(span("notice", "\The [user] directs [src] to [M]'s eyes."), span("notice", "You direct [src] to [M]'s eyes."))
 
 			if (H != user)	//can't look into your own eyes buster
 				if(M.stat == DEAD || M.blinded)	//mob is dead or fully blind
