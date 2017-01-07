@@ -135,7 +135,7 @@
 			new/obj/item/clothing/gloves/white(src)
 			new/obj/item/clothing/mask/gas/mime(src)
 			new/obj/item/clothing/head/beret(src)
-			new/obj/item/clothing/suit/suspenders(src)
+			new/obj/item/clothing/accessory/suspenders(src)
 			new/obj/item/weapon/pen/crayon/mime(src)
 			new/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing(src)
 		if(96)
@@ -179,6 +179,11 @@
 			var/turf/T = get_turf(src.loc)
 			explosion(T, 0, 0, 1, 2)
 			qdel(src)
+	
+/obj/structure/closet/crate/secure/loot/emag_act(var/remaining_charges, var/mob/user)	
+	if (locked)
+		user << "<span class='notice'>The crate unlocks!</span>"
+		locked = 0
 
 /obj/structure/closet/crate/secure/loot/proc/check_input(var/input)
 	if(length(input) != codelen)

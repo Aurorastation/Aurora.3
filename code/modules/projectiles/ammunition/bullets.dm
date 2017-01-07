@@ -19,7 +19,7 @@
 	projectile_type = /obj/item/projectile/bullet/pistol
 
 /obj/item/ammo_casing/trod
-	desc = "Hyperdense tungsten rod residue."
+	desc = "hyperdense tungsten rod residue."
 	icon_state = "trod"
 	caliber = "trod"
 	projectile_type = /obj/item/projectile/bullet/trod
@@ -33,6 +33,11 @@
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
+
+/obj/item/ammo_casing/a556/ap
+	desc = "A 5.56mm armor piercing round."
+	caliber = "a556"
+	projectile_type = /obj/item/projectile/bullet/rifle/a556/ap
 
 /obj/item/ammo_casing/c9mmf
 	desc = "A 9mm flash shell casing."
@@ -213,3 +218,21 @@
 	caliber = "357"
 	projectile_type = /obj/item/projectile/bullet/cyanideround
 */
+
+/obj/item/ammo_casing/cap
+	name = "cap"
+	desc = "A cap for children toys."
+	caliber = "caps"
+	color = "#FF0000"
+	projectile_type = /obj/item/projectile/bullet/pistol/cap
+
+/obj/item/ammo_casing/flechette
+	desc = "A flechette casing."
+	icon = 'icons/obj/terminator.dmi'
+	icon_state = "flechette_casing"
+	caliber = "flechette"
+	projectile_type = /obj/item/projectile/bullet/flechette
+
+/obj/item/ammo_casing/flechette/explosive
+	projectile_type = /obj/item/projectile/bullet/flechette/explosive
+

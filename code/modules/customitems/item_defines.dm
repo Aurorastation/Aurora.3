@@ -65,11 +65,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "nebula_glasses"
 	item_state = "nebula_glasses"
 	contained_sprite = 1
+	var/obj/item/weapon/disk/chip
 
-/obj/item/clothing/glasses/fluff/nebula_glasses/var/chip
-	/obj/item/clothing/glasses/fluff/nebula_glasses/New()
-		chip = new /obj/item/weapon/disk/fluff/nebula_chip()
-		..()
+/obj/item/clothing/glasses/fluff/nebula_glasses/New()
+	chip = new /obj/item/weapon/disk/fluff/nebula_chip()
+	..()
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)
@@ -328,7 +328,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	return
 
-/obj/item/weapon/implanter/fluff/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/implanter/fluff/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if (!M.ckey || M.ckey != allowed_ckey)
 		return
 
@@ -469,7 +469,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	canremove = 0
 	abstract = 1
-	species_restricted = list("Machine")
+	species_restricted = list("Baseline Frame")
 
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100
@@ -633,10 +633,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rur_collar"
 	item_state = "rur_collar"
 	contained_sprite = 1
-	flags = MASKCOVERSMOUTH
 	body_parts_covered = 0
 	canremove = 0
-	species_restricted = list("Machine")
+	species_restricted = list("Baseline Frame")
 	var/emagged = 0
 
 /obj/item/clothing/mask/fluff/rur_collar/attackby(obj/item/I, mob/user)

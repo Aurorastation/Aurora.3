@@ -17,8 +17,6 @@
 			return 0
 		if (affected.is_stump())
 			return 0
-		if (target_zone == "head" && target.species && (target.species.flags & IS_SYNTHETIC))
-			return 1
 		if (affected.status & ORGAN_ROBOT)
 			return 0
 		return 1
@@ -111,16 +109,16 @@
 
 /datum/surgery_step/generic/cut_open
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,		\
-	/obj/item/weapon/material/knife = 75,	\
-	/obj/item/weapon/material/shard = 50, 		\
+	/obj/item/weapon/scalpel = 100,	
+	/obj/item/weapon/material/knife = 75,
+	/obj/item/weapon/material/shard = 50
 	)
 
 	min_duration = 90
 	max_duration = 110
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if(target.get_species() == "Vaurca")
+		if(isvaurca(target))
 			return 0
 		else
 			if(..())
@@ -154,8 +152,8 @@
 
 /datum/surgery_step/generic/cut_openvaurca
 	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 85, \
-	/obj/item/weapon/pickaxe/ = 15, \
+	/obj/item/weapon/surgicaldrill = 85,
+	/obj/item/weapon/pickaxe/ = 15
 	)
 
 	min_duration = 110
@@ -284,10 +282,11 @@
 		target.apply_damage(12, BRUTE, affected, sharp=1)
 
 /datum/surgery_step/generic/cauterize
-	allowed_tools = list(//Fixed these tool probabilities because they were dumb
-	/obj/item/weapon/cautery = 100,			\
-	/obj/item/clothing/mask/smokable/cigarette = 25,	\
-	/obj/item/weapon/flame/lighter = 50,			\
+	//Fixed these tool probabilities because they were dumb
+	allowed_tools = list(
+	/obj/item/weapon/cautery = 100,
+	/obj/item/clothing/mask/smokable/cigarette = 25,
+	/obj/item/weapon/flame/lighter = 50,
 	/obj/item/weapon/weldingtool = 75
 	)
 
@@ -322,9 +321,9 @@
 
 /datum/surgery_step/generic/amputate
 	allowed_tools = list(
-	/obj/item/weapon/circular_saw = 100, \
-	/obj/item/weapon/melee/energy = 100, \
-	/obj/item/weapon/melee/chainsword = 100, \
+	/obj/item/weapon/circular_saw = 100,
+	/obj/item/weapon/melee/energy = 100,
+	/obj/item/weapon/melee/chainsword = 100,
 	/obj/item/weapon/material/hatchet = 55
 	)
 

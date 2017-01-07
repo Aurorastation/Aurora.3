@@ -1,4 +1,5 @@
 /mob/living
+	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 
 	//Health and life related vars
@@ -33,13 +34,19 @@
 	var/mob_push_flags = 0
 	var/mob_always_swap = 0
 
+	var/mob/living/cameraFollow = null
+	var/list/datum/action/actions = list()
+
 	var/tod = null // Time of death
 	var/update_slimes = 1
 	var/silent = null 		// Can't talk. Value goes down every life proc.
-	var/mob_size            // Used by lockers.
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks
 	var/footstep = 0
+
+	var/failed_last_breath = 0 //This is used to determine if the mob failed a breath. If they did fail a brath, they will attempt to breathe each tick, otherwise just once per 4 ticks.
+	var/possession_candidate // Can be possessed by ghosts if unplayed.
+
 	var/list/stomach_contents = list()//This is moved here from carbon defines
 	var/composition_reagent
 	var/composition_reagent_quantity
@@ -60,3 +67,5 @@
 	var/exhaust_threshold = 50
 
 	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
+
+	var/total_radiation	// DON'T MODIFY THIS DIRECTLY. USE apply_radiation()!

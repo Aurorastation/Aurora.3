@@ -1,12 +1,12 @@
 /obj/item/weapon/gun/projectile/heavysniper
-	name = "\improper PTR-7 rifle"
-	desc = "A portable anti-armour rifle fitted with a scope. Originally designed to used against armoured exosuits, it is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	name = "anti-materiel rifle"
+	desc = "A portable anti-armour rifle fitted with a scope, the HI PTR-7 Rifle was originally designed to used against armoured exosuits. It is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = "combat=8;materials=2;syndicate=8"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	caliber = "14.5mm"
 	recoil = 4 //extra kickback
 	handle_casings = HOLD_CASINGS
@@ -22,7 +22,6 @@
 	accuracy_wielded = -1
 
 	//action button for wielding
-	icon_action_button = "action_blank"
 	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/heavysniper/can_wield()
@@ -85,7 +84,7 @@
 	set popup_menu = 1
 
 	if(wielded)
-		toggle_scope(2.0)
+		toggle_scope(2.0, usr)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
@@ -97,7 +96,7 @@
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = "combat=6;materials=2"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
 	caliber = "PPS"
 	recoil = 1
 	silenced = 1

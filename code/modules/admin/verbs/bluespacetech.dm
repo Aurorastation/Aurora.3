@@ -85,9 +85,9 @@
 
 	//Add the rest of the languages
 	//Because universal speak doesn't work right.
-	bst.add_language("Sinta'unathi")
-	bst.add_language("Siik'maas")
-	bst.add_language("Skrellian")
+	bst.add_language(LANGUAGE_UNATHI)
+	bst.add_language(LANGUAGE_SIIK_MAAS)
+	bst.add_language(LANGUAGE_SKRELLIAN)
 	bst.add_language("Vox-pidgin")
 	bst.add_language("Rootsong")
 	bst.add_language("Ceti Basic")
@@ -124,12 +124,12 @@
 	binarycheck()
 		return 1
 
-	suicide()
+	proc/suicide()
 		if(key && species.name != "Human")
 			switch(species.name)
 				if("Tajara")
 					bsc()
-				if("Machine")
+				if("Baseline Frame")
 					bsb()
 				if("Diona")
 					bsd()
@@ -137,6 +137,8 @@
 					bsu()
 				if("Skrell")
 					bss()
+				if("Vaurca")
+					bsv()
 			return
 
 		src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
@@ -180,7 +182,7 @@
 			suicide()
 
 	proc/bsb()
-		if(set_species("Machine"))
+		if(set_species("Baseline Frame"))
 			h_style = "blue IPC screen"
 			name = "Bluespace Bot"
 			voice_name = "Bluespace Bot"
@@ -219,16 +221,16 @@
 	proc/bsu()
 		if(set_species("Unathi"))
 			h_style = "Unathi Horns"
-			name = "Bluespace Snake"
-			voice_name = "Bluespace Snake"
-			real_name = "Bluespace Snake"
-			mind.name = "Bluespace Snake"
+			name = "Bluespace Lizard"
+			voice_name = "Bluespace Lizard"
+			real_name = "Bluespace Lizard"
+			mind.name = "Bluespace Lizard"
 			if(wear_id)
 				var/obj/item/weapon/card/id/id = wear_id
 				if(istype(wear_id, /obj/item/device/pda))
 					var/obj/item/device/pda/pda = wear_id
 					id = pda.id
-				id.registered_name = "Bluespace Snake"
+				id.registered_name = "Bluespace Lizard"
 			regenerate_icons()
 		else
 			ghostize(0)
@@ -249,6 +251,25 @@
 					id = pda.id
 				id.registered_name = "Bluespace Squid"
 			gender = "female"
+			regenerate_icons()
+		else
+			ghostize(0)
+			key = null
+			suicide()
+
+	proc/bsv()
+		if(set_species("Vaurca Worker"))
+			h_style = "Bald"
+			name = "Bluespace Bug"
+			voice_name = "Bluespace Bug"
+			real_name = "Bluespace Bug"
+			mind.name = "Bluespace Bug"
+			if(wear_id)
+				var/obj/item/weapon/card/id/id = wear_id
+				if(istype(wear_id, /obj/item/device/pda))
+					var/obj/item/device/pda/pda = wear_id
+					id = pda.id
+				id.registered_name = "Bluespace Bug"
 			regenerate_icons()
 		else
 			ghostize(0)
@@ -297,7 +318,7 @@
 		var/client/C = src.client
 		if(C.holder && C.holder.original_mob)
 			if(C.holder.original_mob.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
-				suicide()
+				//suicide()
 				return
 
 			C.holder.original_mob.key = key
@@ -384,6 +405,7 @@
 	desc = "A pair of sunglasses, these look modified, 'BST' marked on the side."
 //	var/list/obj/item/clothing/glasses/hud/health/hud = null
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
 /*	New()
 		..()

@@ -3,6 +3,7 @@
 	name = "cat"
 	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
 	icon_state = "cat2"
+	item_state = "cat2"
 	icon_living = "cat2"
 	icon_dead = "cat2_dead"
 	speak = list("Meow!","Esp!","Purr!","HSSSSS")
@@ -29,6 +30,7 @@
 	var/mob/living/simple_animal/mouse/mousetarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
+	possession_candidate = 1
 
 /mob/living/simple_animal/cat/Life()
 	//MICE!
@@ -235,6 +237,7 @@
 	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
 	gender = FEMALE
 	icon_state = "cat"
+	item_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
 	befriend_job = "Chief Medical Officer"
@@ -248,6 +251,7 @@
 	name = "kitten"
 	desc = "D'aaawwww"
 	icon_state = "kitten"
+	item_state = "kitten"
 	icon_living = "kitten"
 	icon_dead = "kitten_dead"
 	gender = NEUTER
@@ -262,6 +266,7 @@
 	desc = "That's Bones the cat. He's a laid back, black cat. Meow."
 	gender = MALE
 	icon_state = "cat3"
+	item_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
 	var/friend_name = "Erstatz Vryroxes"

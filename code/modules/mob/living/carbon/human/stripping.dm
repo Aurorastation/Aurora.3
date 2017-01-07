@@ -3,8 +3,7 @@
 	if(!slot_to_strip || !istype(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) )
 		return 0
 
-	// TODO :  Change to incapacitated() on merge.
-	if(user.stat || user.lying || user.resting || user.buckled || !user.Adjacent(src) || user.restrained())
+	if(user.incapacitated()  || !user.Adjacent(src))
 		user << browse(null, text("window=mob[src.name]"))
 		return 0
 

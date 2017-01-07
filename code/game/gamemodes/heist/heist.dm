@@ -9,14 +9,16 @@ VOX HEIST ROUNDTYPE
 	required_players = 15
 	required_enemies = 4
 	round_description = "An unidentified bluespace signature has slipped past the Icarus and is approaching the station!"
-	extended_round_description = "The galaxy is a place full of dangers, even the inner colonies are not free of such scourges. \
-	Raiders and pirates are a well-know threat in the inhabited space, and places such as space stations are easy targets \
-	for their greedy plans."
+	extended_round_description = "The Company's majority control of phoron in Nyx has marked the \
+		station to be a highly valuable target for many competing organizations and individuals. Being a \
+		colony of sizable population and considerable wealth causes it to often be the target of various \
+		attempts of robbery, fraud and other malicious actions."
 	end_on_antag_death = 1
 	antag_tags = list(MODE_RAIDER)
 
 /datum/game_mode/heist/check_finished()
-	var/datum/shuttle/multi_shuttle/skipjack = shuttle_controller.shuttles["Skipjack"]
-	if (skipjack && skipjack.returned_home)
-		return 1
-	return ..()
+	if(!..())
+		var/datum/shuttle/multi_shuttle/skipjack = shuttle_controller.shuttles["Skipjack"]
+		if (skipjack && skipjack.returned_home)
+			return 1
+	return 0

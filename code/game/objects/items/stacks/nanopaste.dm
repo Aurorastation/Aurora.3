@@ -4,19 +4,20 @@
 	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 	icon = 'icons/obj/nanopaste.dmi'
 	icon_state = "tube"
-	origin_tech = "materials=4;engineering=3"
+	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
-	
+
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
 	var/construction_time = 5
 
 
-/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if (!istype(M) || !istype(user))
 		return 0
 	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			R.adjustBruteLoss(-15)
 			R.adjustFireLoss(-15)
 			R.updatehealth()
@@ -28,11 +29,12 @@
 
 	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/S = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/S = H.get_organ(target_zone)
 
 		if(S.open == 1)
 			if (S && (S.status & ORGAN_ROBOT))
 				if(S.get_damage())
+					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					S.heal_damage(15, 15, robo_repair = 1)
 					H.updatehealth()
 					use(1)

@@ -8,10 +8,13 @@
 	endWhen	=	90
 	var/datum/event_meta/EM
 	var/eventname
+	var/datum/event/E = null
 
 
 /datum/event/false_alarm/end()
 	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm")
+	if(two_part)
+		E.end()
 	if (EM)
 		qdel(EM)
 		EM = null
@@ -25,7 +28,6 @@
 
 	//Don't pick events that are excluded from faking.
 	EM = pick(EC.available_events)
-	var/datum/event/E = null
 	var/fake_allowed = 0
 	while (!fake_allowed)
 		if (E)
@@ -40,6 +42,9 @@
 		eventname = E.ic_name
 	else
 		eventname = EM.name
+	if(E.two_part)
+		two_part = 1
+		E.start()
 
 	E.kill()
 	E.announce()

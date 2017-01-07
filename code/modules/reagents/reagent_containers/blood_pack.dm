@@ -39,7 +39,7 @@
 			if(10 to 50) 		icon_state = "half"
 			if(51 to INFINITY)	icon_state = "full"
 
-/obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob)
+/obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if (user == M && (user.mind.vampire))
 		if (reagents.get_reagent_amount("blood"))
 			user.visible_message("<span class='warning'>[user] raises \the [src] up to \his[user] mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")

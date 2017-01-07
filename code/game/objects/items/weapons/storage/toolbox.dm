@@ -11,8 +11,8 @@
 	throw_range = 7
 	w_class = 4
 	max_w_class = 3
-	max_storage_space = 14 //can hold 7 w_class-2 items or up to 3 w_class-3 items (with 1 w_class-2 item as change).
-	origin_tech = "combat=1"
+	max_storage_space = 14 //enough to hold all starting contents
+	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
 	var/stunhit = 0
 
@@ -72,17 +72,16 @@
 	name = "suspicious looking toolbox"
 	icon_state = "syndicate"
 	item_state = "toolbox_syndi"
-	origin_tech = "combat=1;syndicate=1"
+	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
 	force = 7.0
 
 	New()
 		..()
-		var/color = pick("red","yellow","green","blue","pink","orange","cyan","white")
+		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)
 		new /obj/item/weapon/weldingtool(src)
 		new /obj/item/weapon/crowbar(src)
-		new /obj/item/stack/cable_coil(src,30,color)
 		new /obj/item/weapon/wirecutters(src)
 		new /obj/item/device/multitool(src)
 
@@ -97,12 +96,12 @@
 		update_force()
 
 
-/obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/weapon/storage/toolbox/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	update_force()
-	..(M, user)
-	if (contents.len)
-		spill(3, get_turf(M))
-		playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
-		update_force()
-		user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+	if (..())
+		if (contents.len)
+			spill(3, get_turf(M))
+			playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
+			update_force()
+			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 

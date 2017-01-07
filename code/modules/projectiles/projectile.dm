@@ -25,8 +25,8 @@
 	var/yo = null
 	var/xo = null
 	var/current = null
-	var/obj/shot_from = null // the object which shot us
-	var/atom/original = null // the original target clicked
+	var/shot_from = "" // name of the object which shot us
+	var/atom/original = null // the target clicked (not necessarily where the projectile is headed). Should probably be renamed to 'target' or something.
 	var/turf/starting = null // the projectile's starting turf
 	var/list/permutated = list() // we've passed through these atoms, don't try to hit them again
 
@@ -58,6 +58,7 @@
 	var/agony = 0
 	var/incinerate = 0
 	var/embed = 0 // whether or not the projectile can embed itself in the mob
+	var/shrapnel_type //type of shrapnel the projectile leaves in its target.
 
 	var/hitscan = 0		// whether the projectile should be hitscan
 	var/step_delay = 1	// the delay between iterations if not a hitscan projectile
@@ -97,6 +98,11 @@
 	if(!embed || damage_type != BRUTE)
 		return 0
 	return 1
+
+/obj/item/projectile/proc/get_structure_damage()
+	if(damage_type == BRUTE || damage_type == BURN)
+		return damage
+	return 0
 
 //return 1 if the projectile should be allowed to pass through after all, 0 if not.
 /obj/item/projectile/proc/check_penetrate(var/atom/A)
@@ -180,7 +186,7 @@
 		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
 		result = target_mob.bullet_act(src, def_zone)
 
-	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
+	if(result == PROJECTILE_FORCE_MISS)
 		if(!silenced)
 			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
 		return 0

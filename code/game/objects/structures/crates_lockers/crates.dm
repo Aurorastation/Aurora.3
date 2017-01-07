@@ -10,9 +10,14 @@
 	climbable = 1
 //	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
 	var/rigged = 0
+	var/tablestatus = 0
+	pass_flags = PASSTABLE
+
 
 /obj/structure/closet/crate/can_open()
-	return 1
+	if (tablestatus != -1)//Can't be opened while under a table
+		return 1
+	return 0
 
 /obj/structure/closet/crate/can_close()
 	return 1
@@ -49,7 +54,7 @@
 
 	icon_state = icon_opened
 	src.opened = 1
-
+	pass_flags = 0
 	return 1
 
 /obj/structure/closet/crate/close()
@@ -74,32 +79,15 @@
 
 	icon_state = icon_closed
 	src.opened = 0
+	pass_flags = PASSTABLE//Crates can only slide under tables when closed
 	return 1
 
 
-/obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile) && prob(50))
-		return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
-		return 1
-	return 0
+
 
 /obj/structure/closet/crate/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(opened)
-		if(isrobot(user))
-			return
-		if(W.loc != user) // This should stop mounted modules ending up outside the module.
-			return
-		if(W.abstract) //Prevents 'abstract' items (such as grabs) from creeping into the material realm.
-			if(istype(W, /obj/item/weapon/grab))
-				var/obj/item/weapon/grab/G = W
-				user << "<span class='notice'>[G.affecting] just doesn't fit!</span>"
-			else
-				user << "<span class='notice'>[W] does not belong there!</span>"
-			return
-		user.drop_item()
-		if(W)
-			W.forceMove(src.loc)
+		return ..()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
 	else if(istype(W, /obj/item/stack/cable_coil))
@@ -143,6 +131,142 @@
 				A.ex_act(severity)
 		qdel(src)
 
+
+
+
+
+/*
+==========================
+	Table interactions
+==========================
+*/
+/obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
+		var/obj/structure/closet/crate/C = mover
+		if (tablestatus == 1 && C.tablestatus != 1 && !C.opened)//Allow the crate to slide under us if we're ontop of a table
+			return 1
+		else if (tablestatus == -1 && C.tablestatus == 1)//Allow it to slide over us if we're underneath a table
+			return 1
+		else//Otherwise, block it. Don't allow two crates on the same level of a tile
+			return 0
+	if(istype(mover,/obj/item/projectile))
+		if (tablestatus == 1)//They always block shots on a table
+			return 0
+		else if (!tablestatus && prob(15))//Usually will not block shots when lying on the floor
+			return 0
+		else return 1
+	else if(istype(mover) && mover.checkpass(PASSTABLE))
+		return 1
+	return 0
+
+/obj/structure/closet/crate/Move(var/turf/destination, dir)
+	if(..())
+		if (locate(/obj/structure/table) in destination)
+			if (tablestatus != 1)
+				set_tablestatus(-1)//Slide under the table
+		else
+			set_tablestatus(0)
+
+
+/obj/structure/closet/crate/toggle(var/mob/user)
+	if (!opened && tablestatus == -1)
+		user << span("warning", "You can't open that while it's under the table")
+		return 0
+	else
+		..()
+
+/obj/structure/closet/crate/proc/set_tablestatus(var/target)
+	if (tablestatus != target)
+		tablestatus = target
+
+	spawn(3)//Short spawn prevents things popping up where they shouldnt
+		switch (target)
+			if (1)
+				layer = LAYER_ABOVE_TABLE
+				pixel_y = 8
+			if (0)
+				layer = initial(layer)
+				pixel_y = 0
+			if (-1)
+				layer = LAYER_UNDER_TABLE
+				pixel_y = -4
+
+
+//For putting on tables
+/obj/structure/closet/crate/MouseDrop(atom/over_object)
+	if (istype(over_object, /obj/structure/table))
+		put_on_table(over_object, usr)
+		return 1
+	else
+		return ..()
+
+
+
+/obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
+	if (!table || !user || (tablestatus == -1))
+		return
+
+	//User must be in reach of the crate
+	if (!user.Adjacent(src))
+		user << span("warning", "You need to be closer to the crate!")
+		return
+
+	//One of us has to be near the table
+	if (!user.Adjacent(table) && !Adjacent(table))
+		user << span("warning", "Take the crate closer to the table!")
+		return
+
+
+	for (var/obj/structure/closet/crate/C in get_turf(table))
+		if (C.tablestatus != -1)
+			user << span("warning", "There's already a crate on this table!")
+			return
+
+	//Crates are heavy, hauling them onto tables is hard.
+	//The more stuff thats in it, the longer it takes
+	//Good place to factor in Strength in future
+	var/timeneeded = 20
+	var/success = 0
+
+
+
+	if (tablestatus == 1 && Adjacent(table))
+		//Sliding along a tabletop we're already on. Instant and silent
+		timeneeded = 0
+		success = 1
+	else
+		//Add time based on mass of contents
+		for (var/obj/O in contents)
+			timeneeded += 3* O.w_class
+		for (var/mob/M in contents)
+			timeneeded += 3* M.mob_size
+
+	if (timeneeded > 0)
+		user.visible_message("[user] starts hoisting [src] onto the [table]", "You start hoisting [src] onto the [table]. This will take about [timeneeded*0.1] seconds")
+		user.face_atom(src)
+		if (do_after(user, timeneeded, needhand = 1))
+			success = 1
+
+
+	if (success == 1)
+		forceMove(get_turf(table))
+		set_tablestatus(1)
+
+
+
+
+
+
+
+
+
+/*
+=====================
+	Secure Crates
+=====================
+*/
+
+
 /obj/structure/closet/crate/secure
 	desc = "A secure crate."
 	name = "Secure crate"
@@ -167,7 +291,8 @@
 		overlays += greenlight
 
 /obj/structure/closet/crate/secure/can_open()
-	return !locked
+	if (..())
+		return !locked
 
 /obj/structure/closet/crate/secure/proc/togglelock(mob/user as mob)
 	if(src.opened)
@@ -215,7 +340,15 @@
 /obj/structure/closet/crate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(is_type_in_list(W, list(/obj/item/weapon/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters)))
 		return ..()
-	if(locked && (istype(W, /obj/item/weapon/card/emag)||istype(W, /obj/item/weapon/melee/energy/blade)))
+	if(istype(W, /obj/item/weapon/melee/energy/blade))
+		emag_act(INFINITY, user)
+	if(!opened)
+		src.togglelock(user)
+		return
+	return ..()
+
+/obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
+	if(!broken)
 		overlays.Cut()
 		overlays += emag
 		overlays += sparks
@@ -224,11 +357,7 @@
 		src.locked = 0
 		src.broken = 1
 		user << "<span class='notice'>You unlock \the [src].</span>"
-		return
-	if(!opened)
-		src.togglelock(user)
-		return
-	return ..()
+		return 1
 
 /obj/structure/closet/crate/secure/emp_act(severity)
 	for(var/obj/O in src)
@@ -250,7 +379,7 @@
 			open()
 		else
 			src.req_access = list()
-			src.req_access += pick(get_all_accesses())
+			src.req_access += pick(get_all_station_access())
 	..()
 
 /obj/structure/closet/crate/plastic

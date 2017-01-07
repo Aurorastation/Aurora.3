@@ -1,12 +1,12 @@
 /mob/living/carbon/human/proc/monkeyize()
-	if (monkeyizing)
+	if (transforming)
 		return
 	for(var/obj/item/W in src)
 		if (W==w_uniform) // will be torn
 			continue
 		drop_from_inventory(W)
 	regenerate_icons()
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	stunned = 1
 	icon = null
@@ -21,7 +21,7 @@
 	sleep(48)
 	//animation = null
 
-	monkeyizing = 0
+	transforming = 0
 	stunned = 0
 	update_canmove()
 	invisibility = initial(invisibility)
@@ -46,7 +46,7 @@
 	return ..()
 
 /mob/living/carbon/human/AIize(move=1) // 'move' argument needs defining here too because BYOND is dumb
-	if (monkeyizing)
+	if (transforming)
 		return
 	for(var/t in organs)
 		qdel(t)
@@ -54,11 +54,11 @@
 	return ..(move)
 
 /mob/living/carbon/AIize()
-	if (monkeyizing)
+	if (transforming)
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -98,8 +98,6 @@
 					loc_landmark = sloc
 
 		O.loc = loc_landmark.loc
-		for (var/obj/item/device/radio/intercom/comm in O.loc)
-			comm.ai += O
 
 	O.on_mob_init()
 
@@ -112,12 +110,12 @@
 
 //human -> robot
 /mob/living/carbon/human/proc/Robotize()
-	if (monkeyizing)
+	if (transforming)
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	regenerate_icons()
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -165,12 +163,9 @@
 
 //human -> alien
 /mob/living/carbon/human/proc/Alienize()
-	if (monkeyizing)
-		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	regenerate_icons()
-	monkeyizing = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -188,12 +183,12 @@
 	return
 
 /mob/living/carbon/human/proc/slimeize(adult as num, reproduce as num)
-	if (monkeyizing)
+	if (transforming)
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	regenerate_icons()
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -222,12 +217,12 @@
 	return
 
 /mob/living/carbon/human/proc/corgize()
-	if (monkeyizing)
+	if (transforming)
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	regenerate_icons()
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -251,13 +246,13 @@
 		usr << "\red Sorry but this mob type is currently unavailable."
 		return
 
-	if(monkeyizing)
+	if(transforming)
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 
 	regenerate_icons()
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -343,6 +338,3 @@
 
 	//Not in here? Must be untested!
 	return 0
-
-
-

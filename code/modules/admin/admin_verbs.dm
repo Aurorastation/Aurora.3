@@ -1,6 +1,6 @@
 //admin verb groups - They can overlap if you so wish. Only one of each verb will exist in the verbs list regardless
 var/list/admin_verbs_default = list(
-	/datum/admins/proc/show_player_panel,	/*shows an interface for individual players, with various links (links require additional flags*/
+	/datum/admins/proc/show_player_panel,	//shows an interface for individual players, with various links (links require additional flags,
 	/client/proc/player_panel,
 	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
@@ -12,7 +12,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
 	/client/proc/player_panel_new,		/*shows an interface for all players, with links to various panels*/
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
-//	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage
+//	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage */
 	/datum/admins/proc/show_game_mode,  /*Configuration window for the current game mode.*/
 	/datum/admins/proc/force_mode_latespawn, /*Force the mode to try a latespawn proc*/
 	/datum/admins/proc/force_antag_latespawn, /*Force a specific template to try a latespawn proc*/
@@ -35,20 +35,20 @@ var/list/admin_verbs_admin = list(
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
-//	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage
+//	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage */
 	/client/proc/Jump,
-	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
-	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
-	/client/proc/jumptoturf,			/*allows us to jump to a specific turf*/
-	/client/proc/admin_call_shuttle,	/*allows us to call the emergency shuttle*/
-	/client/proc/admin_cancel_shuttle,	/*allows us to cancel the emergency shuttle, sending it back to centcomm*/
-	/client/proc/cmd_admin_direct_narrate,	/*send text directly to a player with no padding. Useful for narratives and fluff-text*/
-	/client/proc/cmd_admin_world_narrate,	/*sends text to all players with no padding*/
+	/client/proc/jumptokey,				//allows us to jump to the location of a mob with a certain ckey,
+	/client/proc/jumptomob,				//allows us to jump to a specific mob,
+	/client/proc/jumptoturf,			//allows us to jump to a specific turf,
+	/client/proc/admin_call_shuttle,	//allows us to call the emergency shuttle,
+	/client/proc/admin_cancel_shuttle,	//allows us to cancel the emergency shuttle, sending it back to centcomm,
+	/client/proc/cmd_admin_direct_narrate,	//send text directly to a player with no padding. Useful for narratives and fluff-text,
+	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
-	/client/proc/check_words,			/*displays cult-words*/
-	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
-	/client/proc/rename_silicon,		/*properly renames silicons*/
-	/client/proc/manage_silicon_laws,	/* Allows viewing and editing silicon laws. */
+	/client/proc/check_words,			//displays cult-words,
+	/client/proc/check_ai_laws,			//shows AI and borg laws,
+	/client/proc/rename_silicon,		//properly renames silicons,
+	/client/proc/manage_silicon_laws,	// Allows viewing and editing silicon laws. ,
 	/client/proc/check_antagonists,
 	/client/proc/admin_memo_control,			/*admin memo system. show/delete/write. +SERVER needed to delete admin memos of others*/
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
@@ -57,16 +57,17 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggle_hear_radio,		/*toggles whether we hear the radio*/
 	/client/proc/investigate_show,		/*various admintools for investigation. Such as a singulo grief-log*/
 	/client/proc/secrets,
-	/datum/admins/proc/toggleooc,		/*toggles ooc on/off for everyone*/
-	/datum/admins/proc/togglelooc,		/*toggles looc on/off for everyone*/
-	/datum/admins/proc/toggleoocdead,	/*toggles ooc on/off for everyone who is dead*/
-	/datum/admins/proc/toggledsay,		/*toggles dsay on/off for everyone*/
-	/client/proc/game_panel,			/*game panel, allows to change game-mode etc*/
-	/client/proc/cmd_admin_say,			/*admin-only ooc chat*/
+	/datum/admins/proc/toggleooc,		//toggles ooc on/off for everyone,
+	/datum/admins/proc/togglelooc,		//toggles looc on/off for everyone,
+	/datum/admins/proc/toggleoocdead,	//toggles ooc on/off for everyone who is dead,
+	/datum/admins/proc/toggledsay,		//toggles dsay on/off for everyone,
+	/client/proc/game_panel,			//game panel, allows to change game-mode etc,
+	/client/proc/cmd_admin_say,			//admin-only ooc chat,
+	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub,
 	/datum/admins/proc/PlayerNotes,
 	/client/proc/cmd_mod_say,
 	/datum/admins/proc/show_player_info,
-	/client/proc/free_slot,			/*frees slot for chosen job*/
+	/client/proc/free_slot,			//frees slot for chosen job,
 	/client/proc/cmd_admin_change_custom_event,
 	/client/proc/cmd_admin_rejuvenate,
 	/client/proc/toggleattacklogs,
@@ -77,15 +78,15 @@ var/list/admin_verbs_admin = list(
 	/client/proc/check_customitem_activity,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
-	/client/proc/response_team, // Response Teams admin verb
+	/client/proc/response_team, // Response Teams admin verb,
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
-	/client/proc/allow_character_respawn,    /* Allows a ghost to respawn */
+	/client/proc/allow_character_respawn,    // Allows a ghost to respawn ,
 	/client/proc/event_manager_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
-	/client/proc/change_human_appearance_admin,	/* Allows an admin to change the basic appearance of human-based mobs */
-	/client/proc/change_human_appearance_self,	/* Allows the human-based mob itself change its basic appearance */
+	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
+	/client/proc/change_human_appearance_self,	// Allows the human-based mob itself change its basic appearance ,
 	/client/proc/change_security_level,
 	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
@@ -96,7 +97,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_dev_say,
 	/client/proc/view_duty_log,
 	/client/proc/cmd_dev_bst,
-	/client/proc/clear_toxins
+	/client/proc/clear_toxins,
+	/client/proc/wipe_ai	// allow admins to force-wipe AIs
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -113,7 +115,7 @@ var/list/admin_verbs_fun = list(
 	/client/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
-        /client/proc/everyone_random,
+	/client/proc/everyone_random,
 	/client/proc/cinematic,
 	/datum/admins/proc/toggle_aliens,
 	/datum/admins/proc/toggle_space_ninja,
@@ -123,19 +125,23 @@ var/list/admin_verbs_fun = list(
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
 	/client/proc/roll_dices,
-	/datum/admins/proc/create_admin_fax
+	/datum/admins/proc/create_admin_fax,
+	/datum/admins/proc/call_supply_drop,
+	/datum/admins/proc/call_drop_pod
 	)
+
 var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
 	/datum/admins/proc/check_custom_items,
 	/datum/admins/proc/spawn_plant,
-	/datum/admins/proc/spawn_atom,		/*allows us to spawn instances*/
+	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
 	/client/proc/respawn_character,
 	/client/proc/virus2_editor,
 	/client/proc/spawn_chemdisp_cartridge
 	)
 var/list/admin_verbs_server = list(
+	/datum/admins/proc/capture_map,
 	/client/proc/Set_Holiday,
 	/client/proc/ToRban,
 	/datum/admins/proc/startnow,
@@ -146,7 +152,7 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/immreboot,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
-	/client/proc/cmd_admin_delete,		/*delete an instance/object/mob/etc*/
+	/client/proc/cmd_admin_delete,		// delete an instance/object/mob/etc,
 	/client/proc/cmd_debug_del_all,
 	/datum/admins/proc/adrev,
 	/datum/admins/proc/adspawn,
@@ -156,10 +162,11 @@ var/list/admin_verbs_server = list(
 	/client/proc/toggle_random_events,
 	/client/proc/check_customitem_activity,
 	/client/proc/nanomapgen_DumpImage,
-	/client/proc/admin_edit_motd
+	/client/proc/admin_edit_motd,
+	/client/proc/toggle_recursive_explosions
 	)
 var/list/admin_verbs_debug = list(
-        /client/proc/getruntimelog,                     /*allows us to access runtime logs to somebody*/
+	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/Debug2,
 	/client/proc/kill_air,
@@ -178,20 +185,27 @@ var/list/admin_verbs_debug = list(
 	/client/proc/restart_controller,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
+	/client/proc/apply_random_map,
+	/client/proc/overlay_random_map,
+	/client/proc/delete_random_map,
 	/client/proc/show_plant_genes,
 	/client/proc/enable_debug_verbs,
 	/client/proc/callproc,
+	/client/proc/callproc_target,
 	/client/proc/toggledebuglogs,
 	/client/proc/SDQL_query,
 	/client/proc/SDQL2_query,
 	/client/proc/Jump,
 	/client/proc/jumptomob,
 	/client/proc/jumptocoord,
-	/client/proc/dsay
+	/client/proc/dsay,
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/restart_sql
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
 	/client/proc/callproc,
+	/client/proc/callproc_target,
 	/client/proc/debug_controller
 	)
 
@@ -261,6 +275,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/restart_controller,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/callproc,
+	/client/proc/callproc_target,
 	/client/proc/Debug2,
 	/client/proc/reload_admins,
 	/client/proc/kill_air,
@@ -275,15 +290,16 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/enable_debug_verbs,
 	/client/proc/roll_dices,
 	/proc/possess,
-	/proc/release
+	/proc/release,
+	/client/proc/toggle_recursive_explosions
 	)
 var/list/admin_verbs_mod = list(
-	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
-	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
-	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
+	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
+	/client/proc/cmd_admin_pm_panel,	// admin-pm list,
+	/client/proc/debug_variables,		// allows us to -see- the variables of any instance in the game.,
 	/client/proc/toggledebuglogs,
 	/datum/admins/proc/PlayerNotes,
-	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
+	/client/proc/admin_ghost,			// allows us to ghost/reenter body at will,
 	/client/proc/cmd_mod_say,
 	/datum/admins/proc/show_player_info,
 	/client/proc/player_panel_new,
@@ -540,7 +556,7 @@ var/list/admin_verbs_cciaa = list(
 		prefs.ooccolor = input(src, "Please select your OOC colour.", "OOC colour") as color
 	else if(response == "Reset to default")
 		prefs.ooccolor = initial(prefs.ooccolor)
-	prefs.handle_preferences_save(src)
+	prefs.save_preferences()
 
 	feedback_add_details("admin_verb","OC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
@@ -634,7 +650,7 @@ var/list/admin_verbs_cciaa = list(
 	log_admin("[key_name(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].")
 	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].", 1)
 
-/client/proc/make_sound(var/obj/O in world) // -- TLE
+/client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
 	set category = "Special Verbs"
 	set name = "Make Sound"
 	set desc = "Display a message to everyone who can hear the target"
@@ -697,7 +713,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 
 	if(holder)
-		if(alert("Confirm self-deadmin for the round? You can't re-admin yourself without someont promoting you.",,"Yes","No") == "Yes")
+		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
 			log_admin("[src] deadmined themself.")
 			message_admins("[src] deadmined themself.", 1)
 			deadmin()
@@ -747,7 +763,7 @@ var/list/admin_verbs_cciaa = list(
 	var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in silicon_mob_list
 	if(!S) return
 
-	var/obj/nano_module/law_manager/L = new(S)
+	var/datum/nano_module/law_manager/L = new(S)
 	L.ui_interact(usr, state = admin_state)
 	log_and_message_admins("has opened [S]'s law manager.")
 	feedback_add_details("admin_verb","MSL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -909,7 +925,7 @@ var/list/admin_verbs_cciaa = list(
 		usr << "You now will get attack log messages"
 	else
 		usr << "You now won't get attack log messages"
-	prefs.handle_preferences_save(src)
+	prefs.save_preferences()
 
 
 /client/proc/toggleghostwriters()
@@ -984,3 +1000,53 @@ var/list/admin_verbs_cciaa = list(
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
 	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] the spell [S].", 1)
+
+/client/proc/toggle_recursive_explosions()
+	set category = "Server"
+	set name = "Explosion Type"
+	set desc = "Toggle between recursive and non-recursive explosions."
+
+	if (!check_rights(R_SERVER|R_DEBUG))
+		return
+
+	var/ans = alert(src, "This will force explosions to run in the [config.use_recursive_explosions ? "old manner (non-recursive)" : "new, realistic manner (recursive)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
+
+	if (!ans || ans == "Cancel")
+		src << "<span class='notice'>Cancelled.</span>"
+		return
+
+	config.use_recursive_explosions = !config.use_recursive_explosions
+
+	log_and_message_admins("has toggled explosions to be [config.use_recursive_explosions ? "recursive" : "non-recursive"].")
+	feedback_add_details("admin_verb", "TRE")
+
+/client/proc/wipe_ai()
+	set category = "Admin"
+	set name = "Wipe AI"
+	set desc = "Forces an AI to wipe its own core, ghosting them and freeing their job slot."
+
+	if (!check_rights(R_ADMIN))
+		return
+
+	var/mob/living/silicon/ai/target = input("Choose the AI to force-wipe:", "AI Termination") as null|anything in ai_list
+
+	if (alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
+		return
+	
+	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
+	target.do_wipe_core()
+	
+/client/proc/restart_sql()
+	set category = "Debug"
+	set name = "Reconnect SQL"
+	set desc = "Causes the server to re-establish its connection to the MySQL server."
+
+	if (!check_rights(R_DEBUG))
+		return
+
+	if (alert("Reconnect to SQL?", "SQL Reconnection", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("is attempting to reconnect the server to MySQL.")
+
+	dbcon.Reconnect()

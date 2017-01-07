@@ -1,4 +1,5 @@
 //Bees are spawned from an apiary, and will slowly die if it is destroyed.
+
 /mob/living/simple_animal/bee
 	name = "bees"
 	icon = 'icons/obj/apiary_bees_etc.dmi'
@@ -14,12 +15,13 @@
 	var/toxic = 0
 	var/turf/target_turf
 	var/mob/target_mob
-	var/obj/machinery/apiary/parent
+	var/obj/machinery/beehive/parent
+	var/loner = 0
 	pass_flags = PASSTABLE
 	turns_per_move = 6
 	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
 
-/mob/living/simple_animal/bee/New(loc, var/obj/machinery/apiary/new_parent)
+/mob/living/simple_animal/bee/New(loc, var/obj/machinery/beehive/new_parent)
 	..()
 	parent = new_parent
 
@@ -34,20 +36,31 @@
 //Repeat until strength hits zero. only THEN do they die, and they qdel and leave no corpse in doing so
 //Because we don't have sprites for a carpet made of bee corpses.
 /mob/living/simple_animal/bee/death()
-	strength -= 1
-	if (strength <= 0)
-		if (prob(35))//probability to reduce spam
-			src.visible_message("\red The bee swarm completely dissipates.")
-		qdel(src)
-		return
-	else
-		health = maxHealth
-		if (prob(35))//probability to reduce spam
-			src.visible_message("\red The bee swarm starts to thin out a little.")
+	if (!gcDestroyed)
+		strength -= 1
+		if (strength <= 0)
+			if (prob(35))//probability to reduce spam
+				src.visible_message("\red The bee swarm completely dissipates.")
+			qdel(src)
+			return
+		else
+			health = maxHealth
+			if (prob(35))//probability to reduce spam
+				src.visible_message("\red The bee swarm starts to thin out a little.")
 
-	update_icons()
+		update_icons()
+	else
+		..()
 
 /mob/living/simple_animal/bee/Life()
+	if(!loner && strength && !parent && prob(7-strength))
+		strength -= 1
+
+	if(strength <= 0)
+		death()
+	else
+		update_icons()
+
 	..()
 
 	if(stat == CONSCIOUS)
@@ -69,8 +82,8 @@
 				else
 					prob_mult -= 0.01 *(min(worn_helmet.armor["bio"],30))// Is your helmet sealed? I can't get to 30% of your body.
 			if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
-				M.apply_damage(min(strength,2)+mut, BURN, sharp=1) // Stinging. The more mutated I am, the harder I sting.
-				M.apply_damage(max(strength*2,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
+				M.apply_damage(min(strength*0.85,2)+mut, BURN, sharp=1) // Stinging. The more mutated I am, the harder I sting.
+				M.apply_damage(max(strength*1.7,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
 				M << "\red You have been stung!"
 				M.flash_pain()
 
@@ -100,41 +113,47 @@
 					src.parent.owned_bee_swarms.Add(B)
 
 		//make some noise
-		if(prob(10))
+		if(prob(3))
 			src.visible_message("\blue [pick("Buzzzz.","Hmmmmm.","Bzzz.")]")
-			playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
+			playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 15, 1,-4)
 
-		//smoke, water and steam calms us down
 		var/calming = 0
-		var/list/calmers = list(/obj/effect/effect/smoke, \
-		/obj/effect/effect/water, \
-		/obj/effect/effect/foam, \
-		/obj/effect/effect/steam, \
-		/obj/effect/mist)
+		if (feral && istype(loc, /turf))
+			//smoke, water and steam calms us down
 
-		for(var/this_type in calmers)
-			var/mob/living/simple_animal/check_effect = locate() in src.loc
-			if(istype(check_effect))
-				if(check_effect.type == this_type)
-					calming = 1
+			var/list/calmers = list(/obj/effect/effect/smoke, \
+			/obj/effect/effect/water, \
+			/obj/effect/effect/foam, \
+			/obj/effect/effect/steam, \
+			/obj/effect/mist)
+
+			for(var/obj/effect/E in range(src, 2))//Check in 1-tile range because these effects often have 3x3 sprites
+				for (var/e in calmers)
+					if(istype(E, e))
+						calming = 1
+						break
+				if (calming)
 					break
 
-		if(calming)
-			if(feral > 0)
-				src.visible_message("\blue The bees calm down!")
-			feral = -10
-			target_mob = null
-			target_turf = null
-			wander = 1
+			if(calming)
+				if(feral > 0)
+					src.visible_message("\blue The bees calm down!")
+				feral = -15
+				target_mob = null
+				target_turf = null
+				wander = 1
 
 		for(var/mob/living/simple_animal/bee/B in src.loc)
 			if(B == src)
 				continue
 
 			if(feral > 0)
+
 				src.strength += B.strength
-				qdel(B)
+				B.strength = 0
+				B.update_icons()
 				update_icons()
+
 			else if(prob(10))
 				//make the other swarm of bees stronger, then move away
 				var/total_bees = B.strength + src.strength
@@ -200,17 +219,12 @@
 		pixel_x = rand(-12,12)
 		pixel_y = rand(-12,12)
 
-	if(!parent && prob(8-strength))
-		strength -= 1
-		if(strength <= 0)
-			death()
-		else
-			update_icons()
+
 
 
 /mob/living/simple_animal/bee/update_icons()
 	if(strength <= 5)
-		icon_state = "bees[strength]"
+		icon_state = "bees[round(strength,1)]"
 	else
 		icon_state = "bees_swarm"
 
@@ -233,6 +247,16 @@
 
 /mob/living/simple_animal/bee/attempt_pull(var/mob/living/grabber)
 	return attempt_grab(grabber)
+
+
+//Bee for spawning as a hostile mob, it wont fade without a hive
+/mob/living/simple_animal/bee/standalone
+	loner = 1
+
+/mob/living/simple_animal/bee/standalone/New(loc, var/obj/machinery/beehive/new_parent)
+	..()
+	strength = rand(4,8)
+	update_icons()
 
 /mob/living/simple_animal/bee/beegun
 	maxHealth = 30

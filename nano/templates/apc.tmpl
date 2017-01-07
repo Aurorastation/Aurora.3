@@ -1,3 +1,11 @@
+{{if data.failTime}}
+<div class='notice'>
+	<b><h3>SYSTEM FAILURE</h3></b>
+	<i>I/O regulators malfunction detected! Waiting for system reboot...</i><br>
+	Automatic reboot in {{:data.failTime}} seconds...
+	{{:helper.link('Reboot Now', 'refresh', {'reboot' : 1})}}<br><br><br>
+</div>
+{{else}}
 <div class='notice'>
 	{{if data.siliconUser}}
 		<div class="itemContentSmall">
@@ -100,7 +108,7 @@
 			Night Lighting:
 		</div>
 		<div class="itemContent"; style="width: 105px">
-			{{:helper.link('On', 'night', {'lmode' : 1}, data.lightingMode ? 'selected' : null)}}{{:helper.link('Off', 'close', {'lmode' : 1}, data.lightingMode ? null : 'selected')}}
+			{{:helper.link('On', 'night', {'lmode' : 'on'}, data.lightingMode ? 'selected' : null)}}{{:helper.link('Off', 'close', {'lmode' : 'off'}, data.lightingMode ? null : 'selected')}}
 		</div>
 	</div>
 
@@ -185,4 +193,4 @@
 	{{/if}}
 
 </div>
-		
+{{/if}}

@@ -1,10 +1,10 @@
 /obj/item/weapon/gun/projectile/revolver
 	name = "revolver"
-	desc = "A classic revolver. Uses .357 ammo"
+	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .357 ammo."
 	icon_state = "revolver"
 	item_state = "revolver"
 	caliber = "357"
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/a357
@@ -34,9 +34,8 @@
 
 /obj/item/weapon/gun/projectile/revolver/mateba
 	name = "mateba"
-	desc = "When you absolutely, positively need a 10mm hole in the other guy. Uses .357 ammo."	//>10mm hole >.357
 	icon_state = "mateba"
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 
 /obj/item/weapon/gun/projectile/revolver/detective
 	name = "revolver"
@@ -44,7 +43,7 @@
 	icon_state = "detective"
 	max_shells = 6
 	caliber = "38"
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 
@@ -98,3 +97,14 @@
 	load_method = SINGLE_CASING
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/a357
+
+/obj/item/weapon/gun/projectile/revolver/capgun
+	name = "cap gun"
+	desc = "Looks almost like the real thing! Ages 8 and up."
+	icon_state = "revolver"
+	item_state = "revolver"
+	caliber = "caps"
+	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
+	handle_casings = CYCLE_CASINGS
+	max_shells = 7
+	ammo_type = /obj/item/ammo_casing/cap

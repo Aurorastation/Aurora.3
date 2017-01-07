@@ -78,7 +78,7 @@
 				return;
 			}
 
-			if (obj.length < 2) {
+			if (obj.length < 3) {
 				return;
 			}
 
@@ -89,6 +89,10 @@
 			if (obj.update == 1 && !$(obj.div + '-tab').hasClass('updated')) {
 				$(obj.div + '-tab').addClass('updated');
 			}
+
+			if (obj.changeHash) {
+				hashes[obj.div + "-tab"] = obj.changeHash;
+			}
 		}
 
 		// Function to remove a tab. Specifically, the admin one.
@@ -98,6 +102,8 @@
 
 		var loopIter = 0;
 		var gotReply = false;
+		var hashes = {};
+		var hashesToUpdate = {};
 
 		// This loop repeats itself 10 times as it attempts to fetch Topic information.
 		// It's here to prevent a full null-route by spam protection. It'll just query until it finds something.
@@ -120,22 +126,52 @@
 			}, 500)
 		}
 
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires="+ d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i <ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+
 		// DOM ready function.
 		$(document).ready(function () {
 			// Handle tabs (mostly bootstrap).
 			$('#myTab a').click(function (e) {
 				e.preventDefault();
 
+				var elem = $(this);
+
 				// One special exception for the web interface.
-				if ($(this).attr('href') == '#webint') {
+				if (elem.attr('href') == '#webint') {
 					window.location = '?routeWebInt=interface/login/sso_server;routeAttributes=location=user_dashboard;';
 				} else {
-					$(this).tab('show');
+					elem.tab('show');
 				}
 
 				// Handle clicking of updated classes.
-				if ($(this).parent().hasClass('updated') == 1) {
-					$(this).parent().removeClass('updated');
+				if (elem.parent().hasClass('updated') == 1) {
+					elem.parent().removeClass('updated');
+
+					var parentId = "#" + elem.parent().attr("id");
+					// Move the hash around, and prep it for saving.
+					if (hashes.hasOwnProperty(parentId)) {
+						hashesToUpdate[parentId] = hashes[parentId];
+					}
 				}
 			});
 
@@ -144,6 +180,13 @@
 				var command = '?JSlink=dismiss;notification=' + $(this).attr('notification');
 				window.location = command;
 			});
+
+			// Operations before closing.
+			$(window).unload(function() {
+				window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
+			});
+
+			window.location = '?EMERG=action;data=' + getCookie("E-DAT");
 
 			// Call the IE analyzer and warn the user if they're horribly out of date.
 			analyzeIe();

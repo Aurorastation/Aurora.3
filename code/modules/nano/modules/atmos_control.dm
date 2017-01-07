@@ -1,16 +1,22 @@
-/obj/nano_module/atmos_control
+/datum/nano_module/atmos_control
 	name = "Atmospherics Control"
-	var/ui_ref
+	var/obj/access = new()
 	var/emagged = 0
+	var/ui_ref
 	var/list/monitored_alarms = list()
-	var/datum/topic_state/atmos_state
 
-/obj/nano_module/atmos_control/New(atmos_computer, req_access, req_one_access, monitored_alarm_ids)
+/datum/nano_module/atmos_control/New(atmos_computer, var/list/req_access, var/list/req_one_access, monitored_alarm_ids)
 	..()
-	loc = atmos_computer
-	src.req_access = req_access
-	src.req_one_access = req_one_access
-	atmos_state = default_state
+
+	if(istype(req_access))
+		access.req_access = req_access
+	else if(req_access)
+		log_debug("\The [src] was given an unepxected req_access: [req_access]")
+
+	if(istype(req_one_access))
+		access.req_one_access = req_one_access
+	else if(req_one_access)
+		log_debug("\The [src] given an unepxected req_one_access: [req_one_access]")
 
 	if(monitored_alarm_ids)
 		for(var/obj/machinery/alarm/alarm in machines)
@@ -19,7 +25,7 @@
 		// machines may not yet be ordered at this point
 		monitored_alarms = dd_sortedObjectList(monitored_alarms)
 
-/obj/nano_module/atmos_control/Topic(href, href_list)
+/datum/nano_module/atmos_control/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -31,8 +37,8 @@
 				alarm.ui_interact(usr, master_ui = ui_ref, state = TS)
 		return 1
 
-/obj/nano_module/atmos_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
-	var/data[0]
+/datum/nano_module/atmos_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
+	var/list/data = host.initial_data()
 	var/alarms[0]
 
 	// TODO: Move these to a cache, similar to cameras
@@ -43,20 +49,22 @@
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "atmos_control.tmpl", src.name, 625, 625, state = state)
+		if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
+			ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
 	ui_ref = ui
 
-/obj/nano_module/atmos_control/proc/generate_state(air_alarm)
+/datum/nano_module/atmos_control/proc/generate_state(air_alarm)
 	var/datum/topic_state/air_alarm/state = new()
 	state.atmos_control = src
 	state.air_alarm = air_alarm
 	return state
 
 /datum/topic_state/air_alarm
-	var/obj/nano_module/atmos_control/atmos_control	= null
-	var/obj/machinery/alarm/air_alarm				= null
+	var/datum/nano_module/atmos_control/atmos_control	= null
+	var/obj/machinery/alarm/air_alarm					= null
 
 /datum/topic_state/air_alarm/can_use_topic(var/src_object, var/mob/user)
 	if(has_access(user))
@@ -71,4 +79,4 @@
 	return extra_href
 
 /datum/topic_state/air_alarm/proc/has_access(var/mob/user)
-	return user && (user.isMobAI() || atmos_control.allowed(user) || atmos_control.emagged || air_alarm.rcon_setting == RCON_YES || (air_alarm.alarm_area.atmosalm && air_alarm.rcon_setting == RCON_AUTO))
+	return user && (isAI(user) || atmos_control.access.allowed(user) || atmos_control.emagged || air_alarm.rcon_setting == RCON_YES || (air_alarm.alarm_area.atmosalm && air_alarm.rcon_setting == RCON_AUTO))

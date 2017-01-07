@@ -10,6 +10,7 @@
 
 	default_language = "Ceti Basic"
 	language = "Cult"
+	name_language = "Cult"
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
 	darksight = 8
 	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
@@ -39,7 +40,8 @@
 	breath_type = null
 	poison_type = null
 
-	flags = IS_RESTRICTED | NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_MINOR_CUT
+	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/skeleton),

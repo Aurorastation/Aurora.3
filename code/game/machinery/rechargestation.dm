@@ -88,7 +88,7 @@
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
-	if(istype(occupant, /mob/living/silicon/robot))
+	if(isrobot(occupant))
 		var/mob/living/silicon/robot/R = occupant
 
 		if(R.module)
@@ -103,6 +103,12 @@
 			R.adjustBruteLoss(-weld_rate)
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
+	else if(ishuman(occupant))
+		var/mob/living/carbon/human/H = occupant
+		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
+			H.nutrition = min(H.nutrition+10, H.max_nutrition)
+			cell.use(7000/H.max_nutrition*10)
+
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
@@ -200,24 +206,29 @@
 /obj/machinery/recharge_station/Bumped(var/mob/living/silicon/robot/R)
 	go_in(R)
 
-/obj/machinery/recharge_station/proc/go_in(var/mob/living/silicon/robot/R)
-	if(!istype(R))
-		return
+/obj/machinery/recharge_station/proc/go_in(var/mob/M)
 	if(occupant)
 		return
-
-	// TODO :  Change to incapacitated() on merge.
-	if(R.stat || R.lying || R.resting || R.buckled)
-		return
-	if(!R.cell)
+	if(!hascell(M))
 		return
 
-	add_fingerprint(R)
-	R.reset_view(src)
-	R.forceMove(src)
-	occupant = R
+	add_fingerprint(M)
+	M.reset_view(src)
+	M.forceMove(src)
+	occupant = M
 	update_icon()
 	return 1
+
+/obj/machinery/recharge_station/proc/hascell(var/mob/M)
+	if(isrobot(M))
+		var/mob/living/silicon/robot/R = M
+		if(R.cell)
+			return 1
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!isnull(H.internal_organs_by_name["cell"]))
+			return 1
+	return 0
 
 /obj/machinery/recharge_station/proc/go_out()
 	if(!occupant)
@@ -233,8 +244,7 @@
 	set name = "Eject Recharger"
 	set src in oview(1)
 
-	// TODO :  Change to incapacitated() on merge.
-	if(usr.stat || usr.lying || usr.resting || usr.buckled)
+	if(usr.incapacitated())
 		return
 
 	go_out()
@@ -246,4 +256,26 @@
 	set name = "Enter Recharger"
 	set src in oview(1)
 
+	if(!usr.incapacitated())
+		return
 	go_in(usr)
+
+
+/obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
+	if (istype(C, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = C
+		if (!user.Adjacent(R) || !Adjacent(user))
+			user << span("danger", "You need to get closer if you want to put [C] into that charger!")
+			return
+		user.face_atom(src)
+		user.visible_message(span("danger","[user] starts hauling [C] into the recharging unit!"), span("danger","You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
+		if (do_mob(user, R, R.mob_size*10, needhand = 1))
+			if (go_in(R))
+				user.visible_message(span("notice","After a great effort, [user] manages to get [C] into the recharging unit!"))
+				return 1
+			else
+				user << span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning.")
+		else
+			user << span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!")
+		return
+	return ..()

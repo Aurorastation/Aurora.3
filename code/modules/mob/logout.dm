@@ -19,5 +19,4 @@
 			else if ((admins_number - admins_number_afk) <= 0)
 				discord_bot.send_to_admins("[key_name(src)] logged out - only AFK admins ([admins_number_afk]) are online.")
 	..()
-
 	return 1

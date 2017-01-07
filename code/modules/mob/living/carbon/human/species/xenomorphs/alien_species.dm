@@ -11,11 +11,16 @@
 
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
-	gluttonous = 2
+	gluttonous = GLUT_ANYTHING
 
 	eyes = "blank_eyes"
 
-	brute_mod = 0.5 // Hardened carapace.
+	stamina = 175
+	sprint_speed_factor = 2
+	sprint_cost_factor = 0.80
+	stamina_recovery = 5
+
+	brute_mod = 0.25 // Hardened carapace.
 	burn_mod = 2    // Weak to fire.
 
 	warning_low_pressure = 50
@@ -25,7 +30,8 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	flags = IS_RESTRICTED | NO_BREATHE | NO_SCAN | NO_PAIN | NO_SLIP | NO_POISON
+	flags =  NO_BREATHE | NO_SCAN | NO_PAIN | NO_SLIP | NO_POISON | NO_MINOR_CUT
+	spawn_flags = IS_RESTRICTED
 
 	reagent_tag = IS_XENOS
 
@@ -97,11 +103,11 @@
 	var/datum/gas_mixture/environment = T.return_air()
 	if(!environment) return
 
-	if(environment.gas["phoron"] > 0 || locate(/obj/effect/alien/weeds) in T)
-		if(!regenerate(H))
-			var/obj/item/organ/xenos/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]
-			P.stored_plasma += weeds_plasma_rate
-			P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
+	var/obj/effect/plant/plant = locate() in T
+	if((environment.gas["phoron"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")) && !regenerate(H))
+		var/obj/item/organ/xenos/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]
+		P.stored_plasma += weeds_plasma_rate
+		P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
 	..()
 
 /datum/species/xenos/proc/regenerate(var/mob/living/carbon/human/H)
@@ -138,14 +144,6 @@
 			return 1
 
 	return 0
-
-/datum/species/xenos/handle_login_special(var/mob/living/carbon/human/H)
-	H.AddInfectionImages()
-	..()
-
-/datum/species/xenos/handle_logout_special(var/mob/living/carbon/human/H)
-	H.RemoveInfectionImages()
-	..()
 
 /datum/species/xenos/drone
 	name = "Xenomorph Drone"
@@ -205,6 +203,11 @@
 		"hive node" =       /obj/item/organ/xenos/hivenode,
 		"nutrient channel" = /obj/item/organ/diona/nutrients
 		)
+
+	stamina = 200
+	sprint_speed_factor = 2.25
+	sprint_cost_factor = 1
+	stamina_recovery = 4
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
@@ -281,7 +284,8 @@
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
-		/mob/living/carbon/human/proc/resin
+		/mob/living/carbon/human/proc/resin,
+		/mob/living/carbon/human/proc/xeno_infest
 		)
 
 /datum/species/xenos/queen/handle_login_special(var/mob/living/carbon/human/H)
@@ -313,5 +317,5 @@
 		"o_clothing" =   list("loc" = ui_belt,      "name" = "Suit",         "slot" = slot_wear_suit, "state" = "equip",  "dir" = SOUTH),
 		"head" =         list("loc" = ui_id,        "name" = "Hat",          "slot" = slot_head,      "state" = "hair"),
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
-		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
+		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket")
 		)

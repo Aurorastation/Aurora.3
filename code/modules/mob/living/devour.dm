@@ -73,7 +73,7 @@
 		return 0
 
 	if (!victim.mob_size || !src.mob_size)
-		src << "<span class='danger> Error, no mob size defined for [victim.type]! You have encountered a bug, report it on github </span>"
+		src << "<span class='danger'> Error, no mob size defined for [victim.type]! You have encountered a bug, report it on github </span>"
 		return 0
 
 	if (!mouth_size)
@@ -170,7 +170,7 @@
 				break
 		else
 			devouring = null
-			if (victimloc != victim.loc)
+			if (victim && victimloc != victim.loc)
 				src << "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>"
 			else if (ourloc != src.loc)
 				src << "<span class='danger'>You moved! Devouring cancelled</span>"
@@ -336,4 +336,3 @@
 		src.composition_reagent_quantity = size_reagent
 
 #undef PPM
-

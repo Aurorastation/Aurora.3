@@ -206,104 +206,104 @@ Buildable meters
 //update the name and icon of the pipe item depending on the type
 
 /obj/item/pipe/proc/update()
-	var/list/nlist = list( \
-		"pipe", \
-		"bent pipe", \
-		"h/e pipe", \
-		"bent h/e pipe", \
-		"connector", \
-		"manifold", \
-		"junction", \
-		"uvent", \
-		"mvalve", \
-		"pump", \
-		"scrubber", \
-		"insulated pipe", \
-		"bent insulated pipe", \
-		"gas filter", \
-		"gas mixer", \
-		"pressure regulator", \
-		"high power pump", \
-		"heat exchanger", \
-		"t-valve", \
-		"4-way manifold", \
-		"pipe cap", \
+	var/list/nlist = list(
+		"pipe",
+		"bent pipe", 
+		"h/e pipe",
+		"bent h/e pipe",
+		"connector",
+		"manifold", 
+		"junction", 
+		"uvent", 
+		"mvalve", 
+		"pump", 
+		"scrubber", 
+		"insulated pipe", 
+		"bent insulated pipe", 
+		"gas filter", 
+		"gas mixer", 
+		"pressure regulator", 
+		"high power pump", 
+		"heat exchanger", 
+		"t-valve", 
+		"4-way manifold", 
+		"pipe cap", 
 ///// Z-Level stuff
-		"pipe up", \
-		"pipe down", \
+		"pipe up", 
+		"pipe down", 
 ///// Z-Level stuff
-		"gas filter m", \
-		"gas mixer t", \
-		"gas mixer m", \
-		"omni mixer", \
-		"omni filter", \
+		"gas filter m", 
+		"gas mixer t", 
+		"gas mixer m", 
+		"omni mixer", 
+		"omni filter", 
 ///// Supply and scrubbers pipes
-		"universal pipe adapter", \
-		"supply pipe", \
-		"bent supply pipe", \
-		"scrubbers pipe", \
-		"bent scrubbers pipe", \
-		"supply manifold", \
-		"scrubbers manifold", \
-		"supply 4-way manifold", \
-		"scrubbers 4-way manifold", \
-		"supply pipe up", \
-		"scrubbers pipe up", \
-		"supply pipe down", \
-		"scrubbers pipe down", \
-		"supply pipe cap", \
-		"scrubbers pipe cap", \
-		"t-valve m", \
+		"universal pipe adapter", 
+		"supply pipe", 
+		"bent supply pipe", 
+		"scrubbers pipe", 
+		"bent scrubbers pipe", 
+		"supply manifold", 
+		"scrubbers manifold", 
+		"supply 4-way manifold", 
+		"scrubbers 4-way manifold", 
+		"supply pipe up", 
+		"scrubbers pipe up", 
+		"supply pipe down", 
+		"scrubbers pipe down", 
+		"supply pipe cap", 
+		"scrubbers pipe cap", 
+		"t-valve m"
 	)
 	name = nlist[pipe_type+1] + " fitting"
-	var/list/islist = list( \
-		"simple", \
-		"simple", \
-		"he", \
-		"he", \
-		"connector", \
-		"manifold", \
-		"junction", \
-		"uvent", \
-		"mvalve", \
-		"pump", \
-		"scrubber", \
-		"insulated", \
-		"insulated", \
-		"filter", \
-		"mixer", \
-		"passivegate", \
-		"volumepump", \
-		"heunary", \
-		"mtvalve", \
-		"manifold4w", \
-		"cap", \
+	var/list/islist = list( 
+		"simple", 
+		"simple", 
+		"he", 
+		"he", 
+		"connector", 
+		"manifold", 
+		"junction", 
+		"uvent", 
+		"mvalve", 
+		"pump", 
+		"scrubber", 
+		"insulated", 
+		"insulated", 
+		"filter", 
+		"mixer", 
+		"passivegate", 
+		"volumepump", 
+		"heunary", 
+		"mtvalve", 
+		"manifold4w", 
+		"cap", 
 ///// Z-Level stuff
-		"cap", \
-		"cap", \
+		"cap", 
+		"cap", 
 ///// Z-Level stuff
-		"m_filter", \
-		"t_mixer", \
-		"m_mixer", \
-		"omni_mixer", \
-		"omni_filter", \
+		"m_filter", 
+		"t_mixer", 
+		"m_mixer", 
+		"omni_mixer", 
+		"omni_filter", 
 ///// Supply and scrubbers pipes
-		"universal", \
-		"simple", \
-		"simple", \
-		"simple", \
-		"simple", \
-		"manifold", \
-		"manifold", \
-		"manifold4w", \
-		"manifold4w", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"cap", \
-		"mtvalvem", \
+		"universal", 
+		"simple", 
+		"simple", 
+		"simple", 
+		"simple", 
+		"manifold", 
+		"manifold", 
+		"manifold4w", 
+		"manifold4w", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"cap", 
+		"mtvalvem"
 	)
 	icon_state = islist[pipe_type + 1]
 
@@ -359,17 +359,17 @@ Buildable meters
 	var/acw = turn(dir, 90)
 
 	switch(pipe_type)
-		if(	PIPE_SIMPLE_STRAIGHT, \
-			PIPE_INSULATED_STRAIGHT, \
-			PIPE_HE_STRAIGHT, \
-			PIPE_JUNCTION ,\
-			PIPE_PUMP ,\
-			PIPE_VOLUME_PUMP ,\
-			PIPE_PASSIVE_GATE ,\
-			PIPE_MVALVE, \
-			PIPE_SUPPLY_STRAIGHT, \
-			PIPE_SCRUBBERS_STRAIGHT, \
-			PIPE_UNIVERSAL, \
+		if(	PIPE_SIMPLE_STRAIGHT, 
+			PIPE_INSULATED_STRAIGHT,
+			PIPE_HE_STRAIGHT, 
+			PIPE_JUNCTION ,
+			PIPE_PUMP ,
+			PIPE_VOLUME_PUMP ,
+			PIPE_PASSIVE_GATE ,
+			PIPE_MVALVE, 
+			PIPE_SUPPLY_STRAIGHT, 
+			PIPE_SCRUBBERS_STRAIGHT, 
+			PIPE_UNIVERSAL
 		)
 			return dir|flip
 		if(PIPE_SIMPLE_BENT, PIPE_INSULATED_BENT, PIPE_HE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT)
@@ -447,11 +447,11 @@ Buildable meters
 
 	for(var/obj/machinery/atmospherics/M in src.loc)
 		if((M.initialize_directions & pipe_dir) && M.check_connect_types_construction(M,src))	// matches at least one direction on either type of pipe & same connection type
-			user << "\red There is already a pipe of the same type at this location."
+			user << "<span class='warning'>There is already a pipe of the same type at this location.</span>"
 			return 1
 	// no conflicts found
 
-	var/pipefailtext = "\red There's nothing to connect this pipe section to!" //(with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
+	var/pipefailtext = "<span class='warning'>There's nothing to connect this pipe section to!</span>" //(with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
 
 	//TODO: Move all of this stuff into the various pipe constructors.
 	switch(pipe_type)
@@ -461,7 +461,7 @@ Buildable meters
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			if (deleted(P))
 				usr << pipefailtext
@@ -480,7 +480,7 @@ Buildable meters
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			if (deleted(P))
 				usr << pipefailtext
@@ -499,7 +499,7 @@ Buildable meters
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			if (deleted(P))
 				usr << pipefailtext
@@ -518,7 +518,7 @@ Buildable meters
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			if (deleted(P))
 				usr << pipefailtext
@@ -536,8 +536,6 @@ Buildable meters
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir //this var it's used to know if the pipe is bent or not
 			P.initialize_directions_he = pipe_dir
-			//var/turf/T = P.loc
-			//P.level = T.intact ? 2 : 1
 			P.initialize()
 			if (deleted(P))
 				usr << pipefailtext
@@ -557,7 +555,7 @@ Buildable meters
 			if (pipename)
 				C.name = pipename
 			var/turf/T = C.loc
-			C.level = T.intact ? 2 : 1
+			C.level = !T.is_plating() ? 2 : 1
 			C.initialize()
 			C.build_network()
 			if (C.node)
@@ -572,7 +570,7 @@ Buildable meters
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = T.intact ? 2 : 1
+			M.level = !T.is_plating() ? 2 : 1
 			M.initialize()
 			if (deleted(M))
 				usr << pipefailtext
@@ -595,7 +593,7 @@ Buildable meters
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = T.intact ? 2 : 1
+			M.level = !T.is_plating() ? 2 : 1
 			M.initialize()
 			if (!M)
 				usr << "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
@@ -618,7 +616,7 @@ Buildable meters
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = T.intact ? 2 : 1
+			M.level = !T.is_plating() ? 2 : 1
 			M.initialize()
 			if (!M)
 				usr << "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
@@ -641,7 +639,7 @@ Buildable meters
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = T.intact ? 2 : 1
+			M.level = !T.is_plating() ? 2 : 1
 			M.initialize()
 			if (deleted(M))
 				usr << pipefailtext
@@ -668,7 +666,7 @@ Buildable meters
 			M.connect_types = src.connect_types
 			//M.New()
 			var/turf/T = M.loc
-			M.level = T.intact ? 2 : 1
+			M.level = !T.is_plating() ? 2 : 1
 			M.initialize()
 			if (!M)
 				usr << "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
@@ -695,7 +693,7 @@ Buildable meters
 			M.connect_types = src.connect_types
 			//M.New()
 			var/turf/T = M.loc
-			M.level = T.intact ? 2 : 1
+			M.level = !T.is_plating() ? 2 : 1
 			M.initialize()
 			if (!M)
 				usr << "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
@@ -719,8 +717,6 @@ Buildable meters
 			P.set_dir(src.dir)
 			P.initialize_directions = src.get_pdir()
 			P.initialize_directions_he = src.get_hdir()
-			//var/turf/T = P.loc
-			//P.level = T.intact ? 2 : 1
 			P.initialize()
 			if (deleted(P))
 				usr << pipefailtext //"There's nothing to connect this pipe to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
@@ -740,7 +736,7 @@ Buildable meters
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = T.intact ? 2 : 1
+			V.level = !T.is_plating() ? 2 : 1
 			V.initialize()
 			V.build_network()
 			if (V.node)
@@ -755,7 +751,7 @@ Buildable meters
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = T.intact ? 2 : 1
+			V.level = !T.is_plating() ? 2 : 1
 			V.initialize()
 			V.build_network()
 			if (V.node1)
@@ -774,7 +770,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -791,7 +787,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -811,7 +807,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -831,7 +827,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -851,7 +847,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -871,7 +867,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -891,7 +887,7 @@ Buildable meters
 			if (pipename)
 				S.name = pipename
 			var/turf/T = S.loc
-			S.level = T.intact ? 2 : 1
+			S.level = !T.is_plating() ? 2 : 1
 			S.initialize()
 			S.build_network()
 			if (S.node)
@@ -903,7 +899,7 @@ Buildable meters
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			if (deleted(P))
 				usr << pipefailtext
@@ -923,7 +919,7 @@ Buildable meters
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = T.intact ? 2 : 1
+			V.level = !T.is_plating() ? 2 : 1
 			V.initialize()
 			V.build_network()
 			if (V.node1)
@@ -943,7 +939,7 @@ Buildable meters
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = T.intact ? 2 : 1
+			V.level = !T.is_plating() ? 2 : 1
 			V.initialize()
 			V.build_network()
 			if (V.node1)
@@ -993,7 +989,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1010,7 +1006,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1027,7 +1023,7 @@ Buildable meters
 			if (pipename)
 				C.name = pipename
 			var/turf/T = C.loc
-			C.level = T.intact ? 2 : 1
+			C.level = !T.is_plating() ? 2 : 1
 			C.initialize()
 			C.build_network()
 			if (C.node)
@@ -1041,7 +1037,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1057,7 +1053,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1073,7 +1069,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1089,7 +1085,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1105,7 +1101,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1121,7 +1117,7 @@ Buildable meters
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 			if (P.node1)
@@ -1134,20 +1130,20 @@ Buildable meters
 		if(PIPE_OMNI_MIXER)
 			var/obj/machinery/atmospherics/omni/mixer/P = new(loc)
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 		if(PIPE_OMNI_FILTER)
 			var/obj/machinery/atmospherics/omni/filter/P = new(loc)
 			var/turf/T = P.loc
-			P.level = T.intact ? 2 : 1
+			P.level = !T.is_plating() ? 2 : 1
 			P.initialize()
 			P.build_network()
 
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	user.visible_message( \
 		"[user] fastens the [src].", \
-		"\blue You have fastened the [src].", \
+		"<span class='notice'>You have fastened the [src].</span>", \
 		"You hear ratchet.")
 	qdel(src)	// remove the pipe item
 
@@ -1172,11 +1168,11 @@ Buildable meters
 	if (!istype(W, /obj/item/weapon/wrench))
 		return ..()
 	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
-		user << "\red You need to fasten it to a pipe"
+		user << "<span class='warning'>You need to fasten it to a pipe</span>"
 		return 1
 	new/obj/machinery/meter( src.loc )
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	user << "\blue You have fastened the meter to the pipe"
+	user << "<span class='notice'>You have fastened the meter to the pipe</span>"
 	qdel(src)
 //not sure why these are necessary
 #undef PIPE_SIMPLE_STRAIGHT

@@ -6,7 +6,7 @@
 /mob/living/carbon/alien/diona
 	var/datum/reagents/vessel
 	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
-	var/max_nutrition = 6000
+	max_nutrition = 6000
 	language = null
 	var/energy_duration = 144//The time in seconds that this diona can exist in total darkness before its energy runs out
 	var/dark_consciousness = 144//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
@@ -29,6 +29,8 @@
 	holder_type = /obj/item/weapon/holder/diona
 	var/list/sampled_DNA
 	var/list/language_progress
+	var/obj/item/clothing/head/hat
+	maxHealth = 85
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if (life_tick < 4)
@@ -294,3 +296,11 @@
 		update_icons()
 
 	return 1
+
+
+/mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
+	if(hat)
+		return
+	hat = new_hat
+	new_hat.forceMove(src)
+	update_icons()
