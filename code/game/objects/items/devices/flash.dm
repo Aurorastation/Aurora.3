@@ -82,7 +82,7 @@
 			flick("e_flash", M.flash)
 				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
-			if(H.species.name == "Vaurca")
+			if(H.species.get_bodytype() == "Vaurca")
 				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 				if(!E)
 					return
@@ -154,9 +154,9 @@
 
 /obj/item/device/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	if(!user || !clown_check(user)) 	return
-	
+
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	
+
 	if(broken)
 		user.show_message("<span class='warning'>The [src.name] is broken</span>", 2)
 		return
