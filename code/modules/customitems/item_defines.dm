@@ -895,7 +895,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/suit/storage/fluff/ryan_jacket //Mars' Militia Leather Jacket - Ryan McLean - seniorscore
-	name = "mars' militia leather jacket"
+	name = "mars militia leather jacket"
 	desc = "A leather jacket, appears to have a shield on back with the words \"Contra omnes stabimus\", as well as a unit name \"Sandworms of Thadeus\", \
 	stitched along a banner at the bottom of the shield."
 	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
