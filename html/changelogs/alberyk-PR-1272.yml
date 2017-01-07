@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - imageadd: "Force gloves have an unique sprite now."
-  - rscadd: "Added hooded winter jackets."
-  - tweak: "Tweaked the hos gear to be far more uniform now."
