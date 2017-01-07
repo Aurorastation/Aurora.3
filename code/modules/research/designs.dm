@@ -1882,58 +1882,10 @@ datum/design/item/advanced_light_replacer
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path =/obj/item/device/lightreplacer/advanced
 
-/* Uncomment if someone makes these buildable
-/datum/design/rust_core_control
-	name = "Circuit Design (RUST core controller)"
-	desc = "Allows for the construction of circuit boards used to build a core control console for the RUST fusion engine."
-	id = "rust_core_control"
-	req_tech = list("programming" = 4, TECH_ENGINEERING = 4)
-	build_type = IMPRINTER
-	materials = list("glass" = 2000, "sacid" = 20)
-	build_path = "/obj/item/weapon/circuitboard/rust_core_control"
-
-datum/design/rust_fuel_control
-	name = "Circuit Design (RUST fuel controller)"
-	desc = "Allows for the construction of circuit boards used to build a fuel injector control console for the RUST fusion engine."
-	id = "rust_fuel_control"
-	req_tech = list("programming" = 4, TECH_ENGINEERING = 4)
-	build_type = IMPRINTER
-	materials = list("glass" = 2000, "sacid" = 20)
-	build_path = "/obj/item/weapon/circuitboard/rust_fuel_control"
-
-datum/design/rust_fuel_port
-	name = "Internal circuitry (RUST fuel port)"
-	desc = "Allows for the construction of circuit boards used to build a fuel injection port for the RUST fusion engine."
-	id = "rust_fuel_port"
-	req_tech = list(TECH_ENGINEERING = 4, "materials" = 5)
-	build_type = IMPRINTER
-	materials = list("glass" = 2000, "sacid" = 20, "uranium" = 3000)
-	build_path = "/obj/item/weapon/module/rust_fuel_port"
-
-datum/design/rust_fuel_compressor
-	name = "Circuit Design (RUST fuel compressor)"
-	desc = "Allows for the construction of circuit boards used to build a fuel compressor of the RUST fusion engine."
-	id = "rust_fuel_compressor"
-	req_tech = list("materials" = 6, TECH_PHORON = 4)
-	build_type = IMPRINTER
-	materials = list("glass" = 2000, "sacid" = 20, "phoron" = 3000, "diamond" = 1000)
-	build_path = "/obj/item/weapon/module/rust_fuel_compressor"
-
-datum/design/rust_core
-	name = "Internal circuitry (RUST tokamak core)"
-	desc = "The circuit board that for a RUST-pattern tokamak fusion core."
-	id = "pacman"
-	req_tech = list(bluespace = 3, phorontech = 4, magnets = 5, powerstorage = 6)
-	build_type = IMPRINTER
-	materials = list("glass" = 2000, "sacid" = 20, "phoron" = 3000, "diamond" = 2000)
-	build_path = "/obj/item/weapon/circuitboard/rust_core"
-
-datum/design/rust_injector
-	name = "Internal circuitry (RUST tokamak core)"
-	desc = "The circuit board that for a RUST-pattern particle accelerator."
-	id = "pacman"
-	req_tech = list(powerstorage = 3, engineering = 4, phorontech = 4, materials = 6)
-	build_type = IMPRINTER
-	materials = list("glass" = 2000, "sacid" = 20, "phoron" = 3000, "uranium" = 2000)
-	build_path = "/obj/item/weapon/circuitboard/rust_core"
-*/
+datum/design/item/experimental_welder
+	name = "Experimental Welding Tool"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	id = "experimental_welder"
+	req_tech = list(ENGINEERING = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 500)
+	build_path =/obj/item/weapon/weldingtool/experimental
