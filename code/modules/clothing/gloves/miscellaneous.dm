@@ -164,6 +164,8 @@
 /obj/item/clothing/gloves/force/basic //dooo iiiitttttt
 	name = "basic force gloves" //do it skull do it give it to all sec the forums agree go
 	desc = "These gloves bend gravity and bluespace, providing a cheap boost to the effectiveness of your average security staff."
+	icon_state = "power_glove" //todo: different sprites for different levels of power
+	item_state = "power_glove"
 	amplification = 1 //just do it
 
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.

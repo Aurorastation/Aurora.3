@@ -105,7 +105,7 @@
 					return
 			else
 				G.affecting.loc = src.loc
-				G.affecting.Weaken(5)
+				G.affecting.Weaken(rand(2,4))
 				visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
 			qdel(W)
 			return
