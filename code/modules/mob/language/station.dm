@@ -71,7 +71,7 @@
 	signlang_verb = list("signs", "flicks their ears", "gestures")
 	colour = "i"
 	key = "i"
-	flags = NO_STUTTER | SIGNLANG
+	flags = NO_STUTTER | SIGNLANG | WHITELISTED
 	
 /datum/language/siik_tajr
 	name = LANGUAGE_SIIK_TAJR
