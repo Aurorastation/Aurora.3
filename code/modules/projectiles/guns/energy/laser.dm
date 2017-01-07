@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/laser
 	name = "laser carbine"
-	desc = "An Hesphaistos Industries G40E carbine, designed to kill with concentrated energy blasts."
+	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
 	icon_state = "laser"
 	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -85,7 +85,7 @@ obj/item/weapon/gun/energy/retro
 
 /obj/item/weapon/gun/energy/sniperrifle
 	name = "marksman energy rifle"
-	desc = "The HI DMR 9E is an older design of Hesphaistos Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	desc = "The HI DMR 9E is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
 	icon_state = "sniper"
 	item_state = "sniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
