@@ -78,3 +78,16 @@ mob/proc/in_view(var/turf/T)
 		if(get_dist(H, T) <= 7)
 			viewed += H
 	return viewed
+
+proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
+	var/state
+	if(H.wear_id)
+		var/obj/item/weapon/card/id/I = H.wear_id.GetID()
+		if(I)
+			state = "hud[ckey(I.GetJobName())]"
+		else
+			state = "hudunknown"
+	else
+		state = "hudunknown"
+
+	return state

@@ -125,7 +125,6 @@ var/list/nonhuman_positions = list(
 	"pAI"
 )
 
-
 /proc/guest_jobbans(var/job)
 	return ((job in command_positions) || job == "Internal Affairs Agent")
 
