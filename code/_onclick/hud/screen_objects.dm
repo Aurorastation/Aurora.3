@@ -351,7 +351,6 @@
 										if ("phoron")
 											if(t.air_contents.gas["phoron"] && !t.air_contents.gas["nitrogen"])
 												contents.Add(t.air_contents.gas["phoron"])
-												world << "Phoron check."
 											else
 												contents.Add(0)
 
