@@ -99,15 +99,7 @@
 			user << "<span class='warning'>[src] is out of charge.</span>"
 	add_fingerprint(user)
 
-/obj/item/weapon/melee/baton/attack(mob/M, mob/user)
-	if(status && (CLUMSY in user.mutations) && prob(50))
-		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
-		user.Weaken(30)
-		deductcharge(hitcost)
-		return
-	return ..()
-
-/obj/item/weapon/melee/baton/attack(mob/M, mob/user,var/hit_zone)
+/obj/item/weapon/melee/baton/attack(mob/M, mob/user, var/hit_zone)
 	if(status && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
@@ -133,6 +125,8 @@
 			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
 	else
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(M)
 		//copied from human_defense.dm - human defence code should really be refactored some time.
 		if (ishuman(L))
 			user.lastattacked = L	//are these used at all, if we have logs?

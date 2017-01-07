@@ -1,0 +1,7 @@
+
+author: Lohikar
+delete-after: True
+changes: 
+  - imageadd: "Telecomms machines now have open-panel sprites."
+  - imageadd: "Added a new particle accelerator sprite."
+

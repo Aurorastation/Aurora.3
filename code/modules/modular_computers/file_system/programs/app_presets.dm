@@ -92,6 +92,8 @@
 /datum/modular_computer_app_presets/civilian/return_install_programs()
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
-        new/datum/computer_file/program/nttransfer()
+        new/datum/computer_file/program/nttransfer(),
+        new/datum/computer_file/program/game/arcade(),
+        new/datum/computer_file/program/game/sudoku()
     )
     return _prg_list

@@ -1,3 +1,8 @@
+#define NTR_NORMAL 0
+#define NTR_OVERLOAD 1
+#define NTR_DISABLE 2
+#define NTR_POWERLOSS 3
+
 // Relays don't handle any actual communication. Global NTNet datum does that, relays only tell the datum if it should or shouldn't work.
 /obj/machinery/ntnet_relay
 	name = "NTNet Quantum Relay"
@@ -5,7 +10,8 @@
 	use_power = 2
 	active_power_usage = 20000 //20kW, apropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
-	icon_state = "bus"
+	icon_state = "ntnet"
+	icon = 'icons/obj/machines/telecomms.dmi'
 	anchored = 1
 	density = 1
 	var/datum/ntnet/NTNet = null // This is mostly for backwards reference and to allow varedit modifications from ingame.
@@ -18,6 +24,7 @@
 	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
 	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
 
+	var/overlay_cache = list()
 
 // TODO: Implement more logic here. For now it's only a placeholder.
 /obj/machinery/ntnet_relay/operable()
@@ -29,11 +36,44 @@
 		return 0
 	return 1
 
+/obj/machinery/ntnet_relay/proc/get_state()
+	if (!enabled)
+		return NTR_DISABLE
+	if (dos_failure)
+		return NTR_OVERLOAD
+	if (!operable())
+		return NTR_POWERLOSS
+
+	return NTR_NORMAL
+
 /obj/machinery/ntnet_relay/update_icon()
-	if(operable())
-		icon_state = "bus"
-	else
-		icon_state = "bus_off"
+	var/state = get_state()
+	icon_state = initial(icon_state)
+
+	if (panel_open)
+		icon_state += "_o"
+
+	switch (state)
+		if (NTR_NORMAL)
+			overlays += overlay_cache["ok"]
+			overlays -= overlay_cache["problem"]
+			overlays -= overlay_cache["error"]
+
+		if (NTR_OVERLOAD)
+			overlays -= overlay_cache["ok"]
+			overlays += overlay_cache["problem"]
+			overlays -= overlay_cache["error"]
+		
+		if (NTR_DISABLE)
+			overlays -= overlay_cache["ok"]
+			overlays -= overlay_cache["problem"]
+			overlays += overlay_cache["error"]
+
+		if (NTR_POWERLOSS)
+			overlays -= overlay_cache["ok"]
+			overlays -= overlay_cache["problem"]
+			overlays -= overlay_cache["error"]
+			icon_state += "_off"
 
 /obj/machinery/ntnet_relay/process()
 	if(operable())
@@ -93,6 +133,13 @@
 	component_parts += new /obj/item/stack/cable_coil(src,15)
 	component_parts += new /obj/item/weapon/circuitboard/ntnet_relay(src)
 
+	overlay_cache = list()
+	overlay_cache["ok"] = image('icons/obj/machines/telecomms.dmi', "ntnet_o_ok")
+	overlay_cache["problem"] = image('icons/obj/machines/telecomms.dmi', "ntnet_o_problem")
+	overlay_cache["error"] = image('icons/obj/machines/telecomms.dmi', "ntnet_o_error")
+
+	update_icon()
+
 	if(ntnet_global)
 		ntnet_global.relays.Add(src)
 		NTNet = ntnet_global
@@ -128,3 +175,7 @@
 		qdel(src)
 		return
 	..()
+
+#undef NTR_NORMAL
+#undef NTR_OVERLOAD
+#undef NTR_DISABLE
