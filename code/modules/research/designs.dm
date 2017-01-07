@@ -331,13 +331,13 @@ other types of metals and chemistry for reagents).
 datum/design/circuit/telesci_console
 	name = "telepad control console"
 	id = "telesci_console"
-	req_tech = list("programming" = 3, "bluespace" = 2)
+	req_tech = list("programming" = 3, TECH_BLUESPACE = 2)
 	build_path = /obj/item/weapon/circuitboard/telesci_console
 
 datum/design/circuit/telepad
 	name = "telepad board"
 	id = "telepad"
-	req_tech = list("programming" = 4, "bluespace" = 4, "materials" = 3, "engineering" = 3)
+	req_tech = list("programming" = 4, TECH_BLUESPACE = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/weapon/circuitboard/telesci_pad
 
 /datum/design/item/weapon/mining/drill_diamond
@@ -352,7 +352,7 @@ datum/design/circuit/telepad
 ///////////////////////////////////
 /datum/design/circuit/shield
 	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)
-	materials = list("$glass" = 2000, "sacid" = 20, "$phoron" = 10000, "$diamond" = 5000, "$gold" = 10000)
+	materials = list("glass" = 2000, "sacid" = 20, "phoron" = 10000, "diamond" = 5000, "gold" = 10000)
 
 /datum/design/item/medical
 	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 20)
@@ -1492,27 +1492,27 @@ CIRCUITS BELOW
 
 datum/design/item/weapon/lasshotgun
 	id = "laser_shotgun"
-	req_tech = list("combat" = 3, "materials" = 5, "powerstorage" = 4)
-	materials = list("$metal" = 5000, "$glass" = 1500, "$uranium" = 500, "$diamond" = 500)
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1500, "uranium" = 500, "diamond" = 500)
 	build_path = /obj/item/weapon/gun/energy/laser/shotgun
 
 datum/design/item/weapon/stunrevolver
 	id = "stunrevolver"
-	req_tech = list("combat" = 3, "materials" = 3, "powerstorage" = 2)
-	materials = list("$metal" = 4000)
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/weapon/gun/energy/stunrevolver
 
 datum/design/item/weapon/lasercannon
 	desc = "The lasing medium of this prototype is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core."
 	id = "lasercannon"
-	req_tech = list("combat" = 4, "materials" = 3, "powerstorage" = 3)
-	materials = list("$metal" = 10000, "$glass" = 1000, "$diamond" = 2000)
+	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 1000, "diamond" = 2000)
 	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
 
 datum/design/item/weapon/decloner
 	id = "decloner"
-	req_tech = list("combat" = 8, "materials" = 7, "biotech" = 5, "powerstorage" = 6)
-	materials = list("$gold" = 5000,"$uranium" = 10000)
+	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
+	materials = list("gold" = 5000,"uranium" = 10000)
 	build_path = /obj/item/weapon/gun/energy/decloner
 
 
@@ -1559,7 +1559,6 @@ datum/design/item/weapon/decloner
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/ntnet_relay
 	sort_string = "WAAAA"
-// #TODO-MERGE: Add in large crossbow and temperature gun.
 
 /datum/design/circuit/aicore
 	name = "AI core"
@@ -1570,20 +1569,20 @@ datum/design/item/weapon/decloner
 
 datum/design/item/weapon/mousegun
 	id = "mousegun"
-	req_tech = list("materials" = 1, "biotech" = 4, "powerstorage" = 3)
-	materials = list("$metal" = 2000, "$glass" = 1000, "$uranium" = 500)
+	req_tech = list(TECH_MATERIAL = 1, TECH_BIO = 4, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "uranium" = 500)
 	build_path = /obj/item/weapon/gun/energy/mousegun
 
 datum/design/item/weapon/beegun
 	id = "beegun"
-	req_tech = list("materials" = 6, "biotech" = 4, "powerstorage" = 4, "combat" = 6, "magnets" = 4)
-	materials = list("$metal" = 2000, "$glass" = 2000, "$silver" = 500, "$diamond" = 3000)
+	req_tech = list(TECH_MATERIAL = 6, TECH_BIO = 4, TECH_POWER = 4, TECH_COMBAT = 6, TECH_MAGNET = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "silver" = 500, "diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/beegun
 
 datum/design/item/weapon/large_grenade
 	id = "large_Grenade"
-	req_tech = list("combat" = 3, "materials" = 2)
-	materials = list("$metal" = 3000)
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000)
 	build_path = /obj/item/weapon/grenade/chem_grenade/large
 
 /datum/design/aimodule
@@ -1621,41 +1620,41 @@ datum/design/item/weapon/eglaive
 	id = "eglaive"
 	name = "energy glaive"
 	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
-	req_tech = list("combat" = 6, "phorontech" = 4, "materials" = 7, "syndicate" = 4,"powerstorage" = 4)
-	materials = list("$metal" = 10000, "$glass" = 18750, "$phoron" = 3000, "$silver" = 7500)
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4,TECH_POWER = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 18750, "phoron" = 3000, "silver" = 7500)
 	build_path = /obj/item/weapon/melee/energy/glaive
 
 datum/design/item/weapon/gatlinglaser
 	id = "gatlinglaser"
 	name = "gatling laser"
 	desc = "A higly sophisticated rapid-fire laser weapon."
-	req_tech = list("combat" = 6, "phorontech" = 5, "materials" = 6, "powerstorage" = 3)
-	materials = list("$metal" = 18750, "$glass" = 7500, "$phoron" = 7500, "$silver" = 7500, "$diamond" = 3000)
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 18750, "glass" = 7500, "phoron" = 7500, "silver" = 7500, "diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
 
 datum/design/item/weapon/railgun
 	id = "railgun"
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	req_tech = list("combat" = 8, "phorontech" = 2, "materials" = 7, "magnets" = 4, "powerstorage" = 5, "syndicate" = 3)
-	materials = list("$metal" = 75000, "$glass" = 18750, "$phoron" = 11250, "$gold" = 7500, "$silver" = 7500)
+	req_tech = list(TECH_COMBAT = 8, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 75000, "glass" = 18750, "phoron" = 11250, "gold" = 7500, "silver" = 7500)
 	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
 
 datum/design/item/weapon/zorablaster
 	id = "zorablaster"
 	name = "zo'ra blaster"
 	desc = "A personal defense weapon reverse-engineered from schematics aboard Titan Prime."
-	req_tech = list("combat" = 2, "phorontech" = 4, "materials" = 2)
-	materials = list("$metal" = 8000, "$glass" = 2000, "$phoron" = 6000)
+	req_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 8000, "glass" = 2000, "phoron" = 6000)
 	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
 
 datum/design/item/weapon/lawgiver
 	name = "Lawgiver"
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	id = "lawgiver"
-	req_tech = list("combat" = 6, "phorontech" = 4, "bluespace" = 5, "materials" = 7)
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_BLUESPACE = 5, TECH_MATERIAL = 7)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 6000, "$glass" = 1000, "$uranium" = 1000, "$phoron" = 1000, "$diamond" = 3000)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 1000, "uranium" = 1000, "phoron" = 1000, "diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/lawgiver
 
 /*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
@@ -1664,10 +1663,30 @@ datum/design/item/forcegloves
  	name = "Force Gloves"
  	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
  	id = "forcegloves"
- 	req_tech = list("combat" = 3,"bluespace" = 3, "engineering" = 3, "magnets" = 3)
+ 	req_tech = list(TECH_COMBAT = 3, TECH_BLUESPACE = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 3)
  	build_type = PROTOLATHE
- 	materials = list("$metal" = 4000)
- 	build_path = "/obj/item/clothing/gloves/force/basic"
+ 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
+ 	build_path = /obj/item/clothing/gloves/force/basic
+ 	category = "Weapons"
+
+datum/design/item/ebow
+ 	name = "Energy Crossbow"
+ 	desc = "A weapon favoured by infiltration teams."
+ 	id = "ebow"
+ 	req_tech = list(TECH_COMBAT = 4, TECH_ENGINEERING = 3, TECH_MATERIAL = 5, TECH_ILLEGAL = 3, TECH_BIO = 4)
+ 	build_type = PROTOLATHE
+ 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "uranium" = 1000, "silver" = 1000)
+ 	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow
+ 	category = "Weapons"
+
+datum/design/item/eshield
+ 	name = "Energy Shield"
+ 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
+ 	id = "eshield"
+ 	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_ILLEGAL = 4)
+ 	build_type = PROTOLATHE
+ 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 3000, "phoron" = 1000)
+ 	build_path = /obj/item/weapon/shield/energy
  	category = "Weapons"
 
 /////////////////////////////////////////
@@ -1848,41 +1867,36 @@ datum/design/item/weapon/mining/AssembleDesignName()
 	build_path = /obj/item/weapon/cartridge/captain
 	sort_string = "VBAAO"
 
-/* Uncomment if someone makes these buildable
-/datum/design/circuit/general_alert
-	name = "general alert console"
-	id = "general_alert"
-	build_path = /obj/item/weapon/circuitboard/general_alert
-
-// Removal of loyalty implants. Can't think of a way to add this to the config option.
 /datum/design/item/implant/loyalty
 	name = "loyalty"
 	id = "implant_loyal"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
-	build_path = /obj/item/weapon/implantcase/loyalty"
+	build_path = /obj/item/weapon/implantcase/loyalty
 
-/datum/design/rust_core_control
-	name = "Circuit Design (RUST core controller)"
-	desc = "Allows for the construction of circuit boards used to build a core control console for the RUST fusion engine."
-	id = "rust_core_control"
-	req_tech = list("programming" = 4, "engineering" = 4)
-	build_type = IMPRINTER
-	materials = list("glass" = 2000, "sacid" = 20)
-	build_path = "/obj/item/weapon/circuitboard/rust_core_control"
 datum/design/item/advanced_light_replacer
 	name = "Advanced Light Replacer"
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
 	id = "advanced_light_replacer"
-	req_tech = list("materials" = 3, "powerstorage" = 3)
-	materials = list("$metal" = 500)
+	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path =/obj/item/device/lightreplacer/advanced
+
+/* Uncomment if someone makes these buildable
+/datum/design/rust_core_control
+	name = "Circuit Design (RUST core controller)"
+	desc = "Allows for the construction of circuit boards used to build a core control console for the RUST fusion engine."
+	id = "rust_core_control"
+	req_tech = list("programming" = 4, TECH_ENGINEERING = 4)
+	build_type = IMPRINTER
+	materials = list("glass" = 2000, "sacid" = 20)
+	build_path = "/obj/item/weapon/circuitboard/rust_core_control"
 
 datum/design/rust_fuel_control
 	name = "Circuit Design (RUST fuel controller)"
 	desc = "Allows for the construction of circuit boards used to build a fuel injector control console for the RUST fusion engine."
 	id = "rust_fuel_control"
-	req_tech = list("programming" = 4, "engineering" = 4)
+	req_tech = list("programming" = 4, TECH_ENGINEERING = 4)
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "sacid" = 20)
 	build_path = "/obj/item/weapon/circuitboard/rust_fuel_control"
@@ -1891,7 +1905,7 @@ datum/design/rust_fuel_port
 	name = "Internal circuitry (RUST fuel port)"
 	desc = "Allows for the construction of circuit boards used to build a fuel injection port for the RUST fusion engine."
 	id = "rust_fuel_port"
-	req_tech = list("engineering" = 4, "materials" = 5)
+	req_tech = list(TECH_ENGINEERING = 4, "materials" = 5)
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "sacid" = 20, "uranium" = 3000)
 	build_path = "/obj/item/weapon/module/rust_fuel_port"
@@ -1900,7 +1914,7 @@ datum/design/rust_fuel_compressor
 	name = "Circuit Design (RUST fuel compressor)"
 	desc = "Allows for the construction of circuit boards used to build a fuel compressor of the RUST fusion engine."
 	id = "rust_fuel_compressor"
-	req_tech = list("materials" = 6, "phorontech" = 4)
+	req_tech = list("materials" = 6, TECH_PHORON = 4)
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "sacid" = 20, "phoron" = 3000, "diamond" = 1000)
 	build_path = "/obj/item/weapon/module/rust_fuel_compressor"
@@ -1922,106 +1936,4 @@ datum/design/rust_injector
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "sacid" = 20, "phoron" = 3000, "uranium" = 2000)
 	build_path = "/obj/item/weapon/circuitboard/rust_core"
-*/
-
-// #TODO-MERGE: Exosuit modules into buildable again
-/*
-datum/design/item/rigmodule/iss_module
-	desc = "Allows for the construction of an integrated intelligence system module suitable for most hardsuits."
-	id = "iss_module"
-	req_tech = list("programming" = 4, "materials" = 3)
-	materials = list("$glass" = 7500, "$metal" = 5000)
-	build_path = /obj/item/rig_module/ai_container
-
-datum/design/item/rigmodule/sink_module
-	desc = "Allows for the construction of a heavy-duty power sink."
-	id = "sink_module"
-	req_tech = list("engineering" = 4, "materials" = 3, "powerstorage" = 4, "syndicate" = 3)
-	materials = list("$metal" = 10000, "$gold"= 2000, "$silver"= 3000, "$glass"= 2000)
-	build_path = /obj/item/rig_module/power_sink
-
-datum/design/item/rigmodule/meson_module
-	desc = "Allows for the construction of an integrated meson scanner."
-	id = "meson_module"
-	req_tech = list("engineering" = 3, "materials" = 2, "magnets" = 3)
-	materials = list("$glass" = 5000, "$metal" = 1500)
-	build_path = /obj/item/rig_module/vision/meson
-
-datum/design/item/rigmodule/sechud_module
-	desc = "Allows for the construction of an integrated security hud."
-	id = "sechud_module"
-	req_tech = list("biotech" = 3, "materials" = 2, "magnets" = 3)
-	materials = list("$glass" = 5000, "$metal" = 1500)
-	build_path = /obj/item/rig_module/vision/sechud
-
-datum/design/item/rigmodule/medhud_module
-	desc = "Allows for the construction of an integrated medical hud."
-	id = "medhud_module"
-	req_tech = list("biotech" = 3, "materials" = 2, "magnets" = 3)
-	materials = list("$glass" = 5000, "$metal" = 1500)
-	build_path = /obj/item/rig_module/vision/medhud
-
-datum/design/item/rigmodule/nvg_module
-	desc = "Allows for the construction of an integrated night vision module."
-	id = "nvg_module"
-	req_tech = list("biotech" = 4, "materials" = 3, "magnets" = 4)
-	materials = list("$glass" = 5000, "$metal" = 1500, "$uranium" = 5000)
-	build_path = /obj/item/rig_module/vision/nvg
-
-datum/design/item/rigmodule/healthscanner_module
-	desc = "Allows for the construction of a hardsuit-mounted health scanner."
-	id = "healthscanner_module"
-	req_tech = list("biotech" = 3, "materials" = 3, "magnets" = 2)
-	materials = list("$glass" = 5250, "$metal" = 2500)
-	build_path = /obj/item/rig_module/device/healthscanner
-
-datum/design/item/rigmodule/chem_module
-	desc = "Allows for the construction of a hardsuit-mounted medicine dispenser."
-	id = "chem_module"
-	req_tech = list("biotech" = 5, "materials" = 4, "programming" = 3)
-	materials = list("$glass" = 9250, "$metal" = 10000, "$gold" = 2500, "$silver" = 4250, "$phoron" = 5500)
-	build_path = /obj/item/rig_module/chem_dispenser/injector
-
-datum/design/item/rigmodule/plasmacutter_module
-	desc = "Allows for the construction of a hardsuit-mounted plasma cutter."
-	id = "plasmacutter_module"
-	req_tech = list("engineering" = 4, "materials" = 3, "phorontech" = 4)
-	materials = list("$glass" = 5250, "$metal" = 30000, "$silver" = 5250, "$phoron" = 7250)
-	build_path = /obj/item/rig_module/device/plasmacutter
-
-datum/design/item/rigmodule/jet_module
-	desc = "Allows for the construction of a hardsuit-mounted jetpacks."
-	id = "jet_module"
-	req_tech = list("materials" = 3, "engineering" = 4, "powerstorage" = 2)
-	materials = list("$glass" = 4250, "$metal" = 15000, "$silver" = 4250, "$uranium" = 5250)
-	build_path = /obj/item/rig_module/maneuvering_jets
-
-datum/design/item/rigmodule/drill_module
-	desc = "Allows for the construction of a diamond-tipped hardsuit-mounted drill."
-	id = "drill_module"
-	req_tech = list("materials" = 5, "engineering" = 5, "powerstorage" = 4)
-	materials = list("$glass" = 2250, "$metal" = 55000, "$silver" = 5250, "$diamond" = 3750)
-	build_path = /obj/item/rig_module/device/drill
-
-datum/design/item/rigmodule/rcd_module
-	desc = "Allows for the construction of a hardsuit cell-powered rapid construction device."
-	id = "rcd_module"
-	req_tech = list("materials" = 5, "engineering" = 6, "powerstorage" = 5, "bluespace" = 4)
-	materials = list("$metal"=10000,"gold"=2000,"$silver"=3000,"$glass"=2000)
-	build_path = /obj/item/rig_module/device/rcd
-
-datum/design/item/rigmodule/taser_module
-	desc = "Allows for the construction of a hardsuit-mounted nonlethal energy projector."
-	id = "taser_module"
-	req_tech = list("materials" = 2, "powerstorage" = 3, "combat" = 3)
-	materials = list("$glass" = 5250, "$metal" = 7000)
-	build_path = /obj/item/rig_module/mounted/taser
-
-datum/design/item/rigmodule/egun_module
-	desc = "Allows for the construction of a hardsuit-mounted energy projector."
-	id = "egun_module"
-	req_tech = list("materials" = 3, "powerstorage" = 4, "combat" = 4)
-	materials = list("$glass" = 2250, "$metal" = 7000, "$uranium" = 3250, "$gold" = 2500)
-	build_path = /obj/item/rig_module/mounted/egun
-
 */
