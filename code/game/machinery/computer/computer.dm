@@ -122,7 +122,7 @@
 			return 1
 		else
 			return 0
-	else if(istype(mover) && mover.checkpass(PASSTABLE))
+	else if(isanimal(mover) && mover.checkpass(PASSTABLE))
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
