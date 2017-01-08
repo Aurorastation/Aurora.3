@@ -75,6 +75,7 @@ datum/preferences
 	var/icon/preview_icon = null
 	var/icon/preview_icon_front = null
 	var/icon/preview_icon_side = null
+	var/is_updating_icon = 0
 
 		//Jobs, uses bitflags
 	var/job_civilian_high = 0
