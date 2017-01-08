@@ -144,8 +144,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
 //UPDATES OVERLAYS FROM OVERLAYS_LYING/OVERLAYS_STANDING
-//this proc is messy as I was forced to include some old laggy cloaking code to it so that I don't break cloakers
-//I'll work on removing that stuff by rewriting some of the cloaking stuff at a later date.
+//Fixed by Nanako
 /mob/living/carbon/human/update_icons()
 		//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
