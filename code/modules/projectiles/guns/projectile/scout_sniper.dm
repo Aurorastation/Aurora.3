@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/w556
-	name = "\improper Neyland 556mi 'Ranger'"
-	desc = "A lightweight scout-rifle used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with medium stopping power. Chambered in 5.56 rounds."
+	name = "scout rifle"
+	desc = "A lightweight Neyland 556mi 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in 5.56 rounds."
 	icon_state = "w556rifle"
 	item_state = "heavysniper"
 	w_class = 4

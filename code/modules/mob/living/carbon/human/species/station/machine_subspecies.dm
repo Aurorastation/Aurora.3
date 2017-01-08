@@ -67,6 +67,7 @@
 	name = "Industrial Frame"
 	short_name = "ind"
 	name_plural = "Industrials"
+	bald = 1
 
 	brute_mod = 0.5
 	burn_mod = 1.3
@@ -97,6 +98,8 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
+
+	appearance_flags = HAS_HAIR_COLOR
 
 	heat_level_1 = 600
 	heat_level_2 = 1200
@@ -130,6 +133,7 @@
 	name = "Hunter-Killer"
 	short_name = "hks"
 	name_plural = "HKs"
+	bald = 1
 
 	blurb = "\[REDACTED\]"
 
@@ -164,6 +168,7 @@
 
 	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
 	spawn_flags = IS_RESTRICTED
+	appearance_flags = HAS_HAIR_COLOR
 	vision_flags = SEE_SELF | SEE_MOBS
 
 	blood_color = "#1F181F"

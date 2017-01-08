@@ -28,6 +28,9 @@
 /obj/effect/blob/New(loc)
 	processing_objects.Add(src)
 	health = maxHealth
+	var/matrix/M = matrix()
+	M.Turn(90 * pick(0,1,2,3))
+	src.transform = M
 	update_icon()
 	return ..(loc)
 
@@ -47,7 +50,13 @@
 		for(var/mob/living/L in src.loc)
 			if(L.stat == DEAD)
 				if(prob(10))
-					L.gib()
+					if(istype(L, /mob/living/carbon/human))
+						var/mob/living/carbon/human/H = L
+						H.ChangeToHusk()
+					else if(istype(L, /mob/living/silicon))
+						continue
+					else
+						L.gib()
 					if(health < maxHealth)
 						health += rand(10,30)
 						if(health > maxHealth)
@@ -63,24 +72,30 @@
 			hangry += 16
 
 		for(var/mob/living/L in range(src,"3x3"))
-			if(!hangry)
-				if(L.stat == DEAD)
-					continue
-				if(prob(40))
-					L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
-					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-					L.take_organ_damage(rand(5, 10))
-					L.forceMove(src.loc)
-				else
-					L.visible_message("<span class='danger'>The blob glomps \the [L]!</span>", "<span class='danger'>The blob glomps you!</span>")
-					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-					L.take_organ_damage(rand(5, 20))
-					if(health < maxHealth)
-						health += rand(1,10)
-						if(health > maxHealth)
-							health = maxHealth
-				hangry += 4
+			var/obj/effect/blob/B = (locate() in get_turf(L))
+			if(!B)
+				if(!hangry)
+					if(L.stat == DEAD)
+						continue
+					if(prob(40))
+						L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
+						playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+						L.take_organ_damage(rand(5, 10))
+						L.forceMove(src.loc)
+					else
+						L.visible_message("<span class='danger'>The blob glomps \the [L]!</span>", "<span class='danger'>The blob glomps you!</span>")
+						playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+						L.take_organ_damage(rand(5, 20))
+						if(health < maxHealth)
+							health += rand(1,10)
+							if(health > maxHealth)
+								health = maxHealth
+					hangry += 4
 
+		for(var/obj/fire/F in range(src,"3x3")) //very snowflake, but much better than actually coding complex thermodynamics for these fuckers
+			if(prob(50))
+				src.visible_message("<span class='danger'>The blob melts away under the heat of the flames!</span>")
+			src.take_damage(5,15)
 	hangry -= 1
 	if(hangry < 0)
 		hangry = 0
@@ -262,6 +277,7 @@
 	laser_resist = 4
 	regen_rate = 1
 	growth_range = 3
+	expandType = /obj/effect/blob
 
 /obj/effect/blob/core/secondary/New()
 	processing_objects.Add(src)
@@ -278,7 +294,6 @@
 	name = "strong blob"
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_idle"
-	opacity = 1
 	maxHealth = 60
 	brute_resist = 1
 	fire_resist = 2

@@ -61,7 +61,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/wt550
 	name = "machine pistol"
-	desc = "The W-T 550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
+	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Necropolis Industries for paramilitary and private use. Uses 9mm rounds."
 	icon_state = "wt550"
 	item_state = "wt550"
 	w_class = 3
@@ -209,8 +209,8 @@
 		user << "\The [launcher] is empty."
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw
-	name = "\improper L6 SAW"
-	desc = "A rather traditionally made light machine gun with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2531' engraved on the reciever"
+	name = "light machine gun"
+	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the reciever"
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
 	w_class = 4
@@ -272,8 +272,8 @@
 	..()
 
 /obj/item/weapon/gun/projectile/automatic/tommygun
-	name = "\improper Tommygun"
-	desc = "A classic among criminals. Uses .45 rounds."
+	name = "vintage submachine gun"
+	desc = "A classic Thompson submachine gun, ya see? Uses .45 rounds."
 	icon_state = "tommygun"
 	w_class = 3
 	max_shells = 50
@@ -314,7 +314,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/terminator
 	name = "flechette rifle"
-	desc = "A fearsome Necropolis Industries designed rifle with attached bayonet that fires lethal flechette rounds."
+	desc = "A fearsome Necropolis Industries designed rifle with unattached bayonet that fires lethal flechette rounds."
 	icon = 'icons/obj/terminator.dmi'
 	icon_state = "flechetterifle"
 	item_state = "flechetterifle"
