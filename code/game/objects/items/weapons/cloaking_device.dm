@@ -41,7 +41,7 @@
 	spawn(1)//Things are dropped on the floor briefly when being put into containers or swapping hands
 	//Its dumb. This little hack works around it
 		var/mob/M = get_holding_mob()
-		if(!M || M != owner)
+		if(!M)
 			register_owner(M)
 		//Either placed somewhere or given to someone.
 		//M will be null if we were dropped on the floor, thats fine, the register function will handle it
