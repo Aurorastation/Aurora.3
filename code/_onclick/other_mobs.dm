@@ -54,7 +54,8 @@
 
 	if(!..())
 		return 0
-
+		
+	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	A.attack_generic(src,rand(5,6),"bitten")
 
 /*
@@ -75,7 +76,9 @@
 		if (Victim == A)
 			Feedstop()
 		return
-
+	
+	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	
 	var/mob/living/M = A
 	if (istype(M))
 
