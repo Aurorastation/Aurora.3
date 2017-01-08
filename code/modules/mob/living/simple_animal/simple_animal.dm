@@ -386,6 +386,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical))
 		..()
 
