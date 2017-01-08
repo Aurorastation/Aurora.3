@@ -183,3 +183,16 @@ obj/structure/safe/ex_act(severity)
 
 /obj/structure/safe/floor/hides_under_flooring()
 	return 1
+
+//random station safe, may come with some different loot
+/obj/structure/safe/station
+	name = "corporate safe"
+	
+/obj/structure/safe/station/New()
+
+	..()
+	new /obj/random/highvalue(src)
+	new /obj/random/highvalue(src)
+	new /obj/random/highvalue(src)
+	new /obj/random/highvalue(src)
+		return
