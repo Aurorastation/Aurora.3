@@ -281,13 +281,13 @@ var/global/list/gear_datums = list()
 	slot = slot_glasses
 
 /datum/gear/green_glasses
-	display_name = "Glasses, green"
+	display_name = "glasses, green"
 	path = /obj/item/clothing/glasses/gglasses
 	cost = 1
 	slot = slot_glasses
 
 /datum/gear/prescriptionhipster
-	display_name = "Glasses, hipster"
+	display_name = "glasses, hipster"
 	path = /obj/item/clothing/glasses/regular/hipster
 	cost = 1
 	slot = slot_glasses
@@ -905,14 +905,14 @@ var/global/list/gear_datums = list()
 	slot = slot_wear_suit
 
 /datum/gear/zhan_furs
-	display_name = "Zhan-Khazan furs"
+	display_name = "zhan-Khazan furs"
 	path = /obj/item/clothing/suit/tajaran/furs
 	cost = 1
 	slot = slot_wear_suit
 	whitelisted = "Tajara"
 
 /datum/gear/track_jacket
-	display_name = "Track Jacket"
+	display_name = "track jacket"
 	path = /obj/item/clothing/suit/storage/toggle/tracksuit
 	cost = 1
 	slot = slot_wear_suit
@@ -1315,13 +1315,13 @@ var/global/list/gear_datums = list()
 	cost = 1
 
 /datum/gear/cardemon_pack
-	display_name = "\improper Cardemon booster pack"
+	display_name = "\improper cardemon booster pack"
 	path = /obj/item/weapon/pack/cardemon
 	sort_category = "misc"
 	cost = 1
 
 /datum/gear/spaceball_pack
-	display_name = "\improper Spaceball booster pack"
+	display_name = "\improper spaceball booster pack"
 	path = /obj/item/weapon/pack/spaceball
 	sort_category = "misc"
 	cost = 1
