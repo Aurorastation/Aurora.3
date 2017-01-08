@@ -95,7 +95,7 @@
 		for(var/obj/fire/F in range(src,"3x3")) //very snowflake, but much better than actually coding complex thermodynamics for these fuckers
 			if(prob(50))
 				src.visible_message("<span class='danger'>The blob melts away under the heat of the flames!</span>")
-			src.take_damage(5,15)
+			src.take_damage(5,10)
 	hangry -= 1
 	if(hangry < 0)
 		hangry = 0
