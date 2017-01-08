@@ -179,8 +179,6 @@ Please contact me on #coderbus IRC. ~Carn x
 			src.transform = M
 
 	lying_prev = lying
-	if (type == /mob/living/carbon/human && !client && lying && life_tick > 20)
-		CRASH()
 
 var/global/list/damage_icon_parts = list()
 
