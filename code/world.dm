@@ -228,7 +228,7 @@ var/list/world_api_rate_limit = list()
 		var/exit_code = shell(command)
 		if (exit_code)
 			log_debug("RuntimeCondenser.exe exited with error code [exit_code].")
-		admin_notice("<span class='danger'>Runtime condensing finished.</span>")
+		admin_notice("<span class='danger'>Runtime condensing finished.</span>", R_DEBUG)
 
 		// Sleep until the next tick before proceeding.
 		sleep(1)
