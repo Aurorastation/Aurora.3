@@ -11,7 +11,7 @@
 	recoil = 4
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
-	max_shells = 20
+	max_shells = 10
 	ammo_type = /obj/item/ammo_casing/a556/ap
 	magazine_type = /obj/item/ammo_magazine/a556/ap
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/ap)
