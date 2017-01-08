@@ -35,15 +35,19 @@
 	register_owner(user)
 
 
+//Handles dropped or thrown cloakers
 /obj/item/weapon/cloaking_device/dropped(var/mob/user)
 	..()
 	spawn(1)//Things are dropped on the floor briefly when being put into containers or swapping hands
 	//Its dumb. This little hack works around it
 		var/mob/M = get_holding_mob()
-		if(!M)
+		if(!M || M != owner)
 			register_owner(M)
-			//Either placed somewhere or given to someone.
-			//M will be null if we were dropped on the floor, thats fine, the register function will handle it
+		//Either placed somewhere or given to someone.
+		//M will be null if we were dropped on the floor, thats fine, the register function will handle it
+		//If M contains someone other than the owner, then this device was just passed to someone
+
+	//If M contains the owner then the item hasn't actually been dropped, its just the quirk mentioned above
 
 /obj/item/weapon/cloaking_device/attack_self(mob/user as mob)
 	if (istype(loc, /mob) && loc == user)//safety check incase of shenanigans
@@ -112,7 +116,7 @@
 	if(istype(W, /obj/item/weapon/cell))
 		if(!cell)
 			user.drop_item()
-			W.loc = src
+			W.forceMove = src
 			cell = W
 			user << "<span class='notice'>You install a cell in [src].</span>"
 			update_icon()
@@ -122,7 +126,7 @@
 	else if(istype(W, /obj/item/weapon/screwdriver))
 		if(cell)
 			cell.update_icon()
-			cell.loc = get_turf(src.loc)
+			cell.forceMove = get_turf(src.loc)
 			cell = null
 			user << "<span class='notice'>You remove the cell from the [src].</span>"
 			deactivate()
