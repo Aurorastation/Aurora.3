@@ -20,29 +20,29 @@
 		if(holder)
 			holder.update_icon()
 
-/obj/item/device/assembly/mousetrap/proc/triggered(mob/target as mob, var/type = "feet")
+/obj/item/device/assembly/mousetrap/proc/triggered(var/mob/living/target, var/type = "feet")
 	if(!armed)
 		return
-	var/obj/item/organ/external/affecting = null
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		switch(type)
-			if("feet")
-				if(!H.shoes)
-					affecting = H.get_organ(pick("l_leg", "r_leg"))
-					H.Weaken(3)
-			if("l_hand", "r_hand")
-				if(!H.gloves)
-					affecting = H.get_organ(type)
-					H.Stun(3)
-		if(affecting)
-			if(affecting.take_damage(rand(7,12), 0))
-				H.UpdateDamageIcon()
-			H.updatehealth()
-	else if(ismouse(target))
+	if(ismouse(target))
 		var/mob/living/simple_animal/mouse/M = target
 		visible_message("\red <b>SPLAT!</b>")
 		M.splat()
+	else
+		var/zone = "chest"
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			switch(type)
+				if("feet")
+					zone = pick("l_leg", "r_leg")
+					if(!H.shoes)
+						H.Weaken(3)
+				if("l_hand", "r_hand")
+					zone = type
+					if(!H.gloves)
+						H.Stun(3)
+
+		target.apply_damage(rand(7,15), BRUTE, def_zone = zone, used_weapon = src)
+
 	playsound(target.loc, 'sound/effects/snap.ogg', 50, 1)
 	layer = MOB_LAYER - 0.2
 	armed = 0
@@ -83,14 +83,14 @@
 
 /obj/item/device/assembly/mousetrap/Crossed(AM as mob|obj)
 	if(armed)
-		if(ishuman(AM))
-			var/mob/living/carbon/H = AM
-			if(H.m_intent == "run")
-				triggered(H)
-				H.visible_message("<span class='warning'>[H] accidentally steps on [src].</span>", \
-								  "<span class='warning'>You accidentally step on [src]</span>")
 		if(ismouse(AM))
 			triggered(AM)
+		else if(istype(AM, /mob/living))
+			var/mob/living/L = AM
+			triggered(L)
+			L.visible_message("<span class='warning'>[L] accidentally steps on [src].</span>", \
+							  "<span class='warning'>You accidentally step on [src]</span>")
+
 	..()
 
 
