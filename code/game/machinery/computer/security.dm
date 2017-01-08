@@ -370,7 +370,6 @@ What a mess.*/
 					record1 = active1
 				if ((istype(active2, /datum/data/record) && data_core.security.Find(active2)))
 					record2 = active2
-				sleep(50)
 				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
 				var/info = ""
 				var/pname
