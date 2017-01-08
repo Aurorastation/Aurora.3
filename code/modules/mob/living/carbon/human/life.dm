@@ -994,8 +994,10 @@
 		if(paralysis || sleeping)
 			blinded = 1
 			stat = UNCONSCIOUS
-			animate_tail_reset()
+
 			adjustHalLoss(-3)
+			if (species.tail)
+				animate_tail_reset()
 
 		if(paralysis)
 			AdjustParalysis(-1)

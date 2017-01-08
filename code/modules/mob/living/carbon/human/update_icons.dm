@@ -147,17 +147,12 @@ Please contact me on #coderbus IRC. ~Carn x
 //this proc is messy as I was forced to include some old laggy cloaking code to it so that I don't break cloakers
 //I'll work on removing that stuff by rewriting some of the cloaking stuff at a later date.
 /mob/living/carbon/human/update_icons()
-	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
+		//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
 	overlays.Cut()
 
-	var/stealth = 0
-	//cloaking devices. //TODO: get rid of this :<
-	for(var/obj/item/weapon/cloaking_device/S in list(l_hand,r_hand,belt,l_store,r_store))
-		if(S.active)
-			stealth = 1
-			break
-	if(stealth)
+
+	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
 		var/image/I	= overlays_standing[L_HAND_LAYER]
@@ -171,17 +166,22 @@ Please contact me on #coderbus IRC. ~Carn x
 		if(species.has_floating_eyes)
 			overlays |= species.get_eyes(src)
 
-	if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
-		var/matrix/M = matrix()
-		M.Turn(90)
-		M.Scale(size_multiplier)
-		M.Translate(1,-6)
-		src.transform = M
-	else
-		var/matrix/M = matrix()
-		M.Scale(size_multiplier)
-		M.Translate(0, 16*(size_multiplier-1))
-		src.transform = M
+	if (lying_prev != lying || size_multiplier != 1)
+		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
+			var/matrix/M = matrix()
+			M.Turn(90)
+			M.Scale(size_multiplier)
+			M.Translate(1,-6)
+			src.transform = M
+		else
+			var/matrix/M = matrix()
+			M.Scale(size_multiplier)
+			M.Translate(0, 16*(size_multiplier-1))
+			src.transform = M
+
+	lying_prev = lying
+	if (type == /mob/living/carbon/human && !client && lying && life_tick > 20)
+		CRASH()
 
 var/global/list/damage_icon_parts = list()
 
@@ -346,7 +346,7 @@ var/global/list/damage_icon_parts = list()
 
 	if(undershirt && species.appearance_flags & HAS_UNDERWEAR)
 		stand_icon.Blend(new /icon('icons/mob/human.dmi', undershirt), ICON_OVERLAY)
-		
+
 	if(socks && species.appearance_flags & HAS_SOCKS)
 		stand_icon.Blend(new /icon('icons/mob/human.dmi', socks), ICON_OVERLAY)
 
@@ -1151,16 +1151,21 @@ var/global/list/damage_icon_parts = list()
 
 
 /mob/living/carbon/human/proc/set_tail_state(var/t_state)
+	if (!species.tail)
+		return
+
 	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
 
 	if(tail_overlay && species.tail_animation)
-		tail_overlay.icon_state = t_state
+		if (tail_overlay.icon_state != t_state)
+			tail_overlay.icon_state = t_state
+			update_icons()
 		return tail_overlay
 	return null
 
 //Not really once, since BYOND can't do that.
 //Update this if the ability to flick() images or make looping animation start at the first frame is ever added.
-/mob/living/carbon/human/proc/animate_tail_once(var/update_icons=1)
+/mob/living/carbon/human/proc/animate_tail_once()
 	var/t_state = "[species.tail]_once"
 
 	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
@@ -1174,36 +1179,28 @@ var/global/list/damage_icon_parts = list()
 			if(overlays_standing[TAIL_LAYER] == tail_overlay && tail_overlay.icon_state == t_state)
 				animate_tail_stop()
 
-	if(update_icons)
-		update_icons()
 
-/mob/living/carbon/human/proc/animate_tail_start(var/update_icons=1)
+
+/mob/living/carbon/human/proc/animate_tail_start()
 	set_tail_state("[species.tail]_slow[rand(0,9)]")
 
-	if(update_icons)
-		update_icons()
 
-/mob/living/carbon/human/proc/animate_tail_fast(var/update_icons=1)
+/mob/living/carbon/human/proc/animate_tail_fast()
 	set_tail_state("[species.tail]_loop[rand(0,9)]")
 
-	if(update_icons)
-		update_icons()
+	//if(update_icons)
 
-/mob/living/carbon/human/proc/animate_tail_reset(var/update_icons=1)
-	if(stat != DEAD)
+/mob/living/carbon/human/proc/animate_tail_reset()
+	if(stat != DEAD && !lying)
 		set_tail_state("[species.tail]_idle[rand(0,9)]")
 	else
 		set_tail_state("[species.tail]_static")
 
 
-	if(update_icons)
-		update_icons()
 
 /mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
 	set_tail_state("[species.tail]_static")
 
-	if(update_icons)
-		update_icons()
 
 
 //Adds a collar overlay above the helmet layer if the suit has one
