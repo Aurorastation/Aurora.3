@@ -148,7 +148,7 @@
 		return 1
 
 	if (href_list["print"])
-		print(user)
+		do_print(user)
 		return 1
 
 	if(!sample) return 1
@@ -167,7 +167,7 @@
 		update_icon()
 		return 1
 
-/obj/machinery/disease2/isolator/print(var/mob/user)
+/obj/machinery/disease2/isolator/proc/do_print(var/mob/user)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
 	var/pname
 	var/info = ""

@@ -105,7 +105,7 @@
 		return 0
 
 	if (href_list["print"])
-		print(user)
+		do_print(user)
 		return 1
 
 	if(href_list["isolate"])
@@ -171,7 +171,7 @@
 	update_icon()
 	ping("\The [src] pings, \"Pathogen isolated.\"")
 
-/obj/machinery/computer/centrifuge/print(var/mob/user)
+/obj/machinery/computer/centrifuge/proc/do_print(var/mob/user)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
 	var/pname = "paper - Pathology Report"
 	var/info = {"
