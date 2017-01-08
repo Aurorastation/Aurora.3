@@ -279,9 +279,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 			//Let's start the BB >> HTML conversion!
 
-			C.set_content("NFC-[id] - [name]", data)
 			data = html_encode(data)
-			data = replacetext(data, "\n", "<BR>")
+			C.set_content("NFC-[id] - [name]", data)
 			print(C)
 
 			paperstock--
@@ -424,8 +423,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 							img.pixel_y = C.offset_y[j]
 							P.overlays += img
 						P.set_content_unsafe(pname, info)
-						print(P, 0)
-						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
 							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
 						Console.paperstock--
