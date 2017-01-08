@@ -348,14 +348,15 @@ log transactions
 						usr << "\icon[src]<span class='warning'>You don't have enough funds to do that!</span>"
 			if("balance_statement")
 				if(authenticated_account)
-					var/obj/item/weapon/paper/R = new(src.loc)
-					R.name = "Account balance: [authenticated_account.owner_name]"
-					R.info = "<b>NT Automated Teller Account Statement</b><br><br>"
-					R.info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
-					R.info += "<i>Account number:</i> [authenticated_account.account_number]<br>"
-					R.info += "<i>Balance:</i> $[authenticated_account.money]<br>"
-					R.info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
-					R.info += "<i>Service terminal ID:</i> [machine_id]<br>"
+					var/obj/item/weapon/paper/R = new()
+					var/pname = "Account balance: [authenticated_account.owner_name]"
+					var/info = "<b>NT Automated Teller Account Statement</b><br><br>"
+					info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
+					info += "<i>Account number:</i> [authenticated_account.account_number]<br>"
+					info += "<i>Balance:</i> $[authenticated_account.money]<br>"
+					info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
+					info += "<i>Service terminal ID:</i> [machine_id]<br>"
+					R.set_content_unsafe(pname, info)
 
 					//stamp the paper
 					var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
@@ -365,6 +366,7 @@ log transactions
 					R.stamped += /obj/item/weapon/stamp
 					R.overlays += stampoverlay
 					R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+					print(R)
 
 					release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 
@@ -374,32 +376,34 @@ log transactions
 					playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
 			if ("print_transaction")
 				if(authenticated_account)
-					var/obj/item/weapon/paper/R = new(src.loc)
-					R.name = "Transaction logs: [authenticated_account.owner_name]"
-					R.info = "<b>Transaction logs</b><br>"
-					R.info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
-					R.info += "<i>Account number:</i> [authenticated_account.account_number]<br>"
-					R.info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
-					R.info += "<i>Service terminal ID:</i> [machine_id]<br>"
-					R.info += "<table border=1 style='width:100%'>"
-					R.info += "<tr>"
-					R.info += "<td><b>Date</b></td>"
-					R.info += "<td><b>Time</b></td>"
-					R.info += "<td><b>Target</b></td>"
-					R.info += "<td><b>Purpose</b></td>"
-					R.info += "<td><b>Value</b></td>"
-					R.info += "<td><b>Source terminal ID</b></td>"
-					R.info += "</tr>"
+					var/obj/item/weapon/paper/R = new()
+					var/pname = "Transaction logs: [authenticated_account.owner_name]"
+					var/info = "<b>Transaction logs</b><br>"
+					info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
+					info += "<i>Account number:</i> [authenticated_account.account_number]<br>"
+					info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
+					info += "<i>Service terminal ID:</i> [machine_id]<br>"
+					info += "<table border=1 style='width:100%'>"
+					info += "<tr>"
+					info += "<td><b>Date</b></td>"
+					info += "<td><b>Time</b></td>"
+					info += "<td><b>Target</b></td>"
+					info += "<td><b>Purpose</b></td>"
+					info += "<td><b>Value</b></td>"
+					info += "<td><b>Source terminal ID</b></td>"
+					info += "</tr>"
 					for(var/datum/transaction/T in authenticated_account.transaction_log)
-						R.info += "<tr>"
-						R.info += "<td>[T.date]</td>"
-						R.info += "<td>[T.time]</td>"
-						R.info += "<td>[T.target_name]</td>"
-						R.info += "<td>[T.purpose]</td>"
-						R.info += "<td>$[T.amount]</td>"
-						R.info += "<td>[T.source_terminal]</td>"
-						R.info += "</tr>"
-					R.info += "</table>"
+						info += "<tr>"
+						info += "<td>[T.date]</td>"
+						info += "<td>[T.time]</td>"
+						info += "<td>[T.target_name]</td>"
+						info += "<td>[T.purpose]</td>"
+						info += "<td>$[T.amount]</td>"
+						info += "<td>[T.source_terminal]</td>"
+						info += "</tr>"
+					info += "</table>"
+
+					R.set_content_unsafe(pname, info)
 
 					//stamp the paper
 					var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
@@ -409,6 +413,7 @@ log transactions
 					R.stamped += /obj/item/weapon/stamp
 					R.overlays += stampoverlay
 					R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+					print(R)
 
 				if(prob(50))
 					playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
