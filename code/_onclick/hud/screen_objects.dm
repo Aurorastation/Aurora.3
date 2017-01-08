@@ -270,7 +270,7 @@
 								tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
 								if(H.species.has_organ["phoron reserve tank"])
 									var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
-									if(preserve.air_contents)
+									if(preserve && preserve.air_contents)
 										from = "in"
 										nicename |= "sternum"
 										tankcheck |= preserve

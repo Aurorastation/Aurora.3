@@ -156,9 +156,12 @@
 /datum/event/New(var/datum/event_meta/EM = null, var/is_dummy = 0)
 	dummy = is_dummy
 	event_meta = EM
-	severity = event_meta.severity
-	if(severity < EVENT_LEVEL_MUNDANE) severity = EVENT_LEVEL_MUNDANE
-	if(severity > EVENT_LEVEL_MAJOR) severity = EVENT_LEVEL_MAJOR
+	if (event_meta)
+		severity = event_meta.severity
+		if(severity < EVENT_LEVEL_MUNDANE) severity = EVENT_LEVEL_MUNDANE
+		if(severity > EVENT_LEVEL_MAJOR) severity = EVENT_LEVEL_MAJOR
+	else
+		severity = EVENT_LEVEL_MODERATE//Fixes runtime errors with admin triggered events
 
 	if (dummy)
 		return

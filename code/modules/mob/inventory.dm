@@ -131,8 +131,9 @@ var/list/slot_equipment_priority = list( \
 //If both fail it drops it on the floor and returns 0.
 //This is probably the main one you need to know :)
 /mob/proc/put_in_hands(var/obj/item/W)
-	if(!W)
+	if(!W || !istype(W))
 		return 0
+
 	W.forceMove(get_turf(src))
 	W.layer = initial(W.layer)
 	W.dropped()
