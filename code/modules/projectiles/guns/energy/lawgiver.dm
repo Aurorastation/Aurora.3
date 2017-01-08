@@ -1,5 +1,5 @@
 /obj/item/weapon/gun/energy/lawgiver
-	name = "Lawgiver Mk II"
+	name = "\improper Lawgiver Mk II"
 	icon_state = "lawgiver"
 	item_state = "gun"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)

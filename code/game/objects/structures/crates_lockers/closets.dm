@@ -213,16 +213,15 @@
 		if(istype(W, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/WT = W
 			if(!WT.remove_fuel(0,user))
-				if(!WT.isOn())
-					return
-				else
+				if(WT.isOn())
 					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 					return
-			new /obj/item/stack/material/steel(src.loc)
-			for(var/mob/M in viewers(src))
-				M.show_message("<span class='notice'>\The [src] has been cut apart by [user] with \the [WT].</span>", 3, "You hear welding.", 2)
-			qdel(src)
-			return
+			else
+				new /obj/item/stack/material/steel(src.loc)
+				for(var/mob/M in viewers(src))
+					M.show_message("<span class='notice'>\The [src] has been cut apart by [user] with \the [WT].</span>", 3, "You hear welding.", 2)
+				qdel(src)
+				return
 		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
 			var/obj/item/weapon/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)

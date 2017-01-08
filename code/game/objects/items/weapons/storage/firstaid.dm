@@ -164,6 +164,7 @@
 	allow_quick_gather = 1
 	use_to_pickup = 1
 	use_sound = null
+	max_storage_space = 16
 
 /obj/item/weapon/storage/pill_bottle/antitox
 	name = "bottle of Dylovene pills"

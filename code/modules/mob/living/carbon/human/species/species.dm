@@ -39,6 +39,7 @@
 	var/show_ssd = "fast asleep"
 	var/virus_immune
 	var/short_sighted
+	var/bald = 0
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
