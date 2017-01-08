@@ -417,17 +417,17 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 0.5
 		spawn(20)
 			var/obj/item/weapon/paper/PR = new/obj/item/weapon/paper
-			PR.name = "list of researched technologies"
-			PR.info = "<center><b>[station_name()] Science Laboratories</b>"
-			PR.info += "<h2>[ (text2num(href_list["print"]) == 2) ? "Detailed" : ] Research Progress Report</h2>"
-			PR.info += "<i>report prepared at [worldtime2text()] station time</i></center><br>"
+			var/pname = "list of researched technologies"
+			var/info = "<center><b>[station_name()] Science Laboratories</b>"
+			info += "<h2>[ (text2num(href_list["print"]) == 2) ? "Detailed" : ] Research Progress Report</h2>"
+			info += "<i>report prepared at [worldtime2text()] station time</i></center><br>"
 			if(text2num(href_list["print"]) == 2)
-				PR.info += GetResearchListInfo()
+				info += GetResearchListInfo()
 			else
-				PR.info += GetResearchLevelsInfo()
-			PR.info_links = PR.info
-			PR.icon_state = "paper_words"
-			PR.loc = src.loc
+				info += GetResearchLevelsInfo()
+			
+			PR.set_content_unsafe(pname, info)
+			print(PR)
 			spawn(10)
 				screen = ((text2num(href_list["print"]) == 2) ? 5.0 : 1.1)
 				updateUsrDialog()

@@ -32,8 +32,7 @@
 		user << "There is no scan data to print."
 		return
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(src))
-	P.name = "paper - [form_title]"
-	P.info = "[last_data]"
+	P.set_content_unsafe("paper - [form_title]", "[last_data]")
 	if(istype(user,/mob/living/carbon/human) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(P)
 	user.visible_message("\The [src] spits out a piece of paper.")
