@@ -195,4 +195,4 @@ obj/structure/safe/ex_act(severity)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
-		return
+	return
