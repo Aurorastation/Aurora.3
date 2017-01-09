@@ -138,6 +138,8 @@
 			player << msg
 
 /datum/language/bug/check_special_condition(var/mob/other)
+	if(istype(other, /mob/living/silicon))
+		return 1
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
@@ -147,8 +149,6 @@
 	if(within_jamming_range(other))
 		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
-		return 1
-	if(istype(M,/mob/living/silicon/))
 		return 1
 
 	if (M.l_ear || M.r_ear)
