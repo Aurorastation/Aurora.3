@@ -290,7 +290,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 
 	var/obj/item/rcvdcopy
 	if (istype(copyitem, /obj/item/weapon/paper))
-		rcvdcopy = copy(copyitem)
+		rcvdcopy = copy(copyitem, 0)
 	else if (istype(copyitem, /obj/item/weapon/photo))
 		rcvdcopy = photocopy(copyitem)
 	else if (istype(copyitem, /obj/item/weapon/paper_bundle))

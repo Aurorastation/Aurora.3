@@ -146,7 +146,7 @@
 					toner = 0
 	return
 
-/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy)
+/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy, var/print = 1)
 	var/obj/item/weapon/paper/c = new /obj/item/weapon/paper()
 	var/info
 	var/pname
@@ -185,8 +185,9 @@
 		return
 	
 	c.set_content_unsafe(pname, info)
-	print(c, 1, 'sound/items/poster_being_created.ogg', 20)
-
+	if (print)
+		src.print(c, 1, 'sound/items/poster_being_created.ogg', 20)
+	return c
 
 /obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
 	var/obj/item/weapon/photo/p = photocopy.copy()
