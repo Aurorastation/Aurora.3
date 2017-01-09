@@ -733,7 +733,6 @@
 	/obj/item/weapon/storage/secure/briefcase/money = 5,
 	/obj/item/stack/telecrystal{amount = 10} = 4,
 	/obj/item/clothing/glasses/thermal = 2,
-	/obj/item/vaurca/box = 2,
 	/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 1,
 	/obj/item/weapon/material/sword/rapier = 1,
 	/obj/item/weapon/gun/energy/lawgiver = 1,
