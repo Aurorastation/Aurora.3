@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/automatic //Hopefully someone will find a way to make these fire in bursts or something. --Superxpdude
+/obj/item/weapon/gun/projectile/automatic
 	name = "prototype SMG"
 	desc = "A protoype lightweight, fast firing gun. Uses 9mm rounds."
 	icon_state = "saber"	//ugly
@@ -22,7 +22,7 @@
 //Submachine guns and personal defence weapons, go.
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
-	name = "\improper Uzi"
+	name = ".45 machine pistol"
 	desc = "The UZI is a lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
 	w_class = 3
@@ -130,7 +130,7 @@
 	toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
-	name = "\improper STS-35 automatic rifle"
+	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
@@ -142,8 +142,8 @@
 	var/use_launcher = 0
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8
-	name = "\improper Z8 Bulldog"
-	desc = "An older model bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
+	name = "bullpup assault carbine"
+	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
 	icon_state = "carbine"
 	item_state = "z8carbine"
 	w_class = 4
