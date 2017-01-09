@@ -32,7 +32,7 @@
 
 /obj/item/weapon/gun/projectile/sec
 	name = ".45 pistol"
-	desc = "A NanoTrasen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds.."
+	desc = "A NanoTrasen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds."
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
@@ -111,8 +111,8 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 
 /obj/item/weapon/gun/projectile/deagle
-	name = "desert eagle"
-	desc = "A robust handgun that uses .50 AE ammo"
+	name = ".50 magnum pistol"
+	desc = "A robust handgun that uses .50 AE ammo."
 	icon_state = "deagle"
 	item_state = "deagle"
 	force = 14.0
