@@ -35,5 +35,6 @@ delete-after: True
 changes: 
   - tweak: "Cloaking devices now use power, the cell can be removed for charging or replacement with a screwdriver."
   - tweak: "Cloaking devices now hide the user from rightclick menus, and in general make them harder to hit."
+  - rscadd: "Cloaking device is now available in traitor uplinks. Costs 14 TC, its very powerful."
   - rscadd: "Added an *idle emote for people with tails to reset their tail wagging to the default speeds."
   - bugfix: "Fixed a bug where dead or SSD crewmembers would constantly try to stop wagging their tail (even if they don't have one) causing some lag."

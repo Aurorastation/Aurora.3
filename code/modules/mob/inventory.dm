@@ -219,6 +219,24 @@ var/list/slot_equipment_priority = list( \
 	drop_from_inventory(I)
 	return 1
 
+
+//This function is an unsafe proc used to prepare an item for being moved to a slot, or from a mob to a container
+//It should be equipped to a new slot or forcemoved somewhere immediately after this is called
+/mob/proc/prepare_for_slotmove(obj/item/I)
+
+
+	if(!canUnEquip(I))
+		return 0
+
+	src.u_equip(I)
+	if (src.client)
+		src.client.screen -= I
+	I.layer = initial(I.layer)
+	I.screen_loc = null
+
+	return 1
+
+
 //Attemps to remove an object on a mob.
 /mob/proc/remove_from_mob(var/obj/O)
 	src.u_equip(O)

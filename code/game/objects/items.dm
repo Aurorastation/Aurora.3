@@ -161,7 +161,7 @@
 
 	src.throwing = 0
 	if (src.loc == user)
-		if(!user.unEquip(src))
+		if(!user.prepare_for_slotmove(src))
 			return
 	else
 		if(isliving(src.loc))
@@ -217,7 +217,8 @@
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
 
-// apparently called whenever an item is removed from a slot, container, or anything else.
+//Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
+//It is called after loc is set, so if placed in a container its loc will be that container
 /obj/item/proc/dropped(var/mob/user)
 	..()
 	if(zoom)
