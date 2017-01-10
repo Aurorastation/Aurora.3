@@ -50,7 +50,7 @@
 
 			if (istype(copyitem, /obj/item/weapon/paper))
 				copy(copyitem)
-				sleep(15)
+				sleep(20)
 			else if (istype(copyitem, /obj/item/weapon/photo))
 				photocopy(copyitem)
 				sleep(15)
