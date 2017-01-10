@@ -189,6 +189,16 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(!message || message == "")
 		return 0
+	
+	//handle nonverbal and sign languages here
+	if (speaking)
+		world.log << "## SPEAKING: flags=[speaking.flags],name=[speaking.name],is_nonverbal=[speaking.flags & NONVERBAL],is_sign=[speaking.flags & SIGNLANG]"
+		if (speaking.flags & NONVERBAL)
+			if (prob(30))
+				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
+
+		if (speaking.flags & SIGNLANG)
+			return say_signlang(message, pick(speaking.signlang_verb), speaking)
 
 	var/list/obj/item/used_radios = new
 	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name))
@@ -200,7 +210,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/italics = 0
 	var/message_range = world.view
-
+	
 	//speaking into radios
 	if(used_radios.len)
 		italics = 1
@@ -217,15 +227,6 @@ proc/get_radio_key_from_channel(var/channel)
 				sound_vol *= 0.5
 
 	var/turf/T = get_turf(src)
-
-	//handle nonverbal and sign languages here
-	if (speaking)
-		if (speaking.flags & NONVERBAL)
-			if (prob(30))
-				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
-
-		if (speaking.flags & SIGNLANG)
-			return say_signlang(message, pick(speaking.signlang_verb), speaking)
 
 	var/list/listening = list()
 	var/list/listening_obj = list()
