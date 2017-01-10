@@ -70,7 +70,7 @@ var/list/mob_hat_cache = list()
 	if(jobban_isbanned(possessor,"Cyborg"))
 		usr << "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>"
 		return 0
-	if(!possessor.MayRespawn(1,DRONE_SPAWN_DELAY))
+	if(!possessor.MayRespawn(1,MINISYNTH))
 		return 0
 	return 1
 

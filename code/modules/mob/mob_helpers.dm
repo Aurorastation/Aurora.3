@@ -949,13 +949,6 @@ proc/is_blind(A)
 //See Devour.dm for more info in how these are used
 
 
-//Flags for the eat_types variable, a bitfield of what can or can't be eaten
-//Note that any given mob can be more than one type
-#define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
-#define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
-#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
-
 
 //Blacklists of mobs that can be excluded from eating by flags in the bitfield
 

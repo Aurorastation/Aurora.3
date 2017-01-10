@@ -21,27 +21,30 @@
 			holder.update_icon()
 
 /obj/item/device/assembly/mousetrap/proc/triggered(var/mob/living/target, var/type = "feet")
-	if(!armed)
+	if(!armed || !istype(target))
 		return
+
+	var/types = target.find_type()
 	if(ismouse(target))
 		var/mob/living/simple_animal/mouse/M = target
 		visible_message("\red <b>SPLAT!</b>")
 		M.splat()
 	else
 		var/zone = "chest"
-		if(ishuman(target))
+		if(ishuman(target) && target.mob_size)
 			var/mob/living/carbon/human/H = target
 			switch(type)
 				if("feet")
-					zone = pick("l_leg", "r_leg")
+					zone = pick("l_foot", "r_foot")
 					if(!H.shoes)
-						H.Weaken(3)
+						H.apply_effect(400/(target.mob_size*(target.mob_size*0.25)), AGONY)//Halloss instead of instant knockdown
+						//Mainly for the benefit of giant monsters like vaurca breeders
 				if("l_hand", "r_hand")
 					zone = type
 					if(!H.gloves)
-						H.Stun(3)
-
-		target.apply_damage(rand(7,15), BRUTE, def_zone = zone, used_weapon = src)
+						H.apply_effect(250/(target.mob_size*(target.mob_size*0.25)), AGONY)
+		if (!(types & TYPE_SYNTHETIC))
+			target.apply_damage(rand(6,14), BRUTE, def_zone = zone, used_weapon = src)
 
 	playsound(target.loc, 'sound/effects/snap.ogg', 50, 1)
 	layer = MOB_LAYER - 0.2
