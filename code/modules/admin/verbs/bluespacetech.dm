@@ -346,14 +346,14 @@
 	storage_slots = 56
 	max_w_class = 400
 
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/device/radio/headset/ert/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
 
 //Headset
 /obj/item/device/radio/headset/ert/bst
@@ -365,14 +365,21 @@
 	keyslot1 = new /obj/item/device/encryptionkey/binary
 	keyslot2 = new /obj/item/device/encryptionkey/ert
 
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/device/radio/headset/ert/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
+
+// overload this so we can force translate flags without the required keys
+/obj/item/device/radio/headset/ert/bst/recalculateChannels(var/setDescription = 0)
+	..(setDescription)
+	translate_binary = 1
+	translate_hive = 1
+	translate_hivenet = 1
 
 //Clothes
 /obj/item/clothing/under/rank/centcom_officer/bst
@@ -385,14 +392,14 @@
 	cold_protection = FULL_BODY
 	heat_protection = FULL_BODY
 
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/clothing/under/rank/centcom_officer/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
 
 //Gloves
 /obj/item/clothing/gloves/swat/bst
@@ -402,14 +409,14 @@
 	permeability_coefficient = 0
 	canremove = 0
 
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/clothing/gloves/swat/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
 
 //Sunglasses
 /obj/item/clothing/glasses/sunglasses/bst
@@ -425,34 +432,33 @@
 		src.hud += new/obj/item/clothing/glasses/hud/health(src)
 		return
 */
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/clothing/glasses/sunglasses/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
 
 //Shoes
 /obj/item/clothing/shoes/black/bst
 	name = "\improper Bluespace Technician's shoes"
-	name = "A pair of Bluespace Technician's shoes with extra grip. The letters 'BST' are stamped on the side."
+	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
-	desc = "A pair of black shoes. 'BST' marked on the side."
 	flags = NOSLIP
 	canremove = 0
 
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/clothing/shoes/black/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
 
-		return 1 //Because Bluespace
+	return 1 //Because Bluespace
 
 //ID
 /obj/item/weapon/card/id/bst
@@ -462,28 +468,28 @@
 	New()
 		access = get_all_accesses()+get_all_centcom_access()+get_all_syndicate_access()
 
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/weapon/card/id/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
 
 /obj/item/device/pda/captain/bst
 	hidden = 1
 	message_silent = 1
 //	ttone = "DO SOMETHING HERE"
 
-	attack_hand()
-		if(!usr)
-			return
-		if(!istype(usr, /mob/living/carbon/human/bst))
-			usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
-			return
-		else
-			..()
+/obj/item/device/pda/captain/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		return
+	else
+		..()
 
 /mob/living/carbon/human/bst/restrained()
 	return 0
