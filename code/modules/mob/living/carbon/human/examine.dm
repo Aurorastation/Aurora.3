@@ -112,8 +112,6 @@
 		msg += "<span class='warning'>[T.He] [T.has] [(hand_blood_color != "#030303") ? "blood" : "oil"]-stained hands!</span>\n"
 
 	//handcuffed?
-
-	//handcuffed?
 	if(handcuffed)
 		if(istype(handcuffed, /obj/item/weapon/handcuffs/cable))
 			msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] restrained with cable!</span>\n"
@@ -213,10 +211,10 @@
 	if(fire_stacks)
 		msg += "[T.He] [T.is] covered in some liquid.\n"
 	if(on_fire)
-		msg += "<span class='warning'>[T.He] [T.is] on fire!.</span>\n"
+		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
 	msg += "<span class='warning'>"
 
-	/*
+	
 	if(nutrition < 100)
 		msg += "[T.He] [T.is] severely malnourished.\n"
 	else if(nutrition >= 500)
@@ -224,7 +222,7 @@
 			msg += "[T.He] [T.is] plump and delicious looking - Like a fat little piggy. A tasty piggy.\n"
 		else*/
 		msg += "[T.He] [T.is] quite chubby.\n"
-	*/
+	
 
 	msg += "</span>"
 
@@ -257,7 +255,8 @@
 		if(temp)
 			if(temp.status & ORGAN_ROBOT)
 				if(!(temp.brute_dam + temp.burn_dam))
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
+					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
+					// No need to notify about robotic limbs if they're not damaged, really.
 					continue
 				else
 					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]. It has[temp.get_wounds_desc()]!</span>\n"
