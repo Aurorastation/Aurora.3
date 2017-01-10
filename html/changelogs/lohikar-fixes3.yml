@@ -1,30 +1,4 @@
-################################
-# Example Changelog File
-#
-# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
-#
-# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
-# When it is, any changes listed below will disappear.
-#
-# Valid Prefixes: 
-#   bugfix
-#   wip (For works in progress)
-#   tweak
-#   soundadd
-#   sounddel
-#   rscadd (general adding of nice things)
-#   rscdel (general deleting of nice things)
-#   imageadd
-#   imagedel
-#   maptweak
-#   spellcheck (typo fixes)
-#   experiment
-#################################
-
-# Your name.  
 author: Lohikar
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
 changes: 
   - tweak: "Auto-Hiss should no longer act on sign languages."
@@ -35,3 +9,4 @@ changes:
   - bugfix: "Examining a human-type mob with robotic limbs no longer shows red examine text for each limb."
   - bugfix: "Examining a human-type mob now shows hunger level again."
   - bugfix: "The Ninja's self-destruct should actually kill the Ninja now."
+  - bugfix: "You can no longer use sign languages over radios."
