@@ -195,7 +195,7 @@
 	var/distance = get_dist(usr,src)
 	if(istype(usr, /mob/dead/observer) || usr.stat == 2) // ghosts can see anything
 		distance = 1
-	if (src.stat)
+	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be asleep.</span>\n"
 		if((stat == 2 || src.losebreath) && distance <= 3)
 			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
@@ -207,6 +207,9 @@
 					usr << "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>"
 				else
 					usr << "<span class='deadsay'>[T.He] [T.has] a pulse!</span>"
+
+	else if (src.stat)
+		msg += span("warning", "[T.He] [T.is] not responding to anything around [T.him].\n")
 
 	if(fire_stacks)
 		msg += "[T.He] [T.is] covered in some liquid.\n"

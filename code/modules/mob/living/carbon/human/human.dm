@@ -1092,6 +1092,16 @@
 
 	if(usr == src)
 		self = 1
+
+	if (isipc(src)) 
+		usr << span("notice", self ? "You are a machine, you do not have a pulse." : "[src] is a machine, they do not have a pulse.")
+		return
+
+	// just in-case
+	if (src.species.flags & NO_BLOOD)
+		usr << span("notice", self ? "Your species does not have blood." : "[src]'s species does not have blood.")
+		return
+
 	if(!self)
 		usr.visible_message("<span class='notice'>[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse.</span>",\
 		"You begin counting [src]'s pulse")
