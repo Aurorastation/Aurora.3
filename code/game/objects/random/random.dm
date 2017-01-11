@@ -721,3 +721,24 @@
 	/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
 	)
 	return pickweight(hoodie)
+
+/obj/random/highvalue
+	name = "random high valuable item"
+	desc = "This is a random high valuable item."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "coin_diamond"
+
+/obj/random/highvalue/item_to_spawn()
+	var/list/highvalue = list(/obj/item/bluespace_crystal = 7,
+	/obj/item/weapon/storage/secure/briefcase/money = 5,
+	/obj/item/stack/telecrystal{amount = 10} = 4,
+	/obj/item/clothing/glasses/thermal = 2,
+	/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 1,
+	/obj/item/weapon/material/sword/rapier = 1,
+	/obj/item/weapon/gun/energy/lawgiver = 1,
+	/obj/item/weapon/melee/energy/axe = 0.5,
+	/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
+	/obj/item/weapon/rig/military = 0.5,
+	/obj/item/weapon/rig/unathi/fancy = 0.5
+	)
+	return pickweight(highvalue)

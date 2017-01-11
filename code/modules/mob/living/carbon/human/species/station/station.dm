@@ -454,9 +454,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (!new_machine || !player)
 		return
 
-	establish_db_connection()
+	if (establish_db_connection(dbcon))
 
-	if (dbcon.IsConnected())
 		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
 
 		var/status = 0
@@ -479,9 +478,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (!target || !player)
 		return
 
-	establish_db_connection()
-
-	if (dbcon.IsConnected())
+	if (establish_db_connection(dbcon))
 		var/status = 0
 		var/sql_status = 0
 		if (target.internal_organs_by_name["ipc tag"])

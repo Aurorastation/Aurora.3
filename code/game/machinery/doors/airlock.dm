@@ -569,7 +569,7 @@ About the new airlock wires panel:
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
 			overlays += image(icon, "sparks_damaged")
 
-		if (hashatch)
+		if (hatch_image)
 			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else

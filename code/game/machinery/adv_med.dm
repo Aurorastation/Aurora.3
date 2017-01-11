@@ -300,8 +300,7 @@
 			usr << "\icon[src]<span class='warning'>The body scanner cannot scan that lifeform.</span>"
 			return
 		var/obj/item/weapon/paper/R = new(src.loc)
-		R.name = "Scan ([occupant])"
-		R.info = format_occupant_data(src.connected.get_occupant_data())
+		R.set_content_unsafe("Scan ([occupant])", format_occupant_data(src.connected.get_occupant_data()))
 
 
 /obj/machinery/bodyscanner/proc/get_occupant_data()

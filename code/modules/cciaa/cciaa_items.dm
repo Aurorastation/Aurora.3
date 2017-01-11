@@ -201,9 +201,9 @@
 		dat += "[line]<br>"
 
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
-	P.name = "[firstLine]"
-	P.info = "[dat]"
-	P.update_icon()
+	var/pname = "[firstLine]"
+	var/info = "[dat]"
+	P.set_content_unsafe(pname, info)
 	P.loc = get_turf(src.loc)
 
 	return

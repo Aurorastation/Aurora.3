@@ -270,7 +270,7 @@
 								tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
 								if(H.species.has_organ["phoron reserve tank"])
 									var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
-									if(preserve.air_contents)
+									if(preserve && preserve.air_contents)
 										from = "in"
 										nicename |= "sternum"
 										tankcheck |= preserve
@@ -351,7 +351,6 @@
 										if ("phoron")
 											if(t.air_contents.gas["phoron"] && !t.air_contents.gas["nitrogen"])
 												contents.Add(t.air_contents.gas["phoron"])
-												world << "Phoron check."
 											else
 												contents.Add(0)
 

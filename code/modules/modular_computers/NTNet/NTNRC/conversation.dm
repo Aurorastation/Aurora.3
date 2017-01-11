@@ -15,7 +15,9 @@ var/global/ntnrc_uid = 0
 		ntnet_global.chat_channels.Add(src)
 	..()
 
-/datum/ntnet_conversation/proc/add_message(var/message, var/username)
+/datum/ntnet_conversation/proc/add_message(var/message, var/username, var/mob/user)
+	log_ntirc("[user.client.ckey]/([username]) : [message]")
+
 	message = "[worldtime2text()] [username]: [message]"
 	messages.Add(message)
 	trim_message_list()
@@ -29,7 +31,7 @@ var/global/ntnrc_uid = 0
 		return
 	for(var/message in messages)
 		messages -= message
-		if(messages <= 50)
+		if(messages.len <= 50)
 			return
 
 /datum/ntnet_conversation/proc/add_client(var/datum/computer_file/program/chatclient/C)

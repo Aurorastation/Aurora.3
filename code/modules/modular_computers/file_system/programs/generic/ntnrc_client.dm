@@ -31,7 +31,7 @@
 		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
 		if(!message || !channel)
 			return
-		channel.add_message(message, username)
+		channel.add_message(message, username, usr)
 
 	if(href_list["PRG_joinchannel"])
 		. = 1

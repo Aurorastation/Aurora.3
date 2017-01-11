@@ -1603,7 +1603,8 @@
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			nutrition = max(0, nutrition - stamina_recovery*0.18)
-			hud_used.move_intent.update_move_icon(src)
+			if (client)
+				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_health_display()
 	if(!healths)

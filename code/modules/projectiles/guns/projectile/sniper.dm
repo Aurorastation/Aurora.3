@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
-	desc = "A portable anti-armour rifle fitted with a scope, the HI PTR-7 Rifle was originally designed to used against armoured exosuits. It is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	desc = "A portable anti-armour rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
 	w_class = 4
@@ -89,8 +89,8 @@
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
 /obj/item/weapon/gun/projectile/heavysniper/tranq
-	name = "\improper PTR-7 tranquilizer rifle"
-	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of large animals. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."
+	name = "tranquilizer rifle"
+	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of the most dangerous of game. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."
 	icon_state = "tranqsniper"
 	item_state = "heavysniper"
 	w_class = 4

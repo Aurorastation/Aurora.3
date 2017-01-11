@@ -39,6 +39,7 @@
 	var/show_ssd = "fast asleep"
 	var/virus_immune
 	var/short_sighted
+	var/bald = 0
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
@@ -282,7 +283,7 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.robotize()
 
-	if(H.species && H.species.name == "Vaurca")
+	if(H.species && H.species.get_bodytype() == "Vaurca")
 		for (var/obj/item/organ/external/E in H.organs)
 			if ((E.status & ORGAN_CUT_AWAY) || (E.status & ORGAN_DESTROYED))
 				continue
