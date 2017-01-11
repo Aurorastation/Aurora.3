@@ -91,7 +91,3 @@
 	name = "Syndicate Cyborg Teleporter"
 	item_cost = 35
 	path = /obj/item/weapon/antag_spawner/borg_tele
-
-/datum/uplink_item/item/tools/syndieborg/New()
-	..()
-	antag_roles = list(MODE_MERCENARY)
