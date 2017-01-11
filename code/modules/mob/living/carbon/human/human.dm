@@ -1092,6 +1092,11 @@
 
 	if(usr == src)
 		self = 1
+
+	if (src.species.flags & NO_BLOOD)
+		usr << span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse.")
+		return
+
 	if(!self)
 		usr.visible_message("<span class='notice'>[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse.</span>",\
 		"You begin counting [src]'s pulse")
