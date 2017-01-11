@@ -192,7 +192,6 @@ proc/get_radio_key_from_channel(var/channel)
 	
 	//handle nonverbal and sign languages here
 	if (speaking)
-		world.log << "## SPEAKING: flags=[speaking.flags],name=[speaking.name],is_nonverbal=[speaking.flags & NONVERBAL],is_sign=[speaking.flags & SIGNLANG]"
 		if (speaking.flags & NONVERBAL)
 			if (prob(30))
 				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
@@ -210,7 +209,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/italics = 0
 	var/message_range = world.view
-	
+
 	//speaking into radios
 	if(used_radios.len)
 		italics = 1
