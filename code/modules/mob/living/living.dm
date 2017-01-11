@@ -752,7 +752,7 @@ default behaviour is:
 	if(jobban_isbanned(possessor, "Animal"))
 		possessor << "<span class='warning'>You are banned from animal roles.</span>"
 		return 0
-	if(!possessor.MayRespawn(1,ANIMAL_SPAWN_DELAY))
+	if(!possessor.MayRespawn(1,ANIMAL))
 		return 0
 	return 1
 

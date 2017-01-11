@@ -55,9 +55,11 @@
 	if(..())
 
 		if(client)
+			walk_to(src,0)
+
 			//Player-animals don't do random speech normally, so this is here
 			//Player-controlled mice will still squeak, but less often than NPC mice
-			if (stat == CONSCIOUS && prob(speak_chance*0.1))
+			if (stat == CONSCIOUS && prob(speak_chance*0.05))
 				squeak_soft(0)
 
 			if(is_ventcrawling == 0)

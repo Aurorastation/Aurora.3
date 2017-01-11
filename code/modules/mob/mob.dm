@@ -439,7 +439,7 @@
 	if (ticker.mode.deny_respawn) //BS12 EDIT
 		usr << "<span class='notice'>Respawn is disabled for this roundtype.</span>"
 		return
-	else if(!MayRespawn(1, config.respawn_delay))
+	else if(!MayRespawn(1, CREW))
 		return
 
 	usr << "You can respawn now, enjoy your new life!"
