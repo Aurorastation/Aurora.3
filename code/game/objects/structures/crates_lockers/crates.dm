@@ -173,7 +173,7 @@
 		user << span("warning", "You can't open that while it's under the table")
 		return 0
 	else
-		..()
+		return ..()
 
 /obj/structure/closet/crate/proc/set_tablestatus(var/target)
 	if (tablestatus != target)
@@ -303,6 +303,7 @@
 		return
 	if(src.allowed(user))
 		set_locked(!locked, user)
+		return 1
 	else
 		user << "<span class='notice'>Access Denied</span>"
 
@@ -333,9 +334,9 @@
 /obj/structure/closet/crate/secure/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
 	if(locked)
-		src.togglelock(user)
+		return src.togglelock(user)
 	else
-		src.toggle(user)
+		return src.toggle(user)
 
 /obj/structure/closet/crate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(is_type_in_list(W, list(/obj/item/weapon/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters)))
