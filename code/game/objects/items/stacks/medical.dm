@@ -12,7 +12,7 @@
 
 /obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
 	if (!istype(M) || istype(M, /mob/living/silicon))
-		user << "\red \The [src] cannot be applied to [M]!"
+		user << "<span class='warning'>\The [src] cannot be applied to [M]!</span>"
 		return 1
 
 	if ( ! (istype(user, /mob/living/carbon/human) || \
