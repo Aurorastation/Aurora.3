@@ -103,6 +103,7 @@
 	var/tracking_entities = 0 //The number of known entities currently accessing the internal camera
 	var/braintype = "Cyborg"
 	var/intenselight = 0	// Whether cyborg's integrated light was upgraded
+	var/selecting_module = 0 //whether the borg is in process of selecting its module or not.
 
 	var/list/robot_verbs_default = list(
 		/mob/living/silicon/robot/proc/sensor_mode,
@@ -263,6 +264,9 @@
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module()
+	if(selecting_module)
+		return
+	selecting_module = 1
 	if(module)
 		return
 	var/list/modules = list()
@@ -285,6 +289,7 @@
 	updatename()
 	recalculate_synth_capacities()
 	notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
+	selecting_module = 0
 
 /mob/living/silicon/robot/proc/updatename(var/prefix as text)
 	if(prefix)

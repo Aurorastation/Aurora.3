@@ -59,6 +59,8 @@
 		H << "<span class='notice'>You feel your being twine with that of \the [src] as it merges with your biomass.</span>"
 		H.status_flags |= PASSEMOTES
 		src << "<span class='notice'>You feel your being twine with that of \the [H] as you merge with its biomass.</span>"
+		for(var/obj/O in src.contents)
+			drop_from_inventory(O)
 		loc = H
 	else
 		src << span("warning", "Something went wrong while trying to merge into [H], cancelling.")
@@ -133,6 +135,8 @@
 
 			D << "<span class='notice'>You feel your being twine with that of \the [src] as you merge with its biomass.</span>"
 			src << "<span class='notice'>You feel your being twine with that of \the [D] as it merges with your biomass.</span>"
+			for(var/obj/O in D.contents)
+				D.drop_from_inventory(O)
 			D.loc = src
 
 			D.stat = CONSCIOUS
