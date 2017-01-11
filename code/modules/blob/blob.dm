@@ -14,7 +14,7 @@
 
 	var/maxHealth = 30
 	var/health
-	var/regen_rate = 5
+	var/regen_rate = 4
 	var/brute_resist = 4
 	var/laser_resist = 4 // Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
 	var/fire_resist = 1
@@ -100,7 +100,7 @@
 		for(var/obj/fire/F in range(src,"3x3")) //very snowflake, but much better than actually coding complex thermodynamics for these fuckers
 			if(prob(50))
 				src.visible_message("<span class='danger'>The blob melts away under the heat of the flames!</span>")
-			src.take_damage(5,10)
+			src.take_damage(rand(5, 20) / fire_resist)
 	hangry -= 1
 	if(hangry < 0)
 		hangry = 0
@@ -232,7 +232,7 @@
 	light_range = 1
 	light_power = 2
 	light_color = "#F3D203"
-	maxHealth = 200
+	maxHealth = 150
 	brute_resist = 2
 	laser_resist = 7
 	regen_rate = 2
@@ -302,7 +302,7 @@
 	maxHealth = 60
 	brute_resist = 1
 	fire_resist = 2
-	laser_resist = 5
+	laser_resist = 2
 
 /obj/effect/blob/shield/New()
 	update_nearby_tiles()

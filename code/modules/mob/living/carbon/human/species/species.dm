@@ -283,7 +283,7 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.robotize()
 
-	if(H.species && H.species.get_bodytype() == "Vaurca")
+	if(isvaurca(H))
 		for (var/obj/item/organ/external/E in H.organs)
 			if ((E.status & ORGAN_CUT_AWAY) || (E.status & ORGAN_DESTROYED))
 				continue

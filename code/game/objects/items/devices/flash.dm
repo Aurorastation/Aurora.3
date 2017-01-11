@@ -82,7 +82,7 @@
 			flick("e_flash", M.flash)
 				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
-			if(H.species.get_bodytype() == "Vaurca")
+			if(isvaurca(H))
 				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 				if(!E)
 					return
