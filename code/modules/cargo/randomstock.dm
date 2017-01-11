@@ -720,7 +720,10 @@ var/list/global/random_stock_large = list(
 			if (prob(30))
 				new /obj/item/clothing/suit/straight_jacket(L)
 		if ("maglock")
-			new /obj/item/device/magnetic_lock(L)
+			if (prob(50))
+				new /obj/item/device/magnetic_lock/engineering(L)
+			else
+				new /obj/item/device/magnetic_lock/security(L)
 		if ("luminol")
 			new /obj/item/weapon/reagent_containers/spray/luminol(L)
 		if ("cleaning")
