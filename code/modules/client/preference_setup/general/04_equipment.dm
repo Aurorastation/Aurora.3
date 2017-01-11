@@ -94,15 +94,15 @@
 	return pref.gender == MALE ? socks_m : socks_f
 
 /datum/category_item/player_setup_item/general/equipment/proc/valid_gear_choices(var/max_cost)
-	var/list/valid_gear_choices = list()
+	. = list()
+	var/mob/preference_mob = preference_mob()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
-		if(G.whitelisted && !is_alien_whitelisted(preference_mob(), G.whitelisted))
+		if(G.whitelisted && !is_alien_whitelisted(preference_mob, G.whitelisted))
 			continue
 		if(max_cost && G.cost > max_cost)
 			continue
-		valid_gear_choices += gear_name
-	return valid_gear_choices
+		. += gear_name
 
 /datum/category_item/player_setup_item/general/equipment/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["change_underwear"])
