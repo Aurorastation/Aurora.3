@@ -642,7 +642,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/rur_collar/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
 		user << "<span class='danger'>You short out \the [src]'s locking mechanism.</span>"
-		src.icon_state = "rur_collar_broken"\"
+		src.icon_state = "rur_collar_broken"
 		src.canremove = 1
 		src.emagged = 1
 		playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 0)
