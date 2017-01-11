@@ -160,6 +160,7 @@
 
 /obj/proc/hide(var/hide)
 	invisibility = hide ? INVISIBILITY_MAXIMUM : initial(invisibility)
+	level = hide ? 1 : initial(level)
 
 /obj/proc/hides_under_flooring()
 	return level == 1

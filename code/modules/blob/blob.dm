@@ -53,14 +53,19 @@
 					if(istype(L, /mob/living/carbon/human))
 						var/mob/living/carbon/human/H = L
 						H.ChangeToHusk()
+						if(!(HUSK in H.mutations))
+							if(health < maxHealth)
+								health += rand(10,30)
+								if(health > maxHealth)
+									health = maxHealth
 					else if(istype(L, /mob/living/silicon))
 						continue
 					else
 						L.gib()
-					if(health < maxHealth)
-						health += rand(10,30)
-						if(health > maxHealth)
-							health = maxHealth
+						if(health < maxHealth)
+							health += rand(10,30)
+							if(health > maxHealth)
+								health = maxHealth
 				continue
 			L.visible_message("<span class='danger'>The blob absorbs \the [L]!</span>", "<span class='danger'>The blob absorbs you!</span>")
 			playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
@@ -165,8 +170,8 @@
 		return
 
 	if(parent_core)
-		if(get_dist(T,src) <= parent_core.growth_range)
-			if(!(locate(/obj/effect/blob/core/) in range(T, 2)) && prob(secondary_core_growth_chance) && (parent_core.core_count < parent_core.core_limit))
+		if(get_dist(T, parent_core.loc) <= parent_core.growth_range)
+			if(!(locate(/obj/effect/blob/core/) in range(T, 3)) && prob(secondary_core_growth_chance) && (parent_core.core_count < parent_core.core_limit))
 				var/obj/effect/blob/core/secondary/S = new /obj/effect/blob/core/secondary(T)
 				S.parent_core = src.parent_core
 				src.parent_core.core_count += 1
@@ -181,7 +186,7 @@
 	var/turf/T = get_step(src, pushDir)
 	var/obj/effect/blob/B = (locate() in T)
 	if(!B)
-		if(prob(health+60))
+		if(prob(health+30))
 			expand(T)
 		return
 	if(forceLeft)
@@ -236,7 +241,7 @@
 	var/core_limit = 4 //for if a badmin ever wants the station to die, they can set this higher
 
 	expandType = /obj/effect/blob/shield
-	growth_range = 10 // Maximal distance for new blob pieces from this core.
+	growth_range = 6 // Maximal distance for new blob pieces from this core.
 
 /obj/effect/blob/core/New()
 	if(!parent_core)

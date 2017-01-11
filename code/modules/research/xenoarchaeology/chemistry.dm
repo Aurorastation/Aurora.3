@@ -47,7 +47,7 @@ obj/item/weapon/reagent_containers/glass/solution_tray/attackby(obj/item/weapon/
 	name = "beaker 'oxygen'"
 	New()
 		..()
-		reagents.add_reagent("oxygen",50)
+		reagents.add_reagent("acetone",50)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/sodium
