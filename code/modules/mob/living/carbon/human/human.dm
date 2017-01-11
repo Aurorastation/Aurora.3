@@ -1093,13 +1093,8 @@
 	if(usr == src)
 		self = 1
 
-	if (isipc(src)) 
-		usr << span("notice", self ? "You are a machine, you do not have a pulse." : "[src] is a machine, they do not have a pulse.")
-		return
-
-	// just in-case
 	if (src.species.flags & NO_BLOOD)
-		usr << span("notice", self ? "Your species does not have blood." : "[src]'s species does not have blood.")
+		usr << span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse.")
 		return
 
 	if(!self)
