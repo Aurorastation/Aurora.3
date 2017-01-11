@@ -21,7 +21,6 @@
 	var/secondary_core_growth_chance = 10.0 //% chance to grow a secondary blob core instead of whatever was suposed to grown. Secondary cores are considerably weaker, but still nasty.
 	var/expandType = /obj/effect/blob
 	var/obj/effect/blob/core/parent_core = null
-	var/growth_range = 0
 	var/blob_may_process = 1
 	var/hangry = 0 //if the blob will attack or not.
 
@@ -36,13 +35,13 @@
 
 /obj/effect/blob/Destroy()
 	processing_objects.Remove(src)
+	parent_core.blob_count -= 1
 	..()
 
 /obj/effect/blob/process()
 	if(!parent_core)
 		src.take_damage(5)
 		src.regen_rate = -5
-		src.growth_range = 0
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 		return
 
@@ -170,14 +169,15 @@
 		return
 
 	if(parent_core)
-		if(get_dist(T, parent_core.loc) <= parent_core.growth_range)
-			if(!(locate(/obj/effect/blob/core/) in range(T, 3)) && prob(secondary_core_growth_chance) && (parent_core.core_count < parent_core.core_limit))
+		if(parent_core.blob_count < parent_core.blob_limit)
+			if(!(locate(/obj/effect/blob/core/) in range(T, 2)) && prob(secondary_core_growth_chance) && (parent_core.core_count < parent_core.core_limit))
 				var/obj/effect/blob/core/secondary/S = new /obj/effect/blob/core/secondary(T)
 				S.parent_core = src.parent_core
 				src.parent_core.core_count += 1
 			else
 				var/obj/effect/blob/C = new expandType(T)
 				C.parent_core = src.parent_core
+			parent_core.blob_count += 1
 
 /obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
 	regen()
@@ -186,7 +186,7 @@
 	var/turf/T = get_step(src, pushDir)
 	var/obj/effect/blob/B = (locate() in T)
 	if(!B)
-		if(prob(health+30))
+		if(prob(health+45))
 			expand(T)
 		return
 	if(forceLeft)
@@ -232,16 +232,18 @@
 	light_range = 1
 	light_power = 2
 	light_color = "#F3D203"
-	maxHealth = 150
+	maxHealth = 200
 	brute_resist = 2
 	laser_resist = 7
 	regen_rate = 2
 	fire_resist = 2
 	var/core_count //amount of secondary cores
 	var/core_limit = 4 //for if a badmin ever wants the station to die, they can set this higher
+	var/blob_count = 1 //amount of actual blob pieces
+	var/blob_limit = 150 //9x4+100 + a bit, maximum amount of blobs allowed.
 
 	expandType = /obj/effect/blob/shield
-	growth_range = 6 // Maximal distance for new blob pieces from this core.
+
 
 /obj/effect/blob/core/New()
 	if(!parent_core)
@@ -281,7 +283,6 @@
 	fire_resist = 1
 	laser_resist = 4
 	regen_rate = 1
-	growth_range = 3
 	expandType = /obj/effect/blob
 
 /obj/effect/blob/core/secondary/New()
@@ -302,7 +303,7 @@
 	maxHealth = 60
 	brute_resist = 1
 	fire_resist = 2
-	laser_resist = 2
+	laser_resist = 4
 
 /obj/effect/blob/shield/New()
 	update_nearby_tiles()
