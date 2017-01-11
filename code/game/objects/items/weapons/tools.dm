@@ -316,6 +316,7 @@
 		if (src.remove_fuel(0))
 			// Use a bit of fuel and repair
 			S.heal_damage(15,0,0,1)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message("<span class='warning'>\The [user] patches some dents on \the [M]'s [S.name] with \the [src].</span>")
 		else
 			// Welding tool is out of fuel
