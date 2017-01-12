@@ -170,7 +170,6 @@ var/global/list/robot_modules = list(
 					"Sleek" = "sleekstandard",
 					"Drone" = "drone-standard",
 					"Eyebot" = "eyebot-standard",
-					"Pod" = "peace",
 					"Spider" = "spider"
 				  )
 
@@ -200,7 +199,6 @@ var/global/list/robot_modules = list(
 				"Drone - Chemistry" = "drone-chemistry",
 				"Eyebot" = "eyebot-medical",
 				"Classic" = "robotMedi",
-				"Hover" = "handymed",
 				"Heavy" = "heavyMed"
 				)
 
@@ -325,10 +323,8 @@ var/global/list/robot_modules = list(
 					"Android" = "droid",
 					"Classic" = "robotEngi",
 					"Sleek" = "sleekengineer",
-					"Crawler" = "crawler",
 					"Wide" = "wide",
-					"Hover" = "handy",
-					"Spider" = "spider",
+					"Spider" = "spidereng",
 					"Plated" = "ceborg",
 					"Heavy" = "heavyEng"
 					)
@@ -459,8 +455,7 @@ var/global/list/robot_modules = list(
 					"Eyebot" = "eyebot-security",
 					"Classic" = "robotSecy",
 					"Wide" = "wide",
-					"Hover" = "mrgutsy",
-					"Spider" = "spider",
+					"Spider" = "spidersec",
 					"Heavy" = "heavySec"
 
 				)
@@ -498,9 +493,7 @@ var/global/list/robot_modules = list(
 					"Drone" = "drone-janitor",
 					"Eyebot" = "eyebot-janitor",
 					"Classic" = "robotJani",
-					"Pod" = "peace",
 					"Buffer" = "mechaduster",
-					"Hover" = "handy",
 					"Sleek" = "sleekjanitor"
 					)
 
@@ -548,7 +541,6 @@ var/global/list/robot_modules = list(
 					"Eyebot" = "eyebot-standard",
 					"Classic" = "robotServ",
 					"Gardener" = "botany",
-					"Hover" = "handy",
 					"Maidbot" = "maidbot",
 					"Mobile Bar" = "heavyServ",
 					"Sleek" = "sleekservice"
@@ -622,9 +614,8 @@ var/global/list/robot_modules = list(
 					"Drone" = "drone-miner",
 					"Eyebot" = "eyebot-miner",
 					"Classic" = "robotMine",
-					"Crawler" = "crawler",
-					"Hover" = "mrgutsy",
-					"Heavy" = "heavyMine"
+					"Heavy" = "heavyMine",
+					"Spider" = "spidermining"
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -650,12 +641,7 @@ var/global/list/robot_modules = list(
 					"Drone" = "drone-science",
 					"Eyebot" = "eyebot-science",
 					"Classic" = "robotJani",
-					"Crawler" = "crawler",
-					"Triped" = "whitespider",
-					"Pod" = "peace",
 					"Sleek" = "sleekscience",
-					"Wheeled" = "wheels",
-					"Hover" = "handymed",
 					"Heavy" = "heavyMed"
 					)
 
@@ -707,7 +693,8 @@ var/global/list/robot_modules = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
 					"Precision" = "syndi-medi",
-					"Heavy" = "syndi-heavy"
+					"Heavy" = "syndi-heavy",
+					"Artillery" = "spidersyndi"
 					)
 
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
