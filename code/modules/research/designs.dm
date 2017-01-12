@@ -483,6 +483,14 @@ datum/design/circuit/telepad
 	build_path = /obj/item/weapon/implantcase/freedom
 	sort_string = "MFAAB"
 
+/datum/design/item/implant/loyalty
+	name = "loyalty"
+	id = "implant_loyal"
+	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
+	build_path = /obj/item/weapon/implantcase/loyalty
+	sort_string = "MFAAC"
+
 /datum/design/item/weapon/AssembleDesignName()
 	..()
 	name = "Weapon prototype ([item_name])"
@@ -507,14 +515,6 @@ datum/design/circuit/telepad
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "uranium" = 500)
 	build_path = /obj/item/weapon/gun/energy/gun/nuclear
 	sort_string = "TAAAB"
-
-/datum/design/item/weapon/lasercannon
-	desc = "The lasing medium of this prototype is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core."
-	id = "lasercannon"
-	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 1000, "diamond" = 2000)
-	build_path = /obj/item/weapon/gun/energy/lasercannon
-	sort_string = "TAAAC"
 
 /datum/design/item/weapon/phoronpistol
 	id = "ppistol"
@@ -589,6 +589,121 @@ datum/design/circuit/telepad
 	build_path = /obj/item/weapon/gun/energy/floragun
 	sort_string = "TBAAA"
 
+datum/design/item/weapon/eglaive
+	id = "eglaive"
+	name = "energy glaive"
+	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4,TECH_POWER = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 18750, "phoron" = 3000, "silver" = 7500)
+	build_path = /obj/item/weapon/melee/energy/glaive
+	sort_string = "TVAAA"
+
+datum/design/item/weapon/gatlinglaser
+	id = "gatlinglaser"
+	name = "gatling laser"
+	desc = "A higly sophisticated rapid-fire laser weapon."
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 18750, "glass" = 7500, "phoron" = 7500, "silver" = 7500, "diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
+	sort_string = "TVBAA"
+
+datum/design/item/weapon/railgun
+	id = "railgun"
+	name = "railgun"
+	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
+	req_tech = list(TECH_COMBAT = 8, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 75000, "glass" = 18750, "phoron" = 11250, "gold" = 7500, "silver" = 7500)
+	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
+	sort_string = "TVCAA"
+
+datum/design/item/weapon/zorablaster
+	id = "zorablaster"
+	name = "zo'ra blaster"
+	desc = "A personal defense weapon reverse-engineered from schematics aboard Titan Prime."
+	req_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 8000, "glass" = 2000, "phoron" = 6000)
+	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
+	sort_string = "TVDAA"
+
+datum/design/item/weapon/lawgiver
+	name = "Lawgiver"
+	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
+	id = "lawgiver"
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_BLUESPACE = 5, TECH_MATERIAL = 7)
+	build_type = PROTOLATHE
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 1000, "uranium" = 1000, "phoron" = 1000, "diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/lawgiver
+	sort_string = "TVEAA"
+
+datum/design/item/forcegloves
+ 	name = "Force Gloves"
+ 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
+ 	id = "forcegloves"
+ 	req_tech = list(TECH_COMBAT = 3, TECH_BLUESPACE = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 3)
+ 	build_type = PROTOLATHE
+ 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
+ 	build_path = /obj/item/clothing/gloves/force/basic
+ 	category = "Weapons"
+ 	sort_string = "TVFAA"
+
+datum/design/item/ebow
+ 	name = "Energy Crossbow"
+ 	desc = "A weapon favoured by infiltration teams."
+ 	id = "ebow"
+ 	req_tech = list(TECH_COMBAT = 4, TECH_ENGINEERING = 3, TECH_MATERIAL = 5, TECH_ILLEGAL = 3, TECH_BIO = 4)
+ 	build_type = PROTOLATHE
+ 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "uranium" = 1000, "silver" = 1000)
+ 	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow
+ 	category = "Weapons"
+ 	sort_string = "TVGAA"
+
+datum/design/item/eshield
+ 	name = "Energy Shield"
+ 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
+ 	id = "eshield"
+ 	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_ILLEGAL = 4)
+ 	build_type = PROTOLATHE
+ 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 3000, "phoron" = 1000)
+ 	build_path = /obj/item/weapon/shield/energy
+ 	category = "Weapons"
+ 	sort_string = "TVHAA"
+
+datum/design/item/weapon/lasshotgun
+	id = "laser_shotgun"
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1500, "uranium" = 500, "diamond" = 500)
+	build_path = /obj/item/weapon/gun/energy/laser/shotgun
+	sort_string = "TVIAA"
+
+datum/design/item/weapon/lasercannon
+	desc = "The lasing medium of this prototype is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core."
+	id = "lasercannon"
+	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 1000, "diamond" = 2000)
+	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
+	sort_string = "TVJAA"
+
+datum/design/item/weapon/decloner
+	id = "decloner"
+	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
+	materials = list("gold" = 5000,"uranium" = 10000)
+	build_path = /obj/item/weapon/gun/energy/decloner
+	sort_string = "TVKAA"
+
+datum/design/item/weapon/mousegun
+	id = "mousegun"
+	req_tech = list(TECH_MATERIAL = 1, TECH_BIO = 4, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "uranium" = 500)
+	build_path = /obj/item/weapon/gun/energy/mousegun
+	sort_string = "TVLAA"
+
+datum/design/item/weapon/beegun
+	id = "beegun"
+	req_tech = list(TECH_MATERIAL = 6, TECH_BIO = 4, TECH_POWER = 4, TECH_COMBAT = 6, TECH_MAGNET = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "silver" = 500, "diamond" = 3000)
+	build_path = /obj/item/weapon/gun/energy/beegun
+	sort_string = "TVMAA"
+
 /datum/design/item/stock_part/subspace_ansible
 	id = "s-ansible"
 	req_tech = list(TECH_DATA = 3, TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
@@ -638,14 +753,23 @@ datum/design/circuit/telepad
 	build_path = /obj/item/weapon/stock_parts/subspace/transmitter
 	sort_string = "UAAAG"
 
-/datum/design/item/light_replacer
-	name = "Light replacer"
-	desc = "A device to automatically replace lights. Refill with working lightbulbs."
-	id = "light_replacer"
+datum/design/item/advanced_light_replacer
+	name = "Advanced Light Replacer"
+	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
+	id = "advanced_light_replacer"
 	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500, "silver" = 150, "glass" = 3000)
-	build_path = /obj/item/device/lightreplacer
+	materials = list(DEFAULT_WALL_MATERIAL = 500)
+	build_path =/obj/item/device/lightreplacer/advanced
 	sort_string = "VAAAH"
+
+datum/design/item/experimental_welder
+	name = "Experimental Welding Tool"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	id = "experimental_welder"
+	req_tech = list(ENGINEERING = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 500)
+	build_path =/obj/item/weapon/weldingtool/experimental
+	sort_string = "VABAJ"
 
 /datum/design/item/paicard
 	name = "'pAI', personal artificial intelligence device"
@@ -1490,32 +1614,6 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/telecomms/broadcaster
 	sort_string = "PAAAF"
 
-datum/design/item/weapon/lasshotgun
-	id = "laser_shotgun"
-	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1500, "uranium" = 500, "diamond" = 500)
-	build_path = /obj/item/weapon/gun/energy/laser/shotgun
-
-datum/design/item/weapon/stunrevolver
-	id = "stunrevolver"
-	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 4000)
-	build_path = /obj/item/weapon/gun/energy/stunrevolver
-
-datum/design/item/weapon/lasercannon
-	desc = "The lasing medium of this prototype is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core."
-	id = "lasercannon"
-	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 1000, "diamond" = 2000)
-	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
-
-datum/design/item/weapon/decloner
-	id = "decloner"
-	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
-	materials = list("gold" = 5000,"uranium" = 10000)
-	build_path = /obj/item/weapon/gun/energy/decloner
-
-
 /datum/design/circuit/tcom/receiver
 	name = "subspace receiver"
 	id = "tcom-receiver"
@@ -1567,24 +1665,6 @@ datum/design/item/weapon/decloner
 	build_path = /obj/item/weapon/circuitboard/aicore
 	sort_string = "XAAAA"
 
-datum/design/item/weapon/mousegun
-	id = "mousegun"
-	req_tech = list(TECH_MATERIAL = 1, TECH_BIO = 4, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "uranium" = 500)
-	build_path = /obj/item/weapon/gun/energy/mousegun
-
-datum/design/item/weapon/beegun
-	id = "beegun"
-	req_tech = list(TECH_MATERIAL = 6, TECH_BIO = 4, TECH_POWER = 4, TECH_COMBAT = 6, TECH_MAGNET = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "silver" = 500, "diamond" = 3000)
-	build_path = /obj/item/weapon/gun/energy/beegun
-
-datum/design/item/weapon/large_grenade
-	id = "large_Grenade"
-	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 3000)
-	build_path = /obj/item/weapon/grenade/chem_grenade/large
-
 /datum/design/aimodule
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "gold" = 100)
@@ -1615,79 +1695,6 @@ datum/design/item/weapon/large_grenade
 	req_tech = list(TECH_DATA = 3, TECH_MATERIAL = 6)
 	build_path = /obj/item/weapon/aiModule/protectStation
 	sort_string = "XABAC"
-
-datum/design/item/weapon/eglaive
-	id = "eglaive"
-	name = "energy glaive"
-	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
-	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4,TECH_POWER = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 18750, "phoron" = 3000, "silver" = 7500)
-	build_path = /obj/item/weapon/melee/energy/glaive
-
-datum/design/item/weapon/gatlinglaser
-	id = "gatlinglaser"
-	name = "gatling laser"
-	desc = "A higly sophisticated rapid-fire laser weapon."
-	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 18750, "glass" = 7500, "phoron" = 7500, "silver" = 7500, "diamond" = 3000)
-	build_path = /obj/item/weapon/gun/energy/vaurca/gatlinglaser
-
-datum/design/item/weapon/railgun
-	id = "railgun"
-	name = "railgun"
-	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	req_tech = list(TECH_COMBAT = 8, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 75000, "glass" = 18750, "phoron" = 11250, "gold" = 7500, "silver" = 7500)
-	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
-
-datum/design/item/weapon/zorablaster
-	id = "zorablaster"
-	name = "zo'ra blaster"
-	desc = "A personal defense weapon reverse-engineered from schematics aboard Titan Prime."
-	req_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4, TECH_MATERIAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 8000, "glass" = 2000, "phoron" = 6000)
-	build_path = /obj/item/weapon/gun/energy/vaurca/blaster
-
-datum/design/item/weapon/lawgiver
-	name = "Lawgiver"
-	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
-	id = "lawgiver"
-	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_BLUESPACE = 5, TECH_MATERIAL = 7)
-	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 1000, "uranium" = 1000, "phoron" = 1000, "diamond" = 3000)
-	build_path = /obj/item/weapon/gun/energy/lawgiver
-
-/*This is all the station gets for producable force gloves. It's a high-risk item and thus considered contraband
-outside of RnD without paperwork with the RD's stamp on it. */
-datum/design/item/forcegloves
- 	name = "Force Gloves"
- 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
- 	id = "forcegloves"
- 	req_tech = list(TECH_COMBAT = 3, TECH_BLUESPACE = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 3)
- 	build_type = PROTOLATHE
- 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
- 	build_path = /obj/item/clothing/gloves/force/basic
- 	category = "Weapons"
-
-datum/design/item/ebow
- 	name = "Energy Crossbow"
- 	desc = "A weapon favoured by infiltration teams."
- 	id = "ebow"
- 	req_tech = list(TECH_COMBAT = 4, TECH_ENGINEERING = 3, TECH_MATERIAL = 5, TECH_ILLEGAL = 3, TECH_BIO = 4)
- 	build_type = PROTOLATHE
- 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "uranium" = 1000, "silver" = 1000)
- 	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow
- 	category = "Weapons"
-
-datum/design/item/eshield
- 	name = "Energy Shield"
- 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
- 	id = "eshield"
- 	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_ILLEGAL = 4)
- 	build_type = PROTOLATHE
- 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 3000, "phoron" = 1000)
- 	build_path = /obj/item/weapon/shield/energy
- 	category = "Weapons"
 
 /////////////////////////////////////////
 /////////////////Mining//////////////////
@@ -1866,26 +1873,3 @@ datum/design/item/weapon/mining/AssembleDesignName()
 	id = "cart_captain"
 	build_path = /obj/item/weapon/cartridge/captain
 	sort_string = "VBAAO"
-
-/datum/design/item/implant/loyalty
-	name = "loyalty"
-	id = "implant_loyal"
-	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
-	build_path = /obj/item/weapon/implantcase/loyalty
-
-datum/design/item/advanced_light_replacer
-	name = "Advanced Light Replacer"
-	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
-	id = "advanced_light_replacer"
-	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 500)
-	build_path =/obj/item/device/lightreplacer/advanced
-
-datum/design/item/experimental_welder
-	name = "Experimental Welding Tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
-	id = "experimental_welder"
-	req_tech = list(ENGINEERING = 4, TECH_MATERIAL = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 500)
-	build_path =/obj/item/weapon/weldingtool/experimental
