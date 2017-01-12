@@ -170,9 +170,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		. += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
 	. += "Needs Glasses: <a href='?src=\ref[src];disabilities=[NEARSIGHTED]'><b>[pref.disabilities & NEARSIGHTED ? "Yes" : "No"]</b></a><br>"
-	if(has_flag(mob_species, HAS_FBP))
-		. += "Shell Type: <a href='?src=\ref[src];shell=1'>Shellect</a><br>"
-	else
+	if(!(has_flag(mob_species, HAS_FBP)))
 		. += "Limbs: <a href='?src=\ref[src];limbs=1'>Adjust</a><br>"
 		. += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
 		. += "Prosthesis/Amputations: <a href='?src=\ref[src];reset_organs=1'>Reset</a><br>"
@@ -551,43 +549,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["reset_organs"])
 		pref.organ_data.Cut()
 		pref.rlimb_data.Cut()
-
-		return TOPIC_REFRESH
-
-	else if(href_list["shell"])
-		var/shellection = input(user, "What species shall you mimic?") as null|anything in list("Humanity","Vaurcae","Unathi","Tajara","Skrell")
-		if(!shellection) return
-
-		var/shell_type
-		switch(shellection)
-			if("Humanity")
-				shell_type = "Human"
-				mob_species.tail = null
-				mob_species.tail_animation = null
-			if("Vaurcae")
-				shell_type = "Vaurca"
-				mob_species.tail = null
-				mob_species.tail_animation = null
-			if("Unathi")
-				shell_type = "Unathi"
-				mob_species.tail = "sogtail"
-				mob_species.tail_animation = 'icons/mob/species/unathi/tail.dmi'
-			if("Tajara")
-				shell_type = "Tajara"
-				mob_species.tail = "tajtail"
-				mob_species.tail_animation = 'icons/mob/species/tajaran/tail.dmi'
-			if("Skrell")
-				shell_type = "Skrell"
-				mob_species.tail = null
-				mob_species.tail_animation = null
-
-		mob_species.bodytype = shell_type
-		var/shell_prosthetic = "[shell_type] Synthskin"
-		var/total_organs = list("l_leg","r_leg","l_arm","r_arm","l_foot","r_foot","l_hand","r_hand","groin","chest","head")
-		for(var/organ in total_organs)
-			pref.rlimb_data[organ] = shell_prosthetic
-		for(var/organ in total_organs)
-			pref.organ_data[organ] = "cyborg"
 
 		return TOPIC_REFRESH
 
