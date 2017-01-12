@@ -771,21 +771,7 @@
 		return 0
 	return 1
 
-/mob/living/carbon/human/proc/delayed_vomit()
 
-	if(!check_has_mouth())
-		return
-	if(stat == DEAD)
-		return
-	if(!lastpuke)
-		lastpuke = 1
-		src << "<span class='warning'>You feel nauseous...</span>"
-		spawn(150)	//15 seconds until second warning
-			src << "<span class='warning'>You feel like you are about to throw up!</span>"
-			spawn(100)	//and you have 10 more for mad dash to the bucket
-				vomit()//Vomit function is in mob helpers
-				spawn(350)	//wait 35 seconds before next volley
-					lastpuke = 0
 
 /mob/living/carbon/human/proc/morph()
 	set name = "Morph"

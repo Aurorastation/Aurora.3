@@ -1236,8 +1236,11 @@
 
 	// Puke if toxloss is too high
 	if(!stat)
-		if (getToxLoss() >= 45 && nutrition > 20)
-			vomit()
+		if (getToxLoss() >= 45 && !lastpuke)
+			if (prob(3))
+				delayed_vomit()
+			else if (prob(1))
+				vomit()
 
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
