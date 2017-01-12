@@ -591,15 +591,24 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		src << "Only administrators may use this command."
 		return
 
-	if (alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No") == "Yes")
-		if (istype(O, /mob/dead/observer))
-			var/mob/dead/observer/M = O
-			if (M.client && alert(src, "They are still connected. Are you sure, they will loose connection.", "Confirmation", "Yes", "No") != "Yes")
-				return
-		log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])")
-		message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
-		feedback_add_details("admin_verb","DEL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	var/action = alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No", "Hard Delete")
+
+	if (action == "No")
+		return
+
+	if (istype(O, /mob/dead/observer))
+		var/mob/dead/observer/M = O
+		if (M.client && alert(src, "They are still connected. Are you sure, they will loose connection.", "Confirmation", "Yes", "No") != "Yes")
+			return
+	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])")
+	message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
+	feedback_add_details("admin_verb","DEL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+	if (action == "Yes")
 		qdel(O)
+	else
+		// This is naughty, but sometimes necessary.
+		del(O)
 
 /client/proc/cmd_admin_list_open_jobs()
 	set category = "Admin"
