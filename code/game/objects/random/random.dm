@@ -496,10 +496,12 @@
 				/obj/item/weapon/melee/chainsword,\
 				/obj/item/weapon/melee/baton/stunrod,\
 				/obj/item/weapon/material/harpoon,\
-				/obj/item/weapon/material/scythe,\
 				/obj/item/weapon/material/twohanded/spear/plasteel,\
 				/obj/item/weapon/material/sword/trench,\
-				/obj/item/weapon/material/sword/rapier)
+				/obj/item/weapon/material/sword/rapier,\
+				/obj/item/weapon/melee/hammer,\
+				/obj/item/weapon/material/twohanded/fireaxe,\
+				/obj/item/weapon/melee/classic_baton)
 
 /obj/random/coin
 	name = "random coin"
@@ -535,7 +537,8 @@
 				/obj/item/weapon/gun/energy/toxgun,\
 				/obj/item/weapon/gun/energy/vaurca/gatlinglaser,\
 				/obj/item/weapon/gun/energy/vaurca/blaster,\
-				/obj/item/weapon/gun/energy/crossbow/largecrossbow)
+				/obj/item/weapon/gun/energy/crossbow/largecrossbow,\
+				/obj/item/weapon/gun/energy/rifle/laser/xray)
 
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
