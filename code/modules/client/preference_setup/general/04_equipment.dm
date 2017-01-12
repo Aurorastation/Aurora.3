@@ -41,11 +41,11 @@
 	var/undies = get_undies()
 	var/gender_socks = get_gender_socks()
 	if(!get_key_by_value(undies, pref.underwear))
-		pref.underwear = undies[1]
+		pref.underwear = undies[undies[1]]
 	if(!get_key_by_value(undershirt_t, pref.undershirt))
-		pref.undershirt = undershirt_t[1]
+		pref.undershirt = undershirt_t[undershirt_t[1]]
 	if(!get_key_by_value(gender_socks, pref.socks))
-		pref.socks = gender_socks[1]
+		pref.socks = gender_socks[gender_socks[1]]
 
 	var/total_cost = 0
 	for(var/gear_name in pref.gear)
