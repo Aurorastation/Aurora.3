@@ -223,8 +223,7 @@
 
 
 	for(var/A in player_list)
-		var/client/C = A
-		var/mob/M = C.mob
+		var/mob/M = A
 		var/turf/mobloc = get_turf(M)
 		if(mobloc && mobloc.z == T.z)
 			if(M.ear_deaf <= 0 || !M.ear_deaf)
