@@ -2,6 +2,7 @@
 	name = "Shell Frame"
 	short_name = "jak"
 	name_plural = "Shells"
+	bodytype = "Human"
 
 	burn_mod = 1.2
 
@@ -13,7 +14,7 @@
 
 	num_alternate_languages = 3
 
-	icobase = 'icons/mob/human_races/robotic.dmi'
+	icobase = 'icons/mob/human_races/r_human.dmi'
 	deform = 'icons/mob/human_races/robotic.dmi'
 
 	eyes = "eyes_s"
@@ -31,7 +32,22 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR |  HAS_SKIN_COLOR | HAS_FBP
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
+		"groin" =  list("path" = /obj/item/organ/external/groin/shell),
+		"head" =   list("path" = /obj/item/organ/external/head/shell),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/shell),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/shell),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/shell),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/shell),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/shell),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/shell),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/shell),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/shell)
+		)
+
 
 /datum/species/machine/shell/handle_post_spawn(var/mob/living/carbon/human/H)
 	add_inherent_verbs(H)
