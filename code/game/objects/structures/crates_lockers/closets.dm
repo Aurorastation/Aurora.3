@@ -168,6 +168,7 @@
 		user << "<span class='notice'>It won't budge!</span>"
 		return
 	update_icon()
+	return 1
 
 // this should probably use dump_contents()
 /obj/structure/closet/ex_act(severity)
@@ -231,9 +232,7 @@
 								 "<span class='notice'>You empty \the [LB] into \the [src].</span>", \
 								 "<span class='notice'>You hear rustling of clothes.</span>")
 			return
-		if(isrobot(user))
-			return
-		if(W.loc != user) // This should stop mounted modules ending up outside the module.
+		if(!dropsafety(W))
 			return
 		usr.drop_item()
 		if(W)
@@ -290,7 +289,7 @@
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
-	src.toggle(user)
+	return src.toggle(user)
 
 // tk grab then use on self
 /obj/structure/closet/attack_self_tk(mob/user as mob)

@@ -469,6 +469,19 @@
 		else
 			opened = 1
 			update_icon()
+	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
+		var/obj/item/weapon/gripper/Gri = W
+		if(opened && cell)
+			if (Gri.grip_item(cell, user))
+				cell.add_fingerprint(user)
+				cell.update_icon()
+				cell = null
+				user.visible_message("<span class='warning'>[user.name] removes the power cell from [src.name]!</span>",\
+									 "<span class='notice'>You remove the power cell.</span>")
+				//user << "You remove the power cell."
+				charging = 0
+				src.update_icon()
+				return
 	else if	(istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
 		if(cell)
 			user << "There is a power cell already installed."
@@ -480,7 +493,7 @@
 			user << "\The [W] is too [W.w_class < 3? "small" : "large"] to fit here."
 			return
 
-		user.drop_item()
+		user.drop_item(src)
 		W.forceMove(src)
 		cell = W
 		user.visible_message(\

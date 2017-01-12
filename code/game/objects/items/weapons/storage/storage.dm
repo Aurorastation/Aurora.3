@@ -298,6 +298,9 @@
 	if(usr && usr.isEquipped(W) && !usr.canUnEquip(W))
 		return 0
 
+	if(!dropsafety(W))
+		return 0
+
 	if(src.loc == W)
 		return 0 //Means the item is already in the storage item
 	if(storage_slots != null && contents.len >= storage_slots)
@@ -414,8 +417,8 @@
 /obj/item/weapon/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(isrobot(user))
-		return //Robots can't interact with storage items.
+	if(!dropsafety(W))
+		return.
 
 	if(istype(W, /obj/item/device/lightreplacer))
 		var/obj/item/device/lightreplacer/LP = W
