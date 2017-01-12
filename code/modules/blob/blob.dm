@@ -34,8 +34,6 @@
 	return ..(loc)
 
 /obj/effect/blob/Destroy()
-	processing_objects.Remove(src)
-
 	// Sanity time.
 	if (parent_core)
 		parent_core.blob_count -= 1
