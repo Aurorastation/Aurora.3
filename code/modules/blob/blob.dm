@@ -35,7 +35,12 @@
 
 /obj/effect/blob/Destroy()
 	processing_objects.Remove(src)
-	parent_core.blob_count -= 1
+
+	// Sanity time.
+	if (parent_core)
+		parent_core.blob_count -= 1
+		parent_core = null
+
 	..()
 
 /obj/effect/blob/process()
@@ -43,6 +48,11 @@
 		src.take_damage(5)
 		src.regen_rate = -5
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
+		return
+
+	// Make deleting the parent more responsive.
+	if(!isnull(parent_core.gcDestroyed))
+		parent_core = null
 		return
 
 	if(prob(70))
