@@ -717,10 +717,7 @@ var/global/list/robot_modules = list(
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
-	sprites = list("Urban Combat" = "marinaCB",
-	"Roller" = "droid-combat",
-	"Heavy Breacher" = "squats",
-	"Hunter-Killer" = "bladewolfmk2")
+	sprites = list("Roller" = "droid-combat")
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
