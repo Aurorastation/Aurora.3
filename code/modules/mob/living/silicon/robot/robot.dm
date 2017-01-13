@@ -268,6 +268,7 @@
 		return
 	selecting_module = 1
 	if(module)
+		selecting_module = 0
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
