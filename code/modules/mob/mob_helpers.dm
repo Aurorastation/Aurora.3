@@ -42,8 +42,14 @@
 	return 0
 
 /proc/istajara(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Tajara"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Tajara")
+				return 1
+			if("Zhan-Khazan Tajara")
+				return 1
+			if("M'sai Tajara")
+				return 1
 	return 0
 
 /proc/isskrell(A)
@@ -78,8 +84,14 @@
 	return 0
 
 /proc/isvox(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Vox"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Vox")
+				return 1
+			if ("Vox Pariah")
+				return 1
+			if ("Vox Armalis")
+				return 1
 	return 0
 
 /mob/proc/is_diona()

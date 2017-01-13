@@ -68,6 +68,7 @@
 /obj/structure/plasticflaps/airtight
 	name = "airtight plastic flaps"
 	desc = "Heavy duty, airtight, plastic flaps."
+	layer = 3
 
 /obj/structure/plasticflaps/airtight/New() //set the turf below the flaps to block air
 	var/turf/T = get_turf(loc)

@@ -181,8 +181,10 @@
 	if (!..())
 		return 0
 
-	if (user.get_species() == "Vaurca")
-		item_state = "vaurcacape"
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if (H.species.get_bodytype() == "Vaurca")
+			item_state = "vaurcacape"
 	else
 		item_state = "cape"
 
