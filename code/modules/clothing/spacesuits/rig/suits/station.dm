@@ -28,7 +28,7 @@
 	siemens_coefficient = 0.9
 	slowdown = 0
 	offline_slowdown = 0
-	offline_vision_restriction = 0
+	offline_vision_restriction = TINT_HEAVY
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/briefcase,/obj/item/weapon/storage/secure/briefcase)
 
@@ -63,7 +63,7 @@
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 50)
 	slowdown = 3
 	offline_slowdown = 10
-	offline_vision_restriction = 2
+	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
@@ -96,7 +96,7 @@
 	armor = list(melee = 30, bullet = 10, laser = 20,energy = 25, bomb = 20, bio = 100, rad = 100)
 	slowdown = 0
 	offline_slowdown = 1
-	offline_vision_restriction = 1
+	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
 	glove_type = /obj/item/clothing/gloves/rig/eva
@@ -161,7 +161,7 @@
 	icon_state = "science_rig"
 	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
 	slowdown = 1
-	offline_vision_restriction = 1
+	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
@@ -189,7 +189,7 @@
 	icon_state = "medical_rig"
 	armor = list(melee = 30, bullet = 15, laser = 20, energy = 60, bomb = 30, bio = 100, rad = 100)
 	slowdown = 1
-	offline_vision_restriction = 1
+	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
 
@@ -215,7 +215,7 @@
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 30)
 	slowdown = 1
 	offline_slowdown = 3
-	offline_vision_restriction = 1
+	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard
 

@@ -24,8 +24,10 @@
 #define HAS_SOCKS         0x40   // If this species can wear socks
 #define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
 
-// Languages.
-#define LANGUAGE_EAL "Encoded Audio Language"
+// Tau-Ceti basic, language common to all crew.
+#define LANGUAGE_TCB "Ceti Basic"
+
+// Species languages
 #define LANGUAGE_SOL_COMMON "Sol Common"
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
@@ -38,6 +40,29 @@
 #define LANGUAGE_GUTTER "Gutter"
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
+#define LANGUAGE_SIGN "Sign Language"
+
+// Antag Languages
+#define LANGUAGE_XENOMORPH "Xenomorph"
+#define LANGUAGE_HIVEMIND "Hivemind"	// xeno hivemind
+#define LANGUAGE_VOX "Vox-pidgin"
+#define LANGUAGE_CHANGELING "Changeling"
+#define LANGUAGE_BORER "Cortical Link"
+#define LANGUAGE_CULT "Cult"		// NOT CULTISTS!
+#define LANGUAGE_OCCULT "Occult"
+#define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
+
+// Lesser-form Languages
+#define LANGUAGE_CHIMPANZEE "Chimpanzee"	// human
+#define LANGUAGE_NEAERA "Neaera"			// skrell
+#define LANGUAGE_STOK "Stok"				// unathi
+#define LANGUAGE_FARWA "Farwa"				// tajara
+#define LANGUAGE_BUG "V'krexi"				// vaurca
+
+// Synth Languages
+#define LANGUAGE_ROBOT "Robot Talk"
+#define LANGUAGE_DRONE "Drone Talk"
+#define LANGUAGE_EAL "Encoded Audio Language"
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.

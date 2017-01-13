@@ -86,7 +86,7 @@ world/IsBanned(key,address,computer_id)
 
 			var/desc = "\nReason: You, or another user of this computer or connection ([pckey]) is banned from playing here. The ban reason is:\n[reason]\nThis ban was applied by [ackey] on [bantime], [expires]"
 
-			return list("reason"="[bantype]", "desc"="[desc]")
+			return list("reason"="[bantype]", "desc"="[desc]", "id" = ban_id)
 
 		return ..()	//default pager ban stuff
 #endif

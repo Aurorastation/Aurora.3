@@ -75,6 +75,7 @@ datum/preferences
 	var/icon/preview_icon = null
 	var/icon/preview_icon_front = null
 	var/icon/preview_icon_side = null
+	var/is_updating_icon = 0
 
 		//Jobs, uses bitflags
 	var/job_civilian_high = 0
@@ -212,12 +213,12 @@ datum/preferences
 	if(!user || !user.client)	return
 	var/dat = "<html><body><center>"
 
-	// #MARKER-SQLSAVE: Options and buttons.
 	if(path)
-		dat += "Slot - "
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
+		if (config.sql_saves)
+			dat += " - <a href='?src=\ref[src];delete=1'>Delete slot</a>"
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -270,6 +271,11 @@ datum/preferences
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
+	else if(href_list["delete"])
+		if (!config.sql_saves)
+			return 0
+		if (alert(usr, "This will permanently delete the character you have loaded. Are you sure?", "Delete Character", "No", "Yes") == "Yes")
+			delete_character_sql()
 	else
 		return 0
 
@@ -540,3 +546,24 @@ datum/preferences
 		nanotrasen_relation = "Neutral"
 
 		update_preview_icon()
+
+// Deletes a character from the database
+/datum/preferences/proc/delete_character_sql(var/client/C)
+	if (!C)
+		return
+
+	if (!current_character)
+		C << "<span class='notice'>You do not have a character loaded.</span>"
+		return
+
+	if (!establish_db_connection(dbcon))
+		C << "<span class='notice'>Unable to establish database connection.</span>"
+		return
+
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id")
+	query.Execute(list(":char_id" = current_character))
+
+	// Create a new character.
+	new_setup(1)
+
+	C << "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>"

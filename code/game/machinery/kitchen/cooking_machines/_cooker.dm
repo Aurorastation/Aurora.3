@@ -41,13 +41,15 @@
 		usr << "You can see \a [cooking_obj] inside."
 
 /obj/machinery/cooker/attackby(var/obj/item/I, var/mob/user)
-
 	if(!cook_type || (stat & (NOPOWER|BROKEN)))
 		user << "<span class='warning'>\The [src] is not working.</span>"
 		return
 
 	if(cooking)
 		user << "<span class='warning'>\The [src] is running!</span>"
+		return
+
+	if(!dropsafety(I))
 		return
 
 	// We are trying to cook a grabbed mob.
@@ -98,7 +100,8 @@
 	sleep(cook_time)
 
 	// Sanity checks.
-	check_cooking_obj()
+	if (!check_cooking_obj())
+		return
 
 	if(istype(cooking_obj, /obj/item/weapon/holder))
 		for(var/mob/living/M in cooking_obj.contents)
@@ -112,7 +115,7 @@
 		cook_path = /obj/item/weapon/reagent_containers/food/snacks/variable
 	var/obj/item/weapon/reagent_containers/food/snacks/result = new cook_path(src) //Holy typepaths, Batman.
 
-	if(cooking_obj.reagents && cooking_obj.reagents.total_volume)
+	if(cooking_obj && cooking_obj.reagents && cooking_obj.reagents.total_volume)
 		cooking_obj.reagents.trans_to(result, cooking_obj.reagents.total_volume)
 
 	// Set icon and appearance.
@@ -170,7 +173,8 @@
 		cooking_obj = null
 		icon_state = off_icon
 		cooking = 0
-		return
+		return 0
+	return 1
 
 /obj/machinery/cooker/attack_hand(var/mob/user)
 

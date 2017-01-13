@@ -322,7 +322,8 @@
 	var/mob/living/carbon/human/H = null
 	if (ishuman(M))
 		H = M //20/1/16 Insulation (vaurca)
-		if(H.species.name == "Vaurca")	return 0
+		if(isvaurca(H))
+			return 0
 	var/area/source_area
 	if(istype(power_source,/area))
 		source_area = power_source

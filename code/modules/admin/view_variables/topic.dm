@@ -173,7 +173,8 @@
 		if(action_type == "Cancel" || !action_type)
 			return
 
-		if(alert("Are you really sure you want to delete all objects of type [O.type]?",,"Yes","No") != "Yes")
+		var/del_action = alert("Are you really sure you want to delete all objects of type [O.type]?",,"Yes","No", "Hard Delete")
+		if(del_action == "No")
 			return
 
 		if(alert("Second confirmation required. Delete?",,"Yes","No") != "Yes")
@@ -186,7 +187,10 @@
 				for(var/obj/Obj in world)
 					if(Obj.type == O_type)
 						i++
-						qdel(Obj)
+						if (del_action == "Hard Delete")
+							del(Obj)
+						else
+							qdel(Obj)
 				if(!i)
 					usr << "No objects of this type exist"
 					return
@@ -197,7 +201,10 @@
 				for(var/obj/Obj in world)
 					if(istype(Obj,O_type))
 						i++
-						qdel(Obj)
+						if (del_action == "Hard Delete")
+							del(Obj)
+						else
+							qdel(Obj)
 				if(!i)
 					usr << "No objects of this type exist"
 					return

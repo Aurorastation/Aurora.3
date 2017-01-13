@@ -225,7 +225,7 @@
 /obj/item/projectile/beam/megaglaive
 	name = "thermal lance"
 	icon_state = "megaglaive"
-	damage = 10
+	damage = 6
 	incinerate = 5
 	armor_penetration = 10
 	no_attack_log = 1
@@ -234,10 +234,10 @@
 	tracer_type = /obj/effect/projectile/solar/tracer
 	impact_type = /obj/effect/projectile/solar/impact
 
-/obj/item/projectile/beam/megaglaive/on_impact(var/atom/A)
-	if(isturf(A))
-		A.ex_act(0)
-	explosion(A, -1, 0, 2)
+/obj/item/projectile/beam/megaglaive/New()
+	effect_transform = new()
+	effect_transform.Scale(2)
+	src.transform = effect_transform
 	..()
 
 /obj/item/projectile/beam/thermaldrill

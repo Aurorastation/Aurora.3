@@ -88,7 +88,7 @@
 	icon_state = "generic_hood"
 	body_parts_covered = HEAD
 	cold_protection = HEAD
-	flags_inv = HIDEEARS | BLOCKHAIR
+	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	canremove = 0
 
@@ -140,3 +140,29 @@
 	name = "mining winter coat"
 	icon_state = "coatminer"
 	item_state = "coatminer"
+	
+/obj/item/clothing/suit/storage/hooded/wintercoat/corgi
+	name = "corgi costume"
+	desc = "A corgi costume made of legit corgi hide."
+	icon_state = "corgi"
+	item_state = "corgi"
+	flags_inv = HIDEJUMPSUIT
+	hoodtype = /obj/item/clothing/head/winterhood/corgi
+	
+/obj/item/clothing/head/winterhood/corgi
+	name = "corgi hood"
+	desc = "A hood attached to a corgi costume."
+	icon_state = "corgi_helm"
+	
+/obj/item/clothing/suit/storage/hooded/wintercoat/carp
+	name = "space carp costume"
+	desc = "A costume made from 'synthetic' carp scales."
+	icon_state = "carp"
+	item_state = "carp"
+	flags_inv = HIDEJUMPSUIT
+	hoodtype = /obj/item/clothing/head/winterhood/carp
+	
+/obj/item/clothing/head/winterhood/carp
+	name = "space carp hood"
+	desc = "A hood attached to a space carp costume."
+	icon_state = "carp_helm"

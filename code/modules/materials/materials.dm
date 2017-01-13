@@ -745,3 +745,40 @@ var/list/name_to_material
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+232
 	melting_point = T0C+300
+
+/material/hide //TODO make different hides somewhat different among them
+	name = "hide"
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_type = /obj/item/stack/material/animalhide/human
+	door_icon_base = "wood"
+	icon_colour = "#833C00"
+	ignition_point = T0C+232
+	melting_point = T0C+300
+	flags = MATERIAL_PADDING
+	hardness = 1
+	weight = 1
+		
+/material/hide/corgi
+	name = "corgi hide"
+	stack_type = /obj/item/stack/material/animalhide/corgi
+	icon_colour = "#F9A635"
+
+/material/hide/cat
+	name = "cat hide"
+	stack_type = /obj/item/stack/material/animalhide/cat
+	icon_colour = "#444444"
+	
+/material/hide/monkey
+	name = "monkey hide"
+	stack_type = /obj/item/stack/material/animalhide/monkey
+	icon_colour = "#914800"
+	
+/material/hide/lizard
+	name = "lizard hide"
+	stack_type = /obj/item/stack/material/animalhide/lizard
+	icon_colour = "#34AF10"
+	
+/material/hide/xeno
+	name = "alien hide"
+	stack_type = /obj/item/stack/material/animalhide/xeno
+	icon_colour = "#525288"

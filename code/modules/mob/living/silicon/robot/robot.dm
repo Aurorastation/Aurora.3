@@ -27,8 +27,8 @@
 
 	var/icontype 				//Persistent icontype tracking allows for cleaner icon updates
 	var/module_sprites[0] 		//Used to store the associations between sprite names and sprite index.
-	var/icon_selected = 1		//If icon selection has been completed yet
-	var/icon_selection_tries = 0//Remaining attempts to select icon before a selection is forced
+	var/icon_selected = 0		//If icon selection has been completed yet
+	var/icon_selection_tries = -1//Remaining attempts to select icon before a selection is forced
 
 //Hud stuff
 
@@ -103,6 +103,7 @@
 	var/tracking_entities = 0 //The number of known entities currently accessing the internal camera
 	var/braintype = "Cyborg"
 	var/intenselight = 0	// Whether cyborg's integrated light was upgraded
+	var/selecting_module = 0 //whether the borg is in process of selecting its module or not.
 
 	var/list/robot_verbs_default = list(
 		/mob/living/silicon/robot/proc/sensor_mode,
@@ -263,6 +264,9 @@
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module()
+	if(selecting_module)
+		return
+	selecting_module = 1
 	if(module)
 		return
 	var/list/modules = list()
@@ -285,6 +289,7 @@
 	updatename()
 	recalculate_synth_capacities()
 	notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
+	selecting_module = 0
 
 /mob/living/silicon/robot/proc/updatename(var/prefix as text)
 	if(prefix)
@@ -474,9 +479,28 @@
 					C.electronics_damage = WC.burn
 
 				usr << "\blue You install the [W.name]."
-
+				updateicon()
 				return
 
+		if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
+			var/obj/item/weapon/gripper/Gri = W
+			if(!wiresexposed)
+				var/datum/robot_component/cell_component = components["power cell"]
+				if(cell)
+
+					if (Gri.grip_item(cell, user))
+						cell.update_icon()
+						cell.add_fingerprint(user)
+						user << "You remove \the [cell]."
+						cell = null
+						cell_component.wrapped = null
+						cell_component.installed = 0
+						updateicon()
+				else if(cell_component.installed == -1)
+					if (Gri.grip_item(cell_component.wrapped, user))
+						cell_component.wrapped = null
+						cell_component.installed = 0
+						user << "You remove \the [cell_component.wrapped]."
 
 
 	if (istype(W, /obj/item/weapon/weldingtool))
@@ -602,6 +626,7 @@
 			//This will mean that removing and replacing a power cell will repair the mount, but I don't care at this point. ~Z
 			C.brute_damage = 0
 			C.electronics_damage = 0
+			updateicon()
 
 	else if (istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/device/multitool))
 		if (wiresexposed)
@@ -724,8 +749,10 @@
 
 /mob/living/silicon/robot/updateicon()
 	overlays.Cut()
+
 	if(stat == CONSCIOUS)
 		overlays += "eyes-[module_sprites[icontype]]"
+
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
@@ -954,30 +981,41 @@
 
 	return
 
-/mob/living/silicon/robot/proc/choose_icon(var/triesleft, var/list/module_sprites)
+/mob/living/silicon/robot/proc/choose_icon()
+	set category = "Robot Commands"
+	set name = "Choose Icon"
+
 	if(!module_sprites.len)
 		src << "Something is badly wrong with the sprite selection. Harass a coder."
 		return
+	if (icon_selected == 1)
+		verbs -= /mob/living/silicon/robot/proc/choose_icon
+		return
 
-	icon_selected = 0
-	src.icon_selection_tries = triesleft
+	if (icon_selection_tries == -1)
+		icon_selection_tries = module_sprites.len+1
+
+
 	if(module_sprites.len == 1 || !client)
 		if(!(icontype in module_sprites))
 			icontype = module_sprites[1]
+		if (!client)
+			return
 	else
-		icontype = input("Select an icon! [triesleft ? "You have [triesleft] more chance\s." : "This is your last try."]", "Robot", icontype, null) in module_sprites
+		icontype = input("Select an icon! [icon_selection_tries ? "You have [icon_selection_tries] more chance\s." : "This is your last try."]", "Robot", icontype, null) in module_sprites
 	icon_state = module_sprites[icontype]
 	updateicon()
 
-	if (module_sprites.len > 1 && triesleft >= 1 && client)
+	if (module_sprites.len > 1 && icon_selection_tries >= 1 && client)
 		icon_selection_tries--
 		var/choice = input("Look at your icon - is this what you want?") in list("Yes","No")
 		if(choice=="No")
-			choose_icon(icon_selection_tries, module_sprites)
+			choose_icon()
 			return
 
 	icon_selected = 1
 	icon_selection_tries = 0
+	verbs -= /mob/living/silicon/robot/proc/choose_icon
 	src << "Your icon has been set. You now require a module reset to change it."
 
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs

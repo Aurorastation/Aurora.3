@@ -664,7 +664,7 @@ proc/is_blind(A)
 		if (H.ingested.total_volume > 0)
 			canVomit = 1
 
-	if (nutrition > 150)
+	if (nutrition > 0)
 		canVomit = 1
 
 	if(canVomit)
@@ -676,15 +676,31 @@ proc/is_blind(A)
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
 
-		nutrition -= 40
+		nutrition -= 60
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.8
 
 		if (istype(src, /mob/living/carbon/human))
 			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
-	else
+	else if (prob(50))
 		src.visible_message("<span class='warning'>[src] retches, attempting to vomit!</span>","<span class='warning'>You gag and collapse as you feel the urge to vomit, but there's nothing in your stomach!</span>")
 		Weaken(4)
+
+/mob/living/carbon/human/proc/delayed_vomit()
+
+	if(!check_has_mouth())
+		return
+	if(stat == DEAD)
+		return
+	if(!lastpuke)
+		lastpuke = 1
+		src << "<span class='warning'>You feel nauseous...</span>"
+		spawn(150)	//15 seconds until second warning
+			src << "<span class='warning'>You feel like you are about to throw up!</span>"
+			spawn(100)	//and you have 10 more for mad dash to the bucket
+				vomit()//Vomit function is in mob helpers
+				spawn(350)	//wait 35 seconds before next volley
+					lastpuke = 0
 
 /obj/proc/get_equip_slot()
 	//This function is called by an object which is somewhere on a humanoid mob
@@ -948,13 +964,6 @@ proc/is_blind(A)
 //Below here is stuff related to devouring, but which is generally helpful and thus placed here
 //See Devour.dm for more info in how these are used
 
-
-//Flags for the eat_types variable, a bitfield of what can or can't be eaten
-//Note that any given mob can be more than one type
-#define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
-#define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
-#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 
 
 //Blacklists of mobs that can be excluded from eating by flags in the bitfield

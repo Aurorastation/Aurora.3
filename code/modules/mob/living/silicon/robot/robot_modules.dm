@@ -50,7 +50,9 @@ var/global/list/robot_modules = list(
 		R.radio.recalculateChannels()
 
 	R.set_module_sprites(sprites)
-	R.choose_icon(R.module_sprites.len + 1, R.module_sprites)
+	R.icon_selected = 0
+	R.icon_selection_tries = -1
+	R.choose_icon()
 
 	for(var/obj/item/I in modules)
 		I.canremove = 0
@@ -63,7 +65,10 @@ var/global/list/robot_modules = list(
 
 	if(R.radio)
 		R.radio.recalculateChannels()
-	R.choose_icon(0, R.set_module_sprites(list("Default" = "robot")))
+	R.set_module_sprites(list("Default" = "robot"))
+	R.icon_selected = 0
+	R.icon_selection_tries = -1
+	R.choose_icon()
 
 /obj/item/weapon/robot_module/Destroy()
 	for(var/module in modules)
@@ -162,8 +167,10 @@ var/global/list/robot_modules = list(
 	sprites = list(	"Basic" = "robot_old",
 					"Android" = "droid",
 					"Default" = "robot",
+					"Sleek" = "sleekstandard",
 					"Drone" = "drone-standard",
-					"Eyebot" = "eyebot-standard"
+					"Eyebot" = "eyebot-standard",
+					"Spider" = "spider"
 				  )
 
 /obj/item/weapon/robot_module/standard/New()
@@ -186,10 +193,13 @@ var/global/list/robot_modules = list(
 				"Basic" = "Medbot",
 				"Standard" = "surgeon",
 				"Advanced Droid" = "droid-medical",
+				"Sleek" = "sleekmedic",
 				"Needles" = "medicalrobot",
 				"Drone - Medical" = "drone-medical",
 				"Drone - Chemistry" = "drone-chemistry",
-				"Eyebot" = "eyebot-medical"
+				"Eyebot" = "eyebot-medical",
+				"Classic" = "robotMedi",
+				"Heavy" = "heavyMed"
 				)
 
 /obj/item/weapon/robot_module/medical/general
@@ -309,7 +319,14 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmate",
 					"Landmate - Treaded" = "engiborg+tread",
 					"Drone" = "drone-engineer",
-					"Eyebot" = "eyebot-engineering"
+					"Eyebot" = "eyebot-engineering",
+					"Android" = "droid",
+					"Classic" = "robotEngi",
+					"Sleek" = "sleekengineer",
+					"Wide" = "wide",
+					"Spider" = "spidereng",
+					"Plated" = "ceborg",
+					"Heavy" = "heavyEng"
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -329,6 +346,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pickaxe/plasmacutter(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
+	src.modules += new /obj/item/weapon/gripper(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal()
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel()
@@ -367,6 +385,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/analyzer(src)
 	src.modules += new /obj/item/taperoll/engineering(src)
 	src.modules += new /obj/item/weapon/gripper(src)
+	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
@@ -428,12 +447,17 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/security/general
 	sprites = list(
 					"Basic" = "secborg",
-					"Red Knight" = "Security",
+					"Sleek" = "sleeksecurity",
 					"Black Knight" = "securityrobot",
 					"Bloodhound" = "bloodhound",
 					"Bloodhound - Treaded" = "secborg+tread",
 					"Drone" = "drone-sec",
-					"Eyebot" = "eyebot-security"
+					"Eyebot" = "eyebot-security",
+					"Classic" = "robotSecy",
+					"Wide" = "wide",
+					"Spider" = "spidersec",
+					"Heavy" = "heavySec"
+
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -467,7 +491,10 @@ var/global/list/robot_modules = list(
 					"Mopbot"  = "janitorrobot",
 					"Mop Gear Rex" = "mopgearrex",
 					"Drone" = "drone-janitor",
-					"Eyebot" = "eyebot-janitor"
+					"Eyebot" = "eyebot-janitor",
+					"Classic" = "robotJani",
+					"Buffer" = "mechaduster",
+					"Sleek" = "sleekjanitor"
 					)
 
 /obj/item/weapon/robot_module/janitor/New()
@@ -504,7 +531,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_GUTTER		= 1
 					)
 
-/obj/item/weapon/robot_module/clerical/butler
 	sprites = list(	"Waitress" = "Service",
 					"Kent" = "toiletbot",
 					"Bro" = "Brobot",
@@ -512,8 +538,16 @@ var/global/list/robot_modules = list(
 					"Default" = "Service2",
 					"Drone - Service" = "drone-service",
 					"Drone - Hydro" = "drone-hydro",
-					"Eyebot" = "eyebot-standard"
+					"Eyebot" = "eyebot-standard",
+					"Classic" = "robotServ",
+					"Gardener" = "botany",
+					"Maidbot" = "maidbot",
+					"Mobile Bar" = "heavyServ",
+					"Sleek" = "sleekservice"
 				  	)
+
+/obj/item/weapon/robot_module/clerical/butler
+
 
 /obj/item/weapon/robot_module/clerical/butler/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -550,15 +584,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/clerical/general
 	name = "clerical robot module"
-	sprites = list(
-					"Waitress" = "Service",
-					"Kent" = "toiletbot",
-					"Bro" = "Brobot",
-					"Rich" = "maximillion",
-					"Default" = "Service2",
-					"Drone" = "drone-service",
-					"Eyebot" = "eyebot-standard"
-					)
 
 /obj/item/weapon/robot_module/clerical/general/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -584,9 +609,13 @@ var/global/list/robot_modules = list(
 	sprites = list(
 					"Basic" = "Miner_old",
 					"Advanced Droid" = "droid-miner",
+					"Sleek" = "sleekminer",
 					"Treadhead" = "Miner",
 					"Drone" = "drone-miner",
-					"Eyebot" = "eyebot-miner"
+					"Eyebot" = "eyebot-miner",
+					"Classic" = "robotMine",
+					"Heavy" = "heavyMine",
+					"Spider" = "spidermining"
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -610,7 +639,10 @@ var/global/list/robot_modules = list(
 	sprites = list(
 					"Droid" = "droid-science",
 					"Drone" = "drone-science",
-					"Eyebot" = "eyebot-science"
+					"Eyebot" = "eyebot-science",
+					"Classic" = "robotJani",
+					"Sleek" = "sleekscience",
+					"Heavy" = "heavyMed"
 					)
 
 /obj/item/weapon/robot_module/research/New()
@@ -659,7 +691,10 @@ var/global/list/robot_modules = list(
 
 	sprites = list(
 					"Bloodhound" = "syndie_bloodhound",
-					"Treadhound" = "syndie_treadhound"
+					"Treadhound" = "syndie_treadhound",
+					"Precision" = "syndi-medi",
+					"Heavy" = "syndi-heavy",
+					"Artillery" = "spidersyndi"
 					)
 
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
@@ -682,7 +717,7 @@ var/global/list/robot_modules = list(
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
-	sprites = list("Combat Android" = "droid-combat")
+	sprites = list("Roller" = "droid-combat")
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -693,6 +728,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pickaxe/plasmacutter(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
 	..()
 

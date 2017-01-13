@@ -994,8 +994,10 @@
 		if(paralysis || sleeping)
 			blinded = 1
 			stat = UNCONSCIOUS
-			animate_tail_reset()
+
 			adjustHalLoss(-3)
+			if (species.tail)
+				animate_tail_reset()
 
 		if(paralysis)
 			AdjustParalysis(-1)
@@ -1234,8 +1236,11 @@
 
 	// Puke if toxloss is too high
 	if(!stat)
-		if (getToxLoss() >= 45 && nutrition > 20)
-			vomit()
+		if (getToxLoss() >= 45 && !lastpuke)
+			if (prob(3))
+				delayed_vomit()
+			else if (prob(1))
+				vomit()
 
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
@@ -1450,16 +1455,9 @@
 
 	if (BITTEST(hud_updateflag, ID_HUD))
 		var/image/holder = hud_list[ID_HUD]
-		if(wear_id)
-			var/obj/item/weapon/card/id/I = wear_id.GetID()
-			if(I)
-				holder.icon_state = "hud[ckey(I.GetJobName())]"
-			else
-				holder.icon_state = "hudunknown"
-		else
-			holder.icon_state = "hudunknown"
 
-
+		//The following function is found in code/defines/procs/hud.dm
+		holder.icon_state = get_sec_hud_icon(src)
 		hud_list[ID_HUD] = holder
 
 	if (BITTEST(hud_updateflag, WANTED_HUD))
@@ -1499,7 +1497,6 @@
 		holder1.icon_state = "hudblank"
 		holder2.icon_state = "hudblank"
 		holder3.icon_state = "hudblank"
-
 		for(var/obj/item/weapon/implant/I in src)
 			if(I.implanted)
 				if(istype(I,/obj/item/weapon/implant/tracking))
@@ -1611,7 +1608,8 @@
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			nutrition = max(0, nutrition - stamina_recovery*0.18)
-			hud_used.move_intent.update_move_icon(src)
+			if (client)
+				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_health_display()
 	if(!healths)

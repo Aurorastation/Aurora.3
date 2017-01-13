@@ -80,18 +80,17 @@
 /obj/item/clothing/head/beret/engineering
 	name = "engineering beret"
 	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
-	icon_state = "beret_engineering"
+	icon_state = "e_beret_badge"
 
 /obj/item/clothing/head/beret/purple
 	name = "purple beret"
 	desc = "A stylish, if purple, beret."
-	icon_state = "beret_purple"
+	icon_state = "purpleberet"
 
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
 	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomofficerberet"
-
 
 /obj/item/clothing/head/beret/centcom/captain
 	name = "captains beret"

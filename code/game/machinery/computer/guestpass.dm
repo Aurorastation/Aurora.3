@@ -165,8 +165,7 @@
 				//usr << "Printing the log, standby..."
 				//sleep(50)
 				var/obj/item/weapon/paper/P = new/obj/item/weapon/paper( loc )
-				P.name = "activity log"
-				P.info = dat
+				P.set_content_unsafe("activity log", dat)
 
 			if ("issue")
 				if (giver)

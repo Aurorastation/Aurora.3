@@ -161,7 +161,7 @@
 
 	src.throwing = 0
 	if (src.loc == user)
-		if(!user.unEquip(src))
+		if(!user.prepare_for_slotmove(src))
 			return
 	else
 		if(isliving(src.loc))
@@ -217,7 +217,8 @@
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
 
-// apparently called whenever an item is removed from a slot, container, or anything else.
+//Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
+//It is called after loc is set, so if placed in a container its loc will be that container
 /obj/item/proc/dropped(var/mob/user)
 	..()
 	if(zoom)
@@ -243,7 +244,6 @@
 // user is mob that equipped it
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
-// note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	layer = 20
 	equip_slot = slot

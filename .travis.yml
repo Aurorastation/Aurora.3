@@ -4,7 +4,7 @@ sudo: false
 env:
   BYOND_MAJOR="510"
   BYOND_MINOR="1346"
-  MACRO_COUNT=1233
+  MACRO_COUNT=1178
   
 cache:
   directories:

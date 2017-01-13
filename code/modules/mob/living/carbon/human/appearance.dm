@@ -158,6 +158,8 @@
 
 /mob/living/carbon/human/proc/generate_valid_hairstyles(var/check_gender = 1)
 	var/list/valid_hairstyles = new()
+	if(species.bald)
+		return
 	for(var/hairstyle in hair_styles_list)
 		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
 
@@ -173,6 +175,8 @@
 
 /mob/living/carbon/human/proc/generate_valid_facial_hairstyles()
 	var/list/valid_facial_hairstyles = new()
+	if(species.bald)
+		return
 	for(var/facialhairstyle in facial_hair_styles_list)
 		var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
 

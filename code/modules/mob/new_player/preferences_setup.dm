@@ -192,6 +192,10 @@ datum/preferences
 
 
 	proc/update_preview_icon()		//seriously. This is horrendous.
+		if (is_updating_icon)
+			return
+		is_updating_icon = 1
+
 		qdel(preview_icon_front)
 		qdel(preview_icon_side)
 		qdel(preview_icon)
@@ -742,3 +746,5 @@ datum/preferences
 		qdel(undershirt_s)
 		qdel(socks_s)
 		qdel(clothes_s)
+
+		is_updating_icon = 0

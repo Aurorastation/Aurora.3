@@ -105,7 +105,7 @@
 		user << "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>"
 		return
 
-	if(!user.MayRespawn(1, DRONE_SPAWN_DELAY))
+	if(!user.MayRespawn(1, MINISYNTH))
 		return
 
 	if(!fabricator)

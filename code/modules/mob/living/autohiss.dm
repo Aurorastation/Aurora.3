@@ -47,13 +47,20 @@
 	autohiss_extra_map = list(
 			"x" = list("ks", "kss", "ksss")
 		)
-	autohiss_exempt = list(LANGUAGE_UNATHI)
+	autohiss_exempt = list(
+			LANGUAGE_UNATHI,
+			LANGUAGE_AZAZIBA
+		)
 
 /datum/species/tajaran
 	autohiss_basic_map = list(
 			"r" = list("rr", "rrr", "rrrr")
 		)
-	autohiss_exempt = list(LANGUAGE_SIIK_TAJR)
+	autohiss_exempt = list(
+			LANGUAGE_SIIK_MAAS,
+			LANGUAGE_SIIK_TAJR,
+			LANGUAGE_SIGN_TAJARA
+		)
 
 /datum/species/bug
 	autohiss_basic_map = list(
@@ -80,6 +87,9 @@
 	if(!autohiss_basic_map)
 		return message
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
+		return message
+	// No reason to auto-hiss in sign-language.
+	if (lang.flags && (lang.flags & SIGNLANG))
 		return message
 
 	var/map = autohiss_basic_map.Copy()

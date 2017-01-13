@@ -57,6 +57,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/construct/attack_generic(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(user, /mob/living/simple_animal/construct/builder))
 		if(getBruteLoss() > 0)
 			adjustBruteLoss(-5)

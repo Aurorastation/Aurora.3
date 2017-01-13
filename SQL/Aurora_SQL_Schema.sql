@@ -497,6 +497,7 @@ CREATE TABLE `ss13_whitelist_log` (
 CREATE TABLE `ss13_whitelist_statuses` (
   `flag` int(10) unsigned NOT NULL,
   `status_name` varchar(32) NOT NULL,
+  `subspecies` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`status_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

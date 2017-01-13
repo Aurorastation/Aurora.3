@@ -103,28 +103,90 @@
 
 /obj/item/projectile/energy/bfg
 	name = "distortion"
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
-	icon_state = "particle"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "bfg"
 	check_armour = "bomb"
 	damage = 60
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	kill_count = 100
 	embed = 0
-//	incinerate = 40
-	weaken = 5
-	stun = 5
+	step_delay = 3
+	light_range = 4
+	light_color = "#b5ff5b"
 
-/obj/item/projectile/energy/sonic/on_impact(var/atom/A)
-	if(isturf(A))
-		A.ex_act(2)
+/obj/item/projectile/energy/bfg/on_impact(var/atom/A)
 	if(ismob(A))
 		var/mob/M = A
-		explosion(M, -1, 0, 2)
 		M.gib()
-	if(!(isturf(A)) & !(ismob(A)))
-		explosion(A, -1, 0, 2)
+	explosion(A, -1, 0, 5)
 	..()
+
+/obj/item/projectile/energy/bfg/New()
+	var/matrix/M = matrix()
+	M.Scale(2)
+	src.transform = M
+	..()
+
+/obj/item/projectile/energy/bfg/process()
+	var/first_step = 1
+
+	spawn while(src && src.loc)
+		if(kill_count-- < 1)
+			on_impact(src.loc) //for any final impact behaviours
+			qdel(src)
+			return
+		if((!( current ) || loc == current))
+			current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
+		if((x == 1 || x == world.maxx || y == 1 || y == world.maxy))
+			qdel(src)
+			return
+
+		trajectory.increment()	// increment the current location
+		location = trajectory.return_location(location)		// update the locally stored location data
+
+		if(!location)
+			qdel(src)	// if it's left the world... kill it
+			return
+
+		before_move()
+		Move(location.return_turf())
+
+		if(!bumped && !isturf(original))
+			if(loc == get_turf(original))
+				if(!(original in permutated))
+					if(Bump(original))
+						return
+
+		if(first_step)
+			muzzle_effect(effect_transform)
+			first_step = 0
+		else if(!bumped)
+			tracer_effect(effect_transform)
+
+		for(var/turf/T in range(1,src))
+			if(T.density)
+				T.ex_act(2)
+				playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1)
+
+		for(var/obj/O in range(1,src))
+			if(O.density)
+				O.ex_act(2)
+				playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1)
+
+		for(var/mob/living/M in range(1,src))
+			if(M == src.firer) //for the sake of courtesy we will not target our master)
+				continue
+			else
+				if(M.stat == DEAD)
+					M.gib()
+				else
+					M.apply_damage(60, BRUTE, "head")
+				playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1)
+		if(!hitscan)
+			sleep(step_delay)	//add delay between movement iterations if it's not a hitscan weapon
+
+
 
 /obj/item/projectile/energy/bee
 	name = "bees"
