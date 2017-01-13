@@ -277,8 +277,10 @@
 	modtype = input("Please, select a module!", "Robot", null, null) as null|anything in modules
 
 	if(module)
+		selecting_module = 0
 		return
 	if(!(modtype in robot_modules))
+		selecting_module = 0
 		return
 
 	var/module_type = robot_modules[modtype]

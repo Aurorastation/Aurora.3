@@ -68,7 +68,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 
-			if(H.species.siemens_coefficient<0.5 || H.get_species() == "Vaurca") //Thick skin.
+			if(H.species.siemens_coefficient<0.5 || isvaurca(H)) //Thick skin.
 				return
 
 			if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
