@@ -7,7 +7,7 @@
 /obj/item/weapon/material/kitchen/utensil
 	w_class = 1
 	thrown_force_divisor = 1
-	origin_tech = "materials=1"
+	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")
 	sharp = 1
 	edge = 1
@@ -36,6 +36,7 @@
 			return ..()
 
 	if (reagents.total_volume > 0)
+		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return
@@ -65,8 +66,6 @@
 	desc = "It's a spoon. You can see your own upside-down face in it."
 	icon_state = "spoon"
 	attack_verb = list("attacked", "poked")
-	edge = 0
-	sharp = 0
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
 
 /obj/item/weapon/material/kitchen/utensil/spoon/plastic
@@ -81,6 +80,8 @@
 	icon_state = "knife"
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
 	scoop_food = 0
+	sharp = 1
+	edge = 1
 
 // Identical to the tactical knife but nowhere near as stabby.
 // Kind of like the toy esword compared to the real thing.
