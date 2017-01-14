@@ -7,10 +7,10 @@
 /obj/item/weapon/material/kitchen/utensil
 	w_class = 1
 	thrown_force_divisor = 1
-	origin_tech = "materials=1"
+	req_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")
-	sharp = 0
-	edge = 0
+	sharp = 1
+	edge = 1
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	var/loaded      //Descriptive string for currently loaded food object.
