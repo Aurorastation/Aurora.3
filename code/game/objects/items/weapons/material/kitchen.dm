@@ -7,7 +7,7 @@
 /obj/item/weapon/material/kitchen/utensil
 	w_class = 1
 	thrown_force_divisor = 1
-	req_tech = list(TECH_MATERIAL = 1)
+	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")
 	sharp = 1
 	edge = 1
