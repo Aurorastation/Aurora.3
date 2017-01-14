@@ -275,7 +275,7 @@ datum/preferences
 		if (!config.sql_saves)
 			return 0
 		if (alert(usr, "This will permanently delete the character you have loaded. Are you sure?", "Delete Character", "No", "Yes") == "Yes")
-			delete_character_sql()
+			delete_character_sql(usr.client)
 	else
 		return 0
 
