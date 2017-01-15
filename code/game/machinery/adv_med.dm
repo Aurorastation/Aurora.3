@@ -418,7 +418,7 @@
 	switch (level)
 		if (INFECTION_LEVEL_ONE to INFECTION_LEVEL_ONE + 200)
 			return "mild"
-		if (INFECTION_LEVEL_ONE + 200 to INFECTION_LEVEL_ONE + 200)
+		if (INFECTION_LEVEL_ONE + 200 to INFECTION_LEVEL_ONE + 300)
 			return "worsening mild"
 		if (INFECTION_LEVEL_ONE + 300 to INFECTION_LEVEL_ONE + 400)
 			return "borderline acute"
