@@ -4,6 +4,7 @@
 /obj/machinery/bodyscanner
 	var/mob/living/carbon/occupant
 	var/locked
+	var/obj/machinery/body_scanconsole/connected
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
 	icon = 'icons/obj/Cryogenic2.dmi'
@@ -14,6 +15,11 @@
 	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
+
+/obj/machinery/bodyscanner/Destroy()
+	// So the GC can qdel this.
+	src.connected.connected = null
+	return ..()
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
@@ -200,6 +206,10 @@
 		else
 	return
 
+/obj/machinery/body_scanconsole/Destroy()
+	src.connected.connected = null
+	return ..()
+
 /obj/machinery/body_scanconsole/power_change()
 	..()
 	if(stat & BROKEN)
@@ -225,6 +235,7 @@
 	..()
 	spawn(5)
 		src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
+		src.connected.connected = src
 		return
 	return
 

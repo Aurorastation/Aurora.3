@@ -420,4 +420,5 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
+	t = replacetext(t, "\[editorbr\]", "<BR>")
 	return t
