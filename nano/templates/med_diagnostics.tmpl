@@ -75,11 +75,31 @@
 	</div>
 	<div class='line'>
 		<div class='statusLabel'>Est. Paralysis Lvl:</div>
-		<div class='statusValue'>{{:data.paralysis}}%</div>
+		<div class='statusValue'>{{:data.paralysis}}%{{if data.paralysis}}({{:helper.round(data.paralysis / 4)}} seconds left){{/if}}</div>
 	</div>
 	<div class='line'>
 		<div class='statusLabel'>Body Temperature:</div>
 		<div class='statusValue'>{{:data.bodytemp}} K (~{{:helper.round(data.bodytemp - 273.15)}} C)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">Viral Status:</div>
+		{{if data.hasvirus}}
+			<div class="statusValue bad">Present</div>
+		{{else data.hastgvirus}}
+				{{for data.tgvirus}}
+					<div class="statusValue bad">{{:value.form}} Detected</div>
+					<div class="statusLabel">=&gt; Name</div>
+					<div class="statusValue">{{:value.name}}</div>
+					<div class="statusLabel">=&gt; Type</div>
+					<div class="statusValue">{{:value.spread}}</div>
+					<div class="statusLabel">=&gt; Stage</div>
+					<div class="statusValue">{{:value.stage}} of {{:value.max_stages}}</div>
+					<div class="statusLabel">=&gt; Possible Cure</div>
+					<div class="statusValue">{{:value.cure}}</div>
+				{{/for}}
+		{{else}}
+			<div class="statusValue good">Not Detected</div>
+		{{/if}}
 	</div>
 	</div>
 	<h3>Blood Status</h3>

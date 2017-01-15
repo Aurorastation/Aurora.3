@@ -305,7 +305,9 @@
 		var/list/missing 			= get_missing_organs(occupant)
 		data["missingparts"]	= missing
 		data["hasmissing"]		= missing.len ? 1 : 0
-		data["hasvirus"]		= occupant.virus2.len
+		data["hasvirus"]		= occupant.virus2.len || occupant.viruses.len
+		data["hastgvirus"]		= occupant.viruses.len
+		data["tgvirus"]			= occupant.viruses
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
