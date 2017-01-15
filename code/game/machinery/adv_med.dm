@@ -203,11 +203,11 @@
 	
 /obj/machinery/bodyscanner/proc/check_species()
 	if (!occupant || !ishuman(occupant))
-		return 0
+		return 1
 	var/mob/living/carbon/human/O = occupant
 	if (!O)
-		return 0
-	return O.get_species() in allowed_species
+		return 1
+	return !(O.get_species() in allowed_species)
 
 /obj/machinery/body_scanconsole/ex_act(severity)
 
@@ -283,7 +283,7 @@
 	if (src.connected)
 		occupant = src.connected.occupant
 	
-	data["noscan"]		= !(src.connected.check_species())
+	data["noscan"]		= src.connected.check_species()
 	data["nocons"]		= !src.connected
 	data["occupied"] 	= occupied
 	data["invalid"]		= src.connected && src.connected.check_species()
@@ -321,7 +321,7 @@
 		data["radStatus"] 		= val2status(occupant.total_radiation)
 		data["cloneDmgStatus"] 	= val2status(occupant.cloneloss, 10, 35)
 		data["bodyparts"]		= get_organ_wound_data(occupant)
-		var/list/missing 			= get_missing_organs(occupant)
+		var/list/missing 		= get_missing_organs(occupant)
 		data["missingparts"]	= missing
 		data["hasmissing"]		= missing.len ? 1 : 0
 		data["hasvirus"]		= occupant.virus2.len || occupant.viruses.len
@@ -360,7 +360,7 @@
 				data["bruteDmg"] = 0
 
 		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
-			wounds += "Appears to be ruptured."
+			wounds += "Shows symptoms of rupture."
 
 		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."
@@ -403,11 +403,11 @@
 		if (O.status & ORGAN_ROBOT)
 			wounds += "Appears to be composed of inorganic material."
 		if (O.status & ORGAN_SPLINTED)
-			wounds += "Appears to be splinted."
+			wounds += "Splinted."
 		if (O.status & ORGAN_BLEEDING)
-			wounds += "Appears to be bleeding."
+			wounds += "Bleeding."
 		if (O.status & ORGAN_BROKEN)
-			wounds += "Appears to have \a [O.broken_description]."
+			wounds += "[O.broken_description]."
 		if (O.open)
 			wounds += "Has an open wound."
 		if (O.germ_level)
