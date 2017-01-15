@@ -31,6 +31,15 @@
 	var/list/language_progress
 	var/obj/item/clothing/head/hat
 	maxHealth = 85
+	pass_flags = PASSTABLE
+
+/mob/living/carbon/alien/diona/movement_delay()
+	. = ..()
+	switch(m_intent)
+		if ("walk")
+			. += 3
+		if ("run")
+			species.handle_sprint_cost(src,.+config.walk_speed)
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if (life_tick < 4)
@@ -50,6 +59,7 @@
 	update_verbs()
 	sampled_DNA = list()
 	language_progress = list()
+
 
 /mob/living/carbon/alien/diona/verb/check_light()
 	set category = "Abilities"
