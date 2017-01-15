@@ -115,11 +115,8 @@
 	drop(get_turf(src))
 
 /obj/item/weapon/gripper/proc/drop(var/atom/target)
-	if(wrapped.loc != src)
-		wrapped = null
-		return
-
-	wrapped.forceMove(target)
+	if(wrapped && wrapped.loc == src)
+		wrapped.forceMove(target)
 	wrapped = null
 	update_icon()
 	return 1
