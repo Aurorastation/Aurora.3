@@ -41,4 +41,24 @@
 	for(var/turf/T in targets)
 		for(var/obj/machinery/door/door in T.contents)
 			spawn door.cultify()
+
+	for(var/obj/O in range(1,user))
+		O.cultify()
+	for(var/turf/T in range(1,user))
+		var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
+		animation.name = "conjure"
+		animation.density = 0
+		animation.anchored = 1
+		animation.icon = 'icons/effects/effects.dmi'
+		animation.layer = 3
+		animation.master = T
+		if(istype(T,/turf/simulated/wall))
+			animation.icon_state = "cultwall"
+			flick("cultwall",animation)
+		else
+			animation.icon_state = "cultfloor"
+			flick("cultfloor",animation)
+		spawn(10)
+			qdel(animation)
+		T.cultify()
 	return

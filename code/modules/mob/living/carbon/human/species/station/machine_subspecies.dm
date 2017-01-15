@@ -170,6 +170,7 @@
 	flash_mod = 0
 	siemens_coefficient = 0
 	breakcuffs = list(MALE,FEMALE,NEUTER)
+	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark."
 	death_sound = 'sound/effects/bang.ogg'
