@@ -528,7 +528,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
-	mob_size = 12 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
+	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 
 	blurb = "Type A are the most common type of Vaurca and can be seen as the 'backbone' of Vaurcae societies. Their most prevalent feature is their hardened exoskeleton, varying in colors \
 	in accordance to their hive. It is approximately half an inch thick among all Type A Vaurca. The carapace provides protection against harsh radiation, solar \
