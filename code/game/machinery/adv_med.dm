@@ -286,7 +286,7 @@
 	data["noscan"]		= !(src.connected.check_species())
 	data["nocons"]		= !src.connected
 	data["occupied"] 	= occupied
-	data["invalid"]		= src.connected && src.connected.check_occupant_validity()
+	data["invalid"]		= src.connected && src.connected.check_species()
 	data["ipc"]			= src.connected && occupant && isipc(occupant)
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
