@@ -360,7 +360,7 @@
 				data["bruteDmg"] = 0
 
 		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
-			wounds += "Shows symptoms of rupture."
+			wounds += "Shows symptoms of structural failure."
 
 		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."
@@ -407,7 +407,7 @@
 		if (O.status & ORGAN_BLEEDING)
 			wounds += "Bleeding."
 		if (O.status & ORGAN_BROKEN)
-			wounds += "[O.broken_description]."
+			wounds += "Is \a [O.broken_description]."
 		if (O.open)
 			wounds += "Has an open wound."
 		if (O.germ_level)
