@@ -236,7 +236,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	icon_state = "breathing_app"
 	robotic = 1
 	var/datum/gas_mixture/air_contents = null
-	var/distribute_pressure = (2*ONE_ATMOSPHERE)
+	var/distribute_pressure = ((2*ONE_ATMOSPHERE)*O2STANDARD)
 	var/volume = 50
 	var/manipulated_by = null
 
@@ -244,10 +244,10 @@ obj/item/organ/vaurca/neuralsocket/process()
 	..()
 
 	src.air_contents = new /datum/gas_mixture()
-	src.air_contents.adjust_gas("phoron", (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
+	src.air_contents.adjust_gas("phoron", (ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 	src.air_contents.volume = volume //liters
 	src.air_contents.temperature = T20C
-	src.distribute_pressure = (pick(1,1.5,2,2.5,3)*ONE_ATMOSPHERE)
+	src.distribute_pressure = ((pick(0.9,1.0,1.1,1.2)*ONE_ATMOSPHERE)*O2STANDARD)
 
 	processing_objects.Add(src)
 	var/mob/living/carbon/location = loc
@@ -434,7 +434,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	var/tank_pressure = air_contents.return_pressure()
 	if(tank_pressure < distribute_pressure)
-		distribute_pressure = tank_pressure
+		owner << "<span class='warning'>There is a buzzing in your [parent_organ].</span>"
 
 	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
 
@@ -476,7 +476,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			)
 		qdel(src)
 
-	else if(pressure > (8.*ONE_ATMOSPHERE))
+	else if(pressure > (8.0*ONE_ATMOSPHERE))
 
 		if(damage >= 60)
 			var/turf/simulated/T = get_turf(src)
@@ -486,7 +486,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
 			qdel(src)
 
-	else if(pressure > (5.*ONE_ATMOSPHERE))
+	else if(pressure > (5.0*ONE_ATMOSPHERE))
 
 		if(damage >= 45)
 			var/turf/simulated/T = get_turf(src)

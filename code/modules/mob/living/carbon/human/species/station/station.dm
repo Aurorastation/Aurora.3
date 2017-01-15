@@ -570,11 +570,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	stamina_recovery = 2//slow recovery
 
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
-		)
-
-
 	has_organ = list(
 		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
 		"lungs" =    /obj/item/organ/lungs,
