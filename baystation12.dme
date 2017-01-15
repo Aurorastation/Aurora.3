@@ -165,7 +165,6 @@
 #include "code\datums\mind.dm"
 #include "code\datums\mixed.dm"
 #include "code\datums\modules.dm"
-#include "code\datums\organs.dm"
 #include "code\datums\recipe.dm"
 #include "code\datums\server_greeting.dm"
 #include "code\datums\sun.dm"
