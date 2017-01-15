@@ -60,11 +60,15 @@
 
 /obj/item/clothing/shoes/magboots/dropped()
 	..()
+	if(!wearer)
+		return
+
 	var/mob/living/carbon/human/H = wearer
-	if(shoes)
+	if(shoes && istype(H))
 		if(!H.equip_to_slot_if_possible(shoes, slot_shoes))
 			shoes.forceMove(get_turf(src))
 		src.shoes = null
+	wearer.update_floating()
 	wearer = null
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
