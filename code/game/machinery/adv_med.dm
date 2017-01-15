@@ -13,7 +13,8 @@
 		"M'sai Tajara",
 		"Zhan-Khazan Tajara",
 		"Vaurca Worker",
-		"Vaurca Warrior"
+		"Vaurca Warrior",
+		"Diona"
 	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
@@ -200,7 +201,7 @@
 				return
 		else
 	return
-	
+
 /obj/machinery/bodyscanner/proc/check_species()
 	if (!occupant || !ishuman(occupant))
 		return 1
@@ -263,7 +264,7 @@
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
 	if(..())
 		return
-		
+
 	ui_interact(user)
 
 /obj/machinery/body_scanconsole/Topic(href, href_list)
@@ -282,7 +283,7 @@
 	var/mob/living/carbon/human/occupant
 	if (src.connected)
 		occupant = src.connected.occupant
-	
+
 	data["noscan"]		= src.connected.check_species()
 	data["nocons"]		= !src.connected
 	data["occupied"] 	= occupied
@@ -293,7 +294,7 @@
 		var/datum/reagents/B = occupant.vessel
 		data["stat"]			= occupant.stat
 		data["name"]			= occupant.name
-		data["species"]			= occupant.get_species()	// mostly for fluff. 
+		data["species"]			= occupant.get_species()	// mostly for fluff.
 		data["health"]			= occupant.health
 		data["maxHealth"]		= occupant.maxHealth
 		data["minHealth"]		= config.health_threshold_dead
@@ -345,7 +346,7 @@
 
 /obj/machinery/body_scanconsole/proc/get_organ_wound_data(var/mob/living/carbon/human/H)
 	var/list/organs = list()
-	
+
 	// Internal Organs. (Duh.)
 	for (var/obj/item/organ/O in H.internal_organs)
 		var/list/data = list()
@@ -373,7 +374,7 @@
 
 		if (O.germ_level)
 			wounds += get_infection_level(O.germ_level)
-		
+
 		if (O.rejecting)
 			wounds += "Shows symptoms of organ rejection."
 
@@ -387,7 +388,7 @@
 		data["burnDmg"] = O.burn_dam
 		data["bruteDmg"] = O.brute_dam
 		data["name"] = O.name
-		
+
 		var/list/wounds = list()
 		var/num_IB = 0
 		for (var/datum/wound/W in O.wounds)
@@ -426,7 +427,7 @@
 					unk += 1
 			if (unk)
 				wounds += "Has an abnormal mass present."
-	
+
 		data["hasWounds"] = length(wounds) ? 1 : 0
 		data["wounds"] = wounds
 		organs += list(data)
