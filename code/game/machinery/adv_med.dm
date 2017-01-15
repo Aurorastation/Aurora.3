@@ -386,9 +386,11 @@
 				wounds += "Appears to have cataracts."
 			else if (H.disabilities & NEARSIGHTED)
 				wounds += "Appears to have misaligned retinas."
-
+		
 		if (O.germ_level)
-			wounds += get_infection_level(O.germ_level)
+			var/level = get_infection_level(O.germ_level)
+			if (level && level != "")
+				wounds += "Shows symptoms of \a [level] infection."
 
 		if (O.rejecting)
 			wounds += "Shows symptoms of organ rejection."
