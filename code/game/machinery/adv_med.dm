@@ -5,6 +5,16 @@
 	var/mob/living/carbon/occupant
 	var/locked
 	var/obj/machinery/body_scanconsole/connected
+	var/list/allowed_species = list(
+		"Human",
+		"Skrell",
+		"Unathi",
+		"Tajara",
+		"M'sai Tajara",
+		"Zhan-Khazan Tajara",
+		"Vaurca Worker",
+		"Vaurca Warrior"
+	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
 	icon = 'icons/obj/Cryogenic2.dmi'
@@ -190,6 +200,14 @@
 				return
 		else
 	return
+	
+/obj/machinery/bodyscanner/proc/check_species()
+	if (!occupant || !ishuman(occupant))
+		return 0
+	var/mob/living/carbon/human/O = occupant
+	if (!O)
+		return 0
+	return O.get_species() in allowed_species
 
 /obj/machinery/body_scanconsole/ex_act(severity)
 
@@ -265,16 +283,17 @@
 	if (src.connected)
 		occupant = src.connected.occupant
 	
-	data["noscan"]		= !occupant || !ishuman(occupant) || occupant.species.flags & NO_SCAN
+	data["noscan"]		= !(src.connected.check_species())
 	data["nocons"]		= !src.connected
 	data["occupied"] 	= occupied
-	data["invalid"]		= data["noscan"] || data["nocons"] || !data["occupied"] || !occupant
+	data["invalid"]		= src.connected && src.connected.check_occupant_validity()
+	data["ipc"]			= src.connected && occupant && isipc(occupant)
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
 		var/datum/reagents/B = occupant.vessel
 		data["stat"]			= occupant.stat
 		data["name"]			= occupant.name
-		data["species"]			= occupant.species.name	// mostly for fluff. 
+		data["species"]			= occupant.get_species()	// mostly for fluff. 
 		data["health"]			= occupant.health
 		data["maxHealth"]		= occupant.maxHealth
 		data["minHealth"]		= config.health_threshold_dead

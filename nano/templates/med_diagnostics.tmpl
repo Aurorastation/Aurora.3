@@ -5,6 +5,8 @@
 		<div class="line bad">Error: No scanner bed detected!</div>
 	{{else !data.occupied}}
 		<div class="line">No occupant detected.</div>
+	{{else data.ipc}}
+		<div class="line">Error: Object in scanner bed interfering with sensor array.</div>
 	{{else data.noscan}}
 		<div class="line bad">Error: No diagnostics profile installed for this species.</div>
 	{{/if}}	
