@@ -578,7 +578,7 @@
 		if (infection == "")
 			infection = "None"
 		if(e.rejecting)
-			infected += "(being rejected)"
+			infected += " (being rejected)"
 
 		if (e.implants.len)
 			var/unknown_body = 0
