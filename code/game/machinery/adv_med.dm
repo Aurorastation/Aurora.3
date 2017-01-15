@@ -245,10 +245,6 @@
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
 	if(..())
 		return
-
-	var/mob/living/carbon/human/O = connected.occupant
-	if (O && O.species.flags & NO_SCAN)
-		state("Unable to scan: No diagnostics profile for this species installed.")
 		
 	ui_interact(user)
 
@@ -265,12 +261,14 @@
 /obj/machinery/body_scanconsole/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = list()
 	var/occupied = (src.connected && src.connected.occupant)
-	var/mob/living/carbon/human/occupant = src.connected.occupant
+	var/mob/living/carbon/human/occupant
+	if (src.connected)
+		occupant = src.connected.occupant
 	
-	data["noscan"]		= !occupant || occupant.species.flags & NO_SCAN
+	data["noscan"]		= !occupant || !ishuman(occupant) || occupant.species.flags & NO_SCAN
 	data["nocons"]		= !src.connected
 	data["occupied"] 	= occupied
-	data["invalid"]		= data["noscan"] || data["nocons"] || !data["occupied"]
+	data["invalid"]		= data["noscan"] || data["nocons"] || !data["occupied"] || !occupant
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
 		var/datum/reagents/B = occupant.vessel
