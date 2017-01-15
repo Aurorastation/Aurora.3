@@ -541,7 +541,6 @@ var/global/list/robot_modules = list(
 					"Eyebot" = "eyebot-standard",
 					"Classic" = "robotServ",
 					"Gardener" = "botany",
-					"Maidbot" = "maidbot",
 					"Mobile Bar" = "heavyServ",
 					"Sleek" = "sleekservice"
 				  	)
