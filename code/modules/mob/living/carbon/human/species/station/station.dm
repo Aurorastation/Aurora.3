@@ -15,7 +15,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Sol Common")
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
-
+	mob_size = 9
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
 
@@ -50,6 +50,7 @@
 	exhaust_threshold = 65
 	rarity_value = 3
 	breakcuffs = list(MALE)
+	mob_size = 10
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
@@ -217,7 +218,7 @@
 	num_alternate_languages = 1
 	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
-
+	mob_size = 12//Worker gestalts are 150kg
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -277,7 +278,7 @@
 	sprint_speed_factor = 0.5		  //Speed gained is minor
 	sprint_cost_factor = 0.8
 
-/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
 	if (!DS)
@@ -326,7 +327,11 @@
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
-	return ..()
+	if (ishuman(H))
+		return ..()
+	else//Most of the stuff in the parent function doesnt apply to nymphs
+		add_inherent_verbs(H)
+
 
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)

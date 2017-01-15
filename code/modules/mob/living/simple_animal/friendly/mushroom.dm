@@ -6,7 +6,7 @@
 	icon_state = "mushroom"
 	icon_living = "mushroom"
 	icon_dead = "mushroom_dead"
-	mob_size = MOB_SMALL
+	mob_size = MOB_TINY
 	speak_chance = 0
 	turns_per_move = 1
 	maxHealth = 5
@@ -22,7 +22,7 @@
 	density = 0
 	holder_type = /obj/item/weapon/holder/mushroom
 	mob_size = 2
-	
+
 /mob/living/simple_animal/mushroom/New()
 	..()
 	harvest_time = world.time
