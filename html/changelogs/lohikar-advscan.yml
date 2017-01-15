@@ -28,6 +28,6 @@ changes:
   - rscadd: "Added a fancy new UI to the medical advanced scanner."
   - bugfix: "The medical advanced scanner can print once more."
   - tweak: "Tweaked how the advanced scanner describes injuries and infections."
-  - rscdel: "You can no longer scan Dionae, Vox, and IPCs with the adv. scanner."
+  - rscdel: "You can no longer scan Dionae and IPCs with the adv. scanner."
   - bugfix: "The in-game year should be lore-accurate again."
   - bugfix: "Text-editors on consoles should no longer show [editorbr]."
