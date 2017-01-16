@@ -1,6 +1,9 @@
 // BEGIN_INTERNALS
 /*
-MAP_ICON_TYPE: 0
+DIR: icons icons\obj 
 AUTO_FILE_DIR: OFF
+MAP_ICON_TYPE: 0
+WINDOW: icons\obj\device.dmi
+FILE: icons\obj\device.dmi
 */
 // END_INTERNALS
