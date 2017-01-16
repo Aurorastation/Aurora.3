@@ -451,7 +451,7 @@
 
 	var/willing = null //We don't want to allow people to be forced into despawning.
 
-	if(L.client && !(L.client.is_afk(10 MINUTES)))
+	if(L.client)
 		if(alert(L,"Would you like to enter stasis?",,"Yes","No") == "Yes")
 			if(!L) return
 			willing = 1
