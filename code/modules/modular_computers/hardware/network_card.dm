@@ -35,16 +35,16 @@ var/global/ntnet_card_uid = 1
 	desc = "An advanced network card for usage with standard NTNet frequencies. It's transmitter is strong enough to connect even off-station."
 	long_range = 1
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
-	power_usage = 100 // Better range but higher power usage.
+	power_usage = 150 // Better range but higher power usage.
 	icon_state = "netcard_advanced"
-	hardware_size = 1
+	hardware_size = 2
 
 /obj/item/weapon/computer_hardware/network_card/wired
 	name = "wired NTNet network card"
 	desc = "An advanced network card for usage with standard NTNet frequencies. This one also supports wired connection."
 	ethernet = 1
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 3)
-	power_usage = 100 // Better range but higher power usage.
+	power_usage = 150 // Better range but higher power usage.
 	icon_state = "netcard_ethernet"
 	hardware_size = 3
 

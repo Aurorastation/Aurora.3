@@ -6,7 +6,5 @@
 	network_card = new/obj/item/weapon/computer_hardware/network_card(src)
 
 /obj/item/modular_computer/telescreen/preset/generic/install_default_programs()
-	..()
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/camera_monitor())
-	hard_drive.store_file(new/datum/computer_file/program/alarm_monitor())
+	_app_preset_name = "generic_wall"
+	enrolled = 1

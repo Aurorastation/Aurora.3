@@ -29,7 +29,7 @@
         new/datum/computer_file/program/alarm_monitor(),
         new/datum/computer_file/program/atmos_control(),
         new/datum/computer_file/program/rcon_console(),
-        new/datum/computer_file/program/camera_monitor/engineering(),
+        new/datum/computer_file/program/camera_monitor(),
         new/datum/computer_file/program/lighting_control(),
         new/datum/computer_file/program/chatclient()
     )
@@ -83,7 +83,8 @@
     var/list/_prg_list = list(
         new/datum/computer_file/program/chatclient(),
         new/datum/computer_file/program/camera_monitor(),
-        new/datum/computer_file/program/comm()
+        new/datum/computer_file/program/comm(),
+        new/datum/computer_file/program/digitalwarrant()
     )
     return _prg_list
 
@@ -97,5 +98,18 @@
         new/datum/computer_file/program/chatclient(),
         new/datum/computer_file/program/game/arcade(),
         new/datum/computer_file/program/game/sudoku()
+    )
+    return _prg_list
+
+/datum/modular_computer_app_presets/wall_generic
+    name = "wall_generic"
+    display_name = "Wall - Generic"
+    description = "A generic preset for the wall console"
+    available = 0
+/datum/modular_computer_app_presets/civilian/return_install_programs()
+    var/list/_prg_list = list(
+        new/datum/computer_file/program/chatclient(),
+        new/datum/computer_file/program/camera_monitor(),
+        new/datum/computer_file/program/alarm_monitor()
     )
     return _prg_list

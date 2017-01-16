@@ -2,6 +2,9 @@
 /obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0)
 	// "USB" flash drive.
 	if(istype(H, /obj/item/weapon/computer_hardware/hard_drive/portable))
+		if(enrolled == 1 && !computer_emagged)
+			to_chat(user, "The client management software on this computer rejects \the [portable_drive].")
+			return
 		if(portable_drive)
 			to_chat(user, "This computer's portable drive slot is already occupied by \the [portable_drive].")
 			return

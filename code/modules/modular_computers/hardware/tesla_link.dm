@@ -4,7 +4,7 @@
 	critical = 0
 	enabled = 1
 	icon_state = "teslalink"
-	hardware_size = 1
+	hardware_size = 2
 	origin_tech = list(TECH_DATA = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
 	var/obj/machinery/modular_computer/holder
 	var/passive_charging_rate = 250			// W

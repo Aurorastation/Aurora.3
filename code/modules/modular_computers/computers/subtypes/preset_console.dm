@@ -48,7 +48,7 @@
 	_app_preset_name = "civilian"
 	enrolled = 1
 
-// ERT
+ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
@@ -56,21 +56,17 @@
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/ert/
-	_app_preset_name = "all"
-	enrolled = 1
+	_app_preset_name = "ert"
+	enrolled = 2
+	computer_emagged = TRUE
 
 // Mercenary
 /obj/item/modular_computer/console/preset/mercenary/
 	computer_emagged = TRUE
+	enrolled = 2
 
 /obj/item/modular_computer/console/preset/mercenary/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
-
-/obj/item/modular_computer/console/preset/mercenary/install_default_programs()
-	..()
-	hard_drive.store_file(new/datum/computer_file/program/camera_monitor/hacked())
-	hard_drive.store_file(new/datum/computer_file/program/alarm_monitor())
-	hard_drive.store_file(new/datum/computer_file/program/aidiag())

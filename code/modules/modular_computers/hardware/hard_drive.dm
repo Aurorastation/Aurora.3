@@ -3,7 +3,7 @@
 	desc = "A small power efficient solid state drive, with 128GQ of storage capacity for use in basic computers where power efficiency is desired."
 	power_usage = 25					// SSD or something with low power usage
 	icon_state = "hdd_normal"
-	hardware_size = 1
+	hardware_size = 2
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	var/max_capacity = 128
 	var/used_capacity = 0
@@ -17,7 +17,7 @@
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	power_usage = 50 					// Hybrid, medium capacity and medium power storage
 	icon_state = "hdd_advanced"
-	hardware_size = 2
+	hardware_size = 3
 
 /obj/item/weapon/computer_hardware/hard_drive/super
 	name = "super hard drive"
@@ -26,7 +26,7 @@
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	power_usage = 100					// High-capacity but uses lots of power, shortening battery life. Best used with APC link.
 	icon_state = "hdd_super"
-	hardware_size = 2
+	hardware_size = 3
 
 /obj/item/weapon/computer_hardware/hard_drive/cluster
 	name = "cluster hard drive"

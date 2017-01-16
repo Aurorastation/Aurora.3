@@ -32,7 +32,10 @@
 	if(PRG.available_on_syndinet && !computer_emagged)
 		return 0
 
-	if(!computer || !computer.hard_drive || !computer.hard_drive.try_store_file(PRG) || computer.enrolled == 1)
+	if(!computer || !computer.hard_drive || !computer.hard_drive.try_store_file(PRG))
+		return 0
+
+	if(computer.enrolled == 1 && !computer_emagged)
 		return 0
 
 	ui_header = "downloader_running.gif"

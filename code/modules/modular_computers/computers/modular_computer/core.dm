@@ -35,8 +35,7 @@
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
 	log_debug("=== Searchng for matching preset")
-	for (var/path in ntnet_global.available_software_presets)
-		var/datum/modular_computer_app_presets/prs = new path()
+	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
 		log_debug("comparing preset [prs.name]")
 		if(prs.name == app_preset_name)
 			log_debug("preset matched")
@@ -49,8 +48,8 @@
 // Used to install preset-specific programs
 /obj/item/modular_computer/proc/install_default_programs()
 	if(enrolled)
-		var/programs = get_preset_programs(_app_preset_name)
 		log_debug("=== Calling install programs for preset [_app_preset_name]")
+		var/programs = get_preset_programs(_app_preset_name)
 		for (var/datum/computer_file/program/prog in programs)
 			log_debug("Installing prog [prog.filename]")
 			hard_drive.store_file(prog)
