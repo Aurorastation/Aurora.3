@@ -8,15 +8,15 @@
 	announceWhen = rand(0,80)
 
 /datum/event/supply_drop/start()
-	var/rarity = rand()*3
-	rarity = min(1, rarity)
-	var/quantity = rand(5,15)
+	var/rarity = 4
+	var/quantity = rand(10,25)
 
 	var/area/a = random_station_area()
 	spawn_loc = a.random_space()
 	location_name = a.name
 
 	new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
+	msg_admin_attack("Unusual container spawned at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(10, 0, spawn_loc)

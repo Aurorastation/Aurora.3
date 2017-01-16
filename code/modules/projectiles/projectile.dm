@@ -365,6 +365,7 @@
 			M.activate()
 
 /obj/item/projectile/proc/tracer_effect(var/matrix/M)
+
 	if(ispath(tracer_type))
 		var/obj/effect/projectile/P = new tracer_type(location.loc)
 
@@ -378,7 +379,10 @@
 				P.activate()
 
 /obj/item/projectile/proc/impact_effect(var/matrix/M)
+	if (!location)
+		return//Combat drones sometimes cause a runtime error with null location. Impact effect isnt important
 	if(ispath(tracer_type))
+
 		var/obj/effect/projectile/P = new impact_type(location.loc)
 
 		if(istype(P))

@@ -331,17 +331,18 @@
 			qdel(O)
 
 	//Handle job slot/tater cleanup.
-	var/job = occupant.mind.assigned_role
+	if (occupant.mind)
+		var/job = occupant.mind.assigned_role
 
-	job_master.FreeRole(job)
+		job_master.FreeRole(job)
 
-	if(occupant.mind.objectives.len)
-		qdel(occupant.mind.objectives)
-		occupant.mind.special_role = null
-	//else
-		//if(ticker.mode.name == "AutoTraitor")
-			//var/datum/game_mode/traitor/autotraitor/current_mode = ticker.mode
-			//current_mode.possible_traitors.Remove(occupant)
+		if(occupant.mind.objectives.len)
+			qdel(occupant.mind.objectives)
+			occupant.mind.special_role = null
+		//else
+			//if(ticker.mode.name == "AutoTraitor")
+				//var/datum/game_mode/traitor/autotraitor/current_mode = ticker.mode
+				//current_mode.possible_traitors.Remove(occupant)
 
 	// Delete them from datacore.
 
@@ -433,20 +434,16 @@
 /obj/machinery/cryopod/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if(!istype(user))
 		return
-
 	if(!check_occupant_allowed(O))
 		return
-
 	if(occupant)
 		user << "<span class='notice'>\The [src] is in use.</span>"
 		return
-
 	var/mob/living/L = O
 
 	if(L.stat == DEAD)
 		user << "<span class='notice'>Dead people can not be put into stasis.</span>"
 		return
-
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.Victim == L)
 			usr << "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."
@@ -454,7 +451,7 @@
 
 	var/willing = null //We don't want to allow people to be forced into despawning.
 
-	if(L.client)
+	if(L.client && !(L.client.is_afk(10 MINUTES)))
 		if(alert(L,"Would you like to enter stasis?",,"Yes","No") == "Yes")
 			if(!L) return
 			willing = 1
