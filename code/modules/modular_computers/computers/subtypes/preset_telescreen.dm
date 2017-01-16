@@ -5,6 +5,6 @@
 	hard_drive = new/obj/item/weapon/computer_hardware/hard_drive(src)
 	network_card = new/obj/item/weapon/computer_hardware/network_card(src)
 
-/obj/item/modular_computer/telescreen/preset/generic/install_default_programs()
-	_app_preset_name = "generic_wall"
+/obj/item/modular_computer/telescreen/preset/generic/
+	_app_preset_name = "wallgeneric"
 	enrolled = 1

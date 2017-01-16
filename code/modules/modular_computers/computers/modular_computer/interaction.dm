@@ -31,7 +31,7 @@
 	proc_eject_usb(usr)
 
 /obj/item/modular_computer/verb/eject_ai()
-	set name = "Eject Portable Storage"
+	set name = "Eject AI Storage"
 	set category = "Object"
 	set src in view(1)
 

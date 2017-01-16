@@ -69,42 +69,42 @@
 	if(portable_drive == H)
 		portable_drive = null
 		found = 1
-	if(hard_drive == H)
+	else if(hard_drive == H)
 		hard_drive = null
 		found = 1
 		critical = 1
-	if(network_card == H)
+	else if(network_card == H)
 		network_card = null
 		found = 1
-	if(nano_printer == H)
+	else if(nano_printer == H)
 		nano_printer = null
 		found = 1
-	if(card_slot == H)
+	else if(card_slot == H)
 		card_slot = null
 		found = 1
-	if(battery_module == H)
+	else if(battery_module == H)
 		battery_module = null
 		found = 1
-	if(processor_unit == H)
+	else if(processor_unit == H)
 		processor_unit = null
 		found = 1
 		critical = 1
-	if(ai_slot == H)
+	else if(ai_slot == H)
 		ai_slot = null
 		found = 1
-	if(tesla_link == H)
+	else if(tesla_link == H)
 		tesla_link = null
 		found = 1
+
 	if(found)
 		if(user)
 			to_chat(user, "You remove \the [H] from \the [src].")
 		H.forceMove(get_turf(src))
 		H.holder2 = null
-	if(critical && enabled)
-		if(user)
+		if(critical && enabled)
 			to_chat(user, "<span class='danger'>\The [src]'s screen freezes for few seconds and then displays an \"HARDWARE ERROR: Critical component disconnected. Please verify component connection and reboot the device. If the problem persists contact technical support for assistance.\" warning.</span>")
-		shutdown_computer()
-		update_icon()
+			shutdown_computer()
+			update_icon()
 
 
 // Checks all hardware pieces to determine if name matches, if yes, returns the hardware piece, otherwise returns null

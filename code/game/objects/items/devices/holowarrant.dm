@@ -7,12 +7,11 @@
 	throw_speed = 4
 	throw_range = 10
 	flags = CONDUCT
-
-var/list/storedwarrant = list() //All the warrants currently stored
-var/activename = null
-var/activecharges = null
-var/activeauth = null //Currently active warrant
-var/activetype = null //Is this a search or arrest warrtant?
+	var/list/storedwarrant = list() //All the warrants currently stored
+	var/activename = null
+	var/activecharges = null
+	var/activeauth = null //Currently active warrant
+	var/activetype = null //Is this a search or arrest warrtant?
 
 //look at it
 /obj/item/device/holowarrant/examine(mob/user)

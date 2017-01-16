@@ -62,6 +62,7 @@ ERT
 
 // Mercenary
 /obj/item/modular_computer/console/preset/mercenary/
+	_app_preset_name = "merc"
 	computer_emagged = TRUE
 	enrolled = 2
 
