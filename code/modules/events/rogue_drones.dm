@@ -10,7 +10,7 @@
 		if(C.name == "carpspawn")
 			possible_spawns.Add(C)
 
-	var/num = rand(4,10)
+	var/num = rand(2,10)
 	for(var/i=0, i<num, i++)
 		var/mob/living/simple_animal/hostile/retaliate/malf_drone/D = new(get_turf(pick(possible_spawns)))
 		drones_list.Add(D)
