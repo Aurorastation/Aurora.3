@@ -35,59 +35,6 @@
 			var/new_name = input(usr, "Pick a name","Name") as null|text
 			var/mob/living/carbon/human/M = new(null)
 
-			var/new_facial = input("Please select facial hair color.", "Character Generation") as color
-			if(new_facial)
-				M.r_facial = hex2num(copytext(new_facial, 2, 4))
-				M.g_facial = hex2num(copytext(new_facial, 4, 6))
-				M.b_facial = hex2num(copytext(new_facial, 6, 8))
-
-			var/new_hair = input("Please select hair color.", "Character Generation") as color
-			if(new_facial)
-				M.r_hair = hex2num(copytext(new_hair, 2, 4))
-				M.g_hair = hex2num(copytext(new_hair, 4, 6))
-				M.b_hair = hex2num(copytext(new_hair, 6, 8))
-
-			var/new_eyes = input("Please select eye color.", "Character Generation") as color
-			if(new_eyes)
-				M.r_eyes = hex2num(copytext(new_eyes, 2, 4))
-				M.g_eyes = hex2num(copytext(new_eyes, 4, 6))
-				M.b_eyes = hex2num(copytext(new_eyes, 6, 8))
-
-			var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation")  as text
-
-			if (!new_tone)
-				new_tone = 35
-			M.s_tone = max(min(round(text2num(new_tone)), 220), 1)
-			M.s_tone =  -M.s_tone + 35
-
-			// hair
-			var/list/all_hairs = typesof(/datum/sprite_accessory/hair) - /datum/sprite_accessory/hair
-			var/list/hairs = list()
-
-			// loop through potential hairs
-			for(var/x in all_hairs)
-				var/datum/sprite_accessory/hair/H = new x
-				hairs.Add(H.name)
-				qdel(H)
-			//hair
-			var/new_hstyle = input(usr, "Select a hair style", "Grooming")  as null|anything in hair_styles_list
-			if(new_hstyle)
-				M.h_style = new_hstyle
-
-			// facial hair
-			var/new_fstyle = input(usr, "Select a facial hair style", "Grooming")  as null|anything in facial_hair_styles_list
-			if(new_fstyle)
-				M.f_style = new_fstyle
-
-			var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female")
-			if (new_gender)
-				if(new_gender == "Male")
-					M.gender = MALE
-				else
-					M.gender = FEMALE
-			//M.rebuild_appearance()
-			M.update_hair()
-			M.update_body()
 			M.check_dna(M)
 
 			M.real_name = new_name
@@ -115,6 +62,8 @@
 			M.mind.special_role = "CCIA Agent"
 			M.loc = L.loc
 			M.key = key
+			
+			M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
 
 			if(wasLiving)
 				clear_cciaa_job(holder.original_mob)
