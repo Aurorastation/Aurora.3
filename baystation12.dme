@@ -45,7 +45,6 @@
 #include "code\_helpers\global_lists.dm"
 #include "code\_helpers\icons.dm"
 #include "code\_helpers\items.dm"
-#include "code\_helpers\lighting_pool.dm"
 #include "code\_helpers\lists.dm"
 #include "code\_helpers\logging.dm"
 #include "code\_helpers\maths.dm"
