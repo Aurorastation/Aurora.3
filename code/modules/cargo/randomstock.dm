@@ -671,7 +671,10 @@ var/list/global/random_stock_large = list(
 
 			var/list/exclusion = list(/obj/item/clothing/gloves,
 			/obj/item/clothing/gloves/fluff,
-			/obj/item/clothing/gloves/swat/bst)
+			/obj/item/clothing/gloves/swat/bst,
+			/obj/item/clothing/gloves/swat/fluff/hawk_gloves,
+			/obj/item/clothing/gloves/fluff/stone_ring,
+			/obj/item/clothing/gloves/black/fluff/kathleen_glove)
 			exclusion += typesof(/obj/item/clothing/gloves/rig)
 			exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 			allgloves -= exclusion
