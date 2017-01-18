@@ -1,5 +1,5 @@
-// Writes a lighting update to the database.
-// FOR DEBUGGING ONLY.
+// Writes lighting updates to the database.
+// FOR DEBUGGING ONLY!
 
 var/DBQuery/lprof_q
 
@@ -8,7 +8,7 @@ var/DBQuery/lprof_q
 	VALUES (:time, :name, :loc_name, :x, :y, :z, :type);"})
 
 /proc/lprof_write(var/obj, var/type = "UNKNOWN")
-	if (!obj)
+	if (!obj || !dbcon.IsConnected())
 		return
 	
 	lprof_q.Execute(
@@ -20,3 +20,9 @@ var/DBQuery/lprof_q
 			":x" = obj.loc.x,
 			":y" = obj.loc.y,
 			":z" = obj.loc.z))
+	
+	var/err = lprof_q.ErrorMsg()
+	if (err)
+		log_debug("lprof_write: SQL Error: [err]")
+		message_admins(span("danger", "SQL Error during lighting profiling; disabling!"))
+		lighting_profiling = FALSE

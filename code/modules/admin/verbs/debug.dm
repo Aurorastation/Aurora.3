@@ -980,7 +980,7 @@
 	if (!check_rights(R_DEBUG|R_SERVER))
 		return
 
-	if (!dbcon)
+	if (!establish_db_connection(dbcon))
 		usr << span("alert", "Unable to start profiling: No active database connection.")
 		return
 
