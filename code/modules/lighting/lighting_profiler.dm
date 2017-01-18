@@ -11,15 +11,27 @@ var/DBQuery/lprof_q
 	if (!obj || !dbcon.IsConnected())
 		return
 
+	var/x = null
+	var/y = null
+	var/z = null
+
+	var/name = null
+	if (obj.name)
+		name = obj.name
+
+	var/locname = null
+	if (obj.loc.name)
+		locname = obj.loc.name
+
 	lprof_q.Execute(
 		list(
 			":time" = world.time,
 			":type" = type,
-			":name" = obj.name,
-			":loc_name" = obj.loc.name, 
-			":x" = obj.loc.x,
-			":y" = obj.loc.y,
-			":z" = obj.loc.z))
+			":name" = name,
+			":loc_name" = locname, 
+			":x" = x,
+			":y" = y,
+			":z" = z))
 	
 	var/err = lprof_q.ErrorMsg()
 	if (err)
