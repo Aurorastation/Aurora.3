@@ -3,6 +3,7 @@
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
+	var/previous_state = ""
 	var/detecting = 1
 	var/working = 1
 	var/time = 10
@@ -29,27 +30,44 @@
 				icon_state="fire_b1"
 			if(0)
 				icon_state="fire_b0"
-		set_light(0)
 		return
 
 	if(stat & BROKEN)
 		icon_state = "firex"
-		set_light(0)
+		if(icon_state != previous_state)
+			previous_state = icon_state
+			set_light(0)
 	else if(stat & NOPOWER)
 		icon_state = "firep"
-		set_light(0)
+		if(icon_state != previous_state)
+			previous_state = icon_state
+			set_light(0)
 	else
 		var/area/A = get_area(src)
 		if(A.fire)
 			icon_state = "fire1"
-			set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
+			if(icon_state != previous_state)
+				previous_state = icon_state
+				set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
 		else
 			icon_state = "fire0"
 			switch(seclevel)
-				if("green")	set_light(l_range = 2, l_power = 0.5, l_color = COLOR_LIME)
-				if("blue")	set_light(l_range = 2, l_power = 0.5, l_color = "#1024A9")
-				if("red")	set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
-				if("delta")	set_light(l_range = 4, l_power = 2, l_color = "#FF6633")
+				if("green")
+					if(icon_state != previous_state)
+						previous_state = icon_state
+						set_light(l_range = 2, l_power = 0.5, l_color = COLOR_LIME)
+				if("blue")
+					if(icon_state != previous_state)
+						previous_state = icon_state
+						set_light(l_range = 2, l_power = 0.5, l_color = "#1024A9")
+				if("red")
+					if(icon_state != previous_state)
+						previous_state = icon_state
+						set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
+				if("delta")
+					if(icon_state != previous_state)
+						previous_state = icon_state
+						set_light(l_range = 4, l_power = 2, l_color = "#FF6633")
 
 		src.overlays += image('icons/obj/monitors.dmi', "overlay_[seclevel]")
 
@@ -74,11 +92,14 @@
 	src.add_fingerprint(user)
 
 	if (istype(W, /obj/item/weapon/screwdriver) && buildstage == 2)
+		if(!wiresexposed)
+			set_light(0)
 		wiresexposed = !wiresexposed
 		update_icon()
 		return
 
 	if(wiresexposed)
+		set_light(0)
 		switch(buildstage)
 			if(2)
 				if (istype(W, /obj/item/device/multitool))
