@@ -1,0 +1,183 @@
+<h3>Overall Health</h3>
+<div class='statusDisplay'>
+{{if data.invalid}}
+	{{if data.nocons}}
+		<div class="line bad">Error: No scanner bed detected!</div>
+	{{else !data.occupied}}
+		<div class="line">No occupant detected.</div>
+	{{else data.ipc}}
+		<div class="line">Error: Object in scanner bed interfering with sensor array.</div>
+	{{else data.noscan}}
+		<div class="line bad">Error: No diagnostics profile installed for this species.</div>
+	{{/if}}	
+{{else}}
+	<div class="line">
+		{{:data.name}}&nbsp;=>&nbsp;
+		{{if data.stat == 0}}
+			<span class="good">Conscious</span>
+		{{else data.stat == 1}}
+			<span class="average">Unconscious</span>
+		{{else}}
+			<span class="bad">DEAD</span>
+		{{/if}}
+	</div>
+	<div class="line">
+		<div class="statusLabel">Species:</div>
+		<div class="statusValue">{{:data.species}}</div>
+	</div>
+	{{if data.stat < 2}}
+		<div class="line">
+			<div class="statusLabel">Health:</div>
+			{{if data.health >= 0}}
+				{{:helper.displayBar(data.health, 0, data.maxHealth, 'good')}}
+			{{else}}
+				{{:helper.displayBar(data.health, 0, data.minHealth, 'average alignRight')}}
+			{{/if}}
+			<div class="statusValue">{{:helper.round(data.health)}}</div>
+		</div>
+		<div class="line">
+			<div class="statusLabel">=&gt; Brute Damage:</div>
+			{{:helper.displayBar(data.bruteLoss, 0, data.maxHealth, 'bad')}}
+			<div class="statusValue">{{:helper.round(data.bruteLoss)}}</div>
+		</div>
+		<div class="line">
+			<div class="statusLabel">=&gt; Resp. Damage:</div>
+			{{:helper.displayBar(data.oxyLoss, 0, data.maxHealth, 'bad')}}
+			<div class="statusValue">{{:helper.round(data.oxyLoss)}}</div>
+		</div>
+		<div class="line">
+			<div class="statusLabel">=&gt; Toxin Damage:</div>
+			{{:helper.displayBar(data.toxLoss, 0, data.maxHealth, 'bad')}}
+			<div class="statusValue">{{:helper.round(data.toxLoss)}}</div>
+		</div>
+		<div class="line">
+			<div class="statusLabel">=&gt; Burn Severity:</div>
+			{{:helper.displayBar(data.fireLoss, 0, data.maxHealth, 'bad')}}
+			<div class="statusValue">{{:helper.round(data.fireLoss)}}</div>
+		</div>
+	{{/if}}
+	<hr>
+	<div class='line'>
+		<div class='statusLabel'>Radiation Lvl:</div>
+		<div class='statusValue'>
+			<span class='{{:data.radStatus}}'>{{:data.rads}} rads</span>
+		</div>
+	</div>
+	<div class='line'>
+		<div class='statusLabel'>Genetic Dmg:</div>
+		<div class='statusValue'>
+			<span class='{{:data.cloneDmgStatus}}'>{{:data.cloneloss}}%</span>
+		</div>
+	</div>
+	<div class='line'>
+		<div class='statusLabel'>Est. Brain Dmg:</div>
+		<div class='statusValue'>
+			<span class='{{:data.brainDmgStatus}}'>{{:data.brainloss}}%</span>
+		</div>
+	</div>
+	<div class='line'>
+		<div class='statusLabel'>Est. Paralysis Lvl:</div>
+		<div class='statusValue'>{{:data.paralysis}}%{{if data.paralysis}} ({{:helper.round(data.paralysis / 4)}} seconds left){{/if}}</div>
+	</div>
+	<div class='line'>
+		<div class='statusLabel'>Body Temperature:</div>
+		<div class='statusValue'>{{:data.bodytemp}} K (~{{:helper.round(data.bodytemp - 273.15)}} C)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">Viral Status:</div>
+		{{if data.hasvirus}}
+			<div class="statusValue bad">Present</div>
+		{{else data.hastgvirus}}
+				{{for data.tgvirus}}
+					<div class="statusValue bad">{{:value.form}} Detected</div>
+					<div class="statusLabel">=&gt; Name</div>
+					<div class="statusValue">{{:value.name}}</div>
+					<div class="statusLabel">=&gt; Type</div>
+					<div class="statusValue">{{:value.spread}}</div>
+					<div class="statusLabel">=&gt; Stage</div>
+					<div class="statusValue">{{:value.stage}} of {{:value.max_stages}}</div>
+					<div class="statusLabel">=&gt; Possible Cure</div>
+					<div class="statusValue">{{:value.cure}}</div>
+				{{/for}}
+		{{else}}
+			<div class="statusValue good">Not Detected</div>
+		{{/if}}
+	</div>
+	</div>
+	<h3>Blood Status</h3>
+	<div class='statusDisplay'>
+	<div class="line">
+		<div class="statusLabel">Blood Level:</div>
+			{{:helper.displayBar(data.bloodAmt, 0, data.bloodMax, data.bloodStatus)}}
+		<div class="statusValue">{{:helper.round(data.bloodPerc)}}% ({{:helper.round(data.bloodAmt)}}u)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">=&gt; Inaprovaline:</div>
+		<div class="statusValue">{{:helper.round(data.inaprovAmt)}} unit(s)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">=&gt; Soporific:</div>
+		<div class="statusValue">{{:helper.round(data.soporAmt)}} unit(s)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">=&gt; Bicaridine:</div>
+		<div class="statusValue">{{:helper.round(data.bicardAmt)}} unit(s)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">=&gt; Dermaline:</div>
+		<div class="statusValue">{{:helper.round(data.dermAmt)}} unit(s)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">=&gt; Dexalin:</div>
+		<div class="statusValue">{{:helper.round(data.dexAmt)}} unit(s)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">=&gt; Other:</div>
+		<div class="statusValue">{{:helper.round(data.otherAmt)}} unit(s)</div>
+	</div>
+	</div>
+	<h3>Body Status</h3>
+	{{if data.hasmissing}}
+	<div class='statusDisplay'>
+		<span class="bad">Unable to locate the following organ(s).</span>
+		<ul>
+			{{for data.missingparts}}
+				<li>{{:value}}</li>
+			{{/for}}
+		</ul>
+	</div>
+	{{/if}}
+	<div class='statusDisplay'>
+	{{for data.bodyparts}}
+		<div><!-- container -->
+			<div class="line">
+				<b>{{:value.name}}</b>
+			</div>
+			<div class="line">
+				<div class="statusLabel">=&gt; Burn Dmg:</div>
+				<div class="statusValue">{{:helper.round(value.burnDmg)}}</div>
+			</div>
+
+			<div class="line">
+				<div class="statusLabel">=&gt; Brute Dmg:</div>
+				<div class="statusValue">{{:helper.round(value.bruteDmg)}}</div>
+			</div>
+			{{if value.hasWounds}}
+				<div class="line">
+					<div class="statusLabel">=&gt; Information:</div>
+					<div class="statusValue">
+						<ul>
+						{{for value.wounds :wound:woundi}}
+							<li>{{:wound}}</li>
+						{{/for}}
+						</ul>
+					</div>
+				</div>
+			{{/if}}
+		</div>
+		<hr>
+	{{/for}}
+</div>
+	<h3>Actions</h3>
+	{{:helper.link('Print Report', '', {'print' : 1})}}
+{{/if}}

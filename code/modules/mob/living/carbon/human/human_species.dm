@@ -78,7 +78,6 @@
 	src.gender = FEMALE
 
 /mob/living/carbon/human/type_c
-	mob_size = 30 //same size as moghes lizard
 	layer = 5
 
 /mob/living/carbon/human/industrial/New(var/new_loc)

@@ -11,6 +11,7 @@
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
+	mob_size = 10 //fairly lighter than the worker type.
 
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
 	Type BA can range in size from 6ft tall to 9ft tall, and are bipedal. Unlike most other Type B's, Type BA are deprived of advanced augments, especially aboard \
@@ -51,6 +52,7 @@
 	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	breakcuffs = list(MALE,FEMALE,NEUTER)
+	mob_size = 30
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100

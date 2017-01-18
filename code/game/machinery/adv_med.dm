@@ -3,8 +3,22 @@
 
 /obj/machinery/bodyscanner
 	var/mob/living/carbon/occupant
+	var/last_occupant_name = ""
 	var/locked
+	var/obj/machinery/body_scanconsole/connected
+	var/list/allowed_species = list(
+		"Human",
+		"Skrell",
+		"Unathi",
+		"Tajara",
+		"M'sai Tajara",
+		"Zhan-Khazan Tajara",
+		"Vaurca Worker",
+		"Vaurca Warrior",
+		"Diona"
+	)
 	name = "Body Scanner"
+	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "body_scanner_0"
 	density = 1
@@ -13,6 +27,11 @@
 	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
+
+/obj/machinery/bodyscanner/Destroy()
+	// So the GC can qdel this.
+	src.connected.connected = null
+	return ..()
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
@@ -61,6 +80,8 @@
 /obj/machinery/bodyscanner/proc/go_out()
 	if ((!( src.occupant ) || src.locked))
 		return
+
+	last_occupant_name = src.occupant.name
 	for(var/obj/O in src)
 		O.loc = src.loc
 		//Foreach goto(30)
@@ -184,6 +205,14 @@
 		else
 	return
 
+/obj/machinery/bodyscanner/proc/check_species()
+	if (!occupant || !ishuman(occupant))
+		return 1
+	var/mob/living/carbon/human/O = occupant
+	if (!O)
+		return 1
+	return !(O.get_species() in allowed_species)
+
 /obj/machinery/body_scanconsole/ex_act(severity)
 
 	switch(severity)
@@ -199,6 +228,21 @@
 		else
 	return
 
+/obj/machinery/body_scanconsole
+	var/obj/machinery/bodyscanner/connected
+	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
+	var/collapse_desc = ""
+	name = "Body Scanner Console"
+	desc = "A control panel for some kind of medical device."
+	icon = 'icons/obj/Cryogenic2.dmi'
+	icon_state = "body_scannerconsole"
+	density = 0
+	anchored = 1
+
+/obj/machinery/body_scanconsole/Destroy()
+	src.connected.connected = null
+	return ..()
+
 /obj/machinery/body_scanconsole/power_change()
 	..()
 	if(stat & BROKEN)
@@ -210,47 +254,24 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/body_scanconsole
-	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
-	var/delete
-	var/temphtml
-	name = "Body Scanner Console"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "body_scannerconsole"
-	density = 0
-	anchored = 1
-
+/obj/machinery/body_scanconsole/proc/get_lung_desc()
+	if (!src.connected || !src.connected.occupant)
+		return
+	if (src.connected.occupant.name != src.connected.last_occupant_name || !collapse_desc)
+		var/ldesc = pick("Contains fluid.", "Shows symptoms of collapse.", "Collapsed.", "Shows symptoms of rupture.", "Is ruptured.")
+		collapse_desc = ldesc
+		src.connected.last_occupant_name = src.connected.occupant.name
+		return ldesc
+	
+	return collapse_desc
 
 /obj/machinery/body_scanconsole/New()
 	..()
-	spawn( 5 )
+	spawn(5)
 		src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
+		src.connected.connected = src
 		return
 	return
-
-/*
-
-/obj/machinery/body_scanconsole/process() //not really used right now
-	if(stat & (NOPOWER|BROKEN))
-		return
-	//use_power(250) // power stuff
-
-//	var/mob/M //occupant
-//	if (!( src.status )) //remove this
-//		return
-//	if ((src.connected && src.connected.occupant)) //connected & occupant ok
-//		M = src.connected.occupant
-//	else
-//		if (istype(M, /mob))
-//		//do stuff
-//		else
-///			src.temphtml = "Process terminated due to lack of occupant in scanning chamber."
-//			src.status = null
-//	src.updateDialog()
-//	return
-
-*/
 
 /obj/machinery/body_scanconsole/attack_ai(user as mob)
 	return src.attack_hand(user)
@@ -258,50 +279,206 @@
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
 	if(..())
 		return
-	if(stat & (NOPOWER|BROKEN))
-		return
-	if(!connected || (connected.stat & (NOPOWER|BROKEN)))
-		user << "<span class='warning'>This console is not connected to a functioning body scanner.</span>"
-		return
-	if(!ishuman(connected.occupant))
-		user << "<span class='warning'>This device can only scan compatible lifeforms.</span>"
-		return
 
-	var/dat
-	if (src.delete && src.temphtml) //Window in buffer but its just simple message, so nothing
-		src.delete = src.delete
-	else if (!src.delete && src.temphtml) //Window in buffer - its a menu, dont add clear message
-		dat = text("[]<BR><BR><A href='?src=\ref[];clear=1'>Main Menu</A>", src.temphtml, src)
-	else
-		if (src.connected) //Is something connected?
-			dat = format_occupant_data(src.connected.get_occupant_data())
-			dat += "<HR><A href='?src=\ref[src];print=1'>Print</A><BR>"
-		else
-			dat = "<span class='warning'>Error: No Body Scanner connected.</span>"
-
-	dat += text("<BR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>", user)
-	user << browse(dat, "window=scanconsole;size=430x600")
-	return
-
+	ui_interact(user)
 
 /obj/machinery/body_scanconsole/Topic(href, href_list)
-	if (..())
-		return
+	..()
 
+	// shouldn't be reachable if occupant is invalid
 	if (href_list["print"])
-		if (!src.connected)
-			usr << "\icon[src]<span class='warning'>Error: No body scanner connected.</span>"
-			return
-		var/mob/living/carbon/human/occupant = src.connected.occupant
-		if (!src.connected.occupant)
-			usr << "\icon[src]<span class='warning'>The body scanner is empty.</span>"
-			return
-		if (!istype(occupant,/mob/living/carbon/human))
-			usr << "\icon[src]<span class='warning'>The body scanner cannot scan that lifeform.</span>"
-			return
 		var/obj/item/weapon/paper/R = new(src.loc)
-		R.set_content_unsafe("Scan ([occupant])", format_occupant_data(src.connected.get_occupant_data()))
+		R.set_content_unsafe("Scan ([src.connected.occupant])", format_occupant_data(src.connected.get_occupant_data()))
 
+		print(R, "[src] beeps, printing [R.name] after a moment.")
+
+/obj/machinery/body_scanconsole/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+	var/list/data = list()
+	var/occupied = (src.connected && src.connected.occupant)
+	var/mob/living/carbon/human/occupant
+	if (src.connected)
+		occupant = src.connected.occupant
+
+	data["noscan"]		= src.connected.check_species()
+	data["nocons"]		= !src.connected
+	data["occupied"] 	= occupied
+	data["invalid"]		= src.connected && src.connected.check_species()
+	data["ipc"]			= src.connected && occupant && isipc(occupant)
+	if (!data["invalid"])
+		var/datum/reagents/R = occupant.bloodstr
+		var/datum/reagents/B = occupant.vessel
+		data["stat"]			= occupant.stat
+		data["name"]			= occupant.name
+		data["species"]			= occupant.get_species()	// mostly for fluff.
+		data["health"]			= occupant.health
+		data["maxHealth"]		= occupant.maxHealth
+		data["minHealth"]		= config.health_threshold_dead
+		data["bruteLoss"]		= occupant.getBruteLoss()
+		data["oxyLoss"]			= occupant.getOxyLoss()
+		data["toxLoss"]			= occupant.getToxLoss()
+		data["fireLoss"]		= occupant.getFireLoss()
+		data["rads"]			= occupant.total_radiation
+		data["cloneloss"]		= occupant.getCloneLoss()
+		data["brainloss"]		= occupant.getBrainLoss()
+		data["paralysis"]		= occupant.paralysis
+		data["bodytemp"]		= occupant.bodytemperature
+		data["occupant"] 		= occupant
+		data["bloodAmt"] 		= B.get_reagent_amount("blood")
+		data["bloodMax"] 		= 560	// You'd think this'd be defined somewhere.
+		data["bloodPerc"]		= (data["bloodAmt"] / data["bloodMax"]) * 100
+		data["bloodStatus"]		= val2status(data["bloodAmt"], B.total_volume * 0.9, B.total_volume * 0.8, inverse = 1)
+		data["inaprovAmt"] 		= R.get_reagent_amount("inaprovaline")
+		data["soporAmt"] 		= R.get_reagent_amount("stoxin")
+		data["bicardAmt"] 		= R.get_reagent_amount("bicaridine")
+		data["dexAmt"] 			= R.get_reagent_amount("dexalin")
+		data["dermAmt"]			= R.get_reagent_amount("dermaline")
+		data["otherAmt"]		= R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["inaprovAmt"] + data["dermAmt"])
+		data["brainDmgStatus"] 	= val2status(occupant.brainloss, 20, 50)
+		data["radStatus"] 		= val2status(occupant.total_radiation)
+		data["cloneDmgStatus"] 	= val2status(occupant.cloneloss, 10, 35)
+		data["bodyparts"]		= get_organ_wound_data(occupant)
+		var/list/missing 		= get_missing_organs(occupant)
+		data["missingparts"]	= missing
+		data["hasmissing"]		= missing.len ? 1 : 0
+		data["hasvirus"]		= occupant.virus2.len || occupant.viruses.len
+		data["hastgvirus"]		= occupant.viruses.len
+		data["tgvirus"]			= occupant.viruses
+
+	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "med_diagnostics.tmpl", "Medical Diagnostics", 800, 500, state = state)
+		ui.set_initial_data(data)
+		ui.open()
+		ui.set_auto_update(1)
+
+/obj/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/human/H)
+	var/list/missingOrgans = list()
+	var/list/species_organs = H.species.has_organ
+	for (var/organ_name in H.species.has_organ)
+		if (!locate(species_organs[organ_name]) in H.internal_organs)
+			missingOrgans += organ_name
+	return missingOrgans
+
+/obj/machinery/body_scanconsole/proc/get_organ_wound_data(var/mob/living/carbon/human/H)
+	var/list/organs = list()
+
+	// Internal Organs. (Duh.)
+	for (var/obj/item/organ/O in H.internal_organs)
+		var/list/data = list()
+		data["name"] = O.name
+		var/list/wounds = list()
+		switch (O.damtype)
+			if ("brute")
+				data["bruteDmg"] = O.damage
+				data["burnDmg"] = 0
+			if ("burn")
+				data["burnDmg"] = O.damage
+				data["bruteDmg"] = 0
+
+		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
+			wounds += get_lung_desc()
+
+		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
+			wounds += "Has an abnormal growth."
+
+		if (istype(O, H.species.vision_organ))
+			if (H.sdisabilities & BLIND)
+				wounds += "Appears to have cataracts."
+			else if (H.disabilities & NEARSIGHTED)
+				wounds += "Appears to have misaligned retinas."
+		
+		if (O.germ_level)
+			var/level = get_infection_level(O.germ_level)
+			if (level && level != "")
+				wounds += "Shows symptoms of \a [level] infection."
+
+		if (O.rejecting)
+			wounds += "Shows symptoms of organ rejection."
+
+		data["hasWounds"] = length(wounds) ? 1 : 0
+		data["wounds"] = wounds
+		organs += list(data)
+
+	// Limbs.
+	for (var/obj/item/organ/external/O in H.organs)
+		var/list/data = list()
+		data["burnDmg"] = O.burn_dam
+		data["bruteDmg"] = O.brute_dam
+		data["name"] = O.name
+
+		var/list/wounds = list()
+		var/num_IB = 0
+		for (var/datum/wound/W in O.wounds)
+			if (W.internal)
+				num_IB++
+
+		if (num_IB)
+			if (num_IB > 1)
+				wounds += "Shows signs of severe internal bleeding."
+			else
+				wounds += "Shows signs of internal bleeding."
+
+		if (O.status & ORGAN_ROBOT)
+			wounds += "Appears to be composed of inorganic material."
+		if (O.status & ORGAN_SPLINTED)
+			wounds += "Splinted."
+		if (O.status & ORGAN_BLEEDING)
+			wounds += "Bleeding."
+		if (O.status & ORGAN_BROKEN)
+			wounds += "Is \a [O.broken_description]."
+		if (O.open)
+			wounds += "Has an open wound."
+		if (O.germ_level)
+			var/level = get_infection_level(O.germ_level)
+			if (level && level != "")
+				wounds += "Shows symptoms of \a [level] infection."
+		if (O.rejecting)
+			wounds += "Shows symptoms indicating limb rejection."
+
+		if (O.implants.len)
+			var/unk = 0
+			for (var/atom/movable/I in O.implants)
+				if (is_type_in_list(I, known_implants))
+					wounds += "[I.name] present."
+				else
+					unk += 1
+			if (unk)
+				wounds += "Has an abnormal mass present."
+
+		data["hasWounds"] = length(wounds) ? 1 : 0
+		data["wounds"] = wounds
+		organs += list(data)
+
+	return organs
+
+/obj/machinery/body_scanconsole/proc/get_infection_level(var/level)
+	switch (level)
+		if (INFECTION_LEVEL_ONE to INFECTION_LEVEL_ONE + 200)
+			return "mild"
+		if (INFECTION_LEVEL_ONE + 200 to INFECTION_LEVEL_ONE + 300)
+			return "worsening mild"
+		if (INFECTION_LEVEL_ONE + 300 to INFECTION_LEVEL_ONE + 400)
+			return "borderline acute"
+		if (INFECTION_LEVEL_TWO to INFECTION_LEVEL_TWO + 200)
+			return "acute"
+		if (INFECTION_LEVEL_TWO + 200 to INFECTION_LEVEL_TWO + 300)
+			return "worsening acute"
+		if (INFECTION_LEVEL_TWO + 300 to INFECTION_LEVEL_TWO + 400)
+			return "borderline septic"
+		if (INFECTION_LEVEL_THREE to INFINITY)
+			return "septic"
+
+	return ""
+
+/obj/machinery/body_scanconsole/proc/val2status(var/val, var/warn_threshold = 10, var/danger_threshold = 50, var/inverse = 0)
+	if (val < warn_threshold)
+		return inverse ? "bad" : "good"
+	if (val < danger_threshold)
+		return "average"
+	return inverse ? "good" : "bad"
+
+
+// These are old procs used for printing.
 
 /obj/machinery/bodyscanner/proc/get_occupant_data()
 	if (!occupant || !istype(occupant, /mob/living/carbon/human))
@@ -415,23 +592,12 @@
 		if(e.open)
 			open = "Open:"
 
-		switch (e.germ_level)
-			if (INFECTION_LEVEL_ONE to INFECTION_LEVEL_ONE + 200)
-				infected = "Mild Infection:"
-			if (INFECTION_LEVEL_ONE + 200 to INFECTION_LEVEL_ONE + 300)
-				infected = "Mild Infection+:"
-			if (INFECTION_LEVEL_ONE + 300 to INFECTION_LEVEL_ONE + 400)
-				infected = "Mild Infection++:"
-			if (INFECTION_LEVEL_TWO to INFECTION_LEVEL_TWO + 200)
-				infected = "Acute Infection:"
-			if (INFECTION_LEVEL_TWO + 200 to INFECTION_LEVEL_TWO + 300)
-				infected = "Acute Infection+:"
-			if (INFECTION_LEVEL_TWO + 300 to INFECTION_LEVEL_TWO + 400)
-				infected = "Acute Infection++:"
-			if (INFECTION_LEVEL_THREE to INFINITY)
-				infected = "Septic:"
+		var/infection = "[get_infection_level(e.germ_level)] infection"
+		if (infection == "")
+			infection = "None"
 		if(e.rejecting)
-			infected += "(being rejected)"
+			infected += " (being rejected)"
+
 		if (e.implants.len)
 			var/unknown_body = 0
 			for(var/I in e.implants)
@@ -458,20 +624,11 @@
 		if(i.robotic == 2)
 			mech = "Mechanical:"
 
-		var/infection = "None"
-		switch (i.germ_level)
-			if (1 to INFECTION_LEVEL_ONE + 200)
-				infection = "Mild Infection:"
-			if (INFECTION_LEVEL_ONE + 200 to INFECTION_LEVEL_ONE + 300)
-				infection = "Mild Infection+:"
-			if (INFECTION_LEVEL_ONE + 300 to INFECTION_LEVEL_ONE + 400)
-				infection = "Mild Infection++:"
-			if (INFECTION_LEVEL_TWO to INFECTION_LEVEL_TWO + 200)
-				infection = "Acute Infection:"
-			if (INFECTION_LEVEL_TWO + 200 to INFECTION_LEVEL_TWO + 300)
-				infection = "Acute Infection+:"
-			if (INFECTION_LEVEL_TWO + 300 to INFINITY)
-				infection = "Acute Infection++:"
+		var/infection = get_infection_level(i.germ_level)
+		if (infection == "")
+			infection = "None"
+		else
+			infection = "[infection] infection"
 		if(i.rejecting)
 			infection += "(being rejected)"
 

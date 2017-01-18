@@ -32,11 +32,10 @@
 	anchored = 1
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "pod_0"
-	req_access = list(access_genetics) //For premature unlocking.
+	req_access = list(access_medical_equip) //since we have no genetics for now
 	var/mob/living/occupant
 	var/heal_level = 20 //The clone is released once its health reaches this level.
 	var/heal_rate = 1
-	var/notoxin = 0
 	var/locked = 0
 	var/obj/machinery/computer/cloning/connected = null //So we remember the connected clone machine.
 	var/mess = 0 //Need to clean out it if it's full of exploded clone.
@@ -60,22 +59,19 @@
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/store(src))
 
 /obj/machinery/clonepod/Destroy()
-    if(connected)
-        connected.release_pod(src)
-    return ..()
+	if(connected)
+		connected.release_pod(src)
+	return ..()
 
 /obj/machinery/clonepod/attack_ai(mob/user as mob)
 
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/clonepod/attack_hand(mob/user as mob)
-	if((isnull(occupant)) || (stat & NOPOWER))
+/obj/machinery/clonepod/attack_hand(var/mob/user)
+	if((stat & NOPOWER) || !occupant || occupant.stat == DEAD)
 		return
-	if((!isnull(occupant)) && (occupant.stat != 2))
-		var/completion = (100 * ((occupant.health + 50) / (heal_level + 100))) // Clones start at -150 health
-		user << "Current clone cycle is [round(completion)]% complete."
-	return
+	user << "Current clone cycle is [round(GetCloneReadiness())]% complete."
 
 //Clonepod
 
@@ -115,7 +111,7 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.adjustCloneLoss(150) // New damage var so you can't eject a clone early then stab them to abuse the current damage system --NeoFite
+	H.setCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
 	H.adjustBrainLoss(80) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
@@ -161,6 +157,15 @@
 	attempting = 0
 	return 1
 
+/obj/machinery/clonepod/proc/GetCloneReadiness() // Returns a number between 0 and 100
+	if(!occupant)
+		return
+
+	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
+		return 100
+
+	return between(0, 100 * (occupant.health - occupant.maxHealth * config.health_threshold_crit / 100) / (occupant.maxHealth * (heal_level - config.health_threshold_crit) / 100), 100)
+
 //Grow clones to maturity then kick them out.  FREELOADERS
 /obj/machinery/clonepod/process()
 
@@ -171,38 +176,34 @@
 		return
 
 	if((occupant) && (occupant.loc == src))
-		if((occupant.stat == DEAD) || !occupant.key)
+		if((occupant.stat == DEAD))  //Autoeject corpses
 			locked = 0
 			go_out()
 			connected_message("Clone Rejected: Deceased.")
 			return
 
-		else if(occupant.health < heal_level && occupant.getCloneLoss() > 0)
-			occupant.Paralyse(4)
-
-			 //Slowly get that clone healed and finished.
-			occupant.adjustCloneLoss(-2 * heal_rate)
-
-			//Premature clones may have brain damage.
-			occupant.adjustBrainLoss(-1 * heal_rate)
-
-			//So clones don't die of oxyloss in a running pod.
-			if(occupant.reagents.get_reagent_amount("inaprovaline") < 30)
-				occupant.reagents.add_reagent("inaprovaline", 60)
-			occupant.Sleeping(30)
-			//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
-			occupant.adjustOxyLoss(-4)
-
-			use_power(7500) //This might need tweaking.
-			return
-
-		else if((occupant.health >= heal_level) && (!eject_wait))
+		if(GetCloneReadiness() >= 100 && !eject_wait)
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 			src.audible_message("\The [src] signals that the cloning process is complete.")
 			connected_message("Cloning Process Complete.")
 			locked = 0
 			go_out()
 			return
+
+		occupant.Paralyse(4)
+
+		//Slowly get that clone healed and finished.
+		occupant.adjustCloneLoss(-2 * heal_rate)
+
+		//So clones don't die of oxyloss in a running pod.
+		if(occupant.reagents.get_reagent_amount("inaprovaline") < 30)
+			occupant.reagents.add_reagent("inaprovaline", 60)
+		occupant.Sleeping(30)
+		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
+		occupant.adjustOxyLoss(-4)
+
+		use_power(7500) //This might need tweaking.
+		return
 
 	else if((!occupant) || (occupant.loc != src))
 		occupant = null
@@ -211,7 +212,7 @@
 		return
 
 	return
-
+	
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
 /obj/machinery/clonepod/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isnull(occupant))
@@ -285,10 +286,6 @@
 
 	heal_level = rating * 10 - 20
 	heal_rate = round(rating / 4)
-	if(rating >= 8)
-		notoxin = 1
-	else
-		notoxin = 0
 
 /obj/machinery/clonepod/verb/eject()
 	set name = "Eject Cloner"

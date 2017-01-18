@@ -127,7 +127,7 @@
 		if (!grippersafety(G))return
 		if(!resolved && A && W)
 			W.afterattack(A,src,1,params)
-			if (!grippersafety(G))return
+		if (!grippersafety(G))return
 		W.force = G.force_holder
 		return
 	if(!isturf(loc))
@@ -141,7 +141,7 @@
 			if (!grippersafety(G))return
 			if(!resolved && A && W)
 				W.afterattack(A, src, 1, params)
-				if (!grippersafety(G))return
+			if (!grippersafety(G))return
 			W.force = G.force_holder
 			return
 		//No non-adjacent clicks. Can't fire guns

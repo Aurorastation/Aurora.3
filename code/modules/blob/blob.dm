@@ -23,6 +23,7 @@
 	var/obj/effect/blob/core/parent_core = null
 	var/blob_may_process = 1
 	var/hangry = 0 //if the blob will attack or not.
+	var/blob_cost = 1 //point cost of the blob tile
 
 /obj/effect/blob/New(loc)
 	processing_objects.Add(src)
@@ -36,7 +37,7 @@
 /obj/effect/blob/Destroy()
 	// Sanity time.
 	if (parent_core)
-		parent_core.blob_count -= 1
+		parent_core.blob_count -= blob_cost
 		parent_core = null
 
 	..()
@@ -53,61 +54,69 @@
 		parent_core = null
 		return
 
-	if(prob(70))
-		for(var/mob/living/L in src.loc)
-			if(L.stat == DEAD)
-				if(prob(10))
-					if(istype(L, /mob/living/carbon/human))
-						var/mob/living/carbon/human/H = L
-						H.ChangeToHusk()
-						if(!(HUSK in H.mutations))
-							if(health < maxHealth)
-								health += rand(10,30)
-								if(health > maxHealth)
-									health = maxHealth
-					else if(istype(L, /mob/living/silicon))
-						continue
-					else
-						L.gib()
+	for(var/mob/living/L in src.loc)
+		if(L.stat == DEAD)
+			if(prob(10))
+				if(istype(L, /mob/living/carbon/human))
+					var/mob/living/carbon/human/H = L
+					H.ChangeToHusk()
+					if(!(HUSK in H.mutations))
 						if(health < maxHealth)
 							health += rand(10,30)
 							if(health > maxHealth)
 								health = maxHealth
-				continue
-			L.visible_message("<span class='danger'>The blob absorbs \the [L]!</span>", "<span class='danger'>The blob absorbs you!</span>")
-			playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-			L.take_organ_damage(rand(5, 10))
-			if(health < maxHealth)
-				health += rand(1,10)
-				if(health > maxHealth)
-					health = maxHealth
-			hangry += 16
+				else if(istype(L, /mob/living/silicon))
+					continue
+				else
+					L.gib()
+					if(health < maxHealth)
+						health += rand(10,30)
+						if(health > maxHealth)
+							health = maxHealth
+			continue
+		L.visible_message("<span class='danger'>The blob absorbs \the [L]!</span>", "<span class='danger'>The blob absorbs you!</span>")
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		L.take_organ_damage(rand(5, 10))
+		if(health < maxHealth)
+			health += rand(1,10)
+			if(health > maxHealth)
+				health = maxHealth
+		hangry += 8
 
-		for(var/mob/living/L in range(src,"3x3"))
-			var/obj/effect/blob/B = (locate() in get_turf(L))
-			if(!B)
-				if(!hangry)
-					if(L.stat == DEAD)
-						continue
-					if(prob(40))
-						L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
-						playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-						L.take_organ_damage(rand(5, 10))
-						L.forceMove(src.loc)
-					else
-						L.visible_message("<span class='danger'>The blob glomps \the [L]!</span>", "<span class='danger'>The blob glomps you!</span>")
-						playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-						L.take_organ_damage(rand(5, 20))
-						if(health < maxHealth)
-							health += rand(1,10)
-							if(health > maxHealth)
-								health = maxHealth
-					hangry += 4
+	for(var/mob/living/L in range(src,"3x3"))
+		var/obj/effect/blob/B = locate() in get_turf(L)
+		if(!B)
+			if(!hangry)
+				if(L.stat == DEAD)
+					continue
+				if(prob(40))
+					L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
+					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+					L.take_organ_damage(rand(5, 10))
+					L.forceMove(src.loc)
+				else
+					L.visible_message("<span class='danger'>The blob glomps \the [L]!</span>", "<span class='danger'>The blob glomps you!</span>")
+					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+					L.take_organ_damage(rand(5, 20))
+					if(health < maxHealth)
+						health += rand(1,10)
+						if(health > maxHealth)
+							health = maxHealth
+				hangry += 2
 
-		for(var/obj/fire/F in range(src,"3x3")) //very snowflake, but much better than actually coding complex thermodynamics for these fuckers
-			if(prob(50))
-				src.visible_message("<span class='danger'>The blob melts away under the heat of the flames!</span>")
+	for(var/obj/fire/F in range(src,"3x3")) //very snowflake, but much better than actually coding complex thermodynamics for these fuckers
+		if(prob(50))
+			src.visible_message("<span class='danger'>The blob melts away under the heat of the flames!</span>")
+		F = locate() in get_turf(src)
+		if(F)
 			src.take_damage(rand(5, 20) / fire_resist)
+		else
+			src.take_damage(rand(1, 10) / fire_resist)
+
+	for(var/obj/mecha/M in range(src,"3x3"))
+		M.visible_message("<span class='danger'>The blob attacks \the [M]!</span>")
+		M.take_damage(rand(20,40))
+
 	hangry -= 1
 	if(hangry < 0)
 		hangry = 0
@@ -181,11 +190,11 @@
 			if(!(locate(/obj/effect/blob/core/) in range(T, 2)) && prob(secondary_core_growth_chance) && (parent_core.core_count < parent_core.core_limit))
 				var/obj/effect/blob/core/secondary/S = new /obj/effect/blob/core/secondary(T)
 				S.parent_core = src.parent_core
-				src.parent_core.core_count += 1
+				src.parent_core.core_count += blob_cost
 			else
 				var/obj/effect/blob/C = new expandType(T)
 				C.parent_core = src.parent_core
-			parent_core.blob_count += 1
+			parent_core.blob_count += blob_cost
 
 /obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
 	regen()
@@ -312,6 +321,7 @@
 	brute_resist = 1
 	fire_resist = 2
 	laser_resist = 4
+	blob_cost = 0 //so that the core can regrow its shields when they break
 
 /obj/effect/blob/shield/New()
 	update_nearby_tiles()
