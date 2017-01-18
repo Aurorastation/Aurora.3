@@ -1,6 +1,3 @@
-// Yes, this is a second datum pool used for lighting.
-
-
 //This was made pretty explicity for atmospherics devices which could not delete their datums properly
 //Make sure you go around and null out those references to the datum
 //It was also pretty explicitly and shamelessly stolen from regular object pooling, thanks esword
@@ -57,7 +54,6 @@
 		else
 			O.New()
 
-		//O.disposed = null //Set to process once again
 	return O
 
 /*
@@ -83,7 +79,6 @@
 
 	D.Destroy()
 	D.resetVariables()
-	//D.disposed = 1 //Set to stop processing while pooled
 
 	#ifdef DEBUG_DATUM_POOL
 	if(D in masterdatumPool[D.type])
@@ -152,6 +147,6 @@
 			L += "<br>[key] = null"
 	usr << browse(jointext(L,""),"window=poolingvariablelogs")
 
-// Shim.
+// Shim - this method doesn't natively exist in this implementation.
 /proc/IsPooled(var/datum/D)
 	return "[D.type]" in masterdatumPool
