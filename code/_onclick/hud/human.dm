@@ -25,7 +25,8 @@
 
 		inv_box = new /obj/screen/inventory()
 		inv_box.icon = ui_style
-		inv_box.layer = 19
+		inv_box.layer = LAYER_HUD_INV_BG
+		inv_box.plane = PLANE_HUD
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
 
@@ -50,7 +51,8 @@
 		using.icon = ui_style
 		using.icon_state = "other"
 		using.screen_loc = ui_inventory
-		using.layer = 20
+		using.layer = LAYER_HUD_INV_ITEM
+		using.plane = PLANE_HUD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
@@ -65,7 +67,8 @@
 		using.screen_loc = ui_acti
 		using.color = ui_color
 		using.alpha = ui_alpha
-		using.layer = 20
+		using.layer = LAYER_HUD_BUTTON
+		using.plane = PLANE_HUD
 		src.adding += using
 		action_intent = using
 
@@ -82,7 +85,8 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.layer = LAYER_HUD_INTENT_BTN
+		using.plane = PLANE_HUD
 		src.adding += using
 		help_intent = using
 
@@ -94,7 +98,9 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.alpha = ui_alpha
+		using.layer = LAYER_HUD_INTENT_BTN
+		using.plane = PLANE_HUD
 		src.adding += using
 		disarm_intent = using
 
@@ -106,7 +112,9 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.alpha = ui_alpha
+		using.layer = LAYER_HUD_INTENT_BTN
+		using.plane = PLANE_HUD
 		src.adding += using
 		grab_intent = using
 
@@ -118,7 +126,9 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.alpha = ui_alpha
+		using.layer = LAYER_HUD_INTENT_BTN
+		using.plane = PLANE_HUD
 		src.adding += using
 		hurt_intent = using
 		//end intent small hud objects
@@ -129,7 +139,8 @@
 		using.icon = ui_style
 		using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
 		using.screen_loc = ui_movi
-		using.layer = 20
+		using.layer = LAYER_HUD_BUTTON
+		using.plane = PLANE_HUD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
@@ -141,7 +152,8 @@
 		using.icon = ui_style
 		using.icon_state = "act_drop"
 		using.screen_loc = ui_drop_throw
-		using.layer = 19
+		using.layer = LAYER_HUD_GENERIC
+		using.plane = PLANE_HUD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.hotkeybuttons += using
@@ -153,7 +165,8 @@
 		using.icon = ui_style
 		using.icon_state = "act_equip"
 		using.screen_loc = ui_equip
-		using.layer = 20
+		using.layer = LAYER_HUD_BUTTON
+		using.plane = PLANE_HUD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
@@ -166,7 +179,8 @@
 			inv_box.icon_state = "r_hand_active"
 		inv_box.screen_loc = ui_rhand
 		inv_box.slot_id = slot_r_hand
-		inv_box.layer = 19
+		inv_box.layer = LAYER_HUD_INV_BG
+		inv_box.plane = PLANE_HUD
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
 
@@ -181,7 +195,8 @@
 			inv_box.icon_state = "l_hand_active"
 		inv_box.screen_loc = ui_lhand
 		inv_box.slot_id = slot_l_hand
-		inv_box.layer = 19
+		inv_box.layer = LAYER_HUD_INV_BG
+		inv_box.plane = PLANE_HUD
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
 		src.l_hand_hud_object = inv_box
@@ -192,7 +207,8 @@
 		using.icon = ui_style
 		using.icon_state = "hand1"
 		using.screen_loc = ui_swaphand1
-		using.layer = 19
+		using.layer = LAYER_HUD_INV_BG
+		using.plane = PLANE_HUD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
@@ -202,7 +218,8 @@
 		using.icon = ui_style
 		using.icon_state = "hand2"
 		using.screen_loc = ui_swaphand2
-		using.layer = 19
+		using.layer = LAYER_HUD_INV_BG
+		using.plane = PLANE_HUD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
@@ -213,7 +230,8 @@
 		using.icon = ui_style
 		using.icon_state = "act_resist"
 		using.screen_loc = ui_pull_resist
-		using.layer = 19
+		using.layer = LAYER_HUD_GENERIC
+		using.plane = PLANE_HUD
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.hotkeybuttons += using
@@ -313,7 +331,8 @@
 	mymob.damageoverlay.name = "dmg"
 	mymob.damageoverlay.screen_loc = "1,1"
 	mymob.damageoverlay.mouse_opacity = 0
-	mymob.damageoverlay.layer = 18.1 //The black screen overlay sets layer to 18 to display it, this one has to be just on top.
+	mymob.damageoverlay.plane = PLANE_OVERLAY
+	mymob.damageoverlay.layer = LAYER_OVERLAY_DMG //The black screen overlay sets layer to 18 to display it, this one has to be just on top.
 	hud_elements |= mymob.damageoverlay
 
 	mymob.flash = new /obj/screen()
@@ -321,7 +340,8 @@
 	mymob.flash.icon_state = "blank"
 	mymob.flash.name = "flash"
 	mymob.flash.screen_loc = ui_entire_screen
-	mymob.flash.layer = 17
+	mymob.flash.plane = PLANE_OVERLAY
+	mymob.flash.layer = LAYER_OVERLAY_FLASH
 	mymob.flash.mouse_opacity = 0
 	hud_elements |= mymob.flash
 

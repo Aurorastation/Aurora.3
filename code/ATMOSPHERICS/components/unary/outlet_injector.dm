@@ -5,7 +5,8 @@
 /obj/machinery/atmospherics/unary/outlet_injector
 	icon = 'icons/atmos/injector.dmi'
 	icon_state = "map_injector"
-	layer = 3
+	layer = LAYER_ATMOS_UNARY
+	plane = PLANE_ABOVE_FLOOR
 
 	name = "air injector"
 	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."

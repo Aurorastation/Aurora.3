@@ -4,6 +4,7 @@
 	icon_state = "0"
 	dynamic_lighting = 0
 	footstep_sound = null //Override to make sure because yeah
+	plane = PLANE_SPACE
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT

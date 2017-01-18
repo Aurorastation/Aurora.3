@@ -9,9 +9,10 @@
 /obj/screen
 	name = ""
 	icon = 'icons/mob/screen1.dmi'
-	layer = 20.0
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
+	plane = PLANE_HUD
+	layer = LAYER_HUD_GENERIC
 
 /obj/screen/Destroy()
 	master = null

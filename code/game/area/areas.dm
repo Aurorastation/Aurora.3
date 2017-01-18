@@ -9,7 +9,8 @@
 
 /area/New()
 	icon_state = ""
-	layer = 10
+	plane = PLANE_SPECIAL
+	layer = LAYER_AREA
 	uid = ++global_uid
 	all_areas += src
 

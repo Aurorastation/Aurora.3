@@ -14,7 +14,8 @@
 	using.icon = 'icons/mob/screen1_alien.dmi'
 	using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
 	using.screen_loc = ui_acti
-	using.layer = 20
+	using.layer = LAYER_BUTTON
+	using.plane = PLANE_HUD
 	src.adding += using
 	move_intent = using
 
@@ -36,7 +37,8 @@
 	mymob.flash.icon_state = "blank"
 	mymob.flash.name = "flash"
 	mymob.flash.screen_loc = ui_entire_screen
-	mymob.flash.layer = 17
+	mymob.flash.layer = LAYER_OVERLAY_FLASH
+	mymob.flash.plane = PLANE_OVERLAY
 
 	mymob.fire = new /obj/screen()
 	mymob.fire.icon = 'icons/mob/screen1_alien.dmi'

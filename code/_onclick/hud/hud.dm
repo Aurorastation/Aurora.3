@@ -43,14 +43,16 @@ var/list/global_huds = list(
 	druggy = new /obj/screen()
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
-	druggy.layer = 17
+	druggy.layer = LAYER_OVERLAY_DRUGGY
+	druggy.plane = PLANE_OVERLAY
 	druggy.mouse_opacity = 0
 
 	//that white blurry effect you get when you eyes are damaged
 	blurry = new /obj/screen()
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "blurry"
-	blurry.layer = 17
+	blurry.layer = LAYER_OVERLAY_BLURRY
+	blurry.plane = PLANE_OVERLAY
 	blurry.mouse_opacity = 0
 
 	nvg = setup_overlay("nvg_hud")
@@ -93,18 +95,18 @@ var/list/global_huds = list(
 	for(i = 1, i <= 4, i++)
 		O = vimpaired[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = LAYER_OVERLAY_GENERIC
 		O.mouse_opacity = 0
 
 		O = darkMask[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = LAYER_OVERLAY_GENERIC
 		O.mouse_opacity = 0
 
 	for(i = 5, i <= 8, i++)
 		O = darkMask[i]
 		O.icon_state = "black"
-		O.layer = 17
+		O.layer = LAYER_OVERLAY_GENERIC
 		O.mouse_opacity = 0
 
 /*
