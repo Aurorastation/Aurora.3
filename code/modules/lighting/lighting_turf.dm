@@ -68,6 +68,7 @@
 	for (var/atom/A in src.contents + src) // Loop through every movable atom on our tile PLUS ourselves (we matter too...)
 		if (A.opacity)
 			has_opaque_atom = TRUE
+			return 	// No need to continue if we find something opaque.
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(var/atom/movable/Obj, var/atom/OldLoc)

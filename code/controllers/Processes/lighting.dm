@@ -12,11 +12,15 @@
 /var/list/lighting_update_corners_old   = list()    // List of lighting corners  currently being updated.
 /var/list/lighting_update_overlays_old  = list()    // List of lighting overlays currently being updated.
 
+/var/datum/controller/process/lighting/lighting_process
+
 /datum/controller/process/lighting
 	schedule_interval = LIGHTING_INTERVAL
 
 /datum/controller/process/lighting/setup()
 	name = "lighting"
+
+	lighting_process = src
 
 	create_all_lighting_overlays()
 
