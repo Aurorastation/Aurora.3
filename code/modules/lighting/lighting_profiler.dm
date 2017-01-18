@@ -5,7 +5,7 @@ var/DBQuery/lprof_q
 
 /proc/lprof_init()
 	lprof_q = dbcon.NewQuery({"INSERT INTO ss13dbg_lighting (time,type,name,loc_name,x,y,z) 
-		VALUES (:time,:name,:loc_name,:x,:y,:z,:type);"})
+		VALUES (:time,:type,:name,:loc_name,:x,:y,:z);"})
 
 /proc/lprof_write(var/atom/movable/obj, var/type = "UNKNOWN")
 	if (!obj || !dbcon.IsConnected())
