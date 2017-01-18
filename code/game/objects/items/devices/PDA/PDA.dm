@@ -12,8 +12,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	w_class = 2.0
 	slot_flags = SLOT_ID | SLOT_BELT
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/id.dmi')
-	offset_light = 1
-	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	//offset_light = 1
+	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	//Main variables
 	var/owner = null

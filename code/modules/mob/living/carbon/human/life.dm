@@ -287,7 +287,8 @@
 	if (total_radiation)
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
-			diona_handle_regeneration(get_dionastats())
+			//diona_handle_regeneration(get_dionastats())
+			return
 		else
 			var/damage = 0
 			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
@@ -616,8 +617,8 @@
 	var/pressure = environment.return_pressure()
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
-	if (is_diona())
-		diona_handle_air(get_dionastats(), pressure)
+	//if (is_diona())
+		//diona_handle_air(get_dionastats(), pressure)
 
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
@@ -1245,8 +1246,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-		if(L && L.lum_r + L.lum_g + L.lum_b == 0)
+		if(T.dynamic_lighting && T.get_lumcount() == 0)
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/handle_stomach()

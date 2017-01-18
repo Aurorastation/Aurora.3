@@ -38,7 +38,7 @@ var/datum/controller/process/explosives/bomb_processor
 	powernet_update_pending = 1
 
 	for (var/A in work_queue)
-		lighting_process.disable()
+		//lighting_process.disable()
 		var/datum/explosiondata/data = A
 
 		if (data.is_rec)
@@ -49,7 +49,7 @@ var/datum/controller/process/explosives/bomb_processor
 		SCHECK
 
 		work_queue -= data
-		lighting_process.enable()
+		//lighting_process.enable()
 
 // Handle a non-recusrive explosion.
 /datum/controller/process/explosives/proc/explosion(var/datum/explosiondata/data)

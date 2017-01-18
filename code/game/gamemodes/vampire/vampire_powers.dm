@@ -219,7 +219,7 @@
 	if (!light)
 		return
 
-	if (max(light.lum_r, light.lum_g, light.lum_b) > 1)
+	if (T.get_lumcount() * 10 > 1)
 		// Too bright, cannot jump into.
 		src << "<span class='warning'>The destination is too bright.</span>"
 		return

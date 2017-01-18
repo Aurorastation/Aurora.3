@@ -3,9 +3,9 @@ BS12 object based lighting system
 */
 
 /*
-Changes from tg DAL:
+Changes from TG DAL:
   -	Lighting is done using objects instead of subareas.
-  - Animated transitions. (newer tg DAL has this)
+  - Animated transitions. (newer TG DAL has this)
   - Full colours with mixing.
   - Support for lights on shuttles.
 
@@ -24,6 +24,9 @@ Changes from tg DAL:
 
 /*
 Relevant vars/procs:
+
+global: (uh, I placed the only one in lighting_system.dm)
+  - var/list/all_lighting_overlays; Just a list of ALL of the lighting overlays.
 
 atom: (lighting_atom.dm)
   - var/light_range; range in tiles of the light, used for calculating falloff
@@ -44,6 +47,8 @@ atom: (lighting_atom.dm)
 
 turf: (lighting_turf.dm)
   - var/list/affecting_lights; list of light sources that are shining onto this turf
+  - var/list/lighting_overlays; list of lighting overlays in the turf. (only used if higher resolutions
+  - var/lighting_overlay; ref to the lighting overlay (only used if resolution is 1)
 
   - proc/reconsider_lights():
 	  - Force all light sources shining onto this turf to update
@@ -51,8 +56,10 @@ turf: (lighting_turf.dm)
   - proc/lighting_clear_overlays():
 	  - Delete (manual GC) all light overlays on this turf, used when changing turf to space
   - proc/lighting_build_overlays():
-	  - Create lighting overlays for this turf. Called by ChangeTurf in case the turf is being changed to use dynamic lighting.
-
+	  - Create lighting overlays for this turf
+  - proc/get_lumcount(var/minlum = 0, var/maxlum = 1)
+  	  - Returns a decimal according to the amount of lums on a turf's overlay (also averages them)
+  	  - With default arguments (based on the fact that 0 = pitch black and 1 = full bright), it will return .5 for a 50% lit tile.
 
 atom/movable/lighting_overlay: (lighting_overlay.dm)
   - var/lum_r, var/lum_g, var/lum_b; lumcounts of each colour

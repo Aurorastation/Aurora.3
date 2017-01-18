@@ -7,8 +7,8 @@
 	w_class = 2
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	offset_light = 1
-	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	//offset_light = 1
+	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
 
@@ -173,8 +173,8 @@
 	var/fuel = 0
 	var/on_damage = 7
 	var/produce_heat = 1500
-	offset_light = 0//Emits light all around, not directional
-	diona_restricted_light = 0
+	//offset_light = 0//Emits light all around, not directional
+	//diona_restricted_light = 0
 
 /obj/item/device/flashlight/flare/New()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
@@ -224,8 +224,8 @@
 	w_class = 1
 	brightness_on = 6
 	on = 1 //Bio-luminesence has one setting, on.
-	offset_light = 0//Emits light all around, not directional
-	diona_restricted_light = 0
+	//offset_light = 0//Emits light all around, not directional
+	//diona_restricted_light = 0
 
 /obj/item/device/flashlight/slime/New()
 	..()
@@ -250,8 +250,8 @@
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	contained_sprite = 1
-	offset_light = 0
-	diona_restricted_light = 0
+	//offset_light = 0
+	//diona_restricted_light = 0
 	var/fuel = 0
 
 /obj/item/device/flashlight/glowstick/New()

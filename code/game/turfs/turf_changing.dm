@@ -82,6 +82,6 @@
 		reconsider_lights()
 	if(dynamic_lighting != old_dynamic_lighting)
 		if(dynamic_lighting)
-			lighting_build_overlays()
-		else
-			lighting_clear_overlays()
+			lighting_build_overlay()
+		//else
+			//lighting_clear_overlays() -- ?!

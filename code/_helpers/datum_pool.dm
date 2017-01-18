@@ -7,9 +7,9 @@ By RemieRichards
 Creation/Deletion is laggy, so let's reduce reuse and recycle!
 
 */
-#define ATOM_POOL_COUNT 100
+//#define ATOM_POOL_COUNT 100
 // "define DEBUG_ATOM_POOL 1
-var/global/list/GlobalPool = list()
+//var/global/list/GlobalPool = list()
 
 //You'll be using this proc 90% of the time.
 //It grabs a type from the pool if it can
@@ -21,7 +21,7 @@ var/global/list/GlobalPool = list()
 //Second argument can be a new location, if the type is /atom/movable
 //Or a list of arguments
 //Either way it gets passed to new
-
+/*
 /proc/PoolOrNew(var/get_type,var/second_arg)
 	var/datum/D
 	D = GetFromPool(get_type,second_arg)
@@ -50,13 +50,13 @@ var/global/list/GlobalPool = list()
 		return D
 	return 0
 
-/proc/PlaceInPool(var/datum/D)
+/proc/returnToPool(var/datum/D)
 	if(!istype(D))
 		return
 
 	if(length(GlobalPool[D.type]) > ATOM_POOL_COUNT)
 		#ifdef DEBUG_ATOM_POOL
-		world << text("DEBUG_DATUM_POOL: PlaceInPool([]) exceeds []. Discarding.", D.type, ATOM_POOL_COUNT)
+		world << text("DEBUG_DATUM_POOL: returnToPool([]) exceeds []. Discarding.", D.type, ATOM_POOL_COUNT)
 		#endif
 		if(garbage_collector)
 			garbage_collector.AddTrash(D)
@@ -106,6 +106,8 @@ var/list/pooledvariables = list()
 			continue
 		pooledvariables[type][key] = initial(vars[key])
 
+	CreateVariables()		// Lighting pool.
+
 /datum/proc/ResetVars(var/list/excluded = list())
 	if(!pooledvariables[type])
 		createVariables(excluded)
@@ -123,3 +125,4 @@ var/list/pooledvariables = list()
 	loc = null
 
 #undef ATOM_POOL_COUNT
+*/

@@ -418,7 +418,7 @@ var/list/diona_banned_languages = list(
 			src << "At long last, light! Treasure it, savour it, hold onto it"
 			DS.LMS = 3
 		else if(DS.last_lightlevel <= 0)
-			var/HP = diona_get_health(DS) / DS.max_health//HP  = health-percentage
+			var/HP = 1 //diona_get_health(DS) / DS.max_health//HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
 					src << "<span class='danger'> The darkness burns. Your nymphs decay and wilt You are in mortal danger</span>"
@@ -447,7 +447,7 @@ if (flashlight_active)
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_amount = DIONA_MAX_LIGHT //how much light there is in the place, affects receiving nutrition and healing
+	/*var/light_amount = DIONA_MAX_LIGHT //how much light there is in the place, affects receiving nutrition and healing
 	var/light_factor = 1//used for  if a gestalt's response node is damaged. it will feed more slowly
 
 	if (is_ventcrawling)
@@ -514,7 +514,7 @@ if (flashlight_active)
 		if (istype(T.species, /datum/species/diona))
 			return T.DS
 	return null
-
+*/
 
 //Called on a nymph when it merges with a gestalt
 //The nymph and gestalt get the combined total of both of their languages
