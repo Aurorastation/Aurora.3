@@ -12,6 +12,9 @@
 // Nonesensical value for l_color default, so we can detect if it gets set to null.
 #define NONSENSICAL_VALUE -99999
 /atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE)
+	if (lighting_profiling)
+		lprof_write(src, "a_setlight")
+
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
 	if (l_power != null)
@@ -33,6 +36,9 @@
 	set waitfor = FALSE
 	if (gcDestroyed)
 		return
+
+	if (lighting_profiling)
+		lprof_write(src, "a_updatelight")
 
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
 		if(light)
@@ -80,6 +86,9 @@
 /atom/proc/set_opacity(var/new_opacity)
 	if (new_opacity == opacity)
 		return
+
+	if (lighting_profiling)
+		lprof_write(src, "a_setopacity")
 
 	opacity = new_opacity
 	var/turf/T = loc

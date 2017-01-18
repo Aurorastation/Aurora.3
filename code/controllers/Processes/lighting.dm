@@ -12,6 +12,9 @@
 /var/list/lighting_update_corners_old   = list()    // List of lighting corners  currently being updated.
 /var/list/lighting_update_overlays_old  = list()    // List of lighting overlays currently being updated.
 
+// Probably slow.
+/var/lighting_profiling = FALSE
+
 /var/datum/controller/process/lighting/lighting_process
 
 /datum/controller/process/lighting
@@ -26,6 +29,7 @@
 
 /datum/controller/process/lighting/statProcess()
 	..()
+	stat(null, "[all_lighting_overlays.len] overlays (~[all_lighting_overlays.len * 4] corners)")
 	stat(null, "Lights: [lighting_update_lights.len] queued, [lighting_update_lights_old.len] processing")
 	stat(null, "Corners: [lighting_update_corners.len] queued, [lighting_update_corners_old.len] processing")
 	stat(null, "Overlays: [lighting_update_overlays.len] queued, [lighting_update_overlays_old.len] processing")

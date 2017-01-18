@@ -9,6 +9,9 @@
 		luminosity = FALSE
 
 /area/proc/set_dynamic_lighting(var/new_dynamic_lighting = TRUE)
+	if (lighting_profiling)
+		lprof_write(src, "area_sdl")
+
 	if (new_dynamic_lighting == dynamic_lighting)
 		return FALSE
 

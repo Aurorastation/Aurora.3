@@ -55,6 +55,9 @@
 
 	update()
 
+	if (lighting_profiling)
+		lprof_write(src, "ls_new")
+
 	return ..()
 
 // Kill ourselves.
@@ -107,6 +110,9 @@
 				top_atom.light_sources = list()
 
 			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
+
+	if (lighting_profiling)
+		lprof_write(src, "ls_update")
 
 	effect_update(null)
 
