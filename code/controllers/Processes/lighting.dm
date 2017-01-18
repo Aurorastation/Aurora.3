@@ -20,7 +20,7 @@
 
 	create_all_lighting_overlays()
 
-/datum/controller/process/explosives/statProcess()
+/datum/controller/process/lighting/statProcess()
 	..()
 	stat(null, "Lights: [lighting_update_lights.len] queued, [lighting_update_lights_old.len] processing")
 	stat(null, "Corners: [lighting_update_corners.len] queued, [lighting_update_corners_old.len] processing")
