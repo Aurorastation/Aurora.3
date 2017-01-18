@@ -12,7 +12,6 @@
 /var/list/lighting_update_corners_old   = list()    // List of lighting corners  currently being updated.
 /var/list/lighting_update_overlays_old  = list()    // List of lighting overlays currently being updated.
 
-
 /datum/controller/process/lighting
 	schedule_interval = LIGHTING_INTERVAL
 
@@ -20,6 +19,12 @@
 	name = "lighting"
 
 	create_all_lighting_overlays()
+
+/datum/controller/process/explosives/statProcess()
+	..()
+	stat(null, "Lights: [lighting_update_lights.len] queued, [lighting_update_lights_old.len] processing")
+	stat(null, "Corners: [lighting_update_corners.len] queued, [lighting_update_corners_old.len] processing")
+	stat(null, "Overlays: [lighting_update_overlays.len] queued, [lighting_update_overlays_old.len] processing")
 
 /datum/controller/process/lighting/doWork()
 
