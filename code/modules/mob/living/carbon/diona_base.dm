@@ -395,7 +395,7 @@ var/list/diona_banned_languages = list(
 	if (DS.LMS == 1)//If we're full
 		if (DS.EP <= 0.8 && DS.last_lightlevel <= 0)//But at <=80% energy
 			DS.LMS = 2
-			src << "<span class='warning'>The darkness makes you uncomfortable</span>"
+			src << "<span class='warning'>The darkness makes you uncomfortable.</span>"
 
 	else if (DS.LMS == 2)
 		if (DS.EP >= 0.99)
@@ -408,25 +408,25 @@ var/list/diona_banned_languages = list(
 	else if (DS.LMS == 3)
 		if (DS.EP >= 0.5)
 			DS.LMS = 2
-			src << "You feel a little more energised as you return to the light. Stay awhile"
+			src << "You feel a little more energised as you return to the light. Stay awhile."
 		else if (DS.EP <= 0.0 && DS.last_lightlevel <= 0)
 			DS.LMS = 4
-			src << "<span class='danger'> You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light</span>"
+			src << "<span class='danger'> You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>"
 	//From here down, we immediately return to state 3 if we get any light
 	else
 		if (DS.EP > 0.0)//If there's any light at all, we can be saved
-			src << "At long last, light! Treasure it, savour it, hold onto it"
+			src << "At long last, light! Treasure it, savour it, hold onto it."
 			DS.LMS = 3
 		else if(DS.last_lightlevel <= 0)
 			var/HP = 1 //diona_get_health(DS) / DS.max_health//HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
-					src << "<span class='danger'> The darkness burns. Your nymphs decay and wilt You are in mortal danger</span>"
+					src << "<span class='danger'> The darkness burns. Your nymphs decay and wilt You are in mortal danger!</span>"
 					DS.LMS = 5
 
 			else if (DS.LMS == 5)
 				if (paralysis > 0)
-					src << "<span class='danger'> Your body has reached critical integrity, it can no longer move. The end comes soon</span>"
+					src << "<span class='danger'> Your body has reached critical integrity, it can no longer move. The end comes soon.</span>"
 					DS.LMS = 6
 			else if (DS.LMS == 6)
 				return
@@ -447,7 +447,7 @@ if (flashlight_active)
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	/*var/light_amount = DIONA_MAX_LIGHT //how much light there is in the place, affects receiving nutrition and healing
+	var/light_amount = DIONA_MAX_LIGHT //how much light there is in the place, affects receiving nutrition and healing
 	var/light_factor = 1//used for  if a gestalt's response node is damaged. it will feed more slowly
 
 	if (is_ventcrawling)
@@ -462,19 +462,18 @@ if (flashlight_active)
 		light_factor = 0.55
 
 	var/turf/T = get_turf(src)
-	var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-	if(L)
+	if(T)
 		//First we check if the tile has any flashlights or PDA lights
 		var/gathertype = 0//Simple checking of the turf
-		for (var/datum/light_source/LS in T.affecting_lights)
+		/*for (var/datum/light_source/LS in T.affecting_lights)
 			if (LS.source_atom.diona_restricted_light)
 				gathertype = 1//if restricted lights involved in lighting, then we need a more complex calculation.
-				break
+				break*/
 
-		if (gathertype == 0)//Simple, fast gather amount
-			light_amount = L.lum_r + L.lum_g + L.lum_b
+		//if (gathertype == 0)//Simple, fast gather amount
+		light_amount = T.get_lumcount(0, DIONA_MAX_LIGHT)
 
-		else//If flashlights are involved, then we get a little more complex
+		/*else//If flashlights are involved, then we get a little more complex
 			var/best_restrictedlight = 0//We track any restricted lights, and only the single strongest of them to the diona
 			light_amount = 0
 			var/turf/ourturf = get_turf(src)
@@ -490,6 +489,7 @@ if (flashlight_active)
 
 
 			light_amount += best_restrictedlight//apply only the single best of the restricted lightsources
+			*/
 	light_amount = min(DIONA_MAX_LIGHT,light_amount)  //hardcapped to DIONA_MAX_LIGHT so it's not abused by being in massively bright areas
 	light_amount = max(light_amount*light_factor,0)//Make sure light amount is >=0 and apply light factor
 	light_amount -= 1.5//Light values > 1.5 will increase energy, <1.5 will decrease it
@@ -514,7 +514,7 @@ if (flashlight_active)
 		if (istype(T.species, /datum/species/diona))
 			return T.DS
 	return null
-*/
+
 
 //Called on a nymph when it merges with a gestalt
 //The nymph and gestalt get the combined total of both of their languages
@@ -550,17 +550,6 @@ if (flashlight_active)
 			add_language(L.name)
 		else
 			src << "<span class=;danger;>You have forgotten the [L.name] language!</span>"
-
-
-
-
-
-
-
-
-
-
-
 
 
 //DIONASTATS DEFINES

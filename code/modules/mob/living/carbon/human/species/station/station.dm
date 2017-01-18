@@ -279,7 +279,7 @@
 	sprint_cost_factor = 0.8
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
-	var/datum/dionastats/DS = null//H.get_dionastats()
+	var/datum/dionastats/DS = H.get_dionastats()
 
 	if (!DS)
 		return 0 //Something is very wrong

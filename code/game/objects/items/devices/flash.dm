@@ -68,13 +68,13 @@
 
 	if(iscarbon(M))
 		if (M.is_diona())
-			/*var/mob/living/carbon/C = M
+			var/mob/living/carbon/C = M
 			var/datum/dionastats/DS = C.get_dionastats()
 			DS.stored_energy += 10
 			flick("e_flash", M.flash)
 			M.Weaken(5)
 			M.eye_blind = 5
-			return*/
+			return
 
 		var/safety = M:eyecheck()
 		if(safety <= 0)
@@ -86,7 +86,7 @@
 				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 				if(!E)
 					return
-				usr << "\red Your eyes burn with the intense light of the flash!."
+				usr << span("alert", "Your eyes burn with the intense light of the flash!.")
 				E.damage += rand(10, 11)
 				if(E.damage > 12)
 					M.eye_blurry += rand(3,6)
