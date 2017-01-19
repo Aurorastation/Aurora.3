@@ -11,7 +11,8 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."
 	level = 1		// underfloor
-	layer = 2.5
+	plane = PLANE_ABOVE_PLATING
+	layer = LAYER_UNDERFLOOR_DEVICE
 	anchored = 1
 
 	var/open = 0		// true if cover is open

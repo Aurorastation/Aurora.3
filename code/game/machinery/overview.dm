@@ -183,7 +183,7 @@
 		qdel(I)
 		qdel(J)
 		H.icon = HI
-		H.layer = 25
+		H.plane = PLANE_SPECIAL	/// ???
 		usr.mapobjs += H
 #else
 
@@ -307,7 +307,8 @@
 
 		H.icon = I
 		qdel(I)
-		H.layer = 25
+		H.icon = HI
+		H.plane = PLANE_SPECIAL	/// ???
 		usr.mapobjs += H
 
 #endif

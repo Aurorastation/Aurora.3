@@ -3,8 +3,8 @@
 
 #define PLANE_SPACE -20
 
-#define PLANE_BELOW_PLATING -15
-#define PLANE_PLATING -13	// Plating.
+#define PLANE_BELOW_PLATING -16
+#define PLANE_PLATING -15	// Plating.
 	#define LAYER_ATOM 0	
 	#define LAYER_MOVABLE 1
 #define PLANE_ABOVE_PLATING -12
@@ -18,32 +18,40 @@
 	#define LAYER_WIRE_TERMINAL 8
 	#define LAYER_UNDERFLOOR_DEVICE 9
 	#define LAYER_FLOOR 10
+	#define LAYER_FLOOR_LIGHT 11
 
-#define PLANE_WALL	-13
+#define PLANE_WALL	-14
 
 // Stuff above floor tiles/turfs.
-#define PLANE_ABOVE_FLOOR -12		
+#define PLANE_ABOVE_FLOOR -13		
 	#define LAYER_FLOOR_PAINT 1		// Stuff painted on floors, like decals.
 	#define LAYER_FLOOR_BLOOD 2		// Blood & Oil.
 	#define LAYER_ATMOS_UNARY 3
 	#define LAYER_FLOOR_DEVICE 3
 
 // Mobs hiding under objects.
-#define PLANE_HIDING_MOB -11
+#define PLANE_HIDING_MOB -12
 
 // Objects that are not mobs.
-#define PLANE_OBJECT -10
+#define PLANE_OBJECT -11
+	#define LAYER_UNDER_DOOR 1
+	#define LAYER_DOOR 2
+	#define LAYER_OVER_DOOR 2
 
-#define PLANE_LYING_MOB -9
+#define PLANE_LYING_MOB -10
 
-#define PLANE_COVER_LYING -8
+#define PLANE_COVER_LYING -9
 
-#define PLANE_MOB_GENERIC -7
+#define PLANE_MOB_GENERIC -8
+	#define LAYER_GENERIC 1
+	#define LAYER_MECHA 2
 
-#define PLANE_MOB_HUMAN -6
+#define PLANE_MOB_HUMAN -7
 
 // Objects that should cover human mobs.
-#define PLANE_OBJECT_COVER -5
+#define PLANE_OBJECT_COVER -6
+#define PLANE_OBJECT_OVERHEAD -6
+
 #define PLANE_EFFECTS -5
 
 #define PLANE_HUD_ANTAG -4

@@ -36,7 +36,8 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	desc = "It's a floor-mounted device for projecting holographic images. It is activated remotely."
 	icon_state = "holopad0"
 
-	layer = TURF_LAYER+0.1 //Preventing mice and drones from sneaking under them.
+	plane = PLANE_ABOVE_FLOOR
+	layer = LAYER_FLOOR_DEVICE //Preventing mice and drones from sneaking under them.
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
@@ -123,7 +124,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
 	hologram.icon = A.holo_icon
 	hologram.mouse_opacity = 0//So you can't click on it.
-	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
+	hologram.plane = PLANE_OBJECT_OVERHEAD//Above all the other objects/mobs. Or the vast majority of them.
 	hologram.anchored = 1//So space wind cannot drag it.
 	hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
 	hologram.set_light(2)	//hologram lighting
