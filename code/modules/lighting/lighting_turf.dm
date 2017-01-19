@@ -17,8 +17,15 @@
 
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
+	lprof_write(src, "turf_reconsider")
 	for (var/datum/light_source/L in affecting_lights)
 		L.vis_update()
+
+// Avoid calling this if you can, bypasses the lighting scheduler (potentially creating lag).
+/turf/proc/update_lights_now()
+	lprof_write(src, "turf_updatenow")
+	for (var/datum/light_source/L in affecting_lights)
+		L.update_now()
 
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)

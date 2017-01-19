@@ -8,7 +8,7 @@ var/DBQuery/lprof_q
 		VALUES (:time,:type,:name,:loc_name,:x,:y,:z);"})
 
 /proc/lprof_write(var/atom/movable/obj, var/type = "UNKNOWN")
-	if (!obj || !dbcon.IsConnected())
+	if (!lighting_profiling || !obj || !dbcon.IsConnected())
 		return
 
 	var/x = null

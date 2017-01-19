@@ -55,8 +55,7 @@
 
 	update()
 
-	if (lighting_profiling)
-		lprof_write(src, "ls_new")
+	lprof_write(src, "source_new")
 
 	return ..()
 
@@ -70,8 +69,8 @@
 	if (top_atom)
 		top_atom.light_sources    -= src
 
-#ifdef LIGHTING_INSTANT_UPDATES
-/datum/light_source/proc/effect_update()
+/datum/light_source/proc/update_now()
+	lprof_write(src, "source_updatenow")
 	if (check() || destroyed || force_update)
 		remove_lum()
 		if (!destroyed)
@@ -83,7 +82,6 @@
 	vis_update   = FALSE
 	force_update = FALSE
 	needs_update = FALSE
-#else
 
 // Call it dirty, I don't care.
 // This is here so there's no performance loss on non-instant updates from the fact that the engine can also do instant updates.
@@ -94,7 +92,6 @@
 		lighting_update_lights += src;  \
 		needs_update            = TRUE; \
 	}
-#endif
 
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
 /datum/light_source/proc/update(var/atom/new_top_atom)
@@ -111,13 +108,13 @@
 
 			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
 
-	if (lighting_profiling)
-		lprof_write(src, "ls_update")
+	lprof_write(src, "source_update")
 
 	effect_update(null)
 
 // Will force an update without checking if it's actually needed.
 /datum/light_source/proc/force_update()
+	lprof_write(src, "source_forceupdate")
 	force_update = 1
 
 	effect_update(null)

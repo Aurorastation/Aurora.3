@@ -12,8 +12,7 @@
 // Nonesensical value for l_color default, so we can detect if it gets set to null.
 #define NONSENSICAL_VALUE -99999
 /atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE)
-	if (lighting_profiling)
-		lprof_write(src, "a_setlight")
+	lprof_write(src, "atom_setlight")
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
@@ -32,13 +31,13 @@
 
 // Will update the light (duh).
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
-/atom/proc/update_light()
+// If now is TRUE, forces an update IMMEDIATELY, bypassing the scheduler.
+/atom/proc/update_light(var/now = FALSE)
 	set waitfor = FALSE
 	if (gcDestroyed)
 		return
 
-	if (lighting_profiling)
-		lprof_write(src, "a_updatelight")
+	lprof_write(src, "atom_update")
 
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
 		if(light)
@@ -51,7 +50,10 @@
 			. = loc
 
 		if (light) // Update the light or create it if it does not exist.
-			light.update(.)
+			if (now)
+				light.update_now(.)
+			else
+				light.update(.)
 		else
 			light = new/datum/light_source(src, .)
 
@@ -88,7 +90,7 @@
 		return
 
 	if (lighting_profiling)
-		lprof_write(src, "a_setopacity")
+		lprof_write(src, "atom_setopacity")
 
 	opacity = new_opacity
 	var/turf/T = loc
@@ -112,11 +114,11 @@
 
 	if (Obj && OldLoc != src)
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+			L.source_atom.update_light(TRUE)	// update NOW.
 
 /atom/Exited(var/atom/movable/Obj, var/atom/newloc)
 	. = ..()
 
 	if (!newloc && Obj && newloc != src) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+			L.source_atom.update_light(FALSE)	// This can wait for a lighting tick.
