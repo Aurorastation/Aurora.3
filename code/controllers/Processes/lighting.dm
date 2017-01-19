@@ -1,8 +1,8 @@
 // Solves problems with lighting updates lagging shit
 // Max constraints on number of updates per doWork():
-#define MAX_LIGHT_UPDATES_PER_WORK   100
-#define MAX_CORNER_UPDATES_PER_WORK  1000
-#define MAX_OVERLAY_UPDATES_PER_WORK 2000
+#define MAX_LIGHT_UPDATES_PER_WORK   200
+#define MAX_CORNER_UPDATES_PER_WORK  8000	// fuck it
+#define MAX_OVERLAY_UPDATES_PER_WORK 10000
 
 /var/list/lighting_update_lights    = list()    // List of lighting sources  queued for update.
 /var/list/lighting_update_corners   = list()    // List of lighting corners  queued for update.
