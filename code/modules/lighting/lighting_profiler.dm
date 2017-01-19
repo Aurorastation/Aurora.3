@@ -16,11 +16,9 @@ var/DBQuery/lprof_q
 	var/z = null
 
 	var/name = null
+	var/locname = null
 	if (istype(obj, /obj))
 		name = obj.name
-
-	var/locname = null
-	if (obj.loc)
 		locname = obj.loc.name
 		x = obj.loc.x
 		y = obj.loc.y
