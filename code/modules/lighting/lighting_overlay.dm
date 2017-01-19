@@ -8,7 +8,7 @@
 
 	icon             = LIGHTING_ICON
 	color            = LIGHTING_BASE_MATRIX
-	plane            = 1//LIGHTING_PLANE
+	plane            = 0//LIGHTING_PLANE
 	mouse_opacity    = 0
 	layer            = LIGHTING_LAYER
 	invisibility     = INVISIBILITY_LIGHTING
@@ -38,7 +38,7 @@
 /atom/movable/lighting_overlay/Destroy()
 	global.all_lighting_overlays        -= src
 	global.lighting_update_overlays     -= src
-	global.lighting_update_overlays_old -= src
+	//global.lighting_update_overlays_old -= src
 
 	var/turf/T   = loc
 	if (istype(T))

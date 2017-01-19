@@ -1,5 +1,5 @@
 #ifndef LIGHTING_INSTANT_UPDATES
-#define LIGHTING_INTERVAL       0.5    // Frequency, in 1/10ths of a second, of the lighting process.
+#define LIGHTING_INTERVAL       1    // Frequency, in 1/10ths of a second, of the lighting process.
 #endif
 
 #define LIGHTING_FALLOFF        1 // type of falloff to use for lighting; 1 for circular, 2 for square
