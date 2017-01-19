@@ -1,5 +1,5 @@
 -- These are tables used only for debugging/profiling.
--- They are not needed for normal server running.
+-- They are not needed for normal server operation.
 
 CREATE TABLE `ss13dbg_lighting` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
