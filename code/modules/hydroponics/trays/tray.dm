@@ -26,6 +26,7 @@
 	var/harvest = 0            // Is it ready to harvest?
 	var/age = 0                // Current plant age
 	var/sampled = 0            // Have we taken a sample?
+	var/last_biolum			   // What was the bioluminescence last tick?
 
 	// Harvest/mutation mods.
 	var/yield_mod = 0          // Modifier to yield
