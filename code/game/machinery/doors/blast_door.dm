@@ -12,6 +12,7 @@
 	desc = "That looks like it doesn't open easily."
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
+	plane = PLANE_OBJECT
 
 	// Icon states for different shutter types. Simply change this instead of rewriting the update_icon proc.
 	var/icon_state_open = null
@@ -71,7 +72,7 @@
 	src.update_icon()
 	src.set_opacity(0)
 	sleep(15)
-	src.plane = PLANE_UNDER_DOOR
+	src.layer = LAYER_UNDER_DOOR
 	src.operating = 0
 
 // Proc: force_close()
@@ -79,7 +80,7 @@
 // Description: Closes the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_close()
 	src.operating = 1
-	src.plane = PLANE_OVER_DOOR
+	src.layer = LAYER_OVER_DOOR
 	flick(icon_state_closing, src)
 	src.density = 1
 	update_nearby_tiles()

@@ -41,7 +41,7 @@ var/obj/screen/robot_inventory
 	using.icon_state = "inv2"
 	using.screen_loc = ui_inv2
 	using.plane = PLANE_HUD
-	using.layer = LAYER_LAYER_HUD_INV_ITEMHUD_GENERIC
+	using.layer = LAYER_HUD_GENERIC
 	src.adding += using
 	mymob:inv2 = using
 

@@ -11,8 +11,8 @@
 	density = 1
 	layer = LAYER_DOOR
 	plane = PLANE_OBJECT
-	var/open_layer = DOOR_OPEN_LAYER
-	var/closed_layer = DOOR_CLOSED_LAYER
+	var/open_layer = LAYER_DOOR_OPEN
+	var/closed_layer = LAYER_DOOR
 
 	var/visible = 1
 	var/p_open = 0

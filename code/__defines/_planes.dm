@@ -12,6 +12,7 @@
 	#define LAYER_PIPE_SCRUBBER 2
 	#define LAYER_PIPE_SUPPLY 3
 	#define LAYER_PIPE_GENERIC 4
+	#define LAYER_PIPE_SPECIALIZED 5
 	#define LAYER_PIPE_HE 5
 	#define LAYER_WIRE 6
 	#define LAYER_WIRE_KNOT 7
@@ -34,10 +35,11 @@
 
 // Objects that are not mobs.
 #define PLANE_OBJECT -11
-	#define LAYER_UNDER_DOOR 1
-	#define LAYER_DOOR 2
-	#define LAYER_OVER_DOOR 2
-	#define LAYER_FOAM 3
+	#define LAYER_DOOR_OPEN 1
+	#define LAYER_UNDER_DOOR 2
+	#define LAYER_DOOR 3
+	#define LAYER_OVER_DOOR 4
+	#define LAYER_FOAM 5
 
 #define PLANE_LYING_MOB -10
 
@@ -71,6 +73,9 @@
 
 #define PLANE_LIGHTING -1
 	#define LAYER_LIGHTING 1
+	#define LAYER_OBFUSCATE 2
+	#define LAYER_OVER_LIGHTING 3
+	
 
 // Default BYOND plane.
 // Use planes below zero for world objects & turfs, 
@@ -92,7 +97,7 @@
 	#define LAYER_OVERLAY_DMG 4
 
 #define PLANE_AI_HUD 3
-	#define PLANE_AI_BUTTON 1
+	#define LAYER_AI_BUTTON 1
 
 // UI crap like inventory.
 #define PLANE_HUD 3

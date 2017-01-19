@@ -346,7 +346,7 @@
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
-	plane = PLANE_OVERHEAD
+	plane = PLANE_OBJECT_COVER
 
 	newtarget.bracer = src
 	target = newtarget

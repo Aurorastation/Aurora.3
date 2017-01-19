@@ -699,8 +699,9 @@ default behaviour is:
 
 /mob/living/proc/under_door()
 	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
-	if (layer > UNDERDOOR)//Don't toggle it if we're hiding
-		layer = UNDERDOOR
+	if (layer > LAYER_UNDER_DOOR)//Don't toggle it if we're hiding
+		layer = LAYER_UNDER_DOOR
+		plane = PLANE_OBJECT
 		underdoor = 1
 
 /mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/Target = null)

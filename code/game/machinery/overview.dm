@@ -307,7 +307,6 @@
 
 		H.icon = I
 		qdel(I)
-		H.icon = HI
 		H.plane = PLANE_SPECIAL	/// ???
 		usr.mapobjs += H
 

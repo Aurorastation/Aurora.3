@@ -36,7 +36,7 @@
 	name = "Bluespace"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
-	plane = PLANE_EFFECT
+	plane = PLANE_EFFECTS
 
 /obj/effect/overlay/wallrot
 	name = "wallrot"
