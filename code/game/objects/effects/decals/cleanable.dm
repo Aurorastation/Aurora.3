@@ -1,5 +1,7 @@
 /obj/effect/decal/cleanable
 	var/list/random_icon_states = list()
+	plane = PLANE_ABOVE_FLOOR
+	layer = LAYER_FLOOR_BLOOD
 
 /obj/effect/decal/cleanable/clean_blood(var/ignore = 0)
 	if(!ignore)

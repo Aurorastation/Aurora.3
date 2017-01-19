@@ -246,7 +246,8 @@
 // for items that can be placed in multiple slots
 // note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
-	layer = 20
+	plane = PLANE_HUD
+	layer = LAYER_HUD_INV_ITEM
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()

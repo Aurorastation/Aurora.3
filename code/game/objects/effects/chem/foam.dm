@@ -8,7 +8,8 @@
 	opacity = 0
 	anchored = 1
 	density = 0
-	layer = OBJ_LAYER + 0.9
+	plane = PLANE_OBJECT
+	layer = LAYER_FOAM
 	mouse_opacity = 0
 	animate_movement = 0
 	var/amount = 3

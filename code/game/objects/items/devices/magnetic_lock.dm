@@ -330,7 +330,7 @@
 		status = STATUS_INACTIVE
 		set_dir(SOUTH)
 		update_icon()
-		layer = LAYER_NORMAL
+		plane = PLANE_OBJECT
 
 		target.bracer = null
 		target = null
@@ -346,7 +346,7 @@
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
-	layer = LAYER_ATTACHED
+	plane = PLANE_OVERHEAD
 
 	newtarget.bracer = src
 	target = newtarget

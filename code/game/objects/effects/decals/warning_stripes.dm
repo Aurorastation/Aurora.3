@@ -1,6 +1,7 @@
 /obj/effect/decal/warning_stripes
 	icon = 'icons/effects/warning_stripes.dmi'
-	layer = 2
+	plane = PLANE_ABOVE_FLOOR
+	layer = LAYER_FLOOR_PAINT
 
 /obj/effect/decal/warning_stripes/New()
 	. = ..()

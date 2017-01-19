@@ -37,6 +37,7 @@
 	#define LAYER_UNDER_DOOR 1
 	#define LAYER_DOOR 2
 	#define LAYER_OVER_DOOR 2
+	#define LAYER_FOAM 3
 
 #define PLANE_LYING_MOB -10
 
@@ -48,7 +49,7 @@
 
 #define PLANE_MOB_HUMAN -7
 
-// Objects that should cover human mobs.
+// Objects that should cover human mobs and objects.
 #define PLANE_OBJECT_COVER -6
 #define PLANE_OBJECT_OVERHEAD -6
 
@@ -76,6 +77,7 @@
 // and planes above zero for UI elements & effects.
 // Avoid usage of plane zero itself if possible.
 // Anything that does not have its plane explicitly set goes here.
+// Fog of War also (should) render on this plane.
 #define PLANE_BASE 0
 
 // User HUD should be above zero.

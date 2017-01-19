@@ -128,6 +128,7 @@
 		spawn(0)
 			var/atom/movable/overlay/animation = new(user.loc)
 			animation.layer = user.layer + 1
+			animation.plane = PLANE_EFFECT
 			animation.icon_state = "blank"
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.master = user
@@ -182,6 +183,7 @@
 		spawn(0)
 			var/atom/movable/overlay/animation = new(user.loc)
 			animation.layer = user.layer + 1
+			animation.plane = PLANE_EFFECT
 			animation.icon_state = "blank"
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.master = user
