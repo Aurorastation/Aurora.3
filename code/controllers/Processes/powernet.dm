@@ -30,6 +30,8 @@
 			processing_power_items.Remove(I)
 		SCHECK
 
+	normal_exit = TRUE
+
 /datum/controller/process/powernet/statProcess()
 	..()
 	stat(null, "[powernets.len] powernets, [queue.len] queued")

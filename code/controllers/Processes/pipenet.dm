@@ -23,6 +23,8 @@
 		PN.process()
 		SCHECK
 
+	normal_exit = TRUE
+
 /datum/controller/process/pipenet/statProcess()
 	..()
 	stat(null, "[pipe_networks.len] pipenets, [queue.len] queued")
