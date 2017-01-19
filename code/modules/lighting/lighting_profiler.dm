@@ -16,12 +16,15 @@ var/DBQuery/lprof_q
 	var/z = null
 
 	var/name = null
-	if (obj.name)
+	if (istype(obj, /obj))
 		name = obj.name
 
 	var/locname = null
-	if (obj.loc.name)
+	if (obj.loc)
 		locname = obj.loc.name
+		x = obj.loc.x
+		y = obj.loc.y
+		z = obj.loc.z
 
 	lprof_q.Execute(
 		list(
