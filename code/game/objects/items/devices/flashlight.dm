@@ -166,7 +166,7 @@
 	w_class = 2.0
 	brightness_on = 8 // Pretty bright.
 	light_power = 3
-	light_color = "#e58775"
+	light_color = LIGHT_COLOR_FLARE
 	icon_state = "flare"
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
@@ -224,6 +224,7 @@
 	w_class = 1
 	brightness_on = 6
 	on = 1 //Bio-luminesence has one setting, on.
+	light_color = LIGHT_COLOR_SLIME_LAMP
 	//offset_light = 0//Emits light all around, not directional
 	//diona_restricted_light = 0
 

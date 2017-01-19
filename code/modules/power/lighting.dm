@@ -144,7 +144,7 @@
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
 	var/brightness_power = 3
-	var/brightness_color = null
+	var/brightness_color = LIGHT_COLOR_HALOGEN
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -162,19 +162,19 @@
 	fitting = "bulb"
 	brightness_range = 4
 	brightness_power = 2
-	brightness_color = "#a0a080"
+	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
 	brightness_power = 2
-	brightness_color = "#da0205"
+	brightness_color = LIGHT_COLOR_RED
 
 /obj/machinery/light/small/red
 	brightness_range = 5
 	brightness_power = 1
-	brightness_color = "#da0205"
+	brightness_color = LIGHT_COLOR_RED
 
 /obj/machinery/light/spot
 	name = "spotlight"
