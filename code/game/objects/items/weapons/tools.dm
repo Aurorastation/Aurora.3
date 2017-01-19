@@ -552,14 +552,13 @@
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
 
-
-
-/*/obj/item/weapon/combitool
+/obj/item/weapon/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "combitool"
 	w_class = 2
+	flags = NOBLUDGEON
 
 	var/list/spawn_tools = list(
 		/obj/item/weapon/screwdriver,
@@ -610,4 +609,4 @@
 	if(!resolved && tool && target)
 		tool.afterattack(target,user,1)
 	if(tool)
-		tool.loc = src*/
+		tool.loc = src
