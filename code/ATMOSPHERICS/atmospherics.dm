@@ -21,7 +21,7 @@ Pipelines + Other Objects -> Pipe network
 	var/power_rating //the maximum amount of power the machine can use to do work, affects how powerful the machine is, in Watts
 
 	plane = PLANE_ABOVE_PLATING
-	layer = LAYER_PIPE_GENETIC
+	layer = LAYER_PIPE_GENERIC
 
 	var/connect_types = CONNECT_TYPE_REGULAR
 	var/icon_connect_type = "" //"-supply" or "-scrubbers"
