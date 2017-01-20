@@ -38,7 +38,7 @@
 /atom/movable/lighting_overlay/Destroy()
 	global.all_lighting_overlays        -= src
 	global.lighting_update_overlays     -= src
-	//global.lighting_update_overlays_old -= src
+	lighting_process.curr_overlays 		-= src
 
 	var/turf/T   = loc
 	if (istype(T))
@@ -56,6 +56,11 @@
 		else
 			warning("A lighting overlay realised it was in nullspace in update_overlay() and got pooled!")
 
+		returnToPool(src)
+		return
+
+	if (istype(T, /turf/space))
+		warning("A lighting overlay realised it was attached to a space tile and got pooled!")
 		returnToPool(src)
 		return
 
