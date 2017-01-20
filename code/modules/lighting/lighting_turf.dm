@@ -69,6 +69,22 @@
 
 	return CLAMP01(totallums)
 
+// Gets the current UV illumination of the turf. Always 100% for space.
+/turf/proc/get_uv_lumcount(var/minlum = 0, var/maxlum = 1)
+	if (istype(src, /turf/space))
+		return 1
+
+	if (!lighting_overlay)
+		return 0.5
+
+	var/totallums = 0
+	for (var/datum/lighting_corner/L in corners)
+		totallums += L.lum_u
+
+	totallums = (totallums - minlum) / (maxlum - minlum)
+
+	return CLAMP01(totallums)
+
 // Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
 /turf/proc/recalc_atom_opacity()
 	has_opaque_atom = FALSE

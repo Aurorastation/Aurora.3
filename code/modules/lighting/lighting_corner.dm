@@ -19,12 +19,14 @@
 	var/lum_r = 0
 	var/lum_g = 0
 	var/lum_b = 0
+	var/lum_u = 0	// UV Radiation, not visible.
 
 	var/needs_update = FALSE
 
 	var/cache_r  = 0
 	var/cache_g  = 0
 	var/cache_b  = 0
+	var/cache_u  = 0
 	var/cache_mx = 0
 
 	var/update_gen = 0
@@ -88,10 +90,11 @@
 			active = TRUE
 
 // God that was a mess, now to do the rest of the corner code! Hooray!
-/datum/lighting_corner/proc/update_lumcount(var/delta_r, var/delta_g, var/delta_b, var/now = FALSE)
+/datum/lighting_corner/proc/update_lumcount(var/delta_r, var/delta_g, var/delta_b, var/delta_u, var/now = FALSE)
 	lum_r += delta_r
 	lum_g += delta_g
 	lum_b += delta_b
+	lum_u += delta_u
 
 	if (now)
 		update_overlays(TRUE)
@@ -114,6 +117,7 @@
 	cache_r  = lum_r * . || LIGHTING_SOFT_THRESHOLD
 	cache_g  = lum_g * . || LIGHTING_SOFT_THRESHOLD
 	cache_b  = lum_b * . || LIGHTING_SOFT_THRESHOLD
+	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
 	cache_mx = mx
 
 	for (var/TT in masters)
