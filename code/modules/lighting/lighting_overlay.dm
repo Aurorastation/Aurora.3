@@ -81,14 +81,17 @@
 
 	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
 
-	color  = list(
-		cr.cache_r, cr.cache_g, cr.cache_b, 0,
-		cg.cache_r, cg.cache_g, cg.cache_b, 0,
-		cb.cache_r, cb.cache_g, cb.cache_b, 0,
-		ca.cache_r, ca.cache_g, ca.cache_b, 0,
-		0, 0, 0, 1
-	)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
+	if (luminosity)
+		color  = list(
+			cr.cache_r, cr.cache_g, cr.cache_b, 0,
+			cg.cache_r, cg.cache_g, cg.cache_b, 0,
+			cb.cache_r, cb.cache_g, cb.cache_b, 0,
+			ca.cache_r, ca.cache_g, ca.cache_b, 0,
+			0, 0, 0, 1
+		)
+	else
+		color = "#000000"
 
 // Variety of overrides so the overlays don't get affected by weird things.
 

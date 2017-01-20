@@ -14,11 +14,13 @@
 	var/lum_r
 	var/lum_g
 	var/lum_b
+	var/lum_u
 
 	// The lumcount values used to apply the light.
 	var/tmp/applied_lum_r
 	var/tmp/applied_lum_g
 	var/tmp/applied_lum_b
+	var/tmp/applied_lum_u
 
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
@@ -191,6 +193,7 @@
 		. * applied_lum_r,           \
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
+		. * applied_lum_u,           \
 		NOW                          \
 	);
 
@@ -202,6 +205,7 @@
 		. * applied_lum_r,           \
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
+		. * applied_lum_u,           \
 		NOW                          \
 	);
 
@@ -216,6 +220,7 @@
 	applied_lum_r = lum_r
 	applied_lum_g = lum_g
 	applied_lum_b = lum_b
+	applied_lum_u = lum_u
 
 	FOR_DVIEW(var/turf/T, light_range, source_turf, INVISIBILITY_LIGHTING)
 		if (!T.lighting_corners_initialised)
