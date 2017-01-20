@@ -115,11 +115,8 @@
 	drop(get_turf(src))
 
 /obj/item/weapon/gripper/proc/drop(var/atom/target)
-	if(wrapped.loc != src)
-		wrapped = null
-		return
-
-	wrapped.forceMove(target)
+	if(wrapped && wrapped.loc == src)
+		wrapped.forceMove(target)
 	wrapped = null
 	update_icon()
 	return 1
@@ -269,7 +266,8 @@
 		/obj/item/weapon/reagent_containers/glass,
 		/obj/item/weapon/reagent_containers/food,
 		/obj/item/seeds,
-		/obj/item/weapon/grown
+		/obj/item/weapon/grown,
+		/obj/item/trash
 		)
 
 /obj/item/weapon/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

@@ -152,6 +152,15 @@
 	hatch_colour = "#ffffff"
 	open_duration = 20
 
+/obj/machinery/door/airlock/freezer_maint
+	name = "Freezer Maintenance Access"
+	icon = 'icons/obj/doors/Doormaintfreezer.dmi'
+	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
+	opacity = 1
+	assembly_type = /obj/structure/door_assembly/door_assembly_fma
+	hatch_colour = "#ffffff"
+	open_duration = 20
+
 /obj/machinery/door/airlock/hatch
 	name = "Airtight Hatch"
 	icon = 'icons/obj/doors/Doorhatchele.dmi'
@@ -547,6 +556,8 @@ About the new airlock wires panel:
 		return 0
 
 /obj/machinery/door/airlock/update_icon()
+	if (!isnull(gcDestroyed))
+		return
 	set_light(0)
 	if(overlays) overlays.Cut()
 	if(density)

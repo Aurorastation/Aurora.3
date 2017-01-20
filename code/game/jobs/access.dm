@@ -197,7 +197,9 @@
 		"BlackOps Commander",
 		"Supreme Commander",
 		"Emergency Response Team",
-		"Emergency Response Team Leader")
+		"Emergency Response Team Leader",
+		"Emergency Responder",
+		"Central Command Internal Affairs Agent")
 
 /mob/proc/GetIdCard()
 	return null

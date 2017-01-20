@@ -10,7 +10,7 @@
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/colt/detective
-	magazine_type = /obj/item/ammo_magazine/c45m/flash
+	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 
 /obj/item/weapon/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -46,6 +46,7 @@
 
 /obj/item/weapon/gun/projectile/sec/flash
 	name = ".45 signal pistol"
+	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/weapon/gun/projectile/sec/wood
 	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
@@ -60,7 +61,6 @@
 	load_method = MAGAZINE
 	max_shells = 16
 	caliber = ".45"
-	slot_flags = slot_belt
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
 	magazine_type = /obj/item/ammo_magazine/c45x
