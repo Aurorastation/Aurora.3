@@ -1,0 +1,13 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "Lighting is now smoothed across tiles instead of being per-tile."
+  - rscadd: "Tweaked the emission color of station lighting."
+  - rscadd: "Glowing slime cores now emit colored light instead of white light."
+  - tweak: "Colored lighting should mix better now."
+  - tweak: "The game's mob processor should be more robust now."
+  - experiment: "Lighting now updates immediately when you open an airlock."
+  - experiment: "Completely rewrote lighting system."
+  - experiment: "Rewrote several of the game's core processors."
+  - bugfix: "Fire alarms should no longer cause lag."
+  - bugfix: "Hydroponics trays should no longer cause lag."
