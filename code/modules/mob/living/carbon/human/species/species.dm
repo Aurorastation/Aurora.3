@@ -407,6 +407,9 @@
 	return 1
 
 /datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	if (!H.exhaust_threshold)
+		return 1 // Handled.
+
 	cost *= H.sprint_cost_factor
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")

@@ -964,7 +964,7 @@
 			return 1
 
 		//UNCONSCIOUS. NO-ONE IS HOME
-		if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
+		if((exhaust_threshold && getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
 			Paralyse(3)
 
 		if(hallucination)
@@ -1596,8 +1596,11 @@
 		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 
 /mob/living/carbon/human/proc/handle_stamina()
-	if (species.stamina == -1)//If species stamina is -1, it has special mechanics which will be handled elsewhere
-		return//so quit this function
+	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
+		return //so quit this function
+
+	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
+		return
 
 	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
 		return
