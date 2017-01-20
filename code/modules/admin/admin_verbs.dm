@@ -98,7 +98,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/view_duty_log,
 	/client/proc/cmd_dev_bst,
 	/client/proc/clear_toxins,
-	/client/proc/wipe_ai	// allow admins to force-wipe AIs
+	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
+	/client/proc/flush_lighting_queues
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -200,7 +201,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/jumptocoord,
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
-	/client/proc/restart_sql
+	/client/proc/restart_sql,
+	/client/proc/flush_lighting_queues
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -351,7 +353,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
-	/client/proc/cmd_dev_bst
+	/client/proc/cmd_dev_bst,
+	/client/proc/flush_lighting_queues
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -1050,3 +1053,19 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("is attempting to reconnect the server to MySQL.")
 
 	dbcon.Reconnect()
+
+/client/proc/flush_lighting_queues()
+	set category = "Debug"
+	set name = "Reset Lighting"
+	set desc = "Flushes the lighting processor's work queue. Useful if the processor is hung with an invalid source."
+
+	if (!check_rights(R_DEBUG|R_ADMIN|R_DEV))
+		return
+
+	if (alert("Flush Lighting Work Queue? This will invalidate all pending lighting updates.", "Reset Lighting", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("has flushed the lighting processor queues.")
+	lighting_update_lights = list()
+	lighting_update_corners = list()
+	lighting_update_overlays = list()
