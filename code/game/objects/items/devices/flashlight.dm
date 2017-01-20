@@ -23,10 +23,10 @@
 /obj/item/device/flashlight/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on)
+		set_light(brightness_on, now = TRUE)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0)
+		set_light(0, now = TRUE)
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
