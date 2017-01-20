@@ -464,14 +464,14 @@ if (flashlight_active)
 	var/turf/T = get_turf(src)
 	if(T)
 		//First we check if the tile has any flashlights or PDA lights
-		var/gathertype = 0//Simple checking of the turf
+		//var/gathertype = 0//Simple checking of the turf
 		/*for (var/datum/light_source/LS in T.affecting_lights)
 			if (LS.source_atom.diona_restricted_light)
 				gathertype = 1//if restricted lights involved in lighting, then we need a more complex calculation.
 				break*/
 
 		//if (gathertype == 0)//Simple, fast gather amount
-		light_amount = T.get_lumcount(0, DIONA_MAX_LIGHT)
+		light_amount = T.get_lumcount() * 10
 
 		/*else//If flashlights are involved, then we get a little more complex
 			var/best_restrictedlight = 0//We track any restricted lights, and only the single strongest of them to the diona
