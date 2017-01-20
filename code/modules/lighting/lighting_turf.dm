@@ -25,7 +25,7 @@
 /turf/proc/update_lights_now()
 	lprof_write(src, "turf_updatenow")
 	for (var/datum/light_source/L in affecting_lights)
-		L.update_now()
+		L.update(now = TRUE)
 
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)

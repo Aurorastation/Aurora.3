@@ -69,15 +69,15 @@
 	if (top_atom)
 		top_atom.light_sources    -= src
 
-/datum/light_source/proc/update_now()
+/datum/light_source/proc/effect_update_now()
 	lprof_write(src, "source_updatenow")
 	if (check() || destroyed || force_update)
-		remove_lum()
+		remove_lum(TRUE)
 		if (!destroyed)
-			apply_lum()
+			apply_lum(now = TRUE)
 
 	else if (vis_update)	// We smartly update only tiles that became (in) visible to use.
-		smart_vis_update()
+		smart_vis_update(now = TRUE)
 
 	vis_update   = FALSE
 	force_update = FALSE
@@ -94,7 +94,7 @@
 	}
 
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
-/datum/light_source/proc/update(var/atom/new_top_atom)
+/datum/light_source/proc/update(var/atom/new_top_atom, var/now = FALSE)
 	// This top atom is different.
 	if (new_top_atom && new_top_atom != top_atom)
 		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
@@ -110,7 +110,10 @@
 
 	lprof_write(src, "source_update")
 
-	effect_update(null)
+	if (now)
+		effect_update_now()
+	else
+		effect_update(null)
 
 // Will force an update without checking if it's actually needed.
 /datum/light_source/proc/force_update()
@@ -176,7 +179,7 @@
 // As such this all gets counted as a single line.
 // The braces and semicolons are there to be able to do this on a single line.
 
-#define APPLY_CORNER(C)              \
+#define APPLY_CORNER(C,NOW)              \
 	. = LUM_FALLOFF(C, source_turf); \
                                      \
 	. *= light_power;                \
@@ -187,23 +190,25 @@
 	(                                \
 		. * applied_lum_r,           \
 		. * applied_lum_g,           \
-		. * applied_lum_b            \
+		. * applied_lum_b,           \
+		NOW                          \
 	);
 
 // I don't need to explain what this does, do I?
-#define REMOVE_CORNER(C)             \
+#define REMOVE_CORNER(C,NOW)             \
 	. = -effect_str[C];              \
 	C.update_lumcount                \
 	(                                \
 		. * applied_lum_r,           \
 		. * applied_lum_g,           \
-		. * applied_lum_b            \
+		. * applied_lum_b,           \
+		NOW                          \
 	);
 
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
 
-/datum/light_source/proc/apply_lum()
+/datum/light_source/proc/apply_lum(var/now = FALSE)
 	var/static/update_gen = 1
 	applied = 1
 
@@ -227,7 +232,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER(C)
+			APPLY_CORNER(C, now)
 
 		if (!T.affecting_lights)
 			T.affecting_lights = list()
@@ -237,7 +242,7 @@
 
 	update_gen++
 
-/datum/light_source/proc/remove_lum()
+/datum/light_source/proc/remove_lum(var/now = FALSE)
 	applied = FALSE
 
 	for (var/turf/T in affecting_turfs)
@@ -249,7 +254,7 @@
 	affecting_turfs.Cut()
 
 	for (var/datum/lighting_corner/C in effect_str)
-		REMOVE_CORNER(C)
+		REMOVE_CORNER(C, now)
 
 		C.affecting -= src
 
@@ -257,11 +262,11 @@
 
 /datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C)
 	if (effect_str.Find(C)) // Already have one.
-		REMOVE_CORNER(C)
+		REMOVE_CORNER(C, FALSE)
 
-	APPLY_CORNER(C)
+	APPLY_CORNER(C, FALSE)
 
-/datum/light_source/proc/smart_vis_update()
+/datum/light_source/proc/smart_vis_update(var/now = FALSE)
 	var/list/datum/lighting_corner/corners = list()
 	var/list/turf/turfs                    = list()
 	FOR_DVIEW(var/turf/T, light_range, source_turf, 0)
@@ -289,10 +294,10 @@
 			effect_str[C] = 0
 			continue
 
-		APPLY_CORNER(C)
+		APPLY_CORNER(C, now)
 
 	for (var/datum/lighting_corner/C in effect_str - corners) // Old, now gone, corners.
-		REMOVE_CORNER(C)
+		REMOVE_CORNER(C, now)
 		C.affecting -= src
 		effect_str -= C
 

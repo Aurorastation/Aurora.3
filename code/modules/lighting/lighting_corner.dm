@@ -88,18 +88,19 @@
 			active = TRUE
 
 // God that was a mess, now to do the rest of the corner code! Hooray!
-/datum/lighting_corner/proc/update_lumcount(var/delta_r, var/delta_g, var/delta_b)
+/datum/lighting_corner/proc/update_lumcount(var/delta_r, var/delta_g, var/delta_b, var/now = FALSE)
 	lum_r += delta_r
 	lum_g += delta_g
 	lum_b += delta_b
 
-#ifndef LIGHTING_INSTANT_UPDATES
-	if (!needs_update)
+	if (now)
+		update_overlays(TRUE)
+
+	else if (!needs_update)
 		needs_update = TRUE
 		lighting_update_corners += src
 
-/datum/lighting_corner/proc/update_overlays()
-#endif
+/datum/lighting_corner/proc/update_overlays(var/now = FALSE)
 
 	// Cache these values a head of time so 4 individual lighting overlays don't all calculate them individually.
 	var/mx = max(lum_r, lum_g, lum_b) // Scale it so 1 is the strongest lum, if it is above 1.
@@ -118,14 +119,12 @@
 	for (var/TT in masters)
 		var/turf/T = TT
 		if (T.lighting_overlay)
-			#ifdef LIGHTING_INSTANT_UPDATES
-			T.lighting_overlay.update_overlay()
-			#else
-			if (!T.lighting_overlay.needs_update)
+			if (now)
+				T.lighting_overlay.update_overlay()
+
+			else if (!T.lighting_overlay.needs_update)
 				T.lighting_overlay.needs_update = TRUE
 				lighting_update_overlays += T.lighting_overlay
-			#endif
-
 
 /datum/lighting_corner/dummy/New()
 	return

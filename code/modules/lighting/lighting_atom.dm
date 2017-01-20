@@ -51,7 +51,7 @@
 
 		if (light) // Update the light or create it if it does not exist.
 			if (now)
-				light.update_now(.)
+				light.update(., TRUE)
 			else
 				light.update(.)
 		else
@@ -114,11 +114,11 @@
 
 	if (Obj && OldLoc != src)
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light(TRUE)	// update NOW.
+			L.source_atom.update_light(now = TRUE)	// update NOW.
 
 /atom/Exited(var/atom/movable/Obj, var/atom/newloc)
 	. = ..()
 
 	if (!newloc && Obj && newloc != src) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light(FALSE)	// This can wait for a lighting tick.
+			L.source_atom.update_light(now = TRUE)
