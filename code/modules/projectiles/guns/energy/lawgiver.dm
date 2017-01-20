@@ -120,7 +120,7 @@
 	var/mob/living/carbon/human/H = M
 	if (!H)
 		return
-	if( (src.dna==usr.dna.unique_enzymes || emagged) && (src in usr.contents))
+	if( (src.dna==H.dna.unique_enzymes || emagged) && (src in H.contents))
 		hear(msg)
 	return
 
