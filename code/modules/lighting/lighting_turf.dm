@@ -40,7 +40,7 @@
 		return
 
 	var/area/A = loc
-	if (A.dynamic_lighting)
+	if (A.dynamic_lighting && dynamic_lighting)
 		if (!lighting_corners_initialised)
 			generate_missing_corners()
 
