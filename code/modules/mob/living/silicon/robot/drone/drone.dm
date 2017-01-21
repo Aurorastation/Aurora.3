@@ -58,6 +58,32 @@ var/list/mob_hat_cache = list()
 
 	holder_type = /obj/item/weapon/holder/drone
 
+	staticOverlays = list()
+	seeStatic = 1
+
+/mob/living/silicon/robot/drone/proc/updateSeeStaticMobs()
+	if(!client)
+		return
+
+	for(var/i in staticOverlays)
+		client.images.Remove(i)
+		staticOverlays.Remove(i)
+	staticOverlays.len = 0
+
+	if(seeStatic)
+		for(var/mob/living/L in range(14,src))
+			if(istype(L, /mob/living/simple_animal))
+				continue
+			if(istype(L, /mob/living/silicon/robot/drone))
+				continue
+			var/image/chosen = L.staticOverlays["blank"]
+			staticOverlays |= chosen
+			client.images |= chosen
+
+/mob/living/silicon/robot/drone/Life()
+	..()
+	updateSeeStaticMobs()
+
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/dead/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return 0
@@ -125,6 +151,25 @@ var/list/mob_hat_cache = list()
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	updateicon()
 	density = 0
+
+	for(var/i in staticOverlays)
+		client.images.Remove(i)
+		staticOverlays.Remove(i)
+	staticOverlays.len = 0
+
+	if(seeStatic)
+		for(var/mob/living/L in mob_list)
+			if(istype(L, /mob/living/simple_animal))
+				continue
+			if(istype(L, /mob/living/silicon/robot/drone))
+				continue
+			var/image/chosen = L.staticOverlays["blank"]
+			staticOverlays |= chosen
+			client.images |= chosen
+
+/mob/living/silicon/robot/drone/Login()
+	..()
+	updateSeeStaticMobs()
 
 /mob/living/silicon/robot/drone/init()
 	aiCamera = new/obj/item/device/camera/siliconcam/drone_camera(src)
@@ -247,6 +292,9 @@ var/list/mob_hat_cache = list()
 	src << "<b>Obey these laws:</b>"
 	laws.show_laws(src)
 	src << "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and \his commands.</span>"
+	if(seeStatic)
+		seeStatic = 0
+	updateSeeStaticMobs()
 	return 1
 
 //DRONE LIFE/DEATH
@@ -319,6 +367,7 @@ var/list/mob_hat_cache = list()
 	src << "<b>Systems rebooted</b>. Loading base pattern maintenance protocol... <b>loaded</b>."
 	full_law_reset()
 	welcome_drone()
+	updateSeeStaticMobs()
 
 /mob/living/silicon/robot/drone/proc/welcome_drone()
 	src << "<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>."

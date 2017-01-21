@@ -147,7 +147,8 @@
 	spawn(30) qdel(speech_bubble)
 
 	for(var/mob/M in listening)
-		M << speech_bubble
+		if(!istype(M, /mob/living/silicon/robot/drone))
+			M << speech_bubble
 		M.hear_say(message, verb, speaking, alt_name, italics, src)
 
 	if (eavesdropping.len)

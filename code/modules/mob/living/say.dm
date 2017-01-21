@@ -189,7 +189,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(!message || message == "")
 		return 0
-	
+
 	//handle nonverbal and sign languages here
 	if (speaking)
 		if (speaking.flags & NONVERBAL)
@@ -267,7 +267,8 @@ proc/get_radio_key_from_channel(var/channel)
 	spawn(30) qdel(speech_bubble)
 
 	for(var/mob/M in listening)
-		M << speech_bubble
+		if(!istype(M, /mob/living/silicon/robot/drone))
+			M << speech_bubble
 		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 
 	for(var/obj/O in listening_obj)

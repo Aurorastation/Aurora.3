@@ -59,6 +59,11 @@
 		if(client.prefs.toggles & CHAT_GHOSTEARS && speaker in view(src))
 			message = "<b>[message]</b>"
 
+	if(istype(src, /mob/living/silicon/robot/drone))
+		var/mob/living/silicon/robot/drone/D = src
+		if(D.seeStatic)
+			speaker_name = "unknown"
+
 	if(sdisabilities & DEAF || ear_deaf)
 		if(!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 			if(speaker == src)
@@ -181,6 +186,11 @@
 		if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[speaker_name] ([ghost_follow_link(speaker, src)])"
+
+	if(istype(src, /mob/living/silicon/robot/drone))
+		var/mob/living/silicon/robot/drone/D = src
+		if(D.seeStatic)
+			speaker_name = "unknown"
 
 	var/formatted
 	if(language)

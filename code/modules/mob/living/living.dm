@@ -1,3 +1,12 @@
+/mob/living/New()
+	. = ..()
+	generateStaticOverlay()
+	if(staticOverlays.len)
+		for(var/mob/living/silicon/robot/drone/D in player_list)
+			if(D && D.seeStatic && !istype(src, /mob/living/silicon/robot/drone))
+				D.staticOverlays |= staticOverlays["blank"]
+				D.client.images |= staticOverlays["blank"]
+
 //mob verbs are faster than object verbs. See mob/verb/examine.
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
@@ -782,3 +791,9 @@ default behaviour is:
 	src << "<b>You are now \the [src]!</b>"
 	src << "<span class='notice'>Remember to stay in character for a mob of this type!</span>"
 	return 1
+
+/mob/living/proc/generateStaticOverlay()
+	staticOverlays.Add(list("blank"))
+	var/image/staticOverlay = image(icon('icons/effects/effects.dmi', "nothing"), loc = src)
+	staticOverlay.override = 1
+	staticOverlays["blank"] = staticOverlay

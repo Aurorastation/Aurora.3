@@ -27,7 +27,8 @@
 
 		for(var/mob/living/silicon/D in listeners)
 			if(D.client && D.local_transmit)
-				D << "<b>[src]</b> transmits, \"[message]\""
+				var/time = say_timestamp()
+				D << "[time] <b>[src]</b> transmits, \"[message]\""
 
 		for (var/mob/M in player_list)
 			if (istype(M, /mob/new_player))
