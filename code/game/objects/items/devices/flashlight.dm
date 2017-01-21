@@ -14,7 +14,7 @@
 
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
-	var/brightness_on = 4 //luminosity when on
+	var/brightness_on = 3 //luminosity when on
 
 /obj/item/device/flashlight/initialize()
 	..()
@@ -110,7 +110,7 @@
 	desc = "A high-luminosity flashlight for specialist duties."
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
-	brightness_on = 7
+	brightness_on = 4
 	w_class = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
 	contained_sprite = 1
