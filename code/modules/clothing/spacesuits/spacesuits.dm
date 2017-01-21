@@ -86,6 +86,10 @@
 	check_limb_support(user)
 	..()
 
+/obj/item/clothing/suit/space/on_slotmove(var/mob/user)
+	check_limb_support(user)
+	..()
+
 // Some space suits are equipped with reactive membranes that support
 // broken limbs - at the time of writing, only the ninja suit, but
 // I can see it being useful for other suits as we expand them. ~ Z
