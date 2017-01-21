@@ -434,7 +434,7 @@ BLIND     // can't see anything
 	holding.forceMove(get_turf(usr))
 
 	if(usr.put_in_hands(holding))
-		usr.visible_message("<span class='danger'>\The [usr] pulls a knife out of their boot!</span>")
+		usr.visible_message("<span class='danger'>\The [usr] pulls \a [holding] out of their boot!</span>")
 		holding = null
 	else
 		usr << "<span class='warning'>Your need an empty, unbroken hand to do that.</span>"

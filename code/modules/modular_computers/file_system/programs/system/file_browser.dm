@@ -125,7 +125,7 @@
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/weapon/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD || computer.software_locked)
+		if(!HDD || !RHDD || computer.enrolled != 2)
 			return 1
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
 		if(!F || !istype(F))
@@ -136,7 +136,7 @@
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/weapon/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD || computer.software_locked)
+		if(!HDD || !RHDD || computer.enrolled != 2)
 			return 1
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
 		if(!F || !istype(F))
