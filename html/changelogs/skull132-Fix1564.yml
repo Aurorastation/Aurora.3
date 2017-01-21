@@ -1,7 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed voidsuits being weird during unequip and magboots eating shoes."
-  - experiment: "An attempted fix of the AI gaining AOOC and antag status during cult rounds."
