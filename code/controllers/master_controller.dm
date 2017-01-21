@@ -76,6 +76,10 @@ datum/controller/game_controller/proc/setup_objects()
 			T.broadcast_status()
 
 
+	admin_notice(span("danger", "Caching space parallax..."))
+	create_global_parallax_icons()
+	admin_notice(span("danger", "Done."))
+
 	//Spawn the contents of the cargo warehouse
 	sleep(-1)
 	spawn_cargo_stock()
