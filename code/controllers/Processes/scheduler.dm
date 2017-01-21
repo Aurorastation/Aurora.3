@@ -27,7 +27,9 @@
 			unschedule(task)
 			// why are these separated.
 			task.pre_process()
+			SCHECK	// fuck it, it's a cheap call.
 			task.process()
+			SCHECK
 			task.post_process()
 		SCHECK
 
