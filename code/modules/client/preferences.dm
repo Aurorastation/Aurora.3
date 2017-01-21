@@ -130,6 +130,8 @@ datum/preferences
 	var/space_dust = 1
 	var/parallax_speed = 2
 
+	var/progress_bars = 1 //Whether to show progress bars when doing delayed actions.
+
 	var/list/pai = list()	// A list for holding pAI related data.
 
 	var/client/client = null

@@ -202,7 +202,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	update_icons()
 	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
 	spawn(1)
-		if(do_after(src, cleantime))
+		if(do_after_simple(src, cleantime))
 			if(istype(loc, /turf/simulated))
 				var/turf/simulated/f = loc
 				f.dirt = 0

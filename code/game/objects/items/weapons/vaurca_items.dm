@@ -68,9 +68,9 @@
 
 	else if(isipc(user))
 		user << "<span class='notice'>You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)</span>"
-		if(do_after(user, 100))
+		if(do_after(user, src, 100))
 			user << "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>"
-			if(do_after(user, 600))
+			if(do_after(user, src, 600))
 				user << "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>"
 				var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 				user.remove_from_mob(src)
@@ -79,7 +79,7 @@
 
 	else if(isvox(user))
 		user << "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>"
-		if(do_after(user, 100))
+		if(do_after(user, src, 100))
 			user << "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>"
 			var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 			user.remove_from_mob(src)
@@ -88,17 +88,17 @@
 
 	else
 		user << "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>"
-		if(do_after(user, 60))
+		if(do_after(user, src, 60))
 			user << "<span class = 'notice'>After a few more seconds, you hesitantly turn the first piece of the puzzle box.</span>"
-			if(do_after(user,30))
+			if(do_after(user, src,30))
 				user << "<span class = 'notice'>After nothing bad happens, you dive into the puzzle with a feeling of confidence!</span>"
-				if(do_after(user,200))
+				if(do_after(user, src,200))
 					user << "<span class = 'notice'>Twenty seconds pass, and suddenly you're feeling a lot less confident. You struggle on...</span>"
-					if(do_after(user,100))
+					if(do_after(user, src,100))
 						user << "<span class='notice'>You blink, and suddenly you've lost your place, your thoughts, your mind...</span>"
-						if(do_after(user,20))
+						if(do_after(user, src,20))
 							user << "<span class='notice'>You find yourself again, and get back to turning pieces. At this point it is just randomly.</span>"
-							if(do_after(user,600))
+							if(do_after(user, src,600))
 								user << "<span class='notice'>A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs.</span>"
 
 /obj/item/weapon/melee/vaurca/navcomp

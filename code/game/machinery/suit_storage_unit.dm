@@ -497,7 +497,7 @@
 			user << "<font color='red'>The unit's storage area is too cluttered.</font>"
 			return
 		visible_message("[user] starts putting [G.affecting.name] into the Suit Storage Unit.", 3)
-		if(do_after(user, 20))
+		if(do_after(user, src, 20))
 			if(!G || !G.affecting) return //derpcheck
 			var/mob/M = G.affecting
 			if (M.client)
@@ -701,7 +701,7 @@
 
 		visible_message("<span class='notice'>[user] starts putting [G.affecting.name] into the suit cycler.</span>", 3)
 
-		if(do_after(user, 20))
+		if(do_after(user, src, 20))
 			if(!G || !G.affecting) return
 			var/mob/M = G.affecting
 			if (M.client)

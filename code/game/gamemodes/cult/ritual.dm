@@ -469,7 +469,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				V.show_message("<span class='danger'>\The [user] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
 			user << "<span class='danger'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>"
 			user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
-			if(do_after(user, 50))
+			if(do_after(user, src, 50))
 				var/area/A = get_area(user)
 				log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")
 				if(usr.get_active_hand() != src)

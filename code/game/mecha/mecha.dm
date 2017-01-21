@@ -1789,7 +1789,7 @@
 		var/mob/occupant = P.occupant
 
 		user.visible_message("\red [user] begins opening the hatch on \the [P]...", "\red You begin opening the hatch on \the [P]...")
-		if (do_after(user, 40, needhand=0))
+		if (do_after(user, src, 40, needhand=0))
 			user.visible_message("\red [user] opens the hatch on \the [P] and removes [occupant]!", "\red You open the hatch on \the [P] and remove [occupant]!")
 			P.go_out()
 			P.log_message("[occupant] was removed.")

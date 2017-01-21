@@ -591,7 +591,7 @@
 			return
 
 		user << "You begin repairing damage to \the [src]..."
-		if(WT.remove_fuel(round(damage/75)) && do_after(usr, damage/10))
+		if(WT.remove_fuel(round(damage/75)) && do_after(usr, src, damage/10))
 			damage = 0
 			user << "You repair \the [src]."
 		return

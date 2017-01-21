@@ -13,22 +13,22 @@
 		// Handle things that are part of this interface but not removing/replacing a given item.
 		if("pockets")
 			visible_message("<span class='danger'>\The [user] is trying to empty \the [src]'s pockets!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY))
+			if(do_after(user, src,HUMAN_STRIP_DELAY))
 				empty_pockets(user)
 			return 1
 		if("splints")
 			visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s splints!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY))
+			if(do_after(user, src,HUMAN_STRIP_DELAY))
 				remove_splints(user)
 			return 1
 		if("sensors")
 			visible_message("<span class='danger'>\The [user] is trying to set \the [src]'s sensors!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY))
+			if(do_after(user, src,HUMAN_STRIP_DELAY))
 				toggle_sensors(user)
 			return 1
 		if("internals")
 			visible_message("<span class='danger'>\The [usr] is trying to set \the [src]'s internals!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY))
+			if(do_after(user, src,HUMAN_STRIP_DELAY))
 				toggle_internals(user)
 			return 1
 		if("tie")
@@ -40,7 +40,7 @@
 				return 0
 			visible_message("<span class='danger'>\The [usr] is trying to remove \the [src]'s [A.name]!</span>")
 
-			if(!do_after(user,HUMAN_STRIP_DELAY))
+			if(!do_after(user, src,HUMAN_STRIP_DELAY))
 				return 0
 
 			if(!A || suit.loc != src || !(A in suit.accessories))

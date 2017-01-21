@@ -445,7 +445,7 @@
 				return
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 			user << "You are trying to remove the power control board..." //lpeters - fixed grammar issues
-			if(do_after(user, 50))
+			if(do_after(user, src, 50))
 				if (has_electronics==1)
 					has_electronics = 0
 					if ((stat & BROKEN))
@@ -556,7 +556,7 @@
 		user.visible_message("<span class='warning'>[user.name] adds cables to the APC frame.</span>", \
 							"You start adding cables to the APC frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 20))
+		if(do_after(user, src, 20))
 			if (C.amount >= 10 && !terminal && opened && has_electronics != 2)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
@@ -579,7 +579,7 @@
 		user.visible_message("<span class='warning'>[user.name] dismantles the power terminal from [src].</span>", \
 							"You begin to cut the cables...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 50))
+		if(do_after(user, src, 50))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
@@ -594,7 +594,7 @@
 		user.visible_message("<span class='warning'>[user.name] inserts the power control board into [src].</span>", \
 							"You start to insert the power control board into the frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 10))
+		if(do_after(user, src, 10))
 			if(has_electronics==0)
 				has_electronics = 1
 				user << "<span class='notice'>You place the power control board inside the frame.</span>"
@@ -611,7 +611,7 @@
 							"You start welding the APC frame...", \
 							"You hear welding.")
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-		if(do_after(user, 50))
+		if(do_after(user, src, 50))
 			if(!src || !WT.remove_fuel(3, user)) return
 			if (emagged || (stat & BROKEN) || opened==2)
 				new /obj/item/stack/material/steel(loc)
@@ -642,7 +642,7 @@
 			return
 		user.visible_message("<span class='warning'>[user.name] replaces the damaged APC frame with a new one.</span>",\
 							"You begin to replace the damaged APC frame...")
-		if(do_after(user, 50))
+		if(do_after(user, src, 50))
 			user.visible_message(\
 				"<span class='notice'>[user.name] has replaced the damaged APC frame with new one.</span>",\
 				"You replace the damaged APC frame with new one.")
@@ -664,7 +664,7 @@
 				user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 				return
 			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-			if(do_after(user, 10))
+			if(do_after(user, src, 10))
 				if(!src || !WT.remove_fuel(1, user)) return
 				if ((stat & BROKEN))
 					new /obj/item/stack/material/steel(loc)
@@ -708,7 +708,7 @@
 			user << "Nothing happens."
 		else
 			flick("apc-spark", src)
-			if (do_after(user,6))
+			if (do_after(user, src,6))
 				if(prob(50))
 					emagged = 1
 					locked = 0

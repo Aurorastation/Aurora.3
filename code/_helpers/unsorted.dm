@@ -646,28 +646,50 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	else return get_step(ref, base_dir)
 
-/proc/do_mob(var/mob/user, var/mob/target, var/delay = 30, var/numticks = 5, var/needhand = 1) //This is quite an ugly solution but i refuse to use the old request system.
-	if(!user || !target)	return 0
-	if(numticks == 0)		return 0
-
-	var/delayfraction = round(delay/numticks)
-	var/original_user_loc = user.loc
-	var/original_target_loc = target.loc
+/proc/do_mob(var/mob/user , var/mob/target, var/delay = 30, var/numticks = 10) //This is quite an ugly solution but i refuse to use the old request system.
+	if(!user || !target)
+		return 0
+	var/user_loc = user.loc
+	var/target_loc = target.loc
 	var/holding = user.get_active_hand()
+	var/delayfraction = round(delay/numticks)
+	var/image/progbar
+	if(user && user.client && user.client.prefs.progress_bars)
+		if(!progbar)
+			progbar = image("icon" = 'icons/effects/doafter_icon.dmi', "loc" = target, "icon_state" = "prog_bar_0")
+			progbar.layer = 20
+			progbar.pixel_z = WORLD_ICON_SIZE
 
-	for(var/i = 0, i<numticks, i++)
+	for (var/i = 1 to numticks)
+		if(user && user.client && user.client.prefs.progress_bars && progbar)
+			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
+			user.client.images |= progbar
 		sleep(delayfraction)
-
-		if(!user || user.stat || user.weakened || user.stunned || user.loc != original_user_loc)
+		if(!user || !target)
+			if(progbar)
+				progbar.icon_state = "prog_bar_stopped"
+				spawn(2)
+					if(user && user.client)
+						user.client.images -= progbar
+					if(progbar)
+						progbar.loc = null
 			return 0
-		if(!target || target.loc != original_target_loc)
+		if ( user.loc != user_loc || target.loc != target_loc || user.get_active_hand() != holding || user.stat || user.weakened || user.stunned )
+			if(progbar)
+				progbar.icon_state = "prog_bar_stopped"
+				spawn(2)
+					if(user && user.client)
+						user.client.images -= progbar
+					if(progbar)
+						progbar.loc = null
 			return 0
-		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
-			return 0
-
+	if(user && user.client)
+		user.client.images -= progbar
+	if(progbar)
+		progbar.loc = null
 	return 1
 
-/proc/do_after(var/mob/user as mob, delay as num, var/numticks = 5, var/needhand = 1)
+/proc/do_after_simple(var/mob/user as mob, delay as num, var/numticks = 5, var/needhand = 1)
 	if(!user || isnull(user))
 		return 0
 	if(numticks == 0)
@@ -685,6 +707,70 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
 			return 0
 
+	return 1
+
+/proc/do_after(var/mob/user as mob, var/atom/target, var/delay as num, var/numticks = 10, var/needhand = TRUE, var/use_user_turf = FALSE)
+	if(!user || isnull(user))
+		return 0
+	if(numticks == 0)
+		return 0
+
+	var/delayfraction = round(delay/numticks)
+	var/Location
+	if(use_user_turf)	//When this is true, do_after() will check whether the user's turf has changed, rather than the user's loc.
+		Location = get_turf(user)
+	else
+		Location = user.loc
+	var/holding = user.get_active_hand()
+	var/target_location = target.loc
+	var/image/progbar
+
+	if(user && user.client && user.client.prefs.progress_bars && target)
+		if(!progbar)
+			progbar = image("icon" = 'icons/effects/doafter_icon.dmi', "loc" = target, "icon_state" = "prog_bar_0")
+			progbar.pixel_z = WORLD_ICON_SIZE
+			progbar.layer = 20
+			progbar.appearance_flags = RESET_COLOR
+
+	for (var/i = 1 to numticks)
+		if(user && user.client && user.client.prefs.progress_bars && target)
+			if(!progbar)
+				progbar = image("icon" = 'icons/effects/doafter_icon.dmi', "loc" = target, "icon_state" = "prog_bar_0")
+				progbar.pixel_z = WORLD_ICON_SIZE
+				progbar.layer = 20
+				progbar.appearance_flags = RESET_COLOR
+
+			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
+			user.client.images |= progbar
+		sleep(delayfraction)
+
+		var/user_loc_to_check
+		if(use_user_turf)
+			user_loc_to_check = get_turf(user)
+		else
+			user_loc_to_check = user.loc
+		if(!user || user.stat || user.weakened || user.stunned || !(user_loc_to_check == Location) || !(target.loc == target_location))
+			if(progbar)
+				progbar.icon_state = "prog_bar_stopped"
+				spawn(2)
+					if(user && user.client)
+						user.client.images -= progbar
+					if(progbar)
+						progbar.loc = null
+			return 0
+		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
+			if(progbar)
+				progbar.icon_state = "prog_bar_stopped"
+				spawn(2)
+					if(user && user.client)
+						user.client.images -= progbar
+					if(progbar)
+						progbar.loc = null
+			return 0
+	if(user && user.client)
+		user.client.images -= progbar
+	if(progbar)
+		progbar.loc = null
 	return 1
 
 //Takes: Anything that could possibly have variables and a varname to check.

@@ -48,7 +48,7 @@
 				src.other_DNA += M.dna.unique_enzymes
 				src.other_DNA_type = "saliva"
 
-			while (do_after(user, 25, 5, 1))
+			while (do_after(user, src, 25, 5, 1))
 				var/blood_taken = 0
 				blood_taken = min(5, reagents.get_reagent_amount("blood")/4)
 

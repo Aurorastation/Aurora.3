@@ -40,7 +40,7 @@
 		qdel(target)
 	else if(istype(target,/turf))
 		user << "You start scrubbing the [target.name]"
-		if (do_after(user, 30, needhand = 0))
+		if (do_after(user, src, 30, needhand = 0))
 			user << "<span class='notice'>You scrub \the [target.name] clean.</span>"
 			var/turf/T = target
 			T.clean(src, user)

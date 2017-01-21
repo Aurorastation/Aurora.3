@@ -29,7 +29,7 @@
 	if (M.stat !=2 && ishuman(M) && user.a_intent != I_HURT)
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(33))
-			if(do_after(user, 15))
+			if(do_after(user, src, 15))
 				K.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [K]'s head, [K] looks captivated by it.</span>", "\red [user] wave's the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>")
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)

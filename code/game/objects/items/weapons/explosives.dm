@@ -48,7 +48,7 @@
 	user << "Planting explosives..."
 	user.do_attack_animation(target)
 
-	if(do_after(user, 50) && in_range(user, target))
+	if(do_after(user, src, 50) && in_range(user, target))
 		user.drop_item()
 		src.target = target
 		loc = null

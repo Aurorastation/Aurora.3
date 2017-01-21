@@ -406,7 +406,7 @@
 
 			visible_message("[user] starts putting [G:affecting:name] into \the [name].", 3)
 
-			if(do_after(user, 20))
+			if(do_after(user, src, 20))
 				if(!M || !G || !G:affecting) return
 
 				M.forceMove(src)
@@ -467,7 +467,7 @@
 		else
 			visible_message("[user] starts putting [L] into \the [name].", 3)
 
-		if(do_after(user, 20))
+		if(do_after(user, src, 20))
 			if(!L) return
 
 			L.loc = src

@@ -312,7 +312,7 @@
 		if(welder.remove_fuel(0,user))
 			user << "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>"
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
-			if(do_after(user, 5 * repairing.amount) && welder && welder.isOn())
+			if(do_after(user, src, 5 * repairing.amount) && welder && welder.isOn())
 				user << "<span class='notice'>You finish repairing the damage to \the [src].</span>"
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
 				update_icon()
@@ -539,8 +539,6 @@
 			var/turf/simulated/turf = T
 			update_heat_protection(turf)
 			air_master.mark_for_update(turf)
-
-		T.update_lights_now()
 
 	return 1
 

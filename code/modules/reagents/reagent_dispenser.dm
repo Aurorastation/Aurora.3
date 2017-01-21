@@ -100,7 +100,7 @@
 /obj/structure/reagent_dispensers/fueltank/attack_hand()
 	if (rig)
 		usr.visible_message("[usr] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
-		if(do_after(usr, 20))
+		if(do_after(usr, src, 20))
 			usr.visible_message("\blue [usr] detaches [rig] from \the [src].", "\blue  You detach [rig] from \the [src]")
 			rig.loc = get_turf(usr)
 			rig = null
@@ -121,7 +121,7 @@
 			user << "\red There is another device in the way."
 			return ..()
 		user.visible_message("[user] begins rigging [W] to \the [src].", "You begin rigging [W] to \the [src]")
-		if(do_after(user, 20))
+		if(do_after(user, src, 20))
 			user.visible_message("\blue [user] rigs [W] to \the [src].", "\blue  You rig [W] to \the [src]")
 
 			var/obj/item/device/assembly_holder/H = W
@@ -223,7 +223,7 @@
 	if (istype(W,/obj/item/weapon/wrench))
 		src.add_fingerprint(user)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-		if(do_after(user, 20))
+		if(do_after(user, src, 20))
 			if(!src) return
 			switch (anchored)
 				if (0)

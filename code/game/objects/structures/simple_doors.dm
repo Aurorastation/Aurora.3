@@ -127,7 +127,7 @@
 	if(istype(W,/obj/item/weapon/pickaxe))
 		var/obj/item/weapon/pickaxe/digTool = W
 		user << "You start digging the [name]."
-		if(do_after(user,digTool.digspeed*hardness) && src)
+		if(do_after(user, src,digTool.digspeed*hardness) && src)
 			user << "You finished digging."
 			Dismantle()
 	else if(istype(W,/obj/item/weapon)) //not sure, can't not just weapons get passed to this proc?

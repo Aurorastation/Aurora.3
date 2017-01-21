@@ -123,7 +123,7 @@
 
 	if (recipe.time)
 		user << "<span class='notice'>Building [recipe.title] ...</span>"
-		if (!do_after(user, recipe.time))
+		if (!do_after(user, src, recipe.time))
 			return
 
 	if (use(required))

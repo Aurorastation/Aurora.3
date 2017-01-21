@@ -38,7 +38,7 @@
 
 			D << "<span class='danger'>You begin decompiling [M].</span>"
 
-			if(!do_after(D,50))
+			if(!do_after(D, src, 50))
 				D << "<span class='danger'>You need to remain still while decompiling such a large object.</span>"
 				return
 

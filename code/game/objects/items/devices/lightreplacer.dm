@@ -141,7 +141,7 @@
 			user << "\red There are no more working lights left in the box!"
 			return
 
-		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
+		if (do_after(user, src, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
 			uses++
 			user << "<span class='notice'>Light loaded: [uses]/[max_uses]</span>"
 			playsound(src.loc, 'sound/machines/click.ogg', 20, 1)

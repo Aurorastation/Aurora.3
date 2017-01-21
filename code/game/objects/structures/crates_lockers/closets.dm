@@ -368,7 +368,7 @@
 		playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
 		animate_shake()
 
-		if(!do_after(escapee, 50)) //5 seconds
+		if(!do_after(escapee, src, 50)) //5 seconds
 			breakout = 0
 			return
 		if(!escapee || escapee.stat || escapee.loc != src)

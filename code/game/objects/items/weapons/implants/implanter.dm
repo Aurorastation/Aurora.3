@@ -36,7 +36,7 @@
 		user.do_attack_animation(M)
 
 		var/turf/T1 = get_turf(M)
-		if (T1 && ((M == user) || do_after(user, 50)))
+		if (T1 && ((M == user) || do_after(user, src, 50)))
 			if(user && M && (get_turf(M) == T1) && src && src.imp)
 				M.visible_message("<span class='warning'>[M] has been implanted by [user].</span>")
 
