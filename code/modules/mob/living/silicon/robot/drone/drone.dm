@@ -126,6 +126,7 @@ var/list/mob_hat_cache = list()
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/weapon/holder/drone/heavy
+	seeStatic = 0
 
 /mob/living/silicon/robot/drone/New()
 
