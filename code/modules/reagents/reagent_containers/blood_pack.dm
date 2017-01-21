@@ -42,7 +42,7 @@
 /obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if (user == M && (user.mind.vampire))
 		if (reagents.get_reagent_amount("blood"))
-			user.visible_message("<span class='warning'>[user] raises \the [src] up to \his mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
 			vampire_marks = TRUE
 			if (!src.other_DNA.len)
 				src.other_DNA += M.dna.unique_enzymes
