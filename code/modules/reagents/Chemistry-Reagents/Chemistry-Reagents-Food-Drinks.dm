@@ -201,6 +201,12 @@
 	reagent_state = LIQUID
 	color = "#CF3600"
 
+/datum/reagent/nutriment/glucose
+	name = "Glucose"
+	id = "glucose"
+	color = "#FFFFFF"
+	injectable = 1
+
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"
 	id = "lipozine"

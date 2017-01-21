@@ -346,7 +346,7 @@
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
 			chest.slowdown = initial(slowdown)
-	
+
 	set_vision(!offline)
 	if(offline)
 		if(offline == 1)
@@ -690,13 +690,21 @@
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, H, ONLY_DEPLOY)
 
-/obj/item/weapon/rig/dropped(var/mob/user)
-	..()
+/obj/item/weapon/rig/proc/null_wearer(var/mob/user)
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
 	if(wearer)
 		wearer.wearing_rig = null
 		wearer = null
+
+/obj/item/weapon/rig/on_slotmove(var/mob/user)
+	..()
+	null_wearer(user)
+
+/obj/item/weapon/rig/dropped(var/mob/user)
+	..()
+	null_wearer(user)
+
 
 //Todo
 /obj/item/weapon/rig/proc/malfunction()
