@@ -25,7 +25,7 @@
 			continue
 
 		UI.process()
-		SCHECK
+		F_SCHECK
 
 	is_idle = TRUE
 

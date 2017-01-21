@@ -37,7 +37,7 @@
 			continue
 
 		PN.reset()
-		SCHECK
+		F_SCHECK
 
 	// If we've finished processing powernet, start on powersinks.
 	if (stage == STAGE_POWERNET)
@@ -52,7 +52,7 @@
 		if (!I || !I.pwr_drain())
 			processing_power_items -= I
 		
-		SCHECK
+		F_SCHECK
 
 	stage = STAGE_NONE
 	powernet_update_pending = FALSE

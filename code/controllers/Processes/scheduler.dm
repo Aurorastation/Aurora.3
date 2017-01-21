@@ -27,11 +27,11 @@
 			unschedule(task)
 			// why are these separated.
 			task.pre_process()
-			SCHECK	// fuck it, it's a cheap call.
+			F_SCHECK	// fuck it, it's a cheap call.
 			task.process()
-			SCHECK
+			F_SCHECK
 			task.post_process()
-		SCHECK
+		F_SCHECK
 
 	tick_completed = TRUE
 

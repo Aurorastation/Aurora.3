@@ -57,7 +57,7 @@
 		L.force_update = FALSE
 		L.needs_update = FALSE
 
-		sleepCheck()	// Can't use macro, it's not defined when this is included.
+		F_SCHECK
 
 	// -- CORNERS --
 	if (resume_pos == STAGE_SOURCE)
@@ -74,7 +74,7 @@
 
 		C.needs_update = FALSE
 
-		sleepCheck()
+		F_SCHECK
 
 	if (resume_pos == STAGE_CORNER)
 		curr_overlays = lighting_update_overlays
@@ -89,7 +89,7 @@
 		O.update_overlay()
 		O.needs_update = FALSE
 		
-		sleepCheck()
+		F_SCHECK
 
 	resume_pos = 0
 

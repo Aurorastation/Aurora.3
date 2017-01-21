@@ -32,7 +32,7 @@
 		if (M.use_power)
 			M.auto_use_power()
 
-		SCHECK
+		F_SCHECK
 
 	normal_exit = TRUE
 	// Tell the powernet builder that we're done processing.

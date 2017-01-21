@@ -26,7 +26,7 @@
 			continue
 
 		O:process()
-		SCHECK
+		F_SCHECK
 
 	normal_exit = TRUE
 
