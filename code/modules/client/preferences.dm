@@ -126,9 +126,8 @@ datum/preferences
 	var/metadata = ""
 
 	// SPAAAACE
-	var/space_parallax = 1
-	var/space_dust = 1
 	var/parallax_speed = 2
+	var/parallax_togs = PARALLAX_SPACE | PARALLAX_DUST
 
 	var/progress_bars = 1 //Whether to show progress bars when doing delayed actions.
 

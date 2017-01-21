@@ -145,3 +145,39 @@
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 1)
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2)
 	feedback_add_details("admin_verb","TAmbi") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/verb/toggle_space_parallax()
+	set name = "Show/Hide Space Parallax"
+	set category = "Preferences"
+	set desc = "Toggles space parallax effects."
+	prefs.parallax_togs ^= PARALLAX_SPACE
+	prefs.save_preferences()
+	if (prefs.parallax_togs & PARALLAX_SPACE)
+		src << "You will now see space parallax effects."
+	else
+		src << "You will no longer see space parallax effects."
+	feedback_add_details("admin_verb", "TParaSp")
+
+/client/verb/toggle_space_dust()
+	set name = "Show/Hide Space Dust"
+	set category = "Preferences"
+	set desc = "Toggles space parallax dust."
+	prefs.parallax_togs ^= PARALLAX_DUST
+	prefs.save_preferences()
+	if (prefs.parallax_togs & PARALLAX_DUST)
+		src << "You will now see space parallax dust effects."
+	else
+		src << "You will no longer see space parallax dust effects."
+	feedback_add_details("admin_verb", "TParaDu")
+
+/client/verb/set_parallax_speed()
+	set name = "Set Parallax Speed"
+	set category = "Preferences"
+	set desc = "Sets the movement speed of the space parallax effect."
+	var/choice = input("What speed do you want to use for space parallax? (default 2)", "SPAAACE") as num|null
+	if (!choice || choice < 0)
+		src << "Invalid input."
+		return
+
+	prefs.parallax_speed = choice
+	prefs.save_preferences()

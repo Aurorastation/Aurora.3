@@ -100,13 +100,13 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
-	if(C.prefs.space_parallax)
+	if(C.prefs.parallax_togs & PARALLAX_SPACE)
 		parallax_on_clients |= C
 		for(var/obj/screen/parallax/bgobj in C.parallax)
 			C.screen |= bgobj
 		C.screen |= C.parallax_master
 		C.screen |= C.parallax_spacemaster
-		if(C.prefs.space_dust)
+		if(C.prefs.parallax_togs & PARALLAX_DUST)
 			C.parallax_dustmaster.color = list(
 			1,0,0,0,
 			0,1,0,0,
