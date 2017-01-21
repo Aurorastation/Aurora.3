@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed nutriments on hardsuit injectors modules not providing nutrition correctly."
+  - bugfix: "Fixed being unable to fire at point blank with the lawgiver."
+  - imageadd: "Fixed some missing unathi and tajaran mask sprites."
