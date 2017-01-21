@@ -120,7 +120,7 @@
 
 				H.visible_message("<span class='danger'>\The [H] is trying perform CPR on \the [src]!</span>")
 
-				if(!do_after(H, 30))
+				if(!do_after_simple(H, 30))
 					return
 
 				adjustOxyLoss(-(min(getOxyLoss(), 5)))
