@@ -20,6 +20,10 @@
 		src << "<span class='warning'>You can't be in the lobby to join as a duty officer.</span>"
 		return
 
+	if (alert(usr, "Do you want to cancel or proceed?", "Are you sure?", "Proceed", "Cancel") == "Cancel")
+		src << "<span class='notice'>Cancelled.</span>"
+		return
+
 	if(mob.mind && mob.mind.special_role == "CCIA Agent")
 		src << "<span class='warning'>You are already a CCIA Agent.</span>"
 		verbs += /client/proc/returntobody
@@ -32,14 +36,14 @@
 
 	for (var/obj/effect/landmark/L in landmarks_list)
 		if(L.name == "CCIAAgent")
-			var/new_name = input(usr, "Pick a name","Name") as null|text
+			var/new_name = input(usr, "Pick a name","Name") as text
 			var/mob/living/carbon/human/M = new(null)
 
 			M.check_dna(M)
 
 			M.real_name = new_name
 			M.name = new_name
-			M.age = input("Enter your characters age:","Num") as null|num
+			M.age = input("Enter your characters age:","Num") as num
 			if(!M.age)
 				M.age = rand(35,50)
 			if(M.age < 33 || M.age > 60)
