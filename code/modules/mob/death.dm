@@ -80,10 +80,7 @@
 	drop_l_hand()
 
 	if(healths)
-		if("health7" in icon_states(healths.icon))
-			healths.icon_state = "health7"
-		else
-			healths.icon_state = "health6"
+		healths.icon_state = "health6"
 
 	timeofdeath = world.time
 	if (isanimal(src))
