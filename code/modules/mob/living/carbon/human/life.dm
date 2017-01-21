@@ -1393,7 +1393,7 @@
 
 
 /mob/living/carbon/human/proc/handle_hud_list()
-	if (BITTEST(hud_updateflag, HEALTH_HUD)&& hud_list[HEALTH_HUD])
+	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
 		var/image/holder = hud_list[HEALTH_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "hudhealth-100" 	// X_X
@@ -1410,7 +1410,7 @@
 				holder.icon_state = "hud[percentage_health]"
 		hud_list[HEALTH_HUD] = holder
 
-	if (BITTEST(hud_updateflag, LIFE_HUD)&& hud_list[LIFE_HUD])
+	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "huddead"
@@ -1418,7 +1418,7 @@
 			holder.icon_state = "hudhealthy"
 		hud_list[LIFE_HUD] = holder
 
-	if (BITTEST(hud_updateflag, STATUS_HUD)&& hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
+	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
 		var/foundVirus = 0
 		for(var/datum/disease/D in viruses)
 			if(!D.hidden[SCANNER])
@@ -1459,11 +1459,18 @@
 		hud_list[STATUS_HUD] = holder
 		hud_list[STATUS_HUD_OOC] = holder2
 
-	if (BITTEST(hud_updateflag, ID_HUD) && hud_list[WANTED_HUD])
+	if (BITTEST(hud_updateflag, ID_HUD) && hud_list[ID_HUD])
 		var/image/holder = hud_list[ID_HUD]
+		if(wear_id)
+			var/obj/item/weapon/card/id/I = wear_id.GetIdCard()
+			if(I)
+				holder.icon_state = "hud[ckey(I.GetJobName())]"
+			else
+				holder.icon_state = "hudunknown"
+		else
+			holder.icon_state = "hudunknown"
 
-		//The following function is found in code/defines/procs/hud.dm
-		holder.icon_state = get_sec_hud_icon(src)
+
 		hud_list[ID_HUD] = holder
 
 	if (BITTEST(hud_updateflag, WANTED_HUD))
