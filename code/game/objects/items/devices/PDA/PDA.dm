@@ -49,6 +49,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/list/conversations = list()    // For keeping up with who we have PDA messsages from.
 	var/new_message = 0			//To remove hackish overlay check
 	var/new_news = 0
+	var/pdafilter = 0			//0-all,1-synth,2-command,3-sec,4-eng,5-sci,6-cargo,7-service,8-med
 
 	var/active_feed				// The selected feed
 	var/list/warrant			// The warrant as we last knew it
@@ -438,9 +439,35 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		for (var/obj/item/device/pda/P in PDAs)
 			if (!P.owner||P.toff||P == src||P.hidden)       continue
 			if(conversations.Find("\ref[P]"))
-				convopdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "1")))
+				convopdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "1")))						
 			else
-				pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 0)	//All
+					pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 1)	//Synth -- Not working
+					if(P == /obj/item/device/pda/ai)
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 2) //Command
+					if(P.icon_state == "pda-hop"||P.icon_state == "pda-hos"||P.icon_state == "pda-ce"||P.icon_state == "pda-cmo"||P.icon_state == "pda-rd"||P.icon_state == "pda-c"||P.icon_state == "pda-h")
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 3)	//sec
+					if(P.icon_state == "pda-warden"||P.icon_state == "pda-det"||P.icon_state == "pda-sec"||P.icon_state == "pda-s")
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 4)	//eng
+					if(P.icon_state == "pda-e"||P.icon_state == "pda-atmo")
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 5)	//sci
+					if(P.icon_state == "pda-tox"||P.icon_state == "pda-v"||P.icon_state == "pda-robot")
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 6)	//cargo
+					if(P.icon_state == "pda-cargo"||P.icon_state == "pda-q"||P.icon_state == "pda-miner")
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 7)	//service
+					if(P.icon_state == "pda-j"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef")
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+				if(pdafilter == 8)	//medical
+					if(P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
+						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+
 			count++
 
 		data["convopdas"] = convopdas
@@ -702,6 +729,27 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			active_conversation = null
 			if(mode==21)
 				mode=2
+		
+		
+		if("Filter") // Filters through available pdas
+			if(href_list["option"] == "all")
+				pdafilter = 0
+			if(href_list["option"] == "synth")		//Not working
+				pdafilter = 1
+			if(href_list["option"] == "comm")
+				pdafilter = 2
+			if(href_list["option"] == "sec")
+				pdafilter = 3
+			if(href_list["option"] == "eng")
+				pdafilter = 4
+			if(href_list["option"] == "sci")
+				pdafilter = 5
+			if(href_list["option"] == "cargo")
+				pdafilter = 6
+			if(href_list["option"] == "serv")
+				pdafilter = 7
+			if(href_list["option"] == "med")
+				pdafilter = 8
 
 		if("Ringtone")
 			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
