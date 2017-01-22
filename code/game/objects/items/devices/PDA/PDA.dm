@@ -441,32 +441,33 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(conversations.Find("\ref[P]"))
 				convopdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "1")))						
 			else
-				if(pdafilter == 0)	//All
-					pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 1)	//Synth -- Not working
-					if(P == /obj/item/device/pda/ai)
+				switch(pdafilter)
+					if(0)	//All
 						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 2) //Command
-					if(P.icon_state == "pda-hop"||P.icon_state == "pda-hos"||P.icon_state == "pda-ce"||P.icon_state == "pda-cmo"||P.icon_state == "pda-rd"||P.icon_state == "pda-c"||P.icon_state == "pda-h")
-						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 3)	//sec
-					if(P.icon_state == "pda-warden"||P.icon_state == "pda-det"||P.icon_state == "pda-sec"||P.icon_state == "pda-s")
-						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 4)	//eng
-					if(P.icon_state == "pda-e"||P.icon_state == "pda-atmo")
-						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 5)	//sci
-					if(P.icon_state == "pda-tox"||P.icon_state == "pda-v"||P.icon_state == "pda-robot")
-						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 6)	//cargo
-					if(P.icon_state == "pda-cargo"||P.icon_state == "pda-q"||P.icon_state == "pda-miner")
-						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 7)	//service
-					if(P.icon_state == "pda-j"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef")
-						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-				if(pdafilter == 8)	//medical
-					if(P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
-						pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(1)	//Synth -- Not working
+						if(P == /obj/item/device/pda/ai)
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(2) //Command
+						if(P.icon_state == "pda-hop"||P.icon_state == "pda-hos"||P.icon_state == "pda-ce"||P.icon_state == "pda-cmo"||P.icon_state == "pda-rd"||P.icon_state == "pda-c"||P.icon_state == "pda-h")
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(3)	//sec
+						if(P.icon_state == "pda-warden"||P.icon_state == "pda-det"||P.icon_state == "pda-sec"||P.icon_state == "pda-s")
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(4)	//eng
+						if(P.icon_state == "pda-e"||P.icon_state == "pda-atmo")
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(5)	//sci
+						if(P.icon_state == "pda-tox"||P.icon_state == "pda-v"||P.icon_state == "pda-robot")
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(6)	//cargo
+						if(P.icon_state == "pda-cargo"||P.icon_state == "pda-q"||P.icon_state == "pda-miner")
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(7)	//service
+						if(P.icon_state == "pda-j"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef")
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
+					if(8)	//medical
+						if(P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 
 			count++
 
