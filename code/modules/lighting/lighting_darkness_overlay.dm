@@ -5,14 +5,11 @@
 
 /atom/movable/darkness_overlay
 	name          = ""
-
 	anchored      = TRUE
-	//ignoreinvert  = TRUE
-
 	icon             = DARKNESS_ICON
 	plane            = 0//LIGHTING_PLANE
-	mouse_opacity    = 1
-	layer            = LIGHTING_LAYER + 1
+	mouse_opacity    = 0
+	layer            = LIGHTING_LAYER + 0.1
 	invisibility     = INVISIBILITY_LIGHTING
 
 /atom/movable/darkness_overlay/New()
@@ -30,5 +27,21 @@
 
 /atom/movable/darkness_overlay/proc/hide()
 	layer = -1
+
+/atom/movable/darkness_overlay/ex_act(severity)
+	return 0
+
+/atom/movable/darkness_overlay/singularity_act()
+	return
+
+/atom/movable/darkness_overlay/singularity_pull()
+	return
+
+/atom/movable/darkness_overlay/Destroy()
+	var/turf/T = loc
+	if (istype(T))
+		T.darkness_overlay = null
+
+	..()
 
 #endif
