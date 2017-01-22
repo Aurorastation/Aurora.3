@@ -230,7 +230,7 @@
 
 /obj/item/device/flashlight/slime/New()
 	..()
-	set_light(brightness_on)
+	set_light(brightness_on, now = TRUE)
 
 /obj/item/device/flashlight/slime/update_icon()
 	return

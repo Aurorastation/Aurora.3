@@ -27,6 +27,7 @@
 // Avoid calling this if you can, bypasses the lighting scheduler (potentially creating lag).
 /turf/proc/update_lights_now()
 	lprof_write(src, "turf_updatenow")
+	CHECK_TICK
 	for (var/datum/light_source/L in affecting_lights)
 		L.update(now = TRUE)
 

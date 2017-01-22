@@ -50,10 +50,7 @@
 			. = loc
 
 		if (light) // Update the light or create it if it does not exist.
-			if (now)
-				light.update(., TRUE)
-			else
-				light.update(.)
+			light.update(., now)
 		else
 			light = new/datum/light_source(src, .)
 
