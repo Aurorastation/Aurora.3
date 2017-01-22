@@ -1488,3 +1488,18 @@ var/list/WALLITEMS = list(
 		a = a.loc
 
 	return 0//If we get here, we must be buried many layers deep in nested containers. Shouldn't happen
+
+//Increases delay as the server gets more overloaded,
+//as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
+#define DELTA_CALC max((max(world.tick_usage,world.cpu)/100),1)
+
+/proc/stoplag()
+	. = 0
+	var/i = 1
+	do
+		. += round(i*DELTA_CALC)
+		sleep(i*world.tick_lag*DELTA_CALC)
+		i *= 2
+	while (world.tick_usage > TICK_LIMIT)
+
+#undef DELTA_CALC
