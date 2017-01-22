@@ -25,7 +25,7 @@
 
 //hit yourself with it
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
-	sync()
+	sync(user)
 	if(!storedwarrant.len)
 		user << "There seem to be no warrants stored in the device."
 		return
@@ -45,11 +45,11 @@
 	M.examinate(src)
 
 //sync with database
-/obj/item/device/holowarrant/proc/sync()
+/obj/item/device/holowarrant/proc/sync(var/mob/user)
 	if(!isnull(data_core.general))
 		for(var/datum/data/record/warrant/W in data_core.warrants)
 			storedwarrant += W.fields["namewarrant"]
-		to_chat(usr, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")
+		to_chat(user, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")
 
 /obj/item/device/holowarrant/proc/show_content(mob/user, forceshow)
 	if(activetype == "arrest")
