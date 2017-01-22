@@ -395,7 +395,8 @@
 	//following is adapted from singulo code
 	// Let's just make this one loop.
 	for(var/atom/X in orange(pull_radius,src))
-		spawn()	X.singularity_pull(src, STAGE_FIVE)
+		X.singularity_pull(src, STAGE_FIVE)
+		CHECK_TICK
 
 	return
 
