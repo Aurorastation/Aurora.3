@@ -13,11 +13,11 @@ var/global/universe_has_ended = 0
 	return 0
 
 /datum/universal_state/supermatter_cascade/OnTurfChange(var/turf/T)
-	var/turf/space/S = T
-	if(istype(S))
-		S.color = "#0066FF"
+	if(T.name == "space")
+		T.overlays += image(icon = T.icon, icon_state = "end01")
+		T.underlays -= "end01"
 	else
-		S.color = initial(S.color)
+		T.overlays -= image(icon = T.icon, icon_state = "end01")
 
 /datum/universal_state/supermatter_cascade/DecayTurf(var/turf/T)
 	if(istype(T,/turf/simulated/wall))
@@ -90,22 +90,31 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 			continue
 
 		A.updateicon()
+		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
-	/*spawn(0)
-		for(var/atom/movable/lighting_overlay/L in world)
-			if(L.z in config.admin_levels)
-				L.update_lumcount(1,1,1)
-			else
-				L.update_lumcount(0.0, 0.4, 1)
+	set waitfor = FALSE
+	for(var/turf/T in turfs)
+		if(istype(T, /turf/space))
+			T.overlays += image(icon = T.icon, icon_state = "end01")
+		else
+			if (!(T.z in config.admin_levels))
+				T.underlays += "end01"
+		CHECK_TICK
 
-		for(var/turf/space/T in turfs)
-			OnTurfChange(T)*/
+	for(var/datum/lighting_corner/C in global.all_lighting_corners)
+		if (!C.active)
+			continue
+
+		if (!(C.z in config.admin_levels))
+			C.update_lumcount(0.15, 0.5, 0)
+		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/MiscSet()
 	for (var/obj/machinery/firealarm/alm in machines)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
+		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/APCSet()
 	for (var/obj/machinery/power/apc/APC in machines)
@@ -115,6 +124,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 				APC.cell.charge = 0
 			APC.emagged = 1
 			APC.queue_icon_update()
+		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/PlayerSet()
 	for(var/datum/mind/M in player_list)
@@ -125,3 +135,4 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 			flick("e_flash", M.current.flash)
 
 		clear_antag_roles(M)
+		CHECK_TICK
