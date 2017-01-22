@@ -3,7 +3,8 @@
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
-	var/previous_state = ""
+	var/previous_state = 0
+	var/previous_fire_state = FALSE
 	var/detecting = 1
 	var/working = 1
 	var/time = 10
@@ -34,40 +35,30 @@
 
 	if(stat & BROKEN)
 		icon_state = "firex"
-		if(icon_state != previous_state)
-			previous_state = icon_state
-			set_light(0)
+		set_light(0)
 	else if(stat & NOPOWER)
 		icon_state = "firep"
-		if(icon_state != previous_state)
-			previous_state = icon_state
-			set_light(0)
+		set_light(0)
 	else
 		var/area/A = get_area(src)
 		if(A.fire)
 			icon_state = "fire1"
-			if(icon_state != previous_state)
-				previous_state = icon_state
-				set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
+			set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
 		else
 			icon_state = "fire0"
 			switch(seclevel)
 				if("green")
-					if(icon_state != previous_state)
-						previous_state = icon_state
-						set_light(l_range = 2, l_power = 0.5, l_color = COLOR_LIME)
+					previous_state = icon_state
+					set_light(l_range = 2, l_power = 0.5, l_color = COLOR_LIME)
 				if("blue")
-					if(icon_state != previous_state)
-						previous_state = icon_state
-						set_light(l_range = 2, l_power = 0.5, l_color = "#1024A9")
+					previous_state = icon_state
+					set_light(l_range = 2, l_power = 0.5, l_color = "#1024A9")
 				if("red")
-					if(icon_state != previous_state)
-						previous_state = icon_state
-						set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
+					previous_state = icon_state
+					set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
 				if("delta")
-					if(icon_state != previous_state)
-						previous_state = icon_state
-						set_light(l_range = 4, l_power = 2, l_color = "#FF6633")
+					previous_state = icon_state
+					set_light(l_range = 4, l_power = 2, l_color = "#FF6633")
 
 		src.overlays += image('icons/obj/monitors.dmi', "overlay_[seclevel]")
 
@@ -150,10 +141,17 @@
 	return
 
 /obj/machinery/firealarm/process()//Note: this processing was mostly phased out due to other code, and only runs when needed
+	var/area/A = get_area(src)
+	if (A.fire != previous_fire_state)
+		update_icon()
+		previous_fire_state = A.fire
+
+	if (stat != previous_state)
+		update_icon()
+		previous_state = stat
+
 	if(stat & (NOPOWER|BROKEN))
 		return
-
-	update_icon()
 
 	if(src.timing)
 		if(src.time > 0)
