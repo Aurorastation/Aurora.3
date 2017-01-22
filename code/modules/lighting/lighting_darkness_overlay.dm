@@ -24,9 +24,11 @@
 
 /atom/movable/darkness_overlay/proc/show()
 	layer = initial(layer)
+	plane = initial(plane)
 
 /atom/movable/darkness_overlay/proc/hide()
 	layer = -1
+	plane = -100	// below space
 
 /atom/movable/darkness_overlay/ex_act(severity)
 	return 0
