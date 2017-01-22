@@ -6,6 +6,9 @@
 
 	var/tmp/list/datum/light_source/affecting_lights       // List of light sources affecting this turf.
 	var/tmp/atom/movable/lighting_overlay/lighting_overlay // Our lighting overlay.
+	#ifdef USE_DARKNESS_OVERLAYS
+	var/tmp/atom/movable/darkness_overlay/darkness_overlay	// There will always be darkness.
+	#endif USE_DARKNESS_OVERLAYS
 	var/tmp/list/datum/lighting_corner/corners
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
@@ -30,12 +33,20 @@
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)
 		returnToPool(lighting_overlay)
+	
+	#ifdef USE_DARKNESS_OVERLAYS
+	if (darkness_overlay)
+		returnToPool(darkness_overlay)
+	#endif
 
 	for (var/datum/lighting_corner/C in corners)
 		C.update_active()
 
 // Builds a lighting overlay for us, but only if our area is dynamic.
 /turf/proc/lighting_build_overlay()
+	if (!darkness_overlay)
+		getFromPool(/atom/movable/darkness_overlay, src)
+
 	if (lighting_overlay)
 		return
 

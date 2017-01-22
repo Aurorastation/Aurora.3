@@ -13,4 +13,7 @@
 		if (!A.dynamic_lighting)
 			continue
 
+		#ifdef USE_DARKNESS_OVERLAYS
+		getFromPool(/atom/movable/darkness_overlay, T, TRUE)
+		#endif
 		getFromPool(/atom/movable/lighting_overlay, T, TRUE)

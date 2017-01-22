@@ -90,6 +90,11 @@
 	)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
 
+	if (luminosity)
+		T.darkness_overlay.hide()
+	else
+		T.darkness_overlay.show()
+
 // Variety of overrides so the overlays don't get affected by weird things.
 
 /atom/movable/lighting_overlay/ex_act(severity)
