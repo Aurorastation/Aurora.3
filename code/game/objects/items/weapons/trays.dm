@@ -203,9 +203,9 @@
 			if (attempt_load_item(I, usr,0))
 				addedSomething++
 		if ( addedSomething == 1)
-			user.visible_message("<span class='notice'>[user] loads an item onto their service tray.</span>")
+			usr.visible_message("<span class='notice'>[user] loads an item onto their service tray.</span>")
 		else if ( addedSomething )
-			user.visible_message("<span class='notice'>[user] loads [addedSomething] items onto their service tray.</span>")
+			usr.visible_message("<span class='notice'>[user] loads [addedSomething] items onto their service tray.</span>")
 		else
 			user << "The tray is full or there's nothing valid here"
 			return 1
@@ -302,7 +302,7 @@
 		if (user)
 			user.visible_message("<span class='notice'>[user] spills their tray all over the floor.</span>")
 		else
-			user.visible_message("<span class='notice'>The tray scatters its contents all over the area.</span>")
+			src.visible_message("<span class='notice'>The tray scatters its contents all over the area.</span>")
 		current_weight = 0
 		if(prob(50))
 			playsound(dropspot, 'sound/items/trayhit1.ogg', 50, 1)
