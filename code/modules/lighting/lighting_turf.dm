@@ -66,6 +66,8 @@
 
 				C.active = TRUE
 
+#define SCALE(targ,min,max) (targ - min) / (max - min)
+
 // Used to get a scaled lumcount.
 /turf/proc/get_lumcount(var/minlum = 0, var/maxlum = 1)
 	if (!lighting_overlay)
@@ -77,22 +79,26 @@
 
 	totallums /= 12 // 4 corners, each with 3 channels, get the average.
 
-	totallums = (totallums - minlum) / (maxlum - minlum)
+	totallums = SCALE(totallums, minlum, maxlum)
 
 	return CLAMP01(totallums)
 
 // Gets the current UV illumination of the turf. Always 100% for space.
 /turf/proc/get_uv_lumcount(var/minlum = 0, var/maxlum = 1)
 	if (!lighting_overlay)
-		. = 1
-	else
-		for (var/datum/lighting_corner/L in corners)
-			. += L.lum_u
+		return SCALE(1, minlum, maxlum)
 
-		. /= 4	// average of four corners.
+	var/totallums = 0
+	for (var/datum/lighting_corner/L in corners)
+		totallums += L.lum_u
 
-	. = CLAMP01(.)
-	. = (. - minlum) / (maxlum - minlum)
+	totallums /= 4	// average of four corners.
+
+	totallums = SCALE(totallums, minlum, maxlum)
+
+	return CLAMP01(totallums)
+
+#undef SCALE
 
 // Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
 /turf/proc/recalc_atom_opacity()

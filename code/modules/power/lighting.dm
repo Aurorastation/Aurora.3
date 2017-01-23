@@ -142,9 +142,10 @@
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
-	var/brightness_range = 6	// luminosity when on, also used in power calculation
-	var/brightness_power = 3
+	var/brightness_range = 8	// luminosity when on, also used in power calculation
+	var/brightness_power = 1
 	var/brightness_color = LIGHT_COLOR_HALOGEN
+	var/brightness_uv    = 200
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -160,16 +161,16 @@
 	icon_state = "bulb1"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness_range = 2.5
-	brightness_power = 2
+	brightness_range = 5
+	brightness_power = 0.75
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
-	brightness_power = 2
-	brightness_color = LIGHT_COLOR_RED
+	brightness_power = 1
+	brightness_color = "#FF0000"
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
@@ -255,7 +256,7 @@
 					set_light(0)
 			else
 				use_power = 2
-				set_light(brightness_range, brightness_power, brightness_color)
+				set_light(brightness_range, brightness_power, brightness_color, uv = brightness_uv)
 	else
 		use_power = 1
 		set_light(0)
