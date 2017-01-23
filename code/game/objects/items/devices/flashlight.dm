@@ -7,6 +7,7 @@
 	w_class = 2
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
+	light_color = LIGHT_COLOR_HALOGEN
 	//offset_light = 1
 	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
@@ -244,8 +245,8 @@
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
 	w_class = 2
-	brightness_on = 3
-	light_power = 2
+	brightness_on = 1.5
+	light_power = 1
 	light_color = "#49F37C"
 	icon = 'icons/obj/glowsticks.dmi'
 	icon_state = "glowstick"
@@ -297,27 +298,27 @@
 /obj/item/device/flashlight/glowstick/red
 	name = "red glowstick"
 	desc = "A red military-grade glowstick."
-	light_color = "#FC0F29"
+	light_color = LIGHT_COLOR_RED //"#FC0F29"
 	icon_state = "glowstick_red"
 	item_state = "glowstick_red"
 
 /obj/item/device/flashlight/glowstick/blue
 	name = "blue glowstick"
 	desc = "A blue military-grade glowstick."
-	light_color = "#599DFF"
+	light_color = LIGHT_COLOR_BLUE //"#599DFF"
 	icon_state = "glowstick_blue"
 	item_state = "glowstick_blue"
 
 /obj/item/device/flashlight/glowstick/orange
 	name = "orange glowstick"
 	desc = "A orange military-grade glowstick."
-	light_color = "#FA7C0B"
+	light_color = LIGHT_COLOR_ORANGE//"#FA7C0B"
 	icon_state = "glowstick_orange"
 	item_state = "glowstick_orange"
 
 /obj/item/device/flashlight/glowstick/yellow
 	name = "yellow glowstick"
 	desc = "A yellow military-grade glowstick."
-	light_color = "#FEF923"
+	light_color = LIGHT_COLOR_YELLOW //"#FEF923"
 	icon_state = "glowstick_yellow"
 	item_state = "glowstick_yellow"
