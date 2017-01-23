@@ -44,7 +44,7 @@
 		light_color = l_color
 
 	if (uv != NONSENSICAL_VALUE)
-		set_uv(uv, no_update = TRUE)
+		set_uv(uv, update = UPDATE_NONE)
 
 	switch (update)
 		if (UPDATE_SCHEDULE)
