@@ -793,7 +793,7 @@
 	if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 		if(target.h_style != "Cut Hair" || target.h_style != "Short Hair" || target.h_style != "Skinhead" || target.h_style != "Buzzcut" || target.h_style != "Crewcut" || target.h_style != "Bald" || target.h_style != "Balding Hair")
 			user.visible_message("\red [user] starts feeding [target]'s hair into the [src]!", "\red You start feeding [target]'s hair into the [src]!")
-		if(!do_after(usr, src, 50))
+		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
 			return
@@ -808,7 +808,7 @@
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 		else
 			return
-		if(!do_after(usr, src, 35))
+		if(!do_after(usr, 35))
 			return
 		if(target_loc != target.loc)
 			return

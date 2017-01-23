@@ -535,7 +535,7 @@
 
 	visible_message("[usr] starts climbing into \the [src].", 3)
 
-	if(do_after(usr, src, 20))
+	if(do_after(usr, 20))
 
 		if(!usr || !usr.client)
 			return
