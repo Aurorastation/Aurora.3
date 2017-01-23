@@ -4,6 +4,7 @@
 	var/light_power = 1 // Intensity of the light.
 	var/light_range = 0 // Range in tiles of the light.
 	var/light_color     // Hexadecimal RGB string representing the colour of the light.
+	var/uv_intensity	// How much UV light is being emitted by this object. Valid range: 0-255.
 
 	var/tmp/datum/light_source/light // Our light source. Don't fuck with this directly unless you have a good reason!
 	var/tmp/list/light_sources       // Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
@@ -11,7 +12,7 @@
 // The proc you should always use to set the light of this atom.
 // Nonesensical value for l_color default, so we can detect if it gets set to null.
 #define NONSENSICAL_VALUE -99999
-/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/now = FALSE)
+/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/now = FALSE, var/uv = NONSENSICAL_VALUE)
 	lprof_write(src, "atom_setlight")
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
@@ -25,9 +26,21 @@
 	if (l_color != NONSENSICAL_VALUE)
 		light_color = l_color
 
+	if (uv != NONSENSICAL_VALUE)
+		set_uv(uv, no_update = TRUE)
+
 	update_light(now)
 
 #undef NONSENSICAL_VALUE
+
+/atom/proc/set_uv(var/intensity, var/now = FALSE, var/no_update = FALSE)
+	if (intensity < 0 || intensity > 255)
+		intensity = min(max(intensity, 255), 0)
+
+	uv_intensity = intensity
+
+	if (!no_update)
+		update_light(now)
 
 // Will update the light (duh).
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...

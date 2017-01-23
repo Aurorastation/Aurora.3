@@ -9,6 +9,7 @@
 	var/light_power    // Intensity of the emitter light.
 	var/light_range      // The range of the emitted light.
 	var/light_color    // The colour of the light, string, decomposed by parse_light_color()
+	var/light_uv		// The intensity of UV light, between 0 and 255.
 
 	// Variables for keeping track of the colour.
 	var/lum_r
@@ -49,6 +50,7 @@
 	light_power = source_atom.light_power
 	light_range = source_atom.light_range
 	light_color = source_atom.light_color
+	light_uv    = source_atom.uv_intensity
 
 	parse_light_color()
 
@@ -174,6 +176,11 @@
 		lum_r = 1
 		lum_g = 1
 		lum_b = 1
+
+	if (light_uv)
+		lum_u = light_uv / 255
+	else
+		lum_u = 0
 
 // Macro that applies light to a new corner.
 // It is a macro in the interest of speed, yet not having to copy paste it.
