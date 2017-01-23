@@ -9,6 +9,7 @@
 	name = "human skin"
 	desc = "The by-product of human farming."
 	singular_name = "human skin piece"
+	default_type = "human hide"
 
 /obj/item/stack/material/animalhide/corgi
 	name = "corgi hide"
