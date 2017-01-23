@@ -425,7 +425,7 @@
 		if (O.status & ORGAN_BLEEDING)
 			wounds += "Bleeding."
 		if (O.status & ORGAN_BROKEN)
-			wounds += "Is \a [O.broken_description]."
+            wounds += "[O.broken_description]."
 		if (O.open)
 			wounds += "Has an open wound."
 		if (O.germ_level)
@@ -439,7 +439,7 @@
 			var/unk = 0
 			for (var/atom/movable/I in O.implants)
 				if (is_type_in_list(I, known_implants))
-					wounds += "[I.name] present."
+                    wounds += "\a [I.name] is installed."
 				else
 					unk += 1
 			if (unk)
