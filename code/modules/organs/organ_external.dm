@@ -895,7 +895,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.emote("scream")
 
 	status |= ORGAN_BROKEN
-	broken_description = pick("broken","fracture","hairline fracture")
+	broken_description = pick("Broken","Fracture","Hairline fracture")
 	perma_injury = brute_dam
 
 	// Fractures have a chance of getting you out of restraints
