@@ -33,7 +33,7 @@
 	var/destroyed       // Whether we are destroyed and need to stop emitting light.
 	var/force_update
 
-/datum/light_source/New(var/atom/owner, var/atom/top)
+/datum/light_source/New(var/atom/owner, var/atom/top, var/update = UPDATE_SCHEDULE)
 	source_atom = owner // Set our new owner.
 	if (!source_atom.light_sources)
 		source_atom.light_sources = list()
@@ -57,7 +57,7 @@
 	effect_str      = list()
 	affecting_turfs = list()
 
-	update()
+	update(update = update)
 
 	lprof_write(src, "source_new")
 
@@ -78,10 +78,10 @@
 	if (check() || destroyed || force_update)
 		remove_lum(TRUE)
 		if (!destroyed)
-			apply_lum(now = TRUE)
+			apply_lum(update = UPDATE_NOW)
 
 	else if (vis_update)	// We smartly update only tiles that became (in) visible to use.
-		smart_vis_update(now = TRUE)
+		smart_vis_update(update = UPDATE_NOW)
 
 	vis_update   = FALSE
 	force_update = FALSE
@@ -98,7 +98,7 @@
 	}
 
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
-/datum/light_source/proc/update(var/atom/new_top_atom, var/now = FALSE)
+/datum/light_source/proc/update(var/atom/new_top_atom, var/update = UPDATE_SCHEDULE)
 	// This top atom is different.
 	if (new_top_atom && new_top_atom != top_atom)
 		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
@@ -114,9 +114,9 @@
 
 	lprof_write(src, "source_update")
 
-	if (now)
+	if (update == UPDATE_NOW)
 		effect_update_now()
-	else
+	else if (update == UPDATE_SCHEDULE)	// I don't know why you would call this with UPDATE_NONE, but hey.
 		effect_update(null)
 
 // Will force an update without checking if it's actually needed.
@@ -188,7 +188,7 @@
 // As such this all gets counted as a single line.
 // The braces and semicolons are there to be able to do this on a single line.
 
-#define APPLY_CORNER(C,NOW)              \
+#define APPLY_CORNER(C)              \
 	. = LUM_FALLOFF(C, source_turf); \
                                      \
 	. *= light_power;                \
@@ -201,11 +201,11 @@
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
 		. * applied_lum_u,           \
-		NOW                          \
+		update                       \
 	);
 
 // I don't need to explain what this does, do I?
-#define REMOVE_CORNER(C,NOW)             \
+#define REMOVE_CORNER(C)             \
 	. = -effect_str[C];              \
 	C.update_lumcount                \
 	(                                \
@@ -213,13 +213,13 @@
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
 		. * applied_lum_u,           \
-		NOW                          \
+		update                       \
 	);
 
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
 
-/datum/light_source/proc/apply_lum(var/now = FALSE)
+/datum/light_source/proc/apply_lum(var/update = UPDATE_SCHEDULE)
 	var/static/update_gen = 1
 	applied = 1
 
@@ -244,7 +244,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER(C, now)
+			APPLY_CORNER(C)
 
 		if (!T.affecting_lights)
 			T.affecting_lights = list()
@@ -254,7 +254,7 @@
 
 	update_gen++
 
-/datum/light_source/proc/remove_lum(var/now = FALSE)
+/datum/light_source/proc/remove_lum(var/update = UPDATE_SCHEDULE)
 	applied = FALSE
 
 	for (var/turf/T in affecting_turfs)
@@ -266,19 +266,20 @@
 	affecting_turfs.Cut()
 
 	for (var/datum/lighting_corner/C in effect_str)
-		REMOVE_CORNER(C, now)
+		REMOVE_CORNER(C)
 
 		C.affecting -= src
 
 	effect_str.Cut()
 
 /datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C)
+	var/update = UPDATE_SCHEDULE	// for (APPLY|REMOVE)_CORNER.
 	if (effect_str.Find(C)) // Already have one.
-		REMOVE_CORNER(C, FALSE)
+		REMOVE_CORNER(C)
 
-	APPLY_CORNER(C, FALSE)
+	APPLY_CORNER(C)
 
-/datum/light_source/proc/smart_vis_update(var/now = FALSE)
+/datum/light_source/proc/smart_vis_update(var/update = UPDATE_SCHEDULE)
 	var/list/datum/lighting_corner/corners = list()
 	var/list/turf/turfs                    = list()
 	FOR_DVIEW(var/turf/T, light_range, source_turf, 0)
@@ -306,10 +307,10 @@
 			effect_str[C] = 0
 			continue
 
-		APPLY_CORNER(C, now)
+		APPLY_CORNER(C)
 
 	for (var/datum/lighting_corner/C in effect_str - corners) // Old, now gone, corners.
-		REMOVE_CORNER(C, now)
+		REMOVE_CORNER(C)
 		C.affecting -= src
 		effect_str -= C
 

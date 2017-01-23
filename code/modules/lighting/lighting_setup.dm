@@ -14,6 +14,6 @@
 			continue
 
 		#ifdef USE_DARKNESS_OVERLAYS
-		getFromPool(/atom/movable/darkness_overlay, T, TRUE)
+		getFromPool(/atom/movable/darkness_overlay, T)
 		#endif
 		getFromPool(/atom/movable/lighting_overlay, T, TRUE)

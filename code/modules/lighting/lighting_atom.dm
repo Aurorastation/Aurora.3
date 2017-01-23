@@ -9,10 +9,27 @@
 	var/tmp/datum/light_source/light // Our light source. Don't fuck with this directly unless you have a good reason!
 	var/tmp/list/light_sources       // Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
 
-// The proc you should always use to set the light of this atom.
 // Nonesensical value for l_color default, so we can detect if it gets set to null.
 #define NONSENSICAL_VALUE -99999
-/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/now = FALSE, var/uv = NONSENSICAL_VALUE)
+
+#define SET_LIGHT set_light(l_range,l_power,l_color,uv,update);return;
+// Same as set_light(), but only does something if there's actually a change in state.
+/atom/proc/diff_light(/var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/update = UPDATE_SCHEDULE)
+	if (l_range != light_range)
+		SET_LIGHT
+	if (l_power && l_power != light_power)
+		SET_LIGHT
+	if (l_color != NONSENSICAL_VALUE && l_color != light_color)
+		SET_LIGHT
+	if (uv != NONSENSICAL_VALUE)
+		SET_LIGHT
+	if (update != UPDATE_SCHEDULE)
+		SET_LIGHT
+
+#undef SET_LIGHT	
+
+// The proc you should always use to set the light of this atom.
+/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/update = UPDATE_SCHEDULE)
 	lprof_write(src, "atom_setlight")
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
@@ -29,23 +46,26 @@
 	if (uv != NONSENSICAL_VALUE)
 		set_uv(uv, no_update = TRUE)
 
-	update_light(now)
+	switch (update)
+		if (UPDATE_SCHEDULE)
+			update_light()
+		if (UPDATE_NOW)
+			update_light(TRUE)
 
 #undef NONSENSICAL_VALUE
 
-/atom/proc/set_uv(var/intensity, var/now = FALSE, var/no_update = FALSE)
+/atom/proc/set_uv(var/intensity, var/update = UPDATE_SCHEDULE)
 	if (intensity < 0 || intensity > 255)
 		intensity = min(max(intensity, 255), 0)
 
 	uv_intensity = intensity
 
-	if (!no_update)
-		update_light(now)
+	if (update != UPDATE_NONE)
+		update_light(update)
 
 // Will update the light (duh).
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
-// If now is TRUE, forces an update IMMEDIATELY, bypassing the scheduler.
-/atom/proc/update_light(var/now = FALSE)
+/atom/proc/update_light(var/update = UPDATE_SCHEDULE)
 	set waitfor = FALSE
 	if (gcDestroyed)
 		return
@@ -63,7 +83,7 @@
 			. = loc
 
 		if (light) // Update the light or create it if it does not exist.
-			light.update(., now)
+			light.update(., update)
 		else
 			light = new/datum/light_source(src, .)
 
@@ -124,11 +144,11 @@
 
 	if (Obj && OldLoc != src)
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light(now = TRUE)	// update NOW.
+			L.source_atom.update_light(update = UPDATE_NOW)
 
 /atom/Exited(var/atom/movable/Obj, var/atom/newloc)
 	. = ..()
 
 	if (!newloc && Obj && newloc != src) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light(now = TRUE)
+			L.source_atom.update_light(update = UPDATE_NOW)
