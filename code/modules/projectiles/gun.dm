@@ -326,7 +326,7 @@
 
 	mouthshoot = 1
 	M.visible_message("\red [user] sticks their gun in their mouth, ready to pull the trigger...")
-	if(!do_after(user, src, 40))
+	if(!do_after(user, 40))
 		M.visible_message("\blue [user] decided life was worth living")
 		mouthshoot = 0
 		return

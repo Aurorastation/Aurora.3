@@ -1020,7 +1020,7 @@
 	if (chassis)
 		chassis.visible_message("<span class='notice'>[user] starts to climb into [chassis].</span>")
 
-	if(do_after(user, src, 40, needhand=0))
+	if(do_after(user, 40, needhand=0))
 		if(!src.occupant)
 			user.forceMove(src)
 			occupant = user

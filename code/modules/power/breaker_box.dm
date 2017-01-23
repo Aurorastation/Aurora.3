@@ -50,7 +50,7 @@
 
 	busy = 1
 	user << "<span class='good'>Updating power settings..</span>"
-	if(do_after(user, src, 50))
+	if(do_after(user, 50))
 		set_state(!on)
 		user << "<span class='good'>Update Completed. New setting:[on ? "on": "off"]</span>"
 		update_locked = 1
@@ -72,7 +72,7 @@
 	for(var/mob/O in viewers(user))
 		O.show_message(text("<span class='warning'>[user] started reprogramming [src]!</span>"), 1)
 
-	if(do_after(user, src, 50))
+	if(do_after(user, 50))
 		set_state(!on)
 		user.visible_message(\
 		"<span class='notice'>[user.name] [on ? "enabled" : "disabled"] the breaker box!</span>",\

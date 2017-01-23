@@ -68,7 +68,7 @@
 			playsound(user, fire_sound, 50, 1)
 			user.visible_message("<span class='danger'>[src] goes off!</span>", "<span class='danger'>The rifle goes off in your face!</span>")
 			return
-		if(do_after(user, src, 30))
+		if(do_after(user, 30))
 			icon_state = "obrez"
 			w_class = 3
 			recoil = 2

@@ -139,7 +139,7 @@
 					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 					overlays += "overlay_welding"
-					if (do_after(user, src, 25, 1))
+					if (do_after(user, 25, 1))
 						user << span("notice", "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src].")
 						if (hacked) locked = 1
 						else locked = 0
@@ -269,7 +269,7 @@
 
 	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
 
-	if (do_after(user, src, 35, 1))
+	if (do_after(user, 35, 1))
 
 		if (!check_target(newtarget, user)) return
 

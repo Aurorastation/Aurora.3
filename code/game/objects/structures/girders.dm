@@ -58,7 +58,7 @@
 		if(anchored && !reinf_material)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			user << "<span class='notice'>Now disassembling the girder...</span>"
-			if(do_after(user, src,40))
+			if(do_after(user,40))
 				if(!src) return
 				user << "<span class='notice'>You dissasembled the girder!</span>"
 				dismantle()
@@ -71,7 +71,7 @@
 
 	else if(istype(W, /obj/item/weapon/pickaxe/plasmacutter))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
-		if(do_after(user, src,30))
+		if(do_after(user,30))
 			if(!src) return
 			user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
@@ -80,7 +80,7 @@
 		var/obj/item/weapon/melee/energy/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
-			if(do_after(user, src,30))
+			if(do_after(user,30))
 				if(!src) return
 				user << "<span class='notice'>You slice apart the girder!</span>"
 				dismantle()
@@ -90,7 +90,7 @@
 
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
-		if(do_after(user, src,30))
+		if(do_after(user,30))
 			if(!src) return
 			user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
@@ -99,7 +99,7 @@
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
-			if(do_after(user, src,60))
+			if(do_after(user,60))
 				if(!src) return
 				user << "<span class='notice'>You slice apart the girder!</span>"
 				dismantle()
@@ -115,7 +115,7 @@
 		if(state == 2)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user << "<span class='notice'>Now unsecuring support struts...</span>"
-			if(do_after(user, src,40))
+			if(do_after(user,40))
 				if(!src) return
 				user << "<span class='notice'>You unsecured the support struts!</span>"
 				state = 1
@@ -127,7 +127,7 @@
 	else if(istype(W, /obj/item/weapon/wirecutters) && state == 1)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user << "<span class='notice'>Now removing support struts...</span>"
-		if(do_after(user, src,40))
+		if(do_after(user,40))
 			if(!src) return
 			user << "<span class='notice'>You removed the support struts!</span>"
 			reinf_material.place_dismantled_product(get_turf(src))
@@ -137,7 +137,7 @@
 	else if(istype(W, /obj/item/weapon/crowbar) && state == 0 && anchored)
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		user << "<span class='notice'>Now dislodging the girder...</span>"
-		if(do_after(user, src, 40))
+		if(do_after(user, 40))
 			if(!src) return
 			user << "<span class='notice'>You dislodged the girder!</span>"
 			icon_state = "displaced"
@@ -174,7 +174,7 @@
 
 	user << "<span class='notice'>You begin adding the plating...</span>"
 
-	if(!do_after(user, src,40) || !S.use(2))
+	if(!do_after(user,40) || !S.use(2))
 		return 1 //once we've gotten this far don't call parent attackby()
 
 	if(anchored)
@@ -208,7 +208,7 @@
 		return 0
 
 	user << "<span class='notice'>Now reinforcing...</span>"
-	if (!do_after(user, src,40) || !S.use(2))
+	if (!do_after(user,40) || !S.use(2))
 		return 1 //don't call parent attackby() past this point
 	user << "<span class='notice'>You added reinforcement!</span>"
 
@@ -273,13 +273,13 @@
 	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		user << "<span class='notice'>Now disassembling the girder...</span>"
-		if(do_after(user, src,40))
+		if(do_after(user,40))
 			user << "<span class='notice'>You dissasembled the girder!</span>"
 			dismantle()
 
 	else if(istype(W, /obj/item/weapon/pickaxe/plasmacutter))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
-		if(do_after(user, src,30))
+		if(do_after(user,30))
 			user << "<span class='notice'>You slice apart the girder!</span>"
 		dismantle()
 
@@ -292,7 +292,7 @@
 		var/obj/item/weapon/melee/energy/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
-			if(do_after(user, src,30))
+			if(do_after(user,30))
 				user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
 		else
@@ -301,7 +301,7 @@
 
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
-		if(do_after(user, src,30))
+		if(do_after(user,30))
 			user << "<span class='notice'>You slice apart the girder!</span>"
 		dismantle()
 
@@ -309,7 +309,7 @@
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
-			if(do_after(user, src,60))
+			if(do_after(user,60))
 				user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
 		else

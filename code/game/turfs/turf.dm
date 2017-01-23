@@ -44,7 +44,6 @@
 
 /turf/Destroy()
 	turfs -= src
-	lighting_clear_overlay()
 	..()
 
 /turf/ex_act(severity)

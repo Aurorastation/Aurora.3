@@ -68,7 +68,7 @@
 			return
 		usr << "<span class='notice'>Assembling grille...</span>"
 		in_use = 1
-		if (!do_after(usr, src, 10))
+		if (!do_after(usr, 10))
 			in_use = 0
 			return
 		var/obj/structure/grille/F = new /obj/structure/grille/ ( usr.loc )

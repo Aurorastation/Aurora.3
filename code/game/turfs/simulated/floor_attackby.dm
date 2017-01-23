@@ -67,7 +67,7 @@
 				user << "<span class='warning'>You require at least [use_flooring.build_cost] [S.name] to complete the [use_flooring.descriptor].</span>"
 				return
 			// Stay still and focus...
-			if(use_flooring.build_time && !do_after(user, src, use_flooring.build_time))
+			if(use_flooring.build_time && !do_after(user, use_flooring.build_time))
 				return
 			if(flooring || !S || !user || !use_flooring)
 				return

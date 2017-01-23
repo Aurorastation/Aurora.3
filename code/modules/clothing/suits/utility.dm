@@ -91,7 +91,7 @@
 	if (slot == slot_wear_suit)
 		var/mob/living/carbon/human/H = user
 		H.visible_message("<font color='blue'>[H] starts putting on \the [src]...</font>", "<font color='blue'>You start putting on \the [src]...</font>")
-		if(!do_after(H, src, 50))
+		if(!do_after(H,50))
 			if(H && H.wear_suit == src)
 				H.wear_suit = null
 				H.drop_from_inventory(src)

@@ -316,7 +316,7 @@
 
 	user.visible_message(span("notice", "[user] starts deploying an inflatable"), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, 1)
-	if (do_after(user, src, 20, needhand = 0))
+	if (do_after(user, 20, needhand = 0))
 		new newtype(T)
 		if (mode)
 			stored_doors--

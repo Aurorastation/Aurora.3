@@ -109,12 +109,12 @@
 
 	if (new_opacity == TRUE)
 		T.has_opaque_atom = TRUE
-		T.update_lights_now()
+		T.reconsider_lights()
 	else
 		var/old_has_opaque_atom = T.has_opaque_atom
 		T.recalc_atom_opacity()
 		if (old_has_opaque_atom != T.has_opaque_atom)
-			T.update_lights_now()
+			T.reconsider_lights()
 
 
 // This code makes the light be queued for update when it is moved.

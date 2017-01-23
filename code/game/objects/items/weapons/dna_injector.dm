@@ -111,7 +111,7 @@
 	spawn(50)
 		inuse = 0
 
-	if(!do_after(user, src,50))
+	if(!do_after(user,50))
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)

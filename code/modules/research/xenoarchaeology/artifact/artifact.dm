@@ -62,7 +62,7 @@
 	if (istype(W, /obj/item/device/measuring_tape))
 		var/obj/item/device/measuring_tape/P = W
 		user.visible_message("\blue[user] extends [P] towards [src].","\blue You extend [P] towards [src].")
-		if(do_after(user, src,40))
+		if(do_after(user,40))
 			user << "\blue \icon[P] [src] has been excavated to a depth of [2*src.excavation_level]cm."
 		return
 
@@ -77,7 +77,7 @@
 
 
 
-		if(!do_after(user, src,P.digspeed))
+		if(!do_after(user,P.digspeed))
 			return
 
 		user << "\blue You finish [P.drill_verb] [src]."
