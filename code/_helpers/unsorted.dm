@@ -657,7 +657,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if(user && user.client && user.client.prefs.progress_bars)
 		if(!progbar)
 			progbar = image("icon" = 'icons/effects/doafter_icon.dmi', "loc" = target, "icon_state" = "prog_bar_0")
-			progbar.layer = 22
+			progbar.layer = 20
 			progbar.pixel_z = WORLD_ICON_SIZE
 
 	for (var/i = 1 to numticks)
@@ -729,7 +729,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		if(!progbar)
 			progbar = image("icon" = 'icons/effects/doafter_icon.dmi', "loc" = target, "icon_state" = "prog_bar_0")
 			progbar.pixel_z = WORLD_ICON_SIZE
-			progbar.layer = 22
+			progbar.layer = 20
 			progbar.appearance_flags = RESET_COLOR
 
 	for (var/i = 1 to numticks)
@@ -737,7 +737,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 			if(!progbar)
 				progbar = image("icon" = 'icons/effects/doafter_icon.dmi', "loc" = target, "icon_state" = "prog_bar_0")
 				progbar.pixel_z = WORLD_ICON_SIZE
-				progbar.layer = 22
+				progbar.layer = 20
 				progbar.appearance_flags = RESET_COLOR
 
 			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
