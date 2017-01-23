@@ -12,9 +12,9 @@
 // Nonesensical value for l_color default, so we can detect if it gets set to null.
 #define NONSENSICAL_VALUE -99999
 
-#define SET_LIGHT set_light(l_range,l_power,l_color,uv,update);return;
+#define SET_LIGHT set_light(l_range,l_power,l_color,uv,update_type);return;
 // Same as set_light(), but only does something if there's actually a change in state.
-/atom/proc/diff_light(/var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/update = UPDATE_SCHEDULE)
+/atom/proc/diff_light(/var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/update_type = UPDATE_SCHEDULE)
 	if (l_range != light_range)
 		SET_LIGHT
 	if (l_power && l_power != light_power)
@@ -23,13 +23,13 @@
 		SET_LIGHT
 	if (uv != NONSENSICAL_VALUE)
 		SET_LIGHT
-	if (update != UPDATE_SCHEDULE)
+	if (update_type != UPDATE_SCHEDULE)
 		SET_LIGHT
 
 #undef SET_LIGHT	
 
 // The proc you should always use to set the light of this atom.
-/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/update = UPDATE_SCHEDULE)
+/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/update_type = UPDATE_SCHEDULE)
 	lprof_write(src, "atom_setlight")
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
@@ -44,9 +44,9 @@
 		light_color = l_color
 
 	if (uv != NONSENSICAL_VALUE)
-		set_uv(uv, update = UPDATE_NONE)
+		set_uv(uv, update_type = UPDATE_NONE)
 
-	switch (update)
+	switch (update_type)
 		if (UPDATE_SCHEDULE)
 			update_light()
 		if (UPDATE_NOW)
@@ -144,11 +144,11 @@
 
 	if (Obj && OldLoc != src)
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light(update = UPDATE_NOW)
+			L.source_atom.update_light(update_type = UPDATE_NOW)
 
 /atom/Exited(var/atom/movable/Obj, var/atom/newloc)
 	. = ..()
 
 	if (!newloc && Obj && newloc != src) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light(update = UPDATE_NOW)
+			L.source_atom.update_light(update_type = UPDATE_NOW)

@@ -24,10 +24,10 @@
 /obj/item/device/flashlight/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on, update = UPDATE_NOW)
+		set_light(brightness_on, update_type = UPDATE_NOW)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0, update = UPDATE_NOW)
+		set_light(0, update_type = UPDATE_NOW)
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
@@ -231,7 +231,7 @@
 
 /obj/item/device/flashlight/slime/New()
 	..()
-	set_light(brightness_on, update = UPDATE_NOW)
+	set_light(brightness_on, update_type = UPDATE_NOW)
 
 /obj/item/device/flashlight/slime/update_icon()
 	return

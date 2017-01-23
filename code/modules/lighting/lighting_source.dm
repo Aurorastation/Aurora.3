@@ -78,10 +78,10 @@
 	if (check() || destroyed || force_update)
 		remove_lum(TRUE)
 		if (!destroyed)
-			apply_lum(update = UPDATE_NOW)
+			apply_lum(update_type = UPDATE_NOW)
 
 	else if (vis_update)	// We smartly update only tiles that became (in) visible to use.
-		smart_vis_update(update = UPDATE_NOW)
+		smart_vis_update(update_type = UPDATE_NOW)
 
 	vis_update   = FALSE
 	force_update = FALSE
