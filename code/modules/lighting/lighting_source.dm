@@ -98,7 +98,7 @@
 	}
 
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
-/datum/light_source/proc/update(var/atom/new_top_atom, var/update = UPDATE_SCHEDULE)
+/datum/light_source/proc/update(var/atom/new_top_atom, var/update_type = UPDATE_SCHEDULE)
 	// This top atom is different.
 	if (new_top_atom && new_top_atom != top_atom)
 		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
@@ -114,9 +114,9 @@
 
 	lprof_write(src, "source_update")
 
-	if (update == UPDATE_NOW)
+	if (update_type == UPDATE_NOW)
 		effect_update_now()
-	else if (update == UPDATE_SCHEDULE)	// I don't know why you would call this with UPDATE_NONE, but hey.
+	else if (update_type == UPDATE_SCHEDULE)	// I don't know why you would call this with UPDATE_NONE, but hey.
 		effect_update(null)
 
 // Will force an update without checking if it's actually needed.
