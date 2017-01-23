@@ -145,7 +145,6 @@
 #include "code\controllers\Processes\night_lighting.dm"
 #include "code\controllers\Processes\obj.dm"
 #include "code\controllers\Processes\pipenet.dm"
-#include "code\controllers\Processes\powernet.dm"
 #include "code\controllers\Processes\scheduler.dm"
 #include "code\controllers\Processes\Shuttle.dm"
 #include "code\controllers\Processes\sun.dm"
