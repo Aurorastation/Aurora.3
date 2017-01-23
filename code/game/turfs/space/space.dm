@@ -20,6 +20,7 @@
 	I.blend_mode = BLEND_ADD
 	overlays += I
 	update_starlight()
+	..()
 
 /turf/space/is_space()
 	return 1

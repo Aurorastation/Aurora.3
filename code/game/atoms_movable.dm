@@ -17,7 +17,6 @@
 	//Also used on holdable mobs for the same info related to their held version
 
 	var/auto_init = 1
-	var/area/areaMaster	// /shrug
 
 /atom/movable/New()
 	..()
@@ -277,11 +276,6 @@ var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "6" = 60)
 	if(!candidates.len)
 		return null
 	return text2num(pickweight(candidates))
-
-
-/atom/movable/change_area(oldarea, newarea)
-	areaMaster = newarea
-	..()
 
 // Parallax stuff.
 
