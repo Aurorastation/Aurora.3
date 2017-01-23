@@ -117,7 +117,7 @@
 	else
 		set_light(0)
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/weapon/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
 	var/blocked = ..()
 
 	if(user.a_intent != I_HURT)
@@ -488,3 +488,11 @@
 	New()
 		..()
 		reagents.add_reagent("drambuie", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/sbiten
+	name = "Sbiten"
+	desc = "A bottle full of sweet sbiten."
+	icon_state = "sbitenbottle"
+	New()
+		..()
+		reagents.add_reagent("sbiten", 100)
