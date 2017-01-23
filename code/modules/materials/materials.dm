@@ -785,6 +785,6 @@ var/list/name_to_material
 
 /material/hide/human
 	name = "human hide"
-	stack_type = /obj/item/stack/material/animalhide/xeno
+	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#525288"
 	icon_colour = "#833C00"
