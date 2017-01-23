@@ -1848,7 +1848,7 @@
 /datum/reagent/ethanol/sbiten
 	name = "Sbiten"
 	id = "sbiten"
-	description = "A spicy Vodka! Might be a little hot for the little guys!"
+	description = "A spicy mix of mead and spices! Might be a little hot for the little guys!"
 	color = "#664300"
 	strength = 40
 	adj_temp = 50
@@ -1856,7 +1856,7 @@
 
 	glass_icon_state = "sbitenglass"
 	glass_name = "glass of Sbiten"
-	glass_desc = "A spicy mix of Vodka and Spice. Very hot."
+	glass_desc = "A spicy mix of Mead and Spices. Very hot."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /datum/reagent/ethanol/screwdrivercocktail
