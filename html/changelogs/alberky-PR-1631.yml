@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Bottles can be smashed against people again."
-  - bugfix: "You can't store paper bins inside bags anymore."
-  - tweak: "Changed the sbiten recipe to use mead instead of vodka."
