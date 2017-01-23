@@ -146,6 +146,7 @@
 	return (..(P))
 
 /mob/living/simple_animal/construct/armoured/UnarmedAttack(var/atom/A, var/proximity)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(A, /obj/machinery))
 		// Destroy machines instead of opening their UI
 		var/obj/machinery/M = A
