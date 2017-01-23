@@ -84,7 +84,7 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)
+/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
