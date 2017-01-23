@@ -287,7 +287,7 @@
 	if (total_radiation)
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
-			//diona_handle_regeneration(get_dionastats())
+			diona_handle_regeneration(get_dionastats())
 			return
 		else
 			var/damage = 0
@@ -617,8 +617,8 @@
 	var/pressure = environment.return_pressure()
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
-	//if (is_diona())
-		//diona_handle_air(get_dionastats(), pressure)
+	if (is_diona())
+		diona_handle_air(get_dionastats(), pressure)
 
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
