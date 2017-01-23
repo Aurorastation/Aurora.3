@@ -54,18 +54,18 @@
 
 #undef NONSENSICAL_VALUE
 
-/atom/proc/set_uv(var/intensity, var/update = UPDATE_SCHEDULE)
+/atom/proc/set_uv(var/intensity, var/update_type = UPDATE_SCHEDULE)
 	if (intensity < 0 || intensity > 255)
 		intensity = min(max(intensity, 255), 0)
 
 	uv_intensity = intensity
 
-	if (update != UPDATE_NONE)
-		update_light(update)
+	if (update_type != UPDATE_NONE)
+		update_light(update_type)
 
 // Will update the light (duh).
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
-/atom/proc/update_light(var/update = UPDATE_SCHEDULE)
+/atom/proc/update_light(var/update_type = UPDATE_SCHEDULE)
 	set waitfor = FALSE
 	if (gcDestroyed)
 		return
@@ -83,7 +83,7 @@
 			. = loc
 
 		if (light) // Update the light or create it if it does not exist.
-			light.update(., update)
+			light.update(., update_type)
 		else
 			light = new/datum/light_source(src, .)
 

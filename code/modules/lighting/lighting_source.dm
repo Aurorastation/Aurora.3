@@ -33,7 +33,7 @@
 	var/destroyed       // Whether we are destroyed and need to stop emitting light.
 	var/force_update
 
-/datum/light_source/New(var/atom/owner, var/atom/top, var/update = UPDATE_SCHEDULE)
+/datum/light_source/New(var/atom/owner, var/atom/top, var/update_t = UPDATE_SCHEDULE)
 	source_atom = owner // Set our new owner.
 	if (!source_atom.light_sources)
 		source_atom.light_sources = list()
@@ -57,7 +57,7 @@
 	effect_str      = list()
 	affecting_turfs = list()
 
-	update(update = update)
+	update(update_type = update_t)
 
 	lprof_write(src, "source_new")
 
@@ -201,7 +201,7 @@
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
 		. * applied_lum_u,           \
-		update                       \
+		update_type                       \
 	);
 
 // I don't need to explain what this does, do I?
@@ -213,13 +213,13 @@
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
 		. * applied_lum_u,           \
-		update                       \
+		update_type                       \
 	);
 
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
 
-/datum/light_source/proc/apply_lum(var/update = UPDATE_SCHEDULE)
+/datum/light_source/proc/apply_lum(var/update_type = UPDATE_SCHEDULE)
 	var/static/update_gen = 1
 	applied = 1
 
@@ -254,7 +254,7 @@
 
 	update_gen++
 
-/datum/light_source/proc/remove_lum(var/update = UPDATE_SCHEDULE)
+/datum/light_source/proc/remove_lum(var/update_type = UPDATE_SCHEDULE)
 	applied = FALSE
 
 	for (var/turf/T in affecting_turfs)
@@ -273,13 +273,13 @@
 	effect_str.Cut()
 
 /datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C)
-	var/update = UPDATE_SCHEDULE	// for (APPLY|REMOVE)_CORNER.
+	var/update_type = UPDATE_SCHEDULE	// for (APPLY|REMOVE)_CORNER.
 	if (effect_str.Find(C)) // Already have one.
 		REMOVE_CORNER(C)
 
 	APPLY_CORNER(C)
 
-/datum/light_source/proc/smart_vis_update(var/update = UPDATE_SCHEDULE)
+/datum/light_source/proc/smart_vis_update(var/update_type = UPDATE_SCHEDULE)
 	var/list/datum/lighting_corner/corners = list()
 	var/list/turf/turfs                    = list()
 	FOR_DVIEW(var/turf/T, light_range, source_turf, 0)
