@@ -37,3 +37,4 @@ changes:
   - tweak: "Various Map Changes"
   - rscadd: "Added Wall Mounted Consoles"
   - rscadd: "Ported Holo-Warrants from bay. Can be found in the security officers lockers"
+  - rscadd: "Added a holowarrant to sec borgs. Borgs can now display warrants to the suspects."
