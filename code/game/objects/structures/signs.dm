@@ -204,7 +204,7 @@
 	name = "\improper Escape Arm"
 	desc = "A direction sign, pointing out which way the escape shuttle dock is."
 	icon_state = "direction_evac"
-
+/*
 /obj/structure/sign/christmas/lights
 	name = "Christmas lights"
 	desc = "Flashy."
@@ -218,3 +218,4 @@
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "doorwreath"
 	layer = 5
+*/	
