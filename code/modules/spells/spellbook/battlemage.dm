@@ -15,6 +15,7 @@
 	spells = list(/spell/targeted/projectile/dumbfire/passage = 					1,
 				/spell/targeted/equip_item/shield = 					1,
 				/spell/targeted/projectile/dumbfire/fireball = 				1,
+				/spell/targeted/projectile/magic_missile = 				1,
 				/spell/targeted/torment = 						1,
 				/spell/targeted/heal_target = 						2,
 				/spell/targeted/genetic/mutate = 					1,
