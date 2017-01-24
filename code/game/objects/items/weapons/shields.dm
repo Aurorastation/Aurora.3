@@ -137,7 +137,7 @@
 			if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 				var/obj/item/projectile/P = damage_source
 
-				var/reflectchance = 60 - round(damage/3)
+				var/reflectchance = 80 - round(damage/3)
 				if(P.starting && prob(reflectchance))
 					visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
 
