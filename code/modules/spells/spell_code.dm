@@ -107,6 +107,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		if(prob(critfailchance))
 			critfail(targets, user)
 		else
+			playsound(get_turf(user), cast_sound, 50, 1)
 			cast(targets, user)
 		after_cast(targets) //generates the sparks, smoke, target messages etc.
 
