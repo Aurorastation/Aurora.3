@@ -9,6 +9,7 @@
 	invocation_type = SpI_WHISPER
 	range = 3
 	cooldown_min = 20 //20 deciseconds reduction per rank
+	cast_sound = 'sound/magic/Knock.ogg'
 
 	hud_state = "wiz_knock"
 
