@@ -2,6 +2,7 @@
 	name = "Charge"
 	desc = "This spell can be used to charge up spent magical artifacts, among other things."
 
+	cast_sound = 'sound/magic/Disable_Tech.ogg'
 	school = "transmutation"
 	charge_max = 600
 	spell_flags = 0
@@ -9,7 +10,8 @@
 	invocation_type = SpI_WHISPER
 	range = 0
 	cooldown_min = 400 //50 deciseconds reduction per rank
-
+	cast_sound = 'sound/magic/Charge.ogg'
+	
 	hud_state = "wiz_charge"
 
 /spell/aoe_turf/charge/cast(var/list/targets, mob/user)
