@@ -11,18 +11,18 @@
 	book_flags = CAN_MAKE_CONTRACTS
 	max_uses = 5
 
-	spells = list(/spell/targeted/heal_target = 					1,
+	spells = list(/spell/targeted/heal_target = 						1,
 				/spell/targeted/heal_target/sacrifice = 			1,
-				/spell/aoe_turf/conjure/mirage = 					1,
+				/spell/aoe_turf/conjure/mirage = 				1,
 				/spell/aoe_turf/conjure/summon/bats = 				1,
 				/spell/aoe_turf/conjure/summon/bear = 				1,
 				/spell/targeted/equip_item/party_hardy = 			1,
-				/spell/targeted/equip_item/seed = 					1,
-				/spell/aoe_turf/disable_tech = 						1,
-				/spell/targeted/entangle = 							1,
+				/spell/targeted/equip_item/seed = 				1,
+				/spell/aoe_turf/disable_tech = 					1,
+				/spell/targeted/entangle = 					1,
 				/spell/aoe_turf/conjure/grove/sanctuary = 			1,
-				/spell/aoe_turf/knock = 							1,
+				/spell/aoe_turf/knock = 					1,
 				/obj/structure/closet/wizard/souls = 				1,
-				/obj/item/weapon/monster_manual = 					1,
+				/obj/item/weapon/monster_manual = 				1,
 				/obj/item/weapon/contract/apprentice = 				1
 				)
