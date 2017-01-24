@@ -33,6 +33,7 @@ code\game\dna\genes\goon_powers.dm
 	feedback = "BD"
 	disabilities = 1
 	duration = 300
+	cast_sound = 'sound/magic/Blind.ogg'
 
 	charge_max = 300
 
