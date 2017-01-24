@@ -11,18 +11,18 @@
 	book_flags = CAN_MAKE_CONTRACTS
 	max_uses = 6
 
-	spells = list(/spell/targeted/heal_target = 					1,
+	spells = list(/spell/targeted/heal_target = 						1,
 				/spell/targeted/heal_target/major = 				1,
-				/spell/targeted/heal_target/area = 					1,
+				/spell/targeted/heal_target/area = 				1,
 				/spell/targeted/heal_target/sacrifice = 			1,
-				/spell/targeted/genetic/blind = 					1,
-				/spell/targeted/shapeshift/baleful_polymorph = 		1,
-				/spell/targeted/projectile/dumbfire/stuncuff = 		1,
-				/spell/targeted/ethereal_jaunt = 					2,
-				/spell/aoe_turf/knock = 							1,
+				/spell/targeted/genetic/blind = 				1,
+				/spell/targeted/shapeshift/baleful_polymorph = 			1,
+				/spell/targeted/projectile/dumbfire/stuncuff = 			1,
+				/spell/targeted/ethereal_jaunt = 				2,
+				/spell/aoe_turf/knock = 					1,
 				/spell/targeted/equip_item/holy_relic = 			1,
 				/spell/aoe_turf/conjure/grove/sanctuary = 			1,
-				/spell/targeted/projectile/dumbfire/fireball = 		2,
+				/spell/targeted/projectile/dumbfire/fireball = 			2,
 				/spell/aoe_turf/conjure/forcewall = 				1,
 				/obj/item/weapon/gun/energy/staff/focus = 			2,
 				/obj/item/weapon/contract/apprentice = 				1
