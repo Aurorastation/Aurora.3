@@ -1,8 +1,6 @@
 /spell/aoe_turf/charge
 	name = "Charge"
 	desc = "This spell can be used to charge up spent magical artifacts, among other things."
-
-	cast_sound = 'sound/magic/Disable_Tech.ogg'
 	school = "transmutation"
 	charge_max = 600
 	spell_flags = 0
