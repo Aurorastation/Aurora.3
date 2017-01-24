@@ -5,8 +5,6 @@
 
 	var/list/equipped_summons = list() //assoc list of text ids and paths to spawn
 
-	var/list/remove_equipped = list() //assoc list of text ids and paths to remove
-
 	var/list/summoned_items = list() //list of items we summoned and will dispose when the spell runs out
 
 	var/delete_old = 1 //if the item previously in the slot is deleted - otherwise, it's dropped
@@ -14,20 +12,14 @@
 /spell/targeted/equip_item/cast(list/targets, mob/user = usr)
 	..()
 	for(var/mob/living/L in targets)
-		for(var/slot_id in remove_equipped)
-			slot_id = text2num(slot_id)
-			if (istype(L.get_equipped_item(slot_id), /obj/item/clothing/mask/horsehead))
-				var/obj/item/old_item = L.get_equipped_item(slot_id)
-				L.remove_from_mob(old_item)
-				if (prob(40))
-					if(delete_old)
-						qdel(old_item)
-				else
-					old_item.loc = L.loc
-
 		for(var/slot_id in equipped_summons)
 			var/to_create = equipped_summons[slot_id]
-			slot_id = text2num(slot_id) //because the index is text, we access this instead
+			if(cmptext(slot_id,"active hand"))
+				slot_id = (user.hand ? slot_l_hand : slot_r_hand)
+			else if(cmptext(slot_id, "off hand"))
+				slot_id = (user.hand ? slot_r_hand : slot_l_hand)
+			else
+				slot_id = text2num(slot_id) //because the index is text, we access this instead
 			var/obj/item/new_item = summon_item(to_create)
 			var/obj/item/old_item = L.get_equipped_item(slot_id)
 			L.equip_to_slot(new_item, slot_id)
@@ -47,7 +39,7 @@
 				if(istype(to_remove.loc, /mob))
 					var/mob/M = to_remove.loc
 					M.remove_from_mob(to_remove)
-					qdel(to_remove)
+				qdel(to_remove)
 
 /spell/targeted/equip_item/proc/summon_item(var/newtype)
 	return new newtype
