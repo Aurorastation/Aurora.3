@@ -109,7 +109,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/motaki_datadrive.dmi'
 	icon_state = "motaki_datadrive"
 	item_state = "holobadge-cord"
-	slot_flags = SLOT_MASK
+	slot_flags = SLOT_MASK | SLOT_TIE
 
 
 /obj/item/clothing/ears/skrell/fluff/dompesh_cloth //Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995
@@ -203,6 +203,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "kathleen_glove"
 	item_state = "kathleen_glove"
 	contained_sprite = 1
+	gender = NEUTER
+	body_parts_covered = null
 
 
 /obj/structure/bed/chair/wheelchair/fluff/nomak_scooter //Mobility Scooter - Dubaku Nomak - demonofthefall
@@ -489,6 +491,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	clipped = 1
 	species_restricted = null
+	gender = NEUTER
+	body_parts_covered = null
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
@@ -587,7 +591,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
 	name = "worn badge"
 	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
-	icon_state = "badge"
 	icon = 'icons/obj/custom_items/caleb_badge.dmi'
 	item_state = "caleb_badge"
 	icon_state = "caleb_badge"
@@ -902,4 +905,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
 	icon_state = "ryan_jacket"
 	item_state = "ryan_jacket"
+	contained_sprite = 1
+
+
+/obj/item/clothing/suit/storage/fluff/yuri_duster //Martian Duster - Yuri Daruski - bv1000
+	name = "martian duster"
+	desc = "A longer coat made of a tough fabric designed to protect the wearer from the harshness of the Mars badlands \
+	found beyond the terraformed areas said planet. Two scorched holes can be found on the lower back, and three non-scorched holes \
+	appear in the upper torso in the back, with two lining up with two in the front."
+	icon = 'icons/obj/custom_items/yuri_duster.dmi'
+	icon_state = "yuri_duster"
+	item_state = "yuri_duster"
 	contained_sprite = 1
