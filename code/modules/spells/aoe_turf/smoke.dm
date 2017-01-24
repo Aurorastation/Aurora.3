@@ -10,6 +10,7 @@
 	range = 1
 	inner_radius = -1
 	cooldown_min = 20 //25 deciseconds reduction per rank
+	cast_sound = 'sound/magic/Smoke.ogg'
 
 	smoke_spread = 2
 	smoke_amt = 5
