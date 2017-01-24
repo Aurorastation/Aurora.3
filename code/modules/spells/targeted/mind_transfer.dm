@@ -12,7 +12,7 @@
 	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 4, Sp_POWER = 2)
 	cooldown_min = 200 //100 deciseconds reduction per rank
 	compatible_mobs = list(/mob/living/carbon/human) //which types of mobs are affected by the spell. NOTE: change at your own risk
-	cast_sound = 'sound/effects/MandSwap.ogg'
+	cast_sound = 'sound/magic/MandSwap.ogg'
 
 	// TODO: Update to new antagonist system.
 	var/list/protected_roles = list("Wizard","Changeling","Cultist", "Vampire") //which roles are immune to the spell
@@ -49,7 +49,7 @@
 			for(var/V in victim.mind.special_verbs)
 				victim.verbs -= V
 
-		var/mob/observer/ghost/ghost = victim.ghostize(0)
+		var/mob/dead/observer/ghost = victim.ghostize(0)
 		ghost.spell_list += victim.spell_list//If they have spells, transfer them. Now we basically have a backup mob.
 
 		caster.mind.transfer_to(victim)
