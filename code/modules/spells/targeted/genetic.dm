@@ -70,6 +70,7 @@ code\game\dna\genes\goon_powers.dm
 	message = "<span class='notice'>You feel strong! You feel a pressure building behind your eyes!</span>"
 	range = 0
 	max_targets = 1
+	cast_sound = 'sound/magic/Mutate.ogg'
 
 	mutations = list(LASER, HULK)
 	duration = 300
