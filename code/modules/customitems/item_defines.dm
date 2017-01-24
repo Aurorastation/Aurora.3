@@ -142,7 +142,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/det/fluff/bell_hat //Brown Hat - Avery Bell - serveris6
 	name = "brown hat"
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
-	icon = 'icons/obj/custom_items/bell_hat.dmi'
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_hat"
 	item_state = "bell_hat"
 	contained_sprite = 1
