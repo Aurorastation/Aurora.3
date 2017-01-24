@@ -103,18 +103,60 @@
 	w_class = 2
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
+	var/shield_power = 150
 	var/active = 0
 
-/obj/item/weapon/shield/energy/handle_shield(mob/user)
+/obj/item/weapon/shield/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!active)
 		return 0 //turn it on first!
-	. = ..()
 
-	if(.)
-		var/datum/effect/effect/system/spark_spread/spark_system = PoolOrNew(/datum/effect/effect/system/spark_spread)
-		spark_system.set_up(5, 0, user.loc)
-		spark_system.start()
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+	if(user.incapacitated())
+		return 0
+
+	//block as long as they are not directly behind us
+	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	if(check_shield_arc(user, bad_arc, damage_source, attacker))
+
+		if(prob(get_block_chance(user, damage, damage_source, attacker)))
+			var/datum/effect/effect/system/spark_spread/spark_system = PoolOrNew(/datum/effect/effect/system/spark_spread)
+			spark_system.set_up(5, 0, user.loc)
+			spark_system.start()
+			playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+			shield_power -= round(damage/4)
+
+			if(shield_power <= 0)
+				visible_message("<span class='danger'>\The [user]'s [src.name] overloads!</span>")
+				active = 0
+				force = 3
+				update_icon()
+				w_class = 1
+				playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+				shield_power = initial(shield_power)
+				return 0
+
+			if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
+				var/obj/item/projectile/P = damage_source
+
+				var/reflectchance = 60 - round(damage/3)
+				if(P.starting && prob(reflectchance))
+					visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+
+					// Find a turf near or on the original location to bounce to
+					var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+					var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+					var/turf/curloc = get_turf(user)
+
+					// redirect the projectile
+					P.redirect(new_x, new_y, curloc, user)
+
+					return PROJECTILE_CONTINUE // complete projectile permutation
+				else
+					user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+					return 1
+			else
+				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+				return 1
+
 
 /obj/item/weapon/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))

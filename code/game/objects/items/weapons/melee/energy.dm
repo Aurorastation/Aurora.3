@@ -8,6 +8,10 @@
 	armor_penetration = 50
 	flags = NOBLOODY
 	can_embed = 0//No embedding pls
+	var/base_reflectchance = 40
+	var/base_block_chance = 50
+	var/shield_power = 100
+	var/can_block_bullets = 0
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
@@ -51,6 +55,88 @@
 	add_fingerprint(user)
 	return
 
+/obj/item/weapon/melee/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
+		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+
+//		Disabled because lag. Immense amounts of lag.
+//		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+//		spark_system.set_up(5, 0, user.loc)
+//		spark_system.start()
+		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		return 1
+	else
+
+		if(!active)
+			return 0 //turn it on first!
+
+		if(user.incapacitated())
+			return 0
+
+		//block as long as they are not directly behind us
+		var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+		if(check_shield_arc(user, bad_arc, damage_source, attacker))
+
+			if(prob(base_block_chance))
+				var/datum/effect/effect/system/spark_spread/spark_system = PoolOrNew(/datum/effect/effect/system/spark_spread)
+				spark_system.set_up(5, 0, user.loc)
+				spark_system.start()
+				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				shield_power -= round(damage/4)
+
+				if(shield_power <= 0)
+					visible_message("<span class='danger'>\The [user]'s [src.name] overloads!</span>")
+					deactivate()
+					shield_power = initial(shield_power)
+					return 0
+
+				if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
+					var/obj/item/projectile/P = damage_source
+
+					var/reflectchance = base_reflectchance - round(damage/3)
+					if(!(def_zone in list("chest", "groin","head")))
+						reflectchance /= 2
+					if(P.starting && prob(reflectchance))
+						visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+
+						// Find a turf near or on the original location to bounce to
+						var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+						var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+						var/turf/curloc = get_turf(user)
+
+						// redirect the projectile
+						P.redirect(new_x, new_y, curloc, user)
+
+						return PROJECTILE_CONTINUE // complete projectile permutation
+					else
+						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+						return 1
+
+				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
+					var/obj/item/projectile/P = damage_source
+
+					var/reflectchance = (base_reflectchance) - round(damage/3)
+					if(!(def_zone in list("chest", "groin","head")))
+						reflectchance /= 2
+					if(P.starting && prob(reflectchance))
+						visible_message("<span class='danger'>\The [user]'s [src.name] deflects [attack_text]!</span>")
+
+						// Find a turf near or on the original location to bounce to
+						var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+						var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+						var/turf/curloc = get_turf(user)
+
+						// redirect the projectile
+						P.redirect(new_x, new_y, curloc, user)
+
+						return PROJECTILE_CONTINUE // complete projectile permutation
+					else
+						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+						return 1
+				else
+					user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+					return 1
+
 /obj/item/weapon/melee/energy/glaive
 	name = "energy glaive"
 	desc = "An energized glaive."
@@ -69,6 +155,11 @@
 	sharp = 1
 	edge = 1
 	slot_flags = SLOT_BACK
+	base_reflectchance = 0
+	base_block_chance = 0 //cannot be used to block guns
+	shield_power = 0
+	can_block_bullets = 0
+	armor_penetration = 65
 
 /obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
@@ -103,6 +194,11 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = 1
 	edge = 1
+	base_reflectchance = 0
+	base_block_chance = 0 //cannot be used to block guns
+	shield_power = 0
+	can_block_bullets = 0
+	armor_penetration = 80
 
 /obj/item/weapon/melee/energy/axe/activate(mob/living/user)
 	..()
@@ -170,22 +266,12 @@
 	attack_verb = list()
 	icon_state = initial(icon_state)
 
-/obj/item/weapon/melee/energy/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-
-//		Disabled because lag. Immense amounts of lag.
-//		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-//		spark_system.set_up(5, 0, user.loc)
-//		spark_system.start()
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
-		return 1
-	return 0
-
 /obj/item/weapon/melee/energy/sword/pirate
 	name = "energy cutlass"
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
+	base_reflectchance = 60
+	base_block_chance = 60
 
 /obj/item/weapon/melee/energy/sword/pirate/activate(mob/living/user)
 	..()
@@ -194,13 +280,12 @@
 /*
  *Energy Blade
  */
-
-//Can't be activated or deactivated, so no reason to be a subtype of energy
 /obj/item/weapon/melee/energy/blade
 	name = "energy blade"
 	desc = "A concentrated beam of energy in the shape of a blade. Very stylish... and lethal."
 	icon_state = "blade"
-	force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
+	force = 40
+	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
 	armor_penetration = 100
 	sharp = 1
 	edge = 1
@@ -213,6 +298,11 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
 	var/datum/effect/effect/system/spark_spread/spark_system
+	base_reflectchance = 140
+	base_block_chance = 75
+	shield_power = 150
+	can_block_bullets = 1
+	active = 1
 
 /obj/item/weapon/melee/energy/blade/New()
 
@@ -226,9 +316,13 @@
 	processing_objects -= src
 	..()
 
-/obj/item/weapon/melee/energy/blade/attack_self(mob/user as mob)
+/obj/item/weapon/melee/energy/blade/deactivate(mob/living/user)
+	if(!active)
+		return
+	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 	user.drop_from_inventory(src)
 	spawn(1) if(src) qdel(src)
+
 
 /obj/item/weapon/melee/energy/blade/dropped()
 	spawn(1) if(src) qdel(src)
