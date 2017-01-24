@@ -9,7 +9,8 @@
 	selection_type = "range"
 	range = 0
 	inner_radius = -1
-
+	cast_sound = 'sound/magic/Disable_Tech.ogg'
+	
 	cooldown_min = 200 //50 deciseconds reduction per rank
 
 	var/emp_heavy = 3
