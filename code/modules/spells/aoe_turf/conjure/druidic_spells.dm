@@ -62,7 +62,7 @@
 	newVars = list("maxHealth" = 15,
 				"health" = 15,
 				"melee_damage_lower" = 10,
-				"melee_damage_upper" = 10,
+				"melee_damage_upper" = 10
 				)
 
 	hud_state = "wiz_bear"
