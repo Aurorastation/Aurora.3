@@ -9,6 +9,7 @@
 	invocation_type = SpI_NONE
 	range = 7
 	inner_radius = 1
+	cast_sound = 'sound/magic/blink.ogg'
 
 	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 4, Sp_POWER = 4)
 	cooldown_min = 5 //4 deciseconds reduction per rank
