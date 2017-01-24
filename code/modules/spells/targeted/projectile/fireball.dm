@@ -11,6 +11,7 @@
 	invocation_type = SpI_SHOUT
 	range = 20
 	cooldown_min = 20 //10 deciseconds reduction per rank
+	cast_sound = 'sound/magic/Fireball.ogg'
 
 	spell_flags = 0
 
