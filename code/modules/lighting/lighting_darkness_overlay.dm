@@ -7,10 +7,11 @@
 	name          = ""
 	anchored      = TRUE
 	icon             = DARKNESS_ICON
-	plane            = 0//LIGHTING_PLANE
+	//plane            = 0//LIGHTING_PLANE
 	mouse_opacity    = 0
 	layer            = LIGHTING_LAYER + 0.1
 	invisibility     = INVISIBILITY_LIGHTING
+	simulated = 0
 
 /atom/movable/darkness_overlay/New()
 	. = ..()

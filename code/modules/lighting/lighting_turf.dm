@@ -44,9 +44,10 @@
 
 // Builds a lighting overlay for us, but only if our area is dynamic.
 /turf/proc/lighting_build_overlay()
+#ifdef USE_DARKNESS_OVERLAYS
 	if (!darkness_overlay)
 		getFromPool(/atom/movable/darkness_overlay, src)
-
+#endif
 	if (lighting_overlay)
 		return
 

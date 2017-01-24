@@ -8,10 +8,11 @@
 
 	icon             = LIGHTING_ICON
 	color            = LIGHTING_BASE_MATRIX
-	plane            = 0//LIGHTING_PLANE
+	//plane            = 0//LIGHTING_PLANE
 	mouse_opacity    = 0
 	layer            = LIGHTING_LAYER
 	invisibility     = INVISIBILITY_LIGHTING
+	simulated = 0
 
 	blend_mode    = BLEND_MULTIPLY
 
@@ -90,11 +91,13 @@
 	)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
 
+#ifdef USE_DARKNESS_OVERLAYS
 	if (T.darkness_overlay)
 		if (luminosity)
 			T.darkness_overlay.hide()
 		else
 			T.darkness_overlay.show()
+#endif
 
 // Variety of overrides so the overlays don't get affected by weird things.
 
