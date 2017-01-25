@@ -61,7 +61,7 @@
 	sharp = 1
 	edge = 1
 	slot_flags = SLOT_BELT
-	
+
 /obj/item/weapon/melee/energy/wizard/activate(mob/living/user)
 	..()
 	icon_state = "runesword1"
@@ -73,7 +73,7 @@
 	icon_state = "runesword0"
 	item_state = "runesword0"
 	user << "<span class='notice'>The [src] slowly dies out.</span>"
-	
+
 /obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(user.faction == "Space Wizard")
 		return ..()
@@ -89,15 +89,44 @@
 	user.drop_from_inventory(src)
 
 	return 1
-	
-/*
+
+/* //commented until issues with sparks and sword blocking updates are merged
 /obj/item/weapon/melee/energy/wizard/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
+
 	return 0
 	*/
+
+//skeleton weapons and armor
+
+/obj/item/clothing/suit/bone
+	name = "bone armor"
+	desc = "A rudimentary armor made of bones of several creatures."
+	icon = 'icons/obj/necromancer.dmi'
+	icon_state = "bonearmor"
+	item_state = "bonearmor"
+	contained_sprite = 1
+	species_restricted = list("Skeleton")
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
+
+/obj/item/clothing/head/helmet/bone
+	name = "bone helmet"
+	desc = "A rudimentary helmet made of some dead creature."
+	icon = 'icons/obj/necromancer.dmi'
+	icon_state = "skull"
+	item_state = "skull"
+	contained_sprite = 1
+	species_restricted = list("Skeleton")
+	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
+
+/obj/item/weapon/material/twohanded/spear/bone
+	desc = "A spear crafted with bones of some long forgotten creature."
+	default_material = "cursed bone"

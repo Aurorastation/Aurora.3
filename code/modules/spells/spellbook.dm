@@ -10,7 +10,10 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 								/obj/structure/closet/wizard/scrying = 		"SO",
 								/obj/item/weapon/teleportation_scroll = 	"TS",
 								/obj/item/weapon/gun/energy/staff = 		"ST",
-								/obj/item/weapon/gun/energy/staff/animate =	"SA")
+								/obj/item/weapon/gun/energy/staff/animate =	"SA",
+								/obj/item/weapon/melee/energy/wizard =		"WS",
+								/obj/item/weapon/gun/energy/staff/chaos =	"SC",
+								/obj/item/weapon/storage/belt/wands/full =	"WB")
 
 /obj/item/weapon/spellbook
 	name = "master spell book"
@@ -40,14 +43,14 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 /obj/item/weapon/spellbook/attack_self(mob/user as mob)
 	if(!user)
 		return
-	if(!(user.mind.assigned_role == "Space Wizard"))
+	if(!(user.faction == "Space Wizard"))
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ("l_arm")
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
-			user << "\red You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!"
+			user <<"<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>"
 			user.show_message("<b>[user]</b> screams in horror!",2)
 			H.adjust_fire_stacks(2)
 			H.IgniteMob()
@@ -194,7 +197,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	return "You learn the spell [S]"
 
 /datum/spellbook
-	var/name = "\improper Book of Tomes"
+	var/name = "\improper book of tomes"
 	var/desc = "The legendary book of spells of the wizard."
 	var/book_desc = "Holds information on the various tomes available to a wizard"
 	var/feedback = "" //doesn't need one.
@@ -207,5 +210,6 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 				/datum/spellbook/battlemage = 1,
 				/datum/spellbook/spatial = 1,
 				/datum/spellbook/druid = 1,
+				/datum/spellbook/necromancer = 1,
 				/datum/spellbook/student = 1
 				) //spell's path = cost of spell
