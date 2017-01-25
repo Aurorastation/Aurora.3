@@ -4,7 +4,7 @@
 /datum/species/skeleton //SPOOKY
 	name = "Skeleton"
 	name_plural = "skeletons"
-
+	bodytype = "Skeleton"
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 
