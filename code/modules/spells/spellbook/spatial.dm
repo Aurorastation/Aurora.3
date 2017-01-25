@@ -24,6 +24,8 @@
 				/spell/aoe_turf/conjure/summon/bats = 			3,
 				/obj/item/weapon/contract/wizard/tk = 			5,
 				/obj/structure/closet/wizard/scrying = 			2,
+				/obj/item/weapon/gun/energy/staff/chaos = 		4,
+				/obj/item/weapon/storage/belt/wands/full = 		4,
 				/obj/item/weapon/teleportation_scroll = 		1,
 				/obj/item/weapon/contract/apprentice = 			1
 				)
