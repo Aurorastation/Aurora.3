@@ -19,7 +19,7 @@
 	invocation = "NOUK FHUNMM SACP RISSKA"
 	invocation_type = SpI_SHOUT
 	range = 1
-
+	cast_sound = 'sound/magic/Summon_Karp.ogg'
 	summon_type = list(/mob/living/simple_animal/hostile/carp)
 
 	hud_state = "wiz_carp"
@@ -35,7 +35,7 @@
 /spell/aoe_turf/conjure/creature
 	name = "Summon Creature Swarm"
 	desc = "This spell tears the fabric of reality, allowing horrific daemons to spill forth"
-
+	cast_sound = 'sound/magic/Summon_Karp.ogg'
 	school = "conjuration"
 	charge_max = 1200
 	spell_flags = 0
@@ -62,7 +62,7 @@
 	duration = 600
 	cooldown_min = 600
 	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 2, Sp_POWER = 3)
-
+	cast_sound = 'sound/magic/Summon_Karp.ogg'
 	summon_type = list(/mob/living/simple_animal/hostile/carp)
 
 	hud_state = "wiz_carp"
