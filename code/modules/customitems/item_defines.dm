@@ -154,6 +154,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "bell_coat"
 	item_state = "bell_coat"
 	contained_sprite = 1
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
+	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
 
 
 /obj/item/clothing/under/syndicate/tacticool/fluff/jaylor_turtleneck //Borderworlds Turtleneck - Jaylor Rameau - evilbrage
@@ -918,3 +920,35 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "yuri_duster"
 	item_state = "yuri_duster"
 	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/badge/fluff/bell_badge //Detective's Credentials - Avery Bell - serveris6
+	name = "detective's credentials"
+	desc = "A laminated card, verifying the denoted as a private investigator licensed in Biesel. A photo of a tan-skinned human male dressed in a brown coat and hat is imprinted."
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_state = "bell_badge"
+	item_state = "bell_badge"
+	contained_sprite = 1
+	stored_name = "Avery Bell"
+	badge_string = "Silhouette Co. Consulting Detective"
+
+	var/investigator = "Avery Bell"
+	var/occupation = "Consulting Detective"
+	var/birth_year = "8/8/2426"
+	var/licensed_systems = "Republic of Biesel, Sol Alliance, Nralakk"
+	var/supplementary_endorsements = "Licensed Medical Examiner; Sol Alliance, Republic of Biesel - Concealed firearm carry; Sol Alliance, Republic of Biesel"
+	var/citizenship = "Republic of Biesel"
+	
+/obj/item/clothing/accessory/badge/fluff/bell_badge/verb/read()
+	set name = "Review credentials"
+	set category = "Object"
+	set src in usr
+
+	usr << "\icon[] []: The detective's credentials show:"
+	usr << "The investigator registered to the credentials is [investigator]."
+	usr << "The assignment registered on the card is [occupation]."
+	usr << "The birth date on the card displays [birth_year]."
+	usr << "The citizenship registered on the card is [citizenship]."
+	usr << "The systems that the credentials show the user is licensed to investigate in are [licensed_systems]."
+	usr << "Additional endorsements registered on the card show: [supplementary_endorsements]."
+	return
