@@ -71,7 +71,7 @@
 /obj/item/weapon/melee/energy/wizard/deactivate(mob/living/user)
 	..()
 	icon_state = "runesword0"
-	icon_state = "runesword0"
+	item_state = "runesword0"
 	user << "<span class='notice'>The [src] slowly dies out.</span>"
 	
 /obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
@@ -94,8 +94,6 @@
 /obj/item/weapon/melee/energy/wizard/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-
-		Disabled because lag. Immense amounts of lag.
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
