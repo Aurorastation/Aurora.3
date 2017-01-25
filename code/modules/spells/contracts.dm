@@ -9,12 +9,12 @@
 
 /obj/item/weapon/contract/attack_self(mob/user as mob)
 	if(contract_master == null)
-		to_chat(user, "<span class='notice'>You bind the contract to your soul, making you the recipient of whatever poor fool's soul that decides to contract with you.</span>")
+		user << "<span class='notice'>You bind the contract to your soul, making you the recipient of whatever poor fool's soul that decides to contract with you.</span>"
 		contract_master = user
 		return
 
 	if(contract_master == user)
-		to_chat(user, "You can't contract with yourself!")
+		user << "You can't contract with yourself!"
 		return
 
 	var/ans = alert(user,"The contract clearly states that signing this contract will bind your soul to \the [contract_master]. Are you sure you want to continue?","[src]","Yes","No")
@@ -34,7 +34,7 @@
 		qdel(src)
 
 /obj/item/weapon/contract/proc/contract_effect(mob/user as mob)
-	to_chat(user, "<span class='warning'>You've signed your soul over to \the [contract_master] and with that your unbreakable vow of servitude begins.</span>")
+	user << "<span class='warning'>You've signed your soul over to \the [contract_master] and with that your unbreakable vow of servitude begins.</span>"
 	return 1
 
 /obj/item/weapon/contract/apprentice
@@ -44,10 +44,11 @@
 
 /obj/item/weapon/contract/apprentice/contract_effect(mob/user as mob)
 	if(user.mind.special_role == "apprentice")
-		to_chat(user, "<span class='warning'>You are already a wizarding apprentice!</span>")
+		user << "<span class='warning'>You are already a wizarding apprentice!</span>"
 		return 0
 	if(wizards.add_antagonist_mind(user.mind,1,"apprentice","<b>You are an apprentice! Your job is to learn the wizarding arts!</b>"))
-		to_chat(user, "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>")
+		user << "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>"
+		user.faction = "Space Wizard"
 		return 1
 	return 0
 
@@ -67,7 +68,7 @@
 		user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 		user.see_in_dark = 8
 		user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
-		to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
+		user << "<span class='notice'>The walls suddenly disappear.</span>"
 		return 1
 	return 0
 
@@ -80,7 +81,7 @@
 	..()
 	if(!(TK in user.mutations))
 		user.mutations.Add(TK)
-		to_chat(user, "<span class='notice'>You feel your mind expanding!</span>")
+		user << "<span class='notice'>You feel your mind expanding!</span>"
 		return 1
 	return 0
 
@@ -117,7 +118,7 @@
 
 /obj/item/weapon/contract/boon/wizard/artificer
 	path = /spell/aoe_turf/conjure/construct
-	desc = "This contract has a passage dedicated to an entity known as 'Nar-Sie'."
+	desc = "This contract has a passage dedicated to an entity known as 'Nar-Sie'"
 
 /obj/item/weapon/contract/boon/wizard/fireball
 	path = /spell/targeted/projectile/dumbfire/fireball
@@ -147,4 +148,3 @@
 /obj/item/weapon/contract/boon/wizard/charge
 	path = /spell/aoe_turf/charge
 	desc = "This contract is made of 100% post-consumer wizard."
-
