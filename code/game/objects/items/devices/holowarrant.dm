@@ -25,8 +25,9 @@
 
 //hit yourself with it
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
+	sync(user)
 	if(!storedwarrant.len)
-		user << "There seem to be no warrants stored in the device. Please sync with the station's database."
+		user << "There seem to be no warrants stored in the device."
 		return
 	var/temp
 	temp = input(usr, "Which warrant would you like to load?") as null|anything in storedwarrant
@@ -44,29 +45,45 @@
 	M.examinate(src)
 
 //sync with database
-/obj/item/device/holowarrant/verb/sync(mob/living/carbon/user as mob)
+/obj/item/device/holowarrant/proc/sync(var/mob/user)
 	if(!isnull(data_core.general))
 		for(var/datum/data/record/warrant/W in data_core.warrants)
 			storedwarrant += W.fields["namewarrant"]
-		to_chat(usr, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")
-		if(storedwarrant.len == 0)
-			user.visible_message("<span class='notice'>There are no warrants available</span>")
+		to_chat(user, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")
 
 /obj/item/device/holowarrant/proc/show_content(mob/user, forceshow)
 	if(activetype == "arrest")
 		var/output = {"
-		<HTML><HEAD><TITLE>[activename]</TITLE></HEAD>
-		<BODY bgcolor='#FFFFFF'><center><large><b>Sol Central Government Colonial Marshal Bureau</b></large></br>
-		in the jurisdiction of the</br>
-		NAS Crescent in Nyx</br>
-		</br>
-		<b>ARREST WARRANT</b></center></br>
-		</br>
-		This document serves as authorization and notice for the arrest of _<u>[activename]</u>____ for the crime(s) of:</br>[activecharges]</br>
-		</br>
-		Vessel or habitat: _<u>NSS Exodus</u>____</br>
-		</br>_<u>[activeauth]</u>____</br>
-		<small>Person authorizing arrest</small></br>
+		<HTML><HEAD><TITLE>Arrest Warrant: [activename]</TITLE></HEAD>
+		<BODY bgcolor='#FFFFFF'>
+		<font face="Verdana" color=black><font size = "1">
+		<center><large><b>NanoTrasen Inc.
+		<br>Civilian Branch of Operation</b></large>
+		<br>
+		<br><b>DIGITAL ARREST WARRANT</b></center>
+		<hr>
+		<b>Facility:</b>__<u>[station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
+		<br>
+		<br><small><i>This document serves as a notice and permits the sanctioned arrest of
+		the denoted employee of the NanoTrasen Civilian Branch of Operation by the
+		Security Department of the denoted facility. </br>
+		In accordance with Corporate Regulation, the denoted employee must be presented with signed and stamped or
+		digitally autorized warrant before the actions entailed can be conducted legally. </br>
+		The Suspect/Department staff is expected to offer full co-operation.</br>
+		In the event of the Suspect attempting to resist or flee, resisting arrest charges need to be applied !</br>
+		In the event of staff attempting to interfere with a lawful arrest, they are to be detained as an accomplice !</br>
+		In the event of no warrant being displayed <b>prior</b> to the arrest, security personell performing the arrest are subject to illegal detention charges !
+		</i></small>
+		<br>
+		<br><b>Suspect's name: </b>
+		<br>[activename]
+		<br>
+		<br><b>Reason(s): </b>
+		<br>[activecharges]
+		<br>
+		<br>__<u>[activeauth]</u>__
+		<br><small>Person authorizing arrest</small></br>
+		</font></font>
 		</BODY></HTML>
 		"}
 
@@ -74,27 +91,35 @@
 	if(activetype == "search")
 		var/output= {"
 		<HTML><HEAD><TITLE>Search Warrant: [activename]</TITLE></HEAD>
-		<BODY bgcolor='#FFFFFF'><center>in the jurisdiction of the</br>
-		NAS Crescent in Nyx</br>
-		</br>
-		<b>SEARCH WARRANT</b></center></br>
-		</br>
-		<small><i>The Security Officer(s) bearing this Warrant are hereby authorized by the Issuer </br>
-		to conduct a one time lawful search of the Suspect's person/belongings/premises and/or Department </br>
-		for any items and materials that could be connected to the suspected criminal act described below, </br>
-		pending an investigation in progress. The Security Officer(s) are obligated to remove any and all</br>
-		such items from the Suspects posession and/or Department and file it as evidence. The Suspect/Department </br>
-		staff is expected to offer full co-operation. In the event of the Suspect/Department staff attempting </br>
-		to resist/impede this search or flee, they must be taken into custody immediately! </br>
+		<BODY bgcolor='#FFFFFF'>
+		<font face="Verdana" color=black><font size = "1">
+		<center><large><b>NanoTrasen Inc.
+		<br>Civilian Branch of Operation</b></large>
+		<br>
+		<br><b>DIGITAL SEARCH WARRANT</b></center>
+		<hr>
+		<b>Facility:</b>__<u>[station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u></br>
+		<br>
+		<small><i>This document serves as notice and permits the sanctioned search of
+		the Suspect's person/belongings/premises and/or Department for any items and materials
+		that could be connected to the suspected regulation violation described below,
+		pending an investigation in progress. </br>
+		The Security Officer(s) are obligated to remove any and all such items from the Suspects posession
+		and/or Department and file it as evidence. </br>
+		In accordance with Corporate Regulation, the denoted employee must be presented with signed and stamped or
+		digitally autorized warrant before the actions entailed can be conducted legally. </br>
+		The Suspect/Department staff is expected to offer full co-operation.</br>
+		In the event of the Suspect/Department staff attempting	to resist/impede this search or flee, they must be taken into custody immediately! </br>
 		All confiscated items must be filed and taken to Evidence!</small></i></br>
-		</br>
-		<b>Suspect's/location name: </b>[activename]</br>
-		</br>
-		<b>For the following reasons: </b> [activecharges]</br>
-		</br>
-		<b>Warrant issued by: </b> [activeauth]</br>
-		</br>
-		Vessel or habitat: _<u>NSS Exodus</u>____</br>
+		<br><b>Suspect's/location name: </b>
+		<br>[activename]
+		<br>
+		<br><b>For the following reasons: </b>
+		<br>[activecharges]
+		<br>
+		<br>__<u>[activeauth]</u>__
+		<br><small>Person authorizing search</small></br>
+		</font></font>
 		</BODY></HTML>
 		"}
 		show_browser(user, output, "window=Search warrant for [activename]")

@@ -3,6 +3,9 @@
 //Bottles now weaken and break when smashed on people's heads. - Giacom
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle
+	name = "empty bottle"
+	desc = "A sad empty bottle."
+	icon_state = "alco-clear"
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
@@ -117,7 +120,7 @@
 	else
 		set_light(0)
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/weapon/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
 	var/blocked = ..()
 
 	if(user.a_intent != I_HURT)
@@ -407,6 +410,9 @@
 
 //Small bottles
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small
+	name = "empty small bottle"
+	desc = "A sad empty bottle."
+	icon_state = "beer"
 	volume = 50
 	smash_duration = 1
 	flags = 0 //starts closed
@@ -488,3 +494,11 @@
 	New()
 		..()
 		reagents.add_reagent("drambuie", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/sbiten
+	name = "Sbiten"
+	desc = "A bottle full of sweet sbiten."
+	icon_state = "sbitenbottle"
+	New()
+		..()
+		reagents.add_reagent("sbiten", 100)

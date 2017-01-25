@@ -305,7 +305,6 @@
 	var/list/packs = list(
 	/obj/item/weapon/storage/backpack = 3,
 	/obj/item/weapon/storage/backpack/holding = 0.5,
-	/obj/item/weapon/storage/backpack/santabag = 2,
 	/obj/item/weapon/storage/backpack/cultpack = 2,
 	/obj/item/weapon/storage/backpack/clown = 2,
 	/obj/item/weapon/storage/backpack/medic = 3,
