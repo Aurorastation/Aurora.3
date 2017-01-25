@@ -26,6 +26,8 @@
 				/spell/noclothes = 							1,
 				/obj/structure/closet/wizard/armor = 					1,
 				/obj/item/weapon/gun/energy/staff/focus = 				1,
+				/obj/item/weapon/gun/energy/staff/chaos = 				1,
+				/obj/item/weapon/storage/belt/wands/full = 				2,
 				/obj/item/weapon/melee/energy/wizard =					2,
 				/obj/item/weapon/monster_manual = 					2,
 				/obj/item/weapon/contract/apprentice = 					1
