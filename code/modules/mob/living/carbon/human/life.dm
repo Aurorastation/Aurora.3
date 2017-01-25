@@ -975,12 +975,12 @@
 					fake_attack(src)
 				if(!handling_hal)
 					spawn handle_hallucinations() //The not boring kind!
-				if(client && prob(5))
+				/*if(client && prob(5))
 					client.dir = pick(2,4,8)
 					var/client/C = client
 					spawn(rand(20,50))
 						if(C)
-							C.dir = 1
+							C.dir = 1*/	// This breaks the lighting system.
 
 			if(hallucination<=2)
 				hallucination = 0
