@@ -25,5 +25,6 @@
 				/spell/targeted/projectile/dumbfire/fireball = 			2,
 				/spell/aoe_turf/conjure/forcewall = 				1,
 				/obj/item/weapon/gun/energy/staff/focus = 			2,
+				/obj/item/weapon/storage/belt/wands/full = 			2,
 				/obj/item/weapon/contract/apprentice = 				1
 				)
