@@ -24,8 +24,16 @@
 									)
 
 /obj/item/weapon/monster_manual/attack_self(mob/user as mob)
-	user.set_machine(src)
-	interact(user)
+	if(!user)
+		return
+	if(!(user.faction == "Space Wizard"))
+		user <<"<span class='warning'>When you try to open the book, horrors pours out from among the pages!</span>"
+		new /mob/living/simple_animal/hostile/creature(user.loc)
+		playsound(user, 'sound/magic/Summon_Karp.ogg', 100, 1)
+		return
+	else
+		user.set_machine(src)
+		interact(user)
 
 /obj/item/weapon/monster_manual/interact(mob/user as mob)
 	var/dat
