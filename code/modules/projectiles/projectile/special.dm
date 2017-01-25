@@ -171,3 +171,41 @@
 	nodamage = 1
 	damage_type = HALLOSS
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
+
+//magic
+
+/obj/item/projectile/magic
+	name = "bolt of nothing"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "spell"
+	damage = 0
+	check_armour = "energy"
+	embed = 0
+	damage_type = HALLOSS
+	
+/obj/item/projectile/magic/fireball
+	name = "fireball"
+	icon_state = "fireball"
+	damage = 20
+	damage_type = BURN
+	
+/obj/item/projectile/magic/fireball/on_impact(var/atom/A)
+		explosion(A, 0, 0, 4)
+		..()
+		
+/obj/item/projectile/magic/teleport //literaly bluespace crystal code, because i am lazy and it seems to work
+	name = "bolt of teleportation"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "energy2"
+	var/blink_range = 8
+
+/obj/item/projectile/magic/teleport/on_hit(var/atom/hit_atom)
+	var/turf/T = get_turf(hit_atom)
+	PoolOrNew(/obj/effect/sparks, T)
+	playsound(src.loc, "sparks", 50, 1)
+	if(isliving(hit_atom))
+		blink_mob(hit_atom)
+	return ..()
+	
+/obj/item/projectile/magic/teleport/proc/blink_mob(mob/living/L)
+	do_teleport(L, get_turf(L), blink_range, asoundin = 'sound/effects/phasein.ogg')
