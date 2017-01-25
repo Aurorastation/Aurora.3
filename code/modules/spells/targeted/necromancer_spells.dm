@@ -38,7 +38,7 @@
 	school = "necromancy"
 	charge_max = 300
 	spell_flags = SELECTABLE
-	invocation = "Umathar uf'kal thenar!"
+	invocation = "UMATHAR UF'KAL THENAR!"
 	invocation_type = SpI_SHOUT
 	range = 5
 	max_targets = 1
@@ -46,7 +46,7 @@
 	compatible_mobs = list(/mob/living/carbon/human)
 
 	hud_state = "wiz_vampire"
-	cast_sound = 'sound/hallucinations/wail.ogg'
+	cast_sound = 'sound/hallucinations/enter_blood.ogg'
 
 	amt_dam_brute = 15
 	amt_dam_fire = 15
