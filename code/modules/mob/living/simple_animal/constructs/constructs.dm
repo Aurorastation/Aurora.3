@@ -85,7 +85,6 @@
 	user << msg
 
 /mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(A, /obj/effect/rune))
 		var/obj/effect/rune/R = A
 		do_attack_animation(R)
@@ -144,19 +143,6 @@
 			return -1 // complete projectile permutation
 
 	return (..(P))
-
-/mob/living/simple_animal/construct/armoured/UnarmedAttack(var/atom/A, var/proximity)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(istype(A, /obj/machinery))
-		// Destroy machines instead of opening their UI
-		var/obj/machinery/M = A
-		do_attack_animation(M)
-		playsound(loc, attack_sound, 50, 1, 1)
-		M.ex_act(3.0)
-	else
-		..()
-
-
 
 ////////////////////////Wraith/////////////////////////////////////////////
 
