@@ -6,6 +6,8 @@
 /datum/shuttle
 	var/warmup_time = 0
 	var/moving_status = SHUTTLE_IDLE
+	var/lift = 0 //To make zlevel stuff work right
+	var/lift_lowest_zlevel = 1 //At least 1 unless you always want open floor
 
 	var/docking_controller_tag	//tag of the controller used to coordinate docking
 	var/datum/computer/file/embedded_program/docking/docking_controller	//the controller itself. (micro-controller, not game controller)
