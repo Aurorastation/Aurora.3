@@ -23,7 +23,7 @@
 
 /spell/contract/cast(mob/target,mob/user)
 	if(!subject)
-		to_chat(usr, "This spell was not properly given a target. Contact a coder.")
+		usr << "This spell was not properly given a target. Contact a coder."
 		return null
 
 	if(istype(target,/list))
@@ -45,7 +45,7 @@
 	if(!target)
 		return
 
-	to_chat(target, "<font color='blue'>You feel great!</font>")
+	target << "<span class='notice'>You feel great!</span>"
 	target.ExtinguishMob()
 
 /spell/contract/punish
@@ -62,6 +62,6 @@
 	if(!target)
 		return
 
-	to_chat(target, "<span class='danger'>You feel punished!</span>")
+	target << "<span class='danger'>You feel punished!</span>"
 	target.fire_stacks += 15
 	target.IgniteMob()
