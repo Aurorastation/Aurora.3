@@ -38,7 +38,7 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	siemens_coefficient = 0.8
+	siemens_coefficient = 0.7
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/wizard/amp
@@ -49,7 +49,7 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	siemens_coefficient = 0.8
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/head/wizard/cap
 	name = "Gentlemans Cap"
@@ -59,7 +59,7 @@
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
-	siemens_coefficient = 0.8
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/wizrobe
 	name = "wizard robe"
@@ -113,6 +113,7 @@
 	icon_state = "gentlecoat"
 	item_state = "gentlecoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	flags_inv = null
 
 /obj/item/clothing/suit/wizrobe/fake
 	name = "wizard robe"
@@ -138,3 +139,20 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 1.0
 
+//black robes
+
+/obj/item/clothing/head/wizard/black
+	name = "black wizard hat"
+	desc = "Strange-looking, black, hat-wear that most certainly belongs to a real dark magic user."
+	icon = 'icons/obj/necromancer.dmi'
+	icon_state = "blackwizardhat"
+	item_state = "blackwizardhat"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/wizrobe/black
+	name = "black wizard robe"
+	desc = "An unnerving black gem-lined robe that reeks of death and decay."
+	icon = 'icons/obj/necromancer.dmi'
+	icon_state = "blackwizard"
+	item_state = "blackwizard"
+	contained_sprite = 1
