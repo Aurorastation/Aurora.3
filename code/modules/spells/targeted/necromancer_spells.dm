@@ -46,7 +46,7 @@
 	compatible_mobs = list(/mob/living/carbon/human)
 
 	hud_state = "wiz_vampire"
-	cast_sound = 'sound/hallucinations/enter_blood.ogg'
+	cast_sound = 'sound/magic/enter_blood.ogg'
 
 	amt_dam_brute = 15
 	amt_dam_fire = 15
