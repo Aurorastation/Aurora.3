@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - bugfix: "Mesons and thermals no longer function as proper night-vision."
