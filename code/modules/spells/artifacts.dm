@@ -13,7 +13,7 @@
 	hitsound = 'sound/items/welder2.ogg'
 
 /obj/item/weapon/scrying/attack_self(mob/user as mob)
-	if(!(user.mind.assigned_role == "Space Wizard"))
+	if(!(user.faction == "Space Wizard"))
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
@@ -38,3 +38,68 @@
 		user.teleop = user.ghostize(1)
 		announce_ghost_joinleave(user.teleop, 1, "You feel that they used a powerful artifact to [pick("invade","disturb","disrupt","infest","taint","spoil","blight")] this place with their presence.")
 		return
+
+/obj/item/weapon/melee/energy/wizard
+	name = "rune sword"
+	desc = "A large sword engraved with arcane markings, it seems to reverberate with unearthly powers."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "runesword0"
+	item_state = "runesword0"
+	contained_sprite = 1
+	active_force = 40
+	active_throwforce = 40
+	active_w_class = 5
+	force = 20
+	throwforce = 30
+	throw_speed = 5
+	throw_range = 10
+	w_class = 5
+	flags = NOBLOODY
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8)
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	sharp = 1
+	edge = 1
+	slot_flags = SLOT_BELT
+	
+/obj/item/weapon/melee/energy/wizard/activate(mob/living/user)
+	..()
+	icon_state = "runesword1"
+	item_state = "runesword1"
+	user << "<span class='notice'>The [src] surges to life!.</span>"
+
+/obj/item/weapon/melee/energy/wizard/deactivate(mob/living/user)
+	..()
+	icon_state = "runesword0"
+	icon_state = "runesword0"
+	user << "<span class='notice'>The [src] slowly dies out.</span>"
+	
+/obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
+	if(user.faction == "Space Wizard")
+		return ..()
+
+	var/zone = (user.hand ? "l_arm":"r_arm")
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/affecting = H.get_organ(zone)
+		user << "<span class='danger'>The sword refuses you as its true wielder, slashing your [affecting.name] instead!</span>"
+
+	user.apply_damage(active_force, BRUTE, zone, 0, sharp=1, edge=1)
+
+	user.drop_from_inventory(src)
+
+	return 1
+	
+/*
+/obj/item/weapon/melee/energy/wizard/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
+		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+
+		Disabled because lag. Immense amounts of lag.
+		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+		spark_system.set_up(5, 0, user.loc)
+		spark_system.start()
+		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+		return 1
+	return 0
+	*/
