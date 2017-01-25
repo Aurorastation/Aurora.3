@@ -2,18 +2,13 @@
 
 /atom/movable/lighting_overlay
 	name          = ""
-
 	anchored      = TRUE
-	//ignoreinvert  = TRUE
-
-	icon             = LIGHTING_ICON
-	color            = LIGHTING_BASE_MATRIX
-	//plane            = 0//LIGHTING_PLANE
-	mouse_opacity    = 0
-	layer            = LIGHTING_LAYER
-	invisibility     = INVISIBILITY_LIGHTING
-	simulated = 0
-
+	icon          = LIGHTING_ICON
+	color         = LIGHTING_BASE_MATRIX
+	mouse_opacity = 0
+	layer         = LIGHTING_LAYER
+	invisibility  = INVISIBILITY_LIGHTING
+	simulated     = 0
 	blend_mode    = BLEND_MULTIPLY
 
 	var/needs_update = FALSE
@@ -60,7 +55,7 @@
 		returnToPool(src)
 		return
 
-	if (istype(T, /turf/space))
+	if (T.is_space())
 		warning("A lighting overlay realised it was attached to a space tile and got pooled!")
 		returnToPool(src)
 		return
@@ -90,14 +85,6 @@
 		0, 0, 0, 1
 	)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
-
-#ifdef USE_DARKNESS_OVERLAYS
-	if (T.darkness_overlay)
-		if (luminosity)
-			T.darkness_overlay.hide()
-		else
-			T.darkness_overlay.show()
-#endif
 
 // Variety of overrides so the overlays don't get affected by weird things.
 

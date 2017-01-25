@@ -1249,7 +1249,6 @@
 #include "code\modules\lighting\lighting_area.dm"
 #include "code\modules\lighting\lighting_atom.dm"
 #include "code\modules\lighting\lighting_corner.dm"
-#include "code\modules\lighting\lighting_darkness_overlay.dm"
 #include "code\modules\lighting\lighting_overlay.dm"
 #include "code\modules\lighting\lighting_profiler.dm"
 #include "code\modules\lighting\lighting_setup.dm"

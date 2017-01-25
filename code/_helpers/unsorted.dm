@@ -796,10 +796,6 @@ proc/GaussRandRound(var/sigma,var/roundto)
 					var/old_underlays = T.underlays.Copy()
 					if (T.dynamic_lighting && T.lighting_overlay)
 						T.lighting_overlay.forceMove(B, harderforce = TRUE)
-					#ifdef USE_DARKNESS_OVERLAYS
-					if (T.dynamic_lighting && T.lighting_overlay)
-						T.darkness_overlay.forceMove(B, harderforce = TRUE)
-					#endif
 
 					var/turf/X = B.ChangeTurf(T.type)
 					X.set_dir(old_dir1)
