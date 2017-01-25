@@ -1,6 +1,6 @@
 /spell/targeted/equip_item/party_hardy
 	name = "Summon Party"
-	desc = "This spell was invented for the sole purpose of getting crunked at 11am on a Tuesday. Does not require wizard garb."
+	desc = "This spell was invented for the sole purpose of getting crunked at 11am on a Tuesday."
 	feedback = "PY"
 	school = "transmutation"
 	charge_type = Sp_RECHARGE
