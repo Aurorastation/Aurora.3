@@ -105,6 +105,26 @@
 		return DIONA_NYMPH
 	return 0
 
+/proc/isskeleton(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skeleton"))
+		return 1
+	return 0
+
+/proc/islesserform(A)
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Monkey")
+				return 1
+			if ("Farwa")
+				return 1
+			if ("Neaera")
+				return 1
+			if ("Stok")
+				return 1
+			if ("V'krexi")
+				return 1
+	return 0
+
 proc/isdeaf(A)
 	if(istype(A, /mob))
 		var/mob/M = A
