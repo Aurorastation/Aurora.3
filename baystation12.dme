@@ -1735,6 +1735,7 @@
 #include "code\modules\projectiles\guns\projectile.dm"
 #include "code\modules\projectiles\guns\energy\laser.dm"
 #include "code\modules\projectiles\guns\energy\lawgiver.dm"
+#include "code\modules\projectiles\guns\energy\magic.dm"
 #include "code\modules\projectiles\guns\energy\nuclear.dm"
 #include "code\modules\projectiles\guns\energy\pulse.dm"
 #include "code\modules\projectiles\guns\energy\rifle.dm"
