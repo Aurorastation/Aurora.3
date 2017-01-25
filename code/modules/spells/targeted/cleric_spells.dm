@@ -80,7 +80,7 @@
 
 /spell/targeted/heal_target/sacrifice
 	name = "Sacrifice"
-	desc = "This spell heals immensily. For a price. Does not require wizard garb."
+	desc = "This spell heals immensily. For a price."
 	feedback = "SF"
 	spell_flags = SELECTABLE
 	invocation = "Ei'Nath Borv Di'Nath"
