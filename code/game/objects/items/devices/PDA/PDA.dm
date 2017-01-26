@@ -467,8 +467,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
 						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
-							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
-
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))					
 			count++
 
 		data["convopdas"] = convopdas
@@ -734,7 +733,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		
 		
 		if("Filter") // Filters through available pdas
-			if(href_list["option"] == "all")
+			if (href_list["option"])
+				pdafilter = sanitize_integer(text2num(href_list["option"]), 0, 8, pdafilter)
+				
+			/*if(href_list["option"] == "all")
 				pdafilter = 0
 			if(href_list["option"] == "synth")		//Not working
 				pdafilter = 1
@@ -751,7 +753,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(href_list["option"] == "serv")
 				pdafilter = 7
 			if(href_list["option"] == "med")
-				pdafilter = 8
+				pdafilter = 8	*/
 
 		if("Ringtone")
 			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
