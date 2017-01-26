@@ -97,6 +97,9 @@
 /atom/movable/lighting_overlay/singularity_pull()
 	return
 
+/atom/movable/lighting_overlay/singuloCanEat()
+	return FALSE
+
 // Override here to prevent things accidentally moving around overlays.
 /atom/movable/lighting_overlay/forceMove(atom/destination, var/no_tp=FALSE, var/harderforce = FALSE)
 	if(harderforce)
