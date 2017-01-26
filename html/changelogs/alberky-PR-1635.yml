@@ -3,4 +3,5 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - rscadd: "Ported the baystation version of the wizard gamemode, with several modifications and additions."
+  - rscadd: "Ported the baystation version of the wizard gamemode, with modifications and additions."
+  - soundadd: "Added new sounds when casting most spells."
