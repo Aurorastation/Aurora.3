@@ -24,11 +24,9 @@
 
 	lighting_process = src
 
-	create_all_lighting_overlays()
-
 /datum/controller/process/lighting/statProcess()
 	..()
-	stat(null, "[all_lighting_overlays.len] overlays (~[all_lighting_overlays.len * 4] corners)")
+	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
 	stat(null, "Lights: [lighting_update_lights.len] queued, [curr_lights.len] processing")
 	stat(null, "Corners: [lighting_update_corners.len] queued, [curr_corners.len] processing")
 	stat(null, "Overlays: [lighting_update_overlays.len] queued, [curr_overlays.len] processing")
