@@ -736,25 +736,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if (href_list["option"])
 				pdafilter = sanitize_integer(text2num(href_list["option"]), 0, 8, pdafilter)
 				
-			/*if(href_list["option"] == "all")
-				pdafilter = 0
-			if(href_list["option"] == "synth")		//Not working
-				pdafilter = 1
-			if(href_list["option"] == "comm")
-				pdafilter = 2
-			if(href_list["option"] == "sec")
-				pdafilter = 3
-			if(href_list["option"] == "eng")
-				pdafilter = 4
-			if(href_list["option"] == "sci")
-				pdafilter = 5
-			if(href_list["option"] == "cargo")
-				pdafilter = 6
-			if(href_list["option"] == "serv")
-				pdafilter = 7
-			if(href_list["option"] == "med")
-				pdafilter = 8	*/
-
 		if("Ringtone")
 			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
 			if (in_range(src, U) && loc == U)
