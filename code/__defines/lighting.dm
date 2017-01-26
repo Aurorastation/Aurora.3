@@ -105,3 +105,9 @@ var/mob/dview/dview_mob = new
 #define UPDATE_SCHEDULE 0	// Default behavior. Schedule an update with lighting process.
 #define UPDATE_NOW 1		// Update right now, fuck the scheduler. May cause lag.
 #define UPDATE_NONE 2		// Don't trigger an update at all. Useful if you're triggering the update manually.
+
+// Some brightness/range defines for objects.
+#define L_WALLMOUNT_POWER 0.4
+#define L_WALLMOUNT_RANGE 2
+#define L_WALLMOUNT_HI_POWER 2	// For red/delta alert on fire alarms.
+#define L_WALLMOUNT_HI_RANGE 4

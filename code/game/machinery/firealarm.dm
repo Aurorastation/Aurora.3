@@ -43,22 +43,22 @@
 		var/area/A = get_area(src)
 		if(A.fire)
 			icon_state = "fire1"
-			set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
+			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
 		else
 			icon_state = "fire0"
 			switch(seclevel)
 				if("green")
 					previous_state = icon_state
-					set_light(l_range = 2, l_power = 0.5, l_color = COLOR_LIME)
+					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = COLOR_LIME)
 				if("blue")
 					previous_state = icon_state
-					set_light(l_range = 2, l_power = 0.5, l_color = "#1024A9")
+					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = "#1024A9")
 				if("red")
 					previous_state = icon_state
-					set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
+					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
 				if("delta")
 					previous_state = icon_state
-					set_light(l_range = 4, l_power = 2, l_color = "#FF6633")
+					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = "#FF6633")
 
 		src.overlays += image('icons/obj/monitors.dmi', "overlay_[seclevel]")
 
