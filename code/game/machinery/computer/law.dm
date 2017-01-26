@@ -3,6 +3,7 @@
 /obj/machinery/computer/aiupload
 	name = "\improper AI upload console"
 	desc = "Used to upload laws to the AI."
+	light_color = LIGHT_COLOR_GREEN
 
 	icon_screen = "command"
 	circuit = /obj/item/weapon/circuitboard/aiupload
@@ -59,6 +60,7 @@
 /obj/machinery/computer/borgupload
 	name = "cyborg upload console"
 	desc = "Used to upload laws to Cyborgs."
+	light_color = LIGHT_COLOR_GREEN
 
 	icon_screen = "command"
 	circuit = /obj/item/weapon/circuitboard/borgupload
