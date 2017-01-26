@@ -100,7 +100,7 @@
 		needs_update = TRUE
 		update_overlays(update_type)
 		lighting_update_corners += src
-	else
+	else if (!needs_update)
 		update_overlays(UPDATE_NOW)
 
 /datum/lighting_corner/proc/update_overlays(var/update_type = UPDATE_SCHEDULE)
