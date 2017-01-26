@@ -5,7 +5,7 @@
 	spell_flags = IGNOREDENSE | IGNORESPACE | NEEDSCLOTHES | Z2NOCAST | IGNOREPREV
 	charge_max = 1200
 	school = "conjuration"
-
+	cast_sound = 'sound/species/diona/gestalt_grow.ogg'
 	range = 1
 	cooldown_min = 600
 
@@ -38,7 +38,8 @@
 	invocation_type = SpI_SHOUT
 	spell_flags = IGNOREDENSE | IGNORESPACE | NEEDSCLOTHES | Z2NOCAST | IGNOREPREV
 	cooldown_min = 600
-
+	cast_sound = 'sound/species/diona/gestalt_grow.ogg'
+	
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 3, Sp_POWER = 1)
 
 	seed_type = /datum/seed/merlin_tear
