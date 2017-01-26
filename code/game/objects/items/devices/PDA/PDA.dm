@@ -439,7 +439,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		for (var/obj/item/device/pda/P in PDAs)
 			if (!P.owner||P.toff||P == src||P.hidden)       continue
 			if(conversations.Find("\ref[P]"))
-				convopdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "1")))						
+				convopdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "1")))
 			else
 				switch(pdafilter)
 					if(0)	//All
