@@ -25,6 +25,7 @@
 	var/old_dynamic_lighting = dynamic_lighting
 	var/list/old_affecting_lights = affecting_lights
 	var/old_lighting_overlay = lighting_overlay
+	var/list/old_corners = corners
 
 	//world << "Replacing [src.type] with [N]"
 
@@ -78,6 +79,7 @@
 
 	lighting_overlay = old_lighting_overlay
 	affecting_lights = old_affecting_lights
+	corners = old_corners
 	if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
 		reconsider_lights()
 	if(dynamic_lighting != old_dynamic_lighting)
