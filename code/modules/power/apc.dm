@@ -1303,18 +1303,11 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				sleep(1)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
-	// this defines what the list level arguments are when night mode is turned on
-	var/list/night_light_args = list(
-	                           /obj/machinery/light = list(6, 0.6),
-	                           /obj/machinery/light/small = list(5, 0.5)
-	                           )
 	for (var/obj/machinery/light/L in area.contents)
-		if (!listgetindex(night_light_args, L.type)) // if L's type isn't defined in our args list
-			continue
 		if (force == "on")
-			L.set_light_source(arglist(night_light_args[L.type]))
+			L.nightmode = TRUE
 		else if (force == "off")
-			L.set_light_source()
+			L.nightmode = FALSE
 		L.update()
 	switch (force)
 		if ("on")

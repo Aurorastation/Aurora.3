@@ -1579,6 +1579,7 @@ area/space/atmosalert()
 /area/hydroponics
 	name = "\improper Hydroponics"
 	icon_state = "hydro"
+	no_light_control = TRUE
 
 /area/hydroponics/garden
 	name = "\improper Garden"
@@ -1612,10 +1613,12 @@ area/space/atmosalert()
 /area/rnd/xenobiology/xenoflora_storage
 	name = "\improper Xenoflora Storage"
 	icon_state = "xeno_f_store"
+	no_light_control = TRUE
 
 /area/rnd/xenobiology/xenoflora
 	name = "\improper Xenoflora Lab"
 	icon_state = "xeno_f_lab"
+	no_light_control = TRUE
 
 /area/rnd/storage
 	name = "\improper Toxins Storage"

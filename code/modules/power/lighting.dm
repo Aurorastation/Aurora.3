@@ -144,6 +144,10 @@
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
 	var/brightness_power = 1
+	var/night_brightness_range = 6
+	var/night_brightness_power = 0.6
+	var/supports_nightmode = TRUE
+	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
 	var/brightness_uv    = 200
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
@@ -166,6 +170,7 @@
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
+	supports_nightmode = FALSE
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
@@ -183,6 +188,7 @@
 	light_type = /obj/item/weapon/light/tube/large
 	brightness_range = 12
 	brightness_power = 4
+	supports_nightmode = FALSE
 
 /obj/machinery/light/built/New()
 	status = LIGHT_EMPTY
@@ -239,7 +245,7 @@
 
 	update_icon()
 	if(on)
-		if(light_range != brightness_range || light_power != brightness_power || light_color != brightness_color)
+		if (check_update())
 			switchcount++
 			if(rigged)
 				if(status == LIGHT_OK && trigger)
@@ -256,14 +262,23 @@
 					set_light(0)
 			else
 				use_power = 2
-				set_light(brightness_range, brightness_power, brightness_color, uv = brightness_uv)
+				if (supports_nightmode && nightmode)
+					set_light(night_brightness_range, night_brightness_power, brightness_color, uv = brightness_uv)
+				else
+					set_light(brightness_range, brightness_power, brightness_color, uv = brightness_uv)
 	else
 		use_power = 1
 		set_light(0)
 
-	active_power_usage = ((light_range + light_power) * 10)
+	active_power_usage = ((light_range * light_power) * 10)
 	if(on != on_gs)
 		on_gs = on
+
+/obj/machinery/light/proc/check_update()
+	if (supports_nightmode && nightmode)
+		return light_range != night_brightness_range || light_power != night_brightness_power || light_color != brightness_color
+	else
+		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
 /obj/machinery/light/attack_generic(var/mob/user, var/damage)
 	if(!damage)
