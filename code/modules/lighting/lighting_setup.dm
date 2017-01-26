@@ -20,8 +20,13 @@
 
 	admin_notice(span("danger", "Initializing light sources (2/4)..."))
 	var/num_lights = 0
-	for (var/light in lighting_update_lights)
-		var/datum/light_source/L = light
+	var/list/lights = lighting_update_lights
+	lighting_update_lights = list()
+
+	while (lights.len)
+		var/datum/light_source/L = lights[lights.len]
+		lights.len--
+
 		if (!L) continue
 
 		if (L.check() || L.destroyed || L.force_update)
@@ -42,8 +47,13 @@
 
 	admin_notice(span("danger", "Initializing lighting corners (3/4)..."))
 	var/num_corners = 0
-	for (var/corner in lighting_update_corners)
-		var/datum/lighting_corner/C = corner
+	var/list/corners = lighting_update_corners
+	lighting_update_corners = list()
+
+	while (corners.len)
+		var/datum/lighting_corner/C = corners[corners.len]
+		corners.len--
+
 		if (!C) continue
 
 		C.update_overlays()
@@ -56,8 +66,13 @@
 	admin_notice(span("danger", "Processed [num_corners] light corners."))
 	admin_notice(span("danger", "Initializing lighting overlays (4/4)..."))
 	var/num_overlays = 0
-	for (var/overlay in lighting_update_overlays)
-		var/atom/movable/lighting_overlay/O = overlay
+	var/list/overlays = lighting_update_overlays
+	lighting_update_overlays = list()
+
+	while (overlays.len)
+		var/atom/movable/lighting_overlay/O = overlays[overlays.len]
+		overlays.len--
+
 		if (!O) continue
 
 		O.update_overlay()
