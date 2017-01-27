@@ -161,7 +161,7 @@
 
 	src.throwing = 0
 	if (src.loc == user)
-		if(!user.unEquip(src))
+		if(!user.prepare_for_slotmove(src))
 			return
 	else
 		if(isliving(src.loc))
@@ -217,11 +217,19 @@
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
 
-// apparently called whenever an item is removed from a slot, container, or anything else.
+//Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
+//It is called after loc is set, so if placed in a container its loc will be that container.
 /obj/item/proc/dropped(var/mob/user)
 	..()
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
+
+// Called whenever an object is moved around inside the mob's contents.
+// Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
+// This shit exists so that dropped() could almost exclusively be called when an item is dropped.
+/obj/item/proc/on_slotmove(var/mob/user)
+	if (zoom)
+		zoom(user)
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
@@ -243,7 +251,6 @@
 // user is mob that equipped it
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
-// note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	layer = 20
 	equip_slot = slot

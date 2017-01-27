@@ -305,7 +305,6 @@
 	var/list/packs = list(
 	/obj/item/weapon/storage/backpack = 3,
 	/obj/item/weapon/storage/backpack/holding = 0.5,
-	/obj/item/weapon/storage/backpack/santabag = 2,
 	/obj/item/weapon/storage/backpack/cultpack = 2,
 	/obj/item/weapon/storage/backpack/clown = 2,
 	/obj/item/weapon/storage/backpack/medic = 3,
@@ -496,10 +495,12 @@
 				/obj/item/weapon/melee/chainsword,\
 				/obj/item/weapon/melee/baton/stunrod,\
 				/obj/item/weapon/material/harpoon,\
-				/obj/item/weapon/material/scythe,\
 				/obj/item/weapon/material/twohanded/spear/plasteel,\
 				/obj/item/weapon/material/sword/trench,\
-				/obj/item/weapon/material/sword/rapier)
+				/obj/item/weapon/material/sword/rapier,\
+				/obj/item/weapon/melee/hammer,\
+				/obj/item/weapon/material/twohanded/fireaxe,\
+				/obj/item/weapon/melee/classic_baton)
 
 /obj/random/coin
 	name = "random coin"
@@ -535,7 +536,8 @@
 				/obj/item/weapon/gun/energy/toxgun,\
 				/obj/item/weapon/gun/energy/vaurca/gatlinglaser,\
 				/obj/item/weapon/gun/energy/vaurca/blaster,\
-				/obj/item/weapon/gun/energy/crossbow/largecrossbow)
+				/obj/item/weapon/gun/energy/crossbow/largecrossbow,\
+				/obj/item/weapon/gun/energy/rifle/laser/xray)
 
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
@@ -721,3 +723,24 @@
 	/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
 	)
 	return pickweight(hoodie)
+
+/obj/random/highvalue
+	name = "random high valuable item"
+	desc = "This is a random high valuable item."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "coin_diamond"
+
+/obj/random/highvalue/item_to_spawn()
+	var/list/highvalue = list(/obj/item/bluespace_crystal = 7,
+	/obj/item/weapon/storage/secure/briefcase/money = 5,
+	/obj/item/stack/telecrystal{amount = 10} = 4,
+	/obj/item/clothing/glasses/thermal = 2,
+	/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 1,
+	/obj/item/weapon/material/sword/rapier = 1,
+	/obj/item/weapon/gun/energy/lawgiver = 1,
+	/obj/item/weapon/melee/energy/axe = 0.5,
+	/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
+	/obj/item/weapon/rig/military = 0.5,
+	/obj/item/weapon/rig/unathi/fancy = 0.5
+	)
+	return pickweight(highvalue)

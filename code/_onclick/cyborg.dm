@@ -72,8 +72,16 @@
 		W.attack_self(src)
 		return
 
-	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)
 
+	//Handling using grippers
+	if (istype(W, /obj/item/weapon/gripper))
+		var/obj/item/weapon/gripper/G = W
+		//If the gripper contains something, then we will use its contents to attack
+		if (G.wrapped && (G.wrapped.loc == G))
+			GripperClickOn(A, params, G)
+			return
+
+	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)
 	if(A == loc || (A in loc) || (A in contents))
 		// No adjacency checks
 
@@ -98,6 +106,47 @@
 			return
 	return
 
+
+/*
+	Gripper Handling
+	This is used when a gripper is used on anything. It does all the handling for it
+*/
+/mob/living/silicon/robot/proc/GripperClickOn(var/atom/A, var/params, var/obj/item/weapon/gripper/G)
+
+	var/obj/item/W = G.wrapped
+	if (!grippersafety(G))return
+
+
+	G.force_holder = W.force
+	W.force = 0
+	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)
+	if(A == loc || (A in loc) || (A in contents))
+		// No adjacency checks
+
+		var/resolved = A.attackby(W,src)
+		if (!grippersafety(G))return
+		if(!resolved && A && W)
+			W.afterattack(A,src,1,params)
+		if (!grippersafety(G))return
+		W.force = G.force_holder
+		return
+	if(!isturf(loc))
+		W.force = G.force_holder
+		return
+
+	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc && isturf(A.loc.loc))
+	if(isturf(A) || isturf(A.loc))
+		if(A.Adjacent(src)) // see adjacent.dm
+			var/resolved = A.attackby(W, src)
+			if (!grippersafety(G))return
+			if(!resolved && A && W)
+				W.afterattack(A, src, 1, params)
+			if (!grippersafety(G))return
+			W.force = G.force_holder
+			return
+		//No non-adjacent clicks. Can't fire guns
+	W.force = G.force_holder
+	return
 
 //Middle click cycles through selected modules.
 /mob/living/silicon/robot/MiddleClickOn(var/atom/A)

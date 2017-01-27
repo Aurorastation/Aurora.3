@@ -79,8 +79,8 @@
 	recipes += new/datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2)
 	recipes += new/datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)
 	recipes += new/datum/stack_recipe("firearm receiver", /obj/item/weapon/receivergun, 15, time = 25, one_per_turf = 0, on_floor = 0)
-	recipes += new/datum/stack_recipe("modular console frame", /obj/machinery/modular_computer/console/buildable, 20)
-	recipes += new/datum/stack_recipe("modular laptop frame", /obj/machinery/modular_computer/laptop/buildable, 10)
+	recipes += new/datum/stack_recipe("modular console frame", /obj/item/modular_computer/console, 20)
+	recipes += new/datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10)
 	recipes += new/datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/tablet, 5)
 
 /material/plasteel/generate_recipes()
@@ -135,3 +135,17 @@
 		new/datum/stack_recipe("white folder", /obj/item/weapon/folder/white), \
 		new/datum/stack_recipe("yellow folder", /obj/item/weapon/folder/yellow), \
 		))
+
+/material/hide/xeno/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("alien helmet", /obj/item/clothing/head/xenos)
+	recipes += new/datum/stack_recipe("alien suit", /obj/item/clothing/suit/xenos, 3)
+	
+/material/hide/corgi/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("corgi costume", /obj/item/clothing/suit/storage/hooded/wintercoat/corgi, 3)
+	
+/material/hide/monkey/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("monkey mask", /obj/item/clothing/mask/gas/monkeymask)
+	recipes += new/datum/stack_recipe("monkey suit", /obj/item/clothing/suit/monkeysuit, 2)

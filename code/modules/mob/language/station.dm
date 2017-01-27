@@ -42,7 +42,7 @@
 
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
-	desc = "The traditionally employed tongue of Ahdomai, composed of expressive yowls and chirps. Native to the Tajaran."
+	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
@@ -71,7 +71,7 @@
 	signlang_verb = list("signs", "flicks their ears", "gestures")
 	colour = "i"
 	key = "i"
-	flags = NO_STUTTER | SIGNLANG
+	flags = NO_STUTTER | SIGNLANG | WHITELISTED
 	
 /datum/language/siik_tajr
 	name = LANGUAGE_SIIK_TAJR
@@ -138,6 +138,8 @@
 			player << msg
 
 /datum/language/bug/check_special_condition(var/mob/other)
+	if(istype(other, /mob/living/silicon))
+		return 1
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
@@ -147,8 +149,6 @@
 	if(within_jamming_range(other))
 		return 0
 	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
-		return 1
-	if(istype(M,/mob/living/silicon/))
 		return 1
 
 	if (M.l_ear || M.r_ear)

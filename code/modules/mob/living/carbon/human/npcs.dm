@@ -10,10 +10,7 @@
 	spawn(1)
 		name = "Pun Pun"
 		real_name = name
-		if(prob(10))
-			w_uniform = new /obj/item/clothing/under/nupnup(src)
-		else
-			w_uniform = new /obj/item/clothing/under/punpun(src)
+		w_uniform = new /obj/item/clothing/under/punpun(src)
 
 /obj/item/clothing/under/nupnup
 	name = "christmas uniform"

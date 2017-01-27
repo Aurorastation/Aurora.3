@@ -125,6 +125,7 @@
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
 		new /obj/item/ammo_magazine/tranq(src)
+		new /obj/item/device/holowarrant(src)
 		return
 
 
@@ -166,6 +167,7 @@
 		new /obj/item/weapon/storage/box/holobadge(src)
 		new /obj/item/clothing/head/beret/sec/warden(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
+		new /obj/item/ammo_magazine/c45m/rubber(src)
 		return
 
 
@@ -201,6 +203,8 @@
 		new /obj/item/clothing/head/soft/sec/corp(src)
 		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/item/weapon/gun/energy/taser(src)
+		new /obj/item/ammo_magazine/c45m/rubber(src)
+		new /obj/item/device/holowarrant(src)
 		return
 
 

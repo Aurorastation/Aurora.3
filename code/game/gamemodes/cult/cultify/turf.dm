@@ -35,8 +35,11 @@
 
 /turf/proc/cultify_floor()
 	if((icon_state != "cult")&&(icon_state != "cult-narsie"))
-		name = "engraved floor"
+		icon = 'icons/turf/flooring/cult.dmi'
 		icon_state = "cult"
+		if(istype(src,/turf/simulated/floor))
+			var/turf/simulated/floor/F = src
+			F.set_flooring(get_flooring_data(/decl/flooring/reinforced/cult))
 
 /turf/proc/cultify_wall()
 	ChangeTurf(/turf/unsimulated/wall/cult)

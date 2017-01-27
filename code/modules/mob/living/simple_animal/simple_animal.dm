@@ -151,11 +151,10 @@
 /mob/living/simple_animal/Life()
 	..()
 	life_tick++
+	if (stat == DEAD)
+		return 0
 	//Health
 	updatehealth()
-
-	if(stat == DEAD)
-		return 0
 
 	if(health > maxHealth)
 		health = maxHealth
@@ -387,7 +386,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical))
+	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
 		..()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
@@ -398,9 +397,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
-		return
+		return 0
 
 	if(O.force > resistance)
 		var/damage = O.force
@@ -416,6 +416,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
 	user.do_attack_animation(src)
+
 
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later

@@ -316,7 +316,8 @@
 
 	var/atom/movable/I = new gift_type(M)
 	M.remove_from_mob(src)
-	M.put_in_hands(I)
+	if (!M.put_in_hands(I))
+		M.forceMove(get_turf(src))
 	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
 	qdel(src)
 	return

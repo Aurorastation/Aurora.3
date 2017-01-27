@@ -22,7 +22,7 @@
 		)
 	w_class = 4
 	slot_flags = SLOT_BACK
-	max_w_class = 4
+	max_w_class = 3
 	max_storage_space = 28
 	var/species_restricted = list("exclude","Vaurca Breeder")
 
@@ -181,8 +181,10 @@
 	if (!..())
 		return 0
 
-	if (user.get_species() == "Vaurca")
-		item_state = "vaurcacape"
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if (H.species.get_bodytype() == "Vaurca")
+			item_state = "vaurcacape"
 	else
 		item_state = "cape"
 

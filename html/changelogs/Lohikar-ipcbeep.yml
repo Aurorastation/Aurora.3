@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscadd: "IPCs can now use *beep, *ping and *buzz."

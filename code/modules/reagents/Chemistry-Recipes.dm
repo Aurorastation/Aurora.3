@@ -396,7 +396,7 @@
 	name = "Ipecac"
 	id = "ipecac"
 	result = "ipecac"
-	required_reagents = list("hydrogen" = 1, "anti_toxin" = 1, "ethanol" = 1)
+	required_reagents = list("hydrazine" = 1, "anti_toxin" = 1, "ethanol" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/soporific
@@ -1085,7 +1085,12 @@
 	/mob/living/simple_animal/hostile/alien/queen/large,
 	/mob/living/simple_animal/hostile/faithless,
 	/mob/living/simple_animal/hostile/retaliate,
-	/mob/living/simple_animal/hostile/retaliate/clown
+	/mob/living/simple_animal/hostile/retaliate/clown,
+	/mob/living/simple_animal/hostile/alien,
+	/mob/living/simple_animal/hostile/alien/drone,
+	/mob/living/simple_animal/hostile/alien/sentinel,
+	/mob/living/simple_animal/hostile/alien/queen,
+	/mob/living/simple_animal/hostile/alien/queen/large
 	)//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1101,6 +1106,7 @@
 		if(prob(50))
 			for(var/j = 1, j <= rand(1, 3), j++)
 				step(C, pick(NORTH,SOUTH,EAST,WEST))
+	..()
 
 //Silver
 /datum/chemical_reaction/slime/bork
@@ -1872,7 +1878,7 @@
 	name = "Sbiten"
 	id = "sbiten"
 	result = "sbiten"
-	required_reagents = list("vodka" = 10, "capsaicin" = 1)
+	required_reagents = list("mead" = 10, "capsaicin" = 1)
 	result_amount = 10
 
 /datum/chemical_reaction/red_mead
@@ -2076,7 +2082,7 @@
 	name = "Luminol"
 	id = "luminol"
 	result = "luminol"
-	required_reagents = list("hydrogen" = 2, "carbon" = 2, "ammonia" = 2)
+	required_reagents = list("hydrazine" = 2, "carbon" = 2, "ammonia" = 2)
 	result_amount = 6
 
 /////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////

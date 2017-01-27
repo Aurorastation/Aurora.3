@@ -479,6 +479,15 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "Metal sheets crate"
 	group = "Engineering"
 
+/datum/supply_packs/metal200
+	name = "Bulk metal crate"
+	contains = list(/obj/item/stack/material/steel, /obj/item/stack/material/steel, /obj/item/stack/material/steel,/obj/item/stack/material/steel)
+	amount = 50
+	cost = 20
+	containertype = /obj/structure/largecrate
+	containername = "Bulk metal crate"
+	group = "Engineering"
+
 /datum/supply_packs/glass50
 	name = "50 glass sheets"
 	contains = list(/obj/item/stack/material/glass)
@@ -1099,7 +1108,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	num_contained = 2
 	contains = list(/obj/item/clothing/suit/pirate,
 					/obj/item/clothing/suit/judgerobe,
-					/obj/item/clothing/suit/wcoat,
+					/obj/item/clothing/accessory/wcoat,
 					/obj/item/clothing/suit/hastur,
 					/obj/item/clothing/suit/holidaypriest,
 					/obj/item/clothing/suit/nun,
@@ -1110,7 +1119,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/under/lawyer/purpsuit,
 					/obj/item/clothing/under/rank/mailman,
 					/obj/item/clothing/under/dress/dress_saloon,
-					/obj/item/clothing/suit/suspenders,
+					/obj/item/clothing/accessory/suspenders,
 					/obj/item/clothing/suit/storage/toggle/labcoat/mad,
 					/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
 					/obj/item/clothing/under/schoolgirl,

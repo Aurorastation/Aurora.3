@@ -275,17 +275,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			var/id = query.item[1]
 			var/name = query.item[2]
 			var/data = query.item[3]
-			var/obj/item/weapon/paper/C = new(src.loc)
+			var/obj/item/weapon/paper/C = new()
 
 			//Let's start the BB >> HTML conversion!
 
 			data = html_encode(data)
-			data = replacetext(data, "\n", "<BR>")
+			C.set_content("NFC-[id] - [name]", data)
+			print(C)
 
-			C.info += data
-			C.info = C.parsepencode(C.info)
-			C.updateinfolinks()
-			C.name = "NFC-[id] - [name]"
 			paperstock--
 
 	// Get extra information about the form.
@@ -399,14 +396,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						if(!sent)
 							sent = 1
 						var/obj/item/weapon/paper/C = O
-						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(Console.loc)
-						P.info = "<font color = #101010>"
+						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
+						var/info = "<font color = #101010>"
 						var/copied = html_decode(C.info)
 						copied = replacetext(copied, "<font face=\"[P.deffont]\" color=", "<font face=\"[P.deffont]\" nocolor=")	//state of the art techniques in action
 						copied = replacetext(copied, "<font face=\"[P.crayonfont]\" color=", "<font face=\"[P.crayonfont]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
-						P.info += copied
-						P.info += "</font>"
-						P.name = C.name
+						info += copied
+						info += "</font>"
+						var/pname = C.name
 						P.fields = C.fields
 						P.stamps = C.stamps
 						P.stamped = C.stamped
@@ -425,8 +422,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 							img.pixel_x = C.offset_x[j]
 							img.pixel_y = C.offset_y[j]
 							P.overlays += img
-						P.updateinfolinks()
-						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+						P.set_content_unsafe(pname, info)
+						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
 							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
 						Console.paperstock--

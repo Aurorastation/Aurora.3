@@ -102,7 +102,8 @@
 					var/obj/machinery/constructable_frame/machine_frame/F = new
 					F.loc = src.loc
 					qdel(src)
-
+	
+	update_icon()
 
 /obj/machinery/telecomms/attack_ai(var/mob/user as mob)
 	attack_hand(user)

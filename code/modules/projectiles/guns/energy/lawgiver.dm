@@ -1,5 +1,5 @@
 /obj/item/weapon/gun/energy/lawgiver
-	name = "Lawgiver Mk II"
+	name = "\improper Lawgiver Mk II"
 	icon_state = "lawgiver"
 	item_state = "gun"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
@@ -84,7 +84,7 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)
+/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -117,7 +117,10 @@
 		..()
 
 /obj/item/weapon/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
-	if( (src.dna==usr.dna.unique_enzymes || emagged) && (src in usr.contents))
+	var/mob/living/carbon/human/H = M
+	if (!H)
+		return
+	if( (src.dna==H.dna.unique_enzymes || emagged) && (src in H.contents))
 		hear(msg)
 	return
 

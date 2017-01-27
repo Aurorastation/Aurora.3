@@ -604,7 +604,7 @@ default behaviour is:
 	set name = "Resist"
 	set category = "IC"
 
-	if(!stat && canClick())
+	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
 		setClickCooldown(20)
 		resist_grab()
 		if(!weakened)
@@ -667,7 +667,7 @@ default behaviour is:
 			if(GRAB_PASSIVE)
 				qdel(G)
 			if(GRAB_AGGRESSIVE)
-				if(prob(60)) //same chance of breaking the grab as disarm
+				if(incapacitated(INCAPACITATION_KNOCKDOWN)? prob(15) : prob(60))
 					visible_message("<span class='warning'>[src] has broken free of [G.assailant]'s grip!</span>")
 					qdel(G)
 			if(GRAB_NECK)
@@ -752,7 +752,7 @@ default behaviour is:
 	if(jobban_isbanned(possessor, "Animal"))
 		possessor << "<span class='warning'>You are banned from animal roles.</span>"
 		return 0
-	if(!possessor.MayRespawn(1,ANIMAL_SPAWN_DELAY))
+	if(!possessor.MayRespawn(1,ANIMAL))
 		return 0
 	return 1
 

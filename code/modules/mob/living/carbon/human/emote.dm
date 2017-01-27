@@ -542,6 +542,9 @@
 		if("swish")
 			src.animate_tail_once()
 
+		if("idle")
+			src.animate_tail_reset()
+
 		if("wag", "sway")
 			src.animate_tail_start()
 
@@ -554,7 +557,7 @@
 		if("beep")
 			if (!isipc(src))
 				src << span("notice", "You're not a machine!")
-			else 
+			else
 				var/M = null
 				if(param)
 					for (var/mob/A in view(null, null))
@@ -574,7 +577,7 @@
 		if("ping")
 			if (!isipc(src))
 				src << span("notice", "You're not a machine!")
-			else 
+			else
 				var/M = null
 				if(param)
 					for (var/mob/A in view(null, null))

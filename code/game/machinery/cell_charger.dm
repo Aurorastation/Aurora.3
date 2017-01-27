@@ -83,8 +83,7 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Borgs can remove the cell if they are near enough
 		if(!src.charging)
 			return
-
-		charging.loc = src.loc
+		user.put_in_hands(charging)
 		charging.update_icon()
 		charging = null
 		update_icon()

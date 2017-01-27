@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - experiment: "Explosions should no longer lock up the server."
-  - experiment: "Significantly reduced lag from most things."

@@ -109,7 +109,7 @@
 
 /datum/surgery_step/generic/cut_open
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,	
+	/obj/item/weapon/scalpel = 100,
 	/obj/item/weapon/material/knife = 75,
 	/obj/item/weapon/material/shard = 50
 	)
@@ -160,7 +160,7 @@
 	max_duration = 130
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if(target.get_species() != "Vaurca")
+		if(!(isvaurca(target)))
 			return 0
 		else
 			if(..())

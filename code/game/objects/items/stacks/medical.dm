@@ -12,7 +12,7 @@
 
 /obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
 	if (!istype(M) || istype(M, /mob/living/silicon))
-		user << "\red \The [src] cannot be applied to [M]!"
+		user << "<span class='warning'>\The [src] cannot be applied to [M]!</span>"
 		return 1
 
 	if ( ! (istype(user, /mob/living/carbon/human) || \
@@ -78,6 +78,7 @@
 				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been bandaged.</span>"
 				return 1
 			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
 				var/used = 0
@@ -139,6 +140,7 @@
 				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been salved.</span>"
 				return 1
 			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts salving wounds on [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
 				if(!do_mob(user, M, 10))
@@ -176,6 +178,7 @@
 				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>"
 				return 1
 			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
 				var/used = 0
@@ -239,6 +242,7 @@
 				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been salved.</span>"
 				return 1
 			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts salving wounds on [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
 				if(!do_mob(user, M, 10))
@@ -271,7 +275,7 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 		var/limb = affecting.name
-		if(!(affecting.limb_name in list("l_arm","r_arm","l_leg","r_leg")))
+		if(!(affecting.limb_name in list("l_arm","r_arm","l_leg","r_leg", "l_hand", "r_hand", "r_foot", "l_foot")))
 			user << "<span class='danger'>You can't apply a splint there!</span>"
 			return
 		if(affecting.status & ORGAN_SPLINTED)

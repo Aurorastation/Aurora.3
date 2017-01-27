@@ -12,7 +12,8 @@
 	var/wall_mounted = 0 //never solid (You can always pass over it)
 	var/health = 100
 	var/breakout = 0 //if someone is currently breaking out. mutex
-	var/storage_capacity = 2 * MOB_MEDIUM //This is so that someone can't pack hundreds of items in a locker/crate
+	var/storage_capacity = 40 //Tying this to mob sizes was dumb
+	//This is so that someone can't pack hundreds of items in a locker/crate
 							  //then open it in a populated area to crash clients.
 	var/open_sound = 'sound/machines/click.ogg'
 	var/close_sound = 'sound/machines/click.ogg'
@@ -168,6 +169,7 @@
 		user << "<span class='notice'>It won't budge!</span>"
 		return
 	update_icon()
+	return 1
 
 // this should probably use dump_contents()
 /obj/structure/closet/ex_act(severity)
@@ -213,16 +215,15 @@
 		if(istype(W, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/WT = W
 			if(!WT.remove_fuel(0,user))
-				if(!WT.isOn())
-					return
-				else
+				if(WT.isOn())
 					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 					return
-			new /obj/item/stack/material/steel(src.loc)
-			for(var/mob/M in viewers(src))
-				M.show_message("<span class='notice'>\The [src] has been cut apart by [user] with \the [WT].</span>", 3, "You hear welding.", 2)
-			qdel(src)
-			return
+			else
+				new /obj/item/stack/material/steel(src.loc)
+				for(var/mob/M in viewers(src))
+					M.show_message("<span class='notice'>\The [src] has been cut apart by [user] with \the [WT].</span>", 3, "You hear welding.", 2)
+				qdel(src)
+				return
 		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
 			var/obj/item/weapon/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
@@ -232,9 +233,7 @@
 								 "<span class='notice'>You empty \the [LB] into \the [src].</span>", \
 								 "<span class='notice'>You hear rustling of clothes.</span>")
 			return
-		if(isrobot(user))
-			return
-		if(W.loc != user) // This should stop mounted modules ending up outside the module.
+		if(!dropsafety(W))
 			return
 		usr.drop_item()
 		if(W)
@@ -291,7 +290,7 @@
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
-	src.toggle(user)
+	return src.toggle(user)
 
 // tk grab then use on self
 /obj/structure/closet/attack_self_tk(mob/user as mob)

@@ -913,6 +913,12 @@
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
 		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 
+	if (intoxication)
+		handle_intoxication()
+	else if (alcohol_clumsy)//This var is defined in intoxication.dm, its set true when alcohol has caused clumsiness
+		mutations.Remove(CLUMSY)
+		alcohol_clumsy = 0
+
 	if(status_flags & GODMODE)	return 0	//godmode
 
 
@@ -958,7 +964,7 @@
 			return 1
 
 		//UNCONSCIOUS. NO-ONE IS HOME
-		if((getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
+		if((exhaust_threshold && getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
 			Paralyse(3)
 
 		if(hallucination)
@@ -994,8 +1000,10 @@
 		if(paralysis || sleeping)
 			blinded = 1
 			stat = UNCONSCIOUS
-			animate_tail_reset()
+
 			adjustHalLoss(-3)
+			if (species.tail)
+				animate_tail_reset()
 
 		if(paralysis)
 			AdjustParalysis(-1)
@@ -1234,8 +1242,11 @@
 
 	// Puke if toxloss is too high
 	if(!stat)
-		if (getToxLoss() >= 45 && nutrition > 20)
-			vomit()
+		if (getToxLoss() >= 45 && !lastpuke)
+			if (prob(3))
+				delayed_vomit()
+			else if (prob(1))
+				vomit()
 
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
@@ -1382,7 +1393,7 @@
 
 
 /mob/living/carbon/human/proc/handle_hud_list()
-	if (BITTEST(hud_updateflag, HEALTH_HUD))
+	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
 		var/image/holder = hud_list[HEALTH_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "hudhealth-100" 	// X_X
@@ -1399,7 +1410,7 @@
 				holder.icon_state = "hud[percentage_health]"
 		hud_list[HEALTH_HUD] = holder
 
-	if (BITTEST(hud_updateflag, LIFE_HUD))
+	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "huddead"
@@ -1407,7 +1418,7 @@
 			holder.icon_state = "hudhealthy"
 		hud_list[LIFE_HUD] = holder
 
-	if (BITTEST(hud_updateflag, STATUS_HUD))
+	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
 		var/foundVirus = 0
 		for(var/datum/disease/D in viruses)
 			if(!D.hidden[SCANNER])
@@ -1448,18 +1459,11 @@
 		hud_list[STATUS_HUD] = holder
 		hud_list[STATUS_HUD_OOC] = holder2
 
-	if (BITTEST(hud_updateflag, ID_HUD))
+	if (BITTEST(hud_updateflag, ID_HUD) && hud_list[ID_HUD])
 		var/image/holder = hud_list[ID_HUD]
-		if(wear_id)
-			var/obj/item/weapon/card/id/I = wear_id.GetID()
-			if(I)
-				holder.icon_state = "hud[ckey(I.GetJobName())]"
-			else
-				holder.icon_state = "hudunknown"
-		else
-			holder.icon_state = "hudunknown"
-
-
+		
+		//The following function is found in code/defines/procs/hud.dm
+		holder.icon_state = get_sec_hud_icon(src)
 		hud_list[ID_HUD] = holder
 
 	if (BITTEST(hud_updateflag, WANTED_HUD))
@@ -1499,7 +1503,6 @@
 		holder1.icon_state = "hudblank"
 		holder2.icon_state = "hudblank"
 		holder3.icon_state = "hudblank"
-
 		for(var/obj/item/weapon/implant/I in src)
 			if(I.implanted)
 				if(istype(I,/obj/item/weapon/implant/tracking))
@@ -1593,8 +1596,11 @@
 		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 
 /mob/living/carbon/human/proc/handle_stamina()
-	if (species.stamina == -1)//If species stamina is -1, it has special mechanics which will be handled elsewhere
-		return//so quit this function
+	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
+		return //so quit this function
+
+	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
+		return
 
 	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
 		return
@@ -1611,7 +1617,8 @@
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			nutrition = max(0, nutrition - stamina_recovery*0.18)
-			hud_used.move_intent.update_move_icon(src)
+			if (client)
+				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_health_display()
 	if(!healths)

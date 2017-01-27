@@ -1,9 +1,0 @@
-author: Printer16
-
-delete-after: True
-
-changes: 
-  - tweak: "For malfunctioning AI, the system override research now takes longer."
-  - tweak: "With the change above, it now takes less time to research forcefields and machine override."
-  - tweak: "The turret enhancer hardware is slightly buffed to make it more useful."
-  - tweak: "There is now a slightly smaller fail and critical fail chance for the malfunctioning AI's Advanced and Elite hack."

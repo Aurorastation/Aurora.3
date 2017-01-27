@@ -14,55 +14,78 @@
 
 	var/maxHealth = 30
 	var/health
-	var/regen_rate = 5
+	var/regen_rate = 4
 	var/brute_resist = 4
 	var/laser_resist = 4 // Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
 	var/fire_resist = 1
 	var/secondary_core_growth_chance = 10.0 //% chance to grow a secondary blob core instead of whatever was suposed to grown. Secondary cores are considerably weaker, but still nasty.
 	var/expandType = /obj/effect/blob
 	var/obj/effect/blob/core/parent_core = null
-	var/growth_range = 0
 	var/blob_may_process = 1
 	var/hangry = 0 //if the blob will attack or not.
+	var/blob_cost = 1 //point cost of the blob tile
 
 /obj/effect/blob/New(loc)
 	processing_objects.Add(src)
 	health = maxHealth
+	var/matrix/M = matrix()
+	M.Turn(90 * pick(0,1,2,3))
+	src.transform = M
 	update_icon()
 	return ..(loc)
 
 /obj/effect/blob/Destroy()
-	processing_objects.Remove(src)
+	// Sanity time.
+	if (parent_core)
+		parent_core.blob_count -= blob_cost
+		parent_core = null
+
 	..()
 
 /obj/effect/blob/process()
 	if(!parent_core)
 		src.take_damage(5)
 		src.regen_rate = -5
-		src.growth_range = 0
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 		return
 
-	if(prob(70))
-		for(var/mob/living/L in src.loc)
-			if(L.stat == DEAD)
-				if(prob(10))
+	// Make deleting the parent more responsive.
+	if(!isnull(parent_core.gcDestroyed))
+		parent_core = null
+		return
+
+	for(var/mob/living/L in src.loc)
+		if(L.stat == DEAD)
+			if(prob(10))
+				if(istype(L, /mob/living/carbon/human))
+					var/mob/living/carbon/human/H = L
+					H.ChangeToHusk()
+					if(!(HUSK in H.mutations))
+						if(health < maxHealth)
+							health += rand(10,30)
+							if(health > maxHealth)
+								health = maxHealth
+				else if(istype(L, /mob/living/silicon))
+					continue
+				else
 					L.gib()
 					if(health < maxHealth)
 						health += rand(10,30)
 						if(health > maxHealth)
 							health = maxHealth
-				continue
-			L.visible_message("<span class='danger'>The blob absorbs \the [L]!</span>", "<span class='danger'>The blob absorbs you!</span>")
-			playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-			L.take_organ_damage(rand(5, 10))
-			if(health < maxHealth)
-				health += rand(1,10)
-				if(health > maxHealth)
-					health = maxHealth
-			hangry += 16
+			continue
+		L.visible_message("<span class='danger'>The blob absorbs \the [L]!</span>", "<span class='danger'>The blob absorbs you!</span>")
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		L.take_organ_damage(rand(5, 10))
+		if(health < maxHealth)
+			health += rand(1,10)
+			if(health > maxHealth)
+				health = maxHealth
+		hangry += 8
 
-		for(var/mob/living/L in range(src,"3x3"))
+	for(var/mob/living/L in range(src,"3x3"))
+		var/obj/effect/blob/B = locate() in get_turf(L)
+		if(!B)
 			if(!hangry)
 				if(L.stat == DEAD)
 					continue
@@ -79,7 +102,20 @@
 						health += rand(1,10)
 						if(health > maxHealth)
 							health = maxHealth
-				hangry += 4
+				hangry += 2
+
+	for(var/obj/fire/F in range(src,"3x3")) //very snowflake, but much better than actually coding complex thermodynamics for these fuckers
+		if(prob(50))
+			src.visible_message("<span class='danger'>The blob melts away under the heat of the flames!</span>")
+		F = locate() in get_turf(src)
+		if(F)
+			src.take_damage(rand(5, 20) / fire_resist)
+		else
+			src.take_damage(rand(1, 10) / fire_resist)
+
+	for(var/obj/mecha/M in range(src,"3x3"))
+		M.visible_message("<span class='danger'>The blob attacks \the [M]!</span>")
+		M.take_damage(rand(20,40))
 
 	hangry -= 1
 	if(hangry < 0)
@@ -150,14 +186,15 @@
 		return
 
 	if(parent_core)
-		if(get_dist(T,src) <= parent_core.growth_range)
+		if(parent_core.blob_count < parent_core.blob_limit)
 			if(!(locate(/obj/effect/blob/core/) in range(T, 2)) && prob(secondary_core_growth_chance) && (parent_core.core_count < parent_core.core_limit))
 				var/obj/effect/blob/core/secondary/S = new /obj/effect/blob/core/secondary(T)
 				S.parent_core = src.parent_core
-				src.parent_core.core_count += 1
+				src.parent_core.core_count += blob_cost
 			else
 				var/obj/effect/blob/C = new expandType(T)
 				C.parent_core = src.parent_core
+			parent_core.blob_count += blob_cost
 
 /obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
 	regen()
@@ -166,7 +203,7 @@
 	var/turf/T = get_step(src, pushDir)
 	var/obj/effect/blob/B = (locate() in T)
 	if(!B)
-		if(prob(health+60))
+		if(prob(health+45))
 			expand(T)
 		return
 	if(forceLeft)
@@ -219,9 +256,11 @@
 	fire_resist = 2
 	var/core_count //amount of secondary cores
 	var/core_limit = 4 //for if a badmin ever wants the station to die, they can set this higher
+	var/blob_count = 1 //amount of actual blob pieces
+	var/blob_limit = 150 //9x4+100 + a bit, maximum amount of blobs allowed.
 
 	expandType = /obj/effect/blob/shield
-	growth_range = 10 // Maximal distance for new blob pieces from this core.
+
 
 /obj/effect/blob/core/New()
 	if(!parent_core)
@@ -261,7 +300,7 @@
 	fire_resist = 1
 	laser_resist = 4
 	regen_rate = 1
-	growth_range = 3
+	expandType = /obj/effect/blob
 
 /obj/effect/blob/core/secondary/New()
 	processing_objects.Add(src)
@@ -278,11 +317,11 @@
 	name = "strong blob"
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_idle"
-	opacity = 1
 	maxHealth = 60
 	brute_resist = 1
 	fire_resist = 2
-	laser_resist = 5
+	laser_resist = 4
+	blob_cost = 0 //so that the core can regrow its shields when they break
 
 /obj/effect/blob/shield/New()
 	update_nearby_tiles()

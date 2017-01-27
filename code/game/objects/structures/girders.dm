@@ -225,6 +225,7 @@
 
 /obj/structure/girder/proc/dismantle()
 	new /obj/item/stack/material/steel(get_turf(src))
+	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
 /obj/structure/girder/attack_hand(mob/user as mob)

@@ -69,24 +69,25 @@
 	..()
 
 /mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
-	var/target = ..()
-	if(isliving(target))
-		var/mob/living/L = target
+	. = ..()
+	if(isliving(.))
+		var/mob/living/L = .
 		if(L.reagents)
 			L.reagents.add_reagent("toxin", poison_per_bite)
 			if(prob(poison_per_bite))
-				L << "\red You feel a tiny prick."
+				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
-	var/target = ..()
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+	. = ..()
+	if(ishuman(.))
+		var/mob/living/carbon/human/H = .
 		if(prob(poison_per_bite))
 			var/obj/item/organ/external/O = pick(H.organs)
-			if(!(O.status & ORGAN_ROBOT))
-				var/eggs = PoolOrNew(/obj/effect/spider/eggcluster/, list(O, src))
+			if(!(O.robotic >= ORGAN_ROBOT))
+				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
+				H << "<span class='warning'>The [src] injects something into your [O.name]!</span>"
 
 /mob/living/simple_animal/hostile/giant_spider/Life()
 	..()

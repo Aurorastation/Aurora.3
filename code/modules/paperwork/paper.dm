@@ -37,9 +37,14 @@
 
 /obj/item/weapon/paper/New(loc, text,title)
 	..(loc)
-	set_content(text ? text : info, title)
+	set_content(title, text ? text : info)
 
-/obj/item/weapon/paper/proc/set_content(text,title)
+// needed for subtyped papers with pre-defined content
+/obj/item/weapon/paper/New()
+	..()
+	update_icon()
+
+/obj/item/weapon/paper/proc/set_content(title, text)
 	if(title)
 		name = title
 	if (text && length(text))
@@ -50,6 +55,19 @@
 		
 	update_icon()
 	update_space(info)
+	updateinfolinks()
+
+// DO NOT USE THIS FOR UNTRUSTED PLAYER INPUT. IT DOES NOT SANITIZE.
+/obj/item/weapon/paper/proc/set_content_unsafe(title, text)
+	if (title)
+		name = title
+	if (text && length(text))
+		info = text
+	else
+		info = ""
+
+	update_icon()
+	update_space()
 	updateinfolinks()
 
 /obj/item/weapon/paper/update_icon()

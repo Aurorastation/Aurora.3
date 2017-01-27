@@ -115,10 +115,10 @@
 
 
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
-#define MOB_LARGE  		40
-#define MOB_MEDIUM 		20
-#define MOB_SMALL 		10
-#define MOB_TINY 		5
+#define MOB_LARGE  		16
+#define MOB_MEDIUM 		9
+#define MOB_SMALL 		6
+#define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
 // Gluttony levels.
@@ -145,13 +145,18 @@
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
 
 // Incapacitation flags, used by the mob/proc/incapacitated() proc
+#define INCAPACITATION_NONE 0
 #define INCAPACITATION_RESTRAINED 1
 #define INCAPACITATION_BUCKLED_PARTIALLY 2
 #define INCAPACITATION_BUCKLED_FULLY 4
-#define INCAPACITATION_DISABLED 8
+#define INCAPACITATION_STUNNED 8
+#define INCAPACITATION_FORCELYING 16
+#define INCAPACITATION_KNOCKOUT 32
 
+#define INCAPACITATION_KNOCKDOWN (INCAPACITATION_KNOCKOUT|INCAPACITATION_FORCELYING)
+#define INCAPACITATION_DISABLED (INCAPACITATION_KNOCKDOWN|INCAPACITATION_STUNNED)
 #define INCAPACITATION_DEFAULT (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_DISABLED)
-#define INCAPACITATION_ALL (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_DISABLED)
+#define INCAPACITATION_ALL (~INCAPACITATION_NONE)
 
 #define MOB_PULL_NONE 0
 #define MOB_PULL_SMALLER 1
@@ -166,3 +171,12 @@
 
 #define RESPAWN_ANIMAL 3000
 #define RESPAWN_MINISYNTH 6000
+
+//Flags for the eat_types variable, a bitfield of what can or can't be eaten
+//Note that any given mob can be more than one type
+#define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
+#define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
+#define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+
+

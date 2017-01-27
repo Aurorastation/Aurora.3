@@ -2,6 +2,7 @@
 	name = "Shell Frame"
 	short_name = "jak"
 	name_plural = "Shells"
+	bodytype = "Human"
 
 	burn_mod = 1.2
 
@@ -13,7 +14,7 @@
 
 	num_alternate_languages = 3
 
-	icobase = 'icons/mob/human_races/robotic.dmi'
+	icobase = 'icons/mob/human_races/r_human.dmi'
 	deform = 'icons/mob/human_races/robotic.dmi'
 
 	eyes = "eyes_s"
@@ -31,7 +32,22 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR |  HAS_SKIN_COLOR | HAS_FBP
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
+		"groin" =  list("path" = /obj/item/organ/external/groin/shell),
+		"head" =   list("path" = /obj/item/organ/external/head/shell),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/shell),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/shell),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/shell),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/shell),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/shell),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/shell),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/shell),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/shell)
+		)
+
 
 /datum/species/machine/shell/handle_post_spawn(var/mob/living/carbon/human/H)
 	add_inherent_verbs(H)
@@ -67,6 +83,7 @@
 	name = "Industrial Frame"
 	short_name = "ind"
 	name_plural = "Industrials"
+	bald = 1
 
 	brute_mod = 0.5
 	burn_mod = 1.3
@@ -97,6 +114,8 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
+
+	appearance_flags = HAS_HAIR_COLOR
 
 	heat_level_1 = 600
 	heat_level_2 = 1200
@@ -130,6 +149,7 @@
 	name = "Hunter-Killer"
 	short_name = "hks"
 	name_plural = "HKs"
+	bald = 1
 
 	blurb = "\[REDACTED\]"
 
@@ -150,6 +170,7 @@
 	flash_mod = 0
 	siemens_coefficient = 0
 	breakcuffs = list(MALE,FEMALE,NEUTER)
+	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark."
 	death_sound = 'sound/effects/bang.ogg'
@@ -164,6 +185,7 @@
 
 	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
 	spawn_flags = IS_RESTRICTED
+	appearance_flags = HAS_HAIR_COLOR
 	vision_flags = SEE_SELF | SEE_MOBS
 
 	blood_color = "#1F181F"
