@@ -91,11 +91,11 @@
 			return
 
 // Preset types - left here for the code that uses them
-/obj/item/weapon/material/shard/shrapnel/New(loc)
-	..(loc, "steel")
+/obj/item/weapon/material/shard/shrapnel/New(var/newloc)
+	..(newloc, "steel")
 
-/obj/item/weapon/material/shard/shrapnel/flechette/New(loc)
-	..(loc, "titanium")
+/obj/item/weapon/material/shard/shrapnel/flechette/New(var/newloc)
+	..(newloc, "titanium")
 
-/obj/item/weapon/material/shard/phoron/New(loc)
-	..(loc, "phglass")
+/obj/item/weapon/material/shard/phoron/New(var/newloc)
+	..(newloc, "phglass")

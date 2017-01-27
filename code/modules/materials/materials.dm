@@ -253,7 +253,7 @@ var/list/name_to_material
 
 /material/gold/bronze //placeholder for ashtrays
 	name = "bronze"
-	icon_colour = "#EDD12F"
+	icon_colour = "#CD7F32"
 
 /material/silver
 	name = "silver"
@@ -757,7 +757,7 @@ var/list/name_to_material
 	flags = MATERIAL_PADDING
 	hardness = 1
 	weight = 1
-		
+
 /material/hide/corgi
 	name = "corgi hide"
 	stack_type = /obj/item/stack/material/animalhide/corgi
@@ -767,17 +767,17 @@ var/list/name_to_material
 	name = "cat hide"
 	stack_type = /obj/item/stack/material/animalhide/cat
 	icon_colour = "#444444"
-	
+
 /material/hide/monkey
 	name = "monkey hide"
 	stack_type = /obj/item/stack/material/animalhide/monkey
 	icon_colour = "#914800"
-	
+
 /material/hide/lizard
 	name = "lizard hide"
 	stack_type = /obj/item/stack/material/animalhide/lizard
 	icon_colour = "#34AF10"
-	
+
 /material/hide/xeno
 	name = "alien hide"
 	stack_type = /obj/item/stack/material/animalhide/xeno

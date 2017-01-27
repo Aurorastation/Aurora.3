@@ -21,6 +21,7 @@
 
 /obj/item/weapon/material/New(var/newloc, var/material_key)
 	..(newloc)
+	appearance_flags |= RESET_COLOR //so blood doesn't become golden when you beat someone's head in with a gold bat
 	if(!material_key)
 		material_key = default_material
 	set_material(material_key)

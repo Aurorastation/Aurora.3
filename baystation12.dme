@@ -1417,7 +1417,6 @@
 #include "code\modules\mob\living\carbon\human\species\station\human_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\machine_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\monkey.dm"
-#include "code\modules\mob\living\carbon\human\species\station\resomi.dm"
 #include "code\modules\mob\living\carbon\human\species\station\slime.dm"
 #include "code\modules\mob\living\carbon\human\species\station\station.dm"
 #include "code\modules\mob\living\carbon\human\species\station\tajaran_subspecies.dm"

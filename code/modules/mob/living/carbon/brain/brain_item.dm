@@ -101,5 +101,6 @@
 	name = "chelm"
 	desc = "A tightly furled roll of paper, covered with indecipherable runes."
 	robotic = 2
+	parent_organ = "chest"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"

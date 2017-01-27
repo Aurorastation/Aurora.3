@@ -256,7 +256,7 @@
 			icon_state = "golem"
 
 	attack_hand(mob/living/user as mob)
-		var/mob/dead/observer/ghost
+		/*var/mob/dead/observer/ghost
 		for(var/mob/dead/observer/O in src.loc)
 			if(!O.client)	continue
 			if(O.mind && O.mind.current && O.mind.current.stat != DEAD)	continue
@@ -264,13 +264,307 @@
 			break
 		if(!ghost)
 			user << "The rune fizzles uselessly. There is no spirit nearby."
-			return
-		var/mob/living/carbon/human/G = new(src.loc)
-		G.set_species("Golem")
-		G.key = ghost.key
-		G << "You are an adamantine golem. You move slowly, but are highly resistant to heat and cold as well as blunt trauma. You are unable to wear clothes, but can still use most tools. Serve [user], and assist them in completing their goals at any cost."
-		qdel(src)
+			return*/
 
+		var/ultimate_species
+		var/spawn_blurb
+		var/glass = 0
+		var/special_color
+
+		for(var/obj/M in src.loc)
+
+			if(!M)
+				user << "The rune fizzles uselessly. There is insufficient material to forge a shell from."
+				return
+
+			var/materialcheck
+			var/materialswitch
+
+			if(istype(M,/obj/item/stack/material))
+				var/obj/item/stack/material/S = M
+				materialcheck = S.material
+				materialswitch = S.material.name
+
+			else if(istype(M,/obj/item/weapon/material))
+				var/obj/item/weapon/material/S = M
+				materialcheck = S.material
+				materialswitch = S.material.name
+
+			if(materialcheck)
+				switch(materialswitch)
+
+					if("plastic")
+						ultimate_species = "Plastic Golem"
+						spawn_blurb = "As a Plastic Golem you are more a novelty than a tool."
+						qdel(M)
+						break
+
+					if("uranium")
+						ultimate_species = "Uranium Golem"
+						spawn_blurb = "As a Uranium Golem, you are privy to several radiation-based abilities, and can gauge the radiation levels of others by hugging them."
+						qdel(M)
+						break
+
+					if("diamond")
+						ultimate_species = "Diamond Golem"
+						spawn_blurb = "As a Diamond Golem, you are resistant to lasers and are among the strongest golems around."
+						glass = 1
+						qdel(M)
+						break
+
+					if("gold")
+						ultimate_species = "Gold Golem"
+						spawn_blurb = "As a Gold Golem you are rather soft. However, your density makes you harder to push and your punches land harder."
+						qdel(M)
+						break
+
+					if("bronze")
+						ultimate_species = "Bronze Golem"
+						spawn_blurb = "As a Bronze Golem you are more a novelty than a tool."
+						qdel(M)
+						break
+
+					if("silver")
+						ultimate_species = "Silver Golem"
+						spawn_blurb = "You are a Silver Golem. You are equally resistant to all damage types, but tend to move very slowly."
+						qdel(M)
+						break
+
+					if("phoron")
+						ultimate_species = "Phoron Golem"
+						spawn_blurb = "As a Phoron Golem you have a weakness to fire but an attraction to it all the same. Upon your death you are likely to explode."
+						qdel(M)
+						break
+
+					if("sandstone")
+						ultimate_species = "Sandstone Golem"
+						spawn_blurb = "You are a Sandstone Golem."
+						qdel(M)
+						break
+
+					if("marble")
+						ultimate_species = "Marble Golem"
+						spawn_blurb = "You are a Marble Golem. Beyond your stately appearance you are also fairly durable."
+						qdel(M)
+						break
+
+					if("steel")
+						ultimate_species = "Steel Golem"
+						spawn_blurb = "You are a Steel Golem. You are equally resistant to all damage types, but tend to move very slowly."
+						qdel(M)
+						break
+
+					if("plasteel")
+						ultimate_species = "Plasteel Golem"
+						spawn_blurb = "You are a Plasteel Golem. You are equally resistant to all damage types, but tend to move very slowly."
+						qdel(M)
+						break
+
+					if("titanium")
+						ultimate_species = "Titanium Golem"
+						spawn_blurb = "As a Titanium Golem you are among the strongest and mightiest golems around."
+						qdel(M)
+						break
+
+					if("glass")
+						ultimate_species = "Glass Golem"
+						spawn_blurb = "As a Glass Golem you are resistant to lasers but otherwise very fragile."
+						glass = 1
+						qdel(M)
+						break
+
+					if("rglass")
+						ultimate_species = "Reinforced Glass Golem"
+						spawn_blurb = "You are a Reinforced Glass Golem. You are very resistant to lasers, but fragile to other sources of damage."
+						glass = 1
+						qdel(M)
+						break
+
+					if("borosilicate glass")
+						ultimate_species = "Borosilicate Glass Golem"
+						spawn_blurb = "You are a Borosilicate Glass Golem. You are very resistant to lasers, but fragile to other sources of damage."
+						glass = 1
+						qdel(M)
+						break
+
+					if("reinforced borosilicate glass")
+						ultimate_species = "Reinforced Borosilicate Glass Golem"
+						spawn_blurb = "You are a Reinforced Borosilicate Glass Golem. You are very resistant to lasers, but fragile to other sources of damage."
+						glass = 1
+						qdel(M)
+						break
+
+					if("osmium")
+						ultimate_species = "Osmium Golem"
+						spawn_blurb = "As an Osmium Golem your density makes you harder to push and your hits land stronger."
+						qdel(M)
+						break
+
+					if("tritium")
+						ultimate_species = "Tritium Golem"
+						spawn_blurb = "As a Tritium Golem you possess the ability to detect and absorb the radiation of others."
+						qdel(M)
+						break
+
+					if("mhydrogen")
+						ultimate_species = "Metallic Hydrogen Golem"
+						spawn_blurb = "As a Metallic Hydrogen Golem you possess very basic electrokinesis."
+						qdel(M)
+						break
+
+					if("platinum")
+						ultimate_species = "Platinum Golem"
+						spawn_blurb = "You are a Platinum Golem. You are equally resistant to all damage types, but tend to move very slowly."
+						qdel(M)
+						break
+
+					if("iron")
+						ultimate_species = "Iron Golem"
+						spawn_blurb = "You are an Iron Golem. You are equally resistant to all damage types, but tend to move very slowly."
+						qdel(M)
+						break
+
+					if("wood")
+						ultimate_species = "Wood Golem"
+						spawn_blurb = "You are a Wood Golem. You are very flammable but otherwise admirably durable."
+						qdel(M)
+						break
+
+					if("cardboard")
+						ultimate_species = "Cardboard Golem"
+						spawn_blurb = "You are a Carboard Golem. You are as flimsy as you sound."
+						qdel(M)
+						break
+
+					if("cloth")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						qdel(M)
+						break
+
+					if("leather")
+						ultimate_species = "Homonculus"
+						spawn_blurb = "You are a Homonculus, a golem woven of flesh. You can impart the gift of your being upon any brain you find, and can devour creatures smaller than you with great gluttony."
+						qdel(M)
+						break
+
+					if("carpet")
+						ultimate_species = "Shaggy Golem"
+						spawn_blurb = "You are a carpet golem. Your light material grants you great speed, but also great weakness."
+						qdel(M)
+						break
+
+					if("cotton")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						qdel(M)
+						break
+
+					if("teal")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						special_color = "#00EAFA"
+						qdel(M)
+						break
+
+					if("black")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						special_color = "#505050"
+						qdel(M)
+						break
+
+					if("green")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						special_color = "#01C608"
+						qdel(M)
+						break
+
+					if("purple")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						special_color = "#9C56C4"
+						qdel(M)
+						break
+
+					if("blue")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						special_color = "#6B6FE3"
+						qdel(M)
+						break
+
+					if("beige")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						special_color = "#E8E7C8"
+						qdel(M)
+						break
+
+					if("lime")
+						ultimate_species = "Cloth Golem"
+						spawn_blurb = "You are a Cloth Golem. Your light material grants you great speed, but also great weakness."
+						special_color = "#62E36C"
+						qdel(M)
+						break
+
+					if("hide")
+						ultimate_species = "Homonculus"
+						spawn_blurb = "You are a Homonculus, a golem woven of flesh. You can impart the gift of your being upon any brain you find, and can devour creatures smaller than you with great gluttony"
+						qdel(M)
+						break
+
+					if("corgi hide")
+						ultimate_species = "Homonculus"
+						spawn_blurb = "You are a Homonculus, a golem woven of flesh. You can impart the gift of your being upon any brain you find, and can devour creatures smaller than you with great gluttony."
+						qdel(M)
+						break
+
+					if("cat hide")
+						ultimate_species = "Homonculus"
+						spawn_blurb = "You are a Homonculus, a golem woven of flesh. You can impart the gift of your being upon any brain you find, and can devour creatures smaller than you with great gluttony."
+						qdel(M)
+						break
+
+					if("lizard hide")
+						ultimate_species = "Homonculus"
+						spawn_blurb = "You are a Homonculus, a golem woven of flesh. You can impart the gift of your being upon any brain you find, and can devour creatures smaller than you with great gluttony."
+						qdel(M)
+						break
+
+					if("alien hide")
+						ultimate_species = "Homonculus"
+						spawn_blurb = "You are a Homonculus, a golem woven of flesh. You can impart the gift of your being upon any brain you find, and can devour creatures smaller than you with great gluttony."
+						qdel(M)
+						break
+
+					else
+						continue
+
+			else
+				continue
+
+			user << "The rune fizzles uselessly. There is insufficient material to forge a shell from."
+			return
+
+		if(ultimate_species)
+			var/mob/living/carbon/human/G
+			if(glass)
+				G = new /mob/living/carbon/human/crystalgolem(src.loc)
+			else
+				G = new(src.loc)
+			G.set_species(ultimate_species)
+			if(special_color)
+				G.species.flesh_color = special_color
+				G.species.base_color = special_color
+				G.color = special_color
+			//G.key = ghost.key
+			G << "[spawn_blurb] Serve [user], and assist them in completing their goals at any cost."
+			qdel(src)
+		else
+			user << "The rune fizzles uselessly. There is insufficient material to forge a shell from."
+			return
 
 	proc/announce_to_ghosts()
 		for(var/mob/dead/observer/G in player_list)
