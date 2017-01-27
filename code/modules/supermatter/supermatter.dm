@@ -125,8 +125,9 @@
 	update_uv()
 
 /obj/machinery/power/supermatter/proc/update_uv()
-	if (last_power + 40 < power || last_power - 40 > power)
+	if (last_power + 20 < power || last_power - 20 > power)
 		set_uv(CLAMP01(power / 500) * 255)
+		last_power = power
 
 /obj/machinery/power/supermatter/proc/get_integrity()
 	var/integrity = damage / explosion_point
