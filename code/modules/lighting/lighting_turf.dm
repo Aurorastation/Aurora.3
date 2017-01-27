@@ -74,7 +74,7 @@
 // Gets the current UV illumination of the turf. Always 100% for space.
 /turf/proc/get_uv_lumcount(var/minlum = 0, var/maxlum = 1)
 	if (!lighting_overlay)
-		return SCALE(1, minlum, maxlum)
+		return 1
 
 	var/totallums = 0
 	for (var/datum/lighting_corner/L in corners)
