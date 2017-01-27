@@ -19,7 +19,7 @@
 /obj/item/device/uv_light/attack_self(var/mob/user)
 	on = !on
 	if(on)
-		set_light(range, 2, "#007fff")
+		set_light(range, 2, "#007fff", uv = 100)
 		processing_objects |= src
 		icon_state = "uv_on"
 	else
