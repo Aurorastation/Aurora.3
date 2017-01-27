@@ -6,6 +6,8 @@
 /datum/shuttle
 	var/warmup_time = 0
 	var/moving_status = SHUTTLE_IDLE
+	var/lift = 0 //To make zlevel stuff work right
+	var/lift_lowest_zlevel = 1 //At least 1 unless you always want open floor
 
 	var/docking_controller_tag	//tag of the controller used to coordinate docking
 	var/datum/computer/file/embedded_program/docking/docking_controller	//the controller itself. (micro-controller, not game controller)
@@ -113,7 +115,17 @@
 	for(var/mob/living/simple_animal/pest in destination)
 		pest.gib()
 
-	origin.move_contents_to(destination, direction=direction)
+	if(lift)
+		//Oh erm what happens when there is no controller
+		var/turf/controllerlocation = locate(1, 1, origin.z)
+		for(var/obj/effect/landmark/zcontroller/controller in controllerlocation)
+			if(controller.down)
+				var/turf/T = /turf/simulated/floor/open
+				if(lift_lowest_zlevel == controllerlocation.z)
+					T = /turf/simulated/floor/plating
+				origin.move_contents_to(destination, T, direction)
+	else
+		origin.move_contents_to(destination, direction=direction)
 
 	for(var/mob/M in destination)
 		if(M.client)

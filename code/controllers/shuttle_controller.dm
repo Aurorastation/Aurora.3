@@ -127,6 +127,115 @@ var/global/datum/shuttle_controller/shuttle_controller
 
 	supply_controller.shuttle = shuttle
 
+	//LIFTS!!!!!
+	// They are shuttles to save dupe code
+	
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/medical/lower)
+	shuttle.area_station = locate(/area/shuttle/medical/main)
+	shuttle.docking_controller_tag = "medical_lift"
+	shuttle.dock_target_station = "medical_lift_main"
+	shuttle.dock_target_offsite = "medical_lift_lower"
+	shuttles["Medical"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/science/lower)
+	shuttle.area_station = locate(/area/shuttle/science/main)
+	shuttle.docking_controller_tag = "science_lift"
+	shuttle.dock_target_station = "science_lift_main"
+	shuttle.dock_target_offsite = "science_lift_lower"
+	shuttles["Science"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/engineering/lower)
+	shuttle.area_station = locate(/area/shuttle/engineering/main)
+	shuttle.docking_controller_tag = "engineering_lift"
+	shuttle.dock_target_station = "eng_lift_main"
+	shuttle.dock_target_offsite = "eng_lift_lower"
+	shuttles["Engineering"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/ai/lower)
+	shuttle.area_station = locate(/area/shuttle/ai/main)
+	shuttle.docking_controller_tag = "aicore_lift"
+	shuttle.dock_target_station = "aicore_lift_main"
+	shuttle.dock_target_offsite = "aicore_lift_lower"
+	shuttles["AiCore"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/vault/lower)
+	shuttle.area_station = locate(/area/shuttle/vault/main)
+	shuttle.docking_controller_tag = "vault_lift"
+	shuttle.dock_target_station = "vault_lift_main"
+	shuttle.dock_target_offsite = "vault_lift_lower"
+	shuttles["Vault"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/civilian/upper)
+	shuttle.area_transition = locate(/area/shuttle/civilian/transit)
+	shuttle.area_station = locate(/area/shuttle/civilian/main)
+	shuttle.docking_controller_tag = "civilian_lift"
+	shuttle.dock_target_station = "civilian_lift_main"
+	shuttle.dock_target_offsite = "civilian_lift_dock"
+	shuttles["Civilian"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/cargo/upper)
+	shuttle.area_transition = locate(/area/shuttle/cargo/transit)
+	shuttle.area_station = locate(/area/shuttle/cargo/main)
+	shuttle.docking_controller_tag = "cargo_lift"
+	shuttle.dock_target_station = "cargo_lift_main"
+	shuttle.dock_target_offsite = "cargo_lift_dock"
+	shuttles["Cargo"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/command/upper)
+	shuttle.area_transition = locate(/area/shuttle/command/transit)
+	shuttle.area_station = locate(/area/shuttle/command/main)
+	shuttle.docking_controller_tag = "command_lift"
+	shuttle.dock_target_station = "command_lift_main"
+	shuttle.dock_target_offsite = "command_lift_dock"
+	shuttles["Command"] = shuttle
+	process_shuttles += shuttle
+	
+
 	// Admin shuttles.
 	shuttle = new()
 	shuttle.location = 1
