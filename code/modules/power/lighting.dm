@@ -143,7 +143,7 @@
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 1
+	var/brightness_power = 0.8
 	var/night_brightness_range = 6
 	var/night_brightness_power = 0.6
 	var/supports_nightmode = TRUE
@@ -646,8 +646,8 @@
 	base_state = "ltube"
 	item_state = "c_tube"
 	matter = list("glass" = 100)
-	brightness_range = 6
-	brightness_power = 3
+	brightness_range = 8
+	brightness_power = 0.8
 
 /obj/item/weapon/light/tube/large
 	w_class = 2
@@ -662,8 +662,8 @@
 	base_state = "lbulb"
 	item_state = "contvapour"
 	matter = list("glass" = 100)
-	brightness_range = 3.
-	brightness_power = 2
+	brightness_range = 5
+	brightness_power = 0.75
 	brightness_color = "#a0a080"
 
 /obj/item/weapon/light/throw_impact(atom/hit_atom)
@@ -677,8 +677,8 @@
 	base_state = "fbulb"
 	item_state = "egg4"
 	matter = list("glass" = 100)
-	brightness_range = 5
-	brightness_power = 2
+	brightness_range = 8
+	brightness_power = 0.8
 
 // update the icon state and description of the light
 
