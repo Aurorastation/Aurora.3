@@ -1366,15 +1366,6 @@ var/list/WALLITEMS = list(
 /atom/movable/proc/stop_orbit()
 	orbiting = null
 
-/mob/dview/New()
-	..()
-	// We don't want to be in any mob lists; we're a dummy not a mob.
-	mob_list -= src
-	if(stat == DEAD)
-		dead_mob_list -= src
-	else
-		living_mob_list -= src
-
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
 	CRASH(msg)
