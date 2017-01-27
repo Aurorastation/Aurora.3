@@ -1,4 +1,4 @@
-// Alien clothing.
+//unathi clothing
 
 /datum/gear/suit/unathi_mantle
 	display_name = "hide mantle (Unathi)"
@@ -14,63 +14,45 @@
 	whitelisted = "Unathi"
 	sort_category = "Xenowear"
 
-/datum/gear/ears/skrell
-	display_name = "headtail-wear, female, chain (Skrell)"
+//skrell headtail adorns
+
+/datum/gear/ears/f_skrell
+	display_name = "headtail-wear, female (Skrell)"
 	path = /obj/item/clothing/ears/skrell/chain
 	sort_category = "Xenowear"
 	whitelisted = "Skrell"
 
-/datum/gear/ears/skrell/plate
-	display_name = "headtail-wear, male, bands (Skrell)"
+/datum/gear/ears/f_skrell/New()
+	..()
+	var/f_chains = list()
+	f_chains["headtail chains"] = /obj/item/clothing/ears/skrell/chain
+	f_chains["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth_female
+	f_chains["red-jeweled chain"] = /obj/item/clothing/ears/skrell/redjewel_chain
+	f_chains["ebony chain"] = /obj/item/clothing/ears/skrell/ebony_chain
+	f_chains["blue-jeweled chain"] = /obj/item/clothing/ears/skrell/bluejeweled_chain
+	f_chains["silver chain"] = /obj/item/clothing/ears/skrell/silver_chain
+	f_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_female
+	gear_tweaks += new/datum/gear_tweak/path(f_chains)
+
+/datum/gear/ears/m_skrell
+	display_name = "headtail-wear, male (Skrell)"
 	path = /obj/item/clothing/ears/skrell/band
+	sort_category = "Xenowear"
+	whitelisted = "Skrell"
 
-/datum/gear/ears/skrell/cloth_male
-	display_name = "headtail-wear, male, cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/cloth_male
+/datum/gear/ears/m_skrell/New()
+	..()
+	var/m_chains = list()
+	m_chains["headtail bands"] = /obj/item/clothing/ears/skrell/chain
+	m_chains["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth_male
+	m_chains["red-jeweled bands"] = /obj/item/clothing/ears/skrell/redjeweled_band
+	m_chains["ebony bands"] = /obj/item/clothing/ears/skrell/ebony_band
+	m_chains["blue-jeweled bands"] = /obj/item/clothing/ears/skrell/bluejeweled_band
+	m_chains["silver bands"] = /obj/item/clothing/ears/skrell/silver_band
+	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
+	gear_tweaks += new/datum/gear_tweak/path(m_chains)
 
-/datum/gear/ears/skrell/cloth_female
-	display_name = "headtail-wear, female, cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/cloth_female
-
-/datum/gear/ears/skrell/red_jeweled
-	display_name = "skrell headtail-wear, female, red-jeweled chain (Skrell)"
-	path = /obj/item/clothing/ears/skrell/redjewel_chain
-
-/datum/gear/ears/skrell/ebony_chain
-	display_name = "skrell headtail-wear, female, ebony chain (Skrell)"
-	path = /obj/item/clothing/ears/skrell/ebony_chain
-
-/datum/gear/ears/skrell/redjeweled_band
-	display_name = "skrell headtail-wear, male, red-jeweled bands (Skrell)"
-	path = /obj/item/clothing/ears/skrell/redjeweled_band
-
-/datum/gear/ears/skrell/ebony_band
-	display_name = "skrell headtail-wear, male, ebony bands (Skrell)"
-	path = /obj/item/clothing/ears/skrell/ebony_band
-
-/datum/gear/ears/skrell/bluejeweled_chain
-	display_name = "skrell headtail-wear, female, blue-jeweled chain (Skrell)"
-	path = /obj/item/clothing/ears/skrell/bluejeweled_chain
-
-/datum/gear/ears/skrell/bluejeweled_band
-	display_name = "skrell headtail-wear, male, blue-jeweled bands (Skrell)"
-	path = /obj/item/clothing/ears/skrell/bluejeweled_band
-
-/datum/gear/ears/skrell/silver_chain
-	display_name = "skrell headtail-wear, female, silver chain (Skrell)"
-	path = /obj/item/clothing/ears/skrell/silver_chain
-
-/datum/gear/ears/skrell/silver_band
-	display_name = "skrell headtail-wear, male, silver bands (Skrell)"
-	path = /obj/item/clothing/ears/skrell/silver_band
-
-/datum/gear/ears/skrell/blue_skrell_cloth_band_male
-	display_name = "skrell headtail-wear, male, blue cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
-
-/datum/gear/ears/skrell/blue_skrell_cloth_band_female
-	display_name = "skrell headtail-wear, female, blue cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_female
+//vaurca items
 
 /datum/gear/eyes/blindfold
 	display_name = "vaurca blindfold (Vaurca)"
@@ -86,130 +68,41 @@
 	whitelisted = "Vaurca"
 	sort_category = "Xenowear"
 
-//gloves
+//beastmen gloves
 
-/datum/gear/gloves/black_gloves_unathi
-	display_name = "black gloves (Unathi)"
+/datum/gear/gloves/unathi
+	display_name = "gloves selection (Unathi)"
 	path = /obj/item/clothing/gloves/black/unathi
 	whitelisted = "Unathi"
 	sort_category = "Xenowear"
 
-/datum/gear/gloves/black_gloves_tajara
-	display_name = "black gloves (Tajara)"
+/datum/gear/gloves/unathi/New()
+	..()
+	var/un_gloves = list()
+	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
+	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
+	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
+	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
+	un_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/unathi
+	un_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/unathi
+	un_gloves["green gloves"] = /obj/item/clothing/gloves/green/unathi
+	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
+	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
+
+/datum/gear/gloves/tajara
+	display_name = "gloves selection (Tajara)"
 	path = /obj/item/clothing/gloves/black/tajara
-	cost = 2
-	slot = slot_gloves
 	whitelisted = "Tajara"
 	sort_category = "Xenowear"
 
-/datum/gear/gloves/red_gloves_unathi
-	display_name = "red gloves (Unathi)"
-	path = /obj/item/clothing/gloves/red/unathi
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/red_gloves_tajaran
-	display_name = "red gloves (Tajara)"
-	path = /obj/item/clothing/gloves/red/tajara
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Tajara"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/blue_gloves_unathi
-	display_name = "blue gloves (Unathi)"
-	path = /obj/item/clothing/gloves/blue/unathi
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/blue_gloves_tajaran
-	display_name = "blue gloves (Tajara)"
-	path = /obj/item/clothing/gloves/blue/tajara
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Tajara"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/orange_gloves_unathi
-	display_name = "orange gloves (Unathi)"
-	path = /obj/item/clothing/gloves/orange/unathi
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/orange_gloves_tajaran
-	display_name = "orange gloves (Tajara)"
-	path = /obj/item/clothing/gloves/orange/tajara
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Tajara"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/purple_gloves_unathi
-	display_name = "purple gloves (Unathi)"
-	path = /obj/item/clothing/gloves/purple/unathi
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/purple_gloves_tajaran
-	display_name = "purple gloves (Tajara)"
-	path = /obj/item/clothing/gloves/purple/tajara
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Tajara"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/brown_gloves_unathi
-	display_name = "brown gloves (Unathi)"
-	path = /obj/item/clothing/gloves/brown/unathi
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/brown_gloves_tajaran
-	display_name = "brown gloves (Tajara)"
-	path = /obj/item/clothing/gloves/brown/tajara
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Tajara"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/green_gloves_unathi
-	display_name = "green gloves (Unathi)"
-	path = /obj/item/clothing/gloves/green/unathi
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/green_gloves_tajaran
-	display_name = "green gloves (Tajara)"
-	path = /obj/item/clothing/gloves/green/tajara
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Tajara"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/white_gloves_unathi
-	display_name = "white gloves (Unathi)"
-	path = /obj/item/clothing/gloves/white/unathi
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/white_gloves_tajaran
-	display_name = "white gloves (Tajara)"
-	path = /obj/item/clothing/gloves/white/tajara
-	cost = 2
-	slot = slot_gloves
-	whitelisted = "Tajara"
-	sort_category = "Xenowear"
+/datum/gear/gloves/tajara/New()
+	..()
+	var/taj_gloves = list()
+	taj_gloves["black gloves"] = /obj/item/clothing/gloves/black/tajara
+	taj_gloves["red gloves"] = /obj/item/clothing/gloves/red/tajara
+	taj_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/tajara
+	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
+	taj_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/tajara
+	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
+	taj_gloves["white gloves"] = /obj/item/clothing/gloves/green/tajara
+	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)

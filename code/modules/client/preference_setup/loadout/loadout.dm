@@ -53,6 +53,8 @@ var/list/gear_datums = list()
 	return valid_gear_choices
 
 /datum/category_item/player_setup_item/loadout/sanitize_character()
+	if(!islist(pref.gear))
+		pref.gear = list()
 
 	for(var/gear_name in pref.gear)
 		if(!(gear_name in gear_datums))
@@ -82,6 +84,7 @@ var/list/gear_datums = list()
 	var/fcolor =  "#3366CC"
 	if(total_cost < MAX_GEAR_COST)
 		fcolor = "#E67300"
+	. = list()
 	. += "<table align = 'center' width = 100%>"
 	. += "<tr><td colspan=3><center><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
@@ -114,11 +117,33 @@ var/list/gear_datums = list()
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
 		var/ticked = (G.display_name in pref.gear)
-		var/obj/item/temp = G.path
 		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font color='[ticked ? "#E67300" : "#3366CC"]'>[G.display_name]</font></a></td>"
 		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		. += "<td><font size=2><i>[initial(temp.desc)]</i></font></td></tr>"
+		. += "<td><font size=2><i>[G.description]</i></font></td></tr>"
+		if(ticked)
+			. += "<tr><td colspan=3>"
+			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+				. += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+			. += "</td></tr>"
 	. += "</table>"
+	. = jointext(.,null)
+
+/datum/category_item/player_setup_item/loadout/proc/get_gear_metadata(var/datum/gear/G)
+	. = pref.gear[G.display_name]
+	if(!.)
+		. = list()
+		pref.gear[G.display_name] = .
+
+/datum/category_item/player_setup_item/loadout/proc/get_tweak_metadata(var/datum/gear/G, var/datum/gear_tweak/tweak)
+	var/list/metadata = get_gear_metadata(G)
+	. = metadata["[tweak]"]
+	if(!.)
+		. = tweak.get_default()
+		metadata["[tweak]"] = .
+
+/datum/category_item/player_setup_item/loadout/proc/set_tweak_metadata(var/datum/gear/G, var/datum/gear_tweak/tweak, var/new_metadata)
+	var/list/metadata = get_gear_metadata(G)
+	metadata["[tweak]"] = new_metadata
 
 /datum/category_item/player_setup_item/loadout/OnTopic(href, href_list, user)
 	if(href_list["toggle_gear"])
@@ -133,6 +158,16 @@ var/list/gear_datums = list()
 			if((total_cost+TG.cost) <= MAX_GEAR_COST)
 				pref.gear += TG.display_name
 		return TOPIC_REFRESH
+	if(href_list["gear"] && href_list["tweak"])
+		var/datum/gear/gear = gear_datums[href_list["gear"]]
+		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
+		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
+			return TOPIC_NOACTION
+		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak))
+		if(!metadata || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		set_tweak_metadata(gear, tweak, metadata)
+		return TOPIC_REFRESH
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
 		return TOPIC_REFRESH
@@ -143,6 +178,7 @@ var/list/gear_datums = list()
 
 /datum/gear
 	var/display_name       //Name/index. Must be unique.
+	var/description        //Description of this gear. If left blank will default to the description of the pathed item.
 	var/path               //Path to item.
 	var/cost = 1           //Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
 	var/slot               //Slot to equip to.
@@ -151,8 +187,25 @@ var/list/gear_datums = list()
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 
-/datum/gear/proc/spawn_item(var/location)
-	var/item = new path(location)
+/datum/gear/New()
+	..()
+	if(!description)
+		var/obj/O = path
+		description = initial(O.desc)
+
+/datum/gear_data
+	var/path
+	var/location
+
+/datum/gear_data/New(var/path, var/location)
+	src.path = path
+	src.location = location
+
+/datum/gear/proc/spawn_item(var/location, var/metadata)
+	var/datum/gear_data/gd = new(path, location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
-		gt.apply_tweak(item)
+		gt.tweak_gear_data(metadata["[gt]"], gd)
+	var/item = new gd.path(gd.location)
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		gt.tweak_item(item, metadata["[gt]"])
 	return item

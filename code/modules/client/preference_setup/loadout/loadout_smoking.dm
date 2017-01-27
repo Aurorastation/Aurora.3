@@ -17,3 +17,11 @@
 /datum/gear/cigarcase
 	display_name = "cigar case"
 	path = /obj/item/weapon/storage/fancy/cigar
+
+/datum/gear/cigarette
+	display_name = "cigarette packet"
+	path = /obj/item/weapon/storage/fancy/cigarettes
+
+/datum/gear/dromedaryco
+	display_name = "dromedaryco cigarette packet"
+	path = /obj/item/weapon/storage/fancy/cigarettes/dromedaryco

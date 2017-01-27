@@ -1,69 +1,56 @@
 /datum/gear/accessory
-	display_name = "armband, red"
-	path = /obj/item/clothing/accessory/armband
+	display_name = "suspenders"
+	path = /obj/item/clothing/accessory/suspenders
 	slot = slot_tie
 	sort_category = "Accessories"
 
-/datum/gear/accessory/cargo
-	display_name = "armband, cargo"
-	path = /obj/item/clothing/accessory/armband/cargo
+/datum/gear/accessory/waistcoat
+	display_name = "waistcoat"
+	path = /obj/item/clothing/accessory/wcoat
 
-/datum/gear/accessory/emt
-	display_name = "armband, EMT"
-	path = /obj/item/clothing/accessory/armband/medgreen
+/datum/gear/accessory/armband
+	display_name = "armband selection"
+	path = /obj/item/clothing/accessory/armband
 
-/datum/gear/accessory/engineering
-	display_name = "armband, engineering"
-	path = /obj/item/clothing/accessory/armband/engine
-
-/datum/gear/accessory/hydroponics
-	display_name = "armband, hydroponics"
-	path = /obj/item/clothing/accessory/armband/hydro
-
-/datum/gear/accessory/medical
-	display_name = "armband, medical"
-	path = /obj/item/clothing/accessory/armband/med
-
-/datum/gear/accessory/science
-	display_name = "armband, science"
-	path = /obj/item/clothing/accessory/armband/science
-
-/datum/gear/accessory/sim
-	display_name = "armband, synthetic intelligence movement"
-	path = /obj/item/clothing/accessory/armband/movement
-
-/datum/gear/accessory/atlas
-	display_name = "armband, ATLAS"
-	path = /obj/item/clothing/accessory/armband/atlas
+/datum/gear/accessory/armband/New()
+	..()
+	var/armbands = list()
+	armbands["red armband"] = /obj/item/clothing/accessory/armband
+	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
+	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
+	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
+	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
+	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
+	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
+	armbands["synthetic intelligence movement armband"] = /obj/item/clothing/accessory/armband/movement
+	armbands["ATLAS armband"] = /obj/item/clothing/accessory/armband/atlas
+	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/holster
-	display_name = "holster, armpit"
-	path = /obj/item/clothing/accessory/holster/armpit
+	display_name = "holster selection"
+	path = /obj/item/clothing/accessory/holster
 	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Security Cadet")
 
-/datum/gear/accessory/holster/hip
-	display_name = "holster, hip"
-	path = /obj/item/clothing/accessory/holster/hip
+/datum/gear/accessory/holster/New()
+	..()
+	var/holsters = list()
+	holsters["holster, armpit"] = /obj/item/clothing/accessory/holster/armpit
+	holsters["holster, hip"] = /obj/item/clothing/accessory/holster/hip
+	holsters["holster, waist"] = /obj/item/clothing/accessory/holster/waist
+	holsters["holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
+	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
-/datum/gear/accessory/holster/waist
-	display_name = "holster, waist"
-	path = /obj/item/clothing/accessory/holster/waist
+/datum/gear/accessory/tie
+	display_name = "tie selection"
+	path = /obj/item/clothing/accessory
 
-/datum/gear/accessory/holster/thigh
-	display_name = "holster, thigh"
-	path = /obj/item/clothing/accessory/holster/thigh
-
-/datum/gear/accessory/tie/blue
-	display_name = "tie, blue"
-	path = /obj/item/clothing/accessory/blue
-
-/datum/gear/accessory/tie/red
-	display_name = "tie, red"
-	path = /obj/item/clothing/accessory/red
-
-/datum/gear/accessory/tie/horrible
-	display_name = "tie, socially disgraceful"
-	path = /obj/item/clothing/accessory/horrible
+/datum/gear/accessory/tie/New()
+	..()
+	var/ties = list()
+	ties["blue tie"] = /obj/item/clothing/accessory/blue
+	ties["red tie"] = /obj/item/clothing/accessory/red
+	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
+	gear_tweaks += new/datum/gear_tweak/path(ties)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -80,10 +67,3 @@
 	path = /obj/item/clothing/accessory/storage/webbing
 	cost = 2
 
-/datum/gear/accessory/suspenders
-	display_name = "suspenders"
-	path = /obj/item/clothing/accessory/suspenders
-
-/datum/gear/accessory/waistcoat
-	display_name = "waistcoat"
-	path = /obj/item/clothing/accessory/wcoat

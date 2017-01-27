@@ -17,54 +17,29 @@
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal
 
-/datum/gear/shoes/black
-	display_name = "shoes, black"
+/datum/gear/shoes/color
+	display_name = "shoe selection"
 	path = /obj/item/clothing/shoes/black
 
-/datum/gear/shoes/blue
-	display_name = "shoes, blue"
-	path = /obj/item/clothing/shoes/blue
-
-/datum/gear/shoes/brown
-	display_name = "shoes, brown"
-	path = /obj/item/clothing/shoes/brown
-
-/datum/gear/shoes/lacey
-	display_name = "shoes, classy"
-	path = /obj/item/clothing/shoes/laceup
+/datum/gear/shoes/color/New()
+	..()
+	var/shoes = list()
+	shoes["black shoes"] = /obj/item/clothing/shoes/black
+	shoes["blue shoes"] = /obj/item/clothing/shoes/blue
+	shoes["brown shoes"] = /obj/item/clothing/shoes/brown
+	shoes["green shoes"] = /obj/item/clothing/shoes/green
+	shoes["orange shoes"] = /obj/item/clothing/shoes/orange
+	shoes["purple shoes"] = /obj/item/clothing/shoes/purple
+	shoes["rainbow shoes"] = /obj/item/clothing/shoes/rainbow
+	shoes["red shoes"] = /obj/item/clothing/shoes/red
+	shoes["white shoes"] = /obj/item/clothing/shoes/white
+	shoes["yellow shoes"] = /obj/item/clothing/shoes/yellow
+	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/dress
 	display_name = "shoes, dress"
 	path = /obj/item/clothing/shoes/laceup
 
-/datum/gear/shoes/green
-	display_name = "shoes, green"
-	path = /obj/item/clothing/shoes/green
-
 /datum/gear/shoes/leather
 	display_name = "shoes, leather"
 	path = /obj/item/clothing/shoes/leather
-
-/datum/gear/shoes/orange
-	display_name = "shoes, orange"
-	path = /obj/item/clothing/shoes/orange
-
-/datum/gear/shoes/purple
-	display_name = "shoes, purple"
-	path = /obj/item/clothing/shoes/purple
-
-/datum/gear/shoes/rainbow
-	display_name = "shoes, rainbow"
-	path = /obj/item/clothing/shoes/rainbow
-
-/datum/gear/shoes/red
-	display_name = "shoes, red"
-	path = /obj/item/clothing/shoes/red
-
-/datum/gear/shoes/white
-	display_name = "shoes, white"
-	path = /obj/item/clothing/shoes/white
-
-/datum/gear/shoes/yellow
-	display_name = "shoes, yellow"
-	path = /obj/item/clothing/shoes/yellow
