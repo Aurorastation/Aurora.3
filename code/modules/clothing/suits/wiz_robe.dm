@@ -22,6 +22,7 @@
 	desc = "It has WIZZARD written across it in sequins. Comes with a cool beard."
 	icon_state = "wizard-fake"
 	body_parts_covered = HEAD|FACE
+	siemens_coefficient = 1.0
 
 /obj/item/clothing/head/wizard/marisa
 	name = "Witch Hat"
@@ -49,7 +50,6 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	siemens_coefficient = 0.7
 
 /obj/item/clothing/head/wizard/cap
 	name = "Gentlemans Cap"
@@ -59,7 +59,6 @@
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
-	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/wizrobe
 	name = "wizard robe"
@@ -79,7 +78,6 @@
 	desc = "A magnificant, red, gem-lined robe that seems to radiate power."
 	icon_state = "redwizard"
 	item_state = "redwizrobe"
-
 
 /obj/item/clothing/suit/wizrobe/marisa
 	name = "Witch Robe"
