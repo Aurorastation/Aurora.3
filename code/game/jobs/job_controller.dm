@@ -343,10 +343,11 @@ var/global/datum/controller/occupations/job_master
 						if(G.slot && !(G.slot in custom_equip_slots))
 							// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 							// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
+							var/metadata = H.client.prefs.gear[G.display_name]
 							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 								custom_equip_leftovers += thing
-							else if(H.equip_to_slot_or_del(G.spawn_item(H), G.slot))
-								H << "<span class='notice'>Equipping you with [thing]!</span>"
+							else if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
+								H << "<span class='notice'>Equipping you with \the [thing]!</span>"
 								custom_equip_slots.Add(G.slot)
 							else
 								custom_equip_leftovers.Add(thing)
@@ -365,8 +366,9 @@ var/global/datum/controller/occupations/job_master
 				if(G.slot in custom_equip_slots)
 					spawn_in_storage += thing
 				else
-					if(H.equip_to_slot_or_del(G.spawn_item(H), G.slot))
-						H << "<span class='notice'>Equipping you with [thing]!</span>"
+					var/metadata = H.client.prefs.gear[G.display_name]
+					if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
+						H << "<span class='notice'>Equipping you with \the [thing]!</span>"
 						custom_equip_slots.Add(G.slot)
 					else
 						spawn_in_storage += thing
@@ -429,9 +431,10 @@ var/global/datum/controller/occupations/job_master
 
 				if(!isnull(B))
 					for(var/thing in spawn_in_storage)
-						H << "<span class='notice'>Placing [thing] in your [B]!</span>"
+						H << "<span class='notice'>Placing \the [thing] in your [B.name]!</span>"
 						var/datum/gear/G = gear_datums[thing]
-						new G.path(B)
+						var/metadata = H.client.prefs.gear[G.display_name]
+						G.spawn_item(B, metadata)
 				else
 					H << "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>"
 
