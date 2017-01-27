@@ -169,7 +169,7 @@
 	name = "\improper diona nymph lunchbox"
 	icon_state = "lunchbox_dionanymph"
 	item_state = "lunchbox_dionanymph"
-	desc = "A little lunchbox. This one is a diona nymph on the side."
+	desc = "A little lunchbox. This one has a diona nymph on the side."
 
 /obj/item/weapon/storage/toolbox/lunchbox/nymph/filled
 	filled = TRUE
