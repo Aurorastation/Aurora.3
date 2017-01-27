@@ -48,7 +48,7 @@
 		new /obj/item/weapon/storage/backpack/satchel_cap(src)
 		new /obj/item/clothing/suit/captunic(src)
 		new /obj/item/clothing/suit/captunic/capjacket(src)
-		new /obj/item/clothing/head/helmet/cap(src)
+		new /obj/item/clothing/head/caphat(src)
 		new /obj/item/clothing/under/rank/captain(src)
 		new /obj/item/clothing/suit/storage/vest(src)
 		new /obj/item/clothing/shoes/brown(src)

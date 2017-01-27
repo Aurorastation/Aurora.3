@@ -1,11 +1,11 @@
 "a" = (/turf/unsimulated/mask,/area/space)
-"b" = (/turf/simulated/floor/plating/airless/asteroid,/area/space)
+"b" = (/turf/space,/area/space)
 "c" = (/turf/simulated/wall/r_wall,/area/space)
 "d" = (/turf/simulated/wall/r_wall,/area/maintenance/research_port)
-"e" = (/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,/obj/machinery/atmospherics/pipe/zpipe/down/supply,/obj/structure/cable{tag = "icon-11-2"; icon_state = "11-2"},/turf/simulated/floor/open,/area/maintenance/research_port)
-"f" = (/obj/effect/decal/warning_stripes,/obj/multiz/ladder{pixel_y = 16},/turf/simulated/floor/plating,/area/maintenance/research_port)
+"e" = (/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,/obj/machinery/atmospherics/pipe/zpipe/down/supply,/obj/structure/cable{tag = "icon-11-2"; icon_state = "11-2"},/turf/simulated/open,/area/maintenance/research_port)
+"f" = (/obj/effect/decal/warning_stripes,/obj/singularity{pixel_y = 16},/turf/simulated/floor/plating,/area/maintenance/research_port)
 "g" = (/obj/structure/cable{tag = "icon-12-0"; icon_state = "12-0"},/obj/structure/cable{d2 = 2; icon_state = "0-2"; pixel_y = 0},/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,/obj/machinery/atmospherics/pipe/zpipe/up/supply,/turf/simulated/floor/plating,/area/maintenance/research_port)
-"h" = (/obj/effect/decal/warning_stripes,/obj/multiz/ladder{icon_state = "ladderup"; pixel_y = 16; tag = "icon-ladderup"},/turf/simulated/floor/plating,/area/maintenance/research_port)
+"h" = (/obj/effect/decal/warning_stripes,/obj/singularity{icon_state = "ladderup"; pixel_y = 16; tag = "icon-ladderup"},/turf/simulated/floor/plating,/area/maintenance/research_port)
 "i" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/light/small/emergency{dir = 8},/turf/simulated/floor/plating,/area/maintenance/research_port)
 "j" = (/turf/simulated/floor/plating,/area/maintenance/research_port)
 "k" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/maintenance/research_port)
@@ -13,22 +13,21 @@
 "m" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/turf/simulated/floor/plating,/area/maintenance/research_port)
 "n" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/meter,/turf/simulated/floor/plating,/area/maintenance/research_port)
 "o" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (NORTHWEST)"; icon_state = "intact-supply"; dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (NORTHWEST)"; icon_state = "intact-scrubbers"; dir = 9},/turf/simulated/floor/plating,/area/maintenance/research_port)
-"p" = (/turf/simulated/floor/open,/area/space)
+"p" = (/turf/simulated/open,/area/space)
 "q" = (/turf/simulated/wall/r_wall,/area/maintenance/maintcentral)
-"r" = (/obj/multiz/ladder{pixel_y = 16},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/maintcentral)
+"r" = (/obj/singularity{pixel_y = 16},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/maintcentral)
 "s" = (/obj/machinery/light/small/emergency{dir = 1},/turf/simulated/floor/plating,/area/maintenance/maintcentral)
-"t" = (/obj/multiz/ladder{icon_state = "ladderup"; pixel_y = 16; tag = "icon-ladderup"},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/maintcentral)
+"t" = (/obj/singularity{icon_state = "ladderup"; pixel_y = 16; tag = "icon-ladderup"},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/maintcentral)
 "u" = (/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{tag = "icon-up-scrubbers (EAST)"; icon_state = "up-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/zpipe/up/supply{tag = "icon-up-supply (EAST)"; icon_state = "up-supply"; dir = 4},/obj/structure/cable/green{tag = "icon-12-0"; icon_state = "12-0"},/obj/structure/cable/green{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/maintenance/maintcentral)
 "v" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/maintenance/maintcentral)
-"w" = (/obj/machinery/atmospherics/pipe/zpipe/down/supply{tag = "icon-down-supply (WEST)"; icon_state = "down-supply"; dir = 8},/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{tag = "icon-down-scrubbers (WEST)"; icon_state = "down-scrubbers"; dir = 8},/obj/structure/cable/green{tag = "icon-11-8"; icon_state = "11-8"},/turf/simulated/floor/open,/area/maintenance/maintcentral)
+"w" = (/obj/machinery/atmospherics/pipe/zpipe/down/supply{tag = "icon-down-supply (WEST)"; icon_state = "down-supply"; dir = 8},/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{tag = "icon-down-scrubbers (WEST)"; icon_state = "down-scrubbers"; dir = 8},/obj/structure/cable/green{tag = "icon-11-8"; icon_state = "11-8"},/turf/simulated/open,/area/maintenance/maintcentral)
 "x" = (/turf/simulated/wall/r_wall,/area/maintenance/library)
-"y" = (/obj/multiz/ladder{icon_state = "ladderup"; pixel_y = 16; tag = "icon-ladderup"},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/library)
+"y" = (/obj/singularity{icon_state = "ladderup"; pixel_y = 16; tag = "icon-ladderup"},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/library)
 "z" = (/turf/simulated/floor/plating,/area/maintenance/library)
-"A" = (/obj/multiz/ladder{pixel_y = 16},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/library)
+"A" = (/obj/singularity{pixel_y = 16},/obj/effect/decal/warning_stripes,/turf/simulated/floor/plating,/area/maintenance/library)
 "B" = (/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{tag = "icon-up-scrubbers (EAST)"; icon_state = "up-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/zpipe/up/supply{tag = "icon-up-supply (EAST)"; icon_state = "up-supply"; dir = 4},/obj/structure/disposalpipe/up{tag = "icon-pipe-u (EAST)"; icon_state = "pipe-u"; dir = 4},/obj/structure/cable{tag = "icon-12-0"; icon_state = "12-0"},/obj/structure/cable{icon_state = "0-4"; d2 = 4},/turf/simulated/floor/plating,/area/maintenance/library)
 "C" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/light/small/emergency,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; tag = ""},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/plating,/area/maintenance/library)
-"D" = (/obj/structure/disposalpipe/down{tag = "icon-pipe-d (WEST)"; icon_state = "pipe-d"; dir = 8},/obj/structure/cable{tag = "icon-11-8"; icon_state = "11-8"},/obj/machinery/atmospherics/pipe/zpipe/down/supply{tag = "icon-down-supply (WEST)"; icon_state = "down-supply"; dir = 8},/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{tag = "icon-down-scrubbers (WEST)"; icon_state = "down-scrubbers"; dir = 8},/turf/simulated/floor/open,/area/maintenance/library)
-"E" = (/obj/effect/landmark/zcontroller/level_3_mid,/turf/unsimulated/mask,/area/space)
+"D" = (/obj/structure/disposalpipe/down{tag = "icon-pipe-d (WEST)"; icon_state = "pipe-d"; dir = 8},/obj/structure/cable{tag = "icon-11-8"; icon_state = "11-8"},/obj/machinery/atmospherics/pipe/zpipe/down/supply{tag = "icon-down-supply (WEST)"; icon_state = "down-supply"; dir = 8},/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{tag = "icon-down-scrubbers (WEST)"; icon_state = "down-scrubbers"; dir = 8},/turf/simulated/open,/area/maintenance/library)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -285,5 +284,5 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-Eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

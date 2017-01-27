@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1469069925
-DIR: icons maps maps\Aurora-MapDev nano nano\images 
+LAST_COMPILE_TIME: 1485556999
+DIR: code code\controllers code\game code\game\area code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\structures code\game\objects\structures\crates_lockers code\game\objects\structures\crates_lockers\closets maps maps\Aurora-MapDev 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
-LAST_COMPILE_VERSION: 510.1345
-WINDOW: maps\Aurora-MapDev\aurora-1.dmm;maps\Aurora-MapDev\aurora-2.dmm;maps\Aurora-MapDev\aurora-3.dmm;maps\Aurora-MapDev\aurora-4.dmm;maps\Aurora-MapDev\aurora-5.dmm;maps\Aurora-MapDev\aurora-6.dmm;maps\Aurora-MapDev\aurora-7.dmm;maps\exodus-5.dmm;maps\Aurora-MapDev\DOOM.dmm;maps\exodus-2.dmm;code\game\turfs\simulated\wall_types.dm;code\game\turfs\simulated\wall_icon.dm;code\game\turfs\simulated\walls.dm;icons\obj\apiary_bees_etc.dmi;icons\NTOS\movefile.png;nano\mapbase1024.png;nano\images\nanomap_z1.png
+LAST_COMPILE_VERSION: 511.1364
+WINDOW: maps\Aurora-MapDev\aurora-4.dmm;maps\Aurora-MapDev\aurora-6.dmm;code\game\objects\structures\crates_lockers\closets\walllocker.dm;maps\Aurora-MapDev\aurora-1.dmm;maps\Aurora-MapDev\aurora-2.dmm
 FILE: maps\Aurora-MapDev\aurora-1.dmm
 */
 // END_INTERNALS

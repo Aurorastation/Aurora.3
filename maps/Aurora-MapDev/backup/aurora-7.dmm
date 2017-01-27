@@ -1,23 +1,41 @@
 "a" = (/turf/space,/area/space)
 "b" = (/turf/simulated/mineral,/area/space)
 "c" = (/turf/simulated/wall/rusty,/area/space)
-"d" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f5"; icon_state = "f5"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"e" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"f" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f0,1"; icon_state = "f0,1"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"g" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f1,1"; icon_state = "f1,1"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"h" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
-"i" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f0,0"; icon_state = "f0,0"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"j" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f1,0"; icon_state = "f1,0"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"k" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f6"; icon_state = "f6"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"l" = (/obj/structure/headspear{tag = "icon-skull4"; icon = 'icons/obj/sac.dmi'; icon_state = "skull4"},/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
-"m" = (/turf/simulated/floor,/obj/structure/headspear{tag = "icon-skullspear2"; icon = 'icons/obj/sac.dmi'; icon_state = "skullspear2"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"n" = (/obj/structure/headspear{tag = "icon-rustywallbroke"; icon = 'icons/obj/sac.dmi'; icon_state = "rustywallbroke"},/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
-"o" = (/obj/structure/headspear{tag = "icon-skull3"; icon = 'icons/obj/sac.dmi'; icon_state = "skull3"},/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
-"p" = (/obj/structure/headspear{tag = "icon-skullspear4"; icon = 'icons/obj/sac.dmi'; icon_state = "skullspear4"},/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
-"q" = (/mob/living/carbon/human{name = "Regret"; real_name = "Regret"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"r" = (/obj/machinery/door/airlock/sac,/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
-"s" = (/obj/structure/headspear{tag = "icon-skull1"; icon = 'icons/obj/sac.dmi'; icon_state = "skull1"},/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
-"t" = (/mob/living/simple_animal/hostile/retaliate/malf_drone,/turf/space,/area/space)
+"d" = (/obj/structure/sign/sac,/turf/simulated/wall/rusty,/area/space)
+"e" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f5"; icon_state = "f5"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
+"f" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
+"g" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (WEST)"; icon_state = "flesh2"; dir = 8},/area/space)
+"h" = (/turf/simulated/floor/doom{tag = "icon-flesh1 (WEST)"; icon_state = "flesh1"; dir = 8},/area/space)
+"i" = (/turf/simulated/floor/doom,/area/space)
+"j" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f0,1"; icon_state = "f0,1"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
+"k" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/obj/effect/rune{tag = "icon-f1,1"; icon_state = "f1,1"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (SOUTHWEST)"; icon_state = "flesh2"; dir = 10},/area/space)
+"l" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/turf/simulated/floor/doom/corner{tag = "icon-flesh3 (NORTH)"; icon_state = "flesh3"; dir = 1},/area/space)
+"m" = (/turf/simulated/floor/doom{tag = "icon-flesh1 (NORTH)"; icon_state = "flesh1"; dir = 1},/area/space)
+"n" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
+"o" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f0,0"; icon_state = "f0,0"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
+"p" = (/turf/simulated/floor,/obj/effect/rune{tag = "icon-f1,0"; icon_state = "f1,0"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
+"q" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (SOUTHWEST)"; icon_state = "flesh2"; dir = 10},/area/space)
+"r" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/obj/effect/rune{tag = "icon-f6"; icon_state = "f6"},/turf/simulated/floor/doom/corner{tag = "icon-flesh3 (NORTH)"; icon_state = "flesh3"; dir = 1},/area/space)
+"s" = (/obj/structure/headspear{tag = "icon-skull4"; icon = 'icons/obj/sac.dmi'; icon_state = "skull4"},/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
+"t" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (NORTHWEST)"; icon_state = "flesh2"; dir = 9},/area/space)
+"u" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/obj/structure/headspear{tag = "icon-skullspear2"; icon = 'icons/obj/sac.dmi'; icon_state = "skullspear2"},/turf/simulated/floor/doom/corner{tag = "icon-flesh3 (WEST)"; icon_state = "flesh3"; dir = 8},/area/space)
+"v" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/obj/structure/headspear{tag = "icon-rustywallbroke"; icon = 'icons/obj/sac.dmi'; icon_state = "rustywallbroke"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (NORTHWEST)"; icon_state = "flesh2"; dir = 9},/area/space)
+"w" = (/obj/structure/headspear{tag = "icon-skull3"; icon = 'icons/obj/sac.dmi'; icon_state = "skull3"},/turf/simulated/floor/plating{icon_state = "rustyplate"},/area/space)
+"x" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (NORTHWEST)"; icon_state = "flesh2"; dir = 9},/area/space)
+"y" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (NORTHEAST)"; icon_state = "flesh2"; dir = 5},/area/space)
+"z" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (SOUTHWEST)"; icon_state = "flesh2"; dir = 10},/area/space)
+"A" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/obj/structure/headspear{tag = "icon-skullspear4"; icon = 'icons/obj/sac.dmi'; icon_state = "skullspear4"},/turf/simulated/floor/doom/transition,/area/space)
+"B" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (SOUTHEAST)"; icon_state = "flesh2"; dir = 6},/area/space)
+"C" = (/turf/simulated/floor/doom{tag = "icon-flesh1 (EAST)"; icon_state = "flesh1"; dir = 4},/area/space)
+"D" = (/mob/living/carbon/human{name = "Regret"; real_name = "Regret"},/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
+"E" = (/obj/machinery/door/airlock/sac,/turf/simulated/floor{icon_state = "rustyfloor"},/area/space)
+"F" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/turf/simulated/floor/doom/corner{tag = "icon-flesh3 (NORTH)"; icon_state = "flesh3"; dir = 1},/area/space)
+"G" = (/turf/simulated/floor,/turf/simulated/floor{icon_state = "rustyfloor"},/turf/simulated/floor/doom/transition{tag = "icon-flesh2 (SOUTHEAST)"; icon_state = "flesh2"; dir = 6},/area/space)
+"H" = (/turf/simulated/floor/plating{icon_state = "rustyplate"},/obj/structure/headspear{tag = "icon-skull1"; icon = 'icons/obj/sac.dmi'; icon_state = "skull1"},/turf/simulated/floor/doom/corner{tag = "icon-flesh3 (WEST)"; icon_state = "flesh3"; dir = 8},/area/space)
+"I" = (/obj/structure/sign/sac/big/left,/turf/simulated/wall/rusty,/area/space)
+"J" = (/obj/structure/sign/sac/big/middle,/turf/simulated/wall/rusty,/area/space)
+"K" = (/obj/structure/sign/sac/big/right,/turf/simulated/wall/rusty,/area/space)
+"L" = (/mob/living/simple_animal/hostile/retaliate/malf_drone,/turf/space,/area/space)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -219,16 +237,16 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcccccccbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcdeeaacbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcefgeacbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbchijekcbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbclheemcbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbcccccccncccccccccbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbceohhhhhpheeeeeacbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbqbrhhhhhehhhheeeehcbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbcehheeeehhhhhhhscbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbcccccccccccccccccbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcccdcccbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcefghicbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcfjklmcbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcnopqrcbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbcsnftucbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbcccccccvcccccccccbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbcfwxynnzABffffgCcbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbDbEnnzBntynnnfffqFcbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbcfnnffqGnnnnnnxHcbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbccccccIJKccccccccbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -270,9 +288,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaLLLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaLLLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaLLLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
