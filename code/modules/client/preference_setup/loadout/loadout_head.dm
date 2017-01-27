@@ -18,7 +18,7 @@
 
 /datum/gear/head/cap
 	display_name = "cap selection"
-	path = /obj/item/clothing/head/soft
+	path = /obj/item/clothing/head/soft/blue
 
 /datum/gear/head/cap/New()
 	..()
