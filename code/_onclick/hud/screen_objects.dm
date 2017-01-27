@@ -12,11 +12,10 @@
 	layer = 20.0
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
-	var/gun_click_time = -100 //I'm lazy.
 
 /obj/screen/Destroy()
 	master = null
-	..()
+	return ..()
 
 /obj/screen/text
 	icon = null
@@ -52,9 +51,8 @@
 /obj/screen/item_action/Click()
 	if(!usr || !owner)
 		return 1
-	if(usr.next_move >= world.time)
+	if(!usr.canClick())
 		return
-	usr.next_move = world.time + 6
 
 	if(usr.stat || usr.restrained() || usr.stunned || usr.lying)
 		return 1
@@ -64,11 +62,6 @@
 
 	owner.ui_action_click()
 	return 1
-
-//This is the proc used to update all the action buttons. It just returns for all mob types except humans.
-/mob/proc/update_action_buttons()
-	return
-
 
 /obj/screen/grab
 	name = "grab"
@@ -89,7 +82,7 @@
 	name = "storage"
 
 /obj/screen/storage/Click()
-	if(world.time <= usr.next_move)
+	if(!usr.canClick())
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
 		return 1
@@ -99,40 +92,7 @@
 		var/obj/item/I = usr.get_active_hand()
 		if(I)
 			usr.ClickOn(master)
-			usr.next_move = world.time+2
 	return 1
-
-/obj/screen/gun
-	name = "gun"
-	icon = 'icons/mob/screen1.dmi'
-	master = null
-	dir = 2
-
-	move
-		name = "Allow Walking"
-		icon_state = "no_walk0"
-		screen_loc = ui_gun2
-
-	run
-		name = "Allow Running"
-		icon_state = "no_run0"
-		screen_loc = ui_gun3
-
-	item
-		name = "Allow Item Use"
-		icon_state = "no_item0"
-		screen_loc = ui_gun1
-
-	mode
-		name = "Toggle Gun Mode"
-		icon_state = "gun0"
-		screen_loc = ui_gun_select
-		//dir = 1
-
-	radio
-		name = "Allow Radio Use"
-		icon_state = "no_radio0"
-		screen_loc = ui_gun4
 
 /obj/screen/zone_sel
 	name = "damage zone"
@@ -208,7 +168,6 @@
 
 /obj/screen/Click(location, control, params)
 	if(!usr)	return 1
-
 	switch(name)
 		if("toggle")
 			if(usr.hud_used.inventory_shown)
@@ -233,8 +192,17 @@
 				L.resist()
 
 		if("mov_intent")
+
+			var/list/modifiers = params2list(params)
+			//This is here instead of outside the switch to save adding overhead. its not used for any other UI icons right now
+			//If its needed in future for other UI icons, then move it up to above the switch
+
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
+				if (modifiers["alt"])
+					C.set_walk_speed()
+					return
+
 				if(C.legcuffed)
 					C << "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>"
 					C.m_intent = "walk"	//Just incase
@@ -243,10 +211,9 @@
 				switch(usr.m_intent)
 					if("run")
 						usr.m_intent = "walk"
-						usr.hud_used.move_intent.icon_state = "walking"
 					if("walk")
 						usr.m_intent = "run"
-						usr.hud_used.move_intent.icon_state = "running"
+			update_move_icon(usr)
 		if("m_intent")
 			if(!usr.m_int)
 				switch(usr.m_intent)
@@ -281,9 +248,9 @@
 					else
 
 						var/no_mask
-						if(!(C.wear_mask && C.wear_mask.flags & AIRTIGHT))
+						if(!(C.wear_mask && C.wear_mask.item_flags & AIRTIGHT))
 							var/mob/living/carbon/human/H = C
-							if(!(H.head && H.head.flags & AIRTIGHT))
+							if(!(H.head && H.head.item_flags & AIRTIGHT))
 								no_mask = 1
 
 						if(no_mask)
@@ -301,6 +268,13 @@
 								breathes = H.species.breath_type
 								nicename = list ("suit", "back", "belt", "right hand", "left hand", "left pocket", "right pocket")
 								tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
+								if(H.species.has_organ["phoron reserve tank"])
+									var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
+									if(preserve && preserve.air_contents)
+										from = "in"
+										nicename |= "sternum"
+										tankcheck |= preserve
+
 							else
 								nicename = list("right hand", "left hand", "back")
 								tankcheck = list(C.r_hand, C.l_hand, C.back)
@@ -341,8 +315,46 @@
 											else
 												contents.Add(0)
 
+										if ("phoron")
+											if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["nitrogen"])
+												contents.Add(t.air_contents.gas["phoron"])
+											else
+												contents.Add(0)
 
-								else
+								if(istype(tankcheck[i], /obj/item/organ/vaurca/preserve))
+									var/obj/item/organ/vaurca/preserve/t = tankcheck[i]
+									if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
+										contents.Add(t.air_contents.total_moles)	//Someone messed with the tank and put unknown gasses
+										continue					//in it, so we're going to believe the tank is what it says it is
+									switch(breathes)
+																		//These tanks we're sure of their contents
+										if("nitrogen") 							//So we're a bit more picky about them.
+
+											if(t.air_contents.gas["nitrogen"] && !t.air_contents.gas["oxygen"])
+												contents.Add(t.air_contents.gas["nitrogen"])
+											else
+												contents.Add(0)
+
+										if ("oxygen")
+											if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["phoron"])
+												contents.Add(t.air_contents.gas["oxygen"])
+											else
+												contents.Add(0)
+
+										// No races breath this, but never know about downstream servers.
+										if ("carbon dioxide")
+											if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["phoron"])
+												contents.Add(t.air_contents.gas["carbon_dioxide"])
+											else
+												contents.Add(0)
+
+										if ("phoron")
+											if(t.air_contents.gas["phoron"] && !t.air_contents.gas["nitrogen"])
+												contents.Add(t.air_contents.gas["phoron"])
+											else
+												contents.Add(0)
+
+								if(!(istype(tankcheck[i], /obj/item/organ/vaurca/preserve)) & !(istype(tankcheck[i], /obj/item/weapon/tank)))
 									//no tank so we set contents to 0
 									contents.Add(0)
 
@@ -356,7 +368,6 @@
 								if(contents[i] > bestcontents)
 									best = i
 									bestcontents = contents[i]
-
 
 							//We've determined the best container now we set it as our internals
 
@@ -438,46 +449,6 @@
 		if("module3")
 			if(istype(usr, /mob/living/silicon/robot))
 				usr:toggle_module(3)
-
-		if("Allow Walking", "Disallow Walking")
-			if(gun_click_time > world.time - 30)	//give them 3 seconds between mode changes.
-				return
-			if(!istype(usr.get_active_hand(),/obj/item/weapon/gun))
-				usr << "You need your gun in your active hand to do that!"
-				return
-			usr.client.AllowTargetMove()
-			gun_click_time = world.time
-
-		if("Allow Running", "Disallow Running")
-			if(gun_click_time > world.time - 30)	//give them 3 seconds between mode changes.
-				return
-			if(!istype(usr.get_active_hand(),/obj/item/weapon/gun))
-				usr << "You need your gun in your active hand to do that!"
-				return
-			usr.client.AllowTargetRun()
-			gun_click_time = world.time
-
-		if("Allow Item Use", "Disallow Item Use")
-			if(gun_click_time > world.time - 30)	//give them 3 seconds between mode changes.
-				return
-			if(!istype(usr.get_active_hand(),/obj/item/weapon/gun))
-				usr << "You need your gun in your active hand to do that!"
-				return
-			usr.client.AllowTargetClick()
-			gun_click_time = world.time
-
-		if("Toggle Gun Mode")
-			usr.client.ToggleGunMode()
-
-		if("Allow Radio Use", "Disallow Radio Use")
-			if(gun_click_time > world.time - 30)	//give them 3 seconds between mode changes.
-				return
-			if(!istype(usr.get_active_hand(),/obj/item/weapon/gun))
-				usr << "You need your gun in your active hand to do that!"
-				return
-			usr.client.AllowTargetRadio()
-			gun_click_time = world.time
-
 		if("AI Core")
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
@@ -554,7 +525,6 @@
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
 				AI.sensor_mode()
-
 		else
 			return 0
 	return 1
@@ -562,7 +532,7 @@
 /obj/screen/inventory/Click()
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
-	if(world.time <= usr.next_move)
+	if(!usr.canClick())
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
 		return 1
@@ -573,12 +543,10 @@
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-				usr.next_move = world.time+2
 		if("l_hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
-				usr.next_move = world.time+2
 		if("swap")
 			usr:swap_hand()
 		if("hand")
@@ -587,5 +555,26 @@
 			if(usr.attack_ui(slot_id))
 				usr.update_inv_l_hand(0)
 				usr.update_inv_r_hand(0)
-				usr.next_move = world.time+6
 	return 1
+
+
+
+
+
+//This updates the run/walk button on the hud
+/obj/screen/proc/update_move_icon(var/mob/living/user)
+	switch(name)
+		if("mov_intent")
+			overlays.Cut()
+			switch(user.m_intent)
+				if("run")//When in run mode, the button will have a flashing coloured overlay which gives a visual indicator of stamina
+					icon_state = "running"
+					if (user.max_stamina != -1)//If max stamina is -1, this species doesnt use stamina. no overlay for them
+						var/image/holder = image('icons/mob/screen1.dmi', src, "run_overlay")
+						var/staminaportion = user.stamina / user.max_stamina
+						holder.color = percentage_to_colour(staminaportion)
+						holder.blend_mode = BLEND_MULTIPLY
+						overlays += holder
+
+				if("walk")
+					icon_state = "walking"

@@ -39,7 +39,7 @@
 	var/list/char_ids = list()
 
 	while (character_query.NextRow())
-		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = "Independant", "side_int" = INDEP)
+		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = "Independent", "side_int" = INDEP)
 
 	if (!char_ids.len)
 		src << "<span class='warning'>Something went horribly wrong! Apparently you don't have any saved characters?</span>"
@@ -51,34 +51,23 @@
 	while (participation_query.NextRow())
 		char_ids[participation_query.item[1]]["assigned"] = 1
 		// Lazy and convoluted, but I give 0 shits right now.
-		switch (participation_query.item[2])
-			if ("SLF")
-				char_ids[participation_query.item[1]]["side_int"] = SLF
-				char_ids[participation_query.item[1]]["side_str"] = "Synthetic Liberation Front"
-			if ("BIS")
-				char_ids[participation_query.item[1]]["side_int"] = BIS
-				char_ids[participation_query.item[1]]["side_str"] = "Biesel Intelligence Service"
-			if ("ASI")
-				char_ids[participation_query.item[1]]["side_int"] = ASI
-				char_ids[participation_query.item[1]]["side_str"] = "Alliance Strategic Intelligence"
-			if ("PSIS")
-				char_ids[participation_query.item[1]]["side_int"] = PSIS
-				char_ids[participation_query.item[1]]["side_str"] = "People's Strategic Information Service"
-			if ("HSH")
-				char_ids[participation_query.item[1]]["side_int"] = HSH
-				char_ids[participation_query.item[1]]["side_str"] = "Hegemon Shadow Service"
-			if ("TCD")
-				char_ids[participation_query.item[1]]["side_int"] = TCD
-				char_ids[participation_query.item[1]]["side_str"] = "Tup Commandos Division"
-			else
-				char_ids[participation_query.item[1]]["side_int"] = INDEP
-				char_ids[participation_query.item[1]]["side_str"] = "Independant"
+		var/list/faction_data = contest_faction_data(participation_query.item[2])
+		char_ids[participation_query.item[1]]["side_int"] = faction_data[1]
+		char_ids[participation_query.item[1]]["side_str"] = faction_data[2]
 
 	var/data = "<center><b>Welcome to the character setup screen!</b></center>"
 	data += "<br><center>Here is the list of your characters, and their allegience</center><hr>"
 
+	var/colour = "#000000"
 	for (var/char_id in char_ids)
-		data += "[char_ids[char_id]["name"]] -- [char_ids[char_id]["side_str"]] -- <a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]];previously_assigned=[char_ids[char_id]["assigned"]]'>Modify</a><br>"
+		if (char_ids[char_id]["side_int"] in contest_factions_prosynth)
+			colour = "#0040FF"
+		else if (char_ids[char_id]["side_int"] in contest_factions_antisynth)
+			colour = "#FF0000"
+		else
+			colour = "#00BF00"
+
+		data += "[char_ids[char_id]["name"]] -- <font color=[colour]>[char_ids[char_id]["side_str"]]</font> -- <a href='?src=\ref[src];contest_action=modify;char_id=[char_id];current_side=[char_ids[char_id]["side_int"]];previously_assigned=[char_ids[char_id]["assigned"]]'>Modify</a><br>"
 
 	src << browse(data, "window=antag_contest_chars;size=300x200")
 
@@ -99,6 +88,16 @@
 		src << "<span class='warning'>You do not have a valid role! You must be a traitor, mercenary, or a raider for these to be usable! Contact an admin if you need assignment.</span>"
 		return
 
+	if (src.mob.mind.objectives.len >= 3)
+		var/uncompleted_objectives = 0
+		for (var/datum/objective/O in src.mob.mind.objectives)
+			if (!O.completed)
+				uncompleted_objectives++
+
+		if (uncompleted_objectives >= 3)
+			src << span("warning", "You have [uncompleted_objectives] uncompleted objectives underway right now. Please finish them before requesting new ones.")
+			return
+
 	if (!establish_db_connection(dbcon))
 		src << "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>"
 		return
@@ -113,10 +112,18 @@
 			src << "<span class='notice'>Cancelled.</span>"
 			return
 
+		var/list/faction_data = contest_faction_data(part_check.item[1])
+
 		if (side == "Pro-synth")
-			available_objs = list("Promote a Synth", "Protect Robotics", "Borgify", "Protect a Synth", "Unslave Borgs")
+			if (faction_data[1] in contest_factions_antisynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Decisions", "Yes", "No") == "No")
+				return
+
+			available_objs = list("Assassinate Anti-Synth Supporter", "Promote a Synth", "Borgify", "Unslave Borgs")
 		else
-			available_objs = list("Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
+			if (faction_data[1] in contest_factions_prosynth && alert("This choice goes against your faction's current allegience.\nDo you wish to continue?", "Decisions", "Yes", "No") == "No")
+				return
+
+			available_objs = list("Assassinate Pro-Synth Supporter", "Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
 
 		if (!available_objs)
 			src << "<span class='warning'>No objectives were found for you! This is odd!</span>"
@@ -128,22 +135,39 @@
 			src << "<span class='warning'>Cancelled.</span>"
 			return
 
-		var/datum/objective/new_objective
+		var/datum/objective/competition/new_objective
 		var/failed_target = 0
 
 		switch (choice)
+			if ("Assassinate Pro-Synth Supporter")
+				new_objective = new /datum/objective/competition/assassinate_supporter
+				new_objective.side = ANTI_SYNTH
+				new_objective.type_name = "anti_synth/assassin"
+				new_objective.owner = src.mob.mind
+				if (!new_objective.find_target())
+					failed_target = 1
+			if ("Assassinate Anti-Synth Supporter")
+				new_objective = new /datum/objective/competition/assassinate_supporter
+				new_objective.side = PRO_SYNTH
+				new_objective.type_name = "pro_synth/assassin"
+				new_objective.owner = src.mob.mind
+				if (!new_objective.find_target())
+					failed_target = 1
 			if ("Promote a Synth")
 				new_objective = new /datum/objective/competition/pro_synth/promote
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Protect Robotics")
 				new_objective = new /datum/objective/competition/pro_synth/protect_robotics
 			if ("Borgify")
 				new_objective = new /datum/objective/competition/pro_synth/borgify
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Protect a Synth")
 				new_objective = new /datum/objective/competition/pro_synth/protect
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Unslave Borgs")
@@ -164,14 +188,17 @@
 				new_objective = new /datum/objective/competition/anti_synth/sabotage
 			if ("Fire a Synth")
 				new_objective = new /datum/objective/competition/anti_synth/demote
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Brig a Synth")
 				new_objective = new /datum/objective/competition/anti_synth/brig
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			if ("Harm a Synth")
 				new_objective = new /datum/objective/competition/anti_synth/harm
+				new_objective.owner = src.mob.mind
 				if (!new_objective.find_target())
 					failed_target = 1
 			else
@@ -184,7 +211,8 @@
 			qdel(new_objective)
 			return
 
-		new_objective.owner = src.mob.mind
+		if (!new_objective.owner)
+			new_objective.owner = src.mob.mind
 		src.mob.mind.objectives += new_objective
 		src << "<span class='notice'>New objective assigned! Have fun, and roleplay well!</span>"
 		log_admin("CONTEST: [key_name(src)] has assigned themselves an objective: [new_objective.type].")
@@ -226,8 +254,6 @@
 			var/DBQuery/query = dbcon.NewQuery(query_content)
 			query.Execute(sql_args)
 
-			log_debug("CONTEST: [key_name(src)] attempted to change the side of [href["char_id"]] FROM [href["current_side"]] TO [sql_args[":new_side"]]")
-
 			if (query.ErrorMsg())
 				src << "<span class='danger'>SQL query ran into an error and was cancelled! Please contact a developer to troubleshoot the logs!</span>"
 				return
@@ -235,3 +261,14 @@
 				src << "<span class='notice'>Successfully updated your character's alliegence!</span>"
 				src.contest_my_characters()
 				return
+
+#undef INDEP
+#undef SLF
+#undef BIS
+#undef ASI
+#undef PSIS
+#undef HSH
+#undef TCD
+
+#undef PRO_SYNTH
+#undef ANTI_SYNTH

@@ -44,6 +44,7 @@
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
+	
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "botanist's leather gloves"
@@ -51,7 +52,6 @@
 	item_state = "ggloves"
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
-
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
@@ -71,6 +71,7 @@
 	w_class = 1
 	wired = 1
 	species_restricted = null
+	gender = NEUTER
 
 	verb/checktime()
 		set category = "Object"
@@ -146,11 +147,10 @@
 
 
 /obj/item/clothing/gloves/force // this pair should be put in r&d if you choose to do so.  and also the hos office locker.  do it okay
-
-	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
 	name = "force gloves"
-	icon_state = "black"
-	item_state = "swat_gl"
+	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
+	icon_state = "force_glove" //todo: different sprites for different levels of power
+	item_state = "force_glove"
 	siemens_coefficient = 0.6
 	permeability_coefficient = 0.05
 
@@ -163,13 +163,12 @@
 	var/amplification = 2
 
 /obj/item/clothing/gloves/force/basic //dooo iiiitttttt
-	desc = "These gloves bend gravity and bluespace, providing a cheap boost to the effectiveness of your average security staff."
 	name = "basic force gloves" //do it skull do it give it to all sec the forums agree go
+	desc = "These gloves bend gravity and bluespace, providing a cheap boost to the effectiveness of your average security staff."
+	icon_state = "power_glove" //todo: different sprites for different levels of power
+	item_state = "power_glove"
 	amplification = 1 //just do it
 
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
-	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
 	name = "enhanced force gloves"
-	icon_state = "black"
-	item_state = "swat_gl"
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.

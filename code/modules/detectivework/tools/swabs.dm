@@ -9,7 +9,7 @@
 /obj/item/weapon/forensics/swab/proc/is_used()
 	return used
 
-/obj/item/weapon/forensics/swab/attack(var/mob/living/M, var/mob/user)
+/obj/item/weapon/forensics/swab/attack(var/mob/living/M, var/mob/user, var/target_zone)
 
 	if(!ishuman(M))
 		return ..()
@@ -32,18 +32,18 @@
 		user.visible_message("<span class='danger'>\The [user] tries to take a swab sample from \the [H], but they move away.</span>")
 		return
 
-	if(user.zone_sel.selecting == "mouth")
+	if(target_zone == "mouth")
 		if(!H.organs_by_name["head"])
 			user << "<span class='warning'>They don't have a head.</span>"
 			return
-		if(H.species && (H.species.flags & NO_SCAN))
-			user << "<span class='warning'>They don't have any biological fluids to check!.</span>"
+		if(!H.check_has_mouth())
+			user << "<span class='warning'>They don't have a mouth.</span>"
 			return
 		user.visible_message("[user] swabs \the [H]'s mouth for a saliva sample.")
 		dna = list(H.dna.unique_enzymes)
 		sample_type = "DNA"
 
-	else if(user.zone_sel.selecting == "r_hand" || user.zone_sel.selecting == "l_hand")
+	else if(target_zone == "r_hand" || target_zone == "l_hand")
 		var/has_hand
 		var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
 		if(istype(O) && !O.is_stump())
@@ -82,6 +82,8 @@
 		choices |= "Blood"
 	if(istype(A, /obj/item/clothing))
 		choices |= "Gunshot Residue"
+	if(A.other_DNA && A.other_DNA_type == "saliva")
+		choices |= "Saliva"
 
 	var/choice
 	if(!choices.len)
@@ -96,18 +98,24 @@
 		return
 
 	var/sample_type
-	if(choice == "Blood")
-		if(!A.blood_DNA || !A.blood_DNA.len) return
-		dna = A.blood_DNA.Copy()
-		sample_type = "blood"
+	switch (choice)
+		if ("Blood")
+			if(!A.blood_DNA || !A.blood_DNA.len) return
+			dna = A.blood_DNA.Copy()
+			sample_type = "blood"
 
-	else if(choice == "Gunshot Residue")
-		var/obj/item/clothing/B = A
-		if(!istype(B) || !B.gunshot_residue)
-			user << "<span class='warning'>There is no residue on \the [A].</span>"
-			return
-		gsr = B.gunshot_residue
-		sample_type = "residue"
+		if ("Gunshot Residue")
+			var/obj/item/clothing/B = A
+			if(!istype(B) || !B.gunshot_residue)
+				user << "<span class='warning'>There is no residue on \the [A].</span>"
+				return
+			gsr = B.gunshot_residue
+			sample_type = "residue"
+
+		if ("Saliva")
+			if (!A.other_DNA || !length(A.other_DNA)) return
+			dna = A.other_DNA.Copy()
+			sample_type = "saliva"
 
 	if(sample_type)
 		user.visible_message("\The [user] swabs \the [A] for a sample.", "You swab \the [A] for a sample.")

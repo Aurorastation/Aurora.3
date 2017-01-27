@@ -5,7 +5,8 @@
 	pass_flags = PASSTABLE
 	var/is_adult = 0
 	speak_emote = list("chirps")
-
+	mob_size = 4
+	composition_reagent = "slimejelly"
 	layer = 5
 	maxHealth = 150
 	health = 150
@@ -66,6 +67,7 @@
 	src.colour = colour
 	number = rand(1, 1000)
 	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
+	if (is_adult)mob_size = 6
 	real_name = name
 	slime_mutation = mutation_table(colour)
 	mutation_chance = rand(25, 35)
@@ -196,39 +198,10 @@
 	updatehealth()
 
 
-/mob/living/carbon/slime/blob_act()
-	if (stat == 2)
-		return
-	var/shielded = 0
-
-	var/damage = null
-	if (stat != 2)
-		damage = rand(10,30)
-
-	if(shielded)
-		damage /= 4
-
-	show_message("<span class='danger'> The blob attacks you!</span>")
-
-	adjustFireLoss(damage)
-
-	updatehealth()
-	return
-
-
 /mob/living/carbon/slime/u_equip(obj/item/W as obj)
 	return
 
 /mob/living/carbon/slime/attack_ui(slot)
-	return
-
-/mob/living/carbon/slime/meteorhit(O as obj)
-	visible_message("<span class='warning'>[src] has been hit by [O]</span>")
-
-	adjustBruteLoss((istype(O, /obj/effect/meteor/small) ? 10 : 25))
-	adjustFireLoss(30)
-
-	updatehealth()
 	return
 
 /mob/living/carbon/slime/attack_hand(mob/living/carbon/human/M as mob)
@@ -409,8 +382,3 @@
 			powerlevel = 10
 			adjustToxLoss(-10)
 	nutrition = max(nutrition, get_max_nutrition())
-
-/mob/living/carbon/slime/cannot_use_vents()
-	if(Victim)
-		return "You cannot ventcrawl while feeding."
-	..()

@@ -4,6 +4,7 @@
 	opacity = 0
 	density = 0
 	layer = 3.5
+	w_class = 3
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
@@ -19,28 +20,27 @@
 		else
 	return
 
-/obj/structure/sign/blob_act()
-	qdel(src)
-	return
-
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
 	if(istype(tool, /obj/item/weapon/screwdriver) && !istype(src, /obj/structure/sign/double))
 		user << "You unfasten the sign with your [tool]."
-		var/obj/item/sign/S = new(src.loc)
-		S.name = name
-		S.desc = desc
-		S.icon_state = icon_state
-		//var/icon/I = icon('icons/obj/decals.dmi', icon_state)
-		//S.icon = I.Scale(24, 24)
-		S.sign_state = icon_state
-		qdel(src)
+		unfasten()
 	else ..()
+
+/obj/structure/sign/proc/unfasten()
+	var/obj/item/sign/S = new(src.loc)
+	S.name = name
+	S.desc = desc
+	S.icon_state = icon_state
+	//var/icon/I = icon('icons/obj/decals.dmi', icon_state)
+	//S.icon = I.Scale(24, 24)
+	S.sign_state = icon_state
+	qdel(src)
 
 /obj/item/sign
 	name = "sign"
 	desc = ""
 	icon = 'icons/obj/decals.dmi'
-	w_class = 3		//big
+	w_class = 5		//big
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
@@ -175,30 +175,10 @@
 	desc = "A warning sign which reads 'HYDROPONICS'."
 	icon_state = "hydro1"
 
-/obj/structure/sign/sac
-	name = "\improper S.A.C."
-	desc = "It's the Sol Airspace Corporation logo."
-	icon_state = "SACsmall"
-
-/obj/structure/sign/sac/big
-	name = "\improper S.A.C."
-	desc = "A rusty sign reading 'S.A.C.'."
-	icon_state = "monkey_painting"
-
-/obj/structure/sign/sac/big/left
-	name = "\improper S.A.C."
-	desc = "A rusty sign reading 'S.A.C.'."
-	icon_state = "SACs"
-
-/obj/structure/sign/sac/big/middle
-	name = "\improper S.A.C."
-	desc = "A rusty sign reading 'S.A.C.'."
-	icon_state = "SACa"
-
-/obj/structure/sign/sac/big/right
-	name = "\improper S.A.C."
-	desc = "A rusty sign reading 'S.A.C.'."
-	icon_state = "SACc"
+/obj/structure/sign/directions
+	name = "direction sign"
+	desc = "A direction sign, claiming to know the way."
+	icon_state = "direction"
 
 /obj/structure/sign/directions/science
 	name = "\improper Science department"
@@ -224,3 +204,17 @@
 	name = "\improper Escape Arm"
 	desc = "A direction sign, pointing out which way the escape shuttle dock is."
 	icon_state = "direction_evac"
+
+/obj/structure/sign/christmas/lights
+	name = "Christmas lights"
+	desc = "Flashy."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "xmaslights"
+	layer = 5
+
+/obj/structure/sign/christmas/wreath
+	name = "wreath"
+	desc = "Prickly and overrated."
+	icon = 'icons/obj/christmas.dmi'
+	icon_state = "doorwreath"
+	layer = 5

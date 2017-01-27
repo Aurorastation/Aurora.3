@@ -1,6 +1,23 @@
 /******************** Requests Console ********************/
 /** Originally written by errorage, updated by: Carn, needs more work though. I just added some security fixes */
 
+//Request Console Department Types
+#define RC_ASSIST 1		//Request Assistance
+#define RC_SUPPLY 2		//Request Supplies
+#define RC_INFO   4		//Relay Info
+
+//Request Console Screens
+#define RCS_MAINMENU 0	// Main menu
+#define RCS_RQASSIST 1	// Request supplies
+#define RCS_RQSUPPLY 2	// Request assistance
+#define RCS_SENDINFO 3	// Relay information
+#define RCS_SENTPASS 4	// Message sent successfully
+#define RCS_SENTFAIL 5	// Message sent unsuccessfully
+#define RCS_VIEWMSGS 6	// View messages
+#define RCS_MESSAUTH 7	// Authentication before sending
+#define RCS_ANNOUNCE 8	// Send announcement
+#define RCS_FORMS	 9	// Forms database
+
 var/req_console_assistance = list()
 var/req_console_supplies = list()
 var/req_console_information = list()
@@ -13,34 +30,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
-	var/list/messages = list() //List of all messages
-	var/departmentType = 0
-		// 0 = none (not listed, can only repeplied to)
-		// 1 = assistance
-		// 2 = supplies
-		// 3 = info
-		// 4 = ass + sup //Erro goddamn you just HAD to shorten "assistance" down to "ass"
-		// 5 = ass + info
-		// 6 = sup + info
-		// 7 = ass + sup + info
+	var/list/message_log = list() //List of all messages
+	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
 	var/newmessagepriority = 0
 		// 0 = no new message
 		// 1 = normal priority
 		// 2 = high priority
-		// 3 = extreme priority - not implemented, will probably require some hacking... everything needs to have a hidden feature in this game.
-	var/screen = 0
-		// 0 = main menu,
-		// 1 = req. assistance,
-		// 2 = req. supplies
-		// 3 = relay information
-		// 4 = write msg - not used
-		// 5 = choose priority - not used
-		// 6 = sent successfully
-		// 7 = sent unsuccessfully
-		// 8 = view messages
-		// 9 = authentication before sending
-		// 10 = send announcement
-		//11 = Form Database
+	var/screen = RCS_MAINMENU
 	var/silent = 0 // set to 1 for it not to beep all the time
 //	var/hackState = 0
 		// 0 = not hacked
@@ -53,7 +49,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/msgVerified = "" //Will contain the name of the person who varified it
 	var/msgStamped = "" //If a message is stamped, this will contain the stamp name
 	var/message = "";
-	var/dpt = ""; //the department which will be receiving the message
+	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
 	light_range = 0
 	//Form intregration
@@ -74,7 +70,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			icon_state = "req_comp_off"
 	else
 		if(icon_state == "req_comp_off")
-			icon_state = "req_comp0"
+			icon_state = "req_comp[newmessagepriority]"
 
 /obj/machinery/requests_console/New()
 	..()
@@ -84,200 +80,90 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	name = "[department] Requests Console"
 	allConsoles += src
-	//req_console_departments += department
-	switch(departmentType)
-		if(1)
-			req_console_assistance |= department
-		if(2)
-			req_console_supplies |= department
-		if(3)
-			req_console_information |= department
-		if(4)
-			req_console_assistance |= department
-			req_console_supplies |= department
-		if(5)
-			req_console_assistance |= department
-			req_console_information |= department
-		if(6)
-			req_console_supplies |= department
-			req_console_information |= department
-		if(7)
-			req_console_assistance |= department
-			req_console_supplies |= department
-			req_console_information |= department
+	if (departmentType & RC_ASSIST)
+		req_console_assistance |= department
+	if (departmentType & RC_SUPPLY)
+		req_console_supplies |= department
+	if (departmentType & RC_INFO)
+		req_console_information |= department
+
+	set_light(1)
 
 /obj/machinery/requests_console/Destroy()
 	allConsoles -= src
-	switch(departmentType)
-		if(1)
+	var/lastDeptRC = 1
+	for (var/obj/machinery/requests_console/Console in allConsoles)
+		if (Console.department == department)
+			lastDeptRC = 0
+			break
+	if(lastDeptRC)
+		if (departmentType & RC_ASSIST)
 			req_console_assistance -= department
-		if(2)
+		if (departmentType & RC_SUPPLY)
 			req_console_supplies -= department
-		if(3)
-			req_console_information -= department
-		if(4)
-			req_console_assistance -= department
-			req_console_supplies -= department
-		if(5)
-			req_console_assistance -= department
-			req_console_information -= department
-		if(6)
-			req_console_supplies -= department
-			req_console_information -= department
-		if(7)
-			req_console_assistance -= department
-			req_console_supplies -= department
+		if (departmentType & RC_INFO)
 			req_console_information -= department
 	..()
 
 /obj/machinery/requests_console/attack_hand(user as mob)
 	if(..(user))
 		return
-	var/dat
-	dat = text("<HEAD><TITLE>Requests Console</TITLE></HEAD><H3>[department] Requests Console</H3>")
-	if(!open)
-		switch(screen)
-			if(1)	//req. assistance
-				dat += text("Which department do you need assistance from?<BR><BR>")
-				for(var/dpt in req_console_assistance)
-					if (dpt != department)
-						dat += text("[dpt] (<A href='?src=\ref[src];write=[ckey(dpt)]'>Message</A> or ")
-						dat += text("<A href='?src=\ref[src];write=[ckey(dpt)];priority=2'>High Priority</A>")
-//						if (hackState == 1)
-//							dat += text(" or <A href='?src=\ref[src];write=[ckey(dpt)];priority=3'>EXTREME</A>)")
-						dat += text(")<BR>")
-				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
+	ui_interact(user)
 
-			if(2)	//req. supplies
-				dat += text("Which department do you need supplies from?<BR><BR>")
-				for(var/dpt in req_console_supplies)
-					if (dpt != department)
-						dat += text("[dpt] (<A href='?src=\ref[src];write=[ckey(dpt)]'>Message</A> or ")
-						dat += text("<A href='?src=\ref[src];write=[ckey(dpt)];priority=2'>High Priority</A>")
-//						if (hackState == 1)
-//							dat += text(" or <A href='?src=\ref[src];write=[ckey(dpt)];priority=3'>EXTREME</A>)")
-						dat += text(")<BR>")
-				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
+/obj/machinery/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+	var/data[0]
 
-			if(3)	//relay information
-				dat += text("Which department would you like to send information to?<BR><BR>")
-				for(var/dpt in req_console_information)
-					if (dpt != department)
-						dat += text("[dpt] (<A href='?src=\ref[src];write=[ckey(dpt)]'>Message</A> or ")
-						dat += text("<A href='?src=\ref[src];write=[ckey(dpt)];priority=2'>High Priority</A>")
-//						if (hackState == 1)
-//							dat += text(" or <A href='?src=\ref[src];write=[ckey(dpt)];priority=3'>EXTREME</A>)")
-						dat += text(")<BR>")
-				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
+	data["department"] = department
+	data["screen"] = screen
+	data["message_log"] = message_log
+	data["newmessagepriority"] = newmessagepriority
+	data["silent"] = silent
+	data["announcementConsole"] = announcementConsole
 
-			if(6)	//sent successfully
-				dat += text("<FONT COLOR='GREEN'>Message sent</FONT><BR><BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=0'>Continue</A><BR>")
+	data["assist_dept"] = req_console_assistance
+	data["supply_dept"] = req_console_supplies
+	data["info_dept"]   = req_console_information
 
-			if(7)	//unsuccessful; not sent
-				dat += text("<FONT COLOR='RED'>An error occurred. </FONT><BR><BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=0'>Continue</A><BR>")
+	data["message"] = message
+	data["recipient"] = recipient
+	data["priortiy"] = priority
+	data["msgStamped"] = msgStamped
+	data["msgVerified"] = msgVerified
+	data["announceAuth"] = announceAuth
 
-			if(8)	//view messages
-				for (var/obj/machinery/requests_console/Console in allConsoles)
-					if (Console.department == department)
-						Console.newmessagepriority = 0
-						Console.icon_state = "req_comp0"
-						Console.set_light(1)
-				newmessagepriority = 0
-				icon_state = "req_comp0"
-				for(var/msg in messages)
-					dat += text("[msg]<BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=0'>Back to main menu</A><BR>")
+	if (screen == RCS_FORMS)
+		if (!establish_db_connection(dbcon))
+			data["sql_error"] = 1
+		else
+			if (!SQLquery)
+				SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
 
-			if(9)	//authentication before sending
-				dat += text("<B>Message Authentication</B><BR><BR>")
-				dat += text("<b>Message for [dpt]: </b>[message]<BR><BR>")
-				dat += text("You may authenticate your message now by scanning your ID or your stamp<BR><BR>")
-				dat += text("Validated by: [msgVerified]<br>");
-				dat += text("Stamped by: [msgStamped]<br>");
-				dat += text("<A href='?src=\ref[src];department=[dpt]'>Send</A><BR>");
-				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
+			var/DBQuery/query = dbcon.NewQuery(SQLquery)
+			query.Execute()
 
-			if(10)	//send announcement
-				dat += text("<B>Station wide announcement</B><BR><BR>")
-				if(announceAuth)
-					dat += text("<b>Authentication accepted</b><BR><BR>")
-				else
-					dat += text("Swipe your card to authenticate yourself.<BR><BR>")
-				dat += text("<b>Message: </b>[message] <A href='?src=\ref[src];writeAnnouncement=1'>Write</A><BR><BR>")
-				if (announceAuth && message)
-					dat += text("<A href='?src=\ref[src];sendAnnouncement=1'>Announce</A><BR>");
-				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
+			var/list/forms = list()
+			while (query.NextRow())
+				forms += list(list("id" = query.item[1], "name" = query.item[2], "department" = query.item[3]))
 
-			if(11)	//form database
-				dat += text("<B>NanoTrasen Corporate Forms</B><br><br>")
-				establish_db_connection(dbcon)
-				if(!dbcon.IsConnected())
-					dat += text("<font color=red><b>ERROR</b>: Unable to contact external database. Please contact your system administrator for assistance.</font>")
-					log_game("SQL database connection failed. Attempted to fetch form information.")
-				else
-					dat += {"<table border='1'><tr><th>NCF ID</th><th>Form Name</th><th>Dept.</th><th>Print</th><th>?</th></tr>"}
+			if (!forms.len)
+				data["sql_error"] = 1
 
-					//For reference:
-					//Command forms, 	01xx series
-					//Security forms,	02xx series
-					//Medical forms,	03xx series
-					//Engineer forms,	04xx series
-					//Science forms,	05xx series
-					//Supply forms,		06xx series
-					//General forms,	10xx series
+			data["forms"] = forms
 
-					var/DBQuery/query = dbcon.NewQuery(SQLquery)
-					query.Execute()
-					while(query.NextRow())
-						var/id = query.item[1]
-						var/name = query.item[2]
-						var/department = query.item[3]
-						dat += "<tr><td>NCF-[id]</td><td>[name]</td><td><a href='?src=\ref[src];sort=[department]'>[department]</a></td><td><a href='?src=\ref[src];print=[id]'>Print</a></td><td><a href='?src=\ref[src];whatis=[id]'>?</a></td></tr>"
-					dat += "</table>"
-					dat += text("<br><A href='?src=\ref[src];setScreen=11'>Reset Search</a>")
-				dat += text("<BR><A href='?src=\ref[src];setScreen=0'>Back</A><BR>")
+	data["pda_list"] = list()
 
-			else	//main menu
-				screen = 0
-				reset_announce()
-				if (newmessagepriority == 1)
-					dat += text("<FONT COLOR='RED'>There are new messages</FONT><BR>")
-				if (newmessagepriority == 2)
-					dat += text("<FONT COLOR='RED'><B>NEW PRIORITY MESSAGES</B></FONT><BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=8'>View Messages</A><BR><BR>")
+	for (var/A in alert_pdas)
+		var/obj/item/device/pda/pda = A
+		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "\ref[pda]"))
 
-				dat += text("<A href='?src=\ref[src];setScreen=1'>Request Assistance</A><BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=2'>Request Supplies</A><BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=3'>Relay Anonymous Information</A><BR>")
-				dat += text("<A href='?src=\ref[src];setScreen=11'>NanoTrasen Corporate Form Database</A><BR><BR>")
-				if(announcementConsole)
-					dat += text("<A href='?src=\ref[src];setScreen=10'>Send station-wide announcement</A><BR><BR>")
-				if (silent)
-					dat += text("Speaker <A href='?src=\ref[src];setSilent=0'>OFF</A>")
-				else
-					dat += text("Speaker <A href='?src=\ref[src];setSilent=1'>ON</A>")
-				if(paperstock)
-					dat += text("<br>[paperstock] papers in stock.")
-				else
-					dat += text("<br><font color = red>No paper in stock.</font>")
-				if(lid)
-					dat += text("<br>Paper container lid <A href='?src=\ref[src];setLid=0'>OPEN</A>.")
-				else
-					dat += text("<br>Paper container lid <A href='?src=\ref[src];setLid=1'>CLOSE</A>.")
+	data["lid"] = lid
+	data["paper"] = paperstock
 
-				dat += "<br><br>PDAs to notify:<br>"
-
-				if (alert_pdas && alert_pdas.len)
-					for (var/obj/item/device/pda/pda in alert_pdas)
-						dat += "[alert_pdas[pda]] - <a href='byond://?src=\ref[src];unlink=\ref[pda]'>Unlink</a><br>"
-
-				dat += "<br><a href='byond://?src=\ref[src];linkpda=1'>Add PDA to Notify</a>"
-
-		user << browse("[dat]", "window=request_console")
-		onclose(user, "req_console")
-	return
+	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
+		ui.set_initial_data(data)
+		ui.open()
 
 /obj/machinery/requests_console/Topic(href, href_list)
 	if(..())	return
@@ -285,109 +171,95 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	add_fingerprint(usr)
 
 	if(reject_bad_text(href_list["write"]))
-		dpt = ckey(href_list["write"]) //write contains the string of the receiving department's name
+		recipient = href_list["write"] //write contains the string of the receiving department's name
 
 		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
 		if(new_message)
 			message = new_message
-			screen = 9
+			screen = RCS_MESSAUTH
 			switch(href_list["priority"])
+				if("1") priority = 1
 				if("2")	priority = 2
-				else	priority = -1
+				else	priority = 0
 		else
-			dpt = "";
-			msgVerified = ""
-			msgStamped = ""
-			screen = 0
-			priority = -1
+			reset_message(1)
 
 	if(href_list["writeAnnouncement"])
 		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
 		if(new_message)
 			message = new_message
-			switch(href_list["priority"])
-				if("2")	priority = 2
-				else	priority = -1
 		else
-			reset_announce()
-			screen = 0
+			reset_message(1)
 
 	if(href_list["sendAnnouncement"])
 		if(!announcementConsole)	return
 		announcement.Announce(message, msg_sanitized = 1)
-		reset_announce()
-		screen = 0
+		reset_message(1)
 
 	if( href_list["department"] && message )
 		var/log_msg = message
-		var/sending = message
-		sending += "<br>"
-		if (msgVerified)
-			sending += msgVerified
-			sending += "<br>"
-		if (msgStamped)
-			sending += msgStamped
-			sending += "<br>"
-		screen = 7 //if it's successful, this will get overrwritten (7 = unsufccessfull, 6 = successfull)
-		if (sending)
-			var/pass = 0
-			for (var/obj/machinery/message_server/MS in world)
-				if(!MS.active) continue
-				MS.send_rc_message(href_list["department"],department,log_msg,msgStamped,msgVerified,priority)
-				pass = 1
+		var/pass = 0
+		screen = RCS_SENTFAIL
+		for (var/obj/machinery/message_server/MS in world)
+			if(!MS.active) continue
+			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
+			pass = 1
+		if(pass)
+			screen = RCS_SENTPASS
+			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
+		else
+			audible_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
 
-			if(pass)
+	//Handle screen switching
+	if(href_list["setScreen"])
+		var/tempScreen = text2num(href_list["setScreen"])
+		if(tempScreen == RCS_ANNOUNCE && !announcementConsole)
+			return
+		if(tempScreen == RCS_VIEWMSGS)
+			for (var/obj/machinery/requests_console/Console in allConsoles)
+				if (Console.department == department)
+					Console.newmessagepriority = 0
+					Console.icon_state = "req_comp0"
+					Console.set_light(1)
+		if(tempScreen == RCS_MAINMENU)
+			reset_message()
+		screen = tempScreen
 
-				for (var/obj/machinery/requests_console/Console in allConsoles)
-					if (ckey(Console.department) == ckey(href_list["department"]))
+	//Handle silencing the console
+	if(href_list["toggleSilent"])
+		silent = !silent
 
-						switch(priority)
-							if("2")		//High priority
-								if(Console.newmessagepriority < 2)
-									Console.newmessagepriority = 2
-									Console.icon_state = "req_comp2"
-								if(!Console.silent)
-									playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-									for (var/mob/O in hearers(5, Console.loc))
-										O.show_message(text("\icon[Console] *The Requests Console beeps: 'PRIORITY Alert in [department]'"))
-								Console.messages += "<B><FONT color='red'>High Priority message from <A href='?src=\ref[Console];write=[ckey(department)]'>[department]</A></FONT></B><BR>[sending]"
+	// Link a PDA
+	if(href_list["linkpda"])
+		var/obj/item/device/pda/pda = usr.get_active_hand()
+		if (!pda || !istype(pda))
+			usr << "<span class='warning'>You need to be holding a PDA to link it.</span>"
+		else if (pda in alert_pdas)
+			usr << "<span class='notice'>\The [pda] appears to be already linked.</span>"
+			//Update the name real quick.
+			alert_pdas[pda] = pda.name
+		else
+			alert_pdas += pda
+			alert_pdas[pda] = pda.name
+			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
 
-								Console.do_pda_alerts("Priority alert received from [department]!")
+	// Unlink a PDA.
+	if(href_list["unlink"])
+		var/obj/item/device/pda/pda = locate(href_list["unlink"])
+		if (pda && istype(pda))
+			if (pda in alert_pdas)
+				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
+				alert_pdas -= pda
 
-		//					if("3")		//Not implemanted, but will be 		//Removed as it doesn't look like anybody intends on implimenting it ~Carn
-		//						if(Console.newmessagepriority < 3)
-		//							Console.newmessagepriority = 3
-		//							Console.icon_state = "req_comp3"
-		//						if(!Console.silent)
-		//							playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-		//							for (var/mob/O in hearers(7, Console.loc))
-		//								O.show_message(text("\icon[Console] *The Requests Console yells: 'EXTREME PRIORITY alert in [department]'"))
-		//						Console.messages += "<B><FONT color='red'>Extreme Priority message from [ckey(department)]</FONT></B><BR>[message]"
-
-							else		// Normal priority
-								if(Console.newmessagepriority < 1)
-									Console.newmessagepriority = 1
-									Console.icon_state = "req_comp1"
-								if(!Console.silent)
-									playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-									for (var/mob/O in hearers(4, Console.loc))
-										O.show_message(text("\icon[Console] *The Requests Console beeps: 'Message from [department]'"))
-								Console.messages += "<B>Message from <A href='?src=\ref[Console];write=[ckey(department)]'>[department]</A></FONT></B><BR>[message]"
-
-								Console.do_pda_alerts("Message received from [department].")
-
-						screen = 6
-						Console.set_light(2)
-				messages += "<B>Message sent to [dpt]</B><BR>[message]"
-			else
-				for (var/mob/O in hearers(4, src.loc))
-					O.show_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"))
-
+	// Sort the forms.
 	if(href_list["sort"])
 		var/sortdep = sanitizeSQL(href_list["sort"])
-		SQLquery = " Select id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%' ORDER BY id"
-		screen = 11
+		SQLquery = "SELECT id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%' ORDER BY id"
 
+	if (href_list["resetSQL"])
+		SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
+
+	// Print a form.
 	if(href_list["print"])
 		var/printid = sanitizeSQL(href_list["print"])
 		establish_db_connection(dbcon)
@@ -403,19 +275,17 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			var/id = query.item[1]
 			var/name = query.item[2]
 			var/data = query.item[3]
-			var/obj/item/weapon/paper/C = new(src.loc)
+			var/obj/item/weapon/paper/C = new()
 
 			//Let's start the BB >> HTML conversion!
 
 			data = html_encode(data)
-			data = replacetext(data, "\n", "<BR>")
+			C.set_content("NFC-[id] - [name]", data)
+			print(C)
 
-			C.info += data
-			C.info = C.parsepencode(C.info)
-			C.updateinfolinks()
-			C.name = "NFC-[id] - [name]"
 			paperstock--
 
+	// Get extra information about the form.
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
 		establish_db_connection(dbcon)
@@ -439,76 +309,15 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		dat += "</center>"
 		usr << browse(dat, "window=Information;size=560x240")
 
-	switch( href_list["setLid"] )
-		if(null)	//skip
-		if("1")	lid = 1
-		else	lid = 0
-
-	//Handle screen switching
-	switch(text2num(href_list["setScreen"]))
-		if(null)	//skip
-		if(1)		//req. assistance
-			screen = 1
-		if(2)		//req. supplies
-			screen = 2
-		if(3)		//relay information
-			screen = 3
-//		if(4)		//write message
-//			screen = 4
-		if(5)		//choose priority
-			screen = 5
-		if(6)		//sent successfully
-			screen = 6
-		if(7)		//unsuccessfull; not sent
-			screen = 7
-		if(8)		//view messages
-			screen = 8
-		if(9)		//authentication
-			screen = 9
-		if(10)		//send announcement
-			if(!announcementConsole)	return
-			screen = 10
-		if(11)		//form database
-			SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
-			screen = 11
-		else		//main menu
-			dpt = ""
-			msgVerified = ""
-			msgStamped = ""
-			message = ""
-			priority = -1
-			screen = 0
-
-	//Handle silencing the console
-	switch( href_list["setSilent"] )
-		if(null)	//skip
-		if("1")	silent = 1
-		else	silent = 0
-
-	if(href_list["linkpda"])
-		var/obj/item/device/pda/pda = usr.get_active_hand()
-		if (!pda || !istype(pda))
-			usr << "<span class='warning'>You need to be holding a PDA to link it.</span>"
-		else if (pda in alert_pdas)
-			usr << "<span class='notice'>\The [pda] appears to be already linked.</span>"
-			//Update the name real quick.
-			alert_pdas[pda] = pda.name
-		else
-			alert_pdas += pda
-			alert_pdas[pda] = pda.name
-			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
-
-	if(href_list["unlink"])
-		var/obj/item/device/pda/pda = locate(href_list["unlink"])
-		if (pda && istype(pda))
-			if (pda in alert_pdas)
-				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
-				alert_pdas -= pda
+	// Toggle the paper bin lid.
+	if(href_list["setLid"])
+		lid = !lid
+		usr << "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>"
 
 	updateUsrDialog()
 	return
 
-					//err... hacking code, which has no reason for existing... but anyway... it's supposed to unlock priority 3 messanging on that console (EXTREME priority...) the code for that actually exists.
+					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/machinery/requests_console/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
 	/*
 	if (istype(O, /obj/item/weapon/crowbar))
@@ -533,21 +342,23 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			user << "You can't do much with that."*/
 
 	if (istype(O, /obj/item/weapon/card/id))
-		if(screen == 9)
+		if(inoperable(MAINT)) return
+		if(screen == RCS_MESSAUTH)
 			var/obj/item/weapon/card/id/T = O
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
 			updateUsrDialog()
-		if(screen == 10)
+		if(screen == RCS_ANNOUNCE)
 			var/obj/item/weapon/card/id/ID = O
 			if (access_RC_announce in ID.GetAccess())
 				announceAuth = 1
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
 			else
-				reset_announce()
-				user << "\red You are not authorized to send announcements."
+				reset_message()
+				user << "<span class='warning'>You are not authorized to send announcements.</span>"
 			updateUsrDialog()
 	if (istype(O, /obj/item/weapon/stamp))
-		if(screen == 9)
+		if(inoperable(MAINT)) return
+		if(screen == RCS_MESSAUTH)
 			var/obj/item/weapon/stamp/T = O
 			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
@@ -560,7 +371,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
-			user << "\blue I should open the lid to add more paper, or try faxing one paper at a time."
+			user << "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>"
 	if (istype(O, /obj/item/weapon/paper))
 		if(lid)					//Stocking them papers
 			var/obj/item/weapon/paper/C = O
@@ -585,14 +396,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						if(!sent)
 							sent = 1
 						var/obj/item/weapon/paper/C = O
-						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(Console.loc)
-						P.info = "<font color = #101010>"
+						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
+						var/info = "<font color = #101010>"
 						var/copied = html_decode(C.info)
 						copied = replacetext(copied, "<font face=\"[P.deffont]\" color=", "<font face=\"[P.deffont]\" nocolor=")	//state of the art techniques in action
 						copied = replacetext(copied, "<font face=\"[P.crayonfont]\" color=", "<font face=\"[P.crayonfont]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
-						P.info += copied
-						P.info += "</font>"
-						P.name = C.name
+						info += copied
+						info += "</font>"
+						var/pname = C.name
 						P.fields = C.fields
 						P.stamps = C.stamps
 						P.stamped = C.stamped
@@ -611,8 +422,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 							img.pixel_x = C.offset_x[j]
 							img.pixel_y = C.offset_y[j]
 							P.overlays += img
-						P.updateinfolinks()
-						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+						P.set_content_unsafe(pname, info)
+						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
 							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
 						Console.paperstock--
@@ -623,21 +434,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	return
 
-/obj/machinery/requests_console/proc/reset_announce()
-	announceAuth = 0
+/obj/machinery/requests_console/proc/reset_message(var/mainmenu = 0)
 	message = ""
+	recipient = ""
+	priority = 0
+	msgVerified = ""
+	msgStamped = ""
+	announceAuth = 0
 	announcement.announcer = ""
-
-/obj/machinery/requests_console/proc/do_pda_alerts(var/message)
-	if (!message)
-		message = "New message received."
-
-	if (!alert_pdas || !alert_pdas.len)
-		return
-
-	for (var/obj/item/device/pda/pda in alert_pdas)
-		if (pda.toff || pda.message_silent)
-			continue
-
-		message = "[message] View it at [src.name]."
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
+	if(mainmenu)
+		screen = RCS_MAINMENU

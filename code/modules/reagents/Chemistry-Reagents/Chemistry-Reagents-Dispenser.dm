@@ -1,9 +1,51 @@
+/datum/reagent/acetone
+	name = "Acetone"
+	id = "acetone"
+	description = "A colorless liquid solvent used in chemical synthesis."
+	reagent_state = LIQUID
+	color = "#808080"
+	metabolism = REM * 0.2
+
+/datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(removed * 3)
+
+/datum/reagent/acetone/touch_obj(var/obj/O)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
+	if(istype(O, /obj/item/weapon/paper))
+		var/obj/item/weapon/paper/paperaffected = O
+		paperaffected.clearpaper()
+		usr << "The solution dissolves the ink on the paper."
+		return
+	if(istype(O, /obj/item/weapon/book))
+		if(volume < 5)
+			return
+		if(istype(O, /obj/item/weapon/book/tome))
+			usr << "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>"
+			return
+		var/obj/item/weapon/book/affectedbook = O
+		affectedbook.dat = null
+		usr << "<span class='notice'>The solution dissolves the ink on the book.</span>"
+	return
+
 /datum/reagent/aluminum
 	name = "Aluminum"
 	id = "aluminum"
 	description = "A silvery white and ductile member of the boron group of chemical elements."
 	reagent_state = SOLID
 	color = "#A8A8A8"
+
+/datum/reagent/ammonia
+	name = "Ammonia"
+	id = "ammonia"
+	description = "A caustic substance commonly used in fertilizer or household cleaners."
+	reagent_state = LIQUID
+	color = "#404030"
+	metabolism = REM * 0.5
+
+/datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VOX)
+		M.adjustOxyLoss(-removed * 10)
+	else if(alien != IS_DIONA)
+		M.adjustToxLoss(removed * 1.5)
 
 /datum/reagent/carbon
 	name = "Carbon"
@@ -32,19 +74,6 @@
 		else
 			dirtoverlay.alpha = min(dirtoverlay.alpha + volume * 30, 255)
 
-/datum/reagent/chlorine
-	name = "Chlorine"
-	id = "chlorine"
-	description = "A chemical element with a characteristic odour."
-	reagent_state = GAS
-	color = "#808080"
-
-/datum/reagent/chlorine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.take_organ_damage(1*REM, 0)
-
-/datum/reagent/chlorine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	M.take_organ_damage(1*REM, 0)
-
 /datum/reagent/copper
 	name = "Copper"
 	id = "copper"
@@ -65,6 +94,8 @@
 	var/adj_temp = 0
 	var/targ_temp = 310
 	var/halluci = 0
+	var/datum/modifier/caffeine_mod
+	var/caffeine  = 0
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of ethanol"
@@ -79,7 +110,7 @@
 	return
 
 /datum/reagent/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.get_species() == "Vaurca")//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+	if(isvaurca(M))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
@@ -103,6 +134,10 @@
 	if(halluci)
 		M.hallucination = max(M.hallucination, halluci)
 
+	if (caffeine && !caffeine_mod)
+		caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+
 
 /datum/reagent/ethanol/touch_obj(var/obj/O)
 	if(istype(O, /obj/item/weapon/paper))
@@ -121,25 +156,26 @@
 		usr << "<span class='notice'>The solution dissolves the ink on the book.</span>"
 	return
 
-/datum/reagent/fluorine
-	name = "Fluorine"
-	id = "fluorine"
-	description = "A highly-reactive chemical element."
-	reagent_state = GAS
+/datum/reagent/hydrazine
+	name = "Hydrazine"
+	id = "hydrazine"
+	description = "A toxic, colorless, flammable liquid with a strong ammonia-like odor, in hydrate form."
+	reagent_state = LIQUID
 	color = "#808080"
+	metabolism = REM * 0.2
+	touch_met = 5
 
-/datum/reagent/fluorine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed)
+/datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(4 * removed)
 
-/datum/reagent/fluorine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed)
+/datum/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // Hydrazine is both toxic and flammable.
+	M.adjust_fire_stacks(removed / 12)
+	M.adjustToxLoss(0.2 * removed)
 
-/datum/reagent/hydrogen
-	name = "Hydrogen"
-	id = "hydrogen"
-	description = "A colorless, odorless, nonmetallic, tasteless, highly combustible diatomic gas."
-	reagent_state = GAS
-	color = "#808080"
+/datum/reagent/hydrazine/touch_turf(var/turf/T)
+	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
+	remove_self(volume)
+	return
 
 /datum/reagent/iron
 	name = "Iron"
@@ -181,28 +217,6 @@
 			M.emote(pick("twitch", "drool", "moan"))
 		M.adjustBrainLoss(2)
 
-/datum/reagent/nitrogen
-	name = "Nitrogen"
-	id = "nitrogen"
-	description = "A colorless, odorless, tasteless gas."
-	reagent_state = GAS
-	color = "#808080"
-
-/datum/reagent/nitrogen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX )
-		M.adjustOxyLoss(-removed * 3)
-
-/datum/reagent/oxygen
-	name = "Oxygen"
-	id = "oxygen"
-	description = "A colorless, odorless gas."
-	reagent_state = GAS
-	color = "#808080"
-
-/datum/reagent/oxygen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX|| M.get_species() == "Vaurca")
-		M.adjustToxLoss(removed * 3)
-
 /datum/reagent/phosphorus
 	name = "Phosphorus"
 	id = "phosphorus"
@@ -232,7 +246,7 @@
 			if(prob(5))
 				M.antibodies |= V.antigen
 				if(prob(50))
-					M.radiation += 50 // curing it that way may kill you instead
+					M.apply_effect(50, IRRADIATE, check_protection = 0) // curing it that way may kill you instead
 					var/absorbed = 0
 					var/obj/item/organ/diona/nutrients/rad_organ = locate() in M.internal_organs
 					if(rad_organ && !rad_organ.is_broken())
@@ -332,6 +346,15 @@
 			M << "<span class='warning'>\The [O] melts.</span>"
 		qdel(O)
 		remove_self(meltdose) // 10 units of acid will not melt EVERYTHING on the tile
+
+/datum/reagent/acid/hydrochloric //Like sulfuric, but less toxic and more acidic.
+	name = "Hydrochloric Acid"
+	id = "hclacid"
+	description = "A very corrosive mineral acid with the molecular formula HCl."
+	reagent_state = LIQUID
+	color = "#808080"
+	power = 3
+	meltdose = 8
 
 /datum/reagent/silicon
 	name = "Silicon"

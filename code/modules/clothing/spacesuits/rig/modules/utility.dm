@@ -12,6 +12,9 @@
  * /obj/item/rig_module/chem_dispenser
  * /obj/item/rig_module/chem_dispenser/injector
  * /obj/item/rig_module/voice
+ * /obj/item/rig_module/device/paperdispenser
+ * /obj/item/rig_module/device/pen
+ * /obj/item/rig_module/device/stamp
  */
 
 /obj/item/rig_module/device
@@ -104,7 +107,6 @@
 	if(device_type) device = new device_type(src)
 
 /obj/item/rig_module/device/engage(atom/target)
-
 	if(!..() || !device)
 		return 0
 
@@ -150,7 +152,7 @@
 		list("dexalin plus",  "dexalinp",      0, 80),
 		list("antibiotics",   "spaceacillin",  0, 80),
 		list("antitoxins",    "anti_toxin",    0, 80),
-		list("nutrients",     "nutriment",     0, 80),
+		list("nutrients",     "glucose",     0, 80),
 		list("hyronalin",     "hyronalin",     0, 80),
 		list("radium",        "radium",        0, 80)
 		)
@@ -167,7 +169,7 @@
 		list("dexalin plus",  "dexalinp",      0, 20),
 		list("antibiotics",   "spaceacillin",  0, 20),
 		list("antitoxins",    "anti_toxin",    0, 20),
-		list("nutrients",     "nutriment",     0, 80),
+		list("nutrients",     "glucose",     0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
@@ -256,7 +258,7 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("nutrients",     "nutriment",     0, 80),
+		list("nutrients",     "glucose",     0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -400,3 +402,63 @@
 	jets.ion_trail.set_up(jets)
 
 /obj/item/rig_module/foam_sprayer
+
+/obj/item/rig_module/device/paperdispenser
+	name = "hardsuit paper dispenser"
+	desc = "Crisp sheets."
+	icon_state = "paper"
+	interface_name = "paper dispenser"
+	interface_desc = "Dispenses warm, clean, and crisp sheets of paper."
+	engage_string = "Dispense"
+	usable = 1
+	selectable = 0
+	device_type = /obj/item/weapon/paper_bin
+
+/obj/item/rig_module/device/paperdispenser/engage(atom/target)
+
+	if(!..() || !device)
+		return 0
+
+	if(!target)
+		device.attack_hand(holder.wearer)
+		return 1
+
+/obj/item/rig_module/device/pen
+	name = "mounted pen"
+	desc = "For mecha John Hancocks."
+	icon_state = "pen"
+	interface_name = "mounted pen"
+	interface_desc = "Signatures with style(tm)."
+	engage_string = "Change color"
+	usable = 1
+	device_type = /obj/item/weapon/pen/multi
+
+/obj/item/rig_module/device/stamp
+	name = "mounted internal affairs stamp"
+	desc = "DENIED."
+	icon_state = "stamp"
+	interface_name = "mounted stamp"
+	interface_desc = "Leave your mark."
+	engage_string = "Toggle stamp type"
+	usable = 1
+	var/iastamp
+	var/deniedstamp
+
+/obj/item/rig_module/device/stamp/New()
+	..()
+	iastamp = new /obj/item/weapon/stamp/internalaffairs(src)
+	deniedstamp = new /obj/item/weapon/stamp/denied(src)
+	device = iastamp
+
+/obj/item/rig_module/device/stamp/engage(atom/target)
+	if(!..() || !device)
+		return 0
+
+	if(!target)
+		if(device == iastamp)
+			device = deniedstamp
+			holder.wearer << "<span class='notice'>Switched to denied stamp.</span>"
+		else if(device == deniedstamp)
+			device = iastamp
+			holder.wearer << "<span class='notice'>Switched to internal affairs stamp.</span>"
+		return 1

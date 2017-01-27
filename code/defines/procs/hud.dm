@@ -61,7 +61,7 @@ proc/can_process_hud(var/mob/M)
 	return 1
 
 //Deletes the current HUD images so they can be refreshed with new ones.
-mob/proc/regular_hud_updates() //Used in the life.dm of mobs that can use HUDs.
+mob/proc/handle_hud_glasses() //Used in the life.dm of mobs that can use HUDs.
 	if(client)
 		for(var/image/hud in client.images)
 			if(copytext(hud.icon_state,1,4) == "hud")
@@ -78,3 +78,16 @@ mob/proc/in_view(var/turf/T)
 		if(get_dist(H, T) <= 7)
 			viewed += H
 	return viewed
+
+proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
+	var/state
+	if(H.wear_id)
+		var/obj/item/weapon/card/id/I = H.wear_id.GetID()
+		if(I)
+			state = "hud[ckey(I.GetJobName())]"
+		else
+			state = "hudunknown"
+	else
+		state = "hudunknown"
+
+	return state

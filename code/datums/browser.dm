@@ -30,6 +30,9 @@
 		ref = nref
 	add_stylesheet("common", 'html/browser/common.css') // this CSS sheet is common to all UIs
 
+/datum/browser/proc/set_user(nuser)
+	user = nuser
+
 /datum/browser/proc/set_title(ntitle)
 	title = format_text(ntitle)
 

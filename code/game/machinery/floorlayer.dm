@@ -10,7 +10,7 @@
 	var/list/mode = list("dismantle"=0,"laying"=0,"collect"=0)
 
 /obj/machinery/floorlayer/New()
-	T = new/obj/item/stack/tile/steel(src)
+	T = new/obj/item/stack/tile/floor(src)
 	..()
 
 /obj/machinery/floorlayer/Move(new_turf,M_Dir)
@@ -70,7 +70,10 @@
 	var/dismantle = mode["dismantle"]
 	var/laying = mode["laying"]
 	var/collect = mode["collect"]
-	user << "<span class='notice'>\The [src] [!T?"don't ":""]has [!T?"":"[T.get_amount()] [T] "]tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"].</span>"
+	var/number = 0
+	if (T)
+		number = T.get_amount()
+	user << "<span class='notice'>\The [src] has [number] tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"].</span>"
 
 /obj/machinery/floorlayer/proc/reset()
 	on=0
@@ -81,9 +84,10 @@
 		var/turf/simulated/floor/T = new_turf
 		if(!T.is_plating())
 			if(!T.broken && !T.burnt)
-				new T.floor_type(T)
+				new T.flooring.build_type()
 			T.make_plating()
-	return !new_turf.intact
+		return T.is_plating()
+	return 0
 
 /obj/machinery/floorlayer/proc/TakeNewStack()
 	for(var/obj/item/stack/tile/tile in contents)
@@ -93,8 +97,13 @@
 
 /obj/machinery/floorlayer/proc/SortStacks()
 	for(var/obj/item/stack/tile/tile1 in contents)
-		for(var/obj/item/stack/tile/tile2 in contents)
-			tile2.transfer_to(tile1)
+		if (tile1 && tile1.get_amount() > 0)
+			if (!T || T.type == tile1.type)
+				T = tile1
+			if (tile1.get_amount() < tile1.max_amount)
+				for(var/obj/item/stack/tile/tile2 in contents)
+					if (tile2 != tile1 && tile2.type == tile1.type)
+						tile2.transfer_to(tile1)
 
 /obj/machinery/floorlayer/proc/layFloor(var/turf/w_turf)
 	if(!T)

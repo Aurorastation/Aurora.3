@@ -11,7 +11,7 @@
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
-	throwforce = 10.0
+	force = 10.0
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
@@ -31,7 +31,9 @@
 		/obj/item/weapon/flame/match,
 		/obj/item/weapon/material/ashtray)
 
-/obj/item/weapon/tray/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/tray/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	// Drop all the things. All of them.
 	spill(user, M.loc)
@@ -39,8 +41,9 @@
 
 	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
 	if((CLUMSY in user.mutations) && prob(50))              //What if he's a clown?
-		M << "\red You accidentally slam yourself with the [src]!"
-		if(!istype(M,/mob/living/silicon))M.Weaken(1)
+		M << "<span class='warning'>You accidentally slam yourself with the [src]!</span>"
+		if (!issilicon(M))
+			M.Weaken(1)
 		user.take_organ_damage(2)
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
@@ -52,8 +55,8 @@
 	var/mob/living/carbon/human/H = M      ///////////////////////////////////// /Let's have this ready for later.
 
 
-	if(!(user.zone_sel.selecting == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
-		if(prob(33) && !istype(M,/mob/living/silicon))//robots dont bleed
+	if(!(target_zone == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
+		if(prob(33) && !issilicon(M))//robots dont bleed
 			src.add_blood(H)
 			var/turf/location = H.loc
 			if (istype(location, /turf/simulated))
@@ -64,25 +67,32 @@
 		msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to attack [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 		if(prob(15))
-			if(!istype(M,/mob/living/silicon)) M.Weaken(3)
+			if(!issilicon(M)) M.Weaken(3)
 			M.take_organ_damage(3)
 		else
 			M.take_organ_damage(5)
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 			return
 		else
 			playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //we applied the damage, we played the sound, we showed the appropriate messages. Time to return and stop the proc
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 			return
 
 
-	if(istype(M, /mob/living/carbon/human) && ((H.head && H.head.flags & HEADCOVERSEYES) || (H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || (H.glasses && H.glasses.flags & GLASSESCOVERSEYES)))
-		M << "\red You get slammed in the face with the tray, against your mask!"
-		if(prob(33) && !istype(M,/mob/living/silicon))
+	var/protected = 0
+	for(var/slot in list(slot_head, slot_wear_mask, slot_glasses))
+		var/obj/item/protection = M.get_equipped_item(slot)
+		if(istype(protection) && (protection.body_parts_covered & FACE))
+			protected = 1
+			break
+
+	if(protected)
+		M << "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>"
+		if(prob(33) && !issilicon(M))
 			src.add_blood(H)
 			if (H.wear_mask)
 				H.wear_mask.add_blood(H)
@@ -97,11 +107,11 @@
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 		else
 			playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin'
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 		if(prob(10))
 			if(!istype(M,/mob/living/silicon))M.Stun(rand(1,3))
 			M.take_organ_damage(3)
@@ -110,7 +120,7 @@
 			M.take_organ_damage(5)
 			return
 
-	else if (!istype(M,/mob/living/silicon))//No eye or head protection, tough luck!
+	else if (!issilicon(M))//No eye or head protection, tough luck!
 		M << "\red You get slammed in the face with the tray!"
 		if(prob(33))
 			src.add_blood(M)
@@ -121,11 +131,11 @@
 		if(prob(50))
 			playsound(M, 'sound/items/trayhit1.ogg', 50, 1)
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] in the face with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] in the face with the tray!</span>", user, M), 1)
 		else
 			playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
 			for(var/mob/O in viewers(M, null))
-				O.show_message(text("\red <B>[] slams [] in the face with the tray!</B>", user, M), 1)
+				O.show_message(text("<span class='danger'>[] slams [] in the face with the tray!</span>", user, M), 1)
 		if(prob(30))
 			M.Stun(rand(2,4))
 			M.take_organ_damage(4)
@@ -193,9 +203,9 @@
 			if (attempt_load_item(I, usr,0))
 				addedSomething++
 		if ( addedSomething == 1)
-			usr.visible_message("\blue [user] loads an item onto their service tray.")
+			usr.visible_message("<span class='notice'>[user] loads an item onto their service tray.</span>")
 		else if ( addedSomething )
-			usr.visible_message("\blue [user] loads [addedSomething] items onto their service tray.")
+			usr.visible_message("<span class='notice'>[user] loads [addedSomething] items onto their service tray.</span>")
 		else
 			user << "The tray is full or there's nothing valid here"
 			return 1
@@ -290,9 +300,9 @@
 						step(I, pick(NORTH,SOUTH,EAST,WEST))
 						sleep(rand(2,4))
 		if (user)
-			user.visible_message("\blue [user] spills their tray all over the floor.")
+			user.visible_message("<span class='notice'>[user] spills their tray all over the floor.</span>")
 		else
-			src.visible_message("\blue The tray scatters its contents all over the area.")
+			src.visible_message("<span class='notice'>The tray scatters its contents all over the area.</span>")
 		current_weight = 0
 		if(prob(50))
 			playsound(dropspot, 'sound/items/trayhit1.ogg', 50, 1)

@@ -1,5 +1,5 @@
 /datum/language/diona
-	name = "Rootspeak"
+	name = LANGUAGE_ROOTSONG
 	desc = "A creaking, subvocal language spoken instinctively by the Dionaea. Due to the unique makeup of the average Diona, a phrase of Rootspeak can be a combination of anywhere from one to twelve individual voices and notes."
 	speech_verb = "creaks and rustles"
 	ask_verb = "creaks"
@@ -10,12 +10,18 @@
 	syllables = list("hs","zt","kr","st","sh")
 
 /datum/language/diona/get_random_name()
-	var/new_name = "[pick(list("To Sleep Beneath","Wind Over","Embrace of","Dreams of","Witnessing","To Walk Beneath","Approaching the"))]"
-	new_name += " [pick(list("the Void","the Sky","Encroaching Night","Planetsong","Starsong","the Wandering Star","the Empty Day","Daybreak","Nightfall","the Rain"))]"
+	var/new_name = "[pick(list("To Sleep Beneath","Changing of", "Soaring Above", "Wind Over","Embrace of","Dreams of","Witnessing", "Lost in", "To Walk Beneath","Approaching the", "Distant Memories of", "Forgotten Glimpse of", "Roots of", "Tendrils of", "Leaves Rustling in", "Last Hope of", "Speaking to"))]"
+	new_name += " [pick(list("the Void","the Stillness of Death", "the Sky","Encroaching Night","Planetsong","Starsong","the Wandering Star","the Empty Day","Daybreak","Nightfall","the Rain", "a Distant Galaxy", "a Starless Night", "the Fruits of Dreams", "the Rising Dawn", "the Song of Life", "a Lonely Shadow", "Forlorn Hope", "a Bleak Wasteland"))]"
+	while(findtextEx(new_name,"the the",1,null))
+		new_name = replacetext(new_name, "the the", "the")
+
+	while(findtextEx(new_name,"the a",1,null))
+		new_name = replacetext(new_name, "the a", "a")
+
 	return new_name
 
 /datum/language/unathi
-	name = "Sinta'unathi"
+	name = LANGUAGE_UNATHI
 	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
@@ -23,18 +29,20 @@
 	colour = "soghun"
 	key = "o"
 	flags = WHITELISTED
-	syllables = list("ss","ss","ss","ss","skak","seeki","resh","las","esi","kor","sh")
-
-/datum/language/unathi/get_random_name()
-
-	var/new_name = ..()
-	while(findtextEx(new_name,"sss",1,null))
-		new_name = replacetext(new_name, "sss", "ss")
-	return capitalize(new_name)
+	space_chance = 40
+	syllables = list(
+		"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz",
+		"ha", "ah", "he", "eh", "hi", "ih", "ho", "oh", "hu", "uh", "hs", "sh",
+		"la", "al", "le", "el", "li", "il", "lo", "ol", "lu", "ul", "ls", "sl",
+		"ka", "ak", "ke", "ek", "ki", "ik", "ko", "ok", "ku", "uk", "ks", "sk",
+		"sa", "as", "se", "es", "si", "is", "so", "os", "su", "us", "ss", "ss",
+		"ra", "ar", "re", "er", "ri", "ir", "ro", "or", "ru", "ur", "rs", "sr",
+		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
+	)
 
 /datum/language/tajaran
-	name = "Siik'maas"
-	desc = "The traditionally employed tongue of Ahdomai, composed of expressive yowls and chirps. Native to the Tajaran."
+	name = LANGUAGE_SIIK_MAAS
+	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
@@ -54,9 +62,34 @@
 	else
 		new_name += " [..(gender,1)]"
 	return new_name
+	
+// tajaran sign language
+/datum/language/tajaran_sign
+	name = LANGUAGE_SIGN_TAJARA
+	desc = "A sign language developed by Adhomai hunters"
+	speech_verb = "signs"
+	signlang_verb = list("signs", "flicks their ears", "gestures")
+	colour = "i"
+	key = "i"
+	flags = NO_STUTTER | SIGNLANG | WHITELISTED
+	
+/datum/language/siik_tajr
+	name = LANGUAGE_SIIK_TAJR
+	desc = "A language native to the tajaran, it employes both verbal and non-verbal elements."
+	speech_verb = "mrowls"
+	ask_verb = "mrowls"
+	exclaim_verb = "yowls"
+	signlang_verb = list("signs", "flicks their ears", "gestures")
+	colour = "tajaran_signlang"
+	key = "w"
+	flags = WHITELISTED | NONVERBAL
+	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
+	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
+	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
+	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
 
 /datum/language/skrell
-	name = "Skrellian"
+	name = LANGUAGE_SKRELLIAN
 	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
 	speech_verb = "warbles"
 	ask_verb = "warbles"
@@ -67,8 +100,8 @@
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
 /datum/language/bug
-	name = "Hivenet"
-	desc = "Complex Vaurcesian language comprised of rapid mandible-clicking, \"It's a bugs life.\""
+	name = LANGUAGE_VAURCA
+	desc = "A localised expression of the Vaurcae hivemind, allowing Vaurcae to communicate from across great distances. \"It's a bugs life.\""
 	speech_verb = " broadcasts"
 	colour = "vaurca"
 	key = "9"
@@ -105,6 +138,8 @@
 			player << msg
 
 /datum/language/bug/check_special_condition(var/mob/other)
+	if(istype(other, /mob/living/silicon))
+		return 1
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
@@ -131,13 +166,13 @@
 	return 0
 
 /datum/language/human
-	name = "Sol Common"
+	name = LANGUAGE_SOL_COMMON
 	desc = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	colour = "solcom"
 	key = "1"
-	flags = RESTRICTED
+	flags = WHITELISTED
 
 	//syllables are at the bottom of the file
 
@@ -157,6 +192,54 @@
 			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 	else
 		return ..()
+
+/datum/language/machine
+	name = LANGUAGE_EAL
+	desc = "A language of encoded tones that allow for IPCs to communicate auditorily between each other in a manner that allows for easier transfer of information."
+	speech_verb = "beeps"
+	ask_verb = "beeps"
+	exclaim_verb = "loudly beeps"
+	colour = "changeling"
+	key = "6"
+	flags = RESTRICTED | NO_STUTTER
+	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
+	space_chance = 10
+
+/datum/language/machine/get_random_name()
+	if(prob(70))
+		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
+	return pick(ai_names)
+
+/datum/language/resomi
+	name = LANGUAGE_RESOMI
+	desc = "A trilling language spoken by the diminutive Resomi."
+	speech_verb = "chirps"
+	ask_verb = "chirrups"
+	exclaim_verb = "trills"
+	colour = "alien"
+	key = "v"
+	flags = WHITELISTED
+	space_chance = 50
+	syllables = list(
+			"ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",
+			"ce", "re", "me", "se", "ne", "te", "le", "she", "sche", "e", "e",
+			"ci", "ri", "mi", "si", "ni", "ti", "li", "shi", "schi", "i", "i"
+		)
+
+/datum/language/resomi/get_random_name(gender)
+	return ..(gender, 1, 4, 1.5)
+	
+/datum/language/unathi_azaziba
+	name = LANGUAGE_AZAZIBA
+	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the glactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
+	speech_verb = "hisses"
+	ask_verb = "hisses"
+	exclaim_verb = "roars"
+	signlang_verb = list("signs", "gestures aggressively")
+	colour = "soghun_alt"
+	key = "p"
+	flags = WHITELISTED | NONVERBAL
+	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 
 //Syllable Lists
 /*

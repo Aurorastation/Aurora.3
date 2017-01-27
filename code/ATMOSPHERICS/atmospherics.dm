@@ -29,6 +29,8 @@ Pipelines + Other Objects -> Pipe network
 	var/pipe_color
 
 	var/global/datum/pipe_icon_manager/icon_manager
+	var/obj/machinery/atmospherics/node1
+	var/obj/machinery/atmospherics/node2
 
 /obj/machinery/atmospherics/New()
 	if(!icon_manager)
@@ -49,7 +51,7 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/machinery/atmospherics/proc/add_underlay(var/turf/T, var/obj/machinery/atmospherics/node, var/direction, var/icon_connect_type)
 	if(node)
-		if(T.intact && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+		if(!T.is_plating() && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
 			//underlays += icon_manager.get_atmos_icon("underlay_down", direction, color_cache_name(node))
 			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "down" + icon_connect_type)
 		else

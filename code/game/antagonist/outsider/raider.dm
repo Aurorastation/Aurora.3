@@ -2,7 +2,6 @@ var/datum/antagonist/raider/raiders
 
 /datum/antagonist/raider
 	id = MODE_RAIDER
-	role_type = BE_RAIDER
 	role_text = "Raider"
 	role_text_plural = "Raiders"
 	bantype = "raider"
@@ -28,6 +27,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/under/captain_fly,
 		/obj/item/clothing/under/det,
 		/obj/item/clothing/under/brown,
+		/obj/item/clothing/under/syndicate/tracksuit
 		)
 
 	var/list/raider_shoes = list(
@@ -48,7 +48,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/head/ushanka,
 		/obj/item/clothing/head/pirate,
 		/obj/item/clothing/head/bandana,
-		/obj/item/clothing/head/hgpiratecap,
+		/obj/item/clothing/head/hgpiratecap
 		)
 
 	var/list/raider_suits = list(
@@ -60,11 +60,12 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
 		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/suit/poncho,
+		/obj/item/clothing/suit/poncho
 		)
 
 	var/list/raider_guns = list(
-		/obj/item/weapon/gun/energy/laser,
+		/obj/item/weapon/gun/energy/rifle/laser,
+		/obj/item/weapon/gun/energy/rifle/laser/xray,
 		/obj/item/weapon/gun/energy/retro,
 		/obj/item/weapon/gun/energy/xray,
 		/obj/item/weapon/gun/energy/mindflayer,
@@ -81,19 +82,25 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/automatic/wt550,
 		/obj/item/weapon/gun/projectile/automatic/rifle/sts35,
 		/obj/item/weapon/gun/projectile/automatic/tommygun,
+		/obj/item/weapon/gun/projectile/automatic/x9,
 		/obj/item/weapon/gun/projectile/silenced,
 		/obj/item/weapon/gun/projectile/shotgun/pump,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/weapon/gun/projectile/shotgun/pump/boltaction,
+		/obj/item/weapon/gun/projectile/boltaction,
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/weapon/gun/projectile/pistol,
+		/obj/item/weapon/gun/projectile/deagle,
 		/obj/item/weapon/gun/projectile/revolver,
-		/obj/item/weapon/gun/projectile/pirate
+		/obj/item/weapon/gun/projectile/revolver/deckard,
+		/obj/item/weapon/gun/projectile/revolver/derringer,
+		/obj/item/weapon/gun/projectile/pirate,
+		/obj/item/weapon/gun/projectile/tanto
 		)
+
 
 	var/list/raider_holster = list(
 		/obj/item/clothing/accessory/holster/armpit,
@@ -182,7 +189,7 @@ var/datum/antagonist/raider/raiders
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 
-	world << "<span class='danger'><font size = 3>[win_type] [win_group] victory!</font>"
+	world << "<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>"
 	world << "[win_msg]"
 	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
 

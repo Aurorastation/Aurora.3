@@ -9,6 +9,7 @@
 	var/mob/attacher = null
 	var/valve_open = 0
 	var/toggle = 1
+	flags = PROXMOVE
 
 /obj/item/device/transfer_valve/proc/process_activation(var/obj/item/device/D)
 
@@ -69,7 +70,7 @@
 
 /obj/item/device/transfer_valve/attack_self(mob/user as mob)
 	ui_interact(user)
-	
+
 /obj/item/device/transfer_valve/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 
 	// this is the data which will be sent to the ui
@@ -80,7 +81,7 @@
 	data["valveOpen"] = valve_open ? 1 : 0
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)	
+	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -149,7 +150,7 @@
 		tank_two = null
 	else
 		return
-	
+
 	T.loc = get_turf(src)
 	update_icon()
 
@@ -165,18 +166,18 @@
 /obj/item/device/transfer_valve/proc/split_gases()
 	if(!valve_open)
 		return
-	
+
 	valve_open = 0
-	
-	if(deleted(tank_one) || deleted(tank_two))
+
+	if(deleted(tank_one) || deleted(tank_two) || !tank_one.air_contents || !tank_two.air_contents)
 		return
-	
+
 	var/ratio1 = tank_one.air_contents.volume/tank_two.air_contents.volume
 	var/datum/gas_mixture/temp
 	temp = tank_two.air_contents.remove_ratio(ratio1)
 	tank_one.air_contents.merge(temp)
 	tank_two.air_contents.volume -=  tank_one.air_contents.volume
-	
+
 
 	/*
 	Exadv1: I know this isn't how it's going to work, but this was just to check

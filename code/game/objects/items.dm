@@ -1,6 +1,8 @@
 /obj/item
 	name = "item"
 	icon = 'icons/obj/items.dmi'
+	w_class = 3.0
+
 	var/image/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/abstract = 0
 	var/r_speed = 1.0
@@ -8,11 +10,10 @@
 	var/burn_point = null
 	var/burning = null
 	var/hitsound = null
-	var/w_class = 3.0
+	var/storage_cost = null
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
 	pass_flags = PASSTABLE
-	pressure_resistance = 5
 //	causeerrorheresoifixthis
 	var/obj/item/master = null
 
@@ -21,11 +22,13 @@
 	var/max_heat_protection_temperature //Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage. Keep at null to disable protection. Only protects areas set by heat_protection flags
 	var/min_cold_protection_temperature //Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by cold_protection flags
 
-	var/icon_action_button //If this is set, The item will make an action button on the player's HUD when picked up. The button will have the icon_action_button sprite from the screen1_action.dmi file.
-	var/action_button_name //This is the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. Note that icon_action_button needs to be set in order for the action button to appear.
+	var/datum/action/item_action/action = null
+	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
+	var/action_button_is_hands_free = 0 //If 1, bypass the restrained, lying, and stunned checks action buttons normally test for
 
-	//Since any item can now be a piece of clothing, this has to be put here so all items share it.
-	var/flags_inv //This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
+	//This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
+	//It should be used purely for appearance. For gameplay effects caused by items covering body parts, use body_parts_covered.
+	var/flags_inv = 0
 	var/body_parts_covered = 0 //see setup.dm for appropriate bit flags
 
 	var/item_flags = 0 //Miscellaneous flags pertaining to equippable objects.
@@ -36,20 +39,26 @@
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
+	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
 	var/list/armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/zoomdevicename = null //name used for message when binoculars/scope is used
 	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
 	var/contained_sprite = 0 //1 if item_state, lefthand, righthand, and worn sprite are all in one dmi
-	
-	var/item_state = null // Used to specify the item state for the on-mob overlays.
+
+	//Item_state definition moved to /obj
+	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 	var/item_state_slots = null //overrides the default item_state for particular slots.
 
+
+	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
 	// If icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
 	// Only slot_l_hand/slot_r_hand are implemented at the moment. Others to be implemented as needed.
-	var/list/item_icons = null
+	var/list/item_icons = list()
+
+	//** These specify item/icon overrides for _species_
 
 	/* Species-specific sprites, concept stolen from Paradise//vg/.
 	ex:
@@ -58,13 +67,13 @@
 		)
 	If index term exists and icon_override is not set, this sprite sheet will be used.
 	*/
-	var/list/sprite_sheets = null
-	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
+	var/list/sprite_sheets = list()
 
-	/* Species-specific sprite sheets for inventory sprites
-	Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
-	*/
-	var/list/sprite_sheets_obj = null
+	// Species-specific sprite sheets for inventory sprites
+	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
+	var/list/sprite_sheets_obj = list()
+
+	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing pr
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -103,32 +112,19 @@
 		else
 	return
 
-/obj/item/blob_act()
-	return
-
-//user: The mob that is suiciding
-//damagetype: The type of damage the item will inflict on the user
-//BRUTELOSS = 1
-//FIRELOSS = 2
-//TOXLOSS = 4
-//OXYLOSS = 8
-//Output a creative message and then return the damagetype done
-/obj/item/proc/suicide_act(mob/user)
-	return
-
-/obj/item/verb/move_to_top()
+/obj/item/verb/move_to_top(obj/item/I in range(1))
 	set name = "Move To Top"
 	set category = "Object"
-	set src in oview(1)
 
-	if(!istype(src.loc, /turf) || usr.stat || usr.restrained() )
+	if (!I in view(1, src))
 		return
+	if(!istype(I.loc, /turf) || usr.stat || usr.restrained() )
+		return
+	var/turf/T = I.loc
 
-	var/turf/T = src.loc
+	I.loc = null
 
-	src.loc = null
-
-	src.loc = T
+	I.loc = T
 
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size
@@ -147,10 +143,17 @@
 
 /obj/item/attack_hand(mob/user as mob)
 	if (!user) return
-
-	if (!user.can_use_hand())
-		return
-
+	if (hasorgans(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+		if (user.hand)
+			temp = H.organs_by_name["l_hand"]
+		if(temp && !temp.is_usable())
+			user << "<span class='notice'>You try to move your [temp.name], but cannot!</span>"
+			return
+		if(!temp)
+			user << "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>"
+			return
 	src.pickup(user)
 	if (istype(src.loc, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = src.loc
@@ -158,13 +161,11 @@
 
 	src.throwing = 0
 	if (src.loc == user)
-		if(!user.unEquip(src))
+		if(!user.prepare_for_slotmove(src))
 			return
 	else
 		if(isliving(src.loc))
 			return
-		user.next_move = max(user.next_move+2,world.time + 2)
-
 	user.put_in_active_hand(src)
 	return
 
@@ -203,7 +204,7 @@
 					else if(success)
 						user << "<span class='notice'>You put some things in [S].</span>"
 					else
-						user << "<span class='notice'>You fail to pick anything up with [S].</span>"
+						user << "<span class='notice'>You fail to pick anything up with \the [S].</span>"
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
@@ -216,10 +217,19 @@
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
 
-// apparently called whenever an item is removed from a slot, container, or anything else.
-/obj/item/proc/dropped(mob/user as mob)
+//Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
+//It is called after loc is set, so if placed in a container its loc will be that container.
+/obj/item/proc/dropped(var/mob/user)
 	..()
-	if(zoom) zoom() //binoculars, scope, etc
+	if(zoom)
+		zoom(user) //binoculars, scope, etc
+
+// Called whenever an object is moved around inside the mob's contents.
+// Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
+// This shit exists so that dropped() could almost exclusively be called when an item is dropped.
+/obj/item/proc/on_slotmove(var/mob/user)
+	if (zoom)
+		zoom(user)
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
@@ -241,9 +251,9 @@
 // user is mob that equipped it
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
-// note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	layer = 20
+	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
 	return
@@ -262,7 +272,7 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_r_ear]" = SLOT_EARS|SLOT_TWOEARS,
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
-	"[slot_tie]" = SLOT_TIE,
+	"[slot_tie]" = SLOT_TIE
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -341,7 +351,7 @@ var/list/global/slot_flags_enumeration = list(
 			var/allow = 0
 			if(H.back && istype(H.back, /obj/item/weapon/storage/backpack))
 				var/obj/item/weapon/storage/backpack/B = H.back
-				if(B.contents.len < B.storage_slots && w_class <= B.max_w_class)
+				if(B.can_be_inserted(src,1))
 					allow = 1
 			if(!allow)
 				return 0
@@ -367,6 +377,7 @@ var/list/global/slot_flags_enumeration = list(
 		return 0
 	return 1
 
+/*
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
 	set category = "Object"
@@ -377,12 +388,47 @@ var/list/global/slot_flags_enumeration = list(
 	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
 		return
 	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
+		usr << "<span class='warning'>You can't pick things up!</span>"
+		return
+	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
+		usr << "<span class='warning'>You can't pick things up!</span>"
+		return
+	if(src.anchored) //Object isn't anchored
+		usr << "<span class='warning'>You can't pick that up!</span>"
+		return
+	if(!usr.hand && usr.r_hand) //Right hand is not full
+		usr << "<span class='warning'>Your right hand is full.</span>"
+		return
+	if(usr.hand && usr.l_hand) //Left hand is not full
+		usr << "<span class='warning'>Your left hand is full.</span>"
+		return
+	if(!istype(src.loc, /turf)) //Object is on a turf
+		usr << "<span class='warning'>You can't pick that up!</span>"
+		return
+	//All checks are done, time to pick it up!
+	usr.UnarmedAttack(src)
+	return
+*/
+
+/mob/living/carbon/verb/verb_pickup(obj/item/I in range(1))
+	set category = "Object"
+	set name = "Pick up"
+
+	if(!(usr)) //BS12 EDIT
+		return
+	if (!I in view(1, src))
+		return
+	if (istype(I, /obj/item/weapon/storage/internal))
+		return
+	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
+		return
+	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
 		usr << "\red You can't pick things up!"
 		return
 	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
 		usr << "\red You can't pick things up!"
 		return
-	if(src.anchored) //Object isn't anchored
+	if(I.anchored) //Object isn't anchored
 		usr << "\red You can't pick that up!"
 		return
 	if(!usr.hand && usr.r_hand) //Right hand is not full
@@ -391,11 +437,11 @@ var/list/global/slot_flags_enumeration = list(
 	if(usr.hand && usr.l_hand) //Left hand is not full
 		usr << "\red Your left hand is full."
 		return
-	if(!istype(src.loc, /turf)) //Object is on a turf
+	if(!istype(I.loc, /turf)) //Object is on a turf
 		usr << "\red You can't pick that up!"
 		return
 	//All checks are done, time to pick it up!
-	usr.UnarmedAttack(src)
+	usr.UnarmedAttack(I)
 	return
 
 
@@ -403,11 +449,14 @@ var/list/global/slot_flags_enumeration = list(
 //The default action is attack_self().
 //Checks before we get to here are: mob is alive, mob is not restrained, paralyzed, asleep, resting, laying, item is on the mob.
 /obj/item/proc/ui_action_click()
-	if( src in usr )
-		attack_self(usr)
+	attack_self(usr)
 
-
-/obj/item/proc/IsShield()
+//RETURN VALUES
+//handle_shield should return a positive value to indicate that the attack is blocked and should be prevented.
+//If a negative value is returned, it should be treated as a special return value for bullet_act() and handled appropriately.
+//For non-projectile attacks this usually means the attack is blocked.
+//Otherwise should return 0 to indicate that the attack is not affected in any way.
+/obj/item/proc/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	return 0
 
 /obj/item/proc/get_loc_turf()
@@ -419,28 +468,29 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/eyestab(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && ( \
-			(H.head && H.head.flags & HEADCOVERSEYES) || \
-			(H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || \
-			(H.glasses && H.glasses.flags & GLASSESCOVERSEYES) \
-		))
-		// you can't stab someone in the eyes wearing a mask!
-		user << "\red You're going to need to remove the eye covering first."
-		return
+	if(istype(H))
+		for(var/obj/item/protection in list(H.head, H.wear_mask, H.glasses))
+			if(protection && (protection.body_parts_covered & EYES))
+				// you can't stab someone in the eyes wearing a mask!
+				user << "<span class='warning'>You're going to need to remove the eye covering first.</span>"
+				return
 
 	if(!M.has_eyes())
-		user << "\red You cannot locate any eyes on [M]!"
+		user << "<span class='warning'>You cannot locate any eyes on [M]!</span>"
 		return
 
 	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
 	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
 	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)") //BS12 EDIT ALG
 
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(M)
+
 	src.add_fingerprint(user)
 	//if((CLUMSY in user.mutations) && prob(50))
 	//	M = user
 		/*
-		M << "\red You stab yourself in the eye."
+		M << "<span class='warning'>You stab yourself in the eye.</span>"
 		M.sdisabilities |= BLIND
 		M.weakened += 4
 		M.adjustBruteLoss(10)
@@ -452,30 +502,30 @@ var/list/global/slot_flags_enumeration = list(
 
 		if(H != user)
 			for(var/mob/O in (viewers(M) - user - M))
-				O.show_message("\red [M] has been stabbed in the eye with [src] by [user].", 1)
-			M << "\red [user] stabs you in the eye with [src]!"
-			user << "\red You stab [M] in the eye with [src]!"
+				O.show_message("<span class='danger'>[M] has been stabbed in the eye with [src] by [user].</span>", 1)
+			M << "<span class='danger'>[user] stabs you in the eye with [src]!</span>"
+			user << "<span class='danger'>You stab [M] in the eye with [src]!</span>"
 		else
 			user.visible_message( \
-				"\red [user] has stabbed themself with [src]!", \
-				"\red You stab yourself in the eyes with [src]!" \
+				"<span class='danger'>[user] has stabbed themself with [src]!</span>", \
+				"<span class='danger'>You stab yourself in the eyes with [src]!</span>" \
 			)
 
 		eyes.damage += rand(3,4)
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(M.stat != 2)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
-					M << "\red Your eyes start to bleed profusely!"
+					M << "<span class='danger'>Your eyes start to bleed profusely!</span>"
 			if(prob(50))
 				if(M.stat != 2)
-					M << "\red You drop what you're holding and clutch at your eyes!"
+					M << "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>"
 					M.drop_item()
 				M.eye_blurry += 10
 				M.Paralyse(1)
 				M.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(M.stat != 2)
-					M << "\red You go blind!"
+					M << "<span class='warning'>You go blind!</span>"
 		var/obj/item/organ/external/affecting = H.get_organ("head")
 		if(affecting.take_damage(7))
 			M:UpdateDamageIcon()
@@ -553,7 +603,9 @@ modules/mob/mob_movement.dm if you move you will be zoomed out
 modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 */
 //Looking through a scope or binoculars should /not/ improve your periphereal vision. Still, increase viewsize a tiny bit so that sniping isn't as restricted to NSEW
-/obj/item/proc/zoom(var/tileoffset = 14,var/viewsize = 9) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+	if (!M)
+		return
 
 	var/devicename
 
@@ -564,54 +616,98 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/cannotzoom
 
-	if(usr.stat || !(istype(usr,/mob/living/carbon/human)))
-		usr << "You are unable to focus through the [devicename]"
+	if(M.stat || !(istype(M,/mob/living/carbon/human)))
+		M << "You are unable to focus through the [devicename]"
 		cannotzoom = 1
-	else if(!zoom && global_hud.darkMask[1] in usr.client.screen)
-		usr << "Your visor gets in the way of looking through the [devicename]"
+	else if(!zoom && global_hud.darkMask[1] in M.client.screen)
+		M << "Your visor gets in the way of looking through the [devicename]"
 		cannotzoom = 1
-	else if(!zoom && usr.get_active_hand() != src)
-		usr << "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better"
+	else if(!zoom && M.get_active_hand() != src)
+		M << "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better"
 		cannotzoom = 1
 
 	if(!zoom && !cannotzoom)
-		if(usr.hud_used.hud_shown)
-			usr.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
-		usr.client.view = viewsize
+		if(M.hud_used.hud_shown)
+			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
+		M.client.view = viewsize
 		zoom = 1
 
 		var/tilesize = 32
 		var/viewoffset = tilesize * tileoffset
 
-		switch(usr.dir)
+		switch(M.dir)
 			if (NORTH)
-				usr.client.pixel_x = 0
-				usr.client.pixel_y = viewoffset
+				M.client.pixel_x = 0
+				M.client.pixel_y = viewoffset
 			if (SOUTH)
-				usr.client.pixel_x = 0
-				usr.client.pixel_y = -viewoffset
+				M.client.pixel_x = 0
+				M.client.pixel_y = -viewoffset
 			if (EAST)
-				usr.client.pixel_x = viewoffset
-				usr.client.pixel_y = 0
+				M.client.pixel_x = viewoffset
+				M.client.pixel_y = 0
 			if (WEST)
-				usr.client.pixel_x = -viewoffset
-				usr.client.pixel_y = 0
+				M.client.pixel_x = -viewoffset
+				M.client.pixel_y = 0
 
-		usr.visible_message("[usr] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
+		M.visible_message("[M] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
 
 	else
-		usr.client.view = world.view
-		if(!usr.hud_used.hud_shown)
-			usr.toggle_zoom_hud()
+		M.client.view = world.view
+		if(!M.hud_used.hud_shown)
+			M.toggle_zoom_hud()
 		zoom = 0
 
-		usr.client.pixel_x = 0
-		usr.client.pixel_y = 0
+		M.client.pixel_x = 0
+		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			usr.visible_message("[zoomdevicename ? "[usr] looks up from the [src.name]" : "[usr] lowers the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "[M] looks up from the [src.name]" : "[M] lowers the [src.name]"].")
 
 	return
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
+
+
+//a proc that any worn thing can call to update its itemstate
+//Should be cheaper than calling regenerate icons on the mob
+/obj/item/proc/update_worn_icon()
+	if (!equip_slot || !istype(loc, /mob))
+		return
+
+	var/mob/M = loc
+	switch (equip_slot)
+		if (slot_back)
+			M.update_inv_back()
+		if (slot_wear_mask)
+			M.update_inv_wear_mask()
+		if (slot_l_hand)
+			M.update_inv_l_hand()
+		if (slot_r_hand)
+			M.update_inv_r_hand()
+		if (slot_belt)
+			M.update_inv_belt()
+		if (slot_wear_id)
+			M.update_inv_wear_id()
+		if (slot_l_ear)
+			M.update_inv_ears()
+		if (slot_r_ear)
+			M.update_inv_ears()
+		if (slot_glasses)
+			M.update_inv_glasses()
+		if (slot_gloves)
+			M.update_inv_gloves()
+		if (slot_head)
+			M.update_inv_head()
+		if (slot_shoes)
+			M.update_inv_shoes()
+		if (slot_wear_suit)
+			M.update_inv_wear_suit()
+		if (slot_w_uniform)
+			M.update_inv_w_uniform()
+		if (slot_l_store)
+			M.update_inv_pockets()
+		if (slot_r_store)
+			M.update_inv_pockets()
+		if (slot_s_store)
+			M.update_inv_s_store()

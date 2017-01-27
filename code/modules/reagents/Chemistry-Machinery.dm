@@ -45,14 +45,6 @@
 				qdel(src)
 				return
 
-/obj/machinery/chem_master/blob_act()
-	if (prob(50))
-		qdel(src)
-
-/obj/machinery/chem_master/meteorhit()
-	qdel(src)
-	return
-
 /obj/machinery/chem_master/attackby(var/obj/item/weapon/B as obj, var/mob/user as mob)
 
 	if(istype(B, /obj/item/weapon/reagent_containers/glass))
@@ -78,7 +70,11 @@
 		B.loc = src
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
-	return
+	else if(istype(B, /obj/item/weapon/wrench))
+		anchored = !anchored
+		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+
 
 /obj/machinery/chem_master/Topic(href, href_list)
 	if(..())
@@ -119,21 +115,21 @@
 
 			if(href_list["amount"])
 				var/id = href_list["add"]
-				var/amount = isgoodnumber(text2num(href_list["amount"]))
+				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
 				R.trans_id_to(src, id, amount)
 
 		else if (href_list["addcustom"])
 
 			var/id = href_list["addcustom"]
 			useramount = input("Select the amount to transfer.", 30, useramount) as num
-			useramount = isgoodnumber(useramount)
+			useramount = Clamp(useramount, 0, 200)
 			src.Topic(null, list("amount" = "[useramount]", "add" = "[id]"))
 
 		else if (href_list["remove"])
 
 			if(href_list["amount"])
 				var/id = href_list["remove"]
-				var/amount = isgoodnumber(text2num(href_list["amount"]))
+				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
 				if(mode)
 					reagents.trans_id_to(beaker, id, amount)
 				else
@@ -144,7 +140,7 @@
 
 			var/id = href_list["removecustom"]
 			useramount = input("Select the amount to transfer.", 30, useramount) as num
-			useramount = isgoodnumber(useramount)
+			useramount = Clamp(useramount, 0, 200)
 			src.Topic(null, list("amount" = "[useramount]", "remove" = "[id]"))
 
 		else if (href_list["toggle"])
@@ -166,11 +162,8 @@
 				return
 
 			if (href_list["createpill_multiple"])
-				count = isgoodnumber(input("Select the number of pills to make.", 10, pillamount) as num)
-				//used to be clamp, but seemed to be forcing the call of create_pill 3 times
-
-			if(count > max_pill_count) //instead we'll just manually check it the pill count - Ryan784
-				count = max_pill_count
+				count = input("Select the number of pills to make.", "Max [max_pill_count]", pillamount) as num
+				count = Clamp(count, 1, max_pill_count)
 
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
@@ -298,12 +291,6 @@
 		user << browse("<TITLE>Condimaster 3000</TITLE>Condimaster menu:<BR><BR>[dat]", "window=chem_master;size=575x400")
 	onclose(user, "chem_master")
 	return
-
-/obj/machinery/chem_master/proc/isgoodnumber(var/num)
-	if(isnum(num))
-		return Clamp(round(num), 0, 200)
-	else
-		return 0
 
 /obj/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"
@@ -581,7 +568,7 @@
 		/obj/item/stack/material/phoron = "phoron",
 		/obj/item/stack/material/gold = "gold",
 		/obj/item/stack/material/silver = "silver",
-		/obj/item/stack/material/mhydrogen = "hydrogen"
+		/obj/item/stack/material/mhydrogen = "hydrazine" //doesn't really make much sense but thank Bay
 		)
 
 /obj/machinery/reagentgrinder/New()

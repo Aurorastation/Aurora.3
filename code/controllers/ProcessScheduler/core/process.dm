@@ -107,6 +107,8 @@
 	last_task = 0
 	last_object = null
 
+/datum/controller/process/proc/preStart()
+
 /datum/controller/process/proc/started()
 	var/timeofhour = TimeOfHour
 	// Initialize last_slept so we can record timing information
@@ -365,6 +367,9 @@
 		log_to_dd("This exception will now be ignored for ten minutes.")
 		spawn(6000)
 			exceptions[eid] = 0
+
+	e.time_stamp()
+	log_exception(e)
 
 /datum/controller/process/proc/catchBadType(var/datum/caught)
 	if(isnull(caught) || !istype(caught) || !isnull(caught.gcDestroyed))

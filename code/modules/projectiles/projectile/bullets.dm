@@ -7,12 +7,13 @@
 	check_armour = "bullet"
 	embed = 1
 	sharp = 1
+	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
-/obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0)
-	if (..(target, blocked))
+/obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+	if (..(target, blocked, def_zone))
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 
@@ -58,7 +59,7 @@
 	if(prob(chance))
 		if(A.opacity)
 			//display a message so that people on the other side aren't so confused
-			A.visible_message("<span class='warning'>\The [src] pierces through \the [A]!")
+			A.visible_message("<span class='warning'>\The [src] pierces through \the [A]!</span>")
 		return 1
 
 	return 0
@@ -66,25 +67,38 @@
 //For projectiles that actually represent clouds of projectiles
 /obj/item/projectile/bullet/pellet
 	name = "shrapnel" //'shrapnel' sounds more dangerous (i.e. cooler) than 'pellet'
+	icon_state = "pellets"
 	damage = 20
 	//icon_state = "bullet" //TODO: would be nice to have it's own icon state
 	var/pellets = 4			//number of pellets
-	var/range_step = 2		//effective pellet count decreases every few tiles
-	var/base_spread = 90	//lower means the pellets spread more across body parts
+	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
+	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
 	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
 
 /obj/item/projectile/bullet/pellet/Bumped()
 	. = ..()
 	bumped = 0 //can hit all mobs in a tile. pellets is decremented inside attack_mob so this should be fine.
 
-/obj/item/projectile/bullet/pellet/attack_mob(var/mob/living/target_mob, var/distance)
+/obj/item/projectile/bullet/pellet/proc/get_pellets(var/distance)
+	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
+	return max(pellets - pellet_loss, 1)
+
+/obj/item/projectile/bullet/pellet/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
 	if (pellets < 0) return 1
 
-	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
-	var/total_pellets = max(pellets - pellet_loss, 1)
+	var/total_pellets = get_pellets(distance)
 	var/spread = max(base_spread - (spread_step*distance), 0)
+
+	//shrapnel explosions miss prone mobs with a chance that increases with distance
+	var/prone_chance = 0
+	if(!base_spread)
+		prone_chance = max(spread_step*(distance - 2), 0)
+
 	var/hits = 0
 	for (var/i in 1 to total_pellets)
+		if(target_mob.lying && target_mob != original && prob(prone_chance))
+			continue
+
 		//pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
 		//whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
 		var/old_zone = def_zone
@@ -96,6 +110,20 @@
 	if (hits >= total_pellets || pellets <= 0)
 		return 1
 	return 0
+
+/obj/item/projectile/bullet/pellet/get_structure_damage()
+	var/distance = get_dist(loc, starting)
+	return ..() * get_pellets(distance)
+
+/obj/item/projectile/bullet/pellet/Move()
+	. = ..()
+
+	//If this is a shrapnel explosion, allow mobs that are prone to get hit, too
+	if(. && !base_spread && isturf(loc))
+		for(var/mob/living/M in loc)
+			if(M.lying || !M.CanPass(src, loc)) //Bump if lying or if we would normally Bump.
+				if(Bump(M)) //Bump will make sure we don't hit a mob multiple times
+					return
 
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
@@ -111,7 +139,7 @@
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
 	check_armour = "melee"
-	damage = 10
+	damage = 5
 	agony = 40
 	embed = 0
 	sharp = 0
@@ -125,7 +153,7 @@
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
 	check_armour = "melee"
-	damage = 20
+	damage = 10
 	agony = 60
 	embed = 0
 	sharp = 0
@@ -150,20 +178,66 @@
 
 /* "Rifle" rounds */
 
-/obj/item/projectile/bullet/rifle/a762
-	damage = 30
+/obj/item/projectile/bullet/rifle
+	armor_penetration = 20
 	penetrating = 1
+
+/obj/item/projectile/bullet/rifle/a762
+	damage = 25
+
+/obj/item/projectile/bullet/rifle/a556
+	damage = 30
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3
 	weaken = 3
 	penetrating = 5
+	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 
-/obj/item/projectile/bullet/rifle/a556
-	damage = 40
-	penetrating = 1
+/obj/item/projectile/bullet/rifle/tranq
+	name = "dart"
+	icon_state = "dart"
+	damage = 5
+	stun = 0
+	weaken = 0
+	drowsy = 0
+	eyeblur = 0
+	damage_type = TOX
+	step_delay = 0.25
+
+/obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+	var/mob/living/L = target
+	if(!(isanimal(target)))
+		if(!(isipc(target)))
+			if(!isrobot(target))
+				L.apply_effect(5, DROWSY, 0)
+				if(def_zone == "torso")
+					if(blocked < 2 && !(blocked < 1))
+						target.visible_message("<b>[target]</b> yawns.")
+					if(blocked < 1)
+						spawn(120)
+							L.apply_effect(10, PARALYZE, 0)
+							target.visible_message("<b>[target]</b> moans.")
+				if(def_zone == "head" && blocked < 2)
+					spawn(35)
+						L.apply_effect(20, PARALYZE, 0)
+				if(def_zone != "torso" && def_zone != "head")
+					if(blocked < 2 && !(blocked < 1))
+						target.visible_message("<b>[target]</b> yawns.")
+					if(blocked < 1)
+						spawn(45)
+							L.apply_effect(15, PARALYZE, 0)
+							target.visible_message("<b>[target]</b> moans.")
+	if(isanimal(target))
+		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
+		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
+	/*	var/mob/living/simple_animal/M = target
+		spawn(60)
+			target.visible_message("<b>[target]</b> collapses.")
+			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
+	..()
 
 /* Miscellaneous */
 
@@ -171,6 +245,10 @@
 	name = "co bullet"
 	damage = 20
 	damage_type = OXY
+
+/obj/item/projectile/bullet/rifle/a556/ap
+	damage = 25
+	armor_penetration = 25
 
 /obj/item/projectile/bullet/cyanideround
 	name = "poison bullet"
@@ -183,10 +261,9 @@
 	embed = 0
 	edge = 1
 
-/obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
-	if(isturf(target))
-		explosion(target, -1, 0, 2)
-	..()
+/obj/item/projectile/bullet/burstbullet/on_impact(var/atom/A)
+		explosion(A, -1, 0, 2)
+		..()
 
 /obj/item/projectile/bullet/blank
 	invisibility = 101
@@ -208,3 +285,33 @@
 /obj/item/projectile/bullet/shotgun/practice
 	name = "practice"
 	damage = 5
+
+/obj/item/projectile/bullet/pistol/cap
+	name = "cap"
+	damage_type = HALLOSS
+	damage = 0
+	nodamage = 1
+	embed = 0
+	sharp = 0
+
+/obj/item/projectile/bullet/pistol/cap/process()
+	loc = null
+	qdel(src)
+
+/obj/item/projectile/bullet/flechette
+	name = "flechette"
+	icon = 'icons/obj/terminator.dmi'
+	icon_state = "flechette_bullet"
+	damage = 40
+	damage_type = BRUTE
+	check_armour = "bullet"
+	embed = 1
+	sharp = 1
+	penetrating = 1
+
+	muzzle_type = /obj/effect/projectile/pulse_bullet/muzzle
+
+/obj/item/projectile/bullet/flechette/explosive
+	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
+	penetrating = 0
+	damage = 10

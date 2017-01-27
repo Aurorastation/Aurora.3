@@ -2,7 +2,7 @@
 	name = "Medbot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
 	icon_state = "medibot0"
-	req_access = list(access_medical)
+	req_one_access = list(access_medical, access_robotics)
 
 	var/skin = null //Set to "tox", "ointment" or "o2" for the other two firstaid kits.
 	botcard_access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
@@ -120,8 +120,12 @@
 		icon_state = "medibot[on]"
 
 /mob/living/bot/medbot/attack_hand(var/mob/user)
+	if (!has_ui_access(user))
+		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		return
+
 	var/dat
-	dat += "<TT><B>Automatic Medical Unit v1.0</B></TT><BR><BR>"
+	dat += "<TT><B>Automatic Medical Unit v1.1</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]<BR>"
 	dat += "Beaker: "
@@ -152,7 +156,7 @@
 
 		dat += "The speaker switch is [vocal ? "on" : "off"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a><br>"
 
-	user << browse("<HEAD><TITLE>Medibot v1.0 controls</TITLE></HEAD>[dat]", "window=automed")
+	user << browse("<HEAD><TITLE>Medibot v1.1 controls</TITLE></HEAD>[dat]", "window=automed")
 	onclose(user, "automed")
 	return
 
@@ -178,13 +182,18 @@
 		return
 	usr.set_machine(src)
 	add_fingerprint(usr)
-	if ((href_list["power"]) && access_scanner.allowed(usr))
+
+	if (!has_ui_access(usr))
+		usr << "<span class='warning'>Insufficient permissions.</span>"
+		return
+
+	if (href_list["power"])
 		if (on)
 			turn_off()
 		else
 			turn_on()
 
-	else if((href_list["adj_threshold"]) && (!locked || issilicon(usr)))
+	else if(href_list["adj_threshold"] && (!locked || issilicon(usr)))
 		var/adjust_num = text2num(href_list["adj_threshold"])
 		heal_threshold += adjust_num
 		if(heal_threshold < 5)
@@ -192,7 +201,7 @@
 		if(heal_threshold > 75)
 			heal_threshold = 75
 
-	else if((href_list["adj_inject"]) && (!locked || issilicon(usr)))
+	else if(href_list["adj_inject"] && (!locked || issilicon(usr)))
 		var/adjust_num = text2num(href_list["adj_inject"])
 		injection_amount += adjust_num
 		if(injection_amount < 5)
@@ -200,7 +209,7 @@
 		if(injection_amount > 15)
 			injection_amount = 15
 
-	else if((href_list["use_beaker"]) && (!locked || issilicon(usr)))
+	else if(href_list["use_beaker"] && (!locked || issilicon(usr)))
 		use_beaker = !use_beaker
 
 	else if (href_list["eject"] && (!isnull(reagent_glass)))
@@ -210,17 +219,17 @@
 		else
 			usr << "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>"
 
-	else if ((href_list["togglevoice"]) && (!locked || issilicon(usr)))
+	else if (href_list["togglevoice"] && (!locked || issilicon(usr)))
 		vocal = !vocal
 
-	else if ((href_list["declaretreatment"]) && (!locked || issilicon(usr)))
+	else if (href_list["declaretreatment"] && (!locked || issilicon(usr)))
 		declare_treatment = !declare_treatment
 
 	attack_hand(usr)
 	return
 
-/mob/living/bot/medbot/Emag(var/mob/user)
-	..()
+/mob/living/bot/medbot/emag_act(var/remaining_uses, var/mob/user)
+	. = ..()
 	if(!emagged)
 		if(user)
 			user << "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>"
@@ -231,6 +240,7 @@
 		emagged = 1
 		on = 1
 		update_icons()
+		. = 1
 	ignored |= user
 
 /mob/living/bot/medbot/explode()
@@ -254,11 +264,14 @@
 	qdel(src)
 	return
 
+/mob/living/bot/medbot/turn_off()
+	patient = null
+	frustration = 0
+	currently_healing = 0
+	..()
+
 /mob/living/bot/medbot/proc/valid_healing_target(var/mob/living/carbon/human/H)
 	if(H.stat == DEAD) // He's dead, Jim
-		return null
-
-	if(H.suiciding)
 		return null
 
 	if(H in ignored)

@@ -185,6 +185,15 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 
+/obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
+	if (slot == slot_wear_suit)
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			H.drop_r_hand()
+			H.drop_l_hand()
+			H.drop_from_inventory(H.handcuffed)
+	..()
+
 /obj/item/clothing/suit/ianshirt
 	name = "worn shirt"
 	desc = "A worn out, curiously comfortable t-shirt with a picture of Ian. You wouldn't go so far as to say it feels like being hugged when you wear it but it's pretty close. Good for sleeping in."
@@ -357,7 +366,7 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
-	desc = "A black leather coat. The letters NT are proudly displayed on the back."
+	desc = "A black leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "leather_jacket_nt"
 
 //This one has buttons for some reason
@@ -371,7 +380,7 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
-	desc = "A brown leather coat. The letters NT are proudly displayed on the back."
+	desc = "A brown leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "brown_jacket_nt"
 	icon_open = "brown_jacket_nt_open"
 	icon_closed = "brown_jacket_nt"
@@ -393,3 +402,13 @@
 	item_state = "black_hoodie"
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
+	
+/obj/item/clothing/suit/storage/toggle/tracksuit
+	name = "track jacket"
+	desc = "An athletic black and white track jacket."
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackjacket"
+	item_state = "trackjacket"
+	icon_open = "trackjacket_open"
+	icon_closed = "trackjacket"
+	contained_sprite = 1

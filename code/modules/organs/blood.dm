@@ -35,7 +35,9 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 			B.color = B.data["blood_colour"]
 
 // Takes care blood loss and regeneration
-/mob/living/carbon/human/proc/handle_blood()
+/mob/living/carbon/human/handle_blood()
+	if(in_stasis)
+		return
 
 	if(species && species.flags & NO_BLOOD)
 		return
@@ -126,11 +128,11 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		for(var/obj/item/organ/external/temp in organs)
 			if(!(temp.status & ORGAN_BLEEDING) || temp.status & ORGAN_ROBOT)
 				continue
-			if(src.get_species() == "Vaurca")
+			if(isvaurca(src))
 				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
-					blood_max += W.damage / 20
+					blood_max += W.damage / 30
 				if (temp.open)
-					blood_max += 4  //Yer stomach is cut open
+					blood_max += 3  //Yer stomach is cut open
 			else
 				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
 					blood_max += W.damage / 40
@@ -219,8 +221,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 //Transfers blood from reagents to vessel, respecting blood types compatability.
 /mob/living/carbon/human/inject_blood(var/datum/reagent/blood/injected, var/amount)
-
-	if(species && species.flags & NO_BLOOD)
+	// In case of mobs without blood, put it in their chem storage.
+	if(species.flags & NO_BLOOD)
 		reagents.add_reagent("blood", amount, injected.data)
 		reagents.update_total()
 		return
@@ -229,7 +231,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 	if (!injected || !our)
 		return
-	if(blood_incompatible(injected.data["blood_type"],our.data["blood_type"],injected.data["species"],our.data["species"]) && !(mind.vampire))
+	if(blood_incompatible(injected.data["blood_type"],our.data["blood_type"],injected.data["species"],our.data["species"]) && !(mind && mind.vampire))
 		reagents.add_reagent("toxin",amount * 0.5)
 		reagents.update_total()
 	else
@@ -275,10 +277,10 @@ proc/blood_splatter(var/target,var/datum/reagent/blood/source,var/large)
 	var/obj/effect/decal/cleanable/blood/B
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
 	var/turf/T = get_turf(target)
-
 	if(istype(source,/mob/living/carbon/human))
 		var/mob/living/carbon/human/M = source
 		source = M.get_blood(M.vessel)
+
 
 	// Are we dripping or splattering?
 	var/list/drips = list()

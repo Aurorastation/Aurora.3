@@ -13,7 +13,7 @@ var/global/list/gear_datums = list()
 		"[slot_shoes]"		= list(),
 		"utility"			= list(),
 		"misc"				= list(),
-		"unknown"			= list(),
+		"unknown"			= list()
 	)
 
 	//create a list of gear datums to sort
@@ -74,22 +74,36 @@ var/global/list/gear_datums = list()
 	slot = slot_head
 
 /datum/gear/bsec_beret
-	display_name = "beret, blue (security)"
-	path = /obj/item/clothing/head/beret/sec/alt
+	display_name = "beret, navy (officer)"
+	path = /obj/item/clothing/head/beret/sec
 	cost = 1
 	slot = slot_head
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+
+/datum/gear/bsec_beret_warden
+	display_name = "beret, navy (warden)"
+	path = /obj/item/clothing/head/beret/sec/warden
+	cost = 1
+	slot = slot_head
+	allowed_roles = list("Head of Security","Warden")
+
+/datum/gear/bsec_beret_hos
+	display_name = "beret, navy (hos)"
+	path = /obj/item/clothing/head/beret/sec/hos
+	cost = 1
+	slot = slot_head
+	allowed_roles = list("Head of Security")
 
 /datum/gear/eng_beret
 	display_name = "beret, engie-orange"
-	path = /obj/item/clothing/head/beret/eng
+	path = /obj/item/clothing/head/beret/engineering
 	cost = 1
 	slot = slot_head
-//	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/purp_beret
 	display_name = "beret, purple"
-	path = /obj/item/clothing/head/beret/jan
+	path = /obj/item/clothing/head/beret/purple
 	cost = 1
 	slot = slot_head
 
@@ -100,11 +114,11 @@ var/global/list/gear_datums = list()
 	slot = slot_head
 
 /datum/gear/sec_beret
-	display_name = "beret, red (security)"
+	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
 	cost = 1
 	slot = slot_head
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/bcap
 	display_name = "cap, blue"
@@ -129,7 +143,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/head/soft/sec/corp
 	cost = 1
 	slot = slot_head
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/gcap
 	display_name = "cap, green"
@@ -190,24 +204,28 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/head/hardhat/dblue
 	cost = 2
 	slot = slot_head
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/ohardhat
 	display_name = "hardhat, orange"
 	path = /obj/item/clothing/head/hardhat/orange
 	cost = 2
 	slot = slot_head
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/rhardhat
 	display_name = "hardhat, red"
 	path = /obj/item/clothing/head/hardhat/red
 	cost = 2
 	slot = slot_head
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/yhardhat
 	display_name = "hardhat, yellow"
 	path = /obj/item/clothing/head/hardhat
 	cost = 2
 	slot = slot_head
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/boater
 	display_name = "hat, boatsman"
@@ -246,8 +264,7 @@ var/global/list/gear_datums = list()
 	cost = 1
 	slot = slot_head
 
-// This was sprited and coded specifically for Zhan-Khazan characters. Before you
-// decide that it's 'not even Taj themed' maybe you should read the wiki, gamer. ~ Z
+//lol fuck bay ~LordFowl
 /datum/gear/zhan_scarf
 	display_name = "Zhan headscarf"
 	path = /obj/item/clothing/head/tajaran/scarf
@@ -264,25 +281,25 @@ var/global/list/gear_datums = list()
 	slot = slot_glasses
 
 /datum/gear/green_glasses
-	display_name = "Glasses, green"
+	display_name = "glasses, green"
 	path = /obj/item/clothing/glasses/gglasses
 	cost = 1
 	slot = slot_glasses
 
 /datum/gear/prescriptionhipster
-	display_name = "Glasses, hipster"
+	display_name = "glasses, hipster"
 	path = /obj/item/clothing/glasses/regular/hipster
 	cost = 1
 	slot = slot_glasses
 
 /datum/gear/prescription
-	display_name = "Glasses, prescription"
+	display_name = "glasses, prescription"
 	path = /obj/item/clothing/glasses/regular
 	cost = 1
 	slot = slot_glasses
 
 /datum/gear/monocle
-	display_name = "Monocle"
+	display_name = "monocle"
 	path = /obj/item/clothing/glasses/monocle
 	cost = 1
 	slot = slot_glasses
@@ -294,37 +311,38 @@ var/global/list/gear_datums = list()
 	slot = slot_glasses
 
 /datum/gear/sciencegoggles
-	display_name = "Science Goggles"
+	display_name = "science Goggles"
 	path = /obj/item/clothing/glasses/science
 	cost = 1
 	slot = slot_glasses
 
 /datum/gear/security
-	display_name = "Security HUD"
+	display_name = "security HUD"
 	path = /obj/item/clothing/glasses/hud/security
 	cost = 1
 	slot = slot_glasses
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/thugshades
-	display_name = "Sunglasses, Fat"
+	display_name = "sunglasses, fat"
 	path = /obj/item/clothing/glasses/sunglasses/big
 	cost = 1
 	slot = slot_glasses
-	allowed_roles = list("Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain","Security Cadet")
 
 /datum/gear/prescriptionsun
 	display_name = "sunglasses, presciption"
 	path = /obj/item/clothing/glasses/sunglasses/prescription
 	cost = 2
 	slot = slot_glasses
-	allowed_roles = list("Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain","Security Cadet")
 
 /datum/gear/blindfold
 	display_name = "vaurca blindfold"
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
 	slot = slot_glasses
+	whitelisted = "Vaurca"
 
 // Mask
 
@@ -360,6 +378,12 @@ var/global/list/gear_datums = list()
 	slot = slot_w_uniform
 	cost = 1
 
+/datum/gear/track_pants
+	display_name = "track pants"
+	path = /obj/item/clothing/under/track
+	slot = slot_w_uniform
+	cost = 1
+
 /datum/gear/blackjumpskirt
 	display_name = "jumpskirt, black"
 	path = /obj/item/clothing/under/blackjumpskirt
@@ -371,6 +395,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/color/blackf
 	slot = slot_w_uniform
 	cost = 1
+
 /datum/gear/blackfjumpsuit
 	display_name = "jumpsuit, rainbow"
 	path = /obj/item/clothing/under/rainbow
@@ -533,7 +558,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/rank/security/corp
 	cost = 1
 	slot = slot_w_uniform
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/uniform_hop
 	display_name = "uniform, HoP's dress"
@@ -554,7 +579,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/rank/security/navyblue
 	cost = 1
 	slot = slot_w_uniform
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 //medical scrubs
 
@@ -563,56 +588,64 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/under/rank/medical/blue
 	slot = slot_w_uniform
 	cost = 1
+	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective",)
 
 /datum/gear/greenscrub
 	display_name = "medical scrubs, green"
 	path = /obj/item/clothing/under/rank/medical/green
 	slot = slot_w_uniform
 	cost = 1
+	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective",)
 
 /datum/gear/purplescrub
 	display_name = "medical scrubs, purple"
 	path = /obj/item/clothing/under/rank/medical/purple
 	slot = slot_w_uniform
 	cost = 1
+	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective",)
 
 /datum/gear/blackscrub
 	display_name = "medical scrubs, black"
 	path = /obj/item/clothing/under/rank/medical/black
 	slot = slot_w_uniform
 	cost = 1
+	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective",)
 
 // Attachments
-
 /datum/gear/armband_cargo
 	display_name = "armband, cargo"
 	path = /obj/item/clothing/accessory/armband/cargo
 	slot = slot_tie
 	cost = 1
+	allowed_roles = list("Cargo Technician","Quartermaster","Head of Personnel","Shaft Miner")
 
 /datum/gear/armband_emt
 	display_name = "armband, EMT"
 	path = /obj/item/clothing/accessory/armband/medgreen
 	slot = slot_tie
 	cost = 1
+	allowed_roles = list("Paramedic","Chief Medical Officer")
 
 /datum/gear/armband_engineering
 	display_name = "armband, engineering"
 	path = /obj/item/clothing/accessory/armband/engine
 	slot = slot_tie
 	cost = 1
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/armband_hydroponics
 	display_name = "armband, hydroponics"
 	path = /obj/item/clothing/accessory/armband/hydro
 	slot = slot_tie
 	cost = 1
+	allowed_roles = list("Head of Personnel","Gardener")
 
 /datum/gear/armband_medical
 	display_name = "armband, medical"
 	path = /obj/item/clothing/accessory/armband/med
 	slot = slot_tie
 	cost = 1
+	allowed_roles = list("Chief Medical Officer","Medical Doctor","Paramedic","Nursing Intern","Psychiatrist","Chemist",)
 
 /datum/gear/armband
 	display_name = "armband, red"
@@ -625,10 +658,17 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/accessory/armband/science
 	slot = slot_tie
 	cost = 1
+	allowed_roles = list("Research Director","Scientist","Xenobiologist","Roboticist","Lab Assistant","Geneticist")
 
 /datum/gear/armband_movement
 	display_name = "armband, synthetic intelligence movement"
 	path = /obj/item/clothing/accessory/armband/movement
+	slot = slot_tie
+	cost = 1
+
+/datum/gear/atlas
+	display_name = "armband, ATLAS"
+	path = /obj/item/clothing/accessory/armband/atlas
 	slot = slot_tie
 	cost = 1
 
@@ -637,21 +677,28 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/accessory/holster/armpit
 	slot = slot_tie
 	cost = 1
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective","Security Cadet")
 
 /datum/gear/hip
 	display_name = "holster, hip"
 	path = /obj/item/clothing/accessory/holster/hip
 	slot = slot_tie
 	cost = 1
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security", "Detective")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective","Security Cadet")
 
 /datum/gear/waist
 	display_name = "holster, waist"
 	path = /obj/item/clothing/accessory/holster/waist
 	slot = slot_tie
 	cost = 1
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security", "Detective")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective","Security Cadet")
+
+/datum/gear/thigh
+	display_name = "holster, thigh"
+	path = /obj/item/clothing/accessory/holster/thigh
+	slot = slot_tie
+	cost = 1
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective","Security Cadet")
 
 /datum/gear/tie_blue
 	display_name = "tie, blue"
@@ -676,20 +723,32 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/accessory/storage/brown_vest
 	slot = slot_tie
 	cost = 1
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
 	slot = slot_tie
 	cost = 1
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/webbing
 	display_name = "webbing, simple"
 	path = /obj/item/clothing/accessory/storage/webbing
 	slot = slot_tie
 	cost = 2
+
+/datum/gear/suspenders
+	display_name = "suspenders"
+	path = /obj/item/clothing/accessory/suspenders
+	cost = 1
+	slot = slot_tie
+
+/datum/gear/wcoat
+	display_name = "waistcoat"
+	path = /obj/item/clothing/accessory/wcoat
+	cost = 1
+	slot = slot_tie
 
 // Suit slot
 
@@ -712,7 +771,7 @@ var/global/list/gear_datums = list()
 	slot = slot_wear_suit
 
 /datum/gear/leather_jacket_nt
-	display_name = "leather jacket, NanoTrasen, black"
+	display_name = "leather jacket, corporate, black"
 	path = /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
 	cost = 2
 	slot = slot_wear_suit
@@ -724,7 +783,7 @@ var/global/list/gear_datums = list()
 	slot = slot_wear_suit
 
 /datum/gear/brown_jacket_nt
-	display_name = "leather jacket, NanoTrasen, brown"
+	display_name = "leather jacket, corporate, brown"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	cost = 2
 	slot = slot_wear_suit
@@ -734,6 +793,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/suit/storage/hazardvest
 	cost = 2
 	slot = slot_wear_suit
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/hoodie
 	display_name = "hoodie, grey"
@@ -830,7 +890,7 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
 	slot = slot_wear_suit
-//	whitelisted = "Unathi" // You don't have a monopoly on a robe!
+	whitelisted = "Unathi"
 
 /datum/gear/blue_lawyer_jacket
 	display_name = "suit jacket, blue"
@@ -844,24 +904,18 @@ var/global/list/gear_datums = list()
 	cost = 2
 	slot = slot_wear_suit
 
-/datum/gear/suspenders
-	display_name = "suspenders"
-	path = /obj/item/clothing/suit/suspenders
-	cost = 1
-	slot = slot_wear_suit
-
-/datum/gear/wcoat
-	display_name = "waistcoat"
-	path = /obj/item/clothing/suit/wcoat
-	cost = 1
-	slot = slot_wear_suit
-
 /datum/gear/zhan_furs
-	display_name = "Zhan-Khazan furs (Tajaran)"
+	display_name = "zhan-Khazan furs"
 	path = /obj/item/clothing/suit/tajaran/furs
 	cost = 1
 	slot = slot_wear_suit
-	whitelisted = "Tajara" // You do have a monopoly on a fur suit tho
+	whitelisted = "Tajara"
+
+/datum/gear/track_jacket
+	display_name = "track jacket"
+	path = /obj/item/clothing/suit/storage/toggle/tracksuit
+	cost = 1
+	slot = slot_wear_suit
 
 // Gloves
 
@@ -1034,6 +1088,12 @@ var/global/list/gear_datums = list()
 	cost = 2
 	slot = slot_gloves
 
+/datum/gear/watch
+	display_name = "watch"
+	path = 	/obj/item/clothing/gloves/watch
+	cost = 2
+	slot = slot_gloves
+
 // Shoelocker
 
 /datum/gear/jackboots
@@ -1041,18 +1101,21 @@ var/global/list/gear_datums = list()
 	path = /obj/item/clothing/shoes/jackboots
 	cost = 1
 	slot = slot_shoes
+//	allowed_roles = list("Security Cadet","Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
 
 /datum/gear/toeless_jackboots
 	display_name = "toe-less jackboots"
 	path = /obj/item/clothing/shoes/jackboots/unathi
 	cost = 1
 	slot = slot_shoes
+//	allowed_roles = list("Security Cadet","Security Officer","Head of Security","Warden","Detective","Internal Affairs Agent","Quartermaster","Head of Personnel","Captain")
 
 /datum/gear/workboots
 	display_name = "workboots"
 	path = /obj/item/clothing/shoes/workboots
 	cost = 1
 	slot = slot_shoes
+//	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/sandal
 	display_name = "sandals"
@@ -1194,6 +1257,19 @@ var/global/list/gear_datums = list()
 	sort_category = "utility"
 	cost = 1
 
+// Reserved for later use
+// /datum/gear/cheaptablet
+// 	display_name = "cheap tablet computer"
+// 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
+// 	sort_category = "utility"
+// 	cost = 3
+//
+// /datum/gear/normaltablet
+// 	display_name = "tablet computer"
+// 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+// 	sort_category = "utility"
+// 	cost = 4
+
 // The rest of the trash.
 
 /datum/gear/ashtray
@@ -1201,6 +1277,12 @@ var/global/list/gear_datums = list()
 	path = /obj/item/weapon/material/ashtray/plastic
 	sort_category = "misc"
 	cost = 1
+
+/datum/gear/boot_knife
+	display_name = "boot knife"
+	path = /obj/item/weapon/material/kitchen/utensil/knife/boot
+	sort_category = "misc"
+	cost = 3
 
 /datum/gear/cane
 	display_name = "cane"
@@ -1216,7 +1298,31 @@ var/global/list/gear_datums = list()
 
 /datum/gear/cards
 	display_name = "deck of cards"
-	path = /obj/item/weapon/deck
+	path = /obj/item/weapon/deck/cards
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/tarot
+	display_name = "deck of tarot cards"
+	path = /obj/item/weapon/deck/tarot
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/holder
+	display_name = "card holder"
+	path = /obj/item/weapon/deck/holder
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/cardemon_pack
+	display_name = "\improper cardemon booster pack"
+	path = /obj/item/weapon/pack/cardemon
+	sort_category = "misc"
+	cost = 1
+
+/datum/gear/spaceball_pack
+	display_name = "\improper spaceball booster pack"
+	path = /obj/item/weapon/pack/spaceball
 	sort_category = "misc"
 	cost = 1
 
@@ -1297,16 +1403,23 @@ var/global/list/gear_datums = list()
 	sort_category = "misc"
 	cost = 1
 
+/datum/gear/mirror
+	display_name = "handheld mirror"
+	path = /obj/item/weapon/mirror
+	sort_category = "misc"
+	cost = 1
+
 /datum/gear/zippo
 	display_name = "zippo"
 	path = /obj/item/weapon/flame/lighter/zippo
 	sort_category = "misc"
 	cost = 1
 
-/*/datum/gear/combitool
-	display_name = "combi-tool"
-	path = /obj/item/weapon/combitool
-	cost = 3*/
+/datum/gear/recorder
+	display_name = "universal recorder"
+	path = /obj/item/device/taperecorder
+	sort_category = "misc"
+	cost = 1
 
 // Stuff worn on the ears. Items here go in the "ears" sort_category but they must not use
 // the slot_r_ear or slot_l_ear as the slot, or else players will spawn with no headset.

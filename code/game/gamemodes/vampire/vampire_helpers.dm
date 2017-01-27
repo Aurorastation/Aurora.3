@@ -6,6 +6,10 @@
 	if (!mind.vampire)
 		mind.vampire = new /datum/vampire()
 
+	// No powers to thralls. Ew.
+	if (mind.vampire.status & VAMP_ISTHRALL)
+		return
+
 	mind.vampire.blood_usable += 30
 
 	verbs += new/datum/game_mode/vampire/verb/vampire_help
@@ -85,7 +89,7 @@
 				src << "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>"
 			return 0
 
-	if (T.get_species() == "Machine")
+	if (isipc(T))
 		if (notify)
 			src << "<span class='warning'>You lack the power interact with mechanical constructs.</span>"
 		return 0

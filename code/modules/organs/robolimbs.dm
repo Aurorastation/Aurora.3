@@ -15,6 +15,8 @@ var/global/datum/robolimb/basic_robolimb
 	var/desc = "A generic unbranded robotic prosthesis." // Seen when examining a limb.
 	var/icon = 'icons/mob/human_races/robotic.dmi'       // Icon base to draw from.
 	var/unavailable_at_chargen                           // If set, not available at chargen.
+	var/list/species_can_use = list("Human","Skrell","Tajara","Zhan-Khaza","M'sai","Unathi","Vaurca Worker","Vaurca Warrior","Baseline Frame")
+	var/paintable = 0 //tired of istype exceptions. bullshirt to find, and by god do i know it after this project.
 
 /datum/robolimb/bishop
 	company = "Bishop Cybernetics"
@@ -35,3 +37,28 @@ var/global/datum/robolimb/basic_robolimb
 	company = "Xion Manufacturing Group"
 	desc = "This limb has a minimalist black and red casing."
 	icon = 'icons/mob/human_races/cyberlimbs/xion.dmi'
+
+/datum/robolimb/ipc
+	company = "Hephaestus Integrated Limb"
+	desc = "This limb is simple and functional; no effort has been made to make it look human."
+	icon = 'icons/mob/human_races/r_machine.dmi'
+	unavailable_at_chargen = 1
+	paintable = 1
+
+/datum/robolimb/industrial
+	company = "Hephaestus Industrial Limb"
+	desc = "This limb is more robust than the standard Hephaestus Integrated Limb, and is better suited for industrial machinery."
+	icon = 'icons/mob/human_races/r_industrial.dmi'
+	unavailable_at_chargen = 1
+
+/datum/robolimb/terminator
+	company = "Hephaestus Vulcanite Limb"
+	desc = "A ludicrously expensive and EMP shielded component, these types of limbs are best suited for highly specialized cyborgs."
+	icon = 'icons/mob/human_races/r_terminator.dmi'
+	unavailable_at_chargen = 1
+
+/datum/robolimb/human
+	company = "Human Synthskin"
+	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
+	icon = 'icons/mob/human_races/r_human.dmi'
+	species_can_use = list("Human")

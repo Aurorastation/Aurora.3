@@ -10,17 +10,14 @@
 	edge = 0
 	throwforce = 7
 	w_class = 3
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
 	var/stunforce = 0
 	var/agonyforce = 120
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/weapon/cell/bcell = null
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
-
-/obj/item/weapon/melee/baton/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is putting the live [name] in \his mouth! It looks like \he's trying to commit suicide.</span>")
-	return (FIRELOSS)
+	var/baton_color = "#FF6A00"
 
 /obj/item/weapon/melee/baton/New()
 	..()
@@ -50,6 +47,11 @@
 		icon_state = "[initial(name)]_nocell"
 	else
 		icon_state = "[initial(name)]"
+
+	if(icon_state == "[initial(name)]_active")
+		set_light(1.3, 1, "[baton_color]")
+	else
+		set_light(0)
 
 /obj/item/weapon/melee/baton/examine(mob/user)
 	if(!..(user, 1))
@@ -97,10 +99,9 @@
 			user << "<span class='warning'>[src] is out of charge.</span>"
 	add_fingerprint(user)
 
-
-/obj/item/weapon/melee/baton/attack(mob/M, mob/user)
+/obj/item/weapon/melee/baton/attack(mob/M, mob/user, var/hit_zone)
 	if(status && (CLUMSY in user.mutations) && prob(50))
-		user << "span class='danger'>You accidentally hit yourself with the [src]!</span>"
+		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
 		deductcharge(hitcost)
 		return
@@ -113,14 +114,19 @@
 	var/stun = stunforce
 	var/mob/living/L = M
 
-	var/target_zone = check_zone(user.zone_sel.selecting)
+	var/target_zone = check_zone(hit_zone)
 	if(user.a_intent == I_HURT)
 		if (!..())	//item/attack() does it's own messaging and logs
 			return 0	// item/attack() will return 1 if they hit, 0 if they missed.
-		agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
 		stun *= 0.5
+		if(status)		//Checks to see if the stunbaton is on.
+			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
+		else
+			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
 	else
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(M)
 		//copied from human_defense.dm - human defence code should really be refactored some time.
 		if (ishuman(L))
 			user.lastattacked = L	//are these used at all, if we have logs?
@@ -130,7 +136,7 @@
 				target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, L)
 
 			if(!target_zone)
-				L.visible_message("\red <B>[user] misses [L] with \the [src]!")
+				L.visible_message("<span class='warning'>[user] misses [L] with \the [src]!</span>")
 				return 0
 
 			var/mob/living/carbon/human/H = L
@@ -149,15 +155,13 @@
 				L.visible_message("<span class='danger'>[L] has been prodded with [src] by [user]!</span>")
 
 	//stun effects
-	if (status)
-		L.stun_effect_act(stun, agony, target_zone, src)
-	else
-		..()
+	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-
-	deductcharge(hitcost)
+	
+	if(status)
+		deductcharge(hitcost)
 
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
@@ -194,3 +198,34 @@
 	hitcost = 2500
 	attack_verb = list("poked")
 	slot_flags = null
+	baton_color = "#FFDF00"
+
+/obj/item/weapon/melee/baton/stunrod
+	name = "stunrod"
+	desc = "A more-than-lethal weapon used to deal with high threat situations."
+	icon = 'icons/obj/stunrod.dmi'
+	icon_state = "stunrod"
+	item_state = "stunrod"
+	force = 20
+	baton_color = "#75ACFF"
+	origin_tech = "combat=4,illegal=2"
+	contained_sprite = 1
+
+/obj/item/weapon/melee/baton/stunrod/New()
+	..()
+	bcell = new/obj/item/weapon/cell/high(src)
+	update_icon()
+	return
+
+/obj/item/weapon/melee/baton/stunrod/update_icon() //this is needed due to how contained sprites work
+	if(status)
+		icon_state = "[initial(name)]_active"
+		item_state = "[initial(name)]_active"
+	else if(!bcell)
+		icon_state = "[initial(name)]_nocell"
+		item_state = "[initial(name)]"
+	else
+		icon_state = "[initial(name)]"
+		item_state = "[initial(name)]"
+
+	..()

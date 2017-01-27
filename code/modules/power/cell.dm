@@ -5,9 +5,15 @@
 /obj/item/weapon/cell/New()
 	..()
 	charge = maxcharge
+	update_icon()
 
 /obj/item/weapon/cell/initialize()
 	..()
+	update_icon()
+
+/obj/item/weapon/cell/Created()
+	//Newly built cells spawn with no charge to prevent power exploits
+	charge = 0
 	update_icon()
 
 /obj/item/weapon/cell/drain_power(var/drain_check, var/surge, var/power = 0)
@@ -44,6 +50,9 @@
 
 // use power from a cell, returns the amount actually used
 /obj/item/weapon/cell/proc/use(var/amount)
+	if (gcDestroyed)
+		return 0
+
 	if(rigged && amount > 0)
 		explode()
 		return 0
@@ -61,18 +70,15 @@
 
 // recharge the cell
 /obj/item/weapon/cell/proc/give(var/amount)
+	if (gcDestroyed)
+		return 0
+
 	if(rigged && amount > 0)
 		explode()
 		return 0
 
 	if(maxcharge < amount)	return 0
 	var/amount_used = min(maxcharge-charge,amount)
-	if(crit_fail)	return 0
-	if(!prob(reliability))
-		minor_fault++
-		if(prob(minor_fault))
-			crit_fail = 1
-			return 0
 	charge += amount_used
 	return amount_used
 
@@ -85,8 +91,6 @@
 		user << "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge], and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%."
 	else
 		user << "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]!\nThe charge meter reads [round(src.percent() )]%."
-	if(crit_fail)
-		user << "\red This power cell seems to be faulty."
 
 /obj/item/weapon/cell/attackby(obj/item/W, mob/user)
 	..()
@@ -155,8 +159,6 @@
 	charge -= maxcharge / severity
 	if (charge < 0)
 		charge = 0
-	if(reliability != 100 && prob(50/severity))
-		reliability -= 10 / severity
 	..()
 
 /obj/item/weapon/cell/ex_act(severity)
@@ -178,10 +180,6 @@
 			if (prob(25))
 				corrupt()
 	return
-
-/obj/item/weapon/cell/blob_act()
-	if(prob(75))
-		explode()
 
 /obj/item/weapon/cell/proc/get_electrocute_damage()
 	switch (charge)

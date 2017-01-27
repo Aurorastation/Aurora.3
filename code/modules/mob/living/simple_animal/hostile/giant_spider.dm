@@ -34,6 +34,7 @@
 	pass_flags = PASSTABLE
 	move_to_delay = 6
 	speed = 3
+	mob_size = 6
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -63,15 +64,30 @@
 	poison_per_bite = 5
 	move_to_delay = 4
 
-/mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/New(var/location, var/atom/parent)
+	get_light_and_color(parent)
 	..()
-	if(isliving(target_mob))
-		var/mob/living/L = target_mob
+
+/mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
+	. = ..()
+	if(isliving(.))
+		var/mob/living/L = .
 		if(L.reagents)
 			L.reagents.add_reagent("toxin", poison_per_bite)
 			if(prob(poison_per_bite))
-				L << "\red You feel a tiny prick."
+				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
+	. = ..()
+	if(ishuman(.))
+		var/mob/living/carbon/human/H = .
+		if(prob(poison_per_bite))
+			var/obj/item/organ/external/O = pick(H.organs)
+			if(!(O.robotic >= ORGAN_ROBOT))
+				var/eggs = new /obj/effect/spider/eggcluster(O, src)
+				O.implants += eggs
+				H << "<span class='warning'>The [src] injects something into your [O.name]!</span>"
 
 /mob/living/simple_animal/hostile/giant_spider/Life()
 	..()
@@ -117,7 +133,7 @@
 				var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 				if(!W)
 					busy = SPINNING_WEB
-					src.visible_message("\blue \the [src] begins to secrete a sticky substance.")
+					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance.</span>")
 					stop_automated_movement = 1
 					spawn(40)
 						if(busy == SPINNING_WEB)
@@ -129,13 +145,13 @@
 					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 					if(!E && fed > 0)
 						busy = LAYING_EGGS
-						src.visible_message("\blue \the [src] begins to lay a cluster of eggs.")
+						src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
 						stop_automated_movement = 1
 						spawn(50)
 							if(busy == LAYING_EGGS)
 								E = locate() in get_turf(src)
 								if(!E)
-									new /obj/effect/spider/eggcluster(src.loc)
+									PoolOrNew(/obj/effect/spider/eggcluster, list(loc, src))
 									fed--
 								busy = 0
 								stop_automated_movement = 0
@@ -157,7 +173,7 @@
 			else if(busy == MOVING_TO_TARGET && cocoon_target)
 				if(get_dist(src, cocoon_target) <= 1)
 					busy = SPINNING_COCOON
-					src.visible_message("\blue \the [src] begins to secrete a sticky substance around \the [cocoon_target].")
+					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
 					stop_automated_movement = 1
 					walk(src,0)
 					spawn(50)
@@ -172,7 +188,7 @@
 										continue
 									large_cocoon = 1
 									fed++
-									src.visible_message("\red \the [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.")
+									src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
 									M.loc = C
 									C.pixel_x = M.pixel_x
 									C.pixel_y = M.pixel_y

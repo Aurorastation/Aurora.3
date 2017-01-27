@@ -93,6 +93,7 @@
 			if(health < maxhealth)
 				if(open)
 					health = min(maxhealth, health+10)
+					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					user.visible_message("\red [user] repairs [src]!","\blue You repair [src]!")
 				else
 					user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
@@ -100,9 +101,8 @@
 				user << "<span class='notice'>[src] does not need a repair.</span>"
 		else
 			user << "<span class='notice'>Unable to repair while [src] is off.</span>"
-	else if(istype(W, /obj/item/weapon/card/emag) && !emagged)
-		Emag(user)
 	else if(hasvar(W,"force") && hasvar(W,"damtype"))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
 			if("fire")
 				health -= W.force * fire_dam_coeff
@@ -114,23 +114,14 @@
 		..()
 
 /obj/vehicle/bullet_act(var/obj/item/projectile/Proj)
-	if (Proj.damage_type == BRUTE || Proj.damage_type == BURN)
-		health -= Proj.damage
+	health -= Proj.get_structure_damage()
 	..()
 
 	if (prob(20))
-		PoolOrNew(/obj/effect/effect/sparks, loc)
+		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+		s.set_up(5, 1, src)
 
 	healthcheck()
-
-/obj/vehicle/meteorhit()
-	explode()
-	return
-
-/obj/vehicle/blob_act()
-	src.health -= rand(20,40)*fire_dam_coeff
-	healthcheck()
-	return
 
 /obj/vehicle/ex_act(severity)
 	switch(severity)
@@ -194,12 +185,13 @@
 	set_light(0)
 	update_icon()
 
-/obj/vehicle/proc/Emag(mob/user as mob)
-	emagged = 1
-
-	if(locked)
-		locked = 0
-		user << "<span class='warning'>You bypass [src]'s controls.</span>"
+/obj/vehicle/emag_act(var/remaining_charges, mob/user as mob)
+	if(!emagged)
+		emagged = 1
+		if(locked)
+			locked = 0
+			user << "<span class='warning'>You bypass [src]'s controls.</span>"
+		return 1
 
 /obj/vehicle/proc/explode()
 	src.visible_message("\red <B>[src] blows apart!</B>", 1)
@@ -310,6 +302,9 @@
 
 	return 1
 
+/obj/vehicle/user_unbuckle_mob(var/mob/user)
+	unload(user)
+	return
 
 /obj/vehicle/proc/unload(var/mob/user, var/direction)
 	if(!load)
@@ -355,6 +350,12 @@
 
 	return 1
 
+// This exists to stop a weird jumping motion when you disembark.
+// It essentially makes disembarkation count as a movement.
+// Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
+/obj/vehicle/post_buckle_mob(var/mob/M)
+	if (M.client)
+		M.client.move_delay = M.movement_delay() + config.walk_speed
 
 //-------------------------------------------------------
 // Stat update procs

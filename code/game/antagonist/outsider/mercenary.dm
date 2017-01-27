@@ -2,7 +2,6 @@ var/datum/antagonist/mercenary/mercs
 
 /datum/antagonist/mercenary
 	id = MODE_MERCENARY
-	role_type = BE_OPERATIVE
 	role_text = "Mercenary"
 	bantype = "operative"
 	antag_indicator = "synd"
@@ -31,27 +30,28 @@ var/datum/antagonist/mercenary/mercs
 	return 1
 
 /datum/antagonist/mercenary/equip(var/mob/living/carbon/human/player)
-
 	if(!..())
 		return 0
 
 	player.equip_to_slot_or_del(new /obj/item/clothing/under/syndicate(player), slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(player), slot_shoes)
+	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(player), slot_shoes)
+	if(!player.shoes) //If equipping shoes failed, fall back to equipping toeless jackboots
+		var/fallback_type = pick(/obj/item/clothing/shoes/jackboots/unathi)
+		player.equip_to_slot_or_del(new fallback_type(player), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(player), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/military(player), slot_belt)
-	if(player.backbag == 2) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(player), slot_back)
-	if(player.backbag == 3) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(player), slot_back)
+	if(player.backbag == 2) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/syndie(player), slot_back)
+	if(player.backbag == 3) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_syndie(player), slot_back)
 	if(player.backbag == 4) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(player), slot_back)
+	if(player.backbag == 5) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/syndie(player), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(player.back), slot_in_backpack)
 	player.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/pill/cyanide(player), slot_in_backpack)
 
-	if (player.mind == leader)
-		var/obj/item/device/radio/uplink/U = new(player.loc)
-		U.hidden_uplink.uplink_owner = player.mind
-		U.hidden_uplink.uses = 40
-		player.put_in_hands(U)
+	var/obj/item/device/radio/uplink/U = new(player.loc, player.mind, DEFAULT_TELECRYSTAL_AMOUNT)
+	player.put_in_hands(U)
 
 	player.update_icons()
+	player.faction = "syndicate"
 
 	create_id("Mercenary", player)
 	create_radio(SYND_FREQ, player)

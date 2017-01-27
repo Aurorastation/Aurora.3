@@ -1,14 +1,4 @@
 // fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
-/proc/ishuman(A)
-	if(istype(A, /mob/living/carbon/human))
-		return 1
-	return 0
-
-/proc/isalien(A)
-	if(istype(A, /mob/living/carbon/alien))
-		return 1
-	return 0
-
 /proc/isxenomorph(A)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
@@ -16,95 +6,23 @@
 	return 0
 
 /proc/issmall(A)
-	if(A && istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = A
-		if(H.species && H.species.is_small)
-			return 1
+	if(A && istype(A, /mob/living))
+		var/mob/living/L = A
+		return L.mob_size <= MOB_SMALL
 	return 0
 
-/proc/isbrain(A)
-	if(A && istype(A, /mob/living/carbon/brain))
-		return 1
-	return 0
-
-/proc/isslime(A)
-	if(istype(A, /mob/living/carbon/slime))
-		return 1
-	return 0
-
-/proc/isrobot(A)
-	if(istype(A, /mob/living/silicon/robot))
-		return 1
-	return 0
-
-/proc/isanimal(A)
-	if(istype(A, /mob/living/simple_animal))
-		return 1
-	return 0
-
-/proc/iscorgi(A)
-	if(istype(A, /mob/living/simple_animal/corgi))
-		return 1
-	return 0
-
-/proc/iscrab(A)
-	if(istype(A, /mob/living/simple_animal/crab))
-		return 1
-	return 0
-
-/proc/iscat(A)
-	if(istype(A, /mob/living/simple_animal/cat))
-		return 1
-	return 0
-
-/proc/ismouse(A)
-	if(istype(A, /mob/living/simple_animal/mouse))
-		return 1
-	return 0
-
-/proc/isbear(A)
-	if(istype(A, /mob/living/simple_animal/hostile/bear))
-		return 1
-	return 0
-
-/proc/iscarp(A)
-	if(istype(A, /mob/living/simple_animal/hostile/carp))
-		return 1
-	return 0
-
-/proc/isclown(A)
-	if(istype(A, /mob/living/simple_animal/hostile/retaliate/clown))
-		return 1
-	return 0
-
-/mob/proc/isSilicon()
-	return 0
-
-/mob/living/silicon/isSilicon()
-	return 1
-
-/proc/isAI(A)
-	if(istype(A, /mob/living/silicon/ai))
-		return 1
-	return 0
-
-/mob/proc/isMobAI()
-	return 0
-
-/mob/living/silicon/ai/isMobAI()
-	return 1
-
-/mob/proc/isSynthetic()
+/mob/living/proc/isSynthetic()
 	return 0
 
 /mob/living/carbon/human/isSynthetic()
-	return species.flags & IS_SYNTHETIC
+	// If they are 100% robotic, they count as synthetic.
+	for(var/obj/item/organ/external/E in organs)
+		if(!(E.status & ORGAN_ROBOT))
+			return 0
+	return 1
 
 /mob/living/silicon/isSynthetic()
 	return 1
-
-/mob/living/carbon/human/isMonkey()
-	return istype(species, /datum/species/monkey)
 
 /mob/proc/isMonkey()
 	return 0
@@ -112,50 +30,85 @@
 /mob/living/carbon/human/isMonkey()
 	return istype(species, /datum/species/monkey)
 
-/proc/ispAI(A)
-	if(istype(A, /mob/living/silicon/pai))
+
+/proc/ishuman_species(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
 		return 1
 	return 0
 
-/proc/isdrone(A)
-	if(istype(A, /mob/living/silicon/robot/drone))
+/proc/isunathi(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
 		return 1
 	return 0
 
-/proc/iscarbon(A)
-	if(istype(A, /mob/living/carbon))
+/proc/istajara(A)
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Tajara")
+				return 1
+			if("Zhan-Khazan Tajara")
+				return 1
+			if("M'sai Tajara")
+				return 1
+	return 0
+
+/proc/isskrell(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skrell"))
 		return 1
 	return 0
 
-/proc/issilicon(A)
-	if(istype(A, /mob/living/silicon))
-		return 1
+/proc/isvaurca(A)
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Vaurca Worker")
+				return 1
+			if("Vaurca Warrior")
+				return 1
+			if("Vaurca Breeder")
+				return 1
+			if("V'krexi")
+				return 1
 	return 0
 
-/proc/isliving(A)
-	if(istype(A, /mob/living))
-		return 1
+/proc/isipc(A)
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Baseline Frame")
+				return 1
+			if ("Industrial Frame")
+				return 1
+			if ("Shell Frame")
+				return 1
+			if ("Hunter-Killer")
+				return 1
 	return 0
 
-proc/isobserver(A)
-	if(istype(A, /mob/dead/observer))
-		return 1
+/proc/isvox(A)
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Vox")
+				return 1
+			if ("Vox Pariah")
+				return 1
+			if ("Vox Armalis")
+				return 1
 	return 0
 
-proc/isorgan(A)
-	if(istype(A, /obj/item/organ/external))
-		return 1
+/mob/proc/is_diona()
+	//returns which type of diona we are, or zero
+	if (istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/T = src
+		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
+			return DIONA_WORKER
+
+	if (istype(src, /mob/living/carbon/alien/diona))
+		return DIONA_NYMPH
 	return 0
 
 proc/isdeaf(A)
 	if(istype(A, /mob))
 		var/mob/M = A
 		return (M.sdisabilities & DEAF) || M.ear_deaf
-	return 0
-
-proc/isnewplayer(A)
-	if(istype(A, /mob/new_player))
-		return 1
 	return 0
 
 proc/hasorgans(A) // Fucking really??
@@ -208,7 +161,7 @@ var/list/global/base_miss_chance = list(
 	"l_hand" = 50,
 	"r_hand" = 50,
 	"l_foot" = 50,
-	"r_foot" = 50,
+	"r_foot" = 50
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
@@ -224,7 +177,7 @@ var/list/global/organ_rel_size = list(
 	"l_hand" = 10,
 	"r_hand" = 10,
 	"l_foot" = 10,
-	"r_foot" = 10,
+	"r_foot" = 10
 )
 
 /proc/check_zone(zone)
@@ -258,7 +211,7 @@ var/list/global/organ_rel_size = list(
 			organ_rel_size["l_hand"]; "l_hand",
 			organ_rel_size["r_hand"]; "r_hand",
 			organ_rel_size["l_foot"]; "l_foot",
-			organ_rel_size["r_foot"]; "r_foot",
+			organ_rel_size["r_foot"]; "r_foot"
 		)
 
 	return ran_zone
@@ -410,14 +363,14 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	return sanitize(t)
 
 
-/proc/shake_camera(mob/M, duration, strength=1)
-	if(!M || !M.client || M.shakecamera)
+/proc/shake_camera(mob/M, duration, strength=1, var/taper = 0)
+	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
 		return
+
 	M.shakecamera = 1
-	spawn(1)
+	spawn(2)
 		if(!M.client)
 			return
-
 		var/atom/oldeye=M.client.eye
 		var/aiEyeFlag = 0
 		if(istype(oldeye, /mob/eye/aiEye))
@@ -430,6 +383,20 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 			else
 				M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
 			sleep(1)
+
+		//Taper code added by nanako.
+		//Will make the strength falloff after the duration.
+		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
+		//Recommended taper values are 0.05-0.1
+		if (taper > 0)
+			while (strength > 0)
+				strength -= taper
+				if(aiEyeFlag)
+					M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
+				else
+					M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
+				sleep(1)
+
 		M.client.eye=oldeye
 		M.shakecamera = 0
 
@@ -545,14 +512,14 @@ proc/is_blind(A)
 				name = realname
 
 	for(var/mob/M in player_list)
-		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
+		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
 			var/follow
 			var/lname
 			if(subject)
 				if(subject != M)
-					follow = "(<a href='byond://?src=\ref[M];track=\ref[subject]'>follow</a>) "
+					follow = "([ghost_follow_link(subject, M)]) "
 				if(M.stat != DEAD && M.client.holder)
-					follow = "(<a href='?src=\ref[M.client.holder];adminplayerobservejump=\ref[subject]'>JMP</a>) "
+					follow = "([admin_jump_link(subject, M.client.holder)]) "
 				var/mob/dead/observer/DM
 				if(istype(subject, /mob/dead/observer))
 					DM = subject
@@ -620,6 +587,12 @@ proc/is_blind(A)
 /mob/proc/is_client_active(var/active = 1)
 	return client && client.inactivity < active MINUTES
 
+/mob/proc/can_eat()
+	return 1
+
+/mob/proc/can_force_feed()
+	return 1
+
 #define SAFE_PERP -50
 /mob/living/proc/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
 	if(stat == DEAD)
@@ -639,7 +612,7 @@ proc/is_blind(A)
 		return SAFE_PERP
 
 	//Agent cards lower threatlevel.
-	var/obj/item/weapon/card/id/id = GetIdCard(src)
+	var/obj/item/weapon/card/id/id = GetIdCard()
 	if(id && istype(id, /obj/item/weapon/card/id/syndicate))
 		threatcount -= 2
 	// A proper	CentCom id is hard currency.
@@ -703,7 +676,7 @@ proc/is_blind(A)
 		if (H.ingested.total_volume > 0)
 			canVomit = 1
 
-	if (nutrition > 150)
+	if (nutrition > 0)
 		canVomit = 1
 
 	if(canVomit)
@@ -715,15 +688,31 @@ proc/is_blind(A)
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
 
-		nutrition -= 40
+		nutrition -= 60
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.8
 
 		if (istype(src, /mob/living/carbon/human))
 			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
-	else
+	else if (prob(50))
 		src.visible_message("<span class='warning'>[src] retches, attempting to vomit!</span>","<span class='warning'>You gag and collapse as you feel the urge to vomit, but there's nothing in your stomach!</span>")
 		Weaken(4)
+
+/mob/living/carbon/human/proc/delayed_vomit()
+
+	if(!check_has_mouth())
+		return
+	if(stat == DEAD)
+		return
+	if(!lastpuke)
+		lastpuke = 1
+		src << "<span class='warning'>You feel nauseous...</span>"
+		spawn(150)	//15 seconds until second warning
+			src << "<span class='warning'>You feel like you are about to throw up!</span>"
+			spawn(100)	//and you have 10 more for mad dash to the bucket
+				vomit()//Vomit function is in mob helpers
+				spawn(350)	//wait 35 seconds before next volley
+					lastpuke = 0
 
 /obj/proc/get_equip_slot()
 	//This function is called by an object which is somewhere on a humanoid mob
@@ -951,8 +940,16 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
-	else return null
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
+	else
+		return null
+
+	if (!P)
+		return null
 
 	return P.time_of_death[which]
 
@@ -961,11 +958,218 @@ proc/is_blind(A)
 	if (client)
 		P = client.prefs
 	else if (ckey)
-		P = preferences_datums[ckey]
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
 	else
+		return 0
+
+	if (!P)
 		return 0
 
 	P.time_of_death[which] = value
 	return 1
 
+
+//Below here is stuff related to devouring, but which is generally helpful and thus placed here
+//See Devour.dm for more info in how these are used
+
+
+
+//Blacklists of mobs that can be excluded from eating by flags in the bitfield
+
+//All of these specific human subtypes are here for a reason.
+//Using /mob/living/carbon/human as a generic type would include monkey/stok/farwa/neara.
+//We do not want those to count as humanoids, only player species
+var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
+	/mob/living/carbon/human/bst,
+	/mob/living/carbon/human/skrell,
+	/mob/living/carbon/human/unathi,
+	/mob/living/carbon/human/diona,
+	/mob/living/carbon/human/tajaran,
+	/mob/living/carbon/human/vox,
+	/mob/living/carbon/human/machine,
+	/mob/living/carbon/human/type_a,
+	/mob/living/carbon/human/type_b
+	)
+
+var/list/humanoid_mobs_inclusive = list(
+	/mob/living/simple_animal/hostile/pirate,
+	/mob/living/simple_animal/hostile/russian,
+	/mob/living/simple_animal/hostile/syndicate
+	)
+
+var/list/synthetic_mobs_specific = list(
+	/mob/living/carbon/human/machine,
+	/mob/living/simple_animal/hostile/retaliate/malf_drone,
+	/mob/living/simple_animal/hostile/viscerator,
+	/mob/living/simple_animal/spiderbot
+	)
+
+
+var/list/synthetic_mobs_inclusive = list( /mob/living/silicon,
+	/mob/living/simple_animal/hostile/hivebot,
+	/mob/living/bot
+	)
+
+var/list/wierd_mobs_specific = list(/mob/living/simple_animal/adultslime)
+
+var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
+	/mob/living/simple_animal/shade,
+	/mob/living/simple_animal/slime,
+	/mob/living/simple_animal/hostile/faithless,
+	/mob/living/carbon/slime
+	)
+
+
+/mob/proc/find_type()
+	if (istype(src, /mob/living))
+		var/mob/living/L = src
+		return L.find_type()
+	return 0
+
+/mob/living/find_type()
+	//This function returns a bitfield indicating what type(s) the passed mob is.
+	//Synthetic and wierd are exclusive from organic. We assume it's organic if it's not either of those
+	//var/mob/living/test = src
+	var/mobtypes = 0
+
+	if (mob_listed(src, synthetic_mobs_specific,1))
+		mobtypes |= TYPE_SYNTHETIC
+	else if (mob_listed(src, synthetic_mobs_inclusive,0))
+		mobtypes |= TYPE_SYNTHETIC
+	else
+		if (isSynthetic())
+			mobtypes |= TYPE_SYNTHETIC
+
+	if (mob_listed(src, wierd_mobs_specific,1))
+		mobtypes |= TYPE_WIERD
+	else if (mob_listed(src, wierd_mobs_inclusive,0))
+		mobtypes |= TYPE_WIERD
+
+	if (!(mobtypes & TYPE_WIERD) && !(mobtypes & TYPE_SYNTHETIC))
+		mobtypes |= TYPE_ORGANIC
+
+
+	if (mob_listed(src, humanoid_mobs_specific,1))
+		mobtypes |= TYPE_HUMANOID
+	else if (mob_listed(src, humanoid_mobs_inclusive,0))
+		mobtypes |= TYPE_HUMANOID
+
+	return mobtypes
+
+
+//This function attempts to find the mob's blood vessel, if it has one.
+//If it doesn't, and the create var is true, then it will create a new temporary one filled with blood that has fake DNA, and return that
+//If no vessel and no create var, then null is returned, getting blood isnt possible.
+//The fake DNA is generally useful for animals, it contains enough information to tell what kind of creature it came from
+/mob/living/proc/get_vessel(var/create = 0)
+	//Add any other creatures which have blood, here
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = src
+		return H.vessel
+	else if (istype(src, /mob/living/carbon/alien/diona))
+		var/mob/living/carbon/alien/diona/D = src
+		return D.vessel
+	else if (create)
+
+		//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
+		//We create an MD5 hash of the mob's reference to use as its DNA string.
+		//This creates unique DNA for each creature in a consistently repeatable process
+		var/datum/reagents/vessel = new/datum/reagents(600)
+		vessel.add_reagent("blood",560)
+		for(var/datum/reagent/blood/B in vessel.reagent_list)
+			if(B.id == "blood")
+				B.data = list(	"donor"=src,"viruses"=null,"species"=src.name,"blood_DNA"=md5("\ref[src]"),"blood_colour"= "#a10808","blood_type"=null,	\
+								"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
+
+				B.color = B.data["blood_colour"]
+
+		return vessel
+
+	else return null
+
+//This function checks against a list to see if the mob is in it.
+//Any specified types are checked against exactly, using ==, not istype
+//Any types ending in * will be tested with isType
+/proc/mob_listed(var/mob/living/test, var/list/toCheck, var/specific = 0)
+	for (var/i in toCheck)
+		if (specific)
+			if (test.type == i)
+				return 1
+		else
+			if (istype(test, i))
+				return 1
+	return 0
+
+
+#define POSESSIVE_PRONOUN	0
+#define POSESSIVE_ADJECTIVE	1
+#define REFLEXIVE			2
+#define SUBJECTIVE_PERSONAL	3
+#define OBJECTIVE_PERSONAL	4
+/mob/proc/get_pronoun(var/type)
+	switch (type)
+		if (POSESSIVE_PRONOUN)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "hers"
+				else
+					return "theirs"
+		if (POSESSIVE_ADJECTIVE)
+			switch(gender)
+				if (MALE)
+					return "his"
+				if (FEMALE)
+					return "her"
+				else
+					return "their"
+		if (REFLEXIVE)
+			switch(gender)
+				if (MALE)
+					return "himself"
+				if (FEMALE)
+					return "herself"
+				else
+					return "themselves"
+		if (SUBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "he"
+				if (FEMALE)
+					return "she"
+				else
+					return "they"
+		if (OBJECTIVE_PERSONAL)
+			switch(gender)
+				if (MALE)
+					return "him"
+				if (FEMALE)
+					return "her"
+				else
+					return "them"
+
+		else
+			return "its"//Something went wrong
+
 #undef SAFE_PERP
+
+/mob/proc/get_multitool(var/obj/item/device/multitool/P)
+	if(istype(P))
+		return P
+
+mob/dead/observer/get_multitool()
+	return can_admin_interact() && ..(ghost_multitool)
+
+/mob/living/carbon/human/get_multitool()
+	return ..(get_active_hand())
+
+/mob/living/silicon/robot/get_multitool()
+	return ..(get_active_hand())
+
+/mob/living/silicon/ai/get_multitool()
+	return ..(aiMulti)

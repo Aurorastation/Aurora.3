@@ -4,55 +4,40 @@
 	set invisibility = 0
 	set background = 1
 
-	if (monkeyizing)	return
+	if (transforming)	return
 	if(!loc)			return
 
 	..()
 
-	if (stat != DEAD) //still breathing
-
-		// GROW!
+	if (stat != DEAD && can_progress())
 		update_progression()
-
-		// Radiation.
-		handle_mutations_and_radiation()
-
-		// Chemicals in the body
-		handle_chemicals_in_body()
 
 	blinded = null
 
-	if(loc)
-		handle_environment(loc.return_air())
-
 	//Status updates, death etc.
-	handle_regular_status_updates()
-	update_canmove()
 	update_icons()
 
-	if(client)
-		handle_regular_hud_updates()
+/mob/living/carbon/alien/proc/can_progress()
+	return 1
 
-/mob/living/carbon/alien/proc/handle_chemicals_in_body()
-	return // Nothing yet. Maybe check it out at a later date.
 
-/mob/living/carbon/alien/proc/handle_mutations_and_radiation()
+/mob/living/carbon/alien/handle_mutations_and_radiation()
 
 	// Currently both Dionaea and larvae like to eat radiation, so I'm defining the
 	// rad absorbtion here. This will need to be changed if other baby aliens are added.
 
-	if(!radiation)
+	if(!total_radiation)
 		return
 
-	var/rads = radiation/25
-	radiation -= rads
+	var/rads = total_radiation/25
+	apply_radiation(rads*-1)
 	nutrition += rads
 	heal_overall_damage(rads,rads)
 	adjustOxyLoss(-(rads))
 	adjustToxLoss(-(rads))
 	return
 
-/mob/living/carbon/alien/proc/handle_regular_status_updates()
+/mob/living/carbon/alien/handle_regular_status_updates()
 
 	if(status_flags & GODMODE)	return 0
 
@@ -103,18 +88,13 @@
 		else if(eye_blurry)
 			eye_blurry = max(eye_blurry-1, 0)
 
-		//Ears
-		if(sdisabilities & DEAF)	//disabled-deaf, doesn't get better on its own
-			ear_deaf = max(ear_deaf, 1)
-		else if(ear_deaf)			//deafness, heals slowly over time
-			ear_deaf = max(ear_deaf-1, 0)
-			ear_damage = max(ear_damage-0.05, 0)
-
 		update_icons()
 
 	return 1
 
-/mob/living/carbon/alien/proc/handle_regular_hud_updates()
+/mob/living/carbon/alien/handle_regular_hud_updates()
+	if (!..())
+		return//Returns if no client
 
 	if (stat == 2 || (XRAY in src.mutations))
 		sight |= SEE_TURFS
@@ -122,16 +102,17 @@
 		sight |= SEE_OBJS
 		see_in_dark = 8
 		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-	else if (stat != 2)
-		sight &= ~SEE_TURFS
-		sight &= ~SEE_MOBS
-		sight &= ~SEE_OBJS
+	else if (stat != 2 && is_ventcrawling == 0)
+		if (species.vision_flags)
+			sight = species.vision_flags
+		else
+			sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		see_in_dark = 2
 		see_invisible = SEE_INVISIBLE_LIVING
 
 	if (healths)
 		if (stat != 2)
-			switch(health)
+			switch(health - halloss)//Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)
@@ -149,8 +130,7 @@
 		else
 			healths.icon_state = "health7"
 
-	if (client)
-		client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
+	client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
 
 	if ((blind && stat != 2))
 		if ((blinded))
@@ -174,7 +154,7 @@
 
 	return 1
 
-/mob/living/carbon/alien/proc/handle_environment(var/datum/gas_mixture/environment)
+/mob/living/carbon/alien/handle_environment(var/datum/gas_mixture/environment)
 	// Both alien subtypes survive in vaccum and suffer in high temperatures,
 	// so I'll just define this once, for both (see radiation comment above)
 	if(!environment) return
@@ -183,6 +163,12 @@
 		adjustFireLoss((environment.temperature - (T0C+66))/5) // Might be too high, check in testing.
 		if (fire) fire.icon_state = "fire2"
 		if(prob(20))
-			src << "\red You feel a searing heat!"
+			src << "<span class='danger'>You feel a searing heat!</span>"
 	else
 		if (fire) fire.icon_state = "fire0"
+
+/mob/living/carbon/alien/handle_fire()
+	if(..())
+		return
+	bodytemperature += BODYTEMP_HEATING_MAX //If you're on fire, you heat up!
+	return

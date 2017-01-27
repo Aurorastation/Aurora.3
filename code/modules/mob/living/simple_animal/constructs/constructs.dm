@@ -12,7 +12,7 @@
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH
-	universal_speak = 0
+	universal_speak = 1
 	universal_understand = 1
 	attack_sound = 'sound/weapons/spiderlunge.ogg'
 	min_oxy = 0
@@ -27,7 +27,8 @@
 	show_stat_health = 1
 	faction = "cult"
 	supernatural = 1
-	see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	var/nullblock = 0
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
@@ -56,12 +57,16 @@
 	qdel(src)
 
 /mob/living/simple_animal/construct/attack_generic(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(user, /mob/living/simple_animal/construct/builder))
-		if(health < maxHealth)
+		if(getBruteLoss() > 0)
 			adjustBruteLoss(-5)
-			user.visible_message("<span class='notice'>\The [user]</b> mends some of \the [src]'s wounds.</span>")
+			user.visible_message("<span class='notice'>\The [user] mends some of \the [src]'s wounds.</span>")
 		else
-			user << "<span class='notice'>\The [src] is undamaged.</span>"
+			if (health < maxHealth)
+				user << "<span class='notice'>Healing \the [src] any further is beyond your abilities.</span>"
+			else
+				user << "<span class='notice'>\The [src] is undamaged.</span>"
 		return
 	return ..()
 
@@ -79,6 +84,14 @@
 
 	user << msg
 
+/mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
+	if(istype(A, /obj/effect/rune))
+		var/obj/effect/rune/R = A
+		do_attack_animation(R)
+		R.attack_hand(src)
+	else
+		..()
+
 
 /////////////////Juggernaut///////////////
 
@@ -87,7 +100,7 @@
 /mob/living/simple_animal/construct/armoured
 	name = "Juggernaut"
 	real_name = "Juggernaut"
-	desc = "A possessed suit of armour driven by the will of the restless dead"
+	desc = "A possessed suit of armour driven by the will of the restless dead."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "behemoth"
 	icon_living = "behemoth"
@@ -98,7 +111,7 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	attacktext = "smashed their armoured gauntlet into"
-	mob_size = 20
+	mob_size = MOB_LARGE
 	speed = 3
 	environment_smash = 2
 	attack_sound = 'sound/weapons/heavysmash.ogg'
@@ -131,8 +144,6 @@
 
 	return (..(P))
 
-
-
 ////////////////////////Wraith/////////////////////////////////////////////
 
 
@@ -140,7 +151,7 @@
 /mob/living/simple_animal/construct/wraith
 	name = "Wraith"
 	real_name = "Wraith"
-	desc = "A wicked bladed shell contraption piloted by a bound spirit"
+	desc = "A wicked bladed shell contraption piloted by a bound spirit."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "floating"
 	icon_living = "floating"
@@ -163,7 +174,7 @@
 /mob/living/simple_animal/construct/builder
 	name = "Artificer"
 	real_name = "Artificer"
-	desc = "A bulbous construct dedicated to building and maintaining The Cult of Nar-Sie's armies"
+	desc = "A bulbous construct dedicated to building and maintaining The Cult of Nar-Sie's armies."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "artificer"
 	icon_living = "artificer"
@@ -218,7 +229,7 @@
 /mob/living/simple_animal/construct/harvester
 	name = "Harvester"
 	real_name = "Harvester"
-	desc = "The promised reward of the livings who follow narsie. Obtained by offering their bodies to the geometer of blood"
+	desc = "The promised reward of those who follow Nar'Sie, obtained by offering their bodies to the Geometer of Blood."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "harvester"
 	icon_living = "harvester"
@@ -237,6 +248,7 @@
 			/spell/aoe_turf/knock/harvester,
 			/spell/rune_write
 		)
+
 
 ////////////////Glow//////////////////
 /mob/living/simple_animal/construct/proc/add_glow()

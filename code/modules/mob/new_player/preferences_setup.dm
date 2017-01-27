@@ -1,20 +1,33 @@
 datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
 	proc/randomize_appearance_for(var/mob/living/carbon/human/H)
-		if(H)
-			if(H.gender == MALE)
-				gender = MALE
-			else
-				gender = FEMALE
-		s_tone = random_skin_tone()
+		gender = pick(MALE, FEMALE)
+		var/datum/species/current_species = all_species[species]
+
+		if(current_species)
+			if(current_species.appearance_flags & HAS_SKIN_TONE)
+				s_tone = random_skin_tone()
+			if(current_species.appearance_flags & HAS_EYE_COLOR)
+				randomize_eyes_color()
+			if(current_species.appearance_flags & HAS_SKIN_COLOR)
+				randomize_skin_color()
+			if(current_species.appearance_flags & HAS_UNDERWEAR)
+				if(gender == FEMALE)
+					underwear = underwear_f[pick(underwear_f)]
+				else
+					underwear = underwear_m[pick(underwear_m)]
+				undershirt = undershirt_t[pick(undershirt_t)]
+			if(current_species.appearance_flags & HAS_SOCKS)
+				if(gender == FEMALE)
+					socks = socks_f[pick(socks_f)]
+				else
+					socks = socks_m[pick(socks_m)]
+
 		h_style = random_hair_style(gender, species)
 		f_style = random_facial_hair_style(gender, species)
 		randomize_hair_color("hair")
 		randomize_hair_color("facial")
-		randomize_eyes_color()
-		randomize_skin_color()
-		underwear = rand(1,underwear_m.len)
-		undershirt = rand(1,undershirt_t.len)
+
 		backbag = 2
 		age = rand(getMinAge(),getMaxAge())
 		if(H)
@@ -179,12 +192,25 @@ datum/preferences
 
 
 	proc/update_preview_icon()		//seriously. This is horrendous.
+		if (is_updating_icon)
+			return
+		is_updating_icon = 1
+
 		qdel(preview_icon_front)
 		qdel(preview_icon_side)
 		qdel(preview_icon)
 
-		var/g = "m"
-		if(gender == FEMALE)	g = "f"
+		var/genderhead = "head"
+		var/gendergroin = "groin"
+		var/genderbust = "torso"
+		if(gender == FEMALE)
+			genderhead = "head_f"
+			gendergroin = "groin_f"
+			genderbust = "torso_f"
+		else if(gender == MALE)
+			genderhead = "head_m"
+			gendergroin = "groin_m"
+			genderbust = "torso_m"
 
 		var/icon/icobase
 		var/datum/species/current_species = all_species[species]
@@ -194,17 +220,21 @@ datum/preferences
 		else
 			icobase = 'icons/mob/human_races/r_human.dmi'
 
-		preview_icon = new /icon(icobase, "torso_[g]")
-		preview_icon.Blend(new /icon(icobase, "groin_[g]"), ICON_OVERLAY)
-		preview_icon.Blend(new /icon(icobase, "head_[g]"), ICON_OVERLAY)
-
+		preview_icon = new /icon('icons/effects/effects.dmi', "nothing")
 
 		//Non-robotic limbs
-		for(var/name in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand"))
-			if(organ_data[name] == "amputated") continue
-			if(organ_data[name] == "cyborg")
+		for(var/organname in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand","groin","chest","head"))
+			if(organ_data[organname] == "amputated") continue
+			if(organ_data[organname] == "cyborg")
 				continue//We will add the icons for robolimbs after the skin color is applied
-			preview_icon.Blend(new /icon(icobase, "[name]"), ICON_OVERLAY)
+			if(organname == "head")
+				preview_icon.Blend(new /icon(icobase, "[genderhead]"), ICON_OVERLAY)
+			else if(organname == "groin")
+				preview_icon.Blend(new /icon(icobase, "[gendergroin]"), ICON_OVERLAY)
+			else if(organname == "chest")
+				preview_icon.Blend(new /icon(icobase, "[genderbust]"), ICON_OVERLAY)
+			else
+				preview_icon.Blend(new /icon(icobase, "[organname]"), ICON_OVERLAY)
 
 		//Tail
 		if(current_species && (current_species.tail))
@@ -212,11 +242,11 @@ datum/preferences
 			preview_icon.Blend(temp, ICON_OVERLAY)
 
 		// Skin color
-		if(current_species && (current_species.flags & HAS_SKIN_COLOR))
+		if(current_species && (current_species.appearance_flags & HAS_SKIN_COLOR))
 			preview_icon.Blend(rgb(r_skin, g_skin, b_skin), ICON_ADD)
 
 		// Skin tone
-		if(current_species && (current_species.flags & HAS_SKIN_TONE))
+		if(current_species && (current_species.appearance_flags & HAS_SKIN_TONE))
 			if (s_tone >= 0)
 				preview_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
 			else
@@ -224,16 +254,23 @@ datum/preferences
 
 
 		//Robotic limbs, done AFTER skin color/tone blending
-		for(var/name in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand"))
-			if(organ_data[name] == "cyborg")
+		for(var/roboname in list("r_arm","r_hand","r_leg","r_foot","l_leg","l_foot","l_arm","l_hand","groin","chest","head"))
+			if(organ_data[roboname] == "cyborg")
 				var/datum/robolimb/R
-				if(rlimb_data[name]) R = all_robolimbs[rlimb_data[name]]
+				if(rlimb_data[roboname]) R = all_robolimbs[rlimb_data[roboname]]
 				if(!R) R = basic_robolimb
-				preview_icon.Blend(icon(R.icon, "[name]"), ICON_OVERLAY) // This doesn't check gendered_icon. Not an issue while only limbs can be robotic.
+				if(roboname == "head")
+					preview_icon.Blend(icon(R.icon, "[genderhead]"), ICON_OVERLAY)
+				else if(roboname == "groin")
+					preview_icon.Blend(icon(R.icon, "[gendergroin]"), ICON_OVERLAY)
+				else if(roboname == "chest")
+					preview_icon.Blend(icon(R.icon, "[genderbust]"), ICON_OVERLAY)
+				else
+					preview_icon.Blend(icon(R.icon, "[roboname]"), ICON_OVERLAY)
 
 
 		var/icon/eyes_s = new/icon("icon" = 'icons/mob/human_face.dmi', "icon_state" = current_species ? current_species.eyes : "eyes_s")
-		if ((current_species && (current_species.flags & HAS_EYE_COLOR)))
+		if ((current_species && (current_species.appearance_flags & HAS_EYE_COLOR)))
 			eyes_s.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
 
 		var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
@@ -249,12 +286,16 @@ datum/preferences
 			eyes_s.Blend(facial_s, ICON_OVERLAY)
 
 		var/icon/underwear_s = null
-		if(underwear && current_species.flags & HAS_UNDERWEAR)
+		if(underwear && current_species.appearance_flags & HAS_UNDERWEAR)
 			underwear_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = underwear)
 
 		var/icon/undershirt_s = null
-		if(undershirt && current_species.flags & HAS_UNDERWEAR)
+		if(undershirt && current_species.appearance_flags & HAS_UNDERWEAR)
 			undershirt_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = undershirt)
+
+		var/icon/socks_s = null
+		if(socks && current_species.appearance_flags & HAS_SOCKS)
+			socks_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = socks)
 
 		var/icon/clothes_s = null
 		if(job_civilian_low & ASSISTANT)//This gives the preview icon clothes depending on which job(if any) is set to 'high'
@@ -693,6 +734,8 @@ datum/preferences
 			preview_icon.Blend(underwear_s, ICON_OVERLAY)
 		if(undershirt_s)
 			preview_icon.Blend(undershirt_s, ICON_OVERLAY)
+		if(socks_s)
+			preview_icon.Blend(socks_s, ICON_OVERLAY)
 		if(clothes_s)
 			preview_icon.Blend(clothes_s, ICON_OVERLAY)
 		preview_icon_front = new(preview_icon, dir = SOUTH)
@@ -701,4 +744,7 @@ datum/preferences
 		qdel(eyes_s)
 		qdel(underwear_s)
 		qdel(undershirt_s)
+		qdel(socks_s)
 		qdel(clothes_s)
+
+		is_updating_icon = 0

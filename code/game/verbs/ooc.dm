@@ -4,7 +4,7 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "\red Speech is currently admin-disabled."
+		usr << "<span class='warning'>Speech is currently admin-disabled.</span>"
 		return
 
 	if(!mob)	return
@@ -16,7 +16,7 @@
 	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_OOC))
-		src << "\red You have OOC muted."
+		src << "<span class='warning'>You have OOC muted.</span>"
 		return
 
 	if(!holder)
@@ -71,19 +71,23 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "\red Speech is currently admin-disabled."
+		usr << "<span class='danger'>Speech is currently admin-disabled.</span>"
 		return
 
-	if(!mob)	return
+	if(!mob)
+		return
+
 	if(IsGuestKey(key))
 		src << "Guests may not use OOC."
 		return
 
 	msg = sanitize(msg)
-	if(!msg)	return
+	msg = process_chat_markup(msg, list("*"))
+	if(!msg)
+		return
 
 	if(!(prefs.toggles & CHAT_LOOC))
-		src << "\red You have LOOC muted."
+		src << "<span class='danger'>You have LOOC muted.</span>"
 		return
 
 	if(!holder)
@@ -96,7 +100,7 @@
 		if(prefs.muted & MUTE_OOC)
 			src << "<span class='danger'>You cannot use OOC (muted).</span>"
 			return
-		if(handle_spam_prevention(msg,MUTE_OOC))
+		if(handle_spam_prevention(msg, MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
 			src << "<B>Advertising other servers is not allowed.</B>"
@@ -107,7 +111,17 @@
 	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
 
 	var/mob/source = src.mob
-	var/list/heard = get_mobs_in_view(7, get_turf(source))
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it
+
+	for (var/turf in range(world.view, get_turf(source)))
+		messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
 
 	var/display_name = source.key
 	if(holder && holder.fakekey)
@@ -130,7 +144,7 @@
 				admin_stuff += "/([source.key])"
 				if(target != source.client)
 					admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
-			if(target.mob in heard)
+			if(target.mob in messagemobs)
 				prefix = ""
-			if((target.mob in heard) || display_remote)
+			if((target.mob in messagemobs) || display_remote)
 				target << "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>"

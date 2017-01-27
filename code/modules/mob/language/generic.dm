@@ -20,12 +20,12 @@
 
 // 'basic' language; spoken by default.
 /datum/language/common
-	name = "Ceti Basic"
+	name = LANGUAGE_TCB
 	desc = "The common galactic tongue."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	key = "0"
-	flags = RESTRICTED | COMMON_VERBS
+	flags = RESTRICTED
 	syllables = list("blah","blah","blah","bleh","meh","neh","nah","wah")
 
 //TODO flag certain languages to use the mob-type specific say_quote and then get rid of these.
@@ -39,7 +39,7 @@
 
 // Galactic common languages (systemwide accepted standards).
 /datum/language/trader
-	name = "Tradeband"
+	name = LANGUAGE_TRADEBAND
 	desc = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
 	speech_verb = "enunciates"
 	colour = "say_quote"
@@ -56,7 +56,7 @@
 
 // Criminal language.
 /datum/language/gutter
-	name = "Gutter"
+	name = LANGUAGE_GUTTER
 	desc = "Much like Standard, this crude pidgin tongue descended from numerous languages and serves as Tradeband for criminal elements."
 	speech_verb = "growls"
 	colour = "rough"
@@ -65,7 +65,7 @@
 
 // Sign language
 /datum/language/sign
-	name = "Sign Language"
+	name = LANGUAGE_SIGN
 	desc = "A signed version of Standard, though its intent is primarily to help out people who are deaf and mute, "
 	speech_verb = "signs"
 	signlang_verb = list("signs", "gestures")

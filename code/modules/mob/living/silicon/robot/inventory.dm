@@ -246,6 +246,50 @@
 	else
 		src << "<span class='notice'>You need to disable a module first!</span>"
 
-/mob/living/silicon/robot/put_in_hands(var/obj/item/W) // No hands.
-	W.loc = get_turf(src)
-	return 1
+/mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
+	var/obj/item/weapon/gripper/G = null
+	if (istype(module_state_1, /obj/item/weapon/gripper))
+
+		G = module_state_1
+		if (!G.wrapped && G.grip_item(W, src, 1))
+			return 1
+	if (istype(module_state_2, /obj/item/weapon/gripper))
+		G = module_state_2
+		if (!G.wrapped && G.grip_item(W, src, 0))
+			return 1
+	if (istype(module_state_2, /obj/item/weapon/gripper))
+		G = module_state_3
+		if (!G.wrapped && G.grip_item(W, src, 0))
+			return 1
+
+
+	W.forceMove(get_turf(src))
+	return 0
+
+
+//If our active module is a gripper, drop the thing in it.
+//Otherwise do nothing. We don't drop our modules
+/mob/living/silicon/robot/drop_item(var/atom/Target)
+	if (istype(module_active, /obj/item/weapon/gripper))
+		var/obj/item/weapon/gripper/G = module_active
+		G.drop(Target)
+
+
+
+/mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+	if(W)
+		if(!Target)
+			Target = loc
+		if (istype(W.loc, /obj/item/weapon/gripper))
+			var/obj/item/weapon/gripper/G = W.loc
+			G.drop(Target)
+			return 1
+	return 0
+
+
+/mob/living/silicon/robot/canUnEquip(obj/item/I)
+	if(!I) //If there's nothing to drop, the drop is automatically successful.
+		return 1
+	if (I.loc != src)
+		return 1//Allows objects inside grippers
+	return 0//don't allow dropping our modules

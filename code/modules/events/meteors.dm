@@ -1,4 +1,3 @@
-//meteor storms are much heavier
 /datum/event/meteor_wave
 	startWhen		= 86
 	endWhen			= 9999//safety value, will be set during ticks
@@ -8,11 +7,12 @@
 	var/max_waves 	= 16
 	var/min_meteors = 1
 	var/max_meteors = 2
-	var/duration = 420//Total duration in seconds that the storm will last after it starts
+	var/duration = 340//Total duration in seconds that the storm will last after it starts
 
 
 	var/waves		= 8
 	var/next_wave 	= 86
+	ic_name = "a meteor storm"
 
 /datum/event/meteor_wave/setup()
 	startWhen += rand(-15,15)//slightly randomised start time
@@ -56,6 +56,7 @@
 
 	var/waves		= 4//this is randomised
 	var/next_wave 	= 86
+	ic_name = "a meteor shower"
 
 /datum/event/meteor_shower/setup()
 	startWhen += rand(-15,15)//slightly randomised start time

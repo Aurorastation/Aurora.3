@@ -4,19 +4,6 @@
 /var/const/meteors_in_wave = 50
 /var/const/meteors_in_small_wave = 10
 
-/proc/meteor_wave(var/number = meteors_in_wave)
-	if (number == 0)
-		return
-
-	if(!ticker || wavesecret)
-		return
-
-	wavesecret = 1
-	for(var/i = 0 to number)
-		spawn(rand(10,100))
-			spawn_meteor()
-	spawn(meteor_wave_delay)
-		wavesecret = 0
 
 /proc/spawn_meteors(var/number = meteors_in_small_wave)
 	for(var/i = 0; i < number; i++)
@@ -92,7 +79,7 @@
 	var/power = 2
 	var/power_step = 0.75
 	var/dest
-	var/shieldsoundrange = 220 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
+	var/shieldsoundrange = 260 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
 	pass_flags = PASSTABLE
 	var/done = 0//This is set to 1 when the meteor is done colliding, and is used to ignore additional bumps while waiting for deletion
 
@@ -105,7 +92,7 @@
 	power_step = 0.5
 	hits = 2
 	detonation_chance = 30
-	shieldsoundrange = 120
+	shieldsoundrange = 160
 
 
 /obj/effect/meteor/Destroy()
@@ -117,7 +104,7 @@
 		spawn(0)
 
 			if (A)
-				A.meteorhit(src)
+				A.ex_act(2)
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
 			if (istype(A, /obj/effect/energy_field))//If a normal/small meteor impacts an energy field, then it makes a widely audible impact sound and qdels
@@ -235,8 +222,10 @@
 	range = ((range - world.view) * 2)+1
 
 
-	for(var/mob/M in world)
-		if(M.client && M.z == T.z)
+	for(var/A in player_list)
+		var/mob/M = A
+		var/turf/mobloc = get_turf(M)
+		if(mobloc && mobloc.z == T.z)
 			if(M.ear_deaf <= 0 || !M.ear_deaf)
 				M.playsound_local(T, 'sound/effects/meteorimpact.ogg', range, 1, usepressure = 0)
 

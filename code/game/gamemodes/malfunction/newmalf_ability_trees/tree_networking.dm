@@ -15,13 +15,11 @@
 	next = new/datum/malf_research_ability/networking/advanced_hack()
 	name = "Basic Encryption Hack"
 
-
 /datum/malf_research_ability/networking/advanced_hack
 	ability = new/datum/game_mode/malfunction/verb/advanced_encryption_hack()
 	price = 400
 	next = new/datum/malf_research_ability/networking/elite_hack()
 	name = "Advanced Encryption Hack"
-
 
 /datum/malf_research_ability/networking/elite_hack
 	ability = new/datum/game_mode/malfunction/verb/elite_encryption_hack()
@@ -32,7 +30,7 @@
 
 /datum/malf_research_ability/networking/system_override
 	ability = new/datum/game_mode/malfunction/verb/system_override()
-	price = 2750
+	price = 5000
 	name = "System Override"
 
 // END RESEARCH DATUMS
@@ -65,6 +63,7 @@
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 
+	log_ability_use(user, "basic encryption hack", A, 0)	// Does not notify admins, but it's still logged for reference.
 	user.hacking = 1
 	user << "Beginning APC system override..."
 	sleep(300)
@@ -86,7 +85,7 @@
 /datum/game_mode/malfunction/verb/advanced_encryption_hack()
 	set category = "Software"
 	set name = "Advanced Encryption Hack"
-	set desc = "75 CPU - Attempts to bypass encryption on Central Command Quantum Relay, giving you ability to fake centcom messages. Has chance of failing."
+	set desc = "75 CPU - Attempts to bypass encryption on the Command Quantum Relay, giving you ability to fake legitimate messages. Has chance of failing."
 	var/price = 75
 	var/mob/living/silicon/ai/user = usr
 
@@ -99,14 +98,19 @@
 		user << "Hack Aborted"
 		return
 
-	if(prob(60) && user.hack_can_fail)
+	log_ability_use(user, "advanced encryption hack")
+
+	if(prob(50) && user.hack_can_fail)
 		user << "Hack Failed."
-		if(prob(10))
+		if(prob(5))
 			user.hack_fails ++
 			announce_hack_failure(user, "quantum message relay")
+			log_ability_use(user, "elite encryption hack (CRITFAIL - title: [title])")
+			return
+		log_ability_use(user, "elite encryption hack (FAIL - title: [title])")
 		return
-
-	command_announcement.Announce(text, title, new_sound = 'sound/AI/commandreport.ogg')
+	log_ability_use(user, "elite encryption hack (SUCCESS - title: [title])")
+	command_announcement.Announce(text, title)
 
 /datum/game_mode/malfunction/verb/elite_encryption_hack()
 	set category = "Software"
@@ -122,12 +126,16 @@
 		user << "Hack Aborted"
 		return
 
-	if(prob(75) && user.hack_can_fail)
+	if(prob(60) && user.hack_can_fail)
 		user << "Hack Failed."
-		if(prob(20))
+		if(prob(10))
 			user.hack_fails ++
 			announce_hack_failure(user, "alert control system")
+			log_ability_use(user, "elite encryption hack (CRITFAIL - [alert_target])")
+			return
+		log_ability_use(user, "elite encryption hack (FAIL - [alert_target])")
 		return
+	log_ability_use(user, "elite encryption hack (SUCCESS - [alert_target])")
 	set_security_level(alert_target)
 
 
@@ -143,6 +151,7 @@
 		if(user.system_override)
 			user << "You already started the system override sequence."
 		return
+	log_ability_use(user, "system override (STARTED)")
 	var/list/remaining_apcs = list()
 	for(var/obj/machinery/power/apc/A in machines)
 		if(!(A.z in config.station_levels)) 		// Only station APCs
@@ -194,7 +203,7 @@
 		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in config.station_levels)
 			A.ai_hack(src)
 
-
+	log_ability_use(user, "system override (FINISHED)")
 	user << "## PRIMARY FIREWALL BYPASSED. YOU NOW HAVE FULL SYSTEM CONTROL."
 	command_announcement.Announce("Our system administrators just reported that we've been locked out from your control network. Whoever did this now has full access to the station's systems.", "Network Administration Center")
 	user.hack_can_fail = 0

@@ -1,8 +1,20 @@
+// Updated by Nadrew, bits and pieces taken from Baycode, but fairly heavily modified to function here (and because a few bits of the baycode was ehh)
+
+// The main issue in the old code was the Life() loop and the fact that it could go infinite really easily.
+// The fix involved labeling the various loops involved so they could be continued and broken properly.
+// It also decreases the amount of calls to AStar() and handle_target()
+
+var/list/cleanbot_types // Going to use this to generate a list of types once then cull it out locally, see comments below for more info
+
+/obj/effect/decal/cleanable/var
+	being_cleaned = 0
+	tmp/mob/living/bot/cleanbot/clean_marked = 0 // If a cleaning bot has marked the cleanable to be cleaned, to prevent multiples from going to the same one.
+
 /mob/living/bot/cleanbot
 	name = "Cleanbot"
 	desc = "A little cleaning robot, he looks so excited!"
 	icon_state = "cleanbot0"
-	req_access = list(access_janitor)
+	req_one_access = list(access_janitor, access_robotics)
 	botcard_access = list(access_janitor, access_maint_tunnels)
 
 	locked = 0 // Start unlocked so roboticist can set them to patrol.
@@ -28,6 +40,11 @@
 
 	var/maximum_search_range = 7
 
+/mob/living/bot/cleanbot/Cross(atom/movable/crossed)
+	if(crossed)
+		if(istype(crossed,/mob/living/bot/cleanbot)) return 0
+		return ..()
+
 /mob/living/bot/cleanbot/New()
 	..()
 	get_targets()
@@ -38,19 +55,29 @@
 	if(radio_controller)
 		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	spawn(10)
-		gib()
+/mob/living/bot/cleanbot/Destroy()
+	. = ..()
+	path = null
+	patrol_path = null
+	target = null
+	ignorelist = null
 
 /mob/living/bot/cleanbot/proc/handle_target()
+	if(target.clean_marked && target.clean_marked != src)
+		target = null
+		path = list()
+		ignorelist |= target
+		return
 	if(loc == target.loc)
 		if(!cleaning)
 			UnarmedAttack(target)
 			return 1
 	if(!path.len)
-//		spawn(0)
 		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-//			custom_emote(2, "[src] can't reach the target and is giving up.")
+			//log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
+			ignorelist |= target
+			target.clean_marked = null
 			target = null
 			path = list()
 		return
@@ -63,24 +90,19 @@
 /mob/living/bot/cleanbot/Life()
 	..()
 
-	// Nope.jpg
-	return
-
-	var/found_spot
-	var/current_tile
-	var/cleanable_type = /obj/effect/decal/cleanable
-	var/target_type
-	var/searching      = 1
-
 	if(!on)
+		ignorelist = list()
 		return
+
+	if(ignorelist.len && prob(2))
+		ignorelist -= pick(ignorelist)
 
 	if(client)
 		return
 	if(cleaning)
 		return
 
-	if(!screwloose && !oddbutton && prob(5))
+	if(!screwloose && !oddbutton && prob(2))
 		custom_emote(2, "makes an excited beeping booping sound!")
 
 	if(screwloose && prob(5)) // Make a mess
@@ -95,31 +117,40 @@
 		spawn(600)
 			ignorelist -= gib
 
-		// Find a target
 
 	if(pulledby) // Don't wiggle if someone pulls you
 		patrol_path = list()
 		return
 
-	while (searching)
-		for (current_tile = 0, current_tile <= maximum_search_range, current_tile++)
-			for (cleanable_type in view(current_tile, src))
-				if (!(cleanable_type in ignorelist))
-					for (target_type in target_types)
-						if (istype(cleanable_type, target_type))
-							patrol_path = list()
-							target      = cleanable_type
-							found_spot  = handle_target()
-
-							if (found_spot)
-								searching = 0;
-							else
-								if (target == null) //handles if path can not be created
-									searching = 0
+	var/found_spot
+	if(!should_patrol) return
+	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
+	search_for: // We use the label so we can break out of this loop from within the next loop.
+		// Not breaking out of these loops properly is where the infinite loop was coming from before.
+		for(var/i=0, i <= maximum_search_range, i++)
+			clean_for: // This one isn't really needed in this context, but it's good to have in case we expand later.
+				for(var/obj/effect/decal/cleanable/D in view(i, src))
+					if(D.clean_marked && D.clean_marked != src) continue clean_for
+					var/mob/living/bot/cleanbot/other_bot = locate() in D.loc
+					if(other_bot && other_bot.cleaning && other_bot != src)
+						continue clean_for
+					if((D in ignorelist))
+						// If the object has been slated to be ignored we continue the loop.
+						continue clean_for
+					if((D.type in target_types))
+						// A matching /cleanable was found, now we want to A* it and see if we can reach it.
+						patrol_path = list()
+						target = D
+						D.clean_marked = src
+						found_spot = handle_target()
+						if (found_spot)
+							break search_for // If the target location is found and pathed properly, break the search loop.
 
 						else
-							target = null
-							continue //Recode without the use of these shitty things.
+							target = null // Otherwise we want to try the next cleanable in view, if any.
+							D.clean_marked = null
+
+
 
 	if(!found_spot && !target) // No targets in range
 		if(!patrol_path || !patrol_path.len)
@@ -135,7 +166,7 @@
 				var/datum/signal/signal = new()
 				signal.source = src
 				signal.transmission_method = 1
-				signal.data = list("findbeakon" = "patrol")
+				signal.data = list("findbeacon" = "patrol")
 				frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 				signal_sent = world.time
 			else
@@ -153,6 +184,9 @@
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
+
+
+
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 	if(!..())
 		return
@@ -164,20 +198,23 @@
 		return
 
 	cleaning = 1
-	custom_emote(2, "begins to clean up \the [D]")
+	target.being_cleaned = 1
 	update_icons()
 	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	if(do_after(src, cleantime))
-		if(istype(loc, /turf/simulated))
-			var/turf/simulated/f = loc
-			f.dirt = 0
-		if(!D)
-			return
-		qdel(D)
-		if(D == target)
-			target = null
-	cleaning = 0
-	update_icons()
+	spawn(1)
+		if(do_after(src, cleantime))
+			if(istype(loc, /turf/simulated))
+				var/turf/simulated/f = loc
+				f.dirt = 0
+			if(!D)
+				return
+			D.clean_marked = null
+			if(D == target)
+				target.being_cleaned = 0
+				target = null
+			qdel(D)
+		cleaning = 0
+		update_icons()
 
 /mob/living/bot/cleanbot/explode()
 	on = 0
@@ -208,8 +245,12 @@
 	patrol_path = list()
 
 /mob/living/bot/cleanbot/attack_hand(var/mob/user)
+	if (!has_ui_access(user) && !emagged)
+		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		return
+
 	var/dat
-	dat += "<TT><B>Automatic Station Cleaner v1.0</B></TT><BR><BR>"
+	dat += "<TT><B>Automatic Station Cleaner v1.1</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]"
@@ -220,7 +261,7 @@
 		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screwloose ? "Yes" : "No"]</A><BR>"
 		dat += "Weird button pressed: <A href='?src=\ref[src];operation=oddbutton'>[oddbutton ? "Yes" : "No"]</A>"
 
-	user << browse("<HEAD><TITLE>Cleaner v1.0 controls</TITLE></HEAD>[dat]", "window=autocleaner")
+	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
 	onclose(user, "autocleaner")
 	return
 
@@ -229,6 +270,11 @@
 		return
 	usr.set_machine(src)
 	add_fingerprint(usr)
+
+	if (!has_ui_access(usr) && !emagged)
+		usr << "<span class='warning'>Insufficient permissions.</span>"
+		return
+
 	switch(href_list["operation"])
 		if("start")
 			if(on)
@@ -253,15 +299,30 @@
 			usr << "<span class='notice'>You press the weird button.</span>"
 	attack_hand(usr)
 
-/mob/living/bot/cleanbot/Emag(var/mob/user)
-	..()
-	if(user)
-		user << "<span class='notice'>The [src] buzzes and beeps.</span>"
-	oddbutton = 1
-	screwloose = 1
+/mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
+	. = ..()
+	if(!screwloose || !oddbutton)
+		if(user)
+			user << "<span class='notice'>The [src] buzzes and beeps.</span>"
+		oddbutton = 1
+		screwloose = 1
+		return 1
 
 /mob/living/bot/cleanbot/proc/get_targets()
-	target_types = list()
+	// To avoid excessive loops, instead of storing a list of top-level types, we're going to store a list of all cleanables.
+	// It eats a little more memory, but uses quite a bit less CPU when attempting to do the type check in the cleaning routine.
+	// We're always going to have more memory to work with than CPU when it comes to BYOND and the extra usage is not much.
+	// And to avoid calling typesof() a bunch, we're going to generate the list once globally then Copy() to the bot's list and remove blood if needed.
+	// In my tests with around 50 cleanbots actively cleaning up messes it reduced the CPU usage on average around 10%
+	if(!cleanbot_types)
+		// This just generates the global list if it hasn't been done already, quick process.
+		cleanbot_types = typesof(/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/vomit,\
+						/obj/effect/decal/cleanable/crayon,/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/mucus,/obj/effect/decal/cleanable/dirt)
+						 // I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
+	target_types = cleanbot_types.Copy()
+	if(!blood)
+		target_types -= typesof(/obj/effect/decal/cleanable/blood)-typesof(/obj/effect/decal/cleanable/blood/oil)
+/*	target_types = list()
 
 	target_types += /obj/effect/decal/cleanable/blood/oil
 	target_types += /obj/effect/decal/cleanable/vomit
@@ -271,7 +332,7 @@
 	target_types += /obj/effect/decal/cleanable/dirt
 
 	if(blood)
-		target_types += /obj/effect/decal/cleanable/blood
+		target_types += /obj/effect/decal/cleanable/blood*/
 
 /* Radio object that listens to signals */
 
@@ -288,7 +349,7 @@
 	var/dist = get_dist(cleanbot, signal.source.loc)
 	memorized[recv] = signal.source.loc
 
-	if(dist < cleanbot.closest_dist) // We check all signals, choosing the closest beakon; then we move to the NEXT one after the closest one
+	if(dist < cleanbot.closest_dist) // We check all signals, choosing the closest beacon; then we move to the NEXT one after the closest one
 		cleanbot.closest_dist = dist
 		cleanbot.next_dest = signal.data["next_patrol"]
 
@@ -317,7 +378,6 @@
 		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
 		user.drop_from_inventory(src)
 		qdel(src)
-		return 1
 
 	else if(istype(O, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)

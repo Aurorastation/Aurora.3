@@ -16,3 +16,6 @@ var/global/list/contest_factions = list("Independant" = INDEP,
 									   "People's Strategic Information Service" = PSIS,
 									   "Hegemon Shadow Service" = HSH,
 									   "Tup Commandos Division" = TCD)
+
+var/global/list/contest_factions_prosynth = list(SLF)
+var/global/list/contest_factions_antisynth = list(HSH, TCD)

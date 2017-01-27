@@ -3,6 +3,7 @@
 	anchored = 1
 	density = 1
 	layer = 2
+	w_class = 5
 	var/state = 0
 	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
@@ -28,11 +29,10 @@
 	if(Proj.original != src && !prob(cover))
 		return PROJECTILE_CONTINUE //pass through
 
-	//Tasers and the like should not damage girders.
-	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+	var/damage = Proj.get_structure_damage()
+	if(!damage)
 		return
 
-	var/damage = Proj.damage
 	if(!istype(Proj, /obj/item/projectile/beam))
 		damage *= 0.4 //non beams do reduced damage
 
@@ -87,14 +87,14 @@
 		else
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
-			
+
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			if(!src) return
 			user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
-			
+
 	else if(istype(W, /obj/item/weapon/melee/chainsword))
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)
@@ -225,6 +225,7 @@
 
 /obj/structure/girder/proc/dismantle()
 	new /obj/item/stack/material/steel(get_turf(src))
+	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
 /obj/structure/girder/attack_hand(mob/user as mob)
@@ -233,10 +234,6 @@
 		dismantle()
 		return
 	return ..()
-
-/obj/structure/girder/blob_act()
-	if(prob(40))
-		qdel(src)
 
 
 /obj/structure/girder/ex_act(severity)
@@ -247,12 +244,20 @@
 		if(2.0)
 			if (prob(30))
 				dismantle()
-			return
+				return
+			else
+				health -= rand(60,180)
+
 		if(3.0)
 			if (prob(5))
 				dismantle()
-			return
+				return
+			else
+				health -= rand(40,80)
 		else
+
+	if(health <= 0)
+		dismantle()
 	return
 
 /obj/structure/girder/cult
@@ -286,7 +291,7 @@
 
 	else if(istype(W, /obj/item/weapon/melee/energy))
 		var/obj/item/weapon/melee/energy/WT = W
-		if(WT.active)	
+		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
 			if(do_after(user,30))
 				user << "<span class='notice'>You slice apart the girder!</span>"
@@ -294,13 +299,13 @@
 		else
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
-		
+
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			user << "<span class='notice'>You slice apart the girder!</span>"
 		dismantle()
-			
+
 	else if(istype(W, /obj/item/weapon/melee/chainsword))
 		var/obj/item/weapon/melee/chainsword/WT = W
 		if(WT.active)

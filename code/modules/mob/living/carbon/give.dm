@@ -2,10 +2,10 @@
 	set category = "IC"
 	set name = "Give"
 
-	// TODO :  Change to incapacitated() on merge.
-	if(usr.stat || usr.lying || usr.resting || usr.buckled)
+	if(incapacitated())
 		return
-	if(!istype(target) || target.stat || target.lying || target.resting || target.buckled || target.client == null)
+	if(!istype(target) || target.stat || target.lying || target.resting || target.restrained() || target.client == null)
+		usr << "\red [target.name] is in no condition to handle items!"
 		return
 
 	var/obj/item/I = usr.get_active_hand()

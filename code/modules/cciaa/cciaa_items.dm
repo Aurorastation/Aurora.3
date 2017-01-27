@@ -201,9 +201,9 @@
 		dat += "[line]<br>"
 
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
-	P.name = "[firstLine]"
-	P.info = "[dat]"
-	P.update_icon()
+	var/pname = "[firstLine]"
+	var/info = "[dat]"
+	P.set_content_unsafe(pname, info)
 	P.loc = get_turf(src.loc)
 
 	return
@@ -251,3 +251,13 @@
 
 /obj/item/device/taperecorder/cciaa/explode()
 	return
+
+//ccia headset, only command and ert channel are on by default
+
+/obj/item/device/radio/headset/ert/ccia
+	name = "central command internal affairs radio headset"
+	ks2type = /obj/item/device/encryptionkey/ert
+
+/obj/item/device/encryptionkey/ccia
+	name = "\improper CCIA radio encryption key"
+	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Supply" = 0, "Service" = 0)

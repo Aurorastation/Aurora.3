@@ -5,7 +5,7 @@ var/datum/antagonist/highlander/highlanders
 	role_text_plural = "Highlanders"
 	welcome_text = "There can be only one."
 	id = MODE_HIGHLANDER
-	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE //| ANTAG_RANDSPAWN | ANTAG_VOTABLE // Someday...
+	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE
 
 	hard_cap = 5
 	hard_cap_round = 7
@@ -49,7 +49,7 @@ var/datum/antagonist/highlander/highlanders
 	var/obj/item/weapon/card/id/W = new(player)
 	W.name = "[player.real_name]'s ID Card"
 	W.icon_state = "centcom"
-	W.access = get_all_accesses()
+	W.access = get_all_station_access()
 	W.access += get_all_centcom_access()
 	W.assignment = "Highlander"
 	W.registered_name = player.real_name
@@ -66,5 +66,5 @@ var/datum/antagonist/highlander/highlanders
 		if(is_special_character(H)) continue
 		highlanders.add_antagonist(H.mind)
 
-	message_admins("\blue [key_name_admin(usr)] used THERE CAN BE ONLY ONE!", 1)
+	message_admins("<span class='notice'>[key_name_admin(usr)] used THERE CAN BE ONLY ONE!</span>", 1)
 	log_admin("[key_name(usr)] used there can be only one.")

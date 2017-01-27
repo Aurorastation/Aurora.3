@@ -1,8 +1,8 @@
 /obj/item/weapon/gun/energy/lawgiver
-	name = "Lawgiver Mk II"
+	name = "\improper Lawgiver Mk II"
 	icon_state = "lawgiver"
 	item_state = "gun"
-	origin_tech = "combat=6;magnets=5"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	projectile_type=/obj/item/projectile/bullet/pistol
 	fire_sound='sound/weapons/Gunshot_smg.ogg'
 	sel_mode = 1
@@ -18,13 +18,13 @@
 
 	firemodes = list(
 		list(
-			name="singleshot",
+			mode_name="singleshot",
 			charge_cost=50,
 			fire_delay=3,
 			recoil=1
 		),
 		list(
-			name="rapidfire",
+			mode_name="rapidfire",
 			charge_cost=150,
 			fire_delay=3,
 			recoil=1,
@@ -34,35 +34,35 @@
 			dispersion = list(0.0, 0.6, 1.0)
 		),
 		list(
-			name="highex",
+			mode_name="highex",
 			charge_cost=300,
 			fire_delay=6,
 			recoil=3
 		),
 		list(
-			name="stun",
+			mode_name="stun",
 			charge_cost=50,
 			fire_delay=4,
 			recoil=0
 		),
 		list(
-			name="hotshot",
+			mode_name="hotshot",
 			charge_cost=200,
 			fire_delay=4,
 			recoil=3
 		),
 		list(
-			name="armorpiercing",
+			mode_name="armorpiercing",
 			charge_cost=300,
 			fire_delay=6,
 			recoil=3
 		),
 		list(
-			name="pellets",
+			mode_name="pellets",
 			charge_cost=300,
 			fire_delay=6,
 			recoil=3
-		),
+		)
 	)
 
 /obj/item/weapon/gun/energy/lawgiver/proc/play_message()
@@ -84,7 +84,7 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)
+/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -117,7 +117,10 @@
 		..()
 
 /obj/item/weapon/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
-	if( (src.dna==usr.dna.unique_enzymes || emagged) && (src in usr.contents))
+	var/mob/living/carbon/human/H = M
+	if (!H)
+		return
+	if( (src.dna==H.dna.unique_enzymes || emagged) && (src in H.contents))
 		hear(msg)
 	return
 

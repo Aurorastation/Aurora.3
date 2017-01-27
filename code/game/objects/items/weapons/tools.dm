@@ -24,8 +24,8 @@
 	force = 5.0
 	throwforce = 7.0
 	w_class = 2.0
+	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
-	origin_tech = "materials=1;engineering=1"
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
 
@@ -46,11 +46,6 @@
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
-
-	suicide_act(mob/user)
-		viewers(user) << pick("\red <b>[user] is stabbing the [src.name] into \his temple! It looks like \he's trying to commit suicide.</b>", \
-							"\red <b>[user] is stabbing the [src.name] into \his heart! It looks like \he's trying to commit suicide.</b>")
-		return(BRUTELOSS)
 
 /obj/item/weapon/screwdriver/New()
 	switch(pick("red","blue","purple","brown","green","cyan","yellow"))
@@ -78,11 +73,12 @@
 
 	if (prob(75))
 		src.pixel_y = rand(0, 16)
-	return
+	..()
 
-/obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(!istype(M))	return ..()
-	if(user.zone_sel.selecting != "eyes" && user.zone_sel.selecting != "head")
+/obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+	if(!istype(M) || user.a_intent == "help")
+		return ..()
+	if(target_zone != "eyes" && target_zone != "head")
 		return ..()
 	if((CLUMSY in user.mutations) && prob(50))
 		M = user
@@ -102,8 +98,8 @@
 	throw_speed = 2
 	throw_range = 9
 	w_class = 2.0
+	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
-	origin_tech = "materials=1;engineering=1"
 	attack_verb = list("pinched", "nipped")
 	sharp = 1
 	edge = 1
@@ -112,9 +108,10 @@
 	if(prob(50))
 		icon_state = "cutters-y"
 		item_state = "cutters_yellow"
+	..()
 
-/obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob)
-	if((C.handcuffed) && (istype(C.handcuffed, /obj/item/weapon/handcuffs/cable)))
+/obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
+	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/weapon/handcuffs/cable)))
 		usr.visible_message("\The [usr] cuts \the [C]'s restraints with \the [src]!",\
 		"You cut \the [C]'s restraints with \the [src]!",\
 		"You hear cable being cut.")
@@ -126,15 +123,24 @@
 	else
 		..()
 
+
+
+
+
+
 /*
  * Welding Tool
  */
 /obj/item/weapon/weldingtool
 	name = "welding tool"
-	icon = 'icons/obj/items.dmi'
+	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
+	icon = 'icons/obj/tools/welding.dmi'
 	icon_state = "welder"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
+	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
+	var/base_itemstate = "welder"
+	contained_sprite = 1
 
 	//Amount of OUCH when it's thrown
 	force = 3.0
@@ -147,25 +153,80 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 30)
 
 	//R&D tech level
-	origin_tech = "engineering=1"
+	origin_tech = list(TECH_ENGINEERING = 1)
 
 	//Welding tool specific stuff
 	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
 	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 
+
+/obj/item/weapon/weldingtool/largetank
+	name = "industrial welding tool"
+	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
+	max_fuel = 40
+	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
+	origin_tech = "engineering=2"
+	base_iconstate = "ind_welder"
+
+
+/obj/item/weapon/weldingtool/hugetank
+	name = "advanced welding tool"
+	desc = "A rare and powerful welding tool with a super-extended fuel tank."
+	max_fuel = 80
+	w_class = 2.0
+	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
+	origin_tech = "engineering=3"
+	base_iconstate = "adv_welder"
+
+
+//The Experimental Welding Tool!
+/obj/item/weapon/weldingtool/experimental
+	name = "experimental welding tool"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	max_fuel = 40
+	w_class = 2.0
+	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
+	origin_tech = "engineering=4;biotech=4"
+	base_iconstate = "exp_welder"
+	base_itemstate = "exp_welder"
+
+	var/last_gen = 0
+	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
+	//800 = 1 unit per 1 minute and 20 seconds,
+	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
+
+
+
+
+
+
+
+
+//Welding tool functionality here
 /obj/item/weapon/weldingtool/New()
 //	var/random_fuel = min(rand(10,20),max_fuel)
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
 	R.add_reagent("fuel", max_fuel)
-	return
+	update_icon()
+	..()
+
+/obj/item/weapon/weldingtool/update_icon()
+	..()
+	var/add = welding ? "_on" : "_off"
+	icon_state = base_iconstate + add //These are given an _on/_off suffix before being used
+	item_state = base_itemstate + add
+	var/mob/M = loc
+	if(istype(M))
+		M.update_inv_l_hand()
+		M.update_inv_r_hand()
 
 /obj/item/weapon/weldingtool/Destroy()
 	if(welding)
 		processing_objects -= src
-	..()
+	return ..()
 
 /obj/item/weapon/weldingtool/examine(mob/user)
 	if(..(user, 0))
@@ -174,14 +235,17 @@
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/screwdriver))
+		if (isrobot(loc))
+			user << span("alert", "You cannot modify your own welder!")
+			return
 		if(welding)
-			user << "<span class='danger'>Stop welding first!</span>"
+			user << span("danger", "Stop welding first!")
 			return
 		status = !status
 		if(status)
-			user << "<span class='notice'>You secure the welder.</span>"
+			user << span("notice", "You secure the welder.")
 		else
-			user << "<span class='notice'>The welder can now be attached and modified.</span>"
+			user << span("notice", "The welder can now be attached and modified.")
 		src.add_fingerprint(user)
 		return
 
@@ -228,6 +292,43 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
+/obj/item/weapon/weldingtool/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+
+	if(hasorgans(M))
+
+		var/obj/item/organ/external/S = M:organs_by_name[target_zone]
+
+		if (!S) return
+		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
+			return ..()
+
+		if(M.isSynthetic() && M == user)
+			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
+			return
+		if(S.brute_dam == 0)
+			// Organ undamaged
+			user << "Nothing to fix here!"
+			return
+		if (!src.welding)
+			// Welder is switched off!
+			user << "<span class='warning'>You need to light the welding tool, first!</span>"
+			return
+		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
+			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
+			return			
+		if (src.remove_fuel(0))
+			// Use a bit of fuel and repair
+			S.heal_damage(15,0,0,1)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.visible_message("<span class='warning'>\The [user] patches some dents on \the [M]'s [S.name] with \the [src].</span>")
+		else
+			// Welding tool is out of fuel
+			user << "Need more welding fuel!"
+		return
+
+	else
+		return ..()
+
 
 /obj/item/weapon/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
@@ -252,7 +353,7 @@
 				return
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.")
-			user << "\red That was stupid of you."
+			user << span("alert", "That was stupid of you.")
 			tank.explode()
 			return
 		else
@@ -291,20 +392,14 @@
 		return 1
 	else
 		if(M)
-			M << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+			M << span("notice", "You need more welding fuel to complete this task.")
 		return 0
 
 //Returns whether or not the welding tool is currently on.
 /obj/item/weapon/weldingtool/proc/isOn()
 	return src.welding
 
-/obj/item/weapon/weldingtool/update_icon()
-	..()
-	icon_state = welding ? "welder1" : "welder"
-	var/mob/M = loc
-	if(istype(M))
-		M.update_inv_l_hand()
-		M.update_inv_r_hand()
+
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
@@ -355,75 +450,46 @@
 //Note: This should probably be moved to mob
 /obj/item/weapon/weldingtool/proc/eyecheck(mob/user as mob)
 	if(!iscarbon(user))	return 1
-	var/safety = user:eyecheck()
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 		if(!E)
 			return
-		if(H.species.flags & IS_SYNTHETIC)
-			return
+		var/safety = H.eyecheck()
 		switch(safety)
-			if(1)
-				usr << "\red Your eyes sting a little."
+			if(FLASH_PROTECTION_MODERATE)
+				usr << "<span class='warning'>Your eyes sting a little.</span>"
 				E.damage += rand(1, 2)
 				if(E.damage > 12)
 					user.eye_blurry += rand(3,6)
-			if(0)
-				usr << "\red Your eyes burn."
+			if(FLASH_PROTECTION_NONE)
+				usr << "<span class='warning'>Your eyes burn.</span>"
 				E.damage += rand(2, 4)
 				if(E.damage > 10)
 					E.damage += rand(4,10)
-			if(-1)
-				usr << "\red Your thermals intensify the welder's glow. Your eyes itch and burn severely."
+			if(FLASH_PROTECTION_REDUCED)
+				usr << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
 				user.eye_blurry += rand(12,20)
 				E.damage += rand(12, 16)
-		if(safety<2)
-
+		if(safety<FLASH_PROTECTION_MAJOR)
 			if(E.damage > 10)
-				user << "\red Your eyes are really starting to hurt. This can't be good for you!"
+				user << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
 
 			if (E.damage >= E.min_broken_damage)
-				user << "\red You go blind!"
+				user << "<span class='danger'>You go blind!</span>"
 				user.sdisabilities |= BLIND
 			else if (E.damage >= E.min_bruised_damage)
-				user << "\red You go blind!"
+				user << "<span class='danger'>You go blind!</span>"
 				user.eye_blind = 5
 				user.eye_blurry = 5
 				user.disabilities |= NEARSIGHTED
 				spawn(100)
 					user.disabilities &= ~NEARSIGHTED
+
 	return
 
 
-/obj/item/weapon/weldingtool/largetank
-	name = "industrial welding tool"
-	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 60)
-	origin_tech = "engineering=2"
 
-/obj/item/weapon/weldingtool/hugetank
-	name = "upgraded welding tool"
-	max_fuel = 80
-	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 120)
-	origin_tech = "engineering=3"
-
-
-
-
-//The Experimental Welding Tool!
-/obj/item/weapon/weldingtool/experimental
-	name = "experimental welding tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
-	max_fuel = 40
-	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 120)
-	origin_tech = "engineering=4;biotech=4"
-	var/last_gen = 0
-	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
-	//800 = 1 unit per 1 minute and 20 seconds,
-	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
 
 /obj/item/weapon/weldingtool/Destroy()
 	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
@@ -477,8 +543,8 @@
 	throwforce = 7.0
 	item_state = "crowbar"
 	w_class = 2.0
+	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
-	origin_tech = "engineering=1"
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 
 /obj/item/weapon/crowbar/red
@@ -486,32 +552,7 @@
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
 
-/obj/item/weapon/weldingtool/attack(mob/M as mob, mob/user as mob)
 
-	if(hasorgans(M))
-
-		var/obj/item/organ/external/S = M:organs_by_name[user.zone_sel.selecting]
-
-		if (!S) return
-		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
-			return ..()
-
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			if(H.species.flags & IS_SYNTHETIC)
-				if(M == user)
-					user << "\red You can't repair damage to your own body - it's against OH&S."
-					return
-
-		if(S.brute_dam)
-			S.heal_damage(15,0,0,1)
-			user.visible_message("\red \The [user] patches some dents on \the [M]'s [S.name] with \the [src].")
-			return
-		else
-			user << "Nothing to fix!"
-
-	else
-		return ..()
 
 /*/obj/item/weapon/combitool
 	name = "combi-tool"

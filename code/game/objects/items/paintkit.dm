@@ -114,7 +114,7 @@
 /obj/item/device/kit/paint/ripley
 	name = "\"Classic\" APLU customisation kit"
 	new_name = "APLU \"Classic\""
-	new_desc = "A very retro APLU unit; didn't they retire these back in 2543?"
+	new_desc = "A very retro APLU unit; didn't they retire these back in 2443?"
 	new_icon = "ripley-old"
 	allowed_types = list("ripley")
 
@@ -136,6 +136,18 @@
 	new_name = "APLU \"Burning Chrome\""
 	new_desc = "A standard APLU exosuit with stylish blue flame decals."
 	new_icon = "ripley_flames_blue"
+	
+/obj/item/device/kit/paint/ripley/titan
+	name = "\"Titan's Fist\" APLU customisation kit"
+	new_name = "APLU \"Titan's Fist\""
+	new_desc = "This ordinary mining Ripley has been customized to look like a unit of the Titans Fist."
+	new_icon = "titan"
+
+/obj/item/device/kit/paint/ripley/earth
+	name = "\"Strike the Earth!\" APLU customisation kit"
+	new_name = "APLU \"Strike the Earth!\""
+	new_desc = "Looks like an over worked, under maintained Ripley with some horrific damage."
+	new_icon = "earth"
 
 // Durand kits.
 /obj/item/device/kit/paint/durand

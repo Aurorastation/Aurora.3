@@ -36,7 +36,9 @@
 		return
 
 	user << "<span class='notice'>Printing findings now...</span>"
-	var/obj/item/weapon/paper/report = new(get_turf(src))
+	var/obj/item/weapon/paper/report = new()
+	var/pname
+	var/info
 	report.stamped = list(/obj/item/weapon/stamp)
 	report.overlays = list("paper_stamped")
 	report_num++
@@ -46,51 +48,53 @@
 		if(slide.has_swab)
 			var/obj/item/weapon/forensics/swab/swab = slide.has_swab
 
-			report.name = "GSR report #[++report_num]: [swab.name]"
-			report.info = "<b>Scanned item:</b><br>[swab.name]<br><br>"
+			pname = "GSR report #[++report_num]: [swab.name]"
+			info = "<b>Scanned item:</b><br>[swab.name]<br><br>"
 
 			if(swab.gsr)
-				report.info += "Residue from a [swab.gsr] bullet detected."
+				info += "Residue from a [swab.gsr] bullet detected."
 			else
-				report.info += "No gunpowder residue found."
+				info += "No gunpowder residue found."
 
 		else if(slide.has_sample)
 			var/obj/item/weapon/sample/fibers/fibers = slide.has_sample
-			report.name = "Fiber report #[++report_num]: [fibers.name]"
-			report.info = "<b>Scanned item:</b><br>[fibers.name]<br><br>"
+			pname = "Fiber report #[++report_num]: [fibers.name]"
+			info = "<b>Scanned item:</b><br>[fibers.name]<br><br>"
 			if(fibers.evidence)
-				report.info = "Molecular analysis on provided sample has determined the presence of unique fiber strings.<br><br>"
+				info = "Molecular analysis on provided sample has determined the presence of unique fiber strings.<br><br>"
 				for(var/fiber in fibers.evidence)
-					report.info += "<span class='notice'>Most likely match for fibers: [fiber]</span><br><br>"
+					info += "<span class='notice'>Most likely match for fibers: [fiber]</span><br><br>"
 			else
-				report.info += "No fibers found."
+				info += "No fibers found."
 		else
-			report.name = "Empty slide report #[report_num]"
-			report.info = "Evidence suggests that there's nothing in this slide."
+			pname = "Empty slide report #[report_num]"
+			info = "Evidence suggests that there's nothing in this slide."
 	else if(istype(sample, /obj/item/weapon/sample/print))
-		report.name = "Fingerprint report #[report_num]: [sample.name]"
-		report.info = "<b>Fingerprint analysis report #[report_num]</b>: [sample.name]<br>"
+		pname = "Fingerprint report #[report_num]: [sample.name]"
+		info = "<b>Fingerprint analysis report #[report_num]</b>: [sample.name]<br>"
 		var/obj/item/weapon/sample/print/card = sample
 		if(card.evidence && card.evidence.len)
-			report.info += "Surface analysis has determined unique fingerprint strings:<br><br>"
+			info += "Surface analysis has determined unique fingerprint strings:<br><br>"
 			for(var/prints in card.evidence)
-				report.info += "<span class='notice'>Fingerprint string: </span>"
+				info += "<span class='notice'>Fingerprint string: </span>"
 				if(!is_complete_print(prints))
-					report.info += "INCOMPLETE PRINT"
+					info += "INCOMPLETE PRINT"
 				else
-					report.info += "[prints]"
-				report.info += "<br>"
+					info += "[prints]"
+				info += "<br>"
 		else
-			report.info += "No information available."
+			info += "No information available."
+
+	report.set_content_unsafe(pname, info)
 
 	if(report)
 		report.update_icon()
 		if(report.info)
 			user << report.info
-	return
+	print(report)
 
 /obj/machinery/microscope/proc/remove_sample(var/mob/living/remover)
-	if(!istype(remover) || remover.stat || !Adjacent(remover))
+	if(!istype(remover) || remover.incapacitated() || !Adjacent(remover))
 		return ..()
 	if(!sample)
 		remover << "<span class='warning'>\The [src] does not have a sample in it.</span>"

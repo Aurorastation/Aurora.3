@@ -6,21 +6,52 @@
 /obj/item/weapon/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	item_icons = list(
+	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		slot_l_hand_str = 'icons/mob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi'
 		)
 	icon_state = "backpack"
 	item_state = null
 	//most backpacks use the default backpack state for inhand overlays
 	item_state_slots = list(
 		slot_l_hand_str = "backpack",
-		slot_r_hand_str = "backpack",
+		slot_r_hand_str = "backpack"
+		)
+	sprite_sheets = list(
+		"Resomi" = 'icons/mob/species/resomi/back.dmi'
 		)
 	w_class = 4
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
+	var/species_restricted = list("exclude","Vaurca Breeder")
+
+/obj/item/weapon/storage/backpack/mob_can_equip(M as mob, slot)
+
+	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
+	if (!..())
+		return 0
+
+	if(species_restricted && istype(M,/mob/living/carbon/human))
+		var/exclusive = null
+		var/wearable = null
+		var/mob/living/carbon/human/H = M
+
+		if("exclude" in species_restricted)
+			exclusive = 1
+
+		if(H.species)
+			if(exclusive)
+				if(!(H.species.get_bodytype() in species_restricted))
+					wearable = 1
+			else
+				if(H.species.get_bodytype() in species_restricted)
+					wearable = 1
+
+			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
+				H << "<span class='danger'>Your species cannot wear [src].</span>"
+				return 0
+	return 1
 
 /obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (src.use_sound)
@@ -46,35 +77,21 @@
 /obj/item/weapon/storage/backpack/holding
 	name = "bag of holding"
 	desc = "A backpack that opens into a localized pocket of Blue Space."
-	origin_tech = "bluespace=4"
+	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
 	max_w_class = 4
 	max_storage_space = 56
+	storage_cost = 29
 
 	New()
 		..()
 		return
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(crit_fail)
-			user << "\red The Bluespace generator isn't working."
-			return
-		if(istype(W, /obj/item/weapon/storage/backpack/holding) && !W.crit_fail)
-			user << "\red The Bluespace interfaces of the two devices conflict and malfunction."
+		if(istype(W, /obj/item/weapon/storage/backpack/holding))
+			user << "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>"
 			qdel(W)
 			return
-			/* //BoH+BoH=Singularity, commented out.
-		if(istype(W, /obj/item/weapon/storage/backpack/holding) && !W.crit_fail)
-			investigate_log("has become a singularity. Caused by [user.key]","singulo")
-			user << "\red The Bluespace interfaces of the two devices catastrophically malfunction!"
-			qdel(W)
-			var/obj/singularity/singulo = new /obj/singularity (get_turf(src))
-			singulo.energy = 300 //should make it a bit bigger~
-			message_admins("[key_name_admin(user)] detonated a bag of holding")
-			log_game("[key_name(user)] detonated a bag of holding")
-			qdel(src)
-			return
-			*/
 		..()
 
 	//Please don't clutter the parent storage item with stupid hacks.
@@ -83,25 +100,12 @@
 			return 1
 		return ..()
 
-	proc/failcheck(mob/user as mob)
-		if (prob(src.reliability)) return 1 //No failure
-		if (prob(src.reliability))
-			user << "\red The Bluespace portal resists your attempt to add another item." //light failure
-		else
-			user << "\red The Bluespace generator malfunctions!"
-			for (var/obj/O in src.contents) //it broke, delete what was in it
-				qdel(O)
-			crit_fail = 1
-			icon_state = "brokenpack"
-
-
 /obj/item/weapon/storage/backpack/santabag
 	name = "\improper Santa's gift bag"
 	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
 	icon_state = "giftbag0"
 	item_state = "giftbag"
 	w_class = 4.0
-	storage_slots = 20
 	max_w_class = 3
 	max_storage_space = 400 // can store a ton of shit!
 	item_state_slots = null
@@ -131,7 +135,7 @@
 
 /obj/item/weapon/storage/backpack/captain
 	name = "captain's backpack"
-	desc = "It's a special backpack made exclusively for Nanotrasen officers."
+	desc = "It's a special backpack made exclusively for officers."
 	icon_state = "captainpack"
 	item_state_slots = null
 
@@ -177,12 +181,24 @@
 	if (!..())
 		return 0
 
-	if (user.get_species() == "Vaurca")
-		item_state = "vaurcacape"
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if (H.species.get_bodytype() == "Vaurca")
+			item_state = "vaurcacape"
 	else
 		item_state = "cape"
 
 	return 1
+
+/obj/item/weapon/storage/backpack/syndie
+	name = "syndicate rucksack"
+	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"
+	icon_state = "syndiepack"
+
+/obj/item/weapon/storage/backpack/wizard
+	name = "wizard federation sack"
+	desc = "Perfect for keeping your shining crystal balls inside of."
+	icon_state = "wizardpack"
 
 /*
  * Satchel Types
@@ -209,7 +225,7 @@
 	icon_state = "satchel-eng"
 	item_state_slots = list(
 		slot_l_hand_str = "engiepack",
-		slot_r_hand_str = "engiepack",
+		slot_r_hand_str = "engiepack"
 		)
 
 /obj/item/weapon/storage/backpack/satchel_med
@@ -218,7 +234,7 @@
 	icon_state = "satchel-med"
 	item_state_slots = list(
 		slot_l_hand_str = "medicalpack",
-		slot_r_hand_str = "medicalpack",
+		slot_r_hand_str = "medicalpack"
 		)
 
 /obj/item/weapon/storage/backpack/satchel_vir
@@ -247,7 +263,7 @@
 	icon_state = "satchel-sec"
 	item_state_slots = list(
 		slot_l_hand_str = "securitypack",
-		slot_r_hand_str = "securitypack",
+		slot_r_hand_str = "securitypack"
 		)
 
 /obj/item/weapon/storage/backpack/satchel_hyd
@@ -257,42 +273,114 @@
 
 /obj/item/weapon/storage/backpack/satchel_cap
 	name = "captain's satchel"
-	desc = "An exclusive satchel for Nanotrasen officers."
+	desc = "An exclusive satchel for officers."
 	icon_state = "satchel-cap"
 	item_state_slots = list(
 		slot_l_hand_str = "satchel-cap",
-		slot_r_hand_str = "satchel-cap",
+		slot_r_hand_str = "satchel-cap"
 		)
+
+/obj/item/weapon/storage/backpack/satchel_syndie
+	name = "syndicate satchel"
+	desc = "A satchel in the new age style of a multi-corperate terrorist organisation."
+	icon_state = "satchel-syndie"
+
+/obj/item/weapon/storage/backpack/satchel_wizard
+	name = "wizard federation satchel"
+	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare."
+	icon_state = "satchel-wizard"
 
 //ERT backpacks.
 /obj/item/weapon/storage/backpack/ert
 	name = "emergency response team backpack"
-	desc = "A spacious backpack with lots of pockets, used by members of the Nanotrasen Emergency Response Team."
+	desc = "A spacious backpack with lots of pockets, used by members of the Emergency Response Team."
 	icon_state = "ert_commander"
 	item_state_slots = list(
 		slot_l_hand_str = "securitypack",
-		slot_r_hand_str = "securitypack",
+		slot_r_hand_str = "securitypack"
 		)
 
 //Commander
 /obj/item/weapon/storage/backpack/ert/commander
 	name = "emergency response team commander backpack"
-	desc = "A spacious backpack with lots of pockets, worn by the commander of a Nanotrasen Emergency Response Team."
+	desc = "A spacious backpack with lots of pockets, worn by the commander of an Emergency Response Team."
 
 //Security
 /obj/item/weapon/storage/backpack/ert/security
 	name = "emergency response team security backpack"
-	desc = "A spacious backpack with lots of pockets, worn by security members of a Nanotrasen Emergency Response Team."
+	desc = "A spacious backpack with lots of pockets, worn by security members of an Emergency Response Team."
 	icon_state = "ert_security"
 
 //Engineering
 /obj/item/weapon/storage/backpack/ert/engineer
 	name = "emergency response team engineer backpack"
-	desc = "A spacious backpack with lots of pockets, worn by engineering members of a Nanotrasen Emergency Response Team."
+	desc = "A spacious backpack with lots of pockets, worn by engineering members of an Emergency Response Team."
 	icon_state = "ert_engineering"
 
 //Medical
 /obj/item/weapon/storage/backpack/ert/medical
 	name = "emergency response team medical backpack"
-	desc = "A spacious backpack with lots of pockets, worn by medical members of a Nanotrasen Emergency Response Team."
+	desc = "A spacious backpack with lots of pockets, worn by medical members of an Emergency Response Team."
 	icon_state = "ert_medical"
+
+// Duffel Bags
+
+/obj/item/weapon/storage/backpack/duffel
+	name = "duffel bag"
+	desc = "A spacious duffel bag."
+	icon_state = "duffel-norm"
+
+/obj/item/weapon/storage/backpack/duffel/cap
+	name = "captain's duffel bag"
+	desc = "A rare and special duffel bag for only the most air-headed of Nanotrasen personnel."
+	icon_state = "duffel-captain"
+
+/obj/item/weapon/storage/backpack/duffel/hyd
+	name = "botanist's duffel bag"
+	desc = "A specially designed duffel bag for containing plant matter, regardless of how questionable it may be."
+	icon_state = "duffel-hydroponics"
+
+/obj/item/weapon/storage/backpack/duffel/vir
+	name = "virology duffel bag"
+	desc = "A sterilized duffel bag suited to those about to unleash pathogenic havoc upon the world."
+	icon_state = "duffel-virology"
+
+/obj/item/weapon/storage/backpack/duffel/med
+	name = "medical duffel bag"
+	desc = "A sterilized duffel bag for the young, upcoming lesbayan."
+	icon_state = "duffel-medical"
+
+/obj/item/weapon/storage/backpack/duffel/eng
+	name = "industrial duffel bag"
+	desc = "A rough and tumble duffel bag for the hard working wrench-monkey of tomorrow."
+	icon_state = "duffel-engineering"
+
+/obj/item/weapon/storage/backpack/duffel/tox
+	name = "scientist's duffel bag"
+	desc = "Handy when it comes to storing volatile materials of the anomalous persuasion."
+	icon_state = "duffel-toxins"
+
+/obj/item/weapon/storage/backpack/duffel/sec
+	name = "security duffel bag"
+	desc = "A grey and blue duffel bag for the boys in colour, with room for all the batons and flashbangs you could ever need."
+	icon_state = "duffel-security"
+
+/obj/item/weapon/storage/backpack/duffel/gen
+	name = "genetics duffel bag"
+	desc = "It sure won't hold your genes together, but it'll keep the denim ones safe."
+	icon_state = "duffel-genetics"
+
+/obj/item/weapon/storage/backpack/duffel/chem
+	name = "chemistry duffel bag"
+	desc = "Spice up the love life a little."
+	icon_state = "duffel-chemistry"
+
+/obj/item/weapon/storage/backpack/duffel/syndie
+	name = "syndicate duffel bag"
+	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens."
+	icon_state = "duffel-syndie"
+
+/obj/item/weapon/storage/backpack/duffel/wizard
+	name = "wizardly duffel bag"
+	desc = "A fancy blue wizard bag, duffel edition."
+	icon_state = "duffel-wizard"

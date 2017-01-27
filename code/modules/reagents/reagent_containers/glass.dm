@@ -35,7 +35,6 @@
 		/obj/machinery/iv_drip,
 		/obj/machinery/disease2/incubator,
 		/obj/machinery/disposal,
-		/obj/machinery/apiary,
 		/mob/living/simple_animal/cow,
 		/mob/living/simple_animal/hostile/retaliate/goat,
 		/obj/machinery/computer/centrifuge,
@@ -43,7 +42,8 @@
 		/obj/machinery/smartfridge/,
 		/obj/machinery/biogenerator,
 		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer
+		/obj/machinery/radiocarbon_spectrometer,
+		/obj/item/weapon/storage/part_replacer
 		)
 
 	New()
@@ -70,6 +70,9 @@
 			flags |= OPENCONTAINER
 		update_icon()
 
+	AltClick(var/mob/user)
+		set_APTFT()
+
 	afterattack(var/obj/target, var/mob/user, var/flag)
 
 		if(!is_open_container() || !flag)
@@ -92,6 +95,9 @@
 			return
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W,/obj/item/weapon/storage/part_replacer))
+			if(!reagents || !reagents.total_volume)
+				return ..()
 		if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 			var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 			if(length(tmp_label) > 10)
@@ -222,20 +228,31 @@
 	flags = OPENCONTAINER
 	unacidable = 0
 
-	attackby(var/obj/D, mob/user as mob)
-		if(isprox(D))
-			user << "You add [D] to [src]."
-			qdel(D)
-			user.put_in_hands(new /obj/item/weapon/bucket_sensor)
-			user.drop_from_inventory(src)
-			qdel(src)
+/obj/item/weapon/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
 
-	update_icon()
-		overlays.Cut()
+	if(isprox(D))
+		user << "You add [D] to [src]."
+		qdel(D)
+		user.put_in_hands(new /obj/item/weapon/bucket_sensor)
+		user.drop_from_inventory(src)
+		qdel(src)
+		return
+	else if(istype(D, /obj/item/weapon/mop))
+		if(reagents.total_volume < 1)
+			user << "<span class='warning'>\The [src] is empty!</span>"
+		else
+			reagents.trans_to_obj(D, 5)
+			user << "<span class='notice'>You wet \the [D] in \the [src].</span>"
+			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+		return
+	else
+		return ..()
 
-		if (!is_open_container())
-			var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
-			overlays += lid
+/obj/item/weapon/reagent_containers/glass/bucket/update_icon()
+	overlays.Cut()
+	if (!is_open_container())
+		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
+		overlays += lid
 
 /*
 /obj/item/weapon/reagent_containers/glass/blender_jug

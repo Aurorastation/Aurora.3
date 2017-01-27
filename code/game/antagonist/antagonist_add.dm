@@ -1,7 +1,7 @@
 /datum/antagonist/proc/add_antagonist(var/datum/mind/player, var/ignore_role, var/do_not_equip, var/move_to_spawn, var/do_not_announce, var/preserve_appearance)
 
 	if(!add_antagonist_mind(player, ignore_role))
-		return
+		return 0
 
 	//do this again, just in case
 	if(flags & ANTAG_OVERRIDE_JOB)
@@ -35,7 +35,7 @@
 	// Handle only adding a mind and not bothering with gear etc.
 	if(nonstandard_role_type)
 		faction_members |= player
-		player.current << "<span class='danger'><font size=3>You are \a [nonstandard_role_type]!</span>"
+		player.current << "<span class='danger'><font size=3>You are \a [nonstandard_role_type]!</font></span>"
 		player.special_role = nonstandard_role_type
 		if(nonstandard_role_msg)
 			player.current << "<span class='notice'>[nonstandard_role_msg]</span>"

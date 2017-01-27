@@ -51,15 +51,17 @@
 
 		var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
 		P.wrapped = R
-		R.name = "Account information: [M.owner_name]"
-		R.info = "<b>Account details (confidential)</b><br><hr><br>"
-		R.info += "<i>Account holder:</i> [M.owner_name]<br>"
-		R.info += "<i>Account number:</i> [M.account_number]<br>"
-		R.info += "<i>Account pin:</i> [M.remote_access_pin]<br>"
-		R.info += "<i>Starting balance:</i> $[M.money]<br>"
-		R.info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
-		R.info += "<i>Creation terminal ID:</i> [source_db.machine_id]<br>"
-		R.info += "<i>Authorised NT officer overseeing creation:</i> [source_db.held_card.registered_name]<br>"
+		var/pname = "Account information: [M.owner_name]"
+		var/info = "<b>Account details (confidential)</b><br><hr><br>"
+		info += "<i>Account holder:</i> [M.owner_name]<br>"
+		info += "<i>Account number:</i> [M.account_number]<br>"
+		info += "<i>Account pin:</i> [M.remote_access_pin]<br>"
+		info += "<i>Starting balance:</i> $[M.money]<br>"
+		info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
+		info += "<i>Creation terminal ID:</i> [source_db.machine_id]<br>"
+		info += "<i>Authorised NT officer overseeing creation:</i> [source_db.held_card.registered_name]<br>"
+
+		R.set_content_unsafe(pname, info)
 
 		//stamp the paper
 		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
@@ -110,3 +112,24 @@
 	for(var/datum/money_account/D in all_money_accounts)
 		if(D.account_number == account_number)
 			return D
+	return 0
+
+/proc/bank_log_unauthorized(var/datum/money_account/bank_account, var/machine_id = "Unknown machine ID")
+	var/datum/transaction/T = new()
+	T.target_name = bank_account.owner_name
+	T.purpose = "Unauthorised login attempt"
+	T.source_terminal = machine_id
+	T.date = worlddate2text()
+	T.time = worldtime2text()
+	bank_account.transaction_log.Add(T)
+	return
+
+/proc/bank_log_access(var/datum/money_account/bank_account, var/machine_id = "Unknown machine ID")
+	var/datum/transaction/T = new()
+	T.target_name = bank_account.owner_name
+	T.purpose = "Remote terminal access"
+	T.source_terminal = machine_id
+	T.date = worlddate2text()
+	T.time = worldtime2text()
+	bank_account.transaction_log.Add(T)
+	return

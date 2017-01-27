@@ -3,10 +3,12 @@
 /obj/machinery/computer/skills//TODO:SANITY
 	name = "employment records console"
 	desc = "Used to view, edit and maintain employment records."
-	icon_state = "medlaptop"
-	light_color = "#315ab4"
+	icon_state = "laptop"
+
+	icon_screen = "medlaptop"
+	light_color = "#00b000"
 	req_one_access = list(access_heads)
-	circuit = "/obj/item/weapon/circuitboard/skills"
+	circuit = /obj/item/weapon/circuitboard/skills
 	var/obj/item/weapon/card/id/scan = null
 	var/authenticated = null
 	var/rank = null
@@ -14,7 +16,7 @@
 	var/datum/data/record/active1 = null
 	var/a_id = null
 	var/temp = null
-	var/printing = null
+	//var/printing = null
 	var/can_change_id = 0
 	var/list/Perp
 	var/tempname = null
@@ -23,14 +25,34 @@
 	var/order = 1 // -1 = Descending - 1 = Ascending
 	density = 0
 
-
-/obj/machinery/computer/skills/attackby(obj/item/O as obj, user as mob)
-	if(istype(O, /obj/item/weapon/card/id) && !scan)
-		usr.drop_item()
+/obj/machinery/computer/skills/attackby(obj/item/O as obj, var/mob/user)
+	if(istype(O, /obj/item/weapon/card/id) && !scan && user.unEquip(O))
 		O.loc = src
 		scan = O
 		user << "You insert [O]."
-	..()
+	else
+		..()
+
+/obj/machinery/computer/skills/AltClick(var/mob/user)
+	eject_id()
+
+
+/obj/machinery/computer/skills/verb/eject_id()
+	set category = "Object"
+	set name = "Eject ID Card"
+	set src in oview(1)
+
+	if(!usr || usr.stat || usr.lying)	return
+
+	if(scan)
+		usr << "You remove \the [scan] from \the [src]."
+		scan.loc = get_turf(src)
+		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
+			usr.put_in_hands(scan)
+		scan = null
+	else
+		usr << "There is no ID card to remove from the console."
+	return
 
 /obj/machinery/computer/skills/attack_ai(mob/user as mob)
 	return attack_hand(user)
@@ -39,8 +61,11 @@
 /obj/machinery/computer/skills/attack_hand(mob/user as mob)
 	if(..())
 		return
+	ui_interact(user)
+
+/obj/machinery/computer/skills/ui_interact(mob/user as mob)
 	if (src.z > 6)
-		user << "\red <b>Unable to establish a connection</b>: \black You're too far away from the station!"
+		user << "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!"
 		return
 	var/dat
 
@@ -91,21 +116,21 @@
 						user << browse_rsc(front, "front.png")
 						user << browse_rsc(side, "side.png")
 						dat += text({"<table><tr><td>	\
-<b>Name:</b> <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR>
-<b>ID:</b> <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>
-<b>Sex:</b> <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>
-<b>Age:</b> <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>
-<b>Rank:</b> <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>
-<b>Citizenship:</b> <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>
-<b>Home System:</b> <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>
-<b>Religion:</b> <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>
-<b>Fingerprint:</b> <A href='?src=\ref[src];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>
-<b>Physical Status:</b> [active1.fields["p_stat"]]<BR>
-<b>Mental Status:</b> [active1.fields["m_stat"]]<BR><BR></td>
-<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4>
-<img src=side.png height=80 width=80 border=4></td></tr></table>
-<h3>Employment/skills summary:</h3> [decode(active1.fields["notes"])]<br><br>
-<h3>CCIA Notes:</h3>[nl2br(decode(active1.fields["ccia_record"]))]<br><br>"})
+						<b>Name:</b> <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR>
+						<b>ID:</b> <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>
+						<b>Sex:</b> <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>
+						<b>Age:</b> <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>
+						<b>Rank:</b> <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>
+						<b>Citizenship:</b> <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>
+						<b>Home System:</b> <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>
+						<b>Religion:</b> <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>
+						<b>Fingerprint:</b> <A href='?src=\ref[src];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>
+						<b>Physical Status:</b> [active1.fields["p_stat"]]<BR>
+						<b>Mental Status:</b> [active1.fields["m_stat"]]<BR><BR></td>
+						<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4>
+						<img src=side.png height=80 width=80 border=4></td></tr></table>
+						<h3>Employment/skills summary:</h3> [decode(active1.fields["notes"])]<br><br>
+						<h3>CCIA Notes:</h3>[nl2br(decode(active1.fields["ccia_record"]))]<br><br>"})
 
 						//Add the CCIA Actions
 						dat+= text({"<h3>CCIA Actions:</h3><table border=1 width="100%"><tr><th>Title</th><th>Type</th><th>CCIA Thread</th></tr>"})
@@ -158,6 +183,9 @@
 	onclose(user, "secure_rec")
 	return
 
+
+
+
 /*Revised /N
 I can't be bothered to look more of the actual code outside of switch but that probably needs revising too.
 What a mess.*/
@@ -194,15 +222,10 @@ What a mess.*/
 
 			if("Confirm Identity")
 				if (scan)
-					if(istype(usr,/mob/living/carbon/human) && !usr.get_active_hand())
-						usr.put_in_hands(scan)
-					else
-						scan.loc = get_turf(src)
-					scan = null
+					eject_id()
 				else
 					var/obj/item/I = usr.get_active_hand()
-					if (istype(I, /obj/item/weapon/card/id))
-						usr.drop_item()
+					if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
 						I.loc = src
 						scan = I
 
@@ -284,22 +307,21 @@ What a mess.*/
 					screen = 3	*/
 
 			if ("Print Record")
-				if (!( printing ))
-					printing = 1
-					sleep(50)
-					var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( loc )
-					P.info = "<CENTER><B>Employment Record</B></CENTER><BR>"
-					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
-						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>\nEmployment/Skills Summary:<BR>\n[]<BR><br>CCIA Actions / Records: <br>This terminal is not authorized to print CCIA records and/or notes", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"], decode(active1.fields["notes"]))
-					else
-						P.info += "<B>General Record Lost!</B><BR>"
-					P.info += "</TT>"
-					if(active1)
-						P.name = "Employment Record ([active1.fields["name"]])"
-					else
-						P.name = "Employment Record (Unknown/Invald Entry)"
-						log_debug("[usr] ([usr.ckey]) attempted to print a null employee record, this should be investigated.")
-					printing = null
+				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
+				var/info = "<CENTER><B>Employment Record</B></CENTER><BR>"
+				var/pname
+				if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
+					info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>\nEmployment/Skills Summary:<BR>\n[]<BR><br>CCIA Actions / Records: <br>This terminal is not authorized to print CCIA records and/or notes", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"], decode(active1.fields["notes"]))
+				else
+					info += "<B>General Record Lost!</B><BR>"
+				info += "</TT>"
+				if(active1)
+					pname = "Employment Record ([active1.fields["name"]])"
+				else
+					pname = "Employment Record (Unknown/Invald Entry)"
+					log_debug("[usr] ([usr.ckey]) attempted to print a null employee record, this should be investigated.")
+				P.set_content_unsafe(pname, info)
+				print(P)
 //RECORD DELETE
 			if ("Delete All Records")
 				temp = ""
@@ -323,7 +345,7 @@ What a mess.*/
 			if ("New Record (General)")
 				if(PDA_Manifest.len)
 					PDA_Manifest.Cut()
-				active1 = CreateGeneralRecord()
+				active1 = data_core.CreateGeneralRecord()
 
 //FIELD FUNCTIONS
 			if ("Edit Field")

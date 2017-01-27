@@ -46,7 +46,6 @@
 
 
 
-
 	// helper lists
 	var/tmp/list/desc_list = list()
 	var/tmp/list/damage_list = list()
@@ -140,6 +139,15 @@
 
 		return 0
 
+	proc/bandage()
+		bandaged = 1
+
+	proc/salve()
+		salved = 1
+
+	proc/disinfect()
+		disinfected = 1
+
 	// heal the given amount of damage, and if the given amount of damage was more
 	// than what needed to be healed, return how much heal was left
 	// set @heals_internal to also heal internal organ damage
@@ -156,6 +164,16 @@
 			current_stage++
 		desc = desc_list[current_stage]
 		src.min_damage = damage_list[current_stage]
+
+		//Internal wounds should vanish if damage reaches 0
+		if (internal && damage <= 0)
+			//Wounds can't clean themselves up. Instead we'll set vars that will make the organ delete us
+			internal = 0
+			bleed_timer = 0
+			damage = 0
+			created = -6000//Wounds only disappear after 10 mins
+			//These vars will cause this wound to be removed and GC'd next tick
+
 
 		// return amount of healing still leftover, can be used for other wounds
 		return amount
@@ -318,15 +336,15 @@ datum/wound/cut/massive
 /datum/wound/lost_limb/New(var/obj/item/organ/external/lost_limb, var/losstype, var/clean)
 	var/damage_amt = lost_limb.max_damage
 	if(clean) damage_amt /= 2
-	
+
 	switch(losstype)
 		if(DROPLIMB_EDGE, DROPLIMB_BLUNT)
 			damage_type = CUT
 			max_bleeding_stage = 3 //clotted stump and above can bleed.
 			stages = list(
 				"ripped stump" = damage_amt*1.3,
-				"bloody stump" = damage_amt, 
-				"clotted stump" = damage_amt*0.5, 
+				"bloody stump" = damage_amt,
+				"clotted stump" = damage_amt*0.5,
 				"scarred stump" = 0
 				)
 		if(DROPLIMB_BURN)
@@ -337,7 +355,7 @@ datum/wound/cut/massive
 				"scarred stump" = damage_amt*0.5,
 				"scarred stump" = 0
 				)
-	
+
 	..(damage_amt)
 
 /datum/wound/lost_limb/can_merge(var/datum/wound/other)

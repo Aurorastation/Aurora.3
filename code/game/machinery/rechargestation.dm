@@ -11,10 +11,10 @@
 	var/obj/item/weapon/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
 	var/charging = 0
-
-	var/charging_power			// W. Power rating used for charging the cyborg. 120 kW if un-upgraded
-	var/restore_power_active	// W. Power drawn from APC when an occupant is charging. 40 kW if un-upgraded
-	var/restore_power_passive	// W. Power drawn from APC when idle. 7 kW if un-upgraded
+	var/charging_efficiency = 0.85//Multiplier applied to all operations of giving power to cells, represents entropy. Efficiency increases with upgrades
+	var/charging_power			// W. Power rating drawn from internal cell to recharge occupant's cell 60 kW unupgraded
+	var/restore_power_active	// W. Power drawn from APC to recharge internal cell when an occupant is charging. 40 kW if un-upgraded
+	var/restore_power_passive	// W. Power drawn from APC to recharge internal cell when idle. 7 kW if un-upgraded
 	var/weld_rate = 0			// How much brute damage is repaired per tick
 	var/wire_rate = 0			// How much burn damage is repaired per tick
 
@@ -62,7 +62,7 @@
 		// Calculating amount of power to draw
 		recharge_amount = (occupant ? restore_power_active : restore_power_passive) * CELLRATE
 
-		recharge_amount = cell.give(recharge_amount)
+		recharge_amount = cell.give(recharge_amount*charging_efficiency)
 		use_power(recharge_amount / CELLRATE)
 
 	if(icon_update_tick >= 10)
@@ -88,7 +88,7 @@
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
-	if(istype(occupant, /mob/living/silicon/robot))
+	if(isrobot(occupant))
 		var/mob/living/silicon/robot/R = occupant
 
 		if(R.module)
@@ -96,13 +96,19 @@
 		if(R.cell && !R.cell.fully_charged())
 			var/diff = min(R.cell.maxcharge - R.cell.charge, charging_power * CELLRATE) // Capped by charging_power / tick
 			var/charge_used = cell.use(diff)
-			R.cell.give(charge_used)
+			R.cell.give(charge_used*charging_efficiency)
 
 		//Lastly, attempt to repair the cyborg if enabled
 		if(weld_rate && R.getBruteLoss() && cell.checked_use(weld_power_use * weld_rate * CELLRATE))
 			R.adjustBruteLoss(-weld_rate)
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
+	else if(ishuman(occupant))
+		var/mob/living/carbon/human/H = occupant
+		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
+			H.nutrition = min(H.nutrition+10, H.max_nutrition)
+			cell.use(7000/H.max_nutrition*10)
+
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
@@ -150,8 +156,9 @@
 			man_rating += P.rating
 	cell = locate(/obj/item/weapon/cell) in component_parts
 
-	charging_power = 40000 + 40000 * cap_rating
-	restore_power_active = 10000 + 15000 * cap_rating
+	charging_efficiency = 0.85 + 0.015 * cap_rating
+	charging_power = 30000 + 12000 * cap_rating
+	restore_power_active = 10000 + 10000 * cap_rating
 	restore_power_passive = 5000 + 1000 * cap_rating
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
@@ -199,24 +206,29 @@
 /obj/machinery/recharge_station/Bumped(var/mob/living/silicon/robot/R)
 	go_in(R)
 
-/obj/machinery/recharge_station/proc/go_in(var/mob/living/silicon/robot/R)
-	if(!istype(R))
-		return
+/obj/machinery/recharge_station/proc/go_in(var/mob/M)
 	if(occupant)
 		return
-
-	// TODO :  Change to incapacitated() on merge.
-	if(R.stat || R.lying || R.resting || R.buckled)
-		return
-	if(!R.cell)
+	if(!hascell(M))
 		return
 
-	add_fingerprint(R)
-	R.reset_view(src)
-	R.forceMove(src)
-	occupant = R
+	add_fingerprint(M)
+	M.reset_view(src)
+	M.forceMove(src)
+	occupant = M
 	update_icon()
 	return 1
+
+/obj/machinery/recharge_station/proc/hascell(var/mob/M)
+	if(isrobot(M))
+		var/mob/living/silicon/robot/R = M
+		if(R.cell)
+			return 1
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!isnull(H.internal_organs_by_name["cell"]))
+			return 1
+	return 0
 
 /obj/machinery/recharge_station/proc/go_out()
 	if(!occupant)
@@ -232,8 +244,7 @@
 	set name = "Eject Recharger"
 	set src in oview(1)
 
-	// TODO :  Change to incapacitated() on merge.
-	if(usr.stat || usr.lying || usr.resting || usr.buckled)
+	if(usr.incapacitated())
 		return
 
 	go_out()
@@ -245,4 +256,26 @@
 	set name = "Enter Recharger"
 	set src in oview(1)
 
+	if(!usr.incapacitated())
+		return
 	go_in(usr)
+
+
+/obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
+	if (istype(C, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = C
+		if (!user.Adjacent(R) || !Adjacent(user))
+			user << span("danger", "You need to get closer if you want to put [C] into that charger!")
+			return
+		user.face_atom(src)
+		user.visible_message(span("danger","[user] starts hauling [C] into the recharging unit!"), span("danger","You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
+		if (do_mob(user, R, R.mob_size*10, needhand = 1))
+			if (go_in(R))
+				user.visible_message(span("notice","After a great effort, [user] manages to get [C] into the recharging unit!"))
+				return 1
+			else
+				user << span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning.")
+		else
+			user << span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!")
+		return
+	return ..()

@@ -16,7 +16,7 @@
 			recipe.resources = list()
 			for(var/material in I.matter)
 				recipe.resources[material] = I.matter[material]*1.25 // More expensive to produce than they are to recycle.
-			qdel(I)
+		qdel(I)
 
 /datum/autolathe/recipe
 	var/name = "object"
@@ -35,6 +35,11 @@
 /datum/autolathe/recipe/flashlight
 	name = "flashlight"
 	path = /obj/item/device/flashlight
+	category = "General"
+
+/datum/autolathe/recipe/floor_light
+	name = "floor light"
+	path = /obj/machinery/floor_light
 	category = "General"
 
 /datum/autolathe/recipe/extinguisher
@@ -250,6 +255,11 @@
 	name = "ammunition (9mm rubber top mounted)"
 	path = /obj/item/ammo_magazine/mc9mmt/rubber
 	category = "Arms and Ammunition"
+	
+/datum/autolathe/recipe/detective_revolver_rubber
+	name = "ammunition (.38, rubber)"
+	path = /obj/item/ammo_magazine/c38/rubber
+	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/consolescreen
 	name = "console screen"
@@ -301,6 +311,11 @@
 	path = /obj/item/weapon/camera_assembly
 	category = "Engineering"
 
+/datum/autolathe/recipe/suit_cooling
+	name = "portable suit cooling unit"
+	path = /obj/item/device/suit_cooling_unit
+	category = "Engineering"
+
 /datum/autolathe/recipe/flamethrower
 	name = "flamethrower"
 	path = /obj/item/weapon/flamethrower/full
@@ -332,8 +347,8 @@
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/magazine_c20r
-	name = "ammunition (12mm)"
-	path = /obj/item/ammo_magazine/a12mm
+	name = "ammunition (10mm)"
+	path = /obj/item/ammo_magazine/a10mm
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -385,6 +400,24 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/detective_revolver_lethal
+	name = "ammunition (.38)"
+	path = /obj/item/ammo_magazine/c38
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/tommy_mag
+	name = "tommygun magazine (.45)"
+	path = /obj/item/ammo_magazine/tommymag
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/uzi_mag
+	name = "stick magazine (.45)"
+	path = /obj/item/ammo_magazine/c45uzi
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/rcd
 	name = "rapid construction device"
 	path = /obj/item/weapon/rcd
@@ -414,5 +447,3 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
-
-

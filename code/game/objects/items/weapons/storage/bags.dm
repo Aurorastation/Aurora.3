@@ -35,7 +35,6 @@
 
 	w_class = 4
 	max_w_class = 2
-	storage_slots = 21
 	can_hold = list() // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
@@ -47,6 +46,26 @@
 	else if(contents.len < 21)
 		icon_state = "trashbag2"
 	else icon_state = "trashbag3"
+
+/obj/item/weapon/storage/bag/trash/attackby(var/obj/item/I, var/mob/user)
+	if (istype (I, /obj/item/device/lightreplacer))
+		var/count = 0
+		var/obj/item/device/lightreplacer/R = I
+		var/bagfull = 0
+		if (R.store_broken)
+			for(var/obj/item/weapon/light/L in R.contents)
+				if(!can_be_inserted(L))//This displays its own error message if the bag is full
+					bagfull = 1
+					break
+				count++
+				handle_item_insertion(L, 1)//value of 1 suppresses confirmation messages from this one
+
+			if (count)
+				user << "\blue You empty [count] broken bulbs into the trashbag."
+			else if (!bagfull)
+				user << "\blue There are no broken bulbs to empty out."
+			return 1
+	..()
 
 
 // -----------------------------
@@ -62,7 +81,6 @@
 
 	w_class = 4
 	max_w_class = 2
-	storage_slots = 21
 	can_hold = list() // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
@@ -77,8 +95,7 @@
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	w_class = 3
-	storage_slots = 50
-	max_storage_space = 200 //Doesn't matter what this is, so long as it's more or equal to storage_slots * ore.w_class
+	max_storage_space = 100
 	max_w_class = 3
 	can_hold = list(/obj/item/weapon/ore)
 
@@ -91,8 +108,7 @@
 	name = "plant bag"
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "plantbag"
-	storage_slots = 50; //the number of plant pieces it can carry.
-	max_storage_space = 200 //Doesn't matter what this is, so long as it's more or equal to storage_slots * plants.w_class
+	max_storage_space = 100
 	max_w_class = 3
 	w_class = 2
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/weapon/grown)
@@ -108,10 +124,11 @@
 	name = "sheet snatcher"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "sheetsnatcher"
-	desc = "A patented Nanotrasen storage system designed for any kind of mineral sheet."
+	desc = "A patented storage system designed for any kind of mineral sheet."
 
 	var/capacity = 300; //the number of sheets it can carry.
 	w_class = 3
+	storage_slots = 7
 
 	allow_quick_empty = 1 // this function is superceded
 	New()
@@ -129,7 +146,7 @@
 			current += S.amount
 		if(capacity == current)//If it's full, you're done
 			if(!stop_messages)
-				usr << "\red The snatcher is full."
+				usr << "<span class='warning'>The snatcher is full.</span>"
 			return 0
 		return 1
 
@@ -194,7 +211,7 @@
 		var/col_count = min(7,storage_slots) -1
 		if (adjusted_contents > 7)
 			row_num = round((adjusted_contents-1) / 7) // 7 is the maximum allowed width.
-		src.standard_orient_objs(row_num, col_count, numbered_contents)
+		src.slot_orient_objs(row_num, col_count, numbered_contents)
 		return
 
 
@@ -249,12 +266,11 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "cashbag"
 	desc = "A bag for carrying lots of cash. It's got a big dollar sign printed on the front."
-	storage_slots = 50; //the number of cash pieces it can carry.
-	max_storage_space = 200 //Doesn't matter what this is, so long as it's more or equal to storage_slots * cash.w_class
+	max_storage_space = 100
 	max_w_class = 3
 	w_class = 2
 	can_hold = list(/obj/item/weapon/coin,/obj/item/weapon/spacecash)
-	
+
 // -----------------------------
 //           Book bag
 // -----------------------------
@@ -268,6 +284,6 @@
 	storage_slots = 7
 	max_storage_space = 200
 	max_w_class = 3
-	w_class = 3 
-	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook) 
+	w_class = 3
+	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook)
 

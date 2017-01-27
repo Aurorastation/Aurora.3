@@ -9,7 +9,7 @@
 	color = "#dcd9cd"
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-    if(M.get_species() == "Vaurca")
+    if(isvaurca(M))
         M.heal_organ_damage(0.8 * removed, 0)
         M.nutrition += nutriment_factor * removed // For hunger and fatness
         M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
@@ -37,7 +37,7 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.get_species() == "Vaurca")
+	if(isvaurca(M))
 		M.adjustToxLoss(1.5 * removed)
 	if(alien && alien == IS_UNATHI)
 		return
@@ -50,7 +50,6 @@
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
-
 
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
@@ -78,7 +77,13 @@
 		return
 	..()
 
-/datum/reagent/nutriment/egg // Also bad for skrell. Not a child of protein because it might mess up, not sure.
+/datum/reagent/nutriment/protein/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		M.adjustToxLoss(2 * removed)
+		return
+	..()
+
+/datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "egg yolk"
 	id = "egg"
 	color = "#FFFFAA"
@@ -91,6 +96,13 @@
 		digest(M,removed)
 		return
 	..()
+
+/datum/reagent/nutriment/honey
+	name = "Honey"
+	id = "honey"
+	description = "A golden yellow syrup, loaded with sugary sweetness."
+	nutriment_factor = 10
+	color = "#FFFF00"
 
 /datum/reagent/nutriment/flour
 	name = "flour"
@@ -189,6 +201,12 @@
 	reagent_state = LIQUID
 	color = "#CF3600"
 
+/datum/reagent/nutriment/glucose
+	name = "Glucose"
+	id = "glucose"
+	color = "#FFFFFF"
+	injectable = 1
+
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"
 	id = "lipozine"
@@ -262,11 +280,11 @@
 	M.adjustToxLoss(0.5 * removed)
 
 /datum/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
+	if(alien == IS_DIONA || alien == IS_MACHINE)
 		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species && (H.species.flags & (NO_PAIN | IS_SYNTHETIC)))
+		if(H.species && (H.species.flags & (NO_PAIN)))
 			return
 	if(dose < agony_dose)
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
@@ -310,10 +328,10 @@
 
 	for(var/obj/item/I in protection)
 		if(I)
-			if(I.flags & MASKCOVERSEYES)
+			if(I.body_parts_covered & EYES)
 				eyes_covered = 1
 				eye_protection = I.name
-			if(I.flags & MASKCOVERSMOUTH)
+			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
 				mouth_covered = 1
 				face_protection = I.name
 
@@ -340,7 +358,20 @@
 		M.Stun(5)
 		M.Weaken(5)
 
-	M << message
+/datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.species && (H.species.flags & NO_PAIN))
+			return
+	if(dose == metabolism)
+		M << "<span class='danger'>You feel like your insides are burning!</span>"
+	else
+		M.apply_effect(4, AGONY, 0)
+		if(prob(5))
+			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
+	if(istype(M, /mob/living/carbon/slime))
+		M.bodytemperature += rand(15, 30)
+	holder.remove_reagent("frostoil", 5)
 
 /* Drinks */
 
@@ -355,12 +386,17 @@
 	var/adj_drowsy = 0
 	var/adj_sleepy = 0
 	var/adj_temp = 0
+	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
+	var/datum/modifier/modifier = null
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
 	return
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if (caffeine && !modifier)
+		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
 	M.nutrition += nutrition * removed
 	M.dizziness = max(0, M.dizziness + adj_dizzy)
 	M.drowsyness = max(0, M.drowsyness + adj_drowsy)
@@ -587,6 +623,7 @@
 	adj_sleepy = -2
 	adj_temp = 25
 	overdose = 45
+	caffeine = 0.3
 
 	glass_icon_state = "hot_coffee"
 	glass_name = "cup of coffee"
@@ -606,10 +643,20 @@
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
+/datum/reagent/nutriment/coffee/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(2 * removed)
+		M.make_jittery(4)
+		return
+
 
 /datum/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien == IS_DIONA)
 		return
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(4 * REM)
+		M.apply_effect(3, STUTTER)
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee
@@ -758,6 +805,7 @@
 	id = "rewriter"
 	color = "#485000"
 	adj_temp = -5
+	caffeine = 0.4
 
 	glass_icon_state = "rewriter"
 	glass_name = "glass of Rewriter"
@@ -768,6 +816,7 @@
 	..()
 	M.make_jittery(5)
 
+
 /datum/reagent/drink/nuka_cola
 	name = "Nuka Cola"
 	id = "nuka_cola"
@@ -775,6 +824,7 @@
 	color = "#100800"
 	adj_temp = -5
 	adj_sleepy = -2
+	caffeine = 1
 
 	glass_icon_state = "nuka_colaglass"
 	glass_name = "glass of Nuka-Cola"
@@ -1038,28 +1088,50 @@
 	glass_desc = "A crystal clear glass of Griffeater gin."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/datum/reagent/ethanol/kahlua
-	name = "Kahlua"
-	id = "kahlua"
-	description = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936!"
-	color = "#664300"
-	strength = 20
+//Base type for alchoholic drinks containing coffee
+/datum/reagent/ethanol/coffee
+	overdose = 45
 
-	glass_icon_state = "kahluaglass"
-	glass_name = "glass of RR coffee liquor"
-	glass_desc = "DAMN, THIS THING LOOKS ROBUST"
-	glass_center_of_mass = list("x"=15, "y"=7)
-
-/datum/reagent/ethanol/kahlua/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
+/datum/reagent/ethanol/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
+	..()
 	M.dizziness = max(0, M.dizziness - 5)
 	M.drowsyness = max(0, M.drowsyness - 3)
 	M.sleeping = max(0, M.sleeping - 2)
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(0.5 * removed)
+		M.make_jittery(4) //extra sensitive to caffine
+
+/datum/reagent/ethanol/coffee/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(2 * removed)
+		M.make_jittery(4)
+		return
+	..()
+
+/datum/reagent/ethanol/coffee/overdose(var/mob/living/carbon/M, var/alien)
+	if(alien == IS_DIONA)
+		return
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(4 * REM)
+		M.apply_effect(3, STUTTER)
 	M.make_jittery(5)
+
+/datum/reagent/ethanol/coffee/kahlua
+	name = "Kahlua"
+	id = "kahlua"
+	description = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936!"
+	color = "#664300"
+	strength = 20
+	caffeine = 0.25
+
+	glass_icon_state = "kahluaglass"
+	glass_name = "glass of RR coffee liquor"
+	glass_desc = "DAMN, THIS THING LOOKS ROBUST"
+	glass_center_of_mass = list("x"=15, "y"=7)
 
 /datum/reagent/ethanol/melonliquor
 	name = "Melon Liquor"
@@ -1116,6 +1188,7 @@
 	color = "#102000"
 	strength = 10
 	nutriment_factor = 1
+	caffeine = 0.5
 
 	glass_icon_state = "thirteen_loko_glass"
 	glass_name = "glass of Thirteen Loko"
@@ -1156,7 +1229,7 @@
 
 /datum/reagent/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.radiation = max(M.radiation - 1 * removed, 0)
+	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, check_protection = 0)
 
 /datum/reagent/ethanol/whiskey
 	name = "Whiskey"
@@ -1194,7 +1267,7 @@
 
 	glass_icon_state = "acidspitglass"
 	glass_name = "glass of Acid Spit"
-	glass_desc = "A drink from Nanotrasen. Made from live aliens."
+	glass_desc = "A drink from the company archives. Made from live aliens."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/ethanol/alliescocktail
@@ -1224,7 +1297,7 @@
 /datum/reagent/ethanol/amasec
 	name = "Amasec"
 	id = "amasec"
-	description = "Official drink of the NanoTrasen Gun-Club!"
+	description = "Official drink of the Gun Club!"
 	reagent_state = LIQUID
 	color = "#664300"
 	strength = 25
@@ -1271,10 +1344,10 @@
 
 	glass_icon_state = "atomicbombglass"
 	glass_name = "glass of Atomic Bomb"
-	glass_desc = "Nanotrasen cannot take legal responsibility for your actions after imbibing."
+	glass_desc = "We cannot take legal responsibility for your actions after imbibing."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
-/datum/reagent/ethanol/b52
+/datum/reagent/ethanol/coffee/b52
 	name = "B-52"
 	id = "b52"
 	description = "Coffee, Irish Cream, and cognac. You will get bombed."
@@ -1385,12 +1458,13 @@
 	glass_name = "glass of Booger"
 	glass_desc = "Ewww..."
 
-/datum/reagent/ethanol/brave_bull
+/datum/reagent/ethanol/coffee/brave_bull
 	name = "Brave Bull"
 	id = "bravebull"
 	description = "It's just as effective as Dutch-Courage!"
 	color = "#664300"
 	strength = 30
+	caffeine = 0.2
 
 	glass_icon_state = "bravebullglass"
 	glass_name = "glass of Brave Bull"
@@ -1484,7 +1558,7 @@
 /datum/reagent/ethanol/grog
 	name = "Grog"
 	id = "grog"
-	description = "Watered down rum, NanoTrasen approves!"
+	description = "Watered-down rum, pirate approved!"
 	reagent_state = LIQUID
 	color = "#664300"
 	strength = 10
@@ -1593,12 +1667,13 @@
 	glass_desc = "An irish car bomb."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
-/datum/reagent/ethanol/irishcoffee
+/datum/reagent/ethanol/coffee/irishcoffee
 	name = "Irish Coffee"
 	id = "irishcoffee"
 	description = "Coffee, and alcohol. More fun than a Mimosa to drink in the morning."
 	color = "#664300"
 	strength = 15
+	caffeine = 0.3
 
 	glass_icon_state = "irishcoffeeglass"
 	glass_name = "glass of Irish coffee"
@@ -1773,7 +1848,7 @@
 /datum/reagent/ethanol/sbiten
 	name = "Sbiten"
 	id = "sbiten"
-	description = "A spicy Vodka! Might be a little hot for the little guys!"
+	description = "A spicy mix of mead and spices! Might be a little hot for the little guys!"
 	color = "#664300"
 	strength = 40
 	adj_temp = 50
@@ -1781,7 +1856,7 @@
 
 	glass_icon_state = "sbitenglass"
 	glass_name = "glass of Sbiten"
-	glass_desc = "A spicy mix of Vodka and Spice. Very hot."
+	glass_desc = "A spicy mix of Mead and Spices. Very hot."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /datum/reagent/ethanol/screwdrivercocktail
@@ -1980,6 +2055,7 @@
 	adj_sleepy = -3
 	adj_temp = 30
 	overdose = 40
+	caffeine = 0.4
 
 	glass_icon_state = "blackcoffee"
 	glass_name = "A mug of rich Black Coffee"
@@ -1995,6 +2071,7 @@
 	adj_sleepy = -3
 	adj_temp = 30
 	overdose = 40
+	caffeine = 0.3
 
 	glass_icon_state = "whitecoffee"
 	glass_name = "A mug of Café Au Lait"
@@ -2014,6 +2091,7 @@
 	adj_sleepy = -3
 	adj_temp = 30
 	overdose = 40
+	caffeine = 0.3
 
 	glass_icon_state = "whitecoffee"
 	glass_name = "A mug of Café Mélange"

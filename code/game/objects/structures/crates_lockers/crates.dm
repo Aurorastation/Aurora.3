@@ -10,9 +10,14 @@
 	climbable = 1
 //	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
 	var/rigged = 0
+	var/tablestatus = 0
+	pass_flags = PASSTABLE
+
 
 /obj/structure/closet/crate/can_open()
-	return 1
+	if (tablestatus != -1)//Can't be opened while under a table
+		return 1
+	return 0
 
 /obj/structure/closet/crate/can_close()
 	return 1
@@ -36,11 +41,20 @@
 	playsound(src.loc, 'sound/machines/click.ogg', 15, 1, -3)
 	for(var/obj/O in src)
 		O.forceMove(get_turf(src))
-	icon_state = icon_opened
-	src.opened = 1
 
 	if(climbable)
 		structure_shaken()
+
+	for (var/mob/M in src)
+		M.forceMove(get_turf(src))
+		if (M.stat == CONSCIOUS)
+			M.visible_message(span("danger","\The [M.name] bursts out of the [src]!"), span("danger","You burst out of the [src]!"))
+		else
+			M.visible_message(span("danger","\The [M.name] tumbles out of the [src]!"))
+
+	icon_state = icon_opened
+	src.opened = 1
+	pass_flags = 0
 	return 1
 
 /obj/structure/closet/crate/close()
@@ -65,24 +79,15 @@
 
 	icon_state = icon_closed
 	src.opened = 0
+	pass_flags = PASSTABLE//Crates can only slide under tables when closed
 	return 1
+
+
+
 
 /obj/structure/closet/crate/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(opened)
-		if(isrobot(user))
-			return
-		if(W.loc != user) // This should stop mounted modules ending up outside the module.
-			return
-		if(W.abstract) //Prevents 'abstract' items (such as grabs) from creeping into the material realm.
-			if(istype(W, /obj/item/weapon/grab))
-				var/obj/item/weapon/grab/G = W
-				user << "<span class='notice'>[G.affecting] just doesn't fit!</span>"
-			else
-				user << "<span class='notice'>[W] does not belong there!</span>"
-			return
-		user.drop_item()
-		if(W)
-			W.forceMove(src.loc)
+		return ..()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
 	else if(istype(W, /obj/item/stack/cable_coil))
@@ -110,23 +115,157 @@
 
 /obj/structure/closet/crate/ex_act(severity)
 	switch(severity)
-		if(1.0)
-			for(var/obj/O in src.contents)
-				qdel(O)
-			qdel(src)
-			return
-		if(2.0)
-			for(var/obj/O in src.contents)
-				if(prob(50))
-					qdel(O)
-			qdel(src)
-			return
-		if(3.0)
-			if (prob(50))
-				qdel(src)
-			return
+		if(1)
+			health -= rand(120, 240)
+		if(2)
+			health -= rand(60, 120)
+		if(3)
+			health -= rand(30, 60)
+
+	if (health <= 0)
+		for (var/atom/movable/A as mob|obj in src)
+			A.forceMove(src.loc)
+			if (prob(50) && severity > 1)//Higher chance of breaking contents
+				A.ex_act(severity-1)
+			else
+				A.ex_act(severity)
+		qdel(src)
+
+
+
+
+
+/*
+==========================
+	Table interactions
+==========================
+*/
+/obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
+		var/obj/structure/closet/crate/C = mover
+		if (tablestatus == 1 && C.tablestatus != 1 && !C.opened)//Allow the crate to slide under us if we're ontop of a table
+			return 1
+		else if (tablestatus == -1 && C.tablestatus == 1)//Allow it to slide over us if we're underneath a table
+			return 1
+		else//Otherwise, block it. Don't allow two crates on the same level of a tile
+			return 0
+	if(istype(mover,/obj/item/projectile))
+		if (tablestatus == 1)//They always block shots on a table
+			return 0
+		else if (!tablestatus && prob(15))//Usually will not block shots when lying on the floor
+			return 0
+		else return 1
+	else if(istype(mover) && mover.checkpass(PASSTABLE))
+		return 1
+	return 0
+
+/obj/structure/closet/crate/Move(var/turf/destination, dir)
+	if(..())
+		if (locate(/obj/structure/table) in destination)
+			if (tablestatus != 1)
+				set_tablestatus(-1)//Slide under the table
 		else
-	return
+			set_tablestatus(0)
+
+
+/obj/structure/closet/crate/toggle(var/mob/user)
+	if (!opened && tablestatus == -1)
+		user << span("warning", "You can't open that while it's under the table")
+		return 0
+	else
+		return ..()
+
+/obj/structure/closet/crate/proc/set_tablestatus(var/target)
+	if (tablestatus != target)
+		tablestatus = target
+
+	spawn(3)//Short spawn prevents things popping up where they shouldnt
+		switch (target)
+			if (1)
+				layer = LAYER_ABOVE_TABLE
+				pixel_y = 8
+			if (0)
+				layer = initial(layer)
+				pixel_y = 0
+			if (-1)
+				layer = LAYER_UNDER_TABLE
+				pixel_y = -4
+
+
+//For putting on tables
+/obj/structure/closet/crate/MouseDrop(atom/over_object)
+	if (istype(over_object, /obj/structure/table))
+		put_on_table(over_object, usr)
+		return 1
+	else
+		return ..()
+
+
+
+/obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
+	if (!table || !user || (tablestatus == -1))
+		return
+
+	//User must be in reach of the crate
+	if (!user.Adjacent(src))
+		user << span("warning", "You need to be closer to the crate!")
+		return
+
+	//One of us has to be near the table
+	if (!user.Adjacent(table) && !Adjacent(table))
+		user << span("warning", "Take the crate closer to the table!")
+		return
+
+
+	for (var/obj/structure/closet/crate/C in get_turf(table))
+		if (C.tablestatus != -1)
+			user << span("warning", "There's already a crate on this table!")
+			return
+
+	//Crates are heavy, hauling them onto tables is hard.
+	//The more stuff thats in it, the longer it takes
+	//Good place to factor in Strength in future
+	var/timeneeded = 20
+	var/success = 0
+
+
+
+	if (tablestatus == 1 && Adjacent(table))
+		//Sliding along a tabletop we're already on. Instant and silent
+		timeneeded = 0
+		success = 1
+	else
+		//Add time based on mass of contents
+		for (var/obj/O in contents)
+			timeneeded += 3* O.w_class
+		for (var/mob/M in contents)
+			timeneeded += 3* M.mob_size
+
+	if (timeneeded > 0)
+		user.visible_message("[user] starts hoisting [src] onto the [table]", "You start hoisting [src] onto the [table]. This will take about [timeneeded*0.1] seconds")
+		user.face_atom(src)
+		if (do_after(user, timeneeded, needhand = 1))
+			success = 1
+
+
+	if (success == 1)
+		forceMove(get_turf(table))
+		set_tablestatus(1)
+
+
+
+
+
+
+
+
+
+/*
+=====================
+	Secure Crates
+=====================
+*/
+
 
 /obj/structure/closet/crate/secure
 	desc = "A secure crate."
@@ -140,6 +279,7 @@
 	var/emag = "securecrateemag"
 	var/broken = 0
 	var/locked = 1
+	health = 200
 
 /obj/structure/closet/crate/secure/New()
 	..()
@@ -151,7 +291,8 @@
 		overlays += greenlight
 
 /obj/structure/closet/crate/secure/can_open()
-	return !locked
+	if (..())
+		return !locked
 
 /obj/structure/closet/crate/secure/proc/togglelock(mob/user as mob)
 	if(src.opened)
@@ -162,6 +303,7 @@
 		return
 	if(src.allowed(user))
 		set_locked(!locked, user)
+		return 1
 	else
 		user << "<span class='notice'>Access Denied</span>"
 
@@ -192,14 +334,22 @@
 /obj/structure/closet/crate/secure/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
 	if(locked)
-		src.togglelock(user)
+		return src.togglelock(user)
 	else
-		src.toggle(user)
+		return src.toggle(user)
 
 /obj/structure/closet/crate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(is_type_in_list(W, list(/obj/item/weapon/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters)))
 		return ..()
-	if(locked && (istype(W, /obj/item/weapon/card/emag)||istype(W, /obj/item/weapon/melee/energy/blade)))
+	if(istype(W, /obj/item/weapon/melee/energy/blade))
+		emag_act(INFINITY, user)
+	if(!opened)
+		src.togglelock(user)
+		return
+	return ..()
+
+/obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
+	if(!broken)
 		overlays.Cut()
 		overlays += emag
 		overlays += sparks
@@ -208,11 +358,7 @@
 		src.locked = 0
 		src.broken = 1
 		user << "<span class='notice'>You unlock \the [src].</span>"
-		return
-	if(!opened)
-		src.togglelock(user)
-		return
-	return ..()
+		return 1
 
 /obj/structure/closet/crate/secure/emp_act(severity)
 	for(var/obj/O in src)
@@ -234,7 +380,7 @@
 			open()
 		else
 			src.req_access = list()
-			src.req_access += pick(get_all_accesses())
+			src.req_access += pick(get_all_station_access())
 	..()
 
 /obj/structure/closet/crate/plastic
@@ -430,6 +576,7 @@
 	icon_state = "largemetal"
 	icon_opened = "largemetalopen"
 	icon_closed = "largemetal"
+	health = 200
 
 /obj/structure/closet/crate/large/close()
 	. = ..()
@@ -458,6 +605,7 @@
 	icon_closed = "largemetal"
 	redlight = "largemetalr"
 	greenlight = "largemetalg"
+	health = 400
 
 /obj/structure/closet/crate/secure/large/close()
 	. = ..()
@@ -504,3 +652,60 @@
 //		new /obj/item/weapon/pestspray(src)
 //		new /obj/item/weapon/pestspray(src)
 //		new /obj/item/weapon/pestspray(src)
+
+
+
+//A crate that populates itself with randomly selected loot from randomstock.dm
+//Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance
+//Quantity of spawns is number of discrete selections from the loot lists, default 10
+
+/obj/structure/closet/crate/loot
+	name = "unusual container"
+	desc = "A mysterious container of unknown origins. What mysteries lie within?"
+	var/rarity = 1
+	var/quantity = 10
+	var/list/spawntypes
+
+//The crate chooses its icon randomly from a number of noticeable options.
+//None of these are the standard grey crate sprite, and a few are currently unused ingame
+//This ensures that people stumbling across a lootbox will notice it's different and investigate
+	var/list/iconchoices = list(
+		"radiation" = "radiationopen",
+		"o2crate" = "o2crateopen",
+		"freezer" = "freezeropen",
+		"weaponcrate" = "weaponcrateopen",
+		"largebins" = "largebinsopen",
+		"phoroncrate" = "phoroncrateopen",
+		"trashcart" = "trashcartopen",
+		"critter" = "critteropen",
+		"largemetal" = "largemetalopen",
+		"medicalcrate" = "medicalcrateopen")
+
+
+/obj/structure/closet/crate/loot/New(var/location, var/_rarity = 1, var/_quantity = 10)
+
+	rarity = _rarity
+	quantity = _quantity
+	..(location)
+
+
+/obj/structure/closet/crate/loot/initialize()
+	spawntypes = list("1" = STOCK_RARE_PROB*rarity, "2" = STOCK_UNCOMMON_PROB*rarity, "3" = (100 - ((STOCK_RARE_PROB*rarity) + (STOCK_UNCOMMON_PROB*rarity))))
+
+	icon_closed = pick(iconchoices)
+	icon_opened = iconchoices[icon_closed]
+	update_icon()
+	while (quantity > 0)
+		quantity --
+		var/newtype = get_spawntype()
+		spawn_stock(newtype,src)
+
+/obj/structure/closet/crate/loot/proc/get_spawntype()
+	var/stocktype = pickweight(spawntypes)
+	switch (stocktype)
+		if ("1")
+			return pickweight(random_stock_rare)
+		if ("2")
+			return pickweight(random_stock_uncommon)
+		if ("3")
+			return pickweight(random_stock_common)

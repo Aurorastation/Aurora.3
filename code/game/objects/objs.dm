@@ -1,10 +1,8 @@
 /obj
 	//Used to store information about the contents of the object.
 	var/list/matter
-
-	var/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
-	var/reliability = 100	//Used by SOME devices to determine how reliable they are.
-	var/crit_fail = 0
+	var/w_class // Size of the object.
+	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
 	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
 	animate_movement = 2
 	var/throwforce = 1
@@ -12,20 +10,25 @@
 	var/sharp = 0		// whether this object cuts
 	var/edge = 0		// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
-
 	var/damtype = "brute"
 	var/force = 0
+	var/armor_penetration = 0
 
 	var/being_shocked = 0
 
+	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
+	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
+	//requires that the wearer's species is listed in icon_supported_species_tags
+	var/list/icon_supported_species_tags //Used with icon_auto_adapt, a list of species which have differing appearances for this item
+	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
+
+	var/equip_slot = 0
 /obj/Destroy()
 	processing_objects -= src
-	nanomanager.close_uis(src)
 	return ..()
 
-/obj/Topic(href, href_list, var/nowindow = 0, var/datum/topic_state/state = default_state)
-	// Calling Topic without a corresponding window open causes runtime errors
-	if(!nowindow && ..())
+/obj/Topic(href, href_list, var/datum/topic_state/state = default_state)
+	if(..())
 		return 1
 
 	// In the far future no checks are made in an overriding Topic() beyond if(..()) return
@@ -37,9 +40,33 @@
 	CouldNotUseTopic(usr)
 	return 1
 
+/obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
+	if(user.CanUseObjTopic(src))
+		return ..()
+	user << "<span class='danger'>\icon[src]Access Denied!</span>"
+	return STATUS_CLOSE
+
+/mob/living/silicon/CanUseObjTopic(var/obj/O)
+	var/id = src.GetIdCard()
+	return O.check_access(id)
+
+/mob/proc/CanUseObjTopic()
+	return 1
+
 /obj/proc/CouldUseTopic(var/mob/user)
-	var/atom/host = nano_host()
-	host.add_fingerprint(user)
+	user.AddTopicPrint(src)
+
+/mob/proc/AddTopicPrint(var/obj/target)
+	target.add_hiddenprint(src)
+
+/mob/living/AddTopicPrint(var/obj/target)
+	if(Adjacent(target))
+		target.add_fingerprint(src)
+	else
+		target.add_hiddenprint(src)
+
+/mob/living/silicon/ai/AddTopicPrint(var/obj/target)
+	target.add_hiddenprint(src)
 
 /obj/proc/CouldNotUseTopic(var/mob/user)
 	// Nada
@@ -106,6 +133,10 @@
 		if(!ai_in_use && !is_in_use)
 			in_use = 0
 
+/obj/attack_ghost(mob/user)
+	ui_interact(user)
+	..()
+
 /obj/proc/interact(mob/user)
 	return
 
@@ -127,13 +158,12 @@
 	if(istype(M) && M.client && M.machine == src)
 		src.attack_self(M)
 
+/obj/proc/hide(var/hide)
+	invisibility = hide ? INVISIBILITY_MAXIMUM : initial(invisibility)
+	level = hide ? 1 : initial(level)
 
-/obj/proc/alter_health()
-	return 1
-
-/obj/proc/hide(h)
-	return
-
+/obj/proc/hides_under_flooring()
+	return level == 1
 
 /obj/proc/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	if(talking_atom)
@@ -156,6 +186,8 @@
 	spawn(10)
 		being_shocked = 0
 
+/obj/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+	return
 
 //To be called from things that spill objects on the floor.
 //Makes an object move around randomly for a couple of tiles
@@ -167,3 +199,23 @@
 				if(src)
 					step(src, pick(NORTH,SOUTH,EAST,WEST))
 					sleep(rand(2,4))
+
+
+/obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
+	if(icon_auto_adapt)
+		icon_species_tag = ""
+		if (loc == wearer && icon_supported_species_tags.len)
+			if (wearer.species.short_name in icon_supported_species_tags)
+				icon_species_tag = wearer.species.short_name
+				return 1
+	return 0
+
+
+//This function should be called on an item when it is:
+//Built, autolathed, protolathed, crafted or constructed. At runtime, by players or machines
+
+//It should NOT be called on things that:
+//spawn at roundstart, are adminspawned, arrive on shuttles, spawned from vendors, removed from fridges and containers, etc
+//This is useful for setting special behaviour for built items that shouldn't apply to those spawned at roundstart
+/obj/proc/Created()
+	return

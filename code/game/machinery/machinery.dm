@@ -96,6 +96,8 @@ Class Procs:
 /obj/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
+	w_class = 10
+
 	var/stat = 0
 	var/emagged = 0
 	var/use_power = 1
@@ -110,6 +112,7 @@ Class Procs:
 	var/panel_open = 0
 	var/global/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
+	var/printing = 0 // Is this machine currently printing anything?
 
 /obj/machinery/New(l, d=0)
 	..(l)
@@ -132,7 +135,7 @@ Class Procs:
 	if(contents) // The same for contents.
 		for(var/atom/A in contents)
 			qdel(A)
-	..()
+	return ..()
 
 /obj/machinery/process()//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
@@ -171,10 +174,6 @@ Class Procs:
 		else
 	return
 
-/obj/machinery/blob_act()
-	if(prob(50))
-		qdel(src)
-
 //sets the use_power var and then forces an area power update
 /obj/machinery/proc/update_use_power(var/new_use_power)
 	use_power = new_use_power
@@ -187,6 +186,9 @@ Class Procs:
 	else if(src.use_power >= 2)
 		use_power(active_power_usage,power_channel, 1)
 	return 1
+
+/proc/is_operable(var/obj/machinery/M, var/mob/user)
+	return istype(M) && M.operable()
 
 /obj/machinery/proc/operable(var/additional_flags = 0)
 	return !inoperable(additional_flags)
@@ -228,7 +230,7 @@ Class Procs:
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		usr << "\red You don't have the dexterity to do this!"
+		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -238,10 +240,10 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message("\red [H] stares cluelessly at [src] and drools.")
+			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
 			return 1
 		else if(prob(H.getBrainLoss()))
-			user << "\red You momentarily forget how to use [src]."
+			user << "<span class='warning'>You momentarily forget how to use [src].</span>"
 			return 1
 
 	src.add_fingerprint(user)
@@ -265,6 +267,13 @@ Class Procs:
 
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+
+/obj/machinery/proc/pingx3(text=null)
+	if (!text)
+		text = "\The [src] pings."
+
+	state(text, "blue")
+	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
 
 /obj/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
@@ -309,6 +318,23 @@ Class Procs:
 	if(panel_open)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P
+		for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+			for(var/D in CB.req_components)
+				var/T = text2path(D)
+				if(ispath(G.type, T))
+					P = T
+					break
+			for(var/obj/item/weapon/reagent_containers/glass/B in R.contents)
+				if(B.reagents && B.reagents.total_volume > 0) continue
+				if(istype(B, P) && istype(G, P))
+					if(B.volume > G.volume)
+						R.remove_from_storage(B, src)
+						R.handle_item_insertion(G, 1)
+						component_parts -= G
+						component_parts += B
+						B.loc = src
+						user << "<span class='notice'>[G.name] replaced with [B.name].</span>"
+						break
 		for(var/obj/item/weapon/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
 				var/T = text2path(D)
@@ -322,11 +348,11 @@ Class Procs:
 						R.handle_item_insertion(A, 1)
 						component_parts -= A
 						component_parts += B
-						B.loc = null
+						B.loc = src
 						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
 						break
-			update_icon()
-			RefreshParts()
+		update_icon()
+		RefreshParts()
 	else
 		user << "<span class='notice'>Following parts detected in the machine:</span>"
 		for(var/var/obj/item/C in component_parts)
@@ -340,8 +366,23 @@ Class Procs:
 	M.state = 2
 	M.icon_state = "box_1"
 	for(var/obj/I in component_parts)
-		if(I.reliability != 100 && crit_fail)
-			I.crit_fail = 1
 		I.loc = loc
 	qdel(src)
+	return 1
+
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10)
+	if( printing )
+		return 0
+
+	printing = 1
+
+	if (play_sound)
+		playsound(src.loc, print_sfx, 50, 1)
+	
+	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+
+	spawn(print_delay)
+		paper.loc = src.loc
+		printing = 0
+
 	return 1

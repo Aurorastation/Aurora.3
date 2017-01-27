@@ -28,7 +28,7 @@
 			new /obj/effect/decal/cleanable/ash(get_turf(user))
 			E.removed(user)
 			qdel(E)
-			H.adjustBrainLoss(60)
+			H.adjustBrainLoss(50)
 			H.hallucination += 20
 			return
 	else

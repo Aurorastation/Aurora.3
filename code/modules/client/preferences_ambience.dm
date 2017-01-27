@@ -18,7 +18,7 @@
 	set category = "Preferences"
 	set desc = "Toggles hearing ambient sound effects"
 	prefs.asfx_togs ^= ASFX_AMBIENCE
-	prefs.handle_preferences_save(src)
+	prefs.save_preferences()
 	if(prefs.asfx_togs & ASFX_AMBIENCE)
 		src << "You will now hear ambient sounds."
 	else
@@ -33,7 +33,7 @@
 	set desc = "Toggles hearing footstep sound effects"
 
 	prefs.asfx_togs ^= ASFX_FOOTSTEPS
-	prefs.handle_preferences_save(src)
+	prefs.save_preferences()
 	if(prefs.asfx_togs & ASFX_FOOTSTEPS)
 		src << "You will now hear footstep sounds."
 	else
@@ -45,7 +45,7 @@
 	set category = "SoundFx Prefs"
 	set desc = "Toggles hearing of the vote alarm"
 	prefs.asfx_togs ^= ASFX_VOTE
-	prefs.handle_preferences_save(src)
+	prefs.save_preferences()
 	if(prefs.asfx_togs & ASFX_VOTE)
 		src << "You will now hear the vote alarm."
 	else

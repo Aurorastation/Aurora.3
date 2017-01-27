@@ -3,12 +3,13 @@
 	name = "gem-encrusted voidsuit helmet"
 	desc = "A bizarre gem-encrusted helmet that radiates magical energies."
 	icon_state = "rig0-wiz"
-	item_state = "wiz_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "wiz_helm",
+		slot_r_hand_str = "wiz_helm"
+		)
 	unacidable = 1 //No longer shall our kind be foiled by lone chemists with spray bottles!
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.7
-	sprite_sheets_refit = null
-	sprite_sheets_obj = null
+	siemens_coefficient = 0.3
 	wizard_garb = 1
 
 	equipped(var/mob/user)
@@ -38,10 +39,9 @@
 	w_class = 3
 	unacidable = 1
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.7
-	sprite_sheets_refit = null
-	sprite_sheets_obj = null
+	siemens_coefficient = 0.3
 	wizard_garb = 1
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
 
 	equipped(var/mob/user)
 		if(!(user.mind.assigned_role == "Space Wizard"))

@@ -6,6 +6,8 @@
 	var/list/fingerprintshidden
 	var/fingerprintslast = null
 	var/list/blood_DNA
+	var/list/other_DNA = list()
+	var/other_DNA_type = null
 	var/was_bloodied
 	var/blood_color
 	var/last_bumped = 0
@@ -14,7 +16,7 @@
 	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
 	var/simulated = 1 //filter for actions - used by lighting overlays
 	var/fluorescent // Shows up under a UV light.
-
+	var/list/modifiers = list()
 	///Chemistry.
 	var/datum/reagents/reagents = null
 
@@ -24,6 +26,10 @@
 
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
+
+
+
+
 
 /atom/proc/reveal_blood()
 	return
@@ -40,7 +46,7 @@
 	else
 		return null
 
-//return flags that should be added to the viewer's sight var. 
+//return flags that should be added to the viewer's sight var.
 //Otherwise return a negative number to indicate that the view should be cancelled.
 /atom/proc/check_eye(user as mob)
 	if (istype(user, /mob/living/silicon/ai)) // WHYYYY
@@ -68,12 +74,11 @@
 		return flags & INSERT_CONTAINER
 */
 
-/atom/proc/meteorhit(obj/meteor as obj)
-	return
-
 /atom/proc/CheckExit()
 	return 1
 
+// If you want to use this, the atom must have the PROXMOVE flag, and the moving
+// atom must also have the PROXMOVE flag currently to help with lag. ~ ComicIronic
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
@@ -218,12 +223,21 @@ its easier to just keep the beam vertical.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
+	for(var/datum/light_source/L in light_sources)
+		if (L.source_atom.offset_light)
+			L.force_update = 1
+			if (world.tick_usage < 80)
+				L.instant_update()//Instant update skips the normal controller process and updates the light now.
+				//This makes things more responsive, but probably has a performance cost for people spinning rapidly
+				//Ergo, it checks tick usage first
+			else
+				L.source_atom.update_light()
 
 /atom/proc/ex_act()
 	return
 
-/atom/proc/blob_act()
-	return
+/atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+	return NO_EMAG_ACT
 
 /atom/proc/fire_act()
 	return
@@ -236,10 +250,11 @@ its easier to just keep the beam vertical.
 		AM.throwing = 0
 	return
 
-/atom/proc/add_hiddenprint(mob/living/M as mob)
+/atom/proc/add_hiddenprint(mob/living/M)
 	if(isnull(M)) return
+	if(!istype(M, /mob)) return
 	if(isnull(M.key)) return
-	if (ishuman(M))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if (!istype(H.dna, /datum/dna))
 			return 0
@@ -259,8 +274,9 @@ its easier to just keep the beam vertical.
 			src.fingerprintslast = M.key
 	return
 
-/atom/proc/add_fingerprint(mob/living/M as mob, ignoregloves = 0)
+/atom/proc/add_fingerprint(mob/living/M, ignoregloves = 0)
 	if(isnull(M)) return
+	if(!istype(M, /mob)) return
 	if(isAI(M)) return
 	if(isnull(M.key)) return
 	if (ishuman(M))
@@ -385,7 +401,7 @@ its easier to just keep the beam vertical.
 
 
 //returns 1 if made bloody, returns 0 otherwise
-/atom/proc/add_blood(mob/living/carbon/human/M as mob)
+/atom/proc/add_blood(mob/living/carbon/human/M)
 
 	if(flags & NOBLOODY)
 		return 0
@@ -405,7 +421,7 @@ its easier to just keep the beam vertical.
 	. = 1
 	return 1
 
-/atom/proc/add_vomit_floor(mob/living/carbon/M as mob, var/toxvomit = 0)
+/atom/proc/add_vomit_floor(mob/living/carbon/M, var/toxvomit = 0)
 	if( istype(src, /turf/simulated) )
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 
@@ -421,7 +437,6 @@ its easier to just keep the beam vertical.
 	if(istype(blood_DNA, /list))
 		blood_DNA = null
 		return 1
-
 
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return
@@ -447,3 +462,46 @@ its easier to just keep the beam vertical.
 		return 1
 	else
 		return 0
+
+// Show a message to all mobs and objects in sight of this atom
+// Use for objects performing visible actions
+// message is output to anyone who can see, e.g. "The [src] does something!"
+// blind_message (optional) is what blind people will hear e.g. "You hear something!"
+/atom/proc/visible_message(var/message, var/blind_message)
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/A in player_list)
+		var/mob/M = A
+		if (!M.client || istype(M, /mob/new_player))
+			continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	for(var/A in messagemobs)
+		var/mob/M = A
+		M.show_message(message, 1, blind_message, 2)
+
+// Show a message to all mobs and objects in earshot of this atom
+// Use for objects performing audible actions
+// message is the message output to anyone who can hear.
+// deaf_message (optional) is what deaf people will see.
+// hearing_distance (optional) is the range, how many tiles away the message can be heard.
+/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance)
+
+	var/range = world.view
+	if(hearing_distance)
+		range = hearing_distance
+	var/list/hear = get_mobs_or_objects_in_view(range,src)
+
+	for(var/I in hear)
+		if(isobj(I))
+			spawn(0)
+				if(I) //It's possible that it could be deleted in the meantime.
+					var/obj/O = I
+					O.show_message( message, 2, deaf_message, 1)
+		else if(ismob(I))
+			var/mob/M = I
+			M.show_message( message, 2, deaf_message, 1)

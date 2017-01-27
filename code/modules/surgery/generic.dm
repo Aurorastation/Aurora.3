@@ -17,8 +17,6 @@
 			return 0
 		if (affected.is_stump())
 			return 0
-		if (target_zone == "head" && target.species && (target.species.flags & IS_SYNTHETIC))
-			return 1
 		if (affected.status & ORGAN_ROBOT)
 			return 0
 		return 1
@@ -28,7 +26,8 @@
 	/obj/item/weapon/scalpel/laser3 = 95, \
 	/obj/item/weapon/scalpel/laser2 = 85, \
 	/obj/item/weapon/scalpel/laser1 = 75, \
-	/obj/item/weapon/melee/energy/sword = 5
+	//Removed energy sword from here. with a 5% chance of success, it's a feature nobody ever used anyway
+	//Energy swords amputate instead now
 	)
 	priority = 2
 	min_duration = 90
@@ -110,16 +109,16 @@
 
 /datum/surgery_step/generic/cut_open
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,		\
-	/obj/item/weapon/material/knife = 75,	\
-	/obj/item/weapon/material/shard = 50, 		\
+	/obj/item/weapon/scalpel = 100,
+	/obj/item/weapon/material/knife = 75,
+	/obj/item/weapon/material/shard = 50
 	)
 
 	min_duration = 90
 	max_duration = 110
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if(target.get_species() == "Vaurca")
+		if(isvaurca(target))
 			return 0
 		else
 			if(..())
@@ -153,15 +152,15 @@
 
 /datum/surgery_step/generic/cut_openvaurca
 	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 85, \
-	/obj/item/weapon/pickaxe/ = 15, \
+	/obj/item/weapon/surgicaldrill = 85,
+	/obj/item/weapon/pickaxe/ = 15
 	)
 
 	min_duration = 110
 	max_duration = 130
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if(target.get_species() != "Vaurca")
+		if(!(isvaurca(target)))
 			return 0
 		else
 			if(..())
@@ -283,11 +282,12 @@
 		target.apply_damage(12, BRUTE, affected, sharp=1)
 
 /datum/surgery_step/generic/cauterize
+	//Fixed these tool probabilities because they were dumb
 	allowed_tools = list(
-	/obj/item/weapon/cautery = 100,			\
-	/obj/item/clothing/mask/smokable/cigarette = 75,	\
-	/obj/item/weapon/flame/lighter = 50,			\
-	/obj/item/weapon/weldingtool = 25
+	/obj/item/weapon/cautery = 100,
+	/obj/item/clothing/mask/smokable/cigarette = 25,
+	/obj/item/weapon/flame/lighter = 50,
+	/obj/item/weapon/weldingtool = 75
 	)
 
 	min_duration = 70
@@ -321,8 +321,10 @@
 
 /datum/surgery_step/generic/amputate
 	allowed_tools = list(
-	/obj/item/weapon/circular_saw = 100, \
-	/obj/item/weapon/material/hatchet = 75
+	/obj/item/weapon/circular_saw = 100,
+	/obj/item/weapon/melee/energy = 100,
+	/obj/item/weapon/melee/chainsword = 100,
+	/obj/item/weapon/material/hatchet = 55
 	)
 
 	min_duration = 110
@@ -336,20 +338,49 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		if (affected == null)
 			return 0
+
+		if (istype(tool, /obj/item/weapon/melee/energy))
+			var/obj/item/weapon/melee/energy/E = tool
+			if (!E.active)
+				user << "\red The energy blade is not turned on!"
+				return 0
+
+		if (istype(tool, /obj/item/weapon/melee/chainsword))
+			var/obj/item/weapon/melee/chainsword/E = tool
+			if (!E.active)
+				user << "\red The blades aren't spinning, you can't cut anything!"
+				return 0
+
 		return !affected.cannot_amputate
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("[user] is beginning to amputate [target]'s [affected.name] with \the [tool]." , \
-		"You are beginning to cut through [target]'s [affected.amputation_point] with \the [tool].")
+		user.visible_message("<span class='danger'>[user] is beginning to amputate [target]'s [affected.name] with \the [tool].</span>" , \
+		"<span class='danger'>You begin to cut through [target]'s [affected.amputation_point] with \the [tool].</span>")
 		target.custom_pain("Your [affected.amputation_point] is being ripped apart!",1)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] amputates [target]'s [affected.name] at the [affected.amputation_point] with \the [tool].", \
-		"\blue You amputate [target]'s [affected.name] with \the [tool].")
-		affected.droplimb(1,DROPLIMB_EDGE)
+		user.visible_message("<span class='danger'>[user] amputates [target]'s [affected.name] at the [affected.amputation_point] with \the [tool].</span>", \
+		"<span class='danger'>You amputate [target]'s [affected.name] with \the [tool].</span>")
+
+		var/clean = 1
+		if (istype(tool, /obj/item/weapon/melee/chainsword))//Chainswords rip and tear, so the limb removal is not clean
+			clean = 0
+
+		var/var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
+		affected.droplimb(clean,DROPLIMB_EDGE)
+
+		if (istype(tool, /obj/item/weapon/melee/energy))//Code for energy weapons cauterising the cut
+			spawn(1)
+				affected = parent
+				affected.open = 0//Close open wounds
+				for (var/datum/wound/lost_limb/W in affected.wounds)
+					W.disinfected = 1//Cleanse the wound of any germs
+					W.autoheal_cutoff = INFINITY//Allow the wound to auto-heal, regardless of damage
+					W.max_bleeding_stage = 0//Stop bleeding
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)

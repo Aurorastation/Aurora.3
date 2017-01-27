@@ -15,7 +15,8 @@
  *		Handcuff, mousetrap, and pillbottle boxes,
  *		Snap-pops and matchboxes,
  *		Replacement light boxes.
- *
+ *		Kitchen utensil box
+ * 		Random preserved snack box
  *		For syndicate call-ins see uplink_kits.dm
  */
 
@@ -25,6 +26,44 @@
 	icon_state = "box"
 	item_state = "syringe_kit"
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/maxHealth = 20//health is already defined
+
+/obj/item/weapon/storage/box/New()
+	..()
+	health = maxHealth
+
+/obj/item/weapon/storage/box/proc/damage(var/severity)
+	health -= severity
+	check_health()
+
+/obj/item/weapon/storage/box/proc/check_health()
+	if (health <= 0)
+		qdel(src)
+
+
+/obj/item/weapon/storage/box/attack_generic(var/mob/user)
+
+	if (istype(user, /mob/living))
+		var/mob/living/L = user
+
+		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
+			var/damage
+			if (!L.mob_size)
+				damage = 3//A safety incase i forgot to set a mob_size on something
+			else
+				damage = L.mob_size//he bigger you are, the faster it tears
+
+			if ((health-damage) >= (maxHealth * 0.5))//I doubt it's worth the performance cost to make a variable to cache (health-damage), not that it matters
+				L.visible_message("[L] gnaws at the [src]", "You gnaw at the [src], tearing off a piece of cardboard.")
+			else if ((health-damage) < (maxHealth * 0.5) && (health-damage) > 0)
+				L.visible_message("<span class='warning'>[L] has almost gnawed through the [src]</span>", "<span class='warning'>You tear off more cardboard from the [src]. It's almost open!</span>")
+			else if ((health-damage) <= 0)
+				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+				spill()
+			damage(damage)
+	..()
+
+
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
@@ -271,8 +310,8 @@
 		new /obj/item/ammo_casing/a145(src)
 
 /obj/item/weapon/storage/box/flashbangs
-	name = "box of flashbangs (WARNING)"
-	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.</B>"
+	name = "box of flashbangs"
+	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use."
 	icon_state = "flashbang"
 
 	New()
@@ -284,6 +323,36 @@
 		new /obj/item/weapon/grenade/flashbang(src)
 		new /obj/item/weapon/grenade/flashbang(src)
 		new /obj/item/weapon/grenade/flashbang(src)
+
+
+/obj/item/weapon/storage/box/teargas
+	name = "box of pepperspray grenades"
+	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
+	icon_state = "flashbang"
+
+	New()
+		..()
+		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
+		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
+		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
+		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
+		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
+		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
+
+/obj/item/weapon/storage/box/smokebombs
+	name = "box of smoke grenades"
+	desc = "A box full of smoke grenades, used by special law enforcement teams and military organisations. Provides cover, confusion, and distraction."
+	icon_state = "flashbang"
+
+	New()
+		..()
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
 
 /obj/item/weapon/storage/box/emps
 	name = "box of emp grenades"
@@ -298,6 +367,44 @@
 		new /obj/item/weapon/grenade/empgrenade(src)
 		new /obj/item/weapon/grenade/empgrenade(src)
 
+/obj/item/weapon/storage/box/smokes
+	name = "box of smoke bombs"
+	desc = "A box containing 5 smoke bombs."
+	icon_state = "flashbang"
+
+/obj/item/weapon/storage/box/smokes/New()
+		..()
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+		new /obj/item/weapon/grenade/smokebomb(src)
+
+/obj/item/weapon/storage/box/anti_photons
+	name = "box of anti-photon grenades"
+	desc = "A box containing 5 experimental photon disruption grenades."
+	icon_state = "flashbang"
+
+/obj/item/weapon/storage/box/anti_photons/New()
+		..()
+		new /obj/item/weapon/grenade/anti_photon(src)
+		new /obj/item/weapon/grenade/anti_photon(src)
+		new /obj/item/weapon/grenade/anti_photon(src)
+		new /obj/item/weapon/grenade/anti_photon(src)
+		new /obj/item/weapon/grenade/anti_photon(src)
+
+/obj/item/weapon/storage/box/frags
+	name = "box of frag grenades"
+	desc = "A box containing 5 military grade fragmentation grenades.<br> WARNING: Live explosives. Misuse may result in serious injury or death."
+	icon_state = "flashbang"
+
+	New()
+		..()
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/weapon/grenade/frag(src)
 
 /obj/item/weapon/storage/box/trackimp
 	name = "boxed tracking implant kit"
@@ -437,7 +544,6 @@
 	desc = "Drymate brand monkey cubes. Just add water!"
 	icon = 'icons/obj/food.dmi'
 	icon_state = "monkeycubebox"
-	storage_slots = 7
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/monkeycube)
 	New()
 		..()
@@ -447,7 +553,7 @@
 
 /obj/item/weapon/storage/box/monkeycubes/farwacubes
 	name = "farwa cube box"
-	desc = "Drymate brand farwa cubes, shipped from Ahdomai. Just add water!"
+	desc = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
 	New()
 		..()
 		for(var/i = 1; i <= 5; i++)
@@ -546,16 +652,30 @@
 		new /obj/item/weapon/storage/pill_bottle( src )
 
 
+/obj/item/weapon/storage/box/spraybottles
+	name = "box of spray bottles"
+	desc = "It has pictures of spray bottles on its front."
+	New()
+		..()
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+		new /obj/item/weapon/reagent_containers/spray( src )
+
+
+
 /obj/item/weapon/storage/box/snappops
 	name = "snap pop box"
 	desc = "Eight wrappers of fun! Ages 8 and up. Not suitable for children."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "spbox"
-	storage_slots = 8
 	can_hold = list(/obj/item/toy/snappop)
 	New()
 		..()
-		for(var/i=1; i <= storage_slots; i++)
+		for(var/i=1; i <= 8; i++)
 			new /obj/item/toy/snappop(src)
 
 /obj/item/weapon/storage/box/matches
@@ -564,14 +684,13 @@
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	item_state = "zippo"
-	storage_slots = 10
 	w_class = 1
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/weapon/flame/match)
 
 	New()
 		..()
-		for(var/i=1; i <= storage_slots; i++)
+		for(var/i=1; i <= 10; i++)
 			new /obj/item/weapon/flame/match(src)
 
 	attackby(obj/item/weapon/flame/match/W as obj, mob/user as mob)
@@ -589,7 +708,7 @@
 	icon_state = "syringe"
 	New()
 		..()
-		for (var/i; i < storage_slots; i++)
+		for (var/i; i < 7; i++)
 			new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src)
 
 /obj/item/weapon/storage/box/lights
@@ -599,7 +718,7 @@
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
 	item_state = "syringe_kit"
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
-	
+
 /obj/item/weapon/storage/box/lights/New()
 	..()
 	make_exact_fit()
@@ -627,4 +746,69 @@
 		new /obj/item/weapon/light/tube(src)
 	for(var/i = 0; i < 7; i++)
 		new /obj/item/weapon/light/bulb(src)
+	..()
+
+/obj/item/weapon/storage/box/freezer
+	name = "portable freezer"
+	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "portafreezer"
+	item_state = "medicalpack"
+	max_w_class = 3
+	can_hold = list(/obj/item/organ, /obj/item/weapon/reagent_containers/food, /obj/item/weapon/reagent_containers/glass)
+	max_storage_space = 21
+	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
+
+/obj/item/weapon/storage/box/kitchen
+	name = "kitchen supplies"
+	desc = "Contains an assortment of utensils and containers useful in the preparation of food and drinks."
+
+/obj/item/weapon/storage/box/kitchen/New()
+	new /obj/item/weapon/material/knife(src)//Should always have a knife
+
+	var/list/utensils = list(/obj/item/weapon/material/kitchen/rollingpin,
+/obj/item/weapon/reagent_containers/glass/beaker,
+/obj/item/weapon/material/kitchen/utensil/fork,
+/obj/item/weapon/reagent_containers/food/condiment/enzyme,
+/obj/item/weapon/material/kitchen/utensil/spoon,
+/obj/item/weapon/material/kitchen/utensil/knife,
+/obj/item/weapon/reagent_containers/food/drinks/shaker)
+	for (var/i = 0,i<6,i++)
+		var/type = pick(utensils)
+		new type(src)
+	..()
+
+
+
+/obj/item/weapon/storage/box/snack
+	name = "rations box"
+	desc = "Contains a random assortment of preserved foods. Guaranteed to remain edible* in room-temperature longterm storage for centuries!"
+
+/obj/item/weapon/storage/box/snack/New()
+	var/list/snacks = list(
+			/obj/item/weapon/reagent_containers/food/snacks/koisbar,
+			/obj/item/weapon/reagent_containers/food/snacks/candy,
+			/obj/item/weapon/reagent_containers/food/snacks/candy_corn,
+			/obj/item/weapon/reagent_containers/food/snacks/chips,
+			/obj/item/weapon/reagent_containers/food/snacks/chocolatebar,
+			/obj/item/weapon/reagent_containers/food/snacks/chocolateegg,
+			/obj/item/weapon/reagent_containers/food/snacks/popcorn,
+			/obj/item/weapon/reagent_containers/food/snacks/sosjerky,
+			/obj/item/weapon/reagent_containers/food/snacks/no_raisin,
+			/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie,
+			/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,
+			/obj/item/weapon/reagent_containers/food/snacks/syndicake,
+			/obj/item/weapon/reagent_containers/food/snacks/fortunecookie,
+			/obj/item/weapon/reagent_containers/food/snacks/poppypretzel,
+			/obj/item/weapon/reagent_containers/food/snacks/cracker,
+			/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
+			/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks,
+			/obj/item/weapon/reagent_containers/food/snacks/tastybread,
+			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
+			/obj/item/weapon/reagent_containers/food/snacks/maps,
+			/obj/item/weapon/reagent_containers/food/snacks/nathisnack
+	)
+	for (var/i = 0,i<7,i++)
+		var/type = pick(snacks)
+		new type(src)
 	..()

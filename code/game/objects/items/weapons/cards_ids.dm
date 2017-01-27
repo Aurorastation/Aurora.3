@@ -60,108 +60,202 @@
 	name = "broken cryptographic sequencer"
 	icon_state = "emag"
 	item_state = "card-id"
-	origin_tech = "magnets=2;syndicate=2"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 
 /obj/item/weapon/card/emag
 	desc = "It's a card with a magnetic strip attached to some circuitry."
 	name = "cryptographic sequencer"
 	icon_state = "emag"
 	item_state = "card-id"
-	origin_tech = "magnets=2;syndicate=2"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	var/uses = 10
-	// List of devices that cost a use to emag.
-	var/list/devices = list(
-		/obj/item/robot_parts,
-		/obj/item/weapon/storage/lockbox,
-		/obj/item/weapon/storage/secure,
-		/obj/item/weapon/circuitboard,
-		/obj/item/weapon/rig,
-		/obj/item/device/eftpos,
-		/obj/item/device/lightreplacer,
-		/obj/item/device/taperecorder,
-		/obj/item/device/hailer,
-		/obj/item/device/megaphone,
-		/obj/item/clothing/accessory/badge/holo,
-		/obj/structure/closet/crate/secure,
-		/obj/structure/closet/secure_closet,
-		/obj/machinery/librarycomp,
-		/obj/machinery/computer,
-		/obj/machinery/power,
-		/obj/machinery/suspension_gen,
-		/obj/machinery/shield_capacitor,
-		/obj/machinery/shield_gen,
-		/obj/machinery/clonepod,
-		/obj/machinery/deployable,
-		/obj/machinery/button/remote,
-		/obj/machinery/porta_turret,
-		/obj/machinery/shieldgen,
-		/obj/machinery/turretid,
-		/obj/machinery/vending,
-		/mob/living/bot,
-		/obj/machinery/door,
-		/obj/machinery/telecomms,
-		/obj/machinery/mecha_part_fabricator,
-		/obj/machinery/gibber,
-		/obj/vehicle
-		)
 
+var/const/NO_EMAG_ACT = -50
+/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user)
+	var/used_uses = A.emag_act(uses, user, src)
+	if(used_uses == NO_EMAG_ACT)
+		return ..(A, user)
 
-/obj/item/weapon/card/emag/afterattack(var/obj/item/weapon/O as obj, mob/user as mob)
-
-	for(var/type in devices)
-		if(istype(O,type))
-			uses--
-			break
+	uses -= used_uses
+	A.add_fingerprint(user)
+	if(used_uses)
+		log_and_message_admins("emagged \an [A].")
 
 	if(uses<1)
-		user.visible_message("[src] fizzles and sparks - it seems it's been used once too often, and is now broken.")
+		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
 		user.drop_item()
 		var/obj/item/weapon/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
 		qdel(src)
-		return
 
-	..()
+	return 1
 
 /obj/item/weapon/card/id
 	name = "identification card"
 	desc = "A card used to provide ID and determine access across the station."
 	icon_state = "id"
 	item_state = "card-id"
-	var/access = list()
+
+	sprite_sheets = list(
+		"Resomi" = 'icons/mob/species/resomi/id.dmi'
+		)
+
+	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
+	var/mob/living/carbon/human/mob
 	slot_flags = SLOT_ID
 
+	var/age = "\[UNSET\]"
 	var/blood_type = "\[UNSET\]"
 	var/dna_hash = "\[UNSET\]"
 	var/fingerprint_hash = "\[UNSET\]"
 	var/citizenship = "\[UNSET\]"
 	var/religion = "\[UNSET\]"
-	var/age = "\[UNSET\]"
+	var/sex = "\[UNSET\]"
+	var/icon/front
+	var/icon/side
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
 	var/rank = null			//actual job
-	var/dorm = 0		// determines if this ID has claimed a dorm already
+	var/dorm = 0			// determines if this ID has claimed a dorm already
 
-/obj/item/weapon/card/id/New()
+/obj/item/weapon/card/id/examine(mob/user)
+	set src in oview(1)
+	if(in_range(usr, src))
+		show(usr)
+		usr << desc
+	else
+		usr << "<span class='warning'>It is too far away.</span>"
+
+/obj/item/weapon/card/id/proc/prevent_tracking()
+	return 0
+
+/obj/item/weapon/card/id/proc/show(mob/user as mob)
+	if(front && side)
+		user << browse_rsc(front, "front.png")
+		user << browse_rsc(side, "side.png")
+	var/datum/browser/popup = new(user, "idcard", name, 600, 250)
+	popup.set_content(dat())
+	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
+	popup.open()
+	return
+
+/obj/item/weapon/card/id/proc/update_name()
+	name = "[src.registered_name]'s ID Card ([src.assignment])"
+
+/obj/item/weapon/card/id/proc/set_id_photo(var/mob/M)
+	front = getFlatIcon(M, SOUTH, always_use_defdir = 1)
+	side = getFlatIcon(M, WEST, always_use_defdir = 1)
+
+/mob/proc/set_id_info(var/obj/item/weapon/card/id/id_card)
+	id_card.age = 0
+	id_card.registered_name		= real_name
+	id_card.sex 				= capitalize(gender)
+	id_card.set_id_photo(src)
+
+	if(dna)
+		id_card.blood_type		= dna.b_type
+		id_card.dna_hash		= dna.unique_enzymes
+		id_card.fingerprint_hash= md5(dna.uni_identity)
+	id_card.update_name()
+
+/mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
 	..()
-	spawn(30)
-	if(istype(loc, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = loc
-		blood_type = H.dna.b_type
-		dna_hash = H.dna.unique_enzymes
-		fingerprint_hash = md5(H.dna.uni_identity)
-		citizenship = H.citizenship
-		religion = H.religion
-		age = H.age
+	id_card.age = age
+	id_card.citizenship			= citizenship
+	id_card.religion			= religion
+	id_card.mob					= src
+
+/obj/item/weapon/card/id/proc/dat()
+	var/dat = ("<table><tr><td>")
+	dat += text("Name: []</A><BR>", registered_name)
+	dat += text("Sex: []</A><BR>\n", sex)
+	dat += text("Age: []</A><BR>\n", age)
+	dat += text("Citizenship: []</A><BR>\n", citizenship)
+	dat += text("Religion: []</A><BR>\n", religion)
+	dat += text("Rank: []</A><BR>\n", assignment)
+	dat += text("Fingerprint: []</A><BR>\n", fingerprint_hash)
+	dat += text("Blood Type: []<BR>\n", blood_type)
+	dat += text("DNA Hash: []<BR><BR>\n", dna_hash)
+	if(front && side)
+		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4><img src=side.png height=80 width=80 border=4></td>"
+	dat += "</tr></table>"
+	return dat
 
 /obj/item/weapon/card/id/attack_self(mob/user as mob)
+	if (dna_hash == "\[UNSET\]" && ishuman(user))
+		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
+		if (response == "Yes")
+			var/mob/living/carbon/human/H = user
+			if(H.gloves)
+				user << "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>"
+				return
+			else
+				mob = H
+				blood_type = H.dna.b_type
+				dna_hash = H.dna.unique_enzymes
+				fingerprint_hash = md5(H.dna.uni_identity)
+				citizenship = H.citizenship
+				religion = H.religion
+				age = H.age
+				user << "<span class='notice'>Biometric Imprinting Successful!.</span>"
+				return
+
 	for(var/mob/O in viewers(user, null))
 		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
 
 	src.add_fingerprint(user)
 	return
+
+/obj/item/weapon/card/id/attack(var/mob/living/M, var/mob/user, proximity)
+
+	if(user.zone_sel.selecting == "r_hand" || user.zone_sel.selecting == "l_hand")
+
+		if(!ishuman(M))
+			return ..()
+
+		if (dna_hash == "\[UNSET\]" && ishuman(user))
+			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [M]'s now?", "Biometric Imprinting", "Yes", "No")
+			if (response == "Yes")
+
+				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
+					user << "<span class='warning'>You must remain adjacent to [M] to scan their biometric data.</span>"
+					return
+
+				var/mob/living/carbon/human/H = M
+
+				if(H.gloves)
+					user << "<span class='warning'>\The [H] is wearing gloves.</span>"
+					return 1
+
+				if(user != H && H.a_intent != "help" && !H.lying)
+					user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
+					return 1
+
+				var/has_hand
+				var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
+				if(istype(O) && !O.is_stump())
+					has_hand = 1
+				else
+					O = H.organs_by_name["l_hand"]
+					if(istype(O) && !O.is_stump())
+						has_hand = 1
+				if(!has_hand)
+					user << "<span class='warning'>They don't have any hands.</span>"
+					return 1
+				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
+				mob = H
+				blood_type = H.dna.b_type
+				dna_hash = H.dna.unique_enzymes
+				fingerprint_hash = md5(H.dna.uni_identity)
+				citizenship = H.citizenship
+				religion = H.religion
+				age = H.age
+				src.add_fingerprint(H)
+				user << "<span class='notice'>Biometric Imprinting Successful!.</span>"
+				return 1
+	return ..()
 
 /obj/item/weapon/card/id/GetAccess()
 	return access
@@ -195,75 +289,6 @@
 	icon_state = "gold"
 	item_state = "gold_id"
 
-/obj/item/weapon/card/id/syndicate
-	name = "agent card"
-	access = list(access_maint_tunnels, access_syndicate, access_external_airlocks)
-	origin_tech = "syndicate=3"
-	var/registered_user=null
-
-/obj/item/weapon/card/id/syndicate/New(mob/user as mob)
-	..()
-	if(!isnull(user)) // Runtime prevention on laggy starts or where users log out because of lag at round start.
-		registered_name = ishuman(user) ? user.real_name : user.name
-	else
-		registered_name = "Agent Card"
-	assignment = "Agent"
-	name = "[registered_name]'s ID Card ([assignment])"
-
-/obj/item/weapon/card/id/syndicate/afterattack(var/obj/item/weapon/O as obj, mob/user as mob, proximity)
-	if(!proximity) return
-	if(istype(O, /obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/I = O
-		src.access |= I.access
-		if(istype(user, /mob/living) && user.mind)
-			if(user.mind.special_role)
-				usr << "\blue The card's microscanners activate as you pass it over the ID, copying its access."
-
-/obj/item/weapon/card/id/syndicate/attack_self(mob/user as mob)
-	if(!src.registered_name)
-		//Stop giving the players unsanitized unputs! You are giving ways for players to intentionally crash clients! -Nodrak
-		var t = sanitizeName(input(user, "What name would you like to put on this card?", "Agent card name", ishuman(user) ? user.real_name : user.name), MAX_NAME_LEN)
-		if(!t) //Same as mob/new_player/prefrences.dm
-			alert("Invalid name.")
-			return
-		src.registered_name = t
-
-		var u = sanitize(input(user, "What occupation would you like to put on this card?\nNote: This will not grant any access levels other than Maintenance.", "Agent card job assignment", "Agent"), MAX_LNAME_LEN)
-		if(!u)
-			alert("Invalid assignment.")
-			src.registered_name = ""
-			return
-		src.assignment = u
-		src.name = "[src.registered_name]'s ID Card ([src.assignment])"
-		user << "\blue You successfully forge the ID card."
-		registered_user = user
-	else if(!registered_user || registered_user == user)
-
-		if(!registered_user) registered_user = user  //
-
-		switch(alert("Would you like to display the ID, or retitle it?","Choose.","Rename","Show"))
-			if("Rename")
-				var t = sanitize(input(user, "What name would you like to put on this card?", "Agent card name", ishuman(user) ? user.real_name : user.name), 26)
-				if(!t || t == "Unknown" || t == "floor" || t == "wall" || t == "r-wall") //Same as mob/new_player/prefrences.dm
-					alert("Invalid name.")
-					return
-				src.registered_name = t
-
-				var u = sanitize(input(user, "What occupation would you like to put on this card?\nNote: This will not grant any access levels other than Maintenance.", "Agent card job assignment", "Assistant"))
-				if(!u)
-					alert("Invalid assignment.")
-					return
-				src.assignment = u
-				src.name = "[src.registered_name]'s ID Card ([src.assignment])"
-				user << "\blue You successfully forge the ID card."
-				return
-			if("Show")
-				..()
-	else
-		..()
-
-
-
 /obj/item/weapon/card/id/syndicate_command
 	name = "syndicate ID card"
 	desc = "An ID straight from the Syndicate."
@@ -278,9 +303,20 @@
 	item_state = "gold_id"
 	registered_name = "Captain"
 	assignment = "Captain"
-	New()
-		access = get_all_accesses()
-		..()
+/obj/item/weapon/card/id/captains_spare/New()
+	access = get_all_station_access()
+	..()
+
+/obj/item/weapon/card/id/synthetic
+	name = "\improper Synthetic ID"
+	desc = "Access module for NanoTrasen Synthetics"
+	icon_state = "id-robot"
+	item_state = "tdgreen"
+	assignment = "Synthetic"
+
+/obj/item/weapon/card/id/synthetic/New()
+	access = get_all_station_access() + access_synth
+	..()
 
 /obj/item/weapon/card/id/centcom
 	name = "\improper CentCom. ID"
@@ -294,8 +330,20 @@
 
 /obj/item/weapon/card/id/centcom/ERT
 	name = "\improper Emergency Response Team ID"
+	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
-/obj/item/weapon/card/id/centcom/ERT/New()
+obj/item/weapon/card/id/centcom/ERT/New()
 	..()
-	access += get_all_accesses()
+	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
+	
+/obj/item/weapon/card/id/all_access
+	name = "\improper Administrator's spare ID"
+	desc = "The spare ID of the Lord of Lords himself."
+	icon_state = "data"
+	item_state = "tdgreen"
+	registered_name = "Administrator"
+	assignment = "Administrator"
+/obj/item/weapon/card/id/all_access/New()
+	access = get_access_ids()
+	..()

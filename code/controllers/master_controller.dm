@@ -12,7 +12,6 @@ var/global/pipe_processing_killed = 0
 
 datum/controller/game_controller
 	var/list/shuttle_list	                    // For debugging and VV
-	var/datum/random_map/ore/asteroid_ore_map   // For debugging and VV.
 
 datum/controller/game_controller/New()
 	//There can be only one master_controller. Out with the old and in with the new.
@@ -47,12 +46,18 @@ datum/controller/game_controller/proc/setup()
 datum/controller/game_controller/proc/setup_objects()
 	admin_notice("<span class='danger'>Initializing objects</span>", R_DEBUG)
 	sleep(-1)
-	for(var/atom/movable/object in world)
-		object.initialize()
+	objects_initialized = 1
+	for(var/A in objects_init_list)
+		var/atom/movable/object = A
+		if(isnull(object.gcDestroyed))
+			object.initialize()
 
-	admin_notice("<span class='danger>Initializing areas</span>", R_DEBUG)
+	objects_init_list.Cut()
+
+	admin_notice("<span class='danger'>Initializing areas</span>", R_DEBUG)
 	sleep(-1)
-	for(var/area/area in all_areas)
+	for(var/A in all_areas)
+		var/area/area = A
 		area.initialize()
 
 	admin_notice("<span class='danger'>Initializing pipe networks</span>", R_DEBUG)
@@ -70,10 +75,10 @@ datum/controller/game_controller/proc/setup_objects()
 			var/obj/machinery/atmospherics/unary/vent_scrubber/T = U
 			T.broadcast_status()
 
-	// Create the mining ore distribution map.
-	// These values determine the specific area that the map is applied to.
-	// If you do not use the official Baycode asteroid map, you will need to change them.
-	asteroid_ore_map = new /datum/random_map/ore(null,13,32,5,217,223)
+
+	//Spawn the contents of the cargo warehouse
+	sleep(-1)
+	spawn_cargo_stock()
 
 	// Set up antagonists.
 	populate_antag_type_list()

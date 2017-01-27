@@ -11,6 +11,8 @@
 	..()
 	hold = new/obj/item/weapon/storage/internal(src)
 	hold.storage_slots = slots
+	hold.max_storage_space = 12
+	hold.max_w_class = 2
 
 /obj/item/clothing/accessory/storage/attack_hand(mob/user as mob)
 	if (has_suit)	//if we are part of a suit
@@ -32,10 +34,6 @@
 
 /obj/item/clothing/accessory/storage/emp_act(severity)
 	hold.emp_act(severity)
-	..()
-
-/obj/item/clothing/accessory/storage/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	hold.hear_talk(M, msg, verb, speaking)
 	..()
 
 /obj/item/clothing/accessory/storage/attack_self(mob/user as mob)

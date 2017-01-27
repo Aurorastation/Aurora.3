@@ -10,13 +10,14 @@
 
 	default_language = "Ceti Basic"
 	language = "Cult"
+	name_language = "Cult"
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
 	darksight = 8
 	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
 
-	rarity_value = 2
+	rarity_value = 10
 	blurb = "Skeletons are undead brought back to life through dark wizardry, \
 	they are empty shells fueled by sheer obscure power and blood-magic. \
 	However, some men are cursed to carry such burden due to vile curses."
@@ -39,7 +40,8 @@
 	breath_type = null
 	poison_type = null
 
-	flags = IS_RESTRICTED | NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_MINOR_CUT
+	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/skeleton),
@@ -54,3 +56,8 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot/skeleton),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/skeleton)
 		)
+
+	stamina	=	500			  //Tireless automatons
+	stamina_recovery = 1
+	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
