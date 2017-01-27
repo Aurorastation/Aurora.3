@@ -648,7 +648,7 @@
 		else
 			var/light_available
 			if(T.dynamic_lighting)
-				light_available = T.get_lumcount() * 10
+				light_available = T.get_lumcount(0, 3) * 10
 			else
 				light_available =  5
 			light_string = "a light level of [light_available] lumens"
