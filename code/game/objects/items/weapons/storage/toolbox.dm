@@ -115,10 +115,10 @@
 	icon_state = "lunchbox_rainbow"
 	item_state = "lunchbox_rainbow"
 	desc = "A little lunchbox. This one is the colors of the rainbow."
-	var/filled = FALSE
 	attack_verb = list("lunched")
 	w_class = 3
 	max_storage_space = 8
+	var/filled = FALSE
 
 /obj/item/weapon/storage/toolbox/lunchbox/New()
 	..()
