@@ -105,3 +105,80 @@
 			update_force()
 			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
+
+/obj/item/weapon/storage/toolbox/lunchbox
+	name = "rainbow lunchbox"
+	icon = 'icons/obj/lunchbox.dmi'
+	force = 3
+	throwforce = 5
+	contained_sprite = 1
+	icon_state = "lunchbox_rainbow"
+	item_state = "lunchbox_rainbow"
+	desc = "A little lunchbox. This one is the colors of the rainbow."
+	var/filled = FALSE
+	attack_verb = list("lunched")
+	w_class = 3
+	max_storage_space = 8
+
+/obj/item/weapon/storage/toolbox/lunchbox/New()
+	..()
+	if(filled)
+		var/list/lunches = lunchables_lunches()
+		var/lunch = lunches[pick(lunches)]
+		new lunch(src)
+
+		var/list/snacks = lunchables_snacks()
+		var/snack = snacks[pick(snacks)]
+		new snack(src)
+
+		var/list/drinks = lunchables_drinks()
+		var/drink = drinks[pick(drinks)]
+		new drink(src)
+
+/obj/item/weapon/storage/toolbox/lunchbox/filled
+	filled = TRUE
+
+/obj/item/weapon/storage/toolbox/lunchbox/heart
+	name = "heart lunchbox"
+	icon_state = "lunchbox_hearts"
+	item_state = "lunchbox_hearts"
+	desc = "A little lunchbox. This one has little hearts on it."
+
+/obj/item/weapon/storage/toolbox/lunchbox/heart/filled
+	filled = TRUE
+
+/obj/item/weapon/storage/toolbox/lunchbox/cat
+	name = "cat lunchbox"
+	icon_state = "lunchbox_cat"
+	item_state = "lunchbox_cat"
+	desc = "A little lunchbox. This one has a cat stamp on it."
+
+/obj/item/weapon/storage/toolbox/lunchbox/cat/filled
+	filled = TRUE
+
+/obj/item/weapon/storage/toolbox/lunchbox/nt
+	name = "NanoTrasen brand lunchbox"
+	icon_state = "lunchbox_nanotrasen"
+	item_state = "lunchbox_nanotrasen"
+	desc = "A little lunchbox. This one is branded with the NanoTrasen logo."
+
+/obj/item/weapon/storage/toolbox/lunchbox/nt/filled
+	filled = TRUE
+
+/obj/item/weapon/storage/toolbox/lunchbox/nymph
+	name = "\improper diona nymph lunchbox"
+	icon_state = "lunchbox_dionanymph"
+	item_state = "lunchbox_dionanymph"
+	desc = "A little lunchbox. This one is a diona nymph on the side."
+
+/obj/item/weapon/storage/toolbox/lunchbox/nymph/filled
+	filled = TRUE
+
+/obj/item/weapon/storage/toolbox/lunchbox/syndicate
+	name = "black and red lunchbox"
+	icon_state = "lunchbox_syndie"
+	item_state = "lunchbox_syndie"
+	desc = "A little lunchbox. This one is a sleek black and red."
+
+/obj/item/weapon/storage/toolbox/lunchbox/syndicate/filled
+	filled = TRUE
