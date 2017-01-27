@@ -215,11 +215,7 @@
 		src << "<span class='warning'>Your powers are not capable of taking you that far.</span>"
 		return
 
-	var/atom/movable/lighting_overlay/light = T.lighting_overlay
-	if (!light)
-		return
-
-	if (T.get_lumcount() * 10 > 1)
+	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
 		// Too bright, cannot jump into.
 		src << "<span class='warning'>The destination is too bright.</span>"
 		return
