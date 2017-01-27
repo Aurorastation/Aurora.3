@@ -119,8 +119,7 @@
 	if (new_opacity == opacity)
 		return
 
-	if (lighting_profiling)
-		lprof_write(src, "atom_setopacity")
+	lprof_write(src, "atom_setopacity")
 
 	opacity = new_opacity
 	var/turf/T = loc
