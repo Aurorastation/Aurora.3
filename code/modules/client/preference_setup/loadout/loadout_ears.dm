@@ -5,14 +5,15 @@
 	path = /obj/item/clothing/ears/earmuffs
 	sort_category = "Earwear"
 
-/datum/gear/ears/bandanna_r
-	display_name = "neck bandanna, red"
+/datum/gear/ears/bandanna
+	display_name = "neck bandanna selection"
 	path = /obj/item/clothing/ears/bandanna
-
-/datum/gear/ears/bandanna_bl
-	display_name = "neck bandanna, blue"
-	path = /obj/item/clothing/ears/bandanna/blue
-
-/datum/gear/ears/bandanna_bk
-	display_name = "neck bandanna, black"
-	path = /obj/item/clothing/ears/bandanna/black
+	
+/datum/gear/ears/bandanna/New()
+	..()
+	var/bandanna = list()
+	bandanna["red bandanna"] =  /obj/item/clothing/ears/bandanna
+	bandanna["blue bandanna"] = /obj/item/clothing/ears/bandanna/blue
+	bandanna["black bandanna"] = /obj/item/clothing/ears/bandanna/black
+	gear_tweaks += new/datum/gear_tweak/path(bandanna)
+	
