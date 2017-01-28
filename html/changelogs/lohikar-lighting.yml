@@ -1,7 +1,7 @@
 author: Lohikar
 delete-after: True
 changes: 
-  - rscadd: "Lighting is now smoothed across tiles instead of being per-tile."
+  - rscadd: "Ported over /vg/'s smooth lighting system."
   - rscadd: "Tweaked the emission color of station lighting."
   - rscadd: "Glowing slime cores now emit colored light instead of white light."
   - rscadd: "Space tiles are now darker."

@@ -1,14 +1,8 @@
 // Writes lighting updates to the database.
 // FOR DEBUGGING ONLY!
 
-var/DBQuery/lprof_q
-
-/proc/lprof_init()
-	lprof_q = dbcon.NewQuery({"INSERT INTO ss13dbg_lighting (time,type,name,loc_name,x,y,z) 
-		VALUES (:time,:type,:name,:loc_name,:x,:y,:z);"})
-
 /proc/lprof_write(var/atom/movable/obj, var/type = "UNKNOWN")
-	if (!lighting_profiling || !obj || !dbcon.IsConnected())
+	if (!lighting_profiling || !obj || !establish_db_connection(dbcon))
 		return
 
 	var/x = null
@@ -23,6 +17,11 @@ var/DBQuery/lprof_q
 		x = obj.loc.x
 		y = obj.loc.y
 		z = obj.loc.z
+
+	var/static/DBQuery/lprof_q
+	if (!lprof_q)
+		lprof_q = dbcon.NewQuery({"INSERT INTO ss13dbg_lighting (time,type,name,loc_name,x,y,z) 
+		VALUES (:time,:type,:name,:loc_name,:x,:y,:z);"})
 
 	lprof_q.Execute(
 		list(

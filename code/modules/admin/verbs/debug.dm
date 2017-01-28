@@ -984,8 +984,5 @@
 		usr << span("alert", "Unable to start profiling: No active database connection.")
 		return
 
-	if (!lprof_q)
-		lprof_init()
-
 	lighting_profiling = !lighting_profiling
 	log_and_message_admins("has [lighting_profiling ? "enabled" : "disabled"] lighting profiling.")
