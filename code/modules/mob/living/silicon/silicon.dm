@@ -1,7 +1,7 @@
 /mob/living/silicon
 	gender = NEUTER
 	voice_name = "synthesized voice"
-	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 	var/syndicate = 0
 	var/const/MAIN_CHANNEL = "Main Frequency"
 	var/lawchannel = MAIN_CHANNEL // Default channel on which to state laws

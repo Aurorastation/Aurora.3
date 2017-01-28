@@ -337,7 +337,7 @@
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light(l_range = 2, l_power = 0.5, l_color = "#0000FF")
+			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = "#0000FF")
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
 			var/color
 			switch(charging)
@@ -347,7 +347,7 @@
 					color = "#A8B0F8"
 				if(2)
 					color = "#82FF4C"
-			set_light(l_range = 2, l_power = 0.5, l_color = color)
+			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = color)
 		else
 			set_light(0)
 
@@ -1303,18 +1303,11 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				sleep(1)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
-	// this defines what the list level arguments are when night mode is turned on
-	var/list/night_light_args = list(
-	                           /obj/machinery/light = list(6, 1),
-	                           /obj/machinery/light/small = list(4, 1)
-	                           )
 	for (var/obj/machinery/light/L in area.contents)
-		if (!listgetindex(night_light_args, L.type)) // if L's type isn't defined in our args list
-			continue
 		if (force == "on")
-			L.set_light_source(arglist(night_light_args[L.type]))
+			L.nightmode = TRUE
 		else if (force == "off")
-			L.set_light_source()
+			L.nightmode = FALSE
 		L.update()
 	switch (force)
 		if ("on")

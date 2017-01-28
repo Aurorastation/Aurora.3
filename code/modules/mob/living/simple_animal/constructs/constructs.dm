@@ -144,18 +144,6 @@
 
 	return (..(P))
 
-/mob/living/simple_animal/construct/armoured/UnarmedAttack(var/atom/A, var/proximity)
-	if(istype(A, /obj/machinery))
-		// Destroy machines instead of opening their UI
-		var/obj/machinery/M = A
-		do_attack_animation(M)
-		playsound(loc, attack_sound, 50, 1, 1)
-		M.ex_act(3.0)
-	else
-		..()
-
-
-
 ////////////////////////Wraith/////////////////////////////////////////////
 
 

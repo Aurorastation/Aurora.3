@@ -72,7 +72,9 @@
 			loc.Exited(src)
 		loc = destination
 		loc.Entered(src)
+		update_client_hook(loc)
 		return 1
+	update_client_hook(loc)
 	return 0
 
 //called when src is thrown into hit_atom
@@ -274,3 +276,19 @@ var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "6" = 60)
 	if(!candidates.len)
 		return null
 	return text2num(pickweight(candidates))
+
+// Parallax stuff.
+
+/atom/movable/proc/update_client_hook(atom/destination)
+	if(locate(/mob) in src)
+		for(var/client/C in parallax_on_clients)
+			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
+				C.mob.hud_used.update_parallax_values()
+
+/mob/update_client_hook(atom/destination)
+	if(locate(/mob) in src)
+		for(var/client/C in parallax_on_clients)
+			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
+				C.mob.hud_used.update_parallax_values()
+	else if(client && hud_used)
+		hud_used.update_parallax_values()

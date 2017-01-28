@@ -80,7 +80,7 @@ world/loop_checks = 0
 		tick_dels++
 		total_dels++
 		destroyed.Cut(1, 2)
-		SCHECK
+		F_SCHECK
 
 #undef GC_FORCE_DEL_PER_TICK
 #undef GC_COLLECTION_TIMEOUT
@@ -151,13 +151,13 @@ world/loop_checks = 0
 
 /datum/proc/finalize_qdel()
 	if(IsPooled(src))
-		PlaceInPool(src)
+		returnToPool(src)
 	else
 		del(src)
 
 /atom/finalize_qdel()
-	if(IsPooled(src))
-		PlaceInPool(src)
+	if (IsPooled(src))
+		returnToPool(src)
 	else
 		if(garbage_collector)
 			garbage_collector.AddTrash(src)

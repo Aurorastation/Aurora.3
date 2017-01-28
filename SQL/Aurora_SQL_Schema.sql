@@ -349,6 +349,8 @@ CREATE TABLE `ss13_player_preferences` (
   `lastmotd` text NULL DEFAULT NULL,
   `lastmemo` text NULL DEFAULT NULL,
   `language_prefixes` text NULL DEFAULT NULL,
+  `parallax_toggles` INT(11) NULL DEFAULT NULL,
+	`parallax_speed` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`ckey`),
   CONSTRAINT `player_preferences_fk_ckey` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

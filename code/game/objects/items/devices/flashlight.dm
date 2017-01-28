@@ -7,14 +7,15 @@
 	w_class = 2
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	offset_light = 1
-	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	light_color = LIGHT_COLOR_HALOGEN
+	//offset_light = 1
+	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
 
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
-	var/brightness_on = 4 //luminosity when on
+	var/brightness_on = 3 //luminosity when on
 
 /obj/item/device/flashlight/initialize()
 	..()
@@ -23,10 +24,10 @@
 /obj/item/device/flashlight/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on)
+		set_light(brightness_on, update_type = UPDATE_NOW)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0)
+		set_light(0, update_type = UPDATE_NOW)
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
@@ -110,7 +111,7 @@
 	desc = "A high-luminosity flashlight for specialist duties."
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
-	brightness_on = 7
+	brightness_on = 4
 	w_class = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
 	contained_sprite = 1
@@ -166,15 +167,15 @@
 	w_class = 2.0
 	brightness_on = 8 // Pretty bright.
 	light_power = 3
-	light_color = "#e58775"
+	light_color = LIGHT_COLOR_FLARE
 	icon_state = "flare"
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
 	var/fuel = 0
 	var/on_damage = 7
 	var/produce_heat = 1500
-	offset_light = 0//Emits light all around, not directional
-	diona_restricted_light = 0
+	//offset_light = 0//Emits light all around, not directional
+	//diona_restricted_light = 0
 
 /obj/item/device/flashlight/flare/New()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
@@ -224,12 +225,13 @@
 	w_class = 1
 	brightness_on = 6
 	on = 1 //Bio-luminesence has one setting, on.
-	offset_light = 0//Emits light all around, not directional
-	diona_restricted_light = 0
+	light_color = LIGHT_COLOR_SLIME_LAMP
+	//offset_light = 0//Emits light all around, not directional
+	//diona_restricted_light = 0
 
 /obj/item/device/flashlight/slime/New()
 	..()
-	set_light(brightness_on)
+	set_light(brightness_on, update_type = UPDATE_NOW)
 
 /obj/item/device/flashlight/slime/update_icon()
 	return
@@ -243,15 +245,15 @@
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
 	w_class = 2
-	brightness_on = 3
-	light_power = 2
+	brightness_on = 1.5
+	light_power = 1
 	light_color = "#49F37C"
 	icon = 'icons/obj/glowsticks.dmi'
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	contained_sprite = 1
-	offset_light = 0
-	diona_restricted_light = 0
+	//offset_light = 0
+	//diona_restricted_light = 0
 	var/fuel = 0
 
 /obj/item/device/flashlight/glowstick/New()
@@ -296,27 +298,27 @@
 /obj/item/device/flashlight/glowstick/red
 	name = "red glowstick"
 	desc = "A red military-grade glowstick."
-	light_color = "#FC0F29"
+	light_color = LIGHT_COLOR_RED //"#FC0F29"
 	icon_state = "glowstick_red"
 	item_state = "glowstick_red"
 
 /obj/item/device/flashlight/glowstick/blue
 	name = "blue glowstick"
 	desc = "A blue military-grade glowstick."
-	light_color = "#599DFF"
+	light_color = LIGHT_COLOR_BLUE //"#599DFF"
 	icon_state = "glowstick_blue"
 	item_state = "glowstick_blue"
 
 /obj/item/device/flashlight/glowstick/orange
 	name = "orange glowstick"
 	desc = "A orange military-grade glowstick."
-	light_color = "#FA7C0B"
+	light_color = LIGHT_COLOR_ORANGE//"#FA7C0B"
 	icon_state = "glowstick_orange"
 	item_state = "glowstick_orange"
 
 /obj/item/device/flashlight/glowstick/yellow
 	name = "yellow glowstick"
 	desc = "A yellow military-grade glowstick."
-	light_color = "#FEF923"
+	light_color = LIGHT_COLOR_YELLOW //"#FEF923"
 	icon_state = "glowstick_yellow"
 	item_state = "glowstick_yellow"

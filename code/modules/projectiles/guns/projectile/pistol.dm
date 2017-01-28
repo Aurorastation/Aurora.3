@@ -10,7 +10,7 @@
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/colt/detective
-	magazine_type = /obj/item/ammo_magazine/c45m/flash
+	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 
 /obj/item/weapon/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -46,6 +46,7 @@
 
 /obj/item/weapon/gun/projectile/sec/flash
 	name = ".45 signal pistol"
+	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/weapon/gun/projectile/sec/wood
 	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
@@ -53,24 +54,21 @@
 	icon_state = "secgundark"
 
 /obj/item/weapon/gun/projectile/automatic/x9
-	name = "x9 tactical pistol"
-	desc = "A lightweight, fast firing handgun, excels at firing the medium caliber .45 in controlled shooting."
+	name = "automatic .45 pistol"
+	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
 	icon_state = "x9tactical"
 	w_class = 3
 	load_method = MAGAZINE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 16
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
 	magazine_type = /obj/item/ammo_magazine/c45x
+	allowed_magazines = list(/obj/item/ammo_magazine/c45x)
 	multi_aim = 1
 	auto_eject = 1
-
-	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
-		)
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."

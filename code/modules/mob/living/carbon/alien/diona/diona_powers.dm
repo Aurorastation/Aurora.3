@@ -211,7 +211,7 @@
 	var/types = donor.find_type()
 
 	if (types & TYPE_SYNTHETIC)
-		src.visible_message("<span class='danger'>[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal.</span>", "<span class='danger'>You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions.in your mouth</span>")
+		src.visible_message("<span class='danger'>[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal.</span>", "<span class='danger'>You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions in your mouth.</span>")
 		donor.adjustBruteLoss(2)
 		src.adjustBruteLoss(15)//biting metal hurts!
 		return
@@ -231,7 +231,7 @@
 	else if (istype(donor, /mob/living/carbon))
 		//If we get here, it's -probably- valid
 
-		src.visible_message("<span class='danger'>[src] is trying to bite [donor.name]</span>", "\red You start biting [donor.name], you and them must stay still!")
+		src.visible_message("<span class='danger'>[src] is trying to bite [donor.name]</span>", span("danger", "You start biting [donor.name], you both must stay still!"))
 		face_atom(get_turf(donor))
 		if (do_mob(src, donor, 40, needhand = 0))
 
@@ -296,5 +296,5 @@
 	for (var/i in language_progress)
 		if (language_progress[i] >= LANGUAGE_POINTS_TO_LEARN)
 			add_language(i)
-			src << "<span class='notice'><font size=3>You have mastered the [i] language!!</font></span>"
+			src << "<span class='notice'><font size=3>You have mastered the [i] language!</font></span>"
 			language_progress.Remove(i)

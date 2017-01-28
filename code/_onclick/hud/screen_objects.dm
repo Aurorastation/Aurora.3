@@ -12,6 +12,7 @@
 	layer = 20.0
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
+	var/globalscreen = 0	// TODO: Screen pooling.
 
 /obj/screen/Destroy()
 	master = null

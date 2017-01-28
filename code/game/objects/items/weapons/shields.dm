@@ -118,7 +118,7 @@
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
-			var/datum/effect/effect/system/spark_spread/spark_system = PoolOrNew(/datum/effect/effect/system/spark_spread)
+			var/datum/effect/effect/system/spark_spread/spark_system = getFromPool(/datum/effect/effect/system/spark_spread)
 			spark_system.set_up(5, 0, user.loc)
 			spark_system.start()
 			playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
@@ -156,7 +156,6 @@
 			else
 				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
 				return 1
-
 
 /obj/item/weapon/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))

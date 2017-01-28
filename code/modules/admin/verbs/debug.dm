@@ -972,3 +972,17 @@
 	else
 		alert("Invalid mob")
 
+/client/proc/cmd_debug_profile_lighting()
+	set category = "Debug"
+	set name = "Profile Lighting"
+	set desc = "Spams the database with lighting updates. Y'know, just 'cause."
+
+	if (!check_rights(R_DEBUG|R_SERVER))
+		return
+
+	if (!establish_db_connection(dbcon))
+		usr << span("alert", "Unable to start profiling: No active database connection.")
+		return
+
+	lighting_profiling = !lighting_profiling
+	log_and_message_admins("has [lighting_profiling ? "enabled" : "disabled"] lighting profiling.")

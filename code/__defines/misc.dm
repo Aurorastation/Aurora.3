@@ -48,6 +48,9 @@
 #define SHOW_TYPING     0x4000
 #define CHAT_NOICONS    0x8000
 
+#define PARALLAX_SPACE 0x1
+#define PARALLAX_DUST 0x2
+
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
 //Sound effects toggles
@@ -200,10 +203,11 @@
 #define NTNETSPEED_DOS_AMPLIFICATION 5	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
 
 // Program bitflags
-#define PROGRAM_ALL 7
+#define PROGRAM_ALL 15
 #define PROGRAM_CONSOLE 1
 #define PROGRAM_LAPTOP 2
 #define PROGRAM_TABLET 4
+#define PROGRAM_TELESCREEN 8
 
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1
@@ -260,3 +264,8 @@
 #define LAYER_TABLE	2.8
 #define LAYER_UNDER_TABLE	2.79
 #define LAYER_ABOVE_TABLE	2.81
+
+// Stoplag.
+#define TICK_LIMIT 80
+#define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
+#define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()

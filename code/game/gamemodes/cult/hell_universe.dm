@@ -46,6 +46,7 @@ In short:
 
 	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
+	convert_all_parallax()
 	//Separated into separate procs for profiling
 	AreaSet()
 	MiscSet()
@@ -62,23 +63,36 @@ In short:
 			continue
 
 		A.updateicon()
+		CHECK_TICK
 
 /datum/universal_state/hell/OverlayAndAmbientSet()
-	spawn(0)
-		for(var/atom/movable/lighting_overlay/L in world)
-			L.update_lumcount(1, 0, 0)
+	set waitfor = FALSE
+	for(var/turf/T in turfs)
+		if(istype(T, /turf/space))
+			T.overlays += image(icon = T.icon, icon_state = "hell01")
+		else
+			if(!T.holy && prob(1) && !(T.z in config.admin_levels))
+				new /obj/effect/gateway/active/cult(T)
+			T.underlays += "hell01"
+		CHECK_TICK
 
-		for(var/turf/space/T in turfs)
-			OnTurfChange(T)
+	for(var/datum/lighting_corner/C in global.all_lighting_corners)
+		if (!C.active)
+			continue
+
+		C.update_lumcount(0.5, 0, 0)
+		CHECK_TICK
 
 /datum/universal_state/hell/proc/MiscSet()
 	for(var/turf/simulated/floor/T in turfs)
 		if(!T.holy && prob(1))
 			new /obj/effect/gateway/active/cult(T)
+		CHECK_TICK
 
 	for (var/obj/machinery/firealarm/alm in machines)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
+		CHECK_TICK
 
 /datum/universal_state/hell/proc/APCSet()
 	for (var/obj/machinery/power/apc/APC in machines)
@@ -88,8 +102,26 @@ In short:
 				APC.cell.charge = 0
 			APC.emagged = 1
 			APC.queue_icon_update()
+		CHECK_TICK
 
 /datum/universal_state/hell/proc/KillMobs()
 	for(var/mob/living/simple_animal/M in mob_list)
 		if(M && !M.client)
 			M.stat = DEAD
+		CHECK_TICK
+
+// Parallax.
+
+/datum/universal_state/hell/convert_parallax(obj/screen/plane_master/parallax_spacemaster/PS)
+	PS.color = list(
+	0,0,0,0,
+	0,0,0,0,
+	0,0,0,0,
+	1,0,0,1)
+
+/datum/universal_state/hell/proc/convert_all_parallax()
+	for(var/client/C in clients)
+		var/obj/screen/plane_master/parallax_spacemaster/PS = locate() in C.screen
+		if(PS)
+			convert_parallax(PS)
+		CHECK_TICK

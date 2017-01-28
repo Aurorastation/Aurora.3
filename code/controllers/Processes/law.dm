@@ -7,6 +7,8 @@
 	var/list/med_severity = list()
 	var/list/high_severity = list()
 
+	disabled = 1
+
 /datum/controller/process/law/New()
 	corp_regs = src
 
