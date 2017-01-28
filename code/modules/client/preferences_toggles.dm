@@ -156,7 +156,10 @@
 		src << "You will now see space parallax effects."
 	else
 		src << "You will no longer see space parallax effects."
-	feedback_add_details("admin_verb", "TParaSp")
+	
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
+
 
 /client/verb/toggle_space_dust()
 	set name = "Show/Hide Space Dust"
@@ -168,7 +171,9 @@
 		src << "You will now see space parallax dust effects."
 	else
 		src << "You will no longer see space parallax dust effects."
-	feedback_add_details("admin_verb", "TParaDu")
+	
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
 
 /client/verb/set_parallax_speed()
 	set name = "Set Parallax Speed"
@@ -181,3 +186,6 @@
 
 	prefs.parallax_speed = choice
 	prefs.save_preferences()
+
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
