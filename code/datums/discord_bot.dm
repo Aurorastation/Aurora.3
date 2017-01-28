@@ -36,7 +36,7 @@ var/datum/discord_bot/discord_bot = null
 	var/robust_debug = 0
 
 	// Lazy man's rate limiting vars
-	var/queue_push_planned = 0
+	var/datum/scheduled_task/push_task
 	var/list/queue = list()
 
 /datum/discord_bot/proc/update_channels()
@@ -106,11 +106,9 @@ var/datum/discord_bot/discord_bot = null
 			// Set up the queue.
 			queue.Add(list(message, A - sent))
 
-			if (!queue_push_planned)
-				// Schedule a push.
-				queue_push_planned = 1
-				spawn (100)
-					push_queue()
+			// Schedule a push.
+			if (!push_task)
+				push_task = schedule_task_with_source_in(10 SECONDS, src, /datum/discord_bot/proc/push_queue)
 
 			// And exit.
 			return
@@ -122,12 +120,31 @@ var/datum/discord_bot/discord_bot = null
 
 /datum/discord_bot/proc/retreive_pins()
 	if (!active || !auth_token)
-		return
+		return list()
 
 	if (!channels.len || isnull(channels_to_group["pins"]))
-		return
+		return list()
 
+	var/list/output = list()
 
+	for (var/A in channels_to_group["pins"])
+		var/datum/discord_channel/channel = A
+		if (isnull(output["[channel.pin_flag]"]))
+			output["[channel.pin_flag]"] = list()
+
+		output["[channel.pin_flag]"] += channel.get_pins(auth_token)
+
+	return output
+
+/datum/discord_bot/proc/retreive_invite()
+	if (!active || !auth_token)
+		return ""
+
+	if (!invite)
+		return ""
+
+	var/res = invite.get_invite(auth_token)
+	return isnum(res) ? "" : res
 
 /datum/discord_bot/proc/send_to_admins(message)
 	send_message(CHAN_ADMIN, message)
@@ -141,8 +158,6 @@ var/datum/discord_bot/discord_bot = null
 /datum/discord_bot/proc/push_queue()
 	// What facking queue.
 	if (!queue || !queue.len)
-		queue_push_planned = 0
-
 		if (robust_debug)
 			log_debug("BOREALIS: Attempted to push a null length queue.")
 		return
@@ -157,20 +172,17 @@ var/datum/discord_bot/discord_bot = null
 
 		for (var/B in destinations)
 			var/datum/discord_channel/channel = B
-			switch (channel.send_message_to(auth_token, message))
-				if (SEND_TIMEOUT)
-					// Limited again. Reschedule.
-					spawn (100)
-						push_queue()
+			if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
+				push_task.trigger_task_in(10 SECONDS)
 
-					return
-				else
-					destinations.Remove(channel)
+				return
+			else
+				destinations.Remove(channel)
 
 		queue.Remove(A)
 
-	// Reset the var once we're done with the queue.
-	queue_push_planned = 0
+	qdel(push_task)
+	push_task = null
 
 // A holder class for channels.
 /datum/discord_channel
@@ -333,7 +345,7 @@ var/datum/discord_bot/discord_bot = null
 					break
 
 				if (best_age < A[i]["max_age"])
-					best_Age = A[i]["max_age"]
+					best_age = A[i]["max_age"]
 					code = A[i]["code"]
 
 		// Sanity check for debug I guess.
@@ -344,7 +356,19 @@ var/datum/discord_bot/discord_bot = null
 		invite_url = "https://discord.gg/[code]"
 		return invite_url
 
+/datum/discord_channel/proc/create_invite(var/token)
+	var/data = list("max_age" = 0, "max_uses" = 0)
+	var/res = send_post_request("https://discordapp.com/api/channels/[id]/invites", json_encode(data), "Authorization: Bot [token]", "Content-Type: application/json")
 
+	if (res == 200)
+		var/list/get_req = send_get_request("https://discordapp.com/api/channels/[id]/invites", "Authorization: Bot [token]")
+
+		if (!istype(get_req) || !get_req.len)
+			return ERROR_PROC
+
+		// The first index should now exist. So we just use that!
+		invite_url = "https://discord.gg/[get_req[1]["code"]]"
+		return invite_url
 
 #undef CHAN_ADMIN
 #undef CHAN_CCIAA
