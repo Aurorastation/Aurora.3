@@ -127,7 +127,9 @@ var/list/admin_verbs_fun = list(
 	/client/proc/roll_dices,
 	/datum/admins/proc/create_admin_fax,
 	/datum/admins/proc/call_supply_drop,
-	/datum/admins/proc/call_drop_pod
+	/datum/admins/proc/call_drop_pod,
+	/client/proc/show_tip,
+	/client/proc/fab_tip
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -1032,10 +1034,10 @@ var/list/admin_verbs_cciaa = list(
 
 	if (alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
 		return
-	
+
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
 	target.do_wipe_core()
-	
+
 /client/proc/restart_sql()
 	set category = "Debug"
 	set name = "Reconnect SQL"
