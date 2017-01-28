@@ -1,6 +1,7 @@
 #define CHAN_ADMIN		"channel_admin"
 #define CHAN_CCIAA		"channel_cciaa"
 #define CHAN_ANNOUNCE	"channel_announce"
+#define CHAN_INVITE		"channel_invite"
 
 #define SEND_OK			0
 #define SEND_TIMEOUT	1
@@ -21,7 +22,30 @@ var/datum/discord_bot/discord_bot = null
 
 	discord_bot.update_channels()
 
+	if (config.use_discord_pins && server_greeting)
+		server_greeting.update_pins()
+
 	return 1
+
+/client/verb/test_invite()
+	set name = "Test Discord Invite"
+	set category = "Discord"
+
+	usr << "Doing the thing."
+	usr << discord_bot.retreive_invite()
+
+/client/verb/test_message(var/message as text)
+	set name = "Test Messaging"
+	set category = "Discord"
+
+	discord_bot.send_message("channel_test", message)
+
+/client/verb/test_pins()
+	set name = "Test Pins"
+	set category = "Discord"
+
+	usr << "Getting pins"
+	usr << json_encode(discord_bot.retreive_pins())
 
 /datum/discord_bot
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
@@ -74,7 +98,7 @@ var/datum/discord_bot/discord_bot = null
 
 		// We don't have this channel datum yet.
 		if (isnull(B))
-			B = new(channel_query.item[2], channel_query.item[3], channel_query.item[4])
+			B = new(channel_query.item[2], channel_query.item[4], text2num(channel_query.item[3]))
 
 			if (!B)
 				log_debug("BOREALIS: Bad channel data during update channels. [jointext(channel_query.item, ", ")].")
@@ -82,8 +106,16 @@ var/datum/discord_bot/discord_bot = null
 
 			channels[channel_query.item[2]] = B
 
+		if (text2num(channel_query.item[3]))
+			B.pin_flag |= text2num(channel_query.item[3])
+
 		// Add the channel to the required lists.
 		channels_to_group[channel_query.item[1]] += B
+
+	if (!isnull(channels_to_group[CHAN_INVITE]))
+		invite = channels_to_group[CHAN_INVITE][1]
+	else if (robust_debug)
+		log_debug("BOREALIS: No invite channel designated.")
 
 	log_debug("BOREALIS: Channels updated successfully.")
 	return 0
@@ -118,7 +150,7 @@ var/datum/discord_bot/discord_bot = null
 		if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
 			// Whoopsies, rate limited.
 			// Set up the queue.
-			queue.Add(list(message, A - sent))
+			queue.Add(list(list(message, A - sent)))
 
 			// Schedule a push.
 			if (!push_task)
@@ -130,7 +162,7 @@ var/datum/discord_bot/discord_bot = null
 			sent += channel
 
 	if (robust_debug)
-		log_debug("BOEALIS: Message sent to [channel_group]. JSON body: '[message]'")
+		log_debug("BOREALIS: Message sent to [channel_group]. JSON body: '[message]'")
 
 /*
  * Proc retreive_pins
@@ -144,12 +176,13 @@ var/datum/discord_bot/discord_bot = null
 	if (!active || !auth_token)
 		return list()
 
-	if (!channels.len || isnull(channels_to_group["pins"]))
+	if (!channels.len || isnull(channels_to_group["channel_pins"]))
+		testing("No group.")
 		return list()
 
 	var/list/output = list()
 
-	for (var/A in channels_to_group["pins"])
+	for (var/A in channels_to_group["channel_pins"])
 		var/datum/discord_channel/channel = A
 		if (isnull(output["[channel.pin_flag]"]))
 			output["[channel.pin_flag]"] = list()
@@ -219,16 +252,14 @@ var/datum/discord_bot/discord_bot = null
 		for (var/B in destinations)
 			var/datum/discord_channel/channel = B
 			if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
-				push_task.trigger_task_in(10 SECONDS)
+				// Tasks nuke themselves after use. So just make a new one! What could possibly go wrong!
+				push_task = schedule_task_with_source_in(10 SECONDS, src, /datum/discord_bot/proc/push_queue)
 
 				return
 			else
 				destinations.Remove(channel)
 
 		queue.Remove(A)
-
-	qdel(push_task)
-	push_task = null
 
 // A holder class for channels.
 /datum/discord_channel
@@ -279,13 +310,9 @@ var/datum/discord_bot/discord_bot = null
 			log_debug("BOREALIS: cURL error while forwarding message to Discord API: [res]. Message body: [message].")
 			return ERROR_CURL
 
-		if (100 to 600)
+		else
 			log_debug("BOREALIS: HTTP error while forwarding message to Discord API: [res]. Channel: [id]. Message body: [message].")
 			return ERROR_HTTP
-
-		else
-			log_debug("BOREALIS: Unknown response code while forwarding message to Discord API: [res].")
-			return ERROR_PROC
 
 /*
  * Proc get_pins
@@ -428,6 +455,7 @@ var/datum/discord_bot/discord_bot = null
 #undef CHAN_ADMIN
 #undef CHAN_CCIAA
 #undef CHAN_ANNOUNCE
+#undef CHAN_INVITE
 
 #undef SEND_OK
 #undef SEND_TIMEOUT

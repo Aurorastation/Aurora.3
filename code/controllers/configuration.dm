@@ -186,6 +186,7 @@ var/list/gamemode_cache = list()
 	var/use_discord_bot = 0
 	var/discord_bot_host = "localhost"
 	var/discord_bot_port = 0
+	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
@@ -647,6 +648,9 @@ var/list/gamemode_cache = list()
 
 				if("discord_bot_port")
 					config.discord_bot_port = value
+
+				if("use_discord_pins")
+					config.use_discord_pins = 1
 
 				if("python_path")
 					if(value)

@@ -13,10 +13,10 @@
 						admins_number_afk++
 
 			message_admins("Admin logout: [key_name(src)]")
-
+/*
 			if (admins_number == 0) //Apparently the admin logging out is no longer an admin at this point, so we have to check this towards 0 and not towards 1. Awell.
 				discord_bot.send_to_admins("@here [key_name(src)] logged out - no more admins online.")
 			else if ((admins_number - admins_number_afk) <= 0)
-				discord_bot.send_to_admins("[key_name(src)] logged out - only AFK admins ([admins_number_afk]) are online.")
+				discord_bot.send_to_admins("[key_name(src)] logged out - only AFK admins ([admins_number_afk]) are online.")*/
 	..()
 	return 1

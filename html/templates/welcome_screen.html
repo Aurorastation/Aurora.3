@@ -84,7 +84,13 @@
 
 			gotReply = true;
 
-			$(obj.div).append($(obj.content));
+			if (obj.content instanceof Array) {
+				for (var i = 0; i < obj.content.length; i++) {
+					$(obj.div).append($(obj.content[i]));
+				}
+			} else {
+				$(obj.div).append($(obj.content));
+			}
 
 			if (obj.update == 1 && !$(obj.div + '-tab').hasClass('updated')) {
 				$(obj.div + '-tab').addClass('updated');
