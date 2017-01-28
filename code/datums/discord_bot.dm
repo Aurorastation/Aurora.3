@@ -39,6 +39,13 @@ var/datum/discord_bot/discord_bot = null
 	var/datum/scheduled_task/push_task
 	var/list/queue = list()
 
+/*
+ * Proc update_channels
+ * Used to load channels from the database and construct them with the discord API.
+ * Wipes all current channels and channel maps.
+ *
+ * @return num	- Error code. 0 upon success.
+ */
 /datum/discord_bot/proc/update_channels()
 	if (!active)
 		return 1
@@ -81,6 +88,13 @@ var/datum/discord_bot/discord_bot = null
 	log_debug("BOREALIS: Channels updated successfully.")
 	return 0
 
+/*
+ * Proc send_message
+ * Used to send a message to a specific channel group.
+ *
+ * @param text channel_group	- The name of the channel group which to target.
+ * @param text message			- The message to send.
+ */
 /datum/discord_bot/proc/send_message(var/channel_group, var/message)
 	if (!active || !auth_token)
 		return
@@ -118,6 +132,14 @@ var/datum/discord_bot/discord_bot = null
 	if (robust_debug)
 		log_debug("BOEALIS: Message sent to [channel_group]. JSON body: '[message]'")
 
+/*
+ * Proc retreive_pins
+ * Used to fetch a list of all pins from the designated channels.
+ *
+ * @return list	- A multilayered list of flags associated with pins. Structure looks like this:
+ *		list("pin_flag" = list(list("author" = author name, "content" = content),
+ *							   list("author" = author name, "content" = content)))
+ */
 /datum/discord_bot/proc/retreive_pins()
 	if (!active || !auth_token)
 		return list()
@@ -136,6 +158,13 @@ var/datum/discord_bot/discord_bot = null
 
 	return output
 
+/*
+ * Proc retreive_invite
+ * Used to retreive the invite to the invite channel.
+ * One will be created if none exist.
+ *
+ * @return text	- The invite URL to the designated invite channel.
+ */
 /datum/discord_bot/proc/retreive_invite()
 	if (!active || !auth_token)
 		return ""
@@ -146,15 +175,32 @@ var/datum/discord_bot/discord_bot = null
 	var/res = invite.get_invite(auth_token)
 	return isnum(res) ? "" : res
 
+/*
+ * Proc send_to_admin
+ * Forwards a message to the admin channels.
+ */
 /datum/discord_bot/proc/send_to_admins(message)
 	send_message(CHAN_ADMIN, message)
 
+/*
+ * Proc send_to_cciaa
+ * Forwards a message to the CCIAA channels.
+ */
 /datum/discord_bot/proc/send_to_cciaa(message)
 	send_message(CHAN_CCIAA, message)
 
+/*
+ * Proc send_to_announce
+ * Forwards a message to the announcements channels.
+ */
 /datum/discord_bot/proc/send_to_announce(message)
 	send_message(CHAN_ANNOUNCE, message)
 
+/*
+ * Proc push_queue
+ * Handles the queue pushing for the bot. If there is no need to reschedule (all messages get successfully
+ * pushed), then it deletes push_task and sets it back to null. Otherwise, it simply reschedules it.
+ */
 /datum/discord_bot/proc/push_queue()
 	// What facking queue.
 	if (!queue || !queue.len)
@@ -194,9 +240,9 @@ var/datum/discord_bot/discord_bot = null
 /*
  * Constructor
  *
- * @param text _id	- the
- * @param text _sid	- the sanitized message content to be sent.
- * @param num _pin	- a specific return code for the discord_bot to handle.
+ * @param text _id	- the discord API id of the channel, as a string.
+ * @param text _sid	- the discord API server id for the channel, as a string.
+ * @param num _pin	- the bitflags of admin permissions which have access to the pins from this channel.
  */
 /datum/discord_channel/New(var/_id, var/_sid, var/_pin)
 	id = _id
@@ -356,6 +402,15 @@ var/datum/discord_bot/discord_bot = null
 		invite_url = "https://discord.gg/[code]"
 		return invite_url
 
+/*
+ * Proc create_invite
+ * Creates a permanent invite to a channel and returns it, under the assumption that
+ * there are no other invites for this channel.
+ *
+ * @param text token	- the authorization token to be used for the requests.
+ * @return mixed		- String upon success - the URL of the newly generated invite.
+ *						  Num upon failure.
+ */
 /datum/discord_channel/proc/create_invite(var/token)
 	var/data = list("max_age" = 0, "max_uses" = 0)
 	var/res = send_post_request("https://discordapp.com/api/channels/[id]/invites", json_encode(data), "Authorization: Bot [token]", "Content-Type: application/json")
