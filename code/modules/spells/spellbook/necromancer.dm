@@ -15,6 +15,7 @@
 	spells = list(/spell/targeted/projectile/dumbfire/fireball = 				1,
 				/spell/targeted/torment = 					1,
 				/spell/mark_recall = 						1,
+				/spell/targeted/subjugation = 					1,
 				/spell/targeted/lichdom = 					2,
 				/spell/aoe_turf/conjure/mirage = 				1,
 				/spell/aoe_turf/conjure/summon/bats = 				1,
@@ -24,8 +25,7 @@
 				/spell/shadow_shroud = 						1,
 				/spell/noclothes = 						1,
 				/obj/structure/closet/wizard/armor = 				1,
-				/obj/item/weapon/gun/energy/staff/chaos = 			1,
-				/obj/item/weapon/storage/belt/wands/full = 			2,
+				/obj/structure/closet/wizard/scrying = 				2,
 				/obj/structure/closet/wizard/souls = 				1,
 				/obj/item/weapon/contract/apprentice = 				1
 				)
