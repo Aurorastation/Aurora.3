@@ -123,3 +123,8 @@
 /datum/gear/uniform/track_pants
 	display_name = "track pants"
 	path = /obj/item/clothing/under/track
+	
+/datum/gear/uniform/turtleneck
+	display_name = "tacticool turtleneck"	
+	path = /obj/item/clothing/under/syndicate/tacticool
+	
