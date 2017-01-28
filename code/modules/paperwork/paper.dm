@@ -130,7 +130,7 @@
 		icon_state = "scrap"
 		return
 
-	if (user.a_intent == I_GRAB)
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/weapon/paper/carbon))
 		if (icon_state == "paper_plane")
 			user.show_message(span("alert", "The paper is already folded into a plane."))
 			return
