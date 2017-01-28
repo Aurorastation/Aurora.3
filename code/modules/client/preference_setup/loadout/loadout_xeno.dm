@@ -62,7 +62,7 @@
 	sort_category = "Xenowear"
 
 /datum/gear/mask/vaurca
-	display_name = "mandible garment"
+	display_name = "mandible garment (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
 	whitelisted = "Vaurca"
