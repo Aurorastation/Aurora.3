@@ -2,6 +2,11 @@
 	display_name = "briefcase"
 	path = /obj/item/weapon/storage/briefcase
 	sort_category = "Utility"
+	
+/datum/gear/utility/secure
+	display_name = "secure briefcase"
+	path = /obj/item/weapon/storage/secure/briefcase
+	cost = 2
 
 /datum/gear/utility/clipboard
 	display_name = "clipboard"
