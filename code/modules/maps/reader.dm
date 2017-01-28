@@ -299,7 +299,7 @@ var/global/dmm_suite/preloader/_preloader = null
 	if(underturf.density)
 		placed.density = 1
 	if(underturf.opacity)
-		placed.opacity = 1
+		placed.set_opacity(1)
 	placed.underlays += turfs_underlays
 
 //atom creation method that preloads variables at creation

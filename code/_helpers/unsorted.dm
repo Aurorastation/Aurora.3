@@ -794,6 +794,8 @@ proc/GaussRandRound(var/sigma,var/roundto)
 					var/old_icon1 = T.icon
 					var/old_overlays = T.overlays.Copy()
 					var/old_underlays = T.underlays.Copy()
+					if (T.dynamic_lighting && T.lighting_overlay)
+						T.lighting_overlay.forceMove(B, harderforce = TRUE)
 
 					var/turf/X = B.ChangeTurf(T.type)
 					X.set_dir(old_dir1)
@@ -1364,15 +1366,6 @@ var/list/WALLITEMS = list(
 /atom/movable/proc/stop_orbit()
 	orbiting = null
 
-/mob/dview/New()
-	..()
-	// We don't want to be in any mob lists; we're a dummy not a mob.
-	mob_list -= src
-	if(stat == DEAD)
-		dead_mob_list -= src
-	else
-		living_mob_list -= src
-
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
 	CRASH(msg)
@@ -1396,3 +1389,18 @@ var/list/WALLITEMS = list(
 		a = a.loc
 
 	return 0//If we get here, we must be buried many layers deep in nested containers. Shouldn't happen
+
+//Increases delay as the server gets more overloaded,
+//as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
+#define DELTA_CALC max((max(world.tick_usage,world.cpu)/100),1)
+
+/proc/stoplag()
+	. = 0
+	var/i = 1
+	do
+		. += round(i*DELTA_CALC)
+		sleep(i*world.tick_lag*DELTA_CALC)
+		i *= 2
+	while (world.tick_usage > TICK_LIMIT)
+
+#undef DELTA_CALC

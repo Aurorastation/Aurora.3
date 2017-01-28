@@ -143,8 +143,13 @@
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 3
-	var/brightness_color = null
+	var/brightness_power = 0.8
+	var/night_brightness_range = 6
+	var/night_brightness_power = 0.6
+	var/supports_nightmode = TRUE
+	var/nightmode = FALSE
+	var/brightness_color = LIGHT_COLOR_HALOGEN
+	var/brightness_uv    = 200
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -160,21 +165,22 @@
 	icon_state = "bulb1"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness_range = 4
-	brightness_power = 2
-	brightness_color = "#a0a080"
+	brightness_range = 5
+	brightness_power = 0.75
+	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
+	supports_nightmode = FALSE
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
-	brightness_power = 2
-	brightness_color = "#da0205"
+	brightness_power = 1
+	brightness_color = "#FF0000"
 
 /obj/machinery/light/small/red
-	brightness_range = 5
+	brightness_range = 2.5
 	brightness_power = 1
-	brightness_color = "#da0205"
+	brightness_color = LIGHT_COLOR_RED
 
 /obj/machinery/light/spot
 	name = "spotlight"
@@ -182,6 +188,7 @@
 	light_type = /obj/item/weapon/light/tube/large
 	brightness_range = 12
 	brightness_power = 4
+	supports_nightmode = FALSE
 
 /obj/machinery/light/built/New()
 	status = LIGHT_EMPTY
@@ -238,7 +245,7 @@
 
 	update_icon()
 	if(on)
-		if(light_range != brightness_range || light_power != brightness_power || light_color != brightness_color)
+		if (check_update())
 			switchcount++
 			if(rigged)
 				if(status == LIGHT_OK && trigger)
@@ -255,14 +262,23 @@
 					set_light(0)
 			else
 				use_power = 2
-				set_light(brightness_range, brightness_power, brightness_color)
+				if (supports_nightmode && nightmode)
+					set_light(night_brightness_range, night_brightness_power, brightness_color, uv = brightness_uv)
+				else
+					set_light(brightness_range, brightness_power, brightness_color, uv = brightness_uv)
 	else
 		use_power = 1
 		set_light(0)
 
-	active_power_usage = ((light_range + light_power) * 10)
+	active_power_usage = ((light_range * light_power) * 10)
 	if(on != on_gs)
 		on_gs = on
+
+/obj/machinery/light/proc/check_update()
+	if (supports_nightmode && nightmode)
+		return light_range != night_brightness_range || light_power != night_brightness_power || light_color != brightness_color
+	else
+		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
 /obj/machinery/light/attack_generic(var/mob/user, var/damage)
 	if(!damage)
@@ -557,7 +573,7 @@
 // timed process
 // use power
 
-#define LIGHTING_POWER_FACTOR 20		//20W per unit luminosity
+#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
 
 
 /obj/machinery/light/process()
@@ -631,13 +647,13 @@
 	item_state = "c_tube"
 	matter = list("glass" = 100)
 	brightness_range = 8
-	brightness_power = 3
+	brightness_power = 0.8
 
 /obj/item/weapon/light/tube/large
 	w_class = 2
 	name = "large light tube"
 	brightness_range = 15
-	brightness_power = 4
+	brightness_power = 6
 
 /obj/item/weapon/light/bulb
 	name = "light bulb"
@@ -647,7 +663,7 @@
 	item_state = "contvapour"
 	matter = list("glass" = 100)
 	brightness_range = 5
-	brightness_power = 2
+	brightness_power = 0.75
 	brightness_color = "#a0a080"
 
 /obj/item/weapon/light/throw_impact(atom/hit_atom)
@@ -661,8 +677,8 @@
 	base_state = "fbulb"
 	item_state = "egg4"
 	matter = list("glass" = 100)
-	brightness_range = 5
-	brightness_power = 2
+	brightness_range = 8
+	brightness_power = 0.8
 
 // update the icon state and description of the light
 

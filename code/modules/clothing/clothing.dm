@@ -268,14 +268,14 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
-	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude","Vaurca Breeder")
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
-	offset_light = 1
+	//offset_light = 1
 
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi',

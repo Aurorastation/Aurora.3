@@ -26,7 +26,7 @@
 
 	//switching opacity on after the smoke has spawned, and then turning it off before it is deleted results in cleaner
 	//lighting and view range updates (Is this still true with the new lighting system?)
-	opacity = 1
+	set_opacity(1)
 
 	//float over to our destination, if we have one
 	destination = dest_turf
@@ -34,7 +34,7 @@
 		walk_to(src, destination)
 
 /obj/effect/effect/smoke/chem/Destroy()
-	opacity = 0
+	set_opacity(0)
 	fadeOut()
 	..()
 
@@ -250,7 +250,7 @@
 	if(passed_smoke)
 		smoke = passed_smoke
 	else
-		smoke = PoolOrNew(/obj/effect/effect/smoke/chem, list(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I))
+		smoke = getFromPool(/obj/effect/effect/smoke/chem, list(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I))
 
 	if(chemholder.reagents.reagent_list.len)
 		chemholder.reagents.trans_to_obj(smoke, chemholder.reagents.total_volume / dist, copy = 1) //copy reagents to the smoke so mob/breathe() can handle inhaling the reagents
@@ -261,7 +261,7 @@
 
 
 /datum/effect/effect/system/smoke_spread/chem/spores/spawnSmoke(var/turf/T, var/smoke_duration, var/icon/I, var/dist = 1)
-	var/obj/effect/effect/smoke/chem/spores = PoolOrNew(/obj/effect/effect/smoke/chem, location)
+	var/obj/effect/effect/smoke/chem/spores = getFromPool(/obj/effect/effect/smoke/chem, location)
 	spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
 	..(T, I, smoke_duration, dist, spores)
 

@@ -9,7 +9,7 @@ var/global/list/turf/processing_turfs = list()
 		var/turf/T = last_object
 		if(T.process() == PROCESS_KILL)
 			processing_turfs.Remove(T)
-		SCHECK
+		F_SCHECK
 
 /datum/controller/process/turf/statProcess()
 	..()

@@ -137,13 +137,13 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 	if(firelevel > 6)
 		icon_state = "3"
-		set_light(7, FIRE_LIGHT_3)
+		set_light(7, FIRE_LIGHT_3, update_type = UPDATE_NONE)	// We set color later in the proc, that should trigger an update.
 	else if(firelevel > 2.5)
 		icon_state = "2"
-		set_light(5, FIRE_LIGHT_2)
+		set_light(5, FIRE_LIGHT_2, update_type = UPDATE_NONE)
 	else
 		icon_state = "1"
-		set_light(3, FIRE_LIGHT_1)
+		set_light(3, FIRE_LIGHT_1, update_type = UPDATE_NONE)
 
 	for(var/mob/living/L in loc)
 		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!

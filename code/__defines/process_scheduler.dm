@@ -16,3 +16,17 @@
 // SCHECK macros
 // This references src directly to work around a weird bug with try/catch
 #define SCHECK sleepCheck()
+
+#define F_SCHECK \
+	calls_since_last_scheck = 0; \
+	if (killed) CRASH("A killed process is still running somehow..."); \
+	if (hung) { \
+		handleHung(); \
+		CRASH("Process [name] hung and was restarted."); \
+	} \
+	if (world.tick_usage > 100 || (world.tick_usage - tick_start) > tick_allowance) { \
+		sleep(world.tick_lag); \
+		cpu_defer_count++; \
+		last_slept = TimeOfHour; \
+		tick_start = world.tick_usage; \
+		}

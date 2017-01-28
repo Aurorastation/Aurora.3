@@ -1,125 +1,152 @@
+//This was made pretty explicity for atmospherics devices which could not delete their datums properly
+//Make sure you go around and null out those references to the datum
+//It was also pretty explicitly and shamelessly stolen from regular object pooling, thanks esword
+
+//#define DEBUG_DATUM_POOL
+
+#define MAINTAINING_OBJECT_POOL_COUNT 500
+
+// Read-only or compile-time vars and special exceptions.
+/var/list/exclude = list("inhand_states", "loc", "locs", "parent_type", "vars", "verbs", "type", "x", "y", "z","group", "animate_movement")
+
+/var/global/list/masterdatumPool = new
+/var/global/list/pooledvariables = new
 
 /*
-/tg/station13 /atom/movable Pool:
----------------------------------
-By RemieRichards
+ * @args : datum type, normal arguments
+ * Example call: getFromPool(/datum/pipeline, args)
+ */
+/proc/getFromPool(var/type, ...)
+	var/list/B = (args - type)
 
-Creation/Deletion is laggy, so let's reduce reuse and recycle!
+	if(length(masterdatumPool[type]) <= 0)
 
-*/
-#define ATOM_POOL_COUNT 100
-// "define DEBUG_ATOM_POOL 1
-var/global/list/GlobalPool = list()
-
-//You'll be using this proc 90% of the time.
-//It grabs a type from the pool if it can
-//And if it can't, it creates one
-//The pool is flexible and will expand to fit
-//The new created atom when it eventually
-//Goes into the pool
-
-//Second argument can be a new location, if the type is /atom/movable
-//Or a list of arguments
-//Either way it gets passed to new
-
-/proc/PoolOrNew(var/get_type,var/second_arg)
-	var/datum/D
-	D = GetFromPool(get_type,second_arg)
-
-	if(!D)
-		// So the GC knows we're pooling this type.
-		if(!GlobalPool[get_type])
-			GlobalPool[get_type] = list()
-		if(islist(second_arg))
-			return new get_type (arglist(second_arg))
-		else
-			return new get_type (second_arg)
-	return D
-
-/proc/GetFromPool(var/get_type,var/second_arg)
-	if(isnull(GlobalPool[get_type]))
-		return 0
-
-	if(length(GlobalPool[get_type]) == 0)
-		return 0
-
-	var/datum/D = pick_n_take(GlobalPool[get_type])
-	if(D)
-		D.ResetVars()
-		D.Prepare(second_arg)
-		return D
-	return 0
-
-/proc/PlaceInPool(var/datum/D)
-	if(!istype(D))
-		return
-
-	if(length(GlobalPool[D.type]) > ATOM_POOL_COUNT)
-		#ifdef DEBUG_ATOM_POOL
-		world << text("DEBUG_DATUM_POOL: PlaceInPool([]) exceeds []. Discarding.", D.type, ATOM_POOL_COUNT)
+		#ifdef DEBUG_DATUM_POOL
+		if(ticker)
+			to_chat(world, text("DEBUG_DATUM_POOL: new proc has been called ([] | []).", type, list2params(B)))
 		#endif
-		if(garbage_collector)
-			garbage_collector.AddTrash(D)
+
+		//so the GC knows we're pooling this type.
+		if(isnull(masterdatumPool[type]))
+			masterdatumPool[type] = list()
+
+		if(B && B.len)
+			return new type(arglist(B))
 		else
-			del(D)
+			return new type()
+
+	var/datum/O = masterdatumPool[type][1]
+	masterdatumPool[type] -= O
+
+	#ifdef DEBUG_DATUM_POOL
+	to_chat(world, text("DEBUG_DATUM_POOL: getFromPool([]) [] left arglist([]).", type, length(masterdatumPool[type]), list2params(B)))
+	#endif
+
+	if(!O || !istype(O))
+		O = new type(arglist(B))
+	else
+		if(istype(O, /atom/movable) && B.len) // B.len check so we don't OoB.
+			var/atom/movable/AM = O
+			AM.forceMove(B[1], FALSE, TRUE)
+
+		if(B && B.len)
+			O.New(arglist(B))
+		else
+			O.New()
+
+	return O
+
+/*
+ * @args
+ * D, datum instance
+ *
+ * Example call: returnToPool(src)
+ */
+
+/proc/returnToPool(const/datum/D)
+	ASSERT(D)
+
+	if(istype(D, /atom/movable) && length(masterdatumPool[D.type]) > MAINTAINING_OBJECT_POOL_COUNT)
+		#ifdef DEBUG_DATUM_POOL
+		to_chat(world, text("DEBUG_DATUM_POOL: returnToPool([]) exceeds [] discarding...", D.type, MAINTAINING_OBJECT_POOL_COUNT))
+		#endif
+
+		qdel(D)
 		return
 
-	if(D in GlobalPool[D.type])
-		return
-
-	if(!GlobalPool[D.type])
-		GlobalPool[D.type] = list()
-
-	GlobalPool[D.type] += D
+	if(isnull(masterdatumPool[D.type]))
+		masterdatumPool[D.type] = list()
 
 	D.Destroy()
-	D.ResetVars()
+	D.resetVariables()
 
-/proc/IsPooled(var/datum/D)
-	if(isnull(GlobalPool[D.type]))
-		return 0
-	return 1
+	#ifdef DEBUG_DATUM_POOL
+	if(D in masterdatumPool[D.type])
+		to_chat(world, text("returnToPool has been called twice for the same datum of type [] time to panic.", D.type))
+	#endif
 
-/datum/proc/Prepare(args)
-	if(islist(args))
-		New(arglist(args))
-	else
-		New(args)
+	masterdatumPool[D.type] |= D
 
-/atom/movable/Prepare(args)
-	var/list/args_list = args
-	if(istype(args_list) && args_list.len)
-		loc = args[1]
-	else
-		loc = args
-	..()
+	#ifdef DEBUG_DATUM_POOL
+	to_chat(world, text("DEBUG_DATUM_POOL: returnToPool([]) [] left.", D.type, length(masterdatumPool[D.type])))
+	#endif
 
-var/list/excluded_vars = list("animate_movement", "contents", "loc", "locs", "parent_type", "vars", "verbs", "type")
-var/list/pooledvariables = list()
-//thanks to clusterfack @ /vg/station for these two procs
-/datum/proc/createVariables(var/list/excluded)
+#undef MAINTAINING_DATUM_POOL_COUNT
+
+#ifdef DEBUG_DATUM_POOL
+#undef DEBUG_DATUM_POOL
+#endif
+
+/datum/proc/createVariables()
 	pooledvariables[type] = new/list()
-	var/list/all_excluded = excluded_vars + excluded
+	var/list/exclude = global.exclude + args
 
 	for(var/key in vars)
-		if(key in all_excluded)
+		if(key in exclude)
 			continue
 		pooledvariables[type][key] = initial(vars[key])
 
-/datum/proc/ResetVars(var/list/excluded = list())
+//RETURNS NULL WHEN INITIALIZED AS A LIST() AND POSSIBLY OTHER DISCRIMINATORS
+//IF YOU ARE USING SPECIAL VARIABLES SUCH A LIST() INITIALIZE THEM USING RESET VARIABLES
+//SEE http://www.byond.com/forum/?post=76850 AS A REFERENCE ON THIS
+
+/datum/proc/resetVariables()
 	if(!pooledvariables[type])
-		createVariables(excluded)
+		createVariables(args)
 
 	for(var/key in pooledvariables[type])
 		vars[key] = pooledvariables[type][key]
 
-/atom/movable/ResetVars()
-	..()
-	loc = null
-	contents = initial(contents) //something is really wrong if this object still has stuff in it by this point
+/proc/isInTypes(atom/Object, types)
+	if(!Object)
+		return 0
+	var/prototype = Object.type
+	Object = null
 
-/image/ResetVars()
-	..()
-	loc = null
+	for (var/type in params2list(types))
+		if (ispath(prototype, text2path(type)))
+			return 1
 
-#undef ATOM_POOL_COUNT
+	return 0
+
+/client/proc/debug_pooling()
+	set name = "Debug Pooling Type"
+	set category = "Debug"
+
+	var/type = input("What is the typepath for the pooled object variables you wish to view?", "Pooled Variables") in pooledvariables|null
+
+	if(!type)
+		return
+
+	var/list/L = list()
+	L += "<b>Stored Variables for Pooling for this type</b><br>"
+	for(var/key in pooledvariables[type])
+		if(pooledvariables[type][key])
+			L += "<br>[key] = [pooledvariables[type][key]]"
+		else
+			L += "<br>[key] = null"
+	usr << browse(jointext(L,""),"window=poolingvariablelogs")
+
+// Shim - this method doesn't natively exist in this implementation.
+/proc/IsPooled(var/datum/D)
+	return "[D.type]" in masterdatumPool

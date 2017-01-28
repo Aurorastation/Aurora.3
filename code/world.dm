@@ -1,3 +1,5 @@
+#define WORLD_ICON_SIZE 32
+#define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
 
 /*
 	The initialization of the game happens roughly like this:
