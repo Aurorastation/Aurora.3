@@ -1,4 +1,3 @@
-// Gloves
 /datum/gear/gloves
 	display_name = "watch"
 	path = /obj/item/clothing/gloves/watch
