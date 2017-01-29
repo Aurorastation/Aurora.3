@@ -40,7 +40,7 @@ script:
   - mysql -e "SELECT User FROM mysql.user;" -u root
   - $HOME/flyway-${FLYWAY_BUILD}/flyway -v
   - cp SQL/migrate/* $HOME/flyway-${FLYWAY_BUILD}/sql/
-  - $HOME/flyway-${FLYWAY_BUILD}/flyway -X -u root migrate -user=flyway -password=flypass -url=jdbc:mysql://localhost:3306/ss13_test?user=flyway
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway -X -u root migrate -user=travis -password= -url=jdbc:mysql://localhost:3306/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
   - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
