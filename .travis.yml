@@ -28,7 +28,7 @@ install:
   - pip install --user beautifulsoup4 -q
 
 before_script:
-  - bash ./scripts/mysql-5.7.sh
+  - bash .travis.install-mysql-5.7.sh
   - chmod +x ./install-byond.sh
   - ./install-byond.sh
   - chmod +x ./install-flyway.sh
@@ -36,6 +36,7 @@ before_script:
 
 script:
   - mysql -e 'CREATE DATABASE ss13_test;'
+  - mysql -e "CREATE USER 'flyway'@'localhost' identified by 'flypass'; grant all privileges on ss13_test . * to 'flyway'@'localhost';" -uroot
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://127.0.0.1/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
