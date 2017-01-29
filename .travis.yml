@@ -10,7 +10,6 @@ env:
 cache:
   directories:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
-    - $HOME/flyway-${FLYWAY_BUILD}
 
 services:
   - mysql
