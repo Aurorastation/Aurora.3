@@ -118,9 +118,9 @@
 
 /obj/item/weapon/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
 	var/mob/living/carbon/human/H = M
-	if (!H)
+	if (!H || !istype(H))
 		return
-	if( (src.dna==usr.dna.unique_enzymes || emagged) && (src in usr.contents))
+	if( (src.dna==H.dna.unique_enzymes || emagged) && (src in usr.contents))
 		hear(msg)
 	return
 

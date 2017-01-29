@@ -21,6 +21,8 @@
 
 // creates the random item
 /obj/random/proc/spawn_item()
+
+
 	var/build_path = item_to_spawn()
 	new build_path(loc)
 

@@ -27,8 +27,9 @@
 /obj/structure/closet/initialize()
 	..()
 	if(!opened)		// if closed, any item at the crate's loc is put in the contents
-		var/obj/item/I
+		var/obj/I
 		for(I in src.loc)
+			if (!istype(I, /obj/item) && !istype(I, /obj/random))continue
 			if(I.density || I.anchored || I == src) continue
 			I.forceMove(src)
 		// adjust locker size to hold all items with 5 units of free store room
