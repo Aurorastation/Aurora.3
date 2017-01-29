@@ -35,6 +35,7 @@ before_script:
   - ./install-flyway.sh
 
 script:
+  - mysql --upgrade-system-tables
   - mysql -e 'CREATE DATABASE ss13_test;'
   - mysql -e "CREATE USER 'flyway'@'localhost' identified by 'flypass'; grant all privileges on *.* to 'flyway'@'localhost'; FLUSH PRIVILEGES;" -u root
   - mysql -e "SELECT User FROM mysql.user;" -u root
