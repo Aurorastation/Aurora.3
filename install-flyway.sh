@@ -10,6 +10,5 @@ else
   tar -xf flyway.tar.gz
   cd "flyway-${FLYWAY_BUILD}"
   echo "Flyway installed to $PWD"
-  make here
 fi
 
