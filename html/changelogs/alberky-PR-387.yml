@@ -1,0 +1,6 @@
+author: Alberky
+
+delete-after: True
+
+changes: 
+  - rscadd: "Re-added the loot crates to mining."
