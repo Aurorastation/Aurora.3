@@ -45,6 +45,7 @@
 	desc = "Allows issuing temporary access to an area."
 	icon_state = "guest"
 
+	light_color = LIGHT_COLOR_BLUE
 	icon_screen = "pass"
 	density = 0
 

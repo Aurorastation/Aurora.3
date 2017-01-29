@@ -1,7 +1,5 @@
 //This function is for code that is shared by diona nymphs and gestalt
 
-#define DIONA_MAX_LIGHT	5.5//Light from any tile is capped to prevent refilling too fast
-
 #define TEMP_REGEN_STOP 223//Regen rate scales down linearly from normal to this temperature, stops completely below this value
 #define TEMP_REGEN_NORMAL 288//normal body temperature
 #define TEMP_INCREASE_REGEN_DOUBLE 700//Health regen is increased by 100% (additive) for every increment of this value we are above normal
@@ -198,7 +196,6 @@ var/list/diona_banned_languages = list(
 			weakened -= value
 			DS.stored_energy -= value
 
-
 		//Genetic damage and toxins are relatively rare. We'll process them less often to reduce on computations
 		if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 			CL = getToxLoss()
@@ -214,8 +211,6 @@ var/list/diona_banned_languages = list(
 				adjustToxLoss(value*-1)
 				DS.stored_energy -= value
 
-
-
 			CL = getCloneLoss()
 			if (CL > 0)
 				if (radiation > 0)
@@ -227,9 +222,6 @@ var/list/diona_banned_languages = list(
 				value = min(CL, DS.stored_energy, 1*HF*LIFETICK_INTERVAL_LESS)
 				adjustCloneLoss(value/-5)
 				DS.stored_energy -= value
-
-
-
 
 	var/mob/living/carbon/human/H
 	if (src.is_diona() == DIONA_WORKER)
@@ -328,7 +320,6 @@ var/list/diona_banned_languages = list(
 			else
 				path = null
 
-
 		if (path)
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
 				src << "<span class='danger'>You try to regrow a lost organ, but you lack the energy. Find more light!</span>"
@@ -350,8 +341,6 @@ var/list/diona_banned_languages = list(
 			updatehealth()
 			return
 
-
-
 		if (DS.stored_energy < REGROW_ENERGY_REQ || H.nutrition < REGROW_FOOD_REQ)
 			return
 
@@ -370,15 +359,7 @@ var/list/diona_banned_languages = list(
 			H.nutrition -= REGROW_FOOD_REQ
 			src << "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>"
 
-
 	updatehealth()
-
-
-
-
-
-
-
 
 //MESSAGE FUNCTIONS
 /mob/living/carbon/proc/diona_handle_lightmessages(var/datum/dionastats/DS)
@@ -395,7 +376,7 @@ var/list/diona_banned_languages = list(
 	if (DS.LMS == 1)//If we're full
 		if (DS.EP <= 0.8 && DS.last_lightlevel <= 0)//But at <=80% energy
 			DS.LMS = 2
-			src << "<span class='warning'>The darkness makes you uncomfortable</span>"
+			src << "<span class='warning'>The darkness makes you uncomfortable.</span>"
 
 	else if (DS.LMS == 2)
 		if (DS.EP >= 0.99)
@@ -408,50 +389,36 @@ var/list/diona_banned_languages = list(
 	else if (DS.LMS == 3)
 		if (DS.EP >= 0.5)
 			DS.LMS = 2
-			src << "You feel a little more energised as you return to the light. Stay awhile"
+			src << "You feel a little more energised as you return to the light. Stay awhile."
 		else if (DS.EP <= 0.0 && DS.last_lightlevel <= 0)
 			DS.LMS = 4
-			src << "<span class='danger'> You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light</span>"
+			src << "<span class='danger'> You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>"
 	//From here down, we immediately return to state 3 if we get any light
 	else
 		if (DS.EP > 0.0)//If there's any light at all, we can be saved
-			src << "At long last, light! Treasure it, savour it, hold onto it"
+			src << "At long last, light! Treasure it, savour it, hold onto it."
 			DS.LMS = 3
 		else if(DS.last_lightlevel <= 0)
-			var/HP = diona_get_health(DS) / DS.max_health//HP  = health-percentage
+			var/HP = 1 //diona_get_health(DS) / DS.max_health//HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
-					src << "<span class='danger'> The darkness burns. Your nymphs decay and wilt You are in mortal danger</span>"
+					src << "<span class='danger'> The darkness burns. Your nymphs decay and wilt You are in mortal danger!</span>"
 					DS.LMS = 5
 
 			else if (DS.LMS == 5)
 				if (paralysis > 0)
-					src << "<span class='danger'> Your body has reached critical integrity, it can no longer move. The end comes soon</span>"
+					src << "<span class='danger'> Your body has reached critical integrity, it can no longer move. The end comes soon.</span>"
 					DS.LMS = 6
 			else if (DS.LMS == 6)
 				return
 
-
-
-
-
-
-
-/*
-if (flashlight_active)
-			light_amount -= DS.flashlight_reduction * FLASHLIGHT_STRENGTH
-		if (pdalight_active)
-			light_amount -= DS.pdalight_reduction * PDALIGHT_STRENGTH
-
-*/
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_amount = DIONA_MAX_LIGHT //how much light there is in the place, affects receiving nutrition and healing
-	var/light_factor = 1//used for  if a gestalt's response node is damaged. it will feed more slowly
-
+	var/light_factor = 1
+	var/turf/T = get_turf(src)
 	if (is_ventcrawling)
-		return -1.5//no light inside pipes
+		return -1.5 //no light inside pipes
 
 	if (DS.light_organ)
 		if (DS.light_organ.is_broken())
@@ -459,50 +426,17 @@ if (flashlight_active)
 		else if (DS.light_organ.is_bruised())
 			light_factor = 0.8
 	else if (DS.dionatype == 2)
-		light_factor = 0.55
+		light_factor = 0.8
 
-	var/turf/T = get_turf(src)
-	var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-	if(L)
-		//First we check if the tile has any flashlights or PDA lights
-		var/gathertype = 0//Simple checking of the turf
-		for (var/datum/light_source/LS in T.affecting_lights)
-			if (LS.source_atom.diona_restricted_light)
-				gathertype = 1//if restricted lights involved in lighting, then we need a more complex calculation.
-				break
-
-		if (gathertype == 0)//Simple, fast gather amount
-			light_amount = L.lum_r + L.lum_g + L.lum_b
-
-		else//If flashlights are involved, then we get a little more complex
-			var/best_restrictedlight = 0//We track any restricted lights, and only the single strongest of them to the diona
-			light_amount = 0
-			var/turf/ourturf = get_turf(src)
-			for (var/datum/light_source/LS in T.affecting_lights)//Cycle through the lights affecting the tile
-
-				var/n = Sum(LS.get_lum(ourturf))//Manually calculate each one's contribution. 	Get lum function is kind of expensive
-				if (LS.source_atom.diona_restricted_light)
-					n *= DS.restrictedlight_factor
-					if (n > best_restrictedlight)
-						best_restrictedlight = n
-				else
-					light_amount += n
-
-
-			light_amount += best_restrictedlight//apply only the single best of the restricted lightsources
-	light_amount = min(DIONA_MAX_LIGHT,light_amount)  //hardcapped to DIONA_MAX_LIGHT so it's not abused by being in massively bright areas
-	light_amount = max(light_amount*light_factor,0)//Make sure light amount is >=0 and apply light factor
-	light_amount -= 1.5//Light values > 1.5 will increase energy, <1.5 will decrease it
-	return light_amount
-
-
+	if (T)
+		var/raw = T.get_uv_lumcount(0, 2) * light_factor * 5.5
+		return raw - 1.5
 
 /mob/living/carbon/proc/diona_get_health(var/datum/dionastats/DS)
 	if (DS.dionatype == 0)
 		return health
 	else
 		return health+(maxHealth*0.5)
-
 
 /mob/living/carbon/proc/get_dionastats()
 	if (istype(src, /mob/living/carbon/alien/diona))
@@ -514,7 +448,6 @@ if (flashlight_active)
 		if (istype(T.species, /datum/species/diona))
 			return T.DS
 	return null
-
 
 //Called on a nymph when it merges with a gestalt
 //The nymph and gestalt get the combined total of both of their languages
@@ -549,19 +482,7 @@ if (flashlight_active)
 		if (prob(chance))
 			add_language(L.name)
 		else
-			src << "<span class=;danger;>You have forgotten the [L.name] language!</span>"
-
-
-
-
-
-
-
-
-
-
-
-
+			src << "<span class='danger'>You have forgotten the [L.name] language!</span>"
 
 //DIONASTATS DEFINES
 

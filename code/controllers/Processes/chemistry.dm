@@ -22,7 +22,7 @@ var/datum/controller/process/chemistry/chemistryProcess
 		var/datum/reagents/holder = last_object
 		if(!holder.process_reactions())
 			active_holders -= holder
-		SCHECK
+		F_SCHECK
 
 /datum/controller/process/chemistry/proc/mark_for_update(var/datum/reagents/holder)
 	if(holder in active_holders)

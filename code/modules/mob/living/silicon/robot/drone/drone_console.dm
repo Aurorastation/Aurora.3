@@ -2,6 +2,7 @@
 	name = "Maintenance Drone Control"
 	desc = "Used to monitor the station's drone population and the assembler that services them."
 	icon = 'icons/obj/computer.dmi'
+	light_color = LIGHT_COLOR_ORANGE
 
 	icon_screen = "power"
 	req_access = list(access_engine_equip)

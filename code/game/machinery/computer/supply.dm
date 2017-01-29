@@ -3,7 +3,7 @@
 	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "supply"
-	light_color = "#b88b2e"
+	light_color = LIGHT_COLOR_ORANGE
 	req_access = list(access_cargo)
 	circuit = /obj/item/weapon/circuitboard/supplycomp
 	var/temp = null
@@ -16,6 +16,7 @@
 	name = "supply ordering console"
 	icon = 'icons/obj/computer.dmi'
 	icon_screen = "request"
+	light_color = LIGHT_COLOR_ORANGE
 	circuit = /obj/item/weapon/circuitboard/ordercomp
 	var/temp = null
 	var/reqtime = 0 //Cooldown for requisitions - Quarxink

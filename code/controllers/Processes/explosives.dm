@@ -46,7 +46,7 @@ var/datum/controller/process/explosives/bomb_processor
 		else
 			explosion(data)
 
-		SCHECK
+		F_SCHECK
 
 		work_queue -= data
 		lighting_process.enable()
@@ -110,7 +110,7 @@ var/datum/controller/process/explosives/bomb_processor
 
 	if (vibration)
 		for(var/mob/M in player_list)
-			SCHECK
+			F_SCHECK
 			// Double check for client
 			var/reception = 2//Whether the person can be shaken or hear sound
 			//2 = BOTH
@@ -176,12 +176,12 @@ var/datum/controller/process/explosives/bomb_processor
 		else								continue
 
 		T.ex_act(dist)
-		SCHECK
+		F_SCHECK
 		if(T)
 			for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 				var/atom/movable/AM = atom_movable
 				if(AM && AM.simulated)	AM.ex_act(dist)
-				SCHECK
+				F_SCHECK
 
 	var/took = (world.timeofday-start)/10
 	//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
@@ -214,7 +214,7 @@ var/datum/controller/process/explosives/bomb_processor
 	for(var/direction in cardinal)
 		var/turf/T = get_step(epicenter, direction)
 		explosion_spread(T, power - epicenter.explosion_resistance, direction)
-		SCHECK
+		F_SCHECK
 
 	//This step applies the ex_act effects for the explosion, as planned in the previous step.
 	for(var/turf/T in explosion_turfs)
@@ -233,13 +233,13 @@ var/datum/controller/process/explosives/bomb_processor
 			T = locate(x,y,z)
 		for(var/atom/A in T)
 			A.ex_act(severity)
-			SCHECK
+			F_SCHECK
 
 	explosion_in_progress = 0
 
 // A proc used by recursive explosions. (The actually recursive bit.)
 /datum/controller/process/explosives/proc/explosion_spread(turf/s, power, direction)
-	SCHECK
+	F_SCHECK
 	if (istype(s, /turf/unsimulated))
 		return
 	if(power <= 0)
