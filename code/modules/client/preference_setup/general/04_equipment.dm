@@ -32,9 +32,6 @@
 
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 
-	if (!islist(pref.gear))
-		pref.gear = list()
-
 	var/undies = get_undies()
 	var/gender_socks = get_gender_socks()
 	if(!get_key_by_value(undies, pref.underwear))
