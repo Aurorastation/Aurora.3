@@ -21,6 +21,7 @@ addons:
       - libc6-i386
       - libgcc1:i386
       - libstdc++6:i386
+      - oracle-java8-set-default
 
 install:
   - pip install --user PyYaml -q
@@ -36,9 +37,10 @@ before_script:
 script:
   - mysql -e 'CREATE DATABASE ss13_test;'
   - mysql -e "CREATE USER 'flyway'@'localhost' identified by 'flypass'; grant all privileges on * . * to 'flyway'@'localhost'; FLUSH PRIVILEGES;" -u root
+  - mysql -e "SELECT User FROM mysql.user;" -u root
   - $HOME/flyway-${FLYWAY_BUILD}/flyway -v
   - cp SQL/migrate/* $HOME/flyway-${FLYWAY_BUILD}/sql/
-  - $HOME/flyway-${FLYWAY_BUILD}/flyway -X migrate -user=flyway -password=flypass -url=jdbc:mysql://localhost:3306/ss13_test?user=flyway&password=flypass
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway -X -u root migrate -user=flyway -password=flypass -url=jdbc:mysql://localhost:3306/ss13_test?user=flyway&password=flypass
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
   - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
