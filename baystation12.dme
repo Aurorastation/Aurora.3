@@ -2060,10 +2060,10 @@
 #include "code\ZAS\Zone.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
+#include "maps\Aurora-MapDev\aurora-0.dmm"
 #include "maps\Aurora-MapDev\aurora-1.dmm"
 #include "maps\Aurora-MapDev\aurora-2.dmm"
 #include "maps\Aurora-MapDev\aurora-3.dmm"
 #include "maps\Aurora-MapDev\aurora-4.dmm"
 #include "maps\Aurora-MapDev\aurora-5.dmm"
-#include "maps\Aurora-MapDev\aurora-6.dmm"
 // END_INCLUDE
