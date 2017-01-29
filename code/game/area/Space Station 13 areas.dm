@@ -579,6 +579,7 @@ area/space/atmosalert()
 /area/skipjack_station/mining
 	name = "\improper south of mining station"
 	icon_state = "north"
+	base_turf = /turf/space
 
 //PRISON
 /area/prison
