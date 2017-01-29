@@ -42,37 +42,40 @@ var/list/gear_datums = list()
 	S["gear"] << pref.gear
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
-	var/list/valid_gear_choices = list()
+	. = list()
+	var/mob/preference_mob = preference_mob()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
-		if(G.whitelisted && !is_alien_whitelisted(preference_mob(), G.whitelisted))
+
+		if(G.whitelisted && !is_alien_whitelisted(preference_mob, all_species[G.whitelisted]))
 			continue
 		if(max_cost && G.cost > max_cost)
 			continue
-		valid_gear_choices += gear_name
-	return valid_gear_choices
+		. += gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character()
+	var/mob/preference_mob = preference_mob()
 	if(!islist(pref.gear))
 		pref.gear = list()
 
 	for(var/gear_name in pref.gear)
 		if(!(gear_name in gear_datums))
 			pref.gear -= gear_name
-
 	var/total_cost = 0
 	for(var/gear_name in pref.gear)
 		if(!gear_datums[gear_name])
+			preference_mob << "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>"
 			pref.gear -= gear_name
 		else if(!(gear_name in valid_gear_choices()))
+			preference_mob << "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species.</span>"
 			pref.gear -= gear_name
 		else
 			var/datum/gear/G = gear_datums[gear_name]
 			if(total_cost + G.cost > MAX_GEAR_COST)
 				pref.gear -= gear_name
+				preference_mob << "<span class='warning'>You cannot afford to take \the [gear_name]</span>"
 			else
 				total_cost += G.cost
-
 /datum/category_item/player_setup_item/loadout/content()
 	var/total_cost = 0
 	if(pref.gear && pref.gear.len)
