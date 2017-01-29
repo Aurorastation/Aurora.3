@@ -170,7 +170,6 @@ area/space/atmosalert()
 
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
-	lighting_use_dynamic = 0
 	icon_state = "shuttle2"
 
 /area/shuttle/escape/centcom
@@ -299,7 +298,6 @@ area/space/atmosalert()
 
 /area/shuttle/administration/station
 	name = "\improper Administration Shuttle"
-	lighting_use_dynamic = 0
 	icon_state = "shuttlered2"
 
 /area/shuttle/thunderdome
