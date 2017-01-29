@@ -37,7 +37,7 @@ before_script:
   - ./install-flyway.sh
 
 script:
-  - $HOME/flyway-${FLYWAY_BUILD}/flyway -migrate -user=Travis -password= -url=jdbc:mysql://127.0.0.1/ss13_test
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=Travis -password= -url=jdbc:mysql://127.0.0.1/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
   - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
