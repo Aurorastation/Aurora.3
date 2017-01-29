@@ -526,6 +526,7 @@ area/space/atmosalert()
 /area/syndicate_station/mining
 	name = "\improper northeast of the mining station"
 	icon_state = "north"
+	base_turf = /turf/space
 
 /area/syndicate_station/arrivals_dock
 	name = "\improper docked with station"
