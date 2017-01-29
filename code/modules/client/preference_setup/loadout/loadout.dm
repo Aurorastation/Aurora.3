@@ -41,6 +41,15 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/save_character(var/savefile/S)
 	S["gear"] << pref.gear
 
+/datum/category_item/player_setup_item/loadout/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("gear"), "args" = list("id")))
+	
+/datum/category_item/player_setup_item/loadout/gather_save_query()
+	return list("ss13_characters" = list("gear", "id" = 1, "ckey" = 1))
+	
+/datum/category_item/player_setup_item/loadout/gather_save_parameters()
+	return list(":gear" = list2params(pref.gear), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
 	var/mob/preference_mob = preference_mob()
@@ -53,7 +62,11 @@ var/list/gear_datums = list()
 			continue
 		. += gear_name
 
-/datum/category_item/player_setup_item/loadout/sanitize_character()
+/datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
+
+	if (sql_load)
+		pref.gear	= params2list(pref.gear)
+
 	var/mob/preference_mob = preference_mob()
 	if(!islist(pref.gear))
 		pref.gear = list()
@@ -76,6 +89,7 @@ var/list/gear_datums = list()
 				preference_mob << "<span class='warning'>You cannot afford to take \the [gear_name]</span>"
 			else
 				total_cost += G.cost
+				
 /datum/category_item/player_setup_item/loadout/content()
 	var/total_cost = 0
 	if(pref.gear && pref.gear.len)
