@@ -1,6 +1,5 @@
-dist: trusty
 language: generic
-sudo: false
+sudo: true
 
 env:
   BYOND_MAJOR="510"
@@ -13,9 +12,6 @@ cache:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
     - $HOME/flyway-${FLYWAY_BUILD}
 
-services:
-  - mysql
-
 addons:
   apt:
     packages:
@@ -24,21 +20,20 @@ addons:
       - libstdc++6:i386
       - oracle-java8-set-default
 
-before_install:
-  - mysql -e 'CREATE DATABASE ss13_test'
-
 install:
   - pip install --user PyYaml -q
   - pip install --user beautifulsoup4 -q
 
 before_script:
+  - bash ./scripts/mysql-5.7.sh
   - chmod +x ./install-byond.sh
   - ./install-byond.sh
   - chmod +x ./install-flyway.sh
   - ./install-flyway.sh
 
 script:
-  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=travis -password= -url=jdbc:mysql://127.0.0.1/ss13_test
+  - mysql -e 'CREATE DATABASE ss13_test;'
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://127.0.0.1/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
   - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
