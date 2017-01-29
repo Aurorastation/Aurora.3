@@ -5,4 +5,4 @@ sudo apt-get update -q
 sudo apt-get install -q -y -o Dpkg::Options::=--force-confnew mysql-server
 sudo mysql_upgrade
 sudo mysql_upgrade --upgrade-system-tables --force
-sudo mysqld restart
+sudo mysqld restart --explicit_defaults_for_timestamp
