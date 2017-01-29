@@ -12,6 +12,9 @@ cache:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
     - $HOME/flyway-${FLYWAY_BUILD}
 
+services:
+  - mysql
+
 addons:
   apt:
     packages:
