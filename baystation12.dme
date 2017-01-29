@@ -312,6 +312,7 @@
 #include "code\game\area\ai_monitored.dm"
 #include "code\game\area\areas.dm"
 #include "code\game\area\asteroid_areas.dm"
+#include "code\game\area\aurora_lift_areas.dm"
 #include "code\game\area\Space Station 13 areas.dm"
 #include "code\game\dna\dna2.dm"
 #include "code\game\dna\dna2_domutcheck.dm"
@@ -2046,5 +2047,4 @@
 #include "maps\Aurora-MapDev\aurora-4.dmm"
 #include "maps\Aurora-MapDev\aurora-5.dmm"
 #include "maps\Aurora-MapDev\aurora-6.dmm"
-#include "maps\Aurora-MapDev\aurora-7.dmm"
 // END_INCLUDE

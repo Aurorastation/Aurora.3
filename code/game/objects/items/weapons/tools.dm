@@ -135,7 +135,7 @@
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
 	icon = 'icons/obj/tools/welding.dmi'
-	icon_state = "welder"
+	icon_state = "welder_off"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
@@ -167,7 +167,7 @@
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
 	origin_tech = "engineering=2"
-	base_iconstate = "ind_welder"
+	base_iconstate = "ind_welder_off"
 
 
 /obj/item/weapon/weldingtool/hugetank
@@ -177,7 +177,7 @@
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
 	origin_tech = "engineering=3"
-	base_iconstate = "adv_welder"
+	base_iconstate = "adv_welder_off"
 
 
 //The Experimental Welding Tool!
@@ -188,7 +188,7 @@
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
 	origin_tech = "engineering=4;biotech=4"
-	base_iconstate = "exp_welder"
+	base_iconstate = "exp_welder_off"
 	base_itemstate = "exp_welder"
 
 	var/last_gen = 0
@@ -315,7 +315,7 @@
 			return
 		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
 			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
-			return			
+			return
 		if (src.remove_fuel(0))
 			// Use a bit of fuel and repair
 			S.heal_damage(15,0,0,1)
