@@ -35,7 +35,7 @@ before_script:
 
 script:
   - mysql -e 'CREATE DATABASE ss13_test;'
-  - mysql -e "CREATE USER 'flyway'@'localhost' identified by 'flypass'; grant all privileges on * . * to 'flyway'@'localhost';" -u root
+  - mysql -e "CREATE USER 'flyway'@'localhost' identified by 'flypass'; grant all privileges on * . * to 'flyway'@'localhost'; FLUSH PRIVILEGES;" -u root
   - $HOME/flyway-${FLYWAY_BUILD}/flyway -v
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=flyway -password=flypass -locations=filesystem:./SQL/migrate -url=jdbc:mysql://localhost:3306/ss13_test
   - shopt -s globstar
