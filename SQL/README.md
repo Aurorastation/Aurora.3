@@ -21,6 +21,7 @@ As a coder, creating migrations is relatively easy. And they're a lot more flexi
 First, figure out the changes you need to make. From table alteration and creation commands, to simply update and insert statements.
 
 Write them into a .sql file in the SQL/migrate folder, in a valid order of execution. Name the file in the following format:
+
     Vxxx__Description_goes_here.sql
 
 Where `xxx` is the next version number from the last existing file (include the 0s), and the descrption is a short description for the migration, with spaces replaced by underscores.
