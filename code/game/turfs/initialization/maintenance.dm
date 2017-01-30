@@ -15,9 +15,9 @@
 	T.update_dirt()
 
 	if(prob(2))
-		PoolOrNew(junk(), T)
+		getFromPool(junk(), T)
 	if(prob(2))
-		PoolOrNew(/obj/effect/decal/cleanable/blood/oil, T)
+		getFromPool(/obj/effect/decal/cleanable/blood/oil, T)
 	if(prob(25))	// Keep in mind that only "corners" get any sort of web
 		attempt_web(T, cardinal_turfs)
 
@@ -54,7 +54,7 @@ var/global/list/random_junk
 		var/turf/neighbour = get_step(T, dir)
 		if(neighbour && neighbour.density)
 			if(dir == WEST)
-				PoolOrNew(/obj/effect/decal/cleanable/cobweb, T)
+				getFromPool(/obj/effect/decal/cleanable/cobweb, T)
 			if(dir == EAST)
-				PoolOrNew(/obj/effect/decal/cleanable/cobweb2, T)
+				getFromPool(/obj/effect/decal/cleanable/cobweb2, T)
 			return

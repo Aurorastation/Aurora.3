@@ -54,14 +54,14 @@ var/datum/controller/process/night_lighting/nl_ctrl
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("on")
 
-		SCHECK
+		F_SCHECK
 
 /datum/controller/process/night_lighting/proc/deactivate(var/whitelisted_only = 1)
 	isactive = 0
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("off")
 
-		SCHECK
+		F_SCHECK
 
 /datum/controller/process/night_lighting/proc/get_apc_list(var/whitelisted_only = 1)
 	var/list/obj/machinery/power/apc/lighting_apcs = list()
@@ -73,6 +73,6 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		if (B.apc && !B.apc.aidisabled)
 			lighting_apcs += B.apc
 
-		SCHECK
+		F_SCHECK
 
 	return lighting_apcs

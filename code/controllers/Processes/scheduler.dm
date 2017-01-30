@@ -5,6 +5,8 @@
 ************/
 /datum/controller/process/scheduler
 	var/list/scheduled_tasks
+	var/tick_completed = TRUE
+	var/list/queued_tasks
 
 /datum/controller/process/scheduler/setup()
 	name = "scheduler"
@@ -13,21 +15,29 @@
 	scheduler = src
 
 /datum/controller/process/scheduler/doWork()
-	for(last_object in scheduled_tasks)
-		var/datum/scheduled_task/scheduled_task = last_object
-		try
-			if(world.time > scheduled_task.trigger_time)
-				unschedule(scheduled_task)
-				scheduled_task.pre_process()
-				scheduled_task.process()
-				scheduled_task.post_process()
-		catch(var/exception/e)
-			catchException(e, last_object)
-		SCHECK
+	if (tick_completed)
+		queued_tasks = scheduled_tasks.Copy()
+		tick_completed = FALSE
+
+	while (queued_tasks.len)
+		var/datum/scheduled_task/task = queued_tasks[queued_tasks.len]
+		queued_tasks.len--
+
+		if (world.time > task.trigger_time)
+			unschedule(task)
+			// why are these separated.
+			task.pre_process()
+			F_SCHECK	// fuck it, it's a cheap call.
+			task.process()
+			F_SCHECK
+			task.post_process()
+		F_SCHECK
+
+	tick_completed = TRUE
 
 /datum/controller/process/scheduler/statProcess()
 	..()
-	stat(null, "[scheduled_tasks.len] task\s")
+	stat(null, "[scheduled_tasks.len] tasks, [queued_tasks.len] queued")
 
 /datum/controller/process/scheduler/proc/schedule(var/datum/scheduled_task/st)
 	scheduled_tasks += st

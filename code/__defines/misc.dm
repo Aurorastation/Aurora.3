@@ -48,6 +48,9 @@
 #define SHOW_TYPING     0x4000
 #define CHAT_NOICONS    0x8000
 
+#define PARALLAX_SPACE 0x1
+#define PARALLAX_DUST 0x2
+
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
 //Sound effects toggles
@@ -261,3 +264,8 @@
 #define LAYER_TABLE	2.8
 #define LAYER_UNDER_TABLE	2.79
 #define LAYER_ABOVE_TABLE	2.81
+
+// Stoplag.
+#define TICK_LIMIT 80
+#define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
+#define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()

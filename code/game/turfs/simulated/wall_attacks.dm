@@ -9,14 +9,14 @@
 		//flick("[material.icon_base]fwall_opening", src)
 		sleep(15)
 		density = 0
-		opacity = 0
+		set_opacity(0)
 		update_icon()
 		set_light(0)
 	else
 		can_open = WALL_OPENING
 		//flick("[material.icon_base]fwall_closing", src)
 		density = 1
-		opacity = 1
+		set_opacity(1)
 		update_icon()
 		sleep(15)
 		set_light(1)

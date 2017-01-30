@@ -41,6 +41,7 @@
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
+	var/has_set_boltlight = FALSE
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
@@ -555,17 +556,22 @@ About the new airlock wires panel:
 	else
 		return 0
 
+// Only set_light() if there's a change, no need to waste processor cycles with lighting updates.
 /obj/machinery/door/airlock/update_icon()
 	if (!isnull(gcDestroyed))
 		return
-	set_light(0)
 	if(overlays) overlays.Cut()
 	if(density)
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
-			set_light(1.5, 0.5, COLOR_RED_LIGHT)
+			if (!has_set_boltlight)
+				set_light(2, 0.75, COLOR_RED_LIGHT, update_type = UPDATE_NONE)
+				has_set_boltlight = TRUE
 		else
 			icon_state = "door_closed"
+			if (has_set_boltlight)
+				set_light(0, update_type = UPDATE_NONE)
+				has_set_boltlight = FALSE
 		if(p_open || welded)
 			overlays = list()
 			if(p_open)
@@ -590,6 +596,14 @@ About the new airlock wires panel:
 		icon_state = "door_open"
 		if((stat & BROKEN) && !(stat & NOPOWER))
 			overlays += image(icon, "sparks_open")
+		if (has_set_boltlight)
+			set_light(0, update_type = UPDATE_NONE)
+			has_set_boltlight = FALSE
+
+	if (src)
+		var/turf/T = get_turf(src)
+		if (T)
+			T.update_lights_now()
 	return
 
 /obj/machinery/door/airlock/do_animate(animation)

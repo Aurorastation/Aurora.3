@@ -3,6 +3,7 @@
 	desc = "A computer used to control a nearby holodeck."
 
 	icon_screen = "holocontrol"
+	light_color = LIGHT_COLOR_CYAN
 
 	use_power = 1
 	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem

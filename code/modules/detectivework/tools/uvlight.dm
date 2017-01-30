@@ -7,7 +7,7 @@
 	item_state = "electronic"
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
-	offset_light = 1
+	//offset_light = 1
 	var/list/scanned = list()
 	var/list/stored_alpha = list()
 	var/list/reset_objects = list()
@@ -19,7 +19,7 @@
 /obj/item/device/uv_light/attack_self(var/mob/user)
 	on = !on
 	if(on)
-		set_light(range, 2, "#007fff")
+		set_light(range, 2, "#007fff", uv = 100)
 		processing_objects |= src
 		icon_state = "uv_on"
 	else

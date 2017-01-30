@@ -55,6 +55,8 @@
 	var/explosion_point = 1000
 
 	light_color = "#8A8A00"
+	uv_intensity = 255
+	var/last_power = 0
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
 
@@ -120,6 +122,12 @@
 /obj/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)
 	if(lum != light_range || clr != light_color)
 		set_light(lum, l_color = clr)
+	update_uv()
+
+/obj/machinery/power/supermatter/proc/update_uv()
+	if (last_power + 20 < power || last_power - 20 > power)
+		set_uv(CLAMP01(power / 500) * 255)
+		last_power = power
 
 /obj/machinery/power/supermatter/proc/get_integrity()
 	var/integrity = damage / explosion_point
@@ -395,7 +403,8 @@
 	//following is adapted from singulo code
 	// Let's just make this one loop.
 	for(var/atom/X in orange(pull_radius,src))
-		spawn()	X.singularity_pull(src, STAGE_FIVE)
+		X.singularity_pull(src, STAGE_FIVE)
+		CHECK_TICK
 
 	return
 

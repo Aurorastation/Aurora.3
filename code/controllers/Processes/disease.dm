@@ -9,7 +9,7 @@
 	for(last_object in active_diseases)
 		var/datum/disease/D = last_object
 		D.process()
-		SCHECK
+		F_SCHECK
 
 /datum/controller/process/disease/statProcess()
 	..()

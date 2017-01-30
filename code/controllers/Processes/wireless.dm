@@ -69,4 +69,4 @@ var/datum/controller/process/wireless/wirelessProcess
 		process_conections -= C
 		if(!target_found)
 			unsuccesful_connections += C
-		SCHECK
+		F_SCHECK
