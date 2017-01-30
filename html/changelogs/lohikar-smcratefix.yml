@@ -1,4 +1,4 @@
 author: Lohikar
 delete-after: True
 changes: 
-  - bugfix: "Fixed a bug that lead to crates blocking gas flow when they shouldn't, interfering with replacement SM crystal installation.'"
+  - bugfix: "Fixed a bug that lead to crates blocking gas flow when they shouldn't, interfering with replacement SM crystal installation."
