@@ -26,6 +26,10 @@
 	*/
 
 	set_typing_indicator(0)
+
+	if (src.client.handle_spam_prevention(message, MUTE_IC))
+		return
+
 	usr.say(message)
 
 /mob/verb/me_verb(message as text)
@@ -39,6 +43,10 @@
 	message = sanitize(message)
 
 	set_typing_indicator(0)
+
+	if (src.client.handle_spam_prevention(message, MUTE_IC))
+		return
+
 	if(use_me)
 		usr.emote("me",usr.emote_type,message)
 	else
@@ -57,6 +65,8 @@
 	if(client && !(client.prefs.toggles & CHAT_DEAD))
 		usr << "<span class='danger'>You have deadchat muted.</span>"
 		return
+
+	message = process_chat_markup(message, list("~", "_"))
 
 	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message'>\"[message]\"</span>", src)
 
@@ -147,11 +157,12 @@
 //parses the language code (e.g. :j) from text, such as that supplied to say.
 //returns the language object only if the code corresponds to a language that src can speak, otherwise null.
 /mob/proc/parse_language(var/message)
-	if(length(message) >= 1 && copytext(message,1,2) == "!")
+	var/prefix = copytext(message,1,2)
+	if(length(message) >= 1 && prefix == "!")
 		return all_languages["Noise"]
 
-	if(length(message) >= 2)
-		var/language_prefix = lowertext(copytext(message, 1 ,3))
+	if(length(message) >= 2 && is_language_prefix(prefix))
+		var/language_prefix = lowertext(copytext(message, 2 ,3))
 		var/datum/language/L = language_keys[language_prefix]
 		if (can_speak(L))
 			return L

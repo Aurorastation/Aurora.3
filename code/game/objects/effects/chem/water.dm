@@ -23,21 +23,44 @@
 		step_towards(src, target)
 		var/turf/T = get_turf(src)
 		if(T && reagents)
-			reagents.touch_turf(T)
-			var/mob/M
-			for(var/atom/A in T)
-				if(!ismob(A) && A.simulated) // Mobs are handled differently
-					reagents.touch(A)
-				else if(ismob(A) && !M)
-					M = A
-			if(M)
-				reagents.splash(M, reagents.total_volume)
+
+			if (wet_things(T))
 				break
+
 			if(T == get_turf(target))
 				break
 		sleep(delay)
 	sleep(10)
 	qdel(src)
+
+//Wets everything in the tile
+//A return value of 1 means that the wetting should stop. Either the water ran out or some error ocurred
+/obj/effect/effect/water/proc/wet_things(var/turf/T)
+
+	if (!reagents || reagents.total_volume <= 0)
+		return 1
+
+
+	reagents.touch_turf(T)
+	var/list/mobshere = list()
+	for (var/mob/living/L in T)
+		mobshere.Add(L)
+
+
+	for (var/atom/B in T)
+		if (!ismob(B))
+			reagents.touch(B)
+
+	if (mobshere.len)
+		var/portion = 1 / mobshere.len
+		var/total = reagents.total_volume
+		for (var/mob/living/L in mobshere)
+			reagents.splash(L, total * portion)
+		return 1
+
+	return 0
+
+
 
 /obj/effect/effect/water/Move(turf/newloc)
 	if(newloc.density)
@@ -45,8 +68,8 @@
 	. = ..()
 
 /obj/effect/effect/water/Bump(atom/A)
-	if(reagents)
-		reagents.touch(A)
+	var/turf/T = get_turf(A)
+	wet_things(T)
 	return ..()
 
 //Used by spraybottles.

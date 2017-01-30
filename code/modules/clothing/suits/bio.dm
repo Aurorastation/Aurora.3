@@ -2,11 +2,14 @@
 /obj/item/clothing/head/bio_hood
 	name = "bio hood"
 	icon_state = "bio"
+	item_state_slots = list(
+		slot_l_hand_str = "bio_hood",
+		slot_r_hand_str = "bio_hood"
+		)
 	desc = "A hood that protects the head and face from biological comtaminants."
 	permeability_coefficient = 0.01
-	flags = HEADCOVERSEYES|HEADCOVERSMOUTH|BLOCKHAIR
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	siemens_coefficient = 0.9
 
@@ -30,9 +33,11 @@
 /obj/item/clothing/head/bio_hood/general
 	icon_state = "bio_general"
 	body_parts_covered = HEAD|FACE|EYES
+	desc = "A hood that protects the head and face from biological comtaminants. And bees."
 
 /obj/item/clothing/suit/bio_suit/general
 	icon_state = "bio_general"
+	desc = "A suit that protects against biological contamination and beestings."
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL
 

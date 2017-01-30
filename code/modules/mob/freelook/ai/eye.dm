@@ -18,7 +18,7 @@
 			ai.ai_cancel_tracking()
 
 		//Holopad
-		if(ai.holo)
+		if(ai.holo && ai.hologram_follow)
 			ai.holo.move_hologram(ai)
 		return 1
 
@@ -42,7 +42,7 @@
 /mob/living/silicon/ai/proc/create_eyeobj(var/newloc)
 	if(eyeobj) destroy_eyeobj()
 	if(!newloc) newloc = src.loc
-	eyeobj = PoolOrNew(/mob/eye/aiEye, newloc)
+	eyeobj = getFromPool(/mob/eye/aiEye, newloc)
 	eyeobj.owner = src
 	eyeobj.name = "[src.name] (AI Eye)" // Give it a name
 	if(client) client.eye = eyeobj
@@ -54,7 +54,7 @@
 	create_eyeobj()
 	spawn(5)
 		if(eyeobj)
-			eyeobj.loc = src.loc
+			eyeobj.forceMove(src.loc)
 
 /mob/living/silicon/ai/Destroy()
 	destroy_eyeobj()

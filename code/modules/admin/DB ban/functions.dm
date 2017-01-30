@@ -4,7 +4,7 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 
 	if(!check_rights(R_MOD,0) && !check_rights(R_BAN))	return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
@@ -44,11 +44,16 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 		computerid = bancid
 		ip = banip
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_player WHERE ckey = '[ckey]'")
+	var/DBQuery/query = dbcon.NewQuery("SELECT id, computerid, ip FROM ss13_player WHERE ckey = '[ckey]'")
 	query.Execute()
 	var/validckey = 0
 	if(query.NextRow())
 		validckey = 1
+		// Stop relying on manual entry, use the database.
+		if (!computerid)
+			computerid = query.item[2]
+		if (!ip)
+			ip = query.item[3]
 	if(!validckey)
 		if(!banned_mob || (banned_mob && !IsGuestKey(banned_mob.key)))
 			message_admins("<font color='red'>[key_name_admin(usr)] attempted to ban [ckey], but [ckey] has not been seen yet. Please only ban actual players.</font>",1)
@@ -122,7 +127,7 @@ datum/admins/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 	if(job)
 		sql += " AND job = '[job]'"
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
@@ -215,19 +220,26 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	if(!check_rights(R_BAN))	return
 
-	var/sql = "SELECT ckey FROM ss13_ban WHERE id = [id]"
+	var/sql = "SELECT ckey, bantype FROM ss13_ban WHERE id = [id]"
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
+		return
+
+	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appear.")
+	if (!reason)
+		usr << "<span class='warning'>Invalid reason given. Cancelled.</span>"
 		return
 
 	var/ban_number = 0 //failsafe
 
 	var/pckey
+	var/ban_type
 	var/DBQuery/query = dbcon.NewQuery(sql)
 	query.Execute()
 	while(query.NextRow())
 		pckey = query.item[1]
+		ban_type = query.item[2]
 		ban_number++;
 
 	if(ban_number == 0)
@@ -244,13 +256,15 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 	var/unban_ckey = src.owner:ckey
 	var/unban_computerid = src.owner:computer_id
 	var/unban_ip = src.owner:address
+	var/unban_reason = sanitizeSQL(reason)
 
-	var/sql_update = "UPDATE ss13_ban SET unbanned = 1, unbanned_datetime = Now(), unbanned_ckey = '[unban_ckey]', unbanned_computerid = '[unban_computerid]', unbanned_ip = '[unban_ip]' WHERE id = [id]"
+	var/sql_update = "UPDATE ss13_ban SET unbanned = 1, unbanned_datetime = Now(), unbanned_ckey = '[unban_ckey]', unbanned_computerid = '[unban_computerid]', unbanned_ip = '[unban_ip]', unbanned_reason = '[unban_reason]' WHERE id = [id]"
 	message_admins("[key_name_admin(usr)] has lifted [pckey]'s ban.",1)
 
 	var/DBQuery/query_update = dbcon.NewQuery(sql_update)
 	query_update.Execute()
 
+	notes_add_sql(ckey(pckey), "[ban_type] (#[id]) lifted. Reason for unban: [reason].", usr)
 
 /client/proc/DB_ban_panel()
 	set category = "Admin"
@@ -269,7 +283,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	if(!check_rights(R_BAN))	return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		usr << "\red Failed to establish database connection"
 		return
@@ -399,7 +413,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 					else
 						bantypesearch += "'PERMABAN' "
 
-			var/DBQuery/select_query = dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
+			var/DBQuery/select_query = dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, unbanned_reason, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
 			select_query.Execute()
 
 			var/now = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss") // MUST BE the same format as SQL gives us the dates in, and MUST be least to most specific (i.e. year, month, day not day, month, year)
@@ -417,9 +431,10 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 				var/unbanned = select_query.item[10]
 				var/unbanckey = select_query.item[11]
 				var/unbantime = select_query.item[12]
-				var/edits = select_query.item[13]
-				var/ip = select_query.item[14]
-				var/cid = select_query.item[15]
+				var/unbanreason = select_query.item[13]
+				var/edits = select_query.item[14]
+				var/ip = select_query.item[15]
+				var/cid = select_query.item[16]
 
 				// true if this ban has expired
 				var/auto = (bantype in list("TEMPBAN", "JOB_TEMPBAN")) && now > expiration // oh how I love ISO 8601 (ish) date strings
@@ -440,9 +455,9 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 					if("TEMPBAN")
 						typedesc = "<b>TEMPBAN</b><br><font size='2'>([duration] minutes) [(unbanned || auto) ? "" : "(<a href=\"byond://?src=\ref[src];dbbanedit=duration;dbbanid=[banid]\">Edit</a>)"]<br>Expires [expiration]</font>"
 					if("JOB_PERMABAN")
-						typedesc = "<b>JOBBAN</b><br><font size='2'>([job])"
+						typedesc = "<b>JOBBAN</b><br><font size='2'>([job])</font>"
 					if("JOB_TEMPBAN")
-						typedesc = "<b>TEMP JOBBAN</b><br><font size='2'>([job])<br>([duration] minutes)<br>Expires [expiration]"
+						typedesc = "<b>TEMP JOBBAN</b><br><font size='2'>([job])<br>([duration] minutes<br>Expires [expiration]</font>"
 
 				output += "<tr bgcolor='[dcolor]'>"
 				output += "<td align='center'>[typedesc]</td>"
@@ -468,6 +483,10 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 				if(unbanned)
 					output += "<tr bgcolor='[dcolor]'>"
 					output += "<td align='center' colspan='5' bgcolor=''><b>UNBANNED by admin [unbanckey] on [unbantime]</b></td>"
+					if (!unbanreason)
+						unbanreason = "No unban reason given. (Ban probably lifted before update.)"
+					output += "</tr><tr bgcolor='[dcolor]'>"
+					output += "<td align='center' colspan='5' bgcolor=''><b>Reason for unban:</b> [unbanreason].</td>"
 					output += "</tr>"
 				else if(auto)
 					output += "<tr bgcolor='[dcolor]'>"
@@ -483,7 +502,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 					if (mirror_count)
 						output += "<tr bgcolor='[dcolor]'>"
-						output += "<td align='center' colspan='5' bgcolor=''><b>Ban Mirrored [mirror_count] times!</b></td>"
+						output += "<td align='center' colspan='5' bgcolor=''><b>Ban Mirrored <a href=\"byond://?src=\ref[src];dbbanmirrors=[banid]\">[mirror_count > 1 ? "[mirror_count] times" : "once"]</a>!</b></td>"
 						output += "</tr>"
 
 				output += "<tr>"

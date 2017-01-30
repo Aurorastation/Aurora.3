@@ -26,9 +26,19 @@
 		return
 	if (!istype(M))
 		return
-	if(!M.can_inject(user, 1))
-		return
 
+	var/mob/living/carbon/human/H = M
+	if(istype(H))
+		var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
+		if(!affected)
+			user << "<span class='danger'>\The [H] is missing that limb!</span>"
+			return
+		else if(affected.status & ORGAN_ROBOT)
+			user << "<span class='danger'>You cannot inject a robotic limb.</span>"
+			return
+
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(M)
 	user << "<span class='notice'>You inject [M] with [src].</span>"
 	M << "<span class='notice'>You feel a tiny prick!</span>"
 
@@ -73,3 +83,19 @@
 		user << "<span class='notice'>It is currently loaded.</span>"
 	else
 		user << "<span class='notice'>It is spent.</span>"
+
+/obj/item/weapon/reagent_containers/hypospray/combat
+	name = "combat hypospray"
+	desc = "A hypospray loaded with combat stimulants."
+	item_state = "combat_hypo"
+	icon_state = "combat_hypo"
+	volume = 20
+	
+/obj/item/weapon/reagent_containers/hypospray/combat/New() 
+	..()
+	reagents.add_reagent("oxycodone", 5)
+	reagents.add_reagent("synaptizine", 5)
+	reagents.add_reagent("hyperzine", 5)
+	reagents.add_reagent("arithrazine", 5)
+	
+	return

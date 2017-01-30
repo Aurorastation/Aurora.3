@@ -15,6 +15,7 @@ datum/controller/vote
 	var/list/current_votes = list()
 	var/list/additional_text = list()
 	var/auto_muted = 0
+	var/last_transfer_vote = null
 
 	New()
 		if(vote != src)
@@ -106,6 +107,12 @@ datum/controller/vote
 					world << "<font color='purple'>Crew Transfer Factor: [factor]</font>"
 					greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
+		if(mode == "crew_transfer")
+			if(round(world.time / 36000)+12 <= 14)
+				// Credit to Scopes @ oldcode.
+				world << "<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>"
+				choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] - round(total_votes / 3))
+				greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
 		//get all options with that many votes and return them in a list
 		. = list()
@@ -163,6 +170,7 @@ datum/controller/vote
 				if("crew_transfer")
 					if(. == "Initiate Crew Transfer")
 						init_shift_change(null, 1)
+					last_transfer_vote = world.time
 				if("add_antagonist")
 					if(isnull(.) || . == "None")
 						antag_add_failed = 1
@@ -170,8 +178,8 @@ datum/controller/vote
 						additional_antag_types |= antag_names_to_ids[.]
 
 		if(mode == "gamemode") //fire this even if the vote fails.
-			if(!going)
-				going = 1
+			if(!round_progressing)
+				round_progressing = 1
 				world << "<font color='red'><b>The round will start soon.</b></font>"
 
 		if(restart)
@@ -199,8 +207,17 @@ datum/controller/vote
 
 	proc/initiate_vote(var/vote_type, var/initiator_key, var/automatic = 0)
 		if(!mode)
-			if(started_time != null && !(check_rights(R_ADMIN) || automatic))
-				var/next_allowed_time = (started_time + config.vote_delay)
+			if(started_time != null && !(check_rights(R_ADMIN|R_MOD) || automatic))
+				// Transfer votes are their own little special snowflake
+				var/next_allowed_time = 0
+				if (vote_type == "crew_transfer")
+					if (last_transfer_vote)
+						next_allowed_time = (last_transfer_vote + config.vote_delay)
+					else
+						next_allowed_time = config.transfer_timeout
+				else
+					next_allowed_time = (started_time + config.vote_delay)
+
 				if(next_allowed_time > world.time)
 					return 0
 
@@ -268,8 +285,8 @@ datum/controller/vote
 					world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
 				if("custom")
 					world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
-			if(mode == "gamemode" && going)
-				going = 0
+			if(mode == "gamemode" && round_progressing)
+				round_progressing = 0
 				world << "<font color='red'><b>Round start has been delayed.</b></font>"
 
 			time_remaining = round(config.vote_period/10)
@@ -278,12 +295,10 @@ datum/controller/vote
 
 	proc/interface(var/client/C)
 		if(!C)	return
-		var/admin = 0
-		var/trialmin = 0
+		var/is_staff = 0
 		if(C.holder)
-			if(C.holder.rights & R_ADMIN)
-				admin = 1
-				trialmin = 1 // don't know why we use both of these it's really weird, but I'm 2 lasy to refactor this all to use just admin.
+			if(C.holder.rights & (R_ADMIN|R_MOD))
+				is_staff = 1
 		voting |= C
 
 		. = "<html><head><title>Voting Panel</title></head><body>"
@@ -292,7 +307,7 @@ datum/controller/vote
 			else			. += "<h2>Vote: [capitalize(mode)]</h2>"
 			. += "Time Left: [time_remaining] s<hr>"
 			. += "<table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td align = 'center'><b>Votes</b></td>"
-			if(capitalize(mode) == "Gamemode") .+= "<td align = 'center'><b>Minimum Players</b></td></b></tr>"
+			if(capitalize(mode) == "Gamemode") .+= "<td align = 'center'><b>Minimum Players</b></td></tr>"
 
 			for(var/i = 1, i <= choices.len, i++)
 				var/votes = choices[choices[i]]
@@ -302,40 +317,43 @@ datum/controller/vote
 					if(current_votes[C.ckey] == i)
 						. += "<td><b><a href='?src=\ref[src];vote=[i]'>[gamemode_names[choices[i]]]</a></b></td><td align = 'center'>[votes]</td>"
 					else
-						. += "<td><a href='?src=\ref[src];vote=[i]'>[gamemode_names[choices[i]]]</a></b></td><td align = 'center'>[votes]</td>"
+						. += "<td><a href='?src=\ref[src];vote=[i]'>[gamemode_names[choices[i]]]</a></td><td align = 'center'>[votes]</td>"
 				else
 					if(current_votes[C.ckey] == i)
 						. += "<td><b><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></b></td><td align = 'center'>[votes]</td>"
 					else
-						. += "<td><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></b></td><td align = 'center'>[votes]</td>"
+						. += "<td><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></td><td align = 'center'>[votes]</td>"
 				if (additional_text.len >= i)
 					. += additional_text[i]
 				. += "</tr>"
 
 			. += "</table><hr>"
-			if(admin)
+			if(is_staff)
 				. += "(<a href='?src=\ref[src];vote=cancel'>Cancel Vote</a>) "
 		else
 			. += "<h2>Start a vote:</h2><hr><ul><li>"
 			//restart
-			if(trialmin || config.allow_vote_restart)
+			if(is_staff || config.allow_vote_restart)
 				. += "<a href='?src=\ref[src];vote=restart'>Restart</a>"
 			else
 				. += "<font color='grey'>Restart (Disallowed)</font>"
 			. += "</li><li>"
-			if(trialmin || config.allow_vote_restart)
-				. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer</a>"
+			if(is_staff || config.allow_vote_restart)
+				if (get_security_level() == "red" || get_security_level() == "delta")
+					. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer (Disallowed, Code Red or above)</a>"
+				else
+					. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer</a>"
 			else
 				. += "<font color='grey'>Crew Transfer (Disallowed)</font>"
-			if(trialmin)
+			if(is_staff)
 				. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>[config.allow_vote_restart?"Allowed":"Disallowed"]</a>)"
 			. += "</li><li>"
 			//gamemode
-			if(trialmin || config.allow_vote_mode)
+			if(is_staff || config.allow_vote_mode)
 				. += "<a href='?src=\ref[src];vote=gamemode'>GameMode</a>"
 			else
 				. += "<font color='grey'>GameMode (Disallowed)</font>"
-			if(trialmin)
+			if(is_staff)
 				. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[config.allow_vote_mode?"Allowed":"Disallowed"]</a>)"
 			. += "</li><li>"
 			//extra antagonists
@@ -345,7 +363,7 @@ datum/controller/vote
 				. += "<font color='grey'>Restart (Disallowed)</font>"
 			. += "</li>"
 			//custom
-			if(trialmin)
+			if(is_staff)
 				. += "<li><a href='?src=\ref[src];vote=custom'>Custom</a></li>"
 			. += "</ul><hr>"
 		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Close</a></body></html>"

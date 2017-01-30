@@ -1,6 +1,6 @@
 /obj/item/organ/brain
 	name = "brain"
-	health = 400 //They need to live awhile longer than other organs.
+	health = 400 //They need to live awhile longer than other organs. Is this even used by organ code anymore?
 	desc = "A piece of juicy meat found in a person's head."
 	organ_tag = "brain"
 	parent_organ = "head"
@@ -11,7 +11,7 @@
 	throwforce = 1.0
 	throw_speed = 3
 	throw_range = 5
-	origin_tech = "biotech=3"
+	origin_tech = list(TECH_BIO = 3)
 	attack_verb = list("attacked", "slapped", "whacked")
 	var/mob/living/carbon/brain/brainmob = null
 
@@ -98,7 +98,7 @@
 	icon_state = "green slime extract"
 
 /obj/item/organ/brain/golem
-	name = "chem"
+	name = "chelm"
 	desc = "A tightly furled roll of paper, covered with indecipherable runes."
 	robotic = 2
 	icon = 'icons/obj/wizard.dmi'

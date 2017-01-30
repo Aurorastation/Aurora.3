@@ -76,7 +76,7 @@
 	name = "[initial(name)] (\the [H])"
 	icon_state = "fingerprint1"
 
-/obj/item/weapon/sample/print/attack(var/mob/living/M, var/mob/user)
+/obj/item/weapon/sample/print/attack(var/mob/living/M, var/mob/user, var/target_zone)
 
 	if(!ishuman(M))
 		return ..()
@@ -94,7 +94,7 @@
 		user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
 		return 1
 
-	if(user.zone_sel.selecting == "r_hand" || user.zone_sel.selecting == "l_hand")
+	if(target_zone == "r_hand" || target_zone == "l_hand")
 		var/has_hand
 		var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
 		if(istype(O) && !O.is_stump())

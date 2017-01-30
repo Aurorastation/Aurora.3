@@ -128,12 +128,13 @@
 		nanomanager.update_uis(src)
 
 	if(beaker)
-		if(foodsupply < 100 && beaker.reagents.remove_reagent("virusfood",5))
-			if(foodsupply + 10 <= 100)
-				foodsupply += 10
-			else
-				beaker.reagents.add_reagent("virusfood",(100 - foodsupply)/2)
-				foodsupply = 100
+		if (foodsupply < 100 && beaker.reagents.has_reagent("virusfood"))
+			var/food_needed = min(10, 100 - foodsupply) / 2
+			var/food_taken = min(food_needed, beaker.reagents.get_reagent_amount("virusfood"))
+
+			beaker.reagents.remove_reagent("virusfood", food_taken)
+			foodsupply = min(100, foodsupply + (food_taken * 2))
+
 			nanomanager.update_uis(src)
 
 		if (locate(/datum/reagent/toxin) in beaker.reagents.reagent_list && toxins < 100)

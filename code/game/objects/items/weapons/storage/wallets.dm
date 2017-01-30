@@ -8,6 +8,7 @@
 		/obj/item/weapon/spacecash,
 		/obj/item/weapon/card,
 		/obj/item/clothing/mask/smokable/cigarette/,
+		/obj/item/clothing/accessory/badge,
 		/obj/item/device/flashlight/pen,
 		/obj/item/seeds,
 		/obj/item/stack/medical,

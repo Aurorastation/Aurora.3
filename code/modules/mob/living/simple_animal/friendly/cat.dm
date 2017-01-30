@@ -3,6 +3,7 @@
 	name = "cat"
 	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
 	icon_state = "cat2"
+	item_state = "cat2"
 	icon_living = "cat2"
 	icon_dead = "cat2_dead"
 	speak = list("Meow!","Esp!","Purr!","HSSSSS")
@@ -16,44 +17,51 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	var/turns_since_scan = 0
-	var/mob/living/simple_animal/mouse/movement_target
+	//var/mob/living/simple_animal/mouse/movement_target
 	var/mob/flee_target
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/weapon/holder/cat
-	mob_size = 5
+	mob_size = 2.5
+	scan_range = 3//less aggressive about stealing food
+	metabolic_factor = 0.75
+	density = 0
+	var/mob/living/simple_animal/mouse/mousetarget = null
+	seek_speed = 5
+	pass_flags = PASSTABLE
+	possession_candidate = 1
 
 /mob/living/simple_animal/cat/Life()
 	//MICE!
-	if((src.loc) && isturf(src.loc))
-		if(!stat && !resting && !buckled)
-			for(var/mob/living/simple_animal/mouse/M in loc)
-				if(!M.stat)
-					M.splat()
-					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"))
-					movement_target = null
-					stop_automated_movement = 0
-					break
+
 
 	..()
 
-	for(var/mob/living/simple_animal/mouse/snack in oview(src,5))
-		if(snack.stat < DEAD && prob(15))
-			audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
-		break
+	for(var/mob/living/simple_animal/mouse/snack in oview(src,7))
+		if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
+			mousetarget = snack
+			movement_target = snack
+			foodtarget = 0//chasing mice takes precedence over eating food
+			if(prob(15))
+				audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
+			break
 
 	if(!stat && !resting && !buckled)
-		turns_since_scan++
-		if (turns_since_scan > 5)
+		if (turns_since_move > 5 || (flee_target || mousetarget))
 			walk_to(src,0)
-			turns_since_scan = 0
+			turns_since_move = 0
 
 			if (flee_target) //fleeing takes precendence
 				handle_flee_target()
 			else
 				handle_movement_target()
+
+	if (!movement_target)
+		walk_to(src,0)
+
+	spawn(2)
+		attack_mice()
 
 	if(prob(2)) //spooky
 		var/mob/dead/observer/spook = locate() in range(src,5)
@@ -76,14 +84,37 @@
 	if( !movement_target || !(movement_target.loc in oview(src, 4)) )
 		movement_target = null
 		stop_automated_movement = 0
-		for(var/mob/living/simple_animal/mouse/snack in oview(src)) //search for a new target
-			if(isturf(snack.loc) && !snack.stat)
-				movement_target = snack
-				break
 
 	if(movement_target)
 		stop_automated_movement = 1
-		walk_to(src,movement_target,0,3)
+		walk_to(src,movement_target,0,seek_move_delay)
+
+/mob/living/simple_animal/cat/proc/attack_mice()
+	if((src.loc) && isturf(src.loc))
+		if(!stat && !resting && !buckled)
+			for(var/mob/living/simple_animal/mouse/M in oview(src,1))
+				if(M.stat != DEAD)
+					M.splat()
+					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"))
+					movement_target = null
+					stop_automated_movement = 0
+					if (prob(75))
+						break//usually only kill one mouse per proc
+
+/mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
+	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]")
+
+/mob/living/simple_animal/cat/Released()
+	//A thrown cat will immediately attack mice near where it lands
+	handle_movement_target()
+	spawn(3)
+		attack_mice()
+	..()
+
+/mob/living/simple_animal/cat/death()
+	.=..()
+	stat = DEAD
+
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
@@ -99,7 +130,7 @@
 /mob/living/simple_animal/cat/proc/set_flee_target(atom/A)
 	if(A)
 		flee_target = A
-		turns_since_scan = 5
+		turns_since_move = 5
 
 /mob/living/simple_animal/cat/attackby(var/obj/item/O, var/mob/user)
 	. = ..()
@@ -123,21 +154,6 @@
 	. = ..()
 	set_flee_target(AM.thrower? AM.thrower : src.loc)
 
-/mob/living/simple_animal/cat/MouseDrop(atom/over_object)
-
-	var/mob/living/carbon/H = over_object
-	if(!istype(H) || !Adjacent(H)) return ..()
-
-	if(H.a_intent == "help")
-		get_scooped(H)
-		return
-	else
-		return ..()
-
-/mob/living/simple_animal/cat/get_scooped(var/mob/living/carbon/grabber)
-	if (stat >= DEAD)
-		return //since the holder icon looks like a living cat
-	..()
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
@@ -163,7 +179,7 @@
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, 4)
+				walk_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)
@@ -221,34 +237,44 @@
 	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
 	gender = FEMALE
 	icon_state = "cat"
+	item_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
 	befriend_job = "Chief Medical Officer"
+	holder_type = /obj/item/weapon/holder/cat/black
+
+/mob/living/simple_animal/cat/fluff/Runtime/death()
+	.=..()
+	desc = "Oh no, Runtime is dead! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
 	desc = "D'aaawwww"
 	icon_state = "kitten"
+	item_state = "kitten"
 	icon_living = "kitten"
 	icon_dead = "kitten_dead"
 	gender = NEUTER
+	holder_type = /obj/item/weapon/holder/cat/kitten
 
-// Leaving this here for now.
-/obj/item/weapon/holder/cat/fluff/bones
-	name = "Bones"
-	desc = "It's Bones! Meow."
-	gender = MALE
-	icon_state = "cat3"
+/mob/living/simple_animal/cat/kitten/death()
+	.=..()
+	desc = "It's a dead kitten! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
 	desc = "That's Bones the cat. He's a laid back, black cat. Meow."
 	gender = MALE
 	icon_state = "cat3"
+	item_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
-	holder_type = /obj/item/weapon/holder/cat/fluff/bones
 	var/friend_name = "Erstatz Vryroxes"
+	holder_type = /obj/item/weapon/holder/cat/black
+
+/mob/living/simple_animal/cat/fluff/bones/death()
+	.=..()
+	desc = "Bones is dead"
 
 /mob/living/simple_animal/cat/kitten/New()
 	gender = pick(MALE, FEMALE)

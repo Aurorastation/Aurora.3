@@ -7,7 +7,6 @@
 		return
 
 	message = sanitize(message)
-	log_whisper("[src.name]/[src.key] : [message]")
 
 	if (src.client)
 		if (src.client.prefs.muted & MUTE_IC)
@@ -75,6 +74,8 @@
 	if(!message || message=="")
 		return
 
+	log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
+
 	//looks like this only appears in whisper. Should it be elsewhere as well? Maybe handle_speech_problems?
 	var/voice_sub
 	if(istype(back,/obj/item/weapon/rig))
@@ -102,12 +103,12 @@
 				temp_message[H] = ninjaspeak(temp_message[H])
 				pick_list -= H
 			message = list2text(temp_message, " ")
-			message = replacetext(message, "o", "¤")
-			message = replacetext(message, "p", "þ")
-			message = replacetext(message, "l", "£")
-			message = replacetext(message, "s", "§")
-			message = replacetext(message, "u", "µ")
-			message = replacetext(message, "b", "ß")
+			message = replacetext(message, "o", "Â¤")
+			message = replacetext(message, "p", "Å¾")
+			message = replacetext(message, "l", "Â£")
+			message = replacetext(message, "s", "Â§")
+			message = replacetext(message, "u", "Âµ")
+			message = replacetext(message, "b", "ÃŸ")
 
 	var/list/listening = hearers(message_range, src)
 	listening |= src

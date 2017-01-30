@@ -17,7 +17,7 @@
 	var/moving			= null
 	var/adminobs		= null
 	var/area			= null
-	var/time_died_as_mouse = null //when the client last died as a mouse
+	var/time_died_as_mouse = 0
 
 	var/adminhelped = 0
 
@@ -46,5 +46,17 @@
 	var/related_accounts_ip = "Requires database"	//So admins know why it isn't working - Used to determine what other accounts previously logged in from this ip
 	var/related_accounts_cid = "Requires database"	//So admins know why it isn't working - Used to determine what other accounts previously logged in from this computer id
 	var/whitelist_status = 0						//Used to determine what whitelists the player has access to. Uses bitflag values!
+	var/need_saves_migrated = "Requires database"	//Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
 
 	preload_rsc = 0 // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
+
+		////////////
+		//PARALLAX//
+		////////////
+	var/list/parallax = list()
+	var/list/parallax_movable = list()
+	var/list/parallax_offset = list()
+	var/turf/previous_turf = null
+	var/obj/screen/plane_master/parallax_master/parallax_master = null
+	var/obj/screen/plane_master/parallax_dustmaster/parallax_dustmaster = null
+	var/obj/screen/plane_master/parallax_spacemaster/parallax_spacemaster = null

@@ -105,16 +105,12 @@
 					return
 			else
 				G.affecting.loc = src.loc
-				G.affecting.Weaken(5)
+				G.affecting.Weaken(rand(2,4))
 				visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
 			qdel(W)
 			return
 
-	// Handle dismantling or placing things on the table from here on.
-	if(isrobot(user))
-		return
-
-	if(W.loc != user) // This should stop mounted modules ending up outside the module.
+	if(!dropsafety(W))
 		return
 
 	if(istype(W, /obj/item/weapon/melee/energy/blade))

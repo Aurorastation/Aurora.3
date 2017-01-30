@@ -16,11 +16,17 @@
 	var/pestlevel = 0          // Pests (max 10)
 	var/weedlevel = 0          // Weeds (max 10)
 
+	var/maxWaterLevel = 100
+	var/maxNutriLevel = 10
+	var/maxPestLevel = 10
+	var/maxWeedLevel = 10
+
 	// Tray state vars.
 	var/dead = 0               // Is it dead?
 	var/harvest = 0            // Is it ready to harvest?
 	var/age = 0                // Current plant age
 	var/sampled = 0            // Have we taken a sample?
+	var/last_biolum			   // What was the bioluminescence last tick?
 
 	// Harvest/mutation mods.
 	var/yield_mod = 0          // Modifier to yield
@@ -47,9 +53,10 @@
 	var/global/list/toxic_reagents = list(
 		"anti_toxin" =     -2,
 		"toxin" =           2,
-		"fluorine" =        2.5,
-		"chlorine" =        1.5,
+		"hydrazine" =       2.5,
+		"acetone" =	        1,
 		"sacid" =           1.5,
+		"hclacid" =         1.5,
 		"pacid" =           3,
 		"plantbgone" =      3,
 		"cryoxadone" =     -3,
@@ -70,11 +77,11 @@
 		"left4zed" =        1
 		)
 	var/global/list/weedkiller_reagents = list(
-		"fluorine" =       -4,
-		"chlorine" =       -3,
+		"hydrazine" =      -4,
 		"phosphorus" =     -2,
 		"sugar" =           2,
 		"sacid" =          -2,
+		"hclacid" =        -2,
 		"pacid" =          -4,
 		"plantbgone" =     -8,
 		"adminordrazine" = -5
@@ -89,21 +96,20 @@
 		"adminordrazine" =  1,
 		"milk" =            0.9,
 		"beer" =            0.7,
-		"fluorine" =       -0.5,
-		"chlorine" =       -0.5,
+		"hydrazine" =      -2,
 		"phosphorus" =     -0.5,
 		"water" =           1,
-		"sodawater" =       1,
+		"sodawater" =       1
 		)
 
 	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
 	var/global/list/beneficial_reagents = list(
 		"beer" =           list( -0.05, 0,   0  ),
-		"fluorine" =       list( -2,    0,   0  ),
-		"chlorine" =       list( -1,    0,   0  ),
+		"hydrazine" =      list( -2,    0,   0  ),
 		"phosphorus" =     list( -0.75, 0,   0  ),
 		"sodawater" =      list(  0.1,  0,   0  ),
 		"sacid" =          list( -1,    0,   0  ),
+		"hclacid" =        list( -1,    0,   0  ),
 		"pacid" =          list( -2,    0,   0  ),
 		"plantbgone" =     list( -2,    0,   0.2),
 		"cryoxadone" =     list(  3,    0,   0  ),
@@ -124,26 +130,59 @@
 		)
 
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
-	if(mechanical && !usr.stat && !usr.lying && Adjacent(usr))
-		close_lid(usr)
-		return
-	return ..()
+	if (istype(usr, /mob/living/carbon/alien/diona))//A diona alt+clicking feeds the plant
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_generic(var/mob/user)
-	if(istype(user,/mob/living/carbon/alien/diona))
-		var/mob/living/carbon/alien/diona/nymph = user
-
-		if(nymph.stat == DEAD || nymph.paralysis || nymph.weakened || nymph.stunned || nymph.restrained())
+		if (closed_system)
+			usr << "The lid is closed, you don't have hands to open it and reach the plants inside!"
 			return
-
-		if(weedlevel > 0)
-			nymph.reagents.add_reagent("nutriment", weedlevel)
-			weedlevel = 0
-			nymph.visible_message("<font color='blue'><b>[nymph]</b> begins rooting through [src], ripping out weeds and eating them noisily.</font>","<font color='blue'>You begin rooting through [src], ripping out weeds and eating them noisily.</font>")
-		else if(nymph.nutrition > 100 && nutrilevel < 10)
+		var/mob/living/carbon/alien/diona/nymph = usr
+		if(nymph.nutrition > 100 && nutrilevel < 10)
 			nymph.nutrition -= ((10-nutrilevel)*5)
 			nutrilevel = 10
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</font>","<font color='blue'>You secrete a trickle of green liquid, refilling [src].</font>")
+		return//Nymphs cant open and close lids
+	if(mechanical && !usr.incapacitated() && Adjacent(usr))
+		close_lid(usr)
+		return 1
+	return ..()
+
+/obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/dead/observer/user)
+
+	if(!(harvest && seed && seed.has_mob_product))
+		return
+
+	var/datum/ghosttrap/plant/G = get_ghost_trap("living plant")
+	if(!G.assess_candidate(user))
+		return
+	var/response = alert(user, "Are you sure you want to harvest this [seed.display_name]?", "Living plant request", "Yes", "No")
+	if(response == "Yes")
+		harvest()
+	return
+
+/obj/machinery/portable_atmospherics/hydroponics/attack_generic(var/mob/user)
+
+	// Why did I ever think this was a good idea. TODO: move this onto the nymph mob.
+	if(istype(user,/mob/living/carbon/alien/diona))
+		var/mob/living/carbon/alien/diona/nymph = user
+
+		if (closed_system)
+			user << "The lid is closed, you don't have hands to open it and reach the plants inside!"
+			return
+		if(nymph.stat == DEAD || nymph.paralysis || nymph.weakened || nymph.stunned || nymph.restrained())
+			return
+		if(weedlevel > 0)
+			nymph.ingested.add_reagent("nutriment", weedlevel/6)
+			weedlevel = 0
+			nymph.visible_message("<font color='blue'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</font>","<font color='blue'>You root through [src], ripping out weeds and eating them noisily.</font>")
+			return
+		if (dead)//Let nymphs eat dead plants
+			nymph.ingested.add_reagent("nutriment", 1)
+			nymph.visible_message("<font color='blue'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</font>","<font color='blue'>You root out the dead plants in [src], eating them with loud chewing sounds.</font>")
+			remove_dead(user)
+			return
+		if (harvest)
+			harvest(user)
+			return
 		else
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> rolls around in [src] for a bit.</font>","<font color='blue'>You roll around in [src] for a bit.</font>")
 		return
@@ -343,7 +382,7 @@
 	set category = "Object"
 	set src in view(1)
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(usr.incapacitated())
 		return
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
 		if(labelled)
@@ -359,7 +398,7 @@
 	set category = "Object"
 	set src in view(1)
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(usr.incapacitated())
 		return
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
 		var/new_light = input("Specify a light level.") as null|anything in list(0,1,2,3,4,5,6,7,8,9,10)
@@ -406,6 +445,20 @@
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
+
+	//A special case for if the container has only water, for manual watering with buckets
+	if (istype(O,/obj/item/weapon/reagent_containers))
+		var/obj/item/weapon/reagent_containers/RC = O
+		if (RC.reagents.reagent_list.len == 1)
+			if (RC.reagents.has_reagent("water", 1))
+				if (waterlevel < maxWaterLevel)
+					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
+					RC.reagents.remove_reagent("water", amountToRemove, 1)
+					waterlevel += amountToRemove
+					user.visible_message("[user] transfers [amountToRemove]u of water to the tray."," You transfer [amountToRemove]u of water to the tray.")
+				else
+					user << "This tray is full of water already."
+				return 1
 
 	if (O.is_open_container())
 		return 0
@@ -525,20 +578,8 @@
 		anchored = !anchored
 		user << "You [anchored ? "wrench" : "unwrench"] \the [src]."
 
-	else if(istype(O, /obj/item/apiary))
-
-		if(seed)
-			user << "<span class='danger'>[src] is already occupied!</span>"
-		else
-			user.drop_item()
-			qdel(O)
-
-			var/obj/machinery/apiary/A = new(src.loc)
-			A.icon = src.icon
-			A.icon_state = src.icon_state
-			A.hydrotray_type = src.type
-			qdel(src)
 	else if(O.force && seed)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message("<span class='danger'>\The [seed.display_name] has been attacked by [user] with \the [O]!</span>")
 		if(!dead)
 			health -= O.force
@@ -569,7 +610,7 @@
 		usr << "[src] is empty."
 		return
 
-	usr << "<span class='notice'>[seed.display_name]</span> are growing here.</span>"
+	usr << "<span class='notice'>[seed.display_name] are growing here.</span>"
 
 	if(!Adjacent(usr))
 		return
@@ -605,10 +646,9 @@
 		if(closed_system && mechanical)
 			light_string = "that the internal lights are set to [tray_light] lumens"
 		else
-			var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
 			var/light_available
-			if(L)
-				light_available = max(0,min(10,L.lum_r + L.lum_g + L.lum_b)-5)
+			if(T.dynamic_lighting)
+				light_available = T.get_lumcount(0, 3) * 10
 			else
 				light_available =  5
 			light_string = "a light level of [light_available] lumens"
@@ -619,7 +659,7 @@
 	set name = "Toggle Tray Lid"
 	set category = "Object"
 	set src in view(1)
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(usr.incapacitated())
 		return
 
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))

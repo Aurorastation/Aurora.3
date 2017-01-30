@@ -18,8 +18,8 @@
 		user.drop_item()
 		qdel(src)
 
-// Root hardsuit kit defines.
-// Icons for modified hardsuits need to be in the proper .dmis because suit cyclers may cock them up.
+// Root voidsuit kit defines.
+// Icons for modified voidsuits need to be in the proper .dmis because suit cyclers may cock them up.
 /obj/item/device/kit/suit
 	name = "voidsuit modification kit"
 	desc = "A kit for modifying a voidsuit."
@@ -68,8 +68,8 @@
 	return ..()
 
 /obj/item/device/kit/paint
-	name = "mecha customisation kit"
-	desc = "A kit containing all the needed tools and parts to repaint a mech."
+	name = "exosuit customisation kit"
+	desc = "A kit containing all the needed tools and parts to repaint an exosuit."
 	var/removable = null
 	var/list/allowed_types = list()
 
@@ -83,7 +83,7 @@
 /obj/mecha/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(istype(W, /obj/item/device/kit/paint))
 		if(occupant)
-			user << "You can't customize a mech while someone is piloting it - that would be unsafe!"
+			user << "You can't customize an exosuit while someone is piloting it - that would be unsafe!"
 			return
 
 		var/obj/item/device/kit/paint/P = W
@@ -114,7 +114,7 @@
 /obj/item/device/kit/paint/ripley
 	name = "\"Classic\" APLU customisation kit"
 	new_name = "APLU \"Classic\""
-	new_desc = "A very retro APLU unit; didn't they retire these back in 2543?"
+	new_desc = "A very retro APLU unit; didn't they retire these back in 2443?"
 	new_icon = "ripley-old"
 	allowed_types = list("ripley")
 
@@ -136,6 +136,18 @@
 	new_name = "APLU \"Burning Chrome\""
 	new_desc = "A standard APLU exosuit with stylish blue flame decals."
 	new_icon = "ripley_flames_blue"
+	
+/obj/item/device/kit/paint/ripley/titan
+	name = "\"Titan's Fist\" APLU customisation kit"
+	new_name = "APLU \"Titan's Fist\""
+	new_desc = "This ordinary mining Ripley has been customized to look like a unit of the Titans Fist."
+	new_icon = "titan"
+
+/obj/item/device/kit/paint/ripley/earth
+	name = "\"Strike the Earth!\" APLU customisation kit"
+	new_name = "APLU \"Strike the Earth!\""
+	new_desc = "Looks like an over worked, under maintained Ripley with some horrific damage."
+	new_icon = "earth"
 
 // Durand kits.
 /obj/item/device/kit/paint/durand

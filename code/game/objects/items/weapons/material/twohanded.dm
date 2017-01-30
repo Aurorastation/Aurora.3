@@ -71,6 +71,14 @@
 			O.unwield()
 	return	unwield()
 
+//Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
+/obj/item/weapon/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(wielded && default_parry_check(user, attacker, damage_source) && prob(15))
+		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+		return 1
+	return 0
+
 /obj/item/weapon/material/twohanded/update_icon()
 	icon_state = "[base_icon][wielded]"
 	item_state = icon_state
@@ -84,7 +92,7 @@
 
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		if(H.species.is_small)
+		if(issmall(H))
 			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
 			return
 	else
@@ -168,51 +176,6 @@
 			var/obj/effect/plant/P = A
 			P.die_off()
 
-/*
-/*
- * Double-Bladed Energy Swords - Cheridan
- */
- // Not sure what to do with this one, it won't work nicely with the material system,
- // but I don't want to copypaste all the twohanded procs..
-/obj/item/weapon/material/twohanded/dualsaber
-	icon_state = "dualsaber0"
-	base_icon = "dualsaber"
-	name = "double-bladed energy sword"
-	desc = "Handle with care."
-	force = 3
-	throwforce = 5.0
-	throw_speed = 1
-	throw_range = 5
-	w_class = 2.0
-	force_wielded = 30
-	wieldsound = 'sound/weapons/saberon.ogg'
-	unwieldsound = 'sound/weapons/saberoff.ogg'
-	flags = NOSHIELD
-	origin_tech = "magnets=3;syndicate=4"
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	sharp = 1
-	edge = 1
-	applies_material_colour = 0
-
-/obj/item/weapon/material/twohanded/dualsaber/attack(target as mob, mob/living/user as mob)
-	..()
-	if((CLUMSY in user.mutations) && (wielded) &&prob(40))
-		user << "\red You twirl around a bit before losing your balance and impaling yourself on the [src]."
-		user.take_organ_damage(20,25)
-		return
-	if((wielded) && prob(50))
-		spawn(0)
-			for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2))
-				user.set_dir(i)
-				sleep(1)
-
-/obj/item/weapon/material/twohanded/dualsaber/IsShield()
-	if(wielded)
-		return 1
-	else
-		return 0
-*/
-
 //spears, bay edition
 /obj/item/weapon/material/twohanded/spear
 	icon_state = "spearglass0"
@@ -228,7 +191,63 @@
 	throw_speed = 3
 	edge = 1
 	sharp = 1
-	flags = NOSHIELD
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
+
+//Putting heads on spears
+/*bj/item/organ/external/head/attackby(var/obj/item/weapon/W, var/mob/living/user, params)
+	if(istype(W, /obj/item/weapon/material/twohanded/spear))
+		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
+		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
+		var/matrix/M = matrix()
+		src.transform = M
+		user.drop_item()
+		src.loc = HS
+		var/image/IM = image(src.icon,src.icon_state)
+		IM.overlays = src.overlays.Copy()
+		HS.overlays += IM
+		qdel(W)
+		qdel(src)
+		return
+	return ..()*/
+
+/obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
+	if(istype(I, /obj/item/organ/external/head))
+		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
+		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
+		var/matrix/M = matrix()
+		I.transform = M
+		usr.drop_item()
+		I.loc = HS
+		var/image/IM = image(I.icon,I.icon_state)
+		IM.overlays = I.overlays.Copy()
+		HS.overlays += IM
+		HS.name = "[I.name] on a spear"
+		qdel(src)
+		return
+	return ..()
+
+//predefined materials for spears
+/obj/item/weapon/material/twohanded/spear/steel/New(var/newloc)
+	..(newloc,"steel")
+
+/obj/item/weapon/material/twohanded/spear/plasteel/New(var/newloc)
+	..(newloc,"plasteel")
+
+/obj/item/weapon/material/twohanded/spear/diamond/New(var/newloc)
+	..(newloc,"diamond")
+
+/obj/structure/headspear
+	name = "head on a spear"
+	desc = "How barbaric."
+	icon_state = "headspear"
+	density = 0
+	anchored = 1
+
+/obj/structure/headspear/attack_hand(mob/living/user)
+	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
+	new /obj/item/weapon/material/twohanded/spear(user.loc)
+	for(var/obj/item/organ/external/head/H in src)
+		H.loc = user.loc
+	qdel(src)

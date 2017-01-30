@@ -12,6 +12,9 @@
  * /obj/item/rig_module/chem_dispenser
  * /obj/item/rig_module/chem_dispenser/injector
  * /obj/item/rig_module/voice
+ * /obj/item/rig_module/device/paperdispenser
+ * /obj/item/rig_module/device/pen
+ * /obj/item/rig_module/device/stamp
  */
 
 /obj/item/rig_module/device
@@ -34,6 +37,8 @@
 	suit_overlay_active = "plasmacutter"
 	suit_overlay_inactive = "plasmacutter"
 	use_power_cost = 0.5
+	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
+	construction_time = 300
 
 	device_type = /obj/item/weapon/pickaxe/plasmacutter
 
@@ -43,6 +48,8 @@
 	icon_state = "scanner"
 	interface_name = "health scanner"
 	interface_desc = "Shows an informative health readout when used on a subject."
+	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
+	construction_time = 300
 
 	device_type = /obj/item/device/healthanalyzer
 
@@ -55,6 +62,8 @@
 	suit_overlay_active = "mounted-drill"
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
+	construction_cost = list("glass"=2250,DEFAULT_WALL_MATERIAL=55000,"silver"=5250,"diamond"=3750)
+	construction_time = 350
 
 	device_type = /obj/item/weapon/pickaxe/diamonddrill
 
@@ -88,6 +97,8 @@
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	usable = 1
 	engage_string = "Configure RCD"
+	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500,"silver"=10000,"gold"=10000)
+	construction_time = 1000
 
 	device_type = /obj/item/weapon/rcd/mounted
 
@@ -96,7 +107,6 @@
 	if(device_type) device = new device_type(src)
 
 /obj/item/rig_module/device/engage(atom/target)
-
 	if(!..() || !device)
 		return 0
 
@@ -106,6 +116,10 @@
 
 	var/turf/T = get_turf(target)
 	if(istype(T) && !T.Adjacent(get_turf(src)))
+		return 0
+
+	// Stop generating infinite devices please, and thank you.
+	if(istype(target, /obj/machinery/disposal))
 		return 0
 
 	var/resolved = target.attackby(device,holder.wearer)
@@ -123,6 +137,9 @@
 	selectable = 0
 	toggleable = 0
 	disruptive = 0
+	confined_use = 1
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_time = 400
 
 	engage_string = "Inject"
 
@@ -135,7 +152,7 @@
 		list("dexalin plus",  "dexalinp",      0, 80),
 		list("antibiotics",   "spaceacillin",  0, 80),
 		list("antitoxins",    "anti_toxin",    0, 80),
-		list("nutrients",     "nutriment",     0, 80),
+		list("nutrients",     "glucose",     0, 80),
 		list("hyronalin",     "hyronalin",     0, 80),
 		list("radium",        "radium",        0, 80)
 		)
@@ -152,7 +169,7 @@
 		list("dexalin plus",  "dexalinp",      0, 20),
 		list("antibiotics",   "spaceacillin",  0, 20),
 		list("antitoxins",    "anti_toxin",    0, 20),
-		list("nutrients",     "nutriment",     0, 80),
+		list("nutrients",     "glucose",     0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
@@ -241,7 +258,7 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("nutrients",     "nutriment",     0, 80),
+		list("nutrients",     "glucose",     0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -255,6 +272,8 @@
 	usable = 0
 	selectable = 1
 	disruptive = 1
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_time = 400
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
@@ -268,6 +287,7 @@
 	selectable = 0
 	toggleable = 0
 	disruptive = 0
+	confined_use = 1
 
 	engage_string = "Configure Synthesiser"
 
@@ -321,6 +341,8 @@
 	toggleable = 1
 	selectable = 0
 	disruptive = 0
+	construction_cost = list("glass"= 4250,DEFAULT_WALL_MATERIAL=15000,"silver"=4250,"uranium"=5250)
+	construction_time = 300
 
 	suit_overlay_active = "maneuvering_active"
 	suit_overlay_inactive = null //"maneuvering_inactive"
@@ -380,3 +402,63 @@
 	jets.ion_trail.set_up(jets)
 
 /obj/item/rig_module/foam_sprayer
+
+/obj/item/rig_module/device/paperdispenser
+	name = "hardsuit paper dispenser"
+	desc = "Crisp sheets."
+	icon_state = "paper"
+	interface_name = "paper dispenser"
+	interface_desc = "Dispenses warm, clean, and crisp sheets of paper."
+	engage_string = "Dispense"
+	usable = 1
+	selectable = 0
+	device_type = /obj/item/weapon/paper_bin
+
+/obj/item/rig_module/device/paperdispenser/engage(atom/target)
+
+	if(!..() || !device)
+		return 0
+
+	if(!target)
+		device.attack_hand(holder.wearer)
+		return 1
+
+/obj/item/rig_module/device/pen
+	name = "mounted pen"
+	desc = "For mecha John Hancocks."
+	icon_state = "pen"
+	interface_name = "mounted pen"
+	interface_desc = "Signatures with style(tm)."
+	engage_string = "Change color"
+	usable = 1
+	device_type = /obj/item/weapon/pen/multi
+
+/obj/item/rig_module/device/stamp
+	name = "mounted internal affairs stamp"
+	desc = "DENIED."
+	icon_state = "stamp"
+	interface_name = "mounted stamp"
+	interface_desc = "Leave your mark."
+	engage_string = "Toggle stamp type"
+	usable = 1
+	var/iastamp
+	var/deniedstamp
+
+/obj/item/rig_module/device/stamp/New()
+	..()
+	iastamp = new /obj/item/weapon/stamp/internalaffairs(src)
+	deniedstamp = new /obj/item/weapon/stamp/denied(src)
+	device = iastamp
+
+/obj/item/rig_module/device/stamp/engage(atom/target)
+	if(!..() || !device)
+		return 0
+
+	if(!target)
+		if(device == iastamp)
+			device = deniedstamp
+			holder.wearer << "<span class='notice'>Switched to denied stamp.</span>"
+		else if(device == deniedstamp)
+			device = iastamp
+			holder.wearer << "<span class='notice'>Switched to internal affairs stamp.</span>"
+		return 1

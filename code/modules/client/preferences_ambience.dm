@@ -51,4 +51,3 @@
 	else
 		src << "<font color='red'>You will no longer hear the vote alarm.</font>"
 	feedback_add_details("admin_verb","TSFXFV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	

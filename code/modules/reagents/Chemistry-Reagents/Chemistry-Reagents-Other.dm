@@ -122,7 +122,7 @@
 /datum/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.setCloneLoss(0)
 	M.setOxyLoss(0)
-	M.radiation = 0
+	M.total_radiation = 0
 	M.heal_organ_damage(5,5)
 	M.adjustToxLoss(-5)
 	M.hallucination = 0
@@ -208,30 +208,17 @@
 
 /datum/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(ishuman(M)) // Any location
-		if(M.mind && cult.is_antagonist(M.mind) && prob(10))
+	if(ishuman(M))
+		if (M.mind && M.mind.vampire)
+			var/datum/vampire/vampire = M.mind.vampire
+			vampire.frenzy += removed * 5
+		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
-		if(M.mind.vampire && (!(VAMP_FULL in M.mind.vampire.powers)))
-			if(!M) M = holder.my_atom
-			M.adjustFireLoss(6)
-			M.adjust_fire_stacks(1)
-			M.IgniteMob()
-			//M.take_organ_damage(0, 1*REM)
-			if(prob(20))
-				for (var/mob/V in viewers(src))
-					V.show_message(text("\red []'s skin sizzles and burns.", M), 1)
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
 		T.holy = 1
 	return
-
-/datum/reagent/ammonia
-	name = "Ammonia"
-	id = "ammonia"
-	description = "A caustic substance commonly used in fertilizer or household cleaners."
-	reagent_state = GAS
-	color = "#404030"
 
 /datum/reagent/diethylamine
 	name = "Diethylamine"
@@ -240,10 +227,10 @@
 	reagent_state = LIQUID
 	color = "#604030"
 
-/datum/reagent/fluorosurfactant // Foam precursor
-	name = "Fluorosurfactant"
-	id = "fluorosurfactant"
-	description = "A perfluoronated sulfonic acid that forms a foam when mixed with water."
+/datum/reagent/surfactant // Foam precursor
+	name = "Azosurfactant"
+	id = "surfactant"
+	description = "A isocyanate liquid that forms a foam when mixed with water."
 	reagent_state = LIQUID
 	color = "#9E6B38"
 
@@ -337,16 +324,7 @@
 	if(!istype(T))
 		return
 	if(volume >= 1)
-		if(T.wet >= 2)
-			return
-		T.wet = 2
-		spawn(800)
-			if(!T || !istype(T))
-				return
-			T.wet = 0
-			if(T.wet_overlay)
-				T.overlays -= T.wet_overlay
-				T.wet_overlay = null
+		T.wet_floor(2)
 
 /datum/reagent/silicate
 	name = "Silicate"

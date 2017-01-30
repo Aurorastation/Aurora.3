@@ -32,7 +32,7 @@
 
 	if(istype(victim, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = victim
-		if(!H.species.is_small)
+		if(!issmall(H))
 			return 0
 		meat_type = H.species.meat_type
 		icon_state = "spikebloody"
@@ -58,3 +58,19 @@
 		user << "You remove the last piece of meat from \the [victim_name]!"
 		icon_state = "spike"
 		occupied = 0
+
+
+/obj/structure/kitchenspike/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (!mover)
+		return 1
+
+	if(istype(mover,/obj/item/projectile) && density)
+		if (!occupied && prob(80))
+		//Wiry frame, usually wont be cover
+			return 1
+		else
+			return 0
+	else if(mover.checkpass(PASSTABLE))
+//Animals can run under them, lots of empty space
+		return 1
+	return ..()

@@ -1,26 +1,34 @@
 /mob/living/carbon/human/proc/get_unarmed_attack(var/mob/living/carbon/human/target, var/hit_zone)
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
 		if(u_attack.is_usable(src, target, hit_zone))
+			if(pulling_punches)
+				var/datum/unarmed_attack/soft_variant = u_attack.get_sparring_variant()
+				if(soft_variant)
+					return soft_variant
 			return u_attack
 	return null
 
 /mob/living/carbon/human/attack_hand(mob/living/carbon/M as mob)
 
 	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
-		if(H.hand)
-			temp = H.organs_by_name["l_hand"]
-		if(!temp || !temp.is_usable())
-			H << "\red You can't use your hand."
-			return
+	if(!M.can_use_hand())
+		return
 
 	..()
+	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/weapon/rig)))
+		H << "<span class='danger'>You are now visible.</span>"
+		H.invisibility = 0
+
+		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
+		anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+		for(var/mob/O in oviewers(H))
+			O.show_message("[H.name] appears from thin air!",1)
+		playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
 
 	// Should this all be in Touch()?
 	if(istype(H))
-		if((H != src) && check_shields(0, H.name))
-			visible_message("\red <B>[H] attempted to touch [src]!</B>")
+		if(H != src && check_shields(0, null, H, H.zone_sel.selecting, H.name))
 			H.do_attack_animation(src)
 			return 0
 
@@ -37,7 +45,7 @@
 						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)")
 
 						var/armorblock = run_armor_check(M.zone_sel.selecting, "energy")
-						apply_effects(5,5,0,0,5,0,0,armorblock)
+						apply_effects(5,5,0,0,5,0,0,0,0,armorblock)
 						apply_damage(rand(5,25), BURN, M.zone_sel.selecting,armorblock)
 
 						if(prob(15))
@@ -90,10 +98,16 @@
 	switch(M.a_intent)
 		if(I_HELP)
 			if(istype(H) && health < config.health_threshold_crit && health > config.health_threshold_dead)
-				if((H.head && (H.head.flags & HEADCOVERSMOUTH)) || (H.wear_mask && (H.wear_mask.flags & MASKCOVERSMOUTH)))
+				if(!H.check_has_mouth())
+					H << "<span class='danger'>You don't have a mouth, you cannot perform CPR!</span>"
+					return
+				if(!check_has_mouth())
+					H << "<span class='danger'>They don't have a mouth, you cannot perform CPR!</span>"
+					return
+				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
 					H << "<span class='notice'>Remove your mask!</span>"
 					return 0
-				if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
+				if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
 					H << "<span class='notice'>Remove [src]'s mask!</span>"
 					return 0
 
@@ -126,6 +140,11 @@
 				if(G.assailant == M)
 					M << "<span class='notice'>You already grabbed [src].</span>"
 					return
+
+			if (!attempt_grab(M))
+				return
+
+
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 
@@ -149,32 +168,6 @@
 			return 1
 
 		if(I_HURT)
-			//Vampire code
-			if(H.zone_sel && M.zone_sel.selecting == "head")
-				if(H.mind && H.mind.vampire && !H.mind.vampire.draining)
-					if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
-						H << "\red Remove their mask!"
-						return 0
-					if((H.head && (H.head.flags & HEADCOVERSMOUTH)) || (H.wear_mask && (H.wear_mask.flags & MASKCOVERSMOUTH)))
-						H << "\red Remove your mask!"
-						return 0
-					if(mind && mind.vampire)
-						H << "\red Your fangs fail to pierce [src.name]'s cold flesh"
-						return 0
-					if(get_species() == "Machine")
-						H << "\red They have no blood"
-						return 0
-					//we're good to suck the blood, blaah
-					//and leave an attack log
-					H.attack_log += text("\[[time_stamp()]\] <font color='red'>Bit [src.name] ([src.ckey]) in the neck and draining their blood</font>")
-					src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been bit in the neck by [H.name] ([H.ckey])</font>")
-					msg_admin_attack("[key_name_admin(H)] bit [key_name_admin(src)] in the neck - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>")
-					H.handle_bloodsucking(src)
-				//					var/datum/organ/external/affecting = get_organ(src.zone_sel.selecting)
-				//					affecting.take_damage(10,0,1,0,"dual puncture marks") //this does not work and causes runtimes.
-					return
-				//end vampire codes
-
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return
@@ -263,7 +256,7 @@
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			H.attack_log += text("\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>")
-			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)]")
+			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 
 			if(miss_type)
 				return 0
@@ -285,13 +278,13 @@
 			attack.apply_effects(H, src, armour, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, BRUTE, affecting, armour, sharp=attack.sharp, edge=attack.edge)
+			apply_damage(real_damage, (attack.deal_halloss ? HALLOSS : BRUTE), affecting, armour, sharp=attack.sharp, edge=attack.edge)
 
 		if(I_DISARM)
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
 
-			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey])")
+			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)")
 			M.do_attack_animation(src)
 
 			if(w_uniform)
@@ -377,29 +370,12 @@
 	src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
 
-	var/dam_zone = pick("head", "chest", "l_arm", "r_arm", "l_leg", "r_leg", "groin")
+	var/dam_zone = pick(organs_by_name)
 	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
 	var/armor_block = run_armor_check(affecting, "melee")
 	apply_damage(damage, BRUTE, affecting, armor_block)
 	updatehealth()
 	return 1
-
-/mob/living/carbon/human/proc/attack_joint(var/obj/item/W, var/mob/living/user, var/def_zone)
-	if(!def_zone) def_zone = user.zone_sel.selecting
-	var/target_zone = get_zone_with_miss_chance(check_zone(def_zone), src)
-
-	if(user == src) // Attacking yourself can't miss
-		target_zone = user.zone_sel.selecting
-	if(!target_zone)
-		return null
-	var/obj/item/organ/external/organ = get_organ(check_zone(target_zone))
-	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1))
-		return null
-	var/dislocation_str
-	if(prob(W.force))
-		dislocation_str = "[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"
-		organ.dislocate(1)
-	return dislocation_str
 
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)
@@ -423,6 +399,7 @@
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
 	if(do_after(user, 100))
 		organ.dislocate(1)
+		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		return 1
 	return 0

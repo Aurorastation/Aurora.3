@@ -108,7 +108,7 @@
 			F.amount += amount
 			return
 
-		F = PoolOrNew(/obj/effect/effect/foam, list(location, metal))
+		F = getFromPool(/obj/effect/effect/foam, list(location, metal))
 		F.amount = amount
 
 		if(!metal) // don't carry other chemicals if a metal foam
@@ -148,9 +148,6 @@
 		icon_state = "ironfoam"
 
 /obj/structure/foamedmetal/ex_act(severity)
-	qdel(src)
-
-/obj/structure/foamedmetal/blob_act()
 	qdel(src)
 
 /obj/structure/foamedmetal/bullet_act()

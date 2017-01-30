@@ -19,7 +19,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 		var/datum/shuttle/shuttle = shuttles[shuttle_tag]
 		shuttle.init_docking_controllers()
 		shuttle.dock() //makes all shuttles docked to something at round start go into the docked state
-	
+
 	for(var/obj/machinery/embedded_controller/C in machines)
 		if(istype(C.program, /datum/computer/file/embedded_program/docking))
 			C.program.tag = null //clear the tags, 'cause we don't need 'em anymore
@@ -111,7 +111,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 		shuttles["Escape Pod 1"],
 		shuttles["Escape Pod 2"],
 		shuttles["Escape Pod 3"],
-		shuttles["Escape Pod 5"],
+		shuttles["Escape Pod 5"]
 	)
 
 	// Supply shuttle
@@ -126,6 +126,115 @@ var/global/datum/shuttle_controller/shuttle_controller
 	process_shuttles += shuttle
 
 	supply_controller.shuttle = shuttle
+
+	//LIFTS!!!!!
+	// They are shuttles to save dupe code
+	
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/medical/lower)
+	shuttle.area_station = locate(/area/shuttle/medical/main)
+	shuttle.docking_controller_tag = "medical_lift"
+	shuttle.dock_target_station = "medical_lift_main"
+	shuttle.dock_target_offsite = "medical_lift_lower"
+	shuttles["Medical"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/science/lower)
+	shuttle.area_station = locate(/area/shuttle/science/main)
+	shuttle.docking_controller_tag = "science_lift"
+	shuttle.dock_target_station = "science_lift_main"
+	shuttle.dock_target_offsite = "science_lift_lower"
+	shuttles["Science"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/engineering/lower)
+	shuttle.area_station = locate(/area/shuttle/engineering/main)
+	shuttle.docking_controller_tag = "engineering_lift"
+	shuttle.dock_target_station = "eng_lift_main"
+	shuttle.dock_target_offsite = "eng_lift_lower"
+	shuttles["Engineering"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/ai/lower)
+	shuttle.area_station = locate(/area/shuttle/ai/main)
+	shuttle.docking_controller_tag = "aicore_lift"
+	shuttle.dock_target_station = "aicore_lift_main"
+	shuttle.dock_target_offsite = "aicore_lift_lower"
+	shuttles["AiCore"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/vault/lower)
+	shuttle.area_station = locate(/area/shuttle/vault/main)
+	shuttle.docking_controller_tag = "vault_lift"
+	shuttle.dock_target_station = "vault_lift_main"
+	shuttle.dock_target_offsite = "vault_lift_lower"
+	shuttles["Vault"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/civilian/upper)
+	shuttle.area_transition = locate(/area/shuttle/civilian/transit)
+	shuttle.area_station = locate(/area/shuttle/civilian/main)
+	shuttle.docking_controller_tag = "civilian_lift"
+	shuttle.dock_target_station = "civilian_lift_main"
+	shuttle.dock_target_offsite = "civilian_lift_dock"
+	shuttles["Civilian"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/cargo/upper)
+	shuttle.area_transition = locate(/area/shuttle/cargo/transit)
+	shuttle.area_station = locate(/area/shuttle/cargo/main)
+	shuttle.docking_controller_tag = "cargo_lift"
+	shuttle.dock_target_station = "cargo_lift_main"
+	shuttle.dock_target_offsite = "cargo_lift_dock"
+	shuttles["Cargo"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/command/upper)
+	shuttle.area_transition = locate(/area/shuttle/command/transit)
+	shuttle.area_station = locate(/area/shuttle/command/main)
+	shuttle.docking_controller_tag = "command_lift"
+	shuttle.dock_target_station = "command_lift_main"
+	shuttle.dock_target_offsite = "command_lift_dock"
+	shuttles["Command"] = shuttle
+	process_shuttles += shuttle
+	
 
 	// Admin shuttles.
 	shuttle = new()
@@ -210,12 +319,12 @@ var/global/datum/shuttle_controller/shuttle_controller
 		"Fore Port Solars" = locate(/area/skipjack_station/northwest_solars),
 		"Aft Starboard Solars" = locate(/area/skipjack_station/southeast_solars),
 		"Aft Port Solars" = locate(/area/skipjack_station/southwest_solars),
-		"Mining asteroid" = locate(/area/skipjack_station/mining)
+		"Mining Station" = locate(/area/skipjack_station/mining)
 		)
 
 	VS.announcer = "NDV Icarus"
-	VS.arrival_message = "Attention, Exodus, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
-	VS.departure_message = "Your guests are pulling away, Exodus - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
+	VS.arrival_message = "Attention, [station_short], we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
+	VS.departure_message = "Your guests are pulling away, [station_short] - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 	VS.interim = locate(/area/skipjack_station/transit)
 
 	VS.warmup_time = 0
@@ -234,19 +343,19 @@ var/global/datum/shuttle_controller/shuttle_controller
 		"South of the station" = locate(/area/syndicate_station/south),
 		"Southeast of the station" = locate(/area/syndicate_station/southeast),
 		"Telecomms Satellite" = locate(/area/syndicate_station/commssat),
-		"Mining Asteroid" = locate(/area/syndicate_station/mining),
-		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock),
+		"Mining Station" = locate(/area/syndicate_station/mining),
+		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock)
 		)
-	
+
 	MS.docking_controller_tag = "merc_shuttle"
 	MS.destination_dock_targets = list(
 		"Mercenary Base" = "merc_base",
-		"Arrivals dock" = "nuke_shuttle_dock_airlock",
+		"Arrivals dock" = "nuke_shuttle_dock_airlock"
 		)
 
 	MS.announcer = "NDV Icarus"
-	MS.arrival_message = "Attention, Exodus, you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
-	MS.departure_message = "Your visitors are on their way out of the system, Exodus, burning delta-v like it's nothing. Good riddance."
+	MS.arrival_message = "Attention, [station_short], you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
+	MS.departure_message = "Your visitors are on their way out of the system, [station_short], burning delta-v like it's nothing. Good riddance."
 	MS.interim = locate(/area/syndicate_station/transit)
 
 	MS.warmup_time = 0

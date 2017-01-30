@@ -19,7 +19,7 @@
 
 	proc/Gib(atom/location, var/list/viruses = list(), var/datum/dna/MobDNA = null)
 		if(gibtypes.len != gibamounts.len || gibamounts.len != gibdirections.len)
-			world << "\red Gib list length mismatch!"
+			world << "<span class='warning'>Gib list length mismatch!</span>"
 			return
 
 		var/obj/effect/decal/cleanable/blood/gibs/gib = null
@@ -28,7 +28,7 @@
 				qdel(D)
 
 		if(sparks)
-			var/datum/effect/effect/system/spark_spread/s = PoolOrNew(/datum/effect/effect/system/spark_spread)
+			var/datum/effect/effect/system/spark_spread/s = getFromPool(/datum/effect/effect/system/spark_spread)
 			s.set_up(2, 1, get_turf(location)) // Not sure if it's safe to pass an arbitrary object to set_up, todo
 			s.start()
 

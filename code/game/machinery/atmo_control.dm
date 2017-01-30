@@ -2,6 +2,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "gsensor1"
 	name = "Gas Sensor"
+	desc = "Measures the gas content of the atmosphere around the sensor."
 
 	anchored = 1
 	var/state = 0
@@ -74,7 +75,8 @@ obj/machinery/air_sensor/Destroy()
 
 /obj/machinery/computer/general_air_control
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "tank"
+	icon_screen = "tank"
+	light_color = LIGHT_COLOR_CYAN
 
 	name = "Computer"
 
@@ -131,7 +133,7 @@ obj/machinery/computer/general_air_control/Destroy()
 					if(data["carbon_dioxide"])
 						sensor_part += "[data["carbon_dioxide"]]% CO2; "
 					if(data["phoron"])
-						sensor_part += "[data["phoron"]]% TX; "
+						sensor_part += "[data["phoron"]]% PH; "
 				sensor_part += "<HR>"
 
 			else
@@ -158,7 +160,6 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/large_tank_control
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "tank"
 
 	frequency = 1441
 	var/input_tag
@@ -278,7 +279,6 @@ Max Output Pressure: [output_pressure] kPa<BR>"}
 
 /obj/machinery/computer/general_air_control/supermatter_core
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "tank"
 
 	frequency = 1438
 	var/input_tag
@@ -398,7 +398,7 @@ Min Core Pressure: [pressure_limit] kPa<BR>"}
 
 /obj/machinery/computer/general_air_control/fuel_injection
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "atmos"
+	icon_screen = "alert:0"
 
 	var/device_tag
 	var/list/device_info
@@ -522,7 +522,3 @@ Rate: [volume_rate] L/sec<BR>"}
 		)
 
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
-
-
-
-

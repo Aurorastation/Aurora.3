@@ -9,7 +9,7 @@ var/list/whitelist = list()
 
 /proc/load_whitelist()
 	if (config.sql_whitelists)
-		establish_db_connection()
+		establish_db_connection(dbcon)
 
 		if (!dbcon.IsConnected())
 			//Continue with the old code if we have no database.
@@ -43,7 +43,7 @@ var/list/whitelist = list()
 
 /proc/load_alienwhitelist()
 	if (config.sql_whitelists)
-		establish_db_connection()
+		establish_db_connection(dbcon)
 
 		if (!dbcon.IsConnected())
 			//Continue with the old code if we have no database.
@@ -62,8 +62,10 @@ var/list/whitelist = list()
 	var/text = file2text("config/alienwhitelist.txt")
 	if (!text)
 		log_misc("Failed to load config/alienwhitelist.txt")
+		return 0
 	else
 		alien_whitelist = text2list(text, "\n")
+		return 1
 
 /proc/is_alien_whitelisted(mob/M, var/species)
 	if (!config.usealienwhitelist)
@@ -71,6 +73,10 @@ var/list/whitelist = list()
 
 	if (!M || !species)
 		return 0
+
+	if (istype(species, /datum/species))
+		var/datum/species/S = species
+		species = S.name
 
 	if (lowertext(species) == "human")
 		return 1

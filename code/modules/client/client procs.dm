@@ -24,6 +24,10 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	if (href_list["EMERG"] && href_list["EMERG"] == "action")
+		handle_connection_info(src, href_list["data"])
+		return
+
 	//Reduces spamming of links by dropping calls that happen during the delay period
 	if(next_allowed_topic_time > world.time)
 		return
@@ -55,8 +59,6 @@
 		cmd_admin_discord_pm(href_list["discord_msg"])
 		return
 
-
-
 	//Logs all hrefs
 	if(config && config.log_hrefs && href_logfile)
 		href_logfile << "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>"
@@ -74,7 +76,130 @@
 	if(href_list["warnview"])
 		warnings_check()
 
-	..()	//redirect to hsrc.Topic()
+	if(href_list["linkingrequest"])
+		if (!config.webint_url)
+			return
+
+		if (!href_list["linkingaction"])
+			return
+
+		var/request_id = text2num(href_list["linkingrequest"])
+
+		establish_db_connection(dbcon)
+		if (!dbcon.IsConnected())
+			src << "\red Action failed! Database link could not be established!"
+			return
+
+
+		var/DBQuery/check_query = dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id")
+		check_query.Execute(list(":id" = request_id))
+
+		if (!check_query.NextRow())
+			src << "\red No request found!"
+			return
+
+		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
+			src << "\red Request authentication failed!"
+			return
+
+		var/query_contents = ""
+		var/list/query_details = list(":new_status", ":id")
+		var/feedback_message = ""
+		switch (href_list["linkingaction"])
+			if ("accept")
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status, updated_at = NOW() WHERE id = :id"
+				query_details[":new_status"] = "confirmed"
+				query_details[":id"] = request_id
+
+				feedback_message = "<font color='green'><b>Account successfully linked!</b></font>"
+			if ("deny")
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status, deleted_at = NOW() WHERE id = :id"
+				query_details[":new_status"] = "rejected"
+				query_details[":id"] = request_id
+
+				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
+			else
+				src << "\red Invalid command sent."
+				return
+
+		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
+		update_query.Execute(query_details)
+
+		if (href_list["linkingaction"] == "accept" && alert("To complete the process, you have to visit the website. Do you want to do so now?",,"Yes","No") == "Yes")
+			process_webint_link("interface/user/link")
+
+		src << feedback_message
+		check_linking_requests()
+		return
+
+	if (href_list["routeWebInt"])
+		process_webint_link(href_list["routeWebInt"], href_list["routeAttributes"])
+
+		return
+
+	// JSlink switch.
+	if (href_list["JSlink"])
+		switch (href_list["JSlink"])
+			// Warnings panel for each user.
+			if ("warnings")
+				src.warnings_check()
+
+			// Linking request handling.
+			if ("linking")
+				src.check_linking_requests()
+
+			// Notification dismissal from the server greeting.
+			if ("dismiss")
+				if (href_list["notification"])
+					var/datum/client_notification/a = locate(href_list["notification"])
+					if (a && isnull(a.gcDestroyed))
+						a.dismiss()
+
+			// Forum link from various panels.
+			if ("github")
+				if (!config.githuburl)
+					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
+				else if (alert("This will open the issue tracker in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					src << link(config.githuburl)
+
+			// Forum link from various panels.
+			if ("forums")
+				src.forum()
+
+			// Wiki link from various panels.
+			if ("wiki")
+				src.wiki()
+
+			// Web interface href link from various panels.
+			if ("webint")
+				src.open_webint()
+
+			// Forward appropriate topics to the server greeting datum.
+			if ("greeting")
+				if (server_greeting)
+					server_greeting.handle_call(href_list, src)
+
+			// Handle the updating of MotD and Memo tabs upon click.
+			if ("updateHashes")
+				var/save = 0
+				if (href_list["#motd-tab"])
+					src.prefs.motd_hash = href_list["#motd-tab"]
+					save = 1
+				if (href_list["#memo-tab"])
+					src.prefs.memo_hash = href_list["#memo-tab"]
+					save = 1
+
+				if (save)
+					src.prefs.save_preferences()
+
+		return
+
+	// Antag contest shit
+	if (href_list["contest_action"] && config.antag_contest_enabled)
+		src.process_contest_topic(href_list)
+		return
+
+	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
 	if(config.automute_on && !holder && src.last_message == message)
@@ -139,29 +264,38 @@
 		admins += src
 		holder.owner = src
 
+	log_client_to_db()
+
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
 	if(!prefs)
 		prefs = new /datum/preferences(src)
 		preferences_datums[ckey] = prefs
+
+		prefs.gather_notifications(src)
+	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 	. = ..()	//calls mob.Login()
+	
+	prefs.sanitize_preferences()
 
-	if(custom_event_msg && custom_event_msg != "")
-		src << "<h1 class='alert'>Custom Event</h1>"
-		src << "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>"
-		src << "<span class='alert'>[custom_event_msg]</span>"
-		src << "<br>"
+	if (byond_version < config.client_error_version)
+		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"
+		src << config.client_error_message
+		src << "Your version: [byond_version]."
+		src << "Required version: [config.client_error_version] or later."
+		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
+		if (holder)
+			src << "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version."
+		else
+			del(src)
+			return 0
 
-	if( (world.address == address || !address) && !host )
-		host = key
-		world.update_status()
 
 	if(holder)
 		add_admin_verbs()
-		admin_memo_show()
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
@@ -171,20 +305,15 @@
 			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
-	warnings_alert()
-
-	log_client_to_db()
-
 	send_resources()
 	nanomanager.send_resources(src)
 
-	if(prefs.lastchangelog != changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		src << "<span class='info'>You have unread updates in the changelog.</span>"
-		winset(src, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
-		if(config.aggressive_changelog)
-			src.changes()
+	// Server greeting shenanigans.
+	if (server_greeting.find_outdated_info(src, 1))
+		server_greeting.display_to_client(src)
 
-
+	// Check code/modules/admin/verbs/antag-ooc.dm for definition
+	add_aooc_if_necessary()
 
 	//////////////
 	//DISCONNECT//
@@ -203,7 +332,7 @@
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return null
 
@@ -217,19 +346,18 @@
 	else
 		return -1
 
-
 /client/proc/log_client_to_db()
 
 	if ( IsGuestKey(src.key) )
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
 	var/sql_ckey = sql_sanitize_text(src.ckey)
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, datediff(Now(),firstseen) as age, whitelist_status FROM ss13_player WHERE ckey = '[sql_ckey]'")
+	var/DBQuery/query = dbcon.NewQuery("SELECT id, datediff(Now(),firstseen) as age, whitelist_status, migration_status FROM ss13_player WHERE ckey = '[sql_ckey]'")
 	query.Execute()
 	var/sql_id = 0
 	player_age = 0	// New players won't have an entry so knowing we have a connection we set this to zero to be updated if their is a record.
@@ -237,6 +365,7 @@
 		sql_id = query.item[1]
 		player_age = text2num(query.item[2])
 		whitelist_status = text2num(query.item[3])
+		need_saves_migrated = text2num(query.item[4])
 		break
 
 	var/DBQuery/query_ip = dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE ip = '[address]'")
@@ -303,6 +432,14 @@
 		'html/images/loading.gif',
 		'html/images/ntlogo.png',
 		'html/images/talisman.png',
+		'html/images/barcode0.png',
+		'html/images/barcode1.png',
+		'html/images/barcode2.png',
+		'html/images/barcode3.png',
+		'html/bootstrap/css/bootstrap.min.css',
+		'html/bootstrap/js/bootstrap.min.js',
+		'html/jquery/jquery-2.0.0.min.js',
+		'html/iestats/ie-truth.min.js',
 		'icons/pda_icons/pda_atmos.png',
 		'icons/pda_icons/pda_back.png',
 		'icons/pda_icons/pda_bell.png',
@@ -343,13 +480,133 @@
 		'icons/spideros_icons/sos_14.png'
 		)
 
-
-mob/proc/MayRespawn()
+/mob/proc/MayRespawn()
 	return 0
 
-client/proc/MayRespawn()
+/client/proc/MayRespawn()
 	if(mob)
 		return mob.MayRespawn()
 
 	// Something went wrong, client is usually kicked or transfered to a new mob at this point
 	return 0
+
+/client/verb/character_setup()
+	set name = "Character Setup"
+	set category = "Preferences"
+	if(prefs)
+		prefs.ShowChoices(usr)
+
+//I honestly can't find a good place for this atm.
+//If the webint interaction gets more features, I'll move it. - Skull132
+/client/verb/view_linking_requests()
+	set name = "View Linking Requests"
+	set category = "OOC"
+
+	check_linking_requests()
+
+/client/proc/check_linking_requests()
+	if (!config.webint_url || !config.sql_enabled)
+		return
+
+	establish_db_connection(dbcon)
+	if (!dbcon.IsConnected())
+		return
+
+	var/list/requests = list()
+	var/list/query_details = list(":ckey" = ckey)
+
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	select_query.Execute(query_details)
+
+	while (select_query.NextRow())
+		requests.Add(list(list("id" = text2num(select_query.item[1]), "forum_id" = text2num(select_query.item[2]), "forum_username" = select_query.item[3], "request_age" = select_query.item[4])))
+
+	if (!requests.len)
+		return
+
+	var/dat = "<center><b>You have active requests to check!</b></center>"
+	var/i = 0
+	for (var/list/request in requests)
+		i++
+
+		var/linked_forum_name = null
+		if (config.forumurl)
+			var/route_attributes = list2params(list("mode" = "viewprofile", "u" = request["forum_id"]))
+			linked_forum_name = "<a href='byond://?src=\ref[src];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
+
+		dat += "<hr>"
+		dat += "#[i] - Request to link your current key ([key]) to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
+		dat += "The request is [request["request_age"]] days old.<br>"
+		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
+
+	src << browse(dat, "window=LinkingRequests")
+	return
+
+/client/proc/gather_linking_requests()
+	if (!config.webint_url || !config.sql_enabled)
+		return
+
+	establish_db_connection(dbcon)
+	if (!dbcon.IsConnected())
+		return
+
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	select_query.Execute(list(":ckey" = ckey))
+
+	if (select_query.NextRow())
+		if (text2num(select_query.item[1]) > 0)
+			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='?JSlink=linking;notification=:src_ref'>here</a> to see them!"
+
+	return null
+
+/client/proc/process_webint_link(var/route, var/attributes)
+	if (!route)
+		return
+
+	var/linkURL = ""
+
+	switch (route)
+		if ("forums/members")
+			if (!webint_validate_attributes(list("mode", "u"), attributes_text = attributes))
+				return
+
+			if (!config.forumurl)
+				return
+
+			linkURL = "[config.forumurl]memberlist.php?"
+
+			linkURL += attributes
+
+		if ("interface/user/link")
+			if (!config.webint_url)
+				return
+
+			linkURL = "[config.webint_url]user/link"
+
+		if ("interface/login/sso_server")
+			//This also validates the attributes as it runs
+			var/new_attributes = webint_start_singlesignon(src, attributes)
+			if (!new_attributes)
+				return
+
+			if (!config.webint_url)
+				return
+
+			linkURL = "[config.webint_url]login/sso_server?"
+			linkURL += new_attributes
+
+		else
+			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
+			return
+
+	src << link(linkURL)
+	return
+
+/client/verb/show_greeting()
+	set name = "Open Greeting"
+	set category = "OOC"
+
+	// Update the information just in case.
+	server_greeting.find_outdated_info(src, 1)
+
+	server_greeting.display_to_client(src)

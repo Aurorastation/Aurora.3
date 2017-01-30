@@ -5,8 +5,8 @@
 	slot = "utility"
 	var/obj/item/holstered = null
 
-/obj/item/clothing/accessory/holster/proc/holster(obj/item/I, mob/user as mob)
-	if(holstered)
+/obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
+	if(holstered && istype(user))
 		user << "<span class='warning'>There is already \a [holstered] holstered here!</span>"
 		return
 
@@ -14,12 +14,19 @@
 		user << "<span class='warning'>[I] won't fit in [src]!</span>"
 		return
 
+	if(istype(user))
+		user.stop_aiming(no_message=1)
 	holstered = I
 	user.drop_from_inventory(holstered)
 	holstered.loc = src
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
 	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
+	name = "occupied [initial(name)]"
+
+/obj/item/clothing/accessory/holster/proc/clear_holster()
+	holstered = null
+	name = initial(name)
 
 /obj/item/clothing/accessory/holster/proc/unholster(mob/user as mob)
 	if(!holstered)
@@ -30,7 +37,7 @@
 	else
 		if(user.a_intent == I_HURT)
 			usr.visible_message(
-				"\red [user] draws \the [holstered], ready to shoot!</span>",
+				"<span class='danger'>[user] draws \the [holstered], ready to shoot!</span>",
 				"<span class='warning'>You draw \the [holstered], ready to shoot!</span>"
 				)
 		else
@@ -40,8 +47,8 @@
 				)
 		user.put_in_hands(holstered)
 		holstered.add_fingerprint(user)
-		holstered = null
 		w_class = initial(w_class)
+		clear_holster()
 
 /obj/item/clothing/accessory/holster/attack_hand(mob/user as mob)
 	if (has_suit)	//if we are part of a suit
@@ -71,7 +78,8 @@
 	has_suit.verbs += /obj/item/clothing/accessory/holster/verb/holster_verb
 
 /obj/item/clothing/accessory/holster/on_removed(mob/user as mob)
-	has_suit.verbs -= /obj/item/clothing/accessory/holster/verb/holster_verb
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/holster/verb/holster_verb
 	..()
 
 //For the holster hotkey
@@ -118,3 +126,8 @@
 	name = "hip holster"
 	desc = "A handgun holster slung low on the hip, draw pardner!"
 	icon_state = "holster_hip"
+
+/obj/item/clothing/accessory/holster/thigh
+	name = "thigh holster"
+	desc = "A drop leg holster made of a durable synthetic fiber."
+	icon_state = "holster_thigh"

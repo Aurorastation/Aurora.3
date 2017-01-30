@@ -5,6 +5,17 @@
 	worn_state = "red_pyjamas"
 	item_state = "w_suit"
 
+/obj/item/clothing/under/gearharness
+	name = "gear harness"
+	desc = "Tight fitting gear harness."
+	icon_state = "harness"
+	worn_state = "harness"
+	item_state = "w_suit"
+	species_restricted = null
+	sprite_sheets = list(
+		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
+		)
+
 /obj/item/clothing/under/pj/blue
 	name = "blue pj's"
 	desc = "Sleepwear."
@@ -65,7 +76,7 @@
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
-	name = "\improper NanoTrasen Officer's Dress Uniform"
+	name = "\improper Officer's Dress Uniform"
 	icon_state = "officer"
 	item_state = "lawyer_black"
 	worn_state = "officer"
@@ -73,7 +84,7 @@
 
 /obj/item/clothing/under/rank/centcom_officer
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral.\""
-	name = "\improper NanoTrasen Officer's Dress Uniform"
+	name = "\improper Officer's Dress Uniform"
 	icon_state = "officer"
 	item_state = "lawyer_black"
 	worn_state = "officer"
@@ -81,7 +92,7 @@
 
 /obj/item/clothing/under/rank/centcom_captain
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral-Executive.\""
-	name = "\improper NanoTrasen Officer's Dress Uniform"
+	name = "\improper Officer's Dress Uniform"
 	icon_state = "centcom"
 	item_state = "lawyer_black"
 	worn_state = "centcom"
@@ -93,6 +104,7 @@
 	icon_state = "ert_uniform"
 	item_state = "bl_suit"
 	worn_state = "ert_uniform"
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/space
 	name = "\improper NASA jumpsuit"
@@ -513,7 +525,15 @@
 
 /obj/item/clothing/under/blazer
 	name = "blue blazer"
-	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie." 
+	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
+
+/obj/item/clothing/under/track
+	name = "track pants"
+	desc = "Track pants, perfect for squatting."
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackpants"
+	item_state = "trackpants"
+	contained_sprite = 1

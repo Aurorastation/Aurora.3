@@ -20,15 +20,15 @@
 	sharp = 1
 	edge = 1
 
-	on_hit(var/atom/target, var/blocked = 0)
-		explosion(target, -1, 0, 2)
-		return 1
+	on_impact(var/atom/A)
+		explosion(A, -1, 0, 2)
+		..()
 
 /obj/item/projectile/bullet/gyro/law
 	name ="high-ex round"
 	icon_state= "bolter"
 	damage = 15
-	
+
 	on_hit(var/atom/target, var/blocked = 0)
 		explosion(target, -1, 0, 2)
 		sleep(0)
@@ -44,13 +44,13 @@
 	damage_type = BURN
 	nodamage = 1
 	check_armour = "energy"
-	var/temperature = 300
+	//var/temperature = 300
 
 
 	on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
 		if(istype(target, /mob/living))
 			var/mob/M = target
-			M.bodytemperature = temperature
+			M.bodytemperature = -273
 		return 1
 
 /obj/item/projectile/meteor
@@ -72,7 +72,7 @@
 		if(src)//Do not add to this if() statement, otherwise the meteor won't delete them
 			if(A)
 
-				A.meteorhit(src)
+				A.ex_act(2)
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
 				for(var/mob/M in range(10, src))
@@ -150,3 +150,24 @@
 			var/mob/living/carbon/human/M = target
 			M.adjustBrainLoss(20)
 			M.hallucination += 20
+
+/obj/item/projectile/bullet/trod
+	name ="tungsten rod"
+	icon_state= "gauss"
+	damage = 75
+	check_armour = "bomb"
+	sharp = 1
+	edge = 1
+
+	on_impact(var/atom/A)
+		explosion(A, 0, 0, 4)
+		..()
+
+/obj/item/projectile/chameleon
+	name = "bullet"
+	icon_state = "bullet"
+	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!
+	embed = 0 // nope
+	nodamage = 1
+	damage_type = HALLOSS
+	muzzle_type = /obj/effect/projectile/bullet/muzzle

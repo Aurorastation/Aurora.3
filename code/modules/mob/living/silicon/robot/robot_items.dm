@@ -28,13 +28,10 @@
 				user << "You activate the analyzer's microlaser, analyzing \the [loaded_item] and breaking it down."
 				flick("portable_analyzer_scan", src)
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				if(loaded_item.reliability >= min_reliability)
-					var/list/temp_tech = ConvertReqString2List(loaded_item.origin_tech)
-					for(var/T in temp_tech)
-						files.UpdateTech(T, temp_tech[T])
-						user << "\The [loaded_item] had level [temp_tech[T]] in [T]."
-				else
-					user << "\The [loaded_item] was not reliable enough to advance research."
+				var/list/temp_tech = ConvertReqString2List(loaded_item.origin_tech)
+				for(var/T in temp_tech)
+					files.UpdateTech(T, temp_tech[T])
+					user << "\The [loaded_item] had level [temp_tech[T]] in [T]."
 				loaded_item = null
 				for(var/obj/I in contents)
 					for(var/mob/M in I.contents)
@@ -59,8 +56,6 @@
 	if(response == "Sync")
 		var/success = 0
 		for(var/obj/machinery/r_n_d/server/S in machines)
-			if(S.disabled)
-				continue
 			for(var/datum/tech/T in files.known_tech) //Uploading
 				S.files.AddTech2Known(T)
 			for(var/datum/tech/T in S.files.known_tech) //Downloading
@@ -110,13 +105,6 @@
 	desc = "A circuit grafted onto the bottom of an ID card.  It is used to transmit access codes into other robot chassis, \
 	allowing you to lock and unlock other robots' panels."
 
-/obj/item/weapon/card/id/robot/attack_self() //override so borgs can't flash their IDs.
-	return
-
-/obj/item/weapon/card/id/robot/read()
-	usr << "The ID card does not appear to have any writing on it."
-	return
-
 //A harvest item for serviceborgs.
 /obj/item/weapon/robot_harvester
 	name = "auto harvester"
@@ -139,54 +127,14 @@
 		user << "Harvesting \a [target] is not the purpose of this tool.  The [src] is for plants being grown."
 
 // A special tray for the service droid. Allow droid to pick up and drop items as if they were using the tray normally
-// Click on table to unload, click on item to load. Otherwise works identically to a tray.
-// Unlike the base item "tray", robotrays ONLY pick up food, drinks and condiments.
+// Click on table to unload, click on item to load. Alt+click to load everything on tile
 
 /obj/item/weapon/tray/robotray
 	name = "RoboTray"
 	desc = "An autoloading tray specialized for carrying refreshments."
 
 /obj/item/weapon/tray/robotray/afterattack(atom/target, mob/user as mob, proximity)
-	if(!proximity)
-		return
-	if ( !target )
-		return
-	// pick up items, mostly copied from base tray pickup proc
-	// see code\game\objects\items\weapons\kitchen.dm line 241
-	if ( istype(target,/obj/item))
-		if ( !isturf(target.loc) ) // Don't load up stuff if it's inside a container or mob!
-			return
-		var turf/pickup = target.loc
-
-		var addedSomething = 0
-
-		for(var/obj/item/weapon/reagent_containers/food/I in pickup)
-
-
-			if( I != src && !I.anchored && !istype(I, /obj/item/clothing/under) && !istype(I, /obj/item/clothing/suit) && !istype(I, /obj/item/projectile) )
-				var/add = 0
-				if(I.w_class == 1.0)
-					add = 1
-				else if(I.w_class == 2.0)
-					add = 3
-				else
-					add = 5
-				if(calc_carry() + add >= max_carry)
-					break
-
-				I.loc = src
-				carrying.Add(I)
-				overlays += image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer)
-				addedSomething = 1
-		if ( addedSomething )
-			user.visible_message("\blue [user] load some items onto their service tray.")
-
-		return
-
-	// Unloads the tray, copied from base item's proc dropped() and altered
-	// see code\game\objects\items\weapons\kitchen.dm line 263
-
-	if ( isturf(target) || istype(target,/obj/structure/table) )
+	if (isturf(target) || istype(target,/obj/structure/table) )
 		var foundtable = istype(target,/obj/structure/table/)
 		if ( !foundtable ) //it must be a turf!
 			for(var/obj/structure/table/T in target)
@@ -201,27 +149,12 @@
 		else					// they clicked on a table
 			dropspot = target.loc
 
+		if (foundtable)
+			unload_at_loc(dropspot, src)
+		else
+			spill(user,dropspot)
 
-		overlays = null
-
-		var droppedSomething = 0
-
-		for(var/obj/item/I in carrying)
-			I.loc = dropspot
-			carrying.Remove(I)
-			droppedSomething = 1
-			if(!foundtable && isturf(dropspot))
-				// if no table, presume that the person just shittily dropped the tray on the ground and made a mess everywhere!
-				spawn()
-					for(var/i = 1, i <= rand(1,2), i++)
-						if(I)
-							step(I, pick(NORTH,SOUTH,EAST,WEST))
-							sleep(rand(2,4))
-		if ( droppedSomething )
-			if ( foundtable )
-				user.visible_message("\blue [user] unloads their service tray.")
-			else
-				user.visible_message("\blue [user] drops all the items on their tray.")
+		current_weight = 0
 
 	return ..()
 
@@ -305,8 +238,8 @@
 /obj/item/borg/combat/shield
 	name = "personal shielding"
 	desc = "A powerful experimental module that turns aside or absorbs incoming attacks at the cost of charge."
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "shock"
+	icon = 'icons/obj/device.dmi'
+	icon_state = "shield1" //placeholder for now
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
 
 /obj/item/borg/combat/shield/verb/set_shield_level()
@@ -323,3 +256,107 @@
 	desc = "By retracting limbs and tucking in its head, a combat android can roll at high speeds."
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "shock"
+
+/obj/item/weapon/inflatable_dispenser
+	name = "inflatables dispenser"
+	desc = "Small device which allows rapid deployment and removal of inflatables."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "inf_deployer"
+	w_class = 3
+	var/deploying = 0
+	// By default stores up to 10 walls and 5 doors. May be changed.
+	var/stored_walls = 10
+	var/stored_doors = 5
+	var/max_walls = 10
+	var/max_doors = 5
+	var/mode = 0 // 0 - Walls   1 - Doors
+
+/obj/item/weapon/inflatable_dispenser/examine(var/mob/user)
+	if(!..(user))
+		return
+	user << "It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored."
+	user << "It is set to deploy [mode ? "doors" : "walls"]"
+
+/obj/item/weapon/inflatable_dispenser/attack_self()
+	mode = !mode
+	usr << "You set \the [src] to deploy [mode ? "doors" : "walls"]."
+
+/obj/item/weapon/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
+	..(A, user)
+	if(!user)
+		return
+	if(!user.Adjacent(A))
+		user << "You can't reach!"
+		return
+	if(istype(A, /turf))
+		try_deploy_inflatable(A, user)
+	if(istype(A, /obj/item/inflatable) || istype(A, /obj/structure/inflatable))
+		pick_up(A, user)
+
+/obj/item/weapon/inflatable_dispenser/proc/try_deploy_inflatable(var/turf/T, var/mob/living/user)
+	if (deploying)
+		return
+	deploying = 1
+	var/newtype
+	if(mode) // Door deployment
+		if(!stored_doors)
+			user << "\The [src] is out of doors!"
+			return
+
+		if(T && istype(T))
+			newtype = /obj/structure/inflatable/door
+
+	else // Wall deployment
+		if(!stored_walls)
+			user << "\The [src] is out of walls!"
+			return
+
+		if(T && istype(T))
+			newtype = /obj/structure/inflatable/wall
+
+	user.visible_message(span("notice", "[user] starts deploying an inflatable"), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
+	playsound(T, 'sound/items/zip.ogg', 75, 1)
+	if (do_after(user, 20, needhand = 0))
+		new newtype(T)
+		if (mode)
+			stored_doors--
+		else
+			stored_walls--
+
+	deploying = 0
+
+/obj/item/weapon/inflatable_dispenser/proc/pick_up(var/obj/A, var/mob/living/user)
+	if(istype(A, /obj/structure/inflatable))
+		if(istype(A, /obj/structure/inflatable/wall))
+			if(stored_walls >= max_walls)
+				user << "\The [src] is full."
+				return
+			stored_walls++
+			qdel(A)
+		else
+			if(stored_doors >= max_doors)
+				user << "\The [src] is full."
+				return
+			stored_doors++
+			qdel(A)
+		playsound(loc, 'sound/machines/hiss.ogg', 75, 1)
+		visible_message("\The [user] deflates \the [A] with \the [src]!")
+		return
+	if(istype(A, /obj/item/inflatable))
+		if(istype(A, /obj/item/inflatable/wall))
+			if(stored_walls >= max_walls)
+				user << "\The [src] is full."
+				return
+			stored_walls++
+			qdel(A)
+		else
+			if(stored_doors >= max_doors)
+				usr << "\The [src] is full!"
+				return
+			stored_doors++
+			qdel(A)
+		visible_message("\The [user] picks up \the [A] with \the [src]!")
+		return
+
+	user << "You fail to pick up \the [A] with \the [src]"
+	return

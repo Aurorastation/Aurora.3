@@ -1,10 +1,12 @@
+#define GLOBAL_MUSHROOM_LIMIT	80
+
 /mob/living/simple_animal/mushroom
 	name = "walking mushroom"
 	desc = "It's a massive mushroom... with legs?"
 	icon_state = "mushroom"
 	icon_living = "mushroom"
 	icon_dead = "mushroom_dead"
-	small = 1
+	mob_size = MOB_TINY
 	speak_chance = 0
 	turns_per_move = 1
 	maxHealth = 5
@@ -17,10 +19,28 @@
 	var/datum/seed/seed
 	var/harvest_time
 	var/min_explode_time = 1200
+	density = 0
+	holder_type = /obj/item/weapon/holder/mushroom
+	mob_size = 2
 
 /mob/living/simple_animal/mushroom/New()
 	..()
 	harvest_time = world.time
+	var/count = 0
+	for (var/mob/living/simple_animal/mushroom in living_mob_list)
+		count++
+
+	if (count > GLOBAL_MUSHROOM_LIMIT)
+		qdel(src)
+
+
+
+/mob/living/simple_animal/mushroom/attack_hand(mob/living/carbon/human/M as mob)
+	if (src.stat == DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
+		get_scooped(M)
+		return
+	else
+		..()
 
 /mob/living/simple_animal/mushroom/verb/spawn_spores()
 
@@ -47,6 +67,10 @@
 	if(prob(30))
 		spore_explode()
 		return
+	else
+		src.stat = DEAD
+		name = "mushroom"
+		desc = "Shame, he was a really fun-gi"
 	..()
 
 /mob/living/simple_animal/mushroom/proc/spore_explode()
@@ -60,3 +84,5 @@
 	seed.thrown_at(src,get_turf(src),1)
 	if(src)
 		gib()
+
+#undef GLOBAL_MUSHROOM_LIMIT

@@ -21,8 +21,8 @@ datum/event/wallrot/start()
 
 			// Have a chance to rot lots of other walls.
 			var/rotcount = 0
-			var/actual_severity = severity * rand(5, 10)
-			for(var/turf/simulated/wall/W in range(5, center)) if(prob(50))
+			var/actual_severity = severity * rand(10, 20)
+			for(var/turf/simulated/wall/W in range(12, center)) if(prob(30))
 				W.rot()
 				rotcount++
 

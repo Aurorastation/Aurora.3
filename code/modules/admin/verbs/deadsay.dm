@@ -23,6 +23,8 @@
 	msg = sanitize(msg)
 	log_admin("DSAY: [key_name(src)] : [msg]")
 
+	msg = process_chat_markup(msg)
+
 	if (!msg)
 		return
 

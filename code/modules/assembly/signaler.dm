@@ -3,8 +3,8 @@
 	desc = "Used to remotely activate devices."
 	icon_state = "signaller"
 	item_state = "signaler"
+	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 200, "waste" = 100)
-	origin_tech = "magnets=1"
 	wires = WIRE_RECEIVE | WIRE_PULSE | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
 
 	secured = 1
@@ -79,8 +79,8 @@
 
 		if (href_list["freq"])
 			var/new_frequency = (frequency + text2num(href_list["freq"]))
-			if(new_frequency < 1200 || new_frequency > 1600)
-				new_frequency = sanitize_frequency(new_frequency)
+			if(new_frequency < RADIO_LOW_FREQ || new_frequency > RADIO_HIGH_FREQ)
+				new_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
 			set_frequency(new_frequency)
 
 		if(href_list["code"])
@@ -100,7 +100,11 @@
 
 
 	proc/signal()
-		if(!radio_connection) return
+		if(!radio_connection)
+			return
+
+		if(within_jamming_range(src))
+			return
 
 		var/datum/signal/signal = new
 		signal.source = src
@@ -129,9 +133,18 @@
 
 
 	receive_signal(datum/signal/signal)
-		if(!signal)	return 0
-		if(signal.encryption != code)	return 0
-		if(!(src.wires & WIRE_RADIO_RECEIVE))	return 0
+		if(!signal)
+			return 0
+
+		if(within_jamming_range(src))
+			return 0
+
+		if(signal.encryption != code)
+			return 0
+
+		if(!(src.wires & WIRE_RADIO_RECEIVE))
+			return 0
+
 		pulse(1)
 
 		if(!holder)

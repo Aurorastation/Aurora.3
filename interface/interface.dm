@@ -8,7 +8,7 @@
 			return
 		src << link(config.wikiurl)
 	else
-		src << "\red The wiki URL is not set in the server configuration."
+		src << "<span class='warning'>The wiki URL is not set in the server configuration.</span>"
 	return
 
 /client/verb/forum()
@@ -20,7 +20,19 @@
 			return
 		src << link(config.forumurl)
 	else
-		src << "\red The forum URL is not set in the server configuration."
+		src << "<span class='warning'>The forum URL is not set in the server configuration.</span>"
+	return
+
+/client/verb/reportbug()
+	set name = "reportbug"
+	set desc = "Report a bug."
+	set hidden = 1
+	if( config.githuburl )
+		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
+			return
+		src << link(config.githuburl + "/issues")
+	else
+		src << "\red The issue tracker URL is not set in the server configuration."
 	return
 
 #define RULES_FILE "config/rules.html"
@@ -28,7 +40,7 @@
 	set name = "Rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
-	src << browse(file(RULES_FILE), "window=rules;size=480x320")
+	src << browse(file(RULES_FILE), "window=rules;size=640x500")
 #undef RULES_FILE
 
 /client/verb/hotkeys_help()
@@ -152,3 +164,16 @@ Any-Mode: (hotkey doesn't need to be on)
 		src << other
 	if(holder)
 		src << admin
+
+/client/verb/open_webint()
+	set name = "open_webint"
+	set desc = "Visit the web interface."
+	set hidden = 1
+
+	if (config.webint_url)
+		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
+			return
+		src << link(config.webint_url)
+	else
+		src << "\red The web interface URL is not set in the server configuration."
+	return

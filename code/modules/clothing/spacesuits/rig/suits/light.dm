@@ -8,7 +8,7 @@
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	emp_protection = 10
 	slowdown = 0
-	flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
 	offline_slowdown = 0
 	offline_vision_restriction = 0
 
@@ -52,7 +52,7 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/voice,
-		/obj/item/rig_module/vision,
+		/obj/item/rig_module/vision
 		)
 
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values
@@ -107,6 +107,7 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/space/rig/light/ninja
+	species_restricted = list("exclude","Diona","Xenomorph")
 	breach_threshold = 38 //comparable to regular hardsuits
 
 /obj/item/weapon/rig/light/stealth

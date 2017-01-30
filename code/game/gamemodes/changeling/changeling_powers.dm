@@ -236,7 +236,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	T.dna.real_name = T.real_name //Set this again, just to be sure that it's properly set.
 	changeling.absorbed_dna |= T.dna
-	if(src.nutrition < 400) src.nutrition = min((src.nutrition + T.nutrition), 400)
+	if(src.nutrition < max_nutrition) src.nutrition = min((nutrition + T.nutrition), max_nutrition)
 	changeling.chem_charges += 10
 	changeling.geneticpoints += 2
 
@@ -382,7 +382,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for (var/obj/item/weapon/implant/I in C) //Still preserving implants
 		implants += I
 
-	C.monkeyizing = 1
+	C.transforming = 1
 	C.canmove = 0
 	C.icon = null
 	C.overlays.Cut()

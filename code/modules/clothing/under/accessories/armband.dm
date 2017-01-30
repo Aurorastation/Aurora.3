@@ -33,3 +33,14 @@
 	name = "EMT armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white and green."
 	icon_state = "medgreen"
+
+/obj/item/clothing/accessory/armband/movement   //cakeisossim armband
+	name = "synthetic intelligence movement armband"
+	desc = "An armband, signifying membership of the Synthetic Intelligence Movement. It's white, with a brown stripe that appears to look like an active positronic brain."
+	icon_state = "movement"
+	slot = "armband"
+
+/obj/item/clothing/accessory/armband/atlas
+	name = "atlas armband"
+	desc = "This is a armband showing anyone who sees this person, as a member of the Political party Atlas. This one is black."
+	icon_state = "black"

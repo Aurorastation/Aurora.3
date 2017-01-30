@@ -7,6 +7,10 @@
 	w_class = 2.0
 	desc = "This is rubbish."
 
+/obj/item/trash/koisbar
+	name = "K'ois Bar Wrapper"
+	icon_state = "koisbar"
+
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
 	icon_state= "4no_raisins"
@@ -71,6 +75,18 @@
 /obj/item/trash/tastybread
 	name = "bread tube"
 	icon_state = "tastybread"
+	
+/obj/item/trash/meatsnack
+	name = "mo'gunz meat pie"
+	icon_state = "meatsnack-used"
+
+/obj/item/trash/maps
+	name = "map salty ham"
+	icon_state = "maps-used"
+	
+/obj/item/trash/nathisnack
+	name = "nathi-snack corned beef"
+	icon_state = "cbeef-used"
 
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return

@@ -1,5 +1,6 @@
 /datum/species/monkey
 	name = "Monkey"
+	short_name = "mon"
 	name_plural = "Monkeys"
 	blurb = "Ook."
 
@@ -11,7 +12,7 @@
 	language = null
 	default_language = "Chimpanzee"
 	greater_form = "Human"
-	is_small = 1
+	mob_size = MOB_SMALL
 	has_fine_manipulation = 0
 	show_ssd = null
 
@@ -26,19 +27,20 @@
 	inherent_verbs = list(/mob/living/proc/ventcrawl)
 	hud_type = /datum/hud_data/monkey
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
-	holder_type = /obj/item/weapon/holder/monkey
 
 	rarity_value = 0.1
 	total_health = 75
 	brute_mod = 1.5
 	burn_mod = 1.5
 
-	flags = IS_RESTRICTED
+	spawn_flags = IS_RESTRICTED
 
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
+	pass_flags = PASSTABLE
+	holder_type = /obj/item/weapon/holder/monkey
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
@@ -52,6 +54,7 @@
 
 /datum/species/monkey/tajaran
 	name = "Farwa"
+	short_name = "far"
 	name_plural = "Farwa"
 
 	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
@@ -66,6 +69,7 @@
 
 /datum/species/monkey/skrell
 	name = "Neaera"
+	short_name = "nea"
 	name_plural = "Neaera"
 
 	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
@@ -81,6 +85,7 @@
 
 /datum/species/monkey/unathi
 	name = "Stok"
+	short_name = "sto"
 	name_plural = "Stok"
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
@@ -93,3 +98,49 @@
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
 	holder_type = /obj/item/weapon/holder/monkey/stok
+
+/datum/species/monkey/bug
+	name = "V'krexi"
+	short_name = "kre"
+	name_plural = "V'krexi"
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
+	holder_type = null//No icons for held Vkrexi yet
+	icobase = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
+	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/bugbite
+		)
+
+	tail = "vkrexitail"
+	greater_form = "Vaurca Worker"
+	default_language = "V'krexi"
+	blood_color = "#E6E600"
+	flesh_color = "#E6E600"
+	//base_color = "#E6E600"
+	breath_type = "oxygen"
+	poison_type = ""
+	exhale_type = "phoron"
+	warning_low_pressure = 50
+	hazard_low_pressure = 0
+	siemens_coefficient = 0.2
+	darksight = 8
+	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
+	halloss_message = "crumbles to the ground, too weak to continue fighting."
+	list/heat_discomfort_strings = list(
+		"Your blood feels like its boiling in the heat.",
+		"You feel uncomfortably warm.",
+		"Your carapace feels hot as the sun."
+		)
+	list/cold_discomfort_strings = list(
+		"You chitter in the cold.",
+		"You shiver suddenly.",
+		"Your carapace is ice to the touch."
+		)
+	cold_level_1 = 50
+	cold_level_2 = -1
+	cold_level_3 = -1
+	brute_mod = 0.8
+	burn_mod = 2
+	slowdown = -1
+

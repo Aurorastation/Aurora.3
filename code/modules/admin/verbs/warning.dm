@@ -9,7 +9,7 @@
 	if (!warned_ckey || !istext(warned_ckey))
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		usr << "<font color='red'>Error: warn(): Database Connection failed, reverting to legacy systems.</font>"
 		usr.client.warn_legacy(warned_ckey)
@@ -79,7 +79,7 @@
 		ban_unban_log_save("[ckey] warned [warned_ckey], resulting in a [AUTOBANTIME] minute autoban.")
 		if(C)
 			message_admins("[key_name_admin(src)] has warned [key_name_admin(C)] resulting in a [AUTOBANTIME] minute ban.")
-			C << "<font color='red'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes."
+			C << "<font color='red'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes.</font>"
 			qdel(C)
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] resulting in a [AUTOBANTIME] minute ban.")
@@ -110,7 +110,7 @@
 	var/dcolor = "#ffaaaa"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
@@ -172,7 +172,7 @@
 	if (!warning_id)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to SQL database failed while attempting to update your warning's status!")
 		return
@@ -183,15 +183,14 @@
 	warnings_check()
 
 /*
- * A proc to alert you if you have unacknowledged warnings.
- * Called in /client/New (client procs.dm)
+ * A proc to gather notifications regarding your warnings.
+ * Called by /datum/preferences/proc/gather_notifications() in preferences.dm
  */
-
-/client/proc/warnings_alert()
+/client/proc/warnings_gather()
 	var/count = 0
 	var/count_expire = 0
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		return
 
@@ -210,12 +209,13 @@
 	while (query.NextRow())
 		count++
 
+	var/list/data = list("unread" = "", "expired" = "")
 	if (count)
-		src << "<br>"
-		src << "<font color=red><b>You have [count] unread [count > 1 ? "warnings" : "warning"]! Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</b></font>"
+		data["unread"] = "You have <b>[count] unread [count > 1 ? "warnings" : "warning"]!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
 	if (count_expire)
-		src << "<br>"
-		src << "<font color=blue><b>[count_expire] of your warnings expired.</b></font>"
+		data["expired"] = "[count_expire] of your warnings have expired."
+
+	return data
 
 /*
  * A proc for an admin/moderator to look up a member's warnings.
@@ -239,7 +239,7 @@
 	var/dcolor = "#ffdddd"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
@@ -342,7 +342,7 @@
 	if(!warning_id || !warning_edit)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return

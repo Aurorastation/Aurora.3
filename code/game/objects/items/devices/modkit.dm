@@ -3,8 +3,8 @@
 #define MODKIT_FULL 3
 
 /obj/item/device/modkit
-	name = "hardsuit modification kit"
-	desc = "A kit containing all the needed tools and parts to modify a hardsuit for another user."
+	name = "voidsuit modification kit"
+	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
 	icon_state = "modkit"
 	var/parts = MODKIT_FULL
 	var/target_species = "Human"
@@ -49,7 +49,7 @@
 
 	playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
-	user.visible_message("\red [user] opens \the [src] and modifies \the [O].","\red You open \the [src] and modify \the [O].")
+	user.visible_message("<span class='notice'>\The [user] opens \the [src] and modifies \the [O].</span>","<span class='notice'>You open \the [src] and modify \the [O].</span>")
 
 	I.refit_for_species(target_species)
 
@@ -68,5 +68,5 @@
 
 /obj/item/device/modkit/tajaran
 	name = "tajaran hardsuit modification kit"
-	desc = "A kit containing all the needed tools and parts to modify a hardsuit for another user. This one looks like it's meant for Tajaran."
+	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for Tajarans."
 	target_species = "Tajara"

@@ -1,12 +1,12 @@
 proc/sql_poll_population()
-	if(!sqllogging)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	var/admincount = admins.len
 	var/playercount = 0
 	for(var/mob/M in player_list)
 		if(M.client)
 			playercount += 1
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during population polling. Failed to connect.")
 	else
@@ -18,15 +18,15 @@ proc/sql_poll_population()
 
 proc/sql_report_round_start()
 	// TODO
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 proc/sql_report_round_end()
 	// TODO
-	if(!sqllogging)
+	if(!config.sql_enabled)
 		return
 
 proc/sql_report_death(var/mob/living/carbon/human/H)
-	if(!sqllogging)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	if(!H)
 		return
@@ -49,7 +49,7 @@ proc/sql_report_death(var/mob/living/carbon/human/H)
 	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 	var/coord = "[H.x], [H.y], [H.z]"
 	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
@@ -60,7 +60,7 @@ proc/sql_report_death(var/mob/living/carbon/human/H)
 
 
 proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
-	if(!sqllogging)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	if(!H)
 		return
@@ -83,7 +83,7 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 	var/coord = "[H.x], [H.y], [H.z]"
 	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
@@ -94,51 +94,8 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 
 
 proc/statistic_cycle()
-	if(!sqllogging)
+	if(!config.sql_enabled || !config.sql_stats)
 		return
 	while(1)
 		sql_poll_population()
 		sleep(6000)
-
-//This proc is used for feedback. It is executed at round end.
-proc/sql_commit_feedback()
-	if(!blackbox)
-		log_game("Round ended without a blackbox recorder. No feedback was sent to the database.")
-		return
-
-	//content is a list of lists. Each item in the list is a list with two fields, a variable name and a value. Items MUST only have these two values.
-	var/list/datum/feedback_variable/content = blackbox.get_round_feedback()
-
-	if(!content)
-		log_game("Round ended without any feedback being generated. No feedback was sent to the database.")
-		return
-
-	establish_db_connection()
-	if(!dbcon.IsConnected())
-		log_game("SQL ERROR during feedback reporting. Failed to connect.")
-	else
-
-		var/DBQuery/max_query = dbcon.NewQuery("SELECT MAX(roundid) AS max_round_id FROM ss13_feedback")
-		max_query.Execute()
-
-		var/newroundid
-
-		while(max_query.NextRow())
-			newroundid = max_query.item[1]
-
-		if(!(isnum(newroundid)))
-			newroundid = text2num(newroundid)
-
-		if(isnum(newroundid))
-			newroundid++
-		else
-			newroundid = 1
-
-		for(var/datum/feedback_variable/item in content)
-			var/variable = item.get_variable()
-			var/value = item.get_value()
-
-			var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_feedback (id, roundid, time, variable, value) VALUES (null, [newroundid], Now(), '[variable]', '[value]')")
-			if(!query.Execute())
-				var/err = query.ErrorMsg()
-				log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")

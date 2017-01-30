@@ -29,7 +29,7 @@ var/inactive_keys = "None<br>"
 	if(checked_for_inactives)
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
