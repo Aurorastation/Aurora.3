@@ -2,14 +2,15 @@
 	name = "pAI"
 	icon = 'icons/mob/pai.dmi'
 	icon_state = "repairbot"
+	holder_type = /obj/item/weapon/holder/pai/drone
 
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
-	small = 1
-	pass_flags = 1
+	pass_flags = PASSTABLE | PASSDOORHATCH
+	density = 0
+	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
-
 	var/ram = 100	// Used as currency to purchase different abilities
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
@@ -21,7 +22,16 @@
 		"Drone" = "repairbot",
 		"Cat" = "cat",
 		"Mouse" = "mouse",
-		"Monkey" = "monkey"
+		"Monkey" = "monkey",
+		"Rabbit" = "rabbit"
+		)
+
+	var/global/list/pai_holder_types = list(
+		"Drone" = /obj/item/weapon/holder/pai/drone,
+		"Cat" = /obj/item/weapon/holder/pai/cat,
+		"Mouse" = /obj/item/weapon/holder/pai/mouse,
+		"Monkey" = /obj/item/weapon/holder/pai/monkey,
+		"Rabbit" = /obj/item/weapon/holder/pai/rabbit
 		)
 
 	var/global/list/possible_say_verbs = list(
@@ -29,10 +39,12 @@
 		"Natural" = list("says","yells","asks"),
 		"Beep" = list("beeps","beeps loudly","boops"),
 		"Chirp" = list("chirps","chirrups","cheeps"),
-		"Feline" = list("purrs","yowls","meows")
+		"Feline" = list("purrs","yowls","meows"),
+		"Rodent" = list("squeaks","squeals","squeeks")
 		)
 
 	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
+	var/obj/item/weapon/card/id/ID = null	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -69,9 +81,44 @@
 
 	var/translator_on = 0 // keeps track of the translator module
 
+	var/greeted = 0
 	var/current_pda_messaging = null
 
-/mob/living/silicon/pai/New(var/obj/item/device/paicard)
+		//Interaction
+	var/response_help   = "pets"
+	var/response_disarm = "shoves"
+	var/response_harm   = "kicks"
+	var/harm_intent_damage = 15//based on 100 health, which is probably too much for a pai to have
+
+/mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M as mob)
+	..()
+
+	switch(M.a_intent)
+
+		if(I_HELP)
+			M.visible_message(span("notice","[M] [response_help] \the [src]"))
+
+		if(I_DISARM)
+			M.visible_message(span("notice","[M] [response_disarm] \the [src]"))
+			M.do_attack_animation(src)
+			//TODO: Push the mob away or something
+
+
+		if(I_HURT)
+			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
+			M.visible_message(span("danger","[M] [response_harm] \the [src]"))
+			M.do_attack_animation(src)
+			updatehealth()
+
+/mob/living/silicon/pai/New(var/obj/item/device/paicard/newlocation)
+	var/obj/item/device/paicard/paicard
+	if (istype(newlocation))
+		paicard = newlocation
+	else
+		//If we get here, then we must have been created by adminspawning.
+		//so lets assist with debugging by creating our own card and adding ourself to it
+		paicard = new/obj/item/device/paicard(newlocation)
+		paicard.pai = src
 
 	canmove = 0
 	src.loc = paicard
@@ -92,6 +139,8 @@
 
 	//PDA
 	pda = new(src)
+	ID = new(src)
+	ID.registered_name = ""
 	spawn(5)
 		pda.ownjob = "Personal Assistant"
 		pda.owner = text("[]", src)
@@ -100,8 +149,17 @@
 	..()
 
 /mob/living/silicon/pai/Login()
+	greet()
 	..()
 
+
+/mob/living/silicon/pai/proc/greet()
+
+	if (!greeted)
+		// Basic intro text.
+		src << "<span class='danger'><font size=3>You are a Personal AI!</font></span>"
+		src << "<span class='notice'>You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world.</span>"
+		greeted = 1
 
 // this function shows the information about being silenced as a pAI in the Status panel
 /mob/living/silicon/pai/proc/show_silenced()
@@ -119,13 +177,6 @@
 /mob/living/silicon/pai/check_eye(var/mob/user as mob)
 	if (!src.current)
 		return -1
-	return 0
-
-/mob/living/silicon/pai/blob_act()
-	if (src.stat != 2)
-		src.adjustBruteLoss(60)
-		src.updatehealth()
-		return 1
 	return 0
 
 /mob/living/silicon/pai/restrained()
@@ -166,17 +217,6 @@
 			src << "<font color=green>Pr1m3 d1r3c71v3 uPd473D.</font>"
 		if(3)
 			src << "<font color=green>You feel an electric surge run through your circuitry and become acutely aware at how lucky you are that you can still feel at all.</font>"
-
-// See software.dm for Topic()
-/mob/living/silicon/pai/meteorhit(obj/O as obj)
-	for(var/mob/M in viewers(src, null))
-		M.show_message(text("\red [] has been hit by []", src, O), 1)
-	if (src.health > 0)
-		src.adjustBruteLoss(30)
-		if ((O.icon_state == "flaming"))
-			src.adjustFireLoss(40)
-		src.updatehealth()
-	return
 
 /mob/living/silicon/pai/proc/switchCamera(var/obj/machinery/camera/C)
 	if (!C)
@@ -266,7 +306,7 @@
 	if(world.time <= last_special)
 		return
 
-	last_special = world.time + 100
+	last_special = world.time + 20
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
 	if(istype(card.loc,/obj/item/rig_module))
@@ -286,8 +326,6 @@
 	else if(istype(card.loc,/obj/item/device/pda))
 		var/obj/item/device/pda/holder = card.loc
 		holder.pai = null
-
-	canmove = 1
 
 	src.client.perspective = EYE_PERSPECTIVE
 	src.client.eye = src
@@ -326,11 +364,23 @@
 		if(!choice) return
 
 		icon_state = possible_chassis[choice]
+		holder_type = pai_holder_types[choice]
 		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
 
 	chassis = possible_chassis[choice]
 	verbs -= /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/proc/hide
+
+/mob/living/silicon/pai/verb/get_onmob_location()
+	set category = "pAI Commands"
+	set name = "Check location"
+	set desc = "Find out where on their person, someone is holding you."
+
+	if (!get_holding_mob())
+		src << "Nobody is holding you!"
+		return
+
+	card.report_onmob_location(0, card.get_equip_slot(), src)
 
 /mob/living/silicon/pai/proc/choose_verbs()
 	set category = "pAI Commands"
@@ -350,12 +400,16 @@
 	set name = "Rest"
 	set category = "IC"
 
+	// Pass lying down or getting up to our pet human, if we're in a rig.
 	if(istype(src.loc,/obj/item/device/paicard))
 		resting = 0
+		var/obj/item/weapon/rig/rig = src.get_rig()
+		if(istype(rig))
+			rig.force_rest(src)
 	else
 		resting = !resting
 		icon_state = resting ? "[chassis]_rest" : "[chassis]"
-		src << "\blue You are now [resting ? "resting" : "getting up"]"
+		src << "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>"
 
 	canmove = !resting
 
@@ -367,18 +421,17 @@
 		src.updatehealth()
 	else
 		visible_message("<span class='warning'>[user.name] bonks [src] harmlessly with [W].</span>")
-	spawn(1)
-		if(stat != 2) close_up()
+
 	return
 
-/mob/living/silicon/pai/attack_hand(mob/user as mob)
+/mob/living/silicon/pai/AltClick(mob/user as mob)
 	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
 	close_up()
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.
 /mob/living/silicon/pai/proc/close_up()
 
-	last_special = world.time + 100
+	last_special = world.time + 20
 
 	if(src.loc == card)
 		return
@@ -387,32 +440,47 @@
 	if(istype(T)) T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
 
 	src.stop_pulling()
-	src.client.perspective = EYE_PERSPECTIVE
-	src.client.eye = card
+	if (client)
+		client.perspective = EYE_PERSPECTIVE
+		client.eye = src
+//Changed the client eye to follow the mob itself instead of the card that contains it. This makes examining work, and the camera still follows wherever the card goes
 
 	//stop resting
 	resting = 0
 
-	//This seems redundant but not including the forced loc setting messes the behavior up.
+	// If we are being held, handle removing our holder from their inv.
+	var/obj/item/weapon/holder/H = loc
+	if(istype(H))
+		var/mob/living/M = H.loc
+		if(istype(M))
+			M.drop_from_inventory(H)
+		H.loc = get_turf(src)
+		src.loc = get_turf(H)
+
+	// Move us into the card and move the card to the ground.
 	src.loc = card
 	card.loc = get_turf(card)
 	src.forceMove(card)
 	card.forceMove(card.loc)
-	canmove = 0
+	canmove = 1
+	resting = 0
 	icon_state = "[chassis]"
-
-/mob/living/silicon/pai/start_pulling(var/atom/movable/AM)
-
-	if(istype(AM,/obj/item))
-		var/obj/item/O = AM
-		if(O.w_class == 1)
-			..()
-		else
-			src << "<span class='warning'>You are too small to pull that.</span>"
-	else
-		src << "<span class='warning'>You are too small to pull that.</span>"
-		return
 
 // No binary for pAIs.
 /mob/living/silicon/pai/binarycheck()
 	return 0
+
+// Handle being picked up.
+/mob/living/silicon/pai/get_scooped(var/mob/living/carbon/grabber, var/self_drop)
+	var/obj/item/weapon/holder/H = ..(grabber, self_drop)
+	if(!istype(H))
+		return
+	H.icon_state = "pai-[icon_state]"
+	grabber.update_inv_l_hand()
+	grabber.update_inv_r_hand()
+	return H
+
+/mob/living/silicon/pai/MouseDrop(atom/over_object)
+	var/mob/living/carbon/H = over_object
+	if(!istype(H) || !Adjacent(H)) return ..()
+	get_scooped(H, usr)

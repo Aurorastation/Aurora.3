@@ -132,12 +132,13 @@
 	if(!proximity)
 		return
 
-	if(istype(A, /obj/structure/reagent_dispensers))
+	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/weapon/reagent_containers/glass))
 		if(!reagents.get_free_space())
 			user << "<span class='warning'>\The [src] is already soaked.</span>"
 			return
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
+			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 			user.visible_message("<span class='notice'>\The [user] soaks [src] using [A].</span>", "<span class='notice'>You soak [src] using [A].</span>")
 			update_name()
 		return

@@ -45,7 +45,7 @@
 	var/list/res = list()
 	for (var/specie in all_species)
 		var/datum/species/S = all_species[specie]
-		if(!(S.flags & IS_SYNTHETIC) && S.flags & CAN_JOIN)
+		if(!S.virus_immune)
 			meat += S
 	if(meat.len)
 		var/num = rand(1,meat.len)
@@ -69,7 +69,13 @@
 		if(prob(5))
 			mob.antibodies |= antigen // 20% immunity is a good chance IMO, because it allows finding an immune person easily
 
-	if(mob.radiation > 50)
+	// Some species are flat out immune to organic viruses.
+	var/mob/living/carbon/human/H = mob
+	if(istype(H) && H.species.virus_immune)
+		cure(mob)
+		return
+
+	if(mob.total_radiation > 50)
 		if(prob(1))
 			majormutate()
 

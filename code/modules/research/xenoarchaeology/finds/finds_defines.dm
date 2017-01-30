@@ -133,108 +133,110 @@
 	var/find_type = 0
 	switch(digsite)
 		if(DIGSITE_GARDEN)
-			find_type = pick(\
-			100;ARCHAEO_PLANT,\
-			25;ARCHAEO_SHELL,\
-			25;ARCHAEO_FOSSIL,\
-			5;ARCHAEO_BEARTRAP\
+			find_type = pick(
+			100;ARCHAEO_PLANT,
+			25;ARCHAEO_SHELL,
+			25;ARCHAEO_FOSSIL,
+			5;ARCHAEO_BEARTRAP
 			)
 		if(DIGSITE_ANIMAL)
-			find_type = pick(\
-			100;ARCHAEO_FOSSIL,\
-			50;ARCHAEO_SHELL,\
-			50;ARCHAEO_PLANT,\
-			25;ARCHAEO_BEARTRAP\
+			find_type = pick(
+			100;ARCHAEO_FOSSIL,
+			50;ARCHAEO_SHELL,
+			50;ARCHAEO_PLANT,
+			25;ARCHAEO_BEARTRAP
 			)
 		if(DIGSITE_HOUSE)
-			find_type = pick(\
-			100;ARCHAEO_BOWL,\
-			100;ARCHAEO_URN,\
-			100;ARCHAEO_CUTLERY,\
-			100;ARCHAEO_STATUETTE,\
-			100;ARCHAEO_INSTRUMENT,\
-			100;ARCHAEO_PEN,\
-			100;ARCHAEO_LIGHTER,\
-			100;ARCHAEO_BOX,\
-			75;ARCHAEO_GASMASK,\
-			75;ARCHAEO_COIN,\
-			75;ARCHAEO_UNKNOWN,\
-			50;ARCHAEO_SHARD,\
-			50;ARCHAEO_RODS,\
-			25;ARCHAEO_METAL\
+			find_type = pick(
+			100;ARCHAEO_BOWL,
+			100;ARCHAEO_URN,
+			100;ARCHAEO_CUTLERY,
+			100;ARCHAEO_STATUETTE,
+			100;ARCHAEO_INSTRUMENT,
+			100;ARCHAEO_PEN,
+			100;ARCHAEO_LIGHTER,
+			100;ARCHAEO_BOX,
+			75;ARCHAEO_GASMASK,
+			75;ARCHAEO_COIN,
+			75;ARCHAEO_UNKNOWN,
+			50;ARCHAEO_SHARD,
+			50;ARCHAEO_RODS,
+			25;ARCHAEO_METAL
 			)
 		if(DIGSITE_TECHNICAL)
-			find_type = pick(\
-			125;ARCHAEO_GASMASK,\
-			100;ARCHAEO_METAL,\
-			100;ARCHAEO_GASTANK,\
-			100;ARCHAEO_TELEBEACON,\
-			100;ARCHAEO_TOOL,\
-			100;ARCHAEO_STOCKPARTS,\
-			75;ARCHAEO_SHARD,\
-			75;ARCHAEO_RODS,\
-			75;ARCHAEO_UNKNOWN,\
-			50;ARCHAEO_HANDCUFFS,\
-			50;ARCHAEO_BEARTRAP,\
+			find_type = pick(
+			125;ARCHAEO_GASMASK,
+			100;ARCHAEO_METAL,
+			100;ARCHAEO_GASTANK,
+			100;ARCHAEO_TELEBEACON,
+			100;ARCHAEO_TOOL,
+			100;ARCHAEO_STOCKPARTS,
+			75;ARCHAEO_SHARD,
+			75;ARCHAEO_RODS,
+			75;ARCHAEO_UNKNOWN,
+			50;ARCHAEO_HANDCUFFS,
+			50;ARCHAEO_BEARTRAP
 			)
 		if(DIGSITE_TEMPLE)
-			find_type = pick(\
-			200;ARCHAEO_CULTROBES,\
-			200;ARCHAEO_STATUETTE,\
-			100;ARCHAEO_URN,\
-			100;ARCHAEO_BOWL,\
-			100;ARCHAEO_KNIFE,\
-			100;ARCHAEO_CRYSTAL,\
-			75;ARCHAEO_CULTBLADE,\
-			50;ARCHAEO_SOULSTONE,\
-			50;ARCHAEO_UNKNOWN,\
-			25;ARCHAEO_HANDCUFFS,\
-			25;ARCHAEO_BEARTRAP,\
-			10;ARCHAEO_KATANA,\
-			10;ARCHAEO_CLAYMORE,\
-			10;ARCHAEO_SHARD,\
-			10;ARCHAEO_RODS,\
-			10;ARCHAEO_METAL,\
-			10;ARCHAEO_GASMASK,\
+			find_type = pick(
+			200;ARCHAEO_CULTROBES,
+			200;ARCHAEO_STATUETTE,
+			100;ARCHAEO_URN,
+			100;ARCHAEO_BOWL,
+			100;ARCHAEO_KNIFE,
+			100;ARCHAEO_CRYSTAL,
+			75;ARCHAEO_CULTBLADE,
+			50;ARCHAEO_SOULSTONE,
+			50;ARCHAEO_UNKNOWN,
+			25;ARCHAEO_HANDCUFFS,
+			25;ARCHAEO_BEARTRAP,
+			10;ARCHAEO_KATANA,
+			10;ARCHAEO_CLAYMORE,
+			10;ARCHAEO_SHARD,
+			10;ARCHAEO_RODS,
+			10;ARCHAEO_METAL,
+			10;ARCHAEO_GASMASK
 			)
 		if(DIGSITE_WAR)
-			find_type = pick(\
-			100;ARCHAEO_GUN,\
-			100;ARCHAEO_KNIFE,\
-			75;ARCHAEO_LASER,\
-			75;ARCHAEO_KATANA,\
-			75;ARCHAEO_CLAYMORE,\
-			50;ARCHAEO_UNKNOWN,\
-			50;ARCHAEO_CULTROBES,\
-			50;ARCHAEO_CULTBLADE,\
-			50;ARCHAEO_GASMASK,\
-			25;ARCHAEO_HANDCUFFS,\
-			25;ARCHAEO_BEARTRAP,\
-			25;ARCHAEO_TOOL\
+			find_type = pick(
+			100;ARCHAEO_GUN,
+			100;ARCHAEO_KNIFE,
+			75;ARCHAEO_LASER,
+			75;ARCHAEO_KATANA,
+			75;ARCHAEO_CLAYMORE,
+			50;ARCHAEO_UNKNOWN,
+			50;ARCHAEO_CULTROBES,
+			50;ARCHAEO_CULTBLADE,
+			50;ARCHAEO_GASMASK,
+			25;ARCHAEO_HANDCUFFS,
+			25;ARCHAEO_BEARTRAP,
+			25;ARCHAEO_TOOL
 			)
 	return find_type
 
-var/list/responsive_carriers = list( \
-	"carbon", \
-	"potassium", \
-	"hydrogen", \
-	"nitrogen", \
-	"mercury", \
-	"iron", \
-	"chlorine", \
-	"phosphorus", \
-	"phoron")
+var/list/responsive_carriers = list(
+	"carbon", 
+	"potassium",
+	"hydrogen", 
+	"nitrogen", 
+	"mercury", 
+	"iron", 
+	"chlorine", 
+	"phosphorus", 
+	"phoron"
+	)
 
-var/list/finds_as_strings = list( \
-	"Trace organic cells", \
-	"Long exposure particles", \
-	"Trace water particles", \
-	"Crystalline structures", \
-	"Metallic derivative", \
-	"Metallic composite", \
-	"Metamorphic/igneous rock composite", \
-	"Metamorphic/sedimentary rock composite", \
-	"Anomalous material" )
+var/list/finds_as_strings = list(
+	"Trace organic cells", 
+	"Long exposure particles", 
+	"Trace water particles", 
+	"Crystalline structures", 
+	"Metallic derivative", 
+	"Metallic composite", 
+	"Metamorphic/igneous rock composite", 
+	"Metamorphic/sedimentary rock composite",
+	"Anomalous material" 
+	)
 
 #undef ARCHAEO_BOWL
 #undef ARCHAEO_URN

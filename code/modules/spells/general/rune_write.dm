@@ -174,6 +174,25 @@
 					R.word2=cultwords["hide"]
 					R.word3=cultwords["technology"]
 					R.check_icon()
+		for(var/obj/O in range(1,user))
+			O.cultify()
+		for(var/turf/T in range(1,user))
+			var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
+			animation.name = "conjure"
+			animation.density = 0
+			animation.anchored = 1
+			animation.icon = 'icons/effects/effects.dmi'
+			animation.layer = 3
+			animation.master = T
+			if(istype(T,/turf/simulated/wall))
+				animation.icon_state = "cultwall"
+				flick("cultwall",animation)
+			else
+				animation.icon_state = "cultfloor"
+				flick("cultfloor",animation)
+			spawn(10)
+				qdel(animation)
+			T.cultify()
 	else
 		user << "<span class='warning'> You do not have enough space to write a proper rune.</span>"
 	return

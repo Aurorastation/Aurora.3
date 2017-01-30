@@ -33,7 +33,7 @@
 		output += "<tr>"
 		output += "<td style='text-align:right;'>[adm_ckey] <a class='small' href='?src=\ref[src];editrights=remove;ckey=[adm_ckey]'>\[-\]</a></td>"
 		output += "<td><a href='?src=\ref[src];editrights=rank;ckey=[adm_ckey]'>[rank]</a></td>"
-		output += "<td><a class='small' href='?src=\ref[src];editrights=permissions;ckey=[adm_ckey]'>[rights]</a></font></td>"
+		output += "<td><a class='small' href='?src=\ref[src];editrights=permissions;ckey=[adm_ckey]'>[rights]</a></td>"
 		output += "</tr>"
 
 	output += {"
@@ -54,7 +54,7 @@
 		usr << "\red You do not have permission to do this!"
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 
 	if(!dbcon.IsConnected())
 		usr << "\red Failed to establish database connection"
@@ -104,7 +104,7 @@
 		usr << "\red You do not have permission to do this!"
 		return
 
-	establish_db_connection()
+	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		usr << "\red Failed to establish database connection"
 		return

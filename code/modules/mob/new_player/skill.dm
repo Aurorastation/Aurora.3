@@ -54,15 +54,10 @@ datum/skill/construction
     desc = "Your ability to construct various buildings, such as walls, floors, tables and so on. Note that constructing devices such as APCs additionally requires the Electronics skill. A low level of this skill is typical for janitors, a high level of this skill is typical for engineers."
     field = "Engineering"
 
-datum/skill/management
-    ID = "management"
-    name = "Command"
-    desc = "Your ability to manage and commandeer other crew members."
-
 datum/skill/knowledge/law
     ID = "law"
-    name = "NanoTrasen Law"
-    desc = "Your knowledge of NanoTrasen law and procedures. This includes Corporate Regulations, as well as general station rulings and procedures. A low level in this skill is typical for security officers, a high level in this skill is typical for captains."
+    name = "Corporate Law"
+    desc = "Your knowledge of corporate law and procedures. This includes Corporate Regulations, as well as general station rulings and procedures. A low level in this skill is typical for security officers, a high level in this skill is typical for captains."
     field = "Security"
     secondary = 1
 

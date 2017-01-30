@@ -34,10 +34,11 @@
 				ping("\The [src] pings, \"New pathogen added to data bank.\"")
 
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
-			P.name = "paper - [dish.virus2.name()]"
+			var/pname = "paper - [dish.virus2.name()]"
+			var/info
 
 			var/r = dish.virus2.get_info()
-			P.info = {"
+			info = {"
 				[virology_letterhead("Post-Analysis Memo")]
 				[r]
 				<hr>
@@ -51,7 +52,8 @@
 			dish = null
 
 			icon_state = "analyser"
-			src.state("\The [src] prints a sheet of paper.")
+			P.set_content_unsafe(pname, info)
+			print(P)
 
 	else if(dish && !scanning && !pause)
 		if(dish.virus2 && dish.growth > 50)

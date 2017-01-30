@@ -50,7 +50,7 @@
 		src.invisibility = INVISIBILITY_MAXIMUM
 		density = 0
 
-/obj/machinery/cooking/cultify()
+/obj/machinery/cooker/cultify()
 	new /obj/structure/cult/talisman(loc)
 	qdel(src)
 
@@ -125,11 +125,6 @@
 	var/turf/T = get_turf(src)
 	if(T)
 		T.ChangeTurf(/turf/simulated/wall/cult)
-	..()
-
-/obj/structure/stool/cultify()
-	var/obj/structure/bed/chair/wood/wings/I = new(loc)
-	I.dir = dir
 	..()
 
 /obj/structure/table/cultify()

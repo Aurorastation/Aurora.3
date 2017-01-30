@@ -1,24 +1,35 @@
-var/global/list/object_profiling = list()
 /datum/controller/process/obj
-	var/tmp/datum/updateQueue/updateQueueInstance
+	var/normal_exit = TRUE
+	var/list/queue = list()
 
 /datum/controller/process/obj/setup()
 	name = "obj"
-	schedule_interval = 20 // every 2 seconds
-	updateQueueInstance = new
+	schedule_interval = 2 SECONDS
+	start_delay = 8
 
 /datum/controller/process/obj/started()
 	..()
-	if(!updateQueueInstance)
-		if(!processing_objects)
-			processing_objects = list()
-		else if(processing_objects.len)
-			updateQueueInstance = new
+	if(!processing_objects)
+		processing_objects = list()
 
 /datum/controller/process/obj/doWork()
-	if(updateQueueInstance)
-		updateQueueInstance.init(processing_objects, "process")
-		updateQueueInstance.Run()
+	if (normal_exit)
+		queue = processing_objects.Copy()
+		normal_exit = FALSE
 
-/datum/controller/process/obj/getStatName()
-	return ..()+"([processing_objects.len])"
+	while (queue.len)
+		var/datum/O = queue[queue.len]
+		queue.len--
+
+		if (!O || O.gcDestroyed)
+			processing_objects -= O
+			continue
+
+		O:process()
+		F_SCHECK
+
+	normal_exit = TRUE
+
+/datum/controller/process/obj/statProcess()
+	..()
+	stat(null, "[processing_objects.len] objects, [queue.len] queued")

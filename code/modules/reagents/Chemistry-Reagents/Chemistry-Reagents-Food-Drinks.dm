@@ -1,4 +1,22 @@
 /* Food */
+/datum/reagent/kois
+	name = "K'ois"
+	id = "koispaste"
+	description = "A thick goopy substance, rich in K'ois nutrients."
+	metabolism = REM * 4
+	var/nutriment_factor = 10
+	var/injectable = 0
+	color = "#dcd9cd"
+
+/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+    if(isvaurca(M))
+        M.heal_organ_damage(0.8 * removed, 0)
+        M.nutrition += nutriment_factor * removed // For hunger and fatness
+        M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+    else
+        M.adjustToxLoss(1.5 * removed)
+        return
+    ..()
 
 /datum/reagent/nutriment
 	name = "Nutriment"
@@ -6,7 +24,9 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = 30 // Per unit
+	var/nutriment_factor = 15 // Per unit
+	var/blood_factor = 6
+	var/regen_factor = 0.8
 	var/injectable = 0
 	color = "#664330"
 
@@ -17,22 +37,53 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0.5 * removed, 0)
+	if(isvaurca(M))
+		M.adjustToxLoss(1.5 * removed)
+	if(alien && alien == IS_UNATHI)
+		return
+	else
+		digest(M,removed)
+		return
+	..()
+
+/datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
+	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
-	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
+	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
 	id = "protein"
 	color = "#440000"
+	blood_factor = 12
 
 /datum/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(0.5 * removed)
 		return
+	if(alien && alien == IS_UNATHI)
+		digest(M,removed)
+		return
 	..()
 
-/datum/reagent/nutriment/egg // Also bad for skrell. Not a child of protein because it might mess up, not sure.
+/datum/reagent/nutriment/protein/seafood // Good for Skrell!
+	name = "seafood protein"
+	id = "seafood"
+	color = "#f5f4e9"
+
+/datum/reagent/nutriment/protein/seafood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		digest(M,removed)//Skrell are allowed to eat fish, but not other proteins
+		return
+	..()
+
+/datum/reagent/nutriment/protein/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		M.adjustToxLoss(2 * removed)
+		return
+	..()
+
+/datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "egg yolk"
 	id = "egg"
 	color = "#FFFFAA"
@@ -41,7 +92,17 @@
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(0.5 * removed)
 		return
+	if(alien && alien == IS_UNATHI)
+		digest(M,removed)
+		return
 	..()
+
+/datum/reagent/nutriment/honey
+	name = "Honey"
+	id = "honey"
+	description = "A golden yellow syrup, loaded with sugary sweetness."
+	nutriment_factor = 10
+	color = "#FFFF00"
 
 /datum/reagent/nutriment/flour
 	name = "flour"
@@ -116,24 +177,7 @@
 		qdel(hotspot)
 
 	if(volume >= 3)
-		if(T.wet >= 1)
-			return
-		T.wet = 1
-		if(T.wet_overlay)
-			T.overlays -= T.wet_overlay
-			T.wet_overlay = null
-		T.wet_overlay = image('icons/effects/water.dmi',T,"wet_floor")
-		T.overlays += T.wet_overlay
-
-		spawn(800) // This is terrible and needs to be changed when possible.
-			if(!T || !istype(T))
-				return
-			if(T.wet >= 2)
-				return
-			T.wet = 0
-			if(T.wet_overlay)
-				T.overlays -= T.wet_overlay
-				T.wet_overlay = null
+		T.wet_floor()
 
 /datum/reagent/nutriment/virus_food
 	name = "Virus Food"
@@ -156,6 +200,12 @@
 	description = "Also known as Mentha."
 	reagent_state = LIQUID
 	color = "#CF3600"
+
+/datum/reagent/nutriment/glucose
+	name = "Glucose"
+	id = "glucose"
+	color = "#FFFFFF"
+	injectable = 1
 
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"
@@ -230,11 +280,11 @@
 	M.adjustToxLoss(0.5 * removed)
 
 /datum/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
+	if(alien == IS_DIONA || alien == IS_MACHINE)
 		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species && (H.species.flags & (NO_PAIN | IS_SYNTHETIC)))
+		if(H.species && (H.species.flags & (NO_PAIN)))
 			return
 	if(dose < agony_dose)
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
@@ -278,10 +328,10 @@
 
 	for(var/obj/item/I in protection)
 		if(I)
-			if(I.flags & MASKCOVERSEYES)
+			if(I.body_parts_covered & EYES)
 				eyes_covered = 1
 				eye_protection = I.name
-			if(I.flags & MASKCOVERSMOUTH)
+			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
 				mouth_covered = 1
 				face_protection = I.name
 
@@ -299,7 +349,7 @@
 			M.eye_blind = max(M.eye_blind, 10)
 
 	if(mouth_covered)
-		if(!message) 
+		if(!message)
 			message = "<span class='warning'>Your [face_protection] protects you from the pepperspray!</span>"
 	else if(!no_pain)
 		message = "<span class='danger'>Your face and throat burn!</span>"
@@ -308,7 +358,20 @@
 		M.Stun(5)
 		M.Weaken(5)
 
-	M << message
+/datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.species && (H.species.flags & NO_PAIN))
+			return
+	if(dose == metabolism)
+		M << "<span class='danger'>You feel like your insides are burning!</span>"
+	else
+		M.apply_effect(4, AGONY, 0)
+		if(prob(5))
+			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
+	if(istype(M, /mob/living/carbon/slime))
+		M.bodytemperature += rand(15, 30)
+	holder.remove_reagent("frostoil", 5)
 
 /* Drinks */
 
@@ -323,12 +386,17 @@
 	var/adj_drowsy = 0
 	var/adj_sleepy = 0
 	var/adj_temp = 0
+	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
+	var/datum/modifier/modifier = null
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
 	return
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if (caffeine && !modifier)
+		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
 	M.nutrition += nutrition * removed
 	M.dizziness = max(0, M.dizziness + adj_dizzy)
 	M.drowsyness = max(0, M.drowsyness + adj_drowsy)
@@ -555,6 +623,7 @@
 	adj_sleepy = -2
 	adj_temp = 25
 	overdose = 45
+	caffeine = 0.3
 
 	glass_icon_state = "hot_coffee"
 	glass_name = "cup of coffee"
@@ -567,9 +636,27 @@
 	if(adj_temp > 0)
 		holder.remove_reagent("frostoil", 10 * removed)
 
+	M.dizziness = max(0, M.dizziness - 5)
+	M.drowsyness = max(0, M.drowsyness - 3)
+	M.sleeping = max(0, M.sleeping - 2)
+	M.intoxication = max(0, (M.intoxication - (removed*0.25)))
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/datum/reagent/nutriment/coffee/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(2 * removed)
+		M.make_jittery(4)
+		return
+
+
 /datum/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien == IS_DIONA)
 		return
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(4 * REM)
+		M.apply_effect(3, STUTTER)
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee
@@ -718,6 +805,7 @@
 	id = "rewriter"
 	color = "#485000"
 	adj_temp = -5
+	caffeine = 0.4
 
 	glass_icon_state = "rewriter"
 	glass_name = "glass of Rewriter"
@@ -728,6 +816,7 @@
 	..()
 	M.make_jittery(5)
 
+
 /datum/reagent/drink/nuka_cola
 	name = "Nuka Cola"
 	id = "nuka_cola"
@@ -735,6 +824,7 @@
 	color = "#100800"
 	adj_temp = -5
 	adj_sleepy = -2
+	caffeine = 1
 
 	glass_icon_state = "nuka_colaglass"
 	glass_name = "glass of Nuka-Cola"
@@ -906,7 +996,7 @@
 	id = "absinthe"
 	description = "Watch out that the Green Fairy doesn't come for you!"
 	color = "#33EE00"
-	strength = 12
+	strength = 75
 
 	glass_icon_state = "absintheglass"
 	glass_name = "glass of absinthe"
@@ -918,7 +1008,7 @@
 	id = "ale"
 	description = "A dark alchoholic beverage made by malted barley and yeast."
 	color = "#664300"
-	strength = 50
+	strength = 6
 
 	glass_icon_state = "aleglass"
 	glass_name = "glass of ale"
@@ -930,7 +1020,7 @@
 	id = "beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water."
 	color = "#664300"
-	strength = 50
+	strength = 5
 	nutriment_factor = 1
 
 	glass_icon_state = "beerglass"
@@ -949,7 +1039,7 @@
 	id = "bluecuracao"
 	description = "Exotically blue, fruity drink, distilled from oranges."
 	color = "#0000CD"
-	strength = 15
+	strength = 25
 
 	glass_icon_state = "curacaoglass"
 	glass_name = "glass of blue curacao"
@@ -961,7 +1051,7 @@
 	id = "cognac"
 	description = "A sweet and strongly alchoholic drink, made after numerous distillations and years of maturing. Classy as fornication."
 	color = "#AB3C05"
-	strength = 15
+	strength = 40
 
 	glass_icon_state = "cognacglass"
 	glass_name = "glass of cognac"
@@ -991,42 +1081,64 @@
 	id = "gin"
 	description = "It's gin. In space. I say, good sir."
 	color = "#664300"
-	strength = 50
+	strength = 40
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of gin"
 	glass_desc = "A crystal clear glass of Griffeater gin."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/datum/reagent/ethanol/kahlua
+//Base type for alchoholic drinks containing coffee
+/datum/reagent/ethanol/coffee
+	overdose = 45
+
+/datum/reagent/ethanol/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
+	..()
+	M.dizziness = max(0, M.dizziness - 5)
+	M.drowsyness = max(0, M.drowsyness - 3)
+	M.sleeping = max(0, M.sleeping - 2)
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(0.5 * removed)
+		M.make_jittery(4) //extra sensitive to caffine
+
+/datum/reagent/ethanol/coffee/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(2 * removed)
+		M.make_jittery(4)
+		return
+	..()
+
+/datum/reagent/ethanol/coffee/overdose(var/mob/living/carbon/M, var/alien)
+	if(alien == IS_DIONA)
+		return
+	if(alien == IS_TAJARA)
+		M.adjustToxLoss(4 * REM)
+		M.apply_effect(3, STUTTER)
+	M.make_jittery(5)
+
+/datum/reagent/ethanol/coffee/kahlua
 	name = "Kahlua"
 	id = "kahlua"
 	description = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936!"
 	color = "#664300"
-	strength = 15
+	strength = 20
+	caffeine = 0.25
 
 	glass_icon_state = "kahluaglass"
 	glass_name = "glass of RR coffee liquor"
 	glass_desc = "DAMN, THIS THING LOOKS ROBUST"
 	glass_center_of_mass = list("x"=15, "y"=7)
 
-/datum/reagent/ethanol/kahlua/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(alien == IS_DIONA)
-		return
-	M.dizziness = max(0, M.dizziness - 5)
-	M.drowsyness = max(0, M.drowsyness - 3)
-	M.sleeping = max(0, M.sleeping - 2)
-	if(M.bodytemperature > 310)
-		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
-	M.make_jittery(5)
-
 /datum/reagent/ethanol/melonliquor
 	name = "Melon Liquor"
 	id = "melonliquor"
 	description = "A relatively sweet and fruity 46 proof liquor."
 	color = "#138808" // rgb: 19, 136, 8
-	strength = 50
+	strength = 23
 
 	glass_icon_state = "emeraldglass"
 	glass_name = "glass of melon liquor"
@@ -1038,7 +1150,7 @@
 	id = "rum"
 	description = "Yohoho and all that."
 	color = "#664300"
-	strength = 15
+	strength = 40
 
 	glass_icon_state = "rumglass"
 	glass_name = "glass of rum"
@@ -1050,7 +1162,7 @@
 	id = "sake"
 	description = "Anime's favorite drink."
 	color = "#664300"
-	strength = 25
+	strength = 20
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of sake"
@@ -1062,7 +1174,7 @@
 	id = "tequilla"
 	description = "A strong and mildly flavoured, mexican produced spirit. Feeling thirsty hombre?"
 	color = "#FFFF91"
-	strength = 25
+	strength = 40
 
 	glass_icon_state = "tequillaglass"
 	glass_name = "glass of Tequilla"
@@ -1074,8 +1186,9 @@
 	id = "thirteenloko"
 	description = "A potent mixture of caffeine and alcohol."
 	color = "#102000"
-	strength = 25
+	strength = 10
 	nutriment_factor = 1
+	caffeine = 0.5
 
 	glass_icon_state = "thirteen_loko_glass"
 	glass_name = "glass of Thirteen Loko"
@@ -1095,7 +1208,7 @@
 	id = "vermouth"
 	description = "You suddenly feel a craving for a martini..."
 	color = "#91FF91" // rgb: 145, 255, 145
-	strength = 15
+	strength = 17
 
 	glass_icon_state = "vermouthglass"
 	glass_name = "glass of vermouth"
@@ -1107,7 +1220,7 @@
 	id = "vodka"
 	description = "Number one drink AND fueling choice for Russians worldwide."
 	color = "#0064C8" // rgb: 0, 100, 200
-	strength = 15
+	strength = 50
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of vodka"
@@ -1116,14 +1229,14 @@
 
 /datum/reagent/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.radiation = max(M.radiation - 1 * removed, 0)
+	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, check_protection = 0)
 
 /datum/reagent/ethanol/whiskey
 	name = "Whiskey"
 	id = "whiskey"
 	description = "A superb and well-aged single-malt whiskey. Damn."
 	color = "#664300"
-	strength = 25
+	strength = 40
 
 	glass_icon_state = "whiskeyglass"
 	glass_name = "glass of whiskey"
@@ -1150,11 +1263,11 @@
 	description = "A drink for the daring, can be deadly if incorrectly prepared!"
 	reagent_state = LIQUID
 	color = "#365000"
-	strength = 30
+	strength = 10
 
 	glass_icon_state = "acidspitglass"
 	glass_name = "glass of Acid Spit"
-	glass_desc = "A drink from Nanotrasen. Made from live aliens."
+	glass_desc = "A drink from the company archives. Made from live aliens."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /datum/reagent/ethanol/alliescocktail
@@ -1184,7 +1297,7 @@
 /datum/reagent/ethanol/amasec
 	name = "Amasec"
 	id = "amasec"
-	description = "Official drink of the NanoTrasen Gun-Club!"
+	description = "Official drink of the Gun Club!"
 	reagent_state = LIQUID
 	color = "#664300"
 	strength = 25
@@ -1199,7 +1312,7 @@
 	id = "andalusia"
 	description = "A nice, strangely named drink."
 	color = "#664300"
-	strength = 15
+	strength = 35
 
 	glass_icon_state = "andalusia"
 	glass_name = "glass of Andalusia"
@@ -1211,7 +1324,7 @@
 	id = "antifreeze"
 	description = "Ultimate refreshment."
 	color = "#664300"
-	strength = 12
+	strength = 20
 	adj_temp = 20
 	targ_temp = 330
 
@@ -1226,20 +1339,20 @@
 	description = "Nuclear proliferation never tasted so good."
 	reagent_state = LIQUID
 	color = "#666300"
-	strength = 10
+	strength = 50
 	druggy = 50
 
 	glass_icon_state = "atomicbombglass"
 	glass_name = "glass of Atomic Bomb"
-	glass_desc = "Nanotrasen cannot take legal responsibility for your actions after imbibing."
+	glass_desc = "We cannot take legal responsibility for your actions after imbibing."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
-/datum/reagent/ethanol/b52
+/datum/reagent/ethanol/coffee/b52
 	name = "B-52"
 	id = "b52"
 	description = "Coffee, Irish Cream, and cognac. You will get bombed."
 	color = "#664300"
-	strength = 12
+	strength = 35
 
 	glass_icon_state = "b52glass"
 	glass_name = "glass of B-52"
@@ -1250,7 +1363,7 @@
 	id = "bahama_mama"
 	description = "Tropical cocktail."
 	color = "#FF7F3B"
-	strength = 25
+	strength = 15
 
 	glass_icon_state = "bahama_mama"
 	glass_name = "glass of Bahama Mama"
@@ -1263,7 +1376,7 @@
 	description = "A drink from Clown Heaven."
 	nutriment_factor = 1
 	color = "#FFFF91"
-	strength = 12
+	strength = 15
 
 	glass_icon_state = "bananahonkglass"
 	glass_name = "glass of Banana Honk"
@@ -1275,7 +1388,7 @@
 	id = "barefoot"
 	description = "Barefoot and pregnant"
 	color = "#664300"
-	strength = 30
+	strength = 15
 
 	glass_icon_state = "b&p"
 	glass_name = "glass of Barefoot"
@@ -1288,7 +1401,7 @@
 	description = "Deny drinking this and prepare for THE LAW."
 	reagent_state = LIQUID
 	color = "#664300"
-	strength = 12
+	strength = 35
 
 	glass_icon_state = "beepskysmashglass"
 	glass_name = "Beepsky Smash"
@@ -1304,7 +1417,7 @@
 	id = "bilk"
 	description = "This appears to be beer mixed with milk. Disgusting."
 	color = "#895C4C"
-	strength = 50
+	strength = 4
 	nutriment_factor = 2
 
 	glass_icon_state = "glass_brown"
@@ -1316,7 +1429,7 @@
 	id = "blackrussian"
 	description = "For the lactose-intolerant. Still as classy as a White Russian."
 	color = "#360000"
-	strength = 15
+	strength = 20
 
 	glass_icon_state = "blackrussianglass"
 	glass_name = "glass of Black Russian"
@@ -1328,7 +1441,7 @@
 	id = "bloodymary"
 	description = "A strange yet pleasurable mixture made of vodka, tomato and lime juice. Or at least you THINK the red stuff is tomato juice."
 	color = "#664300"
-	strength = 15
+	strength = 20
 
 	glass_icon_state = "bloodymaryglass"
 	glass_name = "glass of Bloody Mary"
@@ -1339,18 +1452,19 @@
 	id = "booger"
 	description = "Ewww..."
 	color = "#8CFF8C"
-	strength = 30
+	strength = 20
 
 	glass_icon_state = "booger"
 	glass_name = "glass of Booger"
 	glass_desc = "Ewww..."
 
-/datum/reagent/ethanol/brave_bull
+/datum/reagent/ethanol/coffee/brave_bull
 	name = "Brave Bull"
 	id = "bravebull"
 	description = "It's just as effective as Dutch-Courage!"
 	color = "#664300"
-	strength = 15
+	strength = 30
+	caffeine = 0.2
 
 	glass_icon_state = "bravebullglass"
 	glass_name = "glass of Brave Bull"
@@ -1362,7 +1476,7 @@
 	id = "changelingsting"
 	description = "You take a tiny sip and feel a burning sensation..."
 	color = "#2E6671"
-	strength = 10
+	strength = 40
 
 	glass_icon_state = "changelingsting"
 	glass_name = "glass of Changeling Sting"
@@ -1385,7 +1499,7 @@
 	id = "cubalibre"
 	description = "Rum, mixed with cola. Viva la revolucion."
 	color = "#3E1B00"
-	strength = 30
+	strength = 10
 
 	glass_icon_state = "cubalibreglass"
 	glass_name = "glass of Cuba Libre"
@@ -1422,7 +1536,7 @@
 	description = "Only for the experienced. You think you see sand floating in the glass."
 	nutriment_factor = 1
 	color = "#2E6671"
-	strength = 12
+	strength = 20
 
 	glass_icon_state = "driestmartiniglass"
 	glass_name = "glass of Driest Martini"
@@ -1434,7 +1548,7 @@
 	id = "ginfizz"
 	description = "Refreshingly lemony, deliciously dry."
 	color = "#664300"
-	strength = 30
+	strength = 20
 
 	glass_icon_state = "ginfizzglass"
 	glass_name = "glass of gin fizz"
@@ -1444,10 +1558,10 @@
 /datum/reagent/ethanol/grog
 	name = "Grog"
 	id = "grog"
-	description = "Watered down rum, NanoTrasen approves!"
+	description = "Watered-down rum, pirate approved!"
 	reagent_state = LIQUID
 	color = "#664300"
-	strength = 100
+	strength = 10
 
 	glass_icon_state = "grogglass"
 	glass_name = "glass of grog"
@@ -1471,7 +1585,7 @@
 	description = "Whoah, this stuff looks volatile!"
 	reagent_state = LIQUID
 	color = "#664300"
-	strength = 10
+	strength = 50
 
 	glass_icon_state = "gargleblasterglass"
 	glass_name = "glass of Pan-Galactic Gargle Blaster"
@@ -1483,7 +1597,7 @@
 	id = "gintonic"
 	description = "An all time classic, mild cocktail."
 	color = "#664300"
-	strength = 50
+	strength = 12
 
 	glass_icon_state = "gintonicglass"
 	glass_name = "glass of gin and tonic"
@@ -1495,7 +1609,7 @@
 	id = "goldschlager"
 	description = "100 proof cinnamon schnapps, made for alcoholic teen girls on spring break."
 	color = "#664300"
-	strength = 15
+	strength = 50
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of Goldschlager"
@@ -1521,8 +1635,7 @@
 	id = "hooch"
 	description = "Either someone's failure at cocktail making or attempt in alchohol production. In any case, do you really want to drink that?"
 	color = "#664300"
-	strength = 25
-	toxicity = 2
+	strength = 65
 
 	glass_icon_state = "glass_brown2"
 	glass_name = "glass of Hooch"
@@ -1533,7 +1646,7 @@
 	id = "iced_beer"
 	description = "A beer which is so cold the air around it freezes."
 	color = "#664300"
-	strength = 50
+	strength = 5
 	adj_temp = -20
 	targ_temp = 270
 
@@ -1554,12 +1667,13 @@
 	glass_desc = "An irish car bomb."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
-/datum/reagent/ethanol/irishcoffee
+/datum/reagent/ethanol/coffee/irishcoffee
 	name = "Irish Coffee"
 	id = "irishcoffee"
 	description = "Coffee, and alcohol. More fun than a Mimosa to drink in the morning."
 	color = "#664300"
 	strength = 15
+	caffeine = 0.3
 
 	glass_icon_state = "irishcoffeeglass"
 	glass_name = "glass of Irish coffee"
@@ -1571,7 +1685,7 @@
 	id = "irishcream"
 	description = "Whiskey-imbued cream, what else would you expect from the Irish."
 	color = "#664300"
-	strength = 25
+	strength = 15
 
 	glass_icon_state = "irishcreamglass"
 	glass_name = "glass of Irish cream"
@@ -1583,7 +1697,7 @@
 	id = "longislandicedtea"
 	description = "The liquor cabinet, brought together in a delicious mix. Intended for middle-aged alcoholic women only."
 	color = "#664300"
-	strength = 12
+	strength = 30
 
 	glass_icon_state = "longislandicedteaglass"
 	glass_name = "glass of Long Island iced tea"
@@ -1595,7 +1709,7 @@
 	id = "manhattan"
 	description = "The Detective's undercover drink of choice. He never could stomach gin..."
 	color = "#664300"
-	strength = 15
+	strength = 20
 
 	glass_icon_state = "manhattanglass"
 	glass_name = "glass of Manhattan"
@@ -1607,7 +1721,7 @@
 	id = "manhattan_proj"
 	description = "A scientist's drink of choice, for pondering ways to blow up the station."
 	color = "#664300"
-	strength = 10
+	strength = 30
 	druggy = 30
 
 	glass_icon_state = "proj_manhattanglass"
@@ -1620,7 +1734,7 @@
 	id = "manlydorf"
 	description = "Beer and Ale, brought together in a delicious mix. Intended for true men only."
 	color = "#664300"
-	strength = 25
+	strength = 10
 
 	glass_icon_state = "manlydorfglass"
 	glass_name = "glass of The Manly Dorf"
@@ -1644,7 +1758,7 @@
 	description = "A Viking's drink, though a cheap one."
 	reagent_state = LIQUID
 	color = "#664300"
-	strength = 30
+	strength = 20
 	nutriment_factor = 1
 
 	glass_icon_state = "meadglass"
@@ -1657,7 +1771,7 @@
 	id = "moonshine"
 	description = "You've really hit rock bottom now... your liver packed its bags and left last night."
 	color = "#664300"
-	strength = 12
+	strength = 65
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of moonshine"
@@ -1669,7 +1783,7 @@
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	reagent_state = LIQUID
 	color = "#2E2E61"
-	strength = 10
+	strength = 50
 
 	glass_icon_state = "neurotoxinglass"
 	glass_name = "glass of Neurotoxin"
@@ -1685,7 +1799,7 @@
 	id = "patron"
 	description = "Tequila with silver in it, a favorite of alcoholic women in the club scene."
 	color = "#585840"
-	strength = 30
+	strength = 20
 
 	glass_icon_state = "patronglass"
 	glass_name = "glass of Patron"
@@ -1697,7 +1811,7 @@
 	id = "pwine"
 	description = "Is this even wine? Toxic! Hallucinogenic! Probably consumed in boatloads by your superiors!"
 	color = "#000000"
-	strength = 10
+	strength = 15
 	druggy = 50
 	halluci = 10
 
@@ -1724,7 +1838,7 @@
 	id = "red_mead"
 	description = "The true Viking's drink! Even though it has a strange red color."
 	color = "#C73C00"
-	strength = 30
+	strength = 21
 
 	glass_icon_state = "red_meadglass"
 	glass_name = "glass of red mead"
@@ -1734,15 +1848,15 @@
 /datum/reagent/ethanol/sbiten
 	name = "Sbiten"
 	id = "sbiten"
-	description = "A spicy Vodka! Might be a little hot for the little guys!"
+	description = "A spicy mix of mead and spices! Might be a little hot for the little guys!"
 	color = "#664300"
-	strength = 15
+	strength = 40
 	adj_temp = 50
 	targ_temp = 360
 
 	glass_icon_state = "sbitenglass"
 	glass_name = "glass of Sbiten"
-	glass_desc = "A spicy mix of Vodka and Spice. Very hot."
+	glass_desc = "A spicy mix of Mead and Spices. Very hot."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /datum/reagent/ethanol/screwdrivercocktail
@@ -1763,7 +1877,7 @@
 	description = "A drink from Mime Heaven."
 	nutriment_factor = 1
 	color = "#664300"
-	strength = 12
+	strength = 18
 
 	glass_icon_state = "silencerglass"
 	glass_name = "glass of Silencer"
@@ -1775,7 +1889,7 @@
 	id = "singulo"
 	description = "A blue-space beverage!"
 	color = "#2E6671"
-	strength = 10
+	strength = 20
 
 	glass_icon_state = "singulo"
 	glass_name = "glass of Singulo"
@@ -1787,7 +1901,7 @@
 	id = "snowwhite"
 	description = "A cold refreshment"
 	color = "#FFFFFF"
-	strength = 30
+	strength = 7
 
 	glass_icon_state = "snowwhite"
 	glass_name = "glass of Snow White"
@@ -1799,7 +1913,7 @@
 	id = "suidream"
 	description = "Comprised of: White soda, blue curacao, melon liquor."
 	color = "#00A86B"
-	strength = 100
+	strength = 5
 
 	glass_icon_state = "sdreamglass"
 	glass_name = "glass of Sui Dream"
@@ -1823,7 +1937,7 @@
 	id = "tequillasunrise"
 	description = "Tequila and orange juice. Much like a Screwdriver, only Mexican~"
 	color = "#FFE48C"
-	strength = 25
+	strength = 15
 
 	glass_icon_state = "tequillasunriseglass"
 	glass_name = "glass of Tequilla Sunrise"
@@ -1834,7 +1948,7 @@
 	id = "threemileisland"
 	description = "Made for a woman, strong enough for a man."
 	color = "#666340"
-	strength = 10
+	strength = 60
 	druggy = 50
 
 	glass_icon_state = "threemileislandglass"
@@ -1848,7 +1962,7 @@
 	description = "This thing is ON FIRE! CALL THE DAMN SHUTTLE!"
 	reagent_state = LIQUID
 	color = "#664300"
-	strength = 10
+	strength = 40
 	adj_temp = 15
 	targ_temp = 330
 
@@ -1861,7 +1975,7 @@
 	id = "vodkamartini"
 	description = "Vodka with Gin. Not quite how 007 enjoyed it, but still delicious."
 	color = "#664300"
-	strength = 12
+	strength = 32
 
 	glass_icon_state = "martiniglass"
 	glass_name = "glass of vodka martini"
@@ -1873,7 +1987,7 @@
 	id = "vodkatonic"
 	description = "For when a gin and tonic isn't russian enough."
 	color = "#0064C8" // rgb: 0, 100, 200
-	strength = 15
+	strength = 13
 
 	glass_icon_state = "vodkatonicglass"
 	glass_name = "glass of vodka and tonic"
@@ -1885,7 +1999,7 @@
 	id = "whiterussian"
 	description = "That's just, like, your opinion, man..."
 	color = "#A68340"
-	strength = 15
+	strength = 24
 
 	glass_icon_state = "whiterussianglass"
 	glass_name = "glass of White Russian"
@@ -1897,7 +2011,7 @@
 	id = "whiskeycola"
 	description = "Whiskey, mixed with cola. Surprisingly refreshing."
 	color = "#3E1B00"
-	strength = 25
+	strength = 15
 
 	glass_icon_state = "whiskeycolaglass"
 	glass_name = "glass of whiskey cola"
@@ -1921,9 +2035,323 @@
 	id = "specialwhiskey"
 	description = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	color = "#664300"
-	strength = 25
+	strength = 45
 
 	glass_icon_state = "whiskeyglass"
 	glass_name = "glass of special blend whiskey"
 	glass_desc = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	glass_center_of_mass = list("x"=16, "y"=12)
+
+/////////////////////////////////////////////////////////////////Brightdawns super cool coffee area//////////////////////////////////////////////
+
+
+/datum/reagent/drink/black_coffee
+	name = "Black Coffee"
+	id = "black_coffee"
+	description = "A rich strong roast, you think it could be a lot better if someone added something extra."
+	color = "#482000"
+	adj_dizzy = -6
+	adj_drowsy = -4
+	adj_sleepy = -3
+	adj_temp = 30
+	overdose = 40
+	caffeine = 0.4
+
+	glass_icon_state = "blackcoffee"
+	glass_name = "A mug of rich Black Coffee"
+	glass_desc = "A mug of a rich strong roast, you think it could be a lot better if someone added something extra to it."
+
+/datum/reagent/drink/white_coffee
+	name = "Café Au Lait"
+	id = "white_coffee"
+	description = "A fancy name for something thats just coffee and milk."
+	color = "#482000"
+	adj_dizzy = -6
+	adj_drowsy = -4
+	adj_sleepy = -3
+	adj_temp = 30
+	overdose = 40
+	caffeine = 0.3
+
+	glass_icon_state = "whitecoffee"
+	glass_name = "A mug of Café Au Lait"
+	glass_desc = "A fancy name for something thats just coffee and milk."
+
+/datum/reagent/drink/white_coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.5 * removed, 0)
+
+/datum/reagent/drink/cafe_melange
+	name = "Café Mélange"
+	id = "cafe_melange"
+	description = "A delicious mug of creamy coffee."
+	color = "#482000"
+	adj_dizzy = -6
+	adj_drowsy = -4
+	adj_sleepy = -3
+	adj_temp = 30
+	overdose = 40
+	caffeine = 0.3
+
+	glass_icon_state = "whitecoffee"
+	glass_name = "A mug of Café Mélange"
+	glass_desc = "A delicious mug of creamy coffee, keeps you cool headed in the most heated of situations."
+
+/datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.reagents.add_reagent("kelotane", removed * 0.2)
+
+//aurora unique drinks
+
+/datum/reagent/ethanol/daiquiri
+	name = "Daiquiri"
+	id = "daiquiri"
+	description = "Exotically blue, fruity drink, distilled from oranges."
+	color = "#664300"
+	strength = 15
+
+	glass_icon_state = "daiquiri"
+	glass_name = "glass of Daiquiri"
+	glass_desc = "A splendid looking cocktail."
+
+/datum/reagent/ethanol/icepick
+	name = "Ice Pick"
+	id = "icepick"
+	description = "Big. And red. Hmm...."
+	color = "#664300"
+	strength = 10
+
+	glass_icon_state = "icepick"
+	glass_name = "glass of Ice Pick"
+	glass_desc = "Big. And red. Hmm..."
+
+/datum/reagent/ethanol/poussecafe
+	name = "Pousse-Cafe"
+	id = "poussecafe"
+	description = "Smells of French and liquore."
+	color = "#664300"
+	strength = 15
+
+	glass_icon_state = "pousseecafe"
+	glass_name = "glass of Pousse-Cafe"
+	glass_desc = "Smells of French and liquore."
+
+/datum/reagent/ethanol/mintjulep
+	name = "Mint Julep"
+	id = "mintjulep"
+	description = "As old as time itself, but how does it taste?"
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "mintjulep"
+	glass_name = "glass of Mint Julep"
+	glass_desc = "As old as time itself, but how does it taste?"
+
+/datum/reagent/ethanol/johncollins
+	name = "John Collins"
+	id = "johncollins"
+	description = "Crystal clear, yellow, and smells of gin. How could this go wrong?"
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "johnscollins"
+	glass_name = "glass of John Collins"
+	glass_desc = "Named after a man, perhaps?"
+
+/datum/reagent/ethanol/gimlet
+	name = "Gimlet"
+	id = "gimlet"
+	description = "Small, elegant, and kicks."
+	color = "#664300"
+	strength = 13
+
+	glass_icon_state = "gimlet"
+	glass_name = "glass of Gimlet"
+	glass_desc = "Small, elegant, and packs a punch."
+
+/datum/reagent/ethanol/starsandstripes
+	name = "Stars and Stripes"
+	id = "starsandstripes"
+	description = "Someone, somewhere, is saluting."
+	color = "#664300"
+	strength = 10
+
+	glass_icon_state = "starsandstripes"
+	glass_name = "glass of Stars and Stripes"
+	glass_desc = "Someone, somewhere, is saluting."
+
+/datum/reagent/ethanol/metropolitan
+	name = "Metropolitan"
+	id = "metropolitan"
+	description = "What more could you ask for?"
+	color = "#664300"
+	strength = 27
+
+	glass_icon_state = "metropolitan"
+	glass_name = "glass of Metropolitan"
+	glass_desc = "What more could you ask for?"
+
+/datum/reagent/ethanol/caruso
+	name = "Caruso"
+	id = "caruso"
+	description = "Green, almost alien."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "caruso"
+	glass_name = "glass of Caruso"
+	glass_desc = "Green, almost alien."
+
+/datum/reagent/ethanol/aprilshower
+	name = "April Shower"
+	id = "aprilshower"
+	description = "Smells of brandy."
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "aprilshower"
+	glass_name = "glass of April Shower"
+	glass_desc = "Smells of brandy."
+
+/datum/reagent/ethanol/carthusiansazerac
+	name = "Carthusian Sazerac"
+	id = "carthusiansazerac"
+	description = "Whiskey and... Syrup?"
+	color = "#664300"
+	strength = 15
+
+	glass_icon_state = "carthusiansazerac"
+	glass_name = "glass of Carthusian Sazerac"
+	glass_desc = "Whiskey and... Syrup?"
+
+/datum/reagent/ethanol/deweycocktail
+	name = "Dewey Cocktail"
+	id = "deweycocktail"
+	description = "Colours, look at all the colours!"
+	color = "#664300"
+	strength = 25
+
+	glass_icon_state = "deweycocktail"
+	glass_name = "glass of Dewey Cocktail"
+	glass_desc = "Colours, look at all the colours!"
+
+/datum/reagent/ethanol/chartreusegreen
+	name = "Green Chartreuse"
+	id = "chartreusegreen"
+	description = "A green, strong liqueur."
+	color = "#664300"
+	strength = 40
+
+	glass_icon_state = "greenchartreuseglass"
+	glass_name = "glass of Green Chartreuse"
+	glass_desc = "A green, strong liqueur."
+
+/datum/reagent/ethanol/chartreuseyellow
+	name = "Yellow Chartreuse"
+	id = "chartreuseyellow"
+	description = "A yellow, strong liqueur."
+	color = "#664300"
+	strength = 40
+
+	glass_icon_state = "chartreuseyellowglass"
+	glass_name = "glass of Yellow Chartreuse"
+	glass_desc = "A yellow, strong liqueur."
+
+/datum/reagent/ethanol/cremewhite
+	name = "White Creme de Menthe"
+	id = "cremewhite"
+	description = "Mint-flavoured alcohol, in a bottle."
+	color = "#664300"
+	strength = 20
+
+	glass_icon_state = "whitecremeglass"
+	glass_name = "glass of White Creme de Menthe"
+	glass_desc = "Mint-flavoured alcohol."
+
+/datum/reagent/ethanol/cremeyvette
+	name = "Creme de Yvette"
+	id = "cremeyvette"
+	description = "Berry-flavoured alcohol, in a bottle."
+	color = "#664300"
+	strength = 20
+
+	glass_icon_state = "cremedeyvetteglass"
+	glass_name = "glass of Creme de Yvette"
+	glass_desc = "Berry-flavoured alcohol."
+
+/datum/reagent/ethanol/brandy
+	name = "Brandy"
+	id = "brandy"
+	description = "Cheap knock off for cognac."
+	color = "#664300"
+	strength = 40
+
+	glass_icon_state = "brandyglass"
+	glass_name = "glass of Brandy"
+	glass_desc = "Cheap knock off for cognac."
+
+/datum/reagent/ethanol/guinnes
+	name = "Guinness"
+	id = "guinnes"
+	description = "Special Guinnes drink."
+	color = "#2E6671"
+	strength = 8
+
+	glass_icon_state = "guinnes_glass"
+	glass_name = "glass of Guinness"
+	glass_desc = "A glass of Guinness."
+
+/datum/reagent/ethanol/drambuie
+	name = "Drambuie"
+	id = "drambuie"
+	description = "A drink that smells like whiskey but tastes different."
+	color = "#2E6671"
+	strength = 40
+
+	glass_icon_state = "drambuieglass"
+	glass_name = "glass of Drambuie"
+	glass_desc = "A drink that smells like whiskey but tastes different."
+
+/datum/reagent/ethanol/oldfashioned
+	name = "Old Fashioned"
+	id = "oldfashioned"
+	description = "That looks like from sixties."
+	color = "#2E6671"
+	strength = 20
+
+	glass_icon_state = "oldfashioned"
+	glass_name = "glass of Old Fashioned"
+	glass_desc = "That looks like from sixties."
+
+/datum/reagent/ethanol/blindrussian
+	name = "Blind Russian"
+	id = "blindrussian"
+	description = "You can't see?"
+	color = "#2E6671"
+	strength = 40
+
+	glass_icon_state = "blindrussian"
+	glass_name = "glass of Blind Russian"
+	glass_desc = "You can't see?"
+
+/datum/reagent/ethanol/rustynail
+	name = "Rusty Nail"
+	id = "rustynail"
+	description = "Smells like lemon."
+	color = "#2E6671"
+	strength = 25
+
+	glass_icon_state = "rustynail"
+	glass_name = "glass of Rusty Nail"
+	glass_desc = "Smells like lemon."
+
+/datum/reagent/ethanol/tallrussian
+	name = "Tall Black Russian"
+	id = "tallrussian"
+	description = "Just like black russian but taller."
+	color = "#2E6671"
+	strength = 25
+
+	glass_icon_state = "tallblackrussian"
+	glass_name = "glass of Tall Black Russian"
+	glass_desc = "Just like black russian but taller."

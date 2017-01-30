@@ -1,18 +1,3 @@
-/obj/item/weapon/banhammer
-	desc = "banhammer"
-	name = "banhammer"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "toyhammer"
-	slot_flags = SLOT_BELT
-	throwforce = 0
-	w_class = 2.0
-	throw_speed = 7
-	throw_range = 15
-	attack_verb = list("banned")
-
-	suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is hitting \himself with the [src.name]! It looks like \he's trying to ban \himself from life.</span>"
-		return (BRUTELOSS|FIRELOSS|TOXLOSS|OXYLOSS)
 
 /obj/item/weapon/nullrod
 	name = "null rod"
@@ -26,16 +11,10 @@
 	throwforce = 10
 	w_class = 2
 
-	suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is impaling \himself with the [src.name]! It looks like \he's trying to commit suicide.</span>"
-		return (BRUTELOSS|FIRELOSS)
-
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
-
-	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(M)
 
 	if (!(istype(user, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
 		user << "<span class='danger'>You don't have the dexterity to do this!</span>"
@@ -47,7 +26,7 @@
 		user.Paralyse(20)
 		return
 
-	if (M.stat !=2 && ishuman(M))
+	if (M.stat !=2 && ishuman(M) && user.a_intent != I_HURT)
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(33))
 			if(do_after(user, 15))
@@ -55,7 +34,7 @@
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message("\red The gaze in [K]'s eyes remains determined.", "\blue You turn away from the light, remaining true to your dark lord. The light burns you due to rejection!")
+						K.visible_message("\red The gaze in [K]'s eyes remains determined.", "\blue You turn away from the light, remaining true to your dark lord. <b>Anathema!</b>")
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 					if("Give in")
@@ -65,11 +44,6 @@
 			else
 				user.visible_message("\red [user]'s concentration is broken!", "\red Your concentration is broken! You and your target need to stay uninterrupted for longer!")
 				return
-		else if(M.mind && M.mind.vampire)
-			if(!(VAMP_FULL in M.mind.vampire.powers))
-				user << "\red The rod burns cold in your hand, filling you with grim determination.  You feel the creature's power weaken."
-				M << "<span class='warning'>The nullrod's power interferes with your own!  They are on to you!</span>"
-				M.mind.vampire.nullified = max(8, M.mind.vampire.nullified + 8)
 		else if(prob(10))
 			user << "<span class='danger'>The rod slips in your hand.</span>"
 			..()
@@ -77,6 +51,13 @@
 			user << "<span class='danger'>The rod appears to do nothing.</span>"
 			M.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [M]'s head.</span>")
 			return
+		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Is being deconverted with the [src.name] by [user.name] ([user.ckey])</font>")
+		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attempt to deconvert [M.name] ([M.ckey])</font>")
+
+		msg_admin_attack("[key_name(user)] attempted to deconvert [key_name(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+
+	else
+		return ..()
 
 /obj/item/weapon/nullrod/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
@@ -84,27 +65,6 @@
 	if (istype(A, /turf/simulated/floor))
 		user << "<span class='notice'>You hit the floor with the [src].</span>"
 		call(/obj/effect/rune/proc/revealrunes)(src)
-
-/obj/item/weapon/sord
-	name = "\improper SORD"
-	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
-	icon_state = "sord"
-	item_state = "sord"
-	slot_flags = SLOT_BELT
-	force = 2
-	throwforce = 1
-	sharp = 1
-	edge = 1
-	w_class = 3
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-
-	suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is impaling \himself with the [src.name]! It looks like \he's trying to commit suicide.</span>"
-		return(BRUTELOSS)
-
-/obj/item/weapon/sord/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
-	return ..()
 
 /obj/item/weapon/energy_net
 	name = "energy net"
@@ -222,7 +182,7 @@
 	qdel(src)
 
 /obj/effect/energy_net/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.damage
+	health -= Proj.get_structure_damage()
 	healthcheck()
 	return 0
 
@@ -230,16 +190,9 @@
 	health = 0
 	healthcheck()
 
-/obj/effect/energy_net/blob_act()
-	health = 0
-	healthcheck()
-
-/obj/effect/energy_net/meteorhit()
-	health = 0
-	healthcheck()
-
 /obj/effect/energy_net/attack_hand(var/mob/user)
 
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/mob/living/carbon/human/H = user
 	if(istype(H))
 		if(H.species.can_shred(H))
@@ -262,3 +215,49 @@
 	health -= W.force
 	healthcheck()
 	..()
+
+/obj/item/weapon/canesword
+	name = "thin sword"
+	desc = "A thin, sharp blade with an elegant handle."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "canesword"
+	item_state = "canesword"
+	force = 20
+	throwforce = 5
+	w_class = 4
+	sharp = 1
+	edge = 1
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	contained_sprite = 1
+
+/obj/item/weapon/sord
+	name = "\improper SORD"
+	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
+	icon_state = "sord"
+	item_state = "sord"
+	slot_flags = SLOT_BELT
+	force = 2
+	throwforce = 1
+	sharp = 1
+	edge = 1
+	w_class = 3
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+
+/obj/item/weapon/banhammer
+	desc = "banhammer"
+	name = "banhammer"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "toyhammer"
+	slot_flags = SLOT_BELT
+	throwforce = 0
+	w_class = 2.0
+	throw_speed = 7
+	throw_range = 15
+	attack_verb = list("banned")
+
+/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
+	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
+	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
+	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

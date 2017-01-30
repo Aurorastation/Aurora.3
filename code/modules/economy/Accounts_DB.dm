@@ -3,7 +3,7 @@
 	name = "Accounts uplink terminal"
 	desc = "Access transaction logs, account data and all kinds of other financial records."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "aiupload"
+	icon_state = "account_uplink"
 	density = 1
 	req_one_access = list(access_hop, access_captain, access_cent_captain)
 	anchored = 1
@@ -199,9 +199,10 @@
 
 			if("print")
 				var/text
-				var/obj/item/weapon/paper/P = new(loc)
+				var/obj/item/weapon/paper/P = new()
+				var/pname
 				if (detailed_account_view)
-					P.name = "account #[detailed_account_view.account_number] details"
+					pname = "account #[detailed_account_view.account_number] details"
 					var/title = "Account #[detailed_account_view.account_number] Details"
 					text = {"
 						[accounting_letterhead(title)]
@@ -239,7 +240,7 @@
 						"}
 
 				else
-					P.name = "financial account list"
+					pname = "financial account list"
 					text = {"
 						[accounting_letterhead("Financial Account List")]
 
@@ -271,7 +272,7 @@
 						</table>
 					"}
 
-				P.info = text
-				state("The terminal prints out a report.")
+				P.set_content_unsafe(pname, text)
+				print(P)
 
 	return 1

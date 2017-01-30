@@ -27,6 +27,7 @@
 	storage_slots = 6
 
 /obj/item/weapon/storage/box/evidence/New()
+	..()
 	for(var/i=0;i<storage_slots,i++)
 		new /obj/item/weapon/evidencebag(src)
 

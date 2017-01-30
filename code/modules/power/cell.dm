@@ -5,9 +5,15 @@
 /obj/item/weapon/cell/New()
 	..()
 	charge = maxcharge
+	update_icon()
 
 /obj/item/weapon/cell/initialize()
 	..()
+	update_icon()
+
+/obj/item/weapon/cell/Created()
+	//Newly built cells spawn with no charge to prevent power exploits
+	charge = 0
 	update_icon()
 
 /obj/item/weapon/cell/drain_power(var/drain_check, var/surge, var/power = 0)
@@ -44,6 +50,9 @@
 
 // use power from a cell, returns the amount actually used
 /obj/item/weapon/cell/proc/use(var/amount)
+	if (gcDestroyed)
+		return 0
+
 	if(rigged && amount > 0)
 		explode()
 		return 0
@@ -61,18 +70,15 @@
 
 // recharge the cell
 /obj/item/weapon/cell/proc/give(var/amount)
+	if (gcDestroyed)
+		return 0
+
 	if(rigged && amount > 0)
 		explode()
 		return 0
 
 	if(maxcharge < amount)	return 0
 	var/amount_used = min(maxcharge-charge,amount)
-	if(crit_fail)	return 0
-	if(!prob(reliability))
-		minor_fault++
-		if(prob(minor_fault))
-			crit_fail = 1
-			return 0
 	charge += amount_used
 	return amount_used
 
@@ -85,8 +91,6 @@
 		user << "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge], and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%."
 	else
 		user << "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]!\nThe charge meter reads [round(src.percent() )]%."
-	if(crit_fail)
-		user << "\red This power cell seems to be faulty."
 
 /obj/item/weapon/cell/attackby(obj/item/W, mob/user)
 	..()
@@ -103,7 +107,15 @@
 			message_admins("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.")
 
 		S.reagents.clear_reagents()
+	else if(istype(W, /obj/item/device/assembly_holder))
+		var/obj/item/device/assembly_holder/assembly = W
+		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
+			user.drop_item()
+			user.drop_from_inventory(src)
 
+			new /obj/item/device/radiojammer/improvised(assembly, src, user)
+		else
+			user << "<span class='notice'>You'd need both devices to be signallers for this to work.</span>"
 
 /obj/item/weapon/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)
@@ -147,8 +159,6 @@
 	charge -= maxcharge / severity
 	if (charge < 0)
 		charge = 0
-	if(reliability != 100 && prob(50/severity))
-		reliability -= 10 / severity
 	..()
 
 /obj/item/weapon/cell/ex_act(severity)
@@ -170,10 +180,6 @@
 			if (prob(25))
 				corrupt()
 	return
-
-/obj/item/weapon/cell/blob_act()
-	if(prob(75))
-		explode()
 
 /obj/item/weapon/cell/proc/get_electrocute_damage()
 	switch (charge)

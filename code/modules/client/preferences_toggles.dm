@@ -146,52 +146,46 @@
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2)
 	feedback_add_details("admin_verb","TAmbi") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-//be special
-/client/verb/toggle_be_special(role in be_special_flags)
-	set name = "Toggle SpecialRole Candidacy"
+/client/verb/toggle_space_parallax()
+	set name = "Show/Hide Space Parallax"
 	set category = "Preferences"
-	set desc = "Toggles which special roles you would like to be a candidate for, during events."
-	var/role_flag = be_special_flags[role]
-	if(!role_flag)	return
-	prefs.be_special ^= role_flag
+	set desc = "Toggles space parallax effects."
+	prefs.parallax_togs ^= PARALLAX_SPACE
 	prefs.save_preferences()
-	src << "You will [(prefs.be_special & role_flag) ? "now" : "no longer"] be considered for [role] events (where possible)."
-	feedback_add_details("admin_verb","TBeSpecial") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	if (prefs.parallax_togs & PARALLAX_SPACE)
+		src << "You will now see space parallax effects."
+	else
+		src << "You will no longer see space parallax effects."
+	
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
 
 
-/client/verb/change_ui()
-	set name = "Change UI"
+/client/verb/toggle_space_dust()
+	set name = "Show/Hide Space Dust"
 	set category = "Preferences"
-	set desc = "Configure your user interface"
+	set desc = "Toggles space parallax dust."
+	prefs.parallax_togs ^= PARALLAX_DUST
+	prefs.save_preferences()
+	if (prefs.parallax_togs & PARALLAX_DUST)
+		src << "You will now see space parallax dust effects."
+	else
+		src << "You will no longer see space parallax dust effects."
+	
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
 
-	if(!ishuman(usr))
-		usr << "This only for human"
+/client/verb/set_parallax_speed()
+	set name = "Set Parallax Speed"
+	set category = "Preferences"
+	set desc = "Sets the movement speed of the space parallax effect."
+	var/choice = input("What speed do you want to use for space parallax? (default 2)", "SPAAACE") as num|null
+	if (!choice || choice < 0)
+		src << "Invalid input."
 		return
 
-	var/UI_style_new = input(usr, "Select a style, we recommend White for customization") in list("White", "Midnight", "Orange", "old")
-	if(!UI_style_new) return
+	prefs.parallax_speed = choice
+	prefs.save_preferences()
 
-	var/UI_style_alpha_new = input(usr, "Select a new alpha(transparence) parametr for UI, between 50 and 255") as num
-	if(!UI_style_alpha_new | !(UI_style_alpha_new <= 255 && UI_style_alpha_new >= 50)) return
-
-	var/UI_style_color_new = input(usr, "Choose your UI color, dark colors are not recommended!") as color|null
-	if(!UI_style_color_new) return
-
-	//update UI
-	var/list/icons = usr.hud_used.adding + usr.hud_used.other +usr.hud_used.hotkeybuttons
-	icons.Add(usr.zone_sel)
-
-	for(var/obj/screen/I in icons)
-		if(I.name in list(I_HELP, I_HURT, I_DISARM, I_GRAB)) continue
-		I.icon = ui_style2icon(UI_style_new)
-		I.color = UI_style_color_new
-		I.alpha = UI_style_alpha_new
-
-
-
-	if(alert("Like it? Save changes?",,"Yes", "No") == "Yes")
-		prefs.UI_style = UI_style_new
-		prefs.UI_style_alpha = UI_style_alpha_new
-		prefs.UI_style_color = UI_style_color_new
-		prefs.save_preferences()
-		usr << "UI was saved"
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()

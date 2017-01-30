@@ -1,0 +1,24 @@
+{{if data.screen == 0}}
+		{{for data.beacons}}
+			<hr>
+			<b>Name:</b> {{:value.name}}<br>
+			<b>Integrity:</b> {{:value.health}}%<br>
+			<b>Cell charge:</b> {{:value.charge}}<br>
+			<b>Airtank:</b> {{:value.air}}kPa<br>
+			<b>Pilot:</b> {{:value.pilot || "None"}}<br>
+			<b>Location:</b> {{:value.location}}<br>
+			<b>Active equipment:</b> {{:value.active}}<br>
+			{{:helper.link("Send Message", null, {'send_message' : value.ref}, (value.pilot) ? null : 'disabled')}}
+			{{:helper.link("Get Log", null, {'get_log' : value.ref})}}
+			{{if value.control == 1}}
+				{{:helper.link("Terminate", null, {'shock' : value.ref})}}
+			{{/if}}
+		{{empty}}
+			<hr>
+			No active beacons detected
+		{{/for}}
+{{else}}
+	<h3>Log Contents</h3><br><hr>
+	{{:helper.link("Return", null, {'return' : 0})}}<br>
+	{{:data.log}}
+{{/if}}

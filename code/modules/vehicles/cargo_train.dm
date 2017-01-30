@@ -55,7 +55,7 @@
 
 	if(is_train_head() && !on)
 		return 0
-	
+
 	//space check ~no flying space trains sorry
 	if(on && istype(destination, /turf/space))
 		return 0
@@ -79,12 +79,13 @@
 		return
 	..()
 
-//cargo trains are open topped, so there is a chance the projectile will hit the mob ridding the train instead
+// Cargo trains are open topped, so you can shoot at the driver.
+// Or you can shoot at the tug itself, if you're good.
 /obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
-	if(buckled_mob && prob(70))
+	if (buckled_mob && Proj.original == buckled_mob)
 		buckled_mob.bullet_act(Proj)
-		return
-	..()
+	else
+		..()
 
 /obj/vehicle/train/cargo/update_icon()
 	if(open)
@@ -358,8 +359,8 @@
 	else
 		move_delay = max(0, (-car_limit * active_engines) + train_length - active_engines)	//limits base overweight so you cant overspeed trains
 		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
-		move_delay += config.run_speed 														//base reference speed
-		move_delay *= 1.1																	//makes cargo trains 10% slower than running when not overweight
+		move_delay += config.walk_speed 													//base reference speed
+		move_delay *= config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length

@@ -5,7 +5,7 @@
 	maxHealth = 50
 	health = 50
 	req_one_access = list(access_security, access_forensics_lockers)
-	botcard_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court)
+	botcard_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels)
 
 	var/mob/target
 
@@ -39,7 +39,7 @@
 	var/next_destination = "__nearest__"	// This is the next beacon's ID
 	var/nearest_beacon				// Tag of the beakon that we assume to be the closest one
 
-	var/bot_version = 1.3
+	var/bot_version = 1.4
 	var/list/threat_found_sounds = new('sound/voice/bcriminal.ogg', 'sound/voice/bjustice.ogg', 'sound/voice/bfreeze.ogg')
 	var/list/preparing_arrest_sounds = new('sound/voice/bgod.ogg', 'sound/voice/biamthelaw.ogg', 'sound/voice/bsecureday.ogg', 'sound/voice/bradio.ogg', 'sound/voice/binsult.ogg', 'sound/voice/bcreep.ogg')
 
@@ -70,7 +70,15 @@
 	else
 		icon_state = "secbot[on]"
 
+	if(on)
+		set_light(1.4, 1, "#FF6A00")
+	else
+		set_light(0)
+
 /mob/living/bot/secbot/attack_hand(var/mob/user)
+	if (!has_ui_access(user))
+		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		return
 	user.set_machine(src)
 	var/dat
 	dat += "<TT><B>Automatic Security Unit v[bot_version]</B></TT><BR><BR>"
@@ -95,11 +103,18 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	if((href_list["power"]) && (access_scanner.allowed(usr)))
+	if (!has_ui_access(usr))
+		usr << "<span class='warning'>Insufficient permissions.</span>"
+		return
+
+	if(href_list["power"])
 		if(on)
 			turn_off()
 		else
 			turn_on()
+		attack_hand(usr)
+
+	if (locked && !issilicon(usr))
 		return
 
 	switch(href_list["operation"])
@@ -488,6 +503,7 @@
 		user << "You add the signaler to the helmet."
 		user.drop_from_inventory(src)
 		qdel(src)
+		return 1
 	else
 		return
 
@@ -508,6 +524,7 @@
 			build_step = 1
 			overlays += image('icons/obj/aibots.dmi', "hs_hole")
 			user << "You weld a hole in \the [src]."
+			return 1
 
 	else if(isprox(O) && (build_step == 1))
 		user.drop_item()
@@ -516,6 +533,7 @@
 		overlays += image('icons/obj/aibots.dmi', "hs_eye")
 		name = "helmet/signaler/prox sensor assembly"
 		qdel(O)
+		return 1
 
 	else if((istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm)) && build_step == 2)
 		user.drop_item()
@@ -524,6 +542,7 @@
 		name = "helmet/signaler/prox sensor/robot arm assembly"
 		overlays += image('icons/obj/aibots.dmi', "hs_arm")
 		qdel(O)
+		return 1
 
 	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
 		user.drop_item()
@@ -532,6 +551,7 @@
 		S.name = created_name
 		qdel(O)
 		qdel(src)
+		return 1
 
 	else if(istype(O, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)

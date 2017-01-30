@@ -52,3 +52,11 @@
 	..()
 	pixel_x += rand(-10, 10)
 	pixel_y += rand(-10, 10)
+
+/obj/effect/overlay/snow
+	name = "snow"
+	icon = 'icons/turf/overlays.dmi'
+	icon_state = "snowfloor"
+	density = 0
+	anchored = 1
+	layer = 3

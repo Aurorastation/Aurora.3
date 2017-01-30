@@ -20,6 +20,26 @@
 /spell/targeted/harvest/cast(list/targets, mob/user)//because harvest is already a proc
 	..()
 
+	for(var/obj/O in range(1,user))
+		O.cultify()
+	for(var/turf/T in range(1,user))
+		var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
+		animation.name = "conjure"
+		animation.density = 0
+		animation.anchored = 1
+		animation.icon = 'icons/effects/effects.dmi'
+		animation.layer = 3
+		animation.master = T
+		if(istype(T,/turf/simulated/wall))
+			animation.icon_state = "cultwall"
+			flick("cultwall",animation)
+		else
+			animation.icon_state = "cultfloor"
+			flick("cultfloor",animation)
+		spawn(10)
+			qdel(animation)
+		T.cultify()
+
 	var/destination = null
 	for(var/obj/singularity/narsie/large/N in narsie_list)
 		destination = N.loc

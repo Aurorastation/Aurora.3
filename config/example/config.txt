@@ -25,13 +25,17 @@ JOBS_HAVE_MINIMAL_ACCESS
 ## you have noone older than 0 days, since noone has been logged yet. Only turn this on once you have had the database up for 30 days.
 #USE_AGE_RESTRICTION_FOR_JOBS
 
+## Unhash this entry to have certain antag roles require your account to be at least a certain number of days old for round start and auto-spawn selection.
+## Non-automatic antagonist recruitment, such as being converted to cultism is not affected. Has the same database requirements and notes as USE_AGE_RESTRICTION_FOR_JOBS.
+#USE_AGE_RESTRICTION_FOR_ANTAGS
+
 ## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
 #USE_RECURSIVE_EXPLOSIONS
 
 ## log OOC channel
 LOG_OOC
 
-## log client Say 
+## log client Say
 LOG_SAY
 
 ## log admin actions
@@ -58,11 +62,17 @@ LOG_ATTACK
 ## log pda messages
 LOG_PDA
 
+## log world.log messages
+# LOG_WORLD_OUTPUT
+
 ## log all Topic() calls (for use by coders in tracking down Topic issues)
 # LOG_HREFS
 
-## log world.log and runtime errors to a file
-# LOG_RUNTIME
+## log runtime errors and hard-deletes to a file
+## 0 - no such logging will be done. (Same effect if simply commented out.)
+## 1 - all runtimes and hard-deletes will be logged to a file.
+## 2 - all runtimes will also be broadcast to log_debug() to make them easier to spot ingame.
+# LOG_RUNTIME 0
 
 ## log admin warning messages
 ##LOG_ADMINWARN  ## Also duplicates a bunch of other messages.
@@ -93,7 +103,7 @@ MOD_JOB_TEMPBAN_MAX 1440
 
 
 ## probablities for game modes chosen in "secret" and "random" modes
-## 
+##
 ## default probablity is 1, increase to make that mode more likely to be picked
 ## set to 0 to disable that mode
 PROBABILITY EXTENDED 1
@@ -148,6 +158,9 @@ VOTE_AUTOTRANSFER_INTERVAL 36000
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
 VOTE_AUTOGAMEMODE_TIMELEFT 100
+
+## min delay (deciseconds) before a transfer vote can be called (default 120 minutes)
+TRANSFER_TIMEOUT 72000
 
 ## prevents dead players from voting or starting votes
 #NO_DEAD_VOTE
@@ -213,7 +226,7 @@ GUEST_BAN
 ##Remove the # mark infront of this to forbid admins from posssessing the singularity.
 #FORBID_SINGULO_POSSESSION
 
-## Remove the # to show a popup 'reply to' window to every non-admin that recieves an adminPM. 
+## Remove the # to show a popup 'reply to' window to every non-admin that recieves an adminPM.
 ## The intention is to make adminPMs more visible. (although I fnd popups annoying so this defaults to off)
 #POPUP_ADMIN_PM
 
@@ -247,6 +260,15 @@ GATEWAY_DELAY 18000
 ## Uncomment to restrict non-admins from using humanoid alien races
 USEALIENWHITELIST
 
+## Comment this to disable automated station night lighting
+NIGHT_LIGHTING
+
+## Hour when the station night lighting is disabled (if above is enabled)
+NL_FINISH_HOUR 8
+
+## Hour when the station night lighting is enabled (if above is enabled)
+NL_START_HOUR 19
+
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2
 ##Remove the # to let ghosts spin chairs
@@ -254,21 +276,6 @@ USEALIENWHITELIST
 
 ## Password used for authorizing ircbot and other external tools.
 #COMMS_PASSWORD
-
-## Uncomment to enable sending data to the IRC bot.
-#USE_IRC_BOT
-
-## Uncomment if the IRC bot requires using world.Export() instead of nudge.py/libnudge
-#IRC_BOT_EXPORT
-
-## Host where the IRC bot is hosted.  Port 45678 needs to be open.
-#IRC_BOT_HOST localhost
-
-## IRC channel to send information to.  Leave blank to disable.
-#MAIN_IRC #main
-
-## IRC channel to send adminhelps to.  Leave blank to disable adminhelps-to-irc.
-#ADMIN_IRC #admin
 
 ## Path to the python2 executable on the system.  Leave blank for default.
 ## Default is "python" on Windows, "/usr/bin/env python2" on UNIX.
@@ -290,7 +297,7 @@ CHARACTER_SLOTS 10
 ## Uncomment to use overmap system for zlevel travel
 #USE_OVERMAP
 
-## Defines which Z-levels the station exists on. 
+## Defines which Z-levels the station exists on.
 STATION_LEVELS 1
 
 ## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle
@@ -348,7 +355,10 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Uncomment to disable respawning by default.
 #DISABLE_RESPAWN
 
-## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lightning systems.
+## Respawn delay in minutes before one may respawn as a crew member.
+#RESPAWN_DELAY 30
+
+## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lighting systems.
 STARLIGHT 0
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
@@ -370,3 +380,54 @@ STARLIGHT 0
 
 ## Uncomment to override default brain health.
 #DEFAULT_BRAIN_HEALTH 400
+
+## Uncomment this to upload round statistics to the SQL database.
+# SQL_STATS
+
+## Uncomment this to house whitelists on the SQL database.
+# SQL_WHITELISTS
+
+## Uncomment this to house player preferences and characters on the SQL database.
+# SQL_SAVES
+
+## Uncomment this to use the discord bot.
+# USE_DISCORD_BOT
+
+## The host address of the discord bot.
+# DISCORD_BOT_HOST
+
+## The port number which the discord bot is listening for nudges.
+# DISCORD_BOT_PORT
+
+## Uncomment this and fill in the web interface's URL to use the web interface.
+# WEBINT_URL http://www.address.com/
+
+## Client version control settings.
+## Sets the minimum required BYOND version to play, as well as a warning version, and a message for both.
+## These checks are non-inclusive, so 510 will trigger on 509 or lower.
+## If the error version is triggered, access is denied. Warning message will simply pester.
+#CLIENT_ERROR_VERSION 509
+#CLIENT_ERROR_MESSAGE Your version of BYOND is not supported. Please upgrade.
+#CLIENT_WARN_VERSION 510
+#CLIENT_WARN_MESSAGE BYOND is really close to releasing 510 beta as a stable release, please take time to try it out. Reports are that the client preforms better then the version you are using, and also handles network lag better. Shortly after it's release we will end up using 510 client features and you will be forced to update.
+
+## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
+#ALLOW_CHAT_MARKUP
+
+## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and - 
+# DEFAULT_LANGUAGE_PREFIXES , # -
+
+## A ; separated list of lobby screens to randomly pick from. The listed screens must exist as icon states in '/icons/misc/title.dmi'.
+## Defaults to 'title' if left unset.
+# LOBBY_SCREENS title
+
+## Uncomment to enable the antag contest!
+#ANTAG_CONTEST_ENABLED
+
+## API Rate Limit in ds
+API_RATE_LIMIT 50
+
+## API Rate Limit IP Whitelist
+## IPs that should not be throttled by the API RATE Limiter
+## IPs are separated by ;
+API_RATE_LIMIT_WHITELIST 127.0.0.1

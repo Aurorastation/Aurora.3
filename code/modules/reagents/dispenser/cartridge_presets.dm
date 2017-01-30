@@ -10,18 +10,17 @@
 	sugar		spawn_reagent = "sugar"
 
 	// Chemistry
-	hydrogen	spawn_reagent = "hydrogen"
+	hydrazine	spawn_reagent = "hydrazine"
 	lithium		spawn_reagent = "lithium"
 	carbon		spawn_reagent = "carbon"
-	nitrogen	spawn_reagent = "nitrogen"
-	oxygen		spawn_reagent = "oxygen"
-	fluorine	spawn_reagent = "fluorine"
+	ammonia		spawn_reagent = "ammonia"
+	acetone		spawn_reagent = "acetone"
 	sodium		spawn_reagent = "sodium"
 	aluminum	spawn_reagent = "aluminum"
 	silicon		spawn_reagent = "silicon"
 	phosphorus	spawn_reagent = "phosphorus"
 	sulfur		spawn_reagent = "sulfur"
-	chlorine	spawn_reagent = "chlorine"
+	hclacid		spawn_reagent = "hclacid"
 	potassium	spawn_reagent = "potassium"
 	iron		spawn_reagent = "iron"
 	copper		spawn_reagent = "copper"
@@ -61,6 +60,7 @@
 	orange		spawn_reagent = "orangejuice"
 	lime		spawn_reagent = "limejuice"
 	watermelon	spawn_reagent = "watermelonjuice"
+	coffee_beans  	spawn_reagent = "black_coffee"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"

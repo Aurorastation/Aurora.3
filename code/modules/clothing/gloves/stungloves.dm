@@ -74,6 +74,7 @@
 			if("exclude" in species_restricted)
 				species_restricted -= "Unathi"
 				species_restricted -= "Tajara"
+				species_restricted -= "Vaurca"
 			return
 		else
 			user << "<span class='notice'>The [src] have already been clipped!</span>"

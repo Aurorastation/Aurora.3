@@ -1,23 +1,37 @@
 /datum/controller/process/mob
 	var/tmp/datum/updateQueue/updateQueueInstance
+	var/tmp/list/queue = list()
+	var/normal_exit = TRUE
 
 /datum/controller/process/mob/setup()
 	name = "mob"
-	schedule_interval = 20 // every 2 seconds
-	updateQueueInstance = new
+	schedule_interval = 2 SECONDS // every 2 seconds
+	start_delay = 16
 
 /datum/controller/process/mob/started()
 	..()
-	if(!updateQueueInstance)
-		if(!mob_list)
-			mob_list = list()
-		else if(mob_list.len)
-			updateQueueInstance = new
+	if(!mob_list)
+		mob_list = list()
 
 /datum/controller/process/mob/doWork()
-	if(updateQueueInstance)
-		updateQueueInstance.init(mob_list, "Life")
-		updateQueueInstance.Run()
+	if (normal_exit)
+		queue = mob_list.Copy()
 
-/datum/controller/process/mob/getStatName()
-	return ..()+"([mob_list.len])"
+	normal_exit = FALSE
+
+	while (queue.len)
+		var/mob/M = queue[queue.len]
+		queue.len--
+
+		if (!M || M.gcDestroyed)
+			mob_list -= M
+			continue
+
+		M.Life()
+		F_SCHECK
+
+	normal_exit = TRUE
+
+/datum/controller/process/mob/statProcess()
+	..()
+	stat(null, "[mob_list.len] mobs, [queue.len] queued")

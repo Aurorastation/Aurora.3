@@ -99,10 +99,12 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 
 	msg = "\blue <b><font color=red>Request for Help:: </font>[get_options_bar(mob, 3, 1, 1)][ai_cl]:</b> [msg]"
 
+	var/admin_number_present = 0
 	var/admin_number_afk = 0
 
 	for(var/client/X in admins)
 		if((R_ADMIN|R_MOD) & X.holder.rights)
+			admin_number_present++
 			if(X.is_afk())
 				admin_number_afk++
 			if(X.prefs.toggles & SOUND_ADMINHELP)
@@ -113,9 +115,9 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	//show it to the person adminhelping too
 	src << "<font color='blue'>PM to-<b>Staff </b>: [original_msg]</font>"
 
-	var/admin_number_present = admins.len - admin_number_afk
+	var/admin_number_active = admin_number_present - admin_number_afk
 	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.")
-	if(admin_number_present <= 0)
-		send_to_admin_discord("@everyone Request for Help from [key_name(src)]: [html_decode(original_msg)] - !![admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!")
+	if(admin_number_active <= 0)
+		discord_bot.send_to_admins("@everyone Request for Help from [key_name(src)]: [html_decode(original_msg)] - !![admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!")
 	feedback_add_details("admin_verb","AH") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

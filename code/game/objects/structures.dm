@@ -1,5 +1,6 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
+	w_class = 10
 
 	var/climbable
 	var/breakable
@@ -28,13 +29,6 @@
 
 	return ..()
 
-/obj/structure/blob_act()
-	if(prob(50))
-		qdel(src)
-
-/obj/structure/meteorhit(obj/O as obj)
-	qdel(src)
-
 /obj/structure/attack_tk()
 	return
 
@@ -50,11 +44,9 @@
 		if(3.0)
 			return
 
-/obj/structure/meteorhit(obj/O as obj)
-	qdel(src)
-
 /obj/structure/New()
 	..()
+	updateVisibility(src)
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
 

@@ -1,0 +1,99 @@
+<style>
+	.lb{border-left: #222222 solid 6px;}
+	.rb{border-right: #222222 solid 6px;}
+	.tile, .lb,.rb,.nb{width: 32px; text-align: center; font-size: 24px; color: #5555DD}
+	.tb{border-top: #222222 solid 5px;}
+	.bb{border-bottom: #222222 solid 5px;}
+	.nanoformbutton{height: 22px; float: left; text-align: center; color: #ffffff; text-decoration: none;
+    background: #40628a; border: 1px solid #161616; margin: 0 2px 2px 0;cursor: default;white-space: nowrap;}
+</style>
+
+
+<script>
+function autosubmit() 
+{
+    document.forms["grid"].submit();
+}
+</script>
+
+<table id="page"><tr><td>
+	<form name="grid" method="get" action='?src={{:data.src}}' style="margin:0;">
+		<input type='hidden' name='src' value='{{:data.src}}'>
+		<input type='hidden' name='save' value='{{:data.src}}'>
+		<table id="board" class="board" cellspacing="0" cellpadding="0">
+			<tr class="tb">
+			{{for data.grid}}
+				
+				<td id="{{:value.id}}" class="
+				{{if (value.column == 1 || value.column == 4 || value.column == 7)}}
+					lb
+				{{else (value.column == 9)}}
+					rb
+				{{else}}
+					nb
+				{{/if}}
+				
+				{{if (value.row == 1 || value.row == 4 || value.row == 7)}}
+					 tb
+				{{else (value.row == 9)}}
+					 bb 
+				{{/if}}
+				">
+				
+				<input onkeyup="autosubmit()" type="number" min="1" max="9" class="tile" name="{{:value.index}}" id="{{:value.id}}" maxlength="1" value="{{:value.value}}"
+				{{if value.static}}
+				readonly="1" style="color: #000000"
+				{{/if}}
+				{{if value.highlight}}
+				style="background-color: #ff8888";
+				{{/if}}
+				>
+				</td>
+				{{if value.column == 9}}
+					</tr>
+					{{if value.row < 9}}
+						<tr>
+					{{/if}}
+				{{/if}}
+			{{/for}}
+		</table>
+		<br>
+		<!-- <input type='submit' class="nanoformbutton" value='Check'>	-->
+		{{:helper.link("Check", null, {'check' : value.ref})}} 
+		{{:helper.link("Reset Grid", null, {'clear' : value.ref})}}
+		{{:helper.link((data.collapse) ? "Expand" : "Collapse", null, {'collapse' : value.ref})}}
+	</form>
+	</td>
+	{{if data.collapse == 0}}
+		<td style="vertical-align: top;">
+		<table>
+			<tr><td>
+			<div>Sudoku is a classic human game of logic and deduction originating from Earth, in the Sol system. Invented in 19th century France and later popularised in 20th century Japan, where the name originates. It has proven a popular and diverting pastime for almost 500 years.<br>
+			<br>
+			The object of the game is simple. Complete the board by filling in digits from 1 to 9, with the constraint that each digit can only appear once per row, once per column, and once per 3x3 subgrid. The solution can usually be figured out by a process of elimination: Carefully check each tile against those around it based on the above rules, and fill in the tiles where there is only one option. Each new tile filled is a clue to the value of other tiles!</div>
+			</td></tr>
+			<tr><td style="height:40px;">
+				{{if data.message}}
+					<div style="font-size: 18px; color: #7799cc;">{{:data.message}}</div>
+				{{/if}}
+			</td></tr>
+			<tr><td>
+				{{:helper.link("Hint", null, {'hint' : value.ref})}}
+			</td>
+			</tr>
+			<tr><td>
+				<div style="font-size: 18px;">Start a New Game</div>
+				<hr>
+
+				{{:helper.link("Easy", null, {'difficulty' : "Easy"}, data.difficulty == "Easy" ? 'selected' : null)}}
+				{{:helper.link("Medium", null, {'difficulty' : "Medium"}, data.difficulty == "Medium" ? 'selected' : null)}}
+				{{:helper.link("Hard", null, {'difficulty' : "Hard"}, data.difficulty == "Hard" ? 'selected' : null)}}
+				{{:helper.link("Robust", null, {'difficulty' : "Robust"}, data.difficulty == "Robust" ? 'selected' : null)}}
+				<br><br>
+				{{:helper.link("Generate Grid", null, {'newgame' : value.ref})}}
+			</td>
+			</tr>
+		</td>
+	{{/if}}
+	<tr>
+</table

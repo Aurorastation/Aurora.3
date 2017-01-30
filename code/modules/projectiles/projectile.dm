@@ -25,8 +25,8 @@
 	var/yo = null
 	var/xo = null
 	var/current = null
-	var/obj/shot_from = null // the object which shot us
-	var/atom/original = null // the original target clicked
+	var/shot_from = "" // name of the object which shot us
+	var/atom/original = null // the target clicked (not necessarily where the projectile is headed). Should probably be renamed to 'target' or something.
 	var/turf/starting = null // the projectile's starting turf
 	var/list/permutated = list() // we've passed through these atoms, don't try to hit them again
 
@@ -56,7 +56,9 @@
 	var/eyeblur = 0
 	var/drowsy = 0
 	var/agony = 0
+	var/incinerate = 0
 	var/embed = 0 // whether or not the projectile can embed itself in the mob
+	var/shrapnel_type //type of shrapnel the projectile leaves in its target.
 
 	var/hitscan = 0		// whether the projectile should be hitscan
 	var/step_delay = 1	// the delay between iterations if not a hitscan projectile
@@ -77,7 +79,12 @@
 	if(!isliving(target))	return 0
 	if(isanimal(target))	return 0
 	var/mob/living/L = target
-	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony, blocked) // add in AGONY!
+	if (agony && ishuman(target))
+		var/mob/living/carbon/human/H = target
+		var/obj/item/organ/external/organ = H.get_organ(def_zone)
+		var/armor = H.getarmor_organ(organ, check_armour)
+		agony = max(0, agony - armor)
+	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony, incinerate, blocked) // add in AGONY!
 	return 1
 
 //called when the projectile stops flying because it collided with something
@@ -91,6 +98,11 @@
 	if(!embed || damage_type != BRUTE)
 		return 0
 	return 1
+
+/obj/item/projectile/proc/get_structure_damage()
+	if(damage_type == BRUTE || damage_type == BURN)
+		return damage
+	return 0
 
 //return 1 if the projectile should be allowed to pass through after all, 0 if not.
 /obj/item/projectile/proc/check_penetrate(var/atom/A)
@@ -113,21 +125,13 @@
 		p_x = between(0, p_x + rand(-radius, radius), world.icon_size)
 		p_y = between(0, p_y + rand(-radius, radius), world.icon_size)
 
-//called to launch a projectile from a gun
-/obj/item/projectile/proc/launch(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
-	var/turf/curloc = get_turf(user)
+//called to launch a projectile
+/obj/item/projectile/proc/launch(atom/target, var/target_zone, var/x_offset=0, var/y_offset=0, var/angle_offset=0)
+	var/turf/curloc = get_turf(src)
 	var/turf/targloc = get_turf(target)
 	if (!istype(targloc) || !istype(curloc))
 		return 1
 
-	firer = user
-	def_zone = target_zone
-
-	if(user == target) //Shooting yourself
-		user.bullet_act(src, target_zone)
-		on_impact(user)
-		qdel(src)
-		return 0
 	if(targloc == curloc) //Shooting something in the same turf
 		target.bullet_act(src, target_zone)
 		on_impact(target)
@@ -135,31 +139,38 @@
 		return 0
 
 	original = target
-	loc = curloc
-	starting = curloc
-	current = curloc
-	yo = targloc.y - curloc.y + y_offset
-	xo = targloc.x - curloc.x + x_offset
-
-	shot_from = launcher
-	silenced = launcher.silenced
+	def_zone = target_zone
 
 	spawn()
+		setup_trajectory(curloc, targloc, x_offset, y_offset, angle_offset) //plot the initial trajectory
 		process()
 
 	return 0
 
+//called to launch a projectile from a gun
+/obj/item/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
+	if(user == target) //Shooting yourself
+		user.bullet_act(src, target_zone)
+		qdel(src)
+		return 0
+
+	loc = get_turf(user) //move the projectile out into the world
+
+	firer = user
+	shot_from = launcher.name
+	silenced = launcher.silenced
+
+	return launch(target, target_zone, x_offset, y_offset)
+
 //Used to change the direction of the projectile in flight.
 /obj/item/projectile/proc/redirect(var/new_x, var/new_y, var/atom/starting_loc, var/mob/new_firer=null)
-	original = locate(new_x, new_y, src.z)
-	starting = starting_loc
-	current = starting_loc
+	var/turf/new_target = locate(new_x, new_y, src.z)
+
+	original = new_target
 	if(new_firer)
 		firer = src
 
-	yo = new_y - starting_loc.y
-	xo = new_x - starting_loc.x
-	setup_trajectory()
+	setup_trajectory(starting_loc, new_target)
 
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
 /obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
@@ -175,15 +186,16 @@
 		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
 		result = target_mob.bullet_act(src, def_zone)
 
-	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
-		visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+	if(result == PROJECTILE_FORCE_MISS)
+		if(!silenced)
+			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
 		return 0
 
 	//hit messages
 	if(silenced)
 		target_mob << "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \the [src]!</span>"
 	else
-		visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
 	if(!no_attack_log)
@@ -267,19 +279,14 @@
 	qdel(src)
 	return 1
 
-/obj/item/projectile/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+/obj/item/projectile/ex_act()
+	return //explosions probably shouldn't delete projectiles
 
-	if(istype(mover, /obj/item/projectile))
-		return prob(95) //ha
-	else
-		return 1
+/obj/item/projectile/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	return 1
 
 /obj/item/projectile/process()
 	var/first_step = 1
-
-	//plot the initial trajectory
-	setup_trajectory()
 
 	spawn while(src && src.loc)
 		if(kill_count-- < 1)
@@ -318,9 +325,15 @@
 			sleep(step_delay)	//add delay between movement iterations if it's not a hitscan weapon
 
 /obj/item/projectile/proc/before_move()
-	return
+	return 0
 
-/obj/item/projectile/proc/setup_trajectory()
+/obj/item/projectile/proc/setup_trajectory(turf/startloc, turf/targloc, var/x_offset = 0, var/y_offset = 0)
+	// setup projectile state
+	starting = startloc
+	current = startloc
+	yo = targloc.y - startloc.y + y_offset
+	xo = targloc.x - startloc.x + x_offset
+
 	// trajectory dispersion
 	var/offset = 0
 	if(dispersion)
@@ -352,6 +365,7 @@
 			M.activate()
 
 /obj/item/projectile/proc/tracer_effect(var/matrix/M)
+
 	if(ispath(tracer_type))
 		var/obj/effect/projectile/P = new tracer_type(location.loc)
 
@@ -365,7 +379,10 @@
 				P.activate()
 
 /obj/item/projectile/proc/impact_effect(var/matrix/M)
+	if (!location)
+		return//Combat drones sometimes cause a runtime error with null location. Impact effect isnt important
 	if(ispath(tracer_type))
+
 		var/obj/effect/projectile/P = new impact_type(location.loc)
 
 		if(istype(P))
@@ -379,7 +396,6 @@
 	invisibility = 101 //Nope!  Can't see me!
 	yo = null
 	xo = null
-	var/target = null
 	var/result = 0 //To pass the message back to the gun.
 
 /obj/item/projectile/test/Bump(atom/A as mob|obj|turf|area)
@@ -394,25 +410,24 @@
 	result = 1
 	return
 
-/obj/item/projectile/test/process()
+/obj/item/projectile/test/launch(atom/target)
 	var/turf/curloc = get_turf(src)
 	var/turf/targloc = get_turf(target)
 	if(!curloc || !targloc)
 		return 0
-	yo = targloc.y - curloc.y
-	xo = targloc.x - curloc.x
-	target = targloc
+
 	original = target
-	starting = curloc
 
 	//plot the initial trajectory
-	setup_trajectory()
+	setup_trajectory(curloc, targloc)
+	return process(targloc)
 
+/obj/item/projectile/test/process(var/turf/targloc)
 	while(src) //Loop on through!
 		if(result)
 			return (result - 1)
-		if((!( target ) || loc == target))
-			target = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z) //Finding the target turf at map edge
+		if((!( targloc ) || loc == targloc))
+			targloc = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z) //Finding the target turf at map edge
 
 		trajectory.increment()	// increment the current location
 		location = trajectory.return_location(location)		// update the locally stored location data
@@ -423,18 +438,22 @@
 		if(istype(M)) //If there is someting living...
 			return 1 //Return 1
 		else
-			M = locate() in get_step(src,target)
+			M = locate() in get_step(src,targloc)
 			if(istype(M))
 				return 1
 
-/proc/check_trajectory(atom/target as mob|obj, atom/firer as mob|obj, var/pass_flags=PASSTABLE|PASSGLASS|PASSGRILLE, flags=null)  //Checks if you can hit them or not.
+//Helper proc to check if you can hit them or not.
+/proc/check_trajectory(atom/target as mob|obj, atom/firer as mob|obj, var/pass_flags=PASSTABLE|PASSGLASS|PASSGRILLE, flags=null)
 	if(!istype(target) || !istype(firer))
 		return 0
+
 	var/obj/item/projectile/test/trace = new /obj/item/projectile/test(get_turf(firer)) //Making the test....
-	trace.target = target
+
+	//Set the flags and pass flags to that of the real projectile...
 	if(!isnull(flags))
-		trace.flags = flags //Set the flags...
-	trace.pass_flags = pass_flags //And the pass flags to that of the real projectile...
-	var/output = trace.process() //Test it!
+		trace.flags = flags
+	trace.pass_flags = pass_flags
+
+	var/output = trace.launch(target) //Test it!
 	qdel(trace) //No need for it anymore
 	return output //Send it back to the gun!

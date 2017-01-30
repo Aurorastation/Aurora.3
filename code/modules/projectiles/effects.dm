@@ -120,7 +120,36 @@
 	icon_state = "impact_stun"
 
 //----------------------------
+// Eye beam
+//----------------------------
+/obj/effect/projectile/eyelaser/tracer
+	icon_state = "eye"
+
+/obj/effect/projectile/eyelaser/muzzle
+	icon_state = "muzzle_eye"
+
+/obj/effect/projectile/eyelaser/impact
+	icon_state = "impact_eye"
+
+//----------------------------
 // Bullet
 //----------------------------
 /obj/effect/projectile/bullet/muzzle
 	icon_state = "muzzle_bullet"
+
+// Solar beam
+//----------------------------
+/obj/effect/projectile/solar/tracer
+	icon_state = "solar"
+
+/obj/effect/projectile/solar/muzzle
+	icon_state = "muzzle_solar"
+
+/obj/effect/projectile/solar/impact
+	icon_state = "impact_solar"
+
+//----------------------------
+// Pulse muzzle
+//----------------------------
+/obj/effect/projectile/pulse_bullet/muzzle
+	icon_state = "muzzle_pulse"

@@ -1,0 +1,16 @@
+<div class="item">
+	<h3>Target Areas</h3>
+	<div class="itemContentFull">
+		{{:helper.link('Public Hallways', 'lightbulb', {'context': 'pub'}, (data.context == 'pub') ? 'selected' : null)}}
+		{{:helper.link('All Areas', 'lightbulb', {'context': 'all'}, (data.context == 'all') ? 'selected' : null)}}
+	</div>
+</div>
+<div class="item">
+	<h3>Lighting Status</h3>
+	<div class="itemContentFull">
+		{{:helper.link('Normal', 'bullet', {'mode': 'full'}, (data.status == 'full') ? 'selected' : null)}}
+		{{:helper.link('Darkened', 'bullet', {'mode': 'dark'}, (data.status == 'dark') ? 'selected' : null)}}
+	</div>
+</div>
+<hr/>
+{{:helper.link('Apply', 'check', {'set': true}, null)}}

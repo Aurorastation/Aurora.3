@@ -102,8 +102,9 @@
 	src.visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", 2)
 	update_icon()
 	if(bloodsamp)
-		var/obj/item/weapon/paper/P = new(src)
-		P.name = "[src] report #[++report_num]: [bloodsamp.name]"
+		var/obj/item/weapon/paper/P = new()
+		var/pname = "[src] report #[++report_num]: [bloodsamp.name]"
+		var/info
 		P.stamped = list(/obj/item/weapon/stamp)
 		P.overlays = list("paper_stamped")
 		//dna data itself
@@ -114,10 +115,10 @@
 				data += "\blue Blood type: [bloodsamp.dna[blood]]<br>\nDNA: [blood]<br><br>"
 		else
 			data += "No DNA found.<br>"
-		P.info = "<b>[src] analysis report #[report_num]</b><br>"
-		P.info += "<b>Scanned item:</b><br>[bloodsamp.name]<br>[bloodsamp.desc]<br><br>" + data
-		P.forceMove(src.loc)
-		P.update_icon()
+		info = "<b>[src] analysis report #[report_num]</b><br>"
+		info += "<b>Scanned item:</b><br>[bloodsamp.name]<br>[bloodsamp.desc]<br><br>" + data
+		P.set_content_unsafe(pname, info)
+		print(P)
 		scanning = 0
 		update_icon()
 	return

@@ -15,7 +15,7 @@
 
 /turf/simulated/Destroy()
 	updateVisibility(src)
-	..()
+	return ..()
 
 /turf/simulated/New()
 	..()
@@ -26,10 +26,7 @@
 
 /obj/structure/Destroy()
 	updateVisibility(src)
-	..()
-
-/obj/structure/New()
-	updateVisibility(src)
+	return ..()
 
 // EFFECTS
 

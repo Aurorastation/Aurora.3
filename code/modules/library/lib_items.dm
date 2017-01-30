@@ -36,6 +36,20 @@
 			return
 		else
 			name = ("bookcase ([newname])")
+	else if(istype(O,/obj/item/weapon/wrench))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		user << (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
+		anchored = !anchored
+	else if(istype(O,/obj/item/weapon/screwdriver))
+		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
+		user << "<span class='notice'>You begin dismantling \the [src].</span>"
+		if(do_after(user,25))
+			user << "<span class='notice'>You dismantle \the [src].</span>"
+			new /obj/item/stack/material/wood(get_turf(src), amount = 3)
+			for(var/obj/item/weapon/book/b in contents)
+				b.loc = (get_turf(src))
+			qdel(src)
+
 	else
 		..()
 
@@ -79,6 +93,7 @@
 		icon_state = "book-[contents.len]"
 	else
 		icon_state = "book-5"
+
 
 
 /obj/structure/bookcase/manuals/medical
@@ -236,11 +251,12 @@
 	else
 		..()
 
-/obj/item/weapon/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(user.zone_sel.selecting == "eyes")
+/obj/item/weapon/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+	if(target_zone == "eyes")
 		user.visible_message("<span class='notice'>You open up the book and show it to [M]. </span>", \
 			"<span class='notice'> [user] opens up a book and shows it to [M]. </span>")
 		M << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 
 
 /*

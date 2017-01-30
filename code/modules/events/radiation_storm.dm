@@ -1,11 +1,14 @@
 /datum/event/radiation_storm
-	var/const/enterBelt		= 30
-	var/const/radIntervall 	= 5	// Enough time between enter/leave belt for 10 hits, as per original implementation
-	var/const/leaveBelt		= 80
-	var/const/revokeAccess	= 135
+	var/const/enterBelt		= 45
+	var/const/radIntervall 	= 5	// 20 ticks
+	var/const/leaveBelt		= 145
+	var/const/revokeAccess	= 200
+	startWhen				= 2
 	announceWhen			= 1
 	endWhen					= revokeAccess
 	var/postStartTicks 		= 0
+	two_part = 1
+	ic_name = "radiation"
 
 /datum/event/radiation_storm/announce()
 	command_announcement.Announce("High levels of radiation detected near the station. Please evacuate into one of the shielded maintenance tunnels.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
@@ -40,9 +43,9 @@
 
 		if(istype(C,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect((rand(15,35)),IRRADIATE,0)
-			if(prob(5))
-				H.apply_effect((rand(40,70)),IRRADIATE,0)
+			H.apply_effect((rand(15,30)),IRRADIATE,0)
+			if(prob(4))
+				H.apply_effect((rand(20,60)),IRRADIATE,0)
 				if (prob(75))
 					randmutb(H) // Applies bad mutation
 					domutcheck(H,null,MUTCHK_FORCED)
@@ -52,3 +55,6 @@
 
 /datum/event/radiation_storm/end()
 	revoke_maint_all_access()
+
+/datum/event/radiation_storm/syndicate/radiate()
+	return

@@ -1,3 +1,6 @@
+/mob/living/carbon/alien/instantiate_hud(var/datum/hud/HUD)
+	HUD.larva_hud()
+
 /datum/hud/proc/larva_hud()
 
 	src.adding = list()
@@ -26,13 +29,13 @@
 	mymob.blind.icon_state = "blackimageoverlay"
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1"
-	mymob.blind.layer = 0
+	mymob.blind.invisibility = 101
 
 	mymob.flash = new /obj/screen()
 	mymob.flash.icon = 'icons/mob/screen1_alien.dmi'
 	mymob.flash.icon_state = "blank"
 	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = "1,1 to 15,15"
+	mymob.flash.screen_loc = ui_entire_screen
 	mymob.flash.layer = 17
 
 	mymob.fire = new /obj/screen()

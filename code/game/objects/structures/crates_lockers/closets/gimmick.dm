@@ -4,6 +4,7 @@
 	icon_state = "cabinet_closed"
 	icon_closed = "cabinet_closed"
 	icon_opened = "cabinet_open"
+	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 /obj/structure/closet/cabinet/update_icon()
 	if(!opened)

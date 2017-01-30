@@ -9,11 +9,15 @@
 	overdose = REAGENTS_OVERDOSE * 2
 	metabolism = REM * 0.5
 	scannable = 1
+	var/datum/modifier/modifier
 
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		M.add_chemical_effect(CE_STABLE)
 		M.add_chemical_effect(CE_PAINKILLER, 25)
+		if (!modifier)
+			modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
@@ -23,10 +27,25 @@
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	metabolism = REM * 1.5//Get to overdose state a bit faster
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
-		M.heal_organ_damage(6 * removed, 0)
+		M.heal_organ_damage(5 * removed, 0)
+
+/datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
+	..()//Bicard overdose heals internal wounds
+	if(alien != IS_DIONA && ishuman(M))
+		var/healpower = 1
+		var/mob/living/carbon/human/H = M
+		for (var/a in H.organs)
+			var/obj/item/organ/external/E = a
+			for (var/w in E.wounds)
+				var/datum/wound/W = w
+				if (W && W.internal)
+					healpower = W.heal_damage(healpower,1)
+					if (healpower <= 0)
+						return
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -126,7 +145,7 @@
 	scannable = 1
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && alien != IS_DIONA)
 		M.adjustCloneLoss(-10 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
@@ -142,7 +161,7 @@
 	scannable = 1
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && alien != IS_DIONA)
 		M.adjustCloneLoss(-30 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
@@ -165,7 +184,7 @@
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.hallucination = max(M.hallucination, 2)
+	M.hallucination = max(M.hallucination, 25)
 
 /datum/reagent/tramadol
 	name = "Tramadol"
@@ -182,7 +201,7 @@
 
 /datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.hallucination = max(M.hallucination, 2)
+	M.hallucination = max(M.hallucination, 40)
 
 /datum/reagent/oxycodone
 	name = "Oxycodone"
@@ -199,7 +218,7 @@
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 10)
-	M.hallucination = max(M.hallucination, 3)
+	M.hallucination = max(M.hallucination, 60)
 
 /* Other medicine */
 
@@ -212,6 +231,7 @@
 	metabolism = REM * 0.05
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	var/datum/modifier/modifier
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -224,6 +244,10 @@
 	M.hallucination = max(0, M.hallucination - 10)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+
 
 /datum/reagent/alkysine
 	name = "Alkysine"
@@ -305,6 +329,7 @@
 	color = "#FF3300"
 	metabolism = REM * 0.15
 	overdose = REAGENTS_OVERDOSE * 0.5
+	var/datum/modifier = null
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -312,26 +337,63 @@
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
+
+#define ETHYL_INTOX_COST	3 //The cost of power to remove one unit of intoxication from the patient
+#define ETHYL_REAGENT_POWER	20 //The amount of power in one unit of ethyl
+
+//Ethylredoxrazine will remove a number of units of alcoholic substances from the patient's blood and stomach, equal to its pow
+//Once all alcohol in the body is neutralised, it will then cure intoxication and sober the patient up
 /datum/reagent/ethylredoxrazine
 	name = "Ethylredoxrazine"
 	id = "ethylredoxrazine"
 	description = "A powerful oxidizer that reacts with ethanol."
 	reagent_state = SOLID
 	color = "#605048"
+	metabolism = REM * 0.3
 	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+
 
 /datum/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-	M.dizziness = 0
-	M.drowsyness = 0
-	M.stuttering = 0
-	M.confused = 0
+
+	var/P = removed * ETHYL_REAGENT_POWER
+	var/DP = dose * ETHYL_REAGENT_POWER//tiny optimisation
+
+	//These status effects will now take a little while for the dose to build up and remove them
+	M.dizziness = max(0, M.dizziness - DP)
+	M.drowsyness = max(0, M.drowsyness - DP)
+	M.stuttering = max(0, M.stuttering - DP)
+	M.confused = max(0, M.confused - DP)
+
 	if(M.ingested)
 		for(var/datum/reagent/R in M.ingested.reagent_list)
 			if(istype(R, /datum/reagent/ethanol))
-				R.dose = max(R.dose - removed * 5, 0)
+				var/amount = min(P, R.volume)
+				M.ingested.remove_reagent(R.id, amount)
+				P -= amount
+				if (P <= 0)
+					return
+
+	//Even though alcohol is not supposed to be injected, ethyl removes it from the blood too,
+	//as a treatment option if someone was dumb enough to do this
+	if(M.bloodstr)
+		for(var/datum/reagent/R in M.bloodstr.reagent_list)
+			if(istype(R, /datum/reagent/ethanol))
+				var/amount = min(P, R.volume)
+				M.bloodstr.remove_reagent(R.id, amount)
+				P -= amount
+				if (P <= 0)
+					return
+
+	if (M.intoxication && P > 0)
+		var/amount = min(M.intoxication * ETHYL_INTOX_COST, P)
+		M.intoxication = max(0, (M.intoxication - (amount / ETHYL_INTOX_COST)))
+		P -= amount
 
 /datum/reagent/hyronalin
 	name = "Hyronalin"
@@ -344,7 +406,7 @@
 	scannable = 1
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.radiation = max(M.radiation - 30 * removed, 0)
+	M.apply_radiation(-30 * removed)
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
@@ -357,7 +419,7 @@
 	scannable = 1
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.radiation = max(M.radiation - 70 * removed, 0)
+	M.apply_radiation(-70 * removed)
 	M.adjustToxLoss(-10 * removed)
 	if(prob(60))
 		M.take_organ_damage(4 * removed, 0)
@@ -385,6 +447,13 @@
 	for(var/obj/item/I in M.contents)
 		I.was_bloodied = null
 	M.was_bloodied = null
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		for (var/obj/item/organ/external/E in H.organs)//For each external bodypart
+			for (var/datum/wound/W in E.wounds)//We check each wound on that bodypart
+				W.germ_level -= min(removed*20, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
+				if (W.germ_level <= 0)
+					W.disinfected = 1//The wound becomes disinfected if fully cleaned
 
 /datum/reagent/sterilizine/touch_obj(var/obj/O)
 	O.germ_level -= min(volume*20, O.germ_level)
@@ -499,3 +568,24 @@
 	if(dose > 10)
 		M.make_dizzy(5)
 		M.make_jittery(5)
+
+/datum/reagent/ipecac
+	name = "Ipecac"
+	id = "ipecac"
+	description = "A simple emetic, Induces vomiting in the patient, emptying stomach contents"
+	reagent_state = LIQUID
+	color = "#280f0b"
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+
+
+/datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if (prob(10+dose))
+		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+
+	if (prob(dose))
+		M.vomit()
+
+
+/datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong

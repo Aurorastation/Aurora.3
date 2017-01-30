@@ -2,8 +2,10 @@
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
 	w_class = 4
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/suitcooler.dmi'
 	icon_state = "suitcooler0"
+	item_state = "coolingpack"
+	contained_sprite = 1
 	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
 
 	//copied from tank.dm
@@ -13,8 +15,9 @@
 	throw_speed = 1
 	throw_range = 4
 
-	origin_tech = "magnets=2;materials=2"
+	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
 
+	matter = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 3500)
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/weapon/cell/cell
@@ -29,17 +32,23 @@
 
 	cell = new/obj/item/weapon/cell()	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
 	cell.loc = src
+	
+// Checks whether the cooling unit is being worn on the back/suit slot.
+// That way you can't carry it in your hands while it's running to cool yourself down.
+/obj/item/device/suit_cooling_unit/proc/is_in_slot()
+	var/mob/living/carbon/human/H = loc
+	if(!istype(H))
+		return 0
+
+	return (H.back == src) || (H.s_store == src)
 
 /obj/item/device/suit_cooling_unit/process()
 	if (!on || !cell)
 		return
 
-	if (!ismob(loc))
+	if (!is_in_slot())
 		return
-
-	if (!attached_to_suit(loc))		//make sure they have a suit and we are attached to it
-		return
-
+		
 	var/mob/living/carbon/human/H = loc
 
 	var/efficiency = 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling
@@ -62,10 +71,11 @@
 	if (ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(istype(H.loc, /obj/mecha))
-			var/obj/mecha/M = loc
+			var/obj/mecha/M = H.loc
 			return M.return_temperature()
 		else if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			return H.loc:air_contents.temperature
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = H.loc
+			return C.air_contents.temperature
 
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/space))
@@ -95,14 +105,14 @@
 		return
 
 	on = 1
-	updateicon()
+	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/turn_off()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.show_message("\The [src] clicks and whines as it powers down.", 2)	//let them know in case it's run out of power.
 	on = 0
-	updateicon()
+	update_icon()
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user as mob)
 	if(cover_open && cell)
@@ -116,7 +126,7 @@
 
 		user << "You remove the [src.cell]."
 		src.cell = null
-		updateicon()
+		update_icon()
 		return
 
 	//TODO use a UI like the air tanks
@@ -135,7 +145,7 @@
 		else
 			cover_open = 1
 			user << "You unscrew the panel."
-		updateicon()
+		update_icon()
 		return
 
 	if (istype(W, /obj/item/weapon/cell))
@@ -147,19 +157,38 @@
 				W.loc = src
 				cell = W
 				user << "You insert the [cell]."
-		updateicon()
+		update_icon()
 		return
 
 	return ..()
 
-/obj/item/device/suit_cooling_unit/proc/updateicon()
+/obj/item/device/suit_cooling_unit/update_icon()
+	overlays.Cut()
 	if (cover_open)
 		if (cell)
 			icon_state = "suitcooler1"
 		else
 			icon_state = "suitcooler2"
-	else
-		icon_state = "suitcooler0"
+		return
+
+	icon_state = "suitcooler0"
+
+	if(!cell || !on)
+		return
+
+	switch(round(cell.percent()))
+		if(86 to INFINITY)
+			overlays.Add("battery-0")
+		if(69 to 85)
+			overlays.Add("battery-1")
+		if(52 to 68)
+			overlays.Add("battery-2")
+		if(35 to 51)
+			overlays.Add("battery-3")
+		if(18 to 34)
+			overlays.Add("battery-4")
+		if(-INFINITY to 17)
+			overlays.Add("battery-5")
 
 /obj/item/device/suit_cooling_unit/examine(mob/user)
 	if(!..(user, 1))
@@ -183,3 +212,11 @@
 		user << "The charge meter reads [round(cell.percent())]%."
 	else
 		user << "It doesn't have a power cell installed."
+
+/obj/item/device/suit_cooling_unit/improved //those should come with a better powercell
+
+/obj/item/device/suit_cooling_unit/improved/New()
+	processing_objects |= src
+
+	cell = new/obj/item/weapon/cell/high()
+	cell.loc = src

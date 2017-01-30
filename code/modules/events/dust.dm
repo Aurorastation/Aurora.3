@@ -1,6 +1,7 @@
 /datum/event/dust
 	startWhen	= 10
 	endWhen		= 30
+	ic_name = "space dust"
 
 /datum/event/dust/announce()
 	command_announcement.Announce("The station is now passing through a belt of space dust.", "Dust Alert")

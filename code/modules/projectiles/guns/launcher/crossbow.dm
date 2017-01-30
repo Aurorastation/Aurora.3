@@ -31,7 +31,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "quill"
 	item_state = "quill"
-	throwforce = 5
+	throwforce = 8
 
 /obj/item/weapon/arrow/rod
 	name = "metal rod"
@@ -47,7 +47,7 @@
 
 /obj/item/weapon/gun/launcher/crossbow
 	name = "powered crossbow"
-	desc = "A 2557AD twist on an old classic. Pick up that can."
+	desc = "A 2457AD twist on an old classic. Pick up that can."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow-solid"
@@ -116,7 +116,7 @@
 		//double check that the user hasn't removed the bolt in the meantime
 		if(!(bolt && tension && loc == current_user))
 			return
-		
+
 		tension++
 		update_icon()
 

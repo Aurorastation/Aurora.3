@@ -2,7 +2,7 @@
 //added different sort of gibs and animations. N
 /mob/proc/gib(anim="gibbed-m",do_gibs)
 	death(1)
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -25,17 +25,20 @@
 //This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
 //Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
 //Dusting robots does not eject the MMI, so it's a bit more powerful than gib() /N
-/mob/proc/dust(anim="dust-m",remains=/obj/effect/decal/cleanable/ash)
+/mob/proc/dust(anim="dust-m",remains=/obj/effect/decal/cleanable/ash, iconfile = 'icons/mob/mob.dmi')
 	death(1)
+	if (istype(loc, /obj/item/weapon/holder))
+		var/obj/item/weapon/holder/H = loc
+		H.release_mob()
 	var/atom/movable/overlay/animation = null
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
 
 	animation = new(loc)
 	animation.icon_state = "blank"
-	animation.icon = 'icons/mob/mob.dmi'
+	animation.icon = iconfile
 	animation.master = src
 
 	flick(anim, animation)
@@ -67,7 +70,7 @@
 	layer = MOB_LAYER
 
 	if(blind && client)
-		blind.layer = 0
+		blind.invisibility = 101
 
 	sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 	see_in_dark = 8
@@ -80,6 +83,12 @@
 		healths.icon_state = "health6"
 
 	timeofdeath = world.time
+	if (isanimal(src))
+		set_death_time(ANIMAL, world.time)
+	else if (ispAI(src) || isDrone(src))
+		set_death_time(MINISYNTH, world.time)
+	else if (isliving(src))
+		set_death_time(CREW, world.time)//Crew is the fallback
 	if(mind) mind.store_memory("Time of death: [worldtime2text()]", 0)
 	living_mob_list -= src
 	dead_mob_list |= src
