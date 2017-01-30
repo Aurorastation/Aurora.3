@@ -17,11 +17,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	switch(icon_state)
 		if("pocket_watch_open")
 			icon_state = "pocket_watch_close"
-			usr << "You close the [src]."
+			usr << "You close \the [src]."
 			desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
 		if("pocket_watch_close")
 			icon_state = "pocket_watch_open"
-			usr << "You open the [src]."
+			usr << "You open \the [src]."
 			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
@@ -74,7 +74,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)
 		user.put_in_hands(chip)
-		user << "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of the [src].</span>"
+		user << "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of \the [src].</span>"
 		chip = null
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -85,7 +85,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		chip = W
 		W.add_fingerprint(user)
 		add_fingerprint(user)
-		user << "You slot the [W] back into its place in the frames of the [src]."
+		user << "You slot the [W] back into its place in the frames of \the [src]."
 
 /obj/item/weapon/disk/fluff/nebula_chip //data chip - Roxy Wallace - nebulaflare
 	name = "data chip"
@@ -396,7 +396,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			item_state = icon_state
 			usr << "You unzip \the [src]."
 		else
-			usr << "You attempt to button-up the velcro on your [src], before promptly realising how silly you are."
+			usr << "You attempt to button-up the velcro on \the [src], before promptly realising how silly you are."
 			return
 
 	usr.update_inv_wear_suit()
@@ -407,7 +407,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/accessory/armband/fluff/vittorio_armband //ATLAS Armband - Vittorio Giurifiglio - tytostyris
-	name = "Atlas armband"
+	name = "ATLAS armband"
 	desc = "This is an atlas armband showing anyone who sees this person, as a member of the Political party Atlas."
 	icon = 'icons/obj/custom_items/vittorio_armband.dmi'
 	icon_state = "vittorio_armband"
@@ -844,7 +844,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/badge/old/fluff/ana_badge //Faded Badge - Ana Roh'hi'tin - suethecake
 	name = "faded badge"
-	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the Forensic division."
+	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the forensic division."
 	stored_name = "Ana Issek"
 	badge_string = "NanoTrasen Security Department"
 
