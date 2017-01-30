@@ -175,7 +175,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/device/kit/paint/ripley/fluff/zairjah_kit //Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk
-	name = "Hephaestus Industrial Exosuit MK III customization kit"
+	name = "\"Hephaestus Industrial Exosuit MK III\" APLU customisation kit"
 	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
 	new_name = "Hephaestus Industrial Exosuit MK III"
 	new_desc = "An ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
