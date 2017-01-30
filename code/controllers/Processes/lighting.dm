@@ -44,7 +44,7 @@
 		var/datum/light_source/L = curr_lights[curr_lights.len]
 		curr_lights.len--
 
-		if(L.check() || L.destroyed || L.force_update)
+		if(L.destroyed || L.check() || L.force_update)
 			L.remove_lum()
 			if(!L.destroyed)
 				L.apply_lum()
