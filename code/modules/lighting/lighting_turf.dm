@@ -21,12 +21,6 @@
 	for (var/datum/light_source/L in affecting_lights)
 		L.vis_update()
 
-// Avoid calling this if you can, bypasses the lighting scheduler (potentially creating lag).
-/turf/proc/update_lights_now()
-	lprof_write(src, "turf_updatenow")
-	for (var/datum/light_source/L in affecting_lights)
-		L.update(update_type = UPDATE_NOW)
-
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)
 		returnToPool(lighting_overlay)
@@ -50,7 +44,7 @@
 			if (!C.active) // We would activate the corner, calculate the lighting for it.
 				for (var/L in C.affecting)
 					var/datum/light_source/S = L
-					S.recalc_corner(C)
+					S.recalc_corner(C, TRUE)
 
 				C.active = TRUE
 
@@ -71,7 +65,7 @@
 
 	return CLAMP01(totallums)
 
-// Gets the current UV illumination of the turf. Always 100% for space.
+// Gets the current UV illumination of the turf. Always 100% for space & other static-lit tiles.
 /turf/proc/get_uv_lumcount(var/minlum = 0, var/maxlum = 1)
 	if (!lighting_overlay)
 		return 1

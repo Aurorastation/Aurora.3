@@ -33,7 +33,7 @@
 	var/destroyed       // Whether we are destroyed and need to stop emitting light.
 	var/force_update
 
-/datum/light_source/New(var/atom/owner, var/atom/top, var/update_t = UPDATE_SCHEDULE)
+/datum/light_source/New(var/atom/owner, var/atom/top)
 	source_atom = owner // Set our new owner.
 	if (!source_atom.light_sources)
 		source_atom.light_sources = list()
@@ -57,7 +57,7 @@
 	effect_str      = list()
 	affecting_turfs = list()
 
-	update(update_type = update_t)
+	update()
 
 	lprof_write(src, "source_new")
 
@@ -73,32 +73,40 @@
 	if (top_atom && top_atom.light_sources)
 		top_atom.light_sources    -= src
 
-/datum/light_source/proc/effect_update_now()
-	lprof_write(src, "source_updatenow")
-	if (check() || destroyed || force_update)
-		remove_lum(TRUE)
-		if (!destroyed)
-			apply_lum(update_type = UPDATE_NOW)
+// Process the light RIGHT NOW.
+#define DO_UPDATE 								\
+	if (destroyed || check() || force_update) {	\
+		remove_lum(TRUE);						\
+		if (!destroyed) {						\
+			apply_lum(TRUE);					\
+		}										\
+	}											\
+	else if (vis_update) {						\
+		smart_vis_update(TRUE);					\
+	}											\
+	vis_update   = FALSE;						\
+	force_update = FALSE;						\
+	needs_update = FALSE;
 
-	else if (vis_update)	// We smartly update only tiles that became (in) visible to use.
-		smart_vis_update(update_type = UPDATE_NOW)
-
-	vis_update   = FALSE
-	force_update = FALSE
-	needs_update = FALSE
-
-// Call it dirty, I don't care.
-// This is here so there's no performance loss on non-instant updates from the fact that the engine can also do instant updates.
-// If you're wondering what's with the "BYOND" argument: BYOND won't let me have a () macro that has no arguments :|.
-#define effect_update(BYOND)            \
+// Queue an update.
+#define QUEUE_UPDATE                    \
 	if (!needs_update)                  \
 	{                                   \
 		lighting_update_lights += src;  \
 		needs_update            = TRUE; \
 	}
 
+// Picks either scheduled or instant updates based on current server load.
+#define INTELLIGENT_UPDATE 							\
+	if (world.tick_usage > TICK_LIMIT || !ticker) {	\
+		QUEUE_UPDATE;								\
+	}												\
+	else {											\
+		DO_UPDATE;									\
+	}
+
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
-/datum/light_source/proc/update(var/atom/new_top_atom, var/update_type = UPDATE_SCHEDULE)
+/datum/light_source/proc/update(var/atom/new_top_atom)
 	// This top atom is different.
 	if (new_top_atom && new_top_atom != top_atom)
 		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
@@ -114,23 +122,20 @@
 
 	lprof_write(src, "source_update")
 
-	if (update_type == UPDATE_NOW)
-		effect_update_now()
-	else if (update_type == UPDATE_SCHEDULE)	// I don't know why you would call this with UPDATE_NONE, but hey.
-		effect_update(null)
+	INTELLIGENT_UPDATE
 
 // Will force an update without checking if it's actually needed.
 /datum/light_source/proc/force_update()
 	lprof_write(src, "source_forceupdate")
 	force_update = 1
 
-	effect_update(null)
+	INTELLIGENT_UPDATE
 
 // Will cause the light source to recalculate turfs that were removed or added to visibility only.
 /datum/light_source/proc/vis_update()
 	vis_update = 1
 
-	effect_update(null)
+	INTELLIGENT_UPDATE
 
 // Will check if we actually need to update, and update any variables that may need to be updated.
 /datum/light_source/proc/check()
@@ -188,7 +193,7 @@
 // As such this all gets counted as a single line.
 // The braces and semicolons are there to be able to do this on a single line.
 
-#define APPLY_CORNER(C)              \
+#define APPLY_CORNER(C,now)              \
 	. = LUM_FALLOFF(C, source_turf); \
                                      \
 	. *= light_power;                \
@@ -201,11 +206,11 @@
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
 		. * applied_lum_u,           \
-		update_type                       \
+		now							 \
 	);
 
 // I don't need to explain what this does, do I?
-#define REMOVE_CORNER(C)             \
+#define REMOVE_CORNER(C,now)             \
 	. = -effect_str[C];              \
 	C.update_lumcount                \
 	(                                \
@@ -213,13 +218,13 @@
 		. * applied_lum_g,           \
 		. * applied_lum_b,           \
 		. * applied_lum_u,           \
-		update_type                       \
+		now                          \
 	);
 
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
 
-/datum/light_source/proc/apply_lum(var/update_type = UPDATE_SCHEDULE)
+/datum/light_source/proc/apply_lum(var/now = FALSE)
 	var/static/update_gen = 1
 	applied = 1
 
@@ -244,7 +249,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER(C)
+			APPLY_CORNER(C, now)
 
 		if (!T.affecting_lights)
 			T.affecting_lights = list()
@@ -254,7 +259,7 @@
 
 	update_gen++
 
-/datum/light_source/proc/remove_lum(var/update_type = UPDATE_SCHEDULE)
+/datum/light_source/proc/remove_lum(var/now = FALSE)
 	applied = FALSE
 
 	for (var/turf/T in affecting_turfs)
@@ -266,20 +271,19 @@
 	affecting_turfs.Cut()
 
 	for (var/datum/lighting_corner/C in effect_str)
-		REMOVE_CORNER(C)
+		REMOVE_CORNER(C,now)
 
 		C.affecting -= src
 
 	effect_str.Cut()
 
-/datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C)
-	var/update_type = UPDATE_SCHEDULE	// for (APPLY|REMOVE)_CORNER.
+/datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C, var/now = FALSE)
 	if (effect_str.Find(C)) // Already have one.
-		REMOVE_CORNER(C)
+		REMOVE_CORNER(C,now)
 
-	APPLY_CORNER(C)
+	APPLY_CORNER(C,now)
 
-/datum/light_source/proc/smart_vis_update(var/update_type = UPDATE_SCHEDULE)
+/datum/light_source/proc/smart_vis_update(var/now = FALSE)
 	var/list/datum/lighting_corner/corners = list()
 	var/list/turf/turfs                    = list()
 	FOR_DVIEW(var/turf/T, light_range, source_turf, 0)
@@ -307,14 +311,16 @@
 			effect_str[C] = 0
 			continue
 
-		APPLY_CORNER(C)
+		APPLY_CORNER(C,now)
 
 	for (var/datum/lighting_corner/C in effect_str - corners) // Old, now gone, corners.
-		REMOVE_CORNER(C)
+		REMOVE_CORNER(C,now)
 		C.affecting -= src
 		effect_str -= C
 
-#undef effect_update
+#undef QUEUE_UPDATE
+#undef DO_UPDATE
+#undef INTELLIGENT_UPDATE
 #undef LUM_FALLOFF
 #undef REMOVE_CORNER
 #undef APPLY_CORNER
