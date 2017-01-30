@@ -76,6 +76,7 @@ obj/machinery/air_sensor/Destroy()
 /obj/machinery/computer/general_air_control
 	icon = 'icons/obj/computer.dmi'
 	icon_screen = "tank"
+	light_color = LIGHT_COLOR_CYAN
 
 	name = "Computer"
 

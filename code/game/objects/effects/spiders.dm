@@ -102,7 +102,7 @@
 			O = loc
 
 		for(var/i=0, i<num, i++)
-			var/spiderling = PoolOrNew(/obj/effect/spider/spiderling, list(src.loc, src))
+			var/spiderling = getFromPool(/obj/effect/spider/spiderling, list(src.loc, src))
 			if(O)
 				O.implants += spiderling
 		qdel(src)
@@ -142,7 +142,7 @@
 
 /obj/effect/spider/spiderling/proc/die()
 	visible_message("<span class='alert'>[src] dies!</span>")
-	PoolOrNew(/obj/effect/decal/cleanable/spiderling_remains, src.loc)
+	getFromPool(/obj/effect/decal/cleanable/spiderling_remains, src.loc)
 	qdel(src)
 
 /obj/effect/spider/spiderling/healthcheck()

@@ -13,7 +13,7 @@ obj/machinery/recharger
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging = null
 
-	var/list/allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton, /obj/item/laptop, /obj/item/weapon/cell, /obj/item/modular_computer/, /obj/item/weapon/computer_hardware/battery_module)
+	var/list/allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton, /obj/item/weapon/cell, /obj/item/modular_computer/, /obj/item/weapon/computer_hardware/battery_module)
 	var/icon_state_charged = "recharger2"
 	var/icon_state_charging = "recharger1"
 	var/icon_state_idle = "recharger0" //also when unpowered
@@ -29,27 +29,18 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 		return
 
-	if(istype(user,/mob/living/silicon))
-		if (istype(G, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
-			var/obj/item/weapon/gripper/Gri = G
-			if (charging)//If there's something in the charger
-				if (Gri.grip_item(charging, user))//we attempt to grab it
-					charging = null
-					update_icon()
-				else
-					user << "<span class='danger'>Your gripper cannot hold \the [charging].</span>"
 
-			else if (Gri.wrapped)//If we're not charging anything, and the gripper is holding something
-				var/obj/item/I = Gri.wrapped
-				for (var/allowed_type in allowed_devices)
-					if (istype(I, allowed_type))//If the thing in the gripper is valid for this charger
-						I.loc = src//we put it inside
-						Gri.wrapped = null
-						charging = I
-						update_icon()
-					else
-						user << "<span class='danger'>\The [name] will not accept \the [Gri.wrapped].</span>"
-						break
+
+	if (istype(G, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
+		var/obj/item/weapon/gripper/Gri = G
+		if (charging)//If there's something in the charger
+			if (Gri.grip_item(charging, user))//we attempt to grab it
+				charging = null
+				update_icon()
+			else
+				user << "<span class='danger'>Your gripper cannot hold \the [charging].</span>"
+
+	if(!dropsafety(G))
 		return
 
 	var/allowed = 0
@@ -69,11 +60,6 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 			return
 		if (istype(G, /obj/item/weapon/gun/energy/staff))
 			return
-		if(istype(G, /obj/item/laptop))
-			var/obj/item/laptop/L = G
-			if(!L.stored_computer.cpu.battery_module)
-				user << "There's no battery in it!"
-				return
 		if(istype(G, /obj/item/modular_computer))
 			var/obj/item/modular_computer/C = G
 			if(!C.battery_module)
@@ -83,13 +69,6 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 		G.loc = src
 		charging = G
 		update_icon()
-	else if(portable && istype(G, /obj/item/weapon/wrench))
-		if(charging)
-			user << "<span class='warning'>Remove [charging] first!</span>"
-			return
-		anchored = !anchored
-		user << "You [anchored ? "attached" : "detached"] the recharger."
-		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 
 obj/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
@@ -120,9 +99,6 @@ obj/machinery/recharger/process()
 		else if(istype(charging, /obj/item/modular_computer))
 			var/obj/item/modular_computer/C = charging
 			cell = C.battery_module.battery
-		else if(istype(charging, /obj/item/laptop))
-			var/obj/item/laptop/L = charging
-			cell = L.stored_computer.cpu.battery_module.battery
 		else if(istype(charging, /obj/item/weapon/gun/energy))
 			var/obj/item/weapon/gun/energy/E = charging
 			cell = E.power_supply
@@ -165,9 +141,10 @@ obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to 
 
 obj/machinery/recharger/wallcharger
 	name = "wall recharger"
+	desc = "A heavy duty wall recharger specialized for energy weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger0"
-	active_power_usage = 45000	//40 kW , It's more specialized than the standalone recharger (guns and batons only) so make it more powerful
+	active_power_usage = 50 KILOWATTS	//50 kW , It's more specialized than the standalone recharger (guns and batons only) so make it more powerful
 	allowed_devices = list(/obj/item/weapon/gun/energy, /obj/item/weapon/melee/baton)
 	icon_state_charged = "wrecharger2"
 	icon_state_charging = "wrecharger1"

@@ -1,5 +1,5 @@
 /datum/language/human/monkey
-	name = "Chimpanzee"
+	name = LANGUAGE_CHIMPANZEE
 	desc = "Ook ook ook."
 	speech_verb = "chimpers"
 	ask_verb = "chimpers"
@@ -7,22 +7,22 @@
 	key = "6"
 
 /datum/language/skrell/monkey
-	name = "Neaera"
+	name = LANGUAGE_NEAERA
 	desc = "Squik squik squik."
 	key = "8"
 
 /datum/language/unathi/monkey
-	name = "Stok"
+	name = LANGUAGE_STOK
 	desc = "Hiss hiss hiss."
 	key = "7"
 
 /datum/language/tajaran/monkey
-	name = "Farwa"
+	name = LANGUAGE_FARWA
 	desc = "Meow meow meow."
 	key = "^"
 
 /datum/language/bug/monkey
-	name = "V'krexi"
+	name = LANGUAGE_BUG
 	desc = "Buzz buzz buzz."
 	key = "#"
 	speech_verb = "chitters"

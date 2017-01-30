@@ -493,33 +493,33 @@
 					src.screen = 4
 
 			if (href_list["print_p"])
-				if (!( src.printing ))
-					src.printing = 1
-					var/datum/data/record/record1 = null
-					var/datum/data/record/record2 = null
-					if ((istype(src.active1, /datum/data/record) && data_core.general.Find(src.active1)))
-						record1 = active1
-					if ((istype(src.active2, /datum/data/record) && data_core.medical.Find(src.active2)))
-						record2 = active2
-					sleep(50)
-					var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( src.loc )
-					P.info = "<CENTER><B>Medical Record</B></CENTER><BR>"
-					if (record1)
-						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", record1.fields["name"], record1.fields["id"], record1.fields["sex"], record1.fields["age"], record1.fields["fingerprint"], record1.fields["p_stat"], record1.fields["m_stat"])
-						P.name = text("Medical Record ([])", record1.fields["name"])
-					else
-						P.info += "<B>General Record Lost!</B><BR>"
-						P.name = "Medical Record"
-					if (record2)
-						P.info += text("<BR>\n<CENTER><B>Medical Data</B></CENTER><BR>\nBlood Type: []<BR>\nDNA: []<BR>\n<BR>\nMinor Disabilities: []<BR>\nDetails: []<BR>\n<BR>\nMajor Disabilities: []<BR>\nDetails: []<BR>\n<BR>\nAllergies: []<BR>\nDetails: []<BR>\n<BR>\nCurrent Diseases: [] (per disease info placed in log/comment section)<BR>\nDetails: []<BR>\n<BR>\nImportant Notes:<BR>\n\t[]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>", record2.fields["b_type"], record2.fields["b_dna"], record2.fields["mi_dis"], record2.fields["mi_dis_d"], record2.fields["ma_dis"], record2.fields["ma_dis_d"], record2.fields["alg"], record2.fields["alg_d"], record2.fields["cdi"], record2.fields["cdi_d"], decode(record2.fields["notes"]))
-						var/counter = 1
-						while(record2.fields[text("com_[]", counter)])
-							P.info += text("[]<BR>", record2.fields[text("com_[]", counter)])
-							counter++
-					else
-						P.info += "<B>Medical Record Lost!</B><BR>"
-					P.info += "</TT>"
-					src.printing = null
+				var/datum/data/record/record1 = null
+				var/datum/data/record/record2 = null
+				if ((istype(src.active1, /datum/data/record) && data_core.general.Find(src.active1)))
+					record1 = active1
+				if ((istype(src.active2, /datum/data/record) && data_core.medical.Find(src.active2)))
+					record2 = active2
+				
+				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
+				var/info = "<CENTER><B>Medical Record</B></CENTER><BR>"
+				var/rname
+				if (record1)
+					info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", record1.fields["name"], record1.fields["id"], record1.fields["sex"], record1.fields["age"], record1.fields["fingerprint"], record1.fields["p_stat"], record1.fields["m_stat"])
+					rname = text("Medical Record ([])", record1.fields["name"])
+				else
+					info += "<B>General Record Lost!</B><BR>"
+					rname = "Medical Record"
+				if (record2)
+					info += text("<BR>\n<CENTER><B>Medical Data</B></CENTER><BR>\nBlood Type: []<BR>\nDNA: []<BR>\n<BR>\nMinor Disabilities: []<BR>\nDetails: []<BR>\n<BR>\nMajor Disabilities: []<BR>\nDetails: []<BR>\n<BR>\nAllergies: []<BR>\nDetails: []<BR>\n<BR>\nCurrent Diseases: [] (per disease info placed in log/comment section)<BR>\nDetails: []<BR>\n<BR>\nImportant Notes:<BR>\n\t[]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>", record2.fields["b_type"], record2.fields["b_dna"], record2.fields["mi_dis"], record2.fields["mi_dis_d"], record2.fields["ma_dis"], record2.fields["ma_dis_d"], record2.fields["alg"], record2.fields["alg_d"], record2.fields["cdi"], record2.fields["cdi_d"], decode(record2.fields["notes"]))
+					var/counter = 1
+					while(record2.fields[text("com_[]", counter)])
+						info += text("[]<BR>", record2.fields[text("com_[]", counter)])
+						counter++
+				else
+					info += "<B>Medical Record Lost!</B><BR>"
+				info += "</TT>"
+				P.set_content_unsafe(rname, info)
+				print(P)
 
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()

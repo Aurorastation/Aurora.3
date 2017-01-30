@@ -109,9 +109,13 @@
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return 1
+		if(loud)
+			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!check in I.access) //Fail on first miss
+				if(loud)
+					user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 				return 0
 	else // Should never happen - So fail silently
 		return 0
@@ -153,9 +157,13 @@
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return 1
+		if(loud)
+			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!check in I.access) //Fail on first miss
+				if(loud)
+					user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 				return 0
 	else // Should never happen - So fail silently
 		return 0

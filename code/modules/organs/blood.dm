@@ -221,8 +221,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 //Transfers blood from reagents to vessel, respecting blood types compatability.
 /mob/living/carbon/human/inject_blood(var/datum/reagent/blood/injected, var/amount)
-
-	if(!(species.flags & NO_BLOOD))
+	// In case of mobs without blood, put it in their chem storage.
+	if(species.flags & NO_BLOOD)
 		reagents.add_reagent("blood", amount, injected.data)
 		reagents.update_total()
 		return

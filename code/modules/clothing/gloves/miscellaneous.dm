@@ -71,6 +71,7 @@
 	w_class = 1
 	wired = 1
 	species_restricted = null
+	gender = NEUTER
 
 	verb/checktime()
 		set category = "Object"

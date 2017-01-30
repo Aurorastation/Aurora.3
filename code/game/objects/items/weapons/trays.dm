@@ -33,6 +33,8 @@
 
 /obj/item/weapon/tray/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
 	// Drop all the things. All of them.
 	spill(user, M.loc)
 
@@ -201,9 +203,9 @@
 			if (attempt_load_item(I, usr,0))
 				addedSomething++
 		if ( addedSomething == 1)
-			usr.visible_message("\blue [user] loads an item onto their service tray.")
+			usr.visible_message("<span class='notice'>[user] loads an item onto their service tray.</span>")
 		else if ( addedSomething )
-			usr.visible_message("\blue [user] loads [addedSomething] items onto their service tray.")
+			usr.visible_message("<span class='notice'>[user] loads [addedSomething] items onto their service tray.</span>")
 		else
 			user << "The tray is full or there's nothing valid here"
 			return 1
@@ -298,9 +300,9 @@
 						step(I, pick(NORTH,SOUTH,EAST,WEST))
 						sleep(rand(2,4))
 		if (user)
-			user.visible_message("\blue [user] spills their tray all over the floor.")
+			user.visible_message("<span class='notice'>[user] spills their tray all over the floor.</span>")
 		else
-			src.visible_message("\blue The tray scatters its contents all over the area.")
+			src.visible_message("<span class='notice'>The tray scatters its contents all over the area.</span>")
 		current_weight = 0
 		if(prob(50))
 			playsound(dropspot, 'sound/items/trayhit1.ogg', 50, 1)

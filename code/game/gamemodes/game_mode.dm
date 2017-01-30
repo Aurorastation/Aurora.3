@@ -283,7 +283,7 @@ var/global/list/additional_antag_types = list()
 /datum/game_mode/proc/declare_completion()
 
 	var/is_antag_mode = (antag_templates && antag_templates.len)
-	var/discord_text = "A round of **[name]** has ended! \[Game ID: [game_id]\]\n\n"
+	var/discord_text = "@subscribers A round of **[name]** has ended! \[Game ID: [game_id]\]\n\n"
 	check_victory()
 	if(is_antag_mode)
 		sleep(10)

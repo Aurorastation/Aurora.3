@@ -77,12 +77,47 @@
 	name = "potted plant"
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
+	var/dead = 0
+
+/obj/structure/flora/pottedplant/proc/death()
+	if (!dead)
+		icon_state = "plant-dead"
+		name = "dead [name]"
+		desc = "It looks dead."
+		dead = 1
+//No complex interactions, just make them fragile
+/obj/structure/flora/pottedplant/ex_act()
+	death()
+	return ..()
+
+/obj/structure/flora/pottedplant/fire_act()
+	death()
+	return ..()
+
+/obj/structure/flora/pottedplant/attackby(obj/item/weapon/W, mob/user)
+	if (W.edge)
+		user.visible_message(span("warning", "[user] cuts down the [src]"))
+		death()
+		return 1
+	return ..()
+
+/obj/structure/flora/pottedplant/bullet_act(var/obj/item/projectile/Proj)
+	if (prob(Proj.damage*2))
+		death()
+		return 1
+	return ..()
 
 //Added random icon selection for potted plants.
 //It was silly they always used the same sprite when we have 26 sprites of them in the icon file
 /obj/structure/flora/pottedplant/random/New()
 	..()
-	var/number = rand(1,26)
+	var/number = rand(1,36)
+	if (number == 36)
+		if (prob(90))//Make the wierd one rarer
+			number = rand(1,35)
+		else
+			desc = "It stares into your soul."
+
 	if (number < 10)
 		number = "0[number]"
 	icon_state = "plant-[number]"

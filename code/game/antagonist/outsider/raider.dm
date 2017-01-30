@@ -65,6 +65,7 @@ var/datum/antagonist/raider/raiders
 
 	var/list/raider_guns = list(
 		/obj/item/weapon/gun/energy/rifle/laser,
+		/obj/item/weapon/gun/energy/rifle/laser/xray,
 		/obj/item/weapon/gun/energy/retro,
 		/obj/item/weapon/gun/energy/xray,
 		/obj/item/weapon/gun/energy/mindflayer,
@@ -81,6 +82,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/automatic/wt550,
 		/obj/item/weapon/gun/projectile/automatic/rifle/sts35,
 		/obj/item/weapon/gun/projectile/automatic/tommygun,
+		/obj/item/weapon/gun/projectile/automatic/x9,
 		/obj/item/weapon/gun/projectile/silenced,
 		/obj/item/weapon/gun/projectile/shotgun/pump,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat,
@@ -91,6 +93,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/weapon/gun/projectile/pistol,
+		/obj/item/weapon/gun/projectile/deagle,
 		/obj/item/weapon/gun/projectile/revolver,
 		/obj/item/weapon/gun/projectile/revolver/deckard,
 		/obj/item/weapon/gun/projectile/revolver/derringer,

@@ -23,21 +23,10 @@
 	name = "speed loader (.38 rubber)"
 	ammo_type = /obj/item/ammo_casing/c38r
 
-/obj/item/ammo_magazine/a556/ap
-	name = "magazine (5.56mm AP)"
-	icon_state = "5.56AP"
-	origin_tech = "combat=3;materials=4"
-	mag_type = MAGAZINE
-	caliber = "a556"
-	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/a556/ap
-	max_ammo = 20
-	multiple_sprites = 1
-
 /obj/item/ammo_magazine/c45
 	name = "ammunition Box (.45)"
 	icon_state = "9mm"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	caliber = ".45"
 	matter = list(DEFAULT_WALL_MATERIAL = 2250)
 	ammo_type = /obj/item/ammo_casing/c45
@@ -46,7 +35,7 @@
 /obj/item/ammo_magazine/c45x
 	name = "magazine (.45)"
 	icon_state = "45x"
-	origin_tech = "combat=3"
+	origin_tech = list(TECH_COMBAT = 3)
 	mag_type = MAGAZINE
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	caliber = ".45"
@@ -190,6 +179,12 @@
 	name = "magazine (5.56mm practice)"
 	ammo_type = /obj/item/ammo_casing/a556p
 
+/obj/item/ammo_magazine/a556/ap
+	name = "magazine (5.56mm AP)"
+	icon_state = "5.56AP"
+	origin_tech = list(TECH_COMBAT = 3)
+	ammo_type = /obj/item/ammo_casing/a556/ap
+
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
 	icon_state = "50ae"
@@ -231,7 +226,7 @@
 /obj/item/ammo_magazine/tranq
 	name = "tranquilizer darts (.50 cal PPS)"
 	icon_state = "incendiaryshot_box"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = SINGLE_CASING
 	caliber = "PPS"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
@@ -314,7 +309,7 @@
 /obj/item/ammo_magazine/shotgun
 	name = "ammunition box (slug)"
 	icon_state = "lethalshellshot_box"
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8
 	caliber = "shotgun"
@@ -412,18 +407,18 @@
 	max_ammo = 8
 	matter = list("metal" = 2880)
 	multiple_sprites = 1
-	
+
 /obj/item/ammo_magazine/assault_shotgun/shells
 	name = "magazine (shells)"
 	icon_state = "csm"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	
+
 /obj/item/ammo_magazine/assault_shotgun/incendiary
 	name = "magazine (incendiary shells)"
 	icon_state = "csmi"
 	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
 	matter = list(DEFAULT_WALL_MATERIAL = 3600)
-	
+
 /obj/item/ammo_magazine/assault_shotgun/stun
 	name = "magazine (stun shells)"
 	icon_state = "csms"

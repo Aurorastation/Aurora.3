@@ -201,9 +201,19 @@
 
 /mob/proc/is_physically_disabled()
 	return incapacitated(INCAPACITATION_DISABLED)
+	
+/mob/proc/cannot_stand()
+	return incapacitated(INCAPACITATION_KNOCKDOWN)
 
 /mob/proc/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
-	if ((incapacitation_flags & INCAPACITATION_DISABLED) && (stat || paralysis || stunned || weakened || resting || sleeping || (status_flags & FAKEDEATH)))
+
+	if ((incapacitation_flags & INCAPACITATION_STUNNED) && stunned)
+		return 1
+
+	if ((incapacitation_flags & INCAPACITATION_FORCELYING) && (weakened || resting))
+		return 1
+
+	if ((incapacitation_flags & INCAPACITATION_KNOCKOUT) && (stat || paralysis || sleeping || (status_flags & FAKEDEATH)))
 		return 1
 
 	if((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())
@@ -439,7 +449,7 @@
 	if (ticker.mode.deny_respawn) //BS12 EDIT
 		usr << "<span class='notice'>Respawn is disabled for this roundtype.</span>"
 		return
-	else if(!MayRespawn(1, config.respawn_delay))
+	else if(!MayRespawn(1, CREW))
 		return
 
 	usr << "You can respawn now, enjoy your new life!"
@@ -774,9 +784,6 @@
 /mob/proc/can_stand_overridden()
 	return 0
 
-/mob/proc/cannot_stand()
-	return incapacitated(INCAPACITATION_DEFAULT & (~INCAPACITATION_RESTRAINED))
-
 //Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
 
@@ -803,19 +810,13 @@
 				if(buckled.buckle_movable)
 					anchored = 0
 					canmove = 1
-
-		else if(cannot_stand())
-			lying = 1
-			canmove = 0
-		else if(stunned)
-			canmove = 0
 		else if(captured)
 			anchored = 1
 			canmove = 0
 			lying = 0
 		else
-			lying = 0
-			canmove = 1
+			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
+			canmove = !incapacitated(INCAPACITATION_DISABLED)
 
 	if(lying)
 		density = 0
@@ -1208,7 +1209,7 @@ mob/proc/yank_out_object()
 		return
 
 	SetWeakened(200)
-	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminmhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
+	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
 	log_admin("[key_name(admin)] winded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 

@@ -115,7 +115,7 @@ var/global/ManifestJSON
 			department = 1
 			if(depthead && sci.len != 1)
 				sci.Swap(1,sci.len)
-				
+
 		if(real_rank in cargo_positions)
 			car[++car.len] = list("name" = name, "rank" = rank, "active" = isactive)
 			department = 1
@@ -147,7 +147,7 @@ var/global/ManifestJSON
 		"bot" = bot,\
 		"misc" = misc\
 		)
-	ManifestJSON = list2json(PDA_Manifest)
+	ManifestJSON = json_encode(PDA_Manifest)
 	return
 
 

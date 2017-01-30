@@ -207,8 +207,8 @@
 		return
 
 	for(var/datum/mind/player in pending_antagonists)
-		pending_antagonists -= player
-		add_antagonist(player,0,0,1)
+		if (add_antagonist(player,0,0,1))
+			pending_antagonists -= player
 
 	reset_antag_selection()
 
@@ -220,5 +220,6 @@
 		if(flags & ANTAG_OVERRIDE_JOB)
 			player.assigned_role = null
 		player.special_role = null
+		player.current.client.verbs -= /client/proc/aooc
 	pending_antagonists.Cut()
 	candidates.Cut()

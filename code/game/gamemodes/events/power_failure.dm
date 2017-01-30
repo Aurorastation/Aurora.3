@@ -9,7 +9,7 @@
 
 	for(var/obj/machinery/power/apc/C in world)
 		if(!C.is_critical)
-			C.energy_fail(rand(30 * severity,60 * severity))
+			C.energy_fail(rand(40 * severity,150 * severity))
 
 /proc/power_restore(var/announce = 1)
 	var/list/skipped_areas = list(/area/turret_protected/ai)

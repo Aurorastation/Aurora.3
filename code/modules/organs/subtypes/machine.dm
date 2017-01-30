@@ -1,4 +1,6 @@
-// IPC limbs.
+//////////////
+// IPC limbs//
+//////////////
 /obj/item/organ/external/head/ipc
 	dislocated = -1
 	can_intake_reagents = 0
@@ -169,7 +171,9 @@
 			qdel(src)
 
 
-//terminator organs
+//////////////
+//Terminator//
+//////////////
 
 /obj/item/organ/mmi_holder/posibrain/terminator
 	name = "brain"
@@ -313,6 +317,10 @@
 	robotize("Hephaestus Vulcanite Limb")
 	..()
 
+//////////////
+//Industrial//
+//////////////
+
 /obj/item/organ/external/head/industrial
 	dislocated = -1
 	can_intake_reagents = 0
@@ -384,4 +392,81 @@
 	dislocated = -1
 /obj/item/organ/external/hand/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
+	..()
+
+///////////////
+//Shell limbs//
+///////////////
+
+/obj/item/organ/external/head/shell
+	dislocated = -1
+	can_intake_reagents = 0
+	vital = 0
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
+	encased = null
+
+/obj/item/organ/external/head/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/chest/shell
+	dislocated = -1
+	encased = null
+/obj/item/organ/external/chest/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/groin/shell
+	dislocated = -1
+/obj/item/organ/external/groin/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/arm/shell
+	dislocated = -1
+/obj/item/organ/external/arm/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/arm/right/shell
+	dislocated = -1
+/obj/item/organ/external/arm/right/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/leg/shell
+	dislocated = -1
+/obj/item/organ/external/leg/shel/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/leg/right/shell
+	dislocated = -1
+/obj/item/organ/external/leg/right/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/foot/shell
+	dislocated = -1
+/obj/item/organ/external/foot/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/foot/right/shell
+	dislocated = -1
+/obj/item/organ/external/foot/right/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/hand/shell
+	dislocated = -1
+/obj/item/organ/external/hand/shell/New()
+	robotize("Human Synthskin")
+	..()
+
+/obj/item/organ/external/hand/right/shell
+	dislocated = -1
+/obj/item/organ/external/hand/right/shell/New()
+	robotize("Human Synthskin")
 	..()

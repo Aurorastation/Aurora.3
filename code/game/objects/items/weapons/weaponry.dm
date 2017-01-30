@@ -192,6 +192,7 @@
 
 /obj/effect/energy_net/attack_hand(var/mob/user)
 
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/mob/living/carbon/human/H = user
 	if(istype(H))
 		if(H.species.can_shred(H))

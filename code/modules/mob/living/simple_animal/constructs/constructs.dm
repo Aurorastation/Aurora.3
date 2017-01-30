@@ -57,6 +57,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/construct/attack_generic(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(user, /mob/living/simple_animal/construct/builder))
 		if(getBruteLoss() > 0)
 			adjustBruteLoss(-5)
@@ -83,6 +84,14 @@
 
 	user << msg
 
+/mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
+	if(istype(A, /obj/effect/rune))
+		var/obj/effect/rune/R = A
+		do_attack_animation(R)
+		R.attack_hand(src)
+	else
+		..()
+
 
 /////////////////Juggernaut///////////////
 
@@ -91,7 +100,7 @@
 /mob/living/simple_animal/construct/armoured
 	name = "Juggernaut"
 	real_name = "Juggernaut"
-	desc = "A possessed suit of armour driven by the will of the restless dead"
+	desc = "A possessed suit of armour driven by the will of the restless dead."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "behemoth"
 	icon_living = "behemoth"
@@ -135,18 +144,6 @@
 
 	return (..(P))
 
-/mob/living/simple_animal/construct/armoured/UnarmedAttack(var/atom/A, var/proximity)
-	if(istype(A, /obj/machinery))
-		// Destroy machines instead of opening their UI
-		var/obj/machinery/M = A
-		do_attack_animation(M)
-		playsound(loc, attack_sound, 50, 1, 1)
-		M.ex_act(3.0)
-	else
-		..()
-
-
-
 ////////////////////////Wraith/////////////////////////////////////////////
 
 
@@ -154,7 +151,7 @@
 /mob/living/simple_animal/construct/wraith
 	name = "Wraith"
 	real_name = "Wraith"
-	desc = "A wicked bladed shell contraption piloted by a bound spirit"
+	desc = "A wicked bladed shell contraption piloted by a bound spirit."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "floating"
 	icon_living = "floating"
@@ -177,7 +174,7 @@
 /mob/living/simple_animal/construct/builder
 	name = "Artificer"
 	real_name = "Artificer"
-	desc = "A bulbous construct dedicated to building and maintaining The Cult of Nar-Sie's armies"
+	desc = "A bulbous construct dedicated to building and maintaining The Cult of Nar-Sie's armies."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "artificer"
 	icon_living = "artificer"
@@ -232,7 +229,7 @@
 /mob/living/simple_animal/construct/harvester
 	name = "Harvester"
 	real_name = "Harvester"
-	desc = "The promised reward of the livings who follow narsie. Obtained by offering their bodies to the geometer of blood"
+	desc = "The promised reward of those who follow Nar'Sie, obtained by offering their bodies to the Geometer of Blood."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "harvester"
 	icon_living = "harvester"
@@ -251,6 +248,7 @@
 			/spell/aoe_turf/knock/harvester,
 			/spell/rune_write
 		)
+
 
 ////////////////Glow//////////////////
 /mob/living/simple_animal/construct/proc/add_glow()

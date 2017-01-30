@@ -41,6 +41,7 @@
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
+	var/has_set_boltlight = FALSE
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
@@ -149,6 +150,15 @@
 	maxhealth = 800
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_fre
+	hatch_colour = "#ffffff"
+	open_duration = 20
+
+/obj/machinery/door/airlock/freezer_maint
+	name = "Freezer Maintenance Access"
+	icon = 'icons/obj/doors/Doormaintfreezer.dmi'
+	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
+	opacity = 1
+	assembly_type = /obj/structure/door_assembly/door_assembly_fma
 	hatch_colour = "#ffffff"
 	open_duration = 20
 
@@ -546,15 +556,22 @@ About the new airlock wires panel:
 	else
 		return 0
 
+// Only set_light() if there's a change, no need to waste processor cycles with lighting updates.
 /obj/machinery/door/airlock/update_icon()
-	set_light(0)
+	if (!isnull(gcDestroyed))
+		return
 	if(overlays) overlays.Cut()
 	if(density)
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
-			set_light(1.5, 0.5, COLOR_RED_LIGHT)
+			if (!has_set_boltlight)
+				set_light(2, 0.75, COLOR_RED_LIGHT, update_type = UPDATE_NONE)
+				has_set_boltlight = TRUE
 		else
 			icon_state = "door_closed"
+			if (has_set_boltlight)
+				set_light(0, update_type = UPDATE_NONE)
+				has_set_boltlight = FALSE
 		if(p_open || welded)
 			overlays = list()
 			if(p_open)
@@ -569,7 +586,7 @@ About the new airlock wires panel:
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
 			overlays += image(icon, "sparks_damaged")
 
-		if (hashatch)
+		if (hatch_image)
 			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
@@ -579,6 +596,14 @@ About the new airlock wires panel:
 		icon_state = "door_open"
 		if((stat & BROKEN) && !(stat & NOPOWER))
 			overlays += image(icon, "sparks_open")
+		if (has_set_boltlight)
+			set_light(0, update_type = UPDATE_NONE)
+			has_set_boltlight = FALSE
+
+	if (src)
+		var/turf/T = get_turf(src)
+		if (T)
+			T.update_lights_now()
 	return
 
 /obj/machinery/door/airlock/do_animate(animation)

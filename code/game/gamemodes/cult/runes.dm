@@ -1087,13 +1087,58 @@ var/list/sacrificed = list()
 			usr.visible_message("<span class='warning'>The rune disappears with a flash of red light, and a set of armor appears on [usr]...</span>", \
 			"<span class='warning'>You are blinded by the flash of red light! After you're able to see again, you see that you are now wearing a set of armor.</span>")
 
-			user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)
-			user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit)
-			user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes)
-			user.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/cultpack(user), slot_back)
-			//the above update their overlay icons cache but do not call update_icons()
-			//the below calls update_icons() at the end, which will update overlay icons by using the (now updated) cache
-			user.put_in_hands(new /obj/item/weapon/melee/cultblade(user))	//put in hands or on floor
+			if(istype(usr, /mob/living/simple_animal/construct))
+				var/mob/living/simple_animal/construct/C = user
+				var/construct_class
+				if(narsie_cometh)
+					construct_class = alert(C, "Please choose which type of construct you wish to become.",,"Juggernaut","Wraith","Harvester")
+				else
+					construct_class = alert(C, "Please choose which type of construct you wish to become.",,"Juggernaut","Wraith","Artificer")
+				switch(construct_class)
+					if("Juggernaut")
+						var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(C.loc))
+						Z.key = C.key
+						if(iscultist(C))
+							cult.add_antagonist(Z.mind)
+						C.death()
+						Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
+						Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+						Z.cancel_camera()
+					if("Wraith")
+						var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(C.loc))
+						Z.key = C.key
+						if(iscultist(C))
+							cult.add_antagonist(Z.mind)
+						C.death()
+						Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
+						Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+						Z.cancel_camera()
+					if("Artificer")
+						var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(C.loc))
+						Z.key = C.key
+						if(iscultist(C))
+							cult.add_antagonist(Z.mind)
+						C.death()
+						Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
+						Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+						Z.cancel_camera()
+					if("Harvester")
+						var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/harvester (get_turf(C.loc))
+						Z.key = C.key
+						if(iscultist(C))
+							cult.add_antagonist(Z.mind)
+						C.death()
+						Z << "<B>You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer.</B>"
+						Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+						Z.cancel_camera()
+			else
+				user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)
+				user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit)
+				user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes)
+				user.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/cultpack(user), slot_back)
+				//the above update their overlay icons cache but do not call update_icons()
+				//the below calls update_icons() at the end, which will update overlay icons by using the (now updated) cache
+				user.put_in_hands(new /obj/item/weapon/melee/cultblade(user))	//put in hands or on floor
 
 			qdel(src)
 			return

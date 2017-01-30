@@ -55,7 +55,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.has_organ["filtration bit"] && isvaurca(H))
-			metabolism = REM * 10 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
+			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name["filtration bit"]
 			if(isnull(F))
 				..()
@@ -68,7 +68,7 @@
 				else if(P.is_broken())
 					return
 				else
-					P.air_contents.adjust_gas("phoron", (2*removed))
+					P.air_contents.adjust_gas("phoron", (0.5*removed))
 		else
 			..()
 	else

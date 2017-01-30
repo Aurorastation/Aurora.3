@@ -239,7 +239,7 @@ for reference:
 		var/turf/Tsec = get_turf(src)
 
 	/*	var/obj/item/stack/rods/ =*/
-		PoolOrNew(/obj/item/stack/rods, Tsec)
+		getFromPool(/obj/item/stack/rods, Tsec)
 
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(3, 1, src)

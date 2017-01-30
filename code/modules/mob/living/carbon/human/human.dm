@@ -771,21 +771,7 @@
 		return 0
 	return 1
 
-/mob/living/carbon/human/proc/delayed_vomit()
 
-	if(!check_has_mouth())
-		return
-	if(stat == DEAD)
-		return
-	if(!lastpuke)
-		lastpuke = 1
-		src << "<span class='warning'>You feel nauseous...</span>"
-		spawn(150)	//15 seconds until second warning
-			src << "<span class='warning'>You feel like you are about to throw up!</span>"
-			spawn(100)	//and you have 10 more for mad dash to the bucket
-				vomit()//Vomit function is in mob helpers
-				spawn(350)	//wait 35 seconds before next volley
-					lastpuke = 0
 
 /mob/living/carbon/human/proc/morph()
 	set name = "Morph"
@@ -1092,6 +1078,11 @@
 
 	if(usr == src)
 		self = 1
+
+	if (src.species.flags & NO_BLOOD)
+		usr << span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse.")
+		return
+
 	if(!self)
 		usr.visible_message("<span class='notice'>[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse.</span>",\
 		"You begin counting [src]'s pulse")
@@ -1434,49 +1425,7 @@
 		return
 	return ..()
 
-//Puts the item into our active hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_active_hand(var/obj/item/W)
-	return (hand ? put_in_l_hand(W) : put_in_r_hand(W))
 
-//Puts the item into our inactive hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W)
-	return (hand ? put_in_r_hand(W) : put_in_l_hand(W))
-
-/mob/living/carbon/human/put_in_hands(var/obj/item/W)
-	if(!W)
-		return 0
-	if(put_in_active_hand(W))
-		update_inv_l_hand()
-		update_inv_r_hand()
-		return 1
-	else if(put_in_inactive_hand(W))
-		update_inv_l_hand()
-		update_inv_r_hand()
-		return 1
-	else
-		return ..()
-
-/mob/living/carbon/human/put_in_l_hand(var/obj/item/W)
-	if(!..() || l_hand)
-		return 0
-
-	W.forceMove(src)
-	l_hand = W
-	W.equipped(src,slot_l_hand)
-	W.add_fingerprint(src)
-	update_inv_l_hand()
-	return 1
-
-/mob/living/carbon/human/put_in_r_hand(var/obj/item/W)
-	if(!..() || r_hand)
-		return 0
-
-	W.forceMove(src)
-	r_hand = W
-	W.equipped(src,slot_r_hand)
-	W.add_fingerprint(src)
-	update_inv_r_hand()
-	return 1
 
 /mob/living/carbon/human/AltClickOn(var/atom/A)
 	var/doClickAction = 1

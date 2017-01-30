@@ -71,8 +71,8 @@
 	var/sealing                                               // Keeps track of seal status independantly of canremove.
 	var/offline = 1                                           // Should we be applying suit maluses?
 	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
-	var/vision_restriction
-	var/offline_vision_restriction = 1                        // 0 - none, 1 - welder vision, 2 - blind. Maybe move this to helmets.
+	var/vision_restriction = TINT_NONE
+	var/offline_vision_restriction = TINT_HEAVY
 	var/airtight = 1 //If set, will adjust AIRTIGHT and STOPPRESSUREDAMAGE flags on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
@@ -151,6 +151,7 @@
 		piece.unacidable = unacidable
 		if(islist(armor)) piece.armor = armor.Copy()
 
+	set_vision(!offline)
 	update_icon(1)
 
 /obj/item/weapon/rig/Destroy()
@@ -165,6 +166,10 @@
 	qdel(spark_system)
 	spark_system = null
 	return ..()
+
+/obj/item/weapon/rig/proc/set_vision(var/active)
+	if(helmet)
+		helmet.tint = (active? vision_restriction : offline_vision_restriction)
 
 /obj/item/weapon/rig/proc/suit_is_deployed()
 	if(!istype(wearer) || src.loc != wearer || wearer.back != src)
@@ -342,6 +347,7 @@
 				wearer.wearing_rig = src
 			chest.slowdown = initial(slowdown)
 
+	set_vision(!offline)
 	if(offline)
 		if(offline == 1)
 			for(var/obj/item/rig_module/module in installed_modules)
@@ -684,13 +690,21 @@
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, H, ONLY_DEPLOY)
 
-/obj/item/weapon/rig/dropped(var/mob/user)
-	..()
+/obj/item/weapon/rig/proc/null_wearer(var/mob/user)
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
 	if(wearer)
 		wearer.wearing_rig = null
 		wearer = null
+
+/obj/item/weapon/rig/on_slotmove(var/mob/user)
+	..()
+	null_wearer(user)
+
+/obj/item/weapon/rig/dropped(var/mob/user)
+	..()
+	null_wearer(user)
+
 
 //Todo
 /obj/item/weapon/rig/proc/malfunction()

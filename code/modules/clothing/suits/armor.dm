@@ -333,6 +333,10 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	siemens_coefficient = 0.5
 
+/obj/item/clothing/suit/storage/vest/New()
+	..()
+	pockets.storage_slots = 4	//two slots
+
 /obj/item/clothing/suit/storage/vest/officer
 	name = "officer armor vest"
 	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a security holobadge clipped to the chest."
@@ -503,6 +507,7 @@
 	slowdown = 3
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 0
+	pocket_slots = 3
 
 /obj/item/clothing/suit/armor/tdome
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS

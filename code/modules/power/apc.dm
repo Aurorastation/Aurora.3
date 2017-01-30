@@ -337,7 +337,7 @@
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light(l_range = 2, l_power = 0.5, l_color = "#0000FF")
+			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = "#0000FF")
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
 			var/color
 			switch(charging)
@@ -347,7 +347,7 @@
 					color = "#A8B0F8"
 				if(2)
 					color = "#82FF4C"
-			set_light(l_range = 2, l_power = 0.5, l_color = color)
+			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = color)
 		else
 			set_light(0)
 
@@ -469,6 +469,19 @@
 		else
 			opened = 1
 			update_icon()
+	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
+		var/obj/item/weapon/gripper/Gri = W
+		if(opened && cell)
+			if (Gri.grip_item(cell, user))
+				cell.add_fingerprint(user)
+				cell.update_icon()
+				cell = null
+				user.visible_message("<span class='warning'>[user.name] removes the power cell from [src.name]!</span>",\
+									 "<span class='notice'>You remove the power cell.</span>")
+				//user << "You remove the power cell."
+				charging = 0
+				src.update_icon()
+				return
 	else if	(istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
 		if(cell)
 			user << "There is a power cell already installed."
@@ -480,7 +493,7 @@
 			user << "\The [W] is too [W.w_class < 3? "small" : "large"] to fit here."
 			return
 
-		user.drop_item()
+		user.drop_item(src)
 		W.forceMove(src)
 		cell = W
 		user.visible_message(\
@@ -1290,18 +1303,11 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				sleep(1)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
-	// this defines what the list level arguments are when night mode is turned on
-	var/list/night_light_args = list(
-	                           /obj/machinery/light = list(6, 1),
-	                           /obj/machinery/light/small = list(4, 1)
-	                           )
 	for (var/obj/machinery/light/L in area.contents)
-		if (!listgetindex(night_light_args, L.type)) // if L's type isn't defined in our args list
-			continue
 		if (force == "on")
-			L.set_light_source(arglist(night_light_args[L.type]))
+			L.nightmode = TRUE
 		else if (force == "off")
-			L.set_light_source()
+			L.nightmode = FALSE
 		L.update()
 	switch (force)
 		if ("on")

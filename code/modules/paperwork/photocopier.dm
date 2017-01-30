@@ -50,7 +50,7 @@
 
 			if (istype(copyitem, /obj/item/weapon/paper))
 				copy(copyitem)
-				sleep(15)
+				sleep(20)
 			else if (istype(copyitem, /obj/item/weapon/photo))
 				photocopy(copyitem)
 				sleep(15)
@@ -146,18 +146,20 @@
 					toner = 0
 	return
 
-/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy)
-	var/obj/item/weapon/paper/c = new /obj/item/weapon/paper (loc)
-	if(toner > 10)	//lots of toner, make it dark
-		c.info = "<font color = #101010>"
+/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy, var/print = 1, var/use_sound = 1, var/delay = 20)
+	var/obj/item/weapon/paper/c = new /obj/item/weapon/paper()
+	var/info
+	var/pname
+	if (toner > 10)	//lots of toner, make it dark
+		info = "<font color = #101010>"
 	else			//no toner? shitty copies for you!
-		c.info = "<font color = #808080>"
+		info = "<font color = #808080>"
 	var/copied = html_decode(copy.info)
 	copied = replacetext(copied, "<font face=\"[c.deffont]\" color=", "<font face=\"[c.deffont]\" nocolor=")	//state of the art techniques in action
 	copied = replacetext(copied, "<font face=\"[c.crayonfont]\" color=", "<font face=\"[c.crayonfont]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
-	c.info += copied
-	c.info += "</font>"//</font>
-	c.name = copy.name // -- Doohl
+	info += copied
+	info += "</font>"//</font>
+	pname = copy.name // -- Doohl
 	c.fields = copy.fields
 	c.stamps = copy.stamps
 	c.stamped = copy.stamped
@@ -176,12 +178,16 @@
 		img.pixel_x = copy.offset_x[j]
 		img.pixel_y = copy.offset_y[j]
 		c.overlays += img
-	c.updateinfolinks()
+	
 	toner--
 	if(toner == 0)
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
+		return
+	
+	c.set_content_unsafe(pname, info)
+	if (print)
+		src.print(c, use_sound, 'sound/items/poster_being_created.ogg', delay)
 	return c
-
 
 /obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
 	var/obj/item/weapon/photo/p = photocopy.copy()

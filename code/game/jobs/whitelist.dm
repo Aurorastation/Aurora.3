@@ -74,6 +74,10 @@ var/list/whitelist = list()
 	if (!M || !species)
 		return 0
 
+	if (istype(species, /datum/species))
+		var/datum/species/S = species
+		species = S.name
+
 	if (lowertext(species) == "human")
 		return 1
 

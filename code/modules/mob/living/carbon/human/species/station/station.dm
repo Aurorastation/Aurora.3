@@ -15,7 +15,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list("Sol Common")
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
-
+	mob_size = 9
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
 
@@ -50,6 +50,7 @@
 	exhaust_threshold = 65
 	rarity_value = 3
 	breakcuffs = list(MALE)
+	mob_size = 10
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
@@ -123,7 +124,7 @@
 	sprint_speed_factor = 0.65
 	sprint_cost_factor = 0.75
 
-	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the S'randarr \
+	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
 	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \
 	eventual revolution that overthrew their ancient monarchies to become totalitarian - and NanoTrasen friendly - \
 	republics. Adhomai is still enduring a global war in the aftermath of the new world order, and many Tajara are \
@@ -217,7 +218,7 @@
 	num_alternate_languages = 1
 	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
-
+	mob_size = 12//Worker gestalts are 150kg
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -277,7 +278,7 @@
 	sprint_speed_factor = 0.5		  //Speed gained is minor
 	sprint_cost_factor = 0.8
 
-/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
 	if (!DS)
@@ -326,7 +327,11 @@
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
-	return ..()
+	if (ishuman(H))
+		return ..()
+	else//Most of the stuff in the parent function doesnt apply to nymphs
+		add_inherent_verbs(H)
+
 
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
@@ -454,9 +459,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (!new_machine || !player)
 		return
 
-	establish_db_connection()
+	if (establish_db_connection(dbcon))
 
-	if (dbcon.IsConnected())
 		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
 
 		var/status = 0
@@ -479,9 +483,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (!target || !player)
 		return
 
-	establish_db_connection()
-
-	if (dbcon.IsConnected())
+	if (establish_db_connection(dbcon))
 		var/status = 0
 		var/sql_status = 0
 		if (target.internal_organs_by_name["ipc tag"])
@@ -531,6 +533,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
+	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 
 	blurb = "Type A are the most common type of Vaurca and can be seen as the 'backbone' of Vaurcae societies. Their most prevalent feature is their hardened exoskeleton, varying in colors \
 	in accordance to their hive. It is approximately half an inch thick among all Type A Vaurca. The carapace provides protection against harsh radiation, solar \
@@ -571,11 +574,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	sprint_speed_factor = 0.7
 	sprint_cost_factor = 0.30
 	stamina_recovery = 2//slow recovery
-
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
-		)
 
 
 	has_organ = list(

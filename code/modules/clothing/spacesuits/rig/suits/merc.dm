@@ -10,7 +10,7 @@
 	armor = list(melee = 80, bullet = 65, laser = 50, energy = 15, bomb = 80, bio = 100, rad = 60)
 	slowdown = 1
 	offline_slowdown = 3
-	offline_vision_restriction = 1
+	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 30
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc

@@ -62,6 +62,7 @@
 	var/mature_time		//minimum maturation time
 	var/last_tick = 0
 	var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/plant
+	var/last_biolum = null
 
 /obj/effect/plant/Destroy()
 	if(plant_controller)
@@ -153,10 +154,15 @@
 		var/clr
 		if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
 			clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
-		set_light(1+round(seed.get_trait(TRAIT_POTENCY)/20), l_color = clr)
+		var/val = 1+round(seed.get_trait(TRAIT_POTENCY)/20)
+		if (val != last_biolum)
+			last_biolum = val
+			set_light(val, l_color = clr)
 		return
 	else
-		set_light(0)
+		if (last_biolum)
+			set_light(0)
+			last_biolum = null
 
 /obj/effect/plant/proc/refresh_icon()
 	var/growth = min(max_growth,round(health/growth_threshold))

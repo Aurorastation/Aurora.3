@@ -279,7 +279,8 @@
 				if(prob(50))
 					M.Stun(5)
 			M.apply_effect(25, IRRADIATE)
-
+			if(prob(3))
+				excavate_find(prob(5), finds[1])
 
 	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
 
@@ -295,6 +296,10 @@
 			for(var/next_direction in step_overlays)
 				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
 					T.overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
+
+	if(rand(1,500) == 1)
+		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
+		new /obj/structure/closet/crate/secure/loot(src)
 
 	if(istype(N))
 		N.overlay_detail = "asteroid[rand(0,9)]"
@@ -432,6 +437,32 @@
 
 	if(!W || !user)
 		return 0
+
+	if (istype(W, /obj/item/stack/rods))
+		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
+		if(L)
+			return
+		var/obj/item/stack/rods/R = W
+		if (R.use(1))
+			user << "<span class='notice'>Constructing support lattice ...</span>"
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			ReplaceWithLattice()
+		return
+
+	if (istype(W, /obj/item/stack/tile/floor))
+		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
+		if(L)
+			var/obj/item/stack/tile/floor/S = W
+			if (S.get_amount() < 1)
+				return
+			qdel(L)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			S.use(1)
+			ChangeTurf(/turf/simulated/floor/airless)
+			return
+		else
+			user << "<span class='warning'>The plating is going to need some support.</span>"
+			return
 
 	var/list/usable_tools = list(
 		/obj/item/weapon/shovel,

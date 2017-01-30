@@ -30,6 +30,7 @@
 	var/list/offset_y[0] //usage by the photocopier
 	var/rigged = 0
 	var/spam_flag = 0
+	var/old_name		// The name of the paper before it was folded into a plane.
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
@@ -37,9 +38,14 @@
 
 /obj/item/weapon/paper/New(loc, text,title)
 	..(loc)
-	set_content(text ? text : info, title)
+	set_content(title, text ? text : info)
 
-/obj/item/weapon/paper/proc/set_content(text,title)
+// needed for subtyped papers with pre-defined content
+/obj/item/weapon/paper/New()
+	..()
+	update_icon()
+
+/obj/item/weapon/paper/proc/set_content(title, text)
 	if(title)
 		name = title
 	if (text && length(text))
@@ -50,6 +56,19 @@
 		
 	update_icon()
 	update_space(info)
+	updateinfolinks()
+
+// DO NOT USE THIS FOR UNTRUSTED PLAYER INPUT. IT DOES NOT SANITIZE.
+/obj/item/weapon/paper/proc/set_content_unsafe(title, text)
+	if (title)
+		name = title
+	if (text && length(text))
+		info = text
+	else
+		info = ""
+
+	update_icon()
+	update_space()
 	updateinfolinks()
 
 /obj/item/weapon/paper/update_icon()
@@ -66,6 +85,9 @@
 
 /obj/item/weapon/paper/examine(mob/user)
 	..()
+	if (old_name && icon_state == "paper_plane")
+		user << span("notice", "You're going to have to unfold it before you can read it.")
+		return
 	if(name != "sheet of paper")
 		user << "It's titled '[name]'."
 	if(in_range(user, src) || isobserver(user))
@@ -104,9 +126,31 @@
 			return
 		//crumple dat paper
 		info = stars(info,85)
-		user.visible_message("\The [user] crumples \the [src] into a ball!")
+		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.", "You hear crinkling.")
 		icon_state = "scrap"
 		return
+
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/weapon/paper/carbon))
+		if (icon_state == "paper_plane")
+			user.show_message(span("alert", "The paper is already folded into a plane."))
+			return
+		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."), 
+			span("notice", "You carefully fold \the [src] into a plane."), "You hear paper rustling.")
+		icon_state = "paper_plane"
+		throw_range = 8
+		old_name = name
+		name = "paper plane"
+		return
+
+	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
+		user.visible_message(span("notice", "the [src] unfolds \the [src]."), span("notice", "You unfold \the [src]."), "You hear paper rustling.")
+		icon_state = initial(icon_state)
+		throw_range = initial(throw_range)
+		name = old_name
+		old_name = null
+		update_icon()
+		return
+
 	user.examinate(src)
 	if(rigged && (Holiday == "April Fool's Day"))
 		if(spam_flag == 0)

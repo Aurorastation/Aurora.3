@@ -278,6 +278,8 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 	. = ..()	//calls mob.Login()
+	
+	prefs.sanitize_preferences()
 
 	if (byond_version < config.client_error_version)
 		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"

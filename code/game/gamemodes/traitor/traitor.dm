@@ -1,7 +1,7 @@
 /datum/game_mode/traitor
 	name = "traitor"
 	round_description = "There is a foreign agent or traitor on the station. Do not let the traitor succeed!"
-	extended_round_description = "The Company's monopolistic control over the phoron supplies of Nyx has marked the \
+	extended_round_description = "The Company's monopolistic control over the phoron supplies of Tau Ceti has marked the \
 		station to be a highly valuable target for many competing organizations and individuals. The varied pasts \
 		and experiences of your coworkers have left them susceptible to the vices and temptations of humanity. \
 		Is the station the safe self-contained workplace you once thought it was, or has it become a playground \

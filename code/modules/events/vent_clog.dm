@@ -17,7 +17,7 @@
 		if(!temp_vent)
 			continue
 		if(temp_vent.z in config.station_levels)//STATION ZLEVEL
-			if(temp_vent.network.normal_members.len > 20)
+			if(temp_vent.network && temp_vent.network.normal_members.len > 20)
 				vents += temp_vent
 	if(!vents.len)
 		return kill()

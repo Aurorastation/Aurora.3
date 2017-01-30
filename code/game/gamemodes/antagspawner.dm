@@ -32,11 +32,11 @@
 	for(var/mob/dead/observer/O in player_list)
 		if(!O.MayRespawn())
 			continue
-		if(jobban_isbanned(O, "Syndicate") && jobban_isbanned(O, "Mercenary") && jobban_isbanned(O, "Cyborg"))
+		if(jobban_isbanned(O, "Antagonist") && jobban_isbanned(O, "Mercenary") && jobban_isbanned(O, "Cyborg"))
 			continue
 		if(O.client && O.client.prefs && (MODE_MERCENARY in O.client.prefs.be_special_role))
 			question(O.client)
-			
+
 	spawn(600)
 		searching = 0
 		if(!used)

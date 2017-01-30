@@ -256,7 +256,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 	// give the sprite some time to flick
 	spawn(20)
 		if (istype(incoming, /obj/item/weapon/paper))
-			copy(incoming)
+			copy(incoming, 1, 0, 0)
 		else if (istype(incoming, /obj/item/weapon/photo))
 			photocopy(incoming)
 		else if (istype(incoming, /obj/item/weapon/paper_bundle))
@@ -290,7 +290,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 
 	var/obj/item/rcvdcopy
 	if (istype(copyitem, /obj/item/weapon/paper))
-		rcvdcopy = copy(copyitem)
+		rcvdcopy = copy(copyitem, 0)
 	else if (istype(copyitem, /obj/item/weapon/photo))
 		rcvdcopy = photocopy(copyitem)
 	else if (istype(copyitem, /obj/item/weapon/paper_bundle))

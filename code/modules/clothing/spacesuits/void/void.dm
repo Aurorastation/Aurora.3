@@ -36,7 +36,6 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.4
 
-
 	species_restricted = list("Human", "Skrell", "Machine")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
@@ -103,10 +102,7 @@
 			M << "The valve on your suit's installed tank safely engages."
 			tank.canremove = 0
 
-
-/obj/item/clothing/suit/space/void/dropped()
-	..()
-
+/obj/item/clothing/suit/space/void/proc/cleanup_from_mob()
 	var/mob/living/carbon/human/H
 
 	if(helmet)
@@ -128,6 +124,14 @@
 	if(tank)
 		tank.canremove = 1
 		tank.forceMove(src)
+
+/obj/item/clothing/suit/space/void/on_slotmove()
+	..()
+	cleanup_from_mob()
+
+/obj/item/clothing/suit/space/void/dropped()
+	..()
+	cleanup_from_mob()
 
 /obj/item/clothing/suit/space/void/verb/toggle_helmet()
 

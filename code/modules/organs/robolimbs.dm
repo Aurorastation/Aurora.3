@@ -62,27 +62,3 @@ var/global/datum/robolimb/basic_robolimb
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
 	icon = 'icons/mob/human_races/r_human.dmi'
 	species_can_use = list("Human")
-
-/datum/robolimb/unathi
-	company = "Unathi Synthskin"
-	desc = "This limb is designed to mimic the Unathi form. It does so with moderate success."
-	icon = 'icons/mob/human_races/r_lizard.dmi'
-	species_can_use = list("Unathi")
-
-/datum/robolimb/tajara
-	company = "Tajara Synthskin"
-	desc = "This limb is designed to mimic the Tajaran form. It does so with moderate success."
-	icon = 'icons/mob/human_races/r_tajaran.dmi'
-	species_can_use = list("Tajara","Zhan-Khaza","M'sai")
-
-/datum/robolimb/skrell
-	company = "Skrell Synthskin"
-	desc = "This limb is designed to mimic the Skrellian form. It does so with moderate success."
-	icon = 'icons/mob/human_races/r_skrell.dmi'
-	species_can_use = list("Skrell")
-
-/datum/robolimb/vaurca
-	company = "Vaurca Synthskin"
-	desc = "This limb is designed to mimic the Vaurcae form. It does so with moderate success."
-	icon = 'icons/mob/human_races/r_vaurca.dmi'
-	species_can_use = list("Vaurca Worker","Vaurca Warrior")

@@ -92,6 +92,8 @@
 				money.pixel_y = rand(-6, 6)
 				money.transform *= 0.6
 				underlays += money
+				for (var/A in S.overlays)
+					underlays += A
 		if(2)
 			for(var/mob/M in src)
 				var/image/victim = image(M.icon, M.icon_state)

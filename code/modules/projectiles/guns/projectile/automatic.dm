@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/automatic //Hopefully someone will find a way to make these fire in bursts or something. --Superxpdude
+/obj/item/weapon/gun/projectile/automatic
 	name = "prototype SMG"
 	desc = "A protoype lightweight, fast firing gun. Uses 9mm rounds."
 	icon_state = "saber"	//ugly
@@ -22,7 +22,7 @@
 //Submachine guns and personal defence weapons, go.
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
-	name = "\improper Uzi"
+	name = ".45 machine pistol"
 	desc = "The UZI is a lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
 	w_class = 3
@@ -61,7 +61,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/wt550
 	name = "machine pistol"
-	desc = "The W-T 550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
+	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Necropolis Industries for paramilitary and private use. Uses 9mm rounds."
 	icon_state = "wt550"
 	item_state = "wt550"
 	w_class = 3
@@ -99,7 +99,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=10,    move_delay=null, burst_accuracy=-2, dispersion=null),
+		list(mode_name="semiauto",       burst=1, fire_delay=10,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
 		)
@@ -130,7 +130,7 @@
 	toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
-	name = "\improper STS-35 automatic rifle"
+	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
@@ -142,8 +142,8 @@
 	var/use_launcher = 0
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8
-	name = "\improper Z8 Bulldog"
-	desc = "An older model bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
+	name = "bullpup assault carbine"
+	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
 	icon_state = "carbine"
 	item_state = "z8carbine"
 	w_class = 4
@@ -209,8 +209,8 @@
 		user << "\The [launcher] is empty."
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw
-	name = "\improper L6 SAW"
-	desc = "A rather traditionally made light machine gun with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2531' engraved on the reciever"
+	name = "light machine gun"
+	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the reciever"
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
 	w_class = 4
@@ -272,8 +272,8 @@
 	..()
 
 /obj/item/weapon/gun/projectile/automatic/tommygun
-	name = "\improper Tommygun"
-	desc = "A classic among criminals. Uses .45 rounds."
+	name = "vintage submachine gun"
+	desc = "A classic Thompson submachine gun, ya see? Uses .45 rounds."
 	icon_state = "tommygun"
 	w_class = 3
 	max_shells = 50
@@ -314,7 +314,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/terminator
 	name = "flechette rifle"
-	desc = "A fearsome Necropolis Industries designed rifle with attached bayonet that fires lethal flechette rounds."
+	desc = "A fearsome Necropolis Industries designed rifle with unattached bayonet that fires lethal flechette rounds."
 	icon = 'icons/obj/terminator.dmi'
 	icon_state = "flechetterifle"
 	item_state = "flechetterifle"
@@ -396,7 +396,7 @@
 	accuracy_wielded = 0
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay= 10,    move_delay=null, burst_accuracy=-2, dispersion=null),
+		list(mode_name="semiauto",       burst=1, fire_delay= 10,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0))
 		)
 

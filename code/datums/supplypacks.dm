@@ -479,6 +479,15 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "Metal sheets crate"
 	group = "Engineering"
 
+/datum/supply_packs/metal200
+	name = "Bulk metal crate"
+	contains = list(/obj/item/stack/material/steel, /obj/item/stack/material/steel, /obj/item/stack/material/steel,/obj/item/stack/material/steel)
+	amount = 50
+	cost = 20
+	containertype = /obj/structure/largecrate
+	containername = "Bulk metal crate"
+	group = "Engineering"
+
 /datum/supply_packs/glass50
 	name = "50 glass sheets"
 	contains = list(/obj/item/stack/material/glass)

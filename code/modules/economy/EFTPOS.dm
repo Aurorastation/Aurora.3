@@ -64,10 +64,11 @@
 
 /obj/item/device/eftpos/proc/print_reference()
 	var/obj/item/weapon/paper/R = new(src.loc)
-	R.name = "Reference: [eftpos_name]"
-	R.info = "<b>[eftpos_name] reference</b><br><br>"
-	R.info += "Access code: [access_code]<br><br>"
-	R.info += "<b>Do not lose or misplace this code.</b><br>"
+	var/pname = "Reference: [eftpos_name]"
+	var/info = "<b>[eftpos_name] reference</b><br><br>"
+	info += "Access code: [access_code]<br><br>"
+	info += "<b>Do not lose or misplace this code.</b><br>"
+	R.set_content_unsafe(pname, info)
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')

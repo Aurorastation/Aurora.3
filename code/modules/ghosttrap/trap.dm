@@ -21,7 +21,7 @@ var/list/ghost_traps
 
 /datum/ghosttrap
 	var/object = "positronic brain"
-	var/minutes_since_death = 0     // If non-zero the ghost must have been dead for this many minutes to be allowed to spawn
+	var/respawn_check = 0//Which respawning test we check against
 	var/list/ban_checks = list("AI","Cyborg")
 	var/pref_check = BE_SYNTH
 	var/ghost_trap_message = "They are occupying a positronic brain now."
@@ -37,7 +37,7 @@ var/list/ghost_traps
 
 // Check for bans, proper atom types, etc.
 /datum/ghosttrap/proc/assess_candidate(var/mob/dead/observer/candidate, var/mob/target)
-	if(!candidate.MayRespawn(1, minutes_since_death))
+	if(!candidate.MayRespawn(1, respawn_check))
 		return 0
 	if(islist(ban_checks))
 		for(var/bantype in ban_checks)
@@ -174,7 +174,7 @@ var/list/ghost_traps
 	list_as_special_role = FALSE
 
 /datum/ghosttrap/drone/New()
-	minutes_since_death = DRONE_SPAWN_DELAY
+	respawn_check = MINISYNTH
 	..()
 
 datum/ghosttrap/drone/assess_candidate(var/mob/dead/observer/candidate, var/mob/target)
@@ -192,7 +192,7 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 ***********************************/
 /datum/ghosttrap/syndicateborg
 	object = "syndicate cyborg"
-	ban_checks = list("Syndicate","AI","Cyborg")
+	ban_checks = list("Antagonist","AI","Cyborg")
 	pref_check = "BE_SYNTH"
 	ghost_trap_message = "They are occupying a syndicate cyborg now."
 	ghost_trap_role = "Syndicate Cyborg"

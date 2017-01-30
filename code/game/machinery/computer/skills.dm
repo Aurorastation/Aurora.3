@@ -307,22 +307,21 @@ What a mess.*/
 					screen = 3	*/
 
 			if ("Print Record")
-				if (!( printing ))
-					printing = 1
-					sleep(50)
-					var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( loc )
-					P.info = "<CENTER><B>Employment Record</B></CENTER><BR>"
-					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
-						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>\nEmployment/Skills Summary:<BR>\n[]<BR><br>CCIA Actions / Records: <br>This terminal is not authorized to print CCIA records and/or notes", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"], decode(active1.fields["notes"]))
-					else
-						P.info += "<B>General Record Lost!</B><BR>"
-					P.info += "</TT>"
-					if(active1)
-						P.name = "Employment Record ([active1.fields["name"]])"
-					else
-						P.name = "Employment Record (Unknown/Invald Entry)"
-						log_debug("[usr] ([usr.ckey]) attempted to print a null employee record, this should be investigated.")
-					printing = null
+				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
+				var/info = "<CENTER><B>Employment Record</B></CENTER><BR>"
+				var/pname
+				if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
+					info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>\nEmployment/Skills Summary:<BR>\n[]<BR><br>CCIA Actions / Records: <br>This terminal is not authorized to print CCIA records and/or notes", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"], decode(active1.fields["notes"]))
+				else
+					info += "<B>General Record Lost!</B><BR>"
+				info += "</TT>"
+				if(active1)
+					pname = "Employment Record ([active1.fields["name"]])"
+				else
+					pname = "Employment Record (Unknown/Invald Entry)"
+					log_debug("[usr] ([usr.ckey]) attempted to print a null employee record, this should be investigated.")
+				P.set_content_unsafe(pname, info)
+				print(P)
 //RECORD DELETE
 			if ("Delete All Records")
 				temp = ""

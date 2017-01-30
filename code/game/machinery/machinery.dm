@@ -147,7 +147,7 @@ Class Procs:
 	if(use_power && stat == 0)
 		use_power(7500/severity)
 
-		var/obj/effect/overlay/pulse2 = PoolOrNew(/obj/effect/overlay, src.loc)
+		var/obj/effect/overlay/pulse2 = getFromPool(/obj/effect/overlay, src.loc)
 		pulse2.icon = 'icons/effects/effects.dmi'
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
@@ -370,16 +370,18 @@ Class Procs:
 	qdel(src)
 	return 1
 
-/obj/machinery/proc/print( var/obj/paper )
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10)
 	if( printing )
 		return 0
 
 	printing = 1
 
-	playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
+	if (play_sound)
+		playsound(src.loc, print_sfx, 50, 1)
+	
 	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
 
-	spawn(40)
+	spawn(print_delay)
 		paper.loc = src.loc
 		printing = 0
 

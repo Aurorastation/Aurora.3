@@ -74,8 +74,7 @@
 		if(paper_spawn_loc)
 			// Create and pass on the bomb code paper.
 			var/obj/item/weapon/paper/P = new(paper_spawn_loc)
-			P.info = "The nuclear authorization code is: <b>[code]</b>"
-			P.name = "nuclear bomb code"
+			P.set_content_unsafe("nuclear bomb code", "The nuclear authorization code is: <b>[code]</b>")
 			if(leader && leader.current)
 				if(get_turf(P) == get_turf(leader.current) && !(leader.current.l_hand && leader.current.r_hand))
 					leader.current.put_in_hands(P)

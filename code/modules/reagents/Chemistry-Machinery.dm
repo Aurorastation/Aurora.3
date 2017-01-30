@@ -568,7 +568,7 @@
 		/obj/item/stack/material/phoron = "phoron",
 		/obj/item/stack/material/gold = "gold",
 		/obj/item/stack/material/silver = "silver",
-		/obj/item/stack/material/mhydrogen = "hydrogen"
+		/obj/item/stack/material/mhydrogen = "hydrazine" //doesn't really make much sense but thank Bay
 		)
 
 /obj/machinery/reagentgrinder/New()

@@ -404,6 +404,7 @@ it should be avoided in favour of manual removal where possible
 		if (MODIFIER_OVERRIDE_NEIGHBOR)
 			processing_modifiers += src
 			target.modifiers += src
+			activate()
 			return src
 		if (MODIFIER_OVERRIDE_REPLACE)
 			existing.stop()

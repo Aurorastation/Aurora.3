@@ -91,11 +91,11 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
+			if(reinf) getFromPool(/obj/item/stack/rods, loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
+		if(reinf) getFromPool(/obj/item/stack/rods, loc)
 	qdel(src)
 	return
 
@@ -200,14 +200,12 @@
 
 /obj/structure/window/attack_generic(var/mob/user, var/damage)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(!damage)
-		return
 	if(damage >= 10)
 		visible_message("<span class='danger'>[user] smashes into [src]!</span>")
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 7, 1, -1)
+		playsound(src.loc, 'sound/effects/Glasshit.ogg', 10, 1, -2)
 	user.do_attack_animation(src)
 	return 1
 

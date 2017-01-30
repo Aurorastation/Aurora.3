@@ -83,6 +83,12 @@
 	airlock_type = "/freezer"
 	glass = -1
 
+/obj/structure/door_assembly/door_assembly_fma
+	base_icon_state = "mai"
+	base_name = "Freezer Maintenance Access"
+	airlock_type = "/freezer_maint"
+	glass = -1
+
 /obj/structure/door_assembly/door_assembly_hatch
 	base_icon_state = "hatch"
 	base_name = "Airtight Hatch"

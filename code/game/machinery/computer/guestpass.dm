@@ -45,6 +45,7 @@
 	desc = "Allows issuing temporary access to an area."
 	icon_state = "guest"
 
+	light_color = LIGHT_COLOR_BLUE
 	icon_screen = "pass"
 	density = 0
 
@@ -165,8 +166,7 @@
 				//usr << "Printing the log, standby..."
 				//sleep(50)
 				var/obj/item/weapon/paper/P = new/obj/item/weapon/paper( loc )
-				P.name = "activity log"
-				P.info = dat
+				P.set_content_unsafe("activity log", dat)
 
 			if ("issue")
 				if (giver)

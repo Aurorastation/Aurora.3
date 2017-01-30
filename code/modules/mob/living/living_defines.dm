@@ -69,3 +69,4 @@
 	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
 
 	var/total_radiation	// DON'T MODIFY THIS DIRECTLY. USE apply_radiation()!
+	var/cloaked = 0//Set to 1 by cloaking devices, optimises update_icons

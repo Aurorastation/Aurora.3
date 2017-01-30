@@ -33,3 +33,9 @@
 	name = "Chameleon-Projector"
 	item_cost = 8
 	path = /obj/item/device/chameleon
+
+/datum/uplink_item/item/stealth_items/cloak
+	name = "Cloaking Device"
+	item_cost = 12
+	path = /obj/item/weapon/cloaking_device
+	desc = "An advanced battery-powered miniature cloaking device that renders the holder invisible. Consumes a lot of power."

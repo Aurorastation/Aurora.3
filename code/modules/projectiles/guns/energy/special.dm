@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Not the best of its type."
+	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
 	icon_state = "ionrifle"
 	item_state = "ionrifle"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -183,13 +183,11 @@
 	force = 30
 	projectile_type = /obj/item/projectile/energy/bfg
 	slot_flags = SLOT_BACK
-	max_shots = 40
+	max_shots = 10
 	sel_mode = 1
-	burst = 20
-	burst_delay = 1
-	move_delay = 20
-	fire_delay = 40
-	dispersion = list(3.0, 3.25, 3.5, 3.75, 4.0, 4.25, 4.5, 4.75, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.25)
+	fire_delay = 10
+	accuracy = 20
+	muzzle_flash = 10
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
@@ -254,7 +252,7 @@
 	return 1
 
 /obj/item/weapon/gun/energy/vaurca/blaster
-	name = "Zo'ra Blaster"
+	name = "\improper Zo'ra Blaster"
 	desc = "An elegant weapon for a more civilized time."
 	icon_state = "blaster"
 	item_state = "blaster"
@@ -294,7 +292,7 @@
 	projectile_type = /obj/item/projectile/beam/megaglaive
 	max_shots = 36
 	sel_mode = 1
-	burst = 6
+	burst = 10
 	burst_delay = 1
 	fire_delay = 30
 	sharp = 1
@@ -333,14 +331,13 @@
 	if(!wielded)
 		user << "<span class='danger'>You could never fire this weapon with merely one hand!</span>"
 		return 0
-	playsound(user, 'sound/magic/lightning_chargeup.ogg', 75, 1)
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",
 					"<span class='danger'>You begin charging the [src]!</span>",
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(60)
+	sleep(40)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -423,7 +420,6 @@
 	if(!wielded)
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
-	playsound(user, 'sound/magic/lightning_chargeup.ogg', 75, 1)
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",
 					"<span class='danger'>You begin charging the [src]!</span>",

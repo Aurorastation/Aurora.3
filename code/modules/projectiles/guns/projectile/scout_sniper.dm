@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/w556
-	name = "\improper Neyland 556mi 'Ranger'"
-	desc = "A lightweight scout-rifle used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with medium stopping power. Chambered in 5.56 rounds."
+	name = "scout rifle"
+	desc = "A lightweight Neyland 556mi 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in 5.56 rounds."
 	icon_state = "w556rifle"
 	item_state = "heavysniper"
 	w_class = 4
@@ -11,10 +11,10 @@
 	recoil = 4
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
-	max_shells = 20
+	max_shells = 10
 	ammo_type = /obj/item/ammo_casing/a556/ap
 	magazine_type = /obj/item/ammo_magazine/a556/ap
-	allowed_magazines = list(/obj/item/ammo_magazine/a556/ap)
+	allowed_magazines = list(/obj/item/ammo_magazine/a556, /obj/item/ammo_magazine/a556/ap)
 	accuracy = -2
 	scoped_accuracy = 3
 	recoil_wielded = 2

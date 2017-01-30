@@ -85,6 +85,9 @@ var/global/list/endgame_safespawns = list()
 
 var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, access_external_airlocks)
 
+//Cloaking devices
+var/global/list/cloaking_devices = list()
+
 //////////////////////////
 /////Initial Building/////
 //////////////////////////

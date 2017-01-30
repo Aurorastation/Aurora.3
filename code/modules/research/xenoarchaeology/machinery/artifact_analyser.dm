@@ -74,12 +74,14 @@
 
 		src.visible_message("<b>[name]</b> states, \"Scanning complete.\"")
 		var/obj/item/weapon/paper/P = new(src.loc)
-		P.name = "[src] report #[++report_num]"
-		P.info = "<b>[src] analysis report #[report_num]</b><br>"
-		P.info += "<br>"
-		P.info += "\icon[scanned_object] [results]"
+		var/pname = "[src] report #[++report_num]"
+		var/info = "<b>[src] analysis report #[report_num]</b><br>"
+		info += "<br>"
+		info += "\icon[scanned_object] [results]"
 		P.stamped = list(/obj/item/weapon/stamp)
 		P.overlays = list("paper_stamped")
+		P.set_content_unsafe(pname, info)
+		print(P)
 
 		if(scanned_object && istype(scanned_object, /obj/machinery/artifact))
 			var/obj/machinery/artifact/A = scanned_object

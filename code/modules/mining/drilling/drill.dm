@@ -141,13 +141,14 @@
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O as obj, mob/user as mob)
-	if(!active && !panel_open)
+	if(!active)
 		if(default_deconstruction_screwdriver(user, O))
 			return
-		if(default_deconstruction_crowbar(user, O))
-			return
-		if(default_part_replacement(user, O))
-			return
+		if (!panel_open)
+			if(default_deconstruction_crowbar(user, O))
+				return
+			if(default_part_replacement(user, O))
+				return
 	if(active) return ..()
 
 	if(istype(O, /obj/item/weapon/crowbar))
