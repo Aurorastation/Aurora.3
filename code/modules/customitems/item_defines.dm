@@ -454,7 +454,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/accessory/badge/holo/cord/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
+/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
 	icon = 'icons/obj/custom_items/dylan_tags.dmi'
@@ -463,6 +463,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	stored_name = "Wright, Dylan L"
 	badge_string = "Pacific Union Special Forces"
 	contained_sprite = 1
+	slot_flags = SLOT_MASK | SLOT_TIE
 
 
 /obj/item/clothing/ears/fluff/rico_stripes //Racing Stripes - Ricochet - nebulaflare
