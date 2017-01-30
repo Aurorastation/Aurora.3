@@ -101,10 +101,10 @@
 
 	if (!now)
 		needs_update = TRUE
-		update_overlays()
+		update_overlays(FALSE)
 		lighting_update_corners += src
 	else 
-		update_overlays()
+		update_overlays(TRUE)
 
 /datum/lighting_corner/proc/update_overlays(var/now = FALSE)
 
