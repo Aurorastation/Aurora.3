@@ -26,22 +26,24 @@
 		if(istype(F, /obj/item/weapon/fuel/antiH))
 			src.fuel += F.fuel
 			F.fuel = 0
-			user << "You have added the anti-Hydrogen to the storage ring, it now contains [src.fuel]kg"
+			to_chat(user, "You have added the anti-Hydrogen to the storage ring, it now contains [src.fuel]kg")
 		if(istype(F, /obj/item/weapon/fuel/H))
 			src.fuel += F.fuel
 			qdel(F)
+			F = null
 			src:annihilation(src.fuel)
 	if(istype(src, /obj/item/weapon/fuel/H))
 		if(istype(F, /obj/item/weapon/fuel/H))
 			src.fuel += F.fuel
 			F.fuel = 0
-			user << "You have added the Hydrogen to the storage ring, it now contains [src.fuel]kg"
+			to_chat(user, "You have added the Hydrogen to the storage ring, it now contains [src.fuel]kg")
 		if(istype(F, /obj/item/weapon/fuel/antiH))
 			src.fuel += F.fuel
 			qdel(src)
 			F:annihilation(F.fuel)
 
 /obj/item/weapon/fuel/antiH/proc/annihilation(var/mass)
+
 
 	var/strength = convert2energy(mass)
 
@@ -67,21 +69,22 @@
 	return
 
 
-/obj/item/weapon/fuel/examine(mob/user)
-	if(get_dist(src, user) <= 1)
-		user << "A magnetic storage ring, it contains [fuel]kg of [content ? content : "nothing"]."
+/obj/item/weapon/fuel/examine()
+	..()
+	to_chat(user, "<span class='info'>A magnetic storage ring, it contains [fuel]kg of [content ? content : "nothing"].</span>")
 
 /obj/item/weapon/fuel/proc/injest(mob/M as mob)
 	switch(content)
 		if("Anti-Hydrogen")
 			M.gib()
 		if("Hydrogen")
-			M << "\blue You feel very light, as if you might just float away..."
+			to_chat(M, "<span class='notice'>You feel very light, as if you might just float away...</span>")
 	qdel(src)
 	return
 
 /obj/item/weapon/fuel/attack(mob/M as mob, mob/user as mob)
 	if (user != M)
+		//If you come from the distant future and happen to find this unincluded and derelict file, you may be wondering what this is. In truth, it's better that you don't know.
 		var/obj/effect/equip_e/human/O = new /obj/effect/equip_e/human(  )
 		O.source = user
 		O.target = M
@@ -95,5 +98,5 @@
 			return
 	else
 		for(var/mob/O in viewers(M, null))
-			O.show_message(text("\red [M] ate the [content ? content : "empty canister"]!"), 1)
+			O.show_message(text("<span class='warning'>[M] ate the [content ? content : "empty canister"]!</span>"), 1)
 		src.injest(M)
