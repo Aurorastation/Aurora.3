@@ -1,5 +1,5 @@
 /obj/item/weapon/fuel
-	name = "Magnetic Storage Ring"
+	name = "nagnetic storage ring"
 	desc = "A magnetic storage ring."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "rcdammo"
@@ -11,12 +11,12 @@
 	var/content = null
 
 /obj/item/weapon/fuel/H
-	name = "Hydrogen storage ring"
+	name = "hydrogen storage ring"
 	content = "Hydrogen"
 	fuel = 1e-12		//pico-kilogram
 
 /obj/item/weapon/fuel/antiH
-	name = "Anti-Hydrogen storage ring"
+	name = "anti-hydrogen storage ring"
 	content = "Anti-Hydrogen"
 	fuel = 1e-12		//pico-kilogram
 
@@ -26,7 +26,7 @@
 		if(istype(F, /obj/item/weapon/fuel/antiH))
 			src.fuel += F.fuel
 			F.fuel = 0
-			to_chat(user, "You have added the anti-Hydrogen to the storage ring, it now contains [src.fuel]kg")
+			to_chat(user, "You add the anti-Hydrogen to the storage ring. It now contains [src.fuel]kg.")
 		if(istype(F, /obj/item/weapon/fuel/H))
 			src.fuel += F.fuel
 			qdel(F)
@@ -36,7 +36,7 @@
 		if(istype(F, /obj/item/weapon/fuel/H))
 			src.fuel += F.fuel
 			F.fuel = 0
-			to_chat(user, "You have added the Hydrogen to the storage ring, it now contains [src.fuel]kg")
+			to_chat(user, "You add the Hydrogen to the storage ring. It now contains [src.fuel]kg")
 		if(istype(F, /obj/item/weapon/fuel/antiH))
 			src.fuel += F.fuel
 			qdel(src)
@@ -71,11 +71,12 @@
 
 /obj/item/weapon/fuel/examine()
 	..()
-	to_chat(user, "<span class='info'>A magnetic storage ring, it contains [fuel]kg of [content ? content : "nothing"].</span>")
+	to_chat(user, "<span class='info'>A magnetic storage ring containing [fuel]kg of [content ? content : "nothing"].</span>")
 
 /obj/item/weapon/fuel/proc/injest(mob/M as mob)
 	switch(content)
 		if("Anti-Hydrogen")
+			mob << span("notice", "That was not a very bright idea.")
 			M.gib()
 		if("Hydrogen")
 			to_chat(M, "<span class='notice'>You feel very light, as if you might just float away...</span>")
@@ -98,5 +99,5 @@
 			return
 	else
 		for(var/mob/O in viewers(M, null))
-			O.show_message(text("<span class='warning'>[M] ate the [content ? content : "empty canister"]!</span>"), 1)
+			O.show_message(text("<span class='warning'>\The [M] eats the [content ? content : "empty canister"]!</span>"), 1)
 		src.injest(M)
