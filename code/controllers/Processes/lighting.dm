@@ -18,21 +18,32 @@
 	var/list/curr_corners = list()
 	var/list/curr_overlays = list()
 	var/list/resume_pos = 0
+	var/tmp/ticks_idle = 0
 
 /datum/controller/process/lighting/setup()
 	name = "lighting"
+	disabled = TRUE
 
 	lighting_process = src
 
 /datum/controller/process/lighting/statProcess()
 	..()
-	stat(null, "Current server tick usage is [world.tick_usage], threshold is [TICK_LIMIT].")
+	stat(null, "Currently [disabled ? "sleeping" : "running"], server tick usage is [world.tick_usage].")
 	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
 	stat(null, "Lights: [lighting_update_lights.len] queued, [curr_lights.len] processing")
 	stat(null, "Corners: [lighting_update_corners.len] queued, [curr_corners.len] processing")
 	stat(null, "Overlays: [lighting_update_overlays.len] queued, [curr_overlays.len] processing")
 
 /datum/controller/process/lighting/doWork()
+	if (!lighting_update_lights.len && !lighting_update_corners.len && !lighting_update_overlays.len)
+		ticks_idle++
+	else
+		ticks_idle = 0
+
+	if (ticks_idle > LIGHTING_SLEEP_DELAY)
+		disable()
+		return
+
 	// -- SOURCES --
 	if (resume_pos == STAGE_NONE)
 		curr_lights = lighting_update_lights

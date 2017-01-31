@@ -99,6 +99,9 @@
 // Picks either scheduled or instant updates based on current server load.
 #define INTELLIGENT_UPDATE 							\
 	if (world.tick_usage > TICK_LIMIT || !ticker) {	\
+		if (ticker && lighting_process.disabled) {  \
+			lighting_process.disabled = FALSE;		\
+		}                                           \
 		QUEUE_UPDATE;								\
 	}												\
 	else {											\
