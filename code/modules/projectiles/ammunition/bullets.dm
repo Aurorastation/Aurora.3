@@ -187,12 +187,10 @@
 
 /obj/item/ammo_casing/a556/ap
 	desc = "A 5.56mm armor piercing round."
-	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/ap
 
 /obj/item/ammo_casing/a556/practice
 	desc = "A 5.56mm practice bullet casing."
-	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
 
 /obj/item/ammo_casing/rocket
