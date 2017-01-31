@@ -71,11 +71,6 @@
 #define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning
 #define NIGHT_LIGHT_ACTIVE 648000        // 6pm or 18:00 - night lighting mode activates
 
-// Update type flags.
-#define UPDATE_SCHEDULE 0	// Default behavior. Schedule an update with lighting process.
-#define UPDATE_NOW 1		// Update right now, fuck the scheduler. May cause lag.
-#define UPDATE_NONE 2		// Don't trigger an update at all. Useful if you're triggering the update manually.
-
 // Some brightness/range defines for objects.
 #define L_WALLMOUNT_POWER 0.4
 #define L_WALLMOUNT_RANGE 2
