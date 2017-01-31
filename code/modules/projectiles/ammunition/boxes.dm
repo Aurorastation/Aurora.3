@@ -66,7 +66,7 @@
 
 /obj/item/ammo_magazine/c45m/flash
 	name = "magazine (.45 flash)"
-	ammo_type = "/obj/item/ammo_casing/c45f"
+	ammo_type = /obj/item/ammo_casing/c45/flash
 
 /obj/item/ammo_magazine/t40
 	name = "magazine (10mm)"
