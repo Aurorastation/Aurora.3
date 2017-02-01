@@ -26,8 +26,24 @@ var/jobban_keylist[0]		//to store the keys & ranks
 			if(config.usewhitelist && !check_whitelist(M))
 				return "Whitelisted Job"
 
+		var/static/list/antag_bantypes
+
+		if (isnull(antag_bantypes))
+			antag_bantypes = list()
+			for (var/antag_type in all_antag_types)
+				var/datum/antagonist/antag = all_antag_types[antag_type]
+				if (antag && antag.bantype)
+					antag_bantypes |= "[antag.bantype]"
+
+		// We manage antagonist bans at this end point.
+		// Alternative is to manage it at each call to jobban_isbanned, however,
+		// there is no actual reason why you should be able to play an antag if you're banned from all of them.
+		var/antag_ban = FALSE
+		if (rank in antag_bantypes)
+			antag_ban = TRUE
+
 		for (var/s in jobban_keylist)
-			if( findtext(s,"[M.ckey] - [rank]") == 1 )
+			if(findtext(s,"[M.ckey] - [rank]") == 1 || (antag_ban && findtext(s, "[M.ckey] - Antagonist") == 1))
 				var/startpos = findtext(s, "## ")+3
 				if(startpos && startpos<length(s))
 					var/text = copytext(s, startpos, 0)

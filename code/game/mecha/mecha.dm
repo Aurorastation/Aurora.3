@@ -601,6 +601,7 @@
 	return
 
 /obj/mecha/attack_hand(mob/user as mob)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	src.log_message("Attack by hand/paw. Attacker - [user].",1)
 
 	if(istype(user,/mob/living/carbon/human))
@@ -758,7 +759,7 @@
 //////////////////////
 
 /obj/mecha/attackby(obj/item/weapon/W as obj, mob/user as mob)
-
+	
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment))
 		var/obj/item/mecha_parts/mecha_equipment/E = W
 		spawn()
@@ -870,6 +871,7 @@
 		return
 
 	else
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		src.log_message("Attacked by [W]. Attacker - [user]")
 
 		if(deflect_hit(is_melee=1))
@@ -1928,7 +1930,9 @@
 	return icon_state
 
 /obj/mecha/attack_generic(var/mob/user, var/damage, var/attack_message)
-
+	
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	
 	if(!damage)
 		return 0
 

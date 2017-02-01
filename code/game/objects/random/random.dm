@@ -7,13 +7,11 @@
 
 
 // creates a new object and deletes itself
-/obj/random/New()
-	..()
-	if (!prob(spawn_nothing_percentage))
-		spawn_item()
 
 /obj/random/initialize()
 	..()
+	if (!prob(spawn_nothing_percentage))
+		spawn_item()
 	qdel(src)
 
 // this function should return a specific item to spawn
@@ -23,9 +21,10 @@
 
 // creates the random item
 /obj/random/proc/spawn_item()
-	var/build_path = item_to_spawn()
-	return (new build_path(src.loc))
 
+
+	var/build_path = item_to_spawn()
+	new build_path(loc)
 
 /obj/random/single
 	name = "randomly spawned object"
@@ -305,7 +304,6 @@
 	var/list/packs = list(
 	/obj/item/weapon/storage/backpack = 3,
 	/obj/item/weapon/storage/backpack/holding = 0.5,
-	/obj/item/weapon/storage/backpack/santabag = 2,
 	/obj/item/weapon/storage/backpack/cultpack = 2,
 	/obj/item/weapon/storage/backpack/clown = 2,
 	/obj/item/weapon/storage/backpack/medic = 3,
