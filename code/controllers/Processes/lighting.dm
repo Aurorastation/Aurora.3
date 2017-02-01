@@ -21,7 +21,6 @@
 
 /datum/controller/process/lighting/setup()
 	name = "lighting"
-	disabled = TRUE
 
 	lighting_process = src
 
