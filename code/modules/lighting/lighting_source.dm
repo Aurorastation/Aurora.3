@@ -64,9 +64,10 @@
 	return ..()
 
 // Kill ourselves.
-/datum/light_source/proc/destroy()
+/datum/light_source/proc/destroy(var/no_update = FALSE)
 	destroyed = TRUE
-	force_update()
+	if (!no_update)
+		force_update()
 	if (source_atom && source_atom.light_sources)
 		source_atom.light_sources -= src
 
@@ -98,7 +99,7 @@
 
 // Picks either scheduled or instant updates based on current server load.
 #define INTELLIGENT_UPDATE 							\
-	if (world.tick_usage > TICK_LIMIT || !ticker) {	\
+	if (world.tick_usage > TICK_LIMIT || !ticker || ticker.current_state <= GAME_STATE_SETTING_UP) {	\
 		QUEUE_UPDATE;								\
 	}												\
 	else {											\
@@ -140,7 +141,7 @@
 // Will check if we actually need to update, and update any variables that may need to be updated.
 /datum/light_source/proc/check()
 	if (!source_atom || !light_range || !light_power)
-		destroy()
+		destroy(no_update = TRUE)
 		return 1
 
 	if (!top_atom)

@@ -1,10 +1,9 @@
-#define LIGHTING_INTERVAL       1    // Frequency, in 1/10ths of a second, of the lighting process.
+#define LIGHTING_INTERVAL       10     // Frequency, in 1/10ths of a second, of the lighting process.
 
 #define LIGHTING_HEIGHT         1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
 #define LIGHTING_ROUND_VALUE    1 / 128 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
 
 #define LIGHTING_ICON 'icons/effects/lighting_overlay.png' // icon used for lighting shading effects
-#define DARKNESS_ICON 'icons/effects/darkness.png'	
 
 #define LIGHTING_SOFT_THRESHOLD 0.001 // If the max of the lighting lumcounts of each spectrum drops below this, disable luminosity on the lighting overlays.
 
@@ -70,11 +69,6 @@
 // The time (in ticks based on worldtime2ticks()) that various actions trigger
 #define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning
 #define NIGHT_LIGHT_ACTIVE 648000        // 6pm or 18:00 - night lighting mode activates
-
-// Update type flags.
-#define UPDATE_SCHEDULE 0	// Default behavior. Schedule an update with lighting process.
-#define UPDATE_NOW 1		// Update right now, fuck the scheduler. May cause lag.
-#define UPDATE_NONE 2		// Don't trigger an update at all. Useful if you're triggering the update manually.
 
 // Some brightness/range defines for objects.
 #define L_WALLMOUNT_POWER 0.4
