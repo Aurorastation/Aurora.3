@@ -1,12 +1,3 @@
-// -- Spark Procs --
-/proc/spark(var/turf/loc, var/amount = 1, var/spread_dirs = null)
-	if (!spread_dirs)
-		spread_dirs = cardinal
-	new /datum/effect_system/sparks(loc, TRUE, amount, spread_dirs)
-
-/proc/get_spark(var/amount = 1, var/spread_dirs = alldirs)
-	return new /datum/effect_system/sparks(src, FALSE, amount, spread_dirs)
-
 // -- Spark Datum --
 /datum/effect_system/sparks
 	var/amount = 1 				// How many sparks should we make
@@ -59,26 +50,3 @@
 			total_sparks++
 
 	return ..()	// Let parent decide if we die or not.
-
-// -- Spark visual_effect --
-/obj/visual_effect/sparks
-	name = "sparks"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "sparks"
-	anchored = 1
-	mouse_opacity = 0
-
-/obj/visual_effect/sparks/New(var/turf/loc)
-	..(loc)
-	life_ticks = rand(2,10)
-
-/obj/visual_effect/sparks/tick()
-	. = ..()
-
-	var/turf/T = loc
-	if(T)
-		T.hotspot_expose(1000, 100)
-
-/obj/visual_effect/sparks/proc/move(var/direction)
-	spawn (5)
-		step(src, direction)
