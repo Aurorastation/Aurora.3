@@ -73,7 +73,7 @@
 	item_state = "armor"
 
 /obj/item/clothing/suit/armor/vest/warden
-	name = "Warden's jacket"
+	name = "warden's jacket"
 	desc = "An armoured jacket with silver rank pips and livery."
 	icon_state = "warden_jacket"
 	item_state = "armor"
@@ -81,13 +81,13 @@
 	pocket_slots = 4//Jackets have more slots
 
 /obj/item/clothing/suit/armor/vest/warden/commissar
-	name = "Commissar's jacket"
+	name = "commissar's jacket"
 	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
 	icon_state = "commissar_warden"
 	item_state = "commissar_warden"
 
 /obj/item/clothing/suit/armor/riot
-	name = "Riot Suit"
+	name = "riot suit"
 	desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
 	icon_state = "riot"
 	item_state = "swat_suit"
@@ -99,7 +99,7 @@
 
 
 /obj/item/clothing/suit/armor/bulletproof
-	name = "Bulletproof Vest"
+	name = "bulletproof vest"
 	desc = "A vest that excels in protecting the wearer against high-velocity solid projectiles."
 	icon_state = "bulletproof"
 	item_state = "armor"
@@ -107,17 +107,8 @@
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.6
 
-/obj/item/clothing/head/helmet/swat/peacekeeper
-	name = "\improper ERT civil protection helmet"
-	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
-	icon_state = "erthelmet_peacekeeper"
-	body_parts_covered = HEAD
-	item_state = "erthelmet_peacekeeper"
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 50, bomb = 50, bio = 10, rad = 0)
-	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
-
 /obj/item/clothing/suit/armor/laserproof
-	name = "Ablative Armor Vest"
+	name = "ablative armor vest"
 	desc = "A vest that excels in protecting the wearer against energy projectiles."
 	icon_state = "armor_reflec"
 	item_state = "armor_reflec"
@@ -163,7 +154,6 @@
 	siemens_coefficient = 0.5
 	pocket_slots = 4//fullbody, more slots
 
-
 /obj/item/clothing/suit/armor/swat/officer
 	name = "officer jacket"
 	desc = "An armored jacket used in special operations."
@@ -173,7 +163,6 @@
 	flags_inv = 0
 	body_parts_covered = UPPER_TORSO|ARMS
 	pocket_slots = 4//coat, so more slots
-
 
 /obj/item/clothing/suit/armor/det_suit
 	name = "armor"
@@ -188,7 +177,7 @@
 //Reactive armor
 //When the wearer gets hit, this armor will teleport the user a short distance away (to safety or to more danger, no one knows. That's the fun of it!)
 /obj/item/clothing/suit/armor/reactive
-	name = "Reactive Teleport Armor"
+	name = "reactive teleport armor"
 	desc = "Someone separated our Research Director from their own head!"
 	var/active = 0.0
 	icon_state = "reactiveoff"
@@ -436,10 +425,11 @@
 
 /obj/item/clothing/under/rank/centcom_commander
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
-	name = "\improper ERT Commander's Dress Uniform"
+	name = "\improper ERT commander's dress uniform"
 	icon_state = "centcom"
 	item_state = "lawyer_black"
 	worn_state = "centcom"
+	
 /obj/item/clothing/suit/storage/vest/heavy/ert
 	name = "ERT trooper's plate carrier"
 	desc = "A plate carrier worn by troopers of the emergency response team. Has crimson highlights."
@@ -456,7 +446,7 @@
 	item_state = "ert_commander"
 
 /obj/item/clothing/suit/storage/vest/heavy/ert/lead
-	name = "Leading trooper's plate carrier"
+	name = "leading trooper's plate carrier"
 	desc = "A plate carrier worn by veteran troopers of the emergency response team qualified to lead small squads. Has blue highlights."
 	icon_state = "ert_lead"
 	item_state = "ert_lead"
@@ -514,14 +504,14 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/armor/tdome/red
-	name = "Thunderdome suit (red)"
+	name = "thunderdome suit (red)"
 	desc = "Reddish armor."
 	icon_state = "tdred"
 	item_state = "tdred"
 	siemens_coefficient = 1
 
 /obj/item/clothing/suit/armor/tdome/green
-	name = "Thunderdome suit (green)"
+	name = "thunderdome suit (green)"
 	desc = "Pukish armor."
 	icon_state = "tdgreen"
 	item_state = "tdgreen"
