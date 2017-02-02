@@ -273,4 +273,4 @@
 // Effect Systems.
 #define EFFECT_CONTINUE 0 	// Keep processing.
 #define EFFECT_HALT 1		// Stop processing, but don't qdel.
-#define EFFECT_DELETE 2		// qdel.
+#define EFFECT_DESTROY 2	// qdel.

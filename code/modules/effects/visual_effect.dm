@@ -24,7 +24,7 @@
 /obj/visual_effect/proc/tick()
 	. = EFFECT_CONTINUE
 	if (!life_ticks)	
-		return EFFECT_DELETE
+		return EFFECT_DESTROY
 
 	life_ticks--
 

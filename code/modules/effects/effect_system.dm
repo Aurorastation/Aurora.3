@@ -21,4 +21,4 @@
 	return 0
 
 /datum/effect_system/proc/process()
-	return holder ? EFFECT_HALT : EFFECT_DELETE	// Terminate effect if it's not attached to something.
+	return holder ? EFFECT_HALT : EFFECT_DESTROY	// Terminate effect if it's not attached to something.
