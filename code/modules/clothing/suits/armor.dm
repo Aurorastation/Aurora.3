@@ -76,7 +76,7 @@
 	name = "warden's jacket"
 	desc = "An armoured jacket with silver rank pips and livery."
 	icon_state = "warden_jacket"
-	item_state = "armor"
+	item_state = "warden_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	pocket_slots = 4//Jackets have more slots
 
@@ -97,7 +97,6 @@
 	siemens_coefficient = 0.5
 	pocket_slots = 4//Fullbody suit, so more slots
 
-
 /obj/item/clothing/suit/armor/bulletproof
 	name = "bulletproof vest"
 	desc = "A vest that excels in protecting the wearer against high-velocity solid projectiles."
@@ -105,7 +104,7 @@
 	item_state = "armor"
 	blood_overlay_type = "armor"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.6
+	pocket_slots = 4
 
 /obj/item/clothing/suit/armor/laserproof
 	name = "ablative armor vest"
@@ -115,6 +114,7 @@
 	blood_overlay_type = "armor"
 	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0
+	pocket_slots = 4
 
 /obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -324,7 +324,7 @@
 
 /obj/item/clothing/suit/storage/vest/New()
 	..()
-	pockets.storage_slots = 4	//two slots
+	pockets.storage_slots = 2	//two slots
 
 /obj/item/clothing/suit/storage/vest/officer
 	name = "officer armor vest"
@@ -416,20 +416,8 @@
 	item_state = "mercwebvest"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
-/obj/item/clothing/under/ccpolice
-	name = "ERT civil protection uniform"
-	desc = "A sturdy navy uniform, carefully ironed and folded. Worn by specialist troopers on civil protection duties."
-	icon_state = "officerdnavyclothes"
-	item_state = "scratch"
-	worn_state = "officerdnavyclothes"
+//ert related armor
 
-/obj/item/clothing/under/rank/centcom_commander
-	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
-	name = "\improper ERT commander's dress uniform"
-	icon_state = "centcom"
-	item_state = "lawyer_black"
-	worn_state = "centcom"
-	
 /obj/item/clothing/suit/storage/vest/heavy/ert
 	name = "ERT trooper's plate carrier"
 	desc = "A plate carrier worn by troopers of the emergency response team. Has crimson highlights."
