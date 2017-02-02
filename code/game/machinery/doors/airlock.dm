@@ -565,12 +565,12 @@ About the new airlock wires panel:
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
 			if (!has_set_boltlight)
-				set_light(2, 0.75, COLOR_RED_LIGHT, no_update = TRUE)
+				set_light(2, 0.75, COLOR_RED_LIGHT)
 				has_set_boltlight = TRUE
 		else
 			icon_state = "door_closed"
 			if (has_set_boltlight)
-				set_light(0, no_update = TRUE)
+				set_light(0)
 				has_set_boltlight = FALSE
 		if(p_open || welded)
 			overlays = list()
@@ -597,7 +597,7 @@ About the new airlock wires panel:
 		if((stat & BROKEN) && !(stat & NOPOWER))
 			overlays += image(icon, "sparks_open")
 		if (has_set_boltlight)
-			set_light(0, no_update = TRUE)
+			set_light(0)
 			has_set_boltlight = FALSE
 
 	if (src)
