@@ -7,7 +7,7 @@
 	var/life_ticks_max		// The high limit for the random tick picker.
 	var/life_ticks_min		// The low limit for the random tick picker.
 
-/obj/visual_effect/New(var/life_min = 20, var/life_max = 30)
+/obj/visual_effect/New(var/life_min = 3 SECONDS, var/life_max = 5 SECONDS)
 	..()
 	life_ticks_min = life_min
 	life_ticks_max = life_max
@@ -22,11 +22,11 @@
 
 // Called every effects processor tick. Return value determines what the process does to this object.
 /obj/visual_effect/proc/tick()
-	. = EFFECT_CONTINUE
 	if (!life_ticks)	
 		return EFFECT_DESTROY
 
 	life_ticks--
+	return EFFECT_CONTINUE
 
 /obj/visual_effect/Destroy()
 	// ¯\_(ツ)_/¯

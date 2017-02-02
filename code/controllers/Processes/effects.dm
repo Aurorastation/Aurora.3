@@ -25,7 +25,6 @@ var/datum/controller/process/effects/effect_master
 		effects_objects = list()
 		stage = STAGE_EFFECT
 
-	// These effects are likely to only exist for their first tick, optimize for EFFECT_HALT and EFFECT_DESTROY.
 	while (processing_effects.len)
 		var/datum/effect_system/E = processing_effects[processing_effects.len]
 		processing_effects.len--
@@ -44,9 +43,9 @@ var/datum/controller/process/effects/effect_master
 
 	if (stage == STAGE_EFFECT)
 		processing_visuals = effects_visuals
+		effects_visuals = list()
 		stage = STAGE_SUBEFFECT
 
-	// These effects are likely to exist for multiple ticks, optimize for EFFECT_CONTINUE.
 	while (processing_visuals.len)
 		var/obj/visual_effect/V = processing_visuals[processing_visuals.len]
 		processing_visuals.len--
@@ -56,11 +55,8 @@ var/datum/controller/process/effects/effect_master
 			continue
 
 		switch (V.tick())
-			if (EFFECT_HALT)
-				effects_visuals -= V
-
-			/*if (EFFECT_CONTINUE)
-				effects_visuals += V*/
+			if (EFFECT_CONTINUE)
+				effects_visuals += V
 
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
