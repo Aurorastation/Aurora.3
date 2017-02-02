@@ -23,7 +23,6 @@ var/datum/controller/process/effects/effect_master
 		// Start a new work cycle.
 		processing_effects = effects_objects.Copy()
 		stage = STAGE_EFFECT
-		ticks_idle = 0
 
 	while (processing_effects.len)
 		var/datum/effect_system/E = processing_effects[processing_effects.len]
