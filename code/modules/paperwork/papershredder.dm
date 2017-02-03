@@ -21,6 +21,15 @@
 	if(istype(W, /obj/item/weapon/storage))
 		empty_bin(user, W)
 		return
+	else if (iswrench(W))
+		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		anchored = !anchored
+		user.visible_message(
+			span("notice", anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."),
+			span("notice", anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."),
+			"You hear a ratchet."
+		)
+		return
 	else
 		var/paper_result
 		for(var/shred_type in shred_amounts)
