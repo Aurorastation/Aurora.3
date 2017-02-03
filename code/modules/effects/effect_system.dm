@@ -4,9 +4,9 @@
 	var/atom/movable/holder	 	// The object this effect is attached to. If this is set, the effect will not be qdel()'d at end of processing.
 	var/no_del
 
-/datum/effect_system/New(var/queue = TRUE, var/persistant = FALSE)
+/datum/effect_system/New(var/queue = TRUE, var/persistent = FALSE)
 	. = ..()
-	no_del = persistant
+	no_del = persistent
 	if (queue)
 		src.queue()
 
