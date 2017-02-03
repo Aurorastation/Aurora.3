@@ -67,14 +67,11 @@ var/datum/controller/process/effects/effect_master
 
 	// We're done.
 	if (!processing_effects.len && !processing_visuals.len && !effects_objects.len && !effects_visuals.len)
-		world.log << "## DEBUG: Effects processor going to sleep."
 		disable()
 
 /datum/controller/process/effects/proc/queue(var/datum/effect_system/E)
 	if (!E || E.gcDestroyed)
 		return
-
-	//world.log << "## DEBUG: Queueing new effect: qelen=[effects_objects.len],pelen=[processing_effects.len],has_holder=[E.holder ? 1 : 0]"
 		
 	effects_objects += E
 	enable()
