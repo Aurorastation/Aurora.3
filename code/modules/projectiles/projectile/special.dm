@@ -148,7 +148,7 @@
 	on_hit(var/atom/target, var/blocked = 0)
 		if(ishuman(target))
 			var/mob/living/carbon/human/M = target
-			M.adjustBrainLoss(20)
+			M.adjustBrainLoss(5)
 			M.hallucination += 20
 
 /obj/item/projectile/bullet/trod
