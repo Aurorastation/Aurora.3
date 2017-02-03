@@ -140,9 +140,25 @@
 	path = /obj/item/clothing/under/gearharness
 	cost = 2
 
-/datum/gear/uniform/track_pants
-	display_name = "track pants"
-	path = /obj/item/clothing/under/track
+/datum/gear/uniform/pants
+	display_name = "pants selection"
+	path = /obj/item/clothing/under/pants
+	
+/datum/gear/uniform/pants/New()
+	..()
+	var/pants = list()
+	pants["jeans"] = /obj/item/clothing/under/pants
+	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
+	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
+	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
+	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
+	pants["white pants"] = /obj/item/clothing/under/pants/white
+	pants["black pants"] = /obj/item/clothing/under/pants/black
+	pants["red pants"] = /obj/item/clothing/under/pants/red
+	pants["tan pants"] = /obj/item/clothing/under/pants/tan
+	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
+	pants["track pants"] = /obj/item/clothing/under/pants/track
+	gear_tweaks += new/datum/gear_tweak/path(pants)
 	
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"	
