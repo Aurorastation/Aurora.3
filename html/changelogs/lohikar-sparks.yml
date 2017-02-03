@@ -1,0 +1,6 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - tweak: "Refactored sparks to be much less laggy."
+  - tweak: "Reduced lag from lights-out events."
+  - bugfix: "Fixed bolt lights on doors not emitting light like they were intended to."
