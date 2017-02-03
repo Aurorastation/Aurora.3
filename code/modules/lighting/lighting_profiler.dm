@@ -11,7 +11,7 @@
 
 	var/name = null
 	var/locname = null
-	if (istype(obj, /obj))
+	if (istype(obj, /obj) || istype(obj, /turf))
 		name = obj.name
 		locname = obj.loc.name
 		x = obj.loc.x
