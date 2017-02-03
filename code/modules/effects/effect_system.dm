@@ -11,7 +11,6 @@
 		src.queue()
 
 /datum/effect_system/Destroy()
-	world.log << "## DEBUG: Effect destroyed!"
 	if(holder)
 		holder = null
 	..()
@@ -29,4 +28,3 @@
 /datum/effect_system/proc/bind(var/target)
 	holder = target
 	no_del = TRUE
-	world.log << "## DEBUG: Effect bound!"

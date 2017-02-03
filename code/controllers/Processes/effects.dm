@@ -74,7 +74,7 @@ var/datum/controller/process/effects/effect_master
 	if (!E || E.gcDestroyed)
 		return
 
-	world.log << "## DEBUG: Queueing new effect: qelen=[effects_objects.len],pelen=[processing_effects.len],has_holder=[E.holder ? 1 : 0]"
+	//world.log << "## DEBUG: Queueing new effect: qelen=[effects_objects.len],pelen=[processing_effects.len],has_holder=[E.holder ? 1 : 0]"
 		
 	effects_objects += E
 	enable()
