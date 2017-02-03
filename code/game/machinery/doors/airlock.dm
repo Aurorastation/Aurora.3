@@ -600,10 +600,6 @@ About the new airlock wires panel:
 			set_light(0)
 			has_set_boltlight = FALSE
 
-	if (src)
-		var/turf/T = get_turf(src)
-		if (T)
-			T.reconsider_lights()
 	return
 
 /obj/machinery/door/airlock/do_animate(animation)
