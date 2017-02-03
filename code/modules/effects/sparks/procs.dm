@@ -8,3 +8,6 @@
 	var/datum/effect_system/sparks/S = new(loc, FALSE, amount, spread_dirs)
 	S.bind(loc)
 	return S
+
+/proc/single_spark(var/turf/loc)
+	spark(loc, spread_dirs = list())
