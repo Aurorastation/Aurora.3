@@ -34,7 +34,8 @@
 		location = get_turf(holder)
 
 	if (location)
-		var/obj/visual_effect/sparks/S = new(location, src, 0) //Trigger one on the tile it's on
+		var/obj/visual_effect/sparks/S = getFromPool(/obj/visual_effect/sparks, location, src, 0) //Trigger one on the tile it's on
+		S.start()
 		effects_visuals += S	// Queue it.
 
 		while (total_sparks <= amount)
@@ -46,8 +47,8 @@
 			else
 				direction = pick(spread)
 
-			S = new(location, src)
-			S.move(direction)	
+			S = getFromPool(/obj/visual_effect/sparks, location, src)
+			S.start(direction)	
 			effects_visuals += S
 			total_sparks++
 

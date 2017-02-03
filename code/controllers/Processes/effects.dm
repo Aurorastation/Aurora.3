@@ -37,7 +37,7 @@ var/datum/controller/process/effects/effect_master
 				effects_objects += E
 
 			if (EFFECT_DESTROY)
-				qdel(E)
+				returnToPool(E)
 
 		F_SCHECK
 
@@ -60,8 +60,8 @@ var/datum/controller/process/effects/effect_master
 
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
-				V.loc = null
-				qdel(V)
+				V.end()
+				returnToPool(V)
 		
 		F_SCHECK
 
