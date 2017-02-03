@@ -11,14 +11,7 @@
 	..()
 	life_ticks_min = life_min
 	life_ticks_max = life_max
-	setup()
-
-/obj/visual_effect/proc/setup()
 	life_ticks = rand(life_ticks_min, life_ticks_max)
-
-/obj/visual_effect/resetVariables()
-	..()
-	setup()
 
 // Called every effects processor tick. Return value determines what the process does to this object.
 /obj/visual_effect/proc/tick()
