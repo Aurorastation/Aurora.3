@@ -94,74 +94,15 @@ steam.start() -- spawns the effect
 // will always spawn at the items location.
 /////////////////////////////////////////////
 
-/obj/effect/sparks
-	name = "sparks"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "sparks"
-	var/amount = 6.0
-	anchored = 1.0
-	mouse_opacity = 0
-
-/obj/effect/sparks/New()
-	..()
-	playsound(src.loc, "sparks", 100, 1)
-	var/turf/T = src.loc
-	if (istype(T, /turf))
-		T.hotspot_expose(1000,100)
-		
-/obj/effect/sparks/initialize()
-	..()
-	schedule_task_in(10 SECONDS, /proc/qdel, list(src))
-
-/obj/effect/sparks/Destroy()
-	var/turf/T = src.loc
-	if (istype(T, /turf))
-		T.hotspot_expose(1000,100)
-	return ..()
-
-/obj/effect/sparks/Move()
-	..()
-	var/turf/T = src.loc
-	if (istype(T, /turf))
-		T.hotspot_expose(1000,100)
-
 /datum/effect/effect/system/spark_spread
-	var/total_sparks = 0 // To stop it being spammed and lagging!
+	var/datum/effect_system/sparks/S
 
-	set_up(n = 3, c = 0, loca)
-		if(n > 10)
-			n = 10
-		number = n
-		cardinals = c
-		if(istype(loca, /turf/))
-			location = loca
-		else
-			location = get_turf(loca)
+/datum/effect/effect/system/spark_spread/set_up(n = 3, c = 0, loca)
+	var/l = get_turf(loca)
+	S = bind_spark(l, n, c ? cardinal : alldirs)
 
-	start()
-		var/i = 0
-		for(i=0, i<src.number, i++)
-			if(src.total_sparks > 20)
-				return
-			spawn(0)
-				if(holder)
-					src.location = get_turf(holder)
-				var/obj/effect/sparks/sparks = getFromPool(/obj/effect/sparks, src.location)
-				src.total_sparks++
-				var/direction
-				if(src.cardinals)
-					direction = pick(cardinal)
-				else
-					direction = pick(alldirs)
-				for(i=0, i<pick(1,2,3), i++)
-					sleep(5)
-					step(sparks,direction)
-				spawn(20)
-					if(sparks)
-						qdel(sparks)
-					src.total_sparks--
-
-
+/datum/effect/effect/system/spark_spread/start()
+	S.queue()
 
 /////////////////////////////////////////////
 //// SMOKE SYSTEMS
