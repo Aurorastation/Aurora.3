@@ -29,9 +29,6 @@
 	return ..()
 
 /datum/effect_system/sparks/process()
-	if (!effect_master)
-		CRASH("Effect created without a master!")
-
 	var/total_sparks = 1
 	if (holder)
 		location = get_turf(holder)

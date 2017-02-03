@@ -62,6 +62,8 @@ var/datum/controller/process/effects/effect_master
 				effects_visuals -= V
 				V.loc = null
 				qdel(V)
+		
+		F_SCHECK
 
 	stage = STAGE_IDLE
 
