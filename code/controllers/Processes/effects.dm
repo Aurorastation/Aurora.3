@@ -61,7 +61,7 @@ var/datum/controller/process/effects/effect_master
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
 				V.loc = null
-				returnToPool(V)
+				qdel(V)
 
 	stage = STAGE_IDLE
 

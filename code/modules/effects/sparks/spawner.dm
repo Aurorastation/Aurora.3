@@ -12,7 +12,6 @@
 	if (istype(loc, /turf))
 		location = loc
 	else
-		location = get_turf(loc)
 		holder = loc
 
 	if (amt)
@@ -23,6 +22,12 @@
 		
 	..(start_immediately)
 
+/datum/effect_system/sparks/queue()
+	if (holder)
+		location = get_turf(holder)
+
+	return ..()
+
 /datum/effect_system/sparks/process()
 	if (!effect_master)
 		CRASH("Effect created without a master!")
@@ -32,7 +37,7 @@
 		location = get_turf(holder)
 
 	if (location)
-		var/obj/visual_effect/sparks/S = getFromPool(/obj/visual_effect/sparks, location, src, 0) //Trigger one on the tile it's on
+		var/obj/visual_effect/sparks/S = new(location, src, 0) //Trigger one on the tile it's on
 		effects_visuals += S	// Queue it.
 
 		while (total_sparks <= amount)
@@ -44,9 +49,9 @@
 			else
 				direction = pick(spread)
 
-			S = getFromPool(/obj/visual_effect/sparks, location, src)
+			S = new(location, src)
 			S.move(direction)	
 			effects_visuals += S
 			total_sparks++
 
-	return ..()	// Let parent decide if we die or not.
+	return ..()
