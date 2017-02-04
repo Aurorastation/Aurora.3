@@ -460,7 +460,6 @@ var/list/gamemode_cache = list()
 					config.forumurl = value
 
 				if ("forum_passphrase")
-					testing("Passphrase [value]")
 					config.forum_passphrase = value
 
 				if ("githuburl")
