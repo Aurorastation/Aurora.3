@@ -32,6 +32,7 @@
 	update_overlay()
 
 /atom/movable/lighting_overlay/Destroy()
+	L_PROF(loc, "overlay_destroy")
 	global.all_lighting_overlays        -= src
 	global.lighting_update_overlays     -= src
 	lighting_process.curr_overlays 		-= src
@@ -103,9 +104,14 @@
 // Override here to prevent things accidentally moving around overlays.
 /atom/movable/lighting_overlay/forceMove(atom/destination, var/no_tp=FALSE, var/harderforce = FALSE)
 	if(harderforce)
+		L_PROF(loc, "overlay_forcemove")
 		. = ..()
 
 /atom/movable/lighting_overlay/resetVariables(...)
 	color = LIGHTING_BASE_MATRIX
 
 	return ..("color")
+
+/obj/screen/plane_master/lighting_master
+	plane = -1
+	blend_mode = BLEND_MULTIPLY
