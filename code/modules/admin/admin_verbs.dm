@@ -98,7 +98,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/view_duty_log,
 	/client/proc/cmd_dev_bst,
 	/client/proc/clear_toxins,
-	/client/proc/wipe_ai	// allow admins to force-wipe AIs
+	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
+	/client/proc/fix_player_list
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -200,7 +201,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/jumptocoord,
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
-	/client/proc/restart_sql
+	/client/proc/restart_sql,
+	/client/proc/fix_player_list
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -1050,3 +1052,35 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("is attempting to reconnect the server to MySQL.")
 
 	dbcon.Reconnect()
+
+/client/proc/fix_player_list()
+	set category = "Special Verbs"
+	set name = "Regenerate Player List"
+	set desc = "Use this to regenerate the player list if it becomes broken somehow."
+
+	if (!check_rights(R_DEBUG|R_ADMIN))
+		return
+
+	if (alert("Regenerate player lists?", "Player List Repair", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("is rebuilding the master player mob list.")
+	for (var/P in player_list)
+		if (!P)
+			var/msg = "WARNING: Found null entry in player_list!"
+			log_debug(msg)
+			message_admins(span("danger", msg))
+			try
+				var/mob/M = player_list[P]
+				msg = " -- Associated mob is [M.name]."
+				log_debug(msg)
+				message_admins(span("danger", msg))
+			catch()
+				player_list -= P
+				continue
+			player_list -= P
+		else if (!player_list[P])
+			var/msg = "WARNING: Found ckey with no associated mob in player_list! Ckey: [P]"
+			log_debug(msg)
+			message_admins(span("danger", msg))
+			player_list -= P
