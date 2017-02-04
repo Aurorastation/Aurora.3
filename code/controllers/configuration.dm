@@ -103,6 +103,7 @@ var/list/gamemode_cache = list()
 	var/banappeals
 	var/wikiurl
 	var/forumurl
+	var/forum_passphrase
 	var/githuburl
 
 	//Alert level description
@@ -457,6 +458,10 @@ var/list/gamemode_cache = list()
 
 				if ("forumurl")
 					config.forumurl = value
+
+				if ("forum_passphrase")
+					testing("Passphrase [value]")
+					config.forum_passphrase = value
 
 				if ("githuburl")
 					config.githuburl = value
