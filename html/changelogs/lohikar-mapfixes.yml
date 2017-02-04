@@ -1,0 +1,6 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "Added plastic flaps to medical OR storage to prevent air leakage."
+  - bugfix: "Re-added missing cyborg storage units in Drone Fabrication."
+  - bugfix: "The engineering outpost's SMES should spawn enabled now."
