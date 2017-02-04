@@ -269,3 +269,8 @@
 #define TICK_LIMIT 80
 #define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
 #define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()
+
+// Effect Systems.
+#define EFFECT_CONTINUE 0 	// Keep processing.
+#define EFFECT_HALT 1		// Stop processing, but don't qdel.
+#define EFFECT_DESTROY 2	// qdel.
