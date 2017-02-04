@@ -122,3 +122,19 @@
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
+
+/mob/living/carbon/human/Move()
+	. = ..()
+	if (lying || !shoes || (istype(shoes, /obj/item/clothing/shoes) && shoes:silent))
+		return
+
+	var/turf/T = get_turf(src)
+	if (!istype(T) || !T.footstep_sound)
+		return
+
+	if (m_intent == "run")
+		playsound(src, T.footstep_sound, 70, 1)
+	else
+		footstep++
+		if (footstep % 2)
+			playsound(src, T.footstep_sound, 40, 1)
