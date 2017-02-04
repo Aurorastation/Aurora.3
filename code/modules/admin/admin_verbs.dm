@@ -1034,10 +1034,10 @@ var/list/admin_verbs_cciaa = list(
 
 	if (alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
 		return
-	
+
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
 	target.do_wipe_core()
-	
+
 /client/proc/restart_sql()
 	set category = "Debug"
 	set name = "Reconnect SQL"
@@ -1066,21 +1066,15 @@ var/list/admin_verbs_cciaa = list(
 
 	log_and_message_admins("is rebuilding the master player mob list.")
 	for (var/P in player_list)
-		if (!P)
-			var/msg = "WARNING: Found null entry in player_list!"
+		if (isnull(P) || !ismob(P))
+			var/msg = "P_LIST DEBUG: Found null entry in player_list!"
 			log_debug(msg)
 			message_admins(span("danger", msg))
-			try
-				var/mob/M = player_list[P]
-				msg = " -- Associated mob is [M.name]."
+			player_list -= P
+		else
+			var/mob/M = P
+			if (!M.client)
+				var/msg = "P_LIST DEBUG: Found a mob without a client in player_list! [M.name]"
 				log_debug(msg)
 				message_admins(span("danger", msg))
-			catch()
-				player_list -= P
-				continue
-			player_list -= P
-		else if (!player_list[P])
-			var/msg = "WARNING: Found ckey with no associated mob in player_list! Ckey: [P]"
-			log_debug(msg)
-			message_admins(span("danger", msg))
-			player_list -= P
+				player_list -= M
