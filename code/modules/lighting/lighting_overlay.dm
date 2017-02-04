@@ -56,7 +56,7 @@
 		returnToPool(src)
 		return
 
-	if (T.is_space())
+	if (istype(T, /turf/space))
 		warning("A lighting overlay realised it was attached to a space tile and got pooled!")
 		returnToPool(src)
 		return
