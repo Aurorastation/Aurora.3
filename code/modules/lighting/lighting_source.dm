@@ -269,7 +269,6 @@
 				left_margin = SOUTHWEST
 				right_margin = NORTHWEST
 
-
 	FOR_DVIEW(var/turf/T, light_range, source_turf, INVISIBILITY_LIGHTING)
 		if (is_directional)
 			var/diff = get_dir(source_turf, T) - top_atom.dir
