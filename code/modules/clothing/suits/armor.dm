@@ -86,6 +86,21 @@
 	icon_state = "commissar_warden"
 	item_state = "commissar_warden"
 
+/obj/item/clothing/suit/armor/hos
+	name = "head of security's jacket"
+	desc = "An armoured jacket with golden rank pips and livery."
+	icon_state = "hos"
+	item_state = "hos"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	pocket_slots = 4//More slots because coat
+	
+/obj/item/clothing/suit/armor/hos/jensen
+	name = "armored trenchcoat"
+	desc = "A trenchcoat augmented with a special alloy for some protection and style."
+	icon_state = "jensencoat"
+	item_state = "jensencoat"
+
 /obj/item/clothing/suit/armor/riot
 	name = "riot suit"
 	desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
@@ -457,9 +472,10 @@
 	icon_state = "ert_peacekeeper"
 	item_state = "ert_peacekeeper"
 
+//warden armor
+
 
 //All of the armor below is mostly unused
-
 
 /obj/item/clothing/suit/armor/centcomm
 	name = "Cent. Com. armor"
