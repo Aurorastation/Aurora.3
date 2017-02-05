@@ -190,8 +190,8 @@
 	damage_type = BURN
 	
 /obj/item/projectile/magic/fireball/on_impact(var/atom/A)
-		explosion(A, 0, 0, 4)
-		..()
+	explosion(A, 0, 0, 4)
+	..()
 		
 /obj/item/projectile/magic/teleport //literaly bluespace crystal code, because i am lazy and it seems to work
 	name = "bolt of teleportation"
