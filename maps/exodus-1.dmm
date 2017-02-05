@@ -2005,7 +2005,7 @@
 "aMC" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/obj/machinery/modular_computer/console/preset/security,/turf/simulated/floor/tiled,/area/bridge)
 "aMD" = (/obj/structure/bed/chair/office/dark{dir = 4},/turf/simulated/floor/wood,/area/library)
 "aME" = (/obj/structure/table/woodentable,/obj/machinery/recharger{pixel_y = 0},/turf/simulated/floor/wood,/area/library)
-"aMF" = (/obj/structure/table/woodentable,/obj/structure/disposalpipe/segment,/obj/item/weapon/deck,/turf/simulated/floor/wood,/area/library)
+"aMF" = (/obj/structure/table/woodentable,/obj/structure/disposalpipe/segment,/obj/item/weapon/deck/cards,/turf/simulated/floor/wood,/area/library)
 "aMG" = (/obj/structure/bed/chair/office/dark{dir = 8},/turf/simulated/floor/wood,/area/library)
 "aMH" = (/obj/item/device/radio/intercom{pixel_x = 28},/obj/machinery/modular_computer/console/preset/civilian,/turf/simulated/floor/wood,/area/library)
 "aMI" = (/obj/machinery/status_display{density = 0; layer = 4; pixel_x = 0; pixel_y = 32},/turf/simulated/floor/tiled,/area/hallway/primary/port)
