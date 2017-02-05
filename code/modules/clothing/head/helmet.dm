@@ -29,6 +29,19 @@
 	desc = "A security commissar's cap."
 	icon_state = "commissarcap"
 
+/obj/item/clothing/head/helmet/HoS
+	name = "Head of Security hat"
+	desc = "The hat of the Head of Security. For showing the officers who's in charge."
+	icon_state = "hoscap"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	flags_inv = HIDEEARS
+	body_parts_covered = 0
+	
+/obj/item/clothing/head/helmet/HoS/dermal
+	name = "Dermal Armour Patch"
+	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
+	icon_state = "dermal"
+
 /obj/item/clothing/head/helmet/hop
 	name = "crew resource's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
