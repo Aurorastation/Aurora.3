@@ -46,9 +46,11 @@
 			if(U_SHIRT)
 				H.undershirt = undershirt_t[pick]
 			if(F_SOCKS)
+				H.socks = selection[pick]
 			if(M_SOCKS)
 				H.socks = selection[pick]
 			if(M_UNDER)
+				H.underwear = selection[pick]
 			if(F_UNDER)
 				H.underwear = selection[pick]
 
