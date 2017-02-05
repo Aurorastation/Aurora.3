@@ -57,7 +57,7 @@
 	var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2)
 	if(!species_modifier)
 		species_modifier = economic_species_modifier[/datum/species/human]
-	
+
 	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
 	var/datum/money_account/M = create_account(H.real_name, money_amount, null)
 	if(H.mind)
@@ -113,3 +113,29 @@
 /datum/job/proc/fetch_age_restriction()
 	if (config.age_restrictions[lowertext(title)])
 		minimal_player_age = config.age_restrictions[lowertext(title)]
+
+/datum/job/proc/late_equip(var/mob/living/carbon/human/H)
+	if(!H)	return 0
+	switch(economic_modifier)
+		if(0 to 2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+		if(3 to 6)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/hoodie(H), slot_wear_suit)
+		if(7 to 9)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
+		if(10 to 14)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
+		if(15 to INFINITY)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/locket(H), slot_tie)
+

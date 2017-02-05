@@ -24,7 +24,7 @@ var/list/spawntypes = list()
 
 /datum/spawnpoint/arrivals
 	display_name = "Arrivals Shuttle"
-	msg = "has arrived on the station"
+	msg = "is inbound from the NTCC Odin"
 
 /datum/spawnpoint/arrivals/New()
 	..()

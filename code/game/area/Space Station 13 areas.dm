@@ -361,6 +361,9 @@ area/space/atmosalert()
 /area/centcom/control
 	name = "\improper Centcom Control"
 
+/area/centcom/spawning
+	name = "\improper Centcom Preparatory Wing"
+
 /area/centcom/evac
 	name = "\improper Centcom Emergency Shuttle"
 

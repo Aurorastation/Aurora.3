@@ -845,8 +845,8 @@
 "qm" = (/obj/machinery/light{icon_state = "tube1"; dir = 4},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/fore)
 "qn" = (/obj/structure/cryofeed{tag = "icon-cryo_rear (EAST)"; icon_state = "cryo_rear"; dir = 4},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "qo" = (/obj/machinery/cryopod{tag = "icon-body_scanner_0 (EAST)"; icon_state = "body_scanner_0"; dir = 4},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
-"qp" = (/obj/machinery/computer/cryopod{density = 0; pixel_y = 32},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
-"qq" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_x = 0; pixel_y = 24},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/obj/machinery/camera/network/civilian_east{c_tag = "Surface - Cryostorage"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
+"qp" = (/obj/machinery/computer/cryopod{density = 0; pixel_y = 32},/obj/effect/landmark{name = "JoinLateCryo"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
+"qq" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_x = 0; pixel_y = 24},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/obj/machinery/camera/network/civilian_east{c_tag = "Surface - Cryostorage"},/obj/effect/landmark{name = "JoinLateCryo"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "qr" = (/obj/machinery/cryopod,/obj/machinery/light{tag = "icon-tube1 (NORTH)"; icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "qs" = (/obj/structure/cryofeed,/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "qt" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/turf/simulated/floor/tiled,/area/storage/primary)
@@ -859,8 +859,8 @@
 "qA" = (/obj/machinery/atm{pixel_y = -32},/obj/machinery/light,/turf/simulated/floor/tiled,/area/hallway/secondary/entry/fore)
 "qB" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/fore)
 "qC" = (/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/fore)
-"qD" = (/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
-"qE" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
+"qD" = (/obj/effect/landmark{name = "JoinLateCryo"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
+"qE" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/landmark{name = "JoinLateCryo"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "qF" = (/obj/machinery/cryopod,/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "qG" = (/turf/simulated/wall,/area/maintenance/arrivals)
 "qH" = (/obj/machinery/vending/assist,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled,/area/storage/primary)
@@ -875,8 +875,8 @@
 "qQ" = (/turf/simulated/wall,/area/hydroponics/garden)
 "qR" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/machinery/door/firedoor/border_only,/turf/simulated/floor/plating,/area/hydroponics/garden)
 "qS" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/machinery/door/firedoor/border_only,/turf/simulated/floor/plating,/area/hydroponics/garden)
-"qT" = (/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
-"qU" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
+"qT" = (/obj/machinery/atmospherics/unary/vent_pump/on,/obj/effect/landmark{name = "JoinLateCryo"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
+"qU" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/landmark{name = "JoinLateCryo"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "qV" = (/obj/random/loot,/obj/structure/table/rack,/turf/simulated/floor/plating,/area/maintenance/arrivals)
 "qW" = (/turf/simulated/floor/plating,/area/maintenance/arrivals)
 "qX" = (/obj/machinery/door/airlock/maintenance,/turf/simulated/floor/plating,/area/storage/primary)
@@ -893,7 +893,7 @@
 "ri" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced,/obj/machinery/door/firedoor/border_only,/turf/simulated/floor/plating,/area/hydroponics/garden)
 "rj" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 8},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/fore)
 "rk" = (/obj/machinery/alarm{dir = 1; pixel_y = -25},/obj/machinery/cryopod{tag = "icon-body_scanner_0 (EAST)"; icon_state = "body_scanner_0"; dir = 4},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
-"rl" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
+"rl" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/effect/landmark{name = "JoinLateCryo"},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "rm" = (/obj/machinery/cryopod,/obj/item/device/radio/intercom{name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/tiled/white,/area/crew_quarters/sleep/cryo)
 "rn" = (/turf/simulated/wall,/area/crew_quarters/fitness)
 "ro" = (/obj/structure/grille,/obj/machinery/door/firedoor/border_only{dir = 2},/obj/structure/window/reinforced/polarized{id = "holodeckwin"},/obj/structure/window/reinforced/polarized{dir = 1; id = "holodeckwin"},/obj/structure/window/reinforced/polarized{dir = 8; id = "holodeckwin"},/turf/simulated/floor/plating,/area/crew_quarters/fitness)
@@ -1898,3 +1898,4 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
+
