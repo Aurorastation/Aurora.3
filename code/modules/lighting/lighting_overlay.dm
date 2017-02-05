@@ -57,7 +57,8 @@
 		return
 
 	if (istype(T, /turf/space))
-		warning("A lighting overlay realised it was attached to a space tile and got pooled!")
+		// I mean, this happens often and doesn't do any harm. Might as well silence the warning.
+		//warning("A lighting overlay realised it was attached to a space tile and got pooled!")
 		returnToPool(src)
 		return
 
@@ -111,7 +112,3 @@
 	color = LIGHTING_BASE_MATRIX
 
 	return ..("color")
-
-/obj/screen/plane_master/lighting_master
-	plane = -1
-	blend_mode = BLEND_MULTIPLY
