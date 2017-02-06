@@ -149,7 +149,7 @@
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
-	var/brightness_uv    = 200
+	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -231,7 +231,11 @@
 
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
-			icon_state = "[base_state][on]"
+			if (supports_nightmode && nightmode)
+				icon_state = "[base_state][on]_night"
+			else
+				icon_state = "[base_state][on]"
+
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
 			on = 0
@@ -266,9 +270,9 @@
 			else
 				use_power = 2
 				if (supports_nightmode && nightmode)
-					set_light(night_brightness_range, night_brightness_power, brightness_color, uv = brightness_uv)
+					set_light(night_brightness_range, night_brightness_power, brightness_color)
 				else
-					set_light(brightness_range, brightness_power, brightness_color, uv = brightness_uv)
+					set_light(brightness_range, brightness_power, brightness_color)
 	else
 		use_power = 1
 		set_light(0)
