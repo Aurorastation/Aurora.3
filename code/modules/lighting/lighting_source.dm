@@ -27,16 +27,17 @@
 	var/tmp/applied_lum_u
 
 	// Variables used to keep track of the atom's angle.
-	var/tmp/limit_a_x			// The first test point's X coord for the cone.
-	var/tmp/limit_a_y			// The first test point's Y coord for the cone.
-	var/tmp/limit_b_x			// The second test point's X coord for the cone.
-	var/tmp/limit_b_y			// The second test point's Y coord for the cone.
-	var/tmp/old_origin_x		// The last known X coord of the origin.
-	var/tmp/old_origin_y		// The last known Y coord of the origin.
-	var/tmp/old_direction		// The last known direction of the origin.
-	var/tmp/cached_ab
+	var/tmp/limit_a_x		// The first test point's X coord for the cone.
+	var/tmp/limit_a_y		// The first test point's Y coord for the cone.
+	var/tmp/limit_a_t		// The first test point's angle.
+	var/tmp/limit_b_x		// The second test point's X coord for the cone.
+	var/tmp/limit_b_y		// The second test point's Y coord for the cone.
+	var/tmp/limit_b_t		// The second test point's angle.
+	var/tmp/old_origin_x	// The last known X coord of the origin.
+	var/tmp/old_origin_y	// The last known Y coord of the origin.
+	var/tmp/old_direction	// The last known direction of the origin.
+	var/tmp/cached_ab		// We don't actually need to save this, just nice for debugging.
 	var/tmp/targ_sign			
-	var/tmp/translated_angle	// The angle with direction applied.	
 
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
@@ -240,8 +241,6 @@
 #define POLAR_TO_CART_X(R,T) (R * cos(T))
 #define POLAR_TO_CART_Y(R,T) (R * sin(T))
 #define PSEUDO_WEDGE(A_X,A_Y,B_X,B_Y) ((A_X)*(B_Y) - (A_Y)*(B_X))
-#define HALF_CIRCLE 180
-#define QUARTER_CIRCLE 90
 
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
@@ -253,25 +252,31 @@
 	old_origin_y = T.y
 	old_direction = light_dir
 
-	translated_angle = light_angle
+	var/angle = light_angle / 2
 	switch (light_dir)
 		if (NORTH)
-			translated_angle = light_angle/2 - QUARTER_CIRCLE
+			limit_a_t = angle + 90
+			limit_b_t = angle - 90
 
 		if (SOUTH)
-			translated_angle = light_angle/2 + QUARTER_CIRCLE
+			limit_a_t = 270 + angle
+			limit_b_t = 270 - angle
 
 		if (EAST) // the light will face this way by default.
-			translated_angle = light_angle/2
+			limit_a_t = angle
+			limit_b_t = 360 - angle
 
 		if (WEST)
-			translated_angle = light_angle/2 + HALF_CIRCLE
+			limit_a_t = 180 - angle
+			limit_b_t = 180 + angle
 
-	limit_a_x = POLAR_TO_CART_X(light_range + 10, translated_angle)	// Convert our angle + range into a vector.
-	limit_a_y = POLAR_TO_CART_Y(light_range + 10, translated_angle)	// 10 is an arbitrary number, yes.
-	limit_b_x = POLAR_TO_CART_X(light_range + 10, 359 - translated_angle)
-	limit_b_y = POLAR_TO_CART_Y(light_range + 10, 359 - translated_angle)	// limit_b is limit_a reflected over the x-axis.
-	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	// This won't change unless the origin or dir changes, might as well do it here.
+	// Convert our angle + range into a vector.
+	limit_a_x = POLAR_TO_CART_X(light_range + 10, limit_a_t)	
+	limit_a_y = POLAR_TO_CART_Y(light_range + 10, limit_a_t)	// 10 is an arbitrary number, yes.
+	limit_b_x = POLAR_TO_CART_X(light_range + 10, limit_b_t)
+	limit_b_y = POLAR_TO_CART_Y(light_range + 10, limit_b_t)
+	// This won't change unless the origin or dir changes, might as well do it here.
+	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	
 	targ_sign = cached_ab > 0
 
 // I know this is 2D, calling it a cone anyways. Fuck the system.
@@ -293,8 +298,6 @@
 #undef POLAR_TO_CART_X
 #undef POLAR_TO_CART_Y
 #undef PSEUDO_WEDGE
-#undef HALF_CIRCLE
-#undef QUARTER_CIRCLE
 
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
