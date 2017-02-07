@@ -30,7 +30,7 @@
 
 #define WARNING_DELAY 20			//seconds between warnings.
 
-#define LIGHT_POWER_CALC (min(power / 50, 1))
+#define LIGHT_POWER_CALC (max(power / 50, 1))
 
 /obj/machinery/power/supermatter
 	name = "Supermatter"
@@ -40,11 +40,13 @@
 	density = 1
 	anchored = 0
 	light_range = 4
+	light_power = 1
 
 	var/gasefficency = 0.25
 
 	var/base_icon_state = "darkmatter"
 
+	var/last_power
 	var/damage = 0
 	var/damage_archived = 0
 	var/safe_alert = "Crystaline hyperstructure returning to safe operating levels."
@@ -121,8 +123,9 @@
 
 //Changes color and luminosity of the light to these values if they were not already set
 /obj/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)
-	if(lum != light_range || clr != light_color)
+	if(lum != light_range || abs(power - last_power) > 10 || clr != light_color)
 		set_light(lum, LIGHT_POWER_CALC, clr)
+		last_power = power
 
 
 /obj/machinery/power/supermatter/proc/get_integrity()
