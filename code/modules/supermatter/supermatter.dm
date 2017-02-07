@@ -30,7 +30,7 @@
 
 #define WARNING_DELAY 20			//seconds between warnings.
 
-#define LIGHT_POWER_CALC (power / 50)
+#define LIGHT_POWER_CALC (min(power / 50, 1))
 
 /obj/machinery/power/supermatter
 	name = "Supermatter"
