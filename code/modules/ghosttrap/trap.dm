@@ -190,10 +190,27 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 /***********************************
 * Syndicate Cyborg *
 ***********************************/
+/*
 /datum/ghosttrap/syndicateborg
 	object = "syndicate cyborg"
 	ban_checks = list("Antagonist","AI","Cyborg")
 	pref_check = "BE_SYNTH"
 	ghost_trap_message = "They are occupying a syndicate cyborg now."
 	ghost_trap_role = "Syndicate Cyborg"
-	can_set_own_name = TRUE
+	can_set_own_name = TRUE 
+*/
+
+/**************
+* pAI *
+**************/
+/datum/ghosttrap/pai
+	object = "pAI"
+	pref_check = BE_PAI
+	ghost_trap_message = "They are occupying a pAI now."
+	ghost_trap_role = "pAI"
+
+datum/ghosttrap/pai/assess_candidate(var/mob/observer/ghost/candidate, var/mob/target)
+	return 0
+
+datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silicon/robot/drone/drone)
+	return 0

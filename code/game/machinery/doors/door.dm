@@ -540,8 +540,6 @@
 			update_heat_protection(turf)
 			air_master.mark_for_update(turf)
 
-		T.update_lights_now()
-
 	return 1
 
 /obj/machinery/door/proc/update_heat_protection(var/turf/simulated/source)
