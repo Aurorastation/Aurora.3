@@ -75,3 +75,6 @@
 #define L_WALLMOUNT_RANGE 2
 #define L_WALLMOUNT_HI_POWER 2	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
+
+// Just so we can avoid unneeded proc calls when profiling is disabled.
+#define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
