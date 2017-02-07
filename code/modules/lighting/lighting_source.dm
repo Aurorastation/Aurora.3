@@ -33,8 +33,8 @@
 	var/tmp/limit_b_x		// The second test point's X coord for the cone.
 	var/tmp/limit_b_y		// The second test point's Y coord for the cone.
 	var/tmp/limit_b_t		// The second test point's angle.
-	var/tmp/old_origin_x	// The last known X coord of the origin.
-	var/tmp/old_origin_y	// The last known Y coord of the origin.
+	var/tmp/cached_origin_x	// The last known X coord of the origin.
+	var/tmp/cached_origin_y	// The last known Y coord of the origin.
 	var/tmp/old_direction	// The last known direction of the origin.
 	var/tmp/cached_ab		// We don't actually need to save this, just nice for debugging.
 	var/tmp/targ_sign			
@@ -248,11 +248,11 @@
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
 	// Don't do anything if nothing is different, trig ain't free.
-	if (T.x == old_origin_x && T.y == old_origin_y && old_direction == light_dir)
+	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == light_dir)
 		return
 
-	old_origin_x = T.x
-	old_origin_y = T.y
+	cached_origin_x = T.x
+	cached_origin_y = T.y
 	old_direction = light_dir
 
 	var/angle = light_angle / 2
@@ -286,8 +286,8 @@
 // Returns true if the test point is NOT inside the cone.
 // Make sure update_angle() is called first if the light's loc or dir have changed.
 /datum/light_source/proc/check_light_cone(var/test_x, var/test_y)
-	test_x -= old_origin_x
-	test_y -= old_origin_y
+	test_x -= cached_origin_x
+	test_y -= cached_origin_y
 	var/at = PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y)
 	var/tb = PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y)
 
@@ -323,7 +323,7 @@
 			// Just skip the tile if it doesn't fall within our light cone.
 			continue
 
-		if (!light_self && get_turf(source_atom) == T)
+		if (!light_self && T.x == cached_origin_x && T.y == cached_origin_y)	// Shouldn't need to check Z.
 			continue
 
 		if (!T.lighting_corners_initialised)
