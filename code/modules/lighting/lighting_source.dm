@@ -256,29 +256,23 @@
 	translated_angle = light_angle
 	switch (light_dir)
 		if (NORTH)
-			translated_angle = light_angle - QUARTER_CIRCLE
+			translated_angle = light_angle/2 - QUARTER_CIRCLE
 
 		if (SOUTH)
-			translated_angle = light_angle + QUARTER_CIRCLE
+			translated_angle = light_angle/2 + QUARTER_CIRCLE
 
 		if (EAST) // the light will face this way by default.
-			translated_angle = light_angle
+			translated_angle = light_angle/2
 
 		if (WEST)
-			translated_angle = light_angle + HALF_CIRCLE
+			translated_angle = light_angle/2 + HALF_CIRCLE
 
 	limit_a_x = POLAR_TO_CART_X(light_range + 10, translated_angle)	// Convert our angle + range into a vector.
 	limit_a_y = POLAR_TO_CART_Y(light_range + 10, translated_angle)	// 10 is an arbitrary number, yes.
-	limit_b_x = limit_a_x
-	limit_b_y = POLAR_TO_CART_Y(light_range + 10, 360 - translated_angle)	// limit_b is limit_a reflected over the x-axis.
+	limit_b_x = POLAR_TO_CART_X(light_range + 10, 359 - translated_angle)
+	limit_b_y = POLAR_TO_CART_Y(light_range + 10, 359 - translated_angle)	// limit_b is limit_a reflected over the x-axis.
 	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	// This won't change unless the origin or dir changes, might as well do it here.
 	targ_sign = cached_ab > 0
-
-#define MARKER_COORDS(X,Y) (locate(X, Y, top_atom.z))
-
-/datum/light_source/proc/drop_markers()
-	new /obj/item/toy/nanotrasenballoon(MARKER_COORDS(limit_a_x, limit_a_y))
-	new /obj/item/toy/syndicateballoon(MARKER_COORDS(limit_b_x, limit_b_y))
 
 // I know this is 2D, calling it a cone anyways. Fuck the system.
 // Returns true if the test point is NOT inside the cone.
