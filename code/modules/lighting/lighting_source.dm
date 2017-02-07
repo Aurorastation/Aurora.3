@@ -6,10 +6,13 @@
 	var/atom/source_atom     // The atom that we belong to.
 
 	var/turf/source_turf     // The turf under the above.
-	var/light_power    // Intensity of the emitter light.
-	var/light_range      // The range of the emitted light.
-	var/light_color    // The colour of the light, string, decomposed by parse_light_color()
+	var/light_power    	// Intensity of the emitter light.
+	var/light_range     // The range of the emitted light.
+	var/light_color    	// The colour of the light, string, decomposed by parse_light_color()
 	var/light_uv		// The intensity of UV light, between 0 and 255.
+	var/light_angle		// The light's emission angle, in degrees.
+	var/light_dir = EAST		// The direction the light is facing.
+	var/light_self = TRUE	// If FALSE, the light won't emit onto its own tile. Good with light_angle.
 
 	// Variables for keeping track of the colour.
 	var/lum_r
@@ -22,6 +25,18 @@
 	var/tmp/applied_lum_g
 	var/tmp/applied_lum_b
 	var/tmp/applied_lum_u
+
+	// Variables used to keep track of the atom's angle.
+	var/tmp/limit_a_x			// The first test point's X coord for the cone.
+	var/tmp/limit_a_y			// The first test point's Y coord for the cone.
+	var/tmp/limit_b_x			// The second test point's X coord for the cone.
+	var/tmp/limit_b_y			// The second test point's Y coord for the cone.
+	var/tmp/old_origin_x		// The last known X coord of the origin.
+	var/tmp/old_origin_y		// The last known Y coord of the origin.
+	var/tmp/old_direction		// The last known direction of the origin.
+	var/tmp/cached_ab
+	var/tmp/targ_sign			
+	var/tmp/translated_angle	// The angle with direction applied.	
 
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
@@ -222,6 +237,71 @@
 		now                          \
 	);
 
+#define POLAR_TO_CART_X(R,T) (R * cos(T))
+#define POLAR_TO_CART_Y(R,T) (R * sin(T))
+#define PSEUDO_WEDGE(A_X,A_Y,B_X,B_Y) ((A_X)*(B_Y) - (A_Y)*(B_X))
+#define HALF_CIRCLE 180
+#define QUARTER_CIRCLE 90
+
+/datum/light_source/proc/update_angle()
+	var/turf/T = get_turf(top_atom)
+	// Don't do anything if nothing is different, trig ain't free.
+	if (T.x == old_origin_x && T.y == old_origin_y && old_direction == light_dir)
+		return
+
+	old_origin_x = T.x
+	old_origin_y = T.y
+	old_direction = light_dir
+
+	translated_angle = light_angle
+	switch (light_dir)
+		if (NORTH)
+			translated_angle = light_angle - QUARTER_CIRCLE
+
+		if (SOUTH)
+			translated_angle = light_angle + QUARTER_CIRCLE
+
+		if (EAST) // the light will face this way by default.
+			translated_angle = light_angle
+
+		if (WEST)
+			translated_angle = light_angle + HALF_CIRCLE
+
+	limit_a_x = POLAR_TO_CART_X(light_range + 10, translated_angle)	// Convert our angle + range into a vector.
+	limit_a_y = POLAR_TO_CART_Y(light_range + 10, translated_angle)	// 10 is an arbitrary number, yes.
+	limit_b_x = limit_a_x
+	limit_b_y = POLAR_TO_CART_Y(light_range + 10, 360 - translated_angle)	// limit_b is limit_a reflected over the x-axis.
+	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	// This won't change unless the origin or dir changes, might as well do it here.
+	targ_sign = cached_ab > 0
+
+#define MARKER_COORDS(X,Y) (locate(X, Y, top_atom.z))
+
+/datum/light_source/proc/drop_markers()
+	new /obj/item/toy/nanotrasenballoon(MARKER_COORDS(limit_a_x, limit_a_y))
+	new /obj/item/toy/syndicateballoon(MARKER_COORDS(limit_b_x, limit_b_y))
+
+// I know this is 2D, calling it a cone anyways. Fuck the system.
+// Returns true if the test point is NOT inside the cone.
+// Make sure update_angle() is called first if the light's loc or dir have changed.
+/datum/light_source/proc/check_light_cone(var/test_x, var/test_y)
+	test_x -= old_origin_x
+	test_y -= old_origin_y
+	var/at = PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y)
+	var/tb = PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y)
+
+	// if the signs of both at and tb are NOT the same, the point is NOT within the cone.
+	if ((at > 0) != targ_sign)
+		return TRUE
+
+	if ((tb > 0) != targ_sign)
+		return TRUE
+
+#undef POLAR_TO_CART_X
+#undef POLAR_TO_CART_Y
+#undef PSEUDO_WEDGE
+#undef HALF_CIRCLE
+#undef QUARTER_CIRCLE
+
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
 
@@ -235,7 +315,17 @@
 	applied_lum_b = lum_b
 	applied_lum_u = lum_u
 
+	if (light_angle)
+		update_angle()
+
 	FOR_DVIEW(var/turf/T, light_range, source_turf, INVISIBILITY_LIGHTING)
+		if (light_angle && check_light_cone(T.x, T.y))
+			// Just skip the tile if it doesn't fall within our light cone.
+			continue
+
+		if (!light_self && get_turf(source_atom) == T)
+			continue
+
 		if (!T.lighting_corners_initialised)
 			T.generate_missing_corners()
 
@@ -296,6 +386,10 @@
 	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
 	affecting_turfs += L
 	for (var/turf/T in L)
+		if (light_angle && check_light_cone(T.x, T.y))
+			affecting_turfs -= T
+			continue
+
 		if (!T.affecting_lights)
 			T.affecting_lights = list(src)
 		else
