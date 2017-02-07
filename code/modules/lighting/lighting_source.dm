@@ -75,12 +75,14 @@
 
 	update()
 
-	lprof_write(src, "source_new")
+	L_PROF(source_atom, "source_new")
 
 	return ..()
 
 // Kill ourselves.
 /datum/light_source/proc/destroy(var/no_update = FALSE)
+	L_PROF(source_atom, "source_destroy")
+
 	destroyed = TRUE
 	if (!no_update)
 		force_update()
@@ -137,19 +139,20 @@
 
 			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
 
-	lprof_write(src, "source_update")
+	L_PROF(source_atom, "source_update")
 
 	INTELLIGENT_UPDATE
 
 // Will force an update without checking if it's actually needed.
 /datum/light_source/proc/force_update()
-	lprof_write(src, "source_forceupdate")
+	L_PROF(source_atom, "source_forceupdate")
 	force_update = 1
 
 	INTELLIGENT_UPDATE
 
 // Will cause the light source to recalculate turfs that were removed or added to visibility only.
 /datum/light_source/proc/vis_update()
+	L_PROF(source_atom, "source_visupdate")
 	vis_update = 1
 
 	INTELLIGENT_UPDATE
@@ -372,6 +375,7 @@
 	APPLY_CORNER(C,now)
 
 /datum/light_source/proc/smart_vis_update(var/now = FALSE)
+	L_PROF(source_atom, "source_smartvisupdate")
 	var/list/datum/lighting_corner/corners = list()
 	var/list/turf/turfs                    = list()
 	FOR_DVIEW(var/turf/T, light_range, source_turf, 0)

@@ -17,13 +17,15 @@
 
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
-	lprof_write(src, "turf_reconsider")
+	L_PROF(src, "turf_reconsider")
 	for (var/datum/light_source/L in affecting_lights)
 		L.vis_update()
 
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)
 		returnToPool(lighting_overlay)
+
+	L_PROF(src, "turf_clear_overlay")
 
 	for (var/datum/lighting_corner/C in corners)
 		C.update_active()
@@ -32,6 +34,8 @@
 /turf/proc/lighting_build_overlay()
 	if (lighting_overlay)
 		return
+
+	L_PROF(src, "turf_build_overlay")
 
 	var/area/A = loc
 	if (A.dynamic_lighting && dynamic_lighting)
@@ -69,6 +73,8 @@
 /turf/proc/get_uv_lumcount(var/minlum = 0, var/maxlum = 1)
 	if (!lighting_overlay)
 		return 1
+
+	L_PROF(src, "turf_get_uv")
 
 	var/totallums = 0
 	for (var/datum/lighting_corner/L in corners)

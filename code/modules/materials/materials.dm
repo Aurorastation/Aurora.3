@@ -787,3 +787,22 @@ var/list/name_to_material
 	name = "human hide"
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
+
+/material/bone
+	name = "bone"
+	icon_colour = "#e3dac9"
+	icon_base = "stone"
+	icon_reinf = "reinf_stone"
+	sheet_singular_name = "bone"
+	sheet_plural_name = "bones"
+	weight = 10
+	hardness = 20
+	integrity = 70
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	door_icon_base = "stone"
+	
+/material/bone/necromancer
+	name = "cursed bone"
+	weight = 20
+	integrity = 150
+	hardness = 60
