@@ -66,13 +66,13 @@
 	..()
 	icon_state = "runesword1"
 	item_state = "runesword1"
-	user << "<span class='notice'>The [src] surges to life!.</span>"
+	user << "<span class='notice'>\The [src] surges to life!.</span>"
 
 /obj/item/weapon/melee/energy/wizard/deactivate(mob/living/user)
 	..()
 	icon_state = "runesword0"
 	item_state = "runesword0"
-	user << "<span class='notice'>The [src] slowly dies out.</span>"
+	user << "<span class='notice'>\The [src] slowly dies out.</span>"
 
 /obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(user.faction == "Space Wizard")
