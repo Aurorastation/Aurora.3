@@ -75,7 +75,7 @@
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/head/hardhat
-	display_name = "hardhat, selection"
+	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
