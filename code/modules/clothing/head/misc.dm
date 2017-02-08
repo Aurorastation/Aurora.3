@@ -250,3 +250,43 @@
 	desc = "An orange piece of cloth, worn on the head."
 	icon_state = "orange_bandana"
 	body_parts_covered = 0
+
+/obj/item/clothing/head/Hijab //It might've taken a year but here's your Hijab's, Dea.
+	name = "hijab"
+	desc = "Encompassing cloth headwear worn by some human cultures and religions."
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_black"
+	item_state = "hijab_black"
+	flags_inv = BLOCKHAIR
+	body_parts_covered = 0
+	contained_sprite = 1
+
+/obj/item/clothing/head/Hijab/grey
+	name = "grey hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_grey"
+	item_state = "hijab_grey"
+
+/obj/item/clothing/head/Hijab/red
+	name = "red hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_red"
+	item_state = "hijab_red"
+
+/obj/item/clothing/head/Hijab/brown
+	name = "brown hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_brown"
+	item_state = "hijab_brown"
+
+/obj/item/clothing/head/Hijab/green
+	name = "green hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_green"
+	item_state = "hijab_green"
+
+/obj/item/clothing/head/Hijab/blue
+	name = "blue hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_blue"
+	item_state = "hijab_blue"
