@@ -9,6 +9,7 @@
 	invocation_type = SpI_SHOUT
 	range = 3
 	max_targets = 1
+	cast_sound = 'sound/species/diona/gestalt_split.ogg'
 
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 2, Sp_POWER = 2)
 	cooldown_min = 300
