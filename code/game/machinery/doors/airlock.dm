@@ -1076,7 +1076,7 @@ About the new airlock wires panel:
 
 //						playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
 //						next_beep_at = world.time + SecondsToTicks(10)
-					close_door_at = world.time + 6
+					close_door_in(6)
 					return
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)

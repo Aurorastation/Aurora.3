@@ -29,8 +29,9 @@
 	var/hitsound_light = 'sound/effects/Glasshit.ogg'//Sound door makes when hit very gently
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
-	var/close_door_at = 0 //When to automatically close the door, if possible
 	var/open_duration = 150//How long it stays open
+	var/close_task
+	var/hatch_task
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
 	var/hatchstate = 0//0: closed, 1: open
@@ -125,15 +126,27 @@
 	..()
 	return
 
-/obj/machinery/door/process()
-	if(close_door_at && world.time >= close_door_at)
-		if(autoclose)
-			close_door_at = next_close_time()
-			close()
-		else
-			close_door_at = 0
-	if (hatchstate && world.time > hatchclosetime)
-		close_hatch()
+/obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
+	if (close_task)
+		// Update the time.
+		close_task:trigger_task_in(time)
+	else
+		schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close)
+
+/obj/machinery/door/proc/close_hatch_in(var/time = 5 SECONDS)
+	if (hatch_task)
+		// Update the time.
+		hatch_task:trigger_task_in(time)
+	else
+		schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close_hatch)
+
+/obj/machinery/door/proc/auto_close()
+	close()
+	close_task = null
+
+/obj/machinery/door/proc/auto_close_hatch()
+	close_hatch()
+	hatch_task = null
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating || !ticker)
@@ -491,19 +504,19 @@
 	operating = 0
 
 	if(autoclose)
-		close_door_at = next_close_time()
+		close_door_in(next_close_time())
 
 	return 1
 
 /obj/machinery/door/proc/next_close_time()
-	return world.time + (normalspeed ? open_duration : 5)
+	return (normalspeed ? open_duration : 5)
 
 /obj/machinery/door/proc/close(var/forced = 0)
 	if(!can_close(forced))
 		return
 	operating = 1
 
-	close_door_at = 0
+	qdel(close_task)
 	do_animate("closing")
 	sleep(3)
 	src.density = 1
