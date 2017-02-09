@@ -101,4 +101,7 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 // Misc process flags.
 #define M_PROCESSES 0x1
 #define M_USES_POWER 0x2
-#define M_NO_PROCESS 0x4
+
+// If this is returned from a machine's process() proc, the machine will stop processing but 
+// will continue to have power calculations done.
+#define M_NO_PROCESS 27
