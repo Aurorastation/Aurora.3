@@ -16,6 +16,7 @@ var/global/list/ticking_machines		= list()
 	var/type = M.get_process_type()
 	if (type)
 		machines += M
+		
 	if (type & M_PROCESSES)
 		ticking_machines += M
 
