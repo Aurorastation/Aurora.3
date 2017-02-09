@@ -2,6 +2,7 @@
 //
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
 
+#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
 
 // status values shared between lighting fixtures and items
 #define LIGHT_OK 0
@@ -245,7 +246,6 @@
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)
-
 	update_icon()
 	if(on)
 		if (check_update())
@@ -265,6 +265,7 @@
 					set_light(0)
 			else
 				use_power = 2
+				active_power_usage = light_range * LIGHTING_POWER_FACTOR
 				if (supports_nightmode && nightmode)
 					set_light(night_brightness_range, night_brightness_power, brightness_color, uv = brightness_uv)
 				else
@@ -566,20 +567,6 @@
 			if (prob(50))
 				broken()
 	return
-
-//blob effect
-
-
-// timed process
-// use power
-
-#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
-
-
-/obj/machinery/light/process()
-	if(on)
-		use_power(light_range * LIGHTING_POWER_FACTOR, LIGHT)
-
 
 // called when area power state changes
 /obj/machinery/light/power_change()
