@@ -74,7 +74,7 @@ var/list/ai_status_emotions = list(
 	src.emotion = emote
 
 /obj/machinery/ai_status_display/process()
-	return
+	return M_NO_PROCESS
 
 /obj/machinery/ai_status_display/proc/update()
 	if(mode==0) //Blank
