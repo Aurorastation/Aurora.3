@@ -185,18 +185,21 @@ for reference:
 			return
 		else if (istype(W, /obj/item/weapon/wrench))
 			if (src.health < src.maxhealth)
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.health = src.maxhealth
 				src.emagged = 0
 				src.req_access = list(access_security)
 				visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
 				return
 			else if (src.emagged > 0)
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.emagged = 0
 				src.req_access = list(access_security)
 				visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
 				return
 			return
 		else
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			switch(W.damtype)
 				if("fire")
 					src.health -= W.force * 0.75
@@ -239,7 +242,7 @@ for reference:
 		var/turf/Tsec = get_turf(src)
 
 	/*	var/obj/item/stack/rods/ =*/
-		PoolOrNew(/obj/item/stack/rods, Tsec)
+		getFromPool(/obj/item/stack/rods, Tsec)
 
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(3, 1, src)
