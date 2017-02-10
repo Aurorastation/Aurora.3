@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed chairs, beds and stools animated by the staff of animation having no sprites."
