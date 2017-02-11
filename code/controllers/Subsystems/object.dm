@@ -1,5 +1,3 @@
-var/datum/subsystem/object/SSobj
-
 /datum/subsystem/object
 	name = "Objects"
 	wait = 2 SECONDS
@@ -11,8 +9,6 @@ var/datum/subsystem/object/SSobj
 /datum/subsystem/object/New()
 	if (!processing_objects)
 		processing_objects = list()
-
-	NEW_SS_GLOBAL(SSobj)
 
 /datum/subsystem/object/fire(resumed = FALSE)
 	if (!resumed)

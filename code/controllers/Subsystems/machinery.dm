@@ -2,19 +2,13 @@ var/machinery_sort_required
 
 /datum/subsystem/machinery
 	name = "Machinery"
-	flags = SS_KEEP_TIMING
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_MACHINERY
+	flags = SS_NO_INIT
 
 	var/tmp/list/processing_machinery = list()
 	var/tmp/list/processing_powersinks = list()
 	var/tmp/list/processing_pipenets = list()
-
-
-/datum/subsystem/machinery/Initialize(timeofday)
-	makepowernets()
-	fire()
-	..()
 
 /datum/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
@@ -25,9 +19,9 @@ var/machinery_sort_required
 		for (var/datum/powernet/PN in powernets)
 			PN.reset()
 
-	var/curr_machinery = src.processing_machinery
-	var/curr_powersinks = src.processing_powersinks
-	var/curr_pipenets = src.processing_pipenets
+	var/list/curr_machinery = src.processing_machinery
+	var/list/curr_powersinks = src.processing_powersinks
+	var/list/curr_pipenets = src.processing_pipenets
 
 	while (curr_machinery.len)
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]

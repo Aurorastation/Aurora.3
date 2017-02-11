@@ -121,7 +121,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 // Please don't stuff random bullshit here,
 // 	Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
 /datum/controller/master/proc/Setup()
-	to_chat(world, "<span class='boldannounce'>Initializing subsystems...</span>")
+	admin_notice("<span class='boldannounce'>Initializing subsystems...</span>", R_DEBUG)
+	log_debug("Master controller initializing.")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -131,6 +132,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	for (var/datum/subsystem/SS in subsystems)
 		if (SS.flags & SS_NO_INIT)
 			continue
+		log_debug("SS Init: Loading '[SS.name]'")
 		SS.Initialize(world.timeofday)
 		CHECK_TICK
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
@@ -141,7 +143,6 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	// Sort subsystems by display setting for easy access.
 	sortTim(subsystems, /proc/cmp_subsystem_display)
 	// Set world options.
-	world.sleep_offline = 1
 	world.tick_lag = config.Ticklag
 	sleep(1)
 	// Loop.
@@ -283,9 +284,6 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		last_run = world.time
 		src.sleep_delta = MC_AVERAGE_FAST(src.sleep_delta, sleep_delta)
 		sleep(world.tick_lag * (processing + sleep_delta))
-
-
-
 
 // This is what decides if something should run.
 /datum/controller/master/proc/CheckQueue(list/subsystemstocheck)

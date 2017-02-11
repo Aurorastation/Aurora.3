@@ -10,7 +10,7 @@ var/list/delayed_garbage = list()
 /datum/subsystem/garbage
 	name = "Garbage Collector"
 	wait = 5 SECONDS
-	flags = SS_FIRE_IN_LOBBY | SS_BACKGROUND
+	flags = SS_FIRE_IN_LOBBY | SS_BACKGROUND | SS_NO_TICK_CHECK
 	priority = SS_PRIORITY_GARBAGE
 
 	var/garbage_collect = 1			// Whether or not to actually do work

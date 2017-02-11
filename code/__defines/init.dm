@@ -1,7 +1,7 @@
 #define SS_INIT_MISC_FIRST			11
-#define SS_INIT_OBJECTS				10
-#define SS_INIT_ASTEROID			9
-#define SS_INIT_JOBS				8
+#define SS_INIT_ASTEROID			10
+#define SS_INIT_JOBS				9
+#define SS_INIT_OBJECTS				8
 #define SS_INIT_AREA				7
 #define SS_INIT_PIPENET				6
 #define SS_INIT_ATMOS				5
@@ -9,7 +9,7 @@
 #define SS_INIT_LIGHTING			3
 #define SS_INIT_CARGO 				2
 #define SS_INIT_MISC				1
-#define SS_INIT_TICKER 				0
+#define SS_INIT_TICKER 				-1
 
 #define SS_PRIORITY_TICKER         200
 #define SS_PRIORITY_MOB            150

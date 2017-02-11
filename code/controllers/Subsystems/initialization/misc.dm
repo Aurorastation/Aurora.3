@@ -15,9 +15,6 @@
 	flags = SS_NO_FIRE
 
 /datum/subsystem/misc_early/Initialize(timeofday)
-	// Set up roundstart seed list.
-	plant_controller = new()
-
 	// This is kinda important. Set up details of what the hell things are made of.
 	populate_material_list()
 
@@ -26,4 +23,8 @@
 
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
+
+	if(config.ToRban)
+		ToRban_autoupdate()
+		
 	..()

@@ -22,9 +22,10 @@
 		if (MC_TICK_CHECK)
 			return
 
-	while (pos++ < EVENT_LEVEL_MAJOR)
+	while (pos < EVENT_LEVEL_MAJOR)
 		var/list/datum/event_container/EC = event_manager.event_containers[pos]
 		EC.process()
+		pos++
 		
 		if (MC_TICK_CHECK)
 			return

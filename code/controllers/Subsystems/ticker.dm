@@ -4,8 +4,10 @@ var/datum/subsystem/ticker/tickerProcess
 	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
-	flags = SS_FIRE_IN_LOBBY|SS_KEEP_TIMING
+	flags = SS_NO_TICK_CHECK
 	init_order = SS_INIT_TICKER
+
+	wait = 2 SECONDS
 
 	var/lastTickerTimeDuration
 	var/lastTickerTime
@@ -17,8 +19,8 @@ var/datum/subsystem/ticker/tickerProcess
 	if(!ticker)
 		ticker = new
 
-	spawn(0)
-		if(ticker)
+	spawn (0)
+		if (ticker)
 			ticker.pregame()
 
 	..()

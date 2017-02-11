@@ -78,8 +78,6 @@ var/global/list/objects_init_list = list()
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
 
-	world.tick_lag = config.Ticklag
-
 	callHook("startup")
 	//Emergency Fix
 	load_mods()
@@ -103,12 +101,6 @@ var/global/list/objects_init_list = list()
 #ifdef UNIT_TEST
 		initialize_unit_tests()
 #endif
-
-
-
-	spawn(3000)		//so we aren't adding to the round-start lag
-		if(config.ToRban)
-			ToRban_autoupdate()
 
 #undef RECOMMENDED_VERSION
 

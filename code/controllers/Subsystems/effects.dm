@@ -58,8 +58,13 @@ var/datum/subsystem/effects/effect_master
 		if (MC_TICK_CHECK)
 			return
 
+	if (!effects_objects.len && !effects_visuals.len && !processing_effects.len && !processing_visuals.len)
+		can_fire = FALSE
+
 /datum/subsystem/effects/proc/queue(var/datum/effect_system/E)
 	if (!E || E.gcDestroyed)
 		return
 		
 	effects_objects += E
+	can_fire = TRUE
+	next_fire = world.time + wait

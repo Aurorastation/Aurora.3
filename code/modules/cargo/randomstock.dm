@@ -296,7 +296,7 @@ var/list/global/random_stock_large = list(
 		"cratey" = 1
 	)
 
-/datum/cargospawner/New()
+/datum/cargospawner/proc/start()
 
 	//First lets get the reference to our warehouse
 	for(var/areapath in typesof(/area/quartermaster/storage))
