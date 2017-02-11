@@ -105,6 +105,10 @@
 	return
 
 /obj/machinery/mineral/stacking_machine/process()
+	if(!console)
+		log_debug("Stacking machine tried to process, but no console has linked itself to it.")
+		qdel(src)
+		return
 	if (src.output && src.input)
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T.contents)
