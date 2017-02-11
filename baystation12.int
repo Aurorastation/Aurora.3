@@ -1,9 +1,6 @@
 // BEGIN_INTERNALS
 /*
-DIR: code code\__defines code\_helpers code\_helpers\sorting code\controllers code\controllers\Master code\controllers\ProcessScheduler code\controllers\ProcessScheduler\core code\controllers\Subsystems\initialization code\modules code\modules\research 
-AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
-WINDOW: code\__defines\master_controller.dm
-FILE: code\__defines\master_controller.dm
+AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
