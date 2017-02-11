@@ -267,8 +267,8 @@
 
 // Stoplag.
 #define TICK_LIMIT 80
-#define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
-#define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()
+#define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
+#define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
 
 // Effect Systems.
 #define EFFECT_CONTINUE 0 	// Keep processing.
