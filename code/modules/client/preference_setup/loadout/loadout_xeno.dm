@@ -18,6 +18,7 @@
 	display_name = "tzirzi robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
+	whitelisted = "Unathi"
 	sort_category = "Xenowear"
 
 //skrell headtail adorns
