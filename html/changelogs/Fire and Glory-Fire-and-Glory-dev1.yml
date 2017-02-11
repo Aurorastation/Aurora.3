@@ -33,5 +33,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added Hijab's, not obtainable atm."
-  - rscadd: "Added a variant of the Unathi robe, not obtainable either atm."
+  - rscadd: "Added Hijab's, obtainable in the heads section of custom loadout."
+  - rscadd: "Added a variant of the Unathi robe, obtainable in the xeno section of custom loadout (for Unathi)."
+  - imageadd: "Added different sprites for Ninja Tajara, Unathi, and Skrell."
