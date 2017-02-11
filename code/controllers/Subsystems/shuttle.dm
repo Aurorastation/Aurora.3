@@ -263,3 +263,4 @@ var/datum/subsystem/shuttle/shuttle_controller
 	MS.warmup_time = 0
 	shuttles["Mercenary"] = MS
 
+	..()

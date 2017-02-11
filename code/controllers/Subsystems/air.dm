@@ -10,6 +10,7 @@ var/air_processing_killed = FALSE
 	if (!air_master)
 		air_master = new
 		air_master.Setup()
+	..()
 
 /datum/subsystem/air/fire(resumed = FALSE)
 	if (!air_processing_killed)

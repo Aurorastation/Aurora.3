@@ -128,6 +128,8 @@ var/global/datum/controller/gameticker/ticker
 	equip_characters()
 	data_core.manifest()
 
+	Master.RoundStart()
+
 	callHook("roundstart")
 
 	shuttle_controller.setup_shuttle_docks()
@@ -463,3 +465,8 @@ var/global/datum/controller/gameticker/ticker
 	if(m)
 		world << "<font color='purple'><b>Tip of the round: \
 			</b>[html_encode(m)]</font>"
+
+/world/proc/has_round_started()
+	if (ticker && ticker.current_state >= GAME_STATE_PLAYING)
+		return TRUE
+	return FALSE

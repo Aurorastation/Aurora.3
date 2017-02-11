@@ -9,8 +9,8 @@ var/datum/subsystem/scheduler/scheduler
 	wait = 2 SECONDS
 	flags = SS_NO_INIT
 
-	var/list/scheduled_tasks
-	var/list/queued_tasks
+	var/list/scheduled_tasks = list()
+	var/list/queued_tasks = list()
 
 /datum/subsystem/scheduler/fire(resumed = FALSE)
 	if (!resumed)

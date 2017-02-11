@@ -27,6 +27,8 @@ var/datum/subsystem/lighting/lighting_process
 	for (var/zlevel = 1 to world.maxz)
 		create_lighting_overlays_zlevel(zlevel)
 
+	..()
+
 /datum/subsystem/lighting/fire(resumed = FALSE)
 	if (!resumed)
 		curr_lights = lighting_update_lights

@@ -82,6 +82,7 @@ var/datum/subsystem/xenoarch/SSxenoarch
 		var/turf/simulated/mineral/artifact_turf = pop(artifacts_spawnturf_temp)
 		artifact_turf.artifact_find = new()
 
+	..()
 
 
 #undef XENOARCH_SPAWN_CHANCE

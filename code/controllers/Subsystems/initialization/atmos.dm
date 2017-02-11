@@ -16,4 +16,5 @@ var/datum/subsystem/atmos/SSatmos
 		else if(istype(U, /obj/machinery/atmospherics/unary/vent_scrubber))
 			var/obj/machinery/atmospherics/unary/vent_scrubber/T = U
 			T.broadcast_status()
+
 	..()

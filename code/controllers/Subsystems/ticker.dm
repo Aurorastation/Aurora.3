@@ -21,6 +21,8 @@ var/datum/subsystem/ticker/tickerProcess
 		if(ticker)
 			ticker.pregame()
 
+	..()
+
 /datum/subsystem/ticker/fire(resumed = FALSE)
 	var/currentTime = world.timeofday
 

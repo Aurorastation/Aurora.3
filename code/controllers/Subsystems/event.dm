@@ -12,7 +12,7 @@
 		processing_events = event_manager.active_events.Copy()
 		pos = EVENT_LEVEL_MUNDANE
 
-	while (processing_events)
+	while (processing_events.len)
 		var/datum/event/E = processing_events[processing_events.len]
 		processing_events.len--
 

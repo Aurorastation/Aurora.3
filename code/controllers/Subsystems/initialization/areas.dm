@@ -12,5 +12,4 @@ var/datum/subsystem/areas/SSareas
 	for (var/A in all_areas)
 		var/area/area = A
 		area.initialize()
-
 	..()

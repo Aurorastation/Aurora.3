@@ -159,6 +159,7 @@
 #include "code\controllers\Subsystems\vote.dm"
 #include "code\controllers\Subsystems\wireless.dm"
 #include "code\controllers\Subsystems\initialization\areas.dm"
+#include "code\controllers\Subsystems\initialization\asteroid.dm"
 #include "code\controllers\Subsystems\initialization\atmos.dm"
 #include "code\controllers\Subsystems\initialization\cargo.dm"
 #include "code\controllers\Subsystems\initialization\jobs.dm"

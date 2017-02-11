@@ -12,4 +12,3 @@ var/datum/subsystem/job/SSjob
 	job_master = new /datum/controller/occupations()
 	job_master.SetupOccupations()
 	job_master.LoadJobs("config/jobs.txt")
-	..()

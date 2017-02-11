@@ -179,7 +179,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	//	local vars rock
 
 	// Schedule the first run of the Subsystems.
-	round_started = ticker && ticker.current_state == GAME_STATE_PLAYING
+	round_started = world.has_round_started()
 	//all this shit is here so that flag edits can be refreshed by restarting the MC. (and for speed)
 	var/list/tickersubsystems = list()
 	var/list/normalsubsystems = list()
