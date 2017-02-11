@@ -12,7 +12,7 @@
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
-	var/spent_icon = null
+	var/spent_icon = "s-casing-spent"
 
 /obj/item/ammo_casing/New()
 	..()
@@ -25,7 +25,7 @@
 /obj/item/ammo_casing/proc/expend()
 	. = BB
 	BB = null
-	set_dir(pick(cardinal)) //spin spent casings
+	set_dir(pick(alldirs)) //spin spent casings
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -112,7 +112,7 @@
 			user << "<span class='warning'>[src] is full!</span>"
 			return
 		user.remove_from_mob(C)
-		C.loc = src
+		C.forceMove(src)
 		stored_ammo.Insert(1, C) //add to the head of the list
 		update_icon()
 
@@ -122,8 +122,8 @@
 		return
 	user << "<span class='notice'>You empty [src].</span>"
 	for(var/obj/item/ammo_casing/C in stored_ammo)
-		C.loc = user.loc
-		C.set_dir(pick(cardinal))
+		C.forceMove(user.loc)
+		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()
 

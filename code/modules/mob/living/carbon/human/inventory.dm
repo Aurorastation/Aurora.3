@@ -129,6 +129,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else if (W == shoes)
 		shoes = null
 		update_inv_shoes()
+		update_noise_level()
 	else if (W == belt)
 		belt = null
 		update_inv_belt()
@@ -265,6 +266,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 			src.shoes = W
 			W.equipped(src, slot)
 			update_inv_shoes(redraw_mob)
+			update_noise_level()
 		if(slot_wear_suit)
 			src.wear_suit = W
 			if(wear_suit.flags_inv & HIDESHOES)
@@ -426,3 +428,17 @@ This saves us from having to call add_fingerprint() any time something is put in
 	W.add_fingerprint(src)
 	update_inv_r_hand()
 	return 1
+
+/mob/living/carbon/human/proc/update_noise_level()
+	is_noisy = FALSE
+	if (lying || !shoes || !istype(shoes, /obj/item/clothing/shoes))
+		return
+
+	if (shoes:silent)
+		return
+
+	var/turf/T = get_turf(src)
+	if (!istype(T) || !T.footstep_sound)
+		return
+
+	is_noisy = TRUE

@@ -158,6 +158,7 @@
 								// this is used to calc the probability the light burns out
 
 	var/rigged = 0				// true if rigged to explode
+	var/datum/effect_system/sparks/spark_system
 
 // the smaller bulb light fixture
 
@@ -203,6 +204,8 @@
 // create a new lighting fixture
 /obj/machinery/light/New()
 	..()
+
+	spark_system = bind_spark(src, 3)
 
 	spawn(2)
 		on = has_power()
@@ -404,9 +407,7 @@
 
 		user << "You stick \the [W] into the light socket!"
 		if(has_power() && (W.flags & CONDUCT))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -538,11 +539,10 @@
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 	status = LIGHT_BROKEN
 	update()
+	CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)

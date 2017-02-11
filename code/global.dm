@@ -38,7 +38,7 @@ var/const/boss_name     = "Central Command"
 var/const/boss_short    = "Centcomm"
 var/const/company_name  = "NanoTrasen"
 var/const/company_short = "NT"
-var/game_version        = "Baystation12"
+var/game_version        = "Aurorastation"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 442)
 

@@ -32,7 +32,7 @@
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
 				tally += 4
-			if(E.status & ORGAN_SPLINTED)
+			else if(E.status & ORGAN_SPLINTED)
 				tally += 0.5
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
@@ -122,3 +122,14 @@
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
+
+/mob/living/carbon/human/Move()
+	. = ..()
+	if (is_noisy)
+		var/turf/T = get_turf(src)
+		if (m_intent == "run")
+			playsound(src, T.footstep_sound, 70, 1)
+		else
+			footstep++
+			if (footstep % 2)
+				playsound(src, T.footstep_sound, 40, 1)

@@ -269,3 +269,19 @@
 #define TICK_LIMIT 80
 #define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
 #define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()
+
+// Effect Systems.
+#define EFFECT_CONTINUE 0 	// Keep processing.
+#define EFFECT_HALT 1		// Stop processing, but don't qdel.
+#define EFFECT_DESTROY 2	// qdel.
+
+// Performance bullshit.
+
+//supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
+#define RANGE_TURFS(RADIUS, CENTER) \
+  block( \
+    locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
+    locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
+  )
+
+#define get_turf(A) (get_step(A, 0))

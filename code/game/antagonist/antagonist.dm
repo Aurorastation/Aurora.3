@@ -30,6 +30,7 @@
 	var/faction_descriptor                  // Description of the cause. Mandatory for faction role.
 	var/faction_verb                        // Verb added when becoming a member of the faction, if any.
 	var/faction_welcome                     // Message shown to faction members.
+	var/faction = "neutral"			// Faction name, mostly used for simple animals.
 
 	// Spawn values (autotraitor and game mode)
 	var/hard_cap = 3                        // Autotraitor var. Won't spawn more than this many antags.

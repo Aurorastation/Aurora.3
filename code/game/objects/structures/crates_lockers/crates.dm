@@ -157,7 +157,7 @@
 		else return 1
 	else if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
-	return 0
+	return ..()
 
 /obj/structure/closet/crate/Move(var/turf/destination, dir)
 	if(..())

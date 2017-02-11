@@ -41,6 +41,9 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/save_character(var/savefile/S)
 	S["gear"] << pref.gear
 
+/datum/category_item/player_setup_item/loadout/gather_load_parameters()
+	return list(":id" = pref.current_character)
+
 /datum/category_item/player_setup_item/loadout/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("gear"), "args" = list("id")))
 	
