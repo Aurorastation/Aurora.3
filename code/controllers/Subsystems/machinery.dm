@@ -1,5 +1,7 @@
 /var/datum/subsystem/machinery/SSmachinery
 
+var/machinery_sort_required
+
 /datum/subsystem/machinery
 	name = "Machinery"
 	flags = SS_KEEP_TIMING | SS_NO_INIT

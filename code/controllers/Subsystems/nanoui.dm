@@ -21,7 +21,6 @@ var/datum/subsystem/nanoui/SSnanoui
 		queued_uis.len--
 
 		if (!UI || UI.gcDestroyed)
-			catchBadType(UI)
 			nanomanager.processing_uis -= UI
 			continue
 

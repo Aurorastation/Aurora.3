@@ -31,6 +31,7 @@
 
 
 // Debug verbs.
+/*
 /client/proc/restart_controller(controller in list("Master", "Failsafe", "Supply Shuttle"))
 	set category = "Debug"
 	set name = "Restart Controller"
@@ -51,9 +52,9 @@
 			feedback_add_details("admin_verb","RFailsafe")
 
 	message_admins("Admin [key_name_admin(usr)] has restarted the [controller] controller.")
+*/
 
-
-
+/*
 /client/proc/debug_controller(controller in list("Air", "Cameras", "Configuration", "Emergency Shuttle", "failsafe", "Garbage", "Jobs", "Master", "pAI", "Radio", "Sun", "Supply Shuttle", "Ticker", "Vote"))
 	set category = "Debug"
 	set name = "debug controller"
@@ -93,16 +94,15 @@
 		if("Configuration")
 			debug_variables(config)
 			feedback_add_details("admin_verb","DConf")
-		if("pAI")
-			debug_variables(paiController)
-			feedback_add_details("admin_verb","DpAI")
 		if("Cameras")
 			debug_variables(cameranet)
 			feedback_add_details("admin_verb","DCameras")
 		if("Garbage")
-			debug_variables(garbageCollector)
+			debug_variables(garbage_collector)
 			feedback_add_details("admin_verb","DGarbage")
 		if("Vote")
 			debug_variables(vote)
 			feedback_add_details("admin_verb","DprocessVote")
 	message_admins("Admin [key_name_admin(usr)] is debugging the [controller] controller.")
+
+*/

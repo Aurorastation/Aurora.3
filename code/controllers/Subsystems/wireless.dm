@@ -1,4 +1,4 @@
-var/datum/subsystem/wireless/SSwireless
+var/datum/subsystem/wireless/wirelessProcess
 
 /datum/subsystem/wireless
 	name = "Wireless"
@@ -13,19 +13,19 @@ var/datum/subsystem/wireless/SSwireless
 	var/tmp/list/pending_queue = list()
 
 /datum/subsystem/wireless/New()
-	NEW_SS_GLOBAL(SSwireless)
+	NEW_SS_GLOBAL(wirelessProcess)
 
 /datum/subsystem/wireless/stat_entry()
 	..("")
 
-/datum/subsystem/wireless/proc/add_device(var/datum/wifi/reciever/R)
+/datum/subsystem/wireless/proc/add_device(var/datum/wifi/receiver/R)
 	if(receiver_list)
 		receiver_list |= R
 	else
 		receiver_list = new()
 		receiver_list |= R
 
-/datum/subsystem/wireless/proc/remove_device(var/datum/wifi/reciever/R)
+/datum/subsystem/wireless/proc/remove_device(var/datum/wifi/receiver/R)
 	if (receiver_list)
 		receiver_list -= R
 
@@ -37,19 +37,16 @@ var/datum/subsystem/wireless/SSwireless
 		pending_connections = new()
 		pending_connections += C
 
-#define PROCESS_CONNECTION(CONNECTION, FAILURE_QUEUE)	 \
-	var/target_found = 0;                                \
-	for (var/datum/wifi/reciever/R in reciever_list) {   \
-		if (R.id = CONNECTION.id) {                      \
-			var/datum/wifi/sender/S = CONNECTION.source; \
-			S.connect_device(R);                         \
-			R.connect_device(S);                         \
-			target_found = 1;                            \
-		}                                                \ 
-	}                                                    \
-	if (!target_found) {                                 \
-		FAILURE_QUEUE += CONNECTION;                     \
-	}                                                    \
+/datum/subsystem/wireless/proc/process_connection(var/datum/connection_request/connection, var/list/fail_queue)
+	var/target_found = 0
+	for (var/datum/wifi/receiver/R in receiver_list)
+		if (R.id == connection.id)
+			var/datum/wifi/sender/S = connection.source
+			S.connect_device(R)
+			R.connect_device(S)
+			target_found = 1
+	if (!target_found)
+		fail_queue += connection
 
 /datum/subsystem/wireless/fire(resumed = 0)
 	if (!resumed)
@@ -60,7 +57,7 @@ var/datum/subsystem/wireless/SSwireless
 		var/datum/connection_request/C = retry_queue[retry_queue.len]
 		retry_queue.len--
 
-		PROCESS_CONNECTION(C, failed_connections)
+		process_connection(C, failed_connections)
 
 		if (MC_TICK_CHECK)
 			return
@@ -69,7 +66,7 @@ var/datum/subsystem/wireless/SSwireless
 		var/datum/connection_request/C = pending_queue[pending_queue.len]
 		pending_queue.len--
 
-		PROCESS_CONNECTION(C, retry_connections)
+		process_connection(C, retry_connections)
 
 		if (MC_TICK_CHECK)
 			return

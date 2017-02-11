@@ -34,7 +34,7 @@ var/datum/subsystem/alarm/alarm_manager
 
 		active_alarm_cache += AH.alarms
 
-		if (MC_CHECK_TICK)
+		if (MC_TICK_CHECK)
 			return
 
 /datum/subsystem/alarm/proc/active_alarms()

@@ -24,5 +24,5 @@ var/datum/subsystem/modifiers/SSmodifiers
 		if (MC_TICK_CHECK)
 			return
 
-/datum/subsystem/modifiers/statProcess()
+/datum/subsystem/modifiers/stat_entry()
 	..("P:[processing_modifiers.len]")

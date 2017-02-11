@@ -169,9 +169,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	message_admins("MC crashed or runtimed, restarting")
 	var/rtn2 = Recreate_MC()
 	if (rtn2 <= 0)
-		log_game("Failed to recreate MC (Error code: [rtn2]), it's up to the failsafe now")
-		message_admins("Failed to recreate MC (Error code: [rtn2]), it's up to the failsafe now")
-		Failsafe.defcon = 2
+		log_game("Failed to recreate MC (Error code: [rtn2])")
+		message_admins("Failed to recreate MC (Error code: [rtn2])")
 
 // Main loop.
 /datum/controller/master/proc/Loop()
@@ -180,7 +179,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	//	local vars rock
 
 	// Schedule the first run of the Subsystems.
-	round_started = world.has_round_started()
+	round_started = ticker && ticker.current_state == GAME_STATE_PLAYING
 	//all this shit is here so that flag edits can be refreshed by restarting the MC. (and for speed)
 	var/list/tickersubsystems = list()
 	var/list/normalsubsystems = list()
@@ -248,8 +247,6 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (make_runtime)
 			var/datum/subsystem/SS
 			SS.can_fire = 0
-		if (!Failsafe || (Failsafe.processing_interval > 0 && (Failsafe.lasttick+(Failsafe.processing_interval*5)) < world.time))
-			new/datum/controller/failsafe() // (re)Start the failsafe.
 		if (!queue_head || !(iteration % 3))
 			if (round_started)
 				subsystems_to_check = normalsubsystems

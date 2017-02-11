@@ -1,3 +1,4 @@
+#define SS_INIT_JOBS				8
 #define SS_INIT_AREA				7
 #define SS_INIT_PIPENET				6
 #define SS_INIT_ATMOS				5

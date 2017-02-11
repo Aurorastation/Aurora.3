@@ -1,8 +1,10 @@
-var/datum/subsystem/lighting/SSlighting
+var/datum/subsystem/lighting/lighting_process
 
 /var/list/lighting_update_lights    = list()    // List of lighting sources  queued for update.
 /var/list/lighting_update_corners   = list()    // List of lighting corners  queued for update.
 /var/list/lighting_update_overlays  = list()    // List of lighting overlays queued for update.
+
+/var/lighting_profiling = FALSE
 
 /datum/subsystem/lighting
 	name = "Lighting"
@@ -15,7 +17,7 @@ var/datum/subsystem/lighting/SSlighting
 	var/list/curr_overlays = list()
 
 /datum/subsystem/lighting/New()
-	NEW_SS_GLOBAL(SSlighting)
+	NEW_SS_GLOBAL(lighting_process)
 
 //datum/subsystem/lighting/stat_entry()
 	//..("CO:[all_lighting_overlays.len],CC:[all_lighting_corners.len]|L:")

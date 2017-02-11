@@ -123,12 +123,14 @@ var/global/list/objects_init_list = list()
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
 
-	processScheduler = new
+	/*processScheduler = new
 	master_controller = new /datum/controller/game_controller()
 	spawn(1)
 		processScheduler.deferSetupFor(/datum/controller/process/ticker)
 		processScheduler.setup()
-		master_controller.setup()
+		master_controller.setup()*/
+
+	Master.Setup(10, FALSE)
 #ifdef UNIT_TEST
 		initialize_unit_tests()
 #endif
@@ -214,7 +216,7 @@ var/list/world_api_rate_limit = list()
 		world << sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')) // random end sounds!! - LastyBatsy
 		*/
 
-	processScheduler.stop()
+	Master.Shutdown()
 
 	// Handle runtime condensing here
 	if (config.log_runtime)

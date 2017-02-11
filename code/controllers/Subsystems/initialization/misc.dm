@@ -12,6 +12,5 @@ var/datum/subsystem/misc/SSmisc
 	populate_antag_type_list()
 	populate_spawn_points()
 	setupgenetics()
-	SetupXenoarch()
 	global.corp_regs = new
 	..()

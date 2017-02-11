@@ -57,3 +57,9 @@ var/datum/subsystem/effects/effect_master
 		
 		if (MC_TICK_CHECK)
 			return
+
+/datum/subsystem/effects/proc/queue(var/datum/effect_system/E)
+	if (!E || E.gcDestroyed)
+		return
+		
+	effects_objects += E

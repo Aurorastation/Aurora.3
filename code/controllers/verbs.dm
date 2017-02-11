@@ -33,7 +33,7 @@
 	if(!holder)	return
 	switch(controller)
 		if("Master")
-			debug_variables(master_controller)
+			debug_variables(Master)
 			feedback_add_details("admin_verb","DMC")
 		if("Ticker")
 			debug_variables(ticker)
@@ -102,7 +102,7 @@
 			debug_variables(lighting_process)
 			feedback_add_details("admin_verb", "DLightingP")
 		if("Explosives")
-			debug_variables(bomb_processor)
+			//debug_variables(bomb_processor)
 			feedback_add_details("admin_verb", "DExplosives")
 	message_admins("Admin [key_name_admin(usr)] is debugging the [controller] controller.")
 	return

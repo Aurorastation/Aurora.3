@@ -21,9 +21,8 @@
 		if (MC_TICK_CHECK)
 			return
 
-	while (i++ < EVENT_LEVEL_MAJOR)
-		last_object = event_manager.event_containers[i]
-		var/list/datum/event_container/EC = last_object
+	while (pos++ < EVENT_LEVEL_MAJOR)
+		var/list/datum/event_container/EC = event_manager.event_containers[pos]
 		EC.process()
 		
 		if (MC_TICK_CHECK)

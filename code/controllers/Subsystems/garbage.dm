@@ -25,7 +25,7 @@ var/list/delayed_garbage = list()
 								// the types are stored as strings
 
 /datum/subsystem/garbage/New()
-	NEW_SS_GLOBAL(SSgarbage)
+	NEW_SS_GLOBAL(garbage_collector)
 
 /datum/subsystem/garbage/Initialize()
 	if (!garbage_collector)
@@ -81,3 +81,174 @@ var/list/delayed_garbage = list()
 		
 		if (MC_TICK_CHECK)
 			return
+
+#ifdef GC_FINDREF
+/datum/subsystem/garbage/proc/LookForRefs(var/datum/D, var/list/targ)
+	. = 0
+	for(var/V in D.vars)
+		if(V == "contents")
+			continue
+		if(istype(D.vars[V], /atom))
+			var/atom/A = D.vars[V]
+			if(A in targ)
+				testing("GC: [A] | [A.type] referenced by [D] | [D.type], var [V]")
+				. += 1
+		else if(islist(D.vars[V]))
+			. += LookForListRefs(D.vars[V], targ, D, V)
+
+/datum/subsystem/garbage/proc/LookForListRefs(var/list/L, var/list/targ, var/datum/D, var/V)
+	. = 0
+	for(var/F in L)
+		if(istype(F, /atom))
+			var/atom/A = F
+			if(A in targ)
+				testing("GC: [A] | [A.type] referenced by [D] | [D.type], list [V]")
+				. += 1
+		if(islist(F))
+			. += LookForListRefs(F, targ, D, "[F] in list [V]")
+#endif
+
+/datum/subsystem/garbage/proc/AddTrash(datum/A)
+	if(!istype(A) || !isnull(A.gcDestroyed))
+		return
+	#ifdef GC_DEBUG
+	testing("GC: AddTrash(\ref[A] - [A.type])")
+	#endif
+	A.gcDestroyed = world.time
+	destroyed -= "\ref[A]" // Removing any previous references that were GC'd so that the current object will be at the end of the list.
+	destroyed["\ref[A]"] = world.time
+
+/datum/subsystem/garbage/stat_entry()
+	..()
+	stat(null, "[garbage_collect ? "On" : "Off"], [destroyed.len] queued")
+	stat(null, "Dels: [total_dels], [soft_dels] soft, [hard_dels] hard, [tick_dels]  last run")
+
+
+// Tests if an atom has been deleted.
+/proc/deleted(atom/A)
+	return !A || !isnull(A.gcDestroyed)
+
+// Should be treated as a replacement for the 'del' keyword.
+// Datums passed to this will be given a chance to clean up references to allow the GC to collect them.
+/proc/qdel(var/datum/A)
+	if(!A)
+		return
+	if(!istype(A))
+		warning("qdel() passed object of type [A.type]. qdel() can only handle /datum types.")
+		del(A)
+		if(garbage_collector)
+			garbage_collector.total_dels++
+			garbage_collector.hard_dels++
+	else if(isnull(A.gcDestroyed))
+		// Let our friend know they're about to get collected
+		. = !A.Destroy()
+		if(. && A)
+			A.finalize_qdel()
+
+/datum/proc/finalize_qdel()
+	if(IsPooled(src))
+		returnToPool(src)
+	else
+		del(src)
+
+/atom/finalize_qdel()
+	if (IsPooled(src))
+		returnToPool(src)
+	else
+		if(garbage_collector)
+			garbage_collector.AddTrash(src)
+		else
+			delayed_garbage |= src
+
+/icon/finalize_qdel()
+	del(src)
+
+/image/finalize_qdel()
+	del(src)
+
+/mob/finalize_qdel()
+	del(src)
+
+/turf/finalize_qdel()
+	del(src)
+
+// Default implementation of clean-up code.
+// This should be overridden to remove all references pointing to the object being destroyed.
+// Return true if the the GC controller should allow the object to continue existing. (Useful if pooling objects.)
+/datum/proc/Destroy()
+	nanomanager.close_uis(src)
+	tag = null
+	return
+
+#ifdef TESTING
+/client/var/running_find_references
+
+/mob/verb/create_thing()
+	set category = "Debug"
+	set name = "Create Thing"
+
+	var/path = input("Enter path")
+	var/atom/thing = new path(loc)
+	thing.find_references()
+
+/atom/verb/find_references()
+	set category = "Debug"
+	set name = "Find References"
+	set background = 1
+	set src in world
+
+	if(!usr || !usr.client)
+		return
+
+	if(usr.client.running_find_references)
+		testing("CANCELLED search for references to a [usr.client.running_find_references].")
+		usr.client.running_find_references = null
+		return
+
+	if(alert("Running this will create a lot of lag until it finishes.  You can cancel it by running it again.  Would you like to begin the search?", "Find References", "Yes", "No") == "No")
+		return
+
+	// Remove this object from the list of things to be auto-deleted.
+	if(garbage_collector)
+		garbage_collector.destroyed -= "\ref[src]"
+
+	usr.client.running_find_references = type
+	testing("Beginning search for references to a [type].")
+	var/list/things = list()
+	for(var/client/thing)
+		things += thing
+	for(var/datum/thing)
+		things += thing
+	for(var/atom/thing)
+		things += thing
+	testing("Collected list of things in search for references to a [type]. ([things.len] Thing\s)")
+	for(var/datum/thing in things)
+		if(!usr.client.running_find_references) return
+		for(var/varname in thing.vars)
+			var/variable = thing.vars[varname]
+			if(variable == src)
+				testing("Found [src.type] \ref[src] in [thing.type]'s [varname] var.")
+			else if(islist(variable))
+				if(src in variable)
+					testing("Found [src.type] \ref[src] in [thing.type]'s [varname] list var.")
+	testing("Completed search for references to a [type].")
+	usr.client.running_find_references = null
+
+/client/verb/purge_all_destroyed_objects()
+	set category = "Debug"
+	if(garbage_collector)
+		while(garbage_collector.destroyed.len)
+			var/datum/o = locate(garbage_collector.destroyed[1])
+			if(istype(o) && o.gcDestroyed)
+				del(o)
+				garbage_collector.dels++
+			garbage_collector.destroyed.Cut(1, 2)
+#endif
+
+#ifdef GC_DEBUG
+#undef GC_DEBUG
+#endif
+
+#ifdef GC_FINDREF
+#undef GC_FINDREF
+#endif
