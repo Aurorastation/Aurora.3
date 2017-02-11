@@ -9,6 +9,7 @@ var/datum/subsystem/xenoarch/SSxenoarch
 /datum/subsystem/xenoarch
 	name = "Xenoarcheology Controller"
 	flags = SS_NO_FIRE
+	init_order = SS_INIT_MISC
 
 	var/list/artifact_spawning_turfs = list()
 	var/list/digsite_spawning_turfs = list()

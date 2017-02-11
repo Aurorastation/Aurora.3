@@ -1,14 +1,9 @@
-var/datum/subsystem/mobs/SSmob
-
 /datum/subsystem/mobs
 	name = "Mobs"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
 
 	var/list/currentrun = list()
-
-/datum/subsystem/mobs/New()
-	NEW_SS_GLOBAL(SSmob)
 
 /datum/subsystem/mobs/stat_entry()
 	..()

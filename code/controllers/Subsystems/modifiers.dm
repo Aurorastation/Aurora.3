@@ -1,13 +1,8 @@
-var/datum/subsystem/modifiers/SSmodifiers
-
 /datum/subsystem/modifiers
 	name = "Modifiers"
 	wait = 1 SECONDS	// Surely this doesn't need to tick this fast.
 
 	var/list/current_work = list()
-
-/datum/subsystem/modifiers/New()
-	NEW_SS_GLOBAL(SSmodifiers)
 
 /datum/subsystem/modifiers/fire(resumed = FALSE)
 	if (!resumed)
