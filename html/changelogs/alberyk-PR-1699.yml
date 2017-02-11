@@ -5,3 +5,4 @@ delete-after: True
 changes: 
   - tweak: "Claws should be a bit more deadly in combat."
   - rscadd: "Added new custom loadout options."
+  - rscadd: "Added ablative and ballistics helmets to the armory."
