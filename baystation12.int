@@ -1,9 +1,6 @@
 // BEGIN_INTERNALS
 /*
-DIR: code code\__defines 
-AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
-WINDOW: code\__defines\targeting.dm
-FILE: code\__defines\targeting.dm
+AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
