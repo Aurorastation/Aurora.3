@@ -118,7 +118,7 @@
 /datum/gear/uniform/corpsecsuit
 	display_name = "uniform, corporate (Security)"
 	path = /obj/item/clothing/under/rank/security/corp
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet")
 
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP's dress"
@@ -133,16 +133,32 @@
 /datum/gear/uniform/navysecsuit
 	display_name = "uniform, navyblue (Security)"
 	path = /obj/item/clothing/under/rank/security/navyblue
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet")
 
 /datum/gear/uniform/gearharness
 	display_name = "gear harness"
 	path = /obj/item/clothing/under/gearharness
 	cost = 2
 
-/datum/gear/uniform/track_pants
-	display_name = "track pants"
-	path = /obj/item/clothing/under/track
+/datum/gear/uniform/pants
+	display_name = "pants selection"
+	path = /obj/item/clothing/under/pants
+	
+/datum/gear/uniform/pants/New()
+	..()
+	var/pants = list()
+	pants["jeans"] = /obj/item/clothing/under/pants
+	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
+	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
+	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
+	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
+	pants["white pants"] = /obj/item/clothing/under/pants/white
+	pants["black pants"] = /obj/item/clothing/under/pants/black
+	pants["red pants"] = /obj/item/clothing/under/pants/red
+	pants["tan pants"] = /obj/item/clothing/under/pants/tan
+	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
+	pants["track pants"] = /obj/item/clothing/under/pants/track
+	gear_tweaks += new/datum/gear_tweak/path(pants)
 	
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"	

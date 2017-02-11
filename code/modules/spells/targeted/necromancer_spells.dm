@@ -47,25 +47,25 @@
 
 	hud_state = "wiz_vampire"
 	cast_sound = 'sound/magic/enter_blood.ogg'
-
-	amt_dam_brute = 15
-	amt_dam_fire = 15
-
 	message = "You feel a sickening feeling as your body weakens."
 
-/spell/targeted/life_steal/cast(var/list/targets, var/mob/living/carbon/human/caster)
-	for(var/mob/M in targets)
-		if(!(M.stat == DEAD))
+	amt_dam_brute = 15
+	amt_dam_fire  = 15
+
+/spell/targeted/life_steal/cast(list/targets, mob/living/user)
+	for(var/mob/living/M in targets)
+		if(M.stat == DEAD)
 			user << "There is no left life to steal."
 			return
-		if(isipc(target))
+		if(isipc(M))
 			user << "There is no life to steal."
 			return
-		M.visible_message("<span class='danger'>Blood flows from \the [M] into \the [caster]!</span>")
-		caster.adjustBruteLoss(-15)
-		caster.adjustFireLoss(-15)
+		M.visible_message("<span class='danger'>Blood flows from \the [M] into \the [user]!</span>")
+		gibs(M.loc)
+		user.adjustBruteLoss(-15)
+		user.adjustFireLoss(-15)
 
-		..()
+	..()
 
 /spell/targeted/raise_dead
 	name = "Raise Dead"
@@ -139,16 +139,17 @@
 	invocation_type = SpI_EMOTE
 	invocation = "entones an obscure chant..."
 	max_targets = 1
+	level_max = list(Sp_TOTAL = 0, Sp_SPEED = 0, Sp_POWER = 0)
 
 	hud_state = "wiz_lich"
 
 /spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
-	if(isskeleton(target))
+	if(isskeleton(user))
 		user << "You have no soul or life to offer."
 		return
 
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
-	new /obj/effect/gibspawner/human
+	gibs(user.loc)
 	user.verbs += /mob/living/carbon/proc/immortality
 	user.set_species("Skeleton")
 	user.unEquip(user.wear_suit)

@@ -106,6 +106,20 @@
 	worn_state = "ert_uniform"
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/under/ccpolice
+	name = "ERT civil protection uniform"
+	desc = "A sturdy navy uniform, carefully ironed and folded. Worn by specialist troopers on civil protection duties."
+	icon_state = "officerdnavyclothes"
+	item_state = "scratch"
+	worn_state = "officerdnavyclothes"
+
+/obj/item/clothing/under/rank/centcom_commander
+	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
+	name = "\improper ERT commander's dress uniform"
+	icon_state = "centcom"
+	item_state = "lawyer_black"
+	worn_state = "centcom"
+
 /obj/item/clothing/under/space
 	name = "\improper NASA jumpsuit"
 	desc = "It has a NASA logo on it and is made of space-proofed materials."
@@ -529,11 +543,3 @@
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
-
-/obj/item/clothing/under/track
-	name = "track pants"
-	desc = "Track pants, perfect for squatting."
-	icon = 'icons/obj/tracksuit.dmi'
-	icon_state = "trackpants"
-	item_state = "trackpants"
-	contained_sprite = 1

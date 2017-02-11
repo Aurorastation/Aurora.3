@@ -13,6 +13,9 @@
 	min_oxy = 1 //still require a /bit/ of air.
 	max_co2 = 0
 	unsuitable_atoms_damage = 1
+	
+	hunger_enabled = 0
+	supernatural = 1
 
 	var/list/wizardy_spells = list()
 
@@ -24,7 +27,7 @@
 
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
-	desc = "An odd looking crab."
+	desc = "A small crab said to be made of stone and starlight."
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "evilcrab"
 	icon_living = "evilcrab"
@@ -37,7 +40,8 @@
 	maxHealth = 200
 	melee_damage_lower = 10
 	melee_damage_upper = 15
-	attacktext = "pinches"
+	friendly = "pinches"
+	attacktext = "pinched"
 	resistance = 9
 
 
@@ -52,11 +56,16 @@
 	pixel_x = -16
 
 	speak_emote = list("gnashes")
+	attacktext = "bitten"
+	attack_sound = 'sound/weapons/bite.ogg'
 
+	environment_smash = 2
 	health = 100
 	maxHealth = 100
-	melee_damage_lower = 10
-	melee_damage_upper = 10
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
 
@@ -76,11 +85,12 @@
 
 	response_help = "thinks better of touching"
 
+	environment_smash = 2
 	health = 150
 	maxHealth = 150
-	melee_damage_lower = 5
-	melee_damage_upper = 8
-	attacktext = "touches"
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	attacktext = "clawed"
 
 	wizardy_spells = list(/spell/targeted/torment)
 
@@ -99,6 +109,7 @@
 	icon_living = "goat"
 	icon_dead = "goat_dead"
 	speak_emote = list("brays")
+	attacktext = "kicked"
 
 	mob_size = MOB_SMALL
 
@@ -144,13 +155,16 @@
 	pass_flags = PASSTABLE
 	mob_size = MOB_MINISCULE
 
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
 	response_harm = "stamps on"
 
 	health = 15
 	maxHealth = 15
 	melee_damage_lower = 1
 	melee_damage_upper = 1
-	attacktext = "nibbles"
+	attacktext = "nibbled"
 
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
@@ -168,6 +182,8 @@
 	icon_dead = "cat3_dead"
 	icon_rest = "cat3_rest"
 
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
 	holder_type = /obj/item/weapon/holder/cat
@@ -177,6 +193,6 @@
 	maxHealth = 25
 	melee_damage_lower = 3
 	melee_damage_upper = 4
-	attacktext = "claws"
+	attacktext = "clawed"
 
 	wizardy_spells = list(/spell/targeted/subjugation)
