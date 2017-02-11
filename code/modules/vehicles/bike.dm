@@ -51,12 +51,12 @@
 	if(usr.incapacitated()) return
 
 	if(kickstand)
-		src.visible_message("\The [usr] puts up \the [src]'s kickstand.")
+		src.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk."))
 	else
 		if(istype(src.loc,/turf/space))
 			usr << "<span class='warning'> You don't think kickstands work in space...</span>"
 			return
-		src.visible_message("\The [usr] puts down \the [src]'s kickstand.")
+		src.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		if(pulledby)
 			pulledby.stop_pulling()
 
