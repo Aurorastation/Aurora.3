@@ -6,6 +6,7 @@ var/machinery_sort_required
 	name = "Machinery"
 	flags = SS_KEEP_TIMING | SS_NO_INIT
 	wait = 2 SECONDS
+	priority = SS_PRIORITY_MACHINERY
 
 	var/tmp/list/processing_machinery = list()
 	var/tmp/list/processing_powernets = list()
@@ -76,4 +77,8 @@ var/machinery_sort_required
 			return
 
 /datum/subsystem/machinery/stat_entry()
-	..("M:[machines.len]|PoN:[powernets.len]|PS:[processing_power_items.len]|PiN:[pipe_networks.len]")
+	..()
+	stat(null, "[machines.len] machines")
+	stat(null, "[powernets.len] powernets")
+	stat(null, "[processing_power_items.len] power items")
+	stat(null, "[pipe_networks.len] pipenets")

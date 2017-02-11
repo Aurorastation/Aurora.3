@@ -3,6 +3,7 @@
 	wait = 2 SECONDS
 
 	flags = SS_NO_INIT
+	priority = SS_PRIORITY_EVENT
 
 	var/tmp/list/processing_events = list()
 	var/tmp/pos = EVENT_LEVEL_MUNDANE

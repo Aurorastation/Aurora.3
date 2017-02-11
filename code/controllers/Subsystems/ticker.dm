@@ -3,7 +3,7 @@ var/datum/subsystem/ticker/tickerProcess
 /datum/subsystem/ticker
 	name = "Ticker"
 
-	priority = 200
+	priority = SS_PRIORITY_TICKER
 	flags = SS_FIRE_IN_LOBBY|SS_KEEP_TIMING
 	init_order = SS_INIT_TICKER
 

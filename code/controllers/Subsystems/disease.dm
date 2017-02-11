@@ -3,6 +3,7 @@ var/datum/subsystem/diseases/SSdisease
 /datum/subsystem/diseases
 	name = "Diseases"
 	flags = SS_KEEP_TIMING | SS_NO_INIT
+	priority = SS_PRIORITY_DISEASE
 
 	var/list/currentrun = list()
 	var/list/processing = list()

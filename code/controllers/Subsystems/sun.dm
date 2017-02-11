@@ -4,6 +4,7 @@ var/datum/subsystem/sun/SSsun
 	name = "Sun"
 	flags = SS_NO_TICK_CHECK|SS_NO_INIT
 	wait = 600
+	priority = SS_PRIORITY_SUN
 
 	var/angle
 	var/dx

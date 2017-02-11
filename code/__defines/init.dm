@@ -1,4 +1,5 @@
-#define SS_INIT_MISC_FIRST			10
+#define SS_INIT_MISC_FIRST			11
+#define SS_INIT_OBJECTS				10
 #define SS_INIT_ASTEROID			9
 #define SS_INIT_JOBS				8
 #define SS_INIT_AREA				7
@@ -9,3 +10,16 @@
 #define SS_INIT_CARGO 				2
 #define SS_INIT_MISC				1
 #define SS_INIT_TICKER 				0
+
+#define SS_PRIORITY_TICKER         200
+#define SS_PRIORITY_MOB            150
+#define SS_PRIORITY_NANOUI         120
+#define SS_PRIORITY_VOTE           110
+#define SS_PRIORITY_OBJECTS        100
+#define SS_PRIORITY_MACHINERY      90
+#define SS_PRIORITY_AIR            70
+#define SS_PRIORITY_EVENT          65
+#define SS_PRIORITY_DISEASE        60
+#define SS_PRIORITY_LIGHTING       20
+#define SS_PRIORITY_SUN            3
+#define SS_PRIORITY_GARBAGE        2

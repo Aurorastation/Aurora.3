@@ -3,6 +3,7 @@ var/datum/subsystem/mobs/SSmob
 /datum/subsystem/mobs
 	name = "Mobs"
 	flags = SS_NO_INIT
+	priority = SS_PRIORITY_MOB
 
 	var/list/currentrun = list()
 
@@ -10,7 +11,8 @@ var/datum/subsystem/mobs/SSmob
 	NEW_SS_GLOBAL(SSmob)
 
 /datum/subsystem/mobs/stat_entry()
-	..("P:[mob_list.len]")
+	..()
+	stat(null, "[mob_list.len] mobs")
 
 /datum/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)

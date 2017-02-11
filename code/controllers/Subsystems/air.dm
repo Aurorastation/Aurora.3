@@ -3,8 +3,9 @@ var/datum/subsystem/air/SSair
 var/air_processing_killed = FALSE
 
 /datum/subsystem/air
-	name = "ZAS / Air"
+	name = "ZAS"
 	wait = 2 SECONDS
+	priority = SS_PRIORITY_AIR
 
 /datum/subsystem/air/Initialize(timeofday)
 	if (!air_master)

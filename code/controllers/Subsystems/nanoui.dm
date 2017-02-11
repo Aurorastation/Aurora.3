@@ -3,6 +3,7 @@ var/datum/subsystem/nanoui/SSnanoui
 /datum/subsystem/nanoui
 	name = "NanoUI"
 	flags = SS_NO_INIT
+	priority = SS_PRIORITY_NANOUI
 
 	var/list/queued_uis = list()
 

@@ -11,6 +11,7 @@ var/datum/subsystem/lighting/lighting_process
 	wait = LIGHTING_INTERVAL
 
 	flags = SS_FIRE_IN_LOBBY
+	priority = SS_PRIORITY_LIGHTING
 
 	var/list/curr_lights = list()
 	var/list/curr_corners = list()
@@ -19,8 +20,13 @@ var/datum/subsystem/lighting/lighting_process
 /datum/subsystem/lighting/New()
 	NEW_SS_GLOBAL(lighting_process)
 
-//datum/subsystem/lighting/stat_entry()
-	//..("CO:[all_lighting_overlays.len],CC:[all_lighting_corners.len]|L:")
+datum/subsystem/lighting/stat_entry()
+	..()
+	stat(null, "Server tick usage is [world.tick_usage].")
+	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
+	stat(null, "Lights: [lighting_update_lights.len] queued, [curr_lights.len] processing")
+	stat(null, "Corners: [lighting_update_corners.len] queued, [curr_corners.len] processing")
+	stat(null, "Overlays: [lighting_update_overlays.len] queued, [curr_overlays.len] processing")
 
 /datum/subsystem/lighting/Initialize(timeofday)
 	// Generate overlays.

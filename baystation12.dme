@@ -33,7 +33,6 @@
 #include "code\__defines\math_physics.dm"
 #include "code\__defines\misc.dm"
 #include "code\__defines\mobs.dm"
-#include "code\__defines\process_scheduler.dm"
 #include "code\__defines\regex.dm"
 #include "code\__defines\research.dm"
 #include "code\__defines\species_languages.dm"

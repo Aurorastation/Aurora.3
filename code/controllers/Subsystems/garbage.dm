@@ -11,6 +11,7 @@ var/list/delayed_garbage = list()
 	name = "Garbage Collector"
 	wait = 5 SECONDS
 	flags = SS_FIRE_IN_LOBBY | SS_BACKGROUND
+	priority = SS_PRIORITY_GARBAGE
 
 	var/garbage_collect = 1			// Whether or not to actually do work
 	var/total_dels 	= 0			// number of total del()'s

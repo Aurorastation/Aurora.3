@@ -3,6 +3,8 @@ var/datum/subsystem/object/SSobj
 /datum/subsystem/object
 	name = "Objects"
 	wait = 2 SECONDS
+	priority = SS_PRIORITY_OBJECTS
+	init_order = SS_INIT_OBJECTS
 
 	var/tmp/list/queue = list()
 
@@ -30,7 +32,8 @@ var/datum/subsystem/object/SSobj
 			return
 
 /datum/subsystem/object/stat_entry()
-	..("P:[processing_objects.len]")
+	..()
+	stat(null, "[processing_objects.len] objects")
 
 /datum/subsystem/object/Initialize(timeofday)
 	for (var/A in objects_init_list)
