@@ -1,31 +1,37 @@
-/var/datum/subsystem/machinery/SSmachinery
-
 var/machinery_sort_required
 
 /datum/subsystem/machinery
 	name = "Machinery"
-	flags = SS_KEEP_TIMING | SS_NO_INIT
+	flags = SS_KEEP_TIMING
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_MACHINERY
 
 	var/tmp/list/processing_machinery = list()
-	var/tmp/list/processing_powernets = list()
 	var/tmp/list/processing_powersinks = list()
 	var/tmp/list/processing_pipenets = list()
 
-/datum/subsystem/machinery/New()
-	NEW_SS_GLOBAL(SSmachinery)
+
+/datum/subsystem/machinery/Initialize(timeofday)
+	makepowernets()
+	fire()
+	..()
 
 /datum/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
-		processing_machinery = machines.Copy()
-		processing_powernets = powernets.Copy()
-		processing_powersinks = processing_power_items.Copy()
-		processing_pipenets = pipe_networks.Copy()
+		src.processing_machinery = machines.Copy()
+		src.processing_powersinks = processing_power_items.Copy()
+		src.processing_pipenets = pipe_networks.Copy()
 
-	while (processing_machinery.len)
-		var/obj/machinery/M = processing_machinery[processing_machinery.len]
-		processing_machinery.len--
+		for (var/datum/powernet/PN in powernets)
+			PN.reset()
+
+	var/curr_machinery = src.processing_machinery
+	var/curr_powersinks = src.processing_powersinks
+	var/curr_pipenets = src.processing_pipenets
+
+	while (curr_machinery.len)
+		var/obj/machinery/M = curr_machinery[curr_machinery.len]
+		curr_machinery.len--
 
 		if (!M || M.gcDestroyed)
 			machines -= M
@@ -41,22 +47,9 @@ var/machinery_sort_required
 		if (MC_TICK_CHECK)
 			return
 
-	while (processing_powernets.len)
-		var/datum/powernet/PN = processing_powernets[processing_powernets.len]
-		processing_powernets.len--
-
-		if (!PN || PN.gcDestroyed)
-			powernets -= PN
-			continue
-
-		PN.reset()
-		
-		if (MC_TICK_CHECK)
-			return
-
-	while (processing_powersinks.len)
-		var/obj/item/I = processing_powersinks[processing_powersinks.len]
-		processing_powersinks.len--
+	while (curr_powersinks.len)
+		var/obj/item/I = curr_powersinks[curr_powersinks.len]
+		curr_powersinks.len--
 
 		if (!I || !I.pwr_drain())
 			processing_power_items -= I
@@ -64,9 +57,9 @@ var/machinery_sort_required
 		if (MC_TICK_CHECK)
 			return
 
-	while (processing_pipenets.len)
-		var/datum/pipe_network/PN = processing_pipenets[processing_pipenets.len]
-		processing_pipenets.len--
+	while (curr_pipenets.len)
+		var/datum/pipe_network/PN = curr_pipenets[curr_pipenets.len]
+		curr_pipenets.len--
 
 		if (!PN || PN.gcDestroyed)
 			continue
