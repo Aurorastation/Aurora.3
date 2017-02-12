@@ -10,9 +10,10 @@
 
 /obj/visual_effect/New(var/life_min = 3 SECONDS, var/life_max = 5 SECONDS)
 	..()
-	life_ticks_min = life_min
-	life_ticks_max = life_max
-	life_ticks = rand(life_ticks_min, life_ticks_max)
+	if (!life_ticks)
+		life_ticks_min = life_min
+		life_ticks_max = life_max
+		life_ticks = rand(life_ticks_min, life_ticks_max)
 
 // Called when the visual_effect is manifested.
 /obj/visual_effect/proc/start()

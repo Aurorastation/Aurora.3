@@ -5,7 +5,7 @@
 		location = get_turf(target)
 	if(location && !target)
 		target = location
-	var/atom/movable/overlay/animation = getFromPool(/atom/movable/overlay, location)
+	var/obj/visual_effect/generic/animation = getFromPool(/obj/visual_effect/generic, location, sleeptime)
 	if(direction)
 		animation.set_dir(direction)
 	animation.icon = a_icon
@@ -14,7 +14,11 @@
 		animation.icon_state = a_icon_state
 	else
 		animation.icon_state = "blank"
-		animation.master = target
+		//animation.master = target
 		flick(flick_anim, animation)
-	spawn(max(sleeptime, 15))
-		qdel(animation)
+
+	effect_master.queue_simple(animation)
+
+/obj/visual_effect/generic/New(var/atom/movable/loc, var/life = 1 SECONDS)
+	life_ticks = life
+	..(loc)

@@ -78,6 +78,13 @@ var/datum/controller/process/effects/effect_master
 	effects_objects += E
 	enable()
 
+/datum/controller/process/effects/proc/queue_simple(var/obj/visual_effect/effect)
+	if (!effect || effect.gcDestroyed)
+		return
+
+	effects_visuals += effect
+	enable()
+
 /datum/controller/process/effects/statProcess()
 	..()
 	stat(null, "Effect process is [disabled ? "sleeping" : "processing"].")
