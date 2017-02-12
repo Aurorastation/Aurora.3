@@ -27,7 +27,7 @@
 			return
 
 		if(!at_station())
-			global_announcer.autosay("Central Command Arrivals shuttle inbound to NSS Aurora II. ETA: two minutes.", "Arrivals Shuttle Oversight")
+			global_announcer.autosay("Central Command Arrivals shuttle inbound to NSS Aurora II. ETA: one minute.", "Arrivals Shuttle Oversight")
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
 		move(departing, interim, direction)

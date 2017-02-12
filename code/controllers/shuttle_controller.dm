@@ -137,9 +137,9 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.dock_target_station = "arrival_dock"
 	shuttle.dock_target_offsite = "centcom_setup"
 	shuttle.transit_direction = EAST
-	shuttle.move_time = 120
+	shuttle.move_time = 60
 	process_shuttles += shuttle
-	shuttles["Arrivals"] = shuttle
+	shuttles["Arrival"] = shuttle
 
 	arrival_shuttle.shuttle = shuttle
 
