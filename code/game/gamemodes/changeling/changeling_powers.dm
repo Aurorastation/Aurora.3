@@ -15,14 +15,15 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/purchasedpowers = list()
 	var/mimicing = ""
 
-/datum/changeling/New()
+/datum/changeling/New(var/gender=FEMALE)
 	..()
+	var/honorific = (gender == FEMALE) ? "Ms." : "Mr."
 	if(possible_changeling_IDs.len)
 		changelingID = pick(possible_changeling_IDs)
 		possible_changeling_IDs -= changelingID
-		changelingID = "[changelingID]"
+		changelingID = "[honorific] [changelingID]"
 	else
-		changelingID = "[rand(1,999)]"
+		changelingID = "[honorific] [rand(1,999)]"
 
 /datum/changeling/proc/regenerate()
 	chem_charges = min(max(0, chem_charges+chem_recharge_rate), chem_storage)
