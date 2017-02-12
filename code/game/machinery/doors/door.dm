@@ -133,14 +133,14 @@
 		// Update the time.
 		close_task.trigger_task_in(time)
 	else
-		schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close)
+		close_task = schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close)
 
 /obj/machinery/door/proc/close_hatch_in(var/time = 5 SECONDS)
 	if (hatch_task)
 		// Update the time.
 		hatch_task.trigger_task_in(time)
 	else
-		schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close_hatch)
+		hatch_task = schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close_hatch)
 
 /obj/machinery/door/proc/auto_close()
 	close()
