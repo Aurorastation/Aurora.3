@@ -12,87 +12,83 @@
 
 /datum/nano_module/program/crushercontrol/
 	name = "Crusher Control"
-	var/list/linked_pistons = list() //List of linked crusher pistons
-	var/status = 1 //1 - Idle, 2 - Crusing, 0 - Error
 	var/message = "" // Message to return to the user
-	var/hatch_status = 0 // 0 - Open, 1 - Closed
-	var/datum/radio_frequency/radio_connection
-	var/frequency = 1449
-
-/datum/nano_module/program/crushercontrol/New()
-	..()
-	set_frequency(frequency)
-
-/datum/nano_module/program/crushercontrol/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
-	frequency = new_frequency
-	radio_connection = radio_controller.add_object(src, frequency, RADIO_AIRLOCK)
-	log_debug("Radio Connection Established")
+	var/list/pistons = list() //List of pistons linked to the program
+	var/list/airlocks = list() //List of airlocks linked to the program
+	var/list/status_airlocks = list() //Status of the airlocks
+	var/list/status_pistons = list() //Status of the pistons
 
 /datum/nano_module/program/crushercontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
-
-	data["num_linked_pistons"] = linked_pistons.len
-	data["status"] = status
 	data["message"] = message
-	data["crushprogress"] = 30 //Placeholder for now
-	data["hatch_status"] = hatch_status
-
-
-
+	data["airlock_count"] = airlocks.len
+	data["piston_count"] = pistons.len
+	data["status_airlocks"] = status_airlocks
+	data["status_pistons"] = status_pistons
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "crushercontrol.tmpl", name, 500, 350, state = state)
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
+		ui.set_auto_update(1)
 
 /datum/nano_module/program/crushercontrol/Topic(href, href_list)
-	var/datum/computer_file/program/crushercontrol/prog = program
 	if(..())
 		return 1
 
-	if(href_list["clear_message"])
-		message = ""
-
-	if(href_list["search_pistons"])
-		log_debug("Searching for Pistons")
-		linked_pistons = list()
-		for(var/obj/machinery/crusher_piston/piston in oview(10,src))
-			if( piston.disabled || piston.panel_open)
+	if(href_list["initialize"])
+		pistons = list()
+		for(var/obj/machinery/crusher_piston/base/pstn in orange(10,src.host))
+			log_debug("Checking Piston")
+			if( pstn.disabled || pstn.panel_open)
 				continue
-			linked_pistons += piston
-			piston.linked_program = prog
+			pistons += pstn
 			log_debug("Pistons found and added")
 
+		airlocks = list()
+		for(var/obj/machinery/door/airlock/arlk in orange(10,src.host))
+			log_debug("Checking Airlock")
+			if( arlk.id_tag != "crusher")
+				continue
+			airlocks += arlk
+			log_debug("Airlock found and added")
+		
+		crush_stop()
+		airlock_open()
+
 	if(href_list["hatch_open"])
+		message = "Opening the Hatch"
 		log_debug("Opening the hatch")
 		airlock_open()
 
 	if(href_list["hatch_close"])
+		message = "Closing the Hatch"
 		log_debug("Closing the hatch")
 		airlock_close()
 
 	if(href_list["crush"])
+		message = "Crushing Shit"
 		log_debug("Crushing")
 		airlock_close()
-		crush()
+		crush_start()
 
 
 /datum/nano_module/program/crushercontrol/proc/airlock_open()
-	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
-	signal.data["tag"] = "crusher"
-	signal.data["command"] = "secure_open"
-	radio_connection.post_signal(src, signal, range = 10, filter = RADIO_AIRLOCK)
+	for(var/obj/machinery/door/airlock/arlk in airlocks)
+		arlk.unlock()
+		arlk.open()
+		arlk.lock()
 
 /datum/nano_module/program/crushercontrol/proc/airlock_close()
-	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
-	signal.data["tag"] = "crusher"
-	signal.data["command"] = "secure_close"
-	radio_connection.post_signal(src, signal, range = 10, filter = RADIO_AIRLOCK)
+	for(var/obj/machinery/door/airlock/arlk in airlocks)
+		arlk.unlock()
+		arlk.close()
+		arlk.lock()
 
-/datum/nano_module/program/crushercontrol/proc/crush()
-	for(var/obj/machinery/crusher_piston/piston in linked_pistons)
-		piston.start_crush()
+/datum/nano_module/program/crushercontrol/proc/crush_start()
+	for(var/obj/machinery/crusher_piston/base/pstn in pistons)
+		pstn.crush_start()
+
+/datum/nano_module/program/crushercontrol/proc/crush_stop()
+	for(var/obj/machinery/crusher_piston/base/pstn in pistons)

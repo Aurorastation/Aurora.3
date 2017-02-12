@@ -203,7 +203,6 @@ var/const/RADIO_AIRLOCK = "radio_airlock"
 var/const/RADIO_SECBOT = "radio_secbot"
 var/const/RADIO_MULEBOT = "radio_mulebot"
 var/const/RADIO_MAGNETS = "radio_magnet"
-var/const/RADIO_CRUSHER = "radio_crusher"
 
 var/global/datum/controller/radio/radio_controller
 

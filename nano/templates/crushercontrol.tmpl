@@ -4,49 +4,16 @@
 		Link Pistons:
 	</div>
 	<div class="itemContent">
-		{{:helper.link('Link Pistons', 'refresh', { 'search_pistons' : '1' })}}
+		{{:helper.link('Initialize', 'refresh', { 'initialize' : '1' })}}
 	</div>
 </div>
-
-<h3>Crusher Monitoring</h3>
-<div class="item">
-	<div class="itemLabel">
-		Linked Pistons:
-	</div>
-	<div class="itemContent">
-		{{:data.num_linked_pistons}}
-	</div>
-</div>
-<div>
-	<div class="itemLabel">
-		Progress:
-	</div>
-	<div class="itemContent">
-		{{:helper.displayBar(data.crushprogress, 0, 100)}}
-		<div class="statusValue">
-			{{:helper.round(data.crushprogress)}}%
-		</div>
-	</div>
-</div>
-{{if data.message != ""}}
-<div>
-	<div class="itemLabel">
-		Message:
-	</div>
-	<div class="itemContent">
-		{{:data.message}}
-		&nbsp;
-		{{:helper.link('', 'close', { 'message' : '1' })}}
-	</div>
-</div>
-{{/if}}
 <div>
 	<div class="itemLabel">
 		Hatch Control:
 	</div>
 	<div class="itemContent">
-		{{:helper.link('Open', 'refresh', { 'hatch_open' : '1' }, data.hatch_status ? 'selected' : null)}}
-		{{:helper.link('Close', 'refresh', { 'hatch_close' : '1' }, data.hatch_status ? null : 'selected')}}
+		{{:helper.link('Open', 'refresh', { 'hatch_open' : '1' })}}
+		{{:helper.link('Close', 'refresh', { 'hatch_close' : '1' })}}
 	</div>
 </div>
 <div>
@@ -57,3 +24,32 @@
 		{{:helper.link('Start', 'alert', { 'crush' : '1' })}}
 	</div>
 </div>
+
+
+<h3>Crusher Monitoring</h3>
+<div>
+	<div class="itemLabel">
+		Linked Pistons:
+	</div>
+	<div class="itemContent">
+		{{:data.piston_count}}
+	</div>
+</div>
+<div>
+	<div class="itemLabel">
+		Linked Airlocks:
+	</div>
+	<div class="itemContent">
+		{{:data.airlock_count}}
+	</div>
+</div>
+{{if data.message }}
+<div>
+	<div class="itemLabel">
+		Message:
+	</div>
+	<div class="itemContent">
+		{{:data.message}}{{:helper.link('', 'close', { 'message' : '1' })}}
+	</div>
+</div>
+{{/if}}
