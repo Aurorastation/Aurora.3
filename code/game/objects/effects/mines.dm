@@ -25,12 +25,11 @@
 		triggered = 1
 		call(src,triggerproc)(M)
 
-/obj/effect/mine/proc/triggerrad(obj)
+/obj/effect/mine/proc/triggerrad(var/mob/living/M)
 	spark(src, 3, alldirs)
-	if (istype(obj, /mob/living))
-		obj:apply_radiation(50)
-	randmutb(obj)
-	domutcheck(obj,null)
+	if (istype(M))
+		M.apply_radiation(50)
+
 	spawn(0)
 		qdel(src)
 
@@ -63,9 +62,11 @@
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/proc/triggerkick(obj)
+/obj/effect/mine/proc/triggerkick(var/mob/M)
 	spark(src, 3, alldirs)
-	qdel(obj:client)	// wot
+	if (istype(M))
+		qdel(M.client)
+		
 	spawn(0)
 		qdel(src)
 
