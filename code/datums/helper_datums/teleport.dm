@@ -78,13 +78,13 @@
 /datum/teleport/proc/teleportChecks()
 		return 1
 
-/datum/teleport/proc/playSpecials(atom/location,datum/effect/effect/system/effect,sound)
+/datum/teleport/proc/playSpecials(atom/location,datum/effect_system/effect,sound)
 	if(location)
 		if(effect)
 			spawn(-1)
 				src = null
-				effect.attach(location)
-				effect.start()
+				effect.location = location
+				effect.queue()
 		if(sound)
 			spawn(-1)
 				src = null

@@ -5,7 +5,7 @@
 var/datum/controller/process/effects/effect_master
 
 /var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
-/var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. Should be created by effect objects.
+/var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. May be created without an effect object.
 
 /datum/controller/process/effects
 	var/tmp/list/processing_effects = list()
@@ -37,7 +37,7 @@ var/datum/controller/process/effects/effect_master
 				effects_objects += E
 
 			if (EFFECT_DESTROY)
-				returnToPool(E)
+				qdel(E)
 
 		F_SCHECK
 
@@ -61,7 +61,7 @@ var/datum/controller/process/effects/effect_master
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
 				V.end()
-				returnToPool(V)
+				qdel(V)
 		
 		F_SCHECK
 
@@ -76,6 +76,13 @@ var/datum/controller/process/effects/effect_master
 		return
 		
 	effects_objects += E
+	enable()
+
+/datum/controller/process/effects/proc/queue_simple(var/obj/visual_effect/V)
+	if (!V || V.gcDestroyed)
+		return
+
+	effects_visuals += V
 	enable()
 
 /datum/controller/process/effects/statProcess()
