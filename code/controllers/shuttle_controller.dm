@@ -127,9 +127,25 @@ var/global/datum/shuttle_controller/shuttle_controller
 
 	supply_controller.shuttle = shuttle
 
+	shuttle = new/datum/shuttle/ferry/arrival()
+	shuttle.location = 1
+	shuttle.warmup_time = 5
+	shuttle.area_station = locate(/area/shuttle/arrival/station)
+	shuttle.area_offsite = locate(/area/shuttle/arrival/centcom)
+	shuttle.area_transition = locate(/area/shuttle/arrival/transit)
+	shuttle.docking_controller_tag = "arrival_shuttle"
+	shuttle.dock_target_station = "arrival_dock"
+	shuttle.dock_target_offsite = "centcom_setup"
+	shuttle.transit_direction = EAST
+	shuttle.move_time = 120
+	process_shuttles += shuttle
+	shuttles["Arrivals"] = shuttle
+
+	arrival_shuttle.shuttle = shuttle
+
 	//LIFTS!!!!!
 	// They are shuttles to save dupe code
-	
+
 	shuttle = new()
 	shuttle.lift = 1
 	shuttle.location = 1
@@ -234,7 +250,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.dock_target_offsite = "command_lift_dock"
 	shuttles["Command"] = shuttle
 	process_shuttles += shuttle
-	
+
 
 	// Admin shuttles.
 	shuttle = new()
