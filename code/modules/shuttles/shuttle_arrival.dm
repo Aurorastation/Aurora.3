@@ -26,6 +26,11 @@
 			arrival_shuttle.set_launch_countdown(60)
 			return
 
+		if (!forbidden_atoms_check() && !at_station())
+			//cancel the launch because of there's no one on the shuttle.
+			moving_status = SHUTTLE_IDLE
+			return
+
 		if(!at_station())
 			global_announcer.autosay("Central Command Arrivals shuttle inbound to NSS Aurora II. ETA: one minute.", "Arrivals Shuttle Oversight")
 		arrive_time = world.time + travel_time*10
@@ -43,9 +48,6 @@
 	arrival_shuttle.shuttle_arrived()
 
 /datum/shuttle/ferry/arrival/proc/forbidden_atoms_check()
-	if (!at_station())
-		return 0	//if badmins want to send mobs or a nuke on the supply shuttle from centcom we don't care
-
 	return arrival_shuttle.forbidden_atoms_check(get_location_area())
 
 /datum/shuttle/ferry/arrival/proc/at_station()

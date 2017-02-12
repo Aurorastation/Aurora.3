@@ -195,7 +195,7 @@
 	if(shuttle.has_arrive_time())
 		var/timeleft = round((shuttle.arrive_time - world.time) / 10,1)
 		if(timeleft < 0)
-			return "Late"
+			return "Fail"
 		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 	return ""
 
@@ -206,7 +206,7 @@
 	if(arrival_shuttle.launch_time)
 		var/timeleft = round((arrival_shuttle.launch_time - world.time) / 10,1)
 		if(timeleft < 0)
-			return "Late"
+			return "Fail"
 		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 	else
 		return "Launch"

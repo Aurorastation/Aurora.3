@@ -10,13 +10,8 @@ var/global/datum/arrival_shuttle_controller/arrival_shuttle
 	post_signal("arrivals")
 	if (wait_for_launch)
 		if (world.time >= launch_time)	//time to launch the shuttle
-			if(shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
-				if(!permitted_atoms_check(shuttle.get_location_area()))
-					shuttle.launch(src)
-				stop_launch_countdown()
-			else
-				stop_launch_countdown()
-				shuttle.launch(src)
+			stop_launch_countdown()
+			shuttle.launch(src)
 	if(!wait_for_launch && shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
 		if(permitted_atoms_check(shuttle.get_location_area()))
 			set_launch_countdown(30)
