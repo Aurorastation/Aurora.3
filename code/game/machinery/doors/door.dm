@@ -125,7 +125,11 @@
 	return
 
 /obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
-	if (close_task)
+	if (time < 2 SECONDS)	// Too short duration for the scheduler.
+		spawn(time)
+			src.auto_close()
+
+	else if (close_task)
 		// Update the time.
 		close_task.trigger_task_in(time)
 	else
