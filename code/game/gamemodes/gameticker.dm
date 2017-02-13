@@ -146,23 +146,12 @@ var/global/datum/controller/gameticker/ticker
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
 
-	//start_events() //handles random events and space dust.
-	//new random event system is handled from the MC.
-
 	var/admins_number = 0
 	for(var/client/C)
 		if(C.holder && (C.holder.rights & (R_MOD|R_ADMIN)))
 			admins_number++
 	if(admins_number == 0)
 		discord_bot.send_to_admins("@here Round has started with no admins online.")
-
-/*	supply_controller.process() 		//Start the supply shuttle regenerating points -- TLE // handled in scheduler
-	master_controller.process()		//Start master_controller.process()
-	lighting_controller.process()	//Start processing DynamicAreaLighting updates
-	*/
-
-	if(config.sql_enabled)
-		statistic_cycle() // Polls population totals regularly and stores them in an SQL DB -- TLE
 
 	return 1
 

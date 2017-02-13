@@ -91,11 +91,3 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 		if(!query.Execute())
 			var/err = query.ErrorMsg()
 			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
-
-
-proc/statistic_cycle()
-	if(!config.sql_enabled || !config.sql_stats)
-		return
-	while(1)
-		sql_poll_population()
-		sleep(6000)
