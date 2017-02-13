@@ -23,11 +23,6 @@
 	power_change()
 	update_icon()
 
-/obj/machinery/computer/process()
-	if(stat & (NOPOWER|BROKEN))
-		return 0
-	return 1
-
 /obj/machinery/computer/emp_act(severity)
 	if(prob(20/severity)) set_broken()
 	..()

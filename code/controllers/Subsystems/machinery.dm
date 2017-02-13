@@ -1,4 +1,6 @@
-var/machinery_sort_required
+var/global/machinery_sort_required 		= 0
+var/global/list/power_using_machines	= list()
+var/global/list/ticking_machines		= list()
 
 /datum/subsystem/machinery
 	name = "Machinery"
@@ -7,12 +9,14 @@ var/machinery_sort_required
 	flags = SS_NO_INIT
 
 	var/tmp/list/processing_machinery = list()
+	var/tmp/list/processing_power_users = list()
 	var/tmp/list/processing_powersinks = list()
 	var/tmp/list/processing_pipenets = list()
 
 /datum/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
 		src.processing_machinery = machines.Copy()
+		src.processing_power_users = power_using_machines.Copy()
 		src.processing_powersinks = processing_power_items.Copy()
 		src.processing_pipenets = pipe_networks.Copy()
 
@@ -20,6 +24,7 @@ var/machinery_sort_required
 			PN.reset()
 
 	var/list/curr_machinery = src.processing_machinery
+	var/list/curr_power_users = src.processing_power_users
 	var/list/curr_powersinks = src.processing_powersinks
 	var/list/curr_pipenets = src.processing_pipenets
 
@@ -27,12 +32,26 @@ var/machinery_sort_required
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
 		curr_machinery.len--
 
-		if (!M || M.gcDestroyed)
-			machines -= M
+		if (NULL_OR_GC(M))
+			remove_machine(M)
 			continue
 
-		if (M.process() == PROCESS_KILL)
-			machines -= M
+		switch (M.process())
+			if (PROCESS_KILL)
+				remove_machine(M)
+
+			if (M_NO_PROCESS)
+				ticking_machines -= M
+
+		if (MC_TICK_CHECK)
+			return
+
+	while (curr_power_users.len)
+		var/obj/machinery/M = processing_power_users[processing_power_users.len]
+		processing_power_users.len--
+
+		if (NULL_OR_GC(M))
+			remove_machine(M)
 			continue
 
 		if (M.use_power)
@@ -65,7 +84,8 @@ var/machinery_sort_required
 
 /datum/subsystem/machinery/stat_entry()
 	..()
-	stat(null, "[machines.len] machines")
-	stat(null, "[powernets.len] powernets")
-	stat(null, "[processing_power_items.len] power items")
-	stat(null, "[pipe_networks.len] pipenets")
+	stat(null, "[machines.len] total machines")
+	stat(null, "[ticking_machines.len] ticking machines, [processing_machinery.len] queued")
+	stat(null, "[power_using_machines.len] power-using machines, [processing_power_users.len] queued")
+	stat(null, "[processing_power_items.len] power items, [processing_powersinks.len] queued")
+	stat(null, "[pipe_networks.len] pipenets, [processing_pipenets.len] queued")

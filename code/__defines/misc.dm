@@ -285,3 +285,4 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
+#define NULL_OR_GC(TARGET) (!TARGET || TARGET.gcDestroyed)
