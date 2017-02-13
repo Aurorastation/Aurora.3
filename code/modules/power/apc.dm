@@ -604,7 +604,8 @@
 		return
 	else if (istype(W, /obj/item/weapon/weldingtool) && opened && has_electronics==0 && !terminal)
 		var/obj/item/weapon/weldingtool/WT = W
-		if (WT.get_fuel() < 3)
+		if (!WT.isOn()) return
+		if (WT.get_fuel() < 3 && WT)
 			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 			return
 		user.visible_message("<span class='warning'>[user.name] welds [src].</span>", \
@@ -660,6 +661,7 @@
 				&& !opened \
 				&& istype(W, /obj/item/weapon/weldingtool) )
 			var/obj/item/weapon/weldingtool/WT = W
+			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
 				user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 				return
