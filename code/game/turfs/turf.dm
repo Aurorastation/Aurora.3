@@ -45,6 +45,7 @@
 /turf/Destroy()
 	turfs -= src
 	..()
+	return QDEL_HINT_HARDDEL_NOW
 
 /turf/ex_act(severity)
 	return 0

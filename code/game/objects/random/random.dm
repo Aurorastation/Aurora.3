@@ -29,7 +29,7 @@
 	new build_path(loc)
 
 /obj/random/Destroy()
-	return QDEL_HINT_QUEUE
+	return QDEL_HINT_HARDDEL_NOW
 
 /obj/random/single
 	name = "randomly spawned object"
