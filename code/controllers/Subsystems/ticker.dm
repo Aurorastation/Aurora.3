@@ -26,12 +26,9 @@ var/datum/subsystem/ticker/tickerProcess
 	..()
 
 /datum/subsystem/ticker/fire(resumed = FALSE)
-	var/currentTime = world.timeofday
+	var/currentTime = REALTIMEOFDAY
 
-	if(currentTime < lastTickerTime) // check for midnight rollover
-		lastTickerTimeDuration = (currentTime - (lastTickerTime - TICKS_IN_DAY)) / TICKS_IN_SECOND
-	else
-		lastTickerTimeDuration = (currentTime - lastTickerTime) / TICKS_IN_SECOND
+	lastTickerTimeDuration = (currentTime - lastTickerTime) / TICKS_IN_SECOND
 
 	lastTickerTime = currentTime
 
