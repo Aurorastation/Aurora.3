@@ -40,7 +40,7 @@
 	qdel(src.stored_continue)
 	qdel(src.stored_end)
 	qdel(closer)
-	..()
+	return ..()
 
 /obj/item/weapon/storage/MouseDrop(obj/over_object as obj)
 

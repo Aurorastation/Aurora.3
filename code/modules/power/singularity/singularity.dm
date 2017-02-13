@@ -47,7 +47,7 @@
 
 /obj/singularity/Destroy()
 	processing_objects -= src
-	..()
+	return ..()
 
 /obj/singularity/attack_hand(mob/user as mob)
 	consume(user)

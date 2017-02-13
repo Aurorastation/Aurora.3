@@ -76,7 +76,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/csandwich/Destroy()
 	for(var/obj/item/O in ingredients)
 		qdel(O)
-	..()
+	return ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/csandwich/examine(mob/user)
 	..(user)

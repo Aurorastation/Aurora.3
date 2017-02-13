@@ -225,8 +225,7 @@
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
-//		A.update_lights()
-	..()
+	return ..()
 
 /obj/machinery/light/update_icon()
 

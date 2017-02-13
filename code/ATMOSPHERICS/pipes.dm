@@ -68,7 +68,7 @@
 	if(air_temporary)
 		loc.assume_air(air_temporary)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
@@ -231,7 +231,7 @@
 	if(node2)
 		node2.disconnect(src)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/simple/pipeline_expansion()
 	return list(node1, node2)
@@ -462,7 +462,7 @@
 	if(node3)
 		node3.disconnect(src)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/manifold/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
@@ -703,7 +703,7 @@
 	if(node4)
 		node4.disconnect(src)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/manifold4w/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
@@ -953,7 +953,7 @@
 	if(node)
 		node.disconnect(src)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/cap/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node)
@@ -1067,7 +1067,7 @@
 	if(node1)
 		node1.disconnect(src)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/tank/pipeline_expansion()
 	return list(node1)
@@ -1237,7 +1237,7 @@
 	if(node1)
 		node1.disconnect(src)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/vent/pipeline_expansion()
 	return list(node1)

@@ -59,7 +59,7 @@
 /obj/machinery/camera/Destroy()
 	clear_all_networks()
 	cameranet.cameras -= src
-	..()
+	return ..()
 
 // Mobs
 /mob/living/silicon/ai/rejuvenate()

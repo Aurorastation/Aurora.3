@@ -97,7 +97,7 @@ var/list/possible_cable_coil_colours = list(
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
 	cable_list -= src							//remove it from global cable list
-	..()										// then go ahead and delete the cable
+	return ..()										// then go ahead and delete the cable
 
 ///////////////////////////////////
 // General procedures

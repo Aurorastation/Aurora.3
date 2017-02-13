@@ -493,7 +493,7 @@
 
 /obj/item/weapon/weldingtool/Destroy()
 	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
-	..()
+	return ..()
 
 
 //Make sure the experimental tool only stops processing when its turned off AND full

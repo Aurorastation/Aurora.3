@@ -41,7 +41,7 @@ obj/structure/windoor_assembly/New(Loc, start_dir=NORTH, constructed=0)
 obj/structure/windoor_assembly/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/structure/windoor_assembly/update_icon()
 	icon_state = "[facing]_[secure]windoor_assembly[state]"

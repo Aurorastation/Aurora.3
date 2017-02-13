@@ -41,7 +41,7 @@
 	if(brainmob)
 		qdel(brainmob)
 		brainmob = null
-	..()
+	return ..()
 
 /obj/item/organ/brain/proc/transfer_identity(var/mob/living/carbon/H)
 	name = "\the [H]'s [initial(src.name)]"

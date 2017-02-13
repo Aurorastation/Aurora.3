@@ -13,7 +13,7 @@
 	var/mob/spell_holder
 
 /obj/screen/movable/spell_master/Destroy()
-	..()
+	. = ..()
 	for(var/obj/screen/spell/spells in spell_objects)
 		spells.spellmaster = null
 	spell_objects.Cut()
@@ -161,7 +161,7 @@
 	var/icon/last_charged_icon
 
 /obj/screen/spell/Destroy()
-	..()
+	. = ..()
 	spell = null
 	last_charged_icon = null
 	if(spellmaster)

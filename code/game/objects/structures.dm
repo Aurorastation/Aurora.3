@@ -10,7 +10,7 @@
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
-	..()
+	return ..()
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
@@ -49,9 +49,6 @@
 	updateVisibility(src)
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
-
-/obj/structure/Destroy()
-	..()
 
 /obj/structure/proc/climb_on()
 

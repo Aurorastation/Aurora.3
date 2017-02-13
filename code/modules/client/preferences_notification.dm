@@ -42,7 +42,7 @@
 		owner.notifications -= src
 		owner = null
 
-	..()
+	return ..()
 
 /*
  * Associates a callback to be executed whenever a notification is dismissed.

@@ -42,7 +42,7 @@
 		var/area/A = control_area
 		if(A && istype(A))
 			A.turret_controls -= src
-	..()
+	return ..()
 
 /obj/machinery/turretid/initialize()
 	if(!control_area)

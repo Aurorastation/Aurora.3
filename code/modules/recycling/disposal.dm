@@ -964,7 +964,7 @@
 		// otherwise, do normal expel from turf
 		if(H)
 			expel(H, T, 0)
-	..()
+	return ..()
 
 /obj/structure/disposalpipe/hides_under_flooring()
 	return 1

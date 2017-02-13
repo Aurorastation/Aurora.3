@@ -259,4 +259,4 @@
 	if(next)
 		qdel(next)
 		next = null
-	..()
+	return ..()

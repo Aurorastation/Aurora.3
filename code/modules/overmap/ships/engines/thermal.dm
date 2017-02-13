@@ -58,7 +58,7 @@
 	controller = new(src)
 
 /obj/machinery/atmospherics/unary/engine/Destroy()
-	..()
+	. = ..()
 	controller.die()
 
 /obj/machinery/atmospherics/unary/engine/proc/burn()

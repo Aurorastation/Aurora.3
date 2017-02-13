@@ -132,7 +132,7 @@
 	item_state = "boxing"
 
 /obj/structure/window/reinforced/holowindow/Destroy()
-	..()
+	return ..()
 
 /obj/structure/window/reinforced/holowindow/attackby(obj/item/W as obj, mob/user as mob)
 	if(!istype(W)) return//I really wish I did not need this
@@ -188,10 +188,10 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/disappearing/Destroy()
-	..()
+	return ..()
 
 /obj/machinery/door/window/holowindoor/Destroy()
-	..()
+	return ..()
 
 /obj/machinery/door/window/holowindoor/attackby(obj/item/weapon/I as obj, mob/user as mob)
 
@@ -229,7 +229,7 @@
 	qdel(src)
 
 /obj/structure/bed/chair/holochair/Destroy()
-	..()
+	return ..()
 
 /obj/structure/bed/chair/holochair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))

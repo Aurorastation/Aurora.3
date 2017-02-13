@@ -196,6 +196,7 @@ var/list/diseases = typesof(/datum/disease) - /datum/disease
 
 /datum/disease/Destroy()
 	active_diseases.Remove(src)
+	return ..()
 
 /datum/disease/proc/IsSame(var/datum/disease/D)
 	if(istype(src, D.type))

@@ -42,7 +42,7 @@
 		T.lighting_overlay = null
 		T.luminosity = 1
 
-	..()
+	return ..()
 
 /atom/movable/lighting_overlay/proc/update_overlay()
 	var/turf/T = loc

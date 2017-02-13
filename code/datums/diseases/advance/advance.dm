@@ -75,7 +75,7 @@ var/list/advance_cures = 	list(
 	if(processing)
 		for(var/datum/symptom/S in symptoms)
 			S.End(src)
-	..()
+	return ..()
 
 // Randomly pick a symptom to activate.
 /datum/disease/advance/stage_act()

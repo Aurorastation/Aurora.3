@@ -14,7 +14,7 @@
 
 /datum/visualnet/Destroy()
 	visual_nets -= src
-	..()
+	return ..()
 
 // Checks if a chunk has been Generated in x, y, z.
 /datum/visualnet/proc/chunkGenerated(x, y, z)

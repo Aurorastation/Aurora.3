@@ -103,7 +103,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			req_console_supplies -= department
 		if (departmentType & RC_INFO)
 			req_console_information -= department
-	..()
+	return ..()
 
 /obj/machinery/requests_console/attack_hand(user as mob)
 	if(..(user))

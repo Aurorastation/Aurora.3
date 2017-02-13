@@ -361,4 +361,4 @@
 	qdel(hud)
 	hud = null
 	destroying = 1 // stops us calling qdel(src) on dropped()
-	..()
+	return ..()

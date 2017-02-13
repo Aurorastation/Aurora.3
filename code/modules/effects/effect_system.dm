@@ -12,7 +12,7 @@
 /datum/effect_system/Destroy()
 	if (holder)
 		holder = null
-	..()
+	return ..()
 
 // Queues an effect.
 /datum/effect_system/proc/queue()

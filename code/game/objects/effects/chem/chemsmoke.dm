@@ -36,7 +36,7 @@
 /obj/effect/effect/smoke/chem/Destroy()
 	set_opacity(0)
 	fadeOut()
-	..()
+	return ..()
 
 /obj/effect/effect/smoke/chem/Move()
 	var/list/oldlocs = view(1, src)

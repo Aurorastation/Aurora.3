@@ -25,7 +25,7 @@
 	//Will stop people throwing friend pAIs into the singularity so they can respawn
 	if(!isnull(pai))
 		pai.death(0)
-	..()
+	return ..()
 
 /obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
 	if(istype(C, /obj/item/weapon/card/id))

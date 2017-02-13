@@ -103,7 +103,7 @@
 /obj/item/radio/integrated/beepsky/Destroy()
 	if(radio_controller)
 		radio_controller.remove_object(src, control_freq)
-	..()
+	return ..()
 
 /obj/item/radio/integrated/mule
 	var/list/botlist = null		// list of bots
@@ -253,4 +253,4 @@
 /obj/item/radio/integrated/signal/Destroy()
 	if(radio_controller)
 		radio_controller.remove_object(src, frequency)
-	..()
+	return ..()

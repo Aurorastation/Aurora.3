@@ -221,7 +221,7 @@
 
 /obj/item/weapon/melee/energy/blade/Destroy()
 	processing_objects -= src
-	..()
+	return ..()
 
 /obj/item/weapon/melee/energy/blade/attack_self(mob/user as mob)
 	user.drop_from_inventory(src)

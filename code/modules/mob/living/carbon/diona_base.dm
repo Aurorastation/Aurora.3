@@ -512,7 +512,7 @@ var/list/diona_banned_languages = list(
 /datum/dionastats/Destroy()
 	light_organ = null//Nulling out these references to prevent GC errors
 	nutrient_organ = null
-	..()
+	return ..()
 
 
 #undef FLASHLIGHT_STRENGTH

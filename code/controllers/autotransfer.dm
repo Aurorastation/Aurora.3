@@ -9,6 +9,7 @@ datum/controller/transfer_controller/New()
 
 datum/controller/transfer_controller/Destroy()
 	processing_objects -= src
+	return QDEL_HINT_HARDDEL_NOW
 
 datum/controller/transfer_controller/proc/process()
 	currenttick = currenttick + 1

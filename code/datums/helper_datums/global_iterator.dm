@@ -155,4 +155,5 @@ Data storage vars:
 	tag = null
 	arg_list.Cut()
 	stop()
+	return QDEL_HINT_HARDDEL
 	//Do not call ..()

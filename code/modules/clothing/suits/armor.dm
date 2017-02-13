@@ -27,7 +27,7 @@
 	if (pockets)
 		qdel(pockets)
 		pockets = null
-	..()
+	return ..()
 
 /obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
 	if (pockets)

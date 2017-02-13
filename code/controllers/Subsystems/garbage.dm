@@ -192,10 +192,10 @@ var/datum/subsystem/garbage_collector/garbage_collector
 				#endif
 			else
 				garbage_collector.QueueForQueuing(D)
-				/*if(!garbage_collector.noqdelhint["[D.type]"])
+				if(!garbage_collector.noqdelhint["[D.type]"])
 					garbage_collector.noqdelhint["[D.type]"] = "[D.type]"
 					testing("WARNING: [D.type] is not returning a qdel hint. It is being placed in the queue. Further instances of this type will also be queued.")
-				garbage_collector.QueueForQueuing(D)*/
+				garbage_collector.QueueForQueuing(D)
 	else if(D.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		CRASH("[D.type] destroy proc was called multiple times, likely due to a qdel loop in the Destroy logic")
 

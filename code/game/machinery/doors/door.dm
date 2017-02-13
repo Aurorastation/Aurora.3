@@ -119,8 +119,8 @@
 /obj/machinery/door/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
-	return
+	
+	return ..()
 
 /obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
 	spawn(time)

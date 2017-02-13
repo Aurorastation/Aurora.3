@@ -30,7 +30,7 @@ var/list/holder_mob_icon_cache = list()
 	processing_objects.Remove(src)
 	if (contained)
 		release_mob()
-	..()
+	return ..()
 
 /obj/item/weapon/holder/examine(mob/user)
 	if (contained)

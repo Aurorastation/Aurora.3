@@ -219,7 +219,7 @@
 	if(contents)
 		for(var/atom/movable/something in contents)
 			something.loc = get_turf(src)
-	..()
+	return ..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END

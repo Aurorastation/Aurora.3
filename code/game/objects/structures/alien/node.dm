@@ -11,7 +11,7 @@
 
 /obj/structure/alien/node/Destroy()
 	processing_objects -= src
-	..()
+	return ..()
 
 /obj/structure/alien/node/process()
 	if(locate(/obj/effect/plant) in loc)

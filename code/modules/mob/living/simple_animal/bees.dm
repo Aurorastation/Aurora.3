@@ -28,7 +28,7 @@
 /mob/living/simple_animal/bee/Destroy()
 	if(parent)
 		parent.owned_bee_swarms.Remove(src)
-	..()
+	return ..()
 
 
 //Special death behaviour. When bees accumulate enough damage to 'die', they don't outright die.  Thus no call to parent

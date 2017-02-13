@@ -351,7 +351,7 @@
 	for(var/obj/structure/window/W in orange(location, 1))
 		W.update_icon()
 	loc = location
-	..()
+	return ..()
 
 
 /obj/structure/window/Move()

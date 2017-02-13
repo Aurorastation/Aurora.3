@@ -56,6 +56,7 @@
 	log_game("Emitter deleted at ([x],[y],[z])")
 	investigate_log("<font color='red'>deleted</font> at ([x],[y],[z])","singulo")
 	qdel(wifi_receiver)
+	qdel(spark_system)
 	wifi_receiver = null
 	return ..()
 

@@ -22,7 +22,7 @@ var/global/list/narsie_list = list()
 
 /obj/singularity/narsie/Destroy()
 	narsie_list.Remove(src)
-	..()
+	return ..()
 
 /obj/singularity/narsie/large
 	name = "Nar-Sie"

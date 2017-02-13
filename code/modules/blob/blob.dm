@@ -40,7 +40,7 @@
 		parent_core.blob_count -= blob_cost
 		parent_core = null
 
-	..()
+	return ..()
 
 /obj/effect/blob/process()
 	if(!parent_core)
@@ -311,7 +311,7 @@
 /obj/effect/blob/core/secondary/Destroy()
 	if(parent_core)
 		parent_core.core_count -= 1
-	..()
+	return ..()
 
 /obj/effect/blob/shield
 	name = "strong blob"
@@ -330,7 +330,7 @@
 /obj/effect/blob/shield/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/effect/blob/shield/update_icon()
 	if(health > maxHealth * 2 / 3)

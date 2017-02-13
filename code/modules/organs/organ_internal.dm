@@ -264,7 +264,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		qdel(air_contents)
 
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/organ/vaurca/preserve/examine(mob/user)
 	. = ..(user, 0)

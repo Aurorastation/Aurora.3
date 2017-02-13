@@ -391,7 +391,7 @@ it should be avoided in favour of manual removal where possible
 	if (target)
 		target.modifiers -= src
 	processing_modifiers -= src
-	..()
+	return ..()
 
 
 //Handles overriding an existing modifier of the same type.
