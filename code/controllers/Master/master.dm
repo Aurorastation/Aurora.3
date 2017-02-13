@@ -112,7 +112,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		spawn (10)
 			StartProcessing()
 	else
-		to_chat(world, "<span class='boldannounce'>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</span>")
+		to_chat(world, span("danger", "The Master Controller is having some issues, we will need to re-initialize EVERYTHING"))
 		spawn (20)
 			init_subtypes(/datum/subsystem, subsystems)
 			Setup()
@@ -121,7 +121,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 // Please don't stuff random bullshit here,
 // 	Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
 /datum/controller/master/proc/Setup()
-	admin_notice("<span class='boldannounce'>Initializing subsystems...</span>", R_DEBUG)
+	admin_notice(span("danger", "Initializing subsystems..."), R_DEBUG)
 	log_debug("Master controller initializing.")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
@@ -137,13 +137,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		CHECK_TICK
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
-	to_chat(world, "<span class='boldannounce'>Initializations complete!</span>")
+	to_chat(world, span("danger", "Initializations complete!"))
 	world.log << "Initializations complete."
 
 	// Sort subsystems by display setting for easy access.
 	sortTim(subsystems, /proc/cmp_subsystem_display)
-	// Set world options.
-	world.tick_lag = config.Ticklag
+
 	sleep(1)
 	// Loop.
 	Master.StartProcessing()

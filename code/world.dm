@@ -87,6 +87,8 @@ var/global/list/objects_init_list = list()
 
 	. = ..()
 
+	world.tick_lag = config.Ticklag
+
 #ifndef UNIT_TEST
 
 	sleep_offline = 1

@@ -296,8 +296,7 @@ var/list/global/random_stock_large = list(
 		"cratey" = 1
 	)
 
-/datum/cargospawner/proc/start()
-
+/datum/cargospawner/New()
 	//First lets get the reference to our warehouse
 	for(var/areapath in typesof(/area/quartermaster/storage))
 		warehouse = locate(areapath)
@@ -309,6 +308,7 @@ var/list/global/random_stock_large = list(
 			for (var/obj/structure/table/B in warehouse)
 				tables |= B
 
+/datum/cargospawner/proc/start()
 	if (!warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
