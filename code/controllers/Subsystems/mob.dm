@@ -2,6 +2,7 @@
 	name = "Mobs"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
+	display_order = SS_DISPLAY_MOB
 
 	var/list/currentrun = list()
 

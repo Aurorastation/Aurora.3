@@ -5,6 +5,7 @@ var/datum/subsystem/sun/SSsun
 	flags = SS_NO_TICK_CHECK|SS_NO_INIT
 	wait = 600
 	priority = SS_PRIORITY_SUN
+	display_order = SS_DISPLAY_SUN
 
 	var/angle
 	var/dx

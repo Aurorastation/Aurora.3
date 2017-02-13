@@ -5,6 +5,7 @@ var/datum/subsystem/nightlight/nl_ctrl
 	wait = 5 MINUTES
 	init_order = -1	// after ticker.
 	flags = SS_BACKGROUND
+	display_order = SS_DISPLAY_NIGHT_LIGHTING
 
 	var/isactive = 0
 	var/manual_override = 0

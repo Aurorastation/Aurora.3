@@ -7,6 +7,7 @@ var/datum/subsystem/effects/effect_master
 	name = "Effects Master"
 	wait = 2
 	flags = SS_BACKGROUND | SS_NO_INIT
+	display_order = SS_DISPLAY_EFFECTS
 
 	var/tmp/list/processing_effects = list()
 	var/tmp/list/processing_visuals = list()

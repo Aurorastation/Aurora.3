@@ -12,6 +12,7 @@ var/datum/subsystem/lighting/lighting_process
 
 	flags = SS_FIRE_IN_LOBBY
 	priority = SS_PRIORITY_LIGHTING
+	display_order = SS_DISPLAY_LIGHTING
 
 	var/list/curr_lights = list()
 	var/list/curr_corners = list()

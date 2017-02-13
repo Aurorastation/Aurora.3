@@ -2,9 +2,9 @@ var/datum/subsystem/garbage_collector/garbage_collector
 
 /datum/subsystem/garbage_collector
 	name = "Garbage"
-	priority = 15
+	priority = SS_PRIORITY_GARBAGE
 	wait = 5
-	display_order = 2
+	display_order = SS_DISPLAY_GARBAGE
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
 	var/collection_timeout = 30 SECONDS// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object

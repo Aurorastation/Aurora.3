@@ -6,7 +6,7 @@ var/datum/subsystem/timer/SStimer
 	name = "Timer"
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
 	init_order = 1
-	display_order = 3
+	display_order = SS_DISPLAY_TIMER
 
 	flags = SS_FIRE_IN_LOBBY|SS_TICKER|SS_NO_INIT
 

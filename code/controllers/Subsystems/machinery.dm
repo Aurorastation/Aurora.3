@@ -6,6 +6,7 @@ var/global/list/ticking_machines		= list()
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_MACHINERY
 	flags = SS_NO_INIT
+	display_order = SS_DISPLAY_MACHINERY
 
 	var/tmp/list/processing_machinery = list()
 	var/tmp/list/processing_pipenets = list()

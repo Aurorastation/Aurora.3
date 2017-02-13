@@ -4,6 +4,7 @@ var/air_processing_killed = FALSE
 	name = "ZAS"
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_AIR
+	display_order = SS_DISPLAY_AIR
 
 /datum/subsystem/air/Initialize(timeofday)
 	if (!air_master)

@@ -5,6 +5,7 @@ var/global/list/power_using_machines	= list()
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_MACHINERY
 	flags = SS_NO_INIT
+	display_order = SS_DISPLAY_POWER
 
 	var/tmp/list/processing_power_users = list()
 	var/tmp/list/processing_powersinks = list()
