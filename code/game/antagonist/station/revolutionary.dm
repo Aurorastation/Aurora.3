@@ -28,8 +28,8 @@ var/datum/antagonist/revolutionary/revs
 	faction_indicator = "rev"
 	faction_invisible = 1
 
-	restricted_jobs = list("Internal Affairs Agent", "AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer","Captain", "Head of Security")
+	restricted_jobs = list("AI", "Cyborg")
+	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
 
 /datum/antagonist/revolutionary/New()
 	..()
