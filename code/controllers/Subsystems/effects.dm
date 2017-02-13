@@ -34,7 +34,7 @@ var/datum/subsystem/effects/effect_master
 				effects_objects += E
 
 			if (EFFECT_DESTROY)
-				qdel(E)
+				returnToPool(E)
 
 		if (MC_TICK_CHECK)
 			return
@@ -54,7 +54,7 @@ var/datum/subsystem/effects/effect_master
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
 				V.end()
-				qdel(V)
+				returnToPool(V)
 		
 		if (MC_TICK_CHECK)
 			return

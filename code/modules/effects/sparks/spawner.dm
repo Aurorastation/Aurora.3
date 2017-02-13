@@ -34,7 +34,7 @@
 
 	var/total_sparks = 1
 	if (location)
-		var/obj/visual_effect/sparks/S = new /obj/visual_effect/sparks(location, src, 0) //Trigger one on the tile it's on
+		var/obj/visual_effect/sparks/S = getFromPool(/obj/visual_effect/sparks(location, src, 0)) //Trigger one on the tile it's on
 		S.start()
 		effects_visuals += S	// Queue it.
 
@@ -47,7 +47,7 @@
 			else
 				direction = pick(src.spread)
 
-			S = new /obj/visual_effect/sparks(location, src)
+			S = getFromPool(/obj/visual_effect/sparks(location, src))
 			S.start(direction)	
 			effects_visuals += S
 			total_sparks++

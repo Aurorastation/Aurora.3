@@ -16,4 +16,5 @@
 		animation.icon_state = "blank"
 		animation.master = target
 		flick(flick_anim, animation)
-	QDEL_IN(animation, max(sleeptime, 15))
+		
+	addtimer(CALLBACK(GLOBAL_PROC, .returnToPool, animation), max(sleeptime, 15))
