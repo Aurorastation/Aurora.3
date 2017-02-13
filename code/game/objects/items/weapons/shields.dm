@@ -111,9 +111,7 @@
 	. = ..()
 
 	if(.)
-		var/datum/effect/effect/system/spark_spread/spark_system = getFromPool(/datum/effect/effect/system/spark_spread)
-		spark_system.set_up(5, 0, user.loc)
-		spark_system.start()
+		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 
 /obj/item/weapon/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)

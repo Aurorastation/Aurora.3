@@ -1,7 +1,7 @@
 var/datum/subsystem/effects/effect_master
 
 /var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
-/var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. Should be created by effect objects.
+/var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. May be created without an effect object.
 
 /datum/subsystem/effects
 	name = "Effects Master"
@@ -33,7 +33,7 @@ var/datum/subsystem/effects/effect_master
 				effects_objects += E
 
 			if (EFFECT_DESTROY)
-				returnToPool(E)
+				qdel(E)
 
 		if (MC_TICK_CHECK)
 			return
@@ -53,7 +53,7 @@ var/datum/subsystem/effects/effect_master
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
 				V.end()
-				returnToPool(V)
+				qdel(V)
 		
 		if (MC_TICK_CHECK)
 			return
@@ -68,3 +68,17 @@ var/datum/subsystem/effects/effect_master
 	effects_objects += E
 	can_fire = TRUE
 	next_fire = world.time + wait
+
+/datum/controller/process/effects/proc/queue_simple(var/obj/visual_effect/V)
+	if (!V || V.gcDestroyed)
+		return
+
+	effects_visuals += V
+	can_fire = TRUE
+	next_fire = world.time + wait
+
+/datum/controller/process/effects/statProcess()
+	..()
+	stat(null, "Effect process is [disabled ? "sleeping" : "processing"].")
+	stat(null, "[effects_objects.len] effects queued, [processing_effects.len] processing")
+	stat(null, "[effects_visuals.len] visuals queued, [processing_visuals.len] processing")

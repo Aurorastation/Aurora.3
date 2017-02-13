@@ -88,23 +88,6 @@ steam.start() -- spawns the effect
 					qdel(steam)
 
 /////////////////////////////////////////////
-//SPARK SYSTEM (like steam system)
-// The attach(atom/atom) proc is optional, and can be called to attach the effect
-// to something, like the RCD, so then you can just call start() and the sparks
-// will always spawn at the items location.
-/////////////////////////////////////////////
-
-/datum/effect/effect/system/spark_spread
-	var/datum/effect_system/sparks/S
-
-/datum/effect/effect/system/spark_spread/set_up(n = 3, c = 0, loca)
-	var/l = get_turf(loca)
-	S = bind_spark(l, n, c ? cardinal : alldirs)
-
-/datum/effect/effect/system/spark_spread/start()
-	S.queue()
-
-/////////////////////////////////////////////
 //// SMOKE SYSTEMS
 // direct can be optinally added when set_up, to make the smoke always travel in one direction
 // in case you wanted a vent to always smoke north for example
@@ -416,9 +399,7 @@ steam.start() -- spawns the effect
 
 	start()
 		if (amount <= 2)
-			var/datum/effect/effect/system/spark_spread/s = getFromPool(/datum/effect/effect/system/spark_spread)
-			s.set_up(2, 1, location)
-			s.start()
+			spark(location, 2)
 
 			for(var/mob/M in viewers(5, location))
 				M << "<span class='warning'>The solution violently explodes.</span>"

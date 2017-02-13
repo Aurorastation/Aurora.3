@@ -316,9 +316,7 @@
 
 		if(turfs.len)
 			// Moves the mob, causes sparks.
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, get_turf(target))
-			s.start()
+			spark(target, 3, alldirs)
 			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
 			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
 			target.loc = picked                                          // And teleport them to the chosen location.

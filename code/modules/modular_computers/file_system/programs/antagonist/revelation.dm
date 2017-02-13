@@ -19,12 +19,10 @@
 	if(!computer)
 		return
 
-	computer.visible_message("<span class='notice'>\The [computer]'s screen brightly flashes and loud electrical buzzing is heard.</span>")
+	computer.visible_message("<span class='notice'>\The [computer]'s screen brightly flashes and emits a loud electrical buzzing.</span>")
 	computer.enabled = 0
 	computer.update_icon()
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(10, 1, computer.loc)
-	s.start()
+	spark(computer.loc, 10, alldirs)
 
 	if(computer.hard_drive)
 		qdel(computer.hard_drive)
