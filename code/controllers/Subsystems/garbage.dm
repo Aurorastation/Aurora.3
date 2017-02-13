@@ -7,7 +7,7 @@ var/datum/subsystem/garbage_collector/garbage_collector
 	display_order = 2
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
-	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
+	var/collection_timeout = 30 SECONDS// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
 	var/delslasttick = 0		// number of del()'s we've done this tick
 	var/gcedlasttick = 0		// number of things that gc'ed last tick
 	var/totaldels = 0
@@ -37,20 +37,11 @@ var/datum/subsystem/garbage_collector/garbage_collector
 /datum/subsystem/garbage_collector/New()
 	NEW_SS_GLOBAL(garbage_collector)
 
-/datum/subsystem/garbage_collector/stat_entry(msg)
-	msg += "Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
-	msg += "GR:"
-	if (!(delslasttick+gcedlasttick))
-		msg += "n/a|"
-	else
-		msg += "[round((gcedlasttick/(delslasttick+gcedlasttick))*100, 0.01)]%|"
-
-	msg += "TD:[totaldels]|TG:[totalgcs]|"
-	if (!(totaldels+totalgcs))
-		msg += "n/a|"
-	else
-		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	..(msg)
+/datum/subsystem/garbage_collector/stat_entry()
+	..()
+	stat(null, "[queue.len] queued")
+	stat(null, "Last tick: [delslasttick] hard, [gcedlasttick] soft")
+	stat(null, "Total: [totaldels] hard, [totalgcs] soft")
 
 /datum/subsystem/garbage_collector/fire()
 	HandleToBeQueued()
@@ -212,6 +203,7 @@ var/datum/subsystem/garbage_collector/garbage_collector
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
+	nanomanager.close_uis(src)
 	tag = null
 	var/list/timers = active_timers
 	active_timers = null
