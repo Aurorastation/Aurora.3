@@ -1397,3 +1397,5 @@ var/list/WALLITEMS = list(
 	while (world.tick_usage > TICK_LIMIT)
 
 #undef DELTA_CALC
+
+#define QDEL_IN(item, time) addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, item), time, TIMER_STOPPABLE)

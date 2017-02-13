@@ -761,7 +761,8 @@
 				if (Master)
 					stat(null)
 					for (var/datum/subsystem/SS in Master.subsystems)
-						SS.stat_entry()
+						if (!(SS.flags & SS_NO_FIRE))
+							SS.stat_entry()
 
 		if(listed_turf && client)
 			if(!TurfAdjacent(listed_turf))

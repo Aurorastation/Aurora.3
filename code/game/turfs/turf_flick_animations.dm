@@ -16,5 +16,4 @@
 		animation.icon_state = "blank"
 		animation.master = target
 		flick(flick_anim, animation)
-	spawn(max(sleeptime, 15))
-		qdel(animation)
+	QDEL_IN(animation, max(sleeptime, 15))

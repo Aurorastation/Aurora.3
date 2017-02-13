@@ -39,3 +39,6 @@ var/cmp_field = "name"
 
 /proc/cmp_subsystem_priority(datum/subsystem/a, datum/subsystem/b)
 	return a.priority - b.priority
+
+/proc/cmp_timer(datum/timedevent/a, datum/timedevent/b)
+	return a.timeToRun - b.timeToRun
