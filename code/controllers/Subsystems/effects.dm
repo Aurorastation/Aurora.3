@@ -53,7 +53,6 @@ var/datum/subsystem/effects/effect_master
 
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
-				V.end()
 				returnToPool(V)
 		
 		if (MC_TICK_CHECK)
