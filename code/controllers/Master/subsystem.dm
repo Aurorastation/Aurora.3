@@ -175,3 +175,10 @@
 			return 0
 	. = ..()
 */
+
+/datum/subsystem/proc/disable()
+	can_fire = FALSE
+
+/datum/subsystem/proc/enable()
+	next_fire = world.time + wait
+	can_fire = TRUE

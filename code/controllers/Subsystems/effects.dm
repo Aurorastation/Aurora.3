@@ -59,26 +59,23 @@ var/datum/subsystem/effects/effect_master
 			return
 
 	if (!effects_objects.len && !effects_visuals.len && !processing_effects.len && !processing_visuals.len)
-		can_fire = FALSE
+		disable()
 
 /datum/subsystem/effects/proc/queue(var/datum/effect_system/E)
 	if (!E || E.gcDestroyed)
 		return
 		
 	effects_objects += E
-	can_fire = TRUE
-	next_fire = world.time + wait
+	enable()
 
-/datum/controller/process/effects/proc/queue_simple(var/obj/visual_effect/V)
+/datum/subsystem/effects/proc/queue_simple(var/obj/visual_effect/V)
 	if (!V || V.gcDestroyed)
 		return
 
 	effects_visuals += V
-	can_fire = TRUE
-	next_fire = world.time + wait
+	enable()
 
-/datum/controller/process/effects/statProcess()
+/datum/subsystem/effects/stat_entry()
 	..()
-	stat(null, "Effect process is [disabled ? "sleeping" : "processing"].")
 	stat(null, "[effects_objects.len] effects queued, [processing_effects.len] processing")
 	stat(null, "[effects_visuals.len] visuals queued, [processing_visuals.len] processing")
