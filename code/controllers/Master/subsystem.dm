@@ -174,7 +174,9 @@
 
 	var/title = name
 	if (can_fire)
-		title = "\[[state_letter()]][title]"
+		title = "\[[state_letter()]] [title]"
+	else
+		title = "\[X] [title]"
 
 	stat(title, statclick.update(msg))
 
