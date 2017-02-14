@@ -158,14 +158,13 @@
 	var/msg = "Initialized [name] subsystem within [time] seconds!"
 	admin_notice(span("danger", msg), R_DEBUG)
 	world.log << "## SS Init: [msg]"
+	game_log("SS", msg)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
 /datum/subsystem/proc/stat_entry(msg)
 	if(!statclick)
 		statclick = new/obj/effect/statclick/debug("Initializing...", src)
-
-
 
 	if(can_fire)
 		msg = "[round(cost,1)]ms|[round(tick_usage,1)]%|[round(ticks,0.1)]\t[msg]"

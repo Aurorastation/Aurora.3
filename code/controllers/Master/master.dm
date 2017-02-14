@@ -125,6 +125,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		init_subtypes(/datum/subsystem, subsystems)
 
 	world.log << "Initializing subsystems..."
+	game_log("MC", "Initializing subsystems...")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -134,12 +135,15 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	for (var/datum/subsystem/SS in subsystems)
 		if (SS.flags & SS_NO_INIT)
 			continue
+
+		game_log("MC", "Initializing SS '[SS.name]'")
 		SS.Initialize(world.timeofday)
 		CHECK_TICK
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 	to_chat(world, span("danger", "Initializations complete!"))
 	world.log << "Initializations complete."
+	game_log("MC", "Initializations complete.")
 
 	// Sort subsystems by display setting for easy access.
 	sortTim(subsystems, /proc/cmp_subsystem_display)
@@ -151,6 +155,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 // Notify the MC that the round has started.
 /datum/controller/master/proc/RoundStart()
 	round_started = 1
+	game_log("MC", "Round started.")
 	var/timer = world.time
 	for (var/datum/subsystem/SS in subsystems)
 		if (SS.flags & SS_FIRE_IN_LOBBY || SS.flags & SS_TICKER)
