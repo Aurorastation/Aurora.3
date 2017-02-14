@@ -157,8 +157,12 @@ area/space/atmosalert()
 
 /area/shuttle/arrival
 	name = "\improper Arrival Shuttle"
+	flags = RAD_SHIELDED
 
-/area/shuttle/arrival/pre_game
+/area/shuttle/arrival/centcom
+	icon_state = "shuttle2"
+
+/area/shuttle/arrival/transit
 	icon_state = "shuttle2"
 
 /area/shuttle/arrival/station
@@ -360,6 +364,9 @@ area/space/atmosalert()
 
 /area/centcom/control
 	name = "\improper Centcom Control"
+
+/area/centcom/spawning
+	name = "\improper Centcom Preparatory Wing"
 
 /area/centcom/evac
 	name = "\improper Centcom Emergency Shuttle"
