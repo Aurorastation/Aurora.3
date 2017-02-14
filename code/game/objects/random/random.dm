@@ -8,24 +8,19 @@
 
 // creates a new object and deletes itself
 
-/obj/random/initialize()
-	world.log << "[name] initialized!"
+/obj/random/New()
 	..()
 	if (!prob(spawn_nothing_percentage))
 		spawn_item()
-	QDEL_IN(src, 10)
+	QDEL_IN(src, 20)
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()
 	return 0
 
-
 // creates the random item
 /obj/random/proc/spawn_item()
-
-
 	var/build_path = item_to_spawn()
-	world.log << "[name] spawning [build_path]!"
 	new build_path(loc)
 
 /obj/random/Destroy()
