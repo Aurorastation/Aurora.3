@@ -1,7 +1,4 @@
-var/datum/subsystem/effects/effect_master
-
-/var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
-/var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. May be created without an effect object.
+var/datum/subsystem/effects/SSeffects
 
 /datum/subsystem/effects
 	name = "Effects Master"
@@ -9,11 +6,14 @@ var/datum/subsystem/effects/effect_master
 	flags = SS_BACKGROUND | SS_NO_INIT
 	display_order = SS_DISPLAY_EFFECTS
 
+	var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
+	var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. May be created without an effect object.
+
 	var/tmp/list/processing_effects = list()
 	var/tmp/list/processing_visuals = list()
 
 /datum/subsystem/effects/New()
-	NEW_SS_GLOBAL(effect_master)
+	NEW_SS_GLOBAL(SSeffects)
 
 /datum/subsystem/effects/fire(resumed = FALSE)
 	if (!resumed)
@@ -79,3 +79,7 @@ var/datum/subsystem/effects/effect_master
 	..()
 	stat(null, "[effects_objects.len] effects queued, [processing_effects.len] processing")
 	stat(null, "[effects_visuals.len] visuals queued, [processing_visuals.len] processing")
+
+/datum/subsystem/effects/Recover()
+	src.effects_objects = SSeffects.effects_objects
+	src.effects_visuals = SSeffects.effects_visuals

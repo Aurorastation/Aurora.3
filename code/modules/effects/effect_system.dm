@@ -12,12 +12,13 @@
 /datum/effect_system/Destroy()
 	if (holder)
 		holder = null
+	SSeffects.effects_objects -= src
 	return ..()
 
 // Queues an effect.
 /datum/effect_system/proc/queue()
-	if (effect_master)
-		effect_master.queue(src)
+	if (SSeffects)
+		SSeffects.queue(src)
 		return TRUE
 	return FALSE
 
@@ -29,3 +30,7 @@
 
 /datum/effect_system/proc/bind(var/target)
 	holder = target
+
+/datum/effect_system/Destroy()
+	holder = null
+	return ..()

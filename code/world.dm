@@ -31,6 +31,10 @@ var/global/list/objects_init_list = list()
 	qdel(src) //we're done
 	init = null
 
+/datum/global_init/Destroy()
+	..()
+	return 3	// QDEL_HINT_HARDDEL ain't defined here, so magic number it is.
+
 /var/game_id = null
 /proc/generate_gameid()
 	if(game_id != null)
