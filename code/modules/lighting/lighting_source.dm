@@ -10,6 +10,7 @@
 	var/light_range      // The range of the emitted light.
 	var/light_color    // The colour of the light, string, decomposed by parse_light_color()
 	var/light_uv		// The intensity of UV light, between 0 and 255.
+	var/is_directional	// Whether or not the light is directional.
 
 	// Variables for keeping track of the colour.
 	var/lum_r
@@ -51,6 +52,7 @@
 	light_range = source_atom.light_range
 	light_color = source_atom.light_color
 	light_uv    = source_atom.uv_intensity
+	is_directional = source_atom.light_is_directional
 
 	parse_light_color()
 
@@ -238,7 +240,44 @@
 	applied_lum_b = lum_b
 	applied_lum_u = lum_u
 
+	var/left_margin
+	var/right_margin
+
+	if (is_directional == 1)
+		switch (top_atom.dir)
+			if (NORTH)
+				left_margin = WEST
+				right_margin = EAST
+			if (EAST)
+				left_margin = NORTH
+				right_margin = SOUTH
+			if (SOUTH)
+				left_margin = EAST
+				right_margin = WEST
+			else
+				left_margin = SOUTH
+				right_margin = NORTH
+	else if (is_directional == 2)
+		switch (top_atom.dir)
+			if (NORTH)
+				left_margin = NORTHWEST
+				right_margin = NORTHEAST
+			if (EAST)
+				left_margin = NORTHEAST
+				right_margin = SOUTHEAST
+			if (SOUTH)
+				left_margin = SOUTHEAST
+				right_margin = SOUTHWEST
+			else
+				left_margin = SOUTHWEST
+				right_margin = NORTHWEST
+
 	FOR_DVIEW(var/turf/T, light_range, source_turf, INVISIBILITY_LIGHTING)
+		if (is_directional)
+			var/diff = get_dir(source_turf, T) - top_atom.dir
+			if (diff && diff != left_margin && diff != right_margin)
+				continue
+
 		if (!T.lighting_corners_initialised)
 			T.generate_missing_corners()
 
