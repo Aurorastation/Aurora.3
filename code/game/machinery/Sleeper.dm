@@ -134,6 +134,33 @@
 		else
 			user << "<span class='warning'>\The [src] has a beaker already.</span>"
 		return
+	else if(istype(I, /obj/item/weapon/grab))
+
+		var/mob/living/L = I:affecting
+		visible_message("[user] starts putting [I:affecting] into the [src].", 3)
+
+		if (do_mob(user, I:affecting, 20, needhand = 0))
+			if(occupant)
+				user << "<span class='warning'>\The [src] is already occupied.</span>"
+				return
+			var/bucklestatus = L.bucklecheck(user)
+			if (!bucklestatus)//incase the patient got buckled during the delay
+				return
+			if (bucklestatus == 2)
+				var/obj/structure/LB = L.buckled
+				LB.user_unbuckle_mob(user)
+			if(!ismob(I:affecting))
+				return
+			var/mob/M = I:affecting
+			if(M.client)
+				M.client.perspective = EYE_PERSPECTIVE
+				M.client.eye = src
+			M.loc = src
+			update_use_power(2)
+			occupant = M
+			update_icon()
+			qdel(I)
+			return
 
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
