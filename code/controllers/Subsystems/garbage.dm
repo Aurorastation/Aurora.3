@@ -89,7 +89,9 @@ var/datum/subsystem/garbage_collector/garbage_collector
 
 			// Something's still referring to the qdel'd object.  Kill it.
 			var/type = A.type
-			testing("GC: -- \ref[A] | [type] was unable to be GC'd and was deleted --")
+			var/msg = "-- \ref[A] | [type] was unable to be GC'd and was deleted --"
+			testing("GC: [msg]")
+			game_log("GC", msg)
 			didntgc["[type]"]++
 			var/time = world.timeofday
 			var/tick = world.tick_usage
@@ -345,10 +347,4 @@ var/datum/subsystem/garbage_collector/garbage_collector
 	return QDEL_HINT_HARDDEL
 
 /image/Destroy()
-	return QDEL_HINT_HARDDEL
-
-/mob/Destroy()
-	return QDEL_HINT_HARDDEL
-
-/turf/Destroy()
 	return QDEL_HINT_HARDDEL
