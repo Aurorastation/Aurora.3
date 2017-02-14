@@ -20,4 +20,7 @@
 /obj/visual_effect/sparks/start(var/direction)
 	..()
 	if (direction)
-		step(src, direction)
+		addtimer(CALLBACK(src, .proc/do_step, direction), 5, TIMER_UNIQUE)
+
+/obj/visual_effect/sparks/proc/do_step(direction)
+	step(src, direction)
