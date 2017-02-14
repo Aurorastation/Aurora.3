@@ -138,6 +138,9 @@
 	opacity = 0
 	hatch_colour = "#606061"
 
+/obj/machinery/door/airlock/centcom/attackby()
+	return
+
 /obj/machinery/door/airlock/vault
 	name = "Vault"
 	icon = 'icons/obj/doors/vault.dmi'

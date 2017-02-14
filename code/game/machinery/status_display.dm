@@ -187,6 +187,31 @@
 		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 	return ""
 
+/obj/machinery/status_display/proc/get_arrivals_shuttle_timer()
+	var/datum/shuttle/ferry/arrival/shuttle = arrival_shuttle.shuttle
+	if (!shuttle)
+		return "Error"
+
+	if(shuttle.has_arrive_time())
+		var/timeleft = round((shuttle.arrive_time - world.time) / 10,1)
+		if(timeleft < 0)
+			return ""
+		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
+	return ""
+
+/obj/machinery/status_display/proc/get_arrivals_shuttle_timer2()
+	if (!arrival_shuttle)
+		return "Error"
+
+	if(arrival_shuttle.launch_time)
+		var/timeleft = round((arrival_shuttle.launch_time - world.time) / 10,1)
+		if(timeleft < 0)
+			return ""
+		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
+	else
+		return "Launch"
+	return ""
+
 /obj/machinery/status_display/proc/remove_display()
 	if(overlays.len)
 		overlays.Cut()
