@@ -177,9 +177,7 @@ for reference:
 						user << "Barrier lock toggled off."
 						return
 				else
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, src)
-					s.start()
+					spark(src, 2, src)
 					visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 					return
 			return
@@ -244,9 +242,7 @@ for reference:
 	/*	var/obj/item/stack/rods/ =*/
 		getFromPool(/obj/item/stack/rods, Tsec)
 
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark(src, 3, alldirs)
 
 		explosion(src.loc,-1,-1,0)
 		if(src)
@@ -259,16 +255,12 @@ for reference:
 		src.req_access.Cut()
 		src.req_one_access.Cut()
 		user << "You break the ID authentication lock on \the [src]."
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(2, 1, src)
-		s.start()
+		spark(src, 2, alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		user << "You short out the anchoring mechanism on \the [src]."
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(2, 1, src)
-		s.start()
+		spark(src, 2, 1)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1

@@ -957,9 +957,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			M.apply_effects(1,0,0,0,1)
 		message += "Your [P] flashes with a blinding white light! You feel weaker."
 	if(i>=85) //Sparks
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(2, 1, P.loc)
-		s.start()
+		spark(P.loc, 2)
 		message += "Your [P] begins to spark violently!"
 	if(i>45 && i<65 && prob(50)) //Nothing happens
 		message += "Your [P] bleeps loudly."

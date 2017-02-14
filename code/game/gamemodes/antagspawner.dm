@@ -59,9 +59,7 @@
 			C.prefs.be_special_role ^= MODE_MERCENARY
 
 obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
-	var/datum/effect/effect/system/spark_spread/S = new /datum/effect/effect/system/spark_spread
-	S.set_up(4, 1, src)
-	S.start()
+	spark(T, 4, alldirs)
 	var/mob/living/silicon/robot/H = new /mob/living/silicon/robot/syndicate(T)
 	H.key = C.key
 	var/newname = sanitizeSafe(input(H,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)

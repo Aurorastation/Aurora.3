@@ -96,9 +96,7 @@
 		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
 		var/T = get_turf(user)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, T)
-		s.start()
+		spark(T, 3, alldirs)
 		step_away(target,user,15)
 		sleep(1)
 		step_away(target,user,15)
