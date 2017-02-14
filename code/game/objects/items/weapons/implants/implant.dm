@@ -50,7 +50,7 @@
 	Destroy()
 		if(part)
 			part.implants.Remove(src)
-		..()
+		return ..()
 
 /obj/item/weapon/implant/tracking
 	name = "tracking implant"

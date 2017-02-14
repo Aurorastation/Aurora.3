@@ -14,7 +14,7 @@
 		var/item = item_to_spawn()
 		if (item)
 			new item(src.loc)
-	QDEL_IN(src, 20)
+	qdel(src)
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()
