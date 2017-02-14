@@ -81,6 +81,10 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
+	organs = null
+	internal_organs_by_name = null
+	internal_organs = null
+	organs_by_name = null
 	if (DS)
 		qdel(DS)//prevents the dionastats holding onto references and blocking GC
 	return ..()

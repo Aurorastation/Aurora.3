@@ -26,7 +26,7 @@ var/datum/subsystem/effects/effect_master
 		var/datum/effect_system/E = processing_effects[processing_effects.len]
 		processing_effects.len--
 
-		if (!E || E.gcDestroyed)
+		if (QDELETED(E))
 			continue
 
 		switch (E.process())
@@ -34,7 +34,7 @@ var/datum/subsystem/effects/effect_master
 				effects_objects += E
 
 			if (EFFECT_DESTROY)
-				returnToPool(E)
+				qdel(E)
 
 		if (MC_TICK_CHECK)
 			return
@@ -53,7 +53,7 @@ var/datum/subsystem/effects/effect_master
 
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
-				returnToPool(V)
+				qdel(V)
 		
 		if (MC_TICK_CHECK)
 			return
@@ -62,14 +62,14 @@ var/datum/subsystem/effects/effect_master
 		disable()
 
 /datum/subsystem/effects/proc/queue(var/datum/effect_system/E)
-	if (!E || E.gcDestroyed)
+	if (QDELETED(E))
 		return
 		
 	effects_objects += E
 	enable()
 
 /datum/subsystem/effects/proc/queue_simple(var/obj/visual_effect/V)
-	if (!V || V.gcDestroyed)
+	if (QDELETED(V))
 		return
 
 	effects_visuals += V

@@ -20,7 +20,7 @@
 		var/mob/M = currentrun[currentrun.len]
 		currentrun.len--
 
-		if (!M || M.gcDestroyed)
+		if (QDELETED(M))
 			mob_list -= M
 			continue
 

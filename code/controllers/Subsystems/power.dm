@@ -26,7 +26,7 @@ var/global/list/power_using_machines	= list()
 		var/obj/machinery/M = current_machinery[current_machinery.len]
 		current_machinery.len--
 
-		if (NULL_OR_GC(M))
+		if (QDELETED(M))
 			remove_machine(M)
 			continue
 
@@ -40,7 +40,7 @@ var/global/list/power_using_machines	= list()
 		var/obj/item/I = current_powersinks[current_powersinks.len]
 		current_powersinks.len--
 
-		if (NULL_OR_GC(I) || !I.pwr_drain())
+		if (QDELETED(I) || !I.pwr_drain())
 			processing_power_items -= I
 		
 		if (MC_TICK_CHECK)

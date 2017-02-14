@@ -30,4 +30,5 @@
 /obj/visual_effect/Destroy()
 	// ¯\_(ツ)_/¯
 	// This runtimes in expansions.dm if ..() is called.
-	return QDEL_HINT_QUEUE
+	effects_visuals -= src
+	return ..()

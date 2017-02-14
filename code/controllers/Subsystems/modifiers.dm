@@ -12,7 +12,7 @@
 		var/datum/modifier/M = current_work[current_work.len]
 		current_work.len--
 
-		if (!M || M.gcDestroyed)
+		if (QDELETED(M))
 			processing_modifiers -= M
 			continue
 

@@ -16,8 +16,6 @@
 	for(var/infection in viruses)
 		qdel(infection)
 
-
-
 	//Added this to prevent nonliving mobs from ghostising
 	//The only non 'living' mobs are:
 		//observers (ie ghosts),
@@ -28,7 +26,9 @@
 	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
 	if (istype(src, /mob/living))
 		ghostize()
-	return ..()
+	..()
+	return QDEL_HINT_HARDDEL 
+	
 
 /mob/proc/remove_screen_obj_references()
 	flash = null
