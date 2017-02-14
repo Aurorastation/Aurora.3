@@ -31,7 +31,10 @@
 
 	update_overlay()
 
-/atom/movable/lighting_overlay/Destroy()
+/atom/movable/lighting_overlay/Destroy(force)
+	if (!force)
+		return QDEL_HINT_LETMELIVE
+		
 	L_PROF(loc, "overlay_destroy")
 	global.all_lighting_overlays        -= src
 	global.lighting_update_overlays     -= src

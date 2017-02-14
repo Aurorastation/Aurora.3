@@ -44,6 +44,9 @@ var/list/organ_cache = list()
 	if(src in owner.contents)
 		owner.contents -= src
 
+	owner = null 
+	qdel(dna)
+
 	return ..()
 
 /obj/item/organ/proc/update_health()

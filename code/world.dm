@@ -29,6 +29,7 @@ var/global/list/objects_init_list = list()
 	initialize_chemical_reactions()
 
 	qdel(src) //we're done
+	init = null
 
 /var/game_id = null
 /proc/generate_gameid()

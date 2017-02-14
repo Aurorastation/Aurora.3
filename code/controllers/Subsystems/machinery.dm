@@ -26,7 +26,7 @@ var/global/list/ticking_machines		= list()
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
 		curr_machinery.len--
 
-		if (NULL_OR_GC(M))
+		if (QDELETED(M))
 			remove_machine(M)
 			continue
 

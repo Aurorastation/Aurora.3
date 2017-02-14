@@ -142,7 +142,7 @@ datum/hud/New(mob/owner)
 	..()
 
 /datum/hud/Destroy()
-	..()
+	. = ..()
 	grab_intent = null
 	hurt_intent = null
 	disarm_intent = null

@@ -21,7 +21,7 @@ var/datum/subsystem/nanoui/SSnanoui
 		var/datum/nanoui/UI = queued_uis[queued_uis.len]
 		queued_uis.len--
 
-		if (!UI || UI.gcDestroyed)
+		if (QDELETED(UI))
 			nanomanager.processing_uis -= UI
 			continue
 

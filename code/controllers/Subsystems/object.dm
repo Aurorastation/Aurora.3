@@ -18,7 +18,7 @@
 		var/datum/O = queue[queue.len]
 		queue.len--
 
-		if (!O || O.gcDestroyed)
+		if (QDELETED(O))
 			processing_objects -= O
 			continue
 
@@ -34,7 +34,7 @@
 /datum/subsystem/object/Initialize(timeofday)
 	for (var/A in objects_init_list)
 		var/atom/movable/object = A
-		if (isnull(object.gcDestroyed))
+		if (!QDELETED(object))
 			object.initialize()
 
 		objects_init_list.Cut()
