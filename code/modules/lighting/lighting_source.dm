@@ -95,13 +95,13 @@
 #define QUEUE_UPDATE                    \
 	if (!needs_update)                  \
 	{                                   \
-		lighting_update_lights += src;  \
+		SSlighting.light_queue += src;  \
 		needs_update            = TRUE; \
 	}
 
 // Picks either scheduled or instant updates based on current server load.
 #define INTELLIGENT_UPDATE 							\
-	if (world.tick_usage > TICK_LIMIT || !ticker || ticker.current_state <= GAME_STATE_SETTING_UP) {	\
+	if (world.tick_usage > CURRENT_TICKLIMIT || !ticker || ticker.current_state <= GAME_STATE_SETTING_UP) {	\
 		QUEUE_UPDATE;								\
 	}												\
 	else {											\

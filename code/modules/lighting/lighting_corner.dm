@@ -102,7 +102,7 @@
 	if (!now)
 		needs_update = TRUE
 		update_overlays(FALSE)
-		lighting_update_corners += src
+		SSlighting.corner_queue += src
 	else 
 		update_overlays(TRUE)
 
@@ -130,7 +130,7 @@
 				T.lighting_overlay.update_overlay()
 			else if (!T.lighting_overlay.needs_update)
 				T.lighting_overlay.needs_update = TRUE
-				lighting_update_overlays += T.lighting_overlay
+				SSlighting.overlay_queue += T.lighting_overlay
 
 /datum/lighting_corner/dummy/New()
 	return

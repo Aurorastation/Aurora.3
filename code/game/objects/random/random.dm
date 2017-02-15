@@ -8,11 +8,13 @@
 
 // creates a new object and deletes itself
 
-/obj/random/New()
+/obj/random/initialize()
 	..()
 	if (!prob(spawn_nothing_percentage))
-		spawn_item()
-	QDEL_IN(src, 20)
+		var/item = item_to_spawn()
+		if (item)
+			new item(src.loc)
+	qdel(src)
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()

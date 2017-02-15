@@ -33,12 +33,13 @@
 
 /atom/movable/lighting_overlay/Destroy(force)
 	if (!force)
+		L_PROF(loc, "overlay_destroy (qdel-Pooled)")
 		return QDEL_HINT_LETMELIVE
 		
-	L_PROF(loc, "overlay_destroy")
+	L_PROF(loc, "overlay_destroy (qdel-Destroyed)")
 	global.all_lighting_overlays        -= src
-	global.lighting_update_overlays     -= src
-	lighting_process.curr_overlays 		-= src
+	SSlighting.overlay_queue    		-= src
+	SSlighting.processing_overlays 		-= src
 
 	var/turf/T   = loc
 	if (istype(T))

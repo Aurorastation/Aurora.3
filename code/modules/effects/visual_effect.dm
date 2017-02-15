@@ -30,5 +30,5 @@
 /obj/visual_effect/Destroy()
 	// ¯\_(ツ)_/¯
 	// This runtimes in expansions.dm if ..() is called.
-	effects_visuals -= src
+	SSeffects.effects_visuals -= src
 	return ..()

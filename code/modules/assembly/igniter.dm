@@ -36,3 +36,8 @@
 /obj/item/device/assembly/igniter/New()
 	. = ..()
 	spark_system = bind_spark(src, 4, cardinal)
+
+/obj/item/device/assembly/igniter/Destroy()
+	qdel(spark_system)
+	spark_system = null
+	return ..()

@@ -32,11 +32,13 @@
 	stat(null, "[processing_objects.len] objects")
 
 /datum/subsystem/object/Initialize(timeofday)
-	for (var/A in objects_init_list)
-		var/atom/movable/object = A
-		if (!QDELETED(object))
-			object.initialize()
+	while (objects_init_list.len)
+		var/atom/movable/object = objects_init_list[objects_init_list.len]
+		objects_init_list.len--
+		if (QDELETED(object))
+			continue
 
-		objects_init_list.Cut()
+		object.initialize()
 
+	objects_initialized = TRUE
 	..()

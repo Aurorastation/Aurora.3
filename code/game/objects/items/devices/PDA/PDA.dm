@@ -12,8 +12,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	w_class = 2.0
 	slot_flags = SLOT_ID | SLOT_BELT
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/id.dmi')
-	//offset_light = 1
-	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	uv_intensity = 15
 
 	//Main variables
 	var/owner = null
@@ -467,7 +466,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
 						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
-							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))					
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 			count++
 
 		data["convopdas"] = convopdas
@@ -730,12 +729,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			active_conversation = null
 			if(mode==21)
 				mode=2
-		
-		
+
+
 		if("Filter") // Filters through available pdas
 			if (href_list["option"])
 				pdafilter = sanitize_integer(text2num(href_list["option"]), 0, 8, pdafilter)
-				
+
 		if("Ringtone")
 			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
 			if (in_range(src, U) && loc == U)

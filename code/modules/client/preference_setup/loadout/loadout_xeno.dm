@@ -14,6 +14,13 @@
 	whitelisted = "Unathi"
 	sort_category = "Xenowear"
 
+/datum/gear/suit/robe_coat
+	display_name = "tzirzi robe (Unathi)"
+	path = /obj/item/clothing/suit/unathi/robe/robe_coat
+	cost = 1
+	whitelisted = "Unathi"
+	sort_category = "Xenowear"
+
 //skrell headtail adorns
 
 /datum/gear/ears/f_skrell
@@ -67,7 +74,7 @@
 	cost = 1
 	whitelisted = "Vaurca"
 	sort_category = "Xenowear"
-	
+
 /datum/gear/cape
 	display_name = "tunnel cloak (Vaurca)"
 	path = /obj/item/weapon/storage/backpack/cloak
