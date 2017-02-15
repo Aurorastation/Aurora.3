@@ -9,7 +9,8 @@
 	setupgenetics()
 	global.corp_regs = new
 
-	world.log << "LMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
+	//world.log << "LMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
+	..(timeofday, TRUE)
 
 /datum/subsystem/misc_early
 	name = "Early Miscellaneous Init"
@@ -29,6 +30,6 @@
 	if(config.ToRban)
 		ToRban_autoupdate()
 		
-	world.log << "EMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
+	//world.log << "EMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
 	
-	..()
+	..(timeofday, TRUE)
