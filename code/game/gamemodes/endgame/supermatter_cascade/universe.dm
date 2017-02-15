@@ -107,7 +107,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 			continue
 
 		if (!(C.z in config.admin_levels))
-			C.update_lumcount(0.15, 0.5, 0)
+			C.update_lumcount(0.15, 0.15, 0.5)
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/MiscSet()
