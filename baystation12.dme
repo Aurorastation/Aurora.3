@@ -165,7 +165,6 @@
 #include "code\controllers\subsystems\initialization\areas.dm"
 #include "code\controllers\subsystems\initialization\asteroid.dm"
 #include "code\controllers\subsystems\initialization\atmos.dm"
-#include "code\controllers\subsystems\initialization\cargo.dm"
 #include "code\controllers\subsystems\initialization\jobs.dm"
 #include "code\controllers\subsystems\initialization\misc.dm"
 #include "code\controllers\subsystems\initialization\parallax.dm"
