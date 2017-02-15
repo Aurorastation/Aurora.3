@@ -759,6 +759,10 @@
 					Master.stat_entry()
 				else
 					stat("Master Controller:", "ERROR")
+				if(Failsafe)
+					Failsafe.stat_entry()
+				else
+					stat("Failsafe Controller:", "ERROR")
 				stat("Tick Usage:", world.tick_usage)
 				if (Master)
 					stat(null)
