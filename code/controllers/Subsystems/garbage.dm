@@ -340,9 +340,6 @@ var/datum/subsystem/garbage_collector/garbage_collector
 
 #endif
 
-/proc/deleted(atom/A)
-	return QDELETED(A)
-
 /icon/Destroy()
 	return QDEL_HINT_HARDDEL
 
