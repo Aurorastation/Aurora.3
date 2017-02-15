@@ -25,6 +25,7 @@
 	log_unit_test("Round has been started.")
 
 /hook/roundstart/proc/unit_test()
+	. = TRUE
 	//
 	// Run Tests
 	//
