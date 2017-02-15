@@ -179,6 +179,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	if (rtn2 <= 0)
 		log_game("Failed to recreate MC (Error code: [rtn2]), it's up to the failsafe now")
 		message_admins("Failed to recreate MC (Error code: [rtn2]), it's up to the failsafe now")
+		Failsafe.defcon = 2
 
 // Main loop.
 /datum/controller/master/proc/Loop()
@@ -258,6 +259,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (make_runtime)
 			var/datum/subsystem/SS
 			SS.can_fire = 0
+		if (!Failsafe || (Failsafe.processing_interval > 0 && (Failsafe.lasttick+(Failsafe.processing_interval*5)) < world.time))
+			new/datum/controller/failsafe()	// (re)start the failsafe.
 		if (!queue_head || !(iteration % 3))
 			if (round_started)
 				subsystems_to_check = normalsubsystems
