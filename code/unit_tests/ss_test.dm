@@ -30,6 +30,8 @@
 	// Run Tests
 	//
 
+	sleep(5 SECONDS)
+
 	var/list/test_datums = typesof(/datum/unit_test)
 
 	var/list/async_test = list()
