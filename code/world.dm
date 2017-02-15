@@ -104,10 +104,6 @@ var/global/list/objects_init_list = list()
 #endif
 
 	Master.Setup(10, FALSE)
-	
-#ifdef UNIT_TEST
-	initialize_unit_tests()
-#endif
 
 #undef RECOMMENDED_VERSION
 
