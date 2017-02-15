@@ -38,8 +38,8 @@
 		
 	L_PROF(loc, "overlay_destroy (qdel-Destroyed)")
 	global.all_lighting_overlays        -= src
-	global.lighting_update_overlays     -= src
-	lighting_process.curr_overlays 		-= src
+	SSlighting.overlay_queue    		-= src
+	SSlighting.processing_overlays 		-= src
 
 	var/turf/T   = loc
 	if (istype(T))

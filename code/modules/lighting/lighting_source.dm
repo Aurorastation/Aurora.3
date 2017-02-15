@@ -95,7 +95,7 @@
 #define QUEUE_UPDATE                    \
 	if (!needs_update)                  \
 	{                                   \
-		lighting_update_lights += src;  \
+		SSlighting.light_queue += src;  \
 		needs_update            = TRUE; \
 	}
 
