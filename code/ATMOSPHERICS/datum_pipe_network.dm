@@ -76,3 +76,7 @@ datum/pipe_network
 
 	proc/reconcile_air()
 		equalize_gases(gases)
+
+	Destroy()
+		pipe_networks -= src
+		return ..()

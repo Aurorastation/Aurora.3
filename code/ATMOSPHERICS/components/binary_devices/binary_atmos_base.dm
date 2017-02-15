@@ -54,7 +54,7 @@ obj/machinery/atmospherics/binary
 		node1 = null
 		node2 = null
 
-		..()
+		return ..()
 
 	initialize()
 		if(node1 && node2) return
