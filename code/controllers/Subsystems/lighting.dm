@@ -32,7 +32,15 @@ datum/subsystem/lighting/stat_entry()
 /datum/subsystem/lighting/Initialize(timeofday)
 	// Generate overlays.
 	for (var/zlevel = 1 to world.maxz)
-		create_lighting_overlays_zlevel(zlevel)
+		for (var/turf/T in block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel)))
+			if (!T.dynamic_lighting)
+				continue
+
+			var/area/A = T.loc
+			if (!A.dynamic_lighting)
+				continue
+
+			getFromPool(/atom/movable/lighting_overlay, T, TRUE)
 
 	..()
 
