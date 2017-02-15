@@ -415,21 +415,22 @@ var/list/diona_banned_languages = list(
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_factor = 1
+	var/light_factor = 1.15
 	var/turf/T = get_turf(src)
 	if (is_ventcrawling)
 		return -1.5 //no light inside pipes
 
+
 	if (DS.light_organ)
 		if (DS.light_organ.is_broken())
-			light_factor = 0.55
+			light_factor *= 0.55
 		else if (DS.light_organ.is_bruised())
-			light_factor = 0.8
+			light_factor *= 0.8
 	else if (DS.dionatype == 2)
-		light_factor = 0.8
+		light_factor = 1
 
 	if (T)
-		var/raw = T.get_uv_lumcount(0, 2) * light_factor * 5.5
+		var/raw = min(T.get_uv_lumcount(0, 2) * light_factor * 5.5, 5.5)
 		return raw - 1.5
 
 /mob/living/carbon/proc/diona_get_health(var/datum/dionastats/DS)
