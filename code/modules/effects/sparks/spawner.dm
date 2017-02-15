@@ -36,6 +36,7 @@
 	if (location)
 		var/obj/visual_effect/sparks/S = getFromPool(/obj/visual_effect/sparks, location, src, 0) //Trigger one on the tile it's on
 		S.start()
+		playsound(location, "sparks", 100, 1)
 		SSeffects.effects_visuals += S	// Queue it.
 
 		while (total_sparks <= src.amount)
