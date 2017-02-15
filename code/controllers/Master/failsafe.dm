@@ -69,7 +69,7 @@ var/datum/controller/failsafe/Failsafe
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
-								admin_notice("<font color='black'>[FAILSAFE_PREFIX] Master Controller restarted successfully!", FAILSAFE_NOTIFY)
+								admin_notice("<font color='black'>[FAILSAFE_PREFIX] Master Controller restarted successfully!</font>", FAILSAFE_NOTIFY)
 							else if(rtn < 0)
 								log_game("FailSafe: Could not restart MC, runtime encountered. Entering defcon 0")
 								admin_notice(span("danger", "[FAILSAFE_PREFIX]ERROR: DEFCON [defcon_pretty()]. Unable to restart Master Controller, runtime encountered. Silently retrying."), FAILSAFE_NOTIFY)
@@ -80,7 +80,7 @@ var/datum/controller/failsafe/Failsafe
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
-								admin_notice("[FAILSAFE_PREFIX]<font color='black'>Failsafe: Master Controller restarted successfully!", FAILSAFE_NOTIFY)
+								admin_notice("[FAILSAFE_PREFIX]<font color='black'>Failsafe: Master Controller restarted successfully!</font>", FAILSAFE_NOTIFY)
 				else
 					defcon = min(defcon + 1,5)
 					master_iteration = Master.iteration
