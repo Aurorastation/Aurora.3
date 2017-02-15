@@ -20,7 +20,7 @@ var/datum/subsystem/nightlight/SSnightlight
 		if (config.nl_start to TICKS_IN_DAY)
 			activate()
 
-	..(silent = TRUE)
+	..(timeofday, silent = TRUE)
 
 /datum/subsystem/nightlight/stat_entry()
 	..("WTT:[worldtime2ticks()]")

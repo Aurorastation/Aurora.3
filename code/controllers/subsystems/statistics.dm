@@ -7,7 +7,7 @@
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))
 		disable()
 	
-	..(silent = TRUE)
+	..(timeofday, silent = TRUE)
 
 /datum/subsystem/statistics/fire()
 	// Handle AFK.
