@@ -29,9 +29,9 @@
 	//
 	// Run Tests
 	//
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/ss_unit_test_run), 10 SECONDS)
 
-	sleep(5 SECONDS)
-
+/proc/ss_unit_test_run()
 	var/list/test_datums = typesof(/datum/unit_test)
 
 	var/list/async_test = list()
