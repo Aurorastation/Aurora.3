@@ -90,7 +90,7 @@
 			debug_variables(nanomanager)
 			feedback_add_details("admin_verb", "DNano")
 		if("Chemistry")
-			debug_variables(chemistryProcess)
+			debug_variables(SSchemistry)
 			feedback_add_details("admin_verb", "DChem")
 		if("Wireless")
 			debug_variables(wirelessProcess)

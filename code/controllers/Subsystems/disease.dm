@@ -28,3 +28,6 @@ var/datum/subsystem/diseases/SSdisease
 
 		if (MC_TICK_CHECK)
 			return
+
+/datum/subsystem/diseases/Recover()
+	src.processing = SSdisease.processing

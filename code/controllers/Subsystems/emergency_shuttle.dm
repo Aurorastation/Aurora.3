@@ -22,6 +22,18 @@ var/datum/subsystem/emergency_shuttle/emergency_shuttle
 	var/datum/announcement/priority/emergency_shuttle_called = new(0, new_sound = sound('sound/AI/shuttlecalled.ogg'))
 	var/datum/announcement/priority/emergency_shuttle_recalled = new(0, new_sound = sound('sound/AI/shuttlerecalled.ogg'))
 
+/datum/subsystem/emergency_shuttle/Recover()
+	// Just copy all the stuff over.
+	src.shuttle = emergency_shuttle.shuttle
+	src.escape_pods = emergency_shuttle.escape_pods
+	src.launch_time = emergency_shuttle.launch_time
+	src.auto_recall = emergency_shuttle.auto_recall
+	src.auto_recall_time = emergency_shuttle.auto_recall_time
+	src.evac = emergency_shuttle.evac
+	src.wait_for_launch = emergency_shuttle.wait_for_launch
+	src.autopilot = emergency_shuttle.autopilot
+	src.deny_shuttle = emergency_shuttle.deny_shuttle
+
 /datum/subsystem/emergency_shuttle/New()
 	NEW_SS_GLOBAL(emergency_shuttle)
 

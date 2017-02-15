@@ -83,3 +83,6 @@ var/datum/subsystem/effects/SSeffects
 /datum/subsystem/effects/Recover()
 	src.effects_objects = SSeffects.effects_objects
 	src.effects_visuals = SSeffects.effects_visuals
+
+	src.effects_objects |= SSeffects.processing_effects
+	src.effects_visuals |= SSeffects.processing_visuals

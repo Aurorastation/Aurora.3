@@ -1,15 +1,11 @@
 /var/datum/subsystem/plants/plant_controller
 
-#define PLANTS_PER_TICK 500 // Cap on number of plant segments processed.
-#define PLANT_TICK_TIME 75  // Number of ticks between the plant processor cycling.
-
 /datum/subsystem/plants
 	name = "Seeds & Plants"
 	flags = SS_TICKER | SS_NO_TICK_CHECK
-	wait = PLANT_TICK_TIME
+	wait = 75
 	init_order = SS_INIT_MISC
 
-	var/plants_per_tick = PLANTS_PER_TICK
 	var/list/product_descs = list()         // Stores generated fruit descs.
 	var/list/plant_queue = list()           // All queued plants.
 	var/list/seeds = list()                 // All seed data stored here.
@@ -74,6 +70,14 @@
 	
 	..()
 
+/datum/subsystem/plants/Recover()
+	src.product_descs = plant_controller.product_descs
+	src.plant_queue = plant_controller.plant_queue
+	src.seeds = plant_controller.seeds
+	src.gene_tag_masks = plant_controller.gene_tag_masks
+	src.plant_icon_cache = plant_controller.plant_icon_cache
+	src.plant_sprites = plant_controller.plant_sprites
+	src.plant_product_sprites = plant_controller.plant_product_sprites
 
 // Proc for creating a random seed type.
 /datum/subsystem/plants/proc/create_random_seed(var/survive_on_station)
@@ -99,7 +103,7 @@
 	return seed
 
 /datum/subsystem/plants/stat_entry()
-	..("[plant_queue.len] plants")
+	..("P:[plant_queue.len]")
 
 /datum/subsystem/plants/fire(resumed = 0)
 	if (!resumed)

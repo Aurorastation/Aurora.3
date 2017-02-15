@@ -1,5 +1,3 @@
-var/datum/subsystem/turf/SSturf
-
 var/global/list/turf/processing_turfs = list()
 
 /datum/subsystem/turf
@@ -8,9 +6,6 @@ var/global/list/turf/processing_turfs = list()
 	flags = SS_NO_INIT
 
 	var/tmp/list/queued_turfs = list()
-
-/datum/subsystem/turf/New()
-	NEW_SS_GLOBAL(SSturf)
 
 /datum/subsystem/turf/fire(resumed = FALSE)
 	if (!resumed)

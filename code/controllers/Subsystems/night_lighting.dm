@@ -1,4 +1,4 @@
-var/datum/subsystem/nightlight/nl_ctrl
+var/datum/subsystem/nightlight/SSnightlight
 
 /datum/subsystem/nightlight
 	name = "Night Lighting"
@@ -11,7 +11,7 @@ var/datum/subsystem/nightlight/nl_ctrl
 	var/manual_override = 0
 
 /datum/subsystem/nightlight/New()
-	NEW_SS_GLOBAL(nl_ctrl)
+	NEW_SS_GLOBAL(SSnightlight)
 
 /datum/subsystem/nightlight/Initialize(timeofday)
 	switch (worldtime2ticks())
@@ -19,6 +19,13 @@ var/datum/subsystem/nightlight/nl_ctrl
 			deactivate()
 		if (config.nl_start to TICKS_IN_DAY)
 			activate()
+
+/datum/subsystem/nightlight/stat_entry()
+	..("WTT:[worldtime2ticks()]")
+
+/datum/subsystem/nightlight/Recover()
+	src.isactive = SSnightlight.isactive
+	src.manual_override = SSnightlight.manual_override
 
 /datum/subsystem/nightlight/fire(resumed = FALSE)
 	if (manual_override)	// don't automatically change lighting if it was manually changed in-game

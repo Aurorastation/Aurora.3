@@ -1,4 +1,4 @@
-var/datum/subsystem/chemistry/chemistryProcess
+var/datum/subsystem/chemistry/SSchemistry
 
 /datum/subsystem/chemistry
 	name = "Chemistry"
@@ -12,7 +12,7 @@ var/datum/subsystem/chemistry/chemistryProcess
 	var/tmp/list/processing_holders = list()
 
 /datum/subsystem/chemistry/New()
-	NEW_SS_GLOBAL(chemistryProcess)
+	NEW_SS_GLOBAL(SSchemistry)
 	active_holders = list()
 	chemical_reactions = chemical_reactions_list
 	chemical_reagents = chemical_reagents_list
@@ -38,3 +38,8 @@ var/datum/subsystem/chemistry/chemistryProcess
 	//Process once, right away. If we still need to continue then add to the active_holders list and continue later
 	if (holder.process_reactions())
 		active_holders += holder
+
+/datum/subsystem/chemistry/Recover()
+	src.active_holders = SSchemistry.active_holders
+	src.chemical_reactions = SSchemistry.chemical_reactions
+	src.chemical_reagents = SSchemistry.chemical_reagents

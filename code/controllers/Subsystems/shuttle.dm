@@ -12,6 +12,10 @@ var/datum/subsystem/shuttle/shuttle_controller
 /datum/subsystem/shuttle/New()
 	NEW_SS_GLOBAL(shuttle_controller)
 
+/datum/subsystem/shuttle/Recover()
+	src.shuttles = shuttle_controller.shuttles
+	src.process_shuttles = shuttle_controller.process_shuttles
+
 /datum/subsystem/shuttle/proc/setup_shuttle_docks()
 	for(var/shuttle_tag in shuttles)
 		var/datum/shuttle/shuttle = shuttles[shuttle_tag]

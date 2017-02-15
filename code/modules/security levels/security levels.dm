@@ -34,7 +34,7 @@
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
 					security_announcement_up.Announce("[config.alert_desc_red_upto]", "Attention! Security level elevated to red!")
-					nl_ctrl.deactivate(0)	// Disable nightmode globally
+					SSnightlight.deactivate(0)	// Disable nightmode globally
 				else
 					security_announcement_down.Announce("[config.alert_desc_red_downto]", "Attention! Code red!")
 				security_level = SEC_LEVEL_RED
