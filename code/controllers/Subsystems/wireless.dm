@@ -2,7 +2,7 @@ var/datum/subsystem/wireless/wirelessProcess
 
 /datum/subsystem/wireless
 	name = "Wireless"
-	init_order = SS_INIT_MISC
+	flags = SS_NO_INIT
 
 	var/list/receiver_list = list()
 	var/list/pending_connections = list()

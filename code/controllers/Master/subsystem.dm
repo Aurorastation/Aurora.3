@@ -153,10 +153,11 @@
 
 
 //used to initialize the subsystem AFTER the map has loaded
-/datum/subsystem/proc/Initialize(start_timeofday)
+/datum/subsystem/proc/Initialize(start_timeofday, var/silent = FALSE)
 	var/time = (world.timeofday - start_timeofday) / 10
 	var/msg = "Initialized [name] subsystem within [time] seconds!"
-	admin_notice(span("danger", msg), R_DEBUG)
+	if (!silent)
+		admin_notice(span("danger", msg), R_DEBUG)
 	world.log << "## SS Init: [msg]"
 	game_log("SS", msg)
 	return time

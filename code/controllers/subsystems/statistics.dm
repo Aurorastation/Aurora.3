@@ -6,7 +6,8 @@
 /datum/subsystem/statistics/Initialize(timeofday)
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))
 		disable()
-	// No call to parent, no need to say this was initialized.
+	
+	..(silent = TRUE)
 
 /datum/subsystem/statistics/fire()
 	// Handle AFK.
