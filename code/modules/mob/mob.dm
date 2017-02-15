@@ -751,6 +751,7 @@
 			if(statpanel("Status"))
 				stat("Location:", "([x], [y], [z]) [loc]")
 				stat("CPU:","[world.cpu]")
+				stat("Tick Usage:", world.tick_usage)
 				stat("Instances:","[world.contents.len]")
 			if(statpanel("Processes"))
 				stat(null)
@@ -758,6 +759,7 @@
 					Master.stat_entry()
 				else
 					stat("Master Controller:", "ERROR")
+				stat("Tick Usage:", world.tick_usage)
 				if (Master)
 					stat(null)
 					for (var/datum/subsystem/SS in Master.subsystems)

@@ -98,6 +98,9 @@
 		seed.set_trait(TRAIT_HIGHKPA_TOLERANCE,200)
 	return seed
 
+/datum/subsystem/plants/stat_entry()
+	..("[plant_queue.len] plants")
+
 /datum/subsystem/plants/fire(resumed = 0)
 	if (!resumed)
 		queue = plant_queue
@@ -117,8 +120,12 @@
 		if (MC_TICK_CHECK)
 			return
 
+	if (!plant_queue.len)
+		disable()
+
 /datum/subsystem/plants/proc/add_plant(var/obj/effect/plant/plant)
 	plant_queue |= plant
+	enable()
 
 /datum/subsystem/plants/proc/remove_plant(var/obj/effect/plant/plant)
 	plant_queue -= plant

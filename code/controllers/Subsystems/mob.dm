@@ -7,8 +7,7 @@
 	var/list/currentrun = list()
 
 /datum/subsystem/mobs/stat_entry()
-	..()
-	stat(null, "[mob_list.len] mobs")
+	..("[mob_list.len] mobs")
 
 /datum/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)

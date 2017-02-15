@@ -23,7 +23,6 @@ var/datum/subsystem/lighting/SSlighting
 
 datum/subsystem/lighting/stat_entry()
 	..()
-	stat(null, "Server tick usage is [world.tick_usage].")
 	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
 	stat(null, "Lights: [light_queue.len] queued, [processing_lights.len] processing")
 	stat(null, "Corners: [corner_queue.len] queued, [processing_corners.len] processing")

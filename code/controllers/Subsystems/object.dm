@@ -28,8 +28,7 @@
 			return
 
 /datum/subsystem/object/stat_entry()
-	..()
-	stat(null, "[processing_objects.len] objects")
+	..("[processing_objects.len] objects")
 
 /datum/subsystem/object/Initialize(timeofday)
 	while (objects_init_list.len)
