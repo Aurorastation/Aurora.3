@@ -10,7 +10,7 @@
 
 /datum/controller/process/scheduler/setup()
 	name = "scheduler"
-	schedule_interval = 3 SECONDS
+	schedule_interval = 2 SECONDS
 	scheduled_tasks = list()
 	scheduler = src
 
