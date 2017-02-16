@@ -292,6 +292,12 @@
 	icon = 'icons/obj/engine.dmi'
 	icon_state = "darkmatter"
 
+/obj/effect/meteor/supermatter/New()
+	..()
+	if(prob(5))
+		meteordrop = /obj/machinery/power/supermatter/shard
+		dropamt = 1
+
 /obj/effect/meteor/supermatter/meteor_effect()
 	explosion(src.loc, 1, 2, 3, 4, 0)
 	for(var/obj/machinery/power/apc/A in range(rand(12, 20), src))
