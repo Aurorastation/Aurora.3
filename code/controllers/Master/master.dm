@@ -156,6 +156,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 /datum/controller/master/proc/RoundStart()
 	round_started = 1
 	game_log("MC", "Round started.")
+	world.log << "## MC: Round started."
 	var/timer = world.time
 	for (var/datum/subsystem/SS in subsystems)
 		if (SS.flags & SS_FIRE_IN_LOBBY || SS.flags & SS_TICKER)
