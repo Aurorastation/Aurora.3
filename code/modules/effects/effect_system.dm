@@ -2,6 +2,7 @@
 // The base type for the new processor-driven effect system.
 /datum/effect_system
 	var/atom/movable/holder	 	// The object this effect is attached to. If this is set, the effect will not be qdel()'d at end of processing.
+	var/turf/location 			// Where the effect is
 
 /datum/effect_system/New(var/queue = TRUE)
 	. = ..()
@@ -21,7 +22,10 @@
 	return FALSE
 
 /datum/effect_system/proc/process()
-	return holder ? EFFECT_HALT : EFFECT_DESTROY	// Terminate effect if it's not attached to something.
+	if (holder)
+		location = get_turf(holder)
+		return EFFECT_HALT
+	return EFFECT_DESTROY	// Terminate effect if it's not attached to something.
 
 /datum/effect_system/proc/bind(var/target)
 	holder = target

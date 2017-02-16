@@ -99,7 +99,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_dev_bst,
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
-	/client/proc/flush_lighting_queues
+	/client/proc/flush_lighting_queues,
+	/client/proc/fix_player_list
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -205,7 +206,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
 	/client/proc/flush_lighting_queues,
-	/client/proc/debug_pooling
+	/client/proc/debug_pooling,
+	/client/proc/fix_player_list
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -1073,3 +1075,29 @@ var/list/admin_verbs_cciaa = list(
 	lighting_update_lights = list()
 	lighting_update_corners = list()
 	lighting_update_overlays = list()
+
+/client/proc/fix_player_list()
+	set category = "Special Verbs"
+	set name = "Regenerate Player List"
+	set desc = "Use this to regenerate the player list if it becomes broken somehow."
+
+	if (!check_rights(R_DEBUG|R_ADMIN))
+		return
+
+	if (alert("Regenerate player lists?", "Player List Repair", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("is rebuilding the master player mob list.")
+	for (var/P in player_list)
+		if (isnull(P) || !ismob(P))
+			var/msg = "P_LIST DEBUG: Found null entry in player_list!"
+			log_debug(msg)
+			message_admins(span("danger", msg))
+			player_list -= P
+		else
+			var/mob/M = P
+			if (!M.client)
+				var/msg = "P_LIST DEBUG: Found a mob without a client in player_list! [M.name]"
+				log_debug(msg)
+				message_admins(span("danger", msg))
+				player_list -= M

@@ -24,6 +24,10 @@
 		if(M.stat == DEAD)
 			user << "[name] can only transform living targets."
 			continue
+
+		if(M.buckled)
+			M.buckled.unbuckle_mob()
+
 		var/new_mob = pick(possible_transformations)
 
 		var/mob/living/trans = new new_mob(get_turf(M))
@@ -76,7 +80,7 @@
 	feedback = "BP"
 	possible_transformations = list(/mob/living/simple_animal/lizard,/mob/living/simple_animal/mouse,/mob/living/simple_animal/corgi)
 
-
+	share_damage = 0
 	invocation = "Yo'balada!"
 	invocation_type = SpI_SHOUT
 	spell_flags = NEEDSCLOTHES | SELECTABLE
@@ -85,6 +89,8 @@
 	cooldown_min = 300 //30 seconds
 
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 2, Sp_POWER = 2)
+
+	newVars = list("health" = 50, "maxHealth" = 50)
 
 	hud_state = "wiz_poly"
 
@@ -98,13 +104,15 @@
 	return "Your target will now stay in their polymorphed form for [duration/10] seconds."
 
 /spell/targeted/shapeshift/avian
-	name = "Avian Form"
+	name = "Polymorph"
 	desc = "This spell transforms the wizard into the common parrot."
 	feedback = "AV"
 	possible_transformations = list(/mob/living/simple_animal/parrot)
 
 	invocation = "Poli'crakata!"
 	invocation_type = SpI_SHOUT
+	drop_items = 0
+	share_damage = 0
 	spell_flags = INCLUDEUSER
 	range = -1
 	duration = 150
@@ -143,9 +151,9 @@
 			return "You will now stay corrupted for [duration/10] seconds."
 		if(2)
 			newVars = list("name" = "\proper corruption incarnate",
-						"melee_damage_upper" = 25,
+						"melee_damage_upper" = 35,
 						"resistance" = 6,
-						"health" = 125,
-						"maxHealth" = 125)
+						"health" = 250,
+						"maxHealth" = 250)
 			duration = 0
 			return "You revel in the corruption. There is no turning back."

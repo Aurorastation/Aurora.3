@@ -50,7 +50,7 @@
 	var/add_req_access = 1
 	var/maint_access = 1
 	var/dna	//dna-locking the mech
-	var/datum/effect/effect/system/spark_spread/spark_system = new
+	var/datum/effect_system/sparks/spark_system
 	var/lights = 0
 	var/lights_power = 6
 
@@ -108,8 +108,6 @@
 	add_radio()
 	add_cabin()
 	add_airtank() //All mecha currently have airtanks. No need to check unless changes are made.
-	spark_system.set_up(2, 0, src)
-	spark_system.attach(src)
 	add_cell()
 	add_iterators()
 	removeVerb(/obj/mecha/verb/disconnect_from_port)
@@ -117,7 +115,8 @@
 	loc.Entered(src)
 	mechas_list += src //global mech list
 	narrator_message(FIRSTRUN)
-	return
+	
+	spark_system = bind_spark(src, 2)
 
 /obj/mecha/Destroy()
 	src.go_out()
@@ -595,7 +594,7 @@
 
 /obj/mecha/proc/update_health()
 	if(src.health > 0)
-		src.spark_system.start()
+		src.spark_system.queue()
 	else
 		qdel(src)
 	return
@@ -669,7 +668,8 @@
 		if(istype(Proj, /obj/item/projectile/beam/pulse))
 			ignore_threshold = 1
 		src.hit_damage(Proj.damage, Proj.check_armour, is_melee=0)
-		if(prob(25)) spark_system.start()
+		if(prob(25)) 
+			spark_system.queue()
 		src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),ignore_threshold)
 
 		//AP projectiles have a chance to cause additional damage
@@ -2252,7 +2252,7 @@
 					qdel(leaked_gas)
 		if(mecha.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			if(mecha.get_charge())
-				mecha.spark_system.start()
+				mecha.spark_system.queue()
 				mecha.cell.charge -= min(20,mecha.cell.charge)
 				mecha.cell.maxcharge -= min(20,mecha.cell.maxcharge)
 		return

@@ -71,6 +71,9 @@ var/global/list/image/splatter_cache=list()
 	if(amount < 1)
 		return
 
+	if (!blood_DNA || !islist(blood_DNA))
+		blood_DNA = list()
+
 	var/obj/item/organ/external/l_foot = perp.get_organ("l_foot")
 	var/obj/item/organ/external/r_foot = perp.get_organ("r_foot")
 	var/hasfeet = 1
