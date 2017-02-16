@@ -27,14 +27,12 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 	blend_mode = BLEND_ADD
 	layer = AREA_LAYER
 	plane = PLANE_SPACE_PARALLAX
-	globalscreen = 1
 	var/parallax_speed = 0
 
 /obj/screen/plane_master
 	appearance_flags = PLANE_MASTER
 	screen_loc = "CENTER,CENTER"
-	globalscreen = 1
-
+	
 /obj/screen/plane_master/parallax_master
 	plane = PLANE_SPACE_PARALLAX
 	blend_mode = BLEND_MULTIPLY
