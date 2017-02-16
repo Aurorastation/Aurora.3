@@ -266,7 +266,6 @@
 #define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
-#define TICK_LIMIT 80
 #define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
 #define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
 

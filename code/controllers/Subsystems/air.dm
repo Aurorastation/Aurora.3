@@ -5,6 +5,7 @@ var/air_processing_killed = FALSE
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_AIR
 	display_order = SS_DISPLAY_AIR
+	flags = SS_NO_TICK_CHECK
 
 /datum/subsystem/air/Initialize(timeofday)
 	if (!air_master)

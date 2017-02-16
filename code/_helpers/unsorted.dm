@@ -1394,7 +1394,7 @@ var/list/WALLITEMS = list(
 		. += round(i*DELTA_CALC)
 		sleep(i*world.tick_lag*DELTA_CALC)
 		i *= 2
-	while (world.tick_usage > TICK_LIMIT)
+	while (world.tick_usage > CURRENT_TICKLIMIT)
 
 #undef DELTA_CALC
 
