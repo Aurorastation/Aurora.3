@@ -4,8 +4,8 @@
 
 /datum/subsystem/unit_tests
 	name = "Unit Tests"
-	flags = SS_NO_FIRE
 	init_order = -10	// last.
+	flags = SS_NO_TICK_CHECK
 
 /datum/subsystem/unit_tests/Initialize(timeofday)
 	log_unit_test("Initializing Unit Testing")	
@@ -24,14 +24,7 @@
 
 	log_unit_test("Round has been started.")
 
-/hook/roundstart/proc/unit_test()
-	. = TRUE
-	//
-	// Run Tests
-	//
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/ss_unit_test_run), 10 SECONDS)
-
-/proc/ss_unit_test_run()
+/datum/subsystem/unit_tests/fire()
 	var/list/test_datums = typesof(/datum/unit_test)
 
 	var/list/async_test = list()
