@@ -20,37 +20,32 @@
 	var/turf/pickedgoal
 	var/max_i = 10//number of tries to spawn meteor.
 
+	switch(pick(1,2,3,4))
+		if(1) //NORTH
+			starty = world.maxy-(TRANSITIONEDGE+2)
+			startx = rand((TRANSITIONEDGE+2), world.maxx-(TRANSITIONEDGE+2))
+			endy = TRANSITIONEDGE
+			endx = rand(TRANSITIONEDGE, world.maxx-TRANSITIONEDGE)
+		if(2) //EAST
+			starty = rand((TRANSITIONEDGE+2),world.maxy-(TRANSITIONEDGE+1))
+			startx = world.maxx-(TRANSITIONEDGE+2)
+			endy = rand(TRANSITIONEDGE, world.maxy-TRANSITIONEDGE)
+			endx = TRANSITIONEDGE
+		if(3) //SOUTH
+			starty = (TRANSITIONEDGE+2)
+			startx = rand((TRANSITIONEDGE+2), world.maxx-(TRANSITIONEDGE+2))
+			endy = world.maxy-TRANSITIONEDGE
+			endx = rand(TRANSITIONEDGE, world.maxx-TRANSITIONEDGE)
+		if(4) //WEST
+			starty = rand((TRANSITIONEDGE+2), world.maxy-(TRANSITIONEDGE+2))
+			startx = (TRANSITIONEDGE+2)
+			endy = rand(TRANSITIONEDGE,world.maxy-TRANSITIONEDGE)
+			endx = world.maxx-TRANSITIONEDGE
 
-	do
-		switch(pick(1,2,3,4))
-			if(1) //NORTH
-				starty = world.maxy-(TRANSITIONEDGE+2)
-				startx = rand((TRANSITIONEDGE+2), world.maxx-(TRANSITIONEDGE+2))
-				endy = TRANSITIONEDGE
-				endx = rand(TRANSITIONEDGE, world.maxx-TRANSITIONEDGE)
-			if(2) //EAST
-				starty = rand((TRANSITIONEDGE+2),world.maxy-(TRANSITIONEDGE+1))
-				startx = world.maxx-(TRANSITIONEDGE+2)
-				endy = rand(TRANSITIONEDGE, world.maxy-TRANSITIONEDGE)
-				endx = TRANSITIONEDGE
-			if(3) //SOUTH
-				starty = (TRANSITIONEDGE+2)
-				startx = rand((TRANSITIONEDGE+2), world.maxx-(TRANSITIONEDGE+2))
-				endy = world.maxy-TRANSITIONEDGE
-				endx = rand(TRANSITIONEDGE, world.maxx-TRANSITIONEDGE)
-			if(4) //WEST
-				starty = rand((TRANSITIONEDGE+2), world.maxy-(TRANSITIONEDGE+2))
-				startx = (TRANSITIONEDGE+2)
-				endy = rand(TRANSITIONEDGE,world.maxy-TRANSITIONEDGE)
-				endx = world.maxx-TRANSITIONEDGE
-
-		pickedstart = locate(startx, starty, 1)
-		pickedgoal = locate(endx, endy, 1)
-		max_i--
-		if(max_i<=0) return
-
-	while (!istype(pickedstart, /turf/space)) //FUUUCK, should never happen.
-
+	pickedstart = locate(startx, starty, 2)
+	pickedgoal = locate(endx, endy, 2)
+	max_i--
+	if(max_i<=0) return
 
 	var/obj/effect/meteor/M
 	switch(rand(1, 100))
@@ -82,14 +77,14 @@
 
 	M.dest = pickedgoal
 	spawn(1)
-		walk_towards(M, M.dest, 1)
+		walk_towards(M, M.dest, 2)
 
 	return
 
 /obj/effect/meteor
 	name = "meteor"
 	icon = 'icons/obj/meteor.dmi'
-	icon_state = "flaming"
+	icon_state = "large"
 	density = 1
 	anchored = 1.0
 	var/hits = 3
@@ -140,8 +135,6 @@
 				if (T)//We have a double safety check on T to prevent runtime errors
 					meteor_shield_impact_sound(T, shieldsoundrange)
 				msg_admin_attack("Meteor impacted energy field at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
-				make_debris()
-				meteor_effect()
 				spawn()//Delaying the Qdel a frame provides a little more safety
 					qdel(src)
 
@@ -153,8 +146,6 @@
 					!istype(A,/obj/machinery/field_generator) && \
 					prob(detonation_chance))
 					explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-					make_debris()
-					meteor_effect()
 					msg_admin_attack("Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 				else
 					msg_admin_attack("Meteor dissipated without exploding at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
@@ -220,8 +211,6 @@
 					if (T)
 						meteor_shield_impact_sound(T, shieldsoundrange)
 					explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-					make_debris()
-					meteor_effect()
 					msg_admin_attack("Large Meteor impacted energy field and then exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 					spawn()//Have to delay the qdel a little, or the playsound will throw a runtime
 						qdel(src)
@@ -245,8 +234,6 @@
 					else
 						msg_admin_attack("Large Meteor dissipated without a final explosion at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 					spawn()
-						make_debris()
-						meteor_effect()
 						qdel(src)
 
 /obj/effect/meteor/dust
