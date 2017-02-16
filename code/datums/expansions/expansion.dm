@@ -25,9 +25,10 @@
 	var/list/datum/expansion/expansions = list()
 
 /obj/Destroy()
-	for(var/expansion in expansions)
-		qdel(expansions[expansion])
-	expansions.Cut()
+	if (expansions)
+		for(var/expansion in expansions)
+			qdel(expansions[expansion])
+		expansions.Cut()
 	return ..()
 
 /obj/resetVariables(var/list/exclude = list())
