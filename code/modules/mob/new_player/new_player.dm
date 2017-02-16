@@ -109,6 +109,11 @@
 			new_player_panel_proc()
 
 		if(href_list["observe"])
+			if (!ticker)
+				// Don't allow players to observe until initialization is more or less complete.
+				// Letting them join too early breaks things, they can wait.
+				src << span("alert", "The server is still initializing, try observing again in a minute or so.")
+				return 
 
 			if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 				if(!client)	return 1
