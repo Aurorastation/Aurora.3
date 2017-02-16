@@ -167,6 +167,7 @@ area/space/atmosalert()
 
 /area/shuttle/arrival/station
 	icon_state = "shuttle"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
@@ -175,6 +176,7 @@ area/space/atmosalert()
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
 	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/escape/centcom
 	name = "\improper Emergency Shuttle Centcom"
@@ -190,6 +192,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod1/station
 	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/escape_pod1/centcom
 	icon_state = "shuttle"
@@ -203,6 +206,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod2/station
 	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/escape_pod2/centcom
 	icon_state = "shuttle"
@@ -216,6 +220,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod3/station
 	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/escape_pod3/centcom
 	icon_state = "shuttle"
@@ -229,6 +234,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/escape_pod5/centcom
 	icon_state = "shuttle"
@@ -253,6 +259,7 @@ area/space/atmosalert()
 /area/shuttle/transport1/station
 	icon_state = "shuttle"
 	name = "\improper Transport Shuttle"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/alien/base
 	icon_state = "shuttle"
@@ -282,6 +289,7 @@ area/space/atmosalert()
 
 /area/shuttle/specops/station
 	icon_state = "shuttlered2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
@@ -292,6 +300,7 @@ area/space/atmosalert()
 
 /area/shuttle/syndicate_elite/station
 	icon_state = "shuttlered2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/administration
 	flags = RAD_SHIELDED
@@ -303,6 +312,7 @@ area/space/atmosalert()
 /area/shuttle/administration/station
 	name = "\improper Administration Shuttle"
 	icon_state = "shuttlered2"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/thunderdome
 	name = "honk"
