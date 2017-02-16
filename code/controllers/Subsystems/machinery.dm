@@ -1,5 +1,6 @@
 var/global/machinery_sort_required 		= 0
 var/global/list/ticking_machines		= list()
+var/global/list/power_using_machines	= list()
 
 /datum/subsystem/machinery
 	name = "Machinery"
@@ -9,18 +10,22 @@ var/global/list/ticking_machines		= list()
 	display_order = SS_DISPLAY_MACHINERY
 
 	var/tmp/list/processing_machinery = list()
-	var/tmp/list/processing_pipenets = list()
+	var/tmp/list/processing_power_users = list()
+	var/tmp/list/processing_powersinks = list()
+
 
 /datum/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
 		src.processing_machinery = machines.Copy()
-		src.processing_pipenets = pipe_networks.Copy()
+		src.processing_power_users = power_using_machines.Copy()
+		src.processing_powersinks = processing_power_items.Copy()
 
 		for (var/datum/powernet/PN in powernets)
 			PN.reset()
 
 	var/list/curr_machinery = src.processing_machinery
-	var/list/curr_pipenets = src.processing_pipenets
+	var/list/curr_power_users = src.processing_power_users
+	var/list/curr_powersinks = src.processing_powersinks
 
 	while (curr_machinery.len)
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
@@ -40,14 +45,26 @@ var/global/list/ticking_machines		= list()
 		if (MC_TICK_CHECK)
 			return
 
-	while (curr_pipenets.len)
-		var/datum/pipe_network/PN = curr_pipenets[curr_pipenets.len]
-		curr_pipenets.len--
+	while (curr_power_users.len)
+		var/obj/machinery/M = curr_power_users[curr_power_users.len]
+		curr_power_users.len--
 
-		if (!PN || PN.gcDestroyed)
+		if (QDELETED(M))
+			remove_machine(M)
 			continue
 
-		PN.process()
+		if (M.use_power)
+			M.auto_use_power()
+
+		if (MC_TICK_CHECK)
+			return
+
+	while (curr_powersinks.len)
+		var/obj/item/I = curr_powersinks[curr_powersinks.len]
+		curr_powersinks.len--
+
+		if (QDELETED(I) || !I.pwr_drain())
+			processing_power_items -= I
 		
 		if (MC_TICK_CHECK)
 			return
@@ -56,4 +73,3 @@ var/global/list/ticking_machines		= list()
 	..()
 	stat(null, "[machines.len] total machines")
 	stat(null, "[ticking_machines.len] ticking machines, [processing_machinery.len] queued")
-	stat(null, "[pipe_networks.len] pipenets, [processing_pipenets.len] queued")
