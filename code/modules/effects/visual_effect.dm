@@ -27,8 +27,10 @@
 	life_ticks--
 	return EFFECT_CONTINUE
 
-/obj/visual_effect/Destroy()
-	// ¯\_(ツ)_/¯
-	// This runtimes in expansions.dm if ..() is called.
+/obj/visual_effect/Destroy(force = FALSE)
+	if (!force)
+		loc = null	// hide it.
+		return QDEL_HINT_POOL
+
 	SSeffects.effects_visuals -= src
 	return ..()

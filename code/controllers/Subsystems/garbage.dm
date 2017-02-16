@@ -192,6 +192,21 @@ var/datum/subsystem/garbage_collector/garbage_collector
 				#ifdef TESTING
 				D.find_references()
 				#endif
+			if (QDEL_HINT_POOL)
+				if (!force)
+					D.gcDestroyed = null
+					returnToPool(D)
+					return
+				// Returning POOL after being told to force destroy
+				// indicates the objects Destroy() does not respect force
+				if(!garbage_collector.noforcerespect["[D.type]"])
+					garbage_collector.noforcerespect["[D.type]"] = "[D.type]"
+					testing("WARNING: [D.type] has been force deleted, but is \
+						returning an immortal QDEL_HINT, indicating it does \
+						not respect the force flag for qdel(). It has been \
+						placed in the queue, further instances of this type \
+						will also be queued.")
+				garbage_collector.QueueForQueuing(D)
 			else
 				garbage_collector.QueueForQueuing(D)
 				if(!garbage_collector.noqdelhint["[D.type]"])
