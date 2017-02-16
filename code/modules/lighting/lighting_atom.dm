@@ -128,13 +128,15 @@
 /atom/Entered(var/atom/movable/Obj, var/atom/OldLoc) //Implemented here because forceMove() doesn't call Move()
 	. = ..()
 
-	if (Obj && OldLoc != src)
-		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+	if (Obj && OldLoc != src && Obj.light_sources && Obj.light_sources.len)
+		addtimer(CALLBACK(src, .proc/do_lighting_update, Obj), 0.5, TIMER_UNIQUE)
+
+/atom/proc/do_lighting_update(var/atom/movable/Obj)
+	for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
+		L.source_atom.update_light()
 
 /atom/Exited(var/atom/movable/Obj, var/atom/newloc)
 	. = ..()
 
-	if (!newloc && Obj && newloc != src) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
-		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+	if (!newloc && Obj && newloc != src && Obj.light_sources && Obj.light_sources.len) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
+		addtimer(CALLBACK(src, .proc/do_lighting_update, Obj), 0.5, TIMER_UNIQUE)
