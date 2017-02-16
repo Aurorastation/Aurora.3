@@ -644,7 +644,7 @@ var/global/list/robot_modules = list(
 					"Drone" = "drone-science",
 					"Classic" = "robotJani",
 					"Sleek" = "sleekscience",
-					"Heavy" = "heavyMed"
+					"Heavy" = "heavySci"
 					)
 
 /obj/item/weapon/robot_module/research/New()
