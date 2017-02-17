@@ -169,7 +169,7 @@
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
-	w_class = 2
+	w_class = 3
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
