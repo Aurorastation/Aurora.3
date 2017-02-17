@@ -139,3 +139,9 @@
 //for when you need a reliable time number that doesn't depend on byond time.
 #define REALTIMEOFDAY (world.timeofday + (MIDNIGHT_ROLLOVER * MIDNIGHT_ROLLOVER_CHECK))
 #define MIDNIGHT_ROLLOVER_CHECK ( rollovercheck_last_timeofday != world.timeofday ? update_midnight_rollover() : midnight_rollovers )
+
+//Returns the cube root of the input number
+/proc/cubert(var/num, var/iterations = 10)
+    . = num
+    for (var/i = 0, i < iterations, i++)
+        . = (1/3) * (num/(.**2)+2*.)

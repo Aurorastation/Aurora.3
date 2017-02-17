@@ -202,6 +202,7 @@ var/list/global/random_stock_uncommon = list(
 	"corgihide" = 0.5,
 	"lizardhide" = 0.5,
 	"wintercoat" = 0.5,
+	"cookingoil" = 1,
 	"nothing" = 0)
 
 var/list/global/random_stock_rare = list(
@@ -1422,6 +1423,14 @@ var/list/global/random_stock_large = list(
 			new /obj/random/hoodie(L)
 
 
+		if("cookingoil")
+			var/turf/T = get_turf(L)
+			if (!turf_clear(T))
+				for (var/turf/U in range(T,1))
+					if (turf_clear(U))
+						T = U
+						break
+			new /obj/structure/reagent_dispensers/cookingoil(T)
 
 
 

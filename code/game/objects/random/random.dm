@@ -743,3 +743,17 @@
 	/obj/item/weapon/rig/unathi/fancy = 0.5
 	)
 	return pickweight(highvalue)
+
+
+//Sometimes the chef will have spare oil in storage.
+//Sometimes they wont, and will need to order it from cargo
+//Variety is the spice of life!
+/obj/random/cookingoil
+	name = "random cooking oil"
+	desc = "Has a 50% chance of spawning a tank of cooking oil, otherwise nothing"
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "oiltank"
+	spawn_nothing_percentage = 50
+
+/obj/random/cookingoil/item_to_spawn()
+	return "/obj/structure/reagent_dispensers/cookingoil"
