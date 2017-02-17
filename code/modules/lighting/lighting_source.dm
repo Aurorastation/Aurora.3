@@ -38,6 +38,8 @@
 	var/tmp/old_direction	// The last known direction of the origin.
 	var/tmp/cached_ab		// We don't actually need to save this, just nice for debugging.
 	var/tmp/targ_sign			
+	var/tmp/test_x_offset
+	var/tmp/test_y_offset
 
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
@@ -213,7 +215,7 @@
 // As such this all gets counted as a single line.
 // The braces and semicolons are there to be able to do this on a single line.
 
-#define APPLY_CORNER(C,now)              \
+/*#define APPLY_CORNER(C,now)              \
 	. = LUM_FALLOFF(C, source_turf); \
                                      \
 	. *= light_power;                \
@@ -227,7 +229,25 @@
 		. * applied_lum_b,           \
 		. * applied_lum_u,           \
 		now							 \
+	);*/
+
+#define APPLY_CORNER_XY(C,now,Tx,Ty) \
+	. = LUM_FALLOFF_XY(C.x, C.y, Tx, Ty); \
+                                     \
+	. *= light_power;                \
+                                     \
+	effect_str[C] = .;               \
+                                     \
+	C.update_lumcount                \
+	(                                \
+		. * applied_lum_r,           \
+		. * applied_lum_g,           \
+		. * applied_lum_b,           \
+		. * applied_lum_u,           \
+		now							 \
 	);
+
+#define APPLY_CORNER(C,now) APPLY_CORNER_XY(C,now,source_turf.x,source_turf.y)
 
 // I don't need to explain what this does, do I?
 #define REMOVE_CORNER(C,now)             \
@@ -245,6 +265,7 @@
 #define POLAR_TO_CART_Y(R,T) ((R) * sin(T))
 #define PSEUDO_WEDGE(A_X,A_Y,B_X,B_Y) ((A_X)*(B_Y) - (A_Y)*(B_X))
 #define MINMAX(NUM) ((NUM) < 0 ? -round(-(NUM)) : round(NUM))
+#define MAXMIN(NUM) ((NUM) > 0 ? -round(-(NUM)) : round(NUM))
 
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
@@ -268,7 +289,9 @@
 
 		if (EAST) // the light will face this way by default.
 			limit_a_t = angle
-			limit_b_t = 360 - angle
+			limit_b_t = -(angle)
+			test_x_offset = cached_origin_x + 1
+			test_y_offset = cached_origin_y
 
 		if (WEST)
 			limit_a_t = 180 - angle
@@ -277,13 +300,13 @@
 	// Convert our angle + range into a vector.
 	// MINMAX() is its own step so POLAR_TO_CART_X is only executed once per var.
 	limit_a_x = POLAR_TO_CART_X(light_range + 10, limit_a_t)
-	limit_a_x = MINMAX(limit_a_x)
+	limit_a_x = MAXMIN(limit_a_x)
 	limit_a_y = POLAR_TO_CART_Y(light_range + 10, limit_a_t)	// 10 is an arbitrary number, yes.
-	limit_a_y = MINMAX(limit_a_y)
+	limit_a_y = MAXMIN(limit_a_y)
 	limit_b_x = POLAR_TO_CART_X(light_range + 10, limit_b_t)
-	limit_b_x = MINMAX(limit_b_x)
+	limit_b_x = MAXMIN(limit_b_x)
 	limit_b_y = POLAR_TO_CART_Y(light_range + 10, limit_b_t)
-	limit_b_y = MINMAX(limit_b_y)
+	limit_b_y = MAXMIN(limit_b_y)
 	// This won't change unless the origin or dir changes, might as well do it here.
 	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	
 	targ_sign = cached_ab > 0
@@ -292,8 +315,8 @@
 // Returns true if the test point is NOT inside the cone.
 // Make sure update_angle() is called first if the light's loc or dir have changed.
 /datum/light_source/proc/check_light_cone(var/test_x, var/test_y)
-	test_x -= cached_origin_x
-	test_y -= cached_origin_y
+	test_x -= test_x_offset
+	test_y -= test_y_offset
 	var/at = PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y)
 	var/tb = PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y)
 
@@ -308,13 +331,20 @@
 #undef POLAR_TO_CART_Y
 #undef PSEUDO_WEDGE
 #undef MINMAX
+#undef MAXMIN
 
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
+#define LUM_FALLOFF_XY(Cx,Cy,Tx,Ty) (1 - CLAMP01(sqrt(((Cx) - (Tx)) ** 2 + ((Cy) - (Ty)) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
 
 /datum/light_source/proc/apply_lum(var/now = FALSE)
 	var/static/update_gen = 1
 	applied = 1
+
+	var/Tx
+	var/Ty
+	var/Sx = source_turf.x
+	var/Sy = source_turf.y
 
 	// Keep track of the last applied lum values so that the lighting can be reversed
 	applied_lum_r = lum_r
@@ -326,11 +356,20 @@
 		update_angle()
 
 	FOR_DVIEW(var/turf/T, light_range, source_turf, INVISIBILITY_LIGHTING)
-		if (light_angle && check_light_cone(T.x, T.y))
+		Tx = T.x
+		Ty = T.y
+		if (light_angle && check_light_cone(Tx, Ty))
 			// Just skip the tile if it doesn't fall within our light cone.
+			/*if (check_light_cone(Tx + 1, Ty))
+				// Just on the edge.
+				Tx--
+			else if (check_light_cone(Tx - 1, Ty))
+				// Just on the edge.
+				Ty--
+			else*/
 			continue
 
-		if (!light_self && T.x == cached_origin_x && T.y == cached_origin_y)	// Shouldn't need to check Z.
+		if (!light_self && Tx == cached_origin_x && Ty == cached_origin_y)	// Shouldn't need to check Z.
 			continue
 
 		if (!T.lighting_corners_initialised)
@@ -347,7 +386,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER(C, now)
+			APPLY_CORNER_XY(C, now, Sx, Sy)
 
 		if (!T.affecting_lights)
 			T.affecting_lights = list()
@@ -425,5 +464,7 @@
 #undef DO_UPDATE
 #undef INTELLIGENT_UPDATE
 #undef LUM_FALLOFF
+#undef LUM_FALLOFF_XY
 #undef REMOVE_CORNER
 #undef APPLY_CORNER
+#undef APPLY_CORNER_XY
