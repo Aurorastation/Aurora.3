@@ -44,12 +44,11 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 		current_power = power
 		processing_turfs += start
 
-		while (processing_turfs.len)
+		while (processing_turfs.len && current_power > 0)
 			var/turf/T = processing_turfs[processing_turfs.len]
 			processing_turfs.len--
 
-			// If the power won't make a difference, just skip the turf.
-			if (current_power <= 0 || QDELETED(T))
+			if (QDELETED(T))
 				continue
 
 			affected_turfs |= T
@@ -84,27 +83,35 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 			if (MC_TICK_CHECK)
 				return
 
+		processing_turfs = list()
+
 		start_points.len--
 
 	while (affected_turfs.len)
 		var/turf/T = affected_turfs[affected_turfs.len]
 		affected_turfs.len--
 
+		if (QDELETED(T))
+			continue
+
 		// Reset the explosion vars.
 		var/ex_sev = T.queued_ex_sev
 		T.queued_ex_sev = 0
 		T.last_ex_pow = 0
+		T.ex_dir = null
+
+		for (var/thing in T)
+			var/atom/movable/AM = thing
+			AM.ex_act(ex_sev)
 
 		if (istype(T, /turf/simulated))
 			T.ex_act(queued_ex_sev)
 
-		for (var/thing in T)
-			var/atom/movable/AM = thing
-
-			AM.ex_act(ex_sev)
-
 		if (MC_TICK_CHECK)
 			return
+
+	qdel(current_explosion)
+	current_explosion = null
 
 /turf
 	var/tmp/last_ex_pow = 0
