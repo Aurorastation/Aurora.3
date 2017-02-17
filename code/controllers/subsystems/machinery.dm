@@ -11,20 +11,19 @@ var/global/list/power_using_machines	= list()
 	var/tmp/list/processing_machinery = list()
 	var/tmp/list/processing_power_users = list()
 	var/tmp/list/processing_powersinks = list()
-
+	var/tmp/list/processing_powernets = list()
 
 /datum/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
 		src.processing_machinery = machines.Copy()
 		src.processing_power_users = power_using_machines.Copy()
 		src.processing_powersinks = processing_power_items.Copy()
-
-		for (var/datum/powernet/PN in powernets)
-			PN.reset()
+		src.processing_powernets = powernets.Copy()
 
 	var/list/curr_machinery = src.processing_machinery
 	var/list/curr_power_users = src.processing_power_users
 	var/list/curr_powersinks = src.processing_powersinks
+	var/list/curr_powernets = src.processing_powernets
 
 	while (curr_machinery.len)
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
@@ -58,6 +57,12 @@ var/global/list/power_using_machines	= list()
 		if (MC_TICK_CHECK)
 			return
 
+	while (curr_powernets.len)
+		var/datum/powernet/PN = curr_powernets[curr_powernets.len]
+		curr_powernets.len--
+
+		PN.reset()
+
 	while (curr_powersinks.len)
 		var/obj/item/I = curr_powersinks[curr_powersinks.len]
 		curr_powersinks.len--
@@ -72,3 +77,4 @@ var/global/list/power_using_machines	= list()
 	..()
 	stat(null, "[machines.len] total machines")
 	stat(null, "[ticking_machines.len] ticking machines, [processing_machinery.len] queued")
+
