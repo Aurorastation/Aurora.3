@@ -1,4 +1,3 @@
-var/global/machinery_sort_required 		= 0
 var/global/list/ticking_machines		= list()
 var/global/list/power_using_machines	= list()
 
