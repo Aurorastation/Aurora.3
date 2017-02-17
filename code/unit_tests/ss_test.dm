@@ -20,9 +20,13 @@
 
 	world.save_mode("extended")
 
-	ticker.current_state = GAME_STATE_SETTING_UP
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/_ut_start_game), 10 SECONDS)
 
-	log_unit_test("Round has been started.")
+/proc/_ut_start_game()
+	if (ticker.current_state == GAME_STATE_PREGAME)
+		ticker.current_state = GAME_STATE_SETTING_UP
+
+		log_unit_test("Round has been started.")
 
 /datum/subsystem/unit_tests/fire()
 	var/list/test_datums = typesof(/datum/unit_test)
