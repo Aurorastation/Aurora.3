@@ -33,4 +33,4 @@
 		return QDEL_HINT_POOL
 
 	SSeffects.effects_visuals -= src
-	return ..()
+	return QDEL_HINT_QUEUE

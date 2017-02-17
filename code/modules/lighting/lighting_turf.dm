@@ -23,7 +23,7 @@
 
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)
-		returnToPool(lighting_overlay)
+		qdel(lighting_overlay)
 
 	L_PROF(src, "turf_clear_overlay")
 
