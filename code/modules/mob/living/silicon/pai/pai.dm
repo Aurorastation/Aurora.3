@@ -8,6 +8,7 @@
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	density = 0
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
+	can_pull_size = 2 //max size for an object the pAI can pull
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
@@ -484,3 +485,15 @@
 	var/mob/living/carbon/H = over_object
 	if(!istype(H) || !Adjacent(H)) return ..()
 	get_scooped(H, usr)
+
+/mob/living/silicon/pai/start_pulling(var/atom/movable/AM)
+	if(istype(AM,/obj/item))
+		var/obj/item/O = AM
+		if(O.w_class > can_pull_size)
+			src << "<span class='warning'>You are too small to pull that.</span>"
+			return
+		else
+			..()
+	else
+		src << "<span class='warning'>You are too small to pull that.</span>"
+		return
