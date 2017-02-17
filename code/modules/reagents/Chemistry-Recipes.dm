@@ -1352,7 +1352,17 @@
 	Z.loc = get_turf(holder.my_atom)
 	Z.announce_to_ghosts()
 
-/* Food */
+
+
+
+
+
+
+/*
+====================
+	Food
+====================
+*/
 
 /datum/chemical_reaction/tofu
 	name = "Tofu"
@@ -1447,6 +1457,7 @@
 	id = "dough"
 	result = null
 	required_reagents = list("egg" = 3, "flour" = 10)
+	inhibitors = list("water" = 1, "beer" = 1) //To prevent it messing with batter recipes
 	result_amount = 1
 
 /datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -1482,7 +1493,44 @@
 	required_reagents = list("capsaicin" = 1, "hot_ramen" = 6)
 	result_amount = 6
 
-/* Alcohol */
+/datum/chemical_reaction/coating/batter
+	name = "Batter"
+	id = "batter"
+	result = "batter"
+	required_reagents = list("egg" = 3, "flour" = 10, "water" = 5, "sodiumchloride" = 2)
+	result_amount = 20
+
+/datum/chemical_reaction/coating/beerbatter
+	name = "Beer Batter"
+	id = "beerbatter"
+	result = "beerbatter"
+	required_reagents = list("egg" = 3, "flour" = 10, "beer" = 5, "sodiumchloride" = 2)
+	result_amount = 20
+
+/*
+	Todo in future:
+		Cornmeal batter for corndogs
+		KFC style coating for chicken
+		breadcrumbs
+*/
+
+/*
+	Food: Coatings
+========================
+*/
+
+
+
+
+
+
+
+
+/*
+====================
+	Alcohol
+====================
+*/
 
 /datum/chemical_reaction/goldschlager
 	name = "Goldschlager"
