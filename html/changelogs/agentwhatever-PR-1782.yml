@@ -5,5 +5,5 @@ delete-after: True
 changes: 
   - rscadd: "Two seperate sleek cyborg icons for chemistry and medical."
   - rscadd: "A variation on the heavyMed icon for science. No more mishaps between heavy science and medical borgs"
-  - bugfix: "Chemistry and medical drone and sleek cyborg icons now selectable by medical module. Rescue cyborgs are set to one variant of sleek or drone."
+  - bugfix: "Chemistry and medical drone, sleek and advanced droid cyborg icons now selectable by medical module. Rescue cyborgs are set to one variant of sleek, drone or advanced droid."
   - bugfix: "Deleted random pixel in opened cyborg hatch overlay when viewing from the front and battery removed."
