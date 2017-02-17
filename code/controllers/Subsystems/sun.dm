@@ -1,4 +1,4 @@
-var/datum/subsystem/sun/SSsun
+var/datum/subsystem/sun/sun
 
 /datum/subsystem/sun
 	name = "Sun"
@@ -15,7 +15,7 @@ var/datum/subsystem/sun/SSsun
 	var/solar_next_update	// last time the sun position was checked and adjusted
 
 /datum/subsystem/sun/New()
-	NEW_SS_GLOBAL(SSsun)
+	NEW_SS_GLOBAL(sun)
 
 	solars = solars_list
 	rate = rand(50,200)/100			// 50% - 200% of standard rotation
@@ -23,6 +23,9 @@ var/datum/subsystem/sun/SSsun
 		rate = -rate
 	solar_next_update = world.time	// init the timer
 	angle = rand (0,360)
+
+/datum/subsystem/sun/stat_entry()
+	..("A:[angle] R:[rate]")
 
 /datum/subsystem/sun/fire(resumed = 0)
 	angle = (360 + angle + rate * 6) % 360	 // increase/decrease the angle to the sun, adjusted by the rate
