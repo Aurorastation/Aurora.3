@@ -17,4 +17,4 @@
 		animation.master = target
 		flick(flick_anim, animation)
 		
-	addtimer(CALLBACK(GLOBAL_PROC, .returnToPool, animation), max(sleeptime, 15))
+	QDEL_IN(animation, max(sleeptime, 15))

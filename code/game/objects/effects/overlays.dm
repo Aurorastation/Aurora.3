@@ -2,6 +2,12 @@
 	name = "overlay"
 	unacidable = 1
 	var/i_attached//Added for possible image attachments to objects. For hallucinations and the like.
+
+/obj/effect/overlay/Destroy(force = FALSE)
+	if (!force)
+		return QDEL_HINT_POOL
+
+	return ..()
 	
 /obj/effect/overlay/beam//Not actually a projectile, just an effect.
 	name="beam"
