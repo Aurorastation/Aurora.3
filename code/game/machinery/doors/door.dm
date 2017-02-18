@@ -516,7 +516,8 @@
 		return
 	operating = 1
 
-	qdel(close_task)
+	spawn (5)
+		qdel(close_task)
 	do_animate("closing")
 	sleep(3)
 	src.density = 1
