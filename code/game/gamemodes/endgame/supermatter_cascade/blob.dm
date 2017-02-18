@@ -16,11 +16,11 @@
 
 /turf/unsimulated/wall/supermatter/New()
 	..()
-	processing_turfs.Add(src)
+	SSturf.add_turf(src)
 	next_check = world.time+5 SECONDS
 
 /turf/unsimulated/wall/supermatter/Destroy()
-	processing_turfs.Remove(src)
+	SSturf.remove_turf(src)
 	return ..()
 
 /turf/unsimulated/wall/supermatter/process()
@@ -57,7 +57,7 @@
 			T.ChangeTurf(type)
 
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
-		processing_turfs -= src
+		SSturf.remove_turf(src)
 		return
 
 /turf/unsimulated/wall/supermatter/attack_generic(mob/user as mob)

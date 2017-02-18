@@ -219,5 +219,6 @@
 	can_fire = FALSE
 
 /datum/subsystem/proc/enable()
-	next_fire = world.time + wait
-	can_fire = TRUE
+	if (!can_fire)
+		next_fire = world.time + wait
+		can_fire = TRUE

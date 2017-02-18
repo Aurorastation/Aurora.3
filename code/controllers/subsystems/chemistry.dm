@@ -30,6 +30,9 @@ var/datum/subsystem/chemistry/SSchemistry
 
 		if (MC_TICK_CHECK)
 			return
+
+	if (!active_holders.len)
+		disable()
 		
 /datum/subsystem/chemistry/proc/mark_for_update(var/datum/reagents/holder)
 	if (holder in active_holders)
@@ -38,6 +41,7 @@ var/datum/subsystem/chemistry/SSchemistry
 	//Process once, right away. If we still need to continue then add to the active_holders list and continue later
 	if (holder.process_reactions())
 		active_holders += holder
+		enable()
 
 /datum/subsystem/chemistry/Recover()
 	src.active_holders = SSchemistry.active_holders

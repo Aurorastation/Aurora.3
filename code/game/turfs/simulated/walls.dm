@@ -36,10 +36,10 @@
 		reinf_material = get_material_by_name(rmaterialtype)
 	update_material()
 
-	processing_turfs |= src
+	SSturf.add_turf(src)
 
 /turf/simulated/wall/Destroy()
-	processing_turfs -= src
+	SSturf.remove_turf(src)
 	dismantle_wall(null,null,1)
 	return ..()
 
