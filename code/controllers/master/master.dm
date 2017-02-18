@@ -170,6 +170,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	set waitfor = 0
 	if(delay)
 		sleep(delay)
+
+#ifndef UNIT_TEST
+	// init done, start sleeping if no one's home.
+	world.sleep_offline = TRUE
+#endif
+
 	var/rtn = Loop()
 	if (rtn > 0 || processing < 0)
 		return //this was suppose to happen.
