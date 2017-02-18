@@ -1,5 +1,6 @@
 /atom/movable
-	layer = 3
+	plane = PLANE_PLATING
+	layer = LAYER_MOVABLE
 	var/last_move = null
 	var/anchored = 0
 	// var/elevation = 2    - not used anywhere

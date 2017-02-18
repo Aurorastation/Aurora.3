@@ -23,6 +23,8 @@
 	heat_capacity = 10000
 	var/lava = 0
 
+	plane = PLANE_PLATING
+
 /turf/simulated/floor/is_plating()
 	return !flooring
 

@@ -1,5 +1,6 @@
 /atom
-	layer = 2
+	plane = PLANE_PLATING	// ???
+	layer = LAYER_ATOM
 	var/level = 2
 	var/flags = 0
 	var/list/fingerprints

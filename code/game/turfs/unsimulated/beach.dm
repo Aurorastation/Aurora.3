@@ -2,6 +2,7 @@
 	name = "Beach"
 	icon = 'icons/misc/beach.dmi'
 	footstep_sound = "sandstep"
+	plane = PLANE_ABOVE_FLOOR
 
 /turf/unsimulated/beach/sand
 	name = "Sand"

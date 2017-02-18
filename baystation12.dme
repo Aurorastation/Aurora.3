@@ -17,6 +17,7 @@
 #include "code\stylesheet.dm"
 #include "code\world.dm"
 #include "code\__defines\_compile_options.dm"
+#include "code\__defines\_planes.dm"
 #include "code\__defines\admin.dm"
 #include "code\__defines\atmos.dm"
 #include "code\__defines\btime.dm"

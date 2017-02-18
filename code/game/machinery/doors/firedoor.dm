@@ -15,9 +15,10 @@
 	req_one_access = list(access_atmospherics, access_engine_equip, access_paramedic)
 	opacity = 0
 	density = 0
-	layer = DOOR_OPEN_LAYER - 0.01
-	open_layer = DOOR_OPEN_LAYER - 0.01 // Just below doors when open
-	closed_layer = DOOR_CLOSED_LAYER + 0.2 // Just above doors when closed
+	layer = LAYER_UNDER_DOOR
+	plane = PLANE_OBJECT
+	open_layer = LAYER_UNDER_DOOR // Just below doors when open
+	closed_layer = LAYER_OVER_DOOR // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.

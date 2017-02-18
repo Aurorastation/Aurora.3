@@ -21,6 +21,8 @@
 
 	var/list/wall_connections = list("0", "0", "0", "0")
 
+	plane = PLANE_WALL
+
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate()
 	for(var/obj/O in src)

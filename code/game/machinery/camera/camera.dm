@@ -6,7 +6,7 @@
 	use_power = 2
 	idle_power_usage = 5
 	active_power_usage = 10
-	layer = 5
+	plane = PLANE_OBJECT_OVERHEAD
 
 	var/list/network = list(NETWORK_EXODUS)
 	var/c_tag = null

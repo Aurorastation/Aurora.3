@@ -2,6 +2,7 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = 3.0
+	plane = PLANE_OBJECT	// For my own sanity.
 
 	var/image/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/abstract = 0
@@ -256,7 +257,8 @@
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
 /obj/item/proc/equipped(var/mob/user, var/slot)
-	layer = 20
+	plane = PLANE_HUD
+	layer = LAYER_HUD_INV_ITEM
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()

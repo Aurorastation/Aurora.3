@@ -6,6 +6,7 @@
 	anchored = 1
 	density = 0
 	var/health = 15
+	plane = PLANE_OBJECT
 
 //similar to weeds, but only barfed out by nurses manually
 /obj/effect/spider/ex_act(severity)
@@ -111,7 +112,7 @@
 	desc = "It never stays still for long."
 	icon_state = "spiderling"
 	anchored = 0
-	layer = 2.7
+	//layer = 2.7
 	health = 3
 	var/last_itch = 0
 	var/amount_grown = -1

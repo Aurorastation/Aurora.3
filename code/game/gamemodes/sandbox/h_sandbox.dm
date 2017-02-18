@@ -66,25 +66,29 @@ datum/hSB
 						P.wear_suit.layer = initial(P.wear_suit.layer)
 						P.wear_suit = null
 					P.wear_suit = new/obj/item/clothing/suit/space(P)
-					P.wear_suit.layer = 20
+					P.wear_suit.layer = LAYER_HUD_INV_ITEM
+					P.wear_suit.plane = PLANE_HUD
 					if(P.head)
 						P.head.loc = P.loc
 						P.head.layer = initial(P.head.layer)
 						P.head = null
 					P.head = new/obj/item/clothing/head/helmet/space(P)
-					P.head.layer = 20
+					P.head.layer = LAYER_HUD_INV_ITEM
+					P.head.plane = PLANE_HUD
 					if(P.wear_mask)
 						P.wear_mask.loc = P.loc
 						P.wear_mask.layer = initial(P.wear_mask.layer)
 						P.wear_mask = null
 					P.wear_mask = new/obj/item/clothing/mask/gas(P)
-					P.wear_mask.layer = 20
+					P.wear_mask.layer = LAYER_HUD_INV_ITEM
+					P.wear_mask.plane = PLANE_HUD
 					if(P.back)
 						P.back.loc = P.loc
 						P.back.layer = initial(P.back.layer)
 						P.back = null
 					P.back = new/obj/item/weapon/tank/jetpack(P)
-					P.back.layer = 20
+					P.back.layer = LAYER_HUD_INV_ITEM
+					P.back.plane = PLANE_HUD
 					P.internal = P.back
 				if("hsbmetal")
 					var/obj/item/stack/sheet/hsb = new/obj/item/stack/sheet/metal

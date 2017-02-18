@@ -26,6 +26,8 @@
 
 	var/list/decals
 
+	plane = PLANE_PLATING
+
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)

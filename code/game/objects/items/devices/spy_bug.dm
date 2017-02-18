@@ -4,7 +4,6 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "eshield0"
 	item_state = "nothing"
-	layer = TURF_LAYER+0.2
 
 	flags = CONDUCT
 	force = 5.0

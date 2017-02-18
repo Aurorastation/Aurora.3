@@ -10,7 +10,7 @@
 
 	anchored = 1
 	density = 1
-	layer = 9
+	//layer = 9
 	use_power = 0
 
 	var/chargesa = 1

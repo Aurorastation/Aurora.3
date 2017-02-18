@@ -293,7 +293,7 @@
 	..(newloc,direct)
 	if (underdoor)
 		underdoor = 0
-		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
+		if ((layer == LAYER_UNDER_DOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
 			for (var/obj/machinery/door/D in loc)
 				if (D.hashatch)
 					underdoor = 1

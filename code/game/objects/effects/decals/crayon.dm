@@ -2,7 +2,8 @@
 	name = "rune"
 	desc = "A rune drawn in crayon."
 	icon = 'icons/obj/rune.dmi'
-	layer = 2.1
+	plane = PLANE_ABOVE_FLOOR
+	layer = LAYER_FLOOR_PAINT
 	anchored = 1
 
 	New(location,main = "#FFFFFF",shade = "#000000",var/type = "rune")

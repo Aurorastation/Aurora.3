@@ -117,7 +117,7 @@ var/list/tape_roll_applications = list()
 		var/obj/item/tape/P = new tape_type(T.x,T.y,T.z)
 		P.loc = locate(T.x,T.y,T.z)
 		P.icon_state = "[src.icon_base]_door"
-		P.layer = 3.2
+		P.plane = PLANE_OBJECT_COVER
 		user << span("notice", "You finish placing the [src].")
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))

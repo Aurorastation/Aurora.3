@@ -164,11 +164,13 @@
 		if(!usr.r_hand)
 			P.loc = usr
 			usr.r_hand = P
-			P.layer = 20
+			P.layer = LAYER_HUD_INV_ITEM
+			P.plane = PLANE_HUD
 		else if(!usr.l_hand)
 			P.loc = usr
 			usr.l_hand = P
-			P.layer = 20
+			P.layer = LAYER_HUD_INV_ITEM
+			P.plane = PLANE_HUD
 
 	if (ismob(src.loc))
 		var/mob/M = src.loc
