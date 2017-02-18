@@ -12,6 +12,7 @@
 	has_organ = list()
 	siemens_coefficient = 0
 	rarity_value = 10
+	virus_immune = 1
 
 	blood_color = "#CCCCCC"
 	flesh_color = "#AAAAAA"
