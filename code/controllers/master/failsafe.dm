@@ -101,5 +101,18 @@ var/datum/controller/failsafe/Failsafe
 
 	stat("Failsafe Controller:", statclick.update("Defcon: [defcon_pretty()] (Interval: [Failsafe.processing_interval] | Iteration: [Failsafe.master_iteration])"))
 
+/datum/controller/failsafe/proc/get_nice_message()
+	switch (defcon)
+		if (5)
+			return "OK"
+		if (4)
+			return "Probably OK"
+		if (3)
+			return "Alert"
+		if (2)
+			return "Warning"
+		if (1,0)
+			return "DANGER"
+
 #undef FAILSAFE_NOTIFY
 #undef FAILSAFE_PREFIX

@@ -500,3 +500,10 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (TickDrift:[round(Master.tickdrift)]) (Iteration:[Master.iteration])"))
 
+/datum/controller/master/proc/get_nice_message()
+	if (!processing)
+		return "Not processing"
+	else if (processing > 1)
+		return "Reduced tick rate"
+	else if (processing == 1)
+		return "Running"
