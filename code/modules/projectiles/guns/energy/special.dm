@@ -146,9 +146,7 @@
 
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, T)
-	s.start()
+	spark(T, 3, alldirs)
 	failcheck()
 	..()
 

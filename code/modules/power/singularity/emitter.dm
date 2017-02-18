@@ -27,6 +27,12 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/emitter/wifi_receiver
 
+	var/datum/effect_system/sparks/spark_system
+
+/obj/machinery/power/emitter/New()
+	..()
+	spark_system = bind_spark(src, 5, alldirs)
+
 /obj/machinery/power/emitter/verb/rotate()
 	set name = "Rotate"
 	set category = "Object"
@@ -135,9 +141,7 @@
 
 		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1)
 		if(prob(35))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(5, 1, src)
-			s.start()
+			spark_system.queue()
 
 		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter( src.loc )
 		A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)

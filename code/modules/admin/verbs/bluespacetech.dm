@@ -34,10 +34,7 @@
 	//I couldn't get the normal way to work so this works.
 	//This whole section looks like a hack, I don't like it.
 	var/T = get_turf(usr)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, T)
-	s.start()
-	var/mob/living/carbon/human/bst/bst = new(get_turf(T))
+	var/mob/living/carbon/human/bst/bst = new(T)
 //	bst.original_mob = usr
 	bst.anchored = 1
 	bst.ckey = usr.ckey
@@ -115,10 +112,9 @@
 	bst.add_language(LANGUAGE_BORER)
 
 	spawn(5)
-		s.start()
+		spark(T, 3, alldirs)
 		bst.anchored = 0
-		spawn(10)
-			qdel(s)
+
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
@@ -155,11 +151,7 @@
 
 	src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
 	spawn(10)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, src)
-		s.start()
-		spawn(5)
-			qdel(s)
+		spark(src, 5, alldirs)
 		if(key)
 			if(client.holder && client.holder.original_mob)
 				client.holder.original_mob.key = key

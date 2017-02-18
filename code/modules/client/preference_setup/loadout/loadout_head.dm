@@ -111,3 +111,19 @@
 /datum/gear/head/ushanka
 	display_name = "ushanka"
 	path = /obj/item/clothing/head/ushanka
+
+/datum/gear/head/hijab
+	display_name = "hijab selection"
+	path = /obj/item/clothing/head/hijab
+
+/datum/gear/head/hijab/New()
+	..()
+	var/hijab = list()
+	hijab["black hijab"] = /obj/item/clothing/head/hijab
+	hijab["grey hijab"] = /obj/item/clothing/head/hijab/grey
+	hijab["red hijab"] = /obj/item/clothing/head/hijab/red
+	hijab["brown hijab"] = /obj/item/clothing/head/hijab/brown
+	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
+	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
+
+	gear_tweaks += new/datum/gear_tweak/path(hijab)

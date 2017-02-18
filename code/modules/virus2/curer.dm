@@ -66,9 +66,7 @@
 	return
 
 /obj/machinery/computer/curer/process()
-	..()
-
-	if(stat & (NOPOWER|BROKEN))
+	if (inoperable())
 		return
 	use_power(500)
 

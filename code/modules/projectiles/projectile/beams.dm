@@ -192,9 +192,7 @@
 			if (M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
 				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
 				M.gib()
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(3, 1, M)
-				s.start()
+				spark(M, 3, alldirs)
 			else if (iscarbon(M) && M.contents.len)
 				for (var/obj/item/weapon/holder/H in M.contents)
 					if (!H.contained)

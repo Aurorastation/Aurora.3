@@ -85,25 +85,21 @@
 
 	//repair a bit of damage
 	if(prob(1))
-		src.visible_message("\red \icon[src] [src] shudders and shakes as some of it's damaged systems come back online.")
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		src.visible_message(span("alert", "\The [src] shudders and shakes as some of its damaged systems come back online."))
+		spark(src, 3, alldirs)
 		health += rand(25,100)
 
 	//spark for no reason
 	if(prob(5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark(src, 3, alldirs)
 
 	//sometimes our targetting sensors malfunction, and we attack anyone nearby
 	if(prob(disabled ? 0 : 1))
 		if(hostile_drone)
-			src.visible_message("\blue \icon[src] [src] retracts several targetting vanes, and dulls it's running lights.")
+			src.visible_message(span("notice", "\The [src] retracts several targetting vanes, and dulls its running lights."))
 			hostile_drone = 0
 		else
-			src.visible_message("\red \icon[src] [src] suddenly lights up, and additional targetting vanes slide into place.")
+			src.visible_message(span("alert", "\The [src] suddenly lights up, and additional targetting vanes slide into place."))
 			hostile_drone = 1
 
 	if(health / maxHealth > 0.9)
@@ -124,20 +120,19 @@
 		exploding = 0
 		if(!disabled)
 			if(prob(50))
-				src.visible_message("\blue \icon[src] [src] suddenly shuts down!")
+				src.visible_message(span("notice", "\The [src] suddenly shuts down!"))
 			else
-				src.visible_message("\blue \icon[src] [src] suddenly lies still and quiet.")
+				src.visible_message(span("notice", "\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
 			walk(src,0)
 
 	if(exploding && prob(20))
 		if(prob(50))
-			src.visible_message("\red \icon[src] [src] begins to spark and shake violenty!")
+			src.visible_message(span("alert", "\The [src] begins to spark and shake violenty!"))
 		else
-			src.visible_message("\red \icon[src] [src] sparks and shakes like it's about to explode!")
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+			src.visible_message(span("alert", "\The [src] sparks and shakes like it's about to explode!"))
+
+		spark(src, 3, alldirs)
 
 	if(!exploding && !disabled && prob(explode_chance))
 		exploding = 1
@@ -164,9 +159,7 @@
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Destroy()
 	//some random debris left behind
 	if(has_loot)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark(src, 3, alldirs)
 		var/obj/O
 
 		//shards
