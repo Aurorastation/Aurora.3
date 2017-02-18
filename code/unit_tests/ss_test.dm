@@ -1,4 +1,6 @@
 // This file exists so unit tests work with SMC.
+// It initializes last in the subsystem order, and queues
+// the tests to start about 20 seconds after init is done.
 
 #ifdef UNIT_TEST
 
