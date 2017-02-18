@@ -5,7 +5,7 @@
 /datum/subsystem/unit_tests
 	name = "Unit Tests"
 	init_order = -10	// last.
-	flags = SS_NO_TICK_CHECK
+	flags = SS_NO_TICK_CHECK | SS_NO_FIRE
 
 /datum/subsystem/unit_tests/Initialize(timeofday)
 	log_unit_test("Initializing Unit Testing")	
@@ -28,7 +28,9 @@
 
 		log_unit_test("Round has been started.")
 
-/datum/subsystem/unit_tests/fire()
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/_ut_do_tests), 10 SECONDS)
+
+/proc/_ut_do_tests()
 	var/list/test_datums = typesof(/datum/unit_test)
 
 	var/list/async_test = list()
@@ -52,8 +54,6 @@
 			async_test.Add(d)
 		total_unit_tests++
 		
-
-
 	//
 	// Check the async tests to see if they are finished.
 	// 
@@ -78,5 +78,4 @@
 	else
 		log_unit_test("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed ****[ascii_reset]")
 		world.Del()
-
 #endif
