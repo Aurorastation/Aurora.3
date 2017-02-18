@@ -13,6 +13,8 @@
 	body_parts_covered = copy.body_parts_covered
 	flags_inv = copy.flags_inv
 
+	if(copy.item_state_slots)									 // copy.item_state_slots.Copy() apears to be undefined
+		item_state_slots = copy.item_state_slots // however this appears to work perfectly fine
 	if(copy.item_icons)
 		item_icons = copy.item_icons.Copy()
 	if(copy.sprite_sheets)

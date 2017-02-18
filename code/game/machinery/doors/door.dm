@@ -29,8 +29,9 @@
 	var/hitsound_light = 'sound/effects/Glasshit.ogg'//Sound door makes when hit very gently
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
-	var/close_door_at = 0 //When to automatically close the door, if possible
 	var/open_duration = 150//How long it stays open
+	var/datum/scheduled_task/close_task
+	var/datum/scheduled_task/hatch_task
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
 	var/hatchstate = 0//0: closed, 1: open
@@ -40,8 +41,6 @@
 	var/hatch_colour = "#FFFFFF"
 	var/hatch_open_sound = 'sound/machines/hatch_open.ogg'
 	var/hatch_close_sound = 'sound/machines/hatch_close.ogg'
-
-	var/hatchclosetime //A world.time value to tell us when the hatch should close
 
 	var/image/hatch_image
 
@@ -107,7 +106,7 @@
 		hatchstate = 1
 		update_icon()
 		playsound(src.loc, hatch_open_sound, 40, 1, -1)
-	hatchclosetime = world.time + 29
+	close_hatch_in(29)
 
 	if (istype(mover, /mob/living))
 		var/mob/living/S = mover
@@ -125,15 +124,31 @@
 	..()
 	return
 
-/obj/machinery/door/process()
-	if(close_door_at && world.time >= close_door_at)
-		if(autoclose)
-			close_door_at = next_close_time()
-			close()
-		else
-			close_door_at = 0
-	if (hatchstate && world.time > hatchclosetime)
-		close_hatch()
+/obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
+	if (time < 2 SECONDS)	// Too short duration for the scheduler.
+		spawn(time)
+			src.auto_close()
+
+	else if (close_task)
+		// Update the time.
+		close_task.trigger_task_in(time)
+	else
+		close_task = schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close)
+
+/obj/machinery/door/proc/close_hatch_in(var/time = 5 SECONDS)
+	if (hatch_task)
+		// Update the time.
+		hatch_task.trigger_task_in(time)
+	else
+		hatch_task = schedule_task_with_source_in(time, src, /obj/machinery/door/proc/auto_close_hatch)
+
+/obj/machinery/door/proc/auto_close()
+	close()
+	close_task = null
+
+/obj/machinery/door/proc/auto_close_hatch()
+	close_hatch()
+	hatch_task = null
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating || !ticker)
@@ -429,9 +444,7 @@
 				take_damage(damage)
 		if(3.0)
 			if(prob(80))
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(2, 1, src)
-				s.start()
+				spark(src, 2, alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
@@ -491,19 +504,19 @@
 	operating = 0
 
 	if(autoclose)
-		close_door_at = next_close_time()
+		close_door_in(next_close_time())
 
 	return 1
 
 /obj/machinery/door/proc/next_close_time()
-	return world.time + (normalspeed ? open_duration : 5)
+	return (normalspeed ? open_duration : 5)
 
 /obj/machinery/door/proc/close(var/forced = 0)
 	if(!can_close(forced))
 		return
 	operating = 1
 
-	close_door_at = 0
+	qdel(close_task)
 	do_animate("closing")
 	sleep(3)
 	src.density = 1
@@ -539,8 +552,6 @@
 			var/turf/simulated/turf = T
 			update_heat_protection(turf)
 			air_master.mark_for_update(turf)
-
-		T.update_lights_now()
 
 	return 1
 

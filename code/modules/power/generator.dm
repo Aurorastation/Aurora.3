@@ -23,9 +23,18 @@
 	var/effective_gen = 0
 	var/lastgenlev = 0
 
+	var/datum/effect_system/sparks/spark_system
+
 /obj/machinery/power/generator/New()
 	..()
 	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
+	var/dirs
+	if (dir == NORTH || dir == SOUTH)
+		dirs = list(EAST,WEST)
+	else
+		dirs = list(NORTH,SOUTH)
+
+	spark_system = bind_spark(src, 3, dirs)
 	spawn(1)
 		reconnect()
 
@@ -111,9 +120,7 @@
 
 	//Exceeding maximum power leads to some power loss
 	if(effective_gen > max_power && prob(5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark_system.queue()
 		stored_energy *= 0.5
 
 	//Power

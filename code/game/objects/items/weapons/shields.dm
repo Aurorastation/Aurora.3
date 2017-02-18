@@ -112,6 +112,10 @@
 
 	if(user.incapacitated())
 		return 0
+ 
+	if(.)
+		spark(user.loc, 5)
+		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 
 	//block as long as they are not directly behind us
 	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
@@ -210,7 +214,7 @@
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
-	w_class = 2
+	w_class = 3
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 

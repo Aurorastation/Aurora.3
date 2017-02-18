@@ -12,6 +12,11 @@
 	var/base_block_chance = 50
 	var/shield_power = 100
 	var/can_block_bullets = 0
+	var/datum/effect_system/sparks/spark_system
+
+/obj/item/weapon/melee/energy/New()
+	spark_system = bind_spark(src, 5)
+	..()
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
@@ -59,10 +64,7 @@
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
-//		Disabled because lag. Immense amounts of lag.
-//		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-//		spark_system.set_up(5, 0, user.loc)
-//		spark_system.start()
+		spark_system.queue()
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		return 1
 	else
@@ -305,12 +307,8 @@
 	active = 1
 
 /obj/item/weapon/melee/energy/blade/New()
-
-	spark_system = new /datum/effect/effect/system/spark_spread()
-	spark_system.set_up(5, 0, src)
-	spark_system.attach(src)
-
 	processing_objects |= src
+	..()
 
 /obj/item/weapon/melee/energy/blade/Destroy()
 	processing_objects -= src

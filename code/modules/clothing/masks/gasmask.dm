@@ -106,10 +106,10 @@
 /obj/item/clothing/mask/gas/tactical
 	name = "tactical mask"
 	desc = "A compact carbon-fiber respirator covering the mouth and nose to protect against the inhalation of smoke and other harmful gasses. "
-	icon_state = "tactigas"
+	icon_state = "fullgas"
+	item_state = "fullgas"
 	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
 	flags_inv = HIDEFACE
 	body_parts_covered = FACE
 	w_class = 2.0
-	item_state = "tactigas"
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)

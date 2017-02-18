@@ -278,6 +278,8 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 	. = ..()	//calls mob.Login()
+	
+	prefs.sanitize_preferences()
 
 	if (byond_version < config.client_error_version)
 		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"
@@ -608,3 +610,15 @@
 	server_greeting.find_outdated_info(src, 1)
 
 	server_greeting.display_to_client(src)
+
+// Byond seemingly calls stat, each tick.
+// Calling things each tick can get expensive real quick.
+// So we slow this down a little.
+// See: http://www.byond.com/docs/ref/info.html#/client/proc/Stat
+/client/Stat()
+	. = ..()
+	if (holder)
+		sleep(1)
+	else
+		sleep(5)
+		stoplag()

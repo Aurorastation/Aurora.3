@@ -236,7 +236,6 @@ area/space/atmosalert()
 
 /area/shuttle/mining/outpost
 	icon_state = "shuttle"
-	base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"
@@ -527,6 +526,7 @@ area/space/atmosalert()
 /area/syndicate_station/mining
 	name = "\improper northeast of the mining station"
 	icon_state = "north"
+	base_turf = /turf/space
 
 /area/syndicate_station/arrivals_dock
 	name = "\improper docked with station"
@@ -580,6 +580,7 @@ area/space/atmosalert()
 /area/skipjack_station/mining
 	name = "\improper south of mining station"
 	icon_state = "north"
+	base_turf = /turf/space
 
 //PRISON
 /area/prison
@@ -1216,7 +1217,6 @@ area/space/atmosalert()
 /area/solar
 	requires_power = 1
 	always_unpowered = 1
-	dynamic_lighting = 0
 	base_turf = /turf/space
 
 	auxport
