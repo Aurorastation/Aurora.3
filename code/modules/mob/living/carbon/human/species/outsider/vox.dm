@@ -34,7 +34,6 @@
 
 	eyes = "vox_eyes_s"
 	gluttonous = GLUT_SMALLER
-	
 	virus_immune = 1
 
 	breath_type = "nitrogen"
