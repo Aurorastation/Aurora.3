@@ -122,9 +122,7 @@
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
-			var/datum/effect/effect/system/spark_spread/spark_system = getFromPool(/datum/effect/effect/system/spark_spread)
-			spark_system.set_up(5, 0, user.loc)
-			spark_system.start()
+			spark(user.loc, 5)
 			playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 			shield_power -= round(damage/4)
 
