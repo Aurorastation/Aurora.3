@@ -79,24 +79,32 @@
 		//spread to 1-3 adjacent turfs depending on yield trait.
 		var/max_spread = between(1, round(seed.get_trait(TRAIT_YIELD)*3/14), 3)
 		
-		for(var/i in 1 to max_spread)
-			if(prob(spread_chance))
-				sleep(rand(3,5))
-				if(!neighbors.len)
-					break
-				var/turf/target_turf = pick(neighbors)
-				var/obj/effect/plant/child = new(get_turf(src),seed,parent)
-				spawn(1) // This should do a little bit of animation.
-					child.loc = target_turf
-					child.update_icon()
-				// Update neighboring squares.
-				for(var/obj/effect/plant/neighbor in range(1,target_turf))
-					neighbor.neighbors -= target_turf
+		// Can't run this in this proc, thou shalt not sleep in fire().
+		addtimer(CALLBACK(src, .proc/do_spread, spread_chance, max_spread), 1)
 
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
 	if(neighbors.len || health != max_health)
 		plant_controller.add_plant(src)
+
+/obj/effect/plant/proc/do_spread(spread_chance, max_spread)
+	for(var/i in 1 to max_spread)
+		if(prob(spread_chance))
+			sleep(rand(3,5))
+			if(!neighbors.len)
+				return
+
+			var/turf/target_turf = pick(neighbors)
+			var/obj/effect/plant/child = new(get_turf(src),seed,parent)
+			// This should do a little bit of animation.
+			addtimer(CALLBACK(src, .proc/do_move, target_turf, child), 1)
+			// Update neighboring squares.
+			for(var/obj/effect/plant/neighbor in range(1,target_turf))
+				neighbor.neighbors -= target_turf
+
+/obj/effect/plant/proc/do_move(turf/target, obj/effect/plant/child)
+	child.loc = target
+	child.update_icon()
 
 /obj/effect/plant/proc/die_off()
 	// Kill off our plant.
@@ -108,6 +116,7 @@
 		for(var/obj/effect/plant/neighbor in check_turf.contents)
 			neighbor.neighbors |= check_turf
 			plant_controller.add_plant(neighbor)
-	spawn(1) if(src) qdel(src)
+
+	QDEL_IN(src, 1)
 
 #undef NEIGHBOR_REFRESH_TIME
