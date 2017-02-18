@@ -80,9 +80,7 @@
 		if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 			if(prob(base_block_chance))
-				var/datum/effect/effect/system/spark_spread/spark_system = getFromPool(/datum/effect/effect/system/spark_spread)
-				spark_system.set_up(5, 0, user.loc)
-				spark_system.start()
+				spark_system.queue()
 				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				shield_power -= round(damage/4)
 
@@ -299,7 +297,6 @@
 	flags = NOBLOODY
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
-	var/datum/effect/effect/system/spark_spread/spark_system
 	base_reflectchance = 140
 	base_block_chance = 75
 	shield_power = 150
