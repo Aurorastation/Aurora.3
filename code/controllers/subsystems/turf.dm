@@ -31,13 +31,13 @@ var/datum/subsystem/turf/SSturf
 /datum/subsystem/turf/stat_entry()
 	..("P:[processing_turfs.len]")
 
-/datum/subsystem/turf/add_turf(turf/T)
+/datum/subsystem/turf/proc/add_turf(turf/T)
 	if (QDELETED(T))
 		return
 	processing_turfs |= T
 	enable()
 
-/datum/subsystem/turf/remove_turf(turf/T)
+/datum/subsystem/turf/proc/remove_turf(turf/T)
 	processing_turfs -= T
 
 /datum/subsystem/turf/Recover()
