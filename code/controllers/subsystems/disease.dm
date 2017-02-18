@@ -6,17 +6,16 @@ var/datum/subsystem/diseases/SSdisease
 	priority = SS_PRIORITY_DISEASE
 
 	var/list/currentrun = list()
-	var/list/processing = list()
 
 /datum/subsystem/diseases/New()
 	NEW_SS_GLOBAL(SSdisease)
 
 /datum/subsystem/diseases/stat_entry(msg)
-	..("P:[processing.len]")
+	..("P:[active_diseases.len]")
 
 /datum/subsystem/diseases/fire(resumed = 0)
 	if (!resumed)
-		src.currentrun = processing.Copy()
+		src.currentrun = active_diseases.Copy()
 
 	var/list/currentrun = src.currentrun
 
@@ -28,6 +27,3 @@ var/datum/subsystem/diseases/SSdisease
 
 		if (MC_TICK_CHECK)
 			return
-
-/datum/subsystem/diseases/Recover()
-	src.processing = SSdisease.processing
