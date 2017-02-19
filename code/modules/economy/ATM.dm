@@ -483,11 +483,14 @@ log transactions
 
 // put the currently held id on the ground or in the hand of the user
 /obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
+
 	if (!ishuman(human_user))
 		return
 
 	if(!held_card)
 		return
+
+	if(human_user.stat || human_user.lying || human_user.restrained() || !Adjacent(human_user))	return
 
 	held_card.loc = src.loc
 	authenticated_account = null
