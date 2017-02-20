@@ -108,8 +108,10 @@ steam.start() -- spawns the effect
 	pixel_x = -32
 	pixel_y = -32
 
-/obj/effect/effect/smoke/New()
+/obj/effect/effect/smoke/New(var/loc, var/duration = 0)
 	..()
+	if (duration)
+		time_to_live = duration
 	spawn (time_to_live)
 		qdel(src)
 
@@ -234,8 +236,10 @@ steam.start() -- spawns the effect
 	var/total_smoke = 0 // To stop it being spammed and lagging!
 	var/direction
 	var/smoke_type = /obj/effect/effect/smoke
+	var/smoke_duration
 
-/datum/effect/effect/system/smoke_spread/set_up(n = 5, c = 0, loca, direct)
+/datum/effect/effect/system/smoke_spread/set_up(n = 5, c = 0, loca, direct, duration = 0)
+	smoke_duration = duration
 	if(n > 10)
 		n = 10
 	number = n

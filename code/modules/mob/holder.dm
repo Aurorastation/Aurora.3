@@ -86,9 +86,17 @@ var/list/holder_mob_icon_cache = list()
 //This function checks if the current location is safe to release inside
 //it returns 1 if the creature will bug out when released
 /obj/item/weapon/holder/proc/is_unsafe_container(var/obj/place)
-	if (istype(place, /obj/item/weapon/storage))
+	if (istype(place, /turf))
+		return 0
+	else if (istype(place, /obj/item/weapon/storage))
+		return 1
+	else if (istype(place, /obj/item/weapon/reagent_containers))
 		return 1
 	else if (istype(place, /obj/structure/closet/crate))
+		return 1
+	else if (istype(place, /obj/machinery/appliance))
+		return 1
+	else if (istype(place, /obj/machinery/microwave))
 		return 1
 	else
 		return 0
@@ -279,6 +287,7 @@ var/list/holder_mob_icon_cache = list()
 	src.name = M.name
 	src.overlays = M.overlays
 	dir = M.dir
+	reagents = M.reagents
 
 /obj/item/weapon/holder/human/sync(var/mob/living/M)
 

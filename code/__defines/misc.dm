@@ -286,3 +286,10 @@
 
 #define get_turf(A) (get_step(A, 0))
 #define NULL_OR_GC(TARGET) (!TARGET || TARGET.gcDestroyed)
+
+//Recipe type defines. Used to determine what machine makes them
+#define MICROWAVE			0x1
+#define FRYER				0x2
+#define OVEN				0x4
+#define CANDYMAKER			0x8
+#define CEREALMAKER			0x10
