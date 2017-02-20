@@ -23,7 +23,7 @@
 		var/datum/scheduled_task/task = queued_tasks[queued_tasks.len]
 		queued_tasks.len--
 
-		if (NULL_OR_GC(task))
+		if (QDELETED(task))
 			scheduled_tasks -= task
 			continue
 

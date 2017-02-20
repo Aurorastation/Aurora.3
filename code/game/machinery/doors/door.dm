@@ -133,7 +133,7 @@
 		close_hatch()
 
 /obj/machinery/door/proc/auto_close()
-	if (!NULL_OR_GC(src) && can_close(FALSE) && autoclose)
+	if (!QDELETED(src) && can_close(FALSE) && autoclose)
 		close()
 
 /obj/machinery/door/proc/can_open()
