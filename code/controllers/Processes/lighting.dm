@@ -17,7 +17,7 @@
 	var/list/curr_lights = list()
 	var/list/curr_corners = list()
 	var/list/curr_overlays = list()
-	var/list/resume_pos = 0
+	var/is_new_tick = FALSE
 
 /datum/controller/process/lighting/setup()
 	name = "lighting"
@@ -33,12 +33,17 @@
 	stat(null, "Overlays: [lighting_update_overlays.len] queued, [curr_overlays.len] processing")
 
 /datum/controller/process/lighting/doWork()
-	// -- SOURCES --
-	if (resume_pos == STAGE_NONE)
+	if (is_new_tick)
 		curr_lights = lighting_update_lights
 		lighting_update_lights = list()
 
-		resume_pos = STAGE_SOURCE
+		curr_corners = lighting_update_corners
+		lighting_update_corners = list()
+
+		curr_overlays = lighting_update_overlays
+		lighting_update_overlays = list()
+
+		is_new_tick = FALSE
 
 	while (curr_lights.len)
 		var/datum/light_source/L = curr_lights[curr_lights.len]
@@ -58,13 +63,6 @@
 
 		F_SCHECK
 
-	// -- CORNERS --
-	if (resume_pos == STAGE_SOURCE)
-		curr_corners = lighting_update_corners
-		lighting_update_corners = list()
-
-		resume_pos = STAGE_CORNER
-
 	while (curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[curr_corners.len]
 		curr_corners.len--
@@ -75,12 +73,6 @@
 
 		F_SCHECK
 
-	if (resume_pos == STAGE_CORNER)
-		curr_overlays = lighting_update_overlays
-		lighting_update_overlays = list()
-
-		resume_pos = STAGE_OVERLAY
-
 	while (curr_overlays.len)
 		var/atom/movable/lighting_overlay/O = curr_overlays[curr_overlays.len]
 		curr_overlays.len--
@@ -90,7 +82,7 @@
 		
 		F_SCHECK
 
-	resume_pos = 0
+	is_new_tick = TRUE
 
 #undef STAGE_NONE
 #undef STAGE_SOURCE
