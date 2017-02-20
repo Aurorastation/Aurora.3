@@ -129,7 +129,9 @@
 	get_light_and_color(parent)
 	..()
 
-/obj/effect/spider/spiderling/Destroy()
+/obj/effect/spider/spiderling/Destroy(force = FALSE)
+	if (!force)
+		return QDEL_HINT_POOL
 	processing_objects -= src
 	return ..()
 
@@ -241,6 +243,9 @@
 	desc = "Green squishy mess."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenshatter"
+
+/obj/effect/decal/cleanable/spiderling_remains/Destroy(force = FALSE)
+	return force ? ..() : QDEL_HINT_POOL
 
 /obj/effect/spider/cocoon
 	name = "cocoon"
