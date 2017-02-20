@@ -80,10 +80,10 @@ datum/controller/game_controller/proc/setup_objects()
 	create_global_parallax_icons()
 	admin_notice(span("danger", "Done."))
 
-	if(config.generate_asteroid)
+	/*if(config.generate_asteroid)
 		new /datum/random_map(null,0,0,2,255,255)
 		new /datum/random_map(null,0,0,3,255,255)
-		new /datum/random_map(null,0,0,4,255,255)
+		new /datum/random_map(null,0,0,4,255,255)*/
 
 	admin_notice(span("danger", "Setting up lighting."))
 	initialize_lighting()
