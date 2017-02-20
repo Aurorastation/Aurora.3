@@ -11,7 +11,6 @@ changes:
   - rscdel: "Hallucinations no longer rotate your view for the same reason as above."
   - tweak: "Colored lighting should mix better now."
   - tweak: "Rebalanced light emission of most light sources to better fit new lighting system."
-  - tweak: "Diona now gain energy from 'UV' light, emitted by station lighting as well as one or two portable light sources."
   - rscdel: "Diona no longer gain any energy from flashlights & other portable light sources."
   - experiment: "Lighting now updates immediately when you open an airlock."
   - experiment: "Completely rewrote lighting system."
