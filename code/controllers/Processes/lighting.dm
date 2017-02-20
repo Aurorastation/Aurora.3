@@ -14,36 +14,23 @@
 
 /datum/controller/process/lighting
 	schedule_interval = LIGHTING_INTERVAL
-	var/list/curr_lights = list()
-	var/list/curr_corners = list()
-	var/list/curr_overlays = list()
-	var/is_new_tick = FALSE
 
 /datum/controller/process/lighting/setup()
 	name = "lighting"
-
 	lighting_process = src
 
 /datum/controller/process/lighting/statProcess()
 	..()
 	stat(null, "Server tick usage is [world.tick_usage].")
 	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
-	stat(null, "Lights: [lighting_update_lights.len] queued, [curr_lights.len] processing")
-	stat(null, "Corners: [lighting_update_corners.len] queued, [curr_corners.len] processing")
-	stat(null, "Overlays: [lighting_update_overlays.len] queued, [curr_overlays.len] processing")
+	stat(null, "Lights: [lighting_update_lights.len] queued")
+	stat(null, "Corners: [lighting_update_corners.len] queued")
+	stat(null, "Overlays: [lighting_update_overlays.len] queued")
 
 /datum/controller/process/lighting/doWork()
-	if (is_new_tick)
-		curr_lights = lighting_update_lights
-		lighting_update_lights = list()
-
-		curr_corners = lighting_update_corners
-		lighting_update_corners = list()
-
-		curr_overlays = lighting_update_overlays
-		lighting_update_overlays = list()
-
-		is_new_tick = FALSE
+	var/list/curr_lights = lighting_update_lights
+	var/list/curr_corners = lighting_update_corners
+	var/list/curr_overlays = lighting_update_overlays
 
 	while (curr_lights.len)
 		var/datum/light_source/L = curr_lights[curr_lights.len]
@@ -81,8 +68,6 @@
 		O.needs_update = FALSE
 		
 		F_SCHECK
-
-	is_new_tick = TRUE
 
 #undef STAGE_NONE
 #undef STAGE_SOURCE
