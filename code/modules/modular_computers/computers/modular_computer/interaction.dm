@@ -153,10 +153,14 @@
 		if(components.len)
 			to_chat(user, "Remove all components from \the [src] before disassembling it.")
 			return
-		new /obj/item/stack/material/steel( get_turf(src.loc), steel_sheet_cost )
-		src.visible_message("\The [src] has been disassembled by [user].")
-		//relay_qdel()
-		qdel(src)
+		to_chat(user, span("notice", "You begin to disassemble \the [src]."))
+		playsound(user, 'sound/items/Ratchet.ogg', 100, 1)
+		if (do_after(user, 20))
+			new /obj/item/stack/material/steel(get_turf(src.loc), steel_sheet_cost)
+			src.visible_message("\The [user] disassembles \the [src].", 
+				"You disassemble \the [src].",
+				"You hear a ratchet.")
+			qdel(src)
 		return
 	if(istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
@@ -169,6 +173,7 @@
 			return
 
 		to_chat(user, "You begin repairing damage to \the [src]...")
+		playsound(src, 'sound/items/Welder.ogg', 100, 1)
 		if(WT.remove_fuel(round(damage/75)) && do_after(usr, damage/10))
 			damage = 0
 			to_chat(user, "You repair \the [src].")

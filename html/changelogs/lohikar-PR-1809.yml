@@ -2,3 +2,6 @@ author: Lohikar
 delete-after: True
 changes: 
   - tweak: "Most voidsuits should have in-hand sprites once more."
+  - bugfix: "Tesla links are now constructable at protolathes as was originally intended."
+  - tweak: "Computers' sprites now show if the computer is functional or not."
+  - rscdel: "Tesla links can no longer be installed in laptops and tablets."

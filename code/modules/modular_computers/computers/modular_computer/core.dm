@@ -83,7 +83,7 @@
 
 	overlays.Cut()
 	if(!enabled)
-		if(icon_state_screensaver)
+		if(icon_state_screensaver && hard_drive && processor_unit)
 			overlays.Add(icon_state_screensaver)
 		set_light(0)
 		return
