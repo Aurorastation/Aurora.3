@@ -36,7 +36,7 @@
 
 	faction = "cavern"
 
-/mob/living/simple_animal/hostile/retaliate/cavern_dweller/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
 /obj/item/projectile/beam/cavern
