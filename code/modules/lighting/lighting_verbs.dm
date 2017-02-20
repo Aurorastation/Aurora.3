@@ -7,7 +7,6 @@
 var/list/admin_verbs_lighting = list(
 	/client/proc/lighting_hide_verbs,
 	/client/proc/lighting_flush,
-	/client/proc/lighting_regenerate,
 	/client/proc/lighting_reconsider_target,
 	/client/proc/lighting_build_overlay,
 	/client/proc/lighting_clear_overlay,
