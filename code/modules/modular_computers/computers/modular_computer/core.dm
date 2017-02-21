@@ -83,15 +83,21 @@
 
 	overlays.Cut()
 	if(!enabled)
-		if(icon_state_screensaver && hard_drive && processor_unit)
+		var/probably_working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
+		if(icon_state_screensaver && probably_working)
 			overlays.Add(icon_state_screensaver)
-		set_light(0)
+		
+		if (screensaver_light_range && probably_working)
+			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
+		else
+			set_light(0)
 		return
-	set_light(light_strength)
 	if(active_program)
 		overlays.Add(active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu)
+		set_light(light_strength, l_color = active_program.color)
 	else
 		overlays.Add(icon_state_menu)
+		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
 	if(tesla_link)

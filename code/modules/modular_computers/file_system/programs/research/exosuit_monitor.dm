@@ -9,3 +9,4 @@
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = 1
 	size = 8
+	color = LIGHT_COLOR_PURPLE
