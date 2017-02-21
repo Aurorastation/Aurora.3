@@ -1,4 +1,5 @@
 /obj/item/modular_computer/process()
+	handle_power() // Handles all computer power interaction
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
 		return 0
@@ -30,7 +31,7 @@
 		else
 			idle_threads.Remove(P)
 
-	handle_power() // Handles all computer power interaction
+	
 	check_update_ui_need()
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
@@ -75,7 +76,7 @@
 		return NO_EMAG_ACT
 	else
 		computer_emagged = 1
-		to_chat(user, "You emag \the [src]. It's screen briefly shows a \"OVERRIDE ACCEPTED: New software downloads available.\" message.")
+		to_chat(user, "You emag \the [src]. Its screen briefly displays a \"OVERRIDE ACCEPTED: New software downloads available.\" message.")
 		return 1
 
 /obj/item/modular_computer/update_icon()
@@ -85,7 +86,16 @@
 	if(!enabled)
 		var/probably_working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
 		if(icon_state_screensaver && probably_working)
-			overlays.Add(icon_state_screensaver)
+			var/image/prog = image(src.icon, icon_state_screensaver)
+			prog.layer = LIGHTING_LAYER + 0.1
+			prog.blend_mode = BLEND_ADD
+			prog.color = list(
+				HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0, 0,
+				0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0,
+				0, 0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0,
+				0, 0, 0, 1  
+			)
+			overlays += prog
 		
 		if (screensaver_light_range && probably_working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -93,10 +103,28 @@
 			set_light(0)
 		return
 	if(active_program)
-		overlays.Add(active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu)
+		var/image/prog = image(src.icon, active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu)
+		prog.layer = LIGHTING_LAYER + 0.1
+		prog.blend_mode = BLEND_ADD
+		prog.color = list(
+			HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0, 0,
+			0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0,
+			0, 0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0,
+			0, 0, 0, 1  
+		)
+		overlays += prog
 		set_light(light_strength, l_color = active_program.color)
 	else
-		overlays.Add(icon_state_menu)
+		var/image/prog = image(src.icon, icon_state_menu)
+		prog.layer = LIGHTING_LAYER + 0.1
+		prog.blend_mode = BLEND_ADD
+		prog.color = list(
+			HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0, 0,
+			0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0,
+			0, 0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0,
+			0, 0, 0, 1  
+		)
+		overlays += prog
 		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
