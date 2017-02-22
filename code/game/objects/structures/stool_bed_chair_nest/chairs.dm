@@ -177,6 +177,12 @@
 /obj/structure/bed/chair/office/dark
 	icon_state = "officechair_dark"
 
+/obj/structure/bed/chair/office/bridge
+	name = "command chair"
+	desc = "It exudes authority... and looks about as comfortable as a brick."
+	icon_state = "bridge"
+	anchored = 1
+
 /obj/structure/bed/chair/office/New()
 	..()
 	var/image/I = image(icon, "[icon_state]_over")
@@ -205,3 +211,4 @@
 
 /obj/structure/bed/chair/wood/wings
 	icon_state = "wooden_chair_wings"
+

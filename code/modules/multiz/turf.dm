@@ -52,15 +52,54 @@
 
 /turf/simulated/open/update_icon()
 	if(below)
-		underlays = list(image(icon = below.icon, icon_state = below.icon_state))
+		var/image/t_img = list()
+		var/image/temp = image(icon = below.icon, icon_state = below.icon_state)
+		temp.color = rgb(127,127,127)
+		temp.overlays += below.overlays
+		t_img += temp
+		underlays += t_img
+
+		var/image/o_img = list()
+		for(var/obj/o in below)
+			// ingore objects that have any form of invisibility
+			if(o.invisibility) continue
+			var/image/temp2 = image(o, dir=o.dir, layer = TURF_LAYER+0.05*o.layer)
+			temp2.color = rgb(127,127,127)
+			temp2.overlays += o.overlays
+			o_img += temp2
+		underlays += o_img
+
+		var/image/m_img = list()
+		for(var/mob/m in below)
+			// ingore mobs that have any form of invisibility
+			if(m.invisibility) continue
+			var/image/temp2 = image(m, dir=m.dir, layer = TURF_LAYER+0.05*m.layer)
+			temp2.color = rgb(127,127,127)
+			temp2.overlays += m.overlays
+			m_img += temp2
+		underlays += m_img
 
 	var/list/noverlays = list()
 	if(!istype(below,/turf/space))
 		noverlays += image(icon =icon, icon_state = "empty", layer = 2.45)
+	else
+		// This is stolen from /turf/space's New() proc.
+		icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
+		var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
+		I.plane = PLANE_SPACE_DUST
+		I.alpha = 80
+		I.blend_mode = BLEND_ADD
+		noverlays += I
 
-	var/turf/simulated/T = get_step(src,NORTH)
-	if(istype(T) && !istype(T,/turf/simulated/open))
-		noverlays += image(icon ='icons/turf/cliff.dmi', icon_state = "metal", layer = 2.45)
+	for(var/direction in cardinal)
+		var/turf/simulated/T = get_step(src,direction)
+		if(istype(T) && !istype(T,/turf/simulated/open))
+			if(istype(T,/turf/simulated/mineral))
+				var/image/border = image(icon = 'icons/turf/walls.dmi', icon_state = "rock_side", dir = direction, layer = 3)
+				noverlays += border
+			else if(istype(T,/turf/simulated/floor/asteroid))
+				var/image/border = image(icon = 'icons/turf/cliff.dmi', icon_state = "sand", dir = direction, layer = 3)
+				noverlays += border
 
 	var/obj/structure/stairs/S = locate() in below
 	if(S && S.loc == below)

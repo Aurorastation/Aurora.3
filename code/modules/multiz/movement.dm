@@ -48,21 +48,28 @@
 /mob/eye/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
+		setLoc(destination)
+	else
+		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
+
+/mob/dead/observer/zMove(direction)
+	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	if(destination)
 		forceMove(destination)
 	else
 		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
 
-/mob/eye/zMove(direction)
+/mob/living/carbon/human/bst/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
-		setLoc(destination)
+		forceMove(destination)
 	else
 		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
 
 /mob/proc/can_ztravel()
 	return 0
 
-/mob/observer/can_ztravel()
+/mob/dead/observer/can_ztravel()
 	return 1
 
 /mob/living/carbon/human/can_ztravel()
@@ -130,6 +137,25 @@
 
 	return TRUE
 
+/mob/living/carbon/human/can_fall()
+	if(Allow_Spacemove())
+		return 0
+
+	if(Check_Shoegrip())	//scaling hull with magboots
+		for(var/turf/simulated/T in trange(1,src))
+			if(T.density)
+				return 0
+	..()
+
+/mob/living/silicon/robot/can_fall()
+	if(Allow_Spacemove()) //Checks for active jetpack
+		return 0
+
+	for(var/turf/simulated/T in trange(1,src)) //Robots get "magboots"
+		if(T.density)
+			return 0
+	..()
+
 /obj/effect/can_fall()
 	return FALSE
 
@@ -154,14 +180,14 @@
 		return 1
 
 	if(istype(landing, /turf/simulated/open))
-		visible_message("\The [src] falls from the deck above through \the [landing]!", "You hear a whoosh of displaced air.")
+		visible_message("\The [src] falls from the level above through \the [landing]!", "You hear a whoosh of displaced air.")
 	else
-		visible_message("\The [src] falls from the deck above and slams into \the [landing]!", "You hear something slam into the deck.")
+		visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
 
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
-	var/damage = 10
+	var/damage = 20
 	apply_damage(rand(0, damage), BRUTE, "head")
 	apply_damage(rand(0, damage), BRUTE, "chest")
 	apply_damage(rand(0, damage), BRUTE, "l_leg")
