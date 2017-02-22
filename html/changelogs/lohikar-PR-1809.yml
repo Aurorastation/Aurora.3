@@ -6,3 +6,5 @@ changes:
   - bugfix: "Tesla links are now constructable at protolathes as was originally intended."
   - tweak: "Modular computers now emit different colors of light depending on what program is currently running."
   - tweak: "Computers' sprites now show if the computer is functional or not."
+  - bugfix: "Severed organs inside containers will no longer leave blood drips."
+  - bugfix: "M'sai and Zhan-Khazan Tajara can now use prosthetics."
