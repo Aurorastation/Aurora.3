@@ -274,13 +274,17 @@
 	switch (top_atom.dir)
 		if (NORTH)
 			limit_a_t = angle + 90
-			limit_b_t = angle - 90
+			limit_b_t = angle
+			test_x_offset = cached_origin_x
+			test_y_offset = cached_origin_y + 1
 
 		if (SOUTH)
 			limit_a_t = -(angle)
 			limit_b_t = -(angle) - 90
+			test_x_offset = cached_origin_x
+			test_y_offset = cached_origin_y - 1
 
-		if (EAST) // the light will face this way by default.
+		if (EAST)
 			limit_a_t = angle
 			limit_b_t = -(angle)
 			test_x_offset = cached_origin_x + 1
@@ -289,6 +293,8 @@
 		if (WEST)
 			limit_a_t = angle + 180
 			limit_b_t = -(angle) - 180
+			test_x_offset = cached_origin_x - 1
+			test_y_offset = cached_origin_y
 
 	// Convert our angle + range into a vector.
 	limit_a_x = POLAR_TO_CART_X(light_range + 10, limit_a_t)
