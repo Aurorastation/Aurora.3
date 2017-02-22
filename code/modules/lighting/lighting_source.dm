@@ -411,16 +411,15 @@
 	FOR_DVIEW(var/turf/T, light_range, source_turf, 0)
 		if (!T.lighting_corners_initialised)
 			T.generate_missing_corners()
+		if (light_angle && check_light_cone(T.x, T.y))
+			continue
+
 		corners |= T.get_corners()
 		turfs   += T
 
 	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
 	affecting_turfs += L
 	for (var/turf/T in L)
-		if (light_angle && check_light_cone(T.x, T.y))
-			affecting_turfs -= T
-			continue
-
 		if (!T.affecting_lights)
 			T.affecting_lights = list(src)
 		else
@@ -433,7 +432,7 @@
 
 	for (var/datum/lighting_corner/C in corners - effect_str) // New corners
 		C.affecting += src
-		if (!C.active)
+		if (!C.active || check_light_cone(C.x, C.y))
 			effect_str[C] = 0
 			continue
 
