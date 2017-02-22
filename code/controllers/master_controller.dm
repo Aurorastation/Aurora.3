@@ -80,7 +80,7 @@ datum/controller/game_controller/proc/setup_objects()
 	create_global_parallax_icons()
 	admin_notice(span("danger", "Done."))
 
-	/*if(config.generate_asteroid)
+	if(config.generate_asteroid)
 		// These values determine the specific area that the map is applied to.
 		// If you do not use the official Baycode moonbase map, you will need to change them.
 		//Create the mining Z-level.
@@ -97,7 +97,7 @@ datum/controller/game_controller/proc/setup_objects()
 		for(var/turf/simulated/mineral/M in world) // Ugh.
 			M.updateMineralOverlays()
 		for(var/turf/simulated/floor/asteroid/M in world) // Uuuuuugh.
-			M.updateMineralOverlays()*/
+			M.updateMineralOverlays()
 
 	admin_notice(span("danger", "Setting up lighting."))
 	initialize_lighting()
