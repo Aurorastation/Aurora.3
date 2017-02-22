@@ -14,19 +14,15 @@ var/datum/subsystem/lighting/SSlighting
 	var/list/corner_queue  = list() // lighting corners  queued for update.
 	var/list/overlay_queue = list() // lighting overlays queued for update.
 
-	var/list/processing_lights   = list()	// lighting sources  actively processing
-	var/list/processing_corners  = list()	// lighting corners  actively processing
-	var/list/processing_overlays = list()	// lighting overlays actively processing
-
 /datum/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
 
 datum/subsystem/lighting/stat_entry()
 	..()
 	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
-	stat(null, "Lights: [light_queue.len] queued, [processing_lights.len] processing")
-	stat(null, "Corners: [corner_queue.len] queued, [processing_corners.len] processing")
-	stat(null, "Overlays: [overlay_queue.len] queued, [processing_overlays.len] processing")
+	stat(null, "Lights: [light_queue.len] queued")
+	stat(null, "Corners: [corner_queue.len] queued")
+	stat(null, "Overlays: [overlay_queue.len] queued")
 
 /datum/subsystem/lighting/Initialize(timeofday)
 	// Generate overlays.
@@ -44,17 +40,9 @@ datum/subsystem/lighting/stat_entry()
 	..()
 
 /datum/subsystem/lighting/fire(resumed = FALSE)
-	if (!resumed)
-		processing_lights = light_queue
-		light_queue = list()
-		processing_corners = corner_queue
-		corner_queue = list()
-		processing_overlays = overlay_queue
-		overlay_queue = list()
-
-	var/list/curr_lights = processing_lights
-	var/list/curr_corners = processing_corners
-	var/list/curr_overlays = processing_overlays
+	var/list/curr_lights = light_queue
+	var/list/curr_corners = corner_queue
+	var/list/curr_overlays = overlay_queue
 
 	while (curr_lights.len)
 		var/datum/light_source/L = curr_lights[curr_lights.len]
@@ -100,8 +88,3 @@ datum/subsystem/lighting/stat_entry()
 	src.light_queue = SSlighting.light_queue
 	src.corner_queue = SSlighting.corner_queue
 	src.overlay_queue = SSlighting.overlay_queue
-	
-	// Just stick the lights that were processing back in the queue.
-	src.light_queue += SSlighting.processing_lights
-	src.corner_queue += SSlighting.processing_corners
-	src.overlay_queue += SSlighting.processing_overlays
