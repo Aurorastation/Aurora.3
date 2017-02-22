@@ -29,8 +29,7 @@
 	..()
 	if(!win_path)
 		return
-	if(ticker && ticker.current_state < GAME_STATE_PLAYING)
-		activate()
+	activate()
 
 /obj/effect/wingrille_spawn/proc/activate()
 	if(activated) return
