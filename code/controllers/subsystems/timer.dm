@@ -37,7 +37,11 @@ var/datum/subsystem/timer/SStimer
 
 
 /datum/subsystem/timer/stat_entry(msg)
-	..("B:[bucket_count] P:[length(processing)] H:[length(hashes)] C:[length(clienttime_timers)]")
+	..()
+	stat(null, "[bucket_count] timers")
+	stat(null, "[length(processing)] processing")
+	stat(null, "[length(hashes)] hashes")
+	stat(null, "[length(clienttime_timers)] client-time timers")
 
 /datum/subsystem/timer/fire(resumed = FALSE)
 	if (length(clienttime_timers))

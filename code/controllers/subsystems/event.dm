@@ -29,3 +29,6 @@
 		
 		if (MC_TICK_CHECK)
 			return
+
+/datum/subsystem/events/stat_entry()
+	..("P:[processing_events.len]")

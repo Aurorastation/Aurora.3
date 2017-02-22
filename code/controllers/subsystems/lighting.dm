@@ -18,11 +18,8 @@ var/datum/subsystem/lighting/SSlighting
 	NEW_SS_GLOBAL(SSlighting)
 
 datum/subsystem/lighting/stat_entry()
-	..()
+	..("L:[light_queue.len] C:[corner_queue.len] O:[overlay_queue.len]")
 	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
-	stat(null, "Lights: [light_queue.len] queued")
-	stat(null, "Corners: [corner_queue.len] queued")
-	stat(null, "Overlays: [overlay_queue.len] queued")
 
 /datum/subsystem/lighting/Initialize(timeofday)
 	// Generate overlays.
