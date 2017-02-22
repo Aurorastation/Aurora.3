@@ -127,6 +127,10 @@
 	. = ..()
 	if (is_noisy)
 		var/turf/T = get_turf(src)
+		if (T.x == last_x && T.y == last_y)
+			return
+		last_x = T.x
+		last_y = T.y
 		if (m_intent == "run")
 			playsound(src, T.footstep_sound, 70, 1)
 		else
