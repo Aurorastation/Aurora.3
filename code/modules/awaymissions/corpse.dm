@@ -164,6 +164,10 @@
 	corpsemask = /obj/item/clothing/mask/breath
 	corpsehelmet = /obj/item/clothing/head/helmet/space/void/engineering
 
+/obj/effect/landmark/corpse/engineer/rotten
+	name = "unidentifiable corpse"
+	species = "Skeleton"
+
 /obj/effect/landmark/corpse/clown
 	name = "Clown"
 	corpseuniform = /obj/item/clothing/under/rank/clown

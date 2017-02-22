@@ -51,7 +51,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/list/ambience = list('sound/ambience/ambigen1.ogg','sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg','sound/ambience/ambigen14.ogg')
 	var/list/forced_ambience = null
 	var/sound_env = STANDARD_STATION
-	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
+	var/turf/base_turf = /turf/simulated/floor/asteroid //The base turf type of the area, which can be used to override the z-level's base turf
 	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
 	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
 
@@ -106,6 +106,7 @@ var/list/ghostteleportlocs = list()
 	power_environ = 0
 	ambience = list('sound/ambience/ambispace.ogg','sound/music/title2.ogg','sound/music/space.ogg','sound/music/main.ogg','sound/music/traitor.ogg')
 	no_light_control = 1
+	base_turf = /turf/space
 
 area/space/atmosalert()
 	return
@@ -152,7 +153,6 @@ area/space/atmosalert()
 /area/shuttle
 	requires_power = 0
 	sound_env = SMALL_ENCLOSED
-	base_turf = /turf/space
 	no_light_control = 1
 
 /area/shuttle/arrival
@@ -161,6 +161,7 @@ area/space/atmosalert()
 
 /area/shuttle/arrival/centcom
 	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor
 
 /area/shuttle/arrival/transit
 	icon_state = "shuttle2"
@@ -181,6 +182,7 @@ area/space/atmosalert()
 /area/shuttle/escape/centcom
 	name = "\improper Emergency Shuttle Centcom"
 	icon_state = "shuttle"
+	base_turf = /turf/unsimulated/floor
 
 /area/shuttle/escape/transit // the area to pass through for 3 minute transit
 	name = "\improper Emergency Shuttle Transit"
@@ -196,6 +198,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod1/centcom
 	icon_state = "shuttle"
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod1/transit
 	icon_state = "shuttle"
@@ -210,6 +213,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod2/centcom
 	icon_state = "shuttle"
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod2/transit
 	icon_state = "shuttle"
@@ -224,6 +228,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod3/centcom
 	icon_state = "shuttle"
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod3/transit
 	icon_state = "shuttle"
@@ -238,6 +243,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod5/centcom
 	icon_state = "shuttle"
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod5/transit
 	icon_state = "shuttle"
@@ -255,6 +261,7 @@ area/space/atmosalert()
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"
 	name = "\improper Transport Shuttle Centcom"
+	base_turf = /turf/unsimulated/floor
 
 /area/shuttle/transport1/station
 	icon_state = "shuttle"
@@ -283,8 +290,7 @@ area/space/atmosalert()
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
 	flags = RAD_SHIELDED
-
-/area/shuttle/specops/centcom
+	base_turf = /turf/unsimulated/floor
 	icon_state = "shuttlered"
 
 /area/shuttle/specops/station
@@ -308,6 +314,7 @@ area/space/atmosalert()
 /area/shuttle/administration/centcom
 	name = "\improper Administration Shuttle Centcom"
 	icon_state = "shuttlered"
+	base_turf = /turf/unsimulated/floor
 
 /area/shuttle/administration/station
 	name = "\improper Administration Shuttle"
@@ -371,6 +378,7 @@ area/space/atmosalert()
 	requires_power = 0
 	dynamic_lighting = 0
 	no_light_control = 1
+	base_turf = /turf/unsimulated/floor
 
 /area/centcom/control
 	name = "\improper Centcom Control"
@@ -791,8 +799,9 @@ area/space/atmosalert()
 	icon_state = "maint_eva"
 
 /area/maintenance/solarmaint
-	name = "\improper Solar Array Maintenance"
+	name = "\improper Roof Solar Array Maintenance"
 	icon_state = "maint_eva"
+	base_turf = /turf/space
 
 /area/maintenance/dormitory
 	name = "Dormitory Maintenance"
@@ -1207,7 +1216,7 @@ area/space/atmosalert()
 
 //Engineering
 
-/area/engineering/
+/area/engineering
 	name = "\improper Engineering"
 	icon_state = "engineering"
 	ambience = list('sound/ambience/ambisin1.ogg','sound/ambience/ambisin2.ogg','sound/ambience/ambisin3.ogg','sound/ambience/ambisin4.ogg')
@@ -1295,11 +1304,11 @@ area/space/atmosalert()
 	requires_power = 1
 	always_unpowered = 1
 	dynamic_lighting = 0
-	base_turf = /turf/space
 
 	auxport
-		name = "\improper Fore Port Solar Array"
+		name = "\improper Roof Solar Array"
 		icon_state = "panelsA"
+		base_turf = /turf/space
 
 	auxstarboard
 		name = "\improper Fore Starboard Solar Array"
@@ -1818,6 +1827,7 @@ area/space/atmosalert()
 	name = "\improper Derelict Station"
 	icon_state = "storage"
 	no_light_control = 1
+	base_turf = /turf/space
 
 /area/derelict/hallway/northwest
 	name = "\improper NSS Aurora I"
@@ -1990,6 +2000,7 @@ area/space/atmosalert()
 	name = "\improper Engineering Construction Area"
 	icon_state = "yellow"
 	no_light_control = 1
+	base_turf = /turf/space
 
 /area/construction/supplyshuttle
 	name = "\improper Supply Shuttle"
@@ -2163,6 +2174,7 @@ area/space/atmosalert()
 /area/tcommsat/lounge
 	name = "\improper Telecommunications Satellite Lounge"
 	icon_state = "tcomsatlounge"
+	base_turf = /turf/space
 
 /area/tcommsat/powercontrol
 	name = "\improper Telecommunications Power Control"
