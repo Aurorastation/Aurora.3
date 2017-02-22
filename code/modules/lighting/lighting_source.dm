@@ -11,7 +11,6 @@
 	var/light_color    	// The colour of the light, string, decomposed by parse_light_color()
 	var/light_uv		// The intensity of UV light, between 0 and 255.
 	var/light_angle		// The light's emission angle, in degrees.
-	var/light_dir = EAST		// The direction the light is facing.
 	var/light_self = TRUE	// If FALSE, the light won't emit onto its own tile. Good with light_angle.
 
 	// Variables for keeping track of the colour.
@@ -71,7 +70,6 @@
 	light_uv    = source_atom.uv_intensity
 	light_angle = source_atom.light_wedge
 	light_self  = source_atom.light_self
-	old_direction = top_atom.dir
 
 	parse_light_color()
 
@@ -196,8 +194,7 @@
 		parse_light_color()
 		. = 1
 
-	if (top_atom.dir != old_direction)
-		old_direction = source_atom.dir
+	if (top_atom.dir != old_direction && light_angle)
 		. = 1
 
 	if (source_atom.light_wedge != light_angle)
@@ -266,15 +263,15 @@
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
 	// Don't do anything if nothing is different, trig ain't free.
-	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == light_dir)
+	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == top_atom.dir)
 		return
 
 	cached_origin_x = T.x
 	cached_origin_y = T.y
-	old_direction = light_dir
+	old_direction = top_atom.dir
 
 	var/angle = light_angle / 2
-	switch (light_dir)
+	switch (top_atom.dir)
 		if (NORTH)
 			limit_a_t = angle + 90
 			limit_b_t = angle - 90
@@ -348,14 +345,6 @@
 		Tx = T.x
 		Ty = T.y
 		if (light_angle && check_light_cone(Tx, Ty))
-			// Just skip the tile if it doesn't fall within our light cone.
-			/*if (check_light_cone(Tx + 1, Ty))
-				// Just on the edge.
-				Tx--
-			else if (check_light_cone(Tx - 1, Ty))
-				// Just on the edge.
-				Ty--
-			else*/
 			continue
 
 		if (!light_self && Tx == cached_origin_x && Ty == cached_origin_y)	// Shouldn't need to check Z.
