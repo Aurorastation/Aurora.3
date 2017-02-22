@@ -262,8 +262,6 @@
 #define POLAR_TO_CART_X(R,T) ((R) * cos(T))
 #define POLAR_TO_CART_Y(R,T) ((R) * sin(T))
 #define PSEUDO_WEDGE(A_X,A_Y,B_X,B_Y) ((A_X)*(B_Y) - (A_Y)*(B_X))
-#define MINMAX(NUM) ((NUM) < 0 ? -round(-(NUM)) : round(NUM))
-#define MAXMIN(NUM) ((NUM) > 0 ? -round(-(NUM)) : round(NUM))
 
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
@@ -296,15 +294,10 @@
 			limit_b_t = -(angle) - 180
 
 	// Convert our angle + range into a vector.
-	// MINMAX() is its own step so POLAR_TO_CART_X is only executed once per var.
 	limit_a_x = POLAR_TO_CART_X(light_range + 10, limit_a_t)
-	//limit_a_x = MAXMIN(limit_a_x)
 	limit_a_y = POLAR_TO_CART_Y(light_range + 10, limit_a_t)	// 10 is an arbitrary number, yes.
-	//limit_a_y = MAXMIN(limit_a_y)
 	limit_b_x = POLAR_TO_CART_X(light_range + 10, limit_b_t)
-	//limit_b_x = MAXMIN(limit_b_x)
 	limit_b_y = POLAR_TO_CART_Y(light_range + 10, limit_b_t)
-	//limit_b_y = MAXMIN(limit_b_y)
 	// This won't change unless the origin or dir changes, might as well do it here.
 	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	
 	targ_sign = cached_ab > 0
@@ -328,8 +321,6 @@
 #undef POLAR_TO_CART_X
 #undef POLAR_TO_CART_Y
 #undef PSEUDO_WEDGE
-#undef MINMAX
-#undef MAXMIN
 
 // This is the define used to calculate falloff.
 #define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
