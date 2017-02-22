@@ -310,7 +310,8 @@ var/global/datum/controller/occupations/job_master
 
 
 	proc/EquipRank(var/mob/living/carbon/human/H, var/rank, var/joined_late = 0,var/megavend = 0)
-		if(!H)	return null
+		if(!H)
+			return null
 
 		var/datum/job/job = GetJob(rank)
 		var/list/spawn_in_storage = list()
@@ -475,18 +476,16 @@ var/global/datum/controller/occupations/job_master
 		return H
 
 	proc/EquipPersonal(var/mob/living/carbon/human/H, var/rank, var/joined_late = 0,var/spawning_at)
-		if(!H)	return null
+		if(!H)
+			return null
 
 		switch(rank)
 			if("Cyborg")
-				EquipRank(H, rank, 1)
-				return
+				return EquipRank(H, rank, 1)
 			if("AI")
-				EquipRank(H, rank, 1)
-				return
+				return EquipRank(H, rank, 1)
 		if(spawning_at != "Arrivals Shuttle")
-			EquipRank(H, rank, 1)
-			return
+			return EquipRank(H, rank, 1)
 
 		var/datum/job/job = GetJob(rank)
 		var/list/spawn_in_storage = list()

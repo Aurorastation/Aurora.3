@@ -69,16 +69,6 @@
 			o_img += temp2
 		underlays += o_img
 
-		var/image/m_img = list()
-		for(var/mob/m in below)
-			// ingore mobs that have any form of invisibility
-			if(m.invisibility) continue
-			var/image/temp2 = image(m, dir=m.dir, layer = TURF_LAYER+0.05*m.layer)
-			temp2.color = rgb(127,127,127)
-			temp2.overlays += m.overlays
-			m_img += temp2
-		underlays += m_img
-
 	var/list/noverlays = list()
 	if(!istype(below,/turf/space))
 		noverlays += image(icon =icon, icon_state = "empty", layer = 2.45)
