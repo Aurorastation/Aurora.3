@@ -5,7 +5,8 @@
 	var/light_range = 0 // Range in tiles of the light.
 	var/light_color     // Hexadecimal RGB string representing the colour of the light.
 	var/uv_intensity = 255	// How much UV light is being emitted by this object. Valid range: 0-255.
-	//Restriction is based on blacklisting, not whitelisting. Lights have max uv unless explicitly set lower
+	var/light_wedge		// The angle that the light's emission should be restricted to. null for omnidirectional.
+	var/light_self = TRUE	// If the light should also affect our tile. Requires light_wedge to be set.
 
 	var/tmp/datum/light_source/light // Our light source. Don't fuck with this directly unless you have a good reason!
 	var/tmp/list/light_sources       // Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
@@ -14,7 +15,7 @@
 #define NONSENSICAL_VALUE -99999
 
 // The proc you should always use to set the light of this atom.
-/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/no_update = FALSE)
+/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/angle = NONSENSICAL_VALUE, var/no_update = FALSE)
 	L_PROF(src, "atom_setlight")
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
@@ -30,6 +31,9 @@
 
 	if (uv != NONSENSICAL_VALUE)
 		set_uv(uv, no_update = TRUE)
+
+	if (angle != NONSENSICAL_VALUE)
+		light_wedge = angle
 
 	if (no_update)
 		return

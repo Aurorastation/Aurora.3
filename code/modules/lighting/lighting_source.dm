@@ -69,6 +69,9 @@
 	light_range = source_atom.light_range
 	light_color = source_atom.light_color
 	light_uv    = source_atom.uv_intensity
+	light_angle = source_atom.light_wedge
+	light_self  = source_atom.light_self
+	old_direction = top_atom.dir
 
 	parse_light_color()
 
@@ -193,6 +196,18 @@
 		parse_light_color()
 		. = 1
 
+	if (top_atom.dir != old_direction)
+		old_direction = source_atom.dir
+		. = 1
+
+	if (source_atom.light_wedge != light_angle)
+		light_angle = source_atom.light_wedge
+		. = 1
+
+	if (source_atom.light_self != light_self)
+		light_self = source_atom.light_self
+		. = 1
+
 // Decompile the hexadecimal colour into lumcounts of each perspective.
 /datum/light_source/proc/parse_light_color()
 	if (light_color)
@@ -214,23 +229,6 @@
 // If you're wondering what's with the backslashes, the backslashes cause BYOND to not automatically end the line.
 // As such this all gets counted as a single line.
 // The braces and semicolons are there to be able to do this on a single line.
-
-/*#define APPLY_CORNER(C,now)              \
-	. = LUM_FALLOFF(C, source_turf); \
-                                     \
-	. *= light_power;                \
-                                     \
-	effect_str[C] = .;               \
-                                     \
-	C.update_lumcount                \
-	(                                \
-		. * applied_lum_r,           \
-		. * applied_lum_g,           \
-		. * applied_lum_b,           \
-		. * applied_lum_u,           \
-		now							 \
-	);*/
-
 #define APPLY_CORNER_XY(C,now,Tx,Ty) \
 	. = LUM_FALLOFF_XY(C.x, C.y, Tx, Ty); \
                                      \
@@ -284,8 +282,8 @@
 			limit_b_t = angle - 90
 
 		if (SOUTH)
-			limit_a_t = 270 + angle
-			limit_b_t = 270 - angle
+			limit_a_t = -(angle)
+			limit_b_t = -(angle) - 90
 
 		if (EAST) // the light will face this way by default.
 			limit_a_t = angle
@@ -294,19 +292,19 @@
 			test_y_offset = cached_origin_y
 
 		if (WEST)
-			limit_a_t = 180 - angle
-			limit_b_t = 180 + angle
+			limit_a_t = angle + 180
+			limit_b_t = -(angle) - 180
 
 	// Convert our angle + range into a vector.
 	// MINMAX() is its own step so POLAR_TO_CART_X is only executed once per var.
 	limit_a_x = POLAR_TO_CART_X(light_range + 10, limit_a_t)
-	limit_a_x = MAXMIN(limit_a_x)
+	//limit_a_x = MAXMIN(limit_a_x)
 	limit_a_y = POLAR_TO_CART_Y(light_range + 10, limit_a_t)	// 10 is an arbitrary number, yes.
-	limit_a_y = MAXMIN(limit_a_y)
+	//limit_a_y = MAXMIN(limit_a_y)
 	limit_b_x = POLAR_TO_CART_X(light_range + 10, limit_b_t)
-	limit_b_x = MAXMIN(limit_b_x)
+	//limit_b_x = MAXMIN(limit_b_x)
 	limit_b_y = POLAR_TO_CART_Y(light_range + 10, limit_b_t)
-	limit_b_y = MAXMIN(limit_b_y)
+	//limit_b_y = MAXMIN(limit_b_y)
 	// This won't change unless the origin or dir changes, might as well do it here.
 	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	
 	targ_sign = cached_ab > 0
