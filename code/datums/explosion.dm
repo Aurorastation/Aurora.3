@@ -4,6 +4,11 @@
 	var/z_transfer
 	var/tmp/list/turf/affecting_turfs
 
+/datum/explosion/Destroy()
+	epicenter = null
+	affecting_turfs = null
+	return ..()
+
 /datum/explosion/circular
 	var/devastation_range
 	var/heavy_impact_range
