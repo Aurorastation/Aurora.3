@@ -13,10 +13,18 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 	var/tmp/list/turf/affected_turfs = list()
 	var/tmp/power = 0
 
+/datum/subsystem/explosives_recursive/proc/queue(datum/explosion/recursive/ex)
+	if (!ex || !ex.epicenter)
+		return
+	
+	queued_explosions |= ex
+	enable()
+
 /datum/subsystem/explosives_recursive/New()
 	NEW_SS_GLOBAL(SSkaboom)
 
 /datum/subsystem/explosives_recursive/fire(resumed = FALSE)
+	var/ex_sev	// This var is reused a lot because BYOND cannot into proper variable scoping.
 	if (!resumed && !current_explosion)
 		if (queued_explosions.len)
 			current_explosion = queued_explosions[queued_explosions.len]
@@ -25,24 +33,23 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 			var/power = current_explosion.power
 
 			// Seed the initial loop.
-			var/epicenter = current_explosion.epicenter
+			var/turf/epicenter = current_explosion.epicenter
 			for (var/dir in cardinal)
 				var/turf/T = get_step(epicenter, dir)
 				T.ex_dir = dir
 				start_points += T
 
 			// Calculate the effect on the epicenter tile.
-			var/ex_sev = round(max(min( 3, ((power) / (max(3,(power/3)))) ) ,1), 1)
+			ex_sev = round(max(min( 3, ((power) / (max(3,(power/3)))) ) ,1), 1)
 			epicenter.queued_ex_sev = ex_sev
 
 			for (var/thing in epicenter)
 				var/atom/movable/AM = thing
-				thing.queued_ex_sev = ex_sev
+				AM.queued_ex_sev = ex_sev
 
 		else
 			disable()
 
-	var/ex_sev
 	var/current_power
 	var/turf/next
 	var/next_dir
@@ -83,9 +90,10 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 					T.queued_ex_sev = ex_sev
 
 					// and apply it to the contained atoms.
-					for (var/atom/A in T)
-						if (!A.queued_ex_sev || A.queued_ex_sev > ex_sev)
-							A.queued_ex_sev = ex_sev
+					for (var/thing in T)
+						var/atom/movable/AM = thing
+						if (!AM.queued_ex_sev || AM.queued_ex_sev > ex_sev)
+							AM.queued_ex_sev = ex_sev
 			
 			// Spread left.
 			next_dir = turn(T.ex_dir, 90)
@@ -115,7 +123,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 			continue
 
 		// Reset the explosion vars so we don't mess up future explosions.
-		var/ex_sev = T.queued_ex_sev
+		ex_sev = T.queued_ex_sev
 		T.queued_ex_sev = 0
 		T.last_ex_pow = 0
 		T.ex_dir = null
@@ -128,7 +136,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 		
 		// And finally, apply the explosion to the turf itself.
 		if (istype(T, /turf/simulated))
-			T.ex_act(queued_ex_sev)
+			T.ex_act(ex_sev)
 
 		if (MC_TICK_CHECK)
 			return
