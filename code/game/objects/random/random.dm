@@ -756,4 +756,4 @@
 	spawn_nothing_percentage = 50
 
 /obj/random/cookingoil/item_to_spawn()
-	return "/obj/structure/reagent_dispensers/cookingoil"
+	return /obj/structure/reagent_dispensers/cookingoil
