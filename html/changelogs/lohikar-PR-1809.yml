@@ -8,3 +8,4 @@ changes:
   - tweak: "Computers' sprites now show if the computer is functional or not."
   - bugfix: "Severed organs inside containers will no longer leave blood drips."
   - bugfix: "M'sai and Zhan-Khazan Tajara can now use prosthetics."
+  - bugfix: "Fixed a bug that prevented Coal and Iron ore from spawning on the asteroid."
