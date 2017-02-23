@@ -21,8 +21,8 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 		if (queued_explosions.len)
 			current_explosion = queued_explosions[queued_explosions.len]
 			queued_explosions.len--
-			
-			current_power = current_explosion.power
+
+			var/power = current_explosion.power
 
 			// Seed the initial loop.
 			var/epicenter = current_explosion.epicenter
@@ -31,6 +31,14 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 				T.ex_dir = dir
 				start_points += T
 
+			// Calculate the effect on the epicenter tile.
+			var/ex_sev = round(max(min( 3, ((power) / (max(3,(power/3)))) ) ,1), 1)
+			epicenter.queued_ex_sev = ex_sev
+
+			for (var/thing in epicenter)
+				var/atom/movable/AM = thing
+				thing.queued_ex_sev = ex_sev
+
 		else
 			disable()
 
@@ -38,43 +46,54 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 	var/current_power
 	var/turf/next
 	var/next_dir
+	// Branch out each of the cardinal directions.
 	while (start_points.len)
 		var/turf/start = start_points[start_points.len]
 
 		current_power = power
 		processing_turfs += start
 
+
+		// While this cardinal still has turfs and power...
 		while (processing_turfs.len && current_power > 0)
 			var/turf/T = processing_turfs[processing_turfs.len]
 			processing_turfs.len--
 
+			// If the turf doesn't exist, give up on it and continue.
 			if (QDELETED(T))
 				continue
 
 			affected_turfs |= T
 
-			if (current_power > T.last_ex_pow)
-				T.last_ex_pow = power
-
+			// Handle explosion resistance of the turf and its contained atoms.
 			current_power -= T.explosion_resistance
 
 			for (var/obj/O in T)
 				if (O.explosion_resistance)
 					current_power -= T.explosion_resistance
 
-			ex_sev = round(max(min( 3, ((current_power) / (max(3,(power/3)))) ) ,1), 1)
-			if (!T.queued_ex_sev || ex_sev < T.queued_ex_sev)
-				T.queued_ex_sev = ex_sev
+			// If the current power is greater than any previous one that has acted on this object this explosion...
+			if (current_power > T.last_ex_pow)
+				T.last_ex_pow = power
 
-			for (var/atom/A in T)
-				if (!A.queued_ex_sev || A.queued_ex_sev > ex_sev)
-					A.queued_ex_sev = ex_sev
+				// Calculate and queue the explosion severity...
+				ex_sev = round(max(min( 3, ((current_power) / (max(3,(power/3)))) ) ,1), 1)
+				// Queue the explosion severity, but only if it's more effective.
+				if (!T.queued_ex_sev || ex_sev < T.queued_ex_sev)
+					T.queued_ex_sev = ex_sev
+
+					// and apply it to the contained atoms.
+					for (var/atom/A in T)
+						if (!A.queued_ex_sev || A.queued_ex_sev > ex_sev)
+							A.queued_ex_sev = ex_sev
 			
+			// Spread left.
 			next_dir = turn(T.ex_dir, 90)
 			next = get_step(T, next_dir)
 			next.ex_dir = next_dir
 			processing_turfs += next
 
+			// Spread right.
 			next_dir = turn(T.ex_dir, -90)
 			next = get_step(T, next_dir)
 			next.ex_dir = next_dir
@@ -85,6 +104,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 
 		processing_turfs = list()
 
+		// Clear the cardinal and move on.
 		start_points.len--
 
 	while (affected_turfs.len)
@@ -94,22 +114,26 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 		if (QDELETED(T))
 			continue
 
-		// Reset the explosion vars.
+		// Reset the explosion vars so we don't mess up future explosions.
 		var/ex_sev = T.queued_ex_sev
 		T.queued_ex_sev = 0
 		T.last_ex_pow = 0
 		T.ex_dir = null
 
+		// Apply the explosion to the contained atoms...
 		for (var/thing in T)
 			var/atom/movable/AM = thing
 			AM.ex_act(ex_sev)
 
+		
+		// And finally, apply the explosion to the turf itself.
 		if (istype(T, /turf/simulated))
 			T.ex_act(queued_ex_sev)
 
 		if (MC_TICK_CHECK)
 			return
 
+	// Clean up this explosion.
 	qdel(current_explosion)
 	current_explosion = null
 
