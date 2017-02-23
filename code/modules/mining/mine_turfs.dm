@@ -557,7 +557,7 @@
 	if (!overlay_cache)
 		overlay_cache = list()
 		overlay_cache.len = 10
-		for (var/i = 1; i < overlay_cache.len; i++)
+		for (var/i = 1; i <= overlay_cache.len; i++)
 			overlay_cache[i] = image('icons/turf/flooring/decals.dmi', "asteroid[i - 1]")
 
 	if(overlay_detail) 
