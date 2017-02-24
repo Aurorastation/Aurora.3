@@ -1,6 +1,5 @@
 #define CHECK_RIGHTS(PERM)     \
 	if (!check_rights(PERM)) { \
-		src << span("alert", "You do not have sufficient rights to perform this action.");\
 		return;                \
 	}
 
@@ -59,6 +58,8 @@ var/list/admin_verbs_lighting = list(
 		src << "That turf is not dynamically lit."
 		return
 
+	log_and_message_admins("has triggered a lighting update for turf \ref[T] - [T] at ([T.x],[T.y],[T.z]) in area [T.loc].")
+
 	T.reconsider_lights()
 
 /client/proc/lighting_build_overlay(turf/T in world)
@@ -72,6 +73,8 @@ var/list/admin_verbs_lighting = list(
 		src << "That turf already has a lighting overlay."
 		return
 
+	log_and_message_admins("has generated a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
+
 	T.lighting_build_overlay()
 
 /client/proc/lighting_clear_overlay(turf/T in world)
@@ -84,6 +87,8 @@ var/list/admin_verbs_lighting = list(
 	if (!T.lighting_overlay)
 		src << "That turf doesn't have a lighting overlay."
 		return
+
+	log_and_message_admins("has cleared a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
 
 	T.lighting_clear_overlay()
 
