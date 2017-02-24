@@ -426,6 +426,7 @@
 	return
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
+	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
 	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
 	close_up()
 

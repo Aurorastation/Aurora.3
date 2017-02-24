@@ -49,6 +49,7 @@
 
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
+	if(user.stat || user.restrained())	return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)//No spamming the door, it makes a sound
 	toggle_door()
 

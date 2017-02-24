@@ -284,7 +284,7 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
-#define NULL_OR_GC(TARGET) (!TARGET || TARGET.gcDestroyed)
+#define QDELETED(TARGET) (!TARGET || TARGET.gcDestroyed)
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 

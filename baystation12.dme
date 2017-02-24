@@ -31,6 +31,7 @@
 #include "code\__defines\machinery.dm"
 #include "code\__defines\master_controller.dm"
 #include "code\__defines\math_physics.dm"
+#include "code\__defines\mining.dm"
 #include "code\__defines\misc.dm"
 #include "code\__defines\mobs.dm"
 #include "code\__defines\qdel.dm"

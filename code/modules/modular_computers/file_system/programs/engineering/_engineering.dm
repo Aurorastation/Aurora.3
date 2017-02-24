@@ -13,6 +13,7 @@
 	network_destination = "power monitoring system"
 	size = 9
 	var/has_alert = 0
+	color = LIGHT_COLOR_ORANGE
 
 /datum/computer_file/program/power_monitor/process_tick()
 	..()
@@ -41,6 +42,7 @@
 	network_destination = "alarm monitoring network"
 	size = 5
 	var/has_alert = 0
+	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/alarm_monitor/process_tick()
 	..()
@@ -72,6 +74,7 @@
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	usage_flags = PROGRAM_CONSOLE
 	size = 17
+	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/rcon_console
 	filename = "rconconsole"
@@ -86,6 +89,7 @@
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	usage_flags = PROGRAM_CONSOLE
 	size = 19
+	color = LIGHT_COLOR_GREEN
 
 // Night-Mode Toggle for CE
 /datum/computer_file/program/lighting_control
@@ -101,3 +105,4 @@
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	usage_flags = PROGRAM_CONSOLE
 	size = 9
+	color = LIGHT_COLOR_GREEN

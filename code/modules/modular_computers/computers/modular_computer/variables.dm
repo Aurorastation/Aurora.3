@@ -28,6 +28,9 @@
 	var/icon_state_unpowered = null							// Icon state when the computer is turned off
 	var/icon_state_menu = "menu"							// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
 	var/icon_state_screensaver = null
+	var/screensaver_light_range = 0
+	var/screensaver_light_color = null
+	var/menu_light_color = null
 	var/max_hardware_size = 0								// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
 	var/light_strength = 0									// Intensity of light this computer emits. Comparable to numbers light fixtures use.

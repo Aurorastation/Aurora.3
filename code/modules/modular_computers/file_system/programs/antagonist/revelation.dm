@@ -9,6 +9,7 @@
 	available_on_syndinet = 1
 	nanomodule_path = /datum/nano_module/program/revelation/
 	var/armed = 0
+	color = LIGHT_COLOR_RED
 
 /datum/computer_file/program/revelation/run_program(var/mob/living/user)
 	. = ..(user)
