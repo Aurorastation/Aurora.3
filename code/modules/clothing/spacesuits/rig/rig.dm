@@ -79,7 +79,7 @@
 
 	// Wiring! How exciting.]
 	var/datum/wires/rig/wires
-	var/datum/effect/effect/system/spark_spread/spark_system
+	var/datum/effect_system/sparks/spark_system
 
 /obj/item/weapon/rig/examine()
 	usr << "This is \icon[src][src.name]."
@@ -103,9 +103,7 @@
 	if((!req_access || !req_access.len) && (!req_one_access || !req_one_access.len))
 		locked = 0
 
-	spark_system = new()
-	spark_system.set_up(5, 0, src)
-	spark_system.attach(src)
+	spark_system = bind_spark(src, 5)
 
 	processing_objects |= src
 
@@ -725,7 +723,7 @@
 
 /obj/item/weapon/rig/proc/shock(mob/user)
 	if (electrocute_mob(user, cell, src)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
-		spark_system.start()
+		spark_system.queue()
 		if(user.stunned)
 			return 1
 	return 0

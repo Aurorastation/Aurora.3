@@ -33,10 +33,12 @@
 /turf/space/proc/update_starlight()
 	if(!config.starlight)
 		return
-	if(locate(/turf/simulated) in orange(src,1))
+
+	for (var/T in RANGE_TURFS(1, src))
+		if (istype(T, /turf/space))
+			continue
+
 		set_light(config.starlight)
-	else
-		set_light(0)
 
 /turf/space/attackby(obj/item/C as obj, mob/user as mob)
 

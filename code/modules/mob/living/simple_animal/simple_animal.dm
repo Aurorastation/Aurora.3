@@ -94,7 +94,7 @@
 	var/foodtarget = 0
 	//Used to control how often ian scans for nearby food
 
-
+	var/kitchen_tag = "animal" //Used for cooking with animals
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]")
@@ -390,7 +390,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		..()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/knife/butch))
+		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife ))
 			harvest(user)
 	else
 		attacked_with_item(O, user)
@@ -499,11 +499,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 // Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(var/mob/user)
-	var/actual_meat_amount = max(1,(meat_amount/2))
+	var/actual_meat_amount = max(1,(meat_amount*0.75))
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)
 			var/obj/item/meat = new meat_type(get_turf(src))
-			meat.name = "[src.name] [meat.name]"
+			if (meat.name == "meat")
+				meat.name = "[src.name] [meat.name]"
 		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))

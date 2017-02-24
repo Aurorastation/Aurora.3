@@ -14,7 +14,8 @@ var/datum/antagonist/wizard/wizards
 	hard_cap_round = 3
 	initial_spawn_req = 1
 	initial_spawn_target = 1
-
+	
+	faction = "Space Wizard"
 
 /datum/antagonist/wizard/New()
 	..()
@@ -85,7 +86,8 @@ var/datum/antagonist/wizard/wizards
 	if(wizard_mob.backbag == 5) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/wizard(wizard_mob), slot_back)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/box(wizard_mob), slot_in_backpack)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/teleportation_scroll(wizard_mob), slot_r_store)
-	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/spellbook(wizard_mob), slot_r_hand)
+	var/obj/item/I = new /obj/item/weapon/spellbook(get_turf(wizard_mob))
+	wizard_mob.put_in_hands(I)
 	wizard_mob.update_icons()
 	return 1
 
@@ -99,6 +101,22 @@ var/datum/antagonist/wizard/wizards
 	if(!survivor)
 		feedback_set_details("round_end_result","loss - wizard killed")
 		world << "<span class='danger'><font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed by the crew! The Space Wizards Federation has been taught a lesson they will not soon forget!</font></span>"
+
+/datum/antagonist/wizard/print_player_summary()
+	..()
+	for(var/p in current_antagonists)
+		var/datum/mind/player = p
+		var/text = "<b>[player.name]'s spells were:</b>"
+		if(!player.learned_spells || !player.learned_spells.len)
+			text += "<br>None!"
+		else
+			for(var/s in player.learned_spells)
+				var/spell/spell = s
+				text += "<br><b>[spell.name]</b> - "
+				text += "Speed: [spell.spell_levels["speed"]] Power: [spell.spell_levels["power"]]"
+		text += "<br>"
+		world << text
+
 
 //To batch-remove wizard spells. Linked to mind.dm.
 /mob/proc/spellremove()
@@ -120,13 +138,13 @@ Made a proc so this is not repeated 14 (or more) times.*/
 
 // Humans can wear clothes.
 /mob/living/carbon/human/wearing_wiz_garb()
-	if(!is_wiz_garb(src.wear_suit))
+	if(!is_wiz_garb(src.wear_suit) && (!src.species.hud || (slot_wear_suit in src.species.hud.equip_slots)))
 		src << "<span class='warning'>I don't feel strong enough without my robe.</span>"
 		return 0
-	if(!is_wiz_garb(src.shoes))
+	if(!is_wiz_garb(src.shoes) && (!species.hud || (slot_shoes in src.species.hud.equip_slots)))
 		src << "<span class='warning'>I don't feel strong enough without my sandals.</span>"
 		return 0
-	if(!is_wiz_garb(src.head))
+	if(!is_wiz_garb(src.head) && (!species.hud || (slot_head in src.species.hud.equip_slots)))
 		src << "<span class='warning'>I don't feel strong enough without my hat.</span>"
 		return 0
 	return 1

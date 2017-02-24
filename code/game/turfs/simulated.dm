@@ -27,13 +27,9 @@
 		overlays += wet_overlay
 
 	if(unwet_task)
-		// Space lube dries a lot.
-		if (wet > 1)
-			unwet_task.trigger_task_in(120 SECONDS)
-		else
-			unwet_task.trigger_task_in(8 SECONDS)
+		unwet_task.trigger_task_in(180 SECONDS)
 	else
-		unwet_task = schedule_task_in(wet > 1 ? 120 SECONDS : 8 SECONDS)
+		unwet_task = schedule_task_in(180 SECONDS)
 		task_triggered_event.register(unwet_task, src, /turf/simulated/proc/task_unwet_floor)
 
 /turf/simulated/proc/task_unwet_floor(var/triggered_task)

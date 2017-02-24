@@ -104,6 +104,11 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // Interaction code. Gathers a list of items purchasable from the paren't uplink and displays it. It also adds a lock button.
 /obj/item/device/uplink/hidden/interact(mob/user)
 	ui_interact(user)
+	
+/obj/item/device/uplink/hidden/CanUseTopic()
+	if(!active)
+		return STATUS_CLOSE
+	return ..()
 
 // The purchasing code.
 /obj/item/device/uplink/hidden/Topic(href, href_list)
