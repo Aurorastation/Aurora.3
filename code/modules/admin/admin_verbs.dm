@@ -205,7 +205,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
 	/client/proc/debug_pooling,
-	/client/proc/fix_player_list
+	/client/proc/fix_player_list,
+	/client/proc/lighting_show_verbs
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -357,7 +358,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
-	/client/proc/cmd_dev_bst
+	/client/proc/cmd_dev_bst,
+	/client/proc/lighting_show_verbs
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
