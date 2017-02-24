@@ -137,25 +137,6 @@
 
 	return TRUE
 
-/mob/living/carbon/human/can_fall()
-	if(Allow_Spacemove())
-		return 0
-
-	if(Check_Shoegrip())	//scaling hull with magboots
-		for(var/turf/simulated/T in trange(1,src))
-			if(T.density)
-				return 0
-	..()
-
-/mob/living/silicon/robot/can_fall()
-	if(Allow_Spacemove()) //Checks for active jetpack
-		return 0
-
-	for(var/turf/simulated/T in trange(1,src)) //Robots get "magboots"
-		if(T.density)
-			return 0
-	..()
-
 /obj/effect/can_fall()
 	return FALSE
 
@@ -190,8 +171,8 @@
 	var/damage = 20
 	apply_damage(rand(0, damage), BRUTE, "head")
 	apply_damage(rand(0, damage), BRUTE, "chest")
-	apply_damage(rand(0, damage), BRUTE, "l_leg")
-	apply_damage(rand(0, damage), BRUTE, "r_leg")
+	apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
+	apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
 	apply_damage(rand(0, damage), BRUTE, "l_arm")
 	apply_damage(rand(0, damage), BRUTE, "r_arm")
 	weakened = max(weakened,2)

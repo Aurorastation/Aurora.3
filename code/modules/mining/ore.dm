@@ -16,13 +16,13 @@
 	name = "hematite"
 	icon_state = "ore_iron"
 	origin_tech = list(TECH_MATERIAL = 1)
-	material = "hematite"
+	material = "iron"
 
 /obj/item/weapon/ore/coal
 	name = "raw carbon"
 	icon_state = "ore_coal"
 	origin_tech = list(TECH_MATERIAL = 1)
-	material = "carbon"
+	material = "coal"
 
 /obj/item/weapon/ore/glass
 	name = "sand"

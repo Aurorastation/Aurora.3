@@ -369,13 +369,12 @@
 
 /turf/simulated/mineral/random
 	name = "Mineral deposit"
-	var/mineralSpawnChanceList = list("Uranium" = 5, "Platinum" = 5, "Iron" = 35, "Coal" = 35, "Diamond" = 1, "Gold" = 5, "Silver" = 5, "Phoron" = 10)
-	var/mineralChance = 100 //10 //means 10% chance of this plot changing to a mineral deposit
+	var/mineralSpawnChanceList = list("uranium" = 5, "platinum" = 5, "iron" = 35, "coal" = 35, "diamond" = 1, "gold" = 5, "silver" = 5, "phoron" = 10)
+	var/mineralChance = 75
 
 /turf/simulated/mineral/random/New()
 	if (prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
-		mineral_name = lowertext(mineral_name)
 		if (mineral_name && (mineral_name in ore_data))
 			mineral = ore_data[mineral_name]
 			UpdateMineral()
@@ -383,8 +382,8 @@
 	. = ..()
 
 /turf/simulated/mineral/random/high_chance
-	mineralChance = 100 //25
-	mineralSpawnChanceList = list("Uranium" = 10, "Platinum" = 10, "Iron" = 20, "Coal" = 20, "Diamond" = 2, "Gold" = 10, "Silver" = 10, "Phoron" = 20)
+	mineralChance = 100
+	mineralSpawnChanceList = list("uranium" = 10, "platinum" = 10, "iron" = 5, "coal" = 5, "diamond" = 5, "gold" = 10, "silver" = 10, "phoron" = 5)
 
 
 /**********************Asteroid**************************/
@@ -404,7 +403,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
-	var/dug = 0       //0 = has not yet been dug, 1 = has already been dug
+	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/overlay_detail
 	has_resources = 1
 	footstep_sound = "gravelstep"
@@ -473,20 +472,58 @@
 			break
 
 	if(valid_tool)
-		if (dug)
-			user << "\red This area has already been dug"
-			return
-
 		var/turf/T = user.loc
 		if (!(istype(T)))
 			return
 
-		user << "\red You start digging."
-		playsound(user.loc, 'sound/effects/rustle1.ogg', 50, 1)
+		if (dug)
+			if(!GetBelow(src))
+				return
+			user << "<span class='warning'> You start digging deeper.</span>"
+			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
+			if(!do_after(user,60))
+				return
+			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
+			if(prob(33))
+				switch(dug)
+					if(1)
+						user << "<span class='notice'> You've made a little progress.</span>"
+					if(2)
+						user << "<span class='notice'> You notice the hole is a little deeper.</span>"
+					if(3)
+						user << "<span class='notice'> You think you're about halfway there.</span>"
+					if(4)
+						user << "<span class='notice'> You finish up lifting another pile of dirt.</span>"
+					if(5)
+						user << "<span class='notice'> You dig a bit deeper. You're definitely halfway there now.</span>"
+					if(6)
+						user << "<span class='notice'> You still have a ways to go.</span>"
+					if(7)
+						user << "<span class='notice'> The hole looks pretty deep now.</span>"
+					if(8)
+						user << "<span class='notice'> The ground is starting to feel a lot looser.</span>"
+					if(9)
+						user << "<span class='notice'> You can almost see the other side.</span>"
+					if(10)
+						user << "<span class='notice'> Just a little deeper. . .</span>"
+					else
+						user << "<span class='notice'> You penetrate the virgin earth!</span>"
+			else
+				if(dug <= 10)
+					user << "<span class='notice'> You dig a little deeper.</span>"
+				else
+					user << "<span class='notice'> You dug a big hole.</span>"
 
-		if(!do_after(user,40)) return
+			gets_dug()
+			return
 
-		user << "\blue You dug a hole."
+		user << "<span class='warning'> You start digging.</span>"
+		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
+
+		if(!do_after(user,40))
+			return
+
+		user << "<span class='notice'> You dug a hole.</span>"
 		gets_dug()
 
 	else if(istype(W,/obj/item/weapon/storage/bag/ore))
@@ -508,14 +545,36 @@
 
 /turf/simulated/floor/asteroid/proc/gets_dug()
 
-	if(dug)
-		return
+	if(dug == 0)
+		icon_state = "asteroid_dug"
 
-	for(var/i=0;i<(rand(3)+2);i++)
-		new/obj/item/weapon/ore/glass(src)
+	new/obj/item/weapon/ore/glass(src)
 
-	dug = 1
-	icon_state = "asteroid_dug"
+	if(prob(50))
+		var/list/ore = list(/obj/item/weapon/ore/coal = 8,
+		/obj/item/weapon/ore/iron = 6,
+		/obj/item/weapon/ore/phoron = 3,
+		/obj/item/weapon/ore/silver = 3,
+		/obj/item/weapon/ore/gold = 2,
+		/obj/item/weapon/ore/osmium = 3,
+		/obj/item/weapon/ore/hydrogen = 2,
+		/obj/item/weapon/ore/uranium = 1,
+		/obj/random/junk = 1,
+		/obj/item/weapon/ore/diamond = 0.5,
+		/obj/random/powercell = 0.2,
+		/obj/random/coin = 0.2,
+		/obj/random/loot = 0.1,
+		/obj/random/action_figure = 0.1)
+		var/ore_path = pickweight(ore)
+		if(ore)
+			new ore_path(src)
+			user << "<span class='notice'>You unearth something amidst the sand!<span>"
+
+	if(dug <= 10)
+		dug += 1
+	else
+		if(GetBelow(src))
+			ChangeTurf(/turf/simulated/open)
 	return
 
 /turf/simulated/floor/asteroid/proc/updateMineralOverlays(var/update_neighbors)

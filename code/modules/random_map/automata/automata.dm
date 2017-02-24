@@ -1,14 +1,3 @@
-#define CELL_ALIVE(VAL) ((VAL == cell_live_value) && (VAL != cell_dead_value))
-#define GET_MAP_CELL(X,Y) ((((Y) - 1) * limit_x) + (X))
-#define PREPARE_CELL(X,Y) \
-	tmp_cell = GET_MAP_CELL(X,Y);\
-	if (tmp_cell < 1 || tmp_cell > map.len) {\
-		tmp_cell = null;\
-	}
-
-#define KILL_CELL(CELL, NEXT_MAP) NEXT_MAP[CELL] = cell_dead_value;
-#define REVIVE_CELL(CELL, NEXT_MAP) NEXT_MAP[CELL] = cell_live_value;
-
 /datum/random_map/automata
 	descriptor = "generic caves"
 	initial_wall_cell = 55
@@ -27,53 +16,43 @@
 
 /datum/random_map/automata/proc/iterate(var/iteration)
 	var/list/next_map[limit_x*limit_y]
-	var/tmp_cell
-	var/current_cell
-	var/count
-	if (!islist(map))
-		set_map_size()
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			current_cell = get_map_cell(x,y)
+			var/current_cell = get_map_cell(x,y)
 			next_map[current_cell] = map[current_cell]
-			count = 0
+			var/count = 0
 
 			// Every attempt to place this in a proc or a list has resulted in
 			// the generator being totally bricked and useless. Fuck it. We're
 			// hardcoding this shit. Feel free to rewrite and PR a fix. ~ Z
-			PREPARE_CELL(x,y)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x+1,y+1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x-1,y-1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x+1,y-1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x-1,y+1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x-1,y)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x,y-1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x+1,y)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
-			PREPARE_CELL(x,y+1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				count++
+			var/tmp_cell = get_map_cell(x,y)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x+1,y+1)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x-1,y-1)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x+1,y-1)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x-1,y+1)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x-1,y)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x,y-1)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x+1,y)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
+			tmp_cell = get_map_cell(x,y+1)
+			if(tmp_cell && cell_is_alive(map[tmp_cell])) count++
 
 			if(count >= cell_threshold)
-				REVIVE_CELL(current_cell, next_map)
+				revive_cell(current_cell, next_map, (iteration == iterations))
 			else
-				KILL_CELL(current_cell, next_map)
+				kill_cell(current_cell, next_map, (iteration == iterations))
 	map = next_map
+
+// Check if a given tile counts as alive for the automata generations.
+/datum/random_map/automata/proc/cell_is_alive(var/value)
+	return (value == cell_live_value) && (value != cell_dead_value)
 
 /datum/random_map/automata/proc/revive_cell(var/target_cell, var/list/use_next_map, var/final_iter)
 	if(!use_next_map)
@@ -84,9 +63,3 @@
 	if(!use_next_map)
 		use_next_map = map
 	use_next_map[target_cell] = cell_dead_value
-
-#undef CELL_ALIVE
-#undef GET_MAP_CELL
-#undef PREPARE_CELL
-#undef KILL_CELL
-#undef REVIVE_CELL

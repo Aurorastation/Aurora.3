@@ -17,6 +17,7 @@ var/global/list/ore_data = list()
 		"million" = 999
 		)
 	var/xarch_source_mineral = "iron"
+	var/worth = 0			  // Arbitrary point value for the ore redemption console
 
 /ore/New()
 	. = ..()
@@ -28,7 +29,7 @@ var/global/list/ore_data = list()
 	display_name = "pitchblende"
 	smelts_to = "uranium"
 	result_amount = 5
-	spread_chance = 10
+	spread_chance = 15
 	ore = /obj/item/weapon/ore/uranium
 	scan_icon = "mineral_uncommon"
 	xarch_ages = list(
@@ -36,9 +37,10 @@ var/global/list/ore_data = list()
 		"million" = 704
 		)
 	xarch_source_mineral = "potassium"
+	worth = 5
 
 /ore/hematite
-	name = "hematite"
+	name = "iron"
 	display_name = "hematite"
 	smelts_to = "iron"
 	alloy = 1
@@ -46,9 +48,10 @@ var/global/list/ore_data = list()
 	spread_chance = 25
 	ore = /obj/item/weapon/ore/iron
 	scan_icon = "mineral_common"
+	worth = 1
 
 /ore/coal
-	name = "carbon"
+	name = "coal"
 	display_name = "raw carbon"
 	smelts_to = "plastic"
 	alloy = 1
@@ -56,12 +59,14 @@ var/global/list/ore_data = list()
 	spread_chance = 25
 	ore = /obj/item/weapon/ore/coal
 	scan_icon = "mineral_common"
+	worth = 1
 
 /ore/glass
 	name = "sand"
 	display_name = "sand"
 	smelts_to = "glass"
 	compresses_to = "sandstone"
+	worth = 1
 
 /ore/phoron
 	name = "phoron"
@@ -69,7 +74,7 @@ var/global/list/ore_data = list()
 	compresses_to = "phoron"
 	//smelts_to = something that explodes violently on the conveyor, huhuhuhu
 	result_amount = 5
-	spread_chance = 25
+	spread_chance = 20
 	ore = /obj/item/weapon/ore/phoron
 	scan_icon = "mineral_uncommon"
 	xarch_ages = list(
@@ -79,22 +84,24 @@ var/global/list/ore_data = list()
 		"billion_lower" = 10
 		)
 	xarch_source_mineral = "phoron"
+	worth = 1
 
 /ore/silver
 	name = "silver"
 	display_name = "native silver"
 	smelts_to = "silver"
 	result_amount = 5
-	spread_chance = 10
+	spread_chance = 15
 	ore = /obj/item/weapon/ore/silver
 	scan_icon = "mineral_uncommon"
+	worth = 2
 
 /ore/gold
 	smelts_to = "gold"
 	name = "gold"
 	display_name = "native gold"
 	result_amount = 5
-	spread_chance = 10
+	spread_chance = 15
 	ore = /obj/item/weapon/ore/gold
 	scan_icon = "mineral_uncommon"
 	xarch_ages = list(
@@ -103,16 +110,18 @@ var/global/list/ore_data = list()
 		"billion" = 4,
 		"billion_lower" = 3
 		)
+	worth = 5
 
 /ore/diamond
 	name = "diamond"
 	display_name = "diamond"
 	compresses_to = "diamond"
 	result_amount = 5
-	spread_chance = 10
+	spread_chance = 15
 	ore = /obj/item/weapon/ore/diamond
 	scan_icon = "mineral_rare"
 	xarch_source_mineral = "nitrogen"
+	worth = 10
 
 /ore/platinum
 	name = "platinum"
@@ -121,9 +130,10 @@ var/global/list/ore_data = list()
 	compresses_to = "osmium"
 	alloy = 1
 	result_amount = 5
-	spread_chance = 10
+	spread_chance = 15
 	ore = /obj/item/weapon/ore/osmium
 	scan_icon = "mineral_rare"
+	worth = 2
 
 /ore/hydrogen
 	name = "mhydrogen"
@@ -131,3 +141,4 @@ var/global/list/ore_data = list()
 	smelts_to = "tritium"
 	compresses_to = "mhydrogen"
 	scan_icon = "mineral_rare"
+	worth = 5

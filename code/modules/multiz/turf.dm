@@ -51,6 +51,8 @@
 		O.hide(0)
 
 /turf/simulated/open/update_icon()
+	overlays.Cut()
+	underlays.Cut()
 	if(below)
 		var/image/t_img = list()
 		var/image/temp = image(icon = below.icon, icon_state = below.icon_state)
