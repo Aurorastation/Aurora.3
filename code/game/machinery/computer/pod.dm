@@ -144,7 +144,7 @@
 
 
 /obj/machinery/computer/pod/process()
-	if(!..())
+	if(inoperable())
 		return
 	if(timing)
 		if(time > 0)

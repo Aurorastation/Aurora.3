@@ -15,7 +15,17 @@ var/global/datum/robolimb/basic_robolimb
 	var/desc = "A generic unbranded robotic prosthesis." // Seen when examining a limb.
 	var/icon = 'icons/mob/human_races/robotic.dmi'       // Icon base to draw from.
 	var/unavailable_at_chargen                           // If set, not available at chargen.
-	var/list/species_can_use = list("Human","Skrell","Tajara","Zhan-Khaza","M'sai","Unathi","Vaurca Worker","Vaurca Warrior","Baseline Frame")
+	var/list/species_can_use = list(
+		"Human",
+		"Skrell",
+		"Tajara",
+		"Zhan-Khazan Tajara", 
+		"M'sai Tajara",
+		"Unathi",
+		"Vaurca Worker",
+		"Vaurca Warrior",
+		"Baseline Frame"
+	)
 	var/paintable = 0 //tired of istype exceptions. bullshirt to find, and by god do i know it after this project.
 
 /datum/robolimb/bishop
