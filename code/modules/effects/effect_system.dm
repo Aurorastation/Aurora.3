@@ -9,7 +9,10 @@
 	if (queue)
 		src.queue()
 
-/datum/effect_system/Destroy()
+/datum/effect_system/Destroy(force = FALSE)
+	if (!force)
+		return QDEL_HINT_POOL
+
 	if (holder)
 		holder = null
 	SSeffects.effects_objects -= src
@@ -30,10 +33,3 @@
 
 /datum/effect_system/proc/bind(var/target)
 	holder = target
-
-/datum/effect_system/Destroy(force = FALSE)
-	if (!force)
-		return QDEL_HINT_POOL
-		
-	holder = null
-	return ..()

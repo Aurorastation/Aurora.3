@@ -139,7 +139,7 @@
 /obj/structure/foamedmetal/Destroy()
 	density = 0
 	update_nearby_tiles(1)
-	..()
+	return ..()
 
 /obj/structure/foamedmetal/proc/updateicon()
 	if(metal == 1)

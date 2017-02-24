@@ -24,7 +24,7 @@ datum/objective
 
 		if (process)
 			process_objectives -= src
-		..()
+		return ..()
 
 	proc/check_completion()
 		return completed

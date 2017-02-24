@@ -116,7 +116,7 @@
 
 /obj/item/weapon/cartridge/signal/Destroy()
 	qdel(radio)
-	..()
+	return ..()
 
 /obj/item/weapon/cartridge/quartermaster
 	name = "\improper Space Parts & Space Vendors cartridge"

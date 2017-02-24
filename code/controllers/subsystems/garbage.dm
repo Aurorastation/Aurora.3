@@ -209,7 +209,6 @@ var/datum/subsystem/garbage_collector/garbage_collector
 						will also be queued.")
 				garbage_collector.QueueForQueuing(D)
 			else
-				garbage_collector.QueueForQueuing(D)
 				if(!garbage_collector.noqdelhint["[D.type]"])
 					garbage_collector.noqdelhint["[D.type]"] = "[D.type]"
 					testing("WARNING: [D.type] is not returning a qdel hint. It is being placed in the queue. Further instances of this type will also be queued.")

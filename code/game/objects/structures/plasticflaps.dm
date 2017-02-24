@@ -61,7 +61,7 @@
 		if(T)
 			if(istype(T, /turf/simulated/floor))
 				T.blocks_air = 0
-		..()
+		return ..()
 
 
 //Airtight plastic flaps made for the kitchen freezer, blocks atmos but not movement
