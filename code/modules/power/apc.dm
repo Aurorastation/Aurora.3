@@ -276,27 +276,27 @@
 		status_overlays_lighting.len = 4
 		status_overlays_environ.len = 4
 
-		status_overlays_lock[1] = image(icon, "apcox-0")    // 0=blue 1=red
-		status_overlays_lock[2] = image(icon, "apcox-1")
+		status_overlays_lock[1] = make_screen_overlay(icon, "apcox-0")    // 0=blue 1=red
+		status_overlays_lock[2] = make_screen_overlay(icon, "apcox-1")
 
-		status_overlays_charging[1] = image(icon, "apco3-0")
-		status_overlays_charging[2] = image(icon, "apco3-1")
-		status_overlays_charging[3] = image(icon, "apco3-2")
+		status_overlays_charging[1] = make_screen_overlay(icon, "apco3-0")
+		status_overlays_charging[2] = make_screen_overlay(icon, "apco3-1")
+		status_overlays_charging[3] = make_screen_overlay(icon, "apco3-2")
 
-		status_overlays_equipment[1] = image(icon, "apco0-0")
-		status_overlays_equipment[2] = image(icon, "apco0-1")
-		status_overlays_equipment[3] = image(icon, "apco0-2")
-		status_overlays_equipment[4] = image(icon, "apco0-3")
+		status_overlays_equipment[1] = make_screen_overlay(icon, "apco0-0")
+		status_overlays_equipment[2] = make_screen_overlay(icon, "apco0-1")
+		status_overlays_equipment[3] = make_screen_overlay(icon, "apco0-2")
+		status_overlays_equipment[4] = make_screen_overlay(icon, "apco0-3")
 
-		status_overlays_lighting[1] = image(icon, "apco1-0")
-		status_overlays_lighting[2] = image(icon, "apco1-1")
-		status_overlays_lighting[3] = image(icon, "apco1-2")
-		status_overlays_lighting[4] = image(icon, "apco1-3")
+		status_overlays_lighting[1] = make_screen_overlay(icon, "apco1-0")
+		status_overlays_lighting[2] = make_screen_overlay(icon, "apco1-1")
+		status_overlays_lighting[3] = make_screen_overlay(icon, "apco1-2")
+		status_overlays_lighting[4] = make_screen_overlay(icon, "apco1-3")
 
-		status_overlays_environ[1] = image(icon, "apco2-0")
-		status_overlays_environ[2] = image(icon, "apco2-1")
-		status_overlays_environ[3] = image(icon, "apco2-2")
-		status_overlays_environ[4] = image(icon, "apco2-3")
+		status_overlays_environ[1] = make_screen_overlay(icon, "apco2-0")
+		status_overlays_environ[2] = make_screen_overlay(icon, "apco2-1")
+		status_overlays_environ[3] = make_screen_overlay(icon, "apco2-2")
+		status_overlays_environ[4] = make_screen_overlay(icon, "apco2-3")
 
 	var/update = check_updates() 		//returns 0 if no need to update icons.
 						// 1 if we need to update the icon_state

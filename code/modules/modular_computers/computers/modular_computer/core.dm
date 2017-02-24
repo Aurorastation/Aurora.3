@@ -86,16 +86,10 @@
 	if(!enabled)
 		var/probably_working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
 		if(icon_state_screensaver && probably_working)
-			var/image/prog = image(src.icon, icon_state_screensaver)
-			prog.layer = LIGHTING_LAYER + 0.1
-			prog.blend_mode = BLEND_ADD
-			prog.color = list(
-				HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0, 0,
-				0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0,
-				0, 0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0,
-				0, 0, 0, 1  
-			)
-			overlays += prog
+			if (is_holographic)
+				holographic_overlay(src, src.icon, icon_state_screensaver)
+			else
+				overlays += image(icon_state_screensaver)
 		
 		if (screensaver_light_range && probably_working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -103,28 +97,17 @@
 			set_light(0)
 		return
 	if(active_program)
-		var/image/prog = image(src.icon, active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu)
-		prog.layer = LIGHTING_LAYER + 0.1
-		prog.blend_mode = BLEND_ADD
-		prog.color = list(
-			HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0, 0,
-			0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0,
-			0, 0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0,
-			0, 0, 0, 1  
-		)
-		overlays += prog
+		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
+		if (is_holographic)
+			holographic_overlay(src, src.icon, state)
+		else
+			overlays += image(state)
 		set_light(light_strength, l_color = active_program.color)
 	else
-		var/image/prog = image(src.icon, icon_state_menu)
-		prog.layer = LIGHTING_LAYER + 0.1
-		prog.blend_mode = BLEND_ADD
-		prog.color = list(
-			HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0, 0,
-			0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0,
-			0, 0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0,
-			0, 0, 0, 1  
-		)
-		overlays += prog
+		if (is_holographic)
+			holographic_overlay(src, src.icon, icon_state_menu)
+		else
+			overlays += image(icon_state_menu)
 		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
@@ -292,3 +275,22 @@
 		return active_program.check_eye(user)
 	else
 		return ..()
+
+/proc/holographic_overlay(obj/target, icon, icon_state)
+	target.overlays += make_holographic_overlay(icon, icon_state)
+
+/proc/make_holographic_overlay(icon, icon_state)
+	var/image/overlay = make_screen_overlay(icon, icon_state)
+	overlay.blend_mode = BLEND_ADD
+	overlay.color = list(
+		HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0, 0,
+		0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0, 0,
+		0, 0, HOLOSCREEN_BRIGHTNESS_FACTOR, 0,
+		0, 0, 0, HOLOSCREEN_OPACITY_FACTOR
+	)
+	return overlay
+
+/proc/make_screen_overlay(icon, icon_state)
+	var/image/overlay = image(icon, icon_state)
+	overlay.layer = LIGHTING_LAYER + 0.1
+	return overlay

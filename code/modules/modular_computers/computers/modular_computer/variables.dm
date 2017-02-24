@@ -36,6 +36,7 @@
 	var/light_strength = 0									// Intensity of light this computer emits. Comparable to numbers light fixtures use.
 	var/list/idle_threads = list()							// Idle programs on background. They still receive process calls but can't be interacted with.
 	var/power_has_failed = FALSE
+	var/is_holographic = FALSE
 
 	// Damage of the chassis. If the chassis takes too much damage it will break apart.
 	var/damage = 0				// Current damage level
