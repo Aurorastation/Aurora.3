@@ -35,7 +35,6 @@
 	L_PROF(loc, "overlay_destroy")
 	global.all_lighting_overlays        -= src
 	global.lighting_update_overlays     -= src
-	lighting_process.curr_overlays 		-= src
 
 	var/turf/T   = loc
 	if (istype(T))

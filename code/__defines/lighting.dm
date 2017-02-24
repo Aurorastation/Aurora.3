@@ -1,4 +1,4 @@
-#define LIGHTING_INTERVAL       10     // Frequency, in 1/10ths of a second, of the lighting process.
+#define LIGHTING_INTERVAL       2     // Frequency, in 1/10ths of a second, of the lighting process.
 
 #define LIGHTING_HEIGHT         1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
 #define LIGHTING_ROUND_VALUE    1 / 128 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
@@ -51,6 +51,7 @@
 #define LIGHT_COLOR_YELLOW     "#E1E17D" //Dimmed yellow, leaning kaki. rgb(225, 225, 125)
 #define LIGHT_COLOR_BROWN      "#966432" //Clear brown, mostly dim. rgb(150, 100, 50)
 #define LIGHT_COLOR_ORANGE     "#FA9632" //Mostly pure orange. rgb(250, 150, 50)
+#define LIGHT_COLOR_PURPLE     "#A97FAA" //Soft purple. rgb(169, 127, 170)
 
 //These ones aren't a direct colour like the ones above, because nothing would fit
 #define LIGHT_COLOR_FIRE       "#FAA019" //Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
