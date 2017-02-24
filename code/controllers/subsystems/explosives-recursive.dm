@@ -56,7 +56,6 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 			disable()
 			return
 
-	var/current_power
 	var/turf/next
 	var/next_dir
 	// Branch out each of the cardinal directions.
@@ -64,20 +63,21 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 		var/start_dir = start_points[start_points.len]
 		var/turf/start = get_step(current_explosion.epicenter, start_dir)
 
-		current_power = power
+		start.queued_ex_pow = power
 		processing_turfs += start
 
 		start.ex_dir = start_points[start_points.len]
 
-		log_debug("ExR: Processing startpoint \ref[start] ([start]), current_power=[current_power],power=[power]")
+		log_debug("ExR: Processing startpoint \ref[start] ([start]), power=[power]")
 
 		var/turfs_processed = 0
 
 		// While this cardinal still has turfs and power...
-		while (processing_turfs.len && current_power > 0) 
+		while (processing_turfs.len) 
 			var/turf/T = processing_turfs[processing_turfs.len]
 			processing_turfs.len--
 			turfs_processed++
+
 
 			// If the turf doesn't exist, give up on it and continue.
 			if (QDELETED(T))
@@ -86,62 +86,69 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 			else
 				log_debug("ExR: Processing \ref[T] ([T])...")
 
-			affected_turfs |= T
+			var/current_pow = T.queued_ex_pow
+			if (!current_pow)
+				log_debug("ExR: \ref[T] ([T]) has power of nil, skipping.")
+				continue
+			
+			affected_turfs += T
 
-			log_debug("ExR: current_power of \ref[T] ([T]) is [current_power].")
+			log_debug("ExR: \ref[T] ([T]) has power of [current_pow].")
 
 			// Handle explosion resistance of the turf and its contained atoms.
-			current_power -= T.explosion_resistance
+			current_pow -= T.explosion_resistance
 
 			for (var/obj/O in T)
 				if (O.explosion_resistance)
-					current_power -= T.explosion_resistance
+					current_pow -= T.explosion_resistance
 
-			log_debug("ExR: adjusted power of \ref[T] ([T]) is [current_power].")
+			if (current_pow < 0)
+				current_pow = 0
+				ex_sev = 0
+			else
+				ex_sev = round(max(min( 3, ((current_pow) / (max(3,(power/3)))) ) ,1), 1)
+
+			log_debug("ExR: adjusted power of \ref[T] ([T]) is [current_pow].")
 
 			// Calculate and queue the explosion severity...
-			ex_sev = round(max(min( 3, ((current_power - T.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)
 
 			log_debug("ExR: Calculated ex_sev is [ex_sev].")
 
 			// If the turf has already been hit by a more powerful explosion, just give up.
-			if (T.queued_ex_sev && ex_sev > T.queued_ex_sev)
+			if (ex_sev && T.queued_ex_sev && ex_sev > T.queued_ex_sev)
 				log_debug("ExR: Power below threshold ([ex_sev] > [T.queued_ex_sev]), giving up on \ref[T] ([T])!")
-				current_power = 0
-				if (MC_TICK_CHECK)
-					return
+			else
+				T.queued_ex_sev = ex_sev
+
+				log_debug("ExR: Power above threshold, applying value [ex_sev] to \ref[T] ([T])!")
+
+				// and apply it to the contained atoms.
+				for (var/thing in T)
+					var/atom/movable/AM = thing
+					if (AM.simulated && (!AM.queued_ex_sev || AM.queued_ex_sev > ex_sev))
+						AM.queued_ex_sev = ex_sev
+				
+				// Spread left.
+				if (!T.ex_dir)
+					log_debug("ExR: ex_dir was null! Associated turf: \ref[T] (\the [T])")
 				else
-					continue
+					next_dir = turn(T.ex_dir, 90)
+					next = get_step(T, next_dir)
+					next.ex_dir = next_dir
+					next.queued_ex_pow = current_pow
+					log_debug("ExR: Spreading (left) to \the [next] (\ref[next]).")
+					processing_turfs |= next
 
-			T.queued_ex_sev = ex_sev
-
-			log_debug("ExR: Power above threshold, applying value [current_power] to \ref[T] ([T])!")
-
-			// and apply it to the contained atoms.
-			for (var/thing in T)
-				var/atom/movable/AM = thing
-				if (AM.simulated && (!AM.queued_ex_sev || AM.queued_ex_sev > ex_sev))
-					AM.queued_ex_sev = ex_sev
-			
-			// Spread left.
-			if (!T.ex_dir)
-				log_debug("ExR: ex_dir was null! Associated turf: \ref[T] (\the [T])")
-			else
-				next_dir = turn(T.ex_dir, 90)
-				next = get_step(T, next_dir)
-				next.ex_dir = next_dir
-				log_debug("ExR: Spreading (left) to \the [next] (\ref[next]).")
-				processing_turfs |= next
-
-			// Spread right.
-			if (!T.ex_dir)
-				log_debug("ExR: ex_dir was null! Associated turf: \ref[T] (\the [T])")
-			else
-				next_dir = turn(T.ex_dir, -90)
-				next = get_step(T, next_dir)
-				next.ex_dir = next_dir
-				log_debug("ExR: Spreading (right) to \the [next] (\ref[next]).")
-				processing_turfs |= next
+				// Spread right.
+				if (!T.ex_dir)
+					log_debug("ExR: ex_dir was null! Associated turf: \ref[T] (\the [T])")
+				else
+					next_dir = turn(T.ex_dir, -90)
+					next = get_step(T, next_dir)
+					next.ex_dir = next_dir
+					next.queued_ex_pow = current_pow
+					log_debug("ExR: Spreading (right) to \the [next] (\ref[next]).")
+					processing_turfs |= next
 
 			if (MC_TICK_CHECK)
 				return
@@ -164,6 +171,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 		// Reset the explosion vars so we don't mess up future explosions.
 		ex_sev = T.queued_ex_sev
 		T.queued_ex_sev = 0
+		T.queued_ex_pow = 0
 		T.ex_dir = null
 
 		var/atom_sev = ""
@@ -194,6 +202,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 
 /turf
 	var/tmp/queued_ex_sev = 0
+	var/tmp/queued_ex_pow = 0
 	var/tmp/ex_dir
 
 /atom/movable
