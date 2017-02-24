@@ -492,7 +492,7 @@
 	return (normalspeed ? open_duration : 5)
 
 /obj/machinery/door/proc/autoclose()
-	if (!NULL_OR_GC(src) && can_close(FALSE) && autoclose)
+	if (!QDELETED(src) && can_close(FALSE) && autoclose)
 		close()
 
 /obj/machinery/door/proc/close(var/forced = 0)

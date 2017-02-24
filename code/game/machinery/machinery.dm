@@ -135,7 +135,7 @@ Class Procs:
 	return ..()
 
 /proc/add_machine(var/obj/machinery/M)
-	if (NULL_OR_GC(M))
+	if (QDELETED(M))
 		return
 
 	var/type = M.get_process_type()
