@@ -121,34 +121,33 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 				T.queued_ex_sev = ex_sev
 
 				log_debug("ExR: Power above threshold, applying value [ex_sev] to \ref[T] ([T])!")
-
-				// and apply it to the contained atoms.
-				for (var/thing in T)
-					var/atom/movable/AM = thing
-					if (AM.simulated && (!AM.queued_ex_sev || AM.queued_ex_sev > ex_sev))
-						AM.queued_ex_sev = ex_sev
 				
-				// Spread left.
-				if (!T.ex_dir)
-					log_debug("ExR: ex_dir was null! Associated turf: \ref[T] (\the [T])")
-				else
+				if (T.ex_dir)
+					// Spread forward.
+					next_dir = T.ex_dir
+					next = get_step(T, next_dir)
+					next.ex_dir = next_dir
+					next.queued_ex_pow = current_pow
+					log_debug("ExR: Spreading (forward) to \the [next] (\ref[next])")
+					processing_turfs += next
+
+					// Spread left.
 					next_dir = turn(T.ex_dir, 90)
 					next = get_step(T, next_dir)
 					next.ex_dir = next_dir
 					next.queued_ex_pow = current_pow
 					log_debug("ExR: Spreading (left) to \the [next] (\ref[next]).")
-					processing_turfs |= next
+					processing_turfs += next
 
-				// Spread right.
-				if (!T.ex_dir)
-					log_debug("ExR: ex_dir was null! Associated turf: \ref[T] (\the [T])")
-				else
+					// Spread right.
 					next_dir = turn(T.ex_dir, -90)
 					next = get_step(T, next_dir)
 					next.ex_dir = next_dir
 					next.queued_ex_pow = current_pow
 					log_debug("ExR: Spreading (right) to \the [next] (\ref[next]).")
-					processing_turfs |= next
+					processing_turfs += next
+				else
+					log_debug("ExR: \ref[T] ([T]) had an invalid ex_dir!")
 
 			if (MC_TICK_CHECK)
 				return
@@ -174,24 +173,23 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 		T.queued_ex_pow = 0
 		T.ex_dir = null
 
-		var/atom_sev = ""
-		// Apply the explosion to the contained atoms...
-		for (var/thing in T)
-			var/atom/movable/AM = thing
-			if (AM.simulated && AM.queued_ex_sev)
-				//AM.ex_act(AM.queued_ex_sev)
-				atom_sev += "\ref[AM] ([AM] - [AM.type]) - [AM.queued_ex_sev]<br>"
+		if (ex_sev)
+			var/atom_sev = ""
+			// Apply the explosion to the contained atoms...
+			for (var/thing in T)
+				var/atom/movable/AM = thing
+				if (AM.simulated)
+					//AM.ex_act(ex_sev)
+					atom_sev += "\ref[AM] ([AM] - [AM.type]) - [ex_sev]<br>"
 
-			
-		// And finally, apply the explosion to the turf itself.
-		if (istype(T, /turf/simulated))
-			//T.ex_act(ex_sev)
-			var/obj/item/toy/nanotrasenballoon/balloon = new
-			balloon.name = "Severity: [ex_sev ? ex_sev : "None!"]"
-			balloon.desc = "Atoms: <br>[length(atom_sev) ? atom_sev : "None!"]"
-			balloon.desc += "This turf: [ex_sev ? ex_sev : "None!"]"
-			balloon.forceMove(T)
-
+			// And finally, apply the explosion to the turf itself.
+			if (istype(T, /turf/simulated))
+				//T.ex_act(ex_sev)
+				var/obj/item/toy/nanotrasenballoon/balloon = new
+				balloon.name = "Severity: [ex_sev ? ex_sev : "None!"]"
+				balloon.desc = "Atoms: <br>[length(atom_sev) ? atom_sev : "None!"]<br>"
+				balloon.desc += "This turf: [ex_sev ? ex_sev : "None!"]"
+				balloon.forceMove(T)
 
 		if (MC_TICK_CHECK)
 			return
@@ -204,6 +202,3 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 	var/tmp/queued_ex_sev = 0
 	var/tmp/queued_ex_pow = 0
 	var/tmp/ex_dir
-
-/atom/movable
-	var/tmp/queued_ex_sev = 0
