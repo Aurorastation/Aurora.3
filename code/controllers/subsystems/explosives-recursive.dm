@@ -48,9 +48,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 			ex_sev = round(max(min( 3, ((power - epicenter.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)
 			epicenter.queued_ex_sev = ex_sev
 
-			for (var/thing in epicenter)
-				var/atom/movable/AM = thing
-				AM.queued_ex_sev = ex_sev
+			affected_turfs += epicenter
 
 		else
 			disable()
