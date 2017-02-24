@@ -13,7 +13,7 @@
 	min_oxy = 1 //still require a /bit/ of air.
 	max_co2 = 0
 	unsuitable_atoms_damage = 1
-	
+
 	hunger_enabled = 0
 	supernatural = 1
 
@@ -71,7 +71,7 @@
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
 
-/mob/living/simple_animal/familiar/pike/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
 /mob/living/simple_animal/familiar/horror
