@@ -1283,6 +1283,7 @@
 #include "code\modules\lighting\lighting_setup.dm"
 #include "code\modules\lighting\lighting_source.dm"
 #include "code\modules\lighting\lighting_turf.dm"
+#include "code\modules\lighting\lighting_verbs.dm"
 #include "code\modules\lighting\~lighting_undefs.dm"
 #include "code\modules\liquid\splash_simulation.dm"
 #include "code\modules\maps\dmm_suite.dm"
