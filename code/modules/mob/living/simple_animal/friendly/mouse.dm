@@ -51,6 +51,8 @@
 
 	var/decompose_time = 18000
 
+	kitchen_tag = "rodent"
+
 /mob/living/simple_animal/mouse/Life()
 	if(..())
 

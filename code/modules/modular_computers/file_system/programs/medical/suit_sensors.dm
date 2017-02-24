@@ -10,3 +10,4 @@
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	color = LIGHT_COLOR_CYAN

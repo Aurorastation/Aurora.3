@@ -119,6 +119,8 @@
 	var/global/list/status_overlays_lighting
 	var/global/list/status_overlays_environ
 
+	var/datum/effect_system/sparks/spark_system
+
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return
@@ -175,6 +177,8 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		src.update_icon()
+
+	spark_system = bind_spark(src, 5, alldirs)
 
 /obj/machinery/power/apc/Destroy()
 	src.update()
@@ -560,9 +564,7 @@
 			if (C.amount >= 10 && !terminal && opened && has_electronics != 2)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(5, 1, src)
-					s.start()
+					spark(src, 5, alldirs)
 					if(user.stunned)
 						return
 				C.use(10)
@@ -582,9 +584,7 @@
 		if(do_after(user, 50))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(5, 1, src)
-					s.start()
+					spark_system.queue()
 					if(usr.stunned)
 						return
 				new /obj/item/stack/cable_coil(loc,10)
@@ -604,6 +604,7 @@
 		return
 	else if (istype(W, /obj/item/weapon/weldingtool) && opened && has_electronics==0 && !terminal)
 		var/obj/item/weapon/weldingtool/WT = W
+		if (!WT.isOn()) return
 		if (WT.get_fuel() < 3)
 			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 			return
@@ -660,6 +661,7 @@
 				&& !opened \
 				&& istype(W, /obj/item/weapon/weldingtool) )
 			var/obj/item/weapon/weldingtool/WT = W
+			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
 				user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 				return
@@ -731,9 +733,7 @@
 
 		if(isipc(H) && H.a_intent == I_GRAB)
 			if(emagged || stat & BROKEN)
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(3, 1, src)
-				s.start()
+				spark_system.queue()
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
 			else if(src.cell && src.cell.charge > 0)
@@ -752,9 +752,7 @@
 					if (H.nutrition > H.max_nutrition)
 						H.nutrition = H.max_nutrition
 					if (prob(0.5))
-						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-						s.set_up(3, 1, src)
-						s.start()
+						spark_system.queue()
 						H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 						H.adjustFireLoss(10, 0)
 
@@ -1025,9 +1023,7 @@
 			smoke.set_up(3, 0, src.loc)
 			smoke.attach(src)
 			smoke.start()
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 			visible_message("<span class='danger'>The [src.name] suddenly lets out a blast of smoke and some sparks!</span>", \
 							"<span class='danger'>You hear sizzling electronics.</span>")
 
