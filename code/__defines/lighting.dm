@@ -78,6 +78,7 @@
 #define L_WALLMOUNT_HI_RANGE 4
 // This controls by how much console sprites are dimmed before being overlayed.
 #define HOLOSCREEN_BRIGHTNESS_FACTOR 0.5
+#define HOLOSCREEN_OPACITY_FACTOR 1
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
