@@ -142,3 +142,10 @@
 	if (!newloc && Obj && newloc != src) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
 			L.source_atom.update_light()
+
+/atom/set_dir(new_dir)
+	. = ..()
+
+	for (var/datum/light_source/L in src.light_sources)
+		if (L.light_angle)
+			L.source_atom.update_light()
