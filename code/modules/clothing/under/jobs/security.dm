@@ -17,12 +17,6 @@
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/head/warden
-	name = "warden's hat"
-	desc = "It's a special helmet issued to the Warden of a securiy force."
-	icon_state = "policehelm"
-	body_parts_covered = 0
-
 /obj/item/clothing/under/rank/security
 	name = "security officer's jumpsuit"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."

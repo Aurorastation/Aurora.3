@@ -13,7 +13,7 @@
 	return
 
 /obj/item/clothing/glasses/hud/health
-	name = "Health Scanner HUD"
+	name = "health scanner HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status."
 	icon_state = "healthhud"
 	body_parts_covered = 0
@@ -38,7 +38,7 @@
 	del(src)
 
 /obj/item/clothing/glasses/hud/security
-	name = "Security HUD"
+	name = "security HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their ID status and security records."
 	icon_state = "securityhud"
 	body_parts_covered = 0
@@ -60,7 +60,7 @@
 	del(src)
 
 /obj/item/clothing/glasses/hud/security/jensenshades
-	name = "Augmented shades"
+	name = "augmented shades"
 	desc = "Polarized bioneural eyewear, designed to augment your vision."
 	icon_state = "jensenshades"
 	item_state = "jensenshades"
