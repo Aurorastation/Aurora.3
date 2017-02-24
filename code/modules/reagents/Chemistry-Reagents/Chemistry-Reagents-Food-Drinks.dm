@@ -72,7 +72,6 @@
 
 	//We'll assume that the batter isnt going to be regurgitated and eaten by someone else. Only show this once
 	if (data["cooked"] != 1)
-		world << "cooked is [data["cooked"]]"
 		if (!messaged)
 			M << "Ugh, this raw [name] tastes disgusting."
 			nutriment_factor *= 0.5
@@ -102,7 +101,6 @@
 
 //Handles setting the temperature when oils are mixed
 /datum/reagent/nutriment/coating/mix_data(var/newdata, var/newamount)
-	world << "Coating mixed with new coating, setting cooked to [newdata["cooked"]]"
 	if (!data)
 		data = list()
 
@@ -265,7 +263,6 @@
 
 /datum/reagent/nutriment/triglyceride/oil/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	var/dfactor = heatdamage(M)
-	world << "Oil touch. dfactor [dfactor]"
 	if (dfactor)
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
 		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you

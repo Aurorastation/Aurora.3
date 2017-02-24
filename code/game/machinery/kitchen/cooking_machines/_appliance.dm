@@ -142,6 +142,15 @@
 	set name = "Choose output"
 	set category = "Object"
 
+	if (!isliving(usr))
+		usr << "Ghosts aren't allowed to mess with cooking machines!"
+		return
+
+	if (!Adjacent(usr))
+		if (!istype(usr, /mob/living/silicon))
+			usr << "You can't adjust the [src] from this distance, get closer!"
+			return
+
 	if(output_options.len)
 
 		var/choice = input("What specific food do you wish to make with \the [src]?") as null|anything in output_options+"Default"
@@ -390,10 +399,10 @@
 		for (var/r in results)
 			var/obj/item/weapon/reagent_containers/food/snacks/R = r
 			R.loc = C //Move everything from the buffer back to the container
-			qdel(temp) //delete buffer object
-			temp = null
 			R.cooked |= cook_type.
 
+		qdel(temp) //delete buffer object
+		temp = null
 		.=1 //None of the rest of this function is relevant for recipe cooking
 
 	else if(CI.combine_target)
