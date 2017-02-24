@@ -5,6 +5,7 @@
 
 /obj/effect/overlay/Destroy(force = FALSE)
 	if (!force)
+		src.loc = null
 		return QDEL_HINT_POOL
 
 	return ..()
@@ -26,6 +27,10 @@
 	layer = 5
 	anchored = 1
 
+/obj/effect/overlay/palmtree_r/Destroy()
+	..()
+	return QDEL_HINT_QUEUE
+
 /obj/effect/overlay/palmtree_l
 	name = "Palm tree"
 	icon = 'icons/misc/beach2.dmi'
@@ -34,10 +39,18 @@
 	layer = 5
 	anchored = 1
 
+/obj/effect/overlay/palmtree_l/Destroy()
+	..()
+	return QDEL_HINT_QUEUE
+
 /obj/effect/overlay/coconut
 	name = "Coconuts"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
+
+/obj/effect/overlay/coconut/Destroy()
+	..()
+	return QDEL_HINT_QUEUE
 
 /obj/effect/overlay/bluespacify
 	name = "Bluespace"
