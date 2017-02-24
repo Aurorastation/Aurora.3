@@ -1,8 +1,3 @@
-#define CHECK_RIGHTS(PERM)     \
-	if (!check_rights(PERM)) { \
-		return;                \
-	}
-
 var/list/admin_verbs_lighting = list(
 	/client/proc/lighting_hide_verbs,
 	/client/proc/lighting_flush,
@@ -17,7 +12,7 @@ var/list/admin_verbs_lighting = list(
 	set name = "Show Lighting Verbs"
 	set desc = "Shows the lighting debug verbs."
 
-	CHECK_RIGHTS(R_DEBUG|R_DEV)
+	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	src << span("notice", "Lighting debug verbs have been shown.")
 	verbs += admin_verbs_lighting
@@ -27,7 +22,7 @@ var/list/admin_verbs_lighting = list(
 	set name = "Hide Lighting Verbs"
 	set desc = "Hides the lighting debug verbs."
 
-	CHECK_RIGHTS(R_DEBUG|R_DEV)
+	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	src << span("notice", "Lighting debug verbs have been hidden.")
 	verbs -= admin_verbs_lighting
@@ -37,7 +32,7 @@ var/list/admin_verbs_lighting = list(
 	set name = "Flush Work Queue"
 	set desc = "Flushes the lighting processor's current work queue."
 
-	CHECK_RIGHTS(R_DEBUG|R_DEV)
+	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	if (alert("Flush Lighting Work Queue? This will invalidate all pending lighting updates.", "Reset Lighting", "No", "No", "Yes") != "Yes")
 		return
@@ -52,7 +47,7 @@ var/list/admin_verbs_lighting = list(
 	set name = "Reconsider Visibility"
 	set desc = "Triggers a visibility update for a turf."
 
-	CHECK_RIGHTS(R_DEBUG|R_DEV)
+	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	if (!T.dynamic_lighting)
 		src << "That turf is not dynamically lit."
@@ -67,7 +62,7 @@ var/list/admin_verbs_lighting = list(
 	set name = "Build Overlay"
 	set desc = "Builds a lighting overlay for a turf if it does not have one."
 
-	CHECK_RIGHTS(R_DEBUG|R_DEV)
+	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	if (T.lighting_overlay)
 		src << "That turf already has a lighting overlay."
@@ -82,7 +77,7 @@ var/list/admin_verbs_lighting = list(
 	set name = "Clear Overlay"
 	set desc = "Clears a lighting overlay for a turf if it has one."
 
-	CHECK_RIGHTS(R_DEBUG|R_DEV)
+	if (!check_rights(R_DEBUG|R_DEV)) return
 		
 	if (!T.lighting_overlay)
 		src << "That turf doesn't have a lighting overlay."
@@ -97,7 +92,7 @@ var/list/admin_verbs_lighting = list(
 	set name = "Profile Lighting"
 	set desc = "Spams the database with lighting updates. Y'know, just 'cause."
 
-	CHECK_RIGHTS(R_DEBUG|R_SERVER)
+	if (!check_rights(R_DEBUG|R_SERVER)) return
 
 	if (!establish_db_connection(dbcon))
 		usr << span("alert", "Unable to start profiling: No active database connection.")
