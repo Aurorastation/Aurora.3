@@ -86,14 +86,10 @@
 	if(!enabled)
 		var/probably_working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
 		if(icon_state_screensaver && probably_working)
-<<<<<<< HEAD
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
 				overlays += image(icon_state_screensaver)
-=======
-			overlays.Add(icon_state_screensaver)
->>>>>>> upstream/development
 		
 		if (screensaver_light_range && probably_working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
