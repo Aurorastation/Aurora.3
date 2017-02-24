@@ -343,6 +343,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	return id
 
 /obj/item/device/pda/AltClick(var/mob/user)
+	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
 	if (ismob(src.loc))
 		verb_remove_id()
 
