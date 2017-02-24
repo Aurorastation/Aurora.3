@@ -65,7 +65,7 @@
 	if(stat & BROKEN)
 		overlays += image(icon,"[icon_state]_broken", overlay_layer)
 	else
-		overlays += image(icon,icon_screen, overlay_layer)
+		holographic_overlay(src, src.icon, icon_screen)
 
 /obj/machinery/computer/power_change()
 	..()
