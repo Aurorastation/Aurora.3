@@ -35,7 +35,6 @@
 	var/tmp/cached_origin_x	// The last known X coord of the origin.
 	var/tmp/cached_origin_y	// The last known Y coord of the origin.
 	var/tmp/old_direction	// The last known direction of the origin.
-	var/tmp/cached_ab		// We don't actually need to save this, just nice for debugging.
 	var/tmp/targ_sign			
 	var/tmp/test_x_offset
 	var/tmp/test_y_offset
@@ -274,12 +273,12 @@
 	switch (top_atom.dir)
 		if (NORTH)
 			limit_a_t = angle + 90
-			limit_b_t = angle
+			limit_b_t = -(angle) + 90
 			test_x_offset = cached_origin_x
 			test_y_offset = cached_origin_y + 1
 
 		if (SOUTH)
-			limit_a_t = -(angle)
+			limit_a_t = (angle) - 90
 			limit_b_t = -(angle) - 90
 			test_x_offset = cached_origin_x
 			test_y_offset = cached_origin_y - 1
@@ -302,8 +301,7 @@
 	limit_b_x = POLAR_TO_CART_X(light_range + 10, limit_b_t)
 	limit_b_y = POLAR_TO_CART_Y(light_range + 10, limit_b_t)
 	// This won't change unless the origin or dir changes, might as well do it here.
-	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	
-	targ_sign = cached_ab > 0
+	targ_sign = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y) > 0
 
 // I know this is 2D, calling it a cone anyways. Fuck the system.
 // Returns true if the test point is NOT inside the cone.
