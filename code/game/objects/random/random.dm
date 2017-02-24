@@ -792,9 +792,9 @@
 	/obj/item/weapon/corncob = 1,
 	/obj/item/weapon/paper/crumpled = 1,
 	/obj/item/inflatable/torn = 1,
-	/obj/item/ammo_casing/c45r = 0.5,
-	/obj/item/ammo_casing/c9mmr = 0.5,
-	/obj/item/ammo_casing/c45f = 0.5,
+	/obj/item/ammo_casing/c45/rubber = 0.5,
+	/obj/item/ammo_casing/c9mm/rubber = 0.5,
+	/obj/item/ammo_casing/c45/flash = 0.5,
 	/obj/item/ammo_casing/shotgun/beanbag = 0.5)
 
 	return pickweight(junk)
