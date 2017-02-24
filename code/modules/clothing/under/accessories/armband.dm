@@ -42,5 +42,5 @@
 
 /obj/item/clothing/accessory/armband/atlas
 	name = "atlas armband"
-	desc = "This is a armband showing anyone who sees this person, as a member of the Political party Atlas. This one is black."
+	desc = "This is a armband showing anyone who sees this person, as a member of the political party Atlas. This one is black."
 	icon_state = "black"
