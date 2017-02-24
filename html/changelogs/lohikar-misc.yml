@@ -1,0 +1,6 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - experiment: "Tweaked how footstep sound effects are played in an effort to improve performance."
+  - bugfix: "Re-securing displaced girders now has a delay like was originally intended."
+  - tweak: "Solar panel arrays now use dynamic lighting."

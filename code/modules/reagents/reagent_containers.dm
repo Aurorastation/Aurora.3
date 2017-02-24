@@ -78,7 +78,7 @@
 
 	if (istype(target, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = target
-		R.spark_system.start()
+		R.spark_system.queue()
 
 	return 1
 

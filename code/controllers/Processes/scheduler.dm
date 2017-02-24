@@ -10,7 +10,7 @@
 
 /datum/controller/process/scheduler/setup()
 	name = "scheduler"
-	schedule_interval = 3 SECONDS
+	schedule_interval = 2 SECONDS
 	scheduled_tasks = list()
 	scheduler = src
 
@@ -23,13 +23,14 @@
 		var/datum/scheduled_task/task = queued_tasks[queued_tasks.len]
 		queued_tasks.len--
 
+		if (QDELETED(task))
+			scheduled_tasks -= task
+			continue
+
 		if (world.time > task.trigger_time)
 			unschedule(task)
-			// why are these separated.
 			task.pre_process()
-			F_SCHECK	// fuck it, it's a cheap call.
 			task.process()
-			F_SCHECK
 			task.post_process()
 		F_SCHECK
 

@@ -126,7 +126,7 @@
 		force_holder = wrapped.force
 		wrapped.force = 0.0
 		wrapped.attack(M,user)
-		if(deleted(wrapped))
+		if(QDELETED(wrapped))
 			wrapped = null
 		return 1
 	else// mob interactions

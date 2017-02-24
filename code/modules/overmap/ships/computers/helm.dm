@@ -29,7 +29,6 @@
 			known_sectors += R
 
 /obj/machinery/computer/helm/process()
-	..()
 	if (autopilot && dx && dy)
 		var/turf/T = locate(dx,dy,1)
 		if(linked.loc == T)

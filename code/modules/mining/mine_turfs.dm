@@ -279,7 +279,8 @@
 				if(prob(50))
 					M.Stun(5)
 			M.apply_effect(25, IRRADIATE)
-
+			if(prob(3))
+				excavate_find(prob(5), finds[1])
 
 	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
 
@@ -296,8 +297,12 @@
 				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
 					T.overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
 
+	if(rand(1,500) == 1)
+		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
+		new /obj/structure/closet/crate/secure/loot(src)
+
 	if(istype(N))
-		N.overlay_detail = "asteroid[rand(0,9)]"
+		N.overlay_detail = rand(0,9)
 		N.updateMineralOverlays(1)
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
@@ -369,13 +374,21 @@
 
 /turf/simulated/mineral/random
 	name = "Mineral deposit"
-	var/mineralSpawnChanceList = list("Uranium" = 5, "Platinum" = 5, "Iron" = 35, "Coal" = 35, "Diamond" = 1, "Gold" = 5, "Silver" = 5, "Phoron" = 10)
-	var/mineralChance = 100 //10 //means 10% chance of this plot changing to a mineral deposit
+	var/mineralSpawnChanceList = list(
+		ORE_URANIUM = 5, 
+		ORE_PLATINUM = 5, 
+		ORE_IRON = 35, 
+		ORE_COAL = 35, 
+		ORE_DIAMOND = 1, 
+		ORE_GOLD = 5, 
+		ORE_SILVER = 5, 
+		ORE_PHORON = 10
+	)
+	var/mineralChance = 10 //means 10% chance of this plot changing to a mineral deposit
 
 /turf/simulated/mineral/random/New()
 	if (prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
-		mineral_name = lowertext(mineral_name)
 		if (mineral_name && (mineral_name in ore_data))
 			mineral = ore_data[mineral_name]
 			UpdateMineral()
@@ -383,8 +396,17 @@
 	. = ..()
 
 /turf/simulated/mineral/random/high_chance
-	mineralChance = 100 //25
-	mineralSpawnChanceList = list("Uranium" = 10, "Platinum" = 10, "Iron" = 20, "Coal" = 20, "Diamond" = 2, "Gold" = 10, "Silver" = 10, "Phoron" = 20)
+	mineralChance = 25
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 10, 
+		ORE_PLATINUM = 10, 
+		ORE_IRON = 20, 
+		ORE_COAL = 20, 
+		ORE_DIAMOND = 2, 
+		ORE_GOLD = 10, 
+		ORE_SILVER = 10, 
+		ORE_PHORON = 20
+	)
 
 
 /**********************Asteroid**************************/
@@ -406,13 +428,14 @@
 	temperature = TCMB
 	var/dug = 0       //0 = has not yet been dug, 1 = has already been dug
 	var/overlay_detail
+	var/static/list/overlay_cache
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
 /turf/simulated/floor/asteroid/New()
 
 	if(prob(20))
-		overlay_detail = "asteroid[rand(0,9)]"
+		overlay_detail = rand(0,9)
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -531,8 +554,14 @@
 		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
 			overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
 
-	//todo cache
-	if(overlay_detail) overlays |= image(icon = 'icons/turf/flooring/decals.dmi', icon_state = overlay_detail)
+	if (!overlay_cache)
+		overlay_cache = list()
+		overlay_cache.len = 10
+		for (var/i = 1; i <= overlay_cache.len; i++)
+			overlay_cache[i] = image('icons/turf/flooring/decals.dmi', "asteroid[i - 1]")
+
+	if(overlay_detail) 
+		overlays += overlay_cache[overlay_detail + 1]
 
 	if(update_neighbors)
 		var/list/all_step_directions = list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST)
