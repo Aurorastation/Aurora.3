@@ -12,7 +12,14 @@
 	)
 	return overlay
 
-/proc/make_screen_overlay(icon, icon_state)
+/proc/make_screen_overlay(icon, icon_state, brightness_factor = null)
 	var/image/overlay = image(icon, icon_state)
 	overlay.layer = LIGHTING_LAYER + 0.1
+	if (brightness_factor)
+		overlay.color = list(
+			brightness_factor, 0, 0, 0,
+			0, brightness_factor, 0, 0,
+			0, 0, brightness_factor, 0,
+			0, 0, 0, 1
+		)
 	return overlay

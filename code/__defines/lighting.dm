@@ -80,5 +80,7 @@
 #define HOLOSCREEN_BRIGHTNESS_FACTOR 0.5
 #define HOLOSCREEN_OPACITY_FACTOR 1
 
+#define APC_DISPLAY_BRIGHTNESS_FACTOR 0.8
+
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
