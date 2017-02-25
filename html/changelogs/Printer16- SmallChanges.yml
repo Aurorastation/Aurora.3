@@ -1,17 +1,10 @@
-# Your name.  
 author: Printer16
 
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
 
-# Any changes you've made.  See valid prefix list above.
-# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
-# SCREW THIS UP AND IT WON'T WORK.
-# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
-# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Arming a nuclear device to explode (Saftey off and timer counting down) now raises the code to delta."
-  - rcsadd: "Traitors can now buy an advanced pinpointer."
-  - maptweak: "The captains medal box was readded."
-  - bugfix: "Microwave now displays proper emotes when being moved."
-  - tweak: "Loyalty implants melt when exposed to an EMP."
+  - rscadd: "Traitors can now buy an advanced pinpointer."
+  - rscadd: "Added the medal box back."
+  - tweak: "Loalty implants now have a chance to melt when exposed to EMP's."
+  - bugfix: "Microwaves now display a proper message when crowbared."
