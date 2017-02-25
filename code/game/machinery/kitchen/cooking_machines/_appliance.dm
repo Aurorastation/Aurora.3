@@ -118,8 +118,11 @@
 		usr << "Ghosts aren't allowed to toggle power switches"
 		return
 
+	if (usr.stat)
+		return
+
 	if (!Adjacent(usr))
-		if (!istype(usr, /mob/living/silicon))
+		if (!issilicon(usr))
 			usr << "You can't reach the power switch from there, get closer!"
 			return
 
@@ -146,8 +149,11 @@
 		usr << "Ghosts aren't allowed to mess with cooking machines!"
 		return
 
+	if (usr.stat)
+		return
+
 	if (!Adjacent(usr))
-		if (!istype(usr, /mob/living/silicon))
+		if (!issilicon(usr))
 			usr << "You can't adjust the [src] from this distance, get closer!"
 			return
 
