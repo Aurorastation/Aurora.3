@@ -99,3 +99,36 @@
 	New()
 		..()
 		new /obj/item/weapon/gun/energy/lawgiver(src)
+
+/obj/item/weapon/storage/lockbox/medal
+	name = "medal box"
+	desc = "A locked box used to store medals."
+	icon_state = "medalbox+l"
+	item_state = "syringe_kit"
+	w_class = 3
+	max_w_class = 2
+	req_access = list(access_captain)
+	icon_locked = "medalbox+l"
+	icon_closed = "medalbox"
+	icon_broken = "medalbox+b"
+
+/obj/item/weapon/storage/lockbox/medal/New()
+	..()
+	new /obj/item/clothing/accessory/medal
+	new /obj/item/clothing/accessory/medal
+	new /obj/item/clothing/accessory/medal/conduct
+	new /obj/item/clothing/accessory/medal/conduct
+	new /obj/item/clothing/accessory/medal/conduct
+	new /obj/item/clothing/accessory/medal/conduct
+	new /obj/item/clothing/accessory/medal/bronze_heart
+	new /obj/item/clothing/accessory/medal/bronze_heart
+	new /obj/item/clothing/accessory/medal/nobel_science
+	new /obj/item/clothing/accessory/medal/nobel_science
+	new /obj/item/clothing/accessory/medal/silver
+	new /obj/item/clothing/accessory/medal/iron/merit
+	new /obj/item/clothing/accessory/medal/silver/valor
+	new /obj/item/clothing/accessory/medal/silver/security
+	new /obj/item/clothing/accessory/medal/silver/security
+	new /obj/item/clothing/accessory/medal/gold
+
+
