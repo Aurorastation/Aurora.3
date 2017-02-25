@@ -411,3 +411,12 @@
 		if ("dispose")
 			dispose()
 	return
+
+
+/obj/machinery/microwave/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (!mover)
+		return 1
+	if(mover.checkpass(PASSTABLE))
+	//Animals can run under them, lots of empty space
+		return 1
+	return ..()

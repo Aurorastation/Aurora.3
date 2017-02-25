@@ -9,26 +9,25 @@
 	food_color = "#FFAD33"
 	cooked_sound = 'sound/machines/ding.ogg'
 	appliancetype = FRYER
-	active_power_usage	= 48000
+	active_power_usage	= 24000
 	//24 KW, based on real world values for a large commercial fryer.
-	//And then doubled, because this is an extra wide twin unit
 
 	optimal_power = 0.35
 
-	idle_power_usage = 7200
+	idle_power_usage = 6000
 	//Power used to maintain temperature once it's heated.
-	//Going with 15% of the active power. This is a somewhat arbitrary value
+	//Going with 25% of the active power. This is a somewhat arbitrary value
 
-	resistance = 240000
+	resistance = 90000
 	//By default, about 15 mins to heat up.
 
-	max_contents = 4
+	max_contents = 2
 	container_type = /obj/item/weapon/reagent_containers/cooking_container/fryer
 
 	stat = POWEROFF//Starts turned off
 
 	var/datum/reagents/oil
-	var/optimal_oil = 18000//180 litres of cooking oil
+	var/optimal_oil = 9000//90 litres of cooking oil
 
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
@@ -39,12 +38,12 @@
 /obj/machinery/appliance/cooker/fryer/New()
 	..()
 	oil = new/datum/reagents(optimal_oil * 1.25, src)
-	var/variance = rand()*0.05
+	var/variance = rand()*0.15
 	//Fryer is always a little below full, but its usually negligible
 
 	if (prob(20))
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
-		variance = rand()*0.3
+		variance = rand()*0.5
 	oil.add_reagent("cornoil", optimal_oil*(1 - variance))
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
