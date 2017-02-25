@@ -13,15 +13,15 @@
 	var/mob/living/carbon/human/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-		H.visible_message("[H] seems to resist the implant!", "You feel the tendrils of [invader_nation] try to invade your mind!")
+		H.visible_message("[H] seems to resist the implant!", "You feel the tendrils of the Sol Alliance try to invade your mind!")
 		return 0
 	else
 		clear_antag_roles(H.mind, 1)
-		H << "<span class='notice'>You feel a surge of loyalty towards [admiral_name].</span>"
+		H << "<span class='notice'>You feel a surge of loyalty towards Admiral Michael Frost.</span>"
 	return 1
 
 
-//sol uniforms and hats
+//sol uniforms
 
 /obj/item/clothing/under/rank/fatigues //regular sol navy combat fatigues
 	name = "sol navy fatigues"
@@ -147,18 +147,18 @@
 	item_state = "admiral_cap"
 	contained_sprite = 1
 
-//cerimonial swords
+//ceremonial swords
 
-/obj/item/weapon/melee/cerimonial_sword
-	name = "sol officer cerimonial sword"
-	desc = "A cerimonial sword issued to Sol navy officers as part of their dress uniform."
+/obj/item/weapon/melee/ceremonial_sword
+	name = "sol officer ceremonial sword"
+	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = 1
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 10
+	force = 15
 	throwforce = 5
 	w_class = 4
 	sharp = 1
@@ -168,9 +168,9 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
-/obj/item/weapon/melee/cerimonial_sword/marine
-	name = "sol marine cerimonial sword"
-	desc = "A cerimonial sword issued to Sol marine officers as part of their dress uniform."
+/obj/item/weapon/melee/ceremonial_sword/marine
+	name = "sol marine ceremonial sword"
+	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
@@ -284,5 +284,5 @@
 	new /obj/item/weapon/gun/energy/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/weapon/melee/telebaton(src)
-	new /obj/item/weapon/melee/cerimonial_sword(src)
+	new /obj/item/weapon/melee/ceremonial_sword(src)
 	return
