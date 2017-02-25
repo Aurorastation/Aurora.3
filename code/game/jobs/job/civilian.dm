@@ -263,18 +263,19 @@
 
 //var/global/lawyer = 0//Checks for another lawyer //This changed clothes on 2nd lawyer, both IA get the same dreds.
 /datum/job/lawyer
-	title = "Internal Affairs Agent"
+	title = "Alliance Representative"
 	flag = LAWYER
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "company officials and Corporate Regulations"
+	supervisors = "the Sol Alliance and Admiral Michael Frost"
 	selection_color = "#dddddd"
 	economic_modifier = 7
 	access = list(access_lawyer, access_sec_doors, access_maint_tunnels, access_heads)
 	minimal_access = list(access_lawyer, access_sec_doors, access_heads)
+	alt_titles = list("NanoTrasen Internal Affairs Agent")
 
 
 	equip(var/mob/living/carbon/human/H)
@@ -291,8 +292,10 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/big(H), slot_glasses)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/lawyer(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
+		H.equip_to_slot_or_del(new /obj/item/weapon/melee/telebaton(H), slot_in_backpack) //remove those when the event is over
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/colt(H), slot_in_backpack) //remove those when the event is over
 
-		H.implant_loyalty(H)
+		H.implant_loyalty_sol(H)
 
 
 		return 1
