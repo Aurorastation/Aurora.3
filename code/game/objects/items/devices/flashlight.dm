@@ -9,8 +9,7 @@
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
 	uv_intensity = 50
-	//offset_light = 1
-	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	light_wedge = LIGHT_WIDE
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
 
@@ -97,6 +96,7 @@
 	slot_flags = SLOT_EARS
 	brightness_on = 2
 	w_class = 1
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/drone
 	name = "low-power flashlight"
@@ -117,6 +117,7 @@
 	uv_intensity = 60
 	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
 	contained_sprite = 1
+	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/maglight
 	name = "maglight"
@@ -131,6 +132,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	contained_sprite = 1
+	light_wedge = LIGHT_NARROW
 
 
 // the desk lamps are a bit special
@@ -145,6 +147,7 @@
 	uv_intensity = 100
 	on = 1
 	slot_flags = 0 //No wearing desklamps
+	light_wedge = LIGHT_OMNI
 
 
 // green-shaded desk lamp
@@ -179,8 +182,7 @@
 	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
-	//offset_light = 0//Emits light all around, not directional
-	//diona_restricted_light = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/flare/New()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
@@ -232,8 +234,7 @@
 	uv_intensity = 200
 	on = 1 //Bio-luminesence has one setting, on.
 	light_color = LIGHT_COLOR_SLIME_LAMP
-	//offset_light = 0//Emits light all around, not directional
-	//diona_restricted_light = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/slime/New()
 	..()
@@ -259,9 +260,8 @@
 	item_state = "glowstick"
 	contained_sprite = 1
 	uv_intensity = 255
-	//offset_light = 0
-	//diona_restricted_light = 0
 	var/fuel = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/glowstick/New()
 	fuel = rand(900, 1200)
