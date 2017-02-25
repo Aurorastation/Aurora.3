@@ -358,7 +358,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			else if (prob(50))
 				malfunction = MALFUNCTION_PERMANENT
 			processing_objects.Remove(src)
-
+			return
 		spawn(20)
 			malfunction--
 
