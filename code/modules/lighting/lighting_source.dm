@@ -264,8 +264,10 @@
 	if (front.has_opaque_atom)
 		do_offset = FALSE
 
-	test_x_offset = cached_origin_x = T.x
-	test_y_offset = cached_origin_y = T.y
+	cached_origin_x = T.x
+	test_x_offset = cached_origin_x
+	cached_origin_y = T.y
+	test_y_offset = cached_origin_y
 	old_direction = top_atom.dir
 
 	var/angle = light_angle / 2
