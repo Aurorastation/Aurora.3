@@ -5,11 +5,11 @@
 	var/active_w_class
 	sharp = 0
 	edge = 0
-	armor_penetration = 50
+	armor_penetration = 10
 	flags = NOBLOODY
 	can_embed = 0//No embedding pls
 	var/base_reflectchance = 40
-	var/base_block_chance = 50
+	var/base_block_chance = 25
 	var/shield_power = 100
 	var/can_block_bullets = 0
 	var/datum/effect_system/sparks/spark_system
@@ -159,7 +159,7 @@
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
 	can_block_bullets = 0
-	armor_penetration = 65
+	armor_penetration = 20
 
 /obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
@@ -198,7 +198,7 @@
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
 	can_block_bullets = 0
-	armor_penetration = 80
+	armor_penetration = 35
 
 /obj/item/weapon/melee/energy/axe/activate(mob/living/user)
 	..()
@@ -302,6 +302,7 @@
 	shield_power = 150
 	can_block_bullets = 1
 	active = 1
+	armor_penetration = 20
 
 /obj/item/weapon/melee/energy/blade/New()
 	processing_objects |= src
