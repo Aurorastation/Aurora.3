@@ -1,8 +1,8 @@
 /*
 
-/proc/spark(var/turf/loc, var/amount = 1, var/spread_dirs = cardinal)
+/proc/spark(var/atom/movable/loc, var/amount = 1, var/spread_dirs = cardinal)
 Creates a spark system that is destroyed once the animation completes.
-	loc:	The location this effect should be created at.
+	loc:	The location this effect should be created at. Does not need to be a turf.
 	amount:	How many spark-tiles should be created.
 	spread_dirs:	The directions the sparks should spread in. 'cardinal' if not specified.
 
