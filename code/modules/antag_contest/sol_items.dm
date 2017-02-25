@@ -32,8 +32,8 @@
 	armor = list(melee = 10, bullet = 10, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/under/rank/fatigues/marine //regular sol navy marine fatigues
-	name = "sol margine fatigues"
-	desc = "Military looking uniform issued to Sol Alliance Marines, to be used while in the field."
+	name = "sol marine fatigues"
+	desc = "Military looking uniform issued to Sol Alliance marines, to be used while in the field."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "marine_fatigue"
 	item_state = "marine_fatigue"
@@ -73,7 +73,7 @@
 
 /obj/item/clothing/under/rank/dress/officer //sol marine officer dress unniform
 	name = "sol navy officer dress uniform"
-	desc = "A fancy military looking dress uniform issued to Sol Alliance nay officers."
+	desc = "A fancy military looking dress uniform issued to Sol Alliance navy officers."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "dress"
 	item_state = "dress"
@@ -81,7 +81,7 @@
 
 /obj/item/clothing/under/rank/dress/admiral //admiral uniform
 	name = "sol navy admiral uniform"
-	desc = "A fancy military looking dress uniform issued to a higher member of the Sol Alliance navy."
+	desc = "A fancy military dress uniform issued to a higher member of the Sol Alliance navy."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "admiral_uniform"
 	item_state = "admiral_uniform"
@@ -100,7 +100,7 @@
 
 /obj/item/clothing/head/navy/marine
 	name = "sol marine utility cover"
-	desc = "An eight pointed cover issued to Sol Alliance marines members as part of their field uniform."
+	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "greenutility"
 	item_state = "greenutility"
