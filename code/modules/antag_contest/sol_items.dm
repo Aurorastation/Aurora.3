@@ -285,5 +285,7 @@
 	new /obj/item/weapon/melee/telebaton(src)
 	new /obj/item/weapon/melee/ceremonial_sword(src)
 	new /obj/item/clothing/under/rank/fatigues(src)
+	new /obj/item/clothing/under/rank/service(src)
 	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/accessory/holster/armpit(src)
 	return
