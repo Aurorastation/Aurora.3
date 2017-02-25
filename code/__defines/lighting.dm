@@ -66,6 +66,12 @@
 #define LIGHT_BROKEN 2
 #define LIGHT_BURNED 3
 
+// Some angle presets for directional lighting.
+#define LIGHT_OMNI null
+#define LIGHT_SEMI 180
+#define LIGHT_WIDE 90
+#define LIGHT_NARROW 45
+
 // Night lighting controller times
 // The time (in ticks based on worldtime2ticks()) that various actions trigger
 #define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning

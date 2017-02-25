@@ -11,7 +11,6 @@
 	var/light_color    	// The colour of the light, string, decomposed by parse_light_color()
 	var/light_uv		// The intensity of UV light, between 0 and 255.
 	var/light_angle		// The light's emission angle, in degrees.
-	var/light_self = TRUE	// If FALSE, the light won't emit onto its own tile. Good with light_angle.
 
 	// Variables for keeping track of the colour.
 	var/lum_r
@@ -35,7 +34,6 @@
 	var/tmp/cached_origin_x	// The last known X coord of the origin.
 	var/tmp/cached_origin_y	// The last known Y coord of the origin.
 	var/tmp/old_direction	// The last known direction of the origin.
-	var/tmp/cached_ab		// We don't actually need to save this, just nice for debugging.
 	var/tmp/targ_sign			
 	var/tmp/test_x_offset
 	var/tmp/test_y_offset
@@ -69,7 +67,6 @@
 	light_color = source_atom.light_color
 	light_uv    = source_atom.uv_intensity
 	light_angle = source_atom.light_wedge
-	light_self  = source_atom.light_self
 
 	parse_light_color()
 
@@ -201,10 +198,6 @@
 		light_angle = source_atom.light_wedge
 		. = 1
 
-	if (source_atom.light_self != light_self)
-		light_self = source_atom.light_self
-		. = 1
-
 // Decompile the hexadecimal colour into lumcounts of each perspective.
 /datum/light_source/proc/parse_light_color()
 	if (light_color)
@@ -266,35 +259,42 @@
 	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == top_atom.dir)
 		return
 
+	var/do_offset = TRUE
+	var/turf/front = get_step(T, top_atom.dir)
+	if (front.has_opaque_atom)
+		do_offset = FALSE
+
 	cached_origin_x = T.x
+	test_x_offset = cached_origin_x
 	cached_origin_y = T.y
+	test_y_offset = cached_origin_y
 	old_direction = top_atom.dir
 
 	var/angle = light_angle / 2
 	switch (top_atom.dir)
 		if (NORTH)
 			limit_a_t = angle + 90
-			limit_b_t = angle
-			test_x_offset = cached_origin_x
-			test_y_offset = cached_origin_y + 1
+			limit_b_t = -(angle) + 90
+			if (do_offset)
+				test_y_offset += 1
 
 		if (SOUTH)
-			limit_a_t = -(angle)
+			limit_a_t = (angle) - 90
 			limit_b_t = -(angle) - 90
-			test_x_offset = cached_origin_x
-			test_y_offset = cached_origin_y - 1
+			if (do_offset)
+				test_y_offset -= 1
 
 		if (EAST)
 			limit_a_t = angle
 			limit_b_t = -(angle)
-			test_x_offset = cached_origin_x + 1
-			test_y_offset = cached_origin_y
+			if (do_offset)
+				test_x_offset += 1
 
 		if (WEST)
 			limit_a_t = angle + 180
 			limit_b_t = -(angle) - 180
-			test_x_offset = cached_origin_x - 1
-			test_y_offset = cached_origin_y
+			if (do_offset)
+				test_x_offset -= 1
 
 	// Convert our angle + range into a vector.
 	limit_a_x = POLAR_TO_CART_X(light_range + 10, limit_a_t)
@@ -302,8 +302,7 @@
 	limit_b_x = POLAR_TO_CART_X(light_range + 10, limit_b_t)
 	limit_b_y = POLAR_TO_CART_Y(light_range + 10, limit_b_t)
 	// This won't change unless the origin or dir changes, might as well do it here.
-	cached_ab = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y)	
-	targ_sign = cached_ab > 0
+	targ_sign = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y) > 0
 
 // I know this is 2D, calling it a cone anyways. Fuck the system.
 // Returns true if the test point is NOT inside the cone.
@@ -351,9 +350,6 @@
 		Tx = T.x
 		Ty = T.y
 		if (light_angle && check_light_cone(Tx, Ty))
-			continue
-
-		if (!light_self && Tx == cached_origin_x && Ty == cached_origin_y)	// Shouldn't need to check Z.
 			continue
 
 		if (!T.lighting_corners_initialised)
