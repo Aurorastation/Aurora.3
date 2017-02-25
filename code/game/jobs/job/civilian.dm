@@ -292,10 +292,16 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/big(H), slot_glasses)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/lawyer(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
-		H.equip_to_slot_or_del(new /obj/item/weapon/melee/telebaton(H), slot_in_backpack) //remove those when the event is over
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/colt(H), slot_in_backpack) //remove those when the event is over
-
-		H.implant_loyalty_sol(H)
+		
+		if (H.mind.role_alt_title)
+			switch(H.mind.role_alt_title)
+				if("Alliance Representative")
+					H.equip_to_slot_or_del(new /obj/item/weapon/melee/telebaton(H), slot_in_backpack) //remove those when the event is over
+					H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/colt(H), slot_in_backpack) //remove those when the event is over
+					H.implant_loyalty_sol(H)
+				if("NanoTrasen Internal Affairs Agent")
+					H.implant_loyalty(H)
+		
 
 
 		return 1
