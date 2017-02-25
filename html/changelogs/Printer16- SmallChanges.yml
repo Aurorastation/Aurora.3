@@ -1,0 +1,10 @@
+author: Printer16
+
+delete-after: True
+
+changes: 
+  - rscadd: "Arming a nuclear device to explode (Saftey off and timer counting down) now raises the code to delta."
+  - rscadd: "Traitors can now buy an advanced pinpointer."
+  - rscadd: "Added the medal box back."
+  - tweak: "Loyalty implants now have a chance to melt when exposed to EMP's."
+  - bugfix: "Microwaves now display a proper message when crowbared."
