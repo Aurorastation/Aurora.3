@@ -16,7 +16,7 @@
 	var/datum/data/record/active2 = null
 	var/a_id = null
 	var/temp = null
-	//var/printing = null
+	is_holographic = FALSE
 
 /obj/machinery/computer/med_data/AltClick(var/mob/user)
 	eject_id()
