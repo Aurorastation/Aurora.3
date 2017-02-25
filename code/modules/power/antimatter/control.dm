@@ -324,7 +324,7 @@
 		"stability" = stored_core_stability,
 		"stored_power" = stored_power,
 		"fueljar" = fueljar_data,
-		"siliconUser" = istype(user, /mob/living/silicon),
+		"siliconUser" = istype(user, /mob/living/silicon)
 	)
 
 	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, ui_key)
