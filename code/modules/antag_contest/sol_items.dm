@@ -1,6 +1,5 @@
 /*
- * Client verbs for the antag contest. Disable this file when the contest is over!
- * AUG2016
+ * Sol Alliance military related items
  */
 
 
@@ -285,4 +284,6 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/weapon/melee/telebaton(src)
 	new /obj/item/weapon/melee/ceremonial_sword(src)
+	new /obj/item/clothing/under/rank/fatigues(src)
+	new /obj/item/clothing/shoes/jackboots(src)
 	return
