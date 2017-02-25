@@ -231,6 +231,7 @@
 	sharp = 1
 	edge = 1
 	var/blade_color
+	shield_power = 75
 
 /obj/item/weapon/melee/energy/sword/dropped(var/mob/user)
 	..()
