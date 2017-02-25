@@ -118,7 +118,7 @@
 		usr << "Ghosts aren't allowed to toggle power switches"
 		return
 
-	if (usr.stat)
+	if (usr.stat || usr.restrained() || usr.incapacitated())
 		return
 
 	if (!Adjacent(usr))
@@ -149,7 +149,7 @@
 		usr << "Ghosts aren't allowed to mess with cooking machines!"
 		return
 
-	if (usr.stat)
+	if (usr.stat || usr.restrained() || usr.incapacitated())
 		return
 
 	if (!Adjacent(usr))
