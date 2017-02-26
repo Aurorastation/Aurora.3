@@ -949,7 +949,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/engineering/fluff/karlan_beret //Family Beret - Kar'lan Sel'ler - toasterstrudes
 	name = "family beret"
-	desc = "A brown beret with a orange patch sewn into it. The patch have the  initials; \"K.S.\" sewn into it."
+	desc = "A brown beret with an orange patch. The patch have the initials; \"K.S.\" sewn into it."
 	icon = 'icons/obj/custom_items/karlan_beret.dmi'
 	icon_state = "karlan_beret"
 	item_state = "karlan_beret"
@@ -967,7 +967,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/fluff/zhilin_book // Siik'maas-Tau Ceti Basic dictionary - Zhilin Vadim - fireandglory
 	name = "siik'maas-tau ceti basic dictionary"
-	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations, there's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
+	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations. There's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
 	icon = 'icons/obj/custom_items/zhilin_book.dmi'
 	icon_state = "zhilin_book"
 	w_class = 3
