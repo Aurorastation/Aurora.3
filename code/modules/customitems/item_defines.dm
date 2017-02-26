@@ -165,7 +165,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa
 	name = "consecrated athame"
-	desc = "An athame used in occult rituals. The double-edged dagger is dull. The handle is black with a pink/white occult design strewn about it, and 'Tina' is inscribed into it in decorated letters."
+	desc = "An athame used in occult rituals. The double-edged dagger is dull. The handle is black with a pink/white occult design strewn about it, and \"Tina\" is inscribed into it in decorated letters."
 	icon = 'icons/obj/custom_items/tina_knife.dmi'
 	icon_state = "tina_knife"
 	item_state = "knife"
@@ -178,7 +178,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "\"Hephaestus Industrial Exosuit MK III\" APLU customisation kit"
 	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
 	new_name = "Hephaestus Industrial Exosuit MK III"
-	new_desc = "An ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
+	new_desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
 	new_icon = "ripley_zairjah" //a lot of thanks to cakeisossim for the sprites
 	allowed_types = list("ripley","firefighter")
 
@@ -405,15 +405,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "worn security beret"
 	desc = "A NT Asset Protection Force Beret. It has the NT APF insignia on it as well as the Name \"Goellstein\" inside."
 
-
-/obj/item/clothing/accessory/armband/fluff/vittorio_armband //ATLAS Armband - Vittorio Giurifiglio - tytostyris
-	name = "ATLAS armband"
-	desc = "This is an atlas armband showing anyone who sees this person, as a member of the Political party Atlas."
-	icon = 'icons/obj/custom_items/vittorio_armband.dmi'
-	icon_state = "vittorio_armband"
-	item_state = "vittorio_armband"
-	contained_sprite = 1
-
 /obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris
 	name = "black fez"
 	desc = "It is a black fez, it bears an Emblem of the Astronomical symbol of Earth, It also has some nice tassels."
@@ -480,7 +471,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100
 	name = "first shot"
-	desc = "A flask. Smells of absinthe, maybe vodka. The bottom left corner has a silver bar. \"The bottom is engraved, it reads 'The First Shot\"."
+	desc = "A flask. Smells of absinthe, maybe vodka. The bottom left corner has a silver bar. The bottom is engraved, it reads: \"The First Shot\"."
 	icon = 'icons/obj/custom_items/barcia_flask.dmi'
 	icon_state = "barcia_flask"
 
@@ -496,6 +487,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	species_restricted = null
 	gender = NEUTER
 	body_parts_covered = null
+
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
@@ -856,7 +848,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
-	name = "LR-31MTA Beret"
+	name = "LR-31MTA beret"
 	desc = "A silver beret with an insignia on the front, it looks like an old Tajaran cannon with a ring around it. \
 	Along the top half of the ring \"LR-31MTA\" is engraved. The word \"Yam'hir\" is engraved along the bottom half of the ring. \
 	The beret looks old and is worn in some places around the edges. It appears to have a flap inside, \
@@ -939,7 +931,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/licensed_systems = "Republic of Biesel, Sol Alliance, Nralakk"
 	var/supplementary_endorsements = "Licensed Medical Examiner; Sol Alliance, Republic of Biesel - Concealed firearm carry; Sol Alliance, Republic of Biesel"
 	var/citizenship = "Republic of Biesel"
-	
+
 /obj/item/clothing/accessory/badge/fluff/bell_badge/verb/read()
 	set name = "Review credentials"
 	set category = "Object"
@@ -953,3 +945,65 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr << "The systems that the credentials show the user is licensed to investigate in are [licensed_systems]."
 	usr << "Additional endorsements registered on the card show: [supplementary_endorsements]."
 	return
+
+
+/obj/item/clothing/head/beret/engineering/fluff/karlan_beret //Family Beret - Kar'lan Sel'ler - toasterstrudes
+	name = "family beret"
+	desc = "A brown beret with a orange patch sewn into it. The patch have the  initials; \"K.S.\" sewn into it."
+	icon = 'icons/obj/custom_items/karlan_beret.dmi'
+	icon_state = "karlan_beret"
+	item_state = "karlan_beret"
+	contained_sprite = 1
+
+
+/obj/item/clothing/under/fluff/guskov_uniform //Tajaran Service Uniform - Guskov Andrei - fireandglory
+	name = "tajaran service uniform"
+	desc = "This is obviously a military service uniform, there are signs that it is of Tajaran make, modified to be a bit less warm, although it doesn't look like any uniform used by the People's Republic of Adhomai."
+	icon = 'icons/obj/custom_items/guskov_uniform.dmi'
+	icon_state = "guskov_uniform"
+	item_state = "guskov_uniform"
+	contained_sprite = 1
+
+
+/obj/item/weapon/fluff/zhilin_book // Siik'maas-Tau Ceti Basic dictionary - Zhilin Vadim - fireandglory
+	name = "siik'maas-tau ceti basic dictionary"
+	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations, there's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
+	icon = 'icons/obj/custom_items/zhilin_book.dmi'
+	icon_state = "zhilin_book"
+	w_class = 3
+
+/obj/item/weapon/fluff/zhilin_book/attack_self(mob/user as mob)
+	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>", 
+						"<span class='notice'>You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users.</span>",
+						"<span class='notice'>You hear pages being flipped.</span>")
+	playsound(src.loc, "pageturn", 50, 1)
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/fay_jacket //Emergency Response Team Duty Jacket - Fai Sinsa - soundscopes
+	name = "emergency response team duty jacket"
+	desc = "A militaristic duty jacket worn by members of the NanoTrasen Emergency Response Teams. The nameplate reads: \"Tpr Sinsa\"."
+	icon = 'icons/obj/custom_items/fai_jacket.dmi'
+	icon_state = "fai_jacket"
+	item_state = "fai_jacket"
+	icon_open = "fai_jacket_open"
+	icon_closed = "fai_jacket"
+	contained_sprite = 1
+
+
+/obj/item/clothing/under/fluff/faysal_uniform //Old Tajaran Nobleman Suit - Faysal Al-Shennawi - alberyk
+	name = "old tajaran nobleman suit"
+	desc = "A fancy looking suit, made of white line, adorned with golden details and buttons bearing long forgotten meanings. A blue sash decorates this piece of clothing."
+	icon = 'icons/obj/custom_items/faysal_uniform.dmi'
+	icon_state = "faysal_uniform"
+	item_state = "faysal_uniform"
+	contained_sprite = 1
+
+
+/obj/item/clothing/glasses/welding/fluff/ghoz_eyes //Prosthetic Vaurca Eyelids - Ka'Akaix'Ghoz Zo'ra - sleepywolf
+	name = "prosthetic vaurca eyelids"
+	desc = "A small contraption of micro-actuators with a button on the side."
+	icon = 'icons/obj/custom_items/ghoz_eyes.dmi'
+	icon_state = "ghoz_eyes"
+	item_state = "ghoz_eyes"
+	contained_sprite = 1
+	action_button_name = "Toggle Eyelids"
