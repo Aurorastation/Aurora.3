@@ -1295,7 +1295,7 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 		L.visible_message(span("danger","A streak of electricity arcs out from \the [src] and strikes [L]!"))
 		if (electrocute_mob(L, terminal.powernet, terminal))
 			//Electrocute proc does all the accounting for insulation
-			L.paralysis = max(30, L.paralysis)
+			L.paralysis = max(100, L.paralysis)
 			L << span("danger", "The world goes black!")
 
 	explosion(T, -1, 0, 4, 7)

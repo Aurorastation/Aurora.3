@@ -144,7 +144,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",			/datum/event/wallrot, 			75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",		/datum/event/vent_clog, 		70),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",		/datum/event/false_alarm, 		100),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",		/datum/event/supply_drop, 		80),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",		/datum/event/supply_drop, 		80)
 	)
 
 /datum/event_container/moderate
@@ -166,7 +166,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Space Dust",				/datum/event/dust,	 					50, 	list(ASSIGNMENT_ENGINEER = 7)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Spider Infestation",		/datum/event/spider_infestation, 		50,	list(ASSIGNMENT_SECURITY = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Viral Infection",			/datum/event/viral_infection, 			0,		list(ASSIGNMENT_MEDICAL = 12), 1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Major Vermin Infestation",	/datum/event/infestation, 				60,	list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15))
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Major Vermin Infestation",	/datum/event/infestation, 				60,	list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "APC Overload",				/datum/event/powerconduit,				45, 	list(ASSIGNMENT_ENGINEER = 10)),
 
 	)
