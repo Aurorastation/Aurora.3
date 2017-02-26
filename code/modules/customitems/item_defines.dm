@@ -405,6 +405,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "worn security beret"
 	desc = "A NT Asset Protection Force Beret. It has the NT APF insignia on it as well as the Name \"Goellstein\" inside."
 
+
 /obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris
 	name = "black fez"
 	desc = "It is a black fez, it bears an Emblem of the Astronomical symbol of Earth, It also has some nice tassels."
@@ -544,7 +545,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user.visible_message("<span class='danger'>[user] thrust the [src.name] into [M]'s face.</span>")
 
 
-/obj/item/weapon/fluff/akela_photo // Akela's Family Photo - Akela Ha'kim - moltenkore
+/obj/item/weapon/fluff/akela_photo //Akela's Family Photo - Akela Ha'kim - moltenkore
 	name = "family photo"
 	desc = "You see on the photo a tajaran couple holding a small kit in their arms, while looking very happy. On the back it is written; \"Nasir, Akela and Ishka\", with a little gold mark that reads: \"Two months\"."
 	icon = 'icons/obj/custom_items/akela_photo.dmi'
@@ -965,7 +966,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/weapon/fluff/zhilin_book // Siik'maas-Tau Ceti Basic dictionary - Zhilin Vadim - fireandglory
+/obj/item/weapon/fluff/zhilin_book //Siik'maas-Tau Ceti Basic Dictionary - Zhilin Vadim - fireandglory
 	name = "siik'maas-tau ceti basic dictionary"
 	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations. There's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
 	icon = 'icons/obj/custom_items/zhilin_book.dmi'
