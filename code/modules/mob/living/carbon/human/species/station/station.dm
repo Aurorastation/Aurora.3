@@ -355,6 +355,9 @@
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
 
+	light_range = 2
+	light_power = 0.75
+
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
 
@@ -502,6 +505,59 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			query_details[":status"] = status
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status WHERE player_ckey = :ckey AND character_name = :character_name")
 			update_query.Execute(query_details)
+
+/datum/species/machine/get_light_color(hair_style)
+	// I hate this, but I can't think of a better way that doesn't involve
+	// rewriting hair.
+	var/reg = regex("(.+)\bIPC screen")
+	
+	if (!reg.Find(hair_style))
+		return
+	switch (reg.group[1])
+		if ("pink")
+			return LIGHT_COLOR_PINK
+
+		if ("red")
+			return LIGHT_COLOR_RED
+
+		if ("green")
+			return LIGHT_COLOR_GREEN
+
+		if ("blue")
+			return LIGHT_COLOR_BLUE
+
+		if ("breakout")
+			return LIGHT_COLOR_CYAN
+
+		if ("eight")
+			return LIGHT_COLOR_CYAN
+
+		if ("goggles")
+			return LIGHT_COLOR_RED
+
+		if ("heart")
+			return LIGHT_COLOR_PINK
+
+		if ("monoeye")
+			return LIGHT_COLOR_ORANGE
+
+		if ("nature")
+			return LIGHT_COLOR_CYAN
+
+		if ("orange")
+			return LIGHT_COLOR_ORANGE
+
+		if ("purple")
+			return LIGHT_COLOR_PURPLE
+
+		if ("shower")
+			return "#FFFFFF"
+
+		if ("static")
+			return "#FFFFFF"
+
+		if ("yellow")
+			return LIGHT_COLOR_YELLOW
 
 /datum/species/bug
 	name = "Vaurca Worker"
