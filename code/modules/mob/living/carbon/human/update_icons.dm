@@ -394,7 +394,10 @@ var/global/list/damage_icon_parts = list()
 				if (!col)
 					col = "#FFFFFF"
 					
-				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)		
+				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
+				
+	else if (species.light_range)
+		set_light(FALSE)	
 		
 	overlays_standing[HAIR_LAYER]	= image(face_standing)
 
