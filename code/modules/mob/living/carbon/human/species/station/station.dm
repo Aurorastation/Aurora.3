@@ -356,7 +356,7 @@
 	deform = 'icons/mob/human_races/r_machine.dmi'
 
 	light_range = 2
-	light_power = 0.75
+	light_power = 0.25
 
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
