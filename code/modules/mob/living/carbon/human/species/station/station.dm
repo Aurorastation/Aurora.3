@@ -509,54 +509,50 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/get_light_color(hair_style)
 	// I hate this, but I can't think of a better way that doesn't involve
 	// rewriting hair.
-	var/reg = regex("(.+)\bIPC screen")
-	
-	if (!reg.Find(hair_style))
-		return
-	switch (reg.group[1])
-		if ("pink")
+	switch (hair_style)
+		if ("pink IPC screen")
 			return LIGHT_COLOR_PINK
 
-		if ("red")
+		if ("red IPC screen")
 			return LIGHT_COLOR_RED
 
-		if ("green")
+		if ("green IPC screen")
 			return LIGHT_COLOR_GREEN
 
-		if ("blue")
+		if ("blue IPC screen")
 			return LIGHT_COLOR_BLUE
 
-		if ("breakout")
+		if ("breakout IPC screen")
 			return LIGHT_COLOR_CYAN
 
-		if ("eight")
+		if ("eight IPC screen")
 			return LIGHT_COLOR_CYAN
 
-		if ("goggles")
+		if ("goggles IPC screen")
 			return LIGHT_COLOR_RED
 
-		if ("heart")
+		if ("heart IPC screen")
 			return LIGHT_COLOR_PINK
 
-		if ("monoeye")
+		if ("monoeye IPC screen")
 			return LIGHT_COLOR_ORANGE
 
-		if ("nature")
+		if ("nature IPC screen")
 			return LIGHT_COLOR_CYAN
 
-		if ("orange")
+		if ("orange IPC screen")
 			return LIGHT_COLOR_ORANGE
 
-		if ("purple")
+		if ("purple IPC screen")
 			return LIGHT_COLOR_PURPLE
 
-		if ("shower")
+		if ("shower IPC screen")
 			return "#FFFFFF"
 
-		if ("static")
+		if ("static IPC screen")
 			return "#FFFFFF"
 
-		if ("yellow")
+		if ("yellow IPC screen")
 			return LIGHT_COLOR_YELLOW
 
 /datum/species/bug
