@@ -754,7 +754,6 @@
 				stat("Tick Usage:", world.tick_usage)
 				stat("Instances:","[world.contents.len]")
 				stat("Master:", Master ? Master.get_nice_message() : "DOES NOT EXIST")
-				stat("Failsafe:", Failsafe ? Failsafe.get_nice_message() : "DOES NOT EXIST")
 			if(statpanel("Processes"))
 				stat(null)
 				if(Master)
