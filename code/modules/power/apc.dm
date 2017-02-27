@@ -1289,19 +1289,20 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 //Very violent failure caused by power overload. Dangerous to nearby personnel
 /obj/machinery/power/apc/proc/rupture()
 	var/turf/T = get_turf(src)
-	for (var/mob/living/L in range(5, src))
-		spark(get_turf(src), 8)
-		spark(get_turf(L), 8)
-		L.visible_message(span("danger","A streak of electricity arcs out from \the [src] and strikes [L]!"))
-		if (electrocute_mob(L, terminal.powernet, terminal))
-			//Electrocute proc does all the accounting for insulation
-			//If the target is successfully electrocuted then they're knocked unconscious for a while
-			spawn(5)
-				L.paralysis = max(100, L.paralysis)
-				L << span("danger", "The world goes black!")
+	for (var/mob/living/L in range(6, src))
+		//Hitting people through walls has a 50% chance to fail
+		if (prob(50) || (L in view(6, src)))
+			Beam(L,icon_state="lightning[rand(1,12)]",icon='icons/effects/effects.dmi',time=5)
+			L.visible_message(span("danger","A streak of electricity arcs out from \the [src] and strikes [L]!"))
+			if (electrocute_mob(L, terminal.powernet, terminal))
+				//Electrocute proc does all the accounting for insulation
+				//If the target is successfully electrocuted then they're knocked unconscious for a while
+				spawn(5)
+					L.paralysis = max(40, L.paralysis)
+					L << span("danger", "The world goes black!")
 
-	explosion(T, -1, 0, 4, 7)
-	empulse(T, 3,6,1)
+	explosion(T, -1, 0, 3, 7)
+	empulse(T, 0,4,1)
 	log_and_message_admins("Power conduit ruptured at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)")
 	if (!(stat & BROKEN))
 		set_broken()
