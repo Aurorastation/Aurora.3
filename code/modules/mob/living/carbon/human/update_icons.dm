@@ -389,12 +389,12 @@ var/global/list/damage_icon_parts = list()
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 
-	if (h_style && species && species.light_range)
-		var/col = species.get_light_color(h_style)
-		if (!col)
-			col = "#FFFFFF"
-			
-		set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
+			if (species.light_range)
+				var/col = species.get_light_color(h_style)
+				if (!col)
+					col = "#FFFFFF"
+					
+				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)		
 		
 	overlays_standing[HAIR_LAYER]	= image(face_standing)
 
