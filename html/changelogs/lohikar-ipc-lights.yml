@@ -1,4 +1,4 @@
 author: Lohikar
 delete-after: True
 changes: 
-  - rscadd: "IPCs now emit a tiny bit of light, colored according to their type and screen color. (shells exempt)"
+  - rscadd: "IPCs (not including shells) now emit a small amount of light, colored according to their type and screen color."
