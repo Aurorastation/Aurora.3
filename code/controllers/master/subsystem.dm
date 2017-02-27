@@ -154,7 +154,7 @@
 
 //used to initialize the subsystem AFTER the map has loaded
 /datum/subsystem/proc/Initialize(start_timeofday, var/silent = FALSE)
-	var/time = (world.timeofday - start_timeofday) / 10
+	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	var/msg = "Initialized [name] subsystem within [time] seconds!"
 	if (!silent)
 		admin_notice(span("danger", msg), R_DEBUG)

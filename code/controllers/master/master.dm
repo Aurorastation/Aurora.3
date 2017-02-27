@@ -92,7 +92,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 
 /datum/controller/master/proc/Recover()
-	var/msg = "## DEBUG: [time2text(world.timeofday)] MC restarted. Reports:\n"
+	var/msg = "## DEBUG: [time2text(REALTIMEOFDAY)] MC restarted. Reports:\n"
 	for (var/varname in Master.vars)
 		switch (varname)
 			if("name", "tag", "bestF", "type", "parent_type", "vars", "statclick") // Built-in junk.
@@ -137,7 +137,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			continue
 
 		game_log("MC", "Initializing SS '[SS.name]'")
-		SS.Initialize(world.timeofday)
+		SS.Initialize(REALTIMEOFDAY)
 		CHECK_TICK
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
@@ -234,7 +234,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	normalsubsystems += tickersubsystems
 	lobbysubsystems += tickersubsystems
 
-	init_timeofday = world.timeofday
+	init_timeofday = REALTIMEOFDAY
 	init_time = world.time
 
 	iteration = 1
@@ -243,7 +243,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/list/subsystems_to_check
 	//the actual loop.
 	while (1)
-		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, (((world.timeofday - init_timeofday) - (world.time - init_time)) / world.tick_lag)))
+		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, (((REALTIMEOFDAY - init_timeofday) - (world.time - init_time)) / world.tick_lag)))
 		if (processing <= 0)
 			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			sleep(10)
