@@ -155,8 +155,8 @@ var/list/debug_verbs = list (
         ,/client/proc/disable_movement
         ,/client/proc/Zone_Info
         ,/client/proc/Test_ZAS_Connection
-        ,/client/proc/ZoneTick
-        ,/client/proc/rebootAirMaster
+        //,/client/proc/ZoneTick
+        //,/client/proc/rebootAirMaster
         ,/client/proc/hide_debug_verbs
         ,/client/proc/testZAScolors
         ,/client/proc/testZAScolors_remove
@@ -269,7 +269,7 @@ var/list/debug_verbs = list (
 			if(i.icon_state == "zasdebug")
 				images.Remove(i)
 
-/client/proc/rebootAirMaster()
+/*/client/proc/rebootAirMaster()
 	set category = "ZAS"
 	set name = "Reboot ZAS"
 
@@ -280,7 +280,7 @@ var/list/debug_verbs = list (
 		qdel(old_air)
 		air_master = new
 		air_master.Setup()
-		spawn air_master.Start()
+		spawn air_master.Start()*/
 
 
 /client/proc/count_objects_on_z_level()
