@@ -74,9 +74,4 @@ var/global/list/power_using_machines	= list()
 			return
 
 /datum/subsystem/machinery/stat_entry()
-	..()
-	stat(null, "[machines.len] total machines")
-	stat(null, "[ticking_machines.len] ticking machines")
-	stat(null, "[power_using_machines.len] power-using machines")
-	stat(null, "[processing_power_items.len] power-using items")
-	stat(null, "[powernets.len] powernets")
+	..("M:[machines.len] TM:[ticking_machines.len] PM:[power_using_machines.len] PI:[processing_power_items.len] PN:[powernets.len]")

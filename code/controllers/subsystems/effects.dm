@@ -76,9 +76,7 @@ var/datum/subsystem/effects/SSeffects
 	enable()
 
 /datum/subsystem/effects/stat_entry()
-	..()
-	stat(null, "[effects_objects.len] effects queued, [processing_effects.len] processing")
-	stat(null, "[effects_visuals.len] visuals queued, [processing_visuals.len] processing")
+	..("E:[effects_objects.len] V:[effects_visuals.len]")
 
 /datum/subsystem/effects/Recover()
 	src.effects_objects = SSeffects.effects_objects

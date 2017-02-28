@@ -38,10 +38,7 @@ var/datum/subsystem/garbage_collector/garbage_collector
 	NEW_SS_GLOBAL(garbage_collector)
 
 /datum/subsystem/garbage_collector/stat_entry()
-	..()
-	stat(null, "[queue.len] queued")
-	stat(null, "Last tick: [delslasttick] hard, [gcedlasttick] soft")
-	stat(null, "Total: [totaldels] hard, [totalgcs] soft")
+	..("Q:[queue.len] HD:[totaldels] SD:[totalgcs]")
 
 /datum/subsystem/garbage_collector/fire()
 	HandleToBeQueued()
