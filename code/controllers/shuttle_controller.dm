@@ -55,7 +55,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.area_transition = locate(/area/shuttle/escape_pod1/transit)
 	shuttle.docking_controller_tag = "escape_pod_1"
 	shuttle.dock_target_station = "escape_pod_1_berth"
-	shuttle.dock_target_offsite = "escape_pod_1_recovery"
+	//shuttle.dock_target_offsite = "escape_pod_1_recovery"
 	shuttle.transit_direction = NORTH
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
@@ -69,7 +69,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.area_transition = locate(/area/shuttle/escape_pod2/transit)
 	shuttle.docking_controller_tag = "escape_pod_2"
 	shuttle.dock_target_station = "escape_pod_2_berth"
-	shuttle.dock_target_offsite = "escape_pod_2_recovery"
+	//shuttle.dock_target_offsite = "escape_pod_2_recovery"
 	shuttle.transit_direction = NORTH
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
@@ -83,7 +83,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.area_transition = locate(/area/shuttle/escape_pod3/transit)
 	shuttle.docking_controller_tag = "escape_pod_3"
 	shuttle.dock_target_station = "escape_pod_3_berth"
-	shuttle.dock_target_offsite = "escape_pod_3_recovery"
+	//shuttle.dock_target_offsite = "escape_pod_3_recovery"
 	shuttle.transit_direction = EAST
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
@@ -91,7 +91,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 
 	//There is no pod 4, apparently.
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	/*shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod5/station)
@@ -103,15 +103,14 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.transit_direction = EAST //should this be WEST? I have no idea.
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
-	shuttles["Escape Pod 5"] = shuttle
+	shuttles["Escape Pod 5"] = shuttle*/
 
 	//give the emergency shuttle controller it's shuttles
 	emergency_shuttle.shuttle = shuttles["Escape"]
 	emergency_shuttle.escape_pods = list(
 		shuttles["Escape Pod 1"],
 		shuttles["Escape Pod 2"],
-		shuttles["Escape Pod 3"],
-		shuttles["Escape Pod 5"]
+		shuttles["Escape Pod 3"]
 	)
 
 	// Supply shuttle
@@ -281,7 +280,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["Alien"] = shuttle
 	//process_shuttles += shuttle	//don't need to process this. It can only be moved using admin magic anyways.
 
-	// Public shuttles
+	/*// Public shuttles
 	shuttle = new()
 	shuttle.warmup_time = 10
 	shuttle.area_offsite = locate(/area/shuttle/constructionsite/site)
@@ -310,7 +309,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.dock_target_station = "research_dock_airlock"
 	shuttle.dock_target_offsite = "research_outpost_dock"
 	shuttles["Research"] = shuttle
-	process_shuttles += shuttle
+	process_shuttles += shuttle*/
 
 	// ERT Shuttle
 	var/datum/shuttle/ferry/multidock/specops/ERT = new()
