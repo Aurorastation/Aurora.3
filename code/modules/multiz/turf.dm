@@ -22,6 +22,7 @@
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 
 	var/turf/below
+	var/list/openspace_overlays
 
 /turf/simulated/open/post_change()
 	..()
@@ -52,24 +53,7 @@
 
 /turf/simulated/open/update_icon()
 	if(below)
-		underlays = list(image(icon = below.icon, icon_state = below.icon_state))
-
-	var/list/noverlays = list()
-	if(!istype(below,/turf/space))
-		noverlays += image(icon =icon, icon_state = "empty", layer = 2.45)
-
-	var/turf/simulated/T = get_step(src,NORTH)
-	if(istype(T) && !istype(T,/turf/simulated/open))
-		noverlays += image(icon ='icons/turf/cliff.dmi', icon_state = "metal", layer = 2.45)
-
-	var/obj/structure/stairs/S = locate() in below
-	if(S && S.loc == below)
-		var/image/I = image(icon = S.icon, icon_state = "below", dir = S.dir, layer = 2.45)
-		I.pixel_x = S.pixel_x
-		I.pixel_y = S.pixel_y
-		noverlays += I
-
-	overlays = noverlays
+		openturf_update_queue += src
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))
