@@ -34,7 +34,7 @@
 			OO.appearance = AM
 			// Reset these vars because appearance probably overwrote them.
 			OO.plane = OPENTURF_PLANE
-			OO.mouse_opacity = FALSE
+			//OO.mouse_opacity = FALSE
 			OO.color = list(
 				0.5, 0, 0,
 				0, 0.5, 0,

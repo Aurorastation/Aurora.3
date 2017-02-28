@@ -2,7 +2,6 @@
 	name = ""
 	simulated = FALSE
 	anchored = TRUE
-	mouse_opacity = FALSE
 	plane = OPENTURF_PLANE
 
 /atom/movable/openspace_overlay/ex_act(ex_sev)
@@ -16,3 +15,12 @@
 
 /atom/movable/openspace_overlay/singuloCanEat()
 	return
+
+/atom/movable/attackby(obj/item/W, mob/user)
+	user << span("notice", "You can't reach that!")
+
+/atom/movable/attack_hand(mob/user as mob)
+	user << span("notice", "You can't reach that!")
+
+/atom/movable/attack_generic(mob/user as mob)
+	user << span("notice", "You can't reach that!")
