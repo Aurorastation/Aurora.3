@@ -7,4 +7,5 @@
 	for (var/A in all_areas)
 		var/area/area = A
 		area.initialize()
+		CHECK_TICK
 	..()

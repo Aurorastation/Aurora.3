@@ -39,5 +39,7 @@
 
 		object.initialize()
 
+		CHECK_TICK
+
 	objects_initialized = TRUE
 	..()

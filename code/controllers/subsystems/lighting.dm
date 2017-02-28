@@ -32,7 +32,7 @@ datum/subsystem/lighting/stat_entry()
 			if (!A.dynamic_lighting)
 				continue
 
-			getFromPool(/atom/movable/lighting_overlay, T, TRUE)
+			new /atom/movable/lighting_overlay(T, TRUE)
 
 	..()
 
@@ -82,6 +82,7 @@ datum/subsystem/lighting/stat_entry()
 			return
 
 /datum/subsystem/lighting/Recover()
-	src.light_queue = SSlighting.light_queue
-	src.corner_queue = SSlighting.corner_queue
-	src.overlay_queue = SSlighting.overlay_queue
+	if (istype(SSlighting))
+		src.light_queue = SSlighting.light_queue
+		src.corner_queue = SSlighting.corner_queue
+		src.overlay_queue = SSlighting.overlay_queue
