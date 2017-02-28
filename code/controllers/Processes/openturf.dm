@@ -24,7 +24,7 @@
 		var/list/things = T.below.contents + T.below
 		for (var/thing in things)
 			var/atom/movable/AM = thing
-			if (!AM)
+			if (!AM || istype(AM, /atom/movable/lighting_overlay))
 				continue
 
 			var/atom/movable/openspace_overlay/OO = getFromPool(/atom/movable/openspace_overlay, T)
@@ -35,12 +35,11 @@
 			// Reset these vars because appearance probably overwrote them.
 			OO.plane = OPENTURF_PLANE
 			OO.mouse_opacity = FALSE
-			if (AM != T.lighting_overlay)
-				OO.color = list(
-					0.5, 0, 0,
-					0, 0.5, 0,
-					0, 0, 0.5
-				)
+			OO.color = list(
+				0.5, 0, 0,
+				0, 0.5, 0,
+				0, 0, 0.5
+			)
 			T.openspace_overlays += OO
 
 		// This is basically (F_)SCHECK, we just want to return instead of sleeping the proc.
