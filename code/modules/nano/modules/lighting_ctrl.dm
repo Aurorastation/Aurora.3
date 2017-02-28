@@ -16,9 +16,9 @@
 	var/wl_only = context == "all" ? 0 : 1
 
 	if (!wl_only && lstate == "dark")
-		SSnightlight.manual_override = 1
+		SSnightlight.disable()
 	else if (!wl_only)
-		SSnightlight.manual_override = 0
+		SSnightlight.enable()
 
 	if (lstate == "dark")
 		log_and_message_admins("enabled night-mode [wl_only ? "in public areas" : "globally"].", lusr)

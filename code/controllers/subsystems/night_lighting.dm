@@ -1,3 +1,5 @@
+#define NL_TIME (world.time + 60 MINUTES * roundstart_hour)
+
 var/datum/subsystem/nightlight/SSnightlight
 
 /datum/subsystem/nightlight
@@ -8,13 +10,15 @@ var/datum/subsystem/nightlight/SSnightlight
 	display_order = SS_DISPLAY_NIGHT_LIGHTING
 
 	var/isactive = 0
-	var/manual_override = 0
 
 /datum/subsystem/nightlight/New()
 	NEW_SS_GLOBAL(SSnightlight)
 
 /datum/subsystem/nightlight/Initialize(timeofday)
-	switch (worldtime2ticks())
+	if (!roundstart_hour)
+		worldtime2text()
+
+	switch (NL_TIME)
 		if (0 to config.nl_finish)
 			deactivate()
 		if (config.nl_start to TICKS_IN_DAY)
@@ -23,17 +27,14 @@ var/datum/subsystem/nightlight/SSnightlight
 	..(timeofday, silent = TRUE)
 
 /datum/subsystem/nightlight/stat_entry()
-	..("WTT:[worldtime2ticks()]")
+	..("A:[isactive] T:[NL_TIME] DT:[config.nl_start] NT:[config.nl_finish]")
 
 /datum/subsystem/nightlight/Recover()
-	src.isactive = SSnightlight.isactive
-	src.manual_override = SSnightlight.manual_override
+	if (istype(SSnightlight))
+		src.isactive = SSnightlight.isactive
 
 /datum/subsystem/nightlight/fire(resumed = FALSE)
-	if (manual_override)	// don't automatically change lighting if it was manually changed in-game
-		return
-
-	switch (worldtime2ticks())
+	switch (NL_TIME)
 		if (0 to config.nl_finish)
 			if (isactive)
 				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
@@ -74,3 +75,5 @@ var/datum/subsystem/nightlight/SSnightlight
 
 /datum/subsystem/nightlight/proc/is_active()
 	return isactive
+
+#undef NL_TIME
