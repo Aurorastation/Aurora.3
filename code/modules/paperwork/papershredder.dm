@@ -150,3 +150,6 @@
 	pixel_x = rand(-5,5)
 	pixel_y = rand(-5,5)
 	if(prob(65)) color = pick("#BABABA","#7F7F7F")
+
+/obj/item/weapon/shreddedp/Destroy(force = FALSE)
+	return force ? ..() : QDEL_HINT_POOL

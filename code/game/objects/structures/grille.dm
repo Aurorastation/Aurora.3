@@ -11,6 +11,8 @@
 	var/health = 10
 	var/destroyed = 0
 
+/obj/structure/grille/Destroy(force = FALSE)
+	return force ? ..() : QDEL_HINT_POOL
 
 /obj/structure/grille/ex_act(severity)
 	qdel(src)

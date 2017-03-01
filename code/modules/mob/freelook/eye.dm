@@ -32,7 +32,10 @@
 	updateallghostimages()
 	..()
 
-mob/eye/Destroy()
+mob/eye/Destroy(force = FALSE)
+	if (!force)
+		return QDEL_HINT_POOL
+		
 	if (ghostimage)
 		ghost_darkness_images -= ghostimage
 		ghost_sightless_images -= ghostimage

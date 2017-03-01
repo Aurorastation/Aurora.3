@@ -67,6 +67,7 @@
 	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
+	processing_objects -= src
 	return ..()
 
 /obj/item/modular_computer/emag_act(var/remaining_charges, var/mob/user)

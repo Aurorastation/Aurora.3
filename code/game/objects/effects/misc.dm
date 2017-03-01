@@ -6,3 +6,6 @@
 	icon_state = "strangepresent"
 	density = 1
 	anchored = 0
+
+/obj/effect/Destroy(force = FALSE)
+	return force ? ..() : QDEL_HINT_POOL
