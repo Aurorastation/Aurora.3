@@ -20,9 +20,11 @@
 	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
+	mouse_opacity = 0	// Overlays will handle mouse interaction.
 
 	var/turf/below
 	var/list/openspace_overlays
+	var/updating = FALSE
 
 /turf/simulated/open/post_change()
 	..()
@@ -52,7 +54,8 @@
 		O.hide(0)
 
 /turf/simulated/open/update_icon()
-	if(below)
+	if(!updating && below)
+		updating = TRUE
 		openturf_update_queue += src
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)

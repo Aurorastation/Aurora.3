@@ -10,6 +10,7 @@
 	invisibility  = INVISIBILITY_LIGHTING
 	simulated     = 0
 	blend_mode    = BLEND_MULTIPLY
+	no_z_overlay  = TRUE
 
 	var/needs_update = FALSE
 
