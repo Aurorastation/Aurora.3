@@ -711,14 +711,14 @@ proc/GaussRandRound(var/sigma,var/roundto)
 			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
 			progbar.pixel_z = WORLD_ICON_SIZE
 			progbar.layer = 21
-			progbar.appearance_flags = RESET_COLOR
+			progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
 	for (var/i = 1 to numticks)
 		if(user && user.client && act_target)
 			if(!progbar)
 				progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
 				progbar.pixel_z = WORLD_ICON_SIZE
 				progbar.layer = 21
-				progbar.appearance_flags = RESET_COLOR
+				progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
 			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
 			user.client.images |= progbar
 		sleep(delayfraction)
