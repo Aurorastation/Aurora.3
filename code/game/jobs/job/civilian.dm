@@ -49,7 +49,7 @@
 			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)	
+			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chef(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/chef(H), slot_wear_suit)
@@ -286,22 +286,27 @@
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/internalaffairs(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/internalaffairs(H), slot_wear_suit)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/big(H), slot_glasses)
-		H.equip_to_slot_or_del(new /obj/item/device/pda/lawyer(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
-		
+
 		if (H.mind.role_alt_title)
 			switch(H.mind.role_alt_title)
 				if("Alliance Representative")
 					H.equip_to_slot_or_del(new /obj/item/weapon/melee/telebaton(H), slot_in_backpack) //remove those when the event is over
+					H.equip_to_slot_or_del(new /obj/item/device/pda/lawyer(H), slot_in_backpack)
 					H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/colt(H), slot_in_backpack) //remove those when the event is over
+					H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/dress/subofficer(H), slot_w_uniform)
+					H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(H), slot_glasses)
+					H.equip_to_slot_or_del(new /obj/item/clothing/head/dress/officer(H), slot_head)
+					H.equip_to_slot_or_del(new /obj/item/weapon/melee/ceremonial_sword(H), slot_belt)
 					H.implant_loyalty_sol(H)
 				if("NanoTrasen Internal Affairs Agent")
 					H.implant_loyalty(H)
-		
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/internalaffairs(H), slot_w_uniform)
+					H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/internalaffairs(H), slot_wear_suit)
+					H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
+					H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/big(H), slot_glasses)
+					H.equip_to_slot_or_del(new /obj/item/device/pda/lawyer(H), slot_belt)
+					H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
 
 
 		return 1
