@@ -122,9 +122,6 @@
 	var/sql_role = SQL_CHARACTER
 	var/modified = 0
 
-/datum/category_group/player_setup_category/dd_SortValue()
-	return sort_order
-
 /datum/category_group/player_setup_category/proc/sanitize_setup()
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences()
@@ -213,9 +210,6 @@
 /datum/category_item/player_setup_item/Destroy()
 	pref = null
 	return ..()
-
-/datum/category_item/player_setup_item/dd_SortValue()
-	return sort_order
 
 /*
 * Called when the item is asked to load per character settings - Only called when sql saves are disabled or unavailable

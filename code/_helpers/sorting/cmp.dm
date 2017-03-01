@@ -42,3 +42,32 @@ var/cmp_field = "name"
 
 /proc/cmp_timer(datum/timedevent/a, datum/timedevent/b)
 	return a.timeToRun - b.timeToRun
+
+/proc/cmp_camera(obj/machinery/camera/a, obj/machinery/camera/b)
+	if (a.c_tag_order != b.c_tag_order)
+		return b.c_tag_order - a.c_tag_order
+	return sorttext(b.c_tag, a.c_tag)
+
+/proc/cmp_alarm(datum/alarm/a, datum/alarm/b)
+	return sorttext(b.last_name, a.last_name)
+
+/proc/cmp_uplink_item(datum/uplink_item/a, datum/uplink_item/b)
+	return b.cost(INFINITY) - a.cost(INFINITY)
+
+/proc/cmp_access(datum/access/a, datum/access/b)
+	return sorttext("[b.access_type][b.desc]", "[a.access_type][a.desc]")
+
+/proc/cmp_player_setup_group(datum/category_group/player_setup_category/a, datum/category_group/player_setup_category/b)
+	return b.sort_order - a.sort_order
+
+/proc/cmp_cardstate(datum/card_state/a, datum/card_state/b)
+	return sorttext(b.name, a.name)
+
+/proc/cmp_uplink_category(datum/uplink_category/a, datum/uplink_category/b)
+	return sorttext(b.name, a.name)
+
+/proc/cmp_admin_secret(datum/admin_secret_item/a, datum/admin_secret_item/b)
+	return sorttext(b.name, a.name)
+
+/proc/cmp_supply_drop(datum/supply_drop_loot/a, datum/supply_drop_loot/b)
+	return sorttext(b.name, a.name)

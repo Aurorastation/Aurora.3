@@ -31,7 +31,7 @@
 	alarms |= existing
 	alarms_assoc[origin] = existing
 	if(new_alarm)
-		alarms = dd_sortedObjectList(alarms)
+		alarms = sortTim(alarms, /proc/cmp_alarm, FALSE)
 		on_alarm_change(existing, ALARM_RAISED)
 
 	return new_alarm
