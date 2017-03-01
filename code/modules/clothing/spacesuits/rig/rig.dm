@@ -220,7 +220,7 @@
 
 		if(!instant)
 			wearer.visible_message("<font color='blue'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</font>","<font color='blue'>With a quiet hum, the suit begins running checks and adjusting components.</font>")
-			if(seal_delay && !do_after(wearer,seal_delay))
+			if(seal_delay && !do_after(wearer, seal_delay, act_target = src))
 				if(wearer) wearer << "<span class='warning'>You must remain still while the suit is adjusting the components.</span>"
 				failed_to_seal = 1
 
@@ -244,7 +244,7 @@
 
 				if(!failed_to_seal && wearer.back == src && piece == compare_piece)
 
-					if(seal_delay && !instant && !do_after(wearer,seal_delay,needhand=0))
+					if(seal_delay && !instant && !do_after(wearer,seal_delay,needhand=0, act_target = src))
 						failed_to_seal = 1
 
 					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
