@@ -160,6 +160,7 @@ var/list/floor_light_cache = list()
 /obj/machinery/floor_light/dance
 	name = "dance floor"
 	on_state = "light_on-dancefloor_A"
+	anchored = 1
 
 /obj/machinery/floor_light/dance/New()
 	..()
@@ -170,3 +171,4 @@ var/list/floor_light_cache = list()
 /obj/machinery/floor_light/dance/alternate
 	name = "dance floor"
 	on_state = "light_on-dancefloor_B"
+	anchored = 1

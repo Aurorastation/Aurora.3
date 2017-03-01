@@ -84,7 +84,7 @@ datum/controller/game_controller/proc/setup_objects()
 		// These values determine the specific area that the map is applied to.
 		// If you do not use the official Baycode moonbase map, you will need to change them.
 		//Create the mining Z-level.
-		new /datum/random_map/automata/cave_system(null,0,0,5,255,255)
+		new /datum/random_map/automata/cave_system/high_yield(null,0,0,5,255,255)
 		new /datum/random_map/automata/cave_system(null,0,0,4,255,255)
 		new /datum/random_map/automata/cave_system(null,0,0,3,255,255)
 		//new /datum/random_map/noise/volcanism(null,1,1,5,255,255) // Not done yet! Pretty, though.

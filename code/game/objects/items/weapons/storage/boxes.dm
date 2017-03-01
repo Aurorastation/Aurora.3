@@ -812,3 +812,13 @@
 		var/type = pick(snacks)
 		new type(src)
 	..()
+
+/obj/item/weapon/storage/box/autoinjectors/stims
+	name = "stimpack value kit"
+	desc = "A box with several stimpack medipens for the economical miner."
+	icon_state = "syringe"
+
+/obj/item/weapon/storage/box/autoinjectors/stims/New()
+	..()
+	for(var/i in 1 to 5)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack(src)

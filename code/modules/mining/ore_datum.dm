@@ -25,7 +25,7 @@ var/global/list/ore_data = list()
 		display_name = name
 
 /ore/uranium
-	name = "uranium"
+	name = ORE_URANIUM
 	display_name = "pitchblende"
 	smelts_to = "uranium"
 	result_amount = 5
@@ -40,7 +40,7 @@ var/global/list/ore_data = list()
 	worth = 5
 
 /ore/hematite
-	name = "iron"
+	name = ORE_IRON
 	display_name = "hematite"
 	smelts_to = "iron"
 	alloy = 1
@@ -51,7 +51,7 @@ var/global/list/ore_data = list()
 	worth = 1
 
 /ore/coal
-	name = "coal"
+	name = ORE_COAL
 	display_name = "raw carbon"
 	smelts_to = "plastic"
 	alloy = 1
@@ -62,14 +62,14 @@ var/global/list/ore_data = list()
 	worth = 1
 
 /ore/glass
-	name = "sand"
+	name = ORE_SAND
 	display_name = "sand"
 	smelts_to = "glass"
 	compresses_to = "sandstone"
 	worth = 1
 
 /ore/phoron
-	name = "phoron"
+	name = ORE_PHORON
 	display_name = "phoron crystals"
 	compresses_to = "phoron"
 	//smelts_to = something that explodes violently on the conveyor, huhuhuhu
@@ -87,7 +87,7 @@ var/global/list/ore_data = list()
 	worth = 1
 
 /ore/silver
-	name = "silver"
+	name = ORE_SILVER
 	display_name = "native silver"
 	smelts_to = "silver"
 	result_amount = 5
@@ -97,7 +97,7 @@ var/global/list/ore_data = list()
 	worth = 2
 
 /ore/gold
-	smelts_to = "gold"
+	smelts_to = ORE_GOLD
 	name = "gold"
 	display_name = "native gold"
 	result_amount = 5
@@ -113,7 +113,7 @@ var/global/list/ore_data = list()
 	worth = 5
 
 /ore/diamond
-	name = "diamond"
+	name = ORE_DIAMOND
 	display_name = "diamond"
 	compresses_to = "diamond"
 	result_amount = 5
@@ -124,7 +124,7 @@ var/global/list/ore_data = list()
 	worth = 10
 
 /ore/platinum
-	name = "platinum"
+	name = ORE_PLATINUM
 	display_name = "raw platinum"
 	smelts_to = "platinum"
 	compresses_to = "osmium"
@@ -136,7 +136,7 @@ var/global/list/ore_data = list()
 	worth = 2
 
 /ore/hydrogen
-	name = "mhydrogen"
+	name = ORE_HYDROGEN
 	display_name = "metallic hydrogen"
 	smelts_to = "tritium"
 	compresses_to = "mhydrogen"

@@ -1,6 +1,6 @@
 /datum/random_map/automata/cave_system
 	iterations = 5
-	descriptor = "moon caves"
+	descriptor = "normal yield caves"
 	wall_type =  /turf/simulated/mineral
 	floor_type = /turf/simulated/floor/asteroid
 	target_turf_type = /turf/unsimulated/mask
@@ -50,3 +50,8 @@
 			map[check_cell] = EMPTY_CHAR // Rare mineral block.
 		ore_count--
 	return 1
+
+/datum/random_map/automata/cave_system/high_yield
+	descriptor = "high yield caves"
+	mineral_sparse =  /turf/simulated/mineral/random/high_chance
+	mineral_rich = /turf/simulated/mineral/random/higher_chance

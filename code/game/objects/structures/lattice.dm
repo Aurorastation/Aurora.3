@@ -32,7 +32,7 @@
 		var/obj/structure/lattice/L
 		if(locate(/obj/structure/lattice, get_step(src, dir)))
 			L = locate(/obj/structure/lattice, get_step(src, dir))
-			L.updateOverlays(src.loc)
+			L.updateOverlays()
 	..()
 
 /obj/structure/lattice/ex_act(severity)
@@ -64,8 +64,6 @@
 	return
 
 /obj/structure/lattice/proc/updateOverlays()
-	//if(!(istype(src.loc, /turf/space)))
-	//	qdel(src)
 	spawn(1)
 		overlays = list()
 
