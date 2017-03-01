@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - tweak: "Flashlights, Floodlights, and Synthetic Integrated lights are now directional."
