@@ -72,11 +72,19 @@
 	contained_sprite = 1
 
 /obj/item/clothing/under/rank/dress/officer //sol marine officer dress unniform
-	name = "sol navy officer dress uniform"
-	desc = "A fancy military looking dress uniform issued to Sol Alliance navy officers."
+	name = "sol navy commander dress uniform"
+	desc = "A fancy military looking dress uniform issued to high ranking Sol Alliance navy officers. This one wears the rank of Commander"
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "dress"
 	item_state = "dress"
+	contained_sprite = 1
+
+/obj/item/clothing/under/rank/dress/subofficer //sol marine officer dress unniform
+	name = "sol navy lieutenant dress uniform"
+	desc = "A fancy military looking dress uniform issued to lower ranking Sol Alliance navy officers. This one wears the rank of Lieutenant"
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "subdress"
+	item_state = "subdress"
 	contained_sprite = 1
 
 /obj/item/clothing/under/rank/dress/admiral //admiral uniform
@@ -126,16 +134,16 @@
 	name = "sol marine dress cap"
 	desc = "A green cap issued as part of the Sol Alliance marine dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
-	icon_state = "whitewheelcap"
-	item_state = "whitewheelcap"
+	icon_state = "whitepeakcap"
+	item_state = "whitepeakcap"
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress/officer
 	name = "sol navy officer dress cap"
 	desc = "A white cap issued as part of the Sol Alliance navy officers dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
-	icon_state = "whitepeakcap"
-	item_state = "whitepeakcap"
+	icon_state = "whitewheelcap"
+	item_state = "whitewheelcap"
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress/admiral
