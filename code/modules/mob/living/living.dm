@@ -782,3 +782,12 @@ default behaviour is:
 	src << "<b>You are now \the [src]!</b>"
 	src << "<span class='notice'>Remember to stay in character for a mob of this type!</span>"
 	return 1
+
+/mob/living/Destroy()
+	for (var/thing in stomach_contents)
+		qdel(thing)
+	stomach_contents = null
+	qdel(ingested)
+	ingested = null
+
+	return ..()

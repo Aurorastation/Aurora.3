@@ -2,6 +2,9 @@
 	set invisibility = 0
 	set background = BACKGROUND_ENABLED
 
+	if (QDELETED(src))	// If they're being deleted, why bother?
+		return
+
 	..()
 
 	if (transforming)

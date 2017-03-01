@@ -28,6 +28,7 @@ var/list/organ_cache = list()
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
 
 /obj/item/organ/Destroy()
+	processing_objects -= src
 	if(!owner)
 		return ..()
 
