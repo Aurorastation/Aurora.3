@@ -225,119 +225,27 @@ proc/listclearnulls(list/list)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortKey(var/list/client/L, var/order = 1)
-	if(isnull(L) || L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1
-	return mergeKey(sortKey(L.Copy(0,middle)), sortKey(L.Copy(middle)), order)
-
-//Mergsort: does the actual sorting and returns the results back to sortAtom
-/proc/mergeKey(var/list/client/L, var/list/client/R, var/order = 1)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		var/client/rL = L[Li]
-		var/client/rR = R[Ri]
-		if(sorttext(rL.ckey, rR.ckey) == order)
-			result += L[Li++]
-		else
-			result += R[Ri++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
+	return sortTim(L, order ? /proc/cmp_ckey_asc : /proc/cmp_ckey_dsc, FALSE)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortAtom(var/list/atom/L, var/order = 1)
-	if(isnull(L) || L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1
-	return mergeAtoms(sortAtom(L.Copy(0,middle)), sortAtom(L.Copy(middle)), order)
-
-//Mergsort: does the actual sorting and returns the results back to sortAtom
-/proc/mergeAtoms(var/list/atom/L, var/list/atom/R, var/order = 1)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		var/atom/rL = L[Li]
-		var/atom/rR = R[Ri]
-		if(sorttext(rL.name, rR.name) == order)
-			result += L[Li++]
-		else
-			result += R[Ri++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
-
-
-
+	return sortTim(L, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
 
 //Mergesort: Specifically for record datums in a list.
 /proc/sortRecord(var/list/datum/data/record/L, var/field = "name", var/order = 1)
-	if(isnull(L))
-		return list()
-	if(L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1
-	return mergeRecordLists(sortRecord(L.Copy(0, middle), field, order), sortRecord(L.Copy(middle), field, order), field, order)
-
-//Mergsort: does the actual sorting and returns the results back to sortRecord
-/proc/mergeRecordLists(var/list/datum/data/record/L, var/list/datum/data/record/R, var/field = "name", var/order = 1)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	if(!isnull(L) && !isnull(R))
-		while(Li <= L.len && Ri <= R.len)
-			var/datum/data/record/rL = L[Li]
-			if(isnull(rL))
-				L -= rL
-				continue
-			var/datum/data/record/rR = R[Ri]
-			if(isnull(rR))
-				R -= rR
-				continue
-			if(sorttext(rL.fields[field], rR.fields[field]) == order)
-				result += L[Li++]
-			else
-				result += R[Ri++]
-
-		if(Li <= L.len)
-			return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
-
-
-
+	var/old_cmp_field = cmp_field
+	cmp_field = field
+	var/result = sortTim(L, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
+	cmp_field = old_cmp_field
+	return result
 
 //Mergesort: any value in a list
 /proc/sortList(var/list/L)
-	if(L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1 // Copy is first,second-1
-	return mergeLists(sortList(L.Copy(0,middle)), sortList(L.Copy(middle))) //second parameter null = to end of list
+	return sortTim(L, /proc/cmp_text_asc)
 
 //Mergsorge: uses sortList() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sortNames(var/list/L)
-	var/list/Q = new()
-	for(var/atom/x in L)
-		Q[x.name] = x
-	return sortList(Q)
-
-/proc/mergeLists(var/list/L, var/list/R)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		if(sorttext(L[Li], R[Ri]) < 1)
-			result += R[Ri++]
-		else
-			result += L[Li++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
-
+	return sortTim(L, /proc/cmp_name_asc, FALSE)
 
 // List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
 /proc/sortByKey(var/list/L, var/key)
@@ -366,24 +274,7 @@ proc/listclearnulls(list/list)
 
 //Mergesort: any value in a list, preserves key=value structure
 /proc/sortAssoc(var/list/L)
-	if(L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1 // Copy is first,second-1
-	return mergeAssoc(sortAssoc(L.Copy(0,middle)), sortAssoc(L.Copy(middle))) //second parameter null = to end of list
-
-/proc/mergeAssoc(var/list/L, var/list/R)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		if(sorttext(L[Li], R[Ri]) < 1)
-			result += R&R[Ri++]
-		else
-			result += L&L[Li++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
+	return sortTim(L, /proc/cmp_text_asc, TRUE)
 
 // Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!
 #define BITTEST(bitfield,index)  ((bitfield)  &   (1 << (index)))
