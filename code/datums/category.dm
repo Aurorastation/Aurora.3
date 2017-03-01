@@ -13,7 +13,7 @@
 		if(initial(category.name))
 			category = new category(src)
 			categories += category
-	categories = sortTim(categories, /proc/cmp_name_asc, FALSE)
+	sortTim(categories, /proc/cmp_name_asc, FALSE)
 
 /datum/category_collection/Destroy()
 	for(var/category in categories)
@@ -41,9 +41,8 @@
 			item = new item(src)
 			items += item
 
-	// For whatever reason dd_insertObjectList(items, item) doesn't insert in the correct order
 	// If you change this, confirm that character setup doesn't become completely unordered.
-	items = sortTim(items, /proc/cmp_name_asc, FALSE)
+	sortTim(items, /proc/cmp_name_asc, FALSE)
 
 /datum/category_group/Destroy()
 	for(var/item in items)

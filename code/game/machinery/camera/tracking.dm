@@ -199,7 +199,11 @@
 	ai_camera_list()
 
 /proc/camera_sort(list/L)
-	return sortTim(L, /proc/cmp_camera, FALSE)
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	// sortTim sorts in-place, but returns a ref to the list anyways.
+	return sortTim(target, /proc/cmp_camera, FALSE)
 
 mob/living/proc/near_camera()
 	if (!isturf(loc))

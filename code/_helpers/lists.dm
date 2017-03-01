@@ -225,27 +225,42 @@ proc/listclearnulls(list/list)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortKey(var/list/client/L, var/order = 1)
-	return sortTim(L, order ? /proc/cmp_ckey_asc : /proc/cmp_ckey_dsc, FALSE)
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	return sortTim(target, order ? /proc/cmp_ckey_asc : /proc/cmp_ckey_dsc, FALSE)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortAtom(var/list/atom/L, var/order = 1)
-	return sortTim(L, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	return sortTim(target, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
 
 //Mergesort: Specifically for record datums in a list.
 /proc/sortRecord(var/list/datum/data/record/L, var/field = "name", var/order = 1)
+	if (!L)
+		return 
+	var/list/target = L.Copy()
 	var/old_cmp_field = cmp_field
 	cmp_field = field
-	var/result = sortTim(L, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
+	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
 	cmp_field = old_cmp_field
-	return result
+	return target
 
 //Mergesort: any value in a list
 /proc/sortList(var/list/L)
-	return sortTim(L, /proc/cmp_text_asc)
+	if (!L)
+		return 
+	var/list/target = L.Copy()
+	return sortTim(target, /proc/cmp_text_asc)
 
 //Mergsorge: uses sortList() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sortNames(var/list/L)
-	return sortTim(L, /proc/cmp_name_asc, FALSE)
+	if (!L)
+		return 
+	var/list/target = L.Copy()
+	return sortTim(target, /proc/cmp_name_asc, FALSE)
 
 // List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
 /proc/sortByKey(var/list/L, var/key)
@@ -274,7 +289,7 @@ proc/listclearnulls(list/list)
 
 //Mergesort: any value in a list, preserves key=value structure
 /proc/sortAssoc(var/list/L)
-	return sortTim(L, /proc/cmp_text_asc, TRUE)
+	return sortTim(L, /proc/cmp_text_asc, FALSE)
 
 // Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!
 #define BITTEST(bitfield,index)  ((bitfield)  &   (1 << (index)))

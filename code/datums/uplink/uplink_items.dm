@@ -9,7 +9,7 @@ var/datum/uplink/uplink = new()
 	items_assoc = list()
 	items = init_subtypes(/datum/uplink_item)
 	categories = init_subtypes(/datum/uplink_category)
-	categories = sortTim(categories, /proc/cmp_uplink_category, FALSE)
+	sortTim(categories, /proc/cmp_uplink_category, FALSE)
 
 	for(var/datum/uplink_item/item in items)
 		if(!item.name)
@@ -23,7 +23,7 @@ var/datum/uplink/uplink = new()
 				category.items += item
 
 	for(var/datum/uplink_category/category in categories)
-		category.items = sortTim(category.items, /proc/cmp_uplink_item, FALSE)
+		sortTim(category.items, /proc/cmp_uplink_item, FALSE)
 
 /datum/uplink_item
 	var/name
