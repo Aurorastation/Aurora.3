@@ -18,12 +18,10 @@
 			head = head.next
 			tasks -= head
 			head.kill()
-			log_debug("Head destroyed.")
 			continue
 		if (head.trigger_time >= world.time)
 			return	// Nothing after this will be ready to fire.
 
-		log_debug("Processing task \ref[head].")
 		// This one's ready to fire, process it.
 		var/datum/scheduled_task/task = head
 		head = task.next
@@ -35,11 +33,9 @@
 			task.kill()
 
 /datum/controller/process/scheduler/proc/queue(datum/scheduled_task/task)
-	log_debug("Queuing task \ref[task].")
 	if (!task || !task.trigger_time)
 		warning("scheduler: Invalid task queued! Ignoring.")
 		return
-	log_debug("Task \ref[task] will trigger in [task.trigger_time - world.time] ticks.")
 	// Reset this in-case we're doing a rebuild.
 	task.next = null
 	if (!head && !tasks.len)
@@ -84,7 +80,7 @@
 
 /datum/controller/process/scheduler/statProcess()
 	..()
-	stat(null, "[tasks.len] task\s ([world.time])")
+	stat(null, "[tasks.len] task\s")
 
 /datum/controller/process/scheduler/proc/schedule(var/datum/scheduled_task/st)
 	queue(st)
