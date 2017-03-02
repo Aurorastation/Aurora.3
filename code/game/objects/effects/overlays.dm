@@ -14,10 +14,12 @@
 	name="beam"
 	icon='icons/effects/beam.dmi'
 	icon_state="b_beam"
+	blend_mode = BLEND_ADD
+	layer = LIGHTING_LAYER + 0.1
 	var/tmp/atom/BeamSource
-	New()
-		..()
-		QDEL_IN(src, 10)
+
+/obj/effect/overlay/beam/Destroy()
+	return ..(force = TRUE)
 
 /obj/effect/overlay/palmtree_r
 	name = "Palm tree"

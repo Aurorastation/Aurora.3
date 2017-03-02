@@ -35,6 +35,8 @@ var/list/blacklisted_tesla_types = typecacheof(list(/obj/machinery/atmospherics,
 	dissipate = 1
 	dissipate_delay = 5
 	dissipate_strength = 1
+	layer = LIGHTING_LAYER + 0.1
+	blend_mode = BLEND_ADD
 	var/list/orbiting_balls = list()
 	var/produced_power
 	var/energy_to_raise = 32
@@ -244,7 +246,7 @@ var/list/blacklisted_tesla_types = typecacheof(list(/obj/machinery/atmospherics,
 
 	else if(closest_mob)
 		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
-		closest_mob.electrocute_act(shock_damage, source, 1, tesla_shock = 1, stun = stun_mobs)
+		closest_mob.electrocute_act(shock_damage, source, 1, tesla_shock = 1)
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob
 			if(stun_mobs)

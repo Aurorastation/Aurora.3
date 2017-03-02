@@ -180,6 +180,7 @@
 	return
 
 /obj/proc/tesla_act(var/power)
+	playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1, extrarange = 5)
 	being_shocked = 1
 	var/power_bounced = power / 2
 	tesla_zap(src, 5, power_bounced)

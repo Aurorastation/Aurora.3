@@ -60,7 +60,7 @@
 
 /obj/machinery/particle_accelerator/control_box/update_icon()
 	if(active)
-		icon_state = "[reference]p1"
+		icon_state = "[reference]p[strength]"
 	else
 		if(use_power)
 			if(assembled)
@@ -114,6 +114,8 @@
 	for(var/obj/structure/particle_accelerator/part in connected_parts)
 		part.strength = strength
 		part.update_icon()
+
+	update_icon()
 
 /obj/machinery/particle_accelerator/control_box/proc/add_strength(var/s)
 	if(assembled)
