@@ -20,6 +20,8 @@
 
 // Queues an effect.
 /datum/effect_system/proc/queue()
+	if (holder)
+		set_loc(holder)
 	if (SSeffects)
 		SSeffects.queue(src)
 		return TRUE
@@ -33,3 +35,9 @@
 
 /datum/effect_system/proc/bind(var/target)
 	holder = target
+
+/datum/effect_system/proc/set_loc(var/atom/movable/loc)
+	if (istype(loc, /turf/))
+		location = loc
+	else
+		location = get_turf(loc)

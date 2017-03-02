@@ -1,5 +1,6 @@
 /obj/visual_effect
 	name = "effect"
+	icon = 'icons/effects/effects.dmi'
 	anchored = 1
 	simulated = 0
 	mouse_opacity = 0

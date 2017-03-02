@@ -8,10 +8,7 @@
 	if(!loc || loc.gcDestroyed)
 		return
 
-	if (istype(loc, /turf))
-		location = loc
-	else
-		holder = loc
+	set_loc(loc)
 
 	if (amt)
 		amount = amt
@@ -22,12 +19,6 @@
 		spread = list()
 		
 	..(start_immediately)
-
-/datum/effect_system/sparks/queue()
-	if (holder)
-		location = get_turf(holder)
-
-	return ..()
 
 /datum/effect_system/sparks/process()
 	. = ..()
