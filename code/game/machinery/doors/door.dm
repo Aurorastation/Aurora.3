@@ -229,7 +229,7 @@
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
-					getFromPool(/obj/item/stack/rods, list(src.loc, 3))
+					getFromPool(/obj/item/stack/rods, src.loc, 3)
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
