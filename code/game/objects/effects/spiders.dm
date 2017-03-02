@@ -101,7 +101,7 @@
 			O = loc
 
 		for(var/i=0, i<num, i++)
-			var/spiderling = getFromPool(/obj/effect/spider/spiderling, list(src.loc, src))
+			var/spiderling = getFromPool(/obj/effect/spider/spiderling, src.loc, src)
 			if(O)
 				O.implants += spiderling
 		qdel(src)
