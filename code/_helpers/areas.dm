@@ -1,18 +1,32 @@
 //Takes: Area type as text string or as typepath OR an instance of the area.
-//Returns: A list of all turfs in areas of that type in the world.
-/proc/get_area_turfs(var/areatype, var/list/predicates)
-	if(!areatype) return null
-	if(istext(areatype)) areatype = text2path(areatype)
-	if(isarea(areatype))
+//Returns: A list of all turfs in areas of that type of that type in the world.
+/proc/get_area_turfs(areatype, var/list/predicates, target_z = 0, subtypes=FALSE)
+	if(istext(areatype))
+		areatype = text2path(areatype)
+	else if(isarea(areatype))
 		var/area/areatemp = areatype
 		areatype = areatemp.type
+	else if(!ispath(areatype))
+		return null
 
-	var/list/turfs = new/list()
-	for(var/areapath in typesof(areatype))
-		var/area/A = locate(areapath)
-		for(var/turf/T in A.contents)
-			if(!predicates || all_predicates_true(list(T), predicates))
-				turfs += T
+	var/list/turfs = list()
+	if(subtypes)
+		var/list/cache = typecacheof(areatype)
+		for(var/V in all_areas)
+			var/area/A = V
+			if(!cache[A.type])
+				continue
+			for(var/turf/T in A)
+				if(target_z == 0 || target_z == T.z)
+					turfs += T
+	else
+		for(var/V in all_areas)
+			var/area/A = V
+			if(A.type != areatype)
+				continue
+			for(var/turf/T in A)
+				if((target_z == 0 || target_z == T.z) && (!predicates || all_predicates_true(list(T), predicates)))
+					turfs += T
 	return turfs
 
 /proc/pick_area_turf(var/areatype, var/list/predicates)
