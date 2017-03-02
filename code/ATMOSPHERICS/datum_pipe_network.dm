@@ -79,4 +79,5 @@ datum/pipe_network
 
 	Destroy()
 		pipe_networks -= src
-		return ..()
+		..()
+		return QDEL_HINT_POOL

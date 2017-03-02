@@ -192,6 +192,8 @@ var/datum/subsystem/garbage_collector/garbage_collector
 				#endif
 			if (QDEL_HINT_POOL)
 				if (!force)
+					if (istype(D, /atom/movable))
+						D:loc = null
 					D.gcDestroyed = null
 					returnToPool(D)
 					return

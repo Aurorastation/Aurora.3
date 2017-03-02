@@ -12,3 +12,6 @@
 	density = 0
 	anchored = 1
 	layer = 50
+
+/obj/effect/decal/Destroy(force = FALSE)
+	return force ? ..() : QDEL_HINT_POOL

@@ -210,7 +210,8 @@
 	if(hsbitem)
 		for(var/atom/O in world)
 			if(istype(O, hsbitem))
-				qdel(O)
+				qdel(O, TRUE)
+				CHECK_TICK
 		log_admin("[key_name(src)] has deleted all instances of [hsbitem].")
 		message_admins("[key_name_admin(src)] has deleted all instances of [hsbitem].", 0)
 	feedback_add_details("admin_verb","DELA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

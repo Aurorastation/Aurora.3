@@ -424,6 +424,8 @@
 	L = affecting_turfs - turfs // Now-gone turfs, remove us from the affecting lights.
 	affecting_turfs -= L
 	for (var/turf/T in L)
+		if (QDELETED(T))
+			continue
 		T.affecting_lights -= src
 
 	for (var/datum/lighting_corner/C in corners - effect_str) // New corners

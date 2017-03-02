@@ -204,7 +204,7 @@
 						if (del_action == "Hard Delete")
 							del(Obj)
 						else
-							qdel(Obj)
+							qdel(Obj, TRUE)
 				if(!i)
 					usr << "No objects of this type exist"
 					return
