@@ -66,7 +66,7 @@
 
 // Rebuilds the queue linked-list, removing invalid or destroyed entries.
 /datum/controller/process/scheduler/proc/rebuild_queue()
-	log_debug("Rebuilding queue.")
+	log_debug("scheduler: Rebuilding queue.")
 	var/list/old_tasks = tasks
 	tasks = list()
 	for (var/thing in old_tasks)
@@ -76,7 +76,7 @@
 
 		queue(task)
 
-	log_debug("Queue diff is [old_tasks.len - tasks.len].")
+	log_debug("scheduler: Queue diff is [old_tasks.len - tasks.len].")
 
 /datum/controller/process/scheduler/statProcess()
 	..()
