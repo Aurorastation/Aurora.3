@@ -31,12 +31,8 @@
 
 	update_overlay()
 
-/atom/movable/lighting_overlay/Destroy(force)
-	if (!force)
-		L_PROF(loc, "overlay_destroy (qdel-Pooled)")
-		return QDEL_HINT_POOL
-		
-	L_PROF(loc, "overlay_destroy (qdel-Destroyed)")
+/atom/movable/lighting_overlay/Destroy(force = FALSE)
+	L_PROF(loc, "overlay_destroy")
 	global.all_lighting_overlays        -= src
 	SSlighting.overlay_queue    		-= src
 
@@ -45,7 +41,7 @@
 		T.lighting_overlay = null
 		T.luminosity = 1
 
-	return ..()
+	return force ? ..() : QDEL_HINT_POOL
 
 /atom/movable/lighting_overlay/proc/update_overlay()
 	var/turf/T = loc

@@ -27,13 +27,11 @@
 		processing_objects.Remove(src)
 		sleep(30)
 		if(metal)
-			var/obj/structure/foamedmetal/M = new(src.loc)
+			var/obj/structure/foamedmetal/M = getFromPool(/obj/structure/foamedmetal, src.loc)
 			M.metal = metal
 			M.updateicon()
 		flick("[icon_state]-disolve", src)
-		sleep(5)
-		qdel(src)
-	return
+		QDEL_IN(src, 5)
 
 /obj/effect/effect/foam/proc/checkReagents() // transfer any reagents to the floor
 	if(!metal && reagents)
@@ -136,10 +134,10 @@
 	..()
 	update_nearby_tiles(1)
 
-/obj/structure/foamedmetal/Destroy()
+/obj/structure/foamedmetal/Destroy(force = FALSE)
 	density = 0
 	update_nearby_tiles(1)
-	return ..()
+	return force ? ..() : QDEL_HINT_POOL
 
 /obj/structure/foamedmetal/proc/updateicon()
 	if(metal == 1)

@@ -20,8 +20,7 @@ proc/empulse(turf/epicenter, heavy_range, light_range, log=0)
 		pulse.icon_state = "emppulse"
 		pulse.name = "emp pulse"
 		pulse.anchored = 1
-		spawn(20)
-			qdel(pulse)
+		QDEL_IN(pulse, 20)
 
 	if(heavy_range > light_range)
 		light_range = heavy_range

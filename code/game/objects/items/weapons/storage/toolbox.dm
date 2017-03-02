@@ -17,8 +17,7 @@
 	var/stunhit = 0
 
 /obj/item/weapon/storage/toolbox/initialize()
-	spawn(3)
-		update_force()
+	addtimer(CALLBACK(src, .proc/update_force), 3)
 
 /obj/item/weapon/storage/toolbox/emergency
 	name = "emergency toolbox"

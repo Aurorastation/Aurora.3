@@ -77,9 +77,7 @@
 		for(var/atom/A in get_turf(hit_atom))
 			src.reagents.touch(A)
 		src.icon_state = "burst"
-		spawn(5)
-			if(src)
-				qdel(src)
+		QDEL_IN(src, 5)
 	return
 
 /obj/item/toy/balloon/update_icon()
