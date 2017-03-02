@@ -16,10 +16,8 @@
 	icon_state="b_beam"
 	blend_mode = BLEND_ADD
 	layer = LIGHTING_LAYER + 0.1
+	animate_movement = FALSE
 	var/tmp/atom/BeamSource
-
-/obj/effect/overlay/beam/Destroy()
-	return ..(force = TRUE)
 
 /obj/effect/overlay/palmtree_r
 	name = "Palm tree"
@@ -29,9 +27,6 @@
 	layer = 5
 	anchored = 1
 
-/obj/effect/overlay/palmtree_r/Destroy()
-	..()
-	return QDEL_HINT_QUEUE
 
 /obj/effect/overlay/palmtree_l
 	name = "Palm tree"
@@ -41,18 +36,12 @@
 	layer = 5
 	anchored = 1
 
-/obj/effect/overlay/palmtree_l/Destroy()
-	..()
-	return QDEL_HINT_QUEUE
 
 /obj/effect/overlay/coconut
 	name = "Coconuts"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
 
-/obj/effect/overlay/coconut/Destroy()
-	..()
-	return QDEL_HINT_QUEUE
 
 /obj/effect/overlay/bluespacify
 	name = "Bluespace"

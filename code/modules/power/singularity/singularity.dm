@@ -267,19 +267,23 @@
 	return 1
 
 /obj/singularity/proc/eat()
-	for(var/atom/X in orange(grav_pull, src))
-		var/dist = get_dist(X, src)
-		var/obj/singularity/S = src
-		if(!istype(src))
-			return
-		if(dist > consume_range)
-			X.singularity_pull(S, current_size)
-		else if(dist <= consume_range)
-			consume(X)
-
-	//for (var/turf/T in trange(grav_pull, src)) //TODO: Create a similar trange for orange to prevent snowflake of self check.
-	//	consume(T)
-
+	set background = BACKGROUND_ENABLED
+	for(var/tile in spiral_range_turfs(grav_pull, src))
+		var/turf/T = tile
+		if(!T || !isturf(loc))
+			continue
+		if(get_dist(T, src) > consume_range)
+			T.singularity_pull(src, current_size)
+		else
+			consume(T)
+		for(var/thing in T)
+			if(isturf(loc) && thing != src)
+				var/atom/movable/X = thing
+				if(get_dist(X, src) > consume_range)
+					X.singularity_pull(src, current_size)
+				else
+					consume(X)
+			CHECK_TICK
 	return
 
 /obj/singularity/proc/consume(const/atom/A)

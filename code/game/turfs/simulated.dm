@@ -14,7 +14,6 @@
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 	var/dirt = 0
 
-// This is not great.
 /turf/simulated/proc/wet_floor(var/wet_val = 1)
 	if(wet_val < wet)
 		return
@@ -26,18 +25,15 @@
 
 	addtimer(CALLBACK(src, .proc/unwet_floor), wet > 1 ? 120 SECONDS : 8 SECONDS, TIMER_OVERRIDE)
 
-/turf/simulated/proc/task_unwet_floor()
-	wet--
-	if (wet)
-		addtimer(CALLBACK(src, .proc/unwet_floor), wet > 1 ? 120 SECONDS : 8 SECONDS, TIMER_OVERRIDE)
-	else
-		unwet_floor()
-
 /turf/simulated/proc/unwet_floor()
-	wet = 0
-	if(wet_overlay)
-		overlays -= wet_overlay
-		wet_overlay = null
+	--wet
+	if (wet < 1)
+		wet = 0
+		if(wet_overlay)
+			overlays -= wet_overlay
+			wet_overlay = null
+	else
+		addtimer(CALLBACK(src, .proc/unwet_floor), wet > 1 ? 120 SECONDS : 8 SECONDS, TIMER_OVERRIDE)
 
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
