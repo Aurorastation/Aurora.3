@@ -13,7 +13,7 @@
 /obj/visual_effect/sparks/tick()
 	. = ..()
 
-	var/turf/T = loc
+	var/turf/T = get_turf(src)
 	if(T)
 		T.hotspot_expose(1000, 100)
 
