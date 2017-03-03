@@ -794,8 +794,6 @@ proc/GaussRandRound(var/sigma,var/roundto)
 					var/old_icon1 = T.icon
 					var/old_overlays = T.overlays.Copy()
 					var/old_underlays = T.underlays.Copy()
-					if (T.dynamic_lighting && T.lighting_overlay)
-						T.lighting_overlay.forceMove(B, harderforce = TRUE)
 
 					var/turf/X = B.ChangeTurf(T.type)
 					X.set_dir(old_dir1)
@@ -850,12 +848,6 @@ proc/GaussRandRound(var/sigma,var/roundto)
 					for(var/mob/M in T)
 						if(!istype(M,/mob) || istype(M, /mob/eye)) continue // If we need to check for more mobs, I'll add a variable
 						M.loc = X
-
-//					var/area/AR = X.loc
-
-//					if(AR.lighting_use_dynamic)							//TODO: rewrite this code so it's not messed by lighting ~Carn
-//						X.opacity = !X.opacity
-//						X.SetOpacity(!X.opacity)
 
 					toupdate += X
 

@@ -332,6 +332,9 @@
 	var/static/update_gen = 1
 	applied = 1
 
+	if (!source_turf)
+		return
+
 	var/Tx
 	var/Ty
 	var/Sx = source_turf.x
