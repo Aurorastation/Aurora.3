@@ -241,19 +241,19 @@
 		return
 
 	if (victim.stat == DEAD)
-		speak_to(user, "You are too late, the spark of life is already gone from this one. It is naught but an empty husk..")
+		speak_to(user, "You are too late, the spark of life is already gone from this one. It is naught but an empty husk...")
 		return
 
 	var/types = victim.find_type()
 	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WIERD)))
 		//Invalid sacrifice. Display a message and return
-		speak_to(user, "This soulless automaton cannot satisfy our hunger. We yearn for life essence, it must have a soul")
+		speak_to(user, "This soulless automaton cannot satisfy our hunger. We yearn for life essence, it must have a soul.")
 		return
 
 	sacrifice = victim
 	sacrificer = user
 	//Sacrifice accepted, display message here
-	speak_to(user, "Your sacrifice has been deemed worthy, and accepted. End its life now, and liberate its soul, to seal our contract..")
+	speak_to(user, "Your sacrifice has been deemed worthy, and accepted. End its life now, and liberate its soul, to seal our contract...")
 	sacrifice << span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!")
 
 	if (istype(sacrifice.loc,/obj/item/weapon/holder))
@@ -288,7 +288,7 @@
 		if (1)
 			finalize_sacrifice()
 		if (-1)
-			speak_to(sacrificer, "Fool! Your offering has escaped. Bring it back, or find us another..")
+			speak_to(sacrificer, "Fool! Your offering has escaped. Bring it back, or find us another...")
 			sacrifice = null
 			pylonmode = 0
 			update_icon()
@@ -404,7 +404,7 @@
 
 /obj/structure/cult/pylon/attack_hand(mob/M as mob)
 	if (M.a_intent == "help")
-		M << "The pylon feels warm to the touch..."
+		M << "The pylon feels warm to the touch...."
 	else
 		attackpylon(M, 4, M)
 
@@ -543,7 +543,7 @@
 		user << span("notice","You meld the crystal lattice back into integrity, sealing over the cracks until they never were.")
 
 	else
-		user << span("notice","The crystal lights up at your touch")
+		user << span("notice","The crystal lights up at your touch.")
 
 	process_interval = 1 //Wake up the crystal
 	notarget = 0
@@ -574,10 +574,7 @@
 
 
 
-
-
-
-
+//============================================
 /obj/structure/cult/tome
 	name = "Desk"
 	desc = "A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl"
