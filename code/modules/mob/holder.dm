@@ -18,6 +18,7 @@ var/list/holder_mob_icon_cache = list()
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
 
 /obj/item/weapon/holder/New()
+	tag = rand(0,9999)
 	if (!item_state)
 		item_state = icon_state
 
@@ -104,6 +105,8 @@ var/list/holder_mob_icon_cache = list()
 
 //Releases all mobs inside the holder, then deletes it.
 //is_unsafe_container should be checked before calling this
+//This function releases mobs into wherever the holder currently is. Its not safe to call from a lot of places
+//Use release_to_floor for a simple, safe release
 /obj/item/weapon/holder/proc/release_mob()
 	for(var/mob/M in contents)
 		var/atom/movable/mob_container
@@ -112,6 +115,7 @@ var/list/holder_mob_icon_cache = list()
 		M.reset_view()
 		M.Released()
 
+
 	contained = null
 	var/mob/L = get_holding_mob()
 	if (L)
@@ -119,6 +123,21 @@ var/list/holder_mob_icon_cache = list()
 
 	qdel(src)
 
+
+//Similar to above function, but will not deposit things in any container, only directly on a turf.
+//Can be called safely anywhere. Notably on holders held or worn on a mob
+/obj/item/weapon/holder/proc/release_to_floor()
+	var/turf/T = get_turf(src)
+	var/mob/L = get_holding_mob()
+	if (L)
+		L.drop_from_inventory(src)
+
+	for(var/mob/M in contents)
+		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
+		M.reset_view()
+		M.Released()
+
+	qdel(src)
 
 /obj/item/weapon/holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	for(var/mob/M in src.contents)
