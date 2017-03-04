@@ -176,6 +176,13 @@
 	strength = 0.5 // It's not THAT poisonous.
 	color = "#664330"
 
+/datum/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		M.nutrition += removed*2
+		//Fertilizer is good for plants
+	else
+		..()
+
 /datum/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
 	id = "eznutrient"
@@ -195,7 +202,7 @@
 	reagent_state = LIQUID
 	color = "#49002E"
 	strength = 4
-	metabolism = REM * 0.35
+	metabolism = REM*1.5
 
 /datum/reagent/toxin/plantbgone/touch_turf(var/turf/T)
 	if(istype(T, /turf/simulated/wall))
@@ -212,12 +219,12 @@
 /datum/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien == IS_DIONA)
-		M.adjustToxLoss(50 * removed)
+		M.adjustToxLoss(8 * removed)
 
+//Affect touch automatically transfers to affect_blood, so we'll apply the damage there, after accounting for permeability
 /datum/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(alien == IS_DIONA)
-		M.adjustToxLoss(50 * removed)
+	removed *= M.reagent_permeability()
+	affect_blood(M, alien, removed*0.5)
 
 /datum/reagent/acid/polyacid
 	name = "Polytrinic acid"
