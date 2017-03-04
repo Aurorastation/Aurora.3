@@ -40,4 +40,4 @@
 /obj/machinery/computer/rcon/update_icon()
 	..()
 	if(is_operable())
-		holographic_overlay(src, src.icon, "ai-fixed-empty")
+		holographic_overlay(src, src.icon, "ai-fixer-empty")
