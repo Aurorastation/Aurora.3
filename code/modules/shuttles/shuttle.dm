@@ -127,6 +127,8 @@
 	else
 		origin.move_contents_to(destination, direction=direction)*/
 
+	origin.move_contents_to(destination, direction=direction)
+
 	for(var/mob/M in destination)
 		if(M.client)
 			spawn(0)

@@ -574,6 +574,7 @@
 	desc = "Stuff for the maint-dwellers."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
+	spawn_nothing_percentage = 5
 
 /obj/random/loot/item_to_spawn()
 
@@ -744,3 +745,57 @@
 	/obj/item/weapon/rig/unathi/fancy = 0.5
 	)
 	return pickweight(highvalue)
+
+/obj/random/junk
+	name = "random trash"
+	desc = "This is toss."
+	icon = 'icons/obj/trash.dmi'
+	icon_state = "koisbar"
+	spawn_nothing_percentage = 5
+
+/obj/random/junk/item_to_spawn()
+
+	var/list/junk = list(/obj/item/trash/koisbar = 0.5,
+	/obj/item/trash/raisins = 1,
+	/obj/item/trash/candy = 1,
+	/obj/item/trash/cheesie = 2,
+	/obj/item/trash/chips = 0.75,
+	/obj/item/trash/popcorn = 0.75,
+	/obj/item/trash/sosjerky = 0.5,
+	/obj/item/trash/syndi_cakes = 0.25,
+	/obj/item/trash/waffles = 0.75,
+	/obj/item/trash/plate  = 0.75,
+	/obj/item/trash/snack_bowl = 0.75,
+	/obj/item/trash/pistachios = 0.75,
+	/obj/item/trash/semki = 0.5,
+	/obj/item/trash/tray = 0.75,
+	/obj/item/trash/candle = 0.75,
+	/obj/item/trash/liquidfood = 0.75,
+	/obj/item/trash/tastybread= 0.75,
+	/obj/item/trash/meatsnack = 0.5,
+	/obj/item/trash/maps = 0.5,
+	/obj/effect/decal/cleanable/ash = 1.5,
+	/obj/effect/decal/cleanable/dirt = 2,
+	/obj/effect/decal/cleanable/flour = 1,
+	/obj/effect/decal/cleanable/greenglow = 1,
+	/obj/effect/decal/cleanable/molten_item = 1,
+	/obj/effect/decal/cleanable/vomit = 2,
+	/obj/effect/decal/cleanable/generic = 2,
+	/obj/effect/decal/cleanable/liquid_fuel = 0.5,
+	/obj/effect/decal/cleanable/mucus = 1.5,
+	/obj/effect/decal/cleanable/blood/drip = 1.5,
+	/obj/item/weapon/storage/box = 1,
+	/obj/item/weapon/material/shard = 1,
+	/obj/item/weapon/material/shard/shrapnel = 1,
+	/obj/item/weapon/broken_bottle = 1,
+	/obj/item/stack/material/cardboard = 1,
+	/obj/item/stack/rods = 1,
+	/obj/item/weapon/corncob = 1,
+	/obj/item/weapon/paper/crumpled = 1,
+	/obj/item/inflatable/torn = 1,
+	/obj/item/ammo_casing/c45r = 0.5,
+	/obj/item/ammo_casing/c9mmr = 0.5,
+	/obj/item/ammo_casing/c45f = 0.5,
+	/obj/item/ammo_casing/shotgun/beanbag = 0.5)
+
+	return pickweight(junk)
