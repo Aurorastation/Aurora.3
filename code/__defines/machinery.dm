@@ -96,3 +96,12 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define ATMOS_DEFAULT_VOLUME_FILTER 200 // L.
 #define ATMOS_DEFAULT_VOLUME_MIXER  200 // L.
 #define ATMOS_DEFAULT_VOLUME_PIPE   70  // L.
+
+
+// Misc process flags.
+#define M_PROCESSES 0x1
+#define M_USES_POWER 0x2
+
+// If this is returned from a machine's process() proc, the machine will stop processing but 
+// will continue to have power calculations done.
+#define M_NO_PROCESS 27

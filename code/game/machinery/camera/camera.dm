@@ -258,9 +258,7 @@
 	update_coverage()
 
 	//sparks
-	var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-	spark_system.set_up(5, 0, loc)
-	spark_system.start()
+	spark(loc, 5)
 	playsound(loc, "sparks", 50, 1)
 
 /obj/machinery/camera/proc/set_status(var/newstatus)

@@ -80,5 +80,5 @@
 
 
 /obj/machinery/computer/operating/process()
-	if(..())
+	if(operable())
 		src.updateDialog()

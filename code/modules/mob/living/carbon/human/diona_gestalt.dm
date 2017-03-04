@@ -123,7 +123,6 @@
 		usr << span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!")
 		return
 	var/light = get_lightlevel_diona(DS)
-
 	if (light <= -0.75)
 		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
 	else if (light <= 0)

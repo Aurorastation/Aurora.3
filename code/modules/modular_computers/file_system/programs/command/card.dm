@@ -9,6 +9,7 @@
 	usage_flags = PROGRAM_CONSOLE
 	requires_ntnet = 0
 	size = 8
+	color = LIGHT_COLOR_BLUE
 
 /datum/nano_module/program/card_mod
 	name = "ID card modification program"

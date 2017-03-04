@@ -23,6 +23,7 @@
 	src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
 
 /obj/item/weapon/reagent_containers/spray/AltClick()
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle, the spraybottle is now [safety ? "locked" : "unlocked"].</span>"

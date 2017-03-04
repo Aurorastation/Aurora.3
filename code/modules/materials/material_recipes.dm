@@ -79,9 +79,9 @@
 	recipes += new/datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2)
 	recipes += new/datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)
 	recipes += new/datum/stack_recipe("firearm receiver", /obj/item/weapon/receivergun, 15, time = 25, one_per_turf = 0, on_floor = 0)
-	recipes += new/datum/stack_recipe("modular console frame", /obj/item/modular_computer/console, 20)
-	recipes += new/datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10)
-	recipes += new/datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/tablet, 5)
+	recipes += new/datum/stack_recipe("modular console frame", /obj/item/modular_computer/console, 20, time = 25, one_per_turf = TRUE)
+	recipes += new/datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10, time = 25)
+	recipes += new/datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/tablet, 5, time = 25)
 
 /material/plasteel/generate_recipes()
 	..()

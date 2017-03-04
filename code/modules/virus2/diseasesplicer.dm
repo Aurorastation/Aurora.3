@@ -86,7 +86,7 @@
 		ui.open()
 
 /obj/machinery/computer/diseasesplicer/process()
-	if(stat & (NOPOWER|BROKEN))
+	if (inoperable())
 		return
 
 	if(scanning)

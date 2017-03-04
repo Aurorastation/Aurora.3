@@ -190,14 +190,16 @@ var/global/list/robot_modules = list(
 	can_be_pushed = 0
 	sprites = list(
 				"Basic" = "Medbot",
-				"Standard" = "surgeon",
-				"Advanced Droid" = "droid-medical",
-				"Sleek" = "sleekmedic",
-				"Needles" = "medicalrobot",
-				"Drone - Medical" = "drone-medical",
-				"Drone - Chemistry" = "drone-chemistry",
 				"Classic" = "robotMedi",
-				"Heavy" = "heavyMed"
+				"Heavy" = "heavyMed",
+				"Needles" = "medicalrobot",
+				"Standard" = "surgeon",
+				"Advanced Droid - Medical" = "droid-surgery",
+				"Advanced Droid - Chemistry" = "droid-chemistry",
+				"Drone - Medical" = "drone-surgery",
+				"Drone - Chemistry" = "drone-chemistry",
+				"Sleek - Medical" = "sleekmedic",
+				"Sleek - Chemistry" = "sleekchemistry"
 				)
 
 /obj/item/weapon/robot_module/medical/general
@@ -242,6 +244,13 @@ var/global/list/robot_modules = list(
 	..()
 
 /obj/item/weapon/robot_module/medical/general/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+	var/obj/item/weapon/reagent_containers/syringe/S = locate() in src.modules
+	if(S.mode == 2)
+		S.reagents.clear_reagents()
+		S.mode = initial(S.mode)
+		S.desc = initial(S.desc)
+		S.update_icon()
+
 	if(src.emag)
 		var/obj/item/weapon/reagent_containers/spray/PS = src.emag
 		PS.reagents.add_reagent("pacid", 2 * amount)
@@ -249,6 +258,16 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/medical/rescue
 	name = "rescue robot module"
+	sprites = list(
+			"Basic" = "Medbot",
+			"Classic" = "robotMedi",
+			"Standard" = "surgeon",
+			"Advanced Droid" = "droid-rescue",
+			"Sleek" = "sleekrescue",
+			"Needles" = "medicalrobot",
+			"Drone" = "drone-medical",
+			"Heavy" = "heavyMed"
+			)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -634,7 +653,7 @@ var/global/list/robot_modules = list(
 					"Drone" = "drone-science",
 					"Classic" = "robotJani",
 					"Sleek" = "sleekscience",
-					"Heavy" = "heavyMed"
+					"Heavy" = "heavySci"
 					)
 
 /obj/item/weapon/robot_module/research/New()

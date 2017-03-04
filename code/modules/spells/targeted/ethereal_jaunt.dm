@@ -1,7 +1,7 @@
 /spell/targeted/ethereal_jaunt
 	name = "Ethereal Jaunt"
 	desc = "This spell creates your ethereal form, temporarily making you invisible and able to pass through walls."
-
+	feedback = "EJ"
 	school = "transmutation"
 	charge_max = 300
 	spell_flags = Z2NOCAST | NEEDSCLOTHES | INCLUDEUSER
@@ -11,13 +11,15 @@
 	max_targets = 1
 	cooldown_min = 100 //50 deciseconds reduction per rank
 	duration = 50 //in deciseconds
+	cast_sound = 'sound/magic/Ethereal_Enter.ogg'
 
 	hud_state = "wiz_jaunt"
 
 /spell/targeted/ethereal_jaunt/cast(list/targets) //magnets, so mostly hardcoded
 	for(var/mob/living/target in targets)
 		target.transforming = 1 //protects the mob from being transformed (replaced) midjaunt and getting stuck in bluespace
-		if(target.buckled) target.buckled = null
+		if(target.buckled)
+			target.buckled.unbuckle_mob()
 		spawn(0)
 			var/mobloc = get_turf(target.loc)
 			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
@@ -54,6 +56,13 @@
 			target.client.eye = target
 			qdel(animation)
 			qdel(holder)
+
+/spell/targeted/ethereal_jaunt/empower_spell()
+	if(!..())
+		return 0
+	duration += 20
+
+	return "[src] now lasts longer."
 
 /spell/targeted/ethereal_jaunt/proc/jaunt_disappear(var/atom/movable/overlay/animation, var/mob/living/target)
 	animation.icon_state = "liquify"

@@ -127,11 +127,6 @@ world/loop_checks = 0
 	stat(null, "[garbage_collect ? "On" : "Off"], [destroyed.len] queued")
 	stat(null, "Dels: [total_dels], [soft_dels] soft, [hard_dels] hard, [tick_dels]  last run")
 
-
-// Tests if an atom has been deleted.
-/proc/deleted(atom/A)
-	return !A || !isnull(A.gcDestroyed)
-
 // Should be treated as a replacement for the 'del' keyword.
 // Datums passed to this will be given a chance to clean up references to allow the GC to collect them.
 /proc/qdel(var/datum/A)
