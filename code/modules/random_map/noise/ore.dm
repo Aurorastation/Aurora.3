@@ -41,45 +41,45 @@
 	var/tx = ((origin_x-1)+x)*chunk_size
 	var/ty = ((origin_y-1)+y)*chunk_size
 
-	for (var/turf/theTurf in block(locate(tx, ty), locate(chunk_size, chunk_size)))
-		var/turf/simulated/T = theTurf
-		if(!istype(T) || !T.has_resources)
-			continue
-		if(!priority_process)
-			sleep(-1)
-		T.resources = list()
-		T.resources["silicates"] = rand(3,5)
-		T.resources["carbonaceous rock"] = rand(3,5)
+	for(var/i=0,i<chunk_size,i++)
+		for(var/j=0,j<chunk_size,j++)
+			var/turf/simulated/T = locate(tx+j, ty+i, origin_z)
+			if(!istype(T) || !T.has_resources)
+				continue
+			if(!priority_process) 
+				CHECK_TICK
+			T.resources = list()
+			T.resources["silicates"] = rand(3,5)
+			T.resources["carbonaceous rock"] = rand(3,5)
 
-		var/current_cell = map[get_map_cell(x,y)]
-		if(current_cell < rare_val)      // Surface metals.
-			T.resources["iron"] =     rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
-			T.resources["gold"] =     rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
-			T.resources["silver"] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
-			T.resources["uranium"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
-			T.resources["diamond"] =  0
-			T.resources["phoron"] =   0
-			T.resources["osmium"] =   0
-			T.resources["hydrogen"] = 0
-		else if(current_cell < deep_val) // Rare metals.
-			T.resources["gold"] =     rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-			T.resources["silver"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-			T.resources["uranium"] =  rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-			T.resources["phoron"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-			T.resources["osmium"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-			T.resources["hydrogen"] = 0
-			T.resources["diamond"] =  0
-			T.resources["iron"] =     0
-		else                             // Deep metals.
-			T.resources["uranium"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
-			T.resources["diamond"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
-			T.resources["phoron"] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
-			T.resources["osmium"] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
-			T.resources["hydrogen"] = rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-			T.resources["iron"] =     0
-			T.resources["gold"] =     0
-			T.resources["silver"] =   0
-
+			var/current_cell = map[get_map_cell(x,y)]
+			if(current_cell < rare_val)      // Surface metals.
+				T.resources["iron"] =     rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
+				T.resources["gold"] =     rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+				T.resources["silver"] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+				T.resources["uranium"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+				T.resources["diamond"] =  0
+				T.resources["phoron"] =   0
+				T.resources["osmium"] =   0
+				T.resources["hydrogen"] = 0
+			else if(current_cell < deep_val) // Rare metals.
+				T.resources["gold"] =     rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources["silver"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources["uranium"] =  rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources["phoron"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources["osmium"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources["hydrogen"] = 0
+				T.resources["diamond"] =  0
+				T.resources["iron"] =     0
+			else                             // Deep metals.
+				T.resources["uranium"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+				T.resources["diamond"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+				T.resources["phoron"] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
+				T.resources["osmium"] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
+				T.resources["hydrogen"] = rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources["iron"] =     0
+				T.resources["gold"] =     0
+				T.resources["silver"] =   0
 	return
 
 /datum/random_map/noise/ore/get_map_char(var/value)
