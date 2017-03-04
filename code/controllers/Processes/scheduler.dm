@@ -69,10 +69,44 @@
 	log_debug("scheduler: Rebuilding queue.")
 	var/list/old_tasks = tasks
 	tasks = list()
+	if (!old_tasks.len)
+		log_debug("scheduler: rebuild was called on empty queue! Aborting.")
+		return
+
+	// Find the head.
 	for (var/thing in old_tasks)
 		var/datum/scheduled_task/task = thing
-		if (QDELETED(task) || task.destroyed)
+		if (QDELETED(task))
+			old_tasks -= task
 			continue
+
+		if (task.destroyed)
+			old_tasks -= task
+			task.kill()
+			continue
+
+		if (!head || task.trigger_time < head.trigger_time)
+			head = task
+
+	if (!head)
+		log_debug("scheduler: unable to find head! Purging task queue.")
+		for (var/thing in old_tasks)
+			var/datum/scheduled_task/task = thing
+			if (QDELETED(task))
+				continue
+
+			task.kill()
+
+		head = null
+		return
+
+	// Don't queue the head.
+	tasks += head
+	old_tasks -= head
+
+	// Now rebuild the queue.
+	for (var/thing in old_tasks)
+		var/datum/scheduled_task/task = thing
 
 		queue(task)
 
