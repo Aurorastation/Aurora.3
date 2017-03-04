@@ -4,6 +4,7 @@
 	filedesc = "NTOS File Manager"
 	extended_desc = "This program allows management of files."
 	program_icon_state = "generic"
+	color = LIGHT_COLOR_GREEN
 	size = 8
 	requires_ntnet = 0
 	available_on_ntnet = 0

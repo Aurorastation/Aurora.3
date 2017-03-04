@@ -305,11 +305,11 @@
 						return W.afterattack(target,src)
 
 			var/randn = rand(1, 100)
-			if(!(species.flags & NO_SLIP) && randn <= 25)
+			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN, run_armor_check(affecting, "melee"))
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-					visible_message("\red <B>[M] hurls [src] to the floor!</B>")
+					visible_message("<span class='danger'>[M] hurls [src] to the floor!</span>")
 					step_away(src,M,15)
 					sleep(3)
 					step_away(src,M,15)

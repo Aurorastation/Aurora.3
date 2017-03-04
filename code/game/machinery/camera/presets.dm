@@ -174,11 +174,7 @@ var/global/list/engineering_networks = list(
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
 	setPowerUsage()
 	if(!(src in machines))
-		if(!machinery_sort_required && ticker)
-			dd_insertObjectList(machines, src)
-		else
-			machines += src
-			machinery_sort_required = 1
+		add_machine(src)
 	update_coverage()
 
 /obj/machinery/camera/proc/setPowerUsage()
