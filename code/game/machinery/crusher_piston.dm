@@ -161,11 +161,14 @@
 				log_debug("Retracting Stage 2 Pistons")
 				initial = 0
 				for(var/obj/machinery/crusher_piston/stage/pstn in piston_stg3)
-					piston_stg3 -= pstn
-					qdel(pstn)
+					pstn.retract_out()
 				for(var/obj/machinery/crusher_piston/stage/pstn in piston_stg2)
 					pstn.retract()
 			if(timediff > time_stage_2) //Once the time is up, move to stage 1
+				for(var/obj/machinery/crusher_piston/stage/pstn in piston_stg3)
+					//Change the img here to a retracting sprite
+					piston_stg3 -= pstn
+					qdel(pstn)
 				status = "stage1"
 				action_start_time = world.time
 				initial = 1
@@ -176,11 +179,13 @@
 				log_debug("Retracting Stage 1 Pistons")
 				initial = 0
 				for(var/obj/machinery/crusher_piston/stage/pstn in piston_stg2)
-					piston_stg2 -= pstn
-					qdel(pstn)
+					pstn.retract_out()
 				for(var/obj/machinery/crusher_piston/stage/pstn in piston_stg1)
 					pstn.retract()
 			if(timediff > time_stage_1) //Once the time is up, reset the icon state
+				for(var/obj/machinery/crusher_piston/stage/pstn in piston_stg2)
+					piston_stg2 -= pstn
+					qdel(pstn)
 				for(var/obj/machinery/crusher_piston/stage/pstn in piston_stg1)
 					pstn.icon_state = initial(pstn.icon_state)
 				status = "idle"
@@ -240,7 +245,7 @@
 	name = "Trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
 	icon = 'icons/obj/machines/trashcompressor.dmi' //Placeholder TODO: Get a proper icon
-	icon_state = "stage1-retracted" //Placeholder TODO: Select a proper initial icon state
+	icon_state = "stage1-retracted-in" //Placeholder TODO: Select a proper initial icon state
 	density = 0
 	anchored = 1
 	var/status = 0 //0 - Retracted, 1 - Extendet
@@ -248,7 +253,7 @@
 	var/obj/machinery/crusher_piston/base/crs_base //Crusher Base the piston is linked to
 
 /obj/machinery/crusher_piston/stage/New()
-	icon_state = "stage[stage]-retracted"
+	icon_state = "stage[stage]-retracted-in"
 
 /obj/machinery/crusher_piston/stage/proc/extend()
 	if(status == 0) //Only extend if the piston is not already extendet
@@ -262,7 +267,7 @@
 		if(stage < 3)
 			var/obj/machinery/crusher_piston/stage/pstn = new(locate(x,y-1,z))
 			pstn.stage = stage + 1
-			pstn.icon_state = "stage[stage+1]-retracted"
+			pstn.icon_state = "stage[stage+1]-retracted-in"
 			pstn.crs_base = crs_base
 			if(stage == 1)
 				crs_base.piston_stg2 += pstn
@@ -277,6 +282,11 @@
 		density = 0
 		icon_state = "stage[stage]-retract"
 		status = 0
+
+/obj/machinery/crusher_piston/stage/proc/retract_out()
+	if(status == 0) //Only retract out of the piston is already retracted
+		density = 0
+		icon_state = "stage[stage]-retract-out"
 
 
 //
