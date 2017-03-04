@@ -133,6 +133,9 @@
 	set name = "Debug Pooling Type"
 	set category = "Debug"
 
+	if (!check_rights(R_DEBUG))
+		return
+
 	var/type = input("What is the typepath for the pooled object variables you wish to view?", "Pooled Variables") in pooledvariables|null
 
 	if(!type)

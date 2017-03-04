@@ -13,7 +13,7 @@
 	lipsticks["lipstick, red"] = /obj/item/weapon/lipstick
 	lipsticks["lipstick, purple"] = /obj/item/weapon/lipstick/purple
 	lipsticks["lipstick, jade"] = /obj/item/weapon/lipstick/jade
-	lipsticks["lipstick, back"] = /obj/item/weapon/lipstick/black
+	lipsticks["lipstick, black"] = /obj/item/weapon/lipstick/black
 	gear_tweaks += new/datum/gear_tweak/path(lipsticks)
 
 /datum/gear/cosmetic/mirror

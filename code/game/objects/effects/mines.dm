@@ -25,13 +25,11 @@
 		triggered = 1
 		call(src,triggerproc)(M)
 
-/obj/effect/mine/proc/triggerrad(obj)
-	var/datum/effect/effect/system/spark_spread/s = getFromPool(/datum/effect/effect/system/spark_spread)
-	s.set_up(3, 1, src)
-	s.start()
-	obj:radiation += 50
-	randmutb(obj)
-	domutcheck(obj,null)
+/obj/effect/mine/proc/triggerrad(var/mob/living/M)
+	spark(src, 3, alldirs)
+	if (istype(M))
+		M.apply_radiation(50)
+
 	spawn(0)
 		qdel(src)
 
@@ -39,9 +37,7 @@
 	if(ismob(obj))
 		var/mob/M = obj
 		M.Stun(30)
-	var/datum/effect/effect/system/spark_spread/s = getFromPool(/datum/effect/effect/system/spark_spread)
-	s.set_up(3, 1, src)
-	s.start()
+	spark(src, 3, alldirs)
 	spawn(0)
 		qdel(src)
 
@@ -66,11 +62,11 @@
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/proc/triggerkick(obj)
-	var/datum/effect/effect/system/spark_spread/s = getFromPool(/datum/effect/effect/system/spark_spread)
-	s.set_up(3, 1, src)
-	s.start()
-	qdel(obj:client)
+/obj/effect/mine/proc/triggerkick(var/mob/M)
+	spark(src, 3, alldirs)
+	if (istype(M))
+		qdel(M.client)
+		
 	spawn(0)
 		qdel(src)
 

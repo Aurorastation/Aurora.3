@@ -271,6 +271,8 @@ var/list/ai_verbs_default = list(
 		aiPDA.ownjob = "AI"
 		aiPDA.owner = pickedName
 		aiPDA.name = pickedName + " (" + aiPDA.ownjob + ")"
+	
+	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 
 /*
 	The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
