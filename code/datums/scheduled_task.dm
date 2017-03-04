@@ -43,7 +43,6 @@
 	src.trigger_time = world.time + trigger_in
 
 /datum/scheduled_task/proc/kill(no_del = FALSE)
-	log_debug("Killing task \ref[src]")
 	if (!destroyed)
 		warning("scheduler: Non-destroyed task was killed!")
 		destroyed = TRUE
