@@ -178,7 +178,7 @@
 
 /datum/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
-		M.nutrition += removed*2
+		M.nutrition += removed*3
 		//Fertilizer is good for plants
 	else
 		..()

@@ -47,7 +47,7 @@
 		return 0
 
 	if (devouring == victim)
-		src << span("notice","You stop eating [victim]")
+		src << span("notice","You stop eating [victim].")
 		devouring = null
 		return
 
