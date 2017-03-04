@@ -91,6 +91,20 @@
 /**********
 * Helpers *
 **********/
+/proc/schedule(source, the_proc, time, ...)
+	if (time < 0)
+		return
+	time += world.time
+	var/list/the_args
+	if (length(args) > 3)
+		the_args = args.Copy(4)
+	else
+		the_args = list()
+	if (source)
+		return schedule_task_with_source(time, the_proc, the_args)
+	else
+		return schedule_task(time, the_proc, the_args)
+
 /proc/schedule_task_in(var/in_time, var/procedure, var/list/arguments = list())
 	return schedule_task(world.time + in_time, procedure, arguments)
 
