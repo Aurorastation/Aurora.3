@@ -766,7 +766,7 @@ datum/design/item/experimental_welder
 	name = "Experimental Welding Tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
 	id = "experimental_welder"
-	req_tech = list(ENGINEERING = 4, TECH_MATERIAL = 4)
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
 	sort_string = "VABAJ"

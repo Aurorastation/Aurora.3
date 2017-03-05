@@ -197,7 +197,7 @@
 /datum/surgery_step/robotics/fix_organ_robotic //For artificial organs
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
-	/obj/item/weapon/bonegel = 30, 
+	/obj/item/weapon/bonegel = 30,
 	/obj/item/weapon/screwdriver = 70
 	)
 
@@ -205,17 +205,17 @@
 	max_duration = 90
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-
 		if (!hasorgans(target))
 			return
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		if(!affected) return
+		if(!affected)
+			return
 		var/is_organ_damaged = 0
 		for(var/obj/item/organ/I in affected.internal_organs)
 			if(I.damage > 0 && I.robotic >= 2)
 				is_organ_damaged = 1
 				break
-		return affected.open == 2 && is_organ_damaged
+		return affected.open >= 2 && is_organ_damaged
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
