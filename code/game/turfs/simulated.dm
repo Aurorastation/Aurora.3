@@ -23,7 +23,7 @@
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
 		overlays += wet_overlay
 
-	addtimer(CALLBACK(src, .proc/unwet_floor), wet > 1 ? 120 SECONDS : 8 SECONDS, TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_OVERRIDE)
 
 /turf/simulated/proc/unwet_floor()
 	--wet
@@ -33,7 +33,7 @@
 			overlays -= wet_overlay
 			wet_overlay = null
 	else
-		addtimer(CALLBACK(src, .proc/unwet_floor), wet > 1 ? 120 SECONDS : 8 SECONDS, TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS)
 
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
