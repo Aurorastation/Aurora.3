@@ -34,6 +34,7 @@ var/list/gear_datums = list()
 	name = "Loadout"
 	sort_order = 1
 	var/current_tab = "General"
+	var/gear_reset = FALSE
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -51,7 +52,7 @@ var/list/gear_datums = list()
 	return list("ss13_characters" = list("gear", "id" = 1, "ckey" = 1))
 	
 /datum/category_item/player_setup_item/loadout/gather_save_parameters()
-	return list(":gear" = list2params(pref.gear), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+	return list(":gear" = json_encode(pref.gear), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
@@ -66,9 +67,18 @@ var/list/gear_datums = list()
 		. += gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
-
 	if (sql_load)
-		pref.gear	= params2list(pref.gear)
+		gear_reset = FALSE
+		if (pref.gear && istext(pref.gear))
+			try
+				pref.gear = json_decode(pref.gear)
+			catch
+				log_debug("SQL_CHAR: Unable to load preferences for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
+				pref.gear = list()
+				gear_reset = TRUE
+		else
+			pref.gear = list()
+			gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
 	if(!islist(pref.gear))
@@ -106,6 +116,8 @@ var/list/gear_datums = list()
 		fcolor = "#E67300"
 	. = list()
 	. += "<table align = 'center' width = 100%>"
+	if (gear_reset)
+		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
 	. += "<tr><td colspan=3><center><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
 	. += "<tr><td colspan=3><center><b>"

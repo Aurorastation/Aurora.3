@@ -62,8 +62,8 @@ datum/preferences
 	var/species = "Human"               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
-	var/list/language_prefixes = list() //Kanguage prefix keys
-	var/list/gear						//Custom/fluff item loadout.
+	var/list/language_prefixes = list() // Language prefix keys
+	var/list/gear						// Custom/fluff item loadout.
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.

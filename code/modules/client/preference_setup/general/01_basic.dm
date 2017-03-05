@@ -105,12 +105,12 @@
 				return TOPIC_NOACTION
 
 	else if(href_list["namehelp"])
-		alert(user, "Due to game mechanics, you are no longer able to edit the name for this character. The grace period offered is 5 days since the character's initial save.<br><br>If you have a need to change the character's name, or further questions regarding this policy, please contact an administrator.")
+		alert(user, "Due to game mechanics, you are no longer able to edit the name for this character. The grace period offered is 5 days since the character's initial save.\n\nIf you have a need to change the character's name, or further questions regarding this policy, please contact an administrator.")
 		return TOPIC_NOACTION
 
 	else if(href_list["random_name"])
 		if (!pref.can_edit_name)
-			alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
+			alert(user, "You can no longer edit the name of your character.\n\nIf there is a legitimate need, please contact an administrator regarding the matter.")
 			return TOPIC_NOACTION
 
 		pref.real_name = random_name(pref.gender, pref.species)
