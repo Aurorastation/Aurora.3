@@ -86,10 +86,10 @@
 	if(..())
 		if (prob(50))
 			pixel_x += rand(-1,1)
-			pixel_x = Clamp(pixel_x, -8, 8)
+			pixel_x = Clamp(pixel_x, -9, 9)
 		else
 			pixel_y += rand(-1,1)
-			pixel_y = Clamp(pixel_y, -4, 10)
+			pixel_y = Clamp(pixel_y, -4, 12)
 
 /mob/living/simple_animal/mouse/New()
 	..()
