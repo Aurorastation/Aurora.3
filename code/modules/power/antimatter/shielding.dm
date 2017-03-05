@@ -10,7 +10,9 @@ proc/cardinalrange(var/center)
 
 /obj/machinery/am_shielding
 	name = "antimatter reactor section"
-	desc = "This device was built using a phoron life-form that increases phoron's natural ability to react with neutrinos while reducing the combustibility."
+	desc = "A shielding component for an antimatter reactor. Looks delicate."
+	description_info = "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
+	description_antag = "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
 
 	//icon = 'icons/obj/machines/antimatter.dmi'
 	icon = 'icons/obj/machines/new_ame.dmi'
@@ -42,7 +44,9 @@ proc/cardinalrange(var/center)
 		controllerscan()
 		return
 	link_control(AMC)
-	machines -= src
+	remove_machine(src)
+	spawn (10)
+		update_icon()
 
 /obj/machinery/am_shielding/proc/link_control(var/obj/machinery/power/am_control_unit/AMC)
 	if(!istype(AMC))
@@ -216,7 +220,8 @@ proc/cardinalrange(var/center)
 
 /obj/item/device/am_shielding_container
 	name = "packaged antimatter reactor section"
-	desc = "A small storage unit containing an antimatter reactor section.  To use place near an antimatter control unit or deployed antimatter reactor section and use a multitool to activate this package."
+	desc = "A section of antimatter reactor shielding. Do not eat."
+	description_info = "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
 	icon = 'icons/obj/machines/antimatter.dmi'
 	icon_state = "box"
 	item_state = "electronic"
