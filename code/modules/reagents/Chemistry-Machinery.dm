@@ -184,7 +184,7 @@
 				P.icon_state = "pill"+pillsprite
 				reagents.trans_to_obj(P,amount_per_pill)
 				if(src.loaded_pill_bottle)
-					if(loaded_pill_bottle.contents.len < loaded_pill_bottle.storage_slots)
+					if(loaded_pill_bottle.contents.len < loaded_pill_bottle.max_storage_space)
 						P.loc = loaded_pill_bottle
 						src.updateUsrDialog()
 
@@ -766,7 +766,7 @@
 				var/amount_to_take = max(0,min(stack.amount,round(remaining_volume/REAGENTS_PER_SHEET)))
 				if(amount_to_take)
 					stack.use(amount_to_take)
-					if(deleted(stack))
+					if(QDELETED(stack))
 						holdingitems -= stack
 					beaker.reagents.add_reagent(sheet_reagents[stack.type], (amount_to_take*REAGENTS_PER_SHEET))
 					continue

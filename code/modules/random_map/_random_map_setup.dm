@@ -20,3 +20,10 @@
 #define MONSTER_CHAR 5
 #define ARTIFACT_TURF_CHAR 6
 #define ARTIFACT_CHAR 7
+
+#define GET_MAP_CELL(X,Y) ((((Y) - 1) * limit_x) + (X))
+#define PREPARE_CELL(X,Y) \
+	tmp_cell = GET_MAP_CELL(X,Y);\
+	if (tmp_cell < 1 || tmp_cell > map.len) {\
+		tmp_cell = null;\
+	}

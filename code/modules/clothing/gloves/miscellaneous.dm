@@ -13,7 +13,7 @@
 
 /obj/item/clothing/gloves/swat
 	desc = "These tactical gloves are somewhat fire and impact-resistant."
-	name = "\improper SWAT Gloves"
+	name = "\improper SWAT gloves"
 	icon_state = "black"
 	item_state = "swat_gl"
 	siemens_coefficient = 0.50
@@ -59,7 +59,7 @@
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/latex/tajara
-	name = "tajara latex gloves"
+	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
 	species_restricted = list("Tajara")
 
@@ -72,6 +72,7 @@
 	wired = 1
 	species_restricted = null
 	gender = NEUTER
+	body_parts_covered = null
 
 	verb/checktime()
 		set category = "Object"

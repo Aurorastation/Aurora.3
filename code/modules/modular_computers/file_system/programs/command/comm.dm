@@ -16,6 +16,7 @@
 	usage_flags = PROGRAM_CONSOLE
 	network_destination = "station long-range communication array"
 	var/datum/comm_message_listener/message_core = new
+	color = LIGHT_COLOR_BLUE
 
 /datum/computer_file/program/comm/clone()
 	var/datum/computer_file/program/comm/temp = ..()
