@@ -113,29 +113,12 @@
 						return 1
 
 				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
-					var/obj/item/projectile/P = damage_source
-
 					var/reflectchance = (base_reflectchance) - round(damage/3)
 					if(!(def_zone in list("chest", "groin","head")))
 						reflectchance /= 2
-					if(P.starting && prob(reflectchance))
-						visible_message("<span class='danger'>\The [user]'s [src.name] deflects [attack_text]!</span>")
-
-						// Find a turf near or on the original location to bounce to
-						var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
-						var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
-						var/turf/curloc = get_turf(user)
-
-						// redirect the projectile
-						P.redirect(new_x, new_y, curloc, user)
-
-						return PROJECTILE_CONTINUE // complete projectile permutation
-					else
+					if(prob(reflectchance))
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
 						return 1
-				else
-					user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-					return 1
 
 /obj/item/weapon/melee/energy/glaive
 	name = "energy glaive"
