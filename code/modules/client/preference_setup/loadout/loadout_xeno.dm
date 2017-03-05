@@ -67,6 +67,13 @@
 	cost = 1
 	whitelisted = "Vaurca"
 	sort_category = "Xenowear"
+	
+/datum/gear/cape
+	display_name = "tunnel cloak (Vaurca)"
+	path = /obj/item/weapon/storage/backpack/cloak
+	cost = 1
+	whitelisted = "Vaurca"
+	sort_category = "Xenowear"
 
 //beastmen gloves
 
@@ -104,5 +111,6 @@
 	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
 	taj_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/tajara
 	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
-	taj_gloves["white gloves"] = /obj/item/clothing/gloves/green/tajara
+	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
+	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)

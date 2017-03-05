@@ -429,9 +429,7 @@
 				take_damage(damage)
 		if(3.0)
 			if(prob(80))
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(2, 1, src)
-				s.start()
+				spark(src, 2, alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
@@ -539,8 +537,6 @@
 			var/turf/simulated/turf = T
 			update_heat_protection(turf)
 			air_master.mark_for_update(turf)
-
-		T.reconsider_lights()
 
 	return 1
 

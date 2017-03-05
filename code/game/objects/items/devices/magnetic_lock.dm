@@ -422,16 +422,7 @@
 		spark()
 
 /obj/item/device/magnetic_lock/proc/spark()
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-
-	if (target)
-		s.set_up(5, 1, target)
-	else
-		s.set_up(5, 1, src)
-
-	s.start()
-	spawn(5)
-		qdel(s)
+	spark(target ? target : src, 5, alldirs)
 
 #undef STATUS_INACTIVE
 #undef STATUS_ACTIVE

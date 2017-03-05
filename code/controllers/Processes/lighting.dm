@@ -26,7 +26,7 @@
 
 /datum/controller/process/lighting/statProcess()
 	..()
-	stat(null, "Current server tick usage is [world.tick_usage], threshold is [TICK_LIMIT].")
+	stat(null, "Server tick usage is [world.tick_usage].")
 	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
 	stat(null, "Lights: [lighting_update_lights.len] queued, [curr_lights.len] processing")
 	stat(null, "Corners: [lighting_update_corners.len] queued, [curr_corners.len] processing")

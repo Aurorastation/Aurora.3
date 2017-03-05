@@ -106,6 +106,11 @@
 		return attack_self(user)
 	return ..()
 
+/obj/item/modular_computer/attack_ai(var/mob/user)
+	if(anchored)
+		return attack_self(user)
+	return ..()
+
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/attack_self(mob/user)
 	if(enabled && screen_on)

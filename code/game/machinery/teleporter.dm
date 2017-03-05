@@ -170,12 +170,14 @@
 	idle_power_usage = 10
 	active_power_usage = 2000
 	var/obj/machinery/computer/teleporter/com
+	var/datum/effect_system/sparks/spark_system
 
 
 /obj/machinery/teleport/hub/New()
 	..()
 	underlays.Cut()
 	underlays += image('icons/obj/stationobjs.dmi', icon_state = "tele-wires")
+	spark_system = bind_spark(src, 5, alldirs)
 
 /obj/machinery/teleport/hub/Bumped(M as mob|obj)
 	spawn()
@@ -201,9 +203,7 @@
 			com.one_time_use = 0
 			com.locked = null
 	else
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, src)
-		s.start()
+		spark_system.queue()
 		accurate = 1
 		spawn(3000)	accurate = 0 //Accurate teleporting for 5 minutes
 		for(var/mob/B in hearers(src, null))
