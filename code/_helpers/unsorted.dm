@@ -646,7 +646,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	else return get_step(ref, base_dir)
 
-/proc/do_mob(mob/user , mob/target, delay = 30, numticks = 10, needhand = TRUE) //This is quite an ugly solution but i refuse to use the old request system.
+/proc/do_mob(mob/user , mob/target, delay = 30, numticks = 10, needhand = TRUE, display_progress = TRUE) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
 		return 0
 	var/user_loc = user.loc
@@ -654,14 +654,14 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	var/holding = user.get_active_hand()
 	var/delayfraction = round(delay/numticks)
 	var/image/progbar
-	if(user && user.client)
+	if(user && user.client && display_progress)
 		if(!progbar)
 			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = target, icon_state = "prog_bar_0")
 			progbar.layer = 21
 			progbar.pixel_z = WORLD_ICON_SIZE
 			progbar.appearance_flags = RESET_TRANSFORM
 	for (var/i = 1 to numticks)
-		if(user && user.client && progbar)
+		if(user && user.client && progbar && display_progress)
 			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
 			user.client.images |= progbar
 		sleep(delayfraction)
@@ -689,7 +689,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		progbar.loc = null
 	return 1
 
-/proc/do_after(mob/user as mob, delay as num, numticks = 10, needhand = TRUE, atom/movable/act_target = null, var/use_user_turf = FALSE)
+/proc/do_after(mob/user as mob, delay as num, numticks = 10, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE)
 	if(!user || isnull(user))
 		return 0
 	if(numticks == 0)
@@ -706,14 +706,14 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		Location = user.loc
 	var/holding = user.get_active_hand()
 	var/image/progbar
-	if(user && user.client && act_target)
+	if(user && user.client && act_target && display_progress)
 		if(!progbar)
 			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
 			progbar.pixel_z = WORLD_ICON_SIZE
 			progbar.layer = 21
 			progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
 	for (var/i = 1 to numticks)
-		if(user && user.client && act_target)
+		if(user && user.client && act_target && display_progress)
 			if(!progbar)
 				progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
 				progbar.pixel_z = WORLD_ICON_SIZE
