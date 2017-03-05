@@ -72,7 +72,7 @@ var/list/gear_datums = list()
 			try
 				pref.gear = json_decode(pref.gear)
 			catch
-				world.log << "## SQL_CHAR: Unable to load preferences for client [pref.client ? pref.client.ckey : "UNKNOWN"]."
+				log_debug("SQL_CHAR: Unable to load preferences for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 				pref.gear = list()
 				pref.gear_reset = TRUE
 		else
