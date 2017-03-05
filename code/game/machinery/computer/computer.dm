@@ -14,6 +14,7 @@
 	var/light_range_on = 2
 	var/light_power_on = 1
 	var/overlay_layer
+	var/is_holographic = TRUE
 
 /obj/machinery/computer/New()
 	overlay_layer = layer
@@ -64,8 +65,10 @@
 
 	if(stat & BROKEN)
 		overlays += image(icon,"[icon_state]_broken", overlay_layer)
+	else if (is_holographic)
+		holographic_overlay(src, src.icon, icon_screen)
 	else
-		overlays += image(icon,icon_screen, overlay_layer)
+		overlays += image(icon, icon_screen, overlay_layer)
 
 /obj/machinery/computer/power_change()
 	..()

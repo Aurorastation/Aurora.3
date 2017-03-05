@@ -7,6 +7,9 @@
 			PRG.event_powerfailure(1)
 		shutdown_computer(0)
 
+	power_has_failed = TRUE
+	update_icon()
+
 // Tries to use power from battery. Passing 0 as parameter results in this proc returning whether battery is functional or not.
 /obj/item/modular_computer/proc/battery_power(var/power_usage = 0)
 	apc_powered = FALSE
@@ -38,14 +41,21 @@
 // Handles power-related things, such as battery interaction, recharging, shutdown when it's discharged
 /obj/item/modular_computer/proc/handle_power()
 	var/power_usage = screen_on ? base_active_power_usage : base_idle_power_usage
-	for(var/obj/item/weapon/computer_hardware/H in get_all_components())
-		if(H.enabled)
-			power_usage += H.power_usage
-	last_power_usage = power_usage
+	if (enabled)
+		for(var/obj/item/weapon/computer_hardware/H in get_all_components())
+			if(H.enabled)
+				power_usage += H.power_usage
+		last_power_usage = power_usage
 
 	// First tries to charge from an APC, if APC is unavailable switches to battery power. If neither works the computer fails.
 	if(apc_power(power_usage))
+		if (power_has_failed)
+			power_has_failed = FALSE
+			update_icon()
 		return
 	if(battery_power(power_usage))
+		if (power_has_failed)
+			power_has_failed = FALSE
+			update_icon()
 		return
 	power_failure()
