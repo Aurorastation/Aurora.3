@@ -6,6 +6,8 @@
 	item_state = "cat2"
 	icon_living = "cat2"
 	icon_dead = "cat2_dead"
+	icon_rest = "cat2_rest"
+	can_nap = 1
 	speak = list("Meow!","Esp!","Purr!","HSSSSS")
 	speak_emote = list("purrs", "meows")
 	emote_hear = list("meows","mews")
@@ -240,6 +242,8 @@
 	item_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
+	icon_rest = "cat_rest"
+	can_nap = 1
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/weapon/holder/cat/black
 
@@ -254,6 +258,7 @@
 	item_state = "kitten"
 	icon_living = "kitten"
 	icon_dead = "kitten_dead"
+	can_nap = 0 //No resting sprite
 	gender = NEUTER
 	holder_type = /obj/item/weapon/holder/cat/kitten
 
@@ -269,6 +274,8 @@
 	item_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
+	icon_rest = "cat3_rest"
+	can_nap = 1
 	var/friend_name = "Erstatz Vryroxes"
 	holder_type = /obj/item/weapon/holder/cat/black
 
