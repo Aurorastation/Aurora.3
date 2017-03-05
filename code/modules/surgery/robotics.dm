@@ -197,7 +197,7 @@
 /datum/surgery_step/robotics/fix_organ_robotic //For artificial organs
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
-	/obj/item/weapon/bonegel = 30, 
+	/obj/item/weapon/bonegel = 30,
 	/obj/item/weapon/screwdriver = 70
 	)
 
@@ -215,7 +215,7 @@
 			if(I.damage > 0 && I.robotic >= 2)
 				is_organ_damaged = 1
 				break
-		return affected.open == 2 && is_organ_damaged
+		return affected.open == 3 && is_organ_damaged
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
