@@ -82,21 +82,23 @@
 
 /obj/machinery/power/am_control_unit/proc/produce_power()
 	playsound(get_turf(src), 'sound/effects/bang.ogg', 25, 1)
+	for (var/thing in linked_cores)
+		flick("core2", thing)
 	var/core_power = reported_core_efficiency	//Effectively how much fuel we can safely deal with
 	if(core_power <= 0)
 		return 0//Something is wrong
 	var/core_damage = 0
 	var/fuel = fueljar.usefuel(fuel_injection)
 
-	stored_power = (fuel / core_power) * fuel * 60000 // Was 200000, was too much. New value run past Aurx. - N3X
+	stored_power = (fuel / core_power) * fuel * AM_POWER_FACTOR // Was 200000, was too much. New value run past Aurx. - N3X
 	//Now check if the cores could deal with it safely, this is done after so you can overload for more power if needed, still a bad idea
-	if(fuel > (2*core_power))//More fuel has been put in than the current cores can deal with
+	if(fuel > (2*core_power))	//More fuel has been put in than the current cores can deal with
 		if(prob(50))
-			core_damage = 1//Small chance of damage
+			core_damage = 1	//Small chance of damage
 		if((fuel-core_power) > 5)
-			core_damage = 5//Now its really starting to overload the cores
+			core_damage = 5	//Now its really starting to overload the cores
 		if((fuel-core_power) > 10)
-			core_damage = 20//Welp now you did it, they wont stand much of this
+			core_damage = 20	//Welp now you did it, they wont stand much of this
 		if(core_damage == 0)
 			return
 		for(var/obj/machinery/am_shielding/AMS in linked_cores)

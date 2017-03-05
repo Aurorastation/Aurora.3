@@ -145,7 +145,7 @@ proc/cardinalrange(var/center)
 
 	// If we're next to a core, set the prefix.
 	var/prefix = ""
-	var/icondirs=dirs
+	var/icondirs = dirs
 
 	if(coredirs)
 		prefix="core"
@@ -154,7 +154,7 @@ proc/cardinalrange(var/center)
 	icon_state = "[prefix]shield_[icondirs]"
 
 	if(core_check())
-		overlays += image(icon = icon, icon_state = "core[control_unit && control_unit.active]")
+		icon_state = "core[control_unit && control_unit.active]"
 		if(!processing)
 			setup_core()
 	else if(processing)
