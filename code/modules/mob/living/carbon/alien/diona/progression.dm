@@ -66,6 +66,10 @@
 	for (var/obj/item/W in src.contents)
 		src.drop_from_inventory(W)
 
+	//So that the nymph doesn't get basic for free when evolving.
+	if (adult.languages)
+		adult.languages.Cut()
+
 	for(var/datum/language/L in languages)
 		adult.add_language(L.name)
 
