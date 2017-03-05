@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "A progress bar is now shown when you start an action which takes time."
