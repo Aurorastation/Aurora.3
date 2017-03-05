@@ -151,6 +151,9 @@
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
 	uv_intensity = 255
+	light_wedge = LIGHT_SEMI
+	light_allow_self = TRUE
+	light_wedge_invert = TRUE
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -173,6 +176,7 @@
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
 	supports_nightmode = FALSE
+	light_wedge = LIGHT_OMNI
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6

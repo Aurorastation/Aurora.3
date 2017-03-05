@@ -11,6 +11,8 @@
 	var/light_color    	// The colour of the light, string, decomposed by parse_light_color()
 	var/light_uv		// The intensity of UV light, between 0 and 255.
 	var/light_angle		// The light's emission angle, in degrees.
+	var/invert_angle = FALSE	// If true, the direction is rotated 180 degrees before being applied.
+	var/allow_self_illumination = FALSE
 
 	// Variables for keeping track of the colour.
 	var/lum_r
@@ -37,6 +39,7 @@
 	var/tmp/targ_sign			
 	var/tmp/test_x_offset
 	var/tmp/test_y_offset
+	var/tmp/cached_angle
 
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
@@ -198,6 +201,14 @@
 		light_angle = source_atom.light_wedge
 		. = 1
 
+	if (source_atom.light_wedge_invert != invert_angle)
+		invert_angle = source_atom.light_wedge
+		. = 1
+
+	if (source_atom.light_allow_self != allow_self_illumination)
+		allow_self_illumination = source_atom.light_allow_self
+		. = 1
+
 // Decompile the hexadecimal colour into lumcounts of each perspective.
 /datum/light_source/proc/parse_light_color()
 	if (light_color)
@@ -256,13 +267,22 @@
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
 	// Don't do anything if nothing is different, trig ain't free.
-	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == top_atom.dir)
+	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == top_atom.dir && light_angle == cached_angle)
 		return
 
+	cached_angle = light_angle
+
 	var/do_offset = TRUE
-	var/turf/front = get_step(T, top_atom.dir)
-	if (front.has_opaque_atom)
+	var/topdir = top_atom.dir
+	if (invert_angle)
+		topdir = turn(topdir, 180)
+
+	if (allow_self_illumination)
 		do_offset = FALSE
+	else
+		var/turf/front = get_step(T, topdir)
+		if (front.has_opaque_atom)
+			do_offset = FALSE
 
 	cached_origin_x = T.x
 	test_x_offset = cached_origin_x
@@ -271,7 +291,8 @@
 	old_direction = top_atom.dir
 
 	var/angle = light_angle / 2
-	switch (top_atom.dir)
+
+	switch (topdir)
 		if (NORTH)
 			limit_a_t = angle + 90
 			limit_b_t = -(angle) + 90
