@@ -9,6 +9,10 @@ var/global/list/stool_cache = list() //haha stool
 	force = 10
 	throwforce = 10
 	w_class = 5
+	item_state_slots = list(
+		slot_l_hand_str = "stool",
+		slot_r_hand_str = "stool"
+	)
 	var/base_icon = "stool_base"
 	var/material/material
 	var/material/padding_material

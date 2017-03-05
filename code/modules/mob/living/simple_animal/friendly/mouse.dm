@@ -51,6 +51,8 @@
 
 	var/decompose_time = 18000
 
+	kitchen_tag = "rodent"
+
 /mob/living/simple_animal/mouse/Life()
 	if(..())
 
@@ -129,7 +131,7 @@
 
 /mob/living/simple_animal/mouse/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click
-		get_scooped(M)
+		get_scooped(M, usr)
 		return
 	else
 		..()
@@ -148,7 +150,7 @@
 	if(!istype(H) || !Adjacent(H)) return ..()
 
 	if(H.a_intent == "help")
-		get_scooped(H)
+		get_scooped(H, usr)
 		return
 	else
 		return ..()

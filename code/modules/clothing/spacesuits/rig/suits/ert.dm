@@ -74,7 +74,7 @@
 		)
 
 /obj/item/weapon/rig/ert/assetprotection
-	name = "Heavy Asset Protection suit control module"
+	name = "heavy asset protection suit control module"
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armoured and space ready."
 	suit_type = "heavy asset protection"
 	icon_state = "asset_protection_rig"

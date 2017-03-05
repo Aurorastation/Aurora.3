@@ -730,14 +730,30 @@
 /obj/random/highvalue/item_to_spawn()
 	var/list/highvalue = list(/obj/item/bluespace_crystal = 7,
 	/obj/item/weapon/storage/secure/briefcase/money = 5,
-	/obj/item/stack/telecrystal{amount = 10} = 4,
-	/obj/item/clothing/glasses/thermal = 2,
-	/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 1,
-	/obj/item/weapon/material/sword/rapier = 1,
-	/obj/item/weapon/gun/energy/lawgiver = 1,
+	/obj/item/stack/telecrystal{amount = 10} = 7,
+	/obj/item/clothing/suit/armor/reactive = 0.5,
+	/obj/item/clothing/glasses/thermal = 0.5,
+	/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 0.5,
+	/obj/item/weapon/material/sword/rapier = 0.5,
+	/obj/item/weapon/gun/energy/lawgiver = 0.5,
 	/obj/item/weapon/melee/energy/axe = 0.5,
 	/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 	/obj/item/weapon/rig/military = 0.5,
-	/obj/item/weapon/rig/unathi/fancy = 0.5
+	/obj/item/weapon/rig/unathi/fancy = 0.5,
+	/obj/item/clothing/mask/ai = 0.5
 	)
 	return pickweight(highvalue)
+
+
+//Sometimes the chef will have spare oil in storage.
+//Sometimes they wont, and will need to order it from cargo
+//Variety is the spice of life!
+/obj/random/cookingoil
+	name = "random cooking oil"
+	desc = "Has a 50% chance of spawning a tank of cooking oil, otherwise nothing"
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "oiltank"
+	spawn_nothing_percentage = 50
+
+/obj/random/cookingoil/item_to_spawn()
+	return /obj/structure/reagent_dispensers/cookingoil

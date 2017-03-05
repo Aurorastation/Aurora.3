@@ -13,6 +13,15 @@
 	var/dry = 0
 	center_of_mass = list("x"=16, "y"=16)
 	w_class = 2
+	var/datum/reagent/nutriment/coating/coating = null
+	var/icon/flat_icon = null //Used to cache a flat icon generated from dipping in batter. This is used again to make the cooked-batter-overlay
+	var/do_coating_prefix = 1
+	//If 0, we wont do "battered thing" or similar prefixes. Mainly for recipes that include batter but have a special name
+
+	var/cooked_icon = null
+	//Used for foods that are "cooked" without being made into a specific recipe or combination.
+	//Generally applied during modification cooking with oven/fryer
+	//Used to stop deepfried meat from looking like slightly tanned raw meat, and make it actually look cooked
 
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
 /obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/M)
@@ -134,6 +143,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
 		return
+	if (coating)
+		user << "<span class='notice'>It's coated in [coating.name]!</span>"
 	if (bitecount==0)
 		return
 	else if (bitecount==1)
@@ -220,6 +231,117 @@
 		for(var/atom/movable/something in contents)
 			something.loc = get_turf(src)
 	..()
+
+
+//Code for dipping food in batter
+/obj/item/weapon/reagent_containers/food/snacks/afterattack(obj/O as obj, mob/user as mob, proximity)
+	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/weapon/reagent_containers/food)))
+		for (var/r in O.reagents.reagent_list)
+
+			var/datum/reagent/R = r
+			if (istype(R, /datum/reagent/nutriment/coating))
+				if (apply_coating(R, user))
+					return 1
+
+	return ..()
+
+//This proc handles drawing coatings out of a container when this food is dipped into it
+/obj/item/weapon/reagent_containers/food/snacks/proc/apply_coating(var/datum/reagent/nutriment/coating/C, var/mob/user)
+	if (coating)
+		user << "The [src] is already coated in [coating.name]!"
+		return 0
+
+	//Calculate the reagents of the coating needed
+	var/req = 0
+	for (var/r in reagents.reagent_list)
+		var/datum/reagent/R = r
+		if (istype(R, /datum/reagent/nutriment))
+			req += R.volume * 0.2
+		else
+			req += R.volume * 0.1
+
+	req += w_class*0.5
+
+	if (!req)
+		//the food has no reagents left, its probably getting deleted soon
+		return 0
+
+	if (C.volume < req)
+		user << span("warning", "There's not enough [C.name] to coat the [src]!")
+		return 0
+
+	var/id = C.id
+
+	//First make sure there's space for our batter
+	if (reagents.get_free_space() < req+5)
+		var/extra = req+5 - reagents.get_free_space()
+		reagents.maximum_volume += extra
+
+	//Suck the coating out of the holder
+	C.holder.trans_to_holder(reagents, req)
+
+	//We're done with C now, repurpose the var to hold a reference to our local instance of it
+	C = reagents.get_reagent(id)
+	if (!C)
+		return
+
+	coating = C
+	//Now we have to do the witchcraft with masking images
+	//var/icon/I = new /icon(icon, icon_state)
+
+	if (!flat_icon)
+		flat_icon = getFlatIcon(src)
+	var/icon/I = flat_icon
+	color = "#FFFFFF" //Some fruits use the color var. Reset this so it doesnt tint the batter
+	I.Blend(new /icon('icons/obj/food_custom.dmi', rgb(255,255,255)),ICON_ADD)
+	I.Blend(new /icon('icons/obj/food_custom.dmi', coating.icon_raw),ICON_MULTIPLY)
+	var/image/J = image(I)
+	J.alpha = 200
+	J.blend_mode = BLEND_OVERLAY
+	J.tag = "coating"
+	overlays += J
+
+	if (user)
+		user.visible_message(span("notice", "[user] dips \the [src] into \the [coating.name]"), span("notice", "You dip \the [src] into \the [coating.name]"))
+
+	return 1
+
+
+//Called by cooking machines. This is mainly intended to set properties on the food that differ between raw/cooked
+/obj/item/weapon/reagent_containers/food/snacks/proc/cook()
+	if (coating)
+		var/list/temp = overlays.Copy()
+		for (var/i in temp)
+			if (istype(i, /image))
+				var/image/I = i
+				if (I.tag == "coating")
+					temp.Remove(I)
+					break
+
+		overlays = temp
+		//Carefully removing the old raw-batter overlay
+
+		if (!flat_icon)
+			flat_icon = getFlatIcon(src)
+		var/icon/I = flat_icon
+		color = "#FFFFFF" //Some fruits use the color var
+		I.Blend(new /icon('icons/obj/food_custom.dmi', rgb(255,255,255)),ICON_ADD)
+		I.Blend(new /icon('icons/obj/food_custom.dmi', coating.icon_cooked),ICON_MULTIPLY)
+		var/image/J = image(I)
+		J.alpha = 200
+		J.tag = "coating"
+		overlays += J
+
+
+		if (do_coating_prefix == 1)
+			name = "[coating.coated_adj] [name]"
+
+	for (var/r in reagents.reagent_list)
+		var/datum/reagent/R = r
+		if (istype(R, /datum/reagent/nutriment/coating))
+			var/datum/reagent/nutriment/coating/C = R
+			C.data["cooked"] = 1
+			C.name = C.cooked_name
 
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
@@ -529,6 +651,20 @@
 			src.name = "Frosted Jelly Donut"
 			reagents.add_reagent("sprinkles", 2)
 
+/obj/item/weapon/reagent_containers/food/snacks/funnelcake
+	name = "Funnel cake"
+	desc = "Funnel cakes rule!"
+	icon_state = "funnelcake"
+	filling_color = "#Ef1479"
+	center_of_mass = list("x"=16, "y"=12)
+	do_coating_prefix = 0
+	New()
+		..()
+		reagents.add_reagent("batter", 10)
+		reagents.add_reagent("sugar", 5)
+		bitesize = 2
+
+
 /obj/item/weapon/reagent_containers/food/snacks/egg
 	name = "egg"
 	desc = "An egg!"
@@ -772,6 +908,35 @@
 		reagents.add_reagent("protein", 6)
 		bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/sausage/battered
+	name = "Battered Sausage"
+	desc = "A piece of mixed, long meat, battered and then deepfried"
+	icon_state = "batteredsausage"
+	filling_color = "#DB0000"
+	center_of_mass = list("x"=16, "y"=16)
+	do_coating_prefix = 0
+	New()
+		..()
+		reagents.add_reagent("protein", 6)
+		reagents.add_reagent("batter", 1.7)
+		reagents.add_reagent("oil", 1.5)
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/jalapeno_poppers
+	name = "Jalapeno Popper"
+	desc = "A battered, deep-fried chilli pepper"
+	icon_state = "popper"
+	filling_color = "#00AA00"
+	center_of_mass = list("x"=10, "y"=6)
+	do_coating_prefix = 0
+	New()
+		..()
+		reagents.add_reagent("nutriment", 1.5)
+		reagents.add_reagent("batter", 0.3)
+		reagents.add_reagent("oil", 0.15)
+		bitesize = 1
+
+
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket
 	name = "\improper Sin-pocket"
 	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
@@ -972,6 +1137,17 @@
 		..()
 		reagents.add_reagent("nutriment", 6)
 		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/mouseburger
+	name = "Mouse Burger"
+	desc = "Squeaky and a little furry."
+	icon_state = "ratburger"
+	center_of_mass = list("x"=16, "y"=11)
+	New()
+		..()
+		reagents.add_reagent("protein", 4)
+		bitesize = 2
+
 
 /obj/item/weapon/reagent_containers/food/snacks/omelette
 	name = "Omelette Du Fromage"
@@ -1217,7 +1393,6 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#E9ADFF"
 	center_of_mass = list("x"=12, "y"=5)
-
 	New()
 		..()
 		reagents.add_reagent("seafood", 3)
@@ -1225,6 +1400,21 @@
 		reagents.add_reagent("carpotoxin", 3)
 		reagents.add_reagent("capsaicin", 3)
 		bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/chickenkatsu
+	name = "Chicken Katsu"
+	desc = "A terran delicacy consisting of chicken fried in a light beer batter"
+	icon_state = "katsu"
+	trash = /obj/item/trash/plate
+	filling_color = "#E9ADFF"
+	center_of_mass = list("x"=16, "y"=16)
+	do_coating_prefix = 0
+	New()
+		..()
+		reagents.add_reagent("protein", 6)
+		reagents.add_reagent("beerbatter", 2)
+		reagents.add_reagent("oil", 1)
+		bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/popcorn
 	name = "Popcorn"
@@ -1335,6 +1525,33 @@
 	New()
 		..()
 		reagents.add_reagent("nutriment", 4)
+		reagents.add_reagent("oil", 1.2)//This is mainly for the benefit of adminspawning
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/microchips
+	name = "Micro Chips"
+	desc = "Soft and rubbery. should have fried them"
+	icon_state = "microchips"
+	trash = /obj/item/trash/plate
+	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
+
+	New()
+		..()
+		reagents.add_reagent("nutriment", 3.5)
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/ovenchips
+	name = "Ovem Chips"
+	desc = "Dark and crispy, but a bit dry"
+	icon_state = "ovenchips"
+	trash = /obj/item/trash/plate
+	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
+
+	New()
+		..()
+		reagents.add_reagent("nutriment", 4)
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/soydope
@@ -1411,10 +1628,11 @@
 
 	New()
 		..()
-		reagents.add_reagent("protein", 4)
+		reagents.add_reagent("protein", 6)
+		reagents.add_reagent("triglyceride", 2)
 		reagents.add_reagent("sodiumchloride", 1)
 		reagents.add_reagent("blackpepper", 1)
-		bitesize = 3
+		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/spacylibertyduff
 	name = "Spacy Liberty Duff"
@@ -2614,7 +2832,7 @@
 	desc = "A big wheel of delcious Cheddar."
 	icon_state = "cheesewheel"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	slices_num = 5
+	slices_num = 8
 	filling_color = "#FFF700"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -2866,6 +3084,32 @@
 	filling_color = "#BAA14C"
 	bitesize = 2
 	center_of_mass = list("x"=18, "y"=13)
+
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/crunch
+	name = "Pizza Crunch"
+	desc = "This was once a normal pizza, but it has been coated in batter and deep-fried. Whatever toppings it once had are a mystery, but they're still under there, somewhere..."
+	icon_state = "pizzacrunch"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/pizzacrunchslice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+
+	New()
+		..()
+		reagents.add_reagent("nutriment", 25)
+		reagents.add_reagent("batter", 6.5)
+		coating = reagents.get_reagent("batter")
+		reagents.add_reagent("oil", 4)
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/pizzacrunchslice
+	name = "Pizza Crunch"
+	desc = "A little piece of a heart attack. It's toppings are a mystery, hidden under batter"
+	icon_state = "pizzacrunchslice"
+	filling_color = "#BAA14C"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
 
 /obj/item/pizzabox
 	name = "pizza box"
@@ -3125,24 +3369,43 @@
 		reagents.add_reagent("nutriment", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/bun/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	var/obj/item/weapon/reagent_containers/food/snacks/result = null
 	// Bun + meatball = burger
 	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/meatball))
-		new /obj/item/weapon/reagent_containers/food/snacks/monkeyburger(src)
+		result = new /obj/item/weapon/reagent_containers/food/snacks/monkeyburger(src)
 		user << "You make a burger."
-		qdel(W)
-		qdel(src)
 
 	// Bun + cutlet = hamburger
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/cutlet))
-		new /obj/item/weapon/reagent_containers/food/snacks/monkeyburger(src)
+		result = new /obj/item/weapon/reagent_containers/food/snacks/monkeyburger(src)
 		user << "You make a burger."
-		qdel(W)
-		qdel(src)
 
 	// Bun + sausage = hotdog
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/sausage))
-		new /obj/item/weapon/reagent_containers/food/snacks/hotdog(src)
+		result = new /obj/item/weapon/reagent_containers/food/snacks/hotdog(src)
 		user << "You make a hotdog."
+
+	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/variable/mob))
+		var/obj/item/weapon/reagent_containers/food/snacks/variable/mob/MF = W
+
+		switch (MF.kitchen_tag)
+			if ("rodent")
+				result = new /obj/item/weapon/reagent_containers/food/snacks/mouseburger(src)
+				user << "You make a mouseburger!"
+
+	if (result)
+		if (W.reagents)
+			//Reagents of reuslt objects will be the sum total of both.  Except in special cases where nonfood items are used
+			//Eg robot head
+			result.reagents.clear_reagents()
+			W.reagents.trans_to(result, W.reagents.total_volume)
+			reagents.trans_to(result, reagents.total_volume)
+
+		//If the bun was in your hands, the result will be too
+		if (loc == user)
+			user.drop_from_inventory(src)
+			user.put_in_hands(result)
+
 		qdel(W)
 		qdel(src)
 

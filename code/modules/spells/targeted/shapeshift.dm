@@ -131,9 +131,12 @@
 	invocation_type = SpI_EMOTE
 	spell_flags = INCLUDEUSER
 	range = -1
-	duration = 100
+	duration = 300
 	charge_max = 1200
 	cooldown_min = 600
+	
+	drop_items = 0
+	share_damage = 0
 
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 2, Sp_POWER = 2)
 
@@ -153,7 +156,7 @@
 			newVars = list("name" = "\proper corruption incarnate",
 						"melee_damage_upper" = 35,
 						"resistance" = 6,
-						"health" = 250,
-						"maxHealth" = 250)
+						"health" = 450, //since it is foverer i guess it would be fine to turn them into some short of boss
+						"maxHealth" = 450)
 			duration = 0
 			return "You revel in the corruption. There is no turning back."

@@ -26,7 +26,7 @@
 	set name = "Eject ID Card"
 	set src in oview(1)
 
-	if(!usr || usr.stat || usr.lying)	return
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 
 	if(scan)
 		usr << "You remove \the [scan] from \the [src]."
@@ -499,7 +499,7 @@
 					record1 = active1
 				if ((istype(src.active2, /datum/data/record) && data_core.medical.Find(src.active2)))
 					record2 = active2
-				
+
 				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
 				var/info = "<CENTER><B>Medical Record</B></CENTER><BR>"
 				var/rname

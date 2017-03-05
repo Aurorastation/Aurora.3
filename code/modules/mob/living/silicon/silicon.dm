@@ -24,7 +24,7 @@
 	var/next_alarm_notice
 	var/list/datum/alarm/queued_alarms = new()
 
-
+	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	var/list/access_rights
 	var/obj/item/weapon/card/id/idcard
 	var/idcard_type = /obj/item/weapon/card/id/synthetic
