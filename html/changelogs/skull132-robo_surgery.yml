@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - bugfix: "Internal organ repair surgery for mechanical organs now works properly again."
