@@ -1,11 +1,10 @@
-#define NL_TIME (world.time + 60 MINUTES * roundstart_hour)
-
 var/datum/controller/process/night_lighting/nl_ctrl
 
 /datum/controller/process/night_lighting/
 	var/isactive = 0
 	var/firstrun = 1
 	var/manual_override = 0
+	var/time_offset
 
 /datum/controller/process/night_lighting/proc/is_active()
 	return isactive
@@ -21,34 +20,29 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		disabled = 1
 
 /datum/controller/process/night_lighting/preStart()
-	if (!roundstart_hour)
+	if (!time_offset)
 		// wt2t sets roundstart_hour.
 		worldtime2text()
 
-	switch (NL_TIME)
-		if (0 to config.nl_finish)
-			deactivate()
-		if (config.nl_start to TICKS_IN_DAY)
-			activate()
+	var/time = worldtime2hours()
+	if (time <= 8 || time >= 19)
+		activate()
+	else
+		deactivate()
 
 /datum/controller/process/night_lighting/doWork()
 	if (manual_override)	// don't automatically change lighting if it was manually changed in-game
 		return
 
-	switch (worldtime2ticks())
-		if (0 to config.nl_finish)
-			if (isactive)
-				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
-				deactivate()
-
-		if (config.nl_start to TICKS_IN_DAY)
-			if (!isactive)
-				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
-				activate()
-
-		else
-			if (isactive)
-				deactivate()
+	var/time = worldtime2hours()
+	if (time <= 8 || time >= 19)
+		if (!isactive)
+			command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+			activate()
+	else
+		if (isactive)
+			command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+			deactivate()
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
@@ -79,5 +73,3 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		F_SCHECK
 
 	return lighting_apcs
-
-#undef NL_TIME
