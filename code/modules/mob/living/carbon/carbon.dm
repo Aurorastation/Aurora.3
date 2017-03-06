@@ -17,8 +17,7 @@
 		germ_level++
 
 /mob/living/carbon/Destroy()
-	qdel(touching)
-	touching = null
+	QDEL_NULL(touching)
 	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
 	for(var/guts in internal_organs)
 		qdel(guts)

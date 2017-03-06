@@ -20,3 +20,13 @@ var/mob/dview/dview_mob = new
 		dead_mob_list -= src
 	else
 		living_mob_list -= src
+
+/mob/dview/Destroy(force = FALSE)
+	stack_trace("Some idiot deleted the dview.")
+	if (!force)
+		return QDEL_HINT_LETMELIVE
+
+	world.log << "Some idiot force-deleted dview."
+	
+	dview_mob = new
+	return QDEL_HINT_QUEUE

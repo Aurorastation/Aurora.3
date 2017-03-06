@@ -132,5 +132,12 @@
 				T.lighting_overlay.needs_update = TRUE
 				SSlighting.overlay_queue += T.lighting_overlay
 
+/datum/lighting_corner/Destroy(force = FALSE)
+	if (!force)
+		return QDEL_HINT_LETMELIVE
+		
+	stack_trace("Some idiot deleted a lighting_corner.")
+	return QDEL_HINT_LETMELIVE
+
 /datum/lighting_corner/dummy/New()
 	return

@@ -87,49 +87,24 @@
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
-	if (DS)
-		qdel(DS)//prevents the dionastats holding onto references and blocking GC
-	DS = null
+	
+	QDEL_NULL(DS)
 	// qdel and null out our equipment.
-	qdel(shoes)
-	shoes = null
-
-	qdel(belt)
-	belt = null
-
-	qdel(gloves)
-	gloves = null
-
-	qdel(glasses)
-	glasses = null
-
-	qdel(head)
-	head = null
-
-	qdel(l_ear)
-	l_ear = null
-
-	qdel(r_ear)
-	r_ear = null
-
-	qdel(wear_id)
-	wear_id = null
-
-	qdel(r_store)
-	r_store = null
-
-	qdel(l_store)
-	l_store = null
-
-	qdel(s_store)
-	s_store = null
-
-	qdel(wear_suit)
-	wear_suit = null
-
+	QDEL_NULL(shoes)
+	QDEL_NULL(belt)
+	QDEL_NULL(gloves)
+	QDEL_NULL(glasses)
+	QDEL_NULL(head)
+	QDEL_NULL(l_ear)
+	QDEL_NULL(r_ear)
+	QDEL_NULL(wear_id)
+	QDEL_NULL(r_store)
+	QDEL_NULL(l_store)
+	QDEL_NULL(s_store)
+	QDEL_NULL(wear_suit)
 	// Do this last so the mob's stuff doesn't drop on del.
-	qdel(w_uniform)
-	w_uniform = null
+	QDEL_NULL(w_uniform)
+
 	return ..()
 
 /mob/living/carbon/human/Stat()
