@@ -34,6 +34,8 @@ datum/subsystem/lighting/stat_entry()
 
 			new /atom/movable/lighting_overlay(T, TRUE)
 
+			CHECK_TICK
+
 	..()
 
 /datum/subsystem/lighting/fire(resumed = FALSE)

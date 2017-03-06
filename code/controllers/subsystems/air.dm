@@ -101,6 +101,8 @@ Class Procs:
 		simulated_turf_count++
 		S.update_air_properties()
 
+		CHECK_TICK
+
 	admin_notice({"<span class='info'>
 Total Simulated Turfs: [simulated_turf_count]
 Total Zones: [zones.len]
