@@ -21,7 +21,7 @@
 
 /mob/living/simple_animal/familiar/New()
 	..()
-	add_language("Ceti Basic")
+	add_language(LANGUAGE_TCB)
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
 
@@ -193,6 +193,6 @@
 	..()
 	add_spell(new /spell/targeted/heal_target, "const_spell_ready")
 	add_spell(new /spell/targeted/heal_target/area, "const_spell_ready")
-	add_language("Ceti Basic")
+	add_language(LANGUAGE_TCB)
 	name = initial(name)
 	desc = initial(desc)

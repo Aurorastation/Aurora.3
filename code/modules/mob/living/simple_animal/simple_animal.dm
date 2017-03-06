@@ -607,7 +607,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 						UnarmedAttack(movement_target)
 						if (get_turf(movement_target) == src.loc)
 							set_dir(pick(1,2,4,8,1,1))//Face a random direction when eating, but mostly upwards
-					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(15))
+					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(10))
 						beg(movement_target, movement_target.loc)
 			else
 				scan_interval = max(min_scan_interval, min(scan_interval+1, max_scan_interval))//If nothing is happening, ian's scanning frequency slows down to save processing
@@ -682,6 +682,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	src << "\blue You are now [resting ? "resting" : "getting up"]"
+	src << span("notice","You are now [resting ? "resting" : "getting up"]")
 
 	update_icons()

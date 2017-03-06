@@ -85,11 +85,11 @@
 /mob/living/simple_animal/mouse/Move()
 	if(..())
 		if (prob(50))
-			pixel_x += rand(-1,1)
-			pixel_x = Clamp(pixel_x, -9, 9)
+			pixel_x += rand(-2,2)
+			pixel_x = Clamp(pixel_x, -10, 10)
 		else
-			pixel_y += rand(-1,1)
-			pixel_y = Clamp(pixel_y, -4, 12)
+			pixel_y += rand(-2,2)
+			pixel_y = Clamp(pixel_y, -4, 14)
 
 /mob/living/simple_animal/mouse/New()
 	..()

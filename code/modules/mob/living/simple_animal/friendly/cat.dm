@@ -40,42 +40,43 @@
 
 	..()
 
-	for(var/mob/living/simple_animal/mouse/snack in oview(src,7))
-		if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
-			mousetarget = snack
-			movement_target = snack
-			foodtarget = 0//chasing mice takes precedence over eating food
-			if(prob(15))
-				audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
-			break
+	if (!stat)
+		for(var/mob/living/simple_animal/mouse/snack in oview(src,7))
+			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
+				mousetarget = snack
+				movement_target = snack
+				foodtarget = 0//chasing mice takes precedence over eating food
+				if(prob(15))
+					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
+				break
 
-	if(!stat && !resting && !buckled)
-		if (turns_since_move > 5 || (flee_target || mousetarget))
+		if(!buckled)
+			if (turns_since_move > 5 || (flee_target || mousetarget))
+				walk_to(src,0)
+				turns_since_move = 0
+
+				if (flee_target) //fleeing takes precendence
+					handle_flee_target()
+				else
+					handle_movement_target()
+
+		if (!movement_target)
 			walk_to(src,0)
-			turns_since_move = 0
 
-			if (flee_target) //fleeing takes precendence
-				handle_flee_target()
-			else
-				handle_movement_target()
+		spawn(2)
+			attack_mice()
 
-	if (!movement_target)
-		walk_to(src,0)
-
-	spawn(2)
-		attack_mice()
-
-	if(prob(2)) //spooky
-		var/mob/dead/observer/spook = locate() in range(src,5)
-		if(spook)
-			var/turf/T = spook.loc
-			var/list/visible = list()
-			for(var/obj/O in T.contents)
-				if(!O.invisibility && O.name)
-					visible += O
-			if(visible.len)
-				var/atom/A = pick(visible)
-				visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].")
+		if(prob(2)) //spooky
+			var/mob/dead/observer/spook = locate() in range(src,5)
+			if(spook)
+				var/turf/T = spook.loc
+				var/list/visible = list()
+				for(var/obj/O in T.contents)
+					if(!O.invisibility && O.name)
+						visible += O
+				if(visible.len)
+					var/atom/A = pick(visible)
+					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].")
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
