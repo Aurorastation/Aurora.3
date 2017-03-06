@@ -10,4 +10,4 @@ var/datum/subsystem/parallax/SSparallax
 
 /datum/subsystem/parallax/Initialize(timeofday)
 	create_global_parallax_icons()
-	..()
+	..(timeofday, TRUE)

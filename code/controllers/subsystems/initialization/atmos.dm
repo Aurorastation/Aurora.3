@@ -12,4 +12,4 @@
 			var/obj/machinery/atmospherics/unary/vent_scrubber/T = U
 			T.broadcast_status()
 
-	..()
+	..(timeofday, TRUE)
