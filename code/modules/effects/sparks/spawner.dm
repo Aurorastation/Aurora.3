@@ -5,7 +5,7 @@
 
 // Using the spark procs is preferred to directly instancing this.
 /datum/effect_system/sparks/New(var/atom/movable/loc, var/start_immediately = TRUE, var/amt = 1, var/list/spread_dirs = list())
-	if(!loc || loc.gcDestroyed)
+	if(QDELETED(loc))
 		return
 
 	set_loc(loc)

@@ -18,7 +18,6 @@
 
 // Called when the visual_effect is manifested.
 /obj/visual_effect/proc/start()
-	return
 
 // Called every effects processor tick. Return value determines what the process does to this object.
 /obj/visual_effect/proc/tick()

@@ -64,7 +64,6 @@ datum/preferences
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
 	var/list/gear						// Custom/fluff item loadout.
-	var/gear_reset = FALSE				// If gear loading has failed.
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.
