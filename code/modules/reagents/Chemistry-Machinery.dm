@@ -184,7 +184,7 @@
 				P.icon_state = "pill"+pillsprite
 				reagents.trans_to_obj(P,amount_per_pill)
 				if(src.loaded_pill_bottle)
-					loaded_pill_bottle.add_to_storage(P)
+					loaded_pill_bottle.insert_into_storage(P)
 
 		else if (href_list["createbottle"])
 			if(!condi)
