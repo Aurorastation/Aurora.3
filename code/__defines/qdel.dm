@@ -17,3 +17,6 @@
 
 #define QDELETED(X) (!X || X.gcDestroyed)
 #define QDESTROYING(X) (!X || X.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
+
+#define QDEL_IN(item, time) addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, item), time, TIMER_STOPPABLE)
+#define QDEL_NULL(item) qdel(item); item = null
