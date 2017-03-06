@@ -15,9 +15,6 @@ var/datum/subsystem/wireless/wirelessProcess
 /datum/subsystem/wireless/New()
 	NEW_SS_GLOBAL(wirelessProcess)
 
-/datum/subsystem/wireless/stat_entry()
-	..("")
-
 /datum/subsystem/wireless/proc/add_device(var/datum/wifi/receiver/R)
 	if(receiver_list)
 		receiver_list |= R

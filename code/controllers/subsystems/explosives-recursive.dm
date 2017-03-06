@@ -7,6 +7,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 
 	var/list/queued_explosions = list()
 	var/datum/explosion/recursive/current_explosion = null
+	var/admin_disabled = FALSE
 
 	var/tmp/list/start_points = list()
 	var/tmp/list/turf/processing_turfs = list()
@@ -27,6 +28,9 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 	..("QE:[queued_explosions.len] S:[start_points.len] PT:[processing_turfs.len] AT:[affected_turfs.len]")
 
 /datum/subsystem/explosives_recursive/fire(resumed = FALSE)
+	if (admin_disabled)
+		return
+		
 	var/ex_sev	// This var is reused a lot because BYOND cannot into proper variable scoping.
 	if (!resumed && !current_explosion)
 		if (queued_explosions.len)

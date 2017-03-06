@@ -2,7 +2,6 @@ var/datum/subsystem/chemistry/SSchemistry
 
 /datum/subsystem/chemistry
 	name = "Chemistry"
-	wait = 2 SECONDS
 	flags = SS_NO_INIT
 
 	var/list/active_holders

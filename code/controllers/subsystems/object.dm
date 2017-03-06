@@ -1,6 +1,5 @@
 /datum/subsystem/object
 	name = "Objects"
-	wait = 2 SECONDS
 	priority = SS_PRIORITY_OBJECTS
 	init_order = SS_INIT_OBJECTS
 

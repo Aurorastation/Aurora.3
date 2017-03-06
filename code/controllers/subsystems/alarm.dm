@@ -8,7 +8,6 @@ var/datum/subsystem/alarm/alarm_manager
 
 /datum/subsystem/alarm
 	name = "Alarms"
-	wait = 2 SECONDS
 	
 	var/list/datum/alarm/all_handlers
 	var/tmp/list/current = list()

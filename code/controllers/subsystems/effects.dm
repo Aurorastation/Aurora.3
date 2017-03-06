@@ -79,8 +79,9 @@ var/datum/subsystem/effects/SSeffects
 	..("E:[effects_objects.len] V:[effects_visuals.len]")
 
 /datum/subsystem/effects/Recover()
-	src.effects_objects = SSeffects.effects_objects
-	src.effects_visuals = SSeffects.effects_visuals
+	if (istype(SSeffects))
+		src.effects_objects = SSeffects.effects_objects
+		src.effects_visuals = SSeffects.effects_visuals
 
-	src.effects_objects |= SSeffects.processing_effects
-	src.effects_visuals |= SSeffects.processing_visuals
+		src.effects_objects |= SSeffects.processing_effects
+		src.effects_visuals |= SSeffects.processing_visuals

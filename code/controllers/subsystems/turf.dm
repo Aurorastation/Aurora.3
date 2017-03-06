@@ -2,7 +2,6 @@ var/datum/subsystem/turf/SSturf
 
 /datum/subsystem/turf
 	name = "Turf"
-	wait = 2 SECONDS
 	flags = SS_NO_INIT
 
 	var/list/turf/processing_turfs = list()

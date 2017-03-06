@@ -1,6 +1,5 @@
 /datum/subsystem/events
 	name = "Event Controller"
-	wait = 2 SECONDS
 
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_EVENT

@@ -2,7 +2,6 @@ var/datum/subsystem/emergency_shuttle/emergency_shuttle
 
 /datum/subsystem/emergency_shuttle
 	name = "Emergency Shuttle"
-	wait = 2 SECONDS
 	flags = SS_NO_TICK_CHECK | SS_NO_INIT
 
 	var/datum/shuttle/ferry/emergency/shuttle

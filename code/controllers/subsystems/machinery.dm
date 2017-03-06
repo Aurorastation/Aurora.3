@@ -3,7 +3,6 @@ var/global/list/power_using_machines	= list()
 
 /datum/subsystem/machinery
 	name = "Machinery"
-	wait = 2 SECONDS
 	priority = SS_PRIORITY_MACHINERY
 	flags = SS_NO_INIT
 	display_order = SS_DISPLAY_MACHINERY

@@ -68,10 +68,8 @@ Class Procs:
 
 /datum/subsystem/air
 	name = "Air"
-	wait = 2 SECONDS
 	priority = SS_PRIORITY_AIR
 	display_order = SS_DISPLAY_AIR
-	//flags = SS_NO_TICK_CHECK
 
 	//Geometry lists
 	var/list/zones = list()

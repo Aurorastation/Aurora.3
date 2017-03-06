@@ -2,7 +2,6 @@ var/datum/subsystem/shuttle/shuttle_controller
 
 /datum/subsystem/shuttle
 	name = "Shuttle Controller"
-	wait = 2 SECONDS
 
 	var/list/shuttles	//maps shuttle tags to shuttle datums, so that they can be looked up.
 	var/list/process_shuttles	//simple list of shuttles, for processing

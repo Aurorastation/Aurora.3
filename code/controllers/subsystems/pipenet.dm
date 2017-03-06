@@ -2,7 +2,6 @@
 	name = "Pipenet"
 	init_order = SS_INIT_PIPENET
 	priority = SS_PRIORITY_MACHINERY
-	wait = 2 SECONDS
 	display_order = SS_DISPLAY_PIPENET
 
 	var/tmp/list/processing_pipenets = list()
