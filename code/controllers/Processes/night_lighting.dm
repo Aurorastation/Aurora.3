@@ -1,3 +1,5 @@
+#define NL_TIME (world.time + 60 MINUTES * roundstart_hour)
+
 var/datum/controller/process/night_lighting/nl_ctrl
 
 /datum/controller/process/night_lighting/
@@ -10,7 +12,7 @@ var/datum/controller/process/night_lighting/nl_ctrl
 
 /datum/controller/process/night_lighting/setup()
 	name = "night lighting controller"
-	schedule_interval = 3600	// Every 5 minutes.
+	schedule_interval = 5 MINUTES
 
 	nl_ctrl = src
 
@@ -18,15 +20,16 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		// Stop trying to delete processes. Not how it goes.
 		disabled = 1
 
-
 /datum/controller/process/night_lighting/preStart()
+	if (!roundstart_hour)
+		// wt2t sets roundstart_hour.
+		worldtime2text()
 
-	switch (worldtime2ticks())
+	switch (NL_TIME)
 		if (0 to config.nl_finish)
 			deactivate()
 		if (config.nl_start to TICKS_IN_DAY)
 			activate()
-
 
 /datum/controller/process/night_lighting/doWork()
 	if (manual_override)	// don't automatically change lighting if it was manually changed in-game
@@ -76,3 +79,5 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		F_SCHECK
 
 	return lighting_apcs
+
+#undef NL_TIME
