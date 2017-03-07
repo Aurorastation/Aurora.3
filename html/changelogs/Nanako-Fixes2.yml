@@ -37,3 +37,4 @@ changes:
   - tweak: "Reduced the hallucination chance of paroxetine."
   - tweak: "Added some exosuit charging pads to the mining outpost."
   - bugfix: "Fixed sliced fruit being inedible and the slices just vanishing."
+  - bugfix: "Fixed the engiborg inflatables dispenser permanantly breaking if it ran out once."
