@@ -177,8 +177,8 @@ var/list/gamemode_cache = list()
 	var/ghost_interaction = 0
 
 	var/night_lighting = 0
-	var/nl_start = 19 * TICKS_IN_HOUR
-	var/nl_finish = 8 * TICKS_IN_HOUR
+	var/nl_start = 19
+	var/nl_finish = 8
 
 	var/comms_password = ""
 
