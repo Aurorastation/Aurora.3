@@ -507,6 +507,8 @@
 
 	var/partialTag = "" //set by a partial tagger the first time round, then put in destinationTag if it goes through again.
 
+	var/tmp/obj/structure/disposalpipe/tick_last
+
 
 	// initialize a holder from the contents of a disposal unit
 	proc/init(var/obj/machinery/disposal/D, var/datum/gas_mixture/flush_gas)
@@ -552,10 +554,30 @@
 		forceMove(D.trunk)
 		active = 1
 		set_dir(DOWN)
-		spawn(1)
-			move()		// spawn off the movement process
+		SSdisposals.add_holder(src)
+		//spawn(1)
+		//	move()		// spawn off the movement process
 
-		return
+	proc/tick()	// For the new SSdisposals-based movement.
+		if (hasmob && prob(3))
+			for(var/mob/living/H in src)
+				if(!istype(H,/mob/living/silicon/robot/drone)) //Drones use the mailing code to move through the disposal system,
+					H.take_overall_damage(20, 0, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
+
+		var/obj/structure/disposalpipe/curr = loc
+		tick_last = curr
+		curr = curr.transfer(src)
+
+		if (!loc)
+			return FALSE
+
+		if (!curr)
+			tick_last.expel(src, loc, dir)
+
+		if (!(count--))
+			return FALSE
+
+		return TRUE
 
 	// movement process, persists while holder is moving through pipes
 	proc/move()
