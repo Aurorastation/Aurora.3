@@ -231,10 +231,11 @@
 
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
-			if (supports_nightmode && nightmode)
-				icon_state = "[base_state][on]_night"
+			icon_state = "[base_state][on]"
+			if (supports_nightmode && nightmode && on)
+				color = "#d2d2d2"
 			else
-				icon_state = "[base_state][on]"
+				color = null
 
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
@@ -245,7 +246,9 @@
 		if(LIGHT_BROKEN)
 			icon_state = "[base_state]-broken"
 			on = 0
-	return
+
+	if (!on)
+		color = null
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)
@@ -424,18 +427,41 @@
 	return A && A.lightswitch && (!A.requires_power || A.power_light)
 
 /obj/machinery/light/proc/flicker(var/amount = rand(10, 20))
+	set waitfor = FALSE
 	if(flickering) return
 	flickering = 1
-	spawn(0)
-		if(on && status == LIGHT_OK)
-			for(var/i = 0; i < amount; i++)
-				if(status != LIGHT_OK) break
-				on = !on
-				update(0)
-				sleep(rand(5, 15))
-			on = (status == LIGHT_OK)
+	if(on && status == LIGHT_OK)
+		for(var/i = 0; i < amount; i++)
+			if(status != LIGHT_OK) break
+			on = !on
 			update(0)
-		flickering = 0
+			sleep(rand(5, 15))
+		on = (status == LIGHT_OK)
+		update(0)
+	flickering = 0
+
+/obj/machinery/light/proc/newflicker(amount = rand(10,20))
+	set waitfor = FALSE
+	if (flickering || !on || status != LIGHT_OK)
+		return
+	
+	flickering = TRUE
+	var/offset = 1
+	for (var/i = 0; i < amount; i++)
+		addtimer(CALLBACK(src, .proc/handle_flicker), offset)
+		offset += rand(5, 15)
+
+	addtimer(CALLBACK(src, .proc/end_flicker), offset)
+
+/obj/machinery/light/proc/handle_flicker()
+	if (status == LIGHT_OK)
+		on = !on
+		update(FALSE)
+
+/obj/machinery/light/proc/end_flicker()
+	on = (status == LIGHT_OK)
+	update(FALSE)
+	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
 
