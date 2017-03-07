@@ -321,6 +321,7 @@ steam.start() -- spawns the effect
 						I.set_dir(src.holder.dir)
 						flick("ion_fade", I)
 						I.icon_state = "blank"
+						animate(I, alpha = 0, time = 18, easing = SINE_EASING | EASE_IN)
 						spawn( 20 )
 							qdel(I)
 					spawn(2)

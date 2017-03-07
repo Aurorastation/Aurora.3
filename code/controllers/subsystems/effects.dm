@@ -58,22 +58,17 @@ var/datum/subsystem/effects/SSeffects
 		if (MC_TICK_CHECK)
 			return
 
-	if (!effects_objects.len && !effects_visuals.len && !processing_effects.len && !processing_visuals.len)
-		disable()
-
 /datum/subsystem/effects/proc/queue(var/datum/effect_system/E)
 	if (QDELETED(E))
 		return
 		
 	effects_objects += E
-	enable()
 
 /datum/subsystem/effects/proc/queue_simple(var/obj/visual_effect/V)
 	if (QDELETED(V))
 		return
 
 	effects_visuals += V
-	enable()
 
 /datum/subsystem/effects/stat_entry()
 	..("E:[effects_objects.len] V:[effects_visuals.len]")

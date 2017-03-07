@@ -7,7 +7,6 @@
 	populate_antag_type_list()
 	populate_spawn_points()
 	setupgenetics()
-	global.corp_regs = new
 
 	//world.log << "LMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
 	..(timeofday, TRUE)
