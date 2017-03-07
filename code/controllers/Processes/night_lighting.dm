@@ -30,7 +30,7 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		return
 
 	var/time = worldtime2hours()
-	if (time <= config.nl_finish || config.nl_start >= 19)
+	if (time <= config.nl_finish || time >= config.nl_start)
 		if (!isactive)
 			command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 			activate()
