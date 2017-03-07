@@ -4,7 +4,6 @@ var/datum/controller/process/night_lighting/nl_ctrl
 	var/isactive = 0
 	var/firstrun = 1
 	var/manual_override = 0
-	var/time_offset
 
 /datum/controller/process/night_lighting/proc/is_active()
 	return isactive
@@ -20,10 +19,6 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		disabled = 1
 
 /datum/controller/process/night_lighting/preStart()
-	if (!time_offset)
-		// wt2t sets roundstart_hour.
-		worldtime2text()
-
 	var/time = worldtime2hours()
 	if (time <= 8 || time >= 19)
 		activate()
