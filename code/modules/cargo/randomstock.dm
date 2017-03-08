@@ -177,7 +177,6 @@ var/list/global/random_stock_uncommon = list(
 	"crimekit" = 1,
 	"carpet" = 2,
 	"gift" = 4,
-	"linenbin" = 1,
 	"coatrack" = 1,
 	"riotshield" = 2,
 	"fireaxe" = 1,
@@ -261,6 +260,7 @@ var/list/global/random_stock_large = list(
 	"jukebox" = 1.2,
 	"pipemachine" = 1.7,
 	"bike" = 0.3,
+	"sol" = 0.2,
 	"nothing" = 0)
 
 
@@ -1232,8 +1232,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/stack/tile/carpet(L, 50)
 		if ("gift")
 			new /obj/item/weapon/a_gift(L)
-		if ("linenbin")
-			new /obj/structure/bedsheetbin(get_turf(L))
 		if ("coatrack")
 			var/turf/T = get_turf(L)
 			if (!turf_clear(T))
@@ -1799,6 +1797,12 @@ var/list/global/random_stock_large = list(
 
 		if ("bike")
 			new /obj/vehicle/bike(L)
+			
+		if ("sol")
+			if (prob(50))
+				new /obj/structure/closet/sol/navy(L)
+			else
+				new /obj/structure/closet/sol/marine(L)
 
 	//This will be complex
 	//Spawns a random exosuit, Probably not in good condition
