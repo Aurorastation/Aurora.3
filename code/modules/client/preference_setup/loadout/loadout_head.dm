@@ -64,12 +64,12 @@
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
-/datum/gear/head/cap/corp
+/datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
-/datum/gear/head/cap/sec
+/datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
@@ -127,3 +127,16 @@
 	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
+
+/datum/gear/head/surgical
+	display_name = "surgical cap selection"
+	path = /obj/item/clothing/head/surgery/blue
+	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective")
+
+/datum/gear/head/surgical/New()
+	..()
+	var/surgical = list()
+	surgical["surgical cap, purple"] = /obj/item/clothing/head/surgery/purple
+	surgical["surgical cap, blue"] = /obj/item/clothing/head/surgery/blue
+	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
+	gear_tweaks += new/datum/gear_tweak/path(surgical)
