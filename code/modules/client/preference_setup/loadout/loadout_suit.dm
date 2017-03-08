@@ -79,6 +79,10 @@
 	display_name = "track jacket"
 	path = /obj/item/clothing/suit/storage/toggle/tracksuit
 
+/datum/gear/suit/ian
+	display_name = "worn shirt"
+	path = /obj/item/clothing/suit/ianshirt
+
 /datum/gear/suit/winter
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
