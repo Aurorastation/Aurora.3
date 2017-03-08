@@ -285,7 +285,7 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
-#define NULL_OR_GC(TARGET) (!TARGET || TARGET.gcDestroyed)
+#define QDELETED(TARGET) (!TARGET || TARGET.gcDestroyed)
 
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1

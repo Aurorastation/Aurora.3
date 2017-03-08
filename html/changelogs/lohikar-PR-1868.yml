@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Fixed Engineering's alert consoles displaying as blank."
+  - bugfix: "Vampires should now be able to properly embrace thralls."

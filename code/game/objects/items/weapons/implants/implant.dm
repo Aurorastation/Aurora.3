@@ -346,6 +346,26 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			H << "<span class='notice'>You feel a surge of loyalty towards [company_name].</span>"
 		return 1
 
+	emp_act(severity)
+		if (malfunction)
+			return
+		malfunction = MALFUNCTION_TEMPORARY
+
+		activate("emp")
+		if(severity == 1)
+			if(prob(50))
+				meltdown()
+			else if (prob(50))
+				malfunction = MALFUNCTION_PERMANENT
+			processing_objects.Remove(src)
+			return
+		spawn(20)
+			malfunction--
+
+	implanted(mob/source as mob)
+		//mobname = source.real_name
+		processing_objects.Add(src)
+		return 1
 
 /obj/item/weapon/implant/adrenalin
 	name = "adrenalin"

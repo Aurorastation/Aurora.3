@@ -12,7 +12,8 @@
 	active_power_usage	= 19000
 	//Based on a double deck electric convection oven
 
-	idle_power_usage	= 5700
+	resistance = 72000
+	idle_power_usage	= 6000
 	//uses 30% power to stay warm
 	optimal_power = 0.2
 
@@ -49,6 +50,7 @@
 
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
+	if(user.stat || user.restrained())	return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)//No spamming the door, it makes a sound
 	toggle_door()
 

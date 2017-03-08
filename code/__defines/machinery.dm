@@ -105,3 +105,8 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 // If this is returned from a machine's process() proc, the machine will stop processing but 
 // will continue to have power calculations done.
 #define M_NO_PROCESS 27
+
+// This controls how much power the AME generates per unit of fuel.
+// Assuming 100% efficency, use this equation to figure out power output.
+//      power_generated = (fuel**2) * AM_POWER_FACTOR
+#define AM_POWER_FACTOR 50000

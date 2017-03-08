@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "IPCs (not including shells) now emit a small amount of light, colored according to their type and screen color."

@@ -10,7 +10,7 @@ var/global/list/ticking_machines		= list()
 #define STAGE_PIPENET 5
 
 /proc/add_machine(var/obj/machinery/M)
-	if (NULL_OR_GC(M))
+	if (QDELETED(M))
 		return
 
 	var/type = M.get_process_type()
@@ -52,7 +52,7 @@ var/global/list/ticking_machines		= list()
 		var/obj/machinery/M = processing_machinery[processing_machinery.len]
 		processing_machinery.len--
 
-		if (NULL_OR_GC(M))
+		if (QDELETED(M))
 			remove_machine(M)
 			continue
 
@@ -73,7 +73,7 @@ var/global/list/ticking_machines		= list()
 		var/obj/machinery/M = processing_power_users[processing_power_users.len]
 		processing_power_users.len--
 
-		if (NULL_OR_GC(M))
+		if (QDELETED(M))
 			remove_machine(M)
 			continue
 
@@ -90,7 +90,7 @@ var/global/list/ticking_machines		= list()
 		var/datum/powernet/PN = processing_powernets[processing_powernets.len]
 		processing_powernets.len--
 
-		if (NULL_OR_GC(PN))
+		if (QDELETED(PN))
 			powernets -= PN
 			continue
 
@@ -105,7 +105,7 @@ var/global/list/ticking_machines		= list()
 		var/obj/item/I = processing_powersinks[processing_powersinks.len]
 		processing_powersinks.len--
 
-		if (NULL_OR_GC(I) || !I.pwr_drain())
+		if (QDELETED(I) || !I.pwr_drain())
 			processing_power_items -= I
 		
 		F_SCHECK
@@ -118,7 +118,7 @@ var/global/list/ticking_machines		= list()
 		var/datum/pipe_network/PN = processing_pipenets[processing_pipenets.len]
 		processing_pipenets.len--
 
-		if (NULL_OR_GC(PN))
+		if (QDELETED(PN))
 			pipe_networks -= PN
 			continue
 

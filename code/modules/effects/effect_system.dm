@@ -29,3 +29,9 @@
 
 /datum/effect_system/proc/bind(var/target)
 	holder = target
+
+/datum/effect_system/proc/set_loc(var/atom/movable/loc)
+	if (istype(loc, /turf/))
+		location = loc
+	else
+		location = get_turf(loc)

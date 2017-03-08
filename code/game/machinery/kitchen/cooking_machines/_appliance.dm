@@ -118,8 +118,11 @@
 		usr << "Ghosts aren't allowed to toggle power switches"
 		return
 
+	if (usr.stat || usr.restrained() || usr.incapacitated())
+		return
+
 	if (!Adjacent(usr))
-		if (!istype(usr, /mob/living/silicon))
+		if (!issilicon(usr))
 			usr << "You can't reach the power switch from there, get closer!"
 			return
 
@@ -141,6 +144,18 @@
 	set src in view()
 	set name = "Choose output"
 	set category = "Object"
+
+	if (!isliving(usr))
+		usr << "Ghosts aren't allowed to mess with cooking machines!"
+		return
+
+	if (usr.stat || usr.restrained() || usr.incapacitated())
+		return
+
+	if (!Adjacent(usr))
+		if (!issilicon(usr))
+			usr << "You can't adjust the [src] from this distance, get closer!"
+			return
 
 	if(output_options.len)
 
@@ -390,10 +405,10 @@
 		for (var/r in results)
 			var/obj/item/weapon/reagent_containers/food/snacks/R = r
 			R.loc = C //Move everything from the buffer back to the container
-			qdel(temp) //delete buffer object
-			temp = null
 			R.cooked |= cook_type.
 
+		qdel(temp) //delete buffer object
+		temp = null
 		.=1 //None of the rest of this function is relevant for recipe cooking
 
 	else if(CI.combine_target)

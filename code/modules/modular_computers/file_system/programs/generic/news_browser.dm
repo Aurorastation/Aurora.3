@@ -14,6 +14,7 @@
 	var/downloading = 0
 	var/message = ""
 	var/show_archived = 0
+	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/newsbrowser/process_tick()
 	if(!downloading)
