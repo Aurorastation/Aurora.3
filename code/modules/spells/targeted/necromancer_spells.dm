@@ -118,7 +118,7 @@
 		F.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(F), slot_shoes)
 		F.equip_to_slot_or_del(new /obj/item/weapon/material/twohanded/spear/bone(F), slot_back)
 		F.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/bone(F), slot_head)
-		F.equip_to_slot_or_del(new /obj/item/clothing/suit/bone(F), slot_wear_suit)
+		F.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/bone(F), slot_wear_suit)
 
 /spell/targeted/raise_dead/proc/get_player()
 	for(var/mob/O in dead_mob_list)
