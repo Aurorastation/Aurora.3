@@ -16,49 +16,42 @@
 
 /turf/unsimulated/wall/supermatter/New()
 	..()
-	SSturf.add_turf(src)
-	next_check = world.time+5 SECONDS
+	// Kick-start the timer chain.
+	addtimer(CALLBACK(src, .proc/tick), 5 SECONDS)
 
-/turf/unsimulated/wall/supermatter/Destroy()
-	SSturf.remove_turf(src)
-	return ..()
-
-/turf/unsimulated/wall/supermatter/process()
-	// Only check infrequently.
-	if(next_check>world.time) return
-
-	// No more available directions? Shut down process().
-	if(avail_dirs.len==0)
-		processing_objects.Remove(src)
-		return 1
-
-	// We're checking, reset the timer.
-	next_check = world.time+5 SECONDS
+/turf/unsimulated/wall/supermatter/proc/tick()
+	// No more available directions? Bail.
+	if(avail_dirs.len == 0)
+		return
 
 	// Choose a direction.
 	var/pdir = pick(avail_dirs)
 	avail_dirs -= pdir
-	var/turf/T=get_step(src,pdir)
+	var/turf/T = get_step(src, pdir)
 
 	// EXPAND
 	if(!istype(T,type))
 		// Do pretty fadeout animation for 1s.
 		new /obj/effect/overlay/bluespacify(T)
-		spawn(10)
-			// Nom.
-			for(var/atom/movable/A in T)
-				if(A)
-					if(istype(A,/mob/living))
-						qdel(A)
-					else if(istype(A,/mob)) // Observers, AI cameras.
-						continue
-					else
-						qdel(A)
-			T.ChangeTurf(type)
+		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
 
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
-		SSturf.remove_turf(src)
 		return
+
+	addtimer(CALLBACK(src, .proc/tick), 5 SECONDS)
+
+/turf/unsimulated/wall/supermatter/proc/after_tick(turf/T)
+	set waitfor = FALSE
+	T.lighting_clear_overlay()
+	for(var/atom/movable/A in T)
+		if (A && A.simulated)	// No eating lighting overlays.
+			if(istype(A, /mob/living))
+				qdel(A)
+			else if(istype(A, /mob)) // Observers, AI cameras.
+				continue
+			else
+				qdel(A)
+	T.ChangeTurf(type)
 
 /turf/unsimulated/wall/supermatter/attack_generic(mob/user as mob)
 	return attack_hand(user)
