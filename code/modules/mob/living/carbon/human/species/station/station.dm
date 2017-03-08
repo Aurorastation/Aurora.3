@@ -185,6 +185,7 @@
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
+	flags = NO_SLIP
 
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
