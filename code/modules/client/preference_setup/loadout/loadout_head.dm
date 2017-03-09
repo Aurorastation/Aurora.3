@@ -1,6 +1,6 @@
 /datum/gear/head
-	display_name = "hat, boatsman"
-	path = /obj/item/clothing/head/boaterhat
+	display_name = "ushanka"
+	path = /obj/item/clothing/head/ushanka
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
@@ -92,25 +92,25 @@
 	display_name = "hair flower pin, red"
 	path = /obj/item/clothing/head/hairflower
 
-/datum/gear/head/bowler
-	display_name = "hat, bowler"
-	path = /obj/item/clothing/head/bowler
+/datum/gear/head/hats
+	display_name = "hat selection"
+	path = /obj/item/clothing/head/boaterhat
 
-/datum/gear/head/fez
-	display_name = "hat, fez"
-	path = /obj/item/clothing/head/fez
-
-/datum/gear/head/tophat
-	display_name = "hat, tophat"
-	path = /obj/item/clothing/head/that
+/datum/gear/head/hats/New()
+	..()
+	var/hats = list()
+	hats["hat, boatsman"] = /obj/item/clothing/head/boaterhat
+	hats["hat, bowler"] = /obj/item/clothing/head/bowler
+	hats["hat, fez"] = /obj/item/clothing/head/fez
+	hats["hat, tophat"] = /obj/item/clothing/head/that
+	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
+	hats["hat, fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
+	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/philosopher_wig
 	display_name = "natural philosopher's wig"
 	path = /obj/item/clothing/head/philosopher_wig
-
-/datum/gear/head/ushanka
-	display_name = "ushanka"
-	path = /obj/item/clothing/head/ushanka
 
 /datum/gear/head/hijab
 	display_name = "hijab selection"
