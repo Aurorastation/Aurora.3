@@ -106,6 +106,9 @@
 	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
 	hats["hat, fedora"] = /obj/item/clothing/head/fedora
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
+	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
+	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
+	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/philosopher_wig
