@@ -139,4 +139,5 @@
 	surgical["surgical cap, purple"] = /obj/item/clothing/head/surgery/purple
 	surgical["surgical cap, blue"] = /obj/item/clothing/head/surgery/blue
 	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
+	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
 	gear_tweaks += new/datum/gear_tweak/path(surgical)
