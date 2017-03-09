@@ -572,3 +572,123 @@
 		user << "<span class='info'>[src] is empty.</span>"
 	if(malfunctioning)
 		user << "<span class='info'>The display on [src] seems to be flickering.</span>"
+
+/**********************Point Transfer Card**********************/
+
+/obj/item/weapon/card/mining_point_card
+	name = "mining points card"
+	desc = "A small card preloaded with mining points. Swipe your ID card over it to transfer the points, then discard."
+	icon_state = "data"
+	var/points = 500
+
+/obj/item/weapon/card/mining_point_card/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/weapon/card/id))
+		if(points)
+			var/obj/item/weapon/card/id/C = I
+			C.mining_points += points
+			user << "<span class='info'>You transfer [points] points to [C].</span>"
+			points = 0
+		else
+			user << "<span class='info'>There's no points left on [src].</span>"
+	..()
+
+/obj/item/weapon/card/mining_point_card/examine(mob/user)
+	..()
+	user << "There's [points] point\s on the card."
+
+/**********************"Fultons"**********************/
+
+var/list/total_extraction_beacons = list()
+
+/obj/item/weapon/extraction_pack
+	name = "warp extraction pack"
+	desc = "A complex device that warps nonliving matter to nearby locations."
+	icon = 'icons/obj/mining.dmi'
+	icon_state = "jaunter"
+	w_class = 2
+	var/obj/structure/extraction_point/beacon
+	var/list/beacon_networks = list("station")
+	var/uses_left = 3
+
+/obj/item/weapon/extraction_pack/examine()
+	. = ..()
+	usr.show_message("It has [uses_left] uses remaining.", 1)
+
+/obj/item/weapon/extraction_pack/attack_self(mob/user)
+	var/list/possible_beacons = list()
+	for(var/B in total_extraction_beacons)
+		var/obj/structure/extraction_point/EP = B
+		if(EP.beacon_network in beacon_networks)
+			possible_beacons += EP
+
+	if(!possible_beacons.len)
+		user << "There are no extraction beacons in existence!"
+		return
+
+	else
+		var/A
+
+		A = input("Select a beacon to connect to", "Balloon Extraction Pack", A) in possible_beacons
+
+		if(!A)
+			return
+		beacon = A
+
+/obj/item/weapon/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
+	if(!beacon)
+		user << "[src] is not linked to a beacon, and cannot be used."
+		return
+	if(!istype(A))
+		return
+	else
+		if(istype(A,/mob/living))
+			user << "[src] is not safe for use with living creatures, they wouldn't survive the trip back!"
+			return
+		if(A.loc == user) // no extracting stuff you're holding
+			return
+		if(A.anchored)
+			return
+		user << "<span class='notice'>You start attaching the pack to [A]...</span>"
+		if(do_after(user,50,target=A))
+			user << "<span class='notice'>You attach the pack to [A] and activate it.</span>"
+			uses_left--
+			if(uses_left <= 0)
+				user.drop_item(src)
+				loc = A
+			var/list/flooring_near_beacon = list()
+			for(var/turf/simulated/floor/floor in orange(1, beacon))
+				flooring_near_beacon += floor
+			A.loc = pick(flooring_near_beacon)
+			if(uses_left <= 0)
+				qdel(src)
+
+
+/obj/item/warp_core
+	name = "warp extraction beacon signaller"
+	desc = "Emits a signal which Warp-Item recovery devices can lock onto. Activate in hand to create a beacon."
+	icon = 'icons/obj/stock_parts.dmi'
+	icon_state = "subspace_amplifier"
+
+/obj/item/fulton_core/attack_self(mob/user)
+	if(do_after(user,15,target = user))
+		new /obj/structure/extraction_point(get_turf(user))
+		qdel(src)
+
+/obj/structure/extraction_point
+	name = "warp recovery beacon"
+	desc = "A beacon for the Warp-Item recovery system. Hit a beacon with a pack to link the pack to a beacon."
+	icon = 'icons/obj/mining.dmi'
+	icon_state = "extraction_point"
+	anchored = 1
+	density = 0
+	var/beacon_network = "station"
+
+/obj/structure/extraction_point/New()
+	var/area/area_name = get_area(src)
+	name += " ([rand(100,999)]) ([area_name.name])"
+	total_extraction_beacons += src
+	..()
+
+/obj/structure/extraction_point/Destroy()
+	total_extraction_beacons -= src
+	..()
