@@ -20,7 +20,7 @@ datum/pipeline
 		..()
 		return QDEL_HINT_POOL
 
-	proc/process()//This use to be called called from the pipe networks
+	process()//This use to be called called from the pipe networks
 
 		//Check to see if pressure is within acceptable limits
 		var/pressure = air.return_pressure()

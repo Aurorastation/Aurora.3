@@ -249,7 +249,7 @@ it should be avoided in favour of manual removal where possible
 		if (D.type == type)
 			existing = D
 	if (!existing)
-		processing_modifiers += src
+		START_PROCESSING(SSmodifiers, src)
 		target.modifiers += src
 		activate()
 		return src
@@ -266,7 +266,7 @@ it should be avoided in favour of manual removal where possible
 	active = 0
 	return 1
 
-/datum/modifier/proc/process()
+/datum/modifier/process()
 
 	if (!active)
 		last_tick = world.time
@@ -372,7 +372,7 @@ it should be avoided in favour of manual removal where possible
 	if (instant)
 		if (target)
 			target.modifiers -= src
-		processing_modifiers -= src
+		STOP_PROCESSING(SSmodifiers, src)
 
 	if (suspend)
 		deactivate()
@@ -390,7 +390,7 @@ it should be avoided in favour of manual removal where possible
 		deactivate()
 	if (target)
 		target.modifiers -= src
-	processing_modifiers -= src
+	STOP_PROCESSING(SSmodifiers, src)
 	return ..()
 
 
@@ -402,13 +402,13 @@ it should be avoided in favour of manual removal where possible
 			qdel(src)
 			return existing
 		if (MODIFIER_OVERRIDE_NEIGHBOR)
-			processing_modifiers += src
+			START_PROCESSING(SSmodifiers, src)
 			target.modifiers += src
 			activate()
 			return src
 		if (MODIFIER_OVERRIDE_REPLACE)
 			existing.stop()
-			processing_modifiers += src
+			START_PROCESSING(SSmodifiers, src)
 			target.modifiers += src
 			activate()
 			return src

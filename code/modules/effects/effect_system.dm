@@ -27,7 +27,7 @@
 		return TRUE
 	return FALSE
 
-/datum/effect_system/proc/process()
+/datum/effect_system/process()
 	if (holder)
 		location = get_turf(holder)
 		return EFFECT_HALT

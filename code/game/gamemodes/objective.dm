@@ -44,7 +44,7 @@ datum/objective
 				target = possible_target
 				break
 
-	proc/process()
+	process()
 		return
 
 

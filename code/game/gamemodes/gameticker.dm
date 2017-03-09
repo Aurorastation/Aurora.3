@@ -294,7 +294,7 @@ var/global/datum/controller/gameticker/ticker
 					M << "Captainship not forced on anyone."
 
 
-	proc/process()
+	process()
 		if(current_state != GAME_STATE_PLAYING)
 			return 0
 
