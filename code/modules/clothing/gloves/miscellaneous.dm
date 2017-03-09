@@ -68,7 +68,7 @@
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/botanic_leather/tajara
-	name = "tajara leather gloves"
+	name = "tajaran leather gloves"
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/watch
