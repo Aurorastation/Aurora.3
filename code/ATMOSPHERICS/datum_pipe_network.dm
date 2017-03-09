@@ -36,7 +36,6 @@ datum/pipe_network
 		update_network_gases()
 
 		if((normal_members.len>0)||(line_members.len>0))
-			//pipe_networks += src
 			START_PROCESSING(SSpipenet, src)
 		else
 			qdel(src)
@@ -78,6 +77,5 @@ datum/pipe_network
 
 	Destroy()
 		STOP_PROCESSING(SSpipenet, src)
-		//pipe_networks -= src
 		..()
 		return QDEL_HINT_POOL
