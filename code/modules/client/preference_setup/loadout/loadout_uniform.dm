@@ -80,7 +80,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective")
+	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Chemist","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective")
 
 /datum/gear/uniform/scrubs/New()
 	..()
