@@ -36,10 +36,10 @@
 		reinf_material = get_material_by_name(rmaterialtype)
 	update_material()
 
-	START_PROCESSING(SSturf, src)
+	START_PROCESSING(SSprocessing, src)
 
 /turf/simulated/wall/Destroy()
-	STOP_PROCESSING(SSturf, src)
+	STOP_PROCESSING(SSprocessing, src)
 	//SSturf.remove_turf(src)
 	dismantle_wall(null,null,1)
 	return ..()
@@ -47,7 +47,7 @@
 /turf/simulated/wall/process()
 	// Calling parent will kill processing
 	if(!radiate())
-		STOP_PROCESSING(SSturf, src)
+		STOP_PROCESSING(SSprocessing, src)
 
 /turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj,/obj/item/projectile/beam))
