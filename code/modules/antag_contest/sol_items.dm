@@ -230,7 +230,7 @@
 	name = "sol navy dress uniform closet"
 	desc = "It's a storage unit for Sol Alliance navy dress uniforms."
 
-/obj/structure/closet/sol/marine/New()
+/obj/structure/closet/sol/navy_dress/New()
 	..()
 	new /obj/item/clothing/under/rank/dress(src)
 	new /obj/item/clothing/under/rank/dress(src)
@@ -249,7 +249,7 @@
 	name = "sol marine dress uniform closet"
 	desc = "It's a storage unit for Sol Alliance marine dress uniforms."
 
-/obj/structure/closet/sol/marine/New()
+/obj/structure/closet/sol/marine_dress/New()
 	..()
 	new /obj/item/clothing/under/rank/dress/marine(src)
 	new /obj/item/clothing/under/rank/dress/marine(src)
@@ -265,7 +265,7 @@
 	new /obj/item/clothing/gloves/white(src)
 
 /obj/structure/closet/secure_closet/soll_officer
-	name = "soll alliance officer locker"
+	name = "sol alliance officer locker"
 	req_access = list(access_captain)
 	icon_state = "capsecure1"
 	icon_closed = "capsecure"

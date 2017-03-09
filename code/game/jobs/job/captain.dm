@@ -1,7 +1,7 @@
 var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/captain
-	title = "Sol Officer"
+	title = "Captain"
 	flag = CAPTAIN
 	department = "Command"
 	head_position = 1
@@ -9,7 +9,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Sol Alliance and Admiral Michael Frost"
+	supervisors = "company officials and Corporate Regulations"
 	selection_color = "#ccccff"
 	idtype = /obj/item/weapon/card/id/gold
 	req_admin_notify = 1
@@ -29,7 +29,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_cap(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/cap(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/dress/officer(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/captain(H), slot_w_uniform)
 		if(H.age>49)
 			// Since we can have something other than the default uniform at this
 			// point, check if we can actually attach the medal
@@ -40,8 +40,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			else
 				qdel(medal)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/captain(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/dress/officer(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/caphat(H), slot_head)
 		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(H), slot_glasses)
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H), slot_l_hand)
@@ -49,7 +49,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H.back), slot_in_backpack)
 
 
-		H.implant_loyalty_sol(H)
+		H.implant_loyalty(H)
 
 		return 1
 

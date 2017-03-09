@@ -194,11 +194,6 @@
 
 		return
 
-	// Antag contest shit
-	if (href_list["contest_action"] && config.antag_contest_enabled)
-		src.process_contest_topic(href_list)
-		return
-
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
