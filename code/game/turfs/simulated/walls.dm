@@ -36,17 +36,18 @@
 		reinf_material = get_material_by_name(rmaterialtype)
 	update_material()
 
-	SSturf.add_turf(src)
+	START_PROCESSING(SSturf, src)
 
 /turf/simulated/wall/Destroy()
-	SSturf.remove_turf(src)
+	STOP_PROCESSING(SSturf, src)
+	//SSturf.remove_turf(src)
 	dismantle_wall(null,null,1)
 	return ..()
 
 /turf/simulated/wall/process()
 	// Calling parent will kill processing
 	if(!radiate())
-		return PROCESS_KILL
+		STOP_PROCESSING(SSturf, src)
 
 /turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj,/obj/item/projectile/beam))
@@ -225,11 +226,7 @@
 	F.icon_state = "wall_thermite"
 	user << "<span class='warning'>The thermite starts melting through the wall.</span>"
 
-	spawn(100)
-		if(O)
-			qdel(O)
-//	F.sd_LumReset()		//TODO: ~Carn
-	return
+	QDEL_IN(O, 100)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)

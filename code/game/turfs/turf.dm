@@ -212,6 +212,9 @@ var/const/enterloopsanity = 100
 				L.Add(t)
 	return L
 
+/turf/process()
+	STOP_PROCESSING(SSturf, src)
+
 /turf/proc/contains_dense_objects()
 	if(density)
 		return 1

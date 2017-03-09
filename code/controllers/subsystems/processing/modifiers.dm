@@ -6,3 +6,6 @@ var/datum/subsystem/processing/modifiers/SSmodifiers
 
 /datum/subsystem/processing/modifiers/New()
 	NEW_SS_GLOBAL(SSmodifiers)
+
+/datum/subsystem/processing/modifiers/stop_processing(datum/D)
+	STOP_PROCESSING(SSmodifiers, D)

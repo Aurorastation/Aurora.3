@@ -26,11 +26,16 @@ var/datum/subsystem/processing/SSprocessing
 		var/datum/thing = current_run[current_run.len]
 		current_run.len--
 		if(thing)
-			thing.process()
+			if (thing.process() == PROCESS_KILL)
+				stop_processing(thing)
 		else
 			processing -= thing
 		if (MC_TICK_CHECK)
 			return
+
+// Helper so PROCESS_KILL works.
+/datum/subsystem/processing/proc/stop_processing(datum/D)
+	STOP_PROCESSING(SSprocessing, D)
 
 /datum/var/isprocessing = 0
 /datum/proc/process()

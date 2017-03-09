@@ -8,3 +8,6 @@ var/datum/subsystem/processing/disease/SSdisease
 
 /datum/subsystem/processing/disease/New()
 	NEW_SS_GLOBAL(SSdisease)
+
+/datum/subsystem/processing/disease/stop_processing(datum/D)
+	STOP_PROCESSING(SSdisease, D)
