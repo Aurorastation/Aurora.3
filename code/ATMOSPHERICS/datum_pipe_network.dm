@@ -1,5 +1,3 @@
-var/global/list/datum/pipe_network/pipe_networks = list()
-
 datum/pipe_network
 	var/list/datum/gas_mixture/gases = list() //All of the gas_mixtures continuously connected in this network
 	var/volume = 0	//caches the total volume for atmos machines to use in gas calculations
@@ -38,7 +36,8 @@ datum/pipe_network
 		update_network_gases()
 
 		if((normal_members.len>0)||(line_members.len>0))
-			pipe_networks += src
+			//pipe_networks += src
+			START_PROCESSING(SSpipenet, src)
 		else
 			qdel(src)
 
@@ -78,6 +77,7 @@ datum/pipe_network
 		equalize_gases(gases)
 
 	Destroy()
-		pipe_networks -= src
+		STOP_PROCESSING(SSpipenet, src)
+		//pipe_networks -= src
 		..()
 		return QDEL_HINT_POOL
