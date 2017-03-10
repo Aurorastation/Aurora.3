@@ -63,6 +63,7 @@
 	base_reflectchance = 60
 	base_block_chance = 60
 	can_block_bullets = 1
+	shield_power = 150
 
 /obj/item/weapon/melee/energy/wizard/activate(mob/living/user)
 	..()
