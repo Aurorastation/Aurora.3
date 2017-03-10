@@ -29,7 +29,7 @@
 	"<span class='notice'>We assimilate the weapon back into our body.</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
-	spawn(1) if(src) qdel(src)
+	QDEL_IN(src, 1)
 
 /obj/item/weapon/melee/arm_blade/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
@@ -44,7 +44,7 @@
 			host.pinned -= src
 			host.embedded -= src
 			host.drop_from_inventory(src)
-		spawn(1) if(src) qdel(src)
+		QDEL_IN(src, 1)
 
 /obj/item/weapon/shield/riot/changeling
 	name = "shield-like mass"
@@ -73,7 +73,7 @@
 	"<span class='notice'>We assimilate the weapon back into our body.</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
-	spawn(1) if(src) qdel(src)
+	QDEL_IN(src, 1)
 
 /obj/item/weapon/shield/riot/changeling/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
@@ -88,4 +88,4 @@
 			host.pinned -= src
 			host.embedded -= src
 			host.drop_from_inventory(src)
-		spawn(1) if(src) qdel(src)
+		QDEL_IN(src, 1)
