@@ -1,4 +1,4 @@
-var/datum/subsystem/garbage_collector/garbage_collector
+var/datum/subsystem/garbage_collector/SSgarbage
 
 /datum/subsystem/garbage_collector
 	name = "Garbage"
@@ -35,7 +35,7 @@ var/datum/subsystem/garbage_collector/garbage_collector
 #endif
 
 /datum/subsystem/garbage_collector/New()
-	NEW_SS_GLOBAL(garbage_collector)
+	NEW_SS_GLOBAL(SSgarbage)
 
 /datum/subsystem/garbage_collector/stat_entry()
 	..("Q:[queue.len] HD:[totaldels] SD:[totalgcs]")
@@ -141,10 +141,10 @@ var/datum/subsystem/garbage_collector/garbage_collector
 		A.gcDestroyed = GC_QUEUED_FOR_HARD_DEL
 
 /datum/subsystem/garbage_collector/Recover()
-	if (istype(garbage_collector.queue))
-		queue |= garbage_collector.queue
-	if (istype(garbage_collector.tobequeued))
-		tobequeued |= garbage_collector.tobequeued
+	if (istype(SSgarbage.queue))
+		queue |= SSgarbage.queue
+	if (istype(SSgarbage.tobequeued))
+		tobequeued |= SSgarbage.tobequeued
 
 // Should be treated as a replacement for the 'del' keyword.
 // Datums passed to this will be given a chance to clean up references to allow the GC to collect them.
@@ -152,7 +152,7 @@ var/datum/subsystem/garbage_collector/garbage_collector
 	if(!D)
 		return
 #ifdef TESTING
-	garbage_collector.qdel_list += "[D.type]"
+	SSgarbage.qdel_list += "[D.type]"
 #endif
 	if(!istype(D))
 		del(D)
@@ -163,7 +163,7 @@ var/datum/subsystem/garbage_collector/garbage_collector
 			return
 		switch(hint)
 			if (QDEL_HINT_QUEUE)		//qdel should queue the object for deletion.
-				garbage_collector.QueueForQueuing(D)
+				SSgarbage.QueueForQueuing(D)
 			if (QDEL_HINT_IWILLGC)
 				D.gcDestroyed = world.time
 				return
@@ -173,20 +173,20 @@ var/datum/subsystem/garbage_collector/garbage_collector
 					return
 				// Returning LETMELIVE after being told to force destroy
 				// indicates the objects Destroy() does not respect force
-				if(!garbage_collector.noforcerespect["[D.type]"])
-					garbage_collector.noforcerespect["[D.type]"] = "[D.type]"
+				if(!SSgarbage.noforcerespect["[D.type]"])
+					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
 					testing("WARNING: [D.type] has been force deleted, but is \
 						returning an immortal QDEL_HINT, indicating it does \
 						not respect the force flag for qdel(). It has been \
 						placed in the queue, further instances of this type \
 						will also be queued.")
-				garbage_collector.QueueForQueuing(D)
+				SSgarbage.QueueForQueuing(D)
 			if (QDEL_HINT_HARDDEL)		//qdel should assume this object won't gc, and queue a hard delete using a hard reference to save time from the locate()
-				garbage_collector.HardQueue(D)
+				SSgarbage.HardQueue(D)
 			if (QDEL_HINT_HARDDEL_NOW)	//qdel should assume this object won't gc, and hard del it post haste.
 				del(D)
 			if (QDEL_HINT_FINDREFERENCE)//qdel will, if TESTING is enabled, display all references to this object, then queue the object for deletion.
-				garbage_collector.QueueForQueuing(D)
+				SSgarbage.QueueForQueuing(D)
 				#ifdef TESTING
 				D.find_references()
 				#endif
@@ -199,19 +199,19 @@ var/datum/subsystem/garbage_collector/garbage_collector
 					return
 				// Returning POOL after being told to force destroy
 				// indicates the objects Destroy() does not respect force
-				if(!garbage_collector.noforcerespect["[D.type]"])
-					garbage_collector.noforcerespect["[D.type]"] = "[D.type]"
+				if(!SSgarbage.noforcerespect["[D.type]"])
+					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
 					testing("WARNING: [D.type] has been force deleted, but is \
 						returning an immortal QDEL_HINT, indicating it does \
 						not respect the force flag for qdel(). It has been \
 						placed in the queue, further instances of this type \
 						will also be queued.")
-				garbage_collector.QueueForQueuing(D)
+				SSgarbage.QueueForQueuing(D)
 			else
-				if(!garbage_collector.noqdelhint["[D.type]"])
-					garbage_collector.noqdelhint["[D.type]"] = "[D.type]"
+				if(!SSgarbage.noqdelhint["[D.type]"])
+					SSgarbage.noqdelhint["[D.type]"] = "[D.type]"
 					testing("WARNING: [D.type] is not returning a qdel hint. It is being placed in the queue. Further instances of this type will also be queued.")
-				garbage_collector.QueueForQueuing(D)
+				SSgarbage.QueueForQueuing(D)
 	else if(D.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		CRASH("[D.type] destroy proc was called multiple times, likely due to a qdel loop in the Destroy logic")
 
@@ -231,128 +231,6 @@ var/datum/subsystem/garbage_collector/garbage_collector
 	return QDEL_HINT_QUEUE
 
 /datum/var/gcDestroyed //Time when this object was destroyed.
-
-#ifdef TESTING
-/datum/var/running_find_references 
-/datum/var/last_find_references = 0
-
-/datum/verb/find_refs()
-	set category = "Debug"
-	set name = "Find References"
-	set background = 1
-	set src in world
-
-	find_references(FALSE)
-
-/datum/proc/find_references(skip_alert)
-	running_find_references = type
-	if(usr && usr.client)
-		if(usr.client.running_find_references)
-			testing("CANCELLED search for references to a [usr.client.running_find_references].")
-			usr.client.running_find_references = null
-			running_find_references = null
-			//restart the garbage collector
-			garbage_collector.can_fire = 1
-			garbage_collector.next_fire = world.time + world.tick_lag
-			return
-
-		if(!skip_alert)
-			if(alert("Running this will lock everything up for about 5 minutes.  Would you like to begin the search?", "Find References", "Yes", "No") == "No")
-				running_find_references = null
-				return
-
-	//this keeps the garbage collector from failing to collect objects being searched for in here
-	garbage_collector.can_fire = 0
-
-	if(usr && usr.client)
-		usr.client.running_find_references = type
-
-	testing("Beginning search for references to a [type].")
-	last_find_references = world.time
-	find_references_in_globals()
-	for(var/datum/thing in world)
-		DoSearchVar(thing, "WorldRef: [thing]")
-	testing("Completed search for references to a [type].")
-	if(usr && usr.client)
-		usr.client.running_find_references = null
-	running_find_references = null
-
-	//restart the garbage collector
-	garbage_collector.can_fire = 1
-	garbage_collector.next_fire = world.time + world.tick_lag
-
-/client/verb/purge_all_destroyed_objects()
-	set category = "Debug"
-	if(garbage_collector)
-		while(garbage_collector.queue.len)
-			var/datum/o = locate(garbage_collector.queue[1])
-			if(istype(o) && o.gcDestroyed)
-				del(o)
-				garbage_collector.totaldels++
-			garbage_collector.queue.Cut(1, 2)
-
-/datum/verb/qdel_then_find_references()
-	set category = "Debug"
-	set name = "qdel() then Find References"
-	set background = 1
-	set src in world
-
-	qdel(src)
-	if(!running_find_references)
-		find_references(TRUE)
-
-/client/verb/show_qdeleted()
-	set category = "Debug"
-	set name = "Show qdel() Log"
-	set desc = "Render the qdel() log and display it"
-
-	var/dat = "<B>List of things that have been qdel()eted this round</B><BR><BR>"
-
-	var/tmplist = list()
-	for(var/elem in garbage_collector.qdel_list)
-		if(!(elem in tmplist))
-			tmplist[elem] = 0
-		tmplist[elem]++
-
-	for(var/path in tmplist)
-		dat += "[path] - [tmplist[path]] times<BR>"
-
-	usr << browse(dat, "window=qdeletedlog")
-
-#define SearchVar(X) DoSearchVar(X, "Global: " + #X)
-
-/datum/proc/DoSearchVar(X, Xname)
-	if(usr && usr.client && !usr.client.running_find_references) return
-	if(istype(X, /datum))
-		var/datum/D = X
-		if(D.last_find_references == last_find_references)
-			return
-		D.last_find_references = last_find_references
-		for(var/V in D.vars)
-			for(var/varname in D.vars)
-				var/variable = D.vars[varname]
-				if(variable == src)
-					testing("Found [src.type] \ref[src] in [D.type]'s [varname] var. [Xname]")
-				else if(islist(variable))
-					if(src in variable)
-						testing("Found [src.type] \ref[src] in [D.type]'s [varname] list var. Global: [Xname]")
-#ifdef GC_FAILURE_HARD_LOOKUP
-					for(var/I in variable)
-						DoSearchVar(I, TRUE)
-				else
-					DoSearchVar(variable, "[Xname]: [varname]")
-#endif
-	else if(islist(X)) 
-		if(src in X)
-			testing("Found [src.type] \ref[src] in list [Xname].")
-#ifdef GC_FAILURE_HARD_LOOKUP
-		for(var/I in X)
-			DoSearchVar(I, Xname + ": list")
-#else
-	CHECK_TICK
-#endif
-
-#endif
 
 /icon/Destroy()
 	return QDEL_HINT_HARDDEL
