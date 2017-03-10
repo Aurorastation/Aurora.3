@@ -77,7 +77,7 @@
 	magazine_type = /obj/item/ammo_magazine/t40
 	allowed_magazines = list(/obj/item/ammo_magazine/t40)
 	caliber = "10mm"
-	origin_tech = "combat=3;materials=2"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	sel_mode = 1
