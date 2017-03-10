@@ -175,7 +175,6 @@
 #include "code\controllers\subsystems\processing\modifiers.dm"
 #include "code\controllers\subsystems\processing\pipenet.dm"
 #include "code\controllers\subsystems\processing\processing.dm"
-#include "code\controllers\subsystems\processing\turf.dm"
 #include "code\datums\ai_law_sets.dm"
 #include "code\datums\ai_laws.dm"
 #include "code\datums\api.dm"

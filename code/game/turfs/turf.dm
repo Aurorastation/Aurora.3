@@ -213,7 +213,7 @@ var/const/enterloopsanity = 100
 	return L
 
 /turf/process()
-	STOP_PROCESSING(SSturf, src)
+	STOP_PROCESSING(SSprocessing, src)
 
 /turf/proc/contains_dense_objects()
 	if(density)
