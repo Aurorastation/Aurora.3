@@ -176,12 +176,14 @@
 	return
 
 /obj/proc/tesla_act(var/power)
-	playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1, extrarange = 5)
 	being_shocked = 1
 	var/power_bounced = power / 2
-	tesla_zap(src, 5, power_bounced)
-	spawn(10)
-		being_shocked = 0
+	tesla_zap(src, 3, power_bounced)
+	addtimer(CALLBACK(src, .proc/reset_shocked), 10)
+
+/obj/proc/reset_shocked()
+	being_shocked = 0
+
 
 /obj/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return

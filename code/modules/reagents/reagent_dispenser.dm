@@ -182,6 +182,10 @@
 		explode()
 	return ..()
 
+/obj/structure/reagent_dispensers/fueltank/tesla_act()
+	..() 
+	explode()
+
 /obj/structure/reagent_dispensers/fueltank/Move()
 	if (..() && modded)
 		leak_fuel(amount_per_transfer_from_this/10.0)
