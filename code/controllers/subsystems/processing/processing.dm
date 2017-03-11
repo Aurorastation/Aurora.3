@@ -1,4 +1,4 @@
-//Used to process objects. Fires once every second.
+//Used to process objects. Fires once every two seconds.
 
 var/datum/subsystem/processing/SSprocessing
 /datum/subsystem/processing
@@ -39,6 +39,4 @@ var/datum/subsystem/processing/SSprocessing
 
 /datum/var/isprocessing = 0
 /datum/proc/process()
-	set waitfor = 0
-	STOP_PROCESSING(SSprocessing, src)
-	return 0
+	return PROCESS_KILL

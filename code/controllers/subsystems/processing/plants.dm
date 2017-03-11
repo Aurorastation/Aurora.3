@@ -1,25 +1,25 @@
-/var/datum/subsystem/plants/plant_controller
+/var/datum/subsystem/processing/plants/plant_controller
 
-/datum/subsystem/plants
+/datum/subsystem/processing/plants
 	name = "Seeds & Plants"
-	flags = SS_TICKER | SS_NO_TICK_CHECK
+	flags = 0	// Override parent's flags.
 	wait = 75
 	init_order = SS_INIT_MISC
 
 	var/list/product_descs = list()         // Stores generated fruit descs.
-	var/list/plant_queue = list()           // All queued plants.
 	var/list/seeds = list()                 // All seed data stored here.
 	var/list/gene_tag_masks = list()        // Gene obfuscation for delicious trial and error goodness.
 	var/list/plant_icon_cache = list()      // Stores images of growth, fruits and seeds.
 	var/list/plant_sprites = list()         // List of all harvested product sprites.
 	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
 
-	var/tmp/list/queue = list()
-
-/datum/subsystem/plants/New()
+/datum/subsystem/processing/plants/New()
 	NEW_SS_GLOBAL(plant_controller)
 
-/datum/subsystem/plants/Initialize(timeofday)
+/datum/subsystem/processing/plants/stop_processing(datum/D)
+	STOP_PROCESSING(plant_controller, D)
+
+/datum/subsystem/processing/plants/Initialize(timeofday)
 	// Build the icon lists.
 	for(var/icostate in icon_states('icons/obj/hydroponics_growing.dmi'))
 		var/split = findtext(icostate,"-")
@@ -70,17 +70,17 @@
 	
 	..()
 
-/datum/subsystem/plants/Recover()
-	src.product_descs = plant_controller.product_descs
-	src.plant_queue = plant_controller.plant_queue
-	src.seeds = plant_controller.seeds
-	src.gene_tag_masks = plant_controller.gene_tag_masks
-	src.plant_icon_cache = plant_controller.plant_icon_cache
-	src.plant_sprites = plant_controller.plant_sprites
-	src.plant_product_sprites = plant_controller.plant_product_sprites
+/datum/subsystem/processing/plants/Recover()
+	if (istype(plant_controller))
+		src.product_descs = plant_controller.product_descs
+		src.seeds = plant_controller.seeds
+		src.gene_tag_masks = plant_controller.gene_tag_masks
+		src.plant_icon_cache = plant_controller.plant_icon_cache
+		src.plant_sprites = plant_controller.plant_sprites
+		src.plant_product_sprites = plant_controller.plant_product_sprites
 
 // Proc for creating a random seed type.
-/datum/subsystem/plants/proc/create_random_seed(var/survive_on_station)
+/datum/subsystem/processing/plants/proc/create_random_seed(var/survive_on_station)
 	var/datum/seed/seed = new()
 	seed.randomize()
 	seed.uid = plant_controller.seeds.len + 1
@@ -101,39 +101,6 @@
 		seed.set_trait(TRAIT_LOWKPA_TOLERANCE,25)
 		seed.set_trait(TRAIT_HIGHKPA_TOLERANCE,200)
 	return seed
-
-/datum/subsystem/plants/stat_entry()
-	..("P:[plant_queue.len]")
-
-/datum/subsystem/plants/fire(resumed = 0)
-	if (!resumed)
-		queue = plant_queue
-		plant_queue = list()
-
-	var/list/curr_queue = queue
-
-	while (curr_queue.len)
-		var/obj/effect/plant/P = curr_queue[curr_queue.len]
-		curr_queue.len--
-
-		if (!P || P.gcDestroyed || !istype(P))
-			continue
-
-		P.process()
-
-		if (MC_TICK_CHECK)
-			return
-
-	if (!plant_queue.len)
-		disable()
-
-/datum/subsystem/plants/proc/add_plant(var/obj/effect/plant/plant)
-	plant_queue |= plant
-	enable()
-
-/datum/subsystem/plants/proc/remove_plant(var/obj/effect/plant/plant)
-	plant_queue -= plant
-
 
 // Debug for testing seed genes.
 /client/proc/show_plant_genes()

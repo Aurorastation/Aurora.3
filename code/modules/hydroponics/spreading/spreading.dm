@@ -66,13 +66,14 @@
 
 /obj/effect/plant/Destroy()
 	if(plant_controller)
-		plant_controller.remove_plant(src)
+		STOP_PROCESSING(plant_controller, src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
-		plant_controller.add_plant(neighbor)
+		START_PROCESSING(plant_controller, neighbor)
 	return ..()
 	
 /obj/effect/plant/single
 	spread_chance = 0
+
 
 /obj/effect/plant/New(var/newloc, var/datum/seed/newseed, var/obj/effect/plant/newparent)
 	..()
@@ -125,7 +126,7 @@
 	spawn(1) // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
 		set_dir(calc_dir())
 		update_icon()
-		plant_controller.add_plant(src)
+		START_PROCESSING(plant_controller, src)
 		// Some plants eat through plating.
 		if(islist(seed.chems) && !isnull(seed.chems["pacid"]))
 			var/turf/T = get_turf(src)
@@ -235,7 +236,7 @@
 /obj/effect/plant/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	plant_controller.add_plant(src)
+	START_PROCESSING(plant_controller, src)
 
 	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)

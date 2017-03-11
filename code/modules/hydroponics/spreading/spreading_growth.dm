@@ -29,6 +29,7 @@
 		neighbor.neighbors -= T
 
 /obj/effect/plant/process()
+	set waitfor = FALSE
 
 	// Something is very wrong, kill ourselves.
 	if(!seed)
@@ -79,13 +80,12 @@
 		//spread to 1-3 adjacent turfs depending on yield trait.
 		var/max_spread = between(1, round(seed.get_trait(TRAIT_YIELD)*3/14), 3)
 		
-		// Can't run this in this proc, thou shalt not sleep in fire().
 		addtimer(CALLBACK(src, .proc/do_spread, spread_chance, max_spread), 1)
 
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
 	if(neighbors.len || health != max_health)
-		plant_controller.add_plant(src)
+		START_PROCESSING(plant_controller, src)
 
 /obj/effect/plant/proc/do_spread(spread_chance, max_spread)
 	for(var/i in 1 to max_spread)
@@ -115,7 +115,7 @@
 			continue
 		for(var/obj/effect/plant/neighbor in check_turf.contents)
 			neighbor.neighbors |= check_turf
-			plant_controller.add_plant(neighbor)
+			START_PROCESSING(plant_controller, neighbor)
 
 	QDEL_IN(src, 1)
 
