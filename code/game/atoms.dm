@@ -135,7 +135,7 @@ Also, the icon used for the beam will have to be vertical and 32x32.
 The math involved assumes that the icon is vertical to begin with so unless you want to adjust the math,
 its easier to just keep the beam vertical.
 */
-/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10)
+/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10, face = TRUE)
 	//BeamTarget represents the target for the beam, basically just means the other end.
 	//Time is the duration to draw the beam
 	//Icon is obviously which icon to use for the beam, default is beam.dmi
@@ -147,7 +147,8 @@ its easier to just keep the beam vertical.
 	//of range or to another z-level, then the beam will stop.  Otherwise it will
 	//continue to draw.
 
-		set_dir(get_dir(src,BeamTarget))	//Causes the source of the beam to rotate to continuosly face the BeamTarget.
+		if (face)
+			set_dir(get_dir(src,BeamTarget))	//Causes the source of the beam to rotate to continuosly face the BeamTarget.
 
 		for(var/obj/effect/overlay/beam/O in orange(10,src))	//This section erases the previously drawn beam because I found it was easier to
 			if(O.BeamSource==src)				//just draw another instance of the beam instead of trying to manipulate all the
@@ -160,7 +161,7 @@ its easier to just keep the beam vertical.
 		var/N=0
 		var/length=round(sqrt((DX)**2+(DY)**2))
 		for(N,N<length,N+=32)
-			var/obj/effect/overlay/beam/X=getFromPool(/obj/effect/overlay/beam, loc)
+			var/obj/effect/overlay/beam/X = new /obj/effect/overlay/beam(loc)
 			X.BeamSource=src
 			if(N+32>length)
 				var/icon/II=new(icon,icon_state)
