@@ -35,8 +35,13 @@
 		dirs = list(NORTH,SOUTH)
 
 	spark_system = bind_spark(src, 3, dirs)
-	spawn(1)
-		reconnect()
+
+/obj/machinery/power/generator/initialize()
+	reconnect()
+
+/obj/machinery/power/generator/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
 
 //generators connect in dir and reverse_dir(dir) directions
 //mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator

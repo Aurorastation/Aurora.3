@@ -3,11 +3,8 @@
 	unacidable = 1
 	var/i_attached//Added for possible image attachments to objects. For hallucinations and the like.
 
-/obj/effect/overlay/Destroy(force = FALSE)
-	if (!force)
-		src.loc = null
-		return QDEL_HINT_POOL
-
+/obj/effect/overlay/Destroy()
+	i_attached = null
 	return ..()
 	
 /obj/effect/overlay/beam//Not actually a projectile, just an effect.

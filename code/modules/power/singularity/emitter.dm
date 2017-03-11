@@ -33,6 +33,10 @@
 	..()
 	spark_system = bind_spark(src, 5, alldirs)
 
+/obj/machinery/power/emitter/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
+
 /obj/machinery/power/emitter/verb/rotate()
 	set name = "Rotate"
 	set category = "Object"

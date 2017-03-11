@@ -33,6 +33,12 @@
 	..()
 	spark_system = bind_spark(src, 5)
 
+/obj/machinery/computer/message_monitor/Destroy()
+	QDEL_NULL(spark_system)
+	linkedServer = null
+	customrecepient = null
+	return ..()
+
 /obj/machinery/computer/message_monitor/attackby(obj/item/weapon/O as obj, mob/living/user as mob)
 	if(stat & (NOPOWER|BROKEN))
 		..()

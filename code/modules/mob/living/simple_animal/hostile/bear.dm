@@ -439,8 +439,7 @@
 	spark_system = bind_spark(src, 5)
 
 /mob/living/simple_animal/hostile/bear/spatial/Destroy()
-	if (spark_system)
-		qdel(spark_system)
+	QDEL_NULL(spark_system)
 	return ..()
 
 //Called when we want to bypass ticks and attack immediately. For example in response to being shot

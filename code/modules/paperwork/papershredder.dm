@@ -133,7 +133,7 @@
 	var/mob/living/M = loc
 	if(istype(M))
 		M.drop_from_inventory(src)
-	getFromPool(/obj/effect/decal/cleanable/ash,get_turf(src))
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
 
 /obj/item/weapon/shreddedp

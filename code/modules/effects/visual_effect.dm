@@ -27,10 +27,6 @@
 	life_ticks--
 	return EFFECT_CONTINUE
 
-/obj/visual_effect/Destroy(force = FALSE)
-	if (!force)
-		loc = null	// hide it.
-		return QDEL_HINT_POOL
-
+/obj/visual_effect/Destroy()
 	SSeffects.effects_visuals -= src
-	return QDEL_HINT_QUEUE
+	return ..()

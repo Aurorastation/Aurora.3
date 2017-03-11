@@ -9,10 +9,7 @@
 	if (queue)
 		src.queue()
 
-/datum/effect_system/Destroy(force = FALSE)
-	if (!force)
-		return QDEL_HINT_POOL
-
+/datum/effect_system/Destroy()
 	if (holder)
 		holder = null
 	SSeffects.effects_objects -= src

@@ -39,6 +39,16 @@ log transactions
 	machine_id = "[station_name()] RT #[num_financial_terminals++]"
 	spark_system = bind_spark(src, 5)
 
+/obj/machinery/atm/Destroy()
+	QDEL_NULL(spark_system)
+	authenticated_account = null
+	if (held_card)
+		held_card.forceMove(loc)
+		held_card = null
+
+	return ..()
+
+
 /obj/machinery/atm/process()
 	if(stat & NOPOWER)
 		return

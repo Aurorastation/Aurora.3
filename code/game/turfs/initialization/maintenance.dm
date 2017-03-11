@@ -54,7 +54,7 @@ var/global/list/random_junk
 		var/turf/neighbour = get_step(T, dir)
 		if(neighbour && neighbour.density)
 			if(dir == WEST)
-				getFromPool(/obj/effect/decal/cleanable/cobweb, T)
+				new /obj/effect/decal/cleanable/cobweb(T)
 			if(dir == EAST)
-				getFromPool(/obj/effect/decal/cleanable/cobweb2, T)
+				new /obj/effect/decal/cleanable/cobweb2(T)
 			return
