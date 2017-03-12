@@ -14,7 +14,7 @@
 		ORE_PLATINUM = 1,
 		ORE_COAL = 2,
 		ORE_IRON = 2
-		)
+	)
 	product_mod = 0.3
 	product = /obj/item/stack/material/plasteel
 
@@ -23,7 +23,7 @@
 	requires = list(
 		ORE_COAL = 1,
 		ORE_IRON = 1
-		)
+	)
 	product = /obj/item/stack/material/steel
 
 /datum/alloy/borosilicate
@@ -31,5 +31,5 @@
 	requires = list(
 		ORE_PLATINUM = 1,
 		ORE_SAND = 2
-		)
+	)
 	product = /obj/item/stack/material/glass/phoronglass

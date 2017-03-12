@@ -307,7 +307,8 @@
 				if(prob(50))
 					M.Stun(5)
 			M.apply_effect(25, IRRADIATE)
-
+			if(prob(3))
+				excavate_find(prob(5), finds[1])
 
 	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
 
@@ -323,6 +324,10 @@
 			for(var/next_direction in step_overlays)
 				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
 					T.overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
+
+	if(rand(1,500) == 1)
+		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
+		new /obj/structure/closet/crate/secure/loot(src)
 
 	if(istype(N))
 		N.overlay_detail = rand(0,9)
@@ -662,10 +667,10 @@
 	if (!overlay_cache)
 		overlay_cache = list()
 		overlay_cache.len = 10
-		for (var/i = 1; i < overlay_cache.len; i++)
+		for (var/i = 1; i <= overlay_cache.len; i++)
 			overlay_cache[i] = image('icons/turf/flooring/decals.dmi', "asteroid[i - 1]")
 
-	if(overlay_detail)
+	if(overlay_detail) 
 		overlays += overlay_cache[overlay_detail + 1]
 
 	if(update_neighbors)

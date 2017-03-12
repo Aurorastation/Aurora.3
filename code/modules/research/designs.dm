@@ -1097,8 +1097,8 @@ datum/design/item/experimental_welder
 	build_path = /obj/item/weapon/computer_hardware/processor_unit/photonic/small
 	sort_string = "VBAAY"
 
-// Tesla Link
-/datum/design/item/modularcomponent/teslalink
+// AI Slot
+/datum/design/item/modularcomponent/aislot
 	name = "intellicard slot"
 	id = "aislot"
 	req_tech = list(TECH_POWER = 2, TECH_DATA = 3)

@@ -232,6 +232,26 @@
 		/obj/item/weapon/storage/bag/trash
 		)
 
+/obj/item/weapon/storage/belt/wands
+	name = "wand belt"
+	desc = "A belt designed to hold various rods of power."
+	icon_state = "soulstonebelt"
+	item_state = "soulstonebelt"
+	storage_slots = 5
+	max_w_class = 3
+	max_storage_space  = 28
+	can_hold = list(
+		/obj/item/weapon/gun/energy/wand
+		)
+		
+/obj/item/weapon/storage/belt/wands/full/New()
+	..()
+	new /obj/item/weapon/gun/energy/wand/fire(src)
+	new /obj/item/weapon/gun/energy/wand/polymorph(src)
+	new /obj/item/weapon/gun/energy/wand/teleport(src)
+	new /obj/item/weapon/gun/energy/wand/force(src)
+	new /obj/item/weapon/gun/energy/wand/animation(src)
+
 /obj/item/weapon/storage/belt/mining
 	name = "explorer's webbing"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."

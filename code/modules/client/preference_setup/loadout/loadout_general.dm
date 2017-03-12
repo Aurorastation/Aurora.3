@@ -47,11 +47,6 @@
 	path = /obj/item/weapon/material/kitchen/utensil/knife/boot
 	cost = 3
 
-/datum/gear/cape
-	display_name = "tunnel cloak"
-	path = /obj/item/weapon/storage/backpack/cloak
-	cost = 1
-
 /datum/gear/lunchbox
 	display_name = "lunchbox"
 	description = "A little lunchbox."

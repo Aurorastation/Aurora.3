@@ -38,6 +38,8 @@
 	var/need_update_field = 0
 	var/need_player_check = 0
 
+	var/datum/effect_system/sparks/spark_system
+
 /obj/machinery/mining/drill/New()
 
 	..()
@@ -48,6 +50,8 @@
 	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
 	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
 	component_parts += new /obj/item/weapon/cell/high(src)
+
+	spark_system = bind_spark(src, 3)
 
 	RefreshParts()
 
@@ -208,15 +212,11 @@
 			if(supported && panel_open)
 				if(cell)
 					system_error("unsealed cell fitting error")
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(3, 1, src.loc)
-					s.start()
+					spark_system.queue()
 					sleep(20)
-					s.set_up(3, 1, src.loc)
-					s.start()
+					spark_system.queue()
 					sleep(10)
-					s.set_up(3, 1, src.loc)
-					s.start()
+					spark_system.queue()
 					sleep(10)
 					if(panel_open)
 						if(prob(70))

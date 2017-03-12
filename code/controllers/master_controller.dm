@@ -81,6 +81,7 @@ datum/controller/game_controller/proc/setup_objects()
 	admin_notice(span("danger", "Done."))
 
 	if(config.generate_asteroid)
+		var/time = world.time
 		// These values determine the specific area that the map is applied to.
 		// If you do not use the official Baycode moonbase map, you will need to change them.
 		//Create the mining Z-level.
@@ -89,15 +90,12 @@ datum/controller/game_controller/proc/setup_objects()
 		new /datum/random_map/automata/cave_system(null,0,0,3,255,255)
 		//new /datum/random_map/noise/volcanism(null,1,1,5,255,255) // Not done yet! Pretty, though.
 		// Create the mining ore distribution map.
-		new /datum/random_map/noise/ore(null, 0, 0, 5, 255, 255)
-		new /datum/random_map/noise/ore(null, 0, 0, 4, 255, 255)
-		new /datum/random_map/noise/ore(null, 0, 0, 3, 255, 255)
-		// Update all turfs to ensure everything looks good post-generation. Yes,
-		// it's brute-forcey, but frankly the alternative is a mine turf rewrite.
-		/*for(var/turf/simulated/mineral/M in world) // Ugh.
-			M.updateMineralOverlays()
-		for(var/turf/simulated/floor/asteroid/M in world) // Uuuuuugh.
-			M.updateMineralOverlays()*/
+		new /datum/random_map/noise/ore(null, 0, 0, 5, 64, 64)
+		new /datum/random_map/noise/ore(null, 0, 0, 4, 64, 64)
+		new /datum/random_map/noise/ore(null, 0, 0, 3, 64, 64)
+		var/msg = "Asteroid generation completed in [(world.time - time) / 10] seconds."
+		admin_notice(span("danger", msg))
+		game_log("ASGEN", msg)
 
 	admin_notice(span("danger", "Setting up lighting."))
 	initialize_lighting()
@@ -112,6 +110,9 @@ datum/controller/game_controller/proc/setup_objects()
 
 	//Set up spawn points.
 	populate_spawn_points()
+
+	// Setup laws.
+	global.corp_regs = new
 
 	admin_notice("<span class='danger'>Initializations complete.</span>", R_DEBUG)
 	sleep(-1)
