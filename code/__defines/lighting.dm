@@ -80,7 +80,7 @@
 // Some brightness/range defines for objects.
 #define L_WALLMOUNT_POWER 0.4
 #define L_WALLMOUNT_RANGE 2
-#define L_WALLMOUNT_HI_POWER 2	// For red/delta alert on fire alarms.
+#define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
 // This controls by how much console sprites are dimmed before being overlayed.
 #define HOLOSCREEN_ADDITION_FACTOR 1

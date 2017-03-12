@@ -779,8 +779,9 @@ var/global/list/damage_icon_parts = list()
 
 		if(istype(head,/obj/item/clothing/head))
 			var/obj/item/clothing/head/hat = head
-			if(hat.on && light_overlay_cache["[hat.light_overlay]"])
-				standing.overlays |= light_overlay_cache["[hat.light_overlay]"]
+			var/cache_key = "[hat.light_overlay]_[species.get_bodytype()]"
+			if(hat.on && light_overlay_cache["[cache_key]"])
+				standing.overlays |= light_overlay_cache["[cache_key]"]
 
 		standing.color = head.color
 		overlays_standing[HEAD_LAYER] = standing

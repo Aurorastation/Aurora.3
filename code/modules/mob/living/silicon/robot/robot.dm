@@ -22,7 +22,7 @@
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
 	var/crisis //Admin-settable for combat module use.
 	var/crisis_override = 0
-	var/integrated_light_power = 6
+	var/integrated_light_power = 4
 	var/datum/wires/robot/wires
 
 //Icon stuff
@@ -255,7 +255,7 @@
 	if(new_sprites && new_sprites.len)
 		module_sprites = new_sprites.Copy()
 		//Custom_sprite check and entry
-		
+
 		if (custom_sprite == 1)
 			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
 			if("[ckey]-[modtype]" in valid_states)
@@ -269,7 +269,7 @@
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
-		
+
 	updateicon()
 	return module_sprites
 
@@ -424,7 +424,7 @@
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intenselight)
-			set_light(integrated_light_power * 2, integrated_light_power)
+			set_light(integrated_light_power * 2, 1)
 		else
 			set_light(integrated_light_power)
 	else
@@ -464,7 +464,7 @@
 
 /mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
 	..(Proj)
-	if(prob(75) && Proj.damage > 0) 
+	if(prob(75) && Proj.damage > 0)
 		spark_system.queue()
 	return 2
 
@@ -1031,6 +1031,7 @@
 	icon_selection_tries = 0
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
 	src << "Your icon has been set. You now require a module reset to change it."
+
 
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
 	set name = "Set Sensor Augmentation"
