@@ -39,7 +39,6 @@ var/global/list/image/splatter_cache=list()
 /obj/effect/decal/cleanable/blood/Destroy()
 	for(var/datum/disease/D in viruses)
 		D.cure(0)
-	processing_objects -= src
 	return ..()
 
 /obj/effect/decal/cleanable/blood/New()
@@ -55,11 +54,7 @@ var/global/list/image/splatter_cache=list()
 						blood_DNA |= B.blood_DNA.Copy()
 					qdel(B)
 	drytime = world.time + DRYING_TIME * (amount+1)
-	processing_objects += src
-
-/obj/effect/decal/cleanable/blood/process()
-	if(world.time > drytime)
-		dry()
+	addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
 
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = "#[get_random_colour(1)]"
@@ -116,7 +111,6 @@ var/global/list/image/splatter_cache=list()
 	desc = drydesc
 	color = adjust_brightness(color, -50)
 	amount = 0
-	processing_objects -= src
 
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
 	..()
@@ -248,8 +242,10 @@ var/global/list/image/splatter_cache=list()
 	random_icon_states = list("mucus")
 
 	var/list/datum/disease2/disease/virus2 = list()
-	var/dry=0 // Keeps the lag down
+	var/dry = 0 // Keeps the lag down
 
 /obj/effect/decal/cleanable/mucus/New()
-	spawn(DRYING_TIME * 2)
-		dry=1
+	addtimer(CALLBACK(src, .proc/dry), DRYING_TIME * 2)
+
+/obj/effect/decal/cleanable/mucus/proc/dry()
+	dry = TRUE
