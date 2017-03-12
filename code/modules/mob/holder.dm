@@ -355,11 +355,9 @@ var/list/holder_mob_icon_cache = list()
 	desc_dead = "It used to be a little plant critter."
 	icon_state = "nymph"
 	icon_state_dead = "nymph_dead"
-	origin_tech = "magnets=3;biotech=5"
+	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
 	slot_flags = SLOT_HEAD | SLOT_OCLOTHING
 	w_class = 2
-
-
 
 
 /obj/item/weapon/holder/drone
@@ -367,7 +365,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a small maintenance robot."
 	icon_state = "drone"
 	item_state = "drone"
-	origin_tech = "magnets=3;engineering=5"
+	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 	slot_flags = SLOT_HEAD
 	w_class = 4
 	contained_sprite = 1
@@ -410,7 +408,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "cortical borer"
 	desc = "It's a slimy brain slug. Gross."
 	icon_state = "brainslug"
-	origin_tech = "biotech=6"
+	origin_tech = list(TECH_BIO = 6)
 	w_class = 1
 
 /obj/item/weapon/holder/monkey
@@ -457,7 +455,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "mouse_brown_dead"
 	slot_flags = SLOT_EARS
 	contained_sprite = 1
-	origin_tech = "biotech=2"
+	origin_tech = list(TECH_BIO = 2)
 	w_class = 1
 
 /obj/item/weapon/holder/mouse/white
