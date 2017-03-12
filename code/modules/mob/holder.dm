@@ -383,6 +383,12 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "constructiondrone"
 	w_class = 6//You're not fitting this thing in a backpack
 
+/obj/item/weapon/holder/drone/mining
+	name = "mining drone"
+	desc = "It's a plucky mining drone."
+	icon_state = "mdrone"
+	item_state = "mdrone"
+
 /obj/item/weapon/holder/cat
 	name = "cat"
 	desc = "It's a cat. Meow."

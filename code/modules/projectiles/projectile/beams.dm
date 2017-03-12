@@ -225,7 +225,7 @@
 /obj/item/projectile/beam/megaglaive
 	name = "thermal lance"
 	icon_state = "megaglaive"
-	damage = 6
+	damage = 10
 	incinerate = 5
 	armor_penetration = 10
 	no_attack_log = 1
@@ -243,7 +243,7 @@
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal lance"
 	icon_state = "megaglaive"
-	damage = 3
+	damage = 5
 	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/solar/muzzle

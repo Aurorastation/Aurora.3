@@ -49,12 +49,36 @@
 		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor))
 			turf_to_check.overlays += image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
 
+/turf/simulated/mineral/examine(mob/user)
+	..()
+	if(mineral)
+		switch(mined_ore)
+			if(0)
+				user << "<span class='info'>It is ripe with [mineral.display_name].</span>"
+			if(1)
+				user << "<span class='info'>Its [mineral.display_name] looks a little depleted.</span>"
+			if(2)
+				user << "<span class='warning'>Its [mineral.display_name] looks very depleted!</span>"
+	else
+		user << "<span class='info'>It is devoid of any valuable minerals.</span>"
+	switch(emitter_blasts_taken)
+		if(0)
+			user << "<span class='info'>It is in pristine condition.</span>"
+		if(1)
+			user << "<span class='info'>It appears a little damaged.</span>"
+		if(2)
+			user << "<span class='warning'>It is crumbling!</span>"
+		if(3)
+			user << "<span class='danger'>It looks ready to collapse at any moment!</span>"
+
 /turf/simulated/mineral/ex_act(severity)
 	switch(severity)
 		if(2.0)
 			if (prob(70))
 				mined_ore = 1 //some of the stuff gets blown up
 				GetDrilled()
+			else
+				emitter_blasts_taken += 2
 		if(1.0)
 			mined_ore = 2 //some of the stuff gets blown up
 			GetDrilled()
@@ -65,9 +89,8 @@
 	if(istype(Proj, /obj/item/projectile/beam/emitter))
 		emitter_blasts_taken++
 
-		if(emitter_blasts_taken > 2) // 3 blasts per tile
-			mined_ore = 1
-			GetDrilled()
+	if(emitter_blasts_taken > 2) // 3 blasts per tile
+		GetDrilled()
 
 /turf/simulated/mineral/Bumped(AM)
 	. = ..()
@@ -457,9 +480,18 @@
 			return
 		if(2.0)
 			if (prob(70))
+				dug += rand(4,10)
+				gets_dug()
+			else
+				dug += rand(1,3)
 				gets_dug()
 		if(1.0)
-			gets_dug()
+			if(prob(30))
+				dug = 11
+				gets_dug()
+			else
+				dug += rand(4,11)
+				gets_dug()
 	return
 
 /turf/simulated/floor/asteroid/is_plating()
@@ -583,8 +615,7 @@
 
 /turf/simulated/floor/asteroid/proc/gets_dug()
 
-	if(dug == 0)
-		icon_state = "asteroid_dug"
+	icon_state = "asteroid_dug"
 
 	new/obj/item/weapon/ore/glass(src)
 

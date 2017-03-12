@@ -40,7 +40,7 @@
 	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
 	construction_time = 300
 
-	device_type = /obj/item/weapon/pickaxe/plasmacutter
+	device_type = /obj/item/weapon/gun/energy/plasmacutter
 
 /obj/item/rig_module/device/healthscanner
 	name = "health scanner module"

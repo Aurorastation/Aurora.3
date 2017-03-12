@@ -101,20 +101,6 @@
 	desc = "This makes no metallurgic sense."
 	drill_verb = "picking"
 
-/obj/item/weapon/pickaxe/plasmacutter
-	name = "plasma cutter"
-	icon_state = "plasmacutter"
-	item_state = "gun"
-	w_class = 3.0 //it is smaller than the pickaxe
-	damtype = "fire"
-	digspeed = 20 //Can slice though normal walls, all girders, or be used in reinforced wall deconstruction/ light thermite on fire
-	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
-	desc = "A rock cutter that uses bursts of hot plasma. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
-	drill_verb = "cutting"
-	drill_sound = 'sound/items/Welder.ogg'
-	sharp = 1
-	edge = 1
-
 /obj/item/weapon/pickaxe/diamond
 	name = "diamond pickaxe"
 	icon_state = "dpickaxe"
@@ -177,8 +163,8 @@
 	name = "flags"
 	desc = "Some colourful flags."
 	singular_name = "flag"
-	amount = 10
-	max_amount = 10
+	amount = 5
+	max_amount = 5
 	icon = 'icons/obj/mining.dmi'
 	var/upright = 0
 	var/base_state
@@ -240,6 +226,16 @@
 	src.use(1)
 
 /**********************Miner Carts***********************/
+/obj/item/weapon/rrf_ammo
+	name = "compressed railway cartridge"
+	desc = "Highly compressed matter for the RRF."
+	icon = 'icons/obj/ammo.dmi'
+	icon_state = "rcd"
+	item_state = "rcdammo"
+	w_class = 2
+	origin_tech = list(TECH_MATERIAL = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 15000,"glass" = 7500)
+
 /obj/item/weapon/rrf
 	name = "\improper Rapid-Railway-Fabricator"
 	desc = "A device used to rapidly deploy mine tracks."
@@ -248,7 +244,7 @@
 	opacity = 0
 	density = 0
 	anchored = 0.0
-	var/stored_matter = 60
+	var/stored_matter = 30
 	w_class = 3.0
 
 /obj/item/weapon/rrf/examine(mob/user)
@@ -259,15 +255,28 @@
 	..()
 	if (istype(W, /obj/item/weapon/rcd_ammo))
 
-		if ((stored_matter + 30) > 60)
+		if ((stored_matter + 30) > 30)
 			user << "The RRF can't hold any more matter."
 			return
 
 		qdel(W)
 
-		stored_matter += 60
+		stored_matter += 30
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-		user << "The RRF now holds [stored_matter]/60 fabrication-units."
+		user << "The RRF now holds [stored_matter]/30 fabrication-units."
+		return
+
+	if (istype(W, /obj/item/weapon/rrf_ammo))
+
+		if ((stored_matter + 15) > 30)
+			user << "The RRF can't hold any more matter."
+			return
+
+		qdel(W)
+
+		stored_matter += 15
+		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
+		user << "The RRF now holds [stored_matter]/30 fabrication-units."
 		return
 
 /obj/item/weapon/rrf/afterattack(atom/A, mob/user as mob, proximity)
@@ -304,7 +313,7 @@
 			R.cell.use(used_energy)
 	else
 		stored_matter--
-		user << "The RRF now holds [stored_matter]/60 fabrication-units."
+		user << "The RRF now holds [stored_matter]/30 fabrication-units."
 
 
 /obj/structure/track
@@ -442,14 +451,15 @@
 /obj/item/device/wormhole_jaunter
 	name = "wormhole jaunter"
 	desc = "A single use device harnessing outdated warp technology. The wormholes it creates are unpleasant to travel through, to say the least."
-	icon = 'icons/obj/mining.dmi'
+	contained_sprite = 1
+	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "jaunter"
-	item_state = "signaler"
 	throwforce = 0
 	w_class = 2
 	throw_speed = 3
 	throw_range = 5
 	slot_flags = SLOT_BELT
+	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
 /obj/item/device/wormhole_jaunter/attack_self(mob/user)
 	user.visible_message("<span class='notice'>[user.name] activates the [src.name]!</span>")
@@ -535,7 +545,7 @@
 	var/loaded = 1
 	var/malfunctioning = 0
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
-	origin_tech = "biotech=4;magnets=6"
+	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
 
 /obj/item/weapon/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
 	if(!loaded)
@@ -603,12 +613,14 @@ var/list/total_extraction_beacons = list()
 /obj/item/weapon/extraction_pack
 	name = "warp extraction pack"
 	desc = "A complex device that warps nonliving matter to nearby locations."
-	icon = 'icons/obj/mining.dmi'
+	contained_sprite = 1
+	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "jaunter"
-	w_class = 2
+	w_class = 3
 	var/obj/structure/extraction_point/beacon
 	var/list/beacon_networks = list("station")
 	var/uses_left = 3
+	origin_tech = list(TECH_BLUESPACE = 3, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
 /obj/item/weapon/extraction_pack/examine()
 	. = ..()
@@ -668,6 +680,7 @@ var/list/total_extraction_beacons = list()
 	desc = "Emits a signal which Warp-Item recovery devices can lock onto. Activate in hand to create a beacon."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "subspace_amplifier"
+	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)
 
 /obj/item/fulton_core/attack_self(mob/user)
 	if(do_after(user,15,target = user))
@@ -692,3 +705,96 @@ var/list/total_extraction_beacons = list()
 /obj/structure/extraction_point/Destroy()
 	total_extraction_beacons -= src
 	..()
+
+/**********************Resonator**********************/
+
+/obj/item/weapon/resonator
+	name = "resonator"
+	contained_sprite = 1
+	icon = 'icons/obj/mining_contained.dmi'
+	icon_state = "resonator"
+	desc = "A handheld device that creates small fields of energy that resonate until they detonate, crushing rock. It can also be activated without a target to create a field at the user's location, to act as a delayed time trap. It's more effective in a vacuum."
+	w_class = 3
+	force = 15
+	throwforce = 10
+	var/burst_time = 30
+	var/fieldlimit = 4
+	var/list/fields = list()
+	var/quick_burst_mod = 0.8
+	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
+
+/obj/item/weapon/resonator/upgraded
+	name = "upgraded resonator"
+	desc = "An upgraded version of the resonator that can produce more fields at once."
+	icon_state = "resonator_u"
+	origin_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_POWER = 2, TECH_ENGINEERING = 3)
+	fieldlimit = 6
+	quick_burst_mod = 1
+
+/obj/item/weapon/resonator/proc/CreateResonance(target, creator)
+	var/turf/T = get_turf(target)
+	var/obj/effect/resonance/R = locate(/obj/effect/resonance) in T
+	if(R)
+		R.resonance_damage *= quick_burst_mod
+		R.burst(T)
+		return
+	if(fields.len < fieldlimit)
+		playsound(src,'sound/weapons/resonator_fire.ogg',50,1)
+		var/obj/effect/resonance/RE = new /obj/effect/resonance(T, creator, burst_time, src)
+		fields += RE
+
+/obj/item/weapon/resonator/attack_self(mob/user)
+	if(burst_time == 50)
+		burst_time = 30
+		user << "<span class='info'>You set the resonator's fields to detonate after 3 seconds.</span>"
+	else
+		burst_time = 50
+		user << "<span class='info'>You set the resonator's fields to detonate after 5 seconds.</span>"
+
+/obj/item/weapon/resonator/afterattack(atom/target, mob/user, proximity_flag)
+	..()
+	CreateResonance(target, user)
+
+/obj/effect/resonance
+	name = "resonance field"
+	desc = "A resonating field that significantly damages anything inside of it when the field eventually ruptures."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "shield1"
+	layer = 5
+	anchored = TRUE
+	mouse_opacity = 0
+	var/resonance_damage = 20
+	var/creator
+	var/obj/item/weapon/resonator/res
+
+/obj/effect/resonance/New(loc, set_creator, timetoburst, set_resonator)
+	..()
+	creator = set_creator
+	res = set_resonator
+	var/turf/proj_turf = get_turf(src)
+	if(!istype(proj_turf))
+		return
+	var/datum/gas_mixture/environment = proj_turf.return_air()
+	var/pressure = environment.return_pressure()
+	if(pressure < 50)
+		name = "strong resonance field"
+		resonance_damage = 60
+	spawn(timetoburst)
+		burst(proj_turf)
+
+/obj/effect/resonance/Destroy()
+	if(res)
+		res.fields -= src
+	return ..()
+
+/obj/effect/resonance/proc/burst(turf/T)
+	playsound(src,'sound/weapons/resonator_blast.ogg',50,1)
+	if(istype(T, /turf/simulated/mineral))
+		var/turf/simulated/mineral/M = T
+		M.GetDrilled(1)
+	for(var/mob/living/L in T)
+		if(creator)
+			add_logs(creator, L, "used a resonator field on", "resonator")
+		L << "<span class='danger'>The [src.name] ruptured with you in it!</span>"
+		L.apply_damage(resonance_damage, BRUTE)
+	qdel(src)

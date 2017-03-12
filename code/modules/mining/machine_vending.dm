@@ -18,40 +18,45 @@
 	var/list/prize_list = list( //keep in order of price
 		new /datum/data/mining_equipment("Food Ration",			/obj/item/weapon/reagent_containers/food/snacks/liquidfood,				10),
 		new /datum/data/mining_equipment("Poster",				/obj/item/weapon/contraband/poster,										25),
+		new /datum/data/mining_equipment("5 Red Flags",			/obj/item/stack/flag/red,												50),
+		new /datum/data/mining_equipment("5 Green Flags",		/obj/item/stack/flag/green,												50),
+		new /datum/data/mining_equipment("5 Yellow Flags",		/obj/item/stack/flag/yellow,											50),
 		new /datum/data/mining_equipment("Stimpack",			/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack,	75),
 		new /datum/data/mining_equipment("Lottery chip",		/obj/item/weapon/spacecash/ewallet/lotto,								100),
 		new /datum/data/mining_equipment("KA White Tracer Rounds",	/obj/item/borg/upgrade/modkit/tracer,								100),
+		new /datum/data/mining_equipment("Compressed rail cartridge",/obj/item/weapon/rrf_ammo,											100),
 		new /datum/data/mining_equipment("Premium Cigar",		/obj/item/clothing/mask/smokable/cigarette/cigar/havana,				150),
 		new /datum/data/mining_equipment("KA Adjustable Tracer Rounds",	/obj/item/borg/upgrade/modkit/tracer/adjustable,				150),
 		new /datum/data/mining_equipment("Material Scanners",	/obj/item/clothing/glasses/material,									200),
 		new /datum/data/mining_equipment("Deep Ore Scanner",	/obj/item/weapon/mining_scanner,										250),
 		new /datum/data/mining_equipment("Mining Drill",		/obj/item/weapon/pickaxe/drill,											300),
 		new /datum/data/mining_equipment("Stimpack Bundle",		/obj/item/weapon/storage/box/autoinjectors/stims,						300),
-		new /datum/data/mining_equipment("Mining RIG",			/obj/item/weapon/rig/industrial,										500),
+		new /datum/data/mining_equipment("Drone Drill Upgrade",	/obj/item/device/mine_bot_ugprade,										400),
 		new /datum/data/mining_equipment("Point Transfer Card",	/obj/item/weapon/card/mining_point_card,								500),
 		new /datum/data/mining_equipment("Explorer's Webbing",	/obj/item/weapon/storage/belt/mining,									500),
+		new /datum/data/mining_equipment("Item-Warp Beacon",	/obj/item/warp_core,													500),
+		new /datum/data/mining_equipment("Drone Health Upgrade",	/obj/item/device/mine_bot_ugprade/health,							600),
+		new /datum/data/mining_equipment("Rapid-Railway-Fabricator",/obj/item/weapon/rrf,												600),
 		new /datum/data/mining_equipment("Survival Autoinjector",/obj/item/weapon/reagent_containers/hypospray/autoinjector/survival,	600),
 		new /datum/data/mining_equipment("Brute First-Aid Kit",	/obj/item/weapon/storage/firstaid/brute,								600),
+		new /datum/data/mining_equipment("Mining RIG",			/obj/item/weapon/rig/industrial,										750),
 		new /datum/data/mining_equipment("KA Range Increase",	/obj/item/borg/upgrade/modkit/range,									750),
 		new /datum/data/mining_equipment("Jaunter",				/obj/item/device/wormhole_jaunter,										750),
 		new /datum/data/mining_equipment("Kinetic Accelerator",	/obj/item/weapon/gun/energy/kinetic_accelerator,						750),
-		//new /datum/data/mining_equipment("Resonator",			/obj/item/weapon/resonator,												800),
+		new /datum/data/mining_equipment("Resonator",			/obj/item/weapon/resonator,												800),
+		new /datum/data/mining_equipment("Drone Plasma Cutter Upgrade",		/obj/item/device/mine_bot_ugprade/plasma,					800),
+		new /datum/data/mining_equipment("Mining Drone",		/mob/living/silicon/robot/drone/mining,									800),
+		new /datum/data/mining_equipment("Plasma Cutter",		/obj/item/weapon/gun/energy/plasmacutter,								900),
 		new /datum/data/mining_equipment("KA Damage Increase",	/obj/item/borg/upgrade/modkit/damage,									1000),
 		new /datum/data/mining_equipment("KA Cooldown Decrease",/obj/item/borg/upgrade/modkit/cooldown,									1000),
 		new /datum/data/mining_equipment("Item-Warp Pack",		/obj/item/weapon/extraction_pack,										1000),
-		new /datum/data/mining_equipment("Item-Warp Beacon",	/obj/item/warp_core,													1000),
 		new /datum/data/mining_equipment("Lazarus Injector",	/obj/item/weapon/lazarus_injector,										1000),
-		new /datum/data/mining_equipment("Gold Pickaxe",		/obj/item/weapon/pickaxe/gold,											1000),
 		new /datum/data/mining_equipment("Jetpack",				/obj/item/weapon/tank/jetpack,											1000),
 		new /datum/data/mining_equipment("1000 credits",		/obj/item/weapon/spacecash/c1000,										1000),
+		new /datum/data/mining_equipment("Super Resonator",		/obj/item/weapon/resonator/upgraded,									1250),
 		new /datum/data/mining_equipment("KA AoE Damage",		/obj/item/borg/upgrade/modkit/aoe/turfs,								1500),
-		new /datum/data/mining_equipment("Diamond Pickaxe",		/obj/item/weapon/pickaxe/diamond,										2000),
-		//new /datum/data/mining_equipment("Super Resonator",		/obj/item/weapon/resonator/upgraded,								2500),
-		//new /datum/data/mining_equipment("Mining Drone",		/mob/living/simple_animal/hostile/mining_drone,							800),
-		//new /datum/data/mining_equipment("Drone Melee Upgrade",	/obj/item/device/mine_bot_ugprade,									400),
-		//new /datum/data/mining_equipment("Drone Health Upgrade",/obj/item/device/mine_bot_ugprade/health,								400),
-		//new /datum/data/mining_equipment("Drone Ranged Upgrade",/obj/item/device/mine_bot_ugprade/cooldown,							600),
-		//new /datum/data/mining_equipment("Drone AI Upgrade",	/obj/item/slimepotion/sentience/mining,									1000),
+		new /datum/data/mining_equipment("Diamond Pickaxe",		/obj/item/weapon/pickaxe/diamond,										1500),
+		new /datum/data/mining_equipment("Drone Thermal Drill Upgrade",	/obj/item/device/mine_bot_ugprade/thermal,						2000),
 		)
 
 /datum/data/mining_equipment
@@ -162,6 +167,7 @@
 					if(pickedloc)
 						inserted_id.mining_points -= prize.cost
 						new prize.equipment_path(pickedloc)
+						usr << "<span class='danger'>Order passed. Your order has been placed on the next available supply shuttle.</span>"
 					else
 						usr << "<span class='danger'>{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again.</span>"
 						return

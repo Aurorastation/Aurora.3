@@ -55,3 +55,28 @@
 	descriptor = "high yield caves"
 	mineral_sparse =  /turf/simulated/mineral/random/high_chance
 	mineral_rich = /turf/simulated/mineral/random/higher_chance
+
+/datum/random_map/automata/cave_system/chasms
+	descriptor = "chasm caverns"
+	wall_type =  /turf/unsimulated/mask
+	floor_type = /turf/unsimulated/mask
+	target_turf_type = /turf/unsimulated/chasm_mask
+	mineral_sparse =  /turf/simulated/open
+	mineral_rich = /turf/simulated/open
+
+/datum/random_map/automata/cave_system/chasms/cleanup()
+	var/ore_count = round(map.len/20)
+	while((ore_count>0) && (ore_turfs.len>0))
+		if(!priority_process) sleep(-1)
+		var/check_cell = pick(ore_turfs)
+		ore_turfs -= check_cell
+		var/turf/below = GetBelow(map[check_cell])
+		if(below)
+			var/area/below_area = get_area(below)
+			if(!(below_area in the_station_areas))
+				if(prob(75))
+					map[check_cell] = DOOR_CHAR  // Mineral block
+				else
+					map[check_cell] = EMPTY_CHAR // Rare mineral block.
+				ore_count--
+	return 1

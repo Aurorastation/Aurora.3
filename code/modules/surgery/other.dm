@@ -55,7 +55,7 @@
 /datum/surgery_step/fix_dead_tissue		//Debridement
 	priority = 2
 	allowed_tools = list(
-		/obj/item/weapon/scalpel = 100,	
+		/obj/item/weapon/scalpel = 100,
 		/obj/item/weapon/material/knife = 75,
 		/obj/item/weapon/material/shard = 50
 	)
@@ -173,7 +173,7 @@
 	allowed_tools = list(
 		/obj/item/weapon/weldingtool = 80,
 		/obj/item/weapon/circular_saw = 60,
-		/obj/item/weapon/pickaxe/plasmacutter = 100
+		/obj/item/weapon/gun/energy/plasmacutter = 100
 		)
 
 	can_infect = 0

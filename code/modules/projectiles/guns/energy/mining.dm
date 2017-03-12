@@ -9,6 +9,7 @@
 	self_recharge = 1
 	charge_meter = 0
 	fire_delay = 16
+	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4, TECH_POWER = 4)
 
 	var/max_mod_capacity = 100
 	var/list/modkits = list()
@@ -52,7 +53,7 @@
 /obj/item/projectile/kinetic
 	name = "kinetic force"
 	icon_state = null
-	damage = 40
+	damage = 30
 	damage_type = BRUTE
 	check_armour = "bomb"
 	kill_count = 5
@@ -105,7 +106,7 @@
 /obj/item/borg/upgrade/modkit
 	name = "modification kit"
 	desc = "An upgrade for kinetic accelerators."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/mining.dmi'
 	icon_state = "modkit"
 	origin_tech = "programming=2;materials=2;magnets=4"
 	var/denied_type = null
@@ -262,3 +263,68 @@
 
 /obj/item/borg/upgrade/modkit/tracer/adjustable/attack_self(mob/user)
 	bolt_color = input(user,"Choose Color") as color
+
+/*******************PLASMA CUTTER*******************/
+
+/obj/item/weapon/gun/energy/plasmacutter/mounted
+	self_recharge = 1
+	use_external_power = 1
+
+/obj/item/weapon/gun/energy/plasmacutter
+	name = "plasma cutter"
+	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
+	contained_sprite = 1
+	icon = 'icons/obj/mining_contained.dmi'
+	icon_state = "plasma"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = 3
+	force = 20
+	sharp = 1
+	edge = 1
+	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
+	matter = list(DEFAULT_WALL_MATERIAL = 4000)
+	projectile_type = /obj/item/projectile/beam/plasmacutter
+	max_shots = 30
+	sel_mode = 1
+	burst = 3
+	burst_delay = 0
+	dispersion = list(0, -0.5, 0.5)
+
+/obj/item/projectile/beam/plasmacutter
+	name = "plasma arc"
+	icon_state = "omnilaser"
+	damage = 10
+	damage_type = BRUTE
+	check_armour = "laser"
+	kill_count = 15
+	pass_flags = PASSTABLE
+
+	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
+	tracer_type = /obj/effect/projectile/laser_omni/tracer
+	impact_type = /obj/effect/projectile/laser_omni/impact
+
+/obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
+	strike_thing(A)
+	. = ..()
+
+/obj/item/projectile/beam/plasmacutter/proc/strike_thing(atom/target)
+	if(istype(target, /turf/simulated/mineral))
+		var/turf/simulated/mineral/M = target
+		if(prob(10))
+			M.GetDrilled(1)
+		else if(!M.emitter_blasts_taken)
+			M.emitter_blasts_taken += 1
+		else if(prob(33))
+			M.emitter_blasts_taken += 1
+
+	else if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = target
+		var/list/organstocut
+		for(var/obj/item/organ/external/E in M.organs)
+			organstocut += E
+		var/obj/item/organ/external/E = pick(organstocut)
+		if(E.damage < 20)
+			E.take_damage(15,10,1,1)
+		else
+			E.droplimb(0,DROPLIMB_EDGE)

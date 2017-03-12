@@ -340,7 +340,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/screwdriver(src)
 	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/weapon/pickaxe/plasmacutter(src)
+	src.modules += new /obj/item/weapon/weldingtool/experimental(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/gripper(src)
@@ -623,7 +623,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.emag = new /obj/item/weapon/pickaxe/plasmacutter(src)
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	..()
 
 /obj/item/weapon/robot_module/research
@@ -717,7 +717,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)
-	src.modules += new /obj/item/weapon/pickaxe/plasmacutter(src)
+	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
@@ -747,7 +747,7 @@ var/global/list/robot_modules = list(
 	robot.internals = new/obj/item/weapon/tank/jetpack/carbondioxide(src)
 	src.modules += robot.internals
 
-	src.emag = new /obj/item/weapon/pickaxe/plasmacutter(src)
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	src.emag.name = "Plasma Cutter"
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
@@ -820,3 +820,21 @@ var/global/list/robot_modules = list(
 	LR.Charge(R, amount)
 	..()
 	return
+
+/obj/item/weapon/robot_module/mining_drone
+	name = "drone module"
+	no_slip = 1
+	networks = list(NETWORK_ENGINEERING)
+
+/obj/item/weapon/robot_module/mining_drone/New(var/mob/living/silicon/robot/robot)
+	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/material(src)
+	src.modules += new /obj/item/weapon/storage/bag/ore(src)
+	src.modules += new /obj/item/weapon/pickaxe(src)
+	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
+	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/mining_scanner(src)
+
+	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
+	src.emag.name = "Mounted Thermal Drill"
+	..()
