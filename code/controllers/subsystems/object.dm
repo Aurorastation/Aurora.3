@@ -36,7 +36,7 @@
 		if (QDELETED(object))
 			continue
 
-		object.initialize()
+		object.initialize(TRUE)
 
 		CHECK_TICK
 

@@ -203,28 +203,25 @@
 	..()
 
 // create a new lighting fixture
-/obj/machinery/light/New()
-	..()
-
+/obj/machinery/light/initialize(roundstart = FALSE)
 	spark_system = bind_spark(src, 3)
+	on = has_power()
 
-	spawn(2)
-		on = has_power()
+	switch(fitting)
+		if("tube")
+			if(roundstart && prob(2))
+				broken(1)
+		if("bulb")
+			if(roundstart && prob(5))
+				broken(1)
 
-		switch(fitting)
-			if("tube")
-				if(prob(2))
-					broken(1)
-			if("bulb")
-				if(prob(5))
-					broken(1)
-		spawn(1)
-			update(0)
+	INVOKE_ASYNC(src, .proc/update, 0)
 
 /obj/machinery/light/Destroy()
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
+	QDEL_NULL(spark_system)
 	return ..()
 
 /obj/machinery/light/update_icon()

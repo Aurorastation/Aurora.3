@@ -22,7 +22,7 @@
 	..()
 	if (objects_initialized)
 		if (auto_init)
-			initialize()
+			initialize(FALSE)
 	else
 		objects_init_list += src
 
