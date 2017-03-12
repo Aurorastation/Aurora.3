@@ -13,7 +13,6 @@
 	anchored = 1
 	var/should_process = FALSE
 	mouse_opacity = 0
-	invisibility = INVISIBILITY_ABSTRACT
 	
 /obj/machinery/abstract/attack_ai(mob/user as mob)
 	return
