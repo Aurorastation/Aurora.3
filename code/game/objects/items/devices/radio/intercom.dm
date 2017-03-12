@@ -7,7 +7,7 @@
 	canhear_range = 2
 	flags = CONDUCT | NOBLOODY
 	var/number = 0
-	var/last_tick //used to delay the powercheck
+	var/obj/machinery/abstract/intercom_listener/power_interface
 
 /obj/item/device/radio/intercom/custom
 	name = "station intercom (Custom)"
@@ -46,7 +46,7 @@
 
 /obj/item/device/radio/intercom/New()
 	..()
-	processing_objects += src
+	power_interface = new(loc, src)
 
 /obj/item/device/radio/intercom/department/medbay/New()
 	..()
@@ -78,8 +78,8 @@
 	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
 
 /obj/item/device/radio/intercom/Destroy()
-	processing_objects -= src
-	..()
+	QDEL_NULL(power_interface)
+	return ..()
 
 /obj/item/device/radio/intercom/attack_ai(mob/user as mob)
 	src.add_fingerprint(user)
@@ -106,23 +106,23 @@
 
 	return canhear_range
 
-/obj/item/device/radio/intercom/process()
-	if(((world.timeofday - last_tick) > 30) || ((world.timeofday - last_tick) < 0))
-		last_tick = world.timeofday
+/obj/item/device/radio/intercom/proc/power_change(has_power)
+	if (!src.loc)
+		on = 0
+	else
+		on = has_power
 
-		if(!src.loc)
-			on = 0
-		else
-			var/area/A = get_area(src)
-			if(!A)
-				on = 0
-			else
-				on = A.powered(EQUIP) // set "on" to the power status
+	update_icon()
 
-		if(!on)
-			icon_state = "intercom-p"
-		else
-			icon_state = "intercom"
+/obj/item/device/radio/intercom/forceMove(atom/dest)
+	power_interface.forceMove(dest)
+	..(dest)
+
+/obj/item/device/radio/intercom/update_icon()
+	if (on)
+		icon_state = "intercom"
+	else
+		icon_state = "intercom-p"
 
 /obj/item/device/radio/intercom/broadcasting
 	broadcasting = 1
