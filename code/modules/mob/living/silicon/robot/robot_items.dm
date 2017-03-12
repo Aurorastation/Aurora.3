@@ -90,7 +90,10 @@
 			user << "Your [src] already has something inside.  Analyze or eject it first."
 			return
 		var/obj/item/I = target
-		I.loc = src
+		if (I.anchored)
+			user << span("notice", "\The [I] is anchored in place.")
+			return
+		I.forceMove(src)
 		loaded_item = I
 		for(var/mob/M in viewers())
 			M.show_message(text("<span class='notice'>[user] adds the [I] to the [src].</span>"), 1)

@@ -17,7 +17,9 @@
 
 /datum/surgery_step/open_encased/saw
 	allowed_tools = list(
-	/obj/item/weapon/circular_saw = 100, \
+	/obj/item/weapon/circular_saw = 100,
+	/obj/item/weapon/melee/energy = 100,
+	/obj/item/weapon/melee/chainsword = 70,
 	/obj/item/weapon/material/hatchet = 75
 	)
 
@@ -172,7 +174,7 @@
 
 		affected.createwound(BRUISE, 20)
 		affected.fracture()
-		
+
 		if(affected.internal_organs && affected.internal_organs.len)
 			if(prob(40))
 				var/obj/item/organ/O = pick(affected.internal_organs) //TODO weight by organ size
@@ -182,7 +184,7 @@
 /datum/surgery_step/open_encased/mend
 	allowed_tools = list(
 	/obj/item/weapon/bonegel = 100,	\
-	/obj/item/weapon/screwdriver = 75
+	/obj/item/weapon/tape_roll = 60
 	)
 
 	min_duration = 20

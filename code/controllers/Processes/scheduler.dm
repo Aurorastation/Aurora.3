@@ -15,9 +15,9 @@
 /datum/controller/process/scheduler/doWork()
 	while (head && !PSCHED_CHECK_TICK)
 		if (head.destroyed)
+			head.kill()
 			head = head.next
 			tasks -= head
-			head.kill()
 			continue
 		if (head.trigger_time >= world.time)
 			return	// Nothing after this will be ready to fire.
