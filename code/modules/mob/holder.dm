@@ -36,22 +36,9 @@ var/list/holder_mob_icon_cache = list()
 	if (contained)
 		contained.examine(user)
 
-
-/obj/item/weapon/holder/GetID()
-	for(var/mob/M in contents)
-		var/obj/item/I = M.GetIdCard()
-		if(I)
-			return I
-	return null
-
-/obj/item/weapon/holder/GetAccess()
-	var/obj/item/I = GetID()
-	return I ? I.GetAccess() : ..()
-
 /obj/item/weapon/holder/attack_self()
 	for(var/mob/M in contents)
 		M.show_inv(usr)
-
 
 //Mob specific holders.
 /obj/item/weapon/holder/diona
