@@ -194,8 +194,13 @@ datum/controller/vote
 
 	proc/submit_vote(var/ckey, var/vote)
 		if(mode)
-			if(config.vote_no_dead && usr.stat == DEAD && !usr.client.holder)
-				return 0
+			if(config.vote_no_dead && usr && !usr.client.holder)
+				if (isnewplayer(usr))
+					return 0
+				else if (isobserver(usr))
+					var/mob/dead/observer/O = usr
+					if (O.started_as_observer)
+						return 0
 			if(vote && vote >= 1 && vote <= choices.len)
 				if(current_votes[ckey])
 					choices[choices[current_votes[ckey]]]--
