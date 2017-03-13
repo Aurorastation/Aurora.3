@@ -659,6 +659,3 @@ proc/dd_sortedTextList(list/incoming)
 			L.Swap(start++,end--)
 
 	return L
-
-#define LAZYINITLIST(L) if (!L) L = list()
-#define UNSETEMPTY(L) if (L && !L.len) L = null

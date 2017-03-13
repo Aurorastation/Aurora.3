@@ -27,9 +27,9 @@
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
 
-
-
-
+	var/list/our_overlays	//our local copy of (non-priority) overlays without byond magic. Use procs in SSoverlays to manipulate
+	var/list/priority_overlays	//overlays that should remain on top and not normally removed when using cut_overlay functions, like c4.
+	var/overlay_queued = FALSE
 
 /atom/proc/reveal_blood()
 	return
