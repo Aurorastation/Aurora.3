@@ -5,5 +5,5 @@
 	wait = 1	// ticks
 	flags = SS_NO_INIT | SS_TICKER
 
-/datum/subsystem/disposals/New()
+/datum/subsystem/processing/disposals/New()
 	NEW_SS_GLOBAL(SSdisposals)
