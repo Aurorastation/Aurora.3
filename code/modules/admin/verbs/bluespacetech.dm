@@ -349,7 +349,7 @@
 
 //Headset
 /obj/item/device/radio/headset/ert/bst
-	name = "\improper Bluespace Technician's headset"
+	name = "\improper bluespace technician's headset"
 	desc = "A Bluespace Technician's headset. The letters 'BST' are stamped on the side."
 	translate_binary = 1
 	translate_hive = 1
@@ -375,7 +375,7 @@
 
 //Clothes
 /obj/item/clothing/under/rank/centcom_officer/bst
-	name = "\improper Bluespace Technician's Uniform"
+	name = "\improper bluespace technician's uniform"
 	desc = "A Bluespace Technician's Uniform. There is a logo on the sleeve that reads 'BST'."
 	has_sensor = 0
 	sensor_mode = 0
@@ -395,7 +395,7 @@
 
 //Gloves
 /obj/item/clothing/gloves/swat/bst
-	name = "\improper Bluespace Technician's gloves"
+	name = "\improper bluespace technician's gloves"
 	desc = "A pair of modified gloves. The letters 'BST' are stamped on the side."
 	siemens_coefficient = 0
 	permeability_coefficient = 0
@@ -412,7 +412,7 @@
 
 //Sunglasses
 /obj/item/clothing/glasses/sunglasses/bst
-	name = "\improper Bluespace Technician's Glasses"
+	name = "\improper bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
 //	var/list/obj/item/clothing/glasses/hud/health/hud = null
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
@@ -435,7 +435,7 @@
 
 //Shoes
 /obj/item/clothing/shoes/black/bst
-	name = "\improper Bluespace Technician's shoes"
+	name = "\improper bluespace technician's shoes"
 	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
 	flags = NOSLIP
