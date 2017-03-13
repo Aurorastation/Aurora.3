@@ -52,6 +52,7 @@
 /atom/var/bottom_left_corner
 /atom/var/bottom_right_corner
 /atom/var/list/canSmoothWith = null // TYPE PATHS I CAN SMOOTH WITH~~~~~ If this is null and atom is smooth, it smooths only with itself
+/atom/var/material/smooth_material
 /atom/movable/var/can_be_unanchored = 0
 /turf/var/list/fixed_underlay = null
 
@@ -255,23 +256,41 @@
 
 	var/list/New
 
+	var/material/material = A.smooth_material
+
 	if(A.top_left_corner != nw)
 		A.cut_overlay(A.top_left_corner)
+		if (material && material.icon_colour)
+			var/image/temp = image(nw)
+			temp.color = material.icon_colour
+			nw = temp
 		A.top_left_corner = nw
 		LAZYADD(New, nw)
 
 	if(A.top_right_corner != ne)
 		A.cut_overlay(A.top_right_corner)
+		if (material && material.icon_colour)
+			var/image/temp = image(ne)
+			temp.color = material.icon_colour
+			ne = temp
 		A.top_right_corner = ne
 		LAZYADD(New, ne)
 
 	if(A.bottom_right_corner != sw)
 		A.cut_overlay(A.bottom_right_corner)
+		if (material && material.icon_colour)
+			var/image/temp = image(sw)
+			temp.color = material.icon_colour
+			sw = temp
 		A.bottom_right_corner = sw
 		LAZYADD(New, sw)
 
 	if(A.bottom_left_corner != se)
 		A.cut_overlay(A.bottom_left_corner)
+		if (material && material.icon_colour)
+			var/image/temp = image(se)
+			temp.color = material.icon_colour
+			se = temp
 		A.bottom_left_corner = se
 		LAZYADD(New, se)
 
@@ -393,9 +412,11 @@
 			queue_smooth(T)
 
 //SSicon_smooth
-/proc/queue_smooth(atom/A)
+/proc/queue_smooth(atom/A, material/mat = null)
 	if(!A.smooth || A.smooth & SMOOTH_QUEUED)
 		return
+
+	A.smooth_material = mat
 
 	SSicon_smooth.smooth_queue += A
 	SSicon_smooth.can_fire = 1
