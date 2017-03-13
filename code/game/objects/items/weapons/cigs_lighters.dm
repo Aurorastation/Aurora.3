@@ -266,14 +266,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
-	name = "\improper Cohiba Robusto cigar"
+	name = "cohiba robusto cigar"
 	desc = "There's little more you could want from a cigar."
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
-	name = "premium Havanian cigar"
+	name = "premium havanian cigar"
 	desc = "A cigar fit for only the best of the best."
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
