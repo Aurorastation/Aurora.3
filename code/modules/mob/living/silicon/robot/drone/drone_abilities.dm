@@ -4,7 +4,7 @@
 	set desc = "Tag yourself for delivery through the disposals system."
 	set category = "Robot Commands"
 
-	var/new_tag = input("Select the desired destination.", "Set Mail Tag", null) as null|anything in tagger_locations
+	var/new_tag = input("Select the desired destination.", "Set Mail Tag", null) as null|anything in SSdisposals.tagger_locations
 
 	if(!new_tag)
 		mail_destination = ""
@@ -18,8 +18,6 @@
 	if(istype(D))
 		src << "<span class='notice'>\The [D] acknowledges your signal.</span>"
 		D.flush_count = D.flush_every_ticks
-
-	return
 
 /mob/living/silicon/robot/drone/MouseDrop(atom/over_object)
 	var/mob/living/carbon/H = over_object

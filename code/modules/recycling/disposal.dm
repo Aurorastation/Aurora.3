@@ -29,18 +29,16 @@
 
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
-/obj/machinery/disposal/New()
-	..()
-	spawn(5)
-		trunk = locate() in src.loc
-		if(!trunk)
-			mode = 0
-			flush = 0
-		else
-			trunk.linked = src	// link the pipe trunk to self
+/obj/machinery/disposal/initialize()
+	trunk = locate() in src.loc
+	if(!trunk)
+		mode = 0
+		flush = 0
+	else
+		trunk.linked = src	// link the pipe trunk to self
 
-		air_contents = new/datum/gas_mixture(PRESSURE_TANK_VOLUME)
-		update()
+	air_contents = new/datum/gas_mixture(PRESSURE_TANK_VOLUME)
+	update()
 
 /obj/machinery/disposal/Destroy()
 	eject()
@@ -661,11 +659,9 @@
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
-/obj/structure/disposalpipe/New()
-	..()
-	base_icon_state = icon_state
-	return
 
+/obj/structure/disposalpipe/initialize()
+	base_icon_state = icon_state
 
 // pipe is deleted
 // ensure if holder is present, it is expelled
@@ -953,25 +949,23 @@
 /obj/structure/disposalpipe/segment
 	icon_state = "pipe-s"
 
-	New()
-		..()
-		if(icon_state == "pipe-s")
-			dpdir = dir | turn(dir, 180)
-		else
-			dpdir = dir | turn(dir, -90)
+/obj/structure/disposalpipe/segment/initialize()
+	..()
+	if(icon_state == "pipe-s")
+		dpdir = dir | turn(dir, 180)
+	else
+		dpdir = dir | turn(dir, -90)
 
-		update()
-		return
+	update()
 
 ///// Z-Level stuff
 /obj/structure/disposalpipe/up
 	icon_state = "pipe-u"
 
-/obj/structure/disposalpipe/up/New()
-		..()
-		dpdir = dir
-		update()
-		return
+/obj/structure/disposalpipe/up/initialize()
+	..()
+	dpdir = dir
+	update()
 
 /obj/structure/disposalpipe/up/nextdir(var/fromdir)
 	var/nextdir
@@ -1017,11 +1011,10 @@
 /obj/structure/disposalpipe/down
 	icon_state = "pipe-d"
 
-/obj/structure/disposalpipe/down/New()
+/obj/structure/disposalpipe/down/initialize()
 	..()
 	dpdir = dir
 	update()
-	return
 
 /obj/structure/disposalpipe/down/nextdir(var/fromdir)
 	var/nextdir
@@ -1072,7 +1065,7 @@
 /obj/structure/disposalpipe/junction
 	icon_state = "pipe-j1"
 
-/obj/structure/disposalpipe/junction/New()
+/obj/structure/disposalpipe/junction/initialize()
 	..()
 	if(icon_state == "pipe-j1")
 		dpdir = dir | turn(dir, -90) | turn(dir,180)
@@ -1081,7 +1074,6 @@
 	else // pipe-y
 		dpdir = dir | turn(dir,90) | turn(dir, -90)
 	update()
-
 
 // next direction to move
 // if coming in from secondary dirs, then next is primary dir
@@ -1127,10 +1119,12 @@
 	else
 		name = initial(name)
 
-/obj/structure/disposalpipe/tagger/New()
-	. = ..()
+/obj/structure/disposalpipe/tagger/initialize()
+	..()
 	dpdir = dir | turn(dir, 180)
-	if(sort_tag) tagger_locations |= sort_tag
+	if(sort_tag) 
+		SSdisposals.tagger_locations |= sort_tag
+
 	updatename()
 	updatedesc()
 	update()
@@ -1194,9 +1188,10 @@
 
 	dpdir = sortdir | posdir | negdir
 
-/obj/structure/disposalpipe/sortjunction/New()
-	. = ..()
-	if(sortType) tagger_locations |= sortType
+/obj/structure/disposalpipe/sortjunction/initialize()
+	..()
+	if(sortType) 
+		SSdisposals.tagger_locations |= sortType
 
 	updatedir()
 	updatename()
@@ -1284,13 +1279,11 @@
 	icon_state = "pipe-t"
 	var/obj/linked 	// the linked obj/machinery/disposal or obj/disposaloutlet
 
-/obj/structure/disposalpipe/trunk/New()
+/obj/structure/disposalpipe/trunk/initialize()
 	..()
 	dpdir = dir
 
 	update()
-
-/obj/structure/disposalpipe/trunk/initialize()
 	getlinked()
 
 /obj/structure/disposalpipe/trunk/proc/getlinked()
@@ -1383,18 +1376,16 @@
 					// i.e. will be treated as an empty turf
 	desc = "A broken piece of disposal pipe."
 
-	New()
-		..()
-		update()
-		return
+/obj/structure/disposalpipe/broken/initialize()
+	..()
+	update()
 
-	// called when welded
-	// for broken pipe, remove and turn into scrap
-
-	welded()
-//		var/obj/item/scrap/S = new(src.loc)
-//		S.set_components(200,0,0)
-		qdel(src)
+// called when welded
+// for broken pipe, remove and turn into scrap
+/obj/structure/disposalpipe/broken/welded()
+//	var/obj/item/scrap/S = new(src.loc)
+//	S.set_components(200,0,0)
+	qdel(src)
 
 // the disposal outlet machine
 
@@ -1411,7 +1402,6 @@
 
 /obj/structure/disposaloutlet/initialize()
 	target = get_ranged_target_turf(src, dir, 10)
-
 
 	var/obj/structure/disposalpipe/trunk/trunk = locate() in src.loc
 	if(trunk)

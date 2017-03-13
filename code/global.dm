@@ -116,16 +116,21 @@ var/custom_event_msg = null
 // Ideally, the connection dies when the server restarts (After feedback logging.).
 var/DBConnection/dbcon
 
-// Reference list for disposal sort junctions. Filled up by sorting junction's New()
-/var/list/tagger_locations = list()
-
 // Added for Xenoarchaeology, might be useful for other stuff.
 var/global/list/alphabet_uppercase = list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 
 // Used by robots and robot preferences.
 var/list/robot_module_types = list(
-	"Standard", "Engineering", "Construction", "Medical",  "Rescue",
-	"Miner",    "Custodial",     "Service",      "Clerical", "Security",
+	"Standard",
+	"Engineering",
+	"Construction",
+	"Medical",
+	"Rescue",
+	"Miner",
+	"Custodial",
+	"Service",
+	"Clerical",
+	"Security",
 	"Research"
 )
 
@@ -165,8 +170,3 @@ var/global/const/TICKS_IN_SECOND = 10
 
 //List of exosuit tracking beacons, to save performance
 var/global/list/exo_beacons = list()
-
-// Global variables to speed up object initialization.
-// Boolean to indicate whether objects should initialize themselves in their New() or wait for the game ticker to do it.
-// Check world.dm for the object list.
-var/global/objects_initialized = 0

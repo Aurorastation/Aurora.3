@@ -1,3 +1,8 @@
+// Global variables to speed up object initialization.
+// Boolean to indicate whether objects should initialize themselves in their New() or wait for the game ticker to do it.
+// Check world.dm for the object list.
+var/global/objects_initialized = FALSE
+
 /datum/subsystem/object
 	name = "Objects"
 	priority = SS_PRIORITY_OBJECTS
@@ -40,5 +45,5 @@
 
 		CHECK_TICK
 
-	objects_initialized = TRUE
+	global.objects_initialized = TRUE
 	..()
