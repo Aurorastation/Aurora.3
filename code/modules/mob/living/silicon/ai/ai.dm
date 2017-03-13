@@ -123,7 +123,7 @@ var/list/ai_verbs_default = list(
 
 	holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo1"))
 
-	proc_holder_list = new()
+	//proc_holder_list = new()	// This ain't even used, why are we initializing it?
 
 	if(L)
 		if (istype(L, /datum/ai_laws))

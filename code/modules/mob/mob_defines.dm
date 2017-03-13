@@ -169,7 +169,7 @@
 	var/captured = 0 //Functionally, should give the same effect as being buckled into a chair when true.
 
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
-	var/proc_holder_list[] = list()//Right now unused.
+	//var/proc_holder_list[] = list()//Right now unused.
 	//Also unlike the spell list, this would only store the object in contents, not an object in itself.
 
 	/* Add this line to whatever stat module you need in order to use the proc holder list.
