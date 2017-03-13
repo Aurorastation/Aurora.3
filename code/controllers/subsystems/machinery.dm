@@ -14,7 +14,7 @@ var/global/list/power_using_machines	= list()
 
 /datum/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
-		src.processing_machinery = machines.Copy()
+		src.processing_machinery = ticking_machines.Copy()
 		src.processing_power_users = power_using_machines.Copy()
 		src.processing_powersinks = processing_power_items.Copy()
 		src.processing_powernets = powernets.Copy()

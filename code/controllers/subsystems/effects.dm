@@ -19,12 +19,14 @@ var/datum/subsystem/effects/SSeffects
 	if (!resumed)
 		processing_effects = effects_objects
 		effects_objects = list()
-		processing_visuals = effects_visuals
-		effects_visuals = list()
+		processing_visuals = effects_visuals.Copy()
 
-	while (processing_effects.len)
-		var/datum/effect_system/E = processing_effects[processing_effects.len]
-		processing_effects.len--
+	var/list/current_effects = processing_effects
+	var/list/current_visuals = processing_visuals
+
+	while (current_effects.len)
+		var/datum/effect_system/E = current_effects[current_effects.len]
+		current_effects.len--
 
 		if (QDELETED(E))
 			continue
@@ -39,17 +41,17 @@ var/datum/subsystem/effects/SSeffects
 		if (MC_TICK_CHECK)
 			return
 
-	while (processing_visuals.len)
-		var/obj/visual_effect/V = processing_visuals[processing_visuals.len]
-		processing_visuals.len--
+	while (current_visuals.len)
+		var/obj/visual_effect/V = current_visuals[current_visuals.len]
+		current_visuals.len--
 
 		if (!V || V.gcDestroyed)
 			effects_visuals -= V
 			continue
 
 		switch (V.tick())
-			if (EFFECT_CONTINUE)
-				effects_visuals += V
+			if (EFFECT_HALT)
+				effects_visuals -= V
 
 			if (EFFECT_DESTROY)
 				effects_visuals -= V
