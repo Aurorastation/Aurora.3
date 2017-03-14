@@ -30,6 +30,7 @@
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
 /obj/machinery/disposal/initialize()
+	..()
 	trunk = locate() in src.loc
 	if(!trunk)
 		mode = 0
@@ -561,6 +562,11 @@
 				H.take_overall_damage(20, 0, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
 
 	var/obj/structure/disposalpipe/curr = loc
+	if (!loc)
+		STOP_PROCESSING(SSdisposals, src)
+		crash_with("disposalholder processing in nullspace!")
+		return
+
 	tick_last = curr
 	curr = curr.transfer(src)
 
@@ -569,7 +575,7 @@
 		return
 
 	if (!curr)
-		tick_last.expel(src, loc, dir)
+		tick_last.expel(src, loc.loc, dir)
 
 	if (!(count--))
 		STOP_PROCESSING(SSdisposals, src)
@@ -638,7 +644,7 @@
 
 /obj/structure/disposalholder/Destroy()
 	qdel(gas)
-	active = 0
+	STOP_PROCESSING(SSdisposals, src)
 	return ..()
 
 // Disposal pipes
@@ -661,6 +667,7 @@
 	// new pipe, set the icon_state as on map
 
 /obj/structure/disposalpipe/initialize()
+	..()
 	base_icon_state = icon_state
 
 // pipe is deleted
@@ -1283,7 +1290,6 @@
 	..()
 	dpdir = dir
 
-	update()
 	getlinked()
 
 /obj/structure/disposalpipe/trunk/proc/getlinked()
@@ -1412,7 +1418,7 @@
 /obj/structure/disposaloutlet/proc/expel(var/obj/structure/disposalholder/H)
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-	addtimer(CALLBACK(src, .proc/post_expel, H), 20, TIMER_CLIENT_TIME)
+	addtimer(CALLBACK(src, .proc/post_expel, H), 20)
 
 /obj/structure/disposaloutlet/proc/post_expel(obj/structure/disposalholder/H)
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
@@ -1422,8 +1428,7 @@
 			AM.forceMove(src.loc)
 			AM.pipe_eject(dir)
 			if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
-				spawn(5)
-					AM.throw_at(target, 3, 1)
+				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 3, 1), 5)
 		H.vent_gas(src.loc)
 		qdel(H)
 
