@@ -375,7 +375,7 @@
 			for(var/mob/M in viewers(src))
 				if(M == user)
 					continue
-				M.show_message("[user.name] smashed the light!", 3, "You hear a tinkle of breaking glass", 2)
+				M.show_message("[user.name] smashes the light!", 3, "You hear a tinkle of breaking glass", 2)
 			if(on && (W.flags & CONDUCT))
 				//if(!user.mutations & COLD_RESISTANCE)
 				if (prob(12))
@@ -422,29 +422,16 @@
 	var/area/A = get_area(src)
 	return A && A.lightswitch && (!A.requires_power || A.power_light)
 
-/obj/machinery/light/proc/flicker(var/amount = rand(10, 20))
-	set waitfor = FALSE
-	if(flickering) return
-	flickering = 1
-	if(on && status == LIGHT_OK)
-		for(var/i = 0; i < amount; i++)
-			if(status != LIGHT_OK) break
-			on = !on
-			update(0)
-			sleep(rand(5, 15))
-		on = (status == LIGHT_OK)
-		update(0)
-	flickering = 0
-
-/obj/machinery/light/proc/newflicker(amount = rand(10,20))
+/obj/machinery/light/proc/flicker(amount = rand(10,20))
 	set waitfor = FALSE
 	if (flickering || !on || status != LIGHT_OK)
 		return
 	
 	flickering = TRUE
 	var/offset = 1
+	var/thecallback = CALLBACK(src, .proc/handle_flicker)
 	for (var/i = 0; i < amount; i++)
-		addtimer(CALLBACK(src, .proc/handle_flicker), offset)
+		addtimer(thecallback, offset)
 		offset += rand(5, 15)
 
 	addtimer(CALLBACK(src, .proc/end_flicker), offset)

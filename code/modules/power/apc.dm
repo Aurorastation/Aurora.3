@@ -1303,12 +1303,6 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 /obj/machinery/power/apc/proc/flicker_all()
 	var/offset = 0
 	for (var/obj/machinery/light/L in area)
-		addtimer(CALLBACK(L, /obj/machinery/light/.proc/newflicker), offset)
-		offset += rand(5, 10)
-
-/obj/machinery/power/apc/proc/flicker_all_old()
-	var/offset = 0
-	for (var/obj/machinery/light/L in area)
 		addtimer(CALLBACK(L, /obj/machinery/light/.proc/flicker), offset)
 		offset += rand(5, 10)
 

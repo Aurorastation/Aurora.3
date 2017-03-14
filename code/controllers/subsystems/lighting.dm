@@ -14,6 +14,9 @@ var/datum/subsystem/lighting/SSlighting
 	var/list/corner_queue  = list() // lighting corners  queued for update.
 	var/list/overlay_queue = list() // lighting overlays queued for update.
 
+	var/force_queued = TRUE
+	var/round_started = FALSE
+
 /datum/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
 
@@ -39,6 +42,10 @@ datum/subsystem/lighting/stat_entry()
 	..()
 
 /datum/subsystem/lighting/fire(resumed = FALSE)
+	if (!resumed && !round_started && Master.round_started)
+		force_queued = FALSE
+		round_started = TRUE
+
 	var/list/curr_lights = light_queue
 	var/list/curr_corners = corner_queue
 	var/list/curr_overlays = overlay_queue

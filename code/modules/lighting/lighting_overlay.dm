@@ -31,7 +31,7 @@
 
 	update_overlay()
 
-/atom/movable/lighting_overlay/Destroy(force = FALSE)
+/atom/movable/lighting_overlay/Destroy()
 	L_PROF(loc, "overlay_destroy")
 	global.all_lighting_overlays        -= src
 	SSlighting.overlay_queue    		-= src
@@ -40,8 +40,8 @@
 	if (istype(T))
 		T.lighting_overlay = null
 		T.luminosity = 1
-
-	return force ? ..() : QDEL_HINT_POOL
+	
+	return ..()
 
 /atom/movable/lighting_overlay/proc/update_overlay()
 	var/turf/T = loc
@@ -52,13 +52,13 @@
 		else
 			warning("A lighting overlay realised it was in nullspace in update_overlay() and got pooled!")
 
-		returnToPool(src)
+		qdel(src)
 		return
 
 	if (istype(T, /turf/space))
 		// I mean, this happens often and doesn't do any harm. Might as well silence the warning.
 		//warning("A lighting overlay realised it was attached to a space tile and got pooled!")
-		returnToPool(src)
+		qdel(src)
 		return
 
 	// To the future coder who sees this and thinks

@@ -39,10 +39,10 @@
 
 	var/area/A = loc
 	if (A.dynamic_lighting && dynamic_lighting)
-		if (!lighting_corners_initialised)
+		if (!lighting_corners_initialised || !corners)
 			generate_missing_corners()
 
-		getFromPool(/atom/movable/lighting_overlay, src)
+		new /atom/movable/lighting_overlay(src)
 
 		for (var/datum/lighting_corner/C in corners)
 			if (!C.active) // We would activate the corner, calculate the lighting for it.

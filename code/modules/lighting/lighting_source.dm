@@ -92,6 +92,10 @@
 	if (top_atom && top_atom.light_sources)
 		top_atom.light_sources    -= src
 
+/datum/light_source/Destroy()
+	destroy()
+	return QDEL_HINT_IWILLGC
+
 // Process the light RIGHT NOW.
 #define DO_UPDATE 								\
 	if (destroyed || check() || force_update) {	\
@@ -117,7 +121,7 @@
 
 // Picks either scheduled or instant updates based on current server load.
 #define INTELLIGENT_UPDATE 							\
-	if (world.tick_usage > CURRENT_TICKLIMIT || !ticker || ticker.current_state <= GAME_STATE_SETTING_UP) {	\
+	if (world.tick_usage > CURRENT_TICKLIMIT || SSlighting.force_queued) {	\
 		QUEUE_UPDATE;								\
 	}												\
 	else {											\
