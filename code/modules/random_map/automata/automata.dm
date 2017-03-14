@@ -1,11 +1,4 @@
-#define CELL_ALIVE(VAL) ((VAL == cell_live_value) && (VAL != cell_dead_value))
-#define GET_MAP_CELL(X,Y) ((((Y) - 1) * limit_x) + (X))
-#define PREPARE_CELL(X,Y) \
-	tmp_cell = GET_MAP_CELL(X,Y);\
-	if (tmp_cell < 1 || tmp_cell > map.len) {\
-		tmp_cell = null;\
-	}
-
+#define CELL_ALIVE(VAL) (VAL == cell_live_value)
 #define KILL_CELL(CELL, NEXT_MAP) NEXT_MAP[CELL] = cell_dead_value;
 #define REVIVE_CELL(CELL, NEXT_MAP) NEXT_MAP[CELL] = cell_live_value;
 
@@ -42,37 +35,39 @@
 			// the generator being totally bricked and useless. Fuck it. We're
 			// hardcoding this shit. Feel free to rewrite and PR a fix. ~ Z
 			PREPARE_CELL(x,y)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x+1,y+1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x-1,y-1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x+1,y-1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x-1,y+1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x-1,y)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x,y-1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x+1,y)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 			PREPARE_CELL(x,y+1)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell])) 
 				count++
 
 			if(count >= cell_threshold)
 				REVIVE_CELL(current_cell, next_map)
 			else
 				KILL_CELL(current_cell, next_map)
+				
+		CHECK_TICK
 	map = next_map
 
 /datum/random_map/automata/proc/revive_cell(var/target_cell, var/list/use_next_map, var/final_iter)
@@ -85,8 +80,5 @@
 		use_next_map = map
 	use_next_map[target_cell] = cell_dead_value
 
-#undef CELL_ALIVE
-#undef GET_MAP_CELL
-#undef PREPARE_CELL
 #undef KILL_CELL
 #undef REVIVE_CELL

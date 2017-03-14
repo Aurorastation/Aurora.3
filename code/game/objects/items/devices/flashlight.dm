@@ -8,8 +8,8 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
-	//offset_light = 1
-	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	uv_intensity = 50
+	light_wedge = LIGHT_WIDE
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
 
@@ -24,10 +24,10 @@
 /obj/item/device/flashlight/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on, update_type = UPDATE_NOW)
+		set_light(brightness_on)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0, update_type = UPDATE_NOW)
+		set_light(0)
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
@@ -96,6 +96,7 @@
 	slot_flags = SLOT_EARS
 	brightness_on = 2
 	w_class = 1
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/drone
 	name = "low-power flashlight"
@@ -113,8 +114,10 @@
 	item_state = "heavyflashlight"
 	brightness_on = 4
 	w_class = 3
+	uv_intensity = 60
 	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
 	contained_sprite = 1
+	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/maglight
 	name = "maglight"
@@ -124,10 +127,12 @@
 	force = 10
 	brightness_on = 5
 	w_class = 3
+	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	contained_sprite = 1
+	light_wedge = LIGHT_NARROW
 
 
 // the desk lamps are a bit special
@@ -137,10 +142,12 @@
 	icon_state = "lamp"
 	item_state = "lamp"
 	brightness_on = 5
-	w_class = 4
+	w_class = 5
 	flags = CONDUCT
-
+	uv_intensity = 100
 	on = 1
+	slot_flags = 0 //No wearing desklamps
+	light_wedge = LIGHT_OMNI
 
 
 // green-shaded desk lamp
@@ -165,17 +172,17 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cord, make light'."
 	w_class = 2.0
-	brightness_on = 8 // Pretty bright.
-	light_power = 3
+	brightness_on = 4 // Pretty bright.
+	light_power = 4
 	light_color = LIGHT_COLOR_FLARE
 	icon_state = "flare"
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
 	var/fuel = 0
+	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
-	//offset_light = 0//Emits light all around, not directional
-	//diona_restricted_light = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/flare/New()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
@@ -224,14 +231,14 @@
 	item_state = "slime"
 	w_class = 1
 	brightness_on = 6
+	uv_intensity = 200
 	on = 1 //Bio-luminesence has one setting, on.
 	light_color = LIGHT_COLOR_SLIME_LAMP
-	//offset_light = 0//Emits light all around, not directional
-	//diona_restricted_light = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/slime/New()
 	..()
-	set_light(brightness_on, update_type = UPDATE_NOW)
+	set_light(brightness_on)
 
 /obj/item/device/flashlight/slime/update_icon()
 	return
@@ -252,9 +259,9 @@
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	contained_sprite = 1
-	//offset_light = 0
-	//diona_restricted_light = 0
+	uv_intensity = 255
 	var/fuel = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/glowstick/New()
 	fuel = rand(900, 1200)
@@ -271,7 +278,7 @@
 /obj/item/device/flashlight/glowstick/proc/turn_off()
 	on = 0
 	update_icon()
-		
+
 /obj/item/device/flashlight/glowstick/attack_self(var/mob/living/user)
 
 	if(((CLUMSY in user.mutations)) && prob(50))

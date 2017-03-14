@@ -195,9 +195,7 @@
 		if(electrocute_mob(user, C, src))
 			if(C.powernet)
 				C.powernet.trigger_warning()
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark(src, 3, alldirs)
 			if(user.stunned)
 				return 1
 		else

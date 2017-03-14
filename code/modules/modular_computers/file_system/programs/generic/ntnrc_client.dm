@@ -15,6 +15,7 @@
 	var/datum/ntnet_conversation/channel = null
 	var/operator_mode = 0		// Channel operator mode
 	var/netadmin_mode = 0		// Administrator mode (invisible to other users + bypasses passwords)
+	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/chatclient/New()
 	username = "DefaultUser[rand(100, 999)]"

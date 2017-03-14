@@ -258,9 +258,8 @@
 		reagent_glass.loc = Tsec
 		reagent_glass = null
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
+	spark(src, 3, alldirs)
+
 	qdel(src)
 	return
 

@@ -134,6 +134,35 @@
 		else
 			user << "<span class='warning'>\The [src] has a beaker already.</span>"
 		return
+	else if(istype(I, /obj/item/weapon/grab))
+
+		var/obj/item/weapon/grab/G = I
+		var/mob/living/L = G.affecting
+
+		if(!istype(L))
+			user << "<span class='warning'>\The machine won't accept that.</span>"
+			return
+
+		visible_message("[user] starts putting [G.affecting] into the [src].", 3)
+
+		if (do_mob(user, G.affecting, 20, needhand = 0))
+			if(occupant)
+				user << "<span class='warning'>\The [src] is already occupied.</span>"
+				return
+			var/bucklestatus = L.bucklecheck(user)
+
+			if (!bucklestatus)//incase the patient got buckled during the delay
+				return
+			if(L != G.affecting)//incase it isn't the same mob we started with
+				return
+
+			var/mob/M = G.affecting
+			M.forceMove(src)
+			update_use_power(2)
+			occupant = M
+			update_icon()
+			qdel(G)
+			return
 
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))

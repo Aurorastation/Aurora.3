@@ -104,8 +104,8 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "behemoth"
 	icon_living = "behemoth"
-	maxHealth = 250
-	health = 250
+	maxHealth = 400
+	health = 400
 	response_harm   = "harmlessly punches"
 	harm_intent_damage = 0
 	melee_damage_lower = 30
@@ -127,7 +127,7 @@
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
-			adjustBruteLoss(P.damage * 0.5)
+			adjustBruteLoss(P.damage * 0.3)
 			visible_message("<span class='danger'>The [P.name] gets reflected by [src]'s shell!</span>", \
 							"<span class='userdanger'>The [P.name] gets reflected by [src]'s shell!</span>")
 

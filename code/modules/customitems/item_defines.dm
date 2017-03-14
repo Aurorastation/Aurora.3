@@ -17,11 +17,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	switch(icon_state)
 		if("pocket_watch_open")
 			icon_state = "pocket_watch_close"
-			usr << "You close the [src]."
+			usr << "You close \the [src]."
 			desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
 		if("pocket_watch_close")
 			icon_state = "pocket_watch_open"
-			usr << "You open the [src]."
+			usr << "You open \the [src]."
 			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
@@ -74,7 +74,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)
 		user.put_in_hands(chip)
-		user << "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of the [src].</span>"
+		user << "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of \the [src].</span>"
 		chip = null
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -85,7 +85,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		chip = W
 		W.add_fingerprint(user)
 		add_fingerprint(user)
-		user << "You slot the [W] back into its place in the frames of the [src]."
+		user << "You slot the [W] back into its place in the frames of \the [src]."
 
 /obj/item/weapon/disk/fluff/nebula_chip //data chip - Roxy Wallace - nebulaflare
 	name = "data chip"
@@ -109,7 +109,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/motaki_datadrive.dmi'
 	icon_state = "motaki_datadrive"
 	item_state = "holobadge-cord"
-	slot_flags = SLOT_MASK
+	slot_flags = SLOT_MASK | SLOT_TIE
 
 
 /obj/item/clothing/ears/skrell/fluff/dompesh_cloth //Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995
@@ -142,7 +142,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/det/fluff/bell_hat //Brown Hat - Avery Bell - serveris6
 	name = "brown hat"
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
-	icon = 'icons/obj/custom_items/bell_hat.dmi'
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_hat"
 	item_state = "bell_hat"
 	contained_sprite = 1
@@ -154,6 +154,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "bell_coat"
 	item_state = "bell_coat"
 	contained_sprite = 1
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
+	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
 
 
 /obj/item/clothing/under/syndicate/tacticool/fluff/jaylor_turtleneck //Borderworlds Turtleneck - Jaylor Rameau - evilbrage
@@ -173,7 +175,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/device/kit/paint/ripley/fluff/zairjah_kit //Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk
-	name = "Hephaestus Industrial Exosuit MK III customization kit"
+	name = "\"Hephaestus Industrial Exosuit MK III\" APLU customisation kit"
 	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
 	new_name = "Hephaestus Industrial Exosuit MK III"
 	new_desc = "An ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
@@ -203,6 +205,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "kathleen_glove"
 	item_state = "kathleen_glove"
 	contained_sprite = 1
+	gender = NEUTER
+	body_parts_covered = null
 
 
 /obj/structure/bed/chair/wheelchair/fluff/nomak_scooter //Mobility Scooter - Dubaku Nomak - demonofthefall
@@ -392,7 +396,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			item_state = icon_state
 			usr << "You unzip \the [src]."
 		else
-			usr << "You attempt to button-up the velcro on your [src], before promptly realising how silly you are."
+			usr << "You attempt to button-up the velcro on \the [src], before promptly realising how silly you are."
 			return
 
 	usr.update_inv_wear_suit()
@@ -403,7 +407,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/accessory/armband/fluff/vittorio_armband //ATLAS Armband - Vittorio Giurifiglio - tytostyris
-	name = "Atlas armband"
+	name = "ATLAS armband"
 	desc = "This is an atlas armband showing anyone who sees this person, as a member of the Political party Atlas."
 	icon = 'icons/obj/custom_items/vittorio_armband.dmi'
 	icon_state = "vittorio_armband"
@@ -450,7 +454,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/accessory/badge/holo/cord/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
+/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
 	icon = 'icons/obj/custom_items/dylan_tags.dmi'
@@ -459,6 +463,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	stored_name = "Wright, Dylan L"
 	badge_string = "Pacific Union Special Forces"
 	contained_sprite = 1
+	slot_flags = SLOT_MASK | SLOT_TIE
 
 
 /obj/item/clothing/ears/fluff/rico_stripes //Racing Stripes - Ricochet - nebulaflare
@@ -489,6 +494,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	clipped = 1
 	species_restricted = null
+	gender = NEUTER
+	body_parts_covered = null
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
@@ -587,7 +594,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
 	name = "worn badge"
 	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
-	icon_state = "badge"
 	icon = 'icons/obj/custom_items/caleb_badge.dmi'
 	item_state = "caleb_badge"
 	icon_state = "caleb_badge"
@@ -697,7 +703,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/zohjar_jacket //People's Republic Medical Officer Coat - Zohjar Rasateir - lordraven001
 	name = "people's republic medical officer coat"
-	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
+	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. \
+	The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
 	icon = 'icons/obj/custom_items/zohjar_clothing.dmi'
 	icon_state = "zohjar_jacket"
 	item_state = "zohjar_jacket"
@@ -838,7 +845,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/badge/old/fluff/ana_badge //Faded Badge - Ana Roh'hi'tin - suethecake
 	name = "faded badge"
-	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the Forensic division."
+	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the forensic division."
 	stored_name = "Ana Issek"
 	badge_string = "NanoTrasen Security Department"
 
@@ -903,3 +910,46 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ryan_jacket"
 	item_state = "ryan_jacket"
 	contained_sprite = 1
+
+
+/obj/item/clothing/suit/storage/fluff/yuri_duster //Martian Duster - Yuri Daruski - bv1000
+	name = "martian duster"
+	desc = "A longer coat made of a tough fabric designed to protect the wearer from the harshness of the Mars badlands \
+	found beyond the terraformed areas of said planet. Two scorched holes can be found on the lower back, and three non-scorched holes \
+	appear in the upper torso on the back, with two lining up with two in the front."
+	icon = 'icons/obj/custom_items/yuri_duster.dmi'
+	icon_state = "yuri_duster"
+	item_state = "yuri_duster"
+	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/badge/fluff/bell_badge //Detective's Credentials - Avery Bell - serveris6
+	name = "detective's credentials"
+	desc = "A laminated card, verifying the denoted as a private investigator licensed in Biesel. A photo of a tan-skinned human male dressed in a brown coat and hat is imprinted."
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_state = "bell_badge"
+	item_state = "bell_badge"
+	contained_sprite = 1
+	stored_name = "Avery Bell"
+	badge_string = "Silhouette Co. Consulting Detective"
+
+	var/investigator = "Avery Bell"
+	var/occupation = "Consulting Detective"
+	var/birth_year = "8/8/2426"
+	var/licensed_systems = "Republic of Biesel, Sol Alliance, Nralakk"
+	var/supplementary_endorsements = "Licensed Medical Examiner; Sol Alliance, Republic of Biesel - Concealed firearm carry; Sol Alliance, Republic of Biesel"
+	var/citizenship = "Republic of Biesel"
+	
+/obj/item/clothing/accessory/badge/fluff/bell_badge/verb/read()
+	set name = "Review credentials"
+	set category = "Object"
+	set src in usr
+
+	usr << "\icon[] []: The detective's credentials show:"
+	usr << "The investigator registered to the credentials is [investigator]."
+	usr << "The assignment registered on the card is [occupation]."
+	usr << "The birth date on the card displays [birth_year]."
+	usr << "The citizenship registered on the card is [citizenship]."
+	usr << "The systems that the credentials show the user is licensed to investigate in are [licensed_systems]."
+	usr << "Additional endorsements registered on the card show: [supplementary_endorsements]."
+	return

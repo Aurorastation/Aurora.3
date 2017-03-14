@@ -12,6 +12,7 @@
 	available_on_ntnet = 1					// ... but we want it to be available for download.
 	nanomodule_path = /datum/nano_module/arcade_classic/	// Path of relevant nano module. The nano module is defined further in the file.
 	var/picked_enemy_name
+	color = LIGHT_COLOR_BLUE
 
 // Blatantly stolen and shortened version from arcade machines. Generates a random enemy name
 /datum/computer_file/program/game/arcade/proc/random_enemy_name()

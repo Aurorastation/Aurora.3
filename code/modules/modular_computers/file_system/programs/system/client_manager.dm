@@ -7,6 +7,7 @@
 	filedesc = "NTOS Client Manager"
 	extended_desc = "This program allows configuration of computer's software"
 	program_icon_state = "generic"
+	color = LIGHT_COLOR_GREEN
 	unsendable = 1
 	undeletable = 1
 	size = 4

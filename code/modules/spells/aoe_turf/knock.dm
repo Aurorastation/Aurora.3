@@ -1,7 +1,7 @@
 /spell/aoe_turf/knock
 	name = "Knock"
 	desc = "This spell opens nearby doors and does not require wizard garb."
-
+	feedback = "KN"
 	school = "transmutation"
 	charge_max = 100
 	spell_flags = 0
@@ -9,6 +9,7 @@
 	invocation_type = SpI_WHISPER
 	range = 3
 	cooldown_min = 20 //20 deciseconds reduction per rank
+	cast_sound = 'sound/magic/Knock.ogg'
 
 	hud_state = "wiz_knock"
 
@@ -22,6 +23,12 @@
 				door.open()
 	return
 
+/spell/aoe_turf/knock/empower_spell()
+	if(!..())
+		return 0
+	range *= 2
+
+	return "You've doubled the range of [src]."
 
 //Construct version
 /spell/aoe_turf/knock/harvester
