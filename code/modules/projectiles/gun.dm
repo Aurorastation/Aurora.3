@@ -510,10 +510,18 @@
 	name = "offhand"
 
 	unwield()
-		qdel(src)
+		if (ismob(loc))
+			var/mob/the_mob = loc
+			the_mob.drop_from_inventory(src)
+		else
+			qdel(src)
 
 	wield()
-		qdel(src)
+		if (ismob(loc))
+			var/mob/the_mob = loc
+			the_mob.drop_from_inventory(src)
+		else
+			qdel(src)
 
 	dropped(mob/living/user as mob)
 		if(user)
@@ -522,7 +530,8 @@
 				user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
 				O.unwield()
 				unwield()
-		if(src)
+				
+		if (!QDELETED(src))
 			qdel(src)
 
 	mob_can_equip(M as mob, slot)
