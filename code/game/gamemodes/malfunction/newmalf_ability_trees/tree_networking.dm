@@ -164,7 +164,9 @@
 		if(!(A.z in config.station_levels)) 		// Only station APCs
 			continue
 		if(A.hacker == user || A.aidisabled) 		// This one is already hacked, or AI control is disabled on it.
+			A.update_icon()
 			continue
+
 		remaining_apcs += A
 
 	var/duration = (remaining_apcs.len * 100)		// Calculates duration for announcing system
