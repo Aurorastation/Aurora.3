@@ -293,6 +293,11 @@
 // The piston_move proc for various objects
 //
 /atom/movable/proc/piston_move()
+	// We dont want to move decals. So return 1 to prevent them from getting added to the to_crush list
+	if(istype(src, /obj/effect))
+		return 1
+
+
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
