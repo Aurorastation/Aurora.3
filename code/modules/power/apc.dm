@@ -120,8 +120,7 @@
 	var/global/list/status_overlays_environ
 
 	var/datum/effect_system/sparks/spark_system
-
-	var/datum/effect_system/sparks/spark_system
+	
 	var/list/debuggers = list()		// soft-refs to debuggers that have completed the debug step on a hacked APC.
 	var/static/list/hackmsgs = list(	// Fluff messages for successful debugs.
 		"Core system fault detected.",
