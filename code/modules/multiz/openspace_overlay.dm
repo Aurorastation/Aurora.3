@@ -8,25 +8,28 @@
 	plane = OPENTURF_PLANE
 	var/atom/movable/associated_atom
 
-/atom/movable/openspace_overlay/proc/assume_appearance(atom/movable/target)
+/atom/movable/openspace_overlay/proc/assume_appearance(atom/movable/target, override_plane = FALSE)
 	// Bind ourselves to our atom so we follow it around.
 	associated_atom = target
 	target.bound_overlay = src
 
+	dir = target.dir
+
 	// Just let DM copy the atom's appearance.
 	// This way we preserve layering & appearance without having to 
 	// duplicate a lot of vars.
-	appearance = target
-	// Reset these vars because appearance probably overwrote them.
-	dir = target.dir
-	plane = OPENTURF_PLANE
-	color = list(
+	var/mutable_appearance/MA = new(target)
+	// Override these vars manually.
+	if (override_plane)		// Space turfs should not have their plane overwritten.
+		MA.plane = OPENTURF_PLANE
+	MA.color = list(
 		0.5, 0, 0,
 		0, 0.5, 0,
 		0, 0, 0.5
 	)
-	//pixel_x = 10
-	pixel_y = -10
+	//MA.pixel_x = 10
+	MA.pixel_y = -10
+	appearance = MA
 
 /atom/movable/openspace_overlay/forceMove(atom/dest)
 	. = ..()

@@ -29,8 +29,12 @@
 				LAZYADD(T.openspace_overlays, OO)
 
 		// The turf overlay is handled specially so attackby is proxied.
-		var/atom/movable/openspace_overlay/below_OO = new(T)
-		below_OO.assume_appearance(T.below)
+		var/atom/movable/openspace_overlay/below_OO = new(T.below)
+		if (istype(T.below, /turf/space))
+			below_OO.assume_appearance(T.below, override_plane = FALSE)
+		else
+			below_OO.assume_appearance(T.below)
+			
 		LAZYADD(T.openspace_overlays, below_OO)
 
 		/*var/turf/neighbour = get_step(src, NORTH)
