@@ -304,5 +304,5 @@
 /obj/item/clothing/head/sombrero
 	name = "sombrero"
 	desc = "You can practically taste the fiesta."
-	icon_state = "cowboyhat"
+	icon_state = "sombrero"
 	body_parts_covered = 0
