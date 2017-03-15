@@ -111,7 +111,7 @@
 		F.faction = usr.faction
 		if(C.mob && C.mob.mind)
 			C.mob.mind.transfer_to(F)
-		F << "<B>You are skeleton minion to [usr], he is your master. Aid your master don't matter what, you have no free will.</B>"
+		F << "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>"
 
 		//equips the skeleton war gear
 		F.equip_to_slot_or_del(new /obj/item/clothing/under/gladiator(F), slot_w_uniform)
