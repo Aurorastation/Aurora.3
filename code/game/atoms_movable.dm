@@ -68,6 +68,9 @@
 	return
 
 /atom/movable/proc/forceMove(atom/destination)
+	if (bound_overlay)
+		bound_overlay.forceMove(destination)
+		
 	if(destination)
 		if(loc)
 			loc.Exited(src)

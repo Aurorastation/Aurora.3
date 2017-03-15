@@ -20,30 +20,20 @@
 		if (!T || !T.below)
 			continue
 
-		if (!T.openspace_overlays)
-			T.openspace_overlays = list()
-
-		for (var/thing in T.openspace_overlays)
-			var/atom/movable/openspace_overlay/overlay = thing
-			if (overlay && !overlay.persistant)
-				returnToPool(thing)
-
 		for (var/thing in T.below)
-			var/atom/movable/AM = thing
-			if (!AM || AM.no_z_overlay)
-				continue
-
-			var/atom/movable/openspace_overlay/OO = getFromPool(/atom/movable/openspace_overlay, T)
-			OO.assume_appearance(AM)
-			T.openspace_overlays += OO
+			var/atom/movable/object = thing
+			if (!QDELETED(object) && !object.bound_overlay && !object.no_z_overlay)
+				// Atom doesn't yet have an overlay, queue it.
+				var/atom/movable/openspace_overlay/OO = new(T)
+				OO.assume_appearance(object)
+				LAZYADD(T.openspace_overlays, OO)
 
 		// The turf overlay is handled specially so attackby is proxied.
-		if (!istype(T.below, /turf/space))
-			var/atom/movable/openspace_overlay/below_OO = getFromPool(/atom/movable/openspace_overlay/turf, T)
-			below_OO.assume_appearance(T.below)
-			T.openspace_overlays += below_OO
+		var/atom/movable/openspace_overlay/below_OO = new(T)
+		below_OO.assume_appearance(T.below)
+		LAZYADD(T.openspace_overlays, below_OO)
 
-		var/turf/neighbour = get_step(src, NORTH)
+		/*var/turf/neighbour = get_step(src, NORTH)
 		if (neighbour && !istype(neighbour, /turf/space))
 			T.overlays.Cut()
 			if ("[neighbour.type]" in turf_cache)
@@ -55,7 +45,7 @@
 				turf_cache += "[neighbour.type]"
 				turf_cache["[neighbour.type]"] = wall
 				
-				T.overlays += wall
+				T.overlays += wall*/
 
 		T.updating = FALSE
 

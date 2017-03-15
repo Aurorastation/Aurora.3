@@ -123,6 +123,9 @@
 
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
 /atom/movable/Move(newloc, direct)
+	if (bound_overlay)
+		bound_overlay.Move(newloc, direct)
+		
 	if (direct & (direct - 1))
 		if (direct & 1)
 			if (direct & 4)
