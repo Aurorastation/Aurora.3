@@ -18,6 +18,10 @@
 	// Just let DM copy the atom's appearance.
 	// This way we preserve layering & appearance without having to 
 	// duplicate a lot of vars.
+
+#if BYOND_VERSION > 510
+	// Nice fast method with minimal appearance churn, but requires 511.
+
 	var/mutable_appearance/MA = new(target)
 	// Override these vars manually.
 	if (override_plane)		// Space turfs should not have their plane overwritten.
@@ -27,9 +31,23 @@
 		0, 0.5, 0,
 		0, 0, 0.5
 	)
-	//MA.pixel_x = 10
-	MA.pixel_y = -10
+	//MA.pixel_x -= 10
+	MA.pixel_y -= -10
 	appearance = MA
+#elif
+	// Somewhat slower method that involves more appearance churn, but works with BYOND 510.
+	appearance = target
+	if (override_plane)
+		plane = OPENTURF_PLANE
+
+	color = list(
+		0.5, 0, 0,
+		0, 0.5, 0,
+		0, 0, 0.5
+	)
+	//pixel_x = 10
+	pixel_y -= 10
+#endif
 
 /atom/movable/openspace_overlay/forceMove(atom/dest)
 	. = ..()
