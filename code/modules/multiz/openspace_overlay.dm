@@ -1,4 +1,4 @@
-/atom/movable
+/atom
 	var/atom/movable/openspace_overlay/bound_overlay
 
 /atom/movable/openspace_overlay
