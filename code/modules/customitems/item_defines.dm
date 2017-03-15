@@ -341,7 +341,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac
 	name = "tiger claw"
-	desc = "A small cerimonial energy dagger given to Golden Tigers."
+	desc = "A small ceremonial energy dagger given to Golden Tigers."
 	icon = 'icons/obj/custom_items/moon_baton.dmi'
 	icon_state = "tigerclaw"
 	item_state = "tigerclaw"
@@ -467,7 +467,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	canremove = 0
 	abstract = 1
-	species_restricted = list("Baseline Frame")
+	species_restricted = list("Machine")
 
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100
@@ -618,7 +618,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/sign/fluff/alexis_degree //Xenonuerology Doctorate - Alexis Shaw - Tenenza
+/obj/item/sign/fluff/alexis_degree //Xenonuerology Doctorate - Alexis Shaw - tenenza
 	name = "xenonuerology degree"
 	desc = "Certification for a doctorate in Xenonuerology, made out to Alexis Shaw by the St. Grahelm University of Biesel, authenticated by watermarking."
 	icon_state = "alexis_degree"
@@ -1008,3 +1008,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ghoz_eyes"
 	contained_sprite = 1
 	action_button_name = "Toggle Eyelids"
+	species_restricted = list("Vaurca") //i think this would make sense since those are some kind of vaurca build prothestic
+
+
+/obj/item/clothing/head/det/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto
+	name = "tagged brown hat"
+	desc = "A worn mid 20th century brown hat. If you look closely at the back, you can see a an embedded tag from the \"Museum of Terran Culture and Technology\"."
+	icon = 'icons/obj/custom_items/leo_coat.dmi'
+	icon_state = "leo_hat"
+	item_state = "leo_hat"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
+	name = "tagged brown coat"
+	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the \"Museum of Terran Culture and Technology\"."
+	icon = 'icons/obj/custom_items/leo_coat.dmi'
+	icon_state = "leo_coat"
+	item_state = "leo_coat"
+	contained_sprite = 1
