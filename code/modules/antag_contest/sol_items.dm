@@ -72,11 +72,19 @@
 	contained_sprite = 1
 
 /obj/item/clothing/under/rank/dress/officer //sol marine officer dress unniform
-	name = "sol navy officer dress uniform"
-	desc = "A fancy military looking dress uniform issued to Sol Alliance navy officers."
+	name = "sol navy commander dress uniform"
+	desc = "A fancy military looking dress uniform issued to high ranking Sol Alliance navy officers. This one wears the rank of Commander"
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "dress"
 	item_state = "dress"
+	contained_sprite = 1
+
+/obj/item/clothing/under/rank/dress/subofficer //sol marine officer dress unniform
+	name = "sol navy lieutenant dress uniform"
+	desc = "A fancy military looking dress uniform issued to lower ranking Sol Alliance navy officers. This one wears the rank of Lieutenant"
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "subdress"
+	item_state = "subdress"
 	contained_sprite = 1
 
 /obj/item/clothing/under/rank/dress/admiral //admiral uniform
@@ -126,16 +134,16 @@
 	name = "sol marine dress cap"
 	desc = "A green cap issued as part of the Sol Alliance marine dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
-	icon_state = "whitewheelcap"
-	item_state = "whitewheelcap"
+	icon_state = "whitepeakcap"
+	item_state = "whitepeakcap"
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress/officer
 	name = "sol navy officer dress cap"
 	desc = "A white cap issued as part of the Sol Alliance navy officers dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
-	icon_state = "whitepeakcap"
-	item_state = "whitepeakcap"
+	icon_state = "whitewheelcap"
+	item_state = "whitewheelcap"
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress/admiral
@@ -222,7 +230,7 @@
 	name = "sol navy dress uniform closet"
 	desc = "It's a storage unit for Sol Alliance navy dress uniforms."
 
-/obj/structure/closet/sol/marine/New()
+/obj/structure/closet/sol/navy_dress/New()
 	..()
 	new /obj/item/clothing/under/rank/dress(src)
 	new /obj/item/clothing/under/rank/dress(src)
@@ -241,7 +249,7 @@
 	name = "sol marine dress uniform closet"
 	desc = "It's a storage unit for Sol Alliance marine dress uniforms."
 
-/obj/structure/closet/sol/marine/New()
+/obj/structure/closet/sol/marine_dress/New()
 	..()
 	new /obj/item/clothing/under/rank/dress/marine(src)
 	new /obj/item/clothing/under/rank/dress/marine(src)
@@ -257,7 +265,7 @@
 	new /obj/item/clothing/gloves/white(src)
 
 /obj/structure/closet/secure_closet/soll_officer
-	name = "soll alliance officer locker"
+	name = "sol alliance officer locker"
 	req_access = list(access_captain)
 	icon_state = "capsecure1"
 	icon_closed = "capsecure"
