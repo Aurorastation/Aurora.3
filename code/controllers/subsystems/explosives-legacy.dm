@@ -1,20 +1,48 @@
-/*
-var/global/datum/explosionprocessor/bomb_processor = new
+var/datum/subsystem/explosives/bomb_processor
 
-// This is a hack until a proper explosion subsystem is written.
-/datum/explosionprocessor
-	var/explosion_in_progress
-	var/powernet_update_pending = 0	
+// yes, let's move the laggiest part of the game to a process
+// nothing could go wrong -- Lohikar
+/datum/subsystem/explosives
+	name = "Explosives"
+	wait = 5
+	
+	var/list/work_queue
+	var/ticks_without_work = 0
 	var/list/explosion_turfs
+	var/explosion_in_progress
+	var/powernet_update_pending = 0
 
-/datum/explosionprocessor/proc/boom(var/datum/explosiondata/data)
-	if (data.is_rec)
-		explosion_rec(data)
-	else
-		explosion(data)
+/datum/subsystem/explosives/New()
+	NEW_SS_GLOBAL(bomb_processor)
+	work_queue = list()
+
+/datum/subsystem/explosives/fire()
+	if (!(work_queue.len))
+		ticks_without_work++
+		if (powernet_update_pending && ticks_without_work > 5)
+			makepowernets()
+			powernet_update_pending = 0
+
+			// All explosions handled, powernet rebuilt.
+			// We can sleep now.
+			disable()
+		return
+
+	ticks_without_work = 0
+	powernet_update_pending = 1
+
+	for (var/A in work_queue)
+		var/datum/explosiondata/data = A
+
+		if (data.is_rec)
+			explosion_rec(data.epicenter, data.rec_pow)
+		else
+			explosion(data)
+
+		work_queue -= data
 
 // Handle a non-recusrive explosion.
-/datum/explosionprocessor/proc/explosion(var/datum/explosiondata/data)
+/datum/subsystem/explosives/proc/explosion(var/datum/explosiondata/data)
 	var/turf/epicenter = data.epicenter
 	var/devastation_range = data.devastation_range
 	var/heavy_impact_range = data.heavy_impact_range
@@ -81,8 +109,6 @@ var/global/datum/explosionprocessor/bomb_processor = new
 			if(M && M.client)
 				var/turf/M_turf = get_turf(M)
 
-
-
 				if(M_turf && M_turf.z == epicenter.z)
 					if (istype(M_turf,/turf/space))
 					//If the person is standing in space, they wont hear
@@ -132,17 +158,23 @@ var/global/datum/explosionprocessor/bomb_processor = new
 	for(var/turf/T in trange(max_range, epicenter))
 		var/dist = sqrt((T.x - x0)**2 + (T.y - y0)**2)
 
-		if(dist < devastation_range)		dist = 1
-		else if(dist < heavy_impact_range)	dist = 2
-		else if(dist < light_impact_range)	dist = 3
-		else								continue
+		if (dist < devastation_range)		
+			dist = 1
+		else if (dist < heavy_impact_range)	
+			dist = 2
+		else if (dist < light_impact_range)	
+			dist = 3
+		else
+			continue
 
 		T.ex_act(dist)
 		CHECK_TICK
 		if(T)
 			for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 				var/atom/movable/AM = atom_movable
-				if(AM && AM.simulated)	AM.ex_act(dist)
+				if(AM && AM.simulated)	
+					AM.ex_act(dist)
+
 				CHECK_TICK
 
 	var/took = (world.timeofday-start)/10
@@ -156,7 +188,7 @@ var/global/datum/explosionprocessor/bomb_processor = new
 			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
 
 // Handle a recursive explosion.
-/datum/explosionprocessor/proc/explosion_rec(turf/epicenter, power)
+/datum/subsystem/explosives/proc/explosion_rec(turf/epicenter, power)
 	if(power <= 0) return
 	epicenter = get_turf(epicenter)
 	if(!epicenter) return
@@ -180,8 +212,10 @@ var/global/datum/explosionprocessor/bomb_processor = new
 
 	//This step applies the ex_act effects for the explosion, as planned in the previous step.
 	for(var/turf/T in explosion_turfs)
-		if(explosion_turfs[T] <= 0) continue
-		if(!T) continue
+		if(explosion_turfs[T] <= 0) 
+			continue
+		if(!T) 
+			continue
 
 		//Wow severity looks confusing to calculate... Fret not, I didn't leave you with any additional instructions or help. (just kidding, see the line under the calculation)
 		var/severity = 4 - round(max(min( 3, ((explosion_turfs[T] - T.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)								//sanity			effective power on tile				divided by either 3 or one third the total explosion power
@@ -200,7 +234,7 @@ var/global/datum/explosionprocessor/bomb_processor = new
 	explosion_in_progress = 0
 
 // A proc used by recursive explosions. (The actually recursive bit.)
-/datum/explosionprocessor/proc/explosion_spread(turf/s, power, direction)
+/datum/subsystem/explosives/proc/explosion_spread(turf/s, power, direction)
 	CHECK_TICK
 	if (istype(s, /turf/unsimulated))
 		return
@@ -223,6 +257,20 @@ var/global/datum/explosionprocessor/bomb_processor = new
 	T = get_step(s, turn(direction,-90))
 	explosion_spread(T, spread_power, turn(direction,90))
 
+// Add an explosion to the queue for processing.
+/datum/subsystem/explosives/proc/queue(var/datum/explosiondata/data)
+	if (!data || !istype(data))
+		return
+
+	work_queue += data
+
+	// Wake it up from sleeping if necessary.
+	if (!can_fire)
+		enable()
+
+/datum/subsystem/explosives/stat_entry()
+	..("P:[work_queue.len]")
+
 // The data datum for explosions.
 /datum/explosiondata
 	var/turf/epicenter
@@ -234,4 +282,3 @@ var/global/datum/explosionprocessor/bomb_processor = new
 	var/z_transfer
 	var/is_rec
 	var/rec_pow
-*/

@@ -2,32 +2,30 @@
 
 /proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, is_rec = config.use_recursive_explosions)
 	src = null	//so we don't abort once src is deleted
-	if (is_rec)
-		var/datum/explosion/recursive/ex = new
-		ex.epicenter = epicenter
-		ex.adminlog = adminlog
-		ex.z_transfer = z_transfer
-		ex.power = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
-		SSkaboom.queue(ex)
-	else
-		var/datum/explosion/circular/ex = new
-		ex.epicenter = epicenter
-		ex.adminlog = adminlog
-		ex.z_transfer = z_transfer
-		ex.devastation_range = devastation_range
-		ex.heavy_impact_range = heavy_impact_range
-		ex.light_impact_range = light_impact_range
-		SSboom.queue(ex)
+	var/datum/explosiondata/data = new
+	data.epicenter = epicenter
+	data.devastation_range = devastation_range
+	data.heavy_impact_range = heavy_impact_range
+	data.light_impact_range = light_impact_range
+	data.flash_range = flash_range
+	data.adminlog = adminlog
+	data.z_transfer = z_transfer
+	data.is_rec = is_rec
+	data.rec_pow = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
+
+	// queue work
+	bomb_processor.queue(data)
 
 // == Recursive Explosions stuff ==
 
 /client/proc/kaboom()
 	var/power = input(src, "power?", "power?") as num
 	var/turf/T = get_turf(src.mob)
-	var/datum/explosion/recursive/ex = new
-	ex.epicenter = T
-	ex.power = power
-	SSkaboom.queue(ex)
+	var/datum/explosiondata/d = new
+	d.is_rec = 1
+	d.epicenter = T
+	d.rec_pow = power
+	bomb_processor.queue(d)
 
 /obj
 	var/explosion_resistance
