@@ -8,7 +8,7 @@
 	plane = OPENTURF_PLANE
 	var/atom/movable/associated_atom
 
-/atom/movable/openspace_overlay/proc/assume_appearance(atom/movable/target, override_plane = FALSE)
+/atom/movable/openspace_overlay/proc/assume_appearance(atom/movable/target, override_plane = TRUE)
 	// Bind ourselves to our atom so we follow it around.
 	associated_atom = target
 	target.bound_overlay = src
