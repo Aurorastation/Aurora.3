@@ -25,7 +25,7 @@
 	//MA.pixel_x -= WORLD_ICON_SIZE / 4
 	//MA.pixel_y -= WORLD_ICON_SIZE / 4
 	appearance = MA
-#elif
+#else
 	// Somewhat slower method that involves more appearance churn, but works with BYOND 510.
 	appearance = target
 	if (override_plane)
