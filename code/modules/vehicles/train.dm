@@ -17,6 +17,8 @@
 	var/obj/vehicle/train/lead
 	var/obj/vehicle/train/tow
 
+	can_hold_mob = TRUE
+
 
 //-------------------------------------------
 // Standard procs

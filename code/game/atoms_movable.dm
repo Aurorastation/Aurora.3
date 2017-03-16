@@ -17,6 +17,7 @@
 	//Also used on holdable mobs for the same info related to their held version
 
 	var/auto_init = 1
+	var/can_hold_mob = FALSE
 
 /atom/movable/New()
 	..()

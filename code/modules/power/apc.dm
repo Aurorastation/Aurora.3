@@ -154,7 +154,7 @@
 
 	return cell.drain_power(drain_check, surge, amount)
 
-/obj/machinery/power/apc/New(turf/loc, var/ndir, var/building=0)
+/obj/machinery/power/apc/initialize(turf/loc, var/ndir, var/building=0)
 	..()
 	wires = new(src)
 

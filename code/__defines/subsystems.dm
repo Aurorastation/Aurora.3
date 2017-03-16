@@ -1,8 +1,9 @@
-#define SS_INIT_MISC_FIRST			11
-#define SS_INIT_ASTEROID			10
-#define SS_INIT_JOBS				9
-#define SS_INIT_OBJECTS				8
-#define SS_INIT_AREA				7
+#define SS_INIT_MISC_FIRST			12
+#define SS_INIT_ASTEROID			11
+#define SS_INIT_JOBS				10
+#define SS_INIT_OBJECTS				9
+#define SS_INIT_AREA				8
+#define SS_INIT_POWERNET            7
 #define SS_INIT_PIPENET				6
 #define SS_INIT_ATMOS				5
 #define SS_INIT_PARALLAX			4

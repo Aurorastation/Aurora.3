@@ -192,12 +192,12 @@
 	brightness_power = 4
 	supports_nightmode = FALSE
 
-/obj/machinery/light/built/New()
+/obj/machinery/light/built/initialize()
 	status = LIGHT_EMPTY
 	update(0)
 	..()
 
-/obj/machinery/light/small/built/New()
+/obj/machinery/light/small/built/initialize()
 	status = LIGHT_EMPTY
 	update(0)
 	..()

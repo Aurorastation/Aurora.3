@@ -32,15 +32,12 @@ log transactions
 	var/obj/item/weapon/card/held_card
 	var/editing_security_level = 0
 	var/view_screen = NO_SCREEN
-	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/atm/New()
+/obj/machinery/atm/initialize()
 	..()
 	machine_id = "[station_name()] RT #[num_financial_terminals++]"
-	spark_system = bind_spark(src, 5)
 
 /obj/machinery/atm/Destroy()
-	QDEL_NULL(spark_system)
 	authenticated_account = null
 	if (held_card)
 		held_card.forceMove(loc)
@@ -76,7 +73,7 @@ log transactions
 
 	//short out the machine, shoot sparks, spew money!
 	emagged = 1
-	spark_system.queue()
+	spark(src, 5, alldirs)
 	spawn_money(rand(100,500),src.loc)
 	//we don't want to grief people by locking their id in an emagged ATM
 	release_held_id(user)

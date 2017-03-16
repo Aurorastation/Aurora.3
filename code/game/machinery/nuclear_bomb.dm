@@ -24,7 +24,7 @@ var/bomb_set
 	var/previous_level = ""
 	var/datum/wires/nuclearbomb/wires = null
 
-/obj/machinery/nuclearbomb/New()
+/obj/machinery/nuclearbomb/initialize()
 	..()
 	r_code = "[rand(10000, 99999.0)]"//Creates a random code upon object spawn.
 	wires = new/datum/wires/nuclearbomb(src)

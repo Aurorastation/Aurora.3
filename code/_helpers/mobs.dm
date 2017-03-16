@@ -17,6 +17,13 @@
 /proc/mobs_in_view(var/range, var/source)
 	var/list/mobs = list()
 	for(var/atom/movable/AM in view(range, source))
+		if (ismob(AM))
+			mobs += AM
+			continue
+
+		if (!AM.can_hold_mob)
+			continue
+
 		var/M = AM.get_mob()
 		if(M)
 			mobs += M

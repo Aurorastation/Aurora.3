@@ -45,22 +45,22 @@
 	frequency = ENT_FREQ
 	canhear_range = 4
 
-/obj/item/device/radio/intercom/New()
+/obj/item/device/radio/intercom/initialize()
 	..()
 	power_interface = new(loc, src)
 
-/obj/item/device/radio/intercom/department/medbay/New()
+/obj/item/device/radio/intercom/department/medbay/initialize()
 	..()
 	internal_channels = default_medbay_channels.Copy()
 
-/obj/item/device/radio/intercom/department/security/New()
+/obj/item/device/radio/intercom/department/security/initialize()
 	..()
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
 		num2text(SEC_I_FREQ) = list(access_security)
 	)
 
-/obj/item/device/radio/intercom/entertainment/New()
+/obj/item/device/radio/intercom/entertainment/initialize()
 	..()
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
@@ -74,7 +74,7 @@
 	subspace_transmission = 1
 	syndie = 1
 
-/obj/item/device/radio/intercom/syndicate/New()
+/obj/item/device/radio/intercom/syndicate/initialize()
 	..()
 	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
 

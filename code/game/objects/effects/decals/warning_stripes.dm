@@ -2,7 +2,7 @@
 	icon = 'icons/effects/warning_stripes.dmi'
 	layer = 2
 
-/obj/effect/decal/warning_stripes/New()
+/obj/effect/decal/warning_stripes/initialize()
 	. = ..()
 	var/turf/T=get_turf(src)
 	var/image/I=image(icon, icon_state = icon_state, dir = dir)

@@ -77,36 +77,30 @@
 	return smes_amt / SMESRATE
 
 
-/obj/machinery/power/smes/New()
+/obj/machinery/power/smes/initialize()
 	..()
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
-	spawn(5)
-		if(!powernet)
-			connect_to_network()
+	if(!powernet)
+		connect_to_network()
 
-		dir_loop:
-			for(var/d in cardinal)
-				var/turf/T = get_step(src, d)
-				for(var/obj/machinery/power/terminal/term in T)
-					if(term && term.dir == turn(d, 180))
-						terminal = term
-						break dir_loop
-		if(!terminal)
-			stat |= BROKEN
-			return
-		terminal.master = src
-		if(!terminal.powernet)
-			terminal.connect_to_network()
-		update_icon()
+	dir_loop:
+		for(var/d in cardinal)
+			var/turf/T = get_step(src, d)
+			for(var/obj/machinery/power/terminal/term in T)
+				if(term && term.dir == turn(d, 180))
+					terminal = term
+					break dir_loop
+	if(!terminal)
+		stat |= BROKEN
+		return
+	terminal.master = src
+	if(!terminal.powernet)
+		terminal.connect_to_network()
+	update_icon()
 
-
-
-
-		if(!should_be_mapped)
-			warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
-
-	return
+	if(!should_be_mapped)
+		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
 
 /obj/machinery/power/smes/add_avail(var/amount)
 	if(..(amount))
@@ -131,18 +125,18 @@
 		smesImageCache = list()
 		smesImageCache.len = 11
 
-		smesImageCache[SMES_CLEVEL_1] = image('icons/obj/power.dmi',"smes-og1")
-		smesImageCache[SMES_CLEVEL_2] = image('icons/obj/power.dmi',"smes-og2")
-		smesImageCache[SMES_CLEVEL_3] = image('icons/obj/power.dmi',"smes-og3")
-		smesImageCache[SMES_CLEVEL_4] = image('icons/obj/power.dmi',"smes-og4")
-		smesImageCache[SMES_CLEVEL_5] = image('icons/obj/power.dmi',"smes-og5")
+		smesImageCache[SMES_CLEVEL_1] = make_screen_overlay('icons/obj/power.dmi',"smes-og1")
+		smesImageCache[SMES_CLEVEL_2] = make_screen_overlay('icons/obj/power.dmi',"smes-og2")
+		smesImageCache[SMES_CLEVEL_3] = make_screen_overlay('icons/obj/power.dmi',"smes-og3")
+		smesImageCache[SMES_CLEVEL_4] = make_screen_overlay('icons/obj/power.dmi',"smes-og4")
+		smesImageCache[SMES_CLEVEL_5] = make_screen_overlay('icons/obj/power.dmi',"smes-og5")
 
-		smesImageCache[SMES_OUTPUTTING] = image('icons/obj/power.dmi', "smes-op2")
-		smesImageCache[SMES_OUTPUT_ATTEMPT] = image('icons/obj/power.dmi', "smes-op1")
-		smesImageCache[SMES_NOT_OUTPUTTING] = image('icons/obj/power.dmi',"smes-op0")
-		smesImageCache[SMES_INPUTTING] = image('icons/obj/power.dmi', "smes-oc1")
-		smesImageCache[SMES_INPUT_ATTEMPT] = image('icons/obj/power.dmi', "smes-oc0")
-		smesImageCache[SMES_INPUT_MAX] = image('icons/obj/power.dmi', "smes-oc2")
+		smesImageCache[SMES_OUTPUTTING] = make_screen_overlay('icons/obj/power.dmi', "smes-op2")
+		smesImageCache[SMES_OUTPUT_ATTEMPT] = make_screen_overlay('icons/obj/power.dmi', "smes-op1")
+		smesImageCache[SMES_NOT_OUTPUTTING] = make_screen_overlay('icons/obj/power.dmi',"smes-op0")
+		smesImageCache[SMES_INPUTTING] = make_screen_overlay('icons/obj/power.dmi', "smes-oc1")
+		smesImageCache[SMES_INPUT_ATTEMPT] = make_screen_overlay('icons/obj/power.dmi', "smes-oc0")
+		smesImageCache[SMES_INPUT_MAX] = make_screen_overlay('icons/obj/power.dmi', "smes-oc2")
 
 	if(inputting == 2)
 		overlays += smesImageCache[SMES_INPUT_MAX]

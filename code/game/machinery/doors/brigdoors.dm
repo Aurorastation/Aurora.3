@@ -37,27 +37,24 @@
 
 	var/datum/browser/menu = new( null, "brig_timer", "Brig Timer", 400, 300 )
 
-/obj/machinery/door_timer/New()
+/obj/machinery/door_timer/initialize()
 	..()
 
-	spawn(20)
-		for(var/obj/machinery/door/window/brigdoor/M in machines)
-			if (M.id == src.id)
-				targets += M
+	for(var/obj/machinery/door/window/brigdoor/M in machines)
+		if (M.id == src.id)
+			targets += M
 
-		for(var/obj/machinery/flasher/F in machines)
-			if(F.id == src.id)
-				targets += F
+	for(var/obj/machinery/flasher/F in machines)
+		if(F.id == src.id)
+			targets += F
 
-		for(var/obj/structure/closet/secure_closet/brig/C in world)
-			if(C.id == src.id)
-				targets += C
+	for(var/obj/structure/closet/secure_closet/brig/C in world)
+		if(C.id == src.id)
+			targets += C
 
-		if(targets.len==0)
-			stat |= BROKEN
-		update_icon()
-		return
-	return
+	if(targets.len==0)
+		stat |= BROKEN
+	update_icon()
 
 
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.

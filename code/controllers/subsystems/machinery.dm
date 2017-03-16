@@ -4,13 +4,17 @@ var/global/list/power_using_machines	= list()
 /datum/subsystem/machinery
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
-	flags = SS_NO_INIT
+	init_order = SS_INIT_POWERNET
 	display_order = SS_DISPLAY_MACHINERY
 
 	var/tmp/list/processing_machinery = list()
 	var/tmp/list/processing_power_users = list()
 	var/tmp/list/processing_powersinks = list()
 	var/tmp/list/processing_powernets = list()
+
+/datum/subsystem/machinery/Initialize(timeofday)
+	makepowernets()
+	..(timeofday, silent = TRUE)
 
 /datum/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)

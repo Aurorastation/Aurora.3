@@ -4,7 +4,7 @@
 	hatch_offset_x = 16
 	hatch_colour = "#d2d2d2"
 
-/obj/machinery/door/airlock/multi_tile/New()
+/obj/machinery/door/airlock/multi_tile/initialize()
 	..()
 	SetBounds()
 
