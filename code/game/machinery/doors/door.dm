@@ -223,7 +223,7 @@
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
-					getFromPool(/obj/item/stack/rods, src.loc, 3)
+					new /obj/item/stack/rods(src.loc, 3)
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
@@ -231,7 +231,6 @@
 	if(damage)
 		//cap projectile damage so that there's still a minimum number of hits required to break the door
 		take_damage(min(damage, 100))
-
 
 
 /obj/machinery/door/hitby(AM as mob|obj, var/speed=5)

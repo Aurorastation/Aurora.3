@@ -295,7 +295,7 @@
 	if (!tile)
 		return 0
 
-	pointing_effect = getFromPool(/obj/effect/decal/point, tile)
+	pointing_effect = new /obj/effect/decal/point(tile)
 	pointing_effect.invisibility = invisibility
 	addtimer(CALLBACK(src, .proc/clear_point), 20)
 
@@ -303,8 +303,7 @@
 	return 1
 
 /mob/proc/clear_point()
-	qdel(pointing_effect)
-	pointing_effect = null
+	QDEL_NULL(pointing_effect)
 
 /mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
 	if ((!( istype(l_hand, /obj/item/weapon/grab) ) && !( istype(r_hand, /obj/item/weapon/grab) )))

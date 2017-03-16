@@ -118,7 +118,7 @@
 		if (src.wieldsound)
 			playsound(src.loc, wieldsound, 50, 1)
 
-		var/obj/item/weapon/material/twohanded/offhand/O = getFromPool(/obj/item/weapon/material/twohanded/offhand, user) ////Let's reserve his other hand~
+		var/obj/item/weapon/material/twohanded/offhand/O = new /obj/item/weapon/material/twohanded/offhand(user) ////Let's reserve his other hand~
 		O.name = "[base_name] - offhand"
 		O.desc = "Your second grip on the [base_name]."
 		user.put_in_inactive_hand(O)
@@ -138,19 +138,21 @@
 	default_material = "placeholder"
 
 /obj/item/weapon/material/twohanded/offhand/unwield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/wield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+		
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/update_icon()
 	return
-
-/obj/item/weapon/material/twohanded/offhand/Destroy(force = FALSE)
-	if (!force)
-		return QDEL_HINT_POOL
-
-	return ..()
 
 /*
  * Fireaxe

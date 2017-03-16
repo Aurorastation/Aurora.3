@@ -101,7 +101,7 @@
 			O = loc
 
 		for(var/i=0, i<num, i++)
-			var/spiderling = getFromPool(/obj/effect/spider/spiderling, src.loc, src)
+			var/spiderling = new /obj/effect/spider/spiderling(src.loc, src)
 			if(O)
 				O.implants += spiderling
 		qdel(src)
@@ -142,8 +142,8 @@
 		..()
 
 /obj/effect/spider/spiderling/proc/die()
-	visible_message("<span class='alert'>[src] dies!</span>")
-	getFromPool(/obj/effect/decal/cleanable/spiderling_remains, src.loc)
+	visible_message("<span class='alert'>\The [src] dies!</span>")
+	new /obj/effect/decal/cleanable/spiderling_remains(src.loc)
 	qdel(src)
 
 /obj/effect/spider/spiderling/healthcheck()
@@ -244,20 +244,17 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenshatter"
 
-/obj/effect/decal/cleanable/spiderling_remains/Destroy(force = FALSE)
-	return force ? ..() : QDEL_HINT_POOL
-
 /obj/effect/spider/cocoon
 	name = "cocoon"
 	desc = "Something wrapped in silky spider web"
 	icon_state = "cocoon1"
 	health = 60
 
-	New()
-		icon_state = pick("cocoon1","cocoon2","cocoon3")
+/obj/effect/spider/cocoon/New()
+	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()
 	src.visible_message("<span class='warning'>\The [src] splits open.</span>")
 	for(var/atom/movable/A in contents)
-		A.loc = src.loc
+		A.forceMove(src.loc)
 	return ..()

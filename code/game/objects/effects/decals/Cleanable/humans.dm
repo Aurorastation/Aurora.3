@@ -66,8 +66,7 @@ var/global/list/image/splatter_cache=list()
 	if(amount < 1)
 		return
 
-	if (!blood_DNA || !islist(blood_DNA))
-		blood_DNA = list()
+	LAZYINITLIST(blood_DNA)
 
 	var/obj/item/organ/external/l_foot = perp.get_organ("l_foot")
 	var/obj/item/organ/external/r_foot = perp.get_organ("r_foot")
@@ -95,8 +94,7 @@ var/global/list/image/splatter_cache=list()
 	else if (hasfeet)//Or feet
 		perp.feet_blood_color = basecolor
 		perp.track_blood = max(amount,perp.track_blood)
-		if(!perp.feet_blood_DNA)
-			perp.feet_blood_DNA = list()
+		LAZYINITLIST(perp.feet_blood_DNA)
 		if (blood_DNA)
 			perp.feet_blood_DNA |= blood_DNA.Copy()
 	else if (perp.buckled && istype(perp.buckled, /obj/structure/bed/chair/wheelchair))
@@ -121,10 +119,11 @@ var/global/list/image/splatter_cache=list()
 		var/taken = rand(1,amount)
 		amount -= taken
 		user << "<span class='notice'>You get some of \the [src] on your hands.</span>"
-		if (!user.blood_DNA)
-			user.blood_DNA = list()
+		LAZYINITLIST(user.blood_DNA)
+		
 		if (blood_DNA)
 			user.blood_DNA |= blood_DNA.Copy()
+
 		user.bloody_hands += taken
 		user.hand_blood_color = basecolor
 		user.update_inv_gloves(1)
@@ -213,22 +212,21 @@ var/global/list/image/splatter_cache=list()
 
 
 /obj/effect/decal/cleanable/blood/gibs/proc/streak(var/list/directions)
-	spawn (0)
-		var/direction = pick(directions)
-		for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
-			sleep(3)
-			if (i > 0)
-				var/obj/effect/decal/cleanable/blood/b = getFromPool(/obj/effect/decal/cleanable/blood/splatter, src.loc)
-				b.basecolor = src.basecolor
-				b.update_icon()
-				for(var/datum/disease/D in src.viruses)
-					var/datum/disease/ND = D.Copy(1)
-					b.viruses += ND
-					ND.holder = b
+	set waitfor = FALSE
+	var/direction = pick(directions)
+	for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
+		sleep(3)
+		if (i > 0)
+			var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(src.loc)
+			b.basecolor = src.basecolor
+			b.update_icon()
+			for(var/datum/disease/D in src.viruses)
+				var/datum/disease/ND = D.Copy(1)
+				b.viruses += ND
+				ND.holder = b
 
-			if (step_to(src, get_step(src, direction), 0))
-				break
-
+		if (step_to(src, get_step(src, direction), 0))
+			break
 
 /obj/effect/decal/cleanable/mucus
 	name = "mucus"

@@ -176,16 +176,16 @@
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//rods
-		O = getFromPool(/obj/item/stack/rods, src.loc)
+		O = new /obj/item/stack/rods(src.loc)
 		step_to(O, get_turf(pick(view(7, src))))
 		if(prob(75))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(50))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(25))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//plasteel

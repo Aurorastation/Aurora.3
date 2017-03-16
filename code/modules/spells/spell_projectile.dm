@@ -26,14 +26,16 @@
 
 /obj/item/projectile/spell_projectile/before_move()
 	if(proj_trail && src && src.loc) //pretty trails
-		var/obj/effect/overlay/trail = getFromPool(/obj/effect/overlay, src.loc)
+		var/obj/effect/overlay/trail = new /obj/effect/overlay(src.loc)
 		trails += trail
 		trail.icon = proj_trail_icon
 		trail.icon_state = proj_trail_icon_state
 		trail.density = 0
-		spawn(proj_trail_lifespan)
-			trails -= trail
-			qdel(trail)
+		addtimer(CALLBACK(src, .proc/post_trail, trail), proj_trail_lifespan)
+
+/obj/item/projectile/spell_projectile/proc/post_trail(obj/effect/overlay/trail)
+	trails -= trail
+	qdel(trail)
 
 /obj/item/projectile/spell_projectile/proc/prox_cast(var/list/targets)
 	if(loc)

@@ -91,14 +91,15 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) getFromPool(/obj/item/stack/rods, loc)
+			if(reinf) 
+				new /obj/item/stack/rods(loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) getFromPool(/obj/item/stack/rods, loc)
+		if(reinf) 
+			new /obj/item/stack/rods(loc)
 	qdel(src)
 	return
-
 
 /obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
 

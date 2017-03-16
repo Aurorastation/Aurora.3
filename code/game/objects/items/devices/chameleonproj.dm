@@ -45,8 +45,8 @@
 		playsound(get_turf(src), 'sound/effects/pop.ogg', 100, 1, -6)
 		qdel(active_dummy)
 		active_dummy = null
-		usr << "<span class='notice'>You deactivate the [src].</span>"
-		var/obj/effect/overlay/T = getFromPool(/obj/effect/overlay, get_turf(src))
+		usr << "<span class='notice'>You deactivate \the [src].</span>"
+		var/obj/effect/overlay/T = new /obj/effect/overlay(get_turf(src))
 		T.icon = 'icons/effects/effects.dmi'
 		flick("emppulse",T)
 		QDEL_IN(T, 8)
@@ -54,10 +54,10 @@
 		playsound(get_turf(src), 'sound/effects/pop.ogg', 100, 1, -6)
 		var/obj/O = new saved_item(src)
 		if(!O) return
-		var/obj/effect/dummy/chameleon/C = getFromPool(/obj/effect/dummy/chameleon, usr.loc)
+		var/obj/effect/dummy/chameleon/C = new /obj/effect/dummy/chameleon(usr.loc)
 		C.activate(O, usr, saved_icon, saved_icon_state, saved_overlays, src)
 		qdel(O)
-		usr << "<span class='notice'>You activate the [src].</span>"
+		usr << "<span class='notice'>You activate \the [src].</span>"
 		var/obj/effect/overlay/T = new/obj/effect/overlay(get_turf(src))
 		T.icon = 'icons/effects/effects.dmi'
 		flick("emppulse",T)

@@ -38,7 +38,7 @@
 			if(1)
 				new_growth = 2
 		var/obj/structure/diona/vines/existing = locate() in T
-		if(!istype(existing)) existing = getFromPool(/obj/structure/diona/vines, T)
+		if(!istype(existing)) existing = new /obj/structure/diona/vines(T)
 		if(existing.growth < new_growth)
 			existing.growth = new_growth
 			existing.update_icon()
@@ -161,11 +161,11 @@
 
 	switch(value)
 		if(ARTIFACT_CHAR)
-			getFromPool(/obj/structure/diona/bulb,T)
+			new /obj/structure/diona/bulb(T)
 		if(MONSTER_CHAR)
 			spawn_diona_nymph(T)
 		if(DOOR_CHAR)
-			var/obj/structure/diona/vines/V = getFromPool(/obj/structure/diona/vines,T)
+			var/obj/structure/diona/vines/V = new(T)
 			V.growth = 3
 			V.update_icon()
 			spawn(1)

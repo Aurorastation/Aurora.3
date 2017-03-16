@@ -103,7 +103,7 @@
 	if(!paperamount)
 		return
 	paperamount--
-	return getFromPool(/obj/item/weapon/shreddedp, get_turf(src))
+	return new /obj/item/weapon/shreddedp(get_turf(src))
 
 /obj/machinery/papershredder/update_icon()
 	icon_state = "papershredder[max(0,min(5,Floor(paperamount/2)))]"
@@ -150,6 +150,3 @@
 	pixel_x = rand(-5,5)
 	pixel_y = rand(-5,5)
 	if(prob(65)) color = pick("#BABABA","#7F7F7F")
-
-/obj/item/weapon/shreddedp/Destroy(force = FALSE)
-	return force ? ..() : QDEL_HINT_POOL

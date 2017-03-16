@@ -15,9 +15,10 @@
 	T.update_dirt()
 
 	if(prob(2))
-		getFromPool(junk(), T)
+		var/type = junk()
+		new type(T)
 	if(prob(2))
-		getFromPool(/obj/effect/decal/cleanable/blood/oil, T)
+		new /obj/effect/decal/cleanable/blood/oil(T)
 	if(prob(25))	// Keep in mind that only "corners" get any sort of web
 		attempt_web(T, cardinal_turfs)
 

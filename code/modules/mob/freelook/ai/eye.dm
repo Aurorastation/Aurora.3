@@ -42,7 +42,7 @@
 /mob/living/silicon/ai/proc/create_eyeobj(var/newloc)
 	if(eyeobj) destroy_eyeobj()
 	if(!newloc) newloc = src.loc
-	eyeobj = getFromPool(/mob/eye/aiEye, newloc)
+	eyeobj = new /mob/eye/aiEye(newloc)
 	eyeobj.owner = src
 	eyeobj.name = "[src.name] (AI Eye)" // Give it a name
 	if(client) client.eye = eyeobj

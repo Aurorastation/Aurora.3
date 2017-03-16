@@ -78,8 +78,10 @@
 	flick("h_lathe_leave",src)
 
 	time_last_drone = world.time
-	if(player.mob && player.mob.mind) player.mob.mind.reset()
-	var/mob/living/silicon/robot/drone/new_drone = getFromPool(drone_type, get_turf(src))
+	if(player.mob && player.mob.mind) 
+		player.mob.mind.reset()
+		
+	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
 
