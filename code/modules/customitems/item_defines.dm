@@ -96,7 +96,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/gloves/swat/fluff/hawk_gloves //Sharpshooter gloves - Hawk Silverstone - nebulaflare
-	name = "\improper sharpshooter gloves"
+	name = "sharpshooter gloves"
 	desc = "These tactical gloves are tailor made for a marksman."
 	icon = 'icons/obj/custom_items/hawk_gloves.dmi'
 	icon_state = "hawk_gloves"
@@ -258,6 +258,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "ATLAS poster"
 
 /obj/item/weapon/contraband/poster/fluff/conservan_poster/New()
+	..()
 	serial_number = 59
 
 
@@ -723,8 +724,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/clothing/accessory/fluff/zahra_pin //Indigo remembrance pin -  Zahra Karimi - synnono
-	name = "Indigo remembrance pin"
+/obj/item/clothing/accessory/fluff/zahra_pin //Indigo Remembrance Pin -  Zahra Karimi - synnono
+	name = "indigo remembrance pin"
 	desc = "A small metal pin, worked into the likeness of an indigo iris blossom."
 	icon = 'icons/obj/custom_items/zahra_pin.dmi'
 	icon_state = "zahra_pin"
@@ -732,7 +733,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/accessory/armband/fluff/karl_armband //Medizinercorps armband - Karl Jonson - arrow768
+/obj/item/clothing/accessory/armband/fluff/karl_armband //Medizinercorps Armband - Karl Jonson - arrow768
 	name = "medizinercorps armband"
 	desc = "A plain black armband with the golden Medizinercorps logo on it."
 	icon = 'icons/obj/custom_items/karl_armband.dmi'
