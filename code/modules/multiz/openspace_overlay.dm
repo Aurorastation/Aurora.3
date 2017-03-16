@@ -21,13 +21,9 @@
 	// Override these vars manually.
 	if (override_plane)		// Space turfs should not have their plane overwritten.
 		MA.plane = OPENTURF_PLANE
-	/*MA.color = list(
-		0.5, 0, 0,
-		0, 0.5, 0,
-		0, 0, 0.5
-	)*/
-	//MA.pixel_x -= 10
-	MA.pixel_y -= -10
+
+	//MA.pixel_x -= WORLD_ICON_SIZE / 4
+	//MA.pixel_y -= WORLD_ICON_SIZE / 4
 	appearance = MA
 #elif
 	// Somewhat slower method that involves more appearance churn, but works with BYOND 510.
@@ -35,13 +31,8 @@
 	if (override_plane)
 		plane = OPENTURF_PLANE
 
-	/*color = list(
-		0.5, 0, 0,
-		0, 0.5, 0,
-		0, 0, 0.5
-	)*/
-	//pixel_x = 10
-	pixel_y -= 10
+	//pixel_x -= WORLD_ICON_SIZE / 4
+	//pixel_y -= WORLD_ICON_SIZE / 4
 #endif
 
 /atom/movable/openspace/overlay/forceMove(atom/dest)

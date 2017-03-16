@@ -30,17 +30,23 @@
 				LAZYADD(T.openspace_overlays, OO)
 
 		// The turf overlay is handled specially so attackby is proxied.
-		var/atom/movable/openspace/overlay/below_OO = new(T.below)
-		if (istype(T.below, /turf/space))
-			below_OO.assume_appearance(T.below, override_plane = FALSE)
-		else
-			below_OO.assume_appearance(T.below)
+		if ("\ref[T.below]" != T.last_seen_turf)
+			T.last_seen_turf = "\ref[T.below]"
 			
-		LAZYADD(T.openspace_overlays, below_OO)
+			if (!T.turf_overlay)
+				T.turf_overlay = new(T)
+
+			var/atom/movable/openspace/overlay/below_OO = T.turf_overlay
+
+			if (istype(T.below, /turf/space))
+				below_OO.assume_appearance(T.below, override_plane = FALSE)
+			else
+				below_OO.assume_appearance(T.below)
 
 		if (!T.shadower)
-			T.shadower = new
+			T.shadower = new(T)
 
+		// TODO: Offset + display wall for openspace instead of just dimming.
 		/*var/turf/neighbour = get_step(src, NORTH)
 		if (neighbour && !istype(neighbour, /turf/space))
 			T.overlays.Cut()

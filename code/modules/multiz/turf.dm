@@ -22,10 +22,12 @@
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	mouse_opacity = 0	// Overlays will handle mouse interaction.
 
-	var/turf/below
-	var/list/openspace_overlays
-	var/atom/movable/openspace/multiplier/shadower
-	var/updating = FALSE
+	var/tmp/turf/below
+	var/tmp/list/openspace_overlays
+	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
+	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
+	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
+	var/tmp/atom/movable/openspace/overlay/turf_overlay		// The special snowflake overlay that's drawing the below turf.
 
 /turf/simulated/open/post_change()
 	..()
@@ -36,7 +38,9 @@
 	update()
 
 /turf/simulated/open/proc/update()
+	set waitfor = FALSE
 	below = GetBelow(src)
+	below.above = src
 	levelupdate()
 	for(var/atom/movable/A in src)
 		A.fall()
