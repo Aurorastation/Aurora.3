@@ -1,14 +1,9 @@
-/atom
-	var/atom/movable/openspace_overlay/bound_overlay
-
-/atom/movable/openspace_overlay
-	name = ""
-	simulated = FALSE
-	anchored = TRUE
+// The visual representation of an atom under an openspace turf.
+/atom/movable/openspace/overlay
 	plane = OPENTURF_PLANE
 	var/atom/movable/associated_atom
 
-/atom/movable/openspace_overlay/proc/assume_appearance(atom/movable/target, override_plane = TRUE)
+/atom/movable/openspace/overlay/proc/assume_appearance(atom/movable/target, override_plane = TRUE)
 	// Bind ourselves to our atom so we follow it around.
 	associated_atom = target
 	target.bound_overlay = src
@@ -19,18 +14,18 @@
 	// This way we preserve layering & appearance without having to 
 	// duplicate a lot of vars.
 
-#if BYOND_VERSION > 510
+#if DM_VERSION > 510
 	// Nice fast method with minimal appearance churn, but requires 511.
 
 	var/mutable_appearance/MA = new(target)
 	// Override these vars manually.
 	if (override_plane)		// Space turfs should not have their plane overwritten.
 		MA.plane = OPENTURF_PLANE
-	MA.color = list(
+	/*MA.color = list(
 		0.5, 0, 0,
 		0, 0.5, 0,
 		0, 0, 0.5
-	)
+	)*/
 	//MA.pixel_x -= 10
 	MA.pixel_y -= -10
 	appearance = MA
@@ -40,29 +35,29 @@
 	if (override_plane)
 		plane = OPENTURF_PLANE
 
-	color = list(
+	/*color = list(
 		0.5, 0, 0,
 		0, 0.5, 0,
 		0, 0, 0.5
-	)
+	)*/
 	//pixel_x = 10
 	pixel_y -= 10
 #endif
 
-/atom/movable/openspace_overlay/forceMove(atom/dest)
+/atom/movable/openspace/overlay/forceMove(atom/dest)
 	. = ..()
 	check_existence()
 
-/atom/movable/openspace_overlay/Move()
+/atom/movable/openspace/overlay/Move()
 	. = ..()
 	check_existence()
 
-/atom/movable/openspace_overlay/proc/check_existence()
+/atom/movable/openspace/overlay/proc/check_existence()
 	set waitfor = FALSE
 	if (!istype(loc, /turf/simulated/open))
 		qdel(src)
 
-/atom/movable/openspace_overlay/Destroy()
+/atom/movable/openspace/overlay/Destroy()
 	if (associated_atom)
 		associated_atom.bound_overlay = null
 		associated_atom = null
@@ -70,28 +65,28 @@
 	return ..()
 
 // No blowing up abstract objects.
-/atom/movable/openspace_overlay/ex_act(ex_sev)
+/atom/movable/openspace/overlay/ex_act(ex_sev)
 	return
 
-/atom/movable/openspace_overlay/singularity_act()
+/atom/movable/openspace/overlay/singularity_act()
 	return
 
-/atom/movable/openspace_overlay/singularity_pull()
+/atom/movable/openspace/overlay/singularity_pull()
 	return
 
-/atom/movable/openspace_overlay/singuloCanEat()
+/atom/movable/openspace/overlay/singuloCanEat()
 	return
 
-/atom/movable/openspace_overlay/attackby(obj/item/W, mob/user)
+/atom/movable/openspace/overlay/attackby(obj/item/W, mob/user)
 	user << span("notice", "You can't reach that!")
 
-/atom/movable/openspace_overlay/attack_hand(mob/user as mob)
+/atom/movable/openspace/overlay/attack_hand(mob/user as mob)
 	user << span("notice", "You can't reach that!")
 
-/atom/movable/openspace_overlay/attack_generic(mob/user as mob)
+/atom/movable/openspace/overlay/attack_generic(mob/user as mob)
 	user << span("notice", "You can't reach that!")
 
-/atom/movable/openspace_overlay/turf/attackby(obj/item/C as obj, mob/user as mob)
+/atom/movable/openspace/overlay/turf/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(loc, /turf/simulated/open))
 		return loc.attackby(C, user)
 	else

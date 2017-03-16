@@ -1,4 +1,5 @@
 #define OPENTURF_PLANE -80
+#define OPENTURF_CAP_PLANE -79
 
 /var/list/openturf_update_queue = list()
 
@@ -24,18 +25,21 @@
 			var/atom/movable/object = thing
 			if (!QDELETED(object) && !object.bound_overlay && !object.no_z_overlay)
 				// Atom doesn't yet have an overlay, queue it.
-				var/atom/movable/openspace_overlay/OO = new(T)
+				var/atom/movable/openspace/overlay/OO = new(T)
 				OO.assume_appearance(object)
 				LAZYADD(T.openspace_overlays, OO)
 
 		// The turf overlay is handled specially so attackby is proxied.
-		var/atom/movable/openspace_overlay/below_OO = new(T.below)
+		var/atom/movable/openspace/overlay/below_OO = new(T.below)
 		if (istype(T.below, /turf/space))
 			below_OO.assume_appearance(T.below, override_plane = FALSE)
 		else
 			below_OO.assume_appearance(T.below)
 			
 		LAZYADD(T.openspace_overlays, below_OO)
+
+		if (!T.shadower)
+			T.shadower = new
 
 		/*var/turf/neighbour = get_step(src, NORTH)
 		if (neighbour && !istype(neighbour, /turf/space))

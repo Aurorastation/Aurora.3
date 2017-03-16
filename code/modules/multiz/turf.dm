@@ -24,6 +24,7 @@
 
 	var/turf/below
 	var/list/openspace_overlays
+	var/atom/movable/openspace/multiplier/shadower
 	var/updating = FALSE
 
 /turf/simulated/open/post_change()
