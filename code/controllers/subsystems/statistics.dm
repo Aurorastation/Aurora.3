@@ -2,6 +2,7 @@
 	name = "Statistics & Inactivity"
 	wait = 60 SECONDS
 	flags = SS_NO_TICK_CHECK
+	display_order = SS_DISPLAY_STATISTICS
 
 /datum/subsystem/statistics/Initialize(timeofday)
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))

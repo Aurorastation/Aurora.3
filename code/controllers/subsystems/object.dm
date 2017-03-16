@@ -11,8 +11,7 @@ var/global/objects_initialized = FALSE
 	var/tmp/list/queue = list()
 
 /datum/subsystem/object/New()
-	if (!processing_objects)
-		processing_objects = list()
+	LAZYINITLIST(processing_objects)
 
 /datum/subsystem/object/fire(resumed = FALSE)
 	if (!resumed)

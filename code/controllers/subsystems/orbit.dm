@@ -2,9 +2,10 @@ var/datum/subsystem/orbit/SSorbit
 
 /datum/subsystem/orbit
 	name = "Orbits"
-	priority = 35
+	priority = SS_PRIORITY_ORBIT
 	wait = 2
 	flags = SS_NO_INIT|SS_TICKER
+	display_order = SS_DISPLAY_ORBIT
 
 	var/list/currentrun = list()
 	var/list/processing = list()

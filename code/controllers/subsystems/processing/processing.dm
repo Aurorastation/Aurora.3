@@ -3,7 +3,7 @@
 var/datum/subsystem/processing/SSprocessing
 /datum/subsystem/processing
 	name = "Processing"
-	priority = 25
+	priority = SS_PRIORITY_PROCESSING
 	flags = SS_BACKGROUND|SS_POST_FIRE_TIMING|SS_NO_INIT
 
 	var/stat_tag = "P" //Used for logging
