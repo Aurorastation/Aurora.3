@@ -160,7 +160,6 @@
 			src.alarm()
 			src.time = 0
 			src.timing = 0
-			processing_objects.Remove(src)
 		src.updateDialog()
 	last_process = world.timeofday
 
@@ -171,8 +170,7 @@
 
 /obj/machinery/firealarm/power_change()
 	..()
-	spawn(rand(0,15))
-		update_icon()
+	addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15))	// TODO: Find a better way to do this.
 
 /obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/data[0]

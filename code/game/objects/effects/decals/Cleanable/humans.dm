@@ -33,7 +33,6 @@ var/global/list/image/splatter_cache=list()
 	if(invisibility != 100)
 		invisibility = 100
 		amount = 0
-		processing_objects -= src
 	..(ignore=1)
 
 /obj/effect/decal/cleanable/blood/Destroy()

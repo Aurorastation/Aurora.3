@@ -86,7 +86,6 @@
 			kick_viewers()
 			update_icon()
 			update_coverage()
-			processing_objects |= src
 
 /obj/machinery/camera/bullet_act(var/obj/item/projectile/P)
 	take_damage(P.get_structure_damage())

@@ -28,7 +28,7 @@ var/list/organ_cache = list()
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
 
 /obj/item/organ/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)
 		return ..()
 
@@ -92,7 +92,7 @@ var/list/organ_cache = list()
 		return
 	damage = max_damage
 	status |= ORGAN_DEAD
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	if(dead_icon)
 		icon_state = dead_icon
 	if(owner && vital)
@@ -293,7 +293,7 @@ var/list/organ_cache = list()
 	if(affected) affected.internal_organs -= src
 
 	loc = get_turf(owner)
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)
 		create_reagents(5)
@@ -328,7 +328,7 @@ var/list/organ_cache = list()
 
 	owner = target
 	loc = owner
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	target.internal_organs |= src
 	affected.internal_organs |= src
 	target.internal_organs_by_name[organ_tag] = src

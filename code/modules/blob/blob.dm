@@ -26,7 +26,7 @@
 	var/blob_cost = 1 //point cost of the blob tile
 
 /obj/effect/blob/New(loc)
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	health = maxHealth
 	var/matrix/M = matrix()
 	M.Turn(90 * pick(0,1,2,3))
@@ -39,6 +39,8 @@
 	if (parent_core)
 		parent_core.blob_count -= blob_cost
 		parent_core = null
+
+	STOP_PROCESSING(SSprocessing, src)
 
 	return ..()
 
@@ -303,7 +305,6 @@
 	expandType = /obj/effect/blob
 
 /obj/effect/blob/core/secondary/New()
-	processing_objects.Add(src)
 	health = maxHealth
 	update_icon()
 	return ..(loc)

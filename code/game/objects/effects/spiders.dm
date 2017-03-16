@@ -78,14 +78,14 @@
 	New()
 		pixel_x = rand(3,-3)
 		pixel_y = rand(3,-3)
-		processing_objects |= src
+		START_PROCESSING(SSprocessing, src)
 
 /obj/effect/spider/eggcluster/New(var/location, var/atom/parent)
 	get_light_and_color(parent)
 	..()
 
 /obj/effect/spider/eggcluster/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	if(istype(loc, /obj/item/organ/external))
 		var/obj/item/organ/external/O = loc
 		O.implants -= src
@@ -122,17 +122,15 @@
 /obj/effect/spider/spiderling/New(var/location, var/atom/parent)
 	pixel_x = rand(6,-6)
 	pixel_y = rand(6,-6)
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 	//50% chance to grow up
 	if(prob(50))
 		amount_grown = 1
 	get_light_and_color(parent)
 	..()
 
-/obj/effect/spider/spiderling/Destroy(force = FALSE)
-	if (!force)
-		return QDEL_HINT_POOL
-	processing_objects -= src
+/obj/effect/spider/spiderling/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/effect/spider/spiderling/Bump(atom/user)

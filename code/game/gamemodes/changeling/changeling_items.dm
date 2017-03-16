@@ -18,11 +18,12 @@
 	var/mob/living/creator
 
 /obj/item/weapon/melee/arm_blade/New()
-	processing_objects |= src
+	..()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/melee/arm_blade/Destroy()
-	processing_objects -= src
-	..()
+	START_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/weapon/melee/arm_blade/dropped()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
@@ -62,11 +63,12 @@
 	var/mob/living/creator
 
 /obj/item/weapon/shield/riot/changeling/New()
-	processing_objects |= src
+	..()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/shield/riot/changeling/Destroy()
-	processing_objects -= src
-	..()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/weapon/shield/riot/changeling/dropped()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",

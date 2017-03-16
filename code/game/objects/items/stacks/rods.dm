@@ -77,6 +77,3 @@
 		F.add_fingerprint(usr)
 		use(2)
 	return
-
-/obj/item/stack/rods/Destroy(force = FALSE)
-	return force ? ..() : QDEL_HINT_POOL

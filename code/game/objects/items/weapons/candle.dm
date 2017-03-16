@@ -49,8 +49,7 @@
 		for(var/mob/O in viewers(usr, null))
 			O.show_message(flavor_text, 1)
 		set_light(CANDLE_LUM)
-		processing_objects.Add(src)
-
+		START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/flame/candle/process()
 	if(!lit)
@@ -60,6 +59,8 @@
 		new/obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
 			src.dropped()
+			
+		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	update_icon()
 	if(istype(loc, /turf)) //start a fire if possible

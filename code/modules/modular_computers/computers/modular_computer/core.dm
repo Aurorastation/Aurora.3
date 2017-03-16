@@ -56,7 +56,7 @@
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/New()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
@@ -68,12 +68,12 @@
 	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/modular_computer/emag_act(var/remaining_charges, var/mob/user)
 	if(computer_emagged)
-		to_chat(user, "\The [src] was already emagged.")
+		to_chat(user, "\The [src] has already been emagged.")
 		return NO_EMAG_ACT
 	else
 		computer_emagged = 1

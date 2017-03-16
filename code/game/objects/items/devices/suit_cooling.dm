@@ -17,6 +17,8 @@
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
 
+	var/celltype = /obj/item/weapon/cell	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
+
 	matter = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 3500)
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
@@ -28,11 +30,15 @@
 	//TODO: make it heat up the surroundings when not in space
 
 /obj/item/device/suit_cooling_unit/New()
-	processing_objects |= src
-
-	cell = new/obj/item/weapon/cell()	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
-	cell.loc = src
+	..()
+	START_PROCESSING(SSprocessing, src)
+	new celltype(src)
 	
+/obj/item/device/suit_cooling_unit/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(cell)
+	return ..()
+
 // Checks whether the cooling unit is being worn on the back/suit slot.
 // That way you can't carry it in your hands while it's running to cool yourself down.
 /obj/item/device/suit_cooling_unit/proc/is_in_slot()
@@ -214,9 +220,4 @@
 		user << "It doesn't have a power cell installed."
 
 /obj/item/device/suit_cooling_unit/improved //those should come with a better powercell
-
-/obj/item/device/suit_cooling_unit/improved/New()
-	processing_objects |= src
-
-	cell = new/obj/item/weapon/cell/high()
-	cell.loc = src
+	celltype = /obj/item/weapon/cell/high
