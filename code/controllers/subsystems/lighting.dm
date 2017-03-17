@@ -1,14 +1,13 @@
-var/datum/subsystem/lighting/SSlighting
+var/datum/controller/subsystem/lighting/SSlighting
 
 /var/lighting_profiling = FALSE
 
-/datum/subsystem/lighting
+/datum/controller/subsystem/lighting
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
 
 	flags = SS_FIRE_IN_LOBBY
 	priority = SS_PRIORITY_LIGHTING
-	display_order = SS_DISPLAY_LIGHTING
 
 	var/list/light_queue   = list() // lighting sources  queued for update.
 	var/list/corner_queue  = list() // lighting corners  queued for update.
@@ -17,14 +16,14 @@ var/datum/subsystem/lighting/SSlighting
 	var/force_queued = TRUE
 	var/round_started = FALSE
 
-/datum/subsystem/lighting/New()
+/datum/controller/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
 
-datum/subsystem/lighting/stat_entry()
+/datum/controller/subsystem/lighting/stat_entry()
 	..("L:[light_queue.len] C:[corner_queue.len] O:[overlay_queue.len]")
 	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
 
-/datum/subsystem/lighting/Initialize(timeofday)
+/datum/controller/subsystem/lighting/Initialize(timeofday)
 	// Generate overlays.
 	for (var/zlevel = 1 to world.maxz)
 		for (var/turf/T in block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel)))
@@ -41,7 +40,7 @@ datum/subsystem/lighting/stat_entry()
 
 	..()
 
-/datum/subsystem/lighting/fire(resumed = FALSE)
+/datum/controller/subsystem/lighting/fire(resumed = FALSE)
 	if (!resumed && !round_started && Master.round_started)
 		force_queued = FALSE
 		round_started = TRUE
@@ -90,7 +89,7 @@ datum/subsystem/lighting/stat_entry()
 		if (MC_TICK_CHECK)
 			return
 
-/datum/subsystem/lighting/Recover()
+/datum/controller/subsystem/lighting/Recover()
 	if (istype(SSlighting))
 		src.light_queue = SSlighting.light_queue
 		src.corner_queue = SSlighting.corner_queue

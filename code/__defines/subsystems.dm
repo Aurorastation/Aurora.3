@@ -27,19 +27,3 @@
 #define SS_PRIORITY_LIGHTING       20	// Queued lighting engine updates.
 #define SS_PRIORITY_SUN            3
 #define SS_PRIORITY_GARBAGE        2	// (SS_BACKGROUND)
-
-#define SS_DISPLAY_GARBAGE			-80
-#define SS_DISPLAY_TIMER			-70
-#define SS_DISPLAY_MOB				-60
-#define SS_DISPLAY_AIR				-50
-#define SS_DISPLAY_LIGHTING			-40
-#define SS_DISPLAY_MACHINERY		-30
-#define SS_DISPLAY_POWER			-20
-#define SS_DISPLAY_PIPENET			-15
-#define SS_DISPLAY_EFFECTS			-10
-#define SS_DISPLAY_UNSPECIFIED		0
-#define SS_DISPLAY_ORBIT            10
-#define SS_DISPLAY_NIGHT_LIGHTING	20
-#define SS_DISPLAY_SUPPLY           30
-#define SS_DISPLAY_STATISTICS       40
-#define SS_DISPLAY_SUN				50

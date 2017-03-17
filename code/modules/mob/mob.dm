@@ -751,7 +751,6 @@
 				stat("CPU:","[world.cpu]")
 				stat("Tick Usage:", world.tick_usage)
 				stat("Instances:","[world.contents.len]")
-				stat("Master:", Master ? Master.get_nice_message() : "DOES NOT EXIST")
 			if(statpanel("Processes"))
 				stat(null)
 				if(Master)
@@ -765,9 +764,11 @@
 				stat("Tick Usage:", world.tick_usage)
 				if (Master)
 					stat(null)
-					for (var/datum/subsystem/SS in Master.subsystems)
-						if (!(SS.flags & SS_NO_FIRE))
-							SS.stat_entry()
+					for(var/datum/controller/subsystem/SS in Master.subsystems)
+						if (SS.flags & SS_NO_DISPLAY)
+							continue
+					
+						SS.stat_entry()
 
 		if(listed_turf && client)
 			if(!TurfAdjacent(listed_turf))

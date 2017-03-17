@@ -1,13 +1,13 @@
-var/datum/subsystem/parallax/SSparallax
+var/datum/controller/subsystem/parallax/SSparallax
 
-/datum/subsystem/parallax
+/datum/controller/subsystem/parallax
 	name = "Space Parallax Cache"
 	init_order = SS_INIT_PARALLAX
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
-/datum/subsystem/parallax/New()
+/datum/controller/subsystem/parallax/New()
 	NEW_SS_GLOBAL(SSparallax)
 
-/datum/subsystem/parallax/Initialize(timeofday)
+/datum/controller/subsystem/parallax/Initialize(timeofday)
 	create_global_parallax_icons()
 	..(timeofday, TRUE)

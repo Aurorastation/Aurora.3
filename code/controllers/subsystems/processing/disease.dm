@@ -1,13 +1,13 @@
-var/datum/subsystem/processing/disease/SSdisease
-/datum/subsystem/processing/disease
+var/datum/controller/subsystem/processing/disease/SSdisease
+/datum/controller/subsystem/processing/disease
 
-/datum/subsystem/processing/disease
+/datum/controller/subsystem/processing/disease
 	name = "Diseases"
 	flags = SS_KEEP_TIMING | SS_NO_INIT
 	priority = SS_PRIORITY_DISEASE
 
-/datum/subsystem/processing/disease/New()
+/datum/controller/subsystem/processing/disease/New()
 	NEW_SS_GLOBAL(SSdisease)
 
-/datum/subsystem/processing/disease/stop_processing(datum/D)
+/datum/controller/subsystem/processing/disease/stop_processing(datum/D)
 	STOP_PROCESSING(SSdisease, D)

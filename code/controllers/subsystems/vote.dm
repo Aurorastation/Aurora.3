@@ -1,6 +1,6 @@
-var/datum/subsystem/vote/SSvote
+var/datum/controller/subsystem/vote/SSvote
 
-/datum/subsystem/vote
+/datum/controller/subsystem/vote
 	name = "Voting"
 	wait = 1 SECONDS
 	flags = SS_KEEP_TIMING | SS_FIRE_IN_LOBBY
@@ -8,11 +8,11 @@ var/datum/subsystem/vote/SSvote
 
 	var/next_transfer_time
 
-/datum/subsystem/vote/Initialize(timeofday)
+/datum/controller/subsystem/vote/Initialize(timeofday)
 	next_transfer_time = config.vote_autotransfer_initial
 	..(timeofday, silent = TRUE)
 
-/datum/subsystem/vote/fire(resumed = FALSE)
+/datum/controller/subsystem/vote/fire(resumed = FALSE)
 	vote.process()
 
 	if (world.time >= next_transfer_time - 600)

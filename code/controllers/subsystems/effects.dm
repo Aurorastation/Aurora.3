@@ -1,10 +1,9 @@
-var/datum/subsystem/effects/SSeffects
+var/datum/controller/subsystem/effects/SSeffects
 
-/datum/subsystem/effects
+/datum/controller/subsystem/effects
 	name = "Effects Master"
 	wait = 2
 	flags = SS_BACKGROUND | SS_NO_INIT
-	display_order = SS_DISPLAY_EFFECTS
 
 	var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
 	var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. May be created without an effect object.
@@ -12,10 +11,10 @@ var/datum/subsystem/effects/SSeffects
 	var/tmp/list/processing_effects = list()
 	var/tmp/list/processing_visuals = list()
 
-/datum/subsystem/effects/New()
+/datum/controller/subsystem/effects/New()
 	NEW_SS_GLOBAL(SSeffects)
 
-/datum/subsystem/effects/fire(resumed = FALSE)
+/datum/controller/subsystem/effects/fire(resumed = FALSE)
 	if (!resumed)
 		processing_effects = effects_objects
 		effects_objects = list()
@@ -60,22 +59,22 @@ var/datum/subsystem/effects/SSeffects
 		if (MC_TICK_CHECK)
 			return
 
-/datum/subsystem/effects/proc/queue(var/datum/effect_system/E)
+/datum/controller/subsystem/effects/proc/queue(var/datum/effect_system/E)
 	if (QDELETED(E))
 		return
 		
 	effects_objects += E
 
-/datum/subsystem/effects/proc/queue_simple(var/obj/visual_effect/V)
+/datum/controller/subsystem/effects/proc/queue_simple(var/obj/visual_effect/V)
 	if (QDELETED(V))
 		return
 
 	effects_visuals += V
 
-/datum/subsystem/effects/stat_entry()
+/datum/controller/subsystem/effects/stat_entry()
 	..("E:[effects_objects.len] V:[effects_visuals.len]")
 
-/datum/subsystem/effects/Recover()
+/datum/controller/subsystem/effects/Recover()
 	if (istype(SSeffects))
 		src.effects_objects = SSeffects.effects_objects
 		src.effects_visuals = SSeffects.effects_visuals

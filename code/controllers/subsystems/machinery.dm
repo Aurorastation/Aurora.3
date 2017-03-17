@@ -1,22 +1,21 @@
 var/global/list/ticking_machines		= list()
 var/global/list/power_using_machines	= list()
 
-/datum/subsystem/machinery
+/datum/controller/subsystem/machinery
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
 	init_order = SS_INIT_POWERNET
-	display_order = SS_DISPLAY_MACHINERY
 
 	var/tmp/list/processing_machinery = list()
 	var/tmp/list/processing_power_users = list()
 	var/tmp/list/processing_powersinks = list()
 	var/tmp/list/processing_powernets = list()
 
-/datum/subsystem/machinery/Initialize(timeofday)
+/datum/controller/subsystem/machinery/Initialize(timeofday)
 	makepowernets()
 	..(timeofday, silent = TRUE)
 
-/datum/subsystem/machinery/fire(resumed = 0)
+/datum/controller/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
 		src.processing_machinery = ticking_machines.Copy()
 		src.processing_power_users = power_using_machines.Copy()
@@ -76,5 +75,5 @@ var/global/list/power_using_machines	= list()
 		if (MC_TICK_CHECK)
 			return
 
-/datum/subsystem/machinery/stat_entry()
+/datum/controller/subsystem/machinery/stat_entry()
 	..("M:[machines.len] TM:[ticking_machines.len] PM:[power_using_machines.len] PI:[processing_power_items.len] PN:[powernets.len]")

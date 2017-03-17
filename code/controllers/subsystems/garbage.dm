@@ -1,10 +1,9 @@
-var/datum/subsystem/garbage_collector/SSgarbage
+var/datum/controller/subsystem/garbage_collector/SSgarbage
 
-/datum/subsystem/garbage_collector
+/datum/controller/subsystem/garbage_collector
 	name = "Garbage"
 	priority = SS_PRIORITY_GARBAGE
 	wait = 5
-	display_order = SS_DISPLAY_GARBAGE
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
 	var/collection_timeout = 30 SECONDS// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
@@ -34,20 +33,20 @@ var/datum/subsystem/garbage_collector/SSgarbage
 	var/list/qdel_list = list()	// list of all types that have been qdel()eted
 #endif
 
-/datum/subsystem/garbage_collector/New()
+/datum/controller/subsystem/garbage_collector/New()
 	NEW_SS_GLOBAL(SSgarbage)
 
-/datum/subsystem/garbage_collector/stat_entry()
+/datum/controller/subsystem/garbage_collector/stat_entry()
 	..("Q:[queue.len] HD:[totaldels] SD:[totalgcs]")
 
-/datum/subsystem/garbage_collector/fire()
+/datum/controller/subsystem/garbage_collector/fire()
 	HandleToBeQueued()
 	if(state == SS_RUNNING)
 		HandleQueue()
 
 //If you see this proc high on the profile, what you are really seeing is the garbage collection/soft delete overhead in byond.
 //Don't attempt to optimize, not worth the effort.
-/datum/subsystem/garbage_collector/proc/HandleToBeQueued()
+/datum/controller/subsystem/garbage_collector/proc/HandleToBeQueued()
 	var/list/tobequeued = src.tobequeued
 	var/starttime = world.time
 	var/starttimeofday = world.timeofday
@@ -58,7 +57,7 @@ var/datum/subsystem/garbage_collector/SSgarbage
 		Queue(ref)
 		tobequeued.Cut(1, 2)
 
-/datum/subsystem/garbage_collector/proc/HandleQueue()
+/datum/controller/subsystem/garbage_collector/proc/HandleQueue()
 	delslasttick = 0
 	gcedlasttick = 0
 	var/time_to_kill = world.time - collection_timeout // Anything qdel() but not GC'd BEFORE this time needs to be manually del()
@@ -114,12 +113,12 @@ var/datum/subsystem/garbage_collector/SSgarbage
 			++gcedlasttick
 			++totalgcs
 
-/datum/subsystem/garbage_collector/proc/QueueForQueuing(datum/A)
+/datum/controller/subsystem/garbage_collector/proc/QueueForQueuing(datum/A)
 	if (istype(A) && A.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		tobequeued += A
 		A.gcDestroyed = GC_QUEUED_FOR_QUEUING
 
-/datum/subsystem/garbage_collector/proc/Queue(datum/A)
+/datum/controller/subsystem/garbage_collector/proc/Queue(datum/A)
 	if (!istype(A) || (!isnull(A.gcDestroyed) && A.gcDestroyed >= 0))
 		return
 	if (A.gcDestroyed == GC_QUEUED_FOR_HARD_DEL)
@@ -135,12 +134,12 @@ var/datum/subsystem/garbage_collector/SSgarbage
 
 	queue[refid] = gctime
 
-/datum/subsystem/garbage_collector/proc/HardQueue(datum/A)
+/datum/controller/subsystem/garbage_collector/proc/HardQueue(datum/A)
 	if (istype(A) && A.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		tobequeued += A
 		A.gcDestroyed = GC_QUEUED_FOR_HARD_DEL
 
-/datum/subsystem/garbage_collector/Recover()
+/datum/controller/subsystem/garbage_collector/Recover()
 	if (istype(SSgarbage.queue))
 		queue |= SSgarbage.queue
 	if (istype(SSgarbage.tobequeued))

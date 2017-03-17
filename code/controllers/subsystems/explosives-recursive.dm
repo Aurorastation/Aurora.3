@@ -1,6 +1,6 @@
-var/datum/subsystem/explosives_recursive/SSkaboom
+var/datum/controller/subsystem/explosives_recursive/SSkaboom
 
-/datum/subsystem/explosives_recursive
+/datum/controller/subsystem/explosives_recursive
 	name = "Explosives (R)"
 	flags = SS_BACKGROUND | SS_NO_INIT
 	wait = 1 SECONDS
@@ -14,20 +14,20 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 	var/tmp/list/turf/affected_turfs = list()
 	var/tmp/power = 0
 
-/datum/subsystem/explosives_recursive/proc/queue(datum/explosion/recursive/ex)
+/datum/controller/subsystem/explosives_recursive/proc/queue(datum/explosion/recursive/ex)
 	if (!ex || !ex.epicenter)
 		return
 	
 	queued_explosions |= ex
 	enable()
 
-/datum/subsystem/explosives_recursive/New()
+/datum/controller/subsystem/explosives_recursive/New()
 	NEW_SS_GLOBAL(SSkaboom)
 
-/datum/subsystem/explosives_recursive/stat_entry()
+/datum/controller/subsystem/explosives_recursive/stat_entry()
 	..("QE:[queued_explosions.len] S:[start_points.len] PT:[processing_turfs.len] AT:[affected_turfs.len]")
 
-/datum/subsystem/explosives_recursive/proc/emergency_stop()
+/datum/controller/subsystem/explosives_recursive/proc/emergency_stop()
 	start_points = list()
 	processing_turfs = list()
 	affected_turfs = list()
@@ -37,7 +37,7 @@ var/datum/subsystem/explosives_recursive/SSkaboom
 	current_explosion = null
 	power = 0
 
-/datum/subsystem/explosives_recursive/fire(resumed = FALSE)
+/datum/controller/subsystem/explosives_recursive/fire(resumed = FALSE)
 	if (admin_disabled)
 		return
 		

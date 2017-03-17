@@ -1,6 +1,6 @@
-/var/datum/subsystem/processing/plants/plant_controller
+/var/datum/controller/subsystem/processing/plants/plant_controller
 
-/datum/subsystem/processing/plants
+/datum/controller/subsystem/processing/plants
 	name = "Seeds & Plants"
 	flags = 0	// Override parent's flags.
 	wait = 75
@@ -13,13 +13,13 @@
 	var/list/plant_sprites = list()         // List of all harvested product sprites.
 	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
 
-/datum/subsystem/processing/plants/New()
+/datum/controller/subsystem/processing/plants/New()
 	NEW_SS_GLOBAL(plant_controller)
 
-/datum/subsystem/processing/plants/stop_processing(datum/D)
+/datum/controller/subsystem/processing/plants/stop_processing(datum/D)
 	STOP_PROCESSING(plant_controller, D)
 
-/datum/subsystem/processing/plants/Initialize(timeofday)
+/datum/controller/subsystem/processing/plants/Initialize(timeofday)
 	// Build the icon lists.
 	for(var/icostate in icon_states('icons/obj/hydroponics_growing.dmi'))
 		var/split = findtext(icostate,"-")
@@ -70,7 +70,7 @@
 	
 	..()
 
-/datum/subsystem/processing/plants/Recover()
+/datum/controller/subsystem/processing/plants/Recover()
 	if (istype(plant_controller))
 		src.product_descs = plant_controller.product_descs
 		src.seeds = plant_controller.seeds
@@ -80,7 +80,7 @@
 		src.plant_product_sprites = plant_controller.plant_product_sprites
 
 // Proc for creating a random seed type.
-/datum/subsystem/processing/plants/proc/create_random_seed(var/survive_on_station)
+/datum/controller/subsystem/processing/plants/proc/create_random_seed(var/survive_on_station)
 	var/datum/seed/seed = new()
 	seed.randomize()
 	seed.uid = plant_controller.seeds.len + 1

@@ -1,6 +1,6 @@
-var/datum/subsystem/explosives_simple/SSboom
+var/datum/controller/subsystem/explosives_simple/SSboom
 
-/datum/subsystem/explosives_simple
+/datum/controller/subsystem/explosives_simple
 	name = "Explosives (S)"
 	flags = SS_BACKGROUND | SS_NO_INIT
 	wait = 1 SECONDS
@@ -9,20 +9,20 @@ var/datum/subsystem/explosives_simple/SSboom
 	var/tmp/list/discovering_explosives = list()	// Explosives that still need to discover their affected turfs.
 	var/tmp/list/exploding_explosives = list()		// Explosions that are ready to process their explosion.
 
-/datum/subsystem/explosives_simple/proc/queue(datum/explosion/circular/ex)
+/datum/controller/subsystem/explosives_simple/proc/queue(datum/explosion/circular/ex)
 	if (!ex || !ex.epicenter)
 		return
 
 	queued_explosives |= ex
 	enable()
 
-/datum/subsystem/explosives_simple/New()
+/datum/controller/subsystem/explosives_simple/New()
 	NEW_SS_GLOBAL(SSboom)
 
-/datum/subsystem/explosives_simple/stat_entry()
+/datum/controller/subsystem/explosives_simple/stat_entry()
 	..("D:[discovering_explosives.len] E:[exploding_explosives.len]")
 
-/datum/subsystem/explosives_simple/fire(resumed = FALSE)
+/datum/controller/subsystem/explosives_simple/fire(resumed = FALSE)
 	var/list/discover_queue = discovering_explosives
 	var/list/explode_queue = exploding_explosives
 

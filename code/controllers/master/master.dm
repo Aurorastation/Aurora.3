@@ -39,16 +39,18 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 	var/make_runtime = 0
 
+	var/initializations_finished_with_no_players_logged_in	//I wonder what this could be?
 	// Has round started? (So we know what subsystems to run)
 	var/round_started = 0
 
 	// The type of the last subsystem to be process()'d.
 	var/last_type_processed
 
-	var/datum/subsystem/queue_head //Start of queue linked list
-	var/datum/subsystem/queue_tail //End of queue linked list (used for appending to the list)
+	var/datum/controller/subsystem/queue_head //Start of queue linked list
+	var/datum/controller/subsystem/queue_tail //End of queue linked list (used for appending to the list)
 	var/queue_priority_count = 0 //Running total so that we don't have to loop thru the queue each run to split up the tick
 	var/queue_priority_count_bg = 0 //Same, but for background subsystems
+	var/map_loading = FALSE	//Are we loading in a new map?
 
 /datum/controller/master/New()
 	// Highlander-style: there can only be one! Kill off the old and replace it with the new.
@@ -58,7 +60,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			Recover()
 			qdel(Master)
 		else
-			init_subtypes(/datum/subsystem, subsystems)
+			init_subtypes(/datum/controller/subsystem, subsystems)
 		Master = src
 
 /datum/controller/master/Destroy()
@@ -66,9 +68,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	// Tell qdel() to Del() this object.
 	return QDEL_HINT_HARDDEL_NOW
 
-/datum/controller/master/proc/Shutdown()
+/datum/controller/master/Shutdown()
 	processing = FALSE
-	for(var/datum/subsystem/ss in subsystems)
+	for(var/datum/controller/subsystem/ss in subsystems)
 		ss.Shutdown()
 
 // Returns 1 if we created a new mc, 0 if we couldn't due to a recent restart,
@@ -91,8 +93,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	return 1
 
 
-/datum/controller/master/proc/Recover()
-	var/msg = "## DEBUG: [time2text(REALTIMEOFDAY)] MC restarted. Reports:\n"
+/datum/controller/master/Recover()
+	var/msg = "## DEBUG: [time2text(world.timeofday)] MC restarted. Reports:\n"
 	for (var/varname in Master.vars)
 		switch (varname)
 			if("name", "tag", "bestF", "type", "parent_type", "vars", "statclick") // Built-in junk.
@@ -104,61 +106,65 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 					msg += "\t [varname] = [D]([D.type])\n"
 				else
 					msg += "\t [varname] = [varval]\n"
-	world.log << msg
+	log_mc(msg)
 	if (istype(Master.subsystems))
 		subsystems = Master.subsystems
 		StartProcessing(10)
 	else
-		world << "<span class='danger'>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</span>"
-		Setup(20, TRUE)
+		to_chat(world, "<span class='danger'>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</span>")
+		Initialize(20, TRUE)
 
 
 // Please don't stuff random bullshit here,
 // 	Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
-/datum/controller/master/proc/Setup(delay, init_sss)
+/datum/controller/master/Initialize(delay, init_sss)
 	set waitfor = 0
 
 	if(delay)
 		sleep(delay)
 
 	if(init_sss)
-		init_subtypes(/datum/subsystem, subsystems)
+		init_subtypes(/datum/controller/subsystem, subsystems)
 
 	world.log << "Initializing subsystems..."
-	game_log("MC", "Initializing subsystems...")
+	log_mc("Initializing subsystems...")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
 
+	var/start_timeofday = REALTIMEOFDAY
 	// Initialize subsystems.
 	CURRENT_TICKLIMIT = TICK_LIMIT_MC_INIT
-	for (var/datum/subsystem/SS in subsystems)
+	for (var/datum/controller/subsystem/SS in subsystems)
 		if (SS.flags & SS_NO_INIT)
 			continue
-
-		game_log("MC", "Initializing SS '[SS.name]'")
 		SS.Initialize(REALTIMEOFDAY)
 		CHECK_TICK
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
+	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
-	to_chat(world, span("danger", "Initializations complete!"))
-	world.log << "Initializations complete."
-	game_log("MC", "Initializations complete.")
+	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
+	log_mc(msg)
+	message_admins(msg, R_DEBUG)
 
 	// Sort subsystems by display setting for easy access.
 	sortTim(subsystems, /proc/cmp_subsystem_display)
-
+	// Set world options.
+#ifndef UNIT_TEST
+	world.sleep_offline = 1
+#endif
+	world.tick_lag = config.Ticklag
+	var/initialized_tod = REALTIMEOFDAY
 	sleep(1)
+	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 	// Loop.
 	Master.StartProcessing(0)
 
 // Notify the MC that the round has started.
 /datum/controller/master/proc/RoundStart()
 	round_started = 1
-	game_log("MC", "Round started.")
-	world.log << "## MC: Round started."
 	var/timer = world.time
-	for (var/datum/subsystem/SS in subsystems)
+	for (var/datum/controller/subsystem/SS in subsystems)
 		if (SS.flags & SS_FIRE_IN_LOBBY || SS.flags & SS_TICKER)
 			continue //already firing
 		// Stagger subsystems.
@@ -170,12 +176,6 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	set waitfor = 0
 	if(delay)
 		sleep(delay)
-
-#ifndef UNIT_TEST
-	// init done, start sleeping if no one's home.
-	world.sleep_offline = TRUE
-#endif
-
 	var/rtn = Loop()
 	if (rtn > 0 || processing < 0)
 		return //this was suppose to happen.
@@ -202,7 +202,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/list/lobbysubsystems = list()
 	var/timer = world.time
 	for (var/thing in subsystems)
-		var/datum/subsystem/SS = thing
+		var/datum/controller/subsystem/SS = thing
 		if (SS.flags & SS_NO_FIRE)
 			continue
 		SS.queued_time = 0
@@ -264,10 +264,10 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			sleep_delta += 1
 
 		if (make_runtime)
-			var/datum/subsystem/SS
+			var/datum/controller/subsystem/SS
 			SS.can_fire = 0
 		if (!Failsafe || (Failsafe.processing_interval > 0 && (Failsafe.lasttick+(Failsafe.processing_interval*5)) < world.time))
-			new/datum/controller/failsafe()	// (re)start the failsafe.
+			new/datum/controller/failsafe() // (re)Start the failsafe.
 		if (!queue_head || !(iteration % 3))
 			if (round_started)
 				subsystems_to_check = normalsubsystems
@@ -277,7 +277,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			subsystems_to_check = tickersubsystems
 		if (CheckQueue(subsystems_to_check) <= 0)
 			if (!SoftReset(tickersubsystems, normalsubsystems, lobbysubsystems))
-				world.log << "MC: SoftReset() failed, crashing"
+				log_mc("SoftReset() failed, crashing")
 				return
 			if (!error_level)
 				iteration++
@@ -289,7 +289,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (queue_head)
 			if (RunQueue() <= 0)
 				if (!SoftReset(tickersubsystems, normalsubsystems, lobbysubsystems))
-					world.log << "MC: SoftReset() failed, crashing"
+					log_mc("SoftReset() failed, crashing")
 					return
 				if (!error_level)
 					iteration++
@@ -316,7 +316,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	. = 0 //so the mc knows if we runtimed
 
 	//we create our variables outside of the loops to save on overhead
-	var/datum/subsystem/SS
+	var/datum/controller/subsystem/SS
 	var/SS_flags
 
 	for (var/thing in subsystemstocheck)
@@ -342,7 +342,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 // Run thru the queue of subsystems to run, running them while balancing out their allocated tick precentage
 /datum/controller/master/proc/RunQueue()
 	. = 0
-	var/datum/subsystem/queue_node
+	var/datum/controller/subsystem/queue_node
 	var/queue_node_flags
 	var/queue_node_priority
 	var/queue_node_paused
@@ -461,55 +461,47 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 //	called if any mc's queue procs runtime or exit improperly.
 /datum/controller/master/proc/SoftReset(list/ticker_SS, list/normal_SS, list/lobby_SS)
 	. = 0
-	world.log << "MC: SoftReset called, resetting MC queue state."
+	log_mc("SoftReset called, resetting MC queue state.")
 	if (!istype(subsystems) || !istype(ticker_SS) || !istype(normal_SS) || !istype(lobby_SS))
-		world.log << "MC: SoftReset: Bad list contents: '[subsystems]' '[ticker_SS]' '[normal_SS]' '[lobby_SS]' Crashing!"
+		log_mc("SoftReset: Bad list contents: '[subsystems]' '[ticker_SS]' '[normal_SS]' '[lobby_SS]' Crashing!")
 		return
 	var/subsystemstocheck = subsystems + ticker_SS + normal_SS + lobby_SS
 
 	for (var/thing in subsystemstocheck)
-		var/datum/subsystem/SS = thing
+		var/datum/controller/subsystem/SS = thing
 		if (!SS || !istype(SS))
 			//list(SS) is so if a list makes it in the subsystem list, we remove the list, not the contents
 			subsystems -= list(SS)
 			ticker_SS -= list(SS)
 			normal_SS -= list(SS)
 			lobby_SS -= list(SS)
-			world.log << "MC: SoftReset: Found bad entry in subsystem list, '[SS]'"
+			log_mc("SoftReset: Found bad entry in subsystem list, '[SS]'")
 			continue
 		if (SS.queue_next && !istype(SS.queue_next))
-			world.log << "MC: SoftReset: Found bad data in subsystem queue, queue_next = '[SS.queue_next]'"
+			log_mc("SoftReset: Found bad data in subsystem queue, queue_next = '[SS.queue_next]'")
 		SS.queue_next = null
 		if (SS.queue_prev && !istype(SS.queue_prev))
-			world.log << "MC: SoftReset: Found bad data in subsystem queue, queue_prev = '[SS.queue_prev]'"
+			log_mc("SoftReset: Found bad data in subsystem queue, queue_prev = '[SS.queue_prev]'")
 		SS.queue_prev = null
 		SS.queued_priority = 0
 		SS.queued_time = 0
 		SS.state = SS_IDLE
 	if (queue_head && !istype(queue_head))
-		world.log << "MC: SoftReset: Found bad data in subsystem queue, queue_head = '[queue_head]'"
+		log_mc("SoftReset: Found bad data in subsystem queue, queue_head = '[queue_head]'")
 	queue_head = null
 	if (queue_tail && !istype(queue_tail))
-		world.log << "MC: SoftReset: Found bad data in subsystem queue, queue_tail = '[queue_tail]'"
+		log_mc("SoftReset: Found bad data in subsystem queue, queue_tail = '[queue_tail]'")
 	queue_tail = null
 	queue_priority_count = 0
 	queue_priority_count_bg = 0
-	world.log << "MC: SoftReset: Finished."
+	log_mc("SoftReset: Finished.")
 	. = 1
 
 
 
-/datum/controller/master/proc/stat_entry()
+/datum/controller/master/stat_entry()
 	if(!statclick)
-		statclick = new/obj/effect/statclick/debug("Initializing...", src)
+		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
 
-
-	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (TickDrift:[round(Master.tickdrift)]) (Iteration:[Master.iteration])"))
-
-/datum/controller/master/proc/get_nice_message()
-	if (!processing)
-		return "Not processing"
-	else if (processing > 1)
-		return "Reduced tick rate"
-	else if (processing == 1)
-		return "Running"
+	stat("Byond:", "(TickLag:[world.tick_lag]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%))")
+	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration])"))

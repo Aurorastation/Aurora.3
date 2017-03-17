@@ -1,6 +1,6 @@
-var/datum/subsystem/wireless/wirelessProcess
+var/datum/controller/subsystem/wireless/wirelessProcess
 
-/datum/subsystem/wireless
+/datum/controller/subsystem/wireless
 	name = "Wireless"
 	flags = SS_NO_INIT
 
@@ -12,21 +12,21 @@ var/datum/subsystem/wireless/wirelessProcess
 	var/tmp/list/retry_queue = list()
 	var/tmp/list/pending_queue = list()
 
-/datum/subsystem/wireless/New()
+/datum/controller/subsystem/wireless/New()
 	NEW_SS_GLOBAL(wirelessProcess)
 
-/datum/subsystem/wireless/proc/add_device(var/datum/wifi/receiver/R)
+/datum/controller/subsystem/wireless/proc/add_device(var/datum/wifi/receiver/R)
 	if(receiver_list)
 		receiver_list |= R
 	else
 		receiver_list = new()
 		receiver_list |= R
 
-/datum/subsystem/wireless/proc/remove_device(var/datum/wifi/receiver/R)
+/datum/controller/subsystem/wireless/proc/remove_device(var/datum/wifi/receiver/R)
 	if (receiver_list)
 		receiver_list -= R
 
-/datum/subsystem/wireless/proc/add_request(var/datum/connection_request/C)
+/datum/controller/subsystem/wireless/proc/add_request(var/datum/connection_request/C)
 	if (pending_connections)
 		pending_connections += C
 
@@ -34,7 +34,7 @@ var/datum/subsystem/wireless/wirelessProcess
 		pending_connections = new()
 		pending_connections += C
 
-/datum/subsystem/wireless/proc/process_connection(var/datum/connection_request/connection, var/list/fail_queue)
+/datum/controller/subsystem/wireless/proc/process_connection(var/datum/connection_request/connection, var/list/fail_queue)
 	var/target_found = 0
 	for (var/datum/wifi/receiver/R in receiver_list)
 		if (R.id == connection.id)
@@ -45,7 +45,7 @@ var/datum/subsystem/wireless/wirelessProcess
 	if (!target_found)
 		fail_queue += connection
 
-/datum/subsystem/wireless/fire(resumed = 0)
+/datum/controller/subsystem/wireless/fire(resumed = 0)
 	if (!resumed)
 		retry_queue = retry_connections.Copy()
 		pending_queue = pending_connections.Copy()

@@ -1,19 +1,19 @@
-var/datum/subsystem/nanoui/SSnanoui
+var/datum/controller/subsystem/nanoui/SSnanoui
 
-/datum/subsystem/nanoui
+/datum/controller/subsystem/nanoui
 	name = "NanoUI"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_NANOUI
 
 	var/list/queued_uis = list()
 
-/datum/subsystem/nanoui/New()
+/datum/controller/subsystem/nanoui/New()
 	NEW_SS_GLOBAL(SSnanoui)
 
-/datum/subsystem/nanoui/stat_entry()
+/datum/controller/subsystem/nanoui/stat_entry()
 	..("P:[nanomanager.processing_uis.len]")
 
-/datum/subsystem/nanoui/fire(resumed = 0)
+/datum/controller/subsystem/nanoui/fire(resumed = 0)
 	if (!resumed)
 		queued_uis = nanomanager.processing_uis.Copy()
 

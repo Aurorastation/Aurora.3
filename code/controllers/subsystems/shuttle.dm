@@ -1,6 +1,6 @@
-var/datum/subsystem/shuttle/shuttle_controller
+var/datum/controller/subsystem/shuttle/shuttle_controller
 
-/datum/subsystem/shuttle
+/datum/controller/subsystem/shuttle
 	name = "Shuttle Controller"
 
 	var/list/shuttles	//maps shuttle tags to shuttle datums, so that they can be looked up.
@@ -8,14 +8,14 @@ var/datum/subsystem/shuttle/shuttle_controller
 
 	var/tmp/list/processing_shuttles = list()
 
-/datum/subsystem/shuttle/New()
+/datum/controller/subsystem/shuttle/New()
 	NEW_SS_GLOBAL(shuttle_controller)
 
-/datum/subsystem/shuttle/Recover()
+/datum/controller/subsystem/shuttle/Recover()
 	src.shuttles = shuttle_controller.shuttles
 	src.process_shuttles = shuttle_controller.process_shuttles
 
-/datum/subsystem/shuttle/proc/setup_shuttle_docks()
+/datum/controller/subsystem/shuttle/proc/setup_shuttle_docks()
 	for(var/shuttle_tag in shuttles)
 		var/datum/shuttle/shuttle = shuttles[shuttle_tag]
 		shuttle.init_docking_controllers()
@@ -25,7 +25,7 @@ var/datum/subsystem/shuttle/shuttle_controller
 		if(istype(C.program, /datum/computer/file/embedded_program/docking))
 			C.program.tag = null //clear the tags, 'cause we don't need 'em anymore
 
-/datum/subsystem/shuttle/fire(resumed = FALSE)
+/datum/controller/subsystem/shuttle/fire(resumed = FALSE)
 	if (!resumed)
 		processing_shuttles = process_shuttles.Copy()
 
@@ -38,7 +38,7 @@ var/datum/subsystem/shuttle/shuttle_controller
 		if (MC_TICK_CHECK)
 			return
 
-/datum/subsystem/shuttle/Initialize(timeofday)
+/datum/controller/subsystem/shuttle/Initialize(timeofday)
 	shuttles = list()
 	process_shuttles = list()
 

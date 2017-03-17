@@ -1,4 +1,4 @@
-var/datum/subsystem/xenoarch/SSxenoarch
+var/datum/controller/subsystem/xenoarch/SSxenoarch
 
 #define XENOARCH_SPAWN_CHANCE 0.5
 #define DIGSITESIZE_LOWER 4
@@ -6,18 +6,18 @@ var/datum/subsystem/xenoarch/SSxenoarch
 #define ARTIFACTSPAWNNUM_LOWER 6
 #define ARTIFACTSPAWNNUM_UPPER 12
 
-/datum/subsystem/xenoarch
-	name = "Xenoarcheology Controller"
+/datum/controller/subsystem/xenoarch
+	name = "Xenoarcheology"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MISC
 
 	var/list/artifact_spawning_turfs = list()
 	var/list/digsite_spawning_turfs = list()
 
-/datum/subsystem/xenoarch/New()
+/datum/controller/subsystem/xenoarch/New()
 	NEW_SS_GLOBAL(SSxenoarch)
 
-/datum/subsystem/xenoarch/Initialize(timeofday)
+/datum/controller/subsystem/xenoarch/Initialize(timeofday)
 	//create digsites
 	for(var/turf/simulated/mineral/M in block(locate(1,1,1), locate(world.maxx, world.maxy, world.maxz)))
 		if(isnull(M.geologic_data))

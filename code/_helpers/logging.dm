@@ -94,6 +94,9 @@
 /proc/log_misc(text)
 	game_log("MISC", text)
 
+/proc/log_mc(text)
+	game_log("MASTER", text)
+
 /proc/log_unit_test(text)
 	world.log << "## UNIT_TEST ##: [text]"
 

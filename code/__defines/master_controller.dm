@@ -51,6 +51,9 @@
 //	This flag overrides SS_KEEP_TIMING
 #define SS_POST_FIRE_TIMING 128
 
+// Don't display in processes panel.
+#define SS_NO_DISPLAY 256
+
 //SUBSYSTEM STATES
 #define SS_IDLE 0		//aint doing shit.
 #define SS_QUEUED 1		//queued to run
@@ -70,3 +73,6 @@
 #define TIMER_CLIENT_TIME	0x4
 //Timer can be stopped using deltimer()
 #define TIMER_STOPPABLE		0x8
+//To be used with TIMER_UNIQUE
+//prevents distinguishing identical timers with the wait variable
+#define TIMER_NO_HASH_WAIT  0x10

@@ -1,6 +1,6 @@
-/var/datum/subsystem/airflow/SSairflow
+/var/datum/controller/subsystem/airflow/SSairflow
 
-/datum/subsystem/airflow
+/datum/controller/subsystem/airflow
 	name = "Airflow"
 	wait = 2
 	flags = SS_TICKER | SS_NO_INIT
@@ -11,10 +11,10 @@
 	var/tmp/list/current_pushing
 	var/tmp/list/current_pulling
 
-/datum/subsystem/airflow/New()
+/datum/controller/subsystem/airflow/New()
 	NEW_SS_GLOBAL(SSairflow)
 
-/datum/subsystem/airflow/fire(resumed = FALSE)
+/datum/controller/subsystem/airflow/fire(resumed = FALSE)
 	if (!resumed)
 		current_pushing = pushing.Copy()
 		current_pulling = pulling.Copy()

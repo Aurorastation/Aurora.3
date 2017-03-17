@@ -1,4 +1,4 @@
-/datum/subsystem/events
+/datum/controller/subsystem/events
 	name = "Event Controller"
 
 	flags = SS_NO_INIT
@@ -7,7 +7,7 @@
 	var/tmp/list/processing_events = list()
 	var/tmp/pos = EVENT_LEVEL_MUNDANE
 
-/datum/subsystem/events/fire(resumed = FALSE)
+/datum/controller/subsystem/events/fire(resumed = FALSE)
 	if (!resumed)
 		processing_events = event_manager.active_events.Copy()
 		pos = EVENT_LEVEL_MUNDANE
@@ -29,5 +29,5 @@
 		if (MC_TICK_CHECK)
 			return
 
-/datum/subsystem/events/stat_entry()
+/datum/controller/subsystem/events/stat_entry()
 	..("P:[processing_events.len]")

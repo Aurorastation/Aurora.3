@@ -4,12 +4,12 @@
 
 #ifdef UNIT_TEST
 
-/datum/subsystem/unit_tests
+/datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
 	init_order = -10	// last.
 	flags = SS_NO_TICK_CHECK | SS_NO_FIRE
 
-/datum/subsystem/unit_tests/Initialize(timeofday)
+/datum/controller/subsystem/unit_tests/Initialize(timeofday)
 	log_unit_test("Initializing Unit Testing")	
 	
 	//

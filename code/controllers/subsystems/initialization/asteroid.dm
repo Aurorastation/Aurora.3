@@ -1,9 +1,9 @@
-/datum/subsystem/asteroid
+/datum/controller/subsystem/asteroid
 	name = "Asteroid Generation"
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_DISPLAY
 	init_order = SS_INIT_ASTEROID
 
-/datum/subsystem/asteroid/Initialize(timeofday)
+/datum/controller/subsystem/asteroid/Initialize(timeofday)
 	if(config.generate_asteroid)
 		// These values determine the specific area that the map is applied to.
 		// If you do not use the official Baycode moonbase map, you will need to change them.

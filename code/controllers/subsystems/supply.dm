@@ -4,9 +4,9 @@
 #define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
-var/datum/subsystem/cargo/supply_controller
+var/datum/controller/subsystem/cargo/supply_controller
 
-/datum/subsystem/cargo
+/datum/controller/subsystem/cargo
 	name = "Cargo"
 	wait = 30 SECONDS
 	flags = SS_NO_TICK_CHECK
@@ -28,7 +28,7 @@ var/datum/subsystem/cargo/supply_controller
 	var/movetime = 1200
 	var/datum/shuttle/ferry/supply/shuttle
 
-/datum/subsystem/cargo/Initialize(timeofday)
+/datum/controller/subsystem/cargo/Initialize(timeofday)
 	ordernum = rand(1,9000)
 
 	for (var/typepath in (typesof(/datum/supply_packs) - /datum/supply_packs))
@@ -40,14 +40,14 @@ var/datum/subsystem/cargo/supply_controller
 	qdel(spawner)
 	..()
 
-/datum/subsystem/cargo/New()
+/datum/controller/subsystem/cargo/New()
 	NEW_SS_GLOBAL(supply_controller)
 
-/datum/subsystem/cargo/fire()
+/datum/controller/subsystem/cargo/fire()
 	points += points_per_process
 
 //To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
-/datum/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
+/datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
 		return 1
 	if(istype(A,/obj/item/weapon/disk/nuclear))
@@ -63,7 +63,7 @@ var/datum/subsystem/cargo/supply_controller
 			return 1
 
 		//Sellin
-/datum/subsystem/cargo/proc/sell()
+/datum/controller/subsystem/cargo/proc/sell()
 	var/area/area_shuttle = shuttle.get_location_area()
 	if(!area_shuttle)	return
 
@@ -105,7 +105,7 @@ var/datum/subsystem/cargo/supply_controller
 		points += plat_count * points_per_platinum
 
 //Buyin
-/datum/subsystem/cargo/proc/buy()
+/datum/controller/subsystem/cargo/proc/buy()
 	if(!shoppinglist.len) return
 
 	var/area/area_shuttle = shuttle.get_location_area()

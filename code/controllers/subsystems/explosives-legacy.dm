@@ -1,8 +1,8 @@
-var/datum/subsystem/explosives/bomb_processor
+var/datum/controller/subsystem/explosives/bomb_processor
 
 // yes, let's move the laggiest part of the game to a process
 // nothing could go wrong -- Lohikar
-/datum/subsystem/explosives
+/datum/controller/subsystem/explosives
 	name = "Explosives"
 	wait = 5
 	flags = SS_NO_INIT | SS_BACKGROUND
@@ -13,11 +13,11 @@ var/datum/subsystem/explosives/bomb_processor
 	var/explosion_in_progress
 	var/powernet_update_pending = 0
 
-/datum/subsystem/explosives/New()
+/datum/controller/subsystem/explosives/New()
 	NEW_SS_GLOBAL(bomb_processor)
 	work_queue = list()
 
-/datum/subsystem/explosives/fire()
+/datum/controller/subsystem/explosives/fire()
 	if (!(work_queue.len))
 		ticks_without_work++
 		if (powernet_update_pending && ticks_without_work > 5)
@@ -43,7 +43,7 @@ var/datum/subsystem/explosives/bomb_processor
 		work_queue -= data
 
 // Handle a non-recusrive explosion.
-/datum/subsystem/explosives/proc/explosion(var/datum/explosiondata/data)
+/datum/controller/subsystem/explosives/proc/explosion(var/datum/explosiondata/data)
 	var/turf/epicenter = data.epicenter
 	var/devastation_range = data.devastation_range
 	var/heavy_impact_range = data.heavy_impact_range
@@ -189,7 +189,7 @@ var/datum/subsystem/explosives/bomb_processor
 			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
 
 // Handle a recursive explosion.
-/datum/subsystem/explosives/proc/explosion_rec(turf/epicenter, power)
+/datum/controller/subsystem/explosives/proc/explosion_rec(turf/epicenter, power)
 	if(power <= 0) return
 	epicenter = get_turf(epicenter)
 	if(!epicenter) return
@@ -235,7 +235,7 @@ var/datum/subsystem/explosives/bomb_processor
 	explosion_in_progress = 0
 
 // A proc used by recursive explosions. (The actually recursive bit.)
-/datum/subsystem/explosives/proc/explosion_spread(turf/s, power, direction)
+/datum/controller/subsystem/explosives/proc/explosion_spread(turf/s, power, direction)
 	CHECK_TICK
 	if (istype(s, /turf/unsimulated))
 		return
@@ -259,7 +259,7 @@ var/datum/subsystem/explosives/bomb_processor
 	explosion_spread(T, spread_power, turn(direction,90))
 
 // Add an explosion to the queue for processing.
-/datum/subsystem/explosives/proc/queue(var/datum/explosiondata/data)
+/datum/controller/subsystem/explosives/proc/queue(var/datum/explosiondata/data)
 	if (!data || !istype(data))
 		return
 
@@ -269,7 +269,7 @@ var/datum/subsystem/explosives/bomb_processor
 	if (!can_fire)
 		enable()
 
-/datum/subsystem/explosives/stat_entry()
+/datum/controller/subsystem/explosives/stat_entry()
 	..("P:[work_queue.len]")
 
 // The data datum for explosions.

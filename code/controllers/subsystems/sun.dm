@@ -1,11 +1,10 @@
-var/datum/subsystem/sun/sun
+var/datum/controller/subsystem/sun/sun
 
-/datum/subsystem/sun
+/datum/controller/subsystem/sun
 	name = "Sun"
 	flags = SS_NO_TICK_CHECK|SS_NO_INIT
 	wait = 600
 	priority = SS_PRIORITY_SUN
-	display_order = SS_DISPLAY_SUN
 
 	var/angle
 	var/dx
@@ -14,7 +13,7 @@ var/datum/subsystem/sun/sun
 	var/list/solars			// for debugging purposes, references solars_list at the constructor
 	var/solar_next_update	// last time the sun position was checked and adjusted
 
-/datum/subsystem/sun/New()
+/datum/controller/subsystem/sun/New()
 	NEW_SS_GLOBAL(sun)
 
 	solars = solars_list
@@ -24,10 +23,10 @@ var/datum/subsystem/sun/sun
 	solar_next_update = world.time	// init the timer
 	angle = rand (0,360)
 
-/datum/subsystem/sun/stat_entry()
+/datum/controller/subsystem/sun/stat_entry()
 	..("A:[angle] R:[rate]")
 
-/datum/subsystem/sun/fire(resumed = 0)
+/datum/controller/subsystem/sun/fire(resumed = 0)
 	angle = (360 + angle + rate * 6) % 360	 // increase/decrease the angle to the sun, adjusted by the rate
 
 	// now calculate and cache the (dx,dy) increments for line drawing

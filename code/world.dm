@@ -92,14 +92,12 @@ var/global/list/objects_init_list = list()
 
 	. = ..()
 
-	world.tick_lag = config.Ticklag
-
 #ifdef UNIT_TEST
 	log_unit_test("Unit Tests Enabled.  This will destroy the world when testing is complete.")
 	load_unit_test_changes()
 #endif
 
-	Master.Setup(10, FALSE)
+	Master.Initialize(10, FALSE)
 
 #undef RECOMMENDED_VERSION
 

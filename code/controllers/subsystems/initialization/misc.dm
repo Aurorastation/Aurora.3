@@ -1,9 +1,9 @@
-/datum/subsystem/misc_late
+/datum/controller/subsystem/misc_late
 	name = "Late Miscellaneous Init"
 	init_order = SS_INIT_MISC
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
-/datum/subsystem/misc_late/Initialize(timeofday)
+/datum/controller/subsystem/misc_late/Initialize(timeofday)
 	populate_antag_type_list()
 	populate_spawn_points()
 	setupgenetics()
@@ -11,12 +11,12 @@
 	//world.log << "LMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
 	..(timeofday, TRUE)
 
-/datum/subsystem/misc_early
+/datum/controller/subsystem/misc_early
 	name = "Early Miscellaneous Init"
 	init_order = SS_INIT_MISC_FIRST
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
-/datum/subsystem/misc_early/Initialize(timeofday)
+/datum/controller/subsystem/misc_early/Initialize(timeofday)
 	// Sort the area list.
 	sortTim(all_areas, /proc/cmp_name_asc)
 	

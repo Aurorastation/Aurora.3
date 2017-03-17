@@ -1,9 +1,9 @@
-/datum/subsystem/atmos
+/datum/controller/subsystem/atmos
 	name = "Atmospherics Machinery"
 	init_order = SS_INIT_ATMOS
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
-/datum/subsystem/atmos/Initialize(timeofday)
+/datum/controller/subsystem/atmos/Initialize(timeofday)
 	for(var/obj/machinery/atmospherics/unary/U in machines)
 		if(istype(U, /obj/machinery/atmospherics/unary/vent_pump))
 			var/obj/machinery/atmospherics/unary/vent_pump/T = U

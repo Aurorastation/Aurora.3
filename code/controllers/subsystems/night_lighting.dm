@@ -1,18 +1,17 @@
-var/datum/subsystem/nightlight/SSnightlight
+var/datum/controller/subsystem/nightlight/SSnightlight
 
-/datum/subsystem/nightlight
+/datum/controller/subsystem/nightlight
 	name = "Night Lighting"
 	wait = 5 MINUTES
 	init_order = -1	// after ticker.
 	flags = SS_BACKGROUND | SS_NO_TICK_CHECK
-	display_order = SS_DISPLAY_NIGHT_LIGHTING
 
 	var/isactive = 0
 
-/datum/subsystem/nightlight/New()
+/datum/controller/subsystem/nightlight/New()
 	NEW_SS_GLOBAL(SSnightlight)
 
-/datum/subsystem/nightlight/Initialize(timeofday)
+/datum/controller/subsystem/nightlight/Initialize(timeofday)
 	var/time = worldtime2hours()
 	if (time <= 8 || time >= 19)
 		activate()
@@ -21,14 +20,14 @@ var/datum/subsystem/nightlight/SSnightlight
 
 	..(timeofday, silent = TRUE)
 
-/datum/subsystem/nightlight/stat_entry()
+/datum/controller/subsystem/nightlight/stat_entry()
 	..("A:[isactive] T:[worldtime2hours()] DT:[config.nl_start] NT:[config.nl_finish]")
 
-/datum/subsystem/nightlight/Recover()
+/datum/controller/subsystem/nightlight/Recover()
 	if (istype(SSnightlight))
 		src.isactive = SSnightlight.isactive
 
-/datum/subsystem/nightlight/fire(resumed = FALSE)
+/datum/controller/subsystem/nightlight/fire(resumed = FALSE)
 	var/time = worldtime2hours()
 	if (time <= 8 || time >= 19)
 		if (!isactive)
@@ -41,21 +40,21 @@ var/datum/subsystem/nightlight/SSnightlight
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
-/datum/subsystem/nightlight/proc/activate(var/whitelisted_only = 1)
+/datum/controller/subsystem/nightlight/proc/activate(var/whitelisted_only = 1)
 	isactive = 1
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("on")
 
 		CHECK_TICK
 
-/datum/subsystem/nightlight/proc/deactivate(var/whitelisted_only = 1)
+/datum/controller/subsystem/nightlight/proc/deactivate(var/whitelisted_only = 1)
 	isactive = 0
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("off")
 
 		CHECK_TICK
 
-/datum/subsystem/nightlight/proc/get_apc_list(var/whitelisted_only = 1)
+/datum/controller/subsystem/nightlight/proc/get_apc_list(var/whitelisted_only = 1)
 	var/list/obj/machinery/power/apc/lighting_apcs = list()
 
 	for (var/A in all_areas)
@@ -69,5 +68,5 @@ var/datum/subsystem/nightlight/SSnightlight
 
 	return lighting_apcs
 
-/datum/subsystem/nightlight/proc/is_active()
+/datum/controller/subsystem/nightlight/proc/is_active()
 	return isactive

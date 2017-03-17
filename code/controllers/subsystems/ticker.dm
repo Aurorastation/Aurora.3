@@ -1,6 +1,6 @@
-var/datum/subsystem/ticker/tickerProcess
+var/datum/controller/subsystem/ticker/tickerProcess
 
-/datum/subsystem/ticker
+/datum/controller/subsystem/ticker
 	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
@@ -12,10 +12,10 @@ var/datum/subsystem/ticker/tickerProcess
 	var/lastTickerTimeDuration
 	var/lastTickerTime
 
-/datum/subsystem/ticker/New()
+/datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(tickerProcess)
 
-/datum/subsystem/ticker/Initialize(timeofday)
+/datum/controller/subsystem/ticker/Initialize(timeofday)
 	if(!ticker)
 		ticker = new
 
@@ -25,7 +25,7 @@ var/datum/subsystem/ticker/tickerProcess
 
 	..()
 
-/datum/subsystem/ticker/fire(resumed = FALSE)
+/datum/controller/subsystem/ticker/fire(resumed = FALSE)
 	var/currentTime = REALTIMEOFDAY
 
 	lastTickerTimeDuration = (currentTime - lastTickerTime) / TICKS_IN_SECOND
@@ -34,5 +34,5 @@ var/datum/subsystem/ticker/tickerProcess
 
 	ticker.process()
 
-/datum/subsystem/ticker/proc/getLastTickerTimeDuration()
+/datum/controller/subsystem/ticker/proc/getLastTickerTimeDuration()
 	return lastTickerTimeDuration

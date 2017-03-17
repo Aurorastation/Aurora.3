@@ -1,16 +1,15 @@
-/datum/subsystem/statistics
+/datum/controller/subsystem/statistics
 	name = "Statistics & Inactivity"
 	wait = 60 SECONDS
 	flags = SS_NO_TICK_CHECK
-	display_order = SS_DISPLAY_STATISTICS
 
-/datum/subsystem/statistics/Initialize(timeofday)
+/datum/controller/subsystem/statistics/Initialize(timeofday)
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))
 		disable()
 	
 	..(timeofday, silent = TRUE)
 
-/datum/subsystem/statistics/fire()
+/datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
 	if (config.kick_inactive)
 		var/inactivity_threshold = config.kick_inactive MINUTES

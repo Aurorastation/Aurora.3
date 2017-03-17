@@ -3,17 +3,17 @@
 // Check world.dm for the object list.
 var/global/objects_initialized = FALSE
 
-/datum/subsystem/object
+/datum/controller/subsystem/object
 	name = "Objects"
 	priority = SS_PRIORITY_OBJECTS
 	init_order = SS_INIT_OBJECTS
 
 	var/tmp/list/queue = list()
 
-/datum/subsystem/object/New()
+/datum/controller/subsystem/object/New()
 	LAZYINITLIST(processing_objects)
 
-/datum/subsystem/object/fire(resumed = FALSE)
+/datum/controller/subsystem/object/fire(resumed = FALSE)
 	if (!resumed)
 		queue = processing_objects.Copy()
 
@@ -30,10 +30,10 @@ var/global/objects_initialized = FALSE
 		if (MC_TICK_CHECK)
 			return
 
-/datum/subsystem/object/stat_entry()
+/datum/controller/subsystem/object/stat_entry()
 	..("[processing_objects.len] objects")
 
-/datum/subsystem/object/Initialize(timeofday)
+/datum/controller/subsystem/object/Initialize(timeofday)
 	while (objects_init_list.len)
 		var/atom/movable/object = objects_init_list[objects_init_list.len]
 		objects_init_list.len--

@@ -1,15 +1,14 @@
-/datum/subsystem/mobs
+/datum/controller/subsystem/mobs
 	name = "Mobs"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
-	display_order = SS_DISPLAY_MOB
 
 	var/list/currentrun = list()
 
-/datum/subsystem/mobs/stat_entry()
+/datum/controller/subsystem/mobs/stat_entry()
 	..("P:[mob_list.len]")
 
-/datum/subsystem/mobs/fire(resumed = 0)
+/datum/controller/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)
 		src.currentrun = mob_list.Copy()
 

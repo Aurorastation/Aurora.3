@@ -1,8 +1,10 @@
 // Clickable stat() button.
 /obj/effect/statclick
+	name = "Initializing..."
 	var/target
 
-/obj/effect/statclick/New(text, target)
+/obj/effect/statclick/New(loc, text, target)
+	..()
 	name = text
 	src.target = target
 
@@ -14,10 +16,10 @@
 	var/class
 
 /obj/effect/statclick/debug/Click()
-	if(!usr.client.holder)
+	if(!usr.client.holder || !target)
 		return
 	if(!class)
-		if(istype(target, /datum/subsystem))
+		if(istype(target, /datum/controller/subsystem))
 			class = "subsystem"
 		else if(istype(target, /datum/controller))
 			class = "controller"

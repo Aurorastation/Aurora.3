@@ -1,6 +1,6 @@
 var/air_processing_killed = FALSE
 
-/var/datum/subsystem/air/air_master
+/var/datum/controller/subsystem/air/air_master
 var/tick_multiplier = 2
 
 /*
@@ -66,10 +66,9 @@ Class Procs:
 
 */
 
-/datum/subsystem/air
+/datum/controller/subsystem/air
 	name = "Air"
 	priority = SS_PRIORITY_AIR
-	display_order = SS_DISPLAY_AIR
 
 	//Geometry lists
 	var/list/zones = list()
@@ -92,10 +91,10 @@ Class Procs:
 	var/current_cycle = 0
 	var/next_id = 1
 
-/datum/subsystem/air/New()
+/datum/controller/subsystem/air/New()
 	NEW_SS_GLOBAL(air_master)
 
-/datum/subsystem/air/Initialize(timeofday)
+/datum/controller/subsystem/air/Initialize(timeofday)
 	var/simulated_turf_count = 0
 	for(var/turf/simulated/S in world)
 		simulated_turf_count++
@@ -112,7 +111,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 </span>"}, R_DEBUG)
 	..()
 
-/datum/subsystem/air/fire(resumed = FALSE)	
+/datum/controller/subsystem/air/fire(resumed = FALSE)	
 	if (!resumed)
 		current_cycle++
 		processing_edges = active_edges.Copy()
@@ -194,17 +193,17 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		Z.tick()
 		Z.needs_update = FALSE
 
-/datum/subsystem/air/proc/add_zone(zone/z)
+/datum/controller/subsystem/air/proc/add_zone(zone/z)
 	zones.Add(z)
 	z.name = "Zone [next_id++]"
 	mark_zone_update(z)
 
-/datum/subsystem/air/proc/remove_zone(zone/z)
+/datum/controller/subsystem/air/proc/remove_zone(zone/z)
 	zones.Remove(z)
 	zones_to_update.Remove(z)
 
 
-/datum/subsystem/air/proc/air_blocked(turf/A, turf/B)
+/datum/controller/subsystem/air/proc/air_blocked(turf/A, turf/B)
 	#ifdef ZASDBG
 	ASSERT(isturf(A))
 	ASSERT(isturf(B))
@@ -213,13 +212,13 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	if(ablock == BLOCKED) return BLOCKED
 	return ablock | B.c_airblock(A)
 
-/datum/subsystem/air/proc/has_valid_zone(turf/simulated/T)
+/datum/controller/subsystem/air/proc/has_valid_zone(turf/simulated/T)
 	#ifdef ZASDBG
 	ASSERT(istype(T))
 	#endif
 	return istype(T) && T.zone && !T.zone.invalid
 
-/datum/subsystem/air/proc/merge(zone/A, zone/B)
+/datum/controller/subsystem/air/proc/merge(zone/A, zone/B)
 	#ifdef ZASDBG
 	ASSERT(istype(A))
 	ASSERT(istype(B))
@@ -234,7 +233,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		B.c_merge(A)
 		mark_zone_update(A)
 
-/datum/subsystem/air/proc/connect(turf/simulated/A, turf/simulated/B)
+/datum/controller/subsystem/air/proc/connect(turf/simulated/A, turf/simulated/B)
 	#ifdef ZASDBG
 	ASSERT(istype(A))
 	ASSERT(isturf(B))
@@ -275,7 +274,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 	if(direct) c.mark_direct()
 
-/datum/subsystem/air/proc/mark_for_update(turf/T)
+/datum/controller/subsystem/air/proc/mark_for_update(turf/T)
 	#ifdef ZASDBG
 	ASSERT(isturf(T))
 	#endif
@@ -286,7 +285,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#endif
 	T.needs_air_update = 1
 
-/datum/subsystem/air/proc/mark_zone_update(zone/Z)
+/datum/controller/subsystem/air/proc/mark_zone_update(zone/Z)
 	#ifdef ZASDBG
 	ASSERT(istype(Z))
 	#endif
@@ -294,7 +293,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	zones_to_update.Add(Z)
 	Z.needs_update = 1
 
-/datum/subsystem/air/proc/mark_edge_sleeping(connection_edge/E)
+/datum/controller/subsystem/air/proc/mark_edge_sleeping(connection_edge/E)
 	#ifdef ZASDBG
 	ASSERT(istype(E))
 	#endif
@@ -302,7 +301,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	active_edges.Remove(E)
 	E.sleeping = 1
 
-/datum/subsystem/air/proc/mark_edge_active(connection_edge/E)
+/datum/controller/subsystem/air/proc/mark_edge_active(connection_edge/E)
 	#ifdef ZASDBG
 	ASSERT(istype(E))
 	#endif
@@ -310,10 +309,10 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	active_edges.Add(E)
 	E.sleeping = 0
 
-/datum/subsystem/air/proc/equivalent_pressure(zone/A, zone/B)
+/datum/controller/subsystem/air/proc/equivalent_pressure(zone/A, zone/B)
 	return A.air.compare(B.air)
 
-/datum/subsystem/air/proc/get_edge(zone/A, zone/B)
+/datum/controller/subsystem/air/proc/get_edge(zone/A, zone/B)
 
 	if(istype(B))
 		for(var/connection_edge/zone/edge in A.edges)
@@ -330,7 +329,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		edge.recheck()
 		return edge
 
-/datum/subsystem/air/proc/has_same_air(turf/A, turf/B)
+/datum/controller/subsystem/air/proc/has_same_air(turf/A, turf/B)
 	if(A.oxygen != B.oxygen) return 0
 	if(A.nitrogen != B.nitrogen) return 0
 	if(A.phoron != B.phoron) return 0
@@ -338,6 +337,6 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	if(A.temperature != B.temperature) return 0
 	return 1
 
-/datum/subsystem/air/proc/remove_edge(connection_edge/E)
+/datum/controller/subsystem/air/proc/remove_edge(connection_edge/E)
 	edges.Remove(E)
 	if(!E.sleeping) active_edges.Remove(E)

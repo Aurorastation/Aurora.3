@@ -31,15 +31,16 @@ var/datum/controller/failsafe/Failsafe
 		if(istype(Failsafe))
 			qdel(Failsafe)
 	Failsafe = src
-	spawn()
-		Failsafe.Loop()
-		qdel(Failsafe) //when Loop() returns, we delete ourselves and let the mc recreate us
+	Initialize()
 
+/datum/controller/failsafe/Initialize()
+	set waitfor = 0
+	Failsafe.Loop()
+	qdel(Failsafe) //when Loop() returns, we delete ourselves and let the mc recreate us
 
 /datum/controller/failsafe/Destroy()
 	..()
 	return QDEL_HINT_HARDDEL_NOW
-
 
 /datum/controller/failsafe/proc/Loop()
 	while(1)
@@ -95,24 +96,11 @@ var/datum/controller/failsafe/Failsafe
 /datum/controller/failsafe/proc/defcon_pretty()
 	return defcon
 
-/datum/controller/failsafe/proc/stat_entry()
+/datum/controller/failsafe/stat_entry()
 	if(!statclick)
 		statclick = new/obj/effect/statclick/debug("Initializing...", src)
 
 	stat("Failsafe Controller:", statclick.update("Defcon: [defcon_pretty()] (Interval: [Failsafe.processing_interval] | Iteration: [Failsafe.master_iteration])"))
-
-/datum/controller/failsafe/proc/get_nice_message()
-	switch (defcon)
-		if (5)
-			return "OK"
-		if (4)
-			return "Probably OK"
-		if (3)
-			return "Alert"
-		if (2)
-			return "Warning"
-		if (1,0)
-			return "DANGER"
 
 #undef FAILSAFE_NOTIFY
 #undef FAILSAFE_PREFIX

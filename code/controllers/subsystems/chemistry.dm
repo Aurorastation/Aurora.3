@@ -1,6 +1,6 @@
-var/datum/subsystem/chemistry/SSchemistry
+var/datum/controller/subsystem/chemistry/SSchemistry
 
-/datum/subsystem/chemistry
+/datum/controller/subsystem/chemistry
 	name = "Chemistry"
 	flags = SS_NO_INIT
 
@@ -10,13 +10,13 @@ var/datum/subsystem/chemistry/SSchemistry
 
 	var/tmp/list/processing_holders = list()
 
-/datum/subsystem/chemistry/New()
+/datum/controller/subsystem/chemistry/New()
 	NEW_SS_GLOBAL(SSchemistry)
 	active_holders = list()
 	chemical_reactions = chemical_reactions_list
 	chemical_reagents = chemical_reagents_list
 
-/datum/subsystem/chemistry/fire(resumed = FALSE)
+/datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if (!resumed)
 		processing_holders = active_holders.Copy()
 
@@ -30,7 +30,7 @@ var/datum/subsystem/chemistry/SSchemistry
 		if (MC_TICK_CHECK)
 			return
 		
-/datum/subsystem/chemistry/proc/mark_for_update(var/datum/reagents/holder)
+/datum/controller/subsystem/chemistry/proc/mark_for_update(var/datum/reagents/holder)
 	if (holder in active_holders)
 		return
 
@@ -38,7 +38,7 @@ var/datum/subsystem/chemistry/SSchemistry
 	if (holder.process_reactions())
 		active_holders += holder
 
-/datum/subsystem/chemistry/Recover()
+/datum/controller/subsystem/chemistry/Recover()
 	src.active_holders = SSchemistry.active_holders
 	src.chemical_reactions = SSchemistry.chemical_reactions
 	src.chemical_reagents = SSchemistry.chemical_reagents

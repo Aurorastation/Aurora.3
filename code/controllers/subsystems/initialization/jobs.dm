@@ -1,9 +1,9 @@
-/datum/subsystem/job
+/datum/controller/subsystem/job
 	name = "Job"
 	init_order = SS_INIT_JOBS
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
-/datum/subsystem/job/Initialize(timeofday)
+/datum/controller/subsystem/job/Initialize(timeofday)
 	job_master = new /datum/controller/occupations()
 	job_master.SetupOccupations()
 	job_master.LoadJobs("config/jobs.txt")
