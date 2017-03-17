@@ -5,6 +5,7 @@ var/datum/subsystem/explosives/bomb_processor
 /datum/subsystem/explosives
 	name = "Explosives"
 	wait = 5
+	flags = SS_NO_INIT | SS_BACKGROUND
 	
 	var/list/work_queue
 	var/ticks_without_work = 0

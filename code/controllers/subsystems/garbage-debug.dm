@@ -393,8 +393,6 @@
 	SearchVar(SSchemistry)
 	SearchVar(SSeffects)
 	SearchVar(emergency_shuttle)
-	SearchVar(SSkaboom)
-	SearchVar(SSboom)
 	SearchVar(SSlighting)
 	SearchVar(ticking_machines)
 	SearchVar(power_using_machines)
