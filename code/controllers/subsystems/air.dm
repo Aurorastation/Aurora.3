@@ -91,6 +91,9 @@ Class Procs:
 	var/current_cycle = 0
 	var/next_id = 1
 
+/datum/controller/subsystem/air/stat_entry()
+	..("TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]")
+
 /datum/controller/subsystem/air/New()
 	NEW_SS_GLOBAL(air_master)
 
