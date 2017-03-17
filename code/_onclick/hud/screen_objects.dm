@@ -14,10 +14,8 @@
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 
 /obj/screen/Destroy(force = FALSE)
-	if (!force)
-		return QDEL_HINT_POOL
-
 	master = null
+	screen_loc = null
 	return ..()
 
 /obj/screen/text

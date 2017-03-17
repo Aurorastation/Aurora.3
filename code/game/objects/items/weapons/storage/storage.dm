@@ -530,26 +530,26 @@
 			total_storage_space += I.get_storage_cost()
 		max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
 
-	src.boxes = getFromPool(/obj/screen/storage)
+	src.boxes = new /obj/screen/storage
 	src.boxes.name = "storage"
 	src.boxes.master = src
 	src.boxes.icon_state = "block"
 	src.boxes.screen_loc = "7,7 to 10,8"
 	src.boxes.layer = 19
 
-	src.storage_start = getFromPool(/obj/screen/storage)
+	src.storage_start = new /obj/screen/storage
 	src.storage_start.name = "storage"
 	src.storage_start.master = src
 	src.storage_start.icon_state = "storage_start"
 	src.storage_start.screen_loc = "7,7 to 10,8"
 	src.storage_start.layer = 19
-	src.storage_continue = getFromPool(/obj/screen/storage)
+	src.storage_continue = new /obj/screen/storage
 	src.storage_continue.name = "storage"
 	src.storage_continue.master = src
 	src.storage_continue.icon_state = "storage_continue"
 	src.storage_continue.screen_loc = "7,7 to 10,8"
 	src.storage_continue.layer = 19
-	src.storage_end = getFromPool(/obj/screen/storage)
+	src.storage_end = new /obj/screen/storage
 	src.storage_end.name = "storage"
 	src.storage_end.master = src
 	src.storage_end.icon_state = "storage_end"
@@ -566,7 +566,7 @@
 	src.stored_end.icon_state = "stored_end"
 	src.stored_end.layer = 19
 
-	src.closer = getFromPool(/obj/screen/close)
+	src.closer = new /obj/screen/close
 	src.closer.master = src
 	src.closer.icon_state = "x"
 	src.closer.layer = 20

@@ -103,7 +103,7 @@ var/controlling
 	if(host) src.loc = host.loc
 	src.stat = 2
 	..()
-	del src
+	qdel(src)
 
 // When a meme speaks, it speaks through its host
 /mob/living/parasite/meme/say(message as text)

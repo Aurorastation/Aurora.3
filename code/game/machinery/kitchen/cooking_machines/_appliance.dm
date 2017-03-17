@@ -528,7 +528,7 @@
 
 	// Produce nasty smoke.
 	visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
-	var/datum/effect/effect/system/smoke_spread/bad/smoke = getFromPool(/datum/effect/effect/system/smoke_spread/bad)
+	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)
 	smoke.start()

@@ -20,8 +20,11 @@ datum/controller/vote
 	New()
 		if(vote != src)
 			if(istype(vote))
-				del(vote)
+				qdel(vote)
 			vote = src
+
+	Destroy()
+		return QDEL_HINT_HARDDEL_NOW
 
 	process()	//called by master_controller
 		if(mode)

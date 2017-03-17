@@ -180,17 +180,19 @@
 			spawn(50)
 				if(src && on)
 					ismist = 1
-					mymist = getFromPool(/obj/effect/mist,loc)
+					mymist = new /obj/effect/mist(loc)
 		else
 			ismist = 1
-			mymist = getFromPool(/obj/effect/mist,loc)
+			mymist = new /obj/effect/mist(loc)
 	else if(ismist)
 		ismist = 1
-		mymist = getFromPool(/obj/effect/mist,loc)
-		spawn(250)
-			if(src && !on)
-				qdel(mymist)
-				ismist = 0
+		mymist = new /obj/effect/mist(loc)
+		addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE)
+
+/obj/machinery/shower/proc/clear_mist()
+	if (!on)
+		QDEL_NULL(mymist)
+		ismist = FALSE
 
 /obj/machinery/shower/Crossed(atom/movable/O)
 	..()
