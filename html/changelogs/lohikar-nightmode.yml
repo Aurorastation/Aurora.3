@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Nightmode probably works again. Probably."

@@ -73,9 +73,9 @@
 #define LIGHT_NARROW 45
 
 // Night lighting controller times
-// The time (in ticks based on worldtime2ticks()) that various actions trigger
-#define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning
-#define NIGHT_LIGHT_ACTIVE 648000        // 6pm or 18:00 - night lighting mode activates
+// The time (in hours based on worldtime2hours()) that various actions trigger
+#define MORNING_LIGHT_RESET 7       // 7am or 07:00 - lighting restores to normal in morning
+#define NIGHT_LIGHT_ACTIVE 18        // 6pm or 18:00 - night lighting mode activates
 
 // Some brightness/range defines for objects.
 #define L_WALLMOUNT_POWER 0.4
