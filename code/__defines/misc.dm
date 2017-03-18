@@ -288,7 +288,7 @@
 #define QDELETED(TARGET) (!TARGET || TARGET.gcDestroyed)
 #define QDEL_NULL(item) qdel(item); item = null
 
-// Shim until addtimer is merged.
+// Shim until addtimer is merged or I figure out if it is safe to use scheduler for this.
 #define QDEL_IN(OBJ, TIME) spawn(TIME) qdel(OBJ)
 
 //Recipe type defines. Used to determine what machine makes them
