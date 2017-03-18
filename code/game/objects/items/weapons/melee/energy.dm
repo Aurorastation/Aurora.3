@@ -18,6 +18,10 @@
 	spark_system = bind_spark(src, 5)
 	..()
 
+/obj/item/weapon/melee/energy/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
+
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
 	if(active)

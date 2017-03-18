@@ -179,6 +179,11 @@
 	underlays += image('icons/obj/stationobjs.dmi', icon_state = "tele-wires")
 	spark_system = bind_spark(src, 5, alldirs)
 
+/obj/machinery/teleport/hub/Destroy()
+	QDEL_NULL(spark_system)
+	com = null
+	return ..()
+
 /obj/machinery/teleport/hub/Bumped(M as mob|obj)
 	spawn()
 		if (src.icon_state == "tele1")
