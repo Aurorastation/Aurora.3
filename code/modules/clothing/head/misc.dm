@@ -290,3 +290,19 @@
 	icon = 'icons/obj/clothing/hijabs.dmi'
 	icon_state = "hijab_blue"
 	item_state = "hijab_blue"
+	
+/obj/item/clothing/head/cowboy
+	name = "cowboy hat"
+	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
+	icon_state = "cowboyhat"
+	body_parts_covered = 0
+
+/obj/item/clothing/head/cowboy/wide
+	name = "wide-brimmed cowboy hat"
+	icon_state = "cowboy_wide"
+	
+/obj/item/clothing/head/sombrero
+	name = "sombrero"
+	desc = "You can practically taste the fiesta."
+	icon_state = "sombrero"
+	body_parts_covered = 0

@@ -79,6 +79,7 @@
 	suit_type = "heavy asset protection"
 	icon_state = "asset_protection_rig"
 	armor = list(melee = 60, bullet = 60, laser = 60,energy = 40, bomb = 50, bio = 100, rad = 100)
+	siemens_coefficient = 0
 	emp_protection = 50
 
 	initial_modules = list(
@@ -86,8 +87,9 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/vision/multi,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/pulse,
 		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/device/plasmacutter,
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/datajack
