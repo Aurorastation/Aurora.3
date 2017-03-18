@@ -19,6 +19,7 @@
 		currentrun.len--
 
 		if (QDELETED(M))
+			log_debug("SSmob: QDELETED mob [DEBUG_REF(M)] left in processing list!")
 			mob_list -= M
 			continue
 

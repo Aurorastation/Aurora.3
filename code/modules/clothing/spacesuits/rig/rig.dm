@@ -105,7 +105,7 @@
 
 	spark_system = bind_spark(src, 5)
 
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 
 	if(initial_modules && initial_modules.len)
 		for(var/path in initial_modules)
@@ -158,7 +158,7 @@
 		if(istype(M))
 			M.drop_from_inventory(piece)
 		qdel(piece)
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	qdel(wires)
 	wires = null
 	qdel(spark_system)

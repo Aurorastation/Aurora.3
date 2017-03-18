@@ -90,6 +90,8 @@
 
 	var/noexplode = 0//Used for cases where an exosuit is spawned and turned into wreckage
 
+	can_hold_mob = TRUE
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)

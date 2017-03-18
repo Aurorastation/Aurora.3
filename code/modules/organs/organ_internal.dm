@@ -249,7 +249,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	src.air_contents.temperature = T20C
 	src.distribute_pressure = ((pick(1.0,1.1,1.2,1.3)*ONE_ATMOSPHERE)*O2STANDARD)
 
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	var/mob/living/carbon/location = loc
 
 	location.internal = src
@@ -263,7 +263,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	if(air_contents)
 		qdel(air_contents)
 
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/organ/vaurca/preserve/examine(mob/user)

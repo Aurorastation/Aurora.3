@@ -18,7 +18,7 @@
 	density = 1
 	anchored = 1
 
-/obj/machinery/chemical_dispenser/New()
+/obj/machinery/chemical_dispenser/initialize()
 	..()
 
 	if(spawn_cartridges)

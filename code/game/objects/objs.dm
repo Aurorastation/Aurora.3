@@ -25,6 +25,7 @@
 	var/equip_slot = 0
 /obj/Destroy()
 	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/Topic(href, href_list, var/datum/topic_state/state = default_state)

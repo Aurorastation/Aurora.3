@@ -295,6 +295,7 @@
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
+#define DEBUG_REF(D) (D ? "[D]|\ref[D]" : "NULL")
 
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1

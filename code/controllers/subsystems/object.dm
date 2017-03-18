@@ -22,10 +22,11 @@ var/global/objects_initialized = FALSE
 		queue.len--
 
 		if (QDELETED(O))
+			log_debug("SSobjects: QDELETED object [DEBUG_REF(O)] found in processing queue!")
 			processing_objects -= O
 			continue
 
-		O:process()
+		O.process()
 		
 		if (MC_TICK_CHECK)
 			return
@@ -37,6 +38,7 @@ var/global/objects_initialized = FALSE
 	while (objects_init_list.len)
 		var/atom/movable/object = objects_init_list[objects_init_list.len]
 		objects_init_list.len--
+		
 		if (QDELETED(object))
 			continue
 

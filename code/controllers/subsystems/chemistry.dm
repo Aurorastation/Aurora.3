@@ -24,6 +24,11 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		var/datum/reagents/holder = processing_holders[processing_holders.len]
 		processing_holders.len--
 
+		if (QDELETED(holder))
+			active_holders -= holder
+			log_debug("SSchemistry: QDELETED holder found in processing list!")
+			continue
+
 		if (!holder.process_reactions())
 			active_holders -= holder
 

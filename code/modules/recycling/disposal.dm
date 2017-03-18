@@ -456,6 +456,7 @@
 // called when holder is expelled from a disposal
 // should usually only occur if the pipe network is modified
 /obj/machinery/disposal/proc/expel(var/obj/structure/disposalholder/H)
+	disposal_log("[src] \ref[src] expel(\ref[H])")
 
 	var/turf/target
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
@@ -497,7 +498,6 @@
 /obj/structure/disposalholder
 	invisibility = 101
 	var/datum/gas_mixture/gas = null	// gas used to flush, will appear at exit point
-	var/active = 0	// true if the holder is moving, otherwise inactive
 	dir = 0
 	var/count = 2048	//*** can travel 2048 steps before going inactive (in case of loops)
 	var/destinationTag = "" // changes if contains a delivery container
@@ -551,7 +551,6 @@
 		return
 
 	forceMove(D.trunk)
-	active = 1
 	set_dir(DOWN)
 	START_PROCESSING(SSdisposals, src)
 
@@ -564,6 +563,7 @@
 	var/obj/structure/disposalpipe/curr = loc
 	if (!loc)
 		STOP_PROCESSING(SSdisposals, src)
+		tick_last = null
 		crash_with("disposalholder processing in nullspace!")
 		return
 
@@ -572,6 +572,7 @@
 
 	if (!loc)
 		STOP_PROCESSING(SSdisposals, src)
+		tick_last = null
 		return
 
 	if (!curr)
@@ -579,6 +580,7 @@
 
 	if (!(count--))
 		STOP_PROCESSING(SSdisposals, src)
+		tick_last = null
 
 // find the turf which should contain the next pipe
 /obj/structure/disposalholder/proc/nextloc()
@@ -643,8 +645,9 @@
 	location.assume_air(gas)  // vent all gas to turf
 
 /obj/structure/disposalholder/Destroy()
-	qdel(gas)
 	STOP_PROCESSING(SSdisposals, src)
+	qdel(gas)
+	tick_last = null
 	return ..()
 
 // Disposal pipes
@@ -676,7 +679,7 @@
 	var/obj/structure/disposalholder/H = locate() in src
 	if(H)
 		// holder was present
-		H.active = 0
+		STOP_PROCESSING(SSdisposals, H)
 		var/turf/T = src.loc
 		if(T.density)
 			// deleting pipe is inside a dense turf (wall)
@@ -711,7 +714,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/structure/disposalholder/H2 = locate() in P
-		if(H2 && !H2.active)
+		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -751,6 +754,8 @@
 /obj/structure/disposalpipe/proc/expel(var/obj/structure/disposalholder/H, var/turf/T, var/direction)
 	if(!istype(H))
 		return
+
+	disposal_log("[src] \ref[src] expel(\ref[H])")
 
 	// Empty the holder if it is expelled into a dense turf.
 	// Leaving it intact and sitting in a wall is stupid.
@@ -814,7 +819,7 @@
 	var/obj/structure/disposalholder/H = locate() in src
 	if(H)
 		// holder was present
-		H.active = 0
+		STOP_PROCESSING(SSdisposals, H)
 		var/turf/T = src.loc
 		if(T.density)
 			// broken pipe is inside a dense turf (wall)
@@ -926,7 +931,7 @@
 	var/obj/structure/disposalholder/H = locate() in src
 	if(H)
 		// holder was present
-		H.active = 0
+		STOP_PROCESSING(SSdisposals, H)
 		var/turf/T = src.loc
 		if(T.density)
 			// deleting pipe is inside a dense turf (wall)
@@ -1005,7 +1010,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/structure/disposalholder/H2 = locate() in P
-		if(H2 && !H2.active)
+		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1054,7 +1059,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/structure/disposalholder/H2 = locate() in P
-		if(H2 && !H2.active)
+		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1246,7 +1251,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/structure/disposalholder/H2 = locate() in P
-		if(H2 && !H2.active)
+		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1289,6 +1294,8 @@
 /obj/structure/disposalpipe/trunk/initialize()
 	..()
 	dpdir = dir
+
+	update()
 
 	getlinked()
 
@@ -1375,6 +1382,11 @@
 	else
 		return 0
 
+/obj/structure/disposalpipe/trunk/expel(obj/structure/disposalholder/H)
+	disposal_log("[src] \ref[src] expel(\ref[H]), linked=[linked ? linked : "NULL"]")
+	if (!linked)
+		..(H)
+
 // a broken pipe
 /obj/structure/disposalpipe/broken
 	icon_state = "pipe-b"
@@ -1413,14 +1425,13 @@
 	if(trunk)
 		trunk.linked = src	// link the pipe trunk to self
 
-	// expel the contents of the holder object, then delete it
-	// called when the holder exits the outlet
+/proc/disposal_log(thing)
+	log_debug("\[[world.time]] Disposals: [thing]")
+
 /obj/structure/disposaloutlet/proc/expel(var/obj/structure/disposalholder/H)
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-	addtimer(CALLBACK(src, .proc/post_expel, H), 20)
-
-/obj/structure/disposaloutlet/proc/post_expel(obj/structure/disposalholder/H)
+	sleep(20)	//wait until correct animation frame
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 	if(H)
@@ -1428,9 +1439,46 @@
 			AM.forceMove(src.loc)
 			AM.pipe_eject(dir)
 			if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
-				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 3, 1), 5)
+				spawn(5)
+					AM.throw_at(target, 3, 1)
 		H.vent_gas(src.loc)
 		qdel(H)
+
+	return
+/*
+	// expel the contents of the holder object, then delete it
+	// called when the holder exits the outlet
+/obj/structure/disposaloutlet/proc/expel(var/obj/structure/disposalholder/H)
+	disposal_log("[src] \ref[src] expel(\ref[H])")
+
+	flick("outlet-open", src)
+	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
+	disposal_log("[src] (\ref[src]) registering timers.")
+	addtimer(CALLBACK(src, .proc/post_expel, H), 20, TIMER_UNIQUE|TIMER_CLIENT_TIME)			// Sound + gas.
+	addtimer(CALLBACK(src, .proc/post_post_expel, H), 20 + 5, TIMER_UNIQUE|TIMER_CLIENT_TIME)	// Actually throwing the items.
+
+/obj/structure/disposaloutlet/proc/post_expel(obj/structure/disposalholder/H)
+	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
+	disposal_log("[src] (\ref[src]) post_expel() timer fired.")
+	if(H)
+		H.vent_gas(src.loc)
+
+/obj/structure/disposaloutlet/proc/throw_object(atom/movable/thing)
+	disposal_log("[src] (\ref[src]) throw_object([thing] \ref[thing]) at [target] \ref[target] origin [loc] \ref[loc]")
+	thing.forceMove(loc)
+	thing.pipe_eject(dir)
+	if (!istype(thing, /mob/living/silicon/robot/drone))
+		thing.throw_at(target, 3, 1)
+
+/obj/structure/disposaloutlet/proc/post_post_expel(obj/structure/disposalholder/H)
+	disposal_log("[src] \ref[src] post_post_expel(\ref[H]), [H.contents.len] movables")
+	for(var/atom/movable/AM in H)
+		AM.forceMove(src.loc)
+		AM.pipe_eject(dir)
+		if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
+			AM.throw_at(target, 3, 1)
+	qdel(H)
+*/
 
 /obj/structure/disposaloutlet/attackby(var/obj/item/I, var/mob/user)
 	if(!I || !user)
