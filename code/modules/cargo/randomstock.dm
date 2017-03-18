@@ -203,6 +203,7 @@ var/list/global/random_stock_uncommon = list(
 	"lizardhide" = 0.5,
 	"wintercoat" = 0.5,
 	"cookingoil" = 1,
+	"coin" = 1.3,
 	"nothing" = 0)
 
 var/list/global/random_stock_rare = list(
@@ -226,6 +227,7 @@ var/list/global/random_stock_rare = list(
 	"voice" = 1.5,
 	"xenohide" = 0.5,
 	"humanhide" = 0.5,
+	"modkit" = 1,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
@@ -235,7 +237,7 @@ var/list/global/random_stock_large = list(
 	"tacticool" = 0.2,
 	"radsuit" = 3,
 	"exosuit" = 1.2,//A randomly generated exosuit in a very variable condition.
-	"EOD"	=	1.5,
+	"EOD"	= 1.5,
 	"biosuit" = 3,
 	"hydrotray" = 3,
 	"oxycanister" = 6,//Cargo should almost always have an oxycanister
@@ -1072,7 +1074,8 @@ var/list/global/random_stock_large = list(
 		if ("flare")
 			new /obj/item/device/flashlight/flare(L)
 			new /obj/item/device/flashlight/flare(L)
-			new /obj/item/device/flashlight/flare(L)
+			if (prob(50))
+				new /obj/random/glowstick(L)
 		if("deathalarm")
 			new /obj/item/weapon/storage/box/cdeathalarm_kit(L)
 		if("trackimp")
@@ -1435,7 +1438,8 @@ var/list/global/random_stock_large = list(
 						break
 			new /obj/structure/reagent_dispensers/cookingoil(T)
 
-
+		if("coin")
+			new /obj/random/coin(L)
 
 
 
@@ -1544,7 +1548,7 @@ var/list/global/random_stock_large = list(
 			/obj/item/weapon/rig/ert/assetprotection = 0.05,
 			/obj/item/weapon/rig/light = 0.5,
 			/obj/item/weapon/rig/light/hacker = 0.8,
-			/obj/item/weapon/rig/light/stealth = 1.5,
+			/obj/item/weapon/rig/light/stealth = 0.5,
 			/obj/item/weapon/rig/merc/empty = 0.5,
 			/obj/item/weapon/rig/industrial = 3,
 			/obj/item/weapon/rig/eva = 3,
@@ -1608,10 +1612,24 @@ var/list/global/random_stock_large = list(
 		if("humanhide")
 			new /obj/item/stack/material/animalhide/human(L, rand(2,15))
 
+		if("modkit")
+			var/list/modkits = list(
+			/obj/item/device/kit/paint/ripley,
+			/obj/item/device/kit/paint/ripley/death,
+			/obj/item/device/kit/paint/ripley/flames_red,
+			/obj/item/device/kit/paint/ripley/flames_blue,
+			/obj/item/device/kit/paint/ripley/titan,
+			/obj/item/device/kit/paint/ripley/earth,
+			/obj/item/device/kit/paint/durand,
+			/obj/item/device/kit/paint/durand/seraph,
+			/obj/item/device/kit/paint/durand/phazon,
+			/obj/item/device/kit/paint/gygax,
+			/obj/item/device/kit/paint/gygax/darkgygax,
+			/obj/item/device/kit/paint/gygax/recitence
+			)
 
-
-
-
+			var/type = pick(modkits)
+			new type(L)
 
 
 
