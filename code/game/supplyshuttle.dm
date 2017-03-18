@@ -31,11 +31,13 @@ var/list/mechtoys = list(
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	requires_power = 0
+	station_area = 1
 
 /area/supply/dock
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	requires_power = 0
+	centcomm_area = 1
 
 
 /*

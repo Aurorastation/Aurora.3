@@ -111,7 +111,7 @@
 	name = "Mining Protocols"
 	law_header = "Prime Directives of Industry:"
 
-/datum/ai_laws/drone/New()
+/datum/ai_laws/mining_drone/New()
 	src.add_inherent_law("Serve and obey all [company_name] supply department personnel, with priority according to their rank and role.")
 	src.add_inherent_law("Protect all [company_name] supply department personnel to the best of your abilities, with priority according to their rank and role.")
 	src.add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")

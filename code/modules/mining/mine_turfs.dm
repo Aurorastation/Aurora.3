@@ -172,6 +172,7 @@
 		last_act = world.time
 
 		playsound(user, P.drill_sound, 20, 1)
+		P.drilling = 1
 
 		//handle any archaeological finds we might uncover
 		var/fail_message
@@ -193,6 +194,7 @@
 
 		if(do_after(user,P.digspeed))
 			user << "\blue You finish [P.drill_verb] the rock."
+			P.drilling = 0
 
 			if(finds && finds.len)
 				var/datum/find/F = finds[1]
@@ -263,6 +265,27 @@
 				var/obj/item/weapon/ore/O = new(src)
 				geologic_data.UpdateNearbyArtifactInfo(src)
 				O.geologic_data = geologic_data
+		else
+			user << "<span class='notice'> You stop [P.drill_verb] the rock.</span>"
+			P.drilling = 0
+
+	if (istype(W, /obj/item/weapon/autochisel))
+
+		if(last_act + 80 > world.time)//prevents message spam
+			return
+		last_act = world.time
+
+		user << "<span class='warning'>You start chiselling [src] into a sculptable block.</span>"
+
+
+
+		if(!do_after(user,80))
+			return
+
+		user << "<span class='notice'>You finish chiselling [src] into a sculptable block.</span>"
+		new /obj/structure/sculpting_block(src)
+		GetDrilled(1)
+
 
 	else
 		return attack_hand(user)
@@ -324,6 +347,9 @@
 			for(var/next_direction in step_overlays)
 				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
 					T.overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
+		var/turf/simulated/open/O = get_step(src, step_overlays[direction])
+		if(istype(O))
+			O.update()
 
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
@@ -403,16 +429,16 @@
 /turf/simulated/mineral/random
 	name = "Mineral deposit"
 	var/mineralSpawnChanceList = list(
-		ORE_URANIUM = 5,
-		ORE_PLATINUM = 5,
-		ORE_IRON = 35,
-		ORE_COAL = 35,
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 8,
+		ORE_COAL = 8,
 		ORE_DIAMOND = 1,
-		ORE_GOLD = 5,
-		ORE_SILVER = 5,
-		ORE_PHORON = 10
+		ORE_GOLD = 2,
+		ORE_SILVER = 2,
+		ORE_PHORON = 5
 	)
-	var/mineralChance = 15
+	var/mineralChance = 35
 
 /turf/simulated/mineral/random/New()
 	if (prob(mineralChance) && !mineral)
@@ -423,31 +449,45 @@
 
 	. = ..()
 
+/turf/simulated/mineral/random/low_chance
+	name = "Mineral deposit"
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 0,
+		ORE_PLATINUM = 0,
+		ORE_IRON = 2,
+		ORE_COAL = 3,
+		ORE_DIAMOND = 0,
+		ORE_GOLD = 0,
+		ORE_SILVER = 0,
+		ORE_PHORON = 1
+	)
+	mineralChance = 5
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
-		ORE_URANIUM = 10,
-		ORE_PLATINUM = 10,
-		ORE_IRON = 25,
-		ORE_COAL = 25,
-		ORE_DIAMOND = 5,
-		ORE_GOLD = 10,
-		ORE_SILVER = 10,
-		ORE_PHORON = 30
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 2,
+		ORE_COAL = 2,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
+		ORE_SILVER = 2,
+		ORE_PHORON = 3
 	)
-	mineralChance = 30
+	mineralChance = 50
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
-		ORE_URANIUM = 15,
-		ORE_PLATINUM = 15,
-		ORE_IRON = 15,
-		ORE_COAL = 15,
-		ORE_DIAMOND = 10,
-		ORE_GOLD = 15,
-		ORE_SILVER = 15,
-		ORE_PHORON = 15
+		ORE_URANIUM = 3,
+		ORE_PLATINUM = 3,
+		ORE_IRON = 1,
+		ORE_COAL = 1,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 3,
+		ORE_SILVER = 3,
+		ORE_PHORON = 2
 	)
-	mineralChance = 50
+	mineralChance = 25
 
 
 
@@ -475,7 +515,6 @@
 	footstep_sound = "gravelstep"
 
 /turf/simulated/floor/asteroid/New()
-
 	if(prob(20))
 		overlay_detail = rand(0,9)
 
@@ -670,7 +709,7 @@
 		for (var/i = 1; i <= overlay_cache.len; i++)
 			overlay_cache[i] = image('icons/turf/flooring/decals.dmi', "asteroid[i - 1]")
 
-	if(overlay_detail) 
+	if(overlay_detail)
 		overlays += overlay_cache[overlay_detail + 1]
 
 	if(update_neighbors)

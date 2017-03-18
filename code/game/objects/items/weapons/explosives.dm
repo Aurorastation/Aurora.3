@@ -68,7 +68,7 @@
 		spawn(timer*10)
 			explode(get_turf(target))
 
-/obj/item/weapon/plastique/proc/explode(var/location)
+/obj/item/weapon/plastique/proc/explode(var/turf/location)
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)

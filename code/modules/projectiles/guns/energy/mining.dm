@@ -1,18 +1,33 @@
 /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
-	max_mod_capacity = 80
+	self_recharge = 1
+	use_external_power = 1
 
 /obj/item/weapon/gun/energy/kinetic_accelerator
 	name = "proto-kinetic accelerator"
-	desc = "A self recharging, ranged mining tool that does increased damage in low pressure. Capable of holding up to six slots worth of mod kits."
+	desc = "A reloadable, ranged mining tool that does increased damage in low pressure. Capable of holding up to six slots worth of mod kits."
+	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "kineticgun"
 	item_state = "kineticgun"
-	self_recharge = 1
+	contained_sprite = 1
 	charge_meter = 0
 	fire_delay = 16
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4, TECH_POWER = 4)
+	projectile_type = /obj/item/projectile/kinetic
+	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 
 	var/max_mod_capacity = 100
 	var/list/modkits = list()
+
+/obj/item/weapon/gun/energy/kinetic_accelerator/attack_self(mob/living/user as mob)
+	if(power_supply.charge < power_supply.maxcharge)
+		user << "<span class='notice'>You begin charging \the [src]...</span>"
+		if(do_after(user,20))
+			playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, 1)
+			user.visible_message(
+				"<span class='warning'>\The [user] pumps \the [src]!</span>",
+				"<span class='warning'>You pump \the [src]]!</span>"
+				)
+			power_supply.charge = power_supply.maxcharge
 
 /obj/item/weapon/gun/energy/kinetic_accelerator/examine(mob/user)
 	..()
@@ -93,7 +108,7 @@
 		getFromPool(type, target_turf)
 	if(turf_aoe)
 		for(var/T in orange(1, target_turf))
-			if(istype(target_turf, /turf/simulated/mineral))
+			if(istype(T, /turf/simulated/mineral))
 				var/turf/simulated/mineral/M = T
 				M.GetDrilled(1)
 	if(mob_aoe)
@@ -274,57 +289,52 @@
 	name = "plasma cutter"
 	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
 	contained_sprite = 1
+	charge_meter = 0
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "plasma"
-	fire_sound = 'sound/weapons/Laser.ogg'
+	item_state = "plasma"
+	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
-	force = 20
+	force = 15
 	sharp = 1
 	edge = 1
 	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 4000)
 	projectile_type = /obj/item/projectile/beam/plasmacutter
-	max_shots = 30
-	sel_mode = 1
-	burst = 3
-	burst_delay = 0
-	dispersion = list(0, -0.5, 0.5)
+	max_shots = 15
 
 /obj/item/projectile/beam/plasmacutter
 	name = "plasma arc"
 	icon_state = "omnilaser"
-	damage = 10
+	damage = 30
 	damage_type = BRUTE
 	check_armour = "laser"
-	kill_count = 15
+	kill_count = 5
 	pass_flags = PASSTABLE
 
-	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
-	tracer_type = /obj/effect/projectile/laser_omni/tracer
-	impact_type = /obj/effect/projectile/laser_omni/impact
+	muzzle_type = /obj/effect/projectile/trilaser/muzzle
+	tracer_type = /obj/effect/projectile/trilaser/tracer
+	impact_type = /obj/effect/projectile/trilaser/impact
 
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
 	strike_thing(A)
 	. = ..()
 
-/obj/item/projectile/beam/plasmacutter/proc/strike_thing(atom/target)
-	if(istype(target, /turf/simulated/mineral))
-		var/turf/simulated/mineral/M = target
-		if(prob(10))
+/obj/item/projectile/beam/plasmacutter/proc/strike_thing(var/atom/A)
+	if(istype(A, /turf/simulated/mineral))
+		var/turf/simulated/mineral/M = A
+		if(prob(33))
 			M.GetDrilled(1)
-		else if(!M.emitter_blasts_taken)
-			M.emitter_blasts_taken += 1
-		else if(prob(33))
-			M.emitter_blasts_taken += 1
+			return
+		else if(prob(88))
+			M.emitter_blasts_taken += 2
+		M.emitter_blasts_taken += 1
 
-	else if(istype(target, /mob/living/carbon/human))
-		var/mob/living/carbon/human/M = target
-		var/list/organstocut
-		for(var/obj/item/organ/external/E in M.organs)
-			organstocut += E
-		var/obj/item/organ/external/E = pick(organstocut)
-		if(E.damage < 20)
-			E.take_damage(15,10,1,1)
-		else
-			E.droplimb(0,DROPLIMB_EDGE)
+	else if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
+		var/ultimate_def_zone = check_zone(def_zone)
+		if(H.has_organ(ultimate_def_zone))
+			var/obj/item/organ/external/E = H.get_organ(ultimate_def_zone)
+			if(E.damage > 15 && prob((4*E.damage)))
+				E.droplimb(0,DROPLIMB_EDGE)

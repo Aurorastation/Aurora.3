@@ -169,28 +169,28 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	worth = 0
 	var/scratched = 0
 
-/obj/item/weapon/spacecash/ewallet/lotto/attack_self()
+/obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
 	if(!scratched)
 		user << "<span class='notice'>You begin the scratch action process on the charge card. . .</span>"
 		if(do_after(user,5))
 			switch(rand(1,100))
 				if(1 to 29)
-					worth = (rand(0,10)*10)
+					worth = rand(0,200)
 					user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
 				if(30 to 59)
-					worth = 100
-					user << "<span class='notice'>The card reads [worth]. Well, at least you broke even.</span>"
+					worth = 200
+					user << "<span class='notice'>The card reads [worth]. At least you broke even.</span>"
 				if(60 to 79)
-					worth = ((rand(0,10)*10)+100)
+					worth = pick(200,300,400,500)
 					user << "<span class='notice'>The card reads [worth]. That's a pretty penny!</span>"
 				if(80 to 95)
-					worth = ((rand(1,10)*10)+500)
+					worth = pick(500,600,700,800,900,1000)
 					user << "<span class='notice'>The card reads [worth]. Your luck is running high!</span>"
 				if(95 to 99)
-					worth = ((rand(1,10)*100)+500)
+					worth = pick(1000,2000,3000,4000,5000,6000,7000,8000,9000)
 					user << "<span class='notice'>The card reads [worth]. You're rich!</span>"
 				if(100)
-					worth = ((rand(1,10)*1000)+500)
+					worth = pick(10000,20000,30000,40000,50000)
 					user << "<span class='notice'>The card reads [worth]. You're blessed!</span>"
 				else
 					worth = 0

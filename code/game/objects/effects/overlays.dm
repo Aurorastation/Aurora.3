@@ -74,10 +74,9 @@
 	..()
 	if(randomdir)
 		dir = (pick(cardinal))
-	flick("[icon_state]", src) //Because we might be pulling it from a pool, flick whatever icon it uses so it starts at the start of the icon's animation.
+	flick("[icon_state]", src)
 
-	spawn(duration)
-		qdel()
+	schedule_task_in(duration, /proc/qdel, list(src))
 
 /obj/effect/overlay/temp/ex_act()
 	return

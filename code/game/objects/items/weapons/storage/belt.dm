@@ -243,7 +243,7 @@
 	can_hold = list(
 		/obj/item/weapon/gun/energy/wand
 		)
-		
+
 /obj/item/weapon/storage/belt/wands/full/New()
 	..()
 	new /obj/item/weapon/gun/energy/wand/fire(src)
@@ -255,8 +255,8 @@
 /obj/item/weapon/storage/belt/mining
 	name = "explorer's webbing"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."
-	icon_state = "explorer1"
-	item_state = "explorer1"
+	icon_state = "explorer"
+	item_state = "explorer"
 	storage_slots = 9
 	w_class = 4
 	max_w_class = 4 //Pickaxes are big.

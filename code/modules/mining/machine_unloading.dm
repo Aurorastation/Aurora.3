@@ -7,6 +7,9 @@
 	icon_state = "unloader"
 	density = 1
 	anchored = 1.0
+	use_power = 1
+	idle_power_usage = 15
+	active_power_usage = 50
 	var/obj/machinery/mineral/input = null
 	var/obj/machinery/mineral/output = null
 
@@ -24,6 +27,7 @@
 	return
 
 /obj/machinery/mineral/unloading_machine/process()
+	..()
 	if (src.output && src.input)
 		if (locate(/obj/structure/ore_box, input.loc))
 			var/obj/structure/ore_box/BOX = locate(/obj/structure/ore_box, input.loc)

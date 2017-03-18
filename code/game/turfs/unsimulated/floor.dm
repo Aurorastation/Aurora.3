@@ -13,8 +13,14 @@
 	name = "mask"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockvault"
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
 
 /turf/unsimulated/chasm_mask
 	name = "chasm mask"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "alienvault"
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB

@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/drone/mining
 	icon_state = "miningdrone"
 	law_type = /datum/ai_laws/mining_drone
-	module_type = /obj/item/weapon/robot_module/mining_drone
+	module_type = /obj/item/weapon/robot_module/mining_drone/basic
 	holder_type = /obj/item/weapon/holder/drone/mining
 	maxHealth = 45
 	health = 45
@@ -35,8 +35,13 @@
 		C.max_damage = 15
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
+	verbs -= /mob/living/silicon/robot/drone/verb/set_mail_tag
 	updateicon()
 	density = 0
+
+/mob/living/silicon/robot/drone/mining/updatename()
+	real_name = "NT-I-[rand(100,999)]"
+	name = real_name
 
 /mob/living/silicon/robot/drone/mining/init()
 	aiCamera = new/obj/item/device/camera/siliconcam/drone_camera(src)
@@ -98,7 +103,7 @@
 				if(drill_upgrade)
 					ID.mining_points += 2000
 					drill_upgrade = 0
-				qdel()
+				qdel(src)
 				return
 
 		else
@@ -116,12 +121,54 @@
 
 	..()
 
+/mob/living/silicon/robot/drone/mining/verb/print_report()
+	set name = "Print Message"
+	set desc = "Print out a status report of your own choosing."
+	set category = "Robot Commands"
+
+	var/input = sanitize(input(usr, "Please enter a message to print out. NOTE: BBCode does not work.", "Print readout", "") as message|null)
+	if (!input)
+		usr << "<span class='warning'>Cancelled.</span>"
+		return
+
+	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
+	if (!customname)
+		usr << "<span class='warning'>Cancelled.</span>"
+		return
+
+	var/status_report
+	switch(src.health)
+		if((maxHealth - (maxHealth/3)) to maxHealth)
+			status_report = "All systems nominal."
+		if((maxHealth/3) to maxHealth/2)
+			status_report = "Systems compromised."
+		if(0 to (maxHealth/3))
+			status_report = "Systems failing."
+		else
+			status_report = "System status unknown."
+
+	// Create the reply message
+	usr << "<span class='warning'>You begin printing the message.</span>"
+	if(do_after(src,20))
+		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
+		P.name = "mining report - [customname]"
+		P.info = {"<center><img src = ntlogo.png></center>
+	<center><b><i>NanoTrasen Mining Drone Report</b></i><br>
+	<font size = \"1\">FOR YOUR EYES ONLY</font><hr><br>
+	<font size = \"1\"><font face='Courier New'>[input]</font></font><hr>
+	<font size = \"1\">[status_report]</font><br>
+	<center><img src = barcode[rand(0, 3)].png></center></center>"}
+		P.update_icon()
+		for(var/mob/O in hearers(src, null))
+			O.show_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", 2)
+		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+
 /**********************Minebot Upgrades**********************/
 
 /obj/item/device/mine_bot_ugprade
 	name = "minebot drill upgrade"
 	desc = "A minebot upgrade."
-	icon_state = "door_electronics"
+	icon_state = "mainboard"
 	icon = 'icons/obj/module.dmi'
 
 /obj/item/device/mine_bot_ugprade/afterattack(var/mob/living/silicon/robot/drone/mining/M, mob/user, proximity)
@@ -133,11 +180,16 @@
 	if(M.melee_upgrade)
 		user << "[src] already has a drill upgrade installed!"
 		return
-	for(var/obj/item/weapon/pickaxe/D in M.module.modules)
-		qdel(D)
-	M.module.modules += new /obj/item/weapon/pickaxe/borgdrill(src)
+	M.modtype = initial(M.modtype)
+	M.uneq_all()
+	qdel(M.module)
+	M.module = null
+	if(M.ranged_upgrade)
+		new /obj/item/weapon/robot_module/mining_drone/drillandplasmacutter(M)
+	else
+		new /obj/item/weapon/robot_module/mining_drone/drill(M)
 	M.module.rebuild()
-	M.melee_upgrade = 1
+	M.recalculate_synth_capacities()
 	qdel(src)
 
 /obj/item/device/mine_bot_ugprade/health
@@ -162,9 +214,17 @@
 	if(M.ranged_upgrade)
 		user << "[src] already has a plasma cutter upgrade installed!"
 		return
-	M.module.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
-	M.module.rebuild()
+	M.modtype = initial(M.modtype)
+	M.uneq_all()
+	qdel(M.module)
+	M.module = null
+	if(M.melee_upgrade)
+		new /obj/item/weapon/robot_module/mining_drone/drillandplasmacutter(M)
+	else
+		new /obj/item/weapon/robot_module/mining_drone/plasmacutter(M)
 	M.ranged_upgrade = 1
+	M.module.rebuild()
+	M.recalculate_synth_capacities()
 	qdel(src)
 
 /obj/item/device/mine_bot_ugprade/thermal

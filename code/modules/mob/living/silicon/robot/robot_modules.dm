@@ -841,15 +841,55 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/mining_drone
-	name = "drone module"
+	name = "mining drone module"
 	no_slip = 1
-	networks = list(NETWORK_ENGINEERING)
+	networks = list(NETWORK_MINE)
 
-/obj/item/weapon/robot_module/mining_drone/New(var/mob/living/silicon/robot/robot)
+/obj/item/weapon/robot_module/mining_drone/basic/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore(src)
 	src.modules += new /obj/item/weapon/pickaxe(src)
+	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
+	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/mining_scanner(src)
+
+	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
+	src.emag.name = "Mounted Thermal Drill"
+	..()
+
+/obj/item/weapon/robot_module/mining_drone/drill/New(var/mob/living/silicon/robot/robot)
+	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/material(src)
+	src.modules += new /obj/item/weapon/storage/bag/ore(src)
+	src.modules += new /obj/item/weapon/pickaxe/borgdrill(src)
+	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
+	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/mining_scanner(src)
+
+	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
+	src.emag.name = "Mounted Thermal Drill"
+	..()
+
+/obj/item/weapon/robot_module/mining_drone/plasmacutter/New(var/mob/living/silicon/robot/robot)
+	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/material(src)
+	src.modules += new /obj/item/weapon/storage/bag/ore(src)
+	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
+	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/mining_scanner(src)
+
+	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
+	src.emag.name = "Mounted Thermal Drill"
+	..()
+
+/obj/item/weapon/robot_module/mining_drone/drillandplasmacutter/New(var/mob/living/silicon/robot/robot)
+	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/material(src)
+	src.modules += new /obj/item/weapon/storage/bag/ore(src)
+	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.modules += new /obj/item/weapon/pickaxe/borgdrill(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)

@@ -136,7 +136,7 @@
 	new_name = "APLU \"Burning Chrome\""
 	new_desc = "A standard APLU exosuit with stylish blue flame decals."
 	new_icon = "ripley_flames_blue"
-	
+
 /obj/item/device/kit/paint/ripley/titan
 	name = "\"Titan's Fist\" APLU customisation kit"
 	new_name = "APLU \"Titan's Fist\""
@@ -148,6 +148,16 @@
 	new_name = "APLU \"Strike the Earth!\""
 	new_desc = "Looks like an over worked, under maintained Ripley with some horrific damage."
 	new_icon = "earth"
+
+/obj/item/device/kit/paint/ripley/random
+	name = "quantum ripley kit"
+
+/obj/item/device/kit/paint/ripley/random/New()
+	..()
+	var/list/ripleys = (typesof(/obj/item/device/kit/paint/ripley) - typesof(/obj/item/device/kit/paint/ripley/fluff))
+	var/build_path = pick(ripleys)
+	new build_path(src.loc)
+	qdel(src)
 
 // Durand kits.
 /obj/item/device/kit/paint/durand

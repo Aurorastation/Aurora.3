@@ -6,6 +6,9 @@
 	icon_state = "console"
 	density = 1
 	anchored = 1
+	use_power = 1
+	idle_power_usage = 15
+	active_power_usage = 50
 
 	var/obj/machinery/mineral/processing_unit/machine = null
 	var/machinedir = NORTHEAST
@@ -124,6 +127,10 @@
 	if(href_list["toggle_power"])
 
 		machine.active = !machine.active
+		if(machine.active)
+			machine.icon_state = "furnace"
+		else
+			machine.icon_state = "furnace-off"
 
 	if(href_list["toggle_ores"])
 
@@ -138,7 +145,7 @@
 /obj/machinery/mineral/processing_unit
 	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is
 	icon = 'icons/obj/machines/mining_machines.dmi'
-	icon_state = "furnace"
+	icon_state = "furnace-off"
 	density = 1
 	anchored = 1
 	light_range = 3
@@ -150,6 +157,9 @@
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
+	use_power = 1
+	idle_power_usage = 15
+	active_power_usage = 50
 
 /obj/machinery/mineral/processing_unit/New()
 	..()
@@ -179,6 +189,7 @@
 	return
 
 /obj/machinery/mineral/processing_unit/process()
+	..()
 
 	if (!src.output || !src.input) return
 
@@ -194,6 +205,8 @@
 		qdel(O)
 
 	if(!active)
+		if(icon_state != "furnace-off")
+			icon_state = "furnace-off"
 		return
 
 	//Process our stored ores and spit out sheets.
@@ -236,6 +249,7 @@
 							if(console)
 								var/ore/Ore = ore_data[needs_metal]
 								console.points += Ore.worth
+							use_power(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
 							total = max(1,round(total*A.product_mod)) //Always get at least one sheet.
@@ -257,6 +271,7 @@
 				for(var/i=0,i<can_make,i+=2)
 					if(console)
 						console.points += O.worth*2
+					use_power(100)
 					ores_stored[metal]-=2
 					sheets+=2
 					new M.stack_type(output.loc)
@@ -272,12 +287,14 @@
 				for(var/i=0,i<can_make,i++)
 					if(console)
 						console.points += O.worth
+					use_power(100)
 					ores_stored[metal]--
 					sheets++
 					new M.stack_type(output.loc)
 			else
 				if(console)
 					console.points -= O.worth*10 //reee wasting our materials!
+				use_power(500)
 				ores_stored[metal]--
 				sheets++
 				new /obj/item/weapon/ore/slag(output.loc)

@@ -336,7 +336,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(40)
+	sleep(20)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -426,7 +426,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(60)
+	sleep(40)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -457,7 +457,7 @@
 	use_external_power = 1
 	charge_cost = 50
 
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
+/obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
@@ -468,7 +468,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(20)
+	sleep(30)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return

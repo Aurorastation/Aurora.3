@@ -119,7 +119,7 @@
 		return
 
 	if(can_fall())
-		handle_fall(below)
+		handle_fall(below,)
 
 //For children to override
 /atom/movable/proc/can_fall()
@@ -168,6 +168,17 @@
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
+
+	var/area/area1 = get_area(landing)
+	if(!area1.has_gravity())
+		return
+
+	if(istype(landing, /turf/simulated/open))
+		var/turf/simulated/open/open = landing
+		var/area/area2 = get_area(open.below)
+		if(!area2.has_gravity())
+			return
+
 	var/damage = 20
 	apply_damage(rand(0, damage), BRUTE, "head")
 	apply_damage(rand(0, damage), BRUTE, "chest")
