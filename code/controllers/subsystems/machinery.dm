@@ -1,6 +1,8 @@
 var/global/list/ticking_machines		= list()
 var/global/list/power_using_machines	= list()
 
+/var/datum/controller/subsystem/machinery/SSmachinery
+
 /datum/controller/subsystem/machinery
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
@@ -10,6 +12,9 @@ var/global/list/power_using_machines	= list()
 	var/tmp/list/processing_power_users = list()
 	var/tmp/list/processing_powersinks = list()
 	var/tmp/list/processing_powernets = list()
+
+/datum/controller/subsystem/machinery/New()
+	NEW_SS_GLOBAL(SSmachinery)
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
 	makepowernets()
@@ -32,6 +37,7 @@ var/global/list/power_using_machines	= list()
 		curr_machinery.len--
 
 		if (QDELETED(M))
+			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in ticking_machines list.")
 			remove_machine(M)
 			continue
 
@@ -51,6 +57,7 @@ var/global/list/power_using_machines	= list()
 
 		if (QDELETED(M))
 			remove_machine(M)
+			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in power_users list.")
 			continue
 
 		if (M.use_power)
@@ -71,9 +78,32 @@ var/global/list/power_using_machines	= list()
 
 		if (QDELETED(I) || !I.pwr_drain())
 			processing_power_items -= I
+			log_debug("SSmachinery: QDELETED item [DEBUG_REF(I)] found in processing power items list.")
 		
 		if (MC_TICK_CHECK)
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
 	..("M:[machines.len] TM:[ticking_machines.len] PM:[power_using_machines.len] PI:[processing_power_items.len] PN:[powernets.len]")
+
+
+/proc/add_machine(var/obj/machinery/M)
+	if (QDELETED(M))
+		return
+
+	var/type = M.get_process_type()
+	if (type)
+		machines += M
+		
+	if (type & M_PROCESSES)
+		ticking_machines += M
+
+	if (type & M_USES_POWER)
+		power_using_machines += M
+
+/proc/remove_machine(var/obj/machinery/M)
+	machines -= M
+	power_using_machines -= M
+	ticking_machines -= M
+	SSmachinery.processing_machinery -= M
+	SSmachinery.processing_power_users -= M

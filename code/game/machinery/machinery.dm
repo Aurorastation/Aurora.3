@@ -134,25 +134,6 @@ Class Procs:
 			qdel(A)
 	return ..()
 
-/proc/add_machine(var/obj/machinery/M)
-	if (QDELETED(M))
-		return
-
-	var/type = M.get_process_type()
-	if (type)
-		machines += M
-		
-	if (type & M_PROCESSES)
-		ticking_machines += M
-
-	if (type & M_USES_POWER)
-		power_using_machines += M
-
-/proc/remove_machine(var/obj/machinery/M)
-	machines -= M
-	power_using_machines -= M
-	ticking_machines -= M
-
 /obj/machinery/process()//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
