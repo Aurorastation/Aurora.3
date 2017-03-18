@@ -373,11 +373,10 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 /obj/item/weapon/implant/loyalty/ipc/implanted(mob/M)
 
-	if(isipc(M))
-		..()
-	
-	else
+	if (!isipc(M))
 		return
+		
+	..()
 
 /obj/item/weapon/implant/adrenalin
 	name = "adrenalin"
