@@ -330,8 +330,7 @@
 			fire_at(target)
 			return
 		else
-			stuffcache = list()
-			DVIEW(stuffcache, 10, get_turf(src), INVISIBILITY_LIGHTING)
+			stuffcache = mobs_in_view(10, src)
 			//for (var/turf/T in stuffcache)
 				//new /obj/effect/testtrans(T)
 			if ((target in stuffcache) && isInSight(src, target))
@@ -343,8 +342,7 @@
 
 	//We may have already populated stuffcache this run, dont repeat work
 	if (!stuffcache)
-		stuffcache = list()
-		DVIEW(stuffcache, 10, get_turf(src), INVISIBILITY_LIGHTING)
+		stuffcache = mobs_in_view(10, src)
 
 	target = null //Either we lost a target or lack one
 	//for (var/turf/T in stuffcache)
@@ -382,7 +380,10 @@
 
 
 /obj/structure/cult/pylon/proc/fire_at(var/atom/target)
-	last_target_loc = target.loc
+	//Only store loc if target is on a turf. Otherwise this bugs out with people in exosuits
+	if (istype(target.loc, /turf))
+		last_target_loc = target.loc
+
 	process_interval = 1 //Instantly wake up if we found a target
 	var/obj/item/projectile/beam/cult/A
 	if (empowered > 0)
