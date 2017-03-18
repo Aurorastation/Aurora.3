@@ -13,6 +13,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	blinded = 0
 	anchored = 1	//  don't get pushed around
 	invisibility = INVISIBILITY_OBSERVER
+	simulated = FALSE
 	var/can_reenter_corpse
 	var/datum/hud/living/carbon/hud = null // hud
 	var/bootime = 0
