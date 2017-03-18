@@ -10,7 +10,7 @@ var/datum/controller/process/night_lighting/nl_ctrl
 
 /datum/controller/process/night_lighting/setup()
 	name = "night lighting controller"
-	schedule_interval = 3600	// Every 5 minutes.
+	schedule_interval = 5 MINUTES
 
 	nl_ctrl = src
 
@@ -18,34 +18,26 @@ var/datum/controller/process/night_lighting/nl_ctrl
 		// Stop trying to delete processes. Not how it goes.
 		disabled = 1
 
-
 /datum/controller/process/night_lighting/preStart()
-
-	switch (worldtime2ticks())
-		if (0 to config.nl_finish)
-			deactivate()
-		if (config.nl_start to TICKS_IN_DAY)
-			activate()
-
+	var/time = worldtime2hours()
+	if (time <= config.nl_finish || time >= config.nl_start)
+		activate()
+	else
+		deactivate()
 
 /datum/controller/process/night_lighting/doWork()
 	if (manual_override)	// don't automatically change lighting if it was manually changed in-game
 		return
 
-	switch (worldtime2ticks())
-		if (0 to config.nl_finish)
-			if (isactive)
-				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
-				deactivate()
-
-		if (config.nl_start to TICKS_IN_DAY)
-			if (!isactive)
-				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
-				activate()
-
-		else
-			if (isactive)
-				deactivate()
+	var/time = worldtime2hours()
+	if (time <= config.nl_finish || time >= config.nl_start)
+		if (!isactive)
+			command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+			activate()
+	else
+		if (isactive)
+			command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+			deactivate()
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
