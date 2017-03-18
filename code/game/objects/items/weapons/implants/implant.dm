@@ -367,6 +367,18 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		processing_objects.Add(src)
 		return 1
 
+/obj/item/weapon/implant/loyalty/ipc
+	name = "loyalty chip"
+	desc = "A device that sets directives programmed for loyalty to NanoTrasen on the synthetic subject. Will not work on organics."
+
+/obj/item/weapon/implant/loyalty/ipc/implanted(mob/M)
+
+	if(isipc(M))
+		..()
+	
+	else
+		return
+
 /obj/item/weapon/implant/adrenalin
 	name = "adrenalin"
 	desc = "Removes all stuns and knockdowns."
