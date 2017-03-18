@@ -104,7 +104,7 @@
 
 /mob/living/simple_animal/familiar/goat
 	name = "goat"
-	desc = "An sprightly looking goat."
+	desc = "A sprightly looking goat."
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
