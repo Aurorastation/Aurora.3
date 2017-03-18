@@ -3630,7 +3630,7 @@
 "brP" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/maintenance/locker)
 "brQ" = (/turf/simulated/wall/r_wall,/area/maintenance/locker)
 "brR" = (/obj/structure/sign/securearea{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"; pixel_y = 0},/turf/simulated/wall/r_wall,/area/maintenance/locker)
-"brS" = (/obj/machinery/mech_recharger,/turf/simulated/floor/plating,/area/assembly/chargebay)
+"brS" = (/obj/machinery/mech_recharger,/turf/simulated/floor/tiled,/area/assembly/chargebay)
 "brT" = (/obj/structure/sign/poster{pixel_x = 0; pixel_y = 0},/turf/simulated/wall,/area/quartermaster/loading)
 "brU" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/simulated/floor/tiled,/area/assembly/chargebay)
 "brV" = (/obj/machinery/door/airlock/maintenance{name = "Cargo Bay Maintenance"; req_access = list(31)},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plating,/area/quartermaster/loading)

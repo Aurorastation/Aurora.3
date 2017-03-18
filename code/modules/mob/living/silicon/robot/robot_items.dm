@@ -299,7 +299,7 @@
 /obj/item/weapon/inflatable_dispenser/proc/try_deploy_inflatable(var/turf/T, var/mob/living/user)
 	if (deploying)
 		return
-	deploying = 1
+
 	var/newtype
 	if(mode) // Door deployment
 		if(!stored_doors)
@@ -317,9 +317,10 @@
 		if(T && istype(T))
 			newtype = /obj/structure/inflatable/wall
 
+	deploying = 1
 	user.visible_message(span("notice", "[user] starts deploying an inflatable"), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, 1)
-	if (do_after(user, 20, needhand = 0))
+	if (do_after(user, 15, needhand = 0))
 		new newtype(T)
 		if (mode)
 			stored_doors--
