@@ -179,6 +179,7 @@
 	beg_for_food = 0
 	density = 0
 	mob_size = 0.75//just a rough estimate, the real value should be way lower
+	hunger_enabled = FALSE
 
 /mob/living/simple_animal/chick/New()
 	..()
@@ -227,6 +228,7 @@ var/global/chicken_count = 0
 	holder_type = /obj/item/weapon/holder/chicken
 	density = 0
 	mob_size = 2
+	hunger_enabled = FALSE
 
 /mob/living/simple_animal/chicken/New()
 	..()
@@ -256,14 +258,17 @@ var/global/chicken_count = 0
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
-				user.visible_message("\blue [user] feeds [O] to [name]! It clucks happily.","\blue You feed [O] to [name]! It clucks happily.")
+				user.visible_message(
+					span("notice", "\The [user] feeds \the [O] to \the [name]! It clucks happily."),
+					span("notice", "You feed \the [O] to \the [name]! It clucks happily."),
+					"You hear a cluck.")
 				user.drop_item()
 				qdel(O)
 				eggsleft += rand(1, 4)
 			else
-				user << "\blue [name] doesn't seem hungry!"
+				user << "\The [name] doesn't seem hungry!"
 		else
-			user << "[name] doesn't seem interested in that."
+			user << "\The [name] doesn't seem interested in that."
 	else
 		..()
 
