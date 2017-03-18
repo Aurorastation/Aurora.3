@@ -17,6 +17,7 @@ obj/structure/windoor_assembly
 	density = 0
 	dir = NORTH
 	w_class = 3
+	flags = ON_BORDER
 
 	var/obj/item/weapon/airlock_electronics/electronics = null
 
@@ -261,10 +262,21 @@ obj/structure/windoor_assembly/Destroy()
 
 
 //Rotates the windoor assembly clockwise
-/obj/structure/windoor_assembly/verb/revrotate()
-	set name = "Rotate Windoor Assembly"
+//These directions are fucked up, apparently dm rotates anticlockwise by default
+/obj/structure/windoor_assembly/verb/rotate()
+	set name = "Rotate Windoor Clockwise"
 	set category = "Object"
 	set src in oview(1)
+
+	var/targetdir = turn(src.dir, 270)
+
+	for(var/obj/obstacle in get_turf(src))
+		if (obstacle == src)
+			continue
+
+		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
+			usr << span("danger", "You can't turn the windoor assembly that way, there's already something there!")
+			return
 
 	if (src.anchored)
 		usr << "It is fastened to the floor; therefore, you can't rotate it!"
@@ -272,7 +284,38 @@ obj/structure/windoor_assembly/Destroy()
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1) //Compel updates before
 
-	src.set_dir(turn(src.dir, 270))
+	src.set_dir(targetdir)
+
+	if(src.state != "01")
+		update_nearby_tiles(need_rebuild=1)
+
+	update_icon()
+	return
+
+
+//Rotates the windoor assembly anticlockwise
+/obj/structure/windoor_assembly/verb/revrotate()
+	set name = "Rotate Windoor Anticlockwise"
+	set category = "Object"
+	set src in oview(1)
+
+	var/targetdir = turn(src.dir, 90)
+
+	for(var/obj/obstacle in get_turf(src))
+		if (obstacle == src)
+			continue
+
+		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
+			usr << span("danger", "You can't turn the windoor assembly that way, there's already something there!")
+			return
+
+	if (src.anchored)
+		usr << "It is fastened to the floor; therefore, you can't rotate it!"
+		return 0
+	if(src.state != "01")
+		update_nearby_tiles(need_rebuild=1) //Compel updates before
+
+	src.set_dir(targetdir)
 
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1)

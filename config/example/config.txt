@@ -162,7 +162,8 @@ VOTE_AUTOGAMEMODE_TIMELEFT 100
 ## min delay (deciseconds) before a transfer vote can be called (default 120 minutes)
 TRANSFER_TIMEOUT 72000
 
-## prevents dead players from voting or starting votes
+## Prevets lobby-sitters and ghosts who went straight from the lobby to observing from voting.
+## Ghosts who died will still be able to vote.
 #NO_DEAD_VOTE
 
 ## players' votes default to "No vote" (otherwise,  default to "No change")

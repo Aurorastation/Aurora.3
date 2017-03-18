@@ -7,7 +7,6 @@
 	canhear_range = 2
 	flags = CONDUCT | NOBLOODY
 	var/number = 0
-	var/last_tick //used to delay the powercheck
 	var/obj/machinery/abstract/intercom_listener/power_interface
 
 /obj/item/device/radio/intercom/custom
