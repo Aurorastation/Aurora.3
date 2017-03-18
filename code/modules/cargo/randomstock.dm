@@ -214,7 +214,6 @@ var/list/global/random_stock_rare = list(
 	"combatmeds" = 3,
 	"batterer" = 0.75,
 	"posibrain" = 3,
-	"thermals" = 0.75,
 	"bsbeaker" = 3,
 	"energyshield" = 2,
 	"hardsuit" = 0.75,
@@ -1506,8 +1505,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/device/batterer(L)
 		if("posibrain")
 			new /obj/item/device/mmi/digital/posibrain(L)
-		if("thermals")
-			new /obj/item/clothing/glasses/thermal(L)
 		if("bsbeaker")
 			new /obj/item/weapon/reagent_containers/glass/beaker/bluespace(L)
 			if (prob(50))
@@ -1548,7 +1545,7 @@ var/list/global/random_stock_large = list(
 			/obj/item/weapon/rig/light = 0.5,
 			/obj/item/weapon/rig/light/hacker = 0.8,
 			/obj/item/weapon/rig/light/stealth = 1.5,
-			/obj/item/weapon/rig/merc = 0.5,
+			/obj/item/weapon/rig/merc/empty = 0.5,
 			/obj/item/weapon/rig/industrial = 3,
 			/obj/item/weapon/rig/eva = 3,
 			/obj/item/weapon/rig/ce = 2,
