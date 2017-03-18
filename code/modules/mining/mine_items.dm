@@ -1211,12 +1211,6 @@ var/list/total_extraction_beacons = list()
 		overlays -= W
 		user << "[finishmessage]"
 
-/obj/structure/punching_bag/debug/examine(mob/user)
-	..()
-	for(var/area/A in the_station_areas)
-		user << "[A.name] ([A.type])</span>"
-
-
 /******************************Seismic Charge*******************************/
 
 /obj/item/weapon/plastique/seismic

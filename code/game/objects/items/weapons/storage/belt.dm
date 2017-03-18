@@ -260,8 +260,7 @@
 	storage_slots = 9
 	w_class = 4
 	max_w_class = 4 //Pickaxes are big.
-	can_hold = list(//TODO: Keep updated with new mining shizzam
-		/obj/item/weapon/crowbar,
+	can_hold = list(/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/weldingtool,
 		/obj/item/weapon/wirecutters,
@@ -286,5 +285,5 @@
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/ore,
 		/obj/item/weapon/reagent_containers/food/drinks,
-		/obj/item/weapon/storage/bag/plants,
+		/obj/item/weapon/storage/bag/plants
 		)

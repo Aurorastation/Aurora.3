@@ -74,7 +74,7 @@
 		new /datum/data/mining_equipment("KA AoE Damage",				/obj/item/borg/upgrade/modkit/aoe/turfs,								1500),
 		new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/weapon/pickaxe/diamond,										1500),
 		new /datum/data/mining_equipment("Drone Thermal Drill Upgrade",	/obj/item/device/mine_bot_ugprade/thermal,								2000),
-		new /datum/data/mining_equipment("Thermal Drill",				/obj/item/weapon/gun/energy/vaurca/thermaldrill,						2750),
+		new /datum/data/mining_equipment("Thermal Drill",				/obj/item/weapon/gun/energy/vaurca/thermaldrill,						2750)
 		)
 
 /datum/data/mining_equipment

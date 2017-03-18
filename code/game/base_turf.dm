@@ -8,7 +8,7 @@ var/global/list/base_turf_by_z = list(
 	"6" = /turf/simulated/open,
 	"7" = /turf/space,
 	"8" = /turf/space,
-	"9" = /turf/space,
+	"9" = /turf/space
 	)
 
 proc/get_base_turf(var/z)

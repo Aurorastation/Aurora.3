@@ -6,7 +6,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list ( \
 	new/datum/stack_recipe("screwdriver", /obj/item/weapon/screwdriver, 1, time = 12), \
 	new/datum/stack_recipe("wrench", /obj/item/weapon/wrench, 1, time = 6), \
 	new/datum/stack_recipe("spade", /obj/item/weapon/shovel/spade, 2, time = 12), \
-	new/datum/stack_recipe("bolt", /obj/item/weapon/arrow, 1, time = 6), \
+	new/datum/stack_recipe("bolt", /obj/item/weapon/arrow, 1, time = 6)
 	)
 
 /obj/item/stack/rods
