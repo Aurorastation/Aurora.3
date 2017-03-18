@@ -330,7 +330,7 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "tdgreen"
 	assignment = "Minedrone"
 
-/obj/item/weapon/card/id/synthetic/New()
+/obj/item/weapon/card/id/synthetic/minedrone/New()
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	..()
 
