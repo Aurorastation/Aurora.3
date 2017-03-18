@@ -81,8 +81,30 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
-	if (DS)
-		qdel(DS)//prevents the dionastats holding onto references and blocking GC
+	organs = null
+	internal_organs_by_name = null
+	internal_organs = null
+	organs_by_name = null
+	bad_internal_organs = null
+	bad_external_organs = null
+	
+	QDEL_NULL(DS)
+	// qdel and null out our equipment.
+	QDEL_NULL(shoes)
+	QDEL_NULL(belt)
+	QDEL_NULL(gloves)
+	QDEL_NULL(glasses)
+	QDEL_NULL(head)
+	QDEL_NULL(l_ear)
+	QDEL_NULL(r_ear)
+	QDEL_NULL(wear_id)
+	QDEL_NULL(r_store)
+	QDEL_NULL(l_store)
+	QDEL_NULL(s_store)
+	QDEL_NULL(wear_suit)
+	// Do this last so the mob's stuff doesn't drop on del.
+	QDEL_NULL(w_uniform)
+
 	return ..()
 
 /mob/living/carbon/human/Stat()

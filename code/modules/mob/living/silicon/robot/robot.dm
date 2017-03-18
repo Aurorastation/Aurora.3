@@ -248,6 +248,7 @@
 		connected_ai.connected_robots -= src
 	qdel(wires)
 	wires = null
+	QDEL_NULL(spark_system)
 	return ..()
 
 /mob/living/silicon/robot/proc/set_module_sprites(var/list/new_sprites)

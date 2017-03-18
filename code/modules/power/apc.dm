@@ -195,6 +195,8 @@
 		cell.forceMove(loc)
 		cell = null
 
+	QDEL_NULL(spark_system)
+
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if((hacker) && (hacker.hacked_apcs) && (src in hacker.hacked_apcs))
 		hacker.hacked_apcs -= src
