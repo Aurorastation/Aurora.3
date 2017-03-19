@@ -223,7 +223,7 @@ its easier to just keep the beam vertical.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
-	for(var/datum/light_source/L in light_sources)
+	/*for(var/datum/light_source/L in light_sources)
 		if (L.source_atom.offset_light)
 			L.force_update = 1
 			if (world.tick_usage < 80)
@@ -231,7 +231,7 @@ its easier to just keep the beam vertical.
 				//This makes things more responsive, but probably has a performance cost for people spinning rapidly
 				//Ergo, it checks tick usage first
 			else
-				L.source_atom.update_light()
+				L.source_atom.update_light()*/
 
 /atom/proc/ex_act()
 	return
@@ -505,3 +505,9 @@ its easier to just keep the beam vertical.
 		else if(ismob(I))
 			var/mob/M = I
 			M.show_message( message, 2, deaf_message, 1)
+			
+/atom/proc/change_area(var/area/oldarea, var/area/newarea)
+	change_area_name(oldarea.name, newarea.name)
+
+/atom/proc/change_area_name(var/oldname, var/newname)
+	name = replacetext(name,oldname,newname)

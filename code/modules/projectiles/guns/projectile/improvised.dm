@@ -5,7 +5,8 @@
 	desc = "An improvised pipe assembly that can fire shotgun shells."
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "ishotgun"
-	item_state = "dshotgun"
+	item_state = "ishotgun"
+	contained_sprite = 1
 	max_shells = 2
 	w_class = 4.0
 	force = 5
@@ -29,12 +30,11 @@
 
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/pickaxe/plasmacutter))
+	if(w_class > 3 && (istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/pickaxe/plasmacutter)))
 		user << "<span class='notice'>You begin to shorten the barrel of \the [src].</span>"
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
-				afterattack(user, user)	//will this work? //it will. we call it twice, for twice the FUN
-				playsound(user, fire_sound, 50, 1)
+				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message("<span class='danger'>The shotgun goes off!</span>", "<span class='danger'>The shotgun goes off in your face!</span>")
 			return
 		if(do_after(user, 30))
@@ -53,7 +53,8 @@
 	name = "sawn-off improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
 	icon_state = "ishotgunsawn"
-	item_state = "sawnshotgun"
+	item_state = "ishotgunsawn"
+	contained_sprite = 1
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 3
 	force = 5

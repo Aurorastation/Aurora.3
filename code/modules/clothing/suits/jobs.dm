@@ -63,7 +63,7 @@
 
 //Chef
 /obj/item/clothing/suit/chef/classic
-	name = "A classic chef's apron."
+	name = "classic chef's apron"
 	desc = "A basic, dull, white chef's apron."
 	icon_state = "apronchef"
 	item_state = "apronchef"
@@ -166,7 +166,7 @@
 
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
-	name = "Blue Suit Jacket"
+	name = "blue suit Jacket"
 	desc = "A snappy dress jacket."
 	icon_state = "suitjacket_blue_open"
 	item_state = "suitjacket_blue_open"
@@ -176,7 +176,7 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/lawyer/purpjacket
-	name = "Purple Suit Jacket"
+	name = "blue suit Jacket"
 	desc = "A snappy dress jacket."
 	icon_state = "suitjacket_purp"
 	item_state = "suitjacket_purp"
@@ -185,7 +185,7 @@
 
 //Internal Affairs
 /obj/item/clothing/suit/storage/toggle/internalaffairs
-	name = "Internal Affairs Jacket"
+	name = "internal affairs jacket"
 	desc = "A smooth black jacket."
 	icon_state = "ia_jacket_open"
 	item_state = "ia_jacket"
@@ -193,8 +193,6 @@
 	icon_closed = "ia_jacket"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-
-
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket

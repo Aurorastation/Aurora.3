@@ -49,6 +49,8 @@
 	var/building_terminal = 0 //Suggestions about how to avoid clickspam building several terminals accepted!
 	var/obj/machinery/power/terminal/terminal = null
 	var/should_be_mapped = 0 // If this is set to 0 it will send out warning on New()
+	var/datum/effect_system/sparks/big_spark
+	var/datum/effect_system/sparks/small_spark
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -62,6 +64,8 @@
 
 /obj/machinery/power/smes/New()
 	..()
+	big_spark = bind_spark(src, 5, alldirs)
+	small_spark = bind_spark(src, 3)
 	spawn(5)
 		if(!powernet)
 			connect_to_network()
@@ -295,9 +299,7 @@
 				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 				if(do_after(user, 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
-						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-						s.set_up(5, 1, src)
-						s.start()
+						big_spark.queue()
 						building_terminal = 0
 						if(usr.stunned)
 							return 0
@@ -402,9 +404,7 @@
 			qdel(src)
 			return
 		else if(prob(15)) //Power drain
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			small_spark.queue()
 			if(prob(50))
 				emp_act(1)
 			else

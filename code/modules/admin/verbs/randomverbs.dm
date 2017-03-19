@@ -949,3 +949,50 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		usr << "Random events disabled"
 		message_admins("Admin [key_name_admin(usr)] has disabled random events.", 1)
 	feedback_add_details("admin_verb","TRE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/fab_tip()
+	set category = "Admin"
+	set name = "Fabricate Tip"
+	set desc = "Sends a tip (that you specify) to all players. After all \
+		you're the experienced player here."
+
+	if(!holder)
+		return
+
+	var/input = input(usr, "Please specify your tip that you want to send to the players.", "Tip", "") as message|null
+	if(!input)
+		return
+
+	if(!ticker)
+		return
+
+	ticker.selected_tip = input
+
+	// If we've already tipped, then send it straight away.
+	if(ticker.tipped)
+		ticker.send_tip_of_the_round()
+		ticker.selected_tip = initial(ticker.selected_tip)
+
+
+	message_admins("[key_name_admin(usr)] sent a tip of the round.")
+	log_admin("[key_name(usr)] sent \"[input]\" as the Tip of the Round.")
+	feedback_add_details("admin_verb","TIP")
+
+/client/proc/show_tip()
+	set category = "Debug"
+	set name = "Show Tip"
+	set desc = "Sends a tip (that the config specifies) to all players. After all \
+		you're not the experienced player here."
+
+	if(!holder)
+		return
+
+	if(!ticker)
+		return
+
+	ticker.send_tip_of_the_round()
+
+
+	message_admins("[key_name_admin(usr)] sent a pregenerated tip of the round.")
+	log_admin("[key_name(usr)] sent a pregenerated Tip of the Round.")
+	feedback_add_details("admin_verb","FAP")

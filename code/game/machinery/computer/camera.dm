@@ -215,6 +215,7 @@
 	network = list(NETWORK_THUNDER)
 	density = 0
 	circuit = null
+	is_holographic = FALSE
 
 /obj/machinery/computer/security/telescreen/entertainment
 	name = "entertainment monitor"
@@ -260,6 +261,7 @@
 	icon_screen = "syndicam"
 	network = list(NETWORK_MERCENARY)
 	circuit = null
+	is_holographic = FALSE	// I mean, it is, but the holo effect looks terrible with the current merc shuttle floor.
 
 /obj/machinery/computer/security/nuclear/New()
 	..()

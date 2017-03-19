@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Fixed AIs being unable to set status displays by clicking on them."

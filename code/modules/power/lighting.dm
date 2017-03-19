@@ -2,6 +2,7 @@
 //
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
 
+#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
 
 // status values shared between lighting fixtures and items
 #define LIGHT_OK 0
@@ -143,8 +144,13 @@
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 3
-	var/brightness_color = null
+	var/brightness_power = 0.8
+	var/night_brightness_range = 6
+	var/night_brightness_power = 0.6
+	var/supports_nightmode = TRUE
+	var/nightmode = FALSE
+	var/brightness_color = LIGHT_COLOR_HALOGEN
+	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -153,6 +159,7 @@
 								// this is used to calc the probability the light burns out
 
 	var/rigged = 0				// true if rigged to explode
+	var/datum/effect_system/sparks/spark_system
 
 // the smaller bulb light fixture
 
@@ -160,21 +167,22 @@
 	icon_state = "bulb1"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness_range = 4
-	brightness_power = 2
-	brightness_color = "#a0a080"
+	brightness_range = 5
+	brightness_power = 0.75
+	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
+	supports_nightmode = FALSE
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
-	brightness_power = 2
-	brightness_color = "#da0205"
+	brightness_power = 1
+	brightness_color = "#FF0000"
 
 /obj/machinery/light/small/red
-	brightness_range = 5
+	brightness_range = 2.5
 	brightness_power = 1
-	brightness_color = "#da0205"
+	brightness_color = LIGHT_COLOR_RED
 
 /obj/machinery/light/spot
 	name = "spotlight"
@@ -182,6 +190,7 @@
 	light_type = /obj/item/weapon/light/tube/large
 	brightness_range = 12
 	brightness_power = 4
+	supports_nightmode = FALSE
 
 /obj/machinery/light/built/New()
 	status = LIGHT_EMPTY
@@ -196,6 +205,8 @@
 // create a new lighting fixture
 /obj/machinery/light/New()
 	..()
+
+	spark_system = bind_spark(src, 3)
 
 	spawn(2)
 		on = has_power()
@@ -218,10 +229,14 @@
 	..()
 
 /obj/machinery/light/update_icon()
-
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			icon_state = "[base_state][on]"
+			if (supports_nightmode && nightmode && on)
+				color = "#d2d2d2"
+			else
+				color = null
+
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
 			on = 0
@@ -231,14 +246,15 @@
 		if(LIGHT_BROKEN)
 			icon_state = "[base_state]-broken"
 			on = 0
-	return
+
+	if (!on)
+		color = null
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)
-
 	update_icon()
 	if(on)
-		if(light_range != brightness_range || light_power != brightness_power || light_color != brightness_color)
+		if (check_update())
 			switchcount++
 			if(rigged)
 				if(status == LIGHT_OK && trigger)
@@ -255,14 +271,24 @@
 					set_light(0)
 			else
 				use_power = 2
-				set_light(brightness_range, brightness_power, brightness_color)
+				active_power_usage = light_range * LIGHTING_POWER_FACTOR
+				if (supports_nightmode && nightmode)
+					set_light(night_brightness_range, night_brightness_power, brightness_color)
+				else
+					set_light(brightness_range, brightness_power, brightness_color)
 	else
 		use_power = 1
 		set_light(0)
 
-	active_power_usage = ((light_range + light_power) * 10)
+	active_power_usage = ((light_range * light_power) * 10)
 	if(on != on_gs)
 		on_gs = on
+
+/obj/machinery/light/proc/check_update()
+	if (supports_nightmode && nightmode)
+		return light_range != night_brightness_range || light_power != night_brightness_power || light_color != brightness_color
+	else
+		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
 /obj/machinery/light/attack_generic(var/mob/user, var/damage)
 	if(!damage)
@@ -388,9 +414,7 @@
 
 		user << "You stick \the [W] into the light socket!"
 		if(has_power() && (W.flags & CONDUCT))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -522,11 +546,10 @@
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 	status = LIGHT_BROKEN
 	update()
+	CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
@@ -550,20 +573,6 @@
 			if (prob(50))
 				broken()
 	return
-
-//blob effect
-
-
-// timed process
-// use power
-
-#define LIGHTING_POWER_FACTOR 20		//20W per unit luminosity
-
-
-/obj/machinery/light/process()
-	if(on)
-		use_power(light_range * LIGHTING_POWER_FACTOR, LIGHT)
-
 
 // called when area power state changes
 /obj/machinery/light/power_change()
@@ -631,13 +640,13 @@
 	item_state = "c_tube"
 	matter = list("glass" = 100)
 	brightness_range = 8
-	brightness_power = 3
+	brightness_power = 0.8
 
 /obj/item/weapon/light/tube/large
 	w_class = 2
 	name = "large light tube"
 	brightness_range = 15
-	brightness_power = 4
+	brightness_power = 6
 
 /obj/item/weapon/light/bulb
 	name = "light bulb"
@@ -647,7 +656,7 @@
 	item_state = "contvapour"
 	matter = list("glass" = 100)
 	brightness_range = 5
-	brightness_power = 2
+	brightness_power = 0.75
 	brightness_color = "#a0a080"
 
 /obj/item/weapon/light/throw_impact(atom/hit_atom)
@@ -661,8 +670,8 @@
 	base_state = "fbulb"
 	item_state = "egg4"
 	matter = list("glass" = 100)
-	brightness_range = 5
-	brightness_power = 2
+	brightness_range = 8
+	brightness_power = 0.8
 
 // update the icon state and description of the light
 

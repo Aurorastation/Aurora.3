@@ -7,6 +7,7 @@
 	size = 73 // Very large, a price for bypassing ID checks completely.
 	available_on_ntnet = 0
 	available_on_syndinet = 1
+	color = LIGHT_COLOR_RED
 
 /datum/computer_file/program/camera_monitor/hacked/process_tick()
 	..()
@@ -31,7 +32,5 @@
 
 // The hacked variant has access to all commonly used networks.
 /datum/nano_module/camera_monitor/hacked/modify_networks_list(var/list/networks)
-	networks.Add(list(list("tag" = NETWORK_MERCENARY, "has_access" = 1)))
-	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))
 	return networks

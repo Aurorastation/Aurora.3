@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "You can now detach paper shredders from the floor with a wrench."

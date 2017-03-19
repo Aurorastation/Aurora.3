@@ -80,7 +80,7 @@ world/loop_checks = 0
 		tick_dels++
 		total_dels++
 		destroyed.Cut(1, 2)
-		SCHECK
+		F_SCHECK
 
 #undef GC_FORCE_DEL_PER_TICK
 #undef GC_COLLECTION_TIMEOUT
@@ -127,11 +127,6 @@ world/loop_checks = 0
 	stat(null, "[garbage_collect ? "On" : "Off"], [destroyed.len] queued")
 	stat(null, "Dels: [total_dels], [soft_dels] soft, [hard_dels] hard, [tick_dels]  last run")
 
-
-// Tests if an atom has been deleted.
-/proc/deleted(atom/A)
-	return !A || !isnull(A.gcDestroyed)
-
 // Should be treated as a replacement for the 'del' keyword.
 // Datums passed to this will be given a chance to clean up references to allow the GC to collect them.
 /proc/qdel(var/datum/A)
@@ -151,13 +146,13 @@ world/loop_checks = 0
 
 /datum/proc/finalize_qdel()
 	if(IsPooled(src))
-		PlaceInPool(src)
+		returnToPool(src)
 	else
 		del(src)
 
 /atom/finalize_qdel()
-	if(IsPooled(src))
-		PlaceInPool(src)
+	if (IsPooled(src))
+		returnToPool(src)
 	else
 		if(garbage_collector)
 			garbage_collector.AddTrash(src)

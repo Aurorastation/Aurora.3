@@ -18,6 +18,7 @@
 
 /obj/structure/toilet/attack_hand(mob/living/user as mob)
 	if(swirlie)
+		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		usr.visible_message("<span class='danger'>[user] slams the toilet seat onto [swirlie.name]'s head!</span>", "<span class='notice'>You slam the toilet seat onto [swirlie.name]'s head!</span>", "You hear reverberating porcelain.")
 		swirlie.adjustBruteLoss(8)
 		return
@@ -53,6 +54,7 @@
 			return
 
 	if(istype(I, /obj/item/weapon/grab))
+		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/obj/item/weapon/grab/G = I
 
 		if(isliving(G.affecting))
@@ -117,7 +119,7 @@
 
 /obj/machinery/shower
 	name = "shower"
-	desc = "The HS-451. Installed in the 2550s by the Hygiene Division."
+	desc = "The HS-451. Installed in the 2450s by the Hygiene Division."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "shower"
 	density = 0
@@ -180,13 +182,13 @@
 			spawn(50)
 				if(src && on)
 					ismist = 1
-					mymist = PoolOrNew(/obj/effect/mist,loc)
+					mymist = getFromPool(/obj/effect/mist,loc)
 		else
 			ismist = 1
-			mymist = PoolOrNew(/obj/effect/mist,loc)
+			mymist = getFromPool(/obj/effect/mist,loc)
 	else if(ismist)
 		ismist = 1
-		mymist = PoolOrNew(/obj/effect/mist,loc)
+		mymist = getFromPool(/obj/effect/mist,loc)
 		spawn(250)
 			if(src && !on)
 				qdel(mymist)
@@ -453,9 +455,7 @@
 					R.cell.charge -= 20
 				else
 					B.deductcharge(B.hitcost)
-				user.visible_message( \
-					"<span class='danger'>[user] was stunned by \his wet [O]!</span>", \
-					"<span class='userdanger'>[user] was stunned by \his wet [O]!</span>")
+				user.visible_message("<span class='danger'>[user] was stunned by \the [O]!</span>")
 				return 1
 	// Short of a rewrite, this is necessary to stop monkeycubes being washed.
 	else if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))

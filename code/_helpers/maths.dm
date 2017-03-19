@@ -128,3 +128,11 @@
 
 /proc/RoundUpToPowerOfTwo(var/val)
     return 2 ** -round(-log(2,val))
+
+
+//Written by Lohikar
+//Returns the cube root of the input number
+/proc/cubert(var/num, var/iterations = 10)
+    . = num
+    for (var/i = 0, i < iterations, i++)
+        . = (1/3) * (num/(.**2)+2*.)
