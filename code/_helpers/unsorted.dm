@@ -654,14 +654,14 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	var/holding = user.get_active_hand()
 	var/delayfraction = round(delay/numticks)
 	var/image/progbar
-	if(user && user.client && display_progress)
+	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && display_progress)
 		if(!progbar)
 			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = target, icon_state = "prog_bar_0")
 			progbar.layer = 21
 			progbar.pixel_z = WORLD_ICON_SIZE
 			progbar.appearance_flags = RESET_TRANSFORM
 	for (var/i = 1 to numticks)
-		if(user && user.client && progbar && display_progress)
+		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && progbar && display_progress)
 			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
 			user.client.images |= progbar
 		sleep(delayfraction)
@@ -706,14 +706,14 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		Location = user.loc
 	var/holding = user.get_active_hand()
 	var/image/progbar
-	if(user && user.client && act_target && display_progress)
+	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
 		if(!progbar)
 			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
 			progbar.pixel_z = WORLD_ICON_SIZE
 			progbar.layer = 21
 			progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
 	for (var/i = 1 to numticks)
-		if(user && user.client && act_target && display_progress)
+		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
 			if(!progbar)
 				progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
 				progbar.pixel_z = WORLD_ICON_SIZE

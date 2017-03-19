@@ -189,3 +189,15 @@
 
 	if (mob.hud_used)
 		mob.hud_used.update_parallax()
+
+/client/verb/toggle_progress()
+	set name = "Show/Hide Progress Bars"
+	set category = "Preferences"
+	set desc = "Toggles progress bars on slow actions."
+
+	prefs.parallax_togs ^= PROGRESS_BARS
+	prefs.save_preferences()
+	if (prefs.parallax_togs & PROGRESS_BARS)
+		src << "You will now see progress bars on delayed actions."
+	else
+		src << "You will no longer see progress bars on delayed actions."
