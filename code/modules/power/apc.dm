@@ -234,8 +234,7 @@
 
 	make_terminal()
 
-	spawn(5)
-		src.update()
+	addtimer(CALLBACK(src, .proc/update), 5)
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))
