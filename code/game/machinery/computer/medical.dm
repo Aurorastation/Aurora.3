@@ -558,7 +558,7 @@
 /obj/machinery/computer/med_data/laptop
 	name = "Medical Laptop"
 	desc = "A cheap laptop."
-	icon_state = "laptop"
+	icon_state = "medlaptop0"
 
 	icon_screen = "medlaptop"
 	is_holographic = FALSE

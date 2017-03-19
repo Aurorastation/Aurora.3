@@ -165,7 +165,7 @@ var/const/enterloopsanity = 100
 	if(!(A.last_move))	return
 	if((istype(A, /mob/) && src.x > 2 && src.x < (world.maxx - 1) && src.y > 2 && src.y < (world.maxy-1)))
 		var/mob/M = A
-		if(M.Process_Spacemove(1))
+		if(M.Allow_Spacemove(1))
 			M.inertia_dir  = 0
 			return
 		spawn(5)

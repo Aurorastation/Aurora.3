@@ -18,7 +18,7 @@
 		shuttle.area_station = locate(landing_type)
 		shuttle.area_offsite = shuttle.area_station
 		shuttle_controller.shuttles[shuttle_tag] = shuttle
-		shuttle_controller.process_shuttles += shuttle
+		START_PROCESSING(shuttle_controller, shuttle)
 		testing("Exploration shuttle '[shuttle_tag]' at zlevel [z] successfully added.")
 
 //Sets destination to new sector. Can be null.

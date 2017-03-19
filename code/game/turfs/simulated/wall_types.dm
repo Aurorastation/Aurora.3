@@ -13,6 +13,11 @@
 	icon = 'icons/turf/wall_masks.dmi'
 	icon_state = "cult"
 
+/turf/simulated/wall/rusty
+	icon_state = "arust"
+	desc = "Rust stains this ancient wall."
+/turf/simulated/wall/rusty/New(var/newloc)
+	..(newloc,"rust","rust")
 /turf/simulated/wall/iron/New(var/newloc)
 	..(newloc,"iron")
 /turf/simulated/wall/uranium/New(var/newloc)

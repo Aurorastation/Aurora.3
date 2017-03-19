@@ -324,8 +324,11 @@
 		job_master.AssignRole(src, rank, 1)
 
 		var/mob/living/character = create_character()	//creates the human and transfers vars and mind
-		character = job_master.EquipRank(character, rank, 1)					//equips the human
+
+		character = job_master.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
+
 		UpdateFactionList(character)
+
 		equip_custom_items(character)
 
 		// AIs don't need a spawnpoint, they must spawn at an empty core

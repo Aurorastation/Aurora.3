@@ -1,21 +1,20 @@
-var/datum/controller/subsystem/shuttle/shuttle_controller
+var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 
-/datum/controller/subsystem/shuttle
-	name = "Shuttle Controller"
+/datum/controller/subsystem/processing/shuttle
+	name = "Shuttles"
+	init_order = SS_INIT_SHUTTLE
+	flags = SS_KEEP_TIMING
 
-	var/list/shuttles	//maps shuttle tags to shuttle datums, so that they can be looked up.
-	var/list/process_shuttles	//simple list of shuttles, for processing
+	var/list/shuttles
 
-	var/tmp/list/processing_shuttles = list()
-
-/datum/controller/subsystem/shuttle/New()
+/datum/controller/subsystem/processing/shuttle/New()
 	NEW_SS_GLOBAL(shuttle_controller)
+	shuttles = list()
 
-/datum/controller/subsystem/shuttle/Recover()
+/datum/controller/subsystem/processing/shuttle/Recover()
 	src.shuttles = shuttle_controller.shuttles
-	src.process_shuttles = shuttle_controller.process_shuttles
 
-/datum/controller/subsystem/shuttle/proc/setup_shuttle_docks()
+/datum/controller/subsystem/processing/shuttle/proc/setup_shuttle_docks()
 	for(var/shuttle_tag in shuttles)
 		var/datum/shuttle/shuttle = shuttles[shuttle_tag]
 		shuttle.init_docking_controllers()
@@ -25,23 +24,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 		if(istype(C.program, /datum/computer/file/embedded_program/docking))
 			C.program.tag = null //clear the tags, 'cause we don't need 'em anymore
 
-/datum/controller/subsystem/shuttle/fire(resumed = FALSE)
-	if (!resumed)
-		processing_shuttles = process_shuttles.Copy()
-
-	while (processing_shuttles.len)
-		var/datum/shuttle/ferry/shuttle = processing_shuttles[processing_shuttles.len]
-		processing_shuttles.len--
-
-		shuttle.process()
-
-		if (MC_TICK_CHECK)
-			return
-
-/datum/controller/subsystem/shuttle/Initialize(timeofday)
-	shuttles = list()
-	process_shuttles = list()
-
+/datum/controller/subsystem/processing/shuttle/Initialize(timeofday)
 	var/datum/shuttle/ferry/shuttle
 
 	// Escape shuttle and pods
@@ -59,7 +42,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	//shuttle.docking_controller_tag = "supply_shuttle"
 	//shuttle.dock_target_station = "cargo_bay"
 	shuttles["Escape"] = shuttle
-	process_shuttles += shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
 
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
@@ -69,11 +52,11 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.area_transition = locate(/area/shuttle/escape_pod1/transit)
 	shuttle.docking_controller_tag = "escape_pod_1"
 	shuttle.dock_target_station = "escape_pod_1_berth"
-	shuttle.dock_target_offsite = "escape_pod_1_recovery"
+	//shuttle.dock_target_offsite = "escape_pod_1_recovery"
 	shuttle.transit_direction = NORTH
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	process_shuttles += shuttle
 	shuttles["Escape Pod 1"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
 
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
@@ -83,11 +66,11 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.area_transition = locate(/area/shuttle/escape_pod2/transit)
 	shuttle.docking_controller_tag = "escape_pod_2"
 	shuttle.dock_target_station = "escape_pod_2_berth"
-	shuttle.dock_target_offsite = "escape_pod_2_recovery"
+	//shuttle.dock_target_offsite = "escape_pod_2_recovery"
 	shuttle.transit_direction = NORTH
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	process_shuttles += shuttle
 	shuttles["Escape Pod 2"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
 
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
@@ -97,15 +80,15 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.area_transition = locate(/area/shuttle/escape_pod3/transit)
 	shuttle.docking_controller_tag = "escape_pod_3"
 	shuttle.dock_target_station = "escape_pod_3_berth"
-	shuttle.dock_target_offsite = "escape_pod_3_recovery"
+	//shuttle.dock_target_offsite = "escape_pod_3_recovery"
 	shuttle.transit_direction = EAST
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	process_shuttles += shuttle
 	shuttles["Escape Pod 3"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
 
 	//There is no pod 4, apparently.
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	/*shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod5/station)
@@ -117,15 +100,14 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.transit_direction = EAST //should this be WEST? I have no idea.
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
-	shuttles["Escape Pod 5"] = shuttle
+	shuttles["Escape Pod 5"] = shuttle*/
 
 	//give the emergency shuttle controller it's shuttles
 	emergency_shuttle.shuttle = shuttles["Escape"]
 	emergency_shuttle.escape_pods = list(
 		shuttles["Escape Pod 1"],
 		shuttles["Escape Pod 2"],
-		shuttles["Escape Pod 3"],
-		shuttles["Escape Pod 5"]
+		shuttles["Escape Pod 3"]
 	)
 
 	// Supply shuttle
@@ -137,9 +119,134 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.docking_controller_tag = "supply_shuttle"
 	shuttle.dock_target_station = "cargo_bay"
 	shuttles["Supply"] = shuttle
-	process_shuttles += shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
 
 	supply_controller.shuttle = shuttle
+
+	shuttle = new/datum/shuttle/ferry/arrival()
+	shuttle.location = 1
+	shuttle.warmup_time = 5
+	shuttle.area_station = locate(/area/shuttle/arrival/station)
+	shuttle.area_offsite = locate(/area/shuttle/arrival/centcom)
+	shuttle.area_transition = locate(/area/shuttle/arrival/transit)
+	shuttle.docking_controller_tag = "arrival_shuttle"
+	shuttle.dock_target_station = "arrival_dock"
+	shuttle.dock_target_offsite = "centcom_setup"
+	shuttle.transit_direction = EAST
+	shuttle.move_time = 60
+	shuttles["Arrival"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	arrival_shuttle.shuttle = shuttle
+
+	//LIFTS!!!!!
+	// They are shuttles to save dupe code
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/medical/lower)
+	shuttle.area_station = locate(/area/shuttle/medical/main)
+	shuttle.docking_controller_tag = "medical_lift"
+	shuttle.dock_target_station = "medical_lift_main"
+	shuttle.dock_target_offsite = "medical_lift_lower"
+	shuttles["Medical"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/science/lower)
+	shuttle.area_station = locate(/area/shuttle/science/main)
+	shuttle.docking_controller_tag = "science_lift"
+	shuttle.dock_target_station = "science_lift_main"
+	shuttle.dock_target_offsite = "science_lift_lower"
+	shuttles["Science"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.location = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/engineering/lower)
+	shuttle.area_station = locate(/area/shuttle/engineering/main)
+	shuttle.docking_controller_tag = "engineering_lift"
+	shuttle.dock_target_station = "eng_lift_main"
+	shuttle.dock_target_offsite = "eng_lift_lower"
+	shuttles["Engineering"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/ai/lower)
+	shuttle.area_station = locate(/area/shuttle/ai/main)
+	shuttle.docking_controller_tag = "aicore_lift"
+	shuttle.dock_target_station = "aicore_lift_main"
+	shuttle.dock_target_offsite = "aicore_lift_lower"
+	shuttles["AiCore"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 2
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/vault/lower)
+	shuttle.area_station = locate(/area/shuttle/vault/main)
+	shuttle.docking_controller_tag = "vault_lift"
+	shuttle.dock_target_station = "vault_lift_main"
+	shuttle.dock_target_offsite = "vault_lift_lower"
+	shuttles["Vault"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/civilian/upper)
+	shuttle.area_transition = locate(/area/shuttle/civilian/transit)
+	shuttle.area_station = locate(/area/shuttle/civilian/main)
+	shuttle.docking_controller_tag = "civilian_lift"
+	shuttle.dock_target_station = "civilian_lift_main"
+	shuttle.dock_target_offsite = "civilian_lift_dock"
+	shuttles["Civilian"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/cargo/upper)
+	shuttle.area_transition = locate(/area/shuttle/cargo/transit)
+	shuttle.area_station = locate(/area/shuttle/cargo/main)
+	shuttle.docking_controller_tag = "cargo_lift"
+	shuttle.dock_target_station = "cargo_lift_main"
+	shuttle.dock_target_offsite = "cargo_lift_dock"
+	shuttles["Cargo"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	shuttle = new()
+	shuttle.lift = 1
+	shuttle.lift_lowest_zlevel = 1
+	shuttle.move_time = 10
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/command/upper)
+	shuttle.area_transition = locate(/area/shuttle/command/transit)
+	shuttle.area_station = locate(/area/shuttle/command/main)
+	shuttle.docking_controller_tag = "command_lift"
+	shuttle.dock_target_station = "command_lift_main"
+	shuttle.dock_target_offsite = "command_lift_dock"
+	shuttles["Command"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
 
 	// Admin shuttles.
 	shuttle = new()
@@ -151,7 +258,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.dock_target_station = "centcom_shuttle_dock_airlock"
 	shuttle.dock_target_offsite = "centcom_shuttle_bay"
 	shuttles["Centcom"] = shuttle
-	process_shuttles += shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
 
 	shuttle = new()
 	shuttle.location = 1
@@ -162,7 +269,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.dock_target_station = "admin_shuttle_dock_airlock"
 	shuttle.dock_target_offsite = "admin_shuttle_bay"
 	shuttles["Administration"] = shuttle
-	process_shuttles += shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
 
 	shuttle = new()
 	shuttle.area_offsite = locate(/area/shuttle/alien/base)
@@ -170,7 +277,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttles["Alien"] = shuttle
 	//process_shuttles += shuttle	//don't need to process this. It can only be moved using admin magic anyways.
 
-	// Public shuttles
+	/*// Public shuttles
 	shuttle = new()
 	shuttle.warmup_time = 10
 	shuttle.area_offsite = locate(/area/shuttle/constructionsite/site)
@@ -199,7 +306,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttle.dock_target_station = "research_dock_airlock"
 	shuttle.dock_target_offsite = "research_outpost_dock"
 	shuttles["Research"] = shuttle
-	process_shuttles += shuttle
+	process_shuttles += shuttle*/
 
 	// ERT Shuttle
 	var/datum/shuttle/ferry/multidock/specops/ERT = new()
@@ -213,7 +320,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	ERT.dock_target_station = "specops_centcom_dock"
 	ERT.dock_target_offsite = "specops_dock_airlock"
 	shuttles["Special Operations"] = ERT
-	process_shuttles += ERT
+	START_PROCESSING(shuttle_controller, ERT)
 
 	//Skipjack.
 	var/datum/shuttle/multi_shuttle/VS = new/datum/shuttle/multi_shuttle()

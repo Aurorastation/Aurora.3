@@ -112,34 +112,42 @@
 
 	New()
 		..()
-		if(prob(50))
-			new /obj/item/weapon/storage/backpack/medic(src)
-		else
-			new /obj/item/weapon/storage/backpack/satchel_med(src)
 		new /obj/item/clothing/suit/bio_suit/cmo(src)
 		new /obj/item/clothing/head/bio_hood/cmo(src)
 		new /obj/item/clothing/shoes/white(src)
-		switch(pick("blue", "green", "purple"))
-			if ("blue")
-				new /obj/item/clothing/under/rank/medical/blue(src)
-				new /obj/item/clothing/head/surgery/blue(src)
-			if ("green")
-				new /obj/item/clothing/under/rank/medical/green(src)
-				new /obj/item/clothing/head/surgery/green(src)
-			if ("purple")
-				new /obj/item/clothing/under/rank/medical/purple(src)
-				new /obj/item/clothing/head/surgery/purple(src)
-		new /obj/item/clothing/under/rank/chief_medical_officer(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 		new /obj/item/weapon/cartridge/cmo(src)
 		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/shoes/brown	(src)
 		new /obj/item/device/radio/headset/heads/cmo(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/reagent_containers/hypospray(src)
 		return
 
+/obj/structure/closet/secure_closet/CMO2
+	name = "chief medical officer's attire"
+	req_access = list(access_cmo)
+	icon_state = "cmosecure1"
+	icon_closed = "cmosecure"
+	icon_locked = "cmosecure1"
+	icon_opened = "cmosecureopen"
+	icon_broken = "cmosecurebroken"
+	icon_off = "cmosecureoff"
+
+	New()
+		..()
+		new /obj/item/weapon/storage/backpack/medic(src)
+		new /obj/item/weapon/storage/backpack/satchel_med(src)
+		new /obj/item/clothing/under/rank/medical/blue(src)
+		new /obj/item/clothing/head/surgery/blue(src)
+		new /obj/item/clothing/under/rank/medical/green(src)
+		new /obj/item/clothing/head/surgery/green(src)
+		new /obj/item/clothing/under/rank/medical/purple(src)
+		new /obj/item/clothing/head/surgery/purple(src)
+		new /obj/item/clothing/under/rank/chief_medical_officer(src)
+		new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
+		new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
+		new /obj/item/clothing/shoes/brown	(src)
+		new /obj/item/device/radio/headset/heads/cmo(src)
+		return
 
 
 /obj/structure/closet/secure_closet/animal

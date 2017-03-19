@@ -75,7 +75,7 @@
 
 
 
-/mob/living/carbon/human/Process_Spacemove(var/check_drift = 0)
+/mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)
 	//Can we act?
 	if(restrained())	return 0
 
@@ -89,9 +89,6 @@
 			for(var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
 				thrust = module.jets
 				break
-		else if(istype(back,/obj/item/weapon/storage/backpack/typec))
-			inertia_dir = 0
-			return 1
 
 	if(thrust)
 		if(((!check_drift) || (check_drift && thrust.stabilization_on)) && (!lying) && (thrust.allow_thrust(0.01, src)))
@@ -99,9 +96,7 @@
 			return 1
 
 	//If no working jetpack then use the other checks
-	if(..())
-		return 1
-	return 0
+	. = ..()
 
 
 /mob/living/carbon/human/slip_chance(var/prob_slip = 5)

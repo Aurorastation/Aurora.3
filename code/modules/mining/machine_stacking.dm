@@ -7,7 +7,7 @@
 	density = 1
 	anchored = 1
 	var/obj/machinery/mineral/stacking_machine/machine = null
-	var/machinedir = SOUTHEAST
+	var/machinedir = NORTHEAST
 
 /obj/machinery/mineral/stacking_unit_console/New()
 
@@ -105,6 +105,10 @@
 	return
 
 /obj/machinery/mineral/stacking_machine/process()
+	if(!console)
+		log_debug("Stacking machine tried to process, but no console has linked itself to it.")
+		qdel(src)
+		return
 	if (src.output && src.input)
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T.contents)
