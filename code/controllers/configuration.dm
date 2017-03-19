@@ -882,6 +882,8 @@ var/list/gamemode_cache = list()
 					discord_bot.active = 1
 				if ("robust_debug")
 					discord_bot.robust_debug = 1
+				if ("subscriber")
+					discord_bot.subscriber_role = value
 				else
 					log_misc("Unknown setting in discord configuration: '[name]'")
 

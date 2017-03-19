@@ -27,26 +27,6 @@ var/datum/discord_bot/discord_bot = null
 
 	return 1
 
-/client/verb/test_invite()
-	set name = "Test Discord Invite"
-	set category = "Discord"
-
-	usr << "Doing the thing."
-	usr << discord_bot.retreive_invite()
-
-/client/verb/test_message(var/message as text)
-	set name = "Test Messaging"
-	set category = "Discord"
-
-	discord_bot.send_message("channel_test", message)
-
-/client/verb/test_pins()
-	set name = "Test Pins"
-	set category = "Discord"
-
-	usr << "Getting pins"
-	usr << json_encode(discord_bot.retreive_pins())
-
 /datum/discord_bot
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
 	var/list/channels = list()				// Channel ID -> channel datum map. Will ensure that only one datum per channel ID exists.
@@ -55,6 +35,7 @@ var/datum/discord_bot/discord_bot = null
 
 	var/active = 0
 	var/auth_token = ""
+	var/subscriber_role = ""
 
 	var/robust_debug = 0
 
@@ -221,7 +202,9 @@ var/datum/discord_bot/discord_bot = null
  * Proc send_to_announce
  * Forwards a message to the announcements channels.
  */
-/datum/discord_bot/proc/send_to_announce(message)
+/datum/discord_bot/proc/send_to_announce(message, prepend_role = 0)
+	if (prepend_role && subscriber_role)
+		message = "<@&[subscriber_role]> " + message
 	send_message(CHAN_ANNOUNCE, message)
 
 /*
