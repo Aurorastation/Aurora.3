@@ -1,7 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - rscadd: "Replaced staff memos with directly pulling the Discord memos."
-  - rscadd: "Added the 'Discord' button to the top right. It will take you to the Discord server if the bot is properly set up!"

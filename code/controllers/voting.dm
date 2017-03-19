@@ -197,15 +197,16 @@ datum/controller/vote
 
 	proc/submit_vote(var/ckey, var/vote)
 		if(mode)
-			if(config.vote_no_dead && usr && !usr.client.holder)
-				if (isnewplayer(usr))
-					usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
-					return 0
-				else if (isobserver(usr))
-					var/mob/dead/observer/O = usr
-					if (O.started_as_observer)
+			if (mode == "crew_transfer")
+				if(config.vote_no_dead && usr && !usr.client.holder)
+					if (isnewplayer(usr))
 						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
 						return 0
+					else if (isobserver(usr))
+						var/mob/dead/observer/O = usr
+						if (O.started_as_observer)
+							usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+							return 0
 			if(vote && vote >= 1 && vote <= choices.len)
 				if(current_votes[ckey])
 					choices[choices[current_votes[ckey]]]--
@@ -295,16 +296,16 @@ datum/controller/vote
 
 			log_vote(text)
 			world << "<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>"
-			for(var/client/C in clients)
+			for(var/cc in clients)
+				var/client/C = cc
 				if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute
-					C << sound('sound/effects/vote.ogg')
-			switch(vote_type)
-				if("crew_transfer")
-					world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
-				if("gamemode")
-					world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
-				if("custom")
-					world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
+					switch(vote_type)
+						if("crew_transfer")
+							C << sound('sound/effects/vote.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
+						if("gamemode")
+							C << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
+						if("custom")
+							C << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
 			if(mode == "gamemode" && round_progressing)
 				round_progressing = 0
 				world << "<font color='red'><b>Round start has been delayed.</b></font>"
