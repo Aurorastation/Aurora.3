@@ -35,8 +35,6 @@
 		dirs = list(NORTH,SOUTH)
 
 	spark_system = bind_spark(src, 3, dirs)
-
-/obj/machinery/power/generator/initialize()
 	reconnect()
 
 /obj/machinery/power/generator/Destroy()
