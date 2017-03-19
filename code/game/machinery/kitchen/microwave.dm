@@ -295,12 +295,24 @@
 		var/result = recipe.result
 		var/valid = 1
 		var/list/cooked_items = list()
+		var/atom/temp = new /atom(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
+
 		while(valid)
-			cooked_items += recipe.make_food(src)
+			var/list/things = recipe.make_food(src)
+			cooked_items += things
+
+			//Move cooked things to the buffer so they're not considered as ingredients
+			for (var/atom/movable/AM in things)
+				AM.loc = temp
+
 			valid = 0
 			recipe = select_recipe(available_recipes,src)
 			if (recipe && recipe.result == result)
 				valid = 1
+
+		for (var/r in results)
+			var/atom/movable/R = r
+			R.loc = src //Move everything from the buffer back to the container
 
 		//Any leftover reagents are divided amongst the foods
 		var/total = reagents.total_volume
