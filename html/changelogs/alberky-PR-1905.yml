@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Tajara and unathi botanists should start with leather gloves now."
+  - tweak: "Alcohol should be more poisonous to unathi now."

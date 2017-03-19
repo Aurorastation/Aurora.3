@@ -157,7 +157,7 @@
 	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
-	species_restricted = list("Vaurca Worker", "Vaurca Warrior")
+	species_restricted = list("Vaurca")
 
 	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
 	helmet = /obj/item/clothing/head/helmet/space/void/vaurca
@@ -170,7 +170,7 @@
 	icon_state = "helm_void"
 	item_state = "helm_void"
 
-	species_restricted = list("Vaurca Worker", "Vaurca Warrior")
+	species_restricted = list("Vaurca")
 
 	light_overlay = "helmet_light"
 
@@ -183,7 +183,7 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list("Vaurca Worker", "Vaurca Warrior")
+	species_restricted = list("Vaurca")
 
 	action_button_name = "Toggle the magclaws"
 

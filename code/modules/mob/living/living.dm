@@ -787,7 +787,6 @@ default behaviour is:
 	for (var/thing in stomach_contents)
 		qdel(thing)
 	stomach_contents = null
-	qdel(ingested)
-	ingested = null
+	QDEL_NULL(ingested)
 
 	return ..()

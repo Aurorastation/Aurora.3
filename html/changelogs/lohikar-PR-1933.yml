@@ -1,0 +1,9 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "NanoTrasen has issued a software update to standard Janitor PDAs; changelogs note custodial supply locator now actually works."
+  - bugfix: "Standard-issue automatic flasher units have been exorcised and should no longer be triggered by the dead."
+  - bugfix: "After complaints about chickens showing cannibalistic tendencies, Centcomm has changed chicken suppliers."
+  - bugfix: "Station-issued chemical dispensers are no longer produced in a haunted factory and should not be affected by the dead."
+  - bugfix: "Vending machines have been given a talking to after several synthetics reported tools being forcibly removed for stocking."
+  - bugfix: "It is no longer possible to add more languages than your species is physically capable of learning."

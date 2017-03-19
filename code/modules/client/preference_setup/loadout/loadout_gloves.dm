@@ -1,7 +1,7 @@
 /datum/gear/gloves
 	display_name = "watch"
 	path = /obj/item/clothing/gloves/watch
-	cost = 2
+	cost = 1
 	slot = slot_gloves
 	sort_category = "Gloves and Handwear"
 

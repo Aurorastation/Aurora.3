@@ -46,7 +46,7 @@ var/list/organ_cache = list()
 		owner.contents -= src
 
 	owner = null 
-	qdel(dna)
+	QDEL_NULL(dna)
 
 	return ..()
 

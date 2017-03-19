@@ -79,6 +79,10 @@
 	display_name = "track jacket"
 	path = /obj/item/clothing/suit/storage/toggle/tracksuit
 
+/datum/gear/suit/ian
+	display_name = "worn shirt"
+	path = /obj/item/clothing/suit/ianshirt
+
 /datum/gear/suit/winter
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
@@ -101,7 +105,7 @@
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer","Medical Doctor","Paramedic","Nursing Intern","Psychiatrist","Chemist",)
+	allowed_roles = list("Chief Medical Officer","Medical Doctor","Paramedic","Nursing Intern","Psychiatrist","Chemist")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
