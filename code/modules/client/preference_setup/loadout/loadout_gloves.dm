@@ -12,7 +12,7 @@
 /datum/gear/gloves/color/New()
 	..()
 	var/gloves = list()
-	gloves["black gloves"] = /obj/item/clothing/gloves
+	gloves["black gloves"] = /obj/item/clothing/gloves/black
 	gloves["red gloves"] = /obj/item/clothing/gloves/red
 	gloves["blue gloves"] = /obj/item/clothing/gloves/blue
 	gloves["orange gloves"] = /obj/item/clothing/gloves/orange
