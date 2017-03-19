@@ -55,7 +55,7 @@
 			log_debug("Installing prog [prog.filename]")
 			hard_drive.store_file(prog)
 
-/obj/item/modular_computer/New()
+/obj/item/modular_computer/initialize()
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)

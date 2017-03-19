@@ -95,27 +95,23 @@
 	var/obj/item/weapon/coin/coin
 	var/datum/wires/vending/wires = null
 
-/obj/machinery/vending/New()
+/obj/machinery/vending/initialize()
 	..()
 	wires = new(src)
-	spawn(4)
-		if(src.product_slogans)
-			src.slogan_list += text2list(src.product_slogans, ";")
+	if(src.product_slogans)
+		src.slogan_list += text2list(src.product_slogans, ";")
 
-			// So not all machines speak at the exact same time.
-			// The first time this machine says something will be at slogantime + this random value,
-			// so if slogantime is 10 minutes, it will say it at somewhere between 10 and 20 minutes after the machine is crated.
-			src.last_slogan = world.time + rand(0, slogan_delay)
+		// So not all machines speak at the exact same time.
+		// The first time this machine says something will be at slogantime + this random value,
+		// so if slogantime is 10 minutes, it will say it at somewhere between 10 and 20 minutes after the machine is crated.
+		src.last_slogan = world.time + rand(0, slogan_delay)
 
-		if(src.product_ads)
-			src.ads_list += text2list(src.product_ads, ";")
+	if(src.product_ads)
+		src.ads_list += text2list(src.product_ads, ";")
 
-		src.build_inventory()
-		power_change()
+	src.build_inventory()
+	power_change()
 
-		return
-
-	return
 
 /**
  *  Build src.produdct_records from the products lists

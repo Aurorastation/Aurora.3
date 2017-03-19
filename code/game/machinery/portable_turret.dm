@@ -75,7 +75,7 @@
 	lethal = 1
 	installation = /obj/item/weapon/gun/energy/laser
 
-/obj/machinery/porta_turret/New()
+/obj/machinery/porta_turret/initialize()
 	..()
 	req_access.Cut()
 	req_one_access = list(access_security, access_heads)
@@ -85,7 +85,7 @@
 
 	setup()
 
-/obj/machinery/porta_turret/crescent/New()
+/obj/machinery/porta_turret/crescent/initialize()
 	..()
 	req_one_access.Cut()
 	req_access = list(access_cent_specops)

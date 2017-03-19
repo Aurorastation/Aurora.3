@@ -23,7 +23,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 	req_access = list(access_engine)
 
-	New()
+	initialize()
 		..()
 
 		set_codes()
@@ -36,11 +36,9 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 			if(!navbeacons)
 				navbeacons = new()
 			navbeacons += src
-
-
-		spawn(5)	// must wait for map loading to finish
-			if(radio_controller)
-				radio_controller.add_object(src, freq, RADIO_NAVBEACONS)
+		
+		if(radio_controller)
+			radio_controller.add_object(src, freq, RADIO_NAVBEACONS)
 
 	// set the transponder codes assoc list from codes_txt
 	proc/set_codes()

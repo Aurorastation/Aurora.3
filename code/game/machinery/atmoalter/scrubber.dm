@@ -20,7 +20,7 @@
 
 	var/list/scrubbing_gas = list("phoron", "carbon_dioxide", "sleeping_agent")
 
-/obj/machinery/portable_atmospherics/powered/scrubber/New()
+/obj/machinery/portable_atmospherics/powered/scrubber/initialize()
 	..()
 	cell = new/obj/item/weapon/cell/apc(src)
 
@@ -157,9 +157,9 @@
 	var/global/gid = 1
 	var/id = 0
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/New()
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/initialize()
 	..()
-	cell = null
+	QDEL_NULL(cell)
 
 	id = gid
 	gid++

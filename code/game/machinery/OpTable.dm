@@ -13,7 +13,7 @@
 
 	var/obj/machinery/computer/operating/computer = null
 
-/obj/machinery/optable/New()
+/obj/machinery/optable/initialize()
 	..()
 	for(dir in list(NORTH,EAST,SOUTH,WEST))
 		computer = locate(/obj/machinery/computer/operating, get_step(src, dir))

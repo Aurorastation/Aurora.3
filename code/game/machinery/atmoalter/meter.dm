@@ -104,7 +104,7 @@
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 
-/obj/machinery/meter/turf/New()
+/obj/machinery/meter/turf/initialize()
 	..()
 	src.target = loc
 	return 1

@@ -21,19 +21,15 @@
 	var/coinsToProduce = 10
 
 
-/obj/machinery/mineral/mint/New()
+/obj/machinery/mineral/mint/initialize()
 	..()
-	spawn( 5 )
-		for (var/dir in cardinal)
-			src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-			if(src.input) break
-		for (var/dir in cardinal)
-			src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-			if(src.output) break
-		processing_objects.Add(src)
-		return
-	return
-
+	for (var/dir in cardinal)
+		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(src.input) break
+	for (var/dir in cardinal)
+		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(src.output) break
+	processing_objects.Add(src)
 
 /obj/machinery/mineral/mint/process()
 	if ( src.input)

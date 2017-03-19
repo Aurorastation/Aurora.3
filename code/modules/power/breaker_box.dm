@@ -128,6 +128,3 @@
 		update_locked = 1
 		spawn(600)
 			update_locked = 0
-
-/obj/machinery/power/breakerbox/process()
-	return 1

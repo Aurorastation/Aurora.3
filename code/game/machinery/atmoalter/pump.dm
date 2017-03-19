@@ -22,7 +22,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled
 	start_pressure = 90 * ONE_ATMOSPHERE
 
-/obj/machinery/portable_atmospherics/powered/pump/New()
+/obj/machinery/portable_atmospherics/powered/pump/initialize()
 	..()
 	cell = new/obj/item/weapon/cell/apc(src)
 
@@ -30,7 +30,7 @@
 	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
 
 /obj/machinery/portable_atmospherics/powered/pump/update_icon()
-	src.overlays = 0
+	src.overlays.Cut()
 
 	if(on && cell && cell.charge)
 		icon_state = "psiphon:1"
