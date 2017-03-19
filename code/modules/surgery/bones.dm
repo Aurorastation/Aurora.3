@@ -6,7 +6,7 @@
 /datum/surgery_step/glue_bone
 	allowed_tools = list(
 	/obj/item/weapon/bonegel = 100,	\
-	/obj/item/weapon/screwdriver = 75
+	/obj/item/weapon/tape_roll = 60
 	)
 	can_infect = 1
 	blood_level = 1
@@ -18,7 +18,7 @@
 		if (!hasorgans(target))
 			return 0
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 0
+		return affected && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.open < 3 && affected.stage == 0
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -115,7 +115,7 @@
 /datum/surgery_step/finish_bone
 	allowed_tools = list(
 	/obj/item/weapon/bonegel = 100,	\
-	/obj/item/weapon/screwdriver = 75
+	/obj/item/weapon/tape_roll = 60
 	)
 	can_infect = 1
 	blood_level = 1
@@ -127,7 +127,7 @@
 		if (!hasorgans(target))
 			return 0
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open >= 2 && !(affected.status & ORGAN_ROBOT) && affected.stage == 2
+		return affected && affected.open >= 2 && affected.open < 3 && !(affected.status & ORGAN_ROBOT) && affected.stage == 2
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)

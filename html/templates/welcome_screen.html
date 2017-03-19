@@ -82,7 +82,10 @@
 				return;
 			}
 
-			gotReply = true;
+			if (!gotReply) {
+				clearInterval(windowInterval);
+				gotReply = true;
+			}
 
 			if (obj.content instanceof Array) {
 				for (var i = 0; i < obj.content.length; i++) {
@@ -107,6 +110,7 @@
 		}
 
 		var loopIter = 0;
+		var windowInterval = null;
 		var gotReply = false;
 		var hashes = {};
 		var hashesToUpdate = {};
@@ -114,22 +118,15 @@
 		// This loop repeats itself 10 times as it attempts to fetch Topic information.
 		// It's here to prevent a full null-route by spam protection. It'll just query until it finds something.
 		function RequestLoop() {
-			setTimeout(function () {
-				loopIter++;
+			loopIter++;
+			if (!gotReply) {
+				window.location = '?JSlink=greeting;command=request_data';
+			}
 
-				if (!gotReply) {
-					window.location = '?JSlink=greeting;command=request_data';
-				} else {
-					return;
-				}
-
-
-				if (loopIter < 10 && !gotReply) {
-					RequestLoop();
-				} else {
-					alert("The Greeting Window timed out. If this happens regularly, please submit a Github issue.");
-				}
-			}, 500)
+			if (loopIter > 10) {
+				alert("The Greeting Window timed out. If this happens regularly, please submit a Github issue.");
+				clearInterval(windowInterval);
+			}
 		}
 
 		function setCookie(cname, cvalue, exdays) {
@@ -198,7 +195,7 @@
 			analyzeIe();
 
 			// Tell the server that we're ready, and awaiting data.
-			RequestLoop();
+			windowInterval = setInterval(function () {RequestLoop()}, 500);
 		});
 	</script>
 

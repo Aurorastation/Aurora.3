@@ -98,7 +98,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/view_duty_log,
 	/client/proc/cmd_dev_bst,
 	/client/proc/clear_toxins,
-	/client/proc/wipe_ai	// allow admins to force-wipe AIs
+	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
+	/client/proc/fix_player_list
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -202,7 +203,10 @@ var/list/admin_verbs_debug = list(
 	/client/proc/jumptocoord,
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
-	/client/proc/restart_sql
+	/client/proc/restart_sql,
+	/client/proc/debug_pooling,
+	/client/proc/fix_player_list,
+	/client/proc/lighting_show_verbs
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -293,7 +297,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/roll_dices,
 	/proc/possess,
 	/proc/release,
-	/client/proc/toggle_recursive_explosions
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/debug_pooling
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -353,7 +358,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
-	/client/proc/cmd_dev_bst
+	/client/proc/cmd_dev_bst,
+	/client/proc/lighting_show_verbs
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -998,7 +1004,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Gives a spell to a mob."
 	var/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in spells
 	if(!S) return
-	T.spell_list += new S
+	T.add_spell(new S)
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
 	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] the spell [S].", 1)
@@ -1052,3 +1058,29 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("is attempting to reconnect the server to MySQL.")
 
 	dbcon.Reconnect()
+
+/client/proc/fix_player_list()
+	set category = "Special Verbs"
+	set name = "Regenerate Player List"
+	set desc = "Use this to regenerate the player list if it becomes broken somehow."
+
+	if (!check_rights(R_DEBUG|R_ADMIN))
+		return
+
+	if (alert("Regenerate player lists?", "Player List Repair", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("is rebuilding the master player mob list.")
+	for (var/P in player_list)
+		if (isnull(P) || !ismob(P))
+			var/msg = "P_LIST DEBUG: Found null entry in player_list!"
+			log_debug(msg)
+			message_admins(span("danger", msg))
+			player_list -= P
+		else
+			var/mob/M = P
+			if (!M.client)
+				var/msg = "P_LIST DEBUG: Found a mob without a client in player_list! [M.name]"
+				log_debug(msg)
+				message_admins(span("danger", msg))
+				player_list -= M

@@ -85,6 +85,8 @@ world/IsBanned(key,address,computer_id)
 				expires = " The ban is for [duration] minutes and expires on [expiration] (server time)."
 
 			var/desc = "\nReason: You, or another user of this computer or connection ([pckey]) is banned from playing here. The ban reason is:\n[reason]\nThis ban was applied by [ackey] on [bantime], [expires]"
+			if (config.forum_passphrase)
+				desc += "\nTo register on the forums, please use the following passphrase: [config.forum_passphrase]"
 
 			return list("reason"="[bantype]", "desc"="[desc]", "id" = ban_id)
 

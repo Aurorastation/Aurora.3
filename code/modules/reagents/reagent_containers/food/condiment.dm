@@ -28,7 +28,7 @@
 	afterattack(var/obj/target, var/mob/user, var/proximity)
 		if(!proximity)
 			return
-	
+
 		if(standard_dispenser_refill(user, target))
 			return
 		if(standard_pour_into(user, target))
@@ -157,8 +157,9 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "flour"
 	item_state = "flour"
+	volume = 220
 	New()
 		..()
-		reagents.add_reagent("flour", 30)
+		reagents.add_reagent("flour", 200)
 		src.pixel_x = rand(-10.0, 10)
 		src.pixel_y = rand(-10.0, 10)

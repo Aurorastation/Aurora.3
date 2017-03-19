@@ -194,8 +194,15 @@ datum/controller/vote
 
 	proc/submit_vote(var/ckey, var/vote)
 		if(mode)
-			if(config.vote_no_dead && usr.stat == DEAD && !usr.client.holder)
-				return 0
+			if(config.vote_no_dead && usr && !usr.client.holder)
+				if (isnewplayer(usr))
+					usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+					return 0
+				else if (isobserver(usr))
+					var/mob/dead/observer/O = usr
+					if (O.started_as_observer)
+						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+						return 0
 			if(vote && vote >= 1 && vote <= choices.len)
 				if(current_votes[ckey])
 					choices[choices[current_votes[ckey]]]--
@@ -211,6 +218,16 @@ datum/controller/vote
 				// Transfer votes are their own little special snowflake
 				var/next_allowed_time = 0
 				if (vote_type == "crew_transfer")
+					if (config.vote_no_dead && !usr.client.holder)
+						if (isnewplayer(usr))
+							usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+							return 0
+						else if (isobserver(usr))
+							var/mob/dead/observer/O = usr
+							if (O.started_as_observer)
+								usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+								return 0
+
 					if (last_transfer_vote)
 						next_allowed_time = (last_transfer_vote + config.vote_delay)
 					else

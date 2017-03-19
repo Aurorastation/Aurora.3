@@ -1,0 +1,9 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Ported the newest custom loadout from baystation12."
+  - rscadd: "Loadout flask and vacuum-flask can now be prefilled."
+  - rscadd: "Added lunchboxes."
+  - rscadd: "Added more options to the custom loadout, like winter coats."

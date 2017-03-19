@@ -59,12 +59,6 @@
 	base_icon_state = "snow"
 	footstep_sound = "gravelstep"
 
-/turf/simulated/floor/holofloor/space
-	icon = 'icons/turf/space.dmi'
-	name = "\proper space"
-	icon_state = "0"
-	footstep_sound = null
-
 /turf/simulated/floor/holofloor/reinforced
 	icon = 'icons/turf/flooring/tiles.dmi'
 	initial_flooring = /decl/flooring/reinforced
@@ -72,8 +66,21 @@
 	icon_state = "reinforced"
 	footstep_sound = "concretestep"
 
+/turf/simulated/floor/holofloor/space
+	icon = 'icons/turf/space.dmi'
+	name = "\proper space"
+	icon_state = "0"
+	footstep_sound = null
+	plane = PLANE_SPACE_BACKGROUND
+	dynamic_lighting = 0
+
 /turf/simulated/floor/holofloor/space/New()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
+	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
+	I.plane = PLANE_SPACE_DUST
+	I.alpha = 80
+	I.blend_mode = BLEND_ADD
+	overlays += I
 
 /turf/simulated/floor/holofloor/beach
 	desc = "Uncomfortably gritty for a hologram."
@@ -264,9 +271,7 @@
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
-		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-		spark_system.set_up(5, 0, user.loc)
-		spark_system.start()
+		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		return 1
 	return 0

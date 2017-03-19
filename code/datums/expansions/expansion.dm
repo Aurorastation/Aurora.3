@@ -30,7 +30,7 @@
 	expansions.Cut()
 	return ..()
 
-/obj/ResetVars(var/list/exclude = list())
+/obj/resetVariables(var/list/exclude = list())
 	exclude += "expansions"
 	..(exclude)
 	//expansions = list()

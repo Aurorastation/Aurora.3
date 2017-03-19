@@ -208,7 +208,7 @@
 	item_state = "stunrod"
 	force = 20
 	baton_color = "#75ACFF"
-	origin_tech = "combat=4,illegal=2"
+	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
 
 /obj/item/weapon/melee/baton/stunrod/New()

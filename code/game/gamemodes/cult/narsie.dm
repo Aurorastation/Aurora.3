@@ -72,6 +72,7 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/large/eat()
 	for (var/turf/A in orange(consume_range, src))
 		consume(A)
+		CHECK_TICK
 
 /obj/singularity/narsie/mezzer()
 	for(var/mob/living/carbon/M in oviewers(8, src))
@@ -152,7 +153,7 @@ var/global/list/narsie_list = list()
 	T.desc = "An opening has been made on that wall, but who can say if what you seek truly lies on the other side?"
 	T.icon = 'icons/turf/walls.dmi'
 	T.icon_state = "cult-narsie"
-	T.opacity = 0
+	T.set_opacity(0)
 	T.density = 0
 	set_light(1)
 

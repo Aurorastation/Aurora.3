@@ -120,3 +120,51 @@
 /obj/item/clothing/head/surgery/green
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
 	icon_state = "surgcap_green"
+
+/obj/item/clothing/head/surgery/black
+	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is black."
+	icon_state = "surgcap_black"
+
+//Detective
+
+/obj/item/clothing/head/det
+	name = "fedora"
+	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+	icon_state = "detective"
+	item_state_slots = list(
+		slot_l_hand_str = "det_hat",
+		slot_r_hand_str = "det_hat"
+		)
+	allowed = list(/obj/item/weapon/reagent_containers/food/snacks/candy_corn, /obj/item/weapon/pen)
+	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+	body_parts_covered = 0
+
+/obj/item/clothing/head/det/grey
+	icon_state = "detective2"
+	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+
+/obj/item/clothing/head/det/technicolor
+	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
+	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
+	icon_state = "hat_detective_black"
+	item_state = "hat_detective_black"
+	var/hat_color
+	contained_sprite = 1
+
+/obj/item/clothing/head/det/technicolor/New()
+	if(prob(5))
+		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
+		var/color = pickweight(colors)
+		icon_state = "hat_detective_[color]"
+		item_state = "hat_detective_[color]"
+	..()
+
+/obj/item/clothing/head/det/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
+		var/obj/item/weapon/reagent_containers/glass/paint/P = O
+		hat_color = P.paint_type
+		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		icon_state = "hat_detective_[hat_color]"
+		item_state = "hat_detective_[hat_color]"
+	..()

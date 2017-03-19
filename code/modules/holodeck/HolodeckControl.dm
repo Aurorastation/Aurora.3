@@ -3,6 +3,7 @@
 	desc = "A computer used to control a nearby holodeck."
 
 	icon_screen = "holocontrol"
+	light_color = LIGHT_COLOR_CYAN
 
 	use_power = 1
 	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem
@@ -183,7 +184,7 @@
 				holographic_mobs -= C
 				C.derez()
 
-	if(!..())
+	if(inoperable())
 		return
 	if(active)
 		use_power(item_power_usage * (holographic_objs.len + holographic_mobs.len))
@@ -199,9 +200,7 @@
 
 			for(var/turf/T in linkedholodeck)
 				if(prob(30))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, T)
-					s.start()
+					spark(T, 2, alldirs)
 				T.ex_act(3)
 				T.hotspot_expose(1000,500,1)
 
@@ -293,9 +292,7 @@
 			if(L.name=="Atmospheric Test Start")
 				spawn(20)
 					var/turf/T = get_turf(L)
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, T)
-					s.start()
+					spark(T, 2, alldirs)
 					if(T)
 						T.temperature = 5000
 						T.hotspot_expose(50000,50000,1)

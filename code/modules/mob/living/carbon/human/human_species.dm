@@ -115,4 +115,5 @@
 	src.gender = NEUTER
 
 /mob/living/carbon/human/terminator
-	offset_light = 1
+	mob_size = 30
+	//offset_light = 1

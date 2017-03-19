@@ -7,14 +7,15 @@
 	w_class = 2
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	offset_light = 1
-	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	light_color = LIGHT_COLOR_HALOGEN
+	uv_intensity = 50
+	light_wedge = LIGHT_WIDE
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
 
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
-	var/brightness_on = 4 //luminosity when on
+	var/brightness_on = 3 //luminosity when on
 
 /obj/item/device/flashlight/initialize()
 	..()
@@ -95,6 +96,7 @@
 	slot_flags = SLOT_EARS
 	brightness_on = 2
 	w_class = 1
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/drone
 	name = "low-power flashlight"
@@ -110,10 +112,12 @@
 	desc = "A high-luminosity flashlight for specialist duties."
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
-	brightness_on = 7
+	brightness_on = 4
 	w_class = 3
+	uv_intensity = 60
 	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
 	contained_sprite = 1
+	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/maglight
 	name = "maglight"
@@ -123,10 +127,12 @@
 	force = 10
 	brightness_on = 5
 	w_class = 3
+	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	contained_sprite = 1
+	light_wedge = LIGHT_NARROW
 
 
 // the desk lamps are a bit special
@@ -136,10 +142,12 @@
 	icon_state = "lamp"
 	item_state = "lamp"
 	brightness_on = 5
-	w_class = 4
+	w_class = 5
 	flags = CONDUCT
-
+	uv_intensity = 100
 	on = 1
+	slot_flags = 0 //No wearing desklamps
+	light_wedge = LIGHT_OMNI
 
 
 // green-shaded desk lamp
@@ -164,17 +172,17 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cord, make light'."
 	w_class = 2.0
-	brightness_on = 8 // Pretty bright.
-	light_power = 3
-	light_color = "#e58775"
+	brightness_on = 4 // Pretty bright.
+	light_power = 4
+	light_color = LIGHT_COLOR_FLARE
 	icon_state = "flare"
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
 	var/fuel = 0
+	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
-	offset_light = 0//Emits light all around, not directional
-	diona_restricted_light = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/flare/New()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
@@ -223,9 +231,10 @@
 	item_state = "slime"
 	w_class = 1
 	brightness_on = 6
+	uv_intensity = 200
 	on = 1 //Bio-luminesence has one setting, on.
-	offset_light = 0//Emits light all around, not directional
-	diona_restricted_light = 0
+	light_color = LIGHT_COLOR_SLIME_LAMP
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/slime/New()
 	..()
@@ -243,16 +252,16 @@
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
 	w_class = 2
-	brightness_on = 3
-	light_power = 2
+	brightness_on = 1.5
+	light_power = 1
 	light_color = "#49F37C"
 	icon = 'icons/obj/glowsticks.dmi'
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	contained_sprite = 1
-	offset_light = 0
-	diona_restricted_light = 0
+	uv_intensity = 255
 	var/fuel = 0
+	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/glowstick/New()
 	fuel = rand(900, 1200)
@@ -269,7 +278,7 @@
 /obj/item/device/flashlight/glowstick/proc/turn_off()
 	on = 0
 	update_icon()
-		
+
 /obj/item/device/flashlight/glowstick/attack_self(var/mob/living/user)
 
 	if(((CLUMSY in user.mutations)) && prob(50))
@@ -296,27 +305,27 @@
 /obj/item/device/flashlight/glowstick/red
 	name = "red glowstick"
 	desc = "A red military-grade glowstick."
-	light_color = "#FC0F29"
+	light_color = LIGHT_COLOR_RED //"#FC0F29"
 	icon_state = "glowstick_red"
 	item_state = "glowstick_red"
 
 /obj/item/device/flashlight/glowstick/blue
 	name = "blue glowstick"
 	desc = "A blue military-grade glowstick."
-	light_color = "#599DFF"
+	light_color = LIGHT_COLOR_BLUE //"#599DFF"
 	icon_state = "glowstick_blue"
 	item_state = "glowstick_blue"
 
 /obj/item/device/flashlight/glowstick/orange
 	name = "orange glowstick"
 	desc = "A orange military-grade glowstick."
-	light_color = "#FA7C0B"
+	light_color = LIGHT_COLOR_ORANGE//"#FA7C0B"
 	icon_state = "glowstick_orange"
 	item_state = "glowstick_orange"
 
 /obj/item/device/flashlight/glowstick/yellow
 	name = "yellow glowstick"
 	desc = "A yellow military-grade glowstick."
-	light_color = "#FEF923"
+	light_color = LIGHT_COLOR_YELLOW //"#FEF923"
 	icon_state = "glowstick_yellow"
 	item_state = "glowstick_yellow"

@@ -119,6 +119,8 @@
 	var/global/list/status_overlays_lighting
 	var/global/list/status_overlays_environ
 
+	var/datum/effect_system/sparks/spark_system
+
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return
@@ -176,6 +178,8 @@
 		stat |= MAINT
 		src.update_icon()
 
+	spark_system = bind_spark(src, 5, alldirs)
+
 /obj/machinery/power/apc/Destroy()
 	src.update()
 	area.apc = null
@@ -190,6 +194,8 @@
 	if(cell)
 		cell.forceMove(loc)
 		cell = null
+
+	QDEL_NULL(spark_system)
 
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if((hacker) && (hacker.hacked_apcs) && (src in hacker.hacked_apcs))
@@ -272,27 +278,27 @@
 		status_overlays_lighting.len = 4
 		status_overlays_environ.len = 4
 
-		status_overlays_lock[1] = image(icon, "apcox-0")    // 0=blue 1=red
-		status_overlays_lock[2] = image(icon, "apcox-1")
+		status_overlays_lock[1] = make_screen_overlay(icon, "apcox-0")    // 0=blue 1=red
+		status_overlays_lock[2] = make_screen_overlay(icon, "apcox-1")
 
-		status_overlays_charging[1] = image(icon, "apco3-0")
-		status_overlays_charging[2] = image(icon, "apco3-1")
-		status_overlays_charging[3] = image(icon, "apco3-2")
+		status_overlays_charging[1] = make_screen_overlay(icon, "apco3-0")
+		status_overlays_charging[2] = make_screen_overlay(icon, "apco3-1")
+		status_overlays_charging[3] = make_screen_overlay(icon, "apco3-2")
 
-		status_overlays_equipment[1] = image(icon, "apco0-0")
-		status_overlays_equipment[2] = image(icon, "apco0-1")
-		status_overlays_equipment[3] = image(icon, "apco0-2")
-		status_overlays_equipment[4] = image(icon, "apco0-3")
+		status_overlays_equipment[1] = make_screen_overlay(icon, "apco0-0")
+		status_overlays_equipment[2] = make_screen_overlay(icon, "apco0-1")
+		status_overlays_equipment[3] = make_screen_overlay(icon, "apco0-2")
+		status_overlays_equipment[4] = make_screen_overlay(icon, "apco0-3")
 
-		status_overlays_lighting[1] = image(icon, "apco1-0")
-		status_overlays_lighting[2] = image(icon, "apco1-1")
-		status_overlays_lighting[3] = image(icon, "apco1-2")
-		status_overlays_lighting[4] = image(icon, "apco1-3")
+		status_overlays_lighting[1] = make_screen_overlay(icon, "apco1-0")
+		status_overlays_lighting[2] = make_screen_overlay(icon, "apco1-1")
+		status_overlays_lighting[3] = make_screen_overlay(icon, "apco1-2")
+		status_overlays_lighting[4] = make_screen_overlay(icon, "apco1-3")
 
-		status_overlays_environ[1] = image(icon, "apco2-0")
-		status_overlays_environ[2] = image(icon, "apco2-1")
-		status_overlays_environ[3] = image(icon, "apco2-2")
-		status_overlays_environ[4] = image(icon, "apco2-3")
+		status_overlays_environ[1] = make_screen_overlay(icon, "apco2-0")
+		status_overlays_environ[2] = make_screen_overlay(icon, "apco2-1")
+		status_overlays_environ[3] = make_screen_overlay(icon, "apco2-2")
+		status_overlays_environ[4] = make_screen_overlay(icon, "apco2-3")
 
 	var/update = check_updates() 		//returns 0 if no need to update icons.
 						// 1 if we need to update the icon_state
@@ -337,7 +343,7 @@
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light(l_range = 2, l_power = 0.5, l_color = "#0000FF")
+			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = "#0000FF")
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
 			var/color
 			switch(charging)
@@ -347,7 +353,7 @@
 					color = "#A8B0F8"
 				if(2)
 					color = "#82FF4C"
-			set_light(l_range = 2, l_power = 0.5, l_color = color)
+			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = color)
 		else
 			set_light(0)
 
@@ -560,9 +566,7 @@
 			if (C.amount >= 10 && !terminal && opened && has_electronics != 2)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(5, 1, src)
-					s.start()
+					spark(src, 5, alldirs)
 					if(user.stunned)
 						return
 				C.use(10)
@@ -582,9 +586,7 @@
 		if(do_after(user, 50))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(5, 1, src)
-					s.start()
+					spark_system.queue()
 					if(usr.stunned)
 						return
 				new /obj/item/stack/cable_coil(loc,10)
@@ -604,6 +606,7 @@
 		return
 	else if (istype(W, /obj/item/weapon/weldingtool) && opened && has_electronics==0 && !terminal)
 		var/obj/item/weapon/weldingtool/WT = W
+		if (!WT.isOn()) return
 		if (WT.get_fuel() < 3)
 			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 			return
@@ -660,6 +663,7 @@
 				&& !opened \
 				&& istype(W, /obj/item/weapon/weldingtool) )
 			var/obj/item/weapon/weldingtool/WT = W
+			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
 				user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 				return
@@ -731,9 +735,7 @@
 
 		if(isipc(H) && H.a_intent == I_GRAB)
 			if(emagged || stat & BROKEN)
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(3, 1, src)
-				s.start()
+				spark_system.queue()
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
 			else if(src.cell && src.cell.charge > 0)
@@ -752,9 +754,7 @@
 					if (H.nutrition > H.max_nutrition)
 						H.nutrition = H.max_nutrition
 					if (prob(0.5))
-						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-						s.set_up(3, 1, src)
-						s.start()
+						spark_system.queue()
 						H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 						H.adjustFireLoss(10, 0)
 
@@ -1025,9 +1025,7 @@
 			smoke.set_up(3, 0, src.loc)
 			smoke.attach(src)
 			smoke.start()
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 			visible_message("<span class='danger'>The [src.name] suddenly lets out a blast of smoke and some sparks!</span>", \
 							"<span class='danger'>You hear sizzling electronics.</span>")
 
@@ -1303,18 +1301,11 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 				sleep(1)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
-	// this defines what the list level arguments are when night mode is turned on
-	var/list/night_light_args = list(
-	                           /obj/machinery/light = list(6, 1),
-	                           /obj/machinery/light/small = list(4, 1)
-	                           )
 	for (var/obj/machinery/light/L in area.contents)
-		if (!listgetindex(night_light_args, L.type)) // if L's type isn't defined in our args list
-			continue
 		if (force == "on")
-			L.set_light_source(arglist(night_light_args[L.type]))
+			L.nightmode = TRUE
 		else if (force == "off")
-			L.set_light_source()
+			L.nightmode = FALSE
 		L.update()
 	switch (force)
 		if ("on")

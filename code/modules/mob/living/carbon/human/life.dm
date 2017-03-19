@@ -288,6 +288,7 @@
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
 			diona_handle_regeneration(get_dionastats())
+			return
 		else
 			var/damage = 0
 			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
@@ -617,7 +618,7 @@
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
 	if (is_diona())
-		diona_handle_air(get_dionastats(), pressure)
+		environment.remove(diona_handle_air(get_dionastats(), pressure))
 
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
@@ -974,12 +975,12 @@
 					fake_attack(src)
 				if(!handling_hal)
 					spawn handle_hallucinations() //The not boring kind!
-				if(client && prob(5))
+				/*if(client && prob(5))
 					client.dir = pick(2,4,8)
 					var/client/C = client
 					spawn(rand(20,50))
 						if(C)
-							C.dir = 1
+							C.dir = 1*/	// This breaks the lighting system.
 
 			if(hallucination<=2)
 				hallucination = 0
@@ -1054,11 +1055,14 @@
 		handle_statuses()
 
 		if (drowsyness)
-			drowsyness--
-			eye_blurry = max(2, eye_blurry)
-			if (prob(5))
-				sleeping += 1
-				Paralyse(5)
+			if (drowsyness < 0)
+				drowsyness = 0
+			else
+				drowsyness--
+				eye_blurry = max(2, eye_blurry)
+				if (prob(5))
+					sleeping += 1
+					Paralyse(5)
 
 		confused = max(0, confused - 1)
 
@@ -1251,8 +1255,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-		if(L && L.lum_r + L.lum_g + L.lum_b == 0)
+		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/handle_stomach()
@@ -1461,7 +1464,7 @@
 
 	if (BITTEST(hud_updateflag, ID_HUD) && hud_list[ID_HUD])
 		var/image/holder = hud_list[ID_HUD]
-		
+
 		//The following function is found in code/defines/procs/hud.dm
 		holder.icon_state = get_sec_hud_icon(src)
 		hud_list[ID_HUD] = holder

@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - tweak: "Modified the voting limitation system to only prohibit voting for lobby sitters and ghosts who went straight from the lobby to observing."
