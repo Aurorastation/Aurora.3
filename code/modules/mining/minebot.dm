@@ -160,7 +160,7 @@
 	<center><img src = barcode[rand(0, 3)].png></center></center>"}
 		P.update_icon()
 		for(var/mob/O in hearers(src, null))
-			O.show_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", 2)
+			O.visible_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", 2)
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 /**********************Minebot Upgrades**********************/

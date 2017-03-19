@@ -119,7 +119,7 @@
 		return
 
 	if(can_fall())
-		handle_fall(below,)
+		handle_fall(below)
 
 //For children to override
 /atom/movable/proc/can_fall()

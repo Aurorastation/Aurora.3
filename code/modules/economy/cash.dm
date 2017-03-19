@@ -171,7 +171,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 
 /obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
 	if(!scratched)
-		user << "<span class='notice'>You begin the scratch action process on the charge card. . .</span>"
+		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card. . .</span>"
 		if(do_after(user,5))
 			switch(rand(1,100))
 				if(1 to 29)
