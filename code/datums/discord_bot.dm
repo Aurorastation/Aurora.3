@@ -51,7 +51,6 @@ var/datum/discord_bot/discord_bot = null
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
 	var/list/channels = list()				// Channel ID -> channel datum map. Will ensure that only one datum per channel ID exists.
 
-	var/list/roles_map = list()				// Role ID -> role name map.
 	var/datum/discord_channel/invite = null	// The channel datum where the ingame Join Channel button will link to.
 
 	var/active = 0
@@ -89,10 +88,6 @@ var/datum/discord_bot/discord_bot = null
 		// Create the channel map.
 		if (isnull(channels_to_group[channel_query.item[1]]))
 			channels_to_group[channel_query.item[1]] = list()
-
-		// Create an entry in the roles map for the server ID.
-		if (isnull(roles_map[channel_query.item[4]]))
-			roles_map[channel_query.item[4]] = list()
 
 		var/datum/discord_channel/B = channels[channel_query.item[2]]
 
@@ -362,7 +357,7 @@ var/datum/discord_bot/discord_bot = null
 				var/list/mentions = B["mention_roles"]
 
 				for (var/C in mentions)
-					content = replacetextEx(content, "<@&[C]>", discord_bot.roles_map[C])
+					content = replacetextEx(content, "<@&[C]>", "@SomeRole")
 
 			pinned_messages += list(list("author" = B["author"]["username"], "content" = content))
 
