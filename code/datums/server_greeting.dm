@@ -257,8 +257,6 @@
 		if (C.holder.rights & memo.flag)
 			joint_checksum += memo.hash
 
-	testing("Joint hash: [joint_checksum]")
-
 	return md5(joint_checksum)
 
 /*
