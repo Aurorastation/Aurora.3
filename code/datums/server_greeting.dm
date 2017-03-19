@@ -91,8 +91,6 @@
 
 		memo_list += new /datum/memo_datum(memos, flag)
 
-	testing("Memos: [json_encode(memo_list)]")
-
 /*
  * Helper to update the MoTD or memo contents.
  * Args:
@@ -155,7 +153,7 @@
 	if (motd_hash && user.prefs.motd_hash != motd_hash)
 		outdated_info |= OUTDATED_MOTD
 
-	if (user.holder && memo_hash && user.prefs.memo_hash != get_memo_hash(user))
+	if (user.holder && user.prefs.memo_hash != get_memo_hash(user))
 		outdated_info |= OUTDATED_MEMO
 
 	if (user.prefs.notifications.len)
@@ -258,6 +256,8 @@
 		var/datum/memo_datum/memo = A
 		if (C.holder.rights & memo.flag)
 			joint_checksum += memo.hash
+
+	testing("Joint hash: [joint_checksum]")
 
 	return md5(joint_checksum)
 
