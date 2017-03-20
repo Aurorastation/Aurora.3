@@ -9,7 +9,7 @@
 		if (!A.dynamic_lighting)
 			continue
 
-		getFromPool(/atom/movable/lighting_overlay, T, TRUE)
+		new /atom/movable/lighting_overlay(T, TRUE)
 
 // This repeats a bit of code from the lighting process.
 /proc/initialize_lighting()
