@@ -16,7 +16,7 @@
 	if (.)//no need to duplicate adjacency check
 		if (!stat)
 			if (temperature < min_temp)
-				user << span("warning", "It is heating up.")
+				user << span("warning", "The [src] is still heating up and is too cold to cook anything yet.")
 			else
 				user << span("notice", "It is running at [round(get_efficiency(), 0.1)]% efficiency!")
 			user << "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C"

@@ -224,15 +224,6 @@ its easier to just keep the beam vertical.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
-	/*for(var/datum/light_source/L in light_sources)
-		if (L.source_atom.offset_light)
-			L.force_update = 1
-			if (world.tick_usage < 80)
-				L.instant_update()//Instant update skips the normal controller process and updates the light now.
-				//This makes things more responsive, but probably has a performance cost for people spinning rapidly
-				//Ergo, it checks tick usage first
-			else
-				L.source_atom.update_light()*/
 
 /atom/proc/ex_act()
 	return
