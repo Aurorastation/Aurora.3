@@ -52,4 +52,3 @@
 /datum/gear/eyes/shades/prescriptionsun
 	display_name = "sunglasses, presciption"
 	path = /obj/item/clothing/glasses/sunglasses/prescription
-	cost = 2
