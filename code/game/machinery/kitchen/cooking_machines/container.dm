@@ -8,6 +8,10 @@
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
 	var/max_reagents = 80//Maximum units of reagents
 
+	var/list/insertable = list(/obj/item/weapon/reagent_containers/food/snacks,
+	/obj/item/weapon/holder,
+	/obj/item/weapon/paper)
+
 /obj/item/weapon/reagent_containers/cooking_container/New()
 	..()
 	create_reagents(max_reagents)
@@ -26,15 +30,17 @@
 
 
 /obj/item/weapon/reagent_containers/cooking_container/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if (istype(I, /obj/item/weapon/reagent_containers/food/snacks))
-		if (!can_fit(I))
-			user << span("warning","There's no more space in the [src] for that!")
-			return 0
+	for (var/possible_type in insertable)
+		if (istype(I, possible_type))
+			if (!can_fit(I))
+				user << span("warning","There's no more space in the [src] for that!")
+				return 0
 
-		if(!user.unEquip(I))
+			if(!user.unEquip(I))
+				return
+			I.forceMove(src)
+			user << span("notice", "You put the [I] into the [src]")
 			return
-		I.forceMove(src)
-		user << span("notice", "You put the [I] into the [src]")
 
 /obj/item/weapon/reagent_containers/cooking_container/verb/empty()
 	set src in view()

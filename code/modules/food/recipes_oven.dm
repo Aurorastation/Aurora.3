@@ -226,12 +226,35 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/fortunecookie
 	make_food(var/obj/container as obj)
-		var/obj/item/weapon/paper/paper = locate() in container
-		paper.loc = null //prevent deletion
-		var/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/being_cooked = ..(container)
-		paper.loc = being_cooked
-		being_cooked.trash = paper //so the paper is left behind as trash without special-snowflake(TM Nodrak) code ~carn
-		return being_cooked
+
+		var/obj/item/weapon/paper/paper
+
+		//Fuck fortune cookies. This is a quick hack
+		//Duplicate the item searching code with a special case for paper
+		for (var/i in items)
+			var/obj/item/I = locate(i) in container
+			if (!paper  && istype(I, /obj/item/weapon/paper))
+				paper = I
+				continue
+
+			if (I)
+				qdel(I)
+
+		//Then store and null out the items list so it wont delete any paper
+		var/list/L = items.Copy()
+		items = null
+		. = ..(container)
+
+		//Restore items list, so that making fortune cookies once doesnt break the oven
+		items = L
+
+
+		for (var/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/being_cooked in .)
+			paper.loc = being_cooked
+			being_cooked.trash = paper //so the paper is left behind as trash without special-snowflake(TM Nodrak) code ~carn
+			return
+
+
 	check_items(var/obj/container as obj)
 		. = ..()
 		if (.)
