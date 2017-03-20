@@ -948,6 +948,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		M.pixel_y = initial(M.pixel_y)
 
 /obj/structure/noose/user_unbuckle_mob(mob/living/user)
+
+	if(!user.IsAdvancedToolUser())
+		return
+
 	if(buckled_mob && buckled_mob.buckled == src)
 		var/mob/living/M = buckled_mob
 		if(M != user)
@@ -979,6 +983,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/structure/noose/user_buckle_mob(mob/living/carbon/human/M, mob/user)
 	if(!in_range(user, src) || user.stat || user.restrained() || !istype(M))
 		return 0
+
+	if(!user.IsAdvancedToolUser())
+		return
 
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
