@@ -112,10 +112,6 @@ var/global/list/objects_init_list = list()
 		new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)
 		// Update all turfs to ensure everything looks good post-generation. Yes,
 		// it's brute-forcey, but frankly the alternative is a mine turf rewrite.
-		for(var/turf/simulated/mineral/M in world) // Ugh.
-			M.updateMineralOverlays()
-		for(var/turf/simulated/floor/asteroid/M in world) // Uuuuuugh.
-			M.updateMineralOverlays()
 
 	// Create autolathe recipes, as above.
 	populate_lathe_recipes()
