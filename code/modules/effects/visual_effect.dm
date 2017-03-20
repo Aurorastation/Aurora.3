@@ -4,7 +4,9 @@
 	anchored = 1
 	simulated = 0
 	mouse_opacity = 0
-	var/life_ticks			// How many ticks this effect will life before it stops processing.
+	var/life_ticks			// How many ticks this effect will live before it stops processing.
+							// Will be set to a random number between life_ticks_min and life_ticks_max if unspecified.
+
 	var/life_ticks_max		// The high limit for the random tick picker.
 	var/life_ticks_min		// The low limit for the random tick picker.
 
@@ -12,9 +14,8 @@
 	..()
 	life_ticks_min = life_min
 	life_ticks_max = life_max
-	life_ticks = rand(life_ticks_min, life_ticks_max)
-	// Reset the animation.
-	flick(icon_state, src)
+	if (!life_ticks)
+		life_ticks = rand(life_ticks_min, life_ticks_max)
 
 // Called when the visual_effect is manifested.
 /obj/visual_effect/proc/start()
@@ -28,5 +29,5 @@
 	return EFFECT_CONTINUE
 
 /obj/visual_effect/Destroy()
-	SSeffects.effects_visuals -= src
+	STOP_VISUAL(src)
 	return ..()

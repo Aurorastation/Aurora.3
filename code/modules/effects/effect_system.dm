@@ -12,7 +12,7 @@
 /datum/effect_system/Destroy()
 	if (holder)
 		holder = null
-	SSeffects.effects_objects -= src
+	STOP_EFFECT(src)
 	return ..()
 
 // Queues an effect.
@@ -20,11 +20,11 @@
 	if (holder)
 		set_loc(holder)
 	if (SSeffects)
-		SSeffects.queue(src)
+		QUEUE_EFFECT(src)
 		return TRUE
 	return FALSE
 
-/datum/effect_system/process()
+/datum/effect_system/process(elapsed)
 	if (holder)
 		location = get_turf(holder)
 		return EFFECT_HALT
@@ -34,7 +34,7 @@
 	holder = target
 
 /datum/effect_system/proc/set_loc(var/atom/movable/loc)
-	if (istype(loc, /turf/))
+	if (isturf(loc))
 		location = loc
 	else
 		location = get_turf(loc)
