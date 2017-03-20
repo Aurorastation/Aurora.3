@@ -37,8 +37,8 @@
 	update_icon()
 
 /obj/item/weapon/gun/energy/Destroy()
+	QDEL_NULL(power_supply)
 	return ..()
-
 
 /obj/item/weapon/gun/energy/proc/try_recharge()
 	. = 1
