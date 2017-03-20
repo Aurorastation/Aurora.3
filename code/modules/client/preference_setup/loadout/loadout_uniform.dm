@@ -35,6 +35,7 @@
 	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/yellowgreen
 	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/lightred
 	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/darkred
+	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
 	gear_tweaks += new/datum/gear_tweak/path(jumpsuit)
 
 /datum/gear/uniform/skirt
