@@ -389,14 +389,15 @@
 		CI.result_type = 4//Recipe type, a specific recipe will transform the ingredients into a new food
 		var/list/results = recipe.make_food(C)
 
-		var/atom/temp = new /atom(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
+		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
 
 		for (var/atom/movable/AM in results)
 			AM.loc = temp
 
 		//making multiple copies of a recipe from one container. For example, tons of fries
 		while (select_recipe(available_recipes,C) == recipe)
-			var/list/TR = recipe.make_food(C)
+			var/list/TR = list()
+			TR.Add(recipe.make_food(C))
 			for (var/atom/movable/AM in TR) //Move results to buffer
 				AM.loc = temp
 			results.Add(TR)
@@ -636,7 +637,7 @@
 	//var/obj/object
 	var/max_cookwork
 	var/cookwork
-	var/overcook_mult = 2
+	var/overcook_mult = 3
 	var/result_type = 0
 	var/obj/item/weapon/reagent_containers/cooking_container/container = null
 	var/combine_target = null

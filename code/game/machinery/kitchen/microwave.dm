@@ -16,7 +16,7 @@
 	var/global/list/datum/recipe/available_recipes // List of the recipes you can use
 	var/global/list/acceptable_items // List of the items you can put in
 	var/global/list/acceptable_reagents // List of the reagents you can put in
-	var/global/max_n_of_items = 0
+	var/global/max_n_of_items = 20
 	var/appliancetype = MICROWAVE
 
 // see code/modules/food/recipes_microwave.dm for recipes
@@ -44,8 +44,6 @@
 				acceptable_items |= item
 			for (var/reagent in recipe.reagents)
 				acceptable_reagents |= reagent
-			if (recipe.items)
-				max_n_of_items = max(max_n_of_items,recipe.items.len)
 		// This will do until I can think of a fun recipe to use dionaea in -
 		// will also allow anything using the holder item to be microwaved into
 		// impure carbon. ~Z
@@ -295,22 +293,26 @@
 		var/result = recipe.result
 		var/valid = 1
 		var/list/cooked_items = list()
-		var/atom/temp = new /atom(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
-
+		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
+		world << "Making recipe [recipe]"
 		while(valid)
-			var/list/things = recipe.make_food(src)
+			var/list/things = list()
+			things.Add(recipe.make_food(src))
 			cooked_items += things
-
+			world << "Made one batch of [things.len]. Contents remaining before buffer: [contents.len]"
 			//Move cooked things to the buffer so they're not considered as ingredients
 			for (var/atom/movable/AM in things)
 				AM.loc = temp
 
+			world << "Made one batch of [things.len]. Contents remaining after buffer: [contents.len]. Contents in buffer [temp.contents.len]"
 			valid = 0
 			recipe = select_recipe(available_recipes,src)
 			if (recipe && recipe.result == result)
+				world << "Selected recipe [recipe]"
+				sleep(2)
 				valid = 1
 
-		for (var/r in results)
+		for (var/r in cooked_items)
 			var/atom/movable/R = r
 			R.loc = src //Move everything from the buffer back to the container
 
