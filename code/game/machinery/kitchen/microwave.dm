@@ -294,21 +294,17 @@
 		var/valid = 1
 		var/list/cooked_items = list()
 		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
-		world << "Making recipe [recipe]"
 		while(valid)
 			var/list/things = list()
 			things.Add(recipe.make_food(src))
 			cooked_items += things
-			world << "Made one batch of [things.len]. Contents remaining before buffer: [contents.len]"
 			//Move cooked things to the buffer so they're not considered as ingredients
 			for (var/atom/movable/AM in things)
 				AM.loc = temp
 
-			world << "Made one batch of [things.len]. Contents remaining after buffer: [contents.len]. Contents in buffer [temp.contents.len]"
 			valid = 0
 			recipe = select_recipe(available_recipes,src)
 			if (recipe && recipe.result == result)
-				world << "Selected recipe [recipe]"
 				sleep(2)
 				valid = 1
 
