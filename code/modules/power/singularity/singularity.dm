@@ -35,18 +35,17 @@
 	energy = starting_energy
 
 	if (temp)
-		spawn (temp)
-			qdel(src)
+		QDEL_IN(src, temp)
 
 	..()
-	processing_objects += src
+	START_PROCESSING(SSingulo, src)
 	for(var/obj/machinery/power/singularity_beacon/singubeacon in machines)
 		if(singubeacon.active)
 			target = singubeacon
 			break
 
 /obj/singularity/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSingulo, src)
 	return ..()
 
 /obj/singularity/attack_hand(mob/user as mob)
