@@ -67,6 +67,10 @@
 	path = /obj/item/clothing/accessory/storage/webbing
 	cost = 2
 
+/datum/gear/accessory/locket
+	display_name = "silver locket"
+	path = /obj/item/clothing/accessory/locket
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
