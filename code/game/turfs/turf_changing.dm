@@ -20,6 +20,10 @@
 		if(istype(below) && (air_master.has_valid_zone(below) || air_master.has_valid_zone(src)))
 			N = /turf/simulated/open
 
+		// Clean off any dirt that might be present.
+		for (var/obj/effect/decal/cleanable/dirt/grot in src)
+			qdel(grot)
+
 	var/obj/fire/old_fire = fire
 	var/old_opacity = opacity
 	var/old_dynamic_lighting = dynamic_lighting

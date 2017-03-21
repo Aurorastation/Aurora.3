@@ -81,7 +81,11 @@
 	for (var/datum/pipeline/pipeline in line_members)
 		pipeline.network = null
 
+	line_members = null
+
 	for (var/obj/machinery/atmospherics/thing in normal_members)
 		thing.remove_network(src)
+
+	normal_members = null
 
 	return ..()

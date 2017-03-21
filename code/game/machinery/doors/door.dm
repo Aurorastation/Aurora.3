@@ -86,24 +86,22 @@
 	return
 
 /obj/machinery/door/proc/setup_hatch()
+	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
+	hatch_image.color = hatch_colour
+	hatch_image.pixel_x = hatch_offset_x
+	hatch_image.pixel_y = hatch_offset_y
+	hatch_image.dir = dir
 
-	if (overlays != null)
-		hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
-		hatch_image.color = hatch_colour
-		hatch_image.pixel_x = hatch_offset_x
-		hatch_image.pixel_y = hatch_offset_y
-
-		overlays += hatch_image
-		update_icon()
-	else
-		spawn(10)
-			setup_hatch()
+	overlays += hatch_image
+	update_icon()
 
 /obj/machinery/door/proc/open_hatch(var/atom/mover = null)
 	if (!hatchstate)
 		hatchstate = 1
 		update_icon()
 		playsound(src.loc, hatch_open_sound, 40, 1, -1)
+
+	
 	close_hatch_in(29)
 
 	if (istype(mover, /mob/living))
@@ -123,12 +121,10 @@
 	return ..()
 
 /obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
-	spawn(time)
-		close()
+	addtimer(CALLBACK(src, .proc/close), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
-/obj/machinery/door/proc/close_hatch_in(var/time = 5 SECONDS)
-	spawn(time)
-		close_hatch()
+/obj/machinery/door/proc/close_hatch_in(var/time = 3 SECONDS)
+	addtimer(CALLBACK(src, .proc/close_hatch), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating || !ticker)
@@ -394,8 +390,7 @@
 
 /obj/machinery/door/emp_act(severity)
 	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
-		spawn(0)
-			open()
+		open()
 	..()
 
 
@@ -465,6 +460,7 @@
 
 
 /obj/machinery/door/proc/open(var/forced = 0)
+	set waitfor = FALSE
 	if(!can_open(forced))
 		return
 	operating = 1

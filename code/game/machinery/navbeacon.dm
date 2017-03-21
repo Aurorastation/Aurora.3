@@ -33,9 +33,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 		// add beacon to MULE bot beacon list
 		if(freq == 1400)
-			if(!navbeacons)
-				navbeacons = new()
-			navbeacons += src
+			LAZYADD(navbeacons, src)
 		
 		if(radio_controller)
 			radio_controller.add_object(src, freq, RADIO_NAVBEACONS)
@@ -85,8 +83,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 		var/request = signal.data["findbeacon"]
 		if(request && ((request in codes) || request == "any" || request == location))
-			spawn(1)
-				post_signal()
+			addtimer(CALLBACK(src, .proc/post_signal), 1)
 
 	// return a signal giving location and transponder codes
 

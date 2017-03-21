@@ -33,16 +33,16 @@ var/list/organ_cache = list()
 		return ..()
 
 	if(istype(owner, /mob/living/carbon))
-		if((owner.internal_organs) && (src in owner.internal_organs))
+		if((owner.internal_organs))
 			owner.internal_organs -= src
 		if(istype(owner, /mob/living/carbon/human))
-			if((owner.internal_organs_by_name) && (src in owner.internal_organs_by_name))
+			if((owner.internal_organs_by_name))
 				owner.internal_organs_by_name -= src
-			if((owner.organs) && (src in owner.organs))
+			if((owner.organs))
 				owner.organs -= src
-			if((owner.organs_by_name) && (src in owner.organs_by_name))
+			if((owner.organs_by_name))
 				owner.organs_by_name -= src
-	if(src in owner.contents)
+	//if(src in owner.contents)
 		owner.contents -= src
 
 	owner = null 

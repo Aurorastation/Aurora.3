@@ -23,12 +23,6 @@
 		F.dirt += 4
 	qdel(src)
 
-/obj/effect/decal/cleanable/greenglow
-
-	New()
-		..()
-		QDEL_IN(src, 2 MINUTES)
-
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
 	desc = "Someone should clean that up."
@@ -57,9 +51,16 @@
 	density = 0
 	anchored = 1
 	layer = 2
-	light_range = 1
+	light_range = 2
+	light_power = 0.5
+	light_color = LIGHT_COLOR_GREEN
+	uv_intensity = 0
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenglow"
+
+/obj/effect/decal/cleanable/greenglow/New()
+	..()
+	QDEL_IN(src, 2 MINUTES)
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"

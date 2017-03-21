@@ -11,11 +11,11 @@
 
 /datum/pipeline/Destroy()
 	if(network)
-		qdel(network)
+		QDEL_NULL(network)
 
 	if(air && air.volume)
 		temporarily_store_air()
-		qdel(air)
+		QDEL_NULL(air)
 
 	for (var/obj/machinery/atmospherics/pipe/thing in members)
 		thing.parent = null

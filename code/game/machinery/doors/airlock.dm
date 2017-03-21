@@ -903,9 +903,9 @@ About the new airlock wires panel:
 			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
 		else
 			if(density)
-				spawn(0)	open(1)
+				open(1)
 			else
-				spawn(0)	close(1)
+				close(1)
 
 	else if(istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !arePowerSystemsOn())
 		if(locked)
@@ -915,13 +915,13 @@ About the new airlock wires panel:
 
 				var/obj/item/weapon/material/twohanded/fireaxe/F = C
 				if(F.wielded)
-					spawn(0)	open(1)
+					open(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
 			else
 				var/obj/item/weapon/material/twohanded/fireaxe/F = C
 				if(F.wielded)
-					spawn(0)	close(1)
+					close(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
 
@@ -931,9 +931,9 @@ About the new airlock wires panel:
 		else if( !welded && !operating )
 
 			if(density)
-				spawn(0)	open(1)
+				open(1)
 			else
-				spawn(0)	close(1)
+				close(1)
 	else
 		..()
 	return
@@ -959,6 +959,7 @@ About the new airlock wires panel:
 	return
 
 /obj/machinery/door/airlock/open(var/forced=0)
+	set waitfor = FALSE
 	if(!can_open(forced))
 
 		return 0
@@ -1063,6 +1064,7 @@ About the new airlock wires panel:
 	return ..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE))
 
 /obj/machinery/door/airlock/close(var/forced=0)
+	set waitfor = FALSE
 	if(!can_close(forced))
 		return 0
 	if(safe)
