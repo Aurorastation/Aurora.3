@@ -44,15 +44,6 @@
 		if(.(B))
 			return 1
 
-/datum/controller/subsystem/arrivals/proc/permitted_atoms_check(atom/A)
-	if(istype(A,/mob/living))
-		return 1
-
-	for(var/i=1, i<=A.contents.len, i++)
-		var/atom/B = A.contents[i]
-		if(.(B))
-			return 1
-
 //begins the launch countdown and sets the amount of time left until launch
 /datum/controller/subsystem/arrivals/proc/set_launch_countdown(var/seconds)
 	wait_for_launch = 1
