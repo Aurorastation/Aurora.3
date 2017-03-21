@@ -50,7 +50,7 @@
 	//same as plain meat
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
-	name = "Corgi meat"
+	name = "corgi meat"
 	desc = "Tastes like... well, you know."
 
 
