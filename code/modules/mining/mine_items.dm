@@ -1134,7 +1134,7 @@ var/list/total_extraction_beacons = list()
 
 	if (istype(C, /obj/item/weapon/autochisel))
 		if(!sculpted)
-			if(last_struck > world.time)
+			if(last_struck)
 				return
 
 			if(!T)
@@ -1165,8 +1165,9 @@ var/list/total_extraction_beacons = list()
 					spawn(3)
 						playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, 1)
 
-			last_struck = world.time + 15
+			last_struck = 1
 			if(do_after(user,(15*sculpting_coefficient)))
+				last_struck = 0
 				if(times_carved <= 9)
 					times_carved += 1
 					if(times_carved < 1)
@@ -1197,6 +1198,8 @@ var/list/total_extraction_beacons = list()
 						desc = legend
 					else
 						desc = "This is a sculpture of [T.name]. All craftsmanship is of the highest quality. It is decorated with rock and more rock. It is covered with rock. On the item is an image of a rock. The rock is [T.name]."
+			else
+				last_struck = 0
 		return
 
 /******************************Gains Boroughs*******************************/
