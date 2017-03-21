@@ -10,10 +10,6 @@
 	active_power_usage = 50
 	var/pressing
 
-/obj/machinery/mineral/rigpress/process()
-	..()
-	update_icon()
-
 /obj/machinery/mineral/rigpress/update_icon()
 	if(pressing)
 		icon_state = "coinpress1"

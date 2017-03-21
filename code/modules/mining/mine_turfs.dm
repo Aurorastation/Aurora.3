@@ -25,9 +25,7 @@
 	var/datum/geosample/geologic_data
 	var/excavation_level = 0
 	var/list/finds
-	var/next_rock = 0
 	var/archaeo_overlay = ""
-	var/excav_overlay = ""
 	var/obj/item/weapon/last_find
 	var/datum/artifact_find/artifact_find
 
@@ -169,6 +167,10 @@
 		var/obj/item/weapon/pickaxe/P = W
 		if(last_act + P.digspeed > world.time)//prevents message spam
 			return
+
+		if(P.drilling)
+			return
+
 		last_act = world.time
 
 		playsound(user, P.drill_sound, 20, 1)
@@ -182,7 +184,8 @@
 				//Chance to destroy / extract any finds here
 				fail_message = ". <b>[pick("There is a crunching noise","[W] collides with some different rock","Part of the rock face crumbles away","Something breaks under [W]")]</b>"
 
-		user << "\red You start [P.drill_verb][fail_message ? fail_message : ""]."
+		if(fail_message)
+			user << "<span class='warning'>You start [P.drill_verb][fail_message ? fail_message : ""].</span>"
 
 		if(fail_message && prob(90))
 			if(prob(25))
@@ -193,8 +196,19 @@
 					artifact_debris()
 
 		if(do_after(user,P.digspeed))
-			user << "\blue You finish [P.drill_verb] the rock."
 			P.drilling = 0
+
+			if(prob(50))
+				var/obj/item/weapon/ore/O
+				if(prob(10) && (mineral) && (P.excavation_amount >= 30))
+					O = new mineral.ore (src)
+				else
+					O = new /obj/item/weapon/ore(src)
+				if(istype(O))
+					geologic_data.UpdateNearbyArtifactInfo(src)
+					O.geologic_data = geologic_data
+				spawn(1)
+					O.forceMove(user.loc)
 
 			if(finds && finds.len)
 				var/datum/find/F = finds[1]
@@ -240,31 +254,6 @@
 					archaeo_overlay = "overlay_archaeo[rand(1,3)]"
 					overlays += archaeo_overlay
 
-			//there's got to be a better way to do this
-			var/update_excav_overlay = 0
-			if(excavation_level >= 75)
-				if(excavation_level - P.excavation_amount < 75)
-					update_excav_overlay = 1
-			else if(excavation_level >= 50)
-				if(excavation_level - P.excavation_amount < 50)
-					update_excav_overlay = 1
-			else if(excavation_level >= 25)
-				if(excavation_level - P.excavation_amount < 25)
-					update_excav_overlay = 1
-
-			//update overlays displaying excavation level
-			if( !(excav_overlay && excavation_level > 0) || update_excav_overlay )
-				var/excav_quadrant = round(excavation_level / 25) + 1
-				excav_overlay = "overlay_excv[excav_quadrant]_[rand(1,3)]"
-				overlays += excav_overlay
-
-			//drop some rocks
-			next_rock += P.excavation_amount * 10
-			while(next_rock > 100)
-				next_rock -= 100
-				var/obj/item/weapon/ore/O = new(src)
-				geologic_data.UpdateNearbyArtifactInfo(src)
-				O.geologic_data = geologic_data
 		else
 			user << "<span class='notice'> You stop [P.drill_verb] the rock.</span>"
 			P.drilling = 0
@@ -438,7 +427,7 @@
 		ORE_SILVER = 2,
 		ORE_PHORON = 5
 	)
-	var/mineralChance = 35
+	var/mineralChance = 45
 
 /turf/simulated/mineral/random/New()
 	if (prob(mineralChance) && !mineral)
@@ -487,7 +476,7 @@
 		ORE_SILVER = 3,
 		ORE_PHORON = 2
 	)
-	mineralChance = 25
+	mineralChance = 45
 
 
 
@@ -681,7 +670,7 @@
 		var/ore_path = pickweight(ore)
 		if(ore)
 			new ore_path(src)
-			user << "<span class='notice'>You unearth something amidst the sand!<span>"
+			user << "<span class='notice'>You unearth something amidst the sand!</span>"
 
 	if(dug <= 10)
 		dug += 1

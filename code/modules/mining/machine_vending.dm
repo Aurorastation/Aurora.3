@@ -32,7 +32,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Autochisel",					/obj/item/weapon/autochisel,											400),
 	new /datum/data/mining_equipment("Jetpack",						/obj/item/weapon/tank/jetpack,											400),
 	new /datum/data/mining_equipment("Drone Drill Upgrade",			/obj/item/device/mine_bot_ugprade,										400),
-	new /datum/data/mining_equipment("Seismic Charge",				/obj/item/weapon/plastique/seismic,									500),
+	new /datum/data/mining_equipment("Seismic Charge",				/obj/item/weapon/plastique/seismic,										500),
 	new /datum/data/mining_equipment("Industrial Drill Brace",		/obj/machinery/mining/brace,											500,	1),
 	new /datum/data/mining_equipment("Point Transfer Card",			/obj/item/weapon/card/mining_point_card,								500),
 	new /datum/data/mining_equipment("Explorer's Webbing",			/obj/item/weapon/storage/belt/mining,									500),

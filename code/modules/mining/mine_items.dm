@@ -48,6 +48,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
+	force = 10.0
 	icon_state = "pickaxe"
 	item_state = "pickaxe"
 	w_class = 4.0
@@ -55,19 +56,19 @@
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
-	var/drill_sound = 'sound/weapons/Genhit.ogg'
+	var/drill_sound = 'sound/weapons/chisel1.ogg'
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = 1
 
 	var/can_wield = 1
 
-	var/excavation_amount = 100
+	var/excavation_amount = 30
 	var/wielded = 0
-	var/force_unwielded = 5.0
-	var/force_wielded = 25.0
-	var/digspeed_unwielded = 100
-	var/digspeed_wielded = 30
+	var/force_unwielded = 10.0
+	var/force_wielded = 30.0
+	var/digspeed_unwielded = 20
+	var/digspeed_wielded = 10
 	var/drilling = 0
 
 	action_button_name = "Wield pick/drill"
@@ -185,9 +186,10 @@
 	item_state = "spickaxe"
 	origin_tech = list(TECH_MATERIAL = 3)
 	desc = "This makes no metallurgic sense."
+	excavation_amount = 30
 
-	digspeed_unwielded = 90
-	digspeed_wielded = 20
+	digspeed_unwielded = 30
+	digspeed_wielded = 5
 
 /obj/item/weapon/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
@@ -198,9 +200,15 @@
 	drill_verb = "drilling"
 	autodrill = 1
 	drill_sound = 'sound/weapons/circsawhit.ogg'
-
+	digspeed = 20
 	digspeed_unwielded = 30
-	digspeed_wielded = 30
+	force_unwielded = 15.0
+	excavation_amount = 100
+
+	can_wield = 0
+	force = 15.0
+
+	action_button_name = null
 
 /obj/item/weapon/pickaxe/jackhammer
 	name = "sonic jackhammer"
@@ -211,9 +219,15 @@
 	drill_verb = "hammering"
 	autodrill = 1
 	drill_sound = 'sound/weapons/resonator_blast.ogg'
+	digspeed = 15
+	digspeed_unwielded = 15
+	force_unwielded = 25.0
+	excavation_amount = 100
 
-	digspeed_unwielded = 25
-	digspeed_wielded = 25
+	can_wield = 0
+	force = 25.0
+
+	action_button_name = null
 
 /obj/item/weapon/pickaxe/gold
 	name = "golden pickaxe"
@@ -222,9 +236,11 @@
 	digspeed = 10
 	origin_tech = list(TECH_MATERIAL = 4)
 	desc = "This makes no metallurgic sense."
+	excavation_amount = 50
 
-	digspeed_unwielded = 75
-	digspeed_wielded = 15
+	digspeed_unwielded = 30
+	digspeed_wielded = 5
+	force_wielded = 35.0
 
 /obj/item/weapon/pickaxe/diamond
 	name = "diamond pickaxe"
@@ -232,9 +248,11 @@
 	item_state = "dpickaxe"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 4)
 	desc = "A pickaxe with a diamond pick head."
+	excavation_amount = 30
 
-	digspeed_unwielded = 50
-	digspeed_wielded = 5
+	digspeed_unwielded = 20
+	digspeed_wielded = 1
+	force_wielded = 35.0
 
 /obj/item/weapon/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
@@ -246,20 +264,32 @@
 	drill_verb = "drilling"
 	autodrill = 1
 	drill_sound = 'sound/weapons/circsawhit.ogg'
+	excavation_amount = 100
 
+	can_wield = 0
+	force = 20.0
+	digspeed = 5
 	digspeed_unwielded = 5
-	digspeed_wielded = 5
+	force_unwielded = 20.0
+
+	action_button_name = null
 
 /obj/item/weapon/pickaxe/borgdrill
 	name = "cyborg mining drill"
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
 	digspeed = 15
+	digspeed_unwielded = 15
+	force_unwielded = 25.0
 	desc = ""
 	drill_verb = "drilling"
 	autodrill = 1
 	drill_sound = 'sound/weapons/circsawhit.ogg'
 	can_wield = 0
+	force = 15.0
+	excavation_amount = 100
+
+	action_button_name = null
 
 /*****************************Shovel********************************/
 
@@ -617,17 +647,26 @@
 		icon_state = "pinoff"
 		usr << "<span>You deactivate the pinpointer</span>"
 
-/obj/item/weapon/ore_radar/proc/workdisk()
+/obj/item/weapon/ore_radar/proc/workdisk(var/user)
+	if(!src.loc)
+		active = 0
+
 	if(!active)
 		return
-	if(!sonar)
-		for(var/turf/simulated/mineral/random/R in orange(14,src))
+
+	var/closest = 15
+
+	for(var/turf/simulated/mineral/random/R in orange(14,user))
+		var/dist = get_dist(user, R)
+		if(dist < closest)
+			closest = dist
 			sonar = R
-		if(!sonar)
-			icon_state = "pinonnull"
-			return
-	set_dir(get_dir(src,sonar))
-	switch(get_dist(src,sonar))
+
+	if(!sonar)
+		icon_state = "pinonnull"
+		return
+	set_dir(get_dir(user,sonar))
+	switch(get_dist(user,sonar))
 		if(0)
 			icon_state = "pinondirect"
 		if(1 to 8)
@@ -1127,9 +1166,9 @@ var/list/total_extraction_beacons = list()
 						"<span class='notice'>You finish sculpting a masterpiece.</span>")
 					src.appearance = T
 					src.color = list(
-					    0.5, 0.35, 0.1,
-					    0.5, 0.35, 0.1,
-					    0.5, 0.35, 0.1
+					    0.35, 0.3, 0.25,
+					    0.35, 0.3, 0.25,
+					    0.35, 0.3, 0.25
 					)
 					src.pixel_y += 8
 					var/image/pedestal_underlay = image('icons/obj/mining.dmi', icon_state = "pedestal")
@@ -1217,6 +1256,7 @@ var/list/total_extraction_beacons = list()
 	name = "seismic charge"
 	desc = "A complex mining device that utilizes a seismic detonation to eliminate weak asteroid turf in a wide radius."
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 4, TECH_PHORON = 2)
+	timer = 15
 
 /obj/item/weapon/plastique/seismic/explode(var/turf/location)
 	if(!target)
@@ -1248,7 +1288,7 @@ var/list/total_extraction_beacons = list()
 							L.vomit()
 		spawn(2)
 			for(var/turf/simulated/mineral/M in range(7,location))
-				if(prob(50))
+				if(prob(75))
 					M.GetDrilled(1)
 
 	if(target)
