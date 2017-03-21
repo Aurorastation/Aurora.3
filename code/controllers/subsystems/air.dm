@@ -91,6 +91,37 @@ Class Procs:
 	var/current_cycle = 0
 	var/next_id = 1
 
+/datum/controller/subsystem/air/proc/reboot()
+	set waitfor = FALSE
+	
+	// Stop processing while we rebuild.
+	can_fire = FALSE
+
+	// Make sure we don't rebuild mid-tick.
+	admin_notice(span("danger", "ZAS Rebuild initiated. Waiting for current air tick to complete before continuing."), R_DEBUG)
+	UNTIL(state != SS_IDLE)
+
+	while (zones.len)
+		var/zone/zone = zones[zones.len]
+		zones.len--
+
+		zone.c_invalidate()
+
+	edges.Cut()
+	tiles_to_update.Cut()
+	zones_to_update.Cut()
+	active_fire_zones.Cut()
+	active_hotspots.Cut()
+	active_edges.Cut()
+	current_cycle = 0
+
+	// Re-run setup.
+	Initialize()
+
+	// Update next_fire so the MC doesn't try to make up for missed ticks.
+	next_fire = world.time + wait
+	can_fire = TRUE
+
 /datum/controller/subsystem/air/stat_entry()
 	..("TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]")
 
@@ -98,6 +129,9 @@ Class Procs:
 	NEW_SS_GLOBAL(air_master)
 
 /datum/controller/subsystem/air/Initialize(timeofday)
+
+	admin_notice(span("danger", "Processing Geometry..."), R_DEBUG)
+
 	var/simulated_turf_count = 0
 	for(var/turf/simulated/S in world)
 		simulated_turf_count++

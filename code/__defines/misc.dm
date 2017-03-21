@@ -290,6 +290,8 @@
 #define LAZYLEN(L) length(L)
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 
+#define UNTIL(X) while(!(X)) stoplag()
+
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 #define DEBUG_REF(D) (D ? "[D]|\ref[D]" : "NULL")
 
