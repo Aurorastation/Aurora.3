@@ -111,8 +111,7 @@ steam.start() -- spawns the effect
 	..()
 	if (duration)
 		time_to_live = duration
-	spawn (time_to_live)
-		qdel(src)
+	QDEL_IN(src, time_to_live)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
 	..()
