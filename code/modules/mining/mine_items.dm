@@ -1114,6 +1114,17 @@ var/list/total_extraction_beacons = list()
 	var/times_carved = 0
 	var/last_struck = 0
 
+/obj/structure/sculpting_block/verb/rotate()
+	set name = "Rotate"
+	set category = "Object"
+	set src in oview(1)
+
+	if (src.anchored || usr:stat)
+		usr << "It is fastened to the floor!"
+		return 0
+	src.set_dir(turn(src.dir, 90))
+	return 1
+
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
 	if (istype(C, /obj/item/weapon/wrench))
@@ -1162,6 +1173,7 @@ var/list/total_extraction_beacons = list()
 						user << "<span class='notice'>You review your work and see there is more to do.</span>"
 					return
 				else
+					sculpted = 1
 					user.visible_message("<span class='notice'>[user] finishes sculpting their magnum opus!</span>",
 						"<span class='notice'>You finish sculpting a masterpiece.</span>")
 					src.appearance = T
@@ -1185,7 +1197,6 @@ var/list/total_extraction_beacons = list()
 						desc = legend
 					else
 						desc = "This is a sculpture of [T.name]. All craftsmanship is of the highest quality. It is decorated with rock and more rock. It is covered with rock. On the item is an image of a rock. The rock is [T.name]."
-					sculpted = 1
 		return
 
 /******************************Gains Boroughs*******************************/
