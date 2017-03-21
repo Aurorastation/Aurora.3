@@ -166,12 +166,6 @@
 	item_state = "rainbow"
 	worn_state = "rainbow"
 
-/obj/item/clothing/under/cloud
-	name = "cloud"
-	desc = "cloud"
-	icon_state = "cloud"
-	worn_state = "cloud"
-
 /obj/item/clothing/under/psysuit
 	name = "dark undersuit"
 	desc = "A thick, layered grey undersuit lined with power cables. Feels a little like wearing an electrical storm."
@@ -343,7 +337,6 @@
 	icon_state = "dress_saloon"
 	item_state = "p_suit"
 	worn_state = "dress_saloon"
-
 
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"

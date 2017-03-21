@@ -98,7 +98,7 @@
 
 
 /obj/machinery/power/supermatter/Destroy()
-	qdel(radio)
+	QDEL_NULL(radio)
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()

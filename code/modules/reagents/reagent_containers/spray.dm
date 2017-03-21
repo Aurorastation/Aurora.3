@@ -33,6 +33,11 @@
 	if(istype(A, /obj/item/weapon/storage) || istype(A, /obj/structure/table) || istype(A, /obj/structure/closet) || istype(A, /obj/item/weapon/reagent_containers) || istype(A, /obj/structure/sink) || istype(A, /obj/structure/janitorialcart))
 		return
 
+	if(istype(A, /mob))
+		user.setClickCooldown(25)
+	else
+		user.setClickCooldown(4)
+
 	if(istype(A, /spell))
 		return
 
@@ -53,7 +58,7 @@
 
 	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
 
-	user.setClickCooldown(4)
+
 
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")

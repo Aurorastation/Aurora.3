@@ -120,6 +120,10 @@ var/const/NO_EMAG_ACT = -50
 	var/rank = null			//actual job
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 
+/obj/item/weapon/card/id/Destroy()
+	mob = null
+	return ..()
+
 /obj/item/weapon/card/id/examine(mob/user)
 	set src in oview(1)
 	if(in_range(usr, src))

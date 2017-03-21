@@ -71,7 +71,7 @@
 	item_state = "candlebox5"
 	throwforce = 2
 	slot_flags = SLOT_BELT
-
+	max_storage_space = 5
 
 /obj/item/weapon/storage/fancy/candle_box/New()
 	..()

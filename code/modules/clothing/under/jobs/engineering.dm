@@ -28,9 +28,3 @@
 	icon_state = "robotics"
 	item_state = "bl_suit"
 	worn_state = "robotics"
-
-/obj/item/clothing/under/rank/roboticist/skirt
-	desc = "It's a slimming black jumpskirt with reinforced seams; great for industrial work."
-	name = "roboticist's jumpskirt"
-	icon_state = "roboticsf"
-	worn_state = "roboticsf"

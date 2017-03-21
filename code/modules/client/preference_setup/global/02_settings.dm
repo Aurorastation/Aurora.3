@@ -63,6 +63,7 @@
 	. += "<b>Ghost radio:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>"
 	. += "<b>Space Parallax:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_SPACE]'><b>[(pref.parallax_togs & PARALLAX_SPACE) ? "Yes" : "No"]</b></a><br>"
 	. += "<b>Space Dust:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_DUST]'><b>[(pref.parallax_togs & PARALLAX_DUST) ? "Yes" : "No"]</b></a><br>"
+	. += "<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.parallax_togs & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>"
 
 /datum/category_item/player_setup_item/player_global/settings/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["toggle"])

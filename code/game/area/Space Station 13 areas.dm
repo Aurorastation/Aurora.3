@@ -706,6 +706,13 @@ area/space/atmosalert()
 	flags = RAD_SHIELDED
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
+	ambience = list(
+		'sound/ambience/ambimaint1.ogg',
+		'sound/ambience/ambimaint2.ogg',
+		'sound/ambience/ambimaint3.ogg',
+		'sound/ambience/ambimaint4.ogg',
+		'sound/ambience/ambimaint5.ogg'
+	)
 
 /area/maintenance/civ
 	name = "\improper Civilian Maintenance"
@@ -1220,13 +1227,19 @@ area/space/atmosalert()
 /area/engineering
 	name = "\improper Engineering"
 	icon_state = "engineering"
-	ambience = list('sound/ambience/ambisin1.ogg','sound/ambience/ambisin2.ogg','sound/ambience/ambisin3.ogg','sound/ambience/ambisin4.ogg')
+	ambience = list(
+		'sound/ambience/ambisin1.ogg',
+		'sound/ambience/ambisin2.ogg',
+		'sound/ambience/ambisin3.ogg',
+		'sound/ambience/ambisin4.ogg'
+	)
 
 /area/engineering/atmos
- 	name = "\improper Atmospherics"
- 	icon_state = "atmos"
- 	sound_env = LARGE_ENCLOSED
- 	no_light_control = 1
+	name = "\improper Atmospherics"
+	icon_state = "atmos"
+	sound_env = LARGE_ENCLOSED
+	no_light_control = 1
+	ambience = list('sound/ambience/ambiatm1.ogg')
 
 /area/engineering/atmos/monitoring
 	name = "\improper Atmospherics Monitoring Room"

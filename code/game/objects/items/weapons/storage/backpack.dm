@@ -329,11 +329,19 @@
 	name = "duffel bag"
 	desc = "A spacious duffel bag."
 	icon_state = "duffel-norm"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle",
+		slot_r_hand_str = "duffle"
+	)
 
 /obj/item/weapon/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
 	desc = "A rare and special duffel bag for only the most air-headed of Nanotrasen personnel."
 	icon_state = "duffel-captain"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_captain",
+		slot_r_hand_str = "duffle_captain"
+	)
 
 /obj/item/weapon/storage/backpack/duffel/hyd
 	name = "botanist's duffel bag"
@@ -344,16 +352,28 @@
 	name = "virology duffel bag"
 	desc = "A sterilized duffel bag suited to those about to unleash pathogenic havoc upon the world."
 	icon_state = "duffel-virology"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_med",
+		slot_r_hand_str = "duffle_med"
+	)
 
 /obj/item/weapon/storage/backpack/duffel/med
 	name = "medical duffel bag"
 	desc = "A sterilized duffel bag for the young, upcoming lesbayan."
 	icon_state = "duffel-medical"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_med",
+		slot_r_hand_str = "duffle_med"
+	)
 
 /obj/item/weapon/storage/backpack/duffel/eng
 	name = "industrial duffel bag"
 	desc = "A rough and tumble duffel bag for the hard working wrench-monkey of tomorrow."
 	icon_state = "duffel-engineering"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_eng",
+		slot_r_hand_str = "duffle_eng"
+	)
 
 /obj/item/weapon/storage/backpack/duffel/tox
 	name = "scientist's duffel bag"
@@ -374,11 +394,19 @@
 	name = "chemistry duffel bag"
 	desc = "Spice up the love life a little."
 	icon_state = "duffel-chemistry"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_med",
+		slot_r_hand_str = "duffle_med"
+	)
 
 /obj/item/weapon/storage/backpack/duffel/syndie
 	name = "syndicate duffel bag"
 	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens."
 	icon_state = "duffel-syndie"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_syndie",
+		slot_r_hand_str = "duffle_syndie"
+	)
 
 /obj/item/weapon/storage/backpack/duffel/wizard
 	name = "wizardly duffel bag"

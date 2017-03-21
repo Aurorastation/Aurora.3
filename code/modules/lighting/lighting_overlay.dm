@@ -17,7 +17,7 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New(var/atom/loc, var/no_update = FALSE)
+/atom/movable/lighting_overlay/New(atom/loc, no_update = FALSE)
 	. = ..()
 	verbs.Cut()
 	global.all_lighting_overlays += src
@@ -47,18 +47,18 @@
 	var/turf/T = loc
 	if (!istype(T)) // Erm...
 		if (loc)
-			warning("A lighting overlay realised its loc was NOT a turf (actual loc: [loc], [loc.type]) in update_overlay() and got pooled!")
+			warning("A lighting overlay realised its loc was NOT a turf (actual loc: [loc], [loc.type]) in update_overlay() and got deleted!")
 
 		else
-			warning("A lighting overlay realised it was in nullspace in update_overlay() and got pooled!")
+			warning("A lighting overlay realised it was in nullspace in update_overlay() and got deleted!")
 
-		returnToPool(src)
+		qdel(src)
 		return
 
 	if (istype(T, /turf/space))
 		// I mean, this happens often and doesn't do any harm. Might as well silence the warning.
 		//warning("A lighting overlay realised it was attached to a space tile and got pooled!")
-		returnToPool(src)
+		qdel(src)
 		return
 
 	// To the future coder who sees this and thinks
@@ -102,7 +102,7 @@
 	return FALSE
 
 // Override here to prevent things accidentally moving around overlays.
-/atom/movable/lighting_overlay/forceMove(atom/destination, var/no_tp=FALSE, var/harderforce = FALSE)
+/atom/movable/lighting_overlay/forceMove(atom/destination, no_tp = FALSE, harderforce = FALSE)
 	if(harderforce)
 		L_PROF(loc, "overlay_forcemove")
 		. = ..()

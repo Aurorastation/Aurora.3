@@ -275,7 +275,6 @@ BLIND     // can't see anything
 	var/light_applied
 	var/brightness_on
 	var/on = 0
-	//offset_light = 1
 
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi',
