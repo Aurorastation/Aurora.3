@@ -2021,7 +2021,7 @@
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/enchiladas
-	name = "Enchiladas"
+	name = "enchiladas"
 	desc = "Viva La Mexico!"
 	icon_state = "enchiladas"
 	trash = /obj/item/trash/tray
