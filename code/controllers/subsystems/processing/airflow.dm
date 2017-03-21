@@ -1,17 +1,18 @@
 /var/datum/controller/subsystem/processing/airflow/SSairflow
 
-#define CLEAR_OBJECT(TARGET) \
-	processing -= TARGET;                \
-	TARGET.airflow_dest = null;    \
-	TARGET.airflow_speed = 0;      \
-	TARGET.airflow_time = 0;       \
-	if (TARGET.airflow_od) {;      \
-		TARGET.density = 0;        \
+#define CLEAR_OBJECT(TARGET)                \
+	processing -= TARGET;                   \
+	TARGET.airflow_dest = null;             \
+	TARGET.airflow_speed = 0;               \
+	TARGET.airflow_time = 0;                \
+	TARGET.airflow_skip_speedcheck = FALSE; \
+	if (TARGET.airflow_od) {;               \
+		TARGET.density = 0;                 \
 	}
 
 /datum/controller/subsystem/processing/airflow
 	name = "Airflow"
-	wait = 2
+	wait = 1
 	flags = SS_TICKER | SS_NO_INIT
 
 /datum/controller/subsystem/processing/airflow/New()
@@ -31,22 +32,30 @@
 			CLEAR_OBJECT(target)
 			continue
 
-		if (target.airflow_process_delay)
-			target.airflow_process_delay -= 2
+		if (target.airflow_process_delay > 0)
+			target.airflow_process_delay -= 1
 			continue
+		else if (target.airflow_process_delay)
+			target.airflow_process_delay = 0
 		
 		target.airflow_speed = min(target.airflow_speed, 15)
 		target.airflow_speed -= vsc.airflow_speed_decay
-		if (target.airflow_speed > 7)
-			if (target.airflow_time++ >= target.airflow_speed - 7)
+		if (!target.airflow_skip_speedcheck)
+			if (target.airflow_speed > 7)
+				if (target.airflow_time++ >= target.airflow_speed - 7)
+					if (target.airflow_od)
+						target.density = 0
+					target.airflow_skip_speedcheck = TRUE
+					continue
+			else
 				if (target.airflow_od)
 					target.density = 0
+				target.airflow_process_delay = max(1, 10 - (target.airflow_speed + 3))
+				target.airflow_skip_speedcheck = TRUE
 				continue
-		else
-			if (target.airflow_od)
-				target.density = 0
-			target.airflow_process_delay = max(1, 10 - (target.airflow_speed + 3))
-			continue
+
+		target.airflow_skip_speedcheck = FALSE
+
 		if (target.airflow_od)
 			target.density = 1
 
@@ -75,6 +84,7 @@
 	var/tmp/airflow_yo
 	var/tmp/airflow_od
 	var/tmp/airflow_process_delay
+	var/tmp/airflow_skip_speedcheck
 
 /atom/movable/proc/prepare_airflow(n)
 	if (!airflow_dest || airflow_speed < 0 || last_airflow > world.time - vsc.airflow_delay)
@@ -97,9 +107,15 @@
 
 	if (airflow_falloff < 1)
 		airflow_dest = null
-		return
+		return FALSE
 	
-	airflow_speed = min(max(n * (9 / airflow_falloff), 1), 9)
+	airflow_speed = min(max(n * (9 / airflow_falloff), 1), 9)	
+	
+	airflow_od = 0
+
+	if (!density)
+		density = 1
+		airflow_od = 1
 
 	return TRUE
 
@@ -109,13 +125,8 @@
 
 	airflow_xo = airflow_dest.x - src.x
 	airflow_yo = airflow_dest.y - src.y
-	airflow_od = 0
 
 	airflow_dest = null
-
-	if (!density)
-		density = 1
-		airflow_od = 1
 
 	SSairflow.processing += src
 
@@ -125,12 +136,7 @@
 	
 	airflow_xo = -(airflow_dest.x - src.x)
 	airflow_yo = -(airflow_dest.y - src.y)
-	airflow_od = 0
-	
-	airflow_dest = null
 
-	if (!density)
-		density = 1
-		airflow_od = 1
+	airflow_dest = null
 
 	SSairflow.processing += src

@@ -99,7 +99,7 @@ Class Procs:
 
 	// Make sure we don't rebuild mid-tick.
 	admin_notice(span("danger", "ZAS Rebuild initiated. Waiting for current air tick to complete before continuing."), R_DEBUG)
-	UNTIL(state != SS_IDLE)
+	UNTIL(state == SS_IDLE)
 
 	while (zones.len)
 		var/zone/zone = zones[zones.len]
@@ -116,7 +116,7 @@ Class Procs:
 	current_cycle = 0
 
 	// Re-run setup.
-	Initialize()
+	Initialize(REALTIMEOFDAY)
 
 	// Update next_fire so the MC doesn't try to make up for missed ticks.
 	next_fire = world.time + wait
