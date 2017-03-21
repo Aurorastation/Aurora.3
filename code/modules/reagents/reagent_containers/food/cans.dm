@@ -24,7 +24,7 @@
 		reagents.add_reagent("water", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind
-	name = "space mountain wind"
+	name = "\improper Space Mountain Wind"
 	desc = "Blows right through you like a space wind."
 	icon_state = "space_mountain_wind"
 	center_of_mass = list("x"=16, "y"=10)
