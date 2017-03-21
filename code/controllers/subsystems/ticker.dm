@@ -23,8 +23,6 @@ var/datum/controller/subsystem/ticker/tickerProcess
 		if (ticker)
 			ticker.pregame()
 
-	..()
-
 /datum/controller/subsystem/ticker/fire(resumed = FALSE)
 	var/currentTime = REALTIMEOFDAY
 

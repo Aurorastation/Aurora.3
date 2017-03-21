@@ -2,23 +2,25 @@
 #define VINE_GROWTH_STAGES 5
 
 /proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=5, var/maturation_max=15)
-	spawn() //to stop the secrets panel hanging
-		var/turf/T = pick_area_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
-		if(T)
-			var/datum/seed/seed = plant_controller.create_random_seed(1)
-			seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
-			seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 70-100 potency will help guarantee a wide spread and powerful effects.
-			seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
+	set waitfor = FALSE
 
-			//make vine zero start off fully matured
-			var/obj/effect/plant/vine = new(T,seed)
-			vine.health = vine.max_health
-			vine.mature_time = 0
-			vine.process()
+	var/turf/T = pick_area_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
+	if(T)
+		var/datum/seed/seed = plant_controller.create_random_seed(1)
+		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
+		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 70-100 potency will help guarantee a wide spread and powerful effects.
+		seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
 
-			log_and_message_admins("Spacevines spawned at \the [get_area(T)]", location = T)
-			return
-		log_and_message_admins("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")
+		//make vine zero start off fully matured
+		var/obj/effect/plant/vine = new(T,seed)
+		vine.health = vine.max_health
+		vine.mature_time = 0
+		vine.process()
+
+		log_and_message_admins("Spacevines spawned at \the [get_area(T)]", location = T)
+		return
+		
+	log_and_message_admins("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")
 
 /obj/effect/dead_plant
 	anchored = 1

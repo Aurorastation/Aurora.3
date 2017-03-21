@@ -23,5 +23,3 @@
 		high_severity += new L
 
 	laws = low_severity + med_severity + high_severity
-	
-	..(timeofday, TRUE)

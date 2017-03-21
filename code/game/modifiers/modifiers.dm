@@ -250,7 +250,7 @@ it should be avoided in favour of manual removal where possible
 			existing = D
 	if (!existing)
 		START_PROCESSING(SSmodifiers, src)
-		target.modifiers += src
+		LAZYADD(target.modifiers, src)
 		activate()
 		return src
 	else
@@ -371,7 +371,7 @@ it should be avoided in favour of manual removal where possible
 	//Instant var removes us from the lists immediately, instead of waiting til next frame when qdel goes through
 	if (instant)
 		if (target)
-			target.modifiers -= src
+			LAZYREMOVE(target.modifiers, src)
 		STOP_PROCESSING(SSmodifiers, src)
 
 	if (suspend)
@@ -389,7 +389,7 @@ it should be avoided in favour of manual removal where possible
 	if (active)
 		deactivate()
 	if (target)
-		target.modifiers -= src
+		LAZYREMOVE(target.modifiers, src)
 	STOP_PROCESSING(SSmodifiers, src)
 	return ..()
 
@@ -403,13 +403,13 @@ it should be avoided in favour of manual removal where possible
 			return existing
 		if (MODIFIER_OVERRIDE_NEIGHBOR)
 			START_PROCESSING(SSmodifiers, src)
-			target.modifiers += src
+			LAZYADD(target.modifiers, src)
 			activate()
 			return src
 		if (MODIFIER_OVERRIDE_REPLACE)
 			existing.stop()
 			START_PROCESSING(SSmodifiers, src)
-			target.modifiers += src
+			LAZYADD(target.modifiers, src)
 			activate()
 			return src
 		if (MODIFIER_OVERRIDE_REFRESH)
@@ -451,3 +451,6 @@ it should be avoided in favour of manual removal where possible
 /datum/modifier/proc/custom_override(var/datum/modifier/existing)
 	qdel(src)
 	return existing
+
+/atom
+	var/tmp/list/modifiers
