@@ -261,6 +261,6 @@ for reference:
 	else if (src.emagged == 1)
 		src.emagged = 2
 		user << "You short out the anchoring mechanism on \the [src]."
-		spark(src, 2, 1)
+		spark(src, 2, alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
