@@ -67,7 +67,7 @@
 		loss = (active_power_usage / resistance)*0.5
 	else
 		open = 1
-		loss = (active_power_usage / resistance)*10
+		loss = (active_power_usage / resistance)*6
 		//When the oven door is opened, heat is lost MUCH faster
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)

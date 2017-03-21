@@ -50,7 +50,7 @@
 			M.gib()
 
 
-/obj/machinery/gibber/New()
+/obj/machinery/gibber/initialize()
 	..()
 	src.overlays += image('icons/obj/kitchen.dmi', "grjam")
 

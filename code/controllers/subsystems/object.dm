@@ -8,10 +8,13 @@ var/global/objects_initialized = FALSE
 	priority = SS_PRIORITY_OBJECTS
 	init_order = SS_INIT_OBJECTS
 
+	var/list/processing
+
 	var/tmp/list/queue = list()
 
 /datum/controller/subsystem/object/New()
 	LAZYINITLIST(processing_objects)
+	processing = processing_objects		// Ref for debugging.
 
 /datum/controller/subsystem/object/fire(resumed = FALSE)
 	if (!resumed)

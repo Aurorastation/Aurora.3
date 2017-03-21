@@ -197,6 +197,8 @@
 	
 	QDEL_NULL(spark_system)
 
+	QDEL_NULL(spark_system)
+
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if((hacker) && (hacker.hacked_apcs) && (src in hacker.hacked_apcs))
 		hacker.hacked_apcs -= src
@@ -234,8 +236,7 @@
 
 	make_terminal()
 
-	spawn(5)
-		src.update()
+	addtimer(CALLBACK(src, .proc/update), 5)
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))

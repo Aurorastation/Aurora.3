@@ -25,7 +25,7 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/generator/New()
+/obj/machinery/power/generator/initialize()
 	..()
 	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
 	var/dirs
@@ -35,12 +35,12 @@
 		dirs = list(NORTH,SOUTH)
 
 	spark_system = bind_spark(src, 3, dirs)
-
-/obj/machinery/power/generator/initialize()
 	reconnect()
 
 /obj/machinery/power/generator/Destroy()
 	QDEL_NULL(spark_system)
+	circ1 = null
+	circ2 = null
 	return ..()
 
 //generators connect in dir and reverse_dir(dir) directions

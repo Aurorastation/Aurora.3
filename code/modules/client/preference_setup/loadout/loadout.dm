@@ -47,10 +47,10 @@ var/list/gear_datums = list()
 
 /datum/category_item/player_setup_item/loadout/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("gear"), "args" = list("id")))
-	
+
 /datum/category_item/player_setup_item/loadout/gather_save_query()
 	return list("ss13_characters" = list("gear", "id" = 1, "ckey" = 1))
-	
+
 /datum/category_item/player_setup_item/loadout/gather_save_parameters()
 	return list(":gear" = json_encode(pref.gear), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
 
@@ -73,8 +73,8 @@ var/list/gear_datums = list()
 			try
 				pref.gear = json_decode(pref.gear)
 			catch
+				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 
-				log_debug("SQL_CHAR: Unable to load preferences for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 				pref.gear = list()
 				gear_reset = TRUE
 		else
@@ -103,7 +103,7 @@ var/list/gear_datums = list()
 				preference_mob << "<span class='warning'>You cannot afford to take \the [gear_name]</span>"
 			else
 				total_cost += G.cost
-				
+
 /datum/category_item/player_setup_item/loadout/content()
 	var/total_cost = 0
 	if(pref.gear && pref.gear.len)

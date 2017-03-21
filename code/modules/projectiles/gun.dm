@@ -199,9 +199,6 @@
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay
 
-	if(muzzle_flash)
-		set_light(0)
-
 //obtains the next projectile to fire
 /obj/item/weapon/gun/proc/consume_next_projectile()
 	return null
@@ -245,6 +242,7 @@
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
+			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
 
 	if(recoil)
 		spawn()

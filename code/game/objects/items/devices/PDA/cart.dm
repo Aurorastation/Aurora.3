@@ -436,7 +436,7 @@
 		else
 			JaniData["user_loc"] = list("x" = 0, "y" = 0)
 		var/MopData[0]
-		for(var/obj/item/weapon/mop/M in world)
+		for(var/obj/item/weapon/mop/M in global.janitorial_supplies)
 			var/turf/ml = get_turf(M)
 			if(ml)
 				if(ml.z != cl.z)
@@ -447,9 +447,8 @@
 		if(!MopData.len)
 			MopData[++MopData.len] = list("x" = 0, "y" = 0, dir=null, status = null)
 
-
 		var/BucketData[0]
-		for(var/obj/structure/mopbucket/B in world)
+		for(var/obj/structure/mopbucket/B in global.janitorial_supplies)
 			var/turf/bl = get_turf(B)
 			if(bl)
 				if(bl.z != cl.z)
@@ -461,7 +460,7 @@
 			BucketData[++BucketData.len] = list("x" = 0, "y" = 0, dir=null, status = null)
 
 		var/CbotData[0]
-		for(var/mob/living/bot/cleanbot/B in world)
+		for(var/mob/living/bot/cleanbot/B in global.janitorial_supplies)
 			var/turf/bl = get_turf(B)
 			if(bl)
 				if(bl.z != cl.z)
@@ -469,22 +468,18 @@
 				var/direction = get_dir(src,B)
 				CbotData[++CbotData.len] = list("x" = bl.x, "y" = bl.y, "dir" = uppertext(dir2text(direction)), "status" = B.on ? "Online" : "Offline")
 
-
 		if(!CbotData.len)
 			CbotData[++CbotData.len] = list("x" = 0, "y" = 0, dir=null, status = null)
 		var/CartData[0]
-		for(var/obj/structure/janitorialcart/B in world)
+		for(var/obj/structure/janitorialcart/B in global.janitorial_supplies)
 			var/turf/bl = get_turf(B)
 			if(bl)
 				if(bl.z != cl.z)
 					continue
 				var/direction = get_dir(src,B)
-				CartData[++CartData.len] = list("x" = bl.x, "y" = bl.y, "dir" = uppertext(dir2text(direction)), "status" = B.reagents.total_volume/100)
+				CartData[++CartData.len] = list("x" = bl.x, "y" = bl.y, "dir" = uppertext(dir2text(direction)), "status" = B.get_short_status())
 		if(!CartData.len)
 			CartData[++CartData.len] = list("x" = 0, "y" = 0, dir=null, status = null)
-
-
-
 
 		JaniData["mops"] = MopData
 		JaniData["buckets"] = BucketData
@@ -493,9 +488,6 @@
 		values["janitor"] = JaniData
 
 	return values
-
-
-
 
 
 /obj/item/weapon/cartridge/Topic(href, href_list)

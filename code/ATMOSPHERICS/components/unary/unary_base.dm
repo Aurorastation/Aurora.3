@@ -29,11 +29,11 @@
 		return null
 
 	Destroy()
-		loc = null
+		QDEL_NULL(air_contents)
 
 		if(node)
 			node.disconnect(src)
-			qdel(network)
+			QDEL_NULL(network)
 
 		node = null
 

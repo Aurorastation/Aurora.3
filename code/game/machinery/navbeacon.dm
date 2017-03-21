@@ -23,7 +23,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 	req_access = list(access_engine)
 
-	New()
+	initialize()
 		..()
 
 		set_codes()
@@ -33,14 +33,10 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 		// add beacon to MULE bot beacon list
 		if(freq == 1400)
-			if(!navbeacons)
-				navbeacons = new()
-			navbeacons += src
-
-
-		spawn(5)	// must wait for map loading to finish
-			if(radio_controller)
-				radio_controller.add_object(src, freq, RADIO_NAVBEACONS)
+			LAZYADD(navbeacons, src)
+		
+		if(radio_controller)
+			radio_controller.add_object(src, freq, RADIO_NAVBEACONS)
 
 	// set the transponder codes assoc list from codes_txt
 	proc/set_codes()
@@ -87,8 +83,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 		var/request = signal.data["findbeacon"]
 		if(request && ((request in codes) || request == "any" || request == location))
-			spawn(1)
-				post_signal()
+			addtimer(CALLBACK(src, .proc/post_signal), 1)
 
 	// return a signal giving location and transponder codes
 

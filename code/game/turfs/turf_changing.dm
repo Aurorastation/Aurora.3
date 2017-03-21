@@ -26,6 +26,10 @@
 		if(istype(below) && !istype(below,/turf/space))
 			N = below.density ? /turf/simulated/floor/airless : /turf/simulated/open
 
+		// Clean off any dirt that might be present.
+		for (var/obj/effect/decal/cleanable/dirt/grot in src)
+			qdel(grot)
+
 	var/obj/fire/old_fire = fire
 	var/old_opacity = opacity
 	var/old_dynamic_lighting = dynamic_lighting

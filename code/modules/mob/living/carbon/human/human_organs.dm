@@ -25,6 +25,11 @@
 
 	//processing internal organs is pretty cheap, do that first.
 	for(var/obj/item/organ/I in internal_organs)
+		if (QDELETED(I))
+			warning("QDELETED internal organ in [src] not properly cleaned up!")
+			internal_organs -= I
+			continue 
+
 		I.process()
 
 	handle_stance()
@@ -34,7 +39,7 @@
 		return
 
 	for(var/obj/item/organ/external/E in bad_external_organs)
-		if(!E)
+		if(QDELETED(E))
 			continue
 		if(!E.need_process())
 			bad_external_organs -= E

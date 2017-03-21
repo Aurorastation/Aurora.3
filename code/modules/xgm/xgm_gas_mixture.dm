@@ -110,6 +110,9 @@
 		temperature = ((temperature * our_heatcap) + (sharer.temperature * share_heatcap)) / (our_heatcap + share_heatcap)
 	sharer.temperature = temperature
 
+	update_values()
+	sharer.update_values()
+
 	return 1
 
 

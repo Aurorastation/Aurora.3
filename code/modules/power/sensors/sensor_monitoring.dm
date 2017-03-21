@@ -41,7 +41,7 @@
 	..()
 
 // On creation automatically connects to active sensors. This is delayed to ensure sensors already exist.
-/obj/machinery/computer/power_monitor/New()
+/obj/machinery/computer/power_monitor/initialize()
 	..()
 	power_monitor = new(src)
 

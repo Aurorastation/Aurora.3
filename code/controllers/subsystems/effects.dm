@@ -2,11 +2,11 @@ var/datum/controller/subsystem/effects/SSeffects
 
 /datum/controller/subsystem/effects
 	name = "Effects Master"
-	wait = 2
+	wait = 2		// Deciseconds.
 	flags = SS_BACKGROUND | SS_NO_INIT
 
-	var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
-	var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. May be created without an effect object.
+	var/list/datum/effect_system/effect_systems = list()	// The effect-spawning objects. Shouldn't be many of these.
+	var/list/obj/visual_effect/visuals	= list()	// The visible component of an effect. May be created without an effect object.
 
 	var/tmp/list/processing_effects = list()
 	var/tmp/list/processing_visuals = list()
@@ -16,23 +16,25 @@ var/datum/controller/subsystem/effects/SSeffects
 
 /datum/controller/subsystem/effects/fire(resumed = FALSE)
 	if (!resumed)
-		processing_effects = effects_objects
-		effects_objects = list()
-		processing_visuals = effects_visuals.Copy()
+		processing_effects = effect_systems
+		effect_systems = list()
+		processing_visuals = visuals.Copy()
 
 	var/list/current_effects = processing_effects
 	var/list/current_visuals = processing_visuals
 
+	// Most of the time these only exist for 1 cycle, so optimize for removal-on-first-fire.
 	while (current_effects.len)
 		var/datum/effect_system/E = current_effects[current_effects.len]
 		current_effects.len--
 
-		if (QDELETED(E))
+		if (QDELETED(E) || !E.isprocessing)
 			continue
 
-		switch (E.process())
+		switch (E.process(world.time - E.last_fire))
 			if (EFFECT_CONTINUE)
-				effects_objects += E
+				effect_systems += E
+				E.last_fire = world.time
 
 			if (EFFECT_DESTROY)
 				qdel(E)
@@ -40,44 +42,36 @@ var/datum/controller/subsystem/effects/SSeffects
 		if (MC_TICK_CHECK)
 			return
 
+	// Most often these will be continuing to tick, so assume that we're going to keep poking the effect.
 	while (current_visuals.len)
 		var/obj/visual_effect/V = current_visuals[current_visuals.len]
 		current_visuals.len--
 
-		if (!V || V.gcDestroyed)
-			effects_visuals -= V
+		if (QDELETED(V) || !V.isprocessing)
+			visuals -= V
 			continue
 
 		switch (V.tick())
 			if (EFFECT_HALT)
-				effects_visuals -= V
+				visuals -= V
 
 			if (EFFECT_DESTROY)
-				effects_visuals -= V
+				visuals -= V
 				qdel(V)
 		
 		if (MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/effects/proc/queue(var/datum/effect_system/E)
-	if (QDELETED(E))
-		return
-		
-	effects_objects += E
-
-/datum/controller/subsystem/effects/proc/queue_simple(var/obj/visual_effect/V)
-	if (QDELETED(V))
-		return
-
-	effects_visuals += V
-
 /datum/controller/subsystem/effects/stat_entry()
-	..("E:[effects_objects.len] V:[effects_visuals.len]")
+	..("E:[effect_systems.len] V:[visuals.len]")
 
 /datum/controller/subsystem/effects/Recover()
 	if (istype(SSeffects))
-		src.effects_objects = SSeffects.effects_objects
-		src.effects_visuals = SSeffects.effects_visuals
+		src.effect_systems = SSeffects.effect_systems
+		src.visuals = SSeffects.visuals
 
-		src.effects_objects |= SSeffects.processing_effects
-		src.effects_visuals |= SSeffects.processing_visuals
+		src.effect_systems |= SSeffects.processing_effects
+		src.visuals |= SSeffects.processing_visuals
+
+/datum/effect_system
+	var/last_fire

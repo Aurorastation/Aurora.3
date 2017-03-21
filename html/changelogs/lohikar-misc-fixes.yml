@@ -1,8 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Fixed an issue where some objects could not be deconstructed with RnD."
-  - bugfix: "Helmet lights now actually display the powered-on sprite."
-  - bugfix: "Cats on heads no longer magically turn invisible."
-  - bugfix: "Cyborgs' portable destructive analyzer can no longer steal intercoms or the captain's safe."
-  - imageadd: "Duffle (duffel?) bags now have in-hand sprites."

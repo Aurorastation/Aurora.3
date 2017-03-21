@@ -16,7 +16,7 @@
 	var/sun_angle = 0		// sun angle as set by sun datum
 	var/obj/machinery/power/solar_control/control = null
 
-/obj/machinery/power/tracker/New(var/turf/loc, var/obj/item/solar_assembly/S)
+/obj/machinery/power/tracker/initialize(var/turf/loc, var/obj/item/solar_assembly/S)
 	..(loc)
 	Make(S)
 	connect_to_network()

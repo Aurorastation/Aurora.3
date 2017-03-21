@@ -582,8 +582,11 @@
 
 // called when area power state changes
 /obj/machinery/light/power_change()
-	spawn(10)
-		seton(has_power())
+	addtimer(CALLBACK(src, .proc/handle_power_change), 10)
+
+/obj/machinery/light/proc/handle_power_change()
+	seton(has_power())
+
 
 // called when on fire
 
@@ -594,13 +597,13 @@
 // explode the light
 
 /obj/machinery/light/proc/explode()
+	set waitfor = FALSE
 	var/turf/T = get_turf(src.loc)
-	spawn(0)
-		broken()	// break it first to give a warning
-		sleep(2)
-		explosion(T, 0, 0, 2, 2)
-		sleep(1)
-		qdel(src)
+	broken()	// break it first to give a warning
+	sleep(2)
+	explosion(T, 0, 0, 2, 2)
+	sleep(1)
+	qdel(src)
 
 // Sets the light being output by a light tube or other static source
 // Non or negative inputs will reset to default

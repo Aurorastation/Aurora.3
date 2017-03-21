@@ -402,7 +402,7 @@ var/bomb_set
 	item_state = "card-id"
 	w_class = 1.0
 
-/obj/item/weapon/disk/nuclear/New()
+/obj/item/weapon/disk/nuclear/initialize()
 	..()
 	nuke_disks |= src
 

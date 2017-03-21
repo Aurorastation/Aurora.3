@@ -558,7 +558,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		data["feed"] = feed
 
-	data["manifest"] = list("__json_cache" = ManifestJSON)
+	data["manifest"] = PDA_Manifest
 
 	nanoUI = data
 	// update the ui if it exists, returns null if no ui is passed/found

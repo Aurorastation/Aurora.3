@@ -33,20 +33,20 @@ var/list/organ_cache = list()
 		return ..()
 
 	if(istype(owner, /mob/living/carbon))
-		if((owner.internal_organs) && (src in owner.internal_organs))
+		if((owner.internal_organs))
 			owner.internal_organs -= src
 		if(istype(owner, /mob/living/carbon/human))
-			if((owner.internal_organs_by_name) && (src in owner.internal_organs_by_name))
+			if((owner.internal_organs_by_name))
 				owner.internal_organs_by_name -= src
-			if((owner.organs) && (src in owner.organs))
+			if((owner.organs))
 				owner.organs -= src
-			if((owner.organs_by_name) && (src in owner.organs_by_name))
+			if((owner.organs_by_name))
 				owner.organs_by_name -= src
-	if(src in owner.contents)
+	//if(src in owner.contents)
 		owner.contents -= src
 
 	owner = null 
-	qdel(dna)
+	QDEL_NULL(dna)
 
 	return ..()
 
@@ -103,6 +103,11 @@ var/list/organ_cache = list()
 	if(loc != owner)
 		owner = null
 
+	if (QDELETED(src))
+		warning("QDELETED organ had process() called!")
+		STOP_PROCESSING(SSprocessing, src)
+		return
+
 	//dead already, no need for more processing
 	if(status & ORGAN_DEAD)
 		return
@@ -117,6 +122,10 @@ var/list/organ_cache = list()
 		return
 
 	if(!owner)
+		if (!reagents)
+			log_debug("Regenerating missing reagents for organ [DEBUG_REF(src)].")
+			create_reagents(5)
+
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 		if(B && prob(40))
 			reagents.remove_reagent("blood",0.1)

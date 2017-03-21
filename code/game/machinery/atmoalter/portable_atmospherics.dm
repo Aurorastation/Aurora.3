@@ -12,14 +12,6 @@
 	var/start_pressure = ONE_ATMOSPHERE
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
-/obj/machinery/portable_atmospherics/New()
-	..()
-
-	air_contents.volume = volume
-	air_contents.temperature = T20C
-
-	return 1
-
 /obj/machinery/portable_atmospherics/Destroy()
 	qdel(air_contents)
 	qdel(holding)
@@ -27,6 +19,10 @@
 
 /obj/machinery/portable_atmospherics/initialize()
 	. = ..()
+
+	air_contents.volume = volume
+	air_contents.temperature = T20C
+	
 	spawn()
 		var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 		if(port)

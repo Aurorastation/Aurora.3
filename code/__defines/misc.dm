@@ -49,7 +49,8 @@
 #define CHAT_NOICONS    0x8000
 
 #define PARALLAX_SPACE 0x1
-#define PARALLAX_DUST 0x2
+#define PARALLAX_DUST  0x2
+#define PROGRESS_BARS  0x4
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -269,11 +270,6 @@
 #define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
 #define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
 
-// Effect Systems.
-#define EFFECT_CONTINUE 0 	// Keep processing.
-#define EFFECT_HALT 1		// Stop processing, but don't qdel.
-#define EFFECT_DESTROY 2	// qdel.
-
 // Performance bullshit.
 
 //supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
@@ -293,6 +289,8 @@
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= L.len ? L[I] : null) : L[I]) : null)
 #define LAZYLEN(L) length(L)
 #define LAZYCLEARLIST(L) if(L) L.Cut()
+
+#define UNTIL(X) while(!(X)) stoplag()
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 #define DEBUG_REF(D) (D ? "[D]|\ref[D]" : "NULL")

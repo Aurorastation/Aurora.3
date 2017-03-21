@@ -28,7 +28,7 @@
 
 /datum/gear/accessory/holster
 	display_name = "holster selection"
-	path = /obj/item/clothing/accessory/holster
+	path = /obj/item/clothing/accessory/holster/armpit
 	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Security Cadet")
 
 /datum/gear/accessory/holster/New()
@@ -42,7 +42,7 @@
 
 /datum/gear/accessory/tie
 	display_name = "tie selection"
-	path = /obj/item/clothing/accessory
+	path = /obj/item/clothing/accessory/blue
 
 /datum/gear/accessory/tie/New()
 	..()

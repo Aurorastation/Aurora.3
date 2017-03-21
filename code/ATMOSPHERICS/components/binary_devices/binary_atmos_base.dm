@@ -42,14 +42,15 @@ obj/machinery/atmospherics/binary
 		return null
 
 	Destroy()
-		loc = null
+		QDEL_NULL(air1)
+		QDEL_NULL(air2)
 
 		if(node1)
 			node1.disconnect(src)
-			qdel(network1)
+			QDEL_NULL(network1)
 		if(node2)
 			node2.disconnect(src)
-			qdel(network2)
+			QDEL_NULL(network2)
 
 		node1 = null
 		node2 = null

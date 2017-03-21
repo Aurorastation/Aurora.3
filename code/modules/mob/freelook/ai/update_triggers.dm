@@ -18,19 +18,17 @@
 						cameranet.updatePortableCamera(src.camera)
 					updating = 0
 
-/mob/living/silicon/AI/Move()
+/mob/living/silicon/ai/Move()
 	var/oldLoc = src.loc
 	. = ..()
 	if(.)
 		if(provides_camera_vision())
-			if(!updating)
-				updating = 1
-				spawn(BORG_CAMERA_BUFFER)
-					if(oldLoc != src.loc)
-						cameranet.updateVisibility(oldLoc, 0)
-						cameranet.updateVisibility(loc, 0)
-					updating = 0
+			addtimer(CALLBACK(src, .proc/camera_post_move, oldLoc), BORG_CAMERA_BUFFER, TIMER_UNIQUE)
 
+/mob/living/silicon/ai/proc/camera_post_move(oldLoc)
+	if(oldLoc != src.loc)
+		cameranet.updateVisibility(oldLoc, 0)
+		cameranet.updateVisibility(loc, 0)
 #undef BORG_CAMERA_BUFFER
 
 // CAMERA
