@@ -312,6 +312,9 @@
 			var/atom/movable/R = r
 			R.loc = src //Move everything from the buffer back to the container
 
+		qdel(temp)//Delete buffer object
+		temp = null
+
 		//Any leftover reagents are divided amongst the foods
 		var/total = reagents.total_volume
 		for (var/obj/item/weapon/reagent_containers/food/snacks/S in cooked_items)
@@ -322,6 +325,7 @@
 
 		dispose(0) //clear out anything left
 		stop()
+
 		return
 
 /obj/machinery/microwave/proc/wzhzhzh(var/seconds as num) // Whoever named this proc is fucking literally Satan. ~ Z
