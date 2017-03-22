@@ -18,11 +18,6 @@
 #define PPM	9//Protein per meat, used for calculating the quantity of protein in an animal
 
 
-
-
-
-
-
 /mob/living/var/swallowed_mob = 0
 //This is set true if there are any mobs in this mob's contents. they will be slowly digested.
 //just used as a boolean to minimise extra processing
@@ -85,35 +80,22 @@
 	else
 		devour_gradual(victim,mouth_size)
 
-
-
-
-
-
-
-
-
-
-
 /mob/living/proc/swallow(var/mob/living/victim, var/mouth_size)
 	//This function will move the victim inside the eater's contents.. There they will be digested over time
 
 	var/swallow_time = max(3 + (victim.mob_size * victim.mob_size) - mouth_size, 3)
-	src.visible_message("[src] starts swallowing [victim]","You start swallowing [victim], this will take approximately [swallow_time] seconds")
+	src.visible_message("[src] starts swallowing \the [victim]!","You start swallowing \the [victim], this will take approximately [swallow_time] seconds.")
 	var/turf/ourloc = src.loc
 	var/turf/victimloc = victim.loc
 	if (do_mob(src, victim, swallow_time*10))
-		victim.loc = src
-		stomach_contents.Add(victim)
+		victim.forceMove(src)
+		LAZYADD(stomach_contents, victim)
 	else if (victimloc != victim.loc)
 		src << "[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first."
 	else if (ourloc != src.loc)
 		src << "You moved! Can't eat if you move away from the victim"
 	else
 		src << "Swallowing failed!"//reason unknown, maybe the eater got stunned?
-
-
-
 
 /mob/living/proc/devour_gradual(var/mob/living/victim, var/mouth_size)
 	//This function will start consuming the victim by taking bites out of them.
@@ -187,7 +169,7 @@
 /mob/living/proc/handle_stomach()
 	for(var/mob/living/M in stomach_contents)
 		if(M.loc != src)//if something somehow escaped the stomach, then we remove it
-			stomach_contents.Remove(M)
+			LAZYREMOVE(stomach_contents, M)
 			continue
 
 		if(!M.composition_reagent_quantity)
@@ -203,25 +185,21 @@
 		if ((M.stat != DEAD) && (M.cloneloss > (M.maxHealth*0.5)))//If we've consumed half of the victim, then it dies
 			M.death()
 			M.stat = DEAD //Just in case the death function doesn't set it
-			src << "Your stomach feels a little more relaxed as [M] finally stops fighting"
+			src << "Your stomach feels a little more relaxed as \the [M] finally stops fighting."
 
 		if (M.cloneloss >= M.maxHealth)//If we've consumed all of it, then digestion is finished.
-			stomach_contents.Remove(M)
-			src << "Your stomach feels a little more empty as you finish digesting [M]"
+			LAZYREMOVE(stomach_contents, M)
+			src << "Your stomach feels a little more empty as you finish digesting \the [M]."
 			qdel(M)
-
-
 
 //Helpers
 /proc/bitemessage(var/mob/living/victim)
-	return pick("You take a bite out of [victim]",
-	"You rip a chunk off of [victim]",
+	return pick("You take a bite out of \the [victim].",
+	"You rip a chunk off of \the [victim].",
 	"You consume a piece of [victim]",
-	"You feast upon your prey",
-	"You chow down on [victim]",
-	"You gobble [victim]'s flesh")
-
-
+	"You feast upon your prey.",
+	"You chow down on \the [victim].",
+	"You gobble \the [victim]'s flesh.")
 
 /proc/handle_devour_mess(var/mob/user, var/mob/living/victim, var/datum/reagents/vessel, var/finish = 0)
 	//The maximum number of blood placements is equal to the mob size of the victim
@@ -285,10 +263,6 @@
 
 		B.fluorescent  = 0
 		B.invisibility = 0
-
-
-
-
 
 /proc/turf_hasblood(var/turf/test)
 	for (var/obj/effect/decal/cleanable/blood/b in test)

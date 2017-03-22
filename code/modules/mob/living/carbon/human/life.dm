@@ -1262,12 +1262,12 @@
 	set waitfor = FALSE
 	for(var/mob/living/M in stomach_contents)
 		if(M.loc != src)
-			stomach_contents.Remove(M)
+			LAZYREMOVE(stomach_contents, M)
 			continue
 		if(iscarbon(M)|| isanimal(M))
 			if(M.stat == 2)
 				M.death(1)
-				stomach_contents.Remove(M)
+				LAZYREMOVE(stomach_contents, M)
 				qdel(M)
 				continue
 			if(air_master.times_fired%3==1)

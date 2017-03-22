@@ -66,13 +66,13 @@
 				if(prob(src.getBruteLoss() - 50))
 					for(var/atom/movable/A in stomach_contents)
 						A.loc = loc
-						stomach_contents.Remove(A)
+						LAZYREMOVE(stomach_contents, A)
 					src.gib()
 
 /mob/living/carbon/gib()
 	for(var/mob/M in src)
 		if(M in src.stomach_contents)
-			src.stomach_contents.Remove(M)
+			LAZYREMOVE(src.stomach_contents, M)
 		M.loc = src.loc
 		for(var/mob/N in viewers(src, null))
 			if(N.client)
