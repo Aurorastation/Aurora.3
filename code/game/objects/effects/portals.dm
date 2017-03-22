@@ -28,11 +28,14 @@
 		return
 	return
 
-/obj/effect/portal/New()
-	spawn(300)
-		qdel(src)
-		return
-	return
+/obj/effect/portal/New(loc, turf/target, creator=null, lifespan=300)
+	..()
+	src.target = target
+	src.creator = creator
+
+	if(lifespan > 0)
+		spawn(lifespan)
+			qdel(src)
 
 /obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport

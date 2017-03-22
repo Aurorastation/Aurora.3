@@ -94,7 +94,7 @@
 		if(79 to 80)
 			new/obj/item/weapon/pickaxe/gold(src)
 		if(81 to 82)
-			new/obj/item/weapon/pickaxe/plasmacutter(src)
+			new/obj/item/weapon/gun/energy/plasmacutter(src)
 		if(83 to 84)
 			new/obj/item/toy/katana(src)
 		if(85)
@@ -179,8 +179,8 @@
 			var/turf/T = get_turf(src.loc)
 			explosion(T, 0, 0, 1, 2)
 			qdel(src)
-	
-/obj/structure/closet/crate/secure/loot/emag_act(var/remaining_charges, var/mob/user)	
+
+/obj/structure/closet/crate/secure/loot/emag_act(var/remaining_charges, var/mob/user)
 	if (locked)
 		user << "<span class='notice'>The crate unlocks!</span>"
 		locked = 0

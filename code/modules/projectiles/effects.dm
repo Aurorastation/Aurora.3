@@ -149,6 +149,18 @@
 	icon_state = "impact_solar"
 
 //----------------------------
+// Treye beam
+//----------------------------
+/obj/effect/projectile/trilaser/tracer
+	icon_state = "plasmacutter"
+
+/obj/effect/projectile/trilaser/muzzle
+	icon_state = "muzzle_plasmacutter"
+
+/obj/effect/projectile/trilaser/impact
+	icon_state = "impact_plasmacutter"
+
+//----------------------------
 // Pulse muzzle
 //----------------------------
 /obj/effect/projectile/pulse_bullet/muzzle

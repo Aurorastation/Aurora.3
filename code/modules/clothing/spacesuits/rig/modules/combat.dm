@@ -166,7 +166,7 @@
 	interface_desc = "A shoulder-mounted cell-powered taser."
 
 	gun_type = /obj/item/weapon/gun/energy/taser/mounted
-	
+
 /obj/item/rig_module/mounted/pulse
 
 	name = "mounted pulse rifle"
@@ -177,7 +177,7 @@
 	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
 
 	gun_type = /obj/item/weapon/gun/energy/pulse_rifle/mounted
-	
+
 /obj/item/rig_module/mounted/smg
 
 	name = "mounted submachine gun"
@@ -188,7 +188,7 @@
 	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
 
 	gun_type = /obj/item/weapon/gun/energy/mountedsmg
-	
+
 /obj/item/rig_module/mounted/xray
 
 	name = "mounted xray laser gun"
@@ -199,7 +199,7 @@
 	interface_desc = "A forearm-mounted suit-powered xray laser gun."
 
 	gun_type = /obj/item/weapon/gun/energy/xray/mounted
-	
+
 /obj/item/rig_module/mounted/ion
 
 	name = "mounted ion rifle"
@@ -210,6 +210,38 @@
 	interface_desc = "A shoulder-mounted cell-powered ion rifle."
 
 	gun_type = /obj/item/weapon/gun/energy/ionrifle/mounted
+
+/obj/item/rig_module/mounted/plasmacutter
+	name = "hardsuit plasma cutter"
+	desc = "A forearm mounted kinetic accelerator"
+	icon_state = "plasmacutter"
+	interface_name = "plasma cutter"
+	interface_desc = "A self-sustaining plasma arc capable of cutting through walls."
+	suit_overlay_active = "plasmacutter"
+	suit_overlay_inactive = "plasmacutter"
+	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
+	construction_time = 300
+
+	gun_type = /obj/item/weapon/gun/energy/plasmacutter/mounted
+
+/obj/item/rig_module/mounted/kinetic_accelerator
+	name = "hardsuit kinetic accelerator"
+	desc = "A lethal-looking industrial cutter."
+	icon_state = "kineticgun"
+	interface_name = "kinetic accelerator"
+	interface_desc = "A ranged mining tool that does increased damage in low pressure."
+
+	gun_type = /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
+
+/obj/item/rig_module/mounted/thermalldrill
+	name = "hardsuit thermal drill"
+	desc = "An incredibly lethal looking thermal drill."
+	icon_state = "thermaldrill"
+	interface_name = "thermal drill"
+	interface_desc = "A potent drill that can pierce rock walls over long distances."
+
+	gun_type = /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
+
 
 /obj/item/rig_module/mounted/energy_blade
 

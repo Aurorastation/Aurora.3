@@ -8,6 +8,9 @@
 	anchored = 1
 	var/obj/machinery/mineral/stacking_machine/machine = null
 	var/machinedir = NORTHEAST
+	use_power = 1
+	idle_power_usage = 15
+	active_power_usage = 50
 
 /obj/machinery/mineral/stacking_unit_console/New()
 
@@ -77,6 +80,9 @@
 	var/list/stack_storage[0]
 	var/list/stack_paths[0]
 	var/stack_amt = 50; // Amount to stack before releassing
+	use_power = 1
+	idle_power_usage = 15
+	active_power_usage = 50
 
 /obj/machinery/mineral/stacking_machine/New()
 	..()
@@ -105,6 +111,7 @@
 	return
 
 /obj/machinery/mineral/stacking_machine/process()
+	..()
 	if(!console)
 		log_debug("Stacking machine tried to process, but no console has linked itself to it.")
 		qdel(src)

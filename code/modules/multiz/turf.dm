@@ -13,6 +13,8 @@
 /turf/space/CanZPass(atom, direction)
 	return 1
 
+var/global/list/total_openspace = list()
+
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
@@ -22,6 +24,18 @@
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 
 	var/turf/below
+
+/turf/simulated/open/airless
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
+
+/turf/simulated/open/New()
+	total_openspace += src
+
+/turf/simulated/open/Destroy()
+	total_openspace -= src
+	..()
 
 /turf/simulated/open/post_change()
 	..()
@@ -51,6 +65,8 @@
 		O.hide(0)
 
 /turf/simulated/open/update_icon()
+	overlays.Cut()
+	underlays.Cut()
 	if(below)
 		var/image/t_img = list()
 		var/image/temp = image(icon = below.icon, icon_state = below.icon_state)
