@@ -110,6 +110,10 @@
 	start_process()
 
 
+/obj/structure/cult/pylon/Destroy()
+	processing_objects.Remove(src)
+	..()
+
 //Another subtype which starts with infinite empower shots. For empowered adminbus
 /obj/structure/cult/pylon/turret/empowered
 	empowered = 99999999
