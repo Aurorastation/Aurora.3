@@ -1,7 +1,4 @@
-var/air_processing_killed = FALSE
-
 /var/datum/controller/subsystem/air/air_master
-var/tick_multiplier = 2
 
 /*
 
