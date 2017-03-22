@@ -69,6 +69,10 @@
 /datum/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
 	if (!reagents || !reagents.len)
 		return 1
+
+	if (!avail_reagents)
+		return 0
+
 	. = 1
 	for (var/r_r in reagents)
 		var/aval_r_amnt = avail_reagents.get_reagent_amount(r_r)

@@ -1,7 +1,4 @@
-var/air_processing_killed = FALSE
-
 /var/datum/controller/subsystem/air/air_master
-var/tick_multiplier = 2
 
 /*
 
@@ -88,7 +85,6 @@ Class Procs:
 	var/tmp/list/processing_zones
 
 	var/active_zones = 0
-	var/current_cycle = 0
 	var/next_id = 1
 
 /datum/controller/subsystem/air/proc/reboot()
@@ -113,7 +109,6 @@ Class Procs:
 	active_fire_zones.Cut()
 	active_hotspots.Cut()
 	active_edges.Cut()
-	current_cycle = 0
 
 	// Re-run setup.
 	Initialize(REALTIMEOFDAY)
@@ -150,7 +145,6 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 /datum/controller/subsystem/air/fire(resumed = FALSE)	
 	if (!resumed)
-		current_cycle++
 		processing_edges = active_edges.Copy()
 		processing_fires = active_fire_zones.Copy()
 		processing_hotspots = active_hotspots.Copy()
@@ -287,7 +281,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	var/space = !istype(B)
 
 	if(!space)
-		if(min(A.zone.contents.len, B.zone.contents.len) < ZONE_MIN_SIZE || (direct && (equivalent_pressure(A.zone,B.zone) || current_cycle == 0)))
+		if(min(A.zone.contents.len, B.zone.contents.len) < ZONE_MIN_SIZE || (direct && (equivalent_pressure(A.zone,B.zone) || times_fired == 0)))
 			merge(A.zone,B.zone)
 			return
 

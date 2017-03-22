@@ -16,7 +16,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
 	
-	if(user.spell_list.len)
+	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
 		user << "<span class='danger'>You've been silenced!</span>"
 		return

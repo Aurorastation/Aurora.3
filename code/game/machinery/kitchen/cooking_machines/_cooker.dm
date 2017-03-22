@@ -121,9 +121,10 @@
 //Cookers do differently, they use containers
 /obj/machinery/appliance/cooker/has_space(var/obj/item/I)
 
-	if (istype(I, /obj/item/weapon/reagent_containers/cooking_container) && cooking_objs.len < max_contents)
+	if (istype(I, /obj/item/weapon/reagent_containers/cooking_container))
 		//Containers can go into an empty slot
-		return 1
+		if (cooking_objs.len < max_contents)
+			return 1
 
 	else
 
@@ -137,6 +138,6 @@
 
 /obj/machinery/appliance/cooker/add_content(var/obj/item/I, var/mob/user)
 	var/datum/cooking_item/CI = ..()
-	if (CI.combine_target)
+	if (CI && CI.combine_target)
 		user << "The [I] will be used to make a [selected_option]. Output selection is returned to default for future items."
 		selected_option = null

@@ -387,8 +387,6 @@
 	SearchVar(MC_restart_timeout)
 	SearchVar(MC_restart_count)
 	SearchVar(CURRENT_TICKLIMIT)
-	SearchVar(air_processing_killed)
-	SearchVar(tick_multiplier)
 	SearchVar(alarm_manager)
 	SearchVar(SSchemistry)
 	SearchVar(SSeffects)

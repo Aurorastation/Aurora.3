@@ -28,6 +28,7 @@ var/list/holder_mob_icon_cache = list()
 	processing_objects.Add(src)
 
 /obj/item/weapon/holder/Destroy()
+	reagents = null
 	processing_objects.Remove(src)
 	if (contained)
 		release_mob()
@@ -123,6 +124,8 @@ var/list/holder_mob_icon_cache = list()
 		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
 		M.reset_view()
 		M.Released()
+
+	contained = null
 
 	qdel(src)
 
