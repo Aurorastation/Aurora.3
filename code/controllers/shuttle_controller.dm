@@ -274,12 +274,6 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["Administration"] = shuttle
 	process_shuttles += shuttle
 
-	shuttle = new()
-	shuttle.area_offsite = locate(/area/shuttle/alien/base)
-	shuttle.area_station = locate(/area/shuttle/alien/mine)
-	shuttles["Alien"] = shuttle
-	//process_shuttles += shuttle	//don't need to process this. It can only be moved using admin magic anyways.
-
 	/*// Public shuttles
 	shuttle = new()
 	shuttle.warmup_time = 10

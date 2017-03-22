@@ -26,6 +26,7 @@
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
+	action_button_name = "Wield two-handed weapon"
 
 /obj/item/weapon/material/twohanded/proc/unwield()
 	wielded = 0
@@ -128,6 +129,17 @@
 		H.update_inv_r_hand()
 
 	return
+
+/obj/item/weapon/material/twohanded/ui_action_click()
+	if(src in usr)
+		attack_self(usr)
+
+/obj/item/weapon/material/twohanded/verb/wield_twohanded()
+	set name = "Wield two-handed weapon"
+	set category = "Object"
+	set src in usr
+
+	attack_self(usr)
 
 ///////////OFFHAND///////////////
 /obj/item/weapon/material/twohanded/offhand

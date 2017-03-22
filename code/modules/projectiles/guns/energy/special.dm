@@ -181,7 +181,7 @@
 	force = 30
 	projectile_type = /obj/item/projectile/energy/bfg
 	slot_flags = SLOT_BACK
-	max_shots = 10
+	max_shots = 3
 	sel_mode = 1
 	fire_delay = 10
 	accuracy = 20
@@ -212,6 +212,7 @@
 		)
 
 	action_button_name = "Wield gatling laser"
+	charge_cost = 50
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/can_wield()
 	return 1
@@ -335,7 +336,7 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(40)
+	sleep(20)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -387,6 +388,7 @@
 	self_recharge = 1
 	recharge_time = 1
 	charge_meter = 1
+	charge_cost = 50
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
@@ -424,7 +426,49 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(60)
+	sleep(40)
+	is_charging = 0
+	if(!istype(user.get_active_hand(), src))
+		return
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	return 1
+
+/obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
+	name = "mounted thermal drill"
+	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "thermaldrill"
+	item_state = "thermaldrill"
+	origin_tech = "combat=6;phorontech=8,"
+	fire_sound = 'sound/magic/lightningbolt.ogg'
+	slot_flags = SLOT_BACK
+	w_class = 4
+	force = 15
+	projectile_type = /obj/item/projectile/beam/thermaldrill
+	max_shots = 90
+	sel_mode = 1
+	burst = 30
+	burst_delay = 1
+	fire_delay = 60
+	self_recharge = 1
+	recharge_time = 1
+	charge_meter = 1
+	use_external_power = 1
+	charge_cost = 50
+
+/obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
+	..()
+	if(is_charging)
+		user << "<span class='danger'>\The [src] is already charging!</span>"
+		return 0
+	user.visible_message(
+					"<span class='danger'>\The [user] begins charging the [src]!</span>",
+					"<span class='danger'>You begin charging the [src]!</span>",
+					"<span class='danger'>You hear a low pulsing roar!</span>"
+					)
+	is_charging = 1
+	sleep(30)
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return

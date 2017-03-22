@@ -121,7 +121,7 @@
 /datum/surgery_step/robotics/repair_brute
 	allowed_tools = list(
 		/obj/item/weapon/weldingtool = 100,
-		/obj/item/weapon/pickaxe/plasmacutter = 50
+		/obj/item/weapon/gun/energy/plasmacutter = 50
 	)
 
 	min_duration = 50
@@ -197,7 +197,7 @@
 /datum/surgery_step/robotics/fix_organ_robotic //For artificial organs
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
-	/obj/item/weapon/bonegel = 30, 
+	/obj/item/weapon/bonegel = 30,
 	/obj/item/weapon/screwdriver = 70
 	)
 

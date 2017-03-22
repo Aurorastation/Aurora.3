@@ -72,6 +72,7 @@
 
 	var/opened = 0
 	var/emagged = 0
+	var/fakeemagged = 0 //for dumb illegal weapons module
 	var/wiresexposed = 0
 	var/locked = 1
 	var/has_power = 1
@@ -254,7 +255,7 @@
 	if(new_sprites && new_sprites.len)
 		module_sprites = new_sprites.Copy()
 		//Custom_sprite check and entry
-		
+
 		if (custom_sprite == 1)
 			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
 			if("[ckey]-[modtype]" in valid_states)
@@ -268,7 +269,7 @@
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
-		
+
 	updateicon()
 	return module_sprites
 
@@ -463,7 +464,7 @@
 
 /mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
 	..(Proj)
-	if(prob(75) && Proj.damage > 0) 
+	if(prob(75) && Proj.damage > 0)
 		spark_system.queue()
 	return 2
 
@@ -1112,7 +1113,7 @@
 		return
 
 	if(opened)//Cover is open
-		if(emagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
+		if(emagged && !fakeemagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
 		if(wiresexposed)
 			user << "You must close the panel first"
 			return
@@ -1120,6 +1121,8 @@
 			sleep(6)
 			if(prob(50))
 				emagged = 1
+				if(fakeemagged)
+					fakeemagged = 0
 				lawupdate = 0
 				disconnect_from_ai()
 				user << "You emag [src]'s interface."
