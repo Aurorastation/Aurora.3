@@ -63,6 +63,7 @@
 /obj/machinery/crusher_piston/base/process()
 	if (process_lock)
 		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
+		return
 	process_lock = 1
 	var/timediff = (world.time - action_start_time) / 10
 	log_debug("Processing piston base with a timediff of [timediff]")
@@ -195,12 +196,16 @@
 	
 	//Move all the items in the move list
 	for(var/atom/movable/AM in items_to_move)
+		if(!AM.simulated)
+			items_to_move -= AM
+			continue
 		log_debug("Moving item [AM]")
 		if(istype(AM,/obj/machinery/crusher_piston/stage))
 			log_debug("Moving item [AM] is a piston - ignoring")
 			items_to_move -= AM
 			continue
 		items_to_move -= AM
+		//If a item could not be moved. Add it to the crush list
 		if(!AM.piston_move())
 			items_to_crush += AM
 		CHECK_TICK
@@ -209,9 +214,7 @@
 	for(var/atom/movable/AM in items_to_crush)
 		log_debug("Crushing item [AM]")
 		items_to_crush -= AM
-		AM.ex_act(1)
-		qdel(AM) //Just as a failsafe
-		//TODO: Maybe spawn some debris ??
+		AM.crush_act()
 		CHECK_TICK
 
 	process_lock = 0
@@ -292,12 +295,9 @@
 //
 // The piston_move proc for various objects
 //
+// Return 1 if it could successfully be moved
+// Return 0 if it could not be moved
 /atom/movable/proc/piston_move()
-	// We dont want to move decals. So return 1 to prevent them from getting added to the to_crush list
-	if(istype(src, /obj/effect))
-		return 1
-
-
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
@@ -311,20 +311,33 @@
 		valid_turfs -= T
 
 		if(src.forceMove(T))
-			var/mob/living/lvg = src
-			if(istype(lvg,/mob/living))
-				for(var/i = 1, i <= PISTON_MOVE_DIVISOR, i++)
-					lvg.adjustBruteLoss(round(PISTON_MOVE_DAMAGE / PISTON_MOVE_DIVISOR))
-				lvg.SetStunned(5)
-				lvg.SetWeakened(5)
 			return 1
 	// We failed to move our target
 	return 0
 
+/mob/living/piston_move(var/crush_damage)
+	for(var/i = 1, i <= PISTON_MOVE_DIVISOR, i++)
+		adjustBruteLoss(round(PISTON_MOVE_DAMAGE / PISTON_MOVE_DIVISOR))
+	SetStunned(5)
+	SetWeakened(5)
+	return ..()
+
 /mob/living/carbon/piston_move(var/crush_damage)
-	if (!(species && (species.flags & NO_PAIN)))
+	if(!(species && (species.flags & NO_PAIN)))
 		emote("scream")
-	. = ..()
+	return ..()
+
+//Dont call the parent and return 1 to prevent effects from getting moved
+/obj/effect/piston_move(var/crush_damage)
+	return 1
+
+//
+// The crush act proc
+//
+/atom/movable/proc/crush_act()
+	ex_act(1)
+	qdel(src) //Just as a failsafe
+
 
 #undef PISTON_MOVE_DAMAGE
 #undef PISTON_MOVE_DIVISOR
