@@ -17,19 +17,6 @@
 	desc = "A forge used in crafting the unholy weapons used by the armies of Nar-Sie"
 	icon_state = "forge"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 	Cult pylons can be used as arcane defensive turrets.
 
@@ -58,6 +45,7 @@
 		Explosives
 		Ablative armour
 */
+
 /obj/structure/cult/pylon
 	name = "Pylon"
 	desc = "A floating crystal that hums with an unearthly energy"
@@ -330,7 +318,7 @@
 			fire_at(target)
 			return
 		else
-			stuffcache = mobs_in_view(10, src)
+			stuffcache = mobs_in_view(7, src)
 			//for (var/turf/T in stuffcache)
 				//new /obj/effect/testtrans(T)
 			if ((target in stuffcache) && isInSight(src, target))
@@ -342,7 +330,7 @@
 
 	//We may have already populated stuffcache this run, dont repeat work
 	if (!stuffcache)
-		stuffcache = mobs_in_view(10, src)
+		stuffcache = mobs_in_view(7, src)
 
 	target = null //Either we lost a target or lack one
 	//for (var/turf/T in stuffcache)
