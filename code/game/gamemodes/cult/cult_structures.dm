@@ -44,6 +44,8 @@
 		Exosuits
 		Explosives
 		Ablative armour
+		Smoke grenades
+		Close the damn firelocks so they can't see you
 */
 
 /obj/structure/cult/pylon
@@ -100,7 +102,7 @@
 
 /obj/structure/cult/pylon/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 //Another subtype which starts with infinite empower shots. For empowered adminbus
 /obj/structure/cult/pylon/turret/empowered
@@ -391,6 +393,7 @@
 	A.ignore = sacrificer
 	A.launch(target)
 	next_shot = world.time + shot_delay
+	A = null //So projectiles can GC
 	spawn(shot_delay+1)
 		handle_firing()
 
