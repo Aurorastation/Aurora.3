@@ -1160,7 +1160,7 @@ var/list/total_extraction_beacons = list()
 						playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, 1)
 
 			last_struck = 1
-			if(do_after(user,(15*sculpting_coefficient)))
+			if(do_after(user,(20)))
 				last_struck = 0
 				if(times_carved <= 9)
 					times_carved += 1
