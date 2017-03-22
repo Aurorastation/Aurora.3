@@ -17,19 +17,6 @@
 	desc = "A forge used in crafting the unholy weapons used by the armies of Nar-Sie"
 	icon_state = "forge"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 	Cult pylons can be used as arcane defensive turrets.
 
@@ -58,6 +45,7 @@
 		Explosives
 		Ablative armour
 */
+
 /obj/structure/cult/pylon
 	name = "Pylon"
 	desc = "A floating crystal that hums with an unearthly energy"
