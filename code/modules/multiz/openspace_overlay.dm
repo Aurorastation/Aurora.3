@@ -3,6 +3,9 @@
 	plane = OPENTURF_PLANE
 	var/atom/movable/associated_atom
 
+/atom/movable/openspace/overlay/New()
+	global.all_openspace_overlays += src
+
 /atom/movable/openspace/overlay/proc/assume_appearance(atom/movable/target, override_plane = TRUE)
 	// Bind ourselves to our atom so we follow it around.
 	associated_atom = target
@@ -40,6 +43,8 @@
 		associated_atom.bound_overlay = null
 		associated_atom = null
 
+	global.all_openspace_overlays -= src
+
 	return ..()
 
 // No blowing up abstract objects.
@@ -70,3 +75,11 @@
 	else
 		. = ..()
 		qdel(src)		// These things should only exist on openturf tiles.
+
+/atom/movable/openspace/overlay/turf/Destroy()
+	if (istype(loc, /turf/simulated/open))
+		var/turf/simulated/open/T = loc
+		T.turf_overlay = null
+		T.update_icon()
+
+	return ..()

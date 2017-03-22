@@ -23,11 +23,26 @@
 	mouse_opacity = 0	// Overlays will handle mouse interaction.
 
 	var/tmp/turf/below
-	var/tmp/list/openspace_overlays
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
 	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
 	var/tmp/atom/movable/openspace/overlay/turf_overlay		// The special snowflake overlay that's drawing the below turf.
+
+/turf/simulated/open/New()
+	..()
+	global.total_openspace_turfs += 1
+
+/turf/simulated/open/Destroy()
+	SSopenturf.queued -= src
+	global.total_openspace_turfs -= 1
+	QDEL_NULL(shadower)
+	QDEL_NULL(turf_overlay)
+	if (above)
+		above.update()
+		above = null
+		
+	below = null
+	return ..()
 
 /turf/simulated/open/post_change()
 	..()
