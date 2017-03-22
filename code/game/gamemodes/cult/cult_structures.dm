@@ -72,7 +72,7 @@
 	//Sacrifier is also used in target handling. the pylon will not bite the hand that feeds it. Noncultist colleagues are fair game though
 
 	var/next_shot = 0 //Absolute world time when we're allowed to fire again
-	var/shot_delay = 15 //Minimum delay between shots, in deciseconds
+	var/shot_delay = 5 //Minimum delay between shots, in deciseconds
 	var/mob/living/target
 
 	var/notarget //Number of times handle_firing has been called without finding anything to shoot at
@@ -318,7 +318,7 @@
 			fire_at(target)
 			return
 		else
-			stuffcache = mobs_in_view(7, src)
+			stuffcache = mobs_in_view(10, src)
 			//for (var/turf/T in stuffcache)
 				//new /obj/effect/testtrans(T)
 			if ((target in stuffcache) && isInSight(src, target))
@@ -330,7 +330,7 @@
 
 	//We may have already populated stuffcache this run, dont repeat work
 	if (!stuffcache)
-		stuffcache = mobs_in_view(7, src)
+		stuffcache = mobs_in_view(10, src)
 
 	target = null //Either we lost a target or lack one
 	//for (var/turf/T in stuffcache)
