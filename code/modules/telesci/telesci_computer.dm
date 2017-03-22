@@ -2,6 +2,7 @@
 	name = "\improper Telepad Control Console"
 	desc = "Used to teleport objects to and from the telescience telepad."
 	icon_screen = "teleport"
+	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/weapon/circuitboard/telesci_console
 	var/sending = 1
 	var/obj/machinery/telepad/telepad = null
@@ -136,9 +137,7 @@
 
 /obj/machinery/computer/telescience/proc/sparks()
 	if(telepad)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, get_turf(telepad))
-		s.start()
+		spark(telepad, 5, alldirs)
 	else
 		return
 
@@ -194,9 +193,7 @@
 			// use a lot of power
 			use_power(power * 10)
 
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(5, 1, get_turf(telepad))
-			s.start()
+			spark(telepad, 5, alldirs)
 
 			temp_msg = "Teleport successful.<BR>"
 			if(teles_left < 10)
@@ -204,10 +201,7 @@
 			else
 				temp_msg += "Data printed below."
 
-			var/sparks = get_turf(target)
-			var/datum/effect/effect/system/spark_spread/y = new /datum/effect/effect/system/spark_spread
-			y.set_up(5, 1, sparks)
-			y.start()
+			spark(telepad, 5, alldirs)
 
 			var/turf/source = target
 			var/turf/dest = get_turf(telepad)

@@ -68,14 +68,6 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define STAGE_FIVE	9
 #define STAGE_SUPER	11
 
-// computer3 error codes, move lower in the file when it passes dev -Sayu
-#define PROG_CRASH          0x1  // Generic crash.
-#define MISSING_PERIPHERAL  0x2  // Missing hardware.
-#define BUSTED_ASS_COMPUTER 0x4  // Self-perpetuating error.  BAC will continue to crash forever.
-#define MISSING_PROGRAM     0x8  // Some files try to automatically launch a program. This is that failing.
-#define FILE_DRM            0x10 // Some files want to not be copied/moved. This is them complaining that you tried.
-#define NETWORK_FAILURE     0x20
-
 // NanoUI flags
 #define STATUS_INTERACTIVE 2 // GREEN Visability
 #define STATUS_UPDATE 1 // ORANGE Visability
@@ -104,3 +96,17 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define ATMOS_DEFAULT_VOLUME_FILTER 200 // L.
 #define ATMOS_DEFAULT_VOLUME_MIXER  200 // L.
 #define ATMOS_DEFAULT_VOLUME_PIPE   70  // L.
+
+
+// Misc process flags.
+#define M_PROCESSES 0x1
+#define M_USES_POWER 0x2
+
+// If this is returned from a machine's process() proc, the machine will stop processing but 
+// will continue to have power calculations done.
+#define M_NO_PROCESS 27
+
+// This controls how much power the AME generates per unit of fuel.
+// Assuming 100% efficency, use this equation to figure out power output.
+//      power_generated = (fuel**2) * AM_POWER_FACTOR
+#define AM_POWER_FACTOR 50000

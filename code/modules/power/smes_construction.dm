@@ -88,9 +88,7 @@
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
 /obj/machinery/power/smes/buildable/process()
 	if(!grounding && (Percentage() > 5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, src)
-		s.start()
+		spark(src, 5, alldirs)
 		charge -= (output_level_max * SMESRATE)
 		if(prob(1)) // Small chance of overload occuring since grounding is disabled.
 			apcs_overload(5,10,20)
@@ -176,7 +174,6 @@
 
 
 	// Preparations
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	// Check if user has protected gloves.
 	var/user_protected = 0
 	if(h_user.gloves)
@@ -191,8 +188,7 @@
 		if (0 to 15)
 			// Small overcharge
 			// Sparks, Weak shock
-			s.set_up(2, 1, src)
-			s.start()
+			small_spark.queue()	// This belongs to the parent SMES type.
 			if (user_protected && prob(80))
 				h_user << "Small electrical arc almost burns your hand. Luckily you had your gloves on!"
 			else
@@ -204,8 +200,7 @@
 		if (16 to 35)
 			// Medium overcharge
 			// Sparks, Medium shock, Weak EMP
-			s.set_up(4,1,src)
-			s.start()
+			big_spark.queue()
 			if (user_protected && prob(25))
 				h_user << "Medium electrical arc sparks and almost burns your hand. Luckily you had your gloves on!"
 			else
@@ -220,8 +215,8 @@
 		if (36 to 60)
 			// Strong overcharge
 			// Sparks, Strong shock, Strong EMP, 10% light overload. 1% APC failure
-			s.set_up(7,1,src)
-			s.start()
+			big_spark.queue()
+			big_spark.queue()
 			if (user_protected)
 				h_user << "Strong electrical arc sparks between you and [src], ignoring your gloves and burning your hand!"
 				h_user.adjustFireLoss(rand(25,60))
@@ -240,9 +235,9 @@
 		if (61 to INFINITY)
 			// Massive overcharge
 			// Sparks, Near - instantkill shock, Strong EMP, 25% light overload, 5% APC failure. 50% of SMES explosion. This is bad.
-			s.set_up(10,1,src)
-			s.start()
-			h_user << "Massive electrical arc sparks between you and [src]. Last thing you can think about is \"Oh shit...\""
+			big_spark.queue()
+			big_spark.queue()
+			h_user << "A massive electrical arc sparks between you and \the [src]. The last thing that goes through your mind is \"Oh shit...\"."
 			// Remember, we have few gigajoules of electricity here.. Turn them into crispy toast.
 			h_user.adjustFireLoss(rand(150,195))
 			h_user.Paralyse(25)

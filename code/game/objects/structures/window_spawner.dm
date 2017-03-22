@@ -35,7 +35,7 @@
 /obj/effect/wingrille_spawn/proc/activate()
 	if(activated) return
 	if (!locate(/obj/structure/grille) in get_turf(src))
-		var/obj/structure/grille/G = PoolOrNew(/obj/structure/grille, src.loc)
+		var/obj/structure/grille/G = new /obj/structure/grille(src.loc)
 		handle_grille_spawn(G)
 	var/list/neighbours = list()
 	for (var/dir in cardinal)
@@ -49,7 +49,7 @@
 						found_connection = 1
 						qdel(W)
 			if(!found_connection)
-				var/obj/structure/window/new_win = PoolOrNew(win_path, src.loc)
+				var/obj/structure/window/new_win = new win_path(src.loc)
 				new_win.set_dir(dir)
 				handle_window_spawn(new_win)
 		else

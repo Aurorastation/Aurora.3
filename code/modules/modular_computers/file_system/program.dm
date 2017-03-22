@@ -22,6 +22,7 @@
 	var/available_on_syndinet = 0			// Whether the program can be downloaded from SyndiNet (accessible via emagging the computer). Set to 1 to enable.
 	var/computer_emagged = 0				// Set to 1 if computer that's running us was emagged. Computer updates this every Process() tick
 	var/ui_header = null					// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
+	var/color = "#FFFFFF"					// The color of light the computer should emit when this program is open.
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp = null)
 	..()
@@ -109,9 +110,13 @@
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return 1
+		if(loud)
+			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!check in I.access) //Fail on first miss
+				if(loud)
+					user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 				return 0
 	else // Should never happen - So fail silently
 		return 0
@@ -153,9 +158,13 @@
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return 1
+		if(loud)
+			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!check in I.access) //Fail on first miss
+				if(loud)
+					user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
 				return 0
 	else // Should never happen - So fail silently
 		return 0

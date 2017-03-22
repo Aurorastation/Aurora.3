@@ -11,6 +11,7 @@ var/bomb_set
 	var/lighthack = 0
 	var/timeleft = 120
 	var/timing = 0
+	var/alerted = 0
 	var/r_code = "ADMIN"
 	var/code = ""
 	var/yes_code = 0
@@ -290,6 +291,10 @@ var/bomb_set
 					update_icon()
 				else
 					secure_device()
+
+				if(alerted == 0)
+					set_security_level(SEC_LEVEL_DELTA)
+					alerted = 1
 			if (href_list["safety"])
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
 					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"

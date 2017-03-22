@@ -186,7 +186,7 @@
 		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
 		result = target_mob.bullet_act(src, def_zone)
 
-	if(result == PROJECTILE_FORCE_MISS)
+	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
 		if(!silenced)
 			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
 		return 0

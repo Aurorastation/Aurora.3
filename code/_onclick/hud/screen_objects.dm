@@ -15,6 +15,7 @@
 
 /obj/screen/Destroy()
 	master = null
+	screen_loc = null
 	return ..()
 
 /obj/screen/text

@@ -145,3 +145,59 @@
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 1)
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2)
 	feedback_add_details("admin_verb","TAmbi") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/verb/toggle_space_parallax()
+	set name = "Show/Hide Space Parallax"
+	set category = "Preferences"
+	set desc = "Toggles space parallax effects."
+	prefs.parallax_togs ^= PARALLAX_SPACE
+	prefs.save_preferences()
+	if (prefs.parallax_togs & PARALLAX_SPACE)
+		src << "You will now see space parallax effects."
+	else
+		src << "You will no longer see space parallax effects."
+	
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
+
+
+/client/verb/toggle_space_dust()
+	set name = "Show/Hide Space Dust"
+	set category = "Preferences"
+	set desc = "Toggles space parallax dust."
+	prefs.parallax_togs ^= PARALLAX_DUST
+	prefs.save_preferences()
+	if (prefs.parallax_togs & PARALLAX_DUST)
+		src << "You will now see space parallax dust effects."
+	else
+		src << "You will no longer see space parallax dust effects."
+	
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
+
+/client/verb/set_parallax_speed()
+	set name = "Set Parallax Speed"
+	set category = "Preferences"
+	set desc = "Sets the movement speed of the space parallax effect."
+	var/choice = input("What speed do you want to use for space parallax? (default 2)", "SPAAACE") as num|null
+	if (!choice || choice < 0)
+		src << "Invalid input."
+		return
+
+	prefs.parallax_speed = choice
+	prefs.save_preferences()
+
+	if (mob.hud_used)
+		mob.hud_used.update_parallax()
+
+/client/verb/toggle_progress()
+	set name = "Show/Hide Progress Bars"
+	set category = "Preferences"
+	set desc = "Toggles progress bars on slow actions."
+
+	prefs.parallax_togs ^= PROGRESS_BARS
+	prefs.save_preferences()
+	if (prefs.parallax_togs & PROGRESS_BARS)
+		src << "You will now see progress bars on delayed actions."
+	else
+		src << "You will no longer see progress bars on delayed actions."

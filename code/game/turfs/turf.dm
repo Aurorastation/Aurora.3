@@ -21,7 +21,6 @@
 	var/icon_old = null
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
 	var/blessed = 0             // Has the turf been blessed?
-	var/dynamic_lighting = 1    // Does the turf use dynamic lighting?
 
 	var/footstep_sound = "defaultstep"
 
@@ -137,28 +136,14 @@ var/const/enterloopsanity = 100
 		if(M.lastarea.has_gravity == 0)
 			inertial_drift(M)
 
-		if (!M.buckled)
-			var/mob/living/carbon/human/MOB = M
-			if(istype(MOB) && !MOB.lying && footstep_sound)
-				if(istype(MOB.shoes, /obj/item/clothing/shoes) && !MOB.shoes:silent)
-					if(MOB.m_intent == "run")
-						playsound(MOB, footstep_sound, 70, 1)
-					else //Run and walk footsteps switched, because walk is the normal movement mode now
-						if(MOB.footstep >= 2)
-							MOB.footstep = 0
-						else
-							MOB.footstep++
-						if(MOB.footstep == 0)
-							playsound(MOB, footstep_sound, 40, 1)
-
-
+		// Footstep SFX logic moved to human_movement.dm - Move().
 
 		else if(!istype(src, /turf/space))
 			M.inertia_dir = 0
 			M.make_floating(0)
 	..()
 	var/objects = 0
-	if(A && (A.flags & PROXMOVE))
+	if(A && (A.flags & PROXMOVE) && A.simulated)
 		for(var/atom/movable/thing in range(1))
 			if(objects > enterloopsanity) break
 			objects++

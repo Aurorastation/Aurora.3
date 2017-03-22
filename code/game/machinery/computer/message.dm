@@ -10,7 +10,7 @@
 	//Server linked to.
 	var/obj/machinery/message_server/linkedServer = null
 	//Sparks effect - For emag
-	var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread
+	var/datum/effect_system/sparks/spark_system
 	//Messages - Saves me time if I want to change something.
 	var/noserver = "<span class='alert'>ALERT: No server detected.</span>"
 	var/incorrectkey = "<span class='warning'>ALERT: Incorrect decryption key!</span>"
@@ -29,6 +29,15 @@
 	var/customjob		= "Admin"
 	var/custommessage 	= "This is a test, please ignore."
 
+/obj/machinery/computer/message_monitor/New()
+	..()
+	spark_system = bind_spark(src, 5)
+
+/obj/machinery/computer/message_monitor/Destroy()
+	QDEL_NULL(spark_system)
+	linkedServer = null
+	customrecepient = null
+	return ..()
 
 /obj/machinery/computer/message_monitor/attackby(obj/item/weapon/O as obj, mob/living/user as mob)
 	if(stat & (NOPOWER|BROKEN))
@@ -51,8 +60,7 @@
 		if(!isnull(src.linkedServer))
 			emag = 1
 			screen = 2
-			spark_system.set_up(5, 0, src)
-			src.spark_system.start()
+			src.spark_system.queue()
 			var/obj/item/weapon/paper/monitorkey/MK = new/obj/item/weapon/paper/monitorkey
 			MK.loc = src.loc
 			// Will help make emagging the console not so easy to get away with.

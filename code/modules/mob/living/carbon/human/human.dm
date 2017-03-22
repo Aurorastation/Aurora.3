@@ -81,8 +81,30 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
-	if (DS)
-		qdel(DS)//prevents the dionastats holding onto references and blocking GC
+	organs = null
+	internal_organs_by_name = null
+	internal_organs = null
+	organs_by_name = null
+	bad_internal_organs = null
+	bad_external_organs = null
+	
+	QDEL_NULL(DS)
+	// qdel and null out our equipment.
+	QDEL_NULL(shoes)
+	QDEL_NULL(belt)
+	QDEL_NULL(gloves)
+	QDEL_NULL(glasses)
+	QDEL_NULL(head)
+	QDEL_NULL(l_ear)
+	QDEL_NULL(r_ear)
+	QDEL_NULL(wear_id)
+	QDEL_NULL(r_store)
+	QDEL_NULL(l_store)
+	QDEL_NULL(s_store)
+	QDEL_NULL(wear_suit)
+	// Do this last so the mob's stuff doesn't drop on del.
+	QDEL_NULL(w_uniform)
+
 	return ..()
 
 /mob/living/carbon/human/Stat()
@@ -210,7 +232,11 @@
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
 
-	var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(M)
+	var/obj/item/weapon/implant/loyalty/L
+	if(isipc(M))
+		L = new/obj/item/weapon/implant/loyalty/ipc(M)
+	else
+		L = new/obj/item/weapon/implant/loyalty(M)
 	L.imp_in = M
 	L.implanted = 1
 	var/obj/item/organ/external/affected = M.organs_by_name["head"]

@@ -22,7 +22,7 @@ var/datum/controller/process/alarm/alarm_manager
 	for(last_object in all_handlers)
 		var/datum/alarm_handler/AH = last_object
 		AH.process()
-		SCHECK
+		F_SCHECK
 
 /datum/controller/process/alarm/proc/active_alarms()
 	var/list/all_alarms = new

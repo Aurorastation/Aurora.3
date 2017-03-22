@@ -106,6 +106,7 @@
 
 		var/obj/item/weapon/material/twohanded/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
+			user.u_equip(O)
 			O.unwield()
 
 	else //Trying to wield it
@@ -137,9 +138,17 @@
 	default_material = "placeholder"
 
 /obj/item/weapon/material/twohanded/offhand/unwield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/wield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+		
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/update_icon()

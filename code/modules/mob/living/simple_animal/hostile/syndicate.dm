@@ -163,7 +163,5 @@
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, T)
-	s.start()
+	spark(T, 3, alldirs)
 	qdel(src)

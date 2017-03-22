@@ -17,13 +17,10 @@
 		germ_level++
 
 /mob/living/carbon/Destroy()
-	qdel(ingested)
-	qdel(touching)
+	QDEL_NULL(touching)
 	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
 	for(var/guts in internal_organs)
 		qdel(guts)
-	for(var/food in stomach_contents)
-		qdel(food)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
@@ -125,9 +122,7 @@
 			"\red You hear a light zapping." \
 		)
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, loc)
-	s.start()
+	spark(loc, 5, alldirs)
 
 	return shock_damage
 

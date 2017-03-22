@@ -128,7 +128,9 @@ var/list/admin_verbs_fun = list(
 	/client/proc/roll_dices,
 	/datum/admins/proc/create_admin_fax,
 	/datum/admins/proc/call_supply_drop,
-	/datum/admins/proc/call_drop_pod
+	/datum/admins/proc/call_drop_pod,
+	/client/proc/show_tip,
+	/client/proc/fab_tip
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -202,7 +204,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
-	/client/proc/fix_player_list
+	/client/proc/debug_pooling,
+	/client/proc/fix_player_list,
+	/client/proc/lighting_show_verbs
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -293,7 +297,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/roll_dices,
 	/proc/possess,
 	/proc/release,
-	/client/proc/toggle_recursive_explosions
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/debug_pooling
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -353,7 +358,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
-	/client/proc/cmd_dev_bst
+	/client/proc/cmd_dev_bst,
+	/client/proc/lighting_show_verbs
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -998,7 +1004,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Gives a spell to a mob."
 	var/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in spells
 	if(!S) return
-	T.spell_list += new S
+	T.add_spell(new S)
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
 	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] the spell [S].", 1)

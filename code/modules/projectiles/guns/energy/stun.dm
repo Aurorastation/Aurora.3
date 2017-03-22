@@ -54,5 +54,8 @@
 	desc = "A weapon favored by mercenary infiltration teams."
 	w_class = 4
 	force = 10
+	icon_state = "crossbowlarge"
+	item_state = "crossbow"
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
 	projectile_type = /obj/item/projectile/energy/bolt/large
+	
