@@ -307,8 +307,8 @@
 /obj/item/projectile/beam/plasmacutter
 	name = "plasma arc"
 	icon_state = "omnilaser"
-	damage = 30
-	damage_type = BRUTE
+	damage = 15
+	damage_type = BURN
 	check_armour = "laser"
 	kill_count = 5
 	pass_flags = PASSTABLE
@@ -331,10 +331,13 @@
 			M.emitter_blasts_taken += 2
 		M.emitter_blasts_taken += 1
 
-	else if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = A
-		var/ultimate_def_zone = check_zone(def_zone)
-		if(H.has_organ(ultimate_def_zone))
-			var/obj/item/organ/external/E = H.get_organ(ultimate_def_zone)
-			if(E.damage > 15 && prob((4*E.damage)))
-				E.droplimb(0,DROPLIMB_EDGE)
+	else if(istype(A, /mob/living))
+		var/mob/living/L = A
+		L.apply_damage(15, BRUTE, def_zone)
+		if(istype(A, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = L
+			var/ultimate_def_zone = check_zone(def_zone)
+			if(H.has_organ(ultimate_def_zone))
+				var/obj/item/organ/external/E = H.get_organ(ultimate_def_zone)
+				if(E.damage > 15 && prob((4*E.damage)))
+					E.droplimb(0,DROPLIMB_EDGE)

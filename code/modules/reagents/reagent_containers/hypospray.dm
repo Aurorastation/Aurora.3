@@ -86,14 +86,14 @@
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"
-	desc = "A simple chemical cocktail of hyperzine and paracetamol designed to boost efficiency by 6,000% (estimated). Hoo-rah!"
+	desc = "A simple chemical cocktail of hyperzine and tramadol designed to boost efficiency by 6,000% (estimated). Hoo-rah!"
 	volume = 20
 	amount_per_transfer_from_this = 20
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack/New()
 		..()
 		reagents.add_reagent("hyperzine", 12)
-		reagents.add_reagent("paracetamol", 7)
+		reagents.add_reagent("tramadol", 8)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/survival
@@ -105,8 +105,8 @@
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/survival/New()
 		..()
 		reagents.add_reagent("tricordrazine", 15)
-		reagents.add_reagent("leporazine", 10)
-		reagents.add_reagent("tramadol", 5)
+		reagents.add_reagent("inaprovaline", 10)
+		reagents.add_reagent("oxycodone", 5)
 		reagents.add_reagent("methylphenidate", 5)
 		update_icon()
 

@@ -35,7 +35,7 @@
 	desc = "A mining lantern."
 	brightness_on = 4			// luminosity when on
 	light_power = 1
-	light_range = 6
+	brightness_on = 6
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
@@ -67,7 +67,7 @@
 	var/wielded = 0
 	var/force_unwielded = 10.0
 	var/force_wielded = 30.0
-	var/digspeed_unwielded = 20
+	var/digspeed_unwielded = 30
 	var/digspeed_wielded = 10
 	var/drilling = 0
 
@@ -490,9 +490,8 @@
 
 /obj/structure/track/initialize()
 	..()
-	for(var/obj/structure/track/T in src.loc)
-		if(T != src)
-			qdel(T)
+	if (locate(/obj/structure/track) in loc)
+		qdel(src)
 	updateOverlays()
 	for (var/dir in cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
@@ -510,13 +509,8 @@
 	switch(severity)
 		if(1.0)
 			qdel(src)
-			return
 		if(2.0)
 			qdel(src)
-			return
-		if(3.0)
-			return
-		else
 	return
 
 /obj/structure/track/attackby(obj/item/C as obj, mob/user as mob)
@@ -535,17 +529,17 @@
 	return
 
 /obj/structure/track/proc/updateOverlays()
-	spawn(1)
-		overlays = list()
+	set waitfor = FALSE
+	overlays = list()
 
-		var/dir_sum = 0
+	var/dir_sum = 0
 
-		for (var/direction in cardinal)
-			if(locate(/obj/structure/track, get_step(src, direction)))
-				dir_sum += direction
+	for (var/direction in cardinal)
+		if(locate(/obj/structure/track, get_step(src, direction)))
+			dir_sum += direction
 
-		icon_state = "track[dir_sum]"
-		return
+	icon_state = "track[dir_sum]"
+	return
 
 /obj/vehicle/train/cargo/engine/mining
 	name = "mine cart engine"
@@ -566,7 +560,7 @@
 	light_wedge = LIGHT_WIDE
 	light_color = LIGHT_COLOR_FIRE
 
-/obj/vehicle/train/cargo/engine/mining/New()
+/obj/vehicle/train/cargo/engine/mining/initialize()
 	..()
 	cell = new /obj/item/weapon/cell/high(src)
 	key = null
@@ -751,7 +745,7 @@
 	if(M.anchored || istype(M, /obj/effect))
 		return
 	single_spark(M.loc)
-	if(istype(M, /atom/movable))
+	if(istype(M))
 		if(do_teleport(M, target, 6))
 			single_spark(M.loc)
 			playsound(M,'sound/weapons/resonator_blast.ogg',50,1)
@@ -967,8 +961,9 @@ var/list/total_extraction_beacons = list()
 	icon_state = "resonatoru"
 	item_state = "resonatoru"
 	origin_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_POWER = 2, TECH_ENGINEERING = 3)
-	fieldlimit = 6
+	fieldlimit = 8
 	quick_burst_mod = 1
+	burst_time = 15
 
 /obj/item/weapon/resonator/proc/CreateResonance(target, creator)
 	var/turf/T = get_turf(target)

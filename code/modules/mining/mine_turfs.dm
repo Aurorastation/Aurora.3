@@ -200,7 +200,7 @@
 
 			if(prob(50))
 				var/obj/item/weapon/ore/O
-				if(prob(10) && (mineral) && (P.excavation_amount >= 30))
+				if(prob(25) && (mineral) && (P.excavation_amount >= 30))
 					O = new mineral.ore (src)
 				else
 					O = new /obj/item/weapon/ore(src)
@@ -675,8 +675,7 @@
 	if(dug <= 10)
 		dug += 1
 	else
-		if(GetBelow(src))
-			ChangeTurf(/turf/simulated/open)
+		ChangeTurf(/turf/space)
 	return
 
 /turf/simulated/floor/asteroid/proc/updateMineralOverlays(var/update_neighbors)

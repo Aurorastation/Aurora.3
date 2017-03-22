@@ -820,5 +820,5 @@
 
 /obj/item/weapon/storage/box/stims/New()
 	..()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 4)
 		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack(src)

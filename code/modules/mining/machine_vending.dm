@@ -14,8 +14,8 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Ore-bag",						/obj/item/weapon/storage/bag/ore,										50),
 	new /datum/data/mining_equipment("Meat Pizza",					/obj/item/pizzabox/meat,												50),
 	new /datum/data/mining_equipment("Lantern",						/obj/item/device/flashlight/lantern,									75),
-	new /datum/data/mining_equipment("Stimpack",					/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack,	75),
 	new /datum/data/mining_equipment("Shovel",						/obj/item/weapon/shovel,												100),
+	new /datum/data/mining_equipment("Stimpack",					/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack,	100),
 	new /datum/data/mining_equipment("Pickaxe",						/obj/item/weapon/pickaxe,												100),
 	new /datum/data/mining_equipment("KA White Tracer Rounds",		/obj/item/borg/upgrade/modkit/tracer,									100),
 	new /datum/data/mining_equipment("Compressed rail cartridge",	/obj/item/weapon/rrf_ammo,												100),
@@ -44,13 +44,13 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Brute First-Aid Kit",			/obj/item/weapon/storage/firstaid/brute,								600),
 	new /datum/data/mining_equipment("Ore Magnet",					/obj/item/weapon/oremagnet,												600),
 	new /datum/data/mining_equipment("Minecart",					/obj/vehicle/train/cargo/trolley/mining,								600,	1),
+	new /datum/data/mining_equipment("Resonator",					/obj/item/weapon/resonator,												700),
 	new /datum/data/mining_equipment("Mining RIG",					/obj/item/weapon/rig/industrial,										750),
 	new /datum/data/mining_equipment("KA Range Increase",			/obj/item/borg/upgrade/modkit/range,									750),
 	new /datum/data/mining_equipment("Jaunter",						/obj/item/device/wormhole_jaunter,										750),
 	new /datum/data/mining_equipment("Kinetic Accelerator",			/obj/item/weapon/gun/energy/kinetic_accelerator,						750),
 	new /datum/data/mining_equipment("1000 credits",				/obj/item/weapon/spacecash/c1000,										800),
 	new /datum/data/mining_equipment("Mass Driver",					/obj/item/weapon/mass_driver_diy,										800),
-	new /datum/data/mining_equipment("Resonator",					/obj/item/weapon/resonator,												800),
 	new /datum/data/mining_equipment("Drone Plasma Cutter Upgrade",	/obj/item/device/mine_bot_ugprade/plasma,								800),
 	new /datum/data/mining_equipment("Mining Drone",				/mob/living/silicon/robot/drone/mining,									800),
 	new /datum/data/mining_equipment("Minecart Engine",				/obj/vehicle/train/cargo/engine/mining,									800,	1),
@@ -91,7 +91,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/item/weapon/circuitboard/machine/mining_equipment_vendor
 	name = "circuit board (Mining Equipment Vendor)"
 	build_path = /obj/machinery/mineral/equipment_vendor
-	origin_tech = "programming=1;engineering=3"
+	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(
 							/obj/item/weapon/stock_parts/console_screen = 1,
 							/obj/item/weapon/stock_parts/matter_bin = 3)

@@ -37,7 +37,7 @@ var/global/list/ore_data = list()
 		"million" = 704
 		)
 	xarch_source_mineral = "potassium"
-	worth = 10
+	worth = 25
 
 /ore/hematite
 	name = ORE_IRON
@@ -93,7 +93,7 @@ var/global/list/ore_data = list()
 	spread_chance = 15
 	ore = /obj/item/weapon/ore/silver
 	scan_icon = "mineral_uncommon"
-	worth = 15
+	worth = 20
 
 /ore/gold
 	smelts_to = ORE_GOLD
@@ -109,7 +109,7 @@ var/global/list/ore_data = list()
 		"billion" = 4,
 		"billion_lower" = 3
 		)
-	worth = 20
+	worth = 30
 
 /ore/diamond
 	name = ORE_DIAMOND
@@ -132,7 +132,7 @@ var/global/list/ore_data = list()
 	spread_chance = 15
 	ore = /obj/item/weapon/ore/osmium
 	scan_icon = "mineral_rare"
-	worth = 20
+	worth = 15
 
 /ore/hydrogen
 	name = ORE_HYDROGEN
