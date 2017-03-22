@@ -19,3 +19,4 @@
 	broken_damage = 150
 	screensaver_light_range = 1.4
 	screensaver_light_color = "#0099ff"
+	is_holographic = TRUE

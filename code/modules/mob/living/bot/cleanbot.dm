@@ -52,6 +52,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	listener = new /obj/cleanbot_listener(src)
 	listener.cleanbot = src
 
+	janitorial_supplies |= src
+
 	if(radio_controller)
 		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
@@ -61,6 +63,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	patrol_path = null
 	target = null
 	ignorelist = null
+	janitorial_supplies -= src
 
 /mob/living/bot/cleanbot/proc/handle_target()
 	if(target.clean_marked && target.clean_marked != src)

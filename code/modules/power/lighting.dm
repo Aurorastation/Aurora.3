@@ -229,13 +229,13 @@
 	..()
 
 /obj/machinery/light/update_icon()
-
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
-			if (supports_nightmode && nightmode)
-				icon_state = "[base_state][on]_night"
+			icon_state = "[base_state][on]"
+			if (supports_nightmode && nightmode && on)
+				color = "#d2d2d2"
 			else
-				icon_state = "[base_state][on]"
+				color = null
 
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
@@ -246,7 +246,9 @@
 		if(LIGHT_BROKEN)
 			icon_state = "[base_state]-broken"
 			on = 0
-	return
+
+	if (!on)
+		color = null
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)

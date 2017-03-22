@@ -22,7 +22,7 @@
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
 	var/crisis //Admin-settable for combat module use.
 	var/crisis_override = 0
-	var/integrated_light_power = 6
+	var/integrated_light_power = 4
 	var/datum/wires/robot/wires
 
 //Icon stuff
@@ -249,6 +249,7 @@
 		connected_ai.connected_robots -= src
 	qdel(wires)
 	wires = null
+	QDEL_NULL(spark_system)
 	return ..()
 
 /mob/living/silicon/robot/proc/set_module_sprites(var/list/new_sprites)
@@ -424,7 +425,7 @@
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intenselight)
-			set_light(integrated_light_power * 2, integrated_light_power)
+			set_light(integrated_light_power * 2, 1)
 		else
 			set_light(integrated_light_power)
 	else
@@ -1031,6 +1032,7 @@
 	icon_selection_tries = 0
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
 	src << "Your icon has been set. You now require a module reset to change it."
+
 
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
 	set name = "Set Sensor Augmentation"

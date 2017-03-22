@@ -17,6 +17,9 @@
 	icobase = 'icons/mob/human_races/r_human.dmi'
 	deform = 'icons/mob/human_races/robotic.dmi'
 
+	light_range = 0
+	light_power = 0
+
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
 
@@ -48,6 +51,8 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/shell)
 		)
 
+/datum/species/machine/shell/get_light_color(hair_style)
+	return
 
 /datum/species/machine/shell/handle_post_spawn(var/mob/living/carbon/human/H)
 	add_inherent_verbs(H)
@@ -128,6 +133,9 @@
 
 	sprint_speed_factor = 1.4
 
+/datum/species/machine/industrial/get_light_color(hair_style)
+	return LIGHT_COLOR_TUNGSTEN
+
 /datum/species/machine/industrial/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost*0.9
@@ -155,6 +163,9 @@
 
 	icobase = 'icons/mob/human_races/r_terminator.dmi'
 	deform = 'icons/mob/human_races/r_terminator.dmi'
+
+	light_range = 0
+	light_power = 0
 
 	unarmed_types = list(/datum/unarmed_attack/terminator)
 	rarity_value = 20
@@ -231,6 +242,8 @@
 	sprint_speed_factor = 1.25
 	slowdown = 1
 
+/datum/species/machine/terminator/get_light_color(hair_style)
+	return
 
 /datum/species/machine/terminator/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)

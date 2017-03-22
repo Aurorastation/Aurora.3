@@ -73,15 +73,20 @@
 #define LIGHT_NARROW 45
 
 // Night lighting controller times
-// The time (in ticks based on worldtime2ticks()) that various actions trigger
-#define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning
-#define NIGHT_LIGHT_ACTIVE 648000        // 6pm or 18:00 - night lighting mode activates
+// The time (in hours based on worldtime2hours()) that various actions trigger
+#define MORNING_LIGHT_RESET 7       // 7am or 07:00 - lighting restores to normal in morning
+#define NIGHT_LIGHT_ACTIVE 18        // 6pm or 18:00 - night lighting mode activates
 
 // Some brightness/range defines for objects.
 #define L_WALLMOUNT_POWER 0.4
 #define L_WALLMOUNT_RANGE 2
-#define L_WALLMOUNT_HI_POWER 2	// For red/delta alert on fire alarms.
+#define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
+// This controls by how much console sprites are dimmed before being overlayed.
+#define HOLOSCREEN_ADDITION_FACTOR 1
+#define HOLOSCREEN_MULTIPLICATION_FACTOR 0.5
+#define HOLOSCREEN_ADDITION_OPACITY 0.8
+#define HOLOSCREEN_MULTIPLICATION_OPACITY 1
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}

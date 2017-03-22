@@ -15,6 +15,7 @@ var/global/list/active_diseases          = list()
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.
 var/global/list/sec_hud_users            = list() // List of all entities using a security HUD.
 var/global/list/hud_icon_reference       = list()
+var/global/list/janitorial_supplies      = list()	// List of all the janitorial supplies on the map that the PDA cart may be tracking.
 
 
 var/global/list/global_mutations  = list() // List of hidden mutation things.

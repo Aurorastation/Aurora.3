@@ -374,7 +374,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "thermaldrill"
 	item_state = "thermaldrill"
-	origin_tech = "combat=6;phorontech=8,"
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4

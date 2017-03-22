@@ -31,11 +31,9 @@
 
 	has_resources = 1
 
-/turf/simulated/mineral/New()
-	spawn(0)
-		MineralSpread()
-	spawn(2)
-		updateMineralOverlays(1)
+/turf/simulated/mineral/initialize()
+	MineralSpread()
+	updateMineralOverlays(TRUE)
 
 /turf/simulated/mineral/proc/updateMineralOverlays(var/update_neighbors)
 	var/list/step_overlays = list("s" = NORTH, "n" = SOUTH, "w" = EAST, "e" = WEST)
@@ -45,7 +43,9 @@
 			var/turf/simulated/floor/asteroid/T = turf_to_check
 			T.updateMineralOverlays()
 		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor))
-			turf_to_check.overlays += image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
+			var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
+			overlay.plane = 0
+			turf_to_check.overlays += overlay
 
 /turf/simulated/mineral/examine(mob/user)
 	..()
@@ -506,6 +506,9 @@
 /turf/simulated/floor/asteroid/New()
 	if(prob(20))
 		overlay_detail = rand(0,9)
+
+/turf/simulated/floor/asteroid/initialize()
+	updateMineralOverlays(1)
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)

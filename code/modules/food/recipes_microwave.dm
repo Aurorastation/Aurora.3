@@ -146,9 +146,10 @@ I said no!
 	proc/warm_up(var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/being_cooked)
 		being_cooked.heat()
 	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/being_cooked = ..(container)
-		warm_up(being_cooked)
-		return being_cooked
+		. = ..(container)
+		for (var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/D in .)
+			if (!D.warm)
+				warm_up(D)
 
 /datum/recipe/donkpocket/warm
 	reagents = list() //This is necessary since this is a child object of the above recipe and we don't want donk pockets to need flour
@@ -156,11 +157,6 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/donkpocket
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/donkpocket //SPECIAL
-	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/being_cooked = locate() in container
-		if(being_cooked && !being_cooked.warm)
-			warm_up(being_cooked)
-		return being_cooked
 
 
 
@@ -300,9 +296,10 @@ I said no!
 	reagents = list("water" = 5, "vodka" = 5, "amatoxin" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/amanitajelly
 	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/amanitajelly/being_cooked = ..(container)
-		being_cooked.reagents.del_reagent("amatoxin")
-		return being_cooked
+
+		. = ..(container)
+		for (var/obj/item/weapon/reagent_containers/food/snacks/amanitajelly/being_cooked in .)
+			being_cooked.reagents.del_reagent("amatoxin")
 
 /datum/recipe/meatballsoup
 	fruit = list("carrot" = 1, "potato" = 1)
@@ -653,9 +650,10 @@ I said no!
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meatball)
 	result = /obj/item/weapon/reagent_containers/food/snacks/validsalad
 	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/validsalad/being_cooked = ..(container)
-		being_cooked.reagents.del_reagent("toxin")
-		return being_cooked
+
+		. = ..(container)
+		for (var/obj/item/weapon/reagent_containers/food/snacks/validsalad/being_cooked in .)
+			being_cooked.reagents.del_reagent("toxin")
 
 
 

@@ -54,13 +54,16 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = 5
-	flags = NOBLOODY
+	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharp = 1
 	edge = 1
-	slot_flags = SLOT_BELT
+	base_reflectchance = 60
+	base_block_chance = 60
+	can_block_bullets = 1
+	shield_power = 150
 
 /obj/item/weapon/melee/energy/wizard/activate(mob/living/user)
 	..()
@@ -90,23 +93,9 @@
 
 	return 1
 
-/* //commented until issues with sparks and sword blocking updates are merged
-/obj/item/weapon/melee/energy/wizard/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-
-		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-		spark_system.set_up(5, 0, user.loc)
-		spark_system.start()
-		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
-		return 1
-
-	return 0
-	*/
-
 //skeleton weapons and armor
 
-/obj/item/clothing/suit/bone
+/obj/item/clothing/suit/armor/bone
 	name = "bone armor"
 	desc = "A rudimentary armor made of bones of several creatures."
 	icon = 'icons/obj/necromancer.dmi'
