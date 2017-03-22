@@ -5,11 +5,17 @@
 
 /datum/controller/subsystem/openturf
 	name = "Open Space"
-	flags = SS_BACKGROUND | SS_NO_INIT
+	flags = SS_BACKGROUND | SS_NO_INIT | SS_FIRE_IN_LOBBY
 	wait = 2
 
 	var/list/queued = list()
 	var/list/currentrun
+
+/datum/controller/subsystem/openturf/New()
+	NEW_SS_GLOBAL(SSopenturf)
+
+/datum/controller/subsystem/openturf/stat_entry()
+	..("P:[queued.len]")
 
 /datum/controller/subsystem/openturf/fire(resumed = 0)
 	if (!resumed)
