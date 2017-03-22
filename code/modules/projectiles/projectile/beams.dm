@@ -269,9 +269,9 @@
 	name = "energy bolt"
 	//For projectiles name is only shown in onhit messages, so its more of a layman's description
 	//of what the projectile looks like
-	damage = 4 //Very weak
-	armor_penetration = 10
+	damage = 3.5 //Very weak
 	accuracy = 4 //Guided by magic, unlikely to miss
+	eyeblur = 0 //Not bright or blinding
 	var/mob/living/ignore
 
 	muzzle_type = /obj/effect/projectile/cult/muzzle
@@ -289,8 +289,8 @@
 
 /obj/item/projectile/beam/cult/heavy
 	name = "glowing energy bolt"
-	damage = 12 //Stronger and better armor penetration, though still much weaker than a typical laser
-	armor_penetration = 15
+	damage = 10 //Stronger and better armor penetration, though still much weaker than a typical laser
+	armor_penetration = 10
 
 	muzzle_type = /obj/effect/projectile/cult/heavy/muzzle
 	tracer_type = /obj/effect/projectile/cult/heavy/tracer
