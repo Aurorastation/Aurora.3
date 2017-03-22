@@ -20,8 +20,14 @@
 	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
+	mouse_opacity = 0	// Overlays will handle mouse interaction.
 
-	var/turf/below
+	var/tmp/turf/below
+	var/tmp/list/openspace_overlays
+	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
+	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
+	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
+	var/tmp/atom/movable/openspace/overlay/turf_overlay		// The special snowflake overlay that's drawing the below turf.
 
 /turf/simulated/open/post_change()
 	..()
@@ -32,7 +38,9 @@
 	update()
 
 /turf/simulated/open/proc/update()
+	set waitfor = FALSE
 	below = GetBelow(src)
+	below.above = src
 	levelupdate()
 	for(var/atom/movable/A in src)
 		A.fall()
@@ -51,54 +59,12 @@
 		O.hide(0)
 
 /turf/simulated/open/update_icon()
-	if(below)
-		var/image/t_img = list()
-		var/image/temp = image(icon = below.icon, icon_state = below.icon_state)
-		temp.color = rgb(127,127,127)
-		temp.overlays += below.overlays
-		t_img += temp
-		underlays += t_img
-
-		var/image/o_img = list()
-		for(var/obj/o in below)
-			// ingore objects that have any form of invisibility
-			if(o.invisibility) continue
-			var/image/temp2 = image(o, dir=o.dir, layer = TURF_LAYER+0.05*o.layer)
-			temp2.color = rgb(127,127,127)
-			temp2.overlays += o.overlays
-			o_img += temp2
-		underlays += o_img
-
-	var/list/noverlays = list()
-	if(!istype(below,/turf/space))
-		noverlays += image(icon =icon, icon_state = "empty", layer = 2.45)
-	else
-		// This is stolen from /turf/space's New() proc.
-		icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
-		var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-		I.plane = PLANE_SPACE_DUST
-		I.alpha = 80
-		I.blend_mode = BLEND_ADD
-		noverlays += I
-
-	for(var/direction in cardinal)
-		var/turf/simulated/T = get_step(src,direction)
-		if(istype(T) && !istype(T,/turf/simulated/open))
-			if(istype(T,/turf/simulated/mineral))
-				var/image/border = image(icon = 'icons/turf/walls.dmi', icon_state = "rock_side", dir = direction, layer = 3)
-				noverlays += border
-			else if(istype(T,/turf/simulated/floor/asteroid))
-				var/image/border = image(icon = 'icons/turf/cliff.dmi', icon_state = "sand", dir = direction, layer = 3)
-				noverlays += border
-
-	var/obj/structure/stairs/S = locate() in below
-	if(S && S.loc == below)
-		var/image/I = image(icon = S.icon, icon_state = "below", dir = S.dir, layer = 2.45)
-		I.pixel_x = S.pixel_x
-		I.pixel_y = S.pixel_y
-		noverlays += I
-
-	overlays = noverlays
+	if(!updating && below)
+		updating = TRUE
+		SSopenturf.queued += src
+		if (above)
+			// Cascade updates until we hit the top openturf.
+			above.update_icon()
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))
