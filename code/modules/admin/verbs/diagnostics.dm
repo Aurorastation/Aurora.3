@@ -25,7 +25,7 @@
 
 	var/output = {"<B>AIR SYSTEMS REPORT</B><HR>
 <B>General Processing Data</B><BR>
-	Cycle: [air_master.current_cycle]<br>
+	Cycle: [air_master.times_fired]<br>
 	Groups: [air_master.zones.len]<BR>
 ---- <I>Active:</I> [active_groups]<BR>
 ---- <I>Inactive:</I> [inactive_groups]<BR><br>
