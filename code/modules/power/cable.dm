@@ -915,7 +915,6 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>",\
 										"<span class='danger'>You fall over and hit the ground!</span>")
 			buckled_mob.adjustBruteLoss(10)
-			buckled_mob.silent = 0
 		var/obj/item/stack/cable_coil/C = new(get_turf(src))
 		C.amount = 25
 		qdel(src)
@@ -948,6 +947,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		M.pixel_y = initial(M.pixel_y)
 
 /obj/structure/noose/user_unbuckle_mob(mob/living/user)
+
+	if(!user.IsAdvancedToolUser())
+		return
+
 	if(buckled_mob && buckled_mob.buckled == src)
 		var/mob/living/M = buckled_mob
 		if(M != user)
@@ -973,12 +976,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				"<span class='notice'>You untie the noose over your neck!</span>")
 			M.Weaken(3)
 		unbuckle_mob()
-		buckled_mob.silent = 0
 		add_fingerprint(user)
 
 /obj/structure/noose/user_buckle_mob(mob/living/carbon/human/M, mob/user)
 	if(!in_range(user, src) || user.stat || user.restrained() || !istype(M))
 		return 0
+
+	if(!user.IsAdvancedToolUser())
+		return
 
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M

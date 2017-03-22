@@ -22,7 +22,7 @@ var/mob/dview/dview_mob = new
 		living_mob_list -= src
 
 /mob/dview/Destroy(force = FALSE)
-	stack_trace("Some idiot deleted the dview.")
+	crash_with("Some idiot deleted the dview.")
 	if (!force)
 		return QDEL_HINT_LETMELIVE
 

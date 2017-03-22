@@ -117,9 +117,9 @@
 	else if (mx < LIGHTING_SOFT_THRESHOLD)
 		. = 0 // 0 means soft lighting.
 
-	cache_r  = lum_r * . || LIGHTING_SOFT_THRESHOLD
-	cache_g  = lum_g * . || LIGHTING_SOFT_THRESHOLD
-	cache_b  = lum_b * . || LIGHTING_SOFT_THRESHOLD
+	cache_r  = lum_r * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
+	cache_g  = lum_g * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
+	cache_b  = lum_b * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
 	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
 	cache_mx = mx
 
@@ -136,7 +136,7 @@
 	if (!force)
 		return QDEL_HINT_LETMELIVE
 		
-	stack_trace("Some idiot deleted a lighting_corner.")
+	crash_with("Some idiot deleted a lighting_corner.")
 	return QDEL_HINT_LETMELIVE
 
 /datum/lighting_corner/dummy/New()

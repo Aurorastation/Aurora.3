@@ -55,7 +55,7 @@
 #define SCALE(targ,min,max) (targ - min) / (max - min)
 
 // Used to get a scaled lumcount.
-/turf/proc/get_lumcount(var/minlum = 0, var/maxlum = 1)
+/turf/proc/get_lumcount(minlum = 0, maxlum = 1)
 	if (!lighting_overlay)
 		return 0.5
 
@@ -70,7 +70,7 @@
 	return CLAMP01(totallums)
 
 // Gets the current UV illumination of the turf. Always 100% for space & other static-lit tiles.
-/turf/proc/get_uv_lumcount(var/minlum = 0, var/maxlum = 1)
+/turf/proc/get_uv_lumcount(minlum = 0, maxlum = 1)
 	if (!lighting_overlay)
 		return 1
 
@@ -97,21 +97,21 @@
 			return 	// No need to continue if we find something opaque.
 
 // If an opaque movable atom moves around we need to potentially update visibility.
-/turf/Entered(var/atom/movable/Obj, var/atom/OldLoc)
+/turf/Entered(atom/movable/Obj, atom/OldLoc)
 	. = ..()
 
 	if (Obj && Obj.opacity)
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
 
-/turf/Exited(var/atom/movable/Obj, var/atom/newloc)
+/turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()
 
 	if (Obj && Obj.opacity)
 		recalc_atom_opacity() // Make sure to do this before reconsider_lights(), incase we're on instant updates.
 		reconsider_lights()
 
-/turf/change_area(var/area/old_area, var/area/new_area)
+/turf/change_area(area/old_area, area/new_area)
 	if (new_area.dynamic_lighting != old_area.dynamic_lighting)
 		if (new_area.dynamic_lighting)
 			lighting_build_overlay()

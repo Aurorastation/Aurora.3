@@ -50,7 +50,7 @@
 				victim.verbs -= V
 
 		var/mob/dead/observer/ghost = victim.ghostize(0)
-		ghost.spell_list += victim.spell_list//If they have spells, transfer them. Now we basically have a backup mob.
+		LAZYADD(ghost.spell_list, victim.spell_list)	//If they have spells, transfer them. Now we basically have a backup mob.
 
 		caster.mind.transfer_to(victim)
 		for(var/spell/S in victim.spell_list)
@@ -68,7 +68,8 @@
 		caster.key = ghost.key	//have to transfer the key since the mind was not active
 		for(var/spell/S in ghost.spell_list)
 			caster.add_spell(S)
-		ghost.spell_list = list()
+		
+		LAZYCLEARLIST(ghost.spell_list)
 
 		if(caster.mind.special_verbs.len)//If they had any special verbs, we add them here.
 			for(var/V in caster.mind.special_verbs)
