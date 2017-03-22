@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - tweak: "Administrators can now invoke rename-synths verb by normally renaming a character from the VV panel."
