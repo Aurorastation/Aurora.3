@@ -1002,55 +1002,6 @@ var/list/global/random_stock_large = list(
 			var/type = pick(paints)
 			new type(L)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Uncommon items below here
 //=============================================================
 //=============================================================
@@ -1442,53 +1393,6 @@ var/list/global/random_stock_large = list(
 			new /obj/random/coin(L)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Rare items below here:
 //=============================================================
 //=============================================================
@@ -1630,59 +1534,6 @@ var/list/global/random_stock_large = list(
 
 			var/type = pick(modkits)
 			new type(L)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Large items go below here
