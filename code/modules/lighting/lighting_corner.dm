@@ -136,7 +136,7 @@
 	if (!force)
 		return QDEL_HINT_LETMELIVE
 		
-	stack_trace("Some idiot deleted a lighting_corner.")
+	crash_with("Some idiot deleted a lighting_corner.")
 	return QDEL_HINT_LETMELIVE
 
 /datum/lighting_corner/dummy/New()
