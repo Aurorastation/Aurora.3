@@ -6,10 +6,12 @@
 /atom/movable/openspace/overlay/New()
 	global.all_openspace_overlays += src
 
-/atom/movable/openspace/overlay/proc/assume_appearance(atom/movable/target, override_plane = TRUE)
+/atom/movable/openspace/overlay/proc/assume_appearance(atom/target, override_plane = TRUE)
 	// Bind ourselves to our atom so we follow it around.
 	associated_atom = target
-	target.bound_overlay = src
+	if (istype(target, /atom/movable))
+		var/atom/movable/AM = target
+		AM.bound_overlay = src
 
 	dir = target.dir
 

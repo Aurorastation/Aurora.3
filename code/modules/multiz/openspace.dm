@@ -1,3 +1,15 @@
+/atom
+	var/tmp/atom/movable/openspace/overlay/bound_overlay	// The overlay that is directly mirroring us that we proxy movement to.
+	var/no_z_overlay	// If TRUE, this atom will not be drawn on open turfs.
+
+/atom/Destroy()
+	. = ..()
+	if (bound_overlay)
+		if (istype(bound_overlay.loc, /turf/simulated/open))
+			bound_overlay.loc:update()
+
+		QDEL_NULL(bound_overlay)
+
 /turf
 	// Reference to any open turf that might be above us to speed up atom Entered() updates.
 	var/tmp/turf/simulated/open/above
@@ -10,18 +22,6 @@
 /turf/Destroy()
 	. = ..()
 	above = null
-
-/atom/movable
-	var/tmp/atom/movable/openspace/overlay/bound_overlay	// The overlay that is directly mirroring us that we proxy movement to.
-	var/no_z_overlay	// If TRUE, this atom will not be drawn on open turfs.
-
-/atom/movable/Destroy()
-	. = ..()
-	if (bound_overlay)
-		if (istype(bound_overlay.loc, /turf/simulated/open))
-			bound_overlay.loc:update()
-
-		QDEL_NULL(bound_overlay)
 
 /atom/movable/Move()
 	..()
