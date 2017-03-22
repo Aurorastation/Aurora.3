@@ -20,12 +20,11 @@
 	recoil_wielded = 2
 	accuracy_wielded = 0
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
-/*
+
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 1.0))
-		)
-*/
+
 /obj/item/weapon/gun/projectile/automatic/rifle/w556/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
