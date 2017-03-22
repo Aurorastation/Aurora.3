@@ -72,7 +72,7 @@
 	//Sacrifier is also used in target handling. the pylon will not bite the hand that feeds it. Noncultist colleagues are fair game though
 
 	var/next_shot = 0 //Absolute world time when we're allowed to fire again
-	var/shot_delay = 5 //Minimum delay between shots, in deciseconds
+	var/shot_delay = 25 //Minimum delay between shots, in deciseconds
 	var/mob/living/target
 
 	var/notarget //Number of times handle_firing has been called without finding anything to shoot at
