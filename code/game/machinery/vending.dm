@@ -181,6 +181,13 @@
 		var/paid = 0
 		var/handled = 0
 
+		if (currently_vending.amount < 1)
+			visible_message(span("warning","\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"))
+			src.status_error = 1
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 35, 1)
+			currently_vending = null
+			return
+
 		if (I) //for IDs and PDAs and wallets with IDs
 			paid = pay_with_card(I,W)
 			handled = 1
@@ -321,6 +328,10 @@
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
 	var/datum/money_account/customer_account = get_account(I.associated_account_number)
 	if (!customer_account)
+		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
+		if (I.assignment == "Bluespace Technician")
+			return 1
+
 		src.status_message = "Error: Unable to access account. Please contact technical support if problem persists."
 		src.status_error = 1
 		return 0
