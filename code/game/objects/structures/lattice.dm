@@ -26,6 +26,8 @@
 		if(LAT != src)
 			qdel(LAT)
 
+	queue_smooth_neighbors(src)
+
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
 		if(1.0)

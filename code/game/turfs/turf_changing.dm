@@ -73,6 +73,8 @@
 	W.post_change()
 	. = W
 
+	queue_smooth_neighbors(src)
+
 	recalc_atom_opacity()
 	if (SSlighting)
 		lighting_overlay = old_lighting_overlay

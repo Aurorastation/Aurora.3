@@ -156,7 +156,7 @@
 	return adjacencies
 
 //only walls should have a need to handle underlays
-/turf/closed/wall/diagonal_smooth(adjacencies)
+/turf/simulated/wall/diagonal_smooth(adjacencies)
 	adjacencies = reverse_ndir(..())
 	if(adjacencies)
 		var/list/U = list()

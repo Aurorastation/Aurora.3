@@ -50,6 +50,11 @@
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
 
+/obj/structure/initialize()
+	. = ..()
+	if (smooth)
+		queue_smooth(src)
+
 /obj/structure/proc/climb_on()
 
 	set name = "Climb structure"
