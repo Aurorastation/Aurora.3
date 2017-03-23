@@ -39,9 +39,25 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/grenade/chem_grenade/incendiary)
 	cost = 20
 	containertype = /obj/structure/closet/crate
-	containername = "Special Ops crate"
+	containername = "crate"
 	group = "Security"
 	hidden = 1
+
+/datum/supply_packs/randomised/illegalguns
+	name = "Illegal weapons crate"
+	num_contained = 2
+	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
+					/obj/item/weapon/gun/projectile/boltaction,
+					/obj/item/weapon/gun/projectile/silenced,
+					/obj/item/weapon/gun/projectile/pirate,
+					/obj/item/weapon/gun/projectile/revolver/derringer,
+					/obj/item/weapon/gun/projectile/dragunov,
+					/obj/item/weapon/gun/energy/retro)
+	cost = 60
+	containertype = /obj/structure/closet/crate
+	containername = "crate"
+	hidden = 1
+	group = "Security"
 
 /datum/supply_packs/forensics
 	name = "Auxiliary forensic tools"
@@ -1698,22 +1714,6 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "glowsticks crate"
 	group = "Operations"
 
-/datum/supply_packs/randomised/illegalguns
-	name = "Illegal weapons crate"
-	num_contained = 2
-	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-					/obj/item/weapon/gun/projectile/boltaction,
-					/obj/item/weapon/gun/projectile/silenced,
-					/obj/item/weapon/gun/projectile/pirate,
-					/obj/item/weapon/gun/projectile/revolver/derringer,
-					/obj/item/weapon/gun/projectile/dragunov,
-					/obj/item/weapon/gun/energy/retro)
-	cost = 120
-	containertype = /obj/structure/closet/crate
-	containername = "Unlabeled crate"
-	contraband = 1
-	group = "Security"
-
 /datum/supply_packs/spessbike
 	name = "Space-bike Crate"
 	contains = list(/obj/vehicle/bike)
@@ -1733,3 +1733,44 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate
 	containername = "IPC/Shell tag implanters"
 	group = "Security"
+
+/datum/supply_packs/ame_ctrl
+	name = "Antimatter Reactor Control Unit"
+	contains = list(
+		/obj/machinery/power/am_control_unit
+	)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure/large
+	containername = "antimatter reactor control unit kit"
+	group = "Engineering"
+	access = access_ce
+
+/datum/supply_packs/ame_section
+	name = "Antimatter Reactor Shielding Kit"
+	contains = list(
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/secure/phoron
+	containername = "antimatter reactor shielding (9x) crate"
+	group = "Engineering"
+	access = access_ce
+
+/datum/supply_packs/ame_fuel
+	name = "Antimatter Reactor Fuel"
+	contains = list(
+		/obj/item/weapon/am_containment
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/secure/bin
+	containername = "antimatter fuel container"
+	group = "Engineering"
+	access = access_engine

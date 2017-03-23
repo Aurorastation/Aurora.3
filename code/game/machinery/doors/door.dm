@@ -30,8 +30,7 @@
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/open_duration = 150//How long it stays open
-	var/datum/scheduled_task/close_task
-	var/datum/scheduled_task/hatch_task
+
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
 	var/hatchstate = 0//0: closed, 1: open
@@ -229,7 +228,7 @@
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
-					getFromPool(/obj/item/stack/rods, list(src.loc, 3))
+					getFromPool(/obj/item/stack/rods, src.loc, 3)
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)

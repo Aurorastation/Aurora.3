@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - imageadd: "Added new sprites for regular, rubber and rifle casings."
-  - imageadd: "Changed some gun sprites."
-  - imageadd: "Changed the tactical mask sprite."

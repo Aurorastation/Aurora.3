@@ -1,12 +1,15 @@
 /mob/living/simple_animal/mouse
 	name = "mouse"
 	real_name = "mouse"
-	desc = "It's a small rodent."
+	desc = "It's a small rodent, often seen hiding in maintenance areas and making a nuisance of itself."
+
 	icon = 'icons/mob/mouse.dmi'
 	icon_state = "mouse_gray"
 	item_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
+	icon_rest = "mouse_gray_sleep"
+	can_nap = 1
 	speak = list("Squeek!","SQUEEK!","Squeek?")
 	speak_emote = list("squeeks","squeeks","squiks")
 	emote_hear = list("squeeks","squeaks","squiks")
@@ -53,6 +56,7 @@
 
 	kitchen_tag = "rodent"
 
+
 /mob/living/simple_animal/mouse/Life()
 	if(..())
 
@@ -73,25 +77,19 @@
 					squeals++
 					last_squealgain = world.time
 
-		if(!ckey && stat == CONSCIOUS && prob(0.5))
-			stat = UNCONSCIOUS
-			icon_state = "mouse_[body_color]_sleep"
-			wander = 0
-			speak_chance = 0
-			//snuffles
-		else if(stat == UNCONSCIOUS)
-			if(ckey || prob(1))
-				stat = CONSCIOUS
-				icon_state = "mouse_[body_color]"
-				wander = 1
-				speak_chance = initial(speak_chance)
-			else if(prob(5))
-				audible_emote("snuffles.")
 	else
 		if ((world.time - timeofdeath) > decompose_time)
 			dust()
 
-
+//Pixel offsetting as they scamper around
+/mob/living/simple_animal/mouse/Move()
+	if(..())
+		if (prob(50))
+			pixel_x += rand(-2,2)
+			pixel_x = Clamp(pixel_x, -10, 10)
+		else
+			pixel_y += rand(-2,2)
+			pixel_y = Clamp(pixel_y, -4, 14)
 
 /mob/living/simple_animal/mouse/New()
 	..()
@@ -109,8 +107,8 @@
 	icon_state = "mouse_[body_color]"
 	item_state = "mouse_[body_color]"
 	icon_living = "mouse_[body_color]"
+	icon_rest = "mouse_[body_color]_sleep"
 	icon_dead = "mouse_[body_color]_dead"
-	desc = "It's a small [body_color] rodent, often seen hiding in maintenance areas and making a nuisance of itself."
 	if (body_color == "brown")
 		holder_type = /obj/item/weapon/holder/mouse/brown
 	if (body_color == "gray")
@@ -144,17 +142,6 @@
 	if(client)
 		client.time_died_as_mouse = world.time
 
-/mob/living/simple_animal/mouse/MouseDrop(atom/over_object)
-
-	var/mob/living/carbon/H = over_object
-	if(!istype(H) || !Adjacent(H)) return ..()
-
-	if(H.a_intent == "help")
-		get_scooped(H, usr)
-		return
-	else
-		return ..()
-
 
 
 //Plays a sound.
@@ -170,7 +157,7 @@
 //Plays a random selection of four sounds, at a low volume
 //This is triggered randomly periodically by any mouse, or manually
 /mob/living/simple_animal/mouse/proc/squeak_soft(var/manual = 1)
-	if (stat == CONSCIOUS)
+	if (stat != DEAD) //Soft squeaks are allowed while sleeping
 		var/list/new_squeaks = last_softsqueak ? soft_squeaks - last_softsqueak : soft_squeaks
 		var/sound = pick(new_squeaks)
 
@@ -215,6 +202,7 @@
 		if(!stat)
 			var/mob/M = AM
 			M << "\blue \icon[src] Squeek!"
+			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
 			else
@@ -233,15 +221,9 @@
 /mob/living/simple_animal/mouse/dust()
 	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
 
-/mob/living/simple_animal/mouse/lay_down()
-	set name = "Rest"
-	set category = "IC"
 
-	resting = !resting
-	icon_state = resting ? "mouse_[body_color]_sleep" : "mouse_[body_color]"
-	src << "\blue You are now [resting ? "resting" : "getting up"]"
 
-	canmove = !resting
+
 
 
 /*
@@ -251,16 +233,19 @@
 /mob/living/simple_animal/mouse/white
 	body_color = "white"
 	icon_state = "mouse_white"
+	icon_rest = "mouse_white_sleep"
 	holder_type = /obj/item/weapon/holder/mouse/white
 
 /mob/living/simple_animal/mouse/gray
 	body_color = "gray"
 	icon_state = "mouse_gray"
+	icon_rest = "mouse_gray_sleep"
 	holder_type = /obj/item/weapon/holder/mouse/gray
 
 /mob/living/simple_animal/mouse/brown
 	body_color = "brown"
 	icon_state = "mouse_brown"
+	icon_rest = "mouse_brown_sleep"
 	holder_type = /obj/item/weapon/holder/mouse/brown
 
 //TOM IS ALIVE! SQUEEEEEEEE~K :)

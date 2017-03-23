@@ -2,6 +2,7 @@
 	name = "Shuttle"
 	desc = "For shuttle control."
 
+	is_holographic = FALSE
 	icon_screen = "shuttle"
 	light_color = "#00ffff"
 	var/auth_need = 3.0

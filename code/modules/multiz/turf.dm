@@ -13,6 +13,8 @@
 /turf/space/CanZPass(atom, direction)
 	return 1
 
+var/global/list/total_openspace = list()
+
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
@@ -28,6 +30,18 @@
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
 	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
 	var/tmp/atom/movable/openspace/overlay/turf_overlay		// The special snowflake overlay that's drawing the below turf.
+
+/turf/simulated/open/airless
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
+
+/turf/simulated/open/New()
+	total_openspace += src
+
+/turf/simulated/open/Destroy()
+	total_openspace -= src
+	..()
 
 /turf/simulated/open/post_change()
 	..()

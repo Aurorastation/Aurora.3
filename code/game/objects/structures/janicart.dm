@@ -22,8 +22,21 @@
 	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
 	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
 
-///obj/structure/janitorialcart/New()
+/obj/structure/janitorialcart/New()
+	..()
+	janitorial_supplies |= src
 
+/obj/structure/janitorialcart/Destroy()
+	janitorial_supplies -= src
+	QDEL_NULL(mybag)
+	QDEL_NULL(mymop)
+	QDEL_NULL(myspray)
+	QDEL_NULL(myreplacer)
+	QDEL_NULL(mybucket)
+	return ..()
+
+/obj/structure/janitorialcart/proc/get_short_status()
+	return "Contents: [english_list(contents)]"
 
 /obj/structure/janitorialcart/examine(mob/user)
 	if(..(user, 1))
@@ -130,7 +143,7 @@
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/pickaxe/plasmacutter)))
+	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
 		dismantle(user)
 		return
 	..()

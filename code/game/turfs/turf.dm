@@ -143,7 +143,7 @@ var/const/enterloopsanity = 100
 			M.make_floating(0)
 	..()
 	var/objects = 0
-	if(A && (A.flags & PROXMOVE))
+	if(A && (A.flags & PROXMOVE) && A.simulated)
 		for(var/atom/movable/thing in range(1))
 			if(objects > enterloopsanity) break
 			objects++

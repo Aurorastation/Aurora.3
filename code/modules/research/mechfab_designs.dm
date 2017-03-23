@@ -695,7 +695,7 @@
 	id = "plasmacutter_module"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 3, TECH_PHORON = 4)
 	materials = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
-	build_path = /obj/item/rig_module/device/plasmacutter
+	build_path = /obj/item/rig_module/mounted/plasmacutter
 
 /datum/design/hardsuitmodules/jet_module
 	name = "hardsuit maneuvering jets"

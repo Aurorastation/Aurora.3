@@ -250,7 +250,7 @@
 	if(passed_smoke)
 		smoke = passed_smoke
 	else
-		smoke = getFromPool(/obj/effect/effect/smoke/chem, list(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I))
+		smoke = getFromPool(/obj/effect/effect/smoke/chem, location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I)
 
 	if(chemholder.reagents.reagent_list.len)
 		chemholder.reagents.trans_to_obj(smoke, chemholder.reagents.total_volume / dist, copy = 1) //copy reagents to the smoke so mob/breathe() can handle inhaling the reagents

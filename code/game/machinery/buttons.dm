@@ -124,7 +124,8 @@
 		return
 
 	active = 1
-	use_power(5)
+	if(use_power)
+		use_power(active_power_usage)
 	update_icon()
 	wifi_sender.activate()
 	active = 0

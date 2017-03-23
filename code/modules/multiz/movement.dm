@@ -137,25 +137,6 @@
 
 	return TRUE
 
-/mob/living/carbon/human/can_fall()
-	if(Allow_Spacemove())
-		return 0
-
-	if(Check_Shoegrip())	//scaling hull with magboots
-		for(var/turf/simulated/T in trange(1,src))
-			if(T.density)
-				return 0
-	..()
-
-/mob/living/silicon/robot/can_fall()
-	if(Allow_Spacemove()) //Checks for active jetpack
-		return 0
-
-	for(var/turf/simulated/T in trange(1,src)) //Robots get "magboots"
-		if(T.density)
-			return 0
-	..()
-
 /obj/effect/can_fall()
 	return FALSE
 
@@ -181,17 +162,28 @@
 
 	if(istype(landing, /turf/simulated/open))
 		visible_message("\The [src] falls from the level above through \the [landing]!", "You hear a whoosh of displaced air.")
-	else
+	else if(!istype(landing, /turf/space))
 		visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
 
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
+
+	var/area/area1 = get_area(landing)
+	if(!area1.has_gravity())
+		return
+
+	if(istype(landing, /turf/simulated/open))
+		var/turf/simulated/open/open = landing
+		var/area/area2 = get_area(open.below)
+		if(!area2.has_gravity())
+			return
+
 	var/damage = 20
 	apply_damage(rand(0, damage), BRUTE, "head")
 	apply_damage(rand(0, damage), BRUTE, "chest")
-	apply_damage(rand(0, damage), BRUTE, "l_leg")
-	apply_damage(rand(0, damage), BRUTE, "r_leg")
+	apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
+	apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
 	apply_damage(rand(0, damage), BRUTE, "l_arm")
 	apply_damage(rand(0, damage), BRUTE, "r_arm")
 	weakened = max(weakened,2)

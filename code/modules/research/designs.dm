@@ -318,7 +318,7 @@ other types of metals and chemistry for reagents).
 	id = "plasmacutter"
 	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 1500, "glass" = 500, "gold" = 500, "phoron" = 500)
-	build_path = /obj/item/weapon/pickaxe/plasmacutter
+	build_path = /obj/item/weapon/gun/energy/plasmacutter
 	sort_string = "KAAAC"
 
 /datum/design/item/weapon/mining/pick_diamond
@@ -766,7 +766,7 @@ datum/design/item/experimental_welder
 	name = "Experimental Welding Tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
 	id = "experimental_welder"
-	req_tech = list(ENGINEERING = 4, TECH_MATERIAL = 4)
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
 	sort_string = "VABAJ"

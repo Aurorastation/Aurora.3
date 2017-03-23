@@ -166,8 +166,8 @@
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
-	origin_tech = "engineering=2"
 	base_iconstate = "ind_welder_off"
+	origin_tech = list(TECH_ENGINEERING = 2)
 
 
 /obj/item/weapon/weldingtool/hugetank
@@ -176,8 +176,8 @@
 	max_fuel = 80
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
-	origin_tech = "engineering=3"
 	base_iconstate = "adv_welder_off"
+	origin_tech = list(TECH_ENGINEERING = 3)
 
 
 //The Experimental Welding Tool!
@@ -187,8 +187,8 @@
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
-	origin_tech = "engineering=4;biotech=4"
 	base_iconstate = "exp_welder_off"
+	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	base_itemstate = "exp_welder"
 
 	var/last_gen = 0
