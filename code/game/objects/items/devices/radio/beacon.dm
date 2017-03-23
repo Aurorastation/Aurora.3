@@ -1,3 +1,5 @@
+var/global/list/teleportbeacons = list()
+
 /obj/item/device/radio/beacon
 	name = "tracking beacon"
 	desc = "A beacon used by a teleporter."
@@ -5,6 +7,14 @@
 	item_state = "signaler"
 	var/code = "electronic"
 	origin_tech = list(TECH_BLUESPACE = 1)
+
+/obj/item/device/radio/beacon/New()
+	..()
+	teleportbeacons += src
+
+/obj/item/device/radio/beacon/Destroy()
+	teleportbeacons.Remove(src)
+	return ..()
 
 /obj/item/device/radio/beacon/hear_talk()
 	return

@@ -53,7 +53,7 @@
 		info = parsepencode(text)
 	else
 		info = ""
-		
+
 	update_icon()
 	update_space(info)
 	updateinfolinks()
@@ -134,7 +134,7 @@
 		if (icon_state == "paper_plane")
 			user.show_message(span("alert", "The paper is already folded into a plane."))
 			return
-		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."), 
+		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."),
 			span("notice", "You carefully fold \the [src] into a plane."), "You hear paper rustling.")
 		icon_state = "paper_plane"
 		throw_range = 8

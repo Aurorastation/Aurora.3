@@ -1,5 +1,5 @@
 //Config stuff
-#define SUPPLY_DOCKZ 2          //Z-level of the Dock.
+#define SUPPLY_DOCKZ 3         //Z-level of the Dock.
 #define SUPPLY_STATIONZ 1       //Z-level of the Station.
 #define SUPPLY_STATION_AREATYPE "/area/supply/station" //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE "/area/supply/dock"	//Type of the supply shuttle area for dock
@@ -15,11 +15,13 @@
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	requires_power = 0
+	station_area = 1
 
 /area/supply/dock
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	requires_power = 0
+	centcomm_area = 1
 
 
 /*

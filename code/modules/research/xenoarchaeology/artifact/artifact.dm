@@ -107,12 +107,17 @@
 
 /obj/structure/boulder/Bumped(AM)
 	. = ..()
+
 	if(istype(AM,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = AM
 		if((istype(H.l_hand,/obj/item/weapon/pickaxe)) && (!H.hand))
-			attackby(H.l_hand,H)
+			var/obj/item/weapon/pickaxe/P = H.l_hand
+			if(P.autodrill)
+				attackby(H.l_hand,H)
 		else if((istype(H.r_hand,/obj/item/weapon/pickaxe)) && H.hand)
-			attackby(H.r_hand,H)
+			var/obj/item/weapon/pickaxe/P = H.r_hand
+			if(P.autodrill)
+				attackby(H.r_hand,H)
 
 	else if(istype(AM,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = AM

@@ -271,12 +271,6 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	shuttles["Administration"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
-	shuttle = new()
-	shuttle.area_offsite = locate(/area/shuttle/alien/base)
-	shuttle.area_station = locate(/area/shuttle/alien/mine)
-	shuttles["Alien"] = shuttle
-	//process_shuttles += shuttle	//don't need to process this. It can only be moved using admin magic anyways.
-
 	/*// Public shuttles
 	shuttle = new()
 	shuttle.warmup_time = 10

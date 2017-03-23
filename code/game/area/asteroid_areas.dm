@@ -32,6 +32,7 @@
 // Main mining
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
+	station_area = 1
 
 /area/outpost/mining_main/dorms
 	name = "Mining Dormitory"
@@ -59,6 +60,7 @@
 // Engineering
 /area/outpost/engineering
 	icon_state = "outpost_engine"
+	station_area = 1
 
 /area/outpost/engineering/hallway
 	name = "Engineering Sublevel Hallway"
@@ -83,6 +85,7 @@
 // Research
 /area/outpost/research
 	icon_state = "outpost_research"
+	station_area = 1
 
 /area/outpost/research/hallway
 	name = "Research Sublevel Hallway"

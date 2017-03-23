@@ -19,7 +19,19 @@
 		return
 
 	new N(src)
+	
+/turf/unsimulated/chasm_mask
+	name = "chasm mask"
+	icon = 'icons/turf/walls.dmi'
+	icon_state = "alienvault"
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
+
 
 // It's a placeholder turf, don't do anything special.
 /turf/unsimulated/mask/New()
+	return
+
+/turf/unsimulated/chasm_mask/New()
 	return

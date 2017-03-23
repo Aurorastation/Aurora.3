@@ -23,6 +23,11 @@
 		luminosity = 0
 	else
 		luminosity = 1
+	if(centcomm_area)
+		centcom_areas |= src
+	if(station_area)
+		the_station_areas |= src
+
 
 	..()
 
