@@ -72,9 +72,9 @@
 		holographic_overlay(src, src.icon, icon_screen)
 	else
 		if (overlay_layer != layer)
-			add_overlay(icon_screen)
-		else
 			add_overlay(image(icon, icon_screen, overlay_layer))
+		else
+			add_overlay(icon_screen)
 
 /obj/machinery/computer/power_change()
 	..()
