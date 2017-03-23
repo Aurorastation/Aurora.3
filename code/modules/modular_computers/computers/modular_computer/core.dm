@@ -83,14 +83,14 @@
 /obj/item/modular_computer/update_icon()
 	icon_state = icon_state_unpowered
 
-	overlays.Cut()
+	cut_overlays()
 	if(!enabled)
 		var/probably_working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
 		if(icon_state_screensaver && probably_working)
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
-				overlays += image(icon_state_screensaver)
+				add_overlay(icon_state_screensaver)
 		
 		if (screensaver_light_range && probably_working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -102,13 +102,13 @@
 		if (is_holographic)
 			holographic_overlay(src, src.icon, state)
 		else
-			overlays += image(state)
+			add_overlay(state)
 		set_light(light_strength, l_color = active_program.color)
 	else
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_state_menu)
 		else
-			overlays += image(icon_state_menu)
+			add_overlay(icon_state_menu)
 		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)

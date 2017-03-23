@@ -117,44 +117,27 @@
 	return 0
 
 /obj/machinery/power/smes/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)	
 		return
 
-	if (!smesImageCache || !smesImageCache.len)
-		smesImageCache = list()
-		smesImageCache.len = 11
-
-		smesImageCache[SMES_CLEVEL_1] = image('icons/obj/power.dmi',"smes-og1")
-		smesImageCache[SMES_CLEVEL_2] = image('icons/obj/power.dmi',"smes-og2")
-		smesImageCache[SMES_CLEVEL_3] = image('icons/obj/power.dmi',"smes-og3")
-		smesImageCache[SMES_CLEVEL_4] = image('icons/obj/power.dmi',"smes-og4")
-		smesImageCache[SMES_CLEVEL_5] = image('icons/obj/power.dmi',"smes-og5")
-
-		smesImageCache[SMES_OUTPUTTING] = image('icons/obj/power.dmi', "smes-op2")
-		smesImageCache[SMES_OUTPUT_ATTEMPT] = image('icons/obj/power.dmi', "smes-op1")
-		smesImageCache[SMES_NOT_OUTPUTTING] = image('icons/obj/power.dmi',"smes-op0")
-		smesImageCache[SMES_INPUTTING] = image('icons/obj/power.dmi', "smes-oc1")
-		smesImageCache[SMES_INPUT_ATTEMPT] = image('icons/obj/power.dmi', "smes-oc0")
-		smesImageCache[SMES_INPUT_MAX] = image('icons/obj/power.dmi', "smes-oc2")
-
 	if(inputting == 2)
-		overlays += smesImageCache[SMES_INPUT_MAX]
+		add_overlay("smes-oc2")
 	else if (inputting == 1)
-		overlays += smesImageCache[SMES_INPUTTING]
+		add_overlay("smes-oc1")
 	else if (input_attempt)
-		overlays += smesImageCache[SMES_INPUT_ATTEMPT]
+		add_overlay("smes-oc0")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		overlays += smesImageCache[clevel]
+		add_overlay("smes-og[clevel]")
 
 	if(outputting == 2)
-		overlays += smesImageCache[SMES_OUTPUTTING]
+		add_overlay("smes-op2")
 	else if (outputting == 1)
-		overlays += smesImageCache[SMES_OUTPUT_ATTEMPT]
+		add_overlay("smes-op1")
 	else
-		overlays += smesImageCache[SMES_NOT_OUTPUTTING]
+		add_overlay("smes-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))

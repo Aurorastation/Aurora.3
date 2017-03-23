@@ -576,16 +576,16 @@ About the new airlock wires panel:
 		if(p_open || welded)
 			cut_overlays()
 			if(p_open)
-				add_overlay(image(icon, "panel_open"))
+				add_overlay("panel_open")
 			if (!(stat & NOPOWER))
 				if(stat & BROKEN)
-					add_overlay(image(icon, "sparks_broken"))
+					add_overlay(icon, "sparks_broken")
 				else if (health < maxhealth * 3/4)
-					add_overlay(image(icon, "sparks_damaged"))
+					add_overlay("sparks_damaged")
 			if(welded)
-				add_overlay(image(icon, "welded"))
+				add_overlay("welded")
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
-			add_overlay(image(icon, "sparks_damaged"))
+			add_overlay("sparks_damaged")
 
 		if (hatch_image)
 			if (hatchstate)
@@ -596,7 +596,7 @@ About the new airlock wires panel:
 	else
 		icon_state = "door_open"
 		if((stat & BROKEN) && !(stat & NOPOWER))
-			add_overlay(image(icon, "sparks_open"))
+			add_overlay("sparks_open")
 		if (has_set_boltlight)
 			set_light(0)
 			has_set_boltlight = FALSE
