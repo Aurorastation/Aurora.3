@@ -333,11 +333,11 @@
 
 	else if(istype(A, /mob/living))
 		var/mob/living/L = A
-		L.apply_damage(15, BRUTE, def_zone)
+		L.apply_damage(damage, BRUTE, def_zone)
 		if(istype(A, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = L
 			var/ultimate_def_zone = check_zone(def_zone)
 			if(H.has_organ(ultimate_def_zone))
 				var/obj/item/organ/external/E = H.get_organ(ultimate_def_zone)
-				if(E.damage > 15 && prob((4*E.damage)))
+				if(E.damage > 15 && prob((3*E.damage)))
 					E.droplimb(0,DROPLIMB_EDGE)
