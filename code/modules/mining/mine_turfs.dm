@@ -42,7 +42,7 @@
 		if(update_neighbors && istype(turf_to_check,/turf/simulated/floor/asteroid))
 			var/turf/simulated/floor/asteroid/T = turf_to_check
 			T.updateMineralOverlays()
-		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor))
+		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor) || istype(turf_to_check, /turf/simulated/open))
 			var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
 			overlay.plane = 0
 			turf_to_check.overlays += overlay
@@ -335,7 +335,10 @@
 			T.overlays.Cut()
 			for(var/next_direction in step_overlays)
 				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
-					T.overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
+					var/image/spess = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
+					spess.plane = 0
+					T.overlays += spess
+
 		var/turf/simulated/open/O = get_step(src, step_overlays[direction])
 		if(istype(O))
 			O.update()
@@ -688,11 +691,16 @@
 	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
 	for(var/direction in step_overlays)
 
-		if(istype(get_step(src, step_overlays[direction]), /turf/space))
-			overlays += image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
+		var/turf/step = get_step(src, step_overlays[direction])
+		if(istype(step, /turf/space) || istype(step, /turf/simulated/open))
+			var/image/overlay = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
+			overlay.plane = 0
+			overlays += overlay
 
 		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
-			overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
+			var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
+			overlay.plane = 0
+			overlays += overlay
 
 	if (!overlay_cache)
 		overlay_cache = list()

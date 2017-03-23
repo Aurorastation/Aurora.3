@@ -38,18 +38,16 @@
 		if (!T.shadower)
 			T.shadower = new(T)
 
-		if ("\ref[T.below]" != T.last_seen_turf)
-			T.last_seen_turf = "\ref[T.below]"
+		if (T.is_above_space())
+			T.shadower.hide()
+		else
+			T.shadower.show()
 
-			// Generate the turf overlay if we don't have one.
-			if (!T.turf_overlay)
-				T.turf_overlay = new(T)
-
-			var/atom/movable/openspace/overlay/below_OO = T.turf_overlay
-			if (istype(T.below, /turf/space))
-				below_OO.assume_appearance(T.below, override_plane = FALSE)
-			else
-				below_OO.assume_appearance(T.below)
+		T.appearance = T.below
+		if (!istype(T.below, /turf/space))
+			T.plane = OPENTURF_PLANE
+		else
+			T.plane = PLANE_SPACE_BACKGROUND
 
 		for (var/thing in T.below)
 			var/atom/movable/object = thing
@@ -61,6 +59,9 @@
 
 			// Atom exists & doesn't have an overlay, generate one.
 			var/atom/movable/openspace/overlay/OO = object.bound_overlay
-			OO.assume_appearance(object)
+			OO.associated_atom = object
+			OO.dir = object.dir
+			OO.appearance = object
+			OO.plane = OPENTURF_PLANE
 
 		T.updating = FALSE

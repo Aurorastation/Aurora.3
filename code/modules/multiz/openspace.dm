@@ -23,15 +23,22 @@
 	. = ..()
 	above = null
 
+/atom/movable
+	var/tmp/destroy_oo_next_move
+
 /atom/movable/Move()
 	..()
 	if (bound_overlay)
-		// These should only ever be located on open-turf tiles.
-		var/turf/the_loc = bound_overlay.loc
-		if (!istype(the_loc, /turf/simulated/open))
+		if (destroy_oo_next_move)
 			QDEL_NULL(bound_overlay)
+			destroy_oo_next_move = FALSE
 		else
-			bound_overlay.forceMove(get_step(src, UP))
+			// These should only ever be located on open-turf tiles.
+			var/turf/the_loc = bound_overlay.loc
+			if (!istype(the_loc, /turf/simulated/open))
+				destroy_oo_next_move = TRUE
+			else
+				bound_overlay.forceMove(get_step(src, UP))
 
 // -- Openspace movables --
 
@@ -54,5 +61,17 @@
 		0, 0.5, 0,
 		0, 0, 0.5
 	)
+
+/atom/movable/openspace/multiplier/proc/show()
+	if (!color)
+		color = list(
+			0.5, 0, 0,
+			0, 0.5, 0,
+			0, 0, 0.5
+		)
+
+/atom/movable/openspace/multiplier/proc/hide()
+	if (color)
+		color = null
 
 // /atom/movable/openspace/overlay is in openspace_overlay.dm

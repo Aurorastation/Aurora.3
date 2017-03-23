@@ -102,10 +102,10 @@
 	if(istype(target_turf, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = target_turf
 		M.GetDrilled(1)
-	var/obj/effect/overlay/temp/kinetic_blast/K = getFromPool(/obj/effect/overlay/temp/kinetic_blast, target_turf)
+	var/obj/effect/overlay/temp/kinetic_blast/K = new /obj/effect/overlay/temp/kinetic_blast(target_turf)
 	K.color = color
 	for(var/type in hit_overlays)
-		getFromPool(type, target_turf)
+		new type(target_turf)
 	if(turf_aoe)
 		for(var/T in orange(1, target_turf))
 			if(istype(T, /turf/simulated/mineral))

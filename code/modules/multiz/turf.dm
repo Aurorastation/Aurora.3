@@ -22,13 +22,14 @@ var/global/list/total_openspace = list()
 	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
-	mouse_opacity = 0	// Overlays will handle mouse interaction.
 
 	var/tmp/turf/below
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
 	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
-	var/tmp/atom/movable/openspace/overlay/turf_overlay		// The special snowflake overlay that's drawing the below turf.
+
+/turf/simulated/open/proc/is_above_space()
+	return istype(below, /turf/space) || (istype(below, /turf/simulated/open) && below:is_above_space())
 
 /turf/simulated/open/New()
 	..()
@@ -38,7 +39,6 @@ var/global/list/total_openspace = list()
 	SSopenturf.queued -= src
 	global.total_openspace_turfs -= 1
 	QDEL_NULL(shadower)
-	QDEL_NULL(turf_overlay)
 	if (above)
 		above.update()
 		above = null

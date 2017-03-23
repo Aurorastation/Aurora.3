@@ -33,7 +33,7 @@
 		if(locate(/obj/structure/lattice, get_step(src, dir)))
 			L = locate(/obj/structure/lattice, get_step(src, dir))
 			L.updateOverlays()
-	..()
+	return ..()
 
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
@@ -59,17 +59,17 @@
 	return
 
 /obj/structure/lattice/proc/updateOverlays()
-	spawn(1)
-		overlays = list()
+	set waitfor = FALSE
+	overlays = list()
 
-		var/dir_sum = 0
+	var/dir_sum = 0
 
-		for (var/direction in cardinal)
-			if(locate(/obj/structure/lattice, get_step(src, direction)))
+	for (var/direction in cardinal)
+		if(locate(/obj/structure/lattice, get_step(src, direction)))
+			dir_sum += direction
+		else
+			if(!(istype(get_step(src, direction), /turf/space)))
 				dir_sum += direction
-			else
-				if(!(istype(get_step(src, direction), /turf/space)))
-					dir_sum += direction
 
-		icon_state = "lattice[dir_sum]"
-		return
+	icon_state = "lattice[dir_sum]"
+	return

@@ -164,6 +164,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		T.update_air_properties()
 		T.post_update_air_properties()
 		T.needs_air_update = 0
+		T.zas_queued_for_update = FALSE
 		#ifdef ZASDBG
 		T.overlays -= mark
 		updated++
@@ -310,7 +311,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	ASSERT(isturf(T))
 	#endif
 	if(T.needs_air_update) return
-	tiles_to_update |= T
+	if (!T.zas_queued_for_update)
+		tiles_to_update += T
+		T.zas_queued_for_update = TRUE
 	#ifdef ZASDBG
 	T.overlays += mark
 	#endif
@@ -371,3 +374,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 /datum/controller/subsystem/air/proc/remove_edge(connection_edge/E)
 	edges.Remove(E)
 	if(!E.sleeping) active_edges.Remove(E)
+
+
+/turf
+	var/tmp/zas_queued_for_update

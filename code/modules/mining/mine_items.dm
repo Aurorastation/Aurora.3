@@ -502,7 +502,7 @@
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
-	..()
+	return ..()
 
 /obj/structure/track/ex_act(severity)
 	switch(severity)
@@ -522,7 +522,7 @@
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing apart connectors ...</span>"
-		getFromPool(/obj/item/stack/rods, src.loc)
+		new /obj/item/stack/rods(src.loc)
 		qdel(src)
 
 	return
@@ -1273,7 +1273,7 @@ var/list/total_extraction_beacons = list()
 	if(!target)
 		target = src
 	if(location)
-		getFromPool(/obj/effect/overlay/temp/explosion, location)
+		new /obj/effect/overlay/temp/explosion(location)
 		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)
 		for(var/atom/A in range(4,location))
 			if(istype(A,/turf/simulated/mineral))
