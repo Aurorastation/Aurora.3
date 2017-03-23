@@ -30,3 +30,5 @@
 		last_slept = TimeOfHour; \
 		tick_start = world.tick_usage; \
 		}
+
+#define PSCHED_CHECK_TICK (world.tick_usage > 100 || (world.tick_usage - tick_start) > tick_allowance)

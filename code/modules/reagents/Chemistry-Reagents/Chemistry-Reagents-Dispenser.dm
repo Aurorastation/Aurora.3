@@ -117,7 +117,9 @@
 
 	if(alien == IS_DIONA)
 		return //Diona can gain nutrients, but don't get drunk or suffer other effects
-
+	
+	if(isunathi(M))//unathi are poisoned by alcohol as well
+		M.adjustToxLoss(2.5 * removed * (strength / 100))
 
 	var/quantity = (strength / 100) * removed
 	M.intoxication += quantity

@@ -33,6 +33,10 @@
 	..()
 	spark_system = bind_spark(src, 5, alldirs)
 
+/obj/machinery/power/emitter/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
+
 /obj/machinery/power/emitter/verb/rotate()
 	set name = "Rotate"
 	set category = "Object"
@@ -56,6 +60,7 @@
 	log_game("Emitter deleted at ([x],[y],[z])")
 	investigate_log("<font color='red'>deleted</font> at ([x],[y],[z])","singulo")
 	qdel(wifi_receiver)
+	qdel(spark_system)
 	wifi_receiver = null
 	return ..()
 

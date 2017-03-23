@@ -114,21 +114,15 @@
 
 /obj/item/weapon/storage/lockbox/medal/New()
 	..()
-	new /obj/item/clothing/accessory/medal
-	new /obj/item/clothing/accessory/medal
-	new /obj/item/clothing/accessory/medal/conduct
-	new /obj/item/clothing/accessory/medal/conduct
-	new /obj/item/clothing/accessory/medal/conduct
-	new /obj/item/clothing/accessory/medal/conduct
-	new /obj/item/clothing/accessory/medal/bronze_heart
-	new /obj/item/clothing/accessory/medal/bronze_heart
-	new /obj/item/clothing/accessory/medal/nobel_science
-	new /obj/item/clothing/accessory/medal/nobel_science
-	new /obj/item/clothing/accessory/medal/silver
-	new /obj/item/clothing/accessory/medal/iron/merit
-	new /obj/item/clothing/accessory/medal/silver/valor
-	new /obj/item/clothing/accessory/medal/silver/security
-	new /obj/item/clothing/accessory/medal/silver/security
-	new /obj/item/clothing/accessory/medal/gold
-
-
+	new /obj/item/clothing/accessory/medal/conduct(src)
+	new /obj/item/clothing/accessory/medal/conduct(src)
+	new /obj/item/clothing/accessory/medal/conduct(src)
+	new /obj/item/clothing/accessory/medal/bronze_heart(src)
+	new /obj/item/clothing/accessory/medal/bronze_heart(src)
+	new /obj/item/clothing/accessory/medal/nobel_science(src)
+	new /obj/item/clothing/accessory/medal/nobel_science(src)
+	new /obj/item/clothing/accessory/medal/iron/merit(src)
+	new /obj/item/clothing/accessory/medal/iron/merit(src)
+	new /obj/item/clothing/accessory/medal/silver/valor(src)
+	new /obj/item/clothing/accessory/medal/silver/security(src)
+	new /obj/item/clothing/accessory/medal/silver/security(src)

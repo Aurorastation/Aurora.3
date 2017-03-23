@@ -40,6 +40,8 @@
 	var/virus_immune
 	var/short_sighted
 	var/bald = 0
+	var/light_range
+	var/light_power
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
@@ -438,3 +440,6 @@
 		return 0
 	H.hud_used.move_intent.update_move_icon(H)
 	return 1
+
+/datum/species/proc/get_light_color(hair_style)
+	return

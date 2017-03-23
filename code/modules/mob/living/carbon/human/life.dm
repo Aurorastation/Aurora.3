@@ -618,7 +618,7 @@
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
 	if (is_diona())
-		diona_handle_air(get_dionastats(), pressure)
+		environment.remove(diona_handle_air(get_dionastats(), pressure))
 
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
@@ -1055,11 +1055,14 @@
 		handle_statuses()
 
 		if (drowsyness)
-			drowsyness--
-			eye_blurry = max(2, eye_blurry)
-			if (prob(5))
-				sleeping += 1
-				Paralyse(5)
+			if (drowsyness < 0)
+				drowsyness = 0
+			else
+				drowsyness--
+				eye_blurry = max(2, eye_blurry)
+				if (prob(5))
+					sleeping += 1
+					Paralyse(5)
 
 		confused = max(0, confused - 1)
 
@@ -1461,7 +1464,7 @@
 
 	if (BITTEST(hud_updateflag, ID_HUD) && hud_list[ID_HUD])
 		var/image/holder = hud_list[ID_HUD]
-		
+
 		//The following function is found in code/defines/procs/hud.dm
 		holder.icon_state = get_sec_hud_icon(src)
 		hud_list[ID_HUD] = holder

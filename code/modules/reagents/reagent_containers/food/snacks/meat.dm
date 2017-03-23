@@ -26,6 +26,7 @@
 
 	if (!isnull(cooked_icon))
 		icon_state = cooked_icon
+		flat_icon = null //Force regenating the flat icon for coatings, since we've changed the icon of the thing being coated
 	..()
 
 	if (name == initial(name))
@@ -50,7 +51,7 @@
 	//same as plain meat
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
-	name = "Corgi meat"
+	name = "corgi meat"
 	desc = "Tastes like... well, you know."
 
 

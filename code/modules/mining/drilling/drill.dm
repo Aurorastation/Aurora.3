@@ -55,6 +55,10 @@
 
 	RefreshParts()
 
+/obj/machinery/mining/drill/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
+
 /obj/machinery/mining/drill/process()
 
 	if(need_player_check)

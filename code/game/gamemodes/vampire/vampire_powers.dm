@@ -850,6 +850,10 @@
 			if (alert(src, choice_text, "Choices", "Yes", "No") == "No")
 				src << "<span class='notice'>[denial_response]</span>"
 				return
+
+			vampire_thrall.remove_antagonist(T.mind, 0, 0)
+			qdel(draining_vamp)
+			draining_vamp = null
 		else
 			src << "<span class='warning'>You feel corruption running in [T.name]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>"
 			return

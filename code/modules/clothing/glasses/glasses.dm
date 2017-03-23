@@ -188,6 +188,7 @@
 			flags_inv |= HIDEEYES
 			body_parts_covered |= EYES
 			icon_state = initial(icon_state)
+			item_state = initial(item_state)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
 			usr << "You flip \the [src] down to protect your eyes."
@@ -196,6 +197,7 @@
 			flags_inv &= ~HIDEEYES
 			body_parts_covered &= ~EYES
 			icon_state = "[initial(icon_state)]up"
+			item_state = "[initial(item_state)]up"
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
 			usr << "You push \the [src] up out of your face."
@@ -242,7 +244,7 @@
 	item_state = "bigsunglasses"
 
 /obj/item/clothing/glasses/sunglasses/sechud
-	name = "HUDSunglasses"
+	name = "HUDsunglasses"
 	desc = "Sunglasses with a HUD."
 	icon_state = "sunhud"
 
