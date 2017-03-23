@@ -27,6 +27,7 @@
 	var/list/decals
 
 	var/is_hole		// If true, turf will be treated as space or a hole
+	var/turf/baseturf = /turf/space
 
 /turf/New()
 	..()
@@ -40,6 +41,10 @@
 		luminosity = 0
 	else
 		luminosity = 1
+
+/turf/proc/initialize()
+	if (smooth)
+		queue_smooth(src)
 
 /turf/proc/update_icon()
 	return
