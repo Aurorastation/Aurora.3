@@ -42,7 +42,7 @@
 				hatch_image.pixel_y = hatch_offset_x
 				hatch_image.transform = turn(hatch_image.transform, 90)
 
-		overlays += hatch_image
+		add_overlay(hatch_image)
 	else
 		spawn(10)//If overlays aren't initialised, wait a second and try again
 			setup_hatch()

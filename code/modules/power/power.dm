@@ -233,9 +233,6 @@
 					. += C
 	return .
 
-/hook/startup/proc/buildPowernets()
-	return makepowernets()
-
 // rebuild all power networks from scratch - only called at world creation or by the admin verb
 /proc/makepowernets()
 	for(var/datum/powernet/PN in powernets)
