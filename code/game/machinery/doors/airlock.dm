@@ -572,7 +572,8 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/update_icon()
 	if (!isnull(gcDestroyed))
 		return
-	if(overlays) overlays.Cut()
+	if(overlays) 
+		cut_overlays()
 	if(density)
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
@@ -585,29 +586,29 @@ About the new airlock wires panel:
 				set_light(0)
 				has_set_boltlight = FALSE
 		if(p_open || welded)
-			overlays = list()
+			cut_overlays()
 			if(p_open)
-				overlays += image(icon, "panel_open")
+				add_overlay(image(icon, "panel_open"))
 			if (!(stat & NOPOWER))
 				if(stat & BROKEN)
-					overlays += image(icon, "sparks_broken")
+					add_overlay(image(icon, "sparks_broken"))
 				else if (health < maxhealth * 3/4)
-					overlays += image(icon, "sparks_damaged")
+					add_overlay(image(icon, "sparks_damaged"))
 			if(welded)
-				overlays += image(icon, "welded")
+				add_overlay(image(icon, "welded"))
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
-			overlays += image(icon, "sparks_damaged")
+			add_overlay(image(icon, "sparks_damaged"))
 
 		if (hatch_image)
 			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle
-			overlays += hatch_image
+			add_overlay(hatch_image)
 	else
 		icon_state = "door_open"
 		if((stat & BROKEN) && !(stat & NOPOWER))
-			overlays += image(icon, "sparks_open")
+			add_overlay(image(icon, "sparks_open"))
 		if (has_set_boltlight)
 			set_light(0)
 			has_set_boltlight = FALSE
@@ -617,7 +618,8 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
 		if("opening")
-			if(overlays) overlays.Cut()
+			if(overlays) 
+				cut_overlays()
 			if(p_open)
 				spawn(2) // The only work around that works. Downside is that the door will be gone for a millisecond.
 					flick("o_door_opening", src)  //can not use flick due to BYOND bug updating overlays right before flicking
@@ -626,7 +628,8 @@ About the new airlock wires panel:
 				flick("door_opening", src)//[stat ? "_stat":]
 				update_icon()
 		if("closing")
-			if(overlays) overlays.Cut()
+			if(overlays) 
+				cut_overlays()
 			if(p_open)
 				spawn(2)
 					flick("o_door_closing", src)

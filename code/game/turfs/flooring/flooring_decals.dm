@@ -27,7 +27,7 @@ var/list/floor_decals = list()
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
-		T.overlays |= floor_decals[cache_key]
+		T.add_overlay(floor_decals[cache_key])
 	qdel(src)
 	return
 

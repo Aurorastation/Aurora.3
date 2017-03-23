@@ -45,7 +45,7 @@
 		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor) || istype(turf_to_check, /turf/simulated/open))
 			var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
 			overlay.plane = 0
-			turf_to_check.overlays += overlay
+			turf_to_check.add_overlay(overlay)
 
 /turf/simulated/mineral/examine(mob/user)
 	..()
@@ -252,7 +252,7 @@
 				var/datum/find/F = finds[1]
 				if(F.excavation_required <= excavation_level + F.view_range)
 					archaeo_overlay = "overlay_archaeo[rand(1,3)]"
-					overlays += archaeo_overlay
+					add_overlay(archaeo_overlay)
 
 		else
 			user << "<span class='notice'> You stop [P.drill_verb] the rock.</span>"
@@ -332,12 +332,13 @@
 	for(var/direction in step_overlays)
 		var/turf/space/T = get_step(src, step_overlays[direction])
 		if(istype(T))
-			T.overlays.Cut()
+			T.cut_overlays()
 			for(var/next_direction in step_overlays)
 				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
+
 					var/image/spess = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
 					spess.plane = 0
-					T.overlays += spess
+					T.add_overlay(spess)
 
 		var/turf/simulated/open/O = get_step(src, step_overlays[direction])
 		if(istype(O))
@@ -686,7 +687,7 @@
 
 /turf/simulated/floor/asteroid/proc/updateMineralOverlays(var/update_neighbors)
 
-	overlays.Cut()
+	cut_overlays()
 
 	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
 	for(var/direction in step_overlays)
@@ -695,12 +696,12 @@
 		if(istype(step, /turf/space) || istype(step, /turf/simulated/open))
 			var/image/overlay = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
 			overlay.plane = 0
-			overlays += overlay
+			add_overlay(overlay)
 
 		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
 			var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
 			overlay.plane = 0
-			overlays += overlay
+			add_overlay(overlay)
 
 	if (!overlay_cache)
 		overlay_cache = list()
@@ -708,8 +709,8 @@
 		for (var/i = 1; i <= overlay_cache.len; i++)
 			overlay_cache[i] = image('icons/turf/flooring/decals.dmi', "asteroid[i - 1]")
 
-	if(overlay_detail)
-		overlays += overlay_cache[overlay_detail + 1]
+	if(overlay_detail) 
+		add_overlay(overlay_cache[overlay_detail + 1])
 
 	if(update_neighbors)
 		var/list/all_step_directions = list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST)
