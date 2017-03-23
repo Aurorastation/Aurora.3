@@ -26,6 +26,8 @@
 
 	var/list/decals
 
+	var/turf/baseturf = /turf/space
+
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)
