@@ -10,7 +10,8 @@
 #define SS_INIT_LIGHTING			3
 #define SS_INIT_CARGO 				2
 #define SS_INIT_MISC				1
-#define SS_INIT_TICKER 				-1	// Should be last.
+#define SS_INIT_OVERLAY             -1
+#define SS_INIT_TICKER 				-2	// Should be last.
 
 #define SS_PRIORITY_TICKER         200
 #define SS_PRIORITY_MOB            150

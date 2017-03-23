@@ -18,7 +18,7 @@
 	I.plane = PLANE_SPACE_DUST
 	I.alpha = 80
 	I.blend_mode = BLEND_ADD
-	overlays += I
+	add_overlay(I)
 	update_starlight()
 	..()
 
