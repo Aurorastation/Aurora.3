@@ -26,6 +26,8 @@
 
 	var/list/decals
 
+	var/is_hole		// If true, turf will be treated as space or a hole
+
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)

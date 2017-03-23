@@ -22,6 +22,7 @@ var/global/list/total_openspace = list()
 	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
+	is_hole = TRUE
 
 	var/tmp/turf/below
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.

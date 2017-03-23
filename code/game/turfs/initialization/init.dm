@@ -10,3 +10,5 @@
 		T.initialize()
 		if(turf_initializer)
 			turf_initializer.initialize(T)
+
+		CHECK_TICK

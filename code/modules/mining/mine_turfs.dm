@@ -31,6 +31,9 @@
 
 	has_resources = 1
 
+/turf/simulated/mineral/New()
+	// Don't call parent.
+
 /turf/simulated/mineral/initialize()
 	MineralSpread()
 	updateMineralOverlays(TRUE)
@@ -114,16 +117,24 @@
 		if(istype(M.selected,/obj/item/mecha_parts/mecha_equipment/tool/drill))
 			M.selected.action(src)
 
+#define SPREAD(the_dir) \
+	if (prob(mineral.spread_chance)) {                              \
+		var/turf/simulated/mineral/target = get_step(src, the_dir); \
+		if (istype(target) && !target.mineral) {                    \
+			target.mineral = mineral;                               \
+			target.UpdateMineral();                                 \
+			target.MineralSpread();                                 \
+		}                                                           \
+	}
+
 /turf/simulated/mineral/proc/MineralSpread()
 	if(mineral && mineral.spread)
-		for(var/trydir in cardinal)
-			if(prob(mineral.spread_chance))
-				var/turf/simulated/mineral/target_turf = get_step(src, trydir)
-				if(istype(target_turf) && !target_turf.mineral)
-					target_turf.mineral = mineral
-					target_turf.UpdateMineral()
-					target_turf.MineralSpread()
+		SPREAD(NORTH)
+		SPREAD(SOUTH)
+		SPREAD(EAST)
+		SPREAD(WEST)
 
+#undef SPREAD
 
 /turf/simulated/mineral/proc/UpdateMineral()
 	clear_ore_effects()
@@ -503,7 +514,6 @@
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/overlay_detail
-	var/static/list/overlay_cache
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
@@ -689,35 +699,64 @@
 
 	cut_overlays()
 
-	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
-	for(var/direction in step_overlays)
+	var/turf/the_step
 
-		var/turf/step = get_step(src, step_overlays[direction])
-		if(istype(step, /turf/space) || istype(step, /turf/simulated/open))
-			var/image/overlay = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
-			overlay.plane = 0
-			add_overlay(overlay)
+	// I tried to make this a macro, but BYOND wouldn't accept that.
 
-		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
-			var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
-			overlay.plane = 0
-			add_overlay(overlay)
+	// North
+	the_step = get_step(src, NORTH)
+	if (the_step && the_step.is_hole)
+		var/image/overlay = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = NORTH)
+		overlay.plane = 0
+		add_overlay(overlay)
 
-	if (!overlay_cache)
-		overlay_cache = list()
-		overlay_cache.len = 10
-		for (var/i = 1; i <= overlay_cache.len; i++)
-			overlay_cache[i] = image('icons/turf/flooring/decals.dmi', "asteroid[i - 1]")
+	else if (istype(the_step, /turf/simulated/mineral))
+		var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = NORTH)
+		add_overlay(overlay)
 
+	// South
+	the_step = get_step(src, SOUTH)
+	if (the_step && the_step.is_hole)
+		var/image/overlay = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = SOUTH)
+		overlay.plane = 0
+		add_overlay(overlay)
+
+	else if (istype(the_step, /turf/simulated/mineral))
+		var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = SOUTH)
+		add_overlay(overlay)
+
+	// East
+	the_step = get_step(src, EAST)
+	if (the_step && the_step.is_hole)
+		var/image/overlay = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = EAST)
+		overlay.plane = 0
+		add_overlay(overlay)
+
+	else if (istype(the_step, /turf/simulated/mineral))
+		var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = EAST)
+		add_overlay(overlay)
+
+	// West
+	the_step = get_step(src, WEST)
+	if (the_step && the_step.is_hole)
+		var/image/overlay = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = WEST)
+		overlay.plane = 0
+		add_overlay(overlay)
+
+	else if (istype(the_step, /turf/simulated/mineral))
+		var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = WEST)
+		add_overlay(overlay)
+
+	// Everything else.
 	if(overlay_detail) 
-		add_overlay(overlay_cache[overlay_detail + 1])
+		// SSoverlay will cache for us.
+		add_overlay("asteroid[overlay_detail]")
 
 	if(update_neighbors)
 		var/list/all_step_directions = list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST)
 		for(var/direction in all_step_directions)
-			var/turf/simulated/floor/asteroid/A
-			if(istype(get_step(src, direction), /turf/simulated/floor/asteroid))
-				A = get_step(src, direction)
+			var/turf/simulated/floor/asteroid/A = get_step(src, direction)
+			if(istype(A, /turf/simulated/floor/asteroid))
 				A.updateMineralOverlays()
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)

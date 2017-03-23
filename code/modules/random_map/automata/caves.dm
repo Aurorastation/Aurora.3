@@ -1,3 +1,6 @@
+#define GET_BELOW_OR_NULL(atom, z) \
+	(!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(atom, DOWN) : null
+
 /datum/random_map/automata/cave_system
 	iterations = 5
 	descriptor = "moon caves"
@@ -124,6 +127,7 @@
 	var/tmp_cell
 	var/x
 	var/y
+	var/z
 	var/new_path
 	var/num_applied = 0
 	for (var/thing in block(locate(origin_x, origin_y, origin_z), locate(limit_x, limit_y, origin_z)))
@@ -134,6 +138,7 @@
 
 		x = T.x
 		y = T.y
+		z = T.z
 
 		PREPARE_CELL(x,y)
 
@@ -146,15 +151,16 @@
 			if(EMPTY_CHAR)
 				new_path = mineral_rich
 			if(FLOOR_CHAR)
-				var/turf/below = GetBelow(T)
+				var/turf/below = GET_BELOW_OR_NULL(T, z)
 				if(below)
-					var/area/below_area = get_area(below)
-					if(below_area in the_station_areas)
+					var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
+					if(below_area.station_area)
 						new_path = wall_type
 					else if(below.density)
 						new_path = wall_type
 					else
 						new_path = floor_type
+
 			if(WALL_CHAR)
 				new_path = wall_type
 
@@ -167,6 +173,9 @@
 
 	game_log("ASGEN", "Applied [num_applied] turfs.")
 
+/datum/random_map/automata/cave_system/chasms/cleanup()
+	return
+
 /datum/random_map/automata/cave_system/chasms/surface
     descriptor = "chasm surface"
     wall_type =  /turf/simulated/floor/asteroid
@@ -174,3 +183,5 @@
     target_turf_type = /turf/unsimulated/chasm_mask
     mineral_sparse =  /turf/simulated/floor/asteroid
     mineral_rich = /turf/simulated/floor/asteroid
+
+#undef GET_BELOW_OR_NULL
