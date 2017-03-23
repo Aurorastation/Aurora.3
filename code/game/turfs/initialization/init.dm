@@ -6,7 +6,7 @@
 
 /area/initialize()
 	..()
-	for(var/turf/simulated/T in src)
+	for(var/turf/T in src)
 		T.initialize()
 		if(turf_initializer)
 			turf_initializer.initialize(T)

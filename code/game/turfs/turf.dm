@@ -41,6 +41,10 @@
 	else
 		luminosity = 1
 
+/turf/proc/initialize()
+	if (smooth)
+		queue_smooth(src)
+
 /turf/proc/update_icon()
 	return
 

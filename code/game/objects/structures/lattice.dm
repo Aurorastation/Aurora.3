@@ -12,10 +12,12 @@
 	canSmoothWith = list(
 		/obj/structure/lattice,
 		/turf/simulated/wall,
-		/turf/simulated/floor
+		/turf/simulated/floor,
+		/turf/simulated/mineral
 	)
 
 /obj/structure/lattice/initialize()
+	. = ..()
 ///// Z-Level Stuff
 	if(!(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open) || istype(src.loc, /turf/simulated/floor/asteroid)))
 ///// Z-Level Stuff
@@ -24,8 +26,7 @@
 		if(LAT != src)
 			qdel(LAT)
 
-	. = ..()
-	
+
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
 		if(1.0)
