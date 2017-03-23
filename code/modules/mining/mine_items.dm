@@ -1014,7 +1014,8 @@ var/list/total_extraction_beacons = list()
 	if(pressure < 50)
 		name = "strong resonance field"
 		resonance_damage = 60
-	schedule_task_with_source_in(timetoburst, src, .proc/burst, list(loc))
+
+	addtimer(CALLBACK(src, .proc/burst, loc), timetoburst)
 
 /obj/effect/resonance/Destroy()
 	if(res)

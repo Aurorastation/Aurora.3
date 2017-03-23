@@ -83,7 +83,7 @@
 		dir = (pick(cardinal))
 	flick("[icon_state]", src)
 
-	schedule_task_in(duration, /proc/qdel, list(src))
+	QDEL_IN(src, duration)
 
 /obj/effect/overlay/temp/ex_act()
 	return
