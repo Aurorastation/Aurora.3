@@ -65,7 +65,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 		if(copyitem)
 			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
 
-			if(sendcooldown)
+			if(get_remaining_cooldown() > 0)
 				dat += "<b>Transmitter arrays realigning. Please stand by. [round(get_remaining_cooldown() / 10)] seconds remaining.</b><br>"
 
 			else
@@ -75,7 +75,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 				dat += "<b>Sending to:</b> <a href='byond://?src=\ref[src];dept=1'>[destination]</a><br>"
 
 		else
-			if(sendcooldown)
+			if(get_remaining_cooldown() > 0)
 				dat += "Please insert paper to send via secure connection.<br><br>"
 				dat += "<b>Transmitter arrays realigning. Please stand by. [round(get_remaining_cooldown() / 10)] seconds remaining.</b><br>"
 			else
@@ -98,7 +98,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 	user << browse(dat, "window=copier")
 	onclose(user, "copier")
 
-	if (sendcooldown != 0)
+	if (get_remaining_cooldown() > 0)
 		spawn(50)
 			// Auto-refresh every 5 seconds, if cooldown is active
 			updateUsrDialog()
@@ -107,7 +107,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 
 /obj/machinery/photocopier/faxmachine/Topic(href, href_list)
 	if(href_list["send"])
-		if (sendcooldown > 0)
+		if (get_remaining_cooldown() > 0)
 			// Rate-limit sending faxes
 			usr << "<span class='warning'>The fax machine isn't ready, yet!</span>"
 			updateUsrDialog()
@@ -189,8 +189,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 	.=..()
 	var/static/ui_update_delay = 0
 
-	var/current_time = world.time
-	if (current_time > sendtime + sendcooldown)
+	if ((sendtime + sendcooldown) < world.time)
 		sendcooldown = 0
 
 /*
@@ -231,11 +230,13 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 		if( F.department == destination )
 			success = F.recievefax(copyitem)
 
+	if (success)
+		set_cooldown(normalfax_cooldown)
+
 	if (display_message)
 		// Normal fax
 		if (success)
 			visible_message("[src] beeps, \"Message transmitted successfully.\"")
-			sendcooldown = normalfax_cooldown
 		else
 			visible_message("[src] beeps, \"Error transmitting message.\"")
 	return success
