@@ -6,14 +6,15 @@
 	TARGET.airflow_speed = 0;               \
 	TARGET.airflow_time = 0;                \
 	TARGET.airflow_skip_speedcheck = FALSE; \
-	if (TARGET.airflow_od) {;               \
+	if (TARGET.airflow_od) {                \
 		TARGET.density = 0;                 \
 	}
 
 /datum/controller/subsystem/processing/airflow
 	name = "Airflow"
 	wait = 1
-	flags = SS_TICKER | SS_NO_INIT
+	flags = SS_NO_INIT
+	priority = SS_PRIORITY_AIRFLOW
 
 /datum/controller/subsystem/processing/airflow/New()
 	NEW_SS_GLOBAL(SSairflow)

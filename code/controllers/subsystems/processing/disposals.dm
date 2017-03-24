@@ -4,6 +4,7 @@
 	name = "Disposals"
 	wait = 1	// ticks
 	flags = SS_NO_INIT | SS_TICKER
+	priority = SS_PRIORITY_DISPOSALS
 
 	// Reference list for disposal sort junctions. Filled by sorting junctions' initialize().
 	var/list/tagger_locations

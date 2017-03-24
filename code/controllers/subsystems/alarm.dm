@@ -8,6 +8,7 @@ var/datum/controller/subsystem/alarm/alarm_manager
 
 /datum/controller/subsystem/alarm
 	name = "Alarms"
+	priority = SS_PRIORITY_ALARMS
 	
 	var/list/datum/alarm/all_handlers
 	var/tmp/list/current = list()

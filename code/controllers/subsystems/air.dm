@@ -66,6 +66,7 @@ Class Procs:
 /datum/controller/subsystem/air
 	name = "Air"
 	priority = SS_PRIORITY_AIR
+	init_order = SS_INIT_AIR
 
 	//Geometry lists
 	var/list/zones = list()

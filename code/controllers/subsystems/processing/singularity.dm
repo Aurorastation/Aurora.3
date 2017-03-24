@@ -4,6 +4,7 @@ var/datum/controller/subsystem/processing/SSingulo
 /datum/controller/subsystem/processing/singularity
 	name = "Singularity"
 	flags = SS_NO_INIT
+	priority = SS_PRIORITY_SINGULARITY
 
 /datum/controller/subsystem/processing/singularity/New()
 	NEW_SS_GLOBAL(SSingulo)

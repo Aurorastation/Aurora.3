@@ -2,7 +2,8 @@ var/datum/controller/subsystem/wireless/wirelessProcess
 
 /datum/controller/subsystem/wireless
 	name = "Wireless"
-	flags = SS_NO_INIT
+	flags = SS_NO_INIT | SS_BACKGROUND
+	priority = SS_PRIORITY_WIRELESS
 
 	var/list/receiver_list = list()
 	var/list/pending_connections = list()

@@ -2,6 +2,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 
 /datum/controller/subsystem/shuttle
 	name = "Shuttle Controller"
+	priority = SS_PRIORITY_SHUTTLE
 
 	var/list/shuttles	//maps shuttle tags to shuttle datums, so that they can be looked up.
 	var/list/process_shuttles	//simple list of shuttles, for processing

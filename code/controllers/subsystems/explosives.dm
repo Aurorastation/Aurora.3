@@ -6,6 +6,7 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	name = "Explosives"
 	wait = 5
 	flags = SS_NO_INIT | SS_BACKGROUND
+	priority = SS_PRIORITY_EXPLOSIVES
 	
 	var/list/work_queue
 	var/ticks_without_work = 0

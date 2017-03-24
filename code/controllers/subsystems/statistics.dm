@@ -1,7 +1,8 @@
 /datum/controller/subsystem/statistics
 	name = "Statistics & Inactivity"
 	wait = 60 SECONDS
-	flags = SS_NO_TICK_CHECK
+	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
+	priority = SS_PRIORITY_STATISTICS
 
 /datum/controller/subsystem/statistics/Initialize(timeofday)
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))

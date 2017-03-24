@@ -5,6 +5,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	wait = 5 MINUTES
 	init_order = -1	// after ticker.
 	flags = SS_BACKGROUND | SS_NO_TICK_CHECK
+	priority = SS_PRIORITY_NIGHT
 
 	var/isactive = 0
 

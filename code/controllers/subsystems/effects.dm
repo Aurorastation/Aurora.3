@@ -4,6 +4,7 @@ var/datum/controller/subsystem/effects/SSeffects
 	name = "Effects Master"
 	wait = 2		// Deciseconds.
 	flags = SS_BACKGROUND | SS_NO_INIT
+	priority = SS_PRIORITY_EFFECTS
 
 	var/list/datum/effect_system/effect_systems = list()	// The effect-spawning objects. Shouldn't be many of these.
 	var/list/obj/visual_effect/visuals	= list()	// The visible component of an effect. May be created without an effect object.
