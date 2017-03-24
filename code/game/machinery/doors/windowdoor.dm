@@ -57,20 +57,18 @@
 	return ..()
 
 /obj/machinery/door/window/Bumped(atom/movable/AM as mob|obj)
-	if (!( ismob(AM) ))
+	if (istype(AM, /obj))
 		var/mob/living/bot/bot = AM
 		if(istype(bot))
 			if(density && src.check_access(bot.botcard))
 				open()
-				sleep(50)
-				close()
+				addtimer(CALLBACK(src, .proc/close), 50)
 		else if(istype(AM, /obj/mecha))
 			var/obj/mecha/mecha = AM
 			if(density)
 				if(mecha.occupant && src.allowed(mecha.occupant))
 					open()
-					sleep(50)
-					close()
+					addtimer(CALLBACK(src, .proc/close), 50)
 		return
 	if (!( ticker ))
 		return
@@ -78,12 +76,9 @@
 		return
 	if (src.density && (!issmall(AM) || ishuman(AM)) && src.allowed(AM))
 		open()
-		if(src.check_access(null))
-			sleep(50)
-		else //secure doors close faster
-			sleep(20)
-		close()
-	return
+		//secure doors close faster
+		var/time = check_access(null) ? 50 : 20
+		addtimer(CALLBACK(src, .proc/close), time)
 
 /obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSGLASS))
@@ -116,7 +111,6 @@
 
 	explosion_resistance = 0
 	src.density = 0
-//	src.sd_SetOpacity(0)	//TODO: why is this here? Opaque windoors? ~Carn
 	update_nearby_tiles()
 
 	if(operating == 1) //emag again
@@ -133,8 +127,6 @@
 
 	src.density = 1
 	explosion_resistance = initial(explosion_resistance)
-//	if(src.visible)
-//		SetOpacity(1)	//TODO: why is this here? Opaque windoors? ~Carn
 	update_nearby_tiles()
 
 	sleep(10)

@@ -95,6 +95,8 @@
 	alert_readers(FC.announcement)
 
 /datum/feed_network/proc/alert_readers(var/annoncement)
+	// get_receptions sleeps further down the line, spawn of elsewhere
+	set waitfor = FALSE
 	for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
 		NEWSCASTER.newsAlert(annoncement)
 		NEWSCASTER.update_icon()
@@ -106,15 +108,14 @@
 		if (P.toff)
 			continue
 		receiving_pdas += P
+		
+	var/datum/receptions/receptions = get_receptions(null, receiving_pdas) // datums are not atoms, thus we have to assume the newscast network always has reception
 
-	spawn(0)	// get_receptions sleeps further down the line, spawn of elsewhere
-		var/datum/receptions/receptions = get_receptions(null, receiving_pdas) // datums are not atoms, thus we have to assume the newscast network always has reception
+	for(var/obj/item/device/pda/PDA in receiving_pdas)
+		if(!(receptions.receiver_reception[PDA] & TELECOMMS_RECEPTION_RECEIVER))
+			continue
 
-		for(var/obj/item/device/pda/PDA in receiving_pdas)
-			if(!(receptions.receiver_reception[PDA] & TELECOMMS_RECEPTION_RECEIVER))
-				continue
-
-			PDA.new_news(annoncement)
+		PDA.new_news(annoncement)
 
 var/datum/feed_network/news_network = new /datum/feed_network     //The global news-network, which is coincidentally a global list.
 
@@ -187,21 +188,22 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(!ispowered || isbroken)
 		icon_state = "newscaster_off"
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
-			src.overlays.Cut()
-			src.overlays += image(src.icon, "crack3")
+			cut_overlays()
+			add_overlay("crack3")
 		return
 
-	src.overlays.Cut() //reset overlays
+	cut_overlays() //reset overlays
 
 	if(news_network.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
 		icon_state = "newscaster_wanted"
 		return
 
 	if(alert) //new message alert overlay
+		add_overlay("newscaster_alert")
 		src.overlays += "newscaster_alert"
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		src.overlays += image(src.icon, "crack[hitstaken]")
+		add_overlay("crack[hitstaken]")
 
 	icon_state = "newscaster_normal"
 	return
@@ -214,10 +216,11 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		spawn(rand(0, 15))
-			src.ispowered = 0
-			src.update_icon()
+		addtimer(CALLBACK(src, .proc/post_power_loss), rand(0, 15))
 
+/obj/machinery/newscaster/proc/post_power_loss()
+	ispowered = 0
+	update_icon()
 
 /obj/machinery/newscaster/ex_act(severity)
 	switch(severity)
