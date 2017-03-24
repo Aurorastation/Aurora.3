@@ -3,6 +3,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry
 	name = "Chemistry"
 	flags = SS_NO_INIT
+	priority = SS_PRIORITY_CHEMISTRY
 
 	var/list/active_holders
 	var/list/chemical_reactions

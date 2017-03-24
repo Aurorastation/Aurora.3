@@ -5,10 +5,10 @@
 /turf/var/datum/gas_mixture/air
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
-	if(graphic_add && graphic_add.len)
-		overlays += graphic_add
-	if(graphic_remove && graphic_remove.len)
-		overlays -= graphic_remove
+	if (LAZYLEN(graphic_add))
+		add_overlay(graphic_add, TRUE)
+	if(LAZYLEN(graphic_remove))
+		cut_overlay(graphic_remove, TRUE)
 
 /turf/proc/update_air_properties()
 	var/block = c_airblock(src)

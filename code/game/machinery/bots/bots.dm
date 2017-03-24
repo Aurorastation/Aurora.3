@@ -117,15 +117,16 @@
 	pulse2.anchored = 1
 	pulse2.set_dir(pick(cardinal))
 
-	spawn(10)
-		qdel(pulse2)
+	QDEL_IN(pulse2, 10)
+	
 	if (on)
 		turn_off()
-	spawn(severity*300)
-		stat &= ~EMPED
-		if (was_on)
-			turn_on()
+	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
 
+/obj/machinery/bot/proc/post_emp(was_on)
+	stat &= ~EMPED
+	if (was_on)
+		turn_on()
 
 /obj/machinery/bot/attack_ai(mob/user as mob)
 	src.attack_hand(user)

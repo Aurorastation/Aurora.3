@@ -3,7 +3,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 /datum/controller/subsystem/processing/shuttle
 	name = "Shuttles"
 	init_order = SS_INIT_SHUTTLE
-	flags = SS_KEEP_TIMING
+	priority = SS_PRIORITY_SHUTTLE
 
 	var/list/shuttles
 

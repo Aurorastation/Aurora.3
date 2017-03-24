@@ -92,7 +92,7 @@
 	hatch_image.pixel_y = hatch_offset_y
 	hatch_image.dir = dir
 
-	overlays += hatch_image
+	add_overlay(hatch_image)
 	update_icon()
 
 /obj/machinery/door/proc/open_hatch(var/atom/mover = null)
