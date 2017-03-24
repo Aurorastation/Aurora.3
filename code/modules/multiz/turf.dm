@@ -13,7 +13,7 @@
 /turf/space/CanZPass(atom, direction)
 	return 1
 
-var/global/list/total_openspace = list()
+var/global/total_openspace = 0
 
 /turf/simulated/open
 	name = "open space"
@@ -34,11 +34,11 @@ var/global/list/total_openspace = list()
 
 /turf/simulated/open/New()
 	..()
-	global.total_openspace_turfs += 1
+	global.total_openspace += 1
 
 /turf/simulated/open/Destroy()
 	SSopenturf.queued -= src
-	global.total_openspace_turfs -= 1
+	global.total_openspace -= 1
 	QDEL_NULL(shadower)
 	if (above)
 		above.update()
@@ -51,13 +51,6 @@ var/global/list/total_openspace = list()
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
-
-/turf/simulated/open/New()
-	total_openspace += src
-
-/turf/simulated/open/Destroy()
-	total_openspace -= src
-	..()
 
 /turf/simulated/open/post_change()
 	..()

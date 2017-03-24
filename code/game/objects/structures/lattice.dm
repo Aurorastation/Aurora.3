@@ -13,7 +13,8 @@
 		/obj/structure/lattice,
 		/turf/simulated/wall,
 		/turf/simulated/floor,
-		/turf/simulated/mineral
+		/turf/simulated/mineral,
+		/turf/unsimulated/wall
 	)
 
 /obj/structure/lattice/initialize()

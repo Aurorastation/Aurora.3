@@ -57,21 +57,10 @@
 	plane = OPENTURF_CAP_PLANE
 	blend_mode = BLEND_MULTIPLY
 	color = list(
-		0.5, 0, 0,
-		0, 0.5, 0,
-		0, 0, 0.5
+		0.75, 0, 0,
+		0, 0.75, 0,
+		0, 0, 0.75
 	)
 
-/atom/movable/openspace/multiplier/proc/show()
-	if (!color)
-		color = list(
-			0.5, 0, 0,
-			0, 0.5, 0,
-			0, 0, 0.5
-		)
-
-/atom/movable/openspace/multiplier/proc/hide()
-	if (color)
-		color = null
 
 // /atom/movable/openspace/overlay is in openspace_overlay.dm

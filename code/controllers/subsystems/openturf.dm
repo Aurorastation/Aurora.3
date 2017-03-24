@@ -40,16 +40,11 @@
 		if (!T.shadower)
 			T.shadower = new(T)
 
-		if (T.is_above_space())
-			T.shadower.hide()
-		else
-			T.shadower.show()
-
 		T.appearance = T.below
-		if (!istype(T.below, /turf/space))
-			T.plane = OPENTURF_PLANE
-		else
+		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
+		else
+			T.plane = OPENTURF_PLANE
 
 		for (var/thing in T.below)
 			var/atom/movable/object = thing

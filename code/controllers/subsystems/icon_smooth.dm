@@ -2,9 +2,9 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 
 /datum/controller/subsystem/icon_smooth
 	name = "Icon Smoothing"
-	init_order = -5
+	init_order = SS_INIT_SMOOTHING
 	wait = 1
-	priority = 35
+	priority = SS_PRIORITY_SMOOTHING
 	flags = SS_TICKER | SS_FIRE_IN_LOBBY
 
 	var/list/smooth_queue = list()
@@ -25,7 +25,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 /datum/controller/subsystem/icon_smooth/Initialize()
 	for (var/zlevel = 1 to world.maxz)
 		smooth_zlevel(zlevel, FALSE)
-		
+
 	/*var/queue = smooth_queue
 	smooth_queue = list()
 	for(var/V in queue)
