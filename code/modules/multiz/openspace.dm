@@ -28,7 +28,7 @@
 	var/tmp/destroy_oo_next_move
 
 /atom/movable/Move()
-	..()
+	. = ..()
 	if (bound_overlay)
 		if (destroy_oo_next_move)
 			QDEL_NULL(bound_overlay)
