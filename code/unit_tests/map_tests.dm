@@ -16,26 +16,35 @@ datum/unit_test/apc_area_test
 datum/unit_test/apc_area_test/start_test()
 	var/list/bad_areas = list()
 	var/area_test_count = 0
-	var/list/exempt_areas = typesof(/area/space, \
-					/area/syndicate_station, \
-					/area/skipjack_station,  \
-					/area/solar, \
-					/area/shuttle, \
-					/area/holodeck, \
-					/area/supply/station \
-					)
+	var/list/exempt_areas = typesof(
+		/area/space
+		,/area/syndicate_station
+		,/area/skipjack_station
+		,/area/solar
+		,/area/shuttle
+		,/area/holodeck
+		,/area/supply/station
+		,/area/wizard_station
+		,/area/tdome
+		,/area/centcom
+		,/area/syndicate_mothership
+		,/area/beach
+		,/area/prison
+	)
 
-	var/list/exempt_from_atmos = typesof(   /area/maintenance, \
-						/area/storage, \
-						/area/engineering/atmos/storage, \
-						/area/rnd/test_area, \
-						/area/construction, \
-						/area/server
-						)
+	var/list/exempt_from_atmos = typesof(
+		/area/maintenance
+		,/area/storage
+		,/area/engineering/atmos/storage
+		,/area/rnd/test_area
+		,/area/construction
+		,/area/server
+	)
 
-	var/list/exempt_from_apc = typesof(	/area/construction, \
-						/area/medical/genetics
-						)
+	var/list/exempt_from_apc = typesof(	
+		/area/construction
+		,/area/medical/genetics
+	)
 
 	for(var/area/A in world)
 		if(A.z == 1 && !(A.type in exempt_areas))
