@@ -3,6 +3,7 @@
 /datum/controller/subsystem/arrivals
 	name = "Arrivals"
 	flags = SS_NO_INIT | SS_POST_FIRE_TIMING | SS_BACKGROUND
+	priority = SS_PRIORITY_ARRIVALS
 
 	var/datum/shuttle/ferry/arrival/shuttle
 

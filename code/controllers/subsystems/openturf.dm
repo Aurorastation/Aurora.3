@@ -10,6 +10,8 @@
 	name = "Open Space"
 	flags = SS_BACKGROUND | SS_NO_INIT | SS_FIRE_IN_LOBBY
 	wait = 2
+	init_order = SS_INIT_OPENTURF
+	priority = SS_PRIORITY_OPENTURF
 
 	var/list/queued = list()
 	var/list/currentrun

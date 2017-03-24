@@ -3,7 +3,7 @@
 /datum/controller/subsystem
 	// Metadata; you should define these.
 	name = "fire coderbus" //name of the subsystem
-	var/init_order = 0		//order of initialization. Higher numbers are initialized first, lower numbers later. Can be decimal and negative values.
+	var/init_order = SS_INIT_MISC		//order of initialization. Higher numbers are initialized first, lower numbers later. Can be decimal and negative values.
 	var/wait = 20			//time to wait (in deciseconds) between each call to fire(). Must be a positive integer.
 	var/priority = 50		//When mutiple subsystems need to run in the same tick, higher priority subsystems will run first and be given a higher share of the tick before MC_TICK_CHECK triggers a sleep
 

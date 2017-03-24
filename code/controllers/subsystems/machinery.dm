@@ -7,6 +7,7 @@ var/global/list/power_using_machines	= list()
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
 	init_order = SS_INIT_POWERNET
+	flags = SS_POST_FIRE_TIMING
 
 	var/tmp/list/processing_machinery = list()
 	var/tmp/list/processing_power_users = list()

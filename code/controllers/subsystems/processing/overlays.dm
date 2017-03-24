@@ -4,7 +4,7 @@ var/datum/controller/subsystem/processing/overlays/SSoverlays
 	name = "Overlay"
 	flags = SS_TICKER|SS_FIRE_IN_LOBBY
 	wait = 1
-	priority = 500
+	priority = SS_PRIORITY_OVERLAY
 	init_order = SS_INIT_OVERLAY
 
 	stat_tag = "Ov"
