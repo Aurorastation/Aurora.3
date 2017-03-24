@@ -1,8 +1,8 @@
 #define SS_INIT_MISC_FIRST			14
 #define SS_INIT_ASTEROID			13
-#define SS_INIT_OBJECTS			    12
-#define SS_INIT_AREA				11	// Includes turf initialization.
-#define SS_INIT_SHUTTLE             10
+#define SS_INIT_SHUTTLE             12
+#define SS_INIT_OBJECTS			    11
+#define SS_INIT_AREA				10	// Includes turf initialization.
 #define SS_INIT_POWERNET            9
 #define SS_INIT_PIPENET				8
 #define SS_INIT_ATMOS				7
@@ -14,7 +14,7 @@
 #define SS_INIT_TICKER 				0	// Should be last-ish. Lobby timer starts here.
 #define SS_INIT_SMOOTHING          -1
 #define SS_INIT_OVERLAY            -2
-#define SS_INIT_OPENTURF           -3	// Openturf should be after smoothing so it copies the smothed turfs.
+#define SS_INIT_OPENTURF           -3	// Openturf should be after smoothing so it copies the smoothed turfs.
 #define SS_INIT_NIGHT              -4	// Nightmode controller. Will trigger lighting updates.
 
 // SS_TICKER

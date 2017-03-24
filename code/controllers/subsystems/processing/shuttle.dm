@@ -4,6 +4,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	name = "Shuttles"
 	init_order = SS_INIT_SHUTTLE
 	priority = SS_PRIORITY_SHUTTLE
+	flags = 0	// Override parent.
 
 	var/list/shuttles
 
@@ -43,6 +44,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	//shuttle.dock_target_station = "cargo_bay"
 	shuttles["Escape"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
+	log_debug("Escape shuttle [shuttle ? "exists." : "DOES NOT EXIST!"]")
 
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
