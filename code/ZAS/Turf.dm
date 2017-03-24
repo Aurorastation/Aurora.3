@@ -7,7 +7,7 @@
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
 	if (LAZYLEN(graphic_add))
 		add_overlay(graphic_add, TRUE)
-	if(graphic_remove && graphic_remove.len)
+	if(LAZYLEN(graphic_remove))
 		cut_overlay(graphic_remove, TRUE)
 
 /turf/proc/update_air_properties()
