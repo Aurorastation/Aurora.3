@@ -42,6 +42,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 /obj/machinery/photocopier/faxmachine/attack_hand(mob/user as mob)
 	user.set_machine(src)
 
+	var/remaining_cooldown = get_remaining_cooldown()
 	var/dat = "Fax Machine<BR>"
 
 	var/scan_name
@@ -65,8 +66,8 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 		if(copyitem)
 			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
 
-			if(get_remaining_cooldown() > 0)
-				dat += "<b>Transmitter arrays realigning. Please stand by. [round(get_remaining_cooldown() / 10)] seconds remaining.</b><br>"
+			if(remaining_cooldown > 0)
+				dat += "<b>Transmitter arrays realigning. Please stand by. [round(remaining_cooldown / 10)] seconds remaining.</b><br>"
 
 			else
 
@@ -75,9 +76,9 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 				dat += "<b>Sending to:</b> <a href='byond://?src=\ref[src];dept=1'>[destination]</a><br>"
 
 		else
-			if(get_remaining_cooldown() > 0)
+			if(remaining_cooldown > 0)
 				dat += "Please insert paper to send via secure connection.<br><br>"
-				dat += "<b>Transmitter arrays realigning. Please stand by. [round(get_remaining_cooldown() / 10)] seconds remaining.</b><br>"
+				dat += "<b>Transmitter arrays realigning. Please stand by. [round(remaining_cooldown / 10)] seconds remaining.</b><br>"
 			else
 				dat += "Please insert paper to send via secure connection.<br><br>"
 
@@ -98,7 +99,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 	user << browse(dat, "window=copier")
 	onclose(user, "copier")
 
-	if (get_remaining_cooldown() > 0)
+	if (remaining_cooldown > 0)
 		spawn(50)
 			// Auto-refresh every 5 seconds, if cooldown is active
 			updateUsrDialog()
