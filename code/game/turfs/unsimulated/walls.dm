@@ -5,6 +5,10 @@
 	opacity = 1
 	density = 1
 	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/turf/unsimulated/wall,
+		/obj/machinery/door/airlock/centcom
+	)
 
 /turf/unsimulated/wall/fakeglass
 	name = "window"

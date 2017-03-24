@@ -13,7 +13,7 @@
 	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
 	icon_state = "rock"
 	layer = 2.01
-	smooth = SMOOTH_MORE
+	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
 		/turf/simulated/mineral,
 		/turf/simulated/wall,
@@ -487,7 +487,7 @@
 	//icon_state = "asteroid"
 	icon = 'icons/turf/smooth/ash.dmi'
 	icon_state = "ash"
-	smooth = SMOOTH_MORE
+	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,

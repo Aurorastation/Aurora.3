@@ -13,6 +13,7 @@
 /turf
 	// Reference to any open turf that might be above us to speed up atom Entered() updates.
 	var/tmp/turf/simulated/open/above
+	var/tmp/oo_light_set	// If the turf has had a light set by starlight.
 
 /turf/Entered(atom/movable/thing, atom/oldLoc)
 	..()
