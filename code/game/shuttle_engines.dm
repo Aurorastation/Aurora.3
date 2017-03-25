@@ -21,7 +21,7 @@
 
 	CanPass(atom/movable/mover, turf/target, height, air_group)
 		if (!height || air_group) 
-			return false
+			return FALSE
 		else
 			return ..()
 
