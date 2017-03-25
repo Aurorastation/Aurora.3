@@ -4,6 +4,10 @@
 /datum/uplink_item/item/stealthy_weapons
 	category = /datum/uplink_category/stealthy_weapons
 
+/datum/uplink_item/item/stealthy_weapons/New()
+	..()
+	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
+
 /datum/uplink_item/item/stealthy_weapons/soap
 	name = "Subversive Soap"
 	item_cost = 1

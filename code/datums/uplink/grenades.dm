@@ -4,6 +4,10 @@
 /datum/uplink_item/item/grenades
 	category = /datum/uplink_category/grenades
 
+/datum/uplink_item/item/grenades/New()
+	..()
+	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
+
 /datum/uplink_item/item/grenades/anti_photon
 	name = "5xPhoton Disruption Grenades"
 	item_cost = 4
@@ -18,7 +22,7 @@
 	name = "5xEMP Grenades"
 	item_cost = 6
 	path = /obj/item/weapon/storage/box/emps
-	
+
 /datum/uplink_item/item/grenades/frag
 	name = "5xFrag Grenades"
 	item_cost = 12

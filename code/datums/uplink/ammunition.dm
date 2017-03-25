@@ -5,6 +5,10 @@
 	item_cost = 4
 	category = /datum/uplink_category/ammunition
 
+/datum/uplink_item/item/ammo/New()
+	..()
+	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
+
 /datum/uplink_item/item/ammo/mc9mm
 	name = "9mm"
 	item_cost = 1

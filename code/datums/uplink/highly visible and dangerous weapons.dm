@@ -4,6 +4,10 @@
 /datum/uplink_item/item/visible_weapons
 	category = /datum/uplink_category/visible_weapons
 
+/datum/uplink_item/item/visible_weapons/New()
+	..()
+	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
+
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
 	item_cost = 5
@@ -23,7 +27,7 @@
 	name = "Energy Sword"
 	item_cost = 8
 	path = /obj/item/weapon/melee/energy/sword
-	
+
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
 	item_cost = 10

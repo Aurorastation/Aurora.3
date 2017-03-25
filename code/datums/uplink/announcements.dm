@@ -4,6 +4,10 @@
 /datum/uplink_item/abstract/announcements
 	category = /datum/uplink_category/services
 
+/datum/uplink_item/abstract/announcements/New()
+	..()
+	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
+
 /datum/uplink_item/abstract/announcements/buy(var/obj/item/device/uplink/U, var/mob/user)
 	. = ..()
 	if(.)
