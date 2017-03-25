@@ -133,10 +133,6 @@ datum/unit_test/zas_area_test/
 	name = "ZAS: Cargo Maintenance"
 	area_path = /area/maintenance/cargo
 
-datum/unit_test/zas_area_test/eng_shuttle
-	name = "ZAS: Construction Site Shuttle (Station)"
-	area_path = /area/shuttle/constructionsite/station
-
 datum/unit_test/zas_area_test/incinerator
 	name = "ZAS: Incinerator"
 	area_path = /area/maintenance/incinerator
@@ -151,13 +147,16 @@ datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
 	area_path = /area/rnd/xenobiology
 
+/*	Hey, this area doesn't exist on the Aurora II.
 datum/unit_test/zas_area_test/research_maint_starboard
 	name = "ZAS: Research Starboard Maintenance"
 	area_path = /area/maintenance/research_starboard
 
+	Nor does this one.
 datum/unit_test/zas_area_test/west_hall_mining_outpost
 	name = "ZAS: Mining outpost West Hallway"
 	area_path = /area/outpost/mining_main/west_hall
+*/
 
 /*
 datum/unit_test/zas_area_test/mining_area

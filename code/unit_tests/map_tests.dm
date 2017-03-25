@@ -16,8 +16,10 @@ datum/unit_test/apc_area_test
 datum/unit_test/apc_area_test/start_test()
 	var/list/bad_areas = list()
 	var/area_test_count = 0
-	var/list/exempt_areas = typesof(
-		/area/space
+
+	// This is formatted strangely because it fails the indentation test if it's formatted properly.
+	// ¯\_(ツ)_/¯
+	var/list/exempt_areas = typesof(/area/space
 		,/area/syndicate_station
 		,/area/skipjack_station
 		,/area/solar
@@ -30,10 +32,10 @@ datum/unit_test/apc_area_test/start_test()
 		,/area/syndicate_mothership
 		,/area/beach
 		,/area/prison
+		,/area/supply/dock
 	)
 
-	var/list/exempt_from_atmos = typesof(
-		/area/maintenance
+	var/list/exempt_from_atmos = typesof(/area/maintenance
 		,/area/storage
 		,/area/engineering/atmos/storage
 		,/area/rnd/test_area
@@ -41,8 +43,7 @@ datum/unit_test/apc_area_test/start_test()
 		,/area/server
 	)
 
-	var/list/exempt_from_apc = typesof(	
-		/area/construction
+	var/list/exempt_from_apc = typesof(/area/construction
 		,/area/medical/genetics
 	)
 
