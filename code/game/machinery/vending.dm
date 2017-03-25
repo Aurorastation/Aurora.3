@@ -177,6 +177,13 @@
 		var/paid = 0
 		var/handled = 0
 
+		if (currently_vending.amount < 1)
+			visible_message(span("warning","\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"))
+			src.status_error = 1
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 35, 1)
+			currently_vending = null
+			return
+
 		if (I) //for IDs and PDAs and wallets with IDs
 			paid = pay_with_card(I,W)
 			handled = 1
@@ -317,6 +324,10 @@
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
 	var/datum/money_account/customer_account = get_account(I.associated_account_number)
 	if (!customer_account)
+		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
+		if (istype(I, /obj/item/weapon/card/id/bst))
+			return 1
+
 		src.status_message = "Error: Unable to access account. Please contact technical support if problem persists."
 		src.status_error = 1
 		return 0
@@ -503,6 +514,9 @@
 		nanomanager.update_uis(src)
 
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
+	if (!R || R.amount < 1)
+		return
+
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
 		flick(src.icon_deny,src)
@@ -511,6 +525,8 @@
 	src.status_message = "Vending..."
 	src.status_error = 0
 	nanomanager.update_uis(src)
+
+
 
 	if (R.category & CAT_COIN)
 		if(!coin)
