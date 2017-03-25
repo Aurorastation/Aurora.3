@@ -267,8 +267,8 @@
 			cooldown = 0
 
 /obj/item/rig_module/emag_hand
-	name = "EMAG integrated hand."
-	desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
+	name = "Electromagnetic Scrambler."
+	desc = "A complex uprade that allows the user to touch things with their hand and apply an effect that causes doors to open, safties to become disabled, and electronic locks to be disabled."
 	use_power_cost = 100
 	usable = 0
 	toggleable = 1
@@ -310,6 +310,5 @@
 	H << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuts!</span>"
 	interfaced_with = target
 	target.emag_act(user, src)
-	spawn(2)
 	interfaced_with = null
 	return 1
