@@ -474,57 +474,35 @@ area/space/atmosalert()
 	name = "\improper Mercenary Forward Operating Base"
 	icon_state = "yellow"
 	centcomm_area = 1
+	base_turf = /turf/space
 
-/area/syndicate_station/southwest
-	name = "\improper south-west of the station"
+/area/syndicate_station/surface
+	name = "\improper surface of the station"
 	icon_state = "southwest"
 	station_area = 1
+	base_turf = /turf/simulated/floor/asteroid
 
-/area/syndicate_station/northwest
-	name = "\improper north-west of the station"
+/area/syndicate_station/above
+	name = "\improper above the station"
 	icon_state = "northwest"
 	station_area = 1
 
-/area/syndicate_station/northeast
-	name = "\improper north-east of the station"
+/area/syndicate_station/under
+	name = "\improper under the station"
 	icon_state = "northeast"
 	station_area = 1
 
-/area/syndicate_station/southeast
-	name = "\improper south-east of the station"
+/area/syndicate_station/caverns
+	name = "\improper caverns"
 	icon_state = "southeast"
 	station_area = 1
-
-/area/syndicate_station/north
-	name = "\improper north of the station"
-	icon_state = "north"
-	station_area = 1
-
-/area/syndicate_station/south
-	name = "\improper south of the station"
-	icon_state = "south"
-	station_area = 1
-
-/area/syndicate_station/commssat
-	name = "\improper south of the communication satellite"
-	icon_state = "south"
-	station_area = 1
-
-/area/syndicate_station/mining
-	name = "\improper northeast of the mining station"
-	icon_state = "north"
-	base_turf = /turf/space
-	station_area = 1
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/arrivals_dock
 	name = "\improper docked with station"
 	icon_state = "shuttle"
 	station_area = 1
-
-/area/syndicate_station/maint_dock
-	name = "\improper docked with station"
-	icon_state = "shuttle"
-	station_area = 1
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/transit
 	name = "\improper hyperspace"
@@ -544,6 +522,7 @@ area/space/atmosalert()
 	icon_state = "yellow"
 	requires_power = 0
 	no_light_control = 1
+	base_turf = /turf/space
 
 /area/skipjack_station/start
 	name = "\improper Skipjack"
@@ -555,32 +534,27 @@ area/space/atmosalert()
 	icon_state = "shuttle"
 	centcomm_area = 1
 
-/area/skipjack_station/southwest_solars
-	name = "\improper aft port solars"
+/area/skipjack_station/surface
+	name = "\improper surface of the station"
 	icon_state = "southwest"
 	station_area = 1
+	base_turf = /turf/simulated/floor/asteroid
 
-/area/skipjack_station/northwest_solars
-	name = "\improper fore port solars"
+/area/skipjack_station/above
+	name = "\improper above the station"
 	icon_state = "northwest"
 	station_area = 1
 
-/area/skipjack_station/northeast_solars
-	name = "\improper fore starboard solars"
+/area/skipjack_station/under
+	name = "\improper under the station"
 	icon_state = "northeast"
 	station_area = 1
 
-/area/skipjack_station/southeast_solars
-	name = "\improper aft starboard solars"
+/area/skipjack_station/cavern
+	name = "\improper caverns"
 	icon_state = "southeast"
 	station_area = 1
-
-/area/skipjack_station/mining
-	name = "\improper south of mining station"
-	icon_state = "north"
-	base_turf = /turf/space
-	station_area = 1
-
+	base_turf = /turf/simulated/floor/asteroid
 
 ////////////////////
 //SPACE STATION 13//

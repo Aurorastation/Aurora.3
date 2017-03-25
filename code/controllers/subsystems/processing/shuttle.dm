@@ -323,12 +323,11 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	VS.origin = locate(/area/skipjack_station/start)
 
 	VS.destinations = list(
-		"Fore Starboard Solars" = locate(/area/skipjack_station/northeast_solars),
-		"Fore Port Solars" = locate(/area/skipjack_station/northwest_solars),
-		"Aft Starboard Solars" = locate(/area/skipjack_station/southeast_solars),
-		"Aft Port Solars" = locate(/area/skipjack_station/southwest_solars),
-		"Mining Station" = locate(/area/skipjack_station/mining)
-		)
+		"Surface of the station" = locate(/area/skipjack_station/surface),
+		"Under the station" = locate(/area/skipjack_station/above),
+		"Above the station" = locate(/area/skipjack_station/under),
+		"Mining caverns" = locate(/area/skipjack_station/cavern)
+	)
 
 	VS.announcer = "NDV Icarus"
 	VS.arrival_message = "Attention, [station_short], we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
@@ -344,22 +343,17 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	MS.start_location = "Mercenary Base"
 
 	MS.destinations = list(
-		"Northwest of the station" = locate(/area/syndicate_station/northwest),
-		"North of the station" = locate(/area/syndicate_station/north),
-		"Northeast of the station" = locate(/area/syndicate_station/northeast),
-		"Southwest of the station" = locate(/area/syndicate_station/southwest),
-		"South of the station" = locate(/area/syndicate_station/south),
-		"Southeast of the station" = locate(/area/syndicate_station/southeast),
-		"Telecomms Satellite" = locate(/area/syndicate_station/commssat),
-		"Mining Station" = locate(/area/syndicate_station/mining),
-		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock)
-		)
+		"Surface of the station" = locate(/area/syndicate_station/surface),
+		"Above the station" = locate(/area/syndicate_station/above),
+		"Under the station" = locate(/area/syndicate_station/under),
+		"Mining caverns" = locate(/area/syndicate_station/caverns)
+	)
 
 	MS.docking_controller_tag = "merc_shuttle"
 	MS.destination_dock_targets = list(
 		"Mercenary Base" = "merc_base",
 		"Arrivals dock" = "nuke_shuttle_dock_airlock"
-		)
+	)
 
 	MS.announcer = "NDV Icarus"
 	MS.arrival_message = "Attention, [station_short], you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
