@@ -237,7 +237,7 @@
 	holder.emp_protection = max(0,(holder.emp_protection - protection_amount))
 
 /obj/item/rig_module/emergency_powergenerator
-	name = "emergency Power Generator"
+	name = "emergency power generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
 	toggleable = 0
