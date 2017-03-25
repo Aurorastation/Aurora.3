@@ -95,8 +95,9 @@ Class Procs:
 	can_fire = FALSE
 
 	// Make sure we don't rebuild mid-tick.
-	admin_notice(span("danger", "ZAS Rebuild initiated. Waiting for current air tick to complete before continuing."), R_DEBUG)
-	UNTIL(state == SS_IDLE)
+	if (state != SS_IDLE)
+		admin_notice(span("danger", "ZAS Rebuild initiated. Waiting for current air tick to complete before continuing."), R_DEBUG)
+		UNTIL(state == SS_IDLE)
 
 	while (zones.len)
 		var/zone/zone = zones[zones.len]

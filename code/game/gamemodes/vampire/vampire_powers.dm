@@ -276,17 +276,19 @@
 		return
 
 	for (var/mob/living/simple_animal/hostile/scarybat/bat in spawned)
-		bat.friends += src
+		LAZYADD(bat.friends, src)
 
 		if (vampire.thralls.len)
-			bat.friends += vampire.thralls
+			LAZYADD(bat.friends, vampire.thralls)
 
 	log_and_message_admins("summoned bats.")
 
 	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
-	spawn (1200)
-		verbs += /mob/living/carbon/human/proc/vampire_bats
+	addtimer(CALLBACK(src, .proc/vampire_post_bats), 1200)
+	
+/mob/living/carbon/human/proc/vampire_post_bats()
+	verbs += /mob/living/carbon/human/proc/vampire_bats
 
 // Chiropteran Screech
 /mob/living/carbon/human/proc/vampire_screech()
