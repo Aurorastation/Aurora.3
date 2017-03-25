@@ -267,7 +267,7 @@
 			cooldown = 0
 
 /obj/item/rig_module/emag_hand
-	name = "Electromagnetic Scrambler."
+	name = "electromagnetic scrambler"
 	desc = "A complex uprade that allows the user to touch things with their hand and apply an effect that causes doors to open, safties to become disabled, and electronic locks to be disabled."
 	use_power_cost = 100
 	usable = 0
