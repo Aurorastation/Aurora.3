@@ -49,6 +49,9 @@
 	anchored = TRUE
 	mouse_opacity = FALSE
 
+/atom/movable/openspace/can_fall()
+	return FALSE
+
 // Used to darken the atoms on the openturf without fucking up colors.
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"

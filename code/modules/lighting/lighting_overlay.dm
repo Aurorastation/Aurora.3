@@ -101,6 +101,9 @@
 /atom/movable/lighting_overlay/singuloCanEat()
 	return FALSE
 
+/atom/movable/lighting_overlay/can_fall()
+	return FALSE
+
 // Override here to prevent things accidentally moving around overlays.
 /atom/movable/lighting_overlay/forceMove(atom/destination, no_tp = FALSE, harderforce = FALSE)
 	if(harderforce)

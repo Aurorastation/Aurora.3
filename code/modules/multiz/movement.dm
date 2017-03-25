@@ -186,5 +186,11 @@
 	apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
 	apply_damage(rand(0, damage), BRUTE, "l_arm")
 	apply_damage(rand(0, damage), BRUTE, "r_arm")
-	weakened = max(weakened,2)
+	Weaken(2)
 	updatehealth()
+
+/mob/living/carbon/human/bst/can_fall()
+	return FALSE
+
+/mob/living/carbon/human/bst/handle_fall(turf/landing)
+	return
