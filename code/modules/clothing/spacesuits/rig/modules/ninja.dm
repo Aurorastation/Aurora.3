@@ -4,6 +4,9 @@
  * /obj/item/rig_module/teleporter
  * /obj/item/rig_module/fabricator/energy_net
  * /obj/item/rig_module/self_destruct
+ * /obj/item/rig_module/emp_shielding
+ * /obj/item/rig_module/emergency_powergenerator
+ * /obj/item/rig_module/emag_hand
  */
 
 /obj/item/rig_module/stealth_field
@@ -205,3 +208,108 @@
 		holder.wearer.drop_from_inventory(src)
 		qdel(holder)
 	qdel(src)
+
+
+/obj/item/rig_module/emp_shielding
+	name = "EMP dissipation module"
+	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
+	active_power_cost = 10
+	toggleable = 1
+	usable = 0
+
+	activate_string = "Enable active EMP shielding"
+	deactivate_string = "Disable active EMP shielding"
+
+	interface_name = "active EMP shielding system"
+	interface_desc = "A highly experimental system that augments the hardsuit's existing EM shielding."
+	var/protection_amount = 30
+
+/obj/item/rig_module/emp_shielding/activate()
+	if(!..())
+		return
+
+	holder.emp_protection += protection_amount
+
+/obj/item/rig_module/emp_shielding/deactivate()
+	if(!..())
+		return
+
+	holder.emp_protection = max(0,(holder.emp_protection - protection_amount))
+
+/obj/item/rig_module/emergency_powergenerator
+	name = "Emergency Power Generator"
+	desc = "A high yield power generating device that takes a long time to recharge."
+	active_power_cost = 0
+	toggleable = 0
+	usable = 1
+	confined_use = 1
+	var/cooldown = 0
+
+	engage_string = "Use Emergency Power"
+
+	interface_name = "Emergency Power Generator"
+	interface_desc = "A high yield power generating device that takes a long time to recharge."
+	var/generation_ammount = 1000
+
+/obj/item/rig_module/emergency_powergenerator/engage()
+	if(!..())
+		return
+	var/mob/living/carbon/human/H = holder.wearer
+	if(cooldown == 1)
+		H << "<span class='danger'>There isn't enough power stored up yet!</span>"
+		return 0
+	else if(cooldown == 0)
+		H << "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>"
+		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
+		holder.cell.give(generation_ammount)
+		cooldown = 1
+		spawn(240)
+			cooldown = 0
+
+/obj/item/rig_module/emag_hand
+	name = "EMAG integrated hand."
+	desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
+	use_power_cost = 100
+	usable = 0
+	toggleable = 1
+	activates_on_touch = 1
+	disruptive = 0
+
+	activate_string = "Enable EMAG"
+	deactivate_string = "Disable EMAG"
+
+	interface_name = "Enable EMAG"
+	interface_desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
+	var/atom/interfaced_with
+
+/obj/item/rig_module/emag_hand/activate()
+	if(!..())
+		return
+
+
+/obj/item/rig_module/emag_hand/deactivate()
+	if(!..())
+		return
+/obj/item/rig_module/emag_hand/engage(atom/target)
+
+	if(!..())
+		return 0
+
+	//Target wasn't supplied or we're already draining.
+	if(interfaced_with)
+		return 0
+
+	if(!target)
+		return 1
+
+	// Are we close enough?
+	var/mob/living/carbon/human/H = holder.wearer
+	if(!target.Adjacent(H))
+		return 0
+
+	H << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuts!</span>"
+	interfaced_with = target
+	target.emag_act(user, src)
+	spawn(2)
+	interfaced_with = null
+	return 1
