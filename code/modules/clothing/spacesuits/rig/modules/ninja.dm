@@ -211,7 +211,7 @@
 
 
 /obj/item/rig_module/emp_shielding
-	name = "EMP dissipation module"
+	name = "emp dissipation module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
 	active_power_cost = 10
 	toggleable = 1
@@ -237,7 +237,7 @@
 	holder.emp_protection = max(0,(holder.emp_protection - protection_amount))
 
 /obj/item/rig_module/emergency_powergenerator
-	name = "Emergency Power Generator"
+	name = "emergency Power Generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
 	toggleable = 0
