@@ -244,7 +244,7 @@
 	item_state = "bigsunglasses"
 
 /obj/item/clothing/glasses/sunglasses/sechud
-	name = "HUDSunglasses"
+	name = "HUDsunglasses"
 	desc = "Sunglasses with a HUD."
 	icon_state = "sunhud"
 
