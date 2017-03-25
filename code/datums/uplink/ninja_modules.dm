@@ -63,8 +63,8 @@
 	path = /obj/item/rig_module/power_sink
 
 /datum/uplink_item/item/ninja_modules/emag_hand
-	name = "EMAG Hand Module"
-	desc = "A module that allows the user to apply an EMAG effect to the targeted item."
+	name = "Electromagnetic Scrambler"
+	desc = "A module that allows the user to scramble electronics in a target item shorting them out which causes them to open or have their saftey protocols disabled."
 	item_cost = 5
 	path = /obj/item/rig_module/emag_hand
 
