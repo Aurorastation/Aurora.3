@@ -203,6 +203,7 @@ var/const/RADIO_AIRLOCK = "radio_airlock"
 var/const/RADIO_SECBOT = "radio_secbot"
 var/const/RADIO_MULEBOT = "radio_mulebot"
 var/const/RADIO_MAGNETS = "radio_magnet"
+var/const/RADIO_ARRIVALS = "radio_arrvl"
 
 var/global/datum/controller/radio/radio_controller
 
@@ -345,3 +346,7 @@ var/global/datum/controller/radio/radio_controller
 			var/list/L = data[i]
 			for(var/t in L)
 				. += "data\[\"[i]\"\] list has: [t]"
+
+/datum/signal/Destroy()
+	..()
+	return QDEL_HINT_IWILLGC

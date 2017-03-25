@@ -119,7 +119,7 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 	if(!parallax_initialized)
 		return
 
-	if(!(locate(/turf/space) in trange(C.view,get_turf(C.eye))))
+	if(!(locate(/turf/space) in trange(C.view,get_turf(C.eye))) && !(locate(/turf/simulated/open) in trange(C.view,get_turf(C.eye))))
 		return
 
 	//ACTUALLY MOVING THE PARALLAX

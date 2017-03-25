@@ -35,13 +35,14 @@
 
 /obj/machinery/status_display/arrivals_display
 	ignore_friendc = 1
+	hears_arrivals = TRUE
 
 /obj/machinery/status_display/arrivals_display/update()
 	if(!..() && mode == STATUS_DISPLAY_CUSTOM)
 		message1 = "ARVLS"
 		message2 = ""
 
-		var/datum/shuttle/ferry/arrival/shuttle = arrival_shuttle.shuttle
+		var/datum/shuttle/ferry/arrival/shuttle = SSarrivals.shuttle
 		if (!shuttle)
 			message2 = "Error"
 		else if(shuttle.has_arrive_time())
@@ -67,4 +68,3 @@
 		mode = STATUS_DISPLAY_CUSTOM
 	else
 		..(signal)
-

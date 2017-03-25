@@ -1,8 +1,8 @@
-/var/datum/controller/subsystem/arrivals/arrival_shuttle
+/var/datum/controller/subsystem/arrivals/SSarrivals
 
 /datum/controller/subsystem/arrivals
 	name = "Arrivals"
-	flags = SS_NO_INIT | SS_POST_FIRE_TIMING | SS_BACKGROUND
+	flags = SS_NO_INIT | SS_BACKGROUND
 	priority = SS_PRIORITY_ARRIVALS
 
 	var/datum/shuttle/ferry/arrival/shuttle
@@ -11,18 +11,28 @@
 	var/wait_for_launch = 0	//if the shuttle is waiting to launch
 
 /datum/controller/subsystem/arrivals/New()
-	NEW_SS_GLOBAL(arrival_shuttle)
+	NEW_SS_GLOBAL(SSarrivals)
 
 /datum/controller/subsystem/arrivals/fire()
 	post_signal("arrivals")
 	if (wait_for_launch)
+		// Timing.
 		if (world.time >= launch_time)	//time to launch the shuttle
 			stop_launch_countdown()
 			shuttle.launch(src)
-	if(!wait_for_launch && shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
-		var/located_mob = locate(/mob/living) in shuttle.get_location_area()
-		if (located_mob)
-			set_launch_countdown(30)
+	else
+		// Sleep, we ain't doin' shit. on_hotzone_enter() will wake us.
+		disable()
+
+// Called when a living mob enters the shuttle area.
+/datum/controller/subsystem/arrivals/proc/on_hotzone_enter()
+	if (!shuttle.location)
+		return
+
+	enable()	// Wake the process.
+
+	if (!wait_for_launch && shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
+		set_launch_countdown(30)
 
 //called when the shuttle has arrived.
 
@@ -49,6 +59,7 @@
 /datum/controller/subsystem/arrivals/proc/set_launch_countdown(var/seconds)
 	wait_for_launch = 1
 	launch_time = world.time + seconds*10
+	enable()
 
 /datum/controller/subsystem/arrivals/proc/stop_launch_countdown()
 	wait_for_launch = 0
@@ -64,4 +75,4 @@
 	status_signal.transmission_method = 1
 	status_signal.data["command"] = command
 
-	frequency.post_signal(src, status_signal)
+	frequency.post_signal(src, status_signal, RADIO_ARRIVALS)

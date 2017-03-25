@@ -139,6 +139,15 @@ area/space/atmosalert()
 	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
+/area/shuttle/arrival/centcom/Entered(atom/movable/Obj, atom/oldLoc)
+	. = ..()
+	if (!istype(Obj, /mob/living) || !SSarrivals)
+		return
+
+	log_debug("SSarrivals: [Obj] has entered arrival shuttle hotzone.")
+
+	SSarrivals.on_hotzone_enter()
+
 /area/shuttle/arrival/transit
 	icon_state = "shuttle2"
 	centcomm_area = 1

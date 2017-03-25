@@ -139,7 +139,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	shuttles["Arrival"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
-	arrival_shuttle.shuttle = shuttle
+	SSarrivals.shuttle = shuttle
 
 	//LIFTS!!!!!
 	// They are shuttles to save dupe code
