@@ -1,6 +1,5 @@
 #ifdef TESTING
 
-/client/var/running_find_references
 /datum/var/running_find_references
 /datum/var/last_find_references = 0
 

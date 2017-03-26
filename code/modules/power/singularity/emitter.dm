@@ -29,7 +29,7 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/New()
+/obj/machinery/power/emitter/initialize()
 	..()
 	spark_system = bind_spark(src, 5, alldirs)
 

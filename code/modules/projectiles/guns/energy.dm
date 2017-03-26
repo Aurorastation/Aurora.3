@@ -42,7 +42,7 @@
 
 /obj/item/weapon/gun/energy/proc/try_recharge()
 	. = 1
-	if (!power_supply || power_supply.charge >= power_supply.maxcharge)
+	if (!power_supply || power_supply.charge >= power_supply.maxcharge || !self_recharge)
 		return 0 // check if we actually need to recharge
 		
 	if (use_external_power)
