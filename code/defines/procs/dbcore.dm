@@ -131,7 +131,7 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 		error("SQL Error: '[error]'")
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
-			log_game(text="MySQL connection drop detected, attempting to reconnect.")
+			log_game("MySQL connection drop detected, attempting to reconnect.")
 			message_admins("MySQL connection drop detected, attempting to reconnect.")
 			db_connection.Reconnect()
 

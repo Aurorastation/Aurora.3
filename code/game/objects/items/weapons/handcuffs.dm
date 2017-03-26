@@ -98,7 +98,7 @@ var/last_chew = 0
 	H.visible_message(s, "<span class='warning'>You chew on your [O.name]!</span>")
 	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun(1)] restrained hand - (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
-	log_attack(text="[s] ([H.ckey])",ckey=key_name(H))
+	log_attack("[s] ([H.ckey])",ckey=key_name(H))
 
 	if(O.take_damage(3,0,1,1,"teeth marks"))
 		H:UpdateDamageIcon()

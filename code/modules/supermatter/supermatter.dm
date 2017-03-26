@@ -103,7 +103,7 @@
 
 /obj/machinery/power/supermatter/proc/explode()
 	message_admins("Supermatter exploded at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-	log_game(text="Supermatter exploded at ([x],[y],[z])")
+	log_game("Supermatter exploded at ([x],[y],[z])")
 	anchored = 1
 	grav_pulling = 1
 	exploded = 1

@@ -5,10 +5,10 @@
 	if (!config.use_discord_bot)
 		return
 	if (!channel)
-		log_game(text="send_to_discord() called without channel arg.")
+		log_game("send_to_discord() called without channel arg.")
 		return
 	if (!message)
-		log_game(text="send_to_discord() called without message arg.")
+		log_game("send_to_discord() called without message arg.")
 		return
 
 	var/arguments = " --key=\"[config.comms_password]\""

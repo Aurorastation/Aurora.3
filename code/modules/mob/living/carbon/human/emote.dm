@@ -629,7 +629,7 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 
 
 	if (message)
-		log_emote(text="[name]/[key] : [message]",ckey=key_name(src))
+		log_emote("[name]/[key] : [message]",ckey=key_name(src))
 		custom_emote(m_type,message)
 
 

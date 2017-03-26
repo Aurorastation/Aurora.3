@@ -57,11 +57,11 @@
 			add_logs(user, target, "planted [name] on")
 			user.visible_message("<span class='danger'>[user.name] finished planting an explosive on [target.name]!</span>")
 			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [key_name(target)](<A HREF='?_src_=holder;adminmoreinfo=\ref[target]'>?</A>) with [timer] second fuse",0,1)
-			log_game(text="[key_name(user)] planted [src.name] on [key_name(target)] with [timer] second fuse",ckey=key_name(user))
+			log_game("[key_name(user)] planted [src.name] on [key_name(target)] with [timer] second fuse",ckey=key_name(user))
 
 		else
 			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [timer] second fuse",0,1)
-			log_game(text="[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
+			log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
 
 		target.overlays += image_overlay
 		user << "Bomb has been planted. Timer counting down from [timer]."

@@ -156,7 +156,7 @@ var/datum/controller/process/explosives/bomb_processor
 
 	if(adminlog)
 		message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
-		log_game(text="Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ")
+		log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ")
 
 	if(heavy_impact_range > 1)
 		var/datum/effect/system/explosion/E = new/datum/effect/system/explosion()
@@ -200,7 +200,7 @@ var/datum/controller/process/explosives/bomb_processor
 	if(!epicenter) return
 
 	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z])")
-	log_game(text="Explosion with size ([power]) in area [epicenter.loc.name] ")
+	log_game("Explosion with size ([power]) in area [epicenter.loc.name] ")
 
 	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power*2,1) )
 	playsound(epicenter, "explosion", 100, 1, round(power,1) )

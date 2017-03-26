@@ -447,9 +447,9 @@ var/global/datum/controller/gameticker/ticker
 				total_antagonists[temprole] += ": [Mind.name]([Mind.key])"
 
 	//Now print them all into the log!
-	log_game(text="Antagonists at round end were...")
+	log_game("Antagonists at round end were...")
 	for(var/i in total_antagonists)
-		log_game(text="[i]s[total_antagonists[i]].")
+		log_game("[i]s[total_antagonists[i]].")
 
 	return 1
 

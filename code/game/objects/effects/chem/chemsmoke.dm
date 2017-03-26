@@ -154,10 +154,10 @@
 			if(M)
 				more = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</a>)"
 			message_admins("A chemical smoke reaction has taken place in ([whereLink])[contained]. Last associated key is [carry.my_atom.fingerprintslast][more].", 0, 1)
-			log_game(text="A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].",ckey=key_name(M))
+			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].",ckey=key_name(M))
 		else
 			message_admins("A chemical smoke reaction has taken place in ([whereLink]). No associated key.", 0, 1)
-			log_game(text="A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")
+			log_game("A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")
 	else if (show_touch_log && touched_mobs.len)
 		var/mobnames = ""
 		if (touched_mobs.len > 1)
@@ -176,7 +176,7 @@
 		if (contained)
 			containing += ", containing [contained]"
 		message_admins("Chemical smoke[containing] has been released ([whereLink]). [mobnames]", 0, 1)
-		log_game(text="Chemical smoke[containing] has been released ([where]). Affected: [english_list(touched_mobs, "Nobody affected.")]")
+		log_game("Chemical smoke[containing] has been released ([where]). Affected: [english_list(touched_mobs, "Nobody affected.")]")
 
 //Runs the chem smoke effect
 // Spawns damage over time loop for each reagent held in the cloud.

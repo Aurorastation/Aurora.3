@@ -21,7 +21,7 @@
 					override = input(src,"mode = ?","Enter Parameter",null) as anything in list("blob","mercenary","AI malfunction","no override")
 			ticker.station_explosion_cinematic(parameter,override)
 
-	log_admin(text="[key_name(src)] launched cinematic \"[cinematic]\"",admin_key=key_name(usr))
+	log_admin("[key_name(src)] launched cinematic \"[cinematic]\"",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] launched cinematic \"[cinematic]\"", 1)
 
 	return

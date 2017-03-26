@@ -228,7 +228,7 @@
 
 	// Don't send messages unless we *need* the computer, and less than five minutes have passed since last time we messaged
 	if(!control_computer && urgent && last_no_computer_message + 5*60*10 < world.time)
-		log_admin(text="Cryopod in [src.loc.loc] could not find control computer!")
+		log_admin("Cryopod in [src.loc.loc] could not find control computer!")
 		message_admins("Cryopod in [src.loc.loc] could not find control computer!")
 		last_no_computer_message = world.time
 
@@ -426,7 +426,7 @@
 
 			// Book keeping!
 			var/turf/location = get_turf(src)
-			log_admin(text="[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)",ckey=key_name(M))
+			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)",ckey=key_name(M))
 			message_admins("<span class='notice'>[key_name_admin(M)] has entered a stasis pod.</span>")
 
 			//Despawning occurs when process() is called with an occupant without a client.
@@ -486,7 +486,7 @@
 
 		// Book keeping!
 		var/turf/location = get_turf(src)
-		log_admin(text="[key_name_admin(L)] has entered a stasis pod.",ckey=key_name(L))
+		log_admin("[key_name_admin(L)] has entered a stasis pod.",ckey=key_name(L))
 		message_admins("<span class='notice'>[key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
 
 		//Despawning occurs when process() is called with an occupant without a client.

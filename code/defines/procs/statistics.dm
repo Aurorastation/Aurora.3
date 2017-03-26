@@ -8,13 +8,13 @@ proc/sql_poll_population()
 			playercount += 1
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
-		log_game(text="SQL ERROR during population polling. Failed to connect.")
+		log_game("SQL ERROR during population polling. Failed to connect.")
 	else
 		var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 		var/DBQuery/query = dbcon.NewQuery("INSERT INTO `ss13_population` (`playercount`, `admincount`, `time`) VALUES ([playercount], [admincount], '[sqltime]')")
 		if(!query.Execute())
 			var/err = query.ErrorMsg()
-			log_game(text="SQL ERROR during population polling. Error : \[[err]\]\n")
+			log_game("SQL ERROR during population polling. Error : \[[err]\]\n")
 
 proc/sql_report_round_start()
 	// TODO
@@ -51,12 +51,12 @@ proc/sql_report_death(var/mob/living/carbon/human/H)
 	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
-		log_game(text="SQL ERROR during death reporting. Failed to connect.")
+		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
 		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.getBruteLoss()], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()], '[coord]')")
 		if(!query.Execute())
 			var/err = query.ErrorMsg()
-			log_game(text="SQL ERROR during death reporting. Error : \[[err]\]\n")
+			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
 
 
 proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
@@ -85,12 +85,12 @@ proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
 	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
-		log_game(text="SQL ERROR during death reporting. Failed to connect.")
+		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
 		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.getBruteLoss()], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()], '[coord]')")
 		if(!query.Execute())
 			var/err = query.ErrorMsg()
-			log_game(text="SQL ERROR during death reporting. Error : \[[err]\]\n")
+			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
 
 
 proc/statistic_cycle()

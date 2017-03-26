@@ -215,7 +215,7 @@
 			new_objective.owner = src.mob.mind
 		src.mob.mind.objectives += new_objective
 		src << "<span class='notice'>New objective assigned! Have fun, and roleplay well!</span>"
-		log_admin(text="CONTEST: [key_name(src)] has assigned themselves an objective: [new_objective.type].", ckey=key_name(src))
+		log_admin("CONTEST: [key_name(src)] has assigned themselves an objective: [new_objective.type].", ckey=key_name(src))
 		return
 	else
 		src << "<span class='warning'>This character hasn't been set up to participate! Consult an admin or change this yourself!</span>"

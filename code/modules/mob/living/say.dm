@@ -275,11 +275,11 @@ proc/get_radio_key_from_channel(var/channel)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
-	log_say(text="[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
-	log_say(text="[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
+	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
 
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src)

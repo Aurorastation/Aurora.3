@@ -12,7 +12,7 @@
 
 	if(R.log_is_important)
 		message_admins(logstr)
-	log_admin(text=logstr)
+	log_admin(logstr)
 
 /client/proc/view_chemical_reaction_logs()
 	set name = "Show Chemical Reactions"

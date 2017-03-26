@@ -69,5 +69,5 @@ datum/event/viral_infection/start()
 		used_candidates_links += key_name_admin(M)
 		used_candidates_text += key_name(M)
 
-	log_admin(text="Virus event affecting [english_list(used_candidates_text)] started; Viruses: [english_list(used_viruses_text)]")
+	log_admin("Virus event affecting [english_list(used_candidates_text)] started; Viruses: [english_list(used_viruses_text)]")
 	message_admins("Virus event affecting [english_list(used_candidates_links)] started; Viruses: [english_list(used_viruses_links)]")

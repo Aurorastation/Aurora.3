@@ -454,23 +454,23 @@
 
 	usr << "You can respawn now, enjoy your new life!"
 
-	log_game(text="[usr.name]/[usr.key] used abandon mob.",ckey=key_name(usr))
+	log_game("[usr.name]/[usr.key] used abandon mob.",ckey=key_name(usr))
 
 	usr << "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>"
 
 	if(!client)
-		log_game(text="[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
 		return
 	client.screen.Cut()
 	if(!client)
-		log_game(text="[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
 		return
 
 	announce_ghost_joinleave(client, 0)
 
 	var/mob/new_player/M = new /mob/new_player()
 	if(!client)
-		log_game(text="[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
 		qdel(M)
 		return
 
@@ -1210,7 +1210,7 @@ mob/proc/yank_out_object()
 
 	SetWeakened(200)
 	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
-	log_admin(text="[key_name(admin)] winded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] winded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "WIND")
@@ -1226,7 +1226,7 @@ mob/proc/yank_out_object()
 
 	SetWeakened(0)
 	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[src] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
-	log_admin(text="[key_name(admin)] unwinded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] unwinded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
 	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "UNWIND")

@@ -23,7 +23,7 @@
 	if (message)
 		send_emote(message, m_type)
 		if (log_emote)
-			log_emote(text="[name]/[key] : [message]",ckey=key_name(key))
+			log_emote("[name]/[key] : [message]",ckey=key_name(key))
 
 
 /mob/proc/emote_dead(var/message)
@@ -49,7 +49,7 @@
 		input = message
 
 	if(input)
-		log_emote(text="Ghost/[src.key] : [input]",ckey=key_name(src))
+		log_emote("Ghost/[src.key] : [input]",ckey=key_name(src))
 		say_dead_direct(input, src)
 
 

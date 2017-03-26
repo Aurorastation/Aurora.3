@@ -89,7 +89,7 @@
 		if(D.stat != 2)
 			usr << "<span class='danger'>You issue a kill command for the unfortunate drone.</span>"
 			message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
-			log_game(text="[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
+			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
 			D.shut_down()
 
 	else if (href_list["search_fab"])
