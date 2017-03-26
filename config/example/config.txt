@@ -435,3 +435,8 @@ API_RATE_LIMIT 50
 ## IPs that should not be throttled by the API RATE Limiter
 ## IPs are separated by ;
 API_RATE_LIMIT_WHITELIST 127.0.0.1
+
+## GELF Logging Configuration
+LOG_GELF_ENABLED 1
+LOG_GELF_IP 192.168.100.80
+LOG_GELF_PORT 12201

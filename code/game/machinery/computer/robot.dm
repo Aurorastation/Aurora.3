@@ -64,7 +64,7 @@
 			target.ResetSecurityCodes()
 		else
 			message_admins("<span class='notice'>[key_name_admin(usr)] detonated [target.name]!</span>")
-			log_game("[key_name(usr)] detonated [target.name]!")
+			log_game(text="[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
 			target << "<span class='danger'>Self-destruct command received.</span>"
 			spawn(10)
 				target.self_destruct()
@@ -93,7 +93,7 @@
 			return
 
 		message_admins("<span class='notice'>[key_name_admin(usr)] [target.canmove ? "locked down" : "released"] [target.name]!</span>")
-		log_game("[key_name(usr)] [target.canmove ? "locked down" : "released"] [target.name]!")
+		log_game(text="[key_name(usr)] [target.canmove ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
 		target.canmove = !target.canmove
 		if (target.lockcharge)
 			target.lockcharge = !target.lockcharge
@@ -125,7 +125,7 @@
 			return
 
 		message_admins("<span class='notice'>[key_name_admin(usr)] emagged [target.name] using robotic console!</span>")
-		log_game("[key_name(usr)] emagged [target.name] using robotic console!")
+		log_game(text="[key_name(usr)] emagged [target.name] using robotic console!",ckey=key_name(usr))
 		target.emagged = 1
 		target << "<span class='notice'>Failsafe protocols overriden. New tools available.</span>"
 
@@ -148,7 +148,7 @@
 			return
 
 		message_admins("<span class='notice'>[key_name_admin(usr)] detonated all cyborgs!</span>")
-		log_game("[key_name(usr)] detonated all cyborgs!")
+		log_game(text="[key_name(usr)] detonated all cyborgs!",ckey=key_name(usr))
 
 		for(var/mob/living/silicon/robot/R in mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))

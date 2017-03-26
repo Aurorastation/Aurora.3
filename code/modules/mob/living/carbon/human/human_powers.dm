@@ -185,7 +185,7 @@
 		src << "Not even a [src.species.name] can speak to the dead."
 		return
 
-	log_say("[key_name(src)] communed to [key_name(M)]: [text]")
+	log_say(text="[key_name(src)] communed to [key_name(M)]: [text]",ckey=key_name(src))
 
 	M << "\blue Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]"
 	if(istype(M,/mob/living/carbon/human))
@@ -215,7 +215,7 @@
 
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
-		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]")
+		log_say(text="PsychicWhisper: [key_name(src)]->[M.key] : [msg]",ckey=key_name(src))
 		M << "\green You hear a strange, alien voice in your head... \italic [msg]"
 		src << "\green You said: \"[msg]\" to [M]"
 	return
@@ -423,7 +423,7 @@
 		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
 		return
 
-	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
+	log_say(text="[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
 		M << "<span class='danger'> You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"

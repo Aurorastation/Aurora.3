@@ -766,7 +766,7 @@ default behaviour is:
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].")
+	log_admin(text="[key_name(possessor)] took control of \the [src].",admin_key=key_name(possessor))
 	src.ckey = possessor.ckey
 	qdel(possessor)
 

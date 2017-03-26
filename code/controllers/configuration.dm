@@ -254,6 +254,11 @@ var/list/gamemode_cache = list()
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
 
+	//UDP GELF Logging
+	var/log_gelf_enabled = 0
+	var/log_gelf_ip = ""
+	var/log_gelf_port = ""
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -794,6 +799,15 @@ var/list/gamemode_cache = list()
 
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
+
+				if("log_gelf_enabled")
+					config.log_gelf_enabled = text2num(value)
+				
+				if("log_gelf_ip")
+					config.log_gelf_ip = value
+				
+				if("log_gelf_port")
+					config.log_gelf_port = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

@@ -90,7 +90,7 @@
 					set_security_level(tmp_alertlevel)
 					if(security_level != old_level)
 						//Only notify the admins if an actual change happened
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
+						log_game(text="[key_name(usr)] has changed the security level to [get_security_level()].",ckey=key_name(usr))
 						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
 						switch(security_level)
 							if(SEC_LEVEL_GREEN)
@@ -195,7 +195,7 @@
 					return
 				Centcomm_announce(input, usr)
 				usr << "<span class='notice'>Message transmitted.</span>"
-				log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]")
+				log_say(text="[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
 				centcomm_message_cooldown = 1
 				spawn(300)//30 second cooldown
 					centcomm_message_cooldown = 0
@@ -212,7 +212,7 @@
 					return
 				Syndicate_announce(input, usr)
 				usr << "<span class='notice'>Message transmitted.</span>"
-				log_say("[key_name(usr)] has made an illegal announcement: [input]")
+				log_say(text="[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(usr))
 				centcomm_message_cooldown = 1
 				spawn(300)//10 minute cooldown
 					centcomm_message_cooldown = 0
@@ -459,7 +459,7 @@
 		return
 
 	emergency_shuttle.call_evac()
-	log_game("[key_name(user)] has called the shuttle.")
+	log_game(text="[key_name(user)] has called the shuttle.",ckey=key_name(user))
 	message_admins("[key_name_admin(user)] has called the shuttle.", 1)
 
 
@@ -506,7 +506,7 @@
 		event_manager.delay_events(EVENT_LEVEL_MODERATE, 9000) //15 minutes
 		event_manager.delay_events(EVENT_LEVEL_MAJOR, 9000)
 
-	log_game("[user? key_name(user) : "Autotransfer"] has called the shuttle.")
+	log_game(text="[user? key_name(user) : "Autotransfer"] has called the shuttle.")
 	message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the shuttle.", 1)
 
 	return
@@ -519,7 +519,7 @@
 
 	if(!emergency_shuttle.going_to_centcom()) //check that shuttle isn't already heading to centcomm
 		emergency_shuttle.recall()
-		log_game("[key_name(user)] has recalled the shuttle.")
+		log_game(text="[key_name(user)] has recalled the shuttle.",key_name(user))
 		message_admins("[key_name_admin(user)] has recalled the shuttle.", 1)
 	return
 
@@ -545,7 +545,7 @@
 		if("message")
 			status_signal.data["msg1"] = data1
 			status_signal.data["msg2"] = data2
-			log_admin("STATUS: [src.fingerprintslast] set status screen message with [src]: [data1] [data2]")
+			log_admin(text="STATUS: [src.fingerprintslast] set status screen message with [src]: [data1] [data2]")
 			//message_admins("STATUS: [user] set status screen with [PDA]. Message: [data1] [data2]")
 		if("alert")
 			status_signal.data["picture_state"] = data1

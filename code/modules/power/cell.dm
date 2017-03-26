@@ -103,7 +103,7 @@
 
 			rigged = 1
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.")
+			log_admin(text="LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.",ckey=key_name(user))
 			message_admins("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.")
 
 		S.reagents.clear_reagents()
@@ -137,7 +137,7 @@
 		return
 	//explosion(T, 0, 1, 2, 2)
 
-	log_admin("LOG: Rigged power cell explosion, last touched by [fingerprintslast]")
+	log_admin(text="LOG: Rigged power cell explosion, last touched by [fingerprintslast]")
 	message_admins("LOG: Rigged power cell explosion, last touched by [fingerprintslast]")
 
 	explosion(T, devastation_range, heavy_impact_range, light_impact_range, flash_range)

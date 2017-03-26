@@ -21,7 +21,7 @@
 	var/stafftype = uppertext(holder.rank)
 
 	msg = sanitize(msg)
-	log_admin("DSAY: [key_name(src)] : [msg]")
+	log_admin(text="DSAY: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	msg = process_chat_markup(msg)
 

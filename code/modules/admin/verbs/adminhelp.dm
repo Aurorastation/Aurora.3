@@ -116,7 +116,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	src << "<font color='blue'>PM to-<b>Staff </b>: [original_msg]</font>"
 
 	var/admin_number_active = admin_number_present - admin_number_afk
-	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.")
+	log_admin(text="HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.",admin_key=key_name(src))
 	if(admin_number_active <= 0)
 		discord_bot.send_to_admins("@everyone Request for Help from [key_name(src)]: [html_decode(original_msg)] - !![admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!")
 	feedback_add_details("admin_verb","AH") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

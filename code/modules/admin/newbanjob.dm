@@ -23,12 +23,12 @@ var/savefile/Banlistjob
 /proc/LoadBansjob()
 
 	Banlistjob = new("data/job_fullnew.bdb")
-	log_admin("Loading Banlistjob")
+	log_admin(text="Loading Banlistjob")
 
-	if (!length(Banlistjob.dir)) log_admin("Banlistjob is empty.")
+	if (!length(Banlistjob.dir)) log_admin(text="Banlistjob is empty.")
 
 	if (!Banlistjob.dir.Find("base"))
-		log_admin("Banlistjob missing base dir.")
+		log_admin(text="Banlistjob missing base dir.")
 		Banlistjob.dir.Add("base")
 		Banlistjob.cd = "/base"
 	else if (Banlistjob.dir.Find("base"))
@@ -170,10 +170,10 @@ var/savefile/Banlistjob
 	if (!Banlistjob.dir.Remove(foldername)) return 0
 
 	if(!usr)
-		log_admin("Banjob Expired: [key]")
+		log_admin(text="Banjob Expired: [key]",ckey=key)
 		message_admins("Banjob Expired: [key]")
 	else
-		log_admin("[key_name_admin(usr)] unjobbanned [key] from [rank]")
+		log_admin(text="[key_name_admin(usr)] unjobbanned [key] from [rank]",admin_key=key_name_admin(usr),ckey=key)
 		message_admins("[key_name_admin(usr)] unjobbanned:[key] from [rank]")
 		ban_unban_log_save("[key_name_admin(usr)] unjobbanned [key] from [rank]")
 		feedback_inc("ban_job_unban",1)

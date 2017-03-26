@@ -116,6 +116,6 @@
 		else
 			src << text("Invalid Emote: []", act)
 	if ((message && src.stat == 0))
-		log_emote("[name]/[key] : [message]")
+		log_emote(text="[name]/[key] : [message]",ckey=key_name(key))
 		send_emote(message, m_type)
 	return

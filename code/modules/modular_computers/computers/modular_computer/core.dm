@@ -35,11 +35,11 @@
 	check_update_ui_need()
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
-	log_debug("=== Searchng for matching preset")
+	//log_debug("=== Searchng for matching preset")
 	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
-		log_debug("comparing preset [prs.name]")
+		//log_debug("comparing preset [prs.name]")
 		if(prs.name == app_preset_name)
-			log_debug("preset matched")
+			//log_debug("preset matched")
 			return prs.return_install_programs()
 
 // Used to perform preset-specific hardware changes.
@@ -49,10 +49,10 @@
 // Used to install preset-specific programs
 /obj/item/modular_computer/proc/install_default_programs()
 	if(enrolled)
-		log_debug("=== Calling install programs for preset [_app_preset_name]")
+		//log_debug("=== Calling install programs for preset [_app_preset_name]")
 		var/programs = get_preset_programs(_app_preset_name)
 		for (var/datum/computer_file/program/prog in programs)
-			log_debug("Installing prog [prog.filename]")
+			//log_debug("Installing prog [prog.filename]")
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/New()

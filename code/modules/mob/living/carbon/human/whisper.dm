@@ -74,7 +74,7 @@
 	if(!message || message=="")
 		return
 
-	log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
+	log_whisper(text="[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 
 	//looks like this only appears in whisper. Should it be elsewhere as well? Maybe handle_speech_problems?
 	var/voice_sub

@@ -107,7 +107,7 @@
 	if(C.prefs && C.prefs.toggles & SOUND_ADMINHELP)
 		C << 'sound/effects/adminhelp.ogg'
 
-	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]")
+	log_admin(text="PM: [key_name(src)]->[key_name(C)]: [msg]",admin_key=key_name(src),text=key_name(C))
 
 	//we don't use message_admins here because the sender/receiver might get it too
 	for(var/client/X in admins)
@@ -133,7 +133,7 @@
 
 	src << "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>"
 
-	log_admin("PM: [key_name(src)]->Discord-[sender]: [msg]")
+	log_admin(text="PM: [key_name(src)]->Discord-[sender]: [msg]")
 	for(var/client/X in admins)
 		if(X == src)
 			continue

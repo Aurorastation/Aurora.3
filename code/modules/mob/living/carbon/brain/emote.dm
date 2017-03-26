@@ -66,6 +66,6 @@
 			src << "\blue Unusable emote '[act]'. Say *help for a list."
 
 	if (message)
-		log_emote("[name]/[key] : [message]")
+		log_emote(text="[name]/[key] : [message]",ckey=key_name(key))
 
 		send_emote(message, m_type)

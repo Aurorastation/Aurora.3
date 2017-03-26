@@ -34,7 +34,7 @@
 			item.loc = src
 			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 			message_admins("[key_name_admin(user)] attached both tanks to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.")
+			log_game(text="[key_name_admin(user)] attached both tanks to a transfer valve.",ckey=key_name(user))
 
 		update_icon()
 		nanomanager.update_uis(src) // update all UIs attached to src
@@ -56,7 +56,7 @@
 
 		bombers += "[key_name(user)] attached a [item] to a transfer valve."
 		message_admins("[key_name_admin(user)] attached a [item] to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-		log_game("[key_name_admin(user)] attached a [item] to a transfer valve.")
+		log_game(text="[key_name_admin(user)] attached a [item] to a transfer valve.",ckey=key_name(user))
 		attacher = user
 		nanomanager.update_uis(src) // update all UIs attached to src
 	return
@@ -209,7 +209,7 @@
 		log_str += " Last touched by: [src.fingerprintslast][last_touch_info]"
 		bombers += log_str
 		message_admins(log_str, 0, 1)
-		log_game(log_str)
+		log_game(text=log_str)
 		merge_gases()
 
 	else if(valve_open==1 && (tank_one && tank_two))

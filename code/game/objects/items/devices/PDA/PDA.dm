@@ -853,11 +853,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							U.show_message("<span class='warning'>Energy feeds back into your [src]!</span>", 1)
 							ui.close()
 							detonate_act(src)
-							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge but failed, blowing themselves up")
+							log_admin(text="[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge but failed, blowing themselves up",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge but failed.", 1)
 						else
 							U.show_message("<span class='notice'>Success!</span>", 1)
-							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded")
+							log_admin(text="[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded.", 1)
 							detonate_act(P)
 					else
@@ -1084,7 +1084,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>)"
 	new_info(message_silent, ttone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]")
+	log_pda(text="[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 	update_icon()
 
@@ -1096,7 +1096,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>) [track]"
 	new_info(message_silent, newstone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]")
+	log_pda(text="[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 
 /obj/item/device/pda/verb/verb_reset_pda()

@@ -3,14 +3,14 @@
 	set category = "Special Verbs"
 	if(M.client)
 		if(M.client.buildmode)
-			log_admin("[key_name(usr)] has left build mode.")
+			log_admin(text="[key_name(usr)] has left build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 0
 			M.client.show_popup_menus = 1
 			for(var/obj/effect/bmode/buildholder/H)
 				if(H.cl == M.client)
 					qdel(H)
 		else
-			log_admin("[key_name(usr)] has entered build mode.")
+			log_admin(text="[key_name(usr)] has entered build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 1
 			M.client.show_popup_menus = 0
 
@@ -278,13 +278,13 @@
 		if(3)
 			if(pa.Find("left")) //I cant believe this shit actually compiles.
 				if(object.vars.Find(holder.buildmode.varholder))
-					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]")
+					log_admin(text="[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]",admin_key=key_name(usr))
 					object.vars[holder.buildmode.varholder] = holder.buildmode.valueholder
 				else
 					usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
 			if(pa.Find("right"))
 				if(object.vars.Find(holder.buildmode.varholder))
-					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]")
+					log_admin(text="[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]",admin_key=key_name(usr))
 					object.vars[holder.buildmode.varholder] = initial(object.vars[holder.buildmode.varholder])
 				else
 					usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
@@ -296,4 +296,4 @@
 			if(pa.Find("right"))
 				if(holder.throw_atom)
 					holder.throw_atom.throw_at(object, 10, 1)
-					log_admin("[key_name(usr)] threw [holder.throw_atom] at [object]")
+					log_admin(text="[key_name(usr)] threw [holder.throw_atom] at [object]",admin_key=key_name(usr))

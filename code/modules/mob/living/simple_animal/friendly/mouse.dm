@@ -150,7 +150,7 @@
 	if (stat == CONSCIOUS)
 		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 		if (manual)
-			log_say("[key_name(src)] squeaks! ")
+			log_say(text="[key_name(src)] squeaks! ",ckey=key_name(src))
 
 
 
@@ -165,7 +165,7 @@
 		playsound(src, sound, 5, 1, -4.6)
 
 		if (manual)
-			log_say("[key_name(src)] squeaks softly! ")
+			log_say(text="[key_name(src)] squeaks softly! ",ckey=key_name(src))
 
 
 //Plays a loud sound
@@ -175,7 +175,7 @@
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --
-			log_say("[key_name(src)] squeals! ")
+			log_say(text="[key_name(src)] squeals! ",ckey=key_name(src))
 		else
 			src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
 

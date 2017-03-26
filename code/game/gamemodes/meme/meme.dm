@@ -49,7 +49,7 @@
 	var/list/datum/mind/possible_memes = get_players_for_role(BE_MEME)
 
 	if(possible_memes.len < 2)
-		log_admin("MODE FAILURE: MEME. NOT ENOUGH MEME CANDIDATES.")
+		log_admin(text="MODE FAILURE: MEME. NOT ENOUGH MEME CANDIDATES.")
 		return 0 // not enough candidates for meme
 
 	// for each 2 possible memes, add one meme and one host
@@ -94,7 +94,7 @@
 
 		qdel(original)
 
-	log_admin("Created [memes.len] memes.")
+	log_admin(text="Created [memes.len] memes.")
 
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
