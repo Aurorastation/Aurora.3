@@ -111,14 +111,16 @@
 	bst.add_language(LANGUAGE_CHANGELING)
 	bst.add_language(LANGUAGE_BORER)
 
-	spawn(5)
-		spark(T, 3, alldirs)
-		bst.anchored = 0
+	addtimer(CALLBACK(src, .proc/bst_post_spawn, bst), 5)
 
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
 	return 1
+
+/client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
+	spark(bst, 3, alldirs)
+	bst.anchored = FALSE
 
 /mob/living/carbon/human/bst
 	universal_understand = 1
@@ -150,20 +152,19 @@
 		return
 
 	src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
-	spawn(10)
-		spark(src, 5, alldirs)
-		if(key)
-			if(client.holder && client.holder.original_mob)
-				client.holder.original_mob.key = key
-			else
-				var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
-				ghost.key = key
-				ghost.mind.name = "[ghost.key] BSTech"
-				ghost.name = "[ghost.key] BSTech"
-				ghost.real_name = "[ghost.key] BSTech"
-				ghost.voice_name = "[ghost.key] BSTech"
-		qdel(src)
-	return
+	spark(src, 5, alldirs)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
+	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
+	if(key)
+		if(client.holder && client.holder.original_mob)
+			client.holder.original_mob.key = key
+		else
+			var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			ghost.key = key
+			ghost.mind.name = "[ghost.key] BSTech"
+			ghost.name = "[ghost.key] BSTech"
+			ghost.real_name = "[ghost.key] BSTech"
+			ghost.voice_name = "[ghost.key] BSTech"
 
 /mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
 	if(set_species("Tajara"))
