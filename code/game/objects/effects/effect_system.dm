@@ -124,8 +124,7 @@ steam.start() -- spawns the effect
 	if (T)
 		T.force_update_lights()	// I hate it, but nothing else seems to work.
 	
-	sleep(2 SECONDS)
-	qdel(src)
+	QDEL_IN(src, 2 SECONDS)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
 	..()
