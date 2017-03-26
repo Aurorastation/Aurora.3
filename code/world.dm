@@ -410,7 +410,7 @@ var/inerror = 0
 
 /hook/startup/proc/load_databases()
 	//Construct the database object from an init file.
-	dbcon = initialize_database_object("config/dbconfig.txt")
+	dbcon = initialize_database_object("config/dbconfig.json")
 
 	if (!setup_database_connection(dbcon))
 		world.log << "Your server failed to establish a connection with the feedback database."
@@ -425,31 +425,20 @@ var/inerror = 0
 
 	var/list/data = list("address", "port", "database", "login", "password")
 
-	var/list/Lines = file2list(filename)
+	var/list/Lines
 
-	if (!Lines)
+	try
+		Lines = json_decode(file2text(filename))
+	catch(var/exception/e)
+		error("Error reading database config file '[filename]': [e]")
+		return new/DBConnection()
+
+	if (!Lines || !Lines.len)
 		// Return dummy object for safety.
 		return new/DBConnection()
 
-	for (var/t in Lines)
-		if (!t)
-			continue
-
-		t = trim(t)
-		if (length(t) == 0)
-			continue
-		else if (copytext(t, 1, 2) == "#")
-			continue
-
-		var/pos = findtext(t, " ")
-		var/name = null
-		var/value = null
-
-		name = lowertext(copytext(t, 1, pos))
-		value = copytext(t, pos + 1)
-
-		if (!name)
-			continue
+	for (var/name in Lines)
+		var/value = Lines[name]
 
 		if (name in data)
 			data[name] = value
