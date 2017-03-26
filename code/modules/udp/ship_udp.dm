@@ -65,7 +65,7 @@
         return 101
     var/list/log_data = list()
     log_data["version"] = "1.1"
-    log_data["host"] = "SS13 Test Host"
+    log_data["host"] = world.name
     log_data["short_message"] = short_message
     log_data["long_message"] = long_message
     log_data["level"] = level

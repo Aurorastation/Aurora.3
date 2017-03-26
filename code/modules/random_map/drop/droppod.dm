@@ -216,11 +216,11 @@
 			spawned_mob.ckey = selected_player.mob.ckey
 		spawned_mobs = list(spawned_mob)
 		message_admins("[key_name(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])")
-		log_admin(text="[key_name(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr),ckey=spawned_mob.key)
+		log_admin(text="[key_name(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr),ckey=key_name(spawned_mob))
 	else if(spawned_mobs.len)
 		automatic_pod = 1
 		message_admins("[key_name(usr)] dropped a pod containing [spawned_mobs.len] [spawned_mobs[1]] at ([usr.x],[usr.y],[usr.z])")
-		log_admin(text="[key_name(usr)] dropped a pod containing [spawned_mobs.len] [spawned_mobs[1]] at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr),ckey=spawned_mob.key)
+		log_admin(text="[key_name(usr)] dropped a pod containing [spawned_mobs.len] [spawned_mobs[1]] at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr),ckey=key_name(spawned_mob))
 	else
 		return
 

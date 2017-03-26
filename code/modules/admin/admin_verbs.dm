@@ -711,7 +711,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(deadmin_holder)
 		deadmin_holder.reassociate()
-		log_admin(text="[src] re-admined themself.",admin_key=src)
+		log_admin(text="[src] re-admined themself.",admin_key=key_name(src))
 		message_admins("[src] re-admined themself.", 1)
 		src << "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>"
 		verbs -= /client/proc/readmin_self
@@ -722,7 +722,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(holder)
 		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
-			log_admin(text="[src] deadmined themself.",admin_key=src)
+			log_admin(text="[src] deadmined themself.",admin_key=key_name(src))
 			message_admins("[src] deadmined themself.", 1)
 			deadmin()
 			src << "<span class='interface'>You are now a normal player.</span>"

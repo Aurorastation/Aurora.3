@@ -23,7 +23,7 @@
 /proc/game_log(category, text)
 	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
 
-/proc/log_admin(text,level=5,ckey="",admin_key="",ckey_target="") //FIX - target to ckey_target
+/proc/log_admin(text,level=5,ckey="",admin_key="",ckey_target="")
 	admin_log.Add(text)
 	if (config.log_admin)
 		game_log("ADMIN", text)
@@ -40,77 +40,72 @@
 			C << "DEBUG: [text]"
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="DEBUG")
 
-/proc/log_game(text,level=5,ckey="",admin_key="",ckey_target="") //FIX target to ckey_target
+/proc/log_game(text,level=5,ckey="",admin_key="",ckey_target="")
 	if (config.log_game)
 		game_log("GAME", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="GAME",additional_data=list("_ckey"=ckey,"_admin_key"=admin_key,"_target"=target))
 
-/proc/log_vote(text) //Nothing to do
+/proc/log_vote(text)
 	if (config.log_vote)
 		game_log("VOTE", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="VOTE")
 
-/proc/log_access(text,level=5,ckey="") //DONE
+/proc/log_access(text,level=5,ckey="")
 	if (config.log_access)
 		game_log("ACCESS", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ACCESS",additional_data=list("_ckey"=ckey))
 
-/proc/log_say(text,level=5,ckey="") //DONE
+/proc/log_say(text,level=5,ckey="")
 	if (config.log_say)
 		game_log("SAY", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="SAY",additional_data=list("_ckey"=ckey))
 
-/proc/log_ooc(text,level=5,ckey="") //DONE
+/proc/log_ooc(text,level=5,ckey="")
 	if (config.log_ooc)
 		game_log("OOC", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="OOC",additional_data=list("_ckey"=ckey))
 
-/proc/log_whisper(text,level=5,ckey="") //DONE
+/proc/log_whisper(text,level=5,ckey="")
 	if (config.log_whisper) 
 		game_log("WHISPER", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="WHISPER",additional_data=list("_ckey"=ckey))
 
-/proc/log_emote(text,level=5,ckey="") //DONE
+/proc/log_emote(text,level=5,ckey="")
 	if (config.log_emote)
 		game_log("EMOTE", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="EMOTE",additional_data=list("_ckey"=ckey))
 
-/proc/log_attack(text,level=5,ckey="",ckey_target="") //DONE
+/proc/log_attack(text,level=5,ckey="",ckey_target="")
 	if (config.log_attack)
 		game_log("ATTACK", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="ATTACK",additional_data=list("_ckey"=ckey,"_ckey_target"=ckey_target))
 
-/proc/log_adminsay(text) //Is this even used anywhere ?
+/proc/log_adminsay(text)
 	if (config.log_adminchat)
 		game_log("ADMINSAY", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="ADMINSAY")
 
-/proc/log_adminwarn(text) //Is that needed ?
-	if (config.log_adminwarn)
-		game_log("ADMINWARN", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="ADMINWARN")
-
-/proc/log_pda(text,level=5,ckey="",ckey_target="") //DONE
+/proc/log_pda(text,level=5,ckey="",ckey_target="")
 	if (config.log_pda)
 		game_log("PDA", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="PDA",additional_data=list("_ckey"=ckey,"_ckey_target"=ckey_target))
 
-/proc/log_ntirc(text,level=5,ckey="",conversation="") //DONE
+/proc/log_ntirc(text,level=5,ckey="",conversation="")
 	if (config.log_pda)
 		game_log("NTIRC", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="NTIRC",additional_data=list("_ckey"=ckey,"_ntirc_conversation"=conversation))
 
-/proc/log_to_dd(text) //Nothing to do
+/proc/log_to_dd(text)
 	world.log << text //this comes before the config check because it can't possibly runtime
 	if(config.log_world_output)
 		game_log("DD_OUTPUT", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="DD_OUTPUT")
 
-/proc/log_misc(text) //Nothong to do
+/proc/log_misc(text)
 	game_log("MISC", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="MISC")
 
-/proc/log_unit_test(text) //Nothing to do
+/proc/log_unit_test(text)
 	world.log << "## UNIT_TEST ##: [text]"
 
 // Procs for logging into diary_runtime
