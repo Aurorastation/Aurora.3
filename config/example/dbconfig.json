@@ -1,0 +1,11 @@
+{
+	// This config file is JSON-ed, to permit the usage of long names. The old
+	// config parser was throwing errors.
+	// All fields are self-planitory, fill them out and plop this in.
+	// BECAUSE DM JSON IS SIMPLE, REMOVE THIS COMMENT BLOCK!
+	"address": 	"yourwebserver.com",
+	"port":		3306,
+	"database":	"ss13",
+	"login":	"databaseuser",
+	"password":	"databasepassword"
+}
