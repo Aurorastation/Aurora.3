@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Smoke no longer causes unexplainable patches of darkness. Thanks oldcode."
