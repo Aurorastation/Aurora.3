@@ -10,7 +10,9 @@
 /turf/unsimulated/wall/cult
 	name = "cult wall"
 	desc = "Hideous images dance beneath the surface."
-	icon = 'icons/turf/wall_masks.dmi'
+	icon = 'icons/turf/smooth/cult_wall.dmi'
+	canSmoothWith = null
+	smooth = SMOOTH_TRUE
 	icon_state = "cult"
 
 /turf/simulated/wall/rusty

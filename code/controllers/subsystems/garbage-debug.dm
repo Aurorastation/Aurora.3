@@ -35,17 +35,10 @@
 		usr.client.running_find_references = type
 
 	testing("Beginning search for references to a [type].")
+	last_find_references = world.time
 	find_references_in_globals()
 	for(var/datum/thing in world)
-		if(usr && usr.client && !usr.client.running_find_references) return
-		for(var/varname in thing.vars)
-			var/variable = thing.vars[varname]
-			if(variable == src)
-				testing("Found [src.type] \ref[src] in [thing.type]'s [varname] var.")
-			else if(islist(variable))
-				if(src in variable)
-					testing("Found [src.type] \ref[src] in [thing.type]'s [varname] list var.")
-		CHECK_TICK
+		DoSearchVar(thing, "WorldRef: [thing]")
 	testing("Completed search for references to a [type].")
 	if(usr && usr.client)
 		usr.client.running_find_references = null
@@ -65,15 +58,14 @@
 				SSgarbage.totaldels++
 			SSgarbage.queue.Cut(1, 2)
 
-/datum/verb/qdel_then_find_references()
+/datum/verb/qdel_then_find_references(datum/thing in world)
 	set category = "Debug"
 	set name = "qdel() then Find References"
 	set background = 1
-	set src in world
 
-	qdel(src)
-	if(!running_find_references)
-		find_references(TRUE)
+	qdel(thing)
+	if(!thing.running_find_references)
+		thing.find_references(TRUE)
 
 /client/verb/show_qdeleted()
 	set category = "Debug"
@@ -136,6 +128,7 @@
 	SearchVar(med_hud_users)
 	SearchVar(sec_hud_users)
 	SearchVar(hud_icon_reference)
+	SearchVar(janitorial_supplies)
 	SearchVar(global_mutations)
 	SearchVar(universe)
 	SearchVar(global_map)
@@ -213,7 +206,6 @@
 	SearchVar(TICKS_IN_HOUR)
 	SearchVar(TICKS_IN_SECOND)
 	SearchVar(exo_beacons)
-	SearchVar(objects_initialized)
 	SearchVar(ai_names)
 	SearchVar(wizard_first)
 	SearchVar(wizard_second)
@@ -390,11 +382,15 @@
 	SearchVar(SSchemistry)
 	SearchVar(SSeffects)
 	SearchVar(emergency_shuttle)
+	SearchVar(bomb_processor)
+	SearchVar(SSgarbage)
+	SearchVar(SSicon_smooth)
 	SearchVar(SSlighting)
 	SearchVar(ticking_machines)
 	SearchVar(power_using_machines)
 	SearchVar(SSnanoui)
 	SearchVar(SSnightlight)
+	SearchVar(objects_initialized)
 	SearchVar(SSorbit)
 	SearchVar(shuttle_controller)
 	SearchVar(sun)
@@ -407,8 +403,10 @@
 	SearchVar(SSxenoarch)
 	SearchVar(SSdisease)
 	SearchVar(SSmodifiers)
+	SearchVar(SSoverlays)
 	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
+	SearchVar(SSingulo)
 	SearchVar(base_law_type)
 	SearchVar(discord_bot)
 	SearchVar(diseases)
@@ -749,6 +747,7 @@
 	SearchVar(spawntypes)
 	SearchVar(uplink_locations)
 	SearchVar(valid_bloodtypes)
+	SearchVar(gear_tweak_free_color_choice)
 	SearchVar(loadout_categories)
 	SearchVar(gear_datums)
 	SearchVar(breach_brute_descriptors)
@@ -914,6 +913,7 @@
 	SearchVar(spells)
 	SearchVar(artefact_feedback)
 	SearchVar(GPS_list)
+	SearchVar(gps_by_type)
 	SearchVar(ventcrawl_machinery)
 	SearchVar(can_enter_vent_with)
 	SearchVar(ALL_ANTIGENS)

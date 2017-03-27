@@ -28,7 +28,9 @@
 	if (LAZYLEN(expansions))
 		for(var/expansion in expansions)
 			qdel(expansions[expansion])
-	UNSETEMPTY(expansions)
+			
+	LAZYCLEARLIST(expansions)
+	expansions = null
 	return ..()
 
 /obj/resetVariables(var/list/exclude = list())

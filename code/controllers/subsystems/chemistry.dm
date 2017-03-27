@@ -11,6 +11,9 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 	var/tmp/list/processing_holders = list()
 
+/datum/controller/subsystem/chemistry/stat_entry()
+	..("AH:[active_holders.len]")
+
 /datum/controller/subsystem/chemistry/New()
 	NEW_SS_GLOBAL(SSchemistry)
 	active_holders = list()

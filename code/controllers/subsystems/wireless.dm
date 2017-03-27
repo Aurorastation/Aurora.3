@@ -16,6 +16,9 @@ var/datum/controller/subsystem/wireless/wirelessProcess
 /datum/controller/subsystem/wireless/New()
 	NEW_SS_GLOBAL(wirelessProcess)
 
+/datum/controller/subsystem/wireless/stat_entry()
+	..("RL:[receiver_list.len] PC:[pending_connections.len] RC:[retry_connections.len] FC:[failed_connections.len]")
+
 /datum/controller/subsystem/wireless/proc/add_device(var/datum/wifi/receiver/R)
 	if(receiver_list)
 		receiver_list |= R
