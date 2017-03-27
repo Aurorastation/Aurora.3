@@ -8,7 +8,6 @@
 	populate_spawn_points()
 	setupgenetics()
 
-	//world.log << "LMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
 	..(timeofday, TRUE)
 
 /datum/controller/subsystem/misc_early
@@ -42,7 +41,6 @@
 
 	sortTim(teleportlocs, /proc/cmp_text_asc)
 	sortTim(ghostteleportlocs, /proc/cmp_text_asc)
-
 	
 	// This is kinda important. Set up details of what the hell things are made of.
 	populate_material_list()
@@ -55,7 +53,10 @@
 
 	if(config.ToRban)
 		ToRban_autoupdate()
-		
-	//world.log << "EMI: ticklag=[world.tick_lag],Tickcomp=[config.Tickcomp]"
+
+	// Setup the job controller.
+	job_master = new /datum/controller/occupations()
+	job_master.SetupOccupations()
+	job_master.LoadJobs("config/jobs.txt")
 	
 	..(timeofday, TRUE)

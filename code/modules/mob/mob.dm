@@ -103,6 +103,10 @@
 
 	for(var/A in player_list)
 		var/mob/M = A
+		if (QDELETED(M))
+			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
+			player_list -= M
+			continue
 		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
@@ -162,10 +166,7 @@
 
 	for(var/I in hear)
 		if(isobj(I))
-			spawn(0)
-				if(I) //It's possible that it could be deleted in the meantime.
-					var/obj/O = I
-					O.show_message( message, 2, deaf_message, 1)
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/handle_audible_message, I, message, deaf_message))
 		else if(ismob(I))
 			var/mob/M = I
 			var/msg = message
@@ -173,6 +174,9 @@
 				msg = self_message
 			M.show_message( msg, 2, deaf_message, 1)
 
+/proc/handle_audible_message(obj/O, message, deaf_message)
+	if (O) //It's possible that it could be deleted in the meantime.
+		O.show_message(message, 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)

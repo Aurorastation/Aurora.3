@@ -41,16 +41,6 @@
 
 	var/lightfail = 0
 
-//override for failcheck behaviour
-/obj/item/weapon/gun/energy/gun/nuclear/process()
-	charge_tick++
-	if(charge_tick < 4) return 0
-	charge_tick = 0
-	if(!power_supply) return 0
-	if((power_supply.charge / power_supply.maxcharge) != 1)
-		power_supply.give(charge_cost)
-		update_icon()
-	return 1
 
 /obj/item/weapon/gun/energy/gun/nuclear/proc/failcheck()
 	lightfail = 0
@@ -70,42 +60,43 @@
 			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 			M.apply_effect(300, IRRADIATE)
 		crit_fail = 1 //break the gun so it stops recharging
-		processing_objects.Remove(src)
+		self_recharge = FALSE
 		update_icon()
 	return 0
 
-
 /obj/item/weapon/gun/energy/gun/nuclear/proc/update_charge()
 	if (crit_fail)
-		overlays += "nucgun-whee"
+		add_overlay("nucgun-whee")
 		return
 	var/ratio = power_supply.charge / power_supply.maxcharge
 	ratio = round(ratio, 0.25) * 100
-	overlays += "nucgun-[ratio]"
+	add_overlay("nucgun-[ratio]")
 
 /obj/item/weapon/gun/energy/gun/nuclear/proc/update_reactor()
 	if(crit_fail)
-		overlays += "nucgun-crit"
+		add_overlay("nucgun-crit")
 		return
 	if(lightfail)
-		overlays += "nucgun-medium"
+		add_overlay("nucgun-medium")
 	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
-		overlays += "nucgun-light"
+		add_overlay("nucgun-light")
 	else
-		overlays += "nucgun-clean"
+		add_overlay("nucgun-clean")
 
 /obj/item/weapon/gun/energy/gun/nuclear/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	switch(current_mode.name)
-		if("stun") overlays += "nucgun-stun"
-		if("lethal") overlays += "nucgun-kill"
+		if("stun") 
+			add_overlay("nucgun-stun")
+		if("lethal") 
+			add_overlay("nucgun-kill")
 /*
 /obj/item/weapon/gun/energy/gun/nuclear/emp_act(severity)
 	..()
 	reliability -= round(15/severity)
 */
 /obj/item/weapon/gun/energy/gun/nuclear/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	update_charge()
 	update_reactor()
 	update_mode()
@@ -121,7 +112,7 @@
 	fire_delay = 4
 
 	projectile_type = /obj/item/projectile/beam/stun
-	origin_tech = "combat=3;magnets=2"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "epistolstun"
 
 	firemodes = list(
