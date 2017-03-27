@@ -63,7 +63,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	patrol_path = null
 	target = null
 	ignorelist = null
-	janitorial_supplies -= src
+	QDEL_NULL(listener)
+	global.janitorial_supplies -= src
 
 /mob/living/bot/cleanbot/proc/handle_target()
 	if(target.clean_marked && target.clean_marked != src)
@@ -353,6 +354,10 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	if(dist < cleanbot.closest_dist) // We check all signals, choosing the closest beacon; then we move to the NEXT one after the closest one
 		cleanbot.closest_dist = dist
 		cleanbot.next_dest = signal.data["next_patrol"]
+
+/obj/cleanbot_listener/Destroy()
+	cleanbot = null
+	return ..()
 
 /* Assembly */
 
