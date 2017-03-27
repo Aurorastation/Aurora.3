@@ -73,6 +73,7 @@
 	W.post_change()
 	. = W
 
+	queue_smooth(src)
 	queue_smooth_neighbors(src)
 
 	recalc_atom_opacity()

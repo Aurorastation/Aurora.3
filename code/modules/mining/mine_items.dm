@@ -165,13 +165,27 @@
 	icon_state = "offhand"
 	item_state = null
 	name = "offhand"
+	simulated = FALSE
 
 	action_button_name = null
 
+/obj/item/weapon/pickaxe/proc/copy_stats(obj/item/weapon/pickaxe/parent)
+	digspeed_wielded = parent.digspeed_wielded
+	excavation_amount = parent.excavation_amount
+	force = parent.force_wielded
+
 /obj/item/weapon/pickaxe/offhand/unwield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+
 	qdel(src)
 
 /obj/item/weapon/pickaxe/offhand/wield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+		
 	qdel(src)
 
 /obj/item/weapon/pickaxe/hammer

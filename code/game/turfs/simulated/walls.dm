@@ -36,7 +36,8 @@
 		reinf_material = get_material_by_name(rmaterialtype)
 	update_material()
 
-	START_PROCESSING(SSprocessing, src)
+	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
+		START_PROCESSING(SSprocessing, src)
 
 /turf/simulated/wall/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

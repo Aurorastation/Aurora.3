@@ -29,12 +29,12 @@
 
 /turf/simulated/open/proc/is_above_space()
 	var/turf/T = GetBelow(src)
-	var/count = 0
 	while (T && T.is_hole)
+		if (istype(T, /turf/space))
+			return TRUE
 		T = GetBelow(T)
-		count++
 
-	return count
+	return FALSE
 
 /turf/simulated/open/Destroy()
 	SSopenturf.queued -= src

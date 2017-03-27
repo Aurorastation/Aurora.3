@@ -57,27 +57,14 @@
 		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
 			if (config.starlight)
-				for (var/turf/thing in RANGE_TURFS(1, T))
-					if (istype(thing, /turf/simulated/open) || istype(thing, /turf/space))
-						continue
-
-					thing.set_light(config.starlight)
-					thing.oo_light_set = TRUE
+				T.set_light(config.starlight, 0.5)
 		else
 			T.plane = OPENTURF_PLANE
 			if (config.starlight)
-				var/list/turf/space/starlight_turfs = list()
-				for (var/turf/thing in RANGE_TURFS(1, T))
-					if (!thing.oo_light_set || istype(thing, /turf/simulated/open))
-						continue
+				T.set_light(0)
 
-					if (istype(thing, /turf/space))
-						starlight_turfs += thing
-
-					thing.set_light(0)
-				
-				for (var/turf/space/spess in starlight_turfs)
-					spess.update_starlight()
+		if (T.above)
+			T.above.update_icon()
 
 		for (var/thing in T.below)
 			var/atom/movable/object = thing

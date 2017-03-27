@@ -15,7 +15,6 @@
 	check_existence()
 
 /atom/movable/openspace/overlay/proc/check_existence()
-	set waitfor = FALSE
 	if (!istype(loc, /turf/simulated/open))
 		qdel(src)
 
