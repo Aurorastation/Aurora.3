@@ -25,7 +25,7 @@ var/datum/controller/subsystem/sun/sun
 	angle = rand (0,360)
 
 /datum/controller/subsystem/sun/stat_entry()
-	..("A:[angle] R:[rate]")
+	..("A:[angle] R:[rate] S:[LAZYLEN(solars)]")
 
 /datum/controller/subsystem/sun/fire(resumed = 0)
 	if (!resumed)
