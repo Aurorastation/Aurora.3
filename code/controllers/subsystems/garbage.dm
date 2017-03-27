@@ -2,11 +2,11 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 /datum/controller/subsystem/garbage_collector
 	name = "Garbage"
-	priority = SS_PRIORITY_GARBAGE
+	priority = 15
 	wait = 5
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
-	var/collection_timeout = 30 SECONDS// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
+	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
 	var/delslasttick = 0		// number of del()'s we've done this tick
 	var/gcedlasttick = 0		// number of things that gc'ed last tick
 	var/totaldels = 0
@@ -23,6 +23,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 	var/list/didntgc = list()	// list of all types that have failed to GC associated with the number of times that's happened.
 								// the types are stored as strings
+	var/list/sleptDestroy = list()	//Same as above but these are paths that slept during their Destroy call
 
 	var/list/noqdelhint = list()// list of all types that do not return a QDEL_HINT
 	// all types that did not respect qdel(A, force=TRUE) and returned one
@@ -36,8 +37,20 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /datum/controller/subsystem/garbage_collector/New()
 	NEW_SS_GLOBAL(SSgarbage)
 
-/datum/controller/subsystem/garbage_collector/stat_entry()
-	..("Q:[queue.len] HD:[totaldels] SD:[totalgcs]")
+/datum/controller/subsystem/garbage_collector/stat_entry(msg)
+	msg += "Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
+	msg += "GR:"
+	if (!(delslasttick+gcedlasttick))
+		msg += "n/a|"
+	else
+		msg += "[round((gcedlasttick/(delslasttick+gcedlasttick))*100, 0.01)]%|"
+
+	msg += "TD:[totaldels]|TG:[totalgcs]|"
+	if (!(totaldels+totalgcs))
+		msg += "n/a|"
+	else
+		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
+	..(msg)
 
 /datum/controller/subsystem/garbage_collector/fire()
 	HandleToBeQueued()
@@ -157,7 +170,10 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		del(D)
 	else if(isnull(D.gcDestroyed))
 		D.gcDestroyed = GC_CURRENTLY_BEING_QDELETED
+		var/start_time = world.time
 		var/hint = D.Destroy(force) // Let our friend know they're about to get fucked up.
+		if(world.time != start_time)
+			SSgarbage.sleptDestroy["[D.type]"]++
 		if(!D)
 			return
 		switch(hint)
@@ -191,8 +207,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				#endif
 			if (QDEL_HINT_POOL)
 				if (!force)
-					if (istype(D, /atom/movable))
-						D:loc = null
 					D.gcDestroyed = null
 					returnToPool(D)
 					return
