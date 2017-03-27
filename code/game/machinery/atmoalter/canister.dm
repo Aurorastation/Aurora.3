@@ -386,27 +386,27 @@ update_flag
 
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/phoron/initialize()
+/obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	..()
 
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/oxygen/initialize()
+/obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	..()
 
 	src.air_contents.adjust_gas("oxygen", MolesForPressure())
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled/initialize()
+/obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
 	..()
 	src.air_contents.temperature = 80
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/sleeping_agent/initialize()
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
 	..()
 
 	air_contents.adjust_gas("sleeping_agent", MolesForPressure())
@@ -414,7 +414,7 @@ update_flag
 	return 1
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
-/obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/initialize()
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	..()
 	air_contents.gas["sleeping_agent"] = 9*4000
 	spawn(10)
@@ -426,26 +426,26 @@ update_flag
 			air_contents = new
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/nitrogen/initialize()
+/obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	..()
 	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled/initialize()
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled/Initialize()
 	..()
 	src.air_contents.temperature = 80
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide/initialize()
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide/Initialize()
 	..()
 	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
 	src.update_icon()
 	return 1
 
 
-/obj/machinery/portable_atmospherics/canister/air/initialize()
+/obj/machinery/portable_atmospherics/canister/air/Initialize()
 	..()
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
@@ -456,19 +456,19 @@ update_flag
 
 
 // Special types used for engine setup admin verb, they contain double amount of that of normal canister.
-/obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/initialize()
+/obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/Initialize()
 	..()
 	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/initialize()
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/Initialize()
 	..()
 	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/phoron/engine_setup/initialize()
+/obj/machinery/portable_atmospherics/canister/phoron/engine_setup/Initialize()
 	..()
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()

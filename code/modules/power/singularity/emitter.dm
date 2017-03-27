@@ -29,10 +29,6 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/initialize()
-	..()
-	spark_system = bind_spark(src, 5, alldirs)
-
 /obj/machinery/power/emitter/Destroy()
 	QDEL_NULL(spark_system)
 	return ..()
@@ -50,6 +46,7 @@
 
 /obj/machinery/power/emitter/initialize()
 	..()
+	spark_system = bind_spark(src, 5, alldirs)
 	if(state == 2 && anchored)
 		connect_to_network()
 		if(_wifi_id)

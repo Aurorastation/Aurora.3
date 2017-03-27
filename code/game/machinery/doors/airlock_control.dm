@@ -280,11 +280,6 @@ obj/machinery/access_button/proc/set_frequency(new_frequency)
 	frequency = new_frequency
 	radio_connection = radio_controller.add_object(src, frequency, RADIO_AIRLOCK)
 
-
-obj/machinery/access_button/initialize()
-	set_frequency(frequency)
-
-
 obj/machinery/access_button/initialize()
 	..()
 

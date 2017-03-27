@@ -17,7 +17,7 @@
 	qdel(holding)
 	return ..()
 
-/obj/machinery/portable_atmospherics/initialize()
+/obj/machinery/portable_atmospherics/Initialize()
 	. = ..()
 
 	air_contents.volume = volume

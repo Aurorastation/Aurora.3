@@ -12,10 +12,6 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/igniter/wifi_receiver
 
-/obj/machinery/igniter/New()
-	..()
-	update_icon()
-
 /obj/machinery/igniter/initialize()
 	..()
 	update_icon()

@@ -2,13 +2,9 @@
 // charge from 0 to 100%
 // fits in APC to provide backup power
 
-/obj/item/weapon/cell/New()
+/obj/item/weapon/cell/Initialize()
 	..()
 	charge = maxcharge
-	update_icon()
-
-/obj/item/weapon/cell/initialize()
-	..()
 	update_icon()
 
 /obj/item/weapon/cell/Created()
