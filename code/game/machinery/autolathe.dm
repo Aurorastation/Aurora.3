@@ -24,7 +24,7 @@
 	var/datum/wires/autolathe/wires = null
 
 
-/obj/machinery/autolathe/initialize()
+/obj/machinery/autolathe/Initialize()
 
 	..()
 	wires = new(src)

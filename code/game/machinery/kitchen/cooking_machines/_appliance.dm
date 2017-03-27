@@ -40,7 +40,7 @@
 
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
-/obj/machinery/appliance/initialize()
+/obj/machinery/appliance/Initialize()
 	..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output

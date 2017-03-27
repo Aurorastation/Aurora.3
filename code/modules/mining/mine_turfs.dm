@@ -386,7 +386,7 @@
 	)
 	var/mineralChance = 10 //means 10% chance of this plot changing to a mineral deposit
 
-/turf/simulated/mineral/random/New()
+/turf/simulated/mineral/random/Initialize()
 	if (prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
 		if (mineral_name && (mineral_name in ore_data))
@@ -432,7 +432,7 @@
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
-/turf/simulated/floor/asteroid/New()
+/turf/simulated/floor/asteroid/Initialize()
 
 	if(prob(20))
 		overlay_detail = rand(0,9)

@@ -63,7 +63,7 @@
 			take_damage(rand(50,150))
 
 
-/obj/structure/table/initialize()
+/obj/structure/table/Initialize()
 	..()
 
 	// One table per turf.

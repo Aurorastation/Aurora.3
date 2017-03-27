@@ -13,7 +13,8 @@
 
 	var/obj/structure/ladder/target
 
-	initialize()
+	Initialize()
+		..()
 		// the upper will connect to the lower
 		if(icon_state == "ladderup")
 			return
@@ -61,7 +62,8 @@
 	opacity = 0
 	anchored = 1
 
-	initialize()
+	Initialize()
+		..()
 		for(var/turf/turf in locs)
 			var/turf/simulated/open/above = GetAbove(turf)
 			if(!above)

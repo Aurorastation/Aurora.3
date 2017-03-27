@@ -1118,7 +1118,7 @@ About the new airlock wires panel:
 		return 0
 	return ..(M)
 
-/obj/machinery/door/airlock/New(var/newloc, var/obj/structure/door_assembly/assembly=null)
+/obj/machinery/door/airlock/Initialize(mapload, obj/structure/door_assembly/assembly = null)
 	..()
 
 	//if assembly is given, create the new door from the assembly
@@ -1147,7 +1147,7 @@ About the new airlock wires panel:
 		set_dir(assembly.dir)
 
 	//wires
-	var/turf/T = get_turf(newloc)
+	var/turf/T = get_turf(src)
 	if(T && (T.z in config.admin_levels))
 		secured_wires = 1
 	if (secured_wires)
@@ -1155,13 +1155,11 @@ About the new airlock wires panel:
 	else
 		wires = new/datum/wires/airlock(src)
 
-/obj/machinery/door/airlock/initialize()
-	if(src.closeOtherId != null)
+	if(mapload && src.closeOtherId != null)
 		for (var/obj/machinery/door/airlock/A in world)
 			if(A.closeOtherId == src.closeOtherId && A != src)
 				src.closeOther = A
 				break
-	..()
 
 /obj/machinery/door/airlock/Destroy()
 	qdel(wires)

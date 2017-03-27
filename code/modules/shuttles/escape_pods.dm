@@ -75,7 +75,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth
 	name = "escape pod berth controller"
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/initialize()
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/Initialize()
 	..()
 	docking_program = new/datum/computer/file/embedded_program/docking/simple/escape_pod(src)
 	program = docking_program

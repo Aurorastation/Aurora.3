@@ -17,7 +17,7 @@
 	var/on = 0
 	var/brightness_on = 3 //luminosity when on
 
-/obj/item/device/flashlight/initialize()
+/obj/item/device/flashlight/Initialize()
 	..()
 	update_icon()
 

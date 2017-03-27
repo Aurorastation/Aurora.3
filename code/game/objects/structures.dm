@@ -44,14 +44,11 @@
 		if(3.0)
 			return
 
-/obj/structure/New()
-	..()
+/obj/structure/Initialize()
+	. = ..()
 	updateVisibility(src)
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
-
-/obj/structure/initialize()
-	. = ..()
 	if (smooth)
 		queue_smooth(src)
 

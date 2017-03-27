@@ -16,7 +16,7 @@
 	explosion_resistance = 5
 	air_properties_vary_with_direction = 1
 
-/obj/machinery/door/window/initialize()
+/obj/machinery/door/window/Initialize()
 	..()
 	update_nearby_tiles()
 	if (src.req_access && src.req_access.len)

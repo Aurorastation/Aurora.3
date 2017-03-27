@@ -11,7 +11,7 @@
 	var/heating_power = 40000
 
 
-/obj/machinery/space_heater/initialize()
+/obj/machinery/space_heater/Initialize()
 	..()
 	cell = new(src)
 	update_icon()

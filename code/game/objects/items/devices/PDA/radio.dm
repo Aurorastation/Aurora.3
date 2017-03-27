@@ -217,7 +217,8 @@
 	var/last_transmission
 	var/datum/radio_frequency/radio_connection
 
-	initialize()
+	Initialize()
+		..()
 		if(!radio_controller)
 			return
 

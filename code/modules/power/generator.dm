@@ -25,7 +25,7 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/generator/initialize()
+/obj/machinery/power/generator/Initialize()
 	..()
 	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
 	var/dirs

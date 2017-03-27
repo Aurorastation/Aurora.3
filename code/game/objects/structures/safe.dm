@@ -172,7 +172,7 @@ obj/structure/safe/ex_act(severity)
 	level = 1	//underfloor
 	layer = 2.5
 
-/obj/structure/safe/floor/initialize()
+/obj/structure/safe/floor/Initialize()
 	..()
 	var/turf/T = loc
 	if(istype(T) && !T.is_plating())

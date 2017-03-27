@@ -1,4 +1,4 @@
-/obj/mecha/medical/initialize()
+/obj/mecha/medical/Initialize()
 	..()
 	var/turf/T = get_turf(src)
 	if(isPlayerLevel(T.z))

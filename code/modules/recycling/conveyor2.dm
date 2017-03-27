@@ -172,8 +172,8 @@
 
 
 
-/obj/machinery/conveyor_switch/initialize(loc, newid)
-	..(loc)
+/obj/machinery/conveyor_switch/Initialize(mapload, newid)
+	..()
 	if(!id)
 		id = newid
 	update()

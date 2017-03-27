@@ -15,7 +15,7 @@ var/global/list/gps_by_type = list()
 	var/emped = 0
 	var/turf/locked_location
 
-/obj/item/device/gps/initialize()
+/obj/item/device/gps/Initialize()
 	..()
 	GPS_list.Add(src)
 	LAZYADD(gps_by_type["[type]"], src)

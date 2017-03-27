@@ -2,7 +2,7 @@
 	var/initialized = FALSE
 
 /atom/New(loc, ...)
-	var/do_initialize = SSatoms.initialized
+	var/do_initialize = atoms_initialized
 	if(do_initialize > INITIALIZATION_INSSATOMS)
 		if(QDELETED(src))
 			CRASH("Found new qdeletion in type [type]!")
@@ -20,9 +20,3 @@
 	if (opacity && isturf(loc))
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
-
-// Shim for old initialize call.
-/atom/movable/Initialize(mapload)
-	..()
-	if (auto_init || mapload)
-		initialize()

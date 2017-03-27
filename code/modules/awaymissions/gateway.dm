@@ -151,7 +151,8 @@ obj/machinery/gateway/centerstation/process()
 	var/obj/machinery/gateway/centeraway/stationgate = null
 
 
-/obj/machinery/gateway/centeraway/initialize()
+/obj/machinery/gateway/centeraway/Initialize()
+	..()
 	update_icon()
 	stationgate = locate(/obj/machinery/gateway/centerstation)
 

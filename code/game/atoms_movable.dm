@@ -29,9 +29,6 @@
 //		testing("GC: [type] was deleted via GC with qdel()")
 	..()
 
-/atom/movable/proc/initialize()
-	return
-
 /atom/movable/Destroy()
 	. = ..()
 	if(reagents)

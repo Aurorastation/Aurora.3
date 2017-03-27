@@ -12,7 +12,7 @@
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 //	heat_capacity = 700000 No.
 
-/turf/space/New()
+/turf/space/Initialize()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
 	I.plane = PLANE_SPACE_DUST

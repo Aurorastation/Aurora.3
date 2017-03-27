@@ -25,7 +25,7 @@
 	var/corpseidicon = null //For setting it to be a gold, silver, centcomm etc ID
 	var/species = "Human"
 
-/obj/effect/landmark/corpse/initialize()
+/obj/effect/landmark/corpse/Initialize()
 	..()
 	createCorpse()
 

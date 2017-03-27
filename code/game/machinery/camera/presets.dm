@@ -75,7 +75,7 @@ var/global/list/engineering_networks = list(
 
 // EMP
 
-/obj/machinery/camera/emp_proof/initialize()
+/obj/machinery/camera/emp_proof/Initialize()
 	..()
 	upgradeEmpProof()
 
@@ -93,13 +93,13 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/xray/research
 	network = list(NETWORK_RESEARCH)
 
-/obj/machinery/camera/xray/initialize()
+/obj/machinery/camera/xray/Initialize()
 	..()
 	upgradeXRay()
 
 // MOTION
 
-/obj/machinery/camera/motion/initialize()
+/obj/machinery/camera/motion/Initialize()
 	..()
 	upgradeMotion()
 
@@ -115,7 +115,7 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/all/command
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/camera/all/initialize()
+/obj/machinery/camera/all/Initialize()
 	..()
 	upgradeEmpProof()
 	upgradeXRay()
@@ -126,9 +126,8 @@ var/global/list/engineering_networks = list(
 	var/number = 0 //camera number in area
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
-/obj/machinery/camera/autoname/initialize()
+/obj/machinery/camera/autoname/Initialize()
 	..()
-	//spawn(10)
 	number = 1
 	var/area/A = get_area(src)
 	if(A)

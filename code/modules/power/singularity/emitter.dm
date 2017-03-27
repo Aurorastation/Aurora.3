@@ -44,7 +44,7 @@
 	src.set_dir(turn(src.dir, 90))
 	return 1
 
-/obj/machinery/power/emitter/initialize()
+/obj/machinery/power/emitter/Initialize()
 	..()
 	spark_system = bind_spark(src, 5, alldirs)
 	if(state == 2 && anchored)

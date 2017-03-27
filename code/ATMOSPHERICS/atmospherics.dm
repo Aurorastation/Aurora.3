@@ -44,6 +44,8 @@ Pipelines + Other Objects -> Pipe network
 		pipe_color = null
 	..()
 
+/obj/machinery/atmospherics/proc/initialize()
+
 // Atmos machines are snowflakes and call initialize on themselves.
 // Do not refactor initialize() to Initialize() unless you know what you are doing.
 /obj/machinery/atmospherics/Initialize(mapload, ...)

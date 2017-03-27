@@ -21,5 +21,5 @@
 	new N(src)
 
 // It's a placeholder turf, don't do anything special.
-/turf/unsimulated/mask/New()
+/turf/unsimulated/mask/Initialize()
 	return

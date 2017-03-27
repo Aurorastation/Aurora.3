@@ -14,7 +14,7 @@
 	var/next_check=0
 	var/list/avail_dirs = list(NORTH,SOUTH,EAST,WEST)
 
-/turf/unsimulated/wall/supermatter/New()
+/turf/unsimulated/wall/supermatter/Initialize()
 	..()
 	// Kick-start the timer chain.
 	addtimer(CALLBACK(src, .proc/tick), 5 SECONDS)

@@ -50,7 +50,7 @@
 		"cold"
 	)
 
-/obj/machinery/door/firedoor/initialize()
+/obj/machinery/door/firedoor/Initialize()
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
 		if(F != src)

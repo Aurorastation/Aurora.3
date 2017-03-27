@@ -16,7 +16,8 @@
 	attack_verb = list("robusted")
 	var/stunhit = 0
 
-/obj/item/weapon/storage/toolbox/initialize()
+/obj/item/weapon/storage/toolbox/Initialize()
+	..()
 	addtimer(CALLBACK(src, .proc/update_force), 3)
 
 /obj/item/weapon/storage/toolbox/emergency
@@ -24,7 +25,7 @@
 	icon_state = "red"
 	item_state = "toolbox_red"
 
-	New()
+	Initialize()
 		..()
 		new /obj/item/weapon/crowbar/red(src)
 		new /obj/item/weapon/extinguisher/mini(src)
@@ -39,7 +40,7 @@
 	icon_state = "blue"
 	item_state = "toolbox_blue"
 
-	New()
+	Initialize()
 		..()
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)
@@ -53,7 +54,7 @@
 	icon_state = "yellow"
 	item_state = "toolbox_yellow"
 
-	New()
+	Initialize()
 		..()
 		var/color = pick("red","yellow","green","blue","pink","orange","cyan","white")
 		new /obj/item/weapon/screwdriver(src)
@@ -74,7 +75,7 @@
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
 	force = 7.0
 
-	New()
+	Initialize()
 		..()
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/weapon/screwdriver(src)

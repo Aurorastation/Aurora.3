@@ -17,15 +17,14 @@
 	var/datum/radio_frequency/radio_connection
 	var/deadman = 0
 
-	initialize()
+	Initialize()
 		..()
 		set_frequency(frequency)
 
 	activate()
 		if(cooldown > 0)	return 0
 		cooldown = 2
-		spawn(10)
-			process_cooldown()
+		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 
 		signal()
 		return 1

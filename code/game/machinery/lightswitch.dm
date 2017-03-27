@@ -12,7 +12,7 @@
 	var/otherarea = null
 	//	luminosity = 1
 
-/obj/machinery/light_switch/initialize()
+/obj/machinery/light_switch/Initialize()
 	..()
 	src.area = get_area(src)
 

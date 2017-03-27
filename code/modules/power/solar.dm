@@ -346,7 +346,7 @@ var/list/solars_list = list()
 	updateDialog()
 
 
-/obj/machinery/power/solar_control/initialize()
+/obj/machinery/power/solar_control/Initialize()
 	..()
 	if(!connect_to_network()) return
 	set_panels(cdir)

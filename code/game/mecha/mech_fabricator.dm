@@ -40,7 +40,8 @@
 	files = new /datum/research(src) //Setup the research data holder.
 	return
 
-/obj/machinery/mecha_part_fabricator/initialize()
+/obj/machinery/mecha_part_fabricator/Initialize()
+	..()
 	manufacturer = basic_robolimb.company
 	update_categories()
 
@@ -57,13 +58,13 @@
 	update_icon()
 
 /obj/machinery/mecha_part_fabricator/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(panel_open)
 		icon_state = "fab-o"
 	else
 		icon_state = "fab-idle"
 	if(busy)
-		overlays += "fab-active"
+		add_overlay("fab-active")
 
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)

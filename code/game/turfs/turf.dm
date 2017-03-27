@@ -28,17 +28,28 @@
 
 	var/turf/baseturf = /turf/space
 
+// Parent code is duplicated in here instead of ..() for performance reasons.
 /turf/Initialize()
-	. = ..()
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	initialized = TRUE
+
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM)
 		
-	turfs |= src
+	//turfs |= src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
+
+	if (light_power && light_range)
+		update_light()
+
+	if (opacity)
+		has_opaque_atom = TRUE
 
 /turf/proc/update_icon()
 	return
