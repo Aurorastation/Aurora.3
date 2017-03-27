@@ -20,6 +20,19 @@
 	NEW_SS_GLOBAL(SSopenturf)
 	LAZYINITLIST(all_openspace_overlays)
 
+/datum/controller/subsystem/openturf/proc/update_all()
+	can_fire = FALSE
+	for (var/thing in all_openspace_overlays)
+		var/atom/movable/AM = thing
+
+		var/turf/simulated/open/T = get_turf(AM)
+		T.update()
+
+		CHECK_TICK
+
+	next_fire = world.time + wait
+	can_fire = TRUE
+
 /datum/controller/subsystem/openturf/stat_entry()
 	..("Q:[queued.len] OO:[all_openspace_overlays.len] OT:[total_openspace_turfs]") 
 

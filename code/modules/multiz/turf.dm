@@ -13,8 +13,6 @@
 /turf/space/CanZPass(atom, direction)
 	return 1
 
-var/global/total_openspace = 0
-
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
@@ -30,15 +28,16 @@ var/global/total_openspace = 0
 	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
 
 /turf/simulated/open/proc/is_above_space()
-	return istype(below, /turf/space) || (istype(below, /turf/simulated/open) && below:is_above_space())
+	var/turf/T = GetBelow(src)
+	var/count = 0
+	while (T && T.is_hole)
+		T = GetBelow(T)
+		count++
 
-/turf/simulated/open/New()
-	..()
-	global.total_openspace += 1
+	return count
 
 /turf/simulated/open/Destroy()
 	SSopenturf.queued -= src
-	global.total_openspace -= 1
 	QDEL_NULL(shadower)
 	if (above)
 		above.update()
@@ -72,7 +71,7 @@ var/global/total_openspace = 0
 /turf/simulated/open/update_dirt()
 	return 0
 
-/turf/simulated/open/Entered(var/atom/movable/mover)
+/turf/simulated/open/Entered(atom/movable/mover)
 	..()
 	mover.fall()
 

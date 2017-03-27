@@ -95,9 +95,9 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
 	set waitfor = FALSE
-	for(var/turf/T in turfs)
+	for(var/turf/T in world)
 		if(istype(T, /turf/space))
-			T.overlays += image(icon = T.icon, icon_state = "end01")
+			T.add_overlay("end01")
 		else
 			if (!(T.z in config.admin_levels))
 				T.underlays += "end01"

@@ -1,4 +1,5 @@
-#define SS_INIT_MISC_FIRST			14
+#define SS_INIT_MISC_FIRST			15
+#define SS_INIT_SEEDS               14
 #define SS_INIT_ASTEROID			13
 #define SS_INIT_SHUTTLE             12
 #define SS_INIT_OBJECTS			    11

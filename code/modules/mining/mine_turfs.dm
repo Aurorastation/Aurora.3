@@ -42,12 +42,12 @@
 
 /turf/simulated/mineral/New()
 	// Don't call parent.
-
-/turf/simulated/mineral/initialize()
-	MineralSpread()
 	if (smooth)
 		pixel_x = -4
 		pixel_y = -4
+
+/turf/simulated/mineral/initialize()
+	MineralSpread()
 
 /turf/simulated/mineral/examine(mob/user)
 	..()
@@ -512,7 +512,6 @@
 	if(prob(20))
 		overlay_detail = rand(0,9)
 
-/turf/simulated/floor/asteroid/initialize()
 	if (smooth)
 		pixel_x = -4
 		pixel_y = -4

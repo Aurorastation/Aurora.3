@@ -32,25 +32,23 @@
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)
-		spawn( 0 )
-			src.Entered(AM)
-			return
-	turfs |= src
+		Entered(AM)
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
 
-/turf/proc/initialize()
 	if (smooth)
 		queue_smooth(src)
+
+/turf/proc/initialize()
 
 /turf/proc/update_icon()
 	return
 
 /turf/Destroy()
-	turfs -= src
+	//turfs -= src
 	..()
 	return QDEL_HINT_HARDDEL_NOW
 
