@@ -18,7 +18,6 @@ var/list/holder_mob_icon_cache = list()
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
 
 /obj/item/weapon/holder/New()
-	tag = rand(0,9999)
 	if (!item_state)
 		item_state = icon_state
 
