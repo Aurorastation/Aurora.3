@@ -140,11 +140,6 @@ Class Procs:
 
 	return M_NO_PROCESS
 
-/obj/machinery/proc/get_process_type()
-	. |= M_PROCESSES
-	if (use_power || idle_power_usage || active_power_usage)
-		. |= M_USES_POWER
-
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
 		use_power(7500/severity)
