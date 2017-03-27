@@ -103,6 +103,10 @@
 
 	for(var/A in player_list)
 		var/mob/M = A
+		if (QDELETED(M))
+			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
+			player_list -= M
+			continue
 		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
