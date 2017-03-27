@@ -214,10 +214,8 @@ obj/machinery/airlock_sensor/proc/set_frequency(new_frequency)
 	radio_connection = radio_controller.add_object(src, frequency, RADIO_AIRLOCK)
 
 obj/machinery/airlock_sensor/initialize()
-	set_frequency(frequency)
-
-obj/machinery/airlock_sensor/initialize()
 	..()
+	set_frequency(frequency)
 	if(radio_controller)
 		set_frequency(frequency)
 

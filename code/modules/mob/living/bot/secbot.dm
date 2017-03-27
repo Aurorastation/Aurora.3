@@ -48,15 +48,19 @@
 	desc = "It's Officer Beep O'sky! Powered by a potato and a shot of whiskey."
 	auto_patrol = 1
 
-/mob/living/bot/secbot/New()
+/mob/living/bot/secbot/initialize()
 	..()
 	listener = new /obj/secbot_listener(src)
 	listener.secbot = src
 
-	spawn(5) // Since beepsky is made on the start... this delay is necessary
-		if(radio_controller)
-			radio_controller.add_object(listener, control_freq, filter = RADIO_SECBOT)
-			radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
+	if(radio_controller)
+		radio_controller.add_object(listener, control_freq, filter = RADIO_SECBOT)
+		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
+
+/mob/living/bot/secbot/Destroy()
+	QDEL_NULL(listener)
+	target = null
+	return ..()
 
 /mob/living/bot/secbot/turn_off()
 	..()
@@ -404,6 +408,10 @@
 
 /obj/secbot_listener
 	var/mob/living/bot/secbot/secbot = null
+
+/obj/secbot_listener/Destroy()
+	secbot = null
+	return ..()
 
 /obj/secbot_listener/proc/post_signal(var/freq, var/key, var/value) // send a radio signal with a single data key/value pair
 	post_signal_multiple(freq, list("[key]" = value))

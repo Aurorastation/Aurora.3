@@ -186,9 +186,9 @@
 			users_to_open |= user.name
 			needs_to_close = !issilicon(user)
 
-		SPAWNZERO(.proc/open)
+		INVOKE_ASYNC(CALLBACK(src, .proc/open))
 	else
-		SPAWNZERO(.proc/close)
+		INVOKE_ASYNC(CALLBACK(src, .proc/close))
 
 	if(needs_to_close)
 		addtimer(CALLBACK(src, .proc/do_close), 50)
@@ -285,9 +285,9 @@
 					"You force \the [ blocked ? "welded" : "" ] [src] [density ? "open" : "closed"] with \the [C]!",\
 					"You hear metal strain and groan, and a door [density ? "opening" : "closing"].")
 			if(density)
-				addtimer(CALLBACK(src, .proc/open, 1), 0)	// Can't use SPAWNZERO because of parameter.
+				INVOKE_ASYNC(CALLBACK(src, .proc/open, 1, user))
 			else
-				SPAWNZERO(.proc/open)
+				INVOKE_ASYNC(CALLBACK(src, .proc/open, 0, user))
 			return
 
 	return ..()
@@ -356,7 +356,7 @@
 	latetoggle()
 	return ..()
 
-/obj/machinery/door/firedoor/open(var/forced = 0)
+/obj/machinery/door/firedoor/open(forced = 0, user = usr)
 	cut_overlays()
 	if(hatch_open)
 		hatch_open = 0
@@ -369,8 +369,7 @@
 		else
 			use_power(360)
 	else
-		log_admin("[usr]([usr.ckey]) has forced open an emergency shutter.")
-		message_admins("[usr]([usr.ckey]) has forced open an emergency shutter.")
+		log_and_message_admins("has forced open an emergency shutter.", user, loc)
 	latetoggle()
 	return ..()
 

@@ -1130,7 +1130,7 @@ About the new airlock wires panel:
 		return 0
 	return ..(M)
 
-/obj/machinery/door/airlock/initialize(var/newloc, var/obj/structure/door_assembly/assembly=null)
+/obj/machinery/door/airlock/New(var/newloc, var/obj/structure/door_assembly/assembly=null)
 	..()
 
 	//if assembly is given, create the new door from the assembly

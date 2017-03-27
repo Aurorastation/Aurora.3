@@ -1,6 +1,3 @@
-var/global/list/ticking_machines		= list()
-var/global/list/power_using_machines	= list()
-
 /var/datum/controller/subsystem/machinery/SSmachinery
 
 /datum/controller/subsystem/machinery
@@ -10,9 +7,8 @@ var/global/list/power_using_machines	= list()
 	flags = SS_POST_FIRE_TIMING
 
 	var/tmp/list/processing_machinery = list()
-	var/tmp/list/processing_power_users = list()
 	var/tmp/list/processing_powersinks = list()
-	var/tmp/list/processing_powernets = list()
+	var/tmp/powernets_reset_yet
 
 /datum/controller/subsystem/machinery/New()
 	NEW_SS_GLOBAL(SSmachinery)
@@ -23,43 +19,28 @@ var/global/list/power_using_machines	= list()
 
 /datum/controller/subsystem/machinery/fire(resumed = 0)
 	if (!resumed)
-		src.processing_machinery = ticking_machines.Copy()
-		src.processing_power_users = power_using_machines.Copy()
+		src.processing_machinery = machines.Copy()
 		src.processing_powersinks = processing_power_items.Copy()
-		src.processing_powernets = powernets.Copy()
+		powernets_reset_yet = FALSE
 
 	var/list/curr_machinery = src.processing_machinery
-	var/list/curr_power_users = src.processing_power_users
 	var/list/curr_powersinks = src.processing_powersinks
-	var/list/curr_powernets = src.processing_powernets
 
 	while (curr_machinery.len)
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
 		curr_machinery.len--
 
 		if (QDELETED(M))
-			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in ticking_machines list.")
+			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in machines list! Removing.")
 			remove_machine(M)
 			continue
 
-		switch (M.process())
-			if (PROCESS_KILL)
-				remove_machine(M)
-
-			if (M_NO_PROCESS)
-				ticking_machines -= M
-
-		if (MC_TICK_CHECK)
-			return
-
-	while (curr_power_users.len)
-		var/obj/machinery/M = curr_power_users[curr_power_users.len]
-		curr_power_users.len--
-
-		if (QDELETED(M))
-			remove_machine(M)
-			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in power_users list.")
-			continue
+		if (M.isprocessing)
+			switch (M.process())
+				if (PROCESS_KILL)
+					remove_machine(M)
+				if (M_NO_PROCESS)
+					M.isprocessing = FALSE
 
 		if (M.use_power)
 			M.auto_use_power()
@@ -67,11 +48,13 @@ var/global/list/power_using_machines	= list()
 		if (MC_TICK_CHECK)
 			return
 
-	while (curr_powernets.len)
-		var/datum/powernet/PN = curr_powernets[curr_powernets.len]
-		curr_powernets.len--
+	if (!powernets_reset_yet)
+		for (var/thing in powernets)
+			var/datum/powernet/PN = thing
 
-		PN.reset()
+			PN.reset()
+
+		powernets_reset_yet = TRUE
 
 	while (curr_powersinks.len)
 		var/obj/item/I = curr_powersinks[curr_powersinks.len]
@@ -85,26 +68,17 @@ var/global/list/power_using_machines	= list()
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	..("M:[machines.len] TM:[ticking_machines.len] PM:[power_using_machines.len] PI:[processing_power_items.len] PN:[powernets.len]")
+	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len]")
 
 
-/proc/add_machine(var/obj/machinery/M)
+/proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
 		return
 
-	var/type = M.get_process_type()
-	if (type)
-		machines += M
-		
-	if (type & M_PROCESSES)
-		ticking_machines += M
+	M.isprocessing = TRUE
+	machines += M
 
-	if (type & M_USES_POWER)
-		power_using_machines += M
-
-/proc/remove_machine(var/obj/machinery/M)
+/proc/remove_machine(obj/machinery/M)
+	M.isprocessing = FALSE
 	machines -= M
-	power_using_machines -= M
-	ticking_machines -= M
 	SSmachinery.processing_machinery -= M
-	SSmachinery.processing_power_users -= M

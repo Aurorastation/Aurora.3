@@ -292,6 +292,3 @@
 #define OVEN				0x4
 #define CANDYMAKER			0x8
 #define CEREALMAKER			0x10
-
-// Equivalent to: spawn(0) PROC()
-#define SPAWNZERO(PROC) addtimer(CALLBACK(src, PROC), 0)
