@@ -1,7 +1,6 @@
-#define SS_INIT_MISC_FIRST			13
-#define SS_INIT_ASTEROID			12
-#define SS_INIT_OBJECTS			    11
-#define SS_INIT_AREA				10	// Includes turf initialization.
+#define SS_INIT_MISC_FIRST			12
+#define SS_INIT_ASTEROID			11
+#define SS_INIT_ATOMS               10
 #define SS_INIT_SHUTTLE             9
 #define SS_INIT_POWERNET            8
 #define SS_INIT_PIPENET				7

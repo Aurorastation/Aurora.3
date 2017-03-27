@@ -3,8 +3,10 @@
 	var/obj/machinery/camera/motioncamera = null
 
 
-/area/ai_monitored/initialize()
+/area/ai_monitored/Initialize(mapload)
 	..()
+	if (!mapload)
+		return
 	// locate and store the motioncamera
 	for (var/obj/machinery/camera/M in src)
 		if(M.isMotion())

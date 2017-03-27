@@ -33,7 +33,7 @@
 
 	has_resources = 1
 
-/turf/simulated/mineral/initialize()
+/turf/simulated/mineral/Initialize()
 	MineralSpread()
 	updateMineralOverlays(TRUE)
 
@@ -437,7 +437,7 @@
 	if(prob(20))
 		overlay_detail = rand(0,9)
 
-/turf/simulated/floor/asteroid/initialize()
+/turf/simulated/floor/asteroid/Initialize()
 	updateMineralOverlays(1)
 
 /turf/simulated/floor/asteroid/ex_act(severity)

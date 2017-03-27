@@ -44,6 +44,15 @@ Pipelines + Other Objects -> Pipe network
 		pipe_color = null
 	..()
 
+// Atmos machines are snowflakes and call initialize on themselves.
+// Do not refactor initialize() to Initialize() unless you know what you are doing.
+/obj/machinery/atmospherics/Initialize(mapload, ...)
+	..()
+	if (!mapload)
+		return
+	
+	initialize()
+
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/pipe_painter))
 		return

@@ -27,7 +27,6 @@
 	use_power = 1
 	idle_power_usage = 100
 
-	var/initialized = 0 // Map-placed ones break if seeds are loaded right at the start of the round, so we do it on the first interaction
 	var/list/datum/seed_pile/piles = list()
 	var/list/starting_seeds = list()
 	var/list/scanner = list() // What properties we can view
@@ -51,19 +50,18 @@
 	user.set_machine(src)
 	interact(user)
 
+/obj/machinery/seed_storage/Initialize()
+	for(var/typepath in starting_seeds)
+		var/amount = starting_seeds[typepath]
+		if(isnull(amount)) amount = 1
+
+		for (var/i = 1 to amount)
+			var/O = new typepath
+			add(O)
+
 /obj/machinery/seed_storage/interact(mob/user as mob)
 	if (..())
 		return
-
-	if (!initialized)
-		for(var/typepath in starting_seeds)
-			var/amount = starting_seeds[typepath]
-			if(isnull(amount)) amount = 1
-
-			for (var/i = 1 to amount)
-				var/O = new typepath
-				add(O)
-		initialized = 1
 
 	var/dat = "<center><h1>Seed storage contents</h1></center>"
 	if (piles.len == 0)
