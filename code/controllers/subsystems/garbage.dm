@@ -2,7 +2,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 /datum/controller/subsystem/garbage_collector
 	name = "Garbage"
-	priority = 15
+	priority = SS_PRIORITY_GARBAGE
 	wait = 5
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
