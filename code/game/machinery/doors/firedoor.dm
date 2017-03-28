@@ -186,9 +186,9 @@
 			users_to_open |= user.name
 			needs_to_close = !issilicon(user)
 
-		INVOKE_ASYNC(CALLBACK(src, .proc/open))
+		open()
 	else
-		INVOKE_ASYNC(CALLBACK(src, .proc/close))
+		close()
 
 	if(needs_to_close)
 		addtimer(CALLBACK(src, .proc/do_close), 50)
@@ -285,9 +285,9 @@
 					"You force \the [ blocked ? "welded" : "" ] [src] [density ? "open" : "closed"] with \the [C]!",\
 					"You hear metal strain and groan, and a door [density ? "opening" : "closing"].")
 			if(density)
-				INVOKE_ASYNC(CALLBACK(src, .proc/open, 1, user))
+				open(1, user)
 			else
-				INVOKE_ASYNC(CALLBACK(src, .proc/open, 0, user))
+				open(0, user)
 			return
 
 	return ..()
@@ -418,7 +418,7 @@
 			add_overlay("welded_open")
 
 	if(do_set_light)
-		set_light(1.5, 0.5, COLOR_SUN)
+		set_light(2, 0.5, COLOR_SUN)
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
