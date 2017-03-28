@@ -291,6 +291,8 @@
 // Shim until addtimer is merged or I figure out if it is safe to use scheduler for this.
 #define QDEL_IN(OBJ, TIME) spawn(TIME) qdel(OBJ)
 
+#define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
+
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1
 #define FRYER				0x2
