@@ -1,6 +1,6 @@
 // The visual representation of an atom under an openspace turf.
 /atom/movable/openspace/overlay
-	plane = OPENTURF_PLANE
+	plane = OPENTURF_MAX_PLANE
 	var/atom/movable/associated_atom
 
 /atom/movable/openspace/overlay/New()

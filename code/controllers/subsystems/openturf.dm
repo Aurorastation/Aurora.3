@@ -1,5 +1,6 @@
-#define OPENTURF_PLANE -80           // Generated openturf overlays get dumped here.
-#define OPENTURF_CAP_PLANE -79       // The multiplier goes here so it'll be on top of every other overlay.
+#define OPENTURF_MAX_PLANE -71
+#define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
+#define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
 
 /var/datum/controller/subsystem/openturf/SSopenturf
 
@@ -53,13 +54,17 @@
 		if (!T.shadower)
 			T.shadower = new(T)
 
+		var/depth = calculate_depth(T)
+		if (depth > OPENTURF_MAX_DEPTH)
+			depth = OPENTURF_MAX_DEPTH
+
 		T.appearance = T.below
 		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
 			if (config.starlight)
 				T.set_light(config.starlight, 0.5)
 		else
-			T.plane = OPENTURF_PLANE
+			T.plane = OPENTURF_MAX_PLANE - depth
 			if (config.starlight)
 				T.set_light(0)
 
@@ -79,6 +84,12 @@
 			OO.associated_atom = object
 			OO.dir = object.dir
 			OO.appearance = object
-			OO.plane = OPENTURF_PLANE
+			OO.plane = OPENTURF_MAX_PLANE - depth
 
 		T.updating = FALSE
+
+/datum/controller/subsystem/openturf/proc/calculate_depth(turf/simulated/open/T)
+	. = 0
+	while (T && istype(T.below, /turf/simulated/open))
+		T = T.below
+		.++
