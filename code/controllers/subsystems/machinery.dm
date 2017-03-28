@@ -70,7 +70,6 @@
 /datum/controller/subsystem/machinery/stat_entry()
 	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len]")
 
-
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
 		return
@@ -79,6 +78,7 @@
 	machines += M
 
 /proc/remove_machine(obj/machinery/M)
-	M.isprocessing = FALSE
+	if (M)
+		M.isprocessing = FALSE
 	machines -= M
 	SSmachinery.processing_machinery -= M
