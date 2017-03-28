@@ -4,6 +4,10 @@
 /datum/uplink_item/item/medical
 	category = /datum/uplink_category/medical
 
+/datum/uplink_item/item/medical/New()
+	..()
+	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
+
 /datum/uplink_item/item/medical/sinpockets
 	name = "Box of Sin-Pockets"
 	item_cost = 2
