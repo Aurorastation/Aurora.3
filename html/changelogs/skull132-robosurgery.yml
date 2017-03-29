@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - bugfix: "Robotic internal organ removal surgery now works as intended again."
