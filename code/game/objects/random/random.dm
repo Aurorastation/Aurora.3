@@ -373,35 +373,40 @@
 	)
 
 /obj/random/voidsuit
+	name = "random voidsuit"
 	var/damaged = 0
+	var/list/suitmap = list(
+		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining,
+		/obj/item/clothing/suit/space/void/medical = /obj/item/clothing/head/helmet/space/void/medical,
+		/obj/item/clothing/suit/space/void/security = /obj/item/clothing/head/helmet/space/void/security,
+		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos,
+		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
+		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/merc
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/void = 2,
+		/obj/item/clothing/suit/space/void/engineering = 2,
+		/obj/item/clothing/suit/space/void/mining = 2,
+		/obj/item/clothing/suit/space/void/medical = 2.3,
+		/obj/item/clothing/suit/space/void/security = 1,
+		/obj/item/clothing/suit/space/void/atmos = 1.5,
+		/obj/item/clothing/suit/space/void/merc = 0.5, 
+		/obj/item/clothing/suit/space/void/captain = 0.3
+	)
+	has_postspawn = TRUE
 
 /obj/random/voidsuit/New(var/_damaged = 0)
 	damaged = _damaged
 	..()
 
-/obj/random/voidsuit/spawn_item()
-	var/list/suit_types = list(
-	"/space/void" = 2,
-	"/space/void/engineering" = 2,
-	"/space/void/mining" = 2,
-	"/space/void/medical" = 2.3,
-	"/space/void/security" = 1,
-	"/space/void/atmos" = 1.5,
-	"/space/void/merc" = 0.5,
-	"/space/void/captain" = 0.3
-	)
-	var/atom/L = src.loc
-	var/suffix = pickweight(suit_types)
-
-	var/stype = "/obj/item/clothing/suit[suffix]"
-	var/htype = "/obj/item/clothing/head/helmet[suffix]"
-	var/obj/item/clothing/suit/space/newsuit = new stype(L)
-	new htype(L)
-	new /obj/item/clothing/shoes/magboots(L)
-	if (damaged && prob(60))//put some damage on it
-		var/damtype = pick(BRUTE,BURN)
-		var/amount = rand(1,5)
-		newsuit.create_breaches(damtype, amount)
+/obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
+	var/helmet = suitmap[suit]
+	new helmet(loc)
+	new /obj/item/clothing/shoes/magboots(loc)
+	if (damaged & prob(60))
+		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
 
 /obj/random/vendor
 	name = "random vendor"
