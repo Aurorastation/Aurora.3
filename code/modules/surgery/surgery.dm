@@ -110,7 +110,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 
 	if (user.a_intent == I_HELP)
 		user << "<span class='warning'>You can't see any useful way to use [tool] on [M].</span>"
-//		return 1 //Prevents attacking your patient on help intent - this is also getting on the way of using anything on people while they are on the table
+		//not returning 1 so people and borgs can still use things, like syringes and hyposprays, while their patients are on the table
 	return 0
 
 proc/sort_surgeries()
