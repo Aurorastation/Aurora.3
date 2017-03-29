@@ -283,7 +283,7 @@
 		//If the sacrifice was deleted somehow, we cant know exactly what happened. We'll assume it escaped
 		.=-1
 
-	else if(get_dist(src, sacrifice) > 5)
+	else if(get_dist(src, get_turf(sacrifice)) > 5)
 		//If the sacrifice gets more than 5 tiles away, it has escaped
 		.=-1
 	else if (sacrifice.stat == DEAD)
@@ -300,7 +300,11 @@
 			if (sacrifice)
 				walk_to(sacrifice,0)
 		else
-			walk_towards(sacrifice,src, 10)
+			if (istype(sacrifice.loc, /turf) && !(sacrifice.is_ventcrawling) && !(sacrifice.buckled))
+				//Suck the creature towards the pylon if possible
+				walk_towards(sacrifice,src, 10)
+			else
+				walk_to(sacrifice,0) //If we're not in a valid situation, cancel walking to prevent bugginess
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
 	sacrifice.visible_message(span("danger","\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
