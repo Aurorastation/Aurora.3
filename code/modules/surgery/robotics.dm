@@ -276,7 +276,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		if(!(affected && (affected.status & ORGAN_ROBOT)))
 			return 0
-		if(affected.open != 2)
+		if(affected.open < 2)
 			return 0
 
 		target.op_stage.current_organ = null
@@ -325,7 +325,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		if(!(affected && (affected.status & ORGAN_ROBOT)))
 			return 0
-		if(affected.open != 2)
+		if(affected.open < 2)
 			return 0
 
 		target.op_stage.current_organ = null
