@@ -124,7 +124,7 @@
 		F.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/bone(F), slot_wear_suit)
 
 /spell/targeted/raise_dead/proc/get_player()
-	for(var/mob/O in dead_mob_list)
+	for(var/mob/dead/observer/O in dead_mob_list)
 		if(O.client)
 			var/getResponse = alert(O,"A wizard is requesting a skeleton minion. Would you like to play as one?", "Skeleton minion summons","Yes","No")
 			if(getResponse == "Yes")
