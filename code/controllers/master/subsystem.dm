@@ -166,7 +166,7 @@
 		msg = "OFFLINE\t[msg]"
 
 	var/title = name
-	if (can_fire)
+	if (can_fire && !(flags & SS_NO_FIRE))
 		title = "\[[state_letter()]] [title]"
 
 	stat(title, statclick.update(msg))

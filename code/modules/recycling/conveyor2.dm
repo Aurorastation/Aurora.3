@@ -189,7 +189,6 @@
 
 	var/id = "" 				// must match conveyor IDs to control them
 
-	//var/list/conveyors		// the list of converyors that are controlled by this switch
 	anchored = 1
 
 	var/datum/wifi/receiver/conveyor/switch/receiver

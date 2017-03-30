@@ -15,9 +15,12 @@
 /obj/effect/statclick/debug
 	var/class
 
-/obj/effect/statclick/debug/Click()
+/obj/effect/statclick/debug/Click(location, control, params)
 	if(!usr.client.holder || !target)
 		return
+
+	var/permit_mark = TRUE
+		
 	if(!class)
 		if(istype(target, /datum/controller/subsystem))
 			class = "subsystem"
@@ -25,12 +28,22 @@
 			class = "controller"
 		else if(istype(target, /datum))
 			class = "datum"
+			permit_mark = FALSE
 		else
 			class = "unknown"
+			permit_mark = FALSE
 
-	usr.client.debug_variables(target)
-	message_admins("Admin [key_name_admin(usr)] is debugging the [target] [class].")
-
+	var/list/paramlist = params2list(params)
+	if (paramlist["shift"] && permit_mark && target)
+		if (target in usr.client.holder.watched_processes)
+			usr << span("notice", "[target] removed from watchlist.")
+			LAZYREMOVE(usr.client.holder.watched_processes, target)
+		else
+			usr << span("notice", "[target] added to watchlist.")
+			LAZYADD(usr.client.holder.watched_processes, target)
+	else
+		usr.client.debug_variables(target)
+		message_admins("Admin [key_name_admin(usr)] is debugging the [target] [class].")
 
 // Debug verbs.
 /client/proc/restart_controller(controller in list("Master", "Failsafe"))
