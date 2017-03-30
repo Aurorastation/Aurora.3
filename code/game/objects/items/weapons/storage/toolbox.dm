@@ -16,9 +16,9 @@
 	attack_verb = list("robusted")
 	var/stunhit = 0
 
-/obj/item/weapon/storage/toolbox/Initialize()
+/obj/item/weapon/storage/toolbox/Initialize(mapload)
 	..()
-	addtimer(CALLBACK(src, .proc/update_force), 3)
+	update_force()
 
 /obj/item/weapon/storage/toolbox/emergency
 	name = "emergency toolbox"
@@ -26,7 +26,7 @@
 	item_state = "toolbox_red"
 
 	Initialize()
-		..()
+		. = ..()
 		new /obj/item/weapon/crowbar/red(src)
 		new /obj/item/weapon/extinguisher/mini(src)
 		if(prob(50))
@@ -41,7 +41,7 @@
 	item_state = "toolbox_blue"
 
 	Initialize()
-		..()
+		. = ..()
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)
 		new /obj/item/weapon/weldingtool(src)
@@ -55,7 +55,7 @@
 	item_state = "toolbox_yellow"
 
 	Initialize()
-		..()
+		. = ..()
 		var/color = pick("red","yellow","green","blue","pink","orange","cyan","white")
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wirecutters(src)
@@ -76,7 +76,7 @@
 	force = 7.0
 
 	Initialize()
-		..()
+		. = ..()
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)

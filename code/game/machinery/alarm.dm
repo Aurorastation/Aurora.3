@@ -395,7 +395,12 @@
 		alarm_area.air_scrub_names[m_id] = new_name
 	else
 		return
-	addtimer(CALLBACK(src, .proc/send_signal), m_id, list("init" = new_name))
+	spawn(10)
+		send_signal(m_id, list("init" = new_name))
+	//addtimer(CALLBACK(src, .proc/send_signal, m_id, list("init" = new_name)), 10, TIMER_UNIQUE)
+	alarmtimer++
+
+/var/alarmtimer = 0
 
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
@@ -407,7 +412,7 @@
 		var/list/I = alarm_area.air_scrub_info[id_tag]
 		if (I && I["timestamp"]+AALARM_REPORT_TIMEOUT/2 > world.time)
 			continue
-		send_signal(id_tag, list("status") )
+		send_signal(id_tag, list("status"))
 
 /obj/machinery/alarm/proc/set_frequency(new_frequency)
 	radio_controller.remove_object(src, frequency)
@@ -867,8 +872,7 @@
 
 /obj/machinery/alarm/power_change()
 	..()
-	spawn(rand(0,15))
-		update_icon()
+	addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE)
 
 /obj/machinery/alarm/examine(mob/user)
 	..(user)

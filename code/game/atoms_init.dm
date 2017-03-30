@@ -2,12 +2,16 @@
 	var/initialized = FALSE
 
 /atom/New(loc, ...)
-	var/do_initialize = atoms_initialized
+	//. = ..() //uncomment if you are dumb enough to add a /datum/New() proc
+
+	var/do_initialize = SSatoms.initialized
 	if(do_initialize > INITIALIZATION_INSSATOMS)
 		if(QDELETED(src))
 			CRASH("Found new qdeletion in type [type]!")
-		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
-		Initialize(arglist(args))
+		var/mapload = do_initialize == INITIALIZATION_INNEW_MAPLOAD
+		args[1] = mapload
+		if(Initialize(arglist(args)) && mapload)
+			LAZYADD(SSatoms.late_loaders, src)
 
 /atom/proc/Initialize(mapload, ...)
 	if(initialized)

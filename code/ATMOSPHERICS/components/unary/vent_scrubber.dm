@@ -28,6 +28,7 @@
 	var/radio_filter_in
 
 	var/welded = 0
+	//no_special_init = TRUE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1
@@ -111,6 +112,7 @@
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
 		"sigtype" = "status"
 	)
+	
 	if(!initial_loc.air_scrub_names[id_tag])
 		var/new_name = "[initial_loc.name] Air Scrubber #[initial_loc.air_scrub_names.len+1]"
 		initial_loc.air_scrub_names[id_tag] = new_name
@@ -120,13 +122,29 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/initialize()
+/*/obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
+	if (mapload)
+		initialize()
+		radio_filter_in = frequency==initial(frequency)?(RADIO_FROM_AIRALARM):null
+		radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
+		if (frequency)
+			set_frequency(frequency)
+		return TRUE	// Returning TRUE will cause SSatoms to call Initialize() again once everything else is done.
+	
 	..()
-	radio_filter_in = frequency==initial(frequency)?(RADIO_FROM_AIRALARM):null
-	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
+
 	if (frequency)
-		set_frequency(frequency)
 		src.broadcast_status()
+
+	var/area/A = get_area(src)
+	if (A.master_air_alarm)
+		var/area/alarm_area = A.master_air_alarm.alarm_area
+		var/new_name = "[alarm_area.name] Air Scrubber #[alarm_area.air_scrub_names.len + 1]"
+		alarm_area.air_scrub_names[id_tag] = new_name
+		src.name = new_name
+	else
+		log_debug("[DEBUG_REF(src)] could not find its master air alarm!")
+*/
 
 /obj/machinery/atmospherics/unary/vent_scrubber/process()
 	..()
@@ -242,11 +260,11 @@
 		return
 
 	if(signal.data["status"] != null)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2)
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
 //			log_admin("DEBUG \[[world.timeofday]\]: vent_scrubber/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2)
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 	update_icon()
 	return
 

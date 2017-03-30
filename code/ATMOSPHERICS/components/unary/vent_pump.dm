@@ -250,16 +250,31 @@
 
 	return 1
 
-
-/obj/machinery/atmospherics/unary/vent_pump/initialize()
+/*/obj/machinery/atmospherics/unary/vent_pump/Initialize(mapload)
+	if (mapload)
+		initialize()
+		//some vents work his own special way
+		radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
+		radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
+		if(frequency)
+			radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
+		
+		return TRUE
+	
 	..()
-
-	//some vents work his own special way
-	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
-	radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
-	if(frequency)
-		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
+	
+	if (frequency)
 		src.broadcast_status()
+
+	var/area/A = get_area(src)
+	if (A.master_air_alarm)
+		var/area/alarm_area = A.master_air_alarm.alarm_area
+		var/new_name = "[alarm_area.name] Air Vent #[alarm_area.air_vent_names.len + 1]"
+		alarm_area.air_vent_names[id_tag] = new_name
+		src.name = new_name
+	else
+		log_debug("[DEBUG_REF(src)] could not find its master air alarm!")
+*/
 
 /obj/machinery/atmospherics/unary/vent_pump/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
@@ -338,11 +353,11 @@
 		return
 
 	if(signal.data["status"] != null)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2)
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
 		//log_admin("DEBUG \[[world.timeofday]\]: vent_pump/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2)
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 	update_icon()
 	return
 
