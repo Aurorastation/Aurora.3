@@ -107,6 +107,9 @@
 		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
 		target.gib()
 		var/client/C = get_player()
+		if(!C)
+			usr << "There are no souls willing to join our ranks."
+				return
 		F.ckey = C.ckey
 		F.faction = usr.faction
 		if(C.mob && C.mob.mind)
