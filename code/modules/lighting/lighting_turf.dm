@@ -15,6 +15,12 @@
 	for (var/datum/light_source/L in affecting_lights)
 		L.vis_update()
 
+// Forces a lighting update. Reconsider lights is preferred when possible.
+/turf/proc/force_update_lights()
+	L_PROF(src, "turf_forceupdate")
+	for (var/datum/light_source/L in affecting_lights)
+		L.force_update()
+
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)
 		qdel(lighting_overlay)

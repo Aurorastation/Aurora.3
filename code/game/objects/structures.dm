@@ -10,6 +10,8 @@
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
+	if (smooth)
+		queue_smooth_neighbors(src)
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
@@ -51,6 +53,7 @@
 		verbs += /obj/structure/proc/climb_on
 	if (smooth)
 		queue_smooth(src)
+		queue_smooth_neighbors(src)
 
 /obj/structure/proc/climb_on()
 

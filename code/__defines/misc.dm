@@ -286,6 +286,8 @@
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 #define DEBUG_REF(D) (D ? "[D]|\ref[D]" : "NULL")
 
+#define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
+
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1
 #define FRYER				0x2
