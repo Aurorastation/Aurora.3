@@ -398,7 +398,7 @@
 	SearchVar(tickerProcess)
 	SearchVar(SStimer)
 	SearchVar(SSvote)
-	SearchVar(wirelessProcess)
+	SearchVar(SSwireless)
 	SearchVar(SSparallax)
 	SearchVar(SSxenoarch)
 	SearchVar(SSdisease)

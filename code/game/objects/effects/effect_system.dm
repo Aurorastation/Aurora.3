@@ -111,7 +111,18 @@ steam.start() -- spawns the effect
 	..()
 	if (duration)
 		time_to_live = duration
-	QDEL_IN(src, time_to_live)
+	addtimer(CALLBACK(src, .proc/kill), time_to_live)
+
+/obj/effect/effect/smoke/proc/kill()
+	set waitfor = FALSE
+	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
+	set_opacity(FALSE)
+
+	var/turf/T = get_turf(src)
+	if (T)
+		T.force_update_lights()	// I hate it, but nothing else seems to work.
+	
+	QDEL_IN(src, 2 SECONDS)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
 	..()
@@ -269,8 +280,8 @@ steam.start() -- spawns the effect
 				sleep(10)
 				step(smoke,direction)
 			spawn(smoke.time_to_live*0.75+rand(10,30))
-				if (smoke) qdel(smoke)
 				src.total_smoke--
+				qdel(smoke)
 
 
 /datum/effect/effect/system/smoke_spread/bad

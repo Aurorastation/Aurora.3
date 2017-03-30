@@ -1,4 +1,4 @@
-var/datum/controller/subsystem/wireless/wirelessProcess
+var/datum/controller/subsystem/wireless/SSwireless
 
 /datum/controller/subsystem/wireless
 	name = "Wireless"
@@ -13,24 +13,28 @@ var/datum/controller/subsystem/wireless/wirelessProcess
 	var/tmp/list/retry_queue = list()
 	var/tmp/list/pending_queue = list()
 
+	var/total_processed_connections = 0
+
 /datum/controller/subsystem/wireless/New()
-	NEW_SS_GLOBAL(wirelessProcess)
+	NEW_SS_GLOBAL(SSwireless)
 
 /datum/controller/subsystem/wireless/stat_entry()
-	..("RL:[receiver_list.len] PC:[pending_connections.len] RC:[retry_connections.len] FC:[failed_connections.len]")
+	..("RL:[receiver_list.len] PC:[pending_connections.len] RC:[retry_connections.len] FC:[failed_connections.len] TC:[total_processed_connections]")
 
-/datum/controller/subsystem/wireless/proc/add_device(var/datum/wifi/receiver/R)
+/datum/controller/subsystem/wireless/proc/add_device(datum/wifi/receiver/R)
 	if(receiver_list)
 		receiver_list |= R
 	else
 		receiver_list = new()
 		receiver_list |= R
 
-/datum/controller/subsystem/wireless/proc/remove_device(var/datum/wifi/receiver/R)
+	enable()
+
+/datum/controller/subsystem/wireless/proc/remove_device(datum/wifi/receiver/R)
 	if (receiver_list)
 		receiver_list -= R
 
-/datum/controller/subsystem/wireless/proc/add_request(var/datum/connection_request/C)
+/datum/controller/subsystem/wireless/proc/add_request(datum/connection_request/C)
 	if (pending_connections)
 		pending_connections += C
 
@@ -38,7 +42,7 @@ var/datum/controller/subsystem/wireless/wirelessProcess
 		pending_connections = new()
 		pending_connections += C
 
-/datum/controller/subsystem/wireless/proc/process_connection(var/datum/connection_request/connection, var/list/fail_queue)
+/datum/controller/subsystem/wireless/proc/process_connection(datum/connection_request/connection, list/fail_queue)
 	var/target_found = 0
 	for (var/datum/wifi/receiver/R in receiver_list)
 		if (R.id == connection.id)
@@ -49,10 +53,18 @@ var/datum/controller/subsystem/wireless/wirelessProcess
 	if (!target_found)
 		fail_queue += connection
 
+	total_processed_connections += 1
+
 /datum/controller/subsystem/wireless/fire(resumed = 0)
 	if (!resumed)
 		retry_queue = retry_connections.Copy()
 		pending_queue = pending_connections.Copy()
+		retry_connections = list()
+		pending_connections = list()
+
+		if (!retry_queue.len && !pending_queue.len)
+			can_fire = FALSE
+			return
 
 	while (retry_queue.len)
 		var/datum/connection_request/C = retry_queue[retry_queue.len]

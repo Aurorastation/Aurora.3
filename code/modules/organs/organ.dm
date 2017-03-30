@@ -104,7 +104,7 @@ var/list/organ_cache = list()
 		owner = null
 
 	if (QDELETED(src))
-		warning("QDELETED organ had process() called!")
+		log_debug("QDELETED organ [DEBUG_REF(src)] had process() called!")
 		STOP_PROCESSING(SSprocessing, src)
 		return
 
@@ -122,8 +122,8 @@ var/list/organ_cache = list()
 		return
 
 	if(!owner)
-		if (!reagents)
-			log_debug("Regenerating missing reagents for organ [DEBUG_REF(src)].")
+		if (QDELETED(reagents))
+			log_debug("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list

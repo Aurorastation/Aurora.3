@@ -755,6 +755,10 @@
 				stat("CPU:","[world.cpu]")
 				stat("Tick Usage:", world.tick_usage)
 				stat("Instances:","[world.contents.len]")
+				if (LAZYLEN(client.holder.watched_processes))
+					for (var/datum/controller/ctrl in client.holder.watched_processes)
+						ctrl.stat_entry()
+						
 			if(statpanel("Processes"))
 				stat(null)
 				if(Master)
