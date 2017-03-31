@@ -184,16 +184,28 @@
 /mob/living/simple_animal/mouse/verb/squeak_loud_verb()
 	set name = "Squeal!"
 	set category = "Abilities"
+
+	if (usr.client.handle_spam_prevention(null, MUTE_IC))
+		return
+
 	squeak_loud(1)
 
 /mob/living/simple_animal/mouse/verb/squeak_soft_verb()
 	set name = "Soft Squeaking"
 	set category = "Abilities"
+
+	if (usr.client.handle_spam_prevention(null, MUTE_IC))
+		return
+
 	squeak_soft(1)
 
 /mob/living/simple_animal/mouse/verb/squeak_verb()
 	set name = "Squeak"
 	set category = "Abilities"
+
+	if (usr.client.handle_spam_prevention(null, MUTE_IC))
+		return
+
 	squeak(1)
 
 
