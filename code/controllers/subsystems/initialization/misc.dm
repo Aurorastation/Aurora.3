@@ -16,6 +16,19 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
+	// Setup the global HUD.
+	global_hud = new
+	global_huds = list(
+		global_hud.druggy,
+		global_hud.blurry,
+		global_hud.vimpaired,
+		global_hud.darkMask,
+		global_hud.nvg,
+		global_hud.thermal,
+		global_hud.meson,
+		global_hud.science
+	)
+
 	// Sort the area list.
 	sortTim(all_areas, /proc/cmp_name_asc)
 	

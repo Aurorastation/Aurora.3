@@ -16,18 +16,6 @@ var/datum/controller/subsystem/atoms/SSatoms
 
 /datum/controller/subsystem/atoms/New()
 	NEW_SS_GLOBAL(SSatoms)
-	// Setup global HUD.
-	global_hud = new
-	global_huds = list(
-		global_hud.druggy,
-		global_hud.blurry,
-		global_hud.vimpaired,
-		global_hud.darkMask,
-		global_hud.nvg,
-		global_hud.thermal,
-		global_hud.meson,
-		global_hud.science
-	)
 
 /datum/controller/subsystem/atoms/Initialize(timeofday)
 	initialized = INITIALIZATION_INNEW_MAPLOAD
@@ -47,9 +35,9 @@ var/datum/controller/subsystem/atoms/SSatoms
 			var/atom/A = I
 			if(!A.initialized)	//this check is to make sure we don't call it twice on an object that was created in a previous Initialize call
 				if(QDELETED(A))
-					if(!(NewQdelList[A.type]))
-						WARNING("Found new qdeletion in type [A.type]!")
-						NewQdelList[A.type] = TRUE
+					/*if(!(NewQdelList[A.type]))
+						//WARNING("Found new qdeletion in type [A.type]!")
+						NewQdelList[A.type] = TRUE*/
 					continue
 				var/start_tick = world.time
 				if(A.Initialize(TRUE))
@@ -65,9 +53,9 @@ var/datum/controller/subsystem/atoms/SSatoms
 		for(var/atom/A in world)
 			if(!A.initialized)	//this check is to make sure we don't call it twice on an object that was created in a previous Initialize call
 				if(QDELETED(A))
-					if(!(NewQdelList[A.type]))
-						WARNING("Found new qdeletion in type [A.type]!")
-						NewQdelList[A.type] = TRUE
+					/*if(!(NewQdelList[A.type]))
+						//WARNING("Found new qdeletion in type [A.type]!")
+						NewQdelList[A.type] = TRUE*/
 					continue
 				var/start_tick = world.time
 				if(A.Initialize(TRUE))

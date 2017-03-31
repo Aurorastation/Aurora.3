@@ -168,7 +168,6 @@
 #include "code\controllers\subsystems\vote.dm"
 #include "code\controllers\subsystems\wireless.dm"
 #include "code\controllers\subsystems\initialization\asteroid.dm"
-#include "code\controllers\subsystems\initialization\atmos.dm"
 #include "code\controllers\subsystems\initialization\atoms.dm"
 #include "code\controllers\subsystems\initialization\misc.dm"
 #include "code\controllers\subsystems\initialization\parallax.dm"
