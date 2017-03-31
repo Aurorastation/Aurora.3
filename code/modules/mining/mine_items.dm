@@ -501,7 +501,7 @@
 	w_class = 3
 	layer = 2.44
 
-/obj/structure/track/initialize()
+/obj/structure/track/Initialize()
 	..()
 	if (locate(/obj/structure/track) in loc)
 		qdel(src)
@@ -573,7 +573,7 @@
 	light_wedge = LIGHT_WIDE
 	light_color = LIGHT_COLOR_FIRE
 
-/obj/vehicle/train/cargo/engine/mining/initialize()
+/obj/vehicle/train/cargo/engine/mining/Initialize()
 	..()
 	cell = new /obj/item/weapon/cell/high(src)
 	key = null
