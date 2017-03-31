@@ -257,6 +257,9 @@ var/list/gamemode_cache = list()
 	// Subsystems.
 	var/obj/effect/statclick/statclick
 
+	// Master Controller settings.
+	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -797,6 +800,9 @@ var/list/gamemode_cache = list()
 
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
+
+				if("mc_ticklimit_init")
+					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

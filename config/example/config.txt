@@ -435,3 +435,8 @@ API_RATE_LIMIT 50
 ## IPs that should not be throttled by the API RATE Limiter
 ## IPs are separated by ;
 API_RATE_LIMIT_WHITELIST 127.0.0.1
+
+
+# The maximum amount of a tick that the MC is permitted to use during server startup.
+# If not set will default to 98%.
+#MC_TICKLIMIT_INIT 98

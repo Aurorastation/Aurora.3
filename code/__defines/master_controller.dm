@@ -1,9 +1,8 @@
 #define TICK_LIMIT_RUNNING 80
 #define TICK_LIMIT_TO_RUN 78
 #define TICK_LIMIT_MC 70
+#define TICK_LIMIT_MC_INIT config.mc_init_tick_limit
 #define TICK_LIMIT_MC_INIT_DEFAULT 98
-#define TICK_LIMIT_MC_INIT TICK_LIMIT_MC_INIT_DEFAULT
-
 
 #define MC_TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? pause() : 0 )
 // Used to smooth out costs to try and avoid oscillation.
