@@ -431,7 +431,10 @@ var/bomb_set
 	var/list/flash_tiles = list()
 	var/last_turf_state
 
-/obj/machinery/nuclearbomb/station/Initialize()
+/obj/machinery/nuclearbomb/station/Initialize(mapload)
+	if (mapload)
+		return TRUE
+		
 	..()
 	verbs -= /obj/machinery/nuclearbomb/verb/toggle_deployable
 	for(var/turf/simulated/floor/T in trange(1, src))
