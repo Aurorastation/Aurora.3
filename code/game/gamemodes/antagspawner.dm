@@ -34,11 +34,10 @@
 	var/mob/living/silicon/robot/syndicate/F = new(get_turf(usr))
 	spark(F, 4, alldirs)
 	ghost.request_player(F,"An operative is requesting a syndicate cyborg.", 60 SECONDS)
+	F.faction = usr.faction
 	spawn(600)
 		if(F)
 			if(!F.ckey || !F.client)
 				F.visible_message("With no working brain to keep \the [F] working, it is teleported back.")
 				qdel(F)
 				uses++
-			else
-				F.faction = usr.faction
