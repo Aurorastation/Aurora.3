@@ -83,22 +83,6 @@
 
 	hud_state = "wiz_skeleton"
 
-/spell/targeted/raise_dead
-	name = "Raise Dead"
-	desc = "This spell turns a body into a skeleton servant."
-	feedback = "RD"
-	school = "necromancy"
-	charge_max = 1000
-	spell_flags = NEEDSCLOTHES | SELECTABLE
-	invocation = "RY'SY FROH YER G'RVE!"
-	invocation_type = SpI_SHOUT
-	range = 3
-	max_targets = 1
-
-	compatible_mobs = list(/mob/living/carbon/human)
-
-	hud_state = "wiz_skeleton"
-
 /spell/targeted/raise_dead/cast(list/targets, mob/user)
 	..()
 
