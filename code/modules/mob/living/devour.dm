@@ -198,8 +198,7 @@
 		"You consume a piece of \the [victim].",
 		"You feast upon your prey.",
 		"You chow down on \the [victim].",
-		"You gobble \the [victim]'s flesh."
-	)
+		"You gobble \the [victim]'s flesh.")
 
 /proc/handle_devour_mess(var/mob/user, var/mob/living/victim, var/datum/reagents/vessel, var/finish = 0)
 	//The maximum number of blood placements is equal to the mob size of the victim
