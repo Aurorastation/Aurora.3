@@ -8,8 +8,9 @@
 	bodytype = "Snake"
 	icobase = 'icons/mob/human_races/r_snake.dmi'
 	deform = 'icons/mob/human_races/r_snake.dmi'
-	blurb = "A race of snakelike sapients from somewhere beyond the frontier. They are a new threat, arriving in the galaxy as raiders and invaders."
+	blurb = "A race of snakelike sapients from somewhere beyond the frontier. They are a new threat, arriving in the galaxy as invaders."
 	eyes = "eyes_snake"
+	breakcuffs = list(MALE,FEMALE,NEUTER)
 
 	tail_stance = 1
 	tail_length = 5
@@ -19,14 +20,13 @@
 	vision_flags = SEE_SELF | SEE_MOBS
 	rarity_value = 10
 	slowdown = -1 // Compensating for a total inability to wear shoes.
-
+	
 	darksight = 8
 	brute_mod = 0.8
 	ethanol_resistance = 0.7
-
+	
 	virus_immune = 1
 	siemens_coefficient = 0.5
-
 
 	cold_level_1 = 280
 	cold_level_2 = 220
@@ -35,7 +35,7 @@
 	heat_level_2 = 480
 	heat_level_3 = 1100
 	heat_discomfort_level = 295
-
+	
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
@@ -49,14 +49,11 @@
 		)
 
 	hud_type = /datum/hud_data/snake
-	unarmed_types = list(
-		/datum/unarmed_attack/bite/sharp,
-		/datum/unarmed_attack/claws/strong
-		)
+	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
 
-	num_alternate_languages = 2
+	num_alternate_languages = 1
 	secondary_langs = list()
-	name_language = null
+	name_language = null //TODO: add some language
 
 	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
@@ -68,11 +65,11 @@
 		/mob/living/carbon/human/proc/coil_up
 		)
 
-
 	flesh_color = "#006600"
 	blood_color = "#1D2CBF"
 	base_color = "#006666"
-
+	
+	reagent_tag = IS_UNATHI
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/snake),
@@ -84,11 +81,21 @@
 		"r_hand" = list("path" = /obj/item/organ/external/hand/right)
 		)
 
-	stamina	=	120
+	has_organ = list(
+		"heart" =    /obj/item/organ/heart,
+		"lungs" =    /obj/item/organ/lungs,
+		"liver" =    /obj/item/organ/liver,
+		"kidneys" =  /obj/item/organ/kidneys,
+		"brain" =    /obj/item/organ/brain,
+		"eyes" =     /obj/item/organ/eyes,
+		"venom gland" =  /obj/item/organ/venomgland,
+		)
+
+	stamina	=	120	
 	sprint_speed_factor = 3
 	stamina_recovery = 1
 	sprint_cost_factor = 1
-
+	
 /datum/species/snake
 	autohiss_basic_map = list(
 			"s" = list("ssss", "sssss", "ssssss"),
