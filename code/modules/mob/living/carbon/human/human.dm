@@ -89,7 +89,7 @@
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
-	
+
 	QDEL_NULL(DS)
 	// qdel and null out our equipment.
 	QDEL_NULL(shoes)
@@ -1215,7 +1215,7 @@
 
 	if(species.tail_stance)
 		if(!tail_trail) tail_trail = new(src)
-		tail_trail.sync_to_owner()	
+		tail_trail.sync_to_owner()
 
 	if(species)
 		return 1
