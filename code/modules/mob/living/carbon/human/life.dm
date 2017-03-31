@@ -1258,23 +1258,6 @@
 		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
-/mob/living/carbon/human/handle_stomach()
-	set waitfor = FALSE
-	for(var/mob/living/M in stomach_contents)
-		if(M.loc != src)
-			LAZYREMOVE(stomach_contents, M)
-			continue
-		if(iscarbon(M)|| isanimal(M))
-			if(M.stat == 2)
-				M.death(1)
-				LAZYREMOVE(stomach_contents, M)
-				qdel(M)
-				continue
-			if(air_master.times_fired%3==1)
-				if(!(M.status_flags & GODMODE))
-					M.adjustBruteLoss(5)
-				nutrition += 10
-
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind && mind.changeling)
 		mind.changeling.regenerate()
