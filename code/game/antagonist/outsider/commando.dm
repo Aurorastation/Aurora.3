@@ -35,7 +35,6 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/syndicate(player), slot_wear_mask)
 	player.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45m(player), slot_l_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
-	player.equip_to_slot_or_del(new /obj/item/weapon/rig/merc(player), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/rifle/sts35(player), slot_l_hand)
 
 	var/obj/item/weapon/storage/belt/military/syndie_belt = new(player)
@@ -49,6 +48,25 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	syndie_belt.contents += new /obj/item/weapon/grenade/frag
 	syndie_belt.contents += new /obj/item/weapon/plastique
 	player.equip_to_slot_or_del(syndie_belt, slot_belt)
+	
+	var/obj/item/weapon/rig/merc/mercrig = new(get_turf(player))
+	mercrig.seal_delay = 0
+	player.put_in_hands(mercrig)
+	player.equip_to_slot_or_del(mercrig,slot_back)
+	if(mercrig)
+		mercrig.toggle_seals(src,1)
+		mercrig.seal_delay = initial(ninjasuit.seal_delay)
+
+	if(istype(player.back,/obj/item/weapon/rig))
+		var/obj/item/weapon/rig/rig = player.back
+		if(rig.air_supply)
+			player.internal = rig.air_supply
+
+	spawn(10)
+		if(player.internal)
+			player.internals.icon_state = "internal1"
+		else
+			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
 
 	var/obj/item/weapon/card/id/id = create_id("Commando", player)
 	id.access |= get_all_accesses()
