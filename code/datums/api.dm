@@ -786,9 +786,6 @@ proc/api_update_command_database()
 	log_and_message_admins("World restart initiated remotely by [senderkey].")
 	feedback_set_details("end_error","remote restart")
 
-	if (blackbox)
-		blackbox.save_all_data_to_sql()
-
 	spawn(50)
 		log_game("Rebooting due to remote command.")
 		world.Reboot(10)

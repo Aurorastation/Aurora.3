@@ -332,10 +332,6 @@ var/global/datum/controller/gameticker/ticker
 					if(!delay_end)
 						world << "<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>"
 
-
-				if(blackbox)
-					blackbox.save_all_data_to_sql()
-
 				if(!delay_end)
 					sleep(restart_timeout)
 					if(!delay_end)

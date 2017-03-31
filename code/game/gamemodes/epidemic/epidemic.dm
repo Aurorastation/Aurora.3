@@ -81,8 +81,6 @@
 		world << "<span class='danger'>There aren't enough players for this mode!</span>"
 		world << "<span class='danger'>Rebooting world in 5 seconds.</span>"
 
-		if(blackbox)
-			blackbox.save_all_data_to_sql()
 		sleep(50)
 		world.Reboot()
 
