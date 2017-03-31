@@ -29,8 +29,6 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	under.attackby(hold, player)
 
 	player.equip_to_slot_or_del(under, slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(player), slot_shoes)
-	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(player), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(player), slot_glasses)
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/syndicate(player), slot_wear_mask)
 	player.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45m(player), slot_l_store)
