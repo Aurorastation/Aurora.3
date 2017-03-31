@@ -73,13 +73,13 @@
 	if(species.tail_stance)
 		var/obj/item/organ/external/groin/checkgroin = organs_by_name["groin"]
 		if(!istype(checkgroin))
-			stance_damage = 5
+			stance_damage = 4
 		else
 			if (checkgroin.is_broken() || !checkgroin.is_usable() || ((checkgroin.status & ORGAN_ROBOT) && checkgroin.is_malfunctioning()))
 				stance_damage = 2
 			else if ((checkgroin.status & (ORGAN_MUTATED|ORGAN_DEAD)) || checkgroin.is_stump())
 				stance_damage = 4
-
+	else		
 		for(var/limb_tag in list("l_leg","r_leg","l_foot","r_foot"))
 			var/obj/item/organ/external/E = organs_by_name[limb_tag]
 			if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
