@@ -1548,7 +1548,7 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/ovenchips
-	name = "ovem chips"
+	name = "oven chips"
 	desc = "Dark and crispy, but a bit dry"
 	icon_state = "ovenchips"
 	trash = /obj/item/trash/plate
@@ -2884,13 +2884,14 @@
 	icon_state = "Some plain old Earthen bread."
 	icon_state = "bread"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/breadslice
-	slices_num = 5
+	slices_num = 6
 	filling_color = "#FFE396"
 	center_of_mass = list("x"=16, "y"=9)
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 6)
+		reagents.add_reagent("protein", 5)
+		reagents.add_reagent("nutriment", 15)
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/breadslice

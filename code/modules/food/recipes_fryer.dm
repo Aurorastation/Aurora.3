@@ -99,6 +99,7 @@
 /datum/recipe/chaosdonut
 	appliance = FRYER
 	reagents = list("frostoil" = 10, "capsaicin" = 10, "sugar" = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE //This creates its own reagents
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/dough
 	)
