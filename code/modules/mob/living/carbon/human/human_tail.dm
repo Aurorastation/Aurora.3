@@ -110,7 +110,7 @@ var/list/human_tail_cache = list()
 /obj/effect/tail/emp_act(var/severity)
 	if(loc == owner.loc)
 		return
-	return owner.ex_act(severity) // They're bigger so they recieve more of the pulse, idfk.
+	return owner.ex_act(severity)
 
 /obj/effect/tail/update_icon(var/force_override)
 	overlays.Cut()
