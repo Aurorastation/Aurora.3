@@ -53,7 +53,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	player.equip_to_slot_or_del(mercrig,slot_back)
 	if(mercrig)
 		mercrig.toggle_seals(src,1)
-		mercrig.seal_delay = initial(ninjasuit.seal_delay)
+		mercrig.seal_delay = initial(mercrig.seal_delay)
 
 	if(istype(player.back,/obj/item/weapon/rig))
 		var/obj/item/weapon/rig/rig = player.back
