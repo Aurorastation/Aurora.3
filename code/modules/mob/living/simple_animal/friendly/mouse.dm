@@ -187,6 +187,9 @@
 
 	if (usr.client.handle_spam_prevention(null, MUTE_IC))
 		return
+	else if (usr.client.prefs.muted & MUTE_IC)
+		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+		return
 
 	squeak_loud(1)
 
@@ -196,6 +199,9 @@
 
 	if (usr.client.handle_spam_prevention(null, MUTE_IC))
 		return
+	else if (usr.client.prefs.muted & MUTE_IC)
+		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+		return
 
 	squeak_soft(1)
 
@@ -204,6 +210,9 @@
 	set category = "Abilities"
 
 	if (usr.client.handle_spam_prevention(null, MUTE_IC))
+		return
+	else if (usr.client.prefs.muted & MUTE_IC)
+		usr << "<span class='danger'>You are muted from IC emotes.</span>"
 		return
 
 	squeak(1)
