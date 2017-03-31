@@ -24,7 +24,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/dough,
 		/obj/item/weapon/reagent_containers/food/snacks/dough,
 		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/dough
 	)
 	reagents = list("sodiumchloride" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/bread
