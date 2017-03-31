@@ -197,19 +197,35 @@
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
-	if(config.automute_on && !holder && src.last_message == message)
-		src.last_message_count++
-		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			src << "\red You have exceeded the spam filter limit for identical messages. An auto-mute was applied."
-			cmd_admin_mute(src.mob, mute_type, 1)
-			return 1
-		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			src << "\red You are nearing the spam filter limit for identical messages."
-			return 0
-	else
-		last_message = message
-		src.last_message_count = 0
-		return 0
+	if (config.automute_on && !holder)
+		if (last_message_time)
+			if (world.time - last_message_time < 5)
+				spam_alert++
+				if (spam_alert > 3)
+					if (!(prefs.muted & mute_type))
+						cmd_admin_mute(src.mob, mute_type, 1)
+
+					src << "<span class='danger'>You have tripped the macro filter. An auto-mute was applied.</span>"
+					last_message_time = world.time
+					return 1
+			else
+				spam_alert = max(0, spam_alert--)
+
+		last_message_time = world.time
+
+		if(!isnull(message) && last_message == message)
+			last_message_count++
+			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
+				src << "\red You have exceeded the spam filter limit for identical messages. An auto-mute was applied."
+				cmd_admin_mute(src.mob, mute_type, 1)
+				return 1
+			if(last_message_count >= SPAM_TRIGGER_WARNING)
+				src << "\red You are nearing the spam filter limit for identical messages."
+				return 0
+
+	last_message = message
+	last_message_count = 0
+	return 0
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
@@ -273,7 +289,7 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 	. = ..()	//calls mob.Login()
-	
+
 	prefs.sanitize_preferences()
 
 	if (byond_version < config.client_error_version)
