@@ -127,16 +127,16 @@
 	
 /obj/item/organ/venomgland/process()
 	if (is_broken())
-		owner.verbs -= /mob/living/carbon/human/proc/acidespit
+		owner.verbs -= /mob/living/carbon/human/proc/venomspit
 		owner << "<span class='notice'> Your fangs dries as the glands are crushed by the violence!</span>"
 	..()
 
 /obj/item/organ/venomgland/replaced(var/mob/living/carbon/human/target)
-	owner.verbs += /mob/living/carbon/human/proc/acidespit
+	owner.verbs += /mob/living/carbon/human/proc/venomspit
 	owner << "<span class='notice'> Venom runs through your fangs!</span>"
 	..()
 
 /obj/item/organ/venomgland/removed(var/mob/living/carbon/human/target)
-	target.verbs -= /mob/living/carbon/human/proc/acidespit
+	target.verbs -= /mob/living/carbon/human/proc/venomspit
 	target << "<span class='warning'>Your fangs dries as the glands are torn away from you.</span>"
 	..()
