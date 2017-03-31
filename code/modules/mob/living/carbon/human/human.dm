@@ -78,6 +78,8 @@
 	pixel_y = species.icon_y_offset
 
 /mob/living/carbon/human/Destroy()
+	qdel(tail_trail)
+	tail_trail = null
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
@@ -1210,6 +1212,11 @@
 	nutrition = (rand(25,100)*0.01)*max_nutrition//Starting nutrition is randomised between 25-100% of max
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
+
+	if(species.tail_stance)
+		if(!tail_trail) tail_trail = new(src)
+		tail_trail.sync_to_owner()	
+
 	if(species)
 		return 1
 	else
