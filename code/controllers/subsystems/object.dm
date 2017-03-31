@@ -7,7 +7,7 @@ var/global/objects_initialized = FALSE
 	name = "Objects"
 	priority = SS_PRIORITY_OBJECTS
 	//init_order = SS_INIT_OBJECTS
-	flags = SS_NO_INIT
+	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND | SS_NO_INIT
 
 	var/list/processing
 

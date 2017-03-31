@@ -70,7 +70,8 @@
 	if(plant_controller)
 		STOP_PROCESSING(plant_controller, src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
-		START_PROCESSING(plant_controller, neighbor)
+		if (!QDELETED(neighbor))
+			START_PROCESSING(plant_controller, neighbor)
 	return ..()
 	
 /obj/effect/plant/single
