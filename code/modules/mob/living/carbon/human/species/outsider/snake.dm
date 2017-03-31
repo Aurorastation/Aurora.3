@@ -55,7 +55,7 @@
 	secondary_langs = list()
 	name_language = null //TODO: add some language
 
-	spawn_flags = IS_RESTRICTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flags = NO_SLIP
 
@@ -88,7 +88,7 @@
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes,
-		"venom gland" =  /obj/item/organ/venomgland,
+		"venom gland" =  /obj/item/organ/venomgland
 		)
 
 	stamina	=	120	
