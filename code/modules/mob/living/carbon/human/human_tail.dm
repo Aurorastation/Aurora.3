@@ -2,7 +2,7 @@ var/list/human_tail_cache = list()
 
 /mob/living/carbon/human/proc/coil_up()
 	set name = "Coil Up"
-	set category = "IC"
+	set category = "Abilities"
 	set desc = "Retract your tail around yourself."
 	if(stat || paralysis || !tail_trail)
 		return
