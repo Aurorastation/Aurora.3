@@ -4,13 +4,14 @@ var/global/list/limb_icon_cache = list()
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	overlays.Cut()
+	cut_overlays()
 	 // This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				overlays += child.mob_icon
-		overlays += organ.mob_icon
+				add_overlay(child.mob_icon)
+		
+		add_overlay(organ.mob_icon)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	s_tone = null
@@ -48,9 +49,8 @@ var/global/list/limb_icon_cache = list()
 	..()
 
 /obj/item/organ/external/head/get_icon()
-
 	..()
-	overlays.Cut()
+	cut_overlays()
 	if(!owner || !owner.species)
 		return
 	if(owner.species.has_organ["eyes"])
@@ -62,11 +62,11 @@ var/global/list/limb_icon_cache = list()
 			else
 				eyes_icon.Blend(rgb(128,0,0), ICON_ADD)
 			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
-			overlays |= eyes_icon
+			add_overlay(eyes_icon)
 
 	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
 		var/icon/lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
-		overlays |= lip_icon
+		add_overlay(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
 	if(owner.f_style)
@@ -75,7 +75,7 @@ var/global/list/limb_icon_cache = list()
 			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
 				facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
-			overlays |= facial_s
+			add_overlay(facial_s)
 
 	if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
 		var/datum/sprite_accessory/hair_style = hair_styles_list[owner.h_style]
@@ -83,7 +83,7 @@ var/global/list/limb_icon_cache = list()
 			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 			if(hair_style.do_colouration && islist(h_col) && h_col.len >= 3)
 				hair_s.Blend(rgb(h_col[1], h_col[2], h_col[3]), ICON_ADD)
-			overlays |= hair_s
+			add_overlay(hair_s)
 
 	return mob_icon
 
