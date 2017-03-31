@@ -572,8 +572,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/update_icon()
 	if (!isnull(gcDestroyed))
 		return
-	if(overlays) 
-		cut_overlays()
+	cut_overlays()
 	if(density)
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
@@ -586,12 +585,11 @@ About the new airlock wires panel:
 				set_light(0)
 				has_set_boltlight = FALSE
 		if(p_open || welded)
-			cut_overlays()
 			if(p_open)
 				add_overlay("panel_open")
 			if (!(stat & NOPOWER))
 				if(stat & BROKEN)
-					add_overlay(icon, "sparks_broken")
+					add_overlay("sparks_broken")
 				else if (health < maxhealth * 3/4)
 					add_overlay("sparks_damaged")
 			if(welded)
@@ -618,12 +616,10 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
 		if("opening")
-			if(overlays) 
-				cut_overlays()
+			cut_overlays()
 			if(p_open)
-				spawn(2) // The only work around that works. Downside is that the door will be gone for a millisecond.
-					flick("o_door_opening", src)  //can not use flick due to BYOND bug updating overlays right before flicking
-					update_icon()
+				flick("o_door_opening", src)  
+				update_icon()
 			else
 				flick("door_opening", src)//[stat ? "_stat":]
 				update_icon()
@@ -631,9 +627,8 @@ About the new airlock wires panel:
 			if(overlays) 
 				cut_overlays()
 			if(p_open)
-				spawn(2)
-					flick("o_door_closing", src)
-					update_icon()
+				flick("o_door_closing", src)
+				update_icon()
 			else
 				flick("door_closing", src)
 				update_icon()
@@ -649,7 +644,6 @@ About the new airlock wires panel:
 			if (src.arePowerSystemsOn())
 				flick("door_deny", src)
 				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
-	return
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
 	ui_interact(user)
@@ -1130,7 +1124,7 @@ About the new airlock wires panel:
 		return 0
 	return ..(M)
 
-/obj/machinery/door/airlock/New(var/newloc, var/obj/structure/door_assembly/assembly=null)
+/obj/machinery/door/airlock/Initialize(mapload, obj/structure/door_assembly/assembly = null)
 	..()
 
 	//if assembly is given, create the new door from the assembly
@@ -1159,7 +1153,7 @@ About the new airlock wires panel:
 		set_dir(assembly.dir)
 
 	//wires
-	var/turf/T = get_turf(newloc)
+	var/turf/T = get_turf(src)
 	if(T && (T.z in config.admin_levels))
 		secured_wires = 1
 	if (secured_wires)
@@ -1167,13 +1161,11 @@ About the new airlock wires panel:
 	else
 		wires = new/datum/wires/airlock(src)
 
-/obj/machinery/door/airlock/initialize()
-	if(src.closeOtherId != null)
+	if(mapload && src.closeOtherId != null)
 		for (var/obj/machinery/door/airlock/A in world)
 			if(A.closeOtherId == src.closeOtherId && A != src)
 				src.closeOther = A
 				break
-	..()
 
 /obj/machinery/door/airlock/Destroy()
 	qdel(wires)

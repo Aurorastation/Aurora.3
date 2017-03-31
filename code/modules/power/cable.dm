@@ -77,7 +77,7 @@ var/list/possible_cable_coil_colours = list(
 /obj/structure/cable/white
 	color = COLOR_WHITE
 
-/obj/structure/cable/initialize()
+/obj/structure/cable/Initialize()
 	..()
 
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable

@@ -20,7 +20,8 @@
 	..()
 	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
 
-/obj/machinery/sleeper/initialize()
+/obj/machinery/sleeper/Initialize()
+	..()
 	update_icon()
 
 /obj/machinery/sleeper/process()

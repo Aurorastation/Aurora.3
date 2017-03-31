@@ -169,10 +169,10 @@ Thus, the two variables affect pump operation are set in New():
 		)
 
 	if(signal.data["status"])
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2)
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2)
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 	update_icon()
 	return
 

@@ -6,7 +6,8 @@
 	icon = 'icons/misc/title.dmi'
 	screen_loc = "WEST,SOUTH"
 
-/obj/effect/lobby_image/initialize()
+/obj/effect/lobby_image/Initialize()
+	..()
 	var/list/known_icon_states = icon_states(icon)
 	for(var/lobby_screen in config.lobby_screens)
 		if(!(lobby_screen in known_icon_states))

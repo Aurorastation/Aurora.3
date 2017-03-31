@@ -20,8 +20,7 @@
 	var/chosen = DEFAULT_WALL_MATERIAL //which material will be used to make coins
 	var/coinsToProduce = 10
 
-
-/obj/machinery/mineral/mint/initialize()
+/obj/machinery/mineral/mint/Initialize()
 	..()
 	for (var/dir in cardinal)
 		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))

@@ -30,7 +30,8 @@ FLOOR SAFES
 	tumbler_2_open = rand(0, 72)
 
 
-/obj/structure/safe/initialize()
+/obj/structure/safe/Initialize()
+	..()
 	for(var/obj/item/I in loc)
 		if(space >= maxspace)
 			return
@@ -171,7 +172,7 @@ obj/structure/safe/ex_act(severity)
 	level = 1	//underfloor
 	layer = 2.5
 
-/obj/structure/safe/floor/initialize()
+/obj/structure/safe/floor/Initialize()
 	..()
 	var/turf/T = loc
 	if(istype(T) && !T.is_plating())

@@ -59,7 +59,7 @@
 		playsound(src.loc, hitsound_light, 8, 1, -1)
 	user.do_attack_animation(src)
 
-/obj/machinery/door/initialize()
+/obj/machinery/door/Initialize()
 	. = ..()
 	if(density)
 		layer = closed_layer

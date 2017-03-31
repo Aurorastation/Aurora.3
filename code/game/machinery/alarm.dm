@@ -106,7 +106,7 @@
 /obj/machinery/alarm/cold
 	target_temperature = T0C + 5
 
-/obj/machinery/alarm/server/New()
+/obj/machinery/alarm/server/Initialize()
 	..()
 	TLV["oxygen"] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
@@ -119,14 +119,14 @@
 //While temperature stabilises.
 
 //Kitchen freezer
-/obj/machinery/alarm/freezer/New()
+/obj/machinery/alarm/freezer/Initialize()
 	..()
 	TLV["oxygen"] = list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
 	TLV["temperature"] = list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 
 //Refridgerated area, cold but above-freezing
-/obj/machinery/alarm/cold/New()
+/obj/machinery/alarm/cold/Initialize()
 	..()
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
@@ -137,13 +137,14 @@
 	wires = null
 	return ..()
 
-/obj/machinery/alarm/New(var/loc, var/dir, var/building = 0)
+/obj/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)
+	if (initialized)
+		apply_mode()
+		return
+
 	..()
 
 	if(building)
-		if(loc)
-			src.loc = loc
-
 		if(dir)
 			src.set_dir(dir)
 
@@ -155,6 +156,13 @@
 		return
 
 	first_run()
+
+	set_frequency(frequency)
+	if (!master_is_operating())
+		elect_master()
+
+	if (mapload)
+		return TRUE
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -179,12 +187,6 @@
 	TLV["other"] =			list(-1.0, -1.0, 0.5, 1.0) // Partial pressure, kpa
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
-
-
-/obj/machinery/alarm/initialize()
-	set_frequency(frequency)
-	if (!master_is_operating())
-		elect_master()
 
 /obj/machinery/alarm/process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
@@ -363,46 +365,6 @@
 
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
 
-/obj/machinery/alarm/receive_signal(datum/signal/signal)
-	if(stat & (NOPOWER|BROKEN))
-		return
-	if (alarm_area.master_air_alarm != src)
-		if (master_is_operating())
-			return
-		elect_master()
-		if (alarm_area.master_air_alarm != src)
-			return
-	if(!signal || signal.encryption)
-		return
-	var/id_tag = signal.data["tag"]
-	if (!id_tag)
-		return
-	if (signal.data["area"] != area_uid)
-		return
-	if (signal.data["sigtype"] != "status")
-		return
-
-	var/dev_type = signal.data["device"]
-	if(!(id_tag in alarm_area.air_scrub_names) && !(id_tag in alarm_area.air_vent_names))
-		register_env_machine(id_tag, dev_type)
-	if(dev_type == "AScr")
-		alarm_area.air_scrub_info[id_tag] = signal.data
-	else if(dev_type == "AVP")
-		alarm_area.air_vent_info[id_tag] = signal.data
-
-/obj/machinery/alarm/proc/register_env_machine(var/m_id, var/device_type)
-	var/new_name
-	if (device_type=="AVP")
-		new_name = "[alarm_area.name] Vent Pump #[alarm_area.air_vent_names.len+1]"
-		alarm_area.air_vent_names[m_id] = new_name
-	else if (device_type=="AScr")
-		new_name = "[alarm_area.name] Air Scrubber #[alarm_area.air_scrub_names.len+1]"
-		alarm_area.air_scrub_names[m_id] = new_name
-	else
-		return
-	spawn (10)
-		send_signal(m_id, list("init" = new_name) )
-
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
 		var/list/I = alarm_area.air_vent_info[id_tag]
@@ -413,7 +375,7 @@
 		var/list/I = alarm_area.air_scrub_info[id_tag]
 		if (I && I["timestamp"]+AALARM_REPORT_TIMEOUT/2 > world.time)
 			continue
-		send_signal(id_tag, list("status") )
+		send_signal(id_tag, list("status"))
 
 /obj/machinery/alarm/proc/set_frequency(new_frequency)
 	radio_controller.remove_object(src, frequency)
@@ -873,8 +835,7 @@
 
 /obj/machinery/alarm/power_change()
 	..()
-	spawn(rand(0,15))
-		update_icon()
+	addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE)
 
 /obj/machinery/alarm/examine(mob/user)
 	..(user)

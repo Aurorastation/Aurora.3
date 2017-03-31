@@ -95,7 +95,7 @@
 	var/obj/item/weapon/coin/coin
 	var/datum/wires/vending/wires = null
 
-/obj/machinery/vending/initialize()
+/obj/machinery/vending/Initialize()
 	..()
 	wires = new(src)
 	if(src.product_slogans)

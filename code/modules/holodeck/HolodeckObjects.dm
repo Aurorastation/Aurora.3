@@ -74,7 +74,7 @@
 	plane = PLANE_SPACE_BACKGROUND
 	dynamic_lighting = 0
 
-/turf/simulated/floor/holofloor/space/New()
+/turf/simulated/floor/holofloor/space/Initialize()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
 	I.plane = PLANE_SPACE_DUST
@@ -120,7 +120,7 @@
 	initial_flooring = null
 	footstep_sound = "gravelstep"
 
-/turf/simulated/floor/holofloor/desert/New()
+/turf/simulated/floor/holofloor/desert/Initialize()
 	..()
 	if(prob(10))
 		overlays += "asteroid[rand(0,9)]"

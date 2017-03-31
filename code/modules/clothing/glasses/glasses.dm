@@ -45,7 +45,7 @@
 	vision_flags = SEE_TURFS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/obj/item/clothing/glasses/meson/New()
+/obj/item/clothing/glasses/meson/Initialize()
 	..()
 	overlay = global_hud.meson
 
@@ -62,7 +62,7 @@
 	toggleable = 1
 	unacidable = 1
 
-/obj/item/clothing/glasses/science/New()
+/obj/item/clothing/glasses/science/Initialize()
 	..()
 	overlay = global_hud.science
 
@@ -77,7 +77,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	off_state = "denight"
 
-/obj/item/clothing/glasses/night/New()
+/obj/item/clothing/glasses/night/Initialize()
 	..()
 	overlay = global_hud.nvg
 
@@ -248,7 +248,7 @@
 	desc = "Sunglasses with a HUD."
 	icon_state = "sunhud"
 
-	New()
+	Initialize()
 		..()
 		src.hud = new/obj/item/clothing/glasses/hud/security(src)
 		return
@@ -284,7 +284,7 @@
 						M.disabilities &= ~NEARSIGHTED
 		..()
 
-/obj/item/clothing/glasses/thermal/New()
+/obj/item/clothing/glasses/thermal/Initialize()
 	..()
 	overlay = global_hud.thermal
 

@@ -114,8 +114,8 @@ Class Procs:
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
 
-/obj/machinery/New(l, d=0)
-	..(l)
+/obj/machinery/Initialize(mapload, d=0)
+	..()
 	if(d)
 		set_dir(d)
 

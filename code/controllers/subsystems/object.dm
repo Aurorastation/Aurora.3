@@ -6,7 +6,8 @@ var/global/objects_initialized = FALSE
 /datum/controller/subsystem/object
 	name = "Objects"
 	priority = SS_PRIORITY_OBJECTS
-	init_order = SS_INIT_OBJECTS
+	//init_order = SS_INIT_OBJECTS
+	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND | SS_NO_INIT
 
 	var/list/processing
 
@@ -37,7 +38,7 @@ var/global/objects_initialized = FALSE
 /datum/controller/subsystem/object/stat_entry()
 	..("[processing_objects.len] objects")
 
-/datum/controller/subsystem/object/Initialize(timeofday)
+/*/datum/controller/subsystem/object/Initialize(timeofday)
 	while (objects_init_list.len)
 		var/atom/movable/object = objects_init_list[objects_init_list.len]
 		objects_init_list.len--
@@ -51,3 +52,4 @@ var/global/objects_initialized = FALSE
 
 	global.objects_initialized = TRUE
 	..()
+*/

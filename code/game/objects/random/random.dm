@@ -8,7 +8,7 @@
 
 // creates a new object and deletes itself
 
-/obj/random/initialize()
+/obj/random/Initialize()
 	..()
 	if (!prob(spawn_nothing_percentage))
 		var/item = item_to_spawn()

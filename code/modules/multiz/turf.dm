@@ -55,7 +55,7 @@
 	..()
 	update()
 
-/turf/simulated/open/initialize()
+/turf/simulated/open/Initialize()
 	..()
 	update()
 

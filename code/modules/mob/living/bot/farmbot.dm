@@ -27,7 +27,7 @@
 	var/atom/target
 	var/frustration = 0
 
-/mob/living/bot/farmbot/initialize()
+/mob/living/bot/farmbot/Initialize()
 	..()
 	tank = locate() in contents
 	if(!tank)

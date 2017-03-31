@@ -40,14 +40,11 @@
 
 	has_resources = 1
 
-/turf/simulated/mineral/New()
-	// Don't call parent.
+/turf/simulated/mineral/Initialize()
+	. = ..()
 	if (smooth)
 		pixel_x = -4
 		pixel_y = -4
-
-/turf/simulated/mineral/initialize()
-	MineralSpread()
 
 /turf/simulated/mineral/examine(mob/user)
 	..()
@@ -426,7 +423,7 @@
 	)
 	var/mineralChance = 45
 
-/turf/simulated/mineral/random/New()
+/turf/simulated/mineral/random/Initialize()
 	if (prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
 		if (mineral_name && (mineral_name in ore_data))
@@ -508,7 +505,8 @@
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
-/turf/simulated/floor/asteroid/New()
+/turf/simulated/floor/asteroid/Initialize()
+	. = ..()
 	if(prob(20))
 		overlay_detail = rand(0,9)
 

@@ -30,7 +30,7 @@
 
 
 // It's a placeholder turf, don't do anything special.
-/turf/unsimulated/mask/New()
+/turf/unsimulated/mask/Initialize()
 	return
 
 /turf/unsimulated/chasm_mask/New()

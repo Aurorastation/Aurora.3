@@ -16,11 +16,9 @@
 	var/overlay_layer
 	var/is_holographic = TRUE
 
-/obj/machinery/computer/New()
-	overlay_layer = layer
+/obj/machinery/computer/Initialize()
 	..()
-
-/obj/machinery/computer/initialize()
+	overlay_layer = layer
 	power_change()
 	update_icon()
 

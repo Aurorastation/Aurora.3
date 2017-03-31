@@ -6,9 +6,8 @@
 
 	1. All global variables are initialized (including the global_init instance).
 	2. The map is initialized, and map objects are created.
-	3. world/New() runs, creating the process scheduler (and the old master controller) and spawning their setup.
-	4. processScheduler/setup() runs, creating all the processes. game_controller/setup() runs, calling initialize() on all movable atoms in the world.
-	5. The gameticker is created.
+	3. world/New() runs, creating & starting the master controller.
+	4. The master controller initializes the rest of the game.
 
 */
 var/global/datum/global_init/init = new ()
@@ -96,6 +95,10 @@ var/global/list/objects_init_list = list()
 	log_unit_test("Unit Tests Enabled.  This will destroy the world when testing is complete.")
 	load_unit_test_changes()
 #endif
+
+	// Do not add initialization stuff to this file, unless it *must* run before the MC initializes!
+	// (hint: you generally won't need this)
+	// To do things on server-start, create a subsystem or shove it into one of the miscellaneous init subsystems.
 
 	Master.Initialize(10, FALSE)
 

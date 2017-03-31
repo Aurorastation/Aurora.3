@@ -33,7 +33,7 @@ log transactions
 	var/editing_security_level = 0
 	var/view_screen = NO_SCREEN
 
-/obj/machinery/atm/initialize()
+/obj/machinery/atm/Initialize()
 	..()
 	machine_id = "[station_name()] RT #[num_financial_terminals++]"
 

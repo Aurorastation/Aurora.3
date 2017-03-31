@@ -40,10 +40,13 @@
 		B.clean_blood()
 	..()
 
-/turf/simulated/New()
+/turf/simulated/Initialize(mapload)
+	if (mapload)
+		if(istype(loc, /area/chapel))
+			holy = 1
+		return TRUE
+		
 	..()
-	if(istype(loc, /area/chapel))
-		holy = 1
 	levelupdate()
 
 /turf/simulated/proc/AddTracks(var/typepath,var/bloodDNA,var/comingdir,var/goingdir,var/bloodcolor="#A10808")

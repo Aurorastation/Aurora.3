@@ -173,12 +173,12 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	name = "Security Newscaster"
 	securityCaster = 1
 
-/obj/machinery/newscaster/initialize()         //Constructor, ho~
+/obj/machinery/newscaster/Initialize()         //Constructor, ho~
+	..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	allCasters += src
 	src.paper_remaining = 15            // Will probably change this to something better
 	src.unit_no = allCasters.len + 1
 	src.update_icon() //for any custom ones on the map...
-	..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 
 /obj/machinery/newscaster/Destroy()
 	allCasters -= src

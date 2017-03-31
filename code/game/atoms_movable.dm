@@ -19,14 +19,6 @@
 	var/auto_init = 1
 	var/can_hold_mob = FALSE
 
-/atom/movable/New()
-	..()
-	if (objects_initialized)
-		if (auto_init)
-			initialize(FALSE)
-	else
-		objects_init_list += src
-
 /atom/movable/Del()
 	if(isnull(gcDestroyed) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
@@ -50,10 +42,6 @@
 		if (pulledby.pulling == src)
 			pulledby.pulling = null
 		pulledby = null
-
-/atom/movable/proc/initialize()
-	if(!isnull(gcDestroyed))
-		crash_with("GC: -- [type] had initialize() called after qdel() --")
 
 /atom/movable/Bump(var/atom/A, yes)
 	if(src.throwing)

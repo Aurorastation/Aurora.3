@@ -24,7 +24,7 @@ var/bomb_set
 	var/previous_level = ""
 	var/datum/wires/nuclearbomb/wires = null
 
-/obj/machinery/nuclearbomb/initialize()
+/obj/machinery/nuclearbomb/Initialize()
 	..()
 	r_code = "[rand(10000, 99999.0)]"//Creates a random code upon object spawn.
 	wires = new/datum/wires/nuclearbomb(src)
@@ -402,7 +402,7 @@ var/bomb_set
 	item_state = "card-id"
 	w_class = 1.0
 
-/obj/item/weapon/disk/nuclear/initialize()
+/obj/item/weapon/disk/nuclear/Initialize()
 	..()
 	nuke_disks |= src
 
@@ -431,7 +431,7 @@ var/bomb_set
 	var/list/flash_tiles = list()
 	var/last_turf_state
 
-/obj/machinery/nuclearbomb/station/initialize()
+/obj/machinery/nuclearbomb/station/Initialize()
 	..()
 	verbs -= /obj/machinery/nuclearbomb/verb/toggle_deployable
 	for(var/turf/simulated/floor/T in trange(1, src))

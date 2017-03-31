@@ -36,8 +36,8 @@
 	id = "round_end_belt"
 
 	// create a conveyor
-/obj/machinery/conveyor/New(loc, newdir, on = 0)
-	..(loc)
+/obj/machinery/conveyor/Initialize(mapload, newdir, on = 0)
+	..()
 	if(newdir)
 		set_dir(newdir)
 
@@ -52,7 +52,6 @@
 		operating = 1
 		setmove()
 
-/obj/machinery/conveyor/initialize()
 	if (id)
 		antenna = new(id, src)
 
@@ -194,8 +193,9 @@
 	var/datum/wifi/receiver/conveyor/switch/receiver
 	var/datum/wifi/sender/conveyor/transmitter
 
-/obj/machinery/conveyor_switch/New(loc, newid)
-	..(loc)
+
+/obj/machinery/conveyor_switch/Initialize(mapload, newid)
+	..()
 	if(!id)
 		id = newid
 	update()

@@ -30,7 +30,7 @@
 							/obj/item/toy/cultsword							= 1
 							)
 
-/obj/machinery/computer/arcade/New()
+/obj/machinery/computer/arcade/Initialize()
 	..()
 	// If it's a generic arcade machine, pick a random arcade
 	// circuit board for it and make the new machine

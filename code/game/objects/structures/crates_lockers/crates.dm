@@ -687,7 +687,8 @@
 	..(location)
 
 
-/obj/structure/closet/crate/loot/initialize()
+/obj/structure/closet/crate/loot/Initialize()
+	..()
 	spawntypes = list("1" = STOCK_RARE_PROB*rarity, "2" = STOCK_UNCOMMON_PROB*rarity, "3" = (100 - ((STOCK_RARE_PROB*rarity) + (STOCK_UNCOMMON_PROB*rarity))))
 
 	icon_closed = pick(iconchoices)

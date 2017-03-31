@@ -17,7 +17,7 @@
 	var/datum/radio_frequency/radio_connection
 	var/deadman = 0
 
-	initialize()
+	Initialize()
 		..()
 		set_frequency(frequency)
 

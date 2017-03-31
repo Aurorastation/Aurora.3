@@ -59,11 +59,6 @@ var/global/list/default_medbay_channels = list(
 		frequency = new_frequency
 		radio_connection = radio_controller.add_object(src, frequency, RADIO_CHAT)
 
-/obj/item/device/radio/New()
-	..()
-	wires = new(src)
-	internal_channels = default_internal_channels.Copy()
-
 /obj/item/device/radio/Destroy()
 	qdel(wires)
 	wires = null
@@ -73,8 +68,11 @@ var/global/list/default_medbay_channels = list(
 			radio_controller.remove_object(src, radiochannels[ch_name])
 	return ..()
 
+/obj/item/device/radio/Initialize()
+	..()
 
-/obj/item/device/radio/initialize()
+	wires = new(src)
+	internal_channels = default_internal_channels.Copy()
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)

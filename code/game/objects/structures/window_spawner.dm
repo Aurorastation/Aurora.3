@@ -25,7 +25,7 @@
 /obj/effect/wingrille_spawn/attack_generic()
 	activate()
 
-/obj/effect/wingrille_spawn/initialize()
+/obj/effect/wingrille_spawn/Initialize()
 	..()
 	if(!win_path)
 		return

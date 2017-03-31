@@ -14,7 +14,7 @@
 	layer = 2.6 // a bit above wires
 
 
-/obj/machinery/power/terminal/initialize()
+/obj/machinery/power/terminal/Initialize()
 	..()
 	var/turf/T = src.loc
 	if(level==1) hide(!T.is_plating())

@@ -29,8 +29,13 @@
 	var/is_hole		// If true, turf will be treated as space or a hole
 	var/turf/baseturf = /turf/space
 
-/turf/New()
-	..()
+// Parent code is duplicated in here instead of ..() for performance reasons.
+/turf/Initialize()
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	initialized = TRUE
+
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM)
 
@@ -42,7 +47,11 @@
 	if (smooth)
 		queue_smooth(src)
 
-/turf/proc/initialize()
+	if (light_power && light_range)
+		update_light()
+
+	if (opacity)
+		has_opaque_atom = TRUE
 
 /turf/proc/update_icon()
 	return

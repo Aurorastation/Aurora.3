@@ -50,13 +50,13 @@
 		for (var/datum/computer_file/program/prog in programs)
 			hard_drive.store_file(prog)
 
-/obj/item/modular_computer/initialize()
+/obj/item/modular_computer/Initialize()
+	..()
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
 	update_icon()
-	..()
 
 /obj/item/modular_computer/Destroy()
 	kill_program(1)

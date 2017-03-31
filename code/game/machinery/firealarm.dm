@@ -226,12 +226,12 @@
 	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
 	return
 
-/obj/machinery/firealarm/New(loc, dir, building)
-	..()
+/obj/machinery/firealarm/proc/set_security_level(var/newlevel)
+	if(seclevel != newlevel)
+		seclevel = newlevel
+		update_icon()
 
-	if(loc)
-		src.loc = loc
-
+/obj/machinery/firealarm/Initialize(mapload, dir, building)
 	if(dir)
 		src.set_dir(dir)
 
@@ -242,12 +242,6 @@
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
 
-/obj/machinery/firealarm/proc/set_security_level(var/newlevel)
-	if(seclevel != newlevel)
-		seclevel = newlevel
-		update_icon()
-
-/obj/machinery/firealarm/initialize()
 	if(z in config.contact_levels)
 		set_security_level(security_level? get_security_level() : "green")
 

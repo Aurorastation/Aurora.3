@@ -18,7 +18,7 @@
 		/turf/unsimulated/floor
 	)
 
-/obj/structure/lattice/initialize()
+/obj/structure/lattice/Initialize()
 	. = ..()
 ///// Z-Level Stuff
 	if(!(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open) || istype(src.loc, /turf/simulated/floor/asteroid)))

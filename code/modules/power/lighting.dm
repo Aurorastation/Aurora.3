@@ -192,30 +192,30 @@
 	brightness_power = 4
 	supports_nightmode = FALSE
 
-/obj/machinery/light/built/initialize()
+/obj/machinery/light/built/Initialize()
+	..()
 	status = LIGHT_EMPTY
 	update(0)
-	..()
 
-/obj/machinery/light/small/built/initialize()
+/obj/machinery/light/small/built/Initialize()
+	..()
 	status = LIGHT_EMPTY
 	update(0)
-	..()
 
 // create a new lighting fixture
-/obj/machinery/light/initialize(roundstart = FALSE)
+/obj/machinery/light/Initialize(mapload)
 	spark_system = bind_spark(src, 3)
 	on = has_power()
 
 	switch(fitting)
 		if("tube")
-			if(roundstart && prob(2))
+			if(mapload && prob(2))
 				broken(1)
 		if("bulb")
-			if(roundstart && prob(5))
+			if(mapload && prob(5))
 				broken(1)
 
-	INVOKE_ASYNC(src, .proc/update, 0)
+	update(0)
 
 /obj/machinery/light/Destroy()
 	var/area/A = get_area(src)

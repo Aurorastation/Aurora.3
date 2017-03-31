@@ -4,11 +4,9 @@
 /area
 	var/datum/turf_initializer/turf_initializer = null
 
-/area/initialize()
+/area/Initialize(mapload)
 	..()
-	for(var/turf/T in src)
-		T.initialize()
-		if(turf_initializer)
-			turf_initializer.initialize(T)
-
-		CHECK_TICK
+	if (mapload)
+		for(var/turf/T in src)
+			if(turf_initializer)
+				turf_initializer.initialize(T)

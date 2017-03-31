@@ -7,7 +7,7 @@
 	var/global/global_uid = 0
 	var/uid
 
-/area/New()
+/area/Initialize()
 	icon_state = "white"
 	layer = 10
 	uid = ++global_uid
@@ -29,14 +29,15 @@
 		the_station_areas |= src
 
 
-	..()
-
-/area/proc/initialize()
 	if(!requires_power || !apc)
 		power_light = 0
 		power_equip = 0
 		power_environ = 0
 	power_change()		// all machines set to current power level, also updates lighting icon
+
+	blend_mode = BLEND_MULTIPLY
+	
+	..()
 
 /area/proc/get_contents()
 	return contents

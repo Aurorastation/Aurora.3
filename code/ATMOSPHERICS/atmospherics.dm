@@ -13,6 +13,8 @@ Pipelines + Other Objects -> Pipe network
 
 	auto_init = 0
 
+	var/no_special_init = FALSE
+
 	anchored = 1
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -43,6 +45,18 @@ Pipelines + Other Objects -> Pipe network
 	if(!pipe_color_check(pipe_color))
 		pipe_color = null
 	..()
+
+/obj/machinery/atmospherics/proc/initialize()
+
+// Atmos machines are snowflakes and call initialize on themselves.
+// Do not refactor initialize() to Initialize() unless you know what you are doing.
+/obj/machinery/atmospherics/Initialize(mapload, ...)
+	if (no_special_init)
+		return ..()
+
+	..()
+	if (mapload)
+		initialize()
 
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/pipe_painter))

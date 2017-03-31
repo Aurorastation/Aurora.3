@@ -11,5 +11,5 @@
 	src.anchored = 1
 	src.canmove = 0
 
-/mob/living/silicon/decoy/initialize()
+/mob/living/silicon/decoy/Initialize()
 	return

@@ -13,7 +13,7 @@
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
-/turf/space/New()
+/turf/space/Initialize()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
 	I.plane = PLANE_SPACE_DUST

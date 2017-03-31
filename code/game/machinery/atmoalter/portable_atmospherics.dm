@@ -17,17 +17,16 @@
 	qdel(holding)
 	return ..()
 
-/obj/machinery/portable_atmospherics/initialize()
+/obj/machinery/portable_atmospherics/Initialize()
 	. = ..()
 
 	air_contents.volume = volume
 	air_contents.temperature = T20C
 	
-	spawn()
-		var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
-		if(port)
-			connect(port)
-			update_icon()
+	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
+	if(port)
+		connect(port)
+		update_icon()
 
 /obj/machinery/portable_atmospherics/process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you

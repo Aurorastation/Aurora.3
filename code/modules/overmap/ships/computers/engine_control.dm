@@ -8,7 +8,8 @@
 	var/list/engines = list()
 	var/obj/effect/map/ship/linked
 
-/obj/machinery/computer/engines/initialize()
+/obj/machinery/computer/engines/Initialize()
+	..()
 	linked = map_sectors["[z]"]
 	if (linked)
 		if (!linked.eng_control)

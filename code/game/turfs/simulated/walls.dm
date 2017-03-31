@@ -26,8 +26,8 @@
 	for(var/obj/O in src)
 		O.hide(1)
 
-/turf/simulated/wall/New(var/newloc, var/materialtype, var/rmaterialtype)
-	..(newloc)
+/turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
+	..()
 	icon_state = "blank"
 	if(!materialtype)
 		materialtype = DEFAULT_WALL_MATERIAL
