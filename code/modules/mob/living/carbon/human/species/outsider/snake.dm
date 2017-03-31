@@ -62,6 +62,7 @@
 	inherent_verbs = list(
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
+		/mob/living/carbon/human/proc/venomspit,
 		/mob/living/carbon/human/proc/coil_up
 		)
 
