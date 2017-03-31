@@ -460,3 +460,32 @@
 	var/obj/item/weapon/arrow/quill/A = new /obj/item/weapon/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, user)
 	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+
+/mob/living/carbon/human/proc/acidespit(mob/target as mob in oview())
+	set name = "Spit Acid"
+	set desc = "Spits acid at your target."
+	set category = "Abilities"
+
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		src << "You cannot spit acide in your current state."
+		return
+
+	visible_message("<span class='warning'>[src] spits acid at [target]!</span>", "<span class='warning'>You spit acid at [target].</span>")
+
+	var/turf/T = loc
+	var/turf/U = (istype(target, /atom/movable) ? target.loc : target)
+
+	if(!U || !T)
+		return
+	while(U && !istype(U,/turf))
+		U = U.loc
+	if(!istype(T, /turf))
+		return
+	if (U == T)
+		usr.bullet_act(new /obj/item/projectile/energy/neurotoxin(usr.loc), get_organ_target())
+		return
+	if(!istype(U, /turf))
+		return
+
+	var/obj/item/projectile/energy/neurotoxin/A = new /obj/item/projectile/energy/neurotoxin(usr.loc)
+	A.launch(target, get_organ_target())
