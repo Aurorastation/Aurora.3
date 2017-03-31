@@ -116,3 +116,30 @@
 
 /obj/item/organ/external/chest/snake
 	body_hair = "markings"
+
+/obj/item/organ/venomgland
+	name = "venom gland"
+	desc = "Venom glands able to produce and spit poison."
+	parent_organ = "head"
+	icon = 'icons/effects/blood.dmi'
+	icon_state = "xgibtorso"
+	organ_tag = "venom gland"
+	
+/obj/item/organ/venomgland/process()
+	if (is_broken())
+		owner.verbs -= /mob/living/carbon/human/proc/acidespit
+		owner << "<span class='warning'> Venom runs through your fangs!</span>"
+	else
+		owner.verbs += /mob/living/carbon/human/proc/acidespit
+		owner << "<span class='notice'> Your fangs dries as the glands are torn away from you.</span>"
+	..()
+
+/obj/item/organ/venomgland/replaced(var/mob/living/carbon/human/target)
+	owner.verbs += /mob/living/carbon/human/proc/acidespit
+	owner << "<span class='notice'> Venom runs through your fangs!</span>"
+	..()
+
+/obj/item/organ/venomgland/removed(var/mob/living/carbon/human/target)
+	target.verbs -= /mob/living/carbon/human/proc/acidespit
+	target << "<span class='warning'>Your fangs dries as the glands are torn away from you.</span>"
+	..()
