@@ -119,7 +119,7 @@
 
 /obj/item/organ/venomgland
 	name = "venom gland"
-	desc = "Venom glands able to produce and spit poison."
+	desc = "Oversized glands, filled with a venomous liquid."
 	parent_organ = "head"
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "xgibtorso"
@@ -128,10 +128,10 @@
 /obj/item/organ/venomgland/process()
 	if (is_broken())
 		owner.verbs -= /mob/living/carbon/human/proc/acidespit
-		owner << "<span class='warning'> Venom runs through your fangs!</span>"
+		owner << "<span class='notice'> Your fangs dries as the glands are torn away from you.</span>"
 	else
 		owner.verbs += /mob/living/carbon/human/proc/acidespit
-		owner << "<span class='notice'> Your fangs dries as the glands are torn away from you.</span>"
+		owner << "<span class='warning'> Venom runs through your fangs!</span>"
 	..()
 
 /obj/item/organ/venomgland/replaced(var/mob/living/carbon/human/target)
