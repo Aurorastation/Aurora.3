@@ -179,6 +179,15 @@
 		..()
 		reagents.add_reagent("gin", 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin
+	name = "Victory gin"
+	desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
+	icon_state = "victorygin"
+	center_of_mass = list("x"=16, "y"=4)
+	New()
+		..()
+		reagents.add_reagent("vgin", 100)
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey
 	name = "Uncle Git's Special Reserve"
 	desc = "A premium single-malt whiskey, gently matured inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
@@ -499,3 +508,24 @@
 	New()
 		..()
 		reagents.add_reagent("sbiten", 100)
+
+
+// Butanol-based alcoholic drinks
+//=====================================
+//These are mainly for unathi, and have very little (but still some) effect on other species
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/xuizijuice
+	name = "Xuizi Juice"
+	desc = "Blended flower buds from the Xuizi cactus. It tastes like water with a hint of vanilla.."
+	icon_state = "xuizibottle"
+	New()
+		..()
+		reagents.add_reagent("xuizijuice", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine
+	name = "Sarezhi Wine"
+	desc = "Lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. It tastes like flat grape soda."
+	icon_state = "sarezhibottle"
+	New()
+		..()
+		reagents.add_reagent("sarezhiwine", 100)

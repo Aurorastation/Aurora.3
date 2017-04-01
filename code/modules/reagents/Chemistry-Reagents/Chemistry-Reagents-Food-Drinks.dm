@@ -1262,6 +1262,18 @@
 	glass_desc = "A crystal clear glass of Griffeater gin."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
+/datum/reagent/ethanol/victorygin
+	name = "Victory Gin"
+	id = "victorygin"
+	description = "Pour one out for Al'mari. His gun was on stun, bless his heart."
+	color = "#664300"
+	strength = 30
+
+	glass_icon_state = "ginvodkaglass"
+	glass_name = "glass of gin"
+	glass_desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
 //Base type for alchoholic drinks containing coffee
 /datum/reagent/ethanol/coffee
 	overdose = 45
@@ -2529,3 +2541,31 @@
 	glass_icon_state = "tallblackrussian"
 	glass_name = "glass of Tall Black Russian"
 	glass_desc = "Just like black russian but taller."
+
+
+// Butanol-based alcoholic drinks
+//=====================================
+//These are mainly for unathi, and have very little (but still some) effect on other species
+
+/datum/reagent/butanol/xuizijuice
+	name = "Xuizi Juice"
+	id = "xuizijuice"
+	description = "Blended flower buds from the Xuizi cactus. It tastes like water with a hint of vanilla.."
+	color = "#91de47"
+	strength = 5
+
+	glass_icon_state = "xuiziglass"
+	glass_name = "glass of Xuizi Juice"
+	glass_desc = "Blended flower buds from the Xuizi cactus. It tastes like water with a hint of vanilla.."
+
+/datum/reagent/butanol/sarezhiwine
+	name = "Sarezhi Wine"
+	id = "sarezhiwine"
+	description = "Lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. It tastes like flat grape soda."
+	color = "#bf8fbc"
+	strength = 20
+
+	glass_icon_state = "sarezhiglass"
+	glass_name = "glass of Sarezhi Wine"
+	glass_desc = "Lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. It tastes like flat grape soda."
+

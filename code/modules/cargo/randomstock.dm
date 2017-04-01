@@ -115,7 +115,7 @@ var/list/global/random_stock_common = list(
 	"cosmetic" = 2.2,
 	"suitcooler" = 1.2,
 	"officechair" = 1.2,
-	"booze" = 3.5,
+	"booze" = 3.7,
 	"plant" = 3.5,
 	"bag" = 2,
 	"extinguish" = 2.2,
@@ -1670,7 +1670,7 @@ var/list/global/random_stock_large = list(
 
 		if ("bike")
 			new /obj/vehicle/bike(L)
-			
+
 		if ("sol")
 			if (prob(50))
 				new /obj/structure/closet/sol/navy(L)

@@ -27,11 +27,13 @@
 	mercury		spawn_reagent = "mercury"
 	radium		spawn_reagent = "radium"
 	ethanol		spawn_reagent = "ethanol"
+	butanol		spawn_reagent = "butanol"
 	sacid		spawn_reagent = "sacid"
 	tungsten	spawn_reagent = "tungsten"
 
 	// Bar, alcoholic
 	beer		spawn_reagent = "beer"
+	xuizijuice	spawn_reagent = "xuizijuice"
 	kahlua		spawn_reagent = "kahlua"
 	whiskey		spawn_reagent = "whiskey"
 	wine		spawn_reagent = "wine"
