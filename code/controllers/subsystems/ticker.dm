@@ -1,7 +1,7 @@
 var/datum/controller/subsystem/ticker/tickerProcess
 
 /datum/controller/subsystem/ticker
-	name = "Ticker"
+	name = "Game Ticker"
 
 	priority = SS_PRIORITY_TICKER
 	flags = SS_NO_TICK_CHECK
