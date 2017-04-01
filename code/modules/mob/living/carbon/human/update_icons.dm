@@ -150,9 +150,6 @@ Please contact me on #coderbus IRC. ~Carn x
 	update_hud()		//TODO: remove the need for this
 	overlays.Cut()
 
-	if(species.tail_stance)
-		if(!tail_trail) tail_trail = new(src)
-		tail_trail.sync_to_owner()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
@@ -396,12 +393,12 @@ var/global/list/damage_icon_parts = list()
 				var/col = species.get_light_color(h_style)
 				if (!col)
 					col = "#FFFFFF"
-
+					
 				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
-
+				
 	else if (species.light_range)
-		set_light(FALSE)
-
+		set_light(FALSE)	
+		
 	overlays_standing[HAIR_LAYER]	= image(face_standing)
 
 	if(update_icons)   update_icons()

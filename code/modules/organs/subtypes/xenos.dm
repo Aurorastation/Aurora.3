@@ -104,39 +104,3 @@
 	name = "skull"
 	dislocated = -1
 	vital = 0
-
-/obj/item/organ/external/groin/snake
-	name = "tail"
-	max_damage = 200
-	min_broken_damage = 160
-	body_hair = "markings"
-
-/obj/item/organ/external/head/snake
-	body_hair = "markings"
-
-/obj/item/organ/external/chest/snake
-	body_hair = "markings"
-
-/obj/item/organ/venomgland
-	name = "venom gland"
-	desc = "Oversized glands, filled with a venomous liquid."
-	parent_organ = "head"
-	icon = 'icons/effects/blood.dmi'
-	icon_state = "xgibtorso"
-	organ_tag = "venom gland"
-	
-/obj/item/organ/venomgland/process()
-	if (is_broken())
-		owner.verbs -= /mob/living/carbon/human/proc/venomspit
-		owner << "<span class='notice'> Your fangs dries as the glands are crushed by the violence!</span>"
-	..()
-
-/obj/item/organ/venomgland/replaced(var/mob/living/carbon/human/target)
-	owner.verbs += /mob/living/carbon/human/proc/venomspit
-	owner << "<span class='notice'> Venom runs through your fangs!</span>"
-	..()
-
-/obj/item/organ/venomgland/removed(var/mob/living/carbon/human/target)
-	target.verbs -= /mob/living/carbon/human/proc/venomspit
-	target << "<span class='warning'>Your fangs dries as the glands are torn away from you.</span>"
-	..()
