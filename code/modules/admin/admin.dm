@@ -651,9 +651,6 @@ proc/admin_notice(var/message, var/rights)
 		feedback_set_details("end_error","admin reboot - by [usr.key] [usr.client.holder.fakekey ? "(stealth)" : ""]")
 		feedback_add_details("admin_verb","R") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-		if(blackbox)
-			blackbox.save_all_data_to_sql()
-
 		sleep(50)
 		world.Reboot()
 
@@ -893,9 +890,6 @@ proc/admin_notice(var/message, var/rights)
 
 	feedback_set_details("end_error","immediate admin reboot - by [usr.key] [usr.client.holder.fakekey ? "(stealth)" : ""]")
 	feedback_add_details("admin_verb","IR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-	if(blackbox)
-		blackbox.save_all_data_to_sql()
 
 	world.Reboot()
 

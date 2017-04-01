@@ -162,8 +162,6 @@
 				//This can also happen if you start devouring something else
 			break
 
-
-
 //this function gradually digests things inside the mob's contents.
 //It is called from life.dm. Any creatures that don't want to digest their contents simply don't call it
 /mob/living/proc/handle_stomach()
@@ -176,30 +174,31 @@
 			M.calculate_composition()
 
 		var/digestion_power = (((mob_size * mob_size)/10) / (M.mob_size * M.mob_size))
-		var/digestion_time = digestion_power * 60//Number of seconds it will take to digest in total
-		var/DPPP = 1 / (digestion_time / 2.1)//Digestion percentage per proc
+		var/digestion_time = digestion_power * 60	//Number of seconds it will take to digest in total
+		var/DPPP = 1 / (digestion_time / 2.1)	//Digestion percentage per proc
 		M.adjustCloneLoss(M.maxHealth*DPPP)
 		//Digestion power is how much of the creature we can digest per minute. Calculated as a tenth of our mob size squared, divided by the victim's mob size squared
 		//If the resulting value is >1, digestion will take under a minute.
 		src.ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity*DPPP)
-		if ((M.stat != DEAD) && (M.cloneloss > (M.maxHealth*0.5)))//If we've consumed half of the victim, then it dies
+		if ((M.stat != DEAD) && (M.cloneloss > (M.maxHealth*0.5)))	//If we've consumed half of the victim, then it dies
 			M.death()
 			M.stat = DEAD //Just in case the death function doesn't set it
 			src << "Your stomach feels a little more relaxed as \the [M] finally stops fighting."
 
-		if (M.cloneloss >= M.maxHealth)//If we've consumed all of it, then digestion is finished.
+		if (M.cloneloss >= M.maxHealth)	//If we've consumed all of it, then digestion is finished.
 			LAZYREMOVE(stomach_contents, M)
 			src << "Your stomach feels a little more empty as you finish digesting \the [M]."
 			qdel(M)
 
 //Helpers
 /proc/bitemessage(var/mob/living/victim)
-	return pick("You take a bite out of \the [victim].",
-	"You rip a chunk off of \the [victim].",
-	"You consume a piece of [victim]",
-	"You feast upon your prey.",
-	"You chow down on \the [victim].",
-	"You gobble \the [victim]'s flesh.")
+	return pick(
+		"You take a bite out of \the [victim].",
+		"You rip a chunk off of \the [victim].",
+		"You consume a piece of \the [victim].",
+		"You feast upon your prey.",
+		"You chow down on \the [victim].",
+		"You gobble \the [victim]'s flesh.")
 
 /proc/handle_devour_mess(var/mob/user, var/mob/living/victim, var/datum/reagents/vessel, var/finish = 0)
 	//The maximum number of blood placements is equal to the mob size of the victim

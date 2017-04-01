@@ -512,6 +512,12 @@
 	for(var/obj/item/I in contents)
 		remove_from_storage(I, T)
 
+/obj/item/weapon/storage/proc/post_init()
+	var/total_storage_space = 0
+	for(var/obj/item/I in contents)
+		total_storage_space += I.get_storage_cost()
+	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
+
 /obj/item/weapon/storage/New()
 	..()
 	if(allow_quick_empty)
@@ -524,11 +530,7 @@
 	else
 		verbs -= /obj/item/weapon/storage/verb/toggle_gathering_mode
 
-	spawn(5)
-		var/total_storage_space = 0
-		for(var/obj/item/I in contents)
-			total_storage_space += I.get_storage_cost()
-		max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
+	addtimer(CALLBACK(src, .proc/post_init), 5)
 
 	src.boxes = new /obj/screen/storage
 	src.boxes.name = "storage"

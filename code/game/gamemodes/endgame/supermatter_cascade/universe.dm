@@ -14,10 +14,10 @@ var/global/universe_has_ended = 0
 
 /datum/universal_state/supermatter_cascade/OnTurfChange(var/turf/T)
 	if(T.name == "space")
-		T.overlays += image(icon = T.icon, icon_state = "end01")
+		T.add_overlay("end01")
 		T.underlays -= "end01"
 	else
-		T.overlays -= image(icon = T.icon, icon_state = "end01")
+		T.cut_overlay("end01")
 
 /datum/universal_state/supermatter_cascade/DecayTurf(var/turf/T)
 	if(istype(T,/turf/simulated/wall))
