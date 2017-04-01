@@ -31,7 +31,7 @@
 
 	has_resources = 1
 
-/turf/simulated/mineral/New()
+/turf/simulated/mineral/initialize()
 	MineralSpread()
 	updateMineralOverlays(TRUE)
 
