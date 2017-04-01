@@ -55,7 +55,7 @@
 	language = "Ceti Basic"
 	num_alternate_languages = 1
 
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flags = NO_SLIP
 
