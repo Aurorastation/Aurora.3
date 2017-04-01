@@ -51,9 +51,9 @@
 	hud_type = /datum/hud_data/snake
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
 
+	default_language = "Snake Language"
+	language = "Ceti Basic"
 	num_alternate_languages = 1
-	secondary_langs = list()
-	name_language = null //TODO: add some language
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
