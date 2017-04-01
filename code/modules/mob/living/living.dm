@@ -792,8 +792,17 @@ default behaviour is:
 	src << "<span class='notice'>Remember to stay in character for a mob of this type!</span>"
 	return 1
 
+
 /mob/living/proc/generateStaticOverlay()
 	staticOverlays.Add(list("blank"))
 	var/image/staticOverlay = image(icon('icons/effects/effects.dmi', "nothing"), loc = src)
 	staticOverlay.override = 1
 	staticOverlays["blank"] = staticOverlay
+
+/mob/living/Destroy()
+	for (var/thing in stomach_contents)
+		qdel(thing)
+	stomach_contents = null
+	QDEL_NULL(ingested)
+
+	return ..()

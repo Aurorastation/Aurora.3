@@ -112,7 +112,7 @@
 
 	//Get the clone body ready
 	H.setCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
-	H.adjustBrainLoss(80) // Even if healed to full health, it will have some brain damage
+	H.adjustBrainLoss(50) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!

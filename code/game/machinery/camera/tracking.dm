@@ -138,6 +138,8 @@
 		return
 	if(!target_name)
 		src.cameraFollow = null
+	if (!track)
+		trackable_mobs()
 
 	var/mob/target = (isnull(track.humans[target_name]) ? track.others[target_name] : track.humans[target_name])
 	src.track = null

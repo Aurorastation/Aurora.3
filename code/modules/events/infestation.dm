@@ -131,31 +131,33 @@
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(/mob/living/simple_animal/mouse/gray, /mob/living/simple_animal/mouse/brown, /mob/living/simple_animal/mouse/white)
-			max_number = 7
+			max_number = 16
+			//Large quantities of mice aren't a potential lag issue since they decompose to
+			//inert skeletons now
 			vermstring = "mice"
 		if(VERM_LIZARDS)
 			spawn_types = list(/mob/living/simple_animal/lizard)
-			max_number = 7
+			max_number = 12
 			vermstring = "lizards"
 		if(VERM_SPIDERS)
 			spawn_types = list(/obj/effect/spider/spiderling)
-			max_number = 3
+			max_number = 5
 			vermstring = "spiders"
 		if (VERM_DIYAAB)
 			spawn_types = list(/mob/living/simple_animal/hostile/diyaab)
-			max_number = 2
+			max_number = 4
 			vermstring = "strange creatures"
 		if (VERM_BATS)
 			spawn_types = list(/mob/living/simple_animal/hostile/scarybat)
-			max_number = 2
+			max_number = 4
 			vermstring = "space bats"
 		if (VERM_YITHIAN)
 			spawn_types = list(/mob/living/simple_animal/yithian)
-			max_number = 4
+			max_number = 7
 			vermstring = "strange creatures"
 		if (VERM_TINDALOS)
 			spawn_types = list(/mob/living/simple_animal/tindalos)
-			max_number = 4
+			max_number = 7
 			vermstring = "strange creatures"
 
 

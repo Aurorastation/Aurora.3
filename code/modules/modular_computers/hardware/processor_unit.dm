@@ -6,7 +6,7 @@
 	desc = "A standard CPU used in most computers. It can run up to three programs simultaneously."
 	icon_state = "cpu_normal"
 	hardware_size = 2
-	power_usage = 50
+	power_usage = 75
 	critical = 1
 	malfunction_probability = 1
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
@@ -36,6 +36,6 @@
 	desc = "An advanced miniaturised CPU for use in portable devices. It uses photonic core instead of regular circuitry. It can run up to three programs simultaneously."
 	icon_state = "cpu_small_photonic"
 	hardware_size = 1
-	power_usage = 75
+	power_usage = 100
 	max_idle_programs = 2
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3)

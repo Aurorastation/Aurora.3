@@ -413,7 +413,16 @@
 	update_icon()
 	return 1
 
+
 //This proc is called when you want to place an item into the storage item.
+//Its a safe proc for adding things to the storage that does the necessary checks. Object will not be moved if it fails
+/obj/item/weapon/storage/proc/insert_into_storage(obj/item/W as obj, var/prevent_messages = 1)
+	if(!can_be_inserted(W, prevent_messages))
+		return
+
+	return handle_item_insertion(W, prevent_messages)
+
+
 /obj/item/weapon/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 

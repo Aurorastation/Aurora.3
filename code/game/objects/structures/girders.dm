@@ -65,7 +65,7 @@
 		else if(!anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			user << "<span class='notice'>Now securing the girder...</span>"
-			if(get_turf(user, 40))
+			if(do_after(user, 40))
 				user << "<span class='notice'>You secured the girder!</span>"
 				reset_girder()
 
@@ -225,6 +225,7 @@
 
 /obj/structure/girder/proc/dismantle()
 	new /obj/item/stack/material/steel(get_turf(src))
+	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
 /obj/structure/girder/attack_hand(mob/user as mob)
@@ -315,3 +316,17 @@
 		else
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
+
+
+/obj/structure/girder/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (!mover)
+		return 1
+	if(istype(mover,/obj/item/projectile) && density)
+		if (prob(50))
+			return 1
+		else
+			return 0
+	else if(mover.checkpass(PASSTABLE))
+//Animals can run under them, lots of empty space
+		return 1
+	return ..()

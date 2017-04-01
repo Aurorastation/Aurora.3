@@ -71,6 +71,9 @@ var/global/list/image/splatter_cache=list()
 	if(amount < 1)
 		return
 
+	if (!blood_DNA || !islist(blood_DNA))
+		blood_DNA = list()
+
 	var/obj/item/organ/external/l_foot = perp.get_organ("l_foot")
 	var/obj/item/organ/external/r_foot = perp.get_organ("r_foot")
 	var/hasfeet = 1
@@ -221,7 +224,7 @@ var/global/list/image/splatter_cache=list()
 		for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
 			sleep(3)
 			if (i > 0)
-				var/obj/effect/decal/cleanable/blood/b = PoolOrNew(/obj/effect/decal/cleanable/blood/splatter, src.loc)
+				var/obj/effect/decal/cleanable/blood/b = getFromPool(/obj/effect/decal/cleanable/blood/splatter, src.loc)
 				b.basecolor = src.basecolor
 				b.update_icon()
 				for(var/datum/disease/D in src.viruses)

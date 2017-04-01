@@ -73,13 +73,17 @@
 			overlays += "over_harvest3"
 
 	// Update bioluminescence.
-	if(seed)
-		if(seed.get_trait(TRAIT_BIOLUM))
-			var/clr
-			if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
-				clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
-			set_light(round(seed.get_trait(TRAIT_POTENCY)/10), l_color = clr)
-			return
-
-	set_light(0)
+	if(seed && seed.get_trait(TRAIT_BIOLUM))
+		var/clr
+		if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
+			clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
+		var/val = round(seed.get_trait(TRAIT_POTENCY)/10)
+		if (val != last_biolum)
+			last_biolum = val
+			set_light(val, l_color = clr)
+		return
+	
+	if (last_biolum)
+		set_light(0)
+		last_biolum = null
 	return

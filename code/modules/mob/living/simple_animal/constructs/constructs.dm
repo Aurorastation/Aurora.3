@@ -35,6 +35,7 @@
 	mob_push_flags = ALLMOBS
 	hunger_enabled = 0
 	var/list/construct_spells = list()
+	var/can_repair = 0
 
 /mob/living/simple_animal/construct/cultify()
 	return
@@ -58,16 +59,19 @@
 
 /mob/living/simple_animal/construct/attack_generic(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(istype(user, /mob/living/simple_animal/construct/builder))
-		if(getBruteLoss() > 0)
-			adjustBruteLoss(-5)
-			user.visible_message("<span class='notice'>\The [user] mends some of \the [src]'s wounds.</span>")
-		else
-			if (health < maxHealth)
-				user << "<span class='notice'>Healing \the [src] any further is beyond your abilities.</span>"
+	if(istype(user, /mob/living/simple_animal/construct))
+		var/mob/living/simple_animal/construct/C = user
+		if (C.can_repair)
+			if(getBruteLoss() > 0)
+				adjustBruteLoss(-5)
+				adjustFireLoss(-5)
+				user.visible_message("<span class='notice'>\The [user] mends some of \the [src]'s wounds.</span>")
 			else
-				user << "<span class='notice'>\The [src] is undamaged.</span>"
-		return
+				if (health < maxHealth)
+					user << "<span class='notice'>Healing \the [src] any further is beyond your abilities.</span>"
+				else
+					user << "<span class='notice'>\The [src] is undamaged.</span>"
+			return
 	return ..()
 
 /mob/living/simple_animal/construct/examine(mob/user)
@@ -104,8 +108,8 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "behemoth"
 	icon_living = "behemoth"
-	maxHealth = 250
-	health = 250
+	maxHealth = 400
+	health = 400
 	response_harm   = "harmlessly punches"
 	harm_intent_damage = 0
 	melee_damage_lower = 30
@@ -127,7 +131,7 @@
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
-			adjustBruteLoss(P.damage * 0.5)
+			adjustBruteLoss(P.damage * 0.3)
 			visible_message("<span class='danger'>The [P.name] gets reflected by [src]'s shell!</span>", \
 							"<span class='userdanger'>The [P.name] gets reflected by [src]'s shell!</span>")
 
@@ -143,18 +147,6 @@
 			return -1 // complete projectile permutation
 
 	return (..(P))
-
-/mob/living/simple_animal/construct/armoured/UnarmedAttack(var/atom/A, var/proximity)
-	if(istype(A, /obj/machinery))
-		// Destroy machines instead of opening their UI
-		var/obj/machinery/M = A
-		do_attack_animation(M)
-		playsound(loc, attack_sound, 50, 1, 1)
-		M.ex_act(3.0)
-	else
-		..()
-
-
 
 ////////////////////////Wraith/////////////////////////////////////////////
 
@@ -200,6 +192,7 @@
 	speed = 0
 	environment_smash = 1
 	attack_sound = 'sound/weapons/rapidslice.ogg'
+	can_repair = 1
 	construct_spells = list(/spell/aoe_turf/conjure/construct/lesser,
 							/spell/aoe_turf/conjure/wall,
 							/spell/aoe_turf/conjure/floor,
@@ -254,13 +247,19 @@
 	environment_smash = 1
 	see_in_dark = 7
 	attack_sound = 'sound/weapons/pierce.ogg'
-
+	can_repair = 1
 	construct_spells = list(
 			/spell/targeted/harvest,
 			/spell/aoe_turf/knock/harvester,
-			/spell/rune_write
+			/spell/rune_write,
+			/spell/aoe_turf/conjure/construct/lesser,
+			/spell/aoe_turf/conjure/wall,
+			/spell/aoe_turf/conjure/floor,
+			/spell/aoe_turf/conjure/soulstone,
+			/spell/aoe_turf/conjure/pylon,
+			/spell/aoe_turf/conjure/forcewall/lesser
 		)
-
+	//Harvesters are endgame stuff, no harm giving them construct spells
 
 ////////////////Glow//////////////////
 /mob/living/simple_animal/construct/proc/add_glow()

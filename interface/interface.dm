@@ -32,7 +32,7 @@
 			return
 		src << link(config.githuburl + "/issues")
 	else
-		src << "\red The issue tracker URL is not set in the server configuration."
+		src << span("warning", "The issue tracker URL is not set in the server configuration.")
 	return
 
 #define RULES_FILE "config/rules.html"
@@ -175,5 +175,20 @@ Any-Mode: (hotkey doesn't need to be on)
 			return
 		src << link(config.webint_url)
 	else
-		src << "\red The web interface URL is not set in the server configuration."
+		src << span("warning", "The web interface URL is not set in the server configuration.")
 	return
+
+/client/verb/open_discord()
+	set name = "open_discord"
+	set desc = "Get a link to the Discord server."
+	set hidden = 1
+
+	if (discord_bot && discord_bot.active)
+		if(alert("This will open Discord in your browser or directly. Are you sure?",, "Yes", "No") == "Yes")
+			var/url_link = discord_bot.retreive_invite()
+			if (url_link)
+				src << link(url_link)
+			else
+				src << span("danger", "An error occured retreiving the invite.")
+	else
+		src << span("warning", "The serverside Discord bot is not set up.")

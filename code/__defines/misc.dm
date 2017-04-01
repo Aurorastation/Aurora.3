@@ -48,6 +48,10 @@
 #define SHOW_TYPING     0x4000
 #define CHAT_NOICONS    0x8000
 
+#define PARALLAX_SPACE 0x1
+#define PARALLAX_DUST  0x2
+#define PROGRESS_BARS  0x4
+
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
 //Sound effects toggles
@@ -200,10 +204,11 @@
 #define NTNETSPEED_DOS_AMPLIFICATION 5	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
 
 // Program bitflags
-#define PROGRAM_ALL 7
+#define PROGRAM_ALL 15
 #define PROGRAM_CONSOLE 1
 #define PROGRAM_LAPTOP 2
 #define PROGRAM_TABLET 4
+#define PROGRAM_TELESCREEN 8
 
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1
@@ -260,3 +265,35 @@
 #define LAYER_TABLE	2.8
 #define LAYER_UNDER_TABLE	2.79
 #define LAYER_ABOVE_TABLE	2.81
+
+// Stoplag.
+#define TICK_LIMIT 80
+#define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
+#define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()
+
+// Effect Systems.
+#define EFFECT_CONTINUE 0 	// Keep processing.
+#define EFFECT_HALT 1		// Stop processing, but don't qdel.
+#define EFFECT_DESTROY 2	// qdel.
+
+// Performance bullshit.
+
+//supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
+#define RANGE_TURFS(RADIUS, CENTER) \
+  block( \
+    locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
+    locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
+  )
+
+#define get_turf(A) (get_step(A, 0))
+#define QDELETED(TARGET) (!TARGET || TARGET.gcDestroyed)
+#define QDEL_NULL(item) qdel(item); item = null
+// Shim until addtimer is merged or I figure out if it is safe to use scheduler for this.
+#define QDEL_IN(OBJ, TIME) spawn(TIME) qdel(OBJ)
+
+//Recipe type defines. Used to determine what machine makes them
+#define MICROWAVE			0x1
+#define FRYER				0x2
+#define OVEN				0x4
+#define CANDYMAKER			0x8
+#define CEREALMAKER			0x10

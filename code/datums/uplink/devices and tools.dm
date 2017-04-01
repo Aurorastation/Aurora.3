@@ -9,6 +9,12 @@
 	item_cost = 2
 	path = /obj/item/weapon/storage/toolbox/syndicate
 
+/datum/uplink_item/item/tools/advancedpinpointer
+	name = "Advanced pinpointer"
+	item_cost = 15
+	path = /obj/item/weapon/pinpointer/advpinpointer
+	desc = "An advanced pinpointer that can find any target with DNA along with various other items."
+
 /datum/uplink_item/item/tools/money
 	name = "Operations Funding"
 	item_cost = 2

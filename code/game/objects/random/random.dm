@@ -7,13 +7,11 @@
 
 
 // creates a new object and deletes itself
-/obj/random/New()
-	..()
-	if (!prob(spawn_nothing_percentage))
-		spawn_item()
 
 /obj/random/initialize()
 	..()
+	if (!prob(spawn_nothing_percentage))
+		spawn_item()
 	qdel(src)
 
 // this function should return a specific item to spawn
@@ -23,9 +21,10 @@
 
 // creates the random item
 /obj/random/proc/spawn_item()
-	var/build_path = item_to_spawn()
-	return (new build_path(src.loc))
 
+
+	var/build_path = item_to_spawn()
+	new build_path(loc)
 
 /obj/random/single
 	name = "randomly spawned object"
@@ -305,7 +304,6 @@
 	var/list/packs = list(
 	/obj/item/weapon/storage/backpack = 3,
 	/obj/item/weapon/storage/backpack/holding = 0.5,
-	/obj/item/weapon/storage/backpack/santabag = 2,
 	/obj/item/weapon/storage/backpack/cultpack = 2,
 	/obj/item/weapon/storage/backpack/clown = 2,
 	/obj/item/weapon/storage/backpack/medic = 3,
@@ -592,7 +590,6 @@
 	/obj/item/clothing/under/redcoat = 0.5,
 	/obj/item/clothing/under/serviceoveralls = 1,
 	/obj/item/clothing/under/psyche = 0.5,
-	/obj/item/clothing/under/track = 0.9,
 	/obj/item/clothing/under/rank/dispatch = 0.8,
 	/obj/item/clothing/under/syndicate/tacticool = 1,
 	/obj/item/clothing/under/syndicate/tracksuit = 0.2,
@@ -636,7 +633,6 @@
 	/obj/item/clothing/shoes/clown_shoes = 0.1,
 	/obj/item/clothing/suit/storage/hazardvest = 1,
 	/obj/item/clothing/suit/storage/leather_jacket/nanotrasen = 0.7,
-	/obj/item/clothing/suit/storage/toggle/tracksuit = 0.7,
 	/obj/item/clothing/suit/ianshirt = 0.5,
 	/obj/item/clothing/suit/syndicatefake = 0.6,
 	/obj/item/clothing/suit/imperium_monk = 0.4,
@@ -734,14 +730,30 @@
 /obj/random/highvalue/item_to_spawn()
 	var/list/highvalue = list(/obj/item/bluespace_crystal = 7,
 	/obj/item/weapon/storage/secure/briefcase/money = 5,
-	/obj/item/stack/telecrystal{amount = 10} = 4,
-	/obj/item/clothing/glasses/thermal = 2,
-	/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 1,
-	/obj/item/weapon/material/sword/rapier = 1,
-	/obj/item/weapon/gun/energy/lawgiver = 1,
+	/obj/item/stack/telecrystal{amount = 10} = 7,
+	/obj/item/clothing/suit/armor/reactive = 0.5,
+	/obj/item/clothing/glasses/thermal = 0.5,
+	/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 0.5,
+	/obj/item/weapon/material/sword/rapier = 0.5,
+	/obj/item/weapon/gun/energy/lawgiver = 0.5,
 	/obj/item/weapon/melee/energy/axe = 0.5,
 	/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 	/obj/item/weapon/rig/military = 0.5,
-	/obj/item/weapon/rig/unathi/fancy = 0.5
+	/obj/item/weapon/rig/unathi/fancy = 0.5,
+	/obj/item/clothing/mask/ai = 0.5
 	)
 	return pickweight(highvalue)
+
+
+//Sometimes the chef will have spare oil in storage.
+//Sometimes they wont, and will need to order it from cargo
+//Variety is the spice of life!
+/obj/random/cookingoil
+	name = "random cooking oil"
+	desc = "Has a 50% chance of spawning a tank of cooking oil, otherwise nothing"
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "oiltank"
+	spawn_nothing_percentage = 50
+
+/obj/random/cookingoil/item_to_spawn()
+	return /obj/structure/reagent_dispensers/cookingoil

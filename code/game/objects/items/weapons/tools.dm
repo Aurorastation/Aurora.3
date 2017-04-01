@@ -166,7 +166,7 @@
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
-	origin_tech = "engineering=2"
+	origin_tech = list(TECH_ENGINEERING = 2)
 	base_iconstate = "ind_welder"
 
 
@@ -176,7 +176,7 @@
 	max_fuel = 80
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
-	origin_tech = "engineering=3"
+	origin_tech = list(TECH_ENGINEERING = 3)
 	base_iconstate = "adv_welder"
 
 
@@ -187,7 +187,7 @@
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
-	origin_tech = "engineering=4;biotech=4"
+	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	base_iconstate = "exp_welder"
 	base_itemstate = "exp_welder"
 
@@ -313,6 +313,9 @@
 			// Welder is switched off!
 			user << "<span class='warning'>You need to light the welding tool, first!</span>"
 			return
+		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
+			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
+			return			
 		if (src.remove_fuel(0))
 			// Use a bit of fuel and repair
 			S.heal_damage(15,0,0,1)

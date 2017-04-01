@@ -242,7 +242,7 @@
 		return
 	..()
 
-	log_and_message_admins("has [open ? "<font color='red'>OPENED</font>" : "closed"] [name]. (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)", user)
+	log_and_message_admins("has [open ? "<font color='red'>OPENED</font>" : "closed"] [name].", user)
 
 /obj/machinery/atmospherics/valve/digital/AltClick(var/mob/dead/observer/admin)
 	if (istype(admin))
@@ -254,7 +254,7 @@
 					return
 				open()
 
-			log_and_message_admins("has [open ? "opened" : "closed"] [name]. (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)", admin)
+			log_and_message_admins("has [open ? "opened" : "closed"] [name].", admin)
 
 /obj/machinery/atmospherics/valve/digital/open
 	open = 1
@@ -315,7 +315,7 @@
 		return 1
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
-	if (do_after(user, 40))
+	if (do_after(user, 40, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

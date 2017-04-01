@@ -42,7 +42,7 @@
 
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
-	desc = "The traditionally employed tongue of Ahdomai, composed of expressive yowls and chirps. Native to the Tajaran."
+	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
@@ -231,7 +231,7 @@
 	
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA
-	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the glactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
+	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "roars"

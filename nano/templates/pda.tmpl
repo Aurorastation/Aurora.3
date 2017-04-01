@@ -213,6 +213,20 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 {{:helper.link('Set Ringtone', 'comment', {'choice' : "Ringtone"}, null, 'fixedLeftWide')}}
                 {{:helper.link('Delete all Conversations', 'trash', {'choice' : "Clear", 'option' : "All"}, null, 'fixedLeftWider')}}
             </div>
+            <div class="itemLabelNarrow">
+                <b>Filter PDAs</b>
+             </div>
+                <div class = "itemContent">
+                  {{:helper.link( 'All',data.pdafilter == 0? 'null' : 'close', {'choice' : "Filter", 'option' : "0"}, null, 'fixedLeft')}}
+                    {{:helper.link('Command',data.pdafilter == 2? 'null': 'close', {'choice' : "Filter", 'option' : "2"}, null, 'fixedLeft')}}
+                    {{:helper.link('Security',data.pdafilter == 3? 'null': 'close', {'choice' : "Filter", 'option' : "3"}, null, 'fixedLeft')}}
+                    {{:helper.link('Engineering',data.pdafilter == 4? 'null': 'close', {'choice' : "Filter", 'option' : "4"}, null, 'fixedLeft')}}
+                    {{:helper.link('Science',data.pdafilter == 5? 'null': 'close', {'choice' : "Filter", 'option' : "5"}, null, 'fixedLeft')}}
+                    {{:helper.link('Cargo',data.pdafilter == 6? 'null': 'close', {'choice' : "Filter", 'option' : "6"}, null, 'fixedLeft')}}
+                    {{:helper.link('Service',data.pdafilter == 7? 'null': 'close', {'choice' : "Filter", 'option' : "7"}, null, 'fixedLeft')}}
+                    {{:helper.link('Medical',data.pdafilter == 8? 'null': 'close', {'choice' : "Filter", 'option' : "8"}, null, 'fixedLeft')}}             
+                </div>
+            
         </div>
         {{if data.toff == 0}}
             <br><br>

@@ -28,9 +28,7 @@
 				qdel(D)
 
 		if(sparks)
-			var/datum/effect/effect/system/spark_spread/s = PoolOrNew(/datum/effect/effect/system/spark_spread)
-			s.set_up(2, 1, get_turf(location)) // Not sure if it's safe to pass an arbitrary object to set_up, todo
-			s.start()
+			spark(location, 2, alldirs)
 
 		for(var/i = 1, i<= gibtypes.len, i++)
 			if(gibamounts[i])

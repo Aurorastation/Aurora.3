@@ -30,6 +30,7 @@
 	var/faction_descriptor                  // Description of the cause. Mandatory for faction role.
 	var/faction_verb                        // Verb added when becoming a member of the faction, if any.
 	var/faction_welcome                     // Message shown to faction members.
+	var/faction = "neutral"			// Faction name, mostly used for simple animals.
 
 	// Spawn values (autotraitor and game mode)
 	var/hard_cap = 3                        // Autotraitor var. Won't spawn more than this many antags.
@@ -207,8 +208,8 @@
 		return
 
 	for(var/datum/mind/player in pending_antagonists)
-		pending_antagonists -= player
-		add_antagonist(player,0,0,1)
+		if (add_antagonist(player,0,0,1))
+			pending_antagonists -= player
 
 	reset_antag_selection()
 
@@ -220,5 +221,6 @@
 		if(flags & ANTAG_OVERRIDE_JOB)
 			player.assigned_role = null
 		player.special_role = null
+		player.current.client.verbs -= /client/proc/aooc
 	pending_antagonists.Cut()
 	candidates.Cut()

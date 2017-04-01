@@ -13,7 +13,7 @@
 
 /obj/item/clothing/gloves/swat
 	desc = "These tactical gloves are somewhat fire and impact-resistant."
-	name = "\improper SWAT Gloves"
+	name = "\improper SWAT gloves"
 	icon_state = "black"
 	item_state = "swat_gl"
 	siemens_coefficient = 0.50
@@ -44,14 +44,6 @@
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
-	
-/obj/item/clothing/gloves/botanic_leather
-	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
-	name = "botanist's leather gloves"
-	icon_state = "leather"
-	item_state = "ggloves"
-	permeability_coefficient = 0.05
-	siemens_coefficient = 0.50 //thick work gloves
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
@@ -59,8 +51,24 @@
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/latex/tajara
-	name = "tajara latex gloves"
+	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
+	species_restricted = list("Tajara")
+	
+/obj/item/clothing/gloves/botanic_leather
+	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
+	name = "leather gloves"
+	icon_state = "leather"
+	item_state = "ggloves"
+	permeability_coefficient = 0.05
+	siemens_coefficient = 0.50 //thick work gloves
+	
+/obj/item/clothing/gloves/botanic_leather/unathi
+	name = "unathi leather gloves"
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/gloves/botanic_leather/tajara
+	name = "tajaran leather gloves"
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/watch
@@ -71,6 +79,8 @@
 	w_class = 1
 	wired = 1
 	species_restricted = null
+	gender = NEUTER
+	body_parts_covered = null
 
 	verb/checktime()
 		set category = "Object"

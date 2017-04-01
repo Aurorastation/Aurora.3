@@ -30,6 +30,8 @@ var/global/datum/controller/gameticker/ticker
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
 
 	var/triai = 0//Global holder for Triumvirate
+	var/tipped = 0							//Did we broadcast the tip of the day yet?
+	var/selected_tip						// What will be the tip of the day?
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
 
@@ -60,6 +62,9 @@ var/global/datum/controller/gameticker/ticker
 						for(var/i=0, i<10, i++)
 							sleep(1)
 							vote.process()
+			if(pregame_timeleft <= 10 && !tipped)
+				send_tip_of_the_round()
+				tipped = 1
 			if(pregame_timeleft <= 0)
 				current_state = GAME_STATE_SETTING_UP
 	while (!setup())
@@ -447,3 +452,16 @@ var/global/datum/controller/gameticker/ticker
 		log_game("[i]s[total_antagonists[i]].")
 
 	return 1
+
+/datum/controller/gameticker/proc/send_tip_of_the_round()
+	var/m
+	if(selected_tip)
+		m = selected_tip
+	else
+		var/list/randomtips = file2list("config/tips.txt")
+		if(randomtips.len)
+			m = pick(randomtips)
+
+	if(m)
+		world << "<font color='purple'><b>Tip of the round: \
+			</b>[html_encode(m)]</font>"

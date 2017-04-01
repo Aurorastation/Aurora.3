@@ -40,6 +40,8 @@
 	var/virus_immune
 	var/short_sighted
 	var/bald = 0
+	var/light_range
+	var/light_power
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
@@ -376,7 +378,7 @@
 		return 1
 
 	if(!H.druggy)
-		H.see_in_dark = (H.sight == SEE_TURFS|SEE_MOBS|SEE_OBJS) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
+		H.see_in_dark = (H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
 		if(H.seer)
 			var/obj/effect/rune/R = locate() in H.loc
 			if(R && R.word1 == cultwords["see"] && R.word2 == cultwords["hell"] && R.word3 == cultwords["join"])
@@ -407,6 +409,9 @@
 	return 1
 
 /datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	if (!H.exhaust_threshold)
+		return 1 // Handled.
+
 	cost *= H.sprint_cost_factor
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
@@ -435,3 +440,6 @@
 		return 0
 	H.hud_used.move_intent.update_move_icon(H)
 	return 1
+
+/datum/species/proc/get_light_color(hair_style)
+	return

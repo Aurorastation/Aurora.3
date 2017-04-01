@@ -241,7 +241,7 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		var/list/hear = get_mobs_or_objects_in_view(message_range,src)
+		var/list/hear = hear(message_range,T)
 		var/list/hearturfs = list()
 
 		for(var/I in hear)

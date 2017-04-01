@@ -32,11 +32,11 @@
 	for(var/mob/dead/observer/O in player_list)
 		if(!O.MayRespawn())
 			continue
-		if(jobban_isbanned(O, "Syndicate") && jobban_isbanned(O, "Mercenary") && jobban_isbanned(O, "Cyborg"))
+		if(jobban_isbanned(O, "Antagonist") && jobban_isbanned(O, "Mercenary") && jobban_isbanned(O, "Cyborg"))
 			continue
 		if(O.client && O.client.prefs && (MODE_MERCENARY in O.client.prefs.be_special_role))
 			question(O.client)
-			
+
 	spawn(600)
 		searching = 0
 		if(!used)
@@ -59,9 +59,7 @@
 			C.prefs.be_special_role ^= MODE_MERCENARY
 
 obj/item/weapon/antag_spawner/borg_tele/spawn_antag(client/C, turf/T)
-	var/datum/effect/effect/system/spark_spread/S = new /datum/effect/effect/system/spark_spread
-	S.set_up(4, 1, src)
-	S.start()
+	spark(T, 4, alldirs)
 	var/mob/living/silicon/robot/H = new /mob/living/silicon/robot/syndicate(T)
 	H.key = C.key
 	var/newname = sanitizeSafe(input(H,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)

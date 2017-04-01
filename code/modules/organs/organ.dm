@@ -28,6 +28,7 @@ var/list/organ_cache = list()
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
 
 /obj/item/organ/Destroy()
+	processing_objects -= src
 	if(!owner)
 		return ..()
 
@@ -43,6 +44,9 @@ var/list/organ_cache = list()
 				owner.organs_by_name -= src
 	if(src in owner.contents)
 		owner.contents -= src
+
+	owner = null 
+	QDEL_NULL(dna)
 
 	return ..()
 
@@ -116,7 +120,8 @@ var/list/organ_cache = list()
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 		if(B && prob(40))
 			reagents.remove_reagent("blood",0.1)
-			blood_splatter(src,B,1)
+			if (isturf(loc))
+				blood_splatter(src,B,1)
 		if(config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage

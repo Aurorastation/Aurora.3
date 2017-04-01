@@ -129,16 +129,20 @@
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size
 	switch(src.w_class)
-		if(1.0)
-			size = "tiny"
-		if(2.0)
-			size = "small"
-		if(3.0)
-			size = "normal-sized"
-		if(4.0)
-			size = "bulky"
-		if(5.0)
+		if (5.0 to INFINITY)
 			size = "huge"
+		if (4.0 to 5.0)
+			size = "bulky"
+		if (3.0 to 4.0)
+			size = "normal-sized"
+		if (2.0 to 3.0)
+			size = "small"
+		if (0 to 2.0)
+			size = "tiny"
+	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
+	//things outside its range ~Nanako
+
+
 	return ..(user, distance, "", "It is a [size] item.")
 
 /obj/item/attack_hand(mob/user as mob)
@@ -218,11 +222,18 @@
 	return
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
-//It is called after loc is set, so if placed in a container its loc will be that container
+//It is called after loc is set, so if placed in a container its loc will be that container.
 /obj/item/proc/dropped(var/mob/user)
 	..()
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
+
+// Called whenever an object is moved around inside the mob's contents.
+// Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
+// This shit exists so that dropped() could almost exclusively be called when an item is dropped.
+/obj/item/proc/on_slotmove(var/mob/user)
+	if (zoom)
+		zoom(user)
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)

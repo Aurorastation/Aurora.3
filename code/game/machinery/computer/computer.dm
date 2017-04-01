@@ -14,6 +14,7 @@
 	var/light_range_on = 2
 	var/light_power_on = 1
 	var/overlay_layer
+	var/is_holographic = TRUE
 
 /obj/machinery/computer/New()
 	overlay_layer = layer
@@ -22,11 +23,6 @@
 /obj/machinery/computer/initialize()
 	power_change()
 	update_icon()
-
-/obj/machinery/computer/process()
-	if(stat & (NOPOWER|BROKEN))
-		return 0
-	return 1
 
 /obj/machinery/computer/emp_act(severity)
 	if(prob(20/severity)) set_broken()
@@ -69,8 +65,10 @@
 
 	if(stat & BROKEN)
 		overlays += image(icon,"[icon_state]_broken", overlay_layer)
+	else if (is_holographic)
+		holographic_overlay(src, src.icon, icon_screen)
 	else
-		overlays += image(icon,icon_screen, overlay_layer)
+		overlays += image(icon, icon_screen, overlay_layer)
 
 /obj/machinery/computer/power_change()
 	..()
@@ -115,6 +113,8 @@
 		..()
 
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (!mover)
+		return 1
 	if(istype(mover,/obj/item/projectile) && density)
 		if (prob(80))
 //Holoscreens are non solid, and the frames of the computers are thin. So projectiles will usually
@@ -122,7 +122,7 @@
 			return 1
 		else
 			return 0
-	else if(isanimal(mover) && mover.checkpass(PASSTABLE))
+	else if(mover.checkpass(PASSTABLE))
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
