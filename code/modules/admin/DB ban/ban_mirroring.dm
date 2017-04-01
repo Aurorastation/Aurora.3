@@ -139,6 +139,10 @@
 
 	if (!conn_info || !conn_info.len)
 		return
+	else if (conn_info.len > 100)
+		log_debug("MIRROR BANS: [C.ckey] has [conn_info.len] unique sets. They were dropped and not processed.")
+		update_connection_data(C)
+		return
 
 	var/ding_bannu = 0
 	var/new_info = BAD_CKEY|BAD_IP|BAD_CID

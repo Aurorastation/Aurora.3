@@ -266,7 +266,7 @@
 
 	var/do_offset = TRUE
 	var/turf/front = get_step(T, top_atom.dir)
-	if (front.has_opaque_atom)
+	if (front && front.has_opaque_atom)
 		do_offset = FALSE
 
 	cached_origin_x = T.x
