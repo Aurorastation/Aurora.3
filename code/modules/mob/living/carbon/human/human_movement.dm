@@ -40,16 +40,24 @@
 		if(shoes)
 			tally += shoes.slowdown
 
-		for(var/organ_name in list("l_foot","r_foot","l_leg","r_leg"))
-			var/obj/item/organ/external/E = get_organ(organ_name)
-			if(!E || E.is_stump())
-				tally += 4
-			else if(E.status & ORGAN_SPLINTED)
-				tally += 0.5
-			else if(E.status & ORGAN_BROKEN)
+		if(species.tail_stance)
+			// If your groin is missing outright, you are dead, so, whatever. No point tallying stump etc. for it.
+			var/obj/item/organ/external/E = get_organ("groin")
+			if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 
+		else
+			for(var/organ_name in list("l_foot","r_foot","l_leg","r_leg"))
+				var/obj/item/organ/external/E = get_organ(organ_name)
+				if(!E || E.is_stump())
+					tally += 4
+				else if(E.status & ORGAN_SPLINTED)
+					tally += 0.5
+				else if(E.status & ORGAN_BROKEN)
+					tally += 1.5
+
 	if(shock_stage >= 10) tally += 3
+
 
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.

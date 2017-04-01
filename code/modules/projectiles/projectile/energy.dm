@@ -232,3 +232,15 @@
 	kill_count = 75
 	embed = 0
 	incinerate = 10*/
+
+/obj/item/projectile/energy/venom
+	name = "venom spit"
+	icon_state = "neurotoxin"
+	damage = 10
+	damage_type = TOX
+	
+/obj/item/projectile/energy/venom/on_hit(var/atom/target, var/blocked = 0)
+	if(ishuman(target))
+		var/mob/living/carbon/human/M = target
+		if(M.reagents)	M.reagents.add_reagent("toxin", 5)
+	..()
