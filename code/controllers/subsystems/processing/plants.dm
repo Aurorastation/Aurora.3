@@ -4,7 +4,7 @@
 	name = "Seeds & Plants"
 	flags = 0	// Override parent's flags.
 	wait = 75
-	init_order = SS_INIT_MISC
+	init_order = SS_INIT_SEEDS
 	priority = SS_PRIORITY_PLANTS
 
 	var/list/product_descs = list()         // Stores generated fruit descs.

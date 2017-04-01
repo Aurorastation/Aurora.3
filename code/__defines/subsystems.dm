@@ -1,19 +1,20 @@
-#define SS_INIT_MISC_FIRST			12
-#define SS_INIT_ASTEROID			11
-#define SS_INIT_ATOMS               10
-#define SS_INIT_SHUTTLE             9
-#define SS_INIT_POWERNET            8
-#define SS_INIT_PIPENET				7
-#define SS_INIT_ATMOS				6
-#define SS_INIT_AIR                 5
-#define SS_INIT_PARALLAX			4
-#define SS_INIT_LIGHTING			3	// Generation of lighting overlays, but not pre-bake.
-#define SS_INIT_CARGO 				2	// Random warehouse generation.
-#define SS_INIT_MISC				1	// Default.
-#define SS_INIT_TICKER 				0	// Should be last-ish. Lobby timer starts here.
-#define SS_INIT_SMOOTHING          -1
-#define SS_INIT_OVERLAY            -2
-#define SS_INIT_NIGHT              -4	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_MISC_FIRST			6
+#define SS_INIT_SEEDS               5
+#define SS_INIT_ASTEROID			4
+#define SS_INIT_SHUTTLE             3
+#define SS_INIT_CARGO               2	// Random warehouse generation.
+#define SS_INIT_ATOMS			    1
+#define SS_INIT_TICKER 				0	// Lobby timer starts here.
+#define SS_INIT_POWERNET           -1
+#define SS_INIT_PIPENET            -2
+#define SS_INIT_ATMOS              -3
+#define SS_INIT_AIR                -4
+#define SS_INIT_PARALLAX           -5
+#define SS_INIT_LIGHTING           -6	// Generation of lighting overlays, but not pre-bake.
+#define SS_INIT_MISC			   -7	// Default.
+#define SS_INIT_SMOOTHING          -8
+#define SS_INIT_OVERLAY            -9
+#define SS_INIT_NIGHT              -10	// Nightmode controller. Will trigger lighting updates.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
