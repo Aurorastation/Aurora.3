@@ -22,7 +22,7 @@
 	slowdown = -1 // Compensating for a total inability to wear shoes.
 	
 	darksight = 8
-	brute_mod = 0.8
+	brute_mod = 0.5
 	ethanol_resistance = 0.7
 	
 	virus_immune = 1
