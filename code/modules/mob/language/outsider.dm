@@ -142,4 +142,4 @@
 	key = "&"
 	flags = RESTRICTED
 	space_chance = 100
-	syllables = list("ssssss", "Hisss', "hSSSSS", "SSSSSSSSSSSSSS", "his!", "ssssSSSssss", "Sssssshshshshs", "S', "Hisss")
+	syllables = list("ssssss", "Hisss", "hSSSSS", "SSSSSSSSSSSSSS", "his!", "ssssSSSssss", "Sssssshshshshs", "S", "Hisss")
