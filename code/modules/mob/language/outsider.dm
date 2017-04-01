@@ -133,7 +133,7 @@
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
 	
 /datum/language/snake
-	name = "snake language"
+	name = "Snake Language"
 	desc = "The tongue of the snake people, a lot of hissing."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
