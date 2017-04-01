@@ -11,19 +11,18 @@
 	active_power_usage = 50
 
 	var/obj/machinery/mineral/processing_unit/machine = null
-	var/machinedir = NORTHEAST
 	var/show_all_ores = 0
 	var/points = 0
 	var/obj/item/weapon/card/id/inserted_id
 
-/obj/machinery/mineral/processing_unit_console/New()
+/obj/machinery/mineral/processing_unit_console/initialize()
 	..()
-	spawn(7)
-		src.machine = locate(/obj/machinery/mineral/processing_unit, get_step(src, machinedir))
-		if (machine)
-			machine.console = src
-		else
-			qdel(src)
+	for (var/dir in alldirs)
+		src.machine = locate(/obj/machinery/mineral/processing_unit, get_step(src, dir))
+		if(src.machine)
+			break
+	if(!src.machine)
+		qdel(src)
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -161,7 +160,7 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/processing_unit/New()
+/obj/machinery/mineral/processing_unit/initialize()
 	..()
 
 	// initialize static alloy_data list

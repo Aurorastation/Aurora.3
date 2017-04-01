@@ -50,8 +50,8 @@
 	tracer_type = /obj/effect/projectile/stun/tracer
 	impact_type = /obj/effect/projectile/stun/impact
 
-/obj/item/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
-	if(ishuman(target))
-		var/mob/living/carbon/human/M = target
+/obj/item/projectile/beam/cavern/on_impact(var/atom/A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/M = A
 		var/shock_damage = rand(10,20)
 		M.electrocute_act(shock_damage, ran_zone())

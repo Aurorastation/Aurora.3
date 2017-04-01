@@ -1823,6 +1823,7 @@
 #include "code\modules\random_map\drop\supply.dm"
 #include "code\modules\random_map\mazes\maze.dm"
 #include "code\modules\random_map\mazes\maze_cell.dm"
+#include "code\modules\random_map\noise\caverns.dm"
 #include "code\modules\random_map\noise\desert.dm"
 #include "code\modules\random_map\noise\magma.dm"
 #include "code\modules\random_map\noise\noise.dm"

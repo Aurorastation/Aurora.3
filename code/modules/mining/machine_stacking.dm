@@ -7,21 +7,18 @@
 	density = 1
 	anchored = 1
 	var/obj/machinery/mineral/stacking_machine/machine = null
-	var/machinedir = NORTHEAST
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_unit_console/New()
-
+/obj/machinery/mineral/stacking_unit_console/initialize()
 	..()
-
-	spawn(7)
-		src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, machinedir))
-		if (machine)
-			machine.console = src
-		else
-			qdel(src)
+	for (var/dir in alldirs)
+		src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, dir))
+		if(src.machine)
+			break
+	if(!src.machine)
+		qdel(src)
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -84,7 +81,7 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_machine/New()
+/obj/machinery/mineral/stacking_machine/initialize()
 	..()
 
 	for(var/stacktype in typesof(/obj/item/stack/material)-/obj/item/stack/material)
