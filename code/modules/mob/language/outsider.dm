@@ -131,15 +131,3 @@
 
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
-	
-/datum/language/snake
-	name = "Snake Language"
-	desc = "The tongue of the snake people, a lot of hissing."
-	speech_verb = "hisses"
-	ask_verb = "hisses"
-	exclaim_verb = "hisses"
-	colour = "vox"
-	key = "&"
-	flags = RESTRICTED
-	space_chance = 100
-	syllables = list("ssssss", "Hisss", "hSSSSS", "SSSSSSSSSSSSSS", "his!", "ssssSSSssss", "Sssssshshshshs", "S", "Hisss")
