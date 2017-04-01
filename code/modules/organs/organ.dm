@@ -33,18 +33,16 @@ var/list/organ_cache = list()
 		return ..()
 
 	if(istype(owner, /mob/living/carbon))
-		if((owner.internal_organs))
+		if(owner.internal_organs)
 			owner.internal_organs -= src
 		if(istype(owner, /mob/living/carbon/human))
-			if((owner.internal_organs_by_name))
+			if(owner.internal_organs_by_name)
 				owner.internal_organs_by_name -= src
-			if((owner.organs))
+			if(owner.organs)
 				owner.organs -= src
-			if((owner.organs_by_name))
+			if(owner.organs_by_name)
 				owner.organs_by_name -= src
-	//if(src in owner.contents)
-		owner.contents -= src
-
+				
 	owner = null 
 	QDEL_NULL(dna)
 
@@ -315,7 +313,7 @@ var/list/organ_cache = list()
 		if(user)
 			user.attack_log += "\[[time_stamp()]\]<font color='red'> removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)])</font>"
 			owner.attack_log += "\[[time_stamp()]\]<font color='orange'> had a vital organ ([src]) removed by [user.name] ([user.ckey]) (INTENT: [uppertext(user.a_intent)])</font>"
-			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()
 
 	owner = null

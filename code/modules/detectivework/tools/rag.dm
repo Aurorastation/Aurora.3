@@ -100,7 +100,7 @@
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
 		if(do_after(user,30))
-			user.visible_message("\The [user] finishes wiping off the [A]!")
+			user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
 
 /obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)

@@ -436,7 +436,12 @@ API_RATE_LIMIT 50
 ## IPs are separated by ;
 API_RATE_LIMIT_WHITELIST 127.0.0.1
 
-
 # The maximum amount of a tick that the MC is permitted to use during server startup.
 # If not set will default to 98%.
 #MC_TICKLIMIT_INIT 98
+
+
+## GELF Logging Configuration
+LOG_GELF_ENABLED 0
+LOG_GELF_IP 192.168.100.80
+LOG_GELF_PORT 12201

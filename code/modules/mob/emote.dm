@@ -1,7 +1,7 @@
 // All mobs should have custom emote, really..
 //m_type == 1 --> visual.
 //m_type == 2 --> audible
-/mob/proc/custom_emote(var/m_type=1,var/message = null)
+/mob/proc/custom_emote(var/m_type=1,var/message = null, var/log_emote = 1)
 	if(usr && stat || !use_me && usr == src)
 		src << "You are unable to emote."
 		return
@@ -21,9 +21,9 @@
 
 
 	if (message)
-		log_emote("[name]/[key] : [message]")
-
 		send_emote(message, m_type)
+		if (log_emote)
+			log_emote("[name]/[key] : [message]",ckey=key_name(key))
 
 
 /mob/proc/emote_dead(var/message)
@@ -49,7 +49,7 @@
 		input = message
 
 	if(input)
-		log_emote("Ghost/[src.key] : [input]")
+		log_emote("Ghost/[src.key] : [input]",ckey=key_name(src))
 		say_dead_direct(input, src)
 
 

@@ -134,7 +134,6 @@ var/list/global/random_stock_common = list(
 	"paicard" = 2,
 	"phoronsheets" = 2,
 	"hide" = 1,
-	"paint" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
@@ -989,18 +988,6 @@ var/list/global/random_stock_large = list(
 		if ("hide")
 			new /obj/item/stack/material/animalhide(L, rand(5,50))
 
-		if ("paint")
-			var/list/paints = list(
-			/obj/item/weapon/reagent_containers/glass/paint/red,
-			/obj/item/weapon/reagent_containers/glass/paint/yellow,
-			/obj/item/weapon/reagent_containers/glass/paint/green,
-			/obj/item/weapon/reagent_containers/glass/paint/blue,
-			/obj/item/weapon/reagent_containers/glass/paint/purple,
-			/obj/item/weapon/reagent_containers/glass/paint/black,
-			/obj/item/weapon/reagent_containers/glass/paint/white
-			)
-			var/type = pick(paints)
-			new type(L)
 
 //Uncommon items below here
 //=============================================================

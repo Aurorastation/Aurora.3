@@ -34,7 +34,7 @@
 		return
 
 	src << "<span class='danger'>You are attempting to convert \the [player.current]...</span>"
-	log_admin("[src]([src.ckey]) attempted to convert [player.current].")
+	log_admin("[src]([src.ckey]) attempted to convert [player.current].",ckey=src.ckey,ckey_target=key_name(player.current))
 	message_admins("<span class='danger'>[src]([src.ckey]) attempted to convert [player.current].</span>")
 
 	player.rev_cooldown = world.time+100

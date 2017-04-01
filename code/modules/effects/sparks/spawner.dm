@@ -34,7 +34,7 @@
 			playsound(location, "sparks", 100, 1)
 			var/direction = 0
 
-			if (!src.spread.len)
+			if (src.spread && src.spread.len)
 				direction = 0
 			else
 				direction = pick(src.spread)
