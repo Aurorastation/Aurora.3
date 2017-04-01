@@ -25,7 +25,12 @@
 		return
 
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
-		handle_connection_info(src, href_list["data"])
+		if (!info_sent)
+			handle_connection_info(src, href_list["data"])
+			info_sent = 1
+		else
+			server_greeting.close_window(src, "Your greeting window has malfunctioned and has been shut down.")
+
 		return
 
 	//Reduces spamming of links by dropping calls that happen during the delay period
