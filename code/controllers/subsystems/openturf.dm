@@ -27,7 +27,10 @@
 		var/atom/movable/AM = thing
 
 		var/turf/simulated/open/T = get_turf(AM)
-		T.update()
+		if (istype(T))
+			T.update()
+		else
+			qdel(AM)
 
 		CHECK_TICK
 

@@ -127,6 +127,7 @@ Class Procs:
 
 /datum/controller/subsystem/air/Initialize(timeofday)
 
+	var/starttime = REALTIMEOFDAY
 	admin_notice(span("danger", "Processing Geometry..."), R_DEBUG)
 
 	var/simulated_turf_count = 0
@@ -143,17 +144,33 @@ Total Edges: [edges.len]
 Total Active Edges: [active_edges.len ? "<span class='danger'>[active_edges.len]</span>" : "None"]
 Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
 </span>"}, R_DEBUG)
+
+	admin_notice(span("danger", "Geometry processing completed in [(REALTIMEOFDAY - starttime)/10] seconds!"))
+	admin_notice(span("danger", "Settling air..."))
+
+	starttime = REALTIMEOFDAY
+	fire(FALSE, TRUE)
+
+	admin_notice(span("danger", "Air settling completed in [(REALTIMEOFDAY - starttime)] seconds!"))
+
 	..()
 
-/datum/controller/subsystem/air/fire(resumed = FALSE)	
+/datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)	
 	if (!resumed)
 		processing_edges = active_edges.Copy()
 		processing_fires = active_fire_zones.Copy()
 		processing_hotspots = active_hotspots.Copy()
+	
+	var/list/curr_tiles = tiles_to_update
+	var/list/curr_defer = deferred
+	var/list/curr_edges = processing_edges
+	var/list/curr_fire = processing_fires
+	var/list/curr_hotspot = processing_hotspots
+	var/list/curr_zones = zones_to_update
 
-	while (tiles_to_update.len)
-		var/turf/T = tiles_to_update[tiles_to_update.len]
-		tiles_to_update.len--
+	while (curr_tiles.len)
+		var/turf/T = curr_tiles[curr_tiles.len]
+		curr_tiles.len--
 
 		if (QDELETED(T))
 			continue
@@ -172,12 +189,14 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		updated++
 		#endif
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
-	while (deferred.len)
-		var/turf/T = deferred[deferred.len]
-		deferred.len--
+	while (curr_defer.len)
+		var/turf/T = curr_defer[curr_defer.len]
+		curr_defer.len--
 
 		T.update_air_properties()
 		T.post_update_air_properties()
@@ -187,45 +206,58 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		updated++
 		#endif
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
-	while (processing_edges.len)
-		var/connection_edge/edge = processing_edges[processing_edges.len]
-		processing_edges.len--
+	while (curr_edges.len)
+		var/connection_edge/edge = curr_edges[curr_edges.len]
+		curr_edges.len--
 
 		if (!edge)
 			continue
 		
 		edge.tick()
 		
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
-	while (processing_fires.len)
-		var/zone/Z = processing_fires[processing_fires.len]
-		processing_fires.len--
+	while (curr_fire.len)
+		var/zone/Z = curr_fire[curr_fire.len]
+		curr_fire.len--
 
 		Z.process_fire()
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
-
-	while (processing_hotspots.len)
-		var/obj/fire/F = processing_hotspots[processing_hotspots.len]
-		processing_hotspots.len--
+	
+	while (curr_hotspot.len)
+		var/obj/fire/F = curr_hotspot[curr_hotspot.len]
+		curr_hotspot.len--
 
 		F.process()
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
-	
-	while (zones_to_update.len)
-		var/zone/Z = zones_to_update[zones_to_update.len]
-		zones_to_update.len--
+
+	while (curr_zones.len)
+		var/zone/Z = curr_zones[curr_zones.len]
+		curr_zones.len--
 
 		Z.tick()
 		Z.needs_update = FALSE
+
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
+			return
 
 /datum/controller/subsystem/air/proc/add_zone(zone/z)
 	zones.Add(z)
@@ -376,7 +408,6 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 /datum/controller/subsystem/air/proc/remove_edge(connection_edge/E)
 	edges.Remove(E)
 	if(!E.sleeping) active_edges.Remove(E)
-
 
 /turf
 	var/tmp/zas_queued_for_update

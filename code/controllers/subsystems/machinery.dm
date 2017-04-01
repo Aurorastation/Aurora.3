@@ -15,9 +15,10 @@
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
 	makepowernets()
-	..(timeofday, silent = TRUE)
+	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
+	..(timeofday)
 
-/datum/controller/subsystem/machinery/fire(resumed = 0)
+/datum/controller/subsystem/machinery/fire(resumed = 0, no_mc_tick = FALSE)
 	if (!resumed)
 		src.processing_machinery = machines.Copy()
 		src.processing_powersinks = processing_power_items.Copy()
@@ -45,7 +46,9 @@
 		if (M.use_power)
 			M.auto_use_power()
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	if (!powernets_reset_yet)
@@ -64,7 +67,9 @@
 			processing_power_items -= I
 			log_debug("SSmachinery: QDELETED item [DEBUG_REF(I)] found in processing power items list.")
 		
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
