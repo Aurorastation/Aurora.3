@@ -4,7 +4,7 @@
 	if (!message)
 		return
 
-	log_say("Ghost/[src.key] : [message]")
+	log_say("Ghost/[src.key] : [message]",ckey=key_name(src))
 
 	if (src.client)
 		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
@@ -23,7 +23,7 @@
 	if(act != "me")
 		return
 
-	log_emote("Ghost/[src.key] : [message]")
+	log_emote("Ghost/[src.key] : [message]",ckey=key_name(src))
 
 	if(src.client)
 		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))

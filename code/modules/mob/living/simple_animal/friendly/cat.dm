@@ -76,7 +76,7 @@
 						visible += O
 				if(visible.len)
 					var/atom/A = pick(visible)
-					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].")
+					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].",0)
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
@@ -98,14 +98,14 @@
 			for(var/mob/living/simple_animal/mouse/M in oview(src,1))
 				if(M.stat != DEAD)
 					M.splat()
-					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"))
+					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"),0)
 					movement_target = null
 					stop_automated_movement = 0
 					if (prob(75))
 						break//usually only kill one mouse per proc
 
 /mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]")
+	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]",0)
 
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
@@ -209,7 +209,7 @@
 				visible_emote(pick("nuzzles [friend].",
 								   "brushes against [friend].",
 								   "rubs against [friend].",
-								   "purrs."))
+								   "purrs."),0)
 	else if (friend.health <= 50)
 		if (prob(10))
 			var/verb = pick("meows", "mews", "mrowls")
