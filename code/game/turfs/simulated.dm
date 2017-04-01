@@ -21,7 +21,7 @@
 	if(!wet)
 		wet = wet_val
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
-		overlays += wet_overlay
+		add_overlay(wet_overlay, TRUE)
 
 	addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_OVERRIDE)
 
@@ -30,7 +30,7 @@
 	if (wet < 1)
 		wet = 0
 		if(wet_overlay)
-			overlays -= wet_overlay
+			cut_overlay(wet_overlay, TRUE)
 			wet_overlay = null
 	else
 		addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS)
@@ -44,7 +44,6 @@
 	if (mapload)
 		if(istype(loc, /area/chapel))
 			holy = 1
-		return TRUE
 		
 	..()
 	levelupdate()
