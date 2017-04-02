@@ -5,7 +5,6 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	init_order = SS_INIT_SHUTTLE
 	priority = SS_PRIORITY_SHUTTLE
 	flags = 0	// Override parent.
-
 	var/list/shuttles
 
 /datum/controller/subsystem/processing/shuttle/New()

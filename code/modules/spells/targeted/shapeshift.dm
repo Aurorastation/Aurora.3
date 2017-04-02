@@ -125,7 +125,7 @@
 	name = "Corrupt Form"
 	desc = "This spell shapes the wizard into a terrible, terrible beast."
 	feedback = "CF"
-	possible_transformations = list(/mob/living/simple_animal/hostile/faithless)
+	possible_transformations = list(/mob/living/simple_animal/hostile/faithless/wizard)
 
 	invocation = "mutters something dark and twisted as their form begins to twist..."
 	invocation_type = SpI_EMOTE
@@ -154,9 +154,10 @@
 			return "You will now stay corrupted for [duration/10] seconds."
 		if(2)
 			newVars = list("name" = "\proper corruption incarnate",
-						"melee_damage_upper" = 35,
+						"melee_damage_upper" = 45,
 						"resistance" = 6,
-						"health" = 450, //since it is foverer i guess it would be fine to turn them into some short of boss
-						"maxHealth" = 450)
+						"health" = 650, //since it is foverer i guess it would be fine to turn them into some short of boss
+						"maxHealth" = 650)
 			duration = 0
 			return "You revel in the corruption. There is no turning back."
+

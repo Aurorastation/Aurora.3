@@ -13,7 +13,6 @@
 	"Jobs",
 	"Radio",
 	"Supply",
-	"Shuttles",
 	"Configuration",
 	"pAI",
 	"Cameras",
@@ -37,12 +36,6 @@
 		if("Radio")
 			debug_variables(radio_controller)
 			feedback_add_details("admin_verb","DRadio")
-		if("Supply")
-			debug_variables(supply_controller)
-			feedback_add_details("admin_verb","DSupply")
-		if("Shuttles")
-			debug_variables(shuttle_controller)
-			feedback_add_details("admin_verb","DShuttles")
 		if("Configuration")
 			debug_variables(config)
 			feedback_add_details("admin_verb","DConf")

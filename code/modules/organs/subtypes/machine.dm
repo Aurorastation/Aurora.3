@@ -94,15 +94,14 @@
 		owner.stat = 0
 		owner.visible_message("<span class='danger'>\The [owner] twitches visibly!</span>")
 
-/obj/item/organ/optical_sensor
+/obj/item/organ/eyes/optical_sensor
 	name = "optical sensor"
 	organ_tag = "optics"
-	parent_organ = "head"
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"
 	dead_icon = "camera_broken"
 
-/obj/item/organ/optical_sensor/New()
+/obj/item/organ/eyes/optical_sensor/New()
 	robotize()
 	..()
 
@@ -218,19 +217,8 @@
 	encased = null
 	emp_coeff = 0.5
 
-/obj/item/organ/optical_sensorterminator
-	name = "optical sensor"
-	organ_tag = "optics"
-	parent_organ = "head"
-	icon = 'icons/obj/robot_component.dmi'
-	icon_state = "camera"
-	dead_icon = "camera_broken"
+/obj/item/organ/eyes/optical_sensor/terminator
 	emp_coeff = 0.5
-
-/obj/item/organ/optical_sensor/terminator/New()
-	robotize()
-	..()
-
 
 /obj/item/organ/external/head/terminator/New()
 	robotize("Hephaestus Vulcanite Limb")
@@ -405,6 +393,7 @@
 	max_damage = 50 //made same as arm, since it is not vital
 	min_broken_damage = 30
 	encased = null
+	force_skintone = TRUE
 
 /obj/item/organ/external/head/shell/New()
 	robotize("Human Synthskin")
@@ -413,60 +402,81 @@
 /obj/item/organ/external/chest/shell
 	dislocated = -1
 	encased = null
+	force_skintone = TRUE
+
+
 /obj/item/organ/external/chest/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/groin/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/groin/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/arm/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/arm/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/arm/right/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/arm/right/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/leg/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/leg/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/leg/right/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/leg/right/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/foot/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/foot/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/foot/right/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/foot/right/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/hand/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/hand/shell/New()
 	robotize("Human Synthskin")
 	..()
 
 /obj/item/organ/external/hand/right/shell
 	dislocated = -1
+	force_skintone = TRUE
+
 /obj/item/organ/external/hand/right/shell/New()
 	robotize("Human Synthskin")
 	..()

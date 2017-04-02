@@ -361,6 +361,9 @@ var/global/datum/controller/occupations/job_master
 			job.equip_survival(H)
 			job.apply_fingerprints(H)
 
+			// Randomize nutrition. (Between 50-100% of max.)
+			H.nutrition = (rand(50, 100) * 0.01) * H.max_nutrition
+
 			//If some custom items could not be equipped before, try again now.
 			for(var/thing in custom_equip_leftovers)
 				var/datum/gear/G = gear_datums[thing]
