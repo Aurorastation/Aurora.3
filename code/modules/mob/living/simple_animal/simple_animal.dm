@@ -101,7 +101,7 @@
 	var/icon_rest = null
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
-	visible_emote("gazes longingly at [holder]'s [thing]")
+	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
 /mob/living/simple_animal/New()
 	..()
@@ -206,23 +206,23 @@
 						else
 							randomValue -= speak.len
 							if(emote_see && randomValue <= emote_see.len)
-								visible_emote("[pick(emote_see)].")
+								visible_emote("[pick(emote_see)].",0)
 							else
-								audible_emote("[pick(emote_hear)].")
+								audible_emote("[pick(emote_hear)].",0)
 					else
 						say(pick(speak))
 				else
 					if(!(emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-						visible_emote("[pick(emote_see)].")
+						visible_emote("[pick(emote_see)].",0)
 					if((emote_hear && emote_hear.len) && !(emote_see && emote_see.len))
-						audible_emote("[pick(emote_hear)].")
+						audible_emote("[pick(emote_hear)].",0)
 					if((emote_hear && emote_hear.len) && (emote_see && emote_see.len))
 						var/length = emote_hear.len + emote_see.len
 						var/pick = rand(1,length)
 						if(pick <= emote_see.len)
-							visible_emote("[pick(emote_see)].")
+							visible_emote("[pick(emote_see)].",0)
 						else
-							audible_emote("[pick(emote_hear)].")
+							audible_emote("[pick(emote_hear)].",0)
 				speak_audio()
 
 		if (can_nap)
@@ -345,8 +345,8 @@
 /mob/living/simple_animal/proc/speak_audio()
 	return
 
-/mob/living/simple_animal/proc/visible_emote(var/act_desc)
-	custom_emote(1, act_desc)
+/mob/living/simple_animal/proc/visible_emote(var/act_desc, var/log_emote=1)
+	custom_emote(1, act_desc, log_emote)
 
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
 	custom_emote(2, act_desc)

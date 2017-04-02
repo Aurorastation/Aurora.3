@@ -33,18 +33,16 @@ var/list/organ_cache = list()
 		return ..()
 
 	if(istype(owner, /mob/living/carbon))
-		if((owner.internal_organs) && (src in owner.internal_organs))
+		if(owner.internal_organs)
 			owner.internal_organs -= src
 		if(istype(owner, /mob/living/carbon/human))
-			if((owner.internal_organs_by_name) && (src in owner.internal_organs_by_name))
+			if(owner.internal_organs_by_name)
 				owner.internal_organs_by_name -= src
-			if((owner.organs) && (src in owner.organs))
+			if(owner.organs)
 				owner.organs -= src
-			if((owner.organs_by_name) && (src in owner.organs_by_name))
+			if(owner.organs_by_name)
 				owner.organs_by_name -= src
-	if(src in owner.contents)
-		owner.contents -= src
-
+				
 	owner = null 
 	QDEL_NULL(dna)
 
@@ -103,6 +101,11 @@ var/list/organ_cache = list()
 	if(loc != owner)
 		owner = null
 
+	if (QDELETED(src))
+		log_debug("QDELETED organ [DEBUG_REF(src)] had process() called!")
+		processing_objects -= src
+		return
+
 	//dead already, no need for more processing
 	if(status & ORGAN_DEAD)
 		return
@@ -117,6 +120,10 @@ var/list/organ_cache = list()
 		return
 
 	if(!owner)
+		if (QDELETED(reagents))
+			log_debug("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
+			create_reagents(5)
+
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 		if(B && prob(40))
 			reagents.remove_reagent("blood",0.1)
@@ -306,7 +313,7 @@ var/list/organ_cache = list()
 		if(user)
 			user.attack_log += "\[[time_stamp()]\]<font color='red'> removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)])</font>"
 			owner.attack_log += "\[[time_stamp()]\]<font color='orange'> had a vital organ ([src]) removed by [user.name] ([user.ckey]) (INTENT: [uppertext(user.a_intent)])</font>"
-			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()
 
 	owner = null

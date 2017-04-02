@@ -50,7 +50,7 @@
 /datum/gear/ears/m_skrell/New()
 	..()
 	var/m_chains = list()
-	m_chains["headtail bands"] = /obj/item/clothing/ears/skrell/chain
+	m_chains["headtail bands"] = /obj/item/clothing/ears/skrell/band
 	m_chains["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth_male
 	m_chains["red-jeweled bands"] = /obj/item/clothing/ears/skrell/redjeweled_band
 	m_chains["ebony bands"] = /obj/item/clothing/ears/skrell/ebony_band
