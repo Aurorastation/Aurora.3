@@ -939,7 +939,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		/*if(species && !(species.name in R.species_can_use && species.get_bodytype() != "Machine"))
 			R = basic_robolimb*/
 		if(R)
-			force_icon = R.icon
+			if (!force_skintone)
+				force_icon = R.icon
 			name = "[R.company] [initial(name)]"
 			desc = "[R.desc]"
 			if(R.paintable)

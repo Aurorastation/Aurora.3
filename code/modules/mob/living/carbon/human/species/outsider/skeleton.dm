@@ -16,6 +16,7 @@
 	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
+	breakcuffs = list(MALE,FEMALE,NEUTER)
 
 	virus_immune = 1
 

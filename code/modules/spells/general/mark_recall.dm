@@ -3,11 +3,11 @@
 	desc = "This spell was created so wizards could get home from the bar without driving."
 	feedback = "MK"
 	school = "abjuration"
-	charge_max = 600
+	charge_max = 300
 	spell_flags = Z2NOCAST
 	invocation = "RE ALKI R'NATHA"
 	invocation_type = SpI_WHISPER
-	cooldown_min = 300
+	cooldown_min = 150
 
 	smoke_amt = 1
 	smoke_spread = 5
@@ -48,7 +48,7 @@
 	return "You no longer have to be conscious to activate this spell."
 
 /obj/effect/cleanable/wizard_mark
-	name = "\improper Mark of the Wizard"
+	name = "mark of the wizard"
 	desc = "A strange rune, probably someone playing with crayons again."
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "wizard_mark"

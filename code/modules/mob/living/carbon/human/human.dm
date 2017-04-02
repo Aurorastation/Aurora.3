@@ -1207,7 +1207,6 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
-	nutrition = (rand(25,100)*0.01)*max_nutrition//Starting nutrition is randomised between 25-100% of max
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	if(species)
