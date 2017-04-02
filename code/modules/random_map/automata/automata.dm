@@ -27,7 +27,8 @@
 		set_map_size()
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			current_cell = get_map_cell(x,y)
+			PREPARE_CELL(x,y)
+			current_cell = tmp_cell
 			next_map[current_cell] = map[current_cell]
 			count = 0
 

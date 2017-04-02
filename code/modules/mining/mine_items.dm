@@ -767,8 +767,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					spawn(20)
-						L.vomit()
+					addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
 
 /**********************Lazarus Injector**********************/
 
@@ -1307,8 +1306,8 @@ var/list/total_extraction_beacons = list()
 					L.Weaken(3)
 					if(ishuman(L))
 						shake_camera(L, 20, 1)
-						spawn(20)
-							L.vomit()
+						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+
 		spawn(2)
 			for(var/turf/simulated/mineral/M in range(7,location))
 				if(prob(75))

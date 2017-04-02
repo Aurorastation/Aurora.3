@@ -488,8 +488,7 @@
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,
-		/turf/simulated/wall,
-		/turf/simulated/floor
+		/turf/simulated/wall
 	)
 	base_name = "sand"
 	base_desc = "Gritty and unpleasant."
