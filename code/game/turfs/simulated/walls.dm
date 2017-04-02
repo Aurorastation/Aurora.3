@@ -22,7 +22,9 @@
 	var/list/wall_connections = list("0", "0", "0", "0")
 
 // Walls always hide the stuff below them.
-/turf/simulated/wall/levelupdate()
+/turf/simulated/wall/levelupdate(mapload)
+	if (mapload)
+		return 		// Don't hide stuff during mapload.
 	for(var/obj/O in src)
 		O.hide(1)
 
