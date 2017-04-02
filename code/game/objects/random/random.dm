@@ -397,9 +397,9 @@
 	)
 	has_postspawn = TRUE
 
-/obj/random/voidsuit/New(var/_damaged = 0)
+/obj/random/voidsuit/New(loc, _damaged = 0)
 	damaged = _damaged
-	..()
+	..(loc)
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
 	var/helmet = suitmap[suit]
@@ -436,9 +436,9 @@
 	)
 	has_postspawn = TRUE
 
-/obj/random/vendor/New(var/_depleted = 0)
+/obj/random/vendor/New(loc, _depleted = 0)
 	depleted = _depleted
-	..()
+	..(loc)
 
 /obj/random/vendor/post_spawn(obj/machinery/vending/V)
 	if (!depleted)
