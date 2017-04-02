@@ -213,11 +213,9 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
-		"optics" = /obj/item/organ/optical_sensor/terminator,
+		"optics" = /obj/item/organ/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data
 		)
-
-	vision_organ = "optics"
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/terminator),
