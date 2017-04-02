@@ -173,6 +173,8 @@
 	if (!user)
 		return
 
+	user.info_sent = 0
+
 	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
 
 /*
