@@ -402,7 +402,7 @@
 	..(loc)
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
-	var/helmet = suitmap[suit]
+	var/helmet = suitmap[suit.type]
 	if (helmet)
 		new helmet(loc)
 	else
