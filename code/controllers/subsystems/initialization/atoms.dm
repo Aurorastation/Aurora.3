@@ -12,7 +12,9 @@ var/datum/controller/subsystem/atoms/SSatoms
 	var/initialized = INITIALIZATION_INSSATOMS
 	var/old_initialized
 
-	var/list/late_loaders
+	var/list/late_loaders = list()
+
+	var/list/NewQdelList = list()
 
 /datum/controller/subsystem/atoms/New()
 	NEW_SS_GLOBAL(SSatoms)
@@ -28,20 +30,18 @@ var/datum/controller/subsystem/atoms/SSatoms
 
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 
-	var/static/list/NewQdelList = list()
-
 	if(atoms)
 		for(var/I in atoms)
 			var/atom/A = I
 			if(!A.initialized)	//this check is to make sure we don't call it twice on an object that was created in a previous Initialize call
 				if(QDELETED(A))
-					/*if(!(NewQdelList[A.type]))
+					if(!(NewQdelList[A.type]))
 						//WARNING("Found new qdeletion in type [A.type]!")
-						NewQdelList[A.type] = TRUE*/
+						NewQdelList[A.type] = TRUE
 					continue
 				var/start_tick = world.time
 				if(A.Initialize(TRUE))
-					LAZYADD(late_loaders, A)
+					late_loaders += A
 				if(start_tick != world.time)
 					WARNING("[A]: [A.type] slept during its Initialize!")
 				CHECK_TICK
@@ -53,13 +53,13 @@ var/datum/controller/subsystem/atoms/SSatoms
 		for(var/atom/A in world)
 			if(!A.initialized)	//this check is to make sure we don't call it twice on an object that was created in a previous Initialize call
 				if(QDELETED(A))
-					/*if(!(NewQdelList[A.type]))
+					if(!(NewQdelList[A.type]))
 						//WARNING("Found new qdeletion in type [A.type]!")
-						NewQdelList[A.type] = TRUE*/
+						NewQdelList[A.type] = TRUE
 					continue
 				var/start_tick = world.time
 				if(A.Initialize(TRUE))
-					LAZYADD(late_loaders, A)
+					late_loaders += A
 				//#ifdef TESTING
 				else
 					++count
