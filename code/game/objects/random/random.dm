@@ -42,9 +42,6 @@
 	if (!.)
 		log_debug("random_obj: [DEBUG_REF(src)] returned null item!")
 
-/obj/random/Destroy()
-	return ..()
-
 /obj/random/single
 	name = "randomly spawned object"
 	desc = "This item type is used to randomly spawn a given object at round-start"
@@ -400,23 +397,23 @@
 	)
 	has_postspawn = TRUE
 
-/obj/random/voidsuit/New(var/_damaged = 0)
+/obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
 	..()
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
-	var/helmet = suitmap[suit]
+	var/helmet = suitmap[suit.type]
 	if (helmet)
 		new helmet(loc)
 	else
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
-	if (damaged & prob(60))
+	if (damaged && prob(60))
 		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
 
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted  = 0
+	var/depleted = 0
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -439,7 +436,7 @@
 	)
 	has_postspawn = TRUE
 
-/obj/random/vendor/New(var/_depleted = 0)
+/obj/random/vendor/Initialize(mapload, _depleted = 0)
 	depleted = _depleted
 	..()
 
