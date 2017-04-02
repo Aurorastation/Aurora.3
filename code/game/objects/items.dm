@@ -195,12 +195,16 @@
 					var/failure = 0
 
 					for(var/obj/item/I in src.loc)
+						CHECK_TICK
+
 						if(I.type in rejections) // To limit bag spamming: any given type only complains once
 							continue
+
 						if(!S.can_be_inserted(I))	// Note can_be_inserted still makes noise when the answer is no
 							rejections += I.type	// therefore full bags are still a little spammy
 							failure = 1
 							continue
+							
 						success = 1
 						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 					if(success && !failure)
