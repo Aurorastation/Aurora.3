@@ -1,0 +1,6 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "An error in shell manufacturing processes has been corrected; shell units should now be produced with correct eye and skin coloration."
+  - bugfix: "Industrials now actually have visible eyes."
+  - tweak: "ERT, CCIA, BSTs, Wizards, and other non-station human-types now no longer skip breakfast before arriving at the station."
