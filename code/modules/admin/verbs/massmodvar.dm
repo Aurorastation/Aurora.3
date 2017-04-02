@@ -371,5 +371,5 @@
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]
 
-	log_admin("[key_name(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]")
+	log_admin("[key_name(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]", 1)

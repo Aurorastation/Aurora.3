@@ -352,7 +352,7 @@
 				tank.armed = 0
 				return
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
-			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.")
+			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
 			user << span("alert", "That was stupid of you.")
 			tank.explode()
 			return

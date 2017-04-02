@@ -125,7 +125,7 @@
 
 /mob/living/simple_animal/mouse/beg(var/atom/thing, var/atom/holder)
 	squeak_soft(0)
-	visible_emote("squeaks timidly, sniffs the air and gazes longingly up at \the [thing.name].")
+	visible_emote("squeaks timidly, sniffs the air and gazes longingly up at \the [thing.name].",0)
 
 /mob/living/simple_animal/mouse/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click
@@ -150,7 +150,7 @@
 	if (stat == CONSCIOUS)
 		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 		if (manual)
-			log_say("[key_name(src)] squeaks! ")
+			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
 
 
 
@@ -165,7 +165,7 @@
 		playsound(src, sound, 5, 1, -4.6)
 
 		if (manual)
-			log_say("[key_name(src)] squeaks softly! ")
+			log_say("[key_name(src)] squeaks softly! ",ckey=key_name(src))
 
 
 //Plays a loud sound
@@ -175,7 +175,7 @@
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --
-			log_say("[key_name(src)] squeals! ")
+			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
 			src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
 
