@@ -115,18 +115,6 @@
 	for(var/mob/living/simple_animal/pest in destination)
 		pest.gib()
 
-	/*if(lift)
-		//Oh erm what happens when there is no controller
-		var/turf/controllerlocation = locate(1, 1, origin.z)
-		for(var/obj/effect/landmark/zcontroller/controller in controllerlocation)
-			if(controller.down)
-				var/turf/T = /turf/simulated/open
-				if(lift_lowest_zlevel == controllerlocation.z)
-					T = /turf/simulated/floor/plating
-				origin.move_contents_to(destination, T, direction)
-	else
-		origin.move_contents_to(destination, direction=direction)*/
-
 	origin.move_contents_to(destination, direction=direction)
 
 	for(var/mob/M in destination)
