@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Increased hp, damage and utility of the dark form spell."
+  - tweak: "Healing spells should heal more now."
