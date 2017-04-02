@@ -1,7 +1,7 @@
 /mob/living/carbon/human/adminbus/New(var/new_loc)
 	..(new_loc, "Human", 1)
 
-/mob/living/carbon/human/adminbus/dummy
+/mob/living/carbon/human/dummy
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
