@@ -70,7 +70,7 @@
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-	harm_intent_damage = 25
+	harm_intent_damage = 0
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	var/list/darkform_spells = list(/spell/targeted/ethereal_jaunt/shift,
