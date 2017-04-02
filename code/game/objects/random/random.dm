@@ -403,7 +403,10 @@
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
 	var/helmet = suitmap[suit]
-	new helmet(loc)
+	if (helmet)
+		new helmet(loc)
+	else
+		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
 	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged & prob(60))
 		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
