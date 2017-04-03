@@ -42,6 +42,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
 /datum/controller/subsystem/nightlight/proc/activate(var/whitelisted_only = 1)
+	set waitfor = FALSE
 	isactive = 1
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("on")
@@ -49,6 +50,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		CHECK_TICK
 
 /datum/controller/subsystem/nightlight/proc/deactivate(var/whitelisted_only = 1)
+	set waitfor = FALSE
 	isactive = 0
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("off")

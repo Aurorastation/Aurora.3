@@ -36,8 +36,8 @@
 	if (config.kick_inactive)
 		var/inactivity_threshold = config.kick_inactive MINUTES
 		for (var/client/C in clients)
-			if (C.is_afk(inactivity_threshold))
-				if (!istype(C.mob, /mob/dead))
+			if (!istype(C.mob, /mob/dead))
+				if (C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
 					C << span("warning", "You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected.")
 					qdel(C)

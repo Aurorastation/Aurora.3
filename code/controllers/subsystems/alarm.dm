@@ -24,7 +24,7 @@ var/datum/controller/subsystem/alarm/alarm_manager
 /datum/controller/subsystem/alarm/fire(resumed = FALSE)
 	if (!resumed)
 		current = all_handlers.Copy()
-		active_alarm_cache = list()
+		active_alarm_cache.Cut()
 
 	while (current.len)
 		var/datum/alarm_handler/AH = current[current.len]

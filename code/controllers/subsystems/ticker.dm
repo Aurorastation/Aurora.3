@@ -9,9 +9,6 @@ var/datum/controller/subsystem/ticker/tickerProcess
 
 	wait = 2 SECONDS
 
-	var/lastTickerTimeDuration
-	var/lastTickerTime
-
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(tickerProcess)
 
@@ -24,13 +21,4 @@ var/datum/controller/subsystem/ticker/tickerProcess
 			ticker.pregame()
 
 /datum/controller/subsystem/ticker/fire(resumed = FALSE)
-	var/currentTime = REALTIMEOFDAY
-
-	lastTickerTimeDuration = (currentTime - lastTickerTime) / TICKS_IN_SECOND
-
-	lastTickerTime = currentTime
-
 	ticker.process()
-
-/datum/controller/subsystem/ticker/proc/getLastTickerTimeDuration()
-	return lastTickerTimeDuration

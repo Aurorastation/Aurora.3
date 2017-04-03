@@ -23,6 +23,8 @@ var/datum/controller/subsystem/nanoui/SSnanoui
 
 		if (QDELETED(UI))
 			nanomanager.processing_uis -= UI
+			if (MC_TICK_CHECK)
+				return
 			continue
 
 		UI.process()
