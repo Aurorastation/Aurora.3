@@ -135,7 +135,7 @@
 		if (reporter)
 			reportbody += "\n\n- [reporter]"
 		else
-			reportbody += "\n\n- [reporter], CCIAMS, [commstation_name()]"
+			reportbody += "\n\n- CCIAMS, [commstation_name()]"
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
