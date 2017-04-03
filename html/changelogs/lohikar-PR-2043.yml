@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Fixed a bug where holstering didn't quite work right with tactical armor."
-  - bugfix: "Industrial IPC units' eye controller firmware has been upgraded, fixing a bug where a unit's configured eye color would not display."
