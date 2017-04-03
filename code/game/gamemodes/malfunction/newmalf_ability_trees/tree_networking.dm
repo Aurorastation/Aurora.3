@@ -131,12 +131,11 @@
 			return
 
 	if (reporttype == "Template")
-		reporter = sanitizeSafe(input(usr, "Please enter a fake name or leave it blank to abort the hack.", "Name") as text|null)
+		reporter = sanitizeSafe(input(usr, "Enter a fake name or leave it blank to make it appear that CCIAMS made the report.", "Name") as text|null)
 		if (reporter)
-			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
+			reportbody += "\n\n- [reporter]"
 		else
-			user<< "Hack aborted"
-			return
+			reportbody += "\n\n- [reporter], CCIAMS, [commstation_name()]"
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
@@ -178,15 +177,6 @@
 			world << "\red New [company_name] Update available at all communication consoles."
 			world << sound('sound/AI/commandreport.ogg')
 			post_comm_message(reporttitle, reportbody)
-
-
-	//for (var/obj/machinery/computer/communications/C in machines)
-	//	if(! (C.stat & (BROKEN|NOPOWER) ) )
-	//		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
-	//		P.name = "[command_name()] Update"
-	//		P.info = replacetext(text, "\n", "<br/>")
-	//		P.update_space(P.info)
-	//		P.update_icon()
 
 /datum/game_mode/malfunction/verb/elite_encryption_hack()
 	set category = "Software"
