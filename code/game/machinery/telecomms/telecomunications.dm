@@ -500,7 +500,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/language = "human"
 	var/obj/item/device/radio/headset/server_radio = null
 
-/obj/machinery/telecomms/server/New()
+/obj/machinery/telecomms/server/Initialize()
 	..()
 	Compiler = new()
 	Compiler.Holder = src

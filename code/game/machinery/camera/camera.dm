@@ -35,7 +35,7 @@
 
 	var/affected_by_emp_until = 0
 
-/obj/machinery/camera/New()
+/obj/machinery/camera/Initialize()
 	wires = new(src)
 	assembly = new(src)
 	assembly.state = 4

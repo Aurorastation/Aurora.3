@@ -39,7 +39,7 @@
 	req_access = null
 	req_one_access = list(access_engine_equip, access_atmospherics)
 
-/obj/item/device/magnetic_lock/New()
+/obj/item/device/magnetic_lock/Initialize()
 	..()
 
 	powercell = new /obj/item/weapon/cell/high()

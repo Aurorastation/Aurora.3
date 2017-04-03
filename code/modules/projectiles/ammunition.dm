@@ -14,7 +14,7 @@
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
-/obj/item/ammo_casing/New()
+/obj/item/ammo_casing/Initialize()
 	..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)

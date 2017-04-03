@@ -756,6 +756,6 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/phone/medbay
 	frequency = MED_I_FREQ
 
-/obj/item/device/radio/phone/medbay/New()
+/obj/item/device/radio/phone/medbay/Initialize()
 	..()
 	internal_channels = default_medbay_channels.Copy()
