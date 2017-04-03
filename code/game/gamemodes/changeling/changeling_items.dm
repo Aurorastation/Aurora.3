@@ -22,7 +22,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/melee/arm_blade/Destroy()
-	START_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/weapon/melee/arm_blade/dropped()
