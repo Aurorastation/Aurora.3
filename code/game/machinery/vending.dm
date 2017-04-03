@@ -715,7 +715,7 @@
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/brandy = 4,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie = 4,
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/xuizijuice = 10,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine = 2)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/tea = 10)
 	vend_delay = 15

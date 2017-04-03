@@ -182,6 +182,8 @@
 		if(!(sdisabilities & BLIND))
 			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
 				eye_blurry = max(eye_blurry-2, 0)
+			else
+				eye_blurry = max(eye_blurry-1, 0)
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
@@ -916,9 +918,6 @@
 
 	if (intoxication)
 		handle_intoxication()
-	else if (alcohol_clumsy)//This var is defined in intoxication.dm, its set true when alcohol has caused clumsiness
-		mutations.Remove(CLUMSY)
-		alcohol_clumsy = 0
 
 	if(status_flags & GODMODE)	return 0	//godmode
 

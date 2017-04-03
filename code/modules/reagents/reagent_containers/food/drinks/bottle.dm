@@ -514,17 +514,18 @@
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/xuizijuice
+/obj/item/weapon/reagent_containers/food/drinks/bottle/small/xuizijuice
 	name = "Xuizi Juice"
-	desc = "Blended flower buds from the Xuizi cactus. It tastes like water with a hint of vanilla.."
+	desc = "Blended flower buds from the Xuizi cactus. It smells faintly of vanilla. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "xuizibottle"
+	center_of_mass = list("x"=16, "y"=10)
 	New()
 		..()
 		reagents.add_reagent("xuizijuice", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine
 	name = "Sarezhi Wine"
-	desc = "Lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. It tastes like flat grape soda."
+	desc = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "sarezhibottle"
 	New()
 		..()

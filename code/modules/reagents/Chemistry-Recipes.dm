@@ -1582,6 +1582,14 @@
 	catalysts = list("enzyme" = 5)
 	result_amount = 10
 
+/datum/chemical_reaction/butanol
+	name = "Butanol"
+	id = "butanol"
+	result = "butanol"
+	required_reagents = list("cornoil" = 10, "sugar" = 10)
+	catalysts = list("enzyme" = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/grenadine
 	name = "Grenadine Syrup"
 	id = "grenadine"

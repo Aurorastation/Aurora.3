@@ -103,7 +103,6 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sodawater,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/beer,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/xuizijuice,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/kahlua,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/whiskey,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/wine,

@@ -33,7 +33,6 @@
 
 	// Bar, alcoholic
 	beer		spawn_reagent = "beer"
-	xuizijuice	spawn_reagent = "xuizijuice"
 	kahlua		spawn_reagent = "kahlua"
 	whiskey		spawn_reagent = "whiskey"
 	wine		spawn_reagent = "wine"

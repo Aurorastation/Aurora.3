@@ -2550,22 +2550,22 @@
 /datum/reagent/butanol/xuizijuice
 	name = "Xuizi Juice"
 	id = "xuizijuice"
-	description = "Blended flower buds from the Xuizi cactus. It tastes like water with a hint of vanilla.."
+	description = "Blended flower buds from a Moghean Xuizi cactus. Has a mild butanol content and is a staple recreational beverage in Unathi culture."
 	color = "#91de47"
 	strength = 5
 
 	glass_icon_state = "xuiziglass"
 	glass_name = "glass of Xuizi Juice"
-	glass_desc = "Blended flower buds from the Xuizi cactus. It tastes like water with a hint of vanilla.."
+	glass_desc = "The clear green liquid smells like vanilla, tastes like water. Unathi swear it has a rich taste and texture."
 
 /datum/reagent/butanol/sarezhiwine
 	name = "Sarezhi Wine"
 	id = "sarezhiwine"
-	description = "Lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. It tastes like flat grape soda."
+	description = "An alcoholic beverage made from lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. Significant butanol content indicates intoxicating effects on Unathi."
 	color = "#bf8fbc"
 	strength = 20
 
 	glass_icon_state = "sarezhiglass"
 	glass_name = "glass of Sarezhi Wine"
-	glass_desc = "Lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. It tastes like flat grape soda."
+	glass_desc = "It tastes like flat grape soda. Is this supposed to be alcoholic?"
 

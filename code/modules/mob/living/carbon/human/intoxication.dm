@@ -12,7 +12,7 @@
 
 #define		BASE_DIZZY		100
 
-#define 	ALCOHOL_FILTRATION_RATE		0.02//The base rate at which intoxication decreases per proc. this is actually multiplied by 3 most of the time if the liver is healthy
+#define 	ALCOHOL_FILTRATION_RATE		0.015//The base rate at which intoxication decreases per proc. this is actually multiplied by 3 most of the time if the liver is healthy
 #define		BASE_VOMIT_CHANCE			2
 #define		VOMIT_CHANCE_SCALE			0.2//An extra 1% for every 5 units over the vomiting threshold
 

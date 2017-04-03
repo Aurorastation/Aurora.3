@@ -168,7 +168,7 @@
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = 0.085 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
+	ingest_met = 0.17 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
 	var/nutriment_factor = 0.5
 	var/strength = 100 // This is the ABV of the drink
 
@@ -194,7 +194,7 @@
 		return //Diona can gain nutrients, but don't get drunk or suffer other effects
 
 	if(isunathi(M))
-		ingest_met = initial(ingest_met)*6 //Unathi digest butanol six times faster
+		ingest_met = initial(ingest_met)*3 //Unathi digest butanol much faster
 
 	var/quantity = (strength / 100) * removed
 	M.intoxication += quantity

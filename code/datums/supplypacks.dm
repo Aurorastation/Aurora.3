@@ -138,6 +138,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/patron,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine,
 					/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
 					/obj/item/weapon/lipstick/random,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale,
@@ -204,6 +205,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate/internals
 	containername = "Emergency crate"
 	group = "Atmospherics"
+
+
 
 
 /datum/supply_packs/inflatable
@@ -1091,6 +1094,22 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = "/obj/structure/closet/crate"
 	containername = "Sterile equipment crate"
 	group = "Medical"
+
+/datum/supply_packs/beer
+	contains = list(/obj/structure/reagent_dispensers/beerkeg)
+	name = "Beer Keg"
+	cost = 10
+	containertype = /obj/structure/largecrate
+	containername = "Beer Crate"
+	group = "Hospitality"
+
+/datum/supply_packs/xuizi
+	contains = list(/obj/structure/reagent_dispensers/xuizikeg)
+	name = "Xuizi Juice Keg"
+	cost = 20
+	containertype = /obj/structure/largecrate
+	containername = "Xuizi Juice Crate"
+	group = "Hospitality"
 
 /datum/supply_packs/randomised/pizza
 	num_contained = 5
