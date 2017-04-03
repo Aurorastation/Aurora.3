@@ -120,7 +120,7 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
 
-	appearance_flags = HAS_HAIR_COLOR
+	appearance_flags = HAS_EYE_COLOR
 
 	heat_level_1 = 600
 	heat_level_2 = 1200

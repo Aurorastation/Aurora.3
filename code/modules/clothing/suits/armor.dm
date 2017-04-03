@@ -255,9 +255,10 @@
 
 /obj/item/clothing/suit/armor/tactical/New()
 	..()
-	holster = new(src)
-	holster.has_suit = 1//its inside a suit, we set  this so it can be drawn from
-	pockets = null//Tactical armour has internal holster instead of pockets, so we null this out
+	holster = new()
+	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
+	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
+	overlays.Cut()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
 	..()
