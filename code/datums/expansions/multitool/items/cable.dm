@@ -1,4 +1,4 @@
-/obj/item/stack/cable_coil/New()
+/obj/item/stack/cable_coil/Initialize()
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/items/cable(src))
 	..()
 

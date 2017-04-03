@@ -279,14 +279,14 @@
 	var/locked = 1
 	health = 200
 
-/obj/structure/closet/crate/secure/New()
+/obj/structure/closet/crate/secure/Initialize()
 	..()
 	if(locked)
-		overlays.Cut()
-		overlays += redlight
+		cut_overlays()
+		add_overlay(redlight)
 	else
-		overlays.Cut()
-		overlays += greenlight
+		cut_overlays()
+		add_overlay(greenlight)
 
 /obj/structure/closet/crate/secure/can_open()
 	if (..())

@@ -326,7 +326,7 @@
 	update_nearby_tiles(need_rebuild=1)
 	return
 
-/obj/structure/window/New(Loc, start_dir=null, constructed=0)
+/obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
 	..()
 
 	//player-constructed windows

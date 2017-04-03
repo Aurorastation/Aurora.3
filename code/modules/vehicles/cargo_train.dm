@@ -38,7 +38,7 @@
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
-/obj/vehicle/train/cargo/engine/New()
+/obj/vehicle/train/cargo/engine/Initialize()
 	..()
 	cell = new /obj/item/weapon/cell/high(src)
 	key = new(src)
