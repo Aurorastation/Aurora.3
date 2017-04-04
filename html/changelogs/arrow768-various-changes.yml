@@ -37,5 +37,6 @@ changes:
   - rscdel: "Removed the bootknive from custom loadouts."
   - rscadd: "Added crowbars to the borg modules that were missing them."
   - rscdel: "Removed the flashbangs from the lockers and the security vending machine"
-  - tweak: "Warden access is now required for the armory with the flashbangs, heavy vests, ..."
-
+  - tweak: "Warden access is now required to access the armory"
+  - rscdel: "Removed the .45s from the armory"
+  - rscadd: "Officer lockers now have a 70% chance to contain a .45"

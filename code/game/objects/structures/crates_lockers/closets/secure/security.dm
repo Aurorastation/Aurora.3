@@ -188,6 +188,8 @@
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
+		if(prob(70))
+			new /obj/random/handgun(src)
 		new /obj/item/clothing/suit/storage/vest/officer(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
@@ -204,6 +206,7 @@
 		new /obj/item/weapon/gun/energy/taser(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/item/device/holowarrant(src)
+		new /obj/item/device/flashlight/flare(src)
 		return
 
 
