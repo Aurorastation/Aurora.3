@@ -56,7 +56,7 @@
 
 	C.loc = src
 	cartridges[C.label] = C
-	cartridges = sortAssoc(cartridges)
+	sortTim(cartridges, /proc/cmp_text_asc)
 	nanomanager.update_uis(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)

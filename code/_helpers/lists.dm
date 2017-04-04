@@ -289,7 +289,9 @@ proc/listclearnulls(list/list)
 
 //Mergesort: any value in a list, preserves key=value structure
 /proc/sortAssoc(var/list/L)
-	return sortTim(L, /proc/cmp_text_asc, FALSE)
+	var/list/ret = L.Copy()
+	sortTim(ret, /proc/cmp_text_asc, FALSE)
+	return ret
 
 // Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!
 #define BITTEST(bitfield,index)  ((bitfield)  &   (1 << (index)))

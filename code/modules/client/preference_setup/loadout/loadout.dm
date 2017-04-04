@@ -9,27 +9,6 @@ var/list/gear_datums = list()
 	category = cat
 	..()
 
-/hook/startup/proc/populate_gear_list()
-
-	//create a list of gear datums to sort
-	for(var/geartype in typesof(/datum/gear)-/datum/gear)
-		var/datum/gear/G = geartype
-
-		var/use_name = initial(G.display_name)
-		var/use_category = initial(G.sort_category)
-
-		if(!loadout_categories[use_category])
-			loadout_categories[use_category] = new /datum/loadout_category(use_category)
-		var/datum/loadout_category/LC = loadout_categories[use_category]
-		gear_datums[use_name] = new geartype
-		LC.gear[use_name] = gear_datums[use_name]
-
-	loadout_categories = sortAssoc(loadout_categories)
-	for(var/loadout_category in loadout_categories)
-		var/datum/loadout_category/LC = loadout_categories[loadout_category]
-		LC.gear = sortAssoc(LC.gear)
-	return 1
-
 /datum/category_item/player_setup_item/loadout
 	name = "Loadout"
 	sort_order = 1
