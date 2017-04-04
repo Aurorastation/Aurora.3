@@ -37,4 +37,6 @@
 	populate_spawn_points()
 	setupgenetics()
 
+	shuttle_controller.setup_shuttle_docks()
+
 	..(timeofday, TRUE)
