@@ -190,6 +190,40 @@
 				U += DEFAULT_UNDERLAY_IMAGE
 		underlays = U
 
+// And a copypaste for unsimulated walls.
+/turf/unsimulated/wall/diagonal_smooth(adjacencies)
+	adjacencies = reverse_ndir(..())
+	if(adjacencies)
+		var/list/U = list()
+		if(fixed_underlay)
+			if(fixed_underlay["space"])
+				var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
+				I.plane = PLANE_SPACE_DUST
+				I.alpha = 80
+				I.blend_mode = BLEND_ADD
+				U += I
+			else
+				U += image(fixed_underlay["icon"], fixed_underlay["icon_state"], layer=TURF_LAYER)
+		else
+			var/turf/T = get_step(src, turn(adjacencies, 180))
+			if(T && (T.density || T.smooth))
+				T = get_step(src, turn(adjacencies, 135))
+				if(T && (T.density || T.smooth))
+					T = get_step(src, turn(adjacencies, 225))
+
+			if(istype(T, /turf/space) && !istype(T, /turf/space/transit))
+				var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
+				I.plane = PLANE_SPACE_DUST
+				I.alpha = 80
+				I.blend_mode = BLEND_ADD
+				U += I
+			else if(T && !T.density && !T.smooth)
+				U += T
+			else if(baseturf && !initial(baseturf.density) && !initial(baseturf.smooth))
+				U += image(initial(baseturf.icon), initial(baseturf.icon_state), layer=TURF_LAYER)
+			else
+				U += DEFAULT_UNDERLAY_IMAGE
+		underlays = U
 
 /proc/cardinal_smooth(atom/A, adjacencies)
 	//NW CORNER
