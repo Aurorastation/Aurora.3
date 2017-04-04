@@ -87,7 +87,7 @@
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
-	
+
 	QDEL_NULL(DS)
 	// qdel and null out our equipment.
 	QDEL_NULL(shoes)
@@ -1407,9 +1407,11 @@
 	var/obj/item/organ/external/current_limb = organs_by_name[choice]
 
 	if(self)
-		src << "<span class='warning'>You brace yourself to relocate your [current_limb.joint]...</span>"
+		U.visible_message("<span class='warning'>[U] tries to relocate their [current_limb.joint]...</span>", \
+		"<span class='warning'>You brace yourself to relocate your [current_limb.joint]...</span>")
 	else
-		U << "<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>"
+		U.visible_message("<span class='warning'>[U] tries to relocate [S]'s [current_limb.joint]...</span>", \
+		"<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>")
 
 	if(!do_after(U, 30))
 		return
@@ -1417,10 +1419,11 @@
 		return
 
 	if(self)
-		src << "<span class='danger'>You pop your [current_limb.joint] back in!</span>"
+		U.visible_message("<span class='danger'>[U] pops their [current_limb.joint] back in!</span>", \
+		"<span class='danger'>You pop your [current_limb.joint] back in!</span>")
 	else
-		U << "<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>"
-		S << "<span class='danger'>[U] pops your [current_limb.joint] back in!</span>"
+		U.visible_message("<span class='danger'>[U] pops [S]'s [current_limb.joint] back in!</span>", \
+		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
