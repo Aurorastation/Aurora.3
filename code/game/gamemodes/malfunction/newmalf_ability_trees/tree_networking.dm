@@ -135,9 +135,7 @@
 		if ("Yes")
 			reportbody += "\n\n- CCIAMS, [commstation_name()]"
 		if ("No")
-			reportbody = reportbody
-			
-
+		
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
 			if(!reporttitle || !reportbody || !ability_pay(user, price))
