@@ -131,11 +131,12 @@
 			return
 
 	if (reporttype == "Template")
-		reporter = sanitizeSafe(input(usr, "Enter a fake name or leave it blank to make it appear that CCIAMS made the report.", "Name") as text|null)
-		if (reporter)
-			reportbody += "\n\n- [reporter]"
-		else
+		reporter = sanitizeSafe(input(usr, "Would you like it to appear as if CCIAMS made the report?", "Yes", "No") as text|null)
+		if ("Yes")
 			reportbody += "\n\n- CCIAMS, [commstation_name()]"
+		if ("No")
+			reportbody = reportbody
+			
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
