@@ -19,19 +19,6 @@ var/list/pai_emotions = list(
 
 var/global/list/pai_software_by_key = list()
 var/global/list/default_pai_software = list()
-/hook/startup/proc/populate_pai_software_list()
-	var/r = 1 // I would use ., but it'd sacrifice runtime detection
-	for(var/type in typesof(/datum/pai_software) - /datum/pai_software)
-		var/datum/pai_software/P = new type()
-		if(pai_software_by_key[P.id])
-			var/datum/pai_software/O = pai_software_by_key[P.id]
-			world << "<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>"
-			r = 0
-			continue
-		pai_software_by_key[P.id] = P
-		if(P.default)
-			default_pai_software[P.id] = P
-	return r
 
 /mob/living/silicon/pai/New()
 	..()

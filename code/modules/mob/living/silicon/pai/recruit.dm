@@ -12,12 +12,6 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 	var/comments
 	var/ready = 0
 
-
-/hook/startup/proc/paiControllerSetup()
-	paiController = new /datum/paiController()
-	return 1
-
-
 /datum/paiController
 	var/inquirer = null
 	var/list/pai_candidates = list()
