@@ -39,4 +39,7 @@ changes:
   - rscdel: "Removed the flashbangs from the lockers and the security vending machine"
   - tweak: "Warden access is now required to access the armory"
   - rscdel: "Removed the .45s from the armory"
-  - rscadd: "Officer lockers now have a 70% chance to contain a .45"
+  - rscadd: "Officer lockers now contain a .45"
+  - rscadd: "Added cadet lockers with their essential gear"
+  - rscadd: "Properly named the cadet uniform"
+  - tweak: "There are now 4 officer and 2 cadet lockers"

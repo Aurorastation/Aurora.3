@@ -37,7 +37,7 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/security2
-	name = "security officer's uniform"
+	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
 	icon_state = "redshirt2"
 	item_state = "r_suit"
