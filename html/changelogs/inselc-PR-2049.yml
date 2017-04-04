@@ -6,3 +6,4 @@ changes:
   - bugfix: "Drones are now able to decompile burnt matches."
   - bugfix: "Ghosts will no longer trigger infrared emitters."
   - bugfix: "Transferring chemicals to a chem implant will now show actual amount of reagents transferred."
+  - bugfix: "Relocating your/someone's limb will now properly show a message to all bystanders."
