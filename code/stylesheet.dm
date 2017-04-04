@@ -105,9 +105,4 @@ h1.alert, h2.alert		{color: #000000;}
 
 BIG IMG.icon 			{width: 32px; height: 32px;}
 
-/* Failsafe messages */
-.failsafe               {size: 3;}
-.failsafe .title		{color = #FF0000;}
-.failsafe .notice       {color = #000000;}
-
 </style>"}

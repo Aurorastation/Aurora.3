@@ -31,6 +31,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if (QDELETED(holder))
 			active_holders -= holder
 			log_debug("SSchemistry: QDELETED holder found in processing list!")
+			if (MC_TICK_CHECK)
+				return
 			continue
 
 		if (!holder.process_reactions())

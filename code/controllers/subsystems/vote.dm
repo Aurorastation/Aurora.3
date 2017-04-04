@@ -10,7 +10,6 @@ var/datum/controller/subsystem/vote/SSvote
 
 /datum/controller/subsystem/vote/Initialize(timeofday)
 	next_transfer_time = config.vote_autotransfer_initial
-	..(timeofday, silent = TRUE)
 
 /datum/controller/subsystem/vote/fire(resumed = FALSE)
 	vote.process()

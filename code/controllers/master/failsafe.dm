@@ -4,7 +4,7 @@
   * Pretty much pokes the MC to make sure it's still alive.
  **/
 
-#define FAILSAFE_MSG(msg) admin_notice("<span class='failsafe title'>FAILSAFE: </span><span class='failsafe notice'>[msg]</span>", R_DEBUG|R_ADMIN|R_DEV)
+#define FAILSAFE_MSG(msg) admin_notice("<big><em><font color='red'>FAILSAFE: </font><font color='black'>[msg]</font></em></big>", R_DEBUG|R_ADMIN|R_DEV)
 
 var/datum/controller/failsafe/Failsafe
 

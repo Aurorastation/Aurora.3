@@ -31,10 +31,14 @@
 
 		if (target.airflow_speed <= 0)
 			CLEAR_OBJECT(target)
+			if (MC_TICK_CHECK)
+				return
 			continue
 
 		if (target.airflow_process_delay > 0)
 			target.airflow_process_delay -= 1
+			if (MC_TICK_CHECK)
+				return
 			continue
 		else if (target.airflow_process_delay)
 			target.airflow_process_delay = 0
@@ -47,12 +51,18 @@
 					if (target.airflow_od)
 						target.density = 0
 					target.airflow_skip_speedcheck = TRUE
+
+					if (MC_TICK_CHECK)
+						return
 					continue
 			else
 				if (target.airflow_od)
 					target.density = 0
 				target.airflow_process_delay = max(1, 10 - (target.airflow_speed + 3))
 				target.airflow_skip_speedcheck = TRUE
+
+				if (MC_TICK_CHECK)
+					return
 				continue
 
 		target.airflow_skip_speedcheck = FALSE
@@ -65,10 +75,14 @@
 
 		if ((target.x == 1) || (target.x == world.maxx) || (target.y == 1) || (target.y == world.maxy))
 			CLEAR_OBJECT(target)
+			if (MC_TICK_CHECK)
+				return
 			continue
 
 		if (!isturf(target.loc))
 			CLEAR_OBJECT(target)
+			if (MC_TICK_CHECK)
+				return
 			continue
 		
 		step_towards(target, target.airflow_dest)

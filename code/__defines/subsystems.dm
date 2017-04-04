@@ -5,7 +5,7 @@
 #define SS_INIT_CARGO               2	// Random warehouse generation.
 #define SS_INIT_ATOMS			    1
 #define SS_INIT_TICKER 				0	// Lobby timer starts here.
-#define SS_INIT_POWERNET           -1
+#define SS_INIT_MACHINERY          -1
 #define SS_INIT_PIPENET            -2
 #define SS_INIT_ATMOS              -3
 #define SS_INIT_AIR                -4
@@ -25,19 +25,20 @@
 #define SS_PRIORITY_OVERLAY        500	// Applies overlays. May cause overlay pop-in if it gets behind.
 #define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
 #define SS_PRIORITY_SMOOTHING      35   // Smooth turf generation.
-#define SS_PRIORITY_DISPOSALS      10
+#define SS_PRIORITY_DISPOSALS      10	// Disposal holder movement.
 
 // Normal
 #define SS_PRIORITY_TICKER         200	// Gameticker.
 #define SS_PRIORITY_MOB            150
 #define SS_PRIORITY_NANOUI         120
 #define SS_PRIORITY_VOTE           110
-#define SS_PRIORITY_MACHINERY      90	// Machinery + powernet ticks.
-#define SS_PRIORITY_CHEMISTRY      85
-#define SS_PRIORITY_SHUTTLE        80
-#define SS_PRIORITY_SINGULARITY    75	// Singularity, Tesla, and Nar'sie processing.
-#define SS_PRIORITY_AIR            70	// ZAS processing.
-#define SS_PRIORITY_EVENT          65
+#define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
+#define SS_PRIORITY_CHEMISTRY      90
+#define SS_PRIORITY_SHUTTLE        85
+#define SS_PRIORITY_SINGULARITY    80	// Singularity, Tesla, and Nar'sie processing.
+#define SS_PRIORITY_AIR            75	// ZAS processing.
+#define SS_PRIORITY_EVENT          70
+#define SS_PRIORITY_AIRFLOW        65	// Handles object movement due to ZAS airflow.
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.
 #define SS_PRIORITY_ALARMS         50
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.

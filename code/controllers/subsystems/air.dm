@@ -151,7 +151,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	starttime = REALTIMEOFDAY
 	fire(FALSE, TRUE)
 
-	admin_notice(span("danger", "Air settling completed in [(REALTIMEOFDAY - starttime)] seconds!"))
+	admin_notice(span("danger", "Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"))
 
 	..()
 
@@ -173,11 +173,20 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		curr_tiles.len--
 
 		if (QDELETED(T))
+			if (no_mc_tick)
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
+				return
+
 			continue
 
 		//check if the turf is self-zone-blocked
 		if(T.c_airblock(T) & ZONE_BLOCKED)
 			deferred += T
+			if (no_mc_tick)
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
+				return
 			continue
 
 		T.update_air_properties()
@@ -216,6 +225,10 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		curr_edges.len--
 
 		if (!edge)
+			if (no_mc_tick)
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
+				return
 			continue
 		
 		edge.tick()

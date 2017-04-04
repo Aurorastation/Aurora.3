@@ -1,5 +1,4 @@
 var/datum/controller/subsystem/processing/disease/SSdisease
-/datum/controller/subsystem/processing/disease
 
 /datum/controller/subsystem/processing/disease
 	name = "Diseases"

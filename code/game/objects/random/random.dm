@@ -399,7 +399,7 @@
 
 /obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
-	..()
+	..(loc)
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
 	var/helmet = suitmap[suit.type]
@@ -438,7 +438,7 @@
 
 /obj/random/vendor/Initialize(mapload, _depleted = 0)
 	depleted = _depleted
-	..()
+	..(loc)
 
 /obj/random/vendor/post_spawn(obj/machinery/vending/V)
 	if (!depleted)

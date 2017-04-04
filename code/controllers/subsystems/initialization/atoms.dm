@@ -22,6 +22,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 /datum/controller/subsystem/atoms/Initialize(timeofday)
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
+	makepowernets()
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms = null)
