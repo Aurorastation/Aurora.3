@@ -94,7 +94,6 @@
 
 	var/reporttitle
 	var/reportbody
-	var/reporter = null
 	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
 	switch(reporttype)
 		if("Template")
@@ -131,11 +130,11 @@
 			return
 
 	if (reporttype == "Template")
-		reporter = sanitizeSafe(alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No"))
+		sanitizeSafe(alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No"))
 		if ("Yes")
 			reportbody += "\n\n- CCIAMS, [commstation_name()]"
-		if ("No")
-		
+		else
+
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
 			if(!reporttitle || !reportbody || !ability_pay(user, price))
