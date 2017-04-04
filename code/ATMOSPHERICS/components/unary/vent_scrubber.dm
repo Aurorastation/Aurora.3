@@ -246,7 +246,7 @@
 			broadcast_status()
 		return //do not update_icon
 
-//			log_admin("DEBUG \[[world.timeofday]\]: vent_scrubber/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
+//			log_debug("DEBUG \[[world.timeofday]\]: vent_scrubber/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
 	spawn(2)
 		broadcast_status()
 	update_icon()

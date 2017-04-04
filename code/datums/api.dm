@@ -750,7 +750,7 @@ proc/api_update_command_database()
 	G.can_reenter_corpse = 1
 
 	G:show_message(text("<span class='notice'><B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
-	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API")
+	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API",ckey=key_name(G),admin_key=senderkey)
 	message_admins("Admin [senderkey] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit via the API", 1)
 
 
@@ -907,7 +907,7 @@ proc/api_update_command_database()
 		world << sound('sound/AI/commandreport.ogg')
 
 
-	log_admin("[senderkey] has created a command report via the api: [reportbody]")
+	log_admin("[senderkey] has created a command report via the api: [reportbody]",admin_key=senderkey)
 	message_admins("[senderkey] has created a command report via the api", 1)
 
 	statuscode = 200
@@ -959,7 +959,7 @@ proc/api_update_command_database()
 		else
 			command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+list2text(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 
-	log_admin("[senderkey] sent a fax via the API: : [faxbody]")
+	log_admin("[senderkey] sent a fax via the API: : [faxbody]",admin_key=senderkey)
 	message_admins("[senderkey] sent a fax via the API", 1)
 
 	statuscode = 200

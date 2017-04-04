@@ -650,7 +650,7 @@
 	build_path = /obj/item/rig_module/vision/meson
 
 /datum/design/hardsuitmodules/sechud_module
-	name = "hardsuit meson scanner"
+	name = "hardsuit security hud"
 	desc = "A simple tactical information system for a hardsuit."
 	id = "sechud_module"
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
@@ -674,7 +674,7 @@
 	build_path = /obj/item/rig_module/vision/nvg
 
 /datum/design/hardsuitmodules/healthscanner_module
-	name = "hardsuit night vision interface"
+	name = "hardsuit health scanner"
 	desc = "A hardsuit-mounted health scanner."
 	id = "healthscanner_module"
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 3, TECH_MAGNET = 2)
@@ -730,7 +730,7 @@
 	build_path = /obj/item/rig_module/mounted/taser
 
 /datum/design/hardsuitmodules/egun_module
-	name = "mounted taser"
+	name = "mounted energy gun"
 	desc = "A forearm-mounted energy projector."
 	id = "egun_module"
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_MAGNET = 3)

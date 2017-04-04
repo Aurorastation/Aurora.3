@@ -904,7 +904,7 @@
 	else
 		target.show_message("\blue You hear a voice that seems to echo around the room: [say]")
 	usr.show_message("\blue You project your mind into [target.real_name]: [say]")
-	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
+	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
 	for(var/mob/dead/observer/G in world)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
@@ -1207,7 +1207,6 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
-	nutrition = (rand(25,100)*0.01)*max_nutrition//Starting nutrition is randomised between 25-100% of max
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	if(species)
