@@ -131,7 +131,7 @@
 			return
 
 	if (reporttype == "Template")
-		reporter = sanitizeSafe(input(usr, "Would you like it to appear as if CCIAMS made the report?", "Yes", "No") as text|null)
+		reporter = sanitizeSafe(alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No"))
 		if ("Yes")
 			reportbody += "\n\n- CCIAMS, [commstation_name()]"
 		if ("No")
