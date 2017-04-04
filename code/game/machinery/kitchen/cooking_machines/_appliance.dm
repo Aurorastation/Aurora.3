@@ -111,7 +111,7 @@
 
 /obj/machinery/appliance/verb/toggle_power()
 	set name = "Toggle Power"
-	set category = "Object"
+	set category = null
 	set src in world //So that AI can operate it remotely
 
 	if (!isliving(usr))
@@ -147,7 +147,7 @@
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
 	set name = "Choose output"
-	set category = "Object"
+	set category = null
 
 	if (!isliving(usr))
 		usr << "Ghosts aren't allowed to mess with cooking machines!"
