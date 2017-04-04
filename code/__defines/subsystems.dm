@@ -5,7 +5,7 @@
 #define SS_INIT_CARGO               2	// Random warehouse generation.
 #define SS_INIT_ATOMS			    1
 #define SS_INIT_TICKER 				0	// Lobby timer starts here.
-#define SS_INIT_POWERNET           -1
+#define SS_INIT_MACHINERY          -1
 #define SS_INIT_PIPENET            -2
 #define SS_INIT_ATMOS              -3
 #define SS_INIT_AIR                -4

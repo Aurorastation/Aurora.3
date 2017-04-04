@@ -3,7 +3,7 @@
 /datum/controller/subsystem/machinery
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
-	init_order = SS_INIT_POWERNET
+	init_order = SS_INIT_MACHINERY
 	flags = SS_POST_FIRE_TIMING
 
 	var/tmp/list/processing_machinery = list()
@@ -14,7 +14,6 @@
 	NEW_SS_GLOBAL(SSmachinery)
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
-	makepowernets()
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
 	..(timeofday)
 
