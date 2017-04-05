@@ -186,7 +186,7 @@
 	center_of_mass = list("x"=16, "y"=4)
 	New()
 		..()
-		reagents.add_reagent("vgin", 100)
+		reagents.add_reagent("victorygin", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey
 	name = "Uncle Git's Special Reserve"

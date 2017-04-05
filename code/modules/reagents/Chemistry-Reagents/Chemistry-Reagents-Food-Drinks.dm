@@ -787,6 +787,7 @@
 	glass_desc = "No relation to a certain rap artist/ actor."
 	glass_center_of_mass = list("x"=15, "y"=10)
 
+
 /datum/reagent/drink/coffee
 	name = "Coffee"
 	id = "coffee"
@@ -1265,13 +1266,13 @@
 /datum/reagent/ethanol/victorygin
 	name = "Victory Gin"
 	id = "victorygin"
-	description = "Pour one out for Al'mari. His gun was on stun, bless his heart."
+	description = "An oily Adhomai-based gin."
 	color = "#664300"
-	strength = 30
+	strength = 32
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of gin"
-	glass_desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
+	glass_desc = "It has an oily smell and doesn't taste like typical gin."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 //Base type for alchoholic drinks containing coffee

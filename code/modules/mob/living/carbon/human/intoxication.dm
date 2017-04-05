@@ -26,6 +26,17 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		intoxication = 0
 		return
 
+	//Godmode messes some things up, so no more BSTs getting drunk unless they toggle it off
+	if (status_flags & GODMODE)
+		intoxication = 0 //Zero out intoxication but don't return, let the rest of this function run to remove any residual effects
+		slurring = 0
+		confused = 0
+		eye_blurry = 0
+		drowsyness = 0
+		paralysis = 0
+		sleeping = 0
+		//Many of these parameters normally tick down in life code, but some parts of that code don't run in godmode, so this prevents a BST being stuck with blurred vision
+
 	if(intoxication > AE_DIZZY*SR) // Early warning
 		if (dizziness == 0)
 			src << "<span class='notice'>The room starts spinning!</span>"

@@ -35,3 +35,7 @@ delete-after: True
 changes: 
   - rscadd: "Added butanol, an alcohol that is safe, though largely ineffective, for humans and most species, but highly intoxicating (and safe in moderation) for unathi. Pure butanol is in the chem dispenser, and can be distilled by combining sugar, corn oil and universal enzyme."
   - rscadd: "Added two new butanol-based drinks, imported from Moghes, they can be found in the bar and rarely in the cargo warehouse."
+  - rscadd: "Added a new tajaran spirit, can be found in the bar fridge and sometimes in the warehouse."
+  - tweak: "Kegs of beer or xuizi juice can now be ordered at cargo."
+  - bugfix: "Fixed several issues with alcohol effects getting stuck and not wearing off when you sober up."
+  - tweak: "Reduced the rate at which the liver filters alcohol, making it slightly easier to get drunk and take longer to sober up. Drink responsibly!"

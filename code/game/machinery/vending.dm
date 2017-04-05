@@ -716,7 +716,7 @@
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/brandy = 4,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie = 4,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette = 4, /obj/item/weapon/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine = 2)
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine = 2, /obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin = 2)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/tea = 10)
 	vend_delay = 15
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
