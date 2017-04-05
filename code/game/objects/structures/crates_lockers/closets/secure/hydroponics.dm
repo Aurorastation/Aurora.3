@@ -8,8 +8,7 @@
 	icon_broken = "hydrosecurebroken"
 	icon_off = "hydrosecureoff"
 
-
-	New()
+	fill()
 		..()
 		switch(rand(1,2))
 			if(1)
@@ -26,4 +25,3 @@
 		new /obj/item/weapon/wirecutters/clippers(src)
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 //		new /obj/item/weapon/bee_net(src) //No more bees, March 2014
-		return

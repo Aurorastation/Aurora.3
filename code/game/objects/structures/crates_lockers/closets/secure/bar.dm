@@ -10,8 +10,7 @@
 	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 
-	New()
-		..()
+	fill()
 		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
 		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
 		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
@@ -22,7 +21,6 @@
 		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
 		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
 		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		return
 
 /obj/structure/closet/secure_closet/bar/update_icon()
 	if(broken)

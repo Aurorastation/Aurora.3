@@ -9,7 +9,7 @@
 	icon_closed ="base"
 	icon_opened = "base"
 
-/obj/structure/closet/secure_closet/guncabinet/New()
+/obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()
 	update_icon()
 
@@ -18,9 +18,9 @@
 	update_icon()
 
 /obj/structure/closet/secure_closet/guncabinet/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(opened)
-		overlays += icon(icon,"door_open")
+		add_overlay("door_open")
 	else
 		var/lazors = 0
 		var/shottas = 0
@@ -41,13 +41,13 @@
 					gun.icon_state = "projectile"
 
 				gun.pixel_x = i*4
-				overlays += gun
-
-		overlays += icon(src.icon,"door")
+				add_overlay(gun)
+			
+		add_overlay("door")
 
 		if(broken)
-			overlays += icon(src.icon,"broken")
+			add_overlay("broken")
 		else if (locked)
-			overlays += icon(src.icon,"locked")
+			add_overlay("locked")
 		else
-			overlays += icon(src.icon,"open")
+			add_overlay("open")
