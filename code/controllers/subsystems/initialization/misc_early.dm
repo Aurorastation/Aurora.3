@@ -24,25 +24,6 @@
 		if(P.default)
 			default_pai_software[P.id] = P
 
-	// Setup custom loadout.
-	//create a list of gear datums to sort
-	for(var/geartype in subtypesof(/datum/gear))
-		var/datum/gear/G = geartype
-
-		var/use_name = initial(G.display_name)
-		var/use_category = initial(G.sort_category)
-
-		if(!loadout_categories[use_category])
-			loadout_categories[use_category] = new /datum/loadout_category(use_category)
-		var/datum/loadout_category/LC = loadout_categories[use_category]
-		gear_datums[use_name] = new geartype
-		LC.gear[use_name] = gear_datums[use_name]
-
-	sortTim(loadout_categories, /proc/cmp_text_asc, FALSE)
-	for(var/loadout_category in loadout_categories)
-		var/datum/loadout_category/LC = loadout_categories[loadout_category]
-		sortTim(LC.gear, /proc/cmp_text_asc, FALSE)
-
 	// Setup the global HUD.
 	global_hud = new
 	global_huds = list(
