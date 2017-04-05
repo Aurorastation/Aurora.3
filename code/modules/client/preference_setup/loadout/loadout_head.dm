@@ -1,6 +1,6 @@
 /datum/gear/head
-	display_name = "hat, boatsman"
-	path = /obj/item/clothing/head/boaterhat
+	display_name = "ushanka"
+	path = /obj/item/clothing/head/ushanka
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
@@ -64,18 +64,18 @@
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
-/datum/gear/head/cap/corp
+/datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
-/datum/gear/head/cap/sec
+/datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
 
 /datum/gear/head/hardhat
-	display_name = "hardhat, yellow"
+	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
@@ -92,22 +92,55 @@
 	display_name = "hair flower pin, red"
 	path = /obj/item/clothing/head/hairflower
 
-/datum/gear/head/bowler
-	display_name = "hat, bowler"
-	path = /obj/item/clothing/head/bowler
+/datum/gear/head/hats
+	display_name = "hat selection"
+	path = /obj/item/clothing/head/boaterhat
 
-/datum/gear/head/fez
-	display_name = "hat, fez"
-	path = /obj/item/clothing/head/fez
-
-/datum/gear/head/tophat
-	display_name = "hat, tophat"
-	path = /obj/item/clothing/head/that
+/datum/gear/head/hats/New()
+	..()
+	var/hats = list()
+	hats["hat, boatsman"] = /obj/item/clothing/head/boaterhat
+	hats["hat, bowler"] = /obj/item/clothing/head/bowler
+	hats["hat, fez"] = /obj/item/clothing/head/fez
+	hats["hat, tophat"] = /obj/item/clothing/head/that
+	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
+	hats["hat, fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
+	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
+	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
+	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
+	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/philosopher_wig
 	display_name = "natural philosopher's wig"
 	path = /obj/item/clothing/head/philosopher_wig
 
-/datum/gear/head/ushanka
-	display_name = "ushanka"
-	path = /obj/item/clothing/head/ushanka
+/datum/gear/head/hijab
+	display_name = "hijab selection"
+	path = /obj/item/clothing/head/hijab
+
+/datum/gear/head/hijab/New()
+	..()
+	var/hijab = list()
+	hijab["black hijab"] = /obj/item/clothing/head/hijab
+	hijab["grey hijab"] = /obj/item/clothing/head/hijab/grey
+	hijab["red hijab"] = /obj/item/clothing/head/hijab/red
+	hijab["brown hijab"] = /obj/item/clothing/head/hijab/brown
+	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
+	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
+
+	gear_tweaks += new/datum/gear_tweak/path(hijab)
+
+/datum/gear/head/surgical
+	display_name = "surgical cap selection"
+	path = /obj/item/clothing/head/surgery/blue
+	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Chemist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective")
+
+/datum/gear/head/surgical/New()
+	..()
+	var/surgical = list()
+	surgical["surgical cap, purple"] = /obj/item/clothing/head/surgery/purple
+	surgical["surgical cap, blue"] = /obj/item/clothing/head/surgery/blue
+	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
+	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
+	gear_tweaks += new/datum/gear_tweak/path(surgical)

@@ -237,13 +237,15 @@
 			anchored = !anchored
 		return
 
-	else
+	else if (!is_borg_item(W))
 
 		for(var/datum/data/vending_product/R in product_records)
 			if(istype(W, R.product_path))
 				stock(R, user)
 				qdel(W)
 				return
+		..()
+	else
 		..()
 
 /**
@@ -722,7 +724,7 @@
 	vend_power_usage = 85000 //85 kJ to heat a 250 mL cup of coffee
 	products = list(/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,/obj/item/weapon/reagent_containers/food/drinks/tea = 25,/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/ice = 10)
-	prices = list(/obj/item/weapon/reagent_containers/food/drinks/coffee = 30, /obj/item/weapon/reagent_containers/food/drinks/tea = 30, /obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 32)
+	prices = list(/obj/item/weapon/reagent_containers/food/drinks/coffee = 20, /obj/item/weapon/reagent_containers/food/drinks/tea = 20, /obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22)
 
 
 
@@ -738,10 +740,10 @@
 					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 6, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 6,  /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 3,
 					/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2, /obj/item/weapon/reagent_containers/food/snacks/maps = 2, /obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2)
 	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6)
-	prices = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 25,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 30,/obj/item/weapon/reagent_containers/food/snacks/chips = 27,
-					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 30,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 22,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 25,
-					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 25, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 28, /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 50,
-					/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 32, /obj/item/weapon/reagent_containers/food/snacks/maps = 33, /obj/item/weapon/reagent_containers/food/snacks/nathisnack = 34)
+	prices = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 15,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 20,/obj/item/weapon/reagent_containers/food/snacks/chips = 17,
+					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 20,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 12,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 15,
+					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 15, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 18, /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 40,
+					/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22, /obj/item/weapon/reagent_containers/food/snacks/maps = 23, /obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24)
 
 
 /obj/machinery/vending/cola
@@ -755,10 +757,10 @@
 					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10, /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko = 5, /obj/item/weapon/reagent_containers/food/snacks/liquidfood = 6)
-	prices = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 25,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 21,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 26,/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 25,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 22,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 25,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 23,/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 26)
+	prices = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 15,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 16,/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 15,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
 //This one's from bay12
@@ -783,7 +785,7 @@
 	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10,/obj/item/weapon/storage/box/matches = 10,/obj/item/weapon/flame/lighter/random = 4)
 	contraband = list(/obj/item/weapon/flame/lighter/zippo = 4)
 	premium = list(/obj/item/weapon/storage/fancy/cigar = 5,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5 )
-	prices = list(/obj/item/weapon/storage/fancy/cigarettes = 520,/obj/item/weapon/storage/box/matches = 22,/obj/item/weapon/flame/lighter/random = 22)
+	prices = list(/obj/item/weapon/storage/fancy/cigarettes = 510,/obj/item/weapon/storage/box/matches = 12,/obj/item/weapon/flame/lighter/random = 12)
 
 
 /obj/machinery/vending/medical
@@ -914,7 +916,7 @@
 	desc = "A kitchen and restaurant equipment vendor."
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
 	icon_state = "dinnerware"
-	products = list(/obj/item/weapon/tray = 8,/obj/item/weapon/material/kitchen/utensil/fork = 6, /obj/item/weapon/material/kitchen/utensil/knife = 6, /obj/item/weapon/material/kitchen/utensil/spoon = 6, /obj/item/weapon/material/knife = 3,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,/obj/item/clothing/suit/chef/classic = 2)
+	products = list(/obj/item/weapon/tray = 8,/obj/item/weapon/material/kitchen/utensil/fork = 6, /obj/item/weapon/material/kitchen/utensil/knife = 6, /obj/item/weapon/material/kitchen/utensil/spoon = 6, /obj/item/weapon/material/knife = 3,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,/obj/item/clothing/suit/chef/classic = 2, /obj/item/weapon/reagent_containers/cooking_container/oven = 5, /obj/item/weapon/reagent_containers/cooking_container/fryer = 4)
 	contraband = list(/obj/item/weapon/material/kitchen/rollingpin = 2, /obj/item/weapon/material/knife/butch = 2)
 
 /obj/machinery/vending/sovietsoda

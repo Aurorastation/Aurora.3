@@ -14,6 +14,13 @@
 	whitelisted = "Unathi"
 	sort_category = "Xenowear"
 
+/datum/gear/suit/robe_coat
+	display_name = "tzirzi robe (Unathi)"
+	path = /obj/item/clothing/suit/unathi/robe/robe_coat
+	cost = 1
+	whitelisted = "Unathi"
+	sort_category = "Xenowear"
+
 //skrell headtail adorns
 
 /datum/gear/ears/f_skrell
@@ -58,14 +65,21 @@
 	display_name = "vaurca blindfold (Vaurca)"
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
-	whitelisted = "Vaurca"
+	whitelisted = "Vaurca Worker"
 	sort_category = "Xenowear"
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
-	whitelisted = "Vaurca"
+	whitelisted = "Vaurca Worker"
+	sort_category = "Xenowear"
+
+/datum/gear/cape
+	display_name = "tunnel cloak (Vaurca)"
+	path = /obj/item/weapon/storage/backpack/cloak
+	cost = 1
+	whitelisted = "Vaurca Worker"
 	sort_category = "Xenowear"
 
 //beastmen gloves
@@ -104,5 +118,6 @@
 	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
 	taj_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/tajara
 	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
-	taj_gloves["white gloves"] = /obj/item/clothing/gloves/green/tajara
+	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
+	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)

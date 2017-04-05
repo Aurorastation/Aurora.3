@@ -36,6 +36,13 @@
 	set category = "Object"
 	set src in view(usr, 1)
 
+	if (!ishuman(usr))
+		return
+
+	if (usr.stat)
+		usr << "You cannot do that in your current state."
+		return
+
 	setLabel(L, usr)
 
 /obj/item/weapon/reagent_containers/chem_disp_cartridge/proc/setLabel(L, mob/user = null)

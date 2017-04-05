@@ -10,12 +10,17 @@
 
 
 /obj/structure/mopbucket/New()
-	create_reagents(100)
 	..()
+	create_reagents(100)
+	janitorial_supplies |= src
+
+/obj/structure/mobbucket/Destroy()
+	janitorial_supplies -= src
+	return ..()
 
 /obj/structure/mopbucket/examine(mob/user)
 	if(..(user, 1))
-		user << "[src] \icon[src] contains [reagents.total_volume] unit\s of water!"
+		user << "Contains [reagents.total_volume] unit\s of water."
 
 /obj/structure/mopbucket/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/mop))

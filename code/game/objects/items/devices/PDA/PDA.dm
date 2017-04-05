@@ -12,8 +12,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	w_class = 2.0
 	slot_flags = SLOT_ID | SLOT_BELT
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/id.dmi')
-	//offset_light = 1
-	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	uv_intensity = 15
 
 	//Main variables
 	var/owner = null
@@ -344,6 +343,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	return id
 
 /obj/item/device/pda/AltClick(var/mob/user)
+	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
 	if (ismob(src.loc))
 		verb_remove_id()
 
@@ -467,7 +467,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
 						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
-							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))					
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 			count++
 
 		data["convopdas"] = convopdas
@@ -558,7 +558,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		data["feed"] = feed
 
-	data["manifest"] = list("__json_cache" = ManifestJSON)
+	data["manifest"] = PDA_Manifest
 
 	nanoUI = data
 	// update the ui if it exists, returns null if no ui is passed/found
@@ -730,12 +730,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			active_conversation = null
 			if(mode==21)
 				mode=2
-		
-		
+
+
 		if("Filter") // Filters through available pdas
 			if (href_list["option"])
 				pdafilter = sanitize_integer(text2num(href_list["option"]), 0, 8, pdafilter)
-				
+
 		if("Ringtone")
 			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
 			if (in_range(src, U) && loc == U)
@@ -957,9 +957,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			M.apply_effects(1,0,0,0,1)
 		message += "Your [P] flashes with a blinding white light! You feel weaker."
 	if(i>=85) //Sparks
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(2, 1, P.loc)
-		s.start()
+		spark(P.loc, 2)
 		message += "Your [P] begins to spark violently!"
 	if(i>45 && i<65 && prob(50)) //Nothing happens
 		message += "Your [P] bleeps loudly."

@@ -194,6 +194,7 @@
 				return
 
 	icon_state = "launcherbtt"
+	active = 0
 	update_icon()
 
 	return

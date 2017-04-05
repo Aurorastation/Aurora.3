@@ -30,6 +30,8 @@
 
 #define WARNING_DELAY 20			//seconds between warnings.
 
+#define LIGHT_POWER_CALC (max(power / 50, 1))
+
 /obj/machinery/power/supermatter
 	name = "Supermatter"
 	desc = "A strangely translucent and iridescent crystal. \red You get headaches just from looking at it."
@@ -38,11 +40,13 @@
 	density = 1
 	anchored = 0
 	light_range = 4
+	light_power = 1
 
 	var/gasefficency = 0.25
 
 	var/base_icon_state = "darkmatter"
 
+	var/last_power
 	var/damage = 0
 	var/damage_archived = 0
 	var/safe_alert = "Crystaline hyperstructure returning to safe operating levels."
@@ -56,7 +60,6 @@
 
 	light_color = "#8A8A00"
 	uv_intensity = 255
-	var/last_power = 0
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
 
@@ -95,7 +98,7 @@
 
 
 /obj/machinery/power/supermatter/Destroy()
-	qdel(radio)
+	QDEL_NULL(radio)
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()
@@ -120,14 +123,10 @@
 
 //Changes color and luminosity of the light to these values if they were not already set
 /obj/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)
-	if(lum != light_range || clr != light_color)
-		set_light(lum, l_color = clr)
-	update_uv()
-
-/obj/machinery/power/supermatter/proc/update_uv()
-	if (last_power + 20 < power || last_power - 20 > power)
-		set_uv(CLAMP01(power / 500) * 255)
+	if(lum != light_range || abs(power - last_power) > 10 || clr != light_color)
+		set_light(lum, LIGHT_POWER_CALC, clr)
 		last_power = power
+
 
 /obj/machinery/power/supermatter/proc/get_integrity()
 	var/integrity = damage / explosion_point
@@ -199,7 +198,7 @@
 		if(!istype(L, /turf/space) && (world.timeofday - lastwarning) >= WARNING_DELAY * 10)
 			announce_warning()
 	else
-		shift_light(4,initial(light_color))
+		shift_light(4, initial(light_color))
 	if(grav_pulling)
 		supermatter_pull()
 
@@ -433,3 +432,5 @@
 
 /obj/machinery/power/supermatter/shard/announce_warning() //Shards don't get announcements
 	return
+
+#undef LIGHT_POWER_CALC

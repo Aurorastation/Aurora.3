@@ -150,6 +150,22 @@
 
 	make_exact_fit()
 
+/obj/item/weapon/storage/firstaid/brute
+	name = "brute aid kit"
+	desc = "A NanoTrasen care package for moderately injured miners."
+	icon_state = "brute"
+
+/obj/item/weapon/storage/firstaid/brute/New()
+		..()
+		if (empty) return
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/advanced/bruise_pack(src)
+		new /obj/item/stack/medical/advanced/bruise_pack(src)
+		return
+
 /*
  * Pill Bottles
  */

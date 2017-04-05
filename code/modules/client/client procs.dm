@@ -194,11 +194,6 @@
 
 		return
 
-	// Antag contest shit
-	if (href_list["contest_action"] && config.antag_contest_enabled)
-		src.process_contest_topic(href_list)
-		return
-
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
@@ -610,3 +605,15 @@
 	server_greeting.find_outdated_info(src, 1)
 
 	server_greeting.display_to_client(src)
+
+// Byond seemingly calls stat, each tick.
+// Calling things each tick can get expensive real quick.
+// So we slow this down a little.
+// See: http://www.byond.com/docs/ref/info.html#/client/proc/Stat
+/client/Stat()
+	. = ..()
+	if (holder)
+		sleep(1)
+	else
+		sleep(5)
+		stoplag()

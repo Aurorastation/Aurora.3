@@ -6,7 +6,7 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "bluespace_crystal"
 	w_class = 1
-	origin_tech = "bluespace=4;materials=3"
+	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 3)
 	var/blink_range = 8 // The teleport range when crushed/thrown at someone.
 
 
@@ -18,7 +18,7 @@
 
 /obj/item/bluespace_crystal/attack_self(mob/user)
 	user.visible_message("<span class='warning'>[user] crushes [src]!</span>", "<span class='danger'>You crush [src]!</span>")
-	getFromPool(/obj/effect/sparks, loc)
+	single_spark(loc)
 	playsound(src.loc, "sparks", 50, 1)
 	blink_mob(user)
 	user.unEquip(src)
@@ -31,7 +31,7 @@
 	if(!..()) // not caught in mid-air
 		visible_message("<span class='notice'>[src] fizzles and disappears upon impact!</span>")
 		var/turf/T = get_turf(hit_atom)
-		getFromPool(/obj/effect/sparks, T)
+		single_spark(T)
 		playsound(src.loc, "sparks", 50, 1)
 		if(isliving(hit_atom))
 			blink_mob(hit_atom)
@@ -42,5 +42,5 @@
 /obj/item/bluespace_crystal/artificial
 	name = "artificial bluespace crystal"
 	desc = "An artificially made bluespace crystal, it looks delicate."
-	origin_tech = "bluespace=2"
+	origin_tech = list(TECH_BLUESPACE = 2)
 	blink_range = 4 // Not as good as the organic stuff!

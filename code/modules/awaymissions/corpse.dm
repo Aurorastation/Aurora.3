@@ -167,6 +167,7 @@
 /obj/effect/landmark/corpse/engineer/rotten
 	name = "unidentifiable corpse"
 	species = "Skeleton"
+	corpseid = 0
 
 /obj/effect/landmark/corpse/clown
 	name = "Clown"

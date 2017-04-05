@@ -103,6 +103,7 @@ var/list/gamemode_cache = list()
 	var/banappeals
 	var/wikiurl
 	var/forumurl
+	var/forum_passphrase
 	var/githuburl
 
 	//Alert level description
@@ -176,8 +177,8 @@ var/list/gamemode_cache = list()
 	var/ghost_interaction = 0
 
 	var/night_lighting = 0
-	var/nl_start = 19 * TICKS_IN_HOUR
-	var/nl_finish = 8 * TICKS_IN_HOUR
+	var/nl_start = 19
+	var/nl_finish = 8
 
 	var/comms_password = ""
 
@@ -186,6 +187,7 @@ var/list/gamemode_cache = list()
 	var/use_discord_bot = 0
 	var/discord_bot_host = "localhost"
 	var/discord_bot_port = 0
+	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
@@ -458,6 +460,9 @@ var/list/gamemode_cache = list()
 				if ("forumurl")
 					config.forumurl = value
 
+				if ("forum_passphrase")
+					config.forum_passphrase = value
+
 				if ("githuburl")
 					config.githuburl = value
 
@@ -625,10 +630,10 @@ var/list/gamemode_cache = list()
 					config.night_lighting = 1
 
 				if("nl_start_hour")
-					config.nl_start = text2num(value) * TICKS_IN_HOUR
+					config.nl_start = text2num(value)
 
 				if("nl_finish_hour")
-					config.nl_finish = text2num(value) * TICKS_IN_HOUR
+					config.nl_finish = text2num(value)
 
 				if("disable_player_mice")
 					config.disable_player_mice = 1
@@ -647,6 +652,9 @@ var/list/gamemode_cache = list()
 
 				if("discord_bot_port")
 					config.discord_bot_port = value
+
+				if("use_discord_pins")
+					config.use_discord_pins = 1
 
 				if("python_path")
 					if(value)
@@ -874,6 +882,8 @@ var/list/gamemode_cache = list()
 					discord_bot.active = 1
 				if ("robust_debug")
 					discord_bot.robust_debug = 1
+				if ("subscriber")
+					discord_bot.subscriber_role = value
 				else
 					log_misc("Unknown setting in discord configuration: '[name]'")
 

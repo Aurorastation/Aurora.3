@@ -13,9 +13,9 @@
 	response_harm = "hits"
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
-	health = 100
-	maxHealth = 100
-	melee_damage_lower = 15
+	health = 60
+	maxHealth = 60
+	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'

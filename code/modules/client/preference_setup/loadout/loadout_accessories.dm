@@ -28,7 +28,7 @@
 
 /datum/gear/accessory/holster
 	display_name = "holster selection"
-	path = /obj/item/clothing/accessory/holster
+	path = /obj/item/clothing/accessory/holster/armpit
 	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Security Cadet")
 
 /datum/gear/accessory/holster/New()
@@ -42,7 +42,7 @@
 
 /datum/gear/accessory/tie
 	display_name = "tie selection"
-	path = /obj/item/clothing/accessory
+	path = /obj/item/clothing/accessory/blue
 
 /datum/gear/accessory/tie/New()
 	..()
@@ -55,15 +55,38 @@
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective" )
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
 	path = /obj/item/clothing/accessory/storage/webbing
 	cost = 2
 
+/datum/gear/accessory/locket
+	display_name = "silver locket"
+	path = /obj/item/clothing/accessory/locket
+
+/datum/gear/accessory/scarf
+	display_name = "scarf selection"
+	path = /obj/item/clothing/accessory/scarf
+
+/datum/gear/accessory/scarf/New()
+	..()
+	var/scarfs = list()
+	scarfs["white scarf"] = /obj/item/clothing/accessory/scarf
+	scarfs["yellow scarf"] = /obj/item/clothing/accessory/scarf/yellow
+	scarfs["green scarf"] = /obj/item/clothing/accessory/scarf/green
+	scarfs["purple scarf"] = /obj/item/clothing/accessory/scarf/purple
+	scarfs["black scarf"] = /obj/item/clothing/accessory/scarf/black
+	scarfs["red scarf"] = /obj/item/clothing/accessory/scarf/red
+	scarfs["orange scarf"] = /obj/item/clothing/accessory/scarf/orange
+	scarfs["light blue scarf"] = /obj/item/clothing/accessory/scarf/light_blue
+	scarfs["dark blue scarf"] = /obj/item/clothing/accessory/scarf/dark_blue
+	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
+	gear_tweaks += new/datum/gear_tweak/path(scarfs)
+	

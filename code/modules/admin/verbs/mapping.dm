@@ -163,7 +163,8 @@ var/list/debug_verbs = list (
         ,/datum/admins/proc/setup_supermatter
 		,/client/proc/atmos_toggle_debug
 		,/client/proc/spawn_tanktransferbomb
-		,/client/proc/cmd_debug_profile_lighting
+		,/client/proc/get_bad_fdoors
+		,/client/proc/get_bad_doors
 	)
 
 
@@ -430,3 +431,24 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 		movement_disabled_exception = usr.ckey
 	else
 		message_admins("[src.ckey] used 'Disable all movement', restoring all movement.")*/
+
+/client/proc/get_bad_doors()
+	set category = "Mapping"
+	set name = "Find Bad Doors"
+
+	for(var/obj/machinery/door/airlock/A in machines)
+		var/turf/T = get_turf(A)
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || istype(T, /turf/simulated/open) || T.density)
+			usr << "Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc]."
+
+/client/proc/get_bad_fdoors()
+	set category = "Mapping"
+	set name = "Find Bad Fire Doors"
+
+	for(var/obj/machinery/door/firedoor/F in machines)
+		var/turf/T = get_turf(F)
+		var/firelock_increment = 0
+		for(var/obj/machinery/door/firedoor/FD in T)
+			firelock_increment += 1
+		if(firelock_increment > 1)
+			usr << "Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc]."

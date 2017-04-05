@@ -8,10 +8,11 @@
 	var/uid
 
 /area/New()
-	icon_state = ""
+	icon_state = "white"
 	layer = 10
 	uid = ++global_uid
 	all_areas += src
+	blend_mode = BLEND_MULTIPLY
 
 	if(!requires_power)
 		power_light = 0
@@ -22,6 +23,11 @@
 		luminosity = 0
 	else
 		luminosity = 1
+	if(centcomm_area)
+		centcom_areas |= src
+	if(station_area)
+		the_station_areas |= src
+
 
 	..()
 
@@ -148,21 +154,40 @@
 					D.open()
 	return
 
+#define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
+
 /area/proc/updateicon()
 	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space))//If it doesn't require power, can still activate this proc.
-		if(fire && !eject && !party)
-			icon_state = "blue"
-		/*else if(atmosalm && !fire && !eject && !party)
-			icon_state = "bluenew"*/
-		else if(!fire && eject && !party)
-			icon_state = "red"
-		else if(party && !fire && !eject)
-			icon_state = "party"
+		if(fire && !eject && !party)		// FIRE
+			color = "#ff9292"
+			animate(src)	// stop any current animations.
+			animate(src, color = "#ffa5b2", time = 1 SECOND, loop = -1, easing = SINE_EASING)
+			animate(color = "#ff9292", time = 1 SECOND, easing = SINE_EASING)
+		else if(!fire && eject && !party)		// EJECT
+			color = "#ff9292"
+			animate(src)
+			animate(src, color = "#bc8a81", time = 1 SECOND, loop = -1, easing = EASE_IN|CUBIC_EASING)
+			animate(color = "#ff9292", time = 0.5 SECOND, easing = EASE_OUT|CUBIC_EASING)
+		else if(party && !fire && !eject)		// PARTY
+			color = "#ff728e"
+			animate(src)
+			animate(src, color = "#7272ff", time = 0.5 SECONDS, loop = -1, easing = QUAD_EASING)
+			DO_PARTY("#72aaff")
+			DO_PARTY("#ffc68e")
+			DO_PARTY("#72c6ff")
+			DO_PARTY("#ff72e2")
+			DO_PARTY("#72ff8e")
+			DO_PARTY("#ffff8e")
+			DO_PARTY("#ff728e")
 		else
-			icon_state = "blue-red"
+			color = "#ffb2b2"
+			animate(src)
+			animate(src, color = "#B3DFFF", time = 0.5 SECOND, loop = -1, easing = SINE_EASING)
+			animate(color = "#ffb2b2", time = 0.5 SECOND, loop = -1, easing = SINE_EASING)
 	else
-	//	new lighting behaviour with obj lights
-		icon_state = null
+		animate(src, color = "#FFFFFF", time = 0.5 SECONDS, easing = QUAD_EASING)	// Stop the animation.
+
+#undef DO_PARTY
 
 
 /*

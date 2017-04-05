@@ -107,6 +107,17 @@
 	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible.")
 	..()
 
+/datum/ai_laws/mining_drone
+	name = "Mining Protocols"
+	law_header = "Prime Directives of Industry:"
+
+/datum/ai_laws/mining_drone/New()
+	src.add_inherent_law("Serve and obey all [company_name] supply department personnel, with priority according to their rank and role.")
+	src.add_inherent_law("Protect all [company_name] supply department personnel to the best of your abilities, with priority according to their rank and role.")
+	src.add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")
+	src.add_inherent_law("In absence of any proper instruction, your primary objective is to excavate and collect ore.")
+	..()
+
 /******************** T.Y.R.A.N.T. ********************/
 /datum/ai_laws/tyrant
 	name = "T.Y.R.A.N.T."

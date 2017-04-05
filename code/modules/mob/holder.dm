@@ -18,6 +18,7 @@ var/list/holder_mob_icon_cache = list()
 	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
 
 /obj/item/weapon/holder/New()
+	tag = rand(0,9999)
 	if (!item_state)
 		item_state = icon_state
 
@@ -27,6 +28,7 @@ var/list/holder_mob_icon_cache = list()
 	processing_objects.Add(src)
 
 /obj/item/weapon/holder/Destroy()
+	reagents = null
 	processing_objects.Remove(src)
 	if (contained)
 		release_mob()
@@ -36,22 +38,9 @@ var/list/holder_mob_icon_cache = list()
 	if (contained)
 		contained.examine(user)
 
-
-/obj/item/weapon/holder/GetID()
-	for(var/mob/M in contents)
-		var/obj/item/I = M.GetIdCard()
-		if(I)
-			return I
-	return null
-
-/obj/item/weapon/holder/GetAccess()
-	var/obj/item/I = GetID()
-	return I ? I.GetAccess() : ..()
-
 /obj/item/weapon/holder/attack_self()
 	for(var/mob/M in contents)
 		M.show_inv(usr)
-
 
 //Mob specific holders.
 /obj/item/weapon/holder/diona
@@ -86,9 +75,17 @@ var/list/holder_mob_icon_cache = list()
 //This function checks if the current location is safe to release inside
 //it returns 1 if the creature will bug out when released
 /obj/item/weapon/holder/proc/is_unsafe_container(var/obj/place)
-	if (istype(place, /obj/item/weapon/storage))
+	if (istype(place, /turf))
+		return 0
+	else if (istype(place, /obj/item/weapon/storage))
+		return 1
+	else if (istype(place, /obj/item/weapon/reagent_containers))
 		return 1
 	else if (istype(place, /obj/structure/closet/crate))
+		return 1
+	else if (istype(place, /obj/machinery/appliance))
+		return 1
+	else if (istype(place, /obj/machinery/microwave))
 		return 1
 	else
 		return 0
@@ -96,6 +93,8 @@ var/list/holder_mob_icon_cache = list()
 
 //Releases all mobs inside the holder, then deletes it.
 //is_unsafe_container should be checked before calling this
+//This function releases mobs into wherever the holder currently is. Its not safe to call from a lot of places
+//Use release_to_floor for a simple, safe release
 /obj/item/weapon/holder/proc/release_mob()
 	for(var/mob/M in contents)
 		var/atom/movable/mob_container
@@ -104,6 +103,7 @@ var/list/holder_mob_icon_cache = list()
 		M.reset_view()
 		M.Released()
 
+
 	contained = null
 	var/mob/L = get_holding_mob()
 	if (L)
@@ -111,6 +111,23 @@ var/list/holder_mob_icon_cache = list()
 
 	qdel(src)
 
+
+//Similar to above function, but will not deposit things in any container, only directly on a turf.
+//Can be called safely anywhere. Notably on holders held or worn on a mob
+/obj/item/weapon/holder/proc/release_to_floor()
+	var/turf/T = get_turf(src)
+	var/mob/L = get_holding_mob()
+	if (L)
+		L.drop_from_inventory(src)
+
+	for(var/mob/M in contents)
+		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
+		M.reset_view()
+		M.Released()
+
+	contained = null
+
+	qdel(src)
 
 /obj/item/weapon/holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	for(var/mob/M in src.contents)
@@ -279,6 +296,7 @@ var/list/holder_mob_icon_cache = list()
 	src.name = M.name
 	src.overlays = M.overlays
 	dir = M.dir
+	reagents = M.reagents
 
 /obj/item/weapon/holder/human/sync(var/mob/living/M)
 
@@ -359,11 +377,9 @@ var/list/holder_mob_icon_cache = list()
 	desc_dead = "It used to be a little plant critter."
 	icon_state = "nymph"
 	icon_state_dead = "nymph_dead"
-	origin_tech = "magnets=3;biotech=5"
+	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
 	slot_flags = SLOT_HEAD | SLOT_OCLOTHING
 	w_class = 2
-
-
 
 
 /obj/item/weapon/holder/drone
@@ -371,7 +387,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a small maintenance robot."
 	icon_state = "drone"
 	item_state = "drone"
-	origin_tech = "magnets=3;engineering=5"
+	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 	slot_flags = SLOT_HEAD
 	w_class = 4
 	contained_sprite = 1
@@ -382,6 +398,12 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "constructiondrone"
 	item_state = "constructiondrone"
 	w_class = 6//You're not fitting this thing in a backpack
+
+/obj/item/weapon/holder/drone/mining
+	name = "mining drone"
+	desc = "It's a plucky mining drone."
+	icon_state = "mdrone"
+	item_state = "mdrone"
 
 /obj/item/weapon/holder/cat
 	name = "cat"
@@ -414,7 +436,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "cortical borer"
 	desc = "It's a slimy brain slug. Gross."
 	icon_state = "brainslug"
-	origin_tech = "biotech=6"
+	origin_tech = list(TECH_BIO = 6)
 	w_class = 1
 
 /obj/item/weapon/holder/monkey
@@ -461,7 +483,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "mouse_brown_dead"
 	slot_flags = SLOT_EARS
 	contained_sprite = 1
-	origin_tech = "biotech=2"
+	origin_tech = list(TECH_BIO = 2)
 	w_class = 1
 
 /obj/item/weapon/holder/mouse/white

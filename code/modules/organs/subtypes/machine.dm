@@ -437,7 +437,7 @@
 
 /obj/item/organ/external/leg/shell
 	dislocated = -1
-/obj/item/organ/external/leg/shel/New()
+/obj/item/organ/external/leg/shell/New()
 	robotize("Human Synthskin")
 	..()
 

@@ -13,6 +13,8 @@
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = ~HEAVY //trundle trundle
 
+	light_wedge = LIGHT_WIDE
+
 	var/lights_on = 0 // Is our integrated light on?
 	var/used_power_this_tick = 0
 	var/sight_mode = 0
@@ -20,7 +22,7 @@
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
 	var/crisis //Admin-settable for combat module use.
 	var/crisis_override = 0
-	var/integrated_light_power = 6
+	var/integrated_light_power = 4
 	var/datum/wires/robot/wires
 
 //Icon stuff
@@ -70,6 +72,7 @@
 
 	var/opened = 0
 	var/emagged = 0
+	var/fakeemagged = 0 //for dumb illegal weapons module
 	var/wiresexposed = 0
 	var/locked = 1
 	var/has_power = 1
@@ -90,7 +93,7 @@
 	//var/jetpack = 0
 	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/jetpack = null
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
-	var/datum/effect/effect/system/spark_spread/spark_system//So they can initialize sparks whenever/N
+	var/datum/effect_system/sparks/spark_system//So they can initialize sparks whenever/N
 	var/jeton = 0
 	var/killswitch = 0
 	var/killswitch_time = 60
@@ -111,9 +114,7 @@
 	)
 
 /mob/living/silicon/robot/New(loc,var/unfinished = 0)
-	spark_system = new /datum/effect/effect/system/spark_spread()
-	spark_system.set_up(5, 0, src)
-	spark_system.attach(src)
+	spark_system = bind_spark(src, 5)
 
 	add_language("Robot Talk", 1)
 	add_language(LANGUAGE_EAL, 1)
@@ -248,18 +249,28 @@
 		connected_ai.connected_robots -= src
 	qdel(wires)
 	wires = null
+	QDEL_NULL(spark_system)
 	return ..()
 
 /mob/living/silicon/robot/proc/set_module_sprites(var/list/new_sprites)
 	if(new_sprites && new_sprites.len)
 		module_sprites = new_sprites.Copy()
 		//Custom_sprite check and entry
+
 		if (custom_sprite == 1)
-			module_sprites["Custom"] = "[src.ckey]-[modtype]"
-			icontype = "Custom"
+			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
+			if("[ckey]-[modtype]" in valid_states)
+				module_sprites["Custom"] = "[src.ckey]-[modtype]"
+				icon = CUSTOM_ITEM_SYNTH
+				icontype = "Custom"
+			else
+				icontype = module_sprites[1]
+				icon = 'icons/mob/robots.dmi'
+				src << "<span class='warning'>Custom Sprite Sheet does not contain a valid icon_state for [ckey]-[modtype]</span>"
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
+
 	updateicon()
 	return module_sprites
 
@@ -414,7 +425,7 @@
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intenselight)
-			set_light(integrated_light_power * 2, integrated_light_power)
+			set_light(integrated_light_power * 2, 1)
 		else
 			set_light(integrated_light_power)
 	else
@@ -454,7 +465,8 @@
 
 /mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
 	..(Proj)
-	if(prob(75) && Proj.damage > 0) spark_system.start()
+	if(prob(75) && Proj.damage > 0)
+		spark_system.queue()
 	return 2
 
 /mob/living/silicon/robot/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -687,7 +699,7 @@
 
 	else
 		if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
-			spark_system.start()
+			spark_system.queue()
 		return ..()
 
 /mob/living/silicon/robot/attack_hand(mob/user)
@@ -1021,6 +1033,7 @@
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
 	src << "Your icon has been set. You now require a module reset to change it."
 
+
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
 	set name = "Set Sensor Augmentation"
 	set category = "Robot Commands"
@@ -1102,7 +1115,7 @@
 		return
 
 	if(opened)//Cover is open
-		if(emagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
+		if(emagged && !fakeemagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
 		if(wiresexposed)
 			user << "You must close the panel first"
 			return
@@ -1110,6 +1123,8 @@
 			sleep(6)
 			if(prob(50))
 				emagged = 1
+				if(fakeemagged)
+					fakeemagged = 0
 				lawupdate = 0
 				disconnect_from_ai()
 				user << "You emag [src]'s interface."

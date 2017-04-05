@@ -3,6 +3,10 @@
 	set category = "Abilities"
 	if(!M.mind)
 		return
+	for (var/obj/item/weapon/implant/loyalty/I in M)
+		if (I.implanted)
+			src << "<span class='warning'>[M] is too loyal to the company!</span>"
+			return
 	convert_to_faction(M.mind, revs)
 
 /mob/living/proc/convert_to_faction(var/datum/mind/player, var/datum/antagonist/faction)
