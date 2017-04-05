@@ -503,8 +503,10 @@
 
 /obj/structure/track/Initialize()
 	..()
-	if (locate(/obj/structure/track) in loc)
+	var/obj/structure/track/track = locate() in loc
+	if (track && track != src)
 		qdel(src)
+		return
 	updateOverlays()
 	for (var/dir in cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
