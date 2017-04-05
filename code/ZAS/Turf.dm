@@ -52,54 +52,56 @@
 */
 
 /turf/simulated/proc/can_safely_remove_from_zone()
-	#ifdef ZLEVELS
-	return 0 //TODO generalize this to multiz.
-	#else
-	
 	if(!zone) return 1
-	
+
 	var/check_dirs = get_zone_neighbours(src)
 	var/unconnected_dirs = check_dirs
-	
-	for(var/dir in list(NORTHWEST, NORTHEAST, SOUTHEAST, SOUTHWEST))
-		
+	var/to_check = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+	#ifdef ZLEVELS
+	to_check += list(NORTHUP, EASTUP, WESTUP, SOUTHUP, NORTHDOWN, EASTDOWN, WESTDOWN, SOUTHDOWN)
+	#endif
+	for(var/dir in to_check)
+
 		//for each pair of "adjacent" cardinals (e.g. NORTH and WEST, but not NORTH and SOUTH)
 		if((dir & check_dirs) == dir)
 			//check that they are connected by the corner turf
 			var/connected_dirs = get_zone_neighbours(get_step(src, dir))
-			if(connected_dirs && (dir & turn(connected_dirs, 180)) == dir)
+			if(connected_dirs && (dir & reverse_dir[connected_dirs]) == dir)
 				unconnected_dirs &= ~dir //they are, so unflag the cardinals in question
-	
+
 	//it is safe to remove src from the zone if all cardinals are connected by corner turfs
 	return !unconnected_dirs
-	
-	#endif
 
 //helper for can_safely_remove_from_zone()
 /turf/simulated/proc/get_zone_neighbours(turf/simulated/T)
 	. = 0
 	if(istype(T) && T.zone)
-		for(var/dir in cardinal)
+		var/to_check = cardinal.Copy()
+		#ifdef ZLEVELS
+		to_check += list(UP, DOWN)
+		#endif
+		for(var/dir in to_check)
 			var/turf/simulated/other = get_step(T, dir)
 			if(istype(other) && other.zone == T.zone && !(other.c_airblock(T) & AIR_BLOCKED) && get_dist(src, other) <= 1)
 				. |= dir
 
 /turf/simulated/update_air_properties()
 
-	if(zone && zone.invalid)
-		c_copy_air()
+	if(zone && zone.invalid) //this turf's zone is in the process of being rebuilt
+		c_copy_air() //not very efficient :(
 		zone = null //Easier than iterating through the list at the zone.
 
 	var/s_block = c_airblock(src)
 	if(s_block & AIR_BLOCKED)
 		#ifdef ZASDBG
-		if(verbose) world << "Self-blocked."
+		if(verbose) log_debug("Self-blocked.")
 		//dbg(blocked)
 		#endif
 		if(zone)
 			var/zone/z = zone
-			
+
 			if(can_safely_remove_from_zone()) //Helps normal airlocks avoid rebuilding zones all the time
+				c_copy_air() //we aren't rebuilding, but hold onto the old air so it can be readded
 				z.remove(src)
 			else
 				z.rebuild()
@@ -125,7 +127,7 @@
 		if(block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) world << "[d] is blocked."
+			if(verbose) log_debug("[d] is blocked.")
 			//unsim.dbg(air_blocked, turn(180,d))
 			#endif
 
@@ -135,7 +137,7 @@
 		if(r_block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) world << "[d] is blocked."
+			if(verbose) log_debug("[d] is blocked.")
 			//dbg(air_blocked, d)
 			#endif
 
@@ -161,12 +163,13 @@
 				//Might have assigned a zone, since this happens for each direction.
 				if(!zone)
 
-					//We do not merge if 
+					//We do not merge if
 					//    they are blocking us and we are not blocking them, or if
 					//    we are blocking them and not blocking ourselves - this prevents tiny zones from forming on doorways.
 					if(((block & ZONE_BLOCKED) && !(r_block & ZONE_BLOCKED)) || ((r_block & ZONE_BLOCKED) && !(s_block & ZONE_BLOCKED)))
 						#ifdef ZASDBG
-						if(verbose) world << "[d] is zone blocked."
+						if(verbose) log_debug("[d] is zone blocked.")
+
 						//dbg(zone_blocked, d)
 						#endif
 
@@ -180,22 +183,22 @@
 
 						#ifdef ZASDBG
 						dbg(assigned)
-						if(verbose) world << "Added to [zone]"
+						if(verbose) log_debug("Added to [zone]")
 						#endif
 
 				else if(sim.zone != zone)
 
 					#ifdef ZASDBG
-					if(verbose) world << "Connecting to [sim.zone]"
+					if(verbose) log_debug("Connecting to [sim.zone]")
 					#endif
 
 					air_master.connect(src, sim)
 
 
 			#ifdef ZASDBG
-				else if(verbose) world << "[d] has same zone."
+				else if(verbose) log_debug("[d] has same zone.")
 
-			else if(verbose) world << "[d] has invalid zone."
+			else if(verbose) log_debug("[d] has invalid zone.")
 			#endif
 
 		else
