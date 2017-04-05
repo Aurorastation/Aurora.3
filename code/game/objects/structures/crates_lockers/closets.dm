@@ -24,21 +24,29 @@
 
 	var/const/default_mob_size = 15
 
-/obj/structure/closet/Initialize()
+/obj/structure/closet/Initialize(mapload)
+	if (mapload && !opened)		// if closed, any item at the crate's loc is put in the contents
+		addtimer(CALLBACK(src, .proc/mapload), 0)
 	..()
-	if(!opened)		// if closed, any item at the crate's loc is put in the contents
-		var/obj/I
-		for(I in src.loc)
-			if (!istype(I, /obj/item) && !istype(I, /obj/random))continue
-			if(I.density || I.anchored || I == src) continue
-			I.forceMove(src)
-		// adjust locker size to hold all items with 5 units of free store room
-		var/content_size = 0
-		for(I in src.contents)
-			content_size += Ceiling(I.w_class/2)
-		if(content_size > storage_capacity-5)
-			storage_capacity = content_size + 5
+	fill()
 
+/obj/structure/closet/proc/mapload()
+	var/obj/I
+	for(I in src.loc)
+		if (!istype(I, /obj/item) && !istype(I, /obj/random))
+			continue
+		if (I.density || I.anchored || I == src)
+			continue
+		I.forceMove(src)
+	// adjust locker size to hold all items with 5 units of free store room
+	var/content_size = 0
+	for(I in src.contents)
+		content_size += Ceiling(I.w_class/2)
+	if(content_size > storage_capacity-5)
+		storage_capacity = content_size + 5
+
+// Fill lockers with this.
+/obj/structure/closet/proc/fill()
 
 /obj/structure/closet/examine(mob/user)
 	if(..(user, 1) && !opened)
@@ -202,8 +210,6 @@
 
 	..()
 	damage(proj_damage)
-
-	return
 
 /obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(src.opened)

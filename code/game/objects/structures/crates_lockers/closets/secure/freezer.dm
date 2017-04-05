@@ -16,18 +16,13 @@
 	name = "kitchen cabinet"
 	req_access = list(access_kitchen)
 
-	New()
-		..()
+	fill()
 		for(var/i = 0, i < 2, i++)
 			new /obj/item/weapon/reagent_containers/food/condiment/flour(src)
 		new /obj/item/weapon/reagent_containers/food/condiment/sugar(src)
-		return
-
 
 /obj/structure/closet/secure_closet/freezer/kitchen/mining
 	req_access = list()
-
-
 
 /obj/structure/closet/secure_closet/freezer/meat
 	name = "meat fridge"
@@ -39,13 +34,10 @@
 	icon_off = "fridge1"
 
 
-	New()
+	fill()
 		..()
 		for(var/i = 0, i < 8, i++)
 			new /obj/item/weapon/reagent_containers/food/snacks/meat/monkey(src)
-		return
-
-
 
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
@@ -57,7 +49,7 @@
 	icon_off = "fridge1"
 
 
-	New()
+	fill()
 		..()
 		for(var/i = 0, i < 5, i++)
 			new /obj/item/weapon/reagent_containers/food/drinks/milk(src)
@@ -65,8 +57,6 @@
 			new /obj/item/weapon/reagent_containers/food/drinks/soymilk(src)
 		for(var/i = 0, i < 2, i++)
 			new /obj/item/weapon/storage/fancy/egg_box(src)
-		return
-
 
 
 /obj/structure/closet/secure_closet/freezer/money
@@ -80,7 +70,7 @@
 	req_access = list(access_heads_vault)
 
 
-	New()
+	fill()
 		..()
 		for(var/i = 0, i < 3, i++)
 			new /obj/item/weapon/spacecash/c1000(src)
@@ -88,4 +78,3 @@
 			new /obj/item/weapon/spacecash/c500(src)
 		for(var/i = 0, i < 6, i++)
 			new /obj/item/weapon/spacecash/c200(src)
-		return
