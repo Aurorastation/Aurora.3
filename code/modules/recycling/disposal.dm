@@ -413,7 +413,7 @@
 	flick("[icon_state]-flush", src)
 
 	var/wrapcheck = 0
-	var/obj/structure/disposalholder/H = new()	// virtual holder object which actually
+	var/obj/disposalholder/H = new()	// virtual holder object which actually
 												// travels through the pipes.
 	//Hacky test to get drones to mail themselves through disposals.
 	for(var/mob/living/silicon/robot/drone/D in src)
@@ -455,8 +455,7 @@
 
 // called when holder is expelled from a disposal
 // should usually only occur if the pipe network is modified
-/obj/machinery/disposal/proc/expel(var/obj/structure/disposalholder/H)
-	disposal_log("[src] \ref[src] expel(\ref[H])")
+/obj/machinery/disposal/proc/expel(var/obj/disposalholder/H)
 
 	var/turf/target
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
@@ -467,9 +466,7 @@
 			AM.forceMove(src.loc)
 			AM.pipe_eject(0)
 			if(!istype(AM,/mob/living/silicon/robot/drone)) //Poor drones kept smashing windows and taking system damage being fired out of disposals. ~Z
-				spawn(1)
-					if(AM)
-						AM.throw_at(target, 5, 1)
+				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 5, 1), 1)
 
 		H.vent_gas(loc)
 		qdel(H)
@@ -495,7 +492,7 @@
 // contents will be items flushed by the disposal
 // this allows the gas flushed to be tracked
 
-/obj/structure/disposalholder
+/obj/disposalholder
 	invisibility = 101
 	var/datum/gas_mixture/gas = null	// gas used to flush, will appear at exit point
 	dir = 0
@@ -508,9 +505,8 @@
 
 	var/tmp/obj/structure/disposalpipe/tick_last
 
-
 	// initialize a holder from the contents of a disposal unit
-/obj/structure/disposalholder/proc/init(var/obj/machinery/disposal/D, var/datum/gas_mixture/flush_gas)
+/obj/disposalholder/proc/init(var/obj/machinery/disposal/D, var/datum/gas_mixture/flush_gas)
 	gas = flush_gas// transfer gas resv. into holder object -- let's be explicit about the data this proc consumes, please.
 
 	//Check for any living mobs trigger hasmob.
@@ -545,7 +541,7 @@
 
 	// start the movement process
 	// argument is the disposal unit the holder started in
-/obj/structure/disposalholder/proc/start(var/obj/machinery/disposal/D)
+/obj/disposalholder/proc/start(var/obj/machinery/disposal/D)
 	if(!D.trunk)
 		D.expel(src)	// no trunk connected, so expel immediately
 		return
@@ -554,7 +550,7 @@
 	set_dir(DOWN)
 	START_PROCESSING(SSdisposals, src)
 
-/obj/structure/disposalholder/process()	// For the new SSdisposals-based movement.
+/obj/disposalholder/process()	// For the new SSdisposals-based movement.
 	if (hasmob && prob(3))
 		for(var/mob/living/H in src)
 			if(!istype(H,/mob/living/silicon/robot/drone)) //Drones use the mailing code to move through the disposal system,
@@ -576,6 +572,8 @@
 		return
 
 	if (!curr)
+		//spawn (0)	// expel() can sleep, so we gotta fork to not upset SSdisposals.
+		STOP_PROCESSING(SSdisposals, src)
 		tick_last.expel(src, loc.loc, dir)
 
 	if (!(count--))
@@ -583,11 +581,11 @@
 		tick_last = null
 
 // find the turf which should contain the next pipe
-/obj/structure/disposalholder/proc/nextloc()
+/obj/disposalholder/proc/nextloc()
 	return get_step(loc,dir)
 
 	// find a matching pipe on a turf
-/obj/structure/disposalholder/proc/findpipe(var/turf/T)
+/obj/disposalholder/proc/findpipe(var/turf/T)
 	if(!T)
 		return null
 
@@ -600,7 +598,7 @@
 
 	// merge two holder objects
 	// used when a a holder meets a stuck holder
-/obj/structure/disposalholder/proc/merge(var/obj/structure/disposalholder/other)
+/obj/disposalholder/proc/merge(obj/disposalholder/other)
 	for(var/atom/movable/AM in other)
 		AM.forceMove(src)		// move everything in other holder to this one
 		if(ismob(AM))
@@ -610,11 +608,10 @@
 
 	qdel(other)
 
-
-/obj/structure/disposalholder/proc/settag(var/new_tag)
+/obj/disposalholder/proc/settag(new_tag)
 	destinationTag = new_tag
 
-/obj/structure/disposalholder/proc/setpartialtag(var/new_tag)
+/obj/disposalholder/proc/setpartialtag(new_tag)
 	if(partialTag == new_tag)
 		destinationTag = new_tag
 		partialTag = ""
@@ -623,7 +620,7 @@
 
 
 	// called when player tries to move while in a pipe
-/obj/structure/disposalholder/relaymove(mob/user as mob)
+/obj/disposalholder/relaymove(mob/user as mob)
 	if(!istype(user,/mob/living))
 		return
 
@@ -641,12 +638,12 @@
 	playsound(src.loc, 'sound/effects/clang.ogg', 50, 0, 0)
 
 	// called to vent all gas in holder to a location
-/obj/structure/disposalholder/proc/vent_gas(var/atom/location)
+/obj/disposalholder/proc/vent_gas(atom/location)
 	location.assume_air(gas)  // vent all gas to turf
 
-/obj/structure/disposalholder/Destroy()
+/obj/disposalholder/Destroy()
 	STOP_PROCESSING(SSdisposals, src)
-	qdel(gas)
+	QDEL_NULL(gas)
 	tick_last = null
 	return ..()
 
@@ -676,7 +673,7 @@
 // pipe is deleted
 // ensure if holder is present, it is expelled
 /obj/structure/disposalpipe/Destroy()
-	var/obj/structure/disposalholder/H = locate() in src
+	var/obj/disposalholder/H = locate() in src
 	if(H)
 		// holder was present
 		STOP_PROCESSING(SSdisposals, H)
@@ -705,7 +702,7 @@
 // transfer the holder through this pipe segment
 // overriden for special behaviour
 //
-/obj/structure/disposalpipe/proc/transfer(var/obj/structure/disposalholder/H)
+/obj/structure/disposalpipe/proc/transfer(var/obj/disposalholder/H)
 	var/nextdir = nextdir(H.dir)
 	H.set_dir(nextdir)
 	var/turf/T = H.nextloc()
@@ -713,7 +710,7 @@
 
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
-		var/obj/structure/disposalholder/H2 = locate() in P
+		var/obj/disposalholder/H2 = locate() in P
 		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
@@ -751,11 +748,9 @@
 
 	// expel the held objects into a turf
 	// called when there is a break in the pipe
-/obj/structure/disposalpipe/proc/expel(var/obj/structure/disposalholder/H, var/turf/T, var/direction)
+/obj/structure/disposalpipe/proc/expel(var/obj/disposalholder/H, var/turf/T, var/direction)
 	if(!istype(H))
 		return
-
-	disposal_log("[src] \ref[src] expel(\ref[H])")
 
 	// Empty the holder if it is expelled into a dense turf.
 	// Leaving it intact and sitting in a wall is stupid.
@@ -783,9 +778,8 @@
 			for(var/atom/movable/AM in H)
 				AM.forceMove(T)
 				AM.pipe_eject(direction)
-				spawn(1)
-					if(AM)
-						AM.throw_at(target, 100, 1)
+				// addtimer will check AM for null.
+				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 100, 1), 1)
 			H.vent_gas(T)
 			qdel(H)
 
@@ -797,9 +791,7 @@
 
 				AM.forceMove(T)
 				AM.pipe_eject(0)
-				spawn(1)
-					if(AM)
-						AM.throw_at(target, 5, 1)
+				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 5, 1), 1)
 
 			H.vent_gas(T)	// all gas vent to turf
 			qdel(H)
@@ -816,7 +808,7 @@
 				P.set_dir(D)
 
 	src.invisibility = 101	// make invisible (since we won't delete the pipe immediately)
-	var/obj/structure/disposalholder/H = locate() in src
+	var/obj/disposalholder/H = locate() in src
 	if(H)
 		// holder was present
 		STOP_PROCESSING(SSdisposals, H)
@@ -928,7 +920,7 @@
 // pipe is deleted
 // ensure if holder is present, it is expelled
 /obj/structure/disposalpipe/Destroy()
-	var/obj/structure/disposalholder/H = locate() in src
+	var/obj/disposalholder/H = locate() in src
 	if(H)
 		// holder was present
 		STOP_PROCESSING(SSdisposals, H)
@@ -954,7 +946,7 @@
 
 // *** TEST verb
 //client/verb/dispstop()
-//	for(var/obj/structure/disposalholder/H in world)
+//	for(var/obj/disposalholder/H in world)
 //		H.active = 0
 
 // a straight or bent segment
@@ -987,7 +979,7 @@
 		nextdir = 12
 	return nextdir
 
-/obj/structure/disposalpipe/up/transfer(var/obj/structure/disposalholder/H)
+/obj/structure/disposalpipe/up/transfer(var/obj/disposalholder/H)
 	var/nextdir = nextdir(H.dir)
 	H.set_dir(nextdir)
 
@@ -1009,7 +1001,7 @@
 
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
-		var/obj/structure/disposalholder/H2 = locate() in P
+		var/obj/disposalholder/H2 = locate() in P
 		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
@@ -1036,7 +1028,7 @@
 		nextdir = 11
 	return nextdir
 
-/obj/structure/disposalpipe/down/transfer(var/obj/structure/disposalholder/H)
+/obj/structure/disposalpipe/down/transfer(var/obj/disposalholder/H)
 	var/nextdir = nextdir(H.dir)
 	H.dir = nextdir
 
@@ -1058,7 +1050,7 @@
 
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
-		var/obj/structure/disposalholder/H2 = locate() in P
+		var/obj/disposalholder/H2 = locate() in P
 		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
@@ -1155,7 +1147,7 @@
 			updatename()
 			updatedesc()
 
-/obj/structure/disposalpipe/tagger/transfer(var/obj/structure/disposalholder/H)
+/obj/structure/disposalpipe/tagger/transfer(var/obj/disposalholder/H)
 	if(sort_tag)
 		if(partial)
 			H.setpartialtag(sort_tag)
@@ -1242,7 +1234,7 @@
 						// so go with the flow to positive direction
 		return posdir
 
-/obj/structure/disposalpipe/sortjunction/transfer(var/obj/structure/disposalholder/H)
+/obj/structure/disposalpipe/sortjunction/transfer(var/obj/disposalholder/H)
 	var/nextdir = nextdir(H.dir, H.destinationTag)
 	H.set_dir(nextdir)
 	var/turf/T = H.nextloc()
@@ -1250,7 +1242,7 @@
 
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
-		var/obj/structure/disposalholder/H2 = locate() in P
+		var/obj/disposalholder/H2 = locate() in P
 		if(H2 && !H2.isprocessing)
 			H.merge(H2)
 
@@ -1356,7 +1348,7 @@
 // would transfer to next pipe segment, but we are in a trunk
 // if not entering from disposal bin,
 // transfer to linked object (outlet or bin)
-/obj/structure/disposalpipe/trunk/transfer(var/obj/structure/disposalholder/H)
+/obj/structure/disposalpipe/trunk/transfer(var/obj/disposalholder/H)
 
 	if(H.dir == DOWN)		// we just entered from a disposer
 		return ..()		// so do base transfer proc
@@ -1382,8 +1374,7 @@
 	else
 		return 0
 
-/obj/structure/disposalpipe/trunk/expel(obj/structure/disposalholder/H)
-	disposal_log("[src] \ref[src] expel(\ref[H]), linked=[linked ? linked : "NULL"]")
+/obj/structure/disposalpipe/trunk/expel(obj/disposalholder/H)
 	if (!linked)
 		..(H)
 
@@ -1425,10 +1416,12 @@
 	if(trunk)
 		trunk.linked = src	// link the pipe trunk to self
 
+
 /proc/disposal_log(thing)
 	log_debug("\[[world.time]] Disposals: [thing]")
 
-/obj/structure/disposaloutlet/proc/expel(var/obj/structure/disposalholder/H)
+/obj/structure/disposaloutlet/proc/expel(var/obj/disposalholder/H)
+	set waitfor = FALSE
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
 	sleep(20)	//wait until correct animation frame
@@ -1502,7 +1495,7 @@
 			user << "You start slicing the floorweld off the disposal outlet."
 			if(do_after(user,20))
 				if(!src || !W.isOn()) return
-				user << "You sliced the floorweld off the disposal outlet."
+				user << "You slice the floorweld off the disposal outlet."
 				var/obj/structure/disposalconstruct/C = new (src.loc)
 				src.transfer_fingerprints_to(C)
 				C.ptype = 7 // 7 =  outlet

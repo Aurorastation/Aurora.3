@@ -405,7 +405,7 @@
 /obj/machinery/disposal/deliveryChute/flush()
 	flushing = 1
 	flick("intake-closing", src)
-	var/obj/structure/disposalholder/H = new()	// virtual holder object which actually
+	var/obj/disposalholder/H = new()	// virtual holder object which actually
 												// travels through the pipes.
 	air_contents = new()		// new empty gas resv.
 
