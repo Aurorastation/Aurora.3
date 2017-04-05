@@ -11,7 +11,7 @@ Pipelines + Other Objects -> Pipe network
 */
 /obj/machinery/atmospherics
 
-	auto_init = 0
+	var/auto_init = 0
 
 	var/no_special_init = FALSE
 
