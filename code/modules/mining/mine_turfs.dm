@@ -40,11 +40,24 @@
 
 	has_resources = 1
 
+// Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize()
-	. = ..()
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	initialized = TRUE
+
+	if(dynamic_lighting)
+		luminosity = 0
+	else
+		luminosity = 1
+
+	has_opaque_atom = TRUE
+
 	if (smooth)
 		pixel_x = -4
 		pixel_y = -4
+		queue_smooth(src)
 
 /turf/simulated/mineral/examine(mob/user)
 	..()
@@ -429,7 +442,7 @@
 		if (mineral_name && (mineral_name in ore_data))
 			mineral = ore_data[mineral_name]
 			UpdateMineral()
-
+		
 	. = ..()
 
 /turf/simulated/mineral/random/low_chance
@@ -504,14 +517,24 @@
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
+// Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize()
-	. = ..()
+	if(initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+	initialized = TRUE
+
+	if(dynamic_lighting)
+		luminosity = 0
+	else
+		luminosity = 1
+
 	if(prob(20))
 		overlay_detail = rand(0,9)
 
 	if (smooth)
 		pixel_x = -4
 		pixel_y = -4
+		queue_smooth(src)
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
