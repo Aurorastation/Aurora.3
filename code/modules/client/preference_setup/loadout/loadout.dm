@@ -29,6 +29,8 @@ var/list/gear_datums = list()
 		var/datum/loadout_category/LC = loadout_categories[loadout_category]
 		sortTim(LC.gear, /proc/cmp_text_asc, FALSE)
 
+	return TRUE
+
 /datum/category_item/player_setup_item/loadout
 	name = "Loadout"
 	sort_order = 1
