@@ -9,7 +9,7 @@
 	var/obj/effect/map/ship/linked
 
 /obj/machinery/computer/engines/Initialize()
-	..()
+	. = ..()
 	linked = map_sectors["[z]"]
 	if (linked)
 		if (!linked.eng_control)

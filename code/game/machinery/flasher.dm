@@ -28,7 +28,7 @@
 	density = 1
 
 /obj/machinery/flasher/Initialize()
-	..()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 

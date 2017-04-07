@@ -75,7 +75,7 @@
 	
 
 /obj/machinery/atmospherics/unary/vent_pump/Initialize()
-	..()
+	. = ..()
 
 	initial_loc = get_area(loc)
 	area_uid = initial_loc.uid

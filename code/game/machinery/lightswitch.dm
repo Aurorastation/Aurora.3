@@ -13,7 +13,7 @@
 	//	luminosity = 1
 
 /obj/machinery/light_switch/Initialize()
-	..()
+	. = ..()
 	src.area = get_area(src)
 
 	if(otherarea)

@@ -25,16 +25,18 @@
 /obj/effect/wingrille_spawn/attack_generic()
 	activate()
 
+/obj/effect/wingrille_spawn/LateInitialize()
+	qdel(src)
+
 /obj/effect/wingrille_spawn/Initialize(mapload)
 	if (!win_path)
-		qdel(src)
-		return
-	if (mapload)
-		activate()
-		return TRUE
+		return INITIALIZE_HINT_QDEL
 
 	..()
-	qdel(src)
+
+	activate()
+
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/wingrille_spawn/proc/activate()
 	if(activated) return

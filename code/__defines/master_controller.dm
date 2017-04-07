@@ -75,3 +75,11 @@
 //To be used with TIMER_UNIQUE
 //prevents distinguishing identical timers with the wait variable
 #define TIMER_NO_HASH_WAIT  0x10
+
+#define INITIALIZATION_INSSATOMS 0	//New should not call Initialize
+#define INITIALIZATION_INNEW_MAPLOAD 1	//New should call Initialize(TRUE)
+#define INITIALIZATION_INNEW_REGULAR 2	//New should call Initialize(FALSE)
+
+#define INITIALIZE_HINT_NORMAL 0    //Nothing happens
+#define INITIALIZE_HINT_LATELOAD 1  //Call LateInitialize
+#define INITIALIZE_HINT_QDEL 2  //Call qdel on the atom

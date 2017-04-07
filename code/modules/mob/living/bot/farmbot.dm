@@ -28,7 +28,7 @@
 	var/frustration = 0
 
 /mob/living/bot/farmbot/Initialize()
-	..()
+	. = ..()
 	tank = locate() in contents
 	if(!tank)
 		tank = new /obj/structure/reagent_dispensers/watertank(src)

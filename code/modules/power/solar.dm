@@ -347,7 +347,7 @@ var/list/solars_list = list()
 
 
 /obj/machinery/power/solar_control/Initialize()
-	..()
+	. = ..()
 	if(!connect_to_network()) return
 	set_panels(cdir)
 
@@ -531,7 +531,7 @@ var/list/solars_list = list()
 	track = 2 // Auto tracking mode
 
 /obj/machinery/power/solar_control/autostart/Initialize()
-	..()
+	. = ..()
 	src.search_for_connected()
 	if(connected_tracker && track == 2)
 		connected_tracker.set_angle(sun.angle)

@@ -9,7 +9,7 @@
 
 
 /obj/machinery/gateway/Initialize()
-	..()
+	. = ..()
 	update_icon()
 	if(dir == 2)
 		density = 0
@@ -36,7 +36,7 @@
 	var/obj/machinery/gateway/centeraway/awaygate = null
 
 /obj/machinery/gateway/centerstation/Initialize()
-	..()
+	. = ..()
 	update_icon()
 	wait = world.time + config.gateway_delay	//+ thirty minutes default
 	awaygate = locate(/obj/machinery/gateway/centeraway)
@@ -152,7 +152,7 @@ obj/machinery/gateway/centerstation/process()
 
 
 /obj/machinery/gateway/centeraway/Initialize()
-	..()
+	. = ..()
 	update_icon()
 	stationgate = locate(/obj/machinery/gateway/centerstation)
 

@@ -155,7 +155,7 @@
 	return cell.drain_power(drain_check, surge, amount)
 
 /obj/machinery/power/apc/Initialize(mapload, var/ndir, var/building=0)
-	..()
+	. = ..()
 	wires = new(src)
 
 	// offset 24 pixels in direction of dir

@@ -284,8 +284,8 @@
 	capacity = 5000
 	
 /obj/structure/reagent_dispensers/cookingoil/Initialize()
-		..()
-		reagents.add_reagent("cornoil",capacity)
+	. = ..()
+	reagents.add_reagent("cornoil",capacity)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())

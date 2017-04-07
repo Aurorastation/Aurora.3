@@ -502,7 +502,7 @@
 	layer = 2.44
 
 /obj/structure/track/Initialize()
-	..()
+	. = ..()
 	var/obj/structure/track/track = locate() in loc
 	if (track && track != src)
 		qdel(src)
@@ -576,7 +576,7 @@
 	light_color = LIGHT_COLOR_FIRE
 
 /obj/vehicle/train/cargo/engine/mining/Initialize()
-	..()
+	. = ..()
 	cell = new /obj/item/weapon/cell/high(src)
 	key = null
 	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs

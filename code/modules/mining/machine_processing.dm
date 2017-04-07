@@ -17,12 +17,12 @@
 	var/obj/item/weapon/card/id/inserted_id
 
 /obj/machinery/mineral/processing_unit_console/Initialize()
-	..()
+	. = ..()
 	src.machine = locate(/obj/machinery/mineral/processing_unit, get_step(src, machinedir))
 	if (machine)
 		machine.console = src
 	else
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -161,7 +161,7 @@
 	active_power_usage = 50
 
 /obj/machinery/mineral/processing_unit/Initialize()
-	..()
+	. = ..()
 
 	// initialize static alloy_data list
 	if(!alloy_data)

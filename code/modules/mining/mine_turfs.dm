@@ -59,6 +59,8 @@
 		pixel_y = -4
 		queue_smooth(src)
 
+	return INITIALIZE_HINT_NORMAL
+
 /turf/simulated/mineral/examine(mob/user)
 	..()
 	if(mineral)
@@ -535,6 +537,8 @@
 		pixel_x = -4
 		pixel_y = -4
 		queue_smooth(src)
+	
+	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)

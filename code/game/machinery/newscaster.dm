@@ -174,7 +174,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	securityCaster = 1
 
 /obj/machinery/newscaster/Initialize()         //Constructor, ho~
-	..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
+	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	allCasters += src
 	src.paper_remaining = 15            // Will probably change this to something better
 	src.unit_no = allCasters.len + 1

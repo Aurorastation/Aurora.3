@@ -115,7 +115,7 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 
 /obj/machinery/Initialize(mapload, d=0)
-	..()
+	. = ..()
 	if(d)
 		set_dir(d)
 

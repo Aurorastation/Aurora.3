@@ -39,7 +39,7 @@
 // Standard procs
 //-------------------------------------------
 /obj/vehicle/train/cargo/engine/Initialize()
-	..()
+	. = ..()
 	cell = new /obj/item/weapon/cell/high(src)
 	key = new(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs

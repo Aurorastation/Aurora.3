@@ -29,7 +29,7 @@
 		O.hide(1)
 
 /turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
-	..()
+	. = ..()
 	icon_state = "blank"
 	if(!materialtype)
 		materialtype = DEFAULT_WALL_MATERIAL

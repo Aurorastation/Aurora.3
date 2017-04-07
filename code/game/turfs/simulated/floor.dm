@@ -27,7 +27,7 @@
 	return !flooring
 
 /turf/simulated/floor/Initialize(mapload, var/floortype)
-	..()
+	. = ..()
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)

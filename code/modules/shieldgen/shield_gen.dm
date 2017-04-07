@@ -36,7 +36,7 @@
 			owned_capacitor = possible_cap
 			break
 	field = list()
-	..()
+	. = ..()
 
 /obj/machinery/shield_gen/Destroy()
 	for(var/obj/effect/energy_field/D in field)

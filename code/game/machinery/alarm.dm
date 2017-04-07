@@ -107,7 +107,7 @@
 	target_temperature = T0C + 5
 
 /obj/machinery/alarm/server/Initialize()
-	..()
+	. = ..()
 	TLV["oxygen"] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
 	TLV["phoron"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
@@ -120,14 +120,14 @@
 
 //Kitchen freezer
 /obj/machinery/alarm/freezer/Initialize()
-	..()
+	. = ..()
 	TLV["oxygen"] = list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
 	TLV["temperature"] = list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 
 //Refridgerated area, cold but above-freezing
 /obj/machinery/alarm/cold/Initialize()
-	..()
+	. = ..()
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
 
@@ -137,12 +137,11 @@
 	wires = null
 	return ..()
 
-/obj/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)
-	if (initialized)
-		apply_mode()
-		return
+/obj/machinery/alarm/LateInitialize()
+	apply_mode()
 
-	..()
+/obj/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)
+	. = ..()
 
 	if(building)
 		if(dir)
@@ -161,8 +160,7 @@
 	if (!master_is_operating())
 		elect_master()
 
-	if (mapload)
-		return TRUE
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)

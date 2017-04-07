@@ -12,4 +12,4 @@
 	src.canmove = 0
 
 /mob/living/silicon/decoy/Initialize()
-	return
+	return INITIALIZE_HINT_NORMAL

@@ -21,7 +21,7 @@
 /obj/machinery/computer/station_alert/Initialize()
 	alarm_monitor = new monitor_type(src)
 	alarm_monitor.register_alarm(src, /obj/machinery/computer/station_alert/update_icon)
-	..()
+	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
 

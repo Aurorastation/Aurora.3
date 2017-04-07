@@ -16,7 +16,8 @@
 		var/item = spawn_item()
 		if (has_postspawn && item)
 			post_spawn(item)
-	qdel(src)
+	
+	return INITIALIZE_HINT_QDEL
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()
@@ -438,7 +439,7 @@
 
 /obj/random/vendor/Initialize(mapload, _depleted = 0)
 	depleted = _depleted
-	..(loc)
+	. = ..()
 
 /obj/random/vendor/post_spawn(obj/machinery/vending/V)
 	if (!depleted)

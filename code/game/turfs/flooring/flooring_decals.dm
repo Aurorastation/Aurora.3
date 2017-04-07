@@ -9,24 +9,7 @@ var/list/floor_decals = list()
 	layer = TURF_LAYER + 0.01
 	var/supplied_dir
 
-/obj/effect/floor_decal/Initialize(mapload, var/newdir, var/newcolour, bypass = FALSE)
-	if (bypass && !mapload)
-		return ..(mapload)
-
-	if (mapload)
-		return TRUE
-
-	if (newdir)
-		supplied_dir = newdir
-
-	if(newcolour)
-		color = newcolour
-
-	..()
-
-	if (supplied_dir) 
-		set_dir(supplied_dir)
-
+/obj/effect/floor_decal/LateInitialize()
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
@@ -39,7 +22,22 @@ var/list/floor_decals = list()
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
 		T.add_overlay(floor_decals[cache_key])
-	qdel(src)
+
+/obj/effect/floor_decal/Initialize(mapload, var/newdir, var/newcolour, bypass = FALSE)
+	if (bypass && !mapload)
+		return ..(mapload)
+
+	if (newdir)
+		supplied_dir = newdir
+
+	if(newcolour)
+		color = newcolour
+
+	if (supplied_dir) 
+		set_dir(supplied_dir)
+
+	..()
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/floor_decal/reset
 	name = "reset marker"

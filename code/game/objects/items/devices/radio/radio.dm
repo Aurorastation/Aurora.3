@@ -69,7 +69,7 @@ var/global/list/default_medbay_channels = list(
 	return ..()
 
 /obj/item/device/radio/Initialize()
-	..()
+	. = ..()
 
 	wires = new(src)
 	internal_channels = default_internal_channels.Copy()
@@ -757,5 +757,5 @@ var/global/list/default_medbay_channels = list(
 	frequency = MED_I_FREQ
 
 /obj/item/device/radio/phone/medbay/Initialize()
-	..()
+	. = ..()
 	internal_channels = default_medbay_channels.Copy()

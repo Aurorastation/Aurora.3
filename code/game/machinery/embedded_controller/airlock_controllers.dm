@@ -13,7 +13,7 @@
 	var/tag_secure = 0
 
 /obj/machinery/embedded_controller/radio/airlock/Initialize()
-	..()
+	. = ..()
 	program = new/datum/computer/file/embedded_program/airlock(src)
 
 //Advanced airlock controller for when you want a more versatile airlock controller - useful for turning simple access control rooms into airlocks

@@ -15,7 +15,7 @@
 	var/spent_icon = "s-casing-spent"
 
 /obj/item/ammo_casing/Initialize()
-	..()
+	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
 	pixel_x = rand(-10, 10)

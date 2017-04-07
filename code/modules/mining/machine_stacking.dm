@@ -13,12 +13,12 @@
 	active_power_usage = 50
 
 /obj/machinery/mineral/stacking_unit_console/Initialize()
-	..()
+	. = ..()
 	src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, machinedir))
 	if (machine)
 		machine.console = src
 	else
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -82,7 +82,7 @@
 	active_power_usage = 50
 
 /obj/machinery/mineral/stacking_machine/Initialize()
-	..()
+	. = ..()
 
 	for(var/stacktype in typesof(/obj/item/stack/material)-/obj/item/stack/material)
 		var/obj/item/stack/S = new stacktype(src)

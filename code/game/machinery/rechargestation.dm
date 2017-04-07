@@ -22,7 +22,7 @@
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
 /obj/machinery/recharge_station/Initialize()
-	..()
+	. = ..()
 
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/recharge_station(src)

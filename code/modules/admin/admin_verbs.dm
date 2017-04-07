@@ -207,7 +207,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/debug_pooling,
 	/client/proc/fix_player_list,
 	/client/proc/lighting_show_verbs,
-	/client/proc/restart_controller
+	/client/proc/restart_controller,
+	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_init_log
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -358,7 +360,9 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_dev_bst,
-	/client/proc/lighting_show_verbs
+	/client/proc/lighting_show_verbs,
+	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_init_log
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/

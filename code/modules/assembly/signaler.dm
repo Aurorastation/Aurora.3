@@ -18,7 +18,7 @@
 	var/deadman = 0
 
 	Initialize()
-		..()
+		. = ..()
 		set_frequency(frequency)
 
 	activate()

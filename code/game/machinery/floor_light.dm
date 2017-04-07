@@ -161,12 +161,8 @@ var/list/floor_light_cache = list()
 	name = "dance floor"
 	on_state = "light_on-dancefloor_A"
 	anchored = 1
-
-/obj/machinery/floor_light/dance/Initialize()
-	..()
-	on = !on
-	if(on)
-		use_power = 2
+	on = TRUE
+	use_power = 2
 
 /obj/machinery/floor_light/dance/alternate
 	name = "dance floor"

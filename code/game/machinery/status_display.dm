@@ -53,7 +53,7 @@
 
 // register for radio system
 /obj/machinery/status_display/Initialize()
-	..()
+	. = ..()
 	if(radio_controller)
 		if (hears_arrivals)
 			radio_controller.add_object(src, frequency, RADIO_ARRIVALS)

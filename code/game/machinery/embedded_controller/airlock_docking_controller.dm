@@ -6,7 +6,7 @@
 	tag_secure = 1
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port/Initialize()
-	..()
+	. = ..()
 	airlock_program = new/datum/computer/file/embedded_program/airlock/docking(src)
 	docking_program = new/datum/computer/file/embedded_program/docking/airlock(src, airlock_program)
 	program = docking_program

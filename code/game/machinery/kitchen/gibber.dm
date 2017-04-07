@@ -23,7 +23,7 @@
 	var/turf/input_plate
 
 /obj/machinery/gibber/autogibber/Initialize()
-	..()
+	. = ..()
 	for(var/i in cardinal)
 		var/obj/machinery/mineral/input/input_obj = locate( /obj/machinery/mineral/input, get_step(src.loc, i) )
 		if(input_obj)
@@ -50,7 +50,7 @@
 
 
 /obj/machinery/gibber/Initialize()
-	..()
+	. = ..()
 	add_overlay("grjam")
 
 /obj/machinery/gibber/update_icon()

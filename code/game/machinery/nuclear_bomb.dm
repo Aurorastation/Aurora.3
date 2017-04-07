@@ -25,7 +25,7 @@ var/bomb_set
 	var/datum/wires/nuclearbomb/wires = null
 
 /obj/machinery/nuclearbomb/Initialize()
-	..()
+	. = ..()
 	r_code = "[rand(10000, 99999.0)]"//Creates a random code upon object spawn.
 	wires = new/datum/wires/nuclearbomb(src)
 
@@ -403,7 +403,7 @@ var/bomb_set
 	w_class = 1.0
 
 /obj/item/weapon/disk/nuclear/Initialize()
-	..()
+	. = ..()
 	nuke_disks |= src
 
 /obj/item/weapon/disk/nuclear/Destroy()
@@ -432,11 +432,11 @@ var/bomb_set
 	var/last_turf_state
 
 /obj/machinery/nuclearbomb/station/Initialize(mapload)
-	if (mapload)
-		return TRUE
-		
 	..()
 	verbs -= /obj/machinery/nuclearbomb/verb/toggle_deployable
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/nuclearbomb/station/LateInitialize()
 	for(var/turf/simulated/floor/T in trange(1, src))
 		T.set_flooring(get_flooring_data(/decl/flooring/reinforced/circuit/red))
 		flash_tiles += T

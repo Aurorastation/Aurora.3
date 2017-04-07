@@ -56,7 +56,7 @@
 	update()
 
 /turf/simulated/open/Initialize()
-	..()
+	. = ..()
 	update()
 
 /turf/simulated/open/proc/update()

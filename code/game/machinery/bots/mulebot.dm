@@ -65,7 +65,7 @@
 	cell.maxcharge = 2000
 
 /obj/machinery/bot/mulebot/Initialize()
-	..()
+	. = ..()
 	if(radio_controller)
 		radio_controller.add_object(src, control_freq, filter = RADIO_MULEBOT)
 		radio_controller.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)

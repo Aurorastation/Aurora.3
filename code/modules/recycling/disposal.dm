@@ -30,7 +30,7 @@
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
 /obj/machinery/disposal/Initialize()
-	..()
+	. = ..()
 	trunk = locate() in src.loc
 	if(!trunk)
 		mode = 0
@@ -667,7 +667,7 @@
 	// new pipe, set the icon_state as on map
 
 /obj/structure/disposalpipe/Initialize()
-	..()
+	. = ..()
 	base_icon_state = icon_state
 
 // pipe is deleted
@@ -954,7 +954,7 @@
 	icon_state = "pipe-s"
 
 /obj/structure/disposalpipe/segment/Initialize()
-	..()
+	. = ..()
 	if(icon_state == "pipe-s")
 		dpdir = dir | turn(dir, 180)
 	else
@@ -967,7 +967,7 @@
 	icon_state = "pipe-u"
 
 /obj/structure/disposalpipe/up/Initialize()
-	..()
+	. = ..()
 	dpdir = dir
 	update()
 
@@ -1016,7 +1016,7 @@
 	icon_state = "pipe-d"
 
 /obj/structure/disposalpipe/down/Initialize()
-	..()
+	. = ..()
 	dpdir = dir
 	update()
 
@@ -1070,7 +1070,7 @@
 	icon_state = "pipe-j1"
 
 /obj/structure/disposalpipe/junction/Initialize()
-	..()
+	. = ..()
 	if(icon_state == "pipe-j1")
 		dpdir = dir | turn(dir, -90) | turn(dir,180)
 	else if(icon_state == "pipe-j2")
@@ -1124,7 +1124,7 @@
 		name = initial(name)
 
 /obj/structure/disposalpipe/tagger/Initialize()
-	..()
+	. = ..()
 	dpdir = dir | turn(dir, 180)
 	if(sort_tag) 
 		SSdisposals.tagger_locations |= sort_tag
@@ -1193,7 +1193,7 @@
 	dpdir = sortdir | posdir | negdir
 
 /obj/structure/disposalpipe/sortjunction/Initialize()
-	..()
+	. = ..()
 	if(sortType) 
 		SSdisposals.tagger_locations |= sortType
 
@@ -1284,7 +1284,7 @@
 	var/obj/linked 	// the linked obj/machinery/disposal or obj/disposaloutlet
 
 /obj/structure/disposalpipe/trunk/Initialize()
-	..()
+	. = ..()
 	dpdir = dir
 
 	update()
@@ -1386,7 +1386,7 @@
 	desc = "A broken piece of disposal pipe."
 
 /obj/structure/disposalpipe/broken/Initialize()
-	..()
+	. = ..()
 	update()
 
 // called when welded
@@ -1410,6 +1410,7 @@
 	var/mode = 0
 
 /obj/structure/disposaloutlet/Initialize()
+	. = ..()
 	target = get_ranged_target_turf(src, dir, 10)
 
 	var/obj/structure/disposalpipe/trunk/trunk = locate() in src.loc

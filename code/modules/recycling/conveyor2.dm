@@ -37,7 +37,7 @@
 
 	// create a conveyor
 /obj/machinery/conveyor/Initialize(mapload, newdir, on = 0)
-	..()
+	. = ..()
 	if(newdir)
 		set_dir(newdir)
 
@@ -195,7 +195,7 @@
 
 
 /obj/machinery/conveyor_switch/Initialize(mapload, newid)
-	..()
+	. = ..()
 	if(!id)
 		id = newid
 	update()

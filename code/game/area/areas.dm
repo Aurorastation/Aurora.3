@@ -37,7 +37,7 @@
 
 	blend_mode = BLEND_MULTIPLY
 	
-	..()
+	. = ..()
 
 /area/proc/get_contents()
 	return contents

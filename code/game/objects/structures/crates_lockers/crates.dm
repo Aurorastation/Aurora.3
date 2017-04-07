@@ -273,7 +273,7 @@
 	health = 200
 
 /obj/structure/closet/crate/secure/Initialize()
-	..()
+	. = ..()
 	if(locked)
 		cut_overlays()
 		add_overlay(redlight)
@@ -670,7 +670,7 @@
 
 
 /obj/structure/closet/crate/loot/Initialize(mapload, var/_rarity = 1, var/_quantity = 10)
-	..()
+	. = ..()
 	rarity = _rarity
 	quantity = _quantity
 

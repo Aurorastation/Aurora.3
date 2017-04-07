@@ -16,7 +16,7 @@ var/global/list/gps_by_type = list()
 	var/turf/locked_location
 
 /obj/item/device/gps/Initialize()
-	..()
+	. = ..()
 	GPS_list.Add(src)
 	LAZYADD(gps_by_type["[type]"], src)
 	gpstag = "[gps_prefix][LAZYLEN(gps_by_type["[type]"])]"

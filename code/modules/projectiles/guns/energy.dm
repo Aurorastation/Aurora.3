@@ -29,7 +29,7 @@
 	update_icon()
 
 /obj/item/weapon/gun/energy/Initialize()
-	..()
+	. = ..()
 	if(cell_type)
 		power_supply = new cell_type(src)
 	else

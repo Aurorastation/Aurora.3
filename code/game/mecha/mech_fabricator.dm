@@ -41,7 +41,7 @@
 	return
 
 /obj/machinery/mecha_part_fabricator/Initialize()
-	..()
+	. = ..()
 	manufacturer = basic_robolimb.company
 	update_categories()
 

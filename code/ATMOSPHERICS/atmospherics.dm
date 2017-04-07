@@ -54,7 +54,7 @@ Pipelines + Other Objects -> Pipe network
 	if (no_special_init)
 		return ..()
 
-	..()
+	. = ..()
 	if (mapload)
 		initialize()
 
