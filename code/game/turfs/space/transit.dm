@@ -4,6 +4,7 @@
 
 /turf/space/transit/Initialize()
 	update_icon()
+	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /turf/space/transit/update_icon()
