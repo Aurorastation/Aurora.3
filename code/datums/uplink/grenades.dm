@@ -4,9 +4,6 @@
 /datum/uplink_item/item/grenades
 	category = /datum/uplink_category/grenades
 
-/datum/uplink_item/item/grenades/New()
-	..()
-	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
 
 /datum/uplink_item/item/grenades/anti_photon
 	name = "5xPhoton Disruption Grenades"

@@ -4,10 +4,6 @@
 /datum/uplink_item/item/ninja_modules
 	category = /datum/uplink_category/ninja_modules
 
-/datum/uplink_item/item/ninja_modules/New()
-	..()
-	antag_roles = list(MODE_NINJA)
-
 /datum/uplink_item/item/ninja_modules/self_destruct
 	name = "Self Destruct Module"
 	desc = "A last resort module that packs enough explosives to kill the user and blow up anything around them."
@@ -63,8 +59,8 @@
 	path = /obj/item/rig_module/power_sink
 
 /datum/uplink_item/item/ninja_modules/emag_hand
-	name = "Electromagnetic Scrambler"
-	desc = "A module that allows the user to scramble electronics in a target item shorting them out which causes them to open or have their saftey protocols disabled."
+	name = "EMAG Hand Module"
+	desc = "A module that allows the user to apply an EMAG effect to the targeted item."
 	item_cost = 5
 	path = /obj/item/rig_module/emag_hand
 

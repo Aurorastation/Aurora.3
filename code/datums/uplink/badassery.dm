@@ -4,9 +4,6 @@
 /datum/uplink_item/item/badassery
 	category = /datum/uplink_category/badassery
 
-/datum/uplink_item/item/badassery/New()
-	..()
-	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
 
 /datum/uplink_item/item/badassery/balloon
 	name = "For showing that You Are The BOSS (Useless Balloon)"

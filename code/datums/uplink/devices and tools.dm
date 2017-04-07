@@ -4,10 +4,6 @@
 /datum/uplink_item/item/tools
 	category = /datum/uplink_category/tools
 
-/datum/uplink_item/item/tools/New()
-	..()
-	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
-
 /datum/uplink_item/item/tools/toolbox
 	name = "Fully Loaded Toolbox"
 	item_cost = 2

@@ -4,10 +4,6 @@
 /datum/uplink_item/item/visible_weapons
 	category = /datum/uplink_category/visible_weapons
 
-/datum/uplink_item/item/visible_weapons/New()
-	..()
-	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
-
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
 	item_cost = 5

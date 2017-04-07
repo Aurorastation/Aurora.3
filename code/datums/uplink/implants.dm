@@ -4,10 +4,6 @@
 /datum/uplink_item/item/implants
 	category = /datum/uplink_category/implants
 
-/datum/uplink_item/item/implants/New()
-	..()
-	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
-
 /datum/uplink_item/item/implants/imp_freedom
 	name = "Freedom Implant"
 	item_cost = 6

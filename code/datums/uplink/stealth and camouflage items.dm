@@ -4,10 +4,6 @@
 /datum/uplink_item/item/stealth_items
 	category = /datum/uplink_category/stealth_items
 
-/datum/uplink_item/item/stealth_items/New()
-	..()
-	antag_roles = list(MODE_MERCENARY, MODE_TRAITOR)
-
 /datum/uplink_item/item/stealth_items/syndigaloshes
 	name = "No-Slip Shoes"
 	item_cost = 1
