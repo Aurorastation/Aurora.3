@@ -20,8 +20,8 @@
 	var/material/padding_material
 	var/base_icon = "bed"
 
-/obj/structure/bed/New(var/newloc, var/new_material, var/new_padding_material)
-	..(newloc)
+/obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
+	. = ..()
 	color = null
 	if(!new_material)
 		new_material = DEFAULT_WALL_MATERIAL
