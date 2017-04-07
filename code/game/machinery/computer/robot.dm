@@ -63,7 +63,7 @@
 			target << "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered."
 			target.ResetSecurityCodes()
 		else
-			message_admins("<span class='notice'>[key_name_admin(usr)] detonated [target.name]!</span>")
+			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
 			target << "<span class='danger'>Self-destruct command received.</span>"
 			spawn(10)
@@ -93,7 +93,7 @@
 			return
 
 		target.SetLockdown(!target.lockcharge) // Toggle.
-		message_admins("<span class='notice'>[key_name_admin(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!</span>")
+		message_admins("[key_name_admin(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!")
 		log_game("[key_name(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
 		target << (target.lockcharge ? "You have been locked down!" : "Your lockdown has been lifted!")
 
@@ -119,7 +119,7 @@
 		if(!target || !istype(target))
 			return
 
-		message_admins("<span class='notice'>[key_name_admin(usr)] emagged [target.name] using robotic console!</span>")
+		message_admins("[key_name_admin(usr)] emagged [target.name] using robotic console!")
 		log_game("[key_name(usr)] emagged [target.name] using robotic console!",ckey=key_name(usr))
 		target.emagged = 1
 		target << "<span class='notice'>Failsafe protocols overriden. New tools available.</span>"
@@ -142,7 +142,7 @@
 			user << "Self-destruct aborted - safety active"
 			return
 
-		message_admins("<span class='notice'>[key_name_admin(usr)] detonated all cyborgs!</span>")
+		message_admins("[key_name_admin(usr)] detonated all cyborgs!")
 		log_game("[key_name(usr)] detonated all cyborgs!",ckey=key_name(usr))
 
 		for(var/mob/living/silicon/robot/R in mob_list)
