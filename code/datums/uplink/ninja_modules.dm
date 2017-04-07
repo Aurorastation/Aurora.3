@@ -5,7 +5,7 @@
 	category = /datum/uplink_category/ninja_modules
 
 /datum/uplink_item/item/ninja_modules/self_destruct
-	name = "Self Destruct Module"
+	name = "Self-Destruct Module"
 	desc = "A last resort module that packs enough explosives to kill the user and blow up anything around them."
 	item_cost = 4
 	path = /obj/item/rig_module/self_destruct
