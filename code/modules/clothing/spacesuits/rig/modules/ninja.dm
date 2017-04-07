@@ -217,8 +217,8 @@
 	toggleable = 1
 	usable = 0
 
-	activate_string = "Enable active EMP shielding"
-	deactivate_string = "Disable active EMP shielding"
+	activate_string = "Enable Active EMP Shielding"
+	deactivate_string = "Disable Active EMP Shielding"
 
 	interface_name = "active EMP shielding system"
 	interface_desc = "A highly experimental system that augments the hardsuit's existing EM shielding."
@@ -237,7 +237,7 @@
 	holder.emp_protection = max(0,(holder.emp_protection - protection_amount))
 
 /obj/item/rig_module/emergency_powergenerator
-	name = "Emergency Power Generator"
+	name = "emergency power generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
 	toggleable = 0
@@ -247,7 +247,7 @@
 
 	engage_string = "Use Emergency Power"
 
-	interface_name = "Emergency Power Generator"
+	interface_name = "emergency power generator"
 	interface_desc = "A high yield power generating device that takes a long time to recharge."
 	var/generation_ammount = 1000
 
@@ -263,11 +263,13 @@
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 		holder.cell.give(generation_ammount)
 		cooldown = 1
-		spawn(240)
-			cooldown = 0
+		schedule(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown, 240)
+
+/obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()
+	cooldown = 0
 
 /obj/item/rig_module/emag_hand
-	name = "EMAG integrated hand."
+	name = "EMAG integrated hand"
 	desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
 	use_power_cost = 100
 	usable = 0
@@ -278,7 +280,7 @@
 	activate_string = "Enable EMAG"
 	deactivate_string = "Disable EMAG"
 
-	interface_name = "Enable EMAG"
+	interface_name = "enable EMAG"
 	interface_desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
 	var/atom/interfaced_with
 
@@ -306,9 +308,9 @@
 	if(!target.Adjacent(holder.wearer))
 		return 0
 
-	holder.wearer << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuts!</span>"
+	holder.wearer << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuits!</span>"
 	interfaced_with = target
 	target.emag_act(user, src)
 	spawn(2)
-	interfaced_with = null
+		interfaced_with = null
 	return 1
