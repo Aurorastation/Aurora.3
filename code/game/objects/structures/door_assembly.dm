@@ -218,16 +218,14 @@
 			user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 			EL.inuse = 1
 			if(do_after(user, 40))
-				EL.inuse = 0
 				if(!src) return
 				user.drop_item()
-				W.loc = src
+				EL.forcemove(src)
 				user << "<span class='notice'>You installed the airlock electronics!</span>"
 				src.state = 2
 				src.name = "Near finished Airlock Assembly"
-				src.electronics = W
-			else
-				EL.inuse = 0
+				src.electronics = EL
+			EL.inuse = 0 //Save two lines by doing it here, and ensure it's always set to zero.
 
 	else if(istype(W, /obj/item/weapon/crowbar) && state == 2 )
 		//This should never happen, but just in case I guess

@@ -176,13 +176,13 @@ obj/structure/windoor_assembly/Destroy()
 						EL.inuse = 0
 						if(!src) return
 						user.drop_item()
-						EL.loc = src
+						EL.forcemove(src)
 						user << "<span class='notice'>You've installed the airlock electronics!</span>"
 						src.name = "Near finished Windoor Assembly"
 						src.electronics = EL
 					else
 						EL.inuse = 0
-						EL.loc = src.loc
+						EL.forcemove(src)
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(istype(W, /obj/item/weapon/screwdriver) && src.electronics)
