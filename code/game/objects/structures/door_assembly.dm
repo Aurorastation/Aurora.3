@@ -220,7 +220,7 @@
 			if(do_after(user, 40))
 				if(!src) return
 				user.drop_item()
-				EL.forcemove(src)
+				EL.forceMove(src)
 				user << "<span class='notice'>You installed the airlock electronics!</span>"
 				src.state = 2
 				src.name = "Near finished Airlock Assembly"
