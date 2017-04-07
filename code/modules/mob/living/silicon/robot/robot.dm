@@ -954,6 +954,11 @@
 	gib()
 	return
 
+/mob/living/silicon/robot/update_canmove()
+    if(lockcharge)
+        canmove = 0
+    return ..()
+
 /mob/living/silicon/robot/proc/UnlinkSelf()
 	disconnect_from_ai()
 	lawupdate = 0
