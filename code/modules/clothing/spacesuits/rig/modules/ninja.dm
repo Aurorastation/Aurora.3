@@ -211,7 +211,7 @@
 
 
 /obj/item/rig_module/emp_shielding
-	name = "emp dissipation module"
+	name = "EMP dissipation module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
 	active_power_cost = 10
 	toggleable = 1
@@ -237,7 +237,7 @@
 	holder.emp_protection = max(0,(holder.emp_protection - protection_amount))
 
 /obj/item/rig_module/emergency_powergenerator
-	name = "emergency power generator"
+	name = "Emergency Power Generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
 	toggleable = 0
@@ -267,8 +267,8 @@
 			cooldown = 0
 
 /obj/item/rig_module/emag_hand
-	name = "electromagnetic scrambler"
-	desc = "A complex uprade that allows the user to touch things with their hand and apply an effect that causes doors to open, safties to become disabled, and electronic locks to be disabled."
+	name = "EMAG integrated hand."
+	desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
 	use_power_cost = 100
 	usable = 0
 	toggleable = 1
@@ -303,12 +303,12 @@
 		return 1
 
 	// Are we close enough?
-	var/mob/living/carbon/human/H = holder.wearer
-	if(!target.Adjacent(H))
+	if(!target.Adjacent(holder.wearer))
 		return 0
 
-	H << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuts!</span>"
+	holder.wearer << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuts!</span>"
 	interfaced_with = target
 	target.emag_act(user, src)
+	spawn(2)
 	interfaced_with = null
 	return 1
