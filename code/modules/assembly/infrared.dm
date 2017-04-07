@@ -248,6 +248,8 @@
 /obj/effect/beam/i_beam/Crossed(atom/movable/AM as mob|obj)
 	if(istype(AM, /obj/effect/beam))
 		return
+	if( (AM.invisibility == INVISIBILITY_OBSERVER) || (AM.invisibility == 101) )
+		return
 	spawn(0)
 		hit()
 		return
