@@ -376,7 +376,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
  */
 
 /obj/item/device/ninja_uplink
-	name = " modified contract uplink"
+	name = "modified contract uplink"
 	desc = "A small device used for access of a special cache of items."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
