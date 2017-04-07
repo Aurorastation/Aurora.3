@@ -25,13 +25,18 @@
 /obj/effect/wingrille_spawn/attack_generic()
 	activate()
 
-/obj/effect/wingrille_spawn/Initialize()
+/obj/effect/wingrille_spawn/LateInitialize()
+	qdel(src)
+
+/obj/effect/wingrille_spawn/Initialize(mapload)
+	if (!win_path)
+		return INITIALIZE_HINT_QDEL
+
 	..()
-	if(!win_path)
-		return
+
 	activate()
 
-	return INITIALIZE_HINT_QDEL
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/wingrille_spawn/proc/activate()
 	if(activated) return
@@ -56,8 +61,6 @@
 		else
 			neighbours |= other
 	activated = 1
-	for(var/obj/effect/wingrille_spawn/other in neighbours)
-		if(!other.activated) other.activate()
 
 /obj/effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
 	return
