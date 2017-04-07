@@ -12,7 +12,7 @@
 	var/global/overlay_map = list()
 
 /turf/simulated/open/Initialize()
-	..()
+	. = ..()
 	below = GetBelow(src)
 	ASSERT(HasBelow(z))
 

@@ -40,7 +40,7 @@
 
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
-	..()
+	. = ..()
 
 	initial_loc = get_area(loc)
 	area_uid = initial_loc.uid

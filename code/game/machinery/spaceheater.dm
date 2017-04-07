@@ -12,15 +12,15 @@
 
 
 /obj/machinery/space_heater/Initialize()
-	..()
+	. = ..()
 	cell = new(src)
 	update_icon()
 
 /obj/machinery/space_heater/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	icon_state = "sheater[on]"
 	if(panel_open)
-		overlays  += "sheater-open"
+		add_overlay("sheater-open")
 
 /obj/machinery/space_heater/examine(mob/user)
 	..(user)

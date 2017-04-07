@@ -51,6 +51,8 @@
 	if (opacity)
 		has_opaque_atom = TRUE
 
+	return INITIALIZE_HINT_NORMAL
+
 /turf/proc/update_icon()
 	return
 

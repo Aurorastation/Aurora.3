@@ -3,7 +3,7 @@
 // fits in APC to provide backup power
 
 /obj/item/weapon/cell/Initialize()
-	..()
+	. = ..()
 	charge = maxcharge
 	update_icon()
 

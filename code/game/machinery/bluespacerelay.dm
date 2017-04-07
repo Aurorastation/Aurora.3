@@ -26,7 +26,7 @@
 		icon_state = "[initial(icon_state)]_off"
 
 /obj/machinery/bluespacerelay/Initialize()
-	..()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/bluespacerelay(src)
 	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)

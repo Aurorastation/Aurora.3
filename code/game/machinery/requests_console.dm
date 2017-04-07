@@ -60,6 +60,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/datum/announcement/announcement = new
 	var/list/obj/item/device/pda/alert_pdas = list() //The PDAs we alert upon a request receipt.
 
+	light_range = 2
+
 /obj/machinery/requests_console/power_change()
 	..()
 	update_icon()
@@ -73,7 +75,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			icon_state = "req_comp[newmessagepriority]"
 
 /obj/machinery/requests_console/Initialize()
-	..()
+	. = ..()
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
@@ -86,8 +88,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
-
-	set_light(1)
 
 /obj/machinery/requests_console/Destroy()
 	allConsoles -= src

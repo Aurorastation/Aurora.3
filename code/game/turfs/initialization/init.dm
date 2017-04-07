@@ -5,7 +5,7 @@
 	var/datum/turf_initializer/turf_initializer = null
 
 /area/Initialize(mapload)
-	..()
+	. = ..()
 	if (mapload)
 		for(var/turf/T in src)
 			if(turf_initializer)

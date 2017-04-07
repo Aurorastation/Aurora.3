@@ -14,7 +14,7 @@
 	var/zone = "This computer is working on a wireless range, the range is currently limited to 25 meters."
 
 	Initialize()
-		..()
+		. = ..()
 
 		scanscrubbers()
 

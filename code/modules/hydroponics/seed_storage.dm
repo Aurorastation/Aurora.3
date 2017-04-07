@@ -51,6 +51,7 @@
 	interact(user)
 
 /obj/machinery/seed_storage/Initialize()
+	. = ..()
 	for(var/typepath in starting_seeds)
 		var/amount = starting_seeds[typepath]
 		if(isnull(amount)) amount = 1

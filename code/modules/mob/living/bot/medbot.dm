@@ -343,7 +343,7 @@
 	w_class = 3.0
 
 /obj/item/weapon/firstaid_arm_assembly/Initialize()
-	..()
+	. = ..()
 	if(skin)
 		add_overlay("kit_skin_[skin]")
 

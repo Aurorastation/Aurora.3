@@ -86,7 +86,7 @@
 	var/ruined = 0
 
 /obj/structure/sign/poster/Initialize(mapload, placement_dir = null, serial = null)
-	..()
+	. = ..()
 
 	if(!serial)
 		serial = rand(1, poster_designs.len) //use a random serial if none is given

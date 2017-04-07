@@ -17,7 +17,7 @@
 	var/obj/machinery/power/solar_control/control = null
 
 /obj/machinery/power/tracker/Initialize(mapload, obj/item/solar_assembly/S)
-	..()
+	. = ..()
 	Make(S)
 	connect_to_network()
 

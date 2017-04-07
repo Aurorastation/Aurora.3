@@ -155,10 +155,10 @@
 	if(ph != null) phoron_amt = ph
 	if(ox != null) oxygen_amt = ox
 	if(co != null) carbon_amt = co
-	..()
+	. = ..()
 
 /obj/effect/spawner/newbomb/Initialize()
-	..()
+	. = ..()
 
 	var/obj/item/device/transfer_valve/V = new(src.loc)
 	var/obj/item/weapon/tank/phoron/PT = new(V)

@@ -232,6 +232,7 @@
 		update_icon()
 
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
+	. = ..()
 	if(dir)
 		src.set_dir(dir)
 

@@ -64,7 +64,7 @@
 
 
 /obj/structure/table/Initialize()
-	..()
+	. = ..()
 
 	// One table per turf.
 	for(var/obj/structure/table/T in loc)

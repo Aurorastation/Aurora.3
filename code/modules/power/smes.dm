@@ -78,7 +78,7 @@
 
 
 /obj/machinery/power/smes/Initialize()
-	..()
+	. = ..()
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
 	if(!powernet)

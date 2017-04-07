@@ -124,6 +124,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		listening_level = position.z
 
 /obj/machinery/telecomms/Initialize()
+	. = ..()
 	if(autolinkers.len)
 		// Links nearby machines
 		if(!long_range_link)
@@ -502,7 +503,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/obj/item/device/radio/headset/server_radio = null
 
 /obj/machinery/telecomms/server/Initialize()
-	..()
+	. = ..()
 	Compiler = new()
 	Compiler.Holder = src
 	server_radio = new()

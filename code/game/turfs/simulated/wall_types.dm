@@ -2,13 +2,13 @@
 	icon_state = "rgeneric"
 
 /turf/simulated/wall/r_wall/Initialize(mapload)
-	..(mapload, "plasteel","plasteel") //3strong
+	. = ..(mapload, "plasteel","plasteel") //3strong
 
 /turf/simulated/wall/cult
 	icon_state = "cult"
 
 /turf/simulated/wall/cult/Initialize(mapload)
-	..(mapload,"cult","cult2")
+	. = ..(mapload,"cult","cult2")
 
 /turf/unsimulated/wall/cult
 	name = "cult wall"
@@ -19,44 +19,44 @@
 	icon_state = "cult"
 
 /turf/simulated/wall/iron/Initialize(mapload)
-	..(mapload,"iron")
+	. = ..(mapload,"iron")
 
 /turf/simulated/wall/uranium/Initialize(mapload)
-	..(mapload,"uranium")
+	. = ..(mapload,"uranium")
 
 /turf/simulated/wall/diamond/Initialize(mapload)
-	..(mapload,"diamond")
+	. = ..(mapload,"diamond")
 
 /turf/simulated/wall/gold/Initialize(mapload)
-	..(mapload,"gold")
+	. = ..(mapload,"gold")
 
 /turf/simulated/wall/silver/Initialize(mapload)
-	..(mapload,"silver")
+	. = ..(mapload,"silver")
 
 /turf/simulated/wall/phoron/Initialize(mapload)
-	..(mapload,"phoron")
+	. = ..(mapload,"phoron")
 
 /turf/simulated/wall/sandstone/Initialize(mapload)
-	..(mapload,"sandstone")
+	. = ..(mapload,"sandstone")
 
 /turf/simulated/wall/ironphoron/Initialize(mapload)
-	..(mapload,"iron","phoron")
+	. = ..(mapload,"iron","phoron")
 
 /turf/simulated/wall/golddiamond/Initialize(mapload)
-	..(mapload,"gold","diamond")
+	. = ..(mapload,"gold","diamond")
 
 /turf/simulated/wall/silvergold/Initialize(mapload)
-	..(mapload,"silver","gold")
+	. = ..(mapload,"silver","gold")
 
 /turf/simulated/wall/sandstonediamond/Initialize(mapload)
-	..(mapload,"sandstone","diamond")
+	. = ..(mapload,"sandstone","diamond")
 
 // Kind of wondering if this is going to bite me in the butt.
 /turf/simulated/wall/voxshuttle/Initialize(mapload)
-	..(mapload,"voxalloy")
+	. = ..(mapload,"voxalloy")
 
 /turf/simulated/wall/voxshuttle/attackby()
 	return
 
 /turf/simulated/wall/titanium/Initialize(mapload)
-	..(mapload,"titanium")
+	. = ..(mapload,"titanium")

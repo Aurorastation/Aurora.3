@@ -34,7 +34,7 @@ log transactions
 	var/view_screen = NO_SCREEN
 
 /obj/machinery/atm/Initialize()
-	..()
+	. = ..()
 	machine_id = "[station_name()] RT #[num_financial_terminals++]"
 
 /obj/machinery/atm/Destroy()

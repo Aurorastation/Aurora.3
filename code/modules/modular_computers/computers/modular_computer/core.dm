@@ -51,7 +51,7 @@
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/Initialize()
-	..()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)

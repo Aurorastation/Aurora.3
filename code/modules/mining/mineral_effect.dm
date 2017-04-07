@@ -9,7 +9,7 @@
 	var/image/scanner_image
 
 /obj/effect/mineral/Initialize(mapload, var/ore/M)
-	..()
+	. = ..()
 	name = "[M.display_name] deposit"
 	ore_key = M.name
 	icon_state = "rock_[ore_key]"

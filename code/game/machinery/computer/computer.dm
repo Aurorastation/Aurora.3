@@ -17,7 +17,7 @@
 	var/is_holographic = TRUE
 
 /obj/machinery/computer/Initialize()
-	..()
+	. = ..()
 	overlay_layer = layer
 	power_change()
 	update_icon()

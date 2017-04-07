@@ -25,8 +25,7 @@
 
 
 /obj/machinery/autolathe/Initialize()
-
-	..()
+	. = ..()
 	wires = new(src)
 	//Create parts for lathe.
 	component_parts = list()

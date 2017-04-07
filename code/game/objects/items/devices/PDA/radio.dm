@@ -218,7 +218,7 @@
 	var/datum/radio_frequency/radio_connection
 
 	Initialize()
-		..()
+		. = ..()
 		if(!radio_controller)
 			return
 

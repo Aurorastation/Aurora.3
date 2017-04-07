@@ -13,7 +13,7 @@
 
 
 /obj/machinery/meter/Initialize()
-	..()
+	. = ..()
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
@@ -106,7 +106,7 @@
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 
 /obj/machinery/meter/turf/Initialize()
-	..()
+	. = ..()
 	src.target = loc
 	if (!target)
 		src.target = loc

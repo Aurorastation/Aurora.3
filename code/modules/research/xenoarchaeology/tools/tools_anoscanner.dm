@@ -13,7 +13,7 @@
 	var/scan_delay = 25
 
 /obj/item/device/ano_scanner/Initialize()
-	..()
+	. = ..()
 	scan()
 
 /obj/item/device/ano_scanner/attack_self(var/mob/user as mob)

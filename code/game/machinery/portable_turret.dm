@@ -76,7 +76,7 @@
 	installation = /obj/item/weapon/gun/energy/laser
 
 /obj/machinery/porta_turret/Initialize()
-	..()
+	. = ..()
 	req_access.Cut()
 	req_one_access = list(access_security, access_heads)
 
@@ -86,7 +86,7 @@
 	setup()
 
 /obj/machinery/porta_turret/crescent/Initialize()
-	..()
+	. = ..()
 	req_one_access.Cut()
 	req_access = list(access_cent_specops)
 

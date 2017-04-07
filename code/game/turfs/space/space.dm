@@ -12,6 +12,7 @@
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 //	heat_capacity = 700000 No.
 
+// Copypaste of parent for performance.
 /turf/space/Initialize()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
@@ -20,7 +21,23 @@
 	I.blend_mode = BLEND_ADD
 	add_overlay(I)
 	update_starlight()
-	..()
+
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	initialized = TRUE
+
+	for(var/atom/movable/AM as mob|obj in src)
+		src.Entered(AM)
+		
+	//turfs |= src
+
+	if(dynamic_lighting)
+		luminosity = 0
+	else
+		luminosity = 1
+	
+	return INITIALIZE_HINT_NORMAL
 
 /turf/space/is_space()
 	return 1

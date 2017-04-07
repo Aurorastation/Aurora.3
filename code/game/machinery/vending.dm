@@ -96,7 +96,7 @@
 	var/datum/wires/vending/wires = null
 
 /obj/machinery/vending/Initialize()
-	..()
+	. = ..()
 	wires = new(src)
 	if(src.product_slogans)
 		src.slogan_list += text2list(src.product_slogans, ";")

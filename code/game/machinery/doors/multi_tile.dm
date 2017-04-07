@@ -5,7 +5,7 @@
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/multi_tile/Initialize()
-	..()
+	. = ..()
 	SetBounds()
 
 /obj/machinery/door/airlock/multi_tile/Move()

@@ -78,7 +78,7 @@ var/list/possible_cable_coil_colours = list(
 	color = COLOR_WHITE
 
 /obj/structure/cable/Initialize()
-	..()
+	. = ..()
 
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
 
@@ -483,7 +483,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	charge_costs = list(1)
 
 /obj/item/stack/cable_coil/Initialize(mapload, length = MAXCOIL, var/param_color = null)
-	..()
+	. = ..()
 	src.amount = length
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
 		color = param_color

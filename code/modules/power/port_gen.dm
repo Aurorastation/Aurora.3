@@ -110,7 +110,7 @@
 	var/overheating = 0		//if this gets high enough the generator explodes
 
 /obj/machinery/power/port_gen/pacman/Initialize()
-	..()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
 	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)

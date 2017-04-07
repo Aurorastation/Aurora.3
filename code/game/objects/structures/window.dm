@@ -327,7 +327,7 @@
 	return
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
-	..()
+	. = ..()
 
 	//player-constructed windows
 	if (constructed)

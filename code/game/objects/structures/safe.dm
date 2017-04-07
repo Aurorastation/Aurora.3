@@ -31,7 +31,7 @@ FLOOR SAFES
 
 
 /obj/structure/safe/Initialize()
-	..()
+	. = ..()
 	for(var/obj/item/I in loc)
 		if(space >= maxspace)
 			return
@@ -173,7 +173,7 @@ obj/structure/safe/ex_act(severity)
 	layer = 2.5
 
 /obj/structure/safe/floor/Initialize()
-	..()
+	. = ..()
 	var/turf/T = loc
 	if(istype(T) && !T.is_plating())
 		hide(1)
@@ -189,11 +189,9 @@ obj/structure/safe/ex_act(severity)
 /obj/structure/safe/station
 	name = "corporate safe"
 	
-/obj/structure/safe/station/New()
-
-	..()
+/obj/structure/safe/station/Initialize()
+	. = ..()
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
-	return

@@ -36,7 +36,7 @@
 
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
-	..()
+	. = ..()
 	oil = new/datum/reagents(optimal_oil * 1.25, src)
 	var/variance = rand()*0.15
 	//Fryer is always a little below full, but its usually negligible

@@ -94,7 +94,7 @@
 		usr << "The maintenance panel is [open ? "open" : "closed"]."
 		usr << "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"]."
 
-/obj/item/weapon/rig/Initialize()
+/obj/item/weapon/rig/New()
 	..()
 
 	item_state = icon_state

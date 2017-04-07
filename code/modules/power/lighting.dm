@@ -193,17 +193,18 @@
 	supports_nightmode = FALSE
 
 /obj/machinery/light/built/Initialize()
-	..()
+	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
 
 /obj/machinery/light/small/built/Initialize()
-	..()
+	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
+	. = ..()
 	spark_system = bind_spark(src, 3)
 	on = has_power()
 

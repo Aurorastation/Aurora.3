@@ -190,7 +190,7 @@
 	var/datum/wifi/receiver/button/crematorium/wifi_receiver
 
 /obj/structure/crematorium/Initialize()
-	..()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 

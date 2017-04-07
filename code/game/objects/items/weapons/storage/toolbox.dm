@@ -17,7 +17,7 @@
 	var/stunhit = 0
 
 /obj/item/weapon/storage/toolbox/Initialize(mapload)
-	..()
+	. = ..()
 	update_force()
 
 /obj/item/weapon/storage/toolbox/emergency

@@ -18,8 +18,10 @@
 	var/brightness_on = 3 //luminosity when on
 
 /obj/item/device/flashlight/Initialize()
-	..()
-	update_icon()
+	if (on)
+		light_range = brightness_on
+		update_icon()
+	. = ..()
 
 /obj/item/device/flashlight/update_icon()
 	if(on)

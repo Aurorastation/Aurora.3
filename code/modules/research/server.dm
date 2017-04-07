@@ -25,7 +25,7 @@
 	idle_power_usage /= max(1, tot_rating)
 
 /obj/machinery/r_n_d/server/Initialize()
-	..()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/rdserver(src)
 	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)

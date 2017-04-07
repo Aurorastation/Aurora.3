@@ -32,7 +32,7 @@
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
 /obj/machinery/door/blast/Initialize()
-	..()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 

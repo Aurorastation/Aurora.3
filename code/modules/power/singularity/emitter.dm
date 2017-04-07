@@ -45,7 +45,7 @@
 	return 1
 
 /obj/machinery/power/emitter/Initialize()
-	..()
+	. = ..()
 	spark_system = bind_spark(src, 5, alldirs)
 	if(state == 2 && anchored)
 		connect_to_network()

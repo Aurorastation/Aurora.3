@@ -38,7 +38,7 @@
 	var/datum/browser/menu = new( null, "brig_timer", "Brig Timer", 400, 300 )
 
 /obj/machinery/door_timer/Initialize()
-	..()
+	. = ..()
 
 	for(var/obj/machinery/door/window/brigdoor/M in machines)
 		if (M.id == src.id)
