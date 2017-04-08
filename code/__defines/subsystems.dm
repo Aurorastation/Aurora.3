@@ -34,7 +34,7 @@
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
 #define SS_PRIORITY_CHEMISTRY      90
 #define SS_PRIORITY_SHUTTLE        85
-#define SS_PRIORITY_SINGULARITY    80	// Singularity, Tesla, and Nar'sie processing.
+#define SS_PRIORITY_CALAMITY       80	// Singularity, Tesla, Nar'sie, blob, etc. 
 #define SS_PRIORITY_AIR            75	// ZAS processing.
 #define SS_PRIORITY_EVENT          70
 #define SS_PRIORITY_AIRFLOW        65	// Handles object movement due to ZAS airflow.

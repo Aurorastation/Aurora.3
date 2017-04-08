@@ -38,14 +38,14 @@
 		QDEL_IN(src, temp)
 
 	..()
-	START_PROCESSING(SSingulo, src)
+	START_PROCESSING(SScalamity, src)
 	for(var/obj/machinery/power/singularity_beacon/singubeacon in machines)
 		if(singubeacon.active)
 			target = singubeacon
 			break
 
 /obj/singularity/Destroy()
-	STOP_PROCESSING(SSingulo, src)
+	STOP_PROCESSING(SScalamity, src)
 	return ..()
 
 /obj/singularity/attack_hand(mob/user as mob)

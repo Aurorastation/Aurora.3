@@ -26,7 +26,7 @@
 	var/blob_cost = 1 //point cost of the blob tile
 
 /obj/effect/blob/New(loc)
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SScalamity, src)
 	health = maxHealth
 	var/matrix/M = matrix()
 	M.Turn(90 * pick(0,1,2,3))
@@ -40,7 +40,7 @@
 		parent_core.blob_count -= blob_cost
 		parent_core = null
 
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SScalamity, src)
 
 	return ..()
 
