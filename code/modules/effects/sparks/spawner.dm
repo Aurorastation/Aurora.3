@@ -35,9 +35,9 @@
 			var/direction = 0
 
 			if (LAZYLEN(src.spread))
-				direction = 0
-			else
 				direction = pick(src.spread)
+			else
+				direction = 0
 
 			S = new /obj/visual_effect/sparks(location, src)
 			S.start(direction)	

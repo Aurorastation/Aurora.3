@@ -46,8 +46,7 @@
 	dead_mob_list -= src
 
 	QDEL_IN(animation, 15)
-	QDEL_IN(animation, 15)
-
+	QDEL_IN(src, 15)
 
 /mob/proc/death(gibbed,deathmessage="seizes up and falls limp...")
 

@@ -136,7 +136,7 @@
 		else if( istype(W, /obj/item/weapon/melee/energy/blade) )
 			var/obj/item/weapon/melee/energy/blade/EB = W
 
-			EB.spark_system.queue()
+			spark(EB, 5)
 			user << "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>"
 			playsound(src, "sparks", 50, 1)
 			playsound(src, 'sound/weapons/blade1.ogg', 50, 1)

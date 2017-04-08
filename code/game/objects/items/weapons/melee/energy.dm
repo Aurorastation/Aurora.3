@@ -12,15 +12,6 @@
 	var/base_block_chance = 25
 	var/shield_power = 100
 	var/can_block_bullets = 0
-	var/datum/effect_system/sparks/spark_system
-
-/obj/item/weapon/melee/energy/New()
-	spark_system = bind_spark(src, 5)
-	..()
-
-/obj/item/weapon/melee/energy/Destroy()
-	QDEL_NULL(spark_system)
-	return ..()
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
@@ -68,7 +59,7 @@
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
-		spark_system.queue()
+		spark(src, 5)
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		return 1
 	else
@@ -84,7 +75,7 @@
 		if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 			if(prob(base_block_chance))
-				spark_system.queue()
+				spark(src, 5)
 				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				shield_power -= round(damage/4)
 
