@@ -1128,7 +1128,7 @@
 	else
 		usr << "<span class='warning'>You failed to check the pulse. Try again.</span>"
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour)
+/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0)
 
 	if(!dna)
 		if(!new_species)
@@ -1180,7 +1180,7 @@
 
 	species.create_organs(src)
 
-	species.handle_post_spawn(src)
+	species.handle_post_spawn(src,kpg) // should be zero by default
 
 	maxHealth = species.total_health
 
