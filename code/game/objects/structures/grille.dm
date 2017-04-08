@@ -96,7 +96,7 @@
 	if(iswirecutter(W))
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			getFromPool(/obj/item/stack/rods, list(get_turf(src), destroyed ? 1 : 2))
+			getFromPool(/obj/item/stack/rods, get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if((isscrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
@@ -195,9 +195,7 @@
 		if(electrocute_mob(user, C, src))
 			if(C.powernet)
 				C.powernet.trigger_warning()
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark(src, 3, alldirs)
 			if(user.stunned)
 				return 1
 		else

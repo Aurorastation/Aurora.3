@@ -48,7 +48,7 @@
 
 	if(!stat && !resting && !buckled)
 		if(prob(1))
-			visible_emote(pick("dances around","chases their tail"))
+			visible_emote(pick("dances around","chases their tail"),0)
 			spawn(0)
 				for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 					set_dir(i)
@@ -57,7 +57,7 @@
 
 
 /mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
-	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.")
+	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
 
 
 
@@ -169,7 +169,7 @@
 
 
 		if(prob(1))
-			visible_emote(pick("dances around","chases her tail"))
+			visible_emote(pick("dances around","chases her tail"),0)
 			spawn(0)
 				for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 					set_dir(i)

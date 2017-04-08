@@ -16,6 +16,7 @@
 	usage_flags = PROGRAM_CONSOLE
 	network_destination = "station long-range communication array"
 	var/datum/comm_message_listener/message_core = new
+	color = LIGHT_COLOR_BLUE
 
 /datum/computer_file/program/comm/clone()
 	var/datum/computer_file/program/comm/temp = ..()
@@ -146,7 +147,7 @@
 							return
 						Syndicate_announce(input, usr)
 						usr << "<span class='notice'>Message transmitted.</span>"
-						log_say("[key_name(usr)] has made an illegal announcement: [input]")
+						log_say("[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(usr))
 						centcomm_message_cooldown = 1
 						spawn(300)//30 second cooldown
 							centcomm_message_cooldown = 0
@@ -166,7 +167,7 @@
 						return
 					Centcomm_announce(input, usr)
 					usr << "<span class='notice'>Message transmitted.</span>"
-					log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]")
+					log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
 						centcomm_message_cooldown = 0
@@ -209,7 +210,7 @@
 					if(current_level > SEC_LEVEL_BLUE) current_level = SEC_LEVEL_BLUE //Cannot engage delta with this
 					set_security_level(current_level)
 					if(security_level != old_level)
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
+						log_game("[key_name(usr)] has changed the security level to [get_security_level()].",ckey=key_name(usr))
 						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
 						switch(security_level)
 							if(SEC_LEVEL_GREEN)
@@ -256,7 +257,7 @@
 		if("message")
 			status_signal.data["msg1"] = data1
 			status_signal.data["msg2"] = data2
-			log_admin("STATUS: [key_name(usr)] set status screen message with [src]: [data1] [data2]")
+			log_admin("STATUS: [key_name(usr)] set status screen message with [src]: [data1] [data2]",ckey=key_name(usr))
 		if("alert")
 			status_signal.data["picture_state"] = data1
 

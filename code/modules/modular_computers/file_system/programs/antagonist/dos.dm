@@ -12,6 +12,7 @@
 	var/dos_speed = 0
 	var/error = ""
 	var/executed = 0
+	color = LIGHT_COLOR_RED
 
 /datum/computer_file/program/ntnet_dos/process_tick()
 	dos_speed = 0

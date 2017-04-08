@@ -49,7 +49,8 @@
 #define CHAT_NOICONS    0x8000
 
 #define PARALLAX_SPACE 0x1
-#define PARALLAX_DUST 0x2
+#define PARALLAX_DUST  0x2
+#define PROGRESS_BARS  0x4
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -285,3 +286,16 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
+#define QDELETED(TARGET) (!TARGET || TARGET.gcDestroyed)
+#define QDEL_NULL(item) qdel(item); item = null
+// Shim until addtimer is merged or I figure out if it is safe to use scheduler for this.
+#define QDEL_IN(OBJ, TIME) spawn(TIME) qdel(OBJ)
+
+#define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
+
+//Recipe type defines. Used to determine what machine makes them
+#define MICROWAVE			0x1
+#define FRYER				0x2
+#define OVEN				0x4
+#define CANDYMAKER			0x8
+#define CEREALMAKER			0x10

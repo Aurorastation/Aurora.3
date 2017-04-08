@@ -19,7 +19,6 @@ var/list/gamemode_cache = list()
 	var/log_emote = 0					// log emotes
 	var/log_attack = 0					// log attack messages
 	var/log_adminchat = 0				// log admin chat messages
-	var/log_adminwarn = 0				// log warnings admins get about bomb construction and such
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
@@ -177,8 +176,8 @@ var/list/gamemode_cache = list()
 	var/ghost_interaction = 0
 
 	var/night_lighting = 0
-	var/nl_start = 19 * TICKS_IN_HOUR
-	var/nl_finish = 8 * TICKS_IN_HOUR
+	var/nl_start = 19
+	var/nl_finish = 8
 
 	var/comms_password = ""
 
@@ -187,6 +186,7 @@ var/list/gamemode_cache = list()
 	var/use_discord_bot = 0
 	var/discord_bot_host = "localhost"
 	var/discord_bot_port = 0
+	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
@@ -252,6 +252,11 @@ var/list/gamemode_cache = list()
 	//API Rate limiting
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
+
+	//UDP GELF Logging
+	var/log_gelf_enabled = 0
+	var/log_gelf_ip = ""
+	var/log_gelf_port = ""
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -356,9 +361,6 @@ var/list/gamemode_cache = list()
 
 				if ("log_adminchat")
 					config.log_adminchat = 1
-
-				if ("log_adminwarn")
-					config.log_adminwarn = 1
 
 				if ("log_pda")
 					config.log_pda = 1
@@ -629,10 +631,10 @@ var/list/gamemode_cache = list()
 					config.night_lighting = 1
 
 				if("nl_start_hour")
-					config.nl_start = text2num(value) * TICKS_IN_HOUR
+					config.nl_start = text2num(value)
 
 				if("nl_finish_hour")
-					config.nl_finish = text2num(value) * TICKS_IN_HOUR
+					config.nl_finish = text2num(value)
 
 				if("disable_player_mice")
 					config.disable_player_mice = 1
@@ -651,6 +653,9 @@ var/list/gamemode_cache = list()
 
 				if("discord_bot_port")
 					config.discord_bot_port = value
+
+				if("use_discord_pins")
+					config.use_discord_pins = 1
 
 				if("python_path")
 					if(value)
@@ -791,6 +796,15 @@ var/list/gamemode_cache = list()
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
 
+				if("log_gelf_enabled")
+					config.log_gelf_enabled = text2num(value)
+				
+				if("log_gelf_ip")
+					config.log_gelf_ip = value
+				
+				if("log_gelf_port")
+					config.log_gelf_port = value
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -878,6 +892,8 @@ var/list/gamemode_cache = list()
 					discord_bot.active = 1
 				if ("robust_debug")
 					discord_bot.robust_debug = 1
+				if ("subscriber")
+					discord_bot.subscriber_role = value
 				else
 					log_misc("Unknown setting in discord configuration: '[name]'")
 

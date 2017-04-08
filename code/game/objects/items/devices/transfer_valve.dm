@@ -34,7 +34,7 @@
 			item.loc = src
 			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 			message_admins("[key_name_admin(user)] attached both tanks to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.")
+			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.",ckey=key_name(user))
 
 		update_icon()
 		nanomanager.update_uis(src) // update all UIs attached to src
@@ -56,7 +56,7 @@
 
 		bombers += "[key_name(user)] attached a [item] to a transfer valve."
 		message_admins("[key_name_admin(user)] attached a [item] to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-		log_game("[key_name_admin(user)] attached a [item] to a transfer valve.")
+		log_game("[key_name_admin(user)] attached a [item] to a transfer valve.",ckey=key_name(user))
 		attacher = user
 		nanomanager.update_uis(src) // update all UIs attached to src
 	return
@@ -169,7 +169,7 @@
 
 	valve_open = 0
 
-	if(deleted(tank_one) || deleted(tank_two) || !tank_one.air_contents || !tank_two.air_contents)
+	if(QDELETED(tank_one) || QDELETED(tank_two) || !tank_one.air_contents || !tank_two.air_contents)
 		return
 
 	var/ratio1 = tank_one.air_contents.volume/tank_two.air_contents.volume

@@ -241,7 +241,7 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		var/list/hear = get_mobs_or_objects_in_view(message_range,src)
+		var/list/hear = hear(message_range,T)
 		var/list/hearturfs = list()
 
 		for(var/I in hear)
@@ -275,11 +275,11 @@ proc/get_radio_key_from_channel(var/channel)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
-	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
+	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
-	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]")
+	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
 
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src)

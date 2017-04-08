@@ -27,6 +27,16 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/emitter/wifi_receiver
 
+	var/datum/effect_system/sparks/spark_system
+
+/obj/machinery/power/emitter/New()
+	..()
+	spark_system = bind_spark(src, 5, alldirs)
+
+/obj/machinery/power/emitter/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
+
 /obj/machinery/power/emitter/verb/rotate()
 	set name = "Rotate"
 	set category = "Object"
@@ -50,6 +60,7 @@
 	log_game("Emitter deleted at ([x],[y],[z])")
 	investigate_log("<font color='red'>deleted</font> at ([x],[y],[z])","singulo")
 	qdel(wifi_receiver)
+	qdel(spark_system)
 	wifi_receiver = null
 	return ..()
 
@@ -73,7 +84,7 @@
 				src.active = 0
 				user << "You turn off [src]."
 				message_admins("Emitter turned off by [key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-				log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])")
+				log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
 				investigate_log("turned <font color='red'>off</font> by [user.key]","singulo")
 			else
 				src.active = 1
@@ -81,7 +92,7 @@
 				src.shot_number = 0
 				src.fire_delay = 100
 				message_admins("Emitter turned on by [key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-				log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])")
+				log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
 				investigate_log("turned <font color='green'>on</font> by [user.key]","singulo")
 			update_icon()
 		else
@@ -135,9 +146,7 @@
 
 		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1)
 		if(prob(35))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(5, 1, src)
-			s.start()
+			spark_system.queue()
 
 		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter( src.loc )
 		A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)

@@ -2,6 +2,7 @@
 //
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
 
+#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
 
 // status values shared between lighting fixtures and items
 #define LIGHT_OK 0
@@ -149,7 +150,7 @@
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
-	var/brightness_uv    = 200
+	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -228,10 +229,14 @@
 	..()
 
 /obj/machinery/light/update_icon()
-
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			icon_state = "[base_state][on]"
+			if (supports_nightmode && nightmode && on)
+				color = "#d2d2d2"
+			else
+				color = null
+
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
 			on = 0
@@ -241,11 +246,12 @@
 		if(LIGHT_BROKEN)
 			icon_state = "[base_state]-broken"
 			on = 0
-	return
+
+	if (!on)
+		color = null
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)
-
 	update_icon()
 	if(on)
 		if (check_update())
@@ -265,10 +271,11 @@
 					set_light(0)
 			else
 				use_power = 2
+				active_power_usage = light_range * LIGHTING_POWER_FACTOR
 				if (supports_nightmode && nightmode)
-					set_light(night_brightness_range, night_brightness_power, brightness_color, uv = brightness_uv)
+					set_light(night_brightness_range, night_brightness_power, brightness_color)
 				else
-					set_light(brightness_range, brightness_power, brightness_color, uv = brightness_uv)
+					set_light(brightness_range, brightness_power, brightness_color)
 	else
 		use_power = 1
 		set_light(0)
@@ -567,20 +574,6 @@
 				broken()
 	return
 
-//blob effect
-
-
-// timed process
-// use power
-
-#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
-
-
-/obj/machinery/light/process()
-	if(on)
-		use_power(light_range * LIGHTING_POWER_FACTOR, LIGHT)
-
-
 // called when area power state changes
 /obj/machinery/light/power_change()
 	spawn(10)
@@ -716,7 +709,7 @@
 
 		if(S.reagents.has_reagent("phoron", 5))
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
+			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 
 			rigged = 1

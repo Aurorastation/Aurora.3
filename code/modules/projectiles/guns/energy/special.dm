@@ -146,9 +146,7 @@
 
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, T)
-	s.start()
+	spark(T, 3, alldirs)
 	failcheck()
 	..()
 
@@ -248,7 +246,7 @@
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
-	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 	return 1
 
 /obj/item/weapon/gun/energy/vaurca/blaster
@@ -341,7 +339,7 @@
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
-	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 	return 1
 
 /obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
@@ -375,7 +373,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "thermaldrill"
 	item_state = "thermaldrill"
-	origin_tech = "combat=6;phorontech=8,"
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -430,7 +428,7 @@
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
-	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 	return 1
 
 /*/obj/item/weapon/gun/energy/vaurca/flamer

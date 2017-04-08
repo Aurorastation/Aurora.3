@@ -153,3 +153,29 @@
 //----------------------------
 /obj/effect/projectile/pulse_bullet/muzzle
 	icon_state = "muzzle_pulse"
+
+
+//----------------------------
+// Demonic Beam
+//----------------------------
+/obj/effect/projectile/cult/tracer
+	icon_state = "cult"
+
+/obj/effect/projectile/cult/muzzle
+	icon_state = "muzzle_cult"
+
+/obj/effect/projectile/cult/impact
+	icon_state = "impact_cult"
+
+
+//----------------------------
+// Empowered Demonic Beam
+//----------------------------
+/obj/effect/projectile/cult/heavy/tracer
+	icon_state = "hcult"
+
+/obj/effect/projectile/cult/heavy/muzzle
+	icon_state = "muzzle_hcult"
+
+/obj/effect/projectile/cult/heavy/impact
+	icon_state = "impact_hcult"

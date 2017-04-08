@@ -26,12 +26,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_transform
 
-/datum/power/changeling/change_species
-	name = "Change Species"
-	desc = "We take on the apperance of a species that we have absorbed."
-	genomecost = 0
-	verbpath = /mob/proc/changeling_change_species
-
 /datum/power/changeling/fakedeath
 	name = "Regenerative Stasis"
 	desc = "We become weakened to a death-like state, where we will rise again from death."
@@ -64,14 +58,14 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/deaf_sting
 	name = "Deaf Sting"
-	desc = "We silently sting a human, completely deafening them for a short time."
+	desc = "We sting a human, completely deafening them for a short time."
 	genomecost = 1
 	allowduringlesserform = 1
 	verbpath = /mob/proc/changeling_deaf_sting
 
 /datum/power/changeling/blind_sting
 	name = "Blind Sting"
-	desc = "We silently sting a human, completely blinding them for a short time."
+	desc = "We sting a human, completely blinding them for a short time."
 	genomecost = 2
 	allowduringlesserform = 1
 	verbpath = /mob/proc/changeling_blind_sting
@@ -108,7 +102,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/paralysis_sting
 	name = "Paralysis Sting"
-	desc = "We silently sting a human, paralyzing them for a short time."
+	desc = "We sting a human, paralyzing them for a short time."
 	genomecost = 8
 	verbpath = /mob/proc/changeling_paralysis_sting
 
@@ -121,7 +115,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/DeathSting
 	name = "Death Sting"
-	desc = "We silently sting a human, filling them with potent chemicals. Their rapid death is all but assured."
+	desc = "We sting a human, filling them with potent chemicals. Their rapid death is all but assured."
 	genomecost = 10
 	verbpath = /mob/proc/changeling_DEATHsting
 
@@ -184,7 +178,19 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 7
 	verbpath = /mob/proc/changeling_rapidregen
 
+//weapon and armor like powers
 
+/datum/power/changeling/armblades
+	name = "Mutate Armblades"
+	desc = "Permits us to reshape our arms into a deadly blade."
+	genomecost = 2
+	verbpath = /mob/proc/armblades
+
+/datum/power/changeling/shield
+	name = "Mutate Shield"
+	desc = "Permits us to bloat our hands into a robust shield."
+	genomecost = 3
+	verbpath = /mob/proc/changeling_shield
 
 // Modularchangling, totally stolen from the new player panel.  YAYY
 /datum/changeling/proc/EvolutionMenu()//The new one

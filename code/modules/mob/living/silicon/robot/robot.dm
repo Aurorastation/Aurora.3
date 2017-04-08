@@ -13,6 +13,8 @@
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = ~HEAVY //trundle trundle
 
+	light_wedge = LIGHT_WIDE
+
 	var/lights_on = 0 // Is our integrated light on?
 	var/used_power_this_tick = 0
 	var/sight_mode = 0
@@ -20,7 +22,7 @@
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
 	var/crisis //Admin-settable for combat module use.
 	var/crisis_override = 0
-	var/integrated_light_power = 6
+	var/integrated_light_power = 4
 	var/datum/wires/robot/wires
 
 //Icon stuff
@@ -90,7 +92,7 @@
 	//var/jetpack = 0
 	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/jetpack = null
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
-	var/datum/effect/effect/system/spark_spread/spark_system//So they can initialize sparks whenever/N
+	var/datum/effect_system/sparks/spark_system//So they can initialize sparks whenever/N
 	var/jeton = 0
 	var/killswitch = 0
 	var/killswitch_time = 60
@@ -111,9 +113,7 @@
 	)
 
 /mob/living/silicon/robot/New(loc,var/unfinished = 0)
-	spark_system = new /datum/effect/effect/system/spark_spread()
-	spark_system.set_up(5, 0, src)
-	spark_system.attach(src)
+	spark_system = bind_spark(src, 5)
 
 	add_language("Robot Talk", 1)
 	add_language(LANGUAGE_EAL, 1)
@@ -248,13 +248,14 @@
 		connected_ai.connected_robots -= src
 	qdel(wires)
 	wires = null
+	QDEL_NULL(spark_system)
 	return ..()
 
 /mob/living/silicon/robot/proc/set_module_sprites(var/list/new_sprites)
 	if(new_sprites && new_sprites.len)
 		module_sprites = new_sprites.Copy()
 		//Custom_sprite check and entry
-		
+
 		if (custom_sprite == 1)
 			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
 			if("[ckey]-[modtype]" in valid_states)
@@ -268,7 +269,7 @@
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
-		
+
 	updateicon()
 	return module_sprites
 
@@ -423,7 +424,7 @@
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intenselight)
-			set_light(integrated_light_power * 2, integrated_light_power)
+			set_light(integrated_light_power * 2, 1)
 		else
 			set_light(integrated_light_power)
 	else
@@ -463,7 +464,8 @@
 
 /mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
 	..(Proj)
-	if(prob(75) && Proj.damage > 0) spark_system.start()
+	if(prob(75) && Proj.damage > 0)
+		spark_system.queue()
 	return 2
 
 /mob/living/silicon/robot/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -696,7 +698,7 @@
 
 	else
 		if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
-			spark_system.start()
+			spark_system.queue()
 		return ..()
 
 /mob/living/silicon/robot/attack_hand(mob/user)
@@ -1030,6 +1032,7 @@
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
 	src << "Your icon has been set. You now require a module reset to change it."
 
+
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
 	set name = "Set Sensor Augmentation"
 	set category = "Robot Commands"
@@ -1123,7 +1126,7 @@
 				disconnect_from_ai()
 				user << "You emag [src]'s interface."
 				message_admins("[key_name_admin(user)] emagged cyborg [key_name_admin(src)].  Laws overridden.")
-				log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.")
+				log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
 				clear_supplied_laws()
 				clear_inherent_laws()
 				laws = new /datum/ai_laws/syndicate_override

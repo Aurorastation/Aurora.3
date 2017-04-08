@@ -44,13 +44,13 @@
 				user << "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart."
 				if (!(HULK in user.mutations))
 					user.mutations.Add(HULK)
-					user << "\blue Your muscles hurt."
+					user << "<span class='notice'>Your muscles hurt.</span>"
 				if (!(LASER in user.mutations))
 					user.mutations.Add(LASER)
-					user << "\blue You feel pressure building behind your eyes."
+					user << "<span class='notice'>You feel pressure building behind your eyes.</span>"
 				if (!(COLD_RESISTANCE in user.mutations))
 					user.mutations.Add(COLD_RESISTANCE)
-					user << "\blue Your body feels warm."
+					user << "<span class='notice'>Your body feels warm.</span>"
 				if (!(TK in user.mutations))
 					user.mutations.Add(TK)
 				if(!(HEAL in user.mutations))
@@ -59,7 +59,7 @@
 					user.mutations.Add(XRAY)
 					user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
-					user << "\blue The walls suddenly disappear."
+					user << "<span class='notice'>The walls suddenly disappear.</span>"
 					user.set_species("Shadow")
 					user.mind.special_role = "Avatar of the Wish Granter"
 			if("I want to be rich")
@@ -80,7 +80,7 @@
 				user.mind.special_role = "Avatar of the Wish Granter"
 				user.hallucination += 10
 				user.adjustBrainLoss(30)
-				user.show_message("<b>[user]</b> screams!")
+				user.emote("screams!")
 				playsound(user, 'sound/hallucinations/wail.ogg', 40, 1)
 				sleep(30)
 				user << "<span class='warning'>Your mind is assaulted by endless horrors, your only desire is to end it, you must fulfill the Wish Granter's desires!</span>"
@@ -114,6 +114,7 @@
 		C << "<span class='notice'>You're not dead yet!</span>"
 		return
 	C << "<span class='notice'>Death is not your end!</span>"
+	C.verbs -= /mob/living/carbon/proc/immortality
 
 	spawn(rand(400,800))
 		if(C.stat == DEAD)
@@ -125,4 +126,5 @@
 		C << "<span class='notice'>You have regenerated.</span>"
 		C.visible_message("<span class='warning'>[usr] appears to wake from the dead, having healed all wounds.</span>")
 		C.update_canmove()
+		C.verbs += /mob/living/carbon/proc/immortality
 	return 1

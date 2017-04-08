@@ -14,17 +14,20 @@
 	max_co2 = 0
 	unsuitable_atoms_damage = 1
 
+	hunger_enabled = 0
+	supernatural = 1
+
 	var/list/wizardy_spells = list()
 
 /mob/living/simple_animal/familiar/New()
 	..()
-	add_language("Ceti Basic")
+	add_language(LANGUAGE_TCB)
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
 
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
-	desc = "An odd looking crab."
+	desc = "A small crab said to be made of stone and starlight."
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "evilcrab"
 	icon_living = "evilcrab"
@@ -37,7 +40,8 @@
 	maxHealth = 200
 	melee_damage_lower = 10
 	melee_damage_upper = 15
-	attacktext = "pinches"
+	friendly = "pinches"
+	attacktext = "pinched"
 	resistance = 9
 
 
@@ -52,11 +56,16 @@
 	pixel_x = -16
 
 	speak_emote = list("gnashes")
+	attacktext = "bitten"
+	attack_sound = 'sound/weapons/bite.ogg'
 
+	environment_smash = 2
 	health = 100
 	maxHealth = 100
-	melee_damage_lower = 10
-	melee_damage_upper = 10
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
 
@@ -76,11 +85,12 @@
 
 	response_help = "thinks better of touching"
 
+	environment_smash = 2
 	health = 150
 	maxHealth = 150
-	melee_damage_lower = 5
-	melee_damage_upper = 8
-	attacktext = "touches"
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	attacktext = "clawed"
 
 	wizardy_spells = list(/spell/targeted/torment)
 
@@ -94,25 +104,27 @@
 
 /mob/living/simple_animal/familiar/goat
 	name = "goat"
-	desc = "An elder looking goat."
+	desc = "A sprightly looking goat."
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
 	speak_emote = list("brays")
+	attacktext = "kicked"
 
-	mob_size = MOB_SMALL
+	health = 80
+	maxHealth = 80
 
-	health = 50
-	maxHealth = 50
+	melee_damage_lower = 8
+	melee_damage_upper = 12
+	mob_size = 4.5 //weight based on Chanthangi goats
+	density = 0
+	wizardy_spells = list(/spell/aoe_turf/smoke)
 
-	wizardy_spells = list(/spell/targeted/heal_target,
-						/spell/targeted/heal_target/area)
 
 
 
 /mob/living/simple_animal/familiar/pet //basically variants of normal animals with spells.
 	icon = 'icons/mob/animal.dmi'
-	var/icon_rest //so that we can have resting little guys.
 
 /mob/living/simple_animal/familiar/pet/MouseDrop(atom/over_object)
 	var/mob/living/carbon/H = over_object
@@ -124,41 +136,8 @@
 	else
 		return ..()
 
-/mob/living/simple_animal/familiar/pet/Life()
-	..()
-	if(!icon_rest)
-		return
-	if(stat == UNCONSCIOUS || resting)
-		icon_state = icon_rest
 
-/mob/living/simple_animal/familiar/pet/mouse
-	name = "mouse"
-	desc = "A small rodent. It looks very old."
-	icon_state = "mouse_gray"
-	icon_living = "mouse_gray"
-	icon_dead = "mouse_gray_dead"
-	icon_rest = "mouse_gray_sleep"
 
-	speak_emote = list("squeeks")
-	holder_type = /obj/item/weapon/holder/mouse
-	pass_flags = PASSTABLE
-	mob_size = MOB_MINISCULE
-
-	response_harm = "stamps on"
-
-	health = 15
-	maxHealth = 15
-	melee_damage_lower = 1
-	melee_damage_upper = 1
-	attacktext = "nibbles"
-
-	wizardy_spells = list(/spell/aoe_turf/smoke)
-
-/mob/living/simple_animal/familiar/pet/mouse/New()
-	..()
-
-	verbs += /mob/living/proc/ventcrawl
-	verbs += /mob/living/proc/hide
 
 /mob/living/simple_animal/familiar/pet/cat
 	name = "black cat"
@@ -167,16 +146,53 @@
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
 	icon_rest = "cat3_rest"
+	can_nap = 1
 
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
 	holder_type = /obj/item/weapon/holder/cat
 	mob_size = MOB_SMALL
 
-	health = 25
-	maxHealth = 25
+	health = 45
+	maxHealth = 45
 	melee_damage_lower = 3
 	melee_damage_upper = 4
-	attacktext = "claws"
+	attacktext = "clawed"
+	density = 0
 
 	wizardy_spells = list(/spell/targeted/subjugation)
+
+
+/mob/living/simple_animal/mouse/familiar
+	name = "ancient mouse"
+	desc = "A small rodent. It looks very old."
+	body_color = "gray"
+
+
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+
+	health = 25
+	maxHealth = 25
+	melee_damage_lower = 1
+	melee_damage_upper = 1
+	attacktext = "nibbled"
+	universal_speak = 1
+	universal_understand = 1
+
+	min_oxy = 1 //still require a /bit/ of air.
+	max_co2 = 0
+	unsuitable_atoms_damage = 1
+
+	supernatural = 1
+
+/mob/living/simple_animal/mouse/familiar/New()
+	..()
+	add_spell(new /spell/targeted/heal_target, "const_spell_ready")
+	add_spell(new /spell/targeted/heal_target/area, "const_spell_ready")
+	add_language(LANGUAGE_TCB)
+	name = initial(name)
+	desc = initial(desc)

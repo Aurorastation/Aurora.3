@@ -129,16 +129,20 @@
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size
 	switch(src.w_class)
-		if(1.0)
-			size = "tiny"
-		if(2.0)
-			size = "small"
-		if(3.0)
-			size = "normal-sized"
-		if(4.0)
-			size = "bulky"
-		if(5.0)
+		if (5.0 to INFINITY)
 			size = "huge"
+		if (4.0 to 5.0)
+			size = "bulky"
+		if (3.0 to 4.0)
+			size = "normal-sized"
+		if (2.0 to 3.0)
+			size = "small"
+		if (0 to 2.0)
+			size = "tiny"
+	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
+	//things outside its range ~Nanako
+
+
 	return ..(user, distance, "", "It is a [size] item.")
 
 /obj/item/attack_hand(mob/user as mob)
@@ -481,7 +485,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
 	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)") //BS12 EDIT ALG
+	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M)) //BS12 EDIT ALG
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)

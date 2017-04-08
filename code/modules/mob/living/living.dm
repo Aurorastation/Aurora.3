@@ -766,7 +766,7 @@ default behaviour is:
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].")
+	log_admin("[key_name(possessor)] took control of \the [src].",admin_key=key_name(possessor))
 	src.ckey = possessor.ckey
 	qdel(possessor)
 
@@ -782,3 +782,11 @@ default behaviour is:
 	src << "<b>You are now \the [src]!</b>"
 	src << "<span class='notice'>Remember to stay in character for a mob of this type!</span>"
 	return 1
+
+/mob/living/Destroy()
+	for (var/thing in stomach_contents)
+		qdel(thing)
+	stomach_contents = null
+	QDEL_NULL(ingested)
+
+	return ..()

@@ -81,19 +81,19 @@ var/list/diona_banned_languages = list(
 	//But diona gestalts gain nutrition by extracting matter from gases in the air. If a gestalt spends a long time in space or on the asteroid, it may need to actually eat food
 	//For simplicity, we'll assume any gas is fine, so they'll just absorb nutrition based on pressure
 	if (!pressure)
-		return
+		return 0
 
 	if (DS.nutrient_organ)
 		if (DS.nutrient_organ.is_broken())
-			return
+			return 0
 
 	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
 	if (DS.nutrient_organ)
 		if(DS.nutrient_organ.is_bruised())
 			plus *= 0.5
+	plus = min(plus, max_nutrition - nutrition)
 	nutrition += plus
-	if (nutrition > max_nutrition)
-		nutrition = max_nutrition
+	return plus*7 //The return value is the number of moles to remove from the local environment
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)
@@ -270,7 +270,7 @@ var/list/diona_banned_languages = list(
 		for (var/i in species.has_limbs)
 			path = species.has_limbs[i]["path"]
 			var/limb_exists = 0
-			for (var/obj/item/organ/external/diona/B in H.organs)
+			for (var/obj/item/organ/external/B in H.organs)
 				if (B.type == path)
 					limb_exists = 1
 					break
@@ -415,21 +415,22 @@ var/list/diona_banned_languages = list(
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_factor = 1
+	var/light_factor = 1.15
 	var/turf/T = get_turf(src)
 	if (is_ventcrawling)
 		return -1.5 //no light inside pipes
 
+
 	if (DS.light_organ)
 		if (DS.light_organ.is_broken())
-			light_factor = 0.55
+			light_factor *= 0.55
 		else if (DS.light_organ.is_bruised())
-			light_factor = 0.8
+			light_factor *= 0.8
 	else if (DS.dionatype == 2)
-		light_factor = 0.8
+		light_factor = 1
 
 	if (T)
-		var/raw = T.get_uv_lumcount(0, 2) * light_factor * 5.5
+		var/raw = min(T.get_uv_lumcount(0, 2) * light_factor * 5.5, 5.5)
 		return raw - 1.5
 
 /mob/living/carbon/proc/diona_get_health(var/datum/dionastats/DS)

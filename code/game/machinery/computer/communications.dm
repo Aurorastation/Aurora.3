@@ -42,7 +42,7 @@
 	crew_announcement.newscast = 1
 
 /obj/machinery/computer/communications/process()
-	if(..())
+	if(operable())
 		if(state != STATE_STATUSDISPLAY)
 			src.updateDialog()
 
@@ -90,7 +90,7 @@
 					set_security_level(tmp_alertlevel)
 					if(security_level != old_level)
 						//Only notify the admins if an actual change happened
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
+						log_game("[key_name(usr)] has changed the security level to [get_security_level()].",ckey=key_name(usr))
 						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
 						switch(security_level)
 							if(SEC_LEVEL_GREEN)
@@ -195,7 +195,7 @@
 					return
 				Centcomm_announce(input, usr)
 				usr << "<span class='notice'>Message transmitted.</span>"
-				log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]")
+				log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
 				centcomm_message_cooldown = 1
 				spawn(300)//30 second cooldown
 					centcomm_message_cooldown = 0
@@ -212,7 +212,7 @@
 					return
 				Syndicate_announce(input, usr)
 				usr << "<span class='notice'>Message transmitted.</span>"
-				log_say("[key_name(usr)] has made an illegal announcement: [input]")
+				log_say("[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(usr))
 				centcomm_message_cooldown = 1
 				spawn(300)//10 minute cooldown
 					centcomm_message_cooldown = 0
@@ -459,7 +459,7 @@
 		return
 
 	emergency_shuttle.call_evac()
-	log_game("[key_name(user)] has called the shuttle.")
+	log_game("[key_name(user)] has called the shuttle.",ckey=key_name(user))
 	message_admins("[key_name_admin(user)] has called the shuttle.", 1)
 
 
@@ -519,7 +519,7 @@
 
 	if(!emergency_shuttle.going_to_centcom()) //check that shuttle isn't already heading to centcomm
 		emergency_shuttle.recall()
-		log_game("[key_name(user)] has recalled the shuttle.")
+		log_game("[key_name(user)] has recalled the shuttle.",key_name(user))
 		message_admins("[key_name_admin(user)] has recalled the shuttle.", 1)
 	return
 

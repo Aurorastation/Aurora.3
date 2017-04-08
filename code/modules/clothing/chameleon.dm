@@ -13,6 +13,8 @@
 	body_parts_covered = copy.body_parts_covered
 	flags_inv = copy.flags_inv
 
+	if(copy.item_state_slots)									 // copy.item_state_slots.Copy() apears to be undefined
+		item_state_slots = copy.item_state_slots // however this appears to work perfectly fine
 	if(copy.item_icons)
 		item_icons = copy.item_icons.Copy()
 	if(copy.sprite_sheets)
@@ -48,7 +50,7 @@
 /obj/item/clothing/under/chameleon/New()
 	..()
 	if(!clothing_choices)
-		var/blocked = list(src.type, /obj/item/clothing/under/cloud, /obj/item/clothing/under/gimmick)//Prevent infinite loops and bad jumpsuits.
+		var/blocked = list(src.type, /obj/item/clothing/under/gimmick, /obj/item/clothing/under/rank/centcom_officer/bst)//Prevent infinite loops and bad jumpsuits.
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/under, blocked)
 
 /obj/item/clothing/under/chameleon/emp_act(severity)
@@ -156,7 +158,7 @@
 /obj/item/clothing/shoes/chameleon/New()
 	..()
 	if(!clothing_choices)
-		var/blocked = list(src.type, /obj/item/clothing/shoes/syndigaloshes, /obj/item/clothing/shoes/cyborg)//prevent infinite loops and bad shoes.
+		var/blocked = list(src.type, /obj/item/clothing/shoes/syndigaloshes, /obj/item/clothing/shoes/cyborg, /obj/item/clothing/shoes/black/bst)//prevent infinite loops and bad shoes.
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/shoes, blocked)
 
 /obj/item/clothing/shoes/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
@@ -231,11 +233,12 @@
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
-
+	
 /obj/item/clothing/gloves/chameleon/New()
 	..()
 	if(!clothing_choices)
-		clothing_choices = generate_chameleon_choices(/obj/item/clothing/gloves, list(src.type))
+		var/blocked = list(src.type, /obj/item/clothing/gloves/swat/bst)
+		clothing_choices = generate_chameleon_choices(/obj/item/clothing/gloves, blocked)
 
 /obj/item/clothing/gloves/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
 	name = "black gloves"
@@ -295,7 +298,7 @@
 //*********************
 
 /obj/item/clothing/glasses/chameleon
-	name = "Optical Meson Scanner"
+	name = "optical meson scanner"
 	icon_state = "meson"
 	item_state = "glasses"
 	desc = "It looks like a plain set of mesons, but on closer inspection, it seems to have a small dial inside."
@@ -305,10 +308,11 @@
 /obj/item/clothing/glasses/chameleon/New()
 	..()
 	if(!clothing_choices)
-		clothing_choices = generate_chameleon_choices(/obj/item/clothing/glasses, list(src.type))
+		var/blocked = list(src.type, /obj/item/clothing/glasses/sunglasses/bst)
+		clothing_choices = generate_chameleon_choices(/obj/item/clothing/glasses, blocked)
 
 /obj/item/clothing/glasses/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
-	name = "Optical Meson Scanner"
+	name = "optical meson scanner"
 	desc = "It's a set of mesons."
 	icon_state = "meson"
 	update_icon()

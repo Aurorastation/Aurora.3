@@ -27,7 +27,7 @@
 		else if (M.mind && M.mind.special_role && M.client)
 			M << "<font color='#960018'><span class='ooc'>" + create_text_tag("aooc", "Antag-OOC:", M.client) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
 
-	log_ooc("(ANTAG) [key] : [msg]")
+	log_ooc("(ANTAG) [key] : [msg]",ckey=key_name(mob))
 
 // Checks if a newly joined player is an antag, and adds the AOOC verb if they are.
 // Because they're tied to client objects, this gets removed every time you disconnect.

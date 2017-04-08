@@ -29,8 +29,8 @@
 	var/hitsound_light = 'sound/effects/Glasshit.ogg'//Sound door makes when hit very gently
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
-	var/close_door_at = 0 //When to automatically close the door, if possible
 	var/open_duration = 150//How long it stays open
+
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
 	var/hatchstate = 0//0: closed, 1: open
@@ -40,8 +40,6 @@
 	var/hatch_colour = "#FFFFFF"
 	var/hatch_open_sound = 'sound/machines/hatch_open.ogg'
 	var/hatch_close_sound = 'sound/machines/hatch_close.ogg'
-
-	var/hatchclosetime //A world.time value to tell us when the hatch should close
 
 	var/image/hatch_image
 
@@ -107,7 +105,7 @@
 		hatchstate = 1
 		update_icon()
 		playsound(src.loc, hatch_open_sound, 40, 1, -1)
-	hatchclosetime = world.time + 29
+	close_hatch_in(29)
 
 	if (istype(mover, /mob/living))
 		var/mob/living/S = mover
@@ -125,15 +123,17 @@
 	..()
 	return
 
-/obj/machinery/door/process()
-	if(close_door_at && world.time >= close_door_at)
-		if(autoclose)
-			close_door_at = next_close_time()
-			close()
-		else
-			close_door_at = 0
-	if (hatchstate && world.time > hatchclosetime)
+/obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
+	spawn(time)
+		src.close()
+
+/obj/machinery/door/proc/close_hatch_in(var/time = 5 SECONDS)
+	spawn(time)
 		close_hatch()
+
+/obj/machinery/door/proc/auto_close()
+	if (!QDELETED(src) && can_close(FALSE) && autoclose)
+		close()
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating || !ticker)
@@ -228,7 +228,7 @@
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
-					getFromPool(/obj/item/stack/rods, list(src.loc, 3))
+					getFromPool(/obj/item/stack/rods, src.loc, 3)
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
@@ -429,9 +429,7 @@
 				take_damage(damage)
 		if(3.0)
 			if(prob(80))
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(2, 1, src)
-				s.start()
+				spark(src, 2, alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
@@ -491,19 +489,23 @@
 	operating = 0
 
 	if(autoclose)
-		close_door_at = next_close_time()
+		close_door_in(next_close_time())
 
 	return 1
 
 /obj/machinery/door/proc/next_close_time()
-	return world.time + (normalspeed ? open_duration : 5)
+	return (normalspeed ? open_duration : 5)
 
 /obj/machinery/door/proc/close(var/forced = 0)
 	if(!can_close(forced))
+		if (autoclose)
+			for (var/atom/movable/AM in get_turf(src))
+				if (AM.density && AM != src)
+					spawn(60)
+						src.auto_close()
 		return
 	operating = 1
 
-	close_door_at = 0
 	do_animate("closing")
 	sleep(3)
 	src.density = 1

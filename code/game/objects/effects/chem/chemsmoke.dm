@@ -24,19 +24,10 @@
 	pixel_x = -32 + rand(-8, 8)
 	pixel_y = -32 + rand(-8, 8)
 
-	//switching opacity on after the smoke has spawned, and then turning it off before it is deleted results in cleaner
-	//lighting and view range updates (Is this still true with the new lighting system?)
-	set_opacity(1)
-
 	//float over to our destination, if we have one
 	destination = dest_turf
 	if(destination)
 		walk_to(src, destination)
-
-/obj/effect/effect/smoke/chem/Destroy()
-	set_opacity(0)
-	fadeOut()
-	..()
 
 /obj/effect/effect/smoke/chem/Move()
 	var/list/oldlocs = view(1, src)
@@ -60,16 +51,6 @@
 		for(var/atom/movable/AM in T)
 			if(!istype(AM, /obj/effect/effect/smoke/chem))
 				reagents.splash(AM, splash_amount, copy = 1)
-
-// Fades out the smoke smoothly using it's alpha variable.
-/obj/effect/effect/smoke/chem/proc/fadeOut(var/frames = 16)
-	if(!alpha) return //already transparent
-
-	frames = max(frames, 1) //We will just assume that by 0 frames, the coder meant "during one frame".
-	var/alpha_step = round(alpha / frames)
-	while(alpha > 0)
-		alpha = max(0, alpha - alpha_step)
-		sleep(world.tick_lag)
 
 /////////////////////////////////////////////
 // Chem Smoke Effect System
@@ -154,7 +135,7 @@
 			if(M)
 				more = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</a>)"
 			message_admins("A chemical smoke reaction has taken place in ([whereLink])[contained]. Last associated key is [carry.my_atom.fingerprintslast][more].", 0, 1)
-			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].")
+			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].",ckey=key_name(M))
 		else
 			message_admins("A chemical smoke reaction has taken place in ([whereLink]). No associated key.", 0, 1)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")
@@ -250,7 +231,7 @@
 	if(passed_smoke)
 		smoke = passed_smoke
 	else
-		smoke = getFromPool(/obj/effect/effect/smoke/chem, list(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I))
+		smoke = getFromPool(/obj/effect/effect/smoke/chem, location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I)
 
 	if(chemholder.reagents.reagent_list.len)
 		chemholder.reagents.trans_to_obj(smoke, chemholder.reagents.total_volume / dist, copy = 1) //copy reagents to the smoke so mob/breathe() can handle inhaling the reagents

@@ -47,25 +47,25 @@
 
 	hud_state = "wiz_vampire"
 	cast_sound = 'sound/magic/enter_blood.ogg'
-
-	amt_dam_brute = 15
-	amt_dam_fire = 15
-
 	message = "You feel a sickening feeling as your body weakens."
 
-/spell/targeted/life_steal/cast(var/list/targets, var/mob/living/carbon/human/caster)
-	for(var/mob/M in targets)
-		if(!(M.stat == DEAD))
+	amt_dam_brute = 15
+	amt_dam_fire  = 15
+
+/spell/targeted/life_steal/cast(list/targets, mob/living/user)
+	for(var/mob/living/M in targets)
+		if(M.stat == DEAD)
 			user << "There is no left life to steal."
 			return
-		if(isipc(target))
+		if(isipc(M))
 			user << "There is no life to steal."
 			return
-		M.visible_message("<span class='danger'>Blood flows from \the [M] into \the [caster]!</span>")
-		caster.adjustBruteLoss(-15)
-		caster.adjustFireLoss(-15)
+		M.visible_message("<span class='danger'>Blood flows from \the [M] into \the [user]!</span>")
+		gibs(M.loc)
+		user.adjustBruteLoss(-15)
+		user.adjustFireLoss(-15)
 
-		..()
+	..()
 
 /spell/targeted/raise_dead
 	name = "Raise Dead"
@@ -106,27 +106,24 @@
 		var/mob/living/carbon/human/skeleton/F = new(get_turf(target))
 		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
 		target.gib()
-		var/client/C = get_player()
-		F.ckey = C.ckey
-		F.faction = usr.faction
-		if(C.mob && C.mob.mind)
-			C.mob.mind.transfer_to(F)
-		F << "<B>You are skeleton minion to [usr], he is your master. Aid your master don't matter what, you have no free will.</B>"
-
+		var/datum/ghosttrap/ghost = get_ghost_trap("skeleton minion")
+		ghost.request_player(F,"A wizard is requesting a skeleton minion.", 60 SECONDS)
+		spawn(600)
+			if(F)
+				if(!F.ckey || !F.client)
+					F.visible_message("With no soul to keep \the [F] linked to this plane, it turns into dust.")
+					F.dust()
+					
+			else
+				F << "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>"
+				F.faction = usr.faction	
+		
 		//equips the skeleton war gear
 		F.equip_to_slot_or_del(new /obj/item/clothing/under/gladiator(F), slot_w_uniform)
 		F.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(F), slot_shoes)
 		F.equip_to_slot_or_del(new /obj/item/weapon/material/twohanded/spear/bone(F), slot_back)
 		F.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/bone(F), slot_head)
-		F.equip_to_slot_or_del(new /obj/item/clothing/suit/bone(F), slot_wear_suit)
-
-/spell/targeted/raise_dead/proc/get_player()
-	for(var/mob/O in dead_mob_list)
-		if(O.client)
-			var/getResponse = alert(O,"A wizard is requesting a skeleton minion. Would you like to play as one?", "Skeleton minion summons","Yes","No")
-			if(getResponse == "Yes")
-				return O.client
-	return null
+		F.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/bone(F), slot_wear_suit)
 
 /spell/targeted/lichdom
 	name = "Lichdom"
@@ -139,16 +136,17 @@
 	invocation_type = SpI_EMOTE
 	invocation = "entones an obscure chant..."
 	max_targets = 1
+	level_max = list(Sp_TOTAL = 0, Sp_SPEED = 0, Sp_POWER = 0)
 
 	hud_state = "wiz_lich"
 
 /spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
-	if(isskeleton(target))
+	if(isskeleton(user))
 		user << "You have no soul or life to offer."
 		return
 
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
-	new /obj/effect/gibspawner/human
+	gibs(user.loc)
 	user.verbs += /mob/living/carbon/proc/immortality
 	user.set_species("Skeleton")
 	user.unEquip(user.wear_suit)

@@ -28,6 +28,11 @@
 /datum/gear/eyes/sciencegoggles
 	display_name = "science Goggles"
 	path = /obj/item/clothing/glasses/science
+	
+/datum/gear/eyes/mesonprescription
+	display_name = "meson goggles, prescription"
+	path = /obj/item/clothing/glasses/meson/prescription
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist")
 
 /datum/gear/eyes/security
 	display_name = "security HUD"
@@ -47,4 +52,3 @@
 /datum/gear/eyes/shades/prescriptionsun
 	display_name = "sunglasses, presciption"
 	path = /obj/item/clothing/glasses/sunglasses/prescription
-	cost = 2

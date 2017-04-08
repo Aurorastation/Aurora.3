@@ -36,6 +36,10 @@
 	name = "gem-encrusted voidsuit"
 	desc = "A bizarre gem-encrusted suit that radiates magical energies."
 	item_state = "wiz_voidsuit"
+	item_state_slots = list(
+		slot_l_hand_str = "wiz_hardsuit",
+		slot_r_hand_str = "wiz_hardsuit"
+	)
 	slowdown = 1
 	w_class = 3
 	unacidable = 1
