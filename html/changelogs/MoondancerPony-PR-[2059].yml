@@ -1,0 +1,7 @@
+author: MoondancerPony
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed protohumans."
+  - rscadd: "Tajaran subspecies now have their own subspecies of Farwa."
