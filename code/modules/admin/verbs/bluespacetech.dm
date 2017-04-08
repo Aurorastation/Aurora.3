@@ -330,6 +330,14 @@
 		C.holder.original_mob = null
 	suicide()
 
+/mob/living/carbon/human/bst/verb/tgm()
+	set name = "Toggle Godmode"
+	set desc = "Enable or disable god mode. For testing things that require you to be vulnerable."
+	set category = "BST"
+
+	status_flags ^= GODMODE
+	src << span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]")
+
 //Equipment. All should have canremove set to 0
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.
 

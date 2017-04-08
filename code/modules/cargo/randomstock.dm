@@ -115,7 +115,7 @@ var/list/global/random_stock_common = list(
 	"cosmetic" = 2.2,
 	"suitcooler" = 1.2,
 	"officechair" = 1.2,
-	"booze" = 3.5,
+	"booze" = 3.7,
 	"plant" = 3.5,
 	"bag" = 2,
 	"extinguish" = 2.2,
@@ -795,7 +795,7 @@ var/list/global/random_stock_large = list(
 						break
 			new /obj/structure/bed/chair/office/dark(T)
 		if ("booze")
-			if (prob(8))//Spare keg of beer
+			if (prob(8))//Spare keg of beer or xuizi juice
 				var/turf/T = get_turf(L)
 				if (!turf_clear(T))
 					for (var/turf/U in range(T,1))
@@ -803,7 +803,10 @@ var/list/global/random_stock_large = list(
 							T = U
 							break
 
-				new /obj/structure/reagent_dispensers/beerkeg(T)
+				if (prob(80))
+					new /obj/structure/reagent_dispensers/beerkeg(T)
+				else
+					new /obj/structure/reagent_dispensers/xuizikeg(T)
 			else
 				var/list/drinks = typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle)
 				drinks -= /obj/item/weapon/reagent_containers/food/drinks/bottle
@@ -1657,7 +1660,7 @@ var/list/global/random_stock_large = list(
 
 		if ("bike")
 			new /obj/vehicle/bike(L)
-			
+
 		if ("sol")
 			if (prob(50))
 				new /obj/structure/closet/sol/navy(L)

@@ -569,6 +569,7 @@ I said no!
 	items = list()
 	result = /obj/item/weapon/reagent_containers/food/snacks/slimesoup
 
+
 /datum/recipe/boiledslimeextract
 	reagents = list("water" = 5)
 	items = list(

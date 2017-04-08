@@ -249,6 +249,16 @@
 		..()
 		reagents.add_reagent("beer",capacity)
 
+/obj/structure/reagent_dispensers/xuizikeg
+	name = "xuizi juice keg"
+	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "keg_xuizi"
+	amount_per_transfer_from_this = 10
+	New()
+		..()
+		reagents.add_reagent("xuizijuice",capacity)
+
 /obj/structure/reagent_dispensers/virusfood
 	name = "Virus Food Dispenser"
 	desc = "A dispenser of virus food."
