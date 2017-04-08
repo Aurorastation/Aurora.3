@@ -403,7 +403,7 @@
 	SearchVar(SSoverlays)
 	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
-	SearchVar(SSingulo)
+	SearchVar(SScalamity)
 	SearchVar(base_law_type)
 	SearchVar(discord_bot)
 	SearchVar(diseases)
