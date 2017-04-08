@@ -955,9 +955,10 @@
 	return
 
 /mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
-    if(lockcharge)
-        canmove = 0
-    return ..()
+	. = ..()
+	if (lockcharge)
+		canmove = 0
+		. = 0
 
 /mob/living/silicon/robot/proc/UnlinkSelf()
 	disconnect_from_ai()
