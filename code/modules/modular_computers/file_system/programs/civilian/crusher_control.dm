@@ -39,10 +39,10 @@
 
 	if(href_list["initialize"])
 		pistons = list()
-		for(var/obj/machinery/crusher_piston/base/pstn in orange(10,src.host))
+		for(var/obj/machinery/crusher_base/pstn in orange(10,src.host))
 			log_debug("Checking Piston")
-			if( pstn.disabled || pstn.panel_open)
-				continue
+			//if( pstn.disabled || pstn.panel_open) //Check if they are operational and not linked to another device already
+				//continue
 			pistons += pstn
 			log_debug("Pistons found and added")
 
@@ -72,6 +72,9 @@
 		log_debug("Crushing")
 		airlock_close()
 		crush_start()
+	
+	if(href_list["close"])
+		message = ""
 
 
 /datum/nano_module/program/crushercontrol/proc/airlock_open()
@@ -87,8 +90,8 @@
 		arlk.lock()
 
 /datum/nano_module/program/crushercontrol/proc/crush_start()
-	for(var/obj/machinery/crusher_piston/base/pstn in pistons)
+	for(var/obj/machinery/crusher_base/pstn in pistons)
 		pstn.crush_start()
 
 /datum/nano_module/program/crushercontrol/proc/crush_stop()
-	for(var/obj/machinery/crusher_piston/base/pstn in pistons)
+	for(var/obj/machinery/crusher_base/pstn in pistons)
