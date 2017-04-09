@@ -25,16 +25,24 @@
 			if(SEC_LEVEL_GREEN)
 				security_announcement_down.Announce("[config.alert_desc_green]", "Attention! Security level lowered to green.")
 				security_level = SEC_LEVEL_GREEN
+				if (nl_ctrl.manual_override == 2)	// Disable override if it was set by code-red.
+					nl_ctrl.manual_override = 0
+					nl_ctrl.doWork(FALSE)	// Update night lighting if it was turned off by red alert.
 			if(SEC_LEVEL_BLUE)
 				if(security_level < SEC_LEVEL_BLUE)
 					security_announcement_up.Announce("[config.alert_desc_blue_upto]", "Attention! Security level elevated to blue.")
 				else
 					security_announcement_down.Announce("[config.alert_desc_blue_downto]", "Attention! Security level lowered to blue.")
 				security_level = SEC_LEVEL_BLUE
+				if (nl_ctrl.manual_override == 2)
+					nl_ctrl.manual_override = 0
+					nl_ctrl.doWork(FALSE)	// Update night lighting if it was turned off by red alert.
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
 					security_announcement_up.Announce("[config.alert_desc_red_upto]", "Attention! Security level elevated to red!")
 					nl_ctrl.deactivate(0)	// Disable nightmode globally
+					if (!nl_ctrl.manual_override)
+						nl_ctrl.manual_override = 2
 				else
 					security_announcement_down.Announce("[config.alert_desc_red_downto]", "Attention! Code red!")
 				security_level = SEC_LEVEL_RED
