@@ -294,3 +294,7 @@
 #define OVEN				0x4
 #define CANDYMAKER			0x8
 #define CEREALMAKER			0x10
+
+#define NL_NOT_DISABLED      0
+#define NL_TEMPORARY_DISABLE 1
+#define NL_PERMANENT_DISABLE 2

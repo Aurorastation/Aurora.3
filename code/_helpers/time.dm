@@ -13,9 +13,7 @@ proc/worldtime2text(time = world.time, timeshift = 1)
 /proc/worldtime2hours()
 	if (!roundstart_hour)
 		worldtime2text()
-	. = (world.timeofday / (60 MINUTES)) + roundstart_hour
-	if (. > 24)
-		. -= 24
+	. = text2num(time2text(world.time + (36000 * roundstart_hour), "hh"))
 
 proc/worlddate2text()
 	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
