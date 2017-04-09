@@ -36,14 +36,15 @@
 	var/const/signfont = "Times New Roman"
 	var/const/crayonfont = "Comic Sans MS"
 
-/obj/item/weapon/paper/New(loc, text,title)
-	..(loc)
-	set_content(title, text ? text : info)
-
-// needed for subtyped papers with pre-defined content
-/obj/item/weapon/paper/New()
+/obj/item/weapon/paper/Initialize(mapload, text, title)
 	..()
-	update_icon()
+	if (text || title)
+		set_content(title, text ? text : info)
+	else
+		if (mapload)
+			update_icon()
+		else
+			addtimer(CALLBACK(src, .proc/update_icon), 1)
 
 /obj/item/weapon/paper/proc/set_content(title, text)
 	if(title)
