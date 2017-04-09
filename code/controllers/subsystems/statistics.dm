@@ -3,7 +3,7 @@
 /datum/controller/subsystem/statistics
 	name = "Statistics & Inactivity"
 	wait = 1 MINUTE
-	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
+	flags = SS_NO_TICK_CHECK | SS_BACKGROUND | SS_NO_INIT
 	priority = SS_PRIORITY_STATISTICS
 
 	var/list/messages = list()		//Stores messages of non-standard frequencies
@@ -24,12 +24,8 @@
 
 /datum/controller/subsystem/statistics/New()
 	NEW_SS_GLOBAL(SSfeedback)
-
-/datum/controller/subsystem/statistics/Initialize(timeofday)
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))
-		disable()
-	
-	..(timeofday, silent = TRUE)
+		flags |= SS_NO_FIRE
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
