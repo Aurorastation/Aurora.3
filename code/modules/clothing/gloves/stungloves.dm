@@ -25,7 +25,7 @@
 
 		C.use(2)
 		wired = 1
-		if (!istype(src, /obj/item/clothing/gloves/yellow))
+		if (!istype(src, /obj/item/clothing/gloves/yellow) && !istype(src, /obj/item/clothing/gloves/fyellow))
 			siemens_coefficient = 3
 			..()
 		user << "<span class='notice'>You wrap some wires around the [src].</span>"
