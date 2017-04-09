@@ -52,7 +52,8 @@ var/datum/controller/subsystem/atoms/SSatoms
 				++count
 				CHECK_TICK
 
-	world.log << "Initialized [count] atoms"
+	admin_notice(span("danger", "Initialized [count] atoms."), R_DEBUG)
+	world.log << "SSatoms: Initialized [count] atoms."
 
 	initialized = INITIALIZATION_INNEW_REGULAR
 
@@ -60,7 +61,8 @@ var/datum/controller/subsystem/atoms/SSatoms
 		for(var/I in late_loaders)
 			var/atom/A = I
 			A.LateInitialize()
-		testing("Late initialized [late_loaders.len] atoms")
+		admin_notice(span("danger", "Late-initialized [late_loaders.len] atoms."), R_DEBUG)
+		world.log << "SSatoms: Late initialized [late_loaders.len] atoms"
 		late_loaders.Cut()
 	
 	if(atoms)
@@ -114,10 +116,10 @@ var/datum/controller/subsystem/atoms/SSatoms
 		if(fails & BAD_INIT_SLEPT)
 			. += "- Slept during Initialize()\n"
 
-/datum/controller/subsystem/atoms/Shutdown()
+/*datum/controller/subsystem/atoms/Shutdown()
 	var/initlog = InitLog()
 	if(initlog)
-		world.log << initlog
+		world.log << initlog*/
 
 /datum/controller/subsystem/atoms/Recover()
 	initialized = SSatoms.initialized

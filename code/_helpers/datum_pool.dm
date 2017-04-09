@@ -26,7 +26,6 @@
 			to_chat(world, text("DEBUG_DATUM_POOL: new proc has been called ([] | []).", type, list2params(B)))
 		#endif
 
-		//so the GC knows we're pooling this type.
 		if(isnull(masterdatumPool[type]))
 			masterdatumPool[type] = list()
 
@@ -134,6 +133,10 @@
 	set category = "Debug"
 
 	if (!check_rights(R_DEBUG))
+		return
+
+	if (!LAZYLEN(pooledvariables))
+		usr << "No objects have been added to the datum pool."
 		return
 
 	var/type = input("What is the typepath for the pooled object variables you wish to view?", "Pooled Variables") in pooledvariables|null
