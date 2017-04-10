@@ -126,7 +126,7 @@
 
 
 	flick("migniter-spark", src)
-	spark(src, 2, 1)
+	spark(src, 2, alldirs)
 	src.last_spark = world.time
 	use_power(1000)
 	var/turf/location = src.loc

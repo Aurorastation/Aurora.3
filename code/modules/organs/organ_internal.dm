@@ -433,7 +433,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		return null
 
 	var/tank_pressure = air_contents.return_pressure()
-	if(tank_pressure < distribute_pressure)
+	if((tank_pressure < distribute_pressure) && prob(5))
 		owner << "<span class='warning'>There is a buzzing in your [parent_organ].</span>"
 
 	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)

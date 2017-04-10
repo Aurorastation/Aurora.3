@@ -226,19 +226,20 @@
 					qdel(src)
 					return
 				else if(seed.get_trait(TRAIT_FLESH_COLOUR))
-					user << "You slice up \the [src]."
-					var/slices = rand(3,5)
-					var/reagents_to_transfer = round(reagents.total_volume/slices)
-					for(var/i=i;i<=slices;i++)
-						var/obj/item/weapon/reagent_containers/food/snacks/fruit_slice/F = new(get_turf(src),seed)
-						if(reagents_to_transfer) reagents.trans_to_obj(F,reagents_to_transfer)
-					qdel(src)
-					return
+					if (reagents.total_volume)
+						user << "You slice up \the [src]."
+						var/slices = rand(3,5)
+						var/reagents_to_transfer = reagents.total_volume/slices
+						for(var/i=0;i<slices;i++)
+							var/obj/item/weapon/reagent_containers/food/snacks/fruit_slice/F = new(get_turf(src),seed)
+							reagents.trans_to_obj(F,reagents_to_transfer)
+						qdel(src)
+						return
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)	
+/obj/item/weapon/reagent_containers/food/snacks/grown/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	. = ..()
-	
+
 	if(seed && seed.get_trait(TRAIT_STINGS))
 		if(!reagents || reagents.total_volume <= 0)
 			return

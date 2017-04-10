@@ -38,7 +38,6 @@
 	name = "synthetic intelligence movement armband"
 	desc = "An armband, signifying membership of the Synthetic Intelligence Movement. It's white, with a brown stripe that appears to look like an active positronic brain."
 	icon_state = "movement"
-	slot = "armband"
 
 /obj/item/clothing/accessory/armband/atlas
 	name = "atlas armband"

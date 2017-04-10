@@ -16,7 +16,6 @@
 	var/datum/data/record/active2 = null
 	var/a_id = null
 	var/temp = null
-	//var/printing = null
 
 /obj/machinery/computer/med_data/AltClick(var/mob/user)
 	eject_id()
@@ -562,3 +561,4 @@
 	icon_state = "medlaptop0"
 
 	icon_screen = "medlaptop"
+	is_holographic = FALSE

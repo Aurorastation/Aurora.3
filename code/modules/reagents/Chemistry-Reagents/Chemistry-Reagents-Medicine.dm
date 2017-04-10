@@ -543,7 +543,7 @@
 	else
 		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
 			data = world.time
-			if(prob(90))
+			if(prob(96))
 				M << "<span class='notice'>Your mind feels much more stable.</span>"
 			else
 				M << "<span class='warning'>Your mind breaks apart...</span>"
