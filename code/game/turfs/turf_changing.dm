@@ -77,17 +77,19 @@
 	queue_smooth_neighbors(src)
 
 	recalc_atom_opacity()
+
 	if (SSlighting)
 		lighting_overlay = old_lighting_overlay
 		affecting_lights = old_affecting_lights
 		corners = old_corners
-		if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-			reconsider_lights()
 		if(dynamic_lighting != old_dynamic_lighting)
 			if(dynamic_lighting)
 				lighting_build_overlay()
 			else
 				lighting_clear_overlay()
+
+		if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
+			force_update_lights()
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))

@@ -122,7 +122,7 @@
 	. = ..()
 	if (is_noisy)
 		var/turf/T = get_turf(src)
-		if (T.x == last_x && T.y == last_y)
+		if ((T.x == last_x && T.y == last_y) || !T.footstep_sound)
 			return
 		last_x = T.x
 		last_y = T.y
