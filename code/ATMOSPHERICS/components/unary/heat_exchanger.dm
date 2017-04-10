@@ -32,7 +32,7 @@
 
 	process()
 		..()
-		if(!partner)
+		if(QDELETED(partner))
 			return 0
 
 		if(!air_master || air_master.times_fired <= update_cycle)

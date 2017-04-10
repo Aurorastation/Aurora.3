@@ -38,6 +38,8 @@
 
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM)
+		
+	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0

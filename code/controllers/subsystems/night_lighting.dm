@@ -7,17 +7,14 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	flags = SS_BACKGROUND | SS_NO_TICK_CHECK
 	priority = SS_PRIORITY_NIGHT
 
-	var/isactive = 0
+	var/isactive = FALSE
+	var/disable_type = NL_NOT_DISABLED
 
 /datum/controller/subsystem/nightlight/New()
 	NEW_SS_GLOBAL(SSnightlight)
 
 /datum/controller/subsystem/nightlight/Initialize(timeofday)
-	var/time = worldtime2hours()
-	if (time <= 8 || time >= 19)
-		activate()
-	else
-		deactivate()
+	fire(FALSE, FALSE)
 
 	..(timeofday, silent = TRUE)
 
@@ -28,16 +25,35 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	if (istype(SSnightlight))
 		src.isactive = SSnightlight.isactive
 
-/datum/controller/subsystem/nightlight/fire(resumed = FALSE)
+/datum/controller/subsystem/nightlight/proc/temp_disable(time = -1)
+	if (disable_type != NL_PERMANENT_DISABLE)
+		disable_type = NL_TEMPORARY_DISABLE
+		disable()
+		deactivate(FALSE)
+		if (time > 0)
+			addtimer(CALLBACK(src, .proc/end_temp_disable), time, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/datum/controller/subsystem/nightlight/proc/end_temp_disable()
+	if (disable_type == NL_TEMPORARY_DISABLE)
+		enable()
+
+/datum/controller/subsystem/nightlight/fire(resumed = FALSE, announce = TRUE)
+	if (disable_type)
+		log_debug("SSnightlight: disable_type was [disable_type] but can_fire was TRUE! Disabling self.")
+		disable()
+		return
+		
 	var/time = worldtime2hours()
 	if (time <= 8 || time >= 19)
 		if (!isactive)
-			command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 			activate()
+			if (announce)
+				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 	else
 		if (isactive)
-			command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 			deactivate()
+			if (announce)
+				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
@@ -73,3 +89,11 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 
 /datum/controller/subsystem/nightlight/proc/is_active()
 	return isactive
+
+/datum/controller/subsystem/nightlight/enable()
+	..()
+	disable_type = NL_NOT_DISABLED
+
+/datum/controller/subsystem/nightlight/disable()
+	..()
+	disable_type = NL_PERMANENT_DISABLE

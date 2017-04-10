@@ -27,9 +27,7 @@
 
 /datum/controller/subsystem/statistics/Initialize(timeofday)
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))
-		disable()
-	
-	..(timeofday, silent = TRUE)
+		can_fire = FALSE
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.

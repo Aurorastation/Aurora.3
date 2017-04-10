@@ -10,6 +10,9 @@
 	var/tmp/list/processing_powersinks = list()
 	var/tmp/powernets_reset_yet
 
+	var/tmp/processes_this_tick = 0
+	var/tmp/powerusers_this_tick = 0
+
 /datum/controller/subsystem/machinery/New()
 	NEW_SS_GLOBAL(SSmachinery)
 
@@ -22,6 +25,10 @@
 		src.processing_machinery = machines.Copy()
 		src.processing_powersinks = processing_power_items.Copy()
 		powernets_reset_yet = FALSE
+
+		// Reset accounting vars.
+		processes_this_tick = 0
+		powerusers_this_tick = 0
 
 	var/list/curr_machinery = src.processing_machinery
 	var/list/curr_powersinks = src.processing_powersinks
@@ -36,6 +43,7 @@
 			continue
 
 		if (M.isprocessing)
+			processes_this_tick++
 			switch (M.process())
 				if (PROCESS_KILL)
 					remove_machine(M)
@@ -43,6 +51,7 @@
 					M.isprocessing = FALSE
 
 		if (M.use_power)
+			powerusers_this_tick++
 			M.auto_use_power()
 
 		if (no_mc_tick)
@@ -72,7 +81,7 @@
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len]")
+	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len] LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
 
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
