@@ -35,7 +35,7 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
