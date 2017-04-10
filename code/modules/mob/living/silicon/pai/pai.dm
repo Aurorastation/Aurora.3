@@ -121,7 +121,7 @@
 		paicard = new/obj/item/device/paicard(newlocation)
 		paicard.pai = src
 
-	canmove = 0
+	// canmove = 0 // not sure why this was here in the first place.
 	src.loc = paicard
 	card = paicard
 	sradio = new(src)
