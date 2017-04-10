@@ -58,3 +58,12 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,1)
 
 	qdel(src)
+
+/obj/item/weapon/grenade/frag/mech
+	name = "mech fragmentation grenade"
+
+	num_fragments = 50
+	fragment_damage = 10
+	damage_step = 1
+	explosion_size = 3
+	spread_range = 7

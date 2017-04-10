@@ -161,10 +161,13 @@
 	icon_state = "impact_plasmacutter"
 
 //----------------------------
-// Pulse muzzle
+// Non-beam energy muzzles
 //----------------------------
 /obj/effect/projectile/pulse_bullet/muzzle
 	icon_state = "muzzle_pulse"
+
+/obj/effect/projectile/plasma/muzzle
+	icon_state = "muzzle_plasma"
 
 
 //----------------------------
