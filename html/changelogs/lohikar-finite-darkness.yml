@@ -1,6 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscadd: "Shells have figured out how to put on socks & undershirts. Synth uprising soon."
-  - bugfix: "Repairing holes to space no longer sucks the light out of a room forever."
-  - bugfix: "Footstep sounds now actually work without having to take off your boots."

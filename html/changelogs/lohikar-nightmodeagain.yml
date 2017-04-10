@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "NanoTrasen has fired several designers in charge of stations' night-mode control systems after it was revealed that they did not actually know how time works."
-  - tweak: "Red-alert is now kind enough to restore the previous nightmode settings instead of forcing its standards of illumination on the crew."

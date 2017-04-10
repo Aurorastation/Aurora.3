@@ -1,4 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - bugfix: "Eliminated the possibility for 'double-spending' airlock electronics, duplicating boards and allowing you to complete multiple airlocks with one board."
