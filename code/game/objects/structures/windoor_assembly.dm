@@ -182,7 +182,6 @@ obj/structure/windoor_assembly/Destroy()
 						src.electronics = EL
 					else
 						EL.inuse = 0
-						EL.forceMove(src)
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(istype(W, /obj/item/weapon/screwdriver) && src.electronics)

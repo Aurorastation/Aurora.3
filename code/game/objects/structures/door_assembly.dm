@@ -228,7 +228,6 @@
 				src.electronics = EL
 			else
 				EL.inuse = 0
-				EL.forceMove(src)
 
 	else if(istype(W, /obj/item/weapon/crowbar) && state == 2 )
 		//This should never happen, but just in case I guess
