@@ -121,7 +121,7 @@
 		paicard = new/obj/item/device/paicard(newlocation)
 		paicard.pai = src
 
-	// canmove = 0 // not sure why this was here in the first place.
+	canmove = 0
 	src.loc = paicard
 	card = paicard
 	sradio = new(src)
@@ -337,6 +337,8 @@
 
 	var/turf/T = get_turf(src)
 	if(istype(T)) T.visible_message("<b>[src]</b> folds outwards, expanding into a mobile form.")
+	canmove = 1
+	resting = 0
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
