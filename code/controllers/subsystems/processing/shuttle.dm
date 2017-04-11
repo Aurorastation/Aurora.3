@@ -122,7 +122,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	shuttles["Supply"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
-	supply_controller.shuttle = shuttle
+	SScargo.shuttle = shuttle
 
 	shuttle = new/datum/shuttle/ferry/arrival()
 	shuttle.location = 1

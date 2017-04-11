@@ -12,6 +12,8 @@ var/datum/controller/subsystem/orbit/SSorbit
 /datum/controller/subsystem/orbit/New()
 	NEW_SS_GLOBAL(SSorbit)
 
+/datum/controller/subsystem/orbit/Recover()
+	src.processing = SSorbit.processing
 
 /datum/controller/subsystem/orbit/stat_entry()
 	..("P:[processing.len]")

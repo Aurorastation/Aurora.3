@@ -759,7 +759,7 @@
 					for (var/datum/controller/ctrl in client.holder.watched_processes)
 						ctrl.stat_entry()
 						
-			if(statpanel("Processes"))
+			if(statpanel("MC"))
 				stat(null)
 				if(Master)
 					Master.stat_entry()

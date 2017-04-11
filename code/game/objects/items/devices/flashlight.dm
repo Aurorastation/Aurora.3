@@ -238,10 +238,6 @@
 	light_color = LIGHT_COLOR_SLIME_LAMP
 	light_wedge = LIGHT_OMNI
 
-/obj/item/device/flashlight/slime/New()
-	..()
-	set_light(brightness_on)
-
 /obj/item/device/flashlight/slime/update_icon()
 	return
 

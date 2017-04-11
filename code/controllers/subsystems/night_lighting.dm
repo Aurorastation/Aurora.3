@@ -22,8 +22,8 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	..("A:[isactive] T:[worldtime2hours()] DT:[config.nl_start] NT:[config.nl_finish]")
 
 /datum/controller/subsystem/nightlight/Recover()
-	if (istype(SSnightlight))
-		src.isactive = SSnightlight.isactive
+	src.isactive = SSnightlight.isactive
+	src.disable_type = SSnightlight.disable_type
 
 /datum/controller/subsystem/nightlight/proc/temp_disable(time = -1)
 	if (disable_type != NL_PERMANENT_DISABLE)

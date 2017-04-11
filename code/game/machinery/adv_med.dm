@@ -265,13 +265,10 @@
 
 	return collapse_desc
 
-/obj/machinery/body_scanconsole/New()
+/obj/machinery/body_scanconsole/Initialize()
 	..()
-	spawn(5)
-		src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
-		src.connected.connected = src
-		return
-	return
+	src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
+	src.connected.connected = src
 
 /obj/machinery/body_scanconsole/attack_ai(user as mob)
 	return src.attack_hand(user)

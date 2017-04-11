@@ -37,7 +37,7 @@
 	var/const/crayonfont = "Comic Sans MS"
 
 /obj/item/weapon/paper/Initialize(mapload, text, title)
-	..()
+	. = ..()
 	if (text || title)
 		set_content(title, text ? text : info)
 	else

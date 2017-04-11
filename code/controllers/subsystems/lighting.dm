@@ -8,10 +8,15 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	flags = SS_FIRE_IN_LOBBY
 	priority = SS_PRIORITY_LIGHTING
+	init_order = SS_INIT_LIGHTING
 
 	var/list/light_queue   = list() // lighting sources  queued for update.
 	var/list/corner_queue  = list() // lighting corners  queued for update.
 	var/list/overlay_queue = list() // lighting overlays queued for update.
+
+	var/tmp/processed_lights = 0
+	var/tmp/processed_corners = 0
+	var/tmp/processed_overlays = 0
 
 	var/force_queued = TRUE
 	var/round_started = FALSE
@@ -20,10 +25,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 	NEW_SS_GLOBAL(SSlighting)
 
 /datum/controller/subsystem/lighting/stat_entry()
-	..("L:[light_queue.len] C:[corner_queue.len] O:[overlay_queue.len]")
-	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
+	..("O:[all_lighting_overlays.len] C:[all_lighting_corners.len]\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
 
 /datum/controller/subsystem/lighting/Initialize(timeofday)
+	var/overlaycount = 0
 	// Generate overlays.
 	for (var/zlevel = 1 to world.maxz)
 		for (var/turf/T in block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel)))
@@ -35,15 +40,34 @@ var/datum/controller/subsystem/lighting/SSlighting
 				continue
 
 			new /atom/movable/lighting_overlay(T, TRUE)
+			overlaycount++
 
 			CHECK_TICK
 
+	admin_notice(span("danger", "Created [overlaycount] lighting overlays."), R_DEBUG)
+
+	// Tick once to clear most lights.
+	fire(FALSE, TRUE)
+
+	admin_notice(span("danger", "Processed [processed_lights] light sources."), R_DEBUG)
+	admin_notice(span("danger", "Processed [processed_corners] light corners."), R_DEBUG)
+	admin_notice(span("danger", "Processed [processed_overlays] light overlays."), R_DEBUG)
+
+	var/msg = "SSlighting: NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]"
+	game_log("SS", msg)
+	world.log << "## [msg]"
+
 	..()
 
-/datum/controller/subsystem/lighting/fire(resumed = FALSE)
+/datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed && !round_started && Master.round_started)
 		force_queued = FALSE
 		round_started = TRUE
+
+	if (!resumed)
+		processed_lights = 0
+		processed_corners = 0
+		processed_overlays = 0
 
 	var/list/curr_lights = light_queue
 	var/list/curr_corners = corner_queue
@@ -65,7 +89,11 @@ var/datum/controller/subsystem/lighting/SSlighting
 		L.force_update = FALSE
 		L.needs_update = FALSE
 
-		if (MC_TICK_CHECK)
+		processed_lights++
+
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	while (curr_corners.len)
@@ -76,7 +104,11 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 		C.needs_update = FALSE
 
-		if (MC_TICK_CHECK)
+		processed_corners++
+
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	while (curr_overlays.len)
@@ -85,12 +117,15 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 		O.update_overlay()
 		O.needs_update = FALSE
+
+		processed_overlays++
 		
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 /datum/controller/subsystem/lighting/Recover()
-	if (istype(SSlighting))
-		src.light_queue = SSlighting.light_queue
-		src.corner_queue = SSlighting.corner_queue
-		src.overlay_queue = SSlighting.overlay_queue
+	src.light_queue = SSlighting.light_queue
+	src.corner_queue = SSlighting.corner_queue
+	src.overlay_queue = SSlighting.overlay_queue

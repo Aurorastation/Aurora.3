@@ -18,6 +18,9 @@ var/datum/controller/subsystem/wireless/SSwireless
 /datum/controller/subsystem/wireless/New()
 	NEW_SS_GLOBAL(SSwireless)
 
+/datum/controller/subsystem/wireless/Recover()
+	receiver_list = SSwireless.receiver_list
+
 /datum/controller/subsystem/wireless/stat_entry()
 	..("RL:[receiver_list.len] PC:[pending_connections.len] RC:[retry_connections.len] FC:[failed_connections.len] TC:[total_processed_connections]")
 

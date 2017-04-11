@@ -16,7 +16,13 @@ var/datum/controller/subsystem/explosives/bomb_processor
 
 /datum/controller/subsystem/explosives/New()
 	NEW_SS_GLOBAL(bomb_processor)
-	work_queue = list()
+	LAZYINITLIST(work_queue)
+
+/datum/controller/subsystem/explosives/Recover()
+	work_queue = bomb_processor.work_queue
+	explosion_in_progress = bomb_processor.explosion_in_progress
+	explosion_turfs = bomb_processor.explosion_turfs
+	powernet_update_pending = bomb_processor.powernet_update_pending
 
 /datum/controller/subsystem/explosives/fire()
 	if (!(work_queue.len))

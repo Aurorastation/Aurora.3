@@ -55,17 +55,14 @@
 
 	var/bloodiness = 0		// count of bloodiness
 
-/obj/machinery/bot/mulebot/New()
-	..()
+/obj/machinery/bot/mulebot/Initialize()
+	. = ..()
 	wires = new(src)
 	botcard = new(src)
 	botcard.access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	cell = new(src)
 	cell.charge = 2000
 	cell.maxcharge = 2000
-
-/obj/machinery/bot/mulebot/Initialize()
-	. = ..()
 	if(radio_controller)
 		radio_controller.add_object(src, control_freq, filter = RADIO_MULEBOT)
 		radio_controller.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)

@@ -40,8 +40,8 @@
 	. = cooking_power / optimal_power
 	. *= 100
 
-/obj/machinery/appliance/cooker/New()
-	..()
+/obj/machinery/appliance/cooker/Initialize()
+	. = ..()
 	loss = (active_power_usage / resistance)*0.5
 	cooking_objs = list()
 	for (var/i = 0, i < max_contents, i++)

@@ -312,10 +312,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
  *	The Actual PDA
  */
 
-/obj/item/device/pda/New()
-	..()
+/obj/item/device/pda/Initialize()
+	. = ..()
 	PDAs += src
-	PDAs = sortAtom(PDAs)
+	sortTim(PDAs, /proc/cmp_text_asc)
 	if(default_cartridge)
 		cartridge = new default_cartridge(src)
 	new /obj/item/weapon/pen(src)
