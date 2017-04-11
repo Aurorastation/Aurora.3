@@ -4,7 +4,7 @@
 #define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
-var/datum/controller/subsystem/cargo/supply_controller
+var/datum/controller/subsystem/cargo/SScargo
 
 /datum/controller/subsystem/cargo
 	name = "Cargo"
@@ -28,6 +28,13 @@ var/datum/controller/subsystem/cargo/supply_controller
 	var/movetime = 1200
 	var/datum/shuttle/ferry/supply/shuttle
 
+/datum/controller/subsystem/cargo/Recover()
+	src.points = SScargo.points
+	src.shoppinglist = SScargo.shoppinglist
+	src.requestlist = SScargo.requestlist
+	src.supply_packs = SScargo.supply_packs
+	src.shuttle = SScargo.shuttle
+
 /datum/controller/subsystem/cargo/Initialize(timeofday)
 	ordernum = rand(1,9000)
 
@@ -41,7 +48,7 @@ var/datum/controller/subsystem/cargo/supply_controller
 	..()
 
 /datum/controller/subsystem/cargo/New()
-	NEW_SS_GLOBAL(supply_controller)
+	NEW_SS_GLOBAL(SScargo)
 
 /datum/controller/subsystem/cargo/fire()
 	points += points_per_process

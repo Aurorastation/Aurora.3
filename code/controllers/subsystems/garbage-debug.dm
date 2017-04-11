@@ -394,7 +394,7 @@
 	SearchVar(SSorbit)
 	SearchVar(shuttle_controller)
 	SearchVar(sun)
-	SearchVar(supply_controller)
+	SearchVar(SScargo)
 	SearchVar(tickerProcess)
 	SearchVar(SStimer)
 	SearchVar(SSvote)

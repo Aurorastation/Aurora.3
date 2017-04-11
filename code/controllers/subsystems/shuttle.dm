@@ -141,7 +141,7 @@ var/datum/controller/subsystem/shuttle/shuttle_controller
 	shuttles["Supply"] = shuttle
 	process_shuttles += shuttle
 
-	supply_controller.shuttle = shuttle
+	SScargo.shuttle = shuttle
 
 	// Admin shuttles.
 	shuttle = new()
