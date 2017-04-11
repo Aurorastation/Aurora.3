@@ -141,6 +141,7 @@
 	M.confused = 0
 	M.sleeping = 0
 	M.jitteriness = 0
+	M.intoxication = 0
 	for(var/datum/disease/D in M.viruses)
 		D.spread = "Remissive"
 		D.stage--
