@@ -81,7 +81,7 @@
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len] LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
+	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len]\n\tLT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
 
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
