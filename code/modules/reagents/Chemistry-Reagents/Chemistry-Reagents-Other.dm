@@ -195,7 +195,7 @@
 		return
 	M.SetParalysis(0)
 	M.SetWeakened(0)
-	M.adjustToxLoss(rand(3))
+	M.adjustToxLoss(rand(3)*removed)
 
 /datum/reagent/water/holywater
 	name = "Holy Water"

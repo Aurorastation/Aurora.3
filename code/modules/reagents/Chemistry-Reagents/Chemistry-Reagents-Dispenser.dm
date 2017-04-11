@@ -254,7 +254,7 @@
 	description = "A chemical element."
 	reagent_state = LIQUID
 	color = "#484848"
-	met_ingest = REM*0.2
+	ingest_met = REM*0.2
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
