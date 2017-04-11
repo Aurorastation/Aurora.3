@@ -29,13 +29,13 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	for (var/zlevel = 1 to world.maxz)
 		smooth_zlevel(zlevel, FALSE)
 
-	/*var/queue = smooth_queue
+	var/queue = smooth_queue
 	smooth_queue = list()
 	for(var/V in queue)
 		var/atom/A = V
-		if(!A || A.z <= 2)
+		if(!A)
 			continue
 		smooth_icon(A)
-		CHECK_TICK*/
+		CHECK_TICK
 
 	..()

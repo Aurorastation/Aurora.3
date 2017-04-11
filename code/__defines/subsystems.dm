@@ -3,19 +3,19 @@
 #define SS_INIT_ASTEROID            4	// Asteroid generation.
 #define SS_INIT_SHUTTLE             3	// Shuttle setup.
 #define SS_INIT_CARGO               2	// Random warehouse generation.
-#define SS_INIT_ATOMS			    1	// World initialization. Will trigger lighting updates.
-#define SS_INIT_TICKER 				0	// Lobby timer starts here.
+#define SS_INIT_ATOMS               1	// World initialization. Will trigger lighting updates.
+#define SS_INIT_TICKER              0	// Lobby timer starts here.
 #define SS_INIT_MACHINERY          -1	// Machinery prune and powernet build.
 #define SS_INIT_PIPENET            -2	// Initial pipenet build.
 #define SS_INIT_ATMOS              -3	// Miscellaneous atmos machinery initialization.
 #define SS_INIT_AIR                -4	// Air setup and pre-bake.
 #define SS_INIT_PARALLAX           -5	// Parallax image cache generation.
 #define SS_INIT_NIGHT              -6	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_LIGHTING           -7	// Generation of lighting overlays and pre-bake.
-#define SS_INIT_MISC			   -8	// Default.
-#define SS_INIT_SMOOTHING          -9	// Object icon smoothing.
-#define SS_INIT_OVERLAY            -10	// Overlay flush.
-#define SS_INIT_OPENTURF           -11	// Openturf should be after smoothing so it copies the smoothed turfs.
+#define SS_INIT_SMOOTHING          -7	// Object icon smoothing. Creates overlays.
+#define SS_INIT_OVERLAY            -8	// Overlay flush.
+#define SS_INIT_OPENTURF           -9	// Openturf should be after smoothing so it copies the smoothed turfs. Causes lighting updates.
+#define SS_INIT_MISC              -10	// Default.
+#define SS_INIT_LIGHTING          -11	// Generation of lighting overlays and pre-bake.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.

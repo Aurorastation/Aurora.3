@@ -9,7 +9,7 @@
 
 /datum/controller/subsystem/openturf
 	name = "Open Space"
-	flags = SS_BACKGROUND | SS_NO_INIT | SS_FIRE_IN_LOBBY
+	flags = SS_BACKGROUND
 	wait = 2
 	init_order = SS_INIT_OPENTURF
 	priority = SS_PRIORITY_OPENTURF
@@ -40,14 +40,19 @@
 /datum/controller/subsystem/openturf/stat_entry()
 	..("Q:[queued.len] OO:[all_openspace_overlays.len] OT:[total_openspace_turfs]") 
 
-/datum/controller/subsystem/openturf/fire(resumed = 0)
+/datum/controller/subsystem/openturf/Initialize(timeofday)
+	// Flush the queue.
+	fire(FALSE, TRUE)
+	..()
+
+/datum/controller/subsystem/openturf/fire(resumed = 0, no_mc_tick = FALSE)
 	if (!resumed)
 		currentrun = queued
 		queued = list()
 
 	var/list/curr = currentrun
 
-	while (curr.len && !MC_TICK_CHECK)
+	while (curr.len)
 		var/turf/simulated/open/T = curr[curr.len]
 		curr.len--
 
@@ -90,6 +95,11 @@
 			OO.plane = OPENTURF_MAX_PLANE - depth
 
 		T.updating = FALSE
+
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
+			return
 
 /datum/controller/subsystem/openturf/proc/calculate_depth(turf/simulated/open/T)
 	. = 0
