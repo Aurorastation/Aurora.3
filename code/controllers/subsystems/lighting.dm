@@ -23,6 +23,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	..("O:[all_lighting_overlays.len] C:[all_lighting_corners.len] P:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}")
 
 /datum/controller/subsystem/lighting/Initialize(timeofday)
+	var/overlaycount = 0
 	// Generate overlays.
 	for (var/zlevel = 1 to world.maxz)
 		for (var/turf/T in block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel)))
@@ -34,11 +35,26 @@ var/datum/controller/subsystem/lighting/SSlighting
 				continue
 
 			new /atom/movable/lighting_overlay(T, TRUE)
+			overlaycount++
 
 			CHECK_TICK
 
+	admin_notice(span("danger", "Created [overlaycount] lighting overlays."), R_DEBUG)
+
+	var/initial_light = light_queue.len
+	var/initial_corner = corner_queue.len
+	var/initial_overlay = overlay_queue.len
+
 	// Tick once to clear most lights.
 	fire(FALSE, TRUE)
+
+	admin_notice(span("danger", "Processed [initial_light] light sources."), R_DEBUG)
+	admin_notice(span("danger", "Processed [initial_corner] light corners."), R_DEBUG)
+	admin_notice(span("danger", "Processed [initial_overlay] light overlays."), R_DEBUG)
+
+	var/msg = "SSlighting: NOv:[overlaycount] L:[initial_light] C:[initial_corner] O:[initial_overlay]"
+	game_log("SS", msg)
+	world.log << "## [msg]"
 
 	..()
 
