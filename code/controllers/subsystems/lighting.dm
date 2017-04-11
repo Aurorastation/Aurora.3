@@ -8,6 +8,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	flags = SS_FIRE_IN_LOBBY
 	priority = SS_PRIORITY_LIGHTING
+	init_order = SS_INIT_LIGHTING
 
 	var/list/light_queue   = list() // lighting sources  queued for update.
 	var/list/corner_queue  = list() // lighting corners  queued for update.
