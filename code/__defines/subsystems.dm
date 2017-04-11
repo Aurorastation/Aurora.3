@@ -1,20 +1,20 @@
-#define SS_INIT_MISC_FIRST			6
+#define SS_INIT_MISC_FIRST          6
 #define SS_INIT_SEEDS               5
-#define SS_INIT_ASTEROID			4
-#define SS_INIT_SHUTTLE             3
+#define SS_INIT_ASTEROID            4	// Asteroid generation.
+#define SS_INIT_SHUTTLE             3	// Shuttle setup.
 #define SS_INIT_CARGO               2	// Random warehouse generation.
-#define SS_INIT_ATOMS			    1
-#define SS_INIT_TICKER 				0	// Lobby timer starts here.
-#define SS_INIT_MACHINERY          -1
-#define SS_INIT_PIPENET            -2
-#define SS_INIT_ATMOS              -3
-#define SS_INIT_AIR                -4
-#define SS_INIT_PARALLAX           -5
-#define SS_INIT_LIGHTING           -6	// Generation of lighting overlays, but not pre-bake.
-#define SS_INIT_MISC			   -7	// Default.
-#define SS_INIT_SMOOTHING          -8
-#define SS_INIT_OVERLAY            -9
-#define SS_INIT_NIGHT              -10	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_ATOMS               1	// World initialization. Will trigger lighting updates.
+#define SS_INIT_TICKER              0	// Lobby timer starts here. Initialization *must* finish within 180 seconds of this step!
+#define SS_INIT_MACHINERY          -1	// Machinery prune and powernet build.
+#define SS_INIT_PIPENET            -2	// Initial pipenet build.
+#define SS_INIT_ATMOS              -3	// Miscellaneous atmos machinery initialization.
+#define SS_INIT_AIR                -4	// Air setup and pre-bake.
+#define SS_INIT_PARALLAX           -5	// Parallax image cache generation.
+#define SS_INIT_NIGHT              -6	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_LIGHTING           -7	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_MISC               -8	// Subsystems without an explicitly defined init order init here.
+#define SS_INIT_SMOOTHING          -9	// Object icon smoothing.
+#define SS_INIT_OVERLAY           -10	// Overlay flush.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
@@ -28,12 +28,12 @@
 
 // Normal
 #define SS_PRIORITY_TICKER         200	// Gameticker.
-#define SS_PRIORITY_MOB            150
-#define SS_PRIORITY_NANOUI         120
+#define SS_PRIORITY_MOB            150	// Mob Life().
+#define SS_PRIORITY_NANOUI         120	// UI updates.
 #define SS_PRIORITY_VOTE           110
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
-#define SS_PRIORITY_CHEMISTRY      90
-#define SS_PRIORITY_SHUTTLE        85
+#define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
+#define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
 #define SS_PRIORITY_CALAMITY       80	// Singularity, Tesla, Nar'sie, blob, etc. 
 #define SS_PRIORITY_AIR            75	// ZAS processing.
 #define SS_PRIORITY_EVENT          70

@@ -20,8 +20,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	NEW_SS_GLOBAL(SSlighting)
 
 /datum/controller/subsystem/lighting/stat_entry()
-	..("L:[light_queue.len] C:[corner_queue.len] O:[overlay_queue.len]")
-	stat(null, "[all_lighting_overlays.len] overlays ([all_lighting_corners.len] corners)")
+	..("O:[all_lighting_overlays.len] C:[all_lighting_corners.len] P:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}")
 
 /datum/controller/subsystem/lighting/Initialize(timeofday)
 	// Generate overlays.
@@ -38,9 +37,12 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 			CHECK_TICK
 
+	// Tick once to clear most lights.
+	fire(FALSE, TRUE)
+
 	..()
 
-/datum/controller/subsystem/lighting/fire(resumed = FALSE)
+/datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed && !round_started && Master.round_started)
 		force_queued = FALSE
 		round_started = TRUE
@@ -65,7 +67,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 		L.force_update = FALSE
 		L.needs_update = FALSE
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	while (curr_corners.len)
@@ -76,7 +80,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 		C.needs_update = FALSE
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 	while (curr_overlays.len)
@@ -86,11 +92,12 @@ var/datum/controller/subsystem/lighting/SSlighting
 		O.update_overlay()
 		O.needs_update = FALSE
 		
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 /datum/controller/subsystem/lighting/Recover()
-	if (istype(SSlighting))
-		src.light_queue = SSlighting.light_queue
-		src.corner_queue = SSlighting.corner_queue
-		src.overlay_queue = SSlighting.overlay_queue
+	src.light_queue = SSlighting.light_queue
+	src.corner_queue = SSlighting.corner_queue
+	src.overlay_queue = SSlighting.overlay_queue
