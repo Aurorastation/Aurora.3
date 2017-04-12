@@ -163,6 +163,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
+	initializing = FALSE
+
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 	log_mc(msg)
 	admin_notice(span("danger", msg), R_DEBUG)
