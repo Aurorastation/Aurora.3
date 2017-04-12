@@ -757,7 +757,10 @@
 				stat("Instances:","[world.contents.len]")
 				if (LAZYLEN(client.holder.watched_processes))
 					for (var/datum/controller/ctrl in client.holder.watched_processes)
-						ctrl.stat_entry()
+						if (!ctrl)
+							LAZYREMOVE(client.holder.watched_processes, ctrl)
+						else
+							ctrl.stat_entry()
 						
 			if(statpanel("MC"))
 				stat(null)
