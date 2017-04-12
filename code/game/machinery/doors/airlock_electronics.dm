@@ -81,19 +81,19 @@
 				src.locked = 0
 				src.last_configurator = I:registered_name
 
-		if (locked)
-			return
+	if (locked)
+		return
 
-		if (href_list["logout"])
-			locked = 1
+	if (href_list["logout"])
+		locked = 1
 
-		if (href_list["one_access"])
-			one_access = !one_access
+	if (href_list["one_access"])
+		one_access = !one_access
 
-		if (href_list["access"])
-			toggle_access(href_list["access"])
+	if (href_list["access"])
+		toggle_access(href_list["access"])
 
-		attack_self(usr)
+	attack_self(usr)
 
 /obj/item/weapon/airlock_electronics/proc/toggle_access(var/acc)
 	if (acc == "all")
