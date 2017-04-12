@@ -341,6 +341,7 @@
 /obj/item/organ/external/chest/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/chest/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -348,6 +349,7 @@
 /obj/item/organ/external/groin/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/groin/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -355,6 +357,7 @@
 /obj/item/organ/external/arm/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/arm/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -362,6 +365,7 @@
 /obj/item/organ/external/arm/right/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/arm/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -369,6 +373,7 @@
 /obj/item/organ/external/leg/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/leg/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -376,6 +381,7 @@
 /obj/item/organ/external/leg/right/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/leg/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -383,6 +389,7 @@
 /obj/item/organ/external/foot/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/foot/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -390,6 +397,7 @@
 /obj/item/organ/external/foot/right/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/foot/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -397,6 +405,7 @@
 /obj/item/organ/external/hand/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/hand/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -404,6 +413,7 @@
 /obj/item/organ/external/hand/right/industrial
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/hand/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
