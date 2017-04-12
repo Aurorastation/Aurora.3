@@ -776,7 +776,7 @@
 				if (Master)
 					stat(null)
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
-						if (SS.flags & SS_NO_DISPLAY)
+						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
 					
 						SS.stat_entry()
