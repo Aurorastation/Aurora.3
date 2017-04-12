@@ -95,3 +95,4 @@
 
 /datum/nano_module/program/crushercontrol/proc/crush_stop()
 	for(var/obj/machinery/crusher_base/pstn in pistons)
+		pstn.crush_abort()

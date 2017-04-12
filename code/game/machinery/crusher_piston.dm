@@ -9,7 +9,7 @@
 	anchored = 1
 	density = 1
 
-	var/list/pistons = list() //Stage 1 pistons
+	var/obj/machinery/crusher_piston/pstn //Piston
 
 	var/action = "idle" //Action the piston should perform
 	// idle -> Do nothing
@@ -62,13 +62,16 @@
 	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
 	RefreshParts()
 
+/obj/machinery/crusher_base/Destroy()
+	qdel(pstn)
+	return ..()
+
 /obj/machinery/crusher_base/initialize()
 	action_start_time = world.time
 
 	//Spawn the stage 1 pistons south of it with a density of 0
 	log_debug("Spawning Crusher Piston Stage")
-	var/obj/machinery/crusher_piston/pstn = new(locate(x,y-1,z))
-	pistons += pstn
+	pstn = new(locate(x,y-1,z))
 	pstn.crs_base = src
 
 	// Change the icon if theres another base next to it
@@ -110,6 +113,7 @@
 	return
 
 /obj/machinery/crusher_base/process()
+	set waitfor = FALSE
 	if (process_lock)
 		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
 		return
@@ -126,7 +130,7 @@
 			if(initial)
 				playsound(loc, 'sound/machines/airalarm.ogg', 50, 1)	//Plays a beep
 				initial = 0
-			//TODO: Flash the lights, Sound the alarm
+			//TODO: Flash the lights
 			if(timediff > time_stage_pre)
 				initial = 1
 				status = "pre_start" // Bring us into pre start
@@ -138,8 +142,11 @@
 			//Call extend on all the stage 1 pistons
 			if(initial)
 				initial = 0
-				for(var/obj/machinery/crusher_piston/pstn in pistons)
-					pstn.extend_0_1()
+				if(!pstn.extend_0_1())
+					status = "idle"
+					action = "idle"
+					initial = 1
+					log_debug("Cant extend piston 0-1 - Continue idling")
 			if(timediff > time_stage_1)
 				status = "stage1"
 				action_start_time = world.time
@@ -150,8 +157,9 @@
 			//Call extend on all the stage 2 pistons
 			if(initial)
 				initial = 0
-				for(var/obj/machinery/crusher_piston/pstn in pistons)
-					pstn.extend_1_2()
+				if(!pstn.extend_1_2())
+					action = "retract"
+					log_debug("cant extend piston 1-2 - Retract")
 			if(timediff > time_stage_2)
 				status = "stage2"
 				action_start_time = world.time
@@ -162,8 +170,9 @@
 			//Call extend on all the stage 2 pistons
 			if(initial)
 				initial = 0
-				for(var/obj/machinery/crusher_piston/pstn in pistons)
-					pstn.extend_2_3()
+				if(!pstn.extend_2_3())
+					action = "retract"
+					log_debug("cant extend piston 2-3 - retract")
 			if(timediff > time_stage_3)
 				status = "stage3"
 				action_start_time = world.time
@@ -184,11 +193,29 @@
 		if(status == "stage3")
 			if(initial)
 				initial = 0
-				for(var/obj/machinery/crusher_piston/pstn in pistons)
-					pstn.retract_3_0()
+				pstn.retract_3_0()
+			if(timediff > time_stage_3) //Once the time is up, reset the icon state
+				pstn.icon_state = initial(pstn.icon_state)
+				status = "idle"
+				action = "idle"
+				action_start_time = world.time
+				initial = 1
+		if(status == "stage2")
+			if(initial)
+				initial = 0
+				pstn.retract_2_0()
+			if(timediff > time_stage_2) //Once the time is up, reset the icon state
+				pstn.icon_state = initial(pstn.icon_state)
+				status = "idle"
+				action = "idle"
+				action_start_time = world.time
+				initial = 1
+		if(status == "stage1")
+			if(initial)
+				initial = 0
+				pstn.retract_1_0()
 			if(timediff > time_stage_1) //Once the time is up, reset the icon state
-				for(var/obj/machinery/crusher_piston/pstn in pistons)
-					pstn.icon_state = initial(pstn.icon_state)
+				pstn.icon_state = initial(pstn.icon_state)
 				status = "idle"
 				action = "idle"
 				action_start_time = world.time
@@ -243,26 +270,47 @@
 	var/obj/effect/piston_blocker/pb2
 	var/obj/effect/piston_blocker/pb3
 
+/obj/machinery/crusher_piston/Destroy()
+	qdel(pb1)
+	qdel(pb2)
+	qdel(pb3)
+	return ..()
+
 /obj/machinery/crusher_piston/proc/extend_0_1()
+	for(var/A in get_step(src,SOUTH))
+		if(!can_extend_into(A))
+			log_debug("cant extend 0-1 - Abort")
+			return 0
 	icon_state="piston_0_1"
 	stage = 1
 	pb1 = new(locate(x,y,z))
 	for(var/atom/movable/AM in get_turf(locate(x,y,z)))
 		crs_base.items_to_move += AM
+	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
+	for(var/A in get_step(pb1,SOUTH))
+		if(!can_extend_into(A))
+			log_debug("cant extend 1-2 - Abort")
+			return 0
 	icon_state="piston_1_2"
 	stage = 2
 	pb2 = new(locate(x,y-1,z))
 	for(var/atom/movable/AM in get_turf(locate(x,y-1,z)))
 		crs_base.items_to_move += AM
+	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
+	for(var/A in get_step(pb2,SOUTH))
+		if(!can_extend_into(A) && !istype(A,/obj/machinery/crusher_piston))
+			log_debug("cant extend 2-3 - Abort")
+			return 0
 	icon_state="piston_2_3"
 	stage = 3
 	pb3 = new(locate(x,y-2,z))
 	for(var/atom/movable/AM in get_turf(locate(x,y-2,z)))
 		crs_base.items_to_move += AM
+	return 1
 
 /obj/machinery/crusher_piston/proc/retract_3_0()
 	icon_state="piston_3_0"
@@ -270,9 +318,37 @@
 	qdel(pb1)
 	qdel(pb2)
 	qdel(pb3)
+/obj/machinery/crusher_piston/proc/retract_2_0()
+	icon_state="piston_2_0"
+	stage = 0
+	qdel(pb1)
+	qdel(pb2)
+	qdel(pb3)
+/obj/machinery/crusher_piston/proc/retract_1_0()
+	icon_state="piston_1_0"
+	stage = 0
+	qdel(pb1)
+	qdel(pb2)
+	qdel(pb3)
+
+/obj/machinery/crusher_piston/proc/can_extend_into(var/A)
+	//Check if atom is of a specific Type
+	var/list/unmovable_items = list(
+		/turf/simulated/wall,
+		/obj/machinery,
+		/obj/structure,
+		/obj/item/modular_computer/telescreen,
+		/obj/item/modular_computer/console,
+	)
+	log_debug("Checking if \"[A]\" is in unmovable list")
+	if (is_type_in_list(A,unmovable_items))
+		log_debug("Its in the unmovable list.")
+		return 0
+	log_debug("not in the unmovable list.")
+	return 1
 
 /obj/effect/piston_blocker
-	name = "Trash compactor piston blocker" //TODO: Fix Name
+	name = "Trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
 	density = 1
 	anchored = 1
@@ -300,20 +376,20 @@
 	// We failed to move our target
 	return 0
 
-/mob/living/piston_move(var/crush_damage)
+/mob/living/piston_move()
 	for(var/i = 1, i <= PISTON_MOVE_DIVISOR, i++)
 		adjustBruteLoss(round(PISTON_MOVE_DAMAGE / PISTON_MOVE_DIVISOR))
-	SetStunned(5)
-	SetWeakened(5)
+	AdjustStunned(5)
+	AdjustWeakened(5)
 	return ..()
 
-/mob/living/carbon/piston_move(var/crush_damage)
+/mob/living/carbon/piston_move()
 	if(!(species && (species.flags & NO_PAIN)))
 		emote("scream")
 	return ..()
 
 //Dont call the parent and return 1 to prevent effects from getting moved
-/obj/effect/piston_move(var/crush_damage)
+/obj/effect/piston_move()
 	return 1
 
 //
