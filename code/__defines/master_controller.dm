@@ -83,3 +83,8 @@
 #define INITIALIZE_HINT_NORMAL 0    //Nothing happens
 #define INITIALIZE_HINT_LATELOAD 1  //Call LateInitialize
 #define INITIALIZE_HINT_QDEL 2  //Call qdel on the atom
+#define INITIALIZE_HINT_LATEQDEL 3	//Call qdel on the atom instead of LateInitialize
+
+#define SS_INITSTATE_NONE 0
+#define SS_INITSTATE_STARTED 1
+#define SS_INITSTATE_DONE 2
