@@ -15,6 +15,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 
 	var/list/late_loaders
 	var/list/created_atoms
+	var/list/late_qdel
 
 	var/list/BadInitializeCalls = list()
 
@@ -34,6 +35,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 
 	LAZYINITLIST(late_loaders)
+	LAZYINITLIST(late_qdel)
 	
 	var/count
 	var/list/mapload_arg = list(TRUE)
@@ -64,7 +66,17 @@ var/datum/controller/subsystem/atoms/SSatoms
 		admin_notice(span("danger", "Late-initialized [late_loaders.len] atoms."), R_DEBUG)
 		world.log << "SSatoms: Late initialized [late_loaders.len] atoms"
 		late_loaders.Cut()
-	
+
+	if(late_qdel.len)
+		var/num_qdels = late_qdel.len
+		for(var/thing in late_qdel)
+			qdel(thing)
+		
+		admin_notice(span("danger", "Late-qdeleted [num_qdels] atoms."), R_DEBUG)
+		world.log << "SSatoms: Late qdeleted [num_qdels] atoms."
+
+		late_qdel.Cut()
+		
 	if(atoms)
 		. = created_atoms + atoms
 		created_atoms = null 
@@ -92,6 +104,12 @@ var/datum/controller/subsystem/atoms/SSatoms
 			if(INITIALIZE_HINT_QDEL)
 				qdel(A)
 				return TRUE
+			if(INITIALIZE_HINT_LATEQDEL)
+				if(arguments[1])	//mapload
+					late_qdel += A
+				else
+					qdel(A)
+					return TRUE
 			else
 				BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
 				

@@ -23,20 +23,10 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 	plane = PLANE_SPACE_PARALLAX
 	var/parallax_speed = 0
 
-/obj/screen/parallax/Destroy(force = FALSE)
-	. = ..()
-	if (!force)
-		return QDEL_HINT_POOL
-
 /obj/screen/plane_master
 	appearance_flags = PLANE_MASTER
 	screen_loc = "CENTER,CENTER"
 
-/obj/screen/plane_master/Destroy(force = FALSE)
-	. = ..()
-	if (!force)
-		return QDEL_HINT_POOL
-	
 /obj/screen/plane_master/parallax_master
 	plane = PLANE_SPACE_PARALLAX
 	blend_mode = BLEND_MULTIPLY
@@ -78,15 +68,15 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 	var/client/C = mymob.client
 
 	if(!C.parallax_master)
-		C.parallax_master = getFromPool(/obj/screen/plane_master/parallax_master)
+		C.parallax_master = new /obj/screen/plane_master/parallax_master
 	if(!C.parallax_spacemaster)
-		C.parallax_spacemaster = getFromPool(/obj/screen/plane_master/parallax_spacemaster)
+		C.parallax_spacemaster = new /obj/screen/plane_master/parallax_spacemaster
 	if(!C.parallax_dustmaster)
-		C.parallax_dustmaster = getFromPool(/obj/screen/plane_master/parallax_dustmaster)
+		C.parallax_dustmaster = new /obj/screen/plane_master/parallax_dustmaster
 
 	if(!C.parallax.len)
 		for(var/obj/screen/parallax/bgobj in parallax_icon)
-			var/obj/screen/parallax/parallax_layer = getFromPool(/obj/screen/parallax)
+			var/obj/screen/parallax/parallax_layer = new /obj/screen/parallax
 			parallax_layer.appearance = bgobj.appearance
 			parallax_layer.base_offset_x = bgobj.base_offset_x
 			parallax_layer.base_offset_y = bgobj.base_offset_y

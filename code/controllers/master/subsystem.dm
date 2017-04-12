@@ -25,6 +25,11 @@
 	var/times_fired = 0		//number of times we have called fire()
 	var/queued_time = 0		//time we entered the queue, (for timing and priority reasons)
 	var/queued_priority 	//we keep a running total to make the math easier, if priority changes mid-fire that would break our running total, so we store it here
+	
+	// Subsystem startup accounting.
+	var/init_state = FALSE
+	var/init_time = 0
+	
 	//linked list stuff for the queue
 	var/datum/controller/subsystem/queue_next
 	var/datum/controller/subsystem/queue_prev
@@ -144,10 +149,16 @@
 	else if (state == SS_SLEEPING)
 		state = SS_PAUSING
 
+// Do not override - Wrapper for Initialize() so initialization status can be shown for subsystems that do not return parent.
+/datum/controller/subsystem/proc/StartInitialize(timeofday)
+	init_state = SS_INITSTATE_STARTED
+	. = Initialize(timeofday)
+	init_state = SS_INITSTATE_DONE
 
 //used to initialize the subsystem AFTER the map has loaded
 /datum/controller/subsystem/Initialize(start_timeofday, silent = FALSE)
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	init_time = time
 	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
 	if (!silent)
 		admin_notice(span("danger", msg), R_DEBUG)
@@ -160,7 +171,16 @@
 	if(!statclick)
 		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
 
-	if(flags & SS_NO_FIRE)
+	if (Master.initializing)
+		if (init_state == SS_INITSTATE_DONE)
+			msg = "DONE ([init_time]s)\t[msg]"
+		else if (flags & SS_NO_INIT)
+			msg = "NO INIT\t[msg]"
+		else if (init_state == SS_INITSTATE_STARTED)
+			msg = "LOAD\t[msg]"
+		else
+			msg = "WAIT\t[msg]"
+	else if(flags & SS_NO_FIRE)
 		msg = "NO FIRE\t[msg]"
 	else if(can_fire)
 		msg = "[round(cost,1)]ms|[round(tick_usage,1)]%|[round(ticks,0.1)]\t[msg]"
@@ -168,10 +188,25 @@
 		msg = "OFFLINE\t[msg]"
 
 	var/title = name
-	if (can_fire && !(flags & SS_NO_FIRE))
+	if (Master.initializing)
+		var/letter = init_state_letter()
+		if (letter)
+			title =  "\[[letter]] [title]"
+	else if ((can_fire && !(flags & SS_NO_FIRE)))
 		title = "\[[state_letter()]] [title]"
 
 	stat(title, statclick.update(msg))
+
+/datum/controller/subsystem/proc/init_state_letter()
+	if (flags & SS_NO_INIT)
+		return
+	switch (init_state)
+		if (SS_INITSTATE_NONE)
+			. = "W"
+		if (SS_INITSTATE_STARTED)
+			. = "L"
+		if (SS_INITSTATE_DONE)
+			. = "D"
 
 /datum/controller/subsystem/proc/state_letter()
 	switch (state)

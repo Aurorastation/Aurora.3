@@ -43,6 +43,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	// Has round started? (So we know what subsystems to run)
 	var/round_started = 0
 
+	var/initializing = FALSE
+
 	// The type of the last subsystem to be process()'d.
 	var/last_type_processed
 
@@ -145,6 +147,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	world.log << "Initializing subsystems..."
 	log_mc("Initializing subsystems...")
 
+	initializing = TRUE
+
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
 
@@ -154,10 +158,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	for (var/datum/controller/subsystem/SS in subsystems)
 		if (SS.flags & SS_NO_INIT)
 			continue
-		SS.Initialize(REALTIMEOFDAY)
+		SS.StartInitialize(REALTIMEOFDAY)
 		CHECK_TICK
 	CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+
+	initializing = FALSE
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 	log_mc(msg)
