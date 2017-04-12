@@ -1,0 +1,5 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - bugfix: "Taught roboticists how to properly remove IPC organs."
+  - tweak: "IPC organs are now encased."
