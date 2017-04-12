@@ -112,7 +112,7 @@
 /obj/machinery/appliance/verb/toggle_power()
 	set name = "Toggle Power"
 	set category = null
-	set src in world //So that AI can operate it remotely
+	set src in view() //So that AI can operate it remotely
 
 	if (!isliving(usr))
 		usr << "Ghosts aren't allowed to toggle power switches"
@@ -143,6 +143,9 @@
 
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
+
+/obj/machinery/appliance/AICtrlClick()
+	toggle_power()
 
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()

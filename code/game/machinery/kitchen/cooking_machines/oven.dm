@@ -57,7 +57,7 @@
 
 
 /obj/machinery/appliance/cooker/oven/verb/toggle_door()
-	set src in world //So that AI can operate it remotely
+	set src in view()
 	set name = "Open/close oven door"
 	set category = null
 

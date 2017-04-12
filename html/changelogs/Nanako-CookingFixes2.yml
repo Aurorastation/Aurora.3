@@ -36,3 +36,4 @@ changes:
   - bugfix: "Fixed a lot of missing safety checks in the kitchen that were allowing mice, ghosts and AIs to do things they shouldnt."
   - bugfix: "Fixed reagents combining in cooking container that made certain recipes un-creatable. Chemical reactions will no longer happen in cooking containers."
   - bugfix: "Changed whole eggs to egg yolk instead for a couple of recipes. Also adjusted bread recipe."
+  - tweak: "AI can now turn cooking appliances on/off with a ctrl+click"
