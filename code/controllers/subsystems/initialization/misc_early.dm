@@ -9,10 +9,7 @@
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
 	// Create the data core, whatever that is.
 	data_core = new /datum/datacore()
-
-	// Guess.
-	paiController = new /datum/paiController()
-
+	
 	// Initialize the pAI software list.
 	for(var/type in subtypesof(/datum/pai_software))
 		var/datum/pai_software/P = new type()
