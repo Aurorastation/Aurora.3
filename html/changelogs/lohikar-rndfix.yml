@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Fixed a bug where RnD machinery with materials inserted could not be disassembled."
