@@ -129,7 +129,7 @@ var/datum/discord_bot/discord_bot = null
 			queue.Add(list(list(message, A - sent)))
 
 			// Schedule a push.
-			if (!push_task)
+			if (!push_task && scheduler)
 				push_task = schedule_task_with_source_in(10 SECONDS, src, /datum/discord_bot/proc/push_queue)
 
 			// And exit.
@@ -153,10 +153,14 @@ var/datum/discord_bot/discord_bot = null
 		return list()
 
 	if (!channels.len || isnull(channels_to_group["channel_pins"]))
-		testing("No group.")
+		if (robust_debug)
+			log_debug("BOREALIS: No pins channel group.")
 		return list()
 
 	var/list/output = list()
+
+	if (robust_debug)
+		log_debug("BOREALIS: Acquiring pins.")
 
 	for (var/A in channels_to_group["channel_pins"])
 		var/datum/discord_channel/channel = A
@@ -164,6 +168,9 @@ var/datum/discord_bot/discord_bot = null
 			output["[channel.pin_flag]"] = list()
 
 		output["[channel.pin_flag]"] += channel.get_pins(auth_token)
+
+	if (robust_debug)
+		log_debug("BOREALIS: Finished acquiring pins.")
 
 	return output
 
