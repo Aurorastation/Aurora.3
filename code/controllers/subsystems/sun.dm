@@ -16,8 +16,8 @@ var/datum/controller/subsystem/sun/sun
 
 /datum/controller/subsystem/sun/New()
 	NEW_SS_GLOBAL(sun)
+	LAZYINITLIST(solars)
 
-	solars = solars_list
 	rate = rand(50,200)/100			// 50% - 200% of standard rotation
 	if(prob(50))					// same chance to rotate clockwise than counter-clockwise
 		rate = -rate
@@ -48,7 +48,7 @@ var/datum/controller/subsystem/sun/sun
 			dx = s / abs(s)
 			dy = c / abs(s)
 
-		updating_solars = solars_list.Copy()
+		updating_solars = solars.Copy()
 
 	//now tell the solar control computers to update their status and linked devices
 	while (updating_solars.len)
@@ -56,7 +56,7 @@ var/datum/controller/subsystem/sun/sun
 		updating_solars.len--
 
 		if (QDELETED(SC) || !SC.powernet)
-			solars_list -= SC
+			solars -= SC
 			continue
 
 		SC.update()
