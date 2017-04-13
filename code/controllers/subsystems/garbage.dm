@@ -251,7 +251,3 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /client/Destroy()
 	..()
 	return QDEL_HINT_HARDDEL_NOW
-
-/image/Destroy()
-	..()
-	return QDEL_HINT_HARDDEL_NOW
