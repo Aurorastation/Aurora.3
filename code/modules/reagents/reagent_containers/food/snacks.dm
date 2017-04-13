@@ -3002,14 +3002,15 @@
 	icon_state = "Some plain old Earthen bread."
 	icon_state = "bread"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/breadslice
-	slices_num = 5
+	slices_num = 8
 	filling_color = "#FFE396"
 	center_of_mass = list("x"=16, "y"=9)
 
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread/New()
-	..()
-	reagents.add_reagent("nutriment", 6)
-	bitesize = 2
+	New()
+		..()
+		reagents.add_reagent("protein", 5)
+		reagents.add_reagent("nutriment", 15)
+		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/breadslice
 	name = "bread slice"
