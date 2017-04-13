@@ -13,11 +13,38 @@
 	var/tmp/processes_this_tick = 0
 	var/tmp/powerusers_this_tick = 0
 
+	var/list/rcon_smes_units = list()
+	var/list/rcon_breaker_units = list()
+	var/list/rcon_breaker_units_by_tag = list()
+
+	var/list/breaker_boxes = list()
+
+/datum/controller/subsystem/machinery/proc/queue_rcon_update()
+	addtimer(CALLBACK(src, .proc/build_rcon_lists), 10, TIMER_UNIQUE)
+
+/datum/controller/subsystem/machinery/proc/build_rcon_lists()
+	rcon_smes_units.Cut()
+	rcon_breaker_units.Cut()
+	rcon_breaker_units_by_tag.Cut()
+
+	for(var/obj/machinery/power/smes/buildable/SMES in machines)
+		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
+			rcon_smes_units += SMES
+
+	for(var/obj/machinery/power/breakerbox/breaker in breaker_boxes)
+		if(breaker.RCon_tag != "NO_TAG")
+			rcon_breaker_units += breaker
+			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
+
+	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
+	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+
 /datum/controller/subsystem/machinery/New()
 	NEW_SS_GLOBAL(SSmachinery)
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
+	build_rcon_lists()
 	..(timeofday)
 
 /datum/controller/subsystem/machinery/fire(resumed = 0, no_mc_tick = FALSE)
