@@ -262,13 +262,15 @@ proc/get_radio_key_from_channel(var/channel)
 			if(M.loc && M.locs[1] in hearturfs)
 				listening |= M
 
+	var/list/hear_clients = list()
+	for(var/mob/M in listening)
+		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+		if (M.client)
+			hear_clients += M.client
+
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-	QDEL_IN(speech_bubble, 30)
-
-	for(var/mob/M in listening)
-		M << speech_bubble
-		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, hear_clients, 30)
 
 	for(var/obj/O in listening_obj)
 		spawn(0)

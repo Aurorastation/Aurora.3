@@ -14,7 +14,6 @@
 	"Radio",
 	"Supply",
 	"Configuration",
-	"pAI",
 	"Cameras",
 	"Gas Data",
 	"Observation"
@@ -39,9 +38,6 @@
 		if("Configuration")
 			debug_variables(config)
 			feedback_add_details("admin_verb","DConf")
-		if("pAI")
-			debug_variables(paiController)
-			feedback_add_details("admin_verb","DpAI")
 		if("Cameras")
 			debug_variables(cameranet)
 			feedback_add_details("admin_verb","DCameras")

@@ -69,3 +69,9 @@ var/cmp_field = "name"
 
 /proc/cmp_supply_drop(datum/supply_drop_loot/a, datum/supply_drop_loot/b)
 	return sorttext(b.name, a.name)
+
+/proc/cmp_rcon_smes(obj/machinery/power/smes/buildable/S1, obj/machinery/power/smes/buildable/S2)
+	return sorttext(S2.RCon_tag, S1.RCon_tag)
+
+/proc/cmp_rcon_bbox(obj/machinery/power/breakerbox/BR1, obj/machinery/power/breakerbox/BR2)
+	return sorttext(BR2.RCon_tag, BR1.RCon_tag)
