@@ -24,7 +24,6 @@
 #define SS_PRIORITY_OVERLAY        500	// Applies overlays. May cause overlay pop-in if it gets behind.
 #define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
 #define SS_PRIORITY_SMOOTHING      35   // Smooth turf generation.
-#define SS_PRIORITY_DISPOSALS      10	// Disposal holder movement.
 
 // Normal
 #define SS_PRIORITY_TICKER         200	// Gameticker.
@@ -45,8 +44,9 @@
 #define SS_PRIORITY_MODIFIER       10
 
 // SS_BACKGROUND
-#define SS_PRIORITY_PROCESSING     10	// Generic datum processor. Replaces objects processor.
-#define SS_PRIORITY_OBJECTS        9
+#define SS_PRIORITY_PROCESSING     11	// Generic datum processor. Replaces objects processor.
+#define SS_PRIORITY_OBJECTS        10
+#define SS_PRIORITY_DISPOSALS      9	// Disposal holder movement.
 #define SS_PRIORITY_EFFECTS        8	// Effect master (Sparks)
 #define SS_PRIORITY_EXPLOSIVES     7	// Explosion processor. Doesn't have much effect on explosion tick-checking.
 #define SS_PRIORITY_WIRELESS       6	// Handles pairing of wireless devices. Usually will be asleep.

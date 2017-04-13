@@ -14,7 +14,6 @@
 	"Radio",
 	"Supply",
 	"Configuration",
-	"pAI",
 	"Cameras",
 	"Gas Data",
 	"Observation"
