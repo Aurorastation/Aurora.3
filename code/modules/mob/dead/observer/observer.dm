@@ -730,6 +730,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	for(var/image/I in client.images)
 		if(I.icon_state == icon)
 			iconRemoved = 1
+			client.images -= I
 			qdel(I)
 
 	if(!iconRemoved)
