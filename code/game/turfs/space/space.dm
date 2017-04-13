@@ -10,16 +10,27 @@
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
+
+	var/static/list/dust_cache
+	
 //	heat_capacity = 700000 No.
+
+/turf/space/proc/build_dust_cache()
+	LAZYINITLIST(dust_cache)
+	for (var/i in 0 to 25)
+		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
+		im.plane = PLANE_SPACE_DUST
+		im.alpha = 80
+		im.blend_mode = BLEND_ADD
+		dust_cache["[i]"] = im
 
 // Copypaste of parent for performance.
 /turf/space/Initialize()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
-	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-	I.plane = PLANE_SPACE_DUST
-	I.alpha = 80
-	I.blend_mode = BLEND_ADD
-	add_overlay(I)
+	if (!dust_cache)
+		build_dust_cache()
+
+	add_overlay(dust_cache[icon_state])
 	update_starlight()
 
 	if (initialized)
@@ -30,7 +41,7 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM)
 		
-	//turfs |= src
+	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
