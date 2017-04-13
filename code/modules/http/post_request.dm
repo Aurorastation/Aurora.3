@@ -123,7 +123,7 @@
 				if ("2")
 					log_debug("ByondPOST GET: Proc error: Unable to initialize curl object.")
 				if ("3")
-					log_debug("ByondPOST POST: Proc error: General exception caught and logged.")
+					log_debug("ByondPOST GET: Proc error: General exception caught and logged.")
 				else
 					log_debug("ByondPOST GET: Proc error: Unknown error.")
 			return -1
