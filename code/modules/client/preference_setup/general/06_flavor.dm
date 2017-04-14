@@ -112,7 +112,7 @@
 	. += "<a href='?src=\ref[src];flavor_text=open'>Set Flavor Text</a><br/>"
 	. += "<a href='?src=\ref[src];flavour_text_robot=open'>Set Robot Flavor Text</a><br/>"
 	. += "<br>"
-	. += "Signature: <font face='[pref.signfont ? pref.signfont : "'Verdana'"]'>[pref.signature]</font><br/>"
+	. += "Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[pref.signature]</font><br/>"
 	. += "<a href='?src=\ref[src];edit_signature=text'>Edit Text</a> | "
 	. += "<a href='?src=\ref[src];edit_signature=font'>Edit Font</a> | "
 	. += "<a href='?src=\ref[src];edit_signature=help'>Help</a><br/>"
