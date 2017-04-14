@@ -833,7 +833,7 @@
 
 /obj/machinery/alarm/power_change()
 	..()
-	addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE)
+	addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/alarm/examine(mob/user)
 	..(user)

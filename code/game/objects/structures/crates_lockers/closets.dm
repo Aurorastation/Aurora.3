@@ -24,13 +24,9 @@
 
 	var/const/default_mob_size = 15
 
-/obj/structure/closet/Initialize(mapload)
-	if (mapload && !opened)		// if closed, any item at the crate's loc is put in the contents
-		addtimer(CALLBACK(src, .proc/mapload), 0)
-	. = ..()
-	fill()
-
-/obj/structure/closet/proc/mapload()
+/obj/structure/closet/LateInitialize()
+	if (opened)	// if closed, any item at the crate's loc is put in the contents
+		return
 	var/obj/I
 	for(I in src.loc)
 		if (!istype(I, /obj/item) && !istype(I, /obj/random))
@@ -44,6 +40,11 @@
 		content_size += Ceiling(I.w_class/2)
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
+
+/obj/structure/closet/Initialize(mapload)
+	..()
+	fill()
+	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 // Fill lockers with this.
 /obj/structure/closet/proc/fill()
