@@ -204,22 +204,29 @@ var/global/photo_count = 0
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
 
 /obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
+	var/obj/item/weapon/photo/p = createpicture(target, user, flag)
+	printpicture(user, p)
+
+/obj/item/device/camera/proc/createpicture(atom/target, mob/living/user, flag)
 	var/mobs = ""
+	var/list/turfs = list()
 
 	FOR_DVIEW(var/turf/T, size, target, INVISIBILITY_LIGHTING)
 		if (user.can_capture_turf(T))
 			mobs += get_mobs(T)
+			turfs += T
 
 	END_FOR_DVIEW
 
-	var/obj/item/weapon/photo/p = createpicture(target, user, mobs, flag)
-	printpicture(user, p)
-
-/obj/item/device/camera/proc/createpicture(atom/target, mob/user, mobs, flag)
 	var/x_c = target.x - (size-1)/2
 	var/y_c = target.y - (size-1)/2
 	var/z_c	= target.z
-	var/icon/photoimage = generate_image(x_c, y_c, z_c, size, CAPTURE_MODE_REGULAR, user)
+
+	var/turf/topleft = locate(x_c, y_c, z_c)
+	if (!topleft)
+		return null
+
+	var/icon/photoimage = generate_image_from_turfs(topleft, turfs, size, CAPTURE_MODE_REGULAR, user)
 
 	var/icon/small_img = icon(photoimage)
 	var/icon/tiny_img = icon(photoimage)
