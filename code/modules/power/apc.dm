@@ -236,7 +236,7 @@
 
 	make_terminal()
 
-	addtimer(CALLBACK(src, .proc/update), 5)
+	addtimer(CALLBACK(src, .proc/update), 5, TIMER_UNIQUE)
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))

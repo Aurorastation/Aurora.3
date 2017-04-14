@@ -85,6 +85,9 @@
 #define INITIALIZE_HINT_QDEL 2  //Call qdel on the atom
 #define INITIALIZE_HINT_LATEQDEL 3	//Call qdel on the atom instead of LateInitialize
 
+// Shortcut to check if something is ocurring after initialization is done.
+#define IF_NOT_MAPLOAD if (SSatoms && SSatoms.initialized == INITIALIZATION_INNEW_REGULAR)
+
 #define SS_INITSTATE_NONE 0
 #define SS_INITSTATE_STARTED 1
 #define SS_INITSTATE_DONE 2
