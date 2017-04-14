@@ -14,6 +14,8 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	var/explosion_in_progress
 	var/powernet_update_pending = 0
 
+	var/lighting_disabled = FALSE
+
 /datum/controller/subsystem/explosives/New()
 	NEW_SS_GLOBAL(bomb_processor)
 	LAZYINITLIST(work_queue)
@@ -24,20 +26,27 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	explosion_turfs = bomb_processor.explosion_turfs
 	powernet_update_pending = bomb_processor.powernet_update_pending
 
-/datum/controller/subsystem/explosives/fire()
+/datum/controller/subsystem/explosives/fire(resumed = FALSE)
 	if (!(work_queue.len))
 		ticks_without_work++
 		if (powernet_update_pending && ticks_without_work > 5)
 			makepowernets()
 			powernet_update_pending = 0
+			lighting_disabled = FALSE
 
 			// All explosions handled, powernet rebuilt.
 			// We can sleep now.
 			disable()
+
+			SSlighting.explosion_end()
 		return
 
 	ticks_without_work = 0
 	powernet_update_pending = 1
+
+	if (!lighting_disabled)
+		SSlighting.explosion_start()
+		lighting_disabled = TRUE
 
 	for (var/A in work_queue)
 		var/datum/explosiondata/data = A

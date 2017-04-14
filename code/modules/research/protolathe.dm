@@ -90,7 +90,7 @@
 		if(materials[f] >= SHEET_MATERIAL_AMOUNT)
 			var/path = getMaterialType(f)
 			if(path)
-				var/obj/item/stack/S = new f(loc)
+				var/obj/item/stack/S = new path(loc)
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
