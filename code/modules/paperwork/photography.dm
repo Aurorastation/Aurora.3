@@ -207,7 +207,7 @@ var/global/photo_count = 0
 	var/mobs = ""
 
 	FOR_DVIEW(var/turf/T, size, target, INVISIBILITY_LIGHTING)
-		if (user.can_capture_turf())
+		if (user.can_capture_turf(T))
 			mobs += get_mobs(T)
 
 	END_FOR_DVIEW

@@ -918,8 +918,9 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 		for (var/turf/T in turfstocapture)
 			var/icon/im = new(LIGHTING_ICON, "blank")
 			var/color = T.get_avg_color()	// We're going to lose some detail, but it's all we can do without color matrixes.
-			im.Blend(color, ICON_MULTIPLY)
-			cap.Blend(im, ICON_MULTIPLY, (T.x - tx) * 32, (T.y - ty) * 32)
+			if (color)
+				im.Blend(color, ICON_MULTIPLY)
+				cap.Blend(im, ICON_MULTIPLY, (T.x - tx) * 32, (T.y - ty) * 32)
 
 	return cap
 
