@@ -66,6 +66,7 @@
 	flags |= SS_NO_FIRE
 	Master.subsystems -= src
 
+	return QDEL_HINT_HARDDEL_NOW
 
 //Queue it to run.
 //	(we loop thru a linked list until we get to the end or find the right point)
@@ -162,7 +163,7 @@
 	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
 	if (!silent)
 		admin_notice(span("danger", msg), R_DEBUG)
-	world.log << "## SS Init: [msg]"
+	world.log << "SS Init: [msg]"
 	game_log("SS", msg)
 	return time
 
