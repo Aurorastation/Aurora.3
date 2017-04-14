@@ -61,7 +61,7 @@
 // Returns the average color of this tile. Roughly corresponds to the color of a single old-style lighting overlay.
 /turf/proc/get_avg_color()
 	if (!lighting_overlay)
-		return "#000000"
+		return null
 
 	var/lum_r
 	var/lum_g
