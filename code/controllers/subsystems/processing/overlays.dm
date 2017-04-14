@@ -42,7 +42,7 @@ var/datum/controller/subsystem/processing/overlays/SSoverlays
 
 /datum/controller/subsystem/processing/overlays/proc/Flush()
 	if(processing.len)
-		testing("Flushing [processing.len] overlays")
+		world.log << "SSoverlay: Flushing [processing.len] overlays."
 		fire(mc_check = FALSE)	//pair this thread up with the MC to get extra compile time
 
 /atom/proc/compile_overlays()
