@@ -7,6 +7,10 @@
 
 #define LIGHTING_SOFT_THRESHOLD 0.001 // If the max of the lighting lumcounts of each spectrum drops below this, disable luminosity on the lighting overlays.
 
+// If true, a tiny random number will be added to lighting matrixes to prevent a memory leak bug in v510 and below.
+// Enabling this disables lighting rounding.
+#define LIGHTING_USE_MEMORY_HACK
+
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
 	list                     \
