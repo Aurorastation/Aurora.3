@@ -1,5 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - bugfix: "Removed blind IPC clairvoyance. IPCs can no longer see when their optics have been removed."
-  - tweak: "Industrial IPCs are now officially rated for low-pressure usage."
