@@ -50,24 +50,38 @@
 
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
+	.=1
 	if(user.stat || user.restrained())	return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)//No spamming the door, it makes a sound
 	toggle_door()
 
+
 /obj/machinery/appliance/cooker/oven/verb/toggle_door()
 	set src in view()
 	set name = "Open/close oven door"
-	set category = "Object"
-	if (!Adjacent(usr))
-		usr << "You can't reach the [src] from there, get closer!"
+	set category = null
+
+
+	if (!isliving(usr))
+		usr << "Ghosts can't mess with ovens."
 		return
+
+	if (isanimal(usr))
+		usr << "You lack the dexterity to do that."
+		return
+
+
+	if (!Adjacent(usr))
+		if (!issilicon(usr))
+			usr << "You can't reach the [src] from there, get closer!"
+			return
 
 	if (open)
 		open = 0
 		loss = (active_power_usage / resistance)*0.5
 	else
 		open = 1
-		loss = (active_power_usage / resistance)*6
+		loss = (active_power_usage / resistance)*4
 		//When the oven door is opened, heat is lost MUCH faster
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
