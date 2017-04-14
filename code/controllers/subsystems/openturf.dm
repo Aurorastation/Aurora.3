@@ -9,13 +9,15 @@
 
 /datum/controller/subsystem/openturf
 	name = "Open Space"
-	flags = SS_BACKGROUND
+	flags = SS_BACKGROUND | SS_FIRE_IN_LOBBY
 	wait = 2
 	init_order = SS_INIT_OPENTURF
 	priority = SS_PRIORITY_OPENTURF
 
-	var/list/queued = list()
-	var/list/currentrun
+	var/list/queued_turfs = list()
+	var/list/queued_overlays = list()
+	var/list/current_turfs
+	var/list/current_overlays
 
 /datum/controller/subsystem/openturf/New()
 	NEW_SS_GLOBAL(SSopenturf)
@@ -38,7 +40,7 @@
 	can_fire = TRUE
 
 /datum/controller/subsystem/openturf/stat_entry()
-	..("Q:[queued.len] OO:[all_openspace_overlays.len] OT:[total_openspace_turfs]") 
+	..("Q:{T:[LAZYLEN(queued_turfs)]|O:[LAZYLEN(current_overlays)]} T:{T:[total_openspace_turfs]|O:[all_openspace_overlays.len]}")
 
 /datum/controller/subsystem/openturf/Initialize(timeofday)
 	// Flush the queue.
@@ -47,26 +49,33 @@
 
 /datum/controller/subsystem/openturf/fire(resumed = 0, no_mc_tick = FALSE)
 	if (!resumed)
-		currentrun = queued
-		queued = list()
+		current_turfs = queued_turfs
+		queued_turfs = list()
+		current_overlays = queued_overlays
+		queued_overlays = list()
 
-	var/list/curr = currentrun
+	var/list/curr_turfs = current_turfs
+	var/list/curr_ov = current_overlays
 
-	while (curr.len)
-		var/turf/simulated/open/T = curr[curr.len]
-		curr.len--
+	while (curr_turfs.len)
+		var/turf/simulated/open/T = curr_turfs[curr_turfs.len]
+		curr_turfs.len--
 
 		if (!T || !T.below)
 			continue
 
-		if (!T.shadower)
+		if (!T.shadower)	// If we don't have our shadower yet, create it.
 			T.shadower = new(T)
 
+		// Figure out how many z-levels down we are.
 		var/depth = calculate_depth(T)
 		if (depth > OPENTURF_MAX_DEPTH)
 			depth = OPENTURF_MAX_DEPTH
 
+		// Update the openturf itself.
 		T.appearance = T.below
+
+		// Handle space parallax & starlight.
 		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
 			if (config.starlight)
@@ -76,25 +85,62 @@
 			if (config.starlight)
 				T.set_light(0)
 
+		// If there's an openturf above us, queue it too.
 		if (T.above)
 			T.above.update_icon()
 
+		// Add everything below us to the update queue.
 		for (var/thing in T.below)
 			var/atom/movable/object = thing
 			if (QDELETED(object) || object.no_z_overlay)
+				// Don't queue deleted stuff or stuff that doesn't need an overlay.
 				continue
 
-			if (!object.bound_overlay)
-				object.bound_overlay = new(T)
+			// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
 
-			// Atom exists & doesn't have an overlay, generate one.
+			if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
+				object.bound_overlay = new(T)
+				object.bound_overlay.associated_atom = object
+
 			var/atom/movable/openspace/overlay/OO = object.bound_overlay
-			OO.associated_atom = object
-			OO.dir = object.dir
-			OO.appearance = object
-			OO.plane = OPENTURF_MAX_PLANE - depth
+
+			OO.depth = depth
+
+			queued_overlays += OO
 
 		T.updating = FALSE
+
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
+			return
+
+	while (curr_ov.len)
+		var/atom/movable/openspace/overlay/OO = curr_ov[curr_ov.len]
+		curr_ov.len--
+
+		if (QDELETED(OO))
+			if (no_mc_tick)
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
+				return
+
+			continue
+
+		if (QDELETED(OO.associated_atom))	// This shouldn't happen, but just in-case.
+			qdel(OO)
+
+			if (no_mc_tick)
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
+				return
+
+			continue
+
+		// Actually update the overlay.
+		OO.dir = OO.associated_atom.dir
+		OO.appearance = OO.associated_atom
+		OO.plane = OPENTURF_MAX_PLANE - OO.depth
 
 		if (no_mc_tick)
 			CHECK_TICK

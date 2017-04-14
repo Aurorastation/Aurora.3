@@ -21,8 +21,8 @@
 		above.update_icon()
 
 /turf/Destroy()
-	. = ..()
 	above = null
+	return ..()
 
 /atom/movable/Move()
 	. = ..()
@@ -44,6 +44,14 @@
 		else
 			bound_overlay.forceMove(get_step(src, UP))
 
+/atom/movable/proc/update_oo()
+	if (!bound_overlay)
+		return
+
+	// check_existence returns TRUE if the overlay is valid.
+	if (bound_overlay.check_existence())
+		SSopenturf.queued_overlays += bound_overlay
+
 // -- Openspace movables --
 
 /atom/movable/openspace
@@ -54,6 +62,19 @@
 
 /atom/movable/openspace/can_fall()
 	return FALSE
+
+// No blowing up abstract objects.
+/atom/movable/openspace/ex_act(ex_sev)
+	return
+
+/atom/movable/openspace/singularity_act()
+	return
+
+/atom/movable/openspace/singularity_pull()
+	return
+
+/atom/movable/openspace/singuloCanEat()
+	return
 
 // Used to darken the atoms on the openturf without fucking up colors.
 /atom/movable/openspace/multiplier
@@ -68,6 +89,6 @@
 		0, 0.75, 0,
 		0, 0, 0.75
 	)
-
+	no_z_overlay = TRUE
 
 // /atom/movable/openspace/overlay is in openspace_overlay.dm

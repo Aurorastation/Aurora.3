@@ -27,6 +27,8 @@
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
 	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
 
+	var/tmp/depth
+
 /turf/simulated/open/proc/is_above_space()
 	var/turf/T = GetBelow(src)
 	while (T && T.is_hole)
@@ -37,7 +39,7 @@
 	return FALSE
 
 /turf/simulated/open/Destroy()
-	SSopenturf.queued -= src
+	SSopenturf.queued_turfs -= src
 	QDEL_NULL(shadower)
 	if (above)
 		above.update()
@@ -83,7 +85,7 @@
 /turf/simulated/open/update_icon()
 	if(!updating && below)
 		updating = TRUE
-		SSopenturf.queued += src
+		SSopenturf.queued_turfs += src
 		if (above)
 			// Cascade updates until we hit the top openturf.
 			above.update_icon()
