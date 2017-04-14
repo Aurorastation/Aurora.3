@@ -63,3 +63,45 @@
 			feedback_add_details("admin_verb","RFailsafe")
 
 	message_admins("Admin [key_name_admin(usr)] has restarted the [controller] controller.")
+
+// Subsystems that cmd_ss_panic can hard-restart.
+// *MUST* have New() use NEW_SS_GLOBAL.
+var/list/panic_targets = list(
+	"Garbage" = /datum/controller/subsystem/garbage_collector,
+	"Air" = /datum/controller/subsystem/air,
+	"Explosives" = /datum/controller/subsystem/explosives,
+	"Timer" = /datum/controller/subsystem/timer
+)
+
+// Subsystems that might do funny things or lose data if hard-restarted.
+// Makes subsystem require an additional confirmation to restart.
+var/list/panic_targets_data_loss = list(
+	"Timer" = TRUE
+)
+
+/client/proc/cmd_ss_panic(controller in panic_targets)
+	set category = "Server"
+	set name = "Force-Restart Subsystem"
+	set desc = "Hard-restarts a subsystem. May break things, use with caution."
+
+	if (!check_rights(R_DEBUG | R_SERVER))
+		return
+
+	if (alert("Hard-Restart [controller]? Use with caution, this may break things.", "Subsystem Restart", "No", "No", "Yes") != "Yes")
+		usr << "Aborted."
+		return
+
+	// If it's marked as potentially causing data-loss (like SStimer), require another confirmation.
+	if (panic_targets_data_loss[controller])
+		if (alert("This subsystem ([controller]) may cause data loss or strange behavior if restarted! Continue?", "AAAAAA", "No", "No", "Yes") != "Yes")
+			usr << "Aborted."
+			return
+
+	log_and_message_admins(span("danger", "hard-restarted the [controller] subsystem."))
+	log_debug("SS PANIC: [controller] hard-restart by [usr]!")
+
+	// NEW_SS_GLOBAL will handle destruction of old controller & data transfer, just create a new one and add it to the MC.
+	var/ctype = panic_targets[controller]
+	Master.subsystems += new ctype
+	
+	sortTim(Master.subsystems, /proc/cmp_subsystem_display)

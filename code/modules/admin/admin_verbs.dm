@@ -167,7 +167,8 @@ var/list/admin_verbs_server = list(
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_edit_motd,
 	/client/proc/toggle_recursive_explosions,
-	/client/proc/restart_controller	
+	/client/proc/restart_controller,
+	/client/proc/cmd_ss_panic
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -209,7 +210,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
 	/client/proc/cmd_display_del_log,
-	/client/proc/cmd_display_init_log
+	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_ss_panic
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
