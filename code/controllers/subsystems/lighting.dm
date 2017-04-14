@@ -18,6 +18,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/tmp/processed_overlays = 0
 
 	var/force_queued = TRUE
+	var/force_override = FALSE	// For admins.
 	var/round_started = FALSE
 
 /datum/controller/subsystem/lighting/New()
@@ -25,6 +26,13 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/stat_entry()
 	..("O:[all_lighting_overlays.len] C:[all_lighting_corners.len]\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
+
+/datum/controller/subsystem/lighting/proc/explosion_start()
+	force_queued = TRUE
+
+/datum/controller/subsystem/lighting/proc/explosion_end()
+	if (!force_override)
+		force_queued = FALSE
 
 /datum/controller/subsystem/lighting/Initialize(timeofday)
 	var/overlaycount = 0
@@ -54,7 +62,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	var/msg = "SSlighting: NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]"
 	game_log("SS", msg)
-	world.log << "## [msg]"
+	world.log << msg
 
 	..()
 
