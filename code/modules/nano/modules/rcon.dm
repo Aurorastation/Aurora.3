@@ -92,7 +92,4 @@
 	if(!tag)
 		return
 
-	for(var/obj/machinery/power/smes/buildable/S in SSmachinery.rcon_smes_units)
-		if(S.RCon_tag == tag)
-			return S
-
+	return SSmachinery.rcon_smes_units_by_tag[tag]
