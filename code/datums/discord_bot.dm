@@ -151,10 +151,14 @@ var/datum/discord_bot/discord_bot = null
 		return list()
 
 	if (!channels.len || isnull(channels_to_group["channel_pins"]))
-		testing("No group.")
+		if (robust_debug)
+			log_debug("BOREALIS: No pins channel group.")
 		return list()
 
 	var/list/output = list()
+
+	if (robust_debug)
+		log_debug("BOREALIS: Acquiring pins.")
 
 	for (var/A in channels_to_group["channel_pins"])
 		var/datum/discord_channel/channel = A
@@ -162,6 +166,9 @@ var/datum/discord_bot/discord_bot = null
 			output["[channel.pin_flag]"] = list()
 
 		output["[channel.pin_flag]"] += channel.get_pins(auth_token)
+
+	if (robust_debug)
+		log_debug("BOREALIS: Finished acquiring pins.")
 
 	return output
 
