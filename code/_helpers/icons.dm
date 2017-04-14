@@ -886,10 +886,16 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 				//Capture includes non-existan turfs
 				if(!suppress_errors)
 					return
+
+	return generate_image_from_turfs(turfstocapture, range, cap_mode, user, lighting)
+	
+/proc/generate_image_from_turfs(turf/topleft, list/turf/turfstocapture, range as num, cap_mode = CAPTURE_MODE_PARTIAL, mob/living/user, lighting = TRUE)
+	var/tx = topleft.x
+	var/ty = topleft.y
 	//Lines below determine what objects will be rendered
 	var/list/atoms = list()
 	for(var/turf/T in turfstocapture)
-		atoms.Add(T)
+		atoms += T
 		for(var/atom/A in T)
 			if(istype(A, /atom/movable/lighting_overlay)) //Special case for lighting
 				continue
@@ -899,7 +905,7 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 
 			atoms += A
 
-	//Lines below actually render all colected data
+	//Lines below actually render all collected data
 	atoms = sort_atoms_by_layer(atoms)
 	var/icon/cap = icon('icons/effects/96x96.dmi', "")
 	cap.Scale(range*32, range*32)
