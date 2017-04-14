@@ -5,16 +5,15 @@
 #define SS_INIT_CARGO               2	// Random warehouse generation.
 #define SS_INIT_ATOMS               1	// World initialization. Will trigger lighting updates.
 #define SS_INIT_TICKER              0	// Lobby timer starts here. Initialization *must* finish within 180 seconds of this step!
-#define SS_INIT_MACHINERY          -1	// Machinery prune and powernet build.
-#define SS_INIT_PIPENET            -2	// Initial pipenet build.
-#define SS_INIT_ATMOS              -3	// Miscellaneous atmos machinery initialization.
-#define SS_INIT_AIR                -4	// Air setup and pre-bake.
-#define SS_INIT_PARALLAX           -5	// Parallax image cache generation.
-#define SS_INIT_NIGHT              -6	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_LIGHTING           -7	// Generation of lighting overlays and pre-bake.
-#define SS_INIT_MISC               -8	// Subsystems without an explicitly defined init order init here.
-#define SS_INIT_SMOOTHING          -9	// Object icon smoothing.
-#define SS_INIT_OVERLAY           -10	// Overlay flush.
+#define SS_INIT_PIPENET            -1	// Initial pipenet build.
+#define SS_INIT_MACHINERY          -2	// Machinery prune and powernet build.
+#define SS_INIT_AIR                -3	// Air setup and pre-bake.
+#define SS_INIT_PARALLAX           -4	// Parallax image cache generation.
+#define SS_INIT_NIGHT              -5	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_LIGHTING           -6	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_MISC               -7	// Subsystems without an explicitly defined init order init here.
+#define SS_INIT_SMOOTHING          -8	// Object icon smoothing.
+#define SS_INIT_OVERLAY            -9	// Overlay flush.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
