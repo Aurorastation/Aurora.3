@@ -58,6 +58,26 @@
 
 				C.active = TRUE
 
+// Returns the average color of this tile. Roughly corresponds to the color of a single old-style lighting overlay.
+/turf/proc/get_avg_color()
+	if (!lighting_overlay)
+		return null
+
+	var/lum_r
+	var/lum_g
+	var/lum_b
+
+	for (var/datum/lighting_corner/L in corners)
+		lum_r += L.lum_r
+		lum_g += L.lum_g
+		lum_b += L.lum_b
+
+	lum_r = CLAMP01(lum_r / 4) * 255
+	lum_g = CLAMP01(lum_g / 4) * 255
+	lum_b = CLAMP01(lum_b / 4) * 255
+
+	return "#[num2hex(lum_r, 2)][num2hex(lum_g, 2)][num2hex(lum_g, 2)]"
+
 #define SCALE(targ,min,max) (targ - min) / (max - min)
 
 // Used to get a scaled lumcount.
