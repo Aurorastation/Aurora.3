@@ -133,6 +133,9 @@
 
 	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
 
+	if(src.get_species() == "Industrial Frame")
+		pressure_adjustment_coefficient = 0 // woo, back-mounted cooling!
+
 	return pressure_adjustment_coefficient
 
 // Calculate how much of the enviroment pressure-difference affects the human.
@@ -169,13 +172,18 @@
 	if(species.vision_organ)
 		vision = internal_organs_by_name[species.vision_organ]
 
-	if(!vision) // Presumably if a species has no vision organs, they see via some other means.
-		eye_blind =  0
-		blinded =    0
-		eye_blurry = 0
-	else if(vision.is_broken())   // Vision organs cut out or broken? Permablind.
-		eye_blind =  1
-		blinded =    1
+	if (!vision)
+		if (species.vision_organ) // if they should have eyes but don't, they can't see
+			eye_blind = 1
+			blinded = 1
+			eye_blurry = 1
+		else // if they're not supposed to have a vision organ, then they must see by some other means
+			eye_blind = 0
+			blinded = 0
+			eye_blurry = 0
+	else if (vision.is_broken()) // if their eyes have been damaged or detached, they're blinded
+		eye_blind = 1
+		blinded = 1
 		eye_blurry = 1
 	else
 		//blindness
