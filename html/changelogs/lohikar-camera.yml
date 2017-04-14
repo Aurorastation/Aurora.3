@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "The lighting engine and cameras have settled their differences and will work properly together now."
-  - tweak: "Made a few elements of camera code slightly less completely stupid, camera lag may be slightly lower."
