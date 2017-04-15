@@ -105,7 +105,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			var/time = world.timeofday
 			var/tick = world.tick_usage
 			var/ticktime = world.time
-			del(A)
+			HardDelete(A)
 			tick = (world.tick_usage-tick+((world.time-ticktime)/world.tick_lag*100))
 
 			if (tick > highest_del_tickusage)
@@ -135,7 +135,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	if (!istype(A) || (!isnull(A.gcDestroyed) && A.gcDestroyed >= 0))
 		return
 	if (A.gcDestroyed == GC_QUEUED_FOR_HARD_DEL)
-		del(A)
+		HardDelete(A)
 		return
 	var/gctime = world.time
 	var/refid = "\ref[A]"
@@ -146,6 +146,10 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		queue -= refid // Removing any previous references that were GC'd so that the current object will be at the end of the list.
 
 	queue[refid] = gctime
+
+// For profiling.
+/datum/controller/subsystem/garbage_collector/proc/HardDelete(datum/A)
+	del(A)
 
 /datum/controller/subsystem/garbage_collector/proc/HardQueue(datum/A)
 	if (istype(A) && A.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
@@ -247,7 +251,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 /icon/Destroy()
 	return QDEL_HINT_HARDDEL
-
+	
 /client/Destroy()
 	..()
 	return QDEL_HINT_HARDDEL_NOW

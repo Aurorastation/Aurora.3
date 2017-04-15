@@ -14,15 +14,21 @@
 	var/tmp/powerusers_this_tick = 0
 
 	var/list/rcon_smes_units = list()
+	var/list/rcon_smes_units_by_tag = list()
 	var/list/rcon_breaker_units = list()
 	var/list/rcon_breaker_units_by_tag = list()
 
 	var/list/breaker_boxes = list()
 
+	var/rcon_update_queued = FALSE
+
+	var/list/slept_in_process = list()
+
 /datum/controller/subsystem/machinery/proc/queue_rcon_update()
-	addtimer(CALLBACK(src, .proc/build_rcon_lists), 10, TIMER_UNIQUE)
+	rcon_update_queued = TRUE
 
 /datum/controller/subsystem/machinery/proc/build_rcon_lists()
+	rcon_update_queued = FALSE
 	rcon_smes_units.Cut()
 	rcon_breaker_units.Cut()
 	rcon_breaker_units_by_tag.Cut()
@@ -30,6 +36,7 @@
 	for(var/obj/machinery/power/smes/buildable/SMES in machines)
 		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
 			rcon_smes_units += SMES
+			rcon_smes_units_by_tag[SMES.RCon_tag] = SMES
 
 	for(var/obj/machinery/power/breakerbox/breaker in breaker_boxes)
 		if(breaker.RCon_tag != "NO_TAG")
@@ -57,6 +64,9 @@
 		processes_this_tick = 0
 		powerusers_this_tick = 0
 
+		if (rcon_update_queued)
+			build_rcon_lists()
+
 	var/list/curr_machinery = src.processing_machinery
 	var/list/curr_powersinks = src.processing_powersinks
 
@@ -69,6 +79,8 @@
 			remove_machine(M)
 			continue
 
+		var/start_tick = world.time
+
 		if (M.isprocessing)
 			processes_this_tick++
 			switch (M.process())
@@ -76,6 +88,12 @@
 					remove_machine(M)
 				if (M_NO_PROCESS)
 					M.isprocessing = FALSE
+
+		if (start_tick != world.time)
+			// Slept.
+			if (!slept_in_process[M.type])
+				log_debug("SSmachinery: Type '[M.type]' slept during process().")
+				slept_in_process[M.type] = TRUE
 
 		if (M.use_power)
 			powerusers_this_tick++

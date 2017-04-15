@@ -170,7 +170,10 @@
 
 /obj/machinery/firealarm/power_change()
 	..()
-	addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15))	// TODO: Find a better way to do this.
+	IF_NOT_MAPLOAD
+		addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)	// TODO: Find a better way to do this.
+	else
+		update_icon()
 
 /obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/data[0]

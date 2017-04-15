@@ -63,14 +63,16 @@ var/datum/controller/failsafe/Failsafe
 						if(1)
 
 							FAILSAFE_MSG("Warning: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting...")
+							log_failsafe("MC has not fired within last [(5-defcon) * processing_interval] ticks, killing and restarting.")
 							--defcon
 							var/rtn = Recreate_MC()
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
+								log_failsafe("MC restarted successfully.")
 								FAILSAFE_MSG("Master Controller restarted successfully!")
 							else if(rtn < 0)
-								log_game("FailSafe: Could not restart MC, runtime encountered. Entering defcon 0")
+								log_failsafe("Could not restart MC, runtime encountered. Entering defcon 0!")
 								FAILSAFE_MSG("ERROR: DEFCON [defcon_pretty()]. Unable to restart Master Controller, runtime encountered. Silently retrying.")
 							//if the return number was 0, it just means the mc was restarted too recently, and it just needs some time before we try again
 							//no need to handle that specially when defcon 0 can handle it
@@ -79,6 +81,7 @@ var/datum/controller/failsafe/Failsafe
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
+								log_failsafe("MC restarted successfully.")
 								FAILSAFE_MSG("Master Controller restarted successfully!")
 				else
 					defcon = min(defcon + 1,5)

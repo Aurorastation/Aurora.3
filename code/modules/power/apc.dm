@@ -168,7 +168,7 @@
 	pixel_x = (src.tdir & 3)? 0 : (src.tdir == 4 ? 24 : -24)
 	pixel_y = (src.tdir & 3)? (src.tdir ==1 ? 24 : -24) : 0
 	if (building==0)
-		init()
+		init(mapload)
 	else
 		area = get_area(src)
 		area.apc = src
@@ -215,7 +215,7 @@
 	terminal.set_dir(tdir)
 	terminal.master = src
 
-/obj/machinery/power/apc/proc/init()
+/obj/machinery/power/apc/proc/init(mapload)
 	has_electronics = 2 //installed and secured
 	// is starting with a power cell installed, create it and set its charge level
 	if(cell_type)
@@ -236,7 +236,8 @@
 
 	make_terminal()
 
-	addtimer(CALLBACK(src, .proc/update), 5)
+	if (!mapload)
+		addtimer(CALLBACK(src, .proc/update), 5, TIMER_UNIQUE)
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))

@@ -111,6 +111,15 @@
 /proc/log_gc(text)
 	game_log("GC", text)
 
+/proc/log_ss(text, log_world = TRUE)
+	game_log("SS", text)
+	if (log_world)
+		world.log << text
+
+// Generally only used when something has gone very wrong.
+/proc/log_failsafe(text)
+	game_log("FAILSAFE", text)
+
 /proc/log_unit_test(text)
 	world.log << "## UNIT_TEST ##: [text]"
 

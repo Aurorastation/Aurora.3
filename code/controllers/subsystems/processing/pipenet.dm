@@ -3,6 +3,7 @@ var/datum/controller/subsystem/processing/pipenet/SSpipenet
 	name = "Pipenet"
 	init_order = SS_INIT_PIPENET
 	priority = SS_PRIORITY_MACHINERY
+	flags = 0
 
 /datum/controller/subsystem/processing/pipenet/New()
 	NEW_SS_GLOBAL(SSpipenet)

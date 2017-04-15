@@ -51,7 +51,10 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/message = "";
 	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
-	light_range = 0
+	
+	light_color = LIGHT_COLOR_RED
+	light_power = 0.25	// It's a tiny light, it ain't going to be bright.
+
 	//Form intregration
 	var/SQLquery
 	var/paperstock = 10
@@ -59,8 +62,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	//End Form Integration
 	var/datum/announcement/announcement = new
 	var/list/obj/item/device/pda/alert_pdas = list() //The PDAs we alert upon a request receipt.
-
-	light_range = 2
 
 /obj/machinery/requests_console/power_change()
 	..()
@@ -73,6 +74,10 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	else
 		if(icon_state == "req_comp_off")
 			icon_state = "req_comp[newmessagepriority]"
+			if (newmessagepriority)
+				set_light(2)
+			else
+				set_light(0)
 
 /obj/machinery/requests_console/Initialize()
 	. = ..()
@@ -220,7 +225,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				if (Console.department == department)
 					Console.newmessagepriority = 0
 					Console.icon_state = "req_comp0"
-					Console.set_light(1)
+					Console.set_light(0)
 		if(tempScreen == RCS_MAINMENU)
 			reset_message()
 		screen = tempScreen

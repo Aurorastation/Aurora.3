@@ -7,6 +7,6 @@
 /area/Initialize(mapload)
 	. = ..()
 	if (mapload)
-		for(var/turf/T in src)
-			if(turf_initializer)
+		if(turf_initializer)
+			for(var/turf/T in src)
 				turf_initializer.initialize(T)

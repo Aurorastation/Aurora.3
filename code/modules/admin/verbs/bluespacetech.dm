@@ -9,10 +9,20 @@
 // - SoundScopes
 */
 
+/client
+	var/bst_cooldown	// So people can't spam BSTs.
+
+/client/proc/bst_spawn_cooldown()
+	bst_cooldown = null
+
 /client/proc/cmd_dev_bst()
 	set category = "Debug"
 	set name = "Spawn Bluespace Tech"
 	set desc = "Spawns a Bluespace Tech to debug stuff"
+
+	if (bst_cooldown)
+		src << "You've used this verb too recently, please wait a moment before trying again."
+		return
 
 	if(!check_rights(R_DEV|R_ADMIN))	return
 
@@ -26,6 +36,8 @@
 	if(ticker.current_state < GAME_STATE_PLAYING)
 		src << span("alert", "The game hasn't started yet!")
 		return
+
+	bst_cooldown = TRUE
 
 	if(istype(mob, /mob/living))
 		if(!holder.original_mob)
@@ -68,8 +80,8 @@
 			new /obj/item/weapon/reagent_containers/pill/adminordrazine(pills)
 		bst.equip_to_slot_or_del(pills, slot_in_backpack)
 
-  //Implant because access
-  bst.implant_loyalty(bst,TRUE)
+	//Implant because access
+	bst.implant_loyalty(bst,TRUE)
 
 	//Sort out ID
 	var/obj/item/weapon/card/id/bst/id = new/obj/item/weapon/card/id/bst(bst)
@@ -112,6 +124,7 @@
 	bst.add_language(LANGUAGE_BORER)
 
 	addtimer(CALLBACK(src, .proc/bst_post_spawn, bst), 5)
+	addtimer(CALLBACK(src, .proc/bst_spawn_cooldown), 5 SECONDS)
 
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 

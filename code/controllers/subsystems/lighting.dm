@@ -60,9 +60,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	admin_notice(span("danger", "Processed [processed_corners] light corners."), R_DEBUG)
 	admin_notice(span("danger", "Processed [processed_overlays] light overlays."), R_DEBUG)
 
-	var/msg = "SSlighting: NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]"
-	game_log("SS", msg)
-	world.log << msg
+	log_ss("SSlighting: NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
 	..()
 

@@ -15,7 +15,8 @@
 		/turf/simulated/floor,
 		/turf/simulated/mineral,
 		/turf/unsimulated/wall,
-		/turf/unsimulated/floor
+		/turf/unsimulated/floor,
+		/obj/structure/grille
 	)
 
 /obj/structure/lattice/Initialize()
@@ -27,8 +28,6 @@
 	for(var/obj/structure/lattice/LAT in src.loc)
 		if(LAT != src)
 			qdel(LAT)
-
-	queue_smooth_neighbors(src)
 
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
