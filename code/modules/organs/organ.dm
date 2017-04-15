@@ -27,6 +27,8 @@ var/list/organ_cache = list()
 	var/datum/species/species
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
 
+	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
+
 /obj/item/organ/Destroy()
 	processing_objects -= src
 	if(!owner)
