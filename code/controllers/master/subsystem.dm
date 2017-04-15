@@ -164,7 +164,7 @@
 	if (!silent)
 		admin_notice(span("danger", msg), R_DEBUG)
 	world.log << "SS Init: [msg]"
-	game_log("SS", msg)
+	log_ss(msg, log_world = FALSE)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
