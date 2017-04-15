@@ -76,6 +76,8 @@
 //prevents distinguishing identical timers with the wait variable
 #define TIMER_NO_HASH_WAIT  0x10
 
+#define TIMER_NO_INVOKE_WARNING 600 //number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
+
 #define INITIALIZATION_INSSATOMS 0	//New should not call Initialize
 #define INITIALIZATION_INNEW_MAPLOAD 1	//New should call Initialize(TRUE)
 #define INITIALIZATION_INNEW_REGULAR 2	//New should call Initialize(FALSE)
