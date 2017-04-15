@@ -18,7 +18,8 @@ var/list/blacklisted_tesla_types = typecacheof(list(/obj/machinery/atmospherics,
 										/obj/machinery/gateway,
 										/obj/structure/lattice,
 										/obj/structure/grille,
-										/obj/machinery/the_singularitygen/tesla))
+										/obj/machinery/the_singularitygen/tesla,
+										/obj/machinery/atmospherics/pipe))
 /obj/singularity/energy_ball
 	name = "energy ball"
 	desc = "An energy ball."

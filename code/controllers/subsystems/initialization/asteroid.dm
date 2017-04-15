@@ -1,11 +1,10 @@
 /datum/controller/subsystem/asteroid
-	name = "Asteroid Generation"
+	name = "Asteroid"
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 	init_order = SS_INIT_ASTEROID
 
 /datum/controller/subsystem/asteroid/Initialize(timeofday)
 	if(config.generate_asteroid)
-		var/time = world.time
 		// These values determine the specific area that the map is applied to.
 		// If you do not use the official Baycode moonbase map, you will need to change them.
 		// Create the chasms.
@@ -27,8 +26,5 @@
 		var/counting_result = "Total number of chasms: [counting_number]"
 		admin_notice(span("danger", counting_result))
 		game_log("ASGEN", counting_result)
-		var/msg = "Asteroid generation completed in [(world.time - time) / 10] seconds."
-		admin_notice(span("danger", msg))
-		game_log("ASGEN", msg)
 
 	..()
