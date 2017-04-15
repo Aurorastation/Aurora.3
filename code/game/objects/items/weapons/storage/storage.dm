@@ -512,8 +512,7 @@
 	for(var/obj/item/I in contents)
 		remove_from_storage(I, T)
 
-/obj/item/weapon/storage/Initialize()
-	. = ..()
+/obj/item/weapon/storage/proc/post_init()
 	var/total_storage_space = 0
 	for(var/obj/item/I in contents)
 		total_storage_space += I.get_storage_cost()
@@ -530,6 +529,8 @@
 		verbs += /obj/item/weapon/storage/verb/toggle_gathering_mode
 	else
 		verbs -= /obj/item/weapon/storage/verb/toggle_gathering_mode
+
+	addtimer(CALLBACK(src, .proc/post_init), 5)
 
 	src.boxes = new /obj/screen/storage
 	src.boxes.name = "storage"
