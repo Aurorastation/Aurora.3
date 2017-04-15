@@ -237,9 +237,8 @@
 	response_harm = "raps"
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
-	health = 650
-	maxHealth = 650
-	resistance = 15
+	health = 550
+	maxHealth = 550
 	mob_size = 50
 	opacity = 1
 	melee_damage_lower = 15
@@ -247,6 +246,7 @@
 	attacktext = "smashes"
 	attack_sound = 'sound/weapons/heavysmash.ogg'
 	speed = 6
+	move_to_delay = 10
 	projectiletype = /obj/item/projectile/energy/plasmacannon
 	projectilesound = 'sound/weapons/resonator_fire.ogg'
 	destroy_surroundings = 1
@@ -262,6 +262,10 @@
 	minbodytemp = 0
 	faction = "sol"
 	destroy_surroundings = 1
+
+	mob_bump_flag = HEAVY
+	mob_swap_flags = ALLMOBS
+	mob_push_flags = ALLMOBS
 
 	var/online = 0
 	var/shutdown = 1
@@ -387,7 +391,7 @@
 		var/mob/living/L = target_mob
 		var/attack_numeral = rand(melee_damage_lower,melee_damage_upper)
 		L.attack_generic(src,attack_numeral,attacktext)
-		if(attack_numeral >= 40)
+		if(attack_numeral >= 35)
 			spark(L.loc, 3, alldirs)
 			step_away(L,user,15)
 			spawn(1)
@@ -439,13 +443,16 @@
 /mob/living/simple_animal/hostile/seraph/ex_act(severity)
 	if(!blinded)
 		flick("flash", flash)
+	var/divisor = 1
+	if(external_shielding)
+		divisor = 3
 	switch (severity)
 		if (1.0)
-			apply_damage(100, BRUTE)
+			apply_damage(120/divisor, BRUTE)
 		if (2.0)
-			apply_damage(60, BRUTE)
+			apply_damage(80/divisor, BRUTE)
 		if(3.0)
-			apply_damage(30, BRUTE)
+			apply_damage(40/divisor, BRUTE)
 
 /mob/living/simple_animal/hostile/seraph/proc/DamageCheck()
 	if(!online)
@@ -490,6 +497,28 @@
 		ultimate_damage = (damage*0.7)
 	..(ultimate_damage)
 	DamageCheck()
+
+/mob/living/simple_animal/hostile/seraph/bullet_act(var/obj/item/projectile/P)
+	if(external_shielding)
+		if(istype(P, /obj/item/projectile/bullet))
+			var/reflectchance = 80 - round(P.damage/3)
+			if(prob(reflectchance))
+				adjustBruteLoss(P.damage * 0.3)
+				visible_message("<span class='danger'>The [P.name] gets deflected by [src]'s external shielding!</span>", \
+								"<span class='userdanger'>The [P.name] gets deflected by [src]'s external shielding!</span>")
+
+				// Find a turf near or on the original location to bounce to
+				if(P.starting)
+					var/new_x = P.starting.x + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
+					var/new_y = P.starting.y + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
+					var/turf/curloc = get_turf(src)
+
+					// redirect the projectile
+					P.redirect(new_x, new_y, curloc, src)
+
+				return -1 // complete projectile permutation
+
+	return (..(P))
 
 /mob/living/simple_animal/hostile/seraph/adjustToxLoss(var/damage)
 	return
