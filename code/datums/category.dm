@@ -42,7 +42,7 @@
 			items += item
 
 	// If you change this, confirm that character setup doesn't become completely unordered.
-	sortTim(items, /proc/cmp_name_asc, FALSE)
+	sortTim(items, /proc/cmp_player_setup_group)
 
 /datum/category_group/Destroy()
 	for(var/item in items)
