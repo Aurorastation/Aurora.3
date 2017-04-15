@@ -583,11 +583,10 @@
 
 // called when area power state changes
 /obj/machinery/light/power_change()
-	addtimer(CALLBACK(src, .proc/handle_power_change), 10)
+	addtimer(CALLBACK(src, .proc/handle_power_change), 10, TIMER_UNIQUE)
 
 /obj/machinery/light/proc/handle_power_change()
 	seton(has_power())
-
 
 // called when on fire
 
