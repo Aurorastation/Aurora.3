@@ -22,6 +22,8 @@
 
 	var/rcon_update_queued = FALSE
 
+	var/list/slept_in_process = list()
+
 /datum/controller/subsystem/machinery/proc/queue_rcon_update()
 	rcon_update_queued = TRUE
 
@@ -77,6 +79,8 @@
 			remove_machine(M)
 			continue
 
+		var/start_tick = world.time
+
 		if (M.isprocessing)
 			processes_this_tick++
 			switch (M.process())
@@ -84,6 +88,12 @@
 					remove_machine(M)
 				if (M_NO_PROCESS)
 					M.isprocessing = FALSE
+
+		if (start_tick != world.time)
+			// Slept.
+			if (!slept_in_process[M.type])
+				log_debug("SSmachinery: Type '[M.type]' slept during process().")
+				slept_in_process[M.type] = TRUE
 
 		if (M.use_power)
 			powerusers_this_tick++
