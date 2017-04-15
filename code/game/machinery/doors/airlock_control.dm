@@ -21,10 +21,10 @@ obj/machinery/door/airlock/receive_signal(datum/signal/signal)
 	if(id_tag != signal.data["tag"] || !signal.data["command"]) return
 
 	cur_command = signal.data["command"]
-	spawn()
-		execute_current_command()
+	execute_current_command()
 
 obj/machinery/door/airlock/proc/execute_current_command()
+	set waitfor = FALSE
 	if(operating)
 		return //emagged or busy doing something else
 
