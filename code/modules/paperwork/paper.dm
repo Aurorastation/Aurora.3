@@ -41,6 +41,7 @@
 	if (text || title)
 		set_content(title, text ? text : info)
 	else
+		updateinfolinks()
 		if (mapload)
 			update_icon()
 		else
@@ -69,7 +70,7 @@
 		info = ""
 
 	update_icon()
-	update_space()
+	update_space(info)
 	updateinfolinks()
 
 /obj/item/weapon/paper/update_icon()
