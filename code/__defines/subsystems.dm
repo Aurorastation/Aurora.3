@@ -2,8 +2,8 @@
 #define SS_INIT_SEEDS               5
 #define SS_INIT_ASTEROID            4	// Asteroid generation.
 #define SS_INIT_SHUTTLE             3	// Shuttle setup.
-#define SS_INIT_CARGO               2	// Random warehouse generation.
-#define SS_INIT_ATOMS               1	// World initialization. Will trigger lighting updates.
+#define SS_INIT_ATOMS               2	// World initialization. Will trigger lighting updates.
+#define SS_INIT_CARGO               1	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_TICKER              0	// Lobby timer starts here. Initialization *must* finish within 180 seconds of this step!
 #define SS_INIT_PIPENET            -1	// Initial pipenet build.
 #define SS_INIT_MACHINERY          -2	// Machinery prune and powernet build.
