@@ -56,7 +56,7 @@ var/cmp_field = "name"
 	return sorttext("[b.access_type][b.desc]", "[a.access_type][a.desc]")
 
 /proc/cmp_player_setup_group(datum/category_group/player_setup_category/a, datum/category_group/player_setup_category/b)
-	return b.sort_order - a.sort_order
+	return a.sort_order - b.sort_order
 
 /proc/cmp_cardstate(datum/card_state/a, datum/card_state/b)
 	return sorttext(b.name, a.name)

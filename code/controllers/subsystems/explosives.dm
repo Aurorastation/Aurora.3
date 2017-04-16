@@ -7,6 +7,8 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	wait = 5
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
 	priority = SS_PRIORITY_EXPLOSIVES
+
+	can_fire = FALSE	// Start disabled, explosions will wake us if need be.
 	
 	var/list/work_queue
 	var/ticks_without_work = 0
