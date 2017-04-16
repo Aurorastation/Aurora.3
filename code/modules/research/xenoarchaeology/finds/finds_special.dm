@@ -28,7 +28,7 @@
 
 /obj/item/clothing/mask/gas/poltergeist/Destroy()
 	processing_objects.Remove(src)
-	listening_objects += src
+	listening_objects -= src
 	return ..()
 
 /obj/item/clothing/mask/gas/poltergeist/process()
