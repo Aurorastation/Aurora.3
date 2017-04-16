@@ -168,6 +168,7 @@
 		new /obj/item/clothing/head/beret/sec/warden(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
+		new /obj/item/weapon/storage/box/ids(src)
 		return
 
 /obj/structure/closet/secure_closet/security_cadet
