@@ -27,7 +27,7 @@
 	admin_log.Add(text)
 	if (config.log_admin)
 		game_log("ADMIN", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=ckey,"_admin_key"=admin_key,"_ckey_target"=ckey_target))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
 
 /proc/log_debug(text,level=5)
 	if (config.log_debug)
@@ -43,7 +43,7 @@
 /proc/log_game(text,level=5,ckey="",admin_key="",ckey_target="")
 	if (config.log_game)
 		game_log("GAME", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="GAME",additional_data=list("_ckey"=ckey,"_admin_key"=admin_key,"_target"=target))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="GAME",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_target"=html_encode(target)))
 
 /proc/log_vote(text)
 	if (config.log_vote)
@@ -53,32 +53,32 @@
 /proc/log_access(text,level=5,ckey="")
 	if (config.log_access)
 		game_log("ACCESS", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ACCESS",additional_data=list("_ckey"=ckey))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ACCESS",additional_data=list("_ckey"=html_encode(ckey)))
 
 /proc/log_say(text,level=5,ckey="")
 	if (config.log_say)
 		game_log("SAY", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="SAY",additional_data=list("_ckey"=ckey))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="SAY",additional_data=list("_ckey"=html_encode(ckey)))
 
 /proc/log_ooc(text,level=5,ckey="")
 	if (config.log_ooc)
 		game_log("OOC", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="OOC",additional_data=list("_ckey"=ckey))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="OOC",additional_data=list("_ckey"=html_encode(ckey)))
 
 /proc/log_whisper(text,level=5,ckey="")
 	if (config.log_whisper) 
 		game_log("WHISPER", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="WHISPER",additional_data=list("_ckey"=ckey))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="WHISPER",additional_data=list("_ckey"=html_encode(ckey)))
 
 /proc/log_emote(text,level=5,ckey="")
 	if (config.log_emote)
 		game_log("EMOTE", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="EMOTE",additional_data=list("_ckey"=ckey))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="EMOTE",additional_data=list("_ckey"=html_encode(ckey)))
 
 /proc/log_attack(text,level=5,ckey="",ckey_target="")
 	if (config.log_attack)
 		game_log("ATTACK", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="ATTACK",additional_data=list("_ckey"=ckey,"_ckey_target"=ckey_target))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="ATTACK",additional_data=list("_ckey"=html_encode(ckey),"_ckey_target"=html_encode(ckey_target)))
 
 /proc/log_adminsay(text)
 	if (config.log_adminchat)
@@ -88,12 +88,12 @@
 /proc/log_pda(text,level=5,ckey="",ckey_target="")
 	if (config.log_pda)
 		game_log("PDA", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="PDA",additional_data=list("_ckey"=ckey,"_ckey_target"=ckey_target))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="PDA",additional_data=list("_ckey"=html_encode(ckey),"_ckey_target"=html_encode(ckey_target)))
 
 /proc/log_ntirc(text,level=5,ckey="",conversation="")
 	if (config.log_pda)
 		game_log("NTIRC", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="NTIRC",additional_data=list("_ckey"=ckey,"_ntirc_conversation"=conversation))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="NTIRC",additional_data=list("_ckey"=html_encode(ckey),"_ntirc_conversation"=html_encode(conversation)))
 
 /proc/log_to_dd(text)
 	world.log << text //this comes before the config check because it can't possibly runtime
