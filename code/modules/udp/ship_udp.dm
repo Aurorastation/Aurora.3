@@ -66,8 +66,8 @@
     var/list/log_data = list()
     log_data["version"] = "1.1"
     log_data["host"] = world.name
-    log_data["short_message"] = short_message
-    log_data["long_message"] = long_message
+    log_data["short_message"] = html_encode(short_message)
+    log_data["long_message"] = html_encode(long_message)
     log_data["level"] = level
     log_data["_category"] = category
     log_data["_game_id"] = game_id
