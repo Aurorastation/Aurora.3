@@ -46,3 +46,4 @@ changes:
   - experiment: "Refactored a lot of backend code which should lead to better performance or improved response times for certain objects. See the PR on GitHub for details."
   - tweak: "Slowed down blob growth a bit."
   - experiment: "Reworked how the server boots up; server restarts should be significantly faster."
+  - tweak: "Added some lag-checks to quick-pickup bags so they won't lag the entire server."
