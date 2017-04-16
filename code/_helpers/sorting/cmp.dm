@@ -75,3 +75,6 @@ var/cmp_field = "name"
 
 /proc/cmp_rcon_bbox(obj/machinery/power/breakerbox/BR1, obj/machinery/power/breakerbox/BR2)
 	return sorttext(BR2.RCon_tag, BR1.RCon_tag)
+
+/proc/cmp_surgery(datum/surgery_step/a, datum/surgery_step/b)
+	return b.priority - a.priority

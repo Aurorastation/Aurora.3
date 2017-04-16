@@ -21,6 +21,7 @@ var/global/list/image/splatter_cache=list()
 	var/list/datum/disease2/disease/virus2 = list()
 	var/amount = 5
 	var/drytime
+	var/dries = TRUE
 
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
@@ -52,8 +53,9 @@ var/global/list/image/splatter_cache=list()
 					if (B.blood_DNA)
 						blood_DNA |= B.blood_DNA.Copy()
 					qdel(B)
-	drytime = world.time + DRYING_TIME * (amount+1)
-	addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
+	drytime = DRYING_TIME * (amount+1)
+	if (dries)
+		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
 
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = "#[get_random_colour(1)]"

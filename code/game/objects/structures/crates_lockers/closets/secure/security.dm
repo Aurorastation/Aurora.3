@@ -205,6 +205,32 @@
 		new /obj/item/clothing/accessory/badge/warden(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 
+/obj/structure/closet/secure_closet/security_cadet
+	name = "security cadet's locker"
+	req_access = list(access_security)
+	icon_state = "seccadet1"
+	icon_closed = "seccadet"
+	icon_locked = "seccadet1"
+	icon_opened = "seccadetopen"
+	icon_broken = "seccadetbroken"
+	icon_off = "seccadetoff"
+
+	fill()
+		if(prob(50))
+			new /obj/item/weapon/storage/backpack/security(src)
+		else
+			new /obj/item/weapon/storage/backpack/satchel_sec(src)
+		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/weapon/storage/belt/security(src)
+		new /obj/item/device/flash(src)
+		new /obj/item/weapon/reagent_containers/spray/pepper(src)
+		new /obj/item/taperoll/police(src)
+		new /obj/item/device/hailer(src)
+		new /obj/item/clothing/accessory/storage/black_vest(src)
+		new /obj/item/clothing/head/beret/sec(src)
+		new /obj/item/clothing/under/rank/security2(src)
+		new /obj/item/device/holowarrant(src)
+		new /obj/item/device/flashlight/flare(src)
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
@@ -221,13 +247,13 @@
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
+		new /obj/random/handgun(src)
 		new /obj/item/clothing/suit/storage/vest/officer(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
-		new /obj/item/weapon/grenade/flashbang(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
@@ -238,6 +264,7 @@
 		new /obj/item/weapon/gun/energy/taser(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/item/device/holowarrant(src)
+		new /obj/item/device/flashlight/flare(src)
 
 /obj/structure/closet/secure_closet/security/cargo
 

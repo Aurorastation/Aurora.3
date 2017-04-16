@@ -528,3 +528,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 	stat("Byond:", "(TickLag:[world.tick_lag]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%))")
 	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration])"))
+
+
+/world/proc/has_round_started()
+	if (SSticker.current_state >= GAME_STATE_PLAYING)
+		return TRUE
+	return FALSE
