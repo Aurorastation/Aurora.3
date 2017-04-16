@@ -20,11 +20,21 @@
 	throw_speed = 4
 	throw_range = 20
 
+/obj/item/device/taperecorder/New()
+	..()
+	listening_objects += src
+
+/obj/item/device/taperecorder/Destroy()
+	listening_objects -= src
+	return ..()
+
 /obj/item/device/taperecorder/hear_talk(mob/living/M as mob, msg, var/verb="says", datum/language/speaking=null)
 	if(recording)
 		timestamp += timerecorded
 
 		if(speaking)
+			if(!speaking.machine_understands)
+				msg = speaking.scramble(msg)
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] [M.name] [speaking.format_message_plain(msg, verb)]"
 		else
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] [M.name] [verb], \"[msg]\""
