@@ -33,8 +33,6 @@
 		timestamp += timerecorded
 
 		if(speaking)
-			if(!speaking.machine_understands)
-				msg = speaking.scramble(msg)
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] [M.name] [speaking.format_message_plain(msg, verb)]"
 		else
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] [M.name] [verb], \"[msg]\""
