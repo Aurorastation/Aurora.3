@@ -208,6 +208,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/medical/general/New()
 	..()
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
@@ -476,6 +477,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/security/general/New()
 	..()
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
@@ -512,6 +514,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/janitor/New()
 	..()
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/soap/nanotrasen(src)
 	src.modules += new /obj/item/weapon/storage/bag/trash(src)
@@ -562,6 +565,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/clerical/butler/New()
 	..()
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/gripper/service(src)
 	src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src)
@@ -598,6 +602,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/clerical/general/New()
 	..()
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/pen/robopen(src)
 	src.modules += new /obj/item/weapon/form_printer(src)
@@ -631,6 +636,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/miner/New()
 	..()
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/wrench(src)
@@ -640,7 +646,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
-	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/pickaxe/plasmacutter(src)
 
 /obj/item/weapon/robot_module/research
