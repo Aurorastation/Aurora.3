@@ -948,7 +948,6 @@ About the new airlock wires panel:
 	return
 
 /obj/machinery/door/airlock/open(var/forced=0)
-	set waitfor = FALSE
 	if(!can_open(forced))
 
 		return 0
@@ -1053,7 +1052,6 @@ About the new airlock wires panel:
 	return ..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE))
 
 /obj/machinery/door/airlock/close(var/forced=0)
-	set waitfor = FALSE
 	if(!can_close(forced))
 		return 0
 	if(safe)
