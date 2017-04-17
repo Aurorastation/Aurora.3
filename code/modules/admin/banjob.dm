@@ -29,7 +29,10 @@ var/list/jobban_keylist = list() // Global jobban list.
  * @return	num		1
  */
 /hook/startup/proc/loadJobBans()
-	jobban_loadbanfile()
+	if (config.ban_legacy_system)
+		jobban_loaddatabase()
+	else
+		jobban_loadbanfile()
 	return 1
 
 /**
