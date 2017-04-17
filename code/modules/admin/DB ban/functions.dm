@@ -226,7 +226,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 	if(!dbcon.IsConnected())
 		return
 
-	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appear.")
+	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appeal.")
 	if (!reason)
 		usr << "<span class='warning'>Invalid reason given. Cancelled.</span>"
 		return
