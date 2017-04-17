@@ -35,10 +35,11 @@
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
 	. += "<b>Special Role Availability:</b><br>"
 	. += "<table>"
+	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		. += "<tr><td>[antag.role_text]: </td><td>"
-		if(jobban_isbanned(preference_mob(), antag.bantype))
+		if(is_global_banned || jobban_isbanned(preference_mob(), antag.bantype))
 			. += "<span class='danger'>\[BANNED\]</span><br>"
 		else if(antag.role_type in pref.be_special_role)
 			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"
