@@ -512,6 +512,8 @@
 	for(var/obj/item/I in contents)
 		remove_from_storage(I, T)
 
+		CHECK_TICK
+
 /obj/item/weapon/storage/proc/post_init()
 	var/total_storage_space = 0
 	for(var/obj/item/I in contents)

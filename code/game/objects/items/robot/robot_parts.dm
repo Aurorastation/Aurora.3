@@ -83,7 +83,7 @@
 	var/created_name = ""
 
 /obj/item/robot_parts/robot_suit/Initialize()
-	..()
+	. = ..()
 	src.updateicon()
 
 /obj/item/robot_parts/robot_suit/proc/updateicon()

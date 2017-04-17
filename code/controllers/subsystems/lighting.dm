@@ -82,9 +82,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 		var/datum/light_source/L = curr_lights[curr_lights.len]
 		curr_lights.len--
 
-		if(L.destroyed || L.check() || L.force_update)
+		if(QDELETED(L) || L.check() || L.force_update)
 			L.remove_lum()
-			if(!L.destroyed)
+			if(!QDELETED(L))
 				L.apply_lum()
 
 		else if(L.vis_update)	//We smartly update only tiles that became (in) visible to use.

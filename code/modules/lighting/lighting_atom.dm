@@ -63,9 +63,7 @@
 	L_PROF(src, "atom_update")
 
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
-		if(light)
-			light.destroy()
-			light = null
+		QDEL_NULL(light)
 	else
 		if (!istype(loc, /atom/movable)) // We choose what atom should be the top atom of the light here.
 			. = src
@@ -76,13 +74,6 @@
 			light.update(.)
 		else
 			light = new/datum/light_source(src, .)
-
-// Destroy our light source so we GC correctly.
-/atom/Destroy()
-	if (light)
-		light.destroy()
-		light = null
-	. = ..()
 
 // If we have opacity, make sure to tell (potentially) affected light sources.
 /atom/movable/Destroy()

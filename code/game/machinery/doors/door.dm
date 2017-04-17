@@ -460,7 +460,6 @@
 
 
 /obj/machinery/door/proc/open(var/forced = 0)
-	set waitfor = FALSE
 	if(!can_open(forced))
 		return
 	operating = 1
@@ -491,7 +490,6 @@
 		close()
 
 /obj/machinery/door/proc/close(var/forced = 0)
-	set waitfor = FALSE
 	if(!can_close(forced))
 		if (autoclose)
 			for (var/atom/movable/M in get_turf(src))

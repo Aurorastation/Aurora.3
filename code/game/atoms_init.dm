@@ -41,3 +41,19 @@
 		WARNING("Old style LateInitialize behaviour detected in [type]!")
 		warned_types[type] = TRUE
 	Initialize(FALSE)
+
+/atom/Destroy(force = FALSE)
+	. = ..()
+	if (reagents)
+		QDEL_NULL(reagents)
+
+	LAZYCLEARLIST(our_overlays)
+	LAZYCLEARLIST(priority_overlays)
+
+	QDEL_NULL(light)
+
+	if (orbiters)
+		for (var/thing in orbiters)
+			var/datum/orbit/O = thing
+			if (O.orbiter)
+				O.orbiter.stop_orbit()

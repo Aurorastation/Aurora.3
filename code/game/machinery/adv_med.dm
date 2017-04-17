@@ -266,7 +266,7 @@
 	return collapse_desc
 
 /obj/machinery/body_scanconsole/Initialize()
-	..()
+	. = ..()
 	src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
 	src.connected.connected = src
 

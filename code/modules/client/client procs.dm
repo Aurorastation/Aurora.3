@@ -24,6 +24,16 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	// asset_cache
+	if(href_list["asset_cache_confirm_arrival"])
+		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
+		var/job = text2num(href_list["asset_cache_confirm_arrival"])
+		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
+		//	into letting append to a list without limit.
+		if (job && job <= last_asset_job && !(job in completed_asset_jobs))
+			completed_asset_jobs += job
+			return
+
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
 		if (!info_sent)
 			handle_connection_info(src, href_list["data"])
@@ -322,7 +332,6 @@
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
-	nanomanager.send_resources(src)
 
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1))
@@ -441,22 +450,9 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-
-	getFiles(
-		'html/search.js',
-		'html/panels.css',
-		'html/images/loading.gif',
-		'html/images/ntlogo.png',
-		'html/images/talisman.png',
-		'html/images/barcode0.png',
-		'html/images/barcode1.png',
-		'html/images/barcode2.png',
-		'html/images/barcode3.png',
-		'html/bootstrap/css/bootstrap.min.css',
-		'html/bootstrap/js/bootstrap.min.js',
-		'html/jquery/jquery-2.0.0.min.js',
-		'html/iestats/ie-truth.min.js'
-	)
+	spawn (10) //removing this spawn causes all clients to not get verbs.
+		//Precache the client with all other assets slowly, so as to not block other browse() calls
+		getFilesSlow(src, SSassets.cache, register_asset = FALSE)
 
 /mob/proc/MayRespawn()
 	return 0
