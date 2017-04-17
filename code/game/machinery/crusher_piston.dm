@@ -2,7 +2,7 @@
 #define PISTON_MOVE_DIVISOR 8
 
 /obj/machinery/crusher_base
-	name = "Trash compactor"
+	name = "trash compactor"
 	desc = "A colossal piston used for crushing garbage."
 	icon = 'icons/obj/machines/crusherbase.dmi'
 	icon_state = "standalone"
@@ -30,11 +30,11 @@
 	// rightcap -> Right piece of a combined crusher
 
 	var/action_start_time = null //The time when the action has been started
-	var/time_stage_pre = 20 //The time it takes for the stage to complete
-	var/time_stage_1 = 10 //The time it takes for the stage to complete
-	var/time_stage_2 = 10 //The time it takes for the stage to complete
-	var/time_stage_3 = 10 //The time it takes for the stage to complete
-	var/time_stage_full = 10 //The time to wait when the piston is full extendet
+	var/time_stage_pre = 200 //The time it takes for the stage to complete
+	var/time_stage_1 = 100 //The time it takes for the stage to complete
+	var/time_stage_2 = 100 //The time it takes for the stage to complete
+	var/time_stage_3 = 100 //The time it takes for the stage to complete
+	var/time_stage_full = 100 //The time to wait when the piston is full extendet
 
 	var/list/items_to_move = list() //The list of tiems that should be moved by the piston
 	var/list/items_to_crush = list() //The list of items that should be destroyed by the piston
@@ -44,7 +44,7 @@
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
-/obj/machinery/crusher_base/New()
+/obj/machinery/crusher_base/initialize()
 	..()
 
 	//Create parts for crusher.
@@ -118,7 +118,7 @@
 		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
 		return
 	process_lock = 1
-	var/timediff = (world.time - action_start_time) / 10
+	var/timediff = world.time - action_start_time
 
 	//Check what action should be performed
 	if(action == "idle")
@@ -257,7 +257,7 @@
 
 //Piston Stage 1
 /obj/machinery/crusher_piston
-	name = "Trash compactor piston"
+	name = "trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
 	icon = 'icons/obj/machines/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
 	icon_state = "piston_0" 
@@ -274,13 +274,17 @@
 	qdel(pb1)
 	qdel(pb2)
 	qdel(pb3)
+	pb1=null
+	pb2=null
+	pb3=null
 	return ..()
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
-	for(var/A in get_step(src,SOUTH))
-		if(!can_extend_into(A))
-			log_debug("cant extend 0-1 - Abort")
-			return 0
+	var/turf/T = get_turf(src)
+	var/turf/extension_turf = get_step(T,SOUTH)
+	if(!can_extend_into(extension_turf))
+		log_debug("cant extend 0-1 - Abort")
+		return 0
 	icon_state="piston_0_1"
 	stage = 1
 	pb1 = new(locate(x,y,z))
@@ -289,10 +293,11 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
-	for(var/A in get_step(pb1,SOUTH))
-		if(!can_extend_into(A))
-			log_debug("cant extend 1-2 - Abort")
-			return 0
+	var/turf/T = get_turf(src)
+	var/turf/extension_turf = get_step(T,SOUTH)
+	if(!can_extend_into(extension_turf))
+		log_debug("cant extend 1-2 - Abort")
+		return 0
 	icon_state="piston_1_2"
 	stage = 2
 	pb2 = new(locate(x,y-1,z))
@@ -301,10 +306,11 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
-	for(var/A in get_step(pb2,SOUTH))
-		if(!can_extend_into(A) && !istype(A,/obj/machinery/crusher_piston))
-			log_debug("cant extend 2-3 - Abort")
-			return 0
+	var/turf/T = get_turf(src)
+	var/turf/extension_turf = get_step(T,SOUTH)
+	if(!can_extend_into(extension_turf))
+		log_debug("cant extend 2-3 - Abort")
+		return 0
 	icon_state="piston_2_3"
 	stage = 3
 	pb3 = new(locate(x,y-2,z))
@@ -331,24 +337,24 @@
 	qdel(pb2)
 	qdel(pb3)
 
-/obj/machinery/crusher_piston/proc/can_extend_into(var/A)
+/obj/machinery/crusher_piston/proc/can_extend_into(var/turf/extension_turf)
 	//Check if atom is of a specific Type
 	var/list/unmovable_items = list(
-		/turf/simulated/wall,
 		/obj/machinery,
 		/obj/structure,
 		/obj/item/modular_computer/telescreen,
-		/obj/item/modular_computer/console,
+		/obj/item/modular_computer/console
 	)
-	log_debug("Checking if \"[A]\" is in unmovable list")
-	if (is_type_in_list(A,unmovable_items))
-		log_debug("Its in the unmovable list.")
+	if (istype(extension_turf,/turf/simulated/wall))
 		return 0
-	log_debug("not in the unmovable list.")
+	for(var/atom/A in extension_turf)
+		if (is_type_in_list(A, unmovable_items))
+			return 0
+	
 	return 1
 
 /obj/effect/piston_blocker
-	name = "Trash compactor piston"
+	name = "trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
 	density = 1
 	anchored = 1
@@ -397,7 +403,8 @@
 //
 /atom/movable/proc/crush_act()
 	ex_act(1)
-	qdel(src) //Just as a failsafe
+	if (!QDELETED(src))
+		qdel(src)//Just as a failsafe
 
 
 #undef PISTON_MOVE_DAMAGE

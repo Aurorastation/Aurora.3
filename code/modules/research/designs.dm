@@ -1659,8 +1659,8 @@ CIRCUITS BELOW
 	sort_string = "WAAAA"
 
 /datum/design/circuit/crusher_base
-	name = "Waste Crusher"
-	id = "ncrusher_base"
+	name = "trash compactor"
+	id = "crusher_base"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIALS = 3)
 	build_path = /obj/item/weapon/circuitboard/crusher
 	sort_string = "WAAAB"
