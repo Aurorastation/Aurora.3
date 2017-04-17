@@ -271,7 +271,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  *					FALSE if ban is not expired.
  */
 /proc/jobban_isexpired(var/list/tuple, var/mob/M, var/rank, var/ckey = null)
-	if (config.ban_legacy_system && tuple[2] && (tuple[2] < world.realtime))
+	if (config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
 		// It's expired. Remove it.
 		jobban_unban(M, rank, ckey, null)
 
