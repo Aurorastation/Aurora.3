@@ -71,8 +71,12 @@ var/list/jobban_keylist = list() // Global jobban list.
 		log_and_message_admins("Attempted to apply a jobban to [key] while they already have an active ban. Job: [rank].")
 		return
 
+	// Set the expirey time in case of temp bans.
+	if (minutes > -1)
+		minutes = world.realtime + (minutes MINUTES)
+
 	// Create the entry.
-	jobban_keylist[key][rank] = list(reason, world.realtime + (minutes MINUTES))
+	jobban_keylist[key][rank] = list(reason, minutes)
 
 	// Log the ban to the appropriate place.
 	if (config.ban_legacy_system)
@@ -190,7 +194,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			// Insert it with 0 time because the expiration of a temp jobban for
 			// MySQL is dependent on the database and query itself. So we can just
 			// politely not care.
-			jobban_keylist[ckey][job] = list(reason, 0)
+			jobban_keylist[ckey][job] = list(reason, -1)
 		else
 			// Woups. What happened here...?
 			log_and_message_admins("JOBBANS: Duplicate jobban entry in MySQL for [ckey]. Ban ID: #[query.item[1]]")
@@ -235,6 +239,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (ban)
 			// Remove said ban. Lists pass by ref, so this is fine.
 			entry -= rank
+
+			// If the entry is now empty, remove the entire ckey from the list.
+			if (!entry.len)
+				jobban_keylist -= ckey
 
 			// Update appropriate ban files.
 			if (config.ban_legacy_system)
