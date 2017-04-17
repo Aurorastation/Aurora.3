@@ -227,7 +227,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 /proc/jobban_unban(mob/M, rank, ckey = null, datum/admins/holder)
 	if (M && M.ckey)
 		ckey = M.ckey
-	else if (!ckey)
+
+	if (!ckey)
 		log_debug("JOBBAN: jobban_unban called without a mob and a backup ckey.")
 		return
 
