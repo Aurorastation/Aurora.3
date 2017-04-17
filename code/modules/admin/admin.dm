@@ -575,14 +575,17 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/Jobbans()
-	if(!check_rights(R_BAN))	return
+	if(!check_rights(R_BAN))
+		return
 
+	// RIP whoever uses this panel. It's going to be amazingly painful!
 	var/dat = "<B>Job Bans!</B><HR><table>"
-	for(var/t in jobban_keylist)
-		var/r = t
-		if( findtext(r,"##") )
-			r = copytext( r, 1, findtext(r,"##") )//removes the description
-		dat += text("<tr><td>[t] (<A href='?src=\ref[src];removejobban=[r]'>unban</A>)</td></tr>")
+	for (var/ckey in jobban_keylist)
+		for (var/job in jobban_keylist[ckey])
+			var/list/ban = jobban_keylist[ckey][job]
+			if (!jobban_isexpired(ban, null, job, ckey))
+				dat += "<tr><td>[ckey] - [ban[2]] - (<a href='?src=\ref[src];removejobban=[ckey];removejobbanjob=[job];'>unban</a>)</td></tr>"
+
 	dat += "</table>"
 	usr << browse(dat, "window=ban;size=400x400")
 
