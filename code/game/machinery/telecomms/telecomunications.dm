@@ -36,7 +36,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/long_range_link = 0	// Can you link it across Z levels or on the otherside of the map? (Relay & Hub)
 	var/circuitboard = null // string pointing to a circuitboard type
 	var/hide = 0				// Is it a hidden machine?
-	var/listening_level = 0	// 0 = auto set in New() - this is the z level that the machine is listening to.
+	var/list/listening_level = 0	// 0 = auto set in New() - this is the z level that the machine is listening to.
 
 
 /obj/machinery/telecomms/proc/relay_information(datum/signal/signal, filter, copysig, amount = 20)
@@ -122,7 +122,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if(!listening_level)
 		//Defaults to our Z level!
 		var/turf/position = get_turf(src)
-		listening_level = position.z
+		listening_level = list(position.z, position.z +1, position.z -1)
 
 /obj/machinery/telecomms/initialize()
 	if(autolinkers.len)
@@ -448,6 +448,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	idle_power_usage = 600
 	machinetype = 3
 	delay = 5
+	long_range_link = 1
 	circuitboard = "/obj/item/weapon/circuitboard/telecomms/processor"
 	var/process_mode = 1 // 1 = Uncompress Signals, 0 = Compress Signals
 
