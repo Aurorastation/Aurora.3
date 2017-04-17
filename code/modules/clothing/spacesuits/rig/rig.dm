@@ -95,12 +95,12 @@
 		usr << "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"]."
 
 /obj/item/weapon/rig/Initialize()
-	..()
+	. = ..()
 
 	item_state = icon_state
 	wires = new(src)
 
-	if((!req_access || !req_access.len) && (!req_one_access || !req_one_access.len))
+	if(!LAZYLEN(req_access) && !LAZYLEN(req_one_access))
 		locked = 0
 
 	spark_system = bind_spark(src, 5)
