@@ -11,8 +11,6 @@
 #define MC_AVERAGE_SLOW(average, current) (0.9 * (average) + 0.1 * (current))
 #define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
 
-#define START_PROCESSING(Processor, Datum) if (!Datum.isprocessing) {Datum.isprocessing = 1;Processor.processing += Datum}
-#define STOP_PROCESSING(Processor, Datum) Datum.isprocessing = 0;Processor.processing -= Datum
 
 //SubSystem flags (Please design any new flags so that the default is off, to make adding flags to subsystems easier)
 
@@ -61,35 +59,7 @@
 #define SS_SLEEPING 4	//fire() slept.
 #define SS_PAUSING 5 	//in the middle of pausing
 
-//Timing subsystem
-//Don't run if there is an identical unique timer active
-#define TIMER_UNIQUE		0x1
-//For unique timers: Replace the old timer rather then not start this one
-#define TIMER_OVERRIDE		0x2
-//Timing should be based on how timing progresses on clients, not the sever.
-//	tracking this is more expensive,
-//	should only be used in conjuction with things that have to progress client side, such as animate() or sound()
-#define TIMER_CLIENT_TIME	0x4
-//Timer can be stopped using deltimer()
-#define TIMER_STOPPABLE		0x8
-//To be used with TIMER_UNIQUE
-//prevents distinguishing identical timers with the wait variable
-#define TIMER_NO_HASH_WAIT  0x10
-
-#define TIMER_NO_INVOKE_WARNING 600 //number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
-
-#define INITIALIZATION_INSSATOMS 0	//New should not call Initialize
-#define INITIALIZATION_INNEW_MAPLOAD 1	//New should call Initialize(TRUE)
-#define INITIALIZATION_INNEW_REGULAR 2	//New should call Initialize(FALSE)
-
-#define INITIALIZE_HINT_NORMAL 0    //Nothing happens
-#define INITIALIZE_HINT_LATELOAD 1  //Call LateInitialize
-#define INITIALIZE_HINT_QDEL 2  //Call qdel on the atom
-#define INITIALIZE_HINT_LATEQDEL 3	//Call qdel on the atom instead of LateInitialize
-
-// Shortcut to check if something is ocurring after initialization is done.
-#define IF_NOT_MAPLOAD if (SSatoms && SSatoms.initialized == INITIALIZATION_INNEW_REGULAR)
-
+// Subsystem init-states, used for the initialization MC panel.
 #define SS_INITSTATE_NONE 0
 #define SS_INITSTATE_STARTED 1
 #define SS_INITSTATE_DONE 2
