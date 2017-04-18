@@ -95,3 +95,7 @@
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
+
+#if !defined(LIGHTING_USE_MEMORY_HACK) && DM_VERSION < 511
+#warn You appear to be using a pre-511 version of BYOND, but have the memory leak hack disabled. You may encounter server crashes due to a memory leak in BYOND 510 and below's handling of color matrixes.
+#endif
