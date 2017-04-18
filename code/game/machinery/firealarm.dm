@@ -22,7 +22,7 @@
 	var/seclevel
 
 /obj/machinery/firealarm/update_icon()
-	overlays.Cut()
+	cut_overlays()
 
 	if(wiresexposed)
 		switch(buildstage)
@@ -61,7 +61,7 @@
 					previous_state = icon_state
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = "#FF6633")
 
-		src.overlays += image('icons/obj/monitors.dmi', "overlay_[seclevel]")
+		add_overlay("overlay_[seclevel]")
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)

@@ -4,6 +4,8 @@
 	name = "Icon Updates"
 	flags = SS_BACKGROUND | SS_NO_INIT
 	wait = 1	// ds
+	priority = SS_PRIORITY_ICON_UPDATE
+	
 	var/list/queue = list()
 	var/list/currentrun
 
