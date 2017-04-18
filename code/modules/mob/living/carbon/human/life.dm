@@ -35,7 +35,6 @@
 	var/global/list/overlays_cache = null
 
 /mob/living/carbon/human/Life()
-	set invisibility = 0
 	set background = BACKGROUND_ENABLED
 
 	if (transforming)
