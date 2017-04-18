@@ -67,6 +67,7 @@
 	desc = "A control terminal for the area electrical systems."
 
 	icon_state = "apc0"
+	icon_update_delay = APC_UPDATE_ICON_COOLDOWN	// Used by SSicon_update.
 	anchored = 1
 	use_power = 0
 	req_access = list(access_engine_equip)

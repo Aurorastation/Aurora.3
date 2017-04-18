@@ -1,4 +1,4 @@
-/var/datum/controller/subsystem/icon/SSicon
+/var/datum/controller/subsystem/icon/SSicon_update
 
 /datum/controller/subsystem/icon
 	name = "Icon Updates"
@@ -8,7 +8,7 @@
 	var/list/currentrun
 
 /datum/controller/subsystem/icon/New()
-	NEW_SS_GLOBAL(SSicon)
+	NEW_SS_GLOBAL(SSicon_update)
 
 /datum/controller/subsystem/icon/stat_entry()
 	..("Q:[queue.len] P:[LAZYLEN(currentrun)]")
@@ -39,6 +39,6 @@
 /atom/proc/update_icon()
 
 /atom/proc/queue_icon_update()
-	if (!icon_update_queued && (world.time + icon_update_delay < world.time))
+	if (!icon_update_queued && (!icon_update_delay || (last_icon_update + icon_update_delay < world.time)))
 		icon_update_queued = TRUE
-		SSicon.queue += src
+		SSicon_update.queue += src
