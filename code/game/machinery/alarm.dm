@@ -37,6 +37,7 @@
 	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
+	icon_update_delay = 1 SECOND
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 90
@@ -824,7 +825,7 @@
 				return
 
 			else if(istype(W, /obj/item/weapon/wrench))
-				user << "You remove the fire alarm assembly from the wall!"
+				user << "You remove the air alarm assembly from the wall!"
 				new /obj/item/frame/air_alarm(get_turf(user))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				qdel(src)
@@ -833,10 +834,7 @@
 
 /obj/machinery/alarm/power_change()
 	..()
-	IF_NOT_MAPLOAD
-		addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
-	else
-		update_icon()
+	queue_icon_update()
 
 /obj/machinery/alarm/examine(mob/user)
 	..(user)

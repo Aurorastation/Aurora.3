@@ -67,6 +67,7 @@
 	desc = "A control terminal for the area electrical systems."
 
 	icon_state = "apc0"
+	icon_update_delay = APC_UPDATE_ICON_COOLDOWN	// Used by SSicon_update.
 	anchored = 1
 	use_power = 0
 	req_access = list(access_engine_equip)
@@ -427,16 +428,6 @@
 	if(last_update_overlay != update_overlay)
 		results += 2
 	return results
-
-// Used in process so it doesn't update the icon too much
-/obj/machinery/power/apc/proc/queue_icon_update()
-
-	if(!updating_icon)
-		updating_icon = 1
-		// Start the update
-		spawn(APC_UPDATE_ICON_COOLDOWN)
-			update_icon()
-			updating_icon = 0
 
 //attack with an item - open/close cover, insert cell, or (un)lock interface
 

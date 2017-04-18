@@ -45,7 +45,7 @@
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, .proc/update_icon), 1)
+			addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
 /obj/item/weapon/paper/proc/set_content(title, text)
 	if(title)

@@ -57,9 +57,6 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/proc/update_icon()
-	return
-
 /turf/Destroy()
 	//turfs -= src
 	..()

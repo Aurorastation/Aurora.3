@@ -40,6 +40,7 @@
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.
 #define SS_PRIORITY_ALARMS         50
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
+#define SS_PRIORITY_ICON_UPDATE    30	// Queued icon updates. Mostly used by APCs.
 #define SS_PRIORITY_LIGHTING       20	// Queued lighting engine updates.
 #define SS_PRIORITY_AIRFLOW        15
 

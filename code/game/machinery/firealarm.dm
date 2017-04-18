@@ -3,6 +3,7 @@
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
+	icon_update_delay = 1 SECOND
 	var/previous_state = 0
 	var/previous_fire_state = FALSE
 	var/detecting = 1
@@ -21,7 +22,7 @@
 	var/seclevel
 
 /obj/machinery/firealarm/update_icon()
-	overlays.Cut()
+	cut_overlays()
 
 	if(wiresexposed)
 		switch(buildstage)
@@ -60,7 +61,7 @@
 					previous_state = icon_state
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = "#FF6633")
 
-		src.overlays += image('icons/obj/monitors.dmi', "overlay_[seclevel]")
+		add_overlay("overlay_[seclevel]")
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -170,10 +171,7 @@
 
 /obj/machinery/firealarm/power_change()
 	..()
-	IF_NOT_MAPLOAD
-		addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)	// TODO: Find a better way to do this.
-	else
-		update_icon()
+	queue_icon_update()
 
 /obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/data[0]
