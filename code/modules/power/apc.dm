@@ -24,9 +24,6 @@
 #define APC_UPOVERLAY_LOCKED 4096
 #define APC_UPOVERLAY_OPERATING 8192
 
-
-#define APC_UPDATE_ICON_COOLDOWN 100 // 10 seconds
-
 // the Area Power Controller (APC), formerly Power Distribution Unit (PDU)
 // one per area, needs wire conection to power network through a terminal
 
@@ -67,7 +64,6 @@
 	desc = "A control terminal for the area electrical systems."
 
 	icon_state = "apc0"
-	icon_update_delay = APC_UPDATE_ICON_COOLDOWN	// Used by SSicon_update.
 	anchored = 1
 	use_power = 0
 	req_access = list(access_engine_equip)
@@ -1236,11 +1232,13 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	update()
 	update_icon()
 
-	spawn(600)
-		update_channels()
-		update()
-		update_icon()
+	addtimer(CALLBACK(src, .proc/post_emp_act), 600)
 	..()
+
+/obj/machinery/power/apc/proc/post_emp_act()
+	update_channels()
+	update()
+	queue_icon_update()
 
 /obj/machinery/power/apc/ex_act(severity)
 
@@ -1330,5 +1328,3 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	locked = 1
 	update_icon()
 	return 1
-
-#undef APC_UPDATE_ICON_COOLDOWN

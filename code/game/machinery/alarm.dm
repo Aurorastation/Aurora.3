@@ -37,7 +37,6 @@
 	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
-	icon_update_delay = 1 SECOND
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 90
