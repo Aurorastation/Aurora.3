@@ -171,7 +171,7 @@
 /obj/machinery/firealarm/power_change()
 	..()
 	IF_NOT_MAPLOAD
-		addtimer(CALLBACK(src, .proc/update_icon), rand(0, 15), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)	// TODO: Find a better way to do this.
+		addtimer(CALLBACK(src, /atom/.proc/update_icon), rand(0, 15), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)	// TODO: Find a better way to do this.
 	else
 		update_icon()
 

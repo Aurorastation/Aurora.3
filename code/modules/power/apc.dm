@@ -429,14 +429,16 @@
 	return results
 
 // Used in process so it doesn't update the icon too much
-/obj/machinery/power/apc/proc/queue_icon_update()
+/*/obj/machinery/power/apc/proc/queue_icon_update()
 
 	if(!updating_icon)
-		updating_icon = 1
+		updating_icon = TRUE
 		// Start the update
-		spawn(APC_UPDATE_ICON_COOLDOWN)
-			update_icon()
-			updating_icon = 0
+		addtimer(CALLBACK(src, .proc/handle_queued_icon_update), APC_UPDATE_ICON_COOLDOWN)*/
+
+/obj/machinery/power/apc/proc/handle_queued_icon_update()
+	update_icon()
+	updating_icon = FALSE
 
 //attack with an item - open/close cover, insert cell, or (un)lock interface
 
