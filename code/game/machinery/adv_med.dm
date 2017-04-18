@@ -30,7 +30,8 @@
 
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
-	src.connected.connected = null
+	if (connected)
+		connected.connected = null
 	return ..()
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
@@ -240,7 +241,8 @@
 	anchored = 1
 
 /obj/machinery/body_scanconsole/Destroy()
-	src.connected.connected = null
+	if (connected)
+		connected.connected = null
 	return ..()
 
 /obj/machinery/body_scanconsole/power_change()

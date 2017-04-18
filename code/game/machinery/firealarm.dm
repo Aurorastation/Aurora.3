@@ -3,7 +3,6 @@
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
-	icon_update_delay = 1 SECOND
 	var/previous_state = 0
 	var/previous_fire_state = FALSE
 	var/detecting = 1
