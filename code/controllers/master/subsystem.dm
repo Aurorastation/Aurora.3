@@ -29,6 +29,8 @@
 	// Subsystem startup accounting.
 	var/init_state = FALSE
 	var/init_time = 0
+	var/init_start = 0
+	var/init_finish
 	
 	//linked list stuff for the queue
 	var/datum/controller/subsystem/queue_next
@@ -153,7 +155,11 @@
 // Do not override - Wrapper for Initialize() so initialization status can be shown for subsystems that do not return parent.
 /datum/controller/subsystem/proc/StartInitialize(timeofday)
 	init_state = SS_INITSTATE_STARTED
+	init_start = timeofday
 	. = Initialize(timeofday)
+	init_finish = REALTIMEOFDAY
+	if (!init_time)
+		init_time = (init_finish - init_start) / 10
 	init_state = SS_INITSTATE_DONE
 
 //used to initialize the subsystem AFTER the map has loaded
@@ -178,7 +184,10 @@
 		else if (flags & SS_NO_INIT)
 			msg = "NO INIT\t[msg]"
 		else if (init_state == SS_INITSTATE_STARTED)
-			msg = "LOAD\t[msg]"
+			if (init_start)
+				msg = "LOAD ([(REALTIMEOFDAY - init_start)/10]s)\t[msg]"
+			else
+				msg = "LOAD\t[msg]"
 		else
 			msg = "WAIT\t[msg]"
 	else if(flags & SS_NO_FIRE)

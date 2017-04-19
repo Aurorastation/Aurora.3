@@ -1,19 +1,19 @@
-#define SS_INIT_MISC_FIRST          6
-#define SS_INIT_SEEDS               5
-#define SS_INIT_ASTEROID            4	// Asteroid generation.
-#define SS_INIT_SHUTTLE             3	// Shuttle setup.
-#define SS_INIT_ATOMS               2	// World initialization. Will trigger lighting updates.
-#define SS_INIT_CARGO               1	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_MISC_FIRST          7
+#define SS_INIT_SEEDS               6
+#define SS_INIT_ASTEROID            5	// Asteroid generation.
+#define SS_INIT_SHUTTLE             4	// Shuttle setup.
+#define SS_INIT_ATOMS               3	// World initialization. Will trigger lighting updates.
+#define SS_INIT_CARGO               2	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_PARALLAX            1	// Parallax image cache generation. Must run before ghosts are able to join, but after SSatoms.
 #define SS_INIT_TICKER              0	// Lobby timer starts here. Initialization *must* finish within 180 seconds of this step!
 #define SS_INIT_PIPENET            -1	// Initial pipenet build.
 #define SS_INIT_MACHINERY          -2	// Machinery prune and powernet build.
 #define SS_INIT_AIR                -3	// Air setup and pre-bake.
-#define SS_INIT_PARALLAX           -4	// Parallax image cache generation.
-#define SS_INIT_NIGHT              -5	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_LIGHTING           -6	// Generation of lighting overlays and pre-bake.
-#define SS_INIT_MISC               -7	// Subsystems without an explicitly defined init order init here.
-#define SS_INIT_SMOOTHING          -8	// Object icon smoothing.
-#define SS_INIT_OVERLAY            -9	// Overlay flush.
+#define SS_INIT_NIGHT              -4	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_LIGHTING           -5	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_MISC               -6	// Subsystems without an explicitly defined init order init here.
+#define SS_INIT_SMOOTHING          -7	// Object icon smoothing.
+#define SS_INIT_OVERLAY            -8	// Overlay flush.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
