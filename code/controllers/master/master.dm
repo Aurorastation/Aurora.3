@@ -526,8 +526,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	if(!statclick)
 		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
 
-	stat("Byond:", "(TickLag:[world.tick_lag]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%))")
-	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration])"))
+	stat("Byond:", "(TickLag:[world.tick_lag]|FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%))")
+	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration]) (SleepDelta:[round(sleep_delta, 0.1)])"))
 
 
 /world/proc/has_round_started()
