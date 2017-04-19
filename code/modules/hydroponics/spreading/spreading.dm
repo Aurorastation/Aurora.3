@@ -78,16 +78,14 @@
 	spread_chance = 0
 
 
-/obj/effect/plant/New(var/newloc, var/datum/seed/newseed, var/obj/effect/plant/newparent)
-	..()
+/obj/effect/plant/Initialize(mapload, datum/seed/newseed, obj/effect/plant/newparent)
+	. = ..()
 
 	if(!newparent)
 		parent = src
 	else
 		parent = newparent
 
-	if(!SSplants)
-		sleep(250) // ugly hack, should mean roundstart plants are fine.
 	if(!SSplants)
 		world << "<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>"
 		qdel(src)
@@ -123,17 +121,19 @@
 
 	mature_time = world.time + seed.get_trait(TRAIT_MATURATION) + 15 //prevent vines from maturing until at least a few seconds after they've been created.
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
-	spread_distance = ((growth_type>0) ? round(spread_chance*0.6) : round(spread_chance*0.3))
+	spread_distance = ((growth_type > 0) ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
+	addtimer(CALLBACK(src, .proc/post_initialize), 1)
 
-	spawn(1) // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
-		set_dir(calc_dir())
-		update_icon()
-		START_PROCESSING(SSplants, src)
-		// Some plants eat through plating.
-		if(islist(seed.chems) && !isnull(seed.chems["pacid"]))
-			var/turf/T = get_turf(src)
-			T.ex_act(prob(80) ? 3 : 2)
+// Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
+/obj/effect/plant/proc/post_initialize()
+	set_dir(calc_dir())
+	update_icon()
+	START_PROCESSING(SSplants, src)
+	// Some plants eat through plating.
+	if(islist(seed.chems) && !isnull(seed.chems["pacid"]))
+		var/turf/T = get_turf(src)
+		T.ex_act(prob(80) ? 3 : 2)
 
 /obj/effect/plant/update_icon()
 	//TODO: should really be caching this.

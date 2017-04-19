@@ -18,7 +18,7 @@
 			continue
 		if(floor.density)
 			if(!isnull(seed.chems["pacid"]))
-				spawn(rand(5,25)) floor.ex_act(3)
+				addtimer(CALLBACK(floor, /atom/.proc/ex_act, 3), rand(5, 25))
 			continue
 		if(!Adjacent(floor) || !floor.Enter(src))
 			continue
@@ -29,8 +29,6 @@
 		neighbor.neighbors -= T
 
 /obj/effect/plant/process()
-	set waitfor = FALSE
-
 	// Something is very wrong, kill ourselves.
 	if(!seed)
 		die_off()

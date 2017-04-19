@@ -11,11 +11,9 @@ var/global/list/plant_seed_sprites = list()
 	var/datum/seed/seed
 	var/modified = 0
 
-/obj/item/seeds/New()
-	while(!SSplants)
-		sleep(30)
+/obj/item/seeds/Initialize()
 	update_seed()
-	..()
+	. = ..()
 
 //Grabs the appropriate seed datum from the global list.
 /obj/item/seeds/proc/update_seed()
@@ -28,7 +26,7 @@ var/global/list/plant_seed_sprites = list()
 	if(!seed) return
 
 	// Update icon.
-	overlays.Cut()
+	cut_overlays()
 	var/is_seeds = ((seed.seed_noun in list("seeds","pits","nodes")) ? 1 : 0)
 	var/image/seed_mask
 	var/seed_base_key = "base-[is_seeds ? seed.get_trait(TRAIT_PLANT_COLOUR) : "spores"]"
@@ -49,8 +47,8 @@ var/global/list/plant_seed_sprites = list()
 		seed_overlay.color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 		plant_seed_sprites[seed_overlay_key] = seed_overlay
 
-	overlays |= seed_mask
-	overlays |= seed_overlay
+	add_overlay(seed_mask)
+	add_overlay(seed_overlay)
 
 	if(is_seeds)
 		src.name = "packet of [seed.seed_name] [seed.seed_noun]"
@@ -75,10 +73,10 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/random
 	seed_type = null
 
-/obj/item/seeds/random/New()
+/obj/item/seeds/random/Initialize()
 	seed = SSplants.create_random_seed()
 	seed_type = seed.name
-	update_seed()
+	. = ..()
 
 /obj/item/seeds/replicapod
 	seed_type = "diona"

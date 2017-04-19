@@ -8,9 +8,8 @@
 	var/plantname
 	var/potency = 1
 
-/obj/item/weapon/grown/New(newloc,planttype)
-
-	..()
+/obj/item/weapon/grown/Initialize(newloc,planttype)
+	. = ..()
 
 	var/datum/reagents/R = new/datum/reagents(50)
 	reagents = R
