@@ -19,13 +19,9 @@
 	var/can_hold_mob = FALSE
 
 /atom/movable/Del()
-	if(isnull(gcDestroyed) && loc)
+	if(!QDELING(src) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
 		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
-//	else if(isnull(gcDestroyed))
-//		testing("GC: [type] was deleted via GC without qdel()") //Not really a huge issue but from now on, please qdel()
-//	else
-//		testing("GC: [type] was deleted via GC with qdel()")
 	..()
 
 /atom/movable/Destroy()

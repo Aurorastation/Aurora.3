@@ -52,7 +52,7 @@
 		return
 
 	// Make deleting the parent more responsive.
-	if(!isnull(parent_core.gcDestroyed))
+	if(QDELING(parent_core))
 		parent_core = null
 		return
 

@@ -90,7 +90,7 @@
 			hud.screen_loc = ui_lhand
 
 /obj/item/weapon/grab/process()
-	if(gcDestroyed) // GC is trying to delete us, we'll kill our processing so we can cleanly GC
+	if(QDELING(src)) // GC is trying to delete us, we'll kill our processing so we can cleanly GC
 		return PROCESS_KILL
 
 	confirm()

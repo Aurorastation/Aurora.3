@@ -90,7 +90,7 @@
 			if (target.strength <= 0)
 				qdel(target)
 
-	if (target && !target.gcDestroyed)
+	if (!QDELETED(target))
 		target.update_icons()
 
 

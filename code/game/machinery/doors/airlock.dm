@@ -550,7 +550,7 @@ About the new airlock wires panel:
 
 // Only set_light() if there's a change, no need to waste processor cycles with lighting updates.
 /obj/machinery/door/airlock/update_icon()
-	if (!isnull(gcDestroyed))
+	if (QDELING(src))
 		return
 	cut_overlays()
 	if(density)
