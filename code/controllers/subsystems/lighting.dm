@@ -21,11 +21,13 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/force_override = FALSE	// For admins.
 	var/round_started = FALSE
 
+	var/instant_tick_limit = 80
+
 /datum/controller/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
 
 /datum/controller/subsystem/lighting/stat_entry()
-	..("O:[all_lighting_overlays.len] C:[all_lighting_corners.len]\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
+	..("O:[all_lighting_overlays.len] C:[all_lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
 
 /datum/controller/subsystem/lighting/proc/explosion_start()
 	force_queued = TRUE
@@ -73,6 +75,11 @@ var/datum/controller/subsystem/lighting/SSlighting
 		processed_lights = 0
 		processed_corners = 0
 		processed_overlays = 0
+		instant_tick_limit = CURRENT_TICKLIMIT * 0.8
+
+	MC_SPLIT_TICK_INIT(3)
+	if (!no_mc_tick)
+		MC_SPLIT_TICK
 
 	var/list/curr_lights = light_queue
 	var/list/curr_corners = corner_queue
@@ -99,7 +106,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
-			return
+			break
+
+	if (!no_mc_tick)
+		MC_SPLIT_TICK
 
 	while (curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[curr_corners.len]
@@ -114,7 +124,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
-			return
+			break
+
+	if (!no_mc_tick)
+		MC_SPLIT_TICK
 
 	while (curr_overlays.len)
 		var/atom/movable/lighting_overlay/O = curr_overlays[curr_overlays.len]
@@ -128,7 +141,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
-			return
+			break
 
 /datum/controller/subsystem/lighting/Recover()
 	src.light_queue = SSlighting.light_queue

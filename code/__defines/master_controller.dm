@@ -5,10 +5,23 @@
 #define TICK_LIMIT_MC_INIT_DEFAULT 98
 
 #define MC_TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? pause() : 0 )
+
+// For multi-step subsystems that want to split their tick into multiple parts.
+#define MC_SPLIT_TICK_INIT(phase_count) var/original_tick_limit = CURRENT_TICKLIMIT; var/split_tick_phases = ##phase_count
+#define MC_SPLIT_TICK \
+    if(split_tick_phases > 1){\
+        CURRENT_TICKLIMIT = ((original_tick_limit - world.tick_usage) / split_tick_phases) + world.tick_usage;\
+        --split_tick_phases;\
+    } else {\
+        CURRENT_TICKLIMIT = original_tick_limit;\
+    }
+
 // Used to smooth out costs to try and avoid oscillation.
 #define MC_AVERAGE_FAST(average, current) (0.7 * (average) + 0.3 * (current))
 #define MC_AVERAGE(average, current) (0.8 * (average) + 0.2 * (current))
 #define MC_AVERAGE_SLOW(average, current) (0.9 * (average) + 0.1 * (current))
+
+
 #define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
 
 
