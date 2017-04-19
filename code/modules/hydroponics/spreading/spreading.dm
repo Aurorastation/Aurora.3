@@ -6,7 +6,7 @@
 
 	var/turf/T = pick_area_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
-		var/datum/seed/seed = plant_controller.create_random_seed(1)
+		var/datum/seed/seed = SSplants.create_random_seed(1)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
 		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 70-100 potency will help guarantee a wide spread and powerful effects.
 		seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
@@ -67,11 +67,11 @@
 	var/last_biolum = null
 
 /obj/effect/plant/Destroy()
-	if(plant_controller)
-		STOP_PROCESSING(plant_controller, src)
+	if(SSplants)
+		STOP_PROCESSING(SSplants, src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
 		if (!QDELETED(neighbor))
-			START_PROCESSING(plant_controller, neighbor)
+			START_PROCESSING(SSplants, neighbor)
 	return ..()
 	
 /obj/effect/plant/single
@@ -86,15 +86,15 @@
 	else
 		parent = newparent
 
-	if(!plant_controller)
+	if(!SSplants)
 		sleep(250) // ugly hack, should mean roundstart plants are fine.
-	if(!plant_controller)
+	if(!SSplants)
 		world << "<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>"
 		qdel(src)
 		return
 
 	if(!istype(newseed))
-		newseed = plant_controller.seeds[DEFAULT_SEED]
+		newseed = SSplants.seeds[DEFAULT_SEED]
 	seed = newseed
 	if(!seed)
 		qdel(src)
@@ -129,7 +129,7 @@
 	spawn(1) // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
 		set_dir(calc_dir())
 		update_icon()
-		START_PROCESSING(plant_controller, src)
+		START_PROCESSING(SSplants, src)
 		// Some plants eat through plating.
 		if(islist(seed.chems) && !isnull(seed.chems["pacid"]))
 			var/turf/T = get_turf(src)
@@ -239,7 +239,7 @@
 /obj/effect/plant/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	START_PROCESSING(plant_controller, src)
+	START_PROCESSING(SSplants, src)
 
 	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)

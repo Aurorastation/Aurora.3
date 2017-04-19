@@ -85,7 +85,7 @@
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
 	if(neighbors.len || health != max_health)
-		START_PROCESSING(plant_controller, src)
+		START_PROCESSING(SSplants, src)
 
 /obj/effect/plant/proc/do_spread(spread_chance, max_spread)
 	for(var/i in 1 to max_spread)
@@ -115,7 +115,7 @@
 			continue
 		for(var/obj/effect/plant/neighbor in check_turf.contents)
 			neighbor.neighbors |= check_turf
-			START_PROCESSING(plant_controller, neighbor)
+			START_PROCESSING(SSplants, neighbor)
 
 	QDEL_IN(src, 1)
 
