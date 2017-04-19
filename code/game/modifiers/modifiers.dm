@@ -161,7 +161,7 @@ it should be avoided in favour of manual removal where possible
 //This is the main proc you should call to create a modifier on a target object
 /datum/proc/add_modifier(var/typepath, var/_modifier_type, var/_source = null, var/_source_data = 0, var/_strength = 0, var/_duration = 0, var/_check_interval = 0, var/override = 0)
 	var/datum/modifier/D = new typepath(src, _modifier_type, _source, _source_data, _strength, _duration, _check_interval)
-	if (D && !D.gcDestroyed)
+	if (!QDELETED(D))
 		return D.handle_registration(override)
 	else
 		return null//The modifier must have failed creation and deleted itself
@@ -257,7 +257,7 @@ it should be avoided in favour of manual removal where possible
 		return handle_override(override, existing)
 
 /datum/modifier/proc/activate()
-	if (!gcDestroyed && !active && target)
+	if (!QDELING(src) && !active && target)
 		active = 1
 		return 1
 	return 0
@@ -281,7 +281,7 @@ it should be avoided in favour of manual removal where possible
 
 /datum/modifier/proc/check_validity()
 	next_check = world.time + check_interval
-	if (!target || target.gcDestroyed)
+	if (QDELETED(target))
 		return validity_fail("Target is gone!")
 
 	if (modifier_type == MODIFIER_CUSTOM)
@@ -296,7 +296,7 @@ it should be avoided in favour of manual removal where possible
 	else if (modifier_type == MODIFIER_TIMED)
 		return 1
 
-	if (!source || source.gcDestroyed)//If we're not timed or custom, then we need a source. If our source is gone, we are invalid
+	if (QDELETED(source))//If we're not timed or custom, then we need a source. If our source is gone, we are invalid
 		return validity_fail("Source is gone and we need one")
 
 	switch (modifier_type)

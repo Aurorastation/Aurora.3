@@ -1,14 +1,14 @@
-#define SS_INIT_MISC_FIRST          6
-#define SS_INIT_SEEDS               5
-#define SS_INIT_ASTEROID            4	// Asteroid generation.
-#define SS_INIT_SHUTTLE             3	// Shuttle setup.
-#define SS_INIT_ATOMS               2	// World initialization. Will trigger lighting updates.
-#define SS_INIT_CARGO               1	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_MISC_FIRST          7
+#define SS_INIT_SEEDS               6
+#define SS_INIT_ASTEROID            5	// Asteroid generation.
+#define SS_INIT_SHUTTLE             4	// Shuttle setup.
+#define SS_INIT_ATOMS               3	// World initialization. Will trigger lighting updates.
+#define SS_INIT_CARGO               2	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_PARALLAX            1	// Parallax image cache generation. Must run before ghosts are able to join, but after SSatoms.
 #define SS_INIT_TICKER              0	// Lobby timer starts here. Initialization *must* finish within 180 seconds of this step!
 #define SS_INIT_PIPENET            -1	// Initial pipenet build.
 #define SS_INIT_MACHINERY          -2	// Machinery prune and powernet build.
-#define SS_INIT_AIR                -2	// Air setup and pre-bake.
-#define SS_INIT_PARALLAX           -3	// Parallax image cache generation.
+#define SS_INIT_AIR                -3	// Air setup and pre-bake.
 #define SS_INIT_NIGHT              -4	// Nightmode controller. Will trigger lighting updates.
 #define SS_INIT_SMOOTHING          -5	// Object icon smoothing. Creates overlays.
 #define SS_INIT_OVERLAY            -6	// Overlay flush.

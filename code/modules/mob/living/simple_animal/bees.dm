@@ -36,7 +36,7 @@
 //Repeat until strength hits zero. only THEN do they die, and they qdel and leave no corpse in doing so
 //Because we don't have sprites for a carpet made of bee corpses.
 /mob/living/simple_animal/bee/death()
-	if (!gcDestroyed)
+	if (!QDELING(src))
 		strength -= 1
 		if (strength <= 0)
 			if (prob(35))//probability to reduce spam

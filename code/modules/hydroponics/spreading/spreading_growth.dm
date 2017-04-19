@@ -18,7 +18,7 @@
 			continue
 		if(floor.density)
 			if(!isnull(seed.chems["pacid"]))
-				spawn(rand(5,25)) floor.ex_act(3)
+				addtimer(CALLBACK(floor, /atom/.proc/ex_act, 3), rand(5, 25))
 			continue
 		if(!Adjacent(floor) || !floor.Enter(src))
 			continue
@@ -29,8 +29,6 @@
 		neighbor.neighbors -= T
 
 /obj/effect/plant/process()
-	set waitfor = FALSE
-
 	// Something is very wrong, kill ourselves.
 	if(!seed)
 		die_off()
@@ -85,7 +83,7 @@
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
 	if(neighbors.len || health != max_health)
-		START_PROCESSING(plant_controller, src)
+		START_PROCESSING(SSplants, src)
 
 /obj/effect/plant/proc/do_spread(spread_chance, max_spread)
 	for(var/i in 1 to max_spread)
@@ -115,7 +113,7 @@
 			continue
 		for(var/obj/effect/plant/neighbor in check_turf.contents)
 			neighbor.neighbors |= check_turf
-			START_PROCESSING(plant_controller, neighbor)
+			START_PROCESSING(SSplants, neighbor)
 
 	QDEL_IN(src, 1)
 

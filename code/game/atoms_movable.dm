@@ -19,13 +19,9 @@
 	var/can_hold_mob = FALSE
 
 /atom/movable/Del()
-	if(isnull(gcDestroyed) && loc)
+	if(!QDELING(src) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
 		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
-//	else if(isnull(gcDestroyed))
-//		testing("GC: [type] was deleted via GC without qdel()") //Not really a huge issue but from now on, please qdel()
-//	else
-//		testing("GC: [type] was deleted via GC with qdel()")
 	..()
 
 /atom/movable/Destroy()
@@ -267,13 +263,13 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 
 /atom/movable/proc/update_client_hook(atom/destination)
 	if(locate(/mob) in src)
-		for(var/client/C in parallax_on_clients)
+		for(var/client/C in SSparallax.parallax_on_clients)
 			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
 				C.mob.hud_used.update_parallax_values()
 
 /mob/update_client_hook(atom/destination)
 	if(locate(/mob) in src)
-		for(var/client/C in parallax_on_clients)
+		for(var/client/C in SSparallax.parallax_on_clients)
 			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
 				C.mob.hud_used.update_parallax_values()
 	else if(client && hud_used)

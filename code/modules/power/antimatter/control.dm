@@ -267,7 +267,7 @@
 	stored_core_stability = 0
 	for(var/thing in linked_cores)
 		var/obj/machinery/am_shielding/AMS = thing
-		if (!AMS || AMS.gcDestroyed)
+		if (QDELETED(AMS))
 			continue
 
 		stored_core_stability += AMS.stability

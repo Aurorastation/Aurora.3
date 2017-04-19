@@ -225,10 +225,9 @@ proc/get_radio_key_from_channel(var/channel)
 			if (speech_sound)
 				sound_vol *= 0.5
 
-	var/turf/T = get_turf(src)
-
 	var/list/listening = list()
 	var/list/listening_obj = list()
+	var/turf/T = get_turf(src)
 
 	if(T)
 		//make sure the air can transmit speech - speaker's side
@@ -241,26 +240,8 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		var/list/hear = hear(message_range,T)
-		var/list/hearturfs = list()
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
 
-		for(var/I in hear)
-			if(ismob(I))
-				var/mob/M = I
-				listening += M
-				hearturfs += M.locs[1]
-			else if(isobj(I))
-				var/obj/O = I
-				hearturfs += O.locs[1]
-				listening_obj |= O
-
-
-		for(var/mob/M in player_list)
-			if(src.client && M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
-				listening |= M
-				continue
-			if(M.loc && M.locs[1] in hearturfs)
-				listening |= M
 
 	var/list/hear_clients = list()
 	for(var/mob/M in listening)

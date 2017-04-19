@@ -1,4 +1,4 @@
-/var/datum/controller/subsystem/processing/plants/plant_controller
+/var/datum/controller/subsystem/processing/plants/SSplants
 
 /datum/controller/subsystem/processing/plants
 	name = "Seeds & Plants"
@@ -15,10 +15,7 @@
 	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
 
 /datum/controller/subsystem/processing/plants/New()
-	NEW_SS_GLOBAL(plant_controller)
-
-/datum/controller/subsystem/processing/plants/stop_processing(datum/D)
-	STOP_PROCESSING(plant_controller, D)
+	NEW_SS_GLOBAL(SSplants)
 
 /datum/controller/subsystem/processing/plants/Initialize(timeofday)
 	// Build the icon lists.
@@ -72,19 +69,19 @@
 	..()
 
 /datum/controller/subsystem/processing/plants/Recover()
-	if (istype(plant_controller))
-		src.product_descs = plant_controller.product_descs
-		src.seeds = plant_controller.seeds
-		src.gene_tag_masks = plant_controller.gene_tag_masks
-		src.plant_icon_cache = plant_controller.plant_icon_cache
-		src.plant_sprites = plant_controller.plant_sprites
-		src.plant_product_sprites = plant_controller.plant_product_sprites
+	if (istype(SSplants))
+		src.product_descs = SSplants.product_descs
+		src.seeds = SSplants.seeds
+		src.gene_tag_masks = SSplants.gene_tag_masks
+		src.plant_icon_cache = SSplants.plant_icon_cache
+		src.plant_sprites = SSplants.plant_sprites
+		src.plant_product_sprites = SSplants.plant_product_sprites
 
 // Proc for creating a random seed type.
 /datum/controller/subsystem/processing/plants/proc/create_random_seed(var/survive_on_station)
 	var/datum/seed/seed = new()
 	seed.randomize()
-	seed.uid = plant_controller.seeds.len + 1
+	seed.uid = seeds.len + 1
 	seed.name = "[seed.uid]"
 	seeds[seed.name] = seed
 
@@ -111,9 +108,9 @@
 
 	if(!holder)	return
 
-	if(!plant_controller || !plant_controller.gene_tag_masks)
+	if(!SSplants || !SSplants.gene_tag_masks)
 		usr << "Gene masks not set."
 		return
 
-	for(var/mask in plant_controller.gene_tag_masks)
-		usr << "[mask]: [plant_controller.gene_tag_masks[mask]]"
+	for(var/mask in SSplants.gene_tag_masks)
+		usr << "[mask]: [SSplants.gene_tag_masks[mask]]"

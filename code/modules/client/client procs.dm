@@ -167,7 +167,7 @@
 			if ("dismiss")
 				if (href_list["notification"])
 					var/datum/client_notification/a = locate(href_list["notification"])
-					if (a && isnull(a.gcDestroyed))
+					if (!QDELETED(a))
 						a.dismiss()
 
 			// Forum link from various panels.

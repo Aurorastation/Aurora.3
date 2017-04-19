@@ -119,7 +119,7 @@
 
 // Picks either scheduled or instant updates based on current server load.
 #define INTELLIGENT_UPDATE 							\
-	if (world.tick_usage > CURRENT_TICKLIMIT || SSlighting.force_queued) {	\
+	if (world.tick_usage > SSlighting.instant_tick_limit || SSlighting.force_queued) {	\
 		QUEUE_UPDATE;								\
 	}												\
 	else {											\
