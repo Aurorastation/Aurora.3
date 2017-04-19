@@ -251,7 +251,8 @@
 	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
 	var/list/hearturfs = list()
 
-	for(var/atom/movable/AM in hear)
+	for(var/am in hear)
+		var/atom/movable/AM = am
 		if(ismob(AM))
 			mobs += AM
 			hearturfs += AM.locs[1]
