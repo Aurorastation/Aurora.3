@@ -261,7 +261,8 @@
 			hearturfs += AM.locs[1]
 
 
-	for(var/mob/M in player_list)
+	for(var/m in player_list)
+		var/mob/M = m
 		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
 			mobs |= M
 			continue
