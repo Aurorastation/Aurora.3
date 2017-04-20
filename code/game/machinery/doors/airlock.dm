@@ -35,8 +35,15 @@
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
 	var/obj/item/device/magnetic_lock/bracer = null
+
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
+	var/close_sound_powered = 'sound/machines/AirlockClose.ogg'
 	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
+	var/close_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
+
+	var/bolts_dropping = 'sound/machines/BoltsDown.ogg'
+	var/bolts_rising = 'sound/machines/BoltsUp.ogg'
+
 	hashatch = 1
 
 	var/_wifi_id
@@ -117,6 +124,7 @@
 	icon = 'icons/obj/doors/Doorglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	open_sound_powered = 'sound/machines/windowdoor.ogg'
+	close_sound_powered = 'sound/machines/windowdoor.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = 0
@@ -1070,9 +1078,9 @@ About the new airlock wires panel:
 				take_damage(DOOR_CRUSH_DAMAGE)
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())
-		playsound(src.loc, open_sound_powered, 100, 1)
+		playsound(src.loc, close_sound_powered, 100, 1)
 	else
-		playsound(src.loc, open_sound_unpowered, 100, 1)
+		playsound(src.loc, close_sound_unpowered, 100, 1)
 
 	..()
 
@@ -1081,8 +1089,8 @@ About the new airlock wires panel:
 		return 0
 	if (operating && !forced) return 0
 	src.locked = 1
-	for(var/mob/M in range(1,src))
-		M.show_message("You hear a click from the bottom of the door.", 2)
+	playsound(src, bolts_dropping, 30, 0, -6)
+	audible_message("You hear a click from the bottom of the door.")
 	update_icon()
 	return 1
 
@@ -1092,8 +1100,8 @@ About the new airlock wires panel:
 	if (!forced)
 		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) return
 	src.locked = 0
-	for(var/mob/M in range(1,src))
-		M.show_message("You hear a click from the bottom of the door.", 2)
+	playsound(src, bolts_rising, 30, 0, -6)
+	audible_message("You hear a click from the bottom of the door.")
 	update_icon()
 	return 1
 
