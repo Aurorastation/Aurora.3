@@ -2257,9 +2257,10 @@ var/list/the_station_areas = list (
 	requires_power = 0
 	var/sound/mysound = null
 	no_light_control = 1
+	var/iter = 0
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/sound/S = new/sound()
 		mysound = S
 		S.file = 'sound/ambience/shore.ogg'
@@ -2269,7 +2270,7 @@ var/list/the_station_areas = list (
 		S.volume = 100
 		S.priority = 255
 		S.status = SOUND_UPDATE
-		process()
+		START_PROCESSING(SSprocessing, src)
 
 	Entered(atom/movable/Obj,atom/OldLoc)
 		if(ismob(Obj))
@@ -2285,7 +2286,12 @@ var/list/the_station_areas = list (
 				Obj << mysound
 
 	process()
-		set background = 1
+		switch (iter)
+			if (0,1)
+				iter++
+				return
+			if (3)
+				iter = 0
 
 		var/sound/S = null
 		var/sound_delay = 0
@@ -2301,8 +2307,8 @@ var/list/the_station_areas = list (
 				mysound.status = SOUND_UPDATE
 				H << mysound
 				if(S)
-					spawn(sound_delay)
-						H << S
+					addtimer(CALLBACK(src, .proc/send_sound, H, S), sound_delay)
 
-		spawn(60) .()
-
+	proc/send_sound(mob/living/carbon/human/H, sound/S)
+		if (H)
+			H << S
