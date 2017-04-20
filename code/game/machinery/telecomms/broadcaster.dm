@@ -93,19 +93,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 			spawn(10)
 				message_delay = 0
 				recentmessages = list()
-	   /** #### - Suit Sensors Broadcast - #### **/
-	   			// (Imitates a mob)
-
-		if(signal.data["type"] == 3)
-
-			Broadcast_Message(signal.data["connection"], signal.data["mob"],
-							  signal.data["vmask"], signal.data["vmessage"],
-							  signal.data["radio"], signal.data["message"],
-							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"], 4, signal.data["compression"], signal.data["level"], signal.frequency,
-							  signal.data["verb"], signal.data["language"])
-		/* --- Do a snazzy animation! --- */
-		flick("broadcaster_send", src)
 
 /obj/machinery/telecomms/broadcaster/Destroy()
 	// In case message_delay is left on 1, otherwise it won't reset the list and people can't say the same thing twice anymore.
