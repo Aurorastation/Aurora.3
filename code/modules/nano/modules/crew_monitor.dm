@@ -23,9 +23,7 @@
 	// This checks if TCOMS is online using the test proc. If it isn't, the suit sensor data isn't loaded.
 	var/datum/signal/signal
 	signal = telecomms_process_active()
-	if(signal.data["done"] == 0)
-		usr <<"<span class='warning'> Unable to establish a connection to telecommunications!</span>"
-	else
+	if(signal.data["done"] == 1)
 		data["isAI"] = isAI(user)
 		data["crewmembers"] = crew_repository.health_data(T)
 
