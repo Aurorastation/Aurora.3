@@ -83,13 +83,11 @@
 
 /obj/item/device/radio/intercom/attack_ai(mob/user as mob)
 	src.add_fingerprint(user)
-	spawn (0)
-		attack_self(user)
+	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
 /obj/item/device/radio/intercom/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
-	spawn (0)
-		attack_self(user)
+	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
 /obj/item/device/radio/intercom/receive_range(freq, level)
 	if (!on)

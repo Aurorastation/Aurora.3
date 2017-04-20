@@ -209,9 +209,9 @@
 	else if(istype(W, /obj/item/weapon/screwdriver))
 		src.panel_open = !src.panel_open
 		user << "You [src.panel_open ? "open" : "close"] the maintenance panel."
-		src.overlays.Cut()
+		cut_overlays()
 		if(src.panel_open)
-			src.overlays += image(src.icon, "[initial(icon_state)]-panel")
+			add_overlay("[initial(icon_state)]-panel")
 
 		nanomanager.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
