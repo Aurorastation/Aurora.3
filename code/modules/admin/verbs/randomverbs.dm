@@ -608,6 +608,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		qdel(O, TRUE)
 	else
 		// This is naughty, but sometimes necessary.
+		O.Destroy(TRUE)	// Because direct del without this breaks things.
 		del(O)
 
 /client/proc/cmd_admin_list_open_jobs()

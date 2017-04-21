@@ -18,11 +18,12 @@
 
 	var/can_hold_mob = FALSE
 
-/atom/movable/Del()
+// We don't really need this, and apparently defining it slows down GC.
+/*/atom/movable/Del()
 	if(!QDELING(src) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
 		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
-	..()
+	..()*/
 
 /atom/movable/Destroy()
 	. = ..()

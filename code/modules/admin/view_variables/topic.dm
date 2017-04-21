@@ -194,6 +194,7 @@
 					if(Obj.type == O_type)
 						i++
 						if (del_action == "Hard Delete")
+							Obj.Destroy(TRUE)
 							del(Obj)
 						else
 							qdel(Obj)
@@ -208,6 +209,7 @@
 					if(istype(Obj,O_type))
 						i++
 						if (del_action == "Hard Delete")
+							Obj.Destroy(TRUE)
 							del(Obj)
 						else
 							qdel(Obj, TRUE)

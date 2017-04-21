@@ -17,9 +17,6 @@
 		user_buckle_mob(M, user)
 
 //Cleanup
-/obj/Del()
-	unbuckle_mob()
-	return ..()
 
 /obj/Destroy()
 	unbuckle_mob()
