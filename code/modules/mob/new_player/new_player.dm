@@ -18,6 +18,10 @@
 	New()
 		mob_list += src
 
+	Destroy()
+		mob_list -= src
+		return ..()
+
 	verb/new_player_panel()
 		set src = usr
 		new_player_panel_proc()

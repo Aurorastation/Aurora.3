@@ -182,6 +182,7 @@
 #include "code\controllers\subsystems\processing\calamity.dm"
 #include "code\controllers\subsystems\processing\disease.dm"
 #include "code\controllers\subsystems\processing\disposals.dm"
+#include "code\controllers\subsystems\processing\fast_process.dm"
 #include "code\controllers\subsystems\processing\modifiers.dm"
 #include "code\controllers\subsystems\processing\overlays.dm"
 #include "code\controllers\subsystems\processing\pipenet.dm"

@@ -2087,6 +2087,7 @@ var/list/the_station_areas = list ()
 	requires_power = 0
 //	var/sound/mysound = null
 	no_light_control = 1
+	var/iter = 0
 
 /* //todo: make this don't suck
 /area/beach/New()

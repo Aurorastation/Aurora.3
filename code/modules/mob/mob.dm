@@ -26,8 +26,8 @@
 	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
 	if (istype(src, /mob/living))
 		ghostize()
-	..()
-	return QDEL_HINT_HARDDEL 
+
+	return ..() 
 	
 
 /mob/proc/remove_screen_obj_references()

@@ -35,7 +35,6 @@ delete-after: True
 changes: 
   - experiment: "Replaced our master controller & ProcessScheduler with /tg/'s StonedMC, which should lead to better overall server performance."
   - tweak: "Added lag-checks to the Singularity."
-  - tweak: "Disposals are now a bit faster."
   - tweak: "Tesla beams now travel between objects instantly instead of bouncing."
   - tweak: "Tesla mini-balls will increase the Tesla's bolt rate instead of increasing the energy per bolt."
   - tweak: "The Tesla will now lose power over time like the singularity if not powered with a particle accelerator."
@@ -47,3 +46,6 @@ changes:
   - tweak: "Slowed down blob growth a bit."
   - experiment: "Reworked how the server boots up; server restarts should be significantly faster."
   - tweak: "Added some lag-checks to quick-pickup bags so they won't lag the entire server."
+  - experiment: "Changed how the server sends some resource files to clients in an effort to reduce connection delay."
+  - experiment: "Made some tweaks to the server's decision-making process for when to run lighting updates in an effort to reduce lag."
+  - tweak: "Reduced APC icon update delay."
