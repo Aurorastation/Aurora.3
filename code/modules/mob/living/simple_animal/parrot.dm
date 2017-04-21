@@ -100,6 +100,11 @@
 			  /mob/living/simple_animal/parrot/verb/drop_held_item_player, \
 			  /mob/living/simple_animal/parrot/proc/perch_player)
 
+/mob/living/simple_animal/parrot/Destroy()
+	QDEL_NULL(ears)
+	parrot_interest = null
+	parrot_perch = null
+	return ..()
 
 /mob/living/simple_animal/parrot/death()
 	if(held_item)

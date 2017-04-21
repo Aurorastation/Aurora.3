@@ -384,7 +384,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#endif
 	if(E.sleeping) 
 		return
-	active_edges += E
+	active_edges -= E
 	E.sleeping = 1
 
 /datum/controller/subsystem/air/proc/mark_edge_active(connection_edge/E)

@@ -9,17 +9,6 @@
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
 	// Create the data core, whatever that is.
 	data_core = new /datum/datacore()
-	
-	// Initialize the pAI software list.
-	for(var/type in subtypesof(/datum/pai_software))
-		var/datum/pai_software/P = new type()
-		if(pai_software_by_key[P.id])
-			var/datum/pai_software/O = pai_software_by_key[P.id]
-			world << "<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>"
-			continue
-		pai_software_by_key[P.id] = P
-		if(P.default)
-			default_pai_software[P.id] = P
 
 	// Setup the global HUD.
 	global_hud = new

@@ -2,7 +2,11 @@
 
 /datum/controller/subsystem/pai
 	name = "pAI"
-	flags = SS_NO_FIRE | SS_NO_INIT
+	init_order = SS_INIT_MISC_FIRST
+	flags = SS_NO_FIRE
+
+	var/list/pai_software_by_key
+	var/list/default_pai_software
 
 	var/inquirer = null
 	var/list/pai_candidates = list()
@@ -12,6 +16,24 @@
 
 /datum/controller/subsystem/pai/New()
 	NEW_SS_GLOBAL(SSpai)
+	LAZYINITLIST(pai_software_by_key)
+	LAZYINITLIST(default_pai_software)
+
+/datum/controller/subsystem/pai/Initialize()
+	// Initialize the pAI software list.
+	for(var/type in subtypesof(/datum/pai_software))
+		var/datum/pai_software/P = new type()
+		if(pai_software_by_key[P.id])
+			var/datum/pai_software/O = pai_software_by_key[P.id]
+			world << "<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>"
+			continue
+		pai_software_by_key[P.id] = P
+		if(P.default)
+			default_pai_software[P.id] = P
+
+/datum/controller/subsystem/pai/Recover()
+	pai_software_by_key = SSpai.pai_software_by_key
+	default_pai_software = SSpai.default_pai_software
 
 /datum/controller/subsystem/pai/Topic(href, list/href_list)
 	if(href_list["download"])

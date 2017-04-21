@@ -16,13 +16,9 @@ var/list/pai_emotions = list(
 		"Question Mark" = 15
 	)
 
-
-var/global/list/pai_software_by_key = list()
-var/global/list/default_pai_software = list()
-
-/mob/living/silicon/pai/New()
+/mob/living/silicon/pai/Initialize()
 	..()
-	software = default_pai_software.Copy()
+	software = SSpai.default_pai_software.Copy()
 
 /mob/living/silicon/pai/verb/paiInterface()
 	set category = "pAI Commands"
@@ -49,6 +45,8 @@ var/global/list/default_pai_software = list()
 	var/bought_software[0]
 	// Software we have not bought
 	var/not_bought_software[0]
+	
+	var/list/pai_software_by_key = SSpai.pai_software_by_key
 
 	for(var/key in pai_software_by_key)
 		var/datum/pai_software/S = pai_software_by_key[key]
@@ -105,7 +103,7 @@ var/global/list/default_pai_software = list()
 
 	else if(href_list["purchase"])
 		var/soft = href_list["purchase"]
-		var/datum/pai_software/S = pai_software_by_key[soft]
+		var/datum/pai_software/S = SSpai.pai_software_by_key[soft]
 		if(S && (ram >= S.ram_cost))
 			ram -= S.ram_cost
 			software[S.id] = S

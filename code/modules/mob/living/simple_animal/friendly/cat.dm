@@ -63,8 +63,7 @@
 		if (!movement_target)
 			walk_to(src,0)
 
-		spawn(2)
-			attack_mice()
+		addtimer(CALLBACK(src, .proc/attack_mice), 2)
 
 		if(prob(2)) //spooky
 			var/mob/dead/observer/spook = locate() in range(src,5)
@@ -110,8 +109,7 @@
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
 	handle_movement_target()
-	spawn(3)
-		attack_mice()
+	addtimer(CALLBACK(src, .proc/attack_mice), 3)
 	..()
 
 /mob/living/simple_animal/cat/death()
@@ -164,7 +162,7 @@
 	var/befriend_job = null
 
 /mob/living/simple_animal/cat/fluff/handle_movement_target()
-	if (friend)
+	if (!QDELETED(friend))
 		var/follow_dist = 5
 		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit) //danger
 			follow_dist = 1
@@ -197,7 +195,7 @@
 
 /mob/living/simple_animal/cat/fluff/Life()
 	..()
-	if (stat || !friend)
+	if (stat || QDELETED(friend))
 		return
 	if (get_dist(src, friend) <= 1)
 		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit)
