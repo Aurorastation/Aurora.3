@@ -157,6 +157,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Destroy()
+	QDEL_NULL(ion_trail)
 	//some random debris left behind
 	if(has_loot)
 		spark(src, 3, alldirs)

@@ -38,13 +38,12 @@
 	while (i <= num_groups)
 		var/group_size = rand(group_size_min, group_size_max)
 		for (var/j = 1, j <= group_size, j++)
-			spawned_carp.Add(new /mob/living/simple_animal/hostile/carp(spawn_locations[i]))
+			var/mob/living/simple_animal/hostile/carp/carp = new(spawn_locations[i])
+			spawned_carp += "\ref[carp]"
 		i++
 
 /datum/event/carp_migration/end()
-	for(var/mob/living/simple_animal/hostile/carp/C in spawned_carp)
-		if(!C.stat)
-			var/turf/T = get_turf(C)
-			if(istype(T, /turf/space))
-				if(!prob(50))
-					qdel(C)
+	for (var/carp_ref in spawned_carp)
+		var/mob/living/simple_animal/hostile/carp/fish = locate(carp_ref)
+		if (fish && istype(fish.loc, /turf/space) && prob(50))
+			qdel(fish)

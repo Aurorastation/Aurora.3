@@ -28,6 +28,10 @@
 /mob/living/simple_animal/bee/Destroy()
 	if(parent)
 		parent.owned_bee_swarms.Remove(src)
+	my_hydrotray = null
+	parent = null
+	target_turf = null
+	target_mob = null
 	return ..()
 
 

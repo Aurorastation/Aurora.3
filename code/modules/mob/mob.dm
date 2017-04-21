@@ -3,7 +3,7 @@
 	dead_mob_list -= src
 	living_mob_list -= src
 	unset_machine()
-	qdel(hud_used)
+	QDEL_NULL(hud_used)
 	if(client)
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			qdel(spell_master)
@@ -15,6 +15,7 @@
 		spellremove(src)
 	for(var/infection in viruses)
 		qdel(infection)
+	viruses.Cut()
 
 	//Added this to prevent nonliving mobs from ghostising
 	//The only non 'living' mobs are:
