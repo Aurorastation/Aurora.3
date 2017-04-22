@@ -31,7 +31,7 @@ var/datum/controller/subsystem/wireless/SSwireless
 		receiver_list = new()
 		receiver_list |= R
 
-	enable()
+	wake()
 
 /datum/controller/subsystem/wireless/proc/remove_device(datum/wifi/receiver/R)
 	if (receiver_list)
@@ -66,7 +66,7 @@ var/datum/controller/subsystem/wireless/SSwireless
 		pending_connections = list()
 
 		if (!retry_queue.len && !pending_queue.len)
-			can_fire = FALSE
+			suspend()
 			return
 
 	while (retry_queue.len)

@@ -350,6 +350,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			continue
 		if (SS.can_fire <= 0)
 			continue
+		if (SS.suspended > 0)
+			continue
 		if (SS.next_fire > world.time)
 			continue
 		SS_flags = SS.flags

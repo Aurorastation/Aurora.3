@@ -8,7 +8,7 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
 	priority = SS_PRIORITY_EXPLOSIVES
 
-	can_fire = FALSE	// Start disabled, explosions will wake us if need be.
+	suspended = TRUE	// Start disabled, explosions will wake us if need be.
 	
 	var/list/work_queue
 	var/ticks_without_work = 0
@@ -38,7 +38,7 @@ var/datum/controller/subsystem/explosives/bomb_processor
 
 			// All explosions handled, powernet rebuilt.
 			// We can sleep now.
-			disable()
+			suspend()
 
 			SSlighting.explosion_end()
 		return
@@ -284,8 +284,8 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	work_queue += data
 
 	// Wake it up from sleeping if necessary.
-	if (!can_fire)
-		enable()
+	if (suspended)
+		wake()
 
 /datum/controller/subsystem/explosives/stat_entry()
 	..("P:[work_queue.len]")

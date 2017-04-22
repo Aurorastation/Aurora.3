@@ -12,6 +12,9 @@
 	//set to 0 to prevent fire() calls, mostly for admin use or subsystems that may be resumed later
 	//	use the SS_NO_FIRE flag instead for systems that never fire to keep it from even being added to the list
 	var/can_fire = TRUE
+	// Similar to can_fire, but intended explicitly for subsystems that are asleep. Using this var instead of can_fire
+	//	 allows admins to disable subsystems without them re-enabling themselves.
+	var/suspended = FALSE
 
 	// Bookkeeping variables; probably shouldn't mess with these.
 	var/last_fire = 0		//last world.time we called fire()
@@ -178,34 +181,43 @@
 	if(!statclick)
 		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
 
-	if (Master.initializing)
-		if (init_state == SS_INITSTATE_DONE)
-			msg = "DONE ([init_time]s)\t[msg]"
-		else if (flags & SS_NO_INIT)
-			msg = "NO INIT\t[msg]"
-		else if (init_state == SS_INITSTATE_STARTED)
-			if (init_start)
-				msg = "LOAD ([(REALTIMEOFDAY - init_start)/10]s)\t[msg]"
-			else
-				msg = "LOAD\t[msg]"
-		else
-			msg = "WAIT\t[msg]"
-	else if(flags & SS_NO_FIRE)
-		msg = "NO FIRE\t[msg]"
-	else if(can_fire)
-		msg = "[round(cost,1)]ms|[round(tick_usage,1)]%|[round(ticks,0.1)]\t[msg]"
-	else
-		msg = "OFFLINE\t[msg]"
-
 	var/title = name
 	if (Master.initializing)
+		msg = "[stat_entry_init()]\t[msg]"
 		var/letter = init_state_letter()
 		if (letter)
 			title =  "\[[letter]] [title]"
-	else if ((can_fire && !(flags & SS_NO_FIRE)))
-		title = "\[[state_letter()]] [title]"
+	else
+		msg = "[stat_entry_run()]\t[msg]"
+		if (can_fire && !suspended && !(flags & SS_NO_FIRE))
+			title = "\[[state_letter()]] [title]"
 
 	stat(title, statclick.update(msg))
+
+// Generates the message shown before a subsystem during MC initialization.
+/datum/controller/subsystem/proc/stat_entry_init()
+	if (init_state == SS_INITSTATE_DONE)
+		. = "DONE ([init_time]s)"
+	else if (flags & SS_NO_INIT)
+		. = "NO INIT"
+	else if (init_state == SS_INITSTATE_STARTED)
+		if (init_start)
+			. = "LOAD ([(REALTIMEOFDAY - init_start)/10]s)"
+		else
+			. = "LOAD"
+	else
+		. = "WAIT"
+
+// Generates the message shown before a subsystem during normal MC operation.
+/datum/controller/subsystem/proc/stat_entry_run()
+	if (flags & SS_NO_FIRE)
+		. = "NO FIRE"
+	else if (can_fire && !suspended)
+		. = "[round(cost,1)]ms|[round(tick_usage,1)]%|[round(ticks,0.1)]"
+	else if (suspended)
+		. = "SUSPEND"
+	else
+		. = "OFFLINE"
 
 /datum/controller/subsystem/proc/init_state_letter()
 	if (flags & SS_NO_INIT)
@@ -241,11 +253,24 @@
 //should attempt to salvage what it can from the old instance of subsystem
 /datum/controller/subsystem/Recover()
 
-
+// Admin-disables this subsystem. Will show as OFFLINE in MC panel.
 /datum/controller/subsystem/proc/disable()
 	can_fire = FALSE
 
+// Admin-enables this subsystem.
 /datum/controller/subsystem/proc/enable()
 	if (!can_fire)
 		next_fire = world.time + wait
 		can_fire = TRUE
+
+// Suspends this subsystem. Functionally identical to disable(), but shows SUSPEND in MC panel.
+// 	Preferred over disable() for self-disabling subsystems.
+/datum/controller/subsystem/proc/suspend()
+	suspended = TRUE
+
+// Wakes a suspended subsystem.
+/datum/controller/subsystem/proc/wake()
+	if (suspended)
+		suspended = FALSE
+		if (can_fire)
+			next_fire = world.time + wait

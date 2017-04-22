@@ -425,5 +425,5 @@
 		return
 
 	SSicon_smooth.smooth_queue += A
-	SSicon_smooth.can_fire = 1
+	SSicon_smooth.wake()
 	A.smooth |= SMOOTH_QUEUED
