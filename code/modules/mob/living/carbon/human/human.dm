@@ -88,6 +88,8 @@
 	bad_internal_organs = null
 	bad_external_organs = null
 
+	QDEL_NULL(vessel)
+
 	QDEL_NULL(DS)
 	// qdel and null out our equipment.
 	QDEL_NULL(shoes)
