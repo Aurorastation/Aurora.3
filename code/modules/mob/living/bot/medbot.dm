@@ -365,7 +365,7 @@
 					build_step++
 					user << "<span class='notice'>You add the health sensor to [src].</span>"
 					name = "First aid/robot arm/health analyzer assembly"
-					overlays += image('icons/obj/aibots.dmi', "na_scanner")
+					add_overlay("na_scanner")
 					return 1
 
 			if(1)

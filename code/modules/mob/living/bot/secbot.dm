@@ -319,7 +319,7 @@
 
 	var/obj/item/weapon/secbot_assembly/Sa = new /obj/item/weapon/secbot_assembly(Tsec)
 	Sa.build_step = 1
-	Sa.overlays += image('icons/obj/aibots.dmi', "hs_hole")
+	Sa.add_overlay("hs_hole")
 	Sa.created_name = name
 	new /obj/item/device/assembly/prox_sensor(Tsec)
 	new /obj/item/weapon/melee/baton(Tsec)
@@ -528,7 +528,7 @@
 		var/obj/item/weapon/weldingtool/WT = O
 		if(WT.remove_fuel(0, user))
 			build_step = 1
-			overlays += image('icons/obj/aibots.dmi', "hs_hole")
+			add_overlay("hs_hole")
 			user << "You weld a hole in \the [src]."
 			return 1
 
@@ -536,7 +536,7 @@
 		user.drop_item()
 		build_step = 2
 		user << "You add \the [O] to [src]."
-		overlays += image('icons/obj/aibots.dmi', "hs_eye")
+		add_overlay("hs_eye")
 		name = "helmet/signaler/prox sensor assembly"
 		qdel(O)
 		return 1
@@ -546,7 +546,7 @@
 		build_step = 3
 		user << "You add \the [O] to [src]."
 		name = "helmet/signaler/prox sensor/robot arm assembly"
-		overlays += image('icons/obj/aibots.dmi', "hs_arm")
+		add_overlay("hs_arm")
 		qdel(O)
 		return 1
 
