@@ -1,9 +1,6 @@
 var/global/datum/repository/crew/crew_repository = new()
 var/list/map_levels = list(3,4,6)
 
-//var/global/list/mapnames = list()
-// 	for(var/z in map_levels)
-//		mapnames += map_image_file_name(z)
 /datum/repository/crew
 	var/list/cache_data
 
