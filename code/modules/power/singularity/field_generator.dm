@@ -51,7 +51,6 @@ field_generator power level display
 	level = between(0, level, num_power_levels)
 	if(level)
 		add_overlay("+p[level]")
-		overlays += "+p[level]"
 
 /obj/machinery/field_generator/New()
 	..()

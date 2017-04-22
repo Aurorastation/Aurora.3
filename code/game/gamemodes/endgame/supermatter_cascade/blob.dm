@@ -6,12 +6,13 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace"
 
-	//luminosity = 5
-	//l_color="#0066FF"
-	layer = LIGHTING_LAYER+1
+	layer = LIGHTING_LAYER + 1
+	light_color = "#0066FF"
+	light_range = 2
+	light_power = 2
 
-	var/spawned=0 // DIR mask
-	var/next_check=0
+	var/spawned = 0 // DIR mask
+	var/next_check = 0
 	var/list/avail_dirs = list(NORTH,SOUTH,EAST,WEST)
 
 /turf/unsimulated/wall/supermatter/Initialize()
@@ -41,7 +42,6 @@
 	addtimer(CALLBACK(src, .proc/tick), 5 SECONDS)
 
 /turf/unsimulated/wall/supermatter/proc/after_tick(turf/T)
-	set waitfor = FALSE
 	T.lighting_clear_overlay()
 	for(var/atom/movable/A in T)
 		if (A && A.simulated)	// No eating lighting overlays.
@@ -51,6 +51,8 @@
 				continue
 			else
 				qdel(A)
+
+		CHECK_TICK
 	T.ChangeTurf(type)
 
 /turf/unsimulated/wall/supermatter/attack_generic(mob/user as mob)
