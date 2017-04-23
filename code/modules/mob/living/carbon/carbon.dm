@@ -18,7 +18,8 @@
 
 /mob/living/carbon/Destroy()
 	QDEL_NULL(touching)
-	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
+	bloodstr = null
+	QDEL_NULL(dna)
 	for(var/guts in internal_organs)
 		qdel(guts)
 	return ..()

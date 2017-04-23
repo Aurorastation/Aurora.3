@@ -11,8 +11,8 @@
 	var/datum/seed/seed
 	var/potency = -1
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/Initialize(mapload, planttype)
-	. = ..()
+/obj/item/weapon/reagent_containers/food/snacks/grown/New(loca, planttype)
+	..()
 	if(!dried_type)
 		dried_type = type
 	src.pixel_x = rand(-5.0, 5)
@@ -124,7 +124,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/grown/update_icon()
 	if(!seed || !SSplants || !SSplants.plant_icon_cache)
 		return
-	overlays.Cut()
+	cut_overlays()
 	var/image/plant_icon
 	var/icon_key = "fruit-[seed.get_trait(TRAIT_PRODUCT_ICON)]-[seed.get_trait(TRAIT_PRODUCT_COLOUR)]-[seed.get_trait(TRAIT_PLANT_COLOUR)]"
 	if(SSplants.plant_icon_cache[icon_key])
@@ -139,7 +139,7 @@
 			fruit_leaves.color = "[seed.get_trait(TRAIT_PLANT_COLOUR)]"
 			plant_icon.overlays |= fruit_leaves
 		SSplants.plant_icon_cache[icon_key] = plant_icon
-	overlays |= plant_icon
+	add_overlay(plant_icon)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/Crossed(var/mob/living/M)
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
