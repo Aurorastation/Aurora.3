@@ -639,3 +639,31 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	return signal
 
+/proc/telecomms_process_active()
+
+	// First, we want to generate a new radio signal
+	var/datum/signal/signal = new
+	signal.transmission_method = 2 // 2 would be a subspace transmission.
+
+	// --- Finally, tag the actual signal with the appropriate values ---
+	signal.data = list(
+		"slow" = 0, // how much to sleep() before broadcasting - simulates net lag
+		"message" = "TEST",
+		"compression" = rand(45, 50), // If the signal is compressed, compress our message too.
+		"traffic" = 0, // dictates the total traffic sum that the signal went through
+		"type" = 4, // determines what type of radio input it is: test broadcast
+		"reject" = 0,
+		"done" = 0,
+		"level" = 5 // The level it is being broadcasted at.
+	)
+	signal.frequency = PUB_FREQ// Common channel
+
+  //#### Sending the signal to all subspace receivers ####//
+	for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
+		R.receive_signal(signal)
+
+	//world<< "Done: [signal.data["done"]]"
+
+	return signal
+
+
