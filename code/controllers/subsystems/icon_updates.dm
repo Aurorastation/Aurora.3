@@ -23,7 +23,7 @@
 	var/list/curr = currentrun
 
 	if (!curr.len)
-		disable()
+		suspend()
 		return
 
 	while (curr.len)
@@ -48,5 +48,5 @@
 	if (!icon_update_queued && (!icon_update_delay || (last_icon_update + icon_update_delay < world.time)))
 		icon_update_queued = TRUE
 		SSicon_update.queue += src
-		if (!SSicon_update.can_fire)
-			SSicon_update.enable()
+		if (SSicon_update.suspended)
+			SSicon_update.wake()

@@ -28,19 +28,19 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 /datum/controller/subsystem/nightlight/proc/temp_disable(time = -1)
 	if (disable_type != NL_PERMANENT_DISABLE)
 		disable_type = NL_TEMPORARY_DISABLE
-		disable()
+		suspend()
 		deactivate(FALSE)
 		if (time > 0)
 			addtimer(CALLBACK(src, .proc/end_temp_disable), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/controller/subsystem/nightlight/proc/end_temp_disable()
 	if (disable_type == NL_TEMPORARY_DISABLE)
-		enable()
+		wake()
 
 /datum/controller/subsystem/nightlight/fire(resumed = FALSE, announce = TRUE)
 	if (disable_type)
 		log_debug("SSnightlight: disable_type was [disable_type] but can_fire was TRUE! Disabling self.")
-		disable()
+		suspend()
 		return
 		
 	var/time = worldtime2hours()
@@ -58,7 +58,6 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
 /datum/controller/subsystem/nightlight/proc/activate(var/whitelisted_only = 1)
-	set waitfor = FALSE
 	isactive = 1
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("on")
@@ -66,7 +65,6 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		CHECK_TICK
 
 /datum/controller/subsystem/nightlight/proc/deactivate(var/whitelisted_only = 1)
-	set waitfor = FALSE
 	isactive = 0
 	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("off")
