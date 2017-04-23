@@ -19,9 +19,13 @@
 	var/status = "idle"//The status the piston is in
 	// idle -> The piston is idle, doing nothing
 	// pre_start -> The piston is pre-starting
-	// stage 1 -> The piston is at stage 1
-	// stage 2 -> The piston is at stage 2
-	// stage 3 -> The piston is at stage 3
+	// stage1 -> The piston is at stage 1
+	// stage2 -> The piston is at stage 2
+	// stage3 -> The piston is at stage 3
+
+	var/blocked = 0 //If the piston has been blocked by something - Piston is stuck and preassure valve needs to be opened
+	var/valve_open = 0 //If the de-preassure valve is open - Pison cant be extended
+	var/num_progress = 0 //Numerical Progress value
 
 	var/asmtype = "standalone" //If the base is a stand alone base or part of a combined crusher
 	// standalone -> Standalone base
@@ -34,13 +38,12 @@
 	var/time_stage_1 = 100 //The time it takes for the stage to complete
 	var/time_stage_2 = 100 //The time it takes for the stage to complete
 	var/time_stage_3 = 100 //The time it takes for the stage to complete
-	var/time_stage_full = 100 //The time to wait when the piston is full extendet
+	var/time_stage_full = 100 //The time to wait when the piston is full extended
 
 	var/list/items_to_move = list() //The list of tiems that should be moved by the piston
 	var/list/items_to_crush = list() //The list of items that should be destroyed by the piston
 
 	var/initial = 1 // initial run of the piston process
-
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
@@ -62,11 +65,6 @@
 	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
 	RefreshParts()
 
-/obj/machinery/crusher_base/Destroy()
-	qdel(pstn)
-	return ..()
-
-/obj/machinery/crusher_base/initialize()
 	action_start_time = world.time
 
 	//Spawn the stage 1 pistons south of it with a density of 0
@@ -78,6 +76,39 @@
 	change_base_icon()
 	// Change the icons of the neighboring bases
 	change_neighbor_base_icons()
+
+/obj/machinery/crusher_base/Destroy()
+	qdel(pstn)
+	pstn=null
+	return ..()
+
+/obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if(default_deconstruction_screwdriver(user, O))
+		return
+	//TODO: Add a chance to catch their hand in the mechanic if they do something while the crusher is in operation
+	if(default_deconstruction_crowbar(user, O))
+		return
+	if(default_part_replacement(user, O))
+		return
+	
+	//Stuff you can do if the maint hatch is open
+	if(panel_open)
+		if(iswrench(O))
+			valve_open = !valve_open
+			user << "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>"
+			if(valve_open)
+				blocked = 0
+				action = "retract"
+			return
+	..()
+
+/obj/machinery/crusher_base/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
+	if(!istype(C))
+		return 0
+	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it
+		user << "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>"
+		return 0
+	return ..()
 
 /obj/machinery/crusher_base/proc/change_neighbor_base_icons()
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
@@ -94,22 +125,19 @@
 
 	if (left && right)
 		asmtype = "middle"
-		icon_state = "middle"
-		log_debug("middle piece")
+		icon_state = asmtype
 		return
 	if (left)
 		asmtype = "rightcap"
-		icon_state = "rightcap"
-		log_debug("right piece")
+		icon_state = asmtype
 		return
 	if (right)
 		asmtype = "leftcap"
-		icon_state = "leftcap"
-		log_debug("left piece")
+		icon_state = asmtype
 		return
 	
 	asmtype = "standalone"
-	icon_state = "standalone"
+	icon_state = asmtype
 	return
 
 /obj/machinery/crusher_base/process()
@@ -139,44 +167,55 @@
 
 		//We are now ready to expand the first piston
 		else if(status == "pre_start")
-			//Call extend on all the stage 1 pistons
-			if(initial)
-				initial = 0
-				if(!pstn.extend_0_1())
-					status = "idle"
-					action = "idle"
+			if(valve_check())
+				//Call extend on all the stage 1 pistons
+				if(initial)
+					initial = 0
+					num_progress = 33
+					if(!pstn.extend_0_1())
+						num_progress = 0
+						status = "idle"
+						action = "idle"
+						initial = 1
+						log_debug("Cant extend piston 0-1 - Continue idling")
+				if(timediff > time_stage_1)
+					status = "stage1"
+					action_start_time = world.time
 					initial = 1
-					log_debug("Cant extend piston 0-1 - Continue idling")
-			if(timediff > time_stage_1)
-				status = "stage1"
-				action_start_time = world.time
-				initial = 1
 		
 		//Extend the second piston
 		else if(status == "stage1")
-			//Call extend on all the stage 2 pistons
-			if(initial)
-				initial = 0
-				if(!pstn.extend_1_2())
-					action = "retract"
-					log_debug("cant extend piston 1-2 - Retract")
-			if(timediff > time_stage_2)
-				status = "stage2"
-				action_start_time = world.time
-				initial = 1
+			if(valve_check())
+				//Call extend on all the stage 2 pistons
+				if(initial)
+					initial = 0
+					num_progress = 66
+					if(!pstn.extend_1_2())
+						num_progress = 33
+						action = "idle"
+						blocked = 1
+						log_debug("cant extend piston 1-2 - Blocked")
+				if(timediff > time_stage_2)
+					status = "stage2"
+					action_start_time = world.time
+					initial = 1
 
 		//Extend the thrid piston
 		else if(status == "stage2")
-			//Call extend on all the stage 2 pistons
-			if(initial)
-				initial = 0
-				if(!pstn.extend_2_3())
-					action = "retract"
-					log_debug("cant extend piston 2-3 - retract")
-			if(timediff > time_stage_3)
-				status = "stage3"
-				action_start_time = world.time
-				initial = 1
+			if(valve_check())
+				//Call extend on all the stage 2 pistons
+				if(initial)
+					initial = 0
+					num_progress = 100
+					if(!pstn.extend_2_3())
+						num_progress = 66
+						action = "idle"
+						blocked = 1
+						log_debug("cant extend piston 2-3 - Blocked")
+				if(timediff > time_stage_3)
+					status = "stage3"
+					action_start_time = world.time
+					initial = 1
 		
 		//Wait a moment, then reverse the direction
 		else if(status == "stage3")
@@ -188,7 +227,9 @@
 				initial = 1
 	
 	//Retract the pistons
-	else if(action == "retract")
+	else if(action == "retract" && blocked == 0) //Only retract if unblocked
+		num_progress = 0
+
 		//Retract the 3rd stage pistons
 		if(status == "stage3")
 			if(initial)
@@ -200,7 +241,7 @@
 				action = "idle"
 				action_start_time = world.time
 				initial = 1
-		if(status == "stage2")
+		else if(status == "stage2")
 			if(initial)
 				initial = 0
 				pstn.retract_2_0()
@@ -210,7 +251,7 @@
 				action = "idle"
 				action_start_time = world.time
 				initial = 1
-		if(status == "stage1")
+		else if(status == "stage1")
 			if(initial)
 				initial = 0
 				pstn.retract_1_0()
@@ -220,6 +261,12 @@
 				action = "idle"
 				action_start_time = world.time
 				initial = 1
+		else //This shouldnt really happen, but its there just in case
+			pstn.icon_state = initial(pstn.icon_state)
+			status = "idle"
+			action = "idle"
+			action_start_time = world.time
+			initial = 1
 	
 	//Move all the items in the move list
 	for(var/atom/movable/AM in items_to_move)
@@ -254,6 +301,23 @@
 	action = "retract"
 	//TODO-Crusher: Add more stages to the piston so retracting will not cause a visual bug
 
+/obj/machinery/crusher_base/proc/get_num_progress()
+	return num_progress
+
+/obj/machinery/crusher_base/proc/get_action()
+	return action
+
+/obj/machinery/crusher_base/proc/get_status()
+	return status
+
+/obj/machinery/crusher_base/proc/is_blocked()
+	return blocked
+
+/obj/machinery/crusher_base/proc/valve_check() //Check if the depreasurization valve is open
+	if(valve_open == 1)
+		visible_message("The hydraulic pump in [src] briefly spins up and then shuts down","You hear a pump spinning up briefly and then shutting down")
+		return 0
+	return 1
 
 //Piston Stage 1
 /obj/machinery/crusher_piston
@@ -281,8 +345,7 @@
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
 	var/turf/T = get_turf(src)
-	var/turf/extension_turf = get_step(T,SOUTH)
-	if(!can_extend_into(extension_turf))
+	if(!can_extend_into(T))
 		log_debug("cant extend 0-1 - Abort")
 		return 0
 	icon_state="piston_0_1"
@@ -293,7 +356,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
-	var/turf/T = get_turf(src)
+	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
 		log_debug("cant extend 1-2 - Abort")
@@ -306,7 +369,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
-	var/turf/T = get_turf(src)
+	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
 		log_debug("cant extend 2-3 - Abort")
@@ -349,8 +412,8 @@
 		return 0
 	for(var/atom/A in extension_turf)
 		if (is_type_in_list(A, unmovable_items))
-			return 0
-	
+			if (!istype(A,/obj/machinery/crusher_piston/)) //To prevent the crusher from blocking itself
+				return 0
 	return 1
 
 /obj/effect/piston_blocker
