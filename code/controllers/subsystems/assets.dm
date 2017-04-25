@@ -3,7 +3,7 @@
 
 /datum/controller/subsystem/assets
 	name = "Assets"
-	init_order = -3
+	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
 	var/list/cache = list()
 
