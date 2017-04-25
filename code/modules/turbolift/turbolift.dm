@@ -1,3 +1,5 @@
+var/global/list/turbolifts = list()
+
 // Lift master datum. One per turbolift.
 /datum/turbolift
 	var/datum/turbolift_floor/target_floor              // Where are we going?
@@ -111,8 +113,23 @@
 		return // STOP PRESSING THE BUTTON.
 	floor.pending_move(src)
 	queued_floors |= floor
-	SSturbolift.lift_is_moving(src)
+	queue_movement()
 
 // TODO: dummy machine ('lift mechanism') in powered area for functionality/blackout checks.
 /datum/turbolift/proc/is_functional()
 	return 1
+
+/datum/turbolift/proc/handle_movement()
+	busy = TRUE
+
+	if (!do_move())
+		if (target_floor)
+			target_floor.ext_panel.reset()
+			target_floor = null
+	else
+		queue_movement()
+
+	busy = FALSE
+
+/datum/turbolift/proc/queue_movement()
+	addtimer(CALLBACK(src, .proc/handle_movement), move_delay)
