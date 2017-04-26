@@ -101,9 +101,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 			// Something's still referring to the qdel'd object.  Kill it.
 			var/type = A.type
-			var/msg = "-- \ref[A] | [type] was unable to be GC'd and was deleted --"
-			testing("GC: [msg]")
-			game_log("GC", msg)
+			log_gc("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
 			didntgc["[type]"]++
 
 			HardDelete(A)
@@ -155,7 +153,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	if (time > highest_del_time)
 		highest_del_time = time
 	if (time > 10)
-		log_game("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete)")
+		log_gc("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete)", type, TRUE)
 		message_admins("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete).")
 		postpone(time/5)
 

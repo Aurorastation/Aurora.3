@@ -55,7 +55,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 				CHECK_TICK
 
 	admin_notice(span("danger", "Initialized [count] atoms."), R_DEBUG)
-	log_ss("SSatoms: Initialized [count] atoms.")
+	log_ss(name, "Initialized [count] atoms.")
 
 	initialized = INITIALIZATION_INNEW_REGULAR
 
@@ -64,7 +64,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 			var/atom/A = I
 			A.LateInitialize()
 		admin_notice(span("danger", "Late-initialized [late_loaders.len] atoms."), R_DEBUG)
-		log_ss("SSatoms: Late initialized [late_loaders.len] atoms")
+		log_ss(name, "Late initialized [late_loaders.len] atoms")
 		late_loaders.Cut()
 
 	if(late_qdel.len)
@@ -73,7 +73,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 			qdel(thing)
 		
 		admin_notice(span("danger", "Late-qdeleted [num_qdels] atoms."), R_DEBUG)
-		log_ss("SSatoms: Late qdeleted [num_qdels] atoms.")
+		log_ss(name, "Late qdeleted [num_qdels] atoms.")
 
 		late_qdel.Cut()
 		
