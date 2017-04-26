@@ -5,7 +5,7 @@ DIR: code code\controllers code\game code\game\area code\game\machinery code\gam
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 511.1364
-WINDOW: maps\Aurora-MapDev\aurora-4.dmm;maps\Aurora-MapDev\aurora-6.dmm;code\game\objects\structures\crates_lockers\closets\walllocker.dm;maps\Aurora-MapDev\aurora-1.dmm;maps\Aurora-MapDev\aurora-2.dmm
-FILE: maps\Aurora-MapDev\aurora-1.dmm
+WINDOW: maps\Aurora-MapDev\aurora-4.dmm;maps\Aurora-MapDev\aurora-2.dmm;maps\Aurora-MapDev\aurora-3.dmm;maps\Aurora-MapDev\aurora-5.dmm
+FILE: maps\Aurora-MapDev\aurora-3.dmm
 */
 // END_INTERNALS
