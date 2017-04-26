@@ -1,3 +1,5 @@
+var/global/list/world_mouses = list()
+
 /mob/living/simple_animal/mouse
 	name = "mouse"
 	real_name = "mouse"
@@ -120,6 +122,8 @@
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak_soft
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak_loud(1)
 
+	world_mouses += src
+
 /mob/living/simple_animal/mouse/speak_audio()
 	squeak_soft(0)
 
@@ -142,8 +146,6 @@
 	if(client)
 		client.time_died_as_mouse = world.time
 
-
-
 //Plays a sound.
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
@@ -151,7 +153,6 @@
 		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 		if (manual)
 			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
-
 
 
 //Plays a random selection of four sounds, at a low volume
@@ -237,14 +238,13 @@
 
 	if(client)
 		client.time_died_as_mouse = world.time
+
+	world_mouses -= src
+
 	..()
 
 /mob/living/simple_animal/mouse/dust()
 	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
-
-
-
-
 
 
 /*
