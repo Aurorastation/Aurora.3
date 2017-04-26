@@ -246,7 +246,6 @@
 
 	src.visible_message("<span class='danger'>\The [usr] consumed the body of \the [target]!</span>")
 	target.gib()
-	health = maxHealth
 	last_special = world.time + 100
 	return
 
