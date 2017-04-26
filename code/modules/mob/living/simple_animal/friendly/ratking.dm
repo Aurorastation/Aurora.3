@@ -47,9 +47,6 @@
 /mob/living/simple_animal/mouse/king/Move()
 	..()
 
-	for(var/mob/living/simple_animal/mouse/rat in rats)
-		rat.dir = src.dir
-
 	for(var/image/I in overlays)
 		I.dir = src.dir
 
