@@ -146,21 +146,6 @@ var/global/list/world_mouses = list()
 	if(client)
 		client.time_died_as_mouse = world.time
 
-/mob/living/simple_animal/mouse/Crossed(atom/movable/O)
-	..()
-
-	if(!health)
-		return
-
-	if(istype(O,/mob/living/simple_animal/mouse/king))
-		var/mob/living/simple_animal/mouse/king/K = O
-		if(!K.health)
-			return
-
-		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
-							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].</span>")
-		K.absorb(src)
-
 //Plays a sound.
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
@@ -244,6 +229,18 @@ var/global/list/world_mouses = list()
 				squeak(0)
 			else
 				squeak_loud(0)//You trod on its tail
+				
+	if(!health)
+		return
+
+	if(istype(AM,/mob/living/simple_animal/mouse/king))
+		var/mob/living/simple_animal/mouse/king/K = AM
+		if(!K.health)
+			return
+
+		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
+							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].</span>")
+		K.absorb(src)
 	..()
 
 /mob/living/simple_animal/mouse/death()
