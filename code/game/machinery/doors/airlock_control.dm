@@ -123,10 +123,10 @@ obj/machinery/door/airlock/Bumped(atom/AM)
 	return
 
 obj/machinery/door/airlock/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	if(new_frequency)
 		frequency = new_frequency
-		radio_connection = radio_controller.add_object(src, frequency, RADIO_AIRLOCK)
+		radio_connection = SSradio.add_object(src, frequency, RADIO_AIRLOCK)
 
 obj/machinery/door/airlock/Initialize()
 	. = ..()
@@ -139,12 +139,12 @@ obj/machinery/door/airlock/Initialize()
 
 	update_icon()
 
-	if(radio_controller)
+	if(SSradio)
 		set_frequency(frequency)
 
 obj/machinery/door/airlock/Destroy()
-	if(frequency && radio_controller)
-		radio_controller.remove_object(src,frequency)
+	if(frequency && SSradio)
+		SSradio.remove_object(src,frequency)
 	return ..()
 
 obj/machinery/airlock_sensor
@@ -205,19 +205,19 @@ obj/machinery/airlock_sensor/process()
 			update_icon()
 
 obj/machinery/airlock_sensor/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
-	radio_connection = radio_controller.add_object(src, frequency, RADIO_AIRLOCK)
+	radio_connection = SSradio.add_object(src, frequency, RADIO_AIRLOCK)
 
 obj/machinery/airlock_sensor/Initialize()
 	. = ..()
 	set_frequency(frequency)
-	if(radio_controller)
+	if(SSradio)
 		set_frequency(frequency)
 
 obj/machinery/airlock_sensor/Destroy()
-	if(radio_controller)
-		radio_controller.remove_object(src,frequency)
+	if(SSradio)
+		SSradio.remove_object(src,frequency)
 	return ..()
 
 obj/machinery/airlock_sensor/airlock_interior
@@ -272,19 +272,19 @@ obj/machinery/access_button/attack_hand(mob/user)
 
 
 obj/machinery/access_button/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
-	radio_connection = radio_controller.add_object(src, frequency, RADIO_AIRLOCK)
+	radio_connection = SSradio.add_object(src, frequency, RADIO_AIRLOCK)
 
 obj/machinery/access_button/Initialize()
 	. = ..()
 
-	if(radio_controller)
+	if(SSradio)
 		set_frequency(frequency)
 
 obj/machinery/access_button/Destroy()
-	if(radio_controller)
-		radio_controller.remove_object(src, frequency)
+	if(SSradio)
+		SSradio.remove_object(src, frequency)
 	return ..()
 
 obj/machinery/access_button/airlock_interior

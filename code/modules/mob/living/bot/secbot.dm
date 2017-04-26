@@ -53,9 +53,9 @@
 	listener = new /obj/secbot_listener(src)
 	listener.secbot = src
 
-	if(radio_controller)
-		radio_controller.add_object(listener, control_freq, filter = RADIO_SECBOT)
-		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
+	if(SSradio)
+		SSradio.add_object(listener, control_freq, filter = RADIO_SECBOT)
+		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
 /mob/living/bot/secbot/Destroy()
 	QDEL_NULL(listener)
@@ -417,7 +417,7 @@
 	post_signal_multiple(freq, list("[key]" = value))
 
 /obj/secbot_listener/proc/post_signal_multiple(var/freq, var/list/keyval) // send a radio signal with multiple data key/values
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(freq)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 	if(!frequency)
 		return
 

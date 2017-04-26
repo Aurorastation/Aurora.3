@@ -1,7 +1,7 @@
 /*
   HOW IT WORKS
 
-  The radio_controller is a global object maintaining all radio transmissions, think about it as about "ether".
+	SSradio is a subsystem responsible for maintaining all radio transmissions, think about it as about "ether".
   Note that walkie-talkie, intercoms and headsets handle transmission using nonstandard way.
   procs:
 
@@ -97,7 +97,7 @@ On the map:
 1455 for AI access
 */
 
-var/datum/controller/subsystem/radio/radio_controller
+var/datum/controller/subsystem/radio/SSradio
 
 /datum/controller/subsystem/radio
 	name = "Radio"
@@ -106,7 +106,7 @@ var/datum/controller/subsystem/radio/radio_controller
 	var/list/datum/radio_frequency/frequencies = list()
 
 /datum/controller/subsystem/radio/New()
-	NEW_SS_GLOBAL(radio_controller)
+	NEW_SS_GLOBAL(SSradio)
 
 /datum/controller/subsystem/radio/stat_entry()
 	..("F:[frequencies.len]")
