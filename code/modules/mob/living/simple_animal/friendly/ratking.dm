@@ -219,6 +219,9 @@
 	set category = "Abilities"
 	set name = "Devour Body"
 
+	if(!Adjacent(target))
+		return
+
 	if(!health)
 		usr << "<span class='notice'>You are dead, you cannot use any abilities!</span>"
 		return
@@ -235,9 +238,6 @@
 		usr << "<span class='warning'>We can only devour the dead!</span>"
 		return
 
-	if(!Adjacent(target))
-		return
-
 	usr.visible_message("<span class='danger'>\The [usr] swarms the body of \the [target], ripping flesh from bone!</span>" )
 
 	if(!do_after(usr,200))
@@ -246,6 +246,7 @@
 
 	src.visible_message("<span class='danger'>\The [usr] consumed the body of \the [target]!</span>")
 	target.gib()
+	health = maxHealth
 	last_special = world.time + 100
 	return
 
@@ -289,7 +290,7 @@
 		return 1
 	return 0
 
-/mob/living/simple_animal/mouse/king/proc/canEatCorpse() // implemented
+/mob/living/simple_animal/mouse/king/proc/canEatCorpse()
 	if(rats.len >= RAT_KING_LEVEL)
 		return 1
 	return 0
