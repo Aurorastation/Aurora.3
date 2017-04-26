@@ -11,22 +11,6 @@
 	for(var/R in world_mouses)
 		R << message
 
-// Since there's no proc for the current object to check crossed objects
-/mob/living/simple_animal/mouse/Crossed(atom/movable/O)
-	..()
-
-	if( !health )
-		return
-
-	if( istype(O,/mob/living/simple_animal/mouse/king))
-		var/mob/living/simple_animal/mouse/king/K = O
-		if( !K.health )
-			return
-
-		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
-							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].<span>")
-		K.absorb(src)
-
 /mob/living/simple_animal/mouse/king
 	attacktext = "bitten"
 	a_intent = "harm"
