@@ -9,10 +9,7 @@
 		message_admins("Admin [key_name_admin(usr)] is debugging the [antag.role_text] template.")
 
 /var/list/controller_debug_list = list(
-	"Ticker",
 	"Jobs",
-	"Radio",
-	"Supply",
 	"Configuration",
 	"Cameras",
 	"Gas Data",
@@ -26,15 +23,9 @@
 
 	if(!holder)	return
 	switch(controller)
-		if("Ticker")
-			debug_variables(ticker)
-			feedback_add_details("admin_verb","DTicker")
 		if("Jobs")
 			debug_variables(job_master)
 			feedback_add_details("admin_verb","DJobs")
-		if("Radio")
-			debug_variables(radio_controller)
-			feedback_add_details("admin_verb","DRadio")
 		if("Configuration")
 			debug_variables(config)
 			feedback_add_details("admin_verb","DConf")

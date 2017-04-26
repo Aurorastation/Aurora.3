@@ -54,8 +54,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	janitorial_supplies |= src
 
-	if(radio_controller)
-		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
+	if(SSradio)
+		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
 /mob/living/bot/cleanbot/Destroy()
 	. = ..()
@@ -159,7 +159,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	if(!found_spot && !target) // No targets in range
 		if(!patrol_path || !patrol_path.len)
 			if(!signal_sent || signal_sent > world.time + 200) // Waited enough or didn't send yet
-				var/datum/radio_frequency/frequency = radio_controller.return_frequency(beacon_freq)
+				var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
 				if(!frequency)
 					return
 

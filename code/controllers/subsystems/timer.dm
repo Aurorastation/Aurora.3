@@ -55,7 +55,7 @@ var/datum/controller/subsystem/timer/SStimer
 		if(bucket_auto_reset)
 			bucket_resolution = 0
 		
-		log_ss("Active timers at tick [world.time]:")
+		log_ss(name, "Active timers at tick [world.time]:")
 		for(var/I in processing)
 			var/datum/timedevent/TE = I
 			msg = "Timer: [TE.id]: TTR: [TE.timeToRun], Flags: [TE.flags], "
@@ -73,7 +73,7 @@ var/datum/controller/subsystem/timer/SStimer
 						msg += "[first ? "" : ", "][J]"
 						first = FALSE
 					msg += ")"
-			log_ss(msg)
+			log_ss(name, msg)
 
 	while(length(clienttime_timers))
 		var/datum/timedevent/ctime_timer = clienttime_timers[clienttime_timers.len]

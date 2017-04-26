@@ -67,10 +67,9 @@
 				REVIVE_CELL(current_cell, next_map)
 			else
 				KILL_CELL(current_cell, next_map)
-
 				
 		CHECK_TICK
-		
+
 	map = next_map
 
 /datum/random_map/automata/proc/revive_cell(var/target_cell, var/list/use_next_map, var/final_iter)

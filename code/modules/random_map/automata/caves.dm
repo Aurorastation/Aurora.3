@@ -44,8 +44,10 @@
 	var/door_count = 0
 	var/empty_count = 0
 	while((ore_count>0) && (ore_turfs.len>0))
+
 		if(!priority_process)
 			CHECK_TICK
+
 		var/check_cell = pick(ore_turfs)
 		ore_turfs -= check_cell
 		if(prob(75))
@@ -169,6 +171,7 @@
 
 		num_applied += 1
 		new new_path(T)
+
 		CHECK_TICK
 
 	game_log("ASGEN", "Applied [num_applied] turfs.")
