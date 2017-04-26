@@ -149,12 +149,12 @@ var/global/list/world_mouses = list()
 /mob/living/simple_animal/mouse/Crossed(atom/movable/O)
 	..()
 
-	if( !health )
+	if(!health)
 		return
 
-	if( istype(O,/mob/living/simple_animal/mouse/king))
+	if(istype(O,/mob/living/simple_animal/mouse/king))
 		var/mob/living/simple_animal/mouse/king/K = O
-		if( !K.health )
+		if(!K.health)
 			return
 
 		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
