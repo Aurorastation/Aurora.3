@@ -252,7 +252,7 @@
 
 /mob/living/simple_animal/mouse/king/proc/absorb(var/mob/living/simple_animal/mouse/R, var/update = 1)
 	if(!(R in rats))
-		R.Move(src)
+		R.forceMove(src)
 		rats += R
 
 	if( update )
@@ -260,7 +260,7 @@
 
 /mob/living/simple_animal/mouse/king/proc/eject(var/mob/living/simple_animal/mouse/R, var/update = 1)
 	if(R in rats)
-		R.Move(get_turf(src))
+		R.forceMove(get_turf(src))
 		rats -= R
 
 	if(update)
