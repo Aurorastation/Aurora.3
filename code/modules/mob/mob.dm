@@ -757,9 +757,6 @@
 		if(client.holder)
 			if(statpanel("Status"))
 				stat("Location:", "([x], [y], [z]) [loc]")
-				stat("CPU:","[world.cpu]")
-				stat("Tick Usage:", world.tick_usage)
-				stat("Instances:","[world.contents.len]")
 				if (LAZYLEN(client.holder.watched_processes))
 					for (var/datum/controller/ctrl in client.holder.watched_processes)
 						if (!ctrl)
@@ -768,7 +765,9 @@
 							ctrl.stat_entry()
 						
 			if(statpanel("MC"))
-				stat(null)
+				stat("CPU:", world.cpu)
+				stat("Tick Usage:", world.tick_usage)
+				stat("Instances:", world.contents.len)
 				if(Master)
 					Master.stat_entry()
 				else
@@ -777,9 +776,8 @@
 					Failsafe.stat_entry()
 				else
 					stat("Failsafe Controller:", "ERROR")
-				stat("Tick Usage:", world.tick_usage)
 				if (Master)
-					stat(null)
+					stat(null, "- Subsystems -")
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
@@ -791,13 +789,13 @@
 				listed_turf = null
 			else
 				if(statpanel("Turf"))
-					stat("\icon[listed_turf]", listed_turf.name)
+					stat("Turf:", listed_turf)
 					for(var/atom/A in listed_turf)
 						if(!A.mouse_opacity)
 							continue
 						if(A.invisibility > see_invisible)
 							continue
-						if(is_type_in_list(A, shouldnt_see))
+						if(is_type_in_typecache(A, shouldnt_see))
 							continue
 						stat(A)
 
