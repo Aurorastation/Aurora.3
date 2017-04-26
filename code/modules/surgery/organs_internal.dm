@@ -344,8 +344,9 @@
 
 /datum/surgery_step/internal/lobotomize
 	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 90,
-	/obj/item/weapon/pickaxe/ = 10
+	/obj/item/weapon/scalpel/manager = 95,
+	/obj/item/weapon/surgicaldrill = 75,
+	/obj/item/weapon/pickaxe/ = 5
 	)
 
 	min_duration = 100
