@@ -158,7 +158,7 @@ var/global/list/world_mouses = list()
 			return
 
 		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
-							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].<span>")
+							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].</span>")
 		K.absorb(src)
 
 //Plays a sound.
