@@ -108,7 +108,7 @@
 /obj/item/organ/brain/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/scalpel))
 		if(!lobotomized)
-			user.visible_message("<span class='danger'>[user]</b> cuts [src] deftly with [W], severing the prefontal cortex!</span>")
+			user.visible_message("<span class='danger'>[user] cuts [src] deftly with [W], severing the prefontal cortex!</span>")
 			lobotomize(user)
 		else
 			user << "<span class='notice'>The prefrontal cortex has already been severed!</span>"

@@ -43,13 +43,12 @@
 				user << "<span class='warning'>The brain won't fit until you perform a lobotomy!</span>"
 				return
 			else if(!B.can_lobotomize)
-				user << "span class='warning'>The [B] is incompatible with [src]!</span>"
+				user << "<span class='warning'>The [B] is incompatible with [src]!</span>"
 			else if(!B.brainmob)
 				user << "<span class='warning'>You aren't sure where this brain came from, but you're pretty sure it's a useless brain.</span>"
 				return
 
-			for(var/mob/V in viewers(src, null))
-				V.show_message(text("<span class='notice'>[user] sticks \a [B] into \the [src].</span>"))
+			user.visible_message("<span class='notice'>[user] sticks \a [B] into \the [src].</span>")
 
 			brainmob = B:brainmob
 			B:brainmob = null
