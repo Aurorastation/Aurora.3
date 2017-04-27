@@ -38,6 +38,10 @@
 		//the zone will only really do heavy lifting once.
 		var/turf/simulated/S = src
 		if(S.zone) S.zone.rebuild()
+		// Letting this timer continue to exist can cause runtimes, so we delete it.
+		if (S.unwet_timer)
+			// deltimer will no-op if the timer is already deleted, so we don't need to check the timer still exists.
+			deltimer(S.unwet_timer)
 
 	if(ispath(N, /turf/simulated/floor))
 		var/turf/simulated/W = new N( locate(src.x, src.y, src.z) )

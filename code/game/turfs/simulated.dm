@@ -14,6 +14,8 @@
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 	var/dirt = 0
 
+	var/unwet_timer	// Used to keep track of the unwet timer & delete it on turf change so we don't runtime if the new turf is not simulated.
+
 /turf/simulated/proc/wet_floor(var/wet_val = 1)
 	if(wet_val < wet)
 		return
@@ -23,7 +25,7 @@
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
 		add_overlay(wet_overlay, TRUE)
 
-	addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+	unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /turf/simulated/proc/unwet_floor()
 	--wet
@@ -33,7 +35,7 @@
 			cut_overlay(wet_overlay, TRUE)
 			wet_overlay = null
 	else
-		addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE)
+		unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
