@@ -344,7 +344,7 @@
 		cut_overlays()
 		add_overlay(emag)
 		add_overlay(sparks)
-		addtimer(CALLBACK(src, /atom/.proc/cut_overlay, sparks), 6, TIMER_CLIENT_TIME)
+		CUT_OVERLAY_IN(sparks, 6)
 		playsound(src.loc, "sparks", 60, 1)
 		src.locked = 0
 		src.broken = 1
@@ -363,7 +363,7 @@
 			cut_overlays()
 			add_overlay(emag)
 			add_overlay(sparks)
-			addtimer(CALLBACK(src, /atom/.proc/cut_overlay, sparks), 6, TIMER_CLIENT_TIME)
+			CUT_OVERLAY_IN(sparks, 6)
 			playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 			src.locked = 0
 	if(!opened && prob(20/severity))
