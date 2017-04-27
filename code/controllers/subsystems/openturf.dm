@@ -54,6 +54,10 @@
 		current_overlays = queued_overlays
 		queued_overlays = list()
 
+	MC_SPLIT_TICK_INIT(2)
+	if (!no_mc_tick)
+		MC_SPLIT_TICK
+
 	var/list/curr_turfs = current_turfs
 	var/list/curr_ov = current_overlays
 
@@ -114,6 +118,9 @@
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
 			return
+
+	if (!no_mc_tick)
+		MC_SPLIT_TICK
 
 	while (curr_ov.len)
 		var/atom/movable/openspace/overlay/OO = curr_ov[curr_ov.len]
