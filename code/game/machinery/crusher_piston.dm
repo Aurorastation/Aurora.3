@@ -8,6 +8,9 @@
 	icon_state = "standalone"
 	anchored = 1
 	density = 1
+	//Just 300 Watts here. Power is drawn by the piston when it moves
+	use_power = 1
+	idle_power_usage = 300
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
@@ -143,13 +146,18 @@
 	overlay_list["status_orange"] = image('icons/obj/machines/crusherbase.dmi',"[asmtype]-overlay-orange")
 	overlay_list["status_red"] = image('icons/obj/machines/crusherbase.dmi',"[asmtype]-overlay-red")
 
-	if (blocked == 1)
-		overlays += overlay_list["status_red"]
-	else if(action != "idle")
-		overlays += overlay_list["status_orange"]
-	else
-		overlays += overlay_list["status_green"]
+	if(powered(EQUIP))
+		if (blocked == 1)
+			overlays += overlay_list["status_red"]
+		else if(action != "idle")
+			overlays += overlay_list["status_orange"]
+		else
+			overlays += overlay_list["status_green"]
 
+
+/obj/machinery/crusher_base/power_change()
+	update_icon()
+	..()
 
 /obj/machinery/crusher_base/process()
 	set waitfor = FALSE
@@ -163,7 +171,7 @@
 	if(action == "idle")
 		action_start_time = world.time
 		initial = 1
-	else if(action == "extend")
+	else if(action == "extend" && powered(EQUIP))
 		//If we are idle, flash the warning lights and then put us into pre_start once we are done
 		if(status == "idle")
 			if(initial)
@@ -241,7 +249,7 @@
 		update_icon()
 
 	//Retract the pistons
-	else if(action == "retract" && blocked == 0) //Only retract if unblocked
+	else if(action == "retract" && blocked == 0 && powered(EQUIP)) //Only retract if unblocked
 		update_icon()
 		num_progress = 0
 
@@ -361,6 +369,7 @@
 	return ..()
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
+	use_power(5 KILOWATTS)
 	var/turf/T = get_turf(src)
 	if(!can_extend_into(T))
 		log_debug("cant extend 0-1 - Abort")
@@ -373,6 +382,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
+	use_power(5 KILOWATTS)
 	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
@@ -386,6 +396,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
+	use_power(5 KILOWATTS)
 	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
