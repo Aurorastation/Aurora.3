@@ -22,14 +22,14 @@
 			shuttle.launch(src)
 	else
 		// Sleep, we ain't doin' shit. on_hotzone_enter() will wake us.
-		disable()
+		suspend()
 
 // Called when a living mob enters the shuttle area.
 /datum/controller/subsystem/arrivals/proc/on_hotzone_enter()
 	if (!shuttle.location)
 		return
 
-	enable()	// Wake the process.
+	wake()	// Wake the process.
 
 	if (!wait_for_launch && shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
 		set_launch_countdown(30)
@@ -59,7 +59,7 @@
 /datum/controller/subsystem/arrivals/proc/set_launch_countdown(var/seconds)
 	wait_for_launch = 1
 	launch_time = world.time + seconds*10
-	enable()
+	wake()
 
 /datum/controller/subsystem/arrivals/proc/stop_launch_countdown()
 	wait_for_launch = 0
