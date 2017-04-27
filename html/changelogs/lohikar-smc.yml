@@ -49,3 +49,4 @@ changes:
   - experiment: "Changed how the server sends some resource files to clients in an effort to reduce connection delay."
   - experiment: "Made some tweaks to the server's decision-making process for when to run lighting updates in an effort to reduce lag."
   - tweak: "Reduced APC icon update delay."
+  - tweak: "Exosuit fabricators' material insert animation is now colored based on what material is being inserted into the fabricator."

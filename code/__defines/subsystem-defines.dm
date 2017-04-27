@@ -36,3 +36,7 @@
 #define INITIALIZE_HINT_LATELOAD 1  //Call LateInitialize
 #define INITIALIZE_HINT_QDEL 2  //Call qdel on the atom
 #define INITIALIZE_HINT_LATEQDEL 3	//Call qdel on the atom instead of LateInitialize
+
+
+// -- SSoverlays --
+#define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, /atom/.proc/cut_overlay, ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)

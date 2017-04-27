@@ -200,7 +200,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 	if(alert) //new message alert overlay
 		add_overlay("newscaster_alert")
-		src.overlays += "newscaster_alert"
 
 	if(hitstaken > 0) //Cosmetic damage overlay
 		add_overlay("crack[hitstaken]")
