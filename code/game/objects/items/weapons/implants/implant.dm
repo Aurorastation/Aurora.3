@@ -50,6 +50,7 @@
 /obj/item/weapon/implant/Destroy()
 	if(part)
 		part.implants.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/weapon/implant/tracking
@@ -431,7 +432,8 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		return
 	var/mob/M = imp_in
 
-	if(isnull(M)) // If the mob got gibbed
+	if(QDELETED(M)) // If the mob got gibbed
+		M = null
 		activate()
 	else if(M.stat == 2)
 		activate("death")
@@ -448,7 +450,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			else
 				a.autosay("[mobname] has died in [t.name]!", "[mobname]'s Death Alarm")
 			qdel(a)
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
 		if ("emp")
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
 			var/name = prob(50) ? t.name : pick(teleportlocs)
@@ -458,7 +460,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
 			a.autosay("[mobname] has died-zzzzt in-in-in...", "[mobname]'s Death Alarm")
 			qdel(a)
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/implant/death_alarm/emp_act(severity)			//for some reason alarms stop going off in case they are emp'd, even without this
 	if (malfunction)		//so I'm just going to add a meltdown chance here
@@ -471,7 +473,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			meltdown()
 		else if (prob(60))	//but more likely it will just quietly die
 			malfunction = MALFUNCTION_PERMANENT
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 
 	spawn(20)
 		malfunction--
