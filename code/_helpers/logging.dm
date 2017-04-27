@@ -151,7 +151,7 @@
 	game_log("SS", msg)
 	send_gelf_log(msg, "[time_stamp()]: [msg]", SEVERITY_DEBUG, "SUBSYSTEM", additional_data = list("_subsystem" = subsystem))
 	if (log_world)
-		world.log << text
+		world.log << "SS[subsystem]: [text]"
 
 /proc/log_ss_init(text)
 	game_log("SS", "[text]")
