@@ -25,7 +25,7 @@
 	var/manufacturer = null
 	var/sync_message = ""
 
-/obj/machinery/mecha_part_fabricator/New()
+/obj/machinery/mecha_part_fabricator/Initialize()
 	..()
 
 	component_parts = list()
@@ -193,9 +193,10 @@
 	if(materials[material] + amnt <= res_max_amount)
 		if(stack && stack.amount >= 1)
 			var/count = 0
-			overlays += "fab-load-metal"
-			spawn(10)
-				overlays -= "fab-load-metal"
+
+			add_overlay("fab-load-[material]")
+			CUT_OVERLAY_IN("fab-load-[material]", 6)
+
 			while(materials[material] + amnt <= res_max_amount && stack.amount >= 1)
 				materials[material] += amnt
 				stack.use(1)

@@ -62,7 +62,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	admin_notice(span("danger", "Processed [processed_corners] light corners."), R_DEBUG)
 	admin_notice(span("danger", "Processed [processed_overlays] light overlays."), R_DEBUG)
 
-	log_ss(name, "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
+	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
 	..()
 

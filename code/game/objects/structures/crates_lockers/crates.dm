@@ -305,8 +305,8 @@
 	if(user)
 		for(var/mob/O in viewers(user, 3))
 			O.show_message( "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>", 1)
-	overlays.Cut()
-	overlays += locked ? redlight : greenlight
+	cut_overlays()
+	add_overlay(locked ? redlight : greenlight)
 
 /obj/structure/closet/crate/secure/verb/verb_togglelock()
 	set src in oview(1) // One square distance
@@ -341,10 +341,10 @@
 
 /obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
 	if(!broken)
-		overlays.Cut()
-		overlays += emag
-		overlays += sparks
-		spawn(6) overlays -= sparks //Tried lots of stuff but nothing works right. so i have to use this *sadface*
+		cut_overlays()
+		add_overlay(emag)
+		add_overlay(sparks)
+		CUT_OVERLAY_IN(sparks, 6)
 		playsound(src.loc, "sparks", 60, 1)
 		src.locked = 0
 		src.broken = 1
@@ -357,13 +357,13 @@
 	if(!broken && !opened  && prob(50/severity))
 		if(!locked)
 			src.locked = 1
-			overlays.Cut()
-			overlays += redlight
+			cut_overlays()
+			add_overlay(redlight)
 		else
-			overlays.Cut()
-			overlays += emag
-			overlays += sparks
-			spawn(6) overlays -= sparks //Tried lots of stuff but nothing works right. so i have to use this *sadface*
+			cut_overlays()
+			add_overlay(emag)
+			add_overlay(sparks)
+			CUT_OVERLAY_IN(sparks, 6)
 			playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 			src.locked = 0
 	if(!opened && prob(20/severity))

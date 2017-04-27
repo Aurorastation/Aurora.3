@@ -118,11 +118,11 @@
 
 		if (!src.anchored)
 			user.show_message(text("<span class='warning'>[src] can now be moved.</span>"))
-			src.overlays.Cut()
+			cut_overlays()
 
 		else if (src.anchored)
 			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
-			src.overlays += "[base_state]-s"
+			add_overlay("[base_state]-s")
 
 /obj/machinery/button/flasher
 	name = "flasher button"
