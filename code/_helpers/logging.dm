@@ -78,7 +78,7 @@
 /proc/log_attack(text,level=5,ckey="",ckey_target="")
 	if (config.log_attack)
 		game_log("ATTACK", text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="ATTACK",additional_data=list("_ckey"=html_encode(ckey),"_ckey_target"=html_encode(ckey_target)))
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ATTACK",additional_data=list("_ckey"=html_encode(ckey),"_ckey_target"=html_encode(ckey_target)))
 
 /proc/log_adminsay(text)
 	if (config.log_adminchat)
