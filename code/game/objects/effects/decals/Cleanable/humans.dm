@@ -84,11 +84,11 @@ var/global/list/image/splatter_cache=list()
 			if(!S.blood_DNA)
 				S.blood_DNA = list()
 				S.blood_overlay.color = basecolor
-				S.overlays += S.blood_overlay
+				S.add_overlay(S.blood_overlay)
 			if(S.blood_overlay && S.blood_overlay.color != basecolor)
+				S.cut_overlay(S.blood_overlay, TRUE)
 				S.blood_overlay.color = basecolor
-				S.overlays.Cut()
-				S.overlays += S.blood_overlay
+				S.add_overlay(S.blood_overlay, TRUE)
 			if(blood_DNA)
 				S.blood_DNA |= blood_DNA.Copy()
 
