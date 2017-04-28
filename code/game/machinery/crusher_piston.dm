@@ -37,7 +37,7 @@
 	// rightcap -> Right piece of a combined crusher
 
 	var/action_start_time = null //The time when the action has been started
-	var/time_stage_pre = 200 //The time it takes for the stage to complete
+	var/time_stage_pre = 150 //The time it takes for the stage to complete
 	var/time_stage_1 = 100 //The time it takes for the stage to complete
 	var/time_stage_2 = 100 //The time it takes for the stage to complete
 	var/time_stage_3 = 100 //The time it takes for the stage to complete
@@ -97,11 +97,13 @@
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
 		if(iswrench(O))
-			valve_open = !valve_open
-			user << "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>"
-			if(valve_open)
-				blocked = 0
-				action = "retract"
+			user << "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>"
+			if(do_after(user,50))
+				valve_open = !valve_open
+				user << "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>"
+				if(valve_open)
+					blocked = 0
+					action = "retract"
 			return
 	..()
 
@@ -196,6 +198,7 @@
 						status = "idle"
 						action = "idle"
 						initial = 1
+						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
 						log_debug("Cant extend piston 0-1 - Continue idling")
 				if(timediff > time_stage_1)
 					status = "stage1"
@@ -213,6 +216,7 @@
 						num_progress = 33
 						action = "idle"
 						blocked = 1
+						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
 						log_debug("cant extend piston 1-2 - Blocked")
 				if(timediff > time_stage_2)
 					status = "stage2"
@@ -230,6 +234,7 @@
 						num_progress = 66
 						action = "idle"
 						blocked = 1
+						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
 						log_debug("cant extend piston 2-3 - Blocked")
 				if(timediff > time_stage_3)
 					status = "stage3"
