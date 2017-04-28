@@ -148,7 +148,7 @@
 /datum/modular_computer_app_presets/trashcompactor
 	name = "trashcompactor"
 	display_name = "Trash Compactor"
-	description = "A preset for the Trash Compator Wall Console"
+	description = "A preset for the Trash Compactor Wall Console"
 	available = 0
 /datum/modular_computer_app_presets/trashcompactor/return_install_programs()
 	var/list/_prg_list = list(
