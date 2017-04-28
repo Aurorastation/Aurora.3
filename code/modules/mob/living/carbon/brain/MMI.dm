@@ -50,8 +50,8 @@
 
 			user.visible_message("<span class='notice'>[user] sticks \a [B] into \the [src].</span>")
 
-			brainmob = B:brainmob
-			B:brainmob = null
+			brainmob = B.brainmob
+			B.brainmob = null
 			brainmob.loc = src
 			brainmob.container = src
 			brainmob.stat = 0
