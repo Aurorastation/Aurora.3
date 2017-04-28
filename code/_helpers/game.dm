@@ -245,6 +245,41 @@
 					. += M
 	return .
 
+/proc/get_mobs_and_objs_in_view_fast(var/turf/T, var/range, var/list/mobs, var/list/objs, var/checkghosts = GHOSTS_ALL_HEAR)
+
+	var/list/hear = list()
+	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
+	var/list/hearturfs = list()
+
+	for(var/am in hear)
+		var/atom/movable/AM = am
+		if(ismob(AM))
+			mobs += AM
+			hearturfs += AM.locs[1]
+		else if(isobj(AM))
+			objs += AM
+			hearturfs += AM.locs[1]
+
+
+	for(var/m in player_list)
+		var/mob/M = m
+		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
+			mobs |= M
+			continue
+		if(M.loc && M.locs[1] in hearturfs)
+			mobs |= M
+
+
+
+	for(var/o in listening_objects)
+		var/obj/O = o
+		if(O && O.loc && O.locs[1] in hearturfs)
+			objs |= O
+
+
+
+
+
 #define SIGN(X) ((X<0)?-1:1)
 
 proc

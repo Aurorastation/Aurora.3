@@ -189,9 +189,6 @@
 	parent_organ = "chest"
 	dead_icon = "heart-off"
 
-/obj/item/organ/internal/vaurca/process()
-	return
-
 /obj/item/organ/vaurca/neuralsocket
 	name = "neural socket"
 	organ_tag = "neural socket"
