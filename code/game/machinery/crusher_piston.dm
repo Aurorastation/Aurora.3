@@ -144,7 +144,7 @@
 	overlays -= overlay_list["status_green"]
 	overlays -= overlay_list["status_orange"]
 	overlays -= overlay_list["status_red"]
-	overlays -= overlay_list["hatch"]
+	overlays -= overlay_list["panel_open"]
 	overlay_list["status_green"] = make_screen_overlay(icon,"[asmtype]-overlay-green")
 	overlay_list["status_orange"] = make_screen_overlay(icon,"[asmtype]-overlay-orange")
 	overlay_list["status_red"] = make_screen_overlay(icon,"[asmtype]-overlay-red")
