@@ -144,9 +144,11 @@
 	overlays -= overlay_list["status_green"]
 	overlays -= overlay_list["status_orange"]
 	overlays -= overlay_list["status_red"]
-	overlay_list["status_green"] = image('icons/obj/machines/crusherbase.dmi',"[asmtype]-overlay-green")
-	overlay_list["status_orange"] = image('icons/obj/machines/crusherbase.dmi',"[asmtype]-overlay-orange")
-	overlay_list["status_red"] = image('icons/obj/machines/crusherbase.dmi',"[asmtype]-overlay-red")
+	overlays -= overlay_list["hatch"]
+	overlay_list["status_green"] = make_screen_overlay(icon,"[asmtype]-overlay-green")
+	overlay_list["status_orange"] = make_screen_overlay(icon,"[asmtype]-overlay-orange")
+	overlay_list["status_red"] = make_screen_overlay(icon,"[asmtype]-overlay-red")
+	overlay_list["panel_open"] = image(icon,"[asmtype]-hatch")
 
 	if(powered(EQUIP))
 		if (blocked == 1)
@@ -155,6 +157,8 @@
 			overlays += overlay_list["status_orange"]
 		else
 			overlays += overlay_list["status_green"]
+	if(panel_open)
+		overlays += overlay_list["panel_open"]
 
 
 /obj/machinery/crusher_base/power_change()
