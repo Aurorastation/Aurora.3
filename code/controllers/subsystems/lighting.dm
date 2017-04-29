@@ -34,10 +34,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 /datum/controller/subsystem/lighting/stat_entry()
 	..("O:[lighting_overlays.len] C:[lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
 
-/datum/controller/subsystem/lighting/proc/explosion_start()
+/datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
 
-/datum/controller/subsystem/lighting/proc/explosion_end()
+/datum/controller/subsystem/lighting/ExplosionEnd()
 	if (!force_override)
 		force_queued = FALSE
 

@@ -9,6 +9,8 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 
 	var/list/smooth_queue = list()
 
+	var/explosion_in_progress = FALSE
+
 /datum/controller/subsystem/icon_smooth/New()
 	NEW_SS_GLOBAL(SSicon_smooth)
 
@@ -16,6 +18,9 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	smooth_queue = SSicon_smooth.smooth_queue
 
 /datum/controller/subsystem/icon_smooth/fire()
+	if (explosion_in_progress)
+		return
+		
 	while(smooth_queue.len)
 		var/atom/A = smooth_queue[smooth_queue.len]
 		smooth_queue.len--
@@ -24,6 +29,12 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 			return
 	if (!smooth_queue.len)
 		suspend()
+
+/datum/controller/subsystem/icon_smooth/ExplosionStart()
+	explosion_in_progress = TRUE
+
+/datum/controller/subsystem/icon_smooth/ExplosionEnd()
+	explosion_in_progress = FALSE
 
 /datum/controller/subsystem/icon_smooth/Initialize()
 	for (var/zlevel = 1 to world.maxz)

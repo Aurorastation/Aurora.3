@@ -532,6 +532,16 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration]) (SleepDelta:[round(sleep_delta, 0.1)])"))
 
 
+/datum/controller/master/ExplosionStart()
+	for (var/thing in subsystems)
+		var/datum/controller/subsystem/SS = thing
+		SS.ExplosionStart()
+
+/datum/controller/master/ExplosionEnd()
+	for (var/thing in subsystems)
+		var/datum/controller/subsystem/SS = thing
+		SS.ExplosionEnd()
+
 /world/proc/has_round_started()
 	if (SSticker.current_state >= GAME_STATE_PLAYING)
 		return TRUE
