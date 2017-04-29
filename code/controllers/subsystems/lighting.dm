@@ -9,6 +9,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 	priority = SS_PRIORITY_LIGHTING
 	init_order = SS_INIT_LIGHTING
 
+	var/list/lighting_overlays	// List of all lighting overlays in the world.
+	var/list/lighting_corners	// List of all lighting corners in the world.
+
 	var/list/light_queue   = list() // lighting sources  queued for update.
 	var/list/corner_queue  = list() // lighting corners  queued for update.
 	var/list/overlay_queue = list() // lighting overlays queued for update.
@@ -21,13 +24,15 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/force_override = FALSE	// For admins.
 	var/round_started = FALSE
 
-	var/instant_tick_limit = 80
+	var/instant_tick_limit = 80		// Tick limit used by instant lighting updates. If world.tick_usage is higher than this when a light updates, it will be updated via. SSlighting.
 
 /datum/controller/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
+	LAZYINITLIST(lighting_corners)
+	LAZYINITLIST(lighting_overlays)
 
 /datum/controller/subsystem/lighting/stat_entry()
-	..("O:[all_lighting_overlays.len] C:[all_lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
+	..("O:[lighting_overlays.len] C:[lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
 
 /datum/controller/subsystem/lighting/proc/explosion_start()
 	force_queued = TRUE
@@ -147,3 +152,5 @@ var/datum/controller/subsystem/lighting/SSlighting
 	src.light_queue = SSlighting.light_queue
 	src.corner_queue = SSlighting.corner_queue
 	src.overlay_queue = SSlighting.overlay_queue
+	lighting_corners = SSlighting.lighting_corners
+	lighting_overlays = SSlighting.lighting_overlays

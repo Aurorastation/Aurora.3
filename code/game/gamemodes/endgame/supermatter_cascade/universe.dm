@@ -102,7 +102,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 				T.underlays += "end01"
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in global.all_lighting_corners)
+	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
 		if (!C.active)
 			continue
 

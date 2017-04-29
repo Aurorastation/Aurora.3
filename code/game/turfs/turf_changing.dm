@@ -1,3 +1,6 @@
+/turf/
+	var/tmp/changing_turf
+
 /turf/proc/ReplaceWithLattice()
 	src.ChangeTurf(get_base_turf_by_area(src))
 	spawn()
@@ -21,27 +24,28 @@
 			N = /turf/simulated/open
 
 	var/obj/fire/old_fire = fire
-	var/old_opacity = opacity
-	var/old_dynamic_lighting = dynamic_lighting
-	var/list/old_affecting_lights = affecting_lights
-	var/old_lighting_overlay = lighting_overlay
-	var/list/old_corners = corners
 	var/old_baseturf = baseturf
-
+	changing_turf = TRUE
+	
 	//world << "Replacing [src.type] with [N]"
 
-	if(connections) connections.erase_all()
+	if(connections) 
+		connections.erase_all()
 
-	if(istype(src,/turf/simulated))
+	if(istype(src, /turf/simulated))
 		//Yeah, we're just going to rebuild the whole thing.
 		//Despite this being called a bunch during explosions,
 		//the zone will only really do heavy lifting once.
 		var/turf/simulated/S = src
-		if(S.zone) S.zone.rebuild()
+		if(S.zone) 
+			S.zone.rebuild()
 		// Letting this timer continue to exist can cause runtimes, so we delete it.
 		if (S.unwet_timer)
 			// deltimer will no-op if the timer is already deleted, so we don't need to check the timer still exists.
 			deltimer(S.unwet_timer)
+
+	// So we call destroy.
+	qdel(src)
 
 	if(ispath(N, /turf/simulated/floor))
 		var/turf/simulated/W = new N( locate(src.x, src.y, src.z) )
@@ -56,9 +60,6 @@
 
 		if(air_master)
 			air_master.mark_for_update(src) //handle the addition of the new turf.
-
-		for(var/turf/space/S in range(W,1))
-			S.update_starlight()
 
 		W.baseturf = old_baseturf
 
@@ -78,9 +79,6 @@
 		if(air_master)
 			air_master.mark_for_update(src)
 
-		for(var/turf/space/S in range(W,1))
-			S.update_starlight()
-
 		W.baseturf = old_baseturf
 
 		W.levelupdate()
@@ -88,17 +86,3 @@
 
 	queue_smooth_neighbors(src)
 	queue_smooth(src)
-
-	recalc_atom_opacity()
-
-	if (SSlighting)
-		lighting_overlay = old_lighting_overlay
-		affecting_lights = old_affecting_lights
-		corners = old_corners
-		if(dynamic_lighting != old_dynamic_lighting)
-			if(dynamic_lighting)
-				lighting_build_overlay()
-			else
-				lighting_clear_overlay()
-		if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-			force_update_lights()

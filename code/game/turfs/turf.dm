@@ -54,9 +54,13 @@
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
+	if (!changing_turf)
+		crash_with("Improper turf qdeletion.")
+
+	changing_turf = FALSE
 	turfs -= src
 	..()
-	return QDEL_HINT_HARDDEL_NOW
+	return QDEL_HINT_IWILLGC
 
 /turf/ex_act(severity)
 	return 0

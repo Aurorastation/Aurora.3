@@ -74,7 +74,7 @@ In short:
 			T.underlays += "hell01"
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in global.all_lighting_corners)
+	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
 		if (!C.active)
 			continue
 
