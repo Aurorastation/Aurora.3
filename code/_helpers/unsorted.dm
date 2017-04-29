@@ -897,21 +897,32 @@ proc/GaussRandRound(var/sigma,var/roundto)
 						X.icon = nextturf.icon
 						X.icon_state = nextturf.icon_state
 
+					for (var/thing in T)
+						if (istype(thing, /atom/movable/lighting_overlay))
+							qdel(thing)
 
-					for(var/obj/O in T)
-
-						// Reset the shuttle corners
-						if(O.tag == "delete me")
-							X.icon = 'icons/turf/shuttle.dmi'
-							X.icon_state = replacetext(O.icon_state, "_f", "_s") // revert the turf to the old icon_state
-							X.name = "wall"
-							qdel(O) // prevents multiple shuttle corners from stacking
+						else if (istype(thing, /atom/movable/openspace))	// No idea why the fuck these'd get moved, but better safe.
 							continue
-						if(!istype(O,/obj)) continue
-						O.loc = X
-					for(var/mob/M in T)
-						if(!istype(M,/mob) || istype(M, /mob/eye)) continue // If we need to check for more mobs, I'll add a variable
-						M.loc = X
+						
+						else if (isobj(thing))
+							var/obj/O = thing
+
+							// Reset the shuttle corners
+							if(O.tag == "delete me")
+								X.icon = 'icons/turf/shuttle.dmi'
+								X.icon_state = replacetext(O.icon_state, "_f", "_s") // revert the turf to the old icon_state
+								X.name = "wall"
+								qdel(O) // prevents multiple shuttle corners from stacking
+								continue
+								
+							O.loc = X
+							
+						else if (ismob(thing))
+							var/mob/M = thing
+							if (istype(M, /mob/eye))
+								continue
+
+							M.loc = X
 
 					toupdate += X
 

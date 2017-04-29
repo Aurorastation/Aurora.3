@@ -5,29 +5,14 @@
 	var/depth
 
 /atom/movable/openspace/overlay/New()
-	global.all_openspace_overlays += src
-
-/atom/movable/openspace/overlay/forceMove(atom/dest)
-	. = ..()
-	check_existence()
-
-/atom/movable/openspace/overlay/Move()
-	. = ..()
-	check_existence()
-
-/atom/movable/openspace/overlay/proc/check_existence()
-	if (!istype(loc, /turf/simulated/open))
-		qdel(src)
-		return FALSE
-	else
-		return TRUE
+	SSopenturf.openspace_overlays += src
 
 /atom/movable/openspace/overlay/Destroy()
+	SSopenturf.openspace_overlays -= src
+
 	if (associated_atom)
 		associated_atom.bound_overlay = null
 		associated_atom = null
-
-	global.all_openspace_overlays -= src
 
 	return ..()
 
@@ -39,3 +24,20 @@
 
 /atom/movable/openspace/overlay/attack_generic(mob/user as mob)
 	user << span("notice", "You cannot reach \the [src] from here.")
+
+/atom/movable/openspace/overlay/forceMove(atom/dest)
+	. = ..()
+	check_existence()
+
+/atom/movable/openspace/overlay/Move()
+	. = ..()
+	check_existence()
+
+// Checks if we've moved off of an openturf.
+// Returns TRUE if we're continuing to exist, FALSE if we're deleting ourselves.
+/atom/movable/openspace/overlay/proc/check_existence()
+	if (!istype(loc, /turf/simulated/open))
+		qdel(src)
+		return FALSE
+	else
+		return TRUE

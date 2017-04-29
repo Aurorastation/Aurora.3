@@ -38,7 +38,17 @@
 
 	return FALSE
 
+/turf/simulated/open/ChangeTurf(turf/N, tell_universe=1, force_lighting_update = 0)
+	QDEL_NULL(shadower)
+	for (var/atom/movable/openspace/overlay in src)
+		qdel(overlay)
+
+	SSopenturf.openspace_turfs -= src
+
+	return ..(N, tell_universe, force_lighting_update)
+
 /turf/simulated/open/Destroy()
+	SSopenturf.openspace_turfs -= src
 	SSopenturf.queued_turfs -= src
 	QDEL_NULL(shadower)
 	if (above)
@@ -60,6 +70,7 @@
 /turf/simulated/open/Initialize()
 	. = ..()
 	update()
+	SSopenturf.openspace_turfs += src
 
 /turf/simulated/open/proc/update()
 	set waitfor = FALSE
