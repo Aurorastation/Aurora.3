@@ -55,6 +55,7 @@ var/list/mob_hat_cache = list()
 	var/obj/item/hat
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
+	var/range_limit = 1
 
 	holder_type = /obj/item/weapon/holder/drone
 
@@ -100,6 +101,7 @@ var/list/mob_hat_cache = list()
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/weapon/holder/drone/heavy
+	range_limit = 0
 
 /mob/living/silicon/robot/drone/New()
 
@@ -265,7 +267,8 @@ var/list/mob_hat_cache = list()
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
 	var/turf/T = get_turf(src)
-	if((!T || health <= -maxHealth || (master_fabricator && T.z != master_fabricator.z)) && src.stat != DEAD)
+	var/area/A = get_area(T)
+	if((!T || health <= -maxHealth || (range_limit && !(A in the_station_areas))) && src.stat != DEAD)
 		timeofdeath = world.time
 		death() //Possibly redundant, having trouble making death() cooperate.
 		gib()
