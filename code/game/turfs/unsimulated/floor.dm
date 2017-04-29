@@ -30,7 +30,12 @@
 
 
 // It's a placeholder turf, don't do anything special.
+// These shouldn't exist by the time SSatoms runs.
+/turf/unsimulated/mask/New()
+	return
+
 /turf/unsimulated/mask/Initialize()
+	initialized = TRUE
 	return
 
 /turf/unsimulated/chasm_mask/New()

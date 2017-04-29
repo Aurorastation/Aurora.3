@@ -4,7 +4,9 @@
 #define LIGHTING_ROUND_VALUE    1 / 200 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
 
 #define LIGHTING_ICON 'icons/effects/lighting_overlay.dmi' // icon used for lighting shading effects
-#define LIGHTING_BASE_ICON_STATE "matrix"
+#define LIGHTING_BASE_ICON_STATE "matrix"	// icon_state used for normal color-matrix based lighting overlays.
+#define LIGHTING_STATION_ICON_STATE "tubedefault"	// icon_state used for lighting overlays that are just displaying standard station lighting.
+#define LIGHTING_DARKNESS_ICON_STATE "black"	// icon_state used for lighting overlays with no luminosity.
 
 #define LIGHTING_SOFT_THRESHOLD 0.001 // If the max of the lighting lumcounts of each spectrum drops below this, disable luminosity on the lighting overlays.
 
@@ -44,6 +46,12 @@
 #define CL_MATRIX_CG 18
 #define CL_MATRIX_CB 19
 #define CL_MATRIX_CA 20
+
+// This color of overlay is very common - most of the station is this color when lit fully.
+// Tube lights are a bluish-white, so we can't just assume 1-1-1 is full-illumination.
+#define LIGHTING_DEFAULT_TUBE_R 0.96
+#define LIGHTING_DEFAULT_TUBE_G 1
+#define LIGHTING_DEFAULT_TUBE_B 1
 
 //Some defines to generalise colours used in lighting.
 //Important note on colors. Colors can end up significantly different from the basic html picture, especially when saturated

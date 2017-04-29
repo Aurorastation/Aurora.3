@@ -43,8 +43,7 @@
 
 /turf/simulated/wall/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	//SSturf.remove_turf(src)
-	dismantle_wall(null,null,1)
+	dismantle_wall(null, null, TRUE, TRUE)
 	return ..()
 
 /turf/simulated/wall/process()
@@ -158,9 +157,10 @@
 
 	return ..()
 
-/turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product)
-
-	playsound(src, 'sound/items/Welder.ogg', 100, 1)
+/turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
+	if (!no_change)	// No change is TRUE when this is called by destroy.
+		playsound(src, 'sound/items/Welder.ogg', 100, 1)
+		
 	if(!no_product)
 		if(reinf_material)
 			reinf_material.place_dismantled_girder(src, reinf_material)
@@ -180,7 +180,8 @@
 	reinf_material = null
 	update_connections(1)
 
-	ChangeTurf(/turf/simulated/floor/plating)
+	if (!no_change)
+		ChangeTurf(/turf/simulated/floor/plating)
 
 /turf/simulated/wall/ex_act(severity)
 	switch(severity)

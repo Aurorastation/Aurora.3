@@ -1,11 +1,12 @@
 //Foxxy
 /mob/living/simple_animal/corgi/fox
 	name = "fox"
+	real_name = "fox"
 	desc = "It's a fox. I wonder what it says?"
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"
-	speak = list("Ack-Ack","Ack-Ack-Ack-Ackawoooo","Geckers","Awoo","Tchoff")
+	speak = list("Ack-Ack.", "Ack-Ack-Ack-Ackawoooo!", "Awoo!", "Tchoff.")
 	speak_emote = list("geckers", "barks")
 	emote_hear = list("howls","barks")
 	emote_see = list("shakes its head", "shivers")
@@ -18,8 +19,9 @@
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
 	mob_size = 4
+
 //Captain fox
 /mob/living/simple_animal/corgi/fox/Chauncey
 	name = "Chauncey"
+	real_name = "Chauncey"
 	desc = "Chauncey, the Captain's trustworthy fox. I wonder what it says?"
-

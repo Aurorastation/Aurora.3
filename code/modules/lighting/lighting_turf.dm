@@ -155,3 +155,31 @@
 			continue
 
 		corners[i] = new/datum/lighting_corner(src, LIGHTING_CORNER_DIAGONAL[i])
+
+/turf/ChangeTurf(turf/N, tell_universe = TRUE, force_lighting_update = FALSE)
+	if (!SSlighting)
+		return ..()
+
+	var/old_opacity = opacity
+	var/old_dynamic_lighting = dynamic_lighting
+	var/list/old_affecting_lights = affecting_lights
+	var/old_lighting_overlay = lighting_overlay
+	var/list/old_corners = corners
+
+	. = ..()
+
+	recalc_atom_opacity()
+	lighting_overlay = old_lighting_overlay
+	affecting_lights = old_affecting_lights
+	corners = old_corners
+	if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting))
+		reconsider_lights()
+
+	if (dynamic_lighting != old_dynamic_lighting)
+		if (dynamic_lighting)
+			lighting_build_overlay()
+		else
+			lighting_clear_overlay()
+
+	for (var/turf/space/S in RANGE_TURFS(1, src))
+		S.update_starlight()
