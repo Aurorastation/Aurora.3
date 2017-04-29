@@ -108,7 +108,7 @@
 	desc = "A specialty shoulder-mounted micro-explosive dispenser."
 
 	charges = list(
-		list("cleaning grenade",   "cleaning grenade",   /obj/item/weapon/grenade/chem_grenade/cleaner,  9),
+		list("cleaning grenade",   "cleaning grenade",   /obj/item/weapon/grenade/chem_grenade/cleaner,  9)
 		)
 
 /obj/item/rig_module/mounted
