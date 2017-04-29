@@ -76,8 +76,8 @@
 
 	if(all_unit_tests_passed)
 		log_unit_test("[ascii_green]**** All Unit Tests Passed \[[total_unit_tests]\] ****[ascii_reset]")
-		world.Del()
+		del world
 	else
 		log_unit_test("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed ****[ascii_reset]")
-		world.Del()
+		del world
 #endif

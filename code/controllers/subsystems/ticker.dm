@@ -127,10 +127,12 @@ var/datum/controller/subsystem/ticker/ticker
 		pregame()
 		lobby_ready = TRUE
 		return
-	if (current_state == GAME_STATE_PREGAME)
-		pregame_tick()
-	else if (current_state == GAME_STATE_PLAYING)
-		game_tick()
+		
+	switch (current_state)
+		if (GAME_STATE_PREGAME, GAME_STATE_SETTING_UP)
+			pregame_tick()
+		if (GAME_STATE_PLAYING)
+			game_tick()
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
 	if (round_progressing)
@@ -145,7 +147,7 @@ var/datum/controller/subsystem/ticker/ticker
 		send_tip_of_the_round()
 		tipped = TRUE
 	
-	if (pregame_timeleft <= 0)
+	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
 		wait = 2 SECONDS
 		if (!setup())
