@@ -5,7 +5,7 @@
 #define SS_INIT_ATOMS               3	// World initialization. Will trigger lighting updates.
 #define SS_INIT_CARGO               2	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PARALLAX            1	// Parallax image cache generation. Must run before ghosts are able to join, but after SSatoms.
-#define SS_INIT_TICKER              0	// Lobby timer starts here. Initialization *must* finish within 180 seconds of this step!
+#define SS_INIT_TICKER              0	// Ghosts can join here.
 #define SS_INIT_PIPENET            -1	// Initial pipenet build.
 #define SS_INIT_MACHINERY          -2	// Machinery prune and powernet build.
 #define SS_INIT_AIR                -3	// Air setup and pre-bake.
