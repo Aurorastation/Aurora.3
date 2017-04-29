@@ -214,10 +214,10 @@
 		. = "NO FIRE"
 	else if (can_fire && !suspended)
 		. = "[round(cost,1)]ms|[round(tick_usage,1)]%|[round(ticks,0.1)]"
-	else if (suspended)
-		. = "SUSPEND"
-	else
+	else if (!can_fire)
 		. = "OFFLINE"
+	else
+		. = "SUSPEND"
 
 /datum/controller/subsystem/proc/init_state_letter()
 	if (flags & SS_NO_INIT)

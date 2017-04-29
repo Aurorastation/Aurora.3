@@ -16,7 +16,7 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	var/explosion_in_progress
 	var/powernet_update_pending = 0
 
-	var/lighting_disabled = FALSE
+	var/mc_notified = FALSE
 
 /datum/controller/subsystem/explosives/New()
 	NEW_SS_GLOBAL(bomb_processor)
@@ -34,21 +34,21 @@ var/datum/controller/subsystem/explosives/bomb_processor
 		if (powernet_update_pending && ticks_without_work > 5)
 			makepowernets()
 			powernet_update_pending = 0
-			lighting_disabled = FALSE
 
 			// All explosions handled, powernet rebuilt.
 			// We can sleep now.
 			suspend()
 
-			SSlighting.explosion_end()
+			mc_notified = FALSE
+			Master.ExplosionEnd()
 		return
 
 	ticks_without_work = 0
 	powernet_update_pending = 1
 
-	if (!lighting_disabled)
-		SSlighting.explosion_start()
-		lighting_disabled = TRUE
+	if (!mc_notified)
+		Master.ExplosionStart()
+		mc_notified = TRUE
 
 	for (var/A in work_queue)
 		var/datum/explosiondata/data = A
