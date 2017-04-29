@@ -128,6 +128,8 @@
 	icontype = "Basic"
 	updatename(modtype)
 	updateicon()
+	if(mmi && mmi.brainobj)
+		mmi.brainobj.lobotomized = 1
 
 	radio = new /obj/item/device/radio/borg(src)
 	common_radio = radio
