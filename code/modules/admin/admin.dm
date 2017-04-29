@@ -761,7 +761,7 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Server"
 	set desc="Start the round RIGHT NOW"
 	set name="Start Now"
-	if(!ticker)
+	if(!ticker || Master.initializing)
 		alert("Unable to start the game as it is not set up.")
 		return
 	if(ticker.current_state == GAME_STATE_PREGAME)
