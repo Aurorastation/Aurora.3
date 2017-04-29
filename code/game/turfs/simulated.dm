@@ -161,3 +161,17 @@
 		this.blood_DNA["UNKNOWN BLOOD"] = "X*"
 	else if( istype(M, /mob/living/silicon/robot ))
 		new /obj/effect/decal/cleanable/blood/oil(src)
+
+/turf/simulated/Destroy()
+	//Yeah, we're just going to rebuild the whole thing.
+	//Despite this being called a bunch during explosions,
+	//the zone will only really do heavy lifting once.
+	if (zone)
+		zone.rebuild()
+
+	// Letting this timer continue to exist can cause runtimes, so we delete it.
+	if (unwet_timer)
+		// deltimer will no-op if the timer is already deleted, so we don't need to check the timer still exists.
+		deltimer(unwet_timer)
+
+	return ..()
