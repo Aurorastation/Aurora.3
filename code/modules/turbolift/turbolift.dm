@@ -15,7 +15,10 @@ var/global/list/turbolifts = list()
 	var/tmp/moving_upwards
 	var/tmp/busy
 
+	var/move_timer
+
 /datum/turbolift/proc/emergency_stop()
+	deltimer(move_timer)
 	queued_floors.Cut()
 	target_floor = null
 	open_doors()
@@ -29,12 +32,10 @@ var/global/list/turbolifts = list()
 /datum/turbolift/proc/open_doors(var/datum/turbolift_floor/use_floor = current_floor)
 	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("open")
-	return
 
 /datum/turbolift/proc/close_doors(var/datum/turbolift_floor/use_floor = current_floor)
 	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("close")
-	return
 
 /datum/turbolift/proc/do_move()
 
@@ -132,4 +133,4 @@ var/global/list/turbolifts = list()
 	busy = FALSE
 
 /datum/turbolift/proc/queue_movement()
-	addtimer(CALLBACK(src, .proc/handle_movement), move_delay)
+	move_timer = addtimer(CALLBACK(src, .proc/handle_movement), move_delay, TIMER_STOPPABLE)

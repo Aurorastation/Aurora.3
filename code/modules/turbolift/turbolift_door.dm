@@ -6,6 +6,7 @@
 	autoclose = 0
 	glass = 1
 	icon = 'icons/obj/doors/doorlift.dmi'
+	hashatch = 0
 
 	var/datum/turbolift/lift
 	var/datum/turbolift_floor/floor
