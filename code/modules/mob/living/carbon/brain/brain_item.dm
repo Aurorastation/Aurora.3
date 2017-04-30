@@ -97,11 +97,11 @@
 
 	if(owner)
 		owner << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
-		owner << "<b>Your brain has been surgically altered to prepare for insertion into an MMI. Your memories and your former life have been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
+		owner << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
 
 	else if(brainmob)
 		brainmob << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
-		brainmob << "<b>Your brain has been surgically altered to prepare for insertion into an MMI. Your memories and your former life have been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
+		brainmob << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
 
 	return
 
