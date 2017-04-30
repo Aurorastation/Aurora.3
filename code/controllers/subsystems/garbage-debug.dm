@@ -220,7 +220,6 @@
 	SearchVar(verbs)
 	SearchVar(adjectives)
 	SearchVar(init)
-	SearchVar(objects_init_list)
 	SearchVar(world_api_rate_limit)
 	SearchVar(inerror)
 	SearchVar(tachycardics)
