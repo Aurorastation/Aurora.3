@@ -17,6 +17,7 @@
 	//Also used on holdable mobs for the same info related to their held version
 
 	var/auto_init = 1
+	var/no_z_overlay = FALSE	// If true, open space tiles will not copy this atom.
 
 /atom/movable/New()
 	..()
@@ -67,6 +68,9 @@
 	return
 
 /atom/movable/proc/forceMove(atom/destination)
+	if (bound_overlay)
+		bound_overlay.forceMove(destination)
+		
 	if(destination)
 		if(loc)
 			loc.Exited(src)

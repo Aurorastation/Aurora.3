@@ -13,7 +13,8 @@ var/global/datum/arrival_shuttle_controller/arrival_shuttle
 			stop_launch_countdown()
 			shuttle.launch(src)
 	if(!wait_for_launch && shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
-		if(permitted_atoms_check(shuttle.get_location_area()))
+		var/located_mob = locate(/mob/living) in shuttle.get_location_area()
+		if (located_mob)
 			set_launch_countdown(30)
 
 //called when the shuttle has arrived.
@@ -30,15 +31,6 @@ var/global/datum/arrival_shuttle_controller/arrival_shuttle
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
 	if(istype(A,/obj/item/device/radio/beacon))
-		return 1
-
-	for(var/i=1, i<=A.contents.len, i++)
-		var/atom/B = A.contents[i]
-		if(.(B))
-			return 1
-
-/datum/arrival_shuttle_controller/proc/permitted_atoms_check(atom/A)
-	if(istype(A,/mob/living))
 		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)
