@@ -114,10 +114,10 @@ var/list/world_api_rate_limit = list()
 	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[auth] [log_end]"
 
-	if (!ticker) //If the game is not started most API Requests would not work because of the throtteling
+	/*if (!SSticker) //If the game is not started most API Requests would not work because of the throtteling
 		response["statuscode"] = 500
 		response["response"] = "Game not started yet!"
-		return json_encode(response)
+		return json_encode(response)*/
 
 	if (isnull(query))
 		log_debug("API - Bad Request - No query specified")
@@ -312,7 +312,7 @@ var/inerror = 0
 
 	var/list/features = list()
 
-	if(ticker)
+	if(Master.initializing)
 		if(master_mode)
 			features += master_mode
 	else

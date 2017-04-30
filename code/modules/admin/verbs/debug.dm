@@ -42,7 +42,7 @@
 	set category = "Fun"
 	set name = "Make Robot"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -57,7 +57,7 @@
 	set category = "Fun"
 	set name = "Make Simple Animal"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 
@@ -78,7 +78,7 @@
 	set category = "Fun"
 	set name = "Make Alien"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(ishuman(M))
@@ -95,7 +95,7 @@
 	set category = "Fun"
 	set name = "Make slime"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(ishuman(M))
@@ -111,7 +111,7 @@
 	set category = "Fun"
 	set name = "Make Monkey"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -126,7 +126,7 @@
 	set category = "Fun"
 	set name = "Make Changeling"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -146,7 +146,7 @@
 
 	usr << "Ruby Mode disabled. Command aborted."
 	return
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts.")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -164,7 +164,7 @@
 	if(!cultwords["travel"])
 		runerandom()
 	if(M)
-		if(M.mind in ticker.mode.cult)
+		if(M.mind in SSticker.mode.cult)
 			return
 		else
 			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
@@ -193,7 +193,7 @@
 
 			if(M.mind)
 				M.mind.special_role = "Cultist"
-				ticker.mode.cult += M.mind
+				SSticker.mode.cult += M.mind
 			src << "Made [M] a cultist."
 */
 
@@ -234,7 +234,7 @@
 	set category = "Admin"
 	set name = "Grant Full Access"
 
-	if (!ticker)
+	if (!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if (istype(M, /mob/living/carbon/human))
@@ -956,7 +956,7 @@
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon))

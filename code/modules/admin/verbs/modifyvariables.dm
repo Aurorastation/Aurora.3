@@ -18,16 +18,6 @@ var/list/VVckey_edit = list("key", "ckey")
 	feedback_add_details("admin_verb","EDITV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 */
 
-/client/proc/cmd_modify_ticker_variables()
-	set category = "Debug"
-	set name = "Edit Ticker Variables"
-
-	if (ticker == null)
-		src << "Game hasn't started yet."
-	else
-		src.modify_variables(ticker)
-		feedback_add_details("admin_verb","ETV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 /client/proc/mod_list_add_ass() //haha
 
 	var/class = "text"

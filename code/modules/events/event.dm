@@ -29,7 +29,7 @@
 	if(!enabled)
 		return 0
 
-	if(excluded_gamemodes.len && (ticker.mode in excluded_gamemodes))
+	if(excluded_gamemodes.len && (SSticker.mode in excluded_gamemodes))
 		// There's no way it'll be run this round anyways.
 		enabled = 0
 		return 0

@@ -127,12 +127,12 @@
 	addtimer(CALLBACK(src, .proc/close_hatch), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /obj/machinery/door/proc/can_open()
-	if(!density || operating || !ticker)
+	if(!density || operating || !ROUND_IS_STARTED)
 		return 0
 	return 1
 
 /obj/machinery/door/proc/can_close()
-	if(density || operating || !ticker)
+	if(density || operating || !ROUND_IS_STARTED)
 		return 0
 	return 1
 

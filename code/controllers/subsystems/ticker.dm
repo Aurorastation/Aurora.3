@@ -1,15 +1,16 @@
+#define LOBBY_TIME 180
+
 var/datum/controller/subsystem/ticker/SSticker
-var/datum/controller/subsystem/ticker/ticker
 
 /datum/controller/subsystem/ticker
 	// -- Subsystem stuff --
 	name = "Game Ticker"
 
 	priority = SS_PRIORITY_TICKER
-	flags = SS_NO_TICK_CHECK
+	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
 	init_order = SS_INIT_TICKER
 
-	wait = 2 SECONDS
+	wait = 1 SECOND
 
 	// -- Gameticker --
 	var/const/restart_timeout = 600
@@ -50,17 +51,39 @@ var/datum/controller/subsystem/ticker/ticker
 	//Now we have a general cinematic centrally held within the gameticker....far more efficient!
 	var/obj/screen/cinematic = null
 
+	var/list/possible_lobby_tracks = list(
+		'sound/music/space.ogg',
+		'sound/music/traitor.ogg',
+		'sound/music/title2.ogg',
+		'sound/music/clouds.s3m',
+		'sound/music/space_oddity.ogg'
+	)
+
+	var/lobby_ready = FALSE
+	var/is_revote = FALSE
+
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(SSticker)
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
-	global.ticker = SSticker	// Yes.
-	SSticker.pregame()
+	//global.ticker = SSticker	// Yes.
+
+/datum/controller/subsystem/ticker/stat_entry()
+	var/state = ""
+	switch (current_state)
+		if (GAME_STATE_PREGAME)
+			state = "PRE"
+		if (GAME_STATE_SETTING_UP)
+			state = "SETUP"
+		if (GAME_STATE_PLAYING)
+			state = "PLAY"
+		if (GAME_STATE_FINISHED)
+			state = "FIN"
+		else
+			state = "UNK"
+	..("State: [state]")
 
 /datum/controller/subsystem/ticker/Recover()
-	// Reset the ticker global ourselves since NEW_SS_GLOBAL is bound to SSticker.
-	global.ticker = src
-
 	// Copy stuff over so we don't lose any state.
 	current_state = SSticker.current_state
 	
@@ -96,7 +119,41 @@ var/datum/controller/subsystem/ticker/ticker
 
 	cinematic = SSticker.cinematic
 
-/datum/controller/subsystem/ticker/fire(resumed = FALSE)
+/datum/controller/subsystem/ticker/fire()
+	if (!lobby_ready)
+		pregame()
+		lobby_ready = TRUE
+		return
+		
+	switch (current_state)
+		if (GAME_STATE_PREGAME, GAME_STATE_SETTING_UP)
+			pregame_tick()
+		if (GAME_STATE_PLAYING)
+			game_tick()
+
+/datum/controller/subsystem/ticker/proc/pregame_tick()
+	if (round_progressing)
+		pregame_timeleft--
+	
+	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
+		if (!vote.time_remaining)
+			vote.autogamemode()
+			return
+
+	if (pregame_timeleft <= 10 && !tipped)
+		send_tip_of_the_round()
+		tipped = TRUE
+	
+	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
+		current_state = GAME_STATE_SETTING_UP
+		wait = 2 SECONDS
+		if (!setup())
+			// Something fucked up.
+			wait = 1 SECOND
+			is_revote = TRUE
+			pregame()
+
+/datum/controller/subsystem/ticker/proc/game_tick()
 	if(current_state != GAME_STATE_PLAYING)
 		return 0
 
@@ -252,43 +309,26 @@ var/datum/controller/subsystem/ticker/ticker
 		world << "<font color='purple'><b>Tip of the round: \
 			</b>[html_encode(m)]</font>"
 
-// This process ticks before the MC starts so we don't need
-// 	to wait for init to finish to handle lobby stuff.
 /datum/controller/subsystem/ticker/proc/pregame()
-	set waitfor = FALSE
+	if (!login_music)
+		login_music = pick(possible_lobby_tracks)
 
-	login_music = pick(\
-	/*'sound/music/halloween/skeletons.ogg',\
-	'sound/music/halloween/halloween.ogg',\
-	'sound/music/halloween/ghosts.ogg'*/
-	'sound/music/space.ogg',\
-	'sound/music/traitor.ogg',\
-	'sound/music/title2.ogg',\
-	'sound/music/clouds.s3m',\
-	'sound/music/space_oddity.ogg') //Ground Control to Major Tom, this song is cool, what's going on?
-	do
-		pregame_timeleft = 180
-		world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
-		world << "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds"
-		while(current_state == GAME_STATE_PREGAME)
-			for(var/i=0, i<10, i++)
-				sleep(1)
-				vote.process()
-			if(round_progressing)
-				pregame_timeleft--
-			if(pregame_timeleft == config.vote_autogamemode_timeleft)
-				if(!vote.time_remaining)
-					vote.autogamemode()	//Quit calling this over and over and over and over.
-					while(vote.time_remaining)
-						for(var/i=0, i<10, i++)
-							sleep(1)
-							vote.process()
-			if(pregame_timeleft <= 10 && !tipped)
-				send_tip_of_the_round()
-				tipped = 1
-			if(pregame_timeleft <= 0)
-				current_state = GAME_STATE_SETTING_UP
-	while (!setup())
+	if (is_revote)
+		pregame_timeleft = LOBBY_TIME
+		log_debug("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
+	else
+		var/mc_init_time = Master.initialization_time_taken
+		var/dynamic_time = LOBBY_TIME - mc_init_time
+
+		if (dynamic_time < config.vote_autogamemode_timeleft)
+			pregame_timeleft = config.vote_autogamemode_timeleft + 10
+			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was less than configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
+		else
+			pregame_timeleft = dynamic_time
+			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
+
+	world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
+	world << "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds."
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
@@ -468,9 +508,9 @@ var/datum/controller/subsystem/ticker/ticker
 	sleep(300)
 
 	if(cinematic)	
-		qdel(cinematic)		//end the cinematic
+		QDEL_NULL(cinematic)		//end the cinematic
 	if(temp_buckle)	
-		qdel(temp_buckle)	//release everybody
+		QDEL_NULL(temp_buckle)	//release everybody
 	
 // Round setup stuff.
 
@@ -490,7 +530,7 @@ var/datum/controller/subsystem/ticker/ticker
 /datum/controller/subsystem/ticker/proc/collect_minds()
 	for(var/mob/living/player in player_list)
 		if(player.mind)
-			ticker.minds += player.mind
+			minds += player.mind
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
 	var/captainless = TRUE
@@ -508,3 +548,5 @@ var/datum/controller/subsystem/ticker/ticker
 		for(var/mob/M in player_list)
 			if(!istype(M,/mob/new_player))
 				M << "Captainship not forced on anyone."
+
+#undef LOBBY_TIME

@@ -39,6 +39,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 	var/make_runtime = 0
 
+	var/initialization_time_taken
 	var/initializations_finished_with_no_players_logged_in	//I wonder what this could be?
 	// Has round started? (So we know what subsystems to run)
 	var/round_started = 0
@@ -164,6 +165,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 	initializing = FALSE
+	initialization_time_taken = time
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 	log_mc(msg)

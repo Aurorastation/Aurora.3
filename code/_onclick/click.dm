@@ -176,8 +176,7 @@
 	return
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
-
-	if(!ticker)
+	if(!Master.round_started)
 		src << "You cannot attack people before the game has started."
 		return 0
 
