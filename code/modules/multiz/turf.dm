@@ -46,7 +46,7 @@
 	for (var/atom/movable/openspace/overlay in src)
 		qdel(overlay)
 
-	if (above)
+	if (istype(above))
 		above.update()
 		above = null
 		
