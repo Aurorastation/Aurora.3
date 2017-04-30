@@ -320,6 +320,9 @@ var/global/datum/controller/occupations/job_master
 
 			var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 			var/list/custom_equip_leftovers = list()
+			//Equip job items.
+			job.equip(H)
+			job.apply_fingerprints(H)
 			if(!megavend)//Equip custom gear loadout.
 				job.equip_backpack(H)
 				job.equip_survival(H)
@@ -357,9 +360,6 @@ var/global/datum/controller/occupations/job_master
 									custom_equip_leftovers.Add(thing)
 							else
 								spawn_in_storage += thing
-			//Equip job items.
-			job.equip(H)
-			job.apply_fingerprints(H)
 
 			// Randomize nutrition. (Between 50-100% of max.)
 			H.nutrition = (rand(50, 100) * 0.01) * H.max_nutrition
@@ -533,8 +533,8 @@ var/global/datum/controller/occupations/job_master
 						else
 							spawn_in_storage += thing
 			//Equip job items.
-			job.equip_backpack(H)
 			job.late_equip(H)
+			job.equip_backpack(H)
 			job.equip_survival(H)
 			job.setup_account(H)
 			job.apply_fingerprints(H)

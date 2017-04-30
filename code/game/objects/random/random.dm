@@ -119,8 +119,8 @@
 	icon_state = "cell"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/random/powercell = 3, 
-		/obj/random/technology_scanner = 2, 
+		/obj/random/powercell = 3,
+		/obj/random/technology_scanner = 2,
 		/obj/item/weapon/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/weapon/extinguisher = 1,
@@ -393,7 +393,7 @@
 		/obj/item/clothing/suit/space/void/medical = 2.3,
 		/obj/item/clothing/suit/space/void/security = 1,
 		/obj/item/clothing/suit/space/void/atmos = 1.5,
-		/obj/item/clothing/suit/space/void/merc = 0.5, 
+		/obj/item/clothing/suit/space/void/merc = 0.5,
 		/obj/item/clothing/suit/space/void/captain = 0.3
 	)
 	has_postspawn = TRUE
@@ -457,7 +457,7 @@
 			V.products[content] *= multiplier
 			if (V.products[content] < 1 && V.products[content] > 0)	//But we'll usually have at least 1 left
 				V.products[content] = 0
-			
+
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
 
