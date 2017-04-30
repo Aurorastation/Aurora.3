@@ -61,6 +61,7 @@ var/datum/controller/subsystem/ticker/ticker
 	)
 
 	var/lobby_ready = FALSE
+	var/is_revote = FALSE
 
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(SSticker)
@@ -153,6 +154,7 @@ var/datum/controller/subsystem/ticker/ticker
 		if (!setup())
 			// Something fucked up.
 			wait = 1 SECOND
+			is_revote = TRUE
 			pregame()
 
 /datum/controller/subsystem/ticker/proc/game_tick()
@@ -311,12 +313,24 @@ var/datum/controller/subsystem/ticker/ticker
 		world << "<font color='purple'><b>Tip of the round: \
 			</b>[html_encode(m)]</font>"
 
-// This process ticks before the MC starts so we don't need
-// 	to wait for init to finish to handle lobby stuff.
 /datum/controller/subsystem/ticker/proc/pregame()
-	login_music = pick(possible_lobby_tracks)
+	if (!login_music)
+		login_music = pick(possible_lobby_tracks)
 
-	pregame_timeleft = LOBBY_TIME
+	if (is_revote)
+		pregame_timeleft = LOBBY_TIME
+		log_debug("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
+	else
+		var/mc_init_time = Master.initialization_time_taken
+		var/dynamic_time = LOBBY_TIME - mc_init_time
+
+		if (dynamic_time < config.vote_autogamemode_timeleft)
+			pregame_timeleft = config.vote_autogamemode_timeleft + 10
+			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was less than configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
+		else
+			pregame_timeleft = dynamic_time
+			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
+
 	world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
 	world << "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds."
 
@@ -498,9 +512,9 @@ var/datum/controller/subsystem/ticker/ticker
 	sleep(300)
 
 	if(cinematic)	
-		qdel(cinematic)		//end the cinematic
+		QDEL_NULL(cinematic)		//end the cinematic
 	if(temp_buckle)	
-		qdel(temp_buckle)	//release everybody
+		QDEL_NULL(temp_buckle)	//release everybody
 	
 // Round setup stuff.
 

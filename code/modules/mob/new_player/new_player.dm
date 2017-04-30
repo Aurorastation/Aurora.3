@@ -71,24 +71,28 @@
 	Stat()
 		..()
 
-		if(statpanel("Lobby") && ticker)
+		if(statpanel("Lobby"))
 			stat("Game ID:", game_id)
 
-			if(ticker.hide_mode)
+			if(SSticker.hide_mode)
 				stat("Game Mode:", "Secret")
 			else
-				if(ticker.hide_mode == 0)
+				if(SSticker.hide_mode == 0)
 					stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
 
-			if(ticker.current_state == GAME_STATE_PREGAME)
-				stat("Time To Start:", "[ticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+			if(SSticker.current_state == GAME_STATE_PREGAME)
+				if (SSticker.lobby_ready)
+					stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+				else
+					stat("Time To Start:", "Waiting for Server")
 				stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
 				totalPlayers = 0
 				totalPlayersReady = 0
 				for(var/mob/new_player/player in player_list)
 					stat("[player.key]", (player.ready)?("(Playing)"):(null))
 					totalPlayers++
-					if(player.ready)totalPlayersReady++
+					if(player.ready)
+						totalPlayersReady++
 
 	Topic(href, href_list[])
 		if(!client)	return 0
