@@ -1643,8 +1643,7 @@ var/list/global/random_stock_large = list(
 			/obj/structure/largecrate/animal/cat,
 			/obj/structure/largecrate/animal/goat,
 			/obj/structure/largecrate/animal/cow,
-			/obj/structure/largecrate/animal/corgi
-			)
+			/obj/structure/largecrate/animal/corgi)
 			var/type = pick(animals)
 			new type(L)
 
