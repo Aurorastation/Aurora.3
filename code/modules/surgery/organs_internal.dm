@@ -342,7 +342,7 @@
 		"<span class='warning'>Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>")
 		affected.createwound(BRUISE, 20)
 
-/datum/surgery_step/internal/mmiprep
+/datum/surgery_step/internal/lobotomize
 	allowed_tools = list(
 	/obj/item/weapon/scalpel/manager = 95,
 	/obj/item/weapon/surgicaldrill = 75,
