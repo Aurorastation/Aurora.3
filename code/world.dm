@@ -12,9 +12,6 @@
 */
 var/global/datum/global_init/init = new ()
 
-// The list of objects that will need to be initialized in ticker creation.
-var/global/list/objects_init_list = list()
-
 /*
 	Pre-map initialization stuff should go here.
 */
