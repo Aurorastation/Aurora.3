@@ -80,7 +80,7 @@
 "bB" = (/obj/structure/table/rack/holorack,/obj/item/clothing/under/dress/dress_saloon,/obj/item/clothing/head/hairflower,/turf/simulated/floor/holofloor/tiled/dark,/area/space)
 "bC" = (/obj/effect/landmark/costume,/obj/structure/table/rack/holorack,/turf/simulated/floor/holofloor/tiled/dark,/area/space)
 "bD" = (/turf/simulated/floor/holofloor/tiled,/area/space)
-"bE" = (/obj/structure/window/reinforced/holowindow{dir = 4},/obj/structure/flora/pottedplant{tag = "icon-plant-10";icon_state = "plant-10"},/turf/simulated/floor/holofloor/tiled,/area/space)
+"bE" = (/obj/structure/window/reinforced/holowindow{dir = 4},/obj/structure/flora/pottedplant/random,/turf/simulated/floor/holofloor/tiled,/area/space)
 "bF" = (/obj/structure/table/woodentable/holotable,/turf/simulated/floor/holofloor/wood,/area/space)
 "bG" = (/turf/simulated/floor/holofloor/reinforced,/area/space)
 "bH" = (/turf/simulated/floor/holofloor/tiled/dark,/area/space)
@@ -204,7 +204,7 @@
 "dV" = (/turf/space/transit/east/shuttlespace_ew1,/area/shuttle/arrival/transit)
 "dW" = (/turf/space/transit/east/shuttlespace_ew2,/area/shuttle/arrival/transit)
 "dX" = (/turf/space/transit/east/shuttlespace_ew3,/area/shuttle/arrival/transit)
-"dY" = (/obj/structure/flora/pottedplant{tag = "icon-plant-06";icon_state = "plant-06"},/turf/simulated/floor/holofloor/tiled,/area/space)
+"dY" = (/obj/structure/flora/pottedplant/random,/turf/simulated/floor/holofloor/tiled,/area/space)
 "dZ" = (/obj/effect/floor_decal/carpet{tag = "icon-carpet_edges (SOUTHWEST)";icon_state = "carpet_edges";dir = 10},/obj/effect/floor_decal/carpet{tag = "icon-carpet_edges (SOUTHEAST)";icon_state = "carpet_edges";dir = 6},/obj/effect/floor_decal/carpet{tag = "icon-carpet_edges (NORTHWEST)";icon_state = "carpet_edges";dir = 9},/obj/effect/floor_decal/carpet{tag = "icon-carpet_edges (NORTHEAST)";icon_state = "carpet_edges";dir = 5},/turf/simulated/floor/holofloor/carpet,/area/space)
 "ea" = (/obj/structure/bed/chair/holochair{dir = 1},/obj/effect/floor_decal/carpet{tag = "icon-carpet_edges (WEST)";icon_state = "carpet_edges";dir = 8},/obj/effect/floor_decal/carpet,/obj/effect/floor_decal/carpet{tag = "icon-carpet_edges (SOUTHWEST)";icon_state = "carpet_edges";dir = 10},/turf/simulated/floor/holofloor/carpet,/area/space)
 "eb" = (/obj/structure/bed/chair/holochair{dir = 1},/obj/effect/floor_decal/carpet,/turf/simulated/floor/holofloor/carpet,/area/space)
@@ -223,7 +223,7 @@
 "eo" = (/turf/space/transit/east/shuttlespace_ew5,/area/shuttle/arrival/transit)
 "ep" = (/turf/simulated/floor/holofloor/space,/area/space)
 "eq" = (/turf/simulated/floor/holofloor/snow,/area/space)
-"er" = (/obj/structure/flora/pottedplant{tag = "icon-plant-06";icon_state = "plant-06"},/turf/simulated/floor/holofloor/wood,/area/space)
+"er" = (/obj/structure/flora/pottedplant/random,/turf/simulated/floor/holofloor/wood,/area/space)
 "es" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (NORTHEAST)";icon_state = "corner_white";dir = 5},/turf/simulated/floor/holofloor/tiled,/area/space)
 "et" = (/obj/effect/floor_decal/corner/red/full{tag = "icon-corner_white_full (WEST)";icon_state = "corner_white_full";dir = 8},/turf/simulated/floor/holofloor/tiled,/area/space)
 "eu" = (/obj/structure/holohoop,/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (NORTHEAST)";icon_state = "corner_white";dir = 5},/turf/simulated/floor/holofloor/tiled,/area/space)
@@ -1888,7 +1888,7 @@
 "Kp" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/shuttle/floor{icon_state = "floor4"},/area/skipjack_station/start)
 "Kq" = (/obj/machinery/button/remote/blast_door{id = "skipjackshutters";name = "remote shutter control";req_access = list(150)},/turf/simulated/wall/voxshuttle,/area/skipjack_station/start)
 "Kr" = (/obj/machinery/airlock_sensor{frequency = 1331;id_tag = "vox_east_sensor";pixel_x = -25},/turf/simulated/shuttle/plating,/area/skipjack_station/start)
-"Ks" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{frequency = 1331;id_tag = "vox_east_vent"},/turf/simulated/shuttle/plating,/area/skipjack_station/start)
+"Ks" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 0;frequency = 1331;id_tag = "vox_east_vent"},/turf/simulated/shuttle/plating,/area/skipjack_station/start)
 "Kt" = (/obj/structure/window/reinforced/holowindow/disappearing{dir = 1},/turf/unsimulated/floor{icon_state = "green";dir = 8},/area/centcom/holding)
 "Ku" = (/obj/structure/window/reinforced/holowindow/disappearing{dir = 1},/turf/unsimulated/floor{icon_state = "floor"},/area/centcom/holding)
 "Kv" = (/obj/structure/window/reinforced/holowindow/disappearing{dir = 1},/turf/unsimulated/floor{icon_state = "green";dir = 4},/area/centcom/holding)
@@ -2256,6 +2256,8 @@
 "Rt" = (/obj/structure/table/standard,/obj/item/weapon/storage/toolbox/electrical,/turf/unsimulated/floor{icon_state = "redyellowfull";dir = 5},/area/tdome/tdomeadmin)
 "Ru" = (/obj/structure/table/standard,/turf/unsimulated/floor{icon_state = "redyellowfull";dir = 5},/area/tdome/tdomeadmin)
 "Rv" = (/obj/structure/table/standard,/obj/item/weapon/storage/toolbox/mechanical,/turf/unsimulated/floor{icon_state = "redyellowfull";dir = 5},/area/tdome/tdomeadmin)
+"Rw" = (/obj/machinery/light{dir = 8;icon_state = "tube1";pixel_y = 0},/obj/structure/sign/double/map/left{pixel_y = 32},/turf/simulated/shuttle/floor,/area/shuttle/arrival/centcom)
+"Rx" = (/obj/structure/sign/double/map/right{pixel_y = 32},/turf/simulated/shuttle/floor,/area/shuttle/arrival/centcom)
 
 (1,1,1) = {"
 aaacabaeadagafahaaajaialakanamaoafagaiabaeahaladanajaoakahaiapaqarasatauavawaxazayaBaAaDaCaFaEaHaGaJaIaLaKaxazayaBaAaDaCaFaEaHaMaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaOaOaOaOaOaOaOaOaOaOaOaOaOaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaPaQaRaRaRaRaRaRaRaRaRaRaQaRaRaRaRaRaRaRaRaRaRaQaRaRaRaRaRaRaRaRaRaRaQaRaRaRaRaRaRaRaRaRaRaQaRaRaRaRaRaRaRaRaRaRaQaRaRaRaRaRaRaRaRaRaRaQaRaRaRaRaRaRaRaRaRaRaQ
@@ -2459,7 +2461,7 @@ aNhvaQjVDEDEFTFVFUFWCUCUDjDiDiDiFCFYFXFCDiDiFZCUEiEiEiEiGaECECECEiEiEgCUjVjVjVjV
 aNhvaQjVDEGiFVFVFVFVFVGjDiDjDjDjFCGlGkFCDiGnGmCUEiEiEiEiCUEgECEiECGoEiCUjVjVjVjVaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGFoGpGpGpGpGpGpGpGpGpGpGpFpFkFoGpGpGpGpFpyGzdyEyEyEzeyGaQyGGqDNDNDNDNGrDNDNDNDNDNFIzuFsFtFuEZyGyGyGyGyGyGyGyGyGyGyGyGyGyGyGyGyGyGyGEZEZEZEZaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN
 aNhvaQjVDEGsFVFVFVGtFVGjDiCUCUCUCUCUCUCUCUCUCUCUCUCUFFCUCUCUCUGaCUCUCUCUCUjVjVaNaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGGvGuGwGvGyGxzuGzGBGAGDGCGAyGyGyGyGyGyGyGyGAHyEyEyEGEyGaNyGGFGGGHGJGIyGDNDNDNDNDNGKzuFsFtFuEZGMGLGLGLGNEZGOGPGPGPGPGPGPGPGPGPGPGPGPGPGPGQEZaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN
 aNhvaQjVDEGRFVGSFVFVGTDECUCUjVjVCUEiEiEiEiEiEiCUGUGUGUGUGVCUEiEiEiEiEiEiCUjVaNaNaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGGWDNGXGWDNGYzuGZDNHaHbDNHayGaNyGHcyGHeHdyGAHyEyEyEHfyGaNyGHgHiHhHkHjyGHlHnHmHpHoHqyGFsFtFuEZHsHrHuHtHvEZGPHwHyHxHxHxHzHAHBHxHxHxHCGPGPGPHDaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN
-aNhvaQjVDEDEHEFVFVFVHFDEjVjVjVjVCUEiEiEiEiEiEiCUGUGUGUGUGUCUEiEiEiEiEiEiCUjVaNaNaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGGWDNGXGWDNGYzuGZDNHaHbDNHayGaNyGCVCVCVCVHGzdyEBcyEBdyGaNyGyGyGyGyGyGyGyGyGyGyGyGyGyGFsFtHHHIHKHJHMHLHvEZGPHNHPHOHQHRHSHTHSHUHQHVHWHxHXGPHDaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN
+aNhvaQjVDEDEHEFVFVFVHFDEjVjVjVjVCUEiEiEiEiEiEiCUGUGUGUGUGUCUEiEiEiEiEiEiCUjVaNaNaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGGWDNGXGWDNGYzuGZDNHaHbDNHayGaNyGCVCVCVCVHGzdyEBcyEBdyGaNyGyGyGyGyGyGyGyGyGyGyGyGyGyGFsFtHHHIHKHJHMHLHvEZGPHNHPRwRxHRHSHTHSHUHQHVHWHxHXGPHDaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN
 aNhvaQjVjVDEDEHEFVFVHFDEjVaNaNjVCUEiEiEiEiEiEiFFGUGUHYGUGUFFEiEiEiEiEiEiCUjVaNaNaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGIaHZIbIaHZIczuIdIfIeIgIfIeyGaNyGIhyGCVCVyGIiyEyEyEBdyGaNaNaNaNaNaNaNaNaNaNaNaNaNaNEZFsFtFuEZHsIjIlIkHvEZGPImInHQIoIpHQIoIpHQIoHQIqHQIrGPHDaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN
 aNhvaQjVjVjVDEDEIsItDEDEjVjXaNifCUEiEiCUIuIvIwCUGUGUIxGUGUCUIuIvIwCUEiEiCUifaNaNaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGyGyGyGyGyGyGyGyGyGyGyGyGyGyGaNyGIyyGIAIzyGIBDbyEICIDyGaNaNaNaNaNaNaNaNaNaNaNaNaNaNEZFsFtFuEZIFIEIEIEIGEZGOImInHQIoIpHQIoIpIHIoHQHQHQIIGPHDaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN
 aNhvaQjVjVjVjVDEDEDEDEjVifjXaNifCUEiEiCUifififCUCUIuIvIwCUCUifififCUEiEiCUifaNaNaNhvaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNyGyGyGyGyGyGyGyGyGyGyGyGzdyEzeyGyGyGyGyGyGyGyGyGyGyGyGaNaNaNaNEZFsFtIJEZEZEZEZEZEZEZGPImInHQIoIpHQIoIpHQIoHQIqIKILGPHDaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaN

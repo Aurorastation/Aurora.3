@@ -34,7 +34,9 @@
 	M.real_name = src.name
 	M.death(1) //Kills the new mob
 	if(src.corpseuniform)
-		M.equip_to_slot_or_del(new src.corpseuniform(M), slot_w_uniform)
+		var/obj/item/clothing/under/cuniform = new corpseuniform(M)
+		cuniform.sensor_mode = 0
+		M.equip_to_slot_or_del(cuniform, slot_w_uniform)
 	if(src.corpsesuit)
 		M.equip_to_slot_or_del(new src.corpsesuit(M), slot_wear_suit)
 	if(src.corpseshoes)

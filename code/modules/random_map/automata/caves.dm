@@ -102,7 +102,7 @@
 
 /datum/random_map/automata/cave_system/high_yield
     descriptor = "high yield caves"
-    wall_type = /turf/simulated/mineral/random/low_chance
+    wall_type = /turf/simulated/mineral
     mineral_sparse =  /turf/simulated/mineral/random/high_chance
     mineral_rich = /turf/simulated/mineral/random/higher_chance
 
