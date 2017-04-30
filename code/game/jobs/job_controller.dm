@@ -321,6 +321,9 @@ var/global/datum/controller/occupations/job_master
 			var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 			var/list/custom_equip_leftovers = list()
 			if(!megavend)//Equip custom gear loadout.
+				job.equip_backpack(H)
+				job.equip_survival(H)
+				job.setup_account(H)
 				if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
 
 					for(var/thing in H.client.prefs.gear)
@@ -356,9 +359,6 @@ var/global/datum/controller/occupations/job_master
 								spawn_in_storage += thing
 			//Equip job items.
 			job.equip(H)
-			job.setup_account(H)
-			job.equip_backpack(H)
-			job.equip_survival(H)
 			job.apply_fingerprints(H)
 
 			//If some custom items could not be equipped before, try again now.
@@ -530,7 +530,10 @@ var/global/datum/controller/occupations/job_master
 						else
 							spawn_in_storage += thing
 			//Equip job items.
+			job.equip_backpack(H)
 			job.late_equip(H)
+			job.equip_survival(H)
+			job.setup_account(H)
 			job.apply_fingerprints(H)
 
 			//If some custom items could not be equipped before, try again now.

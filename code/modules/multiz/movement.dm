@@ -186,5 +186,5 @@
 	apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
 	apply_damage(rand(0, damage), BRUTE, "l_arm")
 	apply_damage(rand(0, damage), BRUTE, "r_arm")
-	weakened = max(weakened,2)
+	Weaken(2)
 	updatehealth()
