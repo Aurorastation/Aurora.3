@@ -8,7 +8,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	priority = SS_PRIORITY_TICKER
 	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
-	init_order = SS_INIT_TICKER
+	init_order = SS_INIT_LOBBY
 
 	wait = 1 SECOND
 
@@ -66,7 +66,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	NEW_SS_GLOBAL(SSticker)
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
-	//global.ticker = SSticker	// Yes.
+	pregame()
 
 /datum/controller/subsystem/ticker/stat_entry()
 	var/state = ""
@@ -121,7 +121,6 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/fire()
 	if (!lobby_ready)
-		pregame()
 		lobby_ready = TRUE
 		return
 		
@@ -310,6 +309,8 @@ var/datum/controller/subsystem/ticker/SSticker
 			</b>[html_encode(m)]</font>"
 
 /datum/controller/subsystem/ticker/proc/pregame()
+	set waitfor = FALSE
+	sleep(1)
 	if (!login_music)
 		login_music = pick(possible_lobby_tracks)
 
@@ -317,7 +318,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		pregame_timeleft = LOBBY_TIME
 		log_debug("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
 	else
-		var/mc_init_time = Master.initialization_time_taken
+		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
 
 		if (dynamic_time < config.vote_autogamemode_timeleft)
