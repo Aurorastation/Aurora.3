@@ -898,13 +898,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 						X.icon_state = nextturf.icon_state
 
 					for (var/thing in T)
-						if (istype(thing, /atom/movable/lighting_overlay))
-							qdel(thing)
-
-						else if (istype(thing, /atom/movable/openspace))	// No idea why the fuck these'd get moved, but better safe.
-							continue
-						
-						else if (isobj(thing))
+						if (isobj(thing))
 							var/obj/O = thing
 
 							// Reset the shuttle corners

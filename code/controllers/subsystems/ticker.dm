@@ -138,7 +138,7 @@ var/datum/controller/subsystem/ticker/ticker
 	if (round_progressing)
 		pregame_timeleft--
 	
-	if (pregame_timeleft == config.vote_autogamemode_timeleft)
+	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
 		if (!vote.time_remaining)
 			vote.autogamemode()
 			return

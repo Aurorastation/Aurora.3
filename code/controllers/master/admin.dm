@@ -69,12 +69,15 @@
 var/list/panic_targets = list(
 	"Garbage" = /datum/controller/subsystem/garbage_collector,
 	"Air" = /datum/controller/subsystem/air,
-	"Explosives" = /datum/controller/subsystem/explosives
+	"Explosives" = /datum/controller/subsystem/explosives,
+	"Game Ticker" = /datum/controller/subsystem/ticker
 )
 
 // Subsystems that might do funny things or lose data if hard-restarted.
 // Makes subsystem require an additional confirmation to restart.
-var/list/panic_targets_data_loss = list()
+var/list/panic_targets_data_loss = list(
+	"Game Ticker" = TRUE
+)
 
 /client/proc/cmd_ss_panic(controller in panic_targets)
 	set category = "Server"
