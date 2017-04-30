@@ -31,7 +31,7 @@
 	..()
 
 /mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].")
+	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].",0)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()

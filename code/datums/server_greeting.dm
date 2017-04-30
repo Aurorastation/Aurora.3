@@ -173,7 +173,24 @@
 	if (!user)
 		return
 
+	user.info_sent = 0
+
 	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
+
+/*
+ * A proc used to close the server greeting window for a user.
+ * Args:
+ * - var/user client
+ * - var/reason text
+ */
+/datum/server_greeting/proc/close_window(var/client/user, var/reason)
+	if (!user)
+		return
+
+	if (reason)
+		user << span("notice", reason)
+
+	user << browse(null, "window=greeting")
 
 /*
  * Sends data to the JS controllers used in the server greeting.

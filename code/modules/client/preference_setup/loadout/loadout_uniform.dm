@@ -110,7 +110,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
-	display_name = "uniform, captain's dress"
+	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
 
@@ -120,7 +120,7 @@
 	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet")
 
 /datum/gear/uniform/uniform_hop
-	display_name = "uniform, HoP's dress"
+	display_name = "uniform, HoP dress"
 	path = /obj/item/clothing/under/dress/dress_hop
 	allowed_roles = list("Head of Personnel")
 

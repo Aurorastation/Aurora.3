@@ -32,7 +32,7 @@
 
 	cell = new/obj/item/weapon/cell()	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
 	cell.loc = src
-	
+
 // Checks whether the cooling unit is being worn on the back/suit slot.
 // That way you can't carry it in your hands while it's running to cool yourself down.
 /obj/item/device/suit_cooling_unit/proc/is_in_slot()
@@ -48,7 +48,7 @@
 
 	if (!is_in_slot())
 		return
-		
+
 	var/mob/living/carbon/human/H = loc
 
 	var/efficiency = 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling
@@ -197,6 +197,10 @@
 	if (on)
 		if (attached_to_suit(src.loc))
 			user << "It's switched on and running."
+		else if (istype(src.loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = src.loc
+			if (H.get_species()=="Industrial Frame")
+				user << "It's switched on and running, connected to the cooling systems of [H]."
 		else
 			user << "It's switched on, but not attached to anything."
 	else

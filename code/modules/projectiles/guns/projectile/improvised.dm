@@ -126,7 +126,7 @@
 //ghetto handgun, sprites by datberry
 
 /obj/item/weapon/gun/projectile/improvised_handgun
-	name = "\improper improvised handgun"
+	name = "improvised handgun"
 	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .45 Rounds."
 	max_shells = 7
 	recoil = 2
