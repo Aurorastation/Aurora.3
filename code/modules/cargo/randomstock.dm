@@ -1670,8 +1670,7 @@ var/list/global/random_stock_large = list(
 		if ("dog")
 			var/list/dogs = list(/obj/structure/largecrate/animal/dog,
 			/obj/structure/largecrate/animal/dog/amaskan,
-			/obj/structure/largecrate/animal/dog/pug
-			)
+			/obj/structure/largecrate/animal/dog/pug)
 			var/type = pick(dogs)
 			new type(L)
 
