@@ -75,7 +75,7 @@
 						flick("c-4detonator_click", src)
 						if(src.bomb)
 							src.bomb.detonate()
-							log_admin("[key_name(user)] has triggered [src.bomb] with [src].")
+							log_admin("[key_name(user)] has triggered [src.bomb] with [src].",ckey=key_name(user))
 							message_admins("<span class='danger'>[key_name_admin(user)] has triggered [src.bomb] with [src].</span>")
 
 					if("Close the lighter.")

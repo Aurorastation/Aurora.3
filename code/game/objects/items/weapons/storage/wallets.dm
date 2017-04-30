@@ -59,6 +59,9 @@
 			if("id")
 				icon_state = "walletid"
 				return
+			if("guest")
+				icon_state = "walletid"
+				return
 			if("silver")
 				icon_state = "walletid_silver"
 				return

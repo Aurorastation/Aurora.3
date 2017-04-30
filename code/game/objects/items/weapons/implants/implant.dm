@@ -50,7 +50,7 @@
 	Destroy()
 		if(part)
 			part.implants.Remove(src)
-		..()
+		return ..()
 
 /obj/item/weapon/implant/tracking
 	name = "tracking implant"
@@ -162,11 +162,12 @@ Implant Specifics:<BR>"}
 		if (malfunction == MALFUNCTION_PERMANENT)
 			return
 
+
 		var/need_gib = null
 		if(istype(imp_in, /mob/))
 			var/mob/T = imp_in
 			message_admins("Explosive implant triggered in [T] ([T.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>) ")
-			log_game("Explosive implant triggered in [T] ([T.key]).")
+			log_game("Explosive implant triggered in [T] ([T.key]).",ckey=key_name(T))
 			need_gib = 1
 
 			if(ishuman(imp_in))
@@ -251,6 +252,15 @@ Implant Specifics:<BR>"}
 						part.droplimb(0,DROPLIMB_BLUNT)
 				explosion(get_turf(imp_in), -1, -1, 2, 3)
 				qdel(src)
+
+/obj/item/weapon/implant/explosive/New()
+	..()
+	listening_objects += src
+
+/obj/item/weapon/implant/explosive/Destroy()
+	listening_objects -= src
+	return ..()
+
 
 /obj/item/weapon/implant/chem
 	name = "chemical implant"

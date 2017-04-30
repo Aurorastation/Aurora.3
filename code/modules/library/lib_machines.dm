@@ -355,7 +355,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 								usr << query.ErrorMsg()
 							else
 								log_and_message_admins("has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs")
-								log_game("[usr.name]/[usr.key] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs")
+								log_game("[usr.name]/[usr.key] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs",ckey=key_name(usr))
 								alert("Upload Complete.")
 
 	if(href_list["targetid"])

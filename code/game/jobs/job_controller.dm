@@ -318,11 +318,15 @@ var/global/datum/controller/occupations/job_master
 
 		if(job)
 
+			//Equip job items.
+			job.equip(H)
+			job.apply_fingerprints(H)
+
 			var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 			var/list/custom_equip_leftovers = list()
 			if(!megavend)//Equip custom gear loadout.
-				job.equip_backpack(H)
 				job.equip_survival(H)
+				job.equip_backpack(H)
 				job.setup_account(H)
 				if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
 
@@ -357,9 +361,9 @@ var/global/datum/controller/occupations/job_master
 									custom_equip_leftovers.Add(thing)
 							else
 								spawn_in_storage += thing
-			//Equip job items.
-			job.equip(H)
-			job.apply_fingerprints(H)
+
+			// Randomize nutrition. (Between 50-100% of max.)
+			H.nutrition = (rand(50, 100) * 0.01) * H.max_nutrition
 
 			//If some custom items could not be equipped before, try again now.
 			for(var/thing in custom_equip_leftovers)
@@ -585,6 +589,9 @@ var/global/datum/controller/occupations/job_master
 			if(equipped != 1)
 				var/obj/item/clothing/glasses/G = H.glasses
 				G.prescription = 1
+
+		// So shoes aren't silent if people never change 'em.
+		H.update_noise_level()
 
 		BITSET(H.hud_updateflag, ID_HUD)
 		BITSET(H.hud_updateflag, IMPLOYAL_HUD)
