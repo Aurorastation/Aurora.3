@@ -50,3 +50,6 @@ changes:
   - experiment: "Made some tweaks to the server's decision-making process for when to run lighting updates in an effort to reduce lag."
   - tweak: "Reduced APC icon update delay."
   - tweak: "Exosuit fabricators' material insert animation is now colored based on what material is being inserted into the fabricator."
+  - tweak: "Fixed a regression in lighting performance caused by a fix for infinite darkness."
+  - tweak: "Tweaked how some common shades of lighting are drawn client-side in an effort to improve client-side performance in common situations."
+  - tweak: "Tweaked how queued lighting updates are processed, allowing the lighting engine to do partial lighting updates instead of always doing a complete update cycle."
