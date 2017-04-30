@@ -340,9 +340,7 @@
 
 		if( "activate" )
 			src.timer_start()
-			log_debug("Updating record")
 			for (var/datum/data/record/E in data_core.general)
-				log_debug("Searching for criminal with name: [incident.criminal.name]")
 				if(E.fields["name"] == incident.criminal.name)
 					for (var/datum/data/record/R in data_core.security)
 						if(R.fields["id"] == E.fields["id"])

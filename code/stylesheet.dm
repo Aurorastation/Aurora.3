@@ -35,8 +35,8 @@ em						{font-style: normal;font-weight: bold;}
 .mod_channel			{color: #735638;	font-weight: bold;}
 .mod_channel .admin		{color: #b82e00;	font-weight: bold;}
 .admin_channel			{color: #9611D4;	font-weight: bold;}
-.cciaasay				{color: #521590;}
-.devsay					{color: #02280D;}
+.cciaasay				{color: #BD871B;}
+.devsay					{color: #5C7463;}
 
 /* Radio: Misc */
 .deadsay				{color: #530FAD;}

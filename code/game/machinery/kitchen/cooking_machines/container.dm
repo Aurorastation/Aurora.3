@@ -7,7 +7,7 @@
 	var/shortname
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
 	var/max_reagents = 80//Maximum units of reagents
-
+	flags = OPENCONTAINER | NOREACT
 	var/list/insertable = list(/obj/item/weapon/reagent_containers/food/snacks,
 	/obj/item/weapon/holder,
 	/obj/item/weapon/paper)
@@ -48,12 +48,22 @@
 	set category = "Object"
 	set desc = "Removes items from the container. does not remove reagents."
 
+	if (!isliving(usr))
+		usr << "Ghosts can't mess with cooking containers"
+		//Here we only check for ghosts. Animals are intentionally allowed to remove things from oven trays so they can eat it
+		return
+
 	if (!Adjacent(usr))
 		usr << "You can't reach the [src] from there, get closer!"
 		return
 
+	if (!contents.len)
+		usr << span("warning", "Theres nothing in the [src] you can remove!")
+
 	for (var/atom/movable/A in contents)
 		A.forceMove(get_turf(src))
+
+	usr << span("notice", "You remove all the solid items from the [src].")
 
 /obj/item/weapon/reagent_containers/cooking_container/proc/check_contents()
 	if (contents.len == 0)
@@ -64,6 +74,10 @@
 			return 1//Contains only a single object which can be extracted alone
 	return 2//Contains multiple objects and/or reagents
 
+/obj/item/weapon/reagent_containers/cooking_container/AltClick(var/mob/user)
+	.=1
+	if(user.stat || user.restrained())	return
+	empty()
 
 
 //Deletes contents of container.

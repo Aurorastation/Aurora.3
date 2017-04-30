@@ -44,4 +44,4 @@ proc/get_base_turf_by_area(var/turf/T)
 		new_base_path = /turf/space
 	base_turf_by_z["[choice]"] = new_base_path
 	message_admins("[key_name_admin(usr)] has set the base turf for z-level [choice] to [get_base_turf(choice)].")
-	log_admin("[key_name(usr)] has set the base turf for z-level [choice] to [get_base_turf(choice)].")
+	log_admin("[key_name(usr)] has set the base turf for z-level [choice] to [get_base_turf(choice)].",admin_key=key_name(usr))

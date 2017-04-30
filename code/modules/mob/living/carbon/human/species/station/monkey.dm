@@ -60,12 +60,23 @@
 	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 
-	greater_form = "Tajaran"
+	greater_form = "Tajara"
 	default_language = "Farwa"
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	tail = "farwatail"
 	holder_type = /obj/item/weapon/holder/monkey/farwa
+
+/datum/species/monkey/tajaran/get_random_name()
+	return "farwa ([rand(100,999)])" // HACK HACK HACK, oh lords of coding please forgive me!
+
+/datum/species/monkey/tajaran/m_sai
+	name = "M'sai Farwa"
+	greater_form = "M'sai Tajara"
+
+/datum/species/monkey/tajaran/zhan_khazan
+	name = "Zhan-Khazan Farwa"
+	greater_form = "Zhan-Khazan Tajara"
 
 /datum/species/monkey/skrell
 	name = "Neaera"

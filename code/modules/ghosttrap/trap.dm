@@ -190,7 +190,7 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 /***********************************
 * Syndicate Cyborg *
 ***********************************/
-/*
+
 /datum/ghosttrap/syndicateborg
 	object = "syndicate cyborg"
 	ban_checks = list("Antagonist","AI","Cyborg")
@@ -198,7 +198,9 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 	ghost_trap_message = "They are occupying a syndicate cyborg now."
 	ghost_trap_role = "Syndicate Cyborg"
 	can_set_own_name = TRUE 
-*/
+
+/datum/ghosttrap/syndicateborg/welcome_candidate(var/mob/target)
+	target << "<span class='notice'><B>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans</B></span>"
 
 /**************
 * pAI *
@@ -213,4 +215,33 @@ datum/ghosttrap/pai/assess_candidate(var/mob/observer/ghost/candidate, var/mob/t
 	return 0
 
 datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silicon/robot/drone/drone)
+	return 0
+
+/**************
+* Wizard Familiar *
+**************/
+
+/datum/ghosttrap/familiar
+	object = "wizard familiar"
+	pref_check = MODE_WIZARD
+	ghost_trap_message = "They are occupying a familiar now."
+	ghost_trap_role = "Wizard Familiar"
+	ban_checks = list(MODE_WIZARD)
+
+/datum/ghosttrap/familiar/welcome_candidate(var/mob/target)
+	return 0
+	
+/**************
+* Skeleton minion *
+**************/
+	
+/datum/ghosttrap/skeleton
+	object = "skeleton minion"
+	pref_check = MODE_WIZARD
+	ghost_trap_message = "They are occupying a skeleton minion."
+	ghost_trap_role = "Skeleton Minion"
+	ban_checks = list(MODE_WIZARD)
+	can_set_own_name = FALSE
+
+/datum/ghosttrap/skeleton/welcome_candidate(var/mob/target)
 	return 0
