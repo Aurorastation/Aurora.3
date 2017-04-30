@@ -342,7 +342,7 @@
 		"<span class='warning'>Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>")
 		affected.createwound(BRUISE, 20)
 
-/datum/surgery_step/internal/lobotomize
+/datum/surgery_step/internal/mmiprep
 	allowed_tools = list(
 	/obj/item/weapon/scalpel/manager = 95,
 	/obj/item/weapon/surgicaldrill = 75,
@@ -368,15 +368,15 @@
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/brain/B = target.op_stage.current_organ
-		user.visible_message("[user] begins lobotomizing [target]'s [B.name] with \the [tool].", \
-		"You start lobotomizing [target]'s [B.name] with \the [tool].")
+		user.visible_message("[user] begins to prepare [target]'s [B.name] for insertion into an MMI with \the [tool].", \
+		"You start to prepare [target]'s [B.name] for insertion into an MMI with \the [tool].")
 		target.custom_pain("Someone's scraping away at your [B.name]!",1)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/brain/B = target.op_stage.current_organ
-		user.visible_message("<span class='notice'>[user] has lobotomized [target]'s \the [B.name] with \the [tool].</span>" , \
-		"<span class='notice'>You have lobotomized [target]'s [B.name] with \the [tool].</span>")
+		user.visible_message("<span class='notice'>[user] has prepared [target]'s [B] for insertion into an MMI with \the [tool].</span>" , \
+		"<span class='notice'>You have prepared [target]'s [B] for insertion into an MMI with \the [tool].</span>")
 		B.lobotomize(user)
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
