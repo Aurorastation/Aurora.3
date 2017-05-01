@@ -380,7 +380,7 @@
 	SearchVar(SSchemistry)
 	SearchVar(SSeffects)
 	SearchVar(emergency_shuttle)
-	SearchVar(bomb_processor)
+	SearchVar(SSexplosives)
 	SearchVar(SSgarbage)
 	SearchVar(SSicon_smooth)
 	SearchVar(SSlighting)
