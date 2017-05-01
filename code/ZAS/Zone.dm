@@ -40,20 +40,21 @@ Class Procs:
 */
 
 
-/zone/var/name
-/zone/var/invalid = 0
-/zone/var/list/contents = list()
-/zone/var/list/fire_tiles = list()
-/zone/var/list/fuel_objs = list()
+/zone
+	var/name
+	var/invalid = 0
+	var/list/contents = list()
+	var/list/fire_tiles = list()
+	var/list/fuel_objs = list()
 
-/zone/var/needs_update = 0
+	var/needs_update = 0
 
-/zone/var/list/edges = list()
+	var/list/edges = list()
 
-/zone/var/datum/gas_mixture/air = new
+	var/datum/gas_mixture/air = new
 
-/zone/var/list/graphic_add = list()
-/zone/var/list/graphic_remove = list()
+	var/list/graphic_add = list()
+	var/list/graphic_remove = list()
 
 /zone/New()
 	SSair.add_zone(src)
@@ -67,11 +68,10 @@ Class Procs:
 	ASSERT(istype(T))
 	ASSERT(!SSair.has_valid_zone(T))
 #endif
-
 	var/datum/gas_mixture/turf_air = T.return_air()
 	add_tile_air(turf_air)
 	T.zone = src
-	contents.Add(T)
+	contents += T
 	if(T.fire)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
 		fire_tiles.Add(T)
@@ -86,8 +86,8 @@ Class Procs:
 	ASSERT(T.zone == src)
 	soft_assert(T in contents, "Lists are weird broseph")
 #endif
-	contents.Remove(T)
-	fire_tiles.Remove(T)
+	contents -= T
+	fire_tiles -= T
 	if(T.fire)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
 		fuel_objs -= fuel
