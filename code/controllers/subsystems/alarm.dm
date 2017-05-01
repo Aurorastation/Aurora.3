@@ -1,4 +1,4 @@
-var/datum/controller/subsystem/alarm/alarm_manager
+var/datum/controller/subsystem/alarm/SSalarm
 
 /var/global/datum/alarm_handler/atmosphere/atmosphere_alarm	= new()
 /var/global/datum/alarm_handler/camera/camera_alarm			= new()
@@ -16,7 +16,7 @@ var/datum/controller/subsystem/alarm/alarm_manager
 	var/tmp/list/active_alarm_cache = list()
 
 /datum/controller/subsystem/alarm/New()
-	NEW_SS_GLOBAL(alarm_manager)
+	NEW_SS_GLOBAL(SSalarm)
 
 /datum/controller/subsystem/alarm/Initialize(timeofday)
 	all_handlers = list(atmosphere_alarm, camera_alarm, fire_alarm, motion_alarm, power_alarm)
