@@ -107,7 +107,7 @@
 		for(var/atom/movable/AM as mob|obj in T)
 			AM.Move(D)
 		if(istype(T, /turf/simulated))
-			qdel(T)
+			T.ChangeTurf(/turf/space)
 
 	for(var/mob/living/carbon/bug in destination)
 		bug.gib()
