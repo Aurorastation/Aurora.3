@@ -1,4 +1,4 @@
-/var/datum/controller/subsystem/air/air_master
+/var/datum/controller/subsystem/air/SSair
 
 /*
 
@@ -123,7 +123,7 @@ Class Procs:
 	..("TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]")
 
 /datum/controller/subsystem/air/New()
-	NEW_SS_GLOBAL(air_master)
+	NEW_SS_GLOBAL(SSair)
 
 /datum/controller/subsystem/air/Initialize(timeofday, simulate = TRUE)
 
@@ -324,7 +324,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	ASSERT(A != B)
 	#endif
 
-	var/block = air_master.air_blocked(A,B)
+	var/block = air_blocked(A,B)
 	if(block & AIR_BLOCKED) return
 
 	var/direct = !(block & ZONE_BLOCKED)

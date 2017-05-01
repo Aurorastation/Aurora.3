@@ -41,9 +41,9 @@
 		if(istype(unsim, /turf/simulated))
 
 			var/turf/simulated/sim = unsim
-			if(air_master.has_valid_zone(sim))
+			if(SSair.has_valid_zone(sim))
 
-				air_master.connect(sim, src)
+				SSair.connect(sim, src)
 
 /*
 	Simple heuristic for determining if removing the turf from it's zone will not partition the zone (A very bad thing).
@@ -156,7 +156,7 @@
 			var/turf/simulated/sim = unsim
 			sim.open_directions |= reverse_dir[d]
 
-			if(air_master.has_valid_zone(sim))
+			if(SSair.has_valid_zone(sim))
 
 				//Might have assigned a zone, since this happens for each direction.
 				if(!zone)
@@ -189,7 +189,7 @@
 					if(verbose) world << "Connecting to [sim.zone]"
 					#endif
 
-					air_master.connect(src, sim)
+					SSair.connect(src, sim)
 
 
 			#ifdef ZASDBG
@@ -204,7 +204,7 @@
 			if(!postponed) postponed = list()
 			postponed.Add(unsim)
 
-	if(!air_master.has_valid_zone(src)) //Still no zone, make a new one.
+	if(!SSair.has_valid_zone(src)) //Still no zone, make a new one.
 		var/zone/newzone = new/zone()
 		newzone.add(src)
 
@@ -217,7 +217,7 @@
 	//At this point, a zone should have happened. If it hasn't, don't add more checks, fix the bug.
 
 	for(var/turf/T in postponed)
-		air_master.connect(src, T)
+		SSair.connect(src, T)
 
 /turf/proc/post_update_air_properties()
 	if(connections) connections.update_all()
@@ -273,7 +273,7 @@
 /turf/simulated/return_air()
 	if(zone)
 		if(!zone.invalid)
-			air_master.mark_zone_update(zone)
+			SSair.mark_zone_update(zone)
 			return zone.air
 		else
 			if(!air)

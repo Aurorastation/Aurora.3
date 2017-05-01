@@ -20,7 +20,7 @@
 	// This makes sure that turfs are not changed to space when one side is part of a zone
 	if(N == /turf/space)
 		var/turf/below = GetBelow(src)
-		if(istype(below) && (air_master.has_valid_zone(below) || air_master.has_valid_zone(src)))
+		if(istype(below) && (SSair.has_valid_zone(below) || SSair.has_valid_zone(src)))
 			N = /turf/simulated/open
 
 	var/obj/fire/old_fire = fire
@@ -46,8 +46,8 @@
 		if(tell_universe)
 			universe.OnTurfChange(W)
 
-		if(air_master)
-			air_master.mark_for_update(src) //handle the addition of the new turf.
+		if(SSair)
+			SSair.mark_for_update(src) //handle the addition of the new turf.
 
 		W.baseturf = old_baseturf
 
@@ -64,8 +64,8 @@
 		if(tell_universe)
 			universe.OnTurfChange(W)
 
-		if(air_master)
-			air_master.mark_for_update(src)
+		if(SSair)
+			SSair.mark_for_update(src)
 
 		W.baseturf = old_baseturf
 

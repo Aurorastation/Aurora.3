@@ -2,12 +2,12 @@
 	set category = "Debug"
 	set name = "Process Atmos"
 
-	var/result = air_master.tick(true)
+	var/result = SSair.tick(true)
 	if(result)
 		src << "Sucessfully Processed."
 
 	else
-		src << "Failed to process! ([air_master.tick_progress])"*/
+		src << "Failed to process! ([SSair.tick_progress])"*/
 
 
 client/proc/Zone_Info(turf/T as null|turf)

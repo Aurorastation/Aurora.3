@@ -274,7 +274,7 @@ var/list/debug_verbs = list (
 	set name = "Reboot ZAS"
 
 	if(alert("This will destroy and remake all zone geometry on the whole map.","Reboot ZAS","Reboot ZAS","Nevermind") == "Reboot ZAS")
-		air_master.reboot()
+		SSair.reboot()
 
 /client/proc/count_objects_on_z_level()
 	set category = "Mapping"
@@ -354,7 +354,7 @@ var/global/prevent_airgroup_regroup = 0
 	set name = "Break All Airgroups"
 
 	/*prevent_airgroup_regroup = 1
-	for(var/datum/air_group/AG in air_master.air_groups)
+	for(var/datum/air_group/AG in SSair.air_groups)
 		AG.suspend_group_processing()
 	message_admins("[src.ckey] used 'Break All Airgroups'")*/
 
@@ -365,7 +365,7 @@ var/global/prevent_airgroup_regroup = 0
 	usr << "\red Proc disabled."
 
 	/*prevent_airgroup_regroup = 0
-	for(var/datum/air_group/AG in air_master.air_groups)
+	for(var/datum/air_group/AG in SSair.air_groups)
 		AG.check_regroup()
 	message_admins("[src.ckey] used 'Regroup All Airgroups Attempt'")*/
 
