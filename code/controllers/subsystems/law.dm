@@ -1,4 +1,4 @@
-/var/global/datum/controller/subsystem/law/corp_regs
+/var/global/datum/controller/subsystem/law/SSlaw
 
 /datum/controller/subsystem/law
 	name = "Law"
@@ -10,7 +10,7 @@
 	var/list/high_severity = list()
 
 /datum/controller/subsystem/law/New()
-	NEW_SS_GLOBAL(corp_regs)
+	NEW_SS_GLOBAL(SSlaw)
 
 /datum/controller/subsystem/law/Initialize(timeofday)
 	for (var/L in subtypesof(/datum/law/low_severity))
