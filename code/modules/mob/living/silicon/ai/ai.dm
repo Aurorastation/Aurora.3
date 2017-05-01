@@ -163,6 +163,8 @@ var/list/ai_verbs_default = list(
 		else
 			if (B.brainmob.mind)
 				B.brainmob.mind.transfer_to(src)
+				if(B.brainobj)
+					B.brainobj.lobotomized = 1
 
 			on_mob_init()
 
@@ -271,7 +273,7 @@ var/list/ai_verbs_default = list(
 		aiPDA.ownjob = "AI"
 		aiPDA.owner = pickedName
 		aiPDA.name = pickedName + " (" + aiPDA.ownjob + ")"
-	
+
 	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 
 /*
