@@ -44,10 +44,10 @@
 		src.set_light(0)
 		cameranet.removeCamera(src)
 
-/obj/machinery/camera/New()
-	..()
+/obj/machinery/camera/Initialize()
+	. = ..()
 	//Camera must be added to global list of all cameras no matter what...
-	if(cameranet.cameras_unsorted || !ticker)
+	if(cameranet.cameras_unsorted)
 		cameranet.cameras += src
 		cameranet.cameras_unsorted = 1
 	else

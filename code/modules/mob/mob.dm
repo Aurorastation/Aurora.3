@@ -450,10 +450,10 @@
 	if (!( config.abandon_allowed ))
 		usr << "<span class='notice'>Respawn is disabled.</span>"
 		return
-	if ((stat != DEAD || !( ticker )))
+	if (stat != DEAD)
 		usr << "<span class='notice'><B>You must be dead to use this!</B></span>"
 		return
-	if (ticker && ticker.mode && ticker.mode.deny_respawn) //BS12 EDIT
+	if (SSticker.mode && SSticker.mode.deny_respawn) //BS12 EDIT
 		usr << "<span class='notice'>Respawn is disabled for this roundtype.</span>"
 		return
 	else if(!MayRespawn(1, CREW))

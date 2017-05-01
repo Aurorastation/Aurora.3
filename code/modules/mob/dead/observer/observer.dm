@@ -467,7 +467,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		src << "<span class='warning'>Spawning as a mouse is currently disabled.</span>"
 		return
 
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(!ROUND_IS_STARTED)
 		src << "<span class='warning'>You can not spawn as a mouse before round start!</span>"
 		return
 

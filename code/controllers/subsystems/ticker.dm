@@ -1,7 +1,6 @@
 #define LOBBY_TIME 180
 
 var/datum/controller/subsystem/ticker/SSticker
-var/datum/controller/subsystem/ticker/ticker
 
 /datum/controller/subsystem/ticker
 	// -- Subsystem stuff --
@@ -9,7 +8,7 @@ var/datum/controller/subsystem/ticker/ticker
 
 	priority = SS_PRIORITY_TICKER
 	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
-	init_order = SS_INIT_TICKER
+	init_order = SS_INIT_LOBBY
 
 	wait = 1 SECOND
 
@@ -67,7 +66,7 @@ var/datum/controller/subsystem/ticker/ticker
 	NEW_SS_GLOBAL(SSticker)
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
-	global.ticker = SSticker	// Yes.
+	pregame()
 
 /datum/controller/subsystem/ticker/stat_entry()
 	var/state = ""
@@ -85,9 +84,6 @@ var/datum/controller/subsystem/ticker/ticker
 	..("State: [state]")
 
 /datum/controller/subsystem/ticker/Recover()
-	// Reset the ticker global ourselves since NEW_SS_GLOBAL is bound to SSticker.
-	global.ticker = src
-
 	// Copy stuff over so we don't lose any state.
 	current_state = SSticker.current_state
 	
@@ -125,7 +121,6 @@ var/datum/controller/subsystem/ticker/ticker
 
 /datum/controller/subsystem/ticker/fire()
 	if (!lobby_ready)
-		pregame()
 		lobby_ready = TRUE
 		return
 		
@@ -314,6 +309,8 @@ var/datum/controller/subsystem/ticker/ticker
 			</b>[html_encode(m)]</font>"
 
 /datum/controller/subsystem/ticker/proc/pregame()
+	set waitfor = FALSE
+	sleep(1)	// Sleep so the MC has a chance to update its init time.
 	if (!login_music)
 		login_music = pick(possible_lobby_tracks)
 
@@ -321,7 +318,7 @@ var/datum/controller/subsystem/ticker/ticker
 		pregame_timeleft = LOBBY_TIME
 		log_debug("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
 	else
-		var/mc_init_time = Master.initialization_time_taken
+		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
 
 		if (dynamic_time < config.vote_autogamemode_timeleft)
@@ -534,7 +531,7 @@ var/datum/controller/subsystem/ticker/ticker
 /datum/controller/subsystem/ticker/proc/collect_minds()
 	for(var/mob/living/player in player_list)
 		if(player.mind)
-			ticker.minds += player.mind
+			minds += player.mind
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
 	var/captainless = TRUE

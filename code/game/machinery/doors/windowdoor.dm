@@ -69,7 +69,7 @@
 					open()
 					addtimer(CALLBACK(src, .proc/close), 50)
 		return
-	if (!( ticker ))
+	if (!( ROUND_IS_STARTED ))
 		return
 	if (src.operating)
 		return
@@ -99,7 +99,7 @@
 /obj/machinery/door/window/open()
 	if (src.operating == 1) //doors can still open when emag-disabled
 		return 0
-	if (!ticker)
+	if (!ROUND_IS_STARTED)
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1

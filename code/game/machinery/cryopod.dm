@@ -52,7 +52,7 @@
 
 	var/dat
 
-	if (!( ticker ))
+	if (!(ROUND_IS_STARTED))
 		return
 
 	dat += "<hr/><br/><b>[storage_name]</b><br/>"

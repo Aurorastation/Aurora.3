@@ -22,8 +22,7 @@
 	if(length(masterdatumPool[type]) <= 0)
 
 		#ifdef DEBUG_DATUM_POOL
-		if(ticker)
-			to_chat(world, text("DEBUG_DATUM_POOL: new proc has been called ([] | []).", type, list2params(B)))
+		to_chat(world, text("DEBUG_DATUM_POOL: new proc has been called ([] | []).", type, list2params(B)))
 		#endif
 
 		if(isnull(masterdatumPool[type]))

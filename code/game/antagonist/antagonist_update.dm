@@ -77,15 +77,15 @@
 
 /datum/antagonist/proc/update_current_antag_max()
 	cur_max = hard_cap
-	if(ticker && ticker.mode)
-		if(ticker.mode.antag_tags && (id in ticker.mode.antag_tags))
+	if(SSticker.mode)
+		if(SSticker.mode.antag_tags && (id in SSticker.mode.antag_tags))
 			cur_max = hard_cap_round
 
-	if(ticker.mode.antag_scaling_coeff)
+	if(SSticker.mode.antag_scaling_coeff)
 
 		var/count = 0
 
-		if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+		if (SSticker.current_state < GAME_STATE_PLAYING)
 			// If we're in the pre-game state, we count readied new players as players.
 			// Yes, not all get spawned, but it's a close enough guestimation.
 			for (var/mob/new_player/L in player_list)
@@ -98,7 +98,7 @@
 
 		// Minimum: initial_spawn_target
 		// Maximum: hard_cap or hard_cap_round
-		cur_max = max(initial_spawn_target,min(round(count/ticker.mode.antag_scaling_coeff),cur_max))
+		cur_max = max(initial_spawn_target,min(round(count/SSticker.mode.antag_scaling_coeff),cur_max))
 
 // Updates the initial spawn target to match the player count.
 // Intended to stop 6 nuke ops in a 15 player round. RIP those rounds.
@@ -106,12 +106,12 @@
 	// Default is a linear rise of one antag per 5 players.
 	var/modifier = 5
 
-	if (ticker.mode.antag_scaling_coeff)
-		modifier = ticker.mode.antag_scaling_coeff
+	if (SSticker.mode.antag_scaling_coeff)
+		modifier = SSticker.mode.antag_scaling_coeff
 
 	var/count = 0
 
-	if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+	if (SSticker.current_state < GAME_STATE_PLAYING)
 		// If we're in the pre-game state, we count readied new players as players.
 		// Yes, not all get spawned, but it's a close enough guestimation.
 		for (var/mob/new_player/L in player_list)

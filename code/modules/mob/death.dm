@@ -93,8 +93,8 @@
 
 	updateicon()
 
-	if(ticker && ticker.mode)
-		ticker.mode.check_win()
+	if(SSticker.mode)
+		SSticker.mode.check_win()
 
 
 	return 1

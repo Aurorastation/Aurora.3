@@ -16,17 +16,13 @@
 	//Start the Round.
 	//
 
-	if(!ticker)
-		crash_with("No Ticker")
-		world.Del()
-
 	world.save_mode("extended")
 
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/_ut_start_game), 10 SECONDS)
 
 /proc/_ut_start_game()
-	if (ticker.current_state == GAME_STATE_PREGAME)
-		ticker.current_state = GAME_STATE_SETTING_UP
+	if (SSticker.current_state == GAME_STATE_PREGAME)
+		SSticker.current_state = GAME_STATE_SETTING_UP
 
 		log_unit_test("Round has been started.")
 

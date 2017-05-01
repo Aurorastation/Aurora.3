@@ -159,7 +159,7 @@
 //Not even going to touch this pile of spaghetti
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
-	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+	if (!usr.IsAdvancedToolUser())
 		usr << "\red You don't have the dexterity to do this!"
 		return
 
