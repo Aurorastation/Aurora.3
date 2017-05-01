@@ -45,10 +45,14 @@
 	return contents
 
 /area/proc/get_cameras()
-	var/list/cameras = list()
-	for (var/obj/machinery/camera/C in src)
-		cameras += C
-	return cameras
+	. = list()
+	for (var/thing in SSmachinery.all_cameras)
+		var/obj/machinery/camera/C = thing
+		if (!isturf(C.loc))
+			continue
+		
+		if (C.loc.loc == src)
+			. += C
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)

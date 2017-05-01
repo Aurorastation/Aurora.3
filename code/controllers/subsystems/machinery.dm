@@ -18,6 +18,8 @@
 	var/list/rcon_breaker_units = list()
 	var/list/rcon_breaker_units_by_tag = list()
 
+	var/list/all_cameras = list()
+
 	var/list/breaker_boxes = list()
 
 	var/rcon_update_queued = FALSE
