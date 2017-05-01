@@ -22,7 +22,7 @@
 	emote_hear = list("barks", "woofs")
 
 	attacktext = "bitten"
-//	attack_sound = 'sound/misc/dog_bark.ogg'
+	attack_sound = 'sound/misc/dog_bark.ogg'
 	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
@@ -83,7 +83,6 @@
 		var/input = sanitizeSafe(input("What do you want to name the dog?", ,""), MAX_NAME_LEN)
 
 		if(src && input && !M.stat && in_range(M,src))
-			name = input
 			name = input
 			real_name = input
 			name_changed = 1
