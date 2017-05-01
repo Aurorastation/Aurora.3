@@ -1,5 +1,3 @@
-var/global/list/world_mouses = list()
-
 /mob/living/simple_animal/mouse
 	name = "mouse"
 	real_name = "mouse"
