@@ -43,6 +43,9 @@
 	return ..()
 
 /atom/movable/lighting_overlay/proc/update_overlay()
+	if (QDELING(src))	// This shouldn't happen.
+		return
+
 	var/turf/T = loc
 	if (!istype(T)) // Erm...
 		if (loc)
