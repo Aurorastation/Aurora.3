@@ -30,12 +30,15 @@ var/datum/controller/subsystem/effects/SSeffects
 		current_effects.len--
 
 		if (QDELETED(E) || !E.isprocessing)
+			if (MC_TICK_CHECK)
+				return
 			continue
 
+		STOP_EFFECT(E)
+		E.last_fire = world.time
 		switch (E.process(world.time - E.last_fire))
 			if (EFFECT_CONTINUE)
-				effect_systems += E
-				E.last_fire = world.time
+				QUEUE_EFFECT(E)
 
 			if (EFFECT_DESTROY)
 				qdel(E)
@@ -50,14 +53,16 @@ var/datum/controller/subsystem/effects/SSeffects
 
 		if (QDELETED(V) || !V.isprocessing)
 			visuals -= V
+			if (MC_TICK_CHECK)
+				return
 			continue
 
 		switch (V.tick())
 			if (EFFECT_HALT)
-				visuals -= V
+				STOP_VISUAL(V)
 
 			if (EFFECT_DESTROY)
-				visuals -= V
+				STOP_VISUAL(V)
 				qdel(V)
 		
 		if (MC_TICK_CHECK)
