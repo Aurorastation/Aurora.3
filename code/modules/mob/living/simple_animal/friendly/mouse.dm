@@ -56,7 +56,6 @@
 
 	kitchen_tag = "rodent"
 
-
 /mob/living/simple_animal/mouse/Life()
 	if(..())
 
@@ -80,7 +79,12 @@
 	else
 		if ((world.time - timeofdeath) > decompose_time)
 			dust()
-
+			
+/mob/living/simple_animal/mouse/Destroy()
+	..()
+	
+	world_mouses -= src
+	
 //Pixel offsetting as they scamper around
 /mob/living/simple_animal/mouse/Move()
 	if(..())
