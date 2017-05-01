@@ -1414,18 +1414,7 @@ var/list/global/random_stock_large = list(
 		if("cloak")
 			new /obj/item/weapon/cloaking_device(L)
 		if("sword")
-			var/list/swords = list(
-			/obj/item/weapon/material/sword,
-			/obj/item/weapon/material/sword/katana,
-			/obj/item/weapon/material/sword/rapier,
-			/obj/item/weapon/material/sword/longsword,
-			/obj/item/weapon/material/sword/trench,
-			/obj/item/weapon/material/sword/sabre,
-			/obj/item/weapon/material/sword/axe
-			)
-
-			var/type = pick(swords)
-			new type(L)
+			new /obj/random/sword(L)
 		if("ims")
 			new /obj/item/weapon/scalpel/manager(L)
 		if("hardsuit")
