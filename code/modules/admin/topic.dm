@@ -596,7 +596,7 @@
 			var/datum/antagonist/antag = all_antag_types[antag_type]
 			if(!antag || !antag.bantype)
 				continue
-			if(jobban_isbanned(M, antag.bantype) || isbanned_dept)
+			if(isbanned_dept || jobban_isbanned(M, antag.bantype))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[antag.bantype];jobban4=\ref[M]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
 			else
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[antag.bantype];jobban4=\ref[M]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
