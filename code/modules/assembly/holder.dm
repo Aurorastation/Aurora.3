@@ -189,8 +189,7 @@
 			if(a_right)
 				a_right:holder = null
 				a_right.loc = T
-			spawn(0)
-				qdel(src)
+			QDEL_IN(src, 0)
 		return
 
 

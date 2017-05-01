@@ -103,8 +103,7 @@
 		if(!holder)
 			visible_message("\icon[src] *beep* *beep*")
 		cooldown = 2
-		spawn(10)
-			process_cooldown()
+		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 		return
 
 

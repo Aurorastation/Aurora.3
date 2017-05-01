@@ -524,14 +524,11 @@
 	return ..(M)
 
 /obj/machinery/door/update_nearby_tiles(need_rebuild)
-	if(!air_master)
-		return 0
-
 	for(var/turf/T in locs)
 		if (istype(T, /turf/simulated))
 			var/turf/simulated/turf = T
 			update_heat_protection(turf)
-			air_master.mark_for_update(turf)
+			SSair.mark_for_update(turf)
 
 	return 1
 

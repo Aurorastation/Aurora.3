@@ -1,4 +1,4 @@
-var/datum/controller/subsystem/explosives/bomb_processor
+var/datum/controller/subsystem/explosives/SSexplosives
 
 // yes, let's move the laggiest part of the game to a process
 // nothing could go wrong -- Lohikar
@@ -19,14 +19,14 @@ var/datum/controller/subsystem/explosives/bomb_processor
 	var/mc_notified = FALSE
 
 /datum/controller/subsystem/explosives/New()
-	NEW_SS_GLOBAL(bomb_processor)
+	NEW_SS_GLOBAL(SSexplosives)
 	LAZYINITLIST(work_queue)
 
 /datum/controller/subsystem/explosives/Recover()
-	work_queue = bomb_processor.work_queue
-	explosion_in_progress = bomb_processor.explosion_in_progress
-	explosion_turfs = bomb_processor.explosion_turfs
-	powernet_update_pending = bomb_processor.powernet_update_pending
+	work_queue = SSexplosives.work_queue
+	explosion_in_progress = SSexplosives.explosion_in_progress
+	explosion_turfs = SSexplosives.explosion_turfs
+	powernet_update_pending = SSexplosives.powernet_update_pending
 
 /datum/controller/subsystem/explosives/fire(resumed = FALSE)
 	if (!(work_queue.len))
