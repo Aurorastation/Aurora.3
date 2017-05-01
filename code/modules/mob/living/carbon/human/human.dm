@@ -81,8 +81,30 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
-	if (DS)
-		qdel(DS)//prevents the dionastats holding onto references and blocking GC
+	organs = null
+	internal_organs_by_name = null
+	internal_organs = null
+	organs_by_name = null
+	bad_internal_organs = null
+	bad_external_organs = null
+
+	QDEL_NULL(DS)
+	// qdel and null out our equipment.
+	QDEL_NULL(shoes)
+	QDEL_NULL(belt)
+	QDEL_NULL(gloves)
+	QDEL_NULL(glasses)
+	QDEL_NULL(head)
+	QDEL_NULL(l_ear)
+	QDEL_NULL(r_ear)
+	QDEL_NULL(wear_id)
+	QDEL_NULL(r_store)
+	QDEL_NULL(l_store)
+	QDEL_NULL(s_store)
+	QDEL_NULL(wear_suit)
+	// Do this last so the mob's stuff doesn't drop on del.
+	QDEL_NULL(w_uniform)
+
 	return ..()
 
 /mob/living/carbon/human/Stat()
@@ -210,7 +232,11 @@
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
 
-	var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(M)
+	var/obj/item/weapon/implant/loyalty/L
+	if(isipc(M))
+		L = new/obj/item/weapon/implant/loyalty/ipc(M)
+	else
+		L = new/obj/item/weapon/implant/loyalty(M)
 	L.imp_in = M
 	L.implanted = 1
 	var/obj/item/organ/external/affected = M.organs_by_name["head"]
@@ -878,7 +904,7 @@
 	else
 		target.show_message("\blue You hear a voice that seems to echo around the room: [say]")
 	usr.show_message("\blue You project your mind into [target.real_name]: [say]")
-	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
+	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
 	for(var/mob/dead/observer/G in world)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
@@ -1102,7 +1128,7 @@
 	else
 		usr << "<span class='warning'>You failed to check the pulse. Try again.</span>"
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour)
+/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0)
 
 	if(!dna)
 		if(!new_species)
@@ -1154,7 +1180,7 @@
 
 	species.create_organs(src)
 
-	species.handle_post_spawn(src)
+	species.handle_post_spawn(src,kpg) // should be zero by default
 
 	maxHealth = species.total_health
 
@@ -1181,7 +1207,6 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
-	nutrition = (rand(25,100)*0.01)*max_nutrition//Starting nutrition is randomised between 25-100% of max
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	if(species)
@@ -1381,9 +1406,11 @@
 	var/obj/item/organ/external/current_limb = organs_by_name[choice]
 
 	if(self)
-		src << "<span class='warning'>You brace yourself to relocate your [current_limb.joint]...</span>"
+		U.visible_message("<span class='warning'>[U] tries to relocate their [current_limb.joint]...</span>", \
+		"<span class='warning'>You brace yourself to relocate your [current_limb.joint]...</span>")
 	else
-		U << "<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>"
+		U.visible_message("<span class='warning'>[U] tries to relocate [S]'s [current_limb.joint]...</span>", \
+		"<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>")
 
 	if(!do_after(U, 30))
 		return
@@ -1391,10 +1418,11 @@
 		return
 
 	if(self)
-		src << "<span class='danger'>You pop your [current_limb.joint] back in!</span>"
+		U.visible_message("<span class='danger'>[U] pops their [current_limb.joint] back in!</span>", \
+		"<span class='danger'>You pop your [current_limb.joint] back in!</span>")
 	else
-		U << "<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>"
-		S << "<span class='danger'>[U] pops your [current_limb.joint] back in!</span>"
+		U.visible_message("<span class='danger'>[U] pops [S]'s [current_limb.joint] back in!</span>", \
+		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/Target = null)

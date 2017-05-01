@@ -284,11 +284,11 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in current_turf
-		if(L)
-			light_supplied = max(0,min(10,L.lum_r + L.lum_g + L.lum_b)-5)
+		if (current_turf.dynamic_lighting)
+			light_supplied = current_turf.get_lumcount(0, 3) * 10
 		else
-			light_supplied =  5
+			light_supplied = 5
+
 	if(light_supplied)
 		if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) > get_trait(TRAIT_LIGHT_TOLERANCE))
 			health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
@@ -316,9 +316,7 @@
 
 		if(turfs.len)
 			// Moves the mob, causes sparks.
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, get_turf(target))
-			s.start()
+			spark(target, 3, alldirs)
 			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
 			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
 			target.loc = picked                                          // And teleport them to the chosen location.

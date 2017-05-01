@@ -76,6 +76,7 @@ obj/machinery/air_sensor/Destroy()
 /obj/machinery/computer/general_air_control
 	icon = 'icons/obj/computer.dmi'
 	icon_screen = "tank"
+	light_color = LIGHT_COLOR_CYAN
 
 	name = "Computer"
 
@@ -99,8 +100,8 @@ obj/machinery/computer/general_air_control/Destroy()
 	onclose(user, "computer")
 
 /obj/machinery/computer/general_air_control/process()
-	..()
-	src.updateUsrDialog()
+	if (operable())
+		src.updateUsrDialog()
 
 /obj/machinery/computer/general_air_control/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return

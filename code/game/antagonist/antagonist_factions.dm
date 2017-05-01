@@ -3,6 +3,10 @@
 	set category = "Abilities"
 	if(!M.mind)
 		return
+	for (var/obj/item/weapon/implant/loyalty/I in M)
+		if (I.implanted)
+			src << "<span class='warning'>[M] is too loyal to the company!</span>"
+			return
 	convert_to_faction(M.mind, revs)
 
 /mob/living/proc/convert_to_faction(var/datum/mind/player, var/datum/antagonist/faction)
@@ -30,7 +34,7 @@
 		return
 
 	src << "<span class='danger'>You are attempting to convert \the [player.current]...</span>"
-	log_admin("[src]([src.ckey]) attempted to convert [player.current].")
+	log_admin("[src]([src.ckey]) attempted to convert [player.current].",ckey=src.ckey,ckey_target=key_name(player.current))
 	message_admins("<span class='danger'>[src]([src.ckey]) attempted to convert [player.current].</span>")
 
 	player.rev_cooldown = world.time+100

@@ -6,11 +6,11 @@
 	if(Debug2)
 		Debug2 = 0
 		message_admins("[key_name(src)] toggled debugging off.")
-		log_admin("[key_name(src)] toggled debugging off.")
+		log_admin("[key_name(src)] toggled debugging off.",admin_key=key_name(usr))
 	else
 		Debug2 = 1
 		message_admins("[key_name(src)] toggled debugging on.")
-		log_admin("[key_name(src)] toggled debugging on.")
+		log_admin("[key_name(src)] toggled debugging on.",admin_key=key_name(usr))
 
 	feedback_add_details("admin_verb","DG2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -46,7 +46,7 @@
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
-		log_admin("[key_name(src)] has robotized [M.key].")
+		log_admin("[key_name(src)] has robotized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
 		spawn(10)
 			M:Robotize()
 
@@ -69,7 +69,7 @@
 		alert("The mob must not be a new_player.")
 		return
 
-	log_admin("[key_name(src)] has animalized [M.key].")
+	log_admin("[key_name(src)] has animalized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
 	spawn(10)
 		M.Animalize()
 
@@ -82,11 +82,11 @@
 		alert("Wait until the game starts")
 		return
 	if(ishuman(M))
-		log_admin("[key_name(src)] has alienized [M.key].")
+		log_admin("[key_name(src)] has alienized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
 		spawn(10)
 			M:Alienize()
 			feedback_add_details("admin_verb","MKAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		log_admin("[key_name(usr)] made [key_name(M)] into an alien.")
+		log_admin("[key_name(usr)] made [key_name(M)] into an alien.",admin_key=key_name(usr),ckey=key_name(M))
 		message_admins("\blue [key_name_admin(usr)] made [key_name(M)] into an alien.", 1)
 	else
 		alert("Invalid mob")
@@ -99,11 +99,11 @@
 		alert("Wait until the game starts")
 		return
 	if(ishuman(M))
-		log_admin("[key_name(src)] has slimeized [M.key].")
+		log_admin("[key_name(src)] has slimeized [M.key].",admin_key=key_name(usr))
 		spawn(10)
 			M:slimeize()
 			feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		log_admin("[key_name(usr)] made [key_name(M)] into a slime.")
+		log_admin("[key_name(usr)] made [key_name(M)] into a slime.",admin_key=key_name(usr),ckey=key_name(M))
 		message_admins("\blue [key_name_admin(usr)] made [key_name(M)] into a slime.", 1)
 	else
 		alert("Invalid mob")
@@ -211,7 +211,7 @@
 		for(var/atom/O in world)
 			if(istype(O, hsbitem))
 				qdel(O)
-		log_admin("[key_name(src)] has deleted all instances of [hsbitem].")
+		log_admin("[key_name(src)] has deleted all instances of [hsbitem].",admin_key=key_name(usr))
 		message_admins("[key_name_admin(src)] has deleted all instances of [hsbitem].", 0)
 	feedback_add_details("admin_verb","DELA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -219,7 +219,7 @@
 	set category = "Debug"
 	set name = "Make Powernets"
 	makepowernets()
-	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.")
+	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -228,7 +228,7 @@
 	set name = "Toggle Aliens"
 
 	config.aliens_allowed = !config.aliens_allowed
-	log_admin("[key_name(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].")
+	log_admin("[key_name(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].", 0)
 	feedback_add_details("admin_verb","TAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -260,7 +260,7 @@
 	else
 		alert("Invalid mob")
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(src)] has granted [M.key] full access.")
+	log_admin("[key_name(src)] has granted [M.key] full access.",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("\blue [key_name_admin(usr)] has granted [M.key] full access.", 1)
 
 /client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
@@ -276,7 +276,7 @@
 			var/mob/dead/observer/ghost = new/mob/dead/observer(M,1)
 			ghost.ckey = M.ckey
 	message_admins("\blue [key_name_admin(usr)] assumed direct control of [M].", 1)
-	log_admin("[key_name(usr)] assumed direct control of [M].")
+	log_admin("[key_name(usr)] assumed direct control of [M].",admin_key=key_name(usr))
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
 	if( isobserver(adminmob) )
@@ -882,7 +882,7 @@
 
 	M.regenerate_icons()
 
-	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [dresscode].")
+	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [dresscode].",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("\blue [key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..", 1)
 	return
 
@@ -968,7 +968,6 @@
 		var/state="[M.dna.GetSEState(block)?"on":"off"]"
 		var/blockname=assigned_blocks[block]
 		message_admins("[key_name_admin(src)] has toggled [M.key]'s [blockname] block [state]!")
-		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!")
+		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!",admin_key=key_name(src),ckey=key_name(M))
 	else
 		alert("Invalid mob")
-

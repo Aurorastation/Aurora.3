@@ -15,6 +15,11 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
+	
+	if(user.spell_list.len)
+		user.silence_spells(300) //30 seconds
+		user << "<span class='danger'>You've been silenced!</span>"
+		return
 
 	if (!(istype(user, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
 		user << "<span class='danger'>You don't have the dexterity to do this!</span>"
@@ -54,7 +59,7 @@
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Is being deconverted with the [src.name] by [user.name] ([user.ckey])</font>")
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attempt to deconvert [M.name] ([M.ckey])</font>")
 
-		msg_admin_attack("[key_name(user)] attempted to deconvert [key_name(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		msg_admin_attack("[key_name(user)] attempted to deconvert [key_name(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 	else
 		return ..()

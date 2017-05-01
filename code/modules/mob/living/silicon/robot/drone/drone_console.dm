@@ -2,6 +2,7 @@
 	name = "Maintenance Drone Control"
 	desc = "Used to monitor the station's drone population and the assembler that services them."
 	icon = 'icons/obj/computer.dmi'
+	light_color = LIGHT_COLOR_ORANGE
 
 	icon_screen = "power"
 	req_access = list(access_engine_equip)
@@ -88,7 +89,7 @@
 		if(D.stat != 2)
 			usr << "<span class='danger'>You issue a kill command for the unfortunate drone.</span>"
 			message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
-			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.")
+			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
 			D.shut_down()
 
 	else if (href_list["search_fab"])

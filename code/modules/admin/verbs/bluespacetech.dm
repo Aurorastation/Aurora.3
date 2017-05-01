@@ -34,10 +34,7 @@
 	//I couldn't get the normal way to work so this works.
 	//This whole section looks like a hack, I don't like it.
 	var/T = get_turf(usr)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, T)
-	s.start()
-	var/mob/living/carbon/human/bst/bst = new(get_turf(T))
+	var/mob/living/carbon/human/bst/bst = new(T)
 //	bst.original_mob = usr
 	bst.anchored = 1
 	bst.ckey = usr.ckey
@@ -115,10 +112,9 @@
 	bst.add_language(LANGUAGE_BORER)
 
 	spawn(5)
-		s.start()
+		spark(T, 3, alldirs)
 		bst.anchored = 0
-		spawn(10)
-			qdel(s)
+
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
@@ -155,11 +151,7 @@
 
 	src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
 	spawn(10)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, src)
-		s.start()
-		spawn(5)
-			qdel(s)
+		spark(src, 5, alldirs)
 		if(key)
 			if(client.holder && client.holder.original_mob)
 				client.holder.original_mob.key = key
@@ -337,6 +329,14 @@
 		C.holder.original_mob = null
 	suicide()
 
+/mob/living/carbon/human/bst/verb/tgm()
+	set name = "Toggle Godmode"
+	set desc = "Enable or disable god mode. For testing things that require you to be vulnerable."
+	set category = "BST"
+
+	status_flags ^= GODMODE
+	src << span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]")
+
 //Equipment. All should have canremove set to 0
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.
 
@@ -357,7 +357,7 @@
 
 //Headset
 /obj/item/device/radio/headset/ert/bst
-	name = "\improper Bluespace Technician's headset"
+	name = "bluespace technician's headset"
 	desc = "A Bluespace Technician's headset. The letters 'BST' are stamped on the side."
 	translate_binary = 1
 	translate_hive = 1
@@ -383,7 +383,7 @@
 
 //Clothes
 /obj/item/clothing/under/rank/centcom_officer/bst
-	name = "\improper Bluespace Technician's Uniform"
+	name = "bluespace technician's uniform"
 	desc = "A Bluespace Technician's Uniform. There is a logo on the sleeve that reads 'BST'."
 	has_sensor = 0
 	sensor_mode = 0
@@ -403,7 +403,7 @@
 
 //Gloves
 /obj/item/clothing/gloves/swat/bst
-	name = "\improper Bluespace Technician's gloves"
+	name = "bluespace technician's gloves"
 	desc = "A pair of modified gloves. The letters 'BST' are stamped on the side."
 	siemens_coefficient = 0
 	permeability_coefficient = 0
@@ -420,7 +420,7 @@
 
 //Sunglasses
 /obj/item/clothing/glasses/sunglasses/bst
-	name = "\improper Bluespace Technician's Glasses"
+	name = "bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
 //	var/list/obj/item/clothing/glasses/hud/health/hud = null
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
@@ -443,7 +443,7 @@
 
 //Shoes
 /obj/item/clothing/shoes/black/bst
-	name = "\improper Bluespace Technician's shoes"
+	name = "bluespace technician's shoes"
 	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
 	flags = NOSLIP

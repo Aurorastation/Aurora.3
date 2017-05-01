@@ -15,6 +15,9 @@ var/global/list/active_diseases          = list()
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.
 var/global/list/sec_hud_users            = list() // List of all entities using a security HUD.
 var/global/list/hud_icon_reference       = list()
+var/global/list/janitorial_supplies      = list()	// List of all the janitorial supplies on the map that the PDA cart may be tracking.
+
+var/global/list/listening_objects         = list() // List of objects that need to be able to hear, used to avoid recursive searching through contents.
 
 
 var/global/list/global_mutations  = list() // List of hidden mutation things.
@@ -38,7 +41,7 @@ var/const/boss_name     = "Central Command"
 var/const/boss_short    = "Centcomm"
 var/const/company_name  = "NanoTrasen"
 var/const/company_short = "NT"
-var/game_version        = "Baystation12"
+var/game_version        = "Aurorastation"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 442)
 

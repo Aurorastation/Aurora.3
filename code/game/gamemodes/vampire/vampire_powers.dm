@@ -215,11 +215,7 @@
 		src << "<span class='warning'>Your powers are not capable of taking you that far.</span>"
 		return
 
-	var/atom/movable/lighting_overlay/light = T.lighting_overlay
-	if (!light)
-		return
-
-	if (max(light.lum_r, light.lum_g, light.lum_b) > 1)
+	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
 		// Too bright, cannot jump into.
 		src << "<span class='warning'>The destination is too bright.</span>"
 		return
@@ -684,7 +680,7 @@
 	T.mind.vampire.master = src
 	vampire.thralls += T
 	T << "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>"
-
+	src << "<span class='notice'>You have completed the thralling process. They are now your slave and will obey your commands.</span>"
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)
@@ -854,6 +850,10 @@
 			if (alert(src, choice_text, "Choices", "Yes", "No") == "No")
 				src << "<span class='notice'>[denial_response]</span>"
 				return
+
+			vampire_thrall.remove_antagonist(T.mind, 0, 0)
+			qdel(draining_vamp)
+			draining_vamp = null
 		else
 			src << "<span class='warning'>You feel corruption running in [T.name]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>"
 			return

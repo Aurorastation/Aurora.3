@@ -14,6 +14,7 @@
 	desc = "An interface between crew and the cryogenic storage oversight systems."
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
+	light_color = LIGHT_COLOR_GREEN
 	circuit = /obj/item/weapon/circuitboard/cryopodcontrol
 	density = 0
 	interact_offline = 1
@@ -425,7 +426,7 @@
 
 			// Book keeping!
 			var/turf/location = get_turf(src)
-			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)",ckey=key_name(M))
 			message_admins("<span class='notice'>[key_name_admin(M)] has entered a stasis pod.</span>")
 
 			//Despawning occurs when process() is called with an occupant without a client.
@@ -485,7 +486,7 @@
 
 		// Book keeping!
 		var/turf/location = get_turf(src)
-		log_admin("[key_name_admin(L)] has entered a stasis pod.")
+		log_admin("[key_name_admin(L)] has entered a stasis pod.",ckey=key_name(L))
 		message_admins("<span class='notice'>[key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
 
 		//Despawning occurs when process() is called with an occupant without a client.

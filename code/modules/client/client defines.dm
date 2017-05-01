@@ -6,8 +6,13 @@
 	var/datum/admins/deadmin_holder = null
 	var/buildmode		= 0
 
+		///////////////////
+		//SPAM PROTECTION//
+		///////////////////
 	var/last_message	= "" //Contains the last message sent by this client - used to protect against copy-paste spamming.
 	var/last_message_count = 0 //contins a number of how many times a message identical to last_message was sent.
+	var/last_message_time
+	var/spam_alert = 0
 
 		/////////
 		//OTHER//
@@ -31,6 +36,7 @@
 		//SECURITY//
 		////////////
 	var/next_allowed_topic_time = 10
+	var/info_sent = 0
 	// comment out the line below when debugging locally to enable the options & messages menu
 	//control_freak = 1
 
@@ -49,3 +55,14 @@
 	var/need_saves_migrated = "Requires database"	//Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
 
 	preload_rsc = 0 // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
+
+		////////////
+		//PARALLAX//
+		////////////
+	var/list/parallax = list()
+	var/list/parallax_movable = list()
+	var/list/parallax_offset = list()
+	var/turf/previous_turf = null
+	var/obj/screen/plane_master/parallax_master/parallax_master = null
+	var/obj/screen/plane_master/parallax_dustmaster/parallax_dustmaster = null
+	var/obj/screen/plane_master/parallax_spacemaster/parallax_spacemaster = null

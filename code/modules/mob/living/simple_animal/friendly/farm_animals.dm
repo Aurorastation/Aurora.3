@@ -31,7 +31,7 @@
 	..()
 
 /mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].")
+	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].",0)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()
@@ -102,7 +102,7 @@
 	turns_per_move = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-	meat_amount = 30//Cows are huge, should be worth a lot of meat
+	meat_amount = 40 //Cows are huge, should be worth a lot of meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -165,7 +165,7 @@
 	emote_see = list("pecks at the ground","flaps its tiny wings")
 	speak_chance = 2
 	turns_per_move = 2
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 1
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -179,6 +179,7 @@
 	beg_for_food = 0
 	density = 0
 	mob_size = 0.75//just a rough estimate, the real value should be way lower
+	hunger_enabled = FALSE
 
 /mob/living/simple_animal/chick/New()
 	..()
@@ -214,7 +215,7 @@ var/global/chicken_count = 0
 	emote_see = list("pecks at the ground","flaps its wings viciously")
 	speak_chance = 2
 	turns_per_move = 3
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 4
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -227,6 +228,7 @@ var/global/chicken_count = 0
 	holder_type = /obj/item/weapon/holder/chicken
 	density = 0
 	mob_size = 2
+	hunger_enabled = FALSE
 
 /mob/living/simple_animal/chicken/New()
 	..()
@@ -256,14 +258,17 @@ var/global/chicken_count = 0
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
-				user.visible_message("\blue [user] feeds [O] to [name]! It clucks happily.","\blue You feed [O] to [name]! It clucks happily.")
+				user.visible_message(
+					span("notice", "\The [user] feeds \the [O] to \the [name]! It clucks happily."),
+					span("notice", "You feed \the [O] to \the [name]! It clucks happily."),
+					"You hear a cluck.")
 				user.drop_item()
 				qdel(O)
 				eggsleft += rand(1, 4)
 			else
-				user << "\blue [name] doesn't seem hungry!"
+				user << "\The [name] doesn't seem hungry!"
 		else
-			user << "[name] doesn't seem interested in that."
+			user << "\The [name] doesn't seem interested in that."
 	else
 		..()
 

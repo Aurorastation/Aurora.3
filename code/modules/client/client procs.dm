@@ -25,7 +25,12 @@
 		return
 
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
-		handle_connection_info(src, href_list["data"])
+		if (!info_sent)
+			handle_connection_info(src, href_list["data"])
+			info_sent = 1
+		else
+			server_greeting.close_window(src, "Your greeting window has malfunctioned and has been shut down.")
+
 		return
 
 	//Reduces spamming of links by dropping calls that happen during the delay period
@@ -194,27 +199,38 @@
 
 		return
 
-	// Antag contest shit
-	if (href_list["contest_action"] && config.antag_contest_enabled)
-		src.process_contest_topic(href_list)
-		return
-
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
-	if(config.automute_on && !holder && src.last_message == message)
-		src.last_message_count++
-		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			src << "\red You have exceeded the spam filter limit for identical messages. An auto-mute was applied."
-			cmd_admin_mute(src.mob, mute_type, 1)
-			return 1
-		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			src << "\red You are nearing the spam filter limit for identical messages."
-			return 0
-	else
-		last_message = message
-		src.last_message_count = 0
-		return 0
+	if (config.automute_on && !holder)
+		if (last_message_time)
+			if (world.time - last_message_time < 5)
+				spam_alert++
+				if (spam_alert > 3)
+					if (!(prefs.muted & mute_type))
+						cmd_admin_mute(src.mob, mute_type, 1)
+
+					src << "<span class='danger'>You have tripped the macro filter. An auto-mute was applied.</span>"
+					last_message_time = world.time
+					return 1
+			else
+				spam_alert = max(0, spam_alert--)
+
+		last_message_time = world.time
+
+		if(!isnull(message) && last_message == message)
+			last_message_count++
+			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
+				src << "\red You have exceeded the spam filter limit for identical messages. An auto-mute was applied."
+				cmd_admin_mute(src.mob, mute_type, 1)
+				return 1
+			if(last_message_count >= SPAM_TRIGGER_WARNING)
+				src << "\red You are nearing the spam filter limit for identical messages."
+				return 0
+
+	last_message = message
+	last_message_count = 0
+	return 0
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
@@ -278,6 +294,8 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 	. = ..()	//calls mob.Login()
+
+	prefs.sanitize_preferences()
 
 	if (byond_version < config.client_error_version)
 		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"
@@ -608,3 +626,15 @@
 	server_greeting.find_outdated_info(src, 1)
 
 	server_greeting.display_to_client(src)
+
+// Byond seemingly calls stat, each tick.
+// Calling things each tick can get expensive real quick.
+// So we slow this down a little.
+// See: http://www.byond.com/docs/ref/info.html#/client/proc/Stat
+/client/Stat()
+	. = ..()
+	if (holder)
+		sleep(1)
+	else
+		sleep(5)
+		stoplag()

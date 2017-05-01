@@ -119,7 +119,7 @@
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-	log_say("[key_name(speaker)] : ([name]) [message]")
+	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
 	if(!speaker_mask)
 		speaker_mask = speaker.name
@@ -231,7 +231,7 @@
 	
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA
-	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the glactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
+	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "roars"

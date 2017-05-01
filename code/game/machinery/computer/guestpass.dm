@@ -45,7 +45,9 @@
 	desc = "Allows issuing temporary access to an area."
 	icon_state = "guest"
 
+	light_color = LIGHT_COLOR_BLUE
 	icon_screen = "pass"
+	is_holographic = FALSE
 	density = 0
 
 	var/obj/item/weapon/card/id/giver

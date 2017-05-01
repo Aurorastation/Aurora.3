@@ -25,6 +25,7 @@
 	var/old_dynamic_lighting = dynamic_lighting
 	var/list/old_affecting_lights = affecting_lights
 	var/old_lighting_overlay = lighting_overlay
+	var/list/old_corners = corners
 
 	//world << "Replacing [src.type] with [N]"
 
@@ -76,12 +77,15 @@
 		W.levelupdate()
 		. =  W
 
+	recalc_atom_opacity()
+
 	lighting_overlay = old_lighting_overlay
 	affecting_lights = old_affecting_lights
-	if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-		reconsider_lights()
+	corners = old_corners
 	if(dynamic_lighting != old_dynamic_lighting)
 		if(dynamic_lighting)
-			lighting_build_overlays()
+			lighting_build_overlay()
 		else
-			lighting_clear_overlays()
+			lighting_clear_overlay()
+	if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
+		force_update_lights()

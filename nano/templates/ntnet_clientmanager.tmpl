@@ -1,0 +1,101 @@
+<i>Welcome to NT IT client manager</i><hr>
+<div>This is the Client Management Application of the Nanotrasen IT Department. It is used ensure that the clients comply with the corporate IT policy, enroll new clients and manage clients remotely</div>
+<br>
+{{if data.error_message}}
+<div class="itemContent" style="color: red; text-align: center; width: 100%;">
+	<b>Error:</b> {{:data.error_message}}
+</div>
+<br>
+{{/if}}
+<div>
+	<h2>Status</h2>
+	<div class="item">
+		<div class="itemLabel">
+			Enrollment Status:
+		</div>
+		<div class="itemContent">
+			{{if data.status_enrollment == 0}}
+			Unconfigured
+			{{else data.status_enrollment == 1}}
+			Work Device
+			{{else data.status_enrollment == 2}}
+			Private Device
+			{{else}}
+			Error - Contact the IT Department
+			{{/if}}
+		</div>
+	</div>
+	{{if data.status_enrollment == 1}}
+		<div class="item">
+			<div class="itemLabel">
+				Policy Compliance Status:
+			</div>
+			<div class="itemContent">
+				{{if data.status_compliance == 0}}
+				Not Compliant
+				{{else data.status_compliance == 1}}
+				Compliant
+				{{else}}
+				Error - Contact the IT Department
+				{{/if}}
+			</div>
+		</div>
+		<div class="item">
+			<div class="itemLabel">
+				Remote Management Status:
+			</div>
+			<div class="itemContent">
+				{{if data.status_remote == 0}}
+				Inactive
+				{{else data.status_remote == 1}}
+				Active
+				{{else}}
+				Error - Contact the IT Department
+				{{/if}}
+			</div>
+		</div>
+	{{/if}}
+	{{if data.status_enrollment == 0}}
+</div>
+<div>
+	<div><h2>Device Enrollment</h2></div>
+	<table>
+		<tr>
+			<td width="150px">
+				<div><b>Device Type:</b></div>
+				<div>
+					{{:helper.link('Company', null, { "PRG_dev_type" : 1 }, data.dev_type == 1 ? 'selected' : null)}}
+					{{:helper.link('Private', null, { "PRG_dev_type" : 2 }, data.dev_type == 2 ? 'selected' : null)}}
+				</div>
+			</td>
+			<td>
+				{{if data.dev_type == 1}}
+					<div><b>Device Preset:</b></div>
+					<div>
+						{{for data.dev_presets}}
+							<div>{{:helper.link(value.display_name,null,{"PRG_dev_preset" : value.name}, value.name == data.dev_preset ? 'selected' : null)}}</div>
+						{{/for}}
+					</div>
+				{{/if}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div><b>Enroll Device:</b></div>
+				<div>{{:helper.link('Confirm', null, { "PRG_enroll" : 1 })}}</div>
+			</td>
+		</tr>
+	</table>
+</div>
+{{else data.status_enrollment == 1}}
+<div>
+	<h2>Control</h2>
+	<div>{{:helper.link("Request Support",null,{"PRG_req_support" : 1}, 'disabled')}}</div>
+	<div>{{:helper.link("Reset Device",null,{"PRG_reset_device" : 1}, 'disabled')}}</div>
+</div>
+{{else data.status_enrollment == 2}}
+<div>
+	<h2>Control</h2>
+	<div>{{:helper.link("Reset Device",null,{"PRG_reset_device" : 1}, 'disabled')}}</div>
+</div>
+{{/if}}

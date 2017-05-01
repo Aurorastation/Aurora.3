@@ -51,7 +51,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/storage/box/swabs,
 					/obj/item/weapon/storage/box/swabs,
 					/obj/item/weapon/storage/box/slides,
-					/obj/item/weapon/reagent_containers/spray/luminol)
+					/obj/item/weapon/reagent_containers/spray/luminol,
+					/obj/item/device/uv_light)
 	cost = 30
 	containertype = /obj/structure/closet/crate
 	containername = "Auxiliary forensic tools"
@@ -138,6 +139,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/patron,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine,
 					/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
 					/obj/item/weapon/lipstick/random,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale,
@@ -204,6 +206,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate/internals
 	containername = "Emergency crate"
 	group = "Atmospherics"
+
+
 
 
 /datum/supply_packs/inflatable
@@ -1092,6 +1096,22 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "Sterile equipment crate"
 	group = "Medical"
 
+/datum/supply_packs/beer
+	contains = list(/obj/structure/reagent_dispensers/beerkeg)
+	name = "Beer Keg"
+	cost = 10
+	containertype = /obj/structure/largecrate
+	containername = "Beer Crate"
+	group = "Hospitality"
+
+/datum/supply_packs/xuizi
+	contains = list(/obj/structure/reagent_dispensers/xuizikeg)
+	name = "Xuizi Juice Keg"
+	cost = 20
+	containertype = /obj/structure/largecrate
+	containername = "Xuizi Juice Crate"
+	group = "Hospitality"
+
 /datum/supply_packs/randomised/pizza
 	num_contained = 5
 	contains = list(/obj/item/pizzabox/margherita,
@@ -1733,3 +1753,44 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate
 	containername = "IPC/Shell tag implanters"
 	group = "Security"
+
+/datum/supply_packs/ame_ctrl
+	name = "Antimatter Reactor Control Unit"
+	contains = list(
+		/obj/machinery/power/am_control_unit
+	)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure/large
+	containername = "antimatter reactor control unit kit"
+	group = "Engineering"
+	access = access_ce
+
+/datum/supply_packs/ame_section
+	name = "Antimatter Reactor Shielding Kit"
+	contains = list(
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container,
+		/obj/item/device/am_shielding_container
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/secure/phoron
+	containername = "antimatter reactor shielding (9x) crate"
+	group = "Engineering"
+	access = access_ce
+
+/datum/supply_packs/ame_fuel
+	name = "Antimatter Reactor Fuel"
+	contains = list(
+		/obj/item/weapon/am_containment
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/secure/bin
+	containername = "antimatter fuel container"
+	group = "Engineering"
+	access = access_engine

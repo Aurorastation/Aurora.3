@@ -162,7 +162,8 @@ VOTE_AUTOGAMEMODE_TIMELEFT 100
 ## min delay (deciseconds) before a transfer vote can be called (default 120 minutes)
 TRANSFER_TIMEOUT 72000
 
-## prevents dead players from voting or starting votes
+## Prevets lobby-sitters and ghosts who went straight from the lobby to observing from voting.
+## Ghosts who died will still be able to vote.
 #NO_DEAD_VOTE
 
 ## players' votes default to "No vote" (otherwise,  default to "No change")
@@ -434,3 +435,8 @@ API_RATE_LIMIT 50
 ## IPs that should not be throttled by the API RATE Limiter
 ## IPs are separated by ;
 API_RATE_LIMIT_WHITELIST 127.0.0.1
+
+## GELF Logging Configuration
+LOG_GELF_ENABLED 0
+LOG_GELF_IP 192.168.100.80
+LOG_GELF_PORT 12201

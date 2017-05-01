@@ -71,7 +71,7 @@
 		icon_state = "secbot[on]"
 
 	if(on)
-		set_light(2, 1, "#FF6A00")
+		set_light(1.4, 1, "#FF6A00")
 	else
 		set_light(0)
 
@@ -322,9 +322,7 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
+	spark(src, 3, alldirs)
 
 	new /obj/effect/decal/cleanable/blood/oil(Tsec)
 	qdel(src)

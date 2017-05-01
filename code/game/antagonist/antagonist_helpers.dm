@@ -1,7 +1,7 @@
 /datum/antagonist/proc/can_become_antag(var/datum/mind/player, var/ignore_role)
 	if (!player.current)
 		return 0
-	if(player.current && jobban_isbanned(player.current, bantype))
+	if(jobban_isbanned(player.current, bantype) || jobban_isbanned(player.current, "Antagonist"))
 		return 0
 	if(!ignore_role)
 		if(player.assigned_role in restricted_jobs)

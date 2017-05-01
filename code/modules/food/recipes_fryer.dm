@@ -1,0 +1,116 @@
+/datum/recipe/fries
+	appliance = FRYER
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawsticks
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/fries
+
+
+/datum/recipe/jpoppers
+	appliance = FRYER
+	fruit = list("chili" = 1)
+	coating = /datum/reagent/nutriment/coating/batter
+	result = /obj/item/weapon/reagent_containers/food/snacks/jalapeno_poppers
+
+//Meaty Recipes
+//====================
+/datum/recipe/cubancarp
+	appliance = FRYER
+	fruit = list("chili" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/cubancarp
+
+/datum/recipe/batteredsausage
+	appliance = FRYER
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sausage/battered
+	coating = /datum/reagent/nutriment/coating/batter
+
+
+/datum/recipe/katsu
+	appliance = FRYER
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meat/chicken
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chickenkatsu
+	coating = /datum/reagent/nutriment/coating/beerbatter
+
+
+/datum/recipe/pizzacrunch_1
+	appliance = FRYER
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/crunch
+	coating = /datum/reagent/nutriment/coating/batter
+
+//Alternate pizza crunch recipe for combination pizzas made in oven
+/datum/recipe/pizzacrunch_2
+	appliance = FRYER
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/variable/pizza
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/crunch
+	coating = /datum/reagent/nutriment/coating/batter
+
+
+
+//Sweet Recipes.
+//==================
+/datum/recipe/jellydonut
+	appliance = FRYER
+	reagents = list("berryjuice" = 10, "sugar" = 10)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/donut/jelly
+	result_quantity = 2
+
+/datum/recipe/jellydonut/slime
+	appliance = FRYER
+	reagents = list("slimejelly" = 10, "sugar" = 10)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/donut/slimejelly
+
+/datum/recipe/jellydonut/cherry
+	appliance = FRYER
+	reagents = list("cherryjelly" = 10, "sugar" = 10)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/donut/cherryjelly
+
+/datum/recipe/donut
+	appliance = FRYER
+	reagents = list("sugar" = 10)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/donut/normal
+	result_quantity = 2
+
+/datum/recipe/chaosdonut
+	appliance = FRYER
+	reagents = list("frostoil" = 10, "capsaicin" = 10, "sugar" = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE //This creates its own reagents
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/donut/chaos
+	result_quantity = 2
+
+
+
+
+
+/datum/recipe/funnelcake
+	appliance = FRYER
+	reagents = list("sugar" = 5, "batter" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/funnelcake

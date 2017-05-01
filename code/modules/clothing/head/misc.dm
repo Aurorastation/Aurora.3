@@ -250,3 +250,59 @@
 	desc = "An orange piece of cloth, worn on the head."
 	icon_state = "orange_bandana"
 	body_parts_covered = 0
+
+/obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
+	name = "hijab"
+	desc = "Encompassing cloth headwear worn by some human cultures and religions."
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_black"
+	item_state = "hijab_black"
+	flags_inv = BLOCKHAIR
+	body_parts_covered = 0
+	contained_sprite = 1
+
+/obj/item/clothing/head/hijab/grey
+	name = "grey hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_grey"
+	item_state = "hijab_grey"
+
+/obj/item/clothing/head/hijab/red
+	name = "red hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_red"
+	item_state = "hijab_red"
+
+/obj/item/clothing/head/hijab/brown
+	name = "brown hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_brown"
+	item_state = "hijab_brown"
+
+/obj/item/clothing/head/hijab/green
+	name = "green hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_green"
+	item_state = "hijab_green"
+
+/obj/item/clothing/head/hijab/blue
+	name = "blue hijab"
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_blue"
+	item_state = "hijab_blue"
+	
+/obj/item/clothing/head/cowboy
+	name = "cowboy hat"
+	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
+	icon_state = "cowboyhat"
+	body_parts_covered = 0
+
+/obj/item/clothing/head/cowboy/wide
+	name = "wide-brimmed cowboy hat"
+	icon_state = "cowboy_wide"
+	
+/obj/item/clothing/head/sombrero
+	name = "sombrero"
+	desc = "You can practically taste the fiesta."
+	icon_state = "sombrero"
+	body_parts_covered = 0

@@ -185,6 +185,7 @@
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
+	flags = NO_SLIP
 
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
@@ -237,17 +238,17 @@
 		)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/diona/chest),
-		"groin" =  list("path" = /obj/item/organ/external/diona/groin),
-		"head" =   list("path" = /obj/item/organ/external/diona/head),
-		"l_arm" =  list("path" = /obj/item/organ/external/diona/arm),
-		"r_arm" =  list("path" = /obj/item/organ/external/diona/arm/right),
-		"l_leg" =  list("path" = /obj/item/organ/external/diona/leg),
-		"r_leg" =  list("path" = /obj/item/organ/external/diona/leg/right),
-		"l_hand" = list("path" = /obj/item/organ/external/diona/hand),
-		"r_hand" = list("path" = /obj/item/organ/external/diona/hand/right),
-		"l_foot" = list("path" = /obj/item/organ/external/diona/foot),
-		"r_foot" = list("path" = /obj/item/organ/external/diona/foot/right)
+		"chest" =  list("path" = /obj/item/organ/external/chest/diona),
+		"groin" =  list("path" = /obj/item/organ/external/groin/diona),
+		"head" =   list("path" = /obj/item/organ/external/head/diona),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/diona),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/diona),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/diona),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/diona),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/diona),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
 		)
 
 	//inherent_verbs = list()
@@ -355,6 +356,9 @@
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
 
+	light_range = 2
+	light_power = 0.5
+
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
 
@@ -399,7 +403,7 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain,
 		"cell" = /obj/item/organ/cell,
-		"optics" = /obj/item/organ/optical_sensor,
+		"optics" = /obj/item/organ/eyes/optical_sensor,
 		"ipc tag" = /obj/item/organ/ipc_tag
 		)
 
@@ -502,6 +506,55 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			query_details[":status"] = status
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status WHERE player_ckey = :ckey AND character_name = :character_name")
 			update_query.Execute(query_details)
+
+/datum/species/machine/get_light_color(hair_style)
+	// I hate this, but I can't think of a better way that doesn't involve
+	// rewriting hair.
+	switch (hair_style)
+		if ("pink IPC screen")
+			return LIGHT_COLOR_PINK
+
+		if ("red IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("green IPC screen")
+			return LIGHT_COLOR_GREEN
+
+		if ("blue IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("breakout IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("eight IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("goggles IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("heart IPC screen")
+			return LIGHT_COLOR_PINK
+
+		if ("monoeye IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("nature IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("orange IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("purple IPC screen")
+			return LIGHT_COLOR_PURPLE
+
+		if ("shower IPC screen")
+			return "#FFFFFF"
+
+		if ("static IPC screen")
+			return "#FFFFFF"
+
+		if ("yellow IPC screen")
+			return LIGHT_COLOR_YELLOW
 
 /datum/species/bug
 	name = "Vaurca Worker"

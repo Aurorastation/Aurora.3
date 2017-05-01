@@ -141,10 +141,13 @@
 		if(is_broken())
 			filter_effect -= 2
 
-		if (owner.intoxication)
+		if (owner.intoxication > 0)
 			//ALCOHOL_FILTRATION_RATE is defined in intoxication.dm
 			owner.intoxication -= ALCOHOL_FILTRATION_RATE*filter_effect*PROCESS_ACCURACY//A weakened liver filters out alcohol more slowly
 			owner.intoxication = max(owner.intoxication, 0)
+			if (!owner.intoxication)
+				//If intoxication has just been reduced to zero, this will handle removing any effects
+				owner.handle_intoxication()
 
 		// Do some reagent processing.
 		if(owner.chem_effects[CE_ALCOHOL_TOXIC])
@@ -185,9 +188,6 @@
 	organ_tag = "right heart"
 	parent_organ = "chest"
 	dead_icon = "heart-off"
-
-/obj/item/organ/internal/vaurca/process()
-	return
 
 /obj/item/organ/vaurca/neuralsocket
 	name = "neural socket"
@@ -433,7 +433,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		return null
 
 	var/tank_pressure = air_contents.return_pressure()
-	if(tank_pressure < distribute_pressure)
+	if((tank_pressure < distribute_pressure) && prob(5))
 		owner << "<span class='warning'>There is a buzzing in your [parent_organ].</span>"
 
 	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)

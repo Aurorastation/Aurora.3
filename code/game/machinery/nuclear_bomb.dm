@@ -11,6 +11,7 @@ var/bomb_set
 	var/lighthack = 0
 	var/timeleft = 120
 	var/timing = 0
+	var/alerted = 0
 	var/r_code = "ADMIN"
 	var/code = ""
 	var/yes_code = 0
@@ -256,7 +257,7 @@ var/bomb_set
 					if (text2num(lastentered) == null)
 						var/turf/LOC = get_turf(usr)
 						message_admins("[key_name_admin(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: <a href='?_src_=vars;Vars=\ref[src]'>[lastentered]</a>! ([LOC ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[LOC.x];Y=[LOC.y];Z=[LOC.z]'>JMP</a>" : "null"])", 0)
-						log_admin("EXPLOIT: [key_name(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: [lastentered]!")
+						log_admin("EXPLOIT: [key_name(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: [lastentered]!",ckey=key_name(usr))
 					else
 						code += lastentered
 						if (length(code) > 5)
@@ -290,6 +291,10 @@ var/bomb_set
 					update_icon()
 				else
 					secure_device()
+
+				if(alerted == 0)
+					set_security_level(SEC_LEVEL_DELTA)
+					alerted = 1
 			if (href_list["safety"])
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
 					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"

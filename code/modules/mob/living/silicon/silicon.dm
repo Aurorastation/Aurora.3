@@ -1,7 +1,7 @@
 /mob/living/silicon
 	gender = NEUTER
 	voice_name = "synthesized voice"
-	diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
 	var/syndicate = 0
 	var/const/MAIN_CHANNEL = "Main Frequency"
 	var/lawchannel = MAIN_CHANNEL // Default channel on which to state laws
@@ -24,7 +24,7 @@
 	var/next_alarm_notice
 	var/list/datum/alarm/queued_alarms = new()
 
-
+	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	var/list/access_rights
 	var/obj/item/weapon/card/id/idcard
 	var/idcard_type = /obj/item/weapon/card/id/synthetic
@@ -84,9 +84,7 @@
 /mob/living/silicon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0)
 
 	if (istype(source, /obj/machinery/containment_field))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, loc)
-		s.start()
+		spark(loc, 5, alldirs)
 
 		shock_damage *= 0.75	//take reduced damage
 		take_overall_damage(0, shock_damage)

@@ -15,7 +15,7 @@
 	desc = "An advanced power cell, often used in most laptops. It is too large to be fitted into smaller devices. It's rating is 1100."
 	icon_state = "battery_advanced"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
-	hardware_size = 2
+	hardware_size = 3
 	battery_rating = 1100
 
 /obj/item/weapon/computer_hardware/battery_module/super
@@ -23,7 +23,7 @@
 	desc = "A very advanced power cell, often used in high-end devices, or as uninterruptable power supply for important consoles or servers. It's rating is 1500."
 	icon_state = "battery_super"
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
-	hardware_size = 2
+	hardware_size = 3
 	battery_rating = 1500
 
 /obj/item/weapon/computer_hardware/battery_module/ultra

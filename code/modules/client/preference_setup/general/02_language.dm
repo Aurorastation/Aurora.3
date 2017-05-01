@@ -75,6 +75,9 @@
 			else
 				var/new_lang = input(user, "Select an additional language", "Character Generation", null) as null|anything in available_languages
 				if(new_lang)
-					pref.alternate_languages |= new_lang
+					if (pref.alternate_languages.len >= S.num_alternate_languages)
+						alert(user, "You have already selected the maximum number of alternate languages for this species!")
+					else
+						pref.alternate_languages |= new_lang
 					return TOPIC_REFRESH
 	return ..()

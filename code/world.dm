@@ -1,3 +1,5 @@
+#define WORLD_ICON_SIZE 32
+#define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
 
 /*
 	The initialization of the game happens roughly like this:
@@ -110,10 +112,6 @@ var/global/list/objects_init_list = list()
 		new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)
 		// Update all turfs to ensure everything looks good post-generation. Yes,
 		// it's brute-forcey, but frankly the alternative is a mine turf rewrite.
-		for(var/turf/simulated/mineral/M in world) // Ugh.
-			M.updateMineralOverlays()
-		for(var/turf/simulated/floor/asteroid/M in world) // Uuuuuugh.
-			M.updateMineralOverlays()
 
 	// Create autolathe recipes, as above.
 	populate_lathe_recipes()
@@ -213,26 +211,6 @@ var/list/world_api_rate_limit = list()
 		*/
 
 	processScheduler.stop()
-
-	// Handle runtime condensing here
-	if (config.log_runtime)
-		// 0x20 = R_DEBUG. world.dm is compiled at the very start, so the macros aren't declared here yet.
-		admin_notice("<span class='danger'>Starting to condense runtimes.</span>", 0x20)
-		var/input_file = "data/logs/_runtime/[diary_date_string]-runtime.log"
-		var/output_file = "data/logs/_runtime/[diary_date_string]-runtime-condensed.log"
-
-		var/command = "tools/Runtime Condenser/RuntimeCondenser.exe -q -s [input_file] -d [output_file]"
-
-		if (src.system_type == MS_WINDOWS)
-			command = replacetext(command, "/", "\\")
-
-		var/exit_code = shell(command)
-		if (exit_code)
-			log_debug("RuntimeCondenser.exe exited with error code [exit_code].")
-		admin_notice("<span class='danger'>Runtime condensing finished.</span>", 0x20)
-
-		// Sleep until the next tick before proceeding.
-		sleep(1)
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)

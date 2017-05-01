@@ -110,9 +110,7 @@
 					M.Stun(power)
 					M.stuttering = max(M.stuttering, power)
 
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(5, 1, M)
-					s.start()
+					spark(M, 5, alldirs)
 
 					if(prob(stunprob) && powerlevel >= 8)
 						M.adjustFireLoss(powerlevel * rand(6,10))

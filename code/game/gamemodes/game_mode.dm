@@ -283,7 +283,7 @@ var/global/list/additional_antag_types = list()
 /datum/game_mode/proc/declare_completion()
 
 	var/is_antag_mode = (antag_templates && antag_templates.len)
-	var/discord_text = "@subscribers A round of **[name]** has ended! \[Game ID: [game_id]\]\n\n"
+	var/discord_text = "A round of **[name]** has ended! \[Game ID: [game_id]\]\n\n"
 	check_victory()
 	if(is_antag_mode)
 		sleep(10)
@@ -298,7 +298,7 @@ var/global/list/additional_antag_types = list()
 		sleep(10)
 		print_ownerless_uplinks()
 
-	discord_bot.send_to_announce(discord_text)
+	discord_bot.send_to_announce(discord_text, 1)
 	discord_text = ""
 
 	var/clients = 0

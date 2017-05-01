@@ -158,7 +158,7 @@
 	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
 	
 	if(status)
 		deductcharge(hitcost)
@@ -208,7 +208,7 @@
 	item_state = "stunrod"
 	force = 20
 	baton_color = "#75ACFF"
-	origin_tech = "combat=4,illegal=2"
+	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
 
 /obj/item/weapon/melee/baton/stunrod/New()

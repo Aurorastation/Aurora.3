@@ -8,6 +8,7 @@
 	required_access_run = access_network
 	required_access_download = access_heads
 	usage_flags = PROGRAM_CONSOLE
+	color = LIGHT_COLOR_GREEN
 	
 	available_on_ntnet = 1
 	nanomodule_path = /datum/nano_module/computer_ntnetmonitor/

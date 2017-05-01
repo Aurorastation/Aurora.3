@@ -133,6 +133,9 @@
 
 	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
 
+	if(src.get_species() == "Industrial Frame")
+		pressure_adjustment_coefficient = 0 // woo, back-mounted cooling!
+
 	return pressure_adjustment_coefficient
 
 // Calculate how much of the enviroment pressure-difference affects the human.
@@ -169,19 +172,26 @@
 	if(species.vision_organ)
 		vision = internal_organs_by_name[species.vision_organ]
 
-	if(!vision) // Presumably if a species has no vision organs, they see via some other means.
-		eye_blind =  0
-		blinded =    0
-		eye_blurry = 0
-	else if(vision.is_broken())   // Vision organs cut out or broken? Permablind.
-		eye_blind =  1
-		blinded =    1
+	if (!vision)
+		if (species.vision_organ) // if they should have eyes but don't, they can't see
+			eye_blind = 1
+			blinded = 1
+			eye_blurry = 1
+		else // if they're not supposed to have a vision organ, then they must see by some other means
+			eye_blind = 0
+			blinded = 0
+			eye_blurry = 0
+	else if (vision.is_broken()) // if their eyes have been damaged or detached, they're blinded
+		eye_blind = 1
+		blinded = 1
 		eye_blurry = 1
 	else
 		//blindness
 		if(!(sdisabilities & BLIND))
 			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
 				eye_blurry = max(eye_blurry-2, 0)
+			else
+				eye_blurry = max(eye_blurry-1, 0)
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
@@ -288,6 +298,7 @@
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
 			diona_handle_regeneration(get_dionastats())
+			return
 		else
 			var/damage = 0
 			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
@@ -617,7 +628,7 @@
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
 	if (is_diona())
-		diona_handle_air(get_dionastats(), pressure)
+		environment.remove(diona_handle_air(get_dionastats(), pressure))
 
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
@@ -915,9 +926,6 @@
 
 	if (intoxication)
 		handle_intoxication()
-	else if (alcohol_clumsy)//This var is defined in intoxication.dm, its set true when alcohol has caused clumsiness
-		mutations.Remove(CLUMSY)
-		alcohol_clumsy = 0
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
@@ -974,12 +982,12 @@
 					fake_attack(src)
 				if(!handling_hal)
 					spawn handle_hallucinations() //The not boring kind!
-				if(client && prob(5))
+				/*if(client && prob(5))
 					client.dir = pick(2,4,8)
 					var/client/C = client
 					spawn(rand(20,50))
 						if(C)
-							C.dir = 1
+							C.dir = 1*/	// This breaks the lighting system.
 
 			if(hallucination<=2)
 				hallucination = 0
@@ -1054,11 +1062,14 @@
 		handle_statuses()
 
 		if (drowsyness)
-			drowsyness--
-			eye_blurry = max(2, eye_blurry)
-			if (prob(5))
-				sleeping += 1
-				Paralyse(5)
+			if (drowsyness < 0)
+				drowsyness = 0
+			else
+				drowsyness--
+				eye_blurry = max(2, eye_blurry)
+				if (prob(5))
+					sleeping += 1
+					Paralyse(5)
 
 		confused = max(0, confused - 1)
 
@@ -1251,8 +1262,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-		if(L && L.lum_r + L.lum_g + L.lum_b == 0)
+		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/handle_stomach()
@@ -1461,7 +1471,7 @@
 
 	if (BITTEST(hud_updateflag, ID_HUD) && hud_list[ID_HUD])
 		var/image/holder = hud_list[ID_HUD]
-		
+
 		//The following function is found in code/defines/procs/hud.dm
 		holder.icon_state = get_sec_hud_icon(src)
 		hud_list[ID_HUD] = holder
