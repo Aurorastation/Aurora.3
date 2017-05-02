@@ -30,7 +30,7 @@
 	//TODO: make it heat up the surroundings when not in space
 
 /obj/item/device/suit_cooling_unit/Initialize()
-	..()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	cell = new celltype(src)
 	

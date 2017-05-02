@@ -11,7 +11,7 @@
 // creates a new object and deletes itself
 
 /obj/random/Initialize()
-	..()
+	. = ..()
 	if (!prob(spawn_nothing_percentage))
 		var/item = spawn_item()
 		if (has_postspawn && item)
