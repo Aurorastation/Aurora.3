@@ -17,7 +17,7 @@
 				world.log << "### ZAS SHUTDOWN"
 
 				message_admins("ZASALERT: Shutting down! status: [air_master.tick_progress]")
-				log_admin("ZASALERT: Shutting down! status: [air_master.tick_progress]")
+				log_admin("ZASALERT: Shutting down! status: [air_master.tick_progress]",level=1)
 
 				air_processing_killed = TRUE
 				air_master.failed_ticks = 0

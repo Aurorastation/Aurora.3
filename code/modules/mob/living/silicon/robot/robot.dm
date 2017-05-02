@@ -129,6 +129,8 @@
 	icontype = "Basic"
 	updatename(modtype)
 	updateicon()
+	if(mmi && mmi.brainobj)
+		mmi.brainobj.lobotomized = 1
 
 	radio = new /obj/item/device/radio/borg(src)
 	common_radio = radio
@@ -955,6 +957,12 @@
 	gib()
 	return
 
+/mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
+	. = ..()
+	if (lockcharge)
+		canmove = 0
+		. = 0
+
 /mob/living/silicon/robot/proc/UnlinkSelf()
 	disconnect_from_ai()
 	lawupdate = 0
@@ -1129,7 +1137,7 @@
 				disconnect_from_ai()
 				user << "You emag [src]'s interface."
 				message_admins("[key_name_admin(user)] emagged cyborg [key_name_admin(src)].  Laws overridden.")
-				log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.")
+				log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
 				clear_supplied_laws()
 				clear_inherent_laws()
 				laws = new /datum/ai_laws/syndicate_override

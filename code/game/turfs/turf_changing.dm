@@ -70,6 +70,7 @@
 	. = W
 
 	recalc_atom_opacity()
+
 	lighting_overlay = old_lighting_overlay
 	affecting_lights = old_affecting_lights
 	corners = old_corners
@@ -103,3 +104,4 @@
 		src.air.copy_from(other.zone.air)
 		other.zone.remove(other)
 	return 1
+

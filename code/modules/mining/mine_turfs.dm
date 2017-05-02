@@ -438,20 +438,6 @@
 
 	. = ..()
 
-/turf/simulated/mineral/random/low_chance
-	name = "Mineral deposit"
-	mineralSpawnChanceList = list(
-		ORE_URANIUM = 0,
-		ORE_PLATINUM = 0,
-		ORE_IRON = 2,
-		ORE_COAL = 3,
-		ORE_DIAMOND = 0,
-		ORE_GOLD = 0,
-		ORE_SILVER = 0,
-		ORE_PHORON = 1
-	)
-	mineralChance = 5
-
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -463,7 +449,7 @@
 		ORE_SILVER = 2,
 		ORE_PHORON = 3
 	)
-	mineralChance = 50
+	mineralChance = 45
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -476,7 +462,7 @@
 		ORE_SILVER = 3,
 		ORE_PHORON = 2
 	)
-	mineralChance = 45
+	mineralChance = 75
 
 
 

@@ -49,6 +49,9 @@
 		if(istype(W, /obj/item/weapon/gun/energy/vaurca/thermaldrill))
 			outcome_path = /obj/item/rig_module/mounted/thermalldrill
 
+		if(!outcome_path)
+			return
+
 		user << "<span class='notice'>You start feeding [W] into \the [src]</span>"
 		if(do_after(user,30))
 			src.visible_message("<span class='notice'>\The [src] begins to print out a modsuit.</span>")

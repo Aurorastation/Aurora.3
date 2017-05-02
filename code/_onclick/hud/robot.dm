@@ -147,6 +147,7 @@ var/obj/screen/robot_inventory
 	mymob.flash.name = "flash"
 	mymob.flash.screen_loc = ui_entire_screen
 	mymob.flash.layer = 17
+	mymob.flash.mouse_opacity = 0
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen1_robot.dmi'
