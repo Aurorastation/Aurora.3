@@ -57,6 +57,15 @@ var/datum/controller/subsystem/processing/overlays/SSoverlays
 
 	overlay_queued = FALSE
 
+/atom/movable/compile_overlays()
+	..()
+	UPDATE_OO_IF_PRESENT
+
+/turf/compile_overlays()
+	..()
+	if (istype(above))
+		above.update_icon()
+
 /proc/iconstate2appearance(icon, iconstate)
 	var/static/image/stringbro = new()
 	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches 

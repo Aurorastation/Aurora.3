@@ -611,6 +611,7 @@ About the new airlock wires panel:
 			set_light(0)
 			has_set_boltlight = FALSE
 
+	update_oo()
 	return
 
 /obj/machinery/door/airlock/do_animate(animation)

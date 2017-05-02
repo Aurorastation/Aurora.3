@@ -56,3 +56,7 @@
 #define QUEUE_VISUAL(visual) if (!visual.isprocessing) {visual.isprocessing = TRUE; SSeffects.visuals += visual;}
 #define STOP_EFFECT(effect) effect.isprocessing = FALSE; SSeffects.effect_systems -= effect;
 #define STOP_VISUAL(visual)	visual.isprocessing = FALSE; SSeffects.visuals -= visual;
+
+// -- SSopenturf --
+#define CHECK_OO_EXISTENCE(OO) if (OO && !istype(OO.loc, /turf/simulated/open)) { qdel(OO); }
+#define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_oo(); }
