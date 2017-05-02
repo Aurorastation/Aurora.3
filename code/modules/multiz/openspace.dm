@@ -52,6 +52,13 @@
 	if (bound_overlay.check_existence())
 		SSopenturf.queued_overlays += bound_overlay
 
+/atom/movable/proc/get_above_oo()
+	. = list()
+	var/atom/movable/curr = src
+	while (curr.bound_overlay)
+		. += curr.bound_overlay
+		curr = curr.bound_overlay
+
 // -- Openspace movables --
 
 /atom/movable/openspace
