@@ -81,9 +81,9 @@
 			dust()
 			
 /mob/living/simple_animal/mouse/Destroy()
-	..()
-	
 	world_mouses -= src
+		
+	return ..()
 	
 //Pixel offsetting as they scamper around
 /mob/living/simple_animal/mouse/Move()
