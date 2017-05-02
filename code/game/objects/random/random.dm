@@ -11,7 +11,7 @@
 // creates a new object and deletes itself
 
 /obj/random/Initialize()
-	..()
+	. = ..()
 	if (!prob(spawn_nothing_percentage))
 		var/item = spawn_item()
 		if (has_postspawn && item)
@@ -42,9 +42,6 @@
 
 	if (!.)
 		log_debug("random_obj: [DEBUG_REF(src)] returned null item!")
-
-/obj/random/Destroy()
-	return ..()
 
 /obj/random/single
 	name = "randomly spawned object"
