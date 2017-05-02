@@ -128,18 +128,18 @@
 	w_class = 2
 	var/evidence_type = "fiber"
 	var/evidence_path = /obj/item/weapon/sample/fibers
-	collecting_evidence = 0
+	accepting_evidence = 0
 
 /obj/item/weapon/forensics/sample_kit/examine(var/mob/user)
 	..()
-	user << "<span class='notice'>It is in [collecting_evidence ? "evidence collection" : "storage"] mode.</span>"
+	user << "<span class='notice'>It is in [accepting_evidence ? "evidence collection" : "storage"] mode.</span>"
 
 /obj/item/weapon/forensics/sample_kit/attack_self(var/mob/user)
-	collecting_evidence = !collecting_evidence
-	user << "<span class='notice'>[src] is now in [collecting_evidence ? "evidence collection" : "storage"] mode.</span>"
+	accepting_evidence = !accepting_evidence
+	user << "<span class='notice'>[src] is now in [accepting_evidence ? "evidence collection" : "storage"] mode.</span>"
 
 /obj/item/weapon/forensics/sample_kit/proc/can_take_sample(var/mob/user, var/atom/supplied)
-	if (!collecting_evidence)
+	if (!accepting_evidence)
 		user << span("warning","[src] is in storage mode and not taking evidence. Click it to toggle modes.")
 		return 0
 	return (supplied.suit_fibers && supplied.suit_fibers.len)
@@ -155,7 +155,7 @@
 	if(can_take_sample(user, A))
 		take_sample(user,A)
 		return 1
-	else if (collecting_evidence)
+	else if (accepting_evidence)
 		user << "<span class='warning'>You are unable to locate any [evidence_type]s on \the [A].</span>"
 		return ..()
 
@@ -167,7 +167,7 @@
 	evidence_path = /obj/item/weapon/sample/print
 
 /obj/item/weapon/forensics/sample_kit/powder/can_take_sample(var/mob/user, var/atom/supplied)
-	if (!collecting_evidence)
+	if (!accepting_evidence)
 		user << span("warning","[src] is in storage mode and not taking evidence. Click it to toggle modes.")
 		return 0
 	return (supplied.fingerprints && supplied.fingerprints.len)

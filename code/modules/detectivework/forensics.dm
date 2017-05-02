@@ -2,7 +2,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	w_class = 1
 	flags = NOBLUDGEON
-	var/collecting_evidence = 0
+	var/accepting_evidence = 0
 
 
 //Override for evidence collection tools
@@ -12,7 +12,7 @@
 //	The target's attackby is not called, preventing any onhit effects at all, due to the precise nature of the tool
 //	The tool will attempt to collect evidence from any atom its used on, and thus cannot be placed into storage/machines
 /obj/item/weapon/forensics/resolve_attackby(atom/A, mob/user)
-	if (collecting_evidence)
+	if (accepting_evidence)
 		if (ismob(A) && ismob(user))
 			return attack(A, user, user.zone_sel.selecting)
 			//Collecting evidence from mobs.
