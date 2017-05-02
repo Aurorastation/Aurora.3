@@ -5,7 +5,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "case"
 	item_state = "case"
-	storage_slots = 14
+	storage_slots = null
 	max_storage_space = 35
 	contained_sprite = 1
 
@@ -17,3 +17,4 @@
 	new /obj/item/device/uv_light(src)
 	new /obj/item/weapon/forensics/sample_kit(src)
 	new /obj/item/weapon/forensics/sample_kit/powder(src)
+	new /obj/item/weapon/storage/box/gloves(src)

@@ -299,18 +299,17 @@ its easier to just keep the beam vertical.
 				fingerprintslast = H.key
 			H.gloves.add_fingerprint(M)
 
-		//Deal with gloves the pass finger/palm prints.
-		if(!ignoregloves)
-			if(H.gloves != src)
-				if(prob(75) && istype(H.gloves, /obj/item/clothing/gloves/latex))
-					return 0
-				else if(H.gloves && !istype(H.gloves, /obj/item/clothing/gloves/latex))
-					return 0
-
 		//More adminstuffz
 		if(fingerprintslast != H.key)
 			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), H.real_name, H.key)
 			fingerprintslast = H.key
+
+		//Deal with gloves the pass finger/palm prints.
+		if(!ignoregloves)
+			if(H.gloves && H.gloves != src)
+				//Latex gloves always block prints. Other gloves usually block prints
+				if(istype(H.gloves, /obj/item/clothing/gloves/latex) || prob(90))
+					return 0
 
 		//Make the list if it does not exist.
 		if(!fingerprints)

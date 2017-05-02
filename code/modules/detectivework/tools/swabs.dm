@@ -5,6 +5,7 @@
 	var/gsr = 0
 	var/list/dna
 	var/used
+	accepting_evidence = 1
 
 /obj/item/weapon/forensics/swab/proc/is_used()
 	return used
@@ -66,6 +67,13 @@
 		return
 	return 1
 
+/obj/item/weapon/forensics/swab/attack_self(var/mob/user)
+	if (!used)
+		accepting_evidence = !accepting_evidence
+		user << "<span class='notice'>[src] is now in [accepting_evidence ? "evidence collection" : "storage"] mode.</span>"
+	else
+		user << "<span class='notice'>[src] is ready to be stored or analyzed.</span>"
+
 /obj/item/weapon/forensics/swab/afterattack(var/atom/A, var/mob/user, var/proximity)
 
 	if(!proximity || istype(A, /obj/item/weapon/forensics/slide) || istype(A, /obj/machinery/dnaforensics))
@@ -74,6 +82,10 @@
 	if(is_used())
 		user << "<span class='warning'>This swab has already been used.</span>"
 		return
+
+	if (!accepting_evidence)
+		user << "[src] is in storage mode and not taking evidence. Click it to toggle modes."
+		return 0
 
 	add_fingerprint(user)
 
@@ -126,3 +138,4 @@
 	desc = "[initial(desc)] The label on the vial reads 'Sample of [sample_str] from [source].'."
 	icon_state = "swab_used"
 	used = 1
+	accepting_evidence = 0

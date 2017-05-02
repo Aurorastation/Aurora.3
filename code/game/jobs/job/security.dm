@@ -118,12 +118,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/det(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/detective(H), slot_belt)
-		if(istajara(H))
-			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-		if(isunathi(H))
-			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+
 		H.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(H), slot_l_store)
 		if(H.backbag == 1)//Why cant some of these things spawn in his office?
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/evidence(H), slot_l_hand)
@@ -132,9 +127,21 @@
 		if(H.mind.role_alt_title && H.mind.role_alt_title == "Forensic Technician")
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/forensics/blue(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase/crimekit, slot_r_hand)
+			if(istajara(H))
+				H.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex/tajara(H), slot_gloves)
+			if(isunathi(H))
+				H.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex/unathi(H), slot_gloves)
+			else
+				H.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/det_trench(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/det(H), slot_head)
+			if(istajara(H))
+				H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
+			if(isunathi(H))
+				H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
+			else
+				H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 		return 1
 
 
