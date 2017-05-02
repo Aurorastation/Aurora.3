@@ -10,13 +10,14 @@
 
 // creates a new object and deletes itself
 
-/obj/random/initialize()
-	..()
+/obj/random/Initialize()
+	. = ..()
 	if (!prob(spawn_nothing_percentage))
 		var/item = spawn_item()
 		if (has_postspawn && item)
 			post_spawn(item)
-	qdel(src)
+	
+	return INITIALIZE_HINT_QDEL
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()
@@ -397,7 +398,7 @@
 	)
 	has_postspawn = TRUE
 
-/obj/random/voidsuit/New(loc, _damaged = 0)
+/obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
 	..(loc)
 
@@ -413,7 +414,7 @@
 
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted  = 0
+	var/depleted = 0
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -436,9 +437,9 @@
 	)
 	has_postspawn = TRUE
 
-/obj/random/vendor/New(loc, _depleted = 0)
+/obj/random/vendor/Initialize(mapload, _depleted = 0)
 	depleted = _depleted
-	..(loc)
+	. = ..()
 
 /obj/random/vendor/post_spawn(obj/machinery/vending/V)
 	if (!depleted)
@@ -821,6 +822,7 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "oiltank"
 	spawn_nothing_percentage = 50
+
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
 	)

@@ -143,8 +143,7 @@
 		spawn(0)
 			new /obj/item/weapon/grenade/flashbang/clusterbang/segment(A)//Creates a 'segment' that launches a few more flashbangs
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
-	spawn(1)
-		qdel(src)
+	QDEL_IN(src, 1)
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment
 	desc = "A smaller segment of a clusterbang. Better run."
@@ -161,8 +160,7 @@
 	var/temploc = src.loc//Saves the current location to know where to step away from
 	walk_away(src,temploc,stepdist)//I must go, my people need me
 	var/dettime = rand(15,60)
-	spawn(dettime)
-		prime()
+	addtimer(CALLBACK(src, .proc/prime), dettime)
 	..()
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment/prime()
@@ -176,18 +174,16 @@
 			new /obj/item/weapon/grenade/flashbang/cluster(A)
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
 
-	spawn(1)
-		qdel(src)
+	QDEL_IN(src, 1)
 
 /obj/item/weapon/grenade/flashbang/cluster/New()//Same concept as the segments, so that all of the parts don't become reliant on the clusterbang
-	spawn(0)
-		icon_state = "flashbang_active"
-		active = 1
-		banglet = 1
-		var/stepdist = rand(1,3)
-		var/temploc = src.loc
-		walk_away(src,temploc,stepdist)
-		var/dettime = rand(15,60)
-		spawn(dettime)
-			prime()
-		..()
+	set waitfor = FALSE
+	icon_state = "flashbang_active"
+	active = 1
+	banglet = 1
+	var/stepdist = rand(1,3)
+	var/temploc = src.loc
+	walk_away(src,temploc,stepdist)
+	var/dettime = rand(15,60)
+	addtimer(CALLBACK(src, .proc/prime), dettime)
+	..()

@@ -20,7 +20,8 @@
 		animate(src, alpha = 0, time = 2, easing = SINE_EASING | EASE_IN)
 
 /obj/visual_effect/sparks/start(var/direction)
-	..()
 	if (direction)
-		spawn (5)
-			step(src, direction)
+		addtimer(CALLBACK(src, .proc/do_step, direction), 5)
+
+/obj/visual_effect/sparks/proc/do_step(direction)
+	step(src, direction)

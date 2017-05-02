@@ -113,12 +113,13 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	else
 		return 0
 
-
 /obj/machinery/telecomms/New()
 	telecomms_list += src
 	..()
 
-/obj/machinery/telecomms/initialize()
+/obj/machinery/telecomms/Initialize()
+	. = ..()
+
 	if(autolinkers.len)
 		// Links nearby machines
 		if(!long_range_link)
@@ -141,7 +142,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	for(var/obj/machinery/telecomms/comm in telecomms_list)
 		comm.links -= src
 	links = list()
-	..()
+	return ..()
 
 // Used in auto linking
 /obj/machinery/telecomms/proc/add_link(var/obj/machinery/telecomms/T)
@@ -504,8 +505,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/language = "human"
 	var/obj/item/device/radio/headset/server_radio = null
 
-/obj/machinery/telecomms/server/New()
-	..()
+/obj/machinery/telecomms/server/Initialize()
+	. = ..()
 	Compiler = new()
 	Compiler.Holder = src
 	server_radio = new()

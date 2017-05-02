@@ -1,3 +1,6 @@
+/turf
+	var/tmp/changing_turf
+
 /turf/proc/ReplaceWithLattice()
 	src.ChangeTurf(get_base_turf_by_area(src))
 	spawn()
@@ -27,25 +30,20 @@
 			N = below.density ? /turf/simulated/floor/airless : /turf/simulated/open
 
 	var/obj/fire/old_fire = fire
-	var/old_opacity = opacity
-	var/old_dynamic_lighting = dynamic_lighting
-	var/list/old_affecting_lights = affecting_lights
-	var/old_lighting_overlay = lighting_overlay
-	var/list/old_corners = corners
+	var/old_baseturf = baseturf
 
 //	log_debug("Replacing [src.type] with [N]")
 
+	changing_turf = TRUE
 
-	if(connections) connections.erase_all()
+	if(connections) 
+		connections.erase_all()
 
-	overlays.Cut()
+	cut_overlays()
 	underlays.Cut()
-	if(istype(src,/turf/simulated))
-		//Yeah, we're just going to rebuild the whole thing.
-		//Despite this being called a bunch during explosions,
-		//the zone will only really do heavy lifting once.
-		var/turf/simulated/S = src
-		if(S.zone) S.zone.rebuild()
+	
+	// So we call destroy.
+	qdel(src)
 
 	var/turf/simulated/W = new N( locate(src.x, src.y, src.z) )
 
@@ -60,27 +58,16 @@
 	if(tell_universe)
 		universe.OnTurfChange(W)
 
-	if(air_master)
-		air_master.mark_for_update(src) //handle the addition of the new turf.
+	SSair.mark_for_update(src) //handle the addition of the new turf.
 
-	for(var/turf/space/S in range(W,1))
-		S.update_starlight()
+	W.baseturf = old_baseturf
 
 	W.post_change()
+	
 	. = W
 
-	recalc_atom_opacity()
-
-	lighting_overlay = old_lighting_overlay
-	affecting_lights = old_affecting_lights
-	corners = old_corners
-	if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-		reconsider_lights()
-	if(dynamic_lighting != old_dynamic_lighting)
-		if(dynamic_lighting)
-			lighting_build_overlay()
-		else
-			lighting_clear_overlay()
+	queue_smooth(src)
+	queue_smooth_neighbors(src)
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))
@@ -104,4 +91,3 @@
 		src.air.copy_from(other.zone.air)
 		other.zone.remove(other)
 	return 1
-

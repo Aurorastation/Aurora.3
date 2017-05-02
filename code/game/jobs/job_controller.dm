@@ -191,7 +191,7 @@ var/global/datum/controller/occupations/job_master
 		SetupOccupations()
 
 		//Holder for Triumvirate is stored in the ticker, this just processes it
-		if(ticker && ticker.triai)
+		if(SSticker.triai)
 			for(var/datum/job/A in occupations)
 				if(A.title == "AI")
 					A.spawn_positions = 3
@@ -246,7 +246,7 @@ var/global/datum/controller/occupations/job_master
 
 				// Loop through all jobs
 				for(var/datum/job/job in shuffledoccupations) // SHUFFLE ME BABY
-					if(!job || (job.title in ticker.mode.disabled_jobs) ) //11/2/16
+					if(!job || (job.title in SSticker.mode.disabled_jobs) ) //11/2/16
 						continue
 
 					if(jobban_isbanned(player, job.title))
@@ -423,7 +423,7 @@ var/global/datum/controller/occupations/job_master
 				if("AI")
 					return H
 				if("Captain")
-					var/sound/announce_sound = (ticker.current_state <= GAME_STATE_SETTING_UP)? null : sound('sound/misc/boatswain.ogg', volume=20)
+					var/sound/announce_sound = (SSticker.current_state <= GAME_STATE_SETTING_UP)? null : sound('sound/misc/boatswain.ogg', volume=20)
 					captain_announcement.Announce("All hands, Captain [H.real_name] on deck!", new_sound=announce_sound)
 
 			//Deferred item spawning.
@@ -492,7 +492,7 @@ var/global/datum/controller/occupations/job_master
 
 		var/datum/job/job = GetJob(rank)
 		var/list/spawn_in_storage = list()
-		schedule_task_in(15 MINUTES, /proc/handle_player_despawn, list(H))
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/handle_player_despawn, H), 15 MINUTES)
 
 		if(job)
 

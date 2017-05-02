@@ -8,8 +8,17 @@
 
 /turf/simulated/mineral //wall piece
 	name = "Rock"
-	icon = 'icons/turf/walls.dmi'
+	//icon = 'icons/turf/walls.dmi'
+	//icon_state = "rock"
+	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
 	icon_state = "rock"
+	layer = 2.01
+	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	canSmoothWith = list(
+		/turf/simulated/mineral,
+		/turf/simulated/wall,
+		/turf/unsimulated/wall
+	)
 	oxygen = 0
 	nitrogen = 0
 	opacity = 1
@@ -31,21 +40,26 @@
 
 	has_resources = 1
 
-/turf/simulated/mineral/initialize()
-	MineralSpread()
-	updateMineralOverlays(TRUE)
+// Copypaste parent call for performance.
+/turf/simulated/mineral/Initialize()
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
 
-/turf/simulated/mineral/proc/updateMineralOverlays(var/update_neighbors)
-	var/list/step_overlays = list("s" = NORTH, "n" = SOUTH, "w" = EAST, "e" = WEST)
-	for(var/direction in step_overlays)
-		var/turf/turf_to_check = get_step(src,step_overlays[direction])
-		if(update_neighbors && istype(turf_to_check,/turf/simulated/floor/asteroid))
-			var/turf/simulated/floor/asteroid/T = turf_to_check
-			T.updateMineralOverlays()
-		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor))
-			var/image/overlay = image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
-			overlay.plane = 0
-			turf_to_check.overlays += overlay
+	initialized = TRUE
+
+	if(dynamic_lighting)
+		luminosity = 0
+	else
+		luminosity = 1
+
+	has_opaque_atom = TRUE
+
+	if (smooth)
+		pixel_x = -4
+		pixel_y = -4
+		queue_smooth(src)
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/mineral/examine(mob/user)
 	..()
@@ -114,16 +128,24 @@
 		if(istype(M.selected,/obj/item/mecha_parts/mecha_equipment/tool/drill))
 			M.selected.action(src)
 
+#define SPREAD(the_dir) \
+	if (prob(mineral.spread_chance)) {                              \
+		var/turf/simulated/mineral/target = get_step(src, the_dir); \
+		if (istype(target) && !target.mineral) {                    \
+			target.mineral = mineral;                               \
+			target.UpdateMineral();                                 \
+			target.MineralSpread();                                 \
+		}                                                           \
+	}
+
 /turf/simulated/mineral/proc/MineralSpread()
 	if(mineral && mineral.spread)
-		for(var/trydir in cardinal)
-			if(prob(mineral.spread_chance))
-				var/turf/simulated/mineral/target_turf = get_step(src, trydir)
-				if(istype(target_turf) && !target_turf.mineral)
-					target_turf.mineral = mineral
-					target_turf.UpdateMineral()
-					target_turf.MineralSpread()
+		SPREAD(NORTH)
+		SPREAD(SOUTH)
+		SPREAD(EAST)
+		SPREAD(WEST)
 
+#undef SPREAD
 
 /turf/simulated/mineral/proc/UpdateMineral()
 	clear_ore_effects()
@@ -137,7 +159,7 @@
 //Not even going to touch this pile of spaghetti
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
-	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+	if (!usr.IsAdvancedToolUser())
 		usr << "\red You don't have the dexterity to do this!"
 		return
 
@@ -159,7 +181,7 @@
 			user << "\blue \icon[P] [src] has been excavated to a depth of [2*excavation_level]cm."
 		return
 
-	if (istype(W, /obj/item/weapon/pickaxe))
+	if (istype(W, /obj/item/weapon/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.
 		var/turf/T = user.loc
 		if (!( istype(T, /turf) ))
 			return
@@ -207,8 +229,7 @@
 				if(istype(O))
 					geologic_data.UpdateNearbyArtifactInfo(src)
 					O.geologic_data = geologic_data
-				spawn(1)
-					O.forceMove(user.loc)
+				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
 
 			if(finds && finds.len)
 				var/datum/find/F = finds[1]
@@ -252,7 +273,7 @@
 				var/datum/find/F = finds[1]
 				if(F.excavation_required <= excavation_level + F.view_range)
 					archaeo_overlay = "overlay_archaeo[rand(1,3)]"
-					overlays += archaeo_overlay
+					add_overlay(archaeo_overlay)
 
 		else
 			user << "<span class='notice'> You stop [P.drill_verb] the rock.</span>"
@@ -266,15 +287,12 @@
 
 		user << "<span class='warning'>You start chiselling [src] into a sculptable block.</span>"
 
-
-
 		if(!do_after(user,80))
 			return
 
 		user << "<span class='notice'>You finish chiselling [src] into a sculptable block.</span>"
 		new /obj/structure/sculpting_block(src)
 		GetDrilled(1)
-
 
 	else
 		return attack_hand(user)
@@ -322,21 +340,13 @@
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
-	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
-
 	//Add some rubble,  you did just clear out a big chunk of rock.
 
 	var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)
 
 	// Kill and update the space overlays around us.
-	for(var/direction in step_overlays)
-		var/turf/space/T = get_step(src, step_overlays[direction])
-		if(istype(T))
-			T.overlays.Cut()
-			for(var/next_direction in step_overlays)
-				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
-					T.overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
-		var/turf/simulated/open/O = get_step(src, step_overlays[direction])
+	for(var/direction in cardinal)
+		var/turf/simulated/open/O = get_step(src, direction)
 		if(istype(O))
 			O.update()
 
@@ -346,7 +356,6 @@
 
 	if(istype(N))
 		N.overlay_detail = rand(0,9)
-		N.updateMineralOverlays(1)
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
@@ -429,13 +438,13 @@
 	)
 	var/mineralChance = 45
 
-/turf/simulated/mineral/random/New()
+/turf/simulated/mineral/random/Initialize()
 	if (prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
 		if (mineral_name && (mineral_name in ore_data))
 			mineral = ore_data[mineral_name]
 			UpdateMineral()
-
+		
 	. = ..()
 
 /turf/simulated/mineral/random/high_chance
@@ -472,8 +481,16 @@
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
 	name = "sand"
-	icon = 'icons/turf/flooring/asteroid.dmi'
-	icon_state = "asteroid"
+	//icon = 'icons/turf/flooring/asteroid.dmi'
+	//icon_state = "asteroid"
+	icon = 'icons/turf/smooth/ash.dmi'
+	icon_state = "ash"
+	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	canSmoothWith = list(
+		/turf/simulated/floor/asteroid,
+		/turf/simulated/mineral,
+		/turf/simulated/wall
+	)
 	base_name = "sand"
 	base_desc = "Gritty and unpleasant."
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
@@ -485,16 +502,29 @@
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/overlay_detail
-	var/static/list/overlay_cache
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
-/turf/simulated/floor/asteroid/New()
+// Copypaste parent for performance.
+/turf/simulated/floor/asteroid/Initialize()
+	if(initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+	initialized = TRUE
+
+	if(dynamic_lighting)
+		luminosity = 0
+	else
+		luminosity = 1
+
 	if(prob(20))
 		overlay_detail = rand(0,9)
 
-/turf/simulated/floor/asteroid/initialize()
-	updateMineralOverlays(1)
+	if (smooth)
+		pixel_x = -4
+		pixel_y = -4
+		queue_smooth(src)
+	
+	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -665,37 +695,6 @@
 		dug += 1
 	else
 		ChangeTurf(/turf/space)
-	return
-
-/turf/simulated/floor/asteroid/proc/updateMineralOverlays(var/update_neighbors)
-
-	overlays.Cut()
-
-	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
-	for(var/direction in step_overlays)
-
-		if(istype(get_step(src, step_overlays[direction]), /turf/space))
-			overlays += image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
-
-		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
-			overlays += image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
-
-	if (!overlay_cache)
-		overlay_cache = list()
-		overlay_cache.len = 10
-		for (var/i = 1; i <= overlay_cache.len; i++)
-			overlay_cache[i] = image('icons/turf/flooring/decals.dmi', "asteroid[i - 1]")
-
-	if(overlay_detail)
-		overlays += overlay_cache[overlay_detail + 1]
-
-	if(update_neighbors)
-		var/list/all_step_directions = list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST)
-		for(var/direction in all_step_directions)
-			var/turf/simulated/floor/asteroid/A
-			if(istype(get_step(src, direction), /turf/simulated/floor/asteroid))
-				A = get_step(src, direction)
-				A.updateMineralOverlays()
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
 	..()

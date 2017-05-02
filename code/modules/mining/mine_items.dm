@@ -165,13 +165,27 @@
 	icon_state = "offhand"
 	item_state = null
 	name = "offhand"
+	simulated = FALSE
 
 	action_button_name = null
 
+/obj/item/weapon/pickaxe/proc/copy_stats(obj/item/weapon/pickaxe/parent)
+	digspeed_wielded = parent.digspeed_wielded
+	excavation_amount = parent.excavation_amount
+	force = parent.force_wielded
+
 /obj/item/weapon/pickaxe/offhand/unwield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+
 	qdel(src)
 
 /obj/item/weapon/pickaxe/offhand/wield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+		
 	qdel(src)
 
 /obj/item/weapon/pickaxe/hammer
@@ -487,10 +501,12 @@
 	w_class = 3
 	layer = 2.44
 
-/obj/structure/track/initialize()
-	..()
-	if (locate(/obj/structure/track) in loc)
+/obj/structure/track/Initialize()
+	. = ..()
+	var/obj/structure/track/track = locate() in loc
+	if (track && track != src)
 		qdel(src)
+		return
 	updateOverlays()
 	for (var/dir in cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
@@ -502,7 +518,7 @@
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
-	..()
+	return ..()
 
 /obj/structure/track/ex_act(severity)
 	switch(severity)
@@ -522,7 +538,7 @@
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing apart connectors ...</span>"
-		getFromPool(/obj/item/stack/rods, src.loc)
+		new /obj/item/stack/rods(src.loc)
 		qdel(src)
 
 	return
@@ -559,8 +575,8 @@
 	light_wedge = LIGHT_WIDE
 	light_color = LIGHT_COLOR_FIRE
 
-/obj/vehicle/train/cargo/engine/mining/initialize()
-	..()
+/obj/vehicle/train/cargo/engine/mining/Initialize()
+	. = ..()
 	cell = new /obj/item/weapon/cell/high(src)
 	key = null
 	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
@@ -753,8 +769,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					spawn(20)
-						L.vomit()
+					addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
 
 /**********************Lazarus Injector**********************/
 
@@ -1014,7 +1029,8 @@ var/list/total_extraction_beacons = list()
 	if(pressure < 50)
 		name = "strong resonance field"
 		resonance_damage = 60
-	schedule_task_with_source_in(timetoburst, src, .proc/burst, list(loc))
+
+	addtimer(CALLBACK(src, .proc/burst, loc), timetoburst)
 
 /obj/effect/resonance/Destroy()
 	if(res)
@@ -1272,7 +1288,7 @@ var/list/total_extraction_beacons = list()
 	if(!target)
 		target = src
 	if(location)
-		getFromPool(/obj/effect/overlay/temp/explosion, location)
+		new /obj/effect/overlay/temp/explosion(location)
 		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)
 		for(var/atom/A in range(4,location))
 			if(istype(A,/turf/simulated/mineral))
@@ -1292,8 +1308,8 @@ var/list/total_extraction_beacons = list()
 					L.Weaken(3)
 					if(ishuman(L))
 						shake_camera(L, 20, 1)
-						spawn(20)
-							L.vomit()
+						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+
 		spawn(2)
 			for(var/turf/simulated/mineral/M in range(7,location))
 				if(prob(75))

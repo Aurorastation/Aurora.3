@@ -2,8 +2,6 @@
 #define TANK_DEFAULT_RELEASE_PRESSURE 24
 #define TANK_IDEAL_PRESSURE 1015 //Arbitrary.
 
-var/list/global/tank_gauge_cache = list()
-
 /obj/item/weapon/tank
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
@@ -37,7 +35,7 @@ var/list/global/tank_gauge_cache = list()
 	src.air_contents = new /datum/gas_mixture()
 	src.air_contents.volume = volume //liters
 	src.air_contents.temperature = T20C
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	update_gauge()
 	return
 
@@ -45,13 +43,13 @@ var/list/global/tank_gauge_cache = list()
 	if(air_contents)
 		qdel(air_contents)
 
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 
 	if(istype(loc, /obj/item/device/transfer_valve))
 		var/obj/item/device/transfer_valve/TTV = loc
 		TTV.remove_tank(src)
 
-	..()
+	return ..()
 
 /obj/item/weapon/tank/examine(mob/user)
 	. = ..(user, 0)
@@ -243,11 +241,9 @@ var/list/global/tank_gauge_cache = list()
 		return
 
 	last_gauge_pressure = gauge_pressure
-	overlays.Cut()
-	var/indicator = "[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]"
-	if(!tank_gauge_cache[indicator])
-		tank_gauge_cache[indicator] = image(icon, indicator)
-	overlays += tank_gauge_cache[indicator]
+	cut_overlays()
+	// SSoverlay will handle icon caching.
+	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
 
 /obj/item/weapon/tank/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank

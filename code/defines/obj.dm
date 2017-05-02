@@ -147,9 +147,6 @@ var/global/ManifestJSON
 		"misc" = misc\
 		)
 	ManifestJSON = json_encode(PDA_Manifest)
-	return
-
-
 
 /obj/effect/laser
 	name = "laser"

@@ -13,10 +13,13 @@
 	name = "mask"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockvault"
-	oxygen = 0
-	nitrogen = 0
-	temperature = TCMB
 
+/turf/unsimulated/mask/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
+	if (!N)
+		return
+
+	new N(src)
+	
 /turf/unsimulated/chasm_mask
 	name = "chasm mask"
 	icon = 'icons/turf/walls.dmi'
@@ -24,3 +27,16 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+
+
+// It's a placeholder turf, don't do anything special.
+// These shouldn't exist by the time SSatoms runs.
+/turf/unsimulated/mask/New()
+	return
+
+/turf/unsimulated/mask/Initialize()
+	initialized = TRUE
+	return
+
+/turf/unsimulated/chasm_mask/New()
+	return

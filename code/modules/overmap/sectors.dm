@@ -115,6 +115,8 @@ var/global/list/map_sectors = list()
 		testing("Associated zlevel disappeared.")
 		world.maxz--
 
+	return QDEL_HINT_QUEUE
+
 /obj/effect/map/sector/temporary/proc/can_die(var/mob/observer)
 	testing("Checking if sector at [map_z] can die.")
 	for(var/mob/M in player_list)

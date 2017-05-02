@@ -302,7 +302,7 @@
 		. += "There was an error loading the incident, please <a href='?src=\ref[src];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
 
-	if( !istype( corp_regs ))
+	if( !istype( SSlaw ))
 		. += "There was an error loading corporate regulations, please <a href='?src=\ref[src];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
 
@@ -363,7 +363,7 @@
 	. += "<th>Button</th>"
 	. += "</tr>"
 
-	for( var/datum/law/L in corp_regs.low_severity )
+	for( var/datum/law/L in SSlaw.low_severity )
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
@@ -393,7 +393,7 @@
 	. += "<th>Button</th>"
 	. += "</tr>"
 
-	for( var/datum/law/L in corp_regs.med_severity )
+	for( var/datum/law/L in SSlaw.med_severity )
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
@@ -422,7 +422,7 @@
 	. += "<th>Button</th>"
 	. += "</tr>"
 
-	for( var/datum/law/L in corp_regs.high_severity )
+	for( var/datum/law/L in SSlaw.high_severity )
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"

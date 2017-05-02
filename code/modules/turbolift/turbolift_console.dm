@@ -72,8 +72,7 @@
 	pressed(user)
 	if(floor == lift.current_floor)
 		lift.open_doors()
-		spawn(3)
-			reset()
+		addtimer(CALLBACK(src, .proc/reset), 3)
 		return
 	lift.queue_move_to(floor)
 

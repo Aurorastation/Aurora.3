@@ -20,20 +20,22 @@
 	icon_state = "[ismetal? "m" : ""]foam"
 	metal = ismetal
 	playsound(src, 'sound/effects/bubbles2.ogg', 80, 1, -3)
-	spawn(3 + metal * 3)
-		process()
-		checkReagents()
-	spawn(120)
-		processing_objects.Remove(src)
-		sleep(30)
-		if(metal)
-			var/obj/structure/foamedmetal/M = new(src.loc)
-			M.metal = metal
-			M.updateicon()
-		flick("[icon_state]-disolve", src)
-		sleep(5)
-		qdel(src)
-	return
+	addtimer(CALLBACK(src, .proc/tick), 3 + metal * 3)
+	addtimer(CALLBACK(src, .proc/post), 120)
+
+/obj/effect/effect/foam/proc/tick()
+	process()
+	checkReagents()
+
+/obj/effect/effect/foam/proc/post()
+	processing_objects.Remove(src)
+	sleep(30)
+	if(metal)
+		var/obj/structure/foamedmetal/M = new /obj/structure/foamedmetal(src.loc)
+		M.metal = metal
+		M.updateicon()
+	flick("[icon_state]-disolve", src)
+	QDEL_IN(src, 5)
 
 /obj/effect/effect/foam/proc/checkReagents() // transfer any reagents to the floor
 	if(!metal && reagents)
@@ -70,8 +72,7 @@
 	if(!metal && prob(max(0, exposed_temperature - 475)))
 		flick("[icon_state]-disolve", src)
 
-		spawn(5)
-			qdel(src)
+		QDEL_IN(src, 5)
 
 /obj/effect/effect/foam/Crossed(var/atom/movable/AM)
 	if(metal)
@@ -102,23 +103,23 @@
 			carried_reagents += R.id
 
 /datum/effect/effect/system/foam_spread/start()
-	spawn(0)
-		var/obj/effect/effect/foam/F = locate() in location
-		if(F)
-			F.amount += amount
-			return
+	set waitfor = FALSE
+	var/obj/effect/effect/foam/F = locate() in location
+	if(F)
+		F.amount += amount
+		return
 
-		F = getFromPool(/obj/effect/effect/foam, location, metal)
-		F.amount = amount
+	F = new /obj/effect/effect/foam(location, metal)
+	F.amount = amount
 
-		if(!metal) // don't carry other chemicals if a metal foam
-			F.create_reagents(10)
+	if(!metal) // don't carry other chemicals if a metal foam
+		F.create_reagents(10)
 
-			if(carried_reagents)
-				for(var/id in carried_reagents)
-					F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
-			else
-				F.reagents.add_reagent("water", 1, safety = 1)
+		if(carried_reagents)
+			for(var/id in carried_reagents)
+				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
+		else
+			F.reagents.add_reagent("water", 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
 
@@ -139,7 +140,8 @@
 /obj/structure/foamedmetal/Destroy()
 	density = 0
 	update_nearby_tiles(1)
-	..()
+	set_opacity(0)
+	return ..()
 
 /obj/structure/foamedmetal/proc/updateicon()
 	if(metal == 1)

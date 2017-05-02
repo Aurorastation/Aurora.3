@@ -78,7 +78,7 @@ var/list/possible_cable_coil_colours = list(
 	color = COLOR_WHITE
 
 /obj/structure/cable/New()
-	..()
+	. = ..()
 
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
 
@@ -97,7 +97,7 @@ var/list/possible_cable_coil_colours = list(
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
 	cable_list -= src							//remove it from global cable list
-	..()										// then go ahead and delete the cable
+	return ..()										// then go ahead and delete the cable
 
 ///////////////////////////////////
 // General procedures
@@ -482,8 +482,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	uses_charge = 1
 	charge_costs = list(1)
 
-/obj/item/stack/cable_coil/New(loc, length = MAXCOIL, var/param_color = null)
-	..()
+/obj/item/stack/cable_coil/Initialize(mapload, length = MAXCOIL, var/param_color = null)
+	. = ..()
 	src.amount = length
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
 		color = param_color

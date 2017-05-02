@@ -267,14 +267,8 @@
 #define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
-#define TICK_LIMIT 80
-#define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
-#define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()
-
-// Effect Systems.
-#define EFFECT_CONTINUE 0 	// Keep processing.
-#define EFFECT_HALT 1		// Stop processing, but don't qdel.
-#define EFFECT_DESTROY 2	// qdel.
+#define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
+#define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
 
 // Performance bullshit.
 
@@ -286,10 +280,11 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
-#define QDELETED(TARGET) (!TARGET || TARGET.gcDestroyed)
-#define QDEL_NULL(item) qdel(item); item = null
-// Shim until addtimer is merged or I figure out if it is safe to use scheduler for this.
-#define QDEL_IN(OBJ, TIME) spawn(TIME) qdel(OBJ)
+
+#define UNTIL(X) while(!(X)) stoplag()
+
+#define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
+#define DEBUG_REF(D) (D ? "[D]|\ref[D]" : "NULL")
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
 
@@ -299,3 +294,17 @@
 #define OVEN				0x4
 #define CANDYMAKER			0x8
 #define CEREALMAKER			0x10
+
+// MultiZAS directions.
+#define NORTHUP (NORTH|UP)
+#define EASTUP (EAST|UP)
+#define SOUTHUP (SOUTH|UP)
+#define WESTUP (WEST|UP)
+#define NORTHDOWN (NORTH|DOWN)
+#define EASTDOWN (EAST|DOWN)
+#define SOUTHDOWN (SOUTH|DOWN)
+#define WESTDOWN (WEST|DOWN)
+
+#define NL_NOT_DISABLED      0
+#define NL_TEMPORARY_DISABLE 1
+#define NL_PERMANENT_DISABLE 2

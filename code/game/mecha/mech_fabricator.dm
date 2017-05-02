@@ -25,9 +25,8 @@
 	var/manufacturer = null
 	var/sync_message = ""
 
-/obj/machinery/mecha_part_fabricator/New()
-	..()
-
+/obj/machinery/mecha_part_fabricator/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/mechfab(src)
 	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
@@ -38,9 +37,6 @@
 	RefreshParts()
 
 	files = new /datum/research(src) //Setup the research data holder.
-	return
-
-/obj/machinery/mecha_part_fabricator/initialize()
 	manufacturer = basic_robolimb.company
 	update_categories()
 
@@ -57,13 +53,13 @@
 	update_icon()
 
 /obj/machinery/mecha_part_fabricator/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(panel_open)
 		icon_state = "fab-o"
 	else
 		icon_state = "fab-idle"
 	if(busy)
-		overlays += "fab-active"
+		add_overlay("fab-active")
 
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
@@ -192,9 +188,10 @@
 	if(materials[material] + amnt <= res_max_amount)
 		if(stack && stack.amount >= 1)
 			var/count = 0
-			overlays += "fab-load-metal"
-			spawn(10)
-				overlays -= "fab-load-metal"
+
+			add_overlay("fab-load-[material]")
+			CUT_OVERLAY_IN("fab-load-[material]", 6)
+
 			while(materials[material] + amnt <= res_max_amount && stack.amount >= 1)
 				materials[material] += amnt
 				stack.use(1)

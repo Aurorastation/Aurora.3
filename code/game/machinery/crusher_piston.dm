@@ -50,10 +50,8 @@
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
-	var/list/overlay_list = list()
-
-/obj/machinery/crusher_base/initialize()
-	..()
+/obj/machinery/crusher_base/Initialize()
+	. = ..()
 
 	//Create parts for crusher.
 	component_parts = list()
@@ -77,7 +75,7 @@
 	pstn = new(get_step(src, SOUTH))
 	pstn.crs_base = src
 
-	update_icon()
+	queue_icon_update()
 	// Change the icons of the neighboring bases
 	change_neighbor_base_icons()
 
@@ -119,12 +117,13 @@
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
 	if (left)
-		left.update_icon()
+		left.queue_icon_update()
 
 	if (right)
-		right.update_icon()
+		right.queue_icon_update()
 
 /obj/machinery/crusher_base/update_icon()
+	cut_overlays()
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
 
@@ -141,29 +140,19 @@
 		asmtype = "standalone"
 		icon_state = asmtype
 
-	overlays -= overlay_list["status_green"]
-	overlays -= overlay_list["status_orange"]
-	overlays -= overlay_list["status_red"]
-	overlays -= overlay_list["panel_open"]
-	overlay_list["status_green"] = make_screen_overlay(icon,"[asmtype]-overlay-green")
-	overlay_list["status_orange"] = make_screen_overlay(icon,"[asmtype]-overlay-orange")
-	overlay_list["status_red"] = make_screen_overlay(icon,"[asmtype]-overlay-red")
-	overlay_list["panel_open"] = image(icon,"[asmtype]-hatch")
-
 	if(powered(EQUIP))
 		if (blocked == 1)
-			overlays += overlay_list["status_red"]
+			holographic_overlay(src, icon, "[asmtype]-overlay-red")
 		else if(action != "idle")
-			overlays += overlay_list["status_orange"]
+			holographic_overlay(src, icon, "[asmtype]-overlay-orange")
 		else
-			overlays += overlay_list["status_green"]
+			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
-		overlays += overlay_list["panel_open"]
-
+		add_overlay("[asmtype]-hatch")
 
 /obj/machinery/crusher_base/power_change()
-	update_icon()
 	..()
+	queue_icon_update()
 
 /obj/machinery/crusher_base/process()
 	set waitfor = FALSE
@@ -371,6 +360,21 @@
 	var/obj/effect/piston_blocker/pb2
 	var/obj/effect/piston_blocker/pb3
 
+	var/static/list/immovable_items
+
+/obj/machinery/crusher_piston/Initialize()
+	. = ..()
+
+	// Setup the immovable items typecache.
+	// 	(We only want to do this once as this is a huge list.)
+	if (!LAZYLEN(immovable_items))
+		immovable_items = typecacheof(list(
+			/obj/machinery,
+			/obj/structure,
+			/obj/item/modular_computer/telescreen,
+			/obj/item/modular_computer/console
+		)) - /obj/machinery/crusher_piston
+
 /obj/machinery/crusher_piston/Destroy()
 	QDEL_NULL(pb1)
 	QDEL_NULL(pb2)
@@ -439,18 +443,11 @@
 
 /obj/machinery/crusher_piston/proc/can_extend_into(var/turf/extension_turf)
 	//Check if atom is of a specific Type
-	var/list/unmovable_items = list(
-		/obj/machinery,
-		/obj/structure,
-		/obj/item/modular_computer/telescreen,
-		/obj/item/modular_computer/console
-	)
 	if (istype(extension_turf,/turf/simulated/wall))
 		return 0
 	for(var/atom/A in extension_turf)
-		if (is_type_in_list(A, unmovable_items))
-			if (!istype(A,/obj/machinery/crusher_piston/)) //To prevent the crusher from blocking itself
-				return 0
+		if (is_type_in_typecache(A, immovable_items))
+			return 0
 	return 1
 
 /obj/effect/piston_blocker

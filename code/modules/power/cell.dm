@@ -2,13 +2,9 @@
 // charge from 0 to 100%
 // fits in APC to provide backup power
 
-/obj/item/weapon/cell/New()
-	..()
+/obj/item/weapon/cell/Initialize()
+	. = ..()
 	charge = maxcharge
-	update_icon()
-
-/obj/item/weapon/cell/initialize()
-	..()
 	update_icon()
 
 /obj/item/weapon/cell/Created()
@@ -50,7 +46,7 @@
 
 // use power from a cell, returns the amount actually used
 /obj/item/weapon/cell/proc/use(var/amount)
-	if (gcDestroyed)
+	if (QDELING(src))
 		return 0
 
 	if(rigged && amount > 0)
@@ -70,7 +66,7 @@
 
 // recharge the cell
 /obj/item/weapon/cell/proc/give(var/amount)
-	if (gcDestroyed)
+	if (QDELING(src))
 		return 0
 
 	if(rigged && amount > 0)

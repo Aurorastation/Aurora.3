@@ -175,6 +175,10 @@
 
 	user.info_sent = 0
 
+	// Make sure the user has the welcome screen assets.
+	var/datum/asset/welcome = get_asset_datum(/datum/asset/simple/misc)
+	welcome.send(user)
+
 	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
 
 /*

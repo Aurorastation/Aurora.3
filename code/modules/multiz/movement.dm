@@ -188,3 +188,9 @@
 	apply_damage(rand(0, damage), BRUTE, "r_arm")
 	Weaken(2)
 	updatehealth()
+
+/mob/living/carbon/human/bst/can_fall()
+	return FALSE
+
+/mob/living/carbon/human/bst/handle_fall(turf/landing)
+	return

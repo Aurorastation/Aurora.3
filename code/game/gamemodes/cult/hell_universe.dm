@@ -42,7 +42,6 @@ In short:
 // Apply changes when entering state
 /datum/universal_state/hell/OnEnter()
 	set background = 1
-	garbage_collector.garbage_collect = 0
 
 	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
@@ -56,7 +55,6 @@ In short:
 
 	runedec += 9000	//basically removing the rune cap
 
-
 /datum/universal_state/hell/proc/AreaSet()
 	for(var/area/A in all_areas)
 		if(!istype(A,/area) || istype(A, /area/space))
@@ -67,16 +65,18 @@ In short:
 
 /datum/universal_state/hell/OverlayAndAmbientSet()
 	set waitfor = FALSE
-	for(var/turf/T in turfs)
+	for(var/turf/T in world)	// Expensive, but CHECK_TICK should prevent lag.
 		if(istype(T, /turf/space))
 			T.overlays += image(icon = T.icon, icon_state = "hell01")
 		else
-			if(!T.holy && prob(1) && !(T.z in config.admin_levels))
-				new /obj/effect/gateway/active/cult(T)
 			T.underlays += "hell01"
+
+		if (istype(T, /turf/simulated/floor) && !T.holy && prob(1))
+			new /obj/effect/gateway/active/cult(T)
+
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in global.all_lighting_corners)
+	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
 		if (!C.active)
 			continue
 
@@ -84,11 +84,6 @@ In short:
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/MiscSet()
-	for(var/turf/simulated/floor/T in turfs)
-		if(!T.holy && prob(1))
-			new /obj/effect/gateway/active/cult(T)
-		CHECK_TICK
-
 	for (var/obj/machinery/firealarm/alm in machines)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)

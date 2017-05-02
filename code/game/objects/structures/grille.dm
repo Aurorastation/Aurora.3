@@ -11,7 +11,6 @@
 	var/health = 10
 	var/destroyed = 0
 
-
 /obj/structure/grille/ex_act(severity)
 	qdel(src)
 
@@ -96,7 +95,7 @@
 	if(iswirecutter(W))
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			getFromPool(/obj/item/stack/rods, get_turf(src), destroyed ? 1 : 2)
+			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if((isscrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
@@ -179,11 +178,11 @@
 			density = 0
 			destroyed = 1
 			update_icon()
-			getFromPool(/obj/item/stack/rods, get_turf(src))
+			new /obj/item/stack/rods(get_turf(src))
 
 		else
 			if(health <= -6)
-				getFromPool(/obj/item/stack/rods, get_turf(src))
+				new /obj/item/stack/rods(get_turf(src))
 				qdel(src)
 				return
 	return

@@ -183,4 +183,6 @@
 #define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
 #define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 
-
+// Maximum number of chickens allowed at once.
+// If the number of chickens on the map exceeds this, laid eggs will not hatch.
+#define MAX_CHICKENS 50

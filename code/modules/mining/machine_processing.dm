@@ -16,14 +16,13 @@
 	var/points = 0
 	var/obj/item/weapon/card/id/inserted_id
 
-/obj/machinery/mineral/processing_unit_console/New()
-	..()
-	spawn(7)
-		src.machine = locate(/obj/machinery/mineral/processing_unit, get_step(src, machinedir))
-		if (machine)
-			machine.console = src
-		else
-			qdel(src)
+/obj/machinery/mineral/processing_unit_console/Initialize()
+	. = ..()
+	src.machine = locate(/obj/machinery/mineral/processing_unit, get_step(src, machinedir))
+	if (machine)
+		machine.console = src
+	else
+		return INITIALIZE_HINT_QDEL
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -161,8 +160,8 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/processing_unit/New()
-	..()
+/obj/machinery/mineral/processing_unit/Initialize()
+	. = ..()
 
 	// initialize static alloy_data list
 	if(!alloy_data)
@@ -177,16 +176,13 @@
 			ores_processing[OD.name] = 0
 			ores_stored[OD.name] = 0
 
-	//Locate our output and input machinery.
-	spawn(5)
-		for (var/dir in cardinal)
-			src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-			if(src.input) break
-		for (var/dir in cardinal)
-			src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-			if(src.output) break
-		return
-	return
+//Locate our output and input machinery.
+	for (var/dir in cardinal)
+		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(src.input) break
+	for (var/dir in cardinal)
+		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(src.output) break
 
 /obj/machinery/mineral/processing_unit/process()
 	..()

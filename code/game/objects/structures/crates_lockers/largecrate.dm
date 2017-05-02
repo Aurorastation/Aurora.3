@@ -49,8 +49,8 @@
 	var/held_count = 1
 	var/held_type
 
-/obj/structure/largecrate/animal/New()
-	..()
+/obj/structure/largecrate/animal/Initialize()
+	. = ..()
 	for(var/i = 1;i<=held_count;i++)
 		new held_type(src)
 
