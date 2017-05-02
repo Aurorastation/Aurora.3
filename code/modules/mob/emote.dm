@@ -69,6 +69,10 @@
 				messagemobs_neardead += M
 				continue
 			else if (istype(M, /mob/living) && !(type == 2 && (sdisabilities & DEAF || ear_deaf)))
+				if(istype(M,/mob/living/silicon/robot/drone) && (istype(src,/mob/living/carbon/human) || istype(src,/mob/living/silicon)))
+					var/mob/living/silicon/robot/drone/D = M
+					if(D.seeStatic && !istype(src,/mob/living/silicon/robot/drone))
+						continue
 				messagemobs += M
 		else if(src.client)
 			if  (M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT))

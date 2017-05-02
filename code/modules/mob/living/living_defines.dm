@@ -70,3 +70,6 @@
 
 	var/total_radiation	// DON'T MODIFY THIS DIRECTLY. USE apply_radiation()!
 	var/cloaked = 0//Set to 1 by cloaking devices, optimises update_icons
+
+	var/list/image/staticOverlays = list()
+	var/seeStatic = 0
