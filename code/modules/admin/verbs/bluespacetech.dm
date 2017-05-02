@@ -343,7 +343,6 @@
 //Bag o Holding
 /obj/item/weapon/storage/backpack/holding/bst
 	canremove = 0
-	storage_slots = 56
 	max_w_class = 400
 
 /obj/item/device/radio/headset/ert/bst/attack_hand()

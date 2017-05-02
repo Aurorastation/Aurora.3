@@ -1,6 +1,28 @@
 /obj/item/weapon/forensics
 	icon = 'icons/obj/forensics.dmi'
 	w_class = 1
+	flags = NOBLUDGEON
+	var/collecting_evidence = 0
+
+
+//Override for evidence collection tools
+//This only works when the item is in evidence collection mode. All valid items are given an attackself toggle for this
+//In collection mode:
+//	Tools will not contaminate evidence by leaving your own fingerprints
+//	The target's attackby is not called, preventing any onhit effects at all, due to the precise nature of the tool
+//	The tool will attempt to collect evidence from any atom its used on, and thus cannot be placed into storage/machines
+/obj/item/weapon/forensics/resolve_attackby(atom/A, mob/user)
+	if (collecting_evidence)
+		if (ismob(A) && ismob(user))
+			return attack(A, user, user.zone_sel.selecting)
+			//Collecting evidence from mobs.
+			//Directly calling attack skips the mob's attackby, to avoid triggering any undesireable effects
+
+		//Returning 0 will trigger afterattack after this function
+		return 0
+	else
+		return ..()
+
 
 //This is the output of the stringpercent(print) proc, and means about 80% of
 //the print must be there for it to be complete.  (Prints are 32 digits)
