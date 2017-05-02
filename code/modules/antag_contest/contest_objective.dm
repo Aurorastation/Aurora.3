@@ -18,7 +18,7 @@
 
 /datum/objective/competition/find_target(var/require_synth = 0)
 	var/list/possible_targets = list()
-	for(var/datum/mind/possible_target in ticker.minds)
+	for(var/datum/mind/possible_target in SSticker.minds)
 		if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2))
 			if (require_synth)
 				if (isipc(possible_target.current))
@@ -31,7 +31,7 @@
 		target = pick(possible_targets)
 
 /datum/objective/competition/find_target_by_role(role, role_type = 0, var/require_synth = 0)
-	for(var/datum/mind/possible_target in ticker.minds)
+	for(var/datum/mind/possible_target in SSticker.minds)
 		if((possible_target != owner) && ishuman(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role))
 			if (require_synth && !(isipc(possible_target.current)))
 				continue
@@ -74,7 +74,7 @@
  */
 /datum/objective/competition/assassinate_supporter/find_target()
 	var/list/possible_targets = list()
-	for(var/datum/mind/possible_target in ticker.minds)
+	for(var/datum/mind/possible_target in SSticker.minds)
 		if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2))
 			if (possible_target.current.client && possible_target.current.client.prefs && possible_target.current.client.prefs.antag_contest_side != side)
 				possible_targets += possible_target

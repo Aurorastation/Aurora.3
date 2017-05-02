@@ -166,7 +166,9 @@ var/list/admin_verbs_server = list(
 	/client/proc/check_customitem_activity,
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_edit_motd,
-	/client/proc/toggle_recursive_explosions
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/restart_controller,
+	/client/proc/cmd_ss_panic
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -185,7 +187,6 @@ var/list/admin_verbs_debug = list(
 	/client/proc/air_report,
 	/client/proc/reload_admins,
 	/client/proc/reload_mentors,
-	/client/proc/restart_controller,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
 	/client/proc/apply_random_map,
@@ -206,7 +207,11 @@ var/list/admin_verbs_debug = list(
 	/client/proc/restart_sql,
 	/client/proc/debug_pooling,
 	/client/proc/fix_player_list,
-	/client/proc/lighting_show_verbs
+	/client/proc/lighting_show_verbs,
+	/client/proc/restart_controller,
+	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_ss_panic
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -278,7 +283,6 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/adrev,
 	/datum/admins/proc/adspawn,
 	/datum/admins/proc/adjump,
-	/client/proc/restart_controller,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/callproc,
 	/client/proc/callproc_target,
@@ -354,12 +358,13 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
 	/client/proc/player_panel,
-	/client/proc/restart_controller,
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_dev_bst,
-	/client/proc/lighting_show_verbs
+	/client/proc/lighting_show_verbs,
+	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_init_log
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -695,11 +700,11 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Debug"
 	set name = "Kill Air"
 	set desc = "Toggle Air Processing"
-	if(air_processing_killed)
-		air_processing_killed = 0
+	if(!SSair.can_fire)
+		SSair.enable()
 		usr << "<b>Enabled air processing.</b>"
 	else
-		air_processing_killed = 1
+		SSair.disable()
 		usr << "<b>Disabled air processing.</b>"
 	feedback_add_details("admin_verb","KA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] used 'kill air'.",admin_key=key_name(usr))

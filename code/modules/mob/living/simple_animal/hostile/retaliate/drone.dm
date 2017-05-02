@@ -157,6 +157,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Destroy()
+	QDEL_NULL(ion_trail)
 	//some random debris left behind
 	if(has_loot)
 		spark(src, 3, alldirs)
@@ -176,16 +177,16 @@
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//rods
-		O = getFromPool(/obj/item/stack/rods, src.loc)
+		O = new /obj/item/stack/rods(src.loc)
 		step_to(O, get_turf(pick(view(7, src))))
 		if(prob(75))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(50))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(25))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//plasteel
@@ -263,7 +264,7 @@
 			C.name = "Corrupted drone morality core"
 			C.origin_tech = list(TECH_ILLEGAL = rand(3,6))
 
-	..()
+	return ..()
 
 /obj/item/projectile/beam/drone
 	damage = 15

@@ -9,8 +9,7 @@
 	icon_off = "secureceoff"
 
 
-	New()
-		..()
+	fill()
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
@@ -33,9 +32,6 @@
 		new /obj/item/device/multitool(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/taperoll/engineering(src)
-		return
-
-
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies"
@@ -48,8 +44,7 @@
 	icon_off = "secureengelecoff"
 
 
-	New()
-		..()
+	fill()
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/weapon/storage/toolbox/electrical(src)
@@ -61,9 +56,6 @@
 		new /obj/item/device/multitool(src)
 		new /obj/item/device/multitool(src)
 		new /obj/item/device/multitool(src)
-		return
-
-
 
 /obj/structure/closet/secure_closet/engineering_welding
 	name = "welding supplies"
@@ -75,9 +67,7 @@
 	icon_broken = "secureengweldbroken"
 	icon_off = "secureengweldoff"
 
-
-	New()
-		..()
+	fill()
 		new /obj/item/clothing/head/welding(src)
 		new /obj/item/clothing/head/welding(src)
 		new /obj/item/clothing/head/welding(src)
@@ -87,9 +77,6 @@
 		new /obj/item/weapon/weldpack(src)
 		new /obj/item/weapon/weldpack(src)
 		new /obj/item/weapon/weldpack(src)
-		return
-
-
 
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "engineer's locker"
@@ -101,9 +88,7 @@
 	icon_broken = "secureengbroken"
 	icon_off = "secureengoff"
 
-
-	New()
-		..()
+	fill()
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
@@ -119,7 +104,7 @@
 		new /obj/item/clothing/glasses/meson(src)
 		new /obj/item/weapon/cartridge/engineering(src)
 		new /obj/item/taperoll/engineering(src)
-		return
+
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "technician's locker"
 	req_access = list(access_atmospherics)
@@ -131,8 +116,7 @@
 	icon_off = "secureatmoff"
 
 
-	New()
-		..()
+	fill()
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
@@ -150,4 +134,3 @@
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/weapon/cartridge/atmos(src)
 		new /obj/item/taperoll/engineering(src)
-		return

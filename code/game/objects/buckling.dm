@@ -17,9 +17,6 @@
 		user_buckle_mob(M, user)
 
 //Cleanup
-/obj/Del()
-	unbuckle_mob()
-	return ..()
 
 /obj/Destroy()
 	unbuckle_mob()
@@ -52,7 +49,7 @@
 	return
 
 /obj/proc/user_buckle_mob(mob/living/M, mob/user)
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		user << "<span class='warning'>You can't buckle anyone in before the game starts.</span>"
 	if(!user.Adjacent(M) || user.restrained() || user.lying || user.stat || istype(user, /mob/living/silicon/pai))
 		return

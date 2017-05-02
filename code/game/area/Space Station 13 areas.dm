@@ -57,37 +57,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /*Adding a wizard area teleport list because motherfucking lag -- Urist*/
 /*I am far too lazy to make it a proper list of areas so I'll just make it run the usual telepot routine at the start of the game*/
+
+// Setup moved to EMI.
 var/list/teleportlocs = list()
-
-/hook/startup/proc/setupTeleportLocs()
-	for(var/area/AR in world)
-		if(istype(AR, /area/shuttle) || istype(AR, /area/syndicate_station) || istype(AR, /area/wizard_station)) continue
-		if(teleportlocs.Find(AR.name)) continue
-		var/turf/picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
-		if (picked)
-			teleportlocs += AR.name
-			teleportlocs[AR.name] = AR
-
-	teleportlocs = sortAssoc(teleportlocs)
-
-	return 1
-
 var/list/ghostteleportlocs = list()
-
-/hook/startup/proc/setupGhostTeleportLocs()
-	for(var/area/AR in world)
-		if(ghostteleportlocs.Find(AR.name)) continue
-		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/derelict) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops/centcom))
-			ghostteleportlocs += AR.name
-			ghostteleportlocs[AR.name] = AR
-		var/turf/picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
-		if (picked)
-			ghostteleportlocs += AR.name
-			ghostteleportlocs[AR.name] = AR
-
-	ghostteleportlocs = sortAssoc(ghostteleportlocs)
-
-	return 1
 
 /*-----------------------------------------------------------------------------*/
 
@@ -2189,7 +2162,7 @@ area/space/atmosalert()
 				mysound.status = SOUND_PAUSED | SOUND_UPDATE
 				Obj << mysound
 
-	proc/process()
+	process()
 		set background = 1
 
 		var/sound/S = null
@@ -2284,9 +2257,10 @@ var/list/the_station_areas = list (
 	requires_power = 0
 	var/sound/mysound = null
 	no_light_control = 1
+	var/iter = 0
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/sound/S = new/sound()
 		mysound = S
 		S.file = 'sound/ambience/shore.ogg'
@@ -2296,7 +2270,7 @@ var/list/the_station_areas = list (
 		S.volume = 100
 		S.priority = 255
 		S.status = SOUND_UPDATE
-		process()
+		START_PROCESSING(SSprocessing, src)
 
 	Entered(atom/movable/Obj,atom/OldLoc)
 		if(ismob(Obj))
@@ -2311,8 +2285,13 @@ var/list/the_station_areas = list (
 				mysound.status = SOUND_PAUSED | SOUND_UPDATE
 				Obj << mysound
 
-	proc/process()
-		set background = 1
+	process()
+		switch (iter)
+			if (0,1)
+				iter++
+				return
+			if (3)
+				iter = 0
 
 		var/sound/S = null
 		var/sound_delay = 0
@@ -2328,8 +2307,8 @@ var/list/the_station_areas = list (
 				mysound.status = SOUND_UPDATE
 				H << mysound
 				if(S)
-					spawn(sound_delay)
-						H << S
+					addtimer(CALLBACK(src, .proc/send_sound, H, S), sound_delay)
 
-		spawn(60) .()
-
+	proc/send_sound(mob/living/carbon/human/H, sound/S)
+		if (H)
+			H << S

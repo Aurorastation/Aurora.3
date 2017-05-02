@@ -42,7 +42,6 @@ In short:
 // Apply changes when entering state
 /datum/universal_state/hell/OnEnter()
 	set background = 1
-	garbage_collector.garbage_collect = 0
 
 	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
@@ -55,7 +54,6 @@ In short:
 	OverlayAndAmbientSet()
 
 	runedec += 9000	//basically removing the rune cap
-
 
 /datum/universal_state/hell/proc/AreaSet()
 	for(var/area/A in all_areas)
@@ -76,7 +74,7 @@ In short:
 			T.underlays += "hell01"
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in global.all_lighting_corners)
+	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
 		if (!C.active)
 			continue
 

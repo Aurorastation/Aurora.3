@@ -150,7 +150,7 @@ var/list/floor_light_cache = list()
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
-	..()
+	return ..()
 
 /obj/machinery/floor_light/cultify()
 	default_light_colour = "#FF0000"

@@ -10,13 +10,14 @@
 
 // creates a new object and deletes itself
 
-/obj/random/initialize()
-	..()
+/obj/random/Initialize()
+	. = ..()
 	if (!prob(spawn_nothing_percentage))
 		var/item = spawn_item()
 		if (has_postspawn && item)
 			post_spawn(item)
-	qdel(src)
+	
+	return INITIALIZE_HINT_QDEL
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()
@@ -769,6 +770,7 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "oiltank"
 	spawn_nothing_percentage = 50
+
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
 	)

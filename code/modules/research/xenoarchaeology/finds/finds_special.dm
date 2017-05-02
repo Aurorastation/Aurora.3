@@ -7,14 +7,16 @@
 
 /obj/item/weapon/reagent_containers/glass/replenishing/New()
 	..()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	spawning_id = pick("blood","holywater","lube","stoxin","ethanol","ice","glycerol","fuel","cleaner")
 
 
 /obj/item/weapon/reagent_containers/glass/replenishing/process()
 	reagents.add_reagent(spawning_id, 0.3)
 
-
+/obj/item/weapon/reagent_containers/glass/replenishing/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 //a talking gas mask!
 /obj/item/clothing/mask/gas/poltergeist
@@ -23,11 +25,11 @@
 	var/max_stored_messages = 100
 
 /obj/item/clothing/mask/gas/poltergeist/New()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	listening_objects += src
 
 /obj/item/clothing/mask/gas/poltergeist/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	listening_objects -= src
 	return ..()
 

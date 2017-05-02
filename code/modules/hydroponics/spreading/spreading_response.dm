@@ -10,8 +10,7 @@
 	if(!buckled_mob && !M.buckled && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/6))))
 		//wait a tick for the Entered() proc that called HasProximity() to finish (and thus the moving animation),
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
-		spawn(1)
-			entangle(M)
+		addtimer(CALLBACK(src, .proc/entangle, M), 1)
 
 /obj/effect/plant/attack_hand(var/mob/user)
 	manual_unbuckle(user)

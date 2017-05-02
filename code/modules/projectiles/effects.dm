@@ -12,10 +12,8 @@
 		transform = M
 
 /obj/effect/projectile/proc/activate(var/kill_delay = 3)
-	spawn(kill_delay)
-		qdel(src)	//see effect_system.dm - sets loc to null and lets GC handle removing these effects
+	QDEL_IN(src, kill_delay) //see effect_system.dm - sets loc to null and lets GC handle removing these effects
 
-	return
 
 //----------------------------
 // Laser beam

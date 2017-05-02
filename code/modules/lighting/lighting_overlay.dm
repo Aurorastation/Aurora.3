@@ -1,5 +1,3 @@
-/var/list/all_lighting_overlays = list() // Global list of lighting overlays.
-
 /atom/movable/lighting_overlay
 	name          = ""
 	anchored      = TRUE
@@ -21,7 +19,7 @@
 /atom/movable/lighting_overlay/New(atom/loc, no_update = FALSE)
 	. = ..()
 	verbs.Cut()
-	global.all_lighting_overlays += src
+	SSlighting.lighting_overlays += src
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
 	T.lighting_overlay = src
@@ -34,15 +32,15 @@
 
 /atom/movable/lighting_overlay/Destroy()
 	L_PROF(loc, "overlay_destroy")
-	global.all_lighting_overlays        -= src
-	global.lighting_update_overlays     -= src
+	SSlighting.lighting_overlays -= src
+	SSlighting.overlay_queue     -= src
 
 	var/turf/T   = loc
 	if (istype(T))
 		T.lighting_overlay = null
 		T.luminosity = 1
-
-	..()
+	
+	return ..()
 
 /atom/movable/lighting_overlay/proc/update_overlay()
 	var/turf/T = loc
@@ -78,15 +76,53 @@
 	var/datum/lighting_corner/ca  = T.corners[1] || dummy_lighting_corner
 
 	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
+	luminosity = max > LIGHTING_SOFT_THRESHOLD
 
-	color  = list(
+// The RNG introduced by LIGHTING_USE_MEMORY_HACK makes this shortcut ineffective.
+#ifndef LIGHTING_USE_MEMORY_HACK
+	var/rr = cr.cache_r
+	var/rg = cr.cache_g
+	var/rb = cr.cache_b
+
+	var/gr = cg.cache_r
+	var/gg = cg.cache_g
+	var/gb = cg.cache_b
+
+	var/br = cb.cache_r
+	var/bg = cb.cache_g
+	var/bb = cb.cache_b
+
+	var/ar = ca.cache_r
+	var/ag = ca.cache_g
+	var/ab = ca.cache_b
+
+	// Check for a common value first so we can skip expensive color matrixes if possible.
+	var/all_equal = ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
+
+	if (!luminosity)
+		icon_state = LIGHTING_DARKNESS_ICON_STATE
+		color = null
+	else if (all_equal && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
+		icon_state = LIGHTING_STATION_ICON_STATE
+		color = null
+	else
+		icon_state = LIGHTING_BASE_ICON_STATE
+		color = list(
+			rr, rg, rb, 0,
+			gr, gg, gb, 0,
+			br, bg, bb, 0,
+			ar, ag, ab, 0,
+			0, 0, 0, 1
+		)
+#else 
+	color = list(
 		cr.cache_r, cr.cache_g, cr.cache_b, 0,
 		cg.cache_r, cg.cache_g, cg.cache_b, 0,
 		cb.cache_r, cb.cache_g, cb.cache_b, 0,
 		ca.cache_r, ca.cache_g, ca.cache_b, 0,
 		0, 0, 0, 1
 	)
-	luminosity = max > LIGHTING_SOFT_THRESHOLD
+#endif 
 
 // Variety of overrides so the overlays don't get affected by weird things.
 

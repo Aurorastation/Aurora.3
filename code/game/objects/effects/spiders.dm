@@ -78,19 +78,19 @@
 	New()
 		pixel_x = rand(3,-3)
 		pixel_y = rand(3,-3)
-		processing_objects |= src
+		START_PROCESSING(SSprocessing, src)
 
 /obj/effect/spider/eggcluster/New(var/location, var/atom/parent)
 	get_light_and_color(parent)
 	..()
 
 /obj/effect/spider/eggcluster/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	if(istype(loc, /obj/item/organ/external))
 		var/obj/item/organ/external/O = loc
 		O.implants -= src
 
-	..()
+	return ..()
 
 /obj/effect/spider/eggcluster/process()
 	amount_grown += rand(0,2)
@@ -101,7 +101,7 @@
 			O = loc
 
 		for(var/i=0, i<num, i++)
-			var/spiderling = getFromPool(/obj/effect/spider/spiderling, src.loc, src)
+			var/spiderling = new /obj/effect/spider/spiderling(src.loc, src)
 			if(O)
 				O.implants += spiderling
 		qdel(src)
@@ -122,7 +122,7 @@
 /obj/effect/spider/spiderling/New(var/location, var/atom/parent)
 	pixel_x = rand(6,-6)
 	pixel_y = rand(6,-6)
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 	//50% chance to grow up
 	if(prob(50))
 		amount_grown = 1
@@ -130,8 +130,8 @@
 	..()
 
 /obj/effect/spider/spiderling/Destroy()
-	processing_objects -= src
-	..()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/effect/spider/spiderling/Bump(atom/user)
 	if(istype(user, /obj/structure/table))
@@ -140,8 +140,8 @@
 		..()
 
 /obj/effect/spider/spiderling/proc/die()
-	visible_message("<span class='alert'>[src] dies!</span>")
-	getFromPool(/obj/effect/decal/cleanable/spiderling_remains, src.loc)
+	visible_message("<span class='alert'>\The [src] dies!</span>")
+	new /obj/effect/decal/cleanable/spiderling_remains(src.loc)
 	qdel(src)
 
 /obj/effect/spider/spiderling/healthcheck()
@@ -248,11 +248,11 @@
 	icon_state = "cocoon1"
 	health = 60
 
-	New()
-		icon_state = pick("cocoon1","cocoon2","cocoon3")
+/obj/effect/spider/cocoon/New()
+	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()
 	src.visible_message("<span class='warning'>\The [src] splits open.</span>")
 	for(var/atom/movable/A in contents)
-		A.loc = src.loc
+		A.forceMove(src.loc)
 	return ..()

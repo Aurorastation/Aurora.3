@@ -6,8 +6,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500, "glass" = 50, "waste" = 10)
 
 	secured = 1
-	wires = WIRE_RECEIVE	
-	var/datum/effect_system/sparks/spark_system
+	wires = WIRE_RECEIVE
 
 /obj/item/device/assembly/igniter/activate()
 	if(!..())	return 0//Cooldown check
@@ -24,15 +23,11 @@
 				var/obj/structure/reagent_dispensers/fueltank/tank = src.loc.loc
 				if (tank && tank.modded)
 					tank.explode()
-
-		spark_system.queue()
+		
+		spark(src, 4, cardinal)
 	return 1
 
 /obj/item/device/assembly/igniter/attack_self(mob/user as mob)
 	activate()
 	add_fingerprint(user)
 	return
-
-/obj/item/device/assembly/igniter/New()
-	. = ..()
-	spark_system = bind_spark(src, 4, cardinal)

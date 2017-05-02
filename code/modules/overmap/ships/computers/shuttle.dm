@@ -8,8 +8,8 @@
 	var/obj/effect/map/destination //current destination
 	var/obj/effect/map/home //current destination
 
-/obj/machinery/computer/shuttle_control/explore/initialize()
-	..()
+/obj/machinery/computer/shuttle_control/explore/Initialize()
+	. = ..()
 	home = map_sectors["[z]"]
 	shuttle_tag = "[shuttle_tag]-[z]"
 	if(!shuttle_controller.shuttles[shuttle_tag])

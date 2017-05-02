@@ -189,7 +189,7 @@ datum/unit_test/zas_supply_shuttle_moved/start_test()
 		fail("Shuttle Controller not setup at time of test.")
 
 	Shuttle = shuttle_controller.shuttles["Supply"]
-	supply_controller.movetime = 5 // Speed up the shuttle movement.
+	SScargo.movetime = 5 // Speed up the shuttle movement.
 
 	if(isnull(Shuttle))
 		fail("Unable to locate the supply shuttle")
