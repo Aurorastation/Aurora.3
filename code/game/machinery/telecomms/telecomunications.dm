@@ -117,14 +117,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	telecomms_list += src
 	..()
 
-	//Set the listening_level if there's none.
-	if(!listening_level)
-		//Defaults to our Z level!
-		var/turf/position = get_turf(src)
-		listening_level = list(position.z, position.z +1, position.z -1)
-
 /obj/machinery/telecomms/Initialize()
 	. = ..()
+
 	if(autolinkers.len)
 		// Links nearby machines
 		if(!long_range_link)
@@ -133,6 +128,14 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		else
 			for(var/obj/machinery/telecomms/T in telecomms_list)
 				add_link(T)
+	if(!listening_level)
+		listening_level = list(z)
+		var/turf/above = GetAbove(src)
+		var/turf/below = GetBelow(src)
+		if(above)
+			listening_level += above.z
+		if(below)
+			listening_level += below.z
 
 /obj/machinery/telecomms/Destroy()
 	telecomms_list -= src
