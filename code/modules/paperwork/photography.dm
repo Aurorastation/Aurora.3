@@ -204,7 +204,7 @@ var/global/photo_count = 0
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
 
 /obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
-	var/obj/item/weapon/photo/p = createpicture(target, user, flag)
+	var/obj/item/weapon/photo/p = createpicture(get_turf(target), user, flag)
 	printpicture(user, p)
 
 /obj/item/device/camera/proc/createpicture(atom/target, mob/living/user, flag)
