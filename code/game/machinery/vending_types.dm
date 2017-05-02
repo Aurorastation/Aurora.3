@@ -335,7 +335,8 @@
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
-		/obj/item/weapon/storage/box/donut = 2
+		/obj/item/weapon/storage/box/donut = 2,
+		/obj/item/weapon/grenade/flashbang = 4
 	)
 
 /obj/machinery/vending/hydronutrients

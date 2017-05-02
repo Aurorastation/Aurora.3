@@ -523,8 +523,7 @@
 		/obj/item/weapon/melee/baton/stunrod,
 		/obj/item/weapon/material/harpoon,
 		/obj/item/weapon/material/twohanded/spear/plasteel,
-		/obj/item/weapon/material/sword/trench,
-		/obj/item/weapon/material/sword/rapier,
+		/obj/random/sword,
 		/obj/item/weapon/melee/hammer,
 		/obj/item/weapon/material/twohanded/fireaxe,
 		/obj/item/weapon/melee/classic_baton
@@ -752,7 +751,7 @@
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 0.5,
-		/obj/item/weapon/material/sword/rapier = 0.5,
+		/obj/random/sword = 0.5,
 		/obj/item/weapon/gun/energy/lawgiver = 0.5,
 		/obj/item/weapon/melee/energy/axe = 0.5,
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
@@ -772,4 +771,22 @@
 	spawn_nothing_percentage = 50
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
+	)
+	
+/obj/random/sword
+	name = "random sword"
+	desc = "This is a random sword."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "claymore"
+	spawnlist = list(
+		/obj/item/weapon/material/sword,
+		/obj/item/weapon/material/sword/katana,
+		/obj/item/weapon/material/sword/rapier,
+		/obj/item/weapon/material/sword/longsword,
+		/obj/item/weapon/material/sword/trench,
+		/obj/item/weapon/material/sword/sabre,
+		/obj/item/weapon/material/sword/axe,
+		/obj/item/weapon/material/sword/khopesh,
+		/obj/item/weapon/material/sword/dao,
+		/obj/item/weapon/material/sword/gladius
 	)

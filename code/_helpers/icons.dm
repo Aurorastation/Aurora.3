@@ -107,7 +107,7 @@ AngleToHue(hue)
     Converts an angle to a hue in the valid range.
 RotateHue(hsv, angle)
     Takes an HSV or HSVA value and rotates the hue forward through red, green, and blue by an angle from 0 to 360.
-    (Rotating red by 60° produces yellow.) The result is another HSV or HSVA color with the same saturation and value
+    (Rotating red by 60ï¿½ produces yellow.) The result is another HSV or HSVA color with the same saturation and value
     as the original, but a different hue.
 GrayScale(rgb)
     Takes an RGB or RGBA color and converts it to grayscale. Returns an RGB or RGBA string.
@@ -886,17 +886,26 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 				//Capture includes non-existan turfs
 				if(!suppress_errors)
 					return
+
+	return generate_image_from_turfs(turfstocapture, range, cap_mode, user, lighting)
+	
+/proc/generate_image_from_turfs(turf/topleft, list/turf/turfstocapture, range as num, cap_mode = CAPTURE_MODE_PARTIAL, mob/living/user, lighting = TRUE)
+	var/tx = topleft.x
+	var/ty = topleft.y
 	//Lines below determine what objects will be rendered
 	var/list/atoms = list()
 	for(var/turf/T in turfstocapture)
-		atoms.Add(T)
+		atoms += T
 		for(var/atom/A in T)
-			if(istype(A, /atom/movable/lighting_overlay) && lighting) //Special case for lighting
-				atoms.Add(A)
+			if(istype(A, /atom/movable/lighting_overlay)) //Special case for lighting
 				continue
-			if(A.invisibility) continue
-			atoms.Add(A)
-	//Lines below actually render all colected data
+
+			if(A.invisibility) 
+				continue
+
+			atoms += A
+
+	//Lines below actually render all collected data
 	atoms = sort_atoms_by_layer(atoms)
 	var/icon/cap = icon('icons/effects/96x96.dmi', "")
 	cap.Scale(range*32, range*32)
@@ -910,6 +919,14 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 				var/xoff = (A.x - tx) * 32
 				var/yoff = (A.y - ty) * 32
 				cap.Blend(img, blendMode2iconMode(A.blend_mode),  A.pixel_x + xoff, A.pixel_y + yoff)
+
+	if (lighting)
+		for (var/turf/T in turfstocapture)
+			var/icon/im = new(LIGHTING_ICON, "blank")
+			var/color = T.get_avg_color()	// We're going to lose some detail, but it's all we can do without color matrixes.
+			if (color)
+				im.Blend(color, ICON_MULTIPLY)
+				cap.Blend(im, ICON_MULTIPLY, (T.x - tx) * 32, (T.y - ty) * 32)
 
 	return cap
 
