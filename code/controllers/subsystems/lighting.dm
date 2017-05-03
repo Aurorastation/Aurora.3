@@ -80,7 +80,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 		processed_lights = 0
 		processed_corners = 0
 		processed_overlays = 0
-		instant_tick_limit = CURRENT_TICKLIMIT * 0.8
+		
+	instant_tick_limit = CURRENT_TICKLIMIT * 0.8
 
 	MC_SPLIT_TICK_INIT(3)
 	if (!no_mc_tick)
