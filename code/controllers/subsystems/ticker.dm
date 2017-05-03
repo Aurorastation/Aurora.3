@@ -321,9 +321,9 @@ var/datum/controller/subsystem/ticker/SSticker
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
 
-		if (dynamic_time < config.vote_autogamemode_timeleft)
+		if (dynamic_time <= config.vote_autogamemode_timeleft)
 			pregame_timeleft = config.vote_autogamemode_timeleft + 10
-			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was less than configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
+			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
 			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
