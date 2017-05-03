@@ -50,7 +50,7 @@
 	for(var/image/I in overlays)
 		I.dir = src.dir
 
-/mob/living/simple_animal/mouse/king/proc/update_icon()
+/mob/living/simple_animal/mouse/king/update_icon()
 	..()
 
 	src.overlays.Cut()
