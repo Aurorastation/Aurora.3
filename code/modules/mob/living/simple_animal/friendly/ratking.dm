@@ -53,7 +53,7 @@
 /mob/living/simple_animal/mouse/king/update_icon()
 	..()
 
-	src.overlays.Cut()
+	cut_overlays()
 
 	for(var/mob/living/simple_animal/mouse/R in rats)
 		var/image/rat_overlay = image('icons/mob/animal.dmi', "[R.icon_state]")
@@ -61,7 +61,7 @@
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		rat_overlay.transform = M
-		src.overlays += rat_overlay
+		add_overlay(rat_overlay)
 
 /mob/living/simple_animal/mouse/king/proc/update()
 	if( rats.len >= RAT_GOD_LEVEL)
