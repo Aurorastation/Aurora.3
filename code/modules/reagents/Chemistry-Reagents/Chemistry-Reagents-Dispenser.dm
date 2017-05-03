@@ -254,6 +254,7 @@
 	description = "A chemical element."
 	reagent_state = LIQUID
 	color = "#484848"
+	ingest_met = REM*0.2
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -261,7 +262,8 @@
 			step(M, pick(cardinal))
 		if(prob(5))
 			M.emote(pick("twitch", "drool", "moan"))
-		M.adjustBrainLoss(2)
+
+		M.adjustBrainLoss(removed)
 
 /datum/reagent/phosphorus
 	name = "Phosphorus"
@@ -316,11 +318,11 @@
 	color = "#DB5008"
 	metabolism = REM * 2
 	touch_met = 50 // It's acid!
-	var/power = 5
+	var/power = 4
 	var/meltdose = 10 // How much is needed to melt
 
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.take_organ_damage(0, removed * power * 2)
+	M.take_organ_damage(0, removed * power)
 
 /datum/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // This is the most interesting
 	if(ishuman(M))
