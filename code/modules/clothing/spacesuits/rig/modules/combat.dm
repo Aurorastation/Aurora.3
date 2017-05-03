@@ -103,6 +103,14 @@
 		list("frag grenade",   "frag grenade",   /obj/item/weapon/grenade/frag,  3)
 		)
 
+/obj/item/rig_module/grenade_launcher/cleaner
+	name = "mounted cleaning grenade launcher"
+	desc = "A specialty shoulder-mounted micro-explosive dispenser."
+
+	charges = list(
+		list("cleaning grenade",   "cleaning grenade",   /obj/item/weapon/grenade/chem_grenade/cleaner,  9)
+		)
+
 /obj/item/rig_module/mounted
 
 	name = "mounted laser cannon"
@@ -176,7 +184,7 @@
 	interface_name = "mounted pulse rifle"
 	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
 
-	gun_type = /obj/item/weapon/gun/energy/pulse_rifle/mounted
+	gun_type = /obj/item/weapon/gun/energy/pulse
 
 /obj/item/rig_module/mounted/smg
 
@@ -341,3 +349,12 @@
 			H.put_in_hands(new_weapon)
 
 	return 1
+
+/obj/item/rig_module/fabricator/sign
+	name = "wet floor sign fabricator"
+	engage_string = "Fabricate Sign"
+
+	interface_name = "wet floor sign launcher"
+	interface_desc = "An integrated microfactory that produces wet floor signs from thin air and electricity."
+
+	fabrication_type = /obj/item/weapon/caution

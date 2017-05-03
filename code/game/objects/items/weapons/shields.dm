@@ -241,7 +241,7 @@
 		force = 3
 		throwforce = 3
 		throw_speed = 3
-		w_class = 2
+		w_class = 3
 		slot_flags = 0
 		user << "<span class='notice'>The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
 

@@ -600,7 +600,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		var/mob/dead/observer/M = O
 		if (M.client && alert(src, "They are still connected. Are you sure, they will loose connection.", "Confirmation", "Yes", "No") != "Yes")
 			return
-	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])",,admin_key=key_name(usr))
+	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])",admin_key=key_name(usr))
 	message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
 	feedback_add_details("admin_verb","DEL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
