@@ -25,6 +25,7 @@
 	var/equip_slot = 0
 /obj/Destroy()
 	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/Topic(href, href_list, var/datum/topic_state/state = default_state)
@@ -72,10 +73,6 @@
 	// Nada
 
 /obj/item/proc/is_used_on(obj/O, mob/user)
-
-/obj/proc/process()
-	processing_objects.Remove(src)
-	return 0
 
 /obj/assume_air(datum/gas_mixture/giver)
 	if(loc)
@@ -140,9 +137,6 @@
 /obj/proc/interact(mob/user)
 	return
 
-/obj/proc/update_icon()
-	return
-
 /mob/proc/unset_machine()
 	src.machine = null
 
@@ -182,9 +176,12 @@
 /obj/proc/tesla_act(var/power)
 	being_shocked = 1
 	var/power_bounced = power / 2
-	tesla_zap(src, 5, power_bounced)
-	spawn(10)
-		being_shocked = 0
+	tesla_zap(src, 3, power_bounced)
+	addtimer(CALLBACK(src, .proc/reset_shocked), 10)
+
+/obj/proc/reset_shocked()
+	being_shocked = 0
+
 
 /obj/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return

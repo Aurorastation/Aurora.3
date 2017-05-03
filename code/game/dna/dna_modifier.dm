@@ -52,8 +52,8 @@
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/opened = 0
 
-/obj/machinery/dna_scannernew/New()
-	..()
+/obj/machinery/dna_scannernew/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/clonescanner(src)
 	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)

@@ -2,9 +2,7 @@
 	name = "oven"
 	desc = "Cookies are ready, dear."
 	icon = 'icons/obj/cooking_machines.dmi'
-	icon_state = "oven_off"
-	on_icon = "oven_on"
-	off_icon = "oven_off"
+	icon_state = "ovenopen"
 	cook_type = "baked"
 	appliancetype = OVEN
 	food_color = "#A34719"

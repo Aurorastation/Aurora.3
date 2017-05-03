@@ -221,7 +221,7 @@
 
 			for(var/a = 1 to 5)
 				spawn(0)
-					var/obj/effect/effect/water/W = getFromPool(/obj/effect/effect/water, get_turf(chassis))
+					var/obj/effect/effect/water/W = new /obj/effect/effect/water(get_turf(chassis))
 					var/turf/my_target
 					if(a == 1)
 						my_target = T
@@ -606,7 +606,7 @@
 	Destroy()
 		qdel(pr_repair_droid)
 		pr_repair_droid = null
-		..()
+		return ..()
 
 	attach(obj/mecha/M as obj)
 		..()
@@ -699,7 +699,7 @@
 	Destroy()
 		qdel(pr_energy_relay)
 		pr_energy_relay = null
-		..()
+		return ..()
 
 	detach()
 		pr_energy_relay.stop()
@@ -787,7 +787,7 @@
 	Destroy()
 		qdel(pr_mech_generator)
 		pr_mech_generator = null
-		..()
+		return ..()
 
 	proc/init()
 		fuel = new /obj/item/stack/material/phoron(src)

@@ -13,6 +13,7 @@
 	species_restricted = list("Human", "Vaurca", "Machine")
 	camera_networks = list(NETWORK_MERCENARY)
 	light_overlay = "helmet_light_green" //todo: species-specific light overlays
+	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/merc
 	icon_state = "rig-syndie"

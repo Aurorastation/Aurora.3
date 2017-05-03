@@ -74,7 +74,7 @@
 				world.log << "NanoMapGen: <B>[count] tiles done</B>"
 				sleep(1)
 
-	var/mapFilename = "nanomap_z[currentZ]-new.png"
+	var/mapFilename = "new_Aurora[currentZ]"
 
 	world.log << "NanoMapGen: <B>sending [mapFilename] to client</B>"
 

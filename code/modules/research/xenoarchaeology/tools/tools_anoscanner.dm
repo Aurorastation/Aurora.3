@@ -12,7 +12,8 @@
 	var/last_scan_time = 0
 	var/scan_delay = 25
 
-/obj/item/device/ano_scanner/initialize()
+/obj/item/device/ano_scanner/Initialize()
+	. = ..()
 	scan()
 
 /obj/item/device/ano_scanner/attack_self(var/mob/user as mob)
@@ -38,8 +39,8 @@
 	last_scan_time = world.time
 	nearest_artifact_distance = -1
 	var/turf/cur_turf = get_turf(src)
-	if(master_controller) //Sanity check due to runtimes ~Z
-		for(var/turf/simulated/mineral/T in master_controller.artifact_spawning_turfs)
+	if (SSxenoarch) //Sanity check due to runtimes ~Z
+		for(var/turf/simulated/mineral/T in SSxenoarch.artifact_spawning_turfs)
 			if(T.artifact_find)
 				if(T.z == cur_turf.z)
 					var/cur_dist = get_dist(cur_turf, T) * 2
@@ -47,5 +48,5 @@
 						nearest_artifact_distance = cur_dist + rand() * 2 - 1
 						nearest_artifact_id = T.artifact_find.artifact_id
 			else
-				master_controller.artifact_spawning_turfs.Remove(T)
+				SSxenoarch.artifact_spawning_turfs.Remove(T)
 	cur_turf.visible_message("<span class='info'>[src] clicks.</span>")

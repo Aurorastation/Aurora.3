@@ -55,6 +55,7 @@ var/list/mob_hat_cache = list()
 	var/obj/item/hat
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
+	var/range_limit = 1
 
 	holder_type = /obj/item/weapon/holder/drone
 
@@ -89,7 +90,7 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.loc = get_turf(src)
-	..()
+	return ..()
 
 /mob/living/silicon/robot/drone/construction
 	icon_state = "constructiondrone"
@@ -100,6 +101,7 @@ var/list/mob_hat_cache = list()
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/weapon/holder/drone/heavy
+	range_limit = 0
 
 /mob/living/silicon/robot/drone/New()
 
@@ -147,13 +149,11 @@ var/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/updateicon()
 
-	overlays.Cut()
+	cut_overlays()
 	if(stat == 0)
-		overlays += "eyes-[icon_state]"
-	else
-		overlays -= "eyes"
+		add_overlay("eyes-[icon_state]")
 	if(hat) // Let the drones wear hats.
-		overlays |= get_hat_icon(hat, hat_x_offset, hat_y_offset)
+		add_overlay(get_hat_icon(hat, hat_x_offset, hat_y_offset))
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -191,7 +191,7 @@ var/list/mob_hat_cache = list()
 
 		if(stat == 2)
 
-			if(!config.allow_drone_spawn || emagged || health < -35) //It's dead, Dave.
+			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 				user << "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>"
 				return
 
@@ -254,10 +254,10 @@ var/list/mob_hat_cache = list()
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
-		health = 35
+		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = 35 - (getBruteLoss() + getFireLoss())
+	health = maxHealth - (getBruteLoss() + getFireLoss())
 	return
 
 //Easiest to check this here, then check again in the robot proc.
@@ -265,7 +265,8 @@ var/list/mob_hat_cache = list()
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
 	var/turf/T = get_turf(src)
-	if((!T || health <= -35 || (master_fabricator && T.z != master_fabricator.z)) && src.stat != DEAD)
+	var/area/A = get_area(T)
+	if((!T || health <= -maxHealth || (range_limit && !(A in the_station_areas))) && src.stat != DEAD)
 		timeofdeath = world.time
 		death() //Possibly redundant, having trouble making death() cooperate.
 		gib()

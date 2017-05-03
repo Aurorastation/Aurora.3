@@ -116,7 +116,7 @@
 	recipient << browse(output,"window=memory")
 
 /datum/mind/proc/edit_memory()
-	if(!ticker || !ticker.mode)
+	if(!ROUND_IS_STARTED)
 		alert("Not before round-start!", "Alert")
 		return
 
@@ -215,7 +215,7 @@
 				var/objective_type = "[objective_type_capital][objective_type_text]"//Add them together into a text string.
 
 				var/list/possible_targets = list("Free objective")
-				for(var/datum/mind/possible_target in ticker.minds)
+				for(var/datum/mind/possible_target in SSticker.minds)
 					if ((possible_target != src) && istype(possible_target.current, /mob/living/carbon/human))
 						possible_targets += possible_target.current
 
@@ -475,12 +475,8 @@
 	else
 		mind = new /datum/mind(key)
 		mind.original = src
-		if(ticker)
-			ticker.minds += mind
-		else
-			world.log << "## DEBUG: mind_initialize(): No ticker ready yet! Please inform Carn"
-	if(!mind.name)
-		mind.name = real_name
+		SSticker.minds += mind
+	if(!mind.name)	mind.name = real_name
 	if (client)
 		if (client.prefs.signature)
 			mind.signature = client.prefs.signature

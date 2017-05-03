@@ -1,12 +1,12 @@
 //Corgi
 /mob/living/simple_animal/corgi
-	name = "\improper corgi"
+	name = "corgi"
 	real_name = "corgi"
 	desc = "It's a corgi."
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
-	speak = list("YAP", "Woof!", "Bark!", "AUUUUUU")
+	speak = list("YAP!", "Woof!", "Bark!", "AUUUUUU!")
 	speak_emote = list("barks", "woofs")
 	emote_hear = list("barks", "woofs", "yaps","pants")
 	emote_see = list("shakes its head", "shivers")
@@ -19,7 +19,7 @@
 	response_harm   = "kicks"
 	see_in_dark = 5
 	mob_size = 5
-	max_nutrition = 250//Dogs are insatiable eating monsters. This scales with their mob size too
+	max_nutrition = 250	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 30
 	seek_speed = 6
 	possession_candidate = 1
@@ -29,7 +29,7 @@
 
 /mob/living/simple_animal/corgi/New()
 	..()
-	nutrition = max_nutrition * 0.3//Ian doesn't start with a full belly so will be hungry at roundstart
+	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
 	nutrition_step = mob_size * 0.12
 
 //IAN! SQUEEEEEEEEE~
@@ -55,10 +55,8 @@
 					sleep(1)
 
 
-
 /mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
 	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
-
 
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi

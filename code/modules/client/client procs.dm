@@ -24,6 +24,16 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	// asset_cache
+	if(href_list["asset_cache_confirm_arrival"])
+		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
+		var/job = text2num(href_list["asset_cache_confirm_arrival"])
+		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
+		//	into letting append to a list without limit.
+		if (job && job <= last_asset_job && !(job in completed_asset_jobs))
+			completed_asset_jobs += job
+			return
+
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
 		if (!info_sent)
 			handle_connection_info(src, href_list["data"])
@@ -157,7 +167,7 @@
 			if ("dismiss")
 				if (href_list["notification"])
 					var/datum/client_notification/a = locate(href_list["notification"])
-					if (a && isnull(a.gcDestroyed))
+					if (!QDELETED(a))
 						a.dismiss()
 
 			// Forum link from various panels.
@@ -322,7 +332,6 @@
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
-	nanomanager.send_resources(src)
 
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1))
@@ -441,60 +450,9 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-
-	getFiles(
-		'html/search.js',
-		'html/panels.css',
-		'html/images/loading.gif',
-		'html/images/ntlogo.png',
-		'html/images/talisman.png',
-		'html/images/barcode0.png',
-		'html/images/barcode1.png',
-		'html/images/barcode2.png',
-		'html/images/barcode3.png',
-		'html/bootstrap/css/bootstrap.min.css',
-		'html/bootstrap/js/bootstrap.min.js',
-		'html/jquery/jquery-2.0.0.min.js',
-		'html/iestats/ie-truth.min.js',
-		'icons/pda_icons/pda_atmos.png',
-		'icons/pda_icons/pda_back.png',
-		'icons/pda_icons/pda_bell.png',
-		'icons/pda_icons/pda_blank.png',
-		'icons/pda_icons/pda_boom.png',
-		'icons/pda_icons/pda_bucket.png',
-		'icons/pda_icons/pda_crate.png',
-		'icons/pda_icons/pda_cuffs.png',
-		'icons/pda_icons/pda_eject.png',
-		'icons/pda_icons/pda_exit.png',
-		'icons/pda_icons/pda_flashlight.png',
-		'icons/pda_icons/pda_honk.png',
-		'icons/pda_icons/pda_mail.png',
-		'icons/pda_icons/pda_medical.png',
-		'icons/pda_icons/pda_menu.png',
-		'icons/pda_icons/pda_mule.png',
-		'icons/pda_icons/pda_notes.png',
-		'icons/pda_icons/pda_power.png',
-		'icons/pda_icons/pda_rdoor.png',
-		'icons/pda_icons/pda_reagent.png',
-		'icons/pda_icons/pda_refresh.png',
-		'icons/pda_icons/pda_scanner.png',
-		'icons/pda_icons/pda_signaler.png',
-		'icons/pda_icons/pda_status.png',
-		'icons/spideros_icons/sos_1.png',
-		'icons/spideros_icons/sos_2.png',
-		'icons/spideros_icons/sos_3.png',
-		'icons/spideros_icons/sos_4.png',
-		'icons/spideros_icons/sos_5.png',
-		'icons/spideros_icons/sos_6.png',
-		'icons/spideros_icons/sos_7.png',
-		'icons/spideros_icons/sos_8.png',
-		'icons/spideros_icons/sos_9.png',
-		'icons/spideros_icons/sos_10.png',
-		'icons/spideros_icons/sos_11.png',
-		'icons/spideros_icons/sos_12.png',
-		'icons/spideros_icons/sos_13.png',
-		'icons/spideros_icons/sos_14.png'
-		)
+	spawn (10) //removing this spawn causes all clients to not get verbs.
+		//Precache the client with all other assets slowly, so as to not block other browse() calls
+		getFilesSlow(src, SSassets.cache, register_asset = FALSE)
 
 /mob/proc/MayRespawn()
 	return 0

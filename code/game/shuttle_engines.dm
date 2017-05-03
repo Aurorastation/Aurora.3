@@ -19,6 +19,12 @@
 	density = 1
 	anchored = 1.0
 
+	CanPass(atom/movable/mover, turf/target, height, air_group)
+		if (!height || air_group) 
+			return FALSE
+		else
+			return ..()
+
 /obj/structure/shuttle/engine/heater
 	name = "heater"
 	icon_state = "heater"

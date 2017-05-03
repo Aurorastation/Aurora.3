@@ -78,7 +78,7 @@
 
 /obj/mecha/combat/marauder/Destroy()
 	qdel(smoke_system)
-	..()
+	return ..()
 
 /obj/mecha/combat/marauder/relaymove(mob/user,direction)
 	if(user != src.occupant) //While not "realistic", this piece is player friendly.

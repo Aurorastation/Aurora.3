@@ -35,7 +35,7 @@
 
 /obj/item/weapon/reagent_containers/borghypo/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/weapon/reagent_containers/borghypo/process() //Every [recharge_time] seconds, recharge some reagents for the cyborg+
 	if(++charge_tick < recharge_time)

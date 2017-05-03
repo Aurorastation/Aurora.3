@@ -31,8 +31,8 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
-/obj/machinery/door/blast/initialize()
-	..()
+/obj/machinery/door/blast/Initialize()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
@@ -188,3 +188,8 @@ obj/machinery/door/blast/regular/open
 	icon_state_closed = "shutter1"
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
+
+/obj/machinery/door/blast/shutters/open
+	icon_state = "shutter0"
+	density = 0
+	opacity = 0

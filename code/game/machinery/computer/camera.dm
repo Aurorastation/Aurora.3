@@ -12,10 +12,10 @@
 	var/cache_id = 0
 	circuit = /obj/item/weapon/circuitboard/security
 
-/obj/machinery/computer/security/New()
+/obj/machinery/computer/security/Initialize()
 	if(!network)
 		network = station_networks.Copy()
-	..()
+	. = ..()
 	if(network.len)
 		current_network = network[1]
 
@@ -250,10 +250,10 @@
 	circuit = /obj/item/weapon/circuitboard/security/engineering
 	light_color = "#FAC54B"
 
-/obj/machinery/computer/security/engineering/New()
+/obj/machinery/computer/security/engineering/Initialize()
 	if(!network)
 		network = engineering_networks.Copy()
-	..()
+	. = ..()
 
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
@@ -263,6 +263,6 @@
 	circuit = null
 	is_holographic = FALSE	// I mean, it is, but the holo effect looks terrible with the current merc shuttle floor.
 
-/obj/machinery/computer/security/nuclear/New()
-	..()
+/obj/machinery/computer/security/nuclear/Initialize()
+	. = ..()
 	req_access = list(150)

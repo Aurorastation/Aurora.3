@@ -245,6 +245,41 @@
 					. += M
 	return .
 
+/proc/get_mobs_and_objs_in_view_fast(var/turf/T, var/range, var/list/mobs, var/list/objs, var/checkghosts = GHOSTS_ALL_HEAR)
+
+	var/list/hear = list()
+	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
+	var/list/hearturfs = list()
+
+	for(var/am in hear)
+		var/atom/movable/AM = am
+		if(ismob(AM))
+			mobs += AM
+			hearturfs += AM.locs[1]
+		else if(isobj(AM))
+			objs += AM
+			hearturfs += AM.locs[1]
+
+
+	for(var/m in player_list)
+		var/mob/M = m
+		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
+			mobs |= M
+			continue
+		if(M.loc && M.locs[1] in hearturfs)
+			mobs |= M
+
+
+
+	for(var/o in listening_objects)
+		var/obj/O = o
+		if(O && O.loc && O.locs[1] in hearturfs)
+			objs |= O
+
+
+
+
+
 #define SIGN(X) ((X<0)?-1:1)
 
 proc
@@ -358,13 +393,6 @@ proc/isInSight(var/atom/A, var/atom/B)
 		spawn(delay)
 			for(var/client/C in group)
 				C.screen -= O
-
-/proc/flick_overlay(image/I, list/show_to, duration)
-	for(var/client/C in show_to)
-		C.images += I
-	spawn(duration)
-		for(var/client/C in show_to)
-			C.images -= I
 
 datum/projectile_data
 	var/src_x
@@ -531,3 +559,20 @@ datum/projectile_data
 
 /proc/round_is_spooky(var/spookiness_threshold = config.cult_ghostwriter_req_cultists)
 	return (cult.current_antagonists.len > spookiness_threshold)
+
+/proc/remove_images_from_clients(image/I, list/show_to)
+	for(var/client/C in show_to)
+		C.images -= I
+
+/proc/flick_overlay(image/I, list/show_to, duration)
+	for(var/client/C in show_to)
+		C.images += I
+	addtimer(CALLBACK(GLOBAL_PROC, /.proc/remove_images_from_clients, I, show_to), duration)
+
+/proc/flick_overlay_view(image/I, atom/target, duration) //wrapper for the above, flicks to everyone who can see the target atom
+	var/list/viewing = list()
+	for(var/m in viewers(target))
+		var/mob/M = m
+		if(M.client)
+			viewing += M.client
+	flick_overlay(I, viewing, duration)

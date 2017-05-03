@@ -3,7 +3,7 @@
 /obj/machinery/computer/skills//TODO:SANITY
 	name = "employment records console"
 	desc = "Used to view, edit and maintain employment records."
-	icon_state = "laptop"
+	icon_state = "medlaptop0"
 
 	icon_screen = "medlaptop"
 	light_color = "#00b000"

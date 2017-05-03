@@ -24,9 +24,6 @@
 #define APC_UPOVERLAY_LOCKED 4096
 #define APC_UPOVERLAY_OPERATING 8192
 
-
-#define APC_UPDATE_ICON_COOLDOWN 100 // 10 seconds
-
 // the Area Power Controller (APC), formerly Power Distribution Unit (PDU)
 // one per area, needs wire conection to power network through a terminal
 
@@ -154,8 +151,8 @@
 
 	return cell.drain_power(drain_check, surge, amount)
 
-/obj/machinery/power/apc/New(turf/loc, var/ndir, var/building=0)
-	..()
+/obj/machinery/power/apc/Initialize(mapload, var/ndir, var/building=0)
+	. = ..()
 	wires = new(src)
 
 	// offset 24 pixels in direction of dir
@@ -168,7 +165,7 @@
 	pixel_x = (src.tdir & 3)? 0 : (src.tdir == 4 ? 24 : -24)
 	pixel_y = (src.tdir & 3)? (src.tdir ==1 ? 24 : -24) : 0
 	if (building==0)
-		init()
+		init(mapload)
 	else
 		area = get_area(src)
 		area.apc = src
@@ -194,6 +191,8 @@
 	if(cell)
 		cell.forceMove(loc)
 		cell = null
+	
+	QDEL_NULL(spark_system)
 
 	QDEL_NULL(spark_system)
 
@@ -213,7 +212,7 @@
 	terminal.set_dir(tdir)
 	terminal.master = src
 
-/obj/machinery/power/apc/proc/init()
+/obj/machinery/power/apc/proc/init(mapload)
 	has_electronics = 2 //installed and secured
 	// is starting with a power cell installed, create it and set its charge level
 	if(cell_type)
@@ -234,8 +233,8 @@
 
 	make_terminal()
 
-	spawn(5)
-		src.update()
+	if (!mapload)
+		addtimer(CALLBACK(src, .proc/update), 5, TIMER_UNIQUE)
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))
@@ -327,19 +326,18 @@
 
 	if(!(update_state & UPDATE_ALLGOOD))
 		if(overlays.len)
-			overlays = 0
+			cut_overlays()
 			return
 
 	if(update & 2)
-		if(overlays.len)
-			overlays.len = 0
+		cut_overlays()
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			overlays += status_overlays_lock[locked+1]
-			overlays += status_overlays_charging[charging+1]
+			add_overlay(status_overlays_lock[locked+1])
+			add_overlay(status_overlays_charging[charging+1])
 			if(operating)
-				overlays += status_overlays_equipment[equipment+1]
-				overlays += status_overlays_lighting[lighting+1]
-				overlays += status_overlays_environ[environ+1]
+				add_overlay(status_overlays_equipment[equipment+1])
+				add_overlay(status_overlays_lighting[lighting+1])
+				add_overlay(status_overlays_environ[environ+1])
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
@@ -426,16 +424,6 @@
 	if(last_update_overlay != update_overlay)
 		results += 2
 	return results
-
-// Used in process so it doesn't update the icon too much
-/obj/machinery/power/apc/proc/queue_icon_update()
-
-	if(!updating_icon)
-		updating_icon = 1
-		// Start the update
-		spawn(APC_UPDATE_ICON_COOLDOWN)
-			update_icon()
-			updating_icon = 0
 
 //attack with an item - open/close cover, insert cell, or (un)lock interface
 
@@ -1244,11 +1232,13 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	update()
 	update_icon()
 
-	spawn(600)
-		update_channels()
-		update()
-		update_icon()
+	addtimer(CALLBACK(src, .proc/post_emp_act), 600)
 	..()
+
+/obj/machinery/power/apc/proc/post_emp_act()
+	update_channels()
+	update()
+	queue_icon_update()
 
 /obj/machinery/power/apc/ex_act(severity)
 
@@ -1300,6 +1290,12 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 					L.broken()
 				sleep(1)
 
+/obj/machinery/power/apc/proc/flicker_all()
+	var/offset = 0
+	for (var/obj/machinery/light/L in area)
+		addtimer(CALLBACK(L, /obj/machinery/light/.proc/flicker), offset)
+		offset += rand(5, 10)
+
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
 	for (var/obj/machinery/light/L in area.contents)
 		if (force == "on")
@@ -1332,5 +1328,3 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	locked = 1
 	update_icon()
 	return 1
-
-#undef APC_UPDATE_ICON_COOLDOWN

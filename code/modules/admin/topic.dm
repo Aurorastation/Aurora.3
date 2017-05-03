@@ -6,7 +6,7 @@
 		message_admins("[usr.key] has attempted to override the admin panel!")
 		return
 
-	if(ticker.mode && ticker.mode.check_antagonists_topic(href, href_list))
+	if(SSticker.mode && SSticker.mode.check_antagonists_topic(href, href_list))
 		check_antagonists()
 		return
 
@@ -212,13 +212,13 @@
 	else if(href_list["call_shuttle"])
 		if(!check_rights(R_ADMIN))	return
 
-		if( ticker.mode.name == "blob" )
+		if( SSticker.mode.name == "blob" )
 			alert("You can't call the shuttle during blob!")
 			return
 
 		switch(href_list["call_shuttle"])
 			if("1")
-				if ((!( ticker ) || !emergency_shuttle.location()))
+				if ((!( ROUND_IS_STARTED ) || !emergency_shuttle.location()))
 					return
 				if (emergency_shuttle.can_call())
 					emergency_shuttle.call_evac()
@@ -226,7 +226,7 @@
 					message_admins("\blue [key_name_admin(usr)] called the Emergency Shuttle to the station", 1)
 
 			if("2")
-				if (!( ticker ) || !emergency_shuttle.location())
+				if (!( ROUND_IS_STARTED ) || !emergency_shuttle.location())
 					return
 				if (emergency_shuttle.can_call())
 					emergency_shuttle.call_evac()
@@ -265,9 +265,9 @@
 	else if(href_list["delay_round_end"])
 		if(!check_rights(R_SERVER))	return
 
-		ticker.delay_end = !ticker.delay_end
-		log_admin("[key_name(usr)] [ticker.delay_end ? "delayed the round end" : "has made the round end normally"].",admin_key=key_name(usr))
-		message_admins("\blue [key_name(usr)] [ticker.delay_end ? "delayed the round end" : "has made the round end normally"].", 1)
+		SSticker.delay_end = !SSticker.delay_end
+		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].",admin_key=key_name(usr))
+		message_admins("\blue [key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].", 1)
 		href_list["secretsadmin"] = "check_antagonist"
 
 	else if(href_list["simplemake"])
@@ -919,7 +919,7 @@
 	else if(href_list["c_mode"])
 		if(!check_rights(R_ADMIN))	return
 
-		if(ticker && ticker.mode)
+		if(ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
 		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
 		for(var/mode in config.modes)
@@ -932,7 +932,7 @@
 	else if(href_list["f_secret"])
 		if(!check_rights(R_ADMIN))	return
 
-		if(ticker && ticker.mode)
+		if(ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
 		if(master_mode != "secret")
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
@@ -946,7 +946,7 @@
 	else if(href_list["c_mode2"])
 		if(!check_rights(R_ADMIN|R_SERVER))	return
 
-		if (ticker && ticker.mode)
+		if (ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
 		master_mode = href_list["c_mode2"]
 		log_admin("[key_name(usr)] set the mode as [master_mode].",admin_key=key_name(usr))
@@ -959,7 +959,7 @@
 	else if(href_list["f_secret2"])
 		if(!check_rights(R_ADMIN|R_SERVER))	return
 
-		if(ticker && ticker.mode)
+		if(ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
 		if(master_mode != "secret")
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
@@ -1348,12 +1348,10 @@
 		log_admin("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]",admin_key=key_name(src.owner),ckey=key_name(M))
 		message_admins("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]")
 
-		var/obj/effect/stop/S
-		S = new /obj/effect/stop
-		S.victim = M
-		S.loc = M.loc
+		M.canmove = FALSE
 		spawn(20)
-			qdel(S)
+			if (M)
+				M.canmove = initial(M.canmove)
 
 		var/turf/simulated/floor/T = get_turf(M)
 		if(istype(T))
@@ -1535,7 +1533,7 @@
 	else if(href_list["traitor"])
 		if(!check_rights(R_ADMIN|R_MOD))	return
 
-		if(!ticker || !ticker.mode)
+		if(!ROUND_IS_STARTED)
 			alert("The game hasn't started yet!")
 			return
 
@@ -1587,7 +1585,7 @@
 			else if(!ispath(path, /obj) && !ispath(path, /turf) && !ispath(path, /mob))
 				removed_paths += dirty_path
 				continue
-			else if(ispath(path, /obj/item/weapon/gun/energy/pulse_rifle))
+			else if(ispath(path, /obj/item/weapon/gun/energy/pulse))
 				if(!check_rights(R_FUN,0))
 					removed_paths += dirty_path
 					continue

@@ -15,7 +15,7 @@ Every air tick:
 
 Important Functions:
 
-air_master.mark_for_update(turf)
+SSair.mark_for_update(turf)
 	When stuff happens, call this. It works on everything. You basically don't need to worry about any other
 	functions besides CanPass().
 
@@ -28,7 +28,7 @@ Notes for people who used ZAS before:
 */
 
 //#define ZASDBG
-//#define ZLEVELS
+#define ZLEVELS
 
 #define AIR_BLOCKED 1
 #define ZONE_BLOCKED 2

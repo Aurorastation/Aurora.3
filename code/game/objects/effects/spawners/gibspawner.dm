@@ -6,9 +6,9 @@
 	)
 	gibamounts = list(2,2,1)
 
-/obj/effect/gibspawner/generic/New()
+/obj/effect/gibspawner/generic/Initialize()
 	gibdirections = list(list(WEST, NORTHWEST, SOUTHWEST, NORTH),list(EAST, NORTHEAST, SOUTHEAST, SOUTH), list())
-	..()
+	. = ..()
 
 /obj/effect/gibspawner/human
 	gibtypes = list(
@@ -21,10 +21,10 @@
 	/obj/effect/decal/cleanable/blood/gibs/core)
 	gibamounts = list(1,1,1,1,1,1,1)
 
-/obj/effect/gibspawner/human/New()
+/obj/effect/gibspawner/human/Initialize()
 	gibdirections = list(list(NORTH, NORTHEAST, NORTHWEST),list(SOUTH, SOUTHEAST, SOUTHWEST),list(WEST, NORTHWEST, SOUTHWEST),list(EAST, NORTHEAST, SOUTHEAST), alldirs, alldirs, list())
 	gibamounts[6] = pick(0,1,2)
-	..()
+	. = ..()
 
 /obj/effect/gibspawner/robot
 	sparks = 1
@@ -38,10 +38,10 @@
 	)
 	gibamounts = list(1,1,1,1,1,1)
 
-/obj/effect/gibspawner/robot/New()
+/obj/effect/gibspawner/robot/Initialize()
 	gibdirections = list(list(NORTH, NORTHEAST, NORTHWEST),list(SOUTH, SOUTHEAST, SOUTHWEST),list(WEST, NORTHWEST, SOUTHWEST),list(EAST, NORTHEAST, SOUTHEAST), alldirs, alldirs)
 	gibamounts[6] = pick(0,1,2)
-	..()
+	. = ..()
 
 /obj/effect/gibspawner/xeno
 	gibtypes = list(
@@ -55,7 +55,7 @@
 		)
 	gibamounts = list(1,1,1,1,1,1,1)
 
-/obj/effect/gibspawner/xeno/New()
+/obj/effect/gibspawner/xeno/Initialize()
 	gibdirections = list(list(NORTH, NORTHEAST, NORTHWEST),list(SOUTH, SOUTHEAST, SOUTHWEST),list(WEST, NORTHWEST, SOUTHWEST),list(EAST, NORTHEAST, SOUTHEAST), alldirs, alldirs, list())
 	gibamounts[6] = pick(0,1,2)
-	..()
+	. = ..()

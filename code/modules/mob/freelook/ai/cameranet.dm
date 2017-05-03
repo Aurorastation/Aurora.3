@@ -10,7 +10,7 @@
 
 /datum/visualnet/camera/proc/process_sort()
 	if(cameras_unsorted)
-		cameras = dd_sortedObjectList(cameras)
+		sortTim(cameras, /proc/cmp_camera, FALSE)
 		cameras_unsorted = 0
 
 // Removes a camera from a chunk.

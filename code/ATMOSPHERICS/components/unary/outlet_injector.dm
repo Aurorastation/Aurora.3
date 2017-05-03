@@ -93,10 +93,10 @@
 	flick("inject", src)
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency)
+		radio_connection = SSradio.add_object(src, frequency)
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/broadcast_status()
 	if(!radio_connection)
@@ -142,12 +142,10 @@
 		volume_rate = between(0, number, air_contents.volume)
 
 	if(signal.data["status"])
-		spawn(2)
-			broadcast_status()
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
-	spawn(2)
-		broadcast_status()
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 	update_icon()
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)
