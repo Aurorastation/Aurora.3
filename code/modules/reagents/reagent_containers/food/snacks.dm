@@ -230,7 +230,7 @@
 	if(contents)
 		for(var/atom/movable/something in contents)
 			something.loc = get_turf(src)
-	..()
+	return ..()
 
 
 //Code for dipping food in batter
@@ -982,13 +982,13 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cooltime()
 	if (src.warm)
-		spawn(4200)
-			if(src)
-				src.warm = 0
-				for(var/reagent in heated_reagents)
-					src.reagents.del_reagent(reagent)
-				src.name = initial(name)
-	return
+		addtimer(CALLBACK(src, .proc/cool_down))
+
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cool_down()
+	warm = FALSE
+	for(var/reagent in heated_reagents)
+		reagents.del_reagent(reagent)
+	name = initial(name)
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/cook()
 	..()

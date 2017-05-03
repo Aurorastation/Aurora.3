@@ -38,9 +38,9 @@ var/list/admin_verbs_lighting = list(
 		return
 
 	log_and_message_admins("has flushed the lighting processor queues.")
-	lighting_update_lights = list()
-	lighting_update_corners = list()
-	lighting_update_overlays = list()
+	SSlighting.light_queue = list()
+	SSlighting.corner_queue = list()
+	SSlighting.overlay_queue = list()
 
 /client/proc/lighting_reconsider_target(turf/T in world)
 	set category = "Lighting"

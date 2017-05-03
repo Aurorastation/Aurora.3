@@ -55,5 +55,6 @@
 		var/obj/item/weapon/storage/toolbox/lunchbox/lunchbox = lunchbox_type
 		if(!initial(lunchbox.filled))
 			lunchboxes[initial(lunchbox.name)] = lunchbox_type
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(lunchboxes))
+	sortTim(lunchboxes, /proc/cmp_text_asc)
+	gear_tweaks += new/datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())

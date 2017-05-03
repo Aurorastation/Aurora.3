@@ -135,7 +135,7 @@
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
 	icon = 'icons/obj/tools/welding.dmi'
-	icon_state = "welder"
+	icon_state = "welder_off"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
@@ -166,8 +166,8 @@
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
+	base_iconstate = "ind_welder_off"
 	origin_tech = list(TECH_ENGINEERING = 2)
-	base_iconstate = "ind_welder"
 
 
 /obj/item/weapon/weldingtool/hugetank
@@ -176,8 +176,8 @@
 	max_fuel = 80
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
+	base_iconstate = "adv_welder_off"
 	origin_tech = list(TECH_ENGINEERING = 3)
-	base_iconstate = "adv_welder"
 
 
 //The Experimental Welding Tool!
@@ -187,8 +187,8 @@
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
+	base_iconstate = "exp_welder_off"
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
-	base_iconstate = "exp_welder"
 	base_itemstate = "exp_welder"
 
 	var/last_gen = 0
@@ -197,21 +197,15 @@
 	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
 
 
-
-
-
-
-
-
 //Welding tool functionality here
-/obj/item/weapon/weldingtool/New()
+/obj/item/weapon/weldingtool/Initialize()
+	. = ..()
 //	var/random_fuel = min(rand(10,20),max_fuel)
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
 	R.add_reagent("fuel", max_fuel)
 	update_icon()
-	..()
 
 /obj/item/weapon/weldingtool/update_icon()
 	..()
@@ -315,7 +309,7 @@
 			return
 		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
 			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
-			return			
+			return
 		if (src.remove_fuel(0))
 			// Use a bit of fuel and repair
 			S.heal_damage(15,0,0,1)
@@ -493,7 +487,7 @@
 
 /obj/item/weapon/weldingtool/Destroy()
 	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
-	..()
+	return ..()
 
 
 //Make sure the experimental tool only stops processing when its turned off AND full

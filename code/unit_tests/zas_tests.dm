@@ -126,14 +126,12 @@ datum/unit_test/zas_area_test/arrival_maint
 datum/unit_test/zas_area_test/mining_shuttle_at_station
 	name = "ZAS: Mining Shuttle (Station)"
 	area_path = /area/shuttle/mining/station
+	disabled = 1
+	why_disabled = "This test has not been updated for newmap."
 
 datum/unit_test/zas_area_test/
 	name = "ZAS: Cargo Maintenance"
 	area_path = /area/maintenance/cargo
-
-datum/unit_test/zas_area_test/eng_shuttle
-	name = "ZAS: Construction Site Shuttle (Station)"
-	area_path = /area/shuttle/constructionsite/station
 
 datum/unit_test/zas_area_test/incinerator
 	name = "ZAS: Incinerator"
@@ -149,13 +147,16 @@ datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
 	area_path = /area/rnd/xenobiology
 
+/*	Hey, this area doesn't exist on the Aurora II.
 datum/unit_test/zas_area_test/research_maint_starboard
 	name = "ZAS: Research Starboard Maintenance"
 	area_path = /area/maintenance/research_starboard
 
+	Nor does this one.
 datum/unit_test/zas_area_test/west_hall_mining_outpost
 	name = "ZAS: Mining outpost West Hallway"
 	area_path = /area/outpost/mining_main/west_hall
+*/
 
 /*
 datum/unit_test/zas_area_test/mining_area
@@ -178,6 +179,8 @@ datum/unit_test/zas_area_test/
 datum/unit_test/zas_supply_shuttle_moved
 	name = "ZAS: Supply Shuttle (When Moved)"
 	async=1				// We're moving the shuttle using built in procs.
+	disabled = 1
+	why_disabled = "This test has not been updated for newmap."
 
 	var/datum/shuttle/ferry/supply/Shuttle = null
 
@@ -189,7 +192,7 @@ datum/unit_test/zas_supply_shuttle_moved/start_test()
 		fail("Shuttle Controller not setup at time of test.")
 
 	Shuttle = shuttle_controller.shuttles["Supply"]
-	supply_controller.movetime = 5 // Speed up the shuttle movement.
+	SScargo.movetime = 5 // Speed up the shuttle movement.
 
 	if(isnull(Shuttle))
 		fail("Unable to locate the supply shuttle")

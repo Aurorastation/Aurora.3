@@ -6,6 +6,7 @@
 	desc = "A crimson helmet sporting clean lines and durable plating. Engineered to look menacing."
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0.3
+	brightness_on = 6
 
 /obj/item/clothing/suit/space/syndicate
 	name = "red space suit"

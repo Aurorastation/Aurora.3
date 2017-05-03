@@ -8,11 +8,7 @@
 	if(!holder)
 		return //how did they get here?
 
-	if(!ticker)
-		alert("Wait until the game starts")
-		return
-
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(!ROUND_IS_STARTED)
 		src << "<span class='warning'>The game hasn't started yet!</span>"
 		return
 

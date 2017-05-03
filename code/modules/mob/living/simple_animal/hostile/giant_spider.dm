@@ -151,7 +151,7 @@
 							if(busy == LAYING_EGGS)
 								E = locate() in get_turf(src)
 								if(!E)
-									getFromPool(/obj/effect/spider/eggcluster, loc, src)
+									new /obj/effect/spider/eggcluster(loc, src)
 									fed--
 								busy = 0
 								stop_automated_movement = 0

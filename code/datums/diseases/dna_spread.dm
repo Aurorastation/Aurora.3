@@ -66,4 +66,4 @@
 		affected_mob.real_name = original_dna["name"]
 
 		affected_mob << "<span class='notice'>You feel more like yourself.</span>"
-	..()
+	return ..()

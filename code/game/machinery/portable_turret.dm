@@ -75,8 +75,8 @@
 	lethal = 1
 	installation = /obj/item/weapon/gun/energy/laser
 
-/obj/machinery/porta_turret/New()
-	..()
+/obj/machinery/porta_turret/Initialize()
+	. = ..()
 	req_access.Cut()
 	req_one_access = list(access_security, access_heads)
 
@@ -85,8 +85,8 @@
 
 	setup()
 
-/obj/machinery/porta_turret/crescent/New()
-	..()
+/obj/machinery/porta_turret/crescent/Initialize()
+	. = ..()
 	req_one_access.Cut()
 	req_access = list(access_cent_specops)
 
@@ -542,7 +542,7 @@ var/list/turret_icons
 	set_raised_raising(raised, 1)
 	update_icon()
 
-	var/atom/flick_holder = getFromPool(/atom/movable/porta_turret_cover, loc)
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popup", flick_holder)
 	sleep(10)
@@ -562,7 +562,7 @@ var/list/turret_icons
 	set_raised_raising(raised, 1)
 	update_icon()
 
-	var/atom/flick_holder = getFromPool(/atom/movable/porta_turret_cover, loc)
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popdown", flick_holder)
 	sleep(10)

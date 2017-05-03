@@ -16,8 +16,8 @@
 	underlays += image('icons/obj/stationobjs.dmi', icon_state = "telecomp-wires")
 	return
 
-/obj/machinery/computer/teleporter/initialize()
-	..()
+/obj/machinery/computer/teleporter/Initialize()
+	. = ..()
 	var/obj/machinery/teleport/station/station = locate(/obj/machinery/teleport/station, get_step(src, dir))
 	var/obj/machinery/teleport/hub/hub
 	if(station)
@@ -210,10 +210,13 @@
 	else
 		spark_system.queue()
 		accurate = 1
-		spawn(3000)	accurate = 0 //Accurate teleporting for 5 minutes
+		addtimer(CALLBACK(src, .proc/reset_teleport), 5 MINUTES)
 		for(var/mob/B in hearers(src, null))
 			B.show_message("<span class='notice'>Test fire completed.</span>")
 	return
+
+/obj/machinery/teleport/hub/proc/reset_teleport()
+	accurate = 0
 /*
 /proc/do_teleport(atom/movable/M as mob|obj, atom/destination, precision)
 	if(istype(M, /obj/effect))

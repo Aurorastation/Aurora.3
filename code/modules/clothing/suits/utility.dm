@@ -151,7 +151,7 @@
 
 /obj/item/clothing/suit/bomb_suit/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 
 /obj/item/clothing/head/bomb_hood/security

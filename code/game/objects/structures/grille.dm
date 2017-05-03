@@ -11,7 +11,6 @@
 	var/health = 10
 	var/destroyed = 0
 
-
 /obj/structure/grille/ex_act(severity)
 	qdel(src)
 
@@ -64,7 +63,7 @@
 	//Flimsy grilles aren't so great at stopping projectiles. However they can absorb some of the impact
 	var/damage = Proj.get_structure_damage()
 	var/passthrough = 0
-	
+
 	if(!damage) return
 
 	//20% chance that the grille provides a bit more cover than usual. Support structure for example might take up 20% of the grille's area.
@@ -96,7 +95,7 @@
 	if(iswirecutter(W))
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			getFromPool(/obj/item/stack/rods, get_turf(src), destroyed ? 1 : 2)
+			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if((isscrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
@@ -104,6 +103,16 @@
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
+	else if(istype(W,/obj/item/stack/rods) && destroyed == 1)
+		if(!shock(user, 90))
+			var/obj/item/stack/rods/ROD = W
+			health = 10
+			density = 1
+			destroyed = 0
+			icon_state = "grille"
+			ROD.use(1)
+			user.visible_message("<span class='notice'>[user] repairs the grille.</span>", \
+								 "<span class='notice'>You have repaired the grille.</span>")
 			return
 
 //window placing begin //TODO CONVERT PROPERLY TO MATERIAL DATUM
@@ -169,11 +178,11 @@
 			density = 0
 			destroyed = 1
 			update_icon()
-			getFromPool(/obj/item/stack/rods, get_turf(src))
+			new /obj/item/stack/rods(get_turf(src))
 
 		else
 			if(health <= -6)
-				getFromPool(/obj/item/stack/rods, get_turf(src))
+				new /obj/item/stack/rods(get_turf(src))
 				qdel(src)
 				return
 	return

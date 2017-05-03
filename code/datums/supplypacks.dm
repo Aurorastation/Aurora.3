@@ -39,9 +39,25 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/grenade/chem_grenade/incendiary)
 	cost = 20
 	containertype = /obj/structure/closet/crate
-	containername = "Special Ops crate"
+	containername = "crate"
 	group = "Security"
 	hidden = 1
+
+/datum/supply_packs/randomised/illegalguns
+	name = "Illegal weapons crate"
+	num_contained = 2
+	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
+					/obj/item/weapon/gun/projectile/boltaction,
+					/obj/item/weapon/gun/projectile/silenced,
+					/obj/item/weapon/gun/projectile/pirate,
+					/obj/item/weapon/gun/projectile/revolver/derringer,
+					/obj/item/weapon/gun/projectile/dragunov,
+					/obj/item/weapon/gun/energy/retro)
+	cost = 60
+	containertype = /obj/structure/closet/crate
+	containername = "crate"
+	hidden = 1
+	group = "Security"
 
 /datum/supply_packs/forensics
 	name = "Auxiliary forensic tools"
@@ -1717,22 +1733,6 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate
 	containername = "glowsticks crate"
 	group = "Operations"
-
-/datum/supply_packs/randomised/illegalguns
-	name = "Illegal weapons crate"
-	num_contained = 2
-	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-					/obj/item/weapon/gun/projectile/boltaction,
-					/obj/item/weapon/gun/projectile/silenced,
-					/obj/item/weapon/gun/projectile/pirate,
-					/obj/item/weapon/gun/projectile/revolver/derringer,
-					/obj/item/weapon/gun/projectile/dragunov,
-					/obj/item/weapon/gun/energy/retro)
-	cost = 120
-	containertype = /obj/structure/closet/crate
-	containername = "Unlabeled crate"
-	contraband = 1
-	group = "Security"
 
 /datum/supply_packs/spessbike
 	name = "Space-bike Crate"

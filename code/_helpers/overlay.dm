@@ -9,7 +9,7 @@
 		0, 0, 0, 0,
 		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
 	)
-	target.overlays += multiply
+	target.add_overlay(multiply)
 	var/image/overlay = make_screen_overlay(icon, icon_state)
 	overlay.blend_mode = BLEND_ADD
 	overlay.color = list(
@@ -18,7 +18,7 @@
 		0, 0, HOLOSCREEN_ADDITION_FACTOR, 0,
 		0, 0, 0, HOLOSCREEN_ADDITION_OPACITY
 	)
-	target.overlays += overlay
+	target.add_overlay(overlay)
 
 /proc/make_screen_overlay(icon, icon_state, brightness_factor = null)
 	var/image/overlay = image(icon, icon_state)

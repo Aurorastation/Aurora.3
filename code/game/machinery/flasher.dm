@@ -27,8 +27,8 @@
 	base_state = "pflash"
 	density = 1
 
-/obj/machinery/flasher/initialize()
-	..()
+/obj/machinery/flasher/Initialize()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
@@ -118,11 +118,11 @@
 
 		if (!src.anchored)
 			user.show_message(text("<span class='warning'>[src] can now be moved.</span>"))
-			src.overlays.Cut()
+			cut_overlays()
 
 		else if (src.anchored)
 			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
-			src.overlays += "[base_state]-s"
+			add_overlay("[base_state]-s")
 
 /obj/machinery/button/flasher
 	name = "flasher button"
