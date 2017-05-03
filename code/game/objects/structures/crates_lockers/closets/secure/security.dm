@@ -341,6 +341,30 @@
 		else
 			icon_state = icon_opened
 
+/obj/structure/closet/secure_closet/csi
+	name = "forensic technician's locker"
+	req_access = list(access_forensics_lockers)
+	icon_state = "sec1"
+	icon_closed = "sec"
+	icon_locked = "sec1"
+	icon_opened = "secopen"
+	icon_broken = "secbroken"
+	icon_off = "secoff"
+
+	fill()
+		new /obj/item/clothing/under/det(src)
+		new /obj/item/clothing/under/det/black(src)
+		new /obj/item/clothing/under/det/slob(src)
+		new /obj/item/clothing/suit/storage/forensics/blue(src)
+		new /obj/item/clothing/suit/storage/forensics/red(src)
+		new /obj/item/clothing/suit/storage/vest/detective(src)
+		new /obj/item/clothing/gloves/black(src)
+		new /obj/item/clothing/shoes/brown(src)
+		new /obj/item/weapon/storage/box/evidence(src)
+		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/device/flash(src)
+		new /obj/item/taperoll/police(src)
+
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
 	req_access = list(access_captain)
