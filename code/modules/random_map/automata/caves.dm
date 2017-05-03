@@ -1,3 +1,6 @@
+#define GET_BELOW_OR_NULL(atom, z) \
+	(!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(atom, DOWN) : null
+
 /datum/random_map/automata/cave_system
 	iterations = 5
 	descriptor = "moon caves"
@@ -27,26 +30,161 @@
 			return "X"
 	return ..(value)
 
-/datum/random_map/automata/cave_system/revive_cell(var/target_cell, var/list/use_next_map, var/final_iter)
-	..()
-	if(final_iter)
-		ore_turfs |= target_cell
-
-/datum/random_map/automata/cave_system/kill_cell(var/target_cell, var/list/use_next_map, var/final_iter)
-	..()
-	if(final_iter)
-		ore_turfs -= target_cell
-
 // Create ore turfs.
 /datum/random_map/automata/cave_system/cleanup()
+	var/tmp_cell
+	for (var/x = 1; x < limit_x; x++)
+		for (var/y = 1; y < limit_y; y++)
+			PREPARE_CELL(x, y)
+			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
+				ore_turfs += tmp_cell
+
+	game_log("ASGEN", "Found [ore_turfs.len] ore turfs.")
 	var/ore_count = round(map.len/20)
+	var/door_count = 0
+	var/empty_count = 0
 	while((ore_count>0) && (ore_turfs.len>0))
-		if(!priority_process) sleep(-1)
+
+		if(!priority_process)
+			CHECK_TICK
+
 		var/check_cell = pick(ore_turfs)
 		ore_turfs -= check_cell
 		if(prob(75))
 			map[check_cell] = DOOR_CHAR  // Mineral block
+			door_count += 1
 		else
 			map[check_cell] = EMPTY_CHAR // Rare mineral block.
+			empty_count += 1
 		ore_count--
+
+	game_log("ASGEN", "Set [door_count] turfs to random minerals.")
+	game_log("ASGEN", "Set [empty_count] turfs to high-chance random minerals.")
 	return 1
+
+/datum/random_map/automata/cave_system/apply_to_map()
+	if(!origin_x) origin_x = 1
+	if(!origin_y) origin_y = 1
+	if(!origin_z) origin_z = 1
+
+	var/tmp_cell
+	var/x
+	var/y
+	var/new_path
+	var/num_applied = 0
+	for (var/thing in block(locate(origin_x, origin_y, origin_z), locate(limit_x, limit_y, origin_z)))
+		var/turf/T = thing
+		new_path = null
+		if (!T || (target_turf_type && !istype(T, target_turf_type)))
+			continue
+
+		x = T.x
+		y = T.y
+
+		PREPARE_CELL(x,y)
+
+		if (!tmp_cell)
+			continue
+
+		switch (map[tmp_cell])
+			if(DOOR_CHAR)
+				new_path = mineral_sparse
+			if(EMPTY_CHAR)
+				new_path = mineral_rich
+			if(FLOOR_CHAR)
+				new_path = floor_type
+			if(WALL_CHAR)
+				new_path = wall_type
+
+		if (!new_path)
+			continue
+
+		num_applied += 1
+		new new_path(T)
+
+		CHECK_TICK
+
+	game_log("ASGEN", "Applied [num_applied] turfs.")
+
+/datum/random_map/automata/cave_system/high_yield
+    descriptor = "high yield caves"
+    wall_type = /turf/simulated/mineral
+    mineral_sparse =  /turf/simulated/mineral/random/high_chance
+    mineral_rich = /turf/simulated/mineral/random/higher_chance
+
+/datum/random_map/automata/cave_system/chasms
+    descriptor = "chasm caverns"
+    wall_type =  /turf/unsimulated/mask
+    floor_type = /turf/simulated/open/airless
+    target_turf_type = /turf/unsimulated/chasm_mask
+    mineral_sparse =  /turf/unsimulated/mask
+    mineral_rich = /turf/unsimulated/mask
+    cell_threshold = 5
+
+/datum/random_map/automata/cave_system/chasms/apply_to_map()
+	if(!origin_x) origin_x = 1
+	if(!origin_y) origin_y = 1
+	if(!origin_z) origin_z = 1
+
+	var/tmp_cell
+	var/x
+	var/y
+	var/z
+	var/new_path
+	var/num_applied = 0
+	for (var/thing in block(locate(origin_x, origin_y, origin_z), locate(limit_x, limit_y, origin_z)))
+		var/turf/T = thing
+		new_path = null
+		if (!T || (target_turf_type && !istype(T, target_turf_type)))
+			continue
+
+		x = T.x
+		y = T.y
+		z = T.z
+
+		PREPARE_CELL(x,y)
+
+		if (!tmp_cell)
+			continue
+
+		switch (map[tmp_cell])
+			if(DOOR_CHAR)
+				new_path = mineral_sparse
+			if(EMPTY_CHAR)
+				new_path = mineral_rich
+			if(FLOOR_CHAR)
+				var/turf/below = GET_BELOW_OR_NULL(T, z)
+				if(below)
+					var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
+					if(below_area.station_area)
+						new_path = wall_type
+					else if(below.density)
+						new_path = wall_type
+					else
+						new_path = floor_type
+
+			if(WALL_CHAR)
+				new_path = wall_type
+
+		if (!new_path)
+			continue
+
+		num_applied += 1
+		new new_path(T)
+
+		CHECK_TICK
+
+	game_log("ASGEN", "Applied [num_applied] turfs.")
+
+/datum/random_map/automata/cave_system/chasms/cleanup()
+	return
+
+/datum/random_map/automata/cave_system/chasms/surface
+    descriptor = "chasm surface"
+    wall_type =  /turf/simulated/floor/asteroid
+    floor_type = /turf/simulated/open/airless
+    target_turf_type = /turf/unsimulated/chasm_mask
+    mineral_sparse =  /turf/simulated/floor/asteroid
+    mineral_rich = /turf/simulated/floor/asteroid
+
+#undef GET_BELOW_OR_NULL

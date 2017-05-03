@@ -96,7 +96,7 @@ var/global/list/cloaking_devices = list()
 	var/list/paths
 
 	//Hair - Initialise all /datum/sprite_accessory/hair into an list indexed by hair-style name
-	paths = typesof(/datum/sprite_accessory/hair) - /datum/sprite_accessory/hair
+	paths = subtypesof(/datum/sprite_accessory/hair)
 	for(var/path in paths)
 		var/datum/sprite_accessory/hair/H = new path()
 		hair_styles_list[H.name] = H
@@ -108,7 +108,7 @@ var/global/list/cloaking_devices = list()
 				hair_styles_female_list += H.name
 
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
-	paths = typesof(/datum/sprite_accessory/facial_hair) - /datum/sprite_accessory/facial_hair
+	paths = subtypesof(/datum/sprite_accessory/facial_hair)
 	for(var/path in paths)
 		var/datum/sprite_accessory/facial_hair/H = new path()
 		facial_hair_styles_list[H.name] = H
@@ -120,21 +120,22 @@ var/global/list/cloaking_devices = list()
 				facial_hair_styles_female_list += H.name
 
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
-	paths = typesof(/datum/surgery_step)-/datum/surgery_step
+	paths = subtypesof(/datum/surgery_step)
 	for(var/T in paths)
 		var/datum/surgery_step/S = new T
 		surgery_steps += S
-	sort_surgeries()
+
+	sortTim(surgery_steps, /proc/cmp_surgery)
 
 	//List of job. I can't believe this was calculated multiple times per tick!
-	paths = typesof(/datum/job)-/datum/job
+	paths = subtypesof(/datum/job)
 	paths -= exclude_jobs
 	for(var/T in paths)
 		var/datum/job/J = new T
 		joblist[J.title] = J
 
 	//Languages and species.
-	paths = typesof(/datum/language)-/datum/language
+	paths = subtypesof(/datum/language)
 	for(var/T in paths)
 		var/datum/language/L = new T
 		all_languages[L.name] = L
@@ -145,7 +146,7 @@ var/global/list/cloaking_devices = list()
 			language_keys[lowertext(L.key)] = L
 
 	var/rkey = 0
-	paths = typesof(/datum/species)-/datum/species
+	paths = subtypesof(/datum/species)
 	for(var/T in paths)
 		rkey++
 		var/datum/species/S = new T
@@ -158,7 +159,7 @@ var/global/list/cloaking_devices = list()
 			whitelisted_species += S.name
 
 	//Posters
-	paths = typesof(/datum/poster) - /datum/poster
+	paths = subtypesof(/datum/poster)
 	for(var/T in paths)
 		var/datum/poster/P = new T
 		poster_designs += P

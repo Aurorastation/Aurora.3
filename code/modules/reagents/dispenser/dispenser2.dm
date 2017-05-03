@@ -18,8 +18,8 @@
 	density = 1
 	anchored = 1
 
-/obj/machinery/chemical_dispenser/New()
-	..()
+/obj/machinery/chemical_dispenser/Initialize()
+	. = ..()
 
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
@@ -56,7 +56,7 @@
 
 	C.loc = src
 	cartridges[C.label] = C
-	cartridges = sortAssoc(cartridges)
+	sortTim(cartridges, /proc/cmp_text_asc)
 	nanomanager.update_uis(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)

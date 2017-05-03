@@ -19,7 +19,7 @@
 	disconnect_from_network()
 	disconnect_terminal()
 
-	..()
+	return ..()
 
 ///////////////////////////////
 // General procedures
@@ -232,9 +232,6 @@
 				else if(C.d1 == d || C.d2 == d)
 					. += C
 	return .
-
-/hook/startup/proc/buildPowernets()
-	return makepowernets()
 
 // rebuild all power networks from scratch - only called at world creation or by the admin verb
 /proc/makepowernets()

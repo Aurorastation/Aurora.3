@@ -72,6 +72,7 @@
 
 	var/opened = 0
 	var/emagged = 0
+	var/fakeemagged = 0 //for dumb illegal weapons module
 	var/wiresexposed = 0
 	var/locked = 1
 	var/has_power = 1
@@ -764,30 +765,28 @@
 	return 0
 
 /mob/living/silicon/robot/updateicon()
-	overlays.Cut()
+	cut_overlays()
 
 	if(stat == CONSCIOUS)
-		overlays += "eyes-[module_sprites[icontype]]"
-
+		add_overlay("eyes-[module_sprites[icontype]]")
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
 		if(wiresexposed)
-			overlays += "[panelprefix]-openpanel +w"
+			add_overlay("[panelprefix]-openpanel +w")
 		else if(cell)
-			overlays += "[panelprefix]-openpanel +c"
+			add_overlay("[panelprefix]-openpanel +c")
 		else
-			overlays += "[panelprefix]-openpanel -c"
+			add_overlay("[panelprefix]-openpanel -c")
 
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		overlays += "[module_sprites[icontype]]-shield"
+		add_overlay("[module_sprites[icontype]]-shield")
 
 	if(modtype == "Combat")
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
 			icon_state = "[module_sprites[icontype]]-roll"
 		else
 			icon_state = module_sprites[icontype]
-		return
 
 /mob/living/silicon/robot/proc/installed_modules()
 	if(weapon_lock)
@@ -1122,7 +1121,7 @@
 		return
 
 	if(opened)//Cover is open
-		if(emagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
+		if(emagged && !fakeemagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
 		if(wiresexposed)
 			user << "You must close the panel first"
 			return
@@ -1130,6 +1129,8 @@
 			sleep(6)
 			if(prob(50))
 				emagged = 1
+				if(fakeemagged)
+					fakeemagged = 0
 				lawupdate = 0
 				disconnect_from_ai()
 				user << "You emag [src]'s interface."

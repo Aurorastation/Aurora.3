@@ -200,12 +200,12 @@
 	set desc = "Empties the contents of your stomach"
 	set category = "Abilities"
 
-	if(stomach_contents.len)
+	if(LAZYLEN(stomach_contents))
 		for(var/mob/M in src)
 			if(M in stomach_contents)
-				stomach_contents.Remove(M)
-				M.loc = loc
-		src.visible_message("\red <B>[src] hurls out the contents of their stomach!</B>")
+				LAZYREMOVE(stomach_contents, M)
+				M.forceMove(loc)
+		src.visible_message(span("danger", "\The [src] hurls out the contents of their stomach!"))
 	return
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())

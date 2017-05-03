@@ -39,7 +39,7 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/plasmacutter,
+		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/rcd
 		)
 
@@ -104,7 +104,7 @@
 		/obj/item/rig_module/mounted/pulse,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
-		/obj/item/rig_module/device/plasmacutter,
+		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/datajack
 		)

@@ -189,6 +189,7 @@
 			if(usr)
 				usr.remove_from_mob(src)
 			qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
+		update_icon()
 		return 1
 	else
 		if(get_amount() < used)
@@ -205,6 +206,7 @@
 			return 0
 		else
 			amount += extra
+		update_icon()
 		return 1
 	else if(!synths || synths.len < uses_charge)
 		return 0

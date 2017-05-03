@@ -52,7 +52,7 @@
 
 	var/dat
 
-	if (!( ticker ))
+	if (!(ROUND_IS_STARTED))
 		return
 
 	dat += "<hr/><br/><b>[storage_name]</b><br/>"
@@ -213,10 +213,10 @@
 	if(occupant)
 		occupant.forceMove(loc)
 		occupant.resting = 1
-	..()
+	return ..()
 
-/obj/machinery/cryopod/initialize()
-	..()
+/obj/machinery/cryopod/Initialize()
+	. = ..()
 
 	find_control_computer()
 

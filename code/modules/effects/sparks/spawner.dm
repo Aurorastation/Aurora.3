@@ -20,32 +20,26 @@
 		
 	..(start_immediately)
 
-/datum/effect_system/sparks/queue()
-	if (holder)
-		location = get_turf(holder)
-
-	return ..()
-
 /datum/effect_system/sparks/process()
 	. = ..()
 
 	var/total_sparks = 1
 	if (location)
-		var/obj/visual_effect/sparks/S = getFromPool(/obj/visual_effect/sparks, location, src, 0) //Trigger one on the tile it's on
+		var/obj/visual_effect/sparks/S = new(location, src, 0) //Trigger one on the tile it's on
 		S.start()
 		playsound(location, "sparks", 100, 1)
-		effects_visuals += S	// Queue it.
+		QUEUE_VISUAL(S)	// Queue it.
 
 		while (total_sparks <= src.amount)
 			playsound(location, "sparks", 100, 1)
 			var/direction = 0
 
-			if (src.spread && src.spread.len)
-				direction = 0
-			else
+			if (LAZYLEN(src.spread))
 				direction = pick(src.spread)
+			else
+				direction = 0
 
-			S = getFromPool(/obj/visual_effect/sparks, location, src)
+			S = new /obj/visual_effect/sparks(location, src)
 			S.start(direction)	
-			effects_visuals += S
+			QUEUE_VISUAL(S)
 			total_sparks++

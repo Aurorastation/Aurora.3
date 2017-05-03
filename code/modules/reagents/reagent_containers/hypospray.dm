@@ -84,18 +84,45 @@
 	else
 		user << "<span class='notice'>It is spent.</span>"
 
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack
+	name = "stimpack"
+	desc = "A simple chemical cocktail of hyperzine and tramadol designed to boost efficiency by 6,000% (estimated). Hoo-rah!"
+	volume = 20
+	amount_per_transfer_from_this = 20
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack/New()
+		..()
+		reagents.add_reagent("hyperzine", 12)
+		reagents.add_reagent("tramadol", 8)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/survival
+	name = "survival autoinjector"
+	desc = "A special cocktail designed to keep you alive in the field should disaster seek to prevail."
+	volume = 35
+	amount_per_transfer_from_this = 35
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/survival/New()
+		..()
+		reagents.add_reagent("tricordrazine", 15)
+		reagents.add_reagent("inaprovaline", 5)
+		reagents.add_reagent("dexalinp", 5)
+		reagents.add_reagent("oxycodone", 5)
+		reagents.add_reagent("methylphenidate", 5)
+		update_icon()
+
 /obj/item/weapon/reagent_containers/hypospray/combat
 	name = "combat hypospray"
 	desc = "A hypospray loaded with combat stimulants."
 	item_state = "combat_hypo"
 	icon_state = "combat_hypo"
 	volume = 20
-	
-/obj/item/weapon/reagent_containers/hypospray/combat/New() 
+
+/obj/item/weapon/reagent_containers/hypospray/combat/New()
 	..()
 	reagents.add_reagent("oxycodone", 5)
 	reagents.add_reagent("synaptizine", 5)
 	reagents.add_reagent("hyperzine", 5)
 	reagents.add_reagent("arithrazine", 5)
-	
+
 	return

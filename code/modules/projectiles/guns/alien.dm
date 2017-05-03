@@ -17,18 +17,22 @@
 
 /obj/item/weapon/gun/launcher/spikethrower/New()
 	..()
-	processing_objects.Add(src)
 	last_regen = world.time
 
 /obj/item/weapon/gun/launcher/spikethrower/Destroy()
-	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/weapon/gun/launcher/spikethrower/process()
 	if(spikes < max_spikes && world.time > last_regen + spike_gen_time)
 		spikes++
 		last_regen = world.time
 		update_icon()
+
+/obj/item/weapon/gun/launcher/spikethrower/proc/regen_spike()
+	spikes++
+	update_icon()
+	if (spikes < max_spikes)
+		addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
 
 /obj/item/weapon/gun/launcher/spikethrower/examine(mob/user)
 	..(user)
@@ -51,6 +55,7 @@
 /obj/item/weapon/gun/launcher/spikethrower/consume_next_projectile()
 	if(spikes < 1) return null
 	spikes--
+	addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
 	return new /obj/item/weapon/spike(src)
 
 //This gun only functions for armalis. The on-sprite is too huge to render properly on other sprites.

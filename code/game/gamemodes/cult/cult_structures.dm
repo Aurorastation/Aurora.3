@@ -553,18 +553,18 @@
 
 
 /obj/structure/cult/pylon/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if (pylonmode == 2)
 		anchored = 1
 		if (empowered > 0)
-			overlays += "crystal_overcharge"
+			add_overlay("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
 			set_light(6, 3, l_color = "#3e0000")
-			overlays += "crystal_turret"
+			add_overlay("crystal_turret")
 	else if (!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
-		overlays += "crystal_idle"
+		add_overlay("crystal_idle")
 		if (pylonmode == 1)
 			anchored = 1
 		else
@@ -633,10 +633,12 @@
 	return
 
 /obj/effect/gateway/active/New()
-	spawn(rand(30,60) SECONDS)
-		var/t = pick(spawnable)
-		new t(src.loc)
-		qdel(src)
+	addtimer(CALLBACK(src, .proc/do_spawn), rand(30, 60) SECONDS)
+
+/obj/effect/gateway/active/proc/do_spawn()
+	var/thing = pick(spawnable)
+	new thing(src.loc)
+	qdel(src)
 
 /obj/effect/gateway/active/Crossed(var/atom/A)
 	if(!istype(A, /mob/living))
