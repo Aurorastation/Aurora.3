@@ -604,6 +604,11 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
 	feedback_add_details("admin_verb","DEL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+	if (isturf(O))	// Can't qdel a turf.
+		var/turf/T = O
+		T.ChangeTurf(/turf/space)
+		return
+
 	if (action == "Yes")
 		qdel(O, TRUE)
 	else
