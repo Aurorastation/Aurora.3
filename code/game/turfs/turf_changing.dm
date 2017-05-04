@@ -91,3 +91,41 @@
 		src.air.copy_from(other.zone.air)
 		other.zone.remove(other)
 	return 1
+
+// Copies this turf to other, overwriting it.
+// Returns a ref to the other turf post-change.
+/turf/proc/copy_turf(turf/other)
+	if (other.type != type)
+		. = other.ChangeTurf(type)
+	else
+		. = other
+
+	if (dir != other.dir)
+		other.set_dir(dir)
+		
+	other.icon = icon
+	other.icon_state = icon_state
+	other.underlays = underlays.Copy()
+
+	if (our_overlays)
+		other.our_overlays = our_overlays
+
+	if (priority_overlays)
+		other.priority_overlays = priority_overlays
+
+	other.overlays = overlays.Copy()
+	
+/turf/simulated/copy_turf(turf/simulated/other, ignore_air = FALSE)
+	. = ..()
+
+	if (ignore_air || !zone || !istype(other))
+		return
+
+	if (!other.air)
+		other.make_air()
+
+	other.air.copy_from(zone.air)
+
+	SSair.mark_for_update(other)
+
+	other.update_icon()
