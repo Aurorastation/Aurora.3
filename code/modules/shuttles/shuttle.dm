@@ -80,7 +80,7 @@
 //just moves the shuttle from A to B, if it can be moved
 //A note to anyone overriding move in a subtype. move() must absolutely not, under any circumstances, fail to move the shuttle.
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump() or long_jump()
-/datum/shuttle/proc/move(var/area/origin, var/area/destination, var/direction=null)
+/datum/shuttle/proc/move(var/area/origin, var/area/destination)
 
 	//world << "move_shuttle() called for [shuttle_tag] leaving [origin] en route to [destination]."
 
@@ -115,7 +115,7 @@
 	for(var/mob/living/simple_animal/pest in destination)
 		pest.gib()
 
-	origin.move_contents_to(destination, direction=direction)
+	origin.move_contents_to(destination)
 
 	for(var/mob/M in destination)
 		if(M.client)
