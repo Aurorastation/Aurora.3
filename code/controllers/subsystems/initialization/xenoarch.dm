@@ -19,7 +19,7 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 
 /datum/controller/subsystem/xenoarch/Initialize(timeofday)
 	//create digsites
-	for(var/turf/simulated/mineral/M in block(locate(1,1,1), locate(world.maxx, world.maxy, world.maxz)))
+	for(var/turf/simulated/mineral/M in turfs)
 		if(isnull(M.geologic_data))
 			M.geologic_data = new/datum/geosample(M)
 

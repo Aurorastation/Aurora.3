@@ -47,6 +47,8 @@
 
 	initialized = TRUE
 
+	turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -510,6 +512,8 @@
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
+
+	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
