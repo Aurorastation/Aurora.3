@@ -239,7 +239,8 @@
 		qdel(PN)
 	powernets.Cut()
 
-	for(var/obj/structure/cable/PC in cable_list)
+	for(var/thing in SSpower.all_cables)
+		var/obj/structure/cable/PC = thing
 		if(!PC.powernet)
 			var/datum/powernet/NewPN = new()
 			NewPN.add_cable(PC)

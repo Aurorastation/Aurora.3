@@ -1,9 +1,10 @@
-#define SS_INIT_MISC_FIRST         16
-#define SS_INIT_SEEDS              15
-#define SS_INIT_ASTEROID           14	// Asteroid generation.
-#define SS_INIT_SHUTTLE            13	// Shuttle setup.
-#define SS_INIT_PARALLAX           12	// Parallax image cache generation. Must run before ghosts are able to join, but after SSatoms.
-#define SS_INIT_ATOMS              11	// World initialization. Will trigger lighting updates.
+#define SS_INIT_MISC_FIRST         17
+#define SS_INIT_SEEDS              16	// Plant controller setup.
+#define SS_INIT_ASTEROID           15	// Asteroid generation.
+#define SS_INIT_SHUTTLE            14	// Shuttle setup.
+#define SS_INIT_PARALLAX           13	// Parallax image cache generation. Must run before ghosts are able to join, but after SSatoms.
+#define SS_INIT_ATOMS              12	// World initialization. Will trigger lighting updates.
+#define SS_INIT_POWER              11	// Initial powernet build.
 #define SS_INIT_CARGO              10	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PIPENET             9	// Initial pipenet build.
 #define SS_INIT_MACHINERY           8	// Machinery prune and powernet build.
