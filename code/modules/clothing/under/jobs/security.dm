@@ -91,7 +91,7 @@
 	desc = "A tan service uniform worn by a forensics officer."
 	icon_state = "officertanclothes"
 	item_state = "det"
-	worn_state = officertanclothes"
+	worn_state = "officertanclothes"
 
 /*
  * Head of Security
