@@ -352,6 +352,7 @@
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/slob(src)
+		new /obj/item/clothing/under/det/forensics(src)
 		new /obj/item/clothing/suit/storage/forensics/blue(src)
 		new /obj/item/clothing/suit/storage/forensics/red(src)
 		new /obj/item/clothing/suit/storage/vest/detective(src)
