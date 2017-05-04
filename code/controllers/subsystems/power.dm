@@ -25,6 +25,7 @@
 /datum/controller/subsystem/power/Recover()
 	all_cables = SSpower.all_cables
 	breaker_boxes = SSpower.breaker_boxes
+	all_sensors = SSpower.all_sensors
 
 /datum/controller/subsystem/power/Initialize()
 	makepowernets()
