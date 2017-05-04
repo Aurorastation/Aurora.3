@@ -62,6 +62,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/lobby_ready = FALSE
 	var/is_revote = FALSE
 
+	var/list/roundstart_callbacks
+
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(SSticker)
 
@@ -412,7 +414,23 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(admins_number == 0)
 		discord_bot.send_to_admins("@here Round has started with no admins online.")
 
+	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
+	run_callback_list(roundstart_callbacks)
+	roundstart_callbacks = null
+
 	return 1
+
+/datum/controller/subsystem/ticker/proc/run_callback_list(list/callbacklist)
+	set waitfor = FALSE
+
+	if (!callbacklist)
+		return
+
+	for (var/thing in callbacklist)
+		var/datum/callback/callback = thing
+		callback.Invoke()
+
+		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null)
 	if (cinematic)	
@@ -549,5 +567,13 @@ var/datum/controller/subsystem/ticker/SSticker
 		for(var/mob/M in player_list)
 			if(!istype(M,/mob/new_player))
 				M << "Captainship not forced on anyone."
+
+// Registers a callback to run on round-start.
+/datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/callback)
+	if (!istype(callback))
+		return
+
+	LAZYADD(roundstart_callbacks, callback)
+
 
 #undef LOBBY_TIME
