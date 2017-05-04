@@ -3,7 +3,7 @@ var/datum/controller/subsystem/effects/SSeffects
 /datum/controller/subsystem/effects
 	name = "Effects Master"
 	wait = 2		// Deciseconds.
-	flags = SS_BACKGROUND | SS_NO_INIT
+	flags = SS_NO_INIT
 	priority = SS_PRIORITY_EFFECTS
 
 	var/list/datum/effect_system/effect_systems = list()	// The effect-spawning objects. Shouldn't be many of these.
