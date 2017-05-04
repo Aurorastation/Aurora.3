@@ -130,20 +130,6 @@
 			if(!M.buckled)
 				M.Weaken(3)
 
-	// Power-related checks. If shuttle contains power related machinery, update powernets.
-	var/update_power = 0
-	for(var/obj/machinery/power/P in destination)
-		update_power = 1
-		break
-
-	for(var/obj/structure/cable/C in destination)
-		update_power = 1
-		break
-
-	if(update_power)
-		makepowernets()
-	return
-
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
 	return (moving_status == SHUTTLE_INTRANSIT)

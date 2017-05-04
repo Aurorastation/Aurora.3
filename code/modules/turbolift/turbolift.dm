@@ -101,9 +101,6 @@ var/global/list/turbolifts = list()
 
 	origin.move_contents_to(destination)
 
-	if((locate(/obj/machinery/power) in destination) || (locate(/obj/structure/cable) in destination))
-		makepowernets()
-
 	current_floor = next_floor
 	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")
 
