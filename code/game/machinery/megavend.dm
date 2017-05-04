@@ -166,7 +166,7 @@
 	if(!occupant)
 		return
 
-	ping("<span class='notice'>The [src] disgorges its contents with a ping.</span>")
+	ping("<span class='notice'>[src] disgorges its contents with a ping.</span>")
 	icon_state = base_icon_state
 
 	//Eject any items that aren't meant to be in the pod.
@@ -205,7 +205,7 @@
 	src.speak("Analyzing...")
 	sleep(40)
 	src.speak("Record match. Name: [H.real_name]. Current occupation: [H.job].")
-	src.visible_message("<span class='notice'>The [src] rumbles to life, and begins to whir loudly.</span>")
+	src.visible_message("<span class='notice'>[src] rumbles to life, and begins to whir loudly.</span>")
 	playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 
 	var/obj/item/weapon/storage/box/gearbox = new(src)
