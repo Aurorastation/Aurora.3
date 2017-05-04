@@ -195,14 +195,20 @@
 					var/failure = 0
 
 					for(var/obj/item/I in src.loc)
+						CHECK_TICK
+
 						if(I.type in rejections) // To limit bag spamming: any given type only complains once
 							continue
+
 						if(!S.can_be_inserted(I))	// Note can_be_inserted still makes noise when the answer is no
 							rejections += I.type	// therefore full bags are still a little spammy
 							failure = 1
 							continue
+							
 						success = 1
 						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
+
 					if(success && !failure)
 						user << "<span class='notice'>You put everything in [S].</span>"
 					else if(success)
@@ -485,7 +491,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
 	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)") //BS12 EDIT ALG
+	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M)) //BS12 EDIT ALG
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -541,7 +547,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/clean_blood()
 	. = ..()
 	if(blood_overlay)
-		overlays.Remove(blood_overlay)
+		cut_overlay(blood_overlay, TRUE)
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
@@ -567,7 +573,7 @@ var/list/global/slot_flags_enumeration = list(
 	//apply the blood-splatter overlay if it isn't already in there
 	if(!blood_DNA.len)
 		blood_overlay.color = blood_color
-		overlays += blood_overlay
+		add_overlay(blood_overlay, TRUE)	// Priority overlay so we don't lose it somehow.
 
 	//if this blood isn't already in the list, add it
 	if(istype(M))

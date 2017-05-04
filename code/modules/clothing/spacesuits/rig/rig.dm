@@ -94,18 +94,18 @@
 		usr << "The maintenance panel is [open ? "open" : "closed"]."
 		usr << "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"]."
 
-/obj/item/weapon/rig/New()
-	..()
+/obj/item/weapon/rig/Initialize()
+	. = ..()
 
 	item_state = icon_state
 	wires = new(src)
 
-	if((!req_access || !req_access.len) && (!req_one_access || !req_one_access.len))
+	if(!LAZYLEN(req_access) && !LAZYLEN(req_one_access))
 		locked = 0
 
 	spark_system = bind_spark(src, 5)
 
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 
 	if(initial_modules && initial_modules.len)
 		for(var/path in initial_modules)
@@ -158,7 +158,7 @@
 		if(istype(M))
 			M.drop_from_inventory(piece)
 		qdel(piece)
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	qdel(wires)
 	wires = null
 	qdel(spark_system)

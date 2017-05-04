@@ -3,14 +3,18 @@
 	unacidable = 1
 	var/i_attached//Added for possible image attachments to objects. For hallucinations and the like.
 
+/obj/effect/overlay/Destroy()
+	i_attached = null
+	return ..()
+	
 /obj/effect/overlay/beam//Not actually a projectile, just an effect.
 	name="beam"
 	icon='icons/effects/beam.dmi'
 	icon_state="b_beam"
+	blend_mode = BLEND_ADD
+	layer = LIGHTING_LAYER + 0.1
+	animate_movement = FALSE
 	var/tmp/atom/BeamSource
-	New()
-		..()
-		spawn(10) qdel(src)
 
 /obj/effect/overlay/palmtree_r
 	name = "Palm tree"
@@ -20,6 +24,7 @@
 	layer = 5
 	anchored = 1
 
+
 /obj/effect/overlay/palmtree_l
 	name = "Palm tree"
 	icon = 'icons/misc/beach2.dmi'
@@ -28,10 +33,12 @@
 	layer = 5
 	anchored = 1
 
+
 /obj/effect/overlay/coconut
 	name = "Coconuts"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
+
 
 /obj/effect/overlay/bluespacify
 	name = "Bluespace"
@@ -76,7 +83,7 @@
 		dir = (pick(cardinal))
 	flick("[icon_state]", src)
 
-	schedule_task_in(duration, /proc/qdel, list(src))
+	QDEL_IN(src, duration)
 
 /obj/effect/overlay/temp/ex_act()
 	return

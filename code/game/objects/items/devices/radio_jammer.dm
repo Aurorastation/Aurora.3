@@ -28,7 +28,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 /obj/item/device/radiojammer/Destroy()
 	if (active)
 		active_radio_jammers -= src
-	..()
+	return ..()
 
 
 /obj/item/device/radiojammer/attack_self()
@@ -91,7 +91,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 /obj/item/device/radiojammer/improvised/Destroy()
 	if (active)
 		processing_objects.Remove(src)
-	..()
+	return ..()
 
 
 /obj/item/device/radiojammer/improvised/process()

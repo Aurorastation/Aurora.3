@@ -1,7 +1,3 @@
-/hook/startup/proc/createDatacore()
-	data_core = new /datum/datacore()
-	return 1
-
 /datum/datacore
 	var/name = "datacore"
 	var/medical[] = list()
@@ -133,10 +129,9 @@
 	return dat
 
 /datum/datacore/proc/manifest()
-	spawn()
-		for(var/mob/living/carbon/human/H in player_list)
-			manifest_inject(H)
-		return
+	set waitfor = FALSE
+	for(var/mob/living/carbon/human/H in player_list)
+		manifest_inject(H)
 
 /datum/datacore/proc/manifest_modify(var/name, var/assignment)
 	ResetPDAManifest()

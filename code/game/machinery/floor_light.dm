@@ -151,7 +151,7 @@ var/list/floor_light_cache = list()
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
-	..()
+	return ..()
 
 /obj/machinery/floor_light/cultify()
 	default_light_colour = "#FF0000"
@@ -161,12 +161,8 @@ var/list/floor_light_cache = list()
 	name = "dance floor"
 	on_state = "light_on-dancefloor_A"
 	anchored = 1
-
-/obj/machinery/floor_light/dance/initialize()
-	..()
-	on = !on
-	if(on)
-		use_power = 2
+	on = TRUE
+	use_power = 2
 
 /obj/machinery/floor_light/dance/alternate
 	name = "dance floor"

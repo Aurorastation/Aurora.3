@@ -318,7 +318,7 @@
 	var/turf/T = get_turf(src)
 	for(var/atom/movable/AM in contents)
 		AM.loc = T
-	..()
+	return ..()
 
 /obj/item/device/destTagger
 	name = "destination tagger"
@@ -335,10 +335,10 @@
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
-	for(var/i = 1, i <= tagger_locations.len, i++)
-		dat += "<td><a href='?src=\ref[src];nextTag=[tagger_locations[i]]'>[tagger_locations[i]]</a></td>"
+	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
+		dat += "<td><a href='?src=\ref[src];nextTag=[SSdisposals.tagger_locations[i]]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
-		if (i%4==0)
+		if (i % 4==0)
 			dat += "</tr><tr>"
 
 	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
@@ -352,7 +352,7 @@
 
 /obj/item/device/destTagger/Topic(href, href_list)
 	src.add_fingerprint(usr)
-	if(href_list["nextTag"] && href_list["nextTag"] in tagger_locations)
+	if(href_list["nextTag"] && href_list["nextTag"] in SSdisposals.tagger_locations)
 		src.currTag = href_list["nextTag"]
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
@@ -370,12 +370,11 @@
 
 	var/c_mode = 0
 
-/obj/machinery/disposal/deliveryChute/New()
-	..()
-	spawn(5)
-		trunk = locate() in src.loc
-		if(trunk)
-			trunk.linked = src	// link the pipe trunk to self
+/obj/machinery/disposal/deliveryChute/Initialize()
+	. = ..()
+	trunk = locate() in src.loc
+	if(trunk)
+		trunk.linked = src	// link the pipe trunk to self
 
 /obj/machinery/disposal/deliveryChute/interact()
 	return
@@ -406,7 +405,7 @@
 /obj/machinery/disposal/deliveryChute/flush()
 	flushing = 1
 	flick("intake-closing", src)
-	var/obj/structure/disposalholder/H = new()	// virtual holder object which actually
+	var/obj/disposalholder/H = new()	// virtual holder object which actually
 												// travels through the pipes.
 	air_contents = new()		// new empty gas resv.
 
@@ -462,4 +461,4 @@
 /obj/machinery/disposal/deliveryChute/Destroy()
 	if(trunk)
 		trunk.linked = null
-	..()
+	return ..()

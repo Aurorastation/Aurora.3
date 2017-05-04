@@ -276,17 +276,19 @@
 		return
 
 	for (var/mob/living/simple_animal/hostile/scarybat/bat in spawned)
-		bat.friends += src
+		LAZYADD(bat.friends, src)
 
 		if (vampire.thralls.len)
-			bat.friends += vampire.thralls
+			LAZYADD(bat.friends, vampire.thralls)
 
 	log_and_message_admins("summoned bats.")
 
 	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
-	spawn (1200)
-		verbs += /mob/living/carbon/human/proc/vampire_bats
+	addtimer(CALLBACK(src, .proc/vampire_post_bats), 1200)
+	
+/mob/living/carbon/human/proc/vampire_post_bats()
+	verbs += /mob/living/carbon/human/proc/vampire_bats
 
 // Chiropteran Screech
 /mob/living/carbon/human/proc/vampire_screech()
@@ -680,7 +682,7 @@
 	T.mind.vampire.master = src
 	vampire.thralls += T
 	T << "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>"
-
+	src << "<span class='notice'>You have completed the thralling process. They are now your slave and will obey your commands.</span>"
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)

@@ -238,8 +238,12 @@
 
 	if(target_mob != H)
 		H << "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>"
-	target_mob << "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>"
-	target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
+
+	if(target_mob.is_physically_disabled())
+		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
+	else
+		target_mob << "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>"
+		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 
 	charge.charges -= chems_to_use
 	if(charge.charges < 0) charge.charges = 0
@@ -459,3 +463,12 @@
 			device = iastamp
 			holder.wearer << "<span class='notice'>Switched to internal affairs stamp.</span>"
 		return 1
+
+/obj/item/rig_module/device/decompiler
+	name = "mounted matter decompiler"
+	desc = "A drone matter decompiler reconfigured for hardsuit use."
+	icon_state = "ewar"
+	interface_name = "mounted matter decompiler"
+	interface_desc = "Eats trash like no one's business."
+
+	device_type = /obj/item/weapon/matter_decompiler

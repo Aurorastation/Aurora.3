@@ -80,23 +80,25 @@
 	return ..()
 
 // Kill ourselves.
-/datum/light_source/proc/destroy(var/no_update = FALSE)
+/datum/light_source/Destroy(force)
 	L_PROF(source_atom, "source_destroy")
 
-	destroyed = TRUE
-	if (!no_update)
-		force_update()
+	force_update()
 	if (source_atom && source_atom.light_sources)
 		source_atom.light_sources -= src
 
 	if (top_atom && top_atom.light_sources)
 		top_atom.light_sources    -= src
 
+	. = ..()
+	if (!force)
+		return QDEL_HINT_IWILLGC
+
 // Process the light RIGHT NOW.
 #define DO_UPDATE 								\
-	if (destroyed || check() || force_update) {	\
+	if (QDELETED(src) || check() || force_update) {	\
 		remove_lum(TRUE);						\
-		if (!destroyed) {						\
+		if (!QDELETED(src)) {						\
 			apply_lum(TRUE);					\
 		}										\
 	}											\
@@ -111,13 +113,13 @@
 #define QUEUE_UPDATE                    \
 	if (!needs_update)                  \
 	{                                   \
-		lighting_update_lights += src;  \
+		SSlighting.light_queue += src;  \
 		needs_update            = TRUE; \
 	}
 
 // Picks either scheduled or instant updates based on current server load.
 #define INTELLIGENT_UPDATE 							\
-	if (world.tick_usage > TICK_LIMIT || !ticker || ticker.current_state <= GAME_STATE_SETTING_UP) {	\
+	if (world.tick_usage > SSlighting.instant_tick_limit || SSlighting.force_queued) {	\
 		QUEUE_UPDATE;								\
 	}												\
 	else {											\
@@ -160,7 +162,7 @@
 // Will check if we actually need to update, and update any variables that may need to be updated.
 /datum/light_source/proc/check()
 	if (!source_atom || !light_range || !light_power)
-		destroy(no_update = TRUE)
+		qdel(src)
 		return 1
 
 	if (!top_atom)
@@ -262,7 +264,7 @@
 
 	var/do_offset = TRUE
 	var/turf/front = get_step(T, top_atom.dir)
-	if (front.has_opaque_atom)
+	if (front && front.has_opaque_atom)
 		do_offset = FALSE
 
 	cached_origin_x = T.x
@@ -433,6 +435,8 @@
 	L = affecting_turfs - turfs // Now-gone turfs, remove us from the affecting lights.
 	affecting_turfs -= L
 	for (var/turf/T in L)
+		if (QDELETED(T))
+			continue
 		T.affecting_lights -= src
 
 	for (var/datum/lighting_corner/C in corners - effect_str) // New corners

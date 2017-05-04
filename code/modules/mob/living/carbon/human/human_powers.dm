@@ -185,7 +185,7 @@
 		src << "Not even a [src.species.name] can speak to the dead."
 		return
 
-	log_say("[key_name(src)] communed to [key_name(M)]: [text]")
+	log_say("[key_name(src)] communed to [key_name(M)]: [text]",ckey=key_name(src))
 
 	M << "\blue Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]"
 	if(istype(M,/mob/living/carbon/human))
@@ -200,12 +200,12 @@
 	set desc = "Empties the contents of your stomach"
 	set category = "Abilities"
 
-	if(stomach_contents.len)
+	if(LAZYLEN(stomach_contents))
 		for(var/mob/M in src)
 			if(M in stomach_contents)
-				stomach_contents.Remove(M)
-				M.loc = loc
-		src.visible_message("\red <B>[src] hurls out the contents of their stomach!</B>")
+				LAZYREMOVE(stomach_contents, M)
+				M.forceMove(loc)
+		src.visible_message(span("danger", "\The [src] hurls out the contents of their stomach!"))
 	return
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
@@ -215,7 +215,7 @@
 
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
-		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]")
+		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]",ckey=key_name(src))
 		M << "\green You hear a strange, alien voice in your head... \italic [msg]"
 		src << "\green You said: \"[msg]\" to [M]"
 	return
@@ -249,13 +249,13 @@
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
 		H.apply_damage(25,BRUTE, sharp=1, edge=1)
-		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(25,BRUTE, sharp=1, edge=1)
-		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
 
 /mob/living/carbon/human/proc/detonate_flechettes()
@@ -423,7 +423,7 @@
 		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
 		return
 
-	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
+	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
 		M << "<span class='danger'> You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"
@@ -459,4 +459,4 @@
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 	var/obj/item/weapon/arrow/quill/A = new /obj/item/weapon/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, user)
-	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))

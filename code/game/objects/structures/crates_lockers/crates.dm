@@ -251,13 +251,6 @@
 		set_tablestatus(1)
 
 
-
-
-
-
-
-
-
 /*
 =====================
 	Secure Crates
@@ -279,14 +272,14 @@
 	var/locked = 1
 	health = 200
 
-/obj/structure/closet/crate/secure/New()
-	..()
+/obj/structure/closet/crate/secure/Initialize()
+	. = ..()
 	if(locked)
-		overlays.Cut()
-		overlays += redlight
+		cut_overlays()
+		add_overlay(redlight)
 	else
-		overlays.Cut()
-		overlays += greenlight
+		cut_overlays()
+		add_overlay(greenlight)
 
 /obj/structure/closet/crate/secure/can_open()
 	if (..())
@@ -312,8 +305,8 @@
 	if(user)
 		for(var/mob/O in viewers(user, 3))
 			O.show_message( "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>", 1)
-	overlays.Cut()
-	overlays += locked ? redlight : greenlight
+	cut_overlays()
+	add_overlay(locked ? redlight : greenlight)
 
 /obj/structure/closet/crate/secure/verb/verb_togglelock()
 	set src in oview(1) // One square distance
@@ -348,10 +341,10 @@
 
 /obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
 	if(!broken)
-		overlays.Cut()
-		overlays += emag
-		overlays += sparks
-		spawn(6) overlays -= sparks //Tried lots of stuff but nothing works right. so i have to use this *sadface*
+		cut_overlays()
+		add_overlay(emag)
+		add_overlay(sparks)
+		CUT_OVERLAY_IN(sparks, 6)
 		playsound(src.loc, "sparks", 60, 1)
 		src.locked = 0
 		src.broken = 1
@@ -364,13 +357,13 @@
 	if(!broken && !opened  && prob(50/severity))
 		if(!locked)
 			src.locked = 1
-			overlays.Cut()
-			overlays += redlight
+			cut_overlays()
+			add_overlay(redlight)
 		else
-			overlays.Cut()
-			overlays += emag
-			overlays += sparks
-			spawn(6) overlays -= sparks //Tried lots of stuff but nothing works right. so i have to use this *sadface*
+			cut_overlays()
+			add_overlay(emag)
+			add_overlay(sparks)
+			CUT_OVERLAY_IN(sparks, 6)
 			playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 			src.locked = 0
 	if(!opened && prob(20/severity))
@@ -432,8 +425,7 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 
-/obj/structure/closet/crate/rcd/New()
-	..()
+/obj/structure/closet/crate/rcd/fill()
 	new /obj/item/weapon/rcd_ammo(src)
 	new /obj/item/weapon/rcd_ammo(src)
 	new /obj/item/weapon/rcd_ammo(src)
@@ -442,8 +434,7 @@
 /obj/structure/closet/crate/solar
 	name = "solar pack crate"
 
-/obj/structure/closet/crate/solar/New()
-	..()
+/obj/structure/closet/crate/solar/fill()
 	new /obj/item/solar_assembly(src)
 	new /obj/item/solar_assembly(src)
 	new /obj/item/solar_assembly(src)
@@ -491,13 +482,12 @@
 			newgas.temperature = target_temp
 		return newgas
 
-/obj/structure/closet/crate/freezer/rations //Fpr use in the escape shuttle
+/obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
 	name = "emergency rations"
 	desc = "A crate of emergency rations."
 
 
-/obj/structure/closet/crate/freezer/rations/New()
-	..()
+/obj/structure/closet/crate/freezer/rations/fill()
 	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
@@ -517,8 +507,7 @@
 	icon_opened = "radiationopen"
 	icon_closed = "radiation"
 
-/obj/structure/closet/crate/radiation/New()
-	..()
+/obj/structure/closet/crate/radiation/fill()
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/suit/radiation(src)
@@ -640,8 +629,7 @@
 /obj/structure/closet/crate/hydroponics/prespawned
 	//This exists so the prespawned hydro crates spawn with their contents.
 
-	New()
-		..()
+	fill()
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 		new /obj/item/weapon/material/minihoe(src)
@@ -677,18 +665,20 @@
 		"trashcart" = "trashcartopen",
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
-		"medicalcrate" = "medicalcrateopen")
+		"medicalcrate" = "medicalcrateopen"
+	)
 
 
-/obj/structure/closet/crate/loot/New(var/location, var/_rarity = 1, var/_quantity = 10)
-
+/obj/structure/closet/crate/loot/Initialize(mapload, var/_rarity = 1, var/_quantity = 10)
+	. = ..()
 	rarity = _rarity
 	quantity = _quantity
-	..(location)
 
-
-/obj/structure/closet/crate/loot/initialize()
-	spawntypes = list("1" = STOCK_RARE_PROB*rarity, "2" = STOCK_UNCOMMON_PROB*rarity, "3" = (100 - ((STOCK_RARE_PROB*rarity) + (STOCK_UNCOMMON_PROB*rarity))))
+	spawntypes = list(
+		"1" = STOCK_RARE_PROB * rarity, 
+		"2" = STOCK_UNCOMMON_PROB * rarity, 
+		"3" = (100 - ((STOCK_RARE_PROB * rarity) + (STOCK_UNCOMMON_PROB * rarity)))
+	)
 
 	icon_closed = pick(iconchoices)
 	icon_opened = iconchoices[icon_closed]

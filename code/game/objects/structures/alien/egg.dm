@@ -14,7 +14,7 @@
 
 /obj/structure/alien/egg/Destroy()
 	processing_objects -= src
-	..()
+	return ..()
 
 /obj/structure/alien/egg/CanUseTopic(var/mob/user)
 	return isobserver(user) ? STATUS_INTERACTIVE : STATUS_CLOSE

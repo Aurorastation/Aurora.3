@@ -52,7 +52,7 @@
 
 	var/dat
 
-	if (!( ticker ))
+	if (!(ROUND_IS_STARTED))
 		return
 
 	dat += "<hr/><br/><b>[storage_name]</b><br/>"
@@ -213,10 +213,10 @@
 	if(occupant)
 		occupant.forceMove(loc)
 		occupant.resting = 1
-	..()
+	return ..()
 
-/obj/machinery/cryopod/initialize()
-	..()
+/obj/machinery/cryopod/Initialize()
+	. = ..()
 
 	find_control_computer()
 
@@ -426,7 +426,7 @@
 
 			// Book keeping!
 			var/turf/location = get_turf(src)
-			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)",ckey=key_name(M))
 			message_admins("<span class='notice'>[key_name_admin(M)] has entered a stasis pod.</span>")
 
 			//Despawning occurs when process() is called with an occupant without a client.
@@ -486,7 +486,7 @@
 
 		// Book keeping!
 		var/turf/location = get_turf(src)
-		log_admin("[key_name_admin(L)] has entered a stasis pod.")
+		log_admin("[key_name_admin(L)] has entered a stasis pod.",ckey=key_name(L))
 		message_admins("<span class='notice'>[key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
 
 		//Despawning occurs when process() is called with an occupant without a client.

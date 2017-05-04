@@ -19,7 +19,6 @@ var/list/gamemode_cache = list()
 	var/log_emote = 0					// log emotes
 	var/log_attack = 0					// log attack messages
 	var/log_adminchat = 0				// log admin chat messages
-	var/log_adminwarn = 0				// log warnings admins get about bomb construction and such
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
@@ -254,6 +253,17 @@ var/list/gamemode_cache = list()
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
 
+	// Subsystems.
+	var/obj/effect/statclick/statclick
+
+	// Master Controller settings.
+	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
+
+	//UDP GELF Logging
+	var/log_gelf_enabled = 0
+	var/log_gelf_ip = ""
+	var/log_gelf_port = ""
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -357,9 +367,6 @@ var/list/gamemode_cache = list()
 
 				if ("log_adminchat")
 					config.log_adminchat = 1
-
-				if ("log_adminwarn")
-					config.log_adminwarn = 1
 
 				if ("log_pda")
 					config.log_pda = 1
@@ -794,6 +801,19 @@ var/list/gamemode_cache = list()
 
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
+
+
+				if("mc_ticklimit_init")
+					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
+
+				if("log_gelf_enabled")
+					config.log_gelf_enabled = text2num(value)
+				
+				if("log_gelf_ip")
+					config.log_gelf_ip = value
+				
+				if("log_gelf_port")
+					config.log_gelf_port = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

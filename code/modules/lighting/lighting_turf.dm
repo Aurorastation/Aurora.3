@@ -9,21 +9,21 @@
 	var/tmp/list/datum/lighting_corner/corners
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
-/turf/New()
-	. = ..()
-
-	if (opacity)
-		has_opaque_atom = TRUE
-
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
 	L_PROF(src, "turf_reconsider")
 	for (var/datum/light_source/L in affecting_lights)
 		L.vis_update()
 
+// Forces a lighting update. Reconsider lights is preferred when possible.
+/turf/proc/force_update_lights()
+	L_PROF(src, "turf_forceupdate")
+	for (var/datum/light_source/L in affecting_lights)
+		L.force_update()
+
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)
-		returnToPool(lighting_overlay)
+		qdel(lighting_overlay)
 
 	L_PROF(src, "turf_clear_overlay")
 
@@ -51,6 +51,26 @@
 					S.recalc_corner(C, TRUE)
 
 				C.active = TRUE
+
+// Returns the average color of this tile. Roughly corresponds to the color of a single old-style lighting overlay.
+/turf/proc/get_avg_color()
+	if (!lighting_overlay)
+		return null
+
+	var/lum_r
+	var/lum_g
+	var/lum_b
+
+	for (var/datum/lighting_corner/L in corners)
+		lum_r += L.lum_r
+		lum_g += L.lum_g
+		lum_b += L.lum_b
+
+	lum_r = CLAMP01(lum_r / 4) * 255
+	lum_g = CLAMP01(lum_g / 4) * 255
+	lum_b = CLAMP01(lum_b / 4) * 255
+
+	return "#[num2hex(lum_r, 2)][num2hex(lum_g, 2)][num2hex(lum_g, 2)]"
 
 #define SCALE(targ,min,max) (targ - min) / (max - min)
 
@@ -135,3 +155,31 @@
 			continue
 
 		corners[i] = new/datum/lighting_corner(src, LIGHTING_CORNER_DIAGONAL[i])
+
+/turf/ChangeTurf(turf/N, tell_universe = TRUE, force_lighting_update = FALSE)
+	if (!SSlighting)
+		return ..()
+
+	var/old_opacity = opacity
+	var/old_dynamic_lighting = dynamic_lighting
+	var/list/old_affecting_lights = affecting_lights
+	var/old_lighting_overlay = lighting_overlay
+	var/list/old_corners = corners
+
+	. = ..()
+
+	recalc_atom_opacity()
+	lighting_overlay = old_lighting_overlay
+	affecting_lights = old_affecting_lights
+	corners = old_corners
+	if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting))
+		reconsider_lights()
+
+	if (dynamic_lighting != old_dynamic_lighting)
+		if (dynamic_lighting)
+			lighting_build_overlay()
+		else
+			lighting_clear_overlay()
+
+	for (var/turf/space/S in RANGE_TURFS(1, src))
+		S.update_starlight()

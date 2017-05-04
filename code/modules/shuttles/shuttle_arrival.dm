@@ -23,7 +23,7 @@
 			//cancel the launch because of forbidden atoms. announce over supply channel?
 			moving_status = SHUTTLE_IDLE
 			global_announcer.autosay("Unacceptable items detected aboard the arrivals shuttle. Launch attempt failed. Restarting launch in one minute.", "Arrivals Shuttle Oversight")
-			arrival_shuttle.set_launch_countdown(60)
+			SSarrivals.set_launch_countdown(60)
 			return
 
 		if (!forbidden_atoms_check() && !at_station())
@@ -45,10 +45,10 @@
 		moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/ferry/arrival/arrived()
-	arrival_shuttle.shuttle_arrived()
+	SSarrivals.shuttle_arrived()
 
 /datum/shuttle/ferry/arrival/proc/forbidden_atoms_check()
-	return arrival_shuttle.forbidden_atoms_check(get_location_area())
+	return SSarrivals.forbidden_atoms_check(get_location_area())
 
 /datum/shuttle/ferry/arrival/proc/at_station()
 	return (!location)

@@ -461,9 +461,9 @@ BLIND     // can't see anything
 		return ..()
 
 /obj/item/clothing/shoes/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(holding)
-		overlays += image(icon, "[icon_state]_knife")
+		add_overlay("[icon_state]_knife")
 	return ..()
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)

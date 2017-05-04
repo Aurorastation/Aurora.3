@@ -78,10 +78,10 @@
 	oxygen = 0
 	nitrogen = 0
 
-/turf/simulated/floor/reinforced/n20/New()
-	..()
-	sleep(-1)
-	if(!air) make_air()
+/turf/simulated/floor/reinforced/n20/Initialize()
+	. = ..()
+	if(!air) 
+		make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
 /turf/simulated/floor/cult
@@ -227,6 +227,6 @@
 /turf/simulated/floor/beach/water/ocean
 	icon_state = "seadeep"
 
-/turf/simulated/floor/beach/water/New()
-	..()
-	overlays += image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1)
+/turf/simulated/floor/beach/water/Initialize()
+	. = ..()
+	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1))

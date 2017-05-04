@@ -197,21 +197,15 @@
 	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
 
 
-
-
-
-
-
-
 //Welding tool functionality here
-/obj/item/weapon/weldingtool/New()
+/obj/item/weapon/weldingtool/Initialize()
+	. = ..()
 //	var/random_fuel = min(rand(10,20),max_fuel)
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
 	R.add_reagent("fuel", max_fuel)
 	update_icon()
-	..()
 
 /obj/item/weapon/weldingtool/update_icon()
 	..()
@@ -352,7 +346,7 @@
 				tank.armed = 0
 				return
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
-			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.")
+			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
 			user << span("alert", "That was stupid of you.")
 			tank.explode()
 			return
@@ -493,7 +487,7 @@
 
 /obj/item/weapon/weldingtool/Destroy()
 	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
-	..()
+	return ..()
 
 
 //Make sure the experimental tool only stops processing when its turned off AND full

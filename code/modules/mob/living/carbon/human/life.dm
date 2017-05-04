@@ -35,7 +35,6 @@
 	var/global/list/overlays_cache = null
 
 /mob/living/carbon/human/Life()
-	set invisibility = 0
 	set background = BACKGROUND_ENABLED
 
 	if (transforming)
@@ -133,6 +132,9 @@
 
 	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
 
+	if(src.get_species() == "Industrial Frame")
+		pressure_adjustment_coefficient = 0 // woo, back-mounted cooling!
+
 	return pressure_adjustment_coefficient
 
 // Calculate how much of the enviroment pressure-difference affects the human.
@@ -169,19 +171,26 @@
 	if(species.vision_organ)
 		vision = internal_organs_by_name[species.vision_organ]
 
-	if(!vision) // Presumably if a species has no vision organs, they see via some other means.
-		eye_blind =  0
-		blinded =    0
-		eye_blurry = 0
-	else if(vision.is_broken())   // Vision organs cut out or broken? Permablind.
-		eye_blind =  1
-		blinded =    1
+	if (!vision)
+		if (species.vision_organ) // if they should have eyes but don't, they can't see
+			eye_blind = 1
+			blinded = 1
+			eye_blurry = 1
+		else // if they're not supposed to have a vision organ, then they must see by some other means
+			eye_blind = 0
+			blinded = 0
+			eye_blurry = 0
+	else if (vision.is_broken()) // if their eyes have been damaged or detached, they're blinded
+		eye_blind = 1
+		blinded = 1
 		eye_blurry = 1
 	else
 		//blindness
 		if(!(sdisabilities & BLIND))
 			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
 				eye_blurry = max(eye_blurry-2, 0)
+			else
+				eye_blurry = max(eye_blurry-1, 0)
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
@@ -916,9 +925,6 @@
 
 	if (intoxication)
 		handle_intoxication()
-	else if (alcohol_clumsy)//This var is defined in intoxication.dm, its set true when alcohol has caused clumsiness
-		mutations.Remove(CLUMSY)
-		alcohol_clumsy = 0
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
@@ -1257,23 +1263,6 @@
 		var/turf/T = loc
 		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
-
-/mob/living/carbon/human/handle_stomach()
-	spawn(0)
-		for(var/mob/living/M in stomach_contents)
-			if(M.loc != src)
-				stomach_contents.Remove(M)
-				continue
-			if(iscarbon(M)|| isanimal(M))
-				if(M.stat == 2)
-					M.death(1)
-					stomach_contents.Remove(M)
-					qdel(M)
-					continue
-				if(air_master.current_cycle%3==1)
-					if(!(M.status_flags & GODMODE))
-						M.adjustBruteLoss(5)
-					nutrition += 10
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind && mind.changeling)

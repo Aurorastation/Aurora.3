@@ -59,7 +59,7 @@
 	if (href_list["setarea"])
 
 		//Probably should consider using another list, but this one will do.
-		var/t_area = input("Select the area to ping.", "Set Target Area", null) as null|anything in tagger_locations
+		var/t_area = input("Select the area to ping.", "Set Target Area", null) as null|anything in SSdisposals.tagger_locations
 
 		if(!t_area)
 			return
@@ -89,7 +89,7 @@
 		if(D.stat != 2)
 			usr << "<span class='danger'>You issue a kill command for the unfortunate drone.</span>"
 			message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
-			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.")
+			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
 			D.shut_down()
 
 	else if (href_list["search_fab"])

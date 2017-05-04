@@ -23,17 +23,6 @@
 	var/mob/occupant = null
 	var/on_enter_occupant_message = "The Auto-Locker's doors clang shut loudly, encasing you in darkness."
 
-/obj/machinery/vending/New()
-	..()
-	spawn(4)
-		if(src.product_slogans)
-			src.slogan_list += text2list(src.product_slogans, ";")
-
-			// So not all machines speak at the exact same time.
-			// The first time this machine says something will be at slogantime + this random value,
-			// so if slogantime is 10 minutes, it will say it at somewhere between 10 and 20 minutes after the machine is crated.
-			src.last_slogan = world.time + rand(0, slogan_delay)
-
 /obj/machinery/megavendor/proc/check_occupant_allowed(mob/M)
 	var/correct_type = 0
 	for(var/type in allow_occupant_types)
@@ -206,7 +195,7 @@
 		src.last_slogan = world.time
 	if(occupant && !isvending)
 		isvending = 1
-		megavend(occupant)
+		INVOKE_ASYNC(src, .proc/megavend, occupant)
 
 /obj/machinery/megavendor/proc/megavend(var/mob/living/carbon/human/H)
 	if(H.megavend)

@@ -17,15 +17,15 @@
 	if(istype(rig))
 		rig.forced_move(direction, user)
 
-/obj/item/device/paicard/New()
-	..()
-	overlays += "pai-off"
+/obj/item/device/paicard/Initialize()
+	. = ..()
+	add_overlay("pai_off")
 
 /obj/item/device/paicard/Destroy()
 	//Will stop people throwing friend pAIs into the singularity so they can respawn
 	if(!isnull(pai))
 		pai.death(0)
-	..()
+	return ..()
 
 /obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
 	if(istype(C, /obj/item/weapon/card/id))
@@ -284,7 +284,7 @@
 			pai << "<font color = red><h3>You have been bound to a new master.</h3></font>"
 	if(href_list["request"])
 		src.looking_for_personality = 1
-		paiController.findPAI(src, usr)
+		SSpai.findPAI(src, usr)
 	if(href_list["wipe"])
 		var/confirm = input("Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe") in list("Yes", "No")
 		if(confirm == "Yes")
@@ -320,34 +320,37 @@
 
 /obj/item/device/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
 	src.pai = personality
-	src.overlays += "pai-happy"
+	add_overlay("pai-happy")
 
 /obj/item/device/paicard/proc/removePersonality()
 	src.pai = null
-	src.overlays.Cut()
-	src.overlays += "pai-off"
+	cut_overlays()
+	add_overlay("pai-off")
 
 /obj/item/device/paicard
 	var/current_emotion = 1
 /obj/item/device/paicard/proc/setEmotion(var/emotion)
 	if(pai)
-		src.overlays.Cut()
+		cut_overlays()
+		var/new_state
 		switch(emotion)
-			if(1) src.overlays += "pai-happy"
-			if(2) src.overlays += "pai-cat"
-			if(3) src.overlays += "pai-extremely-happy"
-			if(4) src.overlays += "pai-face"
-			if(5) src.overlays += "pai-laugh"
-			if(6) src.overlays += "pai-off"
-			if(7) src.overlays += "pai-sad"
-			if(8) src.overlays += "pai-angry"
-			if(9) src.overlays += "pai-what"
-			if(10) src.overlays += "pai-neutral"
-			if(11) src.overlays += "pai-silly"
-			if(12) src.overlays += "pai-nose"
-			if(13) src.overlays += "pai-smirk"
-			if(14) src.overlays += "pai-exclamation"
-			if(15) src.overlays += "pai-question"
+			if(1) new_state = "pai-happy"
+			if(2) new_state = "pai-cat"
+			if(3) new_state = "pai-extremely-happy"
+			if(4) new_state = "pai-face"
+			if(5) new_state = "pai-laugh"
+			if(6) new_state = "pai-off"
+			if(7) new_state = "pai-sad"
+			if(8) new_state = "pai-angry"
+			if(9) new_state = "pai-what"
+			if(10) new_state = "pai-neutral"
+			if(11) new_state = "pai-silly"
+			if(12) new_state = "pai-nose"
+			if(13) new_state = "pai-smirk"
+			if(14) new_state = "pai-exclamation"
+			if(15) new_state = "pai-question"
+		if (new_state)
+			add_overlay(new_state)
 		current_emotion = emotion
 
 /obj/item/device/paicard/proc/alertUpdate()

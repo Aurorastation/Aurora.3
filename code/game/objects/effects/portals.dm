@@ -11,22 +11,16 @@
 	anchored = 1.0
 
 /obj/effect/portal/Bumped(mob/M as mob|obj)
-	spawn(0)
-		src.teleport(M)
-		return
-	return
+	set waitfor = FALSE
+	src.teleport(M)
 
 /obj/effect/portal/Crossed(AM as mob|obj)
-	spawn(0)
-		src.teleport(AM)
-		return
-	return
+	set waitfor = FALSE
+	src.teleport(AM)
 
 /obj/effect/portal/attack_hand(mob/user as mob)
-	spawn(0)
-		src.teleport(user)
-		return
-	return
+	set waitfor = FALSE
+	src.teleport(user)
 
 /obj/effect/portal/New(loc, turf/target, creator=null, lifespan=300)
 	..()
@@ -34,8 +28,7 @@
 	src.creator = creator
 
 	if(lifespan > 0)
-		spawn(lifespan)
-			qdel(src)
+		QDEL_IN(src, lifespan)
 
 /obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
@@ -53,4 +46,3 @@
 			do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0)
 		else
 			do_teleport(M, target, 1) ///You will appear adjacent to the beacon
-

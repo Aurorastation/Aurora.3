@@ -17,11 +17,14 @@
 	var/obj/vehicle/train/lead
 	var/obj/vehicle/train/tow
 
+	can_hold_mob = TRUE
+
 
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
-/obj/vehicle/train/initialize()
+/obj/vehicle/train/Initialize()
+	. = ..()
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
 
@@ -55,7 +58,7 @@
 			if(istype(load, /mob/living/carbon/human))
 				var/mob/living/D = load
 				D << "\red You hit [M]!"
-				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
 
 
 //-------------------------------------------

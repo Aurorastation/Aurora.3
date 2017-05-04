@@ -115,9 +115,36 @@
 		minimal_player_age = config.age_restrictions[lowertext(title)]
 
 /datum/job/proc/late_equip(var/mob/living/carbon/human/H)
-	if(!H)	return 0
-	switch(economic_modifier)
-		if(0 to 2)
+	if(!H)
+		return 0
+
+	var/loyalty = 1
+	if(H.client)
+		switch(H.client.prefs.nanotrasen_relation)
+			if(COMPANY_LOYAL)		loyalty = 3
+			if(COMPANY_SUPPORTATIVE)loyalty = 2
+			if(COMPANY_NEUTRAL)		loyalty = 1
+			if(COMPANY_SKEPTICAL)	loyalty = -2
+			if(COMPANY_OPPOSED)		loyalty = -3
+
+	//give them an account in the station database
+	var/species_modifier = 0
+	if(economic_species_modifier[H.species.type])
+		switch(economic_species_modifier[H.species.type])
+			if(/datum/species/human)		species_modifier = 0
+			if(/datum/species/skrell)		species_modifier = 0
+			if(/datum/species/tajaran)		species_modifier = -2
+			if(/datum/species/unathi)		species_modifier = -2
+			if(/datum/species/diona)		species_modifier = -4
+			if(/datum/species/machine)		species_modifier = -4
+			if(/datum/species/bug)			species_modifier = -6
+			else							species_modifier = -3
+
+
+	var/wealth = (loyalty + economic_modifier + species_modifier)
+
+	switch(wealth)
+		if(-INFINITY to 2)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		if(3 to 6)

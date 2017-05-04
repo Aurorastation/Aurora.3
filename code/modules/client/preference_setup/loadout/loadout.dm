@@ -10,9 +10,9 @@ var/list/gear_datums = list()
 	..()
 
 /hook/startup/proc/populate_gear_list()
-
+	// Setup custom loadout.
 	//create a list of gear datums to sort
-	for(var/geartype in typesof(/datum/gear)-/datum/gear)
+	for(var/geartype in subtypesof(/datum/gear))
 		var/datum/gear/G = geartype
 
 		var/use_name = initial(G.display_name)
@@ -24,11 +24,12 @@ var/list/gear_datums = list()
 		gear_datums[use_name] = new geartype
 		LC.gear[use_name] = gear_datums[use_name]
 
-	loadout_categories = sortAssoc(loadout_categories)
+	sortTim(loadout_categories, /proc/cmp_text_asc, FALSE)
 	for(var/loadout_category in loadout_categories)
 		var/datum/loadout_category/LC = loadout_categories[loadout_category]
-		LC.gear = sortAssoc(LC.gear)
-	return 1
+		sortTim(LC.gear, /proc/cmp_text_asc, FALSE)
+
+	return TRUE
 
 /datum/category_item/player_setup_item/loadout
 	name = "Loadout"
@@ -74,6 +75,7 @@ var/list/gear_datums = list()
 				pref.gear = json_decode(pref.gear)
 			catch
 				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
+
 				pref.gear = list()
 				gear_reset = TRUE
 		else

@@ -437,8 +437,4 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if (shoes:silent)
 		return
 
-	var/turf/T = get_turf(src)
-	if (!istype(T) || !T.footstep_sound)
-		return
-
 	is_noisy = TRUE

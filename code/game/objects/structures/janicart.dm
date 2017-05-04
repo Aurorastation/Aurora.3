@@ -280,28 +280,28 @@
 
 
 /obj/structure/janitorialcart/update_icon()
-	overlays = null
+	cut_overlays()
 	has_items = 0
 	if(mybucket)
-		overlays += "cart_bucket"
+		add_overlay("cart_bucket")
 		has_items = 1
 	if(mybag)
-		overlays += "cart_garbage"
+		add_overlay("cart_garbage")
 		has_items = 1
 	if(mymop)
-		overlays += "cart_mop"
+		add_overlay("cart_mop")
 		has_items = 1
 	if(myspray)
-		overlays += "cart_spray"
+		add_overlay("cart_spray")
 		has_items = 1
 	if(myreplacer)
 		if (istype(myreplacer, /obj/item/device/lightreplacer/advanced))
-			overlays += "cart_adv_lightreplacer"
+			add_overlay("cart_adv_lightreplacer")
 		else
-			overlays += "cart_replacer"
+			add_overlay("cart_replacer")
 		has_items = 1
 	if(signs)
-		overlays += "cart_sign[signs]"
+		add_overlay("cart_sign[signs]")
 		has_items = 1
 
 

@@ -31,6 +31,6 @@
 		new /obj/item/weapon/material/shard(src.loc)
 	if(prob(25))
 		new /obj/item/weapon/material/shard(src.loc)
-	..()
+	return ..()
 
 //todo: laser_act

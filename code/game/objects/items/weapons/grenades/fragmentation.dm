@@ -43,7 +43,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments."
 	icon_state = "frag"
 
-	var/num_fragments = 200  //total number of fragments produced by the grenade
+	var/num_fragments = 100  //total number of fragments produced by the grenade
 	var/fragment_damage = 15
 	var/damage_step = 2      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/explosion_size = 3   //size of the center explosion

@@ -3,9 +3,8 @@
 // TURFS
 
 /proc/updateVisibility(atom/A, var/opacity_check = 1)
-	if(ticker)
-		for(var/datum/visualnet/VN in visual_nets)
-			VN.updateVisibility(A, opacity_check)
+	for(var/datum/visualnet/VN in visual_nets)
+		VN.updateVisibility(A, opacity_check)
 
 /turf
 	var/list/image/obfuscations = new()
@@ -17,8 +16,8 @@
 	updateVisibility(src)
 	return ..()
 
-/turf/simulated/New()
-	..()
+/turf/simulated/Initialize()
+	. = ..()
 	updateVisibility(src)
 
 

@@ -331,42 +331,42 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //Generalised helper proc for letting mobs rename themselves. Used to be clname() and ainame()
 //Last modified by Carn
 /mob/proc/rename_self(var/role, var/allow_numbers=0)
-	spawn(0)
-		var/oldname = real_name
+	set waitfor = FALSE
+	var/oldname = real_name
 
-		var/time_passed = world.time
-		var/newname
+	var/time_passed = world.time
+	var/newname
 
-		for(var/i=1,i<=3,i++)	//we get 3 attempts to pick a suitable name.
-			newname = input(src,"You are \a [role]. Would you like to change your name to something else?", "Name change",oldname) as text
-			if((world.time-time_passed)>3000)
-				return	//took too long
-			newname = sanitizeName(newname, ,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
+	for(var/i=1,i<=3,i++)	//we get 3 attempts to pick a suitable name.
+		newname = input(src,"You are \a [role]. Would you like to change your name to something else?", "Name change",oldname) as text
+		if((world.time-time_passed)>3000)
+			return	//took too long
+		newname = sanitizeName(newname, ,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
 
-			for(var/mob/living/M in player_list)
-				if(M == src)
-					continue
-				if(!newname || M.real_name == newname)
-					newname = null
-					break
-			if(newname)
-				break	//That's a suitable name!
-			src << "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken."
+		for(var/mob/living/M in player_list)
+			if(M == src)
+				continue
+			if(!newname || M.real_name == newname)
+				newname = null
+				break
+		if(newname)
+			break	//That's a suitable name!
+		src << "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken."
 
-		if(!newname)	//we'll stick with the oldname then
-			return
+	if(!newname)	//we'll stick with the oldname then
+		return
 
-		if(cmptext("ai",role))
-			if(isAI(src))
-				var/mob/living/silicon/ai/A = src
-				oldname = null//don't bother with the records update crap
-				//world << "<b>[newname] is the AI!</b>"
-				//world << sound('sound/AI/newAI.ogg')
-				// Set eyeobj name
-				A.SetName(newname)
+	if(cmptext("ai",role))
+		if(isAI(src))
+			var/mob/living/silicon/ai/A = src
+			oldname = null//don't bother with the records update crap
+			//world << "<b>[newname] is the AI!</b>"
+			//world << sound('sound/AI/newAI.ogg')
+			// Set eyeobj name
+			A.SetName(newname)
 
 
-		fully_replace_character_name(oldname,newname)
+	fully_replace_character_name(oldname,newname)
 
 
 
@@ -856,15 +856,23 @@ proc/GaussRandRound(var/sigma,var/roundto)
 					var/old_dir1 = T.dir
 					var/old_icon_state1 = T.icon_state
 					var/old_icon1 = T.icon
-					var/old_overlays = T.overlays.Copy()
 					var/old_underlays = T.underlays.Copy()
+
+					// SSoverlays makes this a bit more complex.
+					var/old_our_overlays = T.our_overlays
+					T.our_overlays = null
+					var/old_priority_overlays = T.priority_overlays
+					T.priority_overlays = null
 
 					var/turf/X = B.ChangeTurf(T.type)
 					X.set_dir(old_dir1)
 					X.icon_state = old_icon_state1
 					X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
-					X.overlays = old_overlays
 					X.underlays = old_underlays
+
+					X.our_overlays = old_our_overlays
+					X.priority_overlays = old_priority_overlays
+					X.compile_overlays()
 
 					var/turf/simulated/ST = T
 					if(istype(ST) && ST.zone)
@@ -897,21 +905,23 @@ proc/GaussRandRound(var/sigma,var/roundto)
 						X.icon = nextturf.icon
 						X.icon_state = nextturf.icon_state
 
+					for (var/thing in T)
+						if (isobj(thing))
+							var/obj/O = thing
 
-					for(var/obj/O in T)
-
-						// Reset the shuttle corners
-						if(O.tag == "delete me")
-							X.icon = 'icons/turf/shuttle.dmi'
-							X.icon_state = replacetext(O.icon_state, "_f", "_s") // revert the turf to the old icon_state
-							X.name = "wall"
-							qdel(O) // prevents multiple shuttle corners from stacking
-							continue
-						if(!istype(O,/obj)) continue
-						O.loc = X
-					for(var/mob/M in T)
-						if(!istype(M,/mob) || istype(M, /mob/eye)) continue // If we need to check for more mobs, I'll add a variable
-						M.loc = X
+							// Reset the shuttle corners
+							if(O.tag == "delete me")
+								X.icon = 'icons/turf/shuttle.dmi'
+								X.icon_state = replacetext(O.icon_state, "_f", "_s") // revert the turf to the old icon_state
+								X.name = "wall"
+								qdel(O) // prevents multiple shuttle corners from stacking
+								continue
+								
+							O.forceMove(X)
+							
+						else if (ismob(thing) && !istype(thing, /mob/eye) && !istype(thing, /mob/dview))
+							var/mob/M = thing
+							M.forceMove(X)
 
 					toupdate += X
 
@@ -1050,24 +1060,15 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 					copiedobjs += newobjs
 					copiedobjs += newmobs
 
-//					var/area/AR = X.loc
-
-//					if(AR.lighting_use_dynamic)
-//						X.opacity = !X.opacity
-//						X.sd_SetOpacity(!X.opacity)			//TODO: rewrite this code so it's not messed by lighting ~Carn
-
 					toupdate += X
 
 					refined_src -= T
 					refined_trg -= B
 					continue moving
 
-
-
-
 	if(toupdate.len)
 		for(var/turf/simulated/T1 in toupdate)
-			air_master.mark_for_update(T1)
+			SSair.mark_for_update(T1)
 
 	return copiedobjs
 
@@ -1357,64 +1358,6 @@ var/list/WALLITEMS = list(
 		color = origin.color
 		set_light(origin.light_range, origin.light_power, origin.light_color)
 
-//This is just so you can stop an orbit.
-//orbit() can run without it (swap orbiting for A)
-//but then you can never stop it and that's just silly.
-/atom/movable/var/atom/orbiting = null
-
-//A: atom to orbit
-//radius: range to orbit at, radius of the circle formed by orbiting
-//clockwise: whether you orbit clockwise or anti clockwise
-//rotation_speed: how fast to rotate
-//rotation_segments: the resolution of the orbit circle, less = a more block circle, this can be used to produce hexagons (6 segments) triangles (3 segments), and so on, 36 is the best default.
-//pre_rotation: Chooses to rotate src 90 degress towards the orbit dir (clockwise/anticlockwise), useful for things to go "head first" like ghosts
-//lockinorbit: Forces src to always be on A's turf, otherwise the orbit cancels when src gets too far away (eg: ghosts)
-
-/atom/movable/proc/orbit(atom/A, radius = 10, clockwise = FALSE, rotation_speed = 20, rotation_segments = 36, pre_rotation = TRUE, lockinorbit = FALSE)
-	if(!istype(A))
-		return
-
-	if(orbiting)
-		stop_orbit()
-
-	orbiting = A
-	var/matrix/initial_transform = matrix(transform)
-	var/lastloc = loc
-
-	//Head first!
-	if(pre_rotation)
-		var/matrix/M = matrix(transform)
-		var/pre_rot = 90
-		if(!clockwise)
-			pre_rot = -90
-		M.Turn(pre_rot)
-		transform = M
-
-	var/matrix/shift = matrix(transform)
-	shift.Translate(0,radius)
-	transform = shift
-
-	SpinAnimation(rotation_speed, -1, clockwise, rotation_segments)
-
-	//we stack the orbits up client side, so we can assign this back to normal server side without it breaking the orbit
-	transform = initial_transform
-	while(orbiting && orbiting == A && A.loc)
-		var/targetloc = get_turf(A)
-		if(!lockinorbit && loc != lastloc && loc != targetloc)
-			break
-		loc = targetloc
-		lastloc = loc
-		sleep(0.6)
-
-	if (orbiting == A) //make sure we haven't started orbiting something else.
-		orbiting = null
-		SpinAnimation(0,0)
-
-
-
-/atom/movable/proc/stop_orbit()
-	orbiting = null
-
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
 	CRASH(msg)
@@ -1439,9 +1382,62 @@ var/list/WALLITEMS = list(
 
 	return 0//If we get here, we must be buried many layers deep in nested containers. Shouldn't happen
 
+//similar function to RANGE_TURFS(), but will search spiralling outwards from the center (like the above, but only turfs)
+/proc/spiral_range_turfs(dist=0, center=usr, orange=0)
+	if(!dist)
+		if(!orange)
+			return list(center)
+		else
+			return list()
+
+	var/turf/t_center = get_turf(center)
+	if(!t_center)
+		return list()
+
+	var/list/L = list()
+	var/turf/T
+	var/y
+	var/x
+	var/c_dist = 1
+
+	if(!orange)
+		L += t_center
+
+	while( c_dist <= dist )
+		y = t_center.y + c_dist
+		x = t_center.x - c_dist + 1
+		for(x in x to t_center.x+c_dist)
+			T = locate(x,y,t_center.z)
+			if(T)
+				L += T
+
+		y = t_center.y + c_dist - 1
+		x = t_center.x + c_dist
+		for(y in t_center.y-c_dist to y)
+			T = locate(x,y,t_center.z)
+			if(T)
+				L += T
+
+		y = t_center.y - c_dist
+		x = t_center.x + c_dist - 1
+		for(x in t_center.x-c_dist to x)
+			T = locate(x,y,t_center.z)
+			if(T)
+				L += T
+
+		y = t_center.y - c_dist + 1
+		x = t_center.x - c_dist
+		for(y in y to t_center.y+c_dist)
+			T = locate(x,y,t_center.z)
+			if(T)
+				L += T
+		c_dist++
+
+	return L
+
 //Increases delay as the server gets more overloaded,
 //as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
-#define DELTA_CALC max((max(world.tick_usage,world.cpu)/100),1)
+#define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta,1)), 1)
 
 /proc/stoplag()
 	. = 0
@@ -1450,6 +1446,6 @@ var/list/WALLITEMS = list(
 		. += round(i*DELTA_CALC)
 		sleep(i*world.tick_lag*DELTA_CALC)
 		i *= 2
-	while (world.tick_usage > TICK_LIMIT)
+	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
 
 #undef DELTA_CALC

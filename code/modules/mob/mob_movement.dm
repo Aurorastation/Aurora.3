@@ -184,34 +184,26 @@
 	if(!mob)
 		return // Moved here to avoid nullrefs below
 
-	if(mob.control_object)	Move_object(direct)
+	if(mob.control_object)	
+		Move_object(direct)
 
 	if(mob.incorporeal_move && isobserver(mob))
 		Process_Incorpmove(direct)
 		return
 
-	if(moving) return 0
+	if(moving || world.time < move_delay) 
+		return 0
 
-	if(world.time < move_delay)
-		return
-
-
-//This compensates for the inaccuracy of move ticks
-//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
-//The overshoot value is subtracted from our next delay, farther down where move delay is set.
-//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
-//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
+	//This compensates for the inaccuracy of move ticks
+	//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
+	//The overshoot value is subtracted from our next delay, farther down where move delay is set.
+	//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
+	//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
 	var/leftover = world.time - move_delay
 	if (leftover > 1)
 		leftover = 0
 
-
-	if(locate(/obj/effect/stop/, mob.loc))
-		for(var/obj/effect/stop/S in mob.loc)
-			if(S.victim == mob)
-				return
-
-	if(mob.stat==DEAD && isliving(mob))
+	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
 		return
 
@@ -219,21 +211,24 @@
 	if(mob.eyeobj)
 		return mob.EyeMove(n,direct)
 
-	if(mob.transforming)	return//This is sota the goto stop mobs from moving var
+	if(mob.transforming)	
+		return	//This is sota the goto stop mobs from moving var
 
 	if(isliving(mob))
 		var/mob/living/L = mob
 		if(L.incorporeal_move)//Move though walls
 			Process_Incorpmove(direct)
 			return
-		if(mob.client)
-			if(mob.client.view != world.view) // If mob moves while zoomed in with device, unzoom them.
-				for(var/obj/item/item in mob.contents)
-					if(item.zoom)
-						item.zoom(mob)
-						break
 
-	if(Process_Grab())	return
+		if(mob.client && mob.client.view != world.view)		// If mob moves while zoomed in with device, unzoom them.
+			for(var/obj/item/item in mob)
+				if(item.zoom)
+					item.zoom(mob)
+					break
+		
+		// Only meaningful for living mobs.
+		if(Process_Grab())	
+			return
 
 	if(!mob.canmove)
 		return
@@ -244,22 +239,18 @@
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
-	if(!mob.check_solid_ground())
-		var/allowmove = mob.Allow_Spacemove(0)
-		if(!allowmove)
-			return 0
-		else if(allowmove == -1 && mob.handle_spaceslipping()) //Check to see if we slipped
-			return 0
-		else
-			mob.inertia_dir = 0 //If not then we can reset inertia and move
-
-	if(isobj(mob.loc) || ismob(mob.loc))//Inside an object, tell it we moved
-		var/atom/O = mob.loc
-		return O.relaymove(mob, direct)
-
 	if(isturf(mob.loc))
+		if(!mob.check_solid_ground())
+			var/allowmove = mob.Allow_Spacemove(0)
+			if(!allowmove)
+				return 0
+			else if(allowmove == -1 && mob.handle_spaceslipping()) //Check to see if we slipped
+				return 0
+			else
+				mob.inertia_dir = 0 //If not then we can reset inertia and move
 
-		if(mob.restrained())//Why being pulled while cuffed prevents you from moving
+
+		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
 			for(var/mob/M in range(mob, 1))
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
@@ -284,9 +275,6 @@
 					direct = pick(cardinal)
 				return mob.buckled.relaymove(mob,direct)
 
-			if(istype(mob.loc, /turf/space)) // Wheelchair driving!
-				return // No wheelchair driving in space
-
 			//TODO: Fuck wheelchairs.
 			//Toss away all this snowflake code here, and rewrite wheelchairs as a vehicle.
 			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
@@ -306,8 +294,9 @@
 
 		var/tally = mob.movement_delay() + config.walk_speed
 
-		// Apply huuman specific modifiers.
-		if (ishuman(mob))
+		// Apply human specific modifiers.
+		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
+		if (mob_is_human)
 			var/mob/living/carbon/human/H = mob
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
 			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
@@ -318,7 +307,6 @@
 			tally *= config.walk_delay_multiplier
 
 		move_delay += tally
-
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
@@ -336,12 +324,10 @@
 			move_delay += 1
 			return mob.pulledby.relaymove(mob, direct)
 
-
-
 		//We are now going to move
 		moving = 1
 		//Something with pulling things
-		if(locate(/obj/item/weapon/grab, mob))
+		if (mob_is_human && (istype(mob:l_hand, /obj/item/weapon/grab) || istype(mob:r_hand, /obj/item/weapon/grab)))
 			move_delay = max(move_delay, world.time + 7)
 			var/list/L = mob.ret_grab()
 			if(istype(L, /list))
@@ -378,28 +364,28 @@
 		else
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/weapon/grab/G in mob)
+		for (var/obj/item/weapon/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(reverse_dir[direct])
 			G.adjust_position()
+
 		for (var/obj/item/weapon/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0
-		return .
 
-	return
+	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
+		var/atom/O = mob.loc
+		return O.relaymove(mob, direct)
 
 /mob/proc/SelfMove(turf/n, direct)
 	return Move(n, direct)
-
 
 ///Process_Incorpmove
 ///Called by client/Move()
 ///Allows mobs to run though walls
 /client/proc/Process_Incorpmove(direct)
 	var/turf/mobloc = get_turf(mob)
-
 	switch(mob.incorporeal_move)
 		if(1)
 			var/turf/T = get_step(mob, direct)
@@ -410,44 +396,8 @@
 				mob.forceMove(get_step(mob, direct))
 				mob.dir = direct
 		if(2)
-			if(prob(50))
-				var/locx
-				var/locy
-				switch(direct)
-					if(NORTH)
-						locx = mobloc.x
-						locy = (mobloc.y+2)
-						if(locy>world.maxy)
-							return
-					if(SOUTH)
-						locx = mobloc.x
-						locy = (mobloc.y-2)
-						if(locy<1)
-							return
-					if(EAST)
-						locy = mobloc.y
-						locx = (mobloc.x+2)
-						if(locx>world.maxx)
-							return
-					if(WEST)
-						locy = mobloc.y
-						locx = (mobloc.x-2)
-						if(locx<1)
-							return
-					else
-						return
-				mob.forceMove(locate(locx,locy,mobloc.z))
-				spawn(0)
-					var/limit = 2//For only two trailing shadows.
-					for(var/turf/T in getline(mobloc, mob.loc))
-						spawn(0)
-							anim(T,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
-						limit--
-						if(limit<=0)	break
-			else
-				spawn(0)
-					anim(mobloc,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
-				mob.forceMove(get_step(mob, direct))
+			anim(mobloc,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
+			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
 	// Crossed is always a bit iffy
 	for(var/obj/S in mob.loc)

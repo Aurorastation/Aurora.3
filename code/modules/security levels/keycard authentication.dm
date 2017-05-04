@@ -121,7 +121,7 @@
 	if(confirmed)
 		confirmed = 0
 		trigger_event(event)
-		log_game("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]")
+		log_game("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]",ckey=key_name(event_triggered_by),ckey_target=key_name(event_confirmed_by))
 		message_admins("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]", 1)
 	reset()
 
@@ -167,7 +167,7 @@
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
 	if(config.ert_admin_call_only) return 1
-	return ticker.mode && ticker.mode.ert_disabled
+	return SSticker.mode && SSticker.mode.ert_disabled
 
 var/global/maint_all_access = 0
 

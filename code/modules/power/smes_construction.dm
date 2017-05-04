@@ -41,23 +41,19 @@
 
 // These are used on individual outposts as backup should power line be cut, or engineering outpost lost power.
 // 1M Charge, 150K I/O
-/obj/machinery/power/smes/buildable/outpost_substation/New()
-	..(0)
+/obj/machinery/power/smes/buildable/outpost_substation/Initialize()
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/weak(src)
 	recalc_coils()
 
 // This one is pre-installed on engineering shuttle. Allows rapid charging/discharging for easier transport of power to outpost
 // 11M Charge, 2.5M I/O
-/obj/machinery/power/smes/buildable/power_shuttle/New()
-	..(0)
+/obj/machinery/power/smes/buildable/power_shuttle/Initialize()
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil(src)
 	recalc_coils()
-
-
-
-
 
 
 // END SMES SUBTYPES
@@ -78,8 +74,7 @@
 /obj/machinery/power/smes/buildable/Destroy()
 	qdel(wires)
 	wires = null
-	for(var/datum/nano_module/rcon/R in world)
-		R.FindDevices()
+	SSmachinery.queue_rcon_update()
 	return ..()
 
 // Proc: process()
@@ -122,6 +117,9 @@
 		for(var/i = 1, i <= cur_coils, i++)
 			component_parts += new /obj/item/weapon/smes_coil(src)
 		recalc_coils()
+
+	SSmachinery.queue_rcon_update()
+
 	..()
 
 // Proc: attack_hand()
@@ -180,7 +178,7 @@
 		var/obj/item/clothing/gloves/G = h_user.gloves
 		if(G.siemens_coefficient == 0)
 			user_protected = 1
-	log_game("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100")
+	log_game("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100",ckey=key_name(usr))
 	message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
 
 
@@ -289,8 +287,8 @@
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
 	if (failing)
-		overlays.Cut()
-		overlays += image('icons/obj/power.dmi', "smes-crit")
+		cut_overlays()
+		add_overlay("smes-crit")
 	else
 		..()
 
@@ -313,6 +311,7 @@
 			if(newtag)
 				RCon_tag = newtag
 				user << "<span class='notice'>You changed the RCON tag to: [newtag]</span>"
+				SSmachinery.queue_rcon_update()
 			return
 		// Charged above 1% and safeties are enabled.
 		if((charge > (capacity/100)) && safeties_enabled)

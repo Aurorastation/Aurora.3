@@ -191,7 +191,7 @@ var/global/datum/controller/occupations/job_master
 		SetupOccupations()
 
 		//Holder for Triumvirate is stored in the ticker, this just processes it
-		if(ticker && ticker.triai)
+		if(SSticker.triai)
 			for(var/datum/job/A in occupations)
 				if(A.title == "AI")
 					A.spawn_positions = 3
@@ -246,7 +246,7 @@ var/global/datum/controller/occupations/job_master
 
 				// Loop through all jobs
 				for(var/datum/job/job in shuffledoccupations) // SHUFFLE ME BABY
-					if(!job || (job.title in ticker.mode.disabled_jobs) ) //11/2/16
+					if(!job || (job.title in SSticker.mode.disabled_jobs) ) //11/2/16
 						continue
 
 					if(jobban_isbanned(player, job.title))
@@ -320,7 +320,13 @@ var/global/datum/controller/occupations/job_master
 
 			var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 			var/list/custom_equip_leftovers = list()
+			//Equip job items.
+			job.equip(H)
+			job.apply_fingerprints(H)
 			if(!megavend)//Equip custom gear loadout.
+				job.equip_backpack(H)
+				job.equip_survival(H)
+				job.setup_account(H)
 				if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
 
 					for(var/thing in H.client.prefs.gear)
@@ -354,12 +360,9 @@ var/global/datum/controller/occupations/job_master
 									custom_equip_leftovers.Add(thing)
 							else
 								spawn_in_storage += thing
-			//Equip job items.
-			job.equip(H)
-			job.setup_account(H)
-			job.equip_backpack(H)
-			job.equip_survival(H)
-			job.apply_fingerprints(H)
+
+			// Randomize nutrition. (Between 50-100% of max.)
+			H.nutrition = (rand(50, 100) * 0.01) * H.max_nutrition
 
 			//If some custom items could not be equipped before, try again now.
 			for(var/thing in custom_equip_leftovers)
@@ -420,7 +423,7 @@ var/global/datum/controller/occupations/job_master
 				if("AI")
 					return H
 				if("Captain")
-					var/sound/announce_sound = (ticker.current_state <= GAME_STATE_SETTING_UP)? null : sound('sound/misc/boatswain.ogg', volume=20)
+					var/sound/announce_sound = (SSticker.current_state <= GAME_STATE_SETTING_UP)? null : sound('sound/misc/boatswain.ogg', volume=20)
 					captain_announcement.Announce("All hands, Captain [H.real_name] on deck!", new_sound=announce_sound)
 
 			//Deferred item spawning.
@@ -489,7 +492,7 @@ var/global/datum/controller/occupations/job_master
 
 		var/datum/job/job = GetJob(rank)
 		var/list/spawn_in_storage = list()
-		schedule_task_in(15 MINUTES, /proc/handle_player_despawn, list(H))
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/handle_player_despawn, H), 15 MINUTES)
 
 		if(job)
 
@@ -531,6 +534,9 @@ var/global/datum/controller/occupations/job_master
 							spawn_in_storage += thing
 			//Equip job items.
 			job.late_equip(H)
+			job.equip_backpack(H)
+			job.equip_survival(H)
+			job.setup_account(H)
 			job.apply_fingerprints(H)
 
 			//If some custom items could not be equipped before, try again now.
@@ -582,6 +588,9 @@ var/global/datum/controller/occupations/job_master
 			if(equipped != 1)
 				var/obj/item/clothing/glasses/G = H.glasses
 				G.prescription = 1
+
+		// So shoes aren't silent if people never change 'em.
+		H.update_noise_level()
 
 		BITSET(H.hud_updateflag, ID_HUD)
 		BITSET(H.hud_updateflag, IMPLOYAL_HUD)

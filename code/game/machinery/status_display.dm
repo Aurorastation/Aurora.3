@@ -17,6 +17,7 @@
 	density = 0
 	use_power = 1
 	idle_power_usage = 10
+	var/hears_arrivals = FALSE
 	var/mode = 1	// 0 = Blank
 					// 1 = Shuttle timer
 					// 2 = Arbitrary message(s)
@@ -28,7 +29,6 @@
 	var/message2 = ""	// message line 2
 	var/index1			// display index for scrolling messages or 0 if non-scrolling
 	var/index2
-	var/picture = null
 
 	var/frequency = 1435		// radio frequency
 
@@ -47,15 +47,18 @@
 	var/const/STATUS_DISPLAY_CUSTOM = 99
 
 /obj/machinery/status_display/Destroy()
-	if(radio_controller)
-		radio_controller.remove_object(src,frequency)
+	if(SSradio)
+		SSradio.remove_object(src,frequency)
 	return ..()
 
 // register for radio system
-/obj/machinery/status_display/initialize()
-	..()
-	if(radio_controller)
-		radio_controller.add_object(src, frequency)
+/obj/machinery/status_display/Initialize()
+	. = ..()
+	if(SSradio)
+		if (hears_arrivals)
+			SSradio.add_object(src, frequency, RADIO_ARRIVALS)
+		else
+			SSradio.add_object(src, frequency)
 
 // timed process
 /obj/machinery/status_display/process()
@@ -153,10 +156,8 @@
 
 /obj/machinery/status_display/proc/set_picture(state)
 	remove_display()
-	if(!picture || picture_state != state)
-		picture_state = state
-		picture = image('icons/obj/status_display.dmi', icon_state=picture_state)
-	overlays |= picture
+	picture_state = state
+	add_overlay(picture_state)
 
 /obj/machinery/status_display/proc/update_display(line1, line2)
 	var/new_text = {"<div style="font-size:[FONT_SIZE];color:[FONT_COLOR];font:'[FONT_STYLE]';text-align:center;" valign="top">[line1]<br>[line2]</div>"}
@@ -176,7 +177,7 @@
 	return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 
 /obj/machinery/status_display/proc/get_supply_shuttle_timer()
-	var/datum/shuttle/ferry/supply/shuttle = supply_controller.shuttle
+	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
 		return "Error"
 
@@ -188,7 +189,7 @@
 	return ""
 
 /obj/machinery/status_display/proc/get_arrivals_shuttle_timer()
-	var/datum/shuttle/ferry/arrival/shuttle = arrival_shuttle.shuttle
+	var/datum/shuttle/ferry/arrival/shuttle = SSarrivals.shuttle
 	if (!shuttle)
 		return "Error"
 
@@ -200,11 +201,11 @@
 	return ""
 
 /obj/machinery/status_display/proc/get_arrivals_shuttle_timer2()
-	if (!arrival_shuttle)
+	if (!SSarrivals)
 		return "Error"
 
-	if(arrival_shuttle.launch_time)
-		var/timeleft = round((arrival_shuttle.launch_time - world.time) / 10,1)
+	if(SSarrivals.launch_time)
+		var/timeleft = round((SSarrivals.launch_time - world.time) / 10,1)
 		if(timeleft < 0)
 			return ""
 		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
@@ -213,8 +214,7 @@
 	return ""
 
 /obj/machinery/status_display/proc/remove_display()
-	if(overlays.len)
-		overlays.Cut()
+	cut_overlays()
 	if(maptext)
 		maptext = ""
 

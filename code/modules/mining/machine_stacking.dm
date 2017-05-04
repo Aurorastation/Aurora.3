@@ -12,13 +12,15 @@
 	active_power_usage = 50
 
 /obj/machinery/mineral/stacking_unit_console/initialize()
-	..()
+	. = ..()
 	for (var/dir in alldirs)
 		src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, dir))
 		if(src.machine)
 			break
-	if(!src.machine)
-		qdel(src)
+	if (machine)
+		machine.console = src
+	else
+		return INITIALIZE_HINT_QDEL
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -82,7 +84,7 @@
 	active_power_usage = 50
 
 /obj/machinery/mineral/stacking_machine/initialize()
-	..()
+	. = ..()
 
 	for(var/stacktype in typesof(/obj/item/stack/material)-/obj/item/stack/material)
 		var/obj/item/stack/S = new stacktype(src)
@@ -97,15 +99,12 @@
 	stack_storage["plasteel"] = 0
 	stack_paths["plasteel"] = /obj/item/stack/material/plasteel
 
-	spawn( 5 )
-		for (var/dir in cardinal)
-			src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-			if(src.input) break
-		for (var/dir in cardinal)
-			src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-			if(src.output) break
-		return
-	return
+	for (var/dir in cardinal)
+		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(src.input) break
+	for (var/dir in cardinal)
+		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(src.output) break
 
 /obj/machinery/mineral/stacking_machine/process()
 	..()
