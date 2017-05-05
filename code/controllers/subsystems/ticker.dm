@@ -4,7 +4,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker
 	// -- Subsystem stuff --
-	name = "Game Ticker"
+	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
 	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
@@ -19,8 +19,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/hide_mode = 0
 	var/datum/game_mode/mode = null
 	var/post_game = 0
-	var/event_time = null
-	var/event = 0
 
 	var/login_music			// music played in pregame lobby
 
@@ -32,10 +30,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/Bible_deity_name
 
 	var/random_players = 0 	// if set to nonzero, ALL players who latejoin or declare-ready join will have random appearances/genders
-
-	var/list/syndicate_coalition = list() // list of traitor-compatible factions
-	var/list/factions = list()			  // list of all factions
-	var/list/availablefactions = list()	  // list of factions with openings
 
 	var/pregame_timeleft = 0
 
@@ -92,9 +86,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	hide_mode = SSticker.hide_mode
 	mode = SSticker.mode
 	post_game = SSticker.post_game
-	event_time = SSticker.event_time
-	event = SSticker.event
-	
+
 	login_music = SSticker.login_music
 	
 	minds = SSticker.minds
@@ -104,10 +96,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	Bible_deity_name = SSticker.Bible_deity_name
 
 	random_players = SSticker.random_players
-
-	syndicate_coalition = SSticker.syndicate_coalition
-	factions = SSticker.factions
-	availablefactions = SSticker.availablefactions
 
 	pregame_timeleft = SSticker.pregame_timeleft
 
