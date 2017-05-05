@@ -30,7 +30,10 @@
 
 	update_overlay()
 
-/atom/movable/lighting_overlay/Destroy()
+/atom/movable/lighting_overlay/Destroy(force = FALSE)
+	if (!force)
+		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
+
 	L_PROF(loc, "overlay_destroy")
 	SSlighting.lighting_overlays -= src
 	SSlighting.overlay_queue     -= src
@@ -54,13 +57,7 @@
 		else
 			warning("A lighting overlay realised it was in nullspace in update_overlay() and got deleted!")
 
-		qdel(src)
-		return
-
-	if (istype(T, /turf/space))
-		// I mean, this happens often and doesn't do any harm. Might as well silence the warning.
-		//warning("A lighting overlay realised it was attached to a space tile and got pooled!")
-		qdel(src)
+		qdel(src, TRUE)
 		return
 
 	// To the future coder who sees this and thinks
@@ -154,3 +151,6 @@
 	color = LIGHTING_BASE_MATRIX
 
 	return ..("color")
+
+/atom/movable/lighting_overlay/shuttle_move(turf/loc)
+	return

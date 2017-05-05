@@ -23,6 +23,7 @@
 	var/list/breaker_boxes = list()
 
 	var/rcon_update_queued = FALSE
+	var/powernet_update_queued = FALSE
 
 	var/list/slept_in_process = list()
 
@@ -68,6 +69,10 @@
 
 		if (rcon_update_queued)
 			build_rcon_lists()
+
+		if (powernet_update_queued)
+			makepowernets()
+			powernet_update_queued = FALSE
 
 	var/list/curr_machinery = src.processing_machinery
 	var/list/curr_powersinks = src.processing_powersinks
