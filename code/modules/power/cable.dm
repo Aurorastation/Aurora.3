@@ -201,6 +201,10 @@ var/list/possible_cable_coil_colours = list(
 			return 1
 	return 0
 
+/obj/structure/cable/shuttle_move(turf/loc)
+	..()
+	SSmachinery.powernet_update_queued = TRUE
+
 //explosion handling
 /obj/structure/cable/ex_act(severity)
 	switch(severity)

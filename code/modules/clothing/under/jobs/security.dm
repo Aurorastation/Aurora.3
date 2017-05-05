@@ -85,6 +85,13 @@
 /obj/item/clothing/under/det/slob
 	icon_state = "polsuit"
 	worn_state = "polsuit"
+	
+/obj/item/clothing/under/det/forensics
+	name = "forensics technician's uniform"
+	desc = "A tan service uniform worn by a forensics officer."
+	icon_state = "officertanclothes"
+	item_state = "det"
+	worn_state = "officertanclothes"
 
 /*
  * Head of Security

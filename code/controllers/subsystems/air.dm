@@ -131,7 +131,7 @@ Class Procs:
 	admin_notice(span("danger", "Processing Geometry..."), R_DEBUG)
 
 	var/simulated_turf_count = 0
-	for(var/turf/simulated/S in world)
+	for(var/turf/simulated/S in turfs)
 		simulated_turf_count++
 		S.update_air_properties()
 

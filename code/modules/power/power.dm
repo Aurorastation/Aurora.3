@@ -190,6 +190,10 @@
 			. += C
 	return .
 
+/obj/machinery/power/shuttle_move(turf/loc)
+	..()
+	SSmachinery.powernet_update_queued = TRUE
+
 ///////////////////////////////////////////
 // GLOBAL PROCS for powernets handling
 //////////////////////////////////////////
