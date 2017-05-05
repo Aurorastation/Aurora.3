@@ -81,7 +81,9 @@
 
 /obj/machinery/crusher_base/Destroy()
 	QDEL_NULL(pstn)
-	return ..()
+	. = ..()
+	change_neighbor_base_icons()
+	return .
 
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
@@ -116,10 +118,10 @@
 /obj/machinery/crusher_base/proc/change_neighbor_base_icons()
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
-	if (left)
+	if(left)
 		left.queue_icon_update()
 
-	if (right)
+	if(right)
 		right.queue_icon_update()
 
 /obj/machinery/crusher_base/update_icon()
@@ -127,13 +129,19 @@
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
 
-	if (left && right)
+	if(QDELETED(left))
+		left = null
+		
+	if(QDELETED(right))
+		right = null
+
+	if(left && right)
 		asmtype = "middle"
 		icon_state = asmtype
-	else if (left)
+	else if(left)
 		asmtype = "rightcap"
 		icon_state = asmtype
-	else if (right)
+	else if(right)
 		asmtype = "leftcap"
 		icon_state = asmtype
 	else
@@ -141,7 +149,7 @@
 		icon_state = asmtype
 
 	if(powered(EQUIP))
-		if (blocked == 1)
+		if(blocked == 1)
 			holographic_overlay(src, icon, "[asmtype]-overlay-red")
 		else if(action != "idle")
 			holographic_overlay(src, icon, "[asmtype]-overlay-orange")
@@ -156,7 +164,9 @@
 
 /obj/machinery/crusher_base/process()
 	set waitfor = FALSE
-	if (process_lock)
+	if(!pstn) //We dont process if theres no piston
+		return
+	if(process_lock)
 		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
 		return
 	process_lock = 1
@@ -367,7 +377,7 @@
 
 	// Setup the immovable items typecache.
 	// 	(We only want to do this once as this is a huge list.)
-	if (!LAZYLEN(immovable_items))
+	if(!LAZYLEN(immovable_items))
 		immovable_items = typecacheof(list(
 			/obj/machinery,
 			/obj/structure,
@@ -379,6 +389,8 @@
 	QDEL_NULL(pb1)
 	QDEL_NULL(pb2)
 	QDEL_NULL(pb3)
+	if(!QDELETED(crs_base))
+		QDEL_NULL(crs_base)
 	return ..()
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
@@ -443,10 +455,10 @@
 
 /obj/machinery/crusher_piston/proc/can_extend_into(var/turf/extension_turf)
 	//Check if atom is of a specific Type
-	if (istype(extension_turf,/turf/simulated/wall))
+	if(istype(extension_turf,/turf/simulated/wall))
 		return 0
 	for(var/atom/A in extension_turf)
-		if (is_type_in_typecache(A, immovable_items))
+		if(is_type_in_typecache(A, immovable_items))
 			return 0
 	return 1
 
@@ -455,6 +467,7 @@
 	desc = "A colossal piston used for crushing garbage."
 	density = 1
 	anchored = 1
+	mouse_opacity = 0
 
 //
 // The piston_move proc for various objects
@@ -500,7 +513,7 @@
 //
 /atom/movable/proc/crush_act()
 	ex_act(1)
-	if (!QDELETED(src))
+	if(!QDELETED(src))
 		qdel(src)//Just as a failsafe
 
 
