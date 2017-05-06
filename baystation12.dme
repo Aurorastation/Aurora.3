@@ -137,7 +137,6 @@
 #include "code\controllers\hooks-defs.dm"
 #include "code\controllers\hooks.dm"
 #include "code\controllers\verbs.dm"
-#include "code\controllers\voting.dm"
 #include "code\controllers\master\admin.dm"
 #include "code\controllers\master\failsafe.dm"
 #include "code\controllers\master\master.dm"

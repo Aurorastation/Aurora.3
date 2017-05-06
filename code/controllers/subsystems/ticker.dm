@@ -135,8 +135,9 @@ var/datum/controller/subsystem/ticker/SSticker
 		pregame_timeleft--
 	
 	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
-		if (!vote.time_remaining)
-			vote.autogamemode()
+		if (!SSvote.time_remaining)
+			SSvote.autogamemode()
+			pregame_timeleft--
 			return
 
 	if (pregame_timeleft <= 10 && !tipped)
@@ -206,7 +207,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(!round_end_announced) // Spam Prevention. Now it should announce only once.
 				world << "<span class='danger'>The round has ended!</span>"
 				round_end_announced = 1
-			vote.autotransfer()
+			SSvote.autotransfer()
 
 	return 1
 
