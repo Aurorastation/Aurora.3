@@ -343,7 +343,7 @@
 	icon_open = "flannel_red_open"
 	icon_closed = "flannel_red"
 
-/obj/item/clothing/suit/storage/toggle/flannel/blu
+/obj/item/clothing/suit/storage/toggle/flannel/blue
 	name = "blue flannel shirt"
 	icon_state = "flannel_blue"
 	item_state = "flannel_blue"
