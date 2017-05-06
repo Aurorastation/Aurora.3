@@ -211,16 +211,11 @@
 	var/obj/item/weapon/storage/box/gearbox = new(src)
 	gearbox.name = "\improper Personal possessions box"
 	gearbox.desc = "All of the personal effects of [H.real_name], packaged neatly by the Auto-Locker."
-	var/list/items = H.contents
-	for(var/obj/item/W in items)
+	for(var/obj/item/W in H.contents)
 		if(istype(W,/obj/item/organ))
-			items -= W
 			continue
 		H.drop_from_inventory(W,gearbox)
-		items -= W
-		gearbox.contents += W
-		if(items.len == 0)
-			break
+		W.forceMove(gearbox)
 
 	sleep(20)
 	job_master.EquipRank(H, H.job, 1, 1)
