@@ -37,3 +37,17 @@
 	desc = "A scarf of coarse fabric. Seems to have ear-holes."
 	icon_state = "zhan_scarf"
 	body_parts_covered = HEAD|FACE
+
+/obj/item/clothing/suit/storage/tajaran
+	name = "tajaran naval coat"
+	desc = "A thick wool coat from Adhomai."
+	icon_state = "naval_coat"
+	item_state = "naval_coat"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/tajaran
+	name = "people's republic medical coat"
+	desc = "A sterile insulated coat made of leather stitched over fur."
+	icon_state = "taj_jacket"
+	item_state = "taj_jacket"
+	icon_open = "taj_jacket_open"
+	icon_closed = "taj_jacket"
