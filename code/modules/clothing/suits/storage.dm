@@ -92,26 +92,3 @@
 			usr << "\The [src] does not have a vest badge."
 			return
 		update_clothing_icon()
-
-/obj/item/clothing/suit/storage/toggle/flannel
-	name = "green flannel shirt"
-	desc = "A flannel shirt, for all your space hipster needs."
-	icon_state = "flannel_green"
-	item_state = "flannel_green"
-	icon_open = "flannel_green_open"
-	icon_closed = "flannel_green"
-	body_parts_covered = UPPER_TORSO|ARMS
-
-/obj/item/clothing/suit/storage/toggle/flannel/red
-	name = "red flannel shirt"
-	icon_state = "flannel_red"
-	item_state = "flannel_red"
-	icon_open = "flannel_red_open"
-	icon_closed = "flannel_red"
-
-/obj/item/clothing/suit/storage/toggle/flannel/blu
-	name = "blue flannel shirt"
-	icon_state = "flannel_blue"
-	item_state = "flannel_blue"
-	icon_open = "flannel_blue_open"
-	icon_closed = "flannel_blue"
