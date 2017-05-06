@@ -335,7 +335,7 @@ var/datum/controller/subsystem/vote/SSvote
 			is_staff = 1
 	voting |= C
 
-	. = "<html><head><title>Voting Panel</title></head><body>"
+	. = ""
 	if(mode)
 		if(question)	. += "<h2>Vote: '[question]'</h2>"
 		else			. += "<h2>Vote: [capitalize(mode)]</h2>"
@@ -449,6 +449,7 @@ var/datum/controller/subsystem/vote/SSvote
 		return
 
 	C.vote_window = new(C.mob, "vote", "Voting")
+	C.vote_window.add_head_content("<title>Voting panel</title>")
 
 /mob/verb/vote()
 	set category = "OOC"
