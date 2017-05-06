@@ -327,7 +327,6 @@
 	icon_closed = "trackjacket"
 	contained_sprite = 1
 
-
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
 	desc = "A flannel shirt, for all your space hipster needs."
