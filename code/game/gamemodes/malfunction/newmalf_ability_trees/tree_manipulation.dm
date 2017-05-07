@@ -124,7 +124,6 @@
 	set category = "Software"
 	var/price = 275
 	var/mob/living/silicon/ai/user = usr
-	set waitfor = FALSE
 	if(!T || !istype(T))
 		return
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
@@ -144,7 +143,6 @@
 	set category = "Software"
 	var/price = 400
 	var/mob/living/silicon/ai/user = usr
-	set waitfor = FALSE
 
 	if(!ability_prechecks(user, price))
 		return
