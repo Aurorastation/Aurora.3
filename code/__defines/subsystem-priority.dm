@@ -2,8 +2,8 @@
 #define SS_INIT_SEEDS              16	// Plant controller setup.
 #define SS_INIT_ASTEROID           15	// Asteroid generation.
 #define SS_INIT_SHUTTLE            14	// Shuttle setup.
-#define SS_INIT_PARALLAX           13	// Parallax image cache generation. Must run before ghosts are able to join, but after SSatoms.
-#define SS_INIT_ATOMS              12	// World initialization. Will trigger lighting updates.
+#define SS_INIT_PARALLAX           13	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_ATOMS              12	// World initialization. Will trigger lighting updates. Observers can join after this loads.
 #define SS_INIT_POWER              11	// Initial powernet build.
 #define SS_INIT_CARGO              10	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PIPENET             9	// Initial pipenet build.
@@ -12,10 +12,10 @@
 #define SS_INIT_NIGHT               6	// Nightmode controller. Will trigger lighting updates.
 #define SS_INIT_SMOOTHING           5	// Object icon smoothing. Creates overlays.
 #define SS_INIT_OVERLAY             4	// Overlay flush.
-#define SS_INIT_OPENTURF            3	// Openturf should be after smoothing so it copies the smoothed turfs. Causes lighting updates.
-#define SS_INIT_MISC                2	// Default.
+#define SS_INIT_OPENTURF            3	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
+#define SS_INIT_MISC                2	// Subsystems without an explicitly set initialization order start here.
 #define SS_INIT_LIGHTING            1	// Generation of lighting overlays and pre-bake.
-#define SS_INIT_LOBBY               0	// Ghosts can join here.
+#define SS_INIT_LOBBY               0	// Lobby timer starts here.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
@@ -47,9 +47,9 @@
 
 // SS_BACKGROUND
 #define SS_PRIORITY_MODIFIER      18
-#define SS_PRIORITY_ARRIVALS      16	// Centcomm arrivals shuttle auto-launch.
+#define SS_PRIORITY_ARRIVALS      16	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 #define SS_PRIORITY_PROCESSING    15	// Generic datum processor. Replaces objects processor.
-#define SS_PRIORITY_OBJECTS       15
+#define SS_PRIORITY_OBJECTS       15	// processing_objects processing.
 #define SS_PRIORITY_EXPLOSIVES    13	// Explosion processor. Doesn't have much effect on explosion tick-checking.
 #define SS_PRIORITY_DISPOSALS     12	// Disposal holder movement.
 #define SS_PRIORITY_WIRELESS      12	// Handles pairing of wireless devices. Usually will be asleep.
