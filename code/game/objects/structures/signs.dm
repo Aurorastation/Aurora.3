@@ -212,7 +212,7 @@
 
 /obj/structure/sign/directions/dock
 	name = "\improper Departures/Arrivals Dock"
-	desc = "A direction sign. It reads: 'Reminder: All personnel is required to make use of the Auto-locker device before heading to the Docking area. Thank you.'"
+	desc = "A direction sign. It reads: 'Reminder: All personnel are required to make use of the Auto-locker device before heading to the Docking area. Thank you.'"
 	icon_state = "direction_dock"
 
 /obj/structure/sign/directions/civ
