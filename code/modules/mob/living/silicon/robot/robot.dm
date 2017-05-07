@@ -24,6 +24,8 @@
 	var/crisis_override = 0
 	var/integrated_light_power = 4
 	var/datum/wires/robot/wires
+	var/overclocked = 0 // cyborg controls if they enable the overclock
+	var/overclockavailable = 0 // if the overclock is available for use
 
 //Icon stuff
 
@@ -48,6 +50,7 @@
 	var/module_state_1 = null
 	var/module_state_2 = null
 	var/module_state_3 = null
+
 
 	var/obj/item/device/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
@@ -377,6 +380,60 @@
 		dat += "<b>[C.name]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table><br>"
 
 	return dat
+
+/mob/living/silicon/robot/proc/toggle_overclock()
+	set category = "Robot Commands"
+	set name = "Toggle Overclock"
+	set desc = "Enable an overclocking of your systems, greatly increasing the power available to your modules."
+
+	if(overclockavailable == 1)
+		if(overclocked == 0)
+			overclocked = 1
+			ToggleOverClock(src)
+			usr << "You enable the overclock mode enhancing and unlocking several modules but increasing power usage greatly."
+		else
+			overclocked = 0
+			ToggleOverClock(src)
+			usr << "You disable the overclock mode."
+
+/mob/living/silicon/robot/proc/ToggleOverClock()
+	var/mob/living/silicon/robot/R = usr
+	if(overclocked == 0)
+		//Give them some taser speed if they have a taser.
+		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
+		if(!T)
+			T = locate() in module.contents
+		if(!T)
+			T = locate() in module.modules
+		if(T)
+			T.recharge_time = max(2 , T.recharge_time - 4)
+		//Give them the hacked item if they don't have it.
+		if(emagged == 0)
+			R.emagged = 1
+			R.fakeemagged = 1
+		//Hide them from the robotics console.
+		if(scrambledcodes == 0)
+			scrambledcodes = 1
+		//Increase EMP protection.
+		if(!cell_emp_mult < 2)
+			cell_emp_mult = 1
+	if(overclocked == 1)
+		//Reduce their free taser speed.
+		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
+		if(!T)
+			T = locate() in module.contents
+		if(!T)
+			T = locate() in module.modules
+		if(T)
+			T.recharge_time = max(2 , T.recharge_time + 4)
+		//Show them on the robotics console.
+		if(scrambledcodes == 1)
+			scrambledcodes = 0
+		//Reduce EMP protection
+		if(cell_emp_mult == 1)
+			cell_emp_mult = 2
+
+
 
 /mob/living/silicon/robot/verb/toggle_lights()
 	set category = "Robot Commands"
@@ -1066,6 +1123,8 @@
 		return 0
 
 	var/power_use = amount * CYBORG_POWER_USAGE_MULTIPLIER
+	if(overclocked == 1)
+		power_use = power_use + 200
 	if(cell.checked_use(CELLRATE * power_use))
 		used_power_this_tick += power_use
 		return 1
