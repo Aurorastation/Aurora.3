@@ -182,7 +182,7 @@
 /proc/get_hacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(!A.hacker && !A.hacker == user)
+		if(!A.hacker || !A.hacker == user)
 			continue
 		H.Add(A)
 	return H
