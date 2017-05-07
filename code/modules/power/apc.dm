@@ -759,6 +759,7 @@
 				H.adjustFireLoss(10, 0)
 			if(infected)
 				if(H in hacked_ipcs)
+					H << "<span class = 'notice'> Unable to interface with APC.</span>"
 					return
 				hacked_ipcs += H
 				infected = 0
