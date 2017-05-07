@@ -290,15 +290,18 @@
 	effect_str = null
 
 /datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C, var/now = FALSE)
-	if (effect_str.Find(C)) // Already have one.
+	LAZYINITLIST(effect_str)
+	if (effect_str[C]) // Already have one.
 		REMOVE_CORNER(C,now)
+		effect_str[C] = 0
 
 	APPLY_CORNER(C,now)
+	UNSETEMPTY(effect_str)
 
 /datum/light_source/proc/update_corners(now = FALSE)
 	var/update = FALSE
 
-	if (!source_atom)
+	if (QDELETED(source_atom))
 		qdel(src)
 		return
 
@@ -361,6 +364,8 @@
 	var/thing
 	var/datum/lighting_corner/C
 	var/turf/T
+	var/Sx = source_turf.x
+	var/Sy = source_turf.y
 
 	FOR_DVIEW(T, Ceiling(light_range), source_turf, 0)
 		if (light_angle && check_light_cone(T.x, T.y))
@@ -396,7 +401,7 @@
 			effect_str[C] = 0
 			continue
 
-		APPLY_CORNER(C, now)
+		APPLY_CORNER_XY(C, now, Sx, Sy)
 
 	for (thing in effect_str - corners) // Old, now gone, corners.
 		C = thing
