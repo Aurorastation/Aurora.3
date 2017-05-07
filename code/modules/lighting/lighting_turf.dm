@@ -145,7 +145,7 @@
 			lighting_clear_overlay()
 
 /turf/proc/get_corners()
-	if (!dynamic_lighting)
+	if (!dynamic_lighting && !light_sources)
 		return null
 
 	if (!lighting_corners_initialised)
@@ -157,7 +157,7 @@
 	return corners
 
 /turf/proc/generate_missing_corners()
-	if (!dynamic_lighting)
+	if (!dynamic_lighting && !light_sources)
 		return
 		
 	lighting_corners_initialised = TRUE

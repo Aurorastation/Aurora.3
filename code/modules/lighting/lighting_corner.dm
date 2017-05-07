@@ -33,7 +33,7 @@
 
 	SSlighting.lighting_corners += src
 
-	LAZYINITLIST(masters)
+	masters = list()
 
 	masters[new_turf] = turn(diagonal, 180)
 	z = new_turf.z

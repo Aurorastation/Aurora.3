@@ -54,7 +54,7 @@
 	if (top_atom != source_atom)
 		LAZYADD(top_atom.light_sources, src)
 
-	source_turf = top_atom.loc
+	source_turf = top_atom
 	light_power = source_atom.light_power
 	light_range = source_atom.light_range
 	light_color = source_atom.light_color
@@ -62,9 +62,6 @@
 	light_angle = source_atom.light_wedge
 
 	parse_light_color()
-
-	effect_str      = list()
-	affecting_turfs = list()
 
 	update()
 
@@ -325,6 +322,14 @@
 		qdel(src)
 		return
 
+	if (isturf(top_atom))
+		if (source_turf != top_atom)
+			source_turf = top_atom
+			update = TRUE
+	else if (top_atom.loc != source_turf)
+		source_turf = top_atom.loc
+		update = TRUE
+
 	if (light_range && light_power && !applied)
 		update = TRUE
 
@@ -365,8 +370,10 @@
 			C = thing
 			corners[C] = 0
 
-		turfs   += T
+		turfs += T
 	END_FOR_DVIEW
+
+	LAZYINITLIST(affecting_turfs)
 
 	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
 	affecting_turfs += L
