@@ -57,7 +57,7 @@
 	spawn(150)
 		user.hacking = 0
 
-/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target in cameranet.cameras)
+/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in cameranet.cameras)
 	set name = "Hack Camera"
 	set desc = "100 CPU - Hacks existing camera, allowing you to add upgrade of your choice to it. Alternatively it lets you reactivate broken camera."
 	set category = "Software"
@@ -68,55 +68,54 @@
 		user << "This is not a camera."
 		return
 
-	if(!target)
-		return
-
 	if(!ability_prechecks(user, price))
 		return
 
-	var/action = input("Select required action: ") in list("Reset", "Add X-Ray", "Add Motion Sensor", "Add EMP Shielding")
-	if(!action || !target)
+	if(!target)
 		return
-
-	switch(action)
-		if("Reset")
-			if(target.wires)
-				if(!ability_pay(user, price))
+	var/action = input("Select required action: ") in list("Reset", "Add X-Ray", "Add Motion Sensor", "Add EMP Shielding")
+	if(target)
+		switch(action)
+			if("Reset")
+				if(target.wires)
+					if(!ability_pay(user, price))
+						return
+					target.reset_wires()
+					user << "Camera reactivated."
+					log_ability_use(user, "hack camera (reset)", target)
 					return
-				target.reset_wires()
-				user << "Camera reactivated."
-				log_ability_use(user, "hack camera (reset)", target)
-				return
-		if("Add X-Ray")
-			if(target.isXRay())
-				user << "Camera already has X-Ray function."
-				return
-			else if(ability_pay(user, price))
-				target.upgradeXRay()
-				target.reset_wires()
-				user << "X-Ray camera module enabled."
-				log_ability_use(user, "hack camera (add X-Ray)", target)
-				return
-		if("Add Motion Sensor")
-			if(target.isMotion())
-				user << "Camera already has Motion Sensor function."
-				return
-			else if(ability_pay(user, price))
-				target.upgradeMotion()
-				target.reset_wires()
-				user << "Motion Sensor camera module enabled."
-				log_ability_use(user, "hack camera (add motion)", target)
-				return
-		if("Add EMP Shielding")
-			if(target.isEmpProof())
-				user << "Camera already has EMP Shielding function."
-				return
-			else if(ability_pay(user, price))
-				target.upgradeEmpProof()
-				target.reset_wires()
-				user << "EMP Shielding camera module enabled."
-				log_ability_use(user, "hack camera (add EMP shielding)", target)
-				return
+			if("Add X-Ray")
+				if(target.isXRay())
+					user << "Camera already has X-Ray function."
+					return
+				else if(ability_pay(user, price))
+					target.upgradeXRay()
+					target.reset_wires()
+					user << "X-Ray camera module enabled."
+					log_ability_use(user, "hack camera (add X-Ray)", target)
+					return
+			if("Add Motion Sensor")
+				if(target.isMotion())
+					user << "Camera already has Motion Sensor function."
+					return
+				else if(ability_pay(user, price))
+					target.upgradeMotion()
+					target.reset_wires()
+					user << "Motion Sensor camera module enabled."
+					log_ability_use(user, "hack camera (add motion)", target)
+					return
+			if("Add EMP Shielding")
+				if(target.isEmpProof())
+					user << "Camera already has EMP Shielding function."
+					return
+				else if(ability_pay(user, price))
+					target.upgradeEmpProof()
+					target.reset_wires()
+					user << "EMP Shielding camera module enabled."
+					log_ability_use(user, "hack camera (add EMP shielding)", target)
+					return
+	else
+		user << "Please pick a suitable camera."
 
 
 /datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T as turf in world)
@@ -125,6 +124,7 @@
 	set category = "Software"
 	var/price = 275
 	var/mob/living/silicon/ai/user = usr
+	set waitfor = FALSE
 	if(!T || !istype(T))
 		return
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
@@ -134,8 +134,8 @@
 	new/obj/machinery/shield/malfai(T)
 	user.hacking = 1
 	log_ability_use(user, "emergency forcefield", T)
-	spawn(20)
-		user.hacking = 0
+	sleep(20)
+	user.hacking = 0
 
 
 /datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in machines)
@@ -144,6 +144,7 @@
 	set category = "Software"
 	var/price = 400
 	var/mob/living/silicon/ai/user = usr
+	set waitfor = FALSE
 
 	if(!ability_prechecks(user, price))
 		return
@@ -207,9 +208,9 @@
 
 	log_ability_use(user, "machine overload", M)
 	M.visible_message("<span class='notice'>BZZZZZZZT</span>")
-	spawn(50)
-		explosion(get_turf(M), round(explosion_intensity/4),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
-		if(M)
-			qdel(M)
+	sleep(50)
+	explosion(get_turf(M), round(explosion_intensity/4),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
+	if(M)
+		qdel(M)
 
 // END ABILITY VERBS
