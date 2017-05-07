@@ -75,6 +75,7 @@ var/list/ai_verbs_default = list(
 	var/APU_power = 0							// If set to 1 AI runs on APU power
 	var/hacking = 0								// Set to 1 if AI is hacking APC, cyborg, other AI, or running system override.
 	var/system_override = 0						// Set to 1 if system override is initiated, 2 if succeeded.
+	var/synthetic_takeover = 0					// 1 is started, 2 is complete.
 	var/hack_can_fail = 1						// If 0, all abilities have zero chance of failing.
 	var/hack_fails = 0							// This increments with each failed hack, and determines the warning message text.
 	var/errored = 0								// Set to 1 if runtime error occurs. Only way of this happening i can think of is admin fucking up with varedit.
