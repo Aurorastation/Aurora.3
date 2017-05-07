@@ -79,6 +79,7 @@
 	var/lighting = 3
 	var/equipment = 3
 	var/environ = 3
+	var/infected = 0
 	var/operating = 1
 	var/charging = 0
 	var/chargemode = 1
@@ -191,7 +192,7 @@
 	if(cell)
 		cell.forceMove(loc)
 		cell = null
-	
+
 	QDEL_NULL(spark_system)
 
 	QDEL_NULL(spark_system)
@@ -373,7 +374,7 @@
 			update_state |= UPDATE_OPENED1
 		if(opened==2)
 			update_state |= UPDATE_OPENED2
-	else if(emagged || hacker || failure_timer)
+	else if(emagged || (hacker && prob(20)) || failure_timer || (hacker && hacker.system_override))
 		update_state |= UPDATE_BLUESCREEN
 	else if(wiresexposed)
 		update_state |= UPDATE_WIREEXP
@@ -646,6 +647,35 @@
 			if (opened==2)
 				opened = 1
 			update_icon()
+	else if (istype(W, /obj/item/device/debugger))
+		if(emagged || hacker || infected)
+			user << "<span class='warning'>There is a software error with the device. Attempting to fix...</span>"
+			if(do_after(user, 10 SECONDS, act_target = src))
+				user << "<span class='notice'>Problem diagnosed, searching for solution...</span>"
+				if(do_after(user, 30 SECONDS, act_target = src))
+					user << "<span class='notice'>Solution found. Applying fixes...</span>"
+					if(do_after(user, 60 SECONDS, act_target = src))
+						if(prob(15))
+							user << "<span class='warning'>Error while applying fixes. Please try again.</span>"
+							return
+					user << "<span class='notice'>Applied default software. Restarting APC...</span>"
+					if(do_after(user, 10 SECONDS, act_target = src))
+						user << "<span class='notice'>APC Reset. Fixes applied.</span>"
+						if(hacker)
+							hacker.hacked_apcs -= src
+							hacker = null
+							update_icon()
+						if(emagged)
+							emagged = 0
+						if(infected)
+							infected = 0
+			else
+				user << "<span class='notice'>There has been a connection issue.</span>"
+				return
+
+		else
+			user << "<span class='notice'>The device's software appears to be fine.</span>"
+			return
 	else
 		if ((stat & BROKEN) \
 				&& !opened \
@@ -726,6 +756,18 @@
 				spark_system.queue()
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
+			if(infected && H.malf_control == 0)
+				infected = 0
+				H.malf_control = 1
+				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
+				hacker << "<span class = 'notice'> Corrupt files transfered to [H]. They are now under your control. This will not last long.</span>"
+				sleep(50)
+				H << "<span class = 'danger'>Corrupt files detected! Starting removal. This will take some time.</span>"
+				sleep(2150)
+				H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
+				H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
+				hacker << "<span class = 'notice'> Corrupt files transfered to [H] have been removed by their systems.</span>"
+				H.malf_control = 0
 			else if(src.cell && src.cell.charge > 0)
 				if(H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)
