@@ -16,14 +16,14 @@
 
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
-	list                     \
-	(                        \
+	list            \
+	(               \
 		1, 1, 1, 0, \
 		1, 1, 1, 0, \
 		1, 1, 1, 0, \
 		1, 1, 1, 0, \
-		0, 0, 0, 1           \
-	)                        \
+		0, 0, 0, 1  \
+	)               \
 
 // Helpers so we can (more easily) control the colour matrices.
 #define CL_MATRIX_RR 1

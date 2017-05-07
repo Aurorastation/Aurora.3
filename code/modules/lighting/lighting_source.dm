@@ -190,6 +190,7 @@
 #define POLAR_TO_CART_Y(R,T) ((R) * sin(T))
 #define PSEUDO_WEDGE(A_X,A_Y,B_X,B_Y) ((A_X)*(B_Y) - (A_Y)*(B_X))
 #define MINMAX(NUM) ((NUM) < 0 ? -round(-(NUM)) : round(NUM))
+#define ARBITRARY_NUMBER 10
 
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
@@ -239,16 +240,18 @@
 				test_x_offset -= 1
 
 	// Convert our angle + range into a vector.
-	limit_a_x = POLAR_TO_CART_X(light_range + 10, limit_a_t)
+	limit_a_x = POLAR_TO_CART_X(light_range + ARBITRARY_NUMBER, limit_a_t)
 	limit_a_x = MINMAX(limit_a_x)
-	limit_a_y = POLAR_TO_CART_Y(light_range + 10, limit_a_t)	// 10 is an arbitrary number, yes.
+	limit_a_y = POLAR_TO_CART_Y(light_range + ARBITRARY_NUMBER, limit_a_t)
 	limit_a_y = MINMAX(limit_a_y)
-	limit_b_x = POLAR_TO_CART_X(light_range + 10, limit_b_t)
+	limit_b_x = POLAR_TO_CART_X(light_range + ARBITRARY_NUMBER, limit_b_t)
 	limit_b_x = MINMAX(limit_b_x)
-	limit_b_y = POLAR_TO_CART_Y(light_range + 10, limit_b_t)
+	limit_b_y = POLAR_TO_CART_Y(light_range + ARBITRARY_NUMBER, limit_b_t)
 	limit_b_y = MINMAX(limit_b_y)
 	// This won't change unless the origin or dir changes, might as well do it here.
 	targ_sign = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y) > 0
+
+#undef ARBITRARY_NUMBER
 
 // I know this is 2D, calling it a cone anyways. Fuck the system.
 // Returns true if the test point is NOT inside the cone.
@@ -274,18 +277,18 @@
 /datum/light_source/proc/remove_lum(var/now = FALSE)
 	applied = FALSE
 
-	for (var/turf/T in affecting_turfs)
-		if (!T.affecting_lights)
-			T.affecting_lights = list()
-		else
-			T.affecting_lights -= src
+	var/thing
+	for (thing in affecting_turfs)
+		var/turf/T = thing
+		LAZYREMOVE(T.affecting_lights, src)
 
 	affecting_turfs = null
 
-	for (var/datum/lighting_corner/C in effect_str)
+	for (thing in effect_str)
+		var/datum/lighting_corner/C = thing
 		REMOVE_CORNER(C,now)
 
-		C.affecting -= src
+		LAZYREMOVE(C.affecting, src)
 
 	effect_str = null
 
