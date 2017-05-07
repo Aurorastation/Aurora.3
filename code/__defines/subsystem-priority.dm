@@ -35,31 +35,25 @@
 #define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
 #define SS_PRIORITY_CALAMITY       80	// Singularity, Tesla, Nar'sie, blob, etc. 
-#define SS_PRIORITY_AIR            75	// ZAS processing.
 #define SS_PRIORITY_EVENT          70
-#define SS_PRIORITY_AIRFLOW        65	// Handles object movement due to ZAS airflow.
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.
 #define SS_PRIORITY_ALARMS         50
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
+#define SS_PRIORITY_EFFECTS        35	// Effect master (Sparks)
 #define SS_PRIORITY_ICON_UPDATE    30	// Queued icon updates. Mostly used by APCs.
+#define SS_PRIORITY_AIR            25	// ZAS processing.
 #define SS_PRIORITY_LIGHTING       20	// Queued lighting engine updates.
-#define SS_PRIORITY_AIRFLOW        15
+#define SS_PRIORITY_AIRFLOW        15	// Handles object movement due to ZAS airflow.
 
 // SS_BACKGROUND
-#define SS_PRIORITY_EFFECTS       10	// Effect master (Sparks)
-#define SS_PRIORITY_OPENTURF       9	// Open turf icon generation/updates.
-#define SS_PRIORITY_EXPLOSIVES     8	// Explosion processor. Doesn't have much effect on explosion tick-checking.
-#define SS_PRIORITY_WIRELESS       7
-#define SS_PRIORITY_ARRIVALS       6	// Centcomm arrivals shuttle auto-launch.
-#define SS_PRIORITY_MODIFIER       5
-
-// SS_BACKGROUND
-#define SS_PRIORITY_PROCESSING     11	// Generic datum processor. Replaces objects processor.
-#define SS_PRIORITY_OBJECTS        10
-#define SS_PRIORITY_DISPOSALS      9	// Disposal holder movement.
-#define SS_PRIORITY_EFFECTS        8	// Effect master (Sparks)
-#define SS_PRIORITY_EXPLOSIVES     7	// Explosion processor. Doesn't have much effect on explosion tick-checking.
-#define SS_PRIORITY_WIRELESS       6	// Handles pairing of wireless devices. Usually will be asleep.
+#define SS_PRIORITY_MODIFIER      18
+#define SS_PRIORITY_ARRIVALS      16	// Centcomm arrivals shuttle auto-launch.
+#define SS_PRIORITY_PROCESSING    15	// Generic datum processor. Replaces objects processor.
+#define SS_PRIORITY_OBJECTS       15
+#define SS_PRIORITY_EXPLOSIVES    13	// Explosion processor. Doesn't have much effect on explosion tick-checking.
+#define SS_PRIORITY_DISPOSALS     12	// Disposal holder movement.
+#define SS_PRIORITY_WIRELESS      12	// Handles pairing of wireless devices. Usually will be asleep.
+#define SS_PRIORITY_OPENTURF      10	// Open turf icon generation/updates.
 #define SS_PRIORITY_NIGHT          5	// Nightmode.
 #define SS_PRIORITY_STATISTICS     4	// Player population polling & AFK kick.
 #define SS_PRIORITY_SUN            3	// Sun movement & Solar tracking.

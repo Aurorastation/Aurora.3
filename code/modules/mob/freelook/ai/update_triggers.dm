@@ -13,10 +13,13 @@
 		if(provides_camera_vision())
 			if(!updating)
 				updating = 1
-				spawn(BORG_CAMERA_BUFFER)
-					if(oldLoc != src.loc)
-						cameranet.updatePortableCamera(src.camera)
-					updating = 0
+				addtimer(CALLBACK(src, .proc/camera_post_move, oldLoc), BORG_CAMERA_BUFFER)
+
+/mob/living/silicon/robot/proc/camera_post_move(oldLoc)
+	if (oldLoc != loc)
+		cameranet.updatePortableCamera(camera)
+
+	updating = 0
 
 /mob/living/silicon/ai/Move()
 	var/oldLoc = src.loc
@@ -47,11 +50,8 @@
 /obj/machinery/camera/Initialize()
 	. = ..()
 	//Camera must be added to global list of all cameras no matter what...
-	if(cameranet.cameras_unsorted)
-		cameranet.cameras += src
-		cameranet.cameras_unsorted = 1
-	else
-		dd_insertObjectList(cameranet.cameras, src)
+	cameranet.cameras += src
+	cameranet.cameras_unsorted = TRUE
 	update_coverage(1)
 
 /obj/machinery/camera/Destroy()
