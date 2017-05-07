@@ -2067,6 +2067,10 @@ area/space/atmosalert()
 	name = "\improper Telecommunications Power Control"
 	icon_state = "tcomsatwest"
 
+/area/tcommsat/mainlvl_tcomms__relay
+	name = "\improper Telecommucations Main Level Relay"
+	icon_state = "tcomsatcham"
+
 /////////////////////////////////////////////////////////////////////
 /*
  Lists of areas to be used with is_type_in_list.
