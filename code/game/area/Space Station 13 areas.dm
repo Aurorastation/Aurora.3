@@ -499,7 +499,7 @@ area/space/atmosalert()
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/arrivals_dock
-	name = "\improper Docked with station"
+	name = "\improper Docked with Station"
 	icon_state = "shuttle"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
