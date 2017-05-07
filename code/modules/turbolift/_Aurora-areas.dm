@@ -184,7 +184,7 @@
 
 /area/turbolift/medical_sub
 	name = "Medical Lift - Sub"
-	lift_announce_str = "Arriving at the Medical Sub-Level. Facilities in this floor include: Virology, Patient Ward, Patient Acute Rooms, Cafeteria, Long-term Morgue, Staff Wing.
+	lift_announce_str = "Arriving at the Medical Sub-Level. Facilities in this floor include: Virology, Patient Ward, Patient Acute Rooms, Cafeteria, Long-term Morgue, Staff Wing."
 
 	lift_floor_label = "Sub-Level (Medical)"
 	lift_floor_name = "Sub-Level (Medical)"
