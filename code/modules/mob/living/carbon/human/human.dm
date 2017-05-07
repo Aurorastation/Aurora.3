@@ -9,7 +9,6 @@
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
-	var/malf_control = 0 // for IPC's only
 
 /mob/living/carbon/human/New(var/new_loc, var/new_species = null)
 	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
