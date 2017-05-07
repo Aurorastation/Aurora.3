@@ -768,9 +768,10 @@
 				sleep(50)
 				H << "<span class = 'danger'>Corrupt files detected! Starting removal. This will take some time.</span>"
 				sleep(2150)
-				H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
-				H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
-				hacker << "<span class = 'notice'> Corrupt files transfered to [H] have been removed by their systems.</span>"
+				if(H)
+					H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
+					H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
+					hacker << "<span class = 'notice'> Corrupt files transfered to [H] have been removed by their systems.</span>"
 				hacked_ipcs -= H
 
 			else if(src.cell && src.cell.charge > 0)
