@@ -91,7 +91,7 @@
 	var/obj/machinery/power/terminal/terminal = null
 	var/lastused_light = 0
 	var/lastused_equip = 0
-	var/static/list/hacked_ipcs = list()
+	var/static/list/hacked_ipcs
 	var/lastused_environ = 0
 	var/lastused_charging = 0
 	var/lastused_total = 0
@@ -759,20 +759,18 @@
 				H.adjustFireLoss(10, 0)
 			if(infected)
 				if(H in hacked_ipcs)
-					H << "<span class = 'notice'> Unable to interface with APC.</span>"
 					return
-				hacked_ipcs += H
+				LAZYADD(hacked_ipcs, "\ref[H]")
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
 				hacker << "<span class = 'notice'> Corrupt files transfered to [H]. They are now under your control. This will not last long.</span>"
 				sleep(50)
 				H << "<span class = 'danger'>Corrupt files detected! Starting removal. This will take some time.</span>"
 				sleep(2150)
-				if(H)
-					H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
-					H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
-					hacker << "<span class = 'notice'> Corrupt files transfered to [H] have been removed by their systems.</span>"
-				hacked_ipcs -= H
+				H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
+				H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
+				hacker << "<span class = 'notice'> Corrupt files transfered to [H] have been removed by their systems.</span>"
+				LAZYREMOVE(hacked_ipcs, "\ref[H]")
 
 			else if(src.cell && src.cell.charge > 0)
 				if(H.nutrition < H.max_nutrition)
