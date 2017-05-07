@@ -58,7 +58,7 @@
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
-		for(var/mob/living/silicon/robot/R in world)
+		for(var/mob/living/silicon/robot/R in silicon_mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))	// No drones.
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
@@ -175,7 +175,7 @@
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
-		for(var/mob/living/silicon/robot/R in world)
+		for(var/mob/living/silicon/robot/R in silicon_mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))	// No drones.
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
@@ -268,7 +268,8 @@
 	user << "All unslaved borgs have been slaved to you. Now hacking unslaved AI's."
 	sleep(300) // 30 second delay for balance purposes
 	//hack ai's
-	for(var/mob/living/silicon/ai/target in get_other_ais(user))
+	for(var/A in get_other_ais(user))
+		var/mob/living/silicon/ai/target = A
 		target << "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#"
 		sleep(100)
 		if(user.is_dead())
@@ -313,7 +314,8 @@
 	user << "All unhacked AI's have been slaved to you. Now upgrading slaved borgs..."
 	command_announcement.Announce("There has recently been a security breach in the network firewall, the intruder has been shut out but we are unable to trace who did it or what they did.", "Network Monitoring")
 	sleep(600) //1 minute delay for balance purposes
-	for(var/mob/living/silicon/robot/target in get_linked_cyborgs(user))
+	for(var/A in get_linked_cyborgs(user))
+		var/mob/living/silicon/robot/target = A
 		target << "Command ping received, operating parameters being upgraded..."
 		//give them the overclock if they don't have it
 		if(!target.overclockavailable)
