@@ -396,8 +396,9 @@
 			ToggleOverClock(src)
 			usr << "You disable the overclock mode."
 
-/mob/living/silicon/robot/proc/ToggleOverClock()
-	var/mob/living/silicon/robot/R = usr
+/mob/living/silicon/robot/proc/ToggleOverClock(var/mob/living/silicon/robot/R)
+	if(!R)
+		return
 	if(overclocked == 0)
 		//Give them some taser speed if they have a taser.
 		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
