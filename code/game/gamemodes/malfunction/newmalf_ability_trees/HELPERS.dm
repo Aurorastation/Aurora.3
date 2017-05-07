@@ -190,7 +190,7 @@
 // Proc: get_apcs()
 // Parameters: None
 // Description: Returns a list of all APCs
-/proc/get_apcs(var/mob/living/silicon/ai/user)
+/proc/get_apcs()
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
 		H.Add(A)
