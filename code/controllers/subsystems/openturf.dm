@@ -98,10 +98,16 @@
 		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
 			if (config.starlight)
-				T.set_light(config.starlight, 0.5)
+				for (var/thing in RANGE_TURFS(1, T))
+					var/turf/RT = thing
+					if (!RT.dynamic_lighting || istype(RT, /turf/simulated/open))
+						continue
+
+					T.set_light(config.starlight, 0.5)
+					break
 		else
 			T.plane = OPENTURF_MAX_PLANE - depth
-			if (config.starlight)
+			if (config.starlight && T.light_range != 0)
 				T.set_light(0)
 
 		// Add everything below us to the update queue.
