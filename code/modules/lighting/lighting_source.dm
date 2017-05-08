@@ -393,21 +393,41 @@
 		LAZYREMOVE(T.affecting_lights, src)
 
 	LAZYINITLIST(effect_str)
-	// New corners.
-	for (thing in (needs_update == LIGHTING_VIS_UPDATE ? corners - effect_str : corners))
-		C = thing
-		LAZYADD(C.affecting, src)
-		if (!C.active)
-			effect_str[C] = 0
-			continue
+	if (needs_update == LIGHTING_VIS_UPDATE)
+		for (thing in corners - effect_str)
+			C = thing
+			LAZYADD(C.affecting, src)
+			if (!C.active)
+				effect_str[C] = 0
+				continue
 
-		APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_XY(C, now, Sx, Sy)
+	else
+		L = corners - effect_str
+		for (thing in L)
+			C = thing
+			LAZYADD(C.affecting, src)
+			if (!C.active)
+				effect_str[C] = 0
+				continue
 
-	for (thing in effect_str - corners) // Old, now gone, corners.
+			APPLY_CORNER_XY(C, now, Sx, Sy)
+
+		for (thing in corners - L)
+			C = thing
+			if (!C.active)
+				effect_str[C] = 0
+				continue
+
+			APPLY_CORNER_XY(C, now, Sx, Sy)
+
+	L = effect_str - corners
+	for (thing in L)
 		C = thing
 		REMOVE_CORNER(C, now)
 		LAZYREMOVE(C.affecting, src)
-		effect_str -= C
+
+	effect_str -= L
 
 	applied_lum_r = lum_r
 	applied_lum_g = lum_g
