@@ -33,14 +33,16 @@
 			return
 
 /obj/item/weapon/clipboard/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(toppaper)
-		overlays += toppaper.icon_state
-		overlays += toppaper.overlays
+		add_overlay(toppaper.icon_state)
+		// The overlay list is a special internal format.
+		// We need to copy it into a normal list before we can give it to SSoverlay.
+		var/list/paper_overlays = toppaper.overlays.Copy()
+		add_overlay(paper_overlays)
 	if(haspen)
-		overlays += "clipboard_pen"
-	overlays += "clipboard_over"
-	return
+		add_overlay("clipboard_pen")
+	add_overlay("clipboard_over")
 
 /obj/item/weapon/clipboard/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	

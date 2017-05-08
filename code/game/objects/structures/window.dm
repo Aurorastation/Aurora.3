@@ -91,14 +91,15 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) getFromPool(/obj/item/stack/rods, loc)
+			if(reinf) 
+				new /obj/item/stack/rods(loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) getFromPool(/obj/item/stack/rods, loc)
+		if(reinf) 
+			new /obj/item/stack/rods(loc)
 	qdel(src)
 	return
-
 
 /obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
 
@@ -325,8 +326,8 @@
 	update_nearby_tiles(need_rebuild=1)
 	return
 
-/obj/structure/window/New(Loc, start_dir=null, constructed=0)
-	..()
+/obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
+	. = ..()
 
 	//player-constructed windows
 	if (constructed)
@@ -351,7 +352,7 @@
 	for(var/obj/structure/window/W in orange(location, 1))
 		W.update_icon()
 	loc = location
-	..()
+	return ..()
 
 
 /obj/structure/window/Move()

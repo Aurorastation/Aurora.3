@@ -71,7 +71,7 @@
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
 		priv_all_access_datums = init_subtypes(/datum/access)
-		priv_all_access_datums = dd_sortedObjectList(priv_all_access_datums)
+		sortTim(priv_all_access_datums, /proc/cmp_access, FALSE)
 
 	return priv_all_access_datums
 

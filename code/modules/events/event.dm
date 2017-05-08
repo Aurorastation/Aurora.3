@@ -29,7 +29,7 @@
 	if(!enabled)
 		return 0
 
-	if(excluded_gamemodes.len && (ticker.mode in excluded_gamemodes))
+	if(excluded_gamemodes.len && (SSticker.mode in excluded_gamemodes))
 		// There's no way it'll be run this round anyways.
 		enabled = 0
 		return 0
@@ -116,7 +116,7 @@
 
 //Do not override this proc, instead use the appropiate procs.
 //This proc will handle the calls to the appropiate procs.
-/datum/event/proc/process()
+/datum/event/process()
 	if(activeFor > startWhen && activeFor < endWhen)
 		tick()
 

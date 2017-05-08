@@ -75,7 +75,7 @@ steam.start() -- spawns the effect
 			spawn(0)
 				if(holder)
 					src.location = get_turf(holder)
-				var/obj/effect/effect/steam/steam = getFromPool(/obj/effect/effect/steam, src.location)
+				var/obj/effect/effect/steam/steam = new /obj/effect/effect/steam(src.location)
 				var/direction
 				if(src.cardinals)
 					direction = pick(cardinal)
@@ -84,8 +84,7 @@ steam.start() -- spawns the effect
 				for(i=0, i<pick(1,2,3), i++)
 					sleep(5)
 					step(steam,direction)
-				spawn(20)
-					qdel(steam)
+				QDEL_IN(steam, 20)
 
 /////////////////////////////////////////////
 //// SMOKE SYSTEMS
@@ -112,8 +111,18 @@ steam.start() -- spawns the effect
 	..()
 	if (duration)
 		time_to_live = duration
-	spawn (time_to_live)
-		qdel(src)
+	addtimer(CALLBACK(src, .proc/kill), time_to_live)
+
+/obj/effect/effect/smoke/proc/kill()
+	set waitfor = FALSE
+	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
+	set_opacity(FALSE)
+
+	var/turf/T = get_turf(src)
+	if (T)
+		T.force_update_lights()	// I hate it, but nothing else seems to work.
+	
+	QDEL_IN(src, 2 SECONDS)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
 	..()
@@ -259,7 +268,7 @@ steam.start() -- spawns the effect
 		spawn(0)
 			if(holder)
 				src.location = get_turf(holder)
-			var/obj/effect/effect/smoke/smoke = getFromPool(smoke_type, src.location)
+			var/obj/effect/effect/smoke/smoke = new smoke_type(src.location)
 			src.total_smoke++
 			var/direction = src.direction
 			if(!direction)
@@ -271,8 +280,8 @@ steam.start() -- spawns the effect
 				sleep(10)
 				step(smoke,direction)
 			spawn(smoke.time_to_live*0.75+rand(10,30))
-				if (smoke) qdel(smoke)
 				src.total_smoke--
+				qdel(smoke)
 
 
 /datum/effect/effect/system/smoke_spread/bad
@@ -317,13 +326,14 @@ steam.start() -- spawns the effect
 				var/turf/T = get_turf(src.holder)
 				if(T != src.oldposition)
 					if(istype(T, /turf/space))
-						var/obj/effect/effect/ion_trails/I = getFromPool(/obj/effect/effect/ion_trails, src.oldposition)
+						var/obj/effect/effect/ion_trails/I = new /obj/effect/effect/ion_trails(src.oldposition)
 						src.oldposition = T
 						I.set_dir(src.holder.dir)
 						flick("ion_fade", I)
 						I.icon_state = "blank"
-						spawn( 20 )
-							qdel(I)
+						animate(I, alpha = 0, time = 18, easing = SINE_EASING | EASE_IN)
+						QDEL_IN(I, 20)
+
 					spawn(2)
 						if(src.on)
 							src.processing = 1
@@ -363,7 +373,7 @@ steam.start() -- spawns the effect
 			src.processing = 0
 			spawn(0)
 				if(src.number < 3)
-					var/obj/effect/effect/steam/I = getFromPool(/obj/effect/effect/steam, src.oldposition)
+					var/obj/effect/effect/steam/I = new /obj/effect/effect/steam(src.oldposition)
 					src.number++
 					src.oldposition = get_turf(holder)
 					I.set_dir(src.holder.dir)

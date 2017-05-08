@@ -19,7 +19,7 @@
 	disconnect_from_network()
 	disconnect_terminal()
 
-	..()
+	return ..()
 
 ///////////////////////////////
 // General procedures
@@ -190,6 +190,10 @@
 			. += C
 	return .
 
+/obj/machinery/power/shuttle_move(turf/loc)
+	..()
+	SSmachinery.powernet_update_queued = TRUE
+
 ///////////////////////////////////////////
 // GLOBAL PROCS for powernets handling
 //////////////////////////////////////////
@@ -232,9 +236,6 @@
 				else if(C.d1 == d || C.d2 == d)
 					. += C
 	return .
-
-/hook/startup/proc/buildPowernets()
-	return makepowernets()
 
 // rebuild all power networks from scratch - only called at world creation or by the admin verb
 /proc/makepowernets()

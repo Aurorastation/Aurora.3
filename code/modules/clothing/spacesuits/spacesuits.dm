@@ -31,8 +31,8 @@
 	light_wedge = LIGHT_WIDE
 	on = 0
 
-/obj/item/clothing/head/helmet/space/initialize()
-	..()
+/obj/item/clothing/head/helmet/space/Initialize()
+	. = ..()
 	if(camera_networks && camera_networks.len)
 		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
 

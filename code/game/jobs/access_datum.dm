@@ -4,9 +4,6 @@
 	var/region = ACCESS_REGION_NONE
 	var/access_type = ACCESS_TYPE_STATION
 
-/datum/access/dd_SortValue()
-	return "[access_type][desc]"
-
 /*****************
 * Station access *
 *****************/

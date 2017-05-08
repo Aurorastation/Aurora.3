@@ -20,8 +20,8 @@ fundamental differences
 	..()
 	user << span("notice", "It is currently set to make a [selected_option]")
 
-/obj/machinery/appliance/mixer/New()
-	..()
+/obj/machinery/appliance/mixer/Initialize()
+	. = ..()
 	cooking_objs.Add(new /datum/cooking_item/(new /obj/item/weapon/reagent_containers/cooking_container(src)))
 	cooking = 0
 	selected_option = pick(output_options)

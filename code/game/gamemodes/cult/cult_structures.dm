@@ -273,7 +273,7 @@
 		//If the sacrifice was deleted somehow, we cant know exactly what happened. We'll assume it escaped
 		.=-1
 
-	else if(get_dist(src, sacrifice) > 5)
+	else if(get_dist(src, get_turf(sacrifice)) > 5)
 		//If the sacrifice gets more than 5 tiles away, it has escaped
 		.=-1
 	else if (sacrifice.stat == DEAD)
@@ -290,7 +290,11 @@
 			if (sacrifice)
 				walk_to(sacrifice,0)
 		else
-			walk_towards(sacrifice,src, 10)
+			if (istype(sacrifice.loc, /turf) && !(sacrifice.is_ventcrawling) && !(sacrifice.buckled))
+				//Suck the creature towards the pylon if possible
+				walk_towards(sacrifice,src, 10)
+			else
+				walk_to(sacrifice,0) //If we're not in a valid situation, cancel walking to prevent bugginess
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
 	sacrifice.visible_message(span("danger","\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
@@ -549,18 +553,18 @@
 
 
 /obj/structure/cult/pylon/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if (pylonmode == 2)
 		anchored = 1
 		if (empowered > 0)
-			overlays += "crystal_overcharge"
+			add_overlay("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
 			set_light(6, 3, l_color = "#3e0000")
-			overlays += "crystal_turret"
+			add_overlay("crystal_turret")
 	else if (!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
-		overlays += "crystal_idle"
+		add_overlay("crystal_idle")
 		if (pylonmode == 1)
 			anchored = 1
 		else
@@ -629,10 +633,12 @@
 	return
 
 /obj/effect/gateway/active/New()
-	spawn(rand(30,60) SECONDS)
-		var/t = pick(spawnable)
-		new t(src.loc)
-		qdel(src)
+	addtimer(CALLBACK(src, .proc/do_spawn), rand(30, 60) SECONDS)
+
+/obj/effect/gateway/active/proc/do_spawn()
+	var/thing = pick(spawnable)
+	new thing(src.loc)
+	qdel(src)
 
 /obj/effect/gateway/active/Crossed(var/atom/A)
 	if(!istype(A, /mob/living))

@@ -22,7 +22,7 @@
 	if(holder_atom)
 		processing_objects.Add(src)
 
-/datum/talking_atom/proc/process()
+/datum/talking_atom/process()
 	if(!holder_atom)
 		processing_objects.Remove(src)
 

@@ -39,7 +39,7 @@
 		if(stage > 1 && !active && clown_check(user))
 			user << "<span class='warning'>You prime \the [name]!</span>"
 
-			msg_admin_attack("[user.name] ([user.ckey]) primed \a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+			msg_admin_attack("[user.name] ([user.ckey]) primed \a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 
 			activate()
 			add_fingerprint(user)
@@ -132,7 +132,7 @@
 			icon_state = initial(icon_state) + "_active"
 
 			if(user)
-				msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+				msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 
 		return
 
@@ -181,9 +181,9 @@
 			C.throw_mode_off()
 
 		invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
-		spawn(50)		   //To make sure all reagents can work
-			qdel(src)	   //correctly before deleting the grenade.
-
+		//To make sure all reagents can work
+		//correctly before deleting the grenade.
+		QDEL_IN(src, 50)  
 
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large chem grenade"

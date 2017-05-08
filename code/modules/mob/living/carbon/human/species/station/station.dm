@@ -403,7 +403,7 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain,
 		"cell" = /obj/item/organ/cell,
-		"optics" = /obj/item/organ/optical_sensor,
+		"optics" = /obj/item/organ/eyes/optical_sensor,
 		"ipc tag" = /obj/item/organ/ipc_tag
 		)
 

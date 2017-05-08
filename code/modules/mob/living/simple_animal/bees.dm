@@ -28,7 +28,11 @@
 /mob/living/simple_animal/bee/Destroy()
 	if(parent)
 		parent.owned_bee_swarms.Remove(src)
-	..()
+	my_hydrotray = null
+	parent = null
+	target_turf = null
+	target_mob = null
+	return ..()
 
 
 //Special death behaviour. When bees accumulate enough damage to 'die', they don't outright die.  Thus no call to parent
@@ -36,7 +40,7 @@
 //Repeat until strength hits zero. only THEN do they die, and they qdel and leave no corpse in doing so
 //Because we don't have sprites for a carpet made of bee corpses.
 /mob/living/simple_animal/bee/death()
-	if (!gcDestroyed)
+	if (!QDELING(src))
 		strength -= 1
 		if (strength <= 0)
 			if (prob(35))//probability to reduce spam

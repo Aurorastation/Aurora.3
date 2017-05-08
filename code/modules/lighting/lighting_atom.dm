@@ -57,15 +57,13 @@
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
 /atom/proc/update_light()
 	set waitfor = FALSE
-	if (gcDestroyed)
+	if (QDELING(src))
 		return
 
 	L_PROF(src, "atom_update")
 
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
-		if(light)
-			light.destroy()
-			light = null
+		QDEL_NULL(light)
 	else
 		if (!istype(loc, /atom/movable)) // We choose what atom should be the top atom of the light here.
 			. = src
@@ -76,24 +74,6 @@
 			light.update(.)
 		else
 			light = new/datum/light_source(src, .)
-
-// Incase any lighting vars are on in the typepath we turn the light on in New().
-/atom/New()
-	. = ..()
-
-	if (light_power && light_range)
-		update_light()
-
-	if (opacity && isturf(loc))
-		var/turf/T = loc
-		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
-
-// Destroy our light source so we GC correctly.
-/atom/Destroy()
-	if (light)
-		light.destroy()
-		light = null
-	. = ..()
 
 // If we have opacity, make sure to tell (potentially) affected light sources.
 /atom/movable/Destroy()
@@ -131,14 +111,14 @@
 /atom/Entered(var/atom/movable/Obj, var/atom/OldLoc) //Implemented here because forceMove() doesn't call Move()
 	. = ..()
 
-	if (Obj && OldLoc != src)
+	if (Obj && OldLoc != src && Obj.light_sources && Obj.light_sources.len)
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
 			L.source_atom.update_light()
 
 /atom/Exited(var/atom/movable/Obj, var/atom/newloc)
 	. = ..()
 
-	if (!newloc && Obj && newloc != src) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
+	if (!newloc && Obj && newloc != src && Obj.light_sources && Obj.light_sources.len) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
 		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
 			L.source_atom.update_light()
 
@@ -148,3 +128,4 @@
 	for (var/datum/light_source/L in src.light_sources)
 		if (L.light_angle)
 			L.source_atom.update_light()
+

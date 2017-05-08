@@ -112,7 +112,7 @@
 	recipient << browse(output,"window=memory")
 
 /datum/mind/proc/edit_memory()
-	if(!ticker || !ticker.mode)
+	if(!ROUND_IS_STARTED)
 		alert("Not before round-start!", "Alert")
 		return
 
@@ -152,7 +152,7 @@
 		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
 		if(antag)
 			if(antag.add_antagonist(src, 1, 1, 0, 1, 1)) // Ignore equipment and role type for this.
-				log_admin("[key_name_admin(usr)] made [key_name(src)] into a [antag.role_text].")
+				log_admin("[key_name_admin(usr)] made [key_name(src)] into a [antag.role_text].",admin_key=key_name_admin(usr),ckey=key_name(src))
 			else
 				usr << "<span class='warning'>[src] could not be made into a [antag.role_text]!</span>"
 
@@ -211,7 +211,7 @@
 				var/objective_type = "[objective_type_capital][objective_type_text]"//Add them together into a text string.
 
 				var/list/possible_targets = list("Free objective")
-				for(var/datum/mind/possible_target in ticker.minds)
+				for(var/datum/mind/possible_target in SSticker.minds)
 					if ((possible_target != src) && istype(possible_target.current, /mob/living/carbon/human))
 						possible_targets += possible_target.current
 
@@ -326,11 +326,11 @@
 							qdel(I)
 							break
 				H << "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>"
-				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].")
+				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			if("add")
 				H << "<span class='danger'><font size =3>You somehow have become the recepient of a loyalty transplant, and it just activated!</font></span>"
 				H.implant_loyalty(H, override = TRUE)
-				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
+				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			else
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
@@ -351,7 +351,7 @@
 					else if(R.module_state_3 == R.module.emag)
 						R.module_state_3 = null
 						R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemag'ed [R].")
+					log_admin("[key_name_admin(usr)] has unemag'ed [R].",admin_key=key_name(usr),ckey_target=key_name(R))
 
 			if("unemagcyborgs")
 				if (istype(current, /mob/living/silicon/ai))
@@ -370,7 +370,7 @@
 							else if(R.module_state_3 == R.module.emag)
 								R.module_state_3 = null
 								R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemag'ed [ai]'s Cyborgs.")
+					log_admin("[key_name_admin(usr)] has unemag'ed [ai]'s Cyborgs.",admin_key=key_name_admin(usr),ckey_target=key_name(ai))
 
 	else if (href_list["common"])
 		switch(href_list["common"])
@@ -471,10 +471,7 @@
 	else
 		mind = new /datum/mind(key)
 		mind.original = src
-		if(ticker)
-			ticker.minds += mind
-		else
-			world.log << "## DEBUG: mind_initialize(): No ticker ready yet! Please inform Carn"
+		SSticker.minds += mind
 	if(!mind.name)	mind.name = real_name
 	mind.current = src
 

@@ -360,6 +360,8 @@
 
 
 /obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
+	if(!AM.simulated)
+		return
 	if(istype(AM, /obj/effect))
 		return
 	if(istype(AM, /mob/living))

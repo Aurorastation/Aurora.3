@@ -72,6 +72,7 @@
 
 	var/opened = 0
 	var/emagged = 0
+	var/fakeemagged = 0 //for dumb illegal weapons module
 	var/wiresexposed = 0
 	var/locked = 1
 	var/has_power = 1
@@ -128,6 +129,8 @@
 	icontype = "Basic"
 	updatename(modtype)
 	updateicon()
+	if(mmi && mmi.brainobj)
+		mmi.brainobj.lobotomized = 1
 
 	radio = new /obj/item/device/radio/borg(src)
 	common_radio = radio
@@ -762,30 +765,28 @@
 	return 0
 
 /mob/living/silicon/robot/updateicon()
-	overlays.Cut()
+	cut_overlays()
 
 	if(stat == CONSCIOUS)
-		overlays += "eyes-[module_sprites[icontype]]"
-
+		add_overlay("eyes-[module_sprites[icontype]]")
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
 		if(wiresexposed)
-			overlays += "[panelprefix]-openpanel +w"
+			add_overlay("[panelprefix]-openpanel +w")
 		else if(cell)
-			overlays += "[panelprefix]-openpanel +c"
+			add_overlay("[panelprefix]-openpanel +c")
 		else
-			overlays += "[panelprefix]-openpanel -c"
+			add_overlay("[panelprefix]-openpanel -c")
 
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		overlays += "[module_sprites[icontype]]-shield"
+		add_overlay("[module_sprites[icontype]]-shield")
 
 	if(modtype == "Combat")
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
 			icon_state = "[module_sprites[icontype]]-roll"
 		else
 			icon_state = module_sprites[icontype]
-		return
 
 /mob/living/silicon/robot/proc/installed_modules()
 	if(weapon_lock)
@@ -954,6 +955,12 @@
 	gib()
 	return
 
+/mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
+	. = ..()
+	if (lockcharge)
+		canmove = 0
+		. = 0
+
 /mob/living/silicon/robot/proc/UnlinkSelf()
 	disconnect_from_ai()
 	lawupdate = 0
@@ -1114,7 +1121,7 @@
 		return
 
 	if(opened)//Cover is open
-		if(emagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
+		if(emagged && !fakeemagged)	return//Prevents the X has hit Y with Z message also you cant emag them twice
 		if(wiresexposed)
 			user << "You must close the panel first"
 			return
@@ -1122,11 +1129,13 @@
 			sleep(6)
 			if(prob(50))
 				emagged = 1
+				if(fakeemagged)
+					fakeemagged = 0
 				lawupdate = 0
 				disconnect_from_ai()
 				user << "You emag [src]'s interface."
 				message_admins("[key_name_admin(user)] emagged cyborg [key_name_admin(src)].  Laws overridden.")
-				log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.")
+				log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
 				clear_supplied_laws()
 				clear_inherent_laws()
 				laws = new /datum/ai_laws/syndicate_override

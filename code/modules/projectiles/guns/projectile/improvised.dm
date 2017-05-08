@@ -17,9 +17,10 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
+	var/fail_chance = 35
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
-	if(prob(35))
+	if(prob(fail_chance))
 		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
 		M.take_organ_damage(0,30)
 		M.drop_item()
@@ -30,7 +31,7 @@
 
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(w_class > 3 && (istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/pickaxe/plasmacutter)))
+	if(w_class == 3 && (istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/gun/energy/plasmacutter)))
 		user << "<span class='notice'>You begin to shorten the barrel of \the [src].</span>"
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
@@ -48,6 +49,15 @@
 			user << "<span class='warning'>You shorten the barrel of \the [src]!</span>"
 	else
 		..()
+
+/obj/item/weapon/gun/projectile/shotgun/improvised/examine(mob/user)
+	..(user)
+	switch(fail_chance)
+		if(1) user << "All craftsmanship is of the highest quality."
+		if(2 to 25) user << "All craftsmanship is of high quality."
+		if(26 to 50) user << "All craftsmanship is of average quality."
+		if(51 to 75) user << "All craftsmanship is of low quality."
+		if(100) user << "All craftsmanship is of the lowest quality."
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
@@ -115,7 +125,8 @@
 		if(buildstate == 3)
 			if(C.use(10))
 				user << "<span class='notice'>You tie the lengths of cable to the shotgun, making a sling.</span>"
-				new /obj/item/weapon/gun/projectile/shotgun/improvised(get_turf(src))
+				var/obj/item/weapon/gun/projectile/shotgun/improvised/G = new(get_turf(src))
+				G.fail_chance = rand(1,100)
 				qdel(src)
 			else
 				user << "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!.</span>"
@@ -141,6 +152,15 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	jam_chance = 20
+
+/obj/item/weapon/gun/projectile/improvised_handgun/examine(mob/user)
+	..(user)
+	switch(jam_chance)
+		if(1) user << "All craftsmanship is of the highest quality."
+		if(2 to 25) user << "All craftsmanship is of high quality."
+		if(26 to 50) user << "All craftsmanship is of average quality."
+		if(51 to 75) user << "All craftsmanship is of low quality."
+		if(100) user << "All craftsmanship is of the lowest quality."
 
 /obj/item/weapon/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
@@ -182,6 +202,29 @@
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				user << "<span class='notice'>You shorten the barrel with the welding tool.</span>"
-				new /obj/item/weapon/gun/projectile/improvised_handgun(get_turf(src))
+				var/obj/item/weapon/gun/projectile/improvised_handgun/G = new(get_turf(src))
+				G.jam_chance = rand(1,100)
 				qdel(src)
 		..()
+
+/obj/item/weapon/gun/projectile/automatic/improvised
+	name = "improvised machine pistol"
+	desc = "An improvised automatic handgun. Uses .45 rounds."
+	icon = 'icons/obj/improvised.dmi'
+	icon_state = "ismg"
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/c45uzi
+	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)
+	max_shells = 16
+	caliber = ".45"
+	sel_mode = 1
+	accuracy = -5
+	fire_delay = 5
+	burst = 3
+	burst_delay = 0
+	move_delay = 0
+	fire_delay = 2
+	dispersion = list(1.0, -1.0, 2.0, -2.0)
+	jam_chance = 20
+	
+	firemodes = null

@@ -312,10 +312,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
  *	The Actual PDA
  */
 
-/obj/item/device/pda/New()
-	..()
+/obj/item/device/pda/Initialize()
+	. = ..()
 	PDAs += src
-	PDAs = sortAtom(PDAs)
+	sortTim(PDAs, /proc/cmp_text_asc)
 	if(default_cartridge)
 		cartridge = new default_cartridge(src)
 	new /obj/item/weapon/pen(src)
@@ -853,11 +853,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							U.show_message("<span class='warning'>Energy feeds back into your [src]!</span>", 1)
 							ui.close()
 							detonate_act(src)
-							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge but failed, blowing themselves up")
+							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge but failed, blowing themselves up",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge but failed.", 1)
 						else
 							U.show_message("<span class='notice'>Success!</span>", 1)
-							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded")
+							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded.", 1)
 							detonate_act(P)
 					else
@@ -908,9 +908,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/update_icon()
 	..()
 
-	overlays.Cut()
+	cut_overlays()
 	if(new_message || new_news)
-		overlays += image('icons/obj/pda.dmi', "pda-r")
+		add_overlay("pda-r")
 
 /obj/item/device/pda/proc/detonate_act(var/obj/item/device/pda/P)
 	//TODO: sometimes these attacks show up on the message server
@@ -1084,7 +1084,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>)"
 	new_info(message_silent, ttone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]")
+	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 	update_icon()
 
@@ -1096,7 +1096,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>) [track]"
 	new_info(message_silent, newstone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]")
+	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 
 /obj/item/device/pda/verb/verb_reset_pda()
@@ -1396,7 +1396,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	PDAs -= src
 	if (src.id && prob(90)) //IDs are kept in 90% of the cases
 		src.id.loc = get_turf(src.loc)
-	..()
+	return ..()
 
 /obj/item/device/pda/clown/Crossed(AM as mob|obj) //Clown PDA is slippery.
 	if (istype(AM, /mob/living))

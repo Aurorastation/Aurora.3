@@ -26,7 +26,7 @@
 	var/can_cook_mobs				// Whether or not this machine accepts grabbed mobs.
 	var/mobdamagetype = BRUTE		// Burn damage for cooking appliances, brute for cereal/candy
 	var/food_color					// Colour of resulting food item.
-	var/cooked_sound				// Sound played when cooking completes.
+	var/cooked_sound = 'sound/machines/ding.ogg'				// Sound played when cooking completes.
 	var/can_burn_food				// Can the object burn food that is left inside?
 	var/burn_chance = 10			// How likely is the food to burn?
 	var/list/cooking_objs = list()	// List of things being cooked
@@ -40,8 +40,8 @@
 
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
-/obj/machinery/appliance/initialize()
-	..()
+/obj/machinery/appliance/Initialize()
+	. = ..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
 
@@ -110,12 +110,16 @@
 		icon_state = off_icon
 
 /obj/machinery/appliance/verb/toggle_power()
-	set src in view()
 	set name = "Toggle Power"
-	set category = "Object"
+	set category = null
+	set src in view() //So that AI can operate it remotely
 
 	if (!isliving(usr))
 		usr << "Ghosts aren't allowed to toggle power switches"
+		return
+
+	if (isanimal(usr))
+		usr << "You lack the dexterity to do that!"
 		return
 
 	if (usr.stat || usr.restrained() || usr.incapacitated())
@@ -140,13 +144,20 @@
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
 
+/obj/machinery/appliance/AICtrlClick()
+	toggle_power()
+
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
 	set name = "Choose output"
-	set category = "Object"
+	set category = null
 
 	if (!isliving(usr))
 		usr << "Ghosts aren't allowed to mess with cooking machines!"
+		return
+
+	if (isanimal(usr))
+		usr << "You lack the dexterity to do that!"
 		return
 
 	if (usr.stat || usr.restrained() || usr.incapacitated())
@@ -529,7 +540,7 @@
 
 	// Produce nasty smoke.
 	visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
-	var/datum/effect/effect/system/smoke_spread/bad/smoke = getFromPool(/datum/effect/effect/system/smoke_spread/bad)
+	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)
 	smoke.start()
@@ -558,6 +569,12 @@
 	return 0
 
 /obj/machinery/appliance/proc/can_remove_items(var/mob/user)
+	if (!Adjacent(user))
+		return 0
+
+	if (isanimal(user))
+		return 0
+
 	return 1
 
 /obj/machinery/appliance/proc/eject(var/datum/cooking_item/CI, var/mob/user = null)

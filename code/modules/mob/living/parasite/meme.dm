@@ -103,7 +103,7 @@ var/controlling
 	if(host) src.loc = host.loc
 	src.stat = 2
 	..()
-	del src
+	qdel(src)
 
 // When a meme speaks, it speaks through its host
 /mob/living/parasite/meme/say(message as text)
@@ -204,7 +204,7 @@ var/controlling
 
 	var/message = sanitize(input("Message:", "Thought") as text|null)
 	if(message)
-		log_say("MemeThought: [key_name(src)]->[M.key] : [message]")
+		log_say("MemeThought: [key_name(src)]->[M.key] : [message]",ckey=key_name(src))
 		M << "[message]"
 		src << "You said: \"[message]\" to [M]"
 	return
@@ -401,7 +401,7 @@ var/controlling
 	src.enter_host(target)
 
 	usr << "<b>You successfully jumped to [target].</b>"
-	log_admin("[src.key] has jumped to [target]")
+	log_admin("[src.key] has jumped to [target]",ckey=key_name(src))
 	message_admins("[src.key] has jumped to [target]")
 
 // Jump to a distant target through a shout
@@ -440,7 +440,7 @@ var/controlling
 	src.enter_host(target)
 
 	usr << "<b>You successfully jumped to [target].</b>"
-	log_admin("[src.key] has jumped to [target]")
+	log_admin("[src.key] has jumped to [target]",ckey=key_name(src))
 	message_admins("[src.key] has jumped to [target]")
 
 // Jump to an attuned mob for free
@@ -464,7 +464,7 @@ var/controlling
 
 	usr << "<b>You successfully jumped to [target].</b>"
 
-	log_admin("[src.key] has jumped to [target]")
+	log_admin("[src.key] has jumped to [target]",ckey=key_name(src))
 	message_admins("[src.key] has jumped to [target]")
 
 // ATTUNE a mob, adding it to the indoctrinated list
@@ -485,7 +485,7 @@ var/controlling
 	usr << "<b>You successfully indoctrinated [host].</b>"
 	host << "\red Your head feels a bit roomier.."
 
-	log_admin("[src.key] has attuned [host]")
+	log_admin("[src.key] has attuned [host]",ckey=key_name(src))
 	message_admins("[src.key] has attuned [host]")
 
 // Enables the mob to take a lot more damage

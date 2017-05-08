@@ -121,7 +121,7 @@
 /datum/surgery_step/robotics/repair_brute
 	allowed_tools = list(
 		/obj/item/weapon/weldingtool = 100,
-		/obj/item/weapon/pickaxe/plasmacutter = 50
+		/obj/item/weapon/gun/energy/plasmacutter = 50
 	)
 
 	min_duration = 50
@@ -276,7 +276,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		if(!(affected && (affected.status & ORGAN_ROBOT)))
 			return 0
-		if(affected.open != 2)
+		if(affected.open != 3)
 			return 0
 
 		target.op_stage.current_organ = null
@@ -325,7 +325,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		if(!(affected && (affected.status & ORGAN_ROBOT)))
 			return 0
-		if(affected.open != 2)
+		if(affected.open != 3)
 			return 0
 
 		target.op_stage.current_organ = null

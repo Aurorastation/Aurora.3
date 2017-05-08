@@ -114,8 +114,8 @@ Class Procs:
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
 
-/obj/machinery/New(l, d=0)
-	..(l)
+/obj/machinery/Initialize(mapload, d=0)
+	. = ..()
 	if(d)
 		set_dir(d)
 
@@ -140,24 +140,18 @@ Class Procs:
 
 	return M_NO_PROCESS
 
-/obj/machinery/proc/get_process_type()
-	. |= M_PROCESSES
-	if (use_power || idle_power_usage || active_power_usage)
-		. |= M_USES_POWER
-
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
 		use_power(7500/severity)
 
-		var/obj/effect/overlay/pulse2 = getFromPool(/obj/effect/overlay, src.loc)
+		var/obj/effect/overlay/pulse2 = new(src.loc)
 		pulse2.icon = 'icons/effects/effects.dmi'
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
 		pulse2.set_dir(pick(cardinal))
 
-		spawn(10)
-			qdel(pulse2)
+		QDEL_IN(pulse2, 10)
 	..()
 
 /obj/machinery/ex_act(severity)

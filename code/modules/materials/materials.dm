@@ -568,9 +568,14 @@ var/list/name_to_material
 	hardness = 500
 	weight = 500
 
+/material/voxalloy/elevatorium
+	name = "elevatorium"
+	display_name = "elevator panelling"
+	icon_colour = "#666666"
+
 /material/wood
 	name = "wood"
-	stack_type = /obj/item/stack/material/wood
+	stack_type = null
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"
@@ -587,6 +592,17 @@ var/list/name_to_material
 	destruction_desc = "splinters"
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
+
+/material/rust
+	name = "rust"
+	display_name = "rusty steel"
+	stack_type = null
+	icon_colour = "#B7410E"
+	icon_base = "arust"
+	integrity = 250
+	explosion_resistance = 8
+	hardness = 15
+	weight = 18
 
 /material/wood/holographic
 	name = "holowood"

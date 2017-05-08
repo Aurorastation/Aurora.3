@@ -71,7 +71,7 @@
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
 
-/mob/living/simple_animal/familiar/pike/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
 /mob/living/simple_animal/familiar/horror

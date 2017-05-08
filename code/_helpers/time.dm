@@ -13,9 +13,7 @@ proc/worldtime2text(time = world.time, timeshift = 1)
 /proc/worldtime2hours()
 	if (!roundstart_hour)
 		worldtime2text()
-	. = (world.timeofday / (60 MINUTES)) + roundstart_hour
-	if (. > 24)
-		. -= 24
+	. = text2num(time2text(world.time + (36000 * roundstart_hour), "hh"))
 
 proc/worlddate2text()
 	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
@@ -52,3 +50,10 @@ proc/round_duration()
 	last_round_duration = "[hours]:[mins]"
 	next_duration_update = world.time + 1 MINUTES
 	return last_round_duration
+
+/var/midnight_rollovers = 0
+/var/rollovercheck_last_timeofday = 0
+/proc/update_midnight_rollover()
+	if (world.timeofday < rollovercheck_last_timeofday) //TIME IS GOING BACKWARDS!
+		return midnight_rollovers++
+	return midnight_rollovers

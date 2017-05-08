@@ -92,7 +92,7 @@
 	w_class = 4
 	force = 10
 	caliber = "a762"
-	origin_tech = "combat=6;materials=1;syndicate=4"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c762

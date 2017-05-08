@@ -11,9 +11,9 @@
 
 /obj/structure/alien/node/Destroy()
 	processing_objects -= src
-	..()
+	return ..()
 
 /obj/structure/alien/node/process()
 	if(locate(/obj/effect/plant) in loc)
 		return
-	new /obj/effect/plant(get_turf(src), plant_controller.seeds["xenomorph"])
+	new /obj/effect/plant(get_turf(src), SSplants.seeds["xenomorph"])

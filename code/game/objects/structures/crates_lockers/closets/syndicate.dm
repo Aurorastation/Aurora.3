@@ -9,8 +9,7 @@
 /obj/structure/closet/syndicate/personal
 	desc = "It's a storage unit for operative gear."
 
-/obj/structure/closet/syndicate/personal/New()
-	..()
+/obj/structure/closet/syndicate/personal/fill()
 	new /obj/item/weapon/tank/jetpack/oxygen(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
 	new /obj/item/clothing/under/syndicate(src)
@@ -27,8 +26,7 @@
 /obj/structure/closet/syndicate/suit
 	desc = "It's a storage unit for voidsuits."
 
-/obj/structure/closet/syndicate/suit/New()
-	..()
+/obj/structure/closet/syndicate/suit/fill()
 	new /obj/item/weapon/tank/jetpack/oxygen(src)
 	new /obj/item/clothing/shoes/magboots(src)
 	new /obj/item/clothing/suit/space/void/merc(src)
@@ -39,9 +37,7 @@
 /obj/structure/closet/syndicate/nuclear
 	desc = "It's a storage unit for nuclear-operative gear."
 
-/obj/structure/closet/syndicate/nuclear/New()
-	..()
-
+/obj/structure/closet/syndicate/nuclear/fill()
 	new /obj/item/ammo_magazine/a10mm(src)
 	new /obj/item/ammo_magazine/a10mm(src)
 	new /obj/item/ammo_magazine/a10mm(src)
@@ -67,14 +63,11 @@
 /obj/structure/closet/syndicate/resources/
 	desc = "An old, dusty locker."
 
-	New()
-		..()
+	fill()
 		var/common_min = 30 //Minimum amount of minerals in the stack for common minerals
 		var/common_max = 50 //Maximum amount of HONK in the stack for HONK common minerals
 		var/rare_min = 5  //Minimum HONK of HONK in the stack HONK HONK rare minerals
 		var/rare_max = 20 //Maximum HONK HONK HONK in the HONK for HONK rare HONK
-
-
 
 		var/pickednum = rand(1, 50)
 
@@ -125,17 +118,17 @@
 /obj/structure/closet/syndicate/resources/everything
 	desc = "It's an emergency storage closet for repairs."
 
-	New()
+	fill()
 		var/list/resources = list(
-		/obj/item/stack/material/steel,
-		/obj/item/stack/material/glass,
-		/obj/item/stack/material/gold,
-		/obj/item/stack/material/silver,
-		/obj/item/stack/material/phoron,
-		/obj/item/stack/material/uranium,
-		/obj/item/stack/material/diamond,
-		/obj/item/stack/material/plasteel,
-		/obj/item/stack/rods
+			/obj/item/stack/material/steel,
+			/obj/item/stack/material/glass,
+			/obj/item/stack/material/gold,
+			/obj/item/stack/material/silver,
+			/obj/item/stack/material/phoron,
+			/obj/item/stack/material/uranium,
+			/obj/item/stack/material/diamond,
+			/obj/item/stack/material/plasteel,
+			/obj/item/stack/rods
 		)
 
 
@@ -143,5 +136,3 @@
 			for(var/res in resources)
 				var/obj/item/stack/R = new res(src)
 				R.amount = R.max_amount
-
-		return

@@ -194,13 +194,14 @@
 					if(Obj.type == O_type)
 						i++
 						if (del_action == "Hard Delete")
+							Obj.Destroy(TRUE)
 							del(Obj)
 						else
 							qdel(Obj)
 				if(!i)
 					usr << "No objects of this type exist"
 					return
-				log_admin("[key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted)")
+				log_admin("[key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted)", admin_key=key_name(usr))
 				message_admins("<span class='notice'>[key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted)</span>")
 			if("Type and subtypes")
 				var/i = 0
@@ -208,13 +209,14 @@
 					if(istype(Obj,O_type))
 						i++
 						if (del_action == "Hard Delete")
+							Obj.Destroy(TRUE)
 							del(Obj)
 						else
-							qdel(Obj)
+							qdel(Obj, TRUE)
 				if(!i)
 					usr << "No objects of this type exist"
 					return
-				log_admin("[key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted)")
+				log_admin("[key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted)", admin_key=key_name(usr))
 				message_admins("<span class='notice'>[key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted)</span>")
 
 	else if(href_list["explode"])
@@ -486,12 +488,13 @@
 			usr << "This can only be done on mobs with clients"
 			return
 
-		nanomanager.send_resources(H.client)
+		usr << span("alert", "This command is temporarily disabled.")
+		//nanomanager.send_resources(H.client)
 
-		usr << "Resource files sent"
-		H << "Your NanoUI Resource files have been refreshed"
+		//usr << "Resource files sent"
+		//H << "Your NanoUI Resource files have been refreshed"
 
-		log_admin("[key_name(usr)] resent the NanoUI resource files to [key_name(H)] ")
+		//log_admin("[key_name(usr)] resent the NanoUI resource files to [key_name(H)] ", admin_key=key_name(usr), ckey=key_name(H))
 
 	else if(href_list["regenerateicons"])
 		if(!check_rights(0))	return
@@ -528,7 +531,7 @@
 				return
 
 		if(amount != 0)
-			log_admin("[key_name(usr)] dealt [amount] amount of [Text] damage to [L]")
+			log_admin("[key_name(usr)] dealt [amount] amount of [Text] damage to [L]", admin_key=key_name(usr), ckey=key_name(L))
 			message_admins("<span class='notice'>[key_name(usr)] dealt [amount] amount of [Text] damage to [L]</span>")
 			href_list["datumrefresh"] = href_list["mobToDamage"]
 

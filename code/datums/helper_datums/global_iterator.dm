@@ -109,7 +109,7 @@ Data storage vars:
 				CRASH("The global_iterator loop \ref[src] failed to terminate in designated timeframe. This may be caused by server lagging.")
 		return 1
 
-	proc/process()
+	process()
 		return
 
 	proc/active()
@@ -155,4 +155,5 @@ Data storage vars:
 	tag = null
 	arg_list.Cut()
 	stop()
+	return QDEL_HINT_HARDDEL
 	//Do not call ..()
