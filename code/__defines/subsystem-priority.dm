@@ -1,13 +1,14 @@
-#define SS_INIT_MISC_FIRST         17
-#define SS_INIT_SEEDS              16	// Plant controller setup.
-#define SS_INIT_ASTEROID           15	// Asteroid generation.
-#define SS_INIT_SHUTTLE            14	// Shuttle setup.
-#define SS_INIT_PARALLAX           13	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_ATOMS              12	// World initialization. Will trigger lighting updates. Observers can join after this loads.
-#define SS_INIT_POWER              11	// Initial powernet build.
-#define SS_INIT_CARGO              10	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
-#define SS_INIT_PIPENET             9	// Initial pipenet build.
-#define SS_INIT_MACHINERY           8	// Machinery prune and powernet build.
+#define SS_INIT_MISC_FIRST         18
+#define SS_INIT_SEEDS              17	// Plant controller setup.
+#define SS_INIT_ASTEROID           16	// Asteroid generation.
+#define SS_INIT_SHUTTLE            15	// Shuttle setup.
+#define SS_INIT_PARALLAX           14	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_ATOMS              13	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_POWER              12	// Initial powernet build.
+#define SS_INIT_CARGO              11	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_PIPENET            10	// Initial pipenet build.
+#define SS_INIT_MACHINERY           9	// Machinery prune and powernet build.
+#define SS_INIT_WIRELESS            8	// Wireless pair queue flush.
 #define SS_INIT_AIR                 7	// Air setup and pre-bake.
 #define SS_INIT_NIGHT               6	// Nightmode controller. Will trigger lighting updates.
 #define SS_INIT_SMOOTHING           5	// Object icon smoothing. Creates overlays.
