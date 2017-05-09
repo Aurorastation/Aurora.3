@@ -184,16 +184,12 @@
 	area.power_equip = 0
 	area.power_environ = 0
 	area.power_change()
-	qdel(wires)
-	wires = null
-	qdel(terminal)
-	terminal = null
+	QDEL_NULL(wires)
+	QDEL_NULL(terminal)
 	if(cell)
 		cell.forceMove(loc)
 		cell = null
 	
-	QDEL_NULL(spark_system)
-
 	QDEL_NULL(spark_system)
 
 	// Malf AI, removes the APC from AI's hacked APCs list.
