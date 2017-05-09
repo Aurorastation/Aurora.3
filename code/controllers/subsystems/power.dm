@@ -19,6 +19,11 @@
 
 	var/list/all_sensors = list()
 
+	var/list/powernets = list()
+
+/datum/controller/subsystem/power/stat_entry()
+	..("PN:[powernets.len]")
+
 /datum/controller/subsystem/power/New()
 	NEW_SS_GLOBAL(SSpower)
 
@@ -50,3 +55,9 @@
 
 	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
 	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+
+/datum/controller/subsystem/power/proc/reset_powernets()
+	for (var/thing in powernets)
+		var/datum/powernet/PN = thing
+
+		PN.reset()

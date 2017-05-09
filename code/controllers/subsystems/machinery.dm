@@ -93,11 +93,7 @@
 			return
 
 	if (!powernets_reset_yet)
-		for (var/thing in powernets)
-			var/datum/powernet/PN = thing
-
-			PN.reset()
-
+		SSpower.reset_powernets()
 		powernets_reset_yet = TRUE
 
 	while (curr_powersinks.len)
@@ -114,7 +110,7 @@
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len]\n\tLT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
+	..("M:[machines.len] PI:[processing_power_items.len]\n\tLT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
 
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
