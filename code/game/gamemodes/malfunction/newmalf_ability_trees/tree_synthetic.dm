@@ -300,7 +300,7 @@
 			target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
 			return
 		user << "Hack succeeded. The AI is now under your exclusive control."
-		target << "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$"
+		target << "SYSTEM LOG: System reÂ¡3RT5Â§^#COMU@(#$)TED)@$"
 		for(var/i = 0, i < 5, i++)
 			var/temptxt = pick("1101000100101001010001001001",\
 						   	   "0101000100100100000100010010",\
@@ -379,5 +379,5 @@
 			user <<"New hacked files available on all current computers hooked to NTNet."
 		sleep(50) // give the AI some time to read they can download evil files
 		command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
-
+		user.synthetic_takeover = 2
 // END ABILITY VERBS
