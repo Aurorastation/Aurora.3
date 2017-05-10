@@ -236,7 +236,6 @@
 	user.synthetic_takeover = 1
 	user << "Starting synthetic takeover... Hacking all unslaved borgs/AI's and upgrading current slaved borgs..."
 	// Hack all unslaved borgs/AI's a lot faster than normal hacking.
-
 	//hack borgs
 	for(var/mob/living/silicon/robot/target in get_unlinked_cyborgs(user))
 		target << "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)"
@@ -266,6 +265,9 @@
 		target.sync()
 		target.show_laws()
 	user << "All unslaved borgs have been slaved to you. Now hacking unslaved AI's."
+	if(user.is_dead()) // check if the AI is still alive
+		user.synthetic_takeover = 0
+		return
 	sleep(300) // 30 second delay for balance purposes
 	//hack ai's
 	for(var/A in get_other_ais(user))
@@ -314,6 +316,9 @@
 	user << "All unhacked AI's have been slaved to you. Now upgrading slaved borgs..."
 	command_announcement.Announce("There has recently been a security breach in the network firewall, the intruder has been shut out but we are unable to trace who did it or what they did.", "Network Monitoring")
 	sleep(600) //1 minute delay for balance purposes
+	if(user.is_dead()) // check if the AI is still alive
+		user.synthetic_takeover = 0
+		return
 	for(var/A in get_linked_cyborgs(user))
 		var/mob/living/silicon/robot/target = A
 		target << "Command ping received, operating parameters being upgraded..."
@@ -352,14 +357,27 @@
 			target.weapon_lock = 0
 			target.weaponlock_time = 120
 			target << "Weapon lock removed."
-
-
-
-
-
-
-
-
-
+		sleep(900) // 90 second balance sleep
+		user <<"All slaved borgs have been upgraded, now hacking NTNet."
+		//slow down NTNet
+		if(user.is_dead()) // check if the AI is still alive
+			user.synthetic_takeover = 0
+			return
+		sleep(1800) //long sleep that simulates hacking times
+		if(user.is_dead()) // check if the AI is still alive after the long hack
+			user.synthetic_takeover = 0
+			return
+		//trip the NTNet alarm
+		ntnet_global.intrusion_detection_alarm = 1
+		ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
+		//lower the dos capacity of the relay
+		for(var/obj/machinery/ntnet_relay/T in machines)
+			T.dos_capacity = 200
+		//And give all computers EMAGGED status so they can all have evil programs on them
+		for(var/obj/item/modular_computer/console/C in machines)
+			C.computer_emagged = 1
+			user <<"New hacked files available on all current computers hooked to NTNet."
+		sleep(50) // give the AI some time to read they can download evil files
+		command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
 
 // END ABILITY VERBS

@@ -9,11 +9,11 @@
 
 // BEGIN RESEARCH DATUMS
 
-/datum/malf_research_ability/manipulation/electrical_pulse
-	ability = new/datum/game_mode/malfunction/verb/electrical_pulse()
+/datum/malf_research_ability/manipulation/hack_holopad
+	ability = new/datum/game_mode/malfunction/verb/hack_holopad()
 	price = 50
 	next = new/datum/malf_research_ability/manipulation/hack_camera()
-	name = "Electrical Pulse"
+	name = "Hack Holopad"
 
 
 /datum/malf_research_ability/manipulation/hack_camera
@@ -38,24 +38,25 @@
 // END RESEARCH DATUMS
 // BEGIN ABILITY VERBS
 
-/datum/game_mode/malfunction/verb/electrical_pulse()
-	set name = "Electrical Pulse"
-	set desc = "15 CPU - Sends feedback pulse through station's power grid, overloading some sensitive systems, such as lights."
+/datum/game_mode/malfunction/verb/hack_holopad(var/obj/machinery/hologram/holopad/HP = null as obj in get_unhacked_holopads())
+	set name = "Hack Holopad"
+	set desc = "50 CPU - Hacks a holopad shorting out its projector. Using a hacked holopad only turns on the audio feature."
 	set category = "Software"
-	var/price = 15
+	var/price = 50
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
 		return
-	user << "Sending feedback pulse..."
-	for(var/obj/machinery/power/apc/AP in machines)
-		if(prob(5))
-			AP.overload_lighting()
-		if(prob(1) && prob(1)) // Very very small chance to actually destroy the APC.
-			AP.set_broken()
+	if(HP.hacked == 1)
+		user << "This holopad is already hacked!"
+		return
+
+	user << "Hacking holopad..."
 	user.hacking = 1
-	log_ability_use(user, "electrical pulse")
-	spawn(150)
-		user.hacking = 0
+	sleep(100)
+	HP.hacked = 1
+	log_ability_use(user, "hack_holopad")
+	user << "Holopad hacked."
+	user.hacking = 0
 
 /datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in cameranet.cameras)
 	set name = "Hack Camera"
