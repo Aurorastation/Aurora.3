@@ -51,7 +51,7 @@ var/global/list/rad_collectors = list()
 		else
 			user << "\red The controls are locked!"
 			return
-..()
+	..()
 
 
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user)
