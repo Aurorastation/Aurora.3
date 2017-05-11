@@ -204,6 +204,7 @@ field_generator power level display
 		return 1
 	else
 		visible_message(span("alert", "\The [src] shuts down!"))
+		turn_off()
 		investigate_log("ran out of power and <font color='red'>deactivated</font>","singulo")
 		src.power = 0
 		return 0
