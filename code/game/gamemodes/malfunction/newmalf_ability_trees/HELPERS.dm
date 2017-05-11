@@ -171,7 +171,7 @@
 /proc/get_unhacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(A.hacker && A.hacker == user)
+		if(!A.hacker && A.hacker != user)
 			continue
 		H.Add(A)
 	return H
@@ -182,7 +182,7 @@
 /proc/get_hacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(!A.hacker || A.hacker != user)
+		if(A.hacker || A.hacker == user)
 			continue
 		H.Add(A)
 	return H
@@ -199,7 +199,7 @@
 /proc/get_unhacked_holopads()
 	var/list/H = list()
 	for(var/obj/machinery/hologram/holopad/HP in machines)
-		if(HP.hacked == 0)
+		if(!HP.hacked)
 			H.Add(HP)
 	return H
 
