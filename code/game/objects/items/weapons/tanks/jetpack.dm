@@ -1,5 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
 /obj/item/weapon/tank/jetpack
 	name = "jetpack (empty)"
 	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
@@ -21,7 +19,7 @@
 	src.ion_trail.set_up(src)
 
 /obj/item/weapon/tank/jetpack/Destroy()
-	qdel(ion_trail)
+	QDEL_NULL(ion_trail)
 	return ..()
 
 /obj/item/weapon/tank/jetpack/examine(mob/user)
@@ -69,10 +67,7 @@
 		warned = 1
 		playsound(user, 'sound/effects/alert.ogg', 50, 1)
 		user << "<span class='danger'>The meter on \the [src] indicates you are almost out of gas and beeps loudly!</span>"
-		spawn(600)
-			warned = 0
-
-
+		addtimer(CALLBACK(src, .proc/reset_warning), 600)
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)
 
@@ -81,7 +76,9 @@
 		return 1
 
 	qdel(G)
-	return
+
+/obj/item/weapon/tank/jetpack/proc/reset_warning()
+	warned = 0
 
 /obj/item/weapon/tank/jetpack/ui_action_click()
 	toggle()
