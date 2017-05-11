@@ -24,6 +24,9 @@
 #define APC_UPOVERLAY_LOCKED 4096
 #define APC_UPOVERLAY_OPERATING 8192
 
+
+#define APC_UPDATE_ICON_COOLDOWN 100 // 10 seconds
+
 // the Area Power Controller (APC), formerly Power Distribution Unit (PDU)
 // one per area, needs wire conection to power network through a terminal
 
@@ -79,7 +82,6 @@
 	var/lighting = 3
 	var/equipment = 3
 	var/environ = 3
-	var/infected = 0
 	var/operating = 1
 	var/charging = 0
 	var/chargemode = 1
@@ -91,7 +93,6 @@
 	var/obj/machinery/power/terminal/terminal = null
 	var/lastused_light = 0
 	var/lastused_equip = 0
-	var/static/list/hacked_ipcs = list()
 	var/lastused_environ = 0
 	var/lastused_charging = 0
 	var/lastused_total = 0
@@ -153,8 +154,8 @@
 
 	return cell.drain_power(drain_check, surge, amount)
 
-/obj/machinery/power/apc/Initialize(mapload, var/ndir, var/building=0)
-	. = ..()
+/obj/machinery/power/apc/New(turf/loc, var/ndir, var/building=0)
+	..()
 	wires = new(src)
 
 	// offset 24 pixels in direction of dir
@@ -167,7 +168,7 @@
 	pixel_x = (src.tdir & 3)? 0 : (src.tdir == 4 ? 24 : -24)
 	pixel_y = (src.tdir & 3)? (src.tdir ==1 ? 24 : -24) : 0
 	if (building==0)
-		init(mapload)
+		init()
 	else
 		area = get_area(src)
 		area.apc = src
@@ -196,8 +197,6 @@
 
 	QDEL_NULL(spark_system)
 
-	QDEL_NULL(spark_system)
-
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if((hacker) && (hacker.hacked_apcs) && (src in hacker.hacked_apcs))
 		hacker.hacked_apcs -= src
@@ -214,7 +213,7 @@
 	terminal.set_dir(tdir)
 	terminal.master = src
 
-/obj/machinery/power/apc/proc/init(mapload)
+/obj/machinery/power/apc/proc/init()
 	has_electronics = 2 //installed and secured
 	// is starting with a power cell installed, create it and set its charge level
 	if(cell_type)
@@ -235,8 +234,8 @@
 
 	make_terminal()
 
-	if (!mapload)
-		addtimer(CALLBACK(src, .proc/update), 5, TIMER_UNIQUE)
+	spawn(5)
+		src.update()
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))
@@ -328,18 +327,19 @@
 
 	if(!(update_state & UPDATE_ALLGOOD))
 		if(overlays.len)
-			cut_overlays()
+			overlays = 0
 			return
 
 	if(update & 2)
-		cut_overlays()
+		if(overlays.len)
+			overlays.len = 0
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			add_overlay(status_overlays_lock[locked+1])
-			add_overlay(status_overlays_charging[charging+1])
+			overlays += status_overlays_lock[locked+1]
+			overlays += status_overlays_charging[charging+1]
 			if(operating)
-				add_overlay(status_overlays_equipment[equipment+1])
-				add_overlay(status_overlays_lighting[lighting+1])
-				add_overlay(status_overlays_environ[environ+1])
+				overlays += status_overlays_equipment[equipment+1]
+				overlays += status_overlays_lighting[lighting+1]
+				overlays += status_overlays_environ[environ+1]
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
@@ -375,7 +375,7 @@
 			update_state |= UPDATE_OPENED1
 		if(opened==2)
 			update_state |= UPDATE_OPENED2
-	else if (emagged || failure_timer || (hacker && (hacker.system_override || prob(20))))
+	else if(emagged || hacker || failure_timer)
 		update_state |= UPDATE_BLUESCREEN
 	else if(wiresexposed)
 		update_state |= UPDATE_WIREEXP
@@ -426,6 +426,16 @@
 	if(last_update_overlay != update_overlay)
 		results += 2
 	return results
+
+// Used in process so it doesn't update the icon too much
+/obj/machinery/power/apc/proc/queue_icon_update()
+
+	if(!updating_icon)
+		updating_icon = 1
+		// Start the update
+		spawn(APC_UPDATE_ICON_COOLDOWN)
+			update_icon()
+			updating_icon = 0
 
 //attack with an item - open/close cover, insert cell, or (un)lock interface
 
@@ -648,35 +658,6 @@
 			if (opened==2)
 				opened = 1
 			update_icon()
-	else if (istype(W, /obj/item/device/debugger))
-		if(emagged || hacker || infected)
-			user << "<span class='warning'>There is a software error with the device. Attempting to fix...</span>"
-			if(do_after(user, 10 SECONDS, act_target = src))
-				user << "<span class='notice'>Problem diagnosed, searching for solution...</span>"
-				if(do_after(user, 30 SECONDS, act_target = src))
-					user << "<span class='notice'>Solution found. Applying fixes...</span>"
-					if(do_after(user, 60 SECONDS, act_target = src))
-						if(prob(15))
-							user << "<span class='warning'>Error while applying fixes. Please try again.</span>"
-							return
-					user << "<span class='notice'>Applied default software. Restarting APC...</span>"
-					if(do_after(user, 10 SECONDS, act_target = src))
-						user << "<span class='notice'>APC Reset. Fixes applied.</span>"
-						if(hacker)
-							hacker.hacked_apcs -= src
-							hacker = null
-							update_icon()
-						if(emagged)
-							emagged = 0
-						if(infected)
-							infected = 0
-			else
-				user << "<span class='notice'>There has been a connection issue.</span>"
-				return
-
-		else
-			user << "<span class='notice'>The device's software appears to be fine.</span>"
-			return
 	else
 		if ((stat & BROKEN) \
 				&& !opened \
@@ -757,21 +738,6 @@
 				spark_system.queue()
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
-			if(infected)
-				if(H in hacked_ipcs)
-					return
-				hacked_ipcs += H
-				infected = 0
-				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
-				hacker << "<span class = 'notice'> Corrupt files transfered to [H]. They are now under your control. This will not last long.</span>"
-				sleep(50)
-				H << "<span class = 'danger'>Corrupt files detected! Starting removal. This will take some time.</span>"
-				sleep(2150)
-				H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
-				H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
-				hacker << "<span class = 'notice'> Corrupt files transfered to [H] have been removed by their systems.</span>"
-				hacked_ipcs -= H
-
 			else if(src.cell && src.cell.charge > 0)
 				if(H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)
@@ -800,6 +766,7 @@
 
 			return
 		else if(H.species.can_shred(H))
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message("\red [user.name] slashes at the [src.name]!", "\blue You slash at the [src.name]!")
 			playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 
@@ -1278,13 +1245,11 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	update()
 	update_icon()
 
-	addtimer(CALLBACK(src, .proc/post_emp_act), 600)
+	spawn(600)
+		update_channels()
+		update()
+		update_icon()
 	..()
-
-/obj/machinery/power/apc/proc/post_emp_act()
-	update_channels()
-	update()
-	queue_icon_update()
 
 /obj/machinery/power/apc/ex_act(severity)
 
@@ -1336,12 +1301,6 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 					L.broken()
 				sleep(1)
 
-/obj/machinery/power/apc/proc/flicker_all()
-	var/offset = 0
-	for (var/obj/machinery/light/L in area)
-		addtimer(CALLBACK(L, /obj/machinery/light/.proc/flicker), offset)
-		offset += rand(5, 10)
-
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
 	for (var/obj/machinery/light/L in area.contents)
 		if (force == "on")
@@ -1374,3 +1333,5 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	locked = 1
 	update_icon()
 	return 1
+
+#undef APC_UPDATE_ICON_COOLDOWN
