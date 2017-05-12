@@ -1,17 +1,18 @@
-#define SS_INIT_MISC_FIRST         18
-#define SS_INIT_SEEDS              17	// Plant controller setup.
-#define SS_INIT_ASTEROID           16	// Asteroid generation.
-#define SS_INIT_SHUTTLE            15	// Shuttle setup.
-#define SS_INIT_PARALLAX           14	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_ATOMS              13	// World initialization. Will trigger lighting updates. Observers can join after this loads.
-#define SS_INIT_POWER              12	// Initial powernet build.
-#define SS_INIT_CARGO              11	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
-#define SS_INIT_PIPENET            10	// Initial pipenet build.
-#define SS_INIT_MACHINERY           9	// Machinery prune and powernet build.
-#define SS_INIT_WIRELESS            8	// Wireless pair queue flush.
-#define SS_INIT_AIR                 7	// Air setup and pre-bake.
-#define SS_INIT_NIGHT               6	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_SMOOTHING           5	// Object icon smoothing. Creates overlays.
+#define SS_INIT_MISC_FIRST         19
+#define SS_INIT_SEEDS              18	// Plant controller setup.
+#define SS_INIT_ASTEROID           17	// Asteroid generation.
+#define SS_INIT_SHUTTLE            16	// Shuttle setup.
+#define SS_INIT_PARALLAX           15	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_ATOMS              14	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_POWER              13	// Initial powernet build.
+#define SS_INIT_CARGO              12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_PIPENET            11	// Initial pipenet build.
+#define SS_INIT_MACHINERY          10	// Machinery prune and powernet build.
+#define SS_INIT_WIRELESS            9	// Wireless pair queue flush.
+#define SS_INIT_AIR                 8	// Air setup and pre-bake.
+#define SS_INIT_NIGHT               7	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_SMOOTHING           6	// Object icon smoothing. Creates overlays.
+#define SS_INIT_ICON_UPDATE         5	// Icon update queue flush. Should run before overlays.
 #define SS_INIT_OVERLAY             4	// Overlay flush.
 #define SS_INIT_OPENTURF            3	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
 #define SS_INIT_MISC                2	// Subsystems without an explicitly set initialization order start here.
