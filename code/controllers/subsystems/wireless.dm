@@ -2,16 +2,14 @@ var/datum/controller/subsystem/wireless/SSwireless
 
 /datum/controller/subsystem/wireless
 	name = "Wireless"
-	flags = SS_NO_INIT | SS_BACKGROUND
+	flags = SS_BACKGROUND
 	priority = SS_PRIORITY_WIRELESS
+	init_order = SS_INIT_WIRELESS
 
 	var/list/receiver_list = list()
 	var/list/pending_connections = list()
 	var/list/retry_connections = list()
 	var/list/failed_connections = list()
-
-	var/tmp/list/retry_queue = list()
-	var/tmp/list/pending_queue = list()
 
 	var/total_processed_connections = 0
 
@@ -25,11 +23,8 @@ var/datum/controller/subsystem/wireless/SSwireless
 	..("RL:[receiver_list.len] PC:[pending_connections.len] RC:[retry_connections.len] FC:[failed_connections.len] TC:[total_processed_connections]")
 
 /datum/controller/subsystem/wireless/proc/add_device(datum/wifi/receiver/R)
-	if(receiver_list)
-		receiver_list |= R
-	else
-		receiver_list = new()
-		receiver_list |= R
+	LAZYINITLIST(receiver_list)
+	receiver_list |= R
 
 	wake()
 
@@ -38,12 +33,7 @@ var/datum/controller/subsystem/wireless/SSwireless
 		receiver_list -= R
 
 /datum/controller/subsystem/wireless/proc/add_request(datum/connection_request/C)
-	if (pending_connections)
-		pending_connections += C
-
-	else
-		pending_connections = new()
-		pending_connections += C
+	LAZYADD(pending_connections, C)
 
 /datum/controller/subsystem/wireless/proc/process_connection(datum/connection_request/connection, list/fail_queue)
 	var/target_found = 0
@@ -58,31 +48,37 @@ var/datum/controller/subsystem/wireless/SSwireless
 
 	total_processed_connections += 1
 
-/datum/controller/subsystem/wireless/fire(resumed = 0)
-	if (!resumed)
-		retry_queue = retry_connections.Copy()
-		pending_queue = pending_connections.Copy()
-		retry_connections = list()
-		pending_connections = list()
+/datum/controller/subsystem/wireless/Initialize()
+	fire(0, 1)
+	fire(0, 1)	// So we suspend.
+	..()
 
-		if (!retry_queue.len && !pending_queue.len)
-			suspend()
-			return
+/datum/controller/subsystem/wireless/fire(resumed = 0, no_mc_check = 0)
+	if (!resumed && !LAZYLEN(pending_connections) && !LAZYLEN(retry_connections))
+		suspend()
+		return
 
-	while (retry_queue.len)
-		var/datum/connection_request/C = retry_queue[retry_queue.len]
-		retry_queue.len--
+	var/list/pending = pending_connections
+	var/list/retry = retry_connections
+
+	while (retry.len)
+		var/datum/connection_request/C = retry[retry.len]
+		retry.len--
 
 		process_connection(C, failed_connections)
 
-		if (MC_TICK_CHECK)
+		if (no_mc_check)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
-	while (pending_queue.len)
-		var/datum/connection_request/C = pending_queue[pending_queue.len]
-		pending_queue.len--
+	while (pending.len)
+		var/datum/connection_request/C = pending[pending.len]
+		pending.len--
 
 		process_connection(C, retry_connections)
 
-		if (MC_TICK_CHECK)
+		if (no_mc_check)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return

@@ -14,7 +14,6 @@ var/global/list/dead_mob_list = list()				//List of all dead mobs, including cli
 var/global/list/topic_commands = list()				//List of all API commands available
 var/global/list/topic_commands_names = list()				//List of all API commands available
 
-var/global/list/cable_list = list()					//Index for all cables, so that powernets don't have to look through the entire world all the time
 var/global/list/chemical_reactions_list				//list of all /datum/chemical_reaction datums. Used during chemical reactions
 var/global/list/chemical_reagents_list				//list of all /datum/reagent datums indexed by reagent id. Used by chemistry stuff
 var/global/list/landmarks_list = list()				//list of all landmarks created
