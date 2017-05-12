@@ -272,19 +272,11 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				nanoui_data["contracts_view"] = 1
 
 			var/query_details[0]
-
-			switch (nanoui_data["contracts_view"])
-				if (1)
-					query_details[":status"] = "open"
-				if (2)
-					query_details[":status"] = "closed"
-				else
-					nanoui_data["contracts_view"] = 1
-					query_details[":status"] = "open"
+			query_details[":contract_id"] = exploit_id
 
 			var/DBQuery/select_query = dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id")
 			select_query.Execute(query_details)
-
+			
 			if (select_query.NextRow())
 				nanoui_data["contracts_found"] = 1
 
@@ -307,6 +299,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				contract["reward_other"] = select_query.item[6]
 
 				nanoui_data["contract"] = contract
+				log_debug("got the contractdata: [json_encode(contract)]")
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
