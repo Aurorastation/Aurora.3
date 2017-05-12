@@ -17,7 +17,6 @@ var/global/list/janitorial_supplies      = list()	// List of all the janitorial 
 
 var/global/list/listening_objects         = list() // List of objects that need to be able to hear, used to avoid recursive searching through contents.
 
-
 var/global/list/global_mutations  = list() // List of hidden mutation things.
 
 var/global/datum/universal_state/universe = new
@@ -92,8 +91,6 @@ var/list/combatlog = list()
 var/list/IClog     = list()
 var/list/OOClog    = list()
 var/list/adminlog  = list()
-
-var/list/powernets = list()
 
 var/Debug2 = 0
 var/datum/debug/debugobj

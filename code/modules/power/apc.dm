@@ -184,16 +184,12 @@
 	area.power_equip = 0
 	area.power_environ = 0
 	area.power_change()
-	qdel(wires)
-	wires = null
-	qdel(terminal)
-	terminal = null
+	QDEL_NULL(wires)
+	QDEL_NULL(terminal)
 	if(cell)
 		cell.forceMove(loc)
 		cell = null
 	
-	QDEL_NULL(spark_system)
-
 	QDEL_NULL(spark_system)
 
 	// Malf AI, removes the APC from AI's hacked APCs list.
@@ -754,6 +750,7 @@
 
 			return
 		else if(H.species.can_shred(H))
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message("\red [user.name] slashes at the [src.name]!", "\blue You slash at the [src.name]!")
 			playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 

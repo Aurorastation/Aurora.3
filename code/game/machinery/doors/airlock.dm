@@ -1186,9 +1186,9 @@ About the new airlock wires panel:
 	//update the electronics to match the door's access
 	if(!src.req_access)
 		src.check_access()
-	if(src.req_access.len)
+	if(LAZYLEN(req_access))
 		electronics.conf_access = src.req_access
-	else if (src.req_one_access.len)
+	else if (LAZYLEN(req_one_access))
 		electronics.conf_access = src.req_one_access
 		electronics.one_access = 1
 

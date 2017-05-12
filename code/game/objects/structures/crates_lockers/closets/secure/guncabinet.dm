@@ -10,7 +10,11 @@
 	icon_opened = "base"
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
-	. = ..()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/closet/secure_closet/guncabinet/LateInitialize()
+	..()
 	update_icon()
 
 /obj/structure/closet/secure_closet/guncabinet/toggle()
@@ -31,17 +35,12 @@
 				shottas++
 		if (lazors || shottas)
 			for (var/i = 0 to 2)
-				var/image/gun = image(icon(src.icon))
-
 				if (lazors > 0 && (shottas <= 0 || prob(50)))
 					lazors--
-					gun.icon_state = "laser"
+					add_overlay("laser[i]")
 				else if (shottas > 0)
 					shottas--
-					gun.icon_state = "projectile"
-
-				gun.pixel_x = i*4
-				add_overlay(gun)
+					add_overlay("projectile[i]")
 			
 		add_overlay("door")
 

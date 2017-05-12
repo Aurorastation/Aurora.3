@@ -21,11 +21,11 @@
 	var/update_locked = 0
 
 /obj/machinery/power/breakerbox/Initialize()
-	LAZYADD(SSmachinery.breaker_boxes, src)
+	LAZYADD(SSpower.breaker_boxes, src)
 	return ..()
 
 /obj/machinery/power/breakerbox/Destroy()
-	LAZYREMOVE(SSmachinery.breaker_boxes, src)
+	LAZYREMOVE(SSpower.breaker_boxes, src)
 	SSmachinery.queue_rcon_update()
 	return ..()
 

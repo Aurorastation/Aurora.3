@@ -73,6 +73,20 @@
 		/obj/item/rig_module/mounted/egun
 		)
 
+/obj/item/weapon/rig/ert/janitor
+	name = "ERT-J suit control module"
+	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Armoured and space ready."
+	suit_type = "ERT janitor"
+	icon_state = "ert_janitor_rig"
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/fabricator/sign,
+		/obj/item/rig_module/grenade_launcher/cleaner,
+		/obj/item/rig_module/device/decompiler
+		)
+
 /obj/item/weapon/rig/ert/assetprotection
 	name = "heavy asset protection suit control module"
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armoured and space ready."

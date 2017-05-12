@@ -312,7 +312,7 @@ var/inerror = 0
 
 	var/list/features = list()
 
-	if(Master.initializing)
+	if (Master.initialization_time_taken)	// This is set at the end of initialization.
 		if(master_mode)
 			features += master_mode
 	else

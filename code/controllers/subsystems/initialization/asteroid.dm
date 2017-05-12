@@ -19,11 +19,7 @@
 		new /datum/random_map/noise/ore(null, 0, 0, 5, 64, 64)
 		new /datum/random_map/noise/ore(null, 0, 0, 4, 64, 64)
 		new /datum/random_map/noise/ore(null, 0, 0, 3, 64, 64)
-		var/counting_number
-		for(var/turf/simulated/open/chasm in world)
-			counting_number += 1
-			chasm.update()
-		var/counting_result = "Total number of chasms: [counting_number]"
+		var/counting_result = "Total number of chasms: [SSopenturf.openspace_turfs.len]"
 		admin_notice(span("danger", counting_result))
 		game_log("ASGEN", counting_result)
 

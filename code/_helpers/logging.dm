@@ -94,7 +94,7 @@
 	send_gelf_log(
 		short_message = text, 
 		long_message = "[time_stamp()]: [text]", 
-		level = SEVERITY_NOTICE,
+		level = level,
 		category="ATTACK",
 		additional_data = list("_ckey" = html_encode(ckey), "_ckey_target" = html_encode(ckey_target))
 	)

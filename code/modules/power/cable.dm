@@ -90,13 +90,13 @@ var/list/possible_cable_coil_colours = list(
 
 	var/turf/T = src.loc			// hide if turf is not intact
 	if(level==1) hide(!T.is_plating())
-	cable_list += src //add it to the global cable list
+	SSpower.all_cables += src //add it to the global cable list
 
 
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
-	cable_list -= src							//remove it from global cable list
+	SSpower.all_cables -= src							//remove it from global cable list
 	return ..()										// then go ahead and delete the cable
 
 ///////////////////////////////////
@@ -200,6 +200,10 @@ var/list/possible_cable_coil_colours = list(
 		if(usr.stunned)
 			return 1
 	return 0
+
+/obj/structure/cable/shuttle_move(turf/loc)
+	..()
+	SSmachinery.powernet_update_queued = TRUE
 
 //explosion handling
 /obj/structure/cable/ex_act(severity)
