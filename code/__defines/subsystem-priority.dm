@@ -25,8 +25,9 @@
 
 // SS_TICKER
 #define SS_PRIORITY_OVERLAY        500	// Applies overlays. May cause overlay pop-in if it gets behind.
-#define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
 #define SS_PRIORITY_SMOOTHING      35   // Smooth turf generation.
+#define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
+#define SS_PRIORITY_ICON_UPDATE    20	// Queued icon updates. Mostly used by APCs and tables.
 
 // Normal
 #define SS_PRIORITY_TICKER         200	// Gameticker.
@@ -42,7 +43,6 @@
 #define SS_PRIORITY_ALARMS         50
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS        35	// Effect master (Sparks)
-#define SS_PRIORITY_ICON_UPDATE    30	// Queued icon updates. Mostly used by APCs.
 #define SS_PRIORITY_AIR            25	// ZAS processing.
 #define SS_PRIORITY_LIGHTING       20	// Queued lighting engine updates.
 #define SS_PRIORITY_AIRFLOW        15	// Handles object movement due to ZAS airflow.

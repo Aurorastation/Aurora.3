@@ -2,7 +2,8 @@
 
 /datum/controller/subsystem/icon
 	name = "Icon Updates"
-	wait = 1	// ds
+	wait = 1	// ticks
+	flags = SS_TICKER
 	priority = SS_PRIORITY_ICON_UPDATE
 	init_order = SS_INIT_ICON_UPDATE
 	
