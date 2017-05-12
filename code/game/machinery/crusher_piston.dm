@@ -80,21 +80,9 @@
 	change_neighbor_base_icons()
 
 /obj/machinery/crusher_base/Destroy()
-	var/oldloc = loc
-	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
-	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
-	
-	loc=null
-	if(left)
-		left.update_icon()
-	if(right)
-		right.update_icon()
-	loc=oldloc
-
-	QDEL_NULL(pstn)
-	. = ..()
 	change_neighbor_base_icons()
-	return .
+	QDEL_NULL(pstn)
+	return ..()
 
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
