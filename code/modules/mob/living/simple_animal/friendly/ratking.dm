@@ -8,7 +8,7 @@
 
 
 /proc/announceToRodents(var/message)
-	for(var/R in world_mouses)
+	for(var/R in SSmob.all_mice)
 		R << message
 
 /mob/living/simple_animal/mouse/king

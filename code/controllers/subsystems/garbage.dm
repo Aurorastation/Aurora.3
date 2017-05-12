@@ -255,9 +255,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 /datum/var/gcDestroyed //Time when this object was destroyed.
 
-/icon/Destroy()
-	return QDEL_HINT_HARDDEL
-	
 /client/Destroy()
 	..()
 	return QDEL_HINT_HARDDEL_NOW

@@ -81,7 +81,7 @@
 			dust()
 			
 /mob/living/simple_animal/mouse/Destroy()
-	world_mouses -= src
+	SSmob.all_mice -= src
 		
 	return ..()
 	
@@ -95,8 +95,8 @@
 			pixel_y += rand(-2,2)
 			pixel_y = Clamp(pixel_y, -4, 14)
 
-/mob/living/simple_animal/mouse/New()
-	..()
+/mob/living/simple_animal/mouse/Initialize()
+	. = ..()
 
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 	verbs += /mob/living/proc/ventcrawl
@@ -124,7 +124,7 @@
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak_soft
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak_loud(1)
 
-	world_mouses += src
+	SSmob.all_mice += src
 
 /mob/living/simple_animal/mouse/speak_audio()
 	squeak_soft(0)
@@ -253,7 +253,7 @@
 	if(client)
 		client.time_died_as_mouse = world.time
 
-	world_mouses -= src
+	SSmob.all_mice -= src
 
 	..()
 

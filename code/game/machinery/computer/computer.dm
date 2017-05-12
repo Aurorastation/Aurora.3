@@ -66,10 +66,10 @@
 			add_overlay(image(icon,"[icon_state]_broken", overlay_layer))
 		else
 			add_overlay("[icon_state]_broken")
-	else if (is_holographic)
-		holographic_overlay(src, src.icon, icon_screen)
-	else
-		if (overlay_layer != layer)
+	else if (icon_screen)
+		if (is_holographic)
+			holographic_overlay(src, src.icon, icon_screen)
+		else if (overlay_layer != layer)
 			add_overlay(image(icon, icon_screen, overlay_layer))
 		else
 			add_overlay(icon_screen)

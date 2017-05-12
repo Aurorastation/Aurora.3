@@ -67,6 +67,7 @@ Class Procs:
 	name = "Air"
 	priority = SS_PRIORITY_AIR
 	init_order = SS_INIT_AIR
+	flags = SS_POST_FIRE_TIMING
 
 	//Geometry lists
 	var/list/zones = list()
