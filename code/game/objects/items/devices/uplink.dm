@@ -299,7 +299,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				contract["reward_other"] = select_query.item[6]
 
 				nanoui_data["contract"] = contract
-				log_debug("got the contractdata: [json_encode(contract)]")
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
