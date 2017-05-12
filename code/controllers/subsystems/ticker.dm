@@ -4,7 +4,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker
 	// -- Subsystem stuff --
-	name = "Game Ticker"
+	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
 	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
@@ -19,8 +19,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/hide_mode = 0
 	var/datum/game_mode/mode = null
 	var/post_game = 0
-	var/event_time = null
-	var/event = 0
 
 	var/login_music			// music played in pregame lobby
 
@@ -32,10 +30,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/Bible_deity_name
 
 	var/random_players = 0 	// if set to nonzero, ALL players who latejoin or declare-ready join will have random appearances/genders
-
-	var/list/syndicate_coalition = list() // list of traitor-compatible factions
-	var/list/factions = list()			  // list of all factions
-	var/list/availablefactions = list()	  // list of factions with openings
 
 	var/pregame_timeleft = 0
 
@@ -61,6 +55,8 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/lobby_ready = FALSE
 	var/is_revote = FALSE
+
+	var/list/roundstart_callbacks
 
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(SSticker)
@@ -90,9 +86,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	hide_mode = SSticker.hide_mode
 	mode = SSticker.mode
 	post_game = SSticker.post_game
-	event_time = SSticker.event_time
-	event = SSticker.event
-	
+
 	login_music = SSticker.login_music
 	
 	minds = SSticker.minds
@@ -102,10 +96,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	Bible_deity_name = SSticker.Bible_deity_name
 
 	random_players = SSticker.random_players
-
-	syndicate_coalition = SSticker.syndicate_coalition
-	factions = SSticker.factions
-	availablefactions = SSticker.availablefactions
 
 	pregame_timeleft = SSticker.pregame_timeleft
 
@@ -412,7 +402,23 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(admins_number == 0)
 		discord_bot.send_to_admins("@here Round has started with no admins online.")
 
+	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
+	run_callback_list(roundstart_callbacks)
+	roundstart_callbacks = null
+
 	return 1
+
+/datum/controller/subsystem/ticker/proc/run_callback_list(list/callbacklist)
+	set waitfor = FALSE
+
+	if (!callbacklist)
+		return
+
+	for (var/thing in callbacklist)
+		var/datum/callback/callback = thing
+		callback.Invoke()
+
+		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null)
 	if (cinematic)	
@@ -549,5 +555,13 @@ var/datum/controller/subsystem/ticker/SSticker
 		for(var/mob/M in player_list)
 			if(!istype(M,/mob/new_player))
 				M << "Captainship not forced on anyone."
+
+// Registers a callback to run on round-start.
+/datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/callback)
+	if (!istype(callback))
+		return
+
+	LAZYADD(roundstart_callbacks, callback)
+
 
 #undef LOBBY_TIME

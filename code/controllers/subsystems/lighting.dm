@@ -22,7 +22,6 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	var/force_queued = TRUE
 	var/force_override = FALSE	// For admins.
-	var/round_started = FALSE
 
 	var/instant_tick_limit = 80		// Tick limit used by instant lighting updates. If world.tick_usage is higher than this when a light updates, it will be updated via. SSlighting.
 
@@ -40,6 +39,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 /datum/controller/subsystem/lighting/ExplosionEnd()
 	if (!force_override)
 		force_queued = FALSE
+
+/datum/controller/subsystem/lighting/proc/handle_roundstart()
+	force_queued = FALSE
 
 /datum/controller/subsystem/lighting/Initialize(timeofday)
 	var/overlaycount = 0
@@ -69,13 +71,11 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
+	SSticker.OnRoundstart(CALLBACK(src, .proc/handle_roundstart))
+
 	..()
 
 /datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
-	if (!resumed && !round_started && Master.round_started)
-		force_queued = FALSE
-		round_started = TRUE
-
 	if (!resumed)
 		processed_lights = 0
 		processed_corners = 0
