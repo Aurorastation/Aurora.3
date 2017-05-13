@@ -1,5 +1,10 @@
-/proc/is_listening_to_movement(var/atom/movable/listening_to, var/listener)
-	return moved_event.is_listening(listening_to, listener)
+/proc/is_listening_to_movement(atom/movable/listening_to, expected_listener)
+	for (var/thing in listening_to.move_listeners)
+		var/datum/callback/event/cb = thing
+		if (cb.object == expected_listener)
+			return TRUE
+
+	return FALSE
 
 datum/unit_test/observation
 	name = "OBSERVATION template"
