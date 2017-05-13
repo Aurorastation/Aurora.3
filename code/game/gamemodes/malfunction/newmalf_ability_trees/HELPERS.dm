@@ -171,7 +171,7 @@
 /proc/get_unhacked_apcs()
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(!A.hacker)
+		if(A.hacker && A.hacker == user)
 			continue
 		H.Add(A)
 	return H
@@ -179,10 +179,10 @@
 // Proc: get_hacked_apcs()
 // Parameters: None
 // Description: Returns a list of all hacked APCs
-/proc/get_hacked_apcs(var/mob/living/silicon/ai/user)
+/proc/get_hacked_apcs()
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(A.hacker && A.hacker == user)
+		if(!A.hacker)
 			continue
 		H.Add(A)
 	return H
