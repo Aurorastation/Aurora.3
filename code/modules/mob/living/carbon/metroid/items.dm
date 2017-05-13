@@ -250,7 +250,7 @@
 			if(O.mind && O.mind.current && O.mind.current.stat != DEAD)	continue
 			ghost = O
 			break
-		if(ghost)
+		if(ghost && !ghost.has_enabled_antagHUD)
 			icon_state = "golem2"
 		else
 			icon_state = "golem"
@@ -263,6 +263,10 @@
 			ghost = O
 			break
 		if(!ghost)
+			user << "The rune fizzles uselessly. There is no spirit nearby."
+			return
+		if(ghost.has_enabled_antagHUD && config.antag_hud_restricted)
+			ghost <<"You can not join as a golem with antagHUD on!"
 			user << "The rune fizzles uselessly. There is no spirit nearby."
 			return
 		var/mob/living/carbon/human/G = new(src.loc)
