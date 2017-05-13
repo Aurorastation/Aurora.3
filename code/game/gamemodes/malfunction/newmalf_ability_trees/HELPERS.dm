@@ -171,7 +171,7 @@
 /proc/get_unhacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(!A.hacker && A.hacker != user)
+		if(A.hacker && A.hacker == user)
 			continue
 		H.Add(A)
 	return H
@@ -182,7 +182,7 @@
 /proc/get_hacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(A.hacker || A.hacker == user)
+		if(A.hacker && A.hacker == user)
 			continue
 		H.Add(A)
 	return H
@@ -190,7 +190,7 @@
 // Proc: get_apcs()
 // Parameters: None
 // Description: Returns a list of all APCs
-/proc/get_apcs(var/mob/living/silicon/ai/user)
+/proc/get_apcs()
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
 		H.Add(A)
