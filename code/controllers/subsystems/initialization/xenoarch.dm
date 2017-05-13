@@ -20,7 +20,8 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 /datum/controller/subsystem/xenoarch/Initialize(timeofday)
 	//create digsites
 	for(var/turf/simulated/mineral/M in turfs)
-		if(isnull(M.geologic_data))
+		CHECK_TICK
+		if(!M.geologic_data)
 			M.geologic_data = new/datum/geosample(M)
 
 		if(!prob(XENOARCH_SPAWN_CHANCE))
@@ -72,6 +73,8 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 			//have a chance for an artifact to spawn here, but not in animal or plant digsites
 			if(isnull(M.artifact_find) && digsite != 1 && digsite != 2)
 				artifact_spawning_turfs.Add(archeo_turf)
+
+			CHECK_TICK
 
 	//create artifact machinery
 	var/num_artifacts_spawn = rand(ARTIFACTSPAWNNUM_LOWER, ARTIFACTSPAWNNUM_UPPER)

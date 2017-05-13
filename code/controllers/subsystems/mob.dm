@@ -1,9 +1,15 @@
+/var/datum/controller/subsystem/mobs/SSmob
+
 /datum/controller/subsystem/mobs
 	name = "Mobs"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
 
 	var/list/currentrun = list()
+	var/list/all_mice = list()	// Contains all *living* mice.
+
+/datum/controller/subsystem/mobs/New()
+	NEW_SS_GLOBAL(SSmob)
 
 /datum/controller/subsystem/mobs/stat_entry()
 	..("P:[mob_list.len]")

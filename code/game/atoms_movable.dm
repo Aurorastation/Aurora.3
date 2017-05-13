@@ -192,6 +192,10 @@
 	src.thrower = null
 	src.throw_source = null
 
+	if (isturf(loc))
+		var/turf/Tloc = loc
+		Tloc.Entered(src)
+
 
 //Overlays
 /atom/movable/overlay

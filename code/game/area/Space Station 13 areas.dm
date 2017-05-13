@@ -477,35 +477,35 @@ area/space/atmosalert()
 	base_turf = /turf/space
 
 /area/syndicate_station/surface
-	name = "\improper surface of the station"
+	name = "\improper Surface of the Station"
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/above
-	name = "\improper above the station"
+	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
 
 /area/syndicate_station/under
-	name = "\improper under the station"
+	name = "\improper Under the Station"
 	icon_state = "northeast"
 	station_area = 1
 
 /area/syndicate_station/caverns
-	name = "\improper caverns"
+	name = "\improper Caverns"
 	icon_state = "southeast"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/arrivals_dock
-	name = "\improper docked with station"
+	name = "\improper Docked with Station"
 	icon_state = "shuttle"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/transit
-	name = "\improper hyperspace"
+	name = "\improper Hyperspace"
 	icon_state = "shuttle"
 	centcomm_area = 1
 
@@ -530,28 +530,28 @@ area/space/atmosalert()
 	centcomm_area = 1
 
 /area/skipjack_station/transit
-	name = "\improper hyperspace"
+	name = "\improper Hyperspace"
 	icon_state = "shuttle"
 	centcomm_area = 1
 
 /area/skipjack_station/surface
-	name = "\improper surface of the station"
+	name = "\improper Surface of the Station"
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/skipjack_station/above
-	name = "\improper above the station"
+	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
 
 /area/skipjack_station/under
-	name = "\improper under the station"
+	name = "\improper Under the Station"
 	icon_state = "northeast"
 	station_area = 1
 
 /area/skipjack_station/cavern
-	name = "\improper caverns"
+	name = "\improper Caverns"
 	icon_state = "southeast"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
@@ -2066,6 +2066,10 @@ area/space/atmosalert()
 /area/tcommsat/powercontrol
 	name = "\improper Telecommunications Power Control"
 	icon_state = "tcomsatwest"
+
+/area/tcommsat/mainlvl_tcomms__relay
+	name = "\improper Telecommucations Main Level Relay"
+	icon_state = "tcomsatcham"
 
 /////////////////////////////////////////////////////////////////////
 /*

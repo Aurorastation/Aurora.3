@@ -30,8 +30,3 @@
 /obj/machinery/power/terminal/hide(var/i)
 	invisibility = i ? 101 : initial(invisibility)
 	icon_state = i ? "term-f" : "term"
-
-// Needed so terminals are not removed from machines list.
-// Powernet rebuilds need this to work properly.
-/obj/machinery/power/terminal/process()
-	return 1

@@ -77,7 +77,7 @@
 
 /obj/machinery/porta_turret/Initialize()
 	. = ..()
-	req_access.Cut()
+	LAZYCLEARLIST(req_access)
 	req_one_access = list(access_security, access_heads)
 
 	//Sets up a spark system
@@ -87,7 +87,7 @@
 
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
-	req_one_access.Cut()
+	LAZYCLEARLIST(req_one_access)
 	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()

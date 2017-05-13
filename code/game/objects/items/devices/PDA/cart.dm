@@ -260,11 +260,11 @@
 
 	/*		Power Monitor (Mode: 43 / 433)			*/
 
-	if(mode==43 || mode==433)
+	if(mode == 43 || mode == 433)
 		var/list/sensors = list()
 		var/obj/machinery/power/sensor/MS = null
 
-		for(var/obj/machinery/power/sensor/S in machines)
+		for(var/obj/machinery/power/sensor/S in SSpower.all_sensors)
 			sensors.Add(list(list("name_tag" = S.name_tag)))
 			if(S.name_tag == selected_sensor)
 				MS = S

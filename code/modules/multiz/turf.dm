@@ -82,6 +82,7 @@
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
 	mover.fall()
+	update_icon()
 
 // override to make sure nothing is hidden
 /turf/simulated/open/levelupdate()
