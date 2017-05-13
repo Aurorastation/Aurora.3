@@ -247,7 +247,7 @@
 		if (user.mind && user.mind.signature)
 			return user.mind.signature
 		else if (user.real_name)
-			return user.real_name
+			return "<i>[user.real_name]</i>"
 
 	return "<i>Anonymous</i>"
 
