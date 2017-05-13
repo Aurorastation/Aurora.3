@@ -62,17 +62,18 @@
 	if(visible || update_now)
 		if(!updating)
 			updating = 1
-			spawn(UPDATE_BUFFER) // Batch large changes, such as many doors opening or closing at once
-				update()
-				updating = 0
+			addtimer(CALLBACK(src, .proc/doUpdate), UPDATE_BUFFER)
 	else
 		changed = 1
+
+/datum/chunk/proc/doUpdate()
+	update()
+	updating = 0
 
 // The actual updating.
 
 /datum/chunk/proc/update()
-
-	set background = 1
+	set waitfor = FALSE
 
 	var/list/newVisibleTurfs = new()
 	acquireVisibleTurfs(newVisibleTurfs)
@@ -128,7 +129,9 @@
 	src.y = y
 	src.z = z
 
-	for(var/turf/t in range(10, locate(x + 8, y + 8, z)))
+	var/turf/center = locate(x + 8, y + 8, z)
+	
+	for(var/turf/t in RANGE_TURFS(10, center))
 		if(t.x >= x && t.y >= y && t.x < x + 16 && t.y < y + 16)
 			turfs[t] = t
 
@@ -141,6 +144,7 @@
 
 	for(var/turf in obscuredTurfs)
 		var/turf/t = turf
+		LAZYINITLIST(t.obfuscations)
 		if(!t.obfuscations[obfuscation.type])
 			var/image/obfuscation_static = image(obfuscation.icon, t, obfuscation.icon_state, OBFUSCATION_LAYER)
 			obfuscation_static.plane = 0

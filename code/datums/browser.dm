@@ -49,10 +49,12 @@
 	//title_image = ntitle_image
 
 /datum/browser/proc/add_stylesheet(name, file)
-	stylesheets[name] = file
+	stylesheets["[ckey(name)].css"] = file
+	register_asset("[ckey(name)].css", file)
 
 /datum/browser/proc/add_script(name, file)
-	scripts[name] = file
+	scripts["[ckey(name)].js"] = file
+	register_asset("[ckey(name)].js", file)
 
 /datum/browser/proc/set_content(ncontent)
 	content = ncontent
@@ -61,24 +63,20 @@
 	content += ncontent
 
 /datum/browser/proc/get_header()
-	var/key
-	var/filename
-	for (key in stylesheets)
-		filename = "[ckey(key)].css"
-		user << browse_rsc(stylesheets[key], filename)
-		head_content += "<link rel='stylesheet' type='text/css' href='[filename]'>"
+	var/file
+	for (file in stylesheets)
+		head_content += "<link rel='stylesheet' type='text/css' href='[file]'>"
 
-	for (key in scripts)
-		filename = "[ckey(key)].js"
-		user << browse_rsc(scripts[key], filename)
-		head_content += "<script type='text/javascript' src='[filename]'></script>"
+	for (file in scripts)
+		head_content += "<script type='text/javascript' src='[file]'></script>"
 
 	var/title_attributes = "class='uiTitle'"
 	if (title_image)
 		title_attributes = "class='uiTitle icon' style='background-image: url([title_image]);'"
 
-	return {"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	return {"<!DOCTYPE html>
 <html>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<head>
 		[head_content]
@@ -107,9 +105,21 @@
 	var/window_size = ""
 	if (width && height)
 		window_size = "size=[width]x[height];"
+	if (stylesheets.len)
+		send_asset_list(user, stylesheets, verify = FALSE)
+	if (scripts.len)
+		send_asset_list(user, scripts, verify = FALSE)
 	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
 	if (use_onclose)
-		onclose(user, window_id, ref)
+		setup_onclose()
+
+// Fix from /tg/.
+/datum/browser/proc/setup_onclose()
+	set waitfor = 0
+	for (var/i in 1 to 10)
+		if (user && winexists(user, window_id))
+			onclose(user, window_id, ref)
+			break
 
 /datum/browser/proc/close()
 	user << browse(null, "window=[window_id]")

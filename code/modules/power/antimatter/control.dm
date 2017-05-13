@@ -46,9 +46,10 @@
 	for(var/obj/machinery/am_shielding/AMS in linked_cores)
 		AMS.control_unit = null
 		qdel(AMS)
+
 	qdel(fueljar)
 	fueljar = null
-	..()
+	return ..()
 
 
 /obj/machinery/power/am_control_unit/process()
@@ -266,7 +267,7 @@
 	stored_core_stability = 0
 	for(var/thing in linked_cores)
 		var/obj/machinery/am_shielding/AMS = thing
-		if (!AMS || AMS.gcDestroyed)
+		if (QDELETED(AMS))
 			continue
 
 		stored_core_stability += AMS.stability
@@ -384,3 +385,4 @@
 
 	updateDialog()
 	return 1
+

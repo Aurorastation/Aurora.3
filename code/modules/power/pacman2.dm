@@ -84,7 +84,7 @@
 					user << "\blue You secure the generator to the floor."
 				else
 					user << "\blue You unsecure the generator from the floor."
-				makepowernets()
+				SSmachinery.powernet_update_queued = TRUE
 			else if(istype(O, /obj/item/weapon/screwdriver))
 				open = !open
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)

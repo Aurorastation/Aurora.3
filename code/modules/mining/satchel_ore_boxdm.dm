@@ -19,7 +19,10 @@
 		S.hide_from(usr)
 		for(var/obj/item/weapon/ore/O in S.contents)
 			S.remove_from_storage(O, src) //This will move the item to this item's contents
-		user << "\blue You empty the satchel into the box."
+
+			CHECK_TICK
+
+		user << span("notice", "You empty the satchel into the box.")
 
 	update_ore_count()
 
@@ -97,5 +100,7 @@
 		for (var/obj/item/weapon/ore/O in contents)
 			O.loc = src.loc
 			O.ex_act(severity++)
+
+			CHECK_TICK
 		qdel(src)
 		return

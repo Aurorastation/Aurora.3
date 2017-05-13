@@ -9,8 +9,9 @@ var/global/list/limb_icon_cache = list()
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				overlays += child.mob_icon
-		overlays += organ.mob_icon
+				add_overlay(child.mob_icon)
+		
+		overlays |= organ.mob_icon
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	s_tone = null
@@ -54,7 +55,6 @@ var/global/list/limb_icon_cache = list()
 	..()
 
 /obj/item/organ/external/head/get_icon()
-
 	..()
 	overlays.Cut()
 	if(!owner || !owner.species)

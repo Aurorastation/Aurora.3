@@ -51,8 +51,7 @@
 	process_cooldown()
 		cooldown--
 		if(cooldown <= 0)	return 0
-		spawn(10)
-			process_cooldown()
+		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 		return 1
 
 
@@ -77,8 +76,7 @@
 	activate()
 		if(!secured || (cooldown > 0))	return 0
 		cooldown = 2
-		spawn(10)
-			process_cooldown()
+		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 		return 1
 
 

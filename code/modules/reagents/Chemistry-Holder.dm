@@ -23,9 +23,9 @@
 			chemical_reagents_list[D.id] = D
 
 /datum/reagents/Destroy()
-	..()
-	if(chemistryProcess)
-		chemistryProcess.active_holders -= src
+	. = ..()
+	if(SSchemistry)
+		SSchemistry.active_holders -= src
 
 	for(var/datum/reagent/R in reagent_list)
 		qdel(R)
@@ -94,8 +94,8 @@
 		my_atom.reagents = null
 
 /datum/reagents/proc/handle_reactions()
-	if(chemistryProcess)
-		chemistryProcess.mark_for_update(src)
+	if(SSchemistry)
+		SSchemistry.mark_for_update(src)
 
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()

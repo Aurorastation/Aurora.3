@@ -1,88 +1,102 @@
+/turf/proc/CanZPass(atom/A, direction)
+	if(z == A.z) //moving FROM this turf
+		return direction == UP //can't go below
+	else
+		if(direction == UP) //on a turf below, trying to enter
+			return 0
+		if(direction == DOWN) //on a turf above, trying to enter
+			return !density
+
+/turf/simulated/open/CanZPass(atom, direction)
+	return 1
+
+/turf/space/CanZPass(atom, direction)
+	return 1
+
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
-	icon_state = "black"
-	alpha = 16
-	layer = 0
+	icon_state = ""
+	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
+	is_hole = TRUE
 
-	var/turf/below
-	var/list/underlay_references
-	var/global/overlay_map = list()
+	var/tmp/turf/below
+	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
+	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
+	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
 
-/turf/simulated/open/initialize()
+	var/tmp/depth
+
+/turf/simulated/open/proc/is_above_space()
+	var/turf/T = GetBelow(src)
+	while (T && T.is_hole)
+		if (istype(T, /turf/space))
+			return TRUE
+		T = GetBelow(T)
+
+	return FALSE
+
+/turf/simulated/open/Destroy()
+	SSopenturf.openspace_turfs -= src
+	SSopenturf.queued_turfs -= src
+	QDEL_NULL(shadower)
+
+	for (var/atom/movable/openspace/overlay in src)
+		qdel(overlay)
+
+	if (istype(above))
+		above.update()
+		above = null
+		
+	below = null
+	return ..()
+
+/turf/simulated/open/airless
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
+
+/turf/simulated/open/post_change()
 	..()
+	update()
+
+/turf/simulated/open/Initialize()
+	. = ..()
+	update()
+	SSopenturf.openspace_turfs += src
+
+/turf/simulated/open/proc/update()
+	set waitfor = FALSE
 	below = GetBelow(src)
-	ASSERT(HasBelow(z))
+	below.above = src
+	levelupdate()
+	for(var/atom/movable/A in src)
+		A.fall()
+	update_icon()
 
-/turf/simulated/open/Entered(var/atom/movable/mover)
-	// only fall down in defined areas (read: areas with artificial gravitiy)
-	if(!istype(below)) //make sure that there is actually something below
-		below = GetBelow(src)
-		if(!below)
-			return
+/turf/simulated/open/update_dirt()
+	return 0
 
-	// No gravity in space, apparently.
-	var/area/area = get_area(src)
-	if(area.name == "Space")
-		return
-
-	// Prevent pipes from falling into the void... if there is a pipe to support it.
-	if(mover.anchored || istype(mover, /obj/item/pipe) && \
-		(locate(/obj/structure/disposalpipe/up) in below) || \
-		 locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
-		return
-
-	// See if something prevents us from falling.
-	var/soft = 0
-	for(var/atom/A in below)
-		if(A.density)
-			if(!istype(A, /obj/structure/window))
-				return
-			else
-				var/obj/structure/window/W = A
-				if(W.is_fulltile())
-					return
-		// Dont break here, since we still need to be sure that it isnt blocked
-		if(istype(A, /obj/structure/stairs))
-			soft = 1
-
-	// We've made sure we can move, now.
-	mover.Move(below)
-
-	if(!soft)
-		if(!istype(mover, /mob))
-			if(istype(below, /turf/simulated/open))
-				mover.visible_message("\The [mover] falls from the deck above through \the [below]!", "You hear a whoosh of displaced air.")
-			else
-				mover.visible_message("\The [mover] falls from the deck above and slams into \the [below]!", "You hear something slam into the deck.")
-		else
-			var/mob/M = mover
-			if(istype(below, /turf/simulated/open))
-				below.visible_message("\The [mover] falls from the deck above through \the [below]!", "You hear a soft whoosh.[M.stat ? "" : ".. and some screaming."]")
-			else
-				M.visible_message("\The [mover] falls from the deck above and slams into \the [below]!", "You land on \the [below].", "You hear a soft whoosh and a crunch")
-
-			// Handle people getting hurt, it's funny!
-			if (istype(mover, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = mover
-				var/damage = 5
-				H.apply_damage(rand(0, damage), BRUTE, "head")
-				H.apply_damage(rand(0, damage), BRUTE, "chest")
-				H.apply_damage(rand(0, damage), BRUTE, "l_leg")
-				H.apply_damage(rand(0, damage), BRUTE, "r_leg")
-				H.apply_damage(rand(0, damage), BRUTE, "l_arm")
-				H.apply_damage(rand(0, damage), BRUTE, "r_arm")
-				H.weakened = max(H.weakened,2)
-				H.updatehealth()
+/turf/simulated/open/Entered(atom/movable/mover)
+	..()
+	mover.fall()
+	update_icon()
 
 // override to make sure nothing is hidden
 /turf/simulated/open/levelupdate()
 	for(var/obj/O in src)
 		O.hide(0)
 
-// Straight copy from space.
+/turf/simulated/open/update_icon()
+	if(!updating && below)
+		updating = TRUE
+		SSopenturf.queued_turfs += src
+		if (above)
+			// Cascade updates until we hit the top openturf.
+			above.update_icon()
+
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
@@ -90,12 +104,12 @@
 			return
 		var/obj/item/stack/rods/R = C
 		if (R.use(1))
-			user << "<span class='notice'>Constructing support lattice ...</span>"
+			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			ReplaceWithLattice()
+			new /obj/structure/lattice(locate(src.x, src.y, src.z))
 		return
 
-	if (istype(C, /obj/item/stack/tile/floor))
+	if (istype(C, /obj/item/stack/tile))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
 			var/obj/item/stack/tile/floor/S = C
@@ -107,5 +121,15 @@
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			user << "<span class='warning'>The plating is going to need some support.</span>"
+			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
+
+	//To lay cable.
+	if(istype(C, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/coil = C
+		coil.turf_place(src, user)
+		return
 	return
+
+//Most things use is_plating to test if there is a cover tile on top (like regular floors)
+/turf/simulated/open/is_plating()
+	return 1

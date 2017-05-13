@@ -1,6 +1,6 @@
 // explosion logic is in code/controllers/Processes/explosives.dm now
 
-proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, is_rec = config.use_recursive_explosions)
+/proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, is_rec = config.use_recursive_explosions)
 	src = null	//so we don't abort once src is deleted
 	var/datum/explosiondata/data = new
 	data.epicenter = epicenter
@@ -14,7 +14,7 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 	data.rec_pow = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
 
 	// queue work
-	bomb_processor.queue(data)
+	SSexplosives.queue(data)
 
 // == Recursive Explosions stuff ==
 
@@ -25,7 +25,7 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 	d.is_rec = 1
 	d.epicenter = T
 	d.rec_pow = power
-	bomb_processor.queue(d)
+	SSexplosives.queue(d)
 
 /obj
 	var/explosion_resistance

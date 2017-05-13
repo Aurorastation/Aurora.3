@@ -17,6 +17,8 @@
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
 
+	var/celltype = /obj/item/weapon/cell	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
+
 	matter = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 3500)
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
@@ -27,11 +29,15 @@
 
 	//TODO: make it heat up the surroundings when not in space
 
-/obj/item/device/suit_cooling_unit/New()
-	processing_objects |= src
-
-	cell = new/obj/item/weapon/cell()	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
-	cell.loc = src
+/obj/item/device/suit_cooling_unit/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+	cell = new celltype(src)
+	
+/obj/item/device/suit_cooling_unit/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(cell)
+	return ..()
 
 // Checks whether the cooling unit is being worn on the back/suit slot.
 // That way you can't carry it in your hands while it's running to cool yourself down.
@@ -163,7 +169,7 @@
 	return ..()
 
 /obj/item/device/suit_cooling_unit/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if (cover_open)
 		if (cell)
 			icon_state = "suitcooler1"
@@ -178,17 +184,17 @@
 
 	switch(round(cell.percent()))
 		if(86 to INFINITY)
-			overlays.Add("battery-0")
+			add_overlay("battery-0")
 		if(69 to 85)
-			overlays.Add("battery-1")
+			add_overlay("battery-1")
 		if(52 to 68)
-			overlays.Add("battery-2")
+			add_overlay("battery-2")
 		if(35 to 51)
-			overlays.Add("battery-3")
+			add_overlay("battery-3")
 		if(18 to 34)
-			overlays.Add("battery-4")
+			add_overlay("battery-4")
 		if(-INFINITY to 17)
-			overlays.Add("battery-5")
+			add_overlay("battery-5")
 
 /obj/item/device/suit_cooling_unit/examine(mob/user)
 	if(!..(user, 1))
@@ -199,7 +205,7 @@
 			user << "It's switched on and running."
 		else if (istype(src.loc, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src.loc
-			if (H.get_species()=="Industrial Frame")
+			if (H.get_species() == "Industrial Frame")
 				user << "It's switched on and running, connected to the cooling systems of [H]."
 		else
 			user << "It's switched on, but not attached to anything."
@@ -218,9 +224,4 @@
 		user << "It doesn't have a power cell installed."
 
 /obj/item/device/suit_cooling_unit/improved //those should come with a better powercell
-
-/obj/item/device/suit_cooling_unit/improved/New()
-	processing_objects |= src
-
-	cell = new/obj/item/weapon/cell/high()
-	cell.loc = src
+	celltype = /obj/item/weapon/cell/high

@@ -600,14 +600,20 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		var/mob/dead/observer/M = O
 		if (M.client && alert(src, "They are still connected. Are you sure, they will loose connection.", "Confirmation", "Yes", "No") != "Yes")
 			return
-	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])",,admin_key=key_name(usr))
+	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])",admin_key=key_name(usr))
 	message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
 	feedback_add_details("admin_verb","DEL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+	if (isturf(O))	// Can't qdel a turf.
+		var/turf/T = O
+		T.ChangeTurf(/turf/space)
+		return
+
 	if (action == "Yes")
-		qdel(O)
+		qdel(O, TRUE)
 	else
 		// This is naughty, but sometimes necessary.
+		O.Destroy(TRUE)	// Because direct del without this breaks things.
 		del(O)
 
 /client/proc/cmd_admin_list_open_jobs()
@@ -829,7 +835,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Admin"
 	set name = "Call Shuttle"
 
-	if ((!( ticker ) || !emergency_shuttle.location()))
+	if ((!( ROUND_IS_STARTED ) || !emergency_shuttle.location()))
 		return
 
 	if(!check_rights(R_ADMIN))	return
@@ -838,7 +844,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(confirm != "Yes") return
 
 	var/choice
-	if(ticker.mode.auto_recall_shuttle)
+	if(SSticker.mode.auto_recall_shuttle)
 		choice = input("The shuttle will just return if you call it. Call anyway?") in list("Confirm", "Cancel")
 		if(choice == "Confirm")
 			emergency_shuttle.auto_recall = 1	//enable auto-recall
@@ -865,7 +871,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes") return
 
-	if(!ticker || !emergency_shuttle.can_recall())
+	if(!ROUND_IS_STARTED || !emergency_shuttle.can_recall())
 		return
 
 	emergency_shuttle.recall()
@@ -879,7 +885,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Admin"
 	set name = "Toggle Deny Shuttle"
 
-	if (!ticker)
+	if (!ROUND_IS_STARTED)
 		return
 
 	if(!check_rights(R_ADMIN))	return
@@ -906,12 +912,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!check_rights(R_FUN))	return
 
-	if (ticker && ticker.mode)
+	if (SSticker.mode)
 		usr << "Nope you can't do this, the game's already started. This only works before rounds!"
 		return
 
-	if(ticker.random_players)
-		ticker.random_players = 0
+	if(SSticker.random_players)
+		SSticker.random_players = 0
 		message_admins("Admin [key_name_admin(usr)] has disabled \"Everyone is Special\" mode.", 1)
 		usr << "Disabled."
 		return
@@ -929,7 +935,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	usr << "<i>Remember: you can always disable the randomness by using the verb again, assuming the round hasn't started yet</i>."
 
-	ticker.random_players = 1
+	SSticker.random_players = 1
 	feedback_add_details("admin_verb","MER") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -963,15 +969,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!input)
 		return
 
-	if(!ticker)
-		return
-
-	ticker.selected_tip = input
+	SSticker.selected_tip = input
 
 	// If we've already tipped, then send it straight away.
-	if(ticker.tipped)
-		ticker.send_tip_of_the_round()
-		ticker.selected_tip = initial(ticker.selected_tip)
+	if(SSticker.tipped)
+		SSticker.send_tip_of_the_round()
+		SSticker.selected_tip = initial(SSticker.selected_tip)
 
 
 	message_admins("[key_name_admin(usr)] sent a tip of the round.")
@@ -987,10 +990,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!holder)
 		return
 
-	if(!ticker)
-		return
-
-	ticker.send_tip_of_the_round()
+	SSticker.send_tip_of_the_round()
 
 
 	message_admins("[key_name_admin(usr)] sent a pregenerated tip of the round.")

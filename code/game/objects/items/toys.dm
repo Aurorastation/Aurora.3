@@ -77,9 +77,7 @@
 		for(var/atom/A in get_turf(hit_atom))
 			src.reagents.touch(A)
 		src.icon_state = "burst"
-		spawn(5)
-			if(src)
-				qdel(src)
+		QDEL_IN(src, 5)
 	return
 
 /obj/item/toy/balloon/update_icon()
@@ -184,7 +182,7 @@
 	afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
 		if (flag)
 			return
-		if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+		if (!usr.IsAdvancedToolUser())
 			usr << "\red You don't have the dexterity to do this!"
 			return
 		src.add_fingerprint(user)

@@ -42,8 +42,7 @@
 		if(!holder)
 			visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
 		cooldown = 2
-		spawn(10)
-			process_cooldown()
+		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 		return
 
 
@@ -58,10 +57,10 @@
 
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 		attached_overlays = list()
 		if(timing)
-			overlays += "timer_timing"
+			add_overlay("timer_timing")
 			attached_overlays += "timer_timing"
 		if(holder)
 			holder.update_icon()

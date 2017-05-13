@@ -36,14 +36,16 @@
 	var/const/signfont = "Times New Roman"
 	var/const/crayonfont = "Comic Sans MS"
 
-/obj/item/weapon/paper/New(loc, text,title)
-	..(loc)
-	set_content(title, text ? text : info)
-
-// needed for subtyped papers with pre-defined content
-/obj/item/weapon/paper/New()
-	..()
-	update_icon()
+/obj/item/weapon/paper/Initialize(mapload, text, title)
+	. = ..()
+	if (text || title)
+		set_content(title, text ? text : info)
+	else
+		updateinfolinks()
+		if (mapload)
+			update_icon()
+		else
+			addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
 /obj/item/weapon/paper/proc/set_content(title, text)
 	if(title)
@@ -53,7 +55,7 @@
 		info = parsepencode(text)
 	else
 		info = ""
-		
+
 	update_icon()
 	update_space(info)
 	updateinfolinks()
@@ -68,7 +70,7 @@
 		info = ""
 
 	update_icon()
-	update_space()
+	update_space(info)
 	updateinfolinks()
 
 /obj/item/weapon/paper/update_icon()
@@ -134,7 +136,7 @@
 		if (icon_state == "paper_plane")
 			user.show_message(span("alert", "The paper is already folded into a plane."))
 			return
-		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."), 
+		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."),
 			span("notice", "You carefully fold \the [src] into a plane."), "You hear paper rustling.")
 		icon_state = "paper_plane"
 		throw_range = 8

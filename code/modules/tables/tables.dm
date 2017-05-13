@@ -63,8 +63,8 @@
 			take_damage(rand(50,150))
 
 
-/obj/structure/table/initialize()
-	..()
+/obj/structure/table/Initialize()
+	. = ..()
 
 	// One table per turf.
 	for(var/obj/structure/table/T in loc)
@@ -78,7 +78,7 @@
 	color = "#ffffff"
 	alpha = 255
 	update_connections(1)
-	update_icon()
+	queue_icon_update()
 	update_desc()
 	update_material()
 
@@ -87,8 +87,8 @@
 	reinforced = null
 	update_connections(1) // Update tables around us to ignore us (material=null forces no connections)
 	for(var/obj/structure/table/T in oview(src, 1))
-		T.update_icon()
-	..()
+		T.queue_icon_update()
+	return ..()
 
 /obj/structure/table/examine(mob/user)
 	. = ..()
@@ -107,7 +107,7 @@
 		remove_reinforced(W, user)
 		if(!reinforced)
 			update_desc()
-			update_icon()
+			queue_icon_update()
 			update_material()
 		return 1
 
@@ -116,7 +116,7 @@
 		                              "<span class='notice'>You remove the carpet from \the [src].</span>")
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
-		update_icon()
+		queue_icon_update()
 		return 1
 
 	if(!carpeted && material && istype(W, /obj/item/stack/tile/carpet))
@@ -125,7 +125,7 @@
 			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
 			                              "<span class='notice'>You add \the [C] to \the [src].</span>")
 			carpeted = 1
-			update_icon()
+			queue_icon_update()
 			return 1
 		else
 			user << "<span class='warning'>You don't have enough carpet!</span>"
@@ -134,9 +134,9 @@
 		remove_material(W, user)
 		if(!material)
 			update_connections(1)
-			update_icon()
+			queue_icon_update()
 			for(var/obj/structure/table/T in oview(src, 1))
-				T.update_icon()
+				T.queue_icon_update()
 			update_desc()
 			update_material()
 		return 1
@@ -161,7 +161,7 @@
 		material = common_material_add(W, user, "plat")
 		if(material)
 			update_connections(1)
-			update_icon()
+			queue_icon_update()
 			update_desc()
 			update_material()
 		return 1
@@ -194,7 +194,7 @@
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
 		update_desc()
-		update_icon()
+		queue_icon_update()
 		update_material()
 
 /obj/structure/table/proc/update_desc()
@@ -305,14 +305,14 @@
 /obj/structure/table/update_icon()
 	if(flipped != 1)
 		icon_state = "blank"
-		overlays.Cut()
+		cut_overlays()
 
 		var/image/I
 
 		// Base frame shape. Mostly done for glass/diamond tables, where this is visible.
 		for(var/i = 1 to 4)
 			I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
-			overlays += I
+			add_overlay(I)
 
 		// Standard table image
 		if(material)
@@ -320,7 +320,7 @@
 				I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 				if(material.icon_colour) I.color = material.icon_colour
 				I.alpha = 255 * material.opacity
-				overlays += I
+				add_overlay(I)
 
 		// Reinforcements
 		if(reinforced)
@@ -328,14 +328,14 @@
 				I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))
 				I.color = reinforced.icon_colour
 				I.alpha = 255 * reinforced.opacity
-				overlays += I
+				add_overlay(I)
 
 		if(carpeted)
 			for(var/i = 1 to 4)
 				I = image(icon, "carpet_[connections[i]]", dir = 1<<(i-1))
-				overlays += I
+				add_overlay(I)
 	else
-		overlays.Cut()
+		cut_overlays()
 		var/type = 0
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
@@ -356,7 +356,7 @@
 			var/image/I = image(icon, "[material.icon_base]_flip[type]")
 			I.color = material.icon_colour
 			I.alpha = 255 * material.opacity
-			overlays += I
+			add_overlay(I)
 			name = "[material.display_name] table"
 		else
 			name = "table frame"
@@ -365,10 +365,10 @@
 			var/image/I = image(icon, "[reinforced.icon_reinf]_flip[type]")
 			I.color = reinforced.icon_colour
 			I.alpha = 255 * reinforced.opacity
-			overlays += I
+			add_overlay(I)
 
 		if(carpeted)
-			overlays += "carpet_flip[type]"
+			add_overlay("carpet_flip[type]")
 
 // set propagate if you're updating a table that should update tables around it too, for example if it's a new table or something important has changed (like material).
 /obj/structure/table/proc/update_connections(propagate=0)
@@ -419,9 +419,8 @@
 		if(material && T.material && material.name == T.material.name && flipped == T.flipped)
 			connection_dirs |= T_dir
 		if(propagate)
-			spawn(0)
-				T.update_connections()
-				T.update_icon()
+			INVOKE_ASYNC(T, .update_connections)
+			INVOKE_ASYNC(T, /atom/.proc/queue_icon_update)
 
 	connections = dirs_to_corner_states(connection_dirs)
 

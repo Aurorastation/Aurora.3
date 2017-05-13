@@ -14,7 +14,8 @@
 	var/obj/machinery/computer/helm/nav_control
 	var/obj/machinery/computer/engines/eng_control
 
-/obj/effect/map/ship/initialize()
+/obj/effect/map/ship/Initialize()
+	. = ..()
 	for(var/obj/machinery/computer/engines/E in machines)
 		if (E.z == map_z)
 			eng_control = E

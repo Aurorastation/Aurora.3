@@ -3,8 +3,8 @@
 	var/list/cargo = new
 	var/cargo_capacity = 5
 
-/obj/mecha/working/initialize()
-	..()
+/obj/mecha/working/Initialize()
+	. = ..()
 	var/turf/T = get_turf(src)
 	if(isPlayerLevel(T.z))
 		new /obj/item/mecha_parts/mecha_tracking(src)
@@ -23,8 +23,8 @@
 		if(T)
 			T.Entered(A)
 		step_rand(A)
-	..()
-	return
+	
+	return ..()
 
 /obj/mecha/working/Topic(href, href_list)
 	..()

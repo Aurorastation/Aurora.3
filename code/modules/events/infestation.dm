@@ -172,7 +172,7 @@
 		num--
 
 		if(vermin == VERM_SPIDERS)
-			var/obj/effect/spider/spiderling/S = new(T)
+			var/obj/effect/spider/spiderling/S = new /obj/effect/spider/spiderling(T)
 			S.amount_grown = 1
 			S.growth_rate = (rand(50,300)/1000)//At most, they grow at 30% the usual rate. As low as 1/20th
 			if (severity == EVENT_LEVEL_MODERATE)

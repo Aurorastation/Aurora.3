@@ -200,9 +200,6 @@
 	..()
 	desc = "How could you do this? You monster!"
 
-var/const/MAX_CHICKENS = 50
-var/global/chicken_count = 0
-
 /mob/living/simple_animal/chicken
 	name = "\improper chicken"
 	desc = "Hopefully the eggs are good this season."
@@ -229,6 +226,8 @@ var/global/chicken_count = 0
 	density = 0
 	mob_size = 2
 	hunger_enabled = FALSE
+
+	var/static/chicken_count = 0
 
 /mob/living/simple_animal/chicken/New()
 	..()
@@ -283,16 +282,19 @@ var/global/chicken_count = 0
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 		if(chicken_count < MAX_CHICKENS && prob(10))
-			processing_objects.Add(E)
+			START_PROCESSING(SSprocessing, E)
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/var/amount_grown = 0
+/obj/item/weapon/reagent_containers/food/snacks/egg
+	var/amount_grown = 0
+
 /obj/item/weapon/reagent_containers/food/snacks/egg/process()
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
 			visible_message("[src] hatches with a quiet cracking sound.")
 			new /mob/living/simple_animal/chick(get_turf(src))
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)
 	else
+		STOP_PROCESSING(SSprocessing, src)
 		processing_objects.Remove(src)

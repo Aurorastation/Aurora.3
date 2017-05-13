@@ -90,6 +90,8 @@
 
 	var/noexplode = 0//Used for cases where an exosuit is spawned and turned into wreckage
 
+	can_hold_mob = TRUE
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)
@@ -158,19 +160,15 @@
 	cell = null
 	internal_tank = null
 
-	qdel(pr_int_temp_processor)
-	qdel(pr_inertial_movement)
-	qdel(pr_give_air)
-	qdel(pr_internal_damage)
-	qdel(pr_manage_warnings)
-	qdel(spark_system)
-	pr_int_temp_processor = null
-	pr_give_air = null
-	pr_internal_damage = null
-	spark_system = null
+	QDEL_NULL(pr_int_temp_processor)
+	QDEL_NULL(pr_inertial_movement)
+	QDEL_NULL(pr_give_air)
+	QDEL_NULL(pr_internal_damage)
+	QDEL_NULL(pr_manage_warnings)
+	QDEL_NULL(spark_system)
 
 	mechas_list -= src //global mech list
-	..()
+	return ..()
 
 ////////////////////////
 ////// Helpers /////////
@@ -1115,7 +1113,7 @@
 	A.ex_act(3)
 
 	sleep(1)
-	if (A && !(A.gcDestroyed) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
+	if (!QDELETED(A) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
 		src.visible_message("<span class='danger'>[src.name] crashes into the [aname]!</span>")
 		take_damage(damage)
 		return 0//If it survived the impact then we stop breaking things for this proc

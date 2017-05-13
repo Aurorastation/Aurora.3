@@ -55,8 +55,8 @@
 /mob/living/carbon/human/stok
 	mob_size = 2.6//Roughly the same size as monkey
 
-/mob/living/carbon/human/neaera/New(var/new_loc)
-	..(new_loc, "Neaera")
+/mob/living/carbon/human/stok/New(var/new_loc)
+	..(new_loc, "Stok")
 
 /mob/living/carbon/human/bug
 	mob_size = 2.6//Roughly the same size as monkey
