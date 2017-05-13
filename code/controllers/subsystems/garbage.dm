@@ -242,6 +242,15 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
+	for (var/thing in destroy_listeners)
+		var/datum/callback/cb = thing
+		if (QDELING(cb))
+			continue
+		
+		cb.Invoke()
+
+	destroy_listeners = null
+
 	nanomanager.close_uis(src)
 	tag = null
 	var/list/timers = active_timers

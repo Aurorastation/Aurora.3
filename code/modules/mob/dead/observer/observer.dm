@@ -31,9 +31,6 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	var/ghostvision = 1 //is the ghost able to see things humans can't?
 	var/seedarkness = 1
 
-	var/datum/callback/move_callback
-	var/datum/callback/destroy_callback
-
 	var/obj/item/device/multitool/ghost_multitool
 	incorporeal_move = 1
 
@@ -91,8 +88,6 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 	ghost_multitool = new(src)
 
-	move_callback = DCALLBACK(src, /atom/movable/.proc/move_to_destination)
-	destroy_callback = DCALLBACK(src, .proc/stop_following)
 	..()
 
 /mob/dead/observer/Destroy()
@@ -106,8 +101,6 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		ghostimage = null
 		updateallghostimages()
 
-	QDEL_NULL(move_callback)
-	QDEL_NULL(destroy_callback)
 	return ..()
 
 /mob/dead/observer/Topic(href, href_list)
@@ -368,8 +361,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	stop_following()
 	following = target
-	following.OnMove(move_callback)
-	following.OnDestroy(destroy_callback)
+	following.OnMove(CALLBACK(src, /atom/movable/.proc/move_to_destination), "\ref[src]ghostmove")
+	following.OnDestroy(CALLBACK(src, .proc/stop_following), "\ref[src]ghostdestroy")
 
 	src << "<span class='notice'>Now following \the [following]</span>"
 	move_to_destination(following, following.loc, following.loc)
@@ -377,8 +370,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/proc/stop_following()
 	if(following)
 		src << "<span class='notice'>No longer following \the [following]</span>"
-		following.UnregisterOnMove(move_callback)
-		following.UnregisterOnDestroy(destroy_callback)
+		following.UnregisterOnMove("\ref[src]ghostmove")
+		following.UnregisterOnDestroy("\ref[src]ghostdestroy")
 		following = null
 
 /mob/dead/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)

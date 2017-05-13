@@ -18,19 +18,11 @@
 	var/active =    0          // Is our owner intending to take hostages?
 	var/target_permissions = 0 // Permission bitflags.
 
-	var/datum/callback/owner_move_callback
-	var/datum/callback/target_move_callback
-	var/datum/callback/target_destroy_callback
-
 /obj/aiming_overlay/New(var/newowner)
 	..()
 	owner = newowner
 	loc = null
 	verbs.Cut()
-
-	owner_move_callback = DCALLBACK(src, .proc/update_aiming)
-	target_move_callback = DCALLBACK(src, .proc/target_moved)
-	target_destroy_callback = DCALLBACK(src, .proc/cancel_aiming)
 
 /obj/aiming_overlay/proc/toggle_permission(var/perm)
 
@@ -94,9 +86,6 @@
 /obj/aiming_overlay/Destroy()
 	cancel_aiming(1)
 	owner = null
-	QDEL_NULL(owner_move_callback)
-	QDEL_NULL(target_move_callback)
-	QDEL_NULL(target_destroy_callback)
 	return ..()
 
 obj/aiming_overlay/proc/update_aiming_deferred()
@@ -181,9 +170,9 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	owner.OnMove(owner_move_callback)
-	aiming_at.OnMove(target_move_callback)
-	aiming_at.OnDestroy(target_destroy_callback)
+	owner.OnMove(CALLBACK(src, .proc/update_aiming), "\ref[src]ownermove")
+	aiming_at.OnMove(CALLBACK(src, .proc/target_moved), "\ref[src]targetmove")
+	aiming_at.OnDestroy(CALLBACK(src, .proc/cancel_aiming), "\ref[src]targetdestroy")
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -218,10 +207,10 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 
-	owner.UnregisterOnMove(owner_move_callback)
+	owner.UnregisterOnMove("\ref[src]ownermove")
 	if(aiming_at)
-		aiming_at.UnregisterOnMove(target_move_callback)
-		aiming_at.UnregisterOnDestroy(target_destroy_callback)
+		aiming_at.UnregisterOnMove("\ref[src]targetmove")
+		aiming_at.UnregisterOnDestroy("\ref[src]targetdestroy")
 		aiming_at.aimed -= src
 		aiming_at = null
 
