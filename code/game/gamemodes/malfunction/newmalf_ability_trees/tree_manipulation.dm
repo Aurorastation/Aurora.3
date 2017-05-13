@@ -1,7 +1,7 @@
 // MANIPULATION TREE
 //
 // Abilities in this tree allow the AI to physically manipulate systems around the station.
-// T1 - Electrical Pulse - Sends out pulse that breaks some lights and sometimes even APCs. This can actually break the AI's APC so be careful!
+// T1 - Hack Holopad - Allows the AI to hack a holopad. Hacked holopads only activate the listening feature when turned on.
 // T2 - Hack Camera - Allows the AI to hack a camera. Deactivated areas may be reactivated, and functional cameras can be upgraded.
 // T3 - Emergency Forcefield - Allows the AI to project 1 tile forcefield that blocks movement and air flow. Forcefield�dissipates over time. It is also very susceptible to energetic weaponry.
 // T4 - Machine Overload - Detonates machine of choice in a minor explosion. Two of these are usually enough to kill or K/O someone.
@@ -46,7 +46,7 @@
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
 		return
-	if(HP.hacked == 1)
+	if(HP.hacked)
 		user << "This holopad is already hacked!"
 		return
 
