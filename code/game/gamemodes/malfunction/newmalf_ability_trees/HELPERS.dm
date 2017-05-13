@@ -171,7 +171,7 @@
 /proc/get_unhacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(A.hacker && A.hacker == user)
+		if(!A.hacker)
 			continue
 		H.Add(A)
 	return H
