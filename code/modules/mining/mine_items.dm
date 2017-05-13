@@ -185,7 +185,7 @@
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
-		
+
 	qdel(src)
 
 /obj/item/weapon/pickaxe/hammer
@@ -673,6 +673,8 @@
 	var/closest = 15
 
 	for(var/turf/simulated/mineral/random/R in orange(14,loc))
+		if(!R.mineral)
+			continue
 		var/dist = get_dist(loc, R)
 		if(dist < closest)
 			closest = dist
