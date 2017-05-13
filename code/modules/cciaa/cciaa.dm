@@ -232,7 +232,7 @@
 		usr << "<span class='warning'>Cancelled.</span>"
 		return
 	var/announce = alert(user, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
-	if(announce = "Yes")
+	if(announce == "Yes")
 		announce = 1
 
 	// Create the reply message
