@@ -1,5 +1,5 @@
 #define CYBORG_POWER_USAGE_MULTIPLIER 2.5 // Multiplier for amount of power cyborgs use.
-
+var/malfAImoduleavailable = 0
 /mob/living/silicon/robot
 	name = "Cyborg"
 	real_name = "Cyborg"
