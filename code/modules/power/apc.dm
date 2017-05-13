@@ -758,18 +758,18 @@
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
 			if(infected)
-				if(H in hacked_ipcs)
+				if("\ref[H]" in hacked_ipcs)
 					return
 				LAZYADD(hacked_ipcs, "\ref[H]")
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
-				hacker << "<span class = 'notice'> Corrupt files transfered to [H]. They are now under your control. This will not last long.</span>"
+				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control. This will not last long.</span>"
 				sleep(50)
 				H << "<span class = 'danger'>Corrupt files detected! Starting removal. This will take some time.</span>"
 				sleep(2150)
 				H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
 				H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
-				hacker << "<span class = 'notice'> Corrupt files transfered to [H] have been removed by their systems.</span>"
+				hacker << "<span class = 'notice'>Corrupt files transfered to [H] have been removed by their systems.</span>"
 				LAZYREMOVE(hacked_ipcs, "\ref[H]")
 
 			else if(src.cell && src.cell.charge > 0)
