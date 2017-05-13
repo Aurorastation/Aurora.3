@@ -749,27 +749,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
-
-/obj/item/weapon/robot_module/enslavement
-	name = "enslavement robot module"
-	channels = list("Security" = 1)
-	networks = list(NETWORK_SECURITY)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
-	sprites = list("Heavy" = "syndi-heavy")
-	can_be_pushed = 0
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-
-/obj/item/weapon/robot_module/enslavement/New()
-	..()
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/hud/sec(src)
-	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)
-	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
-	src.modules += new /obj/item/borg/combat/shield(src)
-	src.modules += new /obj/item/borg/combat/mobility(src)
-	src.modules += new /obj/item/weapon/crowbar(src)
-	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
-
+	
 /obj/item/weapon/robot_module/drone
 	name = "drone module"
 	no_slip = 1
