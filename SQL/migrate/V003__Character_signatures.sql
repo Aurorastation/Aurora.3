@@ -4,5 +4,5 @@
 --
 
 ALTER TABLE `ss13_characters_flavour`
-	ADD `signature` TINYTEXT NULL DEFAULT '' AFTER `char_id`,
-	ADD `signature_font` TINYTEXT TINYTEXT NULL DEFAULT '' AFTER `signature`;
+	ADD `signature` TINYTEXT NULL DEFAULT NULL AFTER `char_id`,
+	ADD `signature_font` TINYTEXT TINYTEXT NULL DEFAULT NULL AFTER `signature`;
