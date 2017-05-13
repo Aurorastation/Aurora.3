@@ -168,7 +168,7 @@
 // Proc: get_unhacked_apcs()
 // Parameters: None
 // Description: Returns a list of all unhacked APCs
-/proc/get_unhacked_apcs(var/mob/living/silicon/ai/user)
+/proc/get_unhacked_apcs()
 	var/list/H = list()
 	for(var/obj/machinery/power/apc/A in machines)
 		if(!A.hacker)
