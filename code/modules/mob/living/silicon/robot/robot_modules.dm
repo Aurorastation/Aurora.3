@@ -8,7 +8,6 @@ var/global/list/robot_modules = list(
 	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
 	"Security" 		= /obj/item/weapon/robot_module/security/general,
 	"Combat" 		= /obj/item/weapon/robot_module/combat,
-	"Enslavement" 	= /obj/item/weapon/robot_module/enslavement,
 	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
 	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
 	"Custodial" 	= /obj/item/weapon/robot_module/janitor
