@@ -267,9 +267,9 @@
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(z_co == 1 || z_co < 1 || z_co > 8)
+	if(z_co in config.admin_levels)
 		telefail()
-		temp_msg = "ERROR! Sector is less than or equal to 1 or above 8!."
+		temp_msg = "ERROR! Sector is invalid! Valid sectors are [config.player_levels]."
 		return
 	if(teles_left > 0)
 		doteleport(user)
