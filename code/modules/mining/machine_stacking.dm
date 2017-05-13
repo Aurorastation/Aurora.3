@@ -11,7 +11,7 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_unit_console/initialize()
+/obj/machinery/mineral/stacking_unit_console/Initialize()
 	. = ..()
 	for (var/dir in alldirs)
 		src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, dir))
@@ -83,7 +83,7 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_machine/initialize()
+/obj/machinery/mineral/stacking_machine/Initialize()
 	. = ..()
 
 	for(var/stacktype in typesof(/obj/item/stack/material)-/obj/item/stack/material)

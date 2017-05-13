@@ -15,7 +15,7 @@
 	var/points = 0
 	var/obj/item/weapon/card/id/inserted_id
 
-/obj/machinery/mineral/processing_unit_console/initialize()
+/obj/machinery/mineral/processing_unit_console/Initialize()
 	. = ..()
 	for (var/dir in alldirs)
 		src.machine = locate(/obj/machinery/mineral/processing_unit, get_step(src, dir))

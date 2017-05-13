@@ -79,7 +79,7 @@
 /obj/effect/spawner/caverns/sarlacc
 	icon_state = "x"
 
-/obj/effect/spawner/caverns/initialize()
+/obj/effect/spawner/caverns/Initialize()
 	for(var/obj/effect/spawner/caverns/C in orange(src,1))
 		qdel(src)
 		return
