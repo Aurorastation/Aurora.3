@@ -18,11 +18,19 @@
 	var/active =    0          // Is our owner intending to take hostages?
 	var/target_permissions = 0 // Permission bitflags.
 
+	var/datum/callback/owner_move_callback
+	var/datum/callback/target_move_callback
+	var/datum/callback/target_destroy_callback
+
 /obj/aiming_overlay/New(var/newowner)
 	..()
 	owner = newowner
 	loc = null
 	verbs.Cut()
+
+	owner_move_callback = CALLBACK(src, .proc/update_aiming)
+	target_move_callback = CALLBACK(src, .proc/target_moved)
+	target_destroy_callback = CALLBACK(src, .proc/cancel_aiming)
 
 /obj/aiming_overlay/proc/toggle_permission(var/perm)
 
@@ -86,6 +94,9 @@
 /obj/aiming_overlay/Destroy()
 	cancel_aiming(1)
 	owner = null
+	QDEL_NULL(owner_move_callback)
+	QDEL_NULL(target_move_callback)
+	QDEL_NULL(target_destroy_callback)
 	return ..()
 
 obj/aiming_overlay/proc/update_aiming_deferred()
@@ -129,8 +140,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		return
 
 	if(!owner.incapacitated() && owner.client)
-		spawn(0)
-			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
+		INVOKE_ASYNC(owner, /atom/.proc/set_dir, get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
 
@@ -164,16 +174,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
 	forceMove(get_turf(target))
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 
 	aiming_at.aimed |= src
 	toggle_active(1)
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
-	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
-	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+	owner.OnMove(owner_move_callback)
+	aiming_at.OnMove(target_move_callback)
+	aiming_at.OnDestroy(target_destroy_callback)
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -208,16 +218,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 
-	moved_event.unregister(owner, src)
+	owner.UnregisterOnMove(owner_move_callback)
 	if(aiming_at)
-		moved_event.unregister(aiming_at, src)
-		destroyed_event.unregister(aiming_at, src)
+		aiming_at.UnregisterOnMove(target_move_callback)
+		aiming_at.UnregisterOnDestroy(target_destroy_callback)
 		aiming_at.aimed -= src
 		aiming_at = null
 
 	aiming_with = null
 	loc = null
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()
