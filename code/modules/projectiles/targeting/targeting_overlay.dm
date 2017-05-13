@@ -28,9 +28,9 @@
 	loc = null
 	verbs.Cut()
 
-	owner_move_callback = CALLBACK(src, .proc/update_aiming)
-	target_move_callback = CALLBACK(src, .proc/target_moved)
-	target_destroy_callback = CALLBACK(src, .proc/cancel_aiming)
+	owner_move_callback = DCALLBACK(src, .proc/update_aiming)
+	target_move_callback = DCALLBACK(src, .proc/target_moved)
+	target_destroy_callback = DCALLBACK(src, .proc/cancel_aiming)
 
 /obj/aiming_overlay/proc/toggle_permission(var/perm)
 

@@ -91,8 +91,8 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 	ghost_multitool = new(src)
 
-	move_callback = CALLBACK(src, /atom/movable/.proc/move_to_destination)
-	destroy_callback = CALLBACK(src, .proc/stop_following)
+	move_callback = DCALLBACK(src, /atom/movable/.proc/move_to_destination)
+	destroy_callback = DCALLBACK(src, .proc/stop_following)
 	..()
 
 /mob/dead/observer/Destroy()
