@@ -117,6 +117,15 @@
 	var/global/list/status_overlays_environ
 
 	var/datum/effect_system/sparks/spark_system
+	
+	var/list/debuggers = list()		// soft-refs to debuggers that have completed the debug step on a hacked APC.
+	var/static/list/hackmsgs = list(	// Fluff messages for successful debugs.
+		"Core system fault detected.",
+		"Unable to interface with diagnostics module.",
+		"Corruption detected in APC filesystem tree.",
+		"Control interface corruption detected.",
+		"Software fault detected."
+	)
 
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
@@ -369,7 +378,7 @@
 			update_state |= UPDATE_OPENED1
 		if(opened==2)
 			update_state |= UPDATE_OPENED2
-	else if(emagged || hacker || failure_timer)
+	else if(emagged || (hacker && hacker.system_override) || failure_timer)
 		update_state |= UPDATE_BLUESCREEN
 	else if(wiresexposed)
 		update_state |= UPDATE_WIREEXP
@@ -642,6 +651,40 @@
 			if (opened==2)
 				opened = 1
 			update_icon()
+	else if (istype(W, /obj/item/device/multitool) && !stat)
+		var/prev_diag = ("\ref[W]" in debuggers)
+		if (prev_diag)
+			user << span("notice", "You start to perform a factory reset on the APC...")
+			if (do_after(user, 20 SECONDS, act_target = src))
+				if (prob(20))
+					user << span("alert", "Error: Connection timed out.")
+					return
+
+				update_icon()
+				src.ping("\The [src] beeps, \"Settings restored to factory defaults.\"")
+				hacker << span("alert", "APC reset detected: [src]")
+
+				hacker.hacked_apcs -= src
+				hacker = null
+				debuggers.Cut()
+				return
+			else
+				user << span("alert", "Error: APC connection lost!")
+				return
+
+		else
+			user << span("notice", "You begin to run diagnostics on the APC...")
+			if (do_after(user, 10 SECONDS, act_target = src))
+				if (!hacker)
+					user << span("notice", "No fault detected.")
+					return
+
+				user << span("notice", "Diagnostics complete!")
+				user << span("alert", pick(hackmsgs))
+				user << span("alert", "Recommend factory reset.")
+				debuggers += "\ref[W]"
+			else
+				user << span("alert", "Error: APC connection lost!")
 	else
 		if ((stat & BROKEN) \
 				&& !opened \
