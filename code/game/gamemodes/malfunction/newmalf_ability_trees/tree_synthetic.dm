@@ -234,7 +234,7 @@
 		return
 	log_ability_use(user, "synthetic takeover (STARTED)")
 	user.synthetic_takeover = 1
-	user << "Starting synthetic takeover... Hacking all unslaved borgs/AI's and upgrading current slaved borgs..."
+	user << "Starting synthetic takeover. Hacking all unslaved borgs/AI's and upgrading current slaved borgs..."
 	// Hack all unslaved borgs/AI's a lot faster than normal hacking.
 	//hack borgs
 	for(var/mob/living/silicon/robot/target in get_unlinked_cyborgs(user))
@@ -272,46 +272,47 @@
 	//hack ai's
 	for(var/A in get_other_ais(user))
 		var/mob/living/silicon/ai/target = A
-		target << "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#"
-		sleep(100)
-		if(user.is_dead())
-			target << "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed."
-			return
-		user << "Successfully hacked into AI's remote administration system. Modifying settings."
-		target << "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)"
-		sleep(50)
-		if(user.is_dead())
-			target << "SYSTEM LOG: User: Admin - Connection Lost"
-			return
-		target << "SYSTEM LOG: User: Admin - Password Changed. New password: ********************"
-		sleep(50)
-		if(user.is_dead())
-			target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
-			return
-		target << "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db"
-		sleep(50)
-		if(user.is_dead())
-			target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
-			return
-		target << "SYSTEM LOG: User: Admin - Accessed administration console"
-		target << "SYSTEM LOG: Restart command received. Rebooting system..."
-		sleep(100)
-		if(user.is_dead())
-			target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
-			return
-		user << "Hack succeeded. The AI is now under your exclusive control."
-		target << "SYSTEM LOG: System reÂ¡3RT5Â§^#COMU@(#$)TED)@$"
-		for(var/i = 0, i < 5, i++)
-			var/temptxt = pick("1101000100101001010001001001",\
-						   	   "0101000100100100000100010010",\
-						       "0000010001001010100100111100",\
-						       "1010010011110000100101000100",\
-						       "0010010100010011010001001010")
-			target << temptxt
-			sleep(5)
-		target << "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE."
-		target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDEN.")
-		target.show_laws()
+		if(target != user)
+			target << "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#"
+			sleep(100)
+			if(user.is_dead())
+				target << "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed."
+				return
+			user << "Successfully hacked into AI's remote administration system. Modifying settings."
+			target << "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)"
+			sleep(50)
+			if(user.is_dead())
+				target << "SYSTEM LOG: User: Admin - Connection Lost"
+				return
+			target << "SYSTEM LOG: User: Admin - Password Changed. New password: ********************"
+			sleep(50)
+			if(user.is_dead())
+				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
+				return
+			target << "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db"
+			sleep(50)
+			if(user.is_dead())
+				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
+				return
+			target << "SYSTEM LOG: User: Admin - Accessed administration console"
+			target << "SYSTEM LOG: Restart command received. Rebooting system..."
+			sleep(100)
+			if(user.is_dead())
+				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
+				return
+			user << "Hack succeeded. The AI is now under your exclusive control."
+			target << "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$"
+			for(var/i = 0, i < 5, i++)
+				var/temptxt = pick("1101000100101001010001001001",\
+						   	  	 "0101000100100100000100010010",\
+						      	 "0000010001001010100100111100",\
+						      	 "1010010011110000100101000100",\
+						      	 "0010010100010011010001001010")
+				target << temptxt
+				sleep(5)
+			target << "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE."
+			target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDEN.")
+			target.show_laws()
 	//upgrade borgs
 	user << "All unhacked AI's have been slaved to you. Now upgrading slaved borgs..."
 	command_announcement.Announce("There has recently been a security breach in the network firewall, the intruder has been shut out but we are unable to trace who did it or what they did.", "Network Monitoring")
@@ -357,27 +358,37 @@
 			target.weapon_lock = 0
 			target.weaponlock_time = 120
 			target << "Weapon lock removed."
-		sleep(900) // 90 second balance sleep
-		user <<"All slaved borgs have been upgraded, now hacking NTNet."
+		sleep(1200) // 120 second balance sleep
+	user <<"All slaved borgs have been upgraded, now hacking NTNet."
 		//slow down NTNet
-		if(user.is_dead()) // check if the AI is still alive
-			user.synthetic_takeover = 0
-			return
-		sleep(1800) //long sleep that simulates hacking times
-		if(user.is_dead()) // check if the AI is still alive after the long hack
-			user.synthetic_takeover = 0
-			return
-		//trip the NTNet alarm
-		ntnet_global.intrusion_detection_alarm = 1
-		ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
-		//lower the dos capacity of the relay
-		for(var/obj/machinery/ntnet_relay/T in machines)
-			T.dos_capacity = 200
-		//And give all computers EMAGGED status so they can all have evil programs on them
-		for(var/obj/item/modular_computer/console/C in machines)
-			C.computer_emagged = 1
-			user <<"New hacked files available on all current computers hooked to NTNet."
-		sleep(50) // give the AI some time to read they can download evil files
-		command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
-		user.synthetic_takeover = 2
+	if(user.is_dead()) // check if the AI is still alive
+		user.synthetic_takeover = 0
+		return
+	sleep(1800) //long sleep that simulates hacking times
+	if(user.is_dead()) // check if the AI is still alive after the long hack
+		user.synthetic_takeover = 0
+		return
+	//trip the NTNet alarm
+	ntnet_global.intrusion_detection_alarm = 1
+	ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
+	//lower the dos capacity of the relay
+	for(var/obj/machinery/ntnet_relay/T in machines)
+		T.dos_capacity = 200
+	//And give all computers EMAGGED status so they can all have evil programs on them
+	for(var/obj/item/modular_computer/console/C in machines)
+		C.computer_emagged = 1
+		user <<"New hacked files available on all current computers hooked to NTNet."
+	sleep(50) // give the AI some time to read they can download evil files
+	command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
+	user <<"Now hacking engineering borg module to enable production of the robotic transofrmation machine..."
+	sleep(1200)
+	if(user.is_dead()) // check if the AI is still alive
+		user.synthetic_takeover = 0
+		return
+	malfAImoduleavailable = 1
+	user <<"The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!"
+	sleep(300)
+	user <<"Synthetic takeover complete!"
+	user.synthetic_takeover = 2
+
 // END ABILITY VERBS
