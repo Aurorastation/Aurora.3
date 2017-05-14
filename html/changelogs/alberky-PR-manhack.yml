@@ -2,4 +2,6 @@ author: Alberyk
 
 delete-after: True
 
- - bugfix: "Fix manhacks attacking traitors, heisters and mercenaries."
+changes: 
+ - bugfix: "Fixed manhacks attacking traitors, heisters and mercenaries."
+ - bugfix: "Fixed ipcs being able to repair themselves using cable coil."
