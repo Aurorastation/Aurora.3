@@ -1,9 +1,9 @@
 /proc/Easter_Game_Start()
     Random_Egg()
 
-//Random egg :D
+//Random egg
 /proc/Random_Egg()
-    world << "<h3>There is a random golden egg hidden somewhere on the station...</h3>"
+    world << "<h3>There is a golden egg hidden somewhere on the station...</h3>"
     /var/list/turf/simulated/floor/Floorlist = list()
     for(var/turf/simulated/floor/T)
         if(T.contents)
@@ -15,7 +15,3 @@
         new /obj/item/weapon/reagent_containers/food/snacks/goldenegg(C)
     else
         new /obj/item/weapon/reagent_containers/food/snacks/goldenegg(F)
-    var/list/obj/containers = list()
-    for(var/obj/item/weapon/storage/S in world)
-        if(isNotStationLevel(S.z))	continue
-        containers += S
