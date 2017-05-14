@@ -1,5 +1,5 @@
 #define CYBORG_POWER_USAGE_MULTIPLIER 2.5 // Multiplier for amount of power cyborgs use.
-var/malfAImoduleavailable = 0
+
 /mob/living/silicon/robot
 	name = "Cyborg"
 	real_name = "Cyborg"
@@ -22,6 +22,7 @@ var/malfAImoduleavailable = 0
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
 	var/crisis //Admin-settable for combat module use.
 	var/crisis_override = 0
+	var/malfAImodule = 0
 	var/integrated_light_power = 4
 	var/datum/wires/robot/wires
 	var/overclocked = 0 // cyborg controls if they enable the overclock
@@ -877,6 +878,11 @@ var/malfAImoduleavailable = 0
 			dat += text("[module.emag]: <B>Activated</B><BR>")
 		else
 			dat += text("[module.emag]: <A HREF=?src=\ref[src];act=\ref[module.emag]>Activate</A><BR>")
+	if(malfAImodule)
+		if(activated(malfAImodule))
+			dat += text("[module.malfAImodule]: <B>Activated</B><BR>")
+		else
+			dat += text("[module.malfAImodule]: <A HREF=?src=\ref[src];act=\ref[module.malfAImodule]>Activate</A><BR>")
 /*
 		if(activated(obj))
 			dat += text("[obj]: \[<B>Activated</B> | <A HREF=?src=\ref[src];deact=\ref[obj]>Deactivate</A>\]<BR>")
@@ -907,7 +913,7 @@ var/malfAImoduleavailable = 0
 		if (!istype(O))
 			return 1
 
-		if(!((O in src.module.modules) || (O == src.module.emag)))
+		if(!((O in src.module.modules) || (O == src.module.emag) || (O == src.module.malfAImodule)))
 			return 1
 
 		if(activated(O))
