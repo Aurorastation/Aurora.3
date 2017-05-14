@@ -106,7 +106,7 @@
 
 
 
-/datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs()
+/datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs())
 	set name = "Infect APC"
 	set desc = "125 CPU - Infect an APC which can cause an IPC to become slaved to you if they download the files by trying to charge off of it. "
 	set category = "Software"
