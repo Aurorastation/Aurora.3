@@ -734,7 +734,7 @@
 			stat("Game ID", game_id)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", round_duration())
-			stat("Last Transfer Vote", vote.last_transfer_vote ? time2text(vote.last_transfer_vote, "hh:mm") : "Never")
+			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
 
 		if(client.holder)
 			if(statpanel("Status"))
