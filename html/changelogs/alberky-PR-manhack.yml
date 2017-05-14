@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed manhacks attacking traitors, heisters and mercenaries."
+  - bugfix: "Fixed ipcs being able to repair themselves using cable coil."
