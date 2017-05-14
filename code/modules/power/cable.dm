@@ -507,6 +507,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
 			return ..()
 
+		if(M.isSynthetic() && M == user)
+			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
+			return	
+
 		if(S.burn_dam)
 			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP)
 				S.heal_damage(0,15,0,1)
