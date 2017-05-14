@@ -31,17 +31,22 @@ var/global/Holiday = null
 		if(1)	//Jan
 			switch(DD)
 				if(1)							Holiday = "New Year's Day"
+				if(10)							Holiday = "Houseplant Appreciation Day"
+				if(25)							Holiday = "Opposite Day"
 
 		if(2)	//Feb
 			switch(DD)
 				if(2)							Holiday = "Groundhog Day"
 				if(14)							Holiday = "Valentine's Day"
 				if(17)							Holiday = "Random Acts of Kindness Day"
+				if(29)
+					if(YY == (20 || 24 || 28))	Holiday = "Leap Day"
 
 		if(3)	//Mar
 			switch(DD)
 				if(14)							Holiday = "Pi Day"
 				if(17)							Holiday = "St. Patrick's Day"
+				if(20)							Holiday = "Spring Vernal Equinox"
 
 		if(4)	//Apr
 			switch(DD)
@@ -74,7 +79,9 @@ var/global/Holiday = null
 			switch(DD)
 				if(1)							Holiday = "Doctor's Day"
 				if(2)							Holiday = "UFO Day"
+				if(5)							Holiday = "National Bikini Day"
 				if(8)							Holiday = "Writer's Day"
+				if(22)							Holiday = "Hammock Day"
 				if(30)							Holiday = "Friendship Day"
 
 		if(8)	//Aug
@@ -82,6 +89,7 @@ var/global/Holiday = null
 				if(3)							Holiday = "Watermelon day"
 				if(5)							Holiday = "Beer Day"
 				if(10)							Holiday = "National S'mores Day'"
+				if(13)							Holiday = "Left Hander's Day"
 
 		if(9)	//Sep
 			switch(DD)
