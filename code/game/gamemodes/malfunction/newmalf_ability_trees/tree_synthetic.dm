@@ -106,7 +106,7 @@
 
 
 
-/datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs())
+/datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs(src))
 	set name = "Infect APC"
 	set desc = "125 CPU - Infect an APC which can cause an IPC to become slaved to you if they download the files by trying to charge off of it. "
 	set category = "Software"
@@ -301,7 +301,7 @@
 				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
 				return
 			user << "Hack succeeded. The AI is now under your exclusive control."
-			target << "SYSTEM LOG: System reÂ¡3RT5Â§^#COMU@(#$)TED)@$"
+			target << "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$"
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
 						   	  	 "0101000100100100000100010010",\
@@ -385,7 +385,9 @@
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
-	malfAImoduleavailable = 1
+	for(var/B in get_linked_cyborgs(src))
+		var/mob/living/silicon/robot/target = B
+		target.malfAImodule = 1
 	user <<"The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!"
 	sleep(300)
 	user <<"Synthetic takeover complete!"
