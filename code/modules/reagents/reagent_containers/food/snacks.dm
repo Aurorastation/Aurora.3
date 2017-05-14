@@ -533,7 +533,7 @@
 //a random egg that can spawn only on easter. It has really good food values because it's rare
 /obj/item/weapon/reagent_containers/food/snacks/goldenegg
 	name = "golden egg"
-	desc = "It's the golden egg!'"
+	desc = "It's the golden egg!"
 	icon_state = "goldenegg"
 	filling_color = "#7D5F46"
 	center_of_mass = list("x"=16, "y"=13)
