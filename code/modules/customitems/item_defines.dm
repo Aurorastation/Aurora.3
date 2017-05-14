@@ -850,7 +850,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
-	name = "LR-31MTA beret"
+	name = "\improper LR-31MTA beret"
 	desc = "A silver beret with an insignia on the front, it looks like an old Tajaran cannon with a ring around it. \
 	Along the top half of the ring \"LR-31MTA\" is engraved. The word \"Yam'hir\" is engraved along the bottom half of the ring. \
 	The beret looks old and is worn in some places around the edges. It appears to have a flap inside, \
@@ -1027,3 +1027,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
 	contained_sprite = 1
+
+
+/obj/item/weapon/nullrod/fluff/azaroz_staff //Null Staff - Kesaos Azaroz - paradoxspace
+	name = "null staff"
+	desc = "A long, heavy staff seemingly hand-crafted of obsidian and steel. Pure volcanic crystals lie at its end, giving it an appearance similar to a mace."
+	icon = 'icons/obj/custom_items/azaroz_staff.dmi'
+	icon_state = "azaroz_staff"
+	item_state = "azaroz_staff"
+	contained_sprite = 1
+	slot_flags = SLOT_BACK
+	w_class = 4
