@@ -530,6 +530,21 @@
 	reagents.add_reagent("coco", 2)
 	bitesize = 2
 
+//a random egg that can spawn only on easter. It has really good food values because it's rare
+/obj/item/weapon/reagent_containers/food/snacks/goldenegg
+	name = "golden egg"
+	desc = "It's the golden egg!'"
+	icon_state = "goldenegg"
+	filling_color = "#7D5F46"
+	center_of_mass = list("x"=16, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/snacks/goldenegg/New()
+	..()
+	reagents.add_reagent("nutriment", 12)
+	reagents.add_reagent("sugar", 7)
+	reagents.add_reagent("coco", 3)
+	bitesize = 6
+
 /obj/item/weapon/reagent_containers/food/snacks/donut
 	name = "donut"
 	desc = "Goes great with Robust Coffee."
