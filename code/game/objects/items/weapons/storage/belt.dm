@@ -140,7 +140,8 @@
 		/obj/item/taperoll/police,
 		/obj/item/weapon/material/sword/trench,
 		/obj/item/weapon/shield/energy,
-		/obj/item/weapon/shield/riot/tact
+		/obj/item/weapon/shield/riot/tact,
+		/obj/item/device/holowarrant
 		)
 
 /obj/item/weapon/storage/belt/soulstone
@@ -265,14 +266,22 @@
 		/obj/item/weapon/weldingtool,
 		/obj/item/weapon/wirecutters,
 		/obj/item/weapon/wrench,
+		/obj/item/weapon/resonator,
+		/obj/item/weapon/oreportal,
+		/obj/item/weapon/plastique/seismic,
+		/obj/item/weapon/extraction_pack,
+		/obj/item/weapon/ore_radar,
 		/obj/item/device/flashlight,
 		/obj/item/stack/cable_coil,
+		/obj/item/stack/flag,
+		/obj/item/device/wormhole_jaunter,
 		/obj/item/device/analyzer,
 		/obj/item/weapon/extinguisher/mini,
 		/obj/item/device/radio,
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/glasses/material,
 		/obj/item/weapon/pickaxe,
+		/obj/item/weapon/shovel,
 		/obj/item/stack/material/animalhide,
 		/obj/item/weapon/flame/lighter,
 		/obj/item/weapon/storage/fancy/cigarettes,
