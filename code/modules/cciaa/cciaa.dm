@@ -227,6 +227,9 @@
 	if (!customname)
 		usr << "<span class='warning'>Cancelled.</span>"
 		return
+	var/announce = alert(user, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
+	if(announce == "Yes")
+		announce = 1
 
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
@@ -244,6 +247,8 @@
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.recievefax(P))
+		if(announce == 1)
+			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
 		usr << "<span class='notice'>Message transmitted successfully.</span>"
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
