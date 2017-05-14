@@ -140,7 +140,8 @@
 		/obj/item/taperoll/police,
 		/obj/item/weapon/material/sword/trench,
 		/obj/item/weapon/shield/energy,
-		/obj/item/weapon/shield/riot/tact
+		/obj/item/weapon/shield/riot/tact,
+		/obj/item/device/holowarrant
 		)
 
 /obj/item/weapon/storage/belt/soulstone
