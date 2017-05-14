@@ -4,8 +4,8 @@
 //Random egg
 /proc/Random_Egg()
     world << "<h3>There is a golden egg hidden somewhere on the station...</h3>"
-    /var/list/turf/simulated/floor/Floorlist = list()
-    for(var/turf/simulated/floor/T)
+    var/list/Floorlist = list()
+    for(var/turf/simulated/floor/T in config.station_levels)
         if(T.contents)
             Floorlist += T
     var/turf/simulated/floor/F = Floorlist[rand(1,Floorlist.len)]
