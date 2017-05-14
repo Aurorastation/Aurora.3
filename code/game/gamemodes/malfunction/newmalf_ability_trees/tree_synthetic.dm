@@ -106,7 +106,7 @@
 
 
 
-/datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs(src))
+/datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs())
 	set name = "Infect APC"
 	set desc = "125 CPU - Infect an APC which can cause an IPC to become slaved to you if they download the files by trying to charge off of it. "
 	set category = "Software"
@@ -301,7 +301,7 @@
 				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
 				return
 			user << "Hack succeeded. The AI is now under your exclusive control."
-			target << "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$"
+			target << "SYSTEM LOG: System reÂ¡3RT5Â§^#COMU@(#$)TED)@$"
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
 						   	  	 "0101000100100100000100010010",\
