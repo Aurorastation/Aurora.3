@@ -497,7 +497,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 ///////////////////////////////////
 
 //you can use wires to heal robotics
-/obj/item/stack/cable_coil/afterattack(mob/living/M as mob, var/mob/user)
+/obj/item/stack/cable_coil/afterattack(var/mob/living/M, var/mob/user)
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
