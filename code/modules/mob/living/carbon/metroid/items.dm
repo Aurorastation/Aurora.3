@@ -250,7 +250,7 @@
 			if(O.mind && O.mind.current && O.mind.current.stat != DEAD)	continue
 			ghost = O
 			break
-		if(ghost && !ghost.has_enabled_antagHUD)
+		if(ghost && !(ghost.has_enabled_antagHUD && config.antag_hud_restricted))
 			icon_state = "golem2"
 		else
 			icon_state = "golem"
