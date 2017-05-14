@@ -50,7 +50,7 @@
 
 	user.visible_message("<span class='notice'>[user] labels [A] as [label].</span>", \
 						 "<span class='notice'>You label [A] as [label].</span>")
-	A.name = "[A.name] ([label])"
+	A.desc = "The [A.name]'s label reads: <b>'[label]'</b>"
 
 /obj/item/weapon/hand_labeler/attack_self(mob/user as mob)
 	mode = !mode
