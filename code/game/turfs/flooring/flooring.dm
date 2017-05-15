@@ -87,6 +87,7 @@ var/list/flooring_types
 	desc = "It's like the 2390's all over again."
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_base = "lino"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	can_paint = 1
 
 /decl/flooring/tiling/red
