@@ -29,6 +29,7 @@ var/global/list/robot_modules = list(
 	var/list/modules = list()
 	var/list/datum/matter_synth/synths = list()
 	var/obj/item/emag = null
+	var/obj/item/malfAImodule = null
 	var/obj/item/borg/upgrade/jetpack = null
 	var/list/subsystems = list()
 	var/list/obj/item/borg/upgrade/supported_upgrades = list()
@@ -363,6 +364,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/gripper(src)
+	src.malfAImodule += new /obj/item/weapon/rtf(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal()
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel()
