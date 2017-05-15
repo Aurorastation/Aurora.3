@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - tweak: "Examining a human-type will no longer explicitly tell you if they are a shell. Are your co-workers really what they say they are?"
