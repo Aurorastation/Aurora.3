@@ -79,6 +79,10 @@
 	if(user == load)
 		unload(load)
 		user << "You unbuckle yourself from \the [src]"
+	if(user != load && load)
+		unload(load)
+		user <<"You unbuckle [load] from \the [src]"
+		load <<"You were unbuckled from \the [src] by [user]"
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
