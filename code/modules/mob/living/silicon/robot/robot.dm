@@ -879,7 +879,7 @@
 		else
 			dat += text("[module.emag]: <A HREF=?src=\ref[src];act=\ref[module.emag]>Activate</A><BR>")
 	if(malfAImodule)
-		if(activated(malfAImodule))
+		if(activated(module.malfAImodule))
 			dat += text("[module.malfAImodule]: <B>Activated</B><BR>")
 		else
 			dat += text("[module.malfAImodule]: <A HREF=?src=\ref[src];act=\ref[module.malfAImodule]>Activate</A><BR>")
