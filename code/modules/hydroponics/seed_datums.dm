@@ -348,8 +348,8 @@
 	display_name = "k'ois spores"
 	mutants = null
 	chems = list(
-				"koispaste" = list(5),
-				"phoron" = list(1))
+				"koispaste" = list(2),
+				"phoron" = list(4))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
 
