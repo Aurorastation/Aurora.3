@@ -33,8 +33,8 @@
 	//Interaction
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
-	var/response_harm   = "tries to hurt"
-	var/harm_intent_damage = 3
+	var/response_harm   = "hurts"
+	var/harm_intent_damage = 5
 
 	//Temperature effect
 	var/minbodytemp = 250
