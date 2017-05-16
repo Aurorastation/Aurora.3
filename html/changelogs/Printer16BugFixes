@@ -1,0 +1,14 @@
+
+author: Printer16
+delete-after: True
+changes: 
+  - bugfix: "Eggplants can now be mutated."
+  - bugfix: "RnD can now print flora disks."
+  - bugfix: "Crowbars can now lift strata and Linoleum tiles."
+  - bugfix: "Blobs can no longer steal tools from borgs."
+  - bugfix: "You can now unbuckle someone on a space bike."
+  - bugfix: "If you fail to dislocate a limb there will now be a chat message."
+  - bugfix: "Increased damage done to all simple_mobs slightly and added proper hit verbs."
+  - bugfix: "Smoking pipes have been made small items."
+  - bugfix: "IPC's can now wear refitted voidsuits. (Only if refitted to human/skrell)"
+  - bugfix: "The holodeck thunderdome ready button no longer requires power. "
