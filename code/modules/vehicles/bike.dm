@@ -81,7 +81,7 @@
 		user << "You unbuckle yourself from \the [src]"
 	else if(user != load && load)
 		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
-		if(do_after(user, 30 SECONDS, act_target = src))
+		if(do_after(user, 8 SECONDS, act_target = src))
 			unload(load)
 			user <<"You unbuckle [load] from \the [src]"
 			load <<"You were unbuckled from \the [src] by [user]"
