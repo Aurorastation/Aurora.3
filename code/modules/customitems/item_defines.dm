@@ -1038,3 +1038,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	slot_flags = SLOT_BACK
 	w_class = 4
+
+
+/obj/item/clothing/suit/fluff/eul_robe //Well Made Robe - Uelak Eul - lordraven001
+	name = "well made robe"
+	desc = "A well made brown robe fashioned from viscose fabric with a white jabot dangling from the neck. There is a tail whole cut out in the back and the sleeves and lower skirt of the robe have been elongated. \
+	It looks old from wear and tear."
+	icon = 'icons/obj/custom_items/eul_clothing.dmi'
+	icon_state = "eul_robe"
+	item_state = "eul_robe"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = 1
+	
+/obj/item/clothing/glasses/regular/fluff/eul_glasses //Chained Wooden Spectacles - Uelak Eul - lordraven001
+	name = "chained wooden spectacles"
+	desc = "A pair of wooden spectacles with a long bronze chain out the back of them. They have been bejeweled by benitoite and look elder from use."
+	icon = 'icons/obj/custom_items/eul_clothing.dmi'
+	icon_state = "eul_glasses"
+	item_state = "eul_glasses"
+	contained_sprite = 1
