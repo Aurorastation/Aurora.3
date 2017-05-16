@@ -80,9 +80,11 @@
 		unload(load)
 		user << "You unbuckle yourself from \the [src]"
 	else if(user != load && load)
-		unload(load)
-		user <<"You unbuckle [load] from \the [src]"
-		load <<"You were unbuckled from \the [src] by [user]"
+		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
+		if(do_after(user, 30 SECONDS, act_target = src))
+			unload(load)
+			user <<"You unbuckle [load] from \the [src]"
+			load <<"You were unbuckled from \the [src] by [user]"
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
