@@ -19,6 +19,9 @@
 	if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
 		tally-=3
 
+	if(overclocked == 1)
+		tally-=1
+
 	return tally+config.robot_delay
 
 // NEW: Different power usage depending on whether driving or jetpacking. space movement is easier

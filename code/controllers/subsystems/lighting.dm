@@ -55,7 +55,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			if (!A.dynamic_lighting)
 				continue
 
-			new /atom/movable/lighting_overlay(T, TRUE)
+			new /atom/movable/lighting_overlay(T)
 			overlaycount++
 
 			CHECK_TICK
@@ -95,17 +95,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 		var/datum/light_source/L = curr_lights[curr_lights.len]
 		curr_lights.len--
 
-		if(QDELETED(L) || L.check() || L.force_update)
-			L.remove_lum()
-			if(!QDELETED(L))
-				L.apply_lum()
+		L.update_corners()
 
-		else if(L.vis_update)	//We smartly update only tiles that became (in) visible to use.
-			L.smart_vis_update()
-
-		L.vis_update   = FALSE
-		L.force_update = FALSE
-		L.needs_update = FALSE
+		L.needs_update = LIGHTING_NO_UPDATE
 
 		processed_lights++
 

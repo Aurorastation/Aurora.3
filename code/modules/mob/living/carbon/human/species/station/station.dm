@@ -1,5 +1,6 @@
 /datum/species/human
 	name = "Human"
+	hide_name = TRUE
 	short_name = "hum"
 	name_plural = "Humans"
 	bodytype = "Human"
