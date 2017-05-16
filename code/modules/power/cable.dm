@@ -501,7 +501,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 ///////////////////////////////////
 
 //you can use wires to heal robotics
-/obj/item/stack/cable_coil/afterattack(var/mob/M, var/mob/user)
+/obj/item/stack/cable_coil/afterattack(var/mob/living/M, var/mob/user)
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -510,6 +510,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if (!S) return
 		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
 			return ..()
+
+		if(M.isSynthetic() && M == user)
+			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
+			return	
 
 		if(S.burn_dam)
 			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP)
