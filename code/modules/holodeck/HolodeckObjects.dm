@@ -362,10 +362,7 @@
 	var/eventstarted = 0
 
 	anchored = 1.0
-	use_power = 1
-	idle_power_usage = 2
-	active_power_usage = 6
-	power_channel = ENVIRON
+	use_power = 0 // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
 	user << "The station AI is not to interact with these devices!"
