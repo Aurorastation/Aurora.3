@@ -61,7 +61,7 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell", "Baseline Frame,", "Shell Frame", "Industrial Frame")	//humanoid bodytypes
+		if("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame")	//humanoid bodytypes
 			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
