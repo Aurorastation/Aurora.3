@@ -119,3 +119,42 @@
 /obj/item/weapon/material/twohanded/spear/bone
 	desc = "A spear crafted with bones of some long forgotten creature."
 	default_material = "cursed bone"
+
+//lich phylactery
+
+/obj/item/phylactery
+	name = "phylactery"
+	desc = "A twisted mummified heart."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "cursedheart-off"
+	origin_tech = list(TECH_BLUESPACE = 8, TECH_MATERIAL = 8, TECH_BIO = 8)
+	w_class = 5
+	light_color = "#6633CC"
+	light_power = 3
+	light_range = 4
+	
+	var/lich = null
+
+/obj/item/phylactery/New()
+	..()
+	world_phylactery += src
+
+/obj/item/phylactery/Destroy()
+	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
+	world_phylactery -= src
+	return ..()
+	
+/obj/item/phylactery/examine(mob/user)
+	..(user)
+	if(!lich)
+		user << "The heart is inert."
+	else
+		user << "The heart is pulsing slowly."
+	
+/obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		src.visible_message("\The [src] twists violently and explodes!")
+		gibs(src.loc)
+		qdel(src)
+		return
