@@ -142,6 +142,7 @@
 /obj/item/phylactery/Destroy()
 	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
 	world_phylactery -= src
+	lich = null
 	return ..()
 	
 /obj/item/phylactery/examine(mob/user)
