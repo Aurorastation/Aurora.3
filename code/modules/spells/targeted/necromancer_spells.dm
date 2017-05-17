@@ -183,21 +183,20 @@
 
 	else
 		C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
-		user.visible_message("<span class='cult'>\The [user]'s body turns into dust, a twisted wail can be heard!</span>")
+		C.visible_message("<span class='cult'>\The [user]'s body turns into dust, a twisted wail can be heard!</span>")
 		playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
 		C.dust()
 		return
 
 /mob/living/carbon/proc/post_dark_resurrection()
-	var/mob/living/carbon/C = usr
-	if(C.stat == DEAD)
-		dead_mob_list -= C
-		living_mob_list += C
-	C.stat = CONSCIOUS
-	C.revive()
-	C.reagents.clear_reagents()
-	C << "<span class='cult'>You have returned to life!</span>"
-	C.visible_message("<span class='cult'>[usr] rises up from the dead!</span>")
-	C.update_canmove()
-	C.verbs += /mob/living/carbon/proc/dark_resurrection
+	if(src.stat == DEAD)
+		dead_mob_list -= src
+		living_mob_list += src
+	src.stat = CONSCIOUS
+	src.revive()
+	src.reagents.clear_reagents()
+	src << "<span class='cult'>You have returned to life!</span>"
+	src.visible_message("<span class='cult'>[usr] rises up from the dead!</span>")
+	src.update_canmove()
+	src.verbs += /mob/living/carbon/proc/dark_resurrection
 	return 1
