@@ -141,15 +141,63 @@
 	hud_state = "wiz_lich"
 
 /spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
+
 	if(isskeleton(user))
 		user << "You have no soul or life to offer."
 		return
 
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
 	gibs(user.loc)
-	user.verbs += /mob/living/carbon/proc/immortality
+	user.verbs += /mob/living/carbon/proc/dark_resurrection
 	user.set_species("Skeleton")
 	user.unEquip(user.wear_suit)
 	user.unEquip(user.head)
 	user.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/black(user), slot_wear_suit)
 	user.equip_to_slot_or_del(new /obj/item/clothing/head/wizard/black(user), slot_head)
+	C << "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>"
+	var/obj/item/phylactery/G = new(get_turf(user))
+	G.lich = user
+	G.icon_state = "cursedheart-on"
+
+/mob/living/carbon/proc/dark_resurrection()
+	set category = "Abilities"
+	set name = "Dark Resurrection"
+	set desc = "Return to your phylactery and rebuild your body."
+
+	var/mob/living/carbon/C = usr
+	if(!C.stat)
+		C << "<span class='notice'>You're not dead yet!</span>"
+		return
+
+	for(var/obj/item/phylactery/N in world_phylactery)
+		if(isnull(N))
+			C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
+			user.visible_message("<span class='cult'>\The [user]'s body turns into dust, a twisted wail can be heard!</span>")
+			playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
+			C.dust()
+			return
+			
+		if(N.lich != C)
+			C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
+			user.visible_message("<span class='cult'>\The [user]'s body turns into dust, a twisted wail can be heard!</span>")
+			playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
+			C.dust()
+			return
+
+		C.forceMove(get_turf(N))
+
+	C << "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>"
+	C.verbs -= /mob/living/carbon/proc/dark_resurrection
+
+	spawn(rand(400,800))
+		if(C.stat == DEAD)
+			dead_mob_list -= C
+			living_mob_list += C
+		C.stat = CONSCIOUS
+		C.revive()
+		C.reagents.clear_reagents()
+		C << "<span class='cult'>You have returned to life!</span>"
+		C.visible_message("<span class='cult'>[usr] rises up from the dead!</span>")
+		C.update_canmove()
+		C.verbs += /mob/living/carbon/proc/dark_resurrection
+	return 1
