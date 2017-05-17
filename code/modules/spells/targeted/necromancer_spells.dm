@@ -154,7 +154,7 @@
 	user.unEquip(user.head)
 	user.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/black(user), slot_wear_suit)
 	user.equip_to_slot_or_del(new /obj/item/clothing/head/wizard/black(user), slot_head)
-	C << "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>"
+	user << "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>"
 	var/obj/item/phylactery/G = new(get_turf(user))
 	G.lich = user
 	G.icon_state = "cursedheart-on"
