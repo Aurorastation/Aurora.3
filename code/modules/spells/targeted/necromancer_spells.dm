@@ -168,36 +168,36 @@
 	if(!C.stat)
 		C << "<span class='notice'>You're not dead yet!</span>"
 		return
+		
+	var/obj/item/phylactery/P
+	for(var/thing in world_phylactery)
+		var/obj/item/phylactery/N = thing
+		if (!QDELETED(N) && N.lich == C)
+			P = N
+		 
+	if(P)
+		C.forceMove(get_turf(P))
+		C << "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>"
+		C.verbs -= /mob/living/carbon/proc/dark_resurrection
+		addtimer(CALLBACK(src, .proc/post_dark_resurrection), rand(400, 800))
 
-	for(var/obj/item/phylactery/N in world_phylactery)
-		if(isnull(N))
-			C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
-			user.visible_message("<span class='cult'>\The [user]'s body turns into dust, a twisted wail can be heard!</span>")
-			playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
-			C.dust()
-			return
-			
-		if(N.lich != C)
-			C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
-			user.visible_message("<span class='cult'>\The [user]'s body turns into dust, a twisted wail can be heard!</span>")
-			playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
-			C.dust()
-			return
+	else
+		C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
+		user.visible_message("<span class='cult'>\The [user]'s body turns into dust, a twisted wail can be heard!</span>")
+		playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
+		C.dust()
+		return
 
-		C.forceMove(get_turf(N))
-
-	C << "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>"
-	C.verbs -= /mob/living/carbon/proc/dark_resurrection
-
-	spawn(rand(400,800))
-		if(C.stat == DEAD)
-			dead_mob_list -= C
-			living_mob_list += C
-		C.stat = CONSCIOUS
-		C.revive()
-		C.reagents.clear_reagents()
-		C << "<span class='cult'>You have returned to life!</span>"
-		C.visible_message("<span class='cult'>[usr] rises up from the dead!</span>")
-		C.update_canmove()
-		C.verbs += /mob/living/carbon/proc/dark_resurrection
+/mob/living/carbon/proc/post_dark_resurrection()
+	var/mob/living/carbon/C = usr
+	if(C.stat == DEAD)
+		dead_mob_list -= C
+		living_mob_list += C
+	C.stat = CONSCIOUS
+	C.revive()
+	C.reagents.clear_reagents()
+	C << "<span class='cult'>You have returned to life!</span>"
+	C.visible_message("<span class='cult'>[usr] rises up from the dead!</span>")
+	C.update_canmove()
+	C.verbs += /mob/living/carbon/proc/dark_resurrection
 	return 1
