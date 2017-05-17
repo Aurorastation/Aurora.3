@@ -195,8 +195,8 @@
 	src.stat = CONSCIOUS
 	src.revive()
 	src.reagents.clear_reagents()
-	src << "<span class='cult'>You have returned to life!</span>"
-	src.visible_message("<span class='cult'>[usr] rises up from the dead!</span>")
+	src << "<span class='danger'>You have returned to life!</span>"
+	src.visible_message("<span class='cult'>[src] rises up from the dead!</span>")
 	src.update_canmove()
 	src.verbs += /mob/living/carbon/proc/dark_resurrection
 	return 1
