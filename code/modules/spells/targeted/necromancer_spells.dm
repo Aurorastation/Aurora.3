@@ -183,7 +183,7 @@
 
 	else
 		C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
-		C.visible_message("<span class='cult'>\The [C]'s body turns into dust, a twisted wail can be heard!</span>")
+		C.visible_message("<span class='cult'>As [C]'s body turns to dust, a twisted wail can be heard!</span>")
 		playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
 		C.dust()
 		return
