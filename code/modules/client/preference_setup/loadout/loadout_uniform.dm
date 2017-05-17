@@ -49,6 +49,7 @@
 	skirts["plaid skirt, purple"] = /obj/item/clothing/under/dress/plaid_purple
 	skirts["plaid skirt, red"] = /obj/item/clothing/under/dress/plaid_red
 	skirts["jumpskirt, black"] = /obj/item/clothing/under/blackjumpskirt
+	skirts["skirt, black"] = /obj/item/clothing/under/blackskirt
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
