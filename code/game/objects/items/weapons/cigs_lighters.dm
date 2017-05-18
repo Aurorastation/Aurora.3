@@ -319,6 +319,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_on = "pipeon"  //Note - these are in masks.dmi
 	icon_off = "pipeoff"
 	smoketime = 0
+	w_class = 1
 	chem_volume = 50
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
