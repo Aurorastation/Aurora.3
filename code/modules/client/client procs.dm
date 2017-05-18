@@ -214,7 +214,7 @@
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
 	if (config.automute_on && !holder)
 		if (last_message_time)
-			if (world.time - last_message_time < 5)
+			if (world.time - last_message_time < config.macro_trigger)
 				spam_alert++
 				if (spam_alert > 3)
 					if (!(prefs.muted & mute_type))
@@ -231,11 +231,11 @@
 		if(!isnull(message) && last_message == message)
 			last_message_count++
 			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-				src << "\red You have exceeded the spam filter limit for identical messages. An auto-mute was applied."
+				src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>"
 				cmd_admin_mute(src.mob, mute_type, 1)
 				return 1
 			if(last_message_count >= SPAM_TRIGGER_WARNING)
-				src << "\red You are nearing the spam filter limit for identical messages."
+				src << "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>"
 				return 0
 
 	last_message = message

@@ -251,6 +251,9 @@ SOCKET_TALK 0
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
 
+## Adjust this time to modify how sensitive to fast messages spam protection should be.
+MACRO_TRIGGER 5
+
 ## How long the delay is before the Away Mission gate opens. Default is half an hour.
 GATEWAY_DELAY 18000
 
