@@ -177,6 +177,9 @@
 	if(user != load)
 		return 0
 
+	if(user.restrained()) 
+		return 0
+
 	if(is_train_head())
 		if(direction == reverse_direction(dir) && tow)
 			return 0
