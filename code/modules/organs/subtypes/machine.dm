@@ -16,6 +16,7 @@
 /obj/item/organ/external/chest/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/chest/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -23,6 +24,7 @@
 /obj/item/organ/external/groin/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/groin/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -30,6 +32,7 @@
 /obj/item/organ/external/arm/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/arm/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -37,6 +40,7 @@
 /obj/item/organ/external/arm/right/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/arm/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -44,12 +48,14 @@
 /obj/item/organ/external/leg/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/leg/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/leg/right/ipc
 	dislocated = -1
+
 /obj/item/organ/external/leg/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -57,6 +63,7 @@
 /obj/item/organ/external/foot/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/foot/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -64,6 +71,7 @@
 /obj/item/organ/external/foot/right/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/foot/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -71,6 +79,7 @@
 /obj/item/organ/external/hand/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/hand/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -78,6 +87,7 @@
 /obj/item/organ/external/hand/right/ipc
 	dislocated = -1
 	encased = "support frame"
+
 /obj/item/organ/external/hand/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -116,7 +126,7 @@
 /obj/item/organ/ipc_tag
 	name = "identification tag"
 	organ_tag = "ipc tag"
-	parent_organ = "groin"
+	parent_organ = "head"
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	dead_icon = "gps-c"

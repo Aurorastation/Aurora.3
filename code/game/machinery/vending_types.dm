@@ -39,7 +39,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5, 
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/space_up = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/space_mountain_wind = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/sodawater = 15,
@@ -126,7 +126,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 3,
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2
+		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6
@@ -143,7 +144,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
-		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24
+		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 115
 	)
 
 

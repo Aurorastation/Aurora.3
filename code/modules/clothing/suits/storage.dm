@@ -92,4 +92,3 @@
 			usr << "\The [src] does not have a vest badge."
 			return
 		update_clothing_icon()
-

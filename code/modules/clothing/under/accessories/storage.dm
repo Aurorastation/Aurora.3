@@ -60,6 +60,35 @@
 	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
 	icon_state = "vest_brown"
 	slots = 5
+	
+/obj/item/clothing/accessory/storage/white_vest
+	name = "white webbing vest"
+	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
+	icon_state = "vest_white"
+	slots = 5
+
+/obj/item/clothing/accessory/storage/pouches
+	name = "drop pouches"
+	desc = "Synthcotton bags to hold whatever you need, but cannot hold in hands."
+	icon_state = "thigh_brown" //todo: get a different sprite for it
+
+/obj/item/clothing/accessory/storage/black_pouches
+	name = "black drop pouches"
+	desc = "Robust black synthcotton bags to hold whatever you need, but cannot hold in hands."
+	icon_state = "thigh_black"
+	slots = 5
+
+/obj/item/clothing/accessory/storage/brown_pouches
+	name = "brown drop pouches"
+	desc = "Worn brownish synthcotton bags to hold whatever you need, but cannot hold in hands."
+	icon_state = "thigh_brown"
+	slots = 5
+
+/obj/item/clothing/accessory/storage/white_pouches
+	name = "white drop pouches"
+	desc = "Durable white synthcotton bags to hold whatever you need, but cannot hold in hands."
+	icon_state = "thigh_white"
+	slots = 5
 
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"

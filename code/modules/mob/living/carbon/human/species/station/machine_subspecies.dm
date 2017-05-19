@@ -1,5 +1,6 @@
 /datum/species/machine/shell
 	name = "Shell Frame"
+	hide_name = TRUE
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
