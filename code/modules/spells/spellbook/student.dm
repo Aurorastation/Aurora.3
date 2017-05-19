@@ -2,7 +2,7 @@
 	spellbook_type = /datum/spellbook/student
 
 /obj/item/weapon/spellbook/student/attack_self(mob/living/user as mob)
-	if(user.mind.assigned_role == "Space Wizard")
+	if(user.is_wizard(TRUE))
 		user <<"<span class='warning'>This books is written for students, not for a true wizard like yourself!</span>"
 		return
 		
