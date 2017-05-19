@@ -11,7 +11,8 @@
 		cut_overlay(graphic_remove.Copy(), TRUE)
 
 /turf/proc/update_air_properties()
-	var/block = c_airblock(src)
+	var/block
+	ATMOS_CANPASS_TURF(block, src, src)
 	if(block & AIR_BLOCKED)
 		//dbg(blocked)
 		return 1
@@ -27,13 +28,14 @@
 		if(!unsim)
 			continue
 
-		block = unsim.c_airblock(src)
+		ATMOS_CANPASS_TURF(block, unsim, src)
 
 		if(block & AIR_BLOCKED)
 			//unsim.dbg(air_blocked, turn(180,d))
 			continue
 
-		var/r_block = c_airblock(unsim)
+		var/r_block
+		ATMOS_CANPASS_TURF(r_block, src, unsim)
 
 		if(r_block & AIR_BLOCKED)
 			continue
@@ -82,8 +84,11 @@
 		#endif
 		for(var/dir in to_check)
 			var/turf/simulated/other = get_step(T, dir)
-			if(istype(other) && other.zone == T.zone && !(other.c_airblock(T) & AIR_BLOCKED) && get_dist(src, other) <= 1)
-				. |= dir
+			if (istype(other) && other.zone == T.zone)
+				var/block
+				ATMOS_CANPASS_TURF(block, other, T)
+				if (!(block & AIR_BLOCKED) && get_dist(src, other) <= 1)
+					. |= dir
 
 /turf/simulated/update_air_properties()
 
@@ -91,7 +96,8 @@
 		c_copy_air() //not very efficient :(
 		zone = null //Easier than iterating through the list at the zone.
 
-	var/s_block = c_airblock(src)
+	var/s_block
+	ATMOS_CANPASS_TURF(s_block, src, src)
 	if(s_block & AIR_BLOCKED)
 		#ifdef ZASDBG
 		if(verbose) log_debug("Self-blocked.")
@@ -123,7 +129,8 @@
 		if(!unsim) //edge of map
 			continue
 
-		var/block = unsim.c_airblock(src)
+		var/block
+		ATMOS_CANPASS_TURF(block, unsim, src)
 		if(block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
@@ -133,7 +140,8 @@
 
 			continue
 
-		var/r_block = c_airblock(unsim)
+		var/r_block
+		ATMOS_CANPASS_TURF(r_block, src, unsim)
 		if(r_block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
