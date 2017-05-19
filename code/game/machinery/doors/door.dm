@@ -49,6 +49,8 @@
 	// turf animation
 	var/atom/movable/overlay/c_animation = null
 
+	atmos_canpass = CANPASS_DENSITY
+
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
 		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
