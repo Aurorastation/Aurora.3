@@ -49,7 +49,7 @@
 	// turf animation
 	var/atom/movable/overlay/c_animation = null
 
-	atmos_canpass = CANPASS_DENSITY
+	atmos_canpass = CANPASS_PROC
 
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)

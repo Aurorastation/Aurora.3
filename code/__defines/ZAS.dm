@@ -27,21 +27,25 @@
 			ret = (A.z == B.z) ? ZONE_BLOCKED : AIR_BLOCKED; \
 		} \
 		else if (A.contents.len) { \
+			ret = 0;\
 			for (var/thing in A) { \
 				var/atom/movable/AM = thing; \
-				switch (AM.atmos_canpass) \
-					if (CANPASS_ALWAYS) \
+				switch (AM.atmos_canpass) { \
+					if (CANPASS_ALWAYS) { \
 						continue; \
-					if (CANPASS_DENSITY) \
+					} \
+					if (CANPASS_DENSITY) { \
 						if (AM.density) { \
 							ret |= AIR_BLOCKED; \
 						} \
+					} \
 					if (CANPASS_PROC) { \
 						ret |= AM.c_airblock(B); \
 					} \
 					if (CANPASS_NEVER) { \
 						ret = BLOCKED; \
 					} \
+				} \
 				if (ret == BLOCKED) { \
 					break;\
 				}\
