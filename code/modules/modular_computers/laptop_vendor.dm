@@ -288,8 +288,6 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 
 // Simplified payment processing, returns 1 on success.
-	for(var/obj/item/weapon/spacecash/S in src)
-		S.loc = src.loc
 /obj/machinery/lapvend/proc/process_payment(var/obj/item/weapon/card/id/I, var/obj/item/ID_container, var/obj/item/weapon/spacecash/S)
 	if(I==ID_container || ID_container == null)
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
@@ -334,7 +332,7 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			return 1
 
 	else // just incase
-		ping("You can not pay with this!")
+		ping("You cannot pay with this!")
 		return 0
 
 
