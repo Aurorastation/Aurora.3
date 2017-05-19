@@ -323,7 +323,7 @@
 	set category = "Object"
 
 	if(anchored)
-		usr << "\red You cannot rotate [src], it has been firmly fixed to the floor."
+		usr << "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>"
 	else
 		set_dir(turn(dir, 90))
 
@@ -333,7 +333,7 @@
 	set category = "Object"
 
 	if(anchored)
-		usr << "\red You cannot rotate [src], it has been firmly fixed to the floor."
+		usr << "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>"
 	else
 		set_dir(turn(dir, -90))
 

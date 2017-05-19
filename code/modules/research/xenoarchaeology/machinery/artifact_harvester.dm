@@ -30,7 +30,7 @@
 			src.inserted_battery = I
 			updateDialog()
 		else
-			user << "\red There is already a battery in [src]."
+			user << "<span class='warning'>There is already a battery in [src].</span>"
 	else
 		return..()
 

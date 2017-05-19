@@ -18,9 +18,9 @@
 
 /obj/item/device/robotanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
 	if(( (CLUMSY in user.mutations) || user.getBrainLoss() >= 60) && prob(50))
-		user << text("\red You try to analyze the floor's vitals!")
+		user << text("<span class='warning'>You try to analyze the floor's vitals!</span>")
 		for(var/mob/O in viewers(M, null))
-			O.show_message(text("\red [user] has analyzed the floor's vitals!"), 1)
+			O.show_message(text("<span class='warning'>[user] has analyzed the floor's vitals!</span>"), 1)
 		user.show_message(text("\blue Analyzing Results for The floor:\n\t Overall Status: Healthy"), 1)
 		user.show_message(text("\blue \t Damage Specifics: [0]-[0]-[0]-[0]"), 1)
 		user.show_message("\blue Key: Suffocation/Toxin/Burns/Brute", 1)
@@ -33,7 +33,7 @@
 	else if(istype(M, /mob/living/carbon/human))
 		scan_type = "prosthetics"
 	else
-		user << "\red You can't analyze non-robotic things!"
+		user << "<span class='warning'>You can't analyze non-robotic things!</span>"
 		return
 
 	user.visible_message("<span class='notice'>\The [user] has analyzed [M]'s components.</span>","<span class='notice'>You have analyzed [M]'s components.</span>")
@@ -61,7 +61,7 @@
 			else
 				user.show_message("\blue \t Components are OK.",1)
 			if(H.emagged && prob(5))
-				user.show_message("\red \t ERROR: INTERNAL SYSTEMS COMPROMISED",1)
+				user.show_message("<span class='warning'>\t ERROR: INTERNAL SYSTEMS COMPROMISED</span>",1)
 			user.show_message("\blue Operating Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)", 1)
 
 		if("prosthetics")

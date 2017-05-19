@@ -178,8 +178,8 @@
 	src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to render them useless.</span>"
 
 	if (do_mob(src, T, 50))
-		src << "<span class='danger'> You dominate [T.name]'s mind and render them temporarily powerless to resist.</span>"
-		T << "<span class='danger'> You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak.</span>"
+		src << "<span class='danger'>You dominate [T.name]'s mind and render them temporarily powerless to resist.</span>"
+		T << "<span class='danger'>You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak.</span>"
 		T.Weaken(25)
 		T.Stun(25)
 		T.silent += 30

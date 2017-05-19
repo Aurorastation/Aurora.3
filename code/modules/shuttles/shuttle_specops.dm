@@ -4,7 +4,7 @@
 	req_access = list(access_cent_specops)
 
 /obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
-	user << "\red Access Denied."
+	user << "<span class='warning'>Access Denied.</span>"
 	return 1
 
 //for shuttles that may use a different docking port at each location
@@ -111,7 +111,7 @@
 	radio_announce("ALERT: LAUNCH SEQUENCE ABORTED")
 	if (istype(in_use, /obj/machinery/computer))
 		var/obj/machinery/computer/C = in_use
-		C.visible_message("\red Launch sequence aborted.")
+		C.visible_message("<span class='warning'>Launch sequence aborted.</span>")
 
 	..()
 

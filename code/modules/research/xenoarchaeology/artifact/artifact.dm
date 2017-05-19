@@ -73,7 +73,7 @@
 			return
 		last_act = world.time
 
-		user << "\red You start [P.drill_verb] [src]."
+		user << "<span class='warning'>You start [P.drill_verb] [src].</span>"
 
 
 
@@ -86,7 +86,7 @@
 		if(excavation_level > 100)
 			//failure
 			user.visible_message("<font color='red'><b>[src] suddenly crumbles away.</b></font>",\
-			"\red [src] has disintegrated under your onslaught, any secrets it was holding are long gone.")
+			"<span class='warning'>[src] has disintegrated under your onslaught, any secrets it was holding are long gone.</span>")
 			qdel(src)
 			return
 

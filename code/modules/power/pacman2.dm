@@ -70,7 +70,7 @@
 	attackby(var/obj/item/O as obj, var/mob/user as mob)
 		if(istype(O, /obj/item/weapon/tank/phoron))
 			if(P)
-				user << "\red The generator already has a phoron tank loaded!"
+				user << "<span class='warning'>The generator already has a phoron tank loaded!</span>"
 				return
 			P = O
 			user.drop_item()

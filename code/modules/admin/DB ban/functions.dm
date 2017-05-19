@@ -141,17 +141,17 @@ datum/admins/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 		ban_number++;
 
 	if(ban_number == 0)
-		usr << "\red Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin."
+		usr << "<span class='warning'>Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin.</span>"
 		return
 
 	if(ban_number > 1)
-		usr << "\red Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin."
+		usr << "<span class='warning'>Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin.</span>"
 		return
 
 	if(istext(ban_id))
 		ban_id = text2num(ban_id)
 	if(!isnum(ban_id))
-		usr << "\red Database update failed due to a ban ID mismatch. Contact the database admin."
+		usr << "<span class='warning'>Database update failed due to a ban ID mismatch. Contact the database admin.</span>"
 		return
 
 	DB_ban_unban_by_id(ban_id)
@@ -243,11 +243,11 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 		ban_number++;
 
 	if(ban_number == 0)
-		usr << "\red Database update failed due to a ban id not being present in the database."
+		usr << "<span class='warning'>Database update failed due to a ban id not being present in the database.</span>"
 		return
 
 	if(ban_number > 1)
-		usr << "\red Database update failed due to multiple bans having the same ID. Contact the database admin."
+		usr << "<span class='warning'>Database update failed due to multiple bans having the same ID. Contact the database admin.</span>"
 		return
 
 	if(!src.owner || !istype(src.owner, /client))
@@ -285,7 +285,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'>Failed to establish database connection</span>"
 		return
 
 	var/output = "<div align='center'><table width='90%'><tr>"

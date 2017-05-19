@@ -30,8 +30,8 @@
 	var/datum/gas_mixture/env = T.return_air()
 
 	var/t = "\blue Coordinates: [T.x],[T.y],[T.z]\n"
-	t += "\red Temperature: [env.temperature]\n"
-	t += "\red Pressure: [env.return_pressure()]kPa\n"
+	t += "<span class='warning'>Temperature: [env.temperature]\n</span>"
+	t += "<span class='warning'>Pressure: [env.return_pressure()]kPa\n</span>"
 	for(var/g in env.gas)
 		t += "\blue [g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n"
 

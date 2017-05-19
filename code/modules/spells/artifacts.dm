@@ -18,9 +18,9 @@
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/E = H.internal_organs_by_name["eyes"]
-			user << "\red You stare deep into the abyss. . . and the abyss stares back."
+			user << "<span class='warning'>You stare deep into the abyss. . . and the abyss stares back.</span>"
 			sleep(10)
-			user << "\red Your eyes fill with painful light, and you feel a sharp burning sensation in your head!"
+			user << "<span class='warning'>Your eyes fill with painful light, and you feel a sharp burning sensation in your head!</span>"
 			user.show_message("<b>[user]</b> screams in horror!",2)
 			playsound(user, 'sound/hallucinations/far_noise.ogg', 40, 1)
 			user.drop_item()

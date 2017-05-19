@@ -44,13 +44,13 @@
 		strength -= 1
 		if (strength <= 0)
 			if (prob(35))//probability to reduce spam
-				src.visible_message("\red The bee swarm completely dissipates.")
+				src.visible_message("<span class='warning'>The bee swarm completely dissipates.</span>")
 			qdel(src)
 			return
 		else
 			health = maxHealth
 			if (prob(35))//probability to reduce spam
-				src.visible_message("\red The bee swarm starts to thin out a little.")
+				src.visible_message("<span class='warning'>The bee swarm starts to thin out a little.</span>")
 
 		update_icons()
 	else
@@ -88,7 +88,7 @@
 			if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 				M.apply_damage(min(strength*0.85,2)+mut, BURN, sharp=1) // Stinging. The more mutated I am, the harder I sting.
 				M.apply_damage(max(strength*1.7,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
-				M << "\red You have been stung!"
+				M << "<span class='warning'>You have been stung!</span>"
 				M.flash_pain()
 
 

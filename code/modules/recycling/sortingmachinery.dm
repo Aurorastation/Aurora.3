@@ -47,7 +47,7 @@
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
-					usr << "<span class='warning'> Invalid text.</span>"
+					usr << "<span class='warning'>Invalid text.</span>"
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
@@ -61,7 +61,7 @@
 			if("Description")
 				var/str = sanitize(input(usr,"Label text?","Set label",""))
 				if(!str || !length(str))
-					usr << "\red Invalid text."
+					usr << "<span class='warning'>Invalid text.</span>"
 					return
 				if(!examtext && !nameset)
 					examtext = str
@@ -154,7 +154,7 @@
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
-					usr << "<span class='warning'> Invalid text.</span>"
+					usr << "<span class='warning'>Invalid text.</span>"
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
@@ -169,7 +169,7 @@
 			if("Description")
 				var/str = sanitize(input(usr,"Label text?","Set label",""))
 				if(!str || !length(str))
-					usr << "\red Invalid text."
+					usr << "<span class='warning'>Invalid text.</span>"
 					return
 				if(!examtext && !nameset)
 					examtext = str

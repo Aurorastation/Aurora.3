@@ -162,7 +162,7 @@
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "\red You don't have the dexterity to do this!"
+		usr << "<span class='warning'> You don't have the dexterity to do this!</span>"
 		return
 
 	if (istype(W, /obj/item/device/core_sampler))
@@ -383,7 +383,7 @@
 		var/obj/effect/suspension_field/S = locate() in src
 		if(!S || S.field_type != get_responsive_reagent(F.find_type))
 			if(X)
-				visible_message("\red<b>[pick("[display_name] crumbles away into dust","[display_name] breaks apart")].</b>")
+				visible_message("<span class='danger'>[pick("[display_name] crumbles away into dust","[display_name] breaks apart")].</span>")
 				qdel(X)
 
 	finds.Remove(F)
@@ -606,7 +606,7 @@
 		if (dug)
 			if(!GetBelow(src))
 				return
-			user << "<span class='warning'> You start digging deeper.</span>"
+			user << "<span class='warning'>You start digging deeper.</span>"
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			if(!do_after(user,60))
 				return
@@ -644,7 +644,7 @@
 			gets_dug()
 			return
 
-		user << "<span class='warning'> You start digging.</span>"
+		user << "<span class='warning'>You start digging.</span>"
 		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 
 		if(!do_after(user,40))

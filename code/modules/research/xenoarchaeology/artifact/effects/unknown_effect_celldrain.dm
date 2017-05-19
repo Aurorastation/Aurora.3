@@ -28,7 +28,7 @@
 			for (var/obj/item/weapon/cell/D in M.contents)
 				D.charge = max(D.charge - 50,0)
 				if(world.time - last_message > 200)
-					M << "\red SYSTEM ALERT: Energy drain detected!"
+					M << "<span class='warning'>SYSTEM ALERT: Energy drain detected!</span>"
 					last_message = world.time
 	return 1
 
@@ -44,6 +44,6 @@
 			for (var/obj/item/weapon/cell/D in M.contents)
 				D.charge = max(D.charge - rand() * 150,0)
 				if(world.time - last_message > 200)
-					M << "\red SYSTEM ALERT: Energy drain detected!"
+					M << "<span class='warning'>SYSTEM ALERT: Energy drain detected!</span>"
 					last_message = world.time
 	return 1

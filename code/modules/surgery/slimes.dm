@@ -32,8 +32,8 @@
 		target.core_removal_stage = 1
 
 	fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-		user.visible_message("\red [user]'s hand slips, tearing [target]'s flesh with \the [tool]!", \
-		"\red Your hand slips, tearing [target]'s flesh with \the [tool]!")
+		user.visible_message("<span class='warning'>[user]'s hand slips, tearing [target]'s flesh with \the [tool]!</span>", \
+		"<span class='warning'>Your hand slips, tearing [target]'s flesh with \the [tool]!</span>")
 
 /datum/surgery_step/slime/cut_innards
 	allowed_tools = list(
@@ -58,8 +58,8 @@
 		target.core_removal_stage = 2
 
 	fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-		user.visible_message("\red [user]'s hand slips, tearing [target]'s innards with \the [tool]!", \
-		"\red Your hand slips, tearing [target]'s innards with \the [tool]!")
+		user.visible_message("<span class='warning'>[user]'s hand slips, tearing [target]'s innards with \the [tool]!</span>", \
+		"<span class='warning'>Your hand slips, tearing [target]'s innards with \the [tool]!</span>")
 
 /datum/surgery_step/slime/saw_core
 	allowed_tools = list(
@@ -89,5 +89,5 @@
 
 
 	fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-		user.visible_message("\red [user]'s hand slips, causing \him to miss the core!", \
-		"\red Your hand slips, causing you to miss the core!")
+		user.visible_message("<span class='warning'>[user]'s hand slips, causing \him to miss the core!</span>", \
+		"<span class='warning'>Your hand slips, causing you to miss the core!</span>")

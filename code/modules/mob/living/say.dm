@@ -133,7 +133,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
-			src << "\red You cannot speak in IC (Muted)."
+			src << "<span class='warning'>You cannot speak in IC (Muted).</span>"
 			return
 
 	if(stat)

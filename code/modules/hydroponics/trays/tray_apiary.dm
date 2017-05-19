@@ -46,7 +46,7 @@
 /obj/machinery/apiary/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/queen_bee))
 		if(health > 0)
-			user << "\red There is already a queen in there."
+			user << "<span class='warning'> There is already a queen in there.</span>"
 		else
 			health = 10
 			nutrilevel += 10
@@ -65,14 +65,14 @@
 		qdel(O)
 	else if(istype(O, /obj/item/weapon/material/minihoe))
 		if(health > 0)
-			user << "\red <b>You begin to dislodge the apiary from the tray, the bees don't like that.</b>"
+			user << "<span class='danger'>You begin to dislodge the apiary from the tray, the bees don't like that.</span>"
 			angry_swarm(user)
 		else
 			user << "\blue You begin to dislodge the dead apiary from the tray."
 		if(do_after(user, 50))
 			new hydrotray_type(src.loc)
 			new /obj/item/apiary(src.loc)
-			user << "\red You dislodge the apiary from the tray."
+			user << "<span class='warning'> You dislodge the apiary from the tray.</span>"
 			qdel(src)
 	else if(istype(O, /obj/item/weapon/bee_net))
 		var/obj/item/weapon/bee_net/N = O
@@ -86,7 +86,7 @@
 		var/obj/item/weapon/reagent_containers/glass/G = O
 		if(harvestable_honey > 0)
 			if(health > 0)
-				user << "\red You begin to harvest the honey. The bees don't seem to like it."
+				user << "<span class='warning'> You begin to harvest the honey. The bees don't seem to like it.</span>"
 				angry_swarm(user)
 			else
 				user << "\blue You begin to harvest the honey."

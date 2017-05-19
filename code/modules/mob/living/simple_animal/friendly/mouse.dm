@@ -180,7 +180,7 @@
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
+			src << "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>"
 
 
 //Wrapper verbs for the squeak functions

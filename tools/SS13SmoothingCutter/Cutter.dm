@@ -9,7 +9,7 @@
 	if(isfile(dmifile) && (copytext("[dmifile]",-4) == ".dmi"))
 		SliceNDice(dmifile)
 	else
-		world << "\red Bad DMI file '[dmifile]'"
+		world << "<span class='warning'>Bad DMI file '[dmifile]'</span>"
 
 
 /proc/SliceNDice(dmifile as file)

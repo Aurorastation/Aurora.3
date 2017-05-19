@@ -90,7 +90,7 @@
 		if(wired && !clipped)
 			usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
 			if (emergency_shuttle.get_status_panel_eta())
-				usr << "\red The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."
+				usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
 		else if(wired && clipped)
 			usr << "You check your watch realising it's still open"
 		else

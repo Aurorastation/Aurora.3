@@ -53,12 +53,12 @@
 		count++
 
 	if (count == 0)
-		usr << "\red Database update failed due to a note id not being present in the database."
+		usr << "<span class='warning'>Database update failed due to a note id not being present in the database.</span>"
 		error("Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
-		usr << "\red Database update failed due to multiple notes having the same ID. Contact the database admin."
+		usr << "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>"
 		error("Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 
