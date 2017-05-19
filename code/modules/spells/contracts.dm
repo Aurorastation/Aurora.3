@@ -47,6 +47,7 @@
 		user << "<span class='warning'>You are already a wizarding apprentice!</span>"
 		return 0
 	if(wizards.add_antagonist_mind(user.mind,1,"Apprentice","<b>You are an apprentice! Your job is to learn the wizarding arts!</b>"))
+		user.mind.assigned_role = "Apprentice"
 		user << "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>"
 		user.faction = "Space Wizard"
 		new /obj/item/weapon/spellbook/student(get_turf(user))
