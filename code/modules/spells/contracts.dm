@@ -43,10 +43,10 @@
 	color = "#993300"
 
 /obj/item/weapon/contract/apprentice/contract_effect(mob/user as mob)
-	if(user.mind.special_role == "apprentice")
+	if(user.mind.special_role == "Apprentice")
 		user << "<span class='warning'>You are already a wizarding apprentice!</span>"
 		return 0
-	if(wizards.add_antagonist_mind(user.mind,1,"apprentice","<b>You are an apprentice! Your job is to learn the wizarding arts!</b>"))
+	if(wizards.add_antagonist_mind(user.mind,1,"Apprentice","<b>You are an apprentice! Your job is to learn the wizarding arts!</b>"))
 		user << "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>"
 		user.faction = "Space Wizard"
 		return 1
