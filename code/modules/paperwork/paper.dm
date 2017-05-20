@@ -53,7 +53,7 @@
 		info = parsepencode(text)
 	else
 		info = ""
-		
+
 	update_icon()
 	update_space(info)
 	updateinfolinks()
@@ -134,7 +134,7 @@
 		if (icon_state == "paper_plane")
 			user.show_message(span("alert", "The paper is already folded into a plane."))
 			return
-		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."), 
+		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."),
 			span("notice", "You carefully fold \the [src] into a plane."), "You hear paper rustling.")
 		icon_state = "paper_plane"
 		throw_range = 8
@@ -222,8 +222,7 @@
 
 /obj/item/weapon/paper/proc/updateinfolinks()
 	info_links = info
-	var/i = 0
-	for(i=1,i<=fields,i++)
+	for (var/i = 1, i <= min(fields, 15), i++)
 		addtofield(i, "<font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", 1)
 	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
 
