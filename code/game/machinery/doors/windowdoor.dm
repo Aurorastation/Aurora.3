@@ -16,6 +16,8 @@
 	explosion_resistance = 5
 	air_properties_vary_with_direction = 1
 
+	atmos_canpass = CANPASS_PROC
+
 /obj/machinery/door/window/Initialize()
 	. = ..()
 	update_nearby_tiles()

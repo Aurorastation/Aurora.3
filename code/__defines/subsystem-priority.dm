@@ -37,13 +37,13 @@
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
 #define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
-#define SS_PRIORITY_CALAMITY       80	// Singularity, Tesla, Nar'sie, blob, etc. 
+#define SS_PRIORITY_AIR            80	// ZAS processing.
+#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc. 
 #define SS_PRIORITY_EVENT          70
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.
 #define SS_PRIORITY_ALARMS         50
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS        35	// Effect master (Sparks)
-#define SS_PRIORITY_AIR            25	// ZAS processing.
 #define SS_PRIORITY_LIGHTING       20	// Queued lighting engine updates.
 #define SS_PRIORITY_AIRFLOW        15	// Handles object movement due to ZAS airflow.
 
