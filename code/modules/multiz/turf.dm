@@ -33,7 +33,7 @@
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
 	if (istype(mover) && isturf(oldloc))
-		if (istype(mover.shoes, /obj/item/clothing/shoes/magboots) && (mover.shoes.item_flags & NOSLIP))
+		if (mover.Check_Shoegrip(FALSE))
 			to_chat(mover,span("notice",
 				"You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
 			return 0
