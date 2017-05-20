@@ -81,6 +81,7 @@ All text output to the user, specially if the output operator `<<` is used, shou
 For reference, here are the standard span classes for user output, and the correlation between them and the DM text macros:
 * `<span class='danger'></span>` corresponds to `\red` and is bold.
 * `<span class='alert'></span>` also corresponds to `\red` and is not bold.
+* `<span class='warning'></span>` also corresponds to `\red` and is italicized.
 * `<span class='notice'></span>` corresponds to `\blue` and is not bold.
 
 There exist pre-processor macros for using these spans. `span(class, text)` which is the equivilant of typing a string that looks like this: `"<span class='[class]'>[text]</span>"`.
