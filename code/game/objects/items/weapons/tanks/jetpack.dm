@@ -8,23 +8,22 @@
  * @return	A jetpack instance if one is found. Null otherwise.
  */
 /proc/GetJetpack(var/mob/living/carbon/human/H)
-	if (H)
-		// Search the human for a jetpack. Either on back or on a RIG that's on
-		// on their back.
-		if(istype(H))
-			// Skip sanity check for H.back, as istype can safely handle a null.
-			if (istype(H.back, /obj/item/weapon/tank/jetpack))
-				return H.back
-			else if (istype(H.back, /obj/item/weapon/rig))
-				var/obj/item/weapon/rig/rig = H.back
-				for (var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
-					return module.jets
-		// See if we have a robot instead, and look for their jetpack.
-		else if (istype(H, /mob/living/silicon/robot))
-			var/mob/living/silicon/robot/R = H
-			if (R.module)
-				for (var/obj/item/weapon/tank/jetpack/J in R.module.modules)
-					return J
+	// Search the human for a jetpack. Either on back or on a RIG that's on
+	// on their back.
+	if(istype(H))
+		// Skip sanity check for H.back, as istype can safely handle a null.
+		if (istype(H.back, /obj/item/weapon/tank/jetpack))
+			return H.back
+		else if (istype(H.back, /obj/item/weapon/rig))
+			var/obj/item/weapon/rig/rig = H.back
+			for (var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
+				return module.jets
+	// See if we have a robot instead, and look for their jetpack.
+	else if (istype(H, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = H
+		if (R.module)
+			for (var/obj/item/weapon/tank/jetpack/J in R.module.modules)
+				return J
 
 	return null
 
