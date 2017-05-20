@@ -80,17 +80,7 @@
 
 /mob/living/carbon/human/CanAvoidGravity()
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = null
-
-		if(back)
-			if(istype(back,/obj/item/weapon/tank/jetpack))
-				thrust = back
-			else if(istype(back,/obj/item/weapon/rig))
-				var/obj/item/weapon/rig/rig = back
-
-				for(var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
-					thrust = module.jets
-					break
+		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
@@ -189,17 +179,7 @@
 /mob/living/carbon/human/can_fall()
 	// Special condition for jetpack mounted folk!
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = null
-
-		if(back)
-			if(istype(back,/obj/item/weapon/tank/jetpack))
-				thrust = back
-			else if(istype(back,/obj/item/weapon/rig))
-				var/obj/item/weapon/rig/rig = back
-
-				for(var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
-					thrust = module.jets
-					break
+		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
