@@ -29,7 +29,7 @@
 	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :ckey, :address, :computer_id, :a_ckey, :note)")
 	insert_query.Execute(query_details)
 
-	message_admins("\blue [key_name_admin(user)] has edited [player_ckey]'s notes.")
+	message_admins("<span class='notice'>[key_name_admin(user)] has edited [player_ckey]'s notes.</span>")
 	log_admin("[key_name(user)] has edited [player_ckey]'s notes.",admin_key=key_name(user),ckey=player_ckey)
 
 /proc/notes_edit_sql(var/note_id, var/note_edit)
@@ -68,7 +68,7 @@
 				var/DBQuery/deletequery = dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id")
 				deletequery.Execute(list(":note_id" = note_id))
 
-				message_admins("\blue [key_name_admin(usr)] deleted one of [ckey]'s notes.")
+				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s notes.</span>")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.",admin_key=key_name(usr),ckey=ckey)
 			else
 				usr << "Cancelled"

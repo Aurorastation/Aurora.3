@@ -152,9 +152,9 @@
 			a_right.toggle_secure()
 			secured = !secured
 			if(secured)
-				user << "\blue \The [src] is ready!"
+				user << "<span class='notice'>\The [src] is ready!</span>"
 			else
-				user << "\blue \The [src] can now be taken apart!"
+				user << "<span class='notice'>\The [src] can now be taken apart!</span>"
 			update_icon()
 			return
 		else if(W.IsSpecialAssembly())

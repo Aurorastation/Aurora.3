@@ -162,7 +162,7 @@
 
 		if (istype(A, /obj/item/toy/ammo/gun))
 			if (src.bullets >= 7)
-				user << "\blue It's already fully loaded!"
+				user << "<span class='notice'>It's already fully loaded!</span>"
 				return 1
 			if (A.amount_left <= 0)
 				user << "<span class='warning'>There is no more caps!</span>"

@@ -377,7 +377,7 @@
 				var/DBQuery/deleteQuery = dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id")
 				deleteQuery.Execute(query_details, 1)
 
-				message_admins("\blue [key_name_admin(usr)] deleted one of [ckey]'s warnings.")
+				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s warnings.</span>")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.", admin_key=key_name(usr), ckey=ckey)
 			else
 				usr << "Cancelled"
@@ -394,7 +394,7 @@
 			var/DBQuery/reason_query = dbcon.NewQuery("UPDATE ss13_warnings SET reason = :new_reason, edited = 1, lasteditor = :a_ckey, lasteditdate = NOW() WHERE id = :warning_id")
 			reason_query.Execute(query_details, 1)
 
-			message_admins("\blue [key_name_admin(usr)] edited one of [ckey]'s warning reasons.")
+			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning reasons.</span>")
 			log_admin("[key_name(usr)] edited one of [ckey]'s warning reasons.", admin_key=key_name(usr), ckey=ckey)
 
 		if("editNotes")
@@ -408,5 +408,5 @@
 			var/DBQuery/notes_query = dbcon.NewQuery("UPDATE ss13_warnings SET notes = :new_notes, edited = 1, lasteditor = :a_ckey, lasteditdate = NOW() WHERE id = :warning_id")
 			notes_query.Execute(query_details, 1)
 
-			message_admins("\blue [key_name_admin(usr)] edited one of [ckey]'s warning notes.")
+			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning notes.</span>")
 			log_admin("[key_name(usr)] edited one of [ckey]'s warning notes.", admin_key=key_name(usr), ckey=ckey)

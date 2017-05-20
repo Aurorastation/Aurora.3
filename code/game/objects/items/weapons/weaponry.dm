@@ -39,11 +39,11 @@
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "\blue You turn away from the light, remaining true to your dark lord. <b>Anathema!</b>")
+						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to your dark lord. <b>Anathema!</b></span>")
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 					if("Give in")
-						K.visible_message("\blue [K]'s eyes become clearer, the evil gone, but not without leaving scars.")
+						K.visible_message("<span class='notice'>[K]'s eyes become clearer, the evil gone, but not without leaving scars.</span>")
 						K.take_overall_damage(15, 30)
 						cult.remove_antagonist(K.mind)
 			else

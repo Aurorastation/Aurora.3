@@ -14,9 +14,9 @@
 		if(SSticker.triai)
 			SSticker.triai = 0
 			usr << "Only one AI will be spawned at round start."
-			message_admins("\blue [key_name_admin(usr)] has toggled off triple AIs at round start.", 1)
+			message_admins("<span class='notice'>[key_name_admin(usr)] has toggled off triple AIs at round start.</span>", 1)
 		else
 			SSticker.triai = 1
 			usr << "There will be an AI Triumvirate at round start."
-			message_admins("\blue [key_name_admin(usr)] has toggled on triple AIs at round start.", 1)
+			message_admins("<span class='notice'>[key_name_admin(usr)] has toggled on triple AIs at round start.</span>", 1)
 	return
