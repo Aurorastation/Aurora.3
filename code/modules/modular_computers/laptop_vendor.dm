@@ -288,12 +288,15 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 
 // Simplified payment processing, returns 1 on success.
-/obj/machinery/lapvend/proc/process_payment(var/obj/item/weapon/card/id/I, var/obj/item/ID_container, var/obj/item/weapon/spacecash/S)
+/obj/machinery/lapvend/proc/process_payment(var/obj/item/weapon/card/id/I, var/obj/item/ID_container)
+	var/obj/item/weapon/spacecash/S = null
+	if (istype(ID_container, /obj/item/weapon/spacecash))
+		S = ID_container
 	if(I==ID_container || ID_container == null)
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
-	if(S == null && I)
+	if(I)
 		var/datum/money_account/customer_account = get_account(I.associated_account_number)
 		if (!customer_account || customer_account.suspended)
 			ping("Connection error. Unable to connect to account.")
@@ -321,13 +324,13 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			T.time = worldtime2text()
 			customer_account.transaction_log.Add(T)
 			return 1
-	if(ID_container == null && S && I != S)
+	if(S)
 		if(total_price > S.worth)
 			ping("Insufficient funds!")
 			return 0
 		else
 			S.worth -= total_price
-			if(S.worth == 0)
+			if(S.worth <= 0)
 				qdel(S)
 			return 1
 
