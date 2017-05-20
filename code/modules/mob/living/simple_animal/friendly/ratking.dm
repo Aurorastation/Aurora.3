@@ -38,7 +38,7 @@
 	icon_dead = initial(icon_dead)
 	body_color = "gray"
 
-	say_dead_direct("A heir to the rat throne has risen, all rejoice and celebrate.")
+	say_dead_direct("An heir to the rat throne has risen, all rejoice and celebrate.")
 	announceToRodents("<span class='notice'>The rat king has risen! Go at once and join his kingdom, long live the king!</span>")
 
 /mob/living/simple_animal/mouse/king/death()
