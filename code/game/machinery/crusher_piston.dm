@@ -8,6 +8,7 @@
 	icon_state = "standalone"
 	anchored = 1
 	density = 1
+	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	use_power = 1
 	idle_power_usage = 300
@@ -185,7 +186,7 @@
 	if(action == "idle")
 		action_start_time = world.time
 		initial = 1
-	else if(action == "extend" && powered(EQUIP))
+	else if(action == "extend" && blocked == 0 && powered(EQUIP))
 		//If we are idle, flash the warning lights and then put us into pre_start once we are done
 		if(status == "idle")
 			if(initial)
@@ -305,7 +306,9 @@
 				initial = 1
 				update_icon()
 		else //This shouldnt really happen, but its there just in case
+			log_debug("8 - Crusher - Unknown Stage during retract")
 			pstn.icon_state = initial(pstn.icon_state)
+			pstn.reset_blockers()
 			status = "idle"
 			action = "idle"
 			action_start_time = world.time
@@ -343,7 +346,7 @@
 	//Abort the crush
 	//Retract all the pistons, ...
 	action = "retract"
-	//TODO-Crusher: Add more stages to the piston so retracting will not cause a visual bug
+	initial = 1
 
 /obj/machinery/crusher_base/proc/get_num_progress()
 	return num_progress
@@ -395,12 +398,16 @@
 		)) - /obj/machinery/crusher_piston
 
 /obj/machinery/crusher_piston/Destroy()
-	QDEL_NULL(pb1)
-	QDEL_NULL(pb2)
-	QDEL_NULL(pb3)
+	reset_blockers()
 	if(!QDELETED(crs_base))
 		QDEL_NULL(crs_base)
 	return ..()
+
+/obj/machinery/crusher_piston/proc/reset_blockers()
+	log_debug("reset_blockers")
+	QDEL_NULL(pb1)
+	QDEL_NULL(pb2)
+	QDEL_NULL(pb3)
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
 	use_power(5 KILOWATTS)
@@ -446,21 +453,15 @@
 /obj/machinery/crusher_piston/proc/retract_3_0()
 	icon_state="piston_3_0"
 	stage = 0
-	QDEL_NULL(pb1)
-	QDEL_NULL(pb2)
-	QDEL_NULL(pb3)
+	reset_blockers()
 /obj/machinery/crusher_piston/proc/retract_2_0()
 	icon_state="piston_2_0"
 	stage = 0
-	QDEL_NULL(pb1)
-	QDEL_NULL(pb2)
-	QDEL_NULL(pb3)
+	reset_blockers()
 /obj/machinery/crusher_piston/proc/retract_1_0()
 	icon_state="piston_1_0"
 	stage = 0
-	QDEL_NULL(pb1)
-	QDEL_NULL(pb2)
-	QDEL_NULL(pb3)
+	reset_blockers()
 
 /obj/machinery/crusher_piston/proc/can_extend_into(var/turf/extension_turf)
 	//Check if atom is of a specific Type
@@ -476,6 +477,7 @@
 	desc = "A colossal piston used for crushing garbage."
 	density = 1
 	anchored = 1
+	opacity = 1
 	mouse_opacity = 0
 
 //
