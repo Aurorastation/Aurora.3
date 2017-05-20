@@ -14,9 +14,9 @@
 #define SS_INIT_SMOOTHING           6	// Object icon smoothing. Creates overlays.
 #define SS_INIT_ICON_UPDATE         5	// Icon update queue flush. Should run before overlays.
 #define SS_INIT_OVERLAY             4	// Overlay flush.
-#define SS_INIT_OPENTURF            3	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
-#define SS_INIT_MISC                2	// Subsystems without an explicitly set initialization order start here.
-#define SS_INIT_LIGHTING            1	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_MISC                3	// Subsystems without an explicitly set initialization order start here.
+#define SS_INIT_LIGHTING            2	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_OPENTURF            1	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
 #define SS_INIT_LOBBY               0	// Lobby timer starts here.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
@@ -37,13 +37,13 @@
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
 #define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
-#define SS_PRIORITY_CALAMITY       80	// Singularity, Tesla, Nar'sie, blob, etc. 
+#define SS_PRIORITY_AIR            80	// ZAS processing.
+#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc. 
 #define SS_PRIORITY_EVENT          70
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.
 #define SS_PRIORITY_ALARMS         50
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS        35	// Effect master (Sparks)
-#define SS_PRIORITY_AIR            25	// ZAS processing.
 #define SS_PRIORITY_LIGHTING       20	// Queued lighting engine updates.
 #define SS_PRIORITY_AIRFLOW        15	// Handles object movement due to ZAS airflow.
 

@@ -371,6 +371,7 @@
 	var/Sy = source_turf.y
 
 	FOR_DVIEW(T, Ceiling(light_range), source_turf, 0)
+		check_t:
 		if (light_angle && check_light_cone(T.x, T.y))
 			continue
 
@@ -379,6 +380,11 @@
 			corners[C] = 0
 
 		turfs += T
+
+		if (istype(T, /turf/simulated/open) && T:below)
+			T = T:below	// Consider the turf below us as well. (Z-lights)
+			goto check_t
+
 	END_FOR_DVIEW
 
 	LAZYINITLIST(affecting_turfs)
