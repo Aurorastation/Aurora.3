@@ -92,8 +92,7 @@
 					thrust = module.jets
 					break
 
-		if (thrust && thrust.stabilization_on &&\
-			!lying && thrust.allow_thrust(0.01, src))
+		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
 
 	return ..()
