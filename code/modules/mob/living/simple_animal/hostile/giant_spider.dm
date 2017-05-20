@@ -74,7 +74,7 @@
 		var/mob/living/L = .
 		if(L.reagents)
 			L.reagents.add_reagent("toxin", poison_per_bite)
-			if(prob(poison_per_bite))
+			if(prob(poison_per_bite) && (!issilicon(L) && !isipc(L)))
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)
 

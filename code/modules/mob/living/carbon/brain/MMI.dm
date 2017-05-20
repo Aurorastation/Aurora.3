@@ -106,6 +106,9 @@
 
 			icon_state = "mmi_empty"
 			name = "Man-Machine Interface"
+			if(istype(src,/obj/item/device/mmi/digital/robot))
+				icon_state = "mainboard"
+				name = "robotic intelligence circuit"
 
 	proc
 		transfer_identity(var/mob/living/carbon/human/H)//Same deal as the regular brain proc. Used for human-->robot people.
