@@ -311,18 +311,18 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 			if(g.antagHUD)
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
-				g << "<span class='warning'>The Administrator has disabled AntagHUD</span> "
+				g << "<span class='warning'>The Administrator has disabled AntagHUD.</span> "
 		config.antag_hud_allowed = 0
-		src << "<span class='danger'>AntagHUD usage has been disabled</span>"
+		src << "<span class='danger'>AntagHUD usage has been disabled.</span>"
 		action = "disabled"
 	else
 		for(var/mob/dead/observer/g in get_ghosts())
 			if(!g.client.holder)						// Add the verb back for all non-admin ghosts
 				g.verbs += /mob/dead/observer/verb/toggle_antagHUD
-			g << "<span class='notice'><B>The Administrator has enabled AntagHUD </B></span>"	// Notify all observers they can now use AntagHUD
+			g << "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>"	// Notify all observers they can now use AntagHUD
 		config.antag_hud_allowed = 1
 		action = "enabled"
-		src << "<span class='notice'><B>AntagHUD usage has been enabled</B></span>"
+		src << "<span class='notice'><B>AntagHUD usage has been enabled.</B></span>"
 
 
 	log_admin("[key_name(usr)] has [action] antagHUD usage for observers",admin_key=key_name(usr))

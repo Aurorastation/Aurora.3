@@ -3,7 +3,7 @@ proc/createRandomZlevel()
 		return
 
 	var/list/potentialRandomZlevels = list()
-	admin_notice("<span class='warning'>\b Searching for away missions...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Searching for away missions...</span>", R_DEBUG)
 	var/list/Lines = file2list("maps/RandomZLevels/fileList.txt")
 	if(!Lines.len)	return
 	for (var/t in Lines)
@@ -35,7 +35,7 @@ proc/createRandomZlevel()
 
 
 	if(potentialRandomZlevels.len)
-		admin_notice("<span class='warning'>\b Loading away mission...</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Loading away mission...</span>", R_DEBUG)
 
 		var/map = pick(potentialRandomZlevels)
 		var/file = file(map)
@@ -48,8 +48,8 @@ proc/createRandomZlevel()
 				continue
 			awaydestinations.Add(L)
 
-		admin_notice("<span class='warning'>\b Away mission loaded.</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Away mission loaded.</span>", R_DEBUG)
 
 	else
-		admin_notice("<span class='warning'>\b No away missions found.</span>", R_DEBUG)
+		admin_notice("<span class='danger'>No away missions found.</span>", R_DEBUG)
 		return

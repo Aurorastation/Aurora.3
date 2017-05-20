@@ -888,7 +888,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(owner)
 		owner.visible_message(\
-			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].",\
+			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].</span>",\
 			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
 			"You hear a sickening crack.")
 		if(owner.species && !(owner.species.flags & NO_PAIN))

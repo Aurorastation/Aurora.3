@@ -162,7 +162,7 @@
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "<span class='warning'> You don't have the dexterity to do this!</span>"
+		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
 		return
 
 	if (istype(W, /obj/item/device/core_sampler))

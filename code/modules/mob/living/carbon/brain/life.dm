@@ -25,7 +25,7 @@
 					if(!container)
 						src << "<span class='warning'>You feel weak.</span>"
 					else
-						src << "<span class='warning'>STATUS: DANGEROUS LEVELS OF RADIATION DETECTED.</span>"
+						src << "<span class='danger'>STATUS: DANGEROUS LEVELS OF RADIATION DETECTED.</span>"
 				updatehealth()
 
 			if(75 to 100)

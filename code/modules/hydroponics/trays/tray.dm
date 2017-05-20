@@ -440,7 +440,7 @@
 	weedlevel = 0
 
 	update_icon()
-	visible_message("<span class='danger'>The </span><span class='notice'>[previous_plant]</span><span class='danger'>has suddenly mutated into </span><span class='notice'>[seed.display_name]!</span>")
+	visible_message("<span class='danger'>The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!</span>")
 
 	return
 

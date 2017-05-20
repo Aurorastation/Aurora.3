@@ -84,10 +84,10 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					pale = 1
 					update_body()
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>ou feel [word]</span>"
+					src << "<span class='warning'>You feel [word]</span>"
 				if(prob(1))
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>ou feel [word]</span>"
+					src << "<span class='warning'>You feel [word]</span>"
 				if(oxyloss < 20)
 					oxyloss += 3
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)

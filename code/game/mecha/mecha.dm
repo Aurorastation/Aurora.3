@@ -1788,7 +1788,7 @@
 		var/obj/item/mecha_parts/mecha_equipment/tool/passenger/P = passengers[pname]
 		var/mob/occupant = P.occupant
 
-		user.visible_message("<span class='warning'>[user] begins opening the hatch on \the [P]...</span>", "<span class='warning'>You begin opening the hatch on \the [P]...</span>")
+		user.visible_message("<span class='warning'>[user] begins opening the hatch on \the [P]...</span>", "<span class='notice'>You begin opening the hatch on \the [P]...</span>")
 		if (do_after(user, 40, needhand=0))
 			user.visible_message("<span class='danger'>[user] opens the hatch on \the [P] and removes [occupant]!</span>", "<span class='danger'>You open the hatch on \the [P] and remove [occupant]!</span")
 			P.go_out()

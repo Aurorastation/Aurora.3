@@ -14,7 +14,7 @@
 
 	if (src.client)
 		if(client.prefs.muted & MUTE_IC)
-			src << "<span class='warning'>You cannot speak in IC (muted).</span>"
+			src << "<span class='danger'>You cannot speak in IC (muted).</span>"
 			return
 
 	if (copytext(message, 1, 2) == "*")

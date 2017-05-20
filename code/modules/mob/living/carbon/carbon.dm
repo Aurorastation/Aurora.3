@@ -211,7 +211,7 @@
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(status.len)
-					src.show_message("My [org.name] is <span class='warning'>[english_list(status)].</span>",1)
+					src.show_message("My [org.name] is <span class='warning'> [english_list(status)].</span>",1)
 				else
 					src.show_message("My [org.name] is <span class='notice'> OK.</span>",1)
 
