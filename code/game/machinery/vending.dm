@@ -94,6 +94,8 @@
 	var/scan_id = 1
 	var/obj/item/weapon/coin/coin
 	var/datum/wires/vending/wires = null
+	
+	var/can_move = 1	//if you can wrench the machine out of place
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -228,6 +230,8 @@
 		nanomanager.update_uis(src)
 		return
 	else if(istype(W, /obj/item/weapon/wrench))
+		if(!can_move)
+			return
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
