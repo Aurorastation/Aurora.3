@@ -733,7 +733,7 @@
 					else
 						notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
 					message_admins("<span class='notice'>[key_name_admin(usr)] banned [key_name_admin(M)] from [msg] for [mins] minutes.</span>", 1)
-					M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span"
+					M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
 					M << "<span class='danger'>The reason is: [reason]</span>"
 					M << "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>"
 					href_list["jobban2"] = 1 // lets it fall through and refresh
