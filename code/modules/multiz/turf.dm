@@ -29,6 +29,17 @@
 
 	var/tmp/depth
 
+// An override of turf/Enter() to make it so that magboots allow you to stop
+// falling off the damned rock.
+/turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
+	if (istype(mover) && isturf(oldloc))
+		if (istype(mover.shoes, /obj/item/clothing/shoes/magboots) && (mover.shoes.item_flags & NOSLIP))
+			to_chat(mover,span("notice",
+				"You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
+			return 0
+
+	return ..()
+
 /turf/simulated/open/proc/is_above_space()
 	var/turf/T = GetBelow(src)
 	while (T && T.is_hole)
@@ -49,7 +60,7 @@
 	if (istype(above))
 		above.update()
 		above = null
-		
+
 	below = null
 	return ..()
 
