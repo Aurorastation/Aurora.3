@@ -14,11 +14,11 @@
 	if(active)
 		active = 0
 		icon_state = "gigadrill"
-		user << "\blue You press a button and [src] slowly spins down."
+		user << "<span class='notice'>You press a button and [src] slowly spins down.</span>"
 	else
 		active = 1
 		icon_state = "gigadrill_mov"
-		user << "\blue You press a button and [src] shudders to life."
+		user << "<span class='notice'>You press a button and [src] shudders to life.</span>"
 
 /obj/machinery/giga_drill/Bump(atom/A)
 	if(active && !drilling_turf)

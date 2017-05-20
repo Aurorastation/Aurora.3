@@ -47,8 +47,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] has made a bloodless incision on [target]'s [affected.name] with \the [tool].", \
-		"\blue You have made a bloodless incision on [target]'s [affected.name] with \the [tool].",)
+		user.visible_message("<span class='notice'>[user] has made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>", \
+		"<span class='notice'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>",)
 		//Could be cleaner ...
 		affected.open = 1
 
@@ -89,8 +89,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].", \
-		"\blue You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].",)
+		user.visible_message("<span class='notice'>[user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</span>", \
+		"<span class='notice'>You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</span>",)
 		affected.open = 1
 
 		if(istype(target) && !(target.species.flags & NO_BLOOD))
@@ -135,8 +135,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] has made an incision on [target]'s [affected.name] with \the [tool].", \
-		"\blue You have made an incision on [target]'s [affected.name] with \the [tool].",)
+		user.visible_message("<span class='notice'>[user] has made an incision on [target]'s [affected.name] with \the [tool].</span>", \
+		"<span class='notice'>You have made an incision on [target]'s [affected.name] with \the [tool].</span>",)
 		affected.open = 1
 
 		if(istype(target) && !(target.species.flags & NO_BLOOD))
@@ -176,8 +176,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] has drilled into [target]'s [affected.name] carapace with \the [tool].", \
-		"\blue You have drilled into [target]'s [affected.name] carapace with \the [tool].",)
+		user.visible_message("<span class='notice'>[user] has drilled into [target]'s [affected.name] carapace with \the [tool].</span>", \
+		"<span class='notice'>You have drilled into [target]'s [affected.name] carapace with \the [tool].</span>",)
 		affected.open = 1
 
 		if(istype(target) && !(target.species.flags & NO_BLOOD))
@@ -215,8 +215,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] clamps bleeders in [target]'s [affected.name] with \the [tool].",	\
-		"\blue You clamp bleeders in [target]'s [affected.name] with \the [tool].")
+		user.visible_message("<span class='notice'>[user] clamps bleeders in [target]'s [affected.name] with \the [tool].</span>",	\
+		"<span class='notice'>You clamp bleeders in [target]'s [affected.name] with \the [tool].</span>")
 		affected.clamp()
 		spread_germs_to_organ(affected, user)
 
@@ -257,14 +257,14 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		var/msg = "\blue [user] keeps the incision open on [target]'s [affected.name] with \the [tool]."
-		var/self_msg = "\blue You keep the incision open on [target]'s [affected.name] with \the [tool]."
+		var/msg = "<span class='notice'>[user] keeps the incision open on [target]'s [affected.name] with \the [tool].</span>"
+		var/self_msg = "<span class='notice'>You keep the incision open on [target]'s [affected.name] with \the [tool].</span>"
 		if (target_zone == "chest")
-			msg = "\blue [user] keeps the ribcage open on [target]'s torso with \the [tool]."
-			self_msg = "\blue You keep the ribcage open on [target]'s torso with \the [tool]."
+			msg = "<span class='notice'>[user] keeps the ribcage open on [target]'s torso with \the [tool].</span>"
+			self_msg = "<span class='notice'>You keep the ribcage open on [target]'s torso with \the [tool].</span>"
 		if (target_zone == "groin")
-			msg = "\blue [user] keeps the incision open on [target]'s lower abdomen with \the [tool]."
-			self_msg = "\blue You keep the incision open on [target]'s lower abdomen with \the [tool]."
+			msg = "<span class='notice'>[user] keeps the incision open on [target]'s lower abdomen with \the [tool].</span>"
+			self_msg = "<span class='notice'>You keep the incision open on [target]'s lower abdomen with \the [tool].</span>"
 		user.visible_message(msg, self_msg)
 		affected.open = 2
 
@@ -307,8 +307,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] cauterizes the incision on [target]'s [affected.name] with \the [tool].", \
-		"\blue You cauterize the incision on [target]'s [affected.name] with \the [tool].")
+		user.visible_message("<span class='notice'>[user] cauterizes the incision on [target]'s [affected.name] with \the [tool].</span>", \
+		"<span class='notice'>You cauterize the incision on [target]'s [affected.name] with \the [tool].</span>")
 		affected.open = 0
 		affected.germ_level = 0
 		affected.status &= ~ORGAN_BLEEDING

@@ -59,7 +59,7 @@
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icons()
-		src << "\blue Your [C.name] was disrupted!"
+		src << "<span class='notice'>Your [C.name] was disrupted!</span>"
 		Stun(2)
 
 	//Being hit while using a deadman switch
@@ -163,7 +163,7 @@
 			miss_chance = max(15*(distance-2), 0)
 
 		if (prob(miss_chance))
-			visible_message("\blue \The [O] misses [src] narrowly!")
+			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
 			return
 
 		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")

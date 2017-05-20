@@ -27,8 +27,8 @@
 		"You start cutting through [target]'s flesh with \the [tool].")
 
 	end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-		user.visible_message("\blue [user] cuts through [target]'s flesh with \the [tool].",	\
-		"\blue You cut through [target]'s flesh with \the [tool], revealing its silky innards.")
+		user.visible_message("<span class='notice'>[user] cuts through [target]'s flesh with \the [tool].</span>",	\
+		"<span class='notice'>You cut through [target]'s flesh with \the [tool], revealing its silky innards.</span>")
 		target.core_removal_stage = 1
 
 	fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -53,8 +53,8 @@
 		"You start cutting [target]'s silky innards apart with \the [tool].")
 
 	end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-		user.visible_message("\blue [user] cuts [target]'s innards apart with \the [tool], exposing the cores.",	\
-		"\blue You cut [target]'s innards apart with \the [tool], exposing the cores.")
+		user.visible_message("<span class='notice'>[user] cuts [target]'s innards apart with \the [tool], exposing the cores.</span>",	\
+		"<span class='notice'>You cut [target]'s innards apart with \the [tool], exposing the cores.</span>")
 		target.core_removal_stage = 2
 
 	fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -79,8 +79,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 		target.cores--
-		user.visible_message("\blue [user] cuts out one of [target]'s cores with \the [tool].",,	\
-		"\blue You cut out one of [target]'s cores with \the [tool]. [target.cores] cores left.")
+		user.visible_message("<span class='notice'>[user] cuts out one of [target]'s cores with \the [tool].</span>",,	\
+		"<span class='notice'>You cut out one of [target]'s cores with \the [tool]. [target.cores] cores left.</span>")
 
 		if(target.cores >= 0)
 			new target.coretype(target.loc)

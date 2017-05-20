@@ -73,7 +73,7 @@
 	set hidden = 1
 
 	if(!usr.pulling)
-		usr << "\blue You are not pulling anything."
+		usr << "<span class='notice'>You are not pulling anything.</span>"
 		return
 	usr.stop_pulling()
 
@@ -254,13 +254,13 @@
 			for(var/mob/M in range(mob, 1))
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
-						src << "\blue You're restrained! You can't move!"
+						src << "<span class='notice'>You're restrained! You can't move!</span>"
 						return 0
 					else
 						M.stop_pulling()
 
 		if(mob.pinned.len)
-			src << "\blue You're pinned to a wall by [mob.pinned[1]]!"
+			src << "<span class='notice'>You're pinned to a wall by [mob.pinned[1]]!</span>"
 			return 0
 
 		move_delay = world.time - leftover//set move delay

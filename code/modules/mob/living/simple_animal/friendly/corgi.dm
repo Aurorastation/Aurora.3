@@ -68,7 +68,7 @@
 		if(!stat)
 			for(var/mob/M in viewers(user, null))
 				if ((M.client && !( M.blinded )))
-					M.show_message("\blue [user] baps [name] on the nose with the rolled up [O]")
+					M.show_message("<span class='notice'>[user] baps [name] on the nose with the rolled up [O]</span>")
 					scan_interval = max_scan_interval//discipline your dog to make it stop stealing food for a while
 					movement_target = null
 					foodtarget = 0

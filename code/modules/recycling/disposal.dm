@@ -97,7 +97,7 @@
 
 	if(istype(I, /obj/item/weapon/storage/bag/trash))
 		var/obj/item/weapon/storage/bag/trash/T = I
-		user << "\blue You empty the bag."
+		user << "<span class='notice'>You empty the bag.</span>"
 		for(var/obj/item/O in T.contents)
 			T.remove_from_storage(O,src)
 		T.update_icon()
@@ -113,9 +113,9 @@
 				L.forceMove(src)
 
 			if (count)
-				user << "\blue You empty [count] broken bulbs into the disposal."
+				user << "<span class='notice'>You empty [count] broken bulbs into the disposal.</span>"
 			else
-				user << "\blue There are no broken bulbs to empty out."
+				user << "<span class='notice'>There are no broken bulbs to empty out.</span>"
 			update()
 			return
 
@@ -1144,7 +1144,7 @@
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			user << "\blue Changed tag to '[sort_tag]'."
+			user << "<span class='notice'>Changed tag to '[sort_tag]'.</span>"
 			updatename()
 			updatedesc()
 
@@ -1213,7 +1213,7 @@
 		if(O.currTag)// Tag set
 			sortType = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			user << "\blue Changed filter to '[sortType]'."
+			user << "<span class='notice'>Changed filter to '[sortType]'.</span>"
 			updatename()
 			updatedesc()
 

@@ -165,7 +165,7 @@
 		return
 
 	if (MS.moving_status != SHUTTLE_IDLE)
-		usr << "\blue [shuttle_tag] vessel is moving."
+		usr << "<span class='notice'>[shuttle_tag] vessel is moving.</span>"
 		return
 
 	if(href_list["dock_command"])
@@ -217,7 +217,7 @@
 		var/choice = input("Select a destination.") as null|anything in MS.destinations
 		if(!choice) return
 
-		usr << "\blue [shuttle_tag] main computer recieved message."
+		usr << "<span class='notice'>[shuttle_tag] main computer recieved message.</span>"
 
 		if(MS.at_origin)
 			MS.announce_arrival()

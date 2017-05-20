@@ -63,8 +63,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] makes some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
-		"\blue You make some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
+		user.visible_message("<span class='notice'>[user] makes some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].</span>", \
+		"<span class='notice'>You make some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].</span>" )
 
 /datum/surgery_step/cavity/close_space
 	priority = 2
@@ -93,8 +93,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] mends [target]'s [get_cavity(affected)] cavity walls with \the [tool].", \
-		"\blue You mend [target]'s [get_cavity(affected)] cavity walls with \the [tool]." )
+		user.visible_message("<span class='notice'>[user] mends [target]'s [get_cavity(affected)] cavity walls with \the [tool].</span>", \
+		"<span class='notice'>You mend [target]'s [get_cavity(affected)] cavity walls with \the [tool].</span>" )
 
 /datum/surgery_step/cavity/place_item
 	priority = 0
@@ -127,8 +127,8 @@
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 
-		user.visible_message("\blue [user] puts \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
-		"\blue You put \the [tool] inside [target]'s [get_cavity(affected)] cavity." )
+		user.visible_message("<span class='notice'>[user] puts \the [tool] inside [target]'s [get_cavity(affected)] cavity.</span>", \
+		"<span class='notice'>You put \the [tool] inside [target]'s [get_cavity(affected)] cavity.</span>" )
 		if (tool.w_class > get_max_wclass(affected)/2 && prob(50) && !(affected.status & ORGAN_ROBOT))
 			user << "<span class='warning'>You tear some blood vessels trying to fit such a big object in this cavity.</span>"
 			var/datum/wound/internal_bleeding/I = new (10)
@@ -183,8 +183,8 @@
 				find_prob +=50
 
 			if (prob(find_prob))
-				user.visible_message("\blue [user] takes something out of incision on [target]'s [affected.name] with \the [tool].", \
-				"\blue You take [obj] out of incision on [target]'s [affected.name]s with \the [tool]." )
+				user.visible_message("<span class='notice'>[user] takes something out of incision on [target]'s [affected.name] with \the [tool].</span>", \
+				"<span class='notice'>You take [obj] out of incision on [target]'s [affected.name]s with \the [tool].</span>" )
 				affected.implants -= obj
 
 				BITSET(target.hud_updateflag, IMPLOYAL_HUD)
@@ -206,11 +206,11 @@
 						imp.implanted = 0
 				playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 			else
-				user.visible_message("\blue [user] removes \the [tool] from [target]'s [affected.name].", \
-				"\blue There's something inside [target]'s [affected.name], but you just missed it this time." )
+				user.visible_message("<span class='notice'>[user] removes \the [tool] from [target]'s [affected.name].</span>", \
+				"<span class='notice'>There's something inside [target]'s [affected.name], but you just missed it this time.</span>" )
 		else
-			user.visible_message("\blue [user] could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.", \
-			"\blue You could not find anything inside [target]'s [affected.name]." )
+			user.visible_message("<span class='notice'>[user] could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.</span>", \
+			"<span class='notice'>You could not find anything inside [target]'s [affected.name].</span>" )
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		..()

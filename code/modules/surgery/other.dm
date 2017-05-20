@@ -38,8 +38,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] has patched the damaged vein in [target]'s [affected.name] with \the [tool].", \
-			"\blue You have patched the damaged vein in [target]'s [affected.name] with \the [tool].")
+		user.visible_message("<span class='notice'>[user] has patched the damaged vein in [target]'s [affected.name] with \the [tool].</span>", \
+			"<span class='notice'>You have patched the damaged vein in [target]'s [affected.name] with \the [tool].</span>")
 
 		for(var/datum/wound/W in affected.wounds) if(W.internal)
 			affected.wounds -= W
@@ -86,8 +86,8 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		user.visible_message("\blue [user] has cut away necrotic tissue in [target]'s [affected.name] with \the [tool].", \
-			"\blue You have cut away necrotic tissue in [target]'s [affected.name] with \the [tool].")
+		user.visible_message("<span class='notice'>[user] has cut away necrotic tissue in [target]'s [affected.name] with \the [tool].</span>", \
+			"<span class='notice'>You have cut away necrotic tissue in [target]'s [affected.name] with \the [tool].</span>")
 		affected.status &= ~ORGAN_DEAD
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -151,8 +151,8 @@
 				affected.status &= ~ORGAN_DEAD
 				affected.owner.update_body(1)
 
-			user.visible_message("\blue [user] applies [trans] units of the solution to affected tissue in [target]'s [affected.name]", \
-				"\blue You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool].")
+			user.visible_message("<span class='notice'>[user] applies [trans] units of the solution to affected tissue in [target]'s [affected.name]</span>", \
+				"<span class='notice'>You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool].</span>")
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)

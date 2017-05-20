@@ -797,7 +797,7 @@
 			return
 		else if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			user.visible_message("<span class='warning'>[user.name] slashes at the [src.name]!</span>", "\blue You slash at the [src.name]!")
+			user.visible_message("<span class='warning'>[user.name] slashes at the [src.name]!</span>", "<span class='notice'>You slash at the [src.name]!</span>")
 			playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 
 			var/allcut = wires.IsAllCut()

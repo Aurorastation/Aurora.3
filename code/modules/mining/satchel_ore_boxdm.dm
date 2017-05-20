@@ -91,7 +91,7 @@
 	for (var/obj/item/weapon/ore/O in contents)
 		contents -= O
 		O.loc = src.loc
-	usr << "\blue You empty the ore box"
+	usr << "<span class='notice'>You empty the ore box</span>"
 
 	return
 

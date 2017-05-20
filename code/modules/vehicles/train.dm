@@ -88,7 +88,7 @@
 
 	unload(user, direction)
 
-	user << "\blue You climb down from [src]."
+	user << "<span class='notice'>You climb down from [src].</span>"
 
 	return 1
 
@@ -162,7 +162,7 @@
 	set_dir(lead.dir)
 
 	if(user)
-		user << "\blue You hitch [src] to [T]."
+		user << "<span class='notice'>You hitch [src] to [T].</span>"
 
 	update_stats()
 
@@ -176,7 +176,7 @@
 	lead.tow = null
 	lead.update_stats()
 
-	user << "\blue You unhitch [src] from [lead]."
+	user << "<span class='notice'>You unhitch [src] from [lead].</span>"
 	lead = null
 
 	update_stats()

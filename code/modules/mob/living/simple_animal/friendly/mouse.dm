@@ -225,7 +225,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			M << "\blue \icon[src] Squeek!"
+			M << "<span class='notice'>\icon[src] Squeek!</span>"
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)

@@ -587,7 +587,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		usr << "<span class='notice'>You wind some cable together to make some restraints.</span>"
 		src.use(15)
 	else
-		usr << "\blue You cannot do that."
+		usr << "<span class='notice'>You cannot do that.</span>"
 	..()
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()

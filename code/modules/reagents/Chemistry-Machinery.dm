@@ -781,7 +781,7 @@
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
-			user.visible_message("\blue [user] looks like they're about to feed their own hair into the [src], but think better of it.", "\blue You grasp your hair and are about to feed it into the [src], but stop and come to your sense.")
+			user.visible_message("<span class='notice'>[user] looks like they're about to feed their own hair into the [src], but think better of it.</span>", "<span class='notice'>You grasp your hair and are about to feed it into the [src], but stop and come to your sense.</span>")
 			return
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
