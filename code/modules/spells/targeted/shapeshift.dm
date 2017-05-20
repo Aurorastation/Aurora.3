@@ -27,7 +27,7 @@
 			continue
 
 		if(M.mind.special_role in protected_roles)
-			user << "Your spell seems to have no effect on them."
+			user << "Your spell has no effect on them."
 			continue
 
 		if(M.buckled)
