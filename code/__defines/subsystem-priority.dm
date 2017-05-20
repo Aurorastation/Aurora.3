@@ -14,9 +14,9 @@
 #define SS_INIT_SMOOTHING           6	// Object icon smoothing. Creates overlays.
 #define SS_INIT_ICON_UPDATE         5	// Icon update queue flush. Should run before overlays.
 #define SS_INIT_OVERLAY             4	// Overlay flush.
-#define SS_INIT_OPENTURF            3	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
-#define SS_INIT_MISC                2	// Subsystems without an explicitly set initialization order start here.
-#define SS_INIT_LIGHTING            1	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_MISC                3	// Subsystems without an explicitly set initialization order start here.
+#define SS_INIT_LIGHTING            2	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_OPENTURF            1	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
 #define SS_INIT_LOBBY               0	// Lobby timer starts here.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
