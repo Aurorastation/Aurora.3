@@ -306,7 +306,6 @@
 				initial = 1
 				update_icon()
 		else //This shouldnt really happen, but its there just in case
-			log_debug("8 - Crusher - Unknown Stage during retract")
 			pstn.icon_state = initial(pstn.icon_state)
 			pstn.reset_blockers()
 			status = "idle"
@@ -404,7 +403,6 @@
 	return ..()
 
 /obj/machinery/crusher_piston/proc/reset_blockers()
-	log_debug("reset_blockers")
 	QDEL_NULL(pb1)
 	QDEL_NULL(pb2)
 	QDEL_NULL(pb3)
