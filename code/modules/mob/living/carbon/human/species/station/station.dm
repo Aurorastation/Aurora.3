@@ -101,8 +101,8 @@
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	H.equip_to_slot_or_del(S,slot_shoes)
-	S.autodrobe_no_remove = 1
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/tajaran
 	name = "Tajara"
@@ -163,8 +163,8 @@
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	H.equip_to_slot_or_del(S,slot_shoes)
-	S.autodrobe_no_remove = 1
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/skrell
 	name = "Skrell"
@@ -333,7 +333,8 @@
 		H.equip_to_slot_or_del(F, slot_r_hand)
 	else
 		H.equip_to_slot_or_del(F, slot_in_backpack)
-	F.autodrobe_no_remove = 1
+	if(!QDELETED(F))
+		F.autodrobe_no_remove = 1
 	H.gender = NEUTER
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
@@ -657,11 +658,11 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	H.equip_to_slot_or_del(S,slot_shoes)
-	S.autodrobe_no_remove = 1
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
-	H.equip_to_slot_or_del(M, slot_wear_mask)
-	M.autodrobe_no_remove = 1
+	if(H.equip_to_slot_or_del(M, slot_wear_mask))
+		M.autodrobe_no_remove = 1
 	H.gender = NEUTER
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
