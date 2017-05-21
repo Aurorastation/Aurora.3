@@ -167,6 +167,7 @@
 			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
 		add_overlay("[asmtype]-hatch")
+	update_oo()	
 
 /obj/machinery/crusher_base/power_change()
 	..()
