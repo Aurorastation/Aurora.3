@@ -167,6 +167,7 @@
 			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
 		add_overlay("[asmtype]-hatch")
+	update_oo()	
 
 /obj/machinery/crusher_base/power_change()
 	..()
@@ -265,7 +266,6 @@
 
 		//Update the icon
 		update_icon()
-		update_oo()
 
 	//Retract the pistons
 	else if(action == "retract" && blocked == 0 && powered(EQUIP)) //Only retract if unblocked
@@ -314,7 +314,6 @@
 			action_start_time = world.time
 			initial = 1
 			update_icon()
-		update_oo()	
 	
 	//Move all the items in the move list
 	for(var/atom/movable/AM in items_to_move)
