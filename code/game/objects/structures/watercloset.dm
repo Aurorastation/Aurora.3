@@ -13,6 +13,7 @@
 	var/mob/living/swirlie = null	//the mob being given a swirlie
 
 /obj/structure/toilet/Initialize()
+	. = ..()
 	open = round(rand(0, 1))
 	update_icon()
 
@@ -95,10 +96,10 @@
 	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one's cistern seems remarkably scratched."
 
 /obj/structure/toilet/noose/Initialize()
+	. = ..()
 	new /obj/item/stack/cable_coil(src)
 	if(prob(5))
 		cistern = 1
-	..()
 
 /obj/structure/urinal
 	name = "urinal"
