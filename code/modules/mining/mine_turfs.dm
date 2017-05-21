@@ -620,8 +620,9 @@
 			user << "<span class='warning'>You start digging deeper.</span>"
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			digging = 1
-			if(!do_after(user,60))
-				digging = 0
+			if(!do_after(user, 60))
+				if (istype(src, /turf/simulated/floor/asteroid))
+					digging = 0
 				return
 
 			// Turfs are special. They don't delete. So we need to check if it's
