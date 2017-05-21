@@ -34,7 +34,7 @@
 		return 0
 
 	var/area/area = get_area(src)
-	if(direction == UP && area.has_gravity)
+	if(direction == UP && area.has_gravity && !usr.CanAvoidGravity())
 		to_chat(usr, "<span class='warning'>Gravity stops you from moving upward.</span>")
 		return 0
 
@@ -65,6 +65,35 @@
 		forceMove(destination)
 	else
 		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
+
+/**
+ * @brief	Used to determine whether or not a given mob can override gravity when
+ * attempting to Z-move UP.
+ *
+ * Returns FALSE in standard mob cases. Exists for carbon/human and other child overrides.
+ *
+ * @return	TRUE if the mob can Z-move up despite gravity.
+ *			FALSE otherwise.
+ */
+/mob/proc/CanAvoidGravity()
+	return FALSE
+
+/mob/living/carbon/human/CanAvoidGravity()
+	if (!restrained())
+		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+		if (thrust && !lying && thrust.allow_thrust(0.01, src))
+			return TRUE
+
+	return ..()
+
+/mob/living/silicon/robot/CanAvoidGravity()
+	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+	if (thrust && thrust.allow_thrust(0.02, src))
+		return TRUE
+
+	return ..()
 
 /mob/proc/can_ztravel()
 	return 0
@@ -154,6 +183,25 @@
 
 	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
 		return FALSE
+
+/mob/living/carbon/human/can_fall()
+	// Special condition for jetpack mounted folk!
+	if (!restrained())
+		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+		if (thrust && thrust.stabilization_on &&\
+			!lying && thrust.allow_thrust(0.01, src))
+			return FALSE
+
+	return ..()
+
+/mob/living/silicon/robot/can_fall()
+	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))
+		return FALSE
+
+	return ..()
 
 /atom/movable/proc/handle_fall(var/turf/landing)
 	Move(landing)

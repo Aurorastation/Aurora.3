@@ -18,11 +18,7 @@
 
 /atom/movable/Destroy()
 	. = ..()
-	if (bound_overlay)
-		if (istype(bound_overlay.loc, /turf/simulated/open))
-			bound_overlay.loc:update_icon()
-
-		QDEL_NULL(bound_overlay)
+	QDEL_NULL(bound_overlay)
 
 /atom/movable/Move()
 	. = ..()
