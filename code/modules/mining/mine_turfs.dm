@@ -569,10 +569,6 @@
 	if(!W || !user)
 		return 0
 
-	if (!istype(src, /turf/simulated/floor/asteroid))
-		testing("MEMES1")
-		return
-
 	if (istype(W, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
