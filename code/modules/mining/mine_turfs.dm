@@ -162,7 +162,7 @@
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "\red You don't have the dexterity to do this!"
+		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
 		return
 
 	if (istype(W, /obj/item/device/core_sampler))
@@ -178,9 +178,9 @@
 
 	if (istype(W, /obj/item/device/measuring_tape))
 		var/obj/item/device/measuring_tape/P = W
-		user.visible_message("\blue[user] extends [P] towards [src].","\blue You extend [P] towards [src].")
+		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
 		if(do_after(user,25))
-			user << "\blue \icon[P] [src] has been excavated to a depth of [2*excavation_level]cm."
+			user << "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*excavation_level]cm.</span>"
 		return
 
 	if (istype(W, /obj/item/weapon/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.
@@ -383,7 +383,7 @@
 		var/obj/effect/suspension_field/S = locate() in src
 		if(!S || S.field_type != get_responsive_reagent(F.find_type))
 			if(X)
-				visible_message("\red<b>[pick("[display_name] crumbles away into dust","[display_name] breaks apart")].</b>")
+				visible_message("<span class='danger'>[pick("[display_name] crumbles away into dust","[display_name] breaks apart")].</span>")
 				qdel(X)
 
 	finds.Remove(F)
@@ -606,7 +606,7 @@
 		if (dug)
 			if(!GetBelow(src))
 				return
-			user << "<span class='warning'> You start digging deeper.</span>"
+			user << "<span class='warning'>You start digging deeper.</span>"
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			if(!do_after(user,60))
 				return
@@ -644,7 +644,7 @@
 			gets_dug()
 			return
 
-		user << "<span class='warning'> You start digging.</span>"
+		user << "<span class='warning'>You start digging.</span>"
 		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 
 		if(!do_after(user,40))

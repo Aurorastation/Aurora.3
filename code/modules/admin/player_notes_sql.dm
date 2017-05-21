@@ -29,7 +29,7 @@
 	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :ckey, :address, :computer_id, :a_ckey, :note)")
 	insert_query.Execute(query_details)
 
-	message_admins("\blue [key_name_admin(user)] has edited [player_ckey]'s notes.")
+	message_admins("<span class='notice'>[key_name_admin(user)] has edited [player_ckey]'s notes.</span>")
 	log_admin("[key_name(user)] has edited [player_ckey]'s notes.",admin_key=key_name(user),ckey=player_ckey)
 
 /proc/notes_edit_sql(var/note_id, var/note_edit)
@@ -53,12 +53,12 @@
 		count++
 
 	if (count == 0)
-		usr << "\red Database update failed due to a note id not being present in the database."
+		usr << "<span class='warning'>Database update failed due to a note id not being present in the database.</span>"
 		error("Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
-		usr << "\red Database update failed due to multiple notes having the same ID. Contact the database admin."
+		usr << "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>"
 		error("Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 
@@ -68,7 +68,7 @@
 				var/DBQuery/deletequery = dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id")
 				deletequery.Execute(list(":note_id" = note_id))
 
-				message_admins("\blue [key_name_admin(usr)] deleted one of [ckey]'s notes.")
+				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s notes.</span>")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.",admin_key=key_name(usr),ckey=ckey)
 			else
 				usr << "Cancelled"

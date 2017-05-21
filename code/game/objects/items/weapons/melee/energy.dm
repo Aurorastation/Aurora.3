@@ -142,12 +142,12 @@
 /obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
 	icon_state = "eglaive1"
-	user << "\blue \The [src] is now energised."
+	user << "<span class='notice'>\The [src] is now energised.</span>"
 
 /obj/item/weapon/melee/energy/glaive/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	user << "\blue \The [src] is de-energised."
+	user << "<span class='notice'>\The [src] is de-energised.</span>"
 
 /*
  * Energy Axe

@@ -162,17 +162,17 @@
 
 		if (istype(A, /obj/item/toy/ammo/gun))
 			if (src.bullets >= 7)
-				user << "\blue It's already fully loaded!"
+				user << "<span class='notice'>It's already fully loaded!</span>"
 				return 1
 			if (A.amount_left <= 0)
-				user << "\red There is no more caps!"
+				user << "<span class='warning'>There is no more caps!</span>"
 				return 1
 			if (A.amount_left < (7 - src.bullets))
 				src.bullets += A.amount_left
-				user << text("\red You reload [] caps\s!", A.amount_left)
+				user << text("<span class='warning'>You reload [] caps\s!</span>", A.amount_left)
 				A.amount_left = 0
 			else
-				user << text("\red You reload [] caps\s!", 7 - src.bullets)
+				user << text("<span class='warning'>You reload [] caps\s!</span>", 7 - src.bullets)
 				A.amount_left -= 7 - src.bullets
 				src.bullets = 7
 			A.update_icon()
@@ -183,17 +183,17 @@
 		if (flag)
 			return
 		if (!usr.IsAdvancedToolUser())
-			usr << "\red You don't have the dexterity to do this!"
+			usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
 			return
 		src.add_fingerprint(user)
 		if (src.bullets < 1)
-			user.show_message("\red *click* *click*", 2)
+			user.show_message("<span class='warning'>*click* *click*</span>", 2)
 			playsound(user, 'sound/weapons/empty.ogg', 100, 1)
 			return
 		playsound(user, 'sound/weapons/Gunshot.ogg', 100, 1)
 		src.bullets--
 		for(var/mob/O in viewers(user, null))
-			O.show_message(text("\red <B>[] fires a cap gun at []!</B>", user, target), 1, "\red You hear a gunshot", 2)
+			O.show_message(text("<span class='danger'>[] fires a cap gun at []!</span>", user, target), 1, "<span class='warning'>You hear a gunshot</span>", 2)
 
 /obj/item/toy/ammo/gun
 	name = "ammo-caps"

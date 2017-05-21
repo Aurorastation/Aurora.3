@@ -141,7 +141,7 @@ var/list/possible_cable_coil_colours = list(
 			return
 
 		if(breaker_box)
-			user << "\red This cable is connected to nearby breaker box. Use breaker box to interact with it."
+			user << "<span class='warning'>This cable is connected to nearby breaker box. Use breaker box to interact with it.</span>"
 			return
 
 		if (shock(user, 50))
@@ -580,14 +580,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
 		if(src.amount <= 14)
-			usr << "\red You need at least 15 lengths to make restraints!"
+			usr << "<span class='warning'>You need at least 15 lengths to make restraints!</span>"
 			return
 		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
 		B.color = color
 		usr << "<span class='notice'>You wind some cable together to make some restraints.</span>"
 		src.use(15)
 	else
-		usr << "\blue You cannot do that."
+		usr << "<span class='notice'>You cannot do that.</span>"
 	..()
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
@@ -895,7 +895,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			usr << "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>"
 			return 0
 		if(src.amount <= 24)
-			usr << "<span class='warning'> You need at least 25 lengths to make a noose!</span>"
+			usr << "<span class='warning'>You need at least 25 lengths to make a noose!</span>"
 			return
 		new /obj/structure/noose(usr.loc)
 		usr << "<span class='notice'>You wind some cable together to make a noose, tying it to the ceiling.</span>"

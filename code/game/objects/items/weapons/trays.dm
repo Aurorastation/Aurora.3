@@ -121,7 +121,7 @@
 			return
 
 	else if (!issilicon(M))//No eye or head protection, tough luck!
-		M << "\red You get slammed in the face with the tray!"
+		M << "<span class='danger'>You get slammed in the face with the tray!</span>"
 		if(prob(33))
 			src.add_blood(M)
 			var/turf/location = H.loc

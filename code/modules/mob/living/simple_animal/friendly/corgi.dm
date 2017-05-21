@@ -68,7 +68,7 @@
 		if(!stat)
 			for(var/mob/M in viewers(user, null))
 				if ((M.client && !( M.blinded )))
-					M.show_message("\blue [user] baps [name] on the nose with the rolled up [O]")
+					M.show_message("<span class='notice'>[user] baps [name] on the nose with the rolled up [O]</span>")
 					scan_interval = max_scan_interval//discipline your dog to make it stop stealing food for a while
 					movement_target = null
 					foodtarget = 0
@@ -115,7 +115,7 @@
 //pupplies cannot wear anything.
 /mob/living/simple_animal/corgi/puppy/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		usr << "\red You can't fit this on [src]"
+		usr << "<span class='warning'>You can't fit this on [src]</span>"
 		return
 	..()
 
@@ -137,7 +137,7 @@
 //Lisa already has a cute bow!
 /mob/living/simple_animal/corgi/Lisa/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		usr << "\red [src] already has a cute bow!"
+		usr << "<span class='warning'>[src] already has a cute bow!</span>"
 		return
 	..()
 

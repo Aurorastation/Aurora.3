@@ -27,7 +27,7 @@
 	var/types = target.find_type()
 	if(ismouse(target))
 		var/mob/living/simple_animal/mouse/M = target
-		visible_message("\red <b>SPLAT!</b>")
+		visible_message("<span class='danger'>SPLAT!</span>")
 		M.splat()
 	else
 		var/zone = "chest"
