@@ -240,10 +240,11 @@ proc/listclearnulls(list/list)
 //Mergesort: Specifically for record datums in a list.
 /proc/sortRecord(var/list/datum/data/record/L, var/field = "name", var/order = 1)
 	if (!L)
-		return 
+		return
 	var/list/target = L.Copy()
 	var/old_cmp_field = cmp_field
 	cmp_field = field
+	listclearnulls(target)
 	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
 	cmp_field = old_cmp_field
 	return target
@@ -251,14 +252,14 @@ proc/listclearnulls(list/list)
 //Mergesort: any value in a list
 /proc/sortList(var/list/L)
 	if (!L)
-		return 
+		return
 	var/list/target = L.Copy()
 	return sortTim(target, /proc/cmp_text_asc)
 
 //Mergsorge: uses sortList() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sortNames(var/list/L)
 	if (!L)
-		return 
+		return
 	var/list/target = L.Copy()
 	return sortTim(target, /proc/cmp_name_asc, FALSE)
 
