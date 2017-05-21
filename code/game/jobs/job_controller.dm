@@ -501,7 +501,7 @@ var/global/datum/controller/occupations/job_master
 			var/list/custom_equip_leftovers = list()
 			if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
 
-				for(var/obj/item/thing in H.client.prefs.gear)
+				for(var/thing in H.client.prefs.gear)
 					var/datum/gear/G = gear_datums[thing]
 					if(G)
 						var/permitted
@@ -523,14 +523,15 @@ var/global/datum/controller/occupations/job_master
 							// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 							// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 							var/metadata = H.client.prefs.gear[G.display_name]
+							var/obj/item/CI = G.spawn_item(H,metadata)
 							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 								custom_equip_leftovers += thing
-							else if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
+							else if(H.equip_to_slot_or_del(CI, G.slot))
+								CI.autodrobe_no_remove = 1
 								H << "<span class='notice'>Equipping you with \the [thing]!</span>"
 								custom_equip_slots.Add(G.slot)
 							else
 								custom_equip_leftovers.Add(thing)
-							thing.autodrobe_no_remove = 1
 						else
 							spawn_in_storage += thing
 
@@ -542,16 +543,17 @@ var/global/datum/controller/occupations/job_master
 			job.apply_fingerprints(H)
 
 			//If some custom items could not be equipped before, try again now.
-			for(var/obj/item/thing in custom_equip_leftovers)
+			for(var/thing in custom_equip_leftovers)
 				var/datum/gear/G = gear_datums[thing]
 				if(G.slot in custom_equip_slots)
 					spawn_in_storage += thing
 				else
 					var/metadata = H.client.prefs.gear[G.display_name]
-					if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
+					var/obj/item/CI = G.spawn_item(H,metadata)
+					if(H.equip_to_slot_or_del(CI, G.slot))
 						H << "<span class='notice'>Equipping you with \the [thing]!</span>"
 						custom_equip_slots.Add(G.slot)
-						thing.autodrobe_no_remove = 1
+						CI.autodrobe_no_remove = 1
 					else
 						spawn_in_storage += thing
 		else

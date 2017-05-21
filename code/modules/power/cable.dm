@@ -642,12 +642,12 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 
 	if(!istype(F,/turf/simulated/floor))
-		if(!locate(/obj/structure/lattice/catwalk in F))
+		if(!locate(/obj/structure/lattice/catwalk) in F)
 			user << "You can't lay cable there unless there is plating or a catwalk."
 			return
 
 	if(!F.is_plating())		// Ff floor is intact, complain
-		if(!locate(/obj/structure/lattice/catwalk in F))
+		if(!locate(/obj/structure/lattice/catwalk) in F)
 			user << "You can't lay cable there unless the floor tiles are removed."
 			return
 
