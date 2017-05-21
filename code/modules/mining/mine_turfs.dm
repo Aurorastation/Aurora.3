@@ -180,6 +180,9 @@
 		var/obj/item/device/measuring_tape/P = W
 		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
 		if(do_after(user,25))
+			if (!istype(src, /turf/simulated/mineral))
+				return
+
 			user << "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*excavation_level]cm.</span>"
 		return
 
@@ -220,6 +223,9 @@
 					artifact_debris()
 
 		if(do_after(user,P.digspeed))
+			if (!istype(src, /turf/simulated/mineral))
+				return
+
 			P.drilling = 0
 
 			if(prob(50))
@@ -290,6 +296,9 @@
 		user << "<span class='warning'>You start chiselling [src] into a sculptable block.</span>"
 
 		if(!do_after(user,80))
+			return
+
+		if (!istype(src, /turf/simulated/mineral))
 			return
 
 		user << "<span class='notice'>You finish chiselling [src] into a sculptable block.</span>"
@@ -611,39 +620,46 @@
 			user << "<span class='warning'>You start digging deeper.</span>"
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			digging = 1
-			if(!do_after(user,60))
-				digging = 0
+			if(!do_after(user, 60))
+				if (istype(src, /turf/simulated/floor/asteroid))
+					digging = 0
 				return
+
+			// Turfs are special. They don't delete. So we need to check if it's
+			// still the same turf as before the sleep.
+			if (!istype(src, /turf/simulated/floor/asteroid))
+				return
+
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			if(prob(33))
 				switch(dug)
 					if(1)
-						user << "<span class='notice'> You've made a little progress.</span>"
+						user << "<span class='notice'>You've made a little progress.</span>"
 					if(2)
-						user << "<span class='notice'> You notice the hole is a little deeper.</span>"
+						user << "<span class='notice'>You notice the hole is a little deeper.</span>"
 					if(3)
-						user << "<span class='notice'> You think you're about halfway there.</span>"
+						user << "<span class='notice'>You think you're about halfway there.</span>"
 					if(4)
-						user << "<span class='notice'> You finish up lifting another pile of dirt.</span>"
+						user << "<span class='notice'>You finish up lifting another pile of dirt.</span>"
 					if(5)
-						user << "<span class='notice'> You dig a bit deeper. You're definitely halfway there now.</span>"
+						user << "<span class='notice'>You dig a bit deeper. You're definitely halfway there now.</span>"
 					if(6)
-						user << "<span class='notice'> You still have a ways to go.</span>"
+						user << "<span class='notice'>You still have a ways to go.</span>"
 					if(7)
-						user << "<span class='notice'> The hole looks pretty deep now.</span>"
+						user << "<span class='notice'>The hole looks pretty deep now.</span>"
 					if(8)
-						user << "<span class='notice'> The ground is starting to feel a lot looser.</span>"
+						user << "<span class='notice'>The ground is starting to feel a lot looser.</span>"
 					if(9)
-						user << "<span class='notice'> You can almost see the other side.</span>"
+						user << "<span class='notice'>You can almost see the other side.</span>"
 					if(10)
-						user << "<span class='notice'> Just a little deeper. . .</span>"
+						user << "<span class='notice'>Just a little deeper. . .</span>"
 					else
-						user << "<span class='notice'> You penetrate the virgin earth!</span>"
+						user << "<span class='notice'>You penetrate the virgin earth!</span>"
 			else
 				if(dug <= 10)
-					user << "<span class='notice'> You dig a little deeper.</span>"
+					user << "<span class='notice'>You dig a little deeper.</span>"
 				else
-					user << "<span class='notice'> You dug a big hole.</span>"
+					user << "<span class='notice'>You dug a big hole.</span>"
 
 			gets_dug()
 			digging = 0
@@ -654,11 +670,18 @@
 
 		digging = 1
 		if(!do_after(user,40))
-			digging = 0
+			if (istype(src, /turf/simulated/floor/asteroid))
+				digging = 0
+			return
+
+		// Turfs are special. They don't delete. So we need to check if it's
+		// still the same turf as before the sleep.
+		if (!istype(src, /turf/simulated/floor/asteroid))
 			return
 
 		user << "<span class='notice'> You dug a hole.</span>"
 		digging = 0
+
 		gets_dug()
 
 	else if(istype(W,/obj/item/weapon/storage/bag/ore))
