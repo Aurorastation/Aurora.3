@@ -87,6 +87,14 @@
 
 	return ..()
 
+/mob/living/silicon/robot/CanAvoidGravity()
+	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+	if (thrust && thrust.allow_thrust(0.02, src))
+		return TRUE
+
+	return ..()
+
 /mob/proc/can_ztravel()
 	return 0
 
@@ -184,6 +192,14 @@
 		if (thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
+
+	return ..()
+
+/mob/living/silicon/robot/can_fall()
+	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))
+		return FALSE
 
 	return ..()
 
