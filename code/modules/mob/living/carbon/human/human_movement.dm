@@ -80,15 +80,7 @@
 	if(restrained())	return 0
 
 	//Do we have a working jetpack?
-	var/obj/item/weapon/tank/jetpack/thrust
-	if(back)
-		if(istype(back,/obj/item/weapon/tank/jetpack))
-			thrust = back
-		else if(istype(back,/obj/item/weapon/rig))
-			var/obj/item/weapon/rig/rig = back
-			for(var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
-				thrust = module.jets
-				break
+	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 	if(thrust)
 		if(((!check_drift) || (check_drift && thrust.stabilization_on)) && (!lying) && (thrust.allow_thrust(0.01, src)))
@@ -111,8 +103,8 @@
 
 	return prob_slip
 
-/mob/living/carbon/human/Check_Shoegrip()
-	if(species.flags & NO_SLIP)
+/mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
+	if(checkSpecies && (species.flags & NO_SLIP))
 		return 1
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1

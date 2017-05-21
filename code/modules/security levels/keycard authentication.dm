@@ -159,7 +159,7 @@
 			feedback_inc("alert_keycard_auth_borgDisable",1)	
 		if("Emergency Response Team")
 			if(is_ert_blocked())
-				usr << "\red All emergency response teams are dispatched and can not be called at this time."
+				usr << "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>"
 				return
 
 			trigger_armed_response_team(1)

@@ -61,9 +61,9 @@
 				handle_item_insertion(L, 1)//value of 1 suppresses confirmation messages from this one
 
 			if (count)
-				user << "\blue You empty [count] broken bulbs into the trashbag."
+				user << "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>"
 			else if (!bagfull)
-				user << "\blue There are no broken bulbs to empty out."
+				user << "<span class='notice'>There are no broken bulbs to empty out.</span>"
 			return 1
 	..()
 

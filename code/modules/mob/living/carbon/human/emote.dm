@@ -72,7 +72,7 @@
 
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					src << "\red You cannot send IC messages (muted)."
+					src << "<span class='danger'>You cannot send IC messages (muted).</span>"
 					return
 			if (stat)
 				return

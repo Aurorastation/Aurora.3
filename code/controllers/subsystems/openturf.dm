@@ -93,6 +93,8 @@
 
 		// Update the openturf itself.
 		T.appearance = T.below
+		T.name = initial(T.name)
+		T.desc = "Below seems to be \a [T.below]."
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())

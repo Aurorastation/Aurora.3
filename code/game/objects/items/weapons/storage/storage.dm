@@ -457,7 +457,7 @@
 		var/obj/item/weapon/tray/T = W
 		if(T.current_weight > 0)
 			T.spill(user)
-			user << "\red Trying to place a loaded tray into [src] was a bad idea."
+			user << "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>"
 			return
 
 	W.add_fingerprint(user)

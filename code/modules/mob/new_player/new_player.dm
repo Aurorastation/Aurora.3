@@ -158,7 +158,7 @@
 		if(href_list["late_join"])
 
 			if(SSticker.current_state != GAME_STATE_PLAYING)
-				usr << "\red The round is either not ready, or has already finished..."
+				usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
 				return
 
 			// Cannot join without a saved character, if we're on SQL saves.
@@ -314,7 +314,7 @@
 		if(src != usr)
 			return 0
 		if(SSticker.current_state != GAME_STATE_PLAYING)
-			usr << "\red The round is either not ready, or has already finished..."
+			usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
 			return 0
 		if(!config.enter_allowed)
 			usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
