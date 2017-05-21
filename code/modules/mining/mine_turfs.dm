@@ -669,16 +669,17 @@
 
 		digging = 1
 		if(!do_after(user,40))
-			digging = 0
+			if (istype(src, /turf/simulated/floor/asteroid))
+				digging = 0
 			return
-
-		user << "<span class='notice'> You dug a hole.</span>"
-		digging = 0
 
 		// Turfs are special. They don't delete. So we need to check if it's
 		// still the same turf as before the sleep.
 		if (!istype(src, /turf/simulated/floor/asteroid))
 			return
+
+		user << "<span class='notice'> You dug a hole.</span>"
+		digging = 0
 
 		gets_dug()
 
