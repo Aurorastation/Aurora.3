@@ -21,8 +21,12 @@
 		if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
 		if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 		if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+	var/obj/item/clothing/under/color/grey/G = new /obj/item/clothing/under/color/grey(H)
+	if(H.equip_to_slot_or_del(G, slot_w_uniform))
+		G.autodrobe_no_remove = 1
+	var/obj/item/clothing/shoes/black/B = new /obj/item/clothing/shoes/black(H)
+	if(H.equip_to_slot_or_del(B, slot_shoes))
+		B.autodrobe_no_remove = 1
 	return 1
 
 /datum/job/assistant/get_access()
