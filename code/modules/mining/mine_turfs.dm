@@ -676,9 +676,9 @@
 
 	new/obj/item/weapon/ore/glass(src)
 
-	if(prob(50))
-		var/list/ore = list(/obj/item/weapon/ore/coal = 8,
-		/obj/item/weapon/ore/iron = 6,
+	if(prob(15))
+		var/list/ore = list(/obj/item/weapon/ore/coal = 12,
+		/obj/item/weapon/ore/iron = 8,
 		/obj/item/weapon/ore/phoron = 3,
 		/obj/item/weapon/ore/silver = 3,
 		/obj/item/weapon/ore/gold = 2,
@@ -699,7 +699,15 @@
 	if(dug <= 10)
 		dug += 1
 	else
-		ChangeTurf(/turf/space)
+		var/turf/below = (!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(src, DOWN) : null
+		if(below)
+			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
+			if(below_area.station_area)
+				user << "<span class='alert'>You strike metal!</span>"
+				var/turf/T = ChangeTurf(/turf/simulated/floor/airless)
+				T.icon_state = "asteroidplating"
+			else
+				ChangeTurf(/turf/space)
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
 	..()

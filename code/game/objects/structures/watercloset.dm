@@ -91,7 +91,14 @@
 		user << "You carefully place \the [I] into the cistern."
 		return
 
+/obj/structure/toilet/noose
+	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one's cistern seems remarkably scratched."
 
+/obj/structure/toilet/noose/New()
+	new /obj/item/stack/cable_coil(src)
+	if(prob(5))
+		cistern = 1
+	..()
 
 /obj/structure/urinal
 	name = "urinal"

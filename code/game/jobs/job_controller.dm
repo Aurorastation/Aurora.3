@@ -501,7 +501,7 @@ var/global/datum/controller/occupations/job_master
 			var/list/custom_equip_leftovers = list()
 			if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
 
-				for(var/thing in H.client.prefs.gear)
+				for(var/obj/item/thing in H.client.prefs.gear)
 					var/datum/gear/G = gear_datums[thing]
 					if(G)
 						var/permitted
@@ -530,8 +530,10 @@ var/global/datum/controller/occupations/job_master
 								custom_equip_slots.Add(G.slot)
 							else
 								custom_equip_leftovers.Add(thing)
+							thing.autodrobe_no_remove = 1
 						else
 							spawn_in_storage += thing
+
 			//Equip job items.
 			job.late_equip(H)
 			job.equip_backpack(H)
@@ -540,7 +542,7 @@ var/global/datum/controller/occupations/job_master
 			job.apply_fingerprints(H)
 
 			//If some custom items could not be equipped before, try again now.
-			for(var/thing in custom_equip_leftovers)
+			for(var/obj/item/thing in custom_equip_leftovers)
 				var/datum/gear/G = gear_datums[thing]
 				if(G.slot in custom_equip_slots)
 					spawn_in_storage += thing
@@ -549,6 +551,7 @@ var/global/datum/controller/occupations/job_master
 					if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
 						H << "<span class='notice'>Equipping you with \the [thing]!</span>"
 						custom_equip_slots.Add(G.slot)
+						thing.autodrobe_no_remove = 1
 					else
 						spawn_in_storage += thing
 		else
@@ -588,6 +591,7 @@ var/global/datum/controller/occupations/job_master
 			if(equipped != 1)
 				var/obj/item/clothing/glasses/G = H.glasses
 				G.prescription = 1
+				G.autodrobe_no_remove = 1
 
 		// So shoes aren't silent if people never change 'em.
 		H.update_noise_level()
