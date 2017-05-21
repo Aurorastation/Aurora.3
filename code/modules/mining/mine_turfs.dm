@@ -505,6 +505,7 @@
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/overlay_detail
+	var/digging
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
@@ -602,13 +603,16 @@
 		var/turf/T = user.loc
 		if (!(istype(T)))
 			return
-
-		if (dug)
+		if(digging)
+			return
+		if(dug)
 			if(!GetBelow(src))
 				return
 			user << "<span class='warning'>You start digging deeper.</span>"
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
+			digging = 1
 			if(!do_after(user,60))
+				digging = 0
 				return
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			if(prob(33))
@@ -642,15 +646,19 @@
 					user << "<span class='notice'> You dug a big hole.</span>"
 
 			gets_dug()
+			digging = 0
 			return
 
 		user << "<span class='warning'>You start digging.</span>"
 		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 
+		digging = 1
 		if(!do_after(user,40))
+			digging = 0
 			return
 
 		user << "<span class='notice'> You dug a hole.</span>"
+		digging = 0
 		gets_dug()
 
 	else if(istype(W,/obj/item/weapon/storage/bag/ore))
@@ -674,11 +682,12 @@
 
 	icon_state = "asteroid_dug"
 
-	new/obj/item/weapon/ore/glass(src)
+	if(prob(75))
+		new/obj/item/weapon/ore/glass(src)
 
-	if(prob(50))
-		var/list/ore = list(/obj/item/weapon/ore/coal = 8,
-		/obj/item/weapon/ore/iron = 6,
+	if(prob(25))
+		var/list/ore = list(/obj/item/weapon/ore/coal = 12,
+		/obj/item/weapon/ore/iron = 8,
 		/obj/item/weapon/ore/phoron = 3,
 		/obj/item/weapon/ore/silver = 3,
 		/obj/item/weapon/ore/gold = 2,
@@ -698,8 +707,17 @@
 
 	if(dug <= 10)
 		dug += 1
+		add_overlay("asteroid_dug")
 	else
-		ChangeTurf(/turf/space)
+		var/turf/below = (!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(src, DOWN) : null
+		if(below)
+			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
+			if(below_area.station_area)
+				user << "<span class='alert'>You strike metal!</span>"
+				var/turf/T = ChangeTurf(/turf/simulated/floor/airless)
+				T.icon_state = "asteroidplating"
+			else
+				ChangeTurf(/turf/space)
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
 	..()

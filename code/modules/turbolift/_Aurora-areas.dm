@@ -292,6 +292,7 @@
 	lift_floor_name = "Main Lvl."
 
 
+
 /area/turbolift/vault_sub
 	name = "Vault Access Lift - sub"
 	lift_announce_str = "Arriving at Vault Access. Facilities on this floor include: Vault. Alert: Secure Area ahead. Non-authorized personnel will be prosecuted."
@@ -324,14 +325,14 @@
 	lift_floor_label = "Surface Level (Command)"
 	lift_floor_name = "Surface Level (Command)"
 
-	base_turf = /turf/simulated/floor/plating
-
 /area/turbolift/command_sub
 	name = "Command Lift - Sub"
 	lift_announce_str = "Arriving at the Command Main Level. Facilities in this floor include: Bridge, Command Dormitories, Command Recreational Area."
 
 	lift_floor_label = "Main Level (Command)"
 	lift_floor_name = "Main Level (Command)"
+
+	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/command_mid
 	name = "Command Lift - Mid"

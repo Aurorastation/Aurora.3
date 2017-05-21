@@ -513,7 +513,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 		if(M.isSynthetic() && M == user)
 			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
-			return	
+			return
 
 		if(S.burn_dam)
 			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP)
@@ -629,7 +629,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 //////////////////////////////////////////////
 
 // called when cable_coil is clicked on a turf/simulated/floor
-/obj/item/stack/cable_coil/proc/turf_place(turf/simulated/floor/F, mob/user)
+/obj/item/stack/cable_coil/proc/turf_place(turf/F, mob/user)
 	if(!isturf(user.loc))
 		return
 
@@ -641,9 +641,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		user << "You can't lay cable at a place that far away."
 		return
 
+	if(!istype(F,/turf/simulated/floor))
+		if(!locate(/obj/structure/lattice/catwalk) in F)
+			user << "You can't lay cable there unless there is plating or a catwalk."
+			return
+
 	if(!F.is_plating())		// Ff floor is intact, complain
-		user << "You can't lay cable there unless the floor tiles are removed."
-		return
+		if(!locate(/obj/structure/lattice/catwalk) in F)
+			user << "You can't lay cable there unless the floor tiles are removed."
+			return
 
 	else
 		var/dirn
@@ -999,7 +1005,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(!affecting)
 			user << "<span class='danger'>They don't have a head.</span>"
 			return
-	
+
 	if(M.loc != src.loc) return 0 //Can only noose someone if they're on the same tile as noose
 
 	add_fingerprint(user)
@@ -1039,7 +1045,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 		pixel_x = initial(pixel_x)
 		return
-		
+
 	ticks++
 	switch(ticks)
 		if(1)
@@ -1054,7 +1060,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(buckled_mob)
 				if (ishuman(buckled_mob))
 					var/mob/living/carbon/human/H = buckled_mob
-					if (H.species && (H.species.flags & NO_BREATHE)) 
+					if (H.species && (H.species.flags & NO_BREATHE))
 						return
 				if(prob(15))
 					var/flavor_text = list("<span class='warning'>[buckled_mob]'s legs flail for anything to stand on.</span>",\
@@ -1069,11 +1075,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			pixel_x = initial(pixel_x)
 			buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 			ticks = 0
-			
+
 	if(buckled_mob)
 		if (ishuman(buckled_mob))
 			var/mob/living/carbon/human/H = buckled_mob
-			if (H.species && (H.species.flags & NO_BREATHE)) 
+			if (H.species && (H.species.flags & NO_BREATHE))
 				return
 		buckled_mob.adjustOxyLoss(5)
 		buckled_mob.adjustBrainLoss(1)

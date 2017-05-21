@@ -213,7 +213,7 @@
 	else if(!istype(landing, /turf/space))
 		visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
 
-/mob/living/carbon/human/handle_fall(var/turf/landing)
+/mob/living/handle_fall(var/turf/landing)
 	if(..())
 		return
 
@@ -227,14 +227,42 @@
 		if(!area2.has_gravity())
 			return
 
-	var/damage = 20
-	apply_damage(rand(0, damage), BRUTE, "head")
+	if(!istype(src, /mob/living/carbon/human))
+		var/damage = 30
+		apply_damage(rand(0, damage), BRUTE)
+		apply_damage(rand(0, damage), BRUTE)
+		apply_damage(rand(0, damage), BRUTE)
+
+/mob/living/carbon/human/handle_fall(var/turf/landing)
+	if(..())
+		return
+
+	var/damage = 30*species.fall_mod
+	if(prob(20)) //landed on their head
+		apply_damage(rand(0, damage), BRUTE, "head")
+
+	else if(prob(20)) //landed on their arms
+		apply_damage(rand(0, damage), BRUTE, "l_arm")
+		apply_damage(rand(0, damage), BRUTE, "r_arm")
+
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "r_hand")
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "l_hand")
+
+	else //landed on their legs
+		apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
+		apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
+
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "r_foot")
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "l_foot")
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
+
 	apply_damage(rand(0, damage), BRUTE, "chest")
-	apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
-	apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
-	apply_damage(rand(0, damage), BRUTE, "l_arm")
-	apply_damage(rand(0, damage), BRUTE, "r_arm")
-	Weaken(2)
+	Weaken(rand(0,damage/2))
 	updatehealth()
 
 /mob/living/carbon/human/bst/can_fall()
