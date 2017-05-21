@@ -12,8 +12,8 @@
 	force = 10
 	hitsound = 'sound/items/welder2.ogg'
 
-/obj/item/weapon/scrying/attack_self(mob/user as mob)
-	if(!(user.faction == "Space Wizard"))
+/obj/item/weapon/scrying/attack_self(mob/living/user as mob)
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
@@ -78,7 +78,7 @@
 	user << "<span class='notice'>\The [src] slowly dies out.</span>"
 
 /obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
-	if(user.faction == "Space Wizard")
+	if(user.is_wizard())
 		return ..()
 
 	var/zone = (user.hand ? "l_arm":"r_arm")
