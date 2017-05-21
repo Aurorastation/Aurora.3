@@ -13,6 +13,8 @@
 	var/strength = 0
 	var/ticks_recovering = 10
 
+	atmos_canpass = CANPASS_NEVER
+
 /obj/effect/energy_field/New()
 	..()
 	update_nearby_tiles()

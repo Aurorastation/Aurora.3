@@ -18,6 +18,9 @@
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
+	jackets["green flannel jacket"] = /obj/item/clothing/suit/storage/toggle/flannel
+	jackets["red flannel jacket"] = /obj/item/clothing/suit/storage/toggle/flannel/red
+	jackets["blue flannel jacket"] = /obj/item/clothing/suit/storage/toggle/flannel/blue
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 
 /datum/gear/suit/hazard_vest

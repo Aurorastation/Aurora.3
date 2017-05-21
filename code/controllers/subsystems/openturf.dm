@@ -93,22 +93,18 @@
 
 		// Update the openturf itself.
 		T.appearance = T.below
+		T.name = initial(T.name)
+		T.desc = "Below seems to be \a [T.below]."
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
-			if (config.starlight)
-				for (var/thing in RANGE_TURFS(1, T))
-					var/turf/RT = thing
-					if (!RT.dynamic_lighting || istype(RT, /turf/simulated/open))
-						continue
-
-					T.set_light(config.starlight, 0.5)
-					break
+			/*if (config.starlight)	// Openturf starlight is broken. SSlighting and SSopenturf will fight if this is un-commented-out. Maybe someone will fix it someday.
+				T.set_light(config.starlight, 0.5)*/
 		else
 			T.plane = OPENTURF_MAX_PLANE - depth
-			if (config.starlight && T.light_range != 0)
-				T.set_light(0)
+			/*if (config.starlight && T.light_range != 0)
+				T.set_light(0)*/
 
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)
@@ -167,11 +163,10 @@
 		OO.dir = OO.associated_atom.dir
 		OO.appearance = OO.associated_atom
 		OO.plane = OPENTURF_MAX_PLANE - OO.depth
+		OO.queued = FALSE
 
-		// Something's above us, queue it.
-		var/turf/oo_loc = OO.loc
-		if (istype(oo_loc.above))
-			oo_loc.above.update_icon()
+		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
+			OO.update_oo()
 
 		if (no_mc_tick)
 			CHECK_TICK

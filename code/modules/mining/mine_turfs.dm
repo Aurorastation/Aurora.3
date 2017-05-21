@@ -438,7 +438,7 @@
 		ORE_SILVER = 2,
 		ORE_PHORON = 5
 	)
-	var/mineralChance = 45
+	var/mineralChance = 55
 
 /turf/simulated/mineral/random/Initialize()
 	if (prob(mineralChance) && !mineral)
@@ -446,7 +446,8 @@
 		if (mineral_name && (mineral_name in ore_data))
 			mineral = ore_data[mineral_name]
 			UpdateMineral()
-		
+		MineralSpread()
+
 	. = ..()
 
 /turf/simulated/mineral/random/high_chance
@@ -460,7 +461,7 @@
 		ORE_SILVER = 2,
 		ORE_PHORON = 3
 	)
-	mineralChance = 45
+	mineralChance = 55
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -527,7 +528,7 @@
 		pixel_x = -4
 		pixel_y = -4
 		queue_smooth(src)
-	
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/floor/asteroid/ex_act(severity)

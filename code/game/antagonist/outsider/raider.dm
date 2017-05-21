@@ -15,6 +15,8 @@ var/datum/antagonist/raider/raiders
 	hard_cap_round = 10
 	initial_spawn_req = 4
 	initial_spawn_target = 6
+	
+	faction = "syndicate"
 
 	id_type = /obj/item/weapon/card/id/syndicate
 
