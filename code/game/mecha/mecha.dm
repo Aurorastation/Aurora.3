@@ -995,19 +995,19 @@
 		return
 
 	if (!use_power(step_energy_drain*20))//Forcefully crashing into something costs 20x the power of taking a normal step
-		occupant  << "\red [src] lacks the remaining power to do that!"
+		occupant  << "<span class='warning'>[src] lacks the remaining power to do that!</span>"
 		return 0
 
 
 	//TODO: Add in a check for exosuit thrusters here after reworking them.
 	//Exosuits with thrusters should be able to use crash in space, and without the 0.5sec windup time
 	if (!check_for_support())
-		occupant  << "\red The [src] has no traction! There is nothing solid in reach to launch off."
+		occupant  << "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>"
 		return 0
 
 	lastcrash = world.time
 
-	occupant << "\red You take a step back, and then..."
+	occupant << "<span class='warning'>You take a step back, and then...</span>"
 	sleep(5)
 
 
@@ -1788,9 +1788,9 @@
 		var/obj/item/mecha_parts/mecha_equipment/tool/passenger/P = passengers[pname]
 		var/mob/occupant = P.occupant
 
-		user.visible_message("\red [user] begins opening the hatch on \the [P]...", "\red You begin opening the hatch on \the [P]...")
+		user.visible_message("<span class='warning'>[user] begins opening the hatch on \the [P]...</span>", "<span class='notice'>You begin opening the hatch on \the [P]...</span>")
 		if (do_after(user, 40, needhand=0))
-			user.visible_message("\red [user] opens the hatch on \the [P] and removes [occupant]!", "\red You open the hatch on \the [P] and remove [occupant]!")
+			user.visible_message("<span class='danger'>[user] opens the hatch on \the [P] and removes [occupant]!</span>", "<span class='danger'>You open the hatch on \the [P] and remove [occupant]!</span>")
 			P.go_out()
 			P.log_message("[occupant] was removed.")
 		return

@@ -42,6 +42,8 @@
 	for(var/obj/item/W in H.contents)
 		if(istype(W,/obj/item/organ))
 			continue
+		if(W.autodrobe_no_remove)
+			continue
 		H.drop_from_inventory(W,gearbox)
 		W.forceMove(gearbox)
 	H.put_in_any_hand_if_possible(gearbox)

@@ -194,5 +194,5 @@
 				qdel(animation)
 			T.cultify()
 	else
-		user << "<span class='warning'> You do not have enough space to write a proper rune.</span>"
+		user << "<span class='warning'>You do not have enough space to write a proper rune.</span>"
 	return

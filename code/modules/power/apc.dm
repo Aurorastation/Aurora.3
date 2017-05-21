@@ -797,7 +797,7 @@
 			return
 		else if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			user.visible_message("\red [user.name] slashes at the [src.name]!", "\blue You slash at the [src.name]!")
+			user.visible_message("<span class='warning'>[user.name] slashes at the [src.name]!</span>", "<span class='notice'>You slash at the [src.name]!</span>")
 			playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 
 			var/allcut = wires.IsAllCut()
@@ -805,12 +805,12 @@
 			if(beenhit >= pick(3, 4) && wiresexposed != 1)
 				wiresexposed = 1
 				src.update_icon()
-				src.visible_message("\red The [src.name]'s cover flies open, exposing the wires!")
+				src.visible_message("<span class='warning'>The [src.name]'s cover flies open, exposing the wires!</span>")
 
 			else if(wiresexposed == 1 && allcut == 0)
 				wires.CutAll()
 				src.update_icon()
-				src.visible_message("\red The [src.name]'s wires are shredded!")
+				src.visible_message("<span class='warning'>The [src.name]'s wires are shredded!</span>")
 			else
 				beenhit += 1
 			return

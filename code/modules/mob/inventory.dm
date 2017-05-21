@@ -29,7 +29,7 @@
 			qdel(W)
 		else
 			if(!disable_warning)
-				src << "\red You are unable to equip that." //Only print if del_on_fail is false
+				src << "<span class='warning'>You are unable to equip that.</span>" //Only print if del_on_fail is false
 		return 0
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
@@ -304,7 +304,7 @@ var/list/slot_equipment_priority = list( \
 
 	//actually throw it!
 	if (item)
-		src.visible_message("\red [src] has thrown [item].")
+		src.visible_message("<span class='warning'>[src] has thrown [item].</span>")
 
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)

@@ -523,15 +523,18 @@ var/global/datum/controller/occupations/job_master
 							// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 							// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 							var/metadata = H.client.prefs.gear[G.display_name]
+							var/obj/item/CI = G.spawn_item(H,metadata)
 							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 								custom_equip_leftovers += thing
-							else if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
+							else if(H.equip_to_slot_or_del(CI, G.slot))
+								CI.autodrobe_no_remove = 1
 								H << "<span class='notice'>Equipping you with \the [thing]!</span>"
 								custom_equip_slots.Add(G.slot)
 							else
 								custom_equip_leftovers.Add(thing)
 						else
 							spawn_in_storage += thing
+
 			//Equip job items.
 			job.late_equip(H)
 			job.equip_backpack(H)
@@ -546,9 +549,11 @@ var/global/datum/controller/occupations/job_master
 					spawn_in_storage += thing
 				else
 					var/metadata = H.client.prefs.gear[G.display_name]
-					if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
+					var/obj/item/CI = G.spawn_item(H,metadata)
+					if(H.equip_to_slot_or_del(CI, G.slot))
 						H << "<span class='notice'>Equipping you with \the [thing]!</span>"
 						custom_equip_slots.Add(G.slot)
+						CI.autodrobe_no_remove = 1
 					else
 						spawn_in_storage += thing
 		else
@@ -588,6 +593,7 @@ var/global/datum/controller/occupations/job_master
 			if(equipped != 1)
 				var/obj/item/clothing/glasses/G = H.glasses
 				G.prescription = 1
+				G.autodrobe_no_remove = 1
 
 		// So shoes aren't silent if people never change 'em.
 		H.update_noise_level()
