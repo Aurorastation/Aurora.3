@@ -32,20 +32,20 @@
 	switch(H.backbag)
 		if(2)
 			var/obj/item/weapon/storage/backpack/B = new /obj/item/weapon/storage/backpack(H)
-			H.equip_to_slot_or_del(B, slot_back)
-			B.autodrobe_no_remove = 1
+			if(H.equip_to_slot_or_del(B, slot_back))
+				B.autodrobe_no_remove = 1
 		if(3)
 			var/obj/item/weapon/storage/backpack/satchel_norm/B = new /obj/item/weapon/storage/backpack/satchel_norm(H)
-			H.equip_to_slot_or_del(B, slot_back)
-			B.autodrobe_no_remove = 1
+			if(H.equip_to_slot_or_del(B, slot_back))
+				B.autodrobe_no_remove = 1
 		if(4)
 			var/obj/item/weapon/storage/backpack/satchel/B = new /obj/item/weapon/storage/backpack/satchel(H)
-			H.equip_to_slot_or_del(B, slot_back)
-			B.autodrobe_no_remove = 1
+			if(H.equip_to_slot_or_del(B, slot_back))
+				B.autodrobe_no_remove = 1
 		if(5)
 			var/obj/item/weapon/storage/backpack/duffel/B = new /obj/item/weapon/storage/backpack/duffel(H)
-			H.equip_to_slot_or_del(B, slot_back)
-			B.autodrobe_no_remove = 1
+			if(H.equip_to_slot_or_del(B, slot_back))
+				B.autodrobe_no_remove = 1
 
 /datum/job/proc/equip_survival(var/mob/living/carbon/human/H)
 	if(!H)	return 0
