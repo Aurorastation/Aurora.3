@@ -62,7 +62,7 @@
 				M << "\bold You hear a voice in your head... \italic [msg]"
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("<span class='notice'>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]</span>", 1)
+	message_admins("<span class='notice'><b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]</b></span>", 1)
 	feedback_add_details("admin_verb","SMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_mentor_check_new_players()	//Allows mentors / admins to determine who the newer players are.
