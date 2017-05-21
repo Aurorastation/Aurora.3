@@ -95,6 +95,7 @@
 		T.appearance = T.below
 		T.name = initial(T.name)
 		T.desc = "Below seems to be \a [T.below]."
+		T.opacity = FALSE
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
@@ -163,6 +164,7 @@
 		OO.dir = OO.associated_atom.dir
 		OO.appearance = OO.associated_atom
 		OO.plane = OPENTURF_MAX_PLANE - OO.depth
+		OO.opacity = FALSE
 		OO.queued = FALSE
 
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.

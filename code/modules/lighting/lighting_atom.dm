@@ -56,7 +56,6 @@
 // Will update the light (duh).
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
 /atom/proc/update_light()
-	set waitfor = FALSE
 	if (QDELING(src))
 		return
 
@@ -78,11 +77,13 @@
 // If we have opacity, make sure to tell (potentially) affected light sources.
 /atom/movable/Destroy()
 	var/turf/T = loc
+
+	. = ..()
+	
 	if (opacity && istype(T))
 		T.recalc_atom_opacity()
 		T.reconsider_lights()
 
-	. = ..()
 
 // Should always be used to change the opacity of an atom.
 // It notifies (potentially) affected light sources so they can update (if needed).
