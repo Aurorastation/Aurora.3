@@ -244,7 +244,6 @@ proc/listclearnulls(list/list)
 	var/list/target = L.Copy()
 	var/old_cmp_field = cmp_field
 	cmp_field = field
-	listclearnulls(target)
 	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
 	cmp_field = old_cmp_field
 	return target
