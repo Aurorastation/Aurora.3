@@ -329,11 +329,8 @@
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 		var/list/custom_equip_leftovers = list()
 		//Equip job items.
-		job.equip(H)
-		job.apply_fingerprints(H)
 		if(!megavend)	//Equip custom gear loadout.
 			job.equip_backpack(H)
-			job.equip_survival(H)
 			job.setup_account(H)
 			if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
 				for(var/thing in H.client.prefs.gear)
@@ -367,6 +364,12 @@
 								custom_equip_leftovers.Add(thing)
 						else
 							spawn_in_storage += thing
+
+			// This goes after custom loadout it doesn't prevent custom loadout stuff from being equipped.
+			job.equip_survival(H)
+
+		job.equip(H)
+		job.apply_fingerprints(H)
 
 		// Randomize nutrition. Defines are in __defines/mobs.dm
 		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
