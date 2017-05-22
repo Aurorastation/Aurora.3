@@ -343,12 +343,12 @@
 						if(G.allowed_roles)
 							for(var/job_name in G.allowed_roles)
 								if(job.title == job_name)
-									permitted = 1
+									permitted = TRUE
 						else
-							permitted = 1
+							permitted = TRUE
 
 						if(G.whitelisted && !is_alien_whitelisted(H, all_species[G.whitelisted]))
-							permitted = 0
+							permitted = FALSE
 
 						if(!permitted)
 							H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
@@ -440,7 +440,7 @@
 				B = S
 				break
 
-			if(!isnull(B))
+			if(B)
 				for(var/thing in spawn_in_storage)
 					H << "<span class='notice'>Placing \the [thing] in your [B.name]!</span>"
 					var/datum/gear/G = gear_datums[thing]
@@ -478,7 +478,7 @@
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = 1
+			G.prescription = TRUE
 
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
@@ -528,12 +528,10 @@
 	//addtimer(CALLBACK(GLOBAL_PROC, .proc/handle_player_despawn, H), 15 MINUTES)
 
 	if(job)
-
 		//Equip custom gear loadout.
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 		var/list/custom_equip_leftovers = list()
-		if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
-
+		if(LAZYLEN(H.client.prefs.gear) && job.title != "Cyborg" && job.title != "AI")
 			for(var/thing in H.client.prefs.gear)
 				var/datum/gear/G = gear_datums[thing]
 				if(G)
@@ -541,12 +539,13 @@
 					if(G.allowed_roles)
 						for(var/job_name in G.allowed_roles)
 							if(job.title == job_name)
-								permitted = 1
+								permitted = TRUE
+								break
 					else
-						permitted = 1
+						permitted = TRUE
 
 					if(G.whitelisted && !is_alien_whitelisted(H, all_species[G.whitelisted]))
-						permitted = 0
+						permitted = FALSE
 
 					if(!permitted)
 						H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
@@ -557,14 +556,14 @@
 						// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 						var/metadata = H.client.prefs.gear[G.display_name]
 						var/obj/item/CI = G.spawn_item(H,metadata)
-						if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
+						if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 							custom_equip_leftovers += thing
-						else if(H.equip_to_slot_or_del(CI, G.slot))
-							CI.autodrobe_no_remove = 1
+						else if (H.equip_to_slot_or_del(CI, G.slot))
+							CI.autodrobe_no_remove = TRUE
 							H << "<span class='notice'>Equipping you with \the [thing]!</span>"
-							custom_equip_slots.Add(G.slot)
+							custom_equip_slots += G.slot
 						else
-							custom_equip_leftovers.Add(thing)
+							custom_equip_leftovers += thing
 					else
 						spawn_in_storage += thing
 
@@ -585,8 +584,8 @@
 				var/obj/item/CI = G.spawn_item(H,metadata)
 				if(H.equip_to_slot_or_del(CI, G.slot))
 					H << "<span class='notice'>Equipping you with \the [thing]!</span>"
-					custom_equip_slots.Add(G.slot)
-					CI.autodrobe_no_remove = 1
+					custom_equip_slots += G.slot
+					CI.autodrobe_no_remove = TRUE
 				else
 					spawn_in_storage += thing
 	else
@@ -594,13 +593,13 @@
 
 	H.job = rank
 
-	if(spawn_in_storage && spawn_in_storage.len)
+	if(LAZYLEN(spawn_in_storage))
 		var/obj/item/weapon/storage/B
 		for(var/obj/item/weapon/storage/S in H.contents)
 			B = S
 			break
 
-		if(!isnull(B))
+		if(B)
 			for(var/thing in spawn_in_storage)
 				H << "<span class='notice'>Placing \the [thing] in your [B.name]!</span>"
 				var/datum/gear/G = gear_datums[thing]
@@ -625,8 +624,8 @@
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = 1
-			G.autodrobe_no_remove = 1
+			G.prescription = TRUE
+			G.autodrobe_no_remove = TRUE
 
 	// So shoes aren't silent if people never change 'em.
 	H.update_noise_level()
