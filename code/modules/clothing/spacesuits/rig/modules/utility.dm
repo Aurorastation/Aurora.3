@@ -14,6 +14,7 @@
  * /obj/item/rig_module/device/paperdispenser
  * /obj/item/rig_module/device/pen
  * /obj/item/rig_module/device/stamp
+ * /obj/item/rig_module/actuators
  */
 
 /obj/item/rig_module/device
@@ -472,3 +473,24 @@
 	interface_desc = "Eats trash like no one's business."
 
 	device_type = /obj/item/weapon/matter_decompiler
+
+/obj/item/rig_module/actuators
+	name = "leg actuators"
+	desc = "A set of high-powered actuators, for improved travesal of multilevelled areas."
+	icon_state = "ewar"
+	interface_name = "leg actuators"
+	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
+
+	disruptive = 0
+
+	/*
+	 * TOGGLE - dampens fall, on or off.
+	 * SELECTABLE - Jump forward or up!
+	 */
+	toggleable = 1
+//	selectable = 1
+	usable = 0
+
+	engage_string = "Toggle Leg Actuators"
+	activate_string = "Enable Leg Actuators"
+	deactivate_string = "Disable Leg Actuators"

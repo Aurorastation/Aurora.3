@@ -209,9 +209,9 @@
 		return 1
 
 	if(istype(landing, /turf/simulated/open))
-		visible_message("\The [src] falls from the level above through \the [landing]!", "You hear a whoosh of displaced air.")
+		visible_message("<span class='warning'>\The [src] falls from the level above through \the [landing]!</span>", "<span class='warning'>You hear a whoosh of displaced air.</span>")
 	else if(!istype(landing, /turf/space))
-		visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
+		visible_message("<span class='warning'>\The [src] falls from the level above and slams onto \the [landing]!</span>", "<span class='warning'>You hear something slam onto the floor.</span>")
 
 /mob/living/handle_fall(var/turf/landing)
 	if(..())
@@ -236,6 +236,21 @@
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
+
+	// Stop the human from taking any damage if they have a RIG with active
+	// leg actuators and enough power to apply them.
+	var/obj/item/weapon/rig/rig = get_rig()
+	if (istype(rig))
+		var/obj/item/rig_module/actuators/act = null
+		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
+			if (A.active)
+				act = A
+				break
+
+		if (act && rig.check_power_cost(src, 10, act, 0))
+			visible_message("<span class='notice'>\The [src] lands flawlessly with \his [rig].</span>",
+				"<span class='notice'>You hear an electric <i>*whirr*</i> right after the slam!</span>")
+			return
 
 	var/damage = 30*species.fall_mod
 	if(prob(20)) //landed on their head
