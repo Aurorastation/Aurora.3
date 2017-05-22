@@ -144,9 +144,14 @@ area/space/atmosalert()
 	if (!istype(Obj, /mob/living) || !SSarrivals)
 		return
 
-	log_debug("SSarrivals: [Obj] has entered arrival shuttle hotzone.")
+	SSarrivals.on_hotzone_enter(Obj)
 
-	SSarrivals.on_hotzone_enter()
+/area/shuttle/arrival/centcom/Exited(atom/movable/Obj, atom/newLoc)
+	. = ..()
+	if (!istype(Obj, /mob/living) || !SSarrivals)
+		return
+
+	SSarrivals.on_hotzone_exit(Obj)
 
 /area/shuttle/arrival/transit
 	icon_state = "shuttle2"

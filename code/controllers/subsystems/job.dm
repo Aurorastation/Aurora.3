@@ -525,7 +525,6 @@
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
 	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/odin_timeout), 15 MINUTES, TIMER_STOPPABLE)
-	//addtimer(CALLBACK(GLOBAL_PROC, .proc/handle_player_despawn, H), 15 MINUTES)
 
 	if(job)
 		//Equip custom gear loadout.
