@@ -1364,7 +1364,7 @@
 				D.expel(H)	// expel at disposal
 	else
 		if(H)
-			src.expel(H, get_turf(src.loc), 0)	// expel at turf
+			src.expel(H, get_turf(src), 0)	// expel at turf
 	return null
 
 	// nextdir
