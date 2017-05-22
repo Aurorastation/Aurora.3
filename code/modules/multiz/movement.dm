@@ -193,6 +193,12 @@
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
 
+	// More magical exceptions for humans. This time: if they're climbing up,
+	// we can't fall!
+	var/turf/simulated/open/T = get_turf(src)
+	if (istype(T) && LAZYLEN(T.climbers) && (src in T.climbers))
+		return FALSE
+
 	return ..()
 
 /mob/living/silicon/robot/can_fall()
@@ -249,6 +255,7 @@
 
 		if (act && rig.check_power_cost(src, 10, act, 0))
 			visible_message("<span class='notice'>\The [src] lands flawlessly with \his [rig].</span>",
+				"<span class='notice'>\The [act] on your [rig] allow you to land safely!</span>",
 				"<span class='notice'>You hear an electric <i>*whirr*</i> right after the slam!</span>")
 			return
 

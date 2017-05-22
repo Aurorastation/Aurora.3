@@ -29,6 +29,9 @@
 
 	var/tmp/depth
 
+	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
+															// up this turf. Used in human/can_fall.
+
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
@@ -62,6 +65,10 @@
 		above = null
 
 	below = null
+
+	LAZYCLEARLIST(climbers)
+	UNSETEMPTY(climbers)
+
 	return ..()
 
 /turf/simulated/open/airless
