@@ -478,7 +478,7 @@
 /obj/item/rig_module/actuators
 	name = "leg actuators"
 	desc = "A set of electromechanical actuators, for safe travesal of multilevelled areas."
-	icon_state = "ewar"
+	icon_state = "generic"
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
 
@@ -506,6 +506,7 @@
 /obj/item/rig_module/actuators/combat
 	name = "military grade leg actuators"
 	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
+	interface_name = "combat leg actuators"
 
 	combatType = 1
 	leapDistance = 7
