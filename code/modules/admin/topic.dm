@@ -822,7 +822,7 @@
 		if (ckey && job)
 			if((alert("Do you want to unjobban [ckey] from [job]?", "Unjobban confirmation", "Yes", "No") == "Yes") && ckey && job) //No more misclicks! Unless you do it twice.
 				log_admin("[key_name(usr)] unjobbanned [ckey] from [job].", admin_key = key_name(usr))
-				message_admins("\blue [key_name_admin(usr)] unjobbanned [ckey] from [job].", 1)
+				message_admins("<span class='notice'>[key_name_admin(usr)] unjobbanned [ckey] from [job].</span>", 1)
 				jobban_unban(null, job, ckey, src)
 				href_list["ban"] = 1 // lets it fall through and refresh
 
