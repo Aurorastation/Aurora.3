@@ -72,7 +72,7 @@
 
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
-	desc = "A bigger, angrier cousin of the space carp."
+	desc = "The bigger, angrier cousin of the space carp."
 	icon = 'icons/mob/spaceshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
