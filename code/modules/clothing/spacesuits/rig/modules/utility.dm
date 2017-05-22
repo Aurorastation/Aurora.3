@@ -15,6 +15,7 @@
  * /obj/item/rig_module/device/pen
  * /obj/item/rig_module/device/stamp
  * /obj/item/rig_module/actuators
+ * /obj/item/rig_module/actuators/combat
  */
 
 /obj/item/rig_module/device
@@ -476,12 +477,15 @@
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"
-	desc = "A set of high-powered actuators, for improved travesal of multilevelled areas."
+	desc = "A set of electromechanical actuators, for safe travesal of multilevelled areas."
 	icon_state = "ewar"
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
 
-	disruptive = 0
+	disruptive = 1
+
+	use_power_cost = 5
+	module_cooldown = 25
 
 	/*
 	 * TOGGLE - dampens fall, on or off.
@@ -498,6 +502,15 @@
 	var/combatType = 0		// Determines whether or not the actuators can do special combat oriented tasks.
 							// Such as leaping faster, or grappling targets.
 	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
+
+/obj/item/rig_module/actuators/combat
+	name = "military grade leg actuators"
+	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
+
+	combatType = 1
+	leapDistance = 7
+
+	use_power_cost = 10
 
 /obj/item/rig_module/actuators/engage(var/atom/target)
 	if (!..())

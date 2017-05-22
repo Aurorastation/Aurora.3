@@ -253,7 +253,7 @@
 				act = A
 				break
 
-		if (act && rig.check_power_cost(src, 10, act, 0))
+		if (act && rig.check_power_cost(src, 5, act, 0))
 			visible_message("<span class='notice'>\The [src] lands flawlessly with \his [rig].</span>",
 				"<span class='notice'>\The [act] on your [rig] allow you to land safely!</span>",
 				"<span class='notice'>You hear an electric <i>*whirr*</i> right after the slam!</span>")
