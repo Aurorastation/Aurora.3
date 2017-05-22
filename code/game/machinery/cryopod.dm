@@ -322,8 +322,6 @@
 			else
 				W.forceMove(src.loc)
 
-
-
 	icon_state = base_icon_state
 
 	announce.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
