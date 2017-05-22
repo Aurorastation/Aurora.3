@@ -50,7 +50,7 @@
 
 	H << "<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>"
 
-	job_master.EquipRank(H, H.job, 1, 1)
+	SSjobs.EquipRank(H, H.job, 1, 1)
 	H.megavend = 1
 
 	return
