@@ -30,9 +30,11 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /hook/startup/proc/loadJobBans()
 	if (config.ban_legacy_system)
-		jobban_loaddatabase()
-	else
 		jobban_loadbanfile()
+	else
+		jobban_loaddatabase()
+
+	testing("Database: [json_encode(jobban_keylist)]")
 	return 1
 
 /**
@@ -57,7 +59,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	// Because we have to be certain. This is a bit stupid, but okay. We're validating
 	// both usr and checking if the holder exists. Usr should have lowest rights,
 	// in case of href hacking.
-	if (!holder || !check_rights(R_BAN, 0))
+	if (!check_rights(R_BAN, 0))
 		return
 
 	var/key = M.ckey
@@ -81,8 +83,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 	// Log the ban to the appropriate place.
 	if (config.ban_legacy_system)
 		jobban_savebanfile()
-	else
+	else if (holder)
 		var/bantype = (minutes < 0) ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP
+		testing("this was reached.")
 		holder.DB_ban_record(bantype, M, minutes, reason, rank)
 		return
 
@@ -224,7 +227,8 @@ var/list/jobban_keylist = list() // Global jobban list.
  *
  * @return	null
  */
-/proc/jobban_unban(mob/M, rank, ckey = null, datum/admins/holder)
+/proc/jobban_unban(mob/M, rank, ckey = null)
+	testing("Reached!")
 	if (M && M.ckey)
 		ckey = M.ckey
 
@@ -239,17 +243,19 @@ var/list/jobban_keylist = list() // Global jobban list.
 		var/list/ban = entry[rank]
 		if (ban)
 			// Remove said ban. Lists pass by ref, so this is fine.
+			entry[rank] = null
 			entry -= rank
 
 			// If the entry is now empty, remove the entire ckey from the list.
 			if (!entry.len)
+				jobban_keylist[ckey] = null
 				jobban_keylist -= ckey
+
+			testing("Dumping list after unban: [json_encode(jobban_keylist)]")
 
 			// Update appropriate ban files.
 			if (config.ban_legacy_system)
 				jobban_savebanfile()
-			else if (holder && check_rights(R_BAN, 0))
-				holder.DB_ban_unban(ckey, BANTYPE_JOB_PERMA, rank)
 
 /**
  * @name	jobban_isexpired
@@ -274,7 +280,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 /proc/jobban_isexpired(var/list/tuple, var/mob/M, var/rank, var/ckey = null)
 	if (config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
 		// It's expired. Remove it.
-		jobban_unban(M, rank, ckey, null)
+		jobban_unban(M, rank, ckey)
 
 		return TRUE
 

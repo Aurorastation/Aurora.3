@@ -782,7 +782,7 @@
 					if("Yes")
 						ban_unban_log_save("[key_name(usr)] unjobbanned [key_name(M)] from [job]")
 						log_admin("[key_name(usr)] unbanned [key_name(M)] from [job]",admin_key=key_name(usr),ckey=key_name(M))
-						jobban_unban(M, job, null, src) // Refer to the jobban API. It does everything instantly.
+						jobban_unban(M, job, null) // Refer to the jobban API. It does everything instantly.
 						feedback_inc("ban_job_unban",1)
 						feedback_add_details("ban_job_unban","- [job]")
 						if (!msg)
@@ -823,7 +823,7 @@
 			if((alert("Do you want to unjobban [ckey] from [job]?", "Unjobban confirmation", "Yes", "No") == "Yes") && ckey && job) //No more misclicks! Unless you do it twice.
 				log_admin("[key_name(usr)] unjobbanned [ckey] from [job].", admin_key = key_name(usr))
 				message_admins("<span class='notice'>[key_name_admin(usr)] unjobbanned [ckey] from [job].</span>", 1)
-				jobban_unban(null, job, ckey, src)
+				jobban_unban(null, job, ckey)
 				href_list["ban"] = 1 // lets it fall through and refresh
 
 	else if(href_list["newban"])

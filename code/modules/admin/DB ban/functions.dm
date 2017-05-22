@@ -220,7 +220,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	if(!check_rights(R_BAN))	return
 
-	var/sql = "SELECT ckey, bantype FROM ss13_ban WHERE id = [id]"
+	var/sql = "SELECT ckey, bantype, job FROM ss13_ban WHERE id = [id]"
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
@@ -235,11 +235,13 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	var/pckey
 	var/ban_type
+	var/job		// This is for integrating the static jobban API into this.
 	var/DBQuery/query = dbcon.NewQuery(sql)
 	query.Execute()
 	while(query.NextRow())
 		pckey = query.item[1]
 		ban_type = query.item[2]
+		job = query.item[3]
 		ban_number++;
 
 	if(ban_number == 0)
@@ -265,6 +267,12 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 	query_update.Execute()
 
 	notes_add_sql(ckey(pckey), "[ban_type] (#[id]) lifted. Reason for unban: [reason].", usr)
+
+	if ((ban_type == BANTYPE_JOB_PERMA || ban_type == BANTYPE_JOB_TEMP) && job)
+		testing("We are here.")
+		jobban_unban(null, job, pckey)
+	else
+		testing("Ban: [ban_type], job: [job], ckey: [ckey].")
 
 /client/proc/DB_ban_panel()
 	set category = "Admin"
