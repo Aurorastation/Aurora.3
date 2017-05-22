@@ -49,3 +49,29 @@
 			user << "<span class='notice'>Slicing lattice joints ...</span>"
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
+	if (istype(C, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = C
+		if (R.use(2))
+			user << "<span class='notice'>Constructing catwalk ...</span>"
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			new /obj/structure/lattice/catwalk(src.loc)
+			qdel(src)
+		return
+
+/obj/structure/lattice/catwalk
+	name = "catwalk"
+	desc = "A catwalk for easier EVA maneuvering."
+	icon = 'icons/obj/smooth/catwalk.dmi'
+	icon_state = "catwalk"
+	smooth = SMOOTH_TRUE
+	canSmoothWith = null
+
+/obj/structure/lattice/catwalk/Initialize()
+	. = ..()
+///// Z-Level Stuff
+	if(!(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open) || istype(src.loc, /turf/simulated/floor/asteroid)))
+///// Z-Level Stuff
+		return INITIALIZE_HINT_QDEL
+	for(var/obj/structure/lattice/catwalk/LAT in src.loc)
+		if(LAT != src)
+			qdel(LAT)

@@ -115,7 +115,7 @@ obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
 			playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
-			user << "\red Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!"
+			user << "<span class='warning'>Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!</span>"
 			user.show_message("<b>[user]</b> screams!",2)
 			user.drop_item()
 			if(active_hand)

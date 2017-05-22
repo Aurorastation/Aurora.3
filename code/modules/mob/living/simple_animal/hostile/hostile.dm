@@ -172,7 +172,7 @@
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	var/target = target_mob
-	visible_message("\red <b>[src]</b> fires at [target]!", 1)
+	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>", 1)
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)

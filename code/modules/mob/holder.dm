@@ -211,10 +211,10 @@ var/list/holder_mob_icon_cache = list()
 
 	if (user == src)
 		if (grabber.r_hand && grabber.l_hand)
-			user << "\red They have no free hands!"
+			user << "<span class='warning'>They have no free hands!</span>"
 			return
 	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
-		grabber << "\red Your hand is full!"
+		grabber << "<span class='warning'>Your hand is full!</span>"
 		return
 
 	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
