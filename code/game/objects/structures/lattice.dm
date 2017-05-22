@@ -1,51 +1,40 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "latticefull"
+	icon = 'icons/obj/smooth/lattice.dmi'
+	icon_state = "lattice"
 	density = 0
 	anchored = 1.0
 	w_class = 3
 	layer = 2.3 //under pipes
 	//	flags = CONDUCT
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/obj/structure/lattice,
+		/turf/simulated/wall,
+		/turf/simulated/floor,
+		/turf/simulated/mineral,
+		/turf/unsimulated/wall,
+		/turf/unsimulated/floor,
+		/obj/structure/grille
+	)
 
-/obj/structure/lattice/initialize()
-	..()
+/obj/structure/lattice/Initialize()
+	. = ..()
 ///// Z-Level Stuff
 	if(!(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open) || istype(src.loc, /turf/simulated/floor/asteroid)))
 ///// Z-Level Stuff
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
 	for(var/obj/structure/lattice/LAT in src.loc)
 		if(LAT != src)
 			qdel(LAT)
-	icon = 'icons/obj/smoothlattice.dmi'
-	icon_state = "latticeblank"
-	updateOverlays()
-	for (var/dir in cardinal)
-		var/obj/structure/lattice/L
-		if(locate(/obj/structure/lattice, get_step(src, dir)))
-			L = locate(/obj/structure/lattice, get_step(src, dir))
-			L.updateOverlays()
-
-/obj/structure/lattice/Destroy()
-	for (var/dir in cardinal)
-		var/obj/structure/lattice/L
-		if(locate(/obj/structure/lattice, get_step(src, dir)))
-			L = locate(/obj/structure/lattice, get_step(src, dir))
-			L.updateOverlays(src.loc)
-	..()
 
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
-			return
 		if(2.0)
 			qdel(src)
-			return
-		if(3.0)
-			return
-		else
 	return
 
 /obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
@@ -58,25 +47,31 @@
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing lattice joints ...</span>"
-		getFromPool(/obj/item/stack/rods, src.loc)
+		new /obj/item/stack/rods(src.loc)
 		qdel(src)
-
-	return
-
-/obj/structure/lattice/proc/updateOverlays()
-	//if(!(istype(src.loc, /turf/space)))
-	//	qdel(src)
-	spawn(1)
-		overlays = list()
-
-		var/dir_sum = 0
-
-		for (var/direction in cardinal)
-			if(locate(/obj/structure/lattice, get_step(src, direction)))
-				dir_sum += direction
-			else
-				if(!(istype(get_step(src, direction), /turf/space)))
-					dir_sum += direction
-
-		icon_state = "lattice[dir_sum]"
+	if (istype(C, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = C
+		if (R.use(2))
+			user << "<span class='notice'>Constructing catwalk ...</span>"
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			new /obj/structure/lattice/catwalk(src.loc)
+			qdel(src)
 		return
+
+/obj/structure/lattice/catwalk
+	name = "catwalk"
+	desc = "A catwalk for easier EVA maneuvering."
+	icon = 'icons/obj/smooth/catwalk.dmi'
+	icon_state = "catwalk"
+	smooth = SMOOTH_TRUE
+	canSmoothWith = null
+
+/obj/structure/lattice/catwalk/Initialize()
+	. = ..()
+///// Z-Level Stuff
+	if(!(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open) || istype(src.loc, /turf/simulated/floor/asteroid)))
+///// Z-Level Stuff
+		return INITIALIZE_HINT_QDEL
+	for(var/obj/structure/lattice/catwalk/LAT in src.loc)
+		if(LAT != src)
+			qdel(LAT)

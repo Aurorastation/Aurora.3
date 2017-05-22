@@ -29,8 +29,8 @@
 		qdel(igniter)
 	if(ptank)
 		qdel(ptank)
-	..()
-	return
+	
+	return ..()
 
 
 /obj/item/weapon/flamethrower/process()
@@ -48,13 +48,13 @@
 
 
 /obj/item/weapon/flamethrower/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(igniter)
-		overlays += "+igniter[status]"
+		add_overlay("+igniter[status]")
 	if(ptank)
-		overlays += "+ptank"
+		add_overlay("+ptank")
 	if(lit)
-		overlays += "+lit"
+		add_overlay("+lit")
 		item_state = "flamethrower_1"
 	else
 		item_state = "flamethrower_0"
@@ -82,7 +82,7 @@
 		if(ptank)
 			ptank.loc = T
 			ptank = null
-		getFromPool(/obj/item/stack/rods, T)
+		new /obj/item/stack/rods(T)
 		qdel(src)
 		return
 

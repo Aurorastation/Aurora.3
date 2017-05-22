@@ -2,8 +2,10 @@
 #define LIQUID 2
 #define GAS 3
 
+// Update asset_cache.dm if you change these.
 #define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
 #define REAGENTS_PER_SHEET 20
+#define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,12 +27,11 @@
 	var/pillamount = 10
 	var/bottlesprite = "bottle-1" //yes, strings
 	var/pillsprite = "1"
-	var/client/has_sprites = list()
 	var/max_pill_count = 20
 	flags = OPENCONTAINER
 
-/obj/machinery/chem_master/New()
-	..()
+/obj/machinery/chem_master/Initialize()
+	. = ..()
 	var/datum/reagents/R = new/datum/reagents(120)
 	reagents = R
 	R.my_atom = src
@@ -201,7 +202,6 @@
 				var/obj/item/weapon/reagent_containers/food/condiment/P = new/obj/item/weapon/reagent_containers/food/condiment(src.loc)
 				reagents.trans_to_obj(P,50)
 		else if(href_list["change_pill"])
-			#define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
 			var/dat = "<table>"
 			for(var/i = 1 to MAX_PILL_SPRITE)
 				dat += "<tr><td><a href=\"?src=\ref[src]&pill_sprite=[i]\"><img src=\"pill[i].png\" /></a></td></tr>"
@@ -230,13 +230,10 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-	if(!(user.client in has_sprites))
-		spawn()
-			has_sprites += user.client
-			for(var/i = 1 to MAX_PILL_SPRITE)
-				usr << browse_rsc(icon('icons/obj/chemical.dmi', "pill" + num2text(i)), "pill[i].png")
-			for(var/sprite in BOTTLE_SPRITES)
-				usr << browse_rsc(icon('icons/obj/chemical.dmi', sprite), "[sprite].png")
+	
+	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
+	pill_icons.send(user.client)
+
 	var/dat = ""
 	if(!beaker)
 		dat = "Please insert beaker.<BR>"
@@ -417,7 +414,7 @@
 		if(archive_diseases[id])
 			var/datum/disease/advance/A = archive_diseases[id]
 			A.AssignName(new_name)
-			for(var/datum/disease/advance/AD in active_diseases)
+			for(var/datum/disease/advance/AD in SSdisease.processing)
 				AD.Refresh()
 		src.updateUsrDialog()
 
@@ -656,7 +653,7 @@
 			if(prob(10))
 				M.apply_damage(30, BRUTE, "head")
 				M.apply_damage(45, HALLOSS)
-				M.visible_message("\red [user]'s hair catches in the [src]!", "\red Your hair gets caught in the [src]!")
+				M.visible_message("<span class='warning'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
 				M.say("*scream")
 
 	if(!inuse)
@@ -784,19 +781,19 @@
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
-			user.visible_message("\blue [user] looks like they're about to feed their own hair into the [src], but think better of it.", "\blue You grasp your hair and are about to feed it into the [src], but stop and come to your sense.")
+			user.visible_message("<span class='notice'>[user] looks like they're about to feed their own hair into the [src], but think better of it.</span>", "<span class='notice'>You grasp your hair and are about to feed it into the [src], but stop and come to your sense.</span>")
 			return
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
 	if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 		if(target.h_style != "Cut Hair" || target.h_style != "Short Hair" || target.h_style != "Skinhead" || target.h_style != "Buzzcut" || target.h_style != "Crewcut" || target.h_style != "Bald" || target.h_style != "Balding Hair")
-			user.visible_message("\red [user] starts feeding [target]'s hair into the [src]!", "\red You start feeding [target]'s hair into the [src]!")
+			user.visible_message("<span class='warning'>[user] starts feeding [target]'s hair into the [src]!</span>", "<span class='warning'>You start feeding [target]'s hair into the [src]!</span>")
 		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message("\red [user] feeds the [target]'s hair into the [src] and flicks it on!", "\red You turn the [src] on!")
+			user.visible_message("<span class='warning'>[user] feeds the [target]'s hair into the [src] and flicks it on!</span>", "<span class='warning'>You turn the [src] on!</span>")
 			target.apply_damage(30, BRUTE, "head")
 			target.apply_damage(25, HALLOSS)
 			target.say("*scream")
@@ -811,9 +808,9 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message("\red [user] starts tugging on [target]'s head as the [src] keeps running!", "\red You start tugging on [target]'s head!")
+			user.visible_message("<span class='warning'>[user] starts tugging on [target]'s head as the [src] keeps running!</span>", "<span class='warning'>You start tugging on [target]'s head!</span>")
 			target.apply_damage(25, BRUTE, "head")
 			target.apply_damage(10, HALLOSS)
 			target.say("*scream")
 			spawn(10)
-			user.visible_message("\red [user] stops the [src] and leaves [target] resting as they are.", "\red You turn the [src] off and let go of [target].")
+			user.visible_message("<span class='warning'>[user] stops the [src] and leaves [target] resting as they are.</span>", "<span class='warning'>You turn the [src] off and let go of [target].</span>")

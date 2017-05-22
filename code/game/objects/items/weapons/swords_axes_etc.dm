@@ -79,13 +79,13 @@
 	add_fingerprint(user)
 
 	if(blood_overlay && blood_DNA && (blood_DNA.len >= 1)) //updates blood overlay, if any
-		overlays.Remove(blood_overlay)
+		cut_overlay(blood_overlay, TRUE)
 		var/icon/I = new /icon(src.icon, src.icon_state)
 		I.Blend(new /icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD)
 		I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY)
 		blood_overlay = image(I)
 		blood_overlay.color = blood_color
-		overlays += blood_overlay
+		add_overlay(blood_overlay, TRUE)
 		update_icon()
 
 	return

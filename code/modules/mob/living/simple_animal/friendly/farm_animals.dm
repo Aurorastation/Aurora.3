@@ -43,7 +43,7 @@
 		if(enemies.len && prob(10))
 			enemies = list()
 			LoseTarget()
-			src.visible_message("\blue [src] calms down.")
+			src.visible_message("<span class='notice'>[src] calms down.</span>")
 
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
@@ -81,9 +81,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "\red The [O] is full."
+			user << "<span class='warning'>The [O] is full.</span>"
 		if(!transfered)
-			user << "\red The udder is dry. Wait a bit longer..."
+			user << "<span class='warning'>The udder is dry. Wait a bit longer...</span>"
 	else
 		..()
 //cow
@@ -124,9 +124,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "\red The [O] is full."
+			user << "<span class='warning'>The [O] is full.</span>"
 		if(!transfered)
-			user << "\red The udder is dry. Wait a bit longer..."
+			user << "<span class='warning'>The udder is dry. Wait a bit longer...</span>"
 	else
 		..()
 
@@ -200,9 +200,6 @@
 	..()
 	desc = "How could you do this? You monster!"
 
-var/const/MAX_CHICKENS = 50
-var/global/chicken_count = 0
-
 /mob/living/simple_animal/chicken
 	name = "\improper chicken"
 	desc = "Hopefully the eggs are good this season."
@@ -229,6 +226,8 @@ var/global/chicken_count = 0
 	density = 0
 	mob_size = 2
 	hunger_enabled = FALSE
+
+	var/static/chicken_count = 0
 
 /mob/living/simple_animal/chicken/New()
 	..()
@@ -283,16 +282,19 @@ var/global/chicken_count = 0
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 		if(chicken_count < MAX_CHICKENS && prob(10))
-			processing_objects.Add(E)
+			START_PROCESSING(SSprocessing, E)
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/var/amount_grown = 0
+/obj/item/weapon/reagent_containers/food/snacks/egg
+	var/amount_grown = 0
+
 /obj/item/weapon/reagent_containers/food/snacks/egg/process()
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
 			visible_message("[src] hatches with a quiet cracking sound.")
 			new /mob/living/simple_animal/chick(get_turf(src))
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)
 	else
+		STOP_PROCESSING(SSprocessing, src)
 		processing_objects.Remove(src)

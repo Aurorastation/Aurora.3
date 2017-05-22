@@ -75,9 +75,9 @@
 	lethal = 1
 	installation = /obj/item/weapon/gun/energy/laser
 
-/obj/machinery/porta_turret/New()
-	..()
-	req_access.Cut()
+/obj/machinery/porta_turret/Initialize()
+	. = ..()
+	LAZYCLEARLIST(req_access)
 	req_one_access = list(access_security, access_heads)
 
 	//Sets up a spark system
@@ -85,9 +85,9 @@
 
 	setup()
 
-/obj/machinery/porta_turret/crescent/New()
-	..()
-	req_one_access.Cut()
+/obj/machinery/porta_turret/crescent/Initialize()
+	. = ..()
+	LAZYCLEARLIST(req_one_access)
 	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()
@@ -542,7 +542,7 @@ var/list/turret_icons
 	set_raised_raising(raised, 1)
 	update_icon()
 
-	var/atom/flick_holder = getFromPool(/atom/movable/porta_turret_cover, loc)
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popup", flick_holder)
 	sleep(10)
@@ -562,7 +562,7 @@ var/list/turret_icons
 	set_raised_raising(raised, 1)
 	update_icon()
 
-	var/atom/flick_holder = getFromPool(/atom/movable/porta_turret_cover, loc)
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popdown", flick_holder)
 	sleep(10)

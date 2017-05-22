@@ -138,7 +138,7 @@
 				break
 
 		if (!bulb)
-			user << "\red There are no more working lights left in the box!"
+			user << "<span class='warning'>There are no more working lights left in the box!</span>"
 			return
 
 		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
@@ -148,7 +148,7 @@
 			box.remove_from_storage(bulb,get_turf(box))
 			qdel(bulb)
 		else
-			user << "\red You need to keep the [src] close to the box!"
+			user << "<span class='warning'>You need to keep the [src] close to the box!</span>"
 			return
 
 	user << "<span class='notice'>The [src]'s refill light shines a solid green, indicating it's full and ready to go!</span>"

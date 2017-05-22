@@ -54,7 +54,7 @@
 		src.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
 	else
 		if(istype(src.loc,/turf/space))
-			usr << "<span class='warning'> You don't think kickstands work in space...</span>"
+			usr << "<span class='warning'>You don't think kickstands work in space...</span>"
 			return
 		src.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		if(pulledby)
@@ -72,13 +72,19 @@
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		user << "<span class='warning'> You were unable to load \the [C] onto \the [src].</span>"
+		user << "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>"
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
 	if(user == load)
 		unload(load)
 		user << "You unbuckle yourself from \the [src]"
+	else if(user != load && load)
+		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
+		if(do_after(user, 8 SECONDS, act_target = src))
+			unload(load)
+			user <<"You unbuckle [load] from \the [src]"
+			load <<"You were unbuckled from \the [src] by [user]"
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
@@ -139,4 +145,4 @@
 /obj/vehicle/bike/Destroy()
 	qdel(ion)
 
-	..()
+	return ..()

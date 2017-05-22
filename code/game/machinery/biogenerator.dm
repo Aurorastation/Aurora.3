@@ -16,8 +16,8 @@
 	var/capacity = 50
 
 
-/obj/machinery/biogenerator/New()
-	..()
+/obj/machinery/biogenerator/Initialize()
+	. = ..()
 	var/datum/reagents/R = new/datum/reagents(1000)
 	reagents = R
 	R.my_atom = src
@@ -73,6 +73,9 @@
 				if(i >= capacity)
 					user << "<span class='notice'>You fill \the [src] to its capacity.</span>"
 					break
+
+				CHECK_TICK
+				
 			if(i < capacity)
 				user << "<span class='notice'>You empty \the [O] into \the [src].</span>"
 
@@ -154,6 +157,7 @@
 			points += 1
 		else points += I.reagents.get_reagent_amount("nutriment") * 10 * eat_eff
 		qdel(I)
+		CHECK_TICK
 	if(S)
 		processing = 1
 		update_icon()

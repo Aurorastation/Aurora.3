@@ -147,9 +147,6 @@ var/global/ManifestJSON
 		"misc" = misc\
 		)
 	ManifestJSON = json_encode(PDA_Manifest)
-	return
-
-
 
 /obj/effect/laser
 	name = "laser"
@@ -217,3 +214,17 @@ var/global/ManifestJSON
 
 /obj/effect/spawner
 	name = "object spawner"
+
+/obj/structure/spaceship
+	name = "Abandoned Shuttle"
+	desc = "An ancient and inoperable shuttle-craft"
+	icon = 'icons/obj/machines/spaceship.dmi'
+	anchored = 1
+	density = 1
+
+/obj/structure/mainframe
+	name = "Ancient Mainframe"
+	desc = "A long-fried AI mainframe from the 2420s. It's more fit to be holding rats than AIs at this point."
+	icon = 'icons/obj/mainframe.dmi'
+	anchored = 1
+	density = 1

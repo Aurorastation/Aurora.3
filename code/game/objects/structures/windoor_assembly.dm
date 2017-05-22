@@ -42,7 +42,7 @@ obj/structure/windoor_assembly/New(Loc, start_dir=NORTH, constructed=0)
 obj/structure/windoor_assembly/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/structure/windoor_assembly/update_icon()
 	icon_state = "[facing]_[secure]windoor_assembly[state]"
@@ -80,7 +80,7 @@ obj/structure/windoor_assembly/Destroy()
 						user << "<span class='notice'>You dissasembled the windoor assembly!</span>"
 						new /obj/item/stack/material/glass/reinforced(get_turf(src), 5)
 						if(secure)
-							getFromPool(/obj/item/stack/rods, get_turf(src), 4)
+							new /obj/item/stack/rods(get_turf(src), 4)
 						qdel(src)
 				else
 					user << "<span class='notice'>You need more welding fuel to dissassemble the windoor assembly.</span>"

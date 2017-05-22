@@ -6,15 +6,11 @@
 
 	1. All global variables are initialized (including the global_init instance).
 	2. The map is initialized, and map objects are created.
-	3. world/New() runs, creating the process scheduler (and the old master controller) and spawning their setup.
-	4. processScheduler/setup() runs, creating all the processes. game_controller/setup() runs, calling initialize() on all movable atoms in the world.
-	5. The gameticker is created.
+	3. world/New() runs, creating & starting the master controller.
+	4. The master controller initializes the rest of the game.
 
 */
 var/global/datum/global_init/init = new ()
-
-// The list of objects that will need to be initialized in ticker creation.
-var/global/list/objects_init_list = list()
 
 /*
 	Pre-map initialization stuff should go here.
@@ -29,6 +25,11 @@ var/global/list/objects_init_list = list()
 	initialize_chemical_reactions()
 
 	qdel(src) //we're done
+	init = null
+
+/datum/global_init/Destroy()
+	..()
+	return 3	// QDEL_HINT_HARDDEL ain't defined here, so magic number it is.
 
 /var/game_id = null
 /proc/generate_gameid()
@@ -87,53 +88,16 @@ var/global/list/objects_init_list = list()
 
 	. = ..()
 
-#ifndef UNIT_TEST
-
-	sleep_offline = 1
-
-#else
+#ifdef UNIT_TEST
 	log_unit_test("Unit Tests Enabled.  This will destroy the world when testing is complete.")
 	load_unit_test_changes()
 #endif
 
-	// Set up roundstart seed list.
-	plant_controller = new()
+	// Do not add initialization stuff to this file, unless it *must* run before the MC initializes!
+	// (hint: you generally won't need this)
+	// To do things on server-start, create a subsystem or shove it into one of the miscellaneous init subsystems.
 
-	// This is kinda important. Set up details of what the hell things are made of.
-	populate_material_list()
-
-	if(config.generate_asteroid)
-		// These values determine the specific area that the map is applied to.
-		// If you do not use the official Baycode moonbase map, you will need to change them.
-		//Create the mining Z-level.
-		new /datum/random_map/automata/cave_system(null,1,1,5,255,255)
-		//new /datum/random_map/noise/volcanism(null,1,1,5,255,255) // Not done yet! Pretty, though.
-		// Create the mining ore distribution map.
-		new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)
-		// Update all turfs to ensure everything looks good post-generation. Yes,
-		// it's brute-forcey, but frankly the alternative is a mine turf rewrite.
-
-	// Create autolathe recipes, as above.
-	populate_lathe_recipes()
-
-	// Create robolimbs for chargen.
-	populate_robolimb_list()
-
-	processScheduler = new
-	master_controller = new /datum/controller/game_controller()
-	spawn(1)
-		processScheduler.deferSetupFor(/datum/controller/process/ticker)
-		processScheduler.setup()
-		master_controller.setup()
-#ifdef UNIT_TEST
-		initialize_unit_tests()
-#endif
-
-
-
-	spawn(3000)		//so we aren't adding to the round-start lag
-		if(config.ToRban)
-			ToRban_autoupdate()
+	Master.Initialize(10, FALSE)
 
 #undef RECOMMENDED_VERSION
 
@@ -150,10 +114,10 @@ var/list/world_api_rate_limit = list()
 	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[auth] [log_end]"
 
-	if (!ticker) //If the game is not started most API Requests would not work because of the throtteling
+	/*if (!SSticker) //If the game is not started most API Requests would not work because of the throtteling
 		response["statuscode"] = 500
 		response["response"] = "Game not started yet!"
-		return json_encode(response)
+		return json_encode(response)*/
 
 	if (isnull(query))
 		log_debug("API - Bad Request - No query specified")
@@ -210,7 +174,7 @@ var/list/world_api_rate_limit = list()
 		world << sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')) // random end sounds!! - LastyBatsy
 		*/
 
-	processScheduler.stop()
+	Master.Shutdown()
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)
@@ -348,7 +312,7 @@ var/inerror = 0
 
 	var/list/features = list()
 
-	if(ticker)
+	if (Master.initialization_time_taken)	// This is set at the end of initialization.
 		if(master_mode)
 			features += master_mode
 	else

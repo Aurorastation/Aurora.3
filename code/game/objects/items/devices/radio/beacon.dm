@@ -1,3 +1,5 @@
+var/global/list/teleportbeacons = list()
+
 /obj/item/device/radio/beacon
 	name = "tracking beacon"
 	desc = "A beacon used by a teleporter."
@@ -5,6 +7,14 @@
 	item_state = "signaler"
 	var/code = "electronic"
 	origin_tech = list(TECH_BLUESPACE = 1)
+
+/obj/item/device/radio/beacon/New()
+	..()
+	teleportbeacons += src
+
+/obj/item/device/radio/beacon/Destroy()
+	teleportbeacons.Remove(src)
+	return ..()
 
 /obj/item/device/radio/beacon/hear_talk()
 	return
@@ -29,8 +39,7 @@
 
 /obj/item/device/radio/beacon/bacon //Probably a better way of doing this, I'm lazy.
 	proc/digest_delay()
-		spawn(600)
-			qdel(src)
+		QDEL_IN(src, 600)
 
 
 // SINGULO BEACON SPAWNER

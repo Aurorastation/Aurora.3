@@ -56,7 +56,6 @@
 
 	kitchen_tag = "rodent"
 
-
 /mob/living/simple_animal/mouse/Life()
 	if(..())
 
@@ -80,7 +79,12 @@
 	else
 		if ((world.time - timeofdeath) > decompose_time)
 			dust()
-
+			
+/mob/living/simple_animal/mouse/Destroy()
+	SSmob.all_mice -= src
+		
+	return ..()
+	
 //Pixel offsetting as they scamper around
 /mob/living/simple_animal/mouse/Move()
 	if(..())
@@ -91,8 +95,8 @@
 			pixel_y += rand(-2,2)
 			pixel_y = Clamp(pixel_y, -4, 14)
 
-/mob/living/simple_animal/mouse/New()
-	..()
+/mob/living/simple_animal/mouse/Initialize()
+	. = ..()
 
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 	verbs += /mob/living/proc/ventcrawl
@@ -120,6 +124,8 @@
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak_soft
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak_loud(1)
 
+	SSmob.all_mice += src
+
 /mob/living/simple_animal/mouse/speak_audio()
 	squeak_soft(0)
 
@@ -142,8 +148,6 @@
 	if(client)
 		client.time_died_as_mouse = world.time
 
-
-
 //Plays a sound.
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
@@ -151,7 +155,6 @@
 		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 		if (manual)
 			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
-
 
 
 //Plays a random selection of four sounds, at a low volume
@@ -177,7 +180,7 @@
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
+			src << "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>"
 
 
 //Wrapper verbs for the squeak functions
@@ -222,12 +225,24 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			M << "\blue \icon[src] Squeek!"
+			M << "<span class='notice'>\icon[src] Squeek!</span>"
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
 			else
 				squeak_loud(0)//You trod on its tail
+				
+	if(!health)
+		return
+
+	if(istype(AM,/mob/living/simple_animal/mouse/king))
+		var/mob/living/simple_animal/mouse/king/K = AM
+		if(!K.health)
+			return
+
+		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
+							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].</span>")
+		K.absorb(src)
 	..()
 
 /mob/living/simple_animal/mouse/death()
@@ -237,14 +252,13 @@
 
 	if(client)
 		client.time_died_as_mouse = world.time
+
+	SSmob.all_mice -= src
+
 	..()
 
 /mob/living/simple_animal/mouse/dust()
 	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
-
-
-
-
 
 
 /*

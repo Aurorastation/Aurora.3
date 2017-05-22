@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/obj/var/list/req_access = list()
-/obj/var/list/req_one_access = list()
+/obj/var/list/req_access
+/obj/var/list/req_one_access
 
 //returns 1 if this mob has sufficient access to use this object
 /obj/proc/allowed(mob/M)
@@ -9,7 +9,6 @@
 	if(src.check_access(null))
 		return 1
 
-	// #TODO-MERGE: Check pAI's definition for GetIdCard()
 	var/id = M.GetIdCard()
 	if(id)
 		return check_access(id)
@@ -25,17 +24,15 @@
 	return check_access_list(I ? I.GetAccess() : list())
 
 /obj/proc/check_access_list(var/list/L)
-	if(!req_access)		req_access = list()
-	if(!req_one_access)	req_one_access = list()
-	if(!L)	return 0
-	if(!istype(L, /list))	return 0
+	if(!islist(L))
+		return 0
 	return has_access(req_access, req_one_access, L)
 
 /proc/has_access(var/list/req_access, var/list/req_one_access, var/list/accesses)
 	for(var/req in req_access)
 		if(!(req in accesses)) //doesn't have this access
 			return 0
-	if(req_one_access.len)
+	if(LAZYLEN(req_one_access))
 		for(var/req in req_one_access)
 			if(req in accesses) //has an access from the single access list
 				return 1
@@ -71,7 +68,7 @@
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
 		priv_all_access_datums = init_subtypes(/datum/access)
-		priv_all_access_datums = dd_sortedObjectList(priv_all_access_datums)
+		sortTim(priv_all_access_datums, /proc/cmp_access, FALSE)
 
 	return priv_all_access_datums
 

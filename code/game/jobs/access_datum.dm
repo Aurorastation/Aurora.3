@@ -4,9 +4,6 @@
 	var/region = ACCESS_REGION_NONE
 	var/access_type = ACCESS_TYPE_STATION
 
-/datum/access/dd_SortValue()
-	return "[access_type][desc]"
-
 /*****************
 * Station access *
 *****************/
@@ -389,6 +386,12 @@
 	id = access_paramedic
 	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
+	
+/var/const/access_detective = 68
+/datum/access/access_detective
+	id = access_detective
+	desc = "Detective Equipment"
+	region = ACCESS_REGION_SECURITY
 
 /******************
 * Central Command *

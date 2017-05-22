@@ -23,7 +23,7 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector/Destroy()
 	rad_collectors -= src
-	..()
+	return ..()
 
 /obj/machinery/power/rad_collector/process()
 	//so that we don't zero out the meter if the SM is processed first.
@@ -49,18 +49,18 @@ var/global/list/rad_collectors = list()
 			investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas["phoron"]/0.29)]%":"<font color='red'>It is empty</font>"].","singulo")
 			return
 		else
-			user << "\red The controls are locked!"
+			user << "<span class='warning'>The controls are locked!</span>"
 			return
-..()
+	..()
 
 
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/weapon/tank/phoron))
 		if(!src.anchored)
-			user << "\red The [src] needs to be secured to the floor first."
+			user << "<span class='warning'>The [src] needs to be secured to the floor first.</span>"
 			return 1
 		if(src.P)
-			user << "\red There's already a phoron tank loaded."
+			user << "<span class='warning'>There's already a phoron tank loaded.</span>"
 			return 1
 		user.drop_item()
 		src.P = W
@@ -73,7 +73,7 @@ var/global/list/rad_collectors = list()
 			return 1
 	else if(istype(W, /obj/item/weapon/wrench))
 		if(P)
-			user << "\blue Remove the phoron tank first."
+			user << "<span class='notice'>Remove the phoron tank first.</span>"
 			return 1
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
@@ -92,9 +92,9 @@ var/global/list/rad_collectors = list()
 				user << "The controls are now [src.locked ? "locked." : "unlocked."]"
 			else
 				src.locked = 0 //just in case it somehow gets locked
-				user << "\red The controls can only be locked when the [src] is active"
+				user << "<span class='warning'>The controls can only be locked when the [src] is active.</span>"
 		else
-			user << "\red Access denied!"
+			user << "<span class='warning'>Access denied!</span>"
 		return 1
 	return ..()
 
@@ -134,13 +134,13 @@ var/global/list/rad_collectors = list()
 
 
 /obj/machinery/power/rad_collector/proc/update_icons()
-	overlays.Cut()
+	cut_overlays()
 	if(P)
-		overlays += image('icons/obj/singularity.dmi', "ptank")
+		add_overlay("ptank")
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)
-		overlays += image('icons/obj/singularity.dmi', "on")
+		add_overlay("on")
 
 
 /obj/machinery/power/rad_collector/proc/toggle_power()

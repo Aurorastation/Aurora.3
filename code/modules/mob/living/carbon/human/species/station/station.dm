@@ -1,5 +1,6 @@
 /datum/species/human
 	name = "Human"
+	hide_name = TRUE
 	short_name = "hum"
 	name_plural = "Humans"
 	bodytype = "Human"
@@ -39,6 +40,7 @@
 	gluttonous = 1
 	slowdown = 0.5
 	brute_mod = 0.8
+	fall_mod = 1.2
 	ethanol_resistance = 0.4
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
@@ -98,7 +100,9 @@
 
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/tajaran
 	name = "Tajara"
@@ -113,6 +117,7 @@
 	darksight = 8
 	slowdown = -1
 	brute_mod = 1.2
+	fall_mod = 0.5
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR)
 	name_language = LANGUAGE_SIIK_MAAS
@@ -157,7 +162,9 @@
 
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/skrell
 	name = "Skrell"
@@ -321,10 +328,14 @@
 	return species_language.get_random_name()
 
 /datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
+	var/obj/item/device/flashlight/flare/F = new /obj/item/device/flashlight/flare(H)
 	if(H.backbag == 1)
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
+		H.equip_to_slot_or_del(F, slot_r_hand)
 	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
+		H.equip_to_slot_or_del(F, slot_in_backpack)
+	if(!QDELETED(F))
+		F.autodrobe_no_remove = 1
+	H.gender = NEUTER
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -646,8 +657,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
+	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
+	if(H.equip_to_slot_or_del(M, slot_wear_mask))
+		M.autodrobe_no_remove = 1
 	H.gender = NEUTER
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)

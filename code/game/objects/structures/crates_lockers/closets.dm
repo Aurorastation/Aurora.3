@@ -24,21 +24,30 @@
 
 	var/const/default_mob_size = 15
 
-/obj/structure/closet/initialize()
-	..()
-	if(!opened)		// if closed, any item at the crate's loc is put in the contents
-		var/obj/I
-		for(I in src.loc)
-			if (!istype(I, /obj/item) && !istype(I, /obj/random))continue
-			if(I.density || I.anchored || I == src) continue
-			I.forceMove(src)
-		// adjust locker size to hold all items with 5 units of free store room
-		var/content_size = 0
-		for(I in src.contents)
-			content_size += Ceiling(I.w_class/2)
-		if(content_size > storage_capacity-5)
-			storage_capacity = content_size + 5
+/obj/structure/closet/LateInitialize()
+	if (opened)	// if closed, any item at the crate's loc is put in the contents
+		return
+	var/obj/I
+	for(I in src.loc)
+		if (!istype(I, /obj/item) && !istype(I, /obj/random))
+			continue
+		if (I.density || I.anchored || I == src)
+			continue
+		I.forceMove(src)
+	// adjust locker size to hold all items with 5 units of free store room
+	var/content_size = 0
+	for(I in src.contents)
+		content_size += Ceiling(I.w_class/2)
+	if(content_size > storage_capacity-5)
+		storage_capacity = content_size + 5
 
+/obj/structure/closet/Initialize(mapload)
+	..()
+	fill()
+	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
+
+// Fill lockers with this.
+/obj/structure/closet/proc/fill()
 
 /obj/structure/closet/examine(mob/user)
 	if(..(user, 1) && !opened)
@@ -203,8 +212,6 @@
 	..()
 	damage(proj_damage)
 
-	return
-
 /obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(src.opened)
 		if(istype(W, /obj/item/weapon/grab))
@@ -314,11 +321,11 @@
 		usr << "<span class='warning'>This mob type can't use this verb.</span>"
 
 /obj/structure/closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
-	overlays.Cut()
+	cut_overlays()
 	if(!opened)
 		icon_state = icon_closed
 		if(welded)
-			overlays += "welded"
+			add_overlay("welded")
 	else
 		icon_state = icon_opened
 
@@ -334,7 +341,7 @@
 	user.do_attack_animation(src)
 	visible_message("<span class='danger'>[user] [attack_message] the [src]!</span>")
 	dump_contents()
-	spawn(1) qdel(src)
+	QDEL_IN(src, 1)
 	return 1
 
 /obj/structure/closet/proc/req_breakout()

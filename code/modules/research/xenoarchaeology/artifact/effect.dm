@@ -64,14 +64,14 @@
 			var/atom/toplevelholder = holder
 			while(!istype(toplevelholder.loc, /turf))
 				toplevelholder = toplevelholder.loc
-			toplevelholder.visible_message("\red \icon[toplevelholder] [toplevelholder] [display_msg]")
+			toplevelholder.visible_message("<span class='warning'>\icon[toplevelholder] [toplevelholder] [display_msg]</span>")
 
 /datum/artifact_effect/proc/DoEffectTouch(var/mob/user)
 /datum/artifact_effect/proc/DoEffectAura(var/atom/holder)
 /datum/artifact_effect/proc/DoEffectPulse(var/atom/holder)
 /datum/artifact_effect/proc/UpdateMove()
 
-/datum/artifact_effect/proc/process()
+/datum/artifact_effect/process()
 	if(chargelevel < chargelevelmax)
 		chargelevel++
 

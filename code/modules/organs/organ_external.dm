@@ -42,7 +42,7 @@
 	var/obj/item/organ/external/parent
 	var/list/obj/item/organ/external/children
 	var/list/internal_organs = list() 	// Internal organs of this body part
-	var/damage_msg = "\red You feel an intense pain"
+	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
 	var/broken_description
 	var/open = 0
 	var/stage = 0
@@ -170,8 +170,8 @@
 	if(owner)
 		replaced(owner)
 		sync_colour_to_human(owner)
-	spawn(1)
-		get_icon()
+		
+	addtimer(CALLBACK(src, .proc/get_icon), 1)
 
 	if ((status & ORGAN_PLANT))
 		cannot_break = 1
@@ -397,12 +397,12 @@ This function completely restores a damaged organ to perfect condition.
 				W.open_wound(damage)
 				if(prob(25))
 					if(status & ORGAN_ROBOT)
-						owner.visible_message("\red The damage to [owner.name]'s [name] worsens.",\
-						"\red The damage to your [name] worsens.",\
+						owner.visible_message("<span class='warning'>The damage to [owner.name]'s [name] worsens.</span>",\
+						"<span class='warning'>The damage to your [name] worsens.</span>",\
 						"You hear the screech of abused metal.")
 					else
-						owner.visible_message("\red The wound on [owner.name]'s [name] widens with a nasty ripping noise.",\
-						"\red The wound on your [name] widens with a nasty ripping noise.",\
+						owner.visible_message("<span class='warning'>The wound on [owner.name]'s [name] widens with a nasty ripping noise.</span>",\
+						"<span class='warning'>The wound on your [name] widens with a nasty ripping noise.</span>",\
 						"You hear a nasty ripping noise, as if flesh is being torn apart.")
 				return
 
@@ -888,8 +888,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(owner)
 		owner.visible_message(\
-			"\red You hear a loud cracking sound coming from \the [owner].",\
-			"\red <b>Something feels like it shattered in your [name]!</b>",\
+			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].</span>",\
+			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
 			"You hear a sickening crack.")
 		if(owner.species && !(owner.species.flags & NO_PAIN))
 			owner.emote("scream")
@@ -1059,13 +1059,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	if(owner)
 		if(type == "brute")
-			owner.visible_message("\red You hear a sickening cracking sound coming from \the [owner]'s [name].",	\
-			"\red <b>Your [name] becomes a mangled mess!</b>",	\
-			"\red You hear a sickening crack.")
+			owner.visible_message("<span class='warning'>You hear a sickening cracking sound coming from \the [owner]'s [name].</span>",	\
+			"<span class='danger'>Your [name] becomes a mangled mess!</span>",	\
+			"<span class='warning'>You hear a sickening crack.</span>")
 		else
-			owner.visible_message("\red \The [owner]'s [name] melts away, turning into mangled mess!",	\
-			"\red <b>Your [name] melts away!</b>",	\
-			"\red You hear a sickening sizzle.")
+			owner.visible_message("<span class='warning'>\The [owner]'s [name] melts away, turning into mangled mess!</span>",	\
+			"<span class='danger'>Your [name] melts away!</span>",	\
+			"<span class='warning'>You hear a sickening sizzle.</span>")
 	disfigured = 1
 
 /obj/item/organ/external/proc/get_wounds_desc()

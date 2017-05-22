@@ -16,6 +16,7 @@
 	pass_flags = PASSTABLE
 //	causeerrorheresoifixthis
 	var/obj/item/master = null
+	var/autodrobe_no_remove = 0
 
 	var/heat_protection = 0 //flags which determine which body parts are protected from heat. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
 	var/cold_protection = 0 //flags which determine which body parts are protected from cold. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
@@ -195,14 +196,20 @@
 					var/failure = 0
 
 					for(var/obj/item/I in src.loc)
+						CHECK_TICK
+
 						if(I.type in rejections) // To limit bag spamming: any given type only complains once
 							continue
+
 						if(!S.can_be_inserted(I))	// Note can_be_inserted still makes noise when the answer is no
 							rejections += I.type	// therefore full bags are still a little spammy
 							failure = 1
 							continue
+
 						success = 1
 						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
+
 					if(success && !failure)
 						user << "<span class='notice'>You put everything in [S].</span>"
 					else if(success)
@@ -427,22 +434,22 @@ var/list/global/slot_flags_enumeration = list(
 	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
 		return
 	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
-		usr << "\red You can't pick things up!"
+		usr << "<span class='warning'>You can't pick things up!</span>"
 		return
 	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
-		usr << "\red You can't pick things up!"
+		usr << "<span class='warning'>You can't pick things up!</span>"
 		return
 	if(I.anchored) //Object isn't anchored
-		usr << "\red You can't pick that up!"
+		usr << "<span class='warning'>You can't pick that up!</span>"
 		return
 	if(!usr.hand && usr.r_hand) //Right hand is not full
-		usr << "\red Your right hand is full."
+		usr << "<span class='warning'>Your right hand is full.</span>"
 		return
 	if(usr.hand && usr.l_hand) //Left hand is not full
-		usr << "\red Your left hand is full."
+		usr << "<span class='warning'>Your left hand is full.</span>"
 		return
 	if(!istype(I.loc, /turf)) //Object is on a turf
-		usr << "\red You can't pick that up!"
+		usr << "<span class='warning'>You can't pick that up!</span>"
 		return
 	//All checks are done, time to pick it up!
 	usr.UnarmedAttack(I)
@@ -541,7 +548,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/clean_blood()
 	. = ..()
 	if(blood_overlay)
-		overlays.Remove(blood_overlay)
+		cut_overlay(blood_overlay, TRUE)
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
@@ -567,7 +574,7 @@ var/list/global/slot_flags_enumeration = list(
 	//apply the blood-splatter overlay if it isn't already in there
 	if(!blood_DNA.len)
 		blood_overlay.color = blood_color
-		overlays += blood_overlay
+		add_overlay(blood_overlay, TRUE)	// Priority overlay so we don't lose it somehow.
 
 	//if this blood isn't already in the list, add it
 	if(istype(M))

@@ -133,7 +133,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
-			src << "\red You cannot speak in IC (Muted)."
+			src << "<span class='warning'>You cannot speak in IC (Muted).</span>"
 			return
 
 	if(stat)
@@ -225,10 +225,9 @@ proc/get_radio_key_from_channel(var/channel)
 			if (speech_sound)
 				sound_vol *= 0.5
 
-	var/turf/T = get_turf(src)
-
 	var/list/listening = list()
 	var/list/listening_obj = list()
+	var/turf/T = get_turf(src)
 
 	if(T)
 		//make sure the air can transmit speech - speaker's side
@@ -241,34 +240,18 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		var/list/hear = hear(message_range,T)
-		var/list/hearturfs = list()
-
-		for(var/I in hear)
-			if(ismob(I))
-				var/mob/M = I
-				listening += M
-				hearturfs += M.locs[1]
-			else if(isobj(I))
-				var/obj/O = I
-				hearturfs += O.locs[1]
-				listening_obj |= O
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
 
 
-		for(var/mob/M in player_list)
-			if(src.client && M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
-				listening |= M
-				continue
-			if(M.loc && M.locs[1] in hearturfs)
-				listening |= M
+	var/list/hear_clients = list()
+	for(var/mob/M in listening)
+		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+		if (M.client)
+			hear_clients += M.client
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-	spawn(30) qdel(speech_bubble)
-
-	for(var/mob/M in listening)
-		M << speech_bubble
-		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, hear_clients, 30)
 
 	for(var/obj/O in listening_obj)
 		spawn(0)

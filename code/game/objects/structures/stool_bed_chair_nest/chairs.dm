@@ -92,32 +92,32 @@
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
 
-/obj/structure/bed/chair/comfy/brown/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","leather")
+/obj/structure/bed/chair/comfy/brown/Initialize(mapload,var/newmaterial)
+	. = ..(mapload,"steel","leather")
 
-/obj/structure/bed/chair/comfy/red/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","carpet")
+/obj/structure/bed/chair/comfy/red/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","carpet")
 
-/obj/structure/bed/chair/comfy/teal/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","teal")
+/obj/structure/bed/chair/comfy/teal/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","teal")
 
-/obj/structure/bed/chair/comfy/black/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","black")
+/obj/structure/bed/chair/comfy/black/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","black")
 
-/obj/structure/bed/chair/comfy/green/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","green")
+/obj/structure/bed/chair/comfy/green/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","green")
 
-/obj/structure/bed/chair/comfy/purp/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","purple")
+/obj/structure/bed/chair/comfy/purp/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","purple")
 
-/obj/structure/bed/chair/comfy/blue/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","blue")
+/obj/structure/bed/chair/comfy/blue/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","blue")
 
-/obj/structure/bed/chair/comfy/beige/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","beige")
+/obj/structure/bed/chair/comfy/beige/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","beige")
 
-/obj/structure/bed/chair/comfy/lime/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","lime")
+/obj/structure/bed/chair/comfy/lime/Initialize(var/mapload,var/newmaterial)
+	. = ..(mapload,"steel","lime")
 
 /obj/structure/bed/chair/office
 	anchored = 0
@@ -177,8 +177,14 @@
 /obj/structure/bed/chair/office/dark
 	icon_state = "officechair_dark"
 
-/obj/structure/bed/chair/office/New()
-	..()
+/obj/structure/bed/chair/office/bridge
+	name = "command chair"
+	desc = "It exudes authority... and looks about as comfortable as a brick."
+	icon_state = "bridge"
+	anchored = 1
+
+/obj/structure/bed/chair/office/Initialize()
+	. = ..()
 	var/image/I = image(icon, "[icon_state]_over")
 	I.layer = FLY_LAYER
 	overlays += I
@@ -197,11 +203,14 @@
 		return
 	..()
 
-/obj/structure/bed/chair/wood/New(var/newloc)
-	..(newloc, "wood")
+/obj/structure/bed/chair/wood/Initialize(mapload)
+	. = ..(mapload, "wood")
 	var/image/I = image(icon, "[icon_state]_over")
 	I.layer = FLY_LAYER
 	overlays += I
 
 /obj/structure/bed/chair/wood/wings
 	icon_state = "wooden_chair_wings"
+
+/obj/structure/bed/chair/unmovable
+	can_dismantle = 0

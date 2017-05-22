@@ -72,17 +72,33 @@
 /obj/machinery/atmospherics/unary/vent_pump/New()
 	..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
+	
 
-	icon = null
+/obj/machinery/atmospherics/unary/vent_pump/Initialize()
+	. = ..()
+
 	initial_loc = get_area(loc)
 	area_uid = initial_loc.uid
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
+		
+	//some vents work his own special way
+	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
+	radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
+	if(frequency)
+		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
+
+	initialize()
+
+// Different from the above.
+/obj/machinery/atmospherics/unary/vent_pump/initialize()
+	..()
+	broadcast_status()
 
 /obj/machinery/atmospherics/unary/vent_pump/Destroy()
 	unregister_radio(src, frequency)
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume
 	name = "Large Air Vent"
@@ -103,14 +119,10 @@
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
-	if(!check_icon_cache())
-		return
 	if (!node)
 		use_power = 0
 
-	overlays.Cut()
-
-	var/vent_icon = "vent"
+	var/vent_icon = ""
 
 	var/turf/T = get_turf(src)
 	if(!istype(T))
@@ -126,7 +138,7 @@
 	else
 		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
 
-	overlays += icon_manager.get_atmos_icon("device", , , vent_icon)
+	icon_state = vent_icon
 
 /obj/machinery/atmospherics/unary/vent_pump/update_underlays()
 	if(..())
@@ -240,26 +252,16 @@
 		"flow_rate" = last_flow_rate
 	)
 
-	if(!initial_loc.air_vent_names[id_tag])
-		var/new_name = "[initial_loc.name] Vent Pump #[initial_loc.air_vent_names.len+1]"
-		initial_loc.air_vent_names[id_tag] = new_name
+	var/area/A = get_area(src)
+	if(!A.air_vent_names[id_tag])
+		var/new_name = "[A.name] Vent Pump #[A.air_vent_names.len+1]"
+		A.air_vent_names[id_tag] = new_name
 		src.name = new_name
-	initial_loc.air_vent_info[id_tag] = signal.data
+	A.air_vent_info[id_tag] = signal.data
 
 	radio_connection.post_signal(src, signal, radio_filter_out)
 
 	return 1
-
-
-/obj/machinery/atmospherics/unary/vent_pump/initialize()
-	..()
-
-	//some vents work his own special way
-	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
-	radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
-	if(frequency)
-		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
-		src.broadcast_status()
 
 /obj/machinery/atmospherics/unary/vent_pump/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
@@ -338,13 +340,12 @@
 		return
 
 	if(signal.data["status"] != null)
-		spawn(2)
-			broadcast_status()
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
 		//log_debug("DEBUG \[[world.timeofday]\]: vent_pump/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	spawn(2)
-		broadcast_status()
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+
 	update_icon()
 	return
 
@@ -418,8 +419,7 @@
 	if(initial_loc)
 		initial_loc.air_vent_info -= id_tag
 		initial_loc.air_vent_names -= id_tag
-	..()
-	return
+	return ..()
 
 #undef DEFAULT_PRESSURE_DELTA
 

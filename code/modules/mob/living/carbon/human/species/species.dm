@@ -7,7 +7,8 @@
 	// Descriptors and strings.
 	var/name                                             // Species name.
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
-	var/short_name											 // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	var/hide_name = FALSE                                // If TRUE, the species' name won't be visible on examine.
+	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
 	var/age_min = 17
@@ -65,6 +66,7 @@
 	var/toxins_mod =    1                    // Toxloss modifier
 	var/radiation_mod = 1                    // Radiation modifier
 	var/flash_mod =     1                    // Stun from blindness modifier.
+	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
 	var/vision_flags = SEE_SELF              // Same flags as glasses.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
 

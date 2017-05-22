@@ -48,7 +48,7 @@
 
 /*
 /obj/item/weapon/melee/chainsword/suicide_act(mob/user)
-	viewers(user) << "\red <b>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</b>"
+	viewers(user) << "<span class='danger'>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</span>"
 	return (BRUTELOSS|OXYLOSS)
 */
 

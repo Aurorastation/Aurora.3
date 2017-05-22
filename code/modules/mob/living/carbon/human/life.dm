@@ -35,7 +35,6 @@
 	var/global/list/overlays_cache = null
 
 /mob/living/carbon/human/Life()
-	set invisibility = 0
 	set background = BACKGROUND_ENABLED
 
 	if (transforming)
@@ -195,7 +194,7 @@
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
-			src << "\red You have a seizure!"
+			src << "<span class='warning'>You have a seizure!</span>"
 			for(var/mob/O in viewers(src, null))
 				if(O == src)
 					continue
@@ -1264,23 +1263,6 @@
 		var/turf/T = loc
 		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
-
-/mob/living/carbon/human/handle_stomach()
-	spawn(0)
-		for(var/mob/living/M in stomach_contents)
-			if(M.loc != src)
-				stomach_contents.Remove(M)
-				continue
-			if(iscarbon(M)|| isanimal(M))
-				if(M.stat == 2)
-					M.death(1)
-					stomach_contents.Remove(M)
-					qdel(M)
-					continue
-				if(air_master.current_cycle%3==1)
-					if(!(M.status_flags & GODMODE))
-						M.adjustBruteLoss(5)
-					nutrition += 10
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind && mind.changeling)

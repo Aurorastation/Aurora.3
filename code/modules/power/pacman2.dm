@@ -52,7 +52,7 @@
 
 	examine(mob/user)
 		..(user)
-		user << "\blue The generator has [P.air_contents.phoron] units of fuel left, producing [power_gen] per cycle."
+		user << "<span class='notice'>The generator has [P.air_contents.phoron] units of fuel left, producing [power_gen] per cycle.</span>"
 
 	handleInactive()
 		heat -= 2
@@ -70,28 +70,28 @@
 	attackby(var/obj/item/O as obj, var/mob/user as mob)
 		if(istype(O, /obj/item/weapon/tank/phoron))
 			if(P)
-				user << "\red The generator already has a phoron tank loaded!"
+				user << "<span class='warning'>The generator already has a phoron tank loaded!</span>"
 				return
 			P = O
 			user.drop_item()
 			O.loc = src
-			user << "\blue You add the phoron tank to the generator."
+			user << "<span class='notice'>You add the phoron tank to the generator.</span>"
 		else if(!active)
 			if(istype(O, /obj/item/weapon/wrench))
 				anchored = !anchored
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if(anchored)
-					user << "\blue You secure the generator to the floor."
+					user << "<span class='notice'>You secure the generator to the floor.</span>"
 				else
-					user << "\blue You unsecure the generator from the floor."
-				makepowernets()
+					user << "<span class='notice'>You unsecure the generator from the floor.</span>"
+				SSmachinery.powernet_update_queued = TRUE
 			else if(istype(O, /obj/item/weapon/screwdriver))
 				open = !open
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				if(open)
-					user << "\blue You open the access panel."
+					user << "<span class='notice'>You open the access panel.</span>"
 				else
-					user << "\blue You close the access panel."
+					user << "<span class='notice'>You close the access panel.</span>"
 			else if(istype(O, /obj/item/weapon/crowbar) && !open)
 				var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				for(var/obj/item/I in component_parts)

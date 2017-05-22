@@ -13,13 +13,15 @@
 	var/strength = 0
 	var/ticks_recovering = 10
 
+	atmos_canpass = CANPASS_NEVER
+
 /obj/effect/energy_field/New()
 	..()
 	update_nearby_tiles()
 
 /obj/effect/energy_field/Destroy()
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/effect/energy_field/ex_act(var/severity)
 	Stress(0.5 + severity)

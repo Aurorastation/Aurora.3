@@ -9,13 +9,7 @@ var/list/floor_decals = list()
 	layer = TURF_LAYER + 0.01
 	var/supplied_dir
 
-/obj/effect/floor_decal/New(var/newloc, var/newdir, var/newcolour)
-	supplied_dir = newdir
-	if(newcolour) color = newcolour
-	..(newloc)
-
-/obj/effect/floor_decal/initialize()
-	if(supplied_dir) set_dir(supplied_dir)
+/obj/effect/floor_decal/LateInitialize()
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
@@ -27,20 +21,36 @@ var/list/floor_decals = list()
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
-		T.overlays |= floor_decals[cache_key]
+		T.add_overlay(floor_decals[cache_key])
+
 	qdel(src)
-	return
+
+/obj/effect/floor_decal/Initialize(mapload, var/newdir, var/newcolour, bypass = FALSE)
+	if (bypass && !mapload)
+		return ..(mapload)
+
+	if (newdir)
+		supplied_dir = newdir
+
+	if(newcolour)
+		color = newcolour
+
+	if (supplied_dir) 
+		set_dir(supplied_dir)
+
+	..()
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/floor_decal/reset
 	name = "reset marker"
 
-/obj/effect/floor_decal/reset/initialize()
+/obj/effect/floor_decal/reset/Initialize(mapload)
+	..(mapload, bypass = TRUE)
 	var/turf/T = get_turf(src)
-	if(T.decals && T.decals.len)
+	if(LAZYLEN(T.decals))
 		T.decals.Cut()
 		T.update_icon()
 	qdel(src)
-	return
 
 /obj/effect/floor_decal/corner
 	icon_state = "corner_white"
@@ -287,9 +297,9 @@ var/list/floor_decals = list()
 	name = "random asteroid rubble"
 	icon_state = "asteroid0"
 
-/obj/effect/floor_decal/asteroid/New()
-	icon_state = "asteroid[rand(0,9)]"
+/obj/effect/floor_decal/asteroid/Initialize()
 	..()
+	icon_state = "asteroid[rand(0,9)]"
 
 /obj/effect/floor_decal/chapel
 	name = "chapel"

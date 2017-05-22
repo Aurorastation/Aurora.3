@@ -1,4 +1,3 @@
-/var/list/datum/lighting_corner/all_lighting_corners = list()
 /var/datum/lighting_corner/dummy/dummy_lighting_corner = new
 // Because we can control each corner of every lighting overlay.
 // And corners get shared between multiple turfs (unless you're on the corners of the map, then 1 corner doesn't).
@@ -8,8 +7,8 @@
 /var/list/LIGHTING_CORNER_DIAGONAL = list(NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST)
 
 /datum/lighting_corner
-	var/list/turf/masters                 = list()
-	var/list/datum/light_source/affecting = list() // Light sources affecting us.
+	var/list/turf/masters
+	var/list/datum/light_source/affecting // Light sources affecting us.
 	var/active                            = FALSE  // TRUE if one of our masters has dynamic lighting.
 
 	var/x     = 0
@@ -29,12 +28,12 @@
 	var/cache_u  = 0
 	var/cache_mx = 0
 
-	var/update_gen = 0
-
 /datum/lighting_corner/New(var/turf/new_turf, var/diagonal)
 	. = ..()
 
-	all_lighting_corners += src
+	SSlighting.lighting_corners += src
+
+	masters = list()
 
 	masters[new_turf] = turn(diagonal, 180)
 	z = new_turf.z
@@ -102,7 +101,7 @@
 	if (!now)
 		needs_update = TRUE
 		update_overlays(FALSE)
-		lighting_update_corners += src
+		SSlighting.corner_queue += src
 	else 
 		update_overlays(TRUE)
 
@@ -117,11 +116,19 @@
 	else if (mx < LIGHTING_SOFT_THRESHOLD)
 		. = 0 // 0 means soft lighting.
 
+#ifdef LIGHTING_USE_MEMORY_HACK
 	cache_r  = lum_r * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
 	cache_g  = lum_g * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
 	cache_b  = lum_b * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
 	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
 	cache_mx = mx
+#else
+	cache_r  = round(lum_r * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
+	cache_g  = round(lum_g * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
+	cache_b  = round(lum_b * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
+	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
+	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
+#endif
 
 	for (var/TT in masters)
 		var/turf/T = TT
@@ -130,7 +137,15 @@
 				T.lighting_overlay.update_overlay()
 			else if (!T.lighting_overlay.needs_update)
 				T.lighting_overlay.needs_update = TRUE
-				lighting_update_overlays += T.lighting_overlay
+				SSlighting.overlay_queue += T.lighting_overlay
+
+/datum/lighting_corner/Destroy(force = FALSE)
+	crash_with("Some fuck [force ? "force-" : ""]deleted a lighting corner.")
+	if (!force)
+		return QDEL_HINT_LETMELIVE
+		
+	SSlighting.lighting_corners -= src
+	return ..()
 
 /datum/lighting_corner/dummy/New()
 	return

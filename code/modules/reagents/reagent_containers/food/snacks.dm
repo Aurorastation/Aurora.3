@@ -230,7 +230,7 @@
 	if(contents)
 		for(var/atom/movable/something in contents)
 			something.loc = get_turf(src)
-	..()
+	return ..()
 
 
 //Code for dipping food in batter
@@ -414,14 +414,15 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/koisbar
 	name = "k'ois bar"
-	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup."
+	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron."
 	icon_state = "koisbar"
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
 
 /obj/item/weapon/reagent_containers/food/snacks/koisbar/New()
 	..()
-	reagents.add_reagent("koispaste", 20)
+	reagents.add_reagent("koispaste", 10)
+	reagents.add_reagent("phoron", 15)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/aesirsalad
@@ -529,6 +530,21 @@
 	reagents.add_reagent("sugar", 2)
 	reagents.add_reagent("coco", 2)
 	bitesize = 2
+
+//a random egg that can spawn only on easter. It has really good food values because it's rare
+/obj/item/weapon/reagent_containers/food/snacks/goldenegg
+	name = "golden egg"
+	desc = "It's the golden egg!"
+	icon_state = "goldenegg"
+	filling_color = "#7D5F46"
+	center_of_mass = list("x"=16, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/snacks/goldenegg/New()
+	..()
+	reagents.add_reagent("nutriment", 12)
+	reagents.add_reagent("sugar", 7)
+	reagents.add_reagent("coco", 3)
+	bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/donut
 	name = "donut"
@@ -982,13 +998,13 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cooltime()
 	if (src.warm)
-		spawn(4200)
-			if(src)
-				src.warm = 0
-				for(var/reagent in heated_reagents)
-					src.reagents.del_reagent(reagent)
-				src.name = initial(name)
-	return
+		addtimer(CALLBACK(src, .proc/cool_down))
+
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cool_down()
+	warm = FALSE
+	for(var/reagent in heated_reagents)
+		reagents.del_reagent(reagent)
+	name = initial(name)
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/cook()
 	..()
@@ -3757,7 +3773,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/friedkois/New()
 	..()
 	reagents.add_reagent("koispaste", 6)
-	reagents.add_reagent("phoron", 3)
+	reagents.add_reagent("phoron", 9)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/friedkois/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -3781,7 +3797,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab1/New()
 	..()
 	reagents.add_reagent("koispaste", 6)
-	reagents.add_reagent("phoron", 3)
+	reagents.add_reagent("phoron", 9)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -3802,7 +3818,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab2/New()
 	..()
 	reagents.add_reagent("koispaste", 12)
-	reagents.add_reagent("phoron", 6)
+	reagents.add_reagent("phoron", 12)
 	bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -3822,7 +3838,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab3/New()
 	..()
 	reagents.add_reagent("koispaste", 18)
-	reagents.add_reagent("phoron", 9)
+	reagents.add_reagent("phoron", 15)
 	bitesize = 9
 
 /obj/item/weapon/reagent_containers/food/snacks/koissoup
@@ -3835,7 +3851,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koissoup/New()
 	..()
 	reagents.add_reagent("koispaste", 15)
-	reagents.add_reagent("phoron", 5)
+	reagents.add_reagent("phoron", 10)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/koiswaffles
@@ -3848,7 +3864,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koiswaffles/New()
 	..()
 	reagents.add_reagent("koispaste", 25)
-	reagents.add_reagent("phoron", 5)
+	reagents.add_reagent("phoron", 12)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/koisjelly
@@ -3861,7 +3877,7 @@
 	..()
 	reagents.add_reagent("koispaste", 25)
 	reagents.add_reagent("imidazoline", 20)
-	reagents.add_reagent("phoron", 10)
+	reagents.add_reagent("phoron", 20)
 	bitesize = 5
 
 //unathi snacks - sprites by Araskael

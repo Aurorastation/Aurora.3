@@ -28,7 +28,11 @@
 /mob/living/simple_animal/bee/Destroy()
 	if(parent)
 		parent.owned_bee_swarms.Remove(src)
-	..()
+	my_hydrotray = null
+	parent = null
+	target_turf = null
+	target_mob = null
+	return ..()
 
 
 //Special death behaviour. When bees accumulate enough damage to 'die', they don't outright die.  Thus no call to parent
@@ -36,17 +40,17 @@
 //Repeat until strength hits zero. only THEN do they die, and they qdel and leave no corpse in doing so
 //Because we don't have sprites for a carpet made of bee corpses.
 /mob/living/simple_animal/bee/death()
-	if (!gcDestroyed)
+	if (!QDELING(src))
 		strength -= 1
 		if (strength <= 0)
 			if (prob(35))//probability to reduce spam
-				src.visible_message("\red The bee swarm completely dissipates.")
+				src.visible_message("<span class='warning'>The bee swarm completely dissipates.</span>")
 			qdel(src)
 			return
 		else
 			health = maxHealth
 			if (prob(35))//probability to reduce spam
-				src.visible_message("\red The bee swarm starts to thin out a little.")
+				src.visible_message("<span class='warning'>The bee swarm starts to thin out a little.</span>")
 
 		update_icons()
 	else
@@ -84,7 +88,7 @@
 			if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 				M.apply_damage(min(strength*0.85,2)+mut, BURN, sharp=1) // Stinging. The more mutated I am, the harder I sting.
 				M.apply_damage(max(strength*1.7,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
-				M << "\red You have been stung!"
+				M << "<span class='warning'>You have been stung!</span>"
 				M.flash_pain()
 
 
@@ -114,7 +118,7 @@
 
 		//make some noise
 		if(prob(3))
-			src.visible_message("\blue [pick("Buzzzz.","Hmmmmm.","Bzzz.")]")
+			src.visible_message("<span class='notice'>[pick("Buzzzz.","Hmmmmm.","Bzzz.")]</span>")
 			playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 15, 1,-4)
 
 		var/calming = 0
@@ -137,7 +141,7 @@
 
 			if(calming)
 				if(feral > 0)
-					src.visible_message("\blue The bees calm down!")
+					src.visible_message("<span class='notice'>The bees calm down!</span>")
 				feral = -15
 				target_mob = null
 				target_turf = null
@@ -197,7 +201,7 @@
 			if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
 				Move(get_step(src, get_dir(src,target_turf)))
 				if (prob(10))
-					src.visible_message("\blue The bees swarm after [target_mob]!")
+					src.visible_message("<span class='notice'>The bees swarm after [target_mob]!</span>")
 			if(src.loc == target_turf)
 				target_turf = null
 				wander = 1

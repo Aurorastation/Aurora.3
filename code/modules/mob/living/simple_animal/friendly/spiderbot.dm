@@ -156,7 +156,7 @@
 	eject_brain()
 	death()
 
-/mob/living/simple_animal/spiderbot/proc/update_icon()
+/mob/living/simple_animal/spiderbot/update_icon()
 	if(mmi)
 		if(positronic)
 			icon_state = "spiderbot-chassis-posi"
@@ -183,7 +183,7 @@
 
 /mob/living/simple_animal/spiderbot/Destroy()
 	eject_brain()
-	..()
+	return ..()
 
 /mob/living/simple_animal/spiderbot/New()
 
@@ -221,7 +221,7 @@
 		return
 
 	if(!held_item)
-		usr << "\red You have nothing to drop!"
+		usr << "<span class='warning'>You have nothing to drop!</span>"
 		return 0
 
 	if(istype(held_item, /obj/item/weapon/grenade))

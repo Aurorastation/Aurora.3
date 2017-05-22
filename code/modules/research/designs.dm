@@ -83,6 +83,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/disk/tech_disk
 	sort_string = "GAAAB"
 
+/datum/design/item/flora_disk
+	name = "Flora Data Storage Disk"
+	desc = "Produce additional disks for storing flora data."
+	id = "flora_disk"
+	req_tech = list(TECH_DATA = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	build_path = /obj/item/weapon/disk/botany
+	sort_string = "GAAAC"
+
 /datum/design/item/stock_part
 	build_type = PROTOLATHE
 
@@ -318,7 +327,7 @@ other types of metals and chemistry for reagents).
 	id = "plasmacutter"
 	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 1500, "glass" = 500, "gold" = 500, "phoron" = 500)
-	build_path = /obj/item/weapon/pickaxe/plasmacutter
+	build_path = /obj/item/weapon/gun/energy/plasmacutter
 	sort_string = "KAAAC"
 
 /datum/design/item/weapon/mining/pick_diamond
@@ -1657,6 +1666,13 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/ntnet_relay
 	sort_string = "WAAAA"
+
+/datum/design/circuit/crusher_base
+	name = "trash compactor"
+	id = "crusher_base"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIALS = 3)
+	build_path = /obj/item/weapon/circuitboard/crusher
+	sort_string = "WAAAB"
 
 /datum/design/circuit/aicore
 	name = "AI core"

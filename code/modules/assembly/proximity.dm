@@ -57,9 +57,7 @@
 		if(!holder)
 			mainloc.visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
 		cooldown = 2
-		spawn(10)
-			process_cooldown()
-		return
+		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 
 
 	process()
@@ -93,13 +91,13 @@
 
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 		attached_overlays = list()
 		if(timing)
-			overlays += "prox_timing"
+			add_overlay("prox_timing")
 			attached_overlays += "prox_timing"
 		if(scanning)
-			overlays += "prox_scanning"
+			add_overlay("prox_scanning")
 			attached_overlays += "prox_scanning"
 		if(holder)
 			holder.update_icon()
@@ -117,7 +115,7 @@
 
 	interact(mob/user as mob)//TODO: Change this to the wires thingy
 		if(!secured)
-			user.show_message("\red The [name] is unsecured!")
+			user.show_message("<span class='warning'>The [name] is unsecured!</span>")
 			return 0
 		var/second = time % 60
 		var/minute = (time - second) / 60

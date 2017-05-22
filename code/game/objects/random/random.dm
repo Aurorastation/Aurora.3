@@ -10,13 +10,14 @@
 
 // creates a new object and deletes itself
 
-/obj/random/initialize()
-	..()
+/obj/random/Initialize()
+	. = ..()
 	if (!prob(spawn_nothing_percentage))
 		var/item = spawn_item()
 		if (has_postspawn && item)
 			post_spawn(item)
-	qdel(src)
+	
+	return INITIALIZE_HINT_QDEL
 
 // this function should return a specific item to spawn
 /obj/random/proc/item_to_spawn()
@@ -118,8 +119,8 @@
 	icon_state = "cell"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/random/powercell = 3, 
-		/obj/random/technology_scanner = 2, 
+		/obj/random/powercell = 3,
+		/obj/random/technology_scanner = 2,
 		/obj/item/weapon/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/weapon/extinguisher = 1,
@@ -392,12 +393,12 @@
 		/obj/item/clothing/suit/space/void/medical = 2.3,
 		/obj/item/clothing/suit/space/void/security = 1,
 		/obj/item/clothing/suit/space/void/atmos = 1.5,
-		/obj/item/clothing/suit/space/void/merc = 0.5, 
+		/obj/item/clothing/suit/space/void/merc = 0.5,
 		/obj/item/clothing/suit/space/void/captain = 0.3
 	)
 	has_postspawn = TRUE
 
-/obj/random/voidsuit/New(loc, _damaged = 0)
+/obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
 	..(loc)
 
@@ -413,7 +414,7 @@
 
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted  = 0
+	var/depleted = 0
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -436,9 +437,9 @@
 	)
 	has_postspawn = TRUE
 
-/obj/random/vendor/New(loc, _depleted = 0)
+/obj/random/vendor/Initialize(mapload, _depleted = 0)
 	depleted = _depleted
-	..(loc)
+	. = ..()
 
 /obj/random/vendor/post_spawn(obj/machinery/vending/V)
 	if (!depleted)
@@ -456,7 +457,7 @@
 			V.products[content] *= multiplier
 			if (V.products[content] < 1 && V.products[content] > 0)	//But we'll usually have at least 1 left
 				V.products[content] = 0
-			
+
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
 
@@ -523,8 +524,7 @@
 		/obj/item/weapon/melee/baton/stunrod,
 		/obj/item/weapon/material/harpoon,
 		/obj/item/weapon/material/twohanded/spear/plasteel,
-		/obj/item/weapon/material/sword/trench,
-		/obj/item/weapon/material/sword/rapier,
+		/obj/random/sword,
 		/obj/item/weapon/melee/hammer,
 		/obj/item/weapon/material/twohanded/fireaxe,
 		/obj/item/weapon/melee/classic_baton
@@ -752,13 +752,64 @@
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 0.5,
-		/obj/item/weapon/material/sword/rapier = 0.5,
+		/obj/random/sword = 0.5,
 		/obj/item/weapon/gun/energy/lawgiver = 0.5,
 		/obj/item/weapon/melee/energy/axe = 0.5,
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
 		/obj/item/clothing/mask/ai = 0.5
+	)
+
+/obj/random/junk
+	name = "random trash"
+	desc = "This is toss."
+	icon = 'icons/obj/trash.dmi'
+	icon_state = "koisbar"
+	spawn_nothing_percentage = 5
+	problist = list(
+		/obj/item/trash/koisbar = 0.5,
+		/obj/item/trash/raisins = 1,
+		/obj/item/trash/candy = 1,
+		/obj/item/trash/cheesie = 2,
+		/obj/item/trash/chips = 0.75,
+		/obj/item/trash/popcorn = 0.75,
+		/obj/item/trash/sosjerky = 0.5,
+		/obj/item/trash/syndi_cakes = 0.25,
+		/obj/item/trash/waffles = 0.75,
+		/obj/item/trash/plate  = 0.75,
+		/obj/item/trash/snack_bowl = 0.75,
+		/obj/item/trash/pistachios = 0.75,
+		/obj/item/trash/semki = 0.5,
+		/obj/item/trash/tray = 0.75,
+		/obj/item/trash/candle = 0.75,
+		/obj/item/trash/liquidfood = 0.75,
+		/obj/item/trash/tastybread= 0.75,
+		/obj/item/trash/meatsnack = 0.5,
+		/obj/item/trash/maps = 0.5,
+		/obj/effect/decal/cleanable/ash = 1.5,
+		/obj/effect/decal/cleanable/dirt = 2,
+		/obj/effect/decal/cleanable/flour = 1,
+		/obj/effect/decal/cleanable/greenglow = 1,
+		/obj/effect/decal/cleanable/molten_item = 1,
+		/obj/effect/decal/cleanable/vomit = 2,
+		/obj/effect/decal/cleanable/generic = 2,
+		/obj/effect/decal/cleanable/liquid_fuel = 0.5,
+		/obj/effect/decal/cleanable/mucus = 1.5,
+		/obj/effect/decal/cleanable/blood/drip = 1.5,
+		/obj/item/weapon/storage/box = 1,
+		/obj/item/weapon/material/shard = 1,
+		/obj/item/weapon/material/shard/shrapnel = 1,
+		/obj/item/weapon/broken_bottle = 1,
+		/obj/item/stack/material/cardboard = 1,
+		/obj/item/stack/rods = 1,
+		/obj/item/weapon/corncob = 1,
+		/obj/item/weapon/paper/crumpled = 1,
+		/obj/item/inflatable/torn = 1,
+		/obj/item/ammo_casing/c45/rubber = 0.5,
+		/obj/item/ammo_casing/c9mm/rubber = 0.5,
+		/obj/item/ammo_casing/c45/flash = 0.5,
+		/obj/item/ammo_casing/shotgun/beanbag = 0.5
 	)
 
 //Sometimes the chef will have spare oil in storage.
@@ -770,6 +821,25 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "oiltank"
 	spawn_nothing_percentage = 50
+
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
+	)
+	
+/obj/random/sword
+	name = "random sword"
+	desc = "This is a random sword."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "claymore"
+	spawnlist = list(
+		/obj/item/weapon/material/sword,
+		/obj/item/weapon/material/sword/katana,
+		/obj/item/weapon/material/sword/rapier,
+		/obj/item/weapon/material/sword/longsword,
+		/obj/item/weapon/material/sword/trench,
+		/obj/item/weapon/material/sword/sabre,
+		/obj/item/weapon/material/sword/axe,
+		/obj/item/weapon/material/sword/khopesh,
+		/obj/item/weapon/material/sword/dao,
+		/obj/item/weapon/material/sword/gladius
 	)

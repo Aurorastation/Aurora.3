@@ -25,12 +25,12 @@
 	examine(mob/user)
 		if(!..(user, 2))
 			return
-		user << "\blue It contains:"
+		user << "<span class='notice'>It contains:</span>"
 		if(reagents && reagents.reagent_list.len)
 			for(var/datum/reagent/R in reagents.reagent_list)
-				user << "\blue [R.volume] units of [R.name]"
+				user << "<span class='notice'>[R.volume] units of [R.name]</span>"
 		else
-			user << "\blue Nothing."
+			user << "<span class='notice'>Nothing.</span>"
 
 	verb/set_APTFT() //set amount_per_transfer_from_this
 		set name = "Set transfer amount"
@@ -93,7 +93,7 @@
 	if(!..(user, 2))
 		return
 	if (modded)
-		user << "\red Fuel faucet is wrenched open, leaking the fuel!"
+		user << "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
 	if(rig)
 		user << "<span class='notice'>There is some kind of device rigged to the tank.</span>"
 
@@ -101,7 +101,7 @@
 	if (rig)
 		usr.visible_message("[usr] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
 		if(do_after(usr, 20))
-			usr.visible_message("\blue [usr] detaches [rig] from \the [src].", "\blue  You detach [rig] from \the [src]")
+			usr.visible_message("<span class='notice'>[usr] detaches [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
 			rig.loc = get_turf(usr)
 			rig = null
 			overlays = new/list()
@@ -118,11 +118,11 @@
 			leak_fuel(amount_per_transfer_from_this)
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
-			user << "\red There is another device in the way."
+			user << "<span class='warning'>There is another device in the way.</span>"
 			return ..()
 		user.visible_message("[user] begins rigging [W] to \the [src].", "You begin rigging [W] to \the [src]")
 		if(do_after(user, 20))
-			user.visible_message("\blue [user] rigs [W] to \the [src].", "\blue  You rig [W] to \the [src]")
+			user.visible_message("<span class='notice'>[user] rigs [W] to \the [src].</span>", "<span class='notice'>You rig [W] to \the [src]</span>")
 
 			var/obj/item/device/assembly_holder/H = W
 			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))
@@ -181,6 +181,10 @@
 	else if (temperature > T0C+500)
 		explode()
 	return ..()
+
+/obj/structure/reagent_dispensers/fueltank/tesla_act()
+	..() 
+	explode()
 
 /obj/structure/reagent_dispensers/fueltank/Move()
 	if (..() && modded)
@@ -288,9 +292,10 @@
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
 	capacity = 5000
-/obj/structure/reagent_dispensers/cookingoil/New()
-		..()
-		reagents.add_reagent("cornoil",capacity)
+	
+/obj/structure/reagent_dispensers/cookingoil/Initialize()
+	. = ..()
+	reagents.add_reagent("cornoil",capacity)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())

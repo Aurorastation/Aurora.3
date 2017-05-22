@@ -1,6 +1,5 @@
 /* Contains:
  * /obj/item/rig_module/device
- * /obj/item/rig_module/device/plasmacutter
  * /obj/item/rig_module/device/healthscanner
  * /obj/item/rig_module/device/drill
  * /obj/item/rig_module/device/orescanner
@@ -28,20 +27,6 @@
 	var/device_type
 	var/obj/item/device
 
-/obj/item/rig_module/device/plasmacutter
-	name = "hardsuit plasma cutter"
-	desc = "A lethal-looking industrial cutter."
-	icon_state = "plasmacutter"
-	interface_name = "plasma cutter"
-	interface_desc = "A self-sustaining plasma arc capable of cutting through walls."
-	suit_overlay_active = "plasmacutter"
-	suit_overlay_inactive = "plasmacutter"
-	use_power_cost = 0.5
-	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
-	construction_time = 300
-
-	device_type = /obj/item/weapon/pickaxe/plasmacutter
-
 /obj/item/rig_module/device/healthscanner
 	name = "health scanner module"
 	desc = "A hardsuit-mounted health scanner."
@@ -54,7 +39,7 @@
 	device_type = /obj/item/device/healthanalyzer
 
 /obj/item/rig_module/device/drill
-	name = "hardsuit drill mount"
+	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
 	icon_state = "drill"
 	interface_name = "mounted drill"
@@ -66,6 +51,18 @@
 	construction_time = 350
 
 	device_type = /obj/item/weapon/pickaxe/diamonddrill
+
+/obj/item/rig_module/device/basicdrill
+	name = "hardsuit drill mount"
+	desc = "A very heavy basic drill."
+	icon_state = "drill"
+	interface_name = "mounted drill"
+	interface_desc = "A basic industrial drill."
+	suit_overlay_active = "mounted-drill"
+	suit_overlay_inactive = "mounted-drill"
+	use_power_cost = 0.1
+
+	device_type = /obj/item/weapon/pickaxe/drill
 
 /obj/item/rig_module/device/anomaly_scanner
 	name = "hardsuit anomaly scanner"
@@ -466,3 +463,12 @@
 			device = iastamp
 			holder.wearer << "<span class='notice'>Switched to internal affairs stamp.</span>"
 		return 1
+
+/obj/item/rig_module/device/decompiler
+	name = "mounted matter decompiler"
+	desc = "A drone matter decompiler reconfigured for hardsuit use."
+	icon_state = "ewar"
+	interface_name = "mounted matter decompiler"
+	interface_desc = "Eats trash like no one's business."
+
+	device_type = /obj/item/weapon/matter_decompiler

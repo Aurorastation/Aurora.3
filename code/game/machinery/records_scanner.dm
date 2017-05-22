@@ -137,4 +137,7 @@ obj/machinery/scanner/attack_hand(mob/living/carbon/human/user)
 	data_core.security += S
 	data_core.locked += L
 
-
+	G.inDataCore = 1
+	M.inDataCore = 1
+	S.inDataCore = 1
+	L.inDataCore = 1

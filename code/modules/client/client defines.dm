@@ -1,4 +1,6 @@
 /client
+	parent_type = /datum
+	
 		////////////////
 		//ADMIN THINGS//
 		////////////////

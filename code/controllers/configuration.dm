@@ -76,6 +76,7 @@ var/list/gamemode_cache = list()
 	var/load_jobs_from_txt = 0
 	var/ToRban = 0
 	var/automute_on = 0					//enables automuting/spam prevention
+	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
@@ -252,6 +253,12 @@ var/list/gamemode_cache = list()
 	//API Rate limiting
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
+
+	// Subsystems.
+	var/obj/effect/statclick/statclick
+
+	// Master Controller settings.
+	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
 
 	//UDP GELF Logging
 	var/log_gelf_enabled = 0
@@ -608,6 +615,9 @@ var/list/gamemode_cache = list()
 				if("automute_on")
 					automute_on = 1
 
+				if("macro_trigger")
+					macro_trigger = text2num(value)
+
 				if("usealienwhitelist")
 					usealienwhitelist = 1
 
@@ -796,12 +806,16 @@ var/list/gamemode_cache = list()
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
 
+
+				if("mc_ticklimit_init")
+					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
+
 				if("log_gelf_enabled")
 					config.log_gelf_enabled = text2num(value)
-				
+
 				if("log_gelf_ip")
 					config.log_gelf_ip = value
-				
+
 				if("log_gelf_port")
 					config.log_gelf_port = value
 

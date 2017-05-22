@@ -28,7 +28,7 @@
 	input = null
 	output = null
 	filters.Cut()
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/omni/filter/sort_ports()
 	for(var/datum/omni_port/P in ports)
