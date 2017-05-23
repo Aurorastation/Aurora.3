@@ -567,18 +567,18 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /datum/admins/proc/jobban_handle(var/tgt_ref, var/job)
 	if (!check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0))
-		usr << "<span class='warning'>You do not have the appropriate permissions to add job bans!</span>"
+		to_chat(usr, "<span class='warning'>You do not have the appropriate permissions to add job bans!</span>")
 		return 0
 
 	if (check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0) && !config.mods_can_job_tempban) // If mod and tempban disabled
-		usr << "<span class='warning'>Mod jobbanning is disabled!</span>"
+		to_chat(usr, "<span class='warning'>Mod jobbanning is disabled!</span>")
 		return 0
 
 	var/ckey = null
 	CKEY_OR_MOB(ckey, tgt_ref)
 
 	if (!ckey)
-		usr << "<span class='warning'>No valid target sent. Cancelling.</span>"
+		to_chat(usr, "<span class='warning'>No valid target sent. Cancelling.</span>")
 		return 0
 
 	if (admin_datums[ckey])
@@ -670,13 +670,13 @@ var/list/jobban_keylist = list() // Global jobban list.
 		switch (alert("Temporary Ban?",,"Yes","No", "Cancel"))
 			if ("Yes")
 				if (!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
-					usr << "<span class='warning'>You Cannot issue temporary job-bans!</span>"
+					to_chat(usr, "<span class='warning'>You Cannot issue temporary job-bans!</span>")
 					return 0
 				var/mins = input(usr, "How long (in minutes)?", "Ban time", 1440) as num|null
 				if (!mins)
 					return 0
 				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > config.mod_job_tempban_max)
-					usr << "<span class='warning'>Moderators can only job tempban up to [config.mod_job_tempban_max] minutes!</span>"
+					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [config.mod_job_tempban_max] minutes!</span>")
 					return 0
 				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
 				if (!reason)
@@ -701,9 +701,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 				message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg] for [mins] minutes.</span>", 1)
 				if (ismob(tgt_ref))
 					var/mob/M = tgt_ref
-					M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
-					M << "<span class='danger'>The reason is: [reason]</span>"
-					M << "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>"
+					to_chat(M, "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>")
+					to_chat(M, "<span class='danger'>The reason is: [reason]</span>")
+					to_chat(M, "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>")
 				jobban_panel(ckey)
 				return 1
 			if ("No")
@@ -730,9 +730,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 					message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg]</span>", 1)
 					if (ismob(tgt_ref))
 						var/mob/M = tgt_ref
-						M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
-						M << "<span class='danger'>The reason is: [reason]</span>"
-						M << "<span class='warning'>Jobban can be lifted only upon request.</span>"
+						to_chat(M, "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>")
+						to_chat(M, "<span class='danger'>The reason is: [reason]</span>")
+						to_chat(M, "<span class='warning'>Jobban can be lifted only upon request.</span>")
 					jobban_panel(ckey)
 					return 1
 			if("Cancel")
@@ -744,7 +744,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (!config.ban_legacy_system)
 			// This is important. jobban_unban() can't actually lift DB bans. So the DB unban
 			// panel must be used instead.
-			usr << "Unfortunately, database based unbanning cannot be done through this panel"
+			to_chat(usr, "Unfortunately, database based unbanning cannot be done through this panel")
 			DB_ban_panel(ckey)
 			return 0
 
@@ -770,7 +770,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			message_admins("<span class='notice'>[key_name_admin(usr)] unbanned [ckey] from [msg]</span>", 1)
 			if (ismob(tgt_ref))
 				var/mob/M = tgt_ref
-				M << "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>"
+				to_chat(M, "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>")
 			jobban_panel(ckey)
 		return 1
 	return 0 //we didn't do anything!
