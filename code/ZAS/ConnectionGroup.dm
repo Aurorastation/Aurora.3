@@ -215,7 +215,7 @@ Class Procs:
 	. = ..()
 
 /connection_edge/unsimulated/erase()
-	LAZYADD(A.edges, src)
+	LAZYREMOVE(A.edges, src)
 	. = ..()
 
 /connection_edge/unsimulated/contains_zone(zone/Z)

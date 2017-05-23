@@ -62,6 +62,8 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 			T.fire = null
 		LAZYCLEARLIST(fire_tiles)
 		LAZYCLEARLIST(fuel_objs)
+		UNSETEMPTY(fire_tiles)
+		UNSETEMPTY(fuel_objs)
 
 	if(!LAZYLEN(fire_tiles))
 		SSair.active_fire_zones -= src

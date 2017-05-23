@@ -163,6 +163,8 @@ Class Procs:
 
 		LAZYCLEARLIST(graphic_add)
 		LAZYCLEARLIST(graphic_remove)
+		UNSETEMPTY(graphic_add)
+		UNSETEMPTY(graphic_remove)
 
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)
