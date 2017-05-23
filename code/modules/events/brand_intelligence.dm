@@ -53,7 +53,7 @@
 		for (var/obj/machinery/vending/upriser in infectedVendingMachines)
 			if (prob(70) && !QDELETED(upriser) && config.violent_vendors)
 				var/mob/living/simple_animal/hostile/mimic/copy/M = new(upriser.loc, upriser, null)
-				M.faction = list("profit")
+				M.faction = "profit"
 				M.speak = rampant_speeches.Copy()
 				M.speak_chance = 7
 			else if (config.explosive_vendors)
