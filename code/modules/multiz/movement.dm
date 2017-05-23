@@ -222,28 +222,25 @@
 		return
 
 	if(istype(landing, /turf/simulated/open))
-		var/turf/simulated/open/open = landing
-		var/area/area2 = get_area(open.below)
-		if(!area2.has_gravity())
-			return
+		z_levels_fallen++ // Don't damage them but keep track of this.
+		return
 
+	if(istype(landing, /turf/space))
+		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
+		return
+
+	if(!z_levels_fallen) // Checks if they only fell down one floor.
+		z_levels_fallen = 1
+		
 	if(!istype(src, /mob/living/carbon/human))
 		var/damage = 30
-		apply_damage(rand(0, damage), BRUTE)
-		apply_damage(rand(0, damage), BRUTE)
-		apply_damage(rand(0, damage), BRUTE)
+		apply_damage(rand(0, damage*z_levels_fallen), BRUTE)
+		apply_damage(rand(0, damage*z_levels_fallen), BRUTE)
+		apply_damage(rand(0, damage*z_levels_fallen), BRUTE)
 
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
-	if(istype(landing, /turf/simulated/open)) // Don't damage them, but keep track of how many they fall.
-		z_levels_fallen++
-		return
-	if(istype(landing, /turf/space))
-		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
-		return
-	if(!z_levels_fallen) // Checks if they only fell down one floor.
-		z_levels_fallen = 1
 	var/damage = 30*species.fall_mod
 	if(prob(20)) //landed on their head
 		apply_damage(rand(0, damage*z_levels_fallen), BRUTE, "head")
