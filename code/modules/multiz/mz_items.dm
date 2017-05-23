@@ -14,7 +14,7 @@
 		if (!below_loc || (istype(/turf/space,below_loc)))
 			user << "<span class='notice'>Why would you do that?! There is only infinite space there...</span>"
 			return
-		handle_action(a,user)
+		handle_action(A,user)
 		var/obj/structure/ladder/mobile/body/R = new(A)
 		var/obj/structure/ladder/mobile/base/D = new(A)
 		D.forceMove(below_loc)
@@ -30,7 +30,7 @@
 		if (!upper_loc || !istype(upper_loc,/turf/simulated/open))
 			user << "<span class='notice'>There is something above. You can't deploy!</span>"
 			return
-		handle_action(a,user)
+		handle_action(A,user)
 		var/obj/structure/ladder/mobile/base/R = new(A)
 		var/obj/structure/ladder/mobile/body/D = new(A)
 		D.forceMove(upper_loc) // moves A up to upper_loc.
