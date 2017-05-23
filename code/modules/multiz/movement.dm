@@ -227,7 +227,7 @@
 		if(!area2.has_gravity())
 			return
 
-	if(!istype(src, /mob/living/carbon/human) && !istype(landing, /turf/space))
+	if(!istype(src, /mob/living/carbon/human) && !istype(landing, /turf/space)  && !istype(landing, /turf/simulated/open))
 		var/damage = 30
 		apply_damage(rand(0, damage), BRUTE)
 		apply_damage(rand(0, damage), BRUTE)
@@ -236,7 +236,7 @@
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
-	if(istype(landing, /turf/space)) // so they can't get hurt from falling onto nothing
+	if(istype(landing, /turf/space) || istype(landing, /turf/simulated/open)) // so they can't get hurt from falling onto nothing
 		return
 	var/damage = 30*species.fall_mod
 	if(prob(20)) //landed on their head
