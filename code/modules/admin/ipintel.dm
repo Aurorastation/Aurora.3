@@ -1,3 +1,21 @@
+/client/proc/toggle_ipintel_kicking()
+	set category = "Server"
+	set name = "Toggle IPIntel Kicking"
+
+	if (!check_rights(R_SERVER))
+		return
+
+	var/num = input("Please set the new threshold for kicking based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
+	if (num < 0 || num > 1)
+		to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
+		return
+
+	config.ipintel_rating_kick = num
+	if (num)
+		log_and_message_admins("has set the IPIntel kick threshold to [num].")
+	else
+		log_and_message_admins("has disabled kicking based on IPIntel.")
+
 /datum/ipintel
 	var/ip
 	var/intel = 0
@@ -38,7 +56,7 @@
 				SELECT date, intel, TIMESTAMPDIFF(MINUTE,date,NOW())
 				FROM ss13_ipintel
 				WHERE
-					ip = INET_ATON('[ip]')
+					ip = INET6_ATON('[ip]')
 					AND ((
 							intel < [config.ipintel_rating_bad]
 							AND
@@ -63,7 +81,7 @@
 	if (updatecache && res.intel >= 0)
 		SSipintel.cache[ip] = res
 		if(establish_db_connection(dbcon))
-			var/DBQuery/query_add_ip_intel = dbcon.NewQuery("INSERT INTO ss13_ipintel (ip, intel) VALUES (INET_ATON('[ip]'), [res.intel]) ON DUPLICATE KEY UPDATE intel = VALUES(intel), date = NOW()")
+			var/DBQuery/query_add_ip_intel = dbcon.NewQuery("INSERT INTO ss13_ipintel (ip, intel) VALUES (INET6_ATON('[ip]'), [res.intel]) ON DUPLICATE KEY UPDATE intel = VALUES(intel), date = NOW()")
 			query_add_ip_intel.Execute()
 
 
