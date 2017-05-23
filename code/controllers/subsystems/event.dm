@@ -26,6 +26,8 @@ var/datum/controller/subsystem/events/SSevents
 
 	var/datum/event_meta/new_event = new
 
+	var/initialized = FALSE
+
 /datum/controller/subsystem/events/New()
 	NEW_SS_GLOBAL(SSevents)
 
@@ -36,6 +38,14 @@ var/datum/controller/subsystem/events/SSevents
 		EVENT_LEVEL_MODERATE = new/datum/event_container/moderate,
 		EVENT_LEVEL_MAJOR    = new/datum/event_container/major
 	)
+	initialized = TRUE
+
+/datum/controller/subsystem/events/Recover()
+	active_events = SSevents.active_events
+	finished_events = SSevents.finished_events
+	allEvents = SSevents.allEvents
+	event_containers = SSevents.event_containers
+	initialized = SSevents.initialized
 
 /datum/controller/subsystem/events/fire(resumed = FALSE)
 	if (!resumed)
@@ -82,6 +92,10 @@ var/datum/controller/subsystem/events/SSevents
 	EC.next_event_time += delay
 
 /datum/controller/subsystem/events/proc/Interact(mob/living/user)
+	if (!initialized)
+		user << "<span class='alert'>The [src] subsystem has not initialized yet. Please wait until server init completes before trying to use the Event Manager panel.</span>"
+		return
+
 	var/html = GetInteractWindow()
 
 	var/datum/browser/popup = new(user, "event_manager", "Event Manager", window_x, window_y)
