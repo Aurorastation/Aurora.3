@@ -79,6 +79,7 @@
 	//This isnt used for regular processing, since all internal organs are regularly processed anyway, but it can be used as a shortlist for calls that only care about damaged organs
 
 	var/xylophone = 0 //For the spoooooooky xylophone cooldown
+	var/fallen = 0 //For z-level damage stacking.
 
 	var/mob/remoteview_target = null
 	var/hand_blood_color

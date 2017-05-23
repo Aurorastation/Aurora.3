@@ -227,7 +227,7 @@
 		if(!area2.has_gravity())
 			return
 
-	if(!istype(src, /mob/living/carbon/human) && !istype(landing, /turf/space)  && !istype(landing, /turf/simulated/open))
+	if(!istype(src, /mob/living/carbon/human))
 		var/damage = 30
 		apply_damage(rand(0, damage), BRUTE)
 		apply_damage(rand(0, damage), BRUTE)
@@ -236,34 +236,38 @@
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
-	if(istype(landing, /turf/space) || istype(landing, /turf/simulated/open)) // so they can't get hurt from falling onto nothing
+	if(istype(landing, /turf/simulated/open)) // Don't damage them, but keep track of how many they fall.
+		fallen = fallen + 1
+		return
+	if(istype(landing, /turf/space))
+		fallen = 0 // turns out they didn't hit anything solid. Lucky them.
 		return
 	var/damage = 30*species.fall_mod
 	if(prob(20)) //landed on their head
-		apply_damage(rand(0, damage), BRUTE, "head")
+		apply_damage(rand(0, damage*fallen), BRUTE, "head")
 
 	else if(prob(20)) //landed on their arms
-		apply_damage(rand(0, damage), BRUTE, "l_arm")
-		apply_damage(rand(0, damage), BRUTE, "r_arm")
+		apply_damage(rand(0, (damage*fallen)), BRUTE, "l_arm")
+		apply_damage(rand(0, (damage*fallen)), BRUTE, "r_arm")
 
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "r_hand")
+			apply_damage(rand(0, ((damage/2)*fallen)), BRUTE, "r_hand")
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "l_hand")
+			apply_damage(rand(0, ((damage/2)*fallen)), BRUTE, "l_hand")
 
 	else //landed on their legs
-		apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
-		apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
+		apply_damage(10 + rand(10, (damage*fallen)), BRUTE, "l_leg")
+		apply_damage(10 + rand(10, (damage*fallen)), BRUTE, "r_leg")
 
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "r_foot")
+			apply_damage(rand(0, ((damage/2)*fallen)), BRUTE, "r_foot")
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "l_foot")
+			apply_damage(rand(0, ((damage/2)*fallen)), BRUTE, "l_foot")
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
-
-	apply_damage(rand(0, damage), BRUTE, "chest")
-	Weaken(rand(0,damage/2))
+			apply_damage(rand(0, ((damage/2)*fallen)), BRUTE, "groin")
+	apply_damage(rand(0, (damage * fallen)), BRUTE, "chest") 
+	Weaken(rand(0, ((damage/2)*fallen)))
+	fallen = 0 // reset their fallen variable.
 	updatehealth()
 
 /mob/living/carbon/human/bst/can_fall()
