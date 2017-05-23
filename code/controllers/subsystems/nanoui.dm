@@ -10,7 +10,6 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 
 	// NanoUI stuff.
 	var/list/open_uis = list()
-	var/list/asset_files = list()
 
 /datum/controller/subsystem/processing/nanoui/New()
 	NEW_SS_GLOBAL(SSnanoui)
