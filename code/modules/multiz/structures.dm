@@ -139,10 +139,10 @@
 	src.transfer_fingerprints_to(R)
 	
 	if(src.target_down == null)
-		qdel(src.target_up)
+		QDEL_NULL(src.target_up)
 		qdel(src)
 	else
-		qdel(src.target_down)
+		QDEL_NULL(src.target_down)
 		qdel(src)
 
 
