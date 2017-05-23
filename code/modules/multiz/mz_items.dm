@@ -11,7 +11,7 @@
 	if(istype(A, /turf/simulated/open))         //Place into open space
 		user.visible_message("<span class='warning'>[user] begins to lower the ladder into the hole</span>")
 		var/turf/below_loc = GetBelow(A)
-		if (!below_loc || (istype(/turf/space,GetBelow(src))))
+		if (!below_loc || (istype(/turf/space,below_loc)))
 			user << "<span class='notice'>Why would you do that?!</span>"
 			return
 		var/obj/structure/ladder/mobile/body/R = new(A)
