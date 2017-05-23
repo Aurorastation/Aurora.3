@@ -32,10 +32,10 @@ var/datum/controller/subsystem/events/SSevents
 /datum/controller/subsystem/events/Initialize()
 	allEvents = subtypesof(/datum/event)
 	event_containers = list(
-			EVENT_LEVEL_MUNDANE  = new/datum/event_container/mundane,
-			EVENT_LEVEL_MODERATE = new/datum/event_container/moderate,
-			EVENT_LEVEL_MAJOR    = new/datum/event_container/major
-		)
+		EVENT_LEVEL_MUNDANE  = new/datum/event_container/mundane,
+		EVENT_LEVEL_MODERATE = new/datum/event_container/moderate,
+		EVENT_LEVEL_MAJOR    = new/datum/event_container/major
+	)
 
 /datum/controller/subsystem/events/fire(resumed = FALSE)
 	if (!resumed)
