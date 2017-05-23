@@ -17,12 +17,12 @@
 	var/turf/T = get_turf(src)
 	if(T)// Spawn Conveyour Belts
 		//East
-		var/turf/east = get_step(EAST)
+		var/turf/east = get_step(src, EAST)
 		if(istype(east, /turf/simulated/floor))
 			new /obj/machinery/conveyor(east, WEST, 1)
 
 		// West
-		var/turf/west = get_step(WEST)
+		var/turf/west = get_step(src, WEST)
 		if(istype(west, /turf/simulated/floor))
 			new /obj/machinery/conveyor(west, WEST, 1)
 
