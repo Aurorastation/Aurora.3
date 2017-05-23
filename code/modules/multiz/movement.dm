@@ -237,7 +237,7 @@
 	if(..())
 		return
 	if(istype(landing, /turf/simulated/open)) // Don't damage them, but keep track of how many they fall.
-		z_levels_fallen = z_levels_fallen + 1
+		z_levels_fallen++
 		return
 	if(istype(landing, /turf/space))
 		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
