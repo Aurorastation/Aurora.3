@@ -12,17 +12,17 @@
 
 /obj/machinery/transformer/Initialize()
 	// On us
-	..()
+	. = ..()
 	new /obj/machinery/conveyor(loc, WEST, 1) // this doesnt need to check for a location because it is under the machine so its assumed there is one
 	var/turf/T = get_turf(src)
 	if(T)// Spawn Conveyour Belts
 		//East
-		var/turf/east = locate(T.x + 1, T.y, T.z)
+		var/turf/east = get_step(EAST)
 		if(istype(east, /turf/simulated/floor))
 			new /obj/machinery/conveyor(east, WEST, 1)
 
 		// West
-		var/turf/west = locate(T.x - 1, T.y, T.z)
+		var/turf/west = get_step(WEST)
 		if(istype(west, /turf/simulated/floor))
 			new /obj/machinery/conveyor(west, WEST, 1)
 
@@ -46,7 +46,7 @@
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 		use_power(6000) // Use a lot of power.
 		visible_message("<span class='danger'>The machine makes a series of loud sounds as it starts to replace [H]'s organs and limbs with robotic parts!</span>")
-		H <<"<span class='danger'><h2>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</h2></span>"
+		H <<"<span class='danger'>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</span>"
 		sleep(600) // takes some time so they aren't just instaconverted
 		H <<"<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>"
 		H.Robotize()
