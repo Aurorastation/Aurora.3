@@ -4,7 +4,6 @@
 	icon_state = "ladder01"
 	icon = 'icons/obj/structures.dmi'
 	throw_range = 3
-	throw_force = 12
 	force = 10
 
 /obj/item/weapon/ladder_mobile/proc/place_ladder(atom/A,mob/user)
