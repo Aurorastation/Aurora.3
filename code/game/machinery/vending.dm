@@ -530,8 +530,6 @@
 	src.status_error = 0
 	SSnanoui.update_uis(src)
 
-
-
 	if (R.category & CAT_COIN)
 		if(!coin)
 			user << "<span class='notice'>You need to insert a coin to get this item.</span>"
@@ -557,14 +555,13 @@
 
 	R.amount--
 
-	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		spawn(0)
-			src.speak(src.vend_reply)
-			src.last_reply = world.time
+	if(((last_reply + (src.vend_delay + 200)) <= world.time) && vend_reply)
+		speak(vend_reply)
+		last_reply = world.time
 
 	use_power(vend_power_usage)	//actuators and stuff
-	if (src.icon_vend) //Show the vending animation if needed
-		flick(src.icon_vend,src)
+	if (icon_vend) //Show the vending animation if needed
+		flick(icon_vend,src)
 	addtimer(CALLBACK(src, .proc/do_vend, R.product_path), vend_delay)
 
 /obj/machinery/vending/proc/do_vend(path)
@@ -594,11 +591,11 @@
 	//Pitch to the people!  Really sell it!
 	if(((src.last_slogan + src.slogan_delay) <= world.time) && (src.slogan_list.len > 0) && (!src.shut_up) && prob(5))
 		var/slogan = pick(src.slogan_list)
-		src.speak(slogan)
-		src.last_slogan = world.time
+		speak(slogan)
+		last_slogan = world.time
 
 	if(src.shoot_inventory && prob(2))
-		src.throw_item()
+		throw_item()
 
 	return
 
@@ -669,7 +666,6 @@
 		break
 	if (!throw_item)
 		return 0
-	spawn(0)
-		throw_item.throw_at(target, 16, 3, src)
-	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
+	INVOKE_ASYNC(throw_item, /atom/movable/.throw_at, target, 16, 3, src)
+	visible_message("<span class='warning'>[src] launches \a [throw_item] at [target]!</span>")
 	return 1
