@@ -208,6 +208,9 @@
 			light1.set_dir(SOUTH)
 			light2.set_dir(NORTH)
 
+		light1.no_z_overlay = 1
+		light2.no_z_overlay = 1
+
 		// Update area.
 		if(az > areas_to_use.len)
 			log_debug("Insufficient defined areas in turbolift datum, aborting.")

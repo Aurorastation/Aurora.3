@@ -191,7 +191,7 @@
 	SearchVar(gravity_is_on)
 	SearchVar(server_greeting)
 	SearchVar(SSnanoui)
-	SearchVar(event_manager)
+	SearchVar(SSevents)
 	SearchVar(awaydestinations)
 	SearchVar(fileaccess_timer)
 	SearchVar(custom_event_msg)

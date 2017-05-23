@@ -102,8 +102,6 @@ var/gravity_is_on = 1
 
 var/datum/server_greeting/server_greeting = null
 
-var/datum/event_manager/event_manager	= new() // Event Manager, the manager for events.
-
 var/list/awaydestinations = list() // Away missions. A list of landmarks that the warpgate can take you to.
 
 // For FTP requests. (i.e. downloading runtime logs.)
