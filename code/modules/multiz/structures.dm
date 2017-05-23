@@ -145,10 +145,6 @@
 		QDEL_NULL(src.target_down)
 		qdel(src)
 
-
-
-
-
 /obj/structure/stairs
 	name = "Stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."

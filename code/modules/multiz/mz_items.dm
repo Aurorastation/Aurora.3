@@ -1,6 +1,6 @@
 /obj/item/weapon/ladder_mobile
 	name = "mobile ladder"
-	desc = "A lightweight deployable ladder. Used to move vertical. Or to bash face in with."
+	desc = "A lightweight deployable ladder, which you can use to move up or down. Or alternatively, you can bash some faces in."
 	icon_state = "ladder01"
 	icon = 'icons/obj/structures.dmi'
 	throw_range = 3
@@ -9,10 +9,10 @@
 /obj/item/weapon/ladder_mobile/proc/place_ladder(atom/A,mob/user)
 
 	if(istype(A, /turf/simulated/open))         //Place into open space
-		user.visible_message("<span class='warning'>[user] begins to lower the ladder into the hole</span>")
+		user.visible_message("<span class='warning'>[user] begins to lower the ladder into the hole.</span>")
 		var/turf/below_loc = GetBelow(A)
 		if (!below_loc || (istype(/turf/space,below_loc)))
-			user << "<span class='notice'>Why would you do that?!</span>"
+			user << "<span class='notice'>Why would you do that?! There is only infinite space there...</span>"
 			return
 		var/obj/structure/ladder/mobile/body/R = new(A)
 		var/obj/structure/ladder/mobile/base/D = new(A)
@@ -24,7 +24,7 @@
 		qdel(src)
 
 	if(istype(A, /turf/simulated/floor))        //Place onto Floor
-		user.visible_message("<span class='warning'>[user] begins deploying the ladder on the floor</span>")
+		user.visible_message("<span class='warning'>[user] begins deploying the ladder on the floor.</span>")
 		var/turf/upper_loc = GetAbove(A)
 		if (!upper_loc || !istype(upper_loc,/turf/simulated/open))
 			user << "<span class='notice'>There is something above. You can't deploy!</span>"
@@ -44,7 +44,7 @@
 		return
 	//addtimer(CALLBACK(src, .proc/place_ladder, A, user), 5000)
 	if (!do_after(user, 30, act_target = A))
-		to_chat(user, "YOU FAILED!")
+		to_chat(user, "Can't place ladder! You were interrupted!")
 		return
 
 	if (!A || QDELETED(src) || QDELETED(user))
@@ -52,9 +52,3 @@
 		return
 
 	place_ladder(A,user)
-
-
-
-
-
-
