@@ -215,6 +215,13 @@ var/obj/screen/robot_inventory
 		else
 			if(r.module.emag in r.module.modules)
 				r.module.modules.Remove(r.module.emag)
+			
+		if(r.malfAImodule)
+			if(!((r.module.malfAImodule in r.module.modules) && r.module.malfAImodule == null))
+				r.module.modules.Add(r.module.malfAImodule)
+		else
+			if(r.module.malfAImodule in r.module.modules)
+				r.module.modules.Remove(r.module.malfAImodule)
 
 		for(var/atom/movable/A in r.module.modules)
 			if( (A != r.module_state_1) && (A != r.module_state_2) && (A != r.module_state_3) )
