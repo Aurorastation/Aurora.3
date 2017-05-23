@@ -93,12 +93,12 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) 
+			if(reinf)
 				new /obj/item/stack/rods(loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) 
+		if(reinf)
 			new /obj/item/stack/rods(loc)
 	qdel(src)
 	return
@@ -523,7 +523,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
-	var/range = 7
+	var/range = 16
 
 /obj/machinery/button/windowtint/attack_hand(mob/user as mob)
 	if(..())
