@@ -149,13 +149,18 @@
 			user << "<span class='notice'>It looks hungry.</span>"
 		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
 			user << "It looks full and contented."
-	if (stat == DEAD)
-		user << "<span class='danger'>It looks dead.</span>"
-	if (health < maxHealth * 0.5)
-		user << "<span class='danger'>It looks badly wounded.</span>"
-	else if (health < maxHealth)
-		user << "<span class='warning'>It looks wounded.</span>"
 
+	var/text = get_health_text()
+	if (text)
+		user << text
+
+/mob/living/simple_animal/proc/get_health_text()
+	if (stat == DEAD)
+		. = "<span class='danger'>It looks dead.</span>"
+	if (health < maxHealth * 0.5)
+		. = "<span class='danger'>It looks badly wounded.</span>"
+	else if (health < maxHealth)
+		. = "<span class='warning'>It looks wounded.</span>"
 
 /mob/living/simple_animal/Life()
 	..()

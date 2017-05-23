@@ -9,6 +9,8 @@
 	icon_state = "crate"
 	icon_living = "crate"
 
+	hunger_enabled = FALSE
+
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	response_help = "touches"
 	response_disarm = "pushes"
@@ -193,3 +195,9 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 			if(prob(15))
 				L.Weaken(1)
 				L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+
+/mob/living/simple_animal/hostile/mimic/copy/proc/get_health_text()
+	if (health < maxHealth * 0.5)
+		. = "<span class='warning'>It looks heavily damaged.</span>"
+	else if (health < maxHealth)
+		. = "<span class='alert'>It looks damaged.</span>"
