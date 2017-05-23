@@ -10,11 +10,11 @@
 	var/transform_standing = 0
 	var/canuse = 1
 
-/obj/machinery/transformer/New()
+/obj/machinery/transformer/Initialize()
 	// On us
 	..()
 	new /obj/machinery/conveyor(loc, WEST, 1) // this doesnt need to check for a location because it is under the machine so its assumed there is one
-	var/turf/T = loc 
+	var/turf/T = get_turf(src)
 	if(T)// Spawn Conveyour Belts
 		//East
 		var/turf/east = locate(T.x + 1, T.y, T.z)
