@@ -123,6 +123,37 @@
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
 
+/obj/structure/ladder/mobile
+	allowed_directions = UP|DOWN
+	icon_state = "ladder11"
+	
+
+/obj/structure/ladder/mobile/verb/fold()
+	set name = "Fold Ladder"
+	set category = "Object"
+	set src in oview(1)
+
+	if(isobserver(usr) || usr.restrained() || !usr.Adjacent(src))
+		return
+
+	verbs -= /obj/structure/ladder/mobile/verb/fold
+	var /obj/item/weapon/ladder_mobile/R = new(src.loc)
+	src.transfer_fingerprints_to(R)
+	//src.Destroy()
+	
+	if(src.target_down == null)
+		src.target_up.Destroy()
+		src.Destroy()
+	else
+		src.target_down.Destroy()
+		src.Destroy()
+
+/obj/structure/ladder/mobile/New(location)
+	..()
+
+
+
+
 /obj/structure/stairs
 	name = "Stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."

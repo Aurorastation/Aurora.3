@@ -132,7 +132,7 @@
 		return
 
 	var/turf/below = GetBelow(src)
-	if(!below)
+	if(!below || (locate(/obj/structure/ladder) in GetBelow(src)))		//Below is a ladder (needed for ladder/mobile)
 		return
 
 	var/turf/T = loc
