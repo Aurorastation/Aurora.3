@@ -43,7 +43,16 @@
 /obj/item/weapon/ladder_mobile/afterattack(atom/A, mob/user,proximity) 
 	if(!proximity)
 		return
-	addtimer(CALLBACK(src, .proc/place_ladder, A, user), 5000)
+	//addtimer(CALLBACK(src, .proc/place_ladder, A, user), 5000)
+	if (!do_after(user, 30, act_target = A))
+		to_chat(user, "YOU FAILED!")
+		return
+
+	if (!A || QDELETED(src) || QDELETED(user))
+		// Shit was deleted during delay, call is no longer valid.
+		return
+
+	place_ladder(A,user)
 
 
 
