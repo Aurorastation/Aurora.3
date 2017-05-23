@@ -219,19 +219,19 @@
 
 	var/area/area1 = get_area(landing)
 	if(!area1.has_gravity())
-		return
+		return 1
 
 	if(istype(landing, /turf/simulated/open))
 		z_levels_fallen++ // Don't damage them but keep track of this.
-		return
+		return 1
 
 	if(istype(landing, /turf/space))
 		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
-		return
+		return 1
 
 	if(!z_levels_fallen) // Checks if they only fell down one floor.
 		z_levels_fallen = 1
-		
+
 	if(!istype(src, /mob/living/carbon/human))
 		var/damage = 30
 		apply_damage(rand(0, damage*z_levels_fallen), BRUTE)
