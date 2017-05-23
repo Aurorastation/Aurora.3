@@ -400,7 +400,7 @@
 /mob/living/silicon/robot/proc/ToggleOverClock(var/mob/living/silicon/robot/R)
 	if(!R)
 		return
-	if(overclocked == 0)
+	if(!overclocked)
 		//Give them some taser speed if they have a taser.
 		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
 		if(!T)
@@ -410,16 +410,16 @@
 		if(T)
 			T.recharge_time = max(2 , T.recharge_time - 4)
 		//Give them the hacked item if they don't have it.
-		if(emagged == 0)
+		if(!emagged)
 			R.emagged = 1
-			R.fakeemagged = 1
+			R.fakeemagged = 0
 		//Hide them from the robotics console.
-		if(scrambledcodes == 0)
+		if(!scrambledcodes)
 			scrambledcodes = 1
 		//Increase EMP protection.
 		if(!cell_emp_mult < 2)
 			cell_emp_mult = 1
-	if(overclocked == 1)
+	if(overclocked)
 		//Reduce their free taser speed.
 		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
 		if(!T)
@@ -429,7 +429,7 @@
 		if(T)
 			T.recharge_time = max(2 , T.recharge_time + 4)
 		//Show them on the robotics console.
-		if(scrambledcodes == 1)
+		if(scrambledcodes)
 			scrambledcodes = 0
 		//Reduce EMP protection
 		if(cell_emp_mult == 1)
