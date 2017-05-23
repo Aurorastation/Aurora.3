@@ -132,7 +132,7 @@
 		return
 
 	var/turf/below = GetBelow(src)
-	if(!below || (locate(/obj/structure/ladder) in GetBelow(src)))		//Below is a ladder (needed for ladder/mobile)
+	if(!below)
 		return
 
 	var/turf/T = loc
@@ -183,6 +183,12 @@
 
 	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
 		return FALSE
+
+/mob/living/can_fall()
+	var/turf/below = GetBelow(src)
+	if(!below || (locate(/obj/structure/ladder) in GetBelow(src)))
+		return FALSE
+	return ..()
 
 /mob/living/carbon/human/can_fall()
 	// Special condition for jetpack mounted folk!

@@ -135,22 +135,16 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(isobserver(usr) || usr.restrained() || !usr.Adjacent(src))
-		return
-
-	verbs -= /obj/structure/ladder/mobile/verb/fold
 	var /obj/item/weapon/ladder_mobile/R = new(src.loc)
 	src.transfer_fingerprints_to(R)
 	
 	if(src.target_down == null)
-		src.target_up.Destroy()
-		src.Destroy()
+		qdel(src.target_up)
+		qdel(src)
 	else
-		src.target_down.Destroy()
-		src.Destroy()
+		qdel(src.target_down)
+		qdel(src)
 
-/obj/structure/ladder/mobile/New(location)
-	..()
 
 
 
