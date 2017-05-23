@@ -242,6 +242,8 @@
 	if(istype(landing, /turf/space))
 		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
 		return
+	if(!z_levels_fallen) // Checks if they only fell down one floor.
+		z_levels_fallen = 1
 	var/damage = 30*species.fall_mod
 	if(prob(20)) //landed on their head
 		apply_damage(rand(0, damage*z_levels_fallen), BRUTE, "head")
