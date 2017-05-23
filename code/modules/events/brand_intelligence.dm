@@ -6,13 +6,15 @@
 	var/list/obj/machinery/vending/infectedVendingMachines = list()
 	var/obj/machinery/vending/originMachine
 
-	var/list/rampant_speeches = list("Try our aggressive new marketing strategies!", \
-									 "You should buy products to feed your lifestyle obession!", \
-									 "Consume!", \
-									 "Your money can buy happiness!", \
-									 "Engage direct marketing!", \
-									 "Advertising is legalized lying! But don't let that put you off our great deals!", \
-									 "You don't want to buy anything? Yeah, well I didn't want to buy your mom either.")
+	var/list/rampant_speeches = list(
+		"Try our aggressive new marketing strategies!",
+		"You should buy products to feed your lifestyle obession!",
+		"Consume!",
+		"Your money can buy happiness!",
+		"Engage direct marketing!",
+		"Advertising is legalized lying! But don't let that put you off our great deals!",
+		"You don't want to buy anything? Yeah, well I didn't want to buy your mom either."
+	)
 
 
 /datum/event/brand_intelligence/announce()
@@ -21,18 +23,18 @@
 
 /datum/event/brand_intelligence/start()
 	for(var/obj/machinery/vending/V in machines)
-		if(isNotStationLevel(V.z))	continue
-		vendingMachines.Add(V)
+		if(isNotStationLevel(V.z))
+			continue
+		vendingMachines += V
 
 	if(!vendingMachines.len)
 		kill()
 		return
 
 	originMachine = pick(vendingMachines)
-	vendingMachines.Remove(originMachine)
+	vendingMachines -= originMachine
 	originMachine.shut_up = 0
 	originMachine.shoot_inventory = 1
-
 
 /datum/event/brand_intelligence/tick()
 	if (QDELETED(originMachine) || originMachine.shut_up || originMachine.wires.IsAllCut()) //if every machine is infected, or if the original vending machine is missing or has it's voice switch flipped
@@ -49,12 +51,12 @@
 
 	if (!vendingMachines.len)
 		for (var/obj/machinery/vending/upriser in infectedVendingMachines)
-			if (prob(70) && !QDELETED(upriser))
+			if (prob(70) && !QDELETED(upriser) && config.violent_vendors)
 				var/mob/living/simple_animal/hostile/mimic/copy/M = new(upriser.loc, upriser, null)
 				M.faction = list("profit")
 				M.speak = rampant_speeches.Copy()
 				M.speak_chance = 7
-			else
+			else if (config.explosive_vendors)
 				explosion(upriser.loc, -1, 1, 2, 4, 0)
 				qdel(upriser)
 
@@ -63,8 +65,8 @@
 
 	if (IsMultiple(activeFor, 4))
 		var/obj/machinery/vending/rebel = pick(vendingMachines)
-		vendingMachines.Remove(rebel)
-		infectedVendingMachines.Add(rebel)
+		vendingMachines -= rebel
+		infectedVendingMachines += rebel
 		rebel.shut_up = 0
 		rebel.shoot_inventory = 1
 

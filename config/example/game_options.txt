@@ -69,3 +69,12 @@ ANIMAL_DELAY 1
 
 ## Remove the # in front of this config option to have loyalty implants spawn by default on your server.
 #USE_LOYALTY_IMPLANTS
+
+
+### Brand Intelligence event options ###
+
+## If defined, the Brand Intelligence event will act like the old one; vendors will not uproot themselves and attack people if the origin machine is not repaired.
+#PEACEFUL_VENDORS
+
+## If defined, vendors do not have a chance to explode at the end of the event.
+#VENDORS_DO_NOT_EXPLODE

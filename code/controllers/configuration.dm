@@ -254,9 +254,6 @@ var/list/gamemode_cache = list()
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
 
-	// Subsystems.
-	var/obj/effect/statclick/statclick
-
 	// Master Controller settings.
 	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
 
@@ -264,6 +261,10 @@ var/list/gamemode_cache = list()
 	var/log_gelf_enabled = 0
 	var/log_gelf_ip = ""
 	var/log_gelf_port = ""
+
+	// Brand intelligence stuff.
+	var/violent_vendors = TRUE
+	var/explosive_vendors = TRUE
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -884,6 +885,12 @@ var/list/gamemode_cache = list()
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
+
+				if ("peaceful_vendors")
+					config.violent_vendors = FALSE
+
+				if ("vendors_do_not_explode")
+					config.explosive_vendors = FALSE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
