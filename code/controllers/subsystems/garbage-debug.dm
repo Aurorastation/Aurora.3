@@ -192,7 +192,7 @@
 	SearchVar(server_greeting)
 	SearchVar(forceblob)
 	SearchVar(nanomanager)
-	SearchVar(event_manager)
+	SearchVar(SSevents)
 	SearchVar(awaydestinations)
 	SearchVar(fileaccess_timer)
 	SearchVar(custom_event_msg)
