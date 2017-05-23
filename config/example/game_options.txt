@@ -76,5 +76,5 @@ ANIMAL_DELAY 1
 ## If defined, the Brand Intelligence event will act like the old one; vendors will not uproot themselves and attack people if the origin machine is not repaired.
 #PEACEFUL_VENDORS
 
-## If defined, vendors do not have a chance to explode at the end of the event.
+## If defined, vendors do not have a chance to explode when all vendors are infected.
 #VENDORS_DO_NOT_EXPLODE
