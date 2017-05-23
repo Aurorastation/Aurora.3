@@ -1,4 +1,18 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
+#define CKEY_OR_MOB(tgt, ref)		\
+	if (istext(ref)) {				\
+		tgt = ckey(ref);			\
+		var/mob/CKM = locate(ref);	\
+		if (CKM && istype(CKM)) {	\
+			if (CKM.ckey) {			\
+				tgt = CKM.ckey;		\
+			} else {				\
+				tgt = null;			\
+			}						\
+		}							\
+	} else if (ismob(ref)) {		\
+		var/mob/CKM = ref;			\
+		tgt = CKM.ckey;				\
+	}
 
 var/list/jobban_keylist = list() // Global jobban list.
 
@@ -23,8 +37,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 
 /**
- * @name	loadJobBans
- * @desc	Global hook for loading jobbans.
+ * Global hook for loading jobbans.
  *
  * @return	num		1
  */
@@ -38,10 +51,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 	return 1
 
 /**
- * @name	jobban_fullban
- * @desc	Logs a new jobban for a user.
- *			Will then log the ban to the database (if SQL bans), or orders the
- *			save file to be resaved.
+ * Logs a new jobban for a user.
+ * Will then log the ban to the database (if SQL bans), or orders the
+ * save file to be resaved.
  *
  * @param	mob M		The mob containing the user we wish to apply the jobban to.
  * @param	str rank	The string name of the rank we want to ban the user from.
@@ -49,17 +61,9 @@ var/list/jobban_keylist = list() // Global jobban list.
  * @param	num minutes	The length of the ban in minutes. -1 for permanent.
  * @param	datum/admins holder		The holder of the admin doing the unbanning.
  *						required to access the DB ban procs.
- *
- * @return	null
  */
-/proc/jobban_fullban(mob/M, rank, reason, minutes, datum/admins/holder)
-	if (!M || !M.ckey)
-		return
-
-	// Because we have to be certain. This is a bit stupid, but okay. We're validating
-	// both usr and checking if the holder exists. Usr should have lowest rights,
-	// in case of href hacking.
-	if (!check_rights(R_BAN, 0))
+/datum/admins/proc/jobban_fullban(mob/M, rank, reason, minutes)
+	if (!istype(M) || !M.ckey)
 		return
 
 	var/key = M.ckey
@@ -83,34 +87,33 @@ var/list/jobban_keylist = list() // Global jobban list.
 	// Log the ban to the appropriate place.
 	if (config.ban_legacy_system)
 		jobban_savebanfile()
-	else if (holder)
-		var/bantype = (minutes < 0) ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP
-		testing("this was reached.")
-		holder.DB_ban_record(bantype, M, minutes, reason, rank)
-		return
+	else
+		DB_ban_record(minutes < 0 ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP, M, minutes, reason, rank)
 
 /**
- * @name	jobban_isbanned
- * @desc	Checks if the player attached to the given mob M is banned from
- *			the given rank. Returns 0 if client is not banned, a reason (str)
- *			if is banned.
+ * Checks if the player attached to the given mob M is banned from
+ * the given rank. Returns 0 if client is not banned, a reason (str)
+ * if is banned.
  *
- *			If an antagonist role is sent, then the global "Antagonist" ban rank
- *			is also checked for.
+ * If an antagonist role is sent, then the global "Antagonist" ban rank
+ * is also checked for.
  *
- * @param	mob M		The mob holding the client to be checked for a jobban.
+ * @param	str|mob player	The mob object or ckey of the player we're looking for.
  * @param	str rank	The rank name that we're looking for a ban on.
  *
  * @return	mixed		str containing the ban reason if user is banned.
  *						null if user is not banned from given role.
  */
-/proc/jobban_isbanned(mob/M, rank)
-	if (M && M.ckey && rank)
+/proc/jobban_isbanned(player, rank)
+	var/ckey = null
+	CKEY_OR_MOB(ckey, player)
+
+	if (ckey)
 		if (guest_jobbans(rank))
-			if (config.guest_jobban && IsGuestKey(M.ckey))
+			if (config.guest_jobban && IsGuestKey(ckey))
 				return "Guest Job-ban"
-			if (config.usewhitelist && !check_whitelist(M))
-				return "Whitelisted Job"
+			if (config.usewhitelist && ismob(player) && !check_whitelist(player))
+				return "No Whitelist"
 
 		var/static/list/antag_bantypes
 
@@ -129,7 +132,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			antag_ban = TRUE
 
 		// Get the user's ckey.
-		var/list/entry = jobban_keylist[M.ckey]
+		var/list/entry = jobban_keylist[ckey]
 
 		// If this is false, then we have no entry. As such, they have no active
 		// bans!
@@ -165,12 +168,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 		log_admin("jobban_keylist was empty")
 
 /**
- * @name	jobban_loaddatabase()
- * @desc	Loads all currently active bans from the database. Sets expiration
- *			times to 0, as the query refreshes records every time it's pulled.
- *			Unlike the hard file bans.
- *
- * @return	null
+ * Loads all currently active bans from the database. Sets expiration
+ * times to 0, as the query refreshes records every time it's pulled.
+ * Unlike the hard file bans.
  */
 /proc/jobban_loaddatabase()
 	// No database. Weee.
@@ -203,34 +203,26 @@ var/list/jobban_keylist = list() // Global jobban list.
 			log_and_message_admins("JOBBANS: Duplicate jobban entry in MySQL for [ckey]. Ban ID: #[query.item[1]]")
 
 /**
- * @name	jobban_savebanfile()
- * @desc	Saves the current bans into the data/job_full.ban file.
- *
- * @return	null
+ * Saves the current bans into the data/job_full.ban file.
  */
 /proc/jobban_savebanfile()
 	var/savefile/S = new("data/job_full.ban")
 	S["bans"] << jobban_keylist
 
 /**
- * @name	jobban_unban()
- * @desc	Removes a jobban entry from the code and calls the config appropriate
- *			record removal method. In case of legacy bans, jobban file is updated,
- *			otherwise, DB queries are ran.
+ * Removes a jobban entry from the code and calls the config appropriate
+ * record removal method. In case of legacy bans, jobban file is updated.
  *
- * @param	mob M		The mob holding the ckey to be unbanned.
+ * For the DB system, the DB_ban_unban_by_id method calls this to remove the local
+ * instance of the ban.
+ *
+ * @param	str|mob player	The mob object or ckey of the player we're looking for.
  * @param	str rank	The job from which we want to unban the given player.
- * @param	str ckey	A ckey of the player to be unbanned. This works as a backup
- *						in case a mob is never sent.
- * @param	datum/admins holder	The holder of the admin doing the unbanning.
- *						required to access the DB ban procs.
- *
- * @return	null
  */
-/proc/jobban_unban(mob/M, rank, ckey = null)
-	testing("Reached!")
-	if (M && M.ckey)
-		ckey = M.ckey
+/proc/jobban_unban(player, rank)
+	var/ckey = null
+
+	CKEY_OR_MOB(ckey, player)
 
 	if (!ckey)
 		log_debug("JOBBAN: jobban_unban called without a mob and a backup ckey.")
@@ -251,49 +243,496 @@ var/list/jobban_keylist = list() // Global jobban list.
 				jobban_keylist[ckey] = null
 				jobban_keylist -= ckey
 
-			testing("Dumping list after unban: [json_encode(jobban_keylist)]")
-
 			// Update appropriate ban files.
 			if (config.ban_legacy_system)
 				jobban_savebanfile()
 
 /**
- * @name	jobban_isexpired
- * @desc	Checks whether or not a jobban is expired. If a ban is expired,
- *			it'll call jobban_unban to lift the ban. This allows for temporary
- *			jobbans with the old file system.
+ * Checks whether or not a jobban is expired. If a ban is expired,
+ * it'll call jobban_unban to lift the ban. This allows for temporary
+ * jobbans with the old file system.
  *
- *			Does not work on the MySQL system. The bans for that refresh every
- *			round, as per the queries.
+ * Does not work on the MySQL system. The bans for that refresh every
+ * round, as per the queries.
  *
  * @param	list tuple	The list containing reason and expiery time to check.
- * @param	mob M		The mob whose ban we're checking. To be passed into jobban_unban
- *						in the case of an expired ban.
+ * @param	str|mob player	The mob object or ckey of the player we're looking for.
  * @param	str rank	The job we're checking. To be passed into jobban_unban in case
  *						of an expired ban.
- * @param	str ckey	The ckey of the player being checked. Can be null, is null
- *						by default. To be sent to jobban_unban.
  *
  * @return	num		TRUE if ban is expired.
  *					FALSE if ban is not expired.
  */
-/proc/jobban_isexpired(var/list/tuple, var/mob/M, var/rank, var/ckey = null)
+/proc/jobban_isexpired(var/list/tuple, var/player, var/rank)
 	if (config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
 		// It's expired. Remove it.
-		jobban_unban(M, rank, ckey)
+		jobban_unban(player, rank)
 
 		return TRUE
 
 	return FALSE
 
 /**
- * @name	ban_unban_log_save
- * @desc	Updates the ban_unban_log.txt file by appending formatted_log to its
- *			contents.
+ * Updates the ban_unban_log.txt file by appending formatted_log to its
+ * contents.
  *
- * @param	str formatted_log	The new content to be appended to the log file.
- *
- * @return	null
+ * @param	str formatted_log The new content to be appended to the log file.
  */
 /proc/ban_unban_log_save(var/formatted_log)
-	text2file(formatted_log,"data/ban_unban_log.txt")
+	text2file(formatted_log, "data/ban_unban_log.txt")
+
+/**
+ * Opens the jobban panel, showing the bans of the passed mob or ckey.
+ *
+ * @param	str|mob tgt_ref The target we want to view jobbans of. Can be a reference
+ * to a mob object (gotten with \ref[M]) or an actual mob object.
+ */
+/datum/admins/proc/jobban_panel(var/tgt_ref = null)
+	if (!tgt_ref)
+		return
+
+	// Check against usr's perms.
+	if (!check_rights(R_ADMIN|R_MOD|R_BAN))
+		return
+
+	var/ckey = null
+	CKEY_OR_MOB(ckey, tgt_ref)
+
+	if (!ckey)
+		to_chat(src.owner, "This mob has no ckey.")
+		return
+
+	if (!job_master)
+		to_chat(src.owner, "Job master has not been set up yet! Please wait.")
+		return
+
+	var/dat = ""
+	var/header = "<head><title>Job-Ban Panel: [ckey]</title></head>"
+	var/body
+	var/jobs = ""
+
+	/***********************************WARNING!************************************
+						The jobban stuff looks mangled and disgusting
+								But it looks beautiful in-game
+										-Nodrak
+	************************************WARNING!***********************************/
+	var/counter = 0
+	//Regular jobs
+	//Command (Blue)
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in command_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 6) //So things dont get squiiiiished!
+			jobs += "</tr><tr>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Security (Red)
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='ffddf0'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in security_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Engineering (Yellow)
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='fff5cc'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in engineering_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Medical (White)
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='ffeef0'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in medical_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Science (Purple)
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='e79fff'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in science_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Civilian (Grey)
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='dddddd'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in civilian_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+
+	if (jobban_isbanned(ckey, "Internal Affairs Agent"))
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'><font color=red>Internal Affairs Agent</font></a></td>"
+	else
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'>Internal Affairs Agent</a></td>"
+
+	jobs += "</tr></table>"
+
+	//Non-Human (Green)
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='?src=\ref[src];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in nonhuman_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+
+	//pAI isn't technically a job, but it goes in here.
+
+	if (jobban_isbanned(ckey, "pAI"))
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=pAI;jobban_tgt=[ckey]'><font color=red>pAI</font></a></td>"
+	else
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=pAI;jobban_tgt=[ckey]'>pAI</a></td>"
+	if (jobban_isbanned(ckey, "AntagHUD"))
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=AntagHUD;jobban_tgt=[ckey]'><font color=red>AntagHUD</font></a></td>"
+	else
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=AntagHUD;jobban_tgt=[ckey]'>AntagHUD</a></td>"
+	jobs += "</tr></table>"
+
+	//Antagonist (Orange)
+	var/isbanned_dept = jobban_isbanned(ckey, "Antagonist")
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=\ref[src];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
+
+	// Antagonists.
+	for (var/antag_type in all_antag_types)
+		var/datum/antagonist/antag = all_antag_types[antag_type]
+		if (!antag || !antag.bantype)
+			continue
+		if (isbanned_dept || jobban_isbanned(ckey, antag.bantype))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[antag.bantype];jobban_tgt=[ckey]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[antag.bantype];jobban_tgt=[ckey]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
+
+	jobs += "</tr></table>"
+
+	//Other races  (BLUE, because I have no idea what other color to make this)
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='ccccff'><th colspan='1'>Other Races</th></tr><tr align='center'>"
+
+	if (jobban_isbanned(ckey, "Dionaea"))
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Dionaea;jobban_tgt=[ckey]'><font color=red>Dionaea</font></a></td>"
+	else
+		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Dionaea;jobban_tgt=[ckey]'>Dionaea</a></td>"
+	jobs += "</tr></table>"
+	body = "<body>[jobs]</body>"
+	dat = "<tt>[header][body]</tt>"
+	usr << browse(dat, "window=jobban_panel;size=800x490")
+	return
+
+/**
+ * Handles the insertion of a new job ban. Currently called from /datum/admins/Topic().
+ *
+ * Relays a new ban to jobban_fullban and also manages database insertions where needed.
+ *
+ * @param	str tgt_ref	The \ref[] of the target mob we want to dinbannu.
+ * @param	str job		The name of the job we want to ban the target from.
+ *
+ * @return	num		1 if something was done.
+ * 					0 otherwise.
+ */
+/datum/admins/proc/jobban_handle(var/tgt_ref, var/job)
+	if (!check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0))
+		usr << "<span class='warning'>You do not have the appropriate permissions to add job bans!</span>"
+		return 0
+
+	if (check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0) && !config.mods_can_job_tempban) // If mod and tempban disabled
+		usr << "<span class='warning'>Mod jobbanning is disabled!</span>"
+		return 0
+
+	var/mob/M = locate(tgt_ref)
+	if (!ismob(M))
+		usr << "This can only be used on instances of type /mob"
+		return 0
+
+	if (M != usr)																//we can jobban ourselves
+		if(M.client && M.client.holder && (M.client.holder.rights & R_BAN))		//they can ban too. So we can't ban them
+			alert("You cannot perform this action. You must be of a higher administrative rank!")
+			return 0
+
+	if (!job_master)
+		usr << "Job Master has not been setup!"
+		return 0
+
+	//get jobs for department if specified, otherwise just returnt he one job in a list.
+	var/list/joblist = list()
+	switch (job)
+		if ("commanddept")
+			for (var/jobPos in command_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("securitydept")
+			for (var/jobPos in security_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("engineeringdept")
+			for (var/jobPos in engineering_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("medicaldept")
+			for (var/jobPos in medical_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("sciencedept")
+			for (var/jobPos in science_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("civiliandept")
+			for (var/jobPos in civilian_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("nonhumandept")
+			joblist += "pAI"
+			for (var/jobPos in nonhuman_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		else
+			joblist += job
+
+	//Create a list of unbanned jobs within joblist
+	var/list/notbannedlist = list()
+	for (var/R in joblist)
+		if (!jobban_isbanned(M, R))
+			notbannedlist += R
+
+	//Banning comes first
+	if (notbannedlist.len) //at least 1 unbanned job exists in joblist so we have stuff to ban.
+		switch (alert("Temporary Ban?",,"Yes","No", "Cancel"))
+			if ("Yes")
+				if (!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
+					usr << "<span class='warning'>You Cannot issue temporary job-bans!</span>"
+					return 0
+				var/mins = input(usr, "How long (in minutes)?", "Ban time", 1440) as num|null
+				if (!mins)
+					return 0
+				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > config.mod_job_tempban_max)
+					usr << "<span class='warning'>Moderators can only job tempban up to [config.mod_job_tempban_max] minutes!</span>"
+					return 0
+				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
+				if (!reason)
+					return 0
+
+				var/msg
+				for (var/R in notbannedlist)
+					ban_unban_log_save("[key_name(usr)] temp-jobbanned [key_name(M)] from [R] for [mins] minutes. reason: [reason]")
+					log_admin("[key_name(usr)] temp-jobbanned [key_name(M)] from [R] for [mins] minutes",admin_key=key_name(usr))
+					feedback_inc("ban_job_tmp", 1)
+					feedback_add_details("ban_job_tmp","- [R]")
+					jobban_fullban(M, R, reason, mins)
+
+					if (!msg)
+						msg = R
+					else
+						msg += ", [R]"
+				if (config.ban_legacy_system)
+					notes_add(M.ckey, "Banned from [msg] - [reason]", usr)
+				else
+					notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
+				message_admins("<span class='notice'>[key_name_admin(usr)] banned [key_name_admin(M)] from [msg] for [mins] minutes.</span>", 1)
+				M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
+				M << "<span class='danger'>The reason is: [reason]</span>"
+				M << "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>"
+				jobban_panel(M)
+				return 1
+			if ("No")
+				if (!check_rights(R_BAN))
+					return
+				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
+				if (reason)
+					var/msg
+					for (var/R in notbannedlist)
+						ban_unban_log_save("[key_name(usr)] perma-jobbanned [key_name(M)] from [R]. reason: [reason]")
+						log_admin("[key_name(usr)] perma-banned [key_name(M)] from [R]",admin_key=key_name(usr))
+						feedback_inc("ban_job", 1)
+						feedback_add_details("ban_job", "- [R]")
+						jobban_fullban(M, R, reason, -1)
+						if (!msg)
+							msg = R
+						else
+							msg += ", [R]"
+
+					if (config.ban_legacy_system)
+						notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
+					else
+						notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
+					message_admins("<span class='notice'>[key_name_admin(usr)] banned [key_name_admin(M)] from [msg]</span>", 1)
+					M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
+					M << "<span class='danger'>The reason is: [reason]</span>"
+					M << "<span class='warning'>Jobban can be lifted only upon request.</span>"
+					jobban_panel(M)
+					return 1
+			if("Cancel")
+				return
+
+	//Unbanning joblist
+	//all jobs in joblist are banned already OR we didn't give a reason (implying they shouldn't be banned)
+	if (joblist.len) //at least 1 banned job exists in joblist so we have stuff to unban.
+		if (!config.ban_legacy_system)
+			// This is important. jobban_unban() can't actually lift DB bans. So the DB unban
+			// panel must be used instead.
+			usr << "Unfortunately, database based unbanning cannot be done through this panel"
+			DB_ban_panel(M.ckey)
+			return 0
+
+		var/msg
+		for (var/R in joblist)
+			var/reason = jobban_isbanned(M, R)
+			if (!reason)
+				continue //skip if it isn't jobbanned anyway
+			switch (alert("Job: '[R]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))
+				if ("Yes")
+					ban_unban_log_save("[key_name(usr)] unjobbanned [key_name(M)] from [R]")
+					log_admin("[key_name(usr)] unbanned [key_name(M)] from [R]",admin_key=key_name(usr),ckey=key_name(M))
+					jobban_unban(M, R) // Refer to the jobban API.
+					feedback_inc("ban_job_unban",1)
+					feedback_add_details("ban_job_unban","- [R]")
+					if (!msg)
+						msg = R
+					else
+						msg += ", [R]"
+				else
+					continue
+		if (msg)
+			message_admins("<span class='notice'>[key_name_admin(usr)] unbanned [key_name_admin(M)] from [msg]</span>", 1)
+			M << "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>"
+			jobban_panel(M)
+		return 1
+	return 0 //we didn't do anything!
+
+
+
+#undef CKEY_OR_MOB

@@ -268,11 +268,9 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	notes_add_sql(ckey(pckey), "[ban_type] (#[id]) lifted. Reason for unban: [reason].", usr)
 
-	if ((ban_type == BANTYPE_JOB_PERMA || ban_type == BANTYPE_JOB_TEMP) && job)
-		testing("We are here.")
-		jobban_unban(null, job, pckey)
-	else
-		testing("Ban: [ban_type], job: [job], ckey: [ckey].")
+	// If we're lifting a jobban, update the local array of bans.
+	if ((ban_type == "JOBBAN_TEMP" || ban_type == "JOBBAN_PERMA") && job)
+		jobban_unban(pckey, job)
 
 /client/proc/DB_ban_panel()
 	set category = "Admin"

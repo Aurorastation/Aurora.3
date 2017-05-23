@@ -63,7 +63,7 @@ proc/admin_notice(var/message, var/rights)
 		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
 		<a href='?src=\ref[src];warnsearchckey=[M.ckey]'>Warnings</a> |
 		<A href='?src=\ref[src];newban=\ref[M]'>Ban</A> |
-		<A href='?src=\ref[src];jobban2=\ref[M]'>Jobban</A> |
+		<A href='?src=\ref[src];jobban_panel=\ref[M]'>Jobban</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
 	"}
 
@@ -579,12 +579,14 @@ proc/admin_notice(var/message, var/rights)
 		return
 
 	// RIP whoever uses this panel. It's going to be amazingly painful!
-	var/dat = "<B>Job Bans!</B><HR><table>"
+	var/dat = "<B>Job Bans!</B><HR>"
+	dat += "<a href='?src=\ref[src];jobban_search=1'>Search via ckey</a><br>"
+	dat += "<table>"
 	for (var/ckey in jobban_keylist)
 		for (var/job in jobban_keylist[ckey])
 			var/list/ban = jobban_keylist[ckey][job]
 			if (!jobban_isexpired(ban, null, job, ckey))
-				dat += "<tr><td>[ckey] - [ban[2]] - (<a href='?src=\ref[src];removejobban=[ckey];removejobbanjob=[job];'>unban</a>)</td></tr>"
+				dat += "<tr><td>[ckey] - [ban[2]] - (<a href='?src=\ref[src];jobban_tgt=[ckey];jobban_job=[job];'>unban</a>)</td></tr>"
 
 	dat += "</table>"
 	usr << browse(dat, "window=ban;size=400x400")
