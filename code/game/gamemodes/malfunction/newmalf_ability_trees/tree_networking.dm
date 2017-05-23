@@ -172,7 +172,7 @@
 				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 				return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			world << "\red New [company_name] Update available at all communication consoles."
+			world << "<span class='alert'>New [company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
 			post_comm_message(reporttitle, reportbody)
 

@@ -23,10 +23,10 @@
 									"The more carnivorous and knowledge hungry cousin of the space carp. Keep away from books."
 									)
 
-/obj/item/weapon/monster_manual/attack_self(mob/user as mob)
+/obj/item/weapon/monster_manual/attack_self(mob/living/user as mob)
 	if(!user)
 		return
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		user <<"<span class='warning'>When you try to open the book, horrors pours out from among the pages!</span>"
 		new /mob/living/simple_animal/hostile/creature(user.loc)
 		playsound(user, 'sound/magic/Summon_Karp.ogg', 100, 1)

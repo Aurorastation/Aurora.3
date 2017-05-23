@@ -102,7 +102,7 @@
 
 		establish_db_connection(dbcon)
 		if (!dbcon.IsConnected())
-			src << "\red Action failed! Database link could not be established!"
+			src << "<span class='warning'>Action failed! Database link could not be established!</span>"
 			return
 
 
@@ -110,11 +110,11 @@
 		check_query.Execute(list(":id" = request_id))
 
 		if (!check_query.NextRow())
-			src << "\red No request found!"
+			src << "<span class='warning'>No request found!</span>"
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			src << "\red Request authentication failed!"
+			src << "<span class='warning'>Request authentication failed!</span>"
 			return
 
 		var/query_contents = ""
@@ -134,7 +134,7 @@
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
-				src << "\red Invalid command sent."
+				src << "<span class='warning'>Invalid command sent.</span>"
 				return
 
 		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
@@ -278,7 +278,7 @@
 		src.preload_rsc = pick(config.resource_urls)
 	else src.preload_rsc = 1 // If config.resource_urls is not set, preload like normal.
 
-	src << "\red If the title screen is black, resources are still downloading. Please be patient until the title screen appears."
+	src << "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>"
 
 
 	clients += src

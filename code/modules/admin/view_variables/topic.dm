@@ -489,7 +489,7 @@
 			return
 
 		usr << span("alert", "This command is temporarily disabled.")
-		//nanomanager.send_resources(H.client)
+		//SSnanoui.send_resources(H.client)
 
 		//usr << "Resource files sent"
 		//H << "Your NanoUI Resource files have been refreshed"

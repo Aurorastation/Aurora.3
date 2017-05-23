@@ -33,12 +33,12 @@
 		power_light = 0
 		power_equip = 0
 		power_environ = 0
-		
+
 	if (!mapload)
 		power_change()		// all machines set to current power level, also updates lighting icon
 
 	blend_mode = BLEND_MULTIPLY
-	
+
 	. = ..()
 
 /area/proc/get_contents()
@@ -50,7 +50,7 @@
 		var/obj/machinery/camera/C = thing
 		if (!isturf(C.loc))
 			continue
-		
+
 		if (C.loc.loc == src)
 			. += C
 
@@ -316,7 +316,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(istype(mob,/mob/living/carbon/human/))
 		var/mob/living/carbon/human/H = mob
-		if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & NOSLIP))
+		if(H.Check_Shoegrip(FALSE))
 			return
 
 		if(H.m_intent == "run")

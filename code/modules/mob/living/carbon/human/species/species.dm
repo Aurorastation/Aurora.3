@@ -66,6 +66,7 @@
 	var/toxins_mod =    1                    // Toxloss modifier
 	var/radiation_mod = 1                    // Radiation modifier
 	var/flash_mod =     1                    // Stun from blindness modifier.
+	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
 	var/vision_flags = SEE_SELF              // Same flags as glasses.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
 

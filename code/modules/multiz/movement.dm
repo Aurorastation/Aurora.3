@@ -34,7 +34,7 @@
 		return 0
 
 	var/area/area = get_area(src)
-	if(direction == UP && area.has_gravity)
+	if(direction == UP && area.has_gravity && !usr.CanAvoidGravity())
 		to_chat(usr, "<span class='warning'>Gravity stops you from moving upward.</span>")
 		return 0
 
@@ -65,6 +65,35 @@
 		forceMove(destination)
 	else
 		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
+
+/**
+ * @brief	Used to determine whether or not a given mob can override gravity when
+ * attempting to Z-move UP.
+ *
+ * Returns FALSE in standard mob cases. Exists for carbon/human and other child overrides.
+ *
+ * @return	TRUE if the mob can Z-move up despite gravity.
+ *			FALSE otherwise.
+ */
+/mob/proc/CanAvoidGravity()
+	return FALSE
+
+/mob/living/carbon/human/CanAvoidGravity()
+	if (!restrained())
+		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+		if (thrust && !lying && thrust.allow_thrust(0.01, src))
+			return TRUE
+
+	return ..()
+
+/mob/living/silicon/robot/CanAvoidGravity()
+	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+	if (thrust && thrust.allow_thrust(0.02, src))
+		return TRUE
+
+	return ..()
 
 /mob/proc/can_ztravel()
 	return 0
@@ -155,6 +184,25 @@
 	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
 		return FALSE
 
+/mob/living/carbon/human/can_fall()
+	// Special condition for jetpack mounted folk!
+	if (!restrained())
+		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+		if (thrust && thrust.stabilization_on &&\
+			!lying && thrust.allow_thrust(0.01, src))
+			return FALSE
+
+	return ..()
+
+/mob/living/silicon/robot/can_fall()
+	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+
+	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))
+		return FALSE
+
+	return ..()
+
 /atom/movable/proc/handle_fall(var/turf/landing)
 	Move(landing)
 	if(locate(/obj/structure/stairs) in landing)
@@ -165,7 +213,7 @@
 	else if(!istype(landing, /turf/space))
 		visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
 
-/mob/living/carbon/human/handle_fall(var/turf/landing)
+/mob/living/handle_fall(var/turf/landing)
 	if(..())
 		return
 
@@ -179,14 +227,42 @@
 		if(!area2.has_gravity())
 			return
 
-	var/damage = 20
-	apply_damage(rand(0, damage), BRUTE, "head")
+	if(!istype(src, /mob/living/carbon/human))
+		var/damage = 30
+		apply_damage(rand(0, damage), BRUTE)
+		apply_damage(rand(0, damage), BRUTE)
+		apply_damage(rand(0, damage), BRUTE)
+
+/mob/living/carbon/human/handle_fall(var/turf/landing)
+	if(..())
+		return
+
+	var/damage = 30*species.fall_mod
+	if(prob(20)) //landed on their head
+		apply_damage(rand(0, damage), BRUTE, "head")
+
+	else if(prob(20)) //landed on their arms
+		apply_damage(rand(0, damage), BRUTE, "l_arm")
+		apply_damage(rand(0, damage), BRUTE, "r_arm")
+
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "r_hand")
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "l_hand")
+
+	else //landed on their legs
+		apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
+		apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
+
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "r_foot")
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "l_foot")
+		if(prob(50))
+			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
+
 	apply_damage(rand(0, damage), BRUTE, "chest")
-	apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
-	apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
-	apply_damage(rand(0, damage), BRUTE, "l_arm")
-	apply_damage(rand(0, damage), BRUTE, "r_arm")
-	Weaken(2)
+	Weaken(rand(0,damage/2))
 	updatehealth()
 
 /mob/living/carbon/human/bst/can_fall()

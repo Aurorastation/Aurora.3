@@ -32,6 +32,7 @@
 	total_health = 75
 	brute_mod = 1.5
 	burn_mod = 1.5
+	fall_mod = 0.5
 
 	spawn_flags = IS_RESTRICTED
 
@@ -56,6 +57,7 @@
 	name = "Farwa"
 	short_name = "far"
 	name_plural = "Farwa"
+	fall_mod = 0.25
 
 	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_farwa.dmi'
@@ -93,6 +95,7 @@
 	reagent_tag = IS_SKRELL
 	tail = null
 	holder_type = /obj/item/weapon/holder/monkey/neaera
+	fall_mod = 0.25
 
 /datum/species/monkey/unathi
 	name = "Stok"
@@ -109,6 +112,7 @@
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
 	holder_type = /obj/item/weapon/holder/monkey/stok
+	fall_mod = 0.75
 
 /datum/species/monkey/bug
 	name = "V'krexi"
@@ -153,5 +157,6 @@
 	cold_level_3 = -1
 	brute_mod = 0.8
 	burn_mod = 2
+	fall_mod = 0
 	slowdown = -1
 

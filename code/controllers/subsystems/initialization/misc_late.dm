@@ -9,13 +9,13 @@
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
 	// Sort the area list.
 	sortTim(all_areas, /proc/cmp_name_asc)
-	
+
 	var/turf/picked
 	// Setup the teleport locs.
 	for (var/thing in all_areas)
 		var/area/AR = thing
 		picked = null
-		if(!(istype(AR, /area/shuttle) || istype(AR, /area/syndicate_station) || istype(AR, /area/wizard_station))) 
+		if(!(istype(AR, /area/shuttle) || istype(AR, /area/syndicate_station) || istype(AR, /area/wizard_station)))
 			picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
 			if (picked)
 				teleportlocs += AR.name
@@ -32,9 +32,7 @@
 
 	sortTim(teleportlocs, /proc/cmp_text_asc)
 	sortTim(ghostteleportlocs, /proc/cmp_text_asc)
-	
-	populate_antag_type_list()
-	populate_spawn_points()
+
 	setupgenetics()
 
 	shuttle_controller.setup_shuttle_docks()
