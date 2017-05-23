@@ -266,7 +266,7 @@
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
 	apply_damage(rand(0, damage), BRUTE, "chest") 
-	Weaken(rand(0, (damage/2)))
+	Weaken(rand(0, damage/2))
 	z_levels_fallen = 0 // reset their fallen variable.
 	updatehealth()
 
