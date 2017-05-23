@@ -265,7 +265,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	mode.declare_completion()//To declare normal completion.
 
 	//Ask the event manager to print round end information
-	event_manager.RoundEnd()
+	SSevents.RoundEnd()
 
 	//Print a list of antagonists to the server log
 	var/list/total_antagonists = list()
@@ -348,17 +348,17 @@ var/datum/controller/subsystem/ticker/SSticker
 		world << "<span class='danger'>Serious error in mode setup!</span> Reverting to pre-game lobby."
 		return 0
 
-	job_master.ResetOccupations()
+	SSjobs.ResetOccupations()
 	src.mode.create_antagonists()
 	src.mode.pre_setup()
-	job_master.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
+	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
 		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
-		job_master.ResetOccupations()
+		SSjobs.ResetOccupations()
 		return 0
 
 	if(hide_mode)
@@ -547,7 +547,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(player.mind.assigned_role == "Captain")
 				captainless = FALSE
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
-				job_master.EquipRank(player, player.mind.assigned_role, 0)
+				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
 				UpdateFactionList(player)
 				equip_custom_items(player)
 				

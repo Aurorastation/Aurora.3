@@ -196,7 +196,7 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 				L.Weaken(1)
 				L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
 
-/mob/living/simple_animal/hostile/mimic/copy/proc/get_health_text()
+/mob/living/simple_animal/hostile/mimic/copy/get_health_text()
 	if (health < maxHealth * 0.5)
 		. = "<span class='warning'>It looks heavily damaged.</span>"
 	else if (health < maxHealth)

@@ -530,6 +530,7 @@
 	src.status_error = 0
 	SSnanoui.update_uis(src)
 
+
 	if (R.category & CAT_COIN)
 		if(!coin)
 			user << "<span class='notice'>You need to insert a coin to get this item.</span>"
@@ -666,6 +667,6 @@
 		break
 	if (!throw_item)
 		return 0
-	INVOKE_ASYNC(throw_item, /atom/movable/.throw_at, target, 16, 3, src)
+	INVOKE_ASYNC(throw_item, /atom/movable/.proc/throw_at, target, 16, 3, src)
 	visible_message("<span class='warning'>[src] launches \a [throw_item] at [target]!</span>")
 	return 1
