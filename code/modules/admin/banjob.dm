@@ -80,15 +80,18 @@ var/list/jobban_keylist = list() // Global jobban list.
 		return
 
 	// Set the expirey time in case of temp bans.
+	var/unban_time = minutes
 	if (minutes > -1)
-		minutes = world.realtime + (minutes MINUTES)
+		unban_time = world.realtime + (minutes MINUTES)
 
 	// Create the entry.
-	jobban_keylist[key][rank] = list(reason, minutes)
+	jobban_keylist[key][rank] = list(reason, unban_time)
 
 	// Log the ban to the appropriate place.
 	if (config.ban_legacy_system)
 		jobban_savebanfile()
+	else
+		DB_ban_record(minutes < 0 ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP, null, minutes, reason, rank, banckey = key)
 
 /**
  * Checks if the player attached to the given mob M is banned from
@@ -432,6 +435,28 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
+	//Cargo (Brown ish)
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='f49d50'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in cargo_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = job_master.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5)
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+
 	//Civilian (Grey)
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
@@ -501,6 +526,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=\ref[src];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
 
 	// Antagonists.
+	counter = 0
 	for (var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		if (!antag || !antag.bantype)
@@ -509,6 +535,12 @@ var/list/jobban_keylist = list() // Global jobban list.
 			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[antag.bantype];jobban_tgt=[ckey]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
 		else
 			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[antag.bantype];jobban_tgt=[ckey]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
+
+		counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
 
 	jobs += "</tr></table>"
 
@@ -618,6 +650,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if ("nonhumandept")
 			joblist += "pAI"
 			for (var/jobPos in nonhuman_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = job_master.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("cargodept")
+			for (var/jobPos in cargo_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = job_master.GetJob(jobPos)
@@ -742,7 +782,5 @@ var/list/jobban_keylist = list() // Global jobban list.
 			jobban_panel(ckey)
 		return 1
 	return 0 //we didn't do anything!
-
-
 
 #undef CKEY_OR_MOB

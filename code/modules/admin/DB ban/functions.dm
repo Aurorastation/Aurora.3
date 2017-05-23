@@ -102,9 +102,6 @@
 	usr << "<span class='notice'>Ban saved to database.</span>"
 	message_admins("[key_name_admin(usr)] has added a [bantype_str] for [ckey] [(job)?"([job])":""] [(duration > 0)?"([duration] minutes)":""] with the reason: \"[reason]\" to the ban database.",1)
 
-	if ((bantype == BANTYPE_JOB_PERMA || bantype == BANTYPE_JOB_TEMP) && job)
-		jobban_fullban(ckey, job, reason, duration)
-
 /proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 
 	if(!check_rights(R_BAN))	return
