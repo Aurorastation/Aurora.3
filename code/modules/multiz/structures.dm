@@ -123,10 +123,12 @@
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
 
-/obj/structure/ladder/mobile
-	allowed_directions = UP|DOWN
+/obj/structure/ladder/mobile/base
+	allowed_directions = UP
 	icon_state = "ladder11"
-	
+/obj/structure/ladder/mobile/body
+	allowed_directions = DOWN
+	icon_state = "ladder11"
 
 /obj/structure/ladder/mobile/verb/fold()
 	set name = "Fold Ladder"
@@ -139,7 +141,6 @@
 	verbs -= /obj/structure/ladder/mobile/verb/fold
 	var /obj/item/weapon/ladder_mobile/R = new(src.loc)
 	src.transfer_fingerprints_to(R)
-	//src.Destroy()
 	
 	if(src.target_down == null)
 		src.target_up.Destroy()
