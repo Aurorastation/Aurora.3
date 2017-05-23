@@ -1,3 +1,4 @@
+#define SS_INIT_JOBS               20
 #define SS_INIT_MISC_FIRST         19
 #define SS_INIT_SEEDS              18	// Plant controller setup.
 #define SS_INIT_ASTEROID           17	// Asteroid generation.
