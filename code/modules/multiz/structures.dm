@@ -134,7 +134,11 @@
 	set name = "Fold Ladder"
 	set category = "Object"
 	set src in oview(1)
-
+	if (!do_after(user, 30, act_target = user))
+		to_chat(user, "Can't fold the ladder! You were interrupted!")
+		return
+	if (QDELETED(src) || QDELETED(user))
+		return
 	var /obj/item/weapon/ladder_mobile/R = new(src.loc)
 	src.transfer_fingerprints_to(R)
 	

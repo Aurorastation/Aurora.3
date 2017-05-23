@@ -14,6 +14,7 @@
 		if (!below_loc || (istype(/turf/space,below_loc)))
 			user << "<span class='notice'>Why would you do that?! There is only infinite space there...</span>"
 			return
+		handle_action(a,user)
 		var/obj/structure/ladder/mobile/body/R = new(A)
 		var/obj/structure/ladder/mobile/base/D = new(A)
 		D.forceMove(below_loc)
@@ -29,7 +30,7 @@
 		if (!upper_loc || !istype(upper_loc,/turf/simulated/open))
 			user << "<span class='notice'>There is something above. You can't deploy!</span>"
 			return
-
+		handle_action(a,user)
 		var/obj/structure/ladder/mobile/base/R = new(A)
 		var/obj/structure/ladder/mobile/body/D = new(A)
 		D.forceMove(upper_loc) // moves A up to upper_loc.
@@ -43,12 +44,12 @@
 	if(!proximity)
 		return
 	//addtimer(CALLBACK(src, .proc/place_ladder, A, user), 5000)
-	if (!do_after(user, 30, act_target = A))
+	place_ladder(A,user)
+
+/obj/item/weapon/ladder_mobile/proc/handle_action(atom/A, mob/user)
+	if (!do_after(user, 30, act_target = user))
 		to_chat(user, "Can't place ladder! You were interrupted!")
 		return
-
 	if (!A || QDELETED(src) || QDELETED(user))
 		// Shit was deleted during delay, call is no longer valid.
 		return
-
-	place_ladder(A,user)
