@@ -1,6 +1,6 @@
 /client
 	parent_type = /datum
-	
+
 		////////////////
 		//ADMIN THINGS//
 		////////////////
@@ -41,6 +41,7 @@
 	var/info_sent = 0
 	// comment out the line below when debugging locally to enable the options & messages menu
 	//control_freak = 1
+	var/ip_intel = "Disabled"
 
 	var/received_discord_pm = -99999
 	var/discord_admin			//IRC- no more IRC, K? Discord admin that spoke with them last.

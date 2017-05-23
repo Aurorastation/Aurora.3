@@ -331,6 +331,7 @@
 			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
+	check_ip_intel()
 	send_resources()
 
 	// Server greeting shenanigans.
@@ -441,6 +442,19 @@
 #undef TOPIC_SPAM_DELAY
 #undef UPLOAD_LIMIT
 #undef MIN_CLIENT_VERSION
+
+/client/proc/check_ip_intel()
+	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep
+	if (config.ipintel_email)
+		var/datum/ipintel/res = get_ip_intel(address)
+		if (config.ipintel_rating_kick && res.intel >= config.ipintel_rating_kick)
+			message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
+			log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
+			to_chat(src, "<span class='danger'><font size=15>Usage of proxies is not permitted by the rules. You are being kicked because of this.</font></span>")
+			del(src)
+		else if (res.intel >= config.ipintel_rating_bad)
+			message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
+		ip_intel = res.intel
 
 //checks if a client is afk
 //3000 frames = 5 minutes
