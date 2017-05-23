@@ -60,7 +60,7 @@ var/datum/controller/subsystem/events/SSevents
 			return
 
 /datum/controller/subsystem/events/stat_entry()
-	..("P:[processing_events.len]")
+	..("E:[active_events.len]")
 
 /datum/controller/subsystem/events/proc/event_complete(datum/event/E)
 	if(!E.event_meta || !E.severity)	// datum/event is used here and there for random reasons, maintaining "backwards compatibility"
