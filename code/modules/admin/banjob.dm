@@ -52,28 +52,30 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 /**
  * Logs a new jobban for a user.
- * Will then log the ban to the database (if SQL bans), or orders the
- * save file to be resaved.
+ * Will save the bans to a save file if we're using the legacy system. Otherwise,
+ * should be called via DB_ban_record.
  *
- * @param	mob M		The mob containing the user we wish to apply the jobban to.
+ * @param	str|mob player	The mob object or ckey of the player we're looking for.
  * @param	str rank	The string name of the rank we want to ban the user from.
  * @param	str reason	The reason for the ban.
  * @param	num minutes	The length of the ban in minutes. -1 for permanent.
  * @param	datum/admins holder		The holder of the admin doing the unbanning.
  *						required to access the DB ban procs.
  */
-/datum/admins/proc/jobban_fullban(mob/M, rank, reason, minutes)
-	if (!istype(M) || !M.ckey)
-		return
+/proc/jobban_fullban(player, rank, reason, minutes)
+	var/key = null
 
-	var/key = M.ckey
+	CKEY_OR_MOB(key, player)
+
+	if (!key)
+		return
 
 	// Create a new record if the client isn't logged already.
 	if (!jobban_keylist[key])
 		jobban_keylist[key] = list()
 
 	// Sanity catch. This shouldn't happen, but better safe than sorry.
-	if (jobban_keylist[key][rank] && !jobban_isexpired(jobban_keylist[key][rank], M, rank))
+	if (jobban_keylist[key][rank] && !jobban_isexpired(jobban_keylist[key][rank], player, rank))
 		log_and_message_admins("Attempted to apply a jobban to [key] while they already have an active ban. Job: [rank].")
 		return
 
@@ -87,8 +89,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 	// Log the ban to the appropriate place.
 	if (config.ban_legacy_system)
 		jobban_savebanfile()
-	else
-		DB_ban_record(minutes < 0 ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP, M, minutes, reason, rank)
 
 /**
  * Checks if the player attached to the given mob M is banned from
@@ -141,13 +141,13 @@ var/list/jobban_keylist = list() // Global jobban list.
 			var/list/ban = entry[rank]
 
 			// We have it, return it!
-			if (ban && !jobban_isexpired(ban, entry))
+			if (ban && !jobban_isexpired(ban, player, rank))
 				return ban[1]
 
 			// Catch for global antagonist bans as a failsafe.
 			if (antag_ban)
 				ban = entry["Antagonist"]
-				if (ban && !jobban_isexpired(ban, entry))
+				if (ban && !jobban_isexpired(ban, player, rank))
 					return ban[1]
 
 	return null

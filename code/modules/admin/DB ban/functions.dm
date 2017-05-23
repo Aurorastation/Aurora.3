@@ -1,8 +1,16 @@
 
 //Either pass the mob you wish to ban in the 'banned_mob' attribute, or the banckey, banip and bancid variables. If both are passed, the mob takes priority! If a mob is not passed, banckey is the minimum that needs to be passed! banip and bancid are optional.
-datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = -1, var/reason, var/job = "", var/rounds = 0, var/banckey = null, var/banip = null, var/bancid = null)
+/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = -1, var/reason, var/job = "", var/rounds = 0, var/banckey = null, var/banip = null, var/bancid = null)
+	if(!check_rights(R_MOD,0) && !check_rights(R_BAN))
+		return
 
-	if(!check_rights(R_MOD,0) && !check_rights(R_BAN))	return
+	var/datum/admins/holder = null
+
+	if (usr)
+		holder = usr.client ? usr.client.holder : null
+
+		if (!holder)
+			return
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
@@ -63,10 +71,14 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 	var/a_computerid
 	var/a_ip
 
-	if(src.owner && istype(src.owner, /client))
-		a_ckey = src.owner:ckey
-		a_computerid = src.owner:computer_id
-		a_ip = src.owner:address
+	if(holder && holder.owner && istype(holder.owner, /client))
+		a_ckey = holder.owner:ckey
+		a_computerid = holder.owner:computer_id
+		a_ip = holder.owner:address
+	else
+		a_ckey = "Adminbot"
+		a_computerid = ""
+		a_ip = world.address
 
 	var/who
 	for(var/client/C in clients)
@@ -90,9 +102,10 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 	usr << "<span class='notice'>Ban saved to database.</span>"
 	message_admins("[key_name_admin(usr)] has added a [bantype_str] for [ckey] [(job)?"([job])":""] [(duration > 0)?"([duration] minutes)":""] with the reason: \"[reason]\" to the ban database.",1)
 
+	if ((bantype == BANTYPE_JOB_PERMA || bantype == BANTYPE_JOB_TEMP) && job)
+		jobban_fullban(ckey, job, reason, duration)
 
-
-datum/admins/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
+/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 
 	if(!check_rights(R_BAN))	return
 
@@ -156,7 +169,7 @@ datum/admins/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 
 	DB_ban_unban_by_id(ban_id)
 
-datum/admins/proc/DB_ban_edit(var/banid = null, var/param = null)
+/proc/DB_ban_edit(var/banid = null, var/param = null)
 
 	if(!check_rights(R_BAN))	return
 
@@ -216,7 +229,7 @@ datum/admins/proc/DB_ban_edit(var/banid = null, var/param = null)
 			usr << "Cancelled"
 			return
 
-datum/admins/proc/DB_ban_unban_by_id(var/id)
+/proc/DB_ban_unban_by_id(var/id)
 
 	if(!check_rights(R_BAN))	return
 
@@ -252,12 +265,17 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 		usr << "<span class='warning'>Database update failed due to multiple bans having the same ID. Contact the database admin.</span>"
 		return
 
-	if(!src.owner || !istype(src.owner, /client))
-		return
+	var/datum/admins/holder = null
 
-	var/unban_ckey = src.owner:ckey
-	var/unban_computerid = src.owner:computer_id
-	var/unban_ip = src.owner:address
+	if (usr)
+		holder = usr.client ? usr.client.holder : null
+
+		if (!holder)
+			return
+
+	var/unban_ckey = holder ? holder.owner.ckey : "Adminbot"
+	var/unban_computerid = holder ? holder.owner.computer_id : ""
+	var/unban_ip = holder ? holder.owner.address : world.address
 	var/unban_reason = sanitizeSQL(reason)
 
 	var/sql_update = "UPDATE ss13_ban SET unbanned = 1, unbanned_datetime = Now(), unbanned_ckey = '[unban_ckey]', unbanned_computerid = '[unban_computerid]', unbanned_ip = '[unban_ip]', unbanned_reason = '[unban_reason]' WHERE id = [id]"
@@ -269,7 +287,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 	notes_add_sql(ckey(pckey), "[ban_type] (#[id]) lifted. Reason for unban: [reason].", usr)
 
 	// If we're lifting a jobban, update the local array of bans.
-	if ((ban_type == "JOBBAN_TEMP" || ban_type == "JOBBAN_PERMA") && job)
+	if ((ban_type == "JOB_TEMPBAN" || ban_type == "JOB_PERMABAN") && job)
 		jobban_unban(pckey, job)
 
 /client/proc/DB_ban_panel()
