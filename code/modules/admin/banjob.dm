@@ -305,10 +305,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 		to_chat(src.owner, "This mob has no ckey.")
 		return
 
-	if (!job_master)
-		to_chat(src.owner, "Job master has not been set up yet! Please wait.")
-		return
-
 	var/dat = ""
 	var/header = "<head><title>Job-Ban Panel: [ckey]</title></head>"
 	var/body
@@ -327,7 +323,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in command_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -350,7 +346,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in security_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -373,7 +369,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in engineering_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -396,7 +392,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in medical_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -419,7 +415,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in science_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -442,7 +438,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in cargo_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -464,7 +460,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in civilian_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -493,7 +489,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	for (var/jobPos in nonhuman_positions)
 		if (!jobPos)
 			continue
-		var/datum/job/job = job_master.GetJob(jobPos)
+		var/datum/job/job = SSjobs.GetJob(jobPos)
 		if (!job)
 			continue
 
@@ -592,10 +588,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 				alert("You cannot perform this action. You must be of a higher administrative rank!")
 				return 0
 
-	if (!job_master)
-		usr << "Job Master has not been setup!"
-		return 0
-
 	//get jobs for department if specified, otherwise just returnt he one job in a list.
 	var/list/joblist = list()
 	switch (job)
@@ -603,7 +595,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in command_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
@@ -611,7 +603,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in security_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
@@ -619,7 +611,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in engineering_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
@@ -627,7 +619,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in medical_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
@@ -635,7 +627,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in science_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
@@ -643,7 +635,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in civilian_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
@@ -652,7 +644,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in nonhuman_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
@@ -660,7 +652,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			for (var/jobPos in cargo_positions)
 				if (!jobPos)
 					continue
-				var/datum/job/temp = job_master.GetJob(jobPos)
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
 				if (!temp)
 					continue
 				joblist += temp.title
