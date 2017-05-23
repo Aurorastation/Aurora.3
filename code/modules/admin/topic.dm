@@ -398,6 +398,7 @@
 
 	else if(href_list["jobban_panel"])
 		jobban_panel(href_list["jobban_panel"])
+		return
 
 	// JOBBAN'S INNARDS
 	// Are now moved to banjob.dm. For use with the newer system.
@@ -414,6 +415,7 @@
 			return
 
 		jobban_panel(ckey)
+		return
 
 	else if(href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
