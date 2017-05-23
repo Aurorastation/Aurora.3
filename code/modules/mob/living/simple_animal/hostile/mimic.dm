@@ -134,9 +134,9 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	var/destroy_objects = 0
 	var/knockdown_people = 0
 
-/mob/living/simple_animal/hostile/mimic/copy/New(loc, var/obj/copy, var/mob/living/creator)
+/mob/living/simple_animal/hostile/mimic/copy/New(loc, var/obj/copy, var/mob/living/creator, destroy_original = FALSE)
 	..(loc)
-	CopyObject(copy, creator)
+	CopyObject(copy, creator, destroy_original)
 
 /mob/living/simple_animal/hostile/mimic/copy/death()
 
@@ -149,15 +149,15 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	. = ..()
 	return . - creator
 
-/mob/living/simple_animal/hostile/mimic/copy/proc/CopyObject(var/obj/O, var/mob/living/creator)
+/mob/living/simple_animal/hostile/mimic/copy/proc/CopyObject(var/obj/O, var/mob/living/creator, destroy_original = FALSE)
 
-	if((istype(O, /obj/item) || istype(O, /obj/structure)) && !is_type_in_list(O, protected_objects))
+	if((istype(O, /obj/item) || istype(O, /obj/structure) || istype(O, /obj/machinery)) && !is_type_in_list(O, protected_objects))
 
 		O.forceMove(src)
 		appearance = O
 		icon_living = icon_state
 
-		if(istype(O, /obj/structure))
+		if(istype(O, /obj/structure) || istype(O, /obj/machinery))
 			health = (anchored * 50) + 50
 			destroy_objects = 1
 			if(O.density && O.anchored)
@@ -175,6 +175,9 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 		if(creator)
 			src.creator = creator
 			faction = "\ref[creator]" // very unique
+
+		if (destroy_original)
+			qdel(O)
 		return 1
 	return
 

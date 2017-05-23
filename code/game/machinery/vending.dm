@@ -565,13 +565,15 @@
 	use_power(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
-	spawn(src.vend_delay)
-		new R.product_path(get_turf(src))
-		src.status_message = ""
-		src.status_error = 0
-		src.vend_ready = 1
-		currently_vending = null
-		SSnanoui.update_uis(src)
+	addtimer(CALLBACK(src, .proc/do_vend, R.product_path), vend_delay)
+
+/obj/machinery/vending/proc/do_vend(path)
+	new path(get_turf(src))
+	status_message = ""
+	status_error = 0
+	vend_ready = 1
+	currently_vending = null
+	SSnanoui.update_uis(src)
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 	user << "<span class='notice'>You insert \the [src] in the product receptor.</span>"
@@ -607,9 +609,15 @@
 	if (!message)
 		return
 
-	for(var/mob/O in hearers(src, null))
-		O.show_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>",2)
-	return
+	var/list/hear = hearers(src, null)
+	var/list/client/clients = list()
+	for (var/mob/M in hear)
+		if (M.client)
+			clients += M.client
+			M.show_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>", 2)
+	var/image/bubble = image('icons/mob/talk.dmi', src, "h2")
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, bubble, clients, 30)
+
 
 /obj/machinery/vending/power_change()
 	..()
@@ -619,8 +627,10 @@
 		if( !(stat & NOPOWER) )
 			icon_state = initial(icon_state)
 		else
-			spawn(rand(0, 15))
-				src.icon_state = "[initial(icon_state)]-off"
+			addtimer(CALLBACK(src, .proc/set_icon_off), rand(0, 15))
+
+/obj/machinery/vending/proc/set_icon_off()
+	icon_state = "[initial(icon_state)]-off"
 
 //Oh no we're malfunctioning!  Dump out some product and break.
 /obj/machinery/vending/proc/malfunction()
