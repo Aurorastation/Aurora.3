@@ -546,15 +546,19 @@ var/list/jobban_keylist = list() // Global jobban list.
 		usr << "<span class='warning'>Mod jobbanning is disabled!</span>"
 		return 0
 
-	var/mob/M = locate(tgt_ref)
-	if (!ismob(M))
-		usr << "This can only be used on instances of type /mob"
+	var/ckey = null
+	CKEY_OR_MOB(ckey, tgt_ref)
+
+	if (!ckey)
+		usr << "<span class='warning'>No valid target sent. Cancelling.</span>"
 		return 0
 
-	if (M != usr)																//we can jobban ourselves
-		if(M.client && M.client.holder && (M.client.holder.rights & R_BAN))		//they can ban too. So we can't ban them
-			alert("You cannot perform this action. You must be of a higher administrative rank!")
-			return 0
+	if (admin_datums[ckey])
+		if (ckey != usr.ckey)										//we can jobban ourselves
+			var/datum/admins/other_holder = admin_datums[ckey]
+			if(other_holder && (other_holder.rights & R_BAN))		//they can ban too. So we can't ban them
+				alert("You cannot perform this action. You must be of a higher administrative rank!")
+				return 0
 
 	if (!job_master)
 		usr << "Job Master has not been setup!"
@@ -626,7 +630,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Create a list of unbanned jobs within joblist
 	var/list/notbannedlist = list()
 	for (var/R in joblist)
-		if (!jobban_isbanned(M, R))
+		if (!jobban_isbanned(ckey, R))
 			notbannedlist += R
 
 	//Banning comes first
@@ -648,25 +652,27 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 				var/msg
 				for (var/R in notbannedlist)
-					ban_unban_log_save("[key_name(usr)] temp-jobbanned [key_name(M)] from [R] for [mins] minutes. reason: [reason]")
-					log_admin("[key_name(usr)] temp-jobbanned [key_name(M)] from [R] for [mins] minutes",admin_key=key_name(usr))
+					ban_unban_log_save("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes. reason: [reason]")
+					log_admin("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes",admin_key=key_name(usr))
 					feedback_inc("ban_job_tmp", 1)
 					feedback_add_details("ban_job_tmp","- [R]")
-					jobban_fullban(M, R, reason, mins)
+					jobban_fullban(ckey, R, reason, mins)
 
 					if (!msg)
 						msg = R
 					else
 						msg += ", [R]"
 				if (config.ban_legacy_system)
-					notes_add(M.ckey, "Banned from [msg] - [reason]", usr)
+					notes_add(ckey, "Banned from [msg] - [reason]", usr)
 				else
-					notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
-				message_admins("<span class='notice'>[key_name_admin(usr)] banned [key_name_admin(M)] from [msg] for [mins] minutes.</span>", 1)
-				M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
-				M << "<span class='danger'>The reason is: [reason]</span>"
-				M << "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>"
-				jobban_panel(M)
+					notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
+				message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg] for [mins] minutes.</span>", 1)
+				if (ismob(tgt_ref))
+					var/mob/M = tgt_ref
+					M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
+					M << "<span class='danger'>The reason is: [reason]</span>"
+					M << "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>"
+				jobban_panel(ckey)
 				return 1
 			if ("No")
 				if (!check_rights(R_BAN))
@@ -675,25 +681,27 @@ var/list/jobban_keylist = list() // Global jobban list.
 				if (reason)
 					var/msg
 					for (var/R in notbannedlist)
-						ban_unban_log_save("[key_name(usr)] perma-jobbanned [key_name(M)] from [R]. reason: [reason]")
-						log_admin("[key_name(usr)] perma-banned [key_name(M)] from [R]",admin_key=key_name(usr))
+						ban_unban_log_save("[key_name(usr)] perma-jobbanned [ckey] from [R]. reason: [reason]")
+						log_admin("[key_name(usr)] perma-banned [ckey] from [R]",admin_key=key_name(usr))
 						feedback_inc("ban_job", 1)
 						feedback_add_details("ban_job", "- [R]")
-						jobban_fullban(M, R, reason, -1)
+						jobban_fullban(ckey, R, reason, -1)
 						if (!msg)
 							msg = R
 						else
 							msg += ", [R]"
 
 					if (config.ban_legacy_system)
-						notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
+						notes_add(ckey, "Banned  from [msg] - [reason]", usr)
 					else
-						notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
-					message_admins("<span class='notice'>[key_name_admin(usr)] banned [key_name_admin(M)] from [msg]</span>", 1)
-					M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
-					M << "<span class='danger'>The reason is: [reason]</span>"
-					M << "<span class='warning'>Jobban can be lifted only upon request.</span>"
-					jobban_panel(M)
+						notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
+					message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg]</span>", 1)
+					if (ismob(tgt_ref))
+						var/mob/M = tgt_ref
+						M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
+						M << "<span class='danger'>The reason is: [reason]</span>"
+						M << "<span class='warning'>Jobban can be lifted only upon request.</span>"
+					jobban_panel(ckey)
 					return 1
 			if("Cancel")
 				return
@@ -705,19 +713,19 @@ var/list/jobban_keylist = list() // Global jobban list.
 			// This is important. jobban_unban() can't actually lift DB bans. So the DB unban
 			// panel must be used instead.
 			usr << "Unfortunately, database based unbanning cannot be done through this panel"
-			DB_ban_panel(M.ckey)
+			DB_ban_panel(ckey)
 			return 0
 
 		var/msg
 		for (var/R in joblist)
-			var/reason = jobban_isbanned(M, R)
+			var/reason = jobban_isbanned(ckey, R)
 			if (!reason)
 				continue //skip if it isn't jobbanned anyway
 			switch (alert("Job: '[R]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))
 				if ("Yes")
-					ban_unban_log_save("[key_name(usr)] unjobbanned [key_name(M)] from [R]")
-					log_admin("[key_name(usr)] unbanned [key_name(M)] from [R]",admin_key=key_name(usr),ckey=key_name(M))
-					jobban_unban(M, R) // Refer to the jobban API.
+					ban_unban_log_save("[key_name(usr)] unjobbanned [ckey] from [R]")
+					log_admin("[key_name(usr)] unbanned [ckey] from [R]",admin_key=key_name(usr),ckey=ckey)
+					jobban_unban(ckey, R) // Refer to the jobban API.
 					feedback_inc("ban_job_unban",1)
 					feedback_add_details("ban_job_unban","- [R]")
 					if (!msg)
@@ -727,9 +735,11 @@ var/list/jobban_keylist = list() // Global jobban list.
 				else
 					continue
 		if (msg)
-			message_admins("<span class='notice'>[key_name_admin(usr)] unbanned [key_name_admin(M)] from [msg]</span>", 1)
-			M << "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>"
-			jobban_panel(M)
+			message_admins("<span class='notice'>[key_name_admin(usr)] unbanned [ckey] from [msg]</span>", 1)
+			if (ismob(tgt_ref))
+				var/mob/M = tgt_ref
+				M << "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>"
+			jobban_panel(ckey)
 		return 1
 	return 0 //we didn't do anything!
 
