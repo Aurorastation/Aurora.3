@@ -215,7 +215,7 @@
 
 /mob/living/handle_fall(var/turf/landing)
 	if(..())
-		return
+		return 1
 
 	var/area/area1 = get_area(landing)
 	if(!area1.has_gravity())
