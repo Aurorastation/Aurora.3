@@ -18,11 +18,16 @@
 	var/revert_sound = 'sound/weapons/emitter.ogg' //the sound that plays when something gets turned back.
 	var/share_damage = 1 //do we want the damage we take from our new form to move onto our real one? (Only counts for finite duration)
 	var/drop_items = 1 //do we want to drop all our items when we transform?
+	var/list/protected_roles = list() //which roles are immune to the spell
 
 /spell/targeted/shapeshift/cast(var/list/targets, mob/user)
 	for(var/mob/living/M in targets)
 		if(M.stat == DEAD)
 			user << "[name] can only transform living targets."
+			continue
+
+		if(M.mind.special_role in protected_roles)
+			user << "Your spell has no effect on them."
 			continue
 
 		if(M.buckled)
@@ -91,6 +96,8 @@
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 2, Sp_POWER = 2)
 
 	newVars = list("health" = 50, "maxHealth" = 50)
+	
+	protected_roles = list("Wizard","Changeling","Cultist","Vampire")
 
 	hud_state = "wiz_poly"
 
@@ -125,7 +132,7 @@
 	name = "Corrupt Form"
 	desc = "This spell shapes the wizard into a terrible, terrible beast."
 	feedback = "CF"
-	possible_transformations = list(/mob/living/simple_animal/hostile/faithless)
+	possible_transformations = list(/mob/living/simple_animal/hostile/faithless/wizard)
 
 	invocation = "mutters something dark and twisted as their form begins to twist..."
 	invocation_type = SpI_EMOTE
@@ -154,9 +161,10 @@
 			return "You will now stay corrupted for [duration/10] seconds."
 		if(2)
 			newVars = list("name" = "\proper corruption incarnate",
-						"melee_damage_upper" = 35,
+						"melee_damage_upper" = 45,
 						"resistance" = 6,
-						"health" = 450, //since it is foverer i guess it would be fine to turn them into some short of boss
-						"maxHealth" = 450)
+						"health" = 650, //since it is foverer i guess it would be fine to turn them into some short of boss
+						"maxHealth" = 650)
 			duration = 0
 			return "You revel in the corruption. There is no turning back."
+

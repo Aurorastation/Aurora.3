@@ -38,22 +38,19 @@ field_generator power level display
 
 
 /obj/machinery/field_generator/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(!active)
 		if(warming_up)
-			overlays += "+a[warming_up]"
+			add_overlay("+a[warming_up]")
 	if(fields.len)
-		overlays += "+on"
+		add_overlay("+on")
 	// Power level indicator
 	// Scale % power to % num_power_levels and truncate value
 	var/level = round(num_power_levels * power / field_generator_max_power)
 	// Clamp between 0 and num_power_levels for out of range power values
 	level = between(0, level, num_power_levels)
 	if(level)
-		overlays += "+p[level]"
-
-	return
-
+		add_overlay("+p[level]")
 
 /obj/machinery/field_generator/New()
 	..()
@@ -119,13 +116,13 @@ field_generator power level display
 					"You hear ratchet")
 				src.anchored = 0
 			if(2)
-				user << "\red The [src.name] needs to be unwelded from the floor."
+				user << "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>"
 				return
 	else if(istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 		switch(state)
 			if(0)
-				user << "\red The [src.name] needs to be wrenched to the floor."
+				user << "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>"
 				return
 			if(1)
 				if (WT.remove_fuel(0,user))
@@ -133,7 +130,7 @@ field_generator power level display
 					user.visible_message("[user.name] starts to weld the [src.name] to the floor.", \
 						"You start to weld the [src] to the floor.", \
 						"You hear welding")
-					if (do_after(user,20))
+					if (do_after(user,20, act_target = src))
 						if(!src || !WT.isOn()) return
 						state = 2
 						user << "You weld the field generator to the floor."
@@ -145,7 +142,7 @@ field_generator power level display
 					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.", \
 						"You start to cut the [src] free from the floor.", \
 						"You hear welding")
-					if (do_after(user,20))
+					if (do_after(user,20, act_target = src))
 						if(!src || !WT.isOn()) return
 						state = 1
 						user << "You cut the [src] free from the floor."
@@ -168,14 +165,11 @@ field_generator power level display
 
 /obj/machinery/field_generator/Destroy()
 	src.cleanup()
-	..()
-
-
+	return ..()
 
 /obj/machinery/field_generator/proc/turn_off()
 	active = 0
-	spawn(1)
-		src.cleanup()
+	addtimer(CALLBACK(src, .proc/cleanup), 1)
 	update_icon()
 
 /obj/machinery/field_generator/proc/turn_on()
@@ -189,7 +183,6 @@ field_generator power level display
 			if(warming_up >= 3)
 				start_fields()
 	update_icon()
-
 
 /obj/machinery/field_generator/proc/calc_power()
 	if(Varpower)
@@ -210,8 +203,7 @@ field_generator power level display
 	if(draw_power(round(power_draw)) >= power_draw)
 		return 1
 	else
-		for(var/mob/M in viewers(src))
-			M.show_message("\red \The [src] shuts down!")
+		visible_message(span("alert", "\The [src] shuts down!"))
 		turn_off()
 		investigate_log("ran out of power and <font color='red'>deactivated</font>","singulo")
 		src.power = 0
@@ -242,32 +234,27 @@ field_generator power level display
 	if(!src.state == 2 || !anchored)
 		turn_off()
 		return
-	spawn(1)
-		setup_field(1)
-	spawn(2)
-		setup_field(2)
-	spawn(3)
-		setup_field(4)
-	spawn(4)
-		setup_field(8)
+	addtimer(CALLBACK(src, .proc/setup_field, 1), 1)
+	addtimer(CALLBACK(src, .proc/setup_field, 2), 2)
+	addtimer(CALLBACK(src, .proc/setup_field, 4), 3)
+	addtimer(CALLBACK(src, .proc/setup_field, 8), 4)
 	src.active = 2
-
 
 /obj/machinery/field_generator/proc/setup_field(var/NSEW)
 	var/turf/T = src.loc
 	var/obj/machinery/field_generator/G
 	var/steps = 0
-	if(!NSEW)//Make sure its ran right
+	if(!NSEW)	//Make sure its ran right
 		return
 	for(var/dist = 0, dist <= 9, dist += 1) // checks out to 8 tiles away for another generator
 		T = get_step(T, NSEW)
-		if(T.density)//We cant shoot a field though this
+		if(T.density)	//We cant shoot a field though this
 			return 0
 		for(var/atom/A in T.contents)
 			if(ismob(A))
 				continue
 			if(!istype(A,/obj/machinery/field_generator))
-				if((istype(A,/obj/machinery/door)||istype(A,/obj/machinery/the_singularitygen))&&(A.density))
+				if((istype(A,/obj/machinery/door) || istype(A,/obj/machinery/the_singularitygen)) && (A.density))
 					return 0
 		steps += 1
 		G = locate(/obj/machinery/field_generator) in T
@@ -308,16 +295,15 @@ field_generator power level display
 	if(!listcheck)
 		G.connected_gens.Add(src)
 
-
 /obj/machinery/field_generator/proc/cleanup()
 	clean_up = 1
 	for (var/obj/machinery/containment_field/F in fields)
-		if (isnull(F))
+		if (QDELETED(F))
 			continue
 		qdel(F)
 	fields = list()
 	for(var/obj/machinery/field_generator/FG in connected_gens)
-		if (isnull(FG))
+		if (QDELETED(FG))
 			continue
 		FG.connected_gens.Remove(src)
 		if(!FG.clean_up)//Makes the other gens clean up as well

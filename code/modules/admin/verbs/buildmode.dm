@@ -3,14 +3,14 @@
 	set category = "Special Verbs"
 	if(M.client)
 		if(M.client.buildmode)
-			log_admin("[key_name(usr)] has left build mode.")
+			log_admin("[key_name(usr)] has left build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 0
 			M.client.show_popup_menus = 1
 			for(var/obj/effect/bmode/buildholder/H)
 				if(H.cl == M.client)
 					qdel(H)
 		else
-			log_admin("[key_name(usr)] has entered build mode.")
+			log_admin("[key_name(usr)] has entered build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 1
 			M.client.show_popup_menus = 0
 
@@ -72,37 +72,37 @@
 	Click()
 		switch(master.cl.buildmode)
 			if(1)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Left Mouse Button        = Construct / Upgrade"
-				usr << "\blue Right Mouse Button       = Deconstruct / Delete / Downgrade"
-				usr << "\blue Left Mouse Button + ctrl = R-Window"
-				usr << "\blue Left Mouse Button + alt  = Airlock"
+				usr << "<span class='notice'>***********************************************************</span>"
+				usr << "<span class='notice'>Left Mouse Button        = Construct / Upgrade</span>"
+				usr << "<span class='notice'>Right Mouse Button       = Deconstruct / Delete / Downgrade</span>"
+				usr << "<span class='notice'>Left Mouse Button + ctrl = R-Window</span>"
+				usr << "<span class='notice'>Left Mouse Button + alt  = Airlock</span>"
 				usr << ""
-				usr << "\blue Use the button in the upper left corner to"
-				usr << "\blue change the direction of built objects."
-				usr << "\blue ***********************************************************"
+				usr << "<span class='notice'>Use the button in the upper left corner to</span>"
+				usr << "<span class='notice'>change the direction of built objects.</span>"
+				usr << "<span class='notice'>***********************************************************</span>"
 			if(2)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Right Mouse Button on buildmode button = Set object type"
-				usr << "\blue Middle Mouse Button on buildmode button= On/Off object type saying"
-				usr << "\blue Middle Mouse Button on turf/obj        = Capture object type"
-				usr << "\blue Left Mouse Button on turf/obj          = Place objects"
-				usr << "\blue Right Mouse Button                     = Delete objects"
+				usr << "<span class='notice'>***********************************************************</span>"
+				usr << "<span class='notice'>Right Mouse Button on buildmode button = Set object type</span>"
+				usr << "<span class='notice'>Middle Mouse Button on buildmode button= On/Off object type saying</span>"
+				usr << "<span class='notice'>Middle Mouse Button on turf/obj        = Capture object type</span>"
+				usr << "<span class='notice'>Left Mouse Button on turf/obj          = Place objects</span>"
+				usr << "<span class='notice'>Right Mouse Button                     = Delete objects</span>"
 				usr << ""
-				usr << "\blue Use the button in the upper left corner to"
-				usr << "\blue change the direction of built objects."
-				usr << "\blue ***********************************************************"
+				usr << "<span class='notice'>Use the button in the upper left corner to</span>"
+				usr << "<span class='notice'>change the direction of built objects.</span>"
+				usr << "<span class='notice'>***********************************************************</span>"
 			if(3)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Right Mouse Button on buildmode button = Select var(type) & value"
-				usr << "\blue Left Mouse Button on turf/obj/mob      = Set var(type) & value"
-				usr << "\blue Right Mouse Button on turf/obj/mob     = Reset var's value"
-				usr << "\blue ***********************************************************"
+				usr << "<span class='notice'>***********************************************************</span>"
+				usr << "<span class='notice'>Right Mouse Button on buildmode button = Select var(type) & value</span>"
+				usr << "<span class='notice'>Left Mouse Button on turf/obj/mob      = Set var(type) & value</span>"
+				usr << "<span class='notice'>Right Mouse Button on turf/obj/mob     = Reset var's value</span>"
+				usr << "<span class='notice'>***********************************************************</span>"
 			if(4)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Left Mouse Button on turf/obj/mob      = Select"
-				usr << "\blue Right Mouse Button on turf/obj/mob     = Throw"
-				usr << "\blue ***********************************************************"
+				usr << "<span class='notice'>***********************************************************</span>"
+				usr << "<span class='notice'>Left Mouse Button on turf/obj/mob      = Select</span>"
+				usr << "<span class='notice'>Right Mouse Button on turf/obj/mob     = Throw</span>"
+				usr << "<span class='notice'>***********************************************************</span>"
 		return 1
 
 /obj/effect/bmode/buildquit
@@ -278,16 +278,16 @@
 		if(3)
 			if(pa.Find("left")) //I cant believe this shit actually compiles.
 				if(object.vars.Find(holder.buildmode.varholder))
-					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]")
+					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]",admin_key=key_name(usr))
 					object.vars[holder.buildmode.varholder] = holder.buildmode.valueholder
 				else
-					usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
+					usr << "<span class='warning'>[initial(object.name)] does not have a var called '[holder.buildmode.varholder]'</span>"
 			if(pa.Find("right"))
 				if(object.vars.Find(holder.buildmode.varholder))
-					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]")
+					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]",admin_key=key_name(usr))
 					object.vars[holder.buildmode.varholder] = initial(object.vars[holder.buildmode.varholder])
 				else
-					usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
+					usr << "<span class='warning'>[initial(object.name)] does not have a var called '[holder.buildmode.varholder]'</span>"
 
 		if(4)
 			if(pa.Find("left"))
@@ -296,4 +296,4 @@
 			if(pa.Find("right"))
 				if(holder.throw_atom)
 					holder.throw_atom.throw_at(object, 10, 1)
-					log_admin("[key_name(usr)] threw [holder.throw_atom] at [object]")
+					log_admin("[key_name(usr)] threw [holder.throw_atom] at [object]",admin_key=key_name(usr))

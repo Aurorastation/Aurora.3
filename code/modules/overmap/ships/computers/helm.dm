@@ -10,7 +10,8 @@
 	var/dx		//desitnation
 	var/dy		//coordinates
 
-/obj/machinery/computer/helm/initialize()
+/obj/machinery/computer/helm/Initialize()
+	. = ..()
 	linked = map_sectors["[z]"]
 	if (linked)
 		if(!linked.nav_control)
@@ -102,7 +103,7 @@
 
 	data["locations"] = locations
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "helm.tmpl", "[linked.name] Helm Control", 380, 530)
 		ui.set_initial_data(data)

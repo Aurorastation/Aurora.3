@@ -12,10 +12,10 @@
 	var/cache_id = 0
 	circuit = /obj/item/weapon/circuitboard/security
 
-/obj/machinery/computer/security/New()
+/obj/machinery/computer/security/Initialize()
 	if(!network)
 		network = station_networks.Copy()
-	..()
+	. = ..()
 	if(network.len)
 		current_network = network[1]
 
@@ -52,7 +52,7 @@
 		data["current_camera"] = current_camera ? current_camera.nano_structure() : null
 		data["current_network"] = current_network
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "sec_camera.tmpl", "Camera Console", 900, 800)
 
@@ -159,7 +159,7 @@
 /obj/machinery/computer/security/process()
 	if(cache_id != camera_repository.camera_cache_id)
 		cache_id = camera_repository.camera_cache_id
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 
 /obj/machinery/computer/security/proc/can_access_camera(var/obj/machinery/camera/C)
 	var/list/shared_networks = src.network & C.network
@@ -250,10 +250,10 @@
 	circuit = /obj/item/weapon/circuitboard/security/engineering
 	light_color = "#FAC54B"
 
-/obj/machinery/computer/security/engineering/New()
+/obj/machinery/computer/security/engineering/Initialize()
 	if(!network)
 		network = engineering_networks.Copy()
-	..()
+	. = ..()
 
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
@@ -263,6 +263,6 @@
 	circuit = null
 	is_holographic = FALSE	// I mean, it is, but the holo effect looks terrible with the current merc shuttle floor.
 
-/obj/machinery/computer/security/nuclear/New()
-	..()
+/obj/machinery/computer/security/nuclear/Initialize()
+	. = ..()
 	req_access = list(150)

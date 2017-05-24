@@ -25,7 +25,7 @@
 	data["is_ai"] = issilicon(user)
 
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "robot_control.tmpl", "Robotic Control Console", 400, 500)
 		ui.set_initial_data(data)
@@ -63,8 +63,8 @@
 			target << "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered."
 			target.ResetSecurityCodes()
 		else
-			message_admins("<span class='notice'>[key_name_admin(usr)] detonated [target.name]!</span>")
-			log_game("[key_name(usr)] detonated [target.name]!")
+			message_admins("[key_name_admin(usr)] detonated [target.name]!")
+			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
 			target << "<span class='danger'>Self-destruct command received.</span>"
 			spawn(10)
 				target.self_destruct()
@@ -92,15 +92,10 @@
 		if(!target || !istype(target))
 			return
 
-		message_admins("<span class='notice'>[key_name_admin(usr)] [target.canmove ? "locked down" : "released"] [target.name]!</span>")
-		log_game("[key_name(usr)] [target.canmove ? "locked down" : "released"] [target.name]!")
-		target.canmove = !target.canmove
-		if (target.lockcharge)
-			target.lockcharge = !target.lockcharge
-			target << "Your lockdown has been lifted!"
-		else
-			target.lockcharge = !target.lockcharge
-			target << "You have been locked down!"
+		target.SetLockdown(!target.lockcharge) // Toggle.
+		message_admins("[key_name_admin(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!")
+		log_game("[key_name(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
+		target << (target.lockcharge ? "You have been locked down!" : "Your lockdown has been lifted!")
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
 	else if (href_list["hack"])
@@ -124,8 +119,8 @@
 		if(!target || !istype(target))
 			return
 
-		message_admins("<span class='notice'>[key_name_admin(usr)] emagged [target.name] using robotic console!</span>")
-		log_game("[key_name(usr)] emagged [target.name] using robotic console!")
+		message_admins("[key_name_admin(usr)] emagged [target.name] using robotic console!")
+		log_game("[key_name(usr)] emagged [target.name] using robotic console!",ckey=key_name(usr))
 		target.emagged = 1
 		target << "<span class='notice'>Failsafe protocols overriden. New tools available.</span>"
 
@@ -147,8 +142,8 @@
 			user << "Self-destruct aborted - safety active"
 			return
 
-		message_admins("<span class='notice'>[key_name_admin(usr)] detonated all cyborgs!</span>")
-		log_game("[key_name(usr)] detonated all cyborgs!")
+		message_admins("[key_name_admin(usr)] detonated all cyborgs!")
+		log_game("[key_name(usr)] detonated all cyborgs!",ckey=key_name(usr))
 
 		for(var/mob/living/silicon/robot/R in mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))
@@ -179,7 +174,7 @@
 		robot["name"] = R.name
 		if(R.stat)
 			robot["status"] = "Not Responding"
-		else if (!R.canmove)
+		else if (R.lockcharge) // changed this from !R.canmove to R.lockcharge because of issues with lockdown and chairs
 			robot["status"] = "Lockdown"
 		else
 			robot["status"] = "Operational"

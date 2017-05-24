@@ -27,7 +27,7 @@
 	if (pockets)
 		qdel(pockets)
 		pockets = null
-	..()
+	return ..()
 
 /obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
 	if (pockets)
@@ -225,11 +225,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
 	if (src.active)
-		user << "\blue The reactive armor is now active."
+		user << "<span class='notice'>The reactive armor is now active.</span>"
 		src.icon_state = "reactive"
 		src.item_state = "reactive"
 	else
-		user << "\blue The reactive armor is now inactive."
+		user << "<span class='notice'>The reactive armor is now inactive.</span>"
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
 		src.add_fingerprint(user)
@@ -255,9 +255,10 @@
 
 /obj/item/clothing/suit/armor/tactical/New()
 	..()
-	holster = new(src)
-	holster.has_suit = 1//its inside a suit, we set  this so it can be drawn from
-	pockets = null//Tactical armour has internal holster instead of pockets, so we null this out
+	holster = new()
+	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
+	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
+	overlays.Cut()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
 	..()

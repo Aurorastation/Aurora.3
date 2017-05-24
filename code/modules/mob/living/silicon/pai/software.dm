@@ -16,26 +16,9 @@ var/list/pai_emotions = list(
 		"Question Mark" = 15
 	)
 
-
-var/global/list/pai_software_by_key = list()
-var/global/list/default_pai_software = list()
-/hook/startup/proc/populate_pai_software_list()
-	var/r = 1 // I would use ., but it'd sacrifice runtime detection
-	for(var/type in typesof(/datum/pai_software) - /datum/pai_software)
-		var/datum/pai_software/P = new type()
-		if(pai_software_by_key[P.id])
-			var/datum/pai_software/O = pai_software_by_key[P.id]
-			world << "<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>"
-			r = 0
-			continue
-		pai_software_by_key[P.id] = P
-		if(P.default)
-			default_pai_software[P.id] = P
-	return r
-
-/mob/living/silicon/pai/New()
+/mob/living/silicon/pai/Initialize()
 	..()
-	software = default_pai_software.Copy()
+	software = SSpai.default_pai_software.Copy()
 
 /mob/living/silicon/pai/verb/paiInterface()
 	set category = "pAI Commands"
@@ -62,6 +45,8 @@ var/global/list/default_pai_software = list()
 	var/bought_software[0]
 	// Software we have not bought
 	var/not_bought_software[0]
+	
+	var/list/pai_software_by_key = SSpai.pai_software_by_key
 
 	for(var/key in pai_software_by_key)
 		var/datum/pai_software/S = pai_software_by_key[key]
@@ -90,7 +75,7 @@ var/global/list/default_pai_software = list()
 	data["emotions"] = emotions
 	data["current_emotion"] = card.current_emotion
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "pai_interface.tmpl", "pAI Software Interface", 450, 600)
 		ui.set_initial_data(data)
@@ -118,7 +103,7 @@ var/global/list/default_pai_software = list()
 
 	else if(href_list["purchase"])
 		var/soft = href_list["purchase"]
-		var/datum/pai_software/S = pai_software_by_key[soft]
+		var/datum/pai_software/S = SSpai.pai_software_by_key[soft]
 		if(S && (ram >= S.ram_cost))
 			ram -= S.ram_cost
 			software[S.id] = S

@@ -18,6 +18,10 @@
 	New()
 		mob_list += src
 
+	Destroy()
+		mob_list -= src
+		return ..()
+
 	verb/new_player_panel()
 		set src = usr
 		new_player_panel_proc()
@@ -28,7 +32,7 @@
 		output +="<hr>"
 		output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
-		if(!ticker || ticker.current_state <= GAME_STATE_PREGAME)
+		if(!ROUND_IS_STARTED)
 			if(ready)
 				output += "<p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
 			else
@@ -67,24 +71,28 @@
 	Stat()
 		..()
 
-		if(statpanel("Lobby") && ticker)
+		if(statpanel("Lobby"))
 			stat("Game ID:", game_id)
 
-			if(ticker.hide_mode)
+			if(SSticker.hide_mode)
 				stat("Game Mode:", "Secret")
 			else
-				if(ticker.hide_mode == 0)
+				if(SSticker.hide_mode == 0)
 					stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
 
-			if(ticker.current_state == GAME_STATE_PREGAME)
-				stat("Time To Start:", "[ticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+			if(SSticker.current_state == GAME_STATE_PREGAME)
+				if (SSticker.lobby_ready)
+					stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+				else
+					stat("Time To Start:", "Waiting for Server")
 				stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
 				totalPlayers = 0
 				totalPlayersReady = 0
 				for(var/mob/new_player/player in player_list)
 					stat("[player.key]", (player.ready)?("(Playing)"):(null))
 					totalPlayers++
-					if(player.ready)totalPlayersReady++
+					if(player.ready)
+						totalPlayersReady++
 
 	Topic(href, href_list[])
 		if(!client)	return 0
@@ -94,7 +102,7 @@
 			return 1
 
 		if(href_list["ready"])
-			if(!ticker || ticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
+			if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 				// Cannot join without a saved character, if we're on SQL saves.
 				if (config.sql_saves && !client.prefs.current_character)
 					alert(src, "You have not saved your character yet. Please do so before readying up.")
@@ -109,6 +117,11 @@
 			new_player_panel_proc()
 
 		if(href_list["observe"])
+			if (SSatoms.initialized < INITIALIZATION_INNEW_REGULAR)
+				// Don't allow players to observe until initialization is more or less complete.
+				// Letting them join too early breaks things, they can wait.
+				src << span("alert", "The server is still initializing, try observing again in a minute or so.")
+				return 
 
 			if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 				if(!client)	return 1
@@ -144,8 +157,8 @@
 
 		if(href_list["late_join"])
 
-			if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
-				usr << "\red The round is either not ready, or has already finished..."
+			if(SSticker.current_state != GAME_STATE_PLAYING)
+				usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
 				return
 
 			// Cannot join without a saved character, if we're on SQL saves.
@@ -173,7 +186,7 @@
 			if(!config.enter_allowed)
 				usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
 				return
-			else if(ticker && ticker.mode && ticker.mode.explosion_in_progress)
+			else if(SSticker.mode && SSticker.mode.explosion_in_progress)
 				usr << "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>"
 				return
 
@@ -289,7 +302,7 @@
 							vote_on_poll(pollid, optionid, 1)
 
 	proc/IsJobAvailable(rank)
-		var/datum/job/job = job_master.GetJob(rank)
+		var/datum/job/job = SSjobs.GetJob(rank)
 		if(!job)	return 0
 		if(!job.is_position_available()) return 0
 		if(jobban_isbanned(src,rank))	return 0
@@ -300,8 +313,8 @@
 	proc/AttemptLateSpawn(rank,var/spawning_at)
 		if(src != usr)
 			return 0
-		if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			usr << "\red The round is either not ready, or has already finished..."
+		if(SSticker.current_state != GAME_STATE_PLAYING)
+			usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
 			return 0
 		if(!config.enter_allowed)
 			usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
@@ -316,11 +329,14 @@
 		spawning = 1
 		close_spawn_windows()
 
-		job_master.AssignRole(src, rank, 1)
+		SSjobs.AssignRole(src, rank, 1)
 
 		var/mob/living/character = create_character()	//creates the human and transfers vars and mind
-		character = job_master.EquipRank(character, rank, 1)					//equips the human
+
+		character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
+
 		UpdateFactionList(character)
+
 		equip_custom_items(character)
 
 		// AIs don't need a spawnpoint, they must spawn at an empty core
@@ -335,14 +351,14 @@
 			character.loc = C.loc
 
 			AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
-			ticker.mode.handle_latejoin(character)
+			SSticker.mode.handle_latejoin(character)
 
 			qdel(C)
 			qdel(src)
 			return
 
 		//Find our spawning point.
-		var/join_message = job_master.LateSpawn(character, rank)
+		var/join_message = SSjobs.LateSpawn(character, rank)
 
 		character.lastarea = get_area(loc)
 		// Moving wheelchair if they have one
@@ -350,11 +366,11 @@
 			character.buckled.loc = character.loc
 			character.buckled.set_dir(character.dir)
 
-		ticker.mode.handle_latejoin(character)
+		SSticker.mode.handle_latejoin(character)
 
 		if(character.mind.assigned_role != "Cyborg")
 			data_core.manifest_inject(character)
-			ticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
+			SSticker.minds += character.mind	//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
 
 			//Grab some data from the character prefs for use in random news procs.
 
@@ -365,7 +381,7 @@
 		qdel(src)
 
 	proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
-		if (ticker.current_state == GAME_STATE_PLAYING)
+		if (SSticker.current_state == GAME_STATE_PLAYING)
 			if(character.mind.role_alt_title)
 				rank = character.mind.role_alt_title
 			// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
@@ -388,7 +404,7 @@
 					dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
 
 		dat += "Choose from the following open/valid positions:<br>"
-		for(var/datum/job/job in job_master.occupations)
+		for(var/datum/job/job in SSjobs.occupations)
 			if(job && IsJobAvailable(job.title))
 				var/active = 0
 				// Only players with the job assigned and AFK for less than 10 minutes count as active
@@ -430,7 +446,7 @@
 					|| (new_character.species && (chosen_language.name in new_character.species.secondary_langs)))
 					new_character.add_language(lang)
 
-		if(ticker.random_players)
+		if(SSticker.random_players)
 			new_character.gender = pick(MALE, FEMALE)
 			client.prefs.real_name = random_name(new_character.gender)
 			client.prefs.randomize_appearance_for(new_character)

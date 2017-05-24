@@ -72,7 +72,7 @@
 
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					src << "\red You cannot send IC messages (muted)."
+					src << "<span class='danger'>You cannot send IC messages (muted).</span>"
 					return
 			if (stat)
 				return
@@ -629,7 +629,7 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 
 
 	if (message)
-		log_emote("[name]/[key] : [message]")
+		log_emote("[name]/[key] : [message]",ckey=key_name(src))
 		custom_emote(m_type,message)
 
 

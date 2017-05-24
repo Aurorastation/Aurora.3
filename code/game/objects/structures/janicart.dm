@@ -143,7 +143,7 @@
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/pickaxe/plasmacutter)))
+	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
 		dismantle(user)
 		return
 	..()
@@ -225,7 +225,7 @@
 	data["replacer"] = myreplacer ? capitalize(myreplacer.name) : null
 	data["signs"] = signs ? "[signs] sign\s" : null
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 240, 160)
 		ui.set_initial_data(data)
@@ -280,28 +280,28 @@
 
 
 /obj/structure/janitorialcart/update_icon()
-	overlays = null
+	cut_overlays()
 	has_items = 0
 	if(mybucket)
-		overlays += "cart_bucket"
+		add_overlay("cart_bucket")
 		has_items = 1
 	if(mybag)
-		overlays += "cart_garbage"
+		add_overlay("cart_garbage")
 		has_items = 1
 	if(mymop)
-		overlays += "cart_mop"
+		add_overlay("cart_mop")
 		has_items = 1
 	if(myspray)
-		overlays += "cart_spray"
+		add_overlay("cart_spray")
 		has_items = 1
 	if(myreplacer)
 		if (istype(myreplacer, /obj/item/device/lightreplacer/advanced))
-			overlays += "cart_adv_lightreplacer"
+			add_overlay("cart_adv_lightreplacer")
 		else
-			overlays += "cart_replacer"
+			add_overlay("cart_replacer")
 		has_items = 1
 	if(signs)
-		overlays += "cart_sign[signs]"
+		add_overlay("cart_sign[signs]")
 		has_items = 1
 
 

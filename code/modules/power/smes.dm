@@ -5,6 +5,19 @@
 #define SMESMAXCHARGELEVEL 250000
 #define SMESMAXOUTPUT 250000
 
+//Cache defines
+#define SMES_CLEVEL_1		1
+#define SMES_CLEVEL_2		2
+#define SMES_CLEVEL_3		3
+#define SMES_CLEVEL_4		4
+#define SMES_CLEVEL_5		5
+#define SMES_OUTPUTTING		6
+#define SMES_OUTPUT_ATTEMPT 7
+#define SMES_NOT_OUTPUTTING 8
+#define SMES_INPUTTING		9
+#define SMES_INPUT_ATTEMPT	10
+#define SMES_INPUT_MAX		11
+
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
@@ -52,6 +65,8 @@
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
 
+	var/static/list/smesImageCache
+
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
 	if(drain_check)
@@ -62,36 +77,30 @@
 	return smes_amt / SMESRATE
 
 
-/obj/machinery/power/smes/New()
-	..()
+/obj/machinery/power/smes/Initialize()
+	. = ..()
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
-	spawn(5)
-		if(!powernet)
-			connect_to_network()
+	if(!powernet)
+		connect_to_network()
 
-		dir_loop:
-			for(var/d in cardinal)
-				var/turf/T = get_step(src, d)
-				for(var/obj/machinery/power/terminal/term in T)
-					if(term && term.dir == turn(d, 180))
-						terminal = term
-						break dir_loop
-		if(!terminal)
-			stat |= BROKEN
-			return
-		terminal.master = src
-		if(!terminal.powernet)
-			terminal.connect_to_network()
-		update_icon()
+	dir_loop:
+		for(var/d in cardinal)
+			var/turf/T = get_step(src, d)
+			for(var/obj/machinery/power/terminal/term in T)
+				if(term && term.dir == turn(d, 180))
+					terminal = term
+					break dir_loop
+	if(!terminal)
+		stat |= BROKEN
+		return
+	terminal.master = src
+	if(!terminal.powernet)
+		terminal.connect_to_network()
+	update_icon()
 
-
-
-
-		if(!should_be_mapped)
-			warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
-
-	return
+	if(!should_be_mapped)
+		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
 
 /obj/machinery/power/smes/add_avail(var/amount)
 	if(..(amount))
@@ -108,28 +117,27 @@
 	return 0
 
 /obj/machinery/power/smes/update_icon()
-	overlays.Cut()
-	if(stat & BROKEN)	return
-
-	overlays += image('icons/obj/power.dmi', "smes-op[outputting]")
+	cut_overlays()
+	if(stat & BROKEN)	
+		return
 
 	if(inputting == 2)
-		overlays += image('icons/obj/power.dmi', "smes-oc2")
+		add_overlay("smes-oc2")
 	else if (inputting == 1)
-		overlays += image('icons/obj/power.dmi', "smes-oc1")
+		add_overlay("smes-oc1")
 	else if (input_attempt)
-		overlays += image('icons/obj/power.dmi', "smes-oc0")
+		add_overlay("smes-oc0")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		overlays += image('icons/obj/power.dmi', "smes-og[clevel]")
+		add_overlay("smes-og[clevel]")
 
 	if(outputting == 2)
-		overlays += image('icons/obj/power.dmi', "smes-op2")
+		add_overlay("smes-op2")
 	else if (outputting == 1)
-		overlays += image('icons/obj/power.dmi', "smes-op1")
+		add_overlay("smes-op1")
 	else
-		overlays += image('icons/obj/power.dmi', "smes-op0")
+		add_overlay("smes-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))
@@ -334,7 +342,7 @@
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -394,7 +402,7 @@
 	if(src.z in config.station_levels)
 		if(prob(1)) //explosion
 			for(var/mob/M in viewers(src))
-				M.show_message("\red The [src.name] is making strange noises!", 3, "\red You hear sizzling electronics.", 2)
+				M.show_message("<span class='warning'>The [src.name] is making strange noises!</span>", 3, "<span class='warning'>You hear sizzling electronics.</span>", 2)
 			sleep(10*pick(4,5,6,7,10,14))
 			var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 			smoke.set_up(3, 0, src.loc)
@@ -454,3 +462,15 @@
 /obj/machinery/power/smes/magical/process()
 	charge = 5000000
 	..()
+
+#undef SMES_CLEVEL_1
+#undef SMES_CLEVEL_2
+#undef SMES_CLEVEL_3
+#undef SMES_CLEVEL_4
+#undef SMES_CLEVEL_5
+#undef SMES_OUTPUTTING
+#undef SMES_OUTPUT_ATTEMPT
+#undef SMES_NOT_OUTPUTTING
+#undef SMES_INPUTTING
+#undef SMES_INPUT_ATTEMPT
+#undef SMES_INPUT_MAX

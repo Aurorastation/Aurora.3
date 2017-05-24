@@ -147,6 +147,7 @@ var/obj/screen/robot_inventory
 	mymob.flash.name = "flash"
 	mymob.flash.screen_loc = ui_entire_screen
 	mymob.flash.layer = 17
+	mymob.flash.mouse_opacity = 0
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen1_robot.dmi'
@@ -210,10 +211,17 @@ var/obj/screen/robot_inventory
 		// - or some situation might cause them to get de-emagged or something.
 		if(r.emagged)
 			if(!(r.module.emag in r.module.modules))
-				r.module.modules.Add(r.module.emag)
+				r.module.modules += r.module.emag
 		else
 			if(r.module.emag in r.module.modules)
-				r.module.modules.Remove(r.module.emag)
+				r.module.modules -= r.module.emag
+			
+		if(r.malfAImodule)
+			if(!((r.module.malfAImodule in r.module.modules) && r.module.malfAImodule == null))
+				r.module.modules += r.module.malfAImodule
+		else
+			if(r.module.malfAImodule in r.module.modules)
+				r.module.modules -= r.module.malfAImodule
 
 		for(var/atom/movable/A in r.module.modules)
 			if( (A != r.module_state_1) && (A != r.module_state_2) && (A != r.module_state_3) )

@@ -49,8 +49,8 @@
 	var/held_count = 1
 	var/held_type
 
-/obj/structure/largecrate/animal/New()
-	..()
+/obj/structure/largecrate/animal/Initialize()
+	. = ..()
 	for(var/i = 1;i<=held_count;i++)
 		new held_type(src)
 
@@ -77,3 +77,13 @@
 	name = "chicken crate"
 	held_count = 5
 	held_type = /mob/living/simple_animal/chick
+	
+/obj/structure/largecrate/animal/dog
+	name = "dog carrier"
+	held_type = /mob/living/simple_animal/hostile/commanded/dog
+	
+/obj/structure/largecrate/animal/dog/amaskan
+	held_type = /mob/living/simple_animal/hostile/commanded/dog/amaskan
+	
+/obj/structure/largecrate/animal/dog/pug
+	held_type = /mob/living/simple_animal/hostile/commanded/dog/pug

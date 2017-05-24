@@ -106,27 +106,24 @@
 		var/mob/living/carbon/human/skeleton/F = new(get_turf(target))
 		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
 		target.gib()
-		var/client/C = get_player()
-		F.ckey = C.ckey
-		F.faction = usr.faction
-		if(C.mob && C.mob.mind)
-			C.mob.mind.transfer_to(F)
-		F << "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>"
-
+		var/datum/ghosttrap/ghost = get_ghost_trap("skeleton minion")
+		ghost.request_player(F,"A wizard is requesting a skeleton minion.", 60 SECONDS)
+		spawn(600)
+			if(F)
+				if(!F.ckey || !F.client)
+					F.visible_message("With no soul to keep \the [F] linked to this plane, it turns into dust.")
+					F.dust()
+					
+			else
+				F << "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>"
+				F.faction = usr.faction	
+		
 		//equips the skeleton war gear
 		F.equip_to_slot_or_del(new /obj/item/clothing/under/gladiator(F), slot_w_uniform)
 		F.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(F), slot_shoes)
 		F.equip_to_slot_or_del(new /obj/item/weapon/material/twohanded/spear/bone(F), slot_back)
 		F.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/bone(F), slot_head)
 		F.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/bone(F), slot_wear_suit)
-
-/spell/targeted/raise_dead/proc/get_player()
-	for(var/mob/O in dead_mob_list)
-		if(O.client)
-			var/getResponse = alert(O,"A wizard is requesting a skeleton minion. Would you like to play as one?", "Skeleton minion summons","Yes","No")
-			if(getResponse == "Yes")
-				return O.client
-	return null
 
 /spell/targeted/lichdom
 	name = "Lichdom"
@@ -144,15 +141,62 @@
 	hud_state = "wiz_lich"
 
 /spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
+
 	if(isskeleton(user))
 		user << "You have no soul or life to offer."
 		return
 
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
 	gibs(user.loc)
-	user.verbs += /mob/living/carbon/proc/immortality
+	user.verbs += /mob/living/carbon/proc/dark_resurrection
 	user.set_species("Skeleton")
 	user.unEquip(user.wear_suit)
 	user.unEquip(user.head)
 	user.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/black(user), slot_wear_suit)
 	user.equip_to_slot_or_del(new /obj/item/clothing/head/wizard/black(user), slot_head)
+	user << "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>"
+	var/obj/item/phylactery/G = new(get_turf(user))
+	G.lich = user
+	G.icon_state = "cursedheart-on"
+
+/mob/living/carbon/proc/dark_resurrection()
+	set category = "Abilities"
+	set name = "Dark Resurrection"
+	set desc = "Return to your phylactery and rebuild your body."
+
+	var/mob/living/carbon/C = usr
+	if(!C.stat)
+		C << "<span class='notice'>You're not dead yet!</span>"
+		return
+		
+	var/obj/item/phylactery/P
+	for(var/thing in world_phylactery)
+		var/obj/item/phylactery/N = thing
+		if (!QDELETED(N) && N.lich == C)
+			P = N
+		 
+	if(P)
+		C.forceMove(get_turf(P))
+		C << "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>"
+		C.verbs -= /mob/living/carbon/proc/dark_resurrection
+		addtimer(CALLBACK(src, .proc/post_dark_resurrection), rand(400, 800))
+
+	else
+		C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
+		C.visible_message("<span class='cult'>As [C]'s body turns to dust, a twisted wail can be heard!</span>")
+		playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
+		C.dust()
+		return
+
+/mob/living/carbon/proc/post_dark_resurrection()
+	if(src.stat == DEAD)
+		dead_mob_list -= src
+		living_mob_list += src
+	src.stat = CONSCIOUS
+	src.revive()
+	src.reagents.clear_reagents()
+	src << "<span class='danger'>You have returned to life!</span>"
+	src.visible_message("<span class='cult'>[src] rises up from the dead!</span>")
+	src.update_canmove()
+	src.verbs += /mob/living/carbon/proc/dark_resurrection
+	return 1

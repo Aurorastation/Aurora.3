@@ -38,11 +38,11 @@ var/list/admin_verbs_lighting = list(
 		return
 
 	log_and_message_admins("has flushed the lighting processor queues.")
-	lighting_update_lights = list()
-	lighting_update_corners = list()
-	lighting_update_overlays = list()
+	SSlighting.light_queue = list()
+	SSlighting.corner_queue = list()
+	SSlighting.overlay_queue = list()
 
-/client/proc/lighting_reconsider_target(turf/T in world)
+/client/proc/lighting_reconsider_target(turf/T in turfs)
 	set category = "Lighting"
 	set name = "Reconsider Visibility"
 	set desc = "Triggers a visibility update for a turf."
@@ -57,7 +57,7 @@ var/list/admin_verbs_lighting = list(
 
 	T.reconsider_lights()
 
-/client/proc/lighting_build_overlay(turf/T in world)
+/client/proc/lighting_build_overlay(turf/T in turfs)
 	set category = "Lighting"
 	set name = "Build Overlay"
 	set desc = "Builds a lighting overlay for a turf if it does not have one."
@@ -72,7 +72,7 @@ var/list/admin_verbs_lighting = list(
 
 	T.lighting_build_overlay()
 
-/client/proc/lighting_clear_overlay(turf/T in world)
+/client/proc/lighting_clear_overlay(turf/T in turfs)
 	set category = "Lighting"
 	set name = "Clear Overlay"
 	set desc = "Clears a lighting overlay for a turf if it has one."

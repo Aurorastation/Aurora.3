@@ -39,9 +39,25 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/grenade/chem_grenade/incendiary)
 	cost = 20
 	containertype = /obj/structure/closet/crate
-	containername = "Special Ops crate"
+	containername = "crate"
 	group = "Security"
 	hidden = 1
+
+/datum/supply_packs/randomised/illegalguns
+	name = "Illegal weapons crate"
+	num_contained = 2
+	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
+					/obj/item/weapon/gun/projectile/boltaction,
+					/obj/item/weapon/gun/projectile/silenced,
+					/obj/item/weapon/gun/projectile/pirate,
+					/obj/item/weapon/gun/projectile/revolver/derringer,
+					/obj/item/weapon/gun/projectile/dragunov,
+					/obj/item/weapon/gun/energy/retro)
+	cost = 60
+	containertype = /obj/structure/closet/crate
+	containername = "crate"
+	hidden = 1
+	group = "Security"
 
 /datum/supply_packs/forensics
 	name = "Auxiliary forensic tools"
@@ -51,7 +67,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/storage/box/swabs,
 					/obj/item/weapon/storage/box/swabs,
 					/obj/item/weapon/storage/box/slides,
-					/obj/item/weapon/reagent_containers/spray/luminol)
+					/obj/item/weapon/reagent_containers/spray/luminol,
+					/obj/item/device/uv_light)
 	cost = 30
 	containertype = /obj/structure/closet/crate
 	containername = "Auxiliary forensic tools"
@@ -138,6 +155,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/patron,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine,
 					/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
 					/obj/item/weapon/lipstick/random,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale,
@@ -204,6 +222,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate/internals
 	containername = "Emergency crate"
 	group = "Atmospherics"
+
+
 
 
 /datum/supply_packs/inflatable
@@ -1092,6 +1112,22 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "Sterile equipment crate"
 	group = "Medical"
 
+/datum/supply_packs/beer
+	contains = list(/obj/structure/reagent_dispensers/beerkeg)
+	name = "Beer Keg"
+	cost = 10
+	containertype = /obj/structure/largecrate
+	containername = "Beer Crate"
+	group = "Hospitality"
+
+/datum/supply_packs/xuizi
+	contains = list(/obj/structure/reagent_dispensers/xuizikeg)
+	name = "Xuizi Juice Keg"
+	cost = 20
+	containertype = /obj/structure/largecrate
+	containername = "Xuizi Juice Crate"
+	group = "Hospitality"
+
 /datum/supply_packs/randomised/pizza
 	num_contained = 5
 	contains = list(/obj/item/pizzabox/margherita,
@@ -1697,22 +1733,6 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate
 	containername = "glowsticks crate"
 	group = "Operations"
-
-/datum/supply_packs/randomised/illegalguns
-	name = "Illegal weapons crate"
-	num_contained = 2
-	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-					/obj/item/weapon/gun/projectile/boltaction,
-					/obj/item/weapon/gun/projectile/silenced,
-					/obj/item/weapon/gun/projectile/pirate,
-					/obj/item/weapon/gun/projectile/revolver/derringer,
-					/obj/item/weapon/gun/projectile/dragunov,
-					/obj/item/weapon/gun/energy/retro)
-	cost = 120
-	containertype = /obj/structure/closet/crate
-	containername = "Unlabeled crate"
-	contraband = 1
-	group = "Security"
 
 /datum/supply_packs/spessbike
 	name = "Space-bike Crate"

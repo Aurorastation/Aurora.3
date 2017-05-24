@@ -10,7 +10,7 @@
 	var/fleshcolor //Used for gibbed humans.
 	var/bloodcolor //Used for gibbed humans.
 
-	New(location, var/list/viruses, var/datum/dna/MobDNA, var/fleshcolor, var/bloodcolor)
+	Initialize(mapload, list/viruses, datum/dna/MobDNA, fleshcolor, bloodcolor)
 		..()
 
 		if(fleshcolor) src.fleshcolor = fleshcolor

@@ -16,17 +16,17 @@
 	attack_verb = list("robusted")
 	var/stunhit = 0
 
-/obj/item/weapon/storage/toolbox/initialize()
-	spawn(3)
-		update_force()
+/obj/item/weapon/storage/toolbox/Initialize(mapload)
+	. = ..()
+	update_force()
 
 /obj/item/weapon/storage/toolbox/emergency
 	name = "emergency toolbox"
 	icon_state = "red"
 	item_state = "toolbox_red"
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		new /obj/item/weapon/crowbar/red(src)
 		new /obj/item/weapon/extinguisher/mini(src)
 		if(prob(50))
@@ -40,8 +40,8 @@
 	icon_state = "blue"
 	item_state = "toolbox_blue"
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)
 		new /obj/item/weapon/weldingtool(src)
@@ -54,8 +54,8 @@
 	icon_state = "yellow"
 	item_state = "toolbox_yellow"
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/color = pick("red","yellow","green","blue","pink","orange","cyan","white")
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wirecutters(src)
@@ -75,8 +75,8 @@
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
 	force = 7.0
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)

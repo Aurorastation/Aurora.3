@@ -2,8 +2,6 @@
 #define TANK_DEFAULT_RELEASE_PRESSURE 24
 #define TANK_IDEAL_PRESSURE 1015 //Arbitrary.
 
-var/list/global/tank_gauge_cache = list()
-
 /obj/item/weapon/tank
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
@@ -31,27 +29,26 @@ var/list/global/tank_gauge_cache = list()
 	var/volume = 70
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with the PDA or gas analyzer then we might just breath whatever they put in it.
-/obj/item/weapon/tank/New()
-	..()
+/obj/item/weapon/tank/Initialize()
+	. = ..()
 
-	src.air_contents = new /datum/gas_mixture()
-	src.air_contents.volume = volume //liters
-	src.air_contents.temperature = T20C
-	processing_objects.Add(src)
+	air_contents = new /datum/gas_mixture()
+	air_contents.volume = volume //liters
+	air_contents.temperature = T20C
+
+	START_PROCESSING(SSprocessing, src)
 	update_gauge()
-	return
 
 /obj/item/weapon/tank/Destroy()
-	if(air_contents)
-		qdel(air_contents)
+	QDEL_NULL(air_contents)
 
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 
 	if(istype(loc, /obj/item/device/transfer_valve))
 		var/obj/item/device/transfer_valve/TTV = loc
 		TTV.remove_tank(src)
 
-	..()
+	return ..()
 
 /obj/item/weapon/tank/examine(mob/user)
 	. = ..(user, 0)
@@ -140,7 +137,7 @@ var/list/global/tank_gauge_cache = list()
 					data["maskConnected"] = 1
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -243,11 +240,9 @@ var/list/global/tank_gauge_cache = list()
 		return
 
 	last_gauge_pressure = gauge_pressure
-	overlays.Cut()
-	var/indicator = "[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]"
-	if(!tank_gauge_cache[indicator])
-		tank_gauge_cache[indicator] = image(icon, indicator)
-	overlays += tank_gauge_cache[indicator]
+	cut_overlays()
+	// SSoverlay will handle icon caching.
+	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
 
 /obj/item/weapon/tank/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank

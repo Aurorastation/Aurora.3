@@ -48,7 +48,7 @@
 		node1 = null
 		node2 = null
 
-		..()
+		return ..()
 
 	process()
 		..()

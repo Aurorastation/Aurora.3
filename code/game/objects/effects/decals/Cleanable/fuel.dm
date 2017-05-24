@@ -6,22 +6,22 @@
 	anchored = 1
 	var/amount = 1
 
-	New(turf/newLoc,amt=1,nologs=0)
-		if(!nologs)
-			message_admins("Liquid fuel has spilled in [newLoc.loc.name] ([newLoc.x],[newLoc.y],[newLoc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[newLoc.x];Y=[newLoc.y];Z=[newLoc.z]'>JMP</a>)")
-			log_game("Liquid fuel has spilled in [newLoc.loc.name] ([newLoc.x],[newLoc.y],[newLoc.z])")
+	Initialize(mapload, amt = 1, nologs = 0)
+		. = ..()
+		if(!nologs && !mapload)
+			message_admins("Liquid fuel has spilled in [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
+			log_game("Liquid fuel has spilled in [loc.loc.name] ([loc.x],[loc.y],[loc.z])")
 		src.amount = amt
 
 		var/has_spread = 0
 		//Be absorbed by any other liquid fuel in the tile.
-		for(var/obj/effect/decal/cleanable/liquid_fuel/other in newLoc)
+		for(var/obj/effect/decal/cleanable/liquid_fuel/other in loc)
 			if(other != src)
 				other.amount += src.amount
 				other.Spread()
 				has_spread = 1
 				break
 
-		. = ..()
 		if(!has_spread)
 			Spread()
 		else
@@ -50,7 +50,7 @@
 	flamethrower_fuel
 		icon_state = "mustard"
 		anchored = 0
-		New(newLoc, amt = 1, d = 0)
+		Initialize(mapload, amt = 1, d = 0)
 			set_dir(d) //Setting this direction means you won't get torched by your own flamethrower.
 			. = ..()
 

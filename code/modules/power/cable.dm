@@ -78,7 +78,7 @@ var/list/possible_cable_coil_colours = list(
 	color = COLOR_WHITE
 
 /obj/structure/cable/New()
-	..()
+	. = ..()
 
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
 
@@ -90,14 +90,14 @@ var/list/possible_cable_coil_colours = list(
 
 	var/turf/T = src.loc			// hide if turf is not intact
 	if(level==1) hide(!T.is_plating())
-	cable_list += src //add it to the global cable list
+	SSpower.all_cables += src //add it to the global cable list
 
 
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
-	cable_list -= src							//remove it from global cable list
-	..()										// then go ahead and delete the cable
+	SSpower.all_cables -= src							//remove it from global cable list
+	return ..()										// then go ahead and delete the cable
 
 ///////////////////////////////////
 // General procedures
@@ -141,7 +141,7 @@ var/list/possible_cable_coil_colours = list(
 			return
 
 		if(breaker_box)
-			user << "\red This cable is connected to nearby breaker box. Use breaker box to interact with it."
+			user << "<span class='warning'>This cable is connected to nearby breaker box. Use breaker box to interact with it.</span>"
 			return
 
 		if (shock(user, 50))
@@ -200,6 +200,10 @@ var/list/possible_cable_coil_colours = list(
 		if(usr.stunned)
 			return 1
 	return 0
+
+/obj/structure/cable/shuttle_move(turf/loc)
+	..()
+	SSmachinery.powernet_update_queued = TRUE
 
 //explosion handling
 /obj/structure/cable/ex_act(severity)
@@ -482,8 +486,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	uses_charge = 1
 	charge_costs = list(1)
 
-/obj/item/stack/cable_coil/New(loc, length = MAXCOIL, var/param_color = null)
-	..()
+/obj/item/stack/cable_coil/Initialize(mapload, length = MAXCOIL, var/param_color = null)
+	. = ..()
 	src.amount = length
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
 		color = param_color
@@ -497,7 +501,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 ///////////////////////////////////
 
 //you can use wires to heal robotics
-/obj/item/stack/cable_coil/afterattack(var/mob/M, var/mob/user)
+/obj/item/stack/cable_coil/afterattack(var/mob/living/M, var/mob/user)
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -506,6 +510,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if (!S) return
 		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
 			return ..()
+
+		if(M.isSynthetic() && M == user)
+			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
+			return
 
 		if(S.burn_dam)
 			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP)
@@ -572,14 +580,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
 		if(src.amount <= 14)
-			usr << "\red You need at least 15 lengths to make restraints!"
+			usr << "<span class='warning'>You need at least 15 lengths to make restraints!</span>"
 			return
 		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
 		B.color = color
 		usr << "<span class='notice'>You wind some cable together to make some restraints.</span>"
 		src.use(15)
 	else
-		usr << "\blue You cannot do that."
+		usr << "<span class='notice'>You cannot do that.</span>"
 	..()
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
@@ -621,7 +629,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 //////////////////////////////////////////////
 
 // called when cable_coil is clicked on a turf/simulated/floor
-/obj/item/stack/cable_coil/proc/turf_place(turf/simulated/floor/F, mob/user)
+/obj/item/stack/cable_coil/proc/turf_place(turf/F, mob/user)
 	if(!isturf(user.loc))
 		return
 
@@ -633,9 +641,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		user << "You can't lay cable at a place that far away."
 		return
 
+	if(!istype(F,/turf/simulated/floor))
+		if(!locate(/obj/structure/lattice/catwalk) in F)
+			user << "You can't lay cable there unless there is plating or a catwalk."
+			return
+
 	if(!F.is_plating())		// Ff floor is intact, complain
-		user << "You can't lay cable there unless the floor tiles are removed."
-		return
+		if(!locate(/obj/structure/lattice/catwalk) in F)
+			user << "You can't lay cable there unless the floor tiles are removed."
+			return
 
 	else
 		var/dirn
@@ -887,7 +901,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			usr << "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>"
 			return 0
 		if(src.amount <= 24)
-			usr << "<span class='warning'> You need at least 25 lengths to make a noose!</span>"
+			usr << "<span class='warning'>You need at least 25 lengths to make a noose!</span>"
 			return
 		new /obj/structure/noose(usr.loc)
 		usr << "<span class='notice'>You wind some cable together to make a noose, tying it to the ceiling.</span>"
@@ -991,7 +1005,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(!affecting)
 			user << "<span class='danger'>They don't have a head.</span>"
 			return
-	
+
 	if(M.loc != src.loc) return 0 //Can only noose someone if they're on the same tile as noose
 
 	add_fingerprint(user)
@@ -1031,7 +1045,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 		pixel_x = initial(pixel_x)
 		return
-		
+
 	ticks++
 	switch(ticks)
 		if(1)
@@ -1046,7 +1060,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(buckled_mob)
 				if (ishuman(buckled_mob))
 					var/mob/living/carbon/human/H = buckled_mob
-					if (H.species && (H.species.flags & NO_BREATHE)) 
+					if (H.species && (H.species.flags & NO_BREATHE))
 						return
 				if(prob(15))
 					var/flavor_text = list("<span class='warning'>[buckled_mob]'s legs flail for anything to stand on.</span>",\
@@ -1061,11 +1075,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			pixel_x = initial(pixel_x)
 			buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 			ticks = 0
-			
+
 	if(buckled_mob)
 		if (ishuman(buckled_mob))
 			var/mob/living/carbon/human/H = buckled_mob
-			if (H.species && (H.species.flags & NO_BREATHE)) 
+			if (H.species && (H.species.flags & NO_BREATHE))
 				return
 		buckled_mob.adjustOxyLoss(5)
 		buckled_mob.adjustBrainLoss(1)

@@ -225,119 +225,42 @@ proc/listclearnulls(list/list)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortKey(var/list/client/L, var/order = 1)
-	if(isnull(L) || L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1
-	return mergeKey(sortKey(L.Copy(0,middle)), sortKey(L.Copy(middle)), order)
-
-//Mergsort: does the actual sorting and returns the results back to sortAtom
-/proc/mergeKey(var/list/client/L, var/list/client/R, var/order = 1)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		var/client/rL = L[Li]
-		var/client/rR = R[Ri]
-		if(sorttext(rL.ckey, rR.ckey) == order)
-			result += L[Li++]
-		else
-			result += R[Ri++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	return sortTim(target, order ? /proc/cmp_ckey_asc : /proc/cmp_ckey_dsc, FALSE)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortAtom(var/list/atom/L, var/order = 1)
-	if(isnull(L) || L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1
-	return mergeAtoms(sortAtom(L.Copy(0,middle)), sortAtom(L.Copy(middle)), order)
-
-//Mergsort: does the actual sorting and returns the results back to sortAtom
-/proc/mergeAtoms(var/list/atom/L, var/list/atom/R, var/order = 1)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		var/atom/rL = L[Li]
-		var/atom/rR = R[Ri]
-		if(sorttext(rL.name, rR.name) == order)
-			result += L[Li++]
-		else
-			result += R[Ri++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
-
-
-
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	return sortTim(target, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
 
 //Mergesort: Specifically for record datums in a list.
 /proc/sortRecord(var/list/datum/data/record/L, var/field = "name", var/order = 1)
-	if(isnull(L))
-		return list()
-	if(L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1
-	return mergeRecordLists(sortRecord(L.Copy(0, middle), field, order), sortRecord(L.Copy(middle), field, order), field, order)
-
-//Mergsort: does the actual sorting and returns the results back to sortRecord
-/proc/mergeRecordLists(var/list/datum/data/record/L, var/list/datum/data/record/R, var/field = "name", var/order = 1)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	if(!isnull(L) && !isnull(R))
-		while(Li <= L.len && Ri <= R.len)
-			var/datum/data/record/rL = L[Li]
-			if(isnull(rL))
-				L -= rL
-				continue
-			var/datum/data/record/rR = R[Ri]
-			if(isnull(rR))
-				R -= rR
-				continue
-			if(sorttext(rL.fields[field], rR.fields[field]) == order)
-				result += L[Li++]
-			else
-				result += R[Ri++]
-
-		if(Li <= L.len)
-			return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
-
-
-
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	var/old_cmp_field = cmp_field
+	cmp_field = field
+	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
+	cmp_field = old_cmp_field
+	return target
 
 //Mergesort: any value in a list
 /proc/sortList(var/list/L)
-	if(L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1 // Copy is first,second-1
-	return mergeLists(sortList(L.Copy(0,middle)), sortList(L.Copy(middle))) //second parameter null = to end of list
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	return sortTim(target, /proc/cmp_text_asc)
 
 //Mergsorge: uses sortList() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sortNames(var/list/L)
-	var/list/Q = new()
-	for(var/atom/x in L)
-		Q[x.name] = x
-	return sortList(Q)
-
-/proc/mergeLists(var/list/L, var/list/R)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		if(sorttext(L[Li], R[Ri]) < 1)
-			result += R[Ri++]
-		else
-			result += L[Li++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
-
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	return sortTim(target, /proc/cmp_name_asc, FALSE)
 
 // List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
 /proc/sortByKey(var/list/L, var/key)
@@ -366,24 +289,9 @@ proc/listclearnulls(list/list)
 
 //Mergesort: any value in a list, preserves key=value structure
 /proc/sortAssoc(var/list/L)
-	if(L.len < 2)
-		return L
-	var/middle = L.len / 2 + 1 // Copy is first,second-1
-	return mergeAssoc(sortAssoc(L.Copy(0,middle)), sortAssoc(L.Copy(middle))) //second parameter null = to end of list
-
-/proc/mergeAssoc(var/list/L, var/list/R)
-	var/Li=1
-	var/Ri=1
-	var/list/result = new()
-	while(Li <= L.len && Ri <= R.len)
-		if(sorttext(L[Li], R[Ri]) < 1)
-			result += R&R[Ri++]
-		else
-			result += L&L[Li++]
-
-	if(Li <= L.len)
-		return (result + L.Copy(Li, 0))
-	return (result + R.Copy(Ri, 0))
+	var/list/ret = L.Copy()
+	sortTim(ret, /proc/cmp_text_asc, FALSE)
+	return ret
 
 // Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!
 #define BITTEST(bitfield,index)  ((bitfield)  &   (1 << (index)))
@@ -653,6 +561,41 @@ proc/dd_sortedTextList(list/incoming)
 		L += new path()
 	return L
 
+//Like typesof() or subtypesof(), but returns a typecache instead of a list
+/proc/typecacheof(path, ignore_root_path, only_root_path = FALSE)
+	if(ispath(path))
+		var/list/types = list()
+		if(only_root_path)
+			types = list(path)
+		else
+			types = ignore_root_path ? subtypesof(path) : typesof(path)
+		var/list/L = list()
+		for(var/T in types)
+			L[T] = TRUE
+		return L
+	else if(islist(path))
+		var/list/pathlist = path
+		var/list/L = list()
+		if(ignore_root_path)
+			for(var/P in pathlist)
+				for(var/T in subtypesof(P))
+					L[T] = TRUE
+		else
+			for(var/P in pathlist)
+				if(only_root_path)
+					L[P] = TRUE
+				else
+					for(var/T in typesof(P))
+						L[T] = TRUE
+		return L
+
+//Checks for specific types in specifically structured (Assoc "type" = TRUE) lists ('typecaches')
+/proc/is_type_in_typecache(atom/A, list/L)
+	if(!L || !L.len || !A)
+
+		return 0
+	return L[A.type]
+
 #define listequal(A, B) (A.len == B.len && !length(A^B))
 
 /proc/Sum(var/list/input)
@@ -661,3 +604,63 @@ proc/dd_sortedTextList(list/incoming)
 		total += input[i]
 
 	return total
+
+
+//Move a single element from position fromIndex within a list, to position toIndex
+//All elements in the range [1,toIndex) before the move will be before the pivot afterwards
+//All elements in the range [toIndex, L.len+1) before the move will be after the pivot afterwards
+//In other words, it's as if the range [fromIndex,toIndex) have been rotated using a <<< operation common to other languages.
+//fromIndex and toIndex must be in the range [1,L.len+1]
+//This will preserve associations ~Carnie
+/proc/moveElement(list/L, fromIndex, toIndex)
+	if(fromIndex == toIndex || fromIndex+1 == toIndex)	//no need to move
+		return
+	if(fromIndex > toIndex)
+		++fromIndex	//since a null will be inserted before fromIndex, the index needs to be nudged right by one
+
+	L.Insert(toIndex, null)
+	L.Swap(fromIndex, toIndex)
+	L.Cut(fromIndex, fromIndex+1)
+
+
+//Move elements [fromIndex,fromIndex+len) to [toIndex-len, toIndex)
+//Same as moveElement but for ranges of elements
+//This will preserve associations ~Carnie
+/proc/moveRange(list/L, fromIndex, toIndex, len=1)
+	var/distance = abs(toIndex - fromIndex)
+	if(len >= distance)	//there are more elements to be moved than the distance to be moved. Therefore the same result can be achieved (with fewer operations) by moving elements between where we are and where we are going. The result being, our range we are moving is shifted left or right by dist elements
+		if(fromIndex <= toIndex)
+			return	//no need to move
+		fromIndex += len	//we want to shift left instead of right
+
+		for(var/i=0, i<distance, ++i)
+			L.Insert(fromIndex, null)
+			L.Swap(fromIndex, toIndex)
+			L.Cut(toIndex, toIndex+1)
+	else
+		if(fromIndex > toIndex)
+			fromIndex += len
+
+		for(var/i=0, i<len, ++i)
+			L.Insert(toIndex, null)
+			L.Swap(fromIndex, toIndex)
+			L.Cut(fromIndex, fromIndex+1)
+
+//replaces reverseList ~Carnie
+/proc/reverseRange(list/L, start=1, end=0)
+	if(L.len)
+		start = start % L.len
+		end = end % (L.len+1)
+		if(start <= 0)
+			start += L.len
+		if(end <= 0)
+			end += L.len + 1
+
+		--end
+		while(start < end)
+			L.Swap(start++,end--)
+
+	return L
+
+#define LAZYINITLIST(L) if (!L) L = list()
+#define UNSETEMPTY(L) if (L && !L.len) L = null

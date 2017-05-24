@@ -5,8 +5,8 @@
 	var/datum/computer/file/embedded_program/docking/airlock/docking_program
 	tag_secure = 1
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/initialize()
-	..()
+/obj/machinery/embedded_controller/radio/airlock/docking_port/Initialize()
+	. = ..()
 	airlock_program = new/datum/computer/file/embedded_program/airlock/docking(src)
 	docking_program = new/datum/computer/file/embedded_program/docking/airlock(src, airlock_program)
 	program = docking_program
@@ -24,7 +24,7 @@
 		"override_enabled" = docking_program.override_enabled
 	)
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 
 	if (!ui)
 		ui = new(user, src, ui_key, "docking_airlock_console.tmpl", name, 470, 290)

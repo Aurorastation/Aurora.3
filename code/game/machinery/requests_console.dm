@@ -51,7 +51,10 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/message = "";
 	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
-	light_range = 0
+	
+	light_color = LIGHT_COLOR_RED
+	light_power = 0.25	// It's a tiny light, it ain't going to be bright.
+
 	//Form intregration
 	var/SQLquery
 	var/paperstock = 10
@@ -71,9 +74,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	else
 		if(icon_state == "req_comp_off")
 			icon_state = "req_comp[newmessagepriority]"
+			if (newmessagepriority)
+				set_light(2)
+			else
+				set_light(0)
 
-/obj/machinery/requests_console/New()
-	..()
+/obj/machinery/requests_console/Initialize()
+	. = ..()
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
@@ -86,8 +93,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
-
-	set_light(1)
 
 /obj/machinery/requests_console/Destroy()
 	allConsoles -= src
@@ -103,7 +108,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			req_console_supplies -= department
 		if (departmentType & RC_INFO)
 			req_console_information -= department
-	..()
+	return ..()
 
 /obj/machinery/requests_console/attack_hand(user as mob)
 	if(..(user))
@@ -159,7 +164,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["lid"] = lid
 	data["paper"] = paperstock
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
 		ui.set_initial_data(data)
@@ -220,7 +225,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				if (Console.department == department)
 					Console.newmessagepriority = 0
 					Console.icon_state = "req_comp0"
-					Console.set_light(1)
+					Console.set_light(0)
 		if(tempScreen == RCS_MAINMENU)
 			reset_message()
 		screen = tempScreen

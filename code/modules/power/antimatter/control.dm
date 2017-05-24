@@ -46,9 +46,10 @@
 	for(var/obj/machinery/am_shielding/AMS in linked_cores)
 		AMS.control_unit = null
 		qdel(AMS)
+
 	qdel(fueljar)
 	fueljar = null
-	..()
+	return ..()
 
 
 /obj/machinery/power/am_control_unit/process()
@@ -266,7 +267,7 @@
 	stored_core_stability = 0
 	for(var/thing in linked_cores)
 		var/obj/machinery/am_shielding/AMS = thing
-		if (!AMS || AMS.gcDestroyed)
+		if (QDELETED(AMS))
 			continue
 
 		stored_core_stability += AMS.stability
@@ -318,7 +319,7 @@
 		"siliconUser" = istype(user, /mob/living/silicon)
 	)
 
-	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, ui_key)
+	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, ui_key)
 	if (!ui)
 		// the ui does not exist, so we'll create a new one
 		ui = new(user, src, ui_key, "ame.tmpl", "Antimatter Control Unit", 500, data["siliconUser"] ? 465 : 390)
@@ -384,3 +385,4 @@
 
 	updateDialog()
 	return 1
+

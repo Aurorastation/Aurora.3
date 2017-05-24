@@ -88,7 +88,7 @@ obj/machinery/atmospherics/pipe/zpipe/Destroy()
 		node1.disconnect(src)
 	if(node2)
 		node2.disconnect(src)
-	..()
+	return ..()
 
 obj/machinery/atmospherics/pipe/zpipe/pipeline_expansion()
 	return list(node1, node2)
@@ -192,7 +192,6 @@ obj/machinery/atmospherics/pipe/zpipe/up/scrubbers
 	name = "upwards scrubbers pipe"
 	desc = "A scrubbers pipe segment to connect upwards."
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -201,7 +200,6 @@ obj/machinery/atmospherics/pipe/zpipe/up/supply
 	name = "upwards supply pipe"
 	desc = "A supply pipe segment to connect upwards."
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
@@ -210,7 +208,6 @@ obj/machinery/atmospherics/pipe/zpipe/down/scrubbers
 	name = "downwards scrubbers pipe"
 	desc = "A scrubbers pipe segment to connect downwards."
 	connect_types = CONNECT_TYPE_SCRUBBER
-	layer = 2.38
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
@@ -219,6 +216,16 @@ obj/machinery/atmospherics/pipe/zpipe/down/supply
 	name = "downwards supply pipe"
 	desc = "A supply pipe segment to connect downwards."
 	connect_types = CONNECT_TYPE_SUPPLY
-	layer = 2.39
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
+
+// Colored misc. pipes
+obj/machinery/atmospherics/pipe/zpipe/up/cyan
+	color = PIPE_COLOR_CYAN
+obj/machinery/atmospherics/pipe/zpipe/down/cyan
+	color = PIPE_COLOR_CYAN
+
+obj/machinery/atmospherics/pipe/zpipe/up/red
+	color = PIPE_COLOR_RED
+obj/machinery/atmospherics/pipe/zpipe/down/red
+	color = PIPE_COLOR_RED

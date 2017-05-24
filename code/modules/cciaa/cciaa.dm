@@ -8,11 +8,7 @@
 	if(!holder)
 		return //how did they get here?
 
-	if(!ticker)
-		alert("Wait until the game starts")
-		return
-
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(!ROUND_IS_STARTED)
 		src << "<span class='warning'>The game hasn't started yet!</span>"
 		return
 
@@ -191,11 +187,12 @@
 	qdel(M)
 
 /proc/clear_cciaa_job(var/mob/living/carbon/human/M)
-	spawn(9000)
-		if(!M.client)
-			var/oldjob = M.mind.assigned_role
-			job_master.FreeRole(oldjob)
-	return
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/actual_clear_ccia_job, M), 9000)
+
+/proc/actual_clear_ccia_job(mob/living/carbon/human/H)
+	if (!H.client)
+		var/oldjob = H.mind.assigned_role
+		SSjobs.FreeRole(oldjob)
 
 /datum/admins/proc/create_admin_fax(var/department in alldepartments)
 	set name = "Send admin fax"
@@ -231,6 +228,9 @@
 	if (!customname)
 		usr << "<span class='warning'>Cancelled.</span>"
 		return
+	var/announce = alert(user, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
+	if(announce == "Yes")
+		announce = 1
 
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
@@ -248,6 +248,8 @@
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.recievefax(P))
+		if(announce == 1)
+			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
 		usr << "<span class='notice'>Message transmitted successfully.</span>"
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 

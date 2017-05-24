@@ -93,7 +93,7 @@
 	can_stand = 1
 
 /obj/item/organ/external/foot/removed()
-	if(owner) owner.u_equip(owner.shoes)
+	if(owner) owner.drop_from_inventory(owner.shoes)
 	..()
 
 /obj/item/organ/external/foot/right
@@ -120,7 +120,7 @@
 	can_grasp = 1
 
 /obj/item/organ/external/hand/removed()
-	owner.u_equip(owner.gloves)
+	owner.drop_from_inventory(owner.gloves)
 	..()
 
 /obj/item/organ/external/hand/right
@@ -151,11 +151,11 @@
 /obj/item/organ/external/head/removed()
 	if(owner)
 		name = "[owner.real_name]'s head"
-		owner.u_equip(owner.glasses)
-		owner.u_equip(owner.head)
-		owner.u_equip(owner.l_ear)
-		owner.u_equip(owner.r_ear)
-		owner.u_equip(owner.wear_mask)
+		owner.drop_from_inventory(owner.glasses)
+		owner.drop_from_inventory(owner.head)
+		owner.drop_from_inventory(owner.l_ear)
+		owner.drop_from_inventory(owner.r_ear)
+		owner.drop_from_inventory(owner.wear_mask)
 		spawn(1)
 			owner.update_hair()
 	..()

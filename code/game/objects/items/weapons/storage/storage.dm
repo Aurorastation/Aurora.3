@@ -40,7 +40,13 @@
 	qdel(src.stored_continue)
 	qdel(src.stored_end)
 	qdel(closer)
-	..()
+	while (contents.len)
+		var/thing = contents[contents.len]
+		contents.len--
+
+		qdel(thing)
+
+	return ..()
 
 /obj/item/weapon/storage/MouseDrop(obj/over_object as obj)
 
@@ -451,7 +457,7 @@
 		var/obj/item/weapon/tray/T = W
 		if(T.current_weight > 0)
 			T.spill(user)
-			user << "\red Trying to place a loaded tray into [src] was a bad idea."
+			user << "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>"
 			return
 
 	W.add_fingerprint(user)
@@ -506,6 +512,14 @@
 	for(var/obj/item/I in contents)
 		remove_from_storage(I, T)
 
+		CHECK_TICK
+
+/obj/item/weapon/storage/proc/post_init()
+	var/total_storage_space = 0
+	for(var/obj/item/I in contents)
+		total_storage_space += I.get_storage_cost()
+	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
+
 /obj/item/weapon/storage/New()
 	..()
 	if(allow_quick_empty)
@@ -518,32 +532,28 @@
 	else
 		verbs -= /obj/item/weapon/storage/verb/toggle_gathering_mode
 
-	spawn(5)
-		var/total_storage_space = 0
-		for(var/obj/item/I in contents)
-			total_storage_space += I.get_storage_cost()
-		max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
+	addtimer(CALLBACK(src, .proc/post_init), 5)
 
-	src.boxes = new /obj/screen/storage(  )
+	src.boxes = new /obj/screen/storage
 	src.boxes.name = "storage"
 	src.boxes.master = src
 	src.boxes.icon_state = "block"
 	src.boxes.screen_loc = "7,7 to 10,8"
 	src.boxes.layer = 19
 
-	src.storage_start = new /obj/screen/storage(  )
+	src.storage_start = new /obj/screen/storage
 	src.storage_start.name = "storage"
 	src.storage_start.master = src
 	src.storage_start.icon_state = "storage_start"
 	src.storage_start.screen_loc = "7,7 to 10,8"
 	src.storage_start.layer = 19
-	src.storage_continue = new /obj/screen/storage(  )
+	src.storage_continue = new /obj/screen/storage
 	src.storage_continue.name = "storage"
 	src.storage_continue.master = src
 	src.storage_continue.icon_state = "storage_continue"
 	src.storage_continue.screen_loc = "7,7 to 10,8"
 	src.storage_continue.layer = 19
-	src.storage_end = new /obj/screen/storage(  )
+	src.storage_end = new /obj/screen/storage
 	src.storage_end.name = "storage"
 	src.storage_end.master = src
 	src.storage_end.icon_state = "storage_end"
@@ -560,7 +570,7 @@
 	src.stored_end.icon_state = "stored_end"
 	src.stored_end.layer = 19
 
-	src.closer = new /obj/screen/close(  )
+	src.closer = new /obj/screen/close
 	src.closer.master = src
 	src.closer.icon_state = "x"
 	src.closer.layer = 20

@@ -36,6 +36,8 @@
 	icon = 'icons/obj/inflatable.dmi'
 	icon_state = "wall"
 
+	atmos_canpass = CANPASS_DENSITY
+
 	var/undeploy_path = null
 	var/health = 50.0
 
@@ -49,7 +51,7 @@
 
 /obj/structure/inflatable/Destroy()
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/structure/inflatable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 0
@@ -113,10 +115,12 @@
 		if(!undeploy_path)
 			return
 		visible_message("\The [src] slowly deflates.")
-		spawn(50)
-			var/obj/item/inflatable/R = new undeploy_path(src.loc)
-			src.transfer_fingerprints_to(R)
-			qdel(src)
+		addtimer(CALLBACK(src, .proc/post_deflate), 26)
+
+/obj/structure/inflatable/proc/post_deflate()
+	var/obj/item/inflatable/R = new undeploy_path(src.loc)
+	src.transfer_fingerprints_to(R)
+	qdel(src)
 
 /obj/structure/inflatable/verb/hand_deflate()
 	set name = "Deflate"
@@ -134,7 +138,7 @@
 	user.do_attack_animation(src)
 	if(health <= 0)
 		user.visible_message("<span class='danger'>[user] [attack_verb] open the [src]!</span>")
-		spawn(1) deflate(1)
+		addtimer(CALLBACK(src, .proc/deflate, 1), 1)
 	else
 		user.visible_message("<span class='danger'>[user] [attack_verb] at [src]!</span>")
 	return 1
@@ -190,28 +194,30 @@
 	update_nearby_tiles()
 
 /obj/structure/inflatable/door/proc/Open()
-	spawn()
-		if(isSwitchingStates) return
-		isSwitchingStates = 1
-		flick("door_opening",src)
-		sleep(10)
-		density = 0
-		opacity = 0
-		state = 1
-		update_icon()
-		isSwitchingStates = 0
+	set waitfor = FALSE
+	if(isSwitchingStates) 
+		return
+	isSwitchingStates = 1
+	flick("door_opening",src)
+	sleep(10)
+	density = 0
+	opacity = 0
+	state = 1
+	update_icon()
+	isSwitchingStates = 0
 
 /obj/structure/inflatable/door/proc/Close()
-	spawn()
-		if(isSwitchingStates) return
-		isSwitchingStates = 1
-		flick("door_closing",src)
-		sleep(10)
-		density = 1
-		opacity = 0
-		state = 0
-		update_icon()
-		isSwitchingStates = 0
+	set waitfor = FALSE
+	if(isSwitchingStates)
+		return
+	isSwitchingStates = 1
+	flick("door_closing",src)
+	sleep(10)
+	density = 1
+	opacity = 0
+	state = 0
+	update_icon()
+	isSwitchingStates = 0
 
 /obj/structure/inflatable/door/update_icon()
 	if(state)
@@ -228,10 +234,7 @@
 		qdel(src)
 	else
 		visible_message("[src] slowly deflates.")
-		spawn(50)
-			var/obj/item/inflatable/door/R = new /obj/item/inflatable/door(loc)
-			src.transfer_fingerprints_to(R)
-			qdel(src)
+		addtimer(CALLBACK(src, .proc/post_deflate), 26)
 
 /obj/item/inflatable/torn
 	name = "torn inflatable wall"

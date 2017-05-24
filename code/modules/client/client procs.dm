@@ -24,8 +24,23 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	// asset_cache
+	if(href_list["asset_cache_confirm_arrival"])
+		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
+		var/job = text2num(href_list["asset_cache_confirm_arrival"])
+		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
+		//	into letting append to a list without limit.
+		if (job && job <= last_asset_job && !(job in completed_asset_jobs))
+			completed_asset_jobs += job
+			return
+
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
-		handle_connection_info(src, href_list["data"])
+		if (!info_sent)
+			handle_connection_info(src, href_list["data"])
+			info_sent = 1
+		else
+			server_greeting.close_window(src, "Your greeting window has malfunctioned and has been shut down.")
+
 		return
 
 	//Reduces spamming of links by dropping calls that happen during the delay period
@@ -87,7 +102,7 @@
 
 		establish_db_connection(dbcon)
 		if (!dbcon.IsConnected())
-			src << "\red Action failed! Database link could not be established!"
+			src << "<span class='warning'>Action failed! Database link could not be established!</span>"
 			return
 
 
@@ -95,11 +110,11 @@
 		check_query.Execute(list(":id" = request_id))
 
 		if (!check_query.NextRow())
-			src << "\red No request found!"
+			src << "<span class='warning'>No request found!</span>"
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			src << "\red Request authentication failed!"
+			src << "<span class='warning'>Request authentication failed!</span>"
 			return
 
 		var/query_contents = ""
@@ -119,7 +134,7 @@
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
-				src << "\red Invalid command sent."
+				src << "<span class='warning'>Invalid command sent.</span>"
 				return
 
 		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
@@ -152,7 +167,7 @@
 			if ("dismiss")
 				if (href_list["notification"])
 					var/datum/client_notification/a = locate(href_list["notification"])
-					if (a && isnull(a.gcDestroyed))
+					if (!QDELETED(a))
 						a.dismiss()
 
 			// Forum link from various panels.
@@ -197,19 +212,35 @@
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
-	if(config.automute_on && !holder && src.last_message == message)
-		src.last_message_count++
-		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			src << "\red You have exceeded the spam filter limit for identical messages. An auto-mute was applied."
-			cmd_admin_mute(src.mob, mute_type, 1)
-			return 1
-		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			src << "\red You are nearing the spam filter limit for identical messages."
-			return 0
-	else
-		last_message = message
-		src.last_message_count = 0
-		return 0
+	if (config.automute_on && !holder)
+		if (last_message_time)
+			if (world.time - last_message_time < config.macro_trigger)
+				spam_alert++
+				if (spam_alert > 3)
+					if (!(prefs.muted & mute_type))
+						cmd_admin_mute(src.mob, mute_type, 1)
+
+					src << "<span class='danger'>You have tripped the macro filter. An auto-mute was applied.</span>"
+					last_message_time = world.time
+					return 1
+			else
+				spam_alert = max(0, spam_alert--)
+
+		last_message_time = world.time
+
+		if(!isnull(message) && last_message == message)
+			last_message_count++
+			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
+				src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>"
+				cmd_admin_mute(src.mob, mute_type, 1)
+				return 1
+			if(last_message_count >= SPAM_TRIGGER_WARNING)
+				src << "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>"
+				return 0
+
+	last_message = message
+	last_message_count = 0
+	return 0
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
@@ -247,7 +278,7 @@
 		src.preload_rsc = pick(config.resource_urls)
 	else src.preload_rsc = 1 // If config.resource_urls is not set, preload like normal.
 
-	src << "\red If the title screen is black, resources are still downloading. Please be patient until the title screen appears."
+	src << "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>"
 
 
 	clients += src
@@ -273,7 +304,7 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 	. = ..()	//calls mob.Login()
-	
+
 	prefs.sanitize_preferences()
 
 	if (byond_version < config.client_error_version)
@@ -301,7 +332,6 @@
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
-	nanomanager.send_resources(src)
 
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1))
@@ -420,60 +450,9 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-
-	getFiles(
-		'html/search.js',
-		'html/panels.css',
-		'html/images/loading.gif',
-		'html/images/ntlogo.png',
-		'html/images/talisman.png',
-		'html/images/barcode0.png',
-		'html/images/barcode1.png',
-		'html/images/barcode2.png',
-		'html/images/barcode3.png',
-		'html/bootstrap/css/bootstrap.min.css',
-		'html/bootstrap/js/bootstrap.min.js',
-		'html/jquery/jquery-2.0.0.min.js',
-		'html/iestats/ie-truth.min.js',
-		'icons/pda_icons/pda_atmos.png',
-		'icons/pda_icons/pda_back.png',
-		'icons/pda_icons/pda_bell.png',
-		'icons/pda_icons/pda_blank.png',
-		'icons/pda_icons/pda_boom.png',
-		'icons/pda_icons/pda_bucket.png',
-		'icons/pda_icons/pda_crate.png',
-		'icons/pda_icons/pda_cuffs.png',
-		'icons/pda_icons/pda_eject.png',
-		'icons/pda_icons/pda_exit.png',
-		'icons/pda_icons/pda_flashlight.png',
-		'icons/pda_icons/pda_honk.png',
-		'icons/pda_icons/pda_mail.png',
-		'icons/pda_icons/pda_medical.png',
-		'icons/pda_icons/pda_menu.png',
-		'icons/pda_icons/pda_mule.png',
-		'icons/pda_icons/pda_notes.png',
-		'icons/pda_icons/pda_power.png',
-		'icons/pda_icons/pda_rdoor.png',
-		'icons/pda_icons/pda_reagent.png',
-		'icons/pda_icons/pda_refresh.png',
-		'icons/pda_icons/pda_scanner.png',
-		'icons/pda_icons/pda_signaler.png',
-		'icons/pda_icons/pda_status.png',
-		'icons/spideros_icons/sos_1.png',
-		'icons/spideros_icons/sos_2.png',
-		'icons/spideros_icons/sos_3.png',
-		'icons/spideros_icons/sos_4.png',
-		'icons/spideros_icons/sos_5.png',
-		'icons/spideros_icons/sos_6.png',
-		'icons/spideros_icons/sos_7.png',
-		'icons/spideros_icons/sos_8.png',
-		'icons/spideros_icons/sos_9.png',
-		'icons/spideros_icons/sos_10.png',
-		'icons/spideros_icons/sos_11.png',
-		'icons/spideros_icons/sos_12.png',
-		'icons/spideros_icons/sos_13.png',
-		'icons/spideros_icons/sos_14.png'
-		)
+	spawn (10) //removing this spawn causes all clients to not get verbs.
+		//Precache the client with all other assets slowly, so as to not block other browse() calls
+		getFilesSlow(src, SSassets.cache, register_asset = FALSE)
 
 /mob/proc/MayRespawn()
 	return 0

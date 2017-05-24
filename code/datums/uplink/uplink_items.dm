@@ -9,7 +9,7 @@ var/datum/uplink/uplink = new()
 	items_assoc = list()
 	items = init_subtypes(/datum/uplink_item)
 	categories = init_subtypes(/datum/uplink_category)
-	categories = dd_sortedObjectList(categories)
+	sortTim(categories, /proc/cmp_uplink_category, FALSE)
 
 	for(var/datum/uplink_item/item in items)
 		if(!item.name)
@@ -23,7 +23,7 @@ var/datum/uplink/uplink = new()
 				category.items += item
 
 	for(var/datum/uplink_category/category in categories)
-		category.items = dd_sortedObjectList(category.items)
+		sortTim(category.items, /proc/cmp_uplink_item, FALSE)
 
 /datum/uplink_item
 	var/name
@@ -103,9 +103,6 @@ var/datum/uplink/uplink = new()
 	feedback_add_details("traitor_uplink_items_bought", "[src]")
 	log_and_message_admins("used \the [U.loc] to buy \a [src]")
 	U.purchase_log[src] = U.purchase_log[src] + 1
-
-datum/uplink_item/dd_SortValue()
-	return cost(INFINITY)
 
 /********************************
 *                           	*

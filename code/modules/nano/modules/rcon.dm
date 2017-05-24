@@ -1,19 +1,17 @@
 /datum/nano_module/rcon
 	name = "Power RCON"
-	var/list/known_SMESs = null
-	var/list/known_breakers = null
 	// Allows you to hide specific parts of the UI
 	var/hide_SMES = 0
 	var/hide_SMES_details = 0
 	var/hide_breakers = 0
 
 /datum/nano_module/rcon/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=1, var/datum/topic_state/state = default_state)
-	FindDevices() // Update our devices list
+	//FindDevices() // Update our devices list
 	var/list/data = host.initial_data()
 
 	// SMES DATA (simplified view)
 	var/list/smeslist[0]
-	for(var/obj/machinery/power/smes/buildable/SMES in known_SMESs)
+	for(var/obj/machinery/power/smes/buildable/SMES in SSpower.rcon_smes_units)
 		smeslist.Add(list(list(
 		"charge" = round(SMES.Percentage()),
 		"input_set" = SMES.input_attempt,
@@ -24,11 +22,10 @@
 		"RCON_tag" = SMES.RCon_tag
 		)))
 
-	data["smes_info"] = sortByKey(smeslist, "RCON_tag")
-
+	data["smes_info"] = smeslist
 	// BREAKER DATA (simplified view)
 	var/list/breakerlist[0]
-	for(var/obj/machinery/power/breakerbox/BR in known_breakers)
+	for(var/obj/machinery/power/breakerbox/BR in SSpower.rcon_breaker_units)
 		breakerlist.Add(list(list(
 		"RCON_tag" = BR.RCon_tag,
 		"enabled" = BR.on
@@ -38,7 +35,7 @@
 	data["hide_smes_details"] = hide_SMES_details
 	data["hide_breakers"] = hide_breakers
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "rcon.tmpl", "RCON Console", 600, 400, state = state)
 		if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
@@ -74,10 +71,7 @@
 			SMES.set_output(outputset)
 
 	if(href_list["toggle_breaker"])
-		var/obj/machinery/power/breakerbox/toggle = null
-		for(var/obj/machinery/power/breakerbox/breaker in known_breakers)
-			if(breaker.RCon_tag == href_list["toggle_breaker"])
-				toggle = breaker
+		var/obj/machinery/power/breakerbox/toggle = SSpower.rcon_breaker_units_by_tag[href_list["toggle_breaker"]]
 		if(toggle)
 			if(toggle.update_locked)
 				usr << "The breaker box was recently toggled. Please wait before toggling it again."
@@ -98,20 +92,4 @@
 	if(!tag)
 		return
 
-	for(var/obj/machinery/power/smes/buildable/S in known_SMESs)
-		if(S.RCon_tag == tag)
-			return S
-
-// Proc: FindDevices()
-// Parameters: None
-// Description: Refreshes local list of known devices.
-/datum/nano_module/rcon/proc/FindDevices()
-	known_SMESs = new /list()
-	for(var/obj/machinery/power/smes/buildable/SMES in machines)
-		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
-			known_SMESs.Add(SMES)
-
-	known_breakers = new /list()
-	for(var/obj/machinery/power/breakerbox/breaker in machines)
-		if(breaker.RCon_tag != "NO_TAG")
-			known_breakers.Add(breaker)
+	return SSpower.rcon_smes_units_by_tag[tag]

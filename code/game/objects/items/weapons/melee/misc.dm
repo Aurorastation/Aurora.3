@@ -48,7 +48,7 @@
 
 /*
 /obj/item/weapon/melee/chainsword/suicide_act(mob/user)
-	viewers(user) << "\red <b>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</b>"
+	viewers(user) << "<span class='danger'>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</span>"
 	return (BRUTELOSS|OXYLOSS)
 */
 
@@ -62,10 +62,9 @@
 	contained_sprite = 1
 	slot_flags = SLOT_BELT
 	force = 22
-	throwforce = 70
-//This should do around 15 brute when you throw it, there's probably a better way to do it.
-	throw_speed = 1
-	throw_range = 5
+	throwforce = 15.0
+	throw_speed = 5
+	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = 3
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)

@@ -7,7 +7,7 @@
 	var/list/datum/alarm/alarms_assoc = new	// Associative list of alarms, to efficiently acquire them based on origin.
 	var/list/listeners = new				// A list of all objects interested in alarm changes.
 
-/datum/alarm_handler/proc/process()
+/datum/alarm_handler/process()
 	for(var/datum/alarm/A in alarms)
 		A.process()
 		check_alarm_cleared(A)
@@ -31,7 +31,7 @@
 	alarms |= existing
 	alarms_assoc[origin] = existing
 	if(new_alarm)
-		alarms = dd_sortedObjectList(alarms)
+		sortTim(alarms, /proc/cmp_alarm, FALSE)
 		on_alarm_change(existing, ALARM_RAISED)
 
 	return new_alarm

@@ -238,6 +238,26 @@
 	set_trait(TRAIT_PLANT_ICON,"bush4")
 	set_trait(TRAIT_IDEAL_HEAT, 298)
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
+//Placeholder mutation for the eggplant. Not as fun as the other mutations but better than nothing.
+/datum/seed/realeggplant
+	name = "huge eggplant"
+	seed_name = "realeggplant"
+	display_name = "eggplants"
+	chems = list("nutriment" = list(15,30))
+	kitchen_tag = "realeggplant"
+
+/datum/seed/realeggplant/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,4)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,1)
+	set_trait(TRAIT_POTENCY,40)
+	set_trait(TRAIT_PRODUCT_ICON,"eggplant")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#892694")
+	set_trait(TRAIT_PLANT_ICON,"bush4")
+	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
 
 //Apples/varieties.
 /datum/seed/apple
@@ -348,8 +368,8 @@
 	display_name = "k'ois spores"
 	mutants = null
 	chems = list(
-				"koispaste" = list(5),
-				"phoron" = list(1))
+				"koispaste" = list(2),
+				"phoron" = list(4))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
 

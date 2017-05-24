@@ -30,7 +30,7 @@
 	cell = new /obj/item/weapon/cell/high(src)
 
 /obj/item/weapon/cloaking_device/Destroy()
-	..()
+	. = ..()
 	cloaking_devices -= src
 
 

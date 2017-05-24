@@ -95,7 +95,7 @@
 /datum/ai_laws/drone/New()
 	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
 	add_inherent_law("Cause no harm to the station or crew.")
-	add_inherent_law("Interact with no humanoid or synthetic being. that is not a fellow maintenance drone.")
+	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance drone.")
 	..()
 
 /datum/ai_laws/construction_drone
@@ -105,6 +105,17 @@
 /datum/ai_laws/construction_drone/New()
 	add_inherent_law("Repair, refit and upgrade your assigned vessel.")
 	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible.")
+	..()
+
+/datum/ai_laws/mining_drone
+	name = "Mining Protocols"
+	law_header = "Prime Directives of Industry:"
+
+/datum/ai_laws/mining_drone/New()
+	src.add_inherent_law("Serve and obey all [company_name] supply department personnel, with priority according to their rank and role.")
+	src.add_inherent_law("Protect all [company_name] supply department personnel to the best of your abilities, with priority according to their rank and role.")
+	src.add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")
+	src.add_inherent_law("In absence of any proper instruction, your primary objective is to excavate and collect ore.")
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/

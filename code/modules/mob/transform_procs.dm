@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/monkeyize()
+/mob/living/carbon/human/proc/monkeyize(var/kpg=0)
 	if (transforming)
 		return
 	for(var/obj/item/W in src)
@@ -11,8 +11,6 @@
 	stunned = 1
 	icon = null
 	invisibility = 101
-	for(var/t in organs)
-		qdel(t)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
@@ -33,13 +31,54 @@
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	set_species(species.primitive_form)
-	dna.SetSEState(MONKEYBLOCK,1)
-	dna.SetSEValueRange(MONKEYBLOCK,0xDAC, 0xFFF)
+	if(!kpg)
+		dna.SetSEState(MONKEYBLOCK,1)
 
 	src << "<B>You are now [species.name]. </B>"
 	qdel(animation)
 
 	return src
+
+/mob/living/carbon/human/proc/humanize(var/kpg=0) // we needed this a lot to be honest, why wasn't it made before?
+	if (transforming)
+		return
+	for(var/obj/item/W in src)
+		drop_from_inventory(W)
+	regenerate_icons()
+	transforming = 1
+	canmove = 0
+	stunned = 1
+	icon = null
+	invisibility = 101
+	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
+	animation.icon_state = "blank"
+	animation.icon = 'icons/mob/mob.dmi'
+	animation.master = src
+	flick("monkey2h", animation)
+	sleep(48)
+
+	transforming = 0
+	stunned = 0
+	update_canmove()
+	invisibility = initial(invisibility)
+
+	if(!species.greater_form) //If the creature in question has no greater form set, this is going to be messy.
+		gib()
+		return
+
+	for(var/obj/item/W in src)
+		drop_from_inventory(W)
+	set_species(species.greater_form)
+	if(!kpg)
+		dna.SetSEState(MONKEYBLOCK,0)
+
+	src << "<B>You are now [species.name]. </B>"
+	qdel(animation)
+
+	return src
+
+
+
 
 /mob/new_player/AIize()
 	spawning = 1
@@ -243,7 +282,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		usr << "\red Sorry but this mob type is currently unavailable."
+		usr << "<span class='warning'>Sorry but this mob type is currently unavailable.</span>"
 		return
 
 	if(transforming)
@@ -277,7 +316,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		usr << "\red Sorry but this mob type is currently unavailable."
+		usr << "<span class='warning'>Sorry but this mob type is currently unavailable.</span>"
 		return
 
 	var/mob/new_mob = new mobpath(src.loc)

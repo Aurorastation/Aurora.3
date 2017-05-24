@@ -60,7 +60,6 @@
 			infraction.fine = text2num(char_infraction_query.item[10])
 			infraction.felony = text2num(char_infraction_query.item[11])
 			pref.incidents.Add(infraction)
-			log_debug("Added infraction with [infraction.UID]")
 
 /datum/category_item/player_setup_item/other/incidents/content(var/mob/user)
 	pref.incidents = list()

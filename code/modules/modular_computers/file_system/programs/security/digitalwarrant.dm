@@ -46,7 +46,7 @@ var/warrant_uid = 0
 		)))
 		data["allwarrants"] = allwarrants
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "digitalwarrant.tmpl", name, 500, 350, state = state)
 		ui.auto_update_layout = 1
@@ -74,7 +74,7 @@ var/warrant_uid = 0
 	if(!istype(user))
 		return
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
-	if(!istype(I) || !I.registered_name || !(access_armory in I.access))
+	if(!istype(I) || !I.registered_name || !(access_armory in I.access) || issilicon(user))
 		to_chat(user, "Authentication error: Unable to locate ID with apropriate access to allow this operation.")
 		return
 

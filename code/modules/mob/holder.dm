@@ -14,25 +14,38 @@ var/list/holder_mob_icon_cache = list()
 	var/name_dead
 	var/isalive
 
-	var/last_loc_general//This stores a general location of the object. Ie, a container or a mob
-	var/last_loc_specific//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
+	var/static/list/unsafe_containers
 
-/obj/item/weapon/holder/New()
-	tag = rand(0,9999)
+	var/last_loc_general	//This stores a general location of the object. Ie, a container or a mob
+	var/last_loc_specific	//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
+
+/obj/item/weapon/holder/proc/setup_unsafe_list()
+	unsafe_containers = typecacheof(list(
+		/obj/item/weapon/storage,
+		/obj/item/weapon/reagent_containers,
+		/obj/structure/closet/crate,
+		/obj/machinery/appliance,
+		/obj/machinery/microwave
+	))
+
+/obj/item/weapon/holder/Initialize()
+	. = ..()
+	if (!unsafe_containers)
+		setup_unsafe_list()
+
 	if (!item_state)
 		item_state = icon_state
 
 	flags_inv |= ALWAYSDRAW
 
-	..()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/holder/Destroy()
 	reagents = null
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	if (contained)
 		release_mob()
-	..()
+	return ..()
 
 /obj/item/weapon/holder/examine(mob/user)
 	if (contained)
@@ -66,7 +79,6 @@ var/list/holder_mob_icon_cache = list()
 
 		release_mob()
 
-
 		return
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
@@ -74,22 +86,8 @@ var/list/holder_mob_icon_cache = list()
 
 //This function checks if the current location is safe to release inside
 //it returns 1 if the creature will bug out when released
-/obj/item/weapon/holder/proc/is_unsafe_container(var/obj/place)
-	if (istype(place, /turf))
-		return 0
-	else if (istype(place, /obj/item/weapon/storage))
-		return 1
-	else if (istype(place, /obj/item/weapon/reagent_containers))
-		return 1
-	else if (istype(place, /obj/structure/closet/crate))
-		return 1
-	else if (istype(place, /obj/machinery/appliance))
-		return 1
-	else if (istype(place, /obj/machinery/microwave))
-		return 1
-	else
-		return 0
-
+/obj/item/weapon/holder/proc/is_unsafe_container(atom/place)
+	return is_type_in_typecache(place, unsafe_containers)
 
 //Releases all mobs inside the holder, then deletes it.
 //is_unsafe_container should be checked before calling this
@@ -103,14 +101,12 @@ var/list/holder_mob_icon_cache = list()
 		M.reset_view()
 		M.Released()
 
-
 	contained = null
 	var/mob/L = get_holding_mob()
 	if (L)
 		L.drop_from_inventory(src)
 
 	qdel(src)
-
 
 //Similar to above function, but will not deposit things in any container, only directly on a turf.
 //Can be called safely anywhere. Notably on holders held or worn on a mob
@@ -139,18 +135,18 @@ var/list/holder_mob_icon_cache = list()
 	//once with it on the floor, and then once in the container
 	//This conditional allows us to ignore that first one. Handling of mobs dropped on the floor is done in process
 	if (istype(loc, /turf))
-		spawn(3)
-			//Repeat this check
-			//If we're still on the turf a few frames later, then we have actually been dropped or thrown
-			//Release the mob accordingly
-			if (istype(loc, /turf))
-				release_mob()
-
+		//Repeat this check
+		//If we're still on the turf a few frames later, then we have actually been dropped or thrown
+		//Release the mob accordingly
+		addtimer(CALLBACK(src, .proc/post_drop), 3)
 		return
 
 	if (istype(loc, /obj/item/weapon/storage))	//The second drop reads the container its placed into as the location
 		update_location()
 
+/obj/item/weapon/holder/proc/post_drop()
+	if (isturf(loc))
+		release_mob()
 
 /obj/item/weapon/holder/equipped(var/mob/user, var/slot)
 	..()
@@ -163,10 +159,6 @@ var/list/holder_mob_icon_cache = list()
 
 	report_onmob_location(1, slotnumber, contained)
 
-
-
-
-
 /obj/item/weapon/holder/attack_self(mob/M as mob)
 
 	if (contained && !(contained.stat & DEAD))
@@ -174,11 +166,11 @@ var/list/holder_mob_icon_cache = list()
 			var/mob/living/carbon/human/H = M
 			switch(H.a_intent)
 				if(I_HELP)
-					H.visible_message("\blue [H] pets [contained]")
+					H.visible_message("<span class='notice'>[H] pets [contained].</span>")
 
 				if(I_HURT)
 					contained.adjustBruteLoss(3)
-					H.visible_message("\red [H] crushes [contained]")
+					H.visible_message("<span class='alert'>[H] crushes [contained].</span>")
 	else
 		M << "[contained] is dead."
 
@@ -209,7 +201,7 @@ var/list/holder_mob_icon_cache = list()
 		//We have to play it as a visible message on the grabber, because the normal death message played on the dying mob won't show if it's being held
 		var/mob/M = get_holding_mob()
 		if (M)
-			M.visible_message("<b>\The [contained.name]</b> dies")
+			M.visible_message("<b>[contained.name]</b> dies.")
 	//update_icon()
 
 
@@ -219,10 +211,10 @@ var/list/holder_mob_icon_cache = list()
 
 	if (user == src)
 		if (grabber.r_hand && grabber.l_hand)
-			user << "\red They have no free hands!"
+			user << "<span class='warning'>They have no free hands!</span>"
 			return
 	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
-		grabber << "\red Your hand is full!"
+		grabber << "<span class='warning'>Your hand is full!</span>"
 		return
 
 	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
@@ -399,6 +391,12 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "constructiondrone"
 	w_class = 6//You're not fitting this thing in a backpack
 
+/obj/item/weapon/holder/drone/mining
+	name = "mining drone"
+	desc = "It's a plucky mining drone."
+	icon_state = "mdrone"
+	item_state = "mdrone"
+
 /obj/item/weapon/holder/cat
 	name = "cat"
 	desc = "It's a cat. Meow."
@@ -501,7 +499,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder/lizard
 	name = "lizard"
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
-	desc_dead = "It doesn't hiss anymore"
+	desc_dead = "It doesn't hiss anymore."
 	icon_state_dead = "lizard_dead"
 	icon_state = "lizard"
 
@@ -547,7 +545,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "walking mushroom"
 	name_dead = "mushroom"
 	desc = "It's a massive mushroom... with legs?"
-	desc_dead = "Shame, he was a really fun-guy."
+	desc_dead = "Shame, he was a really fun-guy."	// HA
 	icon_state = "mushroom"
 	icon_state_dead = "mushroom_dead"
 	slot_flags = SLOT_HEAD
