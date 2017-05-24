@@ -463,3 +463,16 @@ LOG_GELF_PORT 12201
 #IPINTEL_SAVE_BAD 3
 ## Domain name to query (leave commented out for the default, only needed if you pay getipintel.net for more querys)
 #IPINTEL_DOMAIN check.getipintel.net
+
+### ACCESS CONTROL:
+### This allows you to adjust various parametres by which potentially malicious users can by identified.
+### Note that none of these are 100% accurate, and should only be used in cases where a "panic bunker" is warranted.
+### They don't apply bans, at will, at worst, kick folks.
+## This determined whether or not a player's account can be denied entry based on their BYOND account age.
+## If their account is younger than the amount of days specified here, they cannot enter. This is inclusive.
+# ACCESS_DENY_NEW_ACCOUNTS 1
+## This determines whether or not potential VM users should be automatically kicked. USE AT YOUR OWN RISK!
+## The method used is not yet tested with a large sample size!
+# ACCESS_DENY_VMS
+## This determines whether or not potential VM users joining should generate an admin warning.
+# ACCESS_WARN_VMS

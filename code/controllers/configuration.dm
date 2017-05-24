@@ -847,6 +847,13 @@ var/list/gamemode_cache = list()
 				if("ipintel_save_bad")
 					ipintel_save_bad = text2num(value)
 
+				if("access_deny_new_accounts")
+					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
+				if("access_deny_vms")
+					access_deny_vms = 1
+				if("access_warn_vms")
+					access_warn_vms = 1
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
