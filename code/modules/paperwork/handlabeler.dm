@@ -6,7 +6,7 @@
 	set category = "Object"
 	set src in view(1)
 
-	if (!(ishuman(usr) || isrobot(usr)) || usr.incapacitated())
+	if (!usr.IsAdvancedToolUser() || usr.incapacitated())
 		to_chat(usr, "<span class='notice'>You lack the dexerity to do this!</span>")
 		return FALSE
 
