@@ -62,7 +62,7 @@
 		
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustBurnLoss(5)
+		M.adjustFireLoss(5)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -79,7 +79,7 @@
 		
 /datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustBurnLoss(10)
+		M.adjustFireLoss(10)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
