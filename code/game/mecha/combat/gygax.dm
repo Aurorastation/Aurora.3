@@ -15,6 +15,7 @@
 	wreckage = /obj/effect/decal/mecha_wreckage/gygax
 	internal_damage_threshold = 35
 	max_equip = 3
+	w_class = 15
 
 /obj/mecha/combat/gygax/dark
 	desc = "A lightweight exosuit used by Heavy Asset Protection. A significantly upgraded Gygax security mech."

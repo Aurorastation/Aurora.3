@@ -25,6 +25,8 @@
 		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
 	..()*/
 
+	var/z_levels_fallen = 0
+
 /atom/movable/Destroy()
 	. = ..()
 	for(var/atom/movable/AM in contents)

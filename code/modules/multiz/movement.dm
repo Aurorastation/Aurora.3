@@ -1,5 +1,5 @@
 /mob/verb/up()
-	set name = "Move Upwards"
+	set name = "Move Up"
 	set category = "IC"
 
 	if(zMove(UP))
@@ -166,6 +166,32 @@
 
 	return TRUE
 
+/obj/vehicle/can_fall()
+	if(locate(/obj/structure/lattice, loc))
+		return FALSE
+
+	// See if something prevents us from falling.
+	var/turf/below = GetBelow(src)
+	for(var/atom/A in below)
+		if(!A.CanPass(src, src.loc))
+			return FALSE
+
+	return TRUE
+
+/obj/mecha/can_fall()
+	if(locate(/obj/structure/lattice, loc))
+		var/obj/structure/lattice/L = locate(/obj/structure/lattice, loc)
+		visible_message("\The [src] crushes the [L] with its weight!")
+		qdel(L)
+
+	// See if something prevents us from falling.
+	var/turf/below = GetBelow(src)
+	for(var/atom/A in below)
+		if(!A.CanPass(src, src.loc))
+			return FALSE
+
+	return TRUE
+
 /obj/effect/can_fall()
 	return FALSE
 
@@ -208,29 +234,112 @@
 	if(locate(/obj/structure/stairs) in landing)
 		return 1
 
+	var/area/area1 = get_area(landing)
+	if(!area1.has_gravity())
+		return 1
+
+	if(istype(src,/mob/living) || isobj(src))
+		if(istype(landing, /turf/simulated/open))
+			z_levels_fallen++ // Don't damage them but keep track of this.
+			return 1
+
+		if(istype(landing, /turf/space))
+			z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
+			return 1
+
+		if(!z_levels_fallen) // Checks if they only fell down one floor.
+			z_levels_fallen = 1
+
+		var/weight = 1
+		if(ismob(src))
+			var/mob/M = src
+			weight = M.mob_size
+		if(isobj(src))
+			var/obj/O = src
+			weight = O.w_class
+
+
+		var/fallforce = throw_range
+		if(isobj(src))
+			var/obj/O = src
+			fallforce = O.throwforce
+
+		if(weight >= 3 && fallforce <= 5)
+			fallforce = throw_range
+
+		var/speed = z_levels_fallen*throw_speed
+		var/mass = (weight/THROWNOBJ_KNOCKBACK_DIVISOR)+density+opacity
+		var/momentum = speed*mass
+		var/damage = fallforce*(speed/THROWFORCE_SPEED_DIVISOR)*momentum
+
+		var/miss_chance = max(15*(z_levels_fallen-1), 0)
+
+		if(!prob(miss_chance))
+			for(var/mob/living/L in landing)
+				if(L != src)
+
+					if(istype(src,/obj/vehicle))
+						var/obj/vehicle/V = src
+						if(L == V.load)
+							continue
+
+					if(istype(L,/mob/living/carbon/human))
+
+						var/mob/living/carbon/human/H = L
+						H.apply_damage(rand(damage/2, damage), BRUTE, "head")
+						H.apply_damage(damage, BRUTE, "chest")
+
+						if(damage >= THROWNOBJ_KNOCKBACK_SPEED)
+							H.Weaken(rand(damage/4, damage/2))
+					else
+						L.apply_damage(damage, BRUTE)
+						L.apply_damage(rand(damage/2, damage), BRUTE)
+
+					if(damage >= 1)
+						L.visible_message("<span class='warning'>[L] has been hit by [src].</span>")
+						var/attacker = null
+						if(ismob(src))
+							attacker = src
+						admin_attack_log(attacker, L, "fell onto", "was fallen on by", "fell ontop of")
+
+
 	if(istype(landing, /turf/simulated/open))
 		visible_message("\The [src] falls from the level above through \the [landing]!", "You hear a whoosh of displaced air.")
 	else if(!istype(landing, /turf/space))
 		visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
 
-/mob/living/handle_fall(var/turf/landing)
+/obj/handle_fall(var/turf/landing)
 	if(..())
 		return 1
 
-	var/area/area1 = get_area(landing)
-	if(!area1.has_gravity())
+	if(!istype(src,/obj/vehicle) && !istype(src,/obj/mecha))
+		z_levels_fallen = 0
+
+/obj/vehicle/handle_fall(var/turf/landing)
+	if(..())
 		return 1
 
-	if(istype(landing, /turf/simulated/open))
-		z_levels_fallen++ // Don't damage them but keep track of this.
+	var/damage = 35*z_levels_fallen
+	health -= (rand(0, damage)*brute_dam_coeff)
+	health -= (rand(0, damage)*brute_dam_coeff)
+	health -= (rand(0, damage)*brute_dam_coeff)
+	health -= (rand(0, damage)*brute_dam_coeff)
+	z_levels_fallen = 0
+
+/obj/mecha/handle_fall(var/turf/landing)
+	if(..())
 		return 1
 
-	if(istype(landing, /turf/space))
-		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
-		return 1
+	var/damage = 40*z_levels_fallen
+	take_damage(rand(0, damage))
+	take_damage(rand(0, damage))
+	take_damage(rand(0, damage))
+	take_damage(rand(0, damage))
+	z_levels_fallen = 0
 
-	if(!z_levels_fallen) // Checks if they only fell down one floor.
-		z_levels_fallen = 1
+/mob/living/handle_fall(var/turf/landing)
+	if(..())
+		return 1
 
 	if(!istype(src, /mob/living/carbon/human))
 		var/damage = 30*z_levels_fallen
@@ -265,7 +374,7 @@
 			apply_damage(rand(0, (damage/2)), BRUTE, "l_foot")
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
-	apply_damage(rand(0, damage), BRUTE, "chest") 
+	apply_damage(rand(0, damage), BRUTE, "chest")
 	Weaken(rand(0, damage/2))
 	z_levels_fallen = 0 // reset their fallen variable.
 	updatehealth()

@@ -25,6 +25,9 @@
 	unacidable = 1 //and no deleting hoomans inside
 	layer = MOB_LAYER //icon draw layer
 	infra_luminosity = 15 //byond implementation is bugged.
+
+	w_class = 20
+
 	var/initial_icon = null //Mech type for resetting icon. Only used for reskinning kits (see custom items)
 	var/can_move = 1
 	var/mob/living/carbon/occupant = null
@@ -117,7 +120,7 @@
 	loc.Entered(src)
 	mechas_list += src //global mech list
 	narrator_message(FIRSTRUN)
-	
+
 	spark_system = bind_spark(src, 2)
 
 /obj/mecha/Destroy()
@@ -666,7 +669,7 @@
 		if(istype(Proj, /obj/item/projectile/beam/pulse))
 			ignore_threshold = 1
 		src.hit_damage(Proj.damage, Proj.check_armour, is_melee=0)
-		if(prob(25)) 
+		if(prob(25))
 			spark_system.queue()
 		src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),ignore_threshold)
 
@@ -757,7 +760,7 @@
 //////////////////////
 
 /obj/mecha/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	
+
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment))
 		var/obj/item/mecha_parts/mecha_equipment/E = W
 		spawn()
@@ -1928,9 +1931,9 @@
 	return icon_state
 
 /obj/mecha/attack_generic(var/mob/user, var/damage, var/attack_message)
-	
+
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	
+
 	if(!damage)
 		return 0
 
