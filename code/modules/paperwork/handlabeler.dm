@@ -78,7 +78,11 @@
 
 	user.visible_message("<span class='notice'>[user] labels [A] as [label].</span>", \
 						 "<span class='notice'>You label [A] as [label].</span>")
-	A.name_unlabel = A.name
+
+	// Prevent label stacking from making name unrecoverable.
+	if (!A.name_unlabel)
+		A.name_unlabel = A.name
+
 	A.name = "[A.name] ([label])"
 	A.verbs += /atom/proc/remove_label
 
