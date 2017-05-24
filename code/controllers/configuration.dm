@@ -850,9 +850,9 @@ var/list/gamemode_cache = list()
 				if("access_deny_new_accounts")
 					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
 				if("access_deny_vms")
-					access_deny_vms = 1
+					access_deny_vms = text2num(value)
 				if("access_warn_vms")
-					access_warn_vms = 1
+					access_warn_vms = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

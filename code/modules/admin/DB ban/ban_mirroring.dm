@@ -157,7 +157,7 @@
 					del(C)
 			return
 
-		if (config.access_warn_vms && count)
+		if (config.access_warn_vms && count >= config.access_warn_vms)
 			log_access("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].", ckey = C.ckey)
 			message_admins("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].")
 

@@ -23,8 +23,8 @@
 	data += "</ul><hr>"
 
 	data += "<h2>VM Detection Settings:</h2><br><ul>"
-	data += "<li>Warn on VM detection: [config.access_warn_vms ? "<font color='green'>ENABLED</font>" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=vm_warn;'>Toggle</a></li>"
-	data += "<li>Kick on VM detection: [config.access_deny_vms ? "<font color='green'>ENABLED</font>" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=vm_kick;'>Toggle</a></li>"
+	data += "<li>VM identifier count to warn on: [config.access_warn_vms ? "[config.access_warn_vms]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=vm_warn;'>Edit</a></li>"
+	data += "<li>VM identifier count to kick on: [config.access_deny_vms ? "[config.access_deny_vms]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=vm_kick;'>Edit</a></li>"
 	data += "</ul>"
 
 	config_window.set_user(src.mob)
@@ -78,11 +78,21 @@
 			else
 				log_and_message_admins("has disabled kicking based on BYOND account age.")
 		if ("vm_warn")
-			config.access_warn_vms = !config.access_warn_vms
-			log_and_message_admins("has [config.access_warn_vms ? "ENABLED" : "DISABLED"] the warnings for potential VM users.")
+			var/num = input("Please set the new threshold for warning on login based on positive VM identifiers. (0 to disable.)", "New Threshold") in list(0, 1, 2)
+
+			config.access_warn_vms = num
+			if (num)
+				log_and_message_admins("has set players with [config.access_warn_vms] positive identifiers out of 2 for VM usage to be warned.")
+			else
+				log_and_message_admins("has disabled warnings based on potential VM usage.")
 		if ("vm_kick")
-			config.access_deny_vms = !config.access_deny_vms
-			log_and_message_admins("has [config.access_deny_vms ? "ENABLED" : "DISABLED"] the kicking of potential VM users.")
+			var/num = input("Please set the new threshold for warning on login based on positive VM identifiers. (0 to disable.)", "New Threshold") in list(0, 1, 2)
+
+			config.access_deny_vms = num
+			if (num)
+				log_and_message_admins("has set players with [config.access_deny_vms] positive identifiers out of 2 for VM usage to be warned.")
+			else
+				log_and_message_admins("has disabled warnings based on potential VM usage.")
 		else
 			to_chat(usr, "<span class='danger'>Unknown control message sent. Cancelling.</span>")
 

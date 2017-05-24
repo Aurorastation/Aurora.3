@@ -471,8 +471,9 @@ LOG_GELF_PORT 12201
 ## This determined whether or not a player's account can be denied entry based on their BYOND account age.
 ## If their account is younger than the amount of days specified here, they cannot enter. This is inclusive.
 # ACCESS_DENY_NEW_ACCOUNTS 1
-## This determines whether or not potential VM users should be automatically kicked. USE AT YOUR OWN RISK!
-## The method used is not yet tested with a large sample size!
-# ACCESS_DENY_VMS
-## This determines whether or not potential VM users joining should generate an admin warning.
-# ACCESS_WARN_VMS
+## This determines how many VM identifiers must be spotted on a user before they're kicked. Currently 2 are implemented.
+## Leave at 0 to disable, or commented out.
+# ACCESS_DENY_VMS 0
+## This determines how many VM identifiers must be spotted on a user before admins are warned about them joining.
+## Leave at 0 or commented out to disable.
+# ACCESS_WARN_VMS 2
