@@ -35,7 +35,7 @@
 	data["hide_smes_details"] = hide_SMES_details
 	data["hide_breakers"] = hide_breakers
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "rcon.tmpl", "RCON Console", 600, 400, state = state)
 		if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.

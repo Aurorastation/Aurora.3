@@ -144,9 +144,14 @@ area/space/atmosalert()
 	if (!istype(Obj, /mob/living) || !SSarrivals)
 		return
 
-	log_debug("SSarrivals: [Obj] has entered arrival shuttle hotzone.")
+	SSarrivals.on_hotzone_enter(Obj)
 
-	SSarrivals.on_hotzone_enter()
+/area/shuttle/arrival/centcom/Exited(atom/movable/Obj, atom/newLoc)
+	. = ..()
+	if (!istype(Obj, /mob/living) || !SSarrivals)
+		return
+
+	SSarrivals.on_hotzone_exit(Obj)
 
 /area/shuttle/arrival/transit
 	icon_state = "shuttle2"
@@ -156,6 +161,7 @@ area/space/atmosalert()
 	icon_state = "shuttle"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
@@ -166,6 +172,7 @@ area/space/atmosalert()
 	icon_state = "shuttle2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/shuttle/escape/centcom
 	name = "\improper Emergency Shuttle Centcom"
@@ -272,6 +279,7 @@ area/space/atmosalert()
 	name = "\improper Transport Shuttle"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
@@ -284,6 +292,7 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
@@ -297,6 +306,7 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/shuttle/administration
 	flags = RAD_SHIELDED
@@ -312,6 +322,7 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/shuttle/research
 	name = "\improper Research Shuttle"
@@ -464,7 +475,7 @@ area/space/atmosalert()
 
 //names are used
 /area/syndicate_station
-	name = "\improper Independant Station"
+	name = "\improper Independent Station"
 	icon_state = "yellow"
 	requires_power = 0
 	flags = RAD_SHIELDED
@@ -481,11 +492,13 @@ area/space/atmosalert()
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
+	dynamic_lighting = 0
 
 /area/syndicate_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/syndicate_station/under
 	name = "\improper Under the Station"
@@ -539,11 +552,13 @@ area/space/atmosalert()
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
+	dynamic_lighting = 0
 
 /area/skipjack_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/skipjack_station/under
 	name = "\improper Under the Station"

@@ -215,29 +215,34 @@
 
 /mob/living/handle_fall(var/turf/landing)
 	if(..())
-		return
+		return 1
 
 	var/area/area1 = get_area(landing)
 	if(!area1.has_gravity())
-		return
+		return 1
 
 	if(istype(landing, /turf/simulated/open))
-		var/turf/simulated/open/open = landing
-		var/area/area2 = get_area(open.below)
-		if(!area2.has_gravity())
-			return
+		z_levels_fallen++ // Don't damage them but keep track of this.
+		return 1
+
+	if(istype(landing, /turf/space))
+		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
+		return 1
+
+	if(!z_levels_fallen) // Checks if they only fell down one floor.
+		z_levels_fallen = 1
 
 	if(!istype(src, /mob/living/carbon/human))
-		var/damage = 30
+		var/damage = 30*z_levels_fallen
 		apply_damage(rand(0, damage), BRUTE)
 		apply_damage(rand(0, damage), BRUTE)
 		apply_damage(rand(0, damage), BRUTE)
+		z_levels_fallen = 0
 
 /mob/living/carbon/human/handle_fall(var/turf/landing)
 	if(..())
 		return
-
-	var/damage = 30*species.fall_mod
+	var/damage = 30*species.fall_mod*z_levels_fallen
 	if(prob(20)) //landed on their head
 		apply_damage(rand(0, damage), BRUTE, "head")
 
@@ -260,9 +265,9 @@
 			apply_damage(rand(0, (damage/2)), BRUTE, "l_foot")
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
-
-	apply_damage(rand(0, damage), BRUTE, "chest")
-	Weaken(rand(0,damage/2))
+	apply_damage(rand(0, damage), BRUTE, "chest") 
+	Weaken(rand(0, damage/2))
+	z_levels_fallen = 0 // reset their fallen variable.
 	updatehealth()
 
 /mob/living/carbon/human/bst/can_fall()
