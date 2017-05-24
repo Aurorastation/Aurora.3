@@ -41,7 +41,7 @@
 		return
 
 	switch(control)
-		if ("ipintel_rating_bad")
+		if ("intel_bad")
 			var/num = input("Please set the new threshold for warning based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
 			if (num < 0 || num > 1)
 				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
@@ -52,7 +52,7 @@
 				log_and_message_admins("has set the IPIntel warn threshold to [num].")
 			else
 				log_and_message_admins("has disabled warn based on IPIntel.")
-		if ("ipintel_rating_kick")
+		if ("intel_kick")
 			var/num = input("Please set the new threshold for kicking based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
 			if (num < 0 || num > 1)
 				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
