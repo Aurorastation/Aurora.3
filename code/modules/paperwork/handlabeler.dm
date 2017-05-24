@@ -82,9 +82,9 @@
 	// Prevent label stacking from making name unrecoverable.
 	if (!A.name_unlabel)
 		A.name_unlabel = A.name
+		A.verbs += /atom/proc/remove_label
 
 	A.name = "[A.name] ([label])"
-	A.verbs += /atom/proc/remove_label
 
 /obj/item/weapon/hand_labeler/attack_self(mob/user as mob)
 	mode = !mode
