@@ -134,7 +134,7 @@
 	set name = "Fold Ladder"
 	set category = "Object"
 	set src in oview(1)
-	var /obj/item/weapon/ladder_mobile/R = new(src.loc)
+	var/obj/item/weapon/ladder_mobile/R = new(src.loc)
 	src.transfer_fingerprints_to(R)
 	
 	if(src.target_down == null)

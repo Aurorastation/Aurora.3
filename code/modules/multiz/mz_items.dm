@@ -9,12 +9,13 @@
 /obj/item/weapon/ladder_mobile/proc/place_ladder(atom/A,mob/user)
 
 	if(istype(A, /turf/simulated/open))         //Place into open space
-		user.visible_message("<span class='warning'>[user] begins to lower the ladder into the hole.</span>")
 		var/turf/below_loc = GetBelow(A)
 		if (!below_loc || (istype(/turf/space,below_loc)))
 			user << "<span class='notice'>Why would you do that?! There is only infinite space there...</span>"
 			return
-		handle_action(A,user)
+		user.visible_message("<span class='warning'>[user] begins to lower \the [src] into \the [A].</span>")
+		if(!handle_action(A,user))
+			return
 		var/obj/structure/ladder/mobile/body/R = new(A)
 		var/obj/structure/ladder/mobile/base/D = new(A)
 		D.forceMove(below_loc)
@@ -25,12 +26,13 @@
 		qdel(src)
 
 	if(istype(A, /turf/simulated/floor))        //Place onto Floor
-		user.visible_message("<span class='warning'>[user] begins deploying the ladder on the floor.</span>")
 		var/turf/upper_loc = GetAbove(A)
 		if (!upper_loc || !istype(upper_loc,/turf/simulated/open))
 			user << "<span class='notice'>There is something above. You can't deploy!</span>"
 			return
-		handle_action(A,user)
+		user.visible_message("<span class='warning'>[user] begins deploying \the [src] on \the [A].</span>")
+		if(!handle_action(A,user))
+			return
 		var/obj/structure/ladder/mobile/base/R = new(A)
 		var/obj/structure/ladder/mobile/body/D = new(A)
 		D.forceMove(upper_loc) // moves A up to upper_loc.
@@ -49,7 +51,8 @@
 /obj/item/weapon/ladder_mobile/proc/handle_action(atom/A, mob/user)
 	if (!do_after(user, 30, act_target = user))
 		to_chat(user, "Can't place ladder! You were interrupted!")
-		return
+		return FALSE
 	if (!A || QDELETED(src) || QDELETED(user))
 		// Shit was deleted during delay, call is no longer valid.
-		return
+		return FALSE
+	return TRUE

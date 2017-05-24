@@ -186,7 +186,7 @@
 
 /mob/living/can_fall()
 	var/turf/below = GetBelow(src)
-	if(below || (locate(/obj/structure/ladder) in below))
+	if(below && (locate(/obj/structure/ladder) in below))
 		return FALSE
 	return ..()
 
