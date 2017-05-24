@@ -17,19 +17,6 @@
 	desc = "A forge used in crafting the unholy weapons used by the armies of Nar-Sie"
 	icon_state = "forge"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 	Cult pylons can be used as arcane defensive turrets.
 
@@ -57,7 +44,10 @@
 		Exosuits
 		Explosives
 		Ablative armour
+		Smoke grenades
+		Close the damn firelocks so they can't see you
 */
+
 /obj/structure/cult/pylon
 	name = "Pylon"
 	desc = "A floating crystal that hums with an unearthly energy"
@@ -109,6 +99,10 @@
 	..()
 	start_process()
 
+
+/obj/structure/cult/pylon/Destroy()
+	processing_objects.Remove(src)
+	return ..()
 
 //Another subtype which starts with infinite empower shots. For empowered adminbus
 /obj/structure/cult/pylon/turret/empowered
@@ -202,12 +196,13 @@
 		if (2)
 			if ((ticks % process_interval) == 0)
 				handle_firing()
-				if (damagetaken && prob(50))
+				if (damagetaken && prob(50) && empowered > 0)
 					damagetaken = max(0, damagetaken-1) //An empowered pylon slowly self repairs
+					empowered = max(0, empowered - 0.2)
 					if (prob(10))
 						visible_message("Cracks in the [src] gradually seal as new crystalline matter grows to fill them.")
 
-	if (empowered && prob(2))
+	if (empowered && prob(4))
 		empowered = max(0, empowered - 1) //Overcharging gradually wears off over time
 		if (empowered <= 0)
 			update_icon()
@@ -330,7 +325,7 @@
 			fire_at(target)
 			return
 		else
-			stuffcache = mobs_in_view(10, src)
+			stuffcache = mobs_in_view(9, src)
 			//for (var/turf/T in stuffcache)
 				//new /obj/effect/testtrans(T)
 			if ((target in stuffcache) && isInSight(src, target))
@@ -342,7 +337,7 @@
 
 	//We may have already populated stuffcache this run, dont repeat work
 	if (!stuffcache)
-		stuffcache = mobs_in_view(10, src)
+		stuffcache = mobs_in_view(9, src)
 
 	target = null //Either we lost a target or lack one
 	//for (var/turf/T in stuffcache)
@@ -398,6 +393,7 @@
 	A.ignore = sacrificer
 	A.launch(target)
 	next_shot = world.time + shot_delay
+	A = null //So projectiles can GC
 	spawn(shot_delay+1)
 		handle_firing()
 
@@ -465,7 +461,7 @@
 				visible_message(
 				"<span class='cult'>The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!</span>"
 				)
-			empowered += damage*0.3
+			empowered += damage*0.2
 			//When shot with a laser, the pylon absorbs the beam, becoming empowered for a while, glowing brighter
 			// and firing more powerful blasts which have some armor penetration
 			// Using lasers to empower a defensive pylon yields more total damage than directly shooting your enemies
@@ -485,7 +481,7 @@
 	if(!isbroken)
 		if (user)
 			user.do_attack_animation(src)
-		if(prob(damagetaken*0.5))
+		if(prob(damagetaken*0.75))
 			shatter()
 		else
 			if (user && !ranged)
