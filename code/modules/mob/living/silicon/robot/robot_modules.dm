@@ -80,7 +80,9 @@ var/global/list/robot_modules = list(
 	synths.Cut()
 	qdel(emag)
 	qdel(jetpack)
+	qdel(malfAImodule)
 	emag = null
+	malfAImodule = null
 	jetpack = null
 	return ..()
 
