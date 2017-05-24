@@ -9,3 +9,6 @@ CREATE TABLE `ss13_ipintel` (
   PRIMARY KEY (`ip`),
   KEY `idx_ipintel` (`ip`,`intel`,`date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `ss13_player`
+  ADD `account_join_date` DATE NULL DEFAULT NULL AFTER `whitelist_status`;

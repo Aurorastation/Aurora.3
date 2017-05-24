@@ -1,21 +1,3 @@
-/client/proc/toggle_ipintel_kicking()
-	set category = "Server"
-	set name = "Toggle IPIntel Kicking"
-
-	if (!check_rights(R_SERVER))
-		return
-
-	var/num = input("Please set the new threshold for kicking based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
-	if (num < 0 || num > 1)
-		to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
-		return
-
-	config.ipintel_rating_kick = num
-	if (num)
-		log_and_message_admins("has set the IPIntel kick threshold to [num].")
-	else
-		log_and_message_admins("has disabled kicking based on IPIntel.")
-
 /datum/ipintel
 	var/ip
 	var/intel = 0

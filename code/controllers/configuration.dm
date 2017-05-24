@@ -273,6 +273,12 @@ var/list/gamemode_cache = list()
 	var/ipintel_save_bad = 1
 	var/ipintel_domain = "check.getipintel.net"
 
+	// Access control/Panic bunker settings.
+	var/access_deny_new_players = 0
+	var/access_deny_new_accounts = -1
+	var/access_deny_vms = 0
+	var/access_warn_vms = 0
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
