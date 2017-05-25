@@ -232,126 +232,155 @@
 /atom/movable/proc/handle_fall(var/turf/landing)
 	Move(landing)
 	if(locate(/obj/structure/stairs) in landing)
-		return 1
+		return 0
 
 	var/area/area1 = get_area(landing)
 	if(!area1.has_gravity())
-		return 1
-
-	if(istype(src,/mob/living) || isobj(src))
-		if(istype(landing, /turf/simulated/open))
-			z_levels_fallen++ // Don't damage them but keep track of this.
-			return 1
-
-		if(istype(landing, /turf/space))
-			z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
-			return 1
-
-		if(!z_levels_fallen) // Checks if they only fell down one floor.
-			z_levels_fallen = 1
-
-		var/weight = 1
-		if(ismob(src))
-			var/mob/M = src
-			weight = M.mob_size
-		if(isobj(src))
-			var/obj/O = src
-			weight = O.w_class
-
-
-		var/fallforce = throw_range
-		if(isobj(src))
-			var/obj/O = src
-			fallforce = O.throwforce
-
-		if(weight >= 3 && fallforce <= 5)
-			fallforce = throw_range
-
-		var/speed = z_levels_fallen*throw_speed
-		var/mass = (weight/THROWNOBJ_KNOCKBACK_DIVISOR)+density+opacity
-		var/momentum = speed*mass
-		var/damage = fallforce*(speed/THROWFORCE_SPEED_DIVISOR)*momentum
-
-		var/miss_chance = max(15*(z_levels_fallen-1), 0)
-
-		if(!prob(miss_chance))
-			for(var/mob/living/L in landing)
-				if(L != src)
-
-					if(istype(src,/obj/vehicle))
-						var/obj/vehicle/V = src
-						if(L == V.load)
-							continue
-
-					if(istype(L,/mob/living/carbon/human))
-
-						var/mob/living/carbon/human/H = L
-						H.apply_damage(rand(damage/2, damage), BRUTE, "head")
-						H.apply_damage(damage, BRUTE, "chest")
-
-						if(damage >= THROWNOBJ_KNOCKBACK_SPEED)
-							H.Weaken(rand(damage/4, damage/2))
-					else
-						L.apply_damage(damage, BRUTE)
-						L.apply_damage(rand(damage/2, damage), BRUTE)
-
-					if(damage >= 1)
-						L.visible_message("<span class='warning'>[L] has been hit by [src].</span>")
-						var/attacker = null
-						if(ismob(src))
-							attacker = src
-						admin_attack_log(attacker, L, "fell onto", "was fallen on by", "fell ontop of")
-
+		return 0
 
 	if(istype(landing, /turf/simulated/open))
 		visible_message("\The [src] falls from the level above through \the [landing]!", "You hear a whoosh of displaced air.")
-	else if(!istype(landing, /turf/space))
-		visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
+		playsound(src.loc, "sound/weapons/thudswoosh.ogg", 100, 1)
+		z_levels_fallen++ // Don't damage them but keep track of this.
+		return 0
 
-/obj/handle_fall(var/turf/landing)
-	if(..())
-		return 1
+	if(istype(landing, /turf/space))
+		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
+		return 0
 
-	if(!istype(src,/obj/vehicle) && !istype(src,/obj/mecha))
-		z_levels_fallen = 0
+	z_levels_fallen += 1
+
+	visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
+
+	var/weight = 1
+	if(ismob(src))
+		var/mob/M = src
+		weight = M.mob_size
+	log_and_message_admins("fell down [z_levels_fallen] z-level(s).", src, landing)
+	if(isobj(src))
+		var/obj/O = src
+		weight = O.w_class
+
+	var/fallforce = throw_range
+	if(isobj(src))
+		var/obj/O = src
+		fallforce = O.throwforce
+
+	if(weight >= 3 && fallforce <= 5)
+		fallforce = throw_range
+
+	var/speed = z_levels_fallen*throw_speed
+	var/mass = (weight/THROWNOBJ_KNOCKBACK_DIVISOR)+density+opacity
+	var/momentum = speed*mass
+	var/damage = fallforce*(speed/THROWFORCE_SPEED_DIVISOR)*momentum
+
+	var/miss_chance = max(15*(z_levels_fallen-1), 0)
+
+	if(!prob(miss_chance))
+		for(var/mob/living/L in landing)
+			if(L != src)
+
+				if(istype(src,/obj/vehicle))
+					var/obj/vehicle/V = src
+					if(L == V.load)
+						continue
+
+				if(istype(L,/mob/living/carbon/human))
+
+					var/mob/living/carbon/human/H = L
+					H.apply_damage(rand(damage/2, damage), BRUTE, "head")
+					H.apply_damage(damage, BRUTE, "chest")
+
+					if(damage >= THROWNOBJ_KNOCKBACK_SPEED)
+						H.Weaken(rand(damage/4, damage/2))
+				else
+					L.apply_damage(damage, BRUTE)
+					L.apply_damage(rand(damage/2, damage), BRUTE)
+
+				if(damage >= 1)
+					L.visible_message(
+						"<span class='warning'>[L] has been hit by [src].</span>",
+						"<span class='warning'>[src] has landed ontop of you!</span>"
+						)
+					if(ismob(src))
+						src << "<span class='warning'>You've fallen onto something hard!</span>"
+					admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
+					var/numerator = rand(1,3)
+					playsound(L.loc, "sound/weapons/genhit[numerator].ogg", 75, 1)
+
+    . = z_levels_fallen
+    z_levels_fallen = 0
 
 /obj/vehicle/handle_fall(var/turf/landing)
-	if(..())
-		return 1
 
-	var/damage = 35*z_levels_fallen
+	. = ..()
+	if (!.)
+		return
+
+	var/z_coeff = .
+
+	var/damage = 35*z_coeff
 	health -= (rand(0, damage)*brute_dam_coeff)
 	health -= (rand(0, damage)*brute_dam_coeff)
 	health -= (rand(0, damage)*brute_dam_coeff)
 	health -= (rand(0, damage)*brute_dam_coeff)
-	z_levels_fallen = 0
+
+	playsound(src.loc, "sound/effects/clang.ogg", 75, 1)
 
 /obj/mecha/handle_fall(var/turf/landing)
-	if(..())
-		return 1
 
-	var/damage = 40*z_levels_fallen
+	. = ..()
+	if (!.)
+		return
+
+	var/z_coeff = .
+
+	var/damage = 40*z_coeff
 	take_damage(rand(0, damage))
 	take_damage(rand(0, damage))
 	take_damage(rand(0, damage))
 	take_damage(rand(0, damage))
-	z_levels_fallen = 0
+
+	playsound(src.loc, "sound/effects/bang.ogg", 100, 1)
+	playsound(src.loc, "sound/effects/bamf.ogg", 100, 1)
 
 /mob/living/handle_fall(var/turf/landing)
-	if(..())
-		return 1
 
+	. = ..()
+	if (!.)
+		return
+
+	var/z_coeff = .
+
+	var/damage = 30*z_coeff
 	if(!istype(src, /mob/living/carbon/human))
-		var/damage = 30*z_levels_fallen
 		apply_damage(rand(0, damage), BRUTE)
 		apply_damage(rand(0, damage), BRUTE)
 		apply_damage(rand(0, damage), BRUTE)
-		z_levels_fallen = 0
+
+	if(!isSynthetic())
+		switch(damage)
+			if(-INFINITY to 10)
+				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
+			if(11 to 50)
+				var/numerator = rand(1,4)
+				playsound(src.loc, "sound/weapons/punch[numerator].ogg", 75, 1)
+			if(51 to INFINITY)
+				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
+			else
+				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+	else
+		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 /mob/living/carbon/human/handle_fall(var/turf/landing)
-	if(..())
+
+	. = ..()
+	if (!.)
 		return
-	var/damage = 30*species.fall_mod*z_levels_fallen
+
+	var/z_coeff = .
+
+	var/damage = 25*species.fall_mod*z_coeff
 	if(prob(20)) //landed on their head
 		apply_damage(rand(0, damage), BRUTE, "head")
 
@@ -376,7 +405,6 @@
 			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
 	apply_damage(rand(0, damage), BRUTE, "chest")
 	Weaken(rand(0, damage/2))
-	z_levels_fallen = 0 // reset their fallen variable.
 	updatehealth()
 
 /mob/living/carbon/human/bst/can_fall()
