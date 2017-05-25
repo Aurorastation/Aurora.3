@@ -847,7 +847,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_packs/shotgun
 	name = "Shotgun crate"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof,
-					/obj/item/clothing/suit/armor/bulletproof,
+					/obj/item/clothing/head/helmet/ballistic,
 					/obj/item/ammo_magazine/shotgun,
 					/obj/item/ammo_magazine/shotgun/shell,
 					/obj/item/weapon/gun/projectile/shotgun/pump/combat,
@@ -861,7 +861,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_packs/erifle
 	name = "Energy marksman crate"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
-					/obj/item/clothing/suit/armor/laserproof,
+					/obj/item/clothing/head/helmet/ablative,
 					/obj/item/weapon/gun/energy/sniperrifle,
 					/obj/item/weapon/gun/energy/sniperrifle)
 	cost = 90
@@ -932,7 +932,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_packs/expenergy
 	name = "Experimental energy gear crate"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
-					/obj/item/clothing/suit/armor/laserproof,
+					/obj/item/clothing/head/helmet/ablative,
 					/obj/item/weapon/gun/energy/gun,
 					/obj/item/weapon/gun/energy/gun)
 	cost = 50
@@ -943,8 +943,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/exparmor
 	name = "Experimental armor crate"
-	contains = list(/obj/item/clothing/suit/armor/laserproof,
+	contains = list(/obj/item/clothing/suit/armor/laserproof,,
+					/obj/item/clothing/head/helmet/ablative,
 					/obj/item/clothing/suit/armor/bulletproof,
+					/obj/item/clothing/head/helmet/ballistic,
 					/obj/item/clothing/head/helmet/riot,
 					/obj/item/clothing/suit/armor/riot)
 	cost = 35
