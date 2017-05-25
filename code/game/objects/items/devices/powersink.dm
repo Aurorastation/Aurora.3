@@ -18,7 +18,7 @@
 	var/apc_drain_rate = 5000 		// Max. amount drained from single APC. In Watts.
 	var/dissipation_rate = 20000	// Passive dissipation of drained power. In Watts.
 	var/power_drained = 0 			// Amount of power drained.
-	var/max_power = 8e8				// Detonation point.
+	var/max_power = 8e8				// Detonation point. Roughly 18 minutes with default setup.
 	var/mode = 0					// 0 = off, 1=clamped (off), 2=operating
 	var/drained_this_tick = 0		// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
 
@@ -127,7 +127,7 @@
 	else
 		PN = null
 
-	if(power_drained > max_power * 0.95)
+	if(power_drained > max_power * 0.98)	// Lower the screeching period. It was pretty long during testing.
 		playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
 
 	if(power_drained >= max_power)
@@ -153,7 +153,7 @@
 
 		if (dist < 1)
 			dist = 1	// For later calculations.
-		else if (dist > 28)
+		else if (dist > 24)
 			continue	// Out of range.
 
 		// Map it to a range of [3, 1] for severity.
@@ -175,7 +175,7 @@
 		var/atom/aa = A
 		aa.emp_act(dist)
 
-		if (prob(25 * dist))
+		if (prob(15 * dist))
 			explosion(aa.loc, 0, 0, 3, 4)
 
 	// Also destroy the source.
