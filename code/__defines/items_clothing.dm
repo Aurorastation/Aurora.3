@@ -189,7 +189,7 @@
 
 // Fire.
 #define FIRE_MIN_STACKS          -20
-#define FIRE_MAX_STACKS           160 
+#define FIRE_MAX_STACKS           25
 #define FIRE_MAX_FIRESUIT_STACKS  20 // If the number of stacks goes above this firesuits won't protect you anymore. If not, you can walk around while on fire like a badass.
 
 #define THROWFORCE_SPEED_DIVISOR    5  // The throwing speed value at which the throwforce multiplier is exactly 1.
