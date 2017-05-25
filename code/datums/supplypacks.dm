@@ -787,20 +787,6 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	access = access_security
 	group = "Security"
 
-/datum/supply_packs/eweapons
-	name = "Experimental weapons crate"
-	contains = list(/obj/item/weapon/gun/energy/xray,
-					/obj/item/weapon/gun/energy/xray,
-					/obj/item/weapon/shield/energy,
-					/obj/item/weapon/shield/energy,
-					/obj/item/clothing/suit/armor/laserproof,
-					/obj/item/clothing/suit/armor/laserproof)
-	cost = 125
-	containertype = /obj/structure/closet/crate/secure/weapon
-	containername = "Experimental weapons crate"
-	access = access_heads
-	group = "Security"
-
 /datum/supply_packs/randomised/armor
 	num_contained = 5
 	contains = list(/obj/item/clothing/suit/armor/vest,
@@ -901,6 +887,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "Electromagnetic weapons crate"
 	contains = list(/obj/item/weapon/gun/energy/ionrifle,
 					/obj/item/weapon/gun/energy/ionrifle,
+					/obj/item/ammo_magazine/shotgun/emp,
 					/obj/item/weapon/storage/box/emps)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure
