@@ -248,7 +248,8 @@
 		z_levels_fallen = 0 // turns out they didn't hit anything solid. Lucky them.
 		return 0
 
-	z_levels_fallen += 1
+	if(!z_levels_fallen)
+		z_levels_fallen = 1
 
 	visible_message("\The [src] falls from the level above and slams onto \the [landing]!", "You hear something slam onto the floor.")
 
@@ -269,47 +270,49 @@
 	if(weight >= 3 && fallforce <= 5)
 		fallforce = throw_range
 
-	var/speed = z_levels_fallen*throw_speed
+	var/speed = throw_speed
 	var/mass = (weight/THROWNOBJ_KNOCKBACK_DIVISOR)+density+opacity
 	var/momentum = speed*mass
 	var/damage = fallforce*(speed/THROWFORCE_SPEED_DIVISOR)*momentum
 
-	var/miss_chance = max(15*(z_levels_fallen-1), 0)
+	var/miss_chance = 15
 
-	if(!prob(miss_chance))
-		for(var/mob/living/L in landing)
-			if(L != src)
+	for(var/mob/living/L in landing)
+		if(L != src)
 
-				if(istype(src,/obj/vehicle))
-					var/obj/vehicle/V = src
-					if(L == V.load)
-						continue
+			if(istype(src,/obj/vehicle))
+				var/obj/vehicle/V = src
+				if(L == V.load)
+					continue
 
-				if(istype(L,/mob/living/carbon/human))
+			if(prob(miss_chance))
+				continue
 
-					var/mob/living/carbon/human/H = L
-					H.apply_damage(rand(damage/2, damage), BRUTE, "head")
-					H.apply_damage(damage, BRUTE, "chest")
+			if(istype(L,/mob/living/carbon/human))
 
-					if(damage >= THROWNOBJ_KNOCKBACK_SPEED)
-						H.Weaken(rand(damage/4, damage/2))
-				else
-					L.apply_damage(damage, BRUTE)
-					L.apply_damage(rand(damage/2, damage), BRUTE)
+				var/mob/living/carbon/human/H = L
+				H.apply_damage(rand(damage/2, damage), BRUTE, "head")
+				H.apply_damage(damage, BRUTE, "chest")
 
-				if(damage >= 1)
-					L.visible_message(
-						"<span class='warning'>[L] has been hit by [src].</span>",
-						"<span class='warning'>[src] has landed ontop of you!</span>"
-						)
-					if(ismob(src))
-						src << "<span class='warning'>You've fallen onto something hard!</span>"
-					admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
-					var/numerator = rand(1,3)
-					playsound(L.loc, "sound/weapons/genhit[numerator].ogg", 75, 1)
+				if(damage >= THROWNOBJ_KNOCKBACK_SPEED)
+					H.Weaken(rand(damage/4, damage/2))
+			else
+				L.apply_damage(damage, BRUTE)
+				L.apply_damage(rand(damage/2, damage), BRUTE)
 
-    . = z_levels_fallen
-    z_levels_fallen = 0
+			if(damage >= 1)
+				L.visible_message(
+					"<span class='warning'>[L] has been hit by [src].</span>",
+					"<span class='warning'>[src] has landed ontop of you!</span>"
+					)
+				if(ismob(src))
+					src << "<span class='warning'>You've fallen onto something hard!</span>"
+				admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
+				var/numerator = rand(1,3)
+				playsound(L.loc, "sound/weapons/genhit[numerator].ogg", 75, 1)
+
+	. = z_levels_fallen
+	z_levels_fallen = 0
 
 /obj/vehicle/handle_fall(var/turf/landing)
 
