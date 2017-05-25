@@ -411,7 +411,7 @@
 		found = 1
 		player_age = text2num(query.item[1])
 		whitelist_status = text2num(query.item[2])
-		account_join_date = text2num(query.item[3])
+		account_join_date = query.item[3]
 		account_age = text2num(query.item[4])
 		if (!account_age)
 			account_join_date = sanitizeSQL(findJoinDate())
@@ -448,11 +448,11 @@
 
 	if(found)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip' and 'computer_id' variables
-		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "[account_join_date]" : "NULL"] WHERE ckey = '[sql_ckey]'")
+		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"] WHERE ckey = '[sql_ckey]'")
 		query_update.Execute()
 	else
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "[account_join_date]" : "NULL"])")
+		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"])")
 		query_insert.Execute()
 
 	if (!account_join_date)
