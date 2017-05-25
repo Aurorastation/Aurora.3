@@ -18,7 +18,7 @@
 	var/apc_drain_rate = 5000 		// Max. amount drained from single APC. In Watts.
 	var/dissipation_rate = 20000	// Passive dissipation of drained power. In Watts.
 	var/power_drained = 0 			// Amount of power drained.
-	var/max_power = 1e4	//3e8				// Detonation point.
+	var/max_power = 8e8				// Detonation point.
 	var/mode = 0					// 0 = off, 1=clamped (off), 2=operating
 	var/drained_this_tick = 0		// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
 
@@ -27,7 +27,8 @@
 
 /obj/item/device/powersink/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	processing_power_items.Remove(src)
+	processing_power_items -= src
+
 	return ..()
 
 /obj/item/device/powersink/attackby(var/obj/item/I, var/mob/user)
@@ -37,15 +38,15 @@
 			if(isturf(T) && !!T.is_plating())
 				attached = locate() in T
 				if(!attached)
-					user << "No exposed cable here to attach to."
+					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
 					return
 				else
 					anchored = 1
 					mode = 1
-					src.visible_message("<span class='notice'>[user] attaches [src] to the cable!</span>")
+					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
 					return
 			else
-				user << "Device must be placed over an exposed cable to attach to it."
+				to_chat(user, "<span class='warning'>\The [src] must be placed over an exposed cable to attach to it.</span>")
 				return
 		else
 			if (mode == 2)
@@ -53,7 +54,7 @@
 				processing_power_items.Remove(src)
 			anchored = 0
 			mode = 0
-			src.visible_message("<span class='notice'>[user] detaches [src] from the cable!</span>")
+			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
 			set_light(0)
 			icon_state = "powersink0"
 
@@ -69,18 +70,18 @@
 		if(0)
 			..()
 		if(1)
-			src.visible_message("<span class='notice'>[user] activates [src]!</span>")
+			visible_message("<span class='notice'>\The [user] activates \the [src]!</span>")
 			mode = 2
 			icon_state = "powersink1"
 			START_PROCESSING(SSprocessing, src)
-			processing_power_items.Add(src)
+			processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
-			src.visible_message("<span class='notice'>[user] deactivates [src]!</span>")
+			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
 			STOP_PROCESSING(SSprocessing, src)
-			processing_power_items.Remove(src)
+			processing_power_items -= src
 
 /obj/item/device/powersink/pwr_drain()
 	if(!attached)
@@ -139,12 +140,13 @@
 		return
 
 	// No attached node, or no powernet.
-	if (!attached || !attached.powernet || !PN)
-		explosion(src.loc, 1, 3, 6, 12)
+	if (!PN)
+		explosion(src.loc, 0, 1, 3, 6)
 		return
 
+	// Propagate the power surge through the powernet nodes.
 	for (var/A in PN.nodes)
-		if (A == src)
+		if (!A || A == src)
 			continue
 
 		var/dist = get_dist(src, A)
@@ -152,14 +154,13 @@
 		if (dist < 1)
 			dist = 1	// For later calculations.
 		else if (dist > 28)
-			//testing("Dist too far: [dist]")
 			continue	// Out of range.
 
 		// Map it to a range of [3, 1] for severity.
 		dist = round(MAP(dist, 1, 28, 3, 1))
 
-		testing("Map value: [dist]")
-
+		// Check for terminals and affect their master nodes. Also add a special
+		// case for APCs whereby their lights are popped or flicked.
 		if (istype(A, /obj/machinery/power/terminal))
 			var/obj/machinery/power/terminal/T = A
 			if (istype(T.master, /obj/machinery/power/apc))
@@ -175,4 +176,7 @@
 		aa.emp_act(dist)
 
 		if (prob(25 * dist))
-			explosion(aa, 0, 1, 1, 4)
+			explosion(aa.loc, 0, 0, 3, 4)
+
+	// Also destroy the source.
+	explosion(src.loc, 0, 0, 1, 2)
