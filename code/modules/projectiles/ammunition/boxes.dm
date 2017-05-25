@@ -73,11 +73,6 @@
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
 	
-/obj/item/ammo_magazine/c45m/emp
-	name = "magazine (.45 haywire)"
-	ammo_type = /obj/item/ammo_casing/c45/emp
-	matter = list(DEFAULT_WALL_MATERIAL = 525, "uranium" = 700)
-
 /obj/item/ammo_magazine/t40
 	name = "magazine (10mm)"
 	icon_state = "5.56"
@@ -124,12 +119,6 @@
 /obj/item/ammo_magazine/c9mm/empty
 	initial_ammo = 0
 	
-/obj/item/ammo_magazine/c9mm/emp
-	name = "ammunition box (9mm haywire)"
-	icon_state = "empbox"
-	matter = list(DEFAULT_WALL_MATERIAL = 1800, "uranium" = 1500)
-	ammo_type = /obj/item/ammo_casing/c9mm/emp
-
 /obj/item/ammo_magazine/mc9mmt
 	name = "top mounted magazine (9mm)"
 	icon_state = "9mmt"
