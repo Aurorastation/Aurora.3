@@ -162,6 +162,8 @@ default behaviour is:
 		src.adjustOxyLoss(src.health + 200)
 		src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
 		src << "<span class='notice'>You have given up life and succumbed to death.</span>"
+	else
+		src << "<span class='warning'>You are not injured enough to succumb to death!</span>"
 
 
 /mob/living/proc/updatehealth()

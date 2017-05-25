@@ -79,7 +79,7 @@
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "OOC", additional_data = list("_ckey" = html_encode(ckey)))
 
 /proc/log_whisper(text, level = SEVERITY_NOTICE, ckey = "")
-	if (config.log_whisper) 
+	if (config.log_whisper)
 		game_log("WHISPER", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "WHISPER", additional_data = list("_ckey" = html_encode(ckey)))
 
@@ -239,7 +239,7 @@
 			name = M.name
 
 
-		if(include_link && is_special_character(M) && highlight_special_characters)
+		if(is_special_character(M) && highlight_special_characters)
 			. += "/(<font color='#FFA500'>[name]</font>)" //Orange
 		else
 			. += "/([name])"
