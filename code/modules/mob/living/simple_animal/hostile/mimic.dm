@@ -157,6 +157,8 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 
 		O.forceMove(src)
 		appearance = O
+		pixel_x = 0
+		pixel_y = 0
 		icon_living = icon_state
 
 		if(istype(O, /obj/structure) || istype(O, /obj/machinery))
