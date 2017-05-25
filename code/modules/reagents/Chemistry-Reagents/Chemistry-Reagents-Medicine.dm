@@ -45,7 +45,7 @@
 					healpower = W.heal_damage(healpower,1)
 					if (healpower <= 0)
 						return
-		M.adjustBruteLoss(5) //but not without a price, of course
+		M.adjustBruteLoss(8) //but not without a price, of course
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -62,7 +62,7 @@
 		
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustFireLoss(5)
+		M.adjustFireLoss(8)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -79,7 +79,7 @@
 		
 /datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustFireLoss(10)
+		M.adjustFireLoss(18)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -98,7 +98,7 @@
 		
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustToxLoss(5)
+		M.adjustToxLoss(8)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -119,7 +119,7 @@
 	
 /datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustOxyLoss(10)
+		M.adjustOxyLoss(30)
 
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
@@ -155,10 +155,10 @@
 		
 /datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustToxLoss(5)
-		M.adjustBruteLoss(5)
-		M.adjustFireLoss(5)
-		M.adjustOxyLoss(5)
+		M.adjustToxLoss(6)
+		M.adjustBruteLoss(6)
+		M.adjustFireLoss(6)
+		M.adjustOxyLoss(12)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
