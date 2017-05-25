@@ -174,6 +174,12 @@
 	max_shots = 4
 	fire_delay = 25
 
+/obj/item/weapon/gun/energy/net/mounted
+	max_shots = 1
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 40
+
 /* Vaurca Weapons */
 
 /obj/item/weapon/gun/energy/vaurca
