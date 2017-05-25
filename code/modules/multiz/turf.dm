@@ -25,7 +25,6 @@
 	var/tmp/turf/below
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
-	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
 
 	var/tmp/depth
 
@@ -54,11 +53,11 @@
 	SSopenturf.queued_turfs -= src
 	QDEL_NULL(shadower)
 
-	for (var/atom/movable/openspace/overlay in src)
-		qdel(overlay)
+	for (var/atom/movable/openspace/overlay/OwO in src)	// wats this~?
+		OwO.owning_turf_changed()
 
 	if (istype(above))
-		above.update()
+		addtimer(CALLBACK(above, /turf/simulated/open/.proc/update), 0)
 		above = null
 
 	below = null
@@ -75,11 +74,10 @@
 
 /turf/simulated/open/Initialize()
 	. = ..()
-	update()
 	SSopenturf.openspace_turfs += src
+	update()
 
 /turf/simulated/open/proc/update()
-	set waitfor = FALSE
 	below = GetBelow(src)
 	below.above = src
 	levelupdate()
@@ -104,9 +102,10 @@
 	if(!updating && below)
 		updating = TRUE
 		SSopenturf.queued_turfs += src
-		if (above)
-			// Cascade updates until we hit the top openturf.
-			above.update_icon()
+
+	if (above)	// Even if we're already updating, the turf above us might not be.
+		// Cascade updates until we hit the top openturf.
+		above.update_icon()
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))

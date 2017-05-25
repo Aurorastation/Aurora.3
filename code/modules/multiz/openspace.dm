@@ -1,11 +1,11 @@
 /turf
 	// Reference to any open turf that might be above us to speed up atom Entered() updates.
 	var/tmp/turf/simulated/open/above
-	var/tmp/oo_light_set	// If the turf has had a light set by starlight.
+	//var/tmp/oo_light_set	// If the turf has had a light set by starlight.
 
 /turf/Entered(atom/movable/thing, atom/oldLoc)
 	. = ..()
-	if (above && !istype(oldLoc, /turf/simulated/open))
+	if (above && !thing.no_z_overlay && !thing.bound_overlay && !istype(oldLoc, /turf/simulated/open))
 		above.update_icon()
 
 /turf/Destroy()
@@ -23,22 +23,14 @@
 /atom/movable/Move()
 	. = ..()
 	if (bound_overlay)
-		// These should only ever be located on open-turf tiles.
-		var/turf/the_loc = bound_overlay.loc
-		if (!istype(the_loc, /turf/simulated/open))
-			addtimer(CALLBACK(bound_overlay, /atom/movable/openspace/overlay/.proc/check_existence), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE)
-		else
-			bound_overlay.forceMove(get_step(src, UP))
+		// The overlay will handle cleaning itself up on non-openspace turfs.
+		bound_overlay.forceMove(get_step(src, UP))
 
 /atom/movable/forceMove(atom/dest)
 	. = ..(dest)
 	if (bound_overlay)
-		// These should only ever be located on open-turf tiles.
-		var/turf/the_loc = bound_overlay.loc
-		if (!istype(the_loc, /turf/simulated/open))
-			addtimer(CALLBACK(bound_overlay, /atom/movable/openspace/overlay/.proc/check_existence), 1 SECOND, TIMER_UNIQUE)
-		else
-			bound_overlay.forceMove(get_step(src, UP))
+		// The overlay will handle cleaning itself up on non-openspace turfs.
+		bound_overlay.forceMove(get_step(src, UP))
 
 /atom/movable/proc/update_oo()
 	if (!bound_overlay)
@@ -79,6 +71,9 @@
 /atom/movable/openspace/singuloCanEat()
 	return
 
+/atom/movable/openspace/shuttle_move()
+	return
+
 // Used to darken the atoms on the openturf without fucking up colors.
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"
@@ -92,7 +87,6 @@
 		0, 0.75, 0,
 		0, 0, 0.75
 	)
-	no_z_overlay = TRUE
 
 /atom/movable/openspace/multiplier/Destroy()
 	var/turf/simulated/open/myturf = loc
@@ -107,8 +101,10 @@
 	var/atom/movable/associated_atom
 	var/depth
 	var/queued = FALSE
+	var/destruction_timer
 
 /atom/movable/openspace/overlay/New()
+	initialized = TRUE
 	SSopenturf.openspace_overlays += src
 
 /atom/movable/openspace/overlay/Destroy()
@@ -117,6 +113,9 @@
 	if (associated_atom)
 		associated_atom.bound_overlay = null
 		associated_atom = null
+
+	if (destruction_timer)
+		deltimer(destruction_timer)
 
 	return ..()
 
@@ -131,11 +130,13 @@
 
 /atom/movable/openspace/overlay/forceMove(atom/dest)
 	. = ..()
-	check_existence()
-
-/atom/movable/openspace/overlay/Move()
-	. = ..()
-	check_existence()
+	// Copypaste of below for performance.
+	if (istype(dest, /turf/simulated/open))
+		if (destruction_timer)
+			deltimer(destruction_timer)
+			destruction_timer = null
+	else if (!destruction_timer)
+		destruction_timer = addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), 10 SECONDS, TIMER_STOPPABLE)
 
 // Checks if we've moved off of an openturf.
 // Returns TRUE if we're continuing to exist, FALSE if we're deleting ourselves.
@@ -145,3 +146,8 @@
 		return FALSE
 	else
 		return TRUE
+
+// Called when the turf we're on is deleted/changed.
+/atom/movable/openspace/overlay/proc/owning_turf_changed()
+	if (!destruction_timer)
+		destruction_timer = addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), 10 SECONDS, TIMER_STOPPABLE)
