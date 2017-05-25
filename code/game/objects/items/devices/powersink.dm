@@ -18,7 +18,7 @@
 	var/apc_drain_rate = 5000 		// Max. amount drained from single APC. In Watts.
 	var/dissipation_rate = 20000	// Passive dissipation of drained power. In Watts.
 	var/power_drained = 0 			// Amount of power drained.
-	var/max_power = 5e9				// Detonation point.
+	var/max_power = 1e4	//3e8				// Detonation point.
 	var/mode = 0					// 0 = off, 1=clamped (off), 2=operating
 	var/drained_this_tick = 0		// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
 
@@ -120,13 +120,59 @@
 /obj/item/device/powersink/process()
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
-	if(power_drained > max_power * 0.95)
-		playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
-	if(power_drained >= max_power)
-		explosion(src.loc, 3,6,9,12)
-		qdel(src)
-		return
+
 	if(attached && attached.powernet)
 		PN = attached.powernet
 	else
 		PN = null
+
+	if(power_drained > max_power * 0.95)
+		playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
+
+	if(power_drained >= max_power)
+		handle_overload()
+		qdel(src)
+		return
+
+/obj/item/device/powersink/proc/handle_overload()
+	if (QDELETED(src))
+		return
+
+	// No attached node, or no powernet.
+	if (!attached || !attached.powernet || !PN)
+		explosion(src.loc, 1, 3, 6, 12)
+		return
+
+	for (var/A in PN.nodes)
+		if (A == src)
+			continue
+
+		var/dist = get_dist(src, A)
+
+		if (dist < 1)
+			dist = 1	// For later calculations.
+		else if (dist > 28)
+			//testing("Dist too far: [dist]")
+			continue	// Out of range.
+
+		// Map it to a range of [3, 1] for severity.
+		dist = round(MAP(dist, 1, 28, 3, 1))
+
+		testing("Map value: [dist]")
+
+		if (istype(A, /obj/machinery/power/terminal))
+			var/obj/machinery/power/terminal/T = A
+			if (istype(T.master, /obj/machinery/power/apc))
+				var/obj/machinery/power/apc/AP = T.master
+				if (dist > 1)
+					AP.overload_lighting(100, TRUE)
+				else
+					AP.flicker_all()
+			else if (T.master)
+				T.master.emp_act(dist)
+
+		var/atom/aa = A
+		aa.emp_act(dist)
+
+		if (prob(25 * dist))
+			explosion(aa, 0, 1, 1, 4)

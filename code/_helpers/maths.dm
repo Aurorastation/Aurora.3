@@ -145,3 +145,7 @@
     . = num
     for (var/i = 0, i < iterations, i++)
         . = (1/3) * (num/(.**2)+2*.)
+
+// A neat little helper to convert the value X, that's between imin and imax, into a value
+// that's proportionally scaled and in range of omin and omax.
+#define MAP(x, imin, imax, omin, omax) ((x - imin) * (omax - omin) / (imax - imin) + omin)
