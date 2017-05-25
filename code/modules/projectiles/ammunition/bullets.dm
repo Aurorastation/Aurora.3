@@ -52,13 +52,6 @@
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
 	
-/obj/item/ammo_casing/c9mm/emp
-	name = "9mm haywire round"
-	desc = "A 9mm bullet casing fitted with a single-use ion pulse generator."
-	projectile_type = /obj/item/projectile/ion/small
-	icon_state = "empcasing"
-	matter = list(DEFAULT_WALL_MATERIAL = 130, "uranium" = 100)
-
 /obj/item/ammo_casing/c9mm/practice
 	desc = "A 9mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
@@ -81,13 +74,6 @@
 /obj/item/ammo_casing/c45/flash
 	desc = "A .45 flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
-	
-/obj/item/ammo_casing/c45/emp
-	name = ".45 haywire round"
-	desc = "A .45 bullet casing fitted with a single-use ion pulse generator."
-	projectile_type = /obj/item/projectile/ion/small
-	icon_state = "empcasing"
-	matter = list(DEFAULT_WALL_MATERIAL = 130, "uranium" = 100)
 
 /obj/item/ammo_casing/t40
 	desc = "A 10mm bullet casing."
