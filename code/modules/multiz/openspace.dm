@@ -130,7 +130,6 @@
 
 /atom/movable/openspace/overlay/forceMove(atom/dest)
 	. = ..()
-	// Copypaste of below for performance.
 	if (istype(dest, /turf/simulated/open))
 		if (destruction_timer)
 			deltimer(destruction_timer)
