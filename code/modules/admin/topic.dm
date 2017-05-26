@@ -1606,6 +1606,10 @@
 
 		return
 
+	else if(href_list["access_control"])
+		access_control_topic(href_list["access_control"])
+		return
+
 mob/living/proc/can_centcom_reply()
 	return 0
 
