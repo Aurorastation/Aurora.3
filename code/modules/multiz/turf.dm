@@ -1,18 +1,32 @@
+/**
+ * Used to check wether or not an atom can pass through a turf.
+ *
+ * @param	A The atom that's moving either up or down from this turf or to it.
+ * @param	direction The direction of the atom's movement in relation to its
+ * current position.
+ *
+ * @return	TRUE if A can pass in the movement direction, FALSE if not.
+ */
 /turf/proc/CanZPass(atom/A, direction)
 	if(z == A.z) //moving FROM this turf
 		return direction == UP //can't go below
 	else
 		if(direction == UP) //on a turf below, trying to enter
-			return 0
+			return FALSE
 		if(direction == DOWN) //on a turf above, trying to enter
 			return !density
 
 /turf/simulated/open/CanZPass(atom, direction)
-	return 1
+	return TRUE
 
 /turf/space/CanZPass(atom, direction)
-	return 1
+	return TRUE
 
+/**
+ * Open turf class.
+ *
+ * All atoms are able to pass through this, and also to see under it.
+ */
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
@@ -39,15 +53,6 @@
 
 	return ..()
 
-/turf/simulated/open/proc/is_above_space()
-	var/turf/T = GetBelow(src)
-	while (T && T.is_hole)
-		if (istype(T, /turf/space))
-			return TRUE
-		T = GetBelow(T)
-
-	return FALSE
-
 /turf/simulated/open/Destroy()
 	SSopenturf.openspace_turfs -= src
 	SSopenturf.queued_turfs -= src
@@ -63,6 +68,20 @@
 	below = null
 	return ..()
 
+/**
+ * Used to check wether or not the specific open turf eventually leads into spess.
+ *
+ * @return	TRUE if the turfs/holes eventually lead into space. FALSE otherwise.
+ */
+/turf/simulated/open/proc/is_above_space()
+	var/turf/T = GetBelow(src)
+	while (T && T.is_hole)
+		if (istype(T, /turf/space))
+			return TRUE
+		T = GetBelow(T)
+
+	return FALSE
+
 /turf/simulated/open/airless
 	oxygen = 0
 	nitrogen = 0
@@ -77,11 +96,14 @@
 	SSopenturf.openspace_turfs += src
 	update()
 
+/**
+ * Updates the turf with open turf's variables and basically resets it properly.
+ */
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
 	below.above = src
 	levelupdate()
-	for(var/atom/movable/A in src)
+	for (var/atom/movable/A in src)
 		ADD_FALLING_ATOM(A)
 	update_icon()
 
@@ -142,4 +164,4 @@
 
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
-	return 1
+	return TRUE

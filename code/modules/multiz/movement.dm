@@ -99,7 +99,7 @@
  *
  * Useful for overwriting and special conditions for STOPPING z-level transit.
  *
- * @return	TRUE if the mob can move a Z-level of its own voalition.
+ * @return	TRUE if the mob can move a Z-level of its own volition.
  *			FALSE otherwise.
  */
 /mob/proc/can_ztravel()
@@ -275,12 +275,12 @@
  *						  was no longer on an open turf.
  */
 /atom/movable/proc/fall_impact(levels_fallen, stopped_early = FALSE)
-	visible_message("\The [src] falls and lands on \the [loc]!", "You head a thud!")
+	visible_message("\The [src] falls and lands on \the [loc]!", "You hear a thud!")
 
 // Mobs take damage if they fall!
 /mob/living/fall_impact(levels_fallen, stopped_early = FALSE)
 	visible_message("\The [src] falls and lands on \the [loc]!",
-		"With a loud thud, you land on \the [loc]!", "You head a thud!")
+		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/damage = 30 * levels_fallen
 	apply_damage(rand(0, damage), BRUTE)
@@ -303,7 +303,7 @@
 
 /mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE)
 	visible_message("\The [src] falls and lands on \the [loc]!",
-		"With a loud thud, you land on \the [loc]!", "You head a thud!")
+		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/damage = 25 * species.fall_mod * levels_fallen
 	if(prob(20)) //landed on their head
