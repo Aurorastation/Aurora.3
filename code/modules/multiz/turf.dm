@@ -82,7 +82,7 @@
 	below.above = src
 	levelupdate()
 	for(var/atom/movable/A in src)
-		A.fall()
+		ADD_FALLING_ATOM(A)
 	update_icon()
 
 /turf/simulated/open/update_dirt()
@@ -90,7 +90,7 @@
 
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
-	mover.fall()
+	ADD_FALLING_ATOM(mover)
 	update_icon()
 
 // override to make sure nothing is hidden
