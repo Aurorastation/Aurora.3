@@ -63,6 +63,10 @@
 	below = null
 	return ..()
 
+/turf/simulated/open/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.appearance = src
+	return TRUE
+
 /turf/simulated/open/airless
 	oxygen = 0
 	nitrogen = 0
