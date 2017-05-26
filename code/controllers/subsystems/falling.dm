@@ -27,7 +27,7 @@
 	var/list/curr = currentrun
 
 	while (curr.len)
-		var/atom/movable/victim = curr[cur.len]
+		var/atom/movable/victim = curr[curr.len]
 		curr.len--
 
 		if (QDELETED(victim))
