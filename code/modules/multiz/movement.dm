@@ -183,7 +183,6 @@
 		return FALSE
 
 	// Lattices and stairs stop things from falling.
-	// TODO: Move to lattice and stairs/CanPass.
 	if(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc))
 		return FALSE
 
@@ -206,6 +205,17 @@
 
 	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
 		return FALSE
+
+// Only things that stop mechas are atoms that, well, stop them.
+// Lattices and stairs get crushed in fall_through.
+/obj/mecha/can_fall(turf/below)
+	// See if something prevents us from falling.
+	for(var/atom/A in below)
+		if(!A.CanPass(src, src.loc))
+			return FALSE
+
+	// True otherwise.
+	return TRUE
 
 /mob/living/carbon/human/can_fall()
 	// Special condition for jetpack mounted folk!
@@ -241,6 +251,17 @@
 /mob/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
 		"You fall through \the [loc]!", "You hear a whoosh of displaced air.")
+
+/obj/mecha/fall_through()
+	var/obj/structure/lattice/L = locate(/obj/structure/lattice, loc)
+	if (L)
+		visible_message("<span class='danger'>\The [src] crushes \the [L] with its weight!</span>")
+		qdel(L)
+
+	var/obj/structure/strairs/S = locate(/obj/structure/stairs, loc)
+	if (S)
+		visible_message("<span class='danger'>\The [src] crushes \the [S] with its weight!</span>")
+		qdel(S)
 
 /**
  * Invoked when an atom has landed on a tile through which they can no longer fall.
