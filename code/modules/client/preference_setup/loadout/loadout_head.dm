@@ -52,12 +52,12 @@
 /datum/gear/head/beret/sec
 	display_name = "beret,security"
 	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/head/beret/warden
 	display_name = "beret,security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
-	allowed_roles = list("Head of Security","Warden")
+	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/head/beret/hos
 	display_name = "beret,security (head of security)"
@@ -67,12 +67,12 @@
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
@@ -134,7 +134,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Chemist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Nursing Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
