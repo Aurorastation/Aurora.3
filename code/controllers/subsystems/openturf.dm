@@ -12,7 +12,9 @@
 	priority = SS_PRIORITY_OPENTURF
 
 	var/list/queued_turfs = list()
+	var/list/qt_idex = 1
 	var/list/queued_overlays = list()
+	var/list/qo_idex = 1
 
 	var/list/openspace_overlays = list()
 	var/list/openspace_turfs = list()
@@ -57,7 +59,7 @@
 	enable()
 
 /datum/controller/subsystem/openturf/stat_entry()
-	..("Q:{T:[queued_turfs.len]|O:[queued_overlays.len]} T:{T:[openspace_turfs.len]|O:[openspace_overlays.len]}")
+	..("Q:{T:[queued_turfs.len - (qt_idex - 1)]|O:[queued_overlays.len - (qo_idex - 1)]} T:{T:[openspace_turfs.len]|O:[openspace_overlays.len]}")
 
 /datum/controller/subsystem/openturf/Initialize(timeofday)
 	// Flush the queue.
@@ -65,6 +67,10 @@
 	..()
 
 /datum/controller/subsystem/openturf/fire(resumed = FALSE, no_mc_tick = FALSE)
+	if (!resumed)
+		qt_idex = 1
+		qo_idex = 1
+
 	MC_SPLIT_TICK_INIT(2)
 	if (!no_mc_tick)
 		MC_SPLIT_TICK
@@ -72,9 +78,10 @@
 	var/list/curr_turfs = queued_turfs
 	var/list/curr_ov = queued_overlays
 
-	while (curr_turfs.len)
-		var/turf/simulated/open/T = curr_turfs[1]
-		curr_turfs.Cut(1,2)
+	while (curr_turfs.len && qt_idex <= curr_turfs.len)
+		var/turf/simulated/open/T = curr_turfs[qt_idex]
+		curr_turfs[qt_idex] = null
+		qt_idex++
 
 		if (!istype(T) || !T.below)
 			if (no_mc_tick)
@@ -137,12 +144,17 @@
 		else if (MC_TICK_CHECK)
 			break
 
+	if (qt_idex > 1 && qo_idex <= curr_turfs.len)
+		curr_turfs.Cut(1, qt_idex)
+		qt_idex = 1
+
 	if (!no_mc_tick)
 		MC_SPLIT_TICK
 
-	while (curr_ov.len)
-		var/atom/movable/openspace/overlay/OO = curr_ov[1]
-		curr_ov.Cut(1, 2)
+	while (curr_ov.len && qo_idex <= curr_ov.len)
+		var/atom/movable/openspace/overlay/OO = curr_ov[qo_idex]
+		curr_ov[qo_idex] = null
+		qo_idex++
 
 		if (QDELETED(OO))
 			if (no_mc_tick)
@@ -166,6 +178,8 @@
 		OO.plane = OPENTURF_MAX_PLANE - OO.depth
 		OO.opacity = FALSE
 		OO.queued = FALSE
+		if (istype(OO.associated_atom, /atom/movable/openspace/multiplier))	// Special case for multipliers.
+			OO.layer = 1e6
 
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
 			OO.update_oo()
@@ -174,6 +188,10 @@
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
 			break
+
+		if (qo_idex > 1 && qo_idex <= curr_ov.len)
+			curr_ov.Cut(1, qo_idex)
+			qo_idex = 1
 
 /datum/controller/subsystem/openturf/proc/calculate_depth(turf/simulated/open/T)
 	. = 0
