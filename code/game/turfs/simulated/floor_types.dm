@@ -5,6 +5,7 @@
 	name = "biomass flooring"
 	icon_state = "diona"
 	footstep_sound = "grassstep"
+	initial_flooring = /decl/flooring/diona
 
 /turf/simulated/floor/diona/attackby()
 	return

@@ -117,3 +117,6 @@
 		return
 
 	qdel(user)
+
+/turf/unsimulated/wall/supermatter/no_spread
+	avail_dirs = list()
