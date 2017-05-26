@@ -78,21 +78,21 @@
 	if(destination)
 		setLoc(destination)
 	else
-		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
+		to_chat(owner, "<span class='notice'>There is nothing of interest in this direction.</span>")
 
 /mob/dead/observer/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		forceMove(destination)
 	else
-		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
+		to_chat(src, "<span class='notice'>There is nothing of interest in this direction.</span>")
 
 /mob/living/carbon/human/bst/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		forceMove(destination)
 	else
-		to_chat(usr, "<span class='notice'>There is nothing of interest in this direction.</span>")
+		to_chat(src, "<span class='notice'>There is nothing of interest in this direction.</span>")
 
 /**
  * An initial check for Z-level travel. Called relatively early in mob/proc/zMove.
@@ -238,6 +238,10 @@
 	visible_message("\The [src] falls from the level above through \the [loc]!",
 		"You hear a whoosh of displaced air.")
 
+/mob/fall_through()
+	visible_message("\The [src] falls from the level above through \the [loc]!",
+		"You fall through \the [loc]!", "You hear a whoosh of displaced air.")
+
 /**
  * Invoked when an atom has landed on a tile through which they can no longer fall.
  *
@@ -250,16 +254,22 @@
  *						  was no longer on an open turf.
  */
 /atom/movable/proc/fall_impact(levels_fallen, stopped_early = FALSE)
-	return
+	visible_message("\The [src] falls and lands on \the [loc]!", "You head a thud!")
 
 // Mobs take damage if they fall!
 /mob/living/fall_impact(levels_fallen, stopped_early = FALSE)
+	visible_message("\The [src] falls and lands on \the [loc]!",
+		"With a loud thud, you land on \the [loc]!", "You head a thud!")
+
 	var/damage = 30 * levels_fallen
 	apply_damage(rand(0, damage), BRUTE)
 	apply_damage(rand(0, damage), BRUTE)
 	apply_damage(rand(0, damage), BRUTE)
 
 /mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE)
+	visible_message("\The [src] falls and lands on \the [loc]!",
+		"With a loud thud, you land on \the [loc]!", "You head a thud!")
+
 	var/damage = 25 * species.fall_mod * levels_fallen
 	if(prob(20)) //landed on their head
 		apply_damage(rand(0, damage), BRUTE, "head")
