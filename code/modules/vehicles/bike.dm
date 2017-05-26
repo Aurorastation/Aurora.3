@@ -12,6 +12,9 @@
 
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
+
+	w_class = 8
+
 	var/protection_percent = 60
 
 	var/land_speed = 10 //if 0 it can't go on turf

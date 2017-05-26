@@ -10,6 +10,7 @@
 	internal_damage_threshold = 35
 	deflect_chance = 15
 	step_energy_drain = 6
+	w_class = 15
 	var/obj/item/clothing/glasses/hud/health/mech/hud
 
 	New()

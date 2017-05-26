@@ -17,6 +17,8 @@
 	buckle_movable = 1
 	buckle_lying = 0
 
+	w_class = 10
+
 	var/attack_log = null
 	var/on = 0
 	var/health = 0	//do not forget to set health for your vehicle!

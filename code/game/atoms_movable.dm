@@ -18,6 +18,8 @@
 
 	var/can_hold_mob = FALSE
 
+	var/tmp/z_levels_fallen = 0
+
 // We don't really need this, and apparently defining it slows down GC.
 /*/atom/movable/Del()
 	if(!QDELING(src) && loc)
