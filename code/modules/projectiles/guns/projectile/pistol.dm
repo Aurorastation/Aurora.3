@@ -52,9 +52,6 @@
 	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
-	
-/obj/item/weapon/gun/projectile/sec/emp
-	magazine_type = /obj/item/ammo_magazine/c45m/emp
 
 /obj/item/weapon/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
