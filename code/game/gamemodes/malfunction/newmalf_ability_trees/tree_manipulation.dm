@@ -160,7 +160,7 @@
 		else if (istype(N, /obj/machinery/power/apc)) // APC. Explosion is increased by available cell power.
 			var/obj/machinery/power/apc/A = N
 			if(A.cell && A.cell.charge)
-				explosion_intensity = 4 + round((A.cell.charge / CELLRATE) / 100000)
+				explosion_intensity = explosion_intensity + round((A.cell.charge / CELLRATE) / 100000)
 			else
 				user << "<span class='notice'>ERROR: APC Malfunction - Cell depleted or removed. Unable to overload.</span>"
 				return

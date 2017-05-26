@@ -197,6 +197,7 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(M.client.prefs.muted & mute_type)
 		muteunmute = "unmuted"
 		M.client.prefs.muted &= ~mute_type
+		M.client.spam_alert = 0
 	else
 		muteunmute = "muted"
 		M.client.prefs.muted |= mute_type
@@ -623,7 +624,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if (!holder)
 		src << "Only administrators may use this command."
 		return
-		
+
 	for(var/datum/job/job in SSjobs.occupations)
 		src << "[job.title]: [job.total_positions]"
 	feedback_add_details("admin_verb","LFS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

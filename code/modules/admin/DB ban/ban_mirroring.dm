@@ -135,7 +135,33 @@
 		update_connection_data(C)
 		return
 
-	var/list/conn_info = json_decode(data)
+	var/list/data_object = json_decode(data)
+
+	if (!data_object || !data_object.len)
+		log_debug("CONN DATA: [C.ckey] has no connection data to showcase.")
+		return
+
+	if (data_object["vms"])
+		var/A = data_object["vms"]
+		var/count = 0
+		if (A & 1)
+			count++
+		if (A & 2)
+			count++
+
+		if (config.access_deny_vms && count >= config.access_deny_vms)
+			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].", ckey = C.ckey)
+			message_admins("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].")
+			spawn(20)
+				if (C)
+					del(C)
+			return
+
+		if (config.access_warn_vms && count >= config.access_warn_vms)
+			log_access("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].", ckey = C.ckey)
+			message_admins("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].")
+
+	var/list/conn_info = data_object["conn"]
 
 	if (!conn_info || !conn_info.len)
 		return
