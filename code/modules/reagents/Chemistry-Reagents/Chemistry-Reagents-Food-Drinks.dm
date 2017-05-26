@@ -547,6 +547,13 @@
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent("frostoil", 5)
 
+/datum/reagent/spacespice
+	name = "Space Spice"
+	id = "spacespice"
+	description = "An exotic blend of spices for cooking. Definitely not worms."
+	reagent_state = SOLID
+	color = "#e08702"
+
 /* Drinks */
 
 /datum/reagent/drink
