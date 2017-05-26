@@ -31,7 +31,10 @@
 		curr.len--
 
 		if (QDELETED(victim))
-			REMOVE_AND_CONTINUE
+			falling -= victim
+			if (MC_TICK_CHECK)
+				return
+			continue
 
 		// The call_fall checks that are executed for every atom forever. These
 		// should not be overwritten/there shouldn't be a need to overwrite them.
@@ -45,7 +48,7 @@
 			REMOVE_AND_CONTINUE
 
 		// Check if we can fall through the current tile and onto the next one.
-		if (!victim.loc:CanZPass(victim, DOWN) || !below.CanZPass(src, DOWN))
+		if (!victim.loc:CanZPass(victim, DOWN) || !below.CanZPass(victim, DOWN))
 			REMOVE_AND_CONTINUE
 
 		// Check if the victim's current position is affected by gravity.
