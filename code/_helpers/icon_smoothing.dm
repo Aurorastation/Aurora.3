@@ -19,8 +19,6 @@
 		fixed_underlay = list("icon"='icon_file.dmi', "icon_state"="iconstatename")
 	A non null 'fixed_underlay' list var will skip copying the previous turf appearance and always use the list. If the list is
 	not set properly, the underlay will default to regular floor plating.
-
-	To see an example of a diagonal wall, see '/turf/closed/wall/shuttle' and its subtypes.
 */
 
 //Redefinitions of the diagonal directions so they can be stored in one var without conflicts
@@ -155,74 +153,77 @@
 	icon_state = ""
 	return adjacencies
 
-//only walls should have a need to handle underlays
-/turf/simulated/wall/diagonal_smooth(adjacencies)
+/turf/simulated/diagonal_smooth(adjacencies)
 	adjacencies = reverse_ndir(..())
 	if(adjacencies)
-		var/list/U = list()
+		// This should be a mutable_appearance, but we're still on 510.
+		// Alas.
+		var/image/underlay_appearance = image(layer = TURF_LAYER)
+		var/list/U = list(underlay_appearance)
 		if(fixed_underlay)
 			if(fixed_underlay["space"])
-				var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-				I.plane = PLANE_SPACE_DUST
-				I.alpha = 80
-				I.blend_mode = BLEND_ADD
-				U += I
+				var/istate = "[((x + y) ^ ~(x * y) + z) % 25]"
+				underlay_appearance.icon = 'icons/turf/space.dmi'
+				underlay_appearance.icon_state = istate
+
+				var/image/dust = image('icons/turf/space_parallax1.dmi', istate)
+				dust.plane = PLANE_SPACE_DUST
+				dust.alpha = 80
+				dust.blend_mode = BLEND_ADD
+				U += dust
 			else
-				U += image(fixed_underlay["icon"], fixed_underlay["icon_state"], layer=TURF_LAYER)
+				underlay_appearance.icon = fixed_underlay["icon"]
+				underlay_appearance.icon_state = fixed_underlay["icon_state"]
 		else
-			var/turf/T = get_step(src, turn(adjacencies, 180))
-			if(T && (T.density || T.smooth))
+			var/turned_adjacency = turn(adjacencies, 180)
+			var/turf/T = get_step(src, turned_adjacency)
+			if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 				T = get_step(src, turn(adjacencies, 135))
-				if(T && (T.density || T.smooth))
+				if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 					T = get_step(src, turn(adjacencies, 225))
 
-			if(istype(T, /turf/space) && !istype(T, /turf/space/transit))
-				var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-				I.plane = PLANE_SPACE_DUST
-				I.alpha = 80
-				I.blend_mode = BLEND_ADD
-				U += I
-			else if(T && !T.density && !T.smooth)
-				U += T
-			else if(baseturf && !initial(baseturf.density) && !initial(baseturf.smooth))
-				U += image(initial(baseturf.icon), initial(baseturf.icon_state), layer=TURF_LAYER)
-			else
-				U += DEFAULT_UNDERLAY_IMAGE
+			//if all else fails, ask our own turf
+			if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency) && !get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
+				underlay_appearance.icon = DEFAULT_UNDERLAY_ICON
+				underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE
+
 		underlays = U
 
 // And a copypaste for unsimulated walls.
 /turf/unsimulated/wall/diagonal_smooth(adjacencies)
 	adjacencies = reverse_ndir(..())
 	if(adjacencies)
-		var/list/U = list()
+		// This should be a mutable_appearance, but we're still on 510.
+		// Alas.
+		var/image/underlay_appearance = image(layer = TURF_LAYER)
+		var/list/U = list(underlay_appearance)
 		if(fixed_underlay)
 			if(fixed_underlay["space"])
-				var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-				I.plane = PLANE_SPACE_DUST
-				I.alpha = 80
-				I.blend_mode = BLEND_ADD
-				U += I
+				var/istate = "[((x + y) ^ ~(x * y) + z) % 25]"
+				underlay_appearance.icon = 'icons/turf/space.dmi'
+				underlay_appearance.icon_state = istate
+
+				var/image/dust = image('icons/turf/space_parallax1.dmi', istate)
+				dust.plane = PLANE_SPACE_DUST
+				dust.alpha = 80
+				dust.blend_mode = BLEND_ADD
+				U += dust
 			else
-				U += image(fixed_underlay["icon"], fixed_underlay["icon_state"], layer=TURF_LAYER)
+				underlay_appearance.icon = fixed_underlay["icon"]
+				underlay_appearance.icon_state = fixed_underlay["icon_state"]
 		else
-			var/turf/T = get_step(src, turn(adjacencies, 180))
-			if(T && (T.density || T.smooth))
+			var/turned_adjacency = turn(adjacencies, 180)
+			var/turf/T = get_step(src, turned_adjacency)
+			if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 				T = get_step(src, turn(adjacencies, 135))
-				if(T && (T.density || T.smooth))
+				if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 					T = get_step(src, turn(adjacencies, 225))
 
-			if(istype(T, /turf/space) && !istype(T, /turf/space/transit))
-				var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-				I.plane = PLANE_SPACE_DUST
-				I.alpha = 80
-				I.blend_mode = BLEND_ADD
-				U += I
-			else if(T && !T.density && !T.smooth)
-				U += T
-			else if(baseturf && !initial(baseturf.density) && !initial(baseturf.smooth))
-				U += image(initial(baseturf.icon), initial(baseturf.icon_state), layer=TURF_LAYER)
-			else
-				U += DEFAULT_UNDERLAY_IMAGE
+			//if all else fails, ask our own turf
+			if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency) && !get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
+				underlay_appearance.icon = DEFAULT_UNDERLAY_ICON
+				underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE
+
 		underlays = U
 
 /proc/cardinal_smooth(atom/A, adjacencies)
