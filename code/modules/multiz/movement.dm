@@ -287,6 +287,20 @@
 	apply_damage(rand(0, damage), BRUTE)
 	apply_damage(rand(0, damage), BRUTE)
 
+	// The only piece of duplicate code. I was so close. Soooo close. :ree:
+	if(!isSynthetic())
+		switch(damage)
+			if(-INFINITY to 10)
+				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
+			if(11 to 50)
+				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
+			if(51 to INFINITY)
+				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
+			else
+				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+	else
+		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
+
 /mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE)
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You head a thud!")
@@ -321,8 +335,45 @@
 
 	updatehealth()
 
+// Humans can be synthetic. Never forgetti.
+	if(!isSynthetic())
+		switch(damage)
+			if(-INFINITY to 10)
+				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
+			if(11 to 50)
+				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
+			if(51 to INFINITY)
+				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
+			else
+				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+	else
+		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
+
 /mob/living/carbon/human/bst/fall_impact()
 	return
+
+/obj/mecha/fall_impact(levels_fallen, stopped_early = FALSE)
+	..()
+
+	var/damage = 40 * levels_fallen
+	take_damage(rand(0, damage))
+	take_damage(rand(0, damage))
+	take_damage(rand(0, damage))
+	take_damage(rand(0, damage))
+
+	playsound(loc, "sound/effects/bang.ogg", 100, 1)
+	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
+
+/obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE)
+	..()
+
+	var/damage = 35 * levels_fallen
+	health -= (rand(0, damage) * brute_dam_coeff)
+	health -= (rand(0, damage) * brute_dam_coeff)
+	health -= (rand(0, damage) * brute_dam_coeff)
+	health -= (rand(0, damage) * brute_dam_coeff)
+
+	playsound(loc, "sound/effects/clang.ogg", 75, 1)
 
 /**
  * Used to handle damage dealing for objects post fall. Why is it separated from
@@ -358,7 +409,7 @@
 
 	var/mob/living/L = null
 
-	// Can't use locate due to the if check.
+	// Can't use  locate due to the if check.
 	for (var/mob/living/ll in loc)
 		// in contents check exists for vehicles, mechas, etcetera.
 		if (ll != src && !(ll in contents))
@@ -385,6 +436,8 @@
 	admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
 
 	playsound(L.loc, "sound/waepons/genhit[rand(1, 3)].ogg", 75, 1)
+
+	return L
 
 /mob/fall_collateral(levels_fallen, stopped_early = FALSE)
 	. = ..()
