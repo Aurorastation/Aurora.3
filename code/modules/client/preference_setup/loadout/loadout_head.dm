@@ -128,8 +128,28 @@
 	hijab["brown hijab"] = /obj/item/clothing/head/hijab/brown
 	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
 	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
+	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
+	
+/datum/gear/head/turban
+	display_name = "turban selection"
+	path = /obj/item/clothing/head/turban
+
+/datum/gear/head/turban/New()
+	..()
+	var/turbans = list()
+	turbans["black turban"] = /obj/item/clothing/head/turban
+	turbans["blue turban"] = /obj/item/clothing/head/turban/blue
+	turbans["green turban"] = /obj/item/clothing/head/turban/green
+	turbans["grey turban"] = /obj/item/clothing/head/turban/grey
+	turbans["orange turban"] = /obj/item/clothing/head/turban/orange
+	turbans["purple turban"] = /obj/item/clothing/head/turban/purple
+	turbans["red turban] = /obj/item/clothing/head/turban/red
+	turbans["white turban"] = /obj/item/clothing/head/turban/white
+	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
+	
+	gear_tweaks += new/datum/gear_tweak/path(turbans)
 
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
