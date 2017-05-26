@@ -1,6 +1,6 @@
 /atom/movable
 	/** Used to check wether or not an atom is being handled by SSfalling. */
-	var/multiz_falling = 0
+	var/tmp/multiz_falling = 0
 
 /**
  * Verb for the mob to move up a z-level if possible.
@@ -253,12 +253,12 @@
 		"You fall through \the [loc]!", "You hear a whoosh of displaced air.")
 
 /obj/mecha/fall_through()
-	var/obj/structure/lattice/L = locate(/obj/structure/lattice, loc)
+	var/obj/structure/lattice/L = locate() in loc
 	if (L)
 		visible_message("<span class='danger'>\The [src] crushes \the [L] with its weight!</span>")
 		qdel(L)
 
-	var/obj/structure/strairs/S = locate(/obj/structure/stairs, loc)
+	var/obj/structure/stairs/S = locate() in loc
 	if (S)
 		visible_message("<span class='danger'>\The [src] crushes \the [S] with its weight!</span>")
 		qdel(S)
@@ -323,3 +323,89 @@
 
 /mob/living/carbon/human/bst/fall_impact()
 	return
+
+/**
+ * Used to handle damage dealing for objects post fall. Why is it separated from
+ * fall_impact? Because putting this into fall_impact would make the procs a huge
+ * mess of snowflake istype(src, x) checks. And I'm trying to avoid this by making
+ * the system quite atomic.
+ *
+ * @param	levels_fallen How many Z-levels the atom has fallen before landing
+ * on its current loc.
+ * @param	stopped_early TRUE if the fall was stopped by can_fall.
+ *						  FALSE if the fall was stopped by the fact that the atom
+ *						  was no longer on an open turf.
+ *
+ * @return	The /mob/living that was hit. null if no mob was hit.
+ */
+/atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE)
+	var/list/fall_specs = fall_get_specs(levels_fallen)
+	var/weight = fall_specs[1]
+	var/fall_force = fall_specs[2]
+
+	var/speed = levels_fallen * throw_speed
+	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity
+	var/momentum = speed * mass
+	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum)
+
+	var/miss_chance = max(15 * (levels_fallen - 1), 0)
+
+	if (prob(miss_chance))
+		return null
+
+	if (damage < 1)
+		return null
+
+	var/mob/living/L = null
+
+	// Can't use locate due to the if check.
+	for (var/mob/living/ll in loc)
+		// in contents check exists for vehicles, mechas, etcetera.
+		if (ll != src && !(ll in contents))
+			L = ll
+			break
+
+	if (!L)
+		return null
+
+	if (ishuman(L))
+		var/mob/living/carbon/human/H = L
+		H.apply_damage(rand(damage / 2, damage), BRUTE, "head")
+		H.apply_damage(damage, BRUTE, "chest")
+
+		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
+			H.Weaken(rand(damage / 4, damage / 2))
+	else
+		L.apply_damage(damage, BRUTE)
+		L.apply_damage(rand(damage / 2, damage), BRUTE)
+
+	L.visible_message("<span class='danger'>\The [L] had \the [src] fall onto \him!</span>",
+		"<span class='danger'>You had \the [src] fall onto you and strike you!</span>")
+
+	admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
+
+	playsound(L.loc, "sound/waepons/genhit[rand(1, 3)].ogg", 75, 1)
+
+/mob/fall_collateral(levels_fallen, stopped_early = FALSE)
+	. = ..()
+
+	if (.)
+		to_chat(src, "<span class='danger'>You fell ontop of \the [.]!</span>")
+
+/**
+ * Helper proc for customizing which attributes should be used in fall damage
+ * calculations. Allows for greater control over the damage. (Drop pods, anyone?)
+ *
+ * @param	levels_fallen How many Z-levels the atom has fallen before landing
+ * on its current loc.
+ *
+ * @return	A two entity list: list(weight, fall_force)
+ */
+/atom/movable/proc/fall_get_specs(levels_fallen)
+	return list(1, throw_range)
+
+/obj/fall_get_specs(levels_fallen)
+	return list(w_class, throwforce)
+
+/mob/fall_get_specs(levels_fallen)
+	return list(mob_size, throw_range)

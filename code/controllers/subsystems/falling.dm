@@ -62,6 +62,7 @@
 			// The still want to call fall_impact, due to the fact they've fallen.
 			if (falling[victim])
 				victim.fall_impact(falling[victim], TRUE)
+				victim.fall_collateral(falling[victim], TRUE)
 
 			REMOVE_AND_CONTINUE
 
@@ -70,8 +71,9 @@
 		falling[victim]++
 
 		// Open turfs. Handle falling through them.
-		// Invokes atom/movable/proc/fall_through() after the atom is moved to
-		// its new destination this cycle.
+		// Invokes fall_through() after the atom is moved to
+		// its new destination this cycle. Immediately invokes fall_impact and
+		// fall_collateral if the next turf is not open space.
 		if (istype(victim.loc, /turf/simulated/open))
 			victim.forceMove(below)
 
@@ -81,6 +83,7 @@
 				// This is a lookahead. It removes any lag from being moved onto
 				// the destination turf, and calling fall_impact.
 				victim.fall_impact(falling[victim], FALSE)
+				victim.fall_collateral(falling[victim], FALSE)
 				victim.multiz_falling = 0
 				falling -= victim
 
@@ -90,6 +93,7 @@
 
 		// This shouldn't actually happen. But for safety, here it is.
 		victim.fall_impact(falling[victim], FALSE)
+		victim.fall_collateral(falling[victim], FALSE)
 		victim.multiz_falling = 0
 		falling -= victim
 
