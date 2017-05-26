@@ -273,12 +273,27 @@
  * @param	stopped_early TRUE if the fall was stopped by can_fall.
  *						  FALSE if the fall was stopped by the fact that the atom
  *						  was no longer on an open turf.
+ *
+ * @return	TRUE if the proc ran completely. FALSE otherwise. Used to determine
+ * if child procs should continue running or not, really.
  */
 /atom/movable/proc/fall_impact(levels_fallen, stopped_early = FALSE)
+	// No gravity, stop falling into spess!
+	var/area/area = get_area(src)
+	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+		return FALSE
+
 	visible_message("\The [src] falls and lands on \the [loc]!", "You hear a thud!")
+
+	return TRUE
 
 // Mobs take damage if they fall!
 /mob/living/fall_impact(levels_fallen, stopped_early = FALSE)
+	// No gravity, stop falling into spess!
+	var/area/area = get_area(src)
+	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+		return FALSE
+
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
@@ -301,7 +316,14 @@
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
+	return TRUE
+
 /mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE)
+	// No gravity, stop falling into spess!
+	var/area/area = get_area(src)
+	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+		return FALSE
+
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
@@ -349,11 +371,15 @@
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
+	return TRUE
+
 /mob/living/carbon/human/bst/fall_impact()
-	return
+	return FALSE
 
 /obj/mecha/fall_impact(levels_fallen, stopped_early = FALSE)
-	..()
+	. = ..()
+	if (!.)
+		return
 
 	var/damage = 40 * levels_fallen
 	take_damage(rand(0, damage))
@@ -365,7 +391,9 @@
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE)
-	..()
+	. = ..()
+	if (!.)
+		return
 
 	var/damage = 35 * levels_fallen
 	health -= (rand(0, damage) * brute_dam_coeff)
@@ -390,6 +418,11 @@
  * @return	The /mob/living that was hit. null if no mob was hit.
  */
 /atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE)
+	// No gravity, stop falling into spess!
+	var/area/area = get_area(src)
+	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+		return null
+
 	var/list/fall_specs = fall_get_specs(levels_fallen)
 	var/weight = fall_specs[1]
 	var/fall_force = fall_specs[2]
