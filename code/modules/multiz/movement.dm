@@ -297,10 +297,11 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/damage = 30 * levels_fallen
-	apply_damage(rand(0, damage), BRUTE)
-	apply_damage(rand(0, damage), BRUTE)
-	apply_damage(rand(0, damage), BRUTE)
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = ((30 + z_velocity) + rand(-15,15))
+	apply_damage(damage, BRUTE)
+	apply_damage(damage, BRUTE)
+	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
 	if(!isSynthetic())
@@ -327,13 +328,14 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/damage = 25 * species.fall_mod * levels_fallen
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = (((25 * species.fall_mod) + z_velocity) + rand(-13,13))
 	if(prob(20)) //landed on their head
-		apply_damage(rand(0, damage), BRUTE, "head")
+		apply_damage(damage, BRUTE, "head")
 
 	else if(prob(20)) //landed on their arms
-		apply_damage(rand(0, damage), BRUTE, "l_arm")
-		apply_damage(rand(0, damage), BRUTE, "r_arm")
+		apply_damage(damage, BRUTE, "l_arm")
+		apply_damage(damage, BRUTE, "r_arm")
 
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "r_hand")
@@ -351,7 +353,7 @@
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
 
-	apply_damage(rand(0, damage), BRUTE, "chest")
+	apply_damage(damage, BRUTE, "chest")
 
 	Weaken(rand(0, damage/2))
 
@@ -381,11 +383,12 @@
 	if (!.)
 		return
 
-	var/damage = 40 * levels_fallen
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = ((40 + z_velocity) + rand(-20,20))
+	take_damage(damage)
+	take_damage(damage)
+	take_damage(damage)
+	take_damage(damage)
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
@@ -395,11 +398,12 @@
 	if (!.)
 		return
 
-	var/damage = 35 * levels_fallen
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = ((35 + z_velocity) + rand(-18,18))
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
 
 	playsound(loc, "sound/effects/clang.ogg", 75, 1)
 
@@ -427,7 +431,8 @@
 	var/weight = fall_specs[1]
 	var/fall_force = fall_specs[2]
 
-	var/speed = levels_fallen * throw_speed
+	var/z_velocity = 5*(levels_fallen**2)
+	var/speed = z_velocity + throw_speed
 	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity
 	var/momentum = speed * mass
 	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum)
